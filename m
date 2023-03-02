@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251B3C678D4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 09:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54577C7EE37
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 09:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=APdXO9nhEzZzsOwLl8FWDFmlC82/C8ehRAJmHDTqrqw=; b=IdxvZr3s2Ik4c+
-	yj22PSxvK5fMFpNd88r5Lb5dB6XWe7nfYb8v/BsWYvgZ8I93MQO0iVEM9GPT6Ubtl+fipO8ErWTz9
-	FDmP4XDXpZbqkj5ntSXUUgIjtYB427KKvCu8S66bWqrSiEBc0sHmbHEdCILYCZjBX2cuGPnUumqq3
-	hAU5p3Q6UEpeDp3JOO0PuASmKNTj57+FJt/hiXSdzchpLku9yS6WJxKuAi6ddEFUXN2ncJZkOoOtb
-	+6hJ4UuLvXsN/91XEXNyuCzSI0dWgwFmwp+GvjeHncP9bRHgPg/A5Dx98brEWzJUyO7x0YCozh2rk
-	8YUKLlAxXvvJGbOQUrNA==;
+	List-Owner; bh=ujzIjy5ZxLDGn8FuTtP7KT658f0TFZIvjErQqf6B4LM=; b=lQzLap2yKwuJND
+	paLX7vmWcGZd8+lk9V9kwuTBbjhgT/zCBmNl/EWFe5oEt2SKMj0dxwGJzaZjCJX2WUQ9U0U6ZMwbx
+	oLfnUiBY2ndThX0XSAbxM/zXRT7rS0K9lsHVhGNyvVt7rRGSDBOgyxVbtAyJui4NJ8mkXKu38QIh3
+	z/rHfteSqh+gqbpZBXpynCnM7lCfa+0WLbbscD2jFKCvzEYrhz3EZFFIDvQdA06oxOc4OI6AGmiBm
+	Un647hF2wK5moClIaeqpf/nFIlijQvMWJNpuuHHT3+0zIzhdom+Z9cinZKXSwB2TDUSKQ+fUAbkzV
+	8OMSOJK+NzxfiwvFcF+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXfQl-001TJL-Ta; Thu, 02 Mar 2023 09:40:55 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1pXfRl-001Tir-3r; Thu, 02 Mar 2023 09:41:57 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXfQi-001TGp-Af
-	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 09:40:54 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id l25so15884741wrb.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 01:40:52 -0800 (PST)
+	id 1pXfRi-001ThA-1N
+	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 09:41:55 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id k37so10296995wms.0
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 01:41:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677750051;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677750112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0L+Ar5AS29WjCGN6FFc/k3j0QPqZZ6/exmn1igmvNEc=;
-        b=rGvdfDufQS0sTH0ShJ4oYeHFJCauY3w1NPdfXO3CaGXXh1ofyN/EnZ7BHRQIx9uoFN
-         OBN5hunPl0O4XG5PjPuHrRqN16DJZJqR0sJsIFt47p1rtmhWuD6sDuRN96u6kdvTJj/b
-         T2ssPAC1EOIK75EBnO8hdGehF9uK34i0WxOc0JJOyPJNa3xILyOZLoGjmZhnY5oTwNYv
-         b1U7QYrUtgXW1tUaZKRC4UKJ4HVy9045rl+5s/609vTTn9pfvzMP1vrChe0YXuAjo5Z8
-         uGJr4rkQXmN2+8Sm0LeEiIIvuSSxI6z/22c5lHFHfTcDPEOJmc4D63rjVeVevvqStb9C
-         cUSg==
+        bh=ZhdZ6IBARLttHQe1cf2NcgGY75q7JNAgsxtr1kT5kgY=;
+        b=zI8HEZnvf4t5y6ebBKCBI5/ZX7tu9tPPsF8rlxpWJctKp1CthKb1p+zsGcYqVmI4Ee
+         JZPx++vfl0vhO3nwFHLiqXfIq1OmzIvfmddlkB5Q/4pLwTqKCMsehNjPwy7tw0i7M9Yd
+         4IrftyXih0VVkJxh3ytCi5zvZgTiexXQuyZgY/3waYweuMaQnpbhT3ziOjjvG27oKxK8
+         Qg7emuvJYb2AGykjaaMCdBFj3FqtPMCtoCTr7Sn+Q/xFoSa06PIEZ2YFjDyPlWRggQ5Q
+         RVW9j0/76qWvdW+F33OQkSt4Ly2u/y1n4pH6o/C2L5v7AWgbKtA1kTqiBhLc8UXXH2fT
+         aqhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677750051;
+        d=1e100.net; s=20210112; t=1677750112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0L+Ar5AS29WjCGN6FFc/k3j0QPqZZ6/exmn1igmvNEc=;
-        b=rbMSI7aO2EQ3JaS5Y80hxrEOLqzYAc6xkF1QsciWbbC2o6cbuGHLLAQlF5VjvEY9lT
-         Q021bHrx7bJnemVXXgoB6/We4MhQ8zHEFlMW7gOB3EKvE7TbItuKNmO8VKdSFaBHAYcI
-         mkm0NcJUFrS+t75BB1dTlv0E1binrPp70ywVEydoH+BEp483zVVyw+pf2eJHDSEULM6C
-         pfJaF2ipwKfjt82Kmztrc89Gr+OJt2+BhyZDjJUQhum6N2uMM7Kl2qGxsrBmsm7yeHvx
-         OUyLnANJIFIYii720a4uHLih5MrRLQ1YoCF1bSZREBT2EaN+gcefbndSPOBpgZBeAOJZ
-         59VA==
-X-Gm-Message-State: AO0yUKU3SERIMuG8+hg8OZ6hqcpXWYMHKPTY+go09vx8wbWdWONk+uA5
-	XoTBZ4MfGMd6ir/ZJF7ANCMBhw==
-X-Google-Smtp-Source: AK7set8lOrf0+R9AHb5hLsEUHatiTlDjMZoXSp24p7HHFEic/nwSaQPtS5YZenLo3DI/kV1sOwHyfg==
-X-Received: by 2002:adf:e5c1:0:b0:2c5:5d15:4e25 with SMTP id a1-20020adfe5c1000000b002c55d154e25mr7000920wrn.16.1677750050774;
-        Thu, 02 Mar 2023 01:40:50 -0800 (PST)
+        bh=ZhdZ6IBARLttHQe1cf2NcgGY75q7JNAgsxtr1kT5kgY=;
+        b=OBocZRX7Z93EQ1BKfD9QjAjPv0muFvJ6xKaltFTGCMAbgEMLzPcw4C0yJ05LGrOzzR
+         AE54bGmSVB3PmeElhUxw0Q6E7kC0SsxiLXIM+FW6rbg7uXmNpURM9+PFaHq2E4uYTg+O
+         ORs8NLlHtd/+Vl0Wsi/Peh+coz0vNdEqW9l5cmKGPEleTXOHGa2aEduWjHMnnPGvGjJW
+         TwNCmsuoaDD8CP8zF4ht/nE2L8Cec4RogvcJlSHHzO7zca28vrPi9n20YY6bQPM/8W19
+         iCONoGtGQFm7jcj42wgu/yE3B706THEhpuq6Q9VGb8Pw8sQAD/mBqI02/Lum8789ro1q
+         FDCQ==
+X-Gm-Message-State: AO0yUKV4C7WLqxdHwwqKnHa/WKH8LR5UUIN/PBEUnGOgVFR+vt4iAeoy
+	JKQUUd1WZtdtk8ptG8WRNryuqQ==
+X-Google-Smtp-Source: AK7set9wZDuL3IelqGpYKRcq86ytVsCUcrVzhAG7lidNphlzQ6gIqwSZz+dkDXJn0m3vH7kBzLtoEw==
+X-Received: by 2002:a05:600c:310b:b0:3eb:323e:de79 with SMTP id g11-20020a05600c310b00b003eb323ede79mr7088363wmo.6.1677750112484;
+        Thu, 02 Mar 2023 01:41:52 -0800 (PST)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id a14-20020a5d4d4e000000b002c57475c375sm14878620wru.110.2023.03.02.01.40.49
+        by smtp.gmail.com with ESMTPSA id t5-20020a5d6a45000000b002c5706f7c6dsm14774896wrw.94.2023.03.02.01.41.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Mar 2023 01:40:50 -0800 (PST)
+        Thu, 02 Mar 2023 01:41:52 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Richard Henderson <richard.henderson@linaro.org>,
@@ -117,16 +117,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-xtensa@linux-xtensa.org,
 	linux-arch@vger.kernel.org
 Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v4 05/24] m68k: Remove COMMAND_LINE_SIZE from uapi
-Date: Thu,  2 Mar 2023 10:35:20 +0100
-Message-Id: <20230302093539.372962-6-alexghiti@rivosinc.com>
+Subject: [PATCH v4 06/24] microblaze: Remove COMMAND_LINE_SIZE from uapi
+Date: Thu,  2 Mar 2023 10:35:21 +0100
+Message-Id: <20230302093539.372962-7-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230302093539.372962-1-alexghiti@rivosinc.com>
 References: <20230302093539.372962-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_014052_456727_EC624C40 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20230302_014154_162635_0B0F7B12 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,38 +149,37 @@ As far as I can tell this is not used by userspace and thus should not
 be part of the user-visible API.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 ---
- arch/m68k/include/asm/setup.h      | 3 +--
- arch/m68k/include/uapi/asm/setup.h | 2 --
- 2 files changed, 1 insertion(+), 4 deletions(-)
+ arch/microblaze/include/asm/setup.h      | 2 +-
+ arch/microblaze/include/uapi/asm/setup.h | 2 --
+ 2 files changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/m68k/include/asm/setup.h b/arch/m68k/include/asm/setup.h
-index 2c99477aaf89..9a256cc3931d 100644
---- a/arch/m68k/include/asm/setup.h
-+++ b/arch/m68k/include/asm/setup.h
-@@ -23,9 +23,8 @@
- #define _M68K_SETUP_H
+diff --git a/arch/microblaze/include/asm/setup.h b/arch/microblaze/include/asm/setup.h
+index a06cc1f97aa9..2becbf3b8baf 100644
+--- a/arch/microblaze/include/asm/setup.h
++++ b/arch/microblaze/include/asm/setup.h
+@@ -7,7 +7,7 @@
+ #ifndef _ASM_MICROBLAZE_SETUP_H
+ #define _ASM_MICROBLAZE_SETUP_H
  
- #include <uapi/asm/bootinfo.h>
 -#include <uapi/asm/setup.h>
++#define COMMAND_LINE_SIZE	256
+ 
+ # ifndef __ASSEMBLY__
+ extern char cmd_line[COMMAND_LINE_SIZE];
+diff --git a/arch/microblaze/include/uapi/asm/setup.h b/arch/microblaze/include/uapi/asm/setup.h
+index 6831794e6f2c..51aed65880e7 100644
+--- a/arch/microblaze/include/uapi/asm/setup.h
++++ b/arch/microblaze/include/uapi/asm/setup.h
+@@ -12,8 +12,6 @@
+ #ifndef _UAPI_ASM_MICROBLAZE_SETUP_H
+ #define _UAPI_ASM_MICROBLAZE_SETUP_H
+ 
+-#define COMMAND_LINE_SIZE	256
 -
+ # ifndef __ASSEMBLY__
  
-+#define COMMAND_LINE_SIZE 256
- #define CL_SIZE COMMAND_LINE_SIZE
- 
- #ifndef __ASSEMBLY__
-diff --git a/arch/m68k/include/uapi/asm/setup.h b/arch/m68k/include/uapi/asm/setup.h
-index 25fe26d5597c..005593acc7d8 100644
---- a/arch/m68k/include/uapi/asm/setup.h
-+++ b/arch/m68k/include/uapi/asm/setup.h
-@@ -12,6 +12,4 @@
- #ifndef _UAPI_M68K_SETUP_H
- #define _UAPI_M68K_SETUP_H
- 
--#define COMMAND_LINE_SIZE 256
--
- #endif /* _UAPI_M68K_SETUP_H */
+ # endif /* __ASSEMBLY__ */
 -- 
 2.37.2
 
