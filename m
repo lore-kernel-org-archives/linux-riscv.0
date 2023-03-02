@@ -4,77 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EADC7EE2F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 19:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56863C678D4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 20:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JCnmE6LIEcDQBPz5ULLbVs00hjQBsn/l0EA6UcEh4uw=; b=qUjw3Xf+7m+rvf
-	LMH4MKooK9ydqKArkxKDoNvbizjWLC949GZRT++6GMMy+bMo6DJjsXwIK2sdH3uYpIyB5Qwya/JjC
-	2OBZ10n9Edtpz3776Sh0ZzcKtSGdRjUlupAJjhgAT0k9suPHJvOHM9V5XafrNBgMWkC8ookDpLaal
-	Fz4ctbg+qdmBDuwxjvudnypwzcU3/gD3NQYnVKpAVIqu8hbx5TpN2aDxlIk4BrKs12wh3lLLXEZsz
-	SExiyvrzCfyfWZF5LJ3Fbs2F/wPySu9iCvu22bx88I+4suzcnnpTyF2NzO+njpaIz2sgoZxKzzKD6
-	+vVRWTjG7rZ3VBU7tt1g==;
+	List-Owner; bh=K7hZfIAGU1SVese0qlAosISQnn40AdVgtkQ+9YkeGvk=; b=N9eeUO2qjfn7wD
+	/IdoCBk5TvVqRFzu+SwMm6uG+szL04LrMBu/a0CdNFHQAawiEistPeKBBN3C+qZuSp7ChBiJb0huv
+	zcrLT25IfYvL72DjbycIsw0lzC3LWJP8v1kKmQqWEqjKn+B/c8tulFI6lcA9tSYl2WxdESPOXK8oR
+	57eeV/9Z693gVw0v5hiXNZQtht7JnWFJuKnVTt7WD2UXcJksRNfKmpOcJN6SuSLQho6UAuXJShypX
+	noI20FfSv2cejEuuUFXr5ZE+5TNmgdvm8vRW7qyrlsJcA4E6vqJSF/A17J/C4cz4/nOi5hVoQ1QbZ
+	J+bjzW4XOM8cHvxcTkFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXp0U-003CSq-4L; Thu, 02 Mar 2023 19:54:26 +0000
-Received: from [2607:7c80:54:3::138] (helo=mail.zytor.com)
+	id 1pXpHR-003EPy-DH; Thu, 02 Mar 2023 20:11:57 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXp0R-003CSB-HE; Thu, 02 Mar 2023 19:54:24 +0000
-Received: from [127.0.0.1] ([73.223.221.228])
-	(authenticated bits=0)
-	by mail.zytor.com (8.17.1/8.17.1) with ESMTPSA id 322JolfB1654568
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Thu, 2 Mar 2023 11:50:48 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 322JolfB1654568
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2023020601; t=1677786658;
-	bh=n/GRsm1pImWCPNm4dPoe5zec7Kp4K3JReb8gPrI8/mc=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=EoMqj2NrvtdnnKP1K3ZY31x6mzZLyhmRVv+AfJ7wKdoAJbCxWwA+q2O/5sMmJVAVH
-	 CBl1NaM0Y8H4KZuzvQjbNwKYV6dXCiIfmDalzvbDgGVmn+bMayegSv6UvQXFNOV7kH
-	 d/WVC69GzUYAENKo48YQjfv0/LuQNbAN20Le/uIDHGiGr9P8B8oHP2fS95eG5xB58F
-	 uasUM1VqxwzDuwffGGAapL9uswmgoHxhnTzGnsDohaOFjOu2pxA/e5nnYVugsNl2zn
-	 98XlC/4jazJIi0XM8kFrS6seI0EpKbWqSgJdlLGlfl4yBTPVtfQW74gM369HHmiIcn
-	 4YRgUzYFXGcXg==
-Date: Thu, 02 Mar 2023 11:50:45 -0800
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, hca@linux.ibm.com
-CC: geert@linux-m68k.org, alexghiti@rivosinc.com, corbet@lwn.net,
-        Richard Henderson <richard.henderson@linaro.org>,
-        ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
-        linux@armlinux.org.uk, Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, chenhuacai@kernel.org,
-        kernel@xen0n.name, monstr@monstr.eu, tsbogend@alpha.franken.de,
-        James.Bottomley@hansenpartnership.com, deller@gmx.de,
-        mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-        gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-        svens@linux.ibm.com, ysato@users.osdn.me, dalias@libc.org,
-        davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        chris@zankel.net, jcmvbkbc@gmail.com, Arnd Bergmann <arnd@arndb.de>,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-        loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-        linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
-User-Agent: K-9 Mail for Android
-In-Reply-To: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
-References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
-Message-ID: <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
+	id 1pXpHO-003EPP-4s
+	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 20:11:56 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id C7F22240003;
+	Thu,  2 Mar 2023 20:11:49 +0000 (UTC)
+Message-ID: <067b7dda-8d3d-a26c-a0b1-bd6472a4b04d@ghiti.fr>
+Date: Thu, 2 Mar 2023 21:11:49 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: RISC-V Linux kernel not booting up with KASAN enabled
+Content-Language: en-US
+To: Chathura Rajapaksha <chathura.abeyrathne.lk@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+ "dvyukov@google.com >> Dmitry Vyukov" <dvyukov@google.com>,
+ kasan-dev@googlegroups.com
+References: <CAD7mqryyz0PGHotBxvME7Ff4V0zLS+OcL8=9z4TakaKagPBdLw@mail.gmail.com>
+ <789371c4-47fd-3de5-d6c0-bb36b2864796@ghiti.fr>
+ <CAD7mqrzv-jr_o2U3Kz7vTgcsOYPKgwHW-L=ARAucAPPJgs4HCw@mail.gmail.com>
+ <CAD7mqryDQCYyJ1gAmtMm8SASMWAQ4i103ptTb0f6Oda=tPY2=A@mail.gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAD7mqryDQCYyJ1gAmtMm8SASMWAQ4i103ptTb0f6Oda=tPY2=A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_115423_600925_2CCC5F1F 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20230302_121154_543854_830F7F76 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +59,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On March 1, 2023 7:17:18 PM PST, Palmer Dabbelt <palmer@dabbelt.com> wrote:
->On Tue, 14 Feb 2023 01:19:02 PST (-0800), hca@linux.ibm.com wrote:
->> On Tue, Feb 14, 2023 at 09:58:17AM +0100, Geert Uytterhoeven wrote:
->>> Hi Heiko,
->>> 
->>> On Tue, Feb 14, 2023 at 9:39 AM Heiko Carstens <hca@linux.ibm.com> wrote:
->>> > On Tue, Feb 14, 2023 at 08:49:01AM +0100, Alexandre Ghiti wrote:
->>> > > This all came up in the context of increasing COMMAND_LINE_SIZE in the
->>> > > RISC-V port.  In theory that's a UABI break, as COMMAND_LINE_SIZE is the
->>> > > maximum length of /proc/cmdline and userspace could staticly rely on
->>> > > that to be correct.
->>> > >
->>> > > Usually I wouldn't mess around with changing this sort of thing, but
->>> > > PowerPC increased it with a5980d064fe2 ("powerpc: Bump COMMAND_LINE_SIZE
->>> > > to 2048").  There are also a handful of examples of COMMAND_LINE_SIZE
->>> > > increasing, but they're from before the UAPI split so I'm not quite sure
->>> > > what that means: e5a6a1c90948 ("powerpc: derive COMMAND_LINE_SIZE from
->>> > > asm-generic"), 684d2fd48e71 ("[S390] kernel: Append scpdata to kernel
->>> > > boot command line"), 22242681cff5 ("MIPS: Extend COMMAND_LINE_SIZE"),
->>> > > and 2b74b85693c7 ("sh: Derive COMMAND_LINE_SIZE from
->>> > > asm-generic/setup.h.").
->>> > >
->>> > > It seems to me like COMMAND_LINE_SIZE really just shouldn't have been
->>> > > part of the uapi to begin with, and userspace should be able to handle
->>> > > /proc/cmdline of whatever length it turns out to be.  I don't see any
->>> > > references to COMMAND_LINE_SIZE anywhere but Linux via a quick Google
->>> > > search, but that's not really enough to consider it unused on my end.
->>> > >
->>> > > The feedback on the v1 seemed to indicate that COMMAND_LINE_SIZE really
->>> > > shouldn't be part of uapi, so this now touches all the ports.  I've
->>> > > tried to split this all out and leave it bisectable, but I haven't
->>> > > tested it all that aggressively.
->>> >
->>> > Just to confirm this assumption a bit more: that's actually the same
->>> > conclusion that we ended up with when commit 3da0243f906a ("s390: make
->>> > command line configurable") went upstream.
->
->Thanks, I guess I'd missed that one.  At some point I think there was some discussion of making this a Kconfig for everyone, which seems reasonable to me -- our use case for this being extended is syzkaller, but we're sort of just picking a value that's big enough for now and running with it.
->
->Probably best to get it out of uapi first, though, as that way at least it's clear that it's not uABI.
->
->>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
->>> I assume?
->> 
->> Yes, sorry for that. I got distracted while writing and used the wrong
->> branch to look this up.
->
->Alex: Probably worth adding that to the list in the cover letter as it looks like you were planning on a v4 anyway (which I guess you now have to do, given that I just added the issue to RISC-V).
-
-The only use that is uapi is the *default* length of the command line if the kernel header doesn't include it (in the case of x86, it is in the bzImage header, but that is atchitecture- or even boot format-specific.)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+K2NjIERtaXRyeSBhbmQga2FzYW4tZGV2LCBpbiBjYXNlIHRoZXkga25vdyBhYm91dCB0aGlzIGJ1
+dCBJIGRpZCBub3QgCmZpbmQgYW55dGhpbmcgcmVsYXRlZAoKT24gMy8yLzIzIDE5OjAxLCBDaGF0
+aHVyYSBSYWphcGFrc2hhIHdyb3RlOgo+IEhpIEFsZXgvQWxsLAo+Cj4gS2VybmVsIGlzIGJvb3Rp
+bmcgbm93IGJ1dCBJIGdldCB0aGUgZm9sbG93aW5nIEtBU0FOIGZhaWx1cmUgaW4gdGhlCj4gYm9v
+dHVwIGl0c2VsZi4KPiBJIGRpZG4ndCBzZWUgdGhpcyBidWcgd2FzIHJlcG9ydGVkIGJlZm9yZSBh
+bnl3aGVyZS4KPgo+IFsgICAgMC4wMDAwMDBdIE1lbW9yeTogNjM0MzZLLzEyOTAyNEsgYXZhaWxh
+YmxlICgyMDM4NUsga2VybmVsIGNvZGUsCj4gNzEyMEsgcndkYXRhLCA0MDk2SyByb2RhdGEsIDIx
+MzhLIGluaXQsIDQ3NksgYnNzLCA2NTU4OEsgcmVzZXJ2ZWQsIDBLCj4gY21hLXJlc2VydmVkKQo+
+IFsgICAgMC4wMDAwMDBdID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PQo+IFsgICAgMC4wMDAwMDBdIEJVRzogS0FTQU46IHN0
+YWNrLW91dC1vZi1ib3VuZHMgaW4gd2Fsa19zdGFja2ZyYW1lKzB4MWIyLzB4MWUyCj4gWyAgICAw
+LjAwMDAwMF0gUmVhZCBvZiBzaXplIDggYXQgYWRkciBmZmZmZmZmZjgxZTA3YzQwIGJ5IHRhc2sg
+c3dhcHBlci8wCj4gWyAgICAwLjAwMDAwMF0KPiBbICAgIDAuMDAwMDAwXSBDUFU6IDAgUElEOiAw
+IENvbW06IHN3YXBwZXIgTm90IHRhaW50ZWQKPiA2LjIuMC1nYWUzNDE5ZmJhYzg0LWRpcnR5ICM3
+Cj4gWyAgICAwLjAwMDAwMF0gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERUKQo+
+IFsgICAgMC4wMDAwMDBdIENhbGwgVHJhY2U6Cj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgw
+MDBhYjllPl0gd2Fsa19zdGFja2ZyYW1lKzB4MC8weDFlMgo+IFsgICAgMC4wMDAwMDBdIFs8ZmZm
+ZmZmZmY4MDEwODUwOD5dIGluaXRfcGFyYW1fbG9jaysweDI2LzB4MmEKPiBbICAgIDAuMDAwMDAw
+XSBbPGZmZmZmZmZmODAwMGFkNGM+XSB3YWxrX3N0YWNrZnJhbWUrMHgxYWUvMHgxZTIKPiBbICAg
+IDAuMDAwMDAwXSBbPGZmZmZmZmZmODEzZDg2ZTA+XSBkdW1wX3N0YWNrX2x2bCsweDIyLzB4MzYK
+PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODEzYmQxN2E+XSBwcmludF9yZXBvcnQrMHgxOTgv
+MHg0YTgKPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODAxMDg1MDg+XSBpbml0X3BhcmFtX2xv
+Y2srMHgyNi8weDJhCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMDBhZDRjPl0gd2Fsa19z
+dGFja2ZyYW1lKzB4MWFlLzB4MWUyCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiZDUy
+Pl0ga2FzYW5fcmVwb3J0KzB4OWEvMHhjOAo+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAw
+YWQ0Yz5dIHdhbGtfc3RhY2tmcmFtZSsweDFhZS8weDFlMgo+IFsgICAgMC4wMDAwMDBdIFs8ZmZm
+ZmZmZmY4MDAwYWQ0Yz5dIHdhbGtfc3RhY2tmcmFtZSsweDFhZS8weDFlMgo+IFsgICAgMC4wMDAw
+MDBdIFs8ZmZmZmZmZmY4MDEwODc0OD5dIHN0YWNrX3RyYWNlX3NhdmUrMHg4OC8weGE2Cj4gWyAg
+ICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMTA4NmJjPl0gZmlsdGVyX2lycV9zdGFja3MrMHg4YS8w
+eDhlCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMGI2NWUyPl0gZGV2a21zZ19yZWFkKzB4
+M2Y4LzB4M2ZjCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiMmRlPl0ga2FzYW5fc2F2
+ZV9zdGFjaysweDJjLzB4NTYKPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODAxMDg3NDQ+XSBz
+dGFja190cmFjZV9zYXZlKzB4ODQvMHhhNgo+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDIz
+YjMxYT5dIGthc2FuX3NldF90cmFjaysweDEyLzB4MjAKPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZm
+ZmZmODAyM2I4ZjY+XSBfX2thc2FuX3NsYWJfYWxsb2MrMHg1OC8weDVlCj4gWyAgICAwLjAwMDAw
+MF0gWzxmZmZmZmZmZjgwMjNhZWFlPl0gX19rbWVtX2NhY2hlX2NyZWF0ZSsweDIxZS8weDM5YQo+
+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MTQxNjIzZT5dIGNyZWF0ZV9ib290X2NhY2hlKzB4
+NzAvMHg5Ywo+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MTQxYjVmNj5dIGttZW1fY2FjaGVf
+aW5pdCsweDZjLzB4MTFlCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgxNDAxMjVhPl0gbW1f
+aW5pdCsweGQ4LzB4ZmUKPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODE0MDE0NWM+XSBzdGFy
+dF9rZXJuZWwrMHgxOTAvMHgzY2EKPiBbICAgIDAuMDAwMDAwXQo+IFsgICAgMC4wMDAwMDBdIFRo
+ZSBidWdneSBhZGRyZXNzIGJlbG9uZ3MgdG8gc3RhY2sgb2YgdGFzayBzd2FwcGVyLzAKPiBbICAg
+IDAuMDAwMDAwXSAgYW5kIGlzIGxvY2F0ZWQgYXQgb2Zmc2V0IDAgaW4gZnJhbWU6Cj4gWyAgICAw
+LjAwMDAwMF0gIHN0YWNrX3RyYWNlX3NhdmUrMHgwLzB4YTYKPiBbICAgIDAuMDAwMDAwXQo+IFsg
+ICAgMC4wMDAwMDBdIFRoaXMgZnJhbWUgaGFzIDEgb2JqZWN0Ogo+IFsgICAgMC4wMDAwMDBdICBb
+MzIsIDU2KSAnYycKPiBbICAgIDAuMDAwMDAwXQo+IFsgICAgMC4wMDAwMDBdIFRoZSBidWdneSBh
+ZGRyZXNzIGJlbG9uZ3MgdG8gdGhlIHBoeXNpY2FsIHBhZ2U6Cj4gWyAgICAwLjAwMDAwMF0gcGFn
+ZTooX19fX3B0cnZhbF9fX18pIHJlZmNvdW50OjEgbWFwY291bnQ6MAo+IG1hcHBpbmc6MDAwMDAw
+MDAwMDAwMDAwMCBpbmRleDoweDAgcGZuOjB4ODIwMDcKPiBbICAgIDAuMDAwMDAwXSBmbGFnczog
+MHgxMDAwKHJlc2VydmVkfHpvbmU9MCkKPiBbICAgIDAuMDAwMDAwXSByYXc6IDAwMDAwMDAwMDAw
+MDEwMDAgZmY2MDAwMDAwN2NhNTA5MCBmZjYwMDAwMDA3Y2E1MDkwCj4gMDAwMDAwMDAwMDAwMDAw
+MAo+IFsgICAgMC4wMDAwMDBdIHJhdzogMDAwMDAwMDAwMDAwMDAwMCAwMDAwMDAwMDAwMDAwMDAw
+IDAwMDAwMDAxZmZmZmZmZmYKPiBbICAgIDAuMDAwMDAwXSBwYWdlIGR1bXBlZCBiZWNhdXNlOiBr
+YXNhbjogYmFkIGFjY2VzcyBkZXRlY3RlZAo+IFsgICAgMC4wMDAwMDBdCj4gWyAgICAwLjAwMDAw
+MF0gTWVtb3J5IHN0YXRlIGFyb3VuZCB0aGUgYnVnZ3kgYWRkcmVzczoKPiBbICAgIDAuMDAwMDAw
+XSAgZmZmZmZmZmY4MWUwN2IwMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAK
+PiAwMCAwMCAwMCAwMAo+IFsgICAgMC4wMDAwMDBdICBmZmZmZmZmZjgxZTA3YjgwOiAwMCAwMCAw
+MCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMAo+IDAwIDAwIDAwIDAwCj4gWyAgICAwLjAwMDAw
+MF0gPmZmZmZmZmZmODFlMDdjMDA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIGYxIGYxIGYxIGYx
+Cj4gMDAgMDAgMDAgZjMKPiBbICAgIDAuMDAwMDAwXSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgXgo+IFsgICAgMC4wMDAwMDBdICBmZmZmZmZmZjgxZTA3YzgwOiBm
+MyBmMyBmMyBmMyAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMAo+IDAwIDAwIDAwIDAwCj4gWyAgICAw
+LjAwMDAwMF0gIGZmZmZmZmZmODFlMDdkMDA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAw
+IDAwIDAwCj4gMDAgMDAgMDAgMDAKPiBbICAgIDAuMDAwMDAwXSA9PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KCgpJIHdhcyBh
+YmxlIHRvIHJlcHJvZHVjZSB0aGUgZXhhY3Qgc2FtZSB0cmFjZSwgSSdsbCBkZWJ1ZyB0aGF0IHRv
+bW9ycm93LCAKSSBob3BlIGl0IGlzIGEgcmVhbCBidWcgOikKClRoYW5rcyBmb3IgdGhlIHJlcG9y
+dCBDaGF0dXJhLAoKQWxleAoKCj4KPiBCZXN0LAo+IENoYXRoCj4KPiBPbiBUaHUsIE1hciAyLCAy
+MDIzIGF0IDExOjI14oCvQU0gQ2hhdGh1cmEgUmFqYXBha3NoYQo+IDxjaGF0aHVyYS5hYmV5cmF0
+aG5lLmxrQGdtYWlsLmNvbT4gd3JvdGU6Cj4+IEhpIEFsZXgsCj4+Cj4+IFRoYW5rIHlvdSB2ZXJ5
+IG11Y2gsIGtlcm5lbCBib290ZWQgdXAgd2l0aCB0aGUgcGF0Y2hlcyB5b3UgbWVudGlvbmVkLgo+
+PiBCb290dXAgd2FzIHByZXR0eSBzbG93IGNvbXBhcmVkIHRvIGJlZm9yZSB0aG91Z2ggKG9uIGEg
+ZGV2IGJvYXJkKS4KPj4gSSBndWVzcyB0aGF0IGlzIGtpbmQgb2YgZXhwZWN0ZWQgd2l0aCBLQVNB
+TiBlbmFibGVkLgo+PiBUaGFua3MgYWdhaW4uCj4+Cj4+IFJlZ2FyZHMsCj4+IENoYXRoCj4+Cj4+
+IE9uIFRodSwgTWFyIDIsIDIwMjMgYXQgMjo1MOKAr0FNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
+aGl0aS5mcj4gd3JvdGU6Cj4+PiBIaSBDaGF0dXJhLAo+Pj4KPj4+IE9uIDMvMi8yMyAwNDoxMywg
+Q2hhdGh1cmEgUmFqYXBha3NoYSB3cm90ZToKPj4+PiBIaSBBbGwsCj4+Pj4KPj4+PiBJIG9ic2Vy
+dmVkIHRoYXQgUklTQy1WIExpbnV4IGhhbmdzIHdoZW4gSSBlbmFibGUgS0FTQU4uCj4+Pj4gV2l0
+aG91dCBLQVNBTiBpdCB3b3JrcyBmaW5lIHdpdGggUUVNVS4KPj4+PiBJIGFtIHVzaW5nIHRoZSBj
+b21taXQgYWUzNDE5ZmJhYzg0NWI0ZDNmM2E5ZmFlNGNjODBjNjhkODJjZGY2ZQo+Pj4+Cj4+Pj4g
+V2hlbiBLQVNBTiBpcyBlbmFibGVkLCBRRU1VIGhhbmdzIGFmdGVyIE9wZW5TQkkgcHJpbnRzLgo+
+Pj4+Cj4+Pj4gSSBub3RpY2VkIGEgc2ltaWxhciBpc3N1ZSB3YXMgcmVwb3J0ZWQgYmVmb3JlIGlu
+Cj4+Pj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9DQUNUNFkrWm11T3B5Zl8wdkhUVDR0
+M3drbUp1VzhFenZjZzd2NnlEVmQ4WU9WaVM9R0FAbWFpbC5nbWFpbC5jb20vdC8KPj4+PiBCdXQg
+SSBiZWxpZXZlIEkgaGF2ZSB0aGUgcGF0Y2ggbWVudGlvbmVkIGluIHRoYXQgdGhyZWFkLgo+Pj4K
+Pj4+IEkgcHJvcG9zZWQgYSBzZXJpZXMgdGhhdCB3aWxsIGJlIGluY2x1ZGVkIGluIDYuMyByZWdh
+cmRpbmcgS0FTQU4gaXNzdWVzCj4+PiBoZXJlOiBodHRwczovL3BhdGNod29yay5rZXJuZWwub3Jn
+L3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8/c2VyaWVzPTcxODQ1OAo+Pj4KPj4+IENhbiB5b3Ug
+Z2l2ZSBpdCBhIHRyeSBhbmQgdGVsbCBtZSBpZiBpdCB3b3JrcyBiZXR0ZXI/Cj4+Pgo+Pj4gVGhh
+bmtzLAo+Pj4KPj4+IEFsZXgKPj4+Cj4+Pgo+Pj4+IE15IGtlcm5lbCBjb25maWc6Cj4+Pj4gaHR0
+cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xajluVTdmOU14Q2NfaS1VSFVDVHZvN282bkRy
+Y1V6MHcvdmlldz91c3A9c2hhcmluZwo+Pj4+Cj4+Pj4gQmVzdCByZWdhcmRzLAo+Pj4+IENoYXRo
+Cj4+Pj4KPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Xwo+Pj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+Pj4+IGxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKPj4+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
