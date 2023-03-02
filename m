@@ -4,47 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EF7C678D4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 19:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EADC7EE2F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 19:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KOAQed6pfBeH8FDTBN4ei6fZbL/neP7VaCqUAq9KBac=; b=ssNU38bfR2k7fb
-	wFvEZBGXkGz67mv68rnkuR/wTOOwekOOuvJ0GOr4iUgcyx74KVcEr+gtoAx038s+xYlifC7RTdBbk
-	qYOLn9iBcsFTR1XsPQfJZxx+U3Agtjx2Y3AR9G2m/CgfLiNHqLqewUCQaFw4jsL3H31PklERE0JRT
-	9+sbEgJMzgvpv0Cn+71KnbIY3NYE8ixsznHzeEdX6iiPx0CEgj3ZhQitfSuGX+QHv3AdGdtVXnUxQ
-	zqtklYtZDxGKWFFUHs1UgMJZQ1zPjHgEqmnbk8BFdZEiia92oA1ANLG+DYDPSnRtrr9HOV0fmYLdv
-	c01hk/1v6QVuEjam5GPg==;
+	List-Owner; bh=JCnmE6LIEcDQBPz5ULLbVs00hjQBsn/l0EA6UcEh4uw=; b=qUjw3Xf+7m+rvf
+	LMH4MKooK9ydqKArkxKDoNvbizjWLC949GZRT++6GMMy+bMo6DJjsXwIK2sdH3uYpIyB5Qwya/JjC
+	2OBZ10n9Edtpz3776Sh0ZzcKtSGdRjUlupAJjhgAT0k9suPHJvOHM9V5XafrNBgMWkC8ookDpLaal
+	Fz4ctbg+qdmBDuwxjvudnypwzcU3/gD3NQYnVKpAVIqu8hbx5TpN2aDxlIk4BrKs12wh3lLLXEZsz
+	SExiyvrzCfyfWZF5LJ3Fbs2F/wPySu9iCvu22bx88I+4suzcnnpTyF2NzO+njpaIz2sgoZxKzzKD6
+	+vVRWTjG7rZ3VBU7tt1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXowH-003C1c-D7; Thu, 02 Mar 2023 19:50:05 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1pXp0U-003CSq-4L; Thu, 02 Mar 2023 19:54:26 +0000
+Received: from [2607:7c80:54:3::138] (helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXowD-003C0T-Ul
-	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 19:50:04 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 9CE44240005;
-	Thu,  2 Mar 2023 19:49:55 +0000 (UTC)
-Message-ID: <b9d147c3-4631-67f0-5529-8e186857c47e@ghiti.fr>
-Date: Thu, 2 Mar 2023 20:49:55 +0100
+	id 1pXp0R-003CSB-HE; Thu, 02 Mar 2023 19:54:24 +0000
+Received: from [127.0.0.1] ([73.223.221.228])
+	(authenticated bits=0)
+	by mail.zytor.com (8.17.1/8.17.1) with ESMTPSA id 322JolfB1654568
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Thu, 2 Mar 2023 11:50:48 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 322JolfB1654568
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2023020601; t=1677786658;
+	bh=n/GRsm1pImWCPNm4dPoe5zec7Kp4K3JReb8gPrI8/mc=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=EoMqj2NrvtdnnKP1K3ZY31x6mzZLyhmRVv+AfJ7wKdoAJbCxWwA+q2O/5sMmJVAVH
+	 CBl1NaM0Y8H4KZuzvQjbNwKYV6dXCiIfmDalzvbDgGVmn+bMayegSv6UvQXFNOV7kH
+	 d/WVC69GzUYAENKo48YQjfv0/LuQNbAN20Le/uIDHGiGr9P8B8oHP2fS95eG5xB58F
+	 uasUM1VqxwzDuwffGGAapL9uswmgoHxhnTzGnsDohaOFjOu2pxA/e5nnYVugsNl2zn
+	 98XlC/4jazJIi0XM8kFrS6seI0EpKbWqSgJdlLGlfl4yBTPVtfQW74gM369HHmiIcn
+	 4YRgUzYFXGcXg==
+Date: Thu, 02 Mar 2023 11:50:45 -0800
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, hca@linux.ibm.com
+CC: geert@linux-m68k.org, alexghiti@rivosinc.com, corbet@lwn.net,
+        Richard Henderson <richard.henderson@linaro.org>,
+        ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
+        linux@armlinux.org.uk, Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, chenhuacai@kernel.org,
+        kernel@xen0n.name, monstr@monstr.eu, tsbogend@alpha.franken.de,
+        James.Bottomley@hansenpartnership.com, deller@gmx.de,
+        mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
+        Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+        gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+        svens@linux.ibm.com, ysato@users.osdn.me, dalias@libc.org,
+        davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
+        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+        chris@zankel.net, jcmvbkbc@gmail.com, Arnd Bergmann <arnd@arndb.de>,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+        loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+        linux-arch@vger.kernel.org
+Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
+User-Agent: K-9 Mail for Android
+In-Reply-To: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
+References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
+Message-ID: <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: RISC-V Linux kernel not booting up with KASAN enabled
-Content-Language: en-US
-To: Chathura Rajapaksha <chathura.abeyrathne.lk@gmail.com>
-Cc: linux-riscv@lists.infradead.org
-References: <CAD7mqryyz0PGHotBxvME7Ff4V0zLS+OcL8=9z4TakaKagPBdLw@mail.gmail.com>
- <789371c4-47fd-3de5-d6c0-bb36b2864796@ghiti.fr>
- <CAD7mqrzv-jr_o2U3Kz7vTgcsOYPKgwHW-L=ARAucAPPJgs4HCw@mail.gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAD7mqrzv-jr_o2U3Kz7vTgcsOYPKgwHW-L=ARAucAPPJgs4HCw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_115002_259248_5CBDB4D0 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20230302_115423_600925_2CCC5F1F 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,46 +86,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMy8yLzIzIDE3OjI1LCBDaGF0aHVyYSBSYWphcGFrc2hhIHdyb3RlOgo+IEhpIEFsZXgsCj4K
-PiBUaGFuayB5b3UgdmVyeSBtdWNoLCBrZXJuZWwgYm9vdGVkIHVwIHdpdGggdGhlIHBhdGNoZXMg
-eW91IG1lbnRpb25lZC4KCgpHcmVhdCwgdGhhbmtzIGZvciBnaXZpbmcgaXQgYSB0cnkhCgoKPiBC
-b290dXAgd2FzIHByZXR0eSBzbG93IGNvbXBhcmVkIHRvIGJlZm9yZSB0aG91Z2ggKG9uIGEgZGV2
-IGJvYXJkKS4KPiBJIGd1ZXNzIHRoYXQgaXMga2luZCBvZiBleHBlY3RlZCB3aXRoIEtBU0FOIGVu
-YWJsZWQuCgoKT25seSB0aGUgcGFnZSB0YWJsZSBjcmVhdGlvbiBjaGFuZ2VzLCB0aGF0J3Mgd2Vp
-cmQ6IEkgc2F3IGluIHlvdXIgY29uZmlnIAp5b3Ugd2VyZSB1c2luZyBvdXRsaW5lIGluc3RydW1l
-bnRhdGlvbiwgY2FuIHlvdSB0cnkgdG8gdXNlIHRoZSBpbmxpbmUgCmluc3RydW1lbnRhdGlvbiAo
-c2VsZWN0IEtBU0FOX0lOTElORSBpbnN0ZWFkIG9mIEtBU0FOX09VVExJTkUpIGFuZCBzZWUgCmlm
-IHRoYXQncyBmYXN0ZXI/CgoKPiBUaGFua3MgYWdhaW4uCj4KPiBSZWdhcmRzLAo+IENoYXRoCgoK
-VGhhbmtzIGZvciB0ZXN0aW5nLAoKQWxleAoKCj4KPiBPbiBUaHUsIE1hciAyLCAyMDIzIGF0IDI6
-NTDigK9BTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3RlOgo+PiBIaSBDaGF0
-dXJhLAo+Pgo+PiBPbiAzLzIvMjMgMDQ6MTMsIENoYXRodXJhIFJhamFwYWtzaGEgd3JvdGU6Cj4+
-PiBIaSBBbGwsCj4+Pgo+Pj4gSSBvYnNlcnZlZCB0aGF0IFJJU0MtViBMaW51eCBoYW5ncyB3aGVu
-IEkgZW5hYmxlIEtBU0FOLgo+Pj4gV2l0aG91dCBLQVNBTiBpdCB3b3JrcyBmaW5lIHdpdGggUUVN
-VS4KPj4+IEkgYW0gdXNpbmcgdGhlIGNvbW1pdCBhZTM0MTlmYmFjODQ1YjRkM2YzYTlmYWU0Y2M4
-MGM2OGQ4MmNkZjZlCj4+Pgo+Pj4gV2hlbiBLQVNBTiBpcyBlbmFibGVkLCBRRU1VIGhhbmdzIGFm
-dGVyIE9wZW5TQkkgcHJpbnRzLgo+Pj4KPj4+IEkgbm90aWNlZCBhIHNpbWlsYXIgaXNzdWUgd2Fz
-IHJlcG9ydGVkIGJlZm9yZSBpbgo+Pj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9DQUNU
-NFkrWm11T3B5Zl8wdkhUVDR0M3drbUp1VzhFenZjZzd2NnlEVmQ4WU9WaVM9R0FAbWFpbC5nbWFp
-bC5jb20vdC8KPj4+IEJ1dCBJIGJlbGlldmUgSSBoYXZlIHRoZSBwYXRjaCBtZW50aW9uZWQgaW4g
-dGhhdCB0aHJlYWQuCj4+Cj4+IEkgcHJvcG9zZWQgYSBzZXJpZXMgdGhhdCB3aWxsIGJlIGluY2x1
-ZGVkIGluIDYuMyByZWdhcmRpbmcgS0FTQU4gaXNzdWVzCj4+IGhlcmU6IGh0dHBzOi8vcGF0Y2h3
-b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9saXN0Lz9zZXJpZXM9NzE4NDU4Cj4+
-Cj4+IENhbiB5b3UgZ2l2ZSBpdCBhIHRyeSBhbmQgdGVsbCBtZSBpZiBpdCB3b3JrcyBiZXR0ZXI/
-Cj4+Cj4+IFRoYW5rcywKPj4KPj4gQWxleAo+Pgo+Pgo+Pj4gTXkga2VybmVsIGNvbmZpZzoKPj4+
-IGh0dHBzOi8vZHJpdmUuZ29vZ2xlLmNvbS9maWxlL2QvMWo5blU3ZjlNeENjX2ktVUhVQ1R2bzdv
-Nm5EcmNVejB3L3ZpZXc/dXNwPXNoYXJpbmcKPj4+Cj4+PiBCZXN0IHJlZ2FyZHMsCj4+PiBDaGF0
-aAo+Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Cj4+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKPj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On March 1, 2023 7:17:18 PM PST, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>On Tue, 14 Feb 2023 01:19:02 PST (-0800), hca@linux.ibm.com wrote:
+>> On Tue, Feb 14, 2023 at 09:58:17AM +0100, Geert Uytterhoeven wrote:
+>>> Hi Heiko,
+>>> 
+>>> On Tue, Feb 14, 2023 at 9:39 AM Heiko Carstens <hca@linux.ibm.com> wrote:
+>>> > On Tue, Feb 14, 2023 at 08:49:01AM +0100, Alexandre Ghiti wrote:
+>>> > > This all came up in the context of increasing COMMAND_LINE_SIZE in the
+>>> > > RISC-V port.  In theory that's a UABI break, as COMMAND_LINE_SIZE is the
+>>> > > maximum length of /proc/cmdline and userspace could staticly rely on
+>>> > > that to be correct.
+>>> > >
+>>> > > Usually I wouldn't mess around with changing this sort of thing, but
+>>> > > PowerPC increased it with a5980d064fe2 ("powerpc: Bump COMMAND_LINE_SIZE
+>>> > > to 2048").  There are also a handful of examples of COMMAND_LINE_SIZE
+>>> > > increasing, but they're from before the UAPI split so I'm not quite sure
+>>> > > what that means: e5a6a1c90948 ("powerpc: derive COMMAND_LINE_SIZE from
+>>> > > asm-generic"), 684d2fd48e71 ("[S390] kernel: Append scpdata to kernel
+>>> > > boot command line"), 22242681cff5 ("MIPS: Extend COMMAND_LINE_SIZE"),
+>>> > > and 2b74b85693c7 ("sh: Derive COMMAND_LINE_SIZE from
+>>> > > asm-generic/setup.h.").
+>>> > >
+>>> > > It seems to me like COMMAND_LINE_SIZE really just shouldn't have been
+>>> > > part of the uapi to begin with, and userspace should be able to handle
+>>> > > /proc/cmdline of whatever length it turns out to be.  I don't see any
+>>> > > references to COMMAND_LINE_SIZE anywhere but Linux via a quick Google
+>>> > > search, but that's not really enough to consider it unused on my end.
+>>> > >
+>>> > > The feedback on the v1 seemed to indicate that COMMAND_LINE_SIZE really
+>>> > > shouldn't be part of uapi, so this now touches all the ports.  I've
+>>> > > tried to split this all out and leave it bisectable, but I haven't
+>>> > > tested it all that aggressively.
+>>> >
+>>> > Just to confirm this assumption a bit more: that's actually the same
+>>> > conclusion that we ended up with when commit 3da0243f906a ("s390: make
+>>> > command line configurable") went upstream.
+>
+>Thanks, I guess I'd missed that one.  At some point I think there was some discussion of making this a Kconfig for everyone, which seems reasonable to me -- our use case for this being extended is syzkaller, but we're sort of just picking a value that's big enough for now and running with it.
+>
+>Probably best to get it out of uapi first, though, as that way at least it's clear that it's not uABI.
+>
+>>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
+>>> I assume?
+>> 
+>> Yes, sorry for that. I got distracted while writing and used the wrong
+>> branch to look this up.
+>
+>Alex: Probably worth adding that to the list in the cover letter as it looks like you were planning on a v4 anyway (which I guess you now have to do, given that I just added the issue to RISC-V).
+
+The only use that is uapi is the *default* length of the command line if the kernel header doesn't include it (in the case of x86, it is in the bzImage header, but that is atchitecture- or even boot format-specific.)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
