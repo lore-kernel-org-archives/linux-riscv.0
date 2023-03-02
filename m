@@ -4,78 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B0FC678D4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 13:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1DBC7EE36
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 15:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Zy8MDqxUlMAreRwPlzxDDEe6rJAu1673EHbhrBR494=; b=0XZvZUmInK8231W9PVg/y3Y8+3
-	t/00GN5cb2V95z2DZ189mN39aczi8HXNSsykZmL3ZKE1IjVREMrdNt6TxlW626+aFhvRB4d1EMx9R
-	QLar5P7snGbpyCRCdHGtEokGnHj4P0MCkxhbJMzYSCN9I5e91kHJXOG9hbwxMjRByt0mO1mHBBAEf
-	9DD/tvCnK9aYHIPzp9WeNEtkXIro7On6bdzrNhLu+zq6hIuGrURGwwDZNk3q/m4hpReEQqWYJQ3Tb
-	Uoq9o2P7h5Ip9ylW5MayQ2iA7dcAfPR63djUfZGNHQArR5sPMxBB1AiRCTCroMEgN4xVg8kznJ1P+
-	PQmegdZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+DgA57EeogXpUFft+EVLsnvMxX3/QAy9hMSRXCRfuW0=; b=Ge4kzzAlu/TMNB
+	7BCHjuQJWdkg0M6XQ1uy14H6VJlDw6Dui8KJSNbRe2KbqepJ6ez5KCqO5Kj8FspTVcHYHdfW9eGt0
+	O2NZesVMtkUK7UDpH58LrUOMqlNfZVUHBE5mfaoVn0E30z0N0aNQkFGmFy6NRVYpTr9OWyR+pJAwk
+	RCgp+BY78D/RMVUe6nmoSfc4tRZ7Y1Kzjpl+LATrELwsjqt15OSanQOMjqBli/h2fQttE9LRjpnnN
+	UnCytD7d1t/ONFZgU6IcTjNo7zdUA4xZwXSKiwroS8EpZd/8+yV1sqMJBqdy1eGd2bRQTpb7+juw7
+	kH5PtKoQXAQ3crEZLlow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXjFh-002Mrt-3W; Thu, 02 Mar 2023 13:45:45 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1pXkVD-002Zfb-4Z; Thu, 02 Mar 2023 15:05:51 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXiD7-002BUp-KM; Thu, 02 Mar 2023 12:39:04 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id B7D6960008;
-	Thu,  2 Mar 2023 12:38:45 +0000 (UTC)
-Message-ID: <6b206e38-2e2e-0236-1b7d-96a537d0038e@ghiti.fr>
-Date: Thu, 2 Mar 2023 13:38:45 +0100
+	id 1pXkV9-002ZcG-7A
+	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 15:05:50 +0000
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 484663F209
+	for <linux-riscv@lists.infradead.org>; Thu,  2 Mar 2023 15:05:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1677769540;
+	bh=ennINZICblkLNJRKAL6C7ysXY/vpm4KR2muFA6qF6vI=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=EZyd6UebuPiuudYZItBUpKLm87N5nanSwg54SBSo+D6K/6xS1F9xMpfiBKPwVu08Q
+	 9idxxiJBRDzs7CZzLgbPT3R2xSyvgDchBGb7xGLqt1joXsrGv/bQUMnl1aQBahhOFt
+	 FLRD2IWc/GbpxwjsFgLfJ5Lc1WCStUSfc9YiHG01z57zjM+gyf47zIu3NYRYw7kDlX
+	 el29ib94TxhnwBUMZnDDXo+X/VgZKAVNL0fhcw8uCvI6MoQCO9xRg5KJP88kgYHi7i
+	 KJ4VuQz0so4n4Lq4z56VnPxjiD1/+hnY0dUBSlMTFxniJnHNu2Q2g0t+7s6LTMCfqS
+	 PwWyWjER4jVNA==
+Received: by mail-qv1-f69.google.com with SMTP id fb18-20020ad44f12000000b0056ed45f262dso8937555qvb.11
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 07:05:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677769539;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ennINZICblkLNJRKAL6C7ysXY/vpm4KR2muFA6qF6vI=;
+        b=fcH7f6+UYTHlwF4LgQTDxLZeVOZoDjaiaZjJIScsSyC0KsG3GMNpcDeQtXOx6cFcKa
+         K/lPijWw+uEyNyimhrX5ymDDbo5SUgd33qX+QMISf2V1xn5xHWooSyKGTF08Sw8BwmAU
+         pv3bSZBXiqSo9UnE5Tcb9UOg/LRsHacTDFitHMN6We3DiedSXOR7l9W0DqCd82p92FJu
+         LGAnreBEzGVdJm1Tq0NrV02IYG8apVcYHaU78nzKinccNUJ1bHCtPvkSxXXaR50l2YGX
+         xRmFL9uBXWe+fMqvPr1oJbP3QfS0UYmuhTHmvCgv0YHX79/z4yn5odIge+ewCu5++c/y
+         f8Og==
+X-Gm-Message-State: AO0yUKVYNkU5XBn5Oppb5fVorkO3tTCASVVARdU9Lae7O+y7ubPt9dNt
+	X1sths/vH5M/9LdEp2LwyLW1cqi4kSyO/JSq7oV2lc+4nYk2+I7sq565cclsjWzLCY+OBbdhKWr
+	OLJYWwqJPXuFJ6FlgiqPD/qqp2oZi9zQNpI9YrciRczGl3wI4tfWYubeQOeML8A==
+X-Received: by 2002:a37:4385:0:b0:721:5339:2c89 with SMTP id q127-20020a374385000000b0072153392c89mr2581676qka.7.1677769539183;
+        Thu, 02 Mar 2023 07:05:39 -0800 (PST)
+X-Google-Smtp-Source: AK7set/wLIZz+wN48cyx3bobDbJlcRdqTIx95pf2ooXaqJzdzUrI6PfTcx9xyTHMIuV8BHgY8aHD9TzSIKUGk43rNDo=
+X-Received: by 2002:a37:4385:0:b0:721:5339:2c89 with SMTP id
+ q127-20020a374385000000b0072153392c89mr2581660qka.7.1677769538838; Thu, 02
+ Mar 2023 07:05:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v4 00/24] Remove COMMAND_LINE_SIZE from uapi
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
- <corbet@lwn.net>, Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, linux-arch@vger.kernel.org,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-References: <20230302093539.372962-1-alexghiti@rivosinc.com>
- <040104fc-81b7-fd45-b268-111e39f2927f@ghiti.fr>
-In-Reply-To: <040104fc-81b7-fd45-b268-111e39f2927f@ghiti.fr>
+References: <20230221083323.302471-1-xingyu.wu@starfivetech.com> <20230221083323.302471-2-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230221083323.302471-2-xingyu.wu@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 2 Mar 2023 16:05:22 +0100
+Message-ID: <CAJM55Z_O+Gh0RGaAuLPxs4aSi4=5Aa3UksN_SnU-4pOn3X5fDw@mail.gmail.com>
+Subject: Re: [PATCH v2 01/11] dt-bindings: clock: Add StarFive JH7110
+ System-Top-Group clock and reset generator
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_043901_971357_D969AD78 
-X-CRM114-Status: GOOD (  25.39  )
+X-CRM114-CacheID: sfid-20230302_070547_723501_7DBFF046 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,140 +95,255 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDMvMi8yMyAxMTowNiwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhpIEFybmQsCj4KPiBP
-biAzLzIvMjMgMTA6MzUsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gVGhpcyBhbGwgY2FtZSB1
-cCBpbiB0aGUgY29udGV4dCBvZiBpbmNyZWFzaW5nIENPTU1BTkRfTElORV9TSVpFIGluIHRoZQo+
-PiBSSVNDLVYgcG9ydC7CoCBJbiB0aGVvcnkgdGhhdCdzIGEgVUFCSSBicmVhaywgYXMgQ09NTUFO
-RF9MSU5FX1NJWkUgaXMgdGhlCj4+IG1heGltdW0gbGVuZ3RoIG9mIC9wcm9jL2NtZGxpbmUgYW5k
-IHVzZXJzcGFjZSBjb3VsZCBzdGF0aWNseSByZWx5IG9uCj4+IHRoYXQgdG8gYmUgY29ycmVjdC4K
-Pj4KPj4gVXN1YWxseSBJIHdvdWxkbid0IG1lc3MgYXJvdW5kIHdpdGggY2hhbmdpbmcgdGhpcyBz
-b3J0IG9mIHRoaW5nLCBidXQKPj4gUG93ZXJQQyBpbmNyZWFzZWQgaXQgd2l0aCBhNTk4MGQwNjRm
-ZTIgKCJwb3dlcnBjOiBCdW1wIENPTU1BTkRfTElORV9TSVpFCj4+IHRvIDIwNDgiKS7CoCBUaGVy
-ZSBhcmUgYWxzbyBhIGhhbmRmdWwgb2YgZXhhbXBsZXMgb2YgQ09NTUFORF9MSU5FX1NJWkUKPj4g
-aW5jcmVhc2luZywgYnV0IHRoZXkncmUgZnJvbSBiZWZvcmUgdGhlIFVBUEkgc3BsaXQgc28gSSdt
-IG5vdCBxdWl0ZSBzdXJlCj4+IHdoYXQgdGhhdCBtZWFuczogZTVhNmExYzkwOTQ4ICgicG93ZXJw
-YzogZGVyaXZlIENPTU1BTkRfTElORV9TSVpFIGZyb20KPj4gYXNtLWdlbmVyaWMiKSwgNjg0ZDJm
-ZDQ4ZTcxICgiW1MzOTBdIGtlcm5lbDogQXBwZW5kIHNjcGRhdGEgdG8ga2VybmVsCj4+IGJvb3Qg
-Y29tbWFuZCBsaW5lIiksIDIyMjQyNjgxY2ZmNSAoIk1JUFM6IEV4dGVuZCBDT01NQU5EX0xJTkVf
-U0laRSIpLAo+PiBhbmQgMmI3NGI4NTY5M2M3ICgic2g6IERlcml2ZSBDT01NQU5EX0xJTkVfU0la
-RSBmcm9tCj4+IGFzbS1nZW5lcmljL3NldHVwLmguIikuCj4+Cj4+IEl0IHNlZW1zIHRvIG1lIGxp
-a2UgQ09NTUFORF9MSU5FX1NJWkUgcmVhbGx5IGp1c3Qgc2hvdWxkbid0IGhhdmUgYmVlbgo+PiBw
-YXJ0IG9mIHRoZSB1YXBpIHRvIGJlZ2luIHdpdGgsIGFuZCB1c2Vyc3BhY2Ugc2hvdWxkIGJlIGFi
-bGUgdG8gaGFuZGxlCj4+IC9wcm9jL2NtZGxpbmUgb2Ygd2hhdGV2ZXIgbGVuZ3RoIGl0IHR1cm5z
-IG91dCB0byBiZS7CoCBJIGRvbid0IHNlZSBhbnkKPj4gcmVmZXJlbmNlcyB0byBDT01NQU5EX0xJ
-TkVfU0laRSBhbnl3aGVyZSBidXQgTGludXggdmlhIGEgcXVpY2sgR29vZ2xlCj4+IHNlYXJjaCwg
-YnV0IHRoYXQncyBub3QgcmVhbGx5IGVub3VnaCB0byBjb25zaWRlciBpdCB1bnVzZWQgb24gbXkg
-ZW5kLgo+Pgo+PiBUaGlzIGlzc3VlIHdhcyBhbHJlYWR5IGNvbnNpZGVyZWQgaW4gczM5MCBhbmQg
-dGhleSByZWFjaGVkIHRoZSBzYW1lCj4+IGNvbmNsdXNpb24gaW4gY29tbWl0IDYyMjAyMWNkNmM1
-NiAoInMzOTA6IG1ha2UgY29tbWFuZCBsaW5lCj4+IGNvbmZpZ3VyYWJsZSIpLgo+Pgo+PiBUaGUg
-ZmVlZGJhY2sgb24gdGhlIHYxIHNlZW1lZCB0byBpbmRpY2F0ZSB0aGF0IENPTU1BTkRfTElORV9T
-SVpFIHJlYWxseQo+PiBzaG91bGRuJ3QgYmUgcGFydCBvZiB1YXBpLCBzbyB0aGlzIG5vdyB0b3Vj
-aGVzIGFsbCB0aGUgcG9ydHMuIEkndmUKPj4gdHJpZWQgdG8gc3BsaXQgdGhpcyBhbGwgb3V0IGFu
-ZCBsZWF2ZSBpdCBiaXNlY3RhYmxlLCBidXQgSSBoYXZlbid0Cj4+IHRlc3RlZCBpdCBhbGwgdGhh
-dCBhZ2dyZXNzaXZlbHkuCj4+Cj4+IENoYW5nZXMgc2luY2UgdjMgCj4+IDxodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9hbGwvMjAyMzAyMTQwNzQ5MjUuMjI4MTA2LTEtYWxleGdoaXRpQHJpdm9zaW5j
-LmNvbS8+Ogo+PiAqIEFkZGVkIFJCL0FCCj4+ICogQWRkZWQgYSBtZW50aW9uIHRvIGNvbW1pdCA2
-MjIwMjFjZDZjNTYgKCJzMzkwOiBtYWtlIGNvbW1hbmQgbGluZQo+PiDCoMKgIGNvbmZpZ3VyYWJs
-ZSIpIGluIHRoZSBjb3ZlciBsZXR0ZXIKPj4KPj4gQ2hhbmdlcyBzaW5jZSB2MiAKPj4gPGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIyMTIxMTA2MTM1OC4yODAzNS0xLXBhbG1lckByaXZv
-c2luYy5jb20vPjoKPj4gKiBGaXggc2gsIGNza3kgYW5kIGlhNjQgYnVpbGRzLCBhcyByZXBvcnRl
-ZCBieSBrZXJuZWwgdGVzdCByb2JvdAo+Pgo+PiBDaGFuZ2VzIHNpbmNlIHYxIAo+PiA8aHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjEwNDIzMDI1NTQ1LjMxMzk2NS0xLXBhbG1lckBkYWJi
-ZWx0LmNvbS8+Ogo+PiAqIFRvdWNoZXMgZXZlcnkgYXJjaC4KPj4KPj4gYmFzZS1jb21taXQtdGFn
-OiBuZXh0LTIwMjMwMjA3Cj4+Cj4+IFBhbG1lciBEYWJiZWx0ICgyNCk6Cj4+IMKgwqAgYWxwaGE6
-IFJlbW92ZSBDT01NQU5EX0xJTkVfU0laRSBmcm9tIHVhcGkKPj4gwqDCoCBhcm02NDogUmVtb3Zl
-IENPTU1BTkRfTElORV9TSVpFIGZyb20gdWFwaQo+PiDCoMKgIGFybTogUmVtb3ZlIENPTU1BTkRf
-TElORV9TSVpFIGZyb20gdWFwaQo+PiDCoMKgIGlhNjQ6IFJlbW92ZSBDT01NQU5EX0xJTkVfU0la
-RSBmcm9tIHVhcGkKPj4gwqDCoCBtNjhrOiBSZW1vdmUgQ09NTUFORF9MSU5FX1NJWkUgZnJvbSB1
-YXBpCj4+IMKgwqAgbWljcm9ibGF6ZTogUmVtb3ZlIENPTU1BTkRfTElORV9TSVpFIGZyb20gdWFw
-aQo+PiDCoMKgIG1pcHM6IFJlbW92ZSBDT01NQU5EX0xJTkVfU0laRSBmcm9tIHVhcGkKPj4gwqDC
-oCBwYXJpc2M6IFJlbW92ZSBDT01NQU5EX0xJTkVfU0laRSBmcm9tIHVhcGkKPj4gwqDCoCBwb3dl
-cnBjOiBSZW1vdmUgQ09NTUFORF9MSU5FX1NJWkUgZnJvbSB1YXBpCj4+IMKgwqAgc3BhcmM6IFJl
-bW92ZSBDT01NQU5EX0xJTkVfU0laRSBmcm9tIHVhcGkKPj4gwqDCoCB4dGVuc2E6IFJlbW92ZSBD
-T01NQU5EX0xJTkVfU0laRSBmcm9tIHVhcGkKPj4gwqDCoCBhc20tZ2VuZXJpYzogUmVtb3ZlIENP
-TU1BTkRfTElORV9TSVpFIGZyb20gdWFwaQo+PiDCoMKgIGFscGhhOiBSZW1vdmUgZW1wdHkgPHVh
-cGkvYXNtL3NldHVwLmg+Cj4+IMKgwqAgYXJjOiBSZW1vdmUgZW1wdHkgPHVhcGkvYXNtL3NldHVw
-Lmg+Cj4+IMKgwqAgbTY4azogUmVtb3ZlIGVtcHR5IDx1YXBpL2FzbS9zZXR1cC5oPgo+PiDCoMKg
-IGFybTY0OiBSZW1vdmUgZW1wdHkgPHVhcGkvYXNtL3NldHVwLmg+Cj4+IMKgwqAgbWljcm9ibGF6
-ZTogUmVtb3ZlIGVtcHR5IDx1YXBpL2FzbS9zZXR1cC5oPgo+PiDCoMKgIHNwYXJjOiBSZW1vdmUg
-ZW1wdHkgPHVhcGkvYXNtL3NldHVwLmg+Cj4+IMKgwqAgcGFyaXNjOiBSZW1vdmUgZW1wdHkgPHVh
-cGkvYXNtL3NldHVwLmg+Cj4+IMKgwqAgeDg2OiBSZW1vdmUgZW1wdHkgPHVhcGkvYXNtL3NldHVw
-Lmg+Cj4+IMKgwqAgeHRlbnNhOiBSZW1vdmUgZW1wdHkgPHVhcGkvYXNtL3NldHVwLmg+Cj4+IMKg
-wqAgcG93ZXJwYzogUmVtb3ZlIGVtcHR5IDx1YXBpL2FzbS9zZXR1cC5oPgo+PiDCoMKgIG1pcHM6
-IFJlbW92ZSBlbXB0eSA8dWFwaS9hc20vc2V0dXAuaD4KPj4gwqDCoCBzMzkwOiBSZW1vdmUgZW1w
-dHkgPHVhcGkvYXNtL3NldHVwLmg+Cj4+Cj4+IMKgIC4uLi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFy
-YW1ldGVycy5yc3TCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCj4+IMKgIGFyY2gvYWxwaGEvaW5j
-bHVkZS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNCArLS0K
-Pj4gwqAgYXJjaC9hbHBoYS9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmjCoMKgwqDCoMKgwqDCoMKg
-wqDCoCB8wqAgNyAtLS0tLQo+PiDCoCBhcmNoL2FyYy9pbmNsdWRlL2FzbS9zZXR1cC5owqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSAtCj4+IMKgIGFyY2gvYXJjL2luY2x1
-ZGUvdWFwaS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNiAtLS0tLQo+
-PiDCoCBhcmNoL2FybS9pbmNsdWRlL2FzbS9zZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgIGFyY2gvYXJtL2luY2x1ZGUvdWFwaS9hc20vc2V0dXAu
-aMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMiAtLQo+PiDCoCBhcmNoL2FybTY0L2luY2x1
-ZGUvYXNtL3NldHVwLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDMgKystCj4+
-IMKgIGFyY2gvYXJtNjQvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKg
-wqAgfCAyNyAtLS0tLS0tLS0tLS0tLS0tLS0tCj4+IMKgIGFyY2gvaWE2NC9pbmNsdWRlL2FzbS9z
-ZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCArKysrKysrCj4+IMKg
-IGFyY2gvaWE2NC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHzCoCA2ICsrLS0tCj4+IMKgIGFyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL3NldHVwLmjCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCj4+IMKgIGFyY2gvbTY4ay9pbmNsdWRlL2FzbS9z
-ZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDMgKy0tCj4+IMKgIGFy
-Y2gvbTY4ay9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwg
-MTcgLS0tLS0tLS0tLS0tCj4+IMKgIGFyY2gvbWljcm9ibGF6ZS9pbmNsdWRlL2FzbS9zZXR1cC5o
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIgKy0KPj4gwqAgYXJjaC9taWNyb2JsYXplL2luY2x1
-ZGUvdWFwaS9hc20vc2V0dXAuaMKgwqDCoMKgwqAgfCAyMCAtLS0tLS0tLS0tLS0tLQo+PiDCoCBh
-cmNoL21pcHMvaW5jbHVkZS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHzCoCAzICsrLQo+PiDCoCBhcmNoL21pcHMvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5owqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgOCAtLS0tLS0KPj4gwqAgYXJjaC9wYXJpc2MvaW5jbHVk
-ZS97dWFwaSA9PiB9L2FzbS9zZXR1cC5owqDCoMKgIHzCoCAwCj4+IMKgIGFyY2gvcG93ZXJwYy9p
-bmNsdWRlL2FzbS9zZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIgKy0KPj4g
-wqAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvdWFwaS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqAg
-fMKgIDcgLS0tLS0KPj4gwqAgYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3NldHVwLmjCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSAtCj4+IMKgIGFyY2gvczM5MC9pbmNsdWRlL3Vh
-cGkvYXNtL3NldHVwLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxIC0KPj4gwqAgYXJjaC9z
-aC9pbmNsdWRlL2FzbS9zZXR1cC5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHzCoCAyICstCj4+IMKgIGFyY2gvc3BhcmMvaW5jbHVkZS9hc20vc2V0dXAuaMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNiArKysrLQo+PiDCoCBhcmNoL3NwYXJjL2luY2x1ZGUv
-dWFwaS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMTYgLS0tLS0tLS0tLS0KPj4g
-wqAgYXJjaC94ODYvaW5jbHVkZS9hc20vc2V0dXAuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgfMKgIDIgLS0KPj4gwqAgYXJjaC94ODYvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5o
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxIC0KPj4gwqAgYXJjaC94dGVuc2EvaW5jbHVk
-ZS97dWFwaSA9PiB9L2FzbS9zZXR1cC5owqDCoMKgIHzCoCAwCj4+IMKgIGluY2x1ZGUvYXNtLWdl
-bmVyaWMvS2J1aWxkwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEg
-Kwo+PiDCoCBpbmNsdWRlL3t1YXBpID0+IH0vYXNtLWdlbmVyaWMvc2V0dXAuaMKgwqDCoMKgwqDC
-oMKgIHzCoCAwCj4+IMKgIGluY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy9LYnVpbGTCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxIC0KPj4gwqAgMzIgZmlsZXMgY2hhbmdlZCwgMzEgaW5z
-ZXJ0aW9ucygrKSwgMTMzIGRlbGV0aW9ucygtKQo+PiDCoCBkZWxldGUgbW9kZSAxMDA2NDQgYXJj
-aC9hbHBoYS9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmgKPj4gwqAgZGVsZXRlIG1vZGUgMTAwNjQ0
-IGFyY2gvYXJjL2luY2x1ZGUvdWFwaS9hc20vc2V0dXAuaAo+PiDCoCBkZWxldGUgbW9kZSAxMDA2
-NDQgYXJjaC9hcm02NC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmgKPj4gwqAgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGFyY2gvaWE2NC9pbmNsdWRlL2FzbS9zZXR1cC5oCj4+IMKgIGRlbGV0ZSBtb2RlIDEw
-MDY0NCBhcmNoL202OGsvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oCj4+IMKgIGRlbGV0ZSBtb2Rl
-IDEwMDY0NCBhcmNoL21pY3JvYmxhemUvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oCj4+IMKgIGRl
-bGV0ZSBtb2RlIDEwMDY0NCBhcmNoL21pcHMvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oCj4+IMKg
-IHJlbmFtZSBhcmNoL3BhcmlzYy9pbmNsdWRlL3t1YXBpID0+IH0vYXNtL3NldHVwLmggKDEwMCUp
-Cj4+IMKgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL3Bvd2VycGMvaW5jbHVkZS91YXBpL2FzbS9z
-ZXR1cC5oCj4+IMKgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL3MzOTAvaW5jbHVkZS91YXBpL2Fz
-bS9zZXR1cC5oCj4+IMKgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL3NwYXJjL2luY2x1ZGUvdWFw
-aS9hc20vc2V0dXAuaAo+PiDCoCBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC94ODYvaW5jbHVkZS91
-YXBpL2FzbS9zZXR1cC5oCj4+IMKgIHJlbmFtZSBhcmNoL3h0ZW5zYS9pbmNsdWRlL3t1YXBpID0+
-IH0vYXNtL3NldHVwLmggKDEwMCUpCj4+IMKgIHJlbmFtZSBpbmNsdWRlL3t1YXBpID0+IH0vYXNt
-LWdlbmVyaWMvc2V0dXAuaCAoMTAwJSkKPj4KPiBCasO2cm4gbm90aWNlZCB0aGF0IEkgc2hvdWxk
-IGFsc28gcmVtb3ZlIHRoZSBjb21tYW5kIGxpbmUgc2l6ZSBmb3IgCj4gcmlzY3Ygc2luY2UgaXQg
-d2FzIHBpY2tlZCB1cCBpbiA2LjMgYnkgUGFsbWVyLi4uSSBzZW5kIGEgdjYgcmlnaHQgbm93LCAK
-PiBzb3JyeSBhYm91dCB0aGF0Lgo+Cj4gQWxleAo+CgpIbW1tIHdoZW4gaW1wbGVtZW50aW5nIHRo
-ZSByaXNjdiBwYXRjaCwgSSBub3RpY2VkIHRoYXQgdGhlIHBhdGNoZXMgdGhhdCAKaW50cm9kdWNl
-IGEgbmV3IGluY2x1ZGUvYXNtL3NldHVwLmggZmlsZSBhZGQgdGhlIGZvbGxvd2luZyBTUERYIGhl
-YWRlcjoKCi8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wIFdJVEggTGludXgtc3lz
-Y2FsbC1ub3RlICovCgpUbyBtZSB3ZSBzaG91bGQgbm90IGFkZCAiV0lUSCBMaW51eC1zeXNjYWxs
-LW5vdGUiIGFzIHRoaXMgaGVhZGVyIGlzIG5vdCAKcGFydCBvZiB0aGUgdXNlciB2aXNpYmxlIGhl
-YWRlcnM6IGFueSBvcGluaW9uIGJlZm9yZSBJIHNlbmQgdGhlIHY1PwoKVGhhbmtzLAoKQWxleAoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, 21 Feb 2023 at 09:37, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
+> on the JH7110 RISC-V SoC by StarFive Ltd.
+>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
+>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
+>  4 files changed, 145 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+> new file mode 100644
+> index 000000000000..b64ccd84200a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-stgcrg.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 System-Top-Group Clock and Reset Generator
+> +
+> +maintainers:
+> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-stgcrg
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Main Oscillator (24 MHz)
+> +      - description: HIFI4 core
+> +      - description: STG AXI/AHB
+> +      - description: USB (125 MHz)
+> +      - description: CPU Bus
+> +      - description: HIFI4 Axi
+> +      - description: NOC STG Bus
+> +      - description: APB Bus
+> +
+> +  clock-names:
+> +    items:
+> +      - const: osc
+> +      - const: hifi4_core
+> +      - const: stg_axiahb
+> +      - const: usb_125m
+> +      - const: cpu_bus
+> +      - const: hifi4_axi
+> +      - const: nocstg_bus
+> +      - const: apb_bus
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +    description:
+> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +    description:
+> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - '#clock-cells'
+> +  - '#reset-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
+> +
+> +    stgcrg: clock-controller@10230000 {
+> +        compatible = "starfive,jh7110-stgcrg";
+> +        reg = <0x10230000 0x10000>;
+> +        clocks = <&osc>,
+> +                 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
+> +                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
+> +                 <&syscrg JH7110_SYSCLK_USB_125M>,
+> +                 <&syscrg JH7110_SYSCLK_CPU_BUS>,
+> +                 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
+> +                 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
+> +                 <&syscrg JH7110_SYSCLK_APB_BUS>;
+> +        clock-names = "osc", "hifi4_core",
+> +                      "stg_axiahb", "usb_125m",
+> +                      "cpu_bus", "hifi4_axi",
+> +                      "nocstg_bus", "apb_bus";
+> +        #clock-cells = <1>;
+> +        #reset-cells = <1>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 93eb504c3b21..2e70c9f21989 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19914,6 +19914,7 @@ F:      arch/riscv/boot/dts/starfive/
+>  STARFIVE JH71X0 CLOCK DRIVERS
+>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>  M:     Hal Feng <hal.feng@starfivetech.com>
+> +M:     Xingyu Wu <xingyu.wu@starfivetech.com>
+>  S:     Maintained
+>  F:     Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+>  F:     drivers/clk/starfive/clk-starfive-jh71*
+> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+> index 5e4f21ca0642..5ac8a4d90a7a 100644
+> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
+> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+> @@ -1,6 +1,7 @@
+>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>  /*
+>   * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + * Copyright 2022 StarFive Technology Co., Ltd.
+>   */
+>
+>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+> @@ -222,4 +223,37 @@
+>
+>  #define JH7110_AONCLK_END                      14
+
+Hi Xingyu,
+
+The clock and reset names below have been shortened from the very long
+names in the documentation. I see you've come to the same shortened
+names as I used in the first STGCRG driver I pushed, which is great,
+but I find it highly unlikely to have happened without looking at /
+copying my code like you did for the SYSCRG and AONCRG drivers Hal has
+posted. Unfortunately the commit message above doesn't reflect that,
+so please add a
+Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+
+I do have some updated suggestions for short names below though:
+
+> +/* STGCRG clocks */
+> +#define JH7110_STGCLK_HIFI4_CLK_CORE           0
+> +#define JH7110_STGCLK_USB0_APB                 1
+> +#define JH7110_STGCLK_USB0_UTMI_APB            2 unli
+> +#define JH7110_STGCLK_USB0_AXI                 3
+> +#define JH7110_STGCLK_USB0_LPM                 4
+> +#define JH7110_STGCLK_USB0_STB                 5
+> +#define JH7110_STGCLK_USB0_APP_125             6
+> +#define JH7110_STGCLK_USB0_REFCLK              7
+> +#define JH7110_STGCLK_PCIE0_AXI_MST0           8
+> +#define JH7110_STGCLK_PCIE0_APB                        9
+> +#define JH7110_STGCLK_PCIE0_TL                 10
+> +#define JH7110_STGCLK_PCIE1_AXI_MST0           11
+> +#define JH7110_STGCLK_PCIE1_APB                        12
+> +#define JH7110_STGCLK_PCIE1_TL                 13
+> +#define JH7110_STGCLK_PCIE01_SLV_DEC_MAINCLK   14
+
+Does PCIE01 here mean that the clock is used by both pcie0 and pcie1?
+If so then maybe just call it JH7110_PCIE_SLV_MAIN
+
+> +#define JH7110_STGCLK_SEC_HCLK                 15
+
+For other clocks I think "hclk" means ahb clock, so maybe JH7110_STGCLK_SEC_AHB
+
+> +#define JH7110_STGCLK_SEC_MISCAHB              16
+
+I find something like JH7110_STGCLK_SEC_MISC_AHB a little easier to read.
+
+> +#define JH7110_STGCLK_GRP0_MAIN                        17
+> +#define JH7110_STGCLK_GRP0_BUS                 18
+> +#define JH7110_STGCLK_GRP0_STG                 19
+> +#define JH7110_STGCLK_GRP1_MAIN                        20
+> +#define JH7110_STGCLK_GRP1_BUS                 21
+> +#define JH7110_STGCLK_GRP1_STG                 22
+> +#define JH7110_STGCLK_GRP1_HIFI                        23
+> +#define JH7110_STGCLK_E2_RTC                   24
+> +#define JH7110_STGCLK_E2_CORE                  25
+> +#define JH7110_STGCLK_E2_DBG                   26
+> +#define JH7110_STGCLK_DMA1P_AXI                        27
+> +#define JH7110_STGCLK_DMA1P_AHB                        28
+> +
+> +#define JH7110_STGCLK_END                      29
+> +
+>  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+> index d78e38690ceb..4a865ded78b8 100644
+> --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
+> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+> @@ -1,6 +1,7 @@
+>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>  /*
+>   * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>   */
+>
+>  #ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
+> @@ -151,4 +152,31 @@
+>
+>  #define JH7110_AONRST_END                      8
+>
+> +/* STGCRG resets */
+> +#define JH7110_STGRST_SYSCON                   0
+> +#define JH7110_STGRST_HIFI4_CORE               1
+> +#define JH7110_STGRST_HIFI4_AXI                        2
+> +#define JH7110_STGRST_SEC_TOP_HRESETN          3
+
+JH7110_STGRST_SEC_AHB to match the clock above.
+
+> +#define JH7110_STGRST_E24_CORE                 4
+> +#define JH7110_STGRST_DMA1P_AXI                        5
+> +#define JH7110_STGRST_DMA1P_AHB                        6
+> +#define JH7110_STGRST_USB0_AXI                 7
+> +#define JH7110_STGRST_USB0_APB                 8
+> +#define JH7110_STGRST_USB0_UTMI_APB            9
+> +#define JH7110_STGRST_USB0_PWRUP               10
+> +#define JH7110_STGRST_PCIE0_AXI_MST0           11
+> +#define JH7110_STGRST_PCIE0_AXI_SLV0           12
+> +#define JH7110_STGRST_PCIE0_AXI_SLV            13
+> +#define JH7110_STGRST_PCIE0_BRG                        14
+> +#define JH7110_STGRST_PCIE0_CORE               15
+> +#define JH7110_STGRST_PCIE0_APB                        16
+> +#define JH7110_STGRST_PCIE1_AXI_MST0           17
+> +#define JH7110_STGRST_PCIE1_AXI_SLV0           18
+> +#define JH7110_STGRST_PCIE1_AXI_SLV            19
+> +#define JH7110_STGRST_PCIE1_BRG                        20
+> +#define JH7110_STGRST_PCIE1_CORE               21
+> +#define JH7110_STGRST_PCIE1_APB                        22
+> +
+> +#define JH7110_STGRST_END                      23
+> +
+>  #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
+> --
+> 2.25.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
