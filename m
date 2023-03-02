@@ -4,88 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081AFC7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 03:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D476C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 03:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=LG9LAZPHYB73Yvbu9UfkWIQjZawBHhApyYYlWBCd9QU=; b=yASJA371ffVe1kN147LIA/GhlN
-	EI5vSZlv6Vmy2S3lcgSFUl68XKWFoj1+1cAlWrBORxZkPkw2zam19qsutKXSmge9zfEbWvC4IaPdr
-	7Wk8lc2XbTQafXbXgGO4a/oFv7ZzkDLKkXCUktnJ3nwfItukqpuUsUoL2U2kBMxInnLTzMr9bp0vQ
-	DaWweS/lPxLEmHQub/Pi8OxwOLLUQ81vJqOpTdcElOlVfxVujA5F7lqxe0kL74SRnJ4bU+MKlJQGK
-	sHYhYAdiC/lcDXGkP0VbxPF3LkxYnWuphF2yD0MZStO6CNO1jpMY5ZDPWI1XECQz0pvcE48jHbb/k
-	ogs6gffw==;
+	bh=Xq73MZ+VNqAAjcuIDF6DqUrH4PF6A5TVmS0vaZG24s0=; b=hya67sWETeGo7xabWMNFxemRIB
+	mAIs2O09TJ6r7T3qnS56ugqd7Qqig+27bhMlg3RasH80HM/fec1qc2tZdUdoUKSXqT43ONdqdNrKX
+	GVOX5MXtmQom8pUeeVoAFDxp3AlftcWbzXrtNpPOhpfCk2QTQUwpqied2RPs3FHKI2jsXNRHx2HwI
+	h+GKPgw/KvtnDmH8Mj6X3TGA/B4MH8pP0/pxg7rOxy2hX7c4zvFa9cEk27uQtCtV3ftLTZqZKWJrh
+	j3OwJAr6n8Yey6IVL8/FIgUbT8YQS3EINFNGPJuV+jldNMiBZDPKob8saq6iqs5Qg40jmuatH0xY+
+	L6CSsBxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXZRe-000eD4-Hg; Thu, 02 Mar 2023 03:17:26 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1pXZRn-000eJB-BD; Thu, 02 Mar 2023 03:17:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXZRa-000e85-8P
-	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 03:17:24 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id a2so5751384plm.4
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 19:17:18 -0800 (PST)
+	id 1pXZRj-000eFw-M5
+	for linux-riscv@bombadil.infradead.org; Thu, 02 Mar 2023 03:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
+	Content-ID:Content-Description:References;
+	bh=On9It+4zdvXePGpqvCCrKF4Zz8YWrxnIbxTBVMgkuCs=; b=GMcMQha9LGblZ5hSBxuc9fArdz
+	7ejCpw3gsU4EHhvKleZ53B56RjDLDybz97TmnvkqGrdITHHBT5wLLgGhbdZwa8AkInHYTIo1Ri7NC
+	iUP+bZaxGDsduePNkKJ9BTSOEJK7G5jIC5TICCC6tOEWyvh9OBSF/S7fLAAEG3NQkaBHRVs74gJgR
+	ABnrWWvRTQ59PnoteH+cYFHUIKieeoWSfosRS/gYZnr232GmPYblq8JmmIJRFOMbP3etgYPDFyBtH
+	8DGxzwyWNJE9MgvqX7l0m6KbJbI79DlM+pMKBKu7I8F8aIXuCAArVzwpnuLun7khbUbmcwp477ccw
+	fOccNlPQ==;
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pXZRc-00F8L0-2c
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Mar 2023 03:17:29 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id me6-20020a17090b17c600b0023816b0c7ceso1454310pjb.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 19:17:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677727038;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1677727040;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hgpf8cgLJj50M86L5F9BUoIAMwjT++SeEfR1/zwwwE0=;
-        b=05BK9h2oN73d+vLQZ8AXICX+yqZH9PJw8eGQwQu3aLpPw/PQkKLBM+zl4FHFPDCMbr
-         oT2a7ycW9j4IvNJVs7ZNd3qeiw85Qtha4m0oAo5Q0QiPipyRwzSV4J3XcelEef5d8yqB
-         I4KXQDK7qQ+mAPYeZvAqQG78vIyZoGQH/5i1rIXtVNLbcQNF9Kn0gW9O7HWaBv1Z1Hfx
-         4q2OGZuaoqmuPypq3KgIWVltCxcy5gmQYJ+016KcQmuC/U0yrGY0o6z+m+PHYIZUzGYI
-         1grLiGwuTn7D4jkc5r6I/7tUA73EppBwvM41vkni8yrDAA+aUFBNlGO/ZUE432ubFqlh
-         lUug==
+        bh=On9It+4zdvXePGpqvCCrKF4Zz8YWrxnIbxTBVMgkuCs=;
+        b=It4hmxTEAyg7hPQnG8xuSpgz+jJKrlOhrcoQbLU4P/YxhalWRyom0ZRJ9msu/DO/86
+         AiIsktubYrvwpRFNifmG+BrBU8v6Yala4vW9pwjX/bv47kqdaFRBl58uJ5bIBRTWVMBT
+         NEWSeyJD4fgG+iWneC8bOvtxcO0rBYIjkLBer1PgLGvr/r+TBMTp8+ncLKFkUa5GBOHq
+         LyRA8ug4TwsdvYR3u1GIAGW60jHpBModJwHYh1E3SbElOIomsRGv1pXdHkKrQoLtx60j
+         B+LSax1q+0/Z9R4mu/KI8ChOEX0yXbPBPiNHSvaszPAfYNONdpL5L3WAXmTh1suUklGm
+         5kcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677727038;
+        d=1e100.net; s=20210112; t=1677727040;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hgpf8cgLJj50M86L5F9BUoIAMwjT++SeEfR1/zwwwE0=;
-        b=Fu57BMhTw95ahSvMsI9iTp8E300I1Hg+hYjPUxPtJLQNv2SeTKrSIgqn6VCLrTO5tb
-         9A63KrpXBV4rZnL7yLT/ZZtd0OONbmSDKE2w6pnhiXgrIzQloypCB03n+lqoif+qfZMx
-         1PpqjKiw+dNihtoSf6zku+wDOYyvRoUGR8Clpc4wH/dh/s4VLeJWBTFFnafss1cik5zO
-         ukjDIgWabraHGjUXhruWa9tCwOrRU6bfVSMsIK09GTWoJkfaJQTiM3sIU03HlUAIV31E
-         +IeOtGEnkuyPIVU7p+ZkpNm0Nknx9NkeEpSwuiZldN/T7hbxq3YnjCinyQWBDtUU0kCJ
-         RX8Q==
-X-Gm-Message-State: AO0yUKW0igyFK/fZtISpW4uphS/qFb62DpbDuktuQHuonDysx4+WV0vJ
-	+gDRS44cnzFJQmyjQRNQNmDTGg==
-X-Google-Smtp-Source: AK7set9sdV/+BdUm2bBjL395AsIYL1A1j9eCLS8ecMxY0Ws8WD4l1oqL273WzlVwyO1Yv4lm9xFKPQ==
-X-Received: by 2002:a05:6a20:1bde:b0:cc:de56:957a with SMTP id cv30-20020a056a201bde00b000ccde56957amr8709472pzb.13.1677727037881;
-        Wed, 01 Mar 2023 19:17:17 -0800 (PST)
+        bh=On9It+4zdvXePGpqvCCrKF4Zz8YWrxnIbxTBVMgkuCs=;
+        b=Fgpe84XXVZC9pS8DIQaQLOlx6F+v03t7CvX6LgzYULEOWPVgsrHRumoSVaUWOFqhae
+         OxyLnVZUJbxaSiuFfmYOXVY/glm52ky22cAVk82wTzZy/2QplS4/1iHLOcUKgVZgqUF0
+         3HsvS11rWZ6kLc/v7Yyoh020nlkqtlMVNZmtWn+mBpiku30d6e3CmHklv5HSj4JC/SmX
+         nc49AKSB/+Ba9HVhPe7KNhiCv3E8TFz0wLQaFqRctDtV0rPfVsBoJjwgLLjxLwmWjYD+
+         IhTEzyqGXJYZDOFZ0H42OZE/XwCQuX74Qcgm1Xi86bl8UNSL/weT9AFEANNuKZa8ly0c
+         /UzA==
+X-Gm-Message-State: AO0yUKXy35HjOL+qyHfNWoqGhitN4EIBq1aWhvPT9gHpZXKiNiTXnlHU
+	RkKmaVYuMEHqvoBD3EroKIQ3Kw==
+X-Google-Smtp-Source: AK7set9NlkpYiMNjk7pdCtbLbxqSj79/p1ppAGwB6F9HvsUOQ5DEbSCAxLqrZ/Sx9hwWvoGz24uxIQ==
+X-Received: by 2002:a17:90b:1c8d:b0:236:76cb:99d2 with SMTP id oo13-20020a17090b1c8d00b0023676cb99d2mr10274539pjb.8.1677727039843;
+        Wed, 01 Mar 2023 19:17:19 -0800 (PST)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id h192-20020a636cc9000000b00502f5cd216bsm8183287pgc.6.2023.03.01.19.17.16
+        by smtp.gmail.com with ESMTPSA id d7-20020a17090a498700b002340b2c62e7sm437605pjh.55.2023.03.01.19.17.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Mar 2023 19:17:16 -0800 (PST)
-Date: Wed, 01 Mar 2023 19:17:16 -0800 (PST)
-X-Google-Original-Date: Wed, 01 Mar 2023 18:55:30 PST (-0800)
-Subject: Re: [PATCH v3 03/24] arm: Remove COMMAND_LINE_SIZE from uapi
-In-Reply-To: <874b8076-b0d1-4aaa-bcd8-05d523060152@app.fastmail.com>
-CC: alexghiti@rivosinc.com, linux@armlinux.org.uk, corbet@lwn.net,
+        Wed, 01 Mar 2023 19:17:18 -0800 (PST)
+Date: Wed, 01 Mar 2023 19:17:18 -0800 (PST)
+X-Google-Original-Date: Wed, 01 Mar 2023 19:04:58 PST (-0800)
+Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
+In-Reply-To: <Y+tSBlSsQBQF/Ro2@osiris>
+CC: geert@linux-m68k.org, alexghiti@rivosinc.com, corbet@lwn.net,
   Richard Henderson <richard.henderson@linaro.org>, ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
-  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, chenhuacai@kernel.org, kernel@xen0n.name,
-  geert@linux-m68k.org, monstr@monstr.eu, tsbogend@alpha.franken.de,
+  linux@armlinux.org.uk, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+  chenhuacai@kernel.org, kernel@xen0n.name, monstr@monstr.eu, tsbogend@alpha.franken.de,
   James.Bottomley@hansenpartnership.com, deller@gmx.de, mpe@ellerman.id.au, npiggin@gmail.com,
   christophe.leroy@csgroup.eu, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-  svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
-  tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-  hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, linux-doc@vger.kernel.org,
+  gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
+  ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
+  bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, chris@zankel.net,
+  jcmvbkbc@gmail.com, Arnd Bergmann <arnd@arndb.de>, linux-doc@vger.kernel.org,
   linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
   linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
   linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
   linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Message-ID: <mhng-78901e66-16df-4563-9e2c-3a9744ef2828@palmer-ri-x1c9a>
+  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+  linux-arch@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: hca@linux.ibm.com
+Message-ID: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230301_191722_534120_A2796D4A 
-X-CRM114-Status: GOOD (  29.03  )
+X-CRM114-CacheID: sfid-20230302_031725_743694_F70212C6 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +118,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Feb 2023 05:09:17 PST (-0800), Arnd Bergmann wrote:
-> On Thu, Feb 23, 2023, at 10:54, Alexandre Ghiti wrote:
->> On Wed, Feb 15, 2023 at 2:05 PM Arnd Bergmann <arnd@arndb.de> wrote:
->>>
->>> On Wed, Feb 15, 2023, at 13:59, Russell King (Oracle) wrote:
->>> > On Tue, Feb 14, 2023 at 08:49:04AM +0100, Alexandre Ghiti wrote:
->>> >> From: Palmer Dabbelt <palmer@rivosinc.com>
->>> >>
->>> >> As far as I can tell this is not used by userspace and thus should not
->>> >> be part of the user-visible API.
->>> >>
->>> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->>> >
->>> > Looks good to me. What's the merge plan for this?
->>>
->>> The easiest way is probably if I merge it through the whole
->>> series through the asm-generic tree. The timing is a bit
->>> unfortunate as we're just ahead of the merge window, so unless
->>> we really need this in 6.3, I'd suggest that Alexandre resend
->>> the series to me in two weeks with the Acks added in and I'll
->>> pick it up for 6.4.
+On Tue, 14 Feb 2023 01:19:02 PST (-0800), hca@linux.ibm.com wrote:
+> On Tue, Feb 14, 2023 at 09:58:17AM +0100, Geert Uytterhoeven wrote:
+>> Hi Heiko,
 >>
->> Sorry for the response delay, I was waiting to see if Palmer would
->> merge my KASAN patchset in 6.3 (which he does): I have to admit that
->> fixing the command line size + the KASAN patchset would allow 6.3 to
->> run on syzkaller, which would be nice.
->>
->> If I don't see this merged in 6.3, I'll send another round as you
->> suggested in 1 week now :)
->
-> Hi Alexandre,
->
-> I have no plans to still pick up the series for 6.3. The patches
-> all look fine to me, but it's clearly too late now. What is the
-> actual dependency for KASAN, do you just need a longer command
-> line or something else? If it's just the command line size,
-> I would suggest that Palmer can still pick up a oneline change
-> to increase it and refer to this thread in the changelog as a
-> reference for why it is not an actual UAPI break.
+>> On Tue, Feb 14, 2023 at 9:39 AM Heiko Carstens <hca@linux.ibm.com> wrote:
+>> > On Tue, Feb 14, 2023 at 08:49:01AM +0100, Alexandre Ghiti wrote:
+>> > > This all came up in the context of increasing COMMAND_LINE_SIZE in the
+>> > > RISC-V port.  In theory that's a UABI break, as COMMAND_LINE_SIZE is the
+>> > > maximum length of /proc/cmdline and userspace could staticly rely on
+>> > > that to be correct.
+>> > >
+>> > > Usually I wouldn't mess around with changing this sort of thing, but
+>> > > PowerPC increased it with a5980d064fe2 ("powerpc: Bump COMMAND_LINE_SIZE
+>> > > to 2048").  There are also a handful of examples of COMMAND_LINE_SIZE
+>> > > increasing, but they're from before the UAPI split so I'm not quite sure
+>> > > what that means: e5a6a1c90948 ("powerpc: derive COMMAND_LINE_SIZE from
+>> > > asm-generic"), 684d2fd48e71 ("[S390] kernel: Append scpdata to kernel
+>> > > boot command line"), 22242681cff5 ("MIPS: Extend COMMAND_LINE_SIZE"),
+>> > > and 2b74b85693c7 ("sh: Derive COMMAND_LINE_SIZE from
+>> > > asm-generic/setup.h.").
+>> > >
+>> > > It seems to me like COMMAND_LINE_SIZE really just shouldn't have been
+>> > > part of the uapi to begin with, and userspace should be able to handle
+>> > > /proc/cmdline of whatever length it turns out to be.  I don't see any
+>> > > references to COMMAND_LINE_SIZE anywhere but Linux via a quick Google
+>> > > search, but that's not really enough to consider it unused on my end.
+>> > >
+>> > > The feedback on the v1 seemed to indicate that COMMAND_LINE_SIZE really
+>> > > shouldn't be part of uapi, so this now touches all the ports.  I've
+>> > > tried to split this all out and leave it bisectable, but I haven't
+>> > > tested it all that aggressively.
+>> >
+>> > Just to confirm this assumption a bit more: that's actually the same
+>> > conclusion that we ended up with when commit 3da0243f906a ("s390: make
+>> > command line configurable") went upstream.
 
-Sorry for being slow here, I just queued up the original patch in the 
-RISC-V tree and intend on sending it for 6.3 -- the main worry was that 
-it's a uABi change and we're confident it's not.  It's late, but I'd 
-prefer to have this as it should let us start running syzkaller now and 
-that'll probably find more bugs than this is likely to trigger.
+Thanks, I guess I'd missed that one.  At some point I think there was 
+some discussion of making this a Kconfig for everyone, which seems 
+reasonable to me -- our use case for this being extended is syzkaller, 
+but we're sort of just picking a value that's big enough for now and 
+running with it.
 
-https://lore.kernel.org/r/mhng-b5f934ff-a9bb-4c2b-9ba6-3ab68312077a@palmer-ri-x1c9a/
+Probably best to get it out of uapi first, though, as that way at least 
+it's clear that it's not uABI.
+
+>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
+>> I assume?
+>
+> Yes, sorry for that. I got distracted while writing and used the wrong
+> branch to look this up.
+
+Alex: Probably worth adding that to the list in the cover letter as it 
+looks like you were planning on a v4 anyway (which I guess you now have 
+to do, given that I just added the issue to RISC-V).
 
 _______________________________________________
 linux-riscv mailing list
