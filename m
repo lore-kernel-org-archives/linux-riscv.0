@@ -4,129 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAEB8C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 09:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BB6C7EE30
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 09:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1BxLgTke3WZzRNbHSeOx0GJJOqsMerAKI2kekLlNyMY=; b=ipBoBnOrBoe2ig
-	a8ufYd45H21RVg2tpZoQsjWkaAPiW7VHZDeC2V4ypAAk1Z+6GwfdgBidWTGAapbpXCJO4DgWo25Uy
-	ezPh27UO22Hm/hjkS+QVsw2D/YBTklXJcytfMC00rDcPUibZd9oYF7UWLIIIUFTslB3e7QzJj63ZW
-	Tqmmk88S9FMhEWz3IiLVndq3eihZ4WSOygZiKFdDda7milA0eHE/RK8bFekoD1tc+a3SVRqC98cfS
-	iSemEgB3q9mJjKnhGxMOUPCntkkb/hVRIvZ2fIseEm1DlIJQpVlpIiQu57iMLOS8O4gqHwKCAG6e4
-	bqpAKVB6jRl7Mj2NhSig==;
+	List-Owner; bh=/fn+3/aABT/sek7u4rQJxZheS2PvK3ffkdeY/aOw+t0=; b=30ZCWq+tkVftgD
+	3igK0K64fNDqy0w0Zk+zdQjk/wWr4AilKjKBatnJqO4brm284+2zttJEfYF/M8jzvdZtPPm2xmIkc
+	Q9oHY3cFhD1493xqAQ+sbHz8nlAmBRAIob3QPiIhK3WebZ/gBBYv2LVSvV7fnv5092i/yiK1v+Owg
+	KMKVYhYwcgLmvaBqqDokxshQpcC42mSGmFDQ0G8cuATCmGp50N5RWlYumV0igEnggdoJGOgAEPo9e
+	KDyob9RbgTsnKpDk9cQLtT4DbgX0Vii0lviWbGMRdYYPkg3/+YNVT4bTdwinwm+jxZOASl0mnLZrC
+	f8yZmxJeuJfpvuF2EkjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXfOm-001SRG-Ol; Thu, 02 Mar 2023 09:38:52 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1pXfPW-001SlT-IR; Thu, 02 Mar 2023 09:39:38 +0000
+Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXfOi-001SOk-N8
-	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 09:38:50 +0000
-Received: by mail-wm1-x334.google.com with SMTP id o38-20020a05600c512600b003e8320d1c11so1742470wms.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 01:38:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677749927;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2urgpMO2KVxl6lplPPVxnOzeLpIAncQaLe3J6thpyW4=;
-        b=PIQBVis/eCZwrjnEm3UchoPAwrLAxQo8LeBswck20022oG1kRdlDV/slA4zZyYTNe8
-         heys8AwaMW0d2H39RYAdasZSaYwfxS9ZsI4rI8ysRKgEN+Qlw5akvxEGyZBxK3ZToJa5
-         C/ow6qrB9k8PM2BQ3LcXjU3gNu9Xrzf9K0AgVkXKHE7VxTRCjPl4cHxq2DN23F5p91Jd
-         jfZBNgeeX6rbxglOe4yiBaiE5O9KT3GvEJjC2T+Jkba3USz5B6rwc/jBwSq1y7pgHmYU
-         tRwBfE1Fiy9t9YtdNqaRXN7+EPus5Le4eU8S+S5DBThh4HLY1wDC6UZNa9X47ZqF8ceK
-         THMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677749927;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2urgpMO2KVxl6lplPPVxnOzeLpIAncQaLe3J6thpyW4=;
-        b=bZyBfFMZL2WXhue86WDn36X5BaiX0bLbrfIlYNw1oFX8Gk9b6O0JQD2526onU/JoAV
-         G0WvRCH0wtFoFqxaCCNYkf9BJMJwjTqYw/TRKzBzoz+D08DRfAlEVS06Bevp61RJPfwC
-         zWu7luhjpuhkdHFuPTsegw+pWK/Xy5M4Vu/iOMtkKI4bGLfmcPJdybBlocH+0fXWnIzs
-         39D3S6Yu6z/U4mDE/Pn01YW65Rux4zcB91C86oZs+8sAgqofocZosBHkOWxEr6ZOwAxU
-         dqk/z3ryPMkWIZ6rcxr0OxvHdRerlb6eG4LwM4Kt5uiWJDdT1rxlVvBA+6+owx9mW6GX
-         c9Lw==
-X-Gm-Message-State: AO0yUKWx6QE6TwDa123FtDxDYL2wD188ENbf1kwOSttUgVkaKjy3oMbO
-	cPImydMUxILk7OhbzZCJVpMV9Q==
-X-Google-Smtp-Source: AK7set8oHbNygBzt6W0addU+vytnwYPbfGJKv/ey/v/+peloy8qf6kGz0Nh2z+vcesYMnit2/ORc3g==
-X-Received: by 2002:a05:600c:1c8e:b0:3ea:f873:13aa with SMTP id k14-20020a05600c1c8e00b003eaf87313aamr8083072wms.40.1677749927246;
-        Thu, 02 Mar 2023 01:38:47 -0800 (PST)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id l35-20020a05600c1d2300b003e6dcd562a6sm2554811wms.28.2023.03.02.01.38.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Mar 2023 01:38:46 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v4 03/24] arm: Remove COMMAND_LINE_SIZE from uapi
-Date: Thu,  2 Mar 2023 10:35:18 +0100
-Message-Id: <20230302093539.372962-4-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230302093539.372962-1-alexghiti@rivosinc.com>
-References: <20230302093539.372962-1-alexghiti@rivosinc.com>
+	id 1pXfPT-001SiM-EU
+	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 09:39:37 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 9DA1421BEC;
+	Thu,  2 Mar 2023 09:39:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1677749968; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+5Eko+WcrMxC5t7d8GKXpWvxo3Yahw7e+tVwSxLpopQ=;
+	b=IN/qE7OkrB4Hmr8cwo+9t0IR5oew+qfmK06LOC8isvgwUMnIFPAI+LplWKu1EQcJBcWPCb
+	C1eLv6nbu8MzUPSk6pk5ztBFrQT1PpYIsyv4aCEOA8pa2QE1ITGi/NkOC0RMqf2v3glEjy
+	jvEb5v2anS/2abEt7Sf/6QS8FljzW9Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1677749968;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+5Eko+WcrMxC5t7d8GKXpWvxo3Yahw7e+tVwSxLpopQ=;
+	b=0U1AVYw6al6TQ3XTjxUcsakH4+Fls+/amTeX3okzsVywWAVOxcVqUuos3knvjCP2/mfnEQ
+	6EEpRV3W60MYkxCQ==
+Received: from hawking.suse.de (unknown [10.168.4.11])
+	by relay2.suse.de (Postfix) with ESMTP id 071322C141;
+	Thu,  2 Mar 2023 09:39:28 +0000 (UTC)
+Received: by hawking.suse.de (Postfix, from userid 17005)
+	id BBB3D442EE6; Thu,  2 Mar 2023 10:39:27 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: <linux-riscv@lists.infradead.org>,  <devicetree@vger.kernel.org>,
+  "Daniel Lezcano" <daniel.lezcano@linaro.org>,  Thomas Gleixner
+ <tglx@linutronix.de>,  Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>,  Rob Herring <robh+dt@kernel.org>,
+  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
+ <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Philipp Zabel
+ <p.zabel@pengutronix.de>,  Samin Guo <samin.guo@starfivetech.com>,
+  <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 2/3] clocksource: Add StarFive timer driver
+References: <20221223094801.181315-1-xingyu.wu@starfivetech.com>
+	<20221223094801.181315-3-xingyu.wu@starfivetech.com>
+X-Yow: ..  I think I'd better go back to my DESK and toy with
+ a few common MISAPPREHENSIONS...
+Date: Thu, 02 Mar 2023 10:39:27 +0100
+In-Reply-To: <20221223094801.181315-3-xingyu.wu@starfivetech.com> (Xingyu Wu's
+	message of "Fri, 23 Dec 2022 17:48:00 +0800")
+Message-ID: <mvmzg8vlcfk.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_013848_802620_3F58EBD4 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20230302_013935_727093_CF30D507 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,46 +90,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+drivers/clocksource/timer-starfive.c:117:13: error: conflicting types for 'timer_shutdown'; have 'void(struct starfive_clkevt *)'
+  117 | static void timer_shutdown(struct starfive_clkevt *clkevt)
+      |             ^~~~~~~~~~~~~~
+In file included from ./include/linux/workqueue.h:9,
+                 from ./include/linux/srcu.h:21,
+                 from ./include/linux/notifier.h:16,
+                 from ./include/linux/clk.h:14,
+                 from drivers/clocksource/timer-starfive.c:12:
+./include/linux/timer.h:188:12: note: previous declaration of 'timer_shutdown' with type 'int(struct timer_list *)'
+  188 | extern int timer_shutdown(struct timer_list *timer);
+      |            ^~~~~~~~~~~~~~
 
-As far as I can tell this is not used by userspace and thus should not
-be part of the user-visible API.
-
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Reviewed-by: Russell King (Oracle) <linux@armlinux.org.uk>
----
- arch/arm/include/asm/setup.h      | 1 +
- arch/arm/include/uapi/asm/setup.h | 2 --
- 2 files changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/arch/arm/include/asm/setup.h b/arch/arm/include/asm/setup.h
-index ba0872a8dcda..8a1e4f804d1b 100644
---- a/arch/arm/include/asm/setup.h
-+++ b/arch/arm/include/asm/setup.h
-@@ -13,6 +13,7 @@
- 
- #include <uapi/asm/setup.h>
- 
-+#define COMMAND_LINE_SIZE 1024
- 
- #define __tag __used __section(".taglist.init")
- #define __tagtable(tag, fn) \
-diff --git a/arch/arm/include/uapi/asm/setup.h b/arch/arm/include/uapi/asm/setup.h
-index 25ceda63b284..87a4f4af28e1 100644
---- a/arch/arm/include/uapi/asm/setup.h
-+++ b/arch/arm/include/uapi/asm/setup.h
-@@ -17,8 +17,6 @@
- 
- #include <linux/types.h>
- 
--#define COMMAND_LINE_SIZE 1024
--
- /* The list ends with an ATAG_NONE node. */
- #define ATAG_NONE	0x00000000
- 
 -- 
-2.37.2
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
