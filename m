@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77C2C7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 03:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE53C87FE4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Mar 2023 03:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=YkqrzckMWh4OvmC5MRajHn5+yGIl3J4Q9j7VBAP206c=; b=eeK
-	GyrSdJM5+iC42DoedMQkupawyQY7Q26kWjQIMfmIuPGt/srSYIlkuJH9eJoargtVk0v14jo2sxrEU
-	gAZ86D9oe37ORaZM1tb7YlM+vgmCcWzCZwmbG8L8/qb5h3gi8z1R6B8QaU6BIgSKfCxf77cccjNYl
-	3U0pY1QFuJNrRMdabamQWoiqzEgnL3WTljUOPr1tsR4PIkahQSd38U+p8CczcPpr7A8DRip4uelXt
-	CmoMh8WZ/EdN9WwnYGqrSxDySPXztq6KIbmt4ujrgiGOeOZoRetKoTflpVuHujcIP2wyQGQFtjZcJ
-	Me5W0c61z9D4RKeC7+fWcGL7BmS0Z4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=1/08XiMsoSCH91VKFujBpmeXv5+YoN9cnP65cKDD1Qk=; b=q9Dd2K/3H2tjpA+jajpmCbBFau
+	LC5P/R81F3Vcs8chmTgbyRn0vkK7hg2Zu34LQfQ086lJUSzzX6ZyBCEsJAFidbRRbJ2TmVIT7ajQY
+	B/Y60f4dCqHxyY3JWcdG4aJ1vW+uI22FgCwixRXZe95zr+sl5+6EUQQ+BfE4vIAOwFa9cEe+x3TUH
+	2vf/J/gEErmWLKNx53da6SYZEFwBjP3OaYuVzzS7YYHmxycWouW2TgaOgJWkmgw+//zzBc++FC4ZD
+	NRVUFZOnhu5Wc8urN70rhGsGiNEHPrvwZs90vbpE/J5rQT7wp55OUc9E6wj0kLQYqn8gNFeXyr3Ua
+	7Nb6I5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXZOD-000dhw-OU; Thu, 02 Mar 2023 03:13:53 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1pXZRb-000eBJ-9z; Thu, 02 Mar 2023 03:17:23 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXZOA-000dh5-NP
-	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 03:13:52 +0000
-Received: by mail-lf1-x129.google.com with SMTP id m7so20359494lfj.8
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 19:13:49 -0800 (PST)
+	id 1pXZRX-000e7p-JT
+	for linux-riscv@lists.infradead.org; Thu, 02 Mar 2023 03:17:22 +0000
+Received: by mail-pl1-x631.google.com with SMTP id a9so6057446plh.11
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 19:17:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Gy2spJrRv8c9pxvMpe9hjScocqIfMnsVlwLx8hf66zg=;
-        b=o8blclsJ4xN3z3mUuU1n6y+tRFLmMFBB/JQt1tdXgTSIImTFGTGXv9a3bjLoHTVtzp
-         wVo4izX6jFp1PsNFHxm8U89euT3Cch6pVmFN8/1+yPTpJ1NhuJcU/7V1PwesJ/zmSH/8
-         E0kdgOedqDmvFJyk4oFnHYWmsAIz09SsRHjbXtrjwErhmhqrO8+Cj8vGyz6i4FX2OPV2
-         v6ARNOgAV55KBHguWrwmisrO/3GSmNLXo+mNQb5AwgG/BfWN2MtlTEW80TNqdrLQtPSC
-         Xu1+pMxjiaUcxU3BqtRMWRWQF8GistzcejdTdCPd05czMCEFeJt6ffbsHUTrq/FrQYQb
-         LxIg==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1677727036;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yy8ScGXaPSZXR051KFshbh6rpME2gALKfyyYjKgrOsY=;
+        b=1Fjb1Ol7oyLqZePeb695gZAWNtlosNuUTHqTxxBczo/bwNsajQZ3gXYBbUqqyBGcCs
+         Ll5Ny1mgiMzGgATsdQTmchHzetb9I0JwA8PpRaYGw3/A6L46QFVfdpOPJFj9ctQ65OK1
+         8O1h8N6pYgzLtxrOlXGs5+KNdOf7N+gnG3b+wGWC1ifpnuUZqVnfQwWlphqMahuwSL+/
+         5LBrbVsKhqj0n6VcRvkh39rmW1c5/jA3ulK6ysyYlLBYWSZ64Pe+GCo5gxF7BWjgPivS
+         aI6lGqJruNSWZlJxgdBIuZ1pAVTxEfyMnkq6gs5btO6Sxp1aPQZrm4U2swNf6BpPbzsU
+         6Q4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Gy2spJrRv8c9pxvMpe9hjScocqIfMnsVlwLx8hf66zg=;
-        b=FeEKx9EiFXLYleLHm21NTuC0dWkjJYxBexFXyQad1+Vhkg+IENf8bKdqh4QRkkipzi
-         whTdRLCyQTjydj0uvifsUmPOqfdXDDn9xBya+7t70eq21NgaIJ46Qae7+kmP27g3uA29
-         r39Hv03VopH7y9jpF3jzaoxSD4C2NaklLo201S5/udEEX9LLzNeW9391DxsWmEnwv2Ze
-         4/lK3d4wseM38DJLOHh//2yuvb9XetK/X+OvqBUXjUJdvVKbkqugmed95ST+2krZ9cdF
-         y1GugGvjLHz3FQE5ShzyRnKZ4BTqkPtXzqy3+rHWeO0ZRz+Ilq4CoxhjYcxQfxPc80Uc
-         GHWA==
-X-Gm-Message-State: AO0yUKXOD7Lh/S6XSmkzhxN0Q5OMrYH7WUYKXSh4AaAEwOu+SY/AzujE
-	W36uNi8uVbB2qUoS88ow7le3WmlzSmFsFu0QH/UMp4W26V2/uVxd
-X-Google-Smtp-Source: AK7set+/zQLBRR+V2DudvPvpx0fnrQGnH596TT2OL5Y2yanfAhicJkFrnP9+SvvzTeRfLDx9D3DXWvDaAGLAqW8YiJg=
-X-Received: by 2002:ac2:4c0a:0:b0:4db:f4b:a552 with SMTP id
- t10-20020ac24c0a000000b004db0f4ba552mr2567391lfq.13.1677726827840; Wed, 01
- Mar 2023 19:13:47 -0800 (PST)
-MIME-Version: 1.0
-From: Chathura Rajapaksha <chathura.abeyrathne.lk@gmail.com>
-Date: Wed, 1 Mar 2023 22:13:36 -0500
-Message-ID: <CAD7mqryyz0PGHotBxvME7Ff4V0zLS+OcL8=9z4TakaKagPBdLw@mail.gmail.com>
-Subject: RISC-V Linux kernel not booting up with KASAN enabled
-To: linux-riscv@lists.infradead.org
+        d=1e100.net; s=20210112; t=1677727036;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Yy8ScGXaPSZXR051KFshbh6rpME2gALKfyyYjKgrOsY=;
+        b=33zEbZWgojNqw2HT0ZeqwGjTRtHV08HPMPPC01ndqL1LLr49gqx/mELauiGpb7fR6H
+         /a+gpDCJaGjx+wbSCaob72emC87Qd3WHOL2CeKntPIQkTwKklLcon2ts1npxG0A99Hah
+         iN6oaGGyNmnYhkad6Ici8AbW9pWAycy+thsszADGPPJbS4M2Hpru7/5QvCJ9gct+7Rw1
+         nrN2gEsioBjHINQYrYysGcXkvUwe4kzH6QF51rhchhdhMEoVPOVD2p8GNBxJ0qqjwuxa
+         0PW0S0INeedXV7yclOXhO7WMOFmKcZ1Qs6CwdU3GovkWDVVy8ki31sy+Wt8Y1zEyXj/E
+         4Vqw==
+X-Gm-Message-State: AO0yUKVZQh9/FNokowkg14XUm+7hgIoLhZYHz56FJwdy/KQfs4w6UYwe
+	oCBcgLNetXBqXARD4/wXqNIdHw==
+X-Google-Smtp-Source: AK7set86iSrspYl9o5QA4dvohEJpeugUFFE2LdL8HMA1D0E7CvP+4EY0c6yOV5XVN8vGyzkrQJiagw==
+X-Received: by 2002:a17:90b:1d12:b0:238:e9:8994 with SMTP id on18-20020a17090b1d1200b0023800e98994mr10162686pjb.0.1677727035890;
+        Wed, 01 Mar 2023 19:17:15 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id v14-20020a17090a6b0e00b00233b5d6b4b5sm471042pjj.16.2023.03.01.19.17.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Mar 2023 19:17:15 -0800 (PST)
+Date: Wed, 01 Mar 2023 19:17:15 -0800 (PST)
+X-Google-Original-Date: Wed, 01 Mar 2023 18:50:05 PST (-0800)
+Subject: Re: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
+In-Reply-To: <20210316193420.904-1-alex@ghiti.fr>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, dvyukov@google.com,
+  linux-api@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, alex@ghiti.fr
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: alex@ghiti.fr, Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-b5f934ff-a9bb-4c2b-9ba6-3ab68312077a@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230301_191350_815960_B8EB2E4C 
-X-CRM114-Status: UNSURE (   7.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230301_191719_877451_F04FC804 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +84,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+On Tue, 16 Mar 2021 12:34:20 PDT (-0700), alex@ghiti.fr wrote:
+> Increase COMMAND_LINE_SIZE as the current default value is too low
+> for syzbot kernel command line.
+>
+> Reported-by: Dmitry Vyukov <dvyukov@google.com>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/riscv/include/uapi/asm/setup.h | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>  create mode 100644 arch/riscv/include/uapi/asm/setup.h
+>
+> diff --git a/arch/riscv/include/uapi/asm/setup.h b/arch/riscv/include/uapi/asm/setup.h
+> new file mode 100644
+> index 000000000000..66b13a522880
+> --- /dev/null
+> +++ b/arch/riscv/include/uapi/asm/setup.h
+> @@ -0,0 +1,8 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
+> +
+> +#ifndef _UAPI_ASM_RISCV_SETUP_H
+> +#define _UAPI_ASM_RISCV_SETUP_H
+> +
+> +#define COMMAND_LINE_SIZE	1024
+> +
+> +#endif /* _UAPI_ASM_RISCV_SETUP_H */
 
-I observed that RISC-V Linux hangs when I enable KASAN.
-Without KASAN it works fine with QEMU.
-I am using the commit ae3419fbac845b4d3f3a9fae4cc80c68d82cdf6e
+This is now back on for-next, with some commit text explaining why it's 
+not a uABI change as per Arnd's message 
+<https://lore.kernel.org/linux-riscv/874b8076-b0d1-4aaa-bcd8-05d523060152@app.fastmail.com/#t>.  
+I intend on sending this one for 6.3 as syzkaller depends on it.
 
-When KASAN is enabled, QEMU hangs after OpenSBI prints.
-
-I noticed a similar issue was reported before in
-https://lore.kernel.org/lkml/CACT4Y+ZmuOpyf_0vHTT4t3wkmJuW8Ezvcg7v6yDVd8YOViS=GA@mail.gmail.com/t/
-But I believe I have the patch mentioned in that thread.
-
-My kernel config:
-https://drive.google.com/file/d/1j9nU7f9MxCc_i-UHUCTvo7o6nDrcUz0w/view?usp=sharing
-
-Best regards,
-Chath
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
