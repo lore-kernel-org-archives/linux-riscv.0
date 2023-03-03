@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458D0C64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 09:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5004C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 09:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iuV0rEswUsj0xA5U0sxreGxTlkS7mA+RwJbOpOZkrzQ=; b=dYKOkr0GE5fRzJ
-	pZYHD4b88fALUgr8ID/Fo6Mpvg4KNw1BCumS7Jam6VA4dm1GhNpadL9Bbh+SGIA1yMQ/29PBniz2Y
-	rQfR2TQKouAWCEXTEcW9Grv8ZS/PSQ88KrVKn3GYs2Rel6uvV43ISIXT6Crj635Mg7No3QwmNo0xo
-	XWd1NtCcenlYq3UicJBbFwJezkFeIKf0Nb4S9RnaP5Tj/XvxE3S+hHGgfHvAt8qY16uPuR0uAiL0j
-	r88hzGZYPOrmQmqag+eFztmNrvmlpam4vuJynYG6U51c1TFh/wyyoiJsToDKhqYVSXNR48iRfE7NT
-	9ykESofHPIWqSbZe11Qg==;
+	List-Owner; bh=3FXSYRJYWVAjCRSiyExD4BOP7mk7lRXCyH+OymSZGuU=; b=ltXJ6gd9ntF11H
+	vefiHXVre3g21KZtBVlixRnNpsLRItOu66FJ1zlU+VgjgqpIoG3px9idsWRWHpno4c/IuhZdV9/s3
+	FFisdd/ySqCG3Uphi3nrMvUk89lsB8FWbRrViWG+u+sQ2t77RRQm3306ikKjxtHI7W2wJUUic54km
+	SjL0P7Sf+uZDn7+4i9vwgoUNgB+Ft0jbizaLwa1fiaYO/zL2Tsrh/COprvPBvFIZL4SzaBEuy8T2w
+	EkPu5/FC3AIbHFPWQ7ui1UtlM8OviaA+u1p/p2Cb9ikEY5KydEOwL+1u+5Nj8QyfQBa4/2DXmTjb6
+	nETja8MU7XA5751on21A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY1lE-005lb3-US; Fri, 03 Mar 2023 09:31:32 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1pY1oa-005nZI-1r; Fri, 03 Mar 2023 09:35:00 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY1dO-005fgh-Oz
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 09:23:30 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 72223412B6
-	for <linux-riscv@lists.infradead.org>; Fri,  3 Mar 2023 09:23:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1677835401;
-	bh=8AJaoUnTpwL7gmSa7LMHksqlFTJULqZpmKkJFB9GUOs=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=STvkNtFOh44Ktv50iuYf152CZ4vd8UWY6j3ZO3VUjd7vLmrMpAbCGw71475CxhvGK
-	 Ri5SDUCqRhJZLs/eY+J/mRtKwaOpAOdsCdKK8EGKVtXAGAwtO+w09BG7xICLn40MKA
-	 uEtVaRaMJQz94RaVVK7Shq8k2ExTRt2AZNC/ezGCZldWYqlT+KbQZCmeqbXdLSiQ4l
-	 N+c2Y6ww58HJiDMg5+dM9pTvu3q0PaecZQE3NxUHNoO67+oKTyyYEG798WAktM7+oy
-	 wPU4n1h9rR81ZYnkVruLbSKe9hv2OGu3NMqAUyZqPv+OHj4szzGSxNa+LEGXYSXONq
-	 a3aBCEMzO+sLA==
-Received: by mail-qt1-f197.google.com with SMTP id w16-20020ac843d0000000b003bfe50a4105so1146010qtn.10
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 01:23:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677835400;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8AJaoUnTpwL7gmSa7LMHksqlFTJULqZpmKkJFB9GUOs=;
-        b=x8ZEBcD2mKXbTfh4AenmB2lqFyiN4OHKCue28CnCMvO4IUtDKEEWrysZwDvdysFEGp
-         8OG4Fs5xbld9F0KwkCwZrhn1mHXZjkn8zuqS6/6S2JT2mN41xk5vtixY2OuoqhHXolR5
-         Pw+q6f3+tl2L+3AppT9nQkRFrne6oFWcXoXNCxZFXUtxvV+uns275lT4sK8Fbgh/XqTP
-         N+dFcByjYNUDwFWYJwbrvOY7v9oYEI4ybEPusoRUsRYjc/w7tzESqOiB5pr7rmeVWuZ8
-         HjmjYIdcazd+P0+H9FjL6Uiv0axFg1/EcG4fhraOEYds/zxghqc2FEOj/SmVLXidxGo8
-         0Zkw==
-X-Gm-Message-State: AO0yUKVDOe4Ck2fT7LflQpRcld3Wrf/h5ED23PVxvI7pFpTGXVTnt4wx
-	WNv4hReGag+2edZTN1VD4fl1TkpHeWjaZGlMODgYn+MvZZtgbsbqE1NpxONpJ72XvSqbZDHcSR2
-	LGVjr8JR5evmDxwLLPYG/7CHYoJ7lHuUjA1LonWQyNrdsk6Ugb8oa32Q867arQA==
-X-Received: by 2002:ac8:82:0:b0:3bf:ba7f:58f8 with SMTP id c2-20020ac80082000000b003bfba7f58f8mr356527qtg.3.1677835400340;
-        Fri, 03 Mar 2023 01:23:20 -0800 (PST)
-X-Google-Smtp-Source: AK7set8vnvx+BaY4zzyO9Kx+7sgYMvHg6u0C0CIeSNBLKIdyT3rEHj8fYTS/CVSUHsuu8zZlfw9VzAO/dNUNoMHSFGM=
-X-Received: by 2002:ac8:82:0:b0:3bf:ba7f:58f8 with SMTP id c2-20020ac80082000000b003bfba7f58f8mr356522qtg.3.1677835400023;
- Fri, 03 Mar 2023 01:23:20 -0800 (PST)
+	id 1pY1gG-005hsF-SP; Fri, 03 Mar 2023 09:26:27 +0000
+X-UUID: 73f83524b9a511eda08d4d6090ec5a5c-20230303
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=lfQPLS0OtxVQGP/jr3dKG0EW+ShMqmnk1TgI/tMjKmo=;
+	b=C376SfcdE+BsQfA5urjdMrGQj4Ux25YNbd4cBaSeUSy+4T7smy9V7Tjcj1RSuLuQwRsepEFeo2EDq6Ve+Ab/+CNGqjGjfd5lk33t9qsl1X1JlprUTXiMCm7UUCuj0YyQQOBJmmmZRJ8HLY/wrPnlu+AHg192kNmScI7u56oaLVQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.20,REQID:58c3d06b-0848-4798-986f-ab5beed99330,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:25b5999,CLOUDID:4bca1db2-beed-4dfc-bd9c-e1b22fa6ccc4,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:1,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
+X-CID-BVR: 0
+X-UUID: 73f83524b9a511eda08d4d6090ec5a5c-20230303
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <cheng-jui.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1507353655; Fri, 03 Mar 2023 02:26:18 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.186) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.25; Fri, 3 Mar 2023 17:25:43 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.25 via Frontend Transport; Fri, 3 Mar 2023 17:25:43 +0800
+From: Cheng-Jui Wang <cheng-jui.wang@mediatek.com>
+To: <stable@vger.kernel.org>, Russell King <linux@armlinux.org.uk>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, NXP
+ Linux Team <linux-imx@nxp.com>, Tony Lindgren <tony@atomide.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Sudeep
+ Holla <sudeep.holla@arm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Thierry Reding <thierry.reding@gmail.com>, Jonathan
+ Hunter <jonathanh@nvidia.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli
+	<juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+	<mgorman@suse.de>, Daniel Bristot de Oliveira <bristot@redhat.com>, Valentin
+ Schneider <vschneid@redhat.com>, Frederic Weisbecker <fweisbec@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+CC: Ingo Molnar <mingo@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+	Cheng-Jui Wang <cheng-jui.wang@mediatek.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-omap@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH 10/10] cpuidle: Fix ct_idle_*() usage
+Date: Fri, 3 Mar 2023 17:23:32 +0800
+Message-ID: <20230303092347.4825-11-cheng-jui.wang@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20230303092347.4825-1-cheng-jui.wang@mediatek.com>
+References: <20230303092347.4825-1-cheng-jui.wang@mediatek.com>
 MIME-Version: 1.0
-References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
- <20230221083323.302471-10-xingyu.wu@starfivetech.com> <CAJM55Z8XnBtBJK8tgDBoQ0FLFY10NQ3es7Aj0TwiTG6vfzqUSQ@mail.gmail.com>
- <7968218d-33ec-14b8-178b-1a6b5680f797@starfivetech.com>
-In-Reply-To: <7968218d-33ec-14b8-178b-1a6b5680f797@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 3 Mar 2023 10:23:03 +0100
-Message-ID: <CAJM55Z88-aNzuXc9yozyA4f9r1mGQ0KMg5hgKMsERsyF198WKg@mail.gmail.com>
-Subject: Re: [PATCH v2 09/11] clk: starfive: Add StarFive JH7110 Video-Output
- clock driver
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_012327_572141_42D15008 
-X-CRM114-Status: GOOD (  40.20  )
+X-CRM114-CacheID: sfid-20230303_012624_994960_8DBE8059 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,359 +99,501 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Mar 2023 at 04:37, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->
-> On 2023/3/2 23:48, Emil Renner Berthing wrote:
-> > On Tue, 21 Feb 2023 at 09:40, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
-> >>
-> >> Add driver for the StarFive JH7110 Video-Output clock controller.
-> >>
-> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> >> ---
-> >>  drivers/clk/starfive/Kconfig                  |  11 +
-> >>  drivers/clk/starfive/Makefile                 |   1 +
-> >>  .../clk/starfive/clk-starfive-jh7110-vout.c   | 261 ++++++++++++++++++
-> >>  3 files changed, 273 insertions(+)
-> >>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
-> >>
-> >> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> >> index 59499acb95f7..5ebf1ed08627 100644
-> >> --- a/drivers/clk/starfive/Kconfig
-> >> +++ b/drivers/clk/starfive/Kconfig
-> >> @@ -64,3 +64,14 @@ config CLK_STARFIVE_JH7110_ISP
-> >>         help
-> >>           Say yes here to support the Image-Signal-Process clock controller
-> >>           on the StarFive JH7110 SoC.
-> >> +
-> >> +config CLK_STARFIVE_JH7110_VOUT
-> >> +       tristate "StarFive JH7110 Video-Output clock support"
-> >> +       depends on CLK_STARFIVE_JH7110_SYS && JH71XX_PMU
-> >> +       select AUXILIARY_BUS
-> >> +       select CLK_STARFIVE_JH71X0
-> >> +       select RESET_STARFIVE_JH7110
-> >> +       default CLK_STARFIVE_JH7110_SYS
-> >
-> > default m if ARCH_STARFIVE
->
-> Will modify it.
->
-> >
-> >> +       help
-> >> +         Say yes here to support the Video-Output clock controller
-> >> +         on the StarFive JH7110 SoC.
-> >> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> >> index 76fb9f8d628b..841377e45bb6 100644
-> >> --- a/drivers/clk/starfive/Makefile
-> >> +++ b/drivers/clk/starfive/Makefile
-> >> @@ -8,3 +8,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)   += clk-starfive-jh7110-sys.o
-> >>  obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)  += clk-starfive-jh7110-aon.o
-> >>  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)  += clk-starfive-jh7110-stg.o
-> >>  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)  += clk-starfive-jh7110-isp.o
-> >> +obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT) += clk-starfive-jh7110-vout.o
-> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-> >> new file mode 100644
-> >> index 000000000000..d786537563a4
-> >> --- /dev/null
-> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-> >> @@ -0,0 +1,261 @@
-> >> +// SPDX-License-Identifier: GPL-2.0
-> >> +/*
-> >> + * StarFive JH7110 Video-Output Clock Driver
-> >> + *
-> >> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> >> + */
-> >> +
-> >> +#include <linux/clk.h>
-> >> +#include <linux/clk-provider.h>
-> >> +#include <linux/io.h>
-> >> +#include <linux/of.h>
-> >> +#include <linux/platform_device.h>
-> >> +#include <linux/pm_runtime.h>
-> >> +#include <linux/reset.h>
-> >> +
-> >> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
-> >> +
-> >> +#include "clk-starfive-jh71x0.h"
-> >> +
-> >> +/* external clocks */
-> >> +#define JH7110_VOUTCLK_VOUT_SRC                        (JH7110_VOUTCLK_END + 0)
-> >> +#define JH7110_VOUTCLK_VOUT_TOP_AHB            (JH7110_VOUTCLK_END + 1)
-> >> +#define JH7110_VOUTCLK_VOUT_TOP_AXI            (JH7110_VOUTCLK_END + 2)
-> >> +#define JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK   (JH7110_VOUTCLK_END + 3)
-> >> +#define JH7110_VOUTCLK_I2STX0_BCLK             (JH7110_VOUTCLK_END + 4)
-> >> +#define JH7110_VOUTCLK_HDMITX0_PIXELCLK                (JH7110_VOUTCLK_END + 5)
-> >> +#define JH7110_VOUTCLK_EXT_END                 (JH7110_VOUTCLK_END + 6)
-> >> +
-> >> +static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
-> >> +       /* divider */
-> >> +       JH71X0__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> >> +       JH71X0__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
-> >> +       JH71X0__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
-> >> +       JH71X0__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> >> +       /* dc8200 */
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> >> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
-> >> +                   JH7110_VOUTCLK_DC8200_PIX,
-> >> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> >> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
-> >> +                   JH7110_VOUTCLK_DC8200_PIX,
-> >> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> >> +       /* LCD */
-> >> +       JH71X0_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
-> >> +                   JH7110_VOUTCLK_DC8200_PIX0,
-> >> +                   JH7110_VOUTCLK_DC8200_PIX1),
-> >> +       /* dsiTx */
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
-> >> +       JH71X0_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
-> >> +                   JH7110_VOUTCLK_DC8200_PIX,
-> >> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
-> >> +       /* mipitx DPHY */
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
-> >> +                   JH7110_VOUTCLK_TX_ESC),
-> >> +       /* hdmi */
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
-> >> +                   JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
-> >> +                   JH7110_VOUTCLK_I2STX0_BCLK),
-> >> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
-> >> +};
-> >> +
-> >> +struct vout_top_crg {
-> >> +       struct clk_bulk_data *top_clks;
-> >> +       struct reset_control *top_rst;
-> >> +       int top_clks_num;
-> >> +       void __iomem *base;
-> >> +};
-> >> +
-> >> +static struct clk_bulk_data jh7110_vout_top_clks[] = {
-> >> +       { .id = "vout_src" },
-> >> +       { .id = "vout_top_ahb" }
-> >> +};
-> >> +
-> >> +static struct vout_top_crg *top_crg_from(void __iomem **base)
-> >> +{
-> >> +       return container_of(base, struct vout_top_crg, base);
-> >> +}
-> >> +
-> >> +static int jh7110_vout_top_crg_get(struct jh71x0_clk_priv *priv, struct vout_top_crg *top)
-> >> +{
-> >> +       int ret;
-> >> +
-> >> +       top->top_clks = jh7110_vout_top_clks;
-> >> +       top->top_clks_num = ARRAY_SIZE(jh7110_vout_top_clks);
-> >> +       ret = devm_clk_bulk_get(priv->dev, top->top_clks_num, top->top_clks);
-> >> +       if (ret) {
-> >> +               dev_err(priv->dev, "top clks get failed: %d\n", ret);
-> >> +               return ret;
-> >> +       }
-> >> +
-> >> +       /* The reset should be shared and other Vout modules will use its. */
-> >> +       top->top_rst = devm_reset_control_get_shared(priv->dev, NULL);
-> >> +       if (IS_ERR(top->top_rst)) {
-> >> +               dev_err(priv->dev, "top rst get failed\n");
-> >> +               return PTR_ERR(top->top_rst);
-> >> +       }
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int jh7110_vout_top_crg_enable(struct vout_top_crg *top)
-> >> +{
-> >> +       int ret;
-> >> +
-> >> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
-> >> +       if (ret)
-> >> +               return ret;
-> >
-> > Hmm.. do all the clocks used as input really need to be enabled for
-> > any one of the vout clocks to work?
-> >
-> > In other words: suppose you just need a single clock in the VOUTCRG
-> > domain. Do we really need to turn on all the input clocks for the
-> > VOUTCRG for that one clock to work? Normally I'd expect the clock
-> > framework to make sure all parents of that clock are enabled.
->
-> It must enable core clock and ahb clock before reading or writing VOUTCRG registers
-> otherwise it would be failed to read and write. And it is even crash if it don't
-> enable core clock before reading or writing ISPCRG registers.
-> This serious problem was found when debugging earlier.
+From: Peter Zijlstra <peterz@infradead.org>
 
-Ah sorry. I see now that you're only claiming the core and AHB bus.
-That makes sense.
+commit a01353cf1896ea5b8a7bbc5e2b2d38feed8b7aaa upstream.
 
-So now the question is if there are similar clocks that need to be
-claimed by the AON, STG and ISP CRGs. They're most likely already
-turned on by u-boot or by default which is why we don't see errors,
-but Linux should still claim them if the driver needs them.
+The whole disable-RCU, enable-IRQS dance is very intricate since
+changing IRQ state is traced, which depends on RCU.
 
-> >
-> >> +
-> >> +       return reset_control_deassert(top->top_rst);
-> >> +}
-> >> +
-> >> +static void jh7110_vout_top_crg_disable(struct vout_top_crg *top)
-> >> +{
-> >> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
-> >> +}
-> >> +
-> >> +static struct clk_hw *jh7110_voutclk_get(struct of_phandle_args *clkspec, void *data)
-> >> +{
-> >> +       struct jh71x0_clk_priv *priv = data;
-> >> +       unsigned int idx = clkspec->args[0];
-> >> +
-> >> +       if (idx < JH7110_VOUTCLK_END)
-> >> +               return &priv->reg[idx].hw;
-> >> +
-> >> +       return ERR_PTR(-EINVAL);
-> >> +}
-> >> +
-> >> +static int jh7110_voutcrg_probe(struct platform_device *pdev)
-> >> +{
-> >> +       struct jh71x0_clk_priv *priv;
-> >> +       struct vout_top_crg *top;
-> >> +       unsigned int idx;
-> >> +       int ret;
-> >> +
-> >> +       priv = devm_kzalloc(&pdev->dev,
-> >> +                           struct_size(priv, reg, JH7110_VOUTCLK_END),
-> >> +                           GFP_KERNEL);
-> >> +       if (!priv)
-> >> +               return -ENOMEM;
-> >> +
-> >> +       top = devm_kzalloc(&pdev->dev, sizeof(*top), GFP_KERNEL);
-> >> +       if (!top)
-> >> +               return -ENOMEM;
-> >> +
-> >> +       spin_lock_init(&priv->rmw_lock);
-> >> +       priv->dev = &pdev->dev;
-> >> +       priv->base = devm_platform_ioremap_resource(pdev, 0);
-> >> +       if (IS_ERR(priv->base))
-> >> +               return PTR_ERR(priv->base);
-> >> +
-> >> +       top->base = priv->base;
-> >> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
-> >> +
-> >> +       pm_runtime_enable(priv->dev);
-> >> +       ret = pm_runtime_get_sync(priv->dev);
-> >> +       if (ret < 0) {
-> >> +               dev_err(priv->dev, "failed to turn power: %d\n", ret);
-> >> +               return ret;
-> >> +       }
-> >> +
-> >> +       ret = jh7110_vout_top_crg_get(priv, top);
-> >> +       if (ret)
-> >> +               goto err_clk;
-> >> +
-> >> +       ret = jh7110_vout_top_crg_enable(top);
-> >> +       if (ret)
-> >> +               goto err_clk;
-> >> +
-> >> +       for (idx = 0; idx < JH7110_VOUTCLK_END; idx++) {
-> >> +               u32 max = jh7110_voutclk_data[idx].max;
-> >> +               struct clk_parent_data parents[4] = {};
-> >> +               struct clk_init_data init = {
-> >> +                       .name = jh7110_voutclk_data[idx].name,
-> >> +                       .ops = starfive_jh71x0_clk_ops(max),
-> >> +                       .parent_data = parents,
-> >> +                       .num_parents =
-> >> +                               ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-> >> +                       .flags = jh7110_voutclk_data[idx].flags,
-> >> +               };
-> >> +               struct jh71x0_clk *clk = &priv->reg[idx];
-> >> +               unsigned int i;
-> >> +               char *fw_name[JH7110_VOUTCLK_EXT_END - JH7110_VOUTCLK_END] = {
-> >
-> > this can be const char *const fw_name[...] right?
-> >
-> >> +                       "vout_src",
-> >> +                       "vout_top_ahb",
-> >> +                       "vout_top_axi",
-> >> +                       "vout_top_hdmitx0_mclk",
-> >> +                       "i2stx0_bclk",
-> >> +                       "hdmitx0_pixelclk"
-> >> +               };
-> >> +
-> >> +               for (i = 0; i < init.num_parents; i++) {
-> >> +                       unsigned int pidx = jh7110_voutclk_data[idx].parents[i];
-> >> +
-> >> +                       if (pidx < JH7110_VOUTCLK_END)
-> >> +                               parents[i].hw = &priv->reg[pidx].hw;
-> >> +                       else if (pidx < JH7110_VOUTCLK_EXT_END)
-> >> +                               parents[i].fw_name = fw_name[pidx - JH7110_VOUTCLK_END];
-> >> +               }
-> >> +
-> >> +               clk->hw.init = &init;
-> >> +               clk->idx = idx;
-> >> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
-> >> +
-> >> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-> >> +               if (ret)
-> >> +                       goto err_exit;
-> >> +       }
-> >> +
-> >> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_voutclk_get, priv);
-> >> +       if (ret)
-> >> +               goto err_exit;
-> >> +
-> >> +       ret = jh7110_reset_controller_register(priv, "reset-vout", 4);
-> >> +       if (ret)
-> >> +               goto err_exit;
-> >> +
-> >> +       return 0;
-> >> +
-> >> +err_exit:
-> >> +       jh7110_vout_top_crg_disable(top);
-> >> +err_clk:
-> >> +       pm_runtime_put_sync(priv->dev);
-> >> +       pm_runtime_disable(priv->dev);
-> >> +       return ret;
-> >> +}
-> >> +
-> >> +static int jh7110_voutcrg_remove(struct platform_device *pdev)
-> >> +{
-> >> +       void __iomem **base = dev_get_drvdata(&pdev->dev);
-> >> +       struct vout_top_crg *top = top_crg_from(base);
-> >> +
-> >> +       jh7110_vout_top_crg_disable(top);
-> >> +       pm_runtime_disable(&pdev->dev);
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static const struct of_device_id jh7110_voutcrg_match[] = {
-> >> +       { .compatible = "starfive,jh7110-voutcrg" },
-> >> +       { /* sentinel */ }
-> >> +};
-> >> +MODULE_DEVICE_TABLE(of, jh7110_voutcrg_match);
-> >> +
-> >> +static struct platform_driver jh7110_voutcrg_driver = {
-> >> +       .probe = jh7110_voutcrg_probe,
-> >> +       .remove = jh7110_voutcrg_remove,
-> >> +       .driver = {
-> >> +               .name = "clk-starfive-jh7110-vout",
-> >> +               .of_match_table = jh7110_voutcrg_match,
-> >> +       },
-> >> +};
-> >> +module_platform_driver(jh7110_voutcrg_driver);
-> >> +
-> >> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> >> +MODULE_DESCRIPTION("StarFive JH7110 Video-Output clock driver");
-> >> +MODULE_LICENSE("GPL");
-> >> --
-> >> 2.25.1
-> >>
-> >>
-> >> _______________________________________________
-> >> linux-riscv mailing list
-> >> linux-riscv@lists.infradead.org
-> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> Best regards,
-> Xingyu Wu
+Add two helpers for the cpuidle case that mirror the entry code:
+
+  ct_cpuidle_enter()
+  ct_cpuidle_exit()
+
+And fix all the cases where the enter/exit dance was buggy.
+
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Tested-by: Tony Lindgren <tony@atomide.com>
+Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Acked-by: Frederic Weisbecker <frederic@kernel.org>
+Link: https://lore.kernel.org/r/20230112195540.130014793@infradead.org
+Signed-off-by: Suren Baghdasaryan <surenb@google.com>
+Signed-off-by: Cheng-Jui Wang <cheng-jui.wang@mediatek.com>
+---
+ arch/arm/mach-imx/cpuidle-imx6q.c    |  4 +--
+ arch/arm/mach-imx/cpuidle-imx6sx.c   |  4 +--
+ arch/arm/mach-omap2/cpuidle34xx.c    |  4 +--
+ arch/arm/mach-omap2/cpuidle44xx.c    |  8 ++---
+ drivers/acpi/processor_idle.c        |  8 +++--
+ drivers/cpuidle/cpuidle-big_little.c |  4 +--
+ drivers/cpuidle/cpuidle-mvebu-v7.c   |  4 +--
+ drivers/cpuidle/cpuidle-psci.c       |  4 +--
+ drivers/cpuidle/cpuidle-riscv-sbi.c  |  4 +--
+ drivers/cpuidle/cpuidle-tegra.c      |  8 ++---
+ drivers/cpuidle/cpuidle.c            | 11 +++----
+ include/linux/clockchips.h           |  4 +--
+ include/linux/cpuidle.h              | 34 +++++++++++++++++++--
+ kernel/sched/idle.c                  | 45 ++++++++--------------------
+ kernel/time/tick-broadcast.c         |  6 +++-
+ 15 files changed, 86 insertions(+), 66 deletions(-)
+
+diff --git a/arch/arm/mach-imx/cpuidle-imx6q.c b/arch/arm/mach-imx/cpuidle-imx6q.c
+index d086cbae09c3..c24c78a67cc1 100644
+--- a/arch/arm/mach-imx/cpuidle-imx6q.c
++++ b/arch/arm/mach-imx/cpuidle-imx6q.c
+@@ -25,9 +25,9 @@ static int imx6q_enter_wait(struct cpuidle_device *dev,
+ 		imx6_set_lpm(WAIT_UNCLOCKED);
+ 	raw_spin_unlock(&cpuidle_lock);
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 	cpu_do_idle();
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	raw_spin_lock(&cpuidle_lock);
+ 	if (num_idle_cpus-- == num_online_cpus())
+diff --git a/arch/arm/mach-imx/cpuidle-imx6sx.c b/arch/arm/mach-imx/cpuidle-imx6sx.c
+index 1dc01f6b0f36..479f06286b50 100644
+--- a/arch/arm/mach-imx/cpuidle-imx6sx.c
++++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
+@@ -47,9 +47,9 @@ static int imx6sx_enter_wait(struct cpuidle_device *dev,
+ 		cpu_pm_enter();
+ 		cpu_cluster_pm_enter();
+ 
+-		ct_idle_enter();
++		ct_cpuidle_enter();
+ 		cpu_suspend(0, imx6sx_idle_finish);
+-		ct_idle_exit();
++		ct_cpuidle_exit();
+ 
+ 		cpu_cluster_pm_exit();
+ 		cpu_pm_exit();
+diff --git a/arch/arm/mach-omap2/cpuidle34xx.c b/arch/arm/mach-omap2/cpuidle34xx.c
+index cedf5cbe451f..6d63769cef0f 100644
+--- a/arch/arm/mach-omap2/cpuidle34xx.c
++++ b/arch/arm/mach-omap2/cpuidle34xx.c
+@@ -133,9 +133,9 @@ static int omap3_enter_idle(struct cpuidle_device *dev,
+ 	}
+ 
+ 	/* Execute ARM wfi */
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 	omap_sram_idle();
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	/*
+ 	 * Call idle CPU PM enter notifier chain to restore
+diff --git a/arch/arm/mach-omap2/cpuidle44xx.c b/arch/arm/mach-omap2/cpuidle44xx.c
+index 953ad888737c..3c97d5676e81 100644
+--- a/arch/arm/mach-omap2/cpuidle44xx.c
++++ b/arch/arm/mach-omap2/cpuidle44xx.c
+@@ -105,9 +105,9 @@ static int omap_enter_idle_smp(struct cpuidle_device *dev,
+ 	}
+ 	raw_spin_unlock_irqrestore(&mpu_lock, flag);
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 	omap4_enter_lowpower(dev->cpu, cx->cpu_state);
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	raw_spin_lock_irqsave(&mpu_lock, flag);
+ 	if (cx->mpu_state_vote == num_online_cpus())
+@@ -186,10 +186,10 @@ static int omap_enter_idle_coupled(struct cpuidle_device *dev,
+ 		}
+ 	}
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 	omap4_enter_lowpower(dev->cpu, cx->cpu_state);
+ 	cpu_done[dev->cpu] = true;
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	/* Wakeup CPU1 only if it is not offlined */
+ 	if (dev->cpu == 0 && cpumask_test_cpu(1, cpu_online_mask)) {
+diff --git a/drivers/acpi/processor_idle.c b/drivers/acpi/processor_idle.c
+index ae42d530d080..ff40b001e0fa 100644
+--- a/drivers/acpi/processor_idle.c
++++ b/drivers/acpi/processor_idle.c
+@@ -644,6 +644,8 @@ static int __cpuidle acpi_idle_enter_bm(struct cpuidle_driver *drv,
+ 	 */
+ 	bool dis_bm = pr->flags.bm_control;
+ 
++	instrumentation_begin();
++
+ 	/* If we can skip BM, demote to a safe state. */
+ 	if (!cx->bm_sts_skip && acpi_idle_bm_check()) {
+ 		dis_bm = false;
+@@ -665,11 +667,11 @@ static int __cpuidle acpi_idle_enter_bm(struct cpuidle_driver *drv,
+ 		raw_spin_unlock(&c3_lock);
+ 	}
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 
+ 	acpi_idle_do_entry(cx);
+ 
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	/* Re-enable bus master arbitration */
+ 	if (dis_bm) {
+@@ -679,6 +681,8 @@ static int __cpuidle acpi_idle_enter_bm(struct cpuidle_driver *drv,
+ 		raw_spin_unlock(&c3_lock);
+ 	}
+ 
++	instrumentation_end();
++
+ 	return index;
+ }
+ 
+diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
+index fffd4ed0c4d1..5858db21e08c 100644
+--- a/drivers/cpuidle/cpuidle-big_little.c
++++ b/drivers/cpuidle/cpuidle-big_little.c
+@@ -126,13 +126,13 @@ static int bl_enter_powerdown(struct cpuidle_device *dev,
+ 				struct cpuidle_driver *drv, int idx)
+ {
+ 	cpu_pm_enter();
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 
+ 	cpu_suspend(0, bl_powerdown_finisher);
+ 
+ 	/* signals the MCPM core that CPU is out of low power state */
+ 	mcpm_cpu_powered_up();
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	cpu_pm_exit();
+ 
+diff --git a/drivers/cpuidle/cpuidle-mvebu-v7.c b/drivers/cpuidle/cpuidle-mvebu-v7.c
+index c9568aa9410c..20bfb26d5a88 100644
+--- a/drivers/cpuidle/cpuidle-mvebu-v7.c
++++ b/drivers/cpuidle/cpuidle-mvebu-v7.c
+@@ -36,9 +36,9 @@ static int mvebu_v7_enter_idle(struct cpuidle_device *dev,
+ 	if (drv->states[index].flags & MVEBU_V7_FLAG_DEEP_IDLE)
+ 		deepidle = true;
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 	ret = mvebu_v7_cpu_suspend(deepidle);
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	cpu_pm_exit();
+ 
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index 6a259c94b8b2..32ad942d3e5a 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -74,7 +74,7 @@ static int __psci_enter_domain_idle_state(struct cpuidle_device *dev,
+ 	else
+ 		pm_runtime_put_sync_suspend(pd_dev);
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 
+ 	state = psci_get_domain_state();
+ 	if (!state)
+@@ -82,7 +82,7 @@ static int __psci_enter_domain_idle_state(struct cpuidle_device *dev,
+ 
+ 	ret = psci_cpu_suspend_enter(state) ? -1 : idx;
+ 
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	if (s2idle)
+ 		dev_pm_genpd_resume(pd_dev);
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index cbdbb11b972b..0a480f5799a7 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -126,7 +126,7 @@ static int __sbi_enter_domain_idle_state(struct cpuidle_device *dev,
+ 	else
+ 		pm_runtime_put_sync_suspend(pd_dev);
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 
+ 	if (sbi_is_domain_state_available())
+ 		state = sbi_get_domain_state();
+@@ -135,7 +135,7 @@ static int __sbi_enter_domain_idle_state(struct cpuidle_device *dev,
+ 
+ 	ret = sbi_suspend(state) ? -1 : idx;
+ 
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	if (s2idle)
+ 		dev_pm_genpd_resume(pd_dev);
+diff --git a/drivers/cpuidle/cpuidle-tegra.c b/drivers/cpuidle/cpuidle-tegra.c
+index 3ca5cfb9d322..9c2903c1b1c0 100644
+--- a/drivers/cpuidle/cpuidle-tegra.c
++++ b/drivers/cpuidle/cpuidle-tegra.c
+@@ -183,7 +183,7 @@ static int tegra_cpuidle_state_enter(struct cpuidle_device *dev,
+ 	tegra_pm_set_cpu_in_lp2();
+ 	cpu_pm_enter();
+ 
+-	ct_idle_enter();
++	ct_cpuidle_enter();
+ 
+ 	switch (index) {
+ 	case TEGRA_C7:
+@@ -199,7 +199,7 @@ static int tegra_cpuidle_state_enter(struct cpuidle_device *dev,
+ 		break;
+ 	}
+ 
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 
+ 	cpu_pm_exit();
+ 	tegra_pm_clear_cpu_in_lp2();
+@@ -240,10 +240,10 @@ static int tegra_cpuidle_enter(struct cpuidle_device *dev,
+ 
+ 	if (index == TEGRA_C1) {
+ 		if (do_rcu)
+-			ct_idle_enter();
++			ct_cpuidle_enter();
+ 		ret = arm_cpuidle_simple_enter(dev, drv, index);
+ 		if (do_rcu)
+-			ct_idle_exit();
++			ct_cpuidle_exit();
+ 	} else
+ 		ret = tegra_cpuidle_state_enter(dev, index, cpu);
+ 
+diff --git a/drivers/cpuidle/cpuidle.c b/drivers/cpuidle/cpuidle.c
+index 6eceb1988243..caeb543c7ea0 100644
+--- a/drivers/cpuidle/cpuidle.c
++++ b/drivers/cpuidle/cpuidle.c
+@@ -14,6 +14,7 @@
+ #include <linux/mutex.h>
+ #include <linux/sched.h>
+ #include <linux/sched/clock.h>
++#include <linux/sched/idle.h>
+ #include <linux/notifier.h>
+ #include <linux/pm_qos.h>
+ #include <linux/cpu.h>
+@@ -152,12 +153,12 @@ static void enter_s2idle_proper(struct cpuidle_driver *drv,
+ 	 */
+ 	stop_critical_timings();
+ 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
+-		ct_idle_enter();
++		ct_cpuidle_enter();
+ 	target_state->enter_s2idle(dev, drv, index);
+ 	if (WARN_ON_ONCE(!irqs_disabled()))
+-		local_irq_disable();
++		raw_local_irq_disable();
+ 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
+-		ct_idle_exit();
++		ct_cpuidle_exit();
+ 	tick_unfreeze();
+ 	start_critical_timings();
+ 
+@@ -235,10 +236,10 @@ int cpuidle_enter_state(struct cpuidle_device *dev, struct cpuidle_driver *drv,
+ 
+ 	stop_critical_timings();
+ 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
+-		ct_idle_enter();
++		ct_cpuidle_enter();
+ 	entered_state = target_state->enter(dev, drv, index);
+ 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
+-		ct_idle_exit();
++		ct_cpuidle_exit();
+ 	start_critical_timings();
+ 
+ 	sched_clock_idle_wakeup_event();
+diff --git a/include/linux/clockchips.h b/include/linux/clockchips.h
+index 8ae9a95ebf5b..9aac31d856f3 100644
+--- a/include/linux/clockchips.h
++++ b/include/linux/clockchips.h
+@@ -211,7 +211,7 @@ extern int tick_receive_broadcast(void);
+ extern void tick_setup_hrtimer_broadcast(void);
+ extern int tick_check_broadcast_expired(void);
+ # else
+-static inline int tick_check_broadcast_expired(void) { return 0; }
++static __always_inline int tick_check_broadcast_expired(void) { return 0; }
+ static inline void tick_setup_hrtimer_broadcast(void) { }
+ # endif
+ 
+@@ -219,7 +219,7 @@ static inline void tick_setup_hrtimer_broadcast(void) { }
+ 
+ static inline void clockevents_suspend(void) { }
+ static inline void clockevents_resume(void) { }
+-static inline int tick_check_broadcast_expired(void) { return 0; }
++static __always_inline int tick_check_broadcast_expired(void) { return 0; }
+ static inline void tick_setup_hrtimer_broadcast(void) { }
+ 
+ #endif /* !CONFIG_GENERIC_CLOCKEVENTS */
+diff --git a/include/linux/cpuidle.h b/include/linux/cpuidle.h
+index 0ddc11e44302..630c879143c7 100644
+--- a/include/linux/cpuidle.h
++++ b/include/linux/cpuidle.h
+@@ -14,6 +14,7 @@
+ #include <linux/percpu.h>
+ #include <linux/list.h>
+ #include <linux/hrtimer.h>
++#include <linux/context_tracking.h>
+ 
+ #define CPUIDLE_STATE_MAX	10
+ #define CPUIDLE_NAME_LEN	16
+@@ -115,6 +116,35 @@ struct cpuidle_device {
+ DECLARE_PER_CPU(struct cpuidle_device *, cpuidle_devices);
+ DECLARE_PER_CPU(struct cpuidle_device, cpuidle_dev);
+ 
++static __always_inline void ct_cpuidle_enter(void)
++{
++	lockdep_assert_irqs_disabled();
++	/*
++	 * Idle is allowed to (temporary) enable IRQs. It
++	 * will return with IRQs disabled.
++	 *
++	 * Trace IRQs enable here, then switch off RCU, and have
++	 * arch_cpu_idle() use raw_local_irq_enable(). Note that
++	 * ct_idle_enter() relies on lockdep IRQ state, so switch that
++	 * last -- this is very similar to the entry code.
++	 */
++	trace_hardirqs_on_prepare();
++	lockdep_hardirqs_on_prepare();
++	instrumentation_end();
++	ct_idle_enter();
++	lockdep_hardirqs_on(_RET_IP_);
++}
++
++static __always_inline void ct_cpuidle_exit(void)
++{
++	/*
++	 * Carefully undo the above.
++	 */
++	lockdep_hardirqs_off(_RET_IP_);
++	ct_idle_exit();
++	instrumentation_begin();
++}
++
+ /****************************
+  * CPUIDLE DRIVER INTERFACE *
+  ****************************/
+@@ -289,9 +319,9 @@ extern s64 cpuidle_governor_latency_req(unsigned int cpu);
+ 	if (!is_retention)						\
+ 		__ret =  cpu_pm_enter();				\
+ 	if (!__ret) {							\
+-		ct_idle_enter();					\
++		ct_cpuidle_enter();					\
+ 		__ret = low_level_idle_enter(state);			\
+-		ct_idle_exit();						\
++		ct_cpuidle_exit();					\
+ 		if (!is_retention)					\
+ 			cpu_pm_exit();					\
+ 	}								\
+diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
+index f26ab2675f7d..e924602ec43b 100644
+--- a/kernel/sched/idle.c
++++ b/kernel/sched/idle.c
+@@ -51,18 +51,22 @@ __setup("hlt", cpu_idle_nopoll_setup);
+ 
+ static noinline int __cpuidle cpu_idle_poll(void)
+ {
++	instrumentation_begin();
+ 	trace_cpu_idle(0, smp_processor_id());
+ 	stop_critical_timings();
+-	ct_idle_enter();
+-	local_irq_enable();
++	ct_cpuidle_enter();
+ 
++	raw_local_irq_enable();
+ 	while (!tif_need_resched() &&
+ 	       (cpu_idle_force_poll || tick_check_broadcast_expired()))
+ 		cpu_relax();
++	raw_local_irq_disable();
+ 
+-	ct_idle_exit();
++	ct_cpuidle_exit();
+ 	start_critical_timings();
+ 	trace_cpu_idle(PWR_EVENT_EXIT, smp_processor_id());
++	local_irq_enable();
++	instrumentation_end();
+ 
+ 	return 1;
+ }
+@@ -85,44 +89,21 @@ void __weak arch_cpu_idle(void)
+  */
+ void __cpuidle default_idle_call(void)
+ {
+-	if (current_clr_polling_and_test()) {
+-		local_irq_enable();
+-	} else {
+-
++	instrumentation_begin();
++	if (!current_clr_polling_and_test()) {
+ 		trace_cpu_idle(1, smp_processor_id());
+ 		stop_critical_timings();
+ 
+-		/*
+-		 * arch_cpu_idle() is supposed to enable IRQs, however
+-		 * we can't do that because of RCU and tracing.
+-		 *
+-		 * Trace IRQs enable here, then switch off RCU, and have
+-		 * arch_cpu_idle() use raw_local_irq_enable(). Note that
+-		 * ct_idle_enter() relies on lockdep IRQ state, so switch that
+-		 * last -- this is very similar to the entry code.
+-		 */
+-		trace_hardirqs_on_prepare();
+-		lockdep_hardirqs_on_prepare();
+-		ct_idle_enter();
+-		lockdep_hardirqs_on(_THIS_IP_);
+-
++		ct_cpuidle_enter();
+ 		arch_cpu_idle();
+-
+-		/*
+-		 * OK, so IRQs are enabled here, but RCU needs them disabled to
+-		 * turn itself back on.. funny thing is that disabling IRQs
+-		 * will cause tracing, which needs RCU. Jump through hoops to
+-		 * make it 'work'.
+-		 */
+ 		raw_local_irq_disable();
+-		lockdep_hardirqs_off(_THIS_IP_);
+-		ct_idle_exit();
+-		lockdep_hardirqs_on(_THIS_IP_);
+-		raw_local_irq_enable();
++		ct_cpuidle_exit();
+ 
+ 		start_critical_timings();
+ 		trace_cpu_idle(PWR_EVENT_EXIT, smp_processor_id());
+ 	}
++	local_irq_enable();
++	instrumentation_end();
+ }
+ 
+ static int call_cpuidle_s2idle(struct cpuidle_driver *drv,
+diff --git a/kernel/time/tick-broadcast.c b/kernel/time/tick-broadcast.c
+index f7fe6fe36173..93bf2b4e47e5 100644
+--- a/kernel/time/tick-broadcast.c
++++ b/kernel/time/tick-broadcast.c
+@@ -622,9 +622,13 @@ struct cpumask *tick_get_broadcast_oneshot_mask(void)
+  * to avoid a deep idle transition as we are about to get the
+  * broadcast IPI right away.
+  */
+-int tick_check_broadcast_expired(void)
++noinstr int tick_check_broadcast_expired(void)
+ {
++#ifdef _ASM_GENERIC_BITOPS_INSTRUMENTED_NON_ATOMIC_H
++	return arch_test_bit(smp_processor_id(), cpumask_bits(tick_broadcast_force_mask));
++#else
+ 	return cpumask_test_cpu(smp_processor_id(), tick_broadcast_force_mask);
++#endif
+ }
+ 
+ /*
+-- 
+2.18.0
+
 
 _______________________________________________
 linux-riscv mailing list
