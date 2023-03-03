@@ -4,135 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01533C7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 18:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1B0C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 18:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mo91dLzprkCs5dJcDaV+Oo1EfhiW/DNz2QgCGpWqPmQ=; b=T42oFABQ04pXwEQvg4GOUMy9Pm
-	mBFnVQDx/A42tFzn603mpSezF1KVB/YTVauzeVesBdAk/sqy5F8MZRKmoJSp+EjL5vzjZ02LVM5KH
-	xg8MiXdkJqCmgJzYzegOGkdA2W1ZzKxuAuqNL+mQW2+ilsHJbv3puoozK4h+cuAsBBXmG11p2Iile
-	TpycCB1fUlJ2eJxNPcm5R9noBtHY10UPOx3NPilRTd3Rg0WS0VnV484YV3/P1uQ8VM/UM0+35dU17
-	qmuuavTp/7VseNQJ7KxSo1D2WIkMgDNHIz1X+zu7bhK0Rskzq2x8R3MUam7DXBeDlrznKsHrdLCZE
-	AuEJw+tw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IvSB3M+Q8TFdhooz6JDT2t3V/uQhypYr4d0m3Dxe/5M=; b=gqqWMvhCpTGtWu
+	U7OJ+YhP4mFO56r7EGvCBRQBAAHDjECPBedOBGU6wXm3v1ZqlUUKgejS1SxwdTT6nUPXTjGruz+X0
+	Cji6rqYeZfnlzkbPi7C98v+2ohryQSiSG0PvAoY9o3Lzv8JKAYeoaBI7OTJtnu0N4WcTZQEGHjcCp
+	00DobK/IoOQNfIiiJh5KX/Sp67Ql7yeXWhMug/UDvIVljYg26xDCz9Zo0XCq2QJ8lP1gXeT3cKaQR
+	NXCTwK07i6Cwl5YXzrGKEXhKjYTT2UDNPj2g21n2S/IJkn2vaPfAjvtljjpiKVflB575a9tbnIGCU
+	X1a/n4QGx8f5l/6QKrNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYAKk-007BXb-Cs; Fri, 03 Mar 2023 18:40:46 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1pYAOR-007C0u-8U; Fri, 03 Mar 2023 18:44:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYAKh-007BWv-D7
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 18:40:44 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pYAJT-0004Q1-Rf; Fri, 03 Mar 2023 19:39:27 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pYAJF-001cS4-A2; Fri, 03 Mar 2023 19:39:13 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pYAJE-001ug1-Il; Fri, 03 Mar 2023 19:39:12 +0100
-Date: Fri, 3 Mar 2023 19:39:09 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
-	=?utf-8?Q?C=C3=A9dric?= Le Goater <clg@kaod.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	William Zhang <william.zhang@broadcom.com>,
-	Kursad Oney <kursad.oney@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Anand Gore <anand.gore@broadcom.com>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Kamal Dasu <kdasu.kdev@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Han Xu <han.xu@nxp.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Jay Fang <f.fangjian@huawei.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Andi Shyti <andi@etezian.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Li-hao Kuo <lhjeff911@gmail.com>,
-	Masahisa Kojima <masahisa.kojima@linaro.org>,
-	Jassi Brar <jaswinder.singh@linaro.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Max Filippov <jcmvbkbc@gmail.com>
-Cc: linux-aspeed@lists.ozlabs.org, Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	linux-samsung-soc@vger.kernel.org,
-	Benjamin Fair <benjaminfair@google.com>,
-	linux-rockchip@lists.infradead.org, openbmc@lists.ozlabs.org,
-	Nancy Yuen <yuenn@google.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	NXP Linux Team <linux-imx@nxp.com>, linux-sunxi@lists.linux.dev,
-	linux-xtensa@linux-xtensa.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andrew Jeffery <andrew@aj.id.au>,
-	Patrick Venture <venture@google.com>, linux-spi@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 00/87] spi: Convert to platform remove callback returning
- void
-Message-ID: <20230303183909.65uqvaznntwmfwht@pengutronix.de>
-References: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
-MIME-Version: 1.0
-In-Reply-To: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+	id 1pYAOO-007C09-Mq
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 18:44:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4E13A61998;
+	Fri,  3 Mar 2023 18:44:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B219BC433D2;
+	Fri,  3 Mar 2023 18:44:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677869070;
+	bh=QZevfkBmy4cNqiG2nfJQcvQiWgn6Oe3/Sv5wusq1rWo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=UPTds9wDuX74b997P7pERlSqgRiNSAY+BM7SXLlkM8UdUHyL1twoYxM4633n1o65O
+	 uQ64VC/t4eoWxzk3/wHEwEOiSv+fxUqH46e0zKHydf98vMyeI/vmkAGOWAt676hUIe
+	 QMCK0+OXRf8NLqaIC5K/gfNOig01IrpWGhhcAYuiMwk1vxCRhULqAKbPBPVJ2kGB9b
+	 nNgZEvlMQNMAoZ40WBHMYQJgjlRBvxYyMh6R/6mMEw5RycWQQsEy2yuA+9nZAthLd/
+	 tJ0SF9acrSN/maO5PIDH8ghQkdWWwS+8mb6HX1x22kh1w1JSD+XALclbzPoxvlszbZ
+	 xjMJkEZ2GxpwA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 99561E68D5C;
+	Fri,  3 Mar 2023 18:44:30 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.3 Merge Window, Part 2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-030bb7f3-2a9b-4061-8f41-e3e20c9b1671@palmer-ri-x1c9>
+References: <mhng-030bb7f3-2a9b-4061-8f41-e3e20c9b1671@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-030bb7f3-2a9b-4061-8f41-e3e20c9b1671@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-mw2
+X-PR-Tracked-Commit-Id: 61fc1ee8be26bc192d691932b0a67eabee45d12f
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: bf1a1bad82407ad81130c065f6495ec0f939ae60
+Message-Id: <167786907062.30023.15883158873202816895.pr-tracker-bot@kernel.org>
+Date: Fri, 03 Mar 2023 18:44:30 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_104043_488975_BD50C96C 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20230303_104432_823874_406396A0 
+X-CRM114-Status: UNSURE (   4.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,83 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6932420524976385044=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Fri, 03 Mar 2023 01:22:11 -0800 (PST):
 
---===============6932420524976385044==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="v6z3e2z4afz7ipyr"
-Content-Disposition: inline
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-mw2
 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/bf1a1bad82407ad81130c065f6495ec0f939ae60
 
---v6z3e2z4afz7ipyr
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you!
 
-Hello,
-
-On Fri, Mar 03, 2023 at 06:19:14PM +0100, Uwe Kleine-K=F6nig wrote:
-> this patch series adapts the platform drivers below drivers/spi
-> to use the .remove_new() callback. Compared to the traditional .remove()
-> callback .remove_new() returns no value. This is a good thing because
-> the driver core doesn't (and cannot) cope for errors during remove. The
-> only effect of a non-zero return value in .remove() is that the driver
-> core emits a warning. The device is removed anyhow and an early return
-> from .remove() usually yields a resource leak.
->=20
-> By changing the remove callback to return void driver authors cannot
-> reasonably assume any more that there is some kind of cleanup later.
->=20
-> All drivers touched here returned zero unconditionally in their remove
-> callback, so they could all be converted trivially to .remove_new().
-
-One thing I failed to mention here (because my coccinelle patch to
-detect that was suboptimal) is: There are 6 drivers---namely
-atmel-quadspi.c, spi-imx.c, spi-mt65xx.c, spi-qup.c, spi-sprd.c, and
-spi-ti-qspi.c---that might return a non-zero value in their remove
-function. Note that this is exactly the problem that I target to rub out
-with the effort to change .remove() to return void.
-
-I'll address them separately.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---v6z3e2z4afz7ipyr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmQCPsoACgkQwfwUeK3K
-7AnE5wf/f9JfZvlhsMW5lUYY1iF+TtcOqAj1YniGiXQoKsm+C+jWJHYOZHCCzymg
-UQ5G8rDRrzTjzXz8vR2ZoeyNaMKy/WfN5PBBn8qc795Gqt8Z4wr9Fi0hyfto/6Ic
-fpzjUOQGdtgTfm/BiPYD61484JFMRNw7SPzUGCDBsvWNmUQdmLu7jbqtTCLk/DjY
-2VO+r2QB8TYqj/9xZQcl6RJC6c3qj5gHKYZIquIIHc/3Ug4eesZlWHWt2FNVTbX7
-n4hcyTMeV8iCsDN1/FgwNnOJW3UubunsqIIDqyPS7wreu6eK3QeUoR26ZFOKW19L
-9QoJp1TuDkcr0Cccg7l24GxflQoqgA==
-=LoPr
------END PGP SIGNATURE-----
-
---v6z3e2z4afz7ipyr--
-
-
---===============6932420524976385044==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6932420524976385044==--
-
