@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B467CC678D4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 08:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515E1C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 08:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H/Wtr1OJq8OPbEv7uDg/JsVgrPEIiVyp4P8QKDxGyWQ=; b=f24nZAy/p64rxT
-	QchqgXBYR0NoXm/uN0h+g6mJZU8M/Xj0wYSVVqYFbJUIutRISoZzFlO4jdWAgrrd73dApbvud5cew
-	hGrANV4vctdG02tZV4atyl4J2vqIkvOioq2/nCExVSLQf5k6WBYHppHJuCVmKpnwEp5rT8Ufuta0z
-	nagOSrKPnGAnlW3UGVJDqSGfmnWsrK/5TslnBcqBoh1n1nCAM3xWvImBCT3LY5C3I6Z9g30ULtc6S
-	qxaBUx36YrF3ByQFqD5fUCEgL9hpdoJjHvO/W36nODLwE8xAO96cDFDGOQX7ixvEvIOLD/t5KUmeM
-	RoZGpvXPJxAWCDOdAZWw==;
+	List-Owner; bh=ajv/RoC6g+yktswD3XsL92sbHTg7uzsAFpHL83BnSH0=; b=takFNZ40P+ENEI
+	TUScao7TGuCR17FR0o0ZLhNlIMTuW1p2+7a3G7nytjTRuBfk9xGhnAJf+Vf83u8RXQn6cj1kyxlMp
+	g2Ohn5h1gGtV9trz+9ZW0jM2pp5Q4XakbuRgTjeudaE1dp8bNmqLBzq0UMDx+CfoJzVxNYIga62Ax
+	3qr15iqU2mT2APrlUnkvHPrfgJooFQgNX9u2p0wFYi/cLBmT3vnyG/bk6/jImQHLlvvPjpw13IeGS
+	Y/fvAo38ga7Z+dtHOfOjLoJ+r16/YSQnKRW6LIcqebEiMa27bFWaAmjmdIJ6Q3FYvyNF6qU105kts
+	C9bEsORkNEBpLyiLwKoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY0Tm-005KuJ-1W; Fri, 03 Mar 2023 08:09:26 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY0Tf-005KsV-G5
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 08:09:24 +0000
-Received: by mail-ed1-x530.google.com with SMTP id s11so6994347edy.8
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 00:09:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D4WTQThSIoEF32Ub6V9v7GmyYwnBKD53cEBEBaSt0zA=;
-        b=aLyqdRMRrcIS85q9Lkp1ABFAZjgqHcOjlxjeGn78DOMaYXW4uRTyPL7zSxRKp2jFcN
-         ietx/isVIl1uXoAV0vcUi2WKOsjrrTd6NmctLBo6TIpfkQHMisuJJOOAWzqL+anMxcIv
-         iK9cFveXfloQbDQ6LmaoyCmn8LYC4OJzwxm6cnc/g2pSJaNYHGmsAadKQbqTA6oo8oLO
-         bsBaM9w91pp0a6weRqls7td2/w0Wgmz1DxlQByIaxe3h2YEEDEFQCkvb5KmHi2UpFcgr
-         Yf8gqW6PhPafK1CsT5o0AytD+su6h+kiK5vBzsL2eXwjlUeNU7sD7u8pFyVpPBwObTk2
-         xiIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D4WTQThSIoEF32Ub6V9v7GmyYwnBKD53cEBEBaSt0zA=;
-        b=BZQnMG9hcjLtlzzFwOeJEamo5cBNU/NRH9HpJHHBISHX2qqjvcFo6JizUlpr/zbHjF
-         PkE1ZH+Ni290bvxZi7S8is4OWcteM+VTd6V6KUV2F4ktJqp4cuqkZwPoMBmv1CxOYTtR
-         UHAKnc0ZZKpOuF2HCa68Ee5MnXpfB9nfCgq0UsPwpluoQc0U05r6Ut8PM6Lm+wv2dslc
-         dALW78rGYKtUrvYXU/ZknPa75vVuQ8nEWJoLjgGxkRY2EDECwUQPH9MMTr+urJhTdQTa
-         +gaj0jU0b4aR6KdLij0gJtkiqtV6r/3o3UqBVGxjmUt320wUX2bUE9BAF0rqKMQD4EvT
-         AVXw==
-X-Gm-Message-State: AO0yUKXLutgrEQTUJEfrvrSBfhf84znzBlss1PCBb/PnBslE5j4V8lxL
-	v9bJ2vkqJMOvO0zMYh6Ej0Ia/g==
-X-Google-Smtp-Source: AK7set/BTmesy88YX7WAMMNmgTPuqjNLvzlzo5tDl9IBAMPW4ZDcel3r6DO6t1dq4qeXaUAuHvqecQ==
-X-Received: by 2002:a05:6402:1253:b0:4ad:738a:a5db with SMTP id l19-20020a056402125300b004ad738aa5dbmr1216384edw.0.1677830957038;
-        Fri, 03 Mar 2023 00:09:17 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id m27-20020a170906599b00b008dea022f5e6sm679897ejs.24.2023.03.03.00.09.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Mar 2023 00:09:16 -0800 (PST)
-Date: Fri, 3 Mar 2023 09:09:10 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Message-ID: <20230303080910.hfipcsrgyvppa6ex@orel>
-References: <20230227075942.rgl4hqnwttwvoroe@orel>
- <178ca008701147828d2e62402ff4f78a@EXMBX066.cuchost.com>
- <20230227114435.eow57ax5zhysz3kv@orel>
- <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
- <20230228050457.zfbflfawctaccepv@orel>
- <803ac603023c4eeda4a0b8e414cce6f1@EXMBX066.cuchost.com>
- <20230228071845.k6s6bcnesdsnw3jl@orel>
- <abd16b950ca744b081fc9f545977b8fa@EXMBX066.cuchost.com>
- <20230228073725.m5t6rkcbgbi3g26z@orel>
- <94325d78a0b74d8289b77ec743840941@EXMBX066.cuchost.com>
+	id 1pY0cy-005MI7-1g; Fri, 03 Mar 2023 08:18:56 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pY0cr-005ME5-91
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 08:18:54 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 70D5D24E24F;
+	Fri,  3 Mar 2023 16:18:15 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
+ 2023 16:18:15 +0800
+Received: from [192.168.125.93] (113.72.145.171) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
+ 2023 16:18:14 +0800
+Message-ID: <ffe8f7d0-8f47-859f-e7f8-8343b3ae6330@starfivetech.com>
+Date: Fri, 3 Mar 2023 16:18:04 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <94325d78a0b74d8289b77ec743840941@EXMBX066.cuchost.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v3 2/3] dmaengine: dw-axi-dmac: Add support for StarFive
+ JH7110 DMA
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
+	<vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230227131042.16125-1-walker.chen@starfivetech.com>
+ <20230227131042.16125-3-walker.chen@starfivetech.com>
+ <CAJM55Z946EVyN50KcBmh7chOOnzwTOjwLR+Z_fCOrfin9j7LNA@mail.gmail.com>
+Content-Language: en-US
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <CAJM55Z946EVyN50KcBmh7chOOnzwTOjwLR+Z_fCOrfin9j7LNA@mail.gmail.com>
+X-Originating-IP: [113.72.145.171]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_000919_577600_F259D224 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20230303_001849_645277_23A2B878 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +79,179 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 03, 2023 at 01:53:19AM +0000, JeeHeng Sia wrote:
-> Hi Andrew,
-> 
-> 
-> > -----Original Message-----
-> > From: Andrew Jones <ajones@ventanamicro.com>
-...
-> > I'm not sure why you don't just write a paragraph or two here in this
-> > email thread explaining what "the answer" is. Anyway, feel free to
-> > invite me to a call if you think it'd be easier to hash out that way.
-> Thank you very much to free up time to join the call. It was very nice to talk to you over the conference call and I did learn a lot from you.
-> Below is the summary of the experiment that benefit everyone:
-> To avoid inspecting a huge log, the experiment was carried out on the Qemu with 512MB of memory (128000 pages). 
-> During hibernation, there are 22770 pages (out of 128000 pages) were identified need to be stored to the disk. Those pages consists of the kernel text code, rodata, page table, stack/heap/kmalloc/vmalloc memory, user space app, rootfs.....etc. The number of pages need to be stored to the disk are depends on the "workload" on the system.
-> When resume, only 21651 pages were assigned to the restore_pblist. The rest of the pages consists of meta_data pages and forbidden pages which were handled by the "resume kernel". Arch code will handle the pages assigned to the restore_pblist.
-> From the experiment, we also know that the game that is activated before hibernation is still "alive" after resume from hibernation and can continue to play without problem.
->
 
-Thank you, Jee Heng. Indeed it looks like the majority of the pages that
-are selected for the suspend image end up on the PBE list. While we don't
-have definitive "this page must be on the PBE list" type of result, I
-agree that we shouldn't need to worry about the PBE list ever being empty.
 
-Thanks,
-drew
+On 2023/2/27 21:47, Emil Renner Berthing wrote:
+> On Mon, 27 Feb 2023 at 14:11, Walker Chen <walker.chen@starfivetech.com> wrote:
+>>
+>> Add DMA reset operation in device probe and use different configuration
+>> on CH_CFG registers according to match data.
+>>
+>> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+>> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> 
+> Hi Walker,
+> 
+> Firstly your Signed-off-by should be the last line.
+> 
+> I may have been unclear in my last review, sorry. I meant to give my
+> reviewed-by if you just removed the reset pointer that was never used.
+> This new version also adds a lot of new code.
+> 
+> Though, I'm glad you want to update the driver to use match data
+> rather than of_device_is_compatible, but then please update all uses
+> of of_device_is_compatible. With this patch starfive uses match data
+> and the intel,kmb-axi-dma still uses of_device_is_compatible.
+
+Hey Emil, thank you for pointing out these problems for me.
+Will be fixed.
+
+> More comments below..
+> 
+>> ---
+>>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 34 +++++++++++++++++--
+>>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  7 ++++
+>>  2 files changed, 39 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> index bf85aa0979ec..400eeef707bf 100644
+>> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> @@ -21,10 +21,12 @@
+>>  #include <linux/kernel.h>
+>>  #include <linux/module.h>
+>>  #include <linux/of.h>
+>> +#include <linux/of_device.h>
+>>  #include <linux/of_dma.h>
+>>  #include <linux/platform_device.h>
+>>  #include <linux/pm_runtime.h>
+>>  #include <linux/property.h>
+>> +#include <linux/reset.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/types.h>
+>>
+>> @@ -86,7 +88,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>>
+>>         cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+>>                   config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+>> -       if (chan->chip->dw->hdata->reg_map_8_channels) {
+>> +       if (chan->chip->dw->hdata->reg_map_8_channels &&
+>> +           !chan->chip->dw->hdata->use_cfg2) {
+>>                 cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+>>                          config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+>>                          config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+>> @@ -1142,7 +1145,7 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
+>>         axi_chan_disable(chan);
+>>
+>>         ret = readl_poll_timeout_atomic(chan->chip->regs + DMAC_CHEN, val,
+>> -                                       !(val & chan_active), 1000, 10000);
+>> +                                       !(val & chan_active), 1000, DMAC_TIMEOUT_US);
+>>         if (ret == -ETIMEDOUT)
+>>                 dev_warn(dchan2dev(dchan),
+>>                          "%s failed to stop\n", axi_chan_name(chan));
+>> @@ -1367,6 +1370,17 @@ static int parse_device_properties(struct axi_dma_chip *chip)
+>>         return 0;
+>>  }
+>>
+>> +static int jh7110_rst_init(struct platform_device *pdev)
+>> +{
+>> +       struct reset_control *resets;
+>> +
+>> +       resets = devm_reset_control_array_get_exclusive(&pdev->dev);
+>> +       if (IS_ERR(resets))
+>> +               return PTR_ERR(resets);
+>> +
+>> +       return reset_control_deassert(resets);
+>> +}
+>> +
+>>  static int dw_probe(struct platform_device *pdev)
+>>  {
+>>         struct device_node *node = pdev->dev.of_node;
+>> @@ -1374,6 +1388,7 @@ static int dw_probe(struct platform_device *pdev)
+>>         struct resource *mem;
+>>         struct dw_axi_dma *dw;
+>>         struct dw_axi_dma_hcfg *hdata;
+>> +       const struct axi_dma_chip_config *ccfg;
+>>         u32 i;
+>>         int ret;
+>>
+>> @@ -1416,6 +1431,15 @@ static int dw_probe(struct platform_device *pdev)
+>>         if (IS_ERR(chip->cfgr_clk))
+>>                 return PTR_ERR(chip->cfgr_clk);
+>>
+>> +       ccfg = of_device_get_match_data(&pdev->dev);
+>> +       if (ccfg) {
+>> +               ret = ccfg->rst_init(pdev);
+>> +               if (ret)
+>> +                       return ret;
+>> +
+>> +               chip->dw->hdata->use_cfg2 = ccfg->use_cfg2;
+>> +       }
+>> +
+>>         ret = parse_device_properties(chip);
+>>         if (ret)
+>>                 return ret;
+>> @@ -1557,9 +1581,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
+>>         SET_RUNTIME_PM_OPS(axi_dma_runtime_suspend, axi_dma_runtime_resume, NULL)
+>>  };
+>>
+>> +static const struct axi_dma_chip_config jh7110_chip_config = {
+>> +       .rst_init = jh7110_rst_init,
+>> +       .use_cfg2 = true,
+>> +};
+>> +
+>>  static const struct of_device_id dw_dma_of_id_table[] = {
+>>         { .compatible = "snps,axi-dma-1.01a" },
+>>         { .compatible = "intel,kmb-axi-dma" },
+>> +       { .compatible = "starfive,jh7110-axi-dma", .data = &jh7110_chip_config },
+>>         {}
+>>  };
+>>  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+>> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+>> index e9d5eb0fd594..7b404ae9a26a 100644
+>> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+>> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+>> @@ -21,6 +21,7 @@
+>>  #define DMAC_MAX_CHANNELS      16
+>>  #define DMAC_MAX_MASTERS       2
+>>  #define DMAC_MAX_BLK_SIZE      0x200000
+>> +#define DMAC_TIMEOUT_US                200000
+>>
+>>  struct dw_axi_dma_hcfg {
+>>         u32     nr_channels;
+>> @@ -33,6 +34,7 @@ struct dw_axi_dma_hcfg {
+>>         /* Register map for DMAX_NUM_CHANNELS <= 8 */
+>>         bool    reg_map_8_channels;
+>>         bool    restrict_axi_burst_len;
+>> +       bool    use_cfg2;
+>>  };
+>>
+>>  struct axi_dma_chan {
+>> @@ -72,6 +74,11 @@ struct axi_dma_chip {
+>>         struct dw_axi_dma       *dw;
+>>  };
+>>
+>> +struct axi_dma_chip_config {
+>> +       int (*rst_init)(struct platform_device *pdev);
+> 
+> Please just spell reset in full, it's not that much longer.
+
+Okay, this will be modified.
+
+> 
+>> +       bool use_cfg2;
+>> +};
+>> +
+> 
+> This struct is only used in dw-axi-dmac-platform.c above, so no need
+> to add it here.
+
+Okay, will be fixed.
+
+Thank you very much for your review and comment!
+
+Best regards,
+Walker
 
 _______________________________________________
 linux-riscv mailing list
