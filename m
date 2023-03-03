@@ -4,51 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018CDC678D4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 14:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A9AC678D4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 14:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9sKaXp0qwW8gZ3GI8NSDVab5A0ZHIZCuDINlGHwbAIw=; b=L4aieXym2n415C
-	8DwI0BFmI219wiez3Td4stumu5t3JAyAM8KLEOQDonduxg8Dn+YwESnLe6AxamvDiN5ZXOZKgxUiT
-	SvCVVGwnD5cNZOR2RiNWT19/iUew5eR8KdoQDK04/rU6qdHZyBjyKHBNOVjtDQivmDMItnuWFJNzl
-	833qw0RAyPRTFuBkBytIMd0OFpd7yI7lGAma7xGImmm8h4SW0HhFZNm8fvUe72oZFlM8hb0lqn2EB
-	Vl1cU0wWvx27lqT03DL2TQPQMrHn6cZWD/FlG/DfAUOnT+ZpMcI5Zkm27lm4/XZ17SAD7ARIENbyQ
-	8OOEAc6qMVFYdZIpi6gA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YdBy8/2C7KkI+XEXLqjMjJQjglSbq9mQbMz9B/IB+wQ=; b=EGT3Ax0PE3fViH
+	uB/Ln6cZ8ekrW5rk7CSHya8F+hUjcK/xHYs8EN0WzoMFuHvp/QQoieSYY+fCfDXnWZZKzTDnf1K/T
+	7Eqkhrvdvmph9Y61ZKQOVpX4e0IvHb//1Mw2bu+uxjKbp0XVMU0FUj9HrUsq8tib6p1gMCyef1a5S
+	RSGFrmAonOANwHi11H3brCB96CimJFTueJ+HXiYGbWYew83eEFIrVdePFJCaz/D9JLvwjV1ZJj3mY
+	8vlA969iUL63+1kXBW++mcPC19qZa02BknfqzPctVDxqSXDdb16CrOCzgXXeoHUdoxpAWiM+1Z7WD
+	hthjkuA8jLP2oSj4Tf/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY6DJ-006aKu-AV; Fri, 03 Mar 2023 14:16:49 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1pY6YT-006cgm-LZ; Fri, 03 Mar 2023 14:38:41 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY6DF-006aKA-4T
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 14:16:47 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 8BEF5240011;
-	Fri,  3 Mar 2023 14:16:38 +0000 (UTC)
-Message-ID: <6b2934bb-ff40-fd85-f305-d6ea8eb2b200@ghiti.fr>
-Date: Fri, 3 Mar 2023 15:16:38 +0100
+	id 1pY6YP-006cg1-Mr
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 14:38:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1677854318; x=1709390318;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=wH/owjOxRlyHWE3uvkrIfn8ERk6g+L3JBKCJXgXfY3E=;
+  b=WxFAs2oqs6dzTxgcd7l8WcIGM8sV23nnp9sW7xqlwKgFi7u0iNCMqVQQ
+   djcJXeiVdxRZOojAVm3/MGD4+M0CB54dAOdWPD704oGjze9ocAdLsPAjU
+   4DTKadMmRKcdTI5D26DuJdGK37qb6ie37ZSo5IN7W4BqRnbr/fc1iYBq9
+   YL5MbSPtZIp1WHvt2GxVTHxYrVMKO3EWK6ixjSp5NvdJtQfQJVSrjns7G
+   XvaEkA4f/91gJ6FMFVUU0HuKIOWj6a+EuZTLRFVYOQfd+N9COX+15le6x
+   7eW2J/KcKCrqHFRtbC9Zqrj7NFoAvYAA7eOSupNTcLfwaFSjiWru09ZXc
+   A==;
+X-IronPort-AV: E=Sophos;i="5.98,230,1673938800"; 
+   d="scan'208";a="203485311"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Mar 2023 07:38:34 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Fri, 3 Mar 2023 07:38:33 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
+ Transport; Fri, 3 Mar 2023 07:38:31 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: Palmer Dabbelt <palmerdabbelt@google.com>,
+	<linux-riscv@lists.infradead.org>, <changbin.du@huawei.com>,
+	<rostedt@goodmis.org>, Changbin Du <changbin.du@gmail.com>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5] RISC-V: Don't check text_mutex during stop_machine
+Date: Fri, 3 Mar 2023 14:37:55 +0000
+Message-ID: <20230303143754.4005217-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: RISC-V Linux kernel not booting up with KASAN enabled
-Content-Language: en-US
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Chathura Rajapaksha <chathura.abeyrathne.lk@gmail.com>,
- linux-riscv@lists.infradead.org, kasan-dev@googlegroups.com
-References: <CAD7mqryyz0PGHotBxvME7Ff4V0zLS+OcL8=9z4TakaKagPBdLw@mail.gmail.com>
- <789371c4-47fd-3de5-d6c0-bb36b2864796@ghiti.fr>
- <CAD7mqrzv-jr_o2U3Kz7vTgcsOYPKgwHW-L=ARAucAPPJgs4HCw@mail.gmail.com>
- <CAD7mqryDQCYyJ1gAmtMm8SASMWAQ4i103ptTb0f6Oda=tPY2=A@mail.gmail.com>
- <067b7dda-8d3d-a26c-a0b1-bd6472a4b04d@ghiti.fr>
- <CACT4Y+avaVT4sBOioxm8N+iH26udKwAogRhjMwGWcp4zzC8JdA@mail.gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CACT4Y+avaVT4sBOioxm8N+iH26udKwAogRhjMwGWcp4zzC8JdA@mail.gmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6558; i=conor.dooley@microchip.com; h=from:subject; bh=2DNonQvs9jwOV2YpnFV2veRbEiyojuchq7Vuzq+CE/o=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClMbPZrfn3Q3XP+2Peztqmv+2R9WYKNN69rN/q/4t1JZb7O tPeGHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIuj4jw4a7Od03t9QZxV359UA/yf 0XW0WYddP6fRPZ3q09ZNG76hvDXylV276JsyQ0bvDNtj51MaJrxoNP8vHH3yz19PX3N9rWxAIA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_061645_487231_0CF665E1 
-X-CRM114-Status: GOOD (  28.97  )
+X-CRM114-CacheID: sfid-20230303_063837_841423_D103427C 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,142 +76,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMy8zLzIzIDA2OjQ0LCBEbWl0cnkgVnl1a292IHdyb3RlOgo+IE9uIFRodSwgMiBNYXIgMjAy
-MyBhdCAyMToxMSwgQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPj4gK2Nj
-IERtaXRyeSBhbmQga2FzYW4tZGV2LCBpbiBjYXNlIHRoZXkga25vdyBhYm91dCB0aGlzIGJ1dCBJ
-IGRpZCBub3QKPj4gZmluZCBhbnl0aGluZyByZWxhdGVkCj4gSGFyZCB0byBzYXkgYW55dGhpbmcg
-dy9vIGNvbW1pdC9zeW1ib2xpemVkIHJlcG9ydC4KPiBJZiBpdCdzIHN0YWNrIHVud2luZGVyIGFu
-ZCBpdCdzIHN1cHBvc2VkIHRvIGJlIHByZWNpc2UsIHRoZW4gaXQgbWF5IGJlCj4gYSBidWcgaW4g
-dGhlIHVud2luZGVyIHdoZXJlIGl0IHJlYWRzIGEgd3JvbmcgbG9jYXRpb24gYW5kIGlzIGltcHJl
-Y2lzZQo+IChub3QgdGhlIGZyYW1lIHBvaW50ZXIpLgo+IElmIGl0J3Mgc3VwcG9zZWQgdG8gYmUg
-aW1wcmVjaXNlLCB0aGVuIGl0IHNob3VsZCB1c2UgUkVBRF9PTkNFX05PQ0hFQ0sKPiB0byByZWFk
-IHJhbmRvbSBzdGFjayBsb2NhdGlvbnMuCgoKUGxlYXNlIGNvcnJlY3QgbWUgaWYgSSBzYXkgc29t
-ZXRoaW5nIG9idmlvdXNseSB3cm9uZy4KClRoZSBjb25maWcgdXNlZCB0byBnZW5lcmF0ZSB0aGlz
-IHRyYWNlIGRvZXMgbm90IHNldCAKQ09ORklHX0ZSQU1FX1BPSU5URVI6IHdlIHdlcmUgdGhlbiBp
-biBhbiBpbXByZWNpc2Ugc3RhY2sgdW53aW5kaW5nIG1vZGUuIApXaGVuIHNldCwgdGhlIGJhY2t0
-cmFjZSBkaXNhcHBlYXJzOiBzbyBJSVVDLCB0aGUgaXNzdWUgbGllcyBpbiB0aGUgc3RhY2sgCnVu
-d2luZGluZyBmdW5jdGlvbiB0aGF0IHJlYWRzIHRoZSBzdGFjayByYW5kb21seSBhbmQgS0FTQU4g
-ZG9lcyBub3QgbGlrZSAKdGhhdC4gU28gYXMgeW91IHN1Z2dlc3RlZCwgSSB1c2VkIFJFQURfT05D
-RV9OT0NIRUNLIHdoZW4gcmVhZGluZyB0aGUgCnN0YWNrIGFuZCB0aGUgYmFja3RyYWNlIGFsc28g
-ZGlzYXBwZWFycy4gU28gdGhlIGZvbGxvd2luZyBwYXRjaCB3b3VsZCBiZSAKdGhlIGZpeCBmb3Ig
-dGhpcywgaXMgdGhhdCBjb3JyZWN0PwoKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9z
-dGFja3RyYWNlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNlLmMKaW5kZXggZjlhNWE3
-YzkwZmYwLi42NGE5YzA5M2FlZjkgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNr
-dHJhY2UuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNlLmMKQEAgLTEwMSw3ICsx
-MDEsNyBAQCB2b2lkIG5vdHJhY2Ugd2Fsa19zdGFja2ZyYW1lKHN0cnVjdCB0YXNrX3N0cnVjdCAq
-dGFzaywKIMKgwqDCoMKgwqDCoMKgIHdoaWxlICgha3N0YWNrX2VuZChrc3ApKSB7CiDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKF9fa2VybmVsX3RleHRfYWRkcmVzcyhwYykgJiYg
-dW5saWtlbHkoIWZuKGFyZywgcGMpKSkKIMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgYnJlYWs7Ci3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBjID0g
-KCprc3ArKykgLSAweDQ7CivCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBjID0gUkVBRF9P
-TkNFX05PQ0hFQ0soKmtzcCsrKSAtIDB4NDsKIMKgwqDCoMKgwqDCoMKgIH0KIMKgfQoKVGhhbmtz
-IGZvciB5b3VyIHF1aWNrIGFuc3dlciwKCkFsZXgKCgo+Cj4+IE9uIDMvMi8yMyAxOTowMSwgQ2hh
-dGh1cmEgUmFqYXBha3NoYSB3cm90ZToKPj4+IEhpIEFsZXgvQWxsLAo+Pj4KPj4+IEtlcm5lbCBp
-cyBib290aW5nIG5vdyBidXQgSSBnZXQgdGhlIGZvbGxvd2luZyBLQVNBTiBmYWlsdXJlIGluIHRo
-ZQo+Pj4gYm9vdHVwIGl0c2VsZi4KPj4+IEkgZGlkbid0IHNlZSB0aGlzIGJ1ZyB3YXMgcmVwb3J0
-ZWQgYmVmb3JlIGFueXdoZXJlLgo+Pj4KPj4+IFsgICAgMC4wMDAwMDBdIE1lbW9yeTogNjM0MzZL
-LzEyOTAyNEsgYXZhaWxhYmxlICgyMDM4NUsga2VybmVsIGNvZGUsCj4+PiA3MTIwSyByd2RhdGEs
-IDQwOTZLIHJvZGF0YSwgMjEzOEsgaW5pdCwgNDc2SyBic3MsIDY1NTg4SyByZXNlcnZlZCwgMEsK
-Pj4+IGNtYS1yZXNlcnZlZCkKPj4+IFsgICAgMC4wMDAwMDBdID09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+Pj4gWyAgICAw
-LjAwMDAwMF0gQlVHOiBLQVNBTjogc3RhY2stb3V0LW9mLWJvdW5kcyBpbiB3YWxrX3N0YWNrZnJh
-bWUrMHgxYjIvMHgxZTIKPj4+IFsgICAgMC4wMDAwMDBdIFJlYWQgb2Ygc2l6ZSA4IGF0IGFkZHIg
-ZmZmZmZmZmY4MWUwN2M0MCBieSB0YXNrIHN3YXBwZXIvMAo+Pj4gWyAgICAwLjAwMDAwMF0KPj4+
-IFsgICAgMC4wMDAwMDBdIENQVTogMCBQSUQ6IDAgQ29tbTogc3dhcHBlciBOb3QgdGFpbnRlZAo+
-Pj4gNi4yLjAtZ2FlMzQxOWZiYWM4NC1kaXJ0eSAjNwo+Pj4gWyAgICAwLjAwMDAwMF0gSGFyZHdh
-cmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERUKQo+Pj4gWyAgICAwLjAwMDAwMF0gQ2FsbCBU
-cmFjZToKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAwYWI5ZT5dIHdhbGtfc3RhY2tm
-cmFtZSsweDAvMHgxZTIKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEwODUwOD5dIGlu
-aXRfcGFyYW1fbG9jaysweDI2LzB4MmEKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAw
-YWQ0Yz5dIHdhbGtfc3RhY2tmcmFtZSsweDFhZS8weDFlMgo+Pj4gWyAgICAwLjAwMDAwMF0gWzxm
-ZmZmZmZmZjgxM2Q4NmUwPl0gZHVtcF9zdGFja19sdmwrMHgyMi8weDM2Cj4+PiBbICAgIDAuMDAw
-MDAwXSBbPGZmZmZmZmZmODEzYmQxN2E+XSBwcmludF9yZXBvcnQrMHgxOTgvMHg0YTgKPj4+IFsg
-ICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEwODUwOD5dIGluaXRfcGFyYW1fbG9jaysweDI2LzB4
-MmEKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAwYWQ0Yz5dIHdhbGtfc3RhY2tmcmFt
-ZSsweDFhZS8weDFlMgo+Pj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiZDUyPl0ga2Fz
-YW5fcmVwb3J0KzB4OWEvMHhjOAo+Pj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMDBhZDRj
-Pl0gd2Fsa19zdGFja2ZyYW1lKzB4MWFlLzB4MWUyCj4+PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZm
-ZmZmODAwMGFkNGM+XSB3YWxrX3N0YWNrZnJhbWUrMHgxYWUvMHgxZTIKPj4+IFsgICAgMC4wMDAw
-MDBdIFs8ZmZmZmZmZmY4MDEwODc0OD5dIHN0YWNrX3RyYWNlX3NhdmUrMHg4OC8weGE2Cj4+PiBb
-ICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODAxMDg2YmM+XSBmaWx0ZXJfaXJxX3N0YWNrcysweDhh
-LzB4OGUKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDBiNjVlMj5dIGRldmttc2dfcmVh
-ZCsweDNmOC8weDNmYwo+Pj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiMmRlPl0ga2Fz
-YW5fc2F2ZV9zdGFjaysweDJjLzB4NTYKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEw
-ODc0ND5dIHN0YWNrX3RyYWNlX3NhdmUrMHg4NC8weGE2Cj4+PiBbICAgIDAuMDAwMDAwXSBbPGZm
-ZmZmZmZmODAyM2IzMWE+XSBrYXNhbl9zZXRfdHJhY2srMHgxMi8weDIwCj4+PiBbICAgIDAuMDAw
-MDAwXSBbPGZmZmZmZmZmODAyM2I4ZjY+XSBfX2thc2FuX3NsYWJfYWxsb2MrMHg1OC8weDVlCj4+
-PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODAyM2FlYWU+XSBfX2ttZW1fY2FjaGVfY3JlYXRl
-KzB4MjFlLzB4MzlhCj4+PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODE0MTYyM2U+XSBjcmVh
-dGVfYm9vdF9jYWNoZSsweDcwLzB4OWMKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MTQx
-YjVmNj5dIGttZW1fY2FjaGVfaW5pdCsweDZjLzB4MTFlCj4+PiBbICAgIDAuMDAwMDAwXSBbPGZm
-ZmZmZmZmODE0MDEyNWE+XSBtbV9pbml0KzB4ZDgvMHhmZQo+Pj4gWyAgICAwLjAwMDAwMF0gWzxm
-ZmZmZmZmZjgxNDAxNDVjPl0gc3RhcnRfa2VybmVsKzB4MTkwLzB4M2NhCj4+PiBbICAgIDAuMDAw
-MDAwXQo+Pj4gWyAgICAwLjAwMDAwMF0gVGhlIGJ1Z2d5IGFkZHJlc3MgYmVsb25ncyB0byBzdGFj
-ayBvZiB0YXNrIHN3YXBwZXIvMAo+Pj4gWyAgICAwLjAwMDAwMF0gIGFuZCBpcyBsb2NhdGVkIGF0
-IG9mZnNldCAwIGluIGZyYW1lOgo+Pj4gWyAgICAwLjAwMDAwMF0gIHN0YWNrX3RyYWNlX3NhdmUr
-MHgwLzB4YTYKPj4+IFsgICAgMC4wMDAwMDBdCj4+PiBbICAgIDAuMDAwMDAwXSBUaGlzIGZyYW1l
-IGhhcyAxIG9iamVjdDoKPj4+IFsgICAgMC4wMDAwMDBdICBbMzIsIDU2KSAnYycKPj4+IFsgICAg
-MC4wMDAwMDBdCj4+PiBbICAgIDAuMDAwMDAwXSBUaGUgYnVnZ3kgYWRkcmVzcyBiZWxvbmdzIHRv
-IHRoZSBwaHlzaWNhbCBwYWdlOgo+Pj4gWyAgICAwLjAwMDAwMF0gcGFnZTooX19fX3B0cnZhbF9f
-X18pIHJlZmNvdW50OjEgbWFwY291bnQ6MAo+Pj4gbWFwcGluZzowMDAwMDAwMDAwMDAwMDAwIGlu
-ZGV4OjB4MCBwZm46MHg4MjAwNwo+Pj4gWyAgICAwLjAwMDAwMF0gZmxhZ3M6IDB4MTAwMChyZXNl
-cnZlZHx6b25lPTApCj4+PiBbICAgIDAuMDAwMDAwXSByYXc6IDAwMDAwMDAwMDAwMDEwMDAgZmY2
-MDAwMDAwN2NhNTA5MCBmZjYwMDAwMDA3Y2E1MDkwCj4+PiAwMDAwMDAwMDAwMDAwMDAwCj4+PiBb
-ICAgIDAuMDAwMDAwXSByYXc6IDAwMDAwMDAwMDAwMDAwMDAgMDAwMDAwMDAwMDAwMDAwMCAwMDAw
-MDAwMWZmZmZmZmZmCj4+PiBbICAgIDAuMDAwMDAwXSBwYWdlIGR1bXBlZCBiZWNhdXNlOiBrYXNh
-bjogYmFkIGFjY2VzcyBkZXRlY3RlZAo+Pj4gWyAgICAwLjAwMDAwMF0KPj4+IFsgICAgMC4wMDAw
-MDBdIE1lbW9yeSBzdGF0ZSBhcm91bmQgdGhlIGJ1Z2d5IGFkZHJlc3M6Cj4+PiBbICAgIDAuMDAw
-MDAwXSAgZmZmZmZmZmY4MWUwN2IwMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAg
-MDAKPj4+IDAwIDAwIDAwIDAwCj4+PiBbICAgIDAuMDAwMDAwXSAgZmZmZmZmZmY4MWUwN2I4MDog
-MDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAKPj4+IDAwIDAwIDAwIDAwCj4+PiBb
-ICAgIDAuMDAwMDAwXSA+ZmZmZmZmZmY4MWUwN2MwMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAg
-ZjEgZjEgZjEgZjEKPj4+IDAwIDAwIDAwIGYzCj4+PiBbICAgIDAuMDAwMDAwXSAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXgo+Pj4gWyAgICAwLjAwMDAwMF0gIGZm
-ZmZmZmZmODFlMDdjODA6IGYzIGYzIGYzIGYzIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwCj4+PiAw
-MCAwMCAwMCAwMAo+Pj4gWyAgICAwLjAwMDAwMF0gIGZmZmZmZmZmODFlMDdkMDA6IDAwIDAwIDAw
-IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwCj4+PiAwMCAwMCAwMCAwMAo+Pj4gWyAgICAwLjAw
-MDAwMF0gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09Cj4+Cj4+IEkgd2FzIGFibGUgdG8gcmVwcm9kdWNlIHRoZSBleGFjdCBz
-YW1lIHRyYWNlLCBJJ2xsIGRlYnVnIHRoYXQgdG9tb3Jyb3csCj4+IEkgaG9wZSBpdCBpcyBhIHJl
-YWwgYnVnIDopCj4+Cj4+IFRoYW5rcyBmb3IgdGhlIHJlcG9ydCBDaGF0dXJhLAo+Pgo+PiBBbGV4
-Cj4+Cj4+Cj4+PiBCZXN0LAo+Pj4gQ2hhdGgKPj4+Cj4+PiBPbiBUaHUsIE1hciAyLCAyMDIzIGF0
-IDExOjI14oCvQU0gQ2hhdGh1cmEgUmFqYXBha3NoYQo+Pj4gPGNoYXRodXJhLmFiZXlyYXRobmUu
-bGtAZ21haWwuY29tPiB3cm90ZToKPj4+PiBIaSBBbGV4LAo+Pj4+Cj4+Pj4gVGhhbmsgeW91IHZl
-cnkgbXVjaCwga2VybmVsIGJvb3RlZCB1cCB3aXRoIHRoZSBwYXRjaGVzIHlvdSBtZW50aW9uZWQu
-Cj4+Pj4gQm9vdHVwIHdhcyBwcmV0dHkgc2xvdyBjb21wYXJlZCB0byBiZWZvcmUgdGhvdWdoIChv
-biBhIGRldiBib2FyZCkuCj4+Pj4gSSBndWVzcyB0aGF0IGlzIGtpbmQgb2YgZXhwZWN0ZWQgd2l0
-aCBLQVNBTiBlbmFibGVkLgo+Pj4+IFRoYW5rcyBhZ2Fpbi4KPj4+Pgo+Pj4+IFJlZ2FyZHMsCj4+
-Pj4gQ2hhdGgKPj4+Pgo+Pj4+IE9uIFRodSwgTWFyIDIsIDIwMjMgYXQgMjo1MOKAr0FNIEFsZXhh
-bmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6Cj4+Pj4+IEhpIENoYXR1cmEsCj4+Pj4+
-Cj4+Pj4+IE9uIDMvMi8yMyAwNDoxMywgQ2hhdGh1cmEgUmFqYXBha3NoYSB3cm90ZToKPj4+Pj4+
-IEhpIEFsbCwKPj4+Pj4+Cj4+Pj4+PiBJIG9ic2VydmVkIHRoYXQgUklTQy1WIExpbnV4IGhhbmdz
-IHdoZW4gSSBlbmFibGUgS0FTQU4uCj4+Pj4+PiBXaXRob3V0IEtBU0FOIGl0IHdvcmtzIGZpbmUg
-d2l0aCBRRU1VLgo+Pj4+Pj4gSSBhbSB1c2luZyB0aGUgY29tbWl0IGFlMzQxOWZiYWM4NDViNGQz
-ZjNhOWZhZTRjYzgwYzY4ZDgyY2RmNmUKPj4+Pj4+Cj4+Pj4+PiBXaGVuIEtBU0FOIGlzIGVuYWJs
-ZWQsIFFFTVUgaGFuZ3MgYWZ0ZXIgT3BlblNCSSBwcmludHMuCj4+Pj4+Pgo+Pj4+Pj4gSSBub3Rp
-Y2VkIGEgc2ltaWxhciBpc3N1ZSB3YXMgcmVwb3J0ZWQgYmVmb3JlIGluCj4+Pj4+PiBodHRwczov
-L2xvcmUua2VybmVsLm9yZy9sa21sL0NBQ1Q0WStabXVPcHlmXzB2SFRUNHQzd2ttSnVXOEV6dmNn
-N3Y2eURWZDhZT1ZpUz1HQUBtYWlsLmdtYWlsLmNvbS90Lwo+Pj4+Pj4gQnV0IEkgYmVsaWV2ZSBJ
-IGhhdmUgdGhlIHBhdGNoIG1lbnRpb25lZCBpbiB0aGF0IHRocmVhZC4KPj4+Pj4gSSBwcm9wb3Nl
-ZCBhIHNlcmllcyB0aGF0IHdpbGwgYmUgaW5jbHVkZWQgaW4gNi4zIHJlZ2FyZGluZyBLQVNBTiBp
-c3N1ZXMKPj4+Pj4gaGVyZTogaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xp
-bnV4LXJpc2N2L2xpc3QvP3Nlcmllcz03MTg0NTgKPj4+Pj4KPj4+Pj4gQ2FuIHlvdSBnaXZlIGl0
-IGEgdHJ5IGFuZCB0ZWxsIG1lIGlmIGl0IHdvcmtzIGJldHRlcj8KPj4+Pj4KPj4+Pj4gVGhhbmtz
-LAo+Pj4+Pgo+Pj4+PiBBbGV4Cj4+Pj4+Cj4+Pj4+Cj4+Pj4+PiBNeSBrZXJuZWwgY29uZmlnOgo+
-Pj4+Pj4gaHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xajluVTdmOU14Q2NfaS1VSFVD
-VHZvN282bkRyY1V6MHcvdmlldz91c3A9c2hhcmluZwo+Pj4+Pj4KPj4+Pj4+IEJlc3QgcmVnYXJk
-cywKPj4+Pj4+IENoYXRoCj4+Pj4+Pgo+Pj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPj4+Pj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+Pj4+
-Pj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+Pj4+Pj4gaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+Pj4KPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+
+We're currently using stop_machine() to update ftrace & kprobes, which
+means that the thread that takes text_mutex during may not be the same
+as the thread that eventually patches the code.  This isn't actually a
+race because the lock is still held (preventing any other concurrent
+accesses) and there is only one thread running during stop_machine(),
+but it does trigger a lockdep failure.
+
+This patch just elides the lockdep check during stop_machine.
+
+Fixes: c15ac4fd60d5 ("riscv/ftrace: Add dynamic function tracer support")
+Suggested-by: Steven Rostedt <rostedt@goodmis.org>
+Reported-by: Changbin Du <changbin.du@gmail.com>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes since v4 [<20230301223853.1444332-1-conor@kernel.org>]:
+* move riscv_patch_in_stop_machine to patch.c & always provide a "real"
+  definition for it, to fix build issues w/ ftrace disabled.
+* I intentionally omitted Changbin's reviewed-by.
+
+Changes since v3 [<20230215164317.727657-1-conor@kernel.org>]:
+* rename the flag to riscv_patch_in_stop_machine as it is being used for
+  kprobes & ftrace, and just looked a bit odd.
+* implement Changbin's suggestion of checking the lock is held in
+  patch_text(), rather than set the flag in callers of patch_text().
+
+Changes since v2 [<20220322022331.32136-1-palmer@rivosinc.com>]:
+* rebase on riscv/for-next as it as been a year.
+* incorporate Changbin's suggestion that init_nop should take the lock
+  rather than call prepare() & post_process().
+
+Changes since v1 [<20210506071041.417854-1-palmer@dabbelt.com>]:
+* Use ftrace_arch_ocde_modify_{prepare,post_process}() to set the flag.
+  I remember having a reason I wanted the function when I wrote the v1,
+  but it's been almost a year and I forget what that was -- maybe I was
+  just crazy, the patch was sent at midnight.
+* Fix DYNAMIC_FTRACE=n builds.
+---
+ arch/riscv/include/asm/ftrace.h |  2 +-
+ arch/riscv/include/asm/patch.h  |  2 ++
+ arch/riscv/kernel/ftrace.c      | 13 +++++++++++--
+ arch/riscv/kernel/patch.c       | 28 +++++++++++++++++++++++++---
+ 4 files changed, 39 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 9e73922e1e2e5..d47d87c2d7e3d 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -109,6 +109,6 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
+ #define ftrace_init_nop ftrace_init_nop
+ #endif
+ 
+-#endif
++#endif /* CONFIG_DYNAMIC_FTRACE */
+ 
+ #endif /* _ASM_RISCV_FTRACE_H */
+diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+index f433121774c01..63c98833d5105 100644
+--- a/arch/riscv/include/asm/patch.h
++++ b/arch/riscv/include/asm/patch.h
+@@ -9,4 +9,6 @@
+ int patch_text_nosync(void *addr, const void *insns, size_t len);
+ int patch_text(void *addr, u32 *insns, int ninsns);
+ 
++extern int riscv_patch_in_stop_machine;
++
+ #endif /* _ASM_RISCV_PATCH_H */
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 5bff37af4770b..03a6434a8cdd0 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -15,10 +15,19 @@
+ void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
+ {
+ 	mutex_lock(&text_mutex);
++
++	/*
++	 * The code sequences we use for ftrace can't be patched while the
++	 * kernel is running, so we need to use stop_machine() to modify them
++	 * for now.  This doesn't play nice with text_mutex, we use this flag
++	 * to elide the check.
++	 */
++	riscv_patch_in_stop_machine = true;
+ }
+ 
+ void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
+ {
++	riscv_patch_in_stop_machine = false;
+ 	mutex_unlock(&text_mutex);
+ }
+ 
+@@ -107,9 +116,9 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+ {
+ 	int out;
+ 
+-	ftrace_arch_code_modify_prepare();
++	mutex_lock(&text_mutex);
+ 	out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
+-	ftrace_arch_code_modify_post_process();
++	mutex_unlock(&text_mutex);
+ 
+ 	return out;
+ }
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 8086d1a281cd3..575e71d6c8ae2 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -11,6 +11,7 @@
+ #include <asm/kprobes.h>
+ #include <asm/cacheflush.h>
+ #include <asm/fixmap.h>
++#include <asm/ftrace.h>
+ #include <asm/patch.h>
+ 
+ struct patch_insn {
+@@ -20,6 +21,8 @@ struct patch_insn {
+ 	atomic_t cpu_count;
+ };
+ 
++int riscv_patch_in_stop_machine = false;
++
+ #ifdef CONFIG_MMU
+ /*
+  * The fix_to_virt(, idx) needs a const value (not a dynamic variable of
+@@ -60,8 +63,15 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
+ 	 * Before reaching here, it was expected to lock the text_mutex
+ 	 * already, so we don't need to give another lock here and could
+ 	 * ensure that it was safe between each cores.
++	 *
++	 * We're currently using stop_machine() for ftrace & kprobes, and while
++	 * that ensures text_mutex is held before installing the mappings it
++	 * does not ensure text_mutex is held by the calling thread.  That's
++	 * safe but triggers a lockdep failure, so just elide it for that
++	 * specific case.
+ 	 */
+-	lockdep_assert_held(&text_mutex);
++	if (!riscv_patch_in_stop_machine)
++		lockdep_assert_held(&text_mutex);
+ 
+ 	if (across_pages)
+ 		patch_map(addr + len, FIX_TEXT_POKE1);
+@@ -125,6 +135,7 @@ NOKPROBE_SYMBOL(patch_text_cb);
+ 
+ int patch_text(void *addr, u32 *insns, int ninsns)
+ {
++	int ret;
+ 	struct patch_insn patch = {
+ 		.addr = addr,
+ 		.insns = insns,
+@@ -132,7 +143,18 @@ int patch_text(void *addr, u32 *insns, int ninsns)
+ 		.cpu_count = ATOMIC_INIT(0),
+ 	};
+ 
+-	return stop_machine_cpuslocked(patch_text_cb,
+-				       &patch, cpu_online_mask);
++	/*
++	 * kprobes takes text_mutex, before calling patch_text(), but as we call
++	 * calls stop_machine(), the lockdep assertion in patch_insn_write()
++	 * gets confused by the context in which the lock is taken.
++	 * Instead, ensure the lock is held before calling stop_machine(), and
++	 * set riscv_patch_in_stop_machine to skip the check in
++	 * patch_insn_write().
++	 */
++	lockdep_assert_held(&text_mutex);
++	riscv_patch_in_stop_machine = true;
++	ret = stop_machine_cpuslocked(patch_text_cb, &patch, cpu_online_mask);
++	riscv_patch_in_stop_machine = false;
++	return ret;
+ }
+ NOKPROBE_SYMBOL(patch_text);
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
