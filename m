@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0792DC64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 19:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149A1C7EE30
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 21:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1618Ip3Xeor1fHo87FHxP9mwlGAE537BxE69VhNggGg=; b=2uh2597uhr29q6
-	AJrfqkXO+B6wyYdc5rGvkxUezumfJTpUN+xGqpuLJlrMOYsFT0B6gz/YmOh2sy9N/qZJ/zgEB9aQH
-	IQB4dDeX/hIzewLEVzgNnSduN1ipmoyadBkB/ctQirX/Rr2k4msJ5d92GPSg+3lA8SieJRz3aqD5y
-	Jaj6DYV9pFA7pXUSzPjpA9TiIHT7dzRX2E9EHK1mNbN4aAQIxtDxVA123qjNfR/QI9XqstrTVJYch
-	nnhrje8g+hK1avs12F2laHrxDCIdsPtkD/rPt/YFEivkjHkcGVGi/KrgioebYvECNaF1VzKsT9wKH
-	iYUrYRnyPlANqJtnANTw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hBmqLFAjISfHYzTLnCJCjnT/djPIqXf2v/tBzF+bV4g=; b=PsXkzJ4QkL+mQc
+	5iOsRwbOXLn7izeXbAWD5Eind//mMpMQhqcA2Iimn/vdUCAxNZxXIK3BCcuoGj9le5UKjqZpvlC+D
+	7S+wsnOiXTwuRmV1w+w1OH31XNyRzIOWakkFMJ4GVVR9bivUvivZliGKfZKPKgU5GJf7VBqcmpoTq
+	hKwfZuBr0T4ydzRvlrzXCV/nRl0uNh+8DvhuLug8gfRYxfKuQCqrHQl4EyQ4lMHAhxyE44JrcNRwm
+	laif7qMan2AmAWuXFIcfChHVtol4XxA/QQFqowx88MTJ5ukru4wnzoEzCV5o7JOehyXoKlQPmTcp+
+	EfzG9hoYR2rl98EnjuoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYAlc-007ImT-CI; Fri, 03 Mar 2023 19:08:32 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pYDB4-007Vt2-2q; Fri, 03 Mar 2023 21:42:58 +0000
+Received: from mail-ua1-f45.google.com ([209.85.222.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYAlY-007Ijw-8F
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 19:08:30 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id fm20-20020a05600c0c1400b003ead37e6588so4588986wmb.5
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 11:08:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PaganyYku+5M5Gn2fyqQMgAHoPD2vYX4XmmZIlQWHiQ=;
-        b=o8g9HP7+HQktVY6qdY64cZXwQensElF+MhlTwft5jS8Jh4OXVjtvilcxCqvCWmPXyJ
-         +Mtrv1xKKZ4xAfe7fC51FOaJxSR5AtBDB5XyPfxuzrCRANgNcYxVcgMAAJrJmO+k6oQm
-         LW5VUc3AoVh9MI4ymhVUCDLI7EnjCce+Y1BG31MNvoBVYvkUt5irxVIUa0EdNV/H2h1P
-         JptpRV2UkN9d5dRvcZUcObiltD9Zptb/sLRc4X98DqRBbmrkx1QmQOIpKPLV6JyDQTML
-         UGnEaPppN7Kbe5CVhZwb8b0BAu5pbumiXtZdEM95WD0hjR7PqXX8Y1VaRdo4wXsubktQ
-         JcCA==
+	id 1pYDAb-007Vff-Vp; Fri, 03 Mar 2023 21:42:33 +0000
+Received: by mail-ua1-f45.google.com with SMTP id n4so2607839ual.13;
+        Fri, 03 Mar 2023 13:42:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PaganyYku+5M5Gn2fyqQMgAHoPD2vYX4XmmZIlQWHiQ=;
-        b=Gbe1lS1J26E+IOdANo1ZD1uzFTLMs9LtNMTCMNZPj9s3RItO18d5vEtbihm3fyq1u8
-         iqLyzWVEUEnbZXb9nZfc4dBvGBTf+nvMzPw5sPzfUJKBA+qUjlzx1KE52B/czndRVdI4
-         +oVct00Y6fBXuRPHabcnpfeQSy7JlftZW5ekaSgirAPHGHPbr3q2P+9LOZlp1sYZW6i9
-         I6LOy+4FbQJ6VNaMcH+aP7LCZAWeJrxW8bay/roU1pdGqJdZzNWE9rUXWb9UyR0riBmn
-         vpUmoHoJKfiM0Il7ULHHxGSfLWdRT20zVpYHxB6cVOxOgqR9chSelnvPanBr0qgPNlW/
-         j9BQ==
-X-Gm-Message-State: AO0yUKWSTWneDWN3MRa+naLTSmVESSulwiYfulU5Dikl3EevJmZtqFtw
-	r0Ci4nkyU7WOSW6KDXj3kG0=
-X-Google-Smtp-Source: AK7set8yOeX4V+K/tLN9Y4PH4ncRRlBHpv6GjtfYU0QGLl+6iRUHBlHh4qDKKs4b1jSmjjsD1C+DSQ==
-X-Received: by 2002:a05:600c:1d2a:b0:3e1:374:8b66 with SMTP id l42-20020a05600c1d2a00b003e103748b66mr2500939wms.40.1677870503595;
-        Fri, 03 Mar 2023 11:08:23 -0800 (PST)
-Received: from tom-HP-ZBook-Fury-15-G7-Mobile-Workstation (net-188-217-49-172.cust.vodafonedsl.it. [188.217.49.172])
-        by smtp.gmail.com with ESMTPSA id u10-20020a7bc04a000000b003e876122dc1sm6544017wmc.47.2023.03.03.11.08.22
+        d=1e100.net; s=20210112; t=1677879747;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rFg6pSfino77uF+HXmnoihrZxJlMZzrsrBXsKobvwe8=;
+        b=yqfTnHlxe9bXy6oKJlWVPdjm6cvXH3J6fj/rXH4MyqB3gWxCLzbAUuSs8KfrWNX0DN
+         YQa9/INYV8y9rc85gbDzXe0tUxylx7kvIvYsWx5Va2+grklXz56jeRmF1Byyeo8V7I/B
+         ZQYV7/YenEKszFjuYce3xImdLHTDeFmCEJvAHWnpXvIDEln+E1f8MOCHANsIaSvQn0OJ
+         S8HNyJsMEWtjL/+YhM5DMeII2IvBe6NU5YmsFAuGsYPt86WfjUhTYuFymvKSPk4UcAjF
+         D+ZUse6uQmkJBq9tNDLyawu7N18npTiJFovpDyuLkhuTCXAxdAennsv166NL0MU9UtU2
+         VkgQ==
+X-Gm-Message-State: AO0yUKX5Hv+F1Jp2aHznBhCDOfDz3sglrSgsk+KBIS2Yu/C+ZnuxqdvF
+	Y46xhQaj7YUS8nMjGe23Mw==
+X-Google-Smtp-Source: AK7set/TFn6+sHFO6iJCrVn9rkV/klD75YUW0HXM8c9ScE+df0qdv/4xZOSEsBrdkimegwYlR5lx1Q==
+X-Received: by 2002:a05:6122:d9a:b0:401:32f5:a867 with SMTP id bc26-20020a0561220d9a00b0040132f5a867mr1716236vkb.2.1677879747018;
+        Fri, 03 Mar 2023 13:42:27 -0800 (PST)
+Received: from robh_at_kernel.org (adsl-72-50-1-86.prtc.net. [72.50.1.86])
+        by smtp.gmail.com with ESMTPSA id q141-20020a1fa793000000b004123f2e187csm432069vke.5.2023.03.03.13.42.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Mar 2023 11:08:23 -0800 (PST)
-Date: Fri, 3 Mar 2023 20:08:20 +0100
-From: Tommaso Merciai <tomm.merciai@gmail.com>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/19] Basic clock, reset & device tree support for
- StarFive JH7110 RISC-V SoC
-Message-ID: <ZAJFpKlXPM+riuSa@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+        Fri, 03 Mar 2023 13:42:26 -0800 (PST)
+Received: (nullmailer pid 49481 invoked by uid 1000);
+	Fri, 03 Mar 2023 21:42:23 -0000
+From: Rob Herring <robh@kernel.org>
+To: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Sean Paul <sean@poorly.run>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-media@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	alsa-devel@alsa-project.org, linux-riscv@lists.infradead.org, 
+	linux-spi@vger.kernel.org
+Subject: [PATCH] dt-bindings: yamllint: Require a space after a comment '#'
+Date: Fri,  3 Mar 2023 15:42:23 -0600
+Message-Id: <20230303214223.49451-1-robh@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230221024645.127922-1-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_110828_363306_0E37D4C7 
-X-CRM114-Status: GOOD (  39.99  )
+X-CRM114-CacheID: sfid-20230303_134230_116441_0856DD50 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,345 +92,606 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Hal,
-I start to play with jh7110-starfive-visionfive-2-v1.3b I have collect
-your series [3]. Now I'm trying to boot the image with the following
-cmds:
+Enable yamllint to check the prefered commenting style of requiring a
+space after a comment character '#'. Fix the cases in the tree which
+have a warning with this enabled. Most cases just need a space after the
+'#'. A couple of cases with comments which were not intended to be
+comments are revealed. Those were in ti,sa2ul.yaml, ti,cal.yaml, and
+brcm,bcmgenet.yaml.
 
-setenv bootfile vmlinuz;
-setenv fileaddr a0000000;
-setenv fdtcontroladdr 0xffffffffffffffff;
-setenv ipaddr 10.0.0.100;
-setenv serverip 10.0.0.1;
-setenv kernel_comp_addr_r 0xb0000000;
-setenv kernel_comp_size 0x10000000;
-tftpboot ${fdt_addr_r} jh7110-starfive-visionfive-2-v1.3b.dtb;
-tftpboot ${kernel_addr_r} Image.gz;
-run chipa_set_linux;
-booti ${kernel_addr_r} - ${fdt_addr_r}
+Signed-off-by: Rob Herring <robh@kernel.org>
+---
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Rob Clark <robdclark@gmail.com>
+Cc: Abhinav Kumar <quic_abhinavk@quicinc.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Sean Paul <sean@poorly.run>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Eric Dumazet <edumazet@google.com>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-clk@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: freedreno@lists.freedesktop.org
+Cc: linux-media@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-phy@lists.infradead.org
+Cc: linux-gpio@vger.kernel.org
+Cc: alsa-devel@alsa-project.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-spi@vger.kernel.org
+---
+ Documentation/devicetree/bindings/.yamllint   |  2 +-
+ .../bindings/clock/qcom,a53pll.yaml           |  4 ++--
+ .../devicetree/bindings/crypto/ti,sa2ul.yaml  |  4 ++--
+ .../bindings/display/msm/qcom,mdp5.yaml       |  2 +-
+ .../interrupt-controller/arm,gic.yaml         |  4 ++--
+ .../loongson,pch-msi.yaml                     |  2 +-
+ .../bindings/media/renesas,vin.yaml           |  4 ++--
+ .../devicetree/bindings/media/ti,cal.yaml     |  4 ++--
+ .../bindings/net/brcm,bcmgenet.yaml           |  2 --
+ .../bindings/net/cortina,gemini-ethernet.yaml |  6 ++---
+ .../devicetree/bindings/net/mdio-gpio.yaml    |  4 ++--
+ .../phy/marvell,armada-cp110-utmi-phy.yaml    |  2 +-
+ .../bindings/phy/phy-stm32-usbphyc.yaml       |  2 +-
+ .../phy/qcom,sc7180-qmp-usb3-dp-phy.yaml      |  2 +-
+ .../bindings/pinctrl/pinctrl-mt8192.yaml      |  2 +-
+ .../regulator/nxp,pca9450-regulator.yaml      |  8 +++----
+ .../regulator/rohm,bd71828-regulator.yaml     | 20 ++++++++--------
+ .../regulator/rohm,bd71837-regulator.yaml     |  6 ++---
+ .../regulator/rohm,bd71847-regulator.yaml     |  6 ++---
+ .../bindings/soc/renesas/renesas.yaml         |  2 +-
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |  2 +-
+ .../bindings/sound/amlogic,axg-tdm-iface.yaml |  2 +-
+ .../bindings/sound/qcom,lpass-rx-macro.yaml   |  4 ++--
+ .../bindings/sound/qcom,lpass-tx-macro.yaml   |  4 ++--
+ .../bindings/sound/qcom,lpass-va-macro.yaml   |  4 ++--
+ .../sound/qcom,q6dsp-lpass-ports.yaml         |  2 +-
+ .../bindings/sound/simple-card.yaml           | 24 +++++++++----------
+ .../bindings/spi/microchip,mpfs-spi.yaml      |  2 +-
+ 28 files changed, 65 insertions(+), 67 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/.yamllint b/Documentation/devicetree/bindings/.yamllint
+index 214abd3ec440..4abe9f0a1d46 100644
+--- a/Documentation/devicetree/bindings/.yamllint
++++ b/Documentation/devicetree/bindings/.yamllint
+@@ -19,7 +19,7 @@ rules:
+   colons: {max-spaces-before: 0, max-spaces-after: 1}
+   commas: {min-spaces-after: 1, max-spaces-after: 1}
+   comments:
+-    require-starting-space: false
++    require-starting-space: true
+     min-spaces-from-content: 1
+   comments-indentation: disable
+   document-start:
+diff --git a/Documentation/devicetree/bindings/clock/qcom,a53pll.yaml b/Documentation/devicetree/bindings/clock/qcom,a53pll.yaml
+index 525ebaa93c85..64bfd0f5d4d0 100644
+--- a/Documentation/devicetree/bindings/clock/qcom,a53pll.yaml
++++ b/Documentation/devicetree/bindings/clock/qcom,a53pll.yaml
+@@ -45,14 +45,14 @@ required:
+ additionalProperties: false
+ 
+ examples:
+-  #Example 1 - A53 PLL found on MSM8916 devices
++  # Example 1 - A53 PLL found on MSM8916 devices
+   - |
+     a53pll: clock@b016000 {
+         compatible = "qcom,msm8916-a53pll";
+         reg = <0xb016000 0x40>;
+         #clock-cells = <0>;
+     };
+-  #Example 2 - A53 PLL found on IPQ6018 devices
++  # Example 2 - A53 PLL found on IPQ6018 devices
+   - |
+     a53pll_ipq: clock-controller@b116000 {
+         compatible = "qcom,ipq6018-a53pll";
+diff --git a/Documentation/devicetree/bindings/crypto/ti,sa2ul.yaml b/Documentation/devicetree/bindings/crypto/ti,sa2ul.yaml
+index 0c15fefb6671..77ec8bc70bf7 100644
+--- a/Documentation/devicetree/bindings/crypto/ti,sa2ul.yaml
++++ b/Documentation/devicetree/bindings/crypto/ti,sa2ul.yaml
+@@ -26,8 +26,8 @@ properties:
+   dmas:
+     items:
+       - description: TX DMA Channel
+-      - description: RX DMA Channel #1
+-      - description: RX DMA Channel #2
++      - description: 'RX DMA Channel #1'
++      - description: 'RX DMA Channel #2'
+ 
+   dma-names:
+     items:
+diff --git a/Documentation/devicetree/bindings/display/msm/qcom,mdp5.yaml b/Documentation/devicetree/bindings/display/msm/qcom,mdp5.yaml
+index ef461ad6ce4a..a763cf8da122 100644
+--- a/Documentation/devicetree/bindings/display/msm/qcom,mdp5.yaml
++++ b/Documentation/devicetree/bindings/display/msm/qcom,mdp5.yaml
+@@ -61,7 +61,7 @@ properties:
+           - const: lut
+           - const: tbu
+           - const: tbu_rt
+-        #MSM8996 has additional iommu clock
++        # MSM8996 has additional iommu clock
+       - items:
+           - const: iface
+           - const: bus
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic.yaml
+index 220256907461..a2846e493497 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic.yaml
+@@ -133,8 +133,8 @@ properties:
+       - items: # for "arm,cortex-a9-gic"
+           - const: PERIPHCLK
+           - const: PERIPHCLKEN
+-      - const: clk # for "arm,gic-400" and "nvidia,tegra210"
+-      - const: gclk #for "arm,pl390"
++      - const: clk  # for "arm,gic-400" and "nvidia,tegra210"
++      - const: gclk # for "arm,pl390"
+ 
+   power-domains:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
+index 1f6fd73d4624..31e6bfbc3fd3 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
+@@ -46,7 +46,7 @@ required:
+   - loongson,msi-base-vec
+   - loongson,msi-num-vecs
+ 
+-additionalProperties: true #fixme
++additionalProperties: true # fixme
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/media/renesas,vin.yaml b/Documentation/devicetree/bindings/media/renesas,vin.yaml
+index c0442e79cbb4..ffa7a6c4f212 100644
+--- a/Documentation/devicetree/bindings/media/renesas,vin.yaml
++++ b/Documentation/devicetree/bindings/media/renesas,vin.yaml
+@@ -69,7 +69,7 @@ properties:
+   resets:
+     maxItems: 1
+ 
+-  #The per-board settings for Gen2 and RZ/G1 platforms:
++  # The per-board settings for Gen2 and RZ/G1 platforms:
+   port:
+     $ref: /schemas/graph.yaml#/$defs/port-base
+     unevaluatedProperties: false
+@@ -108,7 +108,7 @@ properties:
+ 
+           data-active: true
+ 
+-  #The per-board settings for Gen3 and RZ/G2 platforms:
++  # The per-board settings for Gen3 and RZ/G2 platforms:
+   renesas,id:
+     description: VIN channel number
+     $ref: /schemas/types.yaml#/definitions/uint32
+diff --git a/Documentation/devicetree/bindings/media/ti,cal.yaml b/Documentation/devicetree/bindings/media/ti,cal.yaml
+index f8e4d260d10a..26b3fedef355 100644
+--- a/Documentation/devicetree/bindings/media/ti,cal.yaml
++++ b/Documentation/devicetree/bindings/media/ti,cal.yaml
+@@ -75,7 +75,7 @@ properties:
+       port@0:
+         $ref: /schemas/graph.yaml#/$defs/port-base
+         unevaluatedProperties: false
+-        description: CSI2 Port #0
++        description: 'CSI2 Port #0'
+ 
+         properties:
+           endpoint:
+@@ -93,7 +93,7 @@ properties:
+       port@1:
+         $ref: /schemas/graph.yaml#/$defs/port-base
+         unevaluatedProperties: false
+-        description: CSI2 Port #1
++        description: 'CSI2 Port #1'
+ 
+         properties:
+           endpoint:
+diff --git a/Documentation/devicetree/bindings/net/brcm,bcmgenet.yaml b/Documentation/devicetree/bindings/net/brcm,bcmgenet.yaml
+index c99034f053e8..0e5e5db32faf 100644
+--- a/Documentation/devicetree/bindings/net/brcm,bcmgenet.yaml
++++ b/Documentation/devicetree/bindings/net/brcm,bcmgenet.yaml
+@@ -73,8 +73,6 @@ allOf:
+ unevaluatedProperties: false
+ 
+ examples:
+-  #include <dt-bindings/interrupt-controller/arm-gic.h>
+-
+   - |
+     ethernet@f0b60000 {
+         phy-mode = "internal";
+diff --git a/Documentation/devicetree/bindings/net/cortina,gemini-ethernet.yaml b/Documentation/devicetree/bindings/net/cortina,gemini-ethernet.yaml
+index 253b5d1407ee..44fd23a5fa2b 100644
+--- a/Documentation/devicetree/bindings/net/cortina,gemini-ethernet.yaml
++++ b/Documentation/devicetree/bindings/net/cortina,gemini-ethernet.yaml
+@@ -31,9 +31,9 @@ properties:
+ 
+   ranges: true
+ 
+-#The subnodes represents the two ethernet ports in this device.
+-#They are not independent of each other since they share resources
+-#in the parent node, and are thus children.
++# The subnodes represents the two ethernet ports in this device.
++# They are not independent of each other since they share resources
++# in the parent node, and are thus children.
+ patternProperties:
+   "^ethernet-port@[0-9]+$":
+     type: object
+diff --git a/Documentation/devicetree/bindings/net/mdio-gpio.yaml b/Documentation/devicetree/bindings/net/mdio-gpio.yaml
+index 1d83b8dcce2c..137657341802 100644
+--- a/Documentation/devicetree/bindings/net/mdio-gpio.yaml
++++ b/Documentation/devicetree/bindings/net/mdio-gpio.yaml
+@@ -33,8 +33,8 @@ properties:
+       - description: MDIO
+       - description: MDO
+ 
+-#Note: Each gpio-mdio bus should have an alias correctly numbered in "aliases"
+-#node.
++# Note: Each gpio-mdio bus should have an alias correctly numbered in "aliases"
++# node.
+ additionalProperties:
+   type: object
+ 
+diff --git a/Documentation/devicetree/bindings/phy/marvell,armada-cp110-utmi-phy.yaml b/Documentation/devicetree/bindings/phy/marvell,armada-cp110-utmi-phy.yaml
+index 30f3b5f32a95..43416c216190 100644
+--- a/Documentation/devicetree/bindings/phy/marvell,armada-cp110-utmi-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/marvell,armada-cp110-utmi-phy.yaml
+@@ -41,7 +41,7 @@ properties:
+       Phandle to the system controller node
+     $ref: /schemas/types.yaml#/definitions/phandle
+ 
+-#Required child nodes:
++# Required child nodes:
+ 
+ patternProperties:
+   "^usb-phy@[0|1]$":
+diff --git a/Documentation/devicetree/bindings/phy/phy-stm32-usbphyc.yaml b/Documentation/devicetree/bindings/phy/phy-stm32-usbphyc.yaml
+index 5b4c915cc9e5..24a3dbde223b 100644
+--- a/Documentation/devicetree/bindings/phy/phy-stm32-usbphyc.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-stm32-usbphyc.yaml
+@@ -55,7 +55,7 @@ properties:
+     description: number of clock cells for ck_usbo_48m consumer
+     const: 0
+ 
+-#Required child nodes:
++# Required child nodes:
+ 
+ patternProperties:
+   "^usb-phy@[0|1]$":
+diff --git a/Documentation/devicetree/bindings/phy/qcom,sc7180-qmp-usb3-dp-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,sc7180-qmp-usb3-dp-phy.yaml
+index 2e19a434c669..0ef2c9b9d466 100644
+--- a/Documentation/devicetree/bindings/phy/qcom,sc7180-qmp-usb3-dp-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/qcom,sc7180-qmp-usb3-dp-phy.yaml
+@@ -83,7 +83,7 @@ properties:
+     description:
+       Phandle to a regulator supply to any specific refclk pll block.
+ 
+-#Required nodes:
++# Required nodes:
+ patternProperties:
+   "^usb3-phy@[0-9a-f]+$":
+     type: object
+diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
+index e0e943e5b874..a09ebbfec574 100644
+--- a/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
+@@ -51,7 +51,7 @@ properties:
+     description: The interrupt outputs to sysirq.
+     maxItems: 1
+ 
+-#PIN CONFIGURATION NODES
++# PIN CONFIGURATION NODES
+ patternProperties:
+   '-pins$':
+     type: object
+diff --git a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
+index 835b53302db8..6b53dc87694e 100644
+--- a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
+@@ -17,10 +17,10 @@ description: |
+   Datasheet is available at
+   https://www.nxp.com/docs/en/data-sheet/PCA9450DS.pdf
+ 
+-#The valid names for PCA9450 regulator nodes are:
+-#BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6,
+-#LDO1, LDO2, LDO3, LDO4, LDO5
+-#Note: Buck3 removed on PCA9450B and connect with Buck1 on PCA9450C.
++# The valid names for PCA9450 regulator nodes are:
++# BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6,
++# LDO1, LDO2, LDO3, LDO4, LDO5
++# Note: Buck3 removed on PCA9450B and connect with Buck1 on PCA9450C.
+ 
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/regulator/rohm,bd71828-regulator.yaml b/Documentation/devicetree/bindings/regulator/rohm,bd71828-regulator.yaml
+index 3cbe3b76ccee..bbf38d5cd06d 100644
+--- a/Documentation/devicetree/bindings/regulator/rohm,bd71828-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/rohm,bd71828-regulator.yaml
+@@ -82,20 +82,20 @@ patternProperties:
+ 
+         # Supported default DVS states:
+         #     buck       |    run     |   idle    | suspend  | lpsr
+-        #--------------------------------------------------------------
++        # --------------------------------------------------------------
+         # 1, 2, 6, and 7 | supported  | supported | supported (*)
+-        #--------------------------------------------------------------
++        # --------------------------------------------------------------
+         # 3, 4, and 5    |                    supported (**)
+-        #--------------------------------------------------------------
++        # --------------------------------------------------------------
+         #
+-        #(*)  LPSR and SUSPEND states use same voltage but both states have own
+-        #     enable /
+-        #     disable settings. Voltage 0 can be specified for a state to make
+-        #     regulator disabled on that state.
++        # (*)  LPSR and SUSPEND states use same voltage but both states have own
++        #      enable /
++        #      disable settings. Voltage 0 can be specified for a state to make
++        #      regulator disabled on that state.
+         #
+-        #(**) All states use same voltage but have own enable / disable
+-        #     settings. Voltage 0 can be specified for a state to make
+-        #     regulator disabled on that state.
++        # (**) All states use same voltage but have own enable / disable
++        #      settings. Voltage 0 can be specified for a state to make
++        #      regulator disabled on that state.
+ 
+     required:
+       - regulator-name
+diff --git a/Documentation/devicetree/bindings/regulator/rohm,bd71837-regulator.yaml b/Documentation/devicetree/bindings/regulator/rohm,bd71837-regulator.yaml
+index ab842817d847..abf1fbdf3850 100644
+--- a/Documentation/devicetree/bindings/regulator/rohm,bd71837-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/rohm,bd71837-regulator.yaml
+@@ -23,9 +23,9 @@ description: |
+   if they are disabled at startup the voltage monitoring for LDO5/LDO6 will
+   cause PMIC to reset.
+ 
+-#The valid names for BD71837 regulator nodes are:
+-#BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6, BUCK7, BUCK8
+-#LDO1, LDO2, LDO3, LDO4, LDO5, LDO6, LDO7
++# The valid names for BD71837 regulator nodes are:
++# BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6, BUCK7, BUCK8
++# LDO1, LDO2, LDO3, LDO4, LDO5, LDO6, LDO7
+ 
+ patternProperties:
+   "^LDO[1-7]$":
+diff --git a/Documentation/devicetree/bindings/regulator/rohm,bd71847-regulator.yaml b/Documentation/devicetree/bindings/regulator/rohm,bd71847-regulator.yaml
+index 65fc3d15f693..34ce781954b6 100644
+--- a/Documentation/devicetree/bindings/regulator/rohm,bd71847-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/rohm,bd71847-regulator.yaml
+@@ -22,9 +22,9 @@ description: |
+   not be disabled by driver at startup. If BUCK5 is disabled at startup the
+   voltage monitoring for LDO5/LDO6 can cause PMIC to reset.
+ 
+-#The valid names for BD71847 regulator nodes are:
+-#BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6
+-#LDO1, LDO2, LDO3, LDO4, LDO5, LDO6
++# The valid names for BD71847 regulator nodes are:
++# BUCK1, BUCK2, BUCK3, BUCK4, BUCK5, BUCK6
++# LDO1, LDO2, LDO3, LDO4, LDO5, LDO6
+ 
+ patternProperties:
+   "^LDO[1-6]$":
+diff --git a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
+index 2789022b52eb..3a618b4c8ab7 100644
+--- a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
++++ b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
+@@ -111,7 +111,7 @@ properties:
+       - description: RZ/G1C (R8A77470)
+         items:
+           - enum:
+-              - iwave,g23s #iWave Systems RZ/G1C Single Board Computer (iW-RainboW-G23S)
++              - iwave,g23s # iWave Systems RZ/G1C Single Board Computer (iW-RainboW-G23S)
+           - const: renesas,r8a77470
+ 
+       - description: RZ/G2M (R8A774A1)
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+index 847873289f25..c697691f1fd4 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+@@ -313,7 +313,7 @@ additionalProperties: false
+ # Due to inability of correctly verifying sub-nodes with an @address through
+ # the "required" list, the required sub-nodes below are commented out for now.
+ 
+-#required:
++# required:
+ # - memories
+ # - interrupt-controller
+ # - pru
+diff --git a/Documentation/devicetree/bindings/sound/amlogic,axg-tdm-iface.yaml b/Documentation/devicetree/bindings/sound/amlogic,axg-tdm-iface.yaml
+index 320f0002649d..45955d8a26d1 100644
+--- a/Documentation/devicetree/bindings/sound/amlogic,axg-tdm-iface.yaml
++++ b/Documentation/devicetree/bindings/sound/amlogic,axg-tdm-iface.yaml
+@@ -24,7 +24,7 @@ properties:
+     items:
+       - description: Bit clock
+       - description: Sample clock
+-      - description: Master clock #optional
++      - description: Master clock # optional
+ 
+   clock-names:
+     minItems: 2
+diff --git a/Documentation/devicetree/bindings/sound/qcom,lpass-rx-macro.yaml b/Documentation/devicetree/bindings/sound/qcom,lpass-rx-macro.yaml
+index 79c6f8da1319..e6fcf542cf87 100644
+--- a/Documentation/devicetree/bindings/sound/qcom,lpass-rx-macro.yaml
++++ b/Documentation/devicetree/bindings/sound/qcom,lpass-rx-macro.yaml
+@@ -34,13 +34,13 @@ properties:
+ 
+   clock-names:
+     oneOf:
+-      - items:   #for ADSP based platforms
++      - items:   # for ADSP based platforms
+           - const: mclk
+           - const: npl
+           - const: macro
+           - const: dcodec
+           - const: fsgen
+-      - items:   #for ADSP bypass based platforms
++      - items:   # for ADSP bypass based platforms
+           - const: mclk
+           - const: npl
+           - const: fsgen
+diff --git a/Documentation/devicetree/bindings/sound/qcom,lpass-tx-macro.yaml b/Documentation/devicetree/bindings/sound/qcom,lpass-tx-macro.yaml
+index da5f70910da5..6c8751497d36 100644
+--- a/Documentation/devicetree/bindings/sound/qcom,lpass-tx-macro.yaml
++++ b/Documentation/devicetree/bindings/sound/qcom,lpass-tx-macro.yaml
+@@ -36,13 +36,13 @@ properties:
+ 
+   clock-names:
+     oneOf:
+-      - items:   #for ADSP based platforms
++      - items:   # for ADSP based platforms
+           - const: mclk
+           - const: npl
+           - const: macro
+           - const: dcodec
+           - const: fsgen
+-      - items:   #for ADSP bypass based platforms
++      - items:   # for ADSP bypass based platforms
+           - const: mclk
+           - const: npl
+           - const: fsgen
+diff --git a/Documentation/devicetree/bindings/sound/qcom,lpass-va-macro.yaml b/Documentation/devicetree/bindings/sound/qcom,lpass-va-macro.yaml
+index 0a3c688ef1ec..61cdfc265b0f 100644
+--- a/Documentation/devicetree/bindings/sound/qcom,lpass-va-macro.yaml
++++ b/Documentation/devicetree/bindings/sound/qcom,lpass-va-macro.yaml
+@@ -34,11 +34,11 @@ properties:
+ 
+   clock-names:
+     oneOf:
+-      - items:   #for ADSP based platforms
++      - items:   # for ADSP based platforms
+           - const: mclk
+           - const: macro
+           - const: dcodec
+-      - items:   #for ADSP bypass based platforms
++      - items:   # for ADSP bypass based platforms
+           - const: mclk
+ 
+   clock-output-names:
+diff --git a/Documentation/devicetree/bindings/sound/qcom,q6dsp-lpass-ports.yaml b/Documentation/devicetree/bindings/sound/qcom,q6dsp-lpass-ports.yaml
+index d06f188030a3..044e77718a1b 100644
+--- a/Documentation/devicetree/bindings/sound/qcom,q6dsp-lpass-ports.yaml
++++ b/Documentation/devicetree/bindings/sound/qcom,q6dsp-lpass-ports.yaml
+@@ -26,7 +26,7 @@ properties:
+   '#size-cells':
+     const: 0
+ 
+-#Digital Audio Interfaces
++# Digital Audio Interfaces
+ patternProperties:
+   '^dai@[0-9]+$':
+     type: object
+diff --git a/Documentation/devicetree/bindings/sound/simple-card.yaml b/Documentation/devicetree/bindings/sound/simple-card.yaml
+index f0d81bfe2598..806e2fff165f 100644
+--- a/Documentation/devicetree/bindings/sound/simple-card.yaml
++++ b/Documentation/devicetree/bindings/sound/simple-card.yaml
+@@ -262,9 +262,9 @@ required:
+ additionalProperties: false
+ 
+ examples:
+-#--------------------
++# --------------------
+ # single DAI link
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+@@ -291,9 +291,9 @@ examples:
+         };
+     };
+ 
+-#--------------------
++# --------------------
+ # Multi DAI links
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+@@ -334,10 +334,10 @@ examples:
+         };
+     };
+ 
+-#--------------------
++# --------------------
+ # route audio from IMX6 SSI2 through TLV320DAC3100 codec
+ # through TPA6130A2 amplifier to headphones:
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+@@ -359,9 +359,9 @@ examples:
+         };
+     };
+ 
+-#--------------------
++# --------------------
+ # Sampling Rate Conversion
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+@@ -387,9 +387,9 @@ examples:
+         };
+     };
+ 
+-#--------------------
++# --------------------
+ # 2 CPU 1 Codec (Mixing)
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+@@ -424,7 +424,7 @@ examples:
+         };
+     };
+ 
+-#--------------------
++# --------------------
+ # Multi DAI links with DPCM:
+ #
+ # CPU0 ------ ak4613
+@@ -433,7 +433,7 @@ examples:
+ # CPU3 --/                /* DPCM 5ch/6ch */
+ # CPU4 --/                /* DPCM 7ch/8ch */
+ # CPU5 ------ PCM3168A-c
+-#--------------------
++# --------------------
+   - |
+     sound {
+         compatible = "simple-audio-card";
+diff --git a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+index 1051690e3753..74a817cc7d94 100644
+--- a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
++++ b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+@@ -22,7 +22,7 @@ properties:
+       - items:
+           - const: microchip,mpfs-qspi
+           - const: microchip,coreqspi-rtl-v2
+-      - const: microchip,coreqspi-rtl-v2 #FPGA QSPI
++      - const: microchip,coreqspi-rtl-v2 # FPGA QSPI
+       - const: microchip,mpfs-spi
+ 
+   reg:
+-- 
+2.39.2
 
-This the result:
-
-Bytes transferred = 109443584 (685fa00 hex)
-StarFive # run chipa_set_linux;
-StarFive # printenv file
-  fileaddr filesize
-StarFive # printenv filesize
-filesize=685fa00
-StarFive # booti ${kernel_addr_r} - ${fdt_addr_r}
-   Uncompressing Kernel Image
-## Flattened Device Tree blob at 46000000
-   Booting using the fdt blob at 0x46000000
-   Using Device Tree in place at 0000000046000000, end 0000000046005c14
-
-Starting kernel ...
-
-clk u5_dw_i2c_clk_core already disabled
-clk u5_dw_i2c_clk_apb already disabled
-
----------------------------------------------
-
-I'm missing something? Any hints?
-Many thanks in advance! :)
-
-Regards,
-Tommaso
-
-On Tue, Feb 21, 2023 at 10:46:26AM +0800, Hal Feng wrote:
-> This patch series adds basic clock, reset & DT support for StarFive
-> JH7110 SoC. Patch 17 depends on series [1] which provides pinctrl
-> dt-bindings. Patch 19 depends on series [2] which provides dt-bindings
-> of VisionFive 2 board and JH7110 SoC.
-> 
-> You can simply review or test the patches at the link [3].
-> 
-> [1]: https://lore.kernel.org/all/20230209143702.44408-1-hal.feng@starfivetech.com/
-> [2]: https://lore.kernel.org/all/20230216131511.3327943-1-conor.dooley@microchip.com/
-> [3]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
-> 
-> Changes since v3:
-> - Suggested by Conor, Merged clock & reset series and DT series together
->   so that they could go via the same tree as the dt-binding headers are
->   required by both driver & devicetree.
-> - Rebased on tag v6.2.
-> 
-> [Clock & reset]
-> Patch 2:
-> - Split patch 2 into two. One for renaming file and one for renaming
->   variables. (by Conor)
-> Patch 4:
-> - Split patch 4 into two. One for code movement and one for
->   extraction. (by Conor)
-> Patch 5 & 9 & 10 & 11:
-> - Fixed the issues reported by kernel test robot.
-> Patch 9:
-> - Set (&priv->base) as driver data instead of (priv->base).
-> - Set the frequency of clock PLL0 as 1000MHz for Synchronizing with the
->   lastest u-boot setting from StarFive. (by Emil)
-> - Used devm_kzalloc() instead of kzalloc() when registering aux device.
-> Patch 10:
-> - Set (&priv->base) as driver data instead of (priv->base).
-> Patch 11:
-> - Used (*base) to get the register base address instead of (base).
-> 
-> [Device tree]
-> - Dropped patch 1, 4, 5 because they were accepted.
-> - Added a new patch to add SiFive S7 compatible. (by Conor)
-> - Added a new patch to add JH7110 pin function definitions.
-> Patch 6:
-> - Changed the label "S76_0" to "S7_0" and used compatible "sifive,s7"
->   for core 0.
-> - Updated ISA of each cores. (by Conor)
-> - Made the node names generic. (by Krzysztof)
-> - Added clock-output-names for all external clocks.
-> - Added i2c0~6 nodes.
-> - Changed the node name "gpio" to "pinctrl". Changed the label "gpio"
->   and "gpioa" to "sysgpio" and "aongpio". (by Conor)
-> Patch 7:
-> - Separated the long lines into more lines in Makefile. (by Conor)
-> - Renamed jh7110-starfive-visionfive-2-va.dts and
->   jh7110-starfive-visionfive-2-vb.dts to
->   jh7110-starfive-visionfive-2-v1.2a.dts and
->   jh7110-starfive-visionfive-2-v1.3b.dts.
->   Changed the model and compatible to match v1.2A and v1.3B which
->   are printed on the silkscreen of VisionFive 2 board. (by Emil)
-> - Configured pins for i2c0/2/5/6 and enabled them.
-> 
->   clock & reset v3: https://lore.kernel.org/all/20221220005054.34518-1-hal.feng@starfivetech.com/
->   DT v3: https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
-> 
-> Changes since v2:
-> [Clock & reset]
-> - Rebased on tag v6.1.
-> - Added "JH71X0" to the StarFive driver headers in MAINTAINERS.
-> - Removed Co-developed-by tag of Hal in patch 1 and patch 4.
-> - Changed the commit author from Hal to Emil in patch 2 and patch 5.
->   Removed Co-developed-by tag of Emil in patch 2 and patch 5. (by Emil)
-> - Improved the coding style of patch 11, 12 and 13.
-> - Dropped patch 14. (by Emil)
-> Patch 4:
-> - Passed the "owner" member of reset_controller_dev structure
->   directly in reset_starfive_jh7100_register(). (by Emil)
-> - Added MAINTAINERS changes.
-> Patch 7:
-> - Split patch 7 into sys part and aon part. Merged them into patch 9 and
->   patch 10 respectively. (by Krzysztof)
-> - Renamed include/dt-bindings/clock/starfive-jh7110.h to
->   include/dt-bindings/clock/starfive,jh7110-crg.h. (by Krzysztof)
-> - Synchronized the definitions with the latest changes from Emil.
-> Patch 8:
-> - Split patch 8 into sys part and aon part. Merged them into patch 9 and
->   patch 10 respectively. (by Krzysztof)
-> - Renamed include/dt-bindings/reset/starfive-jh7110.h to
->   include/dt-bindings/reset/starfive,jh7110-crg.h. (by Krzysztof)
-> - Fixed the date of Copyright. (by Emil)
-> - Dropped weird indentations. (by Krzysztof)
-> - Synchronized the definitions with the latest changes from Emil.
-> Patch 9:
-> - Improved the description of clocks. (by Emil and Krzysztof)
-> - Added MAINTAINERS changes.
-> Patch 10:
-> - Improved the description of clocks. (by Emil and Krzysztof)
-> - Changed the clock-name "clk_rtc" to "rtc_osc" and  "apb_bus_func" to
->   "apb_bus".
-> Patch 11:
-> - Removed the flags of trace/debug clocks and set the flags of core clocks
->   as CLK_IS_CRITICAL. (by Emil)
-> - Deleted the extra 1-1 clocks and synchronized the clock tree with the
->   latest changes from Emil. (by Emil)
-> - Selected RESET_STARFIVE_JH7110 in Kconfig option CLK_STARFIVE_JH7110_SYS.
-> Patch 12:
-> - Changed the macro JH7110_AONCLK_RTC to JH7110_AONCLK_RTC_OSC and
->   JH7110_AONCLK_APB_BUS_FUNC to JH7110_AONCLK_APB_BUS.
-> - Synchronized the clock tree with the latest changes from Emil.
-> - Set the MODULE_LICENSE as "GPL" according to commit bf7fbeeae6db.
-> Patch 13:
-> - Removed the "asserted" member in reset_info structure and always pass
->   NULL when calling reset_starfive_jh71x0_register(). (by Emil)
-> 
-> [Device tree]
-> - Rebased on tag v6.1.
-> - Dropped patch 8 because it was merged.
-> Patch 1:
-> - Made the links into "Link:" tags. (by Conor)
-> - Corrected the board name to "VisionFive 2" instead of
->   "VisionFive V2" and added compatibles for version A and
->   version B of VisionFive 2. (by Emil)
-> Patch 4:
-> - Used "sifive,ccache0" compatible string to match. (by Conor)
-> Patch 5:
-> - Dropped "select SIFIVE_CCACHE" in config SOC_STARFIVE. (by Conor)
-> - Dropped "starfive,jh7110-ccache" compatible in
->   drivers/soc/sifive/sifive_ccache.c.
-> Patch 6:
-> - Removed all "clock-frequency = <0>". (by Conor)
-> - Sorted the nodes after their addresses. (by Emil)
-> - Renamed "clk_rtc" to "rtc_osc".
-> - Added "sifive,ccache0" compatible in the cache-controller node.
-> - Renamed "JH7110_SYSCLK_APB_BUS_FUNC" to "JH7110_SYSCLK_APB_BUS" and
->   renamed "apb_bus_func" to "apb_bus".
->   Renamed "JH7110_SYSCLK_IOMUX" to "JH7110_SYSCLK_IOMUX_APB".
->   Renamed "JH7110_SYSRST_IOMUX" to "JH7110_SYSRST_IOMUX_APB".
->   Renamed "JH7110_AONRST_AON_IOMUX" to "JH7110_AONRST_IOMUX".
-> - Removed "reg-names" in gpio nodes.
-> Patch 7:
-> - Corrected the board name to "VisionFive 2" instead of "VisionFive V2".
-> - Renamed jh7110-starfive-visionfive-v2.dts to
->   jh7110-starfive-visionfive-2.dtsi.
-> - Added dts for VisionFive 2 version A and version B boards.
-> - In the chosen node, deleted "linux,initrd-start" and "linux,initrd-end"
->   and changed the value of "stdout-path" to "serial0:115200n8".
-> - Changed the bias of uart0 "rx-pins" to
->   "bias-disable; /* external pull-up */".
-> - Renamed "clk_rtc" to "rtc_osc".
-> - Moved the gpio node behind the uart0 node.
-> 
->   clock & reset v2: https://lore.kernel.org/all/20221118010627.70576-1-hal.feng@starfivetech.com/
->   DT v2: https://lore.kernel.org/all/20221118011714.70877-1-hal.feng@starfivetech.com/
-> 
-> Changes since v1:
-> [Clock & reset]
-> - Rebased on tag v6.1-rc5.
-> - Rewrote the clock and reset drivers using auxiliary bus framework, so
->   patch 8, 9, 15 were dropped and all patches changed a lot. (by Stephen)
-> - Split Patch 14 into two patches. One is for factoring out the common
->   JH71X0 code, the another one is for renaming. (by Stephen)
-> - Created a subdirectory for StarFive reset drivers.
-> - Factored out common JH71X0 reset code.
-> - Renamed the common clock and reset code from "*starfive*" or
->   "*STARFIVE*" to "*jh71x0*" or "*JH71X0*".
-> - Combined JH7110 system and always-on clock DT binding headers in one
->   file named "include/dt-bindings/clock/starfive-jh7110.h".
-> - Renamed clock definitions "JH7110_SYSCLK_PCLK2_MUX_FUNC_PCLK" and
->   "JH7110_SYSCLK_U2_PCLK_MUX_PCLK" to "JH7110_SYSCLK_PCLK2_MUX_FUNC" and
->   "JH7110_SYSCLK_PCLK2_MUX".
-> - Rewrote the DT bindings of clock and reset for using auxiliary bus.
-> - Registered an auxiliary device for reset controller in clock drivers.
-> - Changed clock names "CODAJ*" and "WAVE*" to "codaj*" and "wave*".
->   Changed clock names "u2_pclk_mux_func_pclk" and "u2_pclk_mux_pclk" to
->   "pclk2_mux_func" and "pclk2_mux".
-> - Changed the flags of clock apb0 and noc_bus_isp_axi to CLK_IS_CRITICAL
->   as suggested by StarFive SDK group.
-> - Registered clock gmac0_gtxc as a gate clock instead of a div clock
->   as suggested by StarFive SDK group.
-> - Changed the frequency of clock pll2_out to 1188MHz as suggested by
->   StarFive SDK group.
-> - Fixed the bug that the clock JH7110_AONCLK_GMAC0_GTXCLK was not handled
->   in JH7110 always-on clock driver.
-> - Registered the reset driver as an auxiliary driver.
-> - Reworded the commit messages.
-> 
-> [Device tree]
-> - Rebased on tag v6.1-rc5.
-> - Added blank line in patch 1. (by Krzysztof)
-> - Rebased patch 4 and 6 on the newest code. (by Conor)
-> - Dropped patch 5. (by Conor)
-> - Removed the quirk of JH7100 in patch 6, considering this patch series
->   should only add support for JH7110.
-> - For patch 27, added Co-developed-by tag for Jianlong and me. Renamed
->   cpu labels to "S76_0", "U74_*" instead of "cpu*" following the style
->   of jh7100.dtsi. Moved all "clock-frequency" properties to the board dts.
->   Rewrote clock-controller nodes and deleted reset-controller nodes for
->   using auxiliary bus. Rewrote gpio nodes following generic pinctrl
->   bindings. Removed the redundant second reset entry of uart nodes.
-> - For patch 28, added Co-developed-by tag for Jianlong and me. Added a
->   chosen node. Removed reserved-memory node. Added fixed frequency clock
->   nodes for overriding the "clock-frequency" properties. Rewrote the gpio
->   nodes following generic pinctrl bindings.
-> - Dropped patch 30. (by Conor)
-> - Reworded the commit messages.
-> 
->   v1: https://lore.kernel.org/all/20220929143225.17907-1-hal.feng@linux.starfivetech.com/
-> 
-> Emil Renner Berthing (16):
->   clk: starfive: Factor out common JH7100 and JH7110 code
->   clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
->   clk: starfive: Rename "jh7100" to "jh71x0" for the common code
->   reset: Create subdirectory for StarFive drivers
->   reset: starfive: Factor out common JH71X0 reset code
->   reset: starfive: Extract the common JH71X0 reset code
->   reset: starfive: Rename "jh7100" to "jh71x0" for the common code
->   reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
->   dt-bindings: clock: Add StarFive JH7110 system clock and reset
->     generator
->   dt-bindings: clock: Add StarFive JH7110 always-on clock and reset
->     generator
->   clk: starfive: Add StarFive JH7110 system clock driver
->   clk: starfive: Add StarFive JH7110 always-on clock driver
->   dt-bindings: timer: Add StarFive JH7110 clint
->   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
->   riscv: dts: starfive: Add initial StarFive JH7110 device tree
->   riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
->     tree
-> 
-> Hal Feng (2):
->   reset: starfive: Add StarFive JH7110 reset driver
->   dt-bindings: riscv: Add SiFive S7 compatible
-> 
-> Jianlong Huang (1):
->   riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-> 
->  .../clock/starfive,jh7110-aoncrg.yaml         |  76 ++
->  .../clock/starfive,jh7110-syscrg.yaml         |  80 ++
->  .../sifive,plic-1.0.0.yaml                    |   1 +
->  .../devicetree/bindings/riscv/cpus.yaml       |   1 +
->  .../bindings/timer/sifive,clint.yaml          |   1 +
->  MAINTAINERS                                   |  16 +-
->  arch/riscv/boot/dts/starfive/Makefile         |   6 +-
->  arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++
->  .../jh7110-starfive-visionfive-2-v1.2a.dts    |  13 +
->  .../jh7110-starfive-visionfive-2-v1.3b.dts    |  13 +
->  .../jh7110-starfive-visionfive-2.dtsi         | 215 ++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 507 +++++++++++++
->  drivers/clk/starfive/Kconfig                  |  27 +
->  drivers/clk/starfive/Makefile                 |   6 +-
->  .../clk/starfive/clk-starfive-jh7100-audio.c  |  74 +-
->  drivers/clk/starfive/clk-starfive-jh7100.c    | 713 +++++-------------
->  drivers/clk/starfive/clk-starfive-jh7100.h    | 112 ---
->  .../clk/starfive/clk-starfive-jh7110-aon.c    | 156 ++++
->  .../clk/starfive/clk-starfive-jh7110-sys.c    | 448 +++++++++++
->  drivers/clk/starfive/clk-starfive-jh71x0.c    | 383 ++++++++++
->  drivers/clk/starfive/clk-starfive-jh71x0.h    | 122 +++
->  drivers/reset/Kconfig                         |   8 +-
->  drivers/reset/Makefile                        |   2 +-
->  drivers/reset/reset-starfive-jh7100.c         | 173 -----
->  drivers/reset/starfive/Kconfig                |  20 +
->  drivers/reset/starfive/Makefile               |   5 +
->  .../reset/starfive/reset-starfive-jh7100.c    |  74 ++
->  .../reset/starfive/reset-starfive-jh7110.c    |  64 ++
->  .../reset/starfive/reset-starfive-jh71x0.c    | 131 ++++
->  .../reset/starfive/reset-starfive-jh71x0.h    |  20 +
->  .../dt-bindings/clock/starfive,jh7110-crg.h   | 225 ++++++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   | 154 ++++
->  32 files changed, 3296 insertions(+), 858 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dts
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
->  delete mode 100644 drivers/clk/starfive/clk-starfive-jh7100.h
->  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-aon.c
->  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-sys.c
->  create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
->  create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
->  delete mode 100644 drivers/reset/reset-starfive-jh7100.c
->  create mode 100644 drivers/reset/starfive/Kconfig
->  create mode 100644 drivers/reset/starfive/Makefile
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh7100.c
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.c
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
->  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
->  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
-> 
-> 
-> base-commit: c9c3395d5e3dcc6daee66c6908354d47bf98cb0c
-> -- 
-> 2.38.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
