@@ -4,87 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A835FC7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 16:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3310FC64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 16:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WzA2A4CKvdzB2AtaotoHoYP7JMnSKV3mtFRyZ4PbTrc=; b=LWner2B8wuVuBI
-	JFf2VssJr08ZponznoIzWU2yiNjrCLp2tntJkyi9haD1zISTKh6X5BC5wHrGlGDTIG90mSafXUYGM
-	vwVdEA8T5uLRPKdFzjh5NXdgitcik9lE8WCCBLjoiFF75FxeGuiNTFngddSb6plrZXXJ4/VoYAcIf
-	BMEK51GCWmusYgIo8HiIWNuHsBb4X/4s6eXbXNpZBPNl1QXXZ2FaI+koJaJDcKZ6dFYZiyCUWP1ax
-	STeOtADUmrT8NA/0oW1AiMRorP+x/3Upjtw+0Pg6wfcZq0/Py++P9CVwFmtvWRq7g7nbA/dgA9yG9
-	Jhd1uIlzXFjed5fDSy/w==;
+	List-Owner; bh=N/RrVSSNkFTBVVMlaoQROTu7XYIiy/nA9qZYYKKoYNM=; b=iAlVoGZI0Z1FTa
+	Nv3hHKW5PYN3mQFhA87XrXTnNkK+M3hmJXTGlBGhcjMW9iaOHpZHQ/a2ZVy/khos1vfVzzNd/P9kk
+	A9ARghpWYO7D5FdEaZ4oDolWvUOZFzGV/uIKElIgw3bbZTKqIMLXKtsbo7x3QUPhr2pucIcjWjmwW
+	XDdKYvxxcyHpmwXdrDEtkJjUJoNOt+ZURod42KlNjWCO8Cxs8vbQTWbmLQTMvVdS5NV8PlMtGp2KE
+	AnLbX53kRt4BQg91SY7g1lUYgnTrgt3Bt5JYY4f44GCxOrIH4zt48ZJp+DQ0+SHyVSAsMImu+ON3N
+	YoKdHunRWmqdrAjNQnew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8Bc-006nya-Up; Fri, 03 Mar 2023 16:23:12 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1pY8TN-006pO8-1t; Fri, 03 Mar 2023 16:41:33 +0000
+Received: from new2-smtp.messagingengine.com ([66.111.4.224])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8Ba-006ny9-7c
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 16:23:11 +0000
-Received: by mail-ed1-x533.google.com with SMTP id o15so12296559edr.13
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 08:23:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ryeAsxysbo6DUGxfiuPOI8CvtI+vb6NelPj5oYksPo=;
-        b=EzNCK3RZSJsJUeQFEWK8SnOi6P6PWK6BpIgChisWP1NzSH3VJqAhxv3yOHN49QZqxg
-         V0BotQn335MAGYgJxAnQgTh9LVMsDSCDQ/xWw3H3ctNOmg8JAYT3/m7yFa9i2bJjF+ra
-         ZttoECnbnJngdAr0peRBlCURcv4DOeWZMJr+UQInSQrH5dYL06UB85PPFrccZC8J4Gc5
-         GpnECND/KUp0C2V8VxmBWE1aa+V5hB2gD6L4RrqZCHoc7p7UMC3cQOhZQQWzF3fnvlrH
-         EbZbRFIvnTrDSVhUBd5gKFA+hE6u/UKpArsqB8YWOidtWPdOHOWOxQg2ufuiPbrJWj+4
-         TIYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5ryeAsxysbo6DUGxfiuPOI8CvtI+vb6NelPj5oYksPo=;
-        b=oMbo8EKbOxhfqI94SvINQzzwXVsjqKvXrvXloLraSYfj5q3HTgYfawZF3DDApTUQiq
-         8SO39LeLTRZY/997kfqPzQT2JFakl6eoZ9T3YG3oZQb69i7mMAn9NzPx1y6tR9JkbaBA
-         KeCtNeKsGyXq4w0a2fp1nJaQ63ceuFBwuseuZ7v+eT0M/ihSoZkEKG8Lpgi9nw+rSJcN
-         tZqonaJe/nuf+2EpHD1t/0OtkTRq6PW7KEO44hjBJPwJ2eTZdR2GxUpM7uPZZ+xwDWjd
-         cAFwJoxGNPB7H8IHix9ry1VvzB88RdhaS04H3bLMLoRNptT1ei48MhWzobL2lHYOs9ZS
-         egUg==
-X-Gm-Message-State: AO0yUKXIX23FpgAA8p73saH7g2wkolp+xJ2pozFmBND4f54Xm56BUBRH
-	w2M9k9sX3MidropbFj3wiE9pZW/ql63ECTKH
-X-Google-Smtp-Source: AK7set+GMkAPdilJi56mUnW0fX32evecSe24CxSroekBxpjdNIx8xTEeM5pLsOlf4df3VzOOhkydOg==
-X-Received: by 2002:aa7:cfc2:0:b0:4bf:f9f4:9b1e with SMTP id r2-20020aa7cfc2000000b004bff9f49b1emr2272745edy.4.1677860588730;
-        Fri, 03 Mar 2023 08:23:08 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id b2-20020a50b402000000b004be64b284b2sm1338509edh.3.2023.03.03.08.23.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Mar 2023 08:23:08 -0800 (PST)
-Date: Fri, 3 Mar 2023 17:23:07 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH V3 19/20] RISC-V: Enable ACPI in defconfig
-Message-ID: <20230303162307.zz5amah65gjme7da@orel>
-References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
- <20230303133647.845095-20-sunilvl@ventanamicro.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230303133647.845095-20-sunilvl@ventanamicro.com>
+	id 1pY8TJ-006pN6-BS; Fri, 03 Mar 2023 16:41:31 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.nyi.internal (Postfix) with ESMTP id 0DEE9581876;
+	Fri,  3 Mar 2023 11:41:23 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 03 Mar 2023 11:41:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1677861683; x=1677868883; bh=cq
+	QZ3RgaXf1BBbVEeoodJ6F1ZwSPMj6A5MLY/vjXzGA=; b=Qg18LNgvOVfFg7uMPf
+	8fRKoa7WlhijGwszu3Ic5SITTKwawR9B4I6XiClcZ6ujIEL9zVzHiioA2EjIov5s
+	tRcxg3C97rd5Qh3iqM/nd48Hb9b7a50w/6DZE1MzWvKwa+aOXKgEBbAuFqwTw8IO
+	2/zrTU4zUJhWjGOFVyk4cMUxKlr0jFTzBpR0rcRkXCqmlSQg+1mKD1l/rCUxrq7V
+	AihMHWGAQq5UOL4IcNCaCr0vFPf0edeb4YgCH1r82QvI+8miMlqwJ9RIy277z2fo
+	EYkDNEf8mCiriMB8VOffc0buYRAQEBhVnDohf6yDdBARed4fr/O8O2naCxLKuEJ1
+	FmIA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1677861683; x=1677868883; bh=cqQZ3RgaXf1BB
+	bVEeoodJ6F1ZwSPMj6A5MLY/vjXzGA=; b=B7rPNJeusJPtOmHPup8e0wxsJaB14
+	FGL6vkrY8GHqsXIc2V5zsu3B4xZEBJOHklvsYTn6cMwmxpEeSnRvlTctzLXXyrXP
+	9TrBh5erAm5rnNg9EUeTsf+lY9yT/91mQrCarXvtL1boNYFm9EBkDhTchuKj9wo/
+	Vcljkzp6um1LTXdLqg+kNYUapTvAI76XHCPOKqRJAjH8uzC14hkGGbIhqvg9smqE
+	9gk7xnhPT94YAL+KeKmqqFj3ep1BV/HHgDskGZEGHTV139D4jm59Krp4ve/+OW5/
+	HbWdFOCVWJeLjyz/P08DuMz9uoT2Z1BPftr9Y2L2ohywcFpCIMJxhhtIw==
+X-ME-Sender: <xms:MCMCZFL4Vj5B4o3IALIvz6pg60SCJX6TD7RqwuRdJoAXjFHZ0Phf8w>
+    <xme:MCMCZBKDr_18-ZCp9fq_mQ4hcfnV3bmMG_AWa-n5fjtp8mZF3Lhw2HF6H3yj4rqId
+    bqalm9nA4D9Or8b-2Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudelledgkeeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:MCMCZNtSdRvlahaw8kkpJg5S_mXaS2NGhMnRJHAOSZVgamhknWW26A>
+    <xmx:MCMCZGZ1LKp15mUy0pPlL-EOq16PpXi1zG62wPySDj-SICoXbN6kvg>
+    <xmx:MCMCZMZks1DsXpkJ0U23I5CMsMZR0ofN8WaGql7nqVneRcx1e3czpQ>
+    <xmx:MyMCZBjiubroXaC0t4anGM3CORVrncxIG1WjD4S72n_xh-uiQS8zyQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 9A291B60086; Fri,  3 Mar 2023 11:41:20 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-183-gbf7d00f500-fm-20230220.001-gbf7d00f5
+Mime-Version: 1.0
+Message-Id: <c500840b-b57d-47f2-a3d9-41465b10ffae@app.fastmail.com>
+In-Reply-To: <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
+References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
+ <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
+ <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
+Date: Fri, 03 Mar 2023 17:40:46 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Alexandre Ghiti" <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Heiko Carstens" <hca@linux.ibm.com>
+Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Jonathan Corbet" <corbet@lwn.net>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
+ "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>, "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, gor@linux.ibm.com,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>, borntraeger@linux.ibm.com,
+ "Sven Schnelle" <svens@linux.ibm.com>, ysato@users.osdn.me,
+ "Rich Felker" <dalias@libc.org>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ chris@zankel.net, "Max Filippov" <jcmvbkbc@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ Linux-Arch <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_082310_316126_147D6B6D 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20230303_084129_873737_F9B7DEEA 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +136,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 03, 2023 at 07:06:46PM +0530, Sunil V L wrote:
-> Add support to build ACPI subsystem in defconfig.
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  arch/riscv/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index d98d6e90b2b8..8822b49ddb59 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -238,3 +238,4 @@ CONFIG_RCU_EQS_DEBUG=y
->  # CONFIG_FTRACE is not set
->  # CONFIG_RUNTIME_TESTING_MENU is not set
->  CONFIG_MEMTEST=y
-> +CONFIG_ACPI=y
-> -- 
-> 2.34.1
->
+On Fri, Mar 3, 2023, at 12:59, Alexandre Ghiti wrote:
+> On 3/2/23 20:50, H. Peter Anvin wrote:
+>> On March 1, 2023 7:17:18 PM PST, Palmer Dabbelt <palmer@dabbelt.com> wrote:
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>>>>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
+>>>>> I assume?
+>>>> Yes, sorry for that. I got distracted while writing and used the wrong
+>>>> branch to look this up.
+>>> Alex: Probably worth adding that to the list in the cover letter as it looks like you were planning on a v4 anyway (which I guess you now have to do, given that I just added the issue to RISC-V).
+>> The only use that is uapi is the *default* length of the command line if the kernel header doesn't include it (in the case of x86, it is in the bzImage header, but that is atchitecture- or even boot format-specific.)
+>
+> Is COMMAND_LINE_SIZE what you call the default length? Does that mean 
+> that to you the patchset is wrong?
+
+On x86, the COMMAND_LINE_SIZE value is already not part of a uapi header,
+but instead (since bzImage format version 2.06) is communicated from
+the kernel to the boot loader, which then knows how much data the
+kernel will read (at most) from the command line.
+
+Most x86 kernels these days are booted using UEFI, which I think has
+no such interface, the firmware just passes the command line and a
+length, but has no way of knowing if the kernel will truncate this.
+I think that is the same as with any other architecture that passes
+the command line through UEFI, DT or ATAGS, all of which use
+length/value pairs.
+
+Russell argued on IRC that this can be considered an ABI since a
+boot loader may use its knowledge of the kernel's command line size
+limit to reject long command lines. On the other hand, I don't
+think that any boot loader actually does, they just trust that it
+fits and don't have a good way of rejecting invalid configuration
+other than truncating and/or warning.
+
+One notable exception I found while looking through is the old
+(pre-ATAGS) parameter structure on Arm, which uses COMMAND_LINE_SIZE
+as part of the structure definition. Apparently this was deprecated
+22 years ago, so hopefully the remaining riscpc and footbridge
+users have all upgraded their bootloaders.
+
+The only other case I could find that might go wrong is
+m68knommu with a few files copying a COMMAND_LINE_SIZE sized
+buffer from flash into a kernel buffer:
+
+arch/m68k/coldfire/m5206.c:void __init config_BSP(char *commandp, int size)
+arch/m68k/coldfire/m5206.c-{
+arch/m68k/coldfire/m5206.c-#if defined(CONFIG_NETtel)
+arch/m68k/coldfire/m5206.c-     /* Copy command line from FLASH to local buffer... */
+arch/m68k/coldfire/m5206.c-     memcpy(commandp, (char *) 0xf0004000, size);
+arch/m68k/coldfire/m5206.c-     commandp[size-1] = 0;
+arch/m68k/coldfire/m5206.c-#endif /* CONFIG_NETtel */
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
