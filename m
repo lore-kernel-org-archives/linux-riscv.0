@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BDEC678D4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 11:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4777C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 13:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bpFyj9IDvQYtPycNd6ezhHTUv1y0ZURZ/W8OfqWdK9o=; b=bIvEDEtALvNIc9
-	W5gwI/6JppLzsC6vXBjrTX4RFjScEJOkG5eACpWUo4+bybZyEv1LpO+jdHt75aiC16GZv5MwwoS/7
-	15iPHWvv3EfnRN/nzyVSXk9ADWIQNWrcwU2pxUkYafKbHuZHGH/ank+8XuFMKQMYjDHhSqio8v3E9
-	rX1H1s905Hdmlvkh5T4z81Cc+V+sz9DE5C0hYSqG5cDZlabcTNRFTJMgQTUVngACA4s1G/og7kBCo
-	BFhb5EFJUY2yv5Wm0uop0uYlszd9rjE9qCeB5GZ1x9yJxWyA8L3lqEj5cdu0mxp2V13pz8i9hSe4i
-	/dkpcGgQ5qsi/06I6HYA==;
+	List-Owner; bh=hbU66AYwDeOuh1jh3XXJ+ESo9jU3G9K2moA62clhIbQ=; b=WVl7Q5OcRqrKx9
+	votdVyvO5Sf6chiyAkzEUzBAbDaRm2Db65gYF+TrRnoraXWbtT6iM+dp0BTyDIfd1q3lZMg9jt7xJ
+	Ifu5fhz2q73eUAehrtVDKetpVG7PP4JJb9miAmLdeNLXF7vqsfHVKevxYxAvVdRMsoM+uqajW+FX2
+	xHrp5jr8Uup6lYCLRr/j8MLYSYMjPlRI5F296fOzu3lSJ4MMsHLtcC5NJClt6YW4TQYoGqIdvaVUu
+	BelDeKPRhfE0Gm1jukDH19wUchfu0uzo8x5lAe8K+fBh807fY2KQnVOWSxWbSj/RJicufM+IJ4TF8
+	NKwcaBSbFIR6Sd+DZPzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY44S-006Feh-Ir; Fri, 03 Mar 2023 11:59:32 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1pY5aq-006SxX-AR; Fri, 03 Mar 2023 13:37:04 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY44N-006FaW-Gw; Fri, 03 Mar 2023 11:59:30 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 078BCFF807;
-	Fri,  3 Mar 2023 11:59:01 +0000 (UTC)
-Message-ID: <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
-Date: Fri, 3 Mar 2023 12:59:01 +0100
+	id 1pY5an-006Swc-Nk
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 13:37:03 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id p3-20020a17090ad30300b0023a1cd5065fso2313140pju.0
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 05:37:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1677850620;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sFClBCEHVbePO27Fju+ZNSU82apTBuXNOZbPa4NKUXM=;
+        b=BaGOIcvg8yJWm+BIvCQOan2HHyyVeJEeaVJeASwbhGxl7BQSCOpwN9u25ktOOtlKqo
+         uKJs2wjzyHW2sl5DzomdnOjELA3eXTKPy20+cTaCZlK5KRqdoFa0j8owuweg12R+tsdK
+         BwxvWflFFoGEPgmpNarq6mKLDF6x2GZQbaAgGGa3IXZjyytIOKd8MXddS8OXGK68BcsO
+         AjQcAGXJtcY20mIjMqoVKR7EuNbpxaV/NlOgxeZqwKIILS6n3ucL7q5YablSFhkqVBoN
+         6vHdUn9huE+cJoGdX7bPLS81LIsRXLdCh04zY4Wd4w0eQDc/4m20oy/DZTzbNOySH83z
+         gDEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677850620;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sFClBCEHVbePO27Fju+ZNSU82apTBuXNOZbPa4NKUXM=;
+        b=SBC0tuoWlEThRWDOJ2kiT/+1+CIPE5+J3gNN1DPrQUM4MmU4dnfFqvGDYuIwW+NLYC
+         ETouwdDlhKjqXhlkeesvr8zxYkivDLYU7pC9J108GMberd7/LfPUZjgmk9q8bEe+csun
+         RfbcwYC2N8pVZzcsfiyesJRxYuTDT9eCjIQbH+9d00jeCthZ1HVxHIsW8wDM7pPRIQ9u
+         huPGGBEiKR57x+AgnlACdvKYEmNS3ZENKWhWHb/26fxH7LpceAfsdxDzhxjYfsmUGavR
+         HUSBzFHDPdFYbXaNpiasiMbgcJbsUMaN7v2la/z2f2essvftnBDZpcAJv/WCRf03tW6F
+         POsQ==
+X-Gm-Message-State: AO0yUKUSpg7dMiOx+gnfWLvWTi7gSYTOCze8THICA9NakdjtUHLKrIRH
+	AZo+QWXb4lkeqYnjb/nFLFgYKccQcwCGI2E6
+X-Google-Smtp-Source: AK7set9rVAiWhWsuT5gKj6VGWXOC1pbmjRIxn98S9isZGtuhj7j9KMQuPfPis1dh/e9gvtSrvJNi4w==
+X-Received: by 2002:a17:902:b28b:b0:19e:639a:e72c with SMTP id u11-20020a170902b28b00b0019e639ae72cmr1754516plr.52.1677850619796;
+        Fri, 03 Mar 2023 05:36:59 -0800 (PST)
+Received: from localhost.localdomain ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id m9-20020a170902768900b0019ac5d3ee9dsm1533125pll.157.2023.03.03.05.36.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Mar 2023 05:36:59 -0800 (PST)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH V3 01/20] riscv: move sbi_init() earlier before jump_label_init()
+Date: Fri,  3 Mar 2023 19:06:28 +0530
+Message-Id: <20230303133647.845095-2-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
-Content-Language: en-US
-To: "H. Peter Anvin" <hpa@zytor.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- hca@linux.ibm.com
-Cc: geert@linux-m68k.org, alexghiti@rivosinc.com, corbet@lwn.net,
- Richard Henderson <richard.henderson@linaro.org>, ink@jurassic.park.msu.ru,
- mattst88@gmail.com, vgupta@kernel.org, linux@armlinux.org.uk,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- chenhuacai@kernel.org, kernel@xen0n.name, monstr@monstr.eu,
- tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
- deller@gmx.de, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, ysato@users.osdn.me,
- dalias@libc.org, davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net,
- jcmvbkbc@gmail.com, Arnd Bergmann <arnd@arndb.de>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- linux-arch@vger.kernel.org
-References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
- <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_035927_900466_5A6737A5 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20230303_053701_822415_F686D2E7 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +100,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+From: Jisheng Zhang <jszhang@kernel.org>
 
+We call jump_label_init() in setup_arch() is to use static key
+mechanism earlier, but riscv jump label relies on the sbi functions,
+If we enable static key before sbi_init(), the code path looks like:
+  static_branch_enable()
+    ..
+      arch_jump_label_transform()
+        patch_text_nosync()
+          flush_icache_range()
+            flush_icache_all()
+              sbi_remote_fence_i() for CONFIG_RISCV_SBI case
+                __sbi_rfence()
 
-On 3/2/23 20:50, H. Peter Anvin wrote:
-> On March 1, 2023 7:17:18 PM PST, Palmer Dabbelt <palmer@dabbelt.com> wrote:
->> On Tue, 14 Feb 2023 01:19:02 PST (-0800), hca@linux.ibm.com wrote:
->>> On Tue, Feb 14, 2023 at 09:58:17AM +0100, Geert Uytterhoeven wrote:
->>>> Hi Heiko,
->>>>
->>>> On Tue, Feb 14, 2023 at 9:39 AM Heiko Carstens <hca@linux.ibm.com> wrote:
->>>>> On Tue, Feb 14, 2023 at 08:49:01AM +0100, Alexandre Ghiti wrote:
->>>>>> This all came up in the context of increasing COMMAND_LINE_SIZE in the
->>>>>> RISC-V port.  In theory that's a UABI break, as COMMAND_LINE_SIZE is the
->>>>>> maximum length of /proc/cmdline and userspace could staticly rely on
->>>>>> that to be correct.
->>>>>>
->>>>>> Usually I wouldn't mess around with changing this sort of thing, but
->>>>>> PowerPC increased it with a5980d064fe2 ("powerpc: Bump COMMAND_LINE_SIZE
->>>>>> to 2048").  There are also a handful of examples of COMMAND_LINE_SIZE
->>>>>> increasing, but they're from before the UAPI split so I'm not quite sure
->>>>>> what that means: e5a6a1c90948 ("powerpc: derive COMMAND_LINE_SIZE from
->>>>>> asm-generic"), 684d2fd48e71 ("[S390] kernel: Append scpdata to kernel
->>>>>> boot command line"), 22242681cff5 ("MIPS: Extend COMMAND_LINE_SIZE"),
->>>>>> and 2b74b85693c7 ("sh: Derive COMMAND_LINE_SIZE from
->>>>>> asm-generic/setup.h.").
->>>>>>
->>>>>> It seems to me like COMMAND_LINE_SIZE really just shouldn't have been
->>>>>> part of the uapi to begin with, and userspace should be able to handle
->>>>>> /proc/cmdline of whatever length it turns out to be.  I don't see any
->>>>>> references to COMMAND_LINE_SIZE anywhere but Linux via a quick Google
->>>>>> search, but that's not really enough to consider it unused on my end.
->>>>>>
->>>>>> The feedback on the v1 seemed to indicate that COMMAND_LINE_SIZE really
->>>>>> shouldn't be part of uapi, so this now touches all the ports.  I've
->>>>>> tried to split this all out and leave it bisectable, but I haven't
->>>>>> tested it all that aggressively.
->>>>> Just to confirm this assumption a bit more: that's actually the same
->>>>> conclusion that we ended up with when commit 3da0243f906a ("s390: make
->>>>> command line configurable") went upstream.
->> Thanks, I guess I'd missed that one.  At some point I think there was some discussion of making this a Kconfig for everyone, which seems reasonable to me -- our use case for this being extended is syzkaller, but we're sort of just picking a value that's big enough for now and running with it.
->>
->> Probably best to get it out of uapi first, though, as that way at least it's clear that it's not uABI.
->>
->>>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
->>>> I assume?
->>> Yes, sorry for that. I got distracted while writing and used the wrong
->>> branch to look this up.
->> Alex: Probably worth adding that to the list in the cover letter as it looks like you were planning on a v4 anyway (which I guess you now have to do, given that I just added the issue to RISC-V).
-> The only use that is uapi is the *default* length of the command line if the kernel header doesn't include it (in the case of x86, it is in the bzImage header, but that is atchitecture- or even boot format-specific.)
+Since sbi isn't initialized, so NULL deference! Here is a typical
+panic log:
 
-Is COMMAND_LINE_SIZE what you call the default length? Does that mean 
-that to you the patchset is wrong?
+[    0.000000] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[    0.000000] Oops [#1]
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.18.0-rc7+ #79
+[    0.000000] Hardware name: riscv-virtio,qemu (DT)
+[    0.000000] epc : 0x0
+[    0.000000]  ra : sbi_remote_fence_i+0x1e/0x26
+[    0.000000] epc : 0000000000000000 ra : ffffffff80005826 sp : ffffffff80c03d50
+[    0.000000]  gp : ffffffff80ca6178 tp : ffffffff80c0ad80 t0 : 6200000000000000
+[    0.000000]  t1 : 0000000000000000 t2 : 62203a6b746e6972 s0 : ffffffff80c03d60
+[    0.000000]  s1 : ffffffff80001af6 a0 : 0000000000000000 a1 : 0000000000000000
+[    0.000000]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.000000]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000080200
+[    0.000000]  s2 : ffffffff808b3e48 s3 : ffffffff808bf698 s4 : ffffffff80cb2818
+[    0.000000]  s5 : 0000000000000001 s6 : ffffffff80c9c345 s7 : ffffffff80895aa0
+[    0.000000]  s8 : 0000000000000001 s9 : 000000000000007f s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : ffffffff80824d08 t4 : 0000000000000022
+[    0.000000]  t5 : 000000000000003d t6 : 0000000000000000
+[    0.000000] status: 0000000000000100 badaddr: 0000000000000000 cause: 000000000000000c
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
 
-Thanks,
+Fix this issue by moving sbi_init() earlier before jump_label_init()
 
-Alex
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 376d2827e736..2d45a416d283 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -270,6 +270,7 @@ void __init setup_arch(char **cmdline_p)
+ 	*cmdline_p = boot_command_line;
+ 
+ 	early_ioremap_setup();
++	sbi_init();
+ 	jump_label_init();
+ 	parse_early_param();
+ 
+@@ -287,7 +288,6 @@ void __init setup_arch(char **cmdline_p)
+ 	misc_mem_init();
+ 
+ 	init_resources();
+-	sbi_init();
+ 
+ #ifdef CONFIG_KASAN
+ 	kasan_init();
+-- 
+2.34.1
 
 
 _______________________________________________
