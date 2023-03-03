@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361D1C64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 17:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9DDC7EE2D
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 17:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V44sRwoTXKWN2dSYO/wgLgzgqXRxVS0E6XFhOmBEVz4=; b=DdrzyHegnjJk+mDu8iMwEbBZsO
-	H8XfxjwwtmVuOiFUkUHf5AzwZW7I6VTcxYXNj6PfqxbmS4qeHSBevLwM9SVaEWiU56c+ZU/LqAPyK
-	QXHoQ2QH0XPh2pog6FtZuknqkLDjIXRUJq9in8wf2wZ3Y2Q3U+2y/k8sowxc72sdeTyOlKpngk3k6
-	Q6aH5rVR0o7d0EyZILmxLeNeZAPXIkLZ3qS7nhBr5jr/VvSTMh8r0Dg2GOwZgzeIaGN3Lp9eF69T9
-	cTeUXgt713ZMS2Y4SF+Qd03P5urtirG/jFLaj5vvByPFHyhyGptMTe+gkTs2+9rEPV+QA/sasZgMP
-	tW3FrKCw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Amn2urAqUifA/Vdp4r71hCVCoQMi4nrVzTfght7dIZQ=; b=KZzy5j7zWzAsA6
+	yARsLxlorJe0KS9Tu7GYCUMpXJwaUYnwgJuXBrI1BoY8T4v8E7ar8USVzFljByVTkFa1pr1WKjRFM
+	wiB21C3MDM7TRyZ2eoVYJzw2gUlGfhdgYjECbVH999VoGhJKFQGDYG9cMrcYx7gl2nz2J4Su8qqiT
+	Pb2dp2orIqX8T1or7vmwPL3IngeMoRAkGrZuh7IFpJWTNHYyJOgimTnlBOpPp1qq8lMg8oiqV2Rbz
+	fdCWkV0tVfIz2YVpjkvPUKk633Mu6Llt/TELKdRS/3vCIYqpG+kn3zhyVsnAhjrHXEdYXjD75ViKH
+	Qu3rWXJ3wXrCm/BtPe4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY9UB-0074PT-AE; Fri, 03 Mar 2023 17:46:27 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pY9XJ-0075YN-1s; Fri, 03 Mar 2023 17:49:41 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY9U2-0074Jw-5e
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 17:46:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A804EB818FB;
-	Fri,  3 Mar 2023 17:46:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD29C433EF;
-	Fri,  3 Mar 2023 17:46:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677865575;
-	bh=MbXnQWJrgabQ7xrZZxnWxuZFeO/RGxBxyJ6Le1YAXTY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mQ4IXYSrgP/31fCn+Cpk5Rk9dgoUoN0FR+/9oiLIggayWkzmCltCxusWtkQYFzImV
-	 i+OQGbxy5madmr3qmnv0EzN3mY3eGXVaOty1WtoT4oprMAMrAXZC+qWzkylORA39mc
-	 Ask93QeXuNUr80s0Mb0plyjn96shqKc8k/A/gKCMxu1e9NKgcewhAdOSDGvFI9yIs/
-	 cc4IV6dDOJEnx53iEg50RshHrJ6e9jEh0pHacNFfitUt2z0kG/G6VS+bqRkS3uE60k
-	 tVjLfKs7DvrYatxbn24ORKYvoXcKuVLsFBWcCi1wgqGv+A8U3JHrCv9oJYIMBXqKuD
-	 nFy+08YKWf+Rg==
-Date: Fri, 3 Mar 2023 17:46:11 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Mark Brown <broonie@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-spi@vger.kernel.org,
-	linux-riscv@lists.infradead.org, kernel@pengutronix.de
-Subject: Re: [PATCH 67/87] spi: sifive: Convert to platform remove callback
- returning void
-Message-ID: <1f3f97a1-f335-45c0-980b-b0847cd8ad90@spud>
-References: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
- <20230303172041.2103336-68-u.kleine-koenig@pengutronix.de>
+	id 1pY9XG-0075X3-HH
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 17:49:40 +0000
+Received: by mail-pl1-x632.google.com with SMTP id p6so3576431plf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 09:49:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1677865777;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ci3RnlB0VZFKqzzAEnpOLkE36BOnr4VRjKen387ZgnE=;
+        b=iz7Fbv/e7nazEjnOF1SV143FLcPMaNcE4smxk4E9MSI/T59GJkyBupMF1A4mRoR3BG
+         +jwbF26UALINlRANG1ZIOk0fDrIsu5O6TEFRKSTUTjlqMAZHAunjuUit8tU3zO3h45Od
+         asjPP2iJPLCjSZKoJhxXsNhbLhBv6vkx1+el6dKiDz8AjV6QiX7RT4G4Og/KvYCiiH7R
+         EAnkKzLbyhoTNPq39S7jst7ZfOsILBEx7zl358FEK01RyqDe7KNPiSghDlETXMU308oc
+         jNma8oumdTjwqg6hAthoKLmRxnnW7dUVBLsa0eegq1WdP5lL3eVO3cPc+mFzR+30AEFN
+         rKew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677865777;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ci3RnlB0VZFKqzzAEnpOLkE36BOnr4VRjKen387ZgnE=;
+        b=hYfosdg3MWqzlghBPAQN8nuu6+xEmxw0wtkLnZHONGMCGNkz932IhYB9vvmKimZyhA
+         +Cj31SMPWUw5Y5j4VwKfemW3PVo1cI88JF88WgTW7gS2Xip+2cn78XR5X+37U4Lbya8/
+         VcA0RiPQRUdxoThaqoG7g7/Ve/Q9pPBR/IELYzAZrRnr7X735Cm9jnDGq7T5ZCBqVe5Q
+         8lgRveHSWnYzxDDAbVFtTH1cl/nHnCHq174mWbP6LbkyuGk/2bZ9YckQEBcgXEQkPLtZ
+         h+J5GiFeJWb16z39mF35kGhf6Nm46WzUvk2nnVT2SM1N5YeUu9DUE8iyMhE2Xk09dV6S
+         RNrA==
+X-Gm-Message-State: AO0yUKWIIlQllJh+cn4lYLXl1KphZ0n7MNi01A36nOJAgEa4/yJLeggB
+	uQjjZVItQtmOycuJnn+BcvfJwQ==
+X-Google-Smtp-Source: AK7set+Bf+zqq8sNm9WNWTp7EAHBGvsHuLhVhVk39cIGjEsd50L3ZxtSbFwAzHH6JTd/AxqyzAnIWg==
+X-Received: by 2002:a05:6a20:160a:b0:cc:88af:12ab with SMTP id l10-20020a056a20160a00b000cc88af12abmr3571575pzj.28.1677865776948;
+        Fri, 03 Mar 2023 09:49:36 -0800 (PST)
+Received: from sunil-laptop ([49.206.8.117])
+        by smtp.gmail.com with ESMTPSA id i23-20020aa787d7000000b005a8b882a239sm1905656pfo.109.2023.03.03.09.49.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Mar 2023 09:49:36 -0800 (PST)
+Date: Fri, 3 Mar 2023 23:19:28 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V3 11/20] RISC-V: ACPI: Cache and retrieve the RINTC
+ structure
+Message-ID: <ZAIzKLzKE7MpQ+Yr@sunil-laptop>
+References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+ <20230303133647.845095-12-sunilvl@ventanamicro.com>
+ <20230303160556.lezccmwa7ymymxws@orel>
+ <fdb52973-0cbc-4d7e-88bc-534fe43eec9b@spud>
+ <20230303172113.jskripuyr3xx2z7k@orel>
 MIME-Version: 1.0
-In-Reply-To: <20230303172041.2103336-68-u.kleine-koenig@pengutronix.de>
+Content-Disposition: inline
+In-Reply-To: <20230303172113.jskripuyr3xx2z7k@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_094618_557050_F652C4AD 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20230303_094938_635434_31FB3FA5 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,107 +100,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6341182938944032819=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 03, 2023 at 06:21:13PM +0100, Andrew Jones wrote:
+> On Fri, Mar 03, 2023 at 04:58:53PM +0000, Conor Dooley wrote:
+> > On Fri, Mar 03, 2023 at 05:05:56PM +0100, Andrew Jones wrote:
+> > > On Fri, Mar 03, 2023 at 07:06:38PM +0530, Sunil V L wrote:
+> > > > RINTC structures in the MADT provide mapping between the hartid
+> > > > and the CPU. This is required many times even at run time like
+> > > > cpuinfo. So, instead of parsing the ACPI table every time, cache
+> > > > the RINTC structures and provide a function to get the correct
+> > > > RINTC structure for a given cpu.
+> > > > 
+> > > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > > > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > > > ---
+> > > >  arch/riscv/include/asm/acpi.h |  9 ++++++
+> > > >  arch/riscv/kernel/acpi.c      | 56 +++++++++++++++++++++++++++++++++++
+> > > >  2 files changed, 65 insertions(+)
+> > 
+> > > > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> > > > index 111a8ed10af1..8be16c1ef7da 100644
+> > > > --- a/arch/riscv/include/asm/acpi.h
+> > > > +++ b/arch/riscv/include/asm/acpi.h
+> > > > @@ -61,6 +61,10 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+> > > >  
+> > > >  int acpi_get_riscv_isa(struct acpi_table_header *table,
+> > > >  		       unsigned int cpu, const char **isa);
+> > > > +
+> > > > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
+> > > > +
+> > > > +u32 get_acpi_id_for_cpu(int cpu);
+> > > >  #else
+> > > >  static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
+> > > >  				     unsigned int cpu, const char **isa)
+> > > > @@ -68,6 +72,11 @@ static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
+> > > >  	return -EINVAL;
+> > > >  }
+> > > >  
+> > > > +static inline u32 get_acpi_id_for_cpu(int cpu)
+> > > > +{
+> > > > +	return -1;
+> > > > +}
+> > > 
+> > > Why do we need this stub? I wouldn't expect non-ACPI code to need an ACPI
+> > > ID.
+> > 
+> > I think I asked for this (or assumed it existed) in v1, when I requested
+> > the removal of #ifdef CONFIG_ACPI stuff in riscv_fill_hwcap().
+> > Personally, I'd rather have this stub than the ifdeffery :)
+> >
+> 
+> Yeah, avoiding #ifdefs with stubs is good if we need to call the function
+> from non-ACPI code. I'm wondering why we'd need to, though. In all the
+> cases introduced with this series, we could pass a 'cpu' to
+> acpi_get_riscv_isa() and then have acpi_get_riscv_isa() call
+> get_acpi_id_for_cpu() itself, for example.
+> 
+Yes, that's a good idea to avoid the stub. Will update. Thanks!
 
---===============6341182938944032819==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uHONYmu2di5L89hc"
-Content-Disposition: inline
-
-
---uHONYmu2di5L89hc
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 03, 2023 at 06:20:21PM +0100, Uwe Kleine-K=F6nig wrote:
-> The .remove() callback for a platform driver returns an int which makes
-> many driver authors wrongly assume it's possible to do error handling by
-> returning an error code. However the value returned is (mostly) ignored
-> and this typically results in resource leaks. To improve here there is a
-> quest to make the remove callback return void. In the first step of this
-> quest all drivers are converted to .remove_new() which already returns
-> void.
->=20
-> Trivially convert this driver from always returning zero in the remove
-> callback to the void returning variant.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-This one landed in my mailbox too, so:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> We also need to be sure -1 truly means "no ACPI ID" in order to stub this.
+> 
+Yes, with your BUG suggestion I can remove this.
 
 Thanks,
-Conor.
-
-> ---
->  drivers/spi/spi-sifive.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
-> index e29e85cee88a..055de44e0d22 100644
-> --- a/drivers/spi/spi-sifive.c
-> +++ b/drivers/spi/spi-sifive.c
-> @@ -415,7 +415,7 @@ static int sifive_spi_probe(struct platform_device *p=
-dev)
->  	return ret;
->  }
-> =20
-> -static int sifive_spi_remove(struct platform_device *pdev)
-> +static void sifive_spi_remove(struct platform_device *pdev)
->  {
->  	struct spi_master *master =3D platform_get_drvdata(pdev);
->  	struct sifive_spi *spi =3D spi_master_get_devdata(master);
-> @@ -423,8 +423,6 @@ static int sifive_spi_remove(struct platform_device *=
-pdev)
->  	/* Disable all the interrupts just in case */
->  	sifive_spi_write(spi, SIFIVE_SPI_REG_IE, 0);
->  	clk_disable_unprepare(spi->clk);
-> -
-> -	return 0;
->  }
-> =20
->  static int sifive_spi_suspend(struct device *dev)
-> @@ -473,7 +471,7 @@ MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
-> =20
->  static struct platform_driver sifive_spi_driver =3D {
->  	.probe =3D sifive_spi_probe,
-> -	.remove =3D sifive_spi_remove,
-> +	.remove_new =3D sifive_spi_remove,
->  	.driver =3D {
->  		.name =3D SIFIVE_SPI_DRIVER_NAME,
->  		.pm =3D &sifive_spi_pm_ops,
-> --=20
-> 2.39.1
->=20
-
---uHONYmu2di5L89hc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAIyYwAKCRB4tDGHoIJi
-0uIkAP4kBmoKZhSq2On5nc3o6E9J+Hl4JZEqZ0Ah4NAF0Rp7IwEAyv1URNiBV8Ig
-+/8h9wi8+fy7DY1Gx7E7lLaHvvkQkgQ=
-=Cx8Z
------END PGP SIGNATURE-----
-
---uHONYmu2di5L89hc--
-
-
---===============6341182938944032819==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6341182938944032819==--
-
