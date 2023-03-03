@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416E8C7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 17:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361D1C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 17:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpfNJQOCyEiyQb3dXo2df5ddJ2SJq2e/CgD6nzotdP0=; b=nUFy/bmBhSk0WiSfP3ZZA4SZpf
-	lwH7UOTpXalDYjSHdc9ZLld0OdbusXq0FRG0oGqj54vFPGOtdMyREyHkePh1ySqnwaM9pP46qbtKw
-	va4kT9yIbaMosFDu9/qqbv0l0FhKNYEGlbOPcgmxkPClNuJWa6mH/TwY70xmavnqfg4FDZlZ4p2kM
-	Mm4fmrGw+ytrwiEXlNItiKs7DzSKs4QgJzCuX53FcgeimyCDr6hi9JKfq9qVrNaX0Yx4sjL6D7GsW
-	f1T37Zay5/caO8XAZ6R7duvjBk/vQbEEyiNOsEIbLS61hvdOkQLked7xTNdeoKCrX1cVOuRS+S1CD
-	Hk/PT8Ag==;
+	bh=V44sRwoTXKWN2dSYO/wgLgzgqXRxVS0E6XFhOmBEVz4=; b=DdrzyHegnjJk+mDu8iMwEbBZsO
+	H8XfxjwwtmVuOiFUkUHf5AzwZW7I6VTcxYXNj6PfqxbmS4qeHSBevLwM9SVaEWiU56c+ZU/LqAPyK
+	QXHoQ2QH0XPh2pog6FtZuknqkLDjIXRUJq9in8wf2wZ3Y2Q3U+2y/k8sowxc72sdeTyOlKpngk3k6
+	Q6aH5rVR0o7d0EyZILmxLeNeZAPXIkLZ3qS7nhBr5jr/VvSTMh8r0Dg2GOwZgzeIaGN3Lp9eF69T9
+	cTeUXgt713ZMS2Y4SF+Qd03P5urtirG/jFLaj5vvByPFHyhyGptMTe+gkTs2+9rEPV+QA/sasZgMP
+	tW3FrKCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY9U5-0074Me-Rg; Fri, 03 Mar 2023 17:46:21 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pY9UB-0074PT-AE; Fri, 03 Mar 2023 17:46:27 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY9T2-0073vP-Ll
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 17:45:18 +0000
+	id 1pY9U2-0074Jw-5e
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 17:46:19 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 98064B818FB;
-	Fri,  3 Mar 2023 17:45:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2081C433EF;
-	Fri,  3 Mar 2023 17:45:10 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A804EB818FB;
+	Fri,  3 Mar 2023 17:46:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD29C433EF;
+	Fri,  3 Mar 2023 17:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677865512;
-	bh=YEsOAGjW3wJ37nuzTUD4sEHtd/rS1uMDhbqFEzFllKE=;
+	s=k20201202; t=1677865575;
+	bh=MbXnQWJrgabQ7xrZZxnWxuZFeO/RGxBxyJ6Le1YAXTY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X8LaqiNwqZkZpRfb6NhoC5VG/47ZqUKMTAYGJlWDrLgQIgnsoam/K+k9E5aHUhl/f
-	 3CIM1+0p94nWeKCWApYvP15m2JxE7+kJk+qSu2zbsM8nCDJCMuacw05gyvTacN76vG
-	 TE40bT+t1WZpVCfQVLDycbKV0T1kgtr4TNOJ+BYGGlc6Wy8B0cgi4bW7po9JFpX4Zm
-	 GXRe7JbQILUWpWOrJtPN0P5qmxrKWXPkEr8GG9J1BruQXPi/VhF8kg3eFGW7KRaEbS
-	 +eZeBouRXgwYwkWhYDDeFUXxJdjdyxUTHV1sro85qkF/36ZDmRvlw0QqaxdWu1fDQx
-	 Q9GqO93aJXEOA==
-Date: Fri, 3 Mar 2023 17:45:08 +0000
+	b=mQ4IXYSrgP/31fCn+Cpk5Rk9dgoUoN0FR+/9oiLIggayWkzmCltCxusWtkQYFzImV
+	 i+OQGbxy5madmr3qmnv0EzN3mY3eGXVaOty1WtoT4oprMAMrAXZC+qWzkylORA39mc
+	 Ask93QeXuNUr80s0Mb0plyjn96shqKc8k/A/gKCMxu1e9NKgcewhAdOSDGvFI9yIs/
+	 cc4IV6dDOJEnx53iEg50RshHrJ6e9jEh0pHacNFfitUt2z0kG/G6VS+bqRkS3uE60k
+	 tVjLfKs7DvrYatxbn24ORKYvoXcKuVLsFBWcCi1wgqGv+A8U3JHrCv9oJYIMBXqKuD
+	 nFy+08YKWf+Rg==
+Date: Fri, 3 Mar 2023 17:46:11 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Mark Brown <broonie@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-spi@vger.kernel.org, kernel@pengutronix.de
-Subject: Re: [PATCH 36/87] spi: microchip-core-qspi: Convert to platform
- remove callback returning void
-Message-ID: <5a1747b5-ad3f-41c9-bc1b-0319ee88de76@spud>
+Cc: Mark Brown <broonie@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-spi@vger.kernel.org,
+	linux-riscv@lists.infradead.org, kernel@pengutronix.de
+Subject: Re: [PATCH 67/87] spi: sifive: Convert to platform remove callback
+ returning void
+Message-ID: <1f3f97a1-f335-45c0-980b-b0847cd8ad90@spud>
 References: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
- <20230303172041.2103336-37-u.kleine-koenig@pengutronix.de>
+ <20230303172041.2103336-68-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20230303172041.2103336-37-u.kleine-koenig@pengutronix.de>
+In-Reply-To: <20230303172041.2103336-68-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_094517_069578_D6756CF3 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20230303_094618_557050_F652C4AD 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,23 +69,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5648861358749799281=="
+Content-Type: multipart/mixed; boundary="===============6341182938944032819=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5648861358749799281==
+--===============6341182938944032819==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SnlvmsQuXmNAf7KZ"
+	protocol="application/pgp-signature"; boundary="uHONYmu2di5L89hc"
 Content-Disposition: inline
 
 
---SnlvmsQuXmNAf7KZ
+--uHONYmu2di5L89hc
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 03, 2023 at 06:19:50PM +0100, Uwe Kleine-K=F6nig wrote:
+On Fri, Mar 03, 2023 at 06:20:21PM +0100, Uwe Kleine-K=F6nig wrote:
 > The .remove() callback for a platform driver returns an int which makes
 > many driver authors wrongly assume it's possible to do error handling by
 > returning an error code. However the value returned is (mostly) ignored
@@ -100,69 +99,68 @@ On Fri, Mar 03, 2023 at 06:19:50PM +0100, Uwe Kleine-K=F6nig wrote:
 >=20
 > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
 
+This one landed in my mailbox too, so:
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
 Conor.
 
 > ---
->  drivers/spi/spi-microchip-core-qspi.c | 6 ++----
+>  drivers/spi/spi-sifive.c | 6 ++----
 >  1 file changed, 2 insertions(+), 4 deletions(-)
 >=20
-> diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-micr=
-ochip-core-qspi.c
-> index 19a6a46829f6..4f76ddf97b10 100644
-> --- a/drivers/spi/spi-microchip-core-qspi.c
-> +++ b/drivers/spi/spi-microchip-core-qspi.c
-> @@ -566,7 +566,7 @@ static int mchp_coreqspi_probe(struct platform_device=
- *pdev)
+> diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
+> index e29e85cee88a..055de44e0d22 100644
+> --- a/drivers/spi/spi-sifive.c
+> +++ b/drivers/spi/spi-sifive.c
+> @@ -415,7 +415,7 @@ static int sifive_spi_probe(struct platform_device *p=
+dev)
 >  	return ret;
 >  }
 > =20
-> -static int mchp_coreqspi_remove(struct platform_device *pdev)
-> +static void mchp_coreqspi_remove(struct platform_device *pdev)
+> -static int sifive_spi_remove(struct platform_device *pdev)
+> +static void sifive_spi_remove(struct platform_device *pdev)
 >  {
->  	struct mchp_coreqspi *qspi =3D platform_get_drvdata(pdev);
->  	u32 control =3D readl_relaxed(qspi->regs + REG_CONTROL);
-> @@ -575,8 +575,6 @@ static int mchp_coreqspi_remove(struct platform_devic=
-e *pdev)
->  	control &=3D ~CONTROL_ENABLE;
->  	writel_relaxed(control, qspi->regs + REG_CONTROL);
->  	clk_disable_unprepare(qspi->clk);
+>  	struct spi_master *master =3D platform_get_drvdata(pdev);
+>  	struct sifive_spi *spi =3D spi_master_get_devdata(master);
+> @@ -423,8 +423,6 @@ static int sifive_spi_remove(struct platform_device *=
+pdev)
+>  	/* Disable all the interrupts just in case */
+>  	sifive_spi_write(spi, SIFIVE_SPI_REG_IE, 0);
+>  	clk_disable_unprepare(spi->clk);
 > -
 > -	return 0;
 >  }
 > =20
->  static const struct of_device_id mchp_coreqspi_of_match[] =3D {
-> @@ -591,7 +589,7 @@ static struct platform_driver mchp_coreqspi_driver =
-=3D {
->  		.name =3D "microchip,coreqspi",
->  		.of_match_table =3D mchp_coreqspi_of_match,
->  	},
-> -	.remove =3D mchp_coreqspi_remove,
-> +	.remove_new =3D mchp_coreqspi_remove,
->  };
->  module_platform_driver(mchp_coreqspi_driver);
+>  static int sifive_spi_suspend(struct device *dev)
+> @@ -473,7 +471,7 @@ MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
 > =20
+>  static struct platform_driver sifive_spi_driver =3D {
+>  	.probe =3D sifive_spi_probe,
+> -	.remove =3D sifive_spi_remove,
+> +	.remove_new =3D sifive_spi_remove,
+>  	.driver =3D {
+>  		.name =3D SIFIVE_SPI_DRIVER_NAME,
+>  		.pm =3D &sifive_spi_pm_ops,
 > --=20
 > 2.39.1
 >=20
 
---SnlvmsQuXmNAf7KZ
+--uHONYmu2di5L89hc
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAIyJAAKCRB4tDGHoIJi
-0gaIAQD67FENv5CFm3XI2rGFd91cNd5KQi6z2ITLjp6N5BPwoQD9Ghd5ncasQ/Y2
-IwdvWr6QB32McNURMyELW7tbReeEbAg=
-=PldB
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAIyYwAKCRB4tDGHoIJi
+0uIkAP4kBmoKZhSq2On5nc3o6E9J+Hl4JZEqZ0Ah4NAF0Rp7IwEAyv1URNiBV8Ig
++/8h9wi8+fy7DY1Gx7E7lLaHvvkQkgQ=
+=Cx8Z
 -----END PGP SIGNATURE-----
 
---SnlvmsQuXmNAf7KZ--
+--uHONYmu2di5L89hc--
 
 
---===============5648861358749799281==
+--===============6341182938944032819==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +171,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5648861358749799281==--
+--===============6341182938944032819==--
 
