@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB037C7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 16:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E525C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 17:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sf5tcBJQaAP4c8+cctvnM4kT738o+alpzActdIL+a+8=; b=E37m0tsY7oI0X4dMv1g7Ze4hLM
-	Ms4v/qcFd9Mw+asDmWiBNFWLM8WJHflmRpWpWaOP+3bCD4LdMIX7TKbtr1/bJcsPfzyC+9qvT76v0
-	CYaTWPsWIqFPMkUf2+6Df1NkEP6WWCYSgobKht9OeM0F4PBRgxPoxmXBWMZnZz35kyRZw1hzq2YGI
-	qNtLF/MOSM+YdpnEHpnZQy8ee4aPBFNdka+nl/Cr7mR+2vjWeTEvUYcefOOz0jYyqWyCjPViNk7wI
-	uLjZO5HlCFXyVUyOu86uh9xlhxZnI++VG0FNr5eiADglCQ2Ns2VTwSnYIsf7xsKuVs7CcIkk9QeQv
-	6NrBmCyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5ADI+sf1yYqcm+AjVVJ81kNn7OUpDWvkpEFhaJ3sI7Q=; b=kqFeCve/oiEGX/
+	mm7B1ZhPsG+2tLAZGwiMnpDNhou2hdzkI6RM9YYGtu3B6l/r/wPeUhJXzNbzsq9TXQohmsC43Fg+8
+	VY4/tNtd+HFVpQn/a2faBTLhAyY840w4WXjkAjiQKy+hGe1cHKM8zdId/YxkFDds1OOxoJIVPifgm
+	nCZjZseEKKfMxhIO8Pbf6mrZabvFTfRsn71eZ/P5kukbNr23AEJoOsF3/2I8BTI10g62ja+IerjYd
+	jO6d6NZJq1BurhrT49GzD9UzqnTaWNEjsHsEfpMQ9Yp2biAhMvw/ORSI3Xn5ezb35U9ASffX9nqGD
+	PT1gFGb9H8YOrJwtJwRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8kK-006r1P-KI; Fri, 03 Mar 2023 16:59:04 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pY96k-006taE-Td; Fri, 03 Mar 2023 17:22:14 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8kH-006r0g-W5
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 16:59:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4B82EB8191F;
-	Fri,  3 Mar 2023 16:59:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B200C433D2;
-	Fri,  3 Mar 2023 16:58:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677862739;
-	bh=z0SfoQpwZEfIQgXPO1rQgO6UNErYjmoidz6DFukMqtI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FjlCgeWiwHNlbeEnXmtpsFTVV2C4SIz9hsbYHcmuxM52cLHlpccEHteOnEj/JNyPc
-	 HXC/cjBOnnZWo8qMLUYrSlqAXaI0NdxQg83IVTq385Vq8tvSnWAkXs68g+ewYlFJsC
-	 e2KMQq1s2YVPIDrQagmV2R5VNYk2vVKcTYc+7ekR+EMZ7TZpXuCIf5B0RBxhE1KMpQ
-	 c5FPkRt8h+iKINzxK3yUgzVCoj4Y+iYP6NaTXKSThyRoGHKszWqQrPiARX1O4G+eOc
-	 Cl7TcF94nVg45zsXkJRU8U2Q4pt89ozeO7RnRI/sjH+T9vpKtXFXSkocBctIVEv6Nk
-	 Yebh9LFCxe1OQ==
-Date: Fri, 3 Mar 2023 16:58:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH V3 11/20] RISC-V: ACPI: Cache and retrieve the RINTC
- structure
-Message-ID: <fdb52973-0cbc-4d7e-88bc-534fe43eec9b@spud>
-References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
- <20230303133647.845095-12-sunilvl@ventanamicro.com>
- <20230303160556.lezccmwa7ymymxws@orel>
+	id 1pY95e-006t2r-R6
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 17:21:13 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pY95Y-0006l0-G4; Fri, 03 Mar 2023 18:21:00 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pY95X-001blT-8T; Fri, 03 Mar 2023 18:20:59 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pY95W-001tkD-G8; Fri, 03 Mar 2023 18:20:58 +0100
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	kernel@pengutronix.de
+Subject: [PATCH 37/87] spi: microchip-core: Convert to platform remove callback returning void
+Date: Fri,  3 Mar 2023 18:19:51 +0100
+Message-Id: <20230303172041.2103336-38-u.kleine-koenig@pengutronix.de>
+X-Mailer: git-send-email 2.39.1
+In-Reply-To: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
+References: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20230303160556.lezccmwa7ymymxws@orel>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1907; i=u.kleine-koenig@pengutronix.de; h=from:subject; bh=2q5THNKlK4gsquv2lzy7ofOnkVJIgOoYwNhePyYNVus=; b=owEBbQGS/pANAwAKAcH8FHityuwJAcsmYgBkAiuayFi3bYDqqf9iXAc1czAWs59j6npeXLTFz RlGLZ5ws1CJATMEAAEKAB0WIQR+cioWkBis/z50pAvB/BR4rcrsCQUCZAIrmgAKCRDB/BR4rcrs CSK+B/9Wtf/e7biFxUeF+iCjsLA5hkPiJXTXRuRmrpfFBbNugB6pMsNUDLkp3d1Sg835DWSD5L9 Mlw05kpKgDD0Rg3AE9aR7+47N0DM0Xwj+cyb47fUI6YO32iJ4V+436Zvaoh0NrBRd+o5K3Psb8G O9lseeQbr8uNPwQw8kDyFpZXn1xgchISi7VKdwBx1YxoPdZnPHP8y/WIRZSKUQf5Vu6/mK6ycDi M5NmqTu8S6vW3tztURb7lw2DX41tY5kxsVNwyaf5jL841rlkIRr/y4NhCkVjHKjt4KGGelwNTQt CGjsNJGbdD1fJe2DPrJ50HMxewndgT1IdKBbpedyXu+Pyh2G
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_085902_378657_0A4223E8 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20230303_092106_913509_522DFA68 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,100 +71,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Jonathan Corbet <corbet@lwn.net>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-doc@vger.kernel.org, Marc Zyngier <maz@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, 'Conor Dooley ' <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>, Len Brown <lenb@kernel.org>
-Content-Type: multipart/mixed; boundary="===============7206092103134619608=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7206092103134619608==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AUUK7G7NpwIF2qsL"
-Content-Disposition: inline
-
-
---AUUK7G7NpwIF2qsL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 03, 2023 at 05:05:56PM +0100, Andrew Jones wrote:
-> On Fri, Mar 03, 2023 at 07:06:38PM +0530, Sunil V L wrote:
-> > RINTC structures in the MADT provide mapping between the hartid
-> > and the CPU. This is required many times even at run time like
-> > cpuinfo. So, instead of parsing the ACPI table every time, cache
-> > the RINTC structures and provide a function to get the correct
-> > RINTC structure for a given cpu.
-> >=20
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> > ---
-> >  arch/riscv/include/asm/acpi.h |  9 ++++++
-> >  arch/riscv/kernel/acpi.c      | 56 +++++++++++++++++++++++++++++++++++
-> >  2 files changed, 65 insertions(+)
-
-> > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acp=
-i.h
-> > index 111a8ed10af1..8be16c1ef7da 100644
-> > --- a/arch/riscv/include/asm/acpi.h
-> > +++ b/arch/riscv/include/asm/acpi.h
-> > @@ -61,6 +61,10 @@ static inline void arch_fix_phys_package_id(int num,=
- u32 slot) { }
-> > =20
-> >  int acpi_get_riscv_isa(struct acpi_table_header *table,
-> >  		       unsigned int cpu, const char **isa);
-> > +
-> > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
-> > +
-> > +u32 get_acpi_id_for_cpu(int cpu);
-> >  #else
-> >  static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
-> >  				     unsigned int cpu, const char **isa)
-> > @@ -68,6 +72,11 @@ static inline int acpi_get_riscv_isa(struct acpi_tab=
-le_header *table,
-> >  	return -EINVAL;
-> >  }
-> > =20
-> > +static inline u32 get_acpi_id_for_cpu(int cpu)
-> > +{
-> > +	return -1;
-> > +}
->=20
-> Why do we need this stub? I wouldn't expect non-ACPI code to need an ACPI
-> ID.
-
-I think I asked for this (or assumed it existed) in v1, when I requested
-the removal of #ifdef CONFIG_ACPI stuff in riscv_fill_hwcap().
-Personally, I'd rather have this stub than the ifdeffery :)
-
-Cheers,
-Conor.
-
-
---AUUK7G7NpwIF2qsL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAInSQAKCRB4tDGHoIJi
-0q0kAQCRhhViXko50omZit7Mc2H7+lY6SumTsapcSF6E4s9TSgEA2I1OvC1P0fbJ
-L9+705mVwaQcCRmFffXsNrh8zobzyg8=
-=nTk5
------END PGP SIGNATURE-----
-
---AUUK7G7NpwIF2qsL--
-
-
---===============7206092103134619608==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7206092103134619608==--
-
+VGhlIC5yZW1vdmUoKSBjYWxsYmFjayBmb3IgYSBwbGF0Zm9ybSBkcml2ZXIgcmV0dXJucyBhbiBp
+bnQgd2hpY2ggbWFrZXMKbWFueSBkcml2ZXIgYXV0aG9ycyB3cm9uZ2x5IGFzc3VtZSBpdCdzIHBv
+c3NpYmxlIHRvIGRvIGVycm9yIGhhbmRsaW5nIGJ5CnJldHVybmluZyBhbiBlcnJvciBjb2RlLiBI
+b3dldmVyIHRoZSB2YWx1ZSByZXR1cm5lZCBpcyAobW9zdGx5KSBpZ25vcmVkCmFuZCB0aGlzIHR5
+cGljYWxseSByZXN1bHRzIGluIHJlc291cmNlIGxlYWtzLiBUbyBpbXByb3ZlIGhlcmUgdGhlcmUg
+aXMgYQpxdWVzdCB0byBtYWtlIHRoZSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuIHZvaWQuIEluIHRo
+ZSBmaXJzdCBzdGVwIG9mIHRoaXMKcXVlc3QgYWxsIGRyaXZlcnMgYXJlIGNvbnZlcnRlZCB0byAu
+cmVtb3ZlX25ldygpIHdoaWNoIGFscmVhZHkgcmV0dXJucwp2b2lkLgoKVHJpdmlhbGx5IGNvbnZl
+cnQgdGhpcyBkcml2ZXIgZnJvbSBhbHdheXMgcmV0dXJuaW5nIHplcm8gaW4gdGhlIHJlbW92ZQpj
+YWxsYmFjayB0byB0aGUgdm9pZCByZXR1cm5pbmcgdmFyaWFudC4KClNpZ25lZC1vZmYtYnk6IFV3
+ZSBLbGVpbmUtS8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+Ci0tLQogZHJp
+dmVycy9zcGkvc3BpLW1pY3JvY2hpcC1jb3JlLmMgfCA2ICsrLS0tLQogMSBmaWxlIGNoYW5nZWQs
+IDIgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJzL3Nw
+aS9zcGktbWljcm9jaGlwLWNvcmUuYyBiL2RyaXZlcnMvc3BpL3NwaS1taWNyb2NoaXAtY29yZS5j
+CmluZGV4IGFlYWExZGE4OGYzOS4uZTZjZjZmZjA4MDYxIDEwMDY0NAotLS0gYS9kcml2ZXJzL3Nw
+aS9zcGktbWljcm9jaGlwLWNvcmUuYworKysgYi9kcml2ZXJzL3NwaS9zcGktbWljcm9jaGlwLWNv
+cmUuYwpAQCAtNTY2LDcgKzU2Niw3IEBAIHN0YXRpYyBpbnQgbWNocF9jb3Jlc3BpX3Byb2JlKHN0
+cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCiAJcmV0dXJuIDA7CiB9CiAKLXN0YXRpYyBpbnQg
+bWNocF9jb3Jlc3BpX3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQorc3RhdGlj
+IHZvaWQgbWNocF9jb3Jlc3BpX3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQog
+ewogCXN0cnVjdCBzcGlfbWFzdGVyICptYXN0ZXIgID0gcGxhdGZvcm1fZ2V0X2RydmRhdGEocGRl
+dik7CiAJc3RydWN0IG1jaHBfY29yZXNwaSAqc3BpID0gc3BpX21hc3Rlcl9nZXRfZGV2ZGF0YSht
+YXN0ZXIpOwpAQCAtNTc0LDggKzU3NCw2IEBAIHN0YXRpYyBpbnQgbWNocF9jb3Jlc3BpX3JlbW92
+ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogCW1jaHBfY29yZXNwaV9kaXNhYmxlX2lu
+dHMoc3BpKTsKIAljbGtfZGlzYWJsZV91bnByZXBhcmUoc3BpLT5jbGspOwogCW1jaHBfY29yZXNw
+aV9kaXNhYmxlKHNwaSk7Ci0KLQlyZXR1cm4gMDsKIH0KIAogI2RlZmluZSBNSUNST0NISVBfU1BJ
+X1BNX09QUyAoTlVMTCkKQEAgLTU5OSw3ICs1OTcsNyBAQCBzdGF0aWMgc3RydWN0IHBsYXRmb3Jt
+X2RyaXZlciBtY2hwX2NvcmVzcGlfZHJpdmVyID0gewogCQkucG0gPSBNSUNST0NISVBfU1BJX1BN
+X09QUywKIAkJLm9mX21hdGNoX3RhYmxlID0gb2ZfbWF0Y2hfcHRyKG1jaHBfY29yZXNwaV9kdF9p
+ZHMpLAogCX0sCi0JLnJlbW92ZSA9IG1jaHBfY29yZXNwaV9yZW1vdmUsCisJLnJlbW92ZV9uZXcg
+PSBtY2hwX2NvcmVzcGlfcmVtb3ZlLAogfTsKIG1vZHVsZV9wbGF0Zm9ybV9kcml2ZXIobWNocF9j
+b3Jlc3BpX2RyaXZlcik7CiBNT0RVTEVfREVTQ1JJUFRJT04oIk1pY3JvY2hpcCBjb3JlU1BJIFNQ
+SSBjb250cm9sbGVyIGRyaXZlciIpOwotLSAKMi4zOS4xCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
