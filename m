@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26D4C678D4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 13:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82602C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 13:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukpVF2nGE4fH/c6yJb2/g6du+s39efLRGHRN6ruHfAk=; b=uSBPIZkwR8Wy4F
-	OXI0Tn9QWueOunmqcyuyleJBGlZCxCccL6NVtZPte435oZxsgbnGUk35ERpkJGsIVdVsGTZswYLIk
-	5jkqYpTFn5wC/BkSsLaJB2GPnythcjblCxBzeYBq4F27VgW1ZCPd8nGOFQcUEaD2yZzIoHXOIghSU
-	dUM1CFaslPkW+qPp61nAa5IrjOv+pKoFiS0wynybmIPS5EIZENvP/y3LSZq+FPhA3LIBeFI00FUfj
-	tU8PEpYmapjczRLwq+MzqrDPbcEGMiB+4SPbVHfNFoFh8RC66+qX24Ce5nZqO/tApTUtUemJFcfZG
-	bil3dSbBOtkX/Dm1mPdQ==;
+	List-Owner; bh=iAK8sdhHzs29iIjEjREifCXtHkC6IX4vRlJoSzNMpEY=; b=ZDUQH6RcrGBKSR
+	+1IDtpFlwmZaKqLONmQ8iuWkgrznwL0OAfSfK3fOJGOvS3Jmr0WM1RRTSixgC8+JCcGWghCAfxOhw
+	zwCoP6tD1fznvCapXc4PnKOi5hJkPE737YYZ0colqcKlobK17gEEVAAwotuRs62mmQveENWjEQuBr
+	+eOq8MM4Z7IzZ5tZ+K9k1w3py/B0E+sR1j1y9Woc/wL6hTEQek9wlGaWLGpjF8UIRR790ZnBwoVm/
+	7z5Ud2tli+ETbk9DQwsFuxhD/83CaAycRxamdH2le7ikkXmGXCOM6nlUjGPmtlVHlUk1DLFs8J1mL
+	QlU6PpbGpQGUqcIhFjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY5cP-006U8V-3z; Fri, 03 Mar 2023 13:38:41 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1pY5jK-006W2J-1f; Fri, 03 Mar 2023 13:45:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY5cM-006U4r-32
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 13:38:39 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id m20-20020a17090ab79400b00239d8e182efso6127102pjr.5
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 05:38:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1677850716;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Vlvg0s0GLD+Fr0ivx6kMGA1aXXCTSFKFG2h3P4PYF0=;
-        b=Up6SyZ8rT8M8ni48IMxDyPF+Hgb8oBuSqgMDGJrD4x6pwG6iviepQAxi9JbuZZydIR
-         iNaEoSycbMWfquSUfogtNZp7HQTo4CThDHMDF8qqvrM0tVSoknv22AsNcVFfU6n96azK
-         xoZKCygMjcMpTxV7mFwI+DwABI9dDz86Q0YL3zW7JGfKOhzwnAsQoNaT6qGk6DqYYOoa
-         u7O7x9muku6Skfd90mzYa9fHaN8tsvzUbqCq5xIurvN8KAFWSPWgccbFUYObmPEeM2iO
-         7z8y7LgqZk8ZRtG7DagduiziOuC/5hT9UoAmVoE89ultB+1qoCc4dLgyAIsonYSedk8x
-         XOuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677850716;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2Vlvg0s0GLD+Fr0ivx6kMGA1aXXCTSFKFG2h3P4PYF0=;
-        b=lDLP9N94gEZeMEwIwXzLpquLVjk6yjBqE4GlmKDsXrVnA6gGHZhbYHb/JqlnX2tRMa
-         R28bSDOKpNlCAqMhx2qyyRtSyvEi0fsxJIrSp7dyDWi6PgMtZ1KGYy4rKl0exdWW4nmK
-         HCBB+5ztzSf8RDk4Kolc668yFnXMdnZrU3Mt9KSCTgFgfvVR/P4ntH/lc5bgkSXLw8Ey
-         JnksZeb2S9OrA+iCFZZzz9PCmB77lCqAQDDOiL20LXhJ/L+eOKcOWudfYu8pk82acbLv
-         i3MBi7y6L9aXYhDt1PQaGwuFe/DLQHypYZ3Yohdguu/hSKgI7eB91nzZxCPtTaNAmUGm
-         dMqQ==
-X-Gm-Message-State: AO0yUKV/nMGeReIuxxImoX9oAbbWYxoxJ9ZkSmtWmPPhttzrxDLUUN9L
-	OHWFStN2ktxRpeJL37ud1j2iYhjLi4hk5ybN
-X-Google-Smtp-Source: AK7set96j6WJuUX/PTqb4gzc3U+7TJ6w7lLE7JxLO1itapAAlq/QR+Pp4g55TEo8ujxOweeMcThtuQ==
-X-Received: by 2002:a17:903:110f:b0:19c:fc7b:69a4 with SMTP id n15-20020a170903110f00b0019cfc7b69a4mr1994559plh.65.1677850711284;
-        Fri, 03 Mar 2023 05:38:31 -0800 (PST)
-Received: from localhost.localdomain ([49.206.14.226])
-        by smtp.gmail.com with ESMTPSA id m9-20020a170902768900b0019ac5d3ee9dsm1533125pll.157.2023.03.03.05.38.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Mar 2023 05:38:31 -0800 (PST)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: [PATCH V3 20/20] MAINTAINERS: Add entry for drivers/acpi/riscv
-Date: Fri,  3 Mar 2023 19:06:47 +0530
-Message-Id: <20230303133647.845095-21-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230303133647.845095-1-sunilvl@ventanamicro.com>
-References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+	id 1pY5jI-006W0t-0J
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 13:45:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vCUwgnXLxyg9qDht5YTmjyoMI+qrHGKVL555AkmUbTA=; b=Efwk7DEyDhBlquVRzWAwkICeKt
+	VieoX5LuR9BCQ7fYtC9WUXyKAcRA+ZZJED2ALmnZ/95OZ/rnGy8S9ece/GekoeLekctkMicI6HYuw
+	TYWH8uKF09RQeQmg9ElKO+91i+vUul/XMrqh/LqcdoqTzuys4oD4MzuwjgM4jhBWUCQQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1pY5jE-006OAo-EP; Fri, 03 Mar 2023 14:45:44 +0100
+Date: Fri, 3 Mar 2023 14:45:44 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Peter Geis <pgwipeout@gmail.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>
+Subject: Re: [PATCH v5 05/12] riscv: dts: starfive: jh7110: Add ethernet
+ device nodes
+Message-ID: <ZAH6CGoXBKz0FmW3@lunn.ch>
+References: <20230303085928.4535-1-samin.guo@starfivetech.com>
+ <20230303085928.4535-6-samin.guo@starfivetech.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230303085928.4535-6-samin.guo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_053838_168941_5B3BEACA 
-X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-CacheID: sfid-20230303_054548_102406_DB91D922 
+X-CRM114-Status: UNSURE (   7.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,44 +74,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Jonathan Corbet <corbet@lwn.net>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@rivosinc.com>, 'Conor Dooley ' <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ACPI defines few RISC-V specific tables which need
-parsing code added in drivers/acpi/riscv. Add maintainer
-entries for this newly created folder.
+> +		gmac0: ethernet@16030000 {
+> +			compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
+> +			reg = <0x0 0x16030000 0x0 0x10000>;
+> +			clocks = <&aoncrg JH7110_AONCLK_GMAC0_AXI>,
+> +				 <&aoncrg JH7110_AONCLK_GMAC0_AHB>,
+> +				 <&syscrg JH7110_SYSCLK_GMAC0_PTP>,
+> +				 <&aoncrg JH7110_AONCLK_GMAC0_TX_INV>,
+> +				 <&syscrg JH7110_SYSCLK_GMAC0_GTXC>;
+> +			clock-names = "stmmaceth", "pclk", "ptp_ref",
+> +				      "tx", "gtx";
+> +			resets = <&aoncrg JH7110_AONRST_GMAC0_AXI>,
+> +				 <&aoncrg JH7110_AONRST_GMAC0_AHB>;
+> +			reset-names = "stmmaceth", "ahb";
+> +			interrupts = <7>, <6>, <5>;
+> +			interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
+> +			phy-mode = "rgmii-id";
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+phy-mode is a board property, not a SoC property. It should be in the
+board .dts file, not the SoC .dtsi file.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b0db911207ba..c299f88cb212 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -406,6 +406,14 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	drivers/acpi/arm64
- 
-+ACPI FOR RISC-V (ACPI/riscv)
-+M:	Sunil V L <sunilvl@ventanamicro.com>
-+L:	linux-acpi@vger.kernel.org
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	arch/riscv/kernel/acpi.c
-+F:	drivers/acpi/riscv
-+
- ACPI SERIAL MULTI INSTANTIATE DRIVER
- M:	Hans de Goede <hdegoede@redhat.com>
- L:	platform-driver-x86@vger.kernel.org
--- 
-2.34.1
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <8>;
+> +			rx-fifo-depth = <2048>;
+> +			tx-fifo-depth = <2048>;
+> +			snps,fixed-burst;
+> +			snps,no-pbl-x8;
+> +			snps,force_thresh_dma_mode;
+> +			snps,axi-config = <&stmmac_axi_setup>;
+> +			snps,tso;
+> +			snps,en-tx-lpi-clockgating;
+> +			snps,txpbl = <16>;
+> +			snps,rxpbl = <16>;
+> +			status = "disabled";
+> +			phy-handle = <&phy0>;
 
+The PHY is external, so this is also a board property, not a SoC
+property. 
+
+> +
+> +			mdio {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "snps,dwmac-mdio";
+> +
+> +				phy0: ethernet-phy@0 {
+> +					reg = <0>;
+> +				};
+
+The PHY is also a board property. You could for example design a board
+where both PHYs are on one MDIO bus, in order to save two SoC pins.
+
+      Andrew
 
 _______________________________________________
 linux-riscv mailing list
