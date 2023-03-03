@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B121C64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 08:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B171EC64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 09:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FBfVDgU3D3c8VkOhuJuHirPJvGnCRNgs037cPbq7kF0=; b=IGKki0GWCR4OoL
-	4B67HVJYLziTRgV1sf7IcDKELTRtJSUVtbrB2vYbdgDyrE5dYhA3QZqI8YIn3AtEMXkImpbuhk/eN
-	q/PPjwTO8j+gPcL8tCcgXXMu6O9sTEgQvX4SOn0Zgo/WDpO5CknRtZhd3pAMXxi8LmmAXwyCxXWLB
-	ThhO8Axma9u0DbJd/V7vchiMNqiPsvaVTwhczW9W1JIR2S/BtR7z7YzKANd1UXSx3ireoREBvAROM
-	7MKr3ddXoc0n7C7a1s9fkn0OeQdRDHU/Oikx773PdLbXpsH1rU93IupFWVTktK4lh/kOXlcKuzHwk
-	Dzm43KAOPlhIcxHhykdA==;
+	List-Owner; bh=6Pzb5TViltQwYbxTQHgm/C4wUaM6HAzuDbDqB8z/1DM=; b=v3NhDrST/31BVy
+	gdEkC6LJYQLOCs/eXmjVRTbJbDFVEdZU+0JIcYhNq3lJZDaiIYJMYERCZd0RSBJ9EKd+xG1Xamg50
+	daizccLagNRwXEc4fPPGMXNcVnyAio2TnfcvOPiRxUsK4WMoAPRTUxFiZVFyQljrXmNvQv4xwVc1R
+	htk5/HywbvFyqF3/RFQRq2eCi7JOsndXz+SP1xdki1D3Qun7r8e0TcJ+zla5heeVEDffutiuYRu8z
+	kS/wwCTrNopr76KqLRARMS6+VH+nDF9QGwcMGrLnwoJnigQb4nWp7KIhVhjUhlQkasUaURZv9ZALQ
+	NzZ8w0CDDGZ7pjvG5w6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY0iV-005NY8-0G; Fri, 03 Mar 2023 08:24:39 +0000
+	id 1pY1Gc-005YlK-Ci; Fri, 03 Mar 2023 08:59:54 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY0iO-005NWw-49
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 08:24:37 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pY1GY-005YiP-QE
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 08:59:52 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id C974224E285;
-	Fri,  3 Mar 2023 16:24:10 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 16:24:10 +0800
-Received: from [192.168.125.93] (113.72.145.171) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 16:24:10 +0800
-Message-ID: <82b2a817-5fb6-d0fc-868a-26a0285bcad7@starfivetech.com>
-Date: Fri, 3 Mar 2023 16:24:09 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 41EE324E24C;
+	Fri,  3 Mar 2023 16:59:35 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
+ 2023 16:59:35 +0800
+Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
+ EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 3 Mar 2023 16:59:34 +0800
+From: Samin Guo <samin.guo@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>, Samin Guo
+	<samin.guo@starfivetech.com>
+Subject: [PATCH v5 05/12] riscv: dts: starfive: jh7110: Add ethernet device nodes
+Date: Fri, 3 Mar 2023 16:59:21 +0800
+Message-ID: <20230303085928.4535-6-samin.guo@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230303085928.4535-1-samin.guo@starfivetech.com>
+References: <20230303085928.4535-1-samin.guo@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.2
-Subject: Re: [PATCH v3 1/3] dt-bindings: dma: snps,dw-axi-dmac: constrain
- minItems/maxItems of resets for JH7110 DMA
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>
-CC: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
-	<vkoul@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20230227131042.16125-1-walker.chen@starfivetech.com>
- <20230227131042.16125-2-walker.chen@starfivetech.com>
- <20230228153752.GA3292255-robh@kernel.org>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <20230228153752.GA3292255-robh@kernel.org>
-X-Originating-IP: [113.72.145.171]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_002432_490317_B3D860FE 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20230303_005951_153793_8F0EFE00 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +78,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add JH7110 ethernet device node to support gmac driver for the JH7110
+RISC-V SoC.
 
+Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 91 ++++++++++++++++++++++++
+ 1 file changed, 91 insertions(+)
 
-On 2023/2/28 23:37, Rob Herring wrote:
-> On Mon, Feb 27, 2023 at 09:10:40PM +0800, Walker Chen wrote:
->> The DMA controller needs two reset items to work properly on JH7110 SoC,
->> so there is need to change the maxItems' value to 2 and add minItems
->> whose value is equal to 1. Other platforms do not have this constraint.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  .../bindings/dma/snps,dw-axi-dmac.yaml        | 25 ++++++++++++++++---
->>  1 file changed, 21 insertions(+), 4 deletions(-)
->> 
->> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> index ad107a4d3b33..4ed0a6b7ca69 100644
->> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> @@ -12,14 +12,12 @@ maintainers:
->>  description:
->>    Synopsys DesignWare AXI DMA Controller DT Binding
->>  
->> -allOf:
->> -  - $ref: "dma-controller.yaml#"
->> -
->>  properties:
->>    compatible:
->>      enum:
->>        - snps,axi-dma-1.01a
->>        - intel,kmb-axi-dma
->> +      - starfive,jh7110-axi-dma
->>  
->>    reg:
->>      minItems: 1
->> @@ -58,7 +56,8 @@ properties:
->>      maximum: 8
->>  
->>    resets:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 2
->>  
->>    snps,dma-masters:
->>      description: |
->> @@ -109,6 +108,24 @@ required:
->>    - snps,priority
->>    - snps,block-size
->>  
->> +allOf:
->> +  - $ref: "dma-controller.yaml#"
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - starfive,jh7110-axi-dma
->> +    then:
->> +      properties:
->> +        resets:
->> +          minItems: 1
->> +          maxItems: 2
-> 
-> A given platform should not have a variable number of resets. This also 
-> does nothing because you just duplicated the top-level constraints. If 
-> you have 2, then you want just 'minItems: 2'.
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 09806418ed1b..2ce28292b721 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -233,6 +233,13 @@
+ 		#clock-cells = <0>;
+ 	};
+ 
++	stmmac_axi_setup: stmmac-axi-config {
++		snps,lpi_en;
++		snps,wr_osr_lmt = <4>;
++		snps,rd_osr_lmt = <4>;
++		snps,blen = <256 128 64 32 0 0 0>;
++	};
++
+ 	tdm_ext: tdm-ext-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "tdm_ext";
+@@ -518,5 +525,89 @@
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+ 		};
++
++		gmac0: ethernet@16030000 {
++			compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
++			reg = <0x0 0x16030000 0x0 0x10000>;
++			clocks = <&aoncrg JH7110_AONCLK_GMAC0_AXI>,
++				 <&aoncrg JH7110_AONCLK_GMAC0_AHB>,
++				 <&syscrg JH7110_SYSCLK_GMAC0_PTP>,
++				 <&aoncrg JH7110_AONCLK_GMAC0_TX_INV>,
++				 <&syscrg JH7110_SYSCLK_GMAC0_GTXC>;
++			clock-names = "stmmaceth", "pclk", "ptp_ref",
++				      "tx", "gtx";
++			resets = <&aoncrg JH7110_AONRST_GMAC0_AXI>,
++				 <&aoncrg JH7110_AONRST_GMAC0_AHB>;
++			reset-names = "stmmaceth", "ahb";
++			interrupts = <7>, <6>, <5>;
++			interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
++			phy-mode = "rgmii-id";
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <8>;
++			rx-fifo-depth = <2048>;
++			tx-fifo-depth = <2048>;
++			snps,fixed-burst;
++			snps,no-pbl-x8;
++			snps,force_thresh_dma_mode;
++			snps,axi-config = <&stmmac_axi_setup>;
++			snps,tso;
++			snps,en-tx-lpi-clockgating;
++			snps,txpbl = <16>;
++			snps,rxpbl = <16>;
++			status = "disabled";
++			phy-handle = <&phy0>;
++
++			mdio {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				compatible = "snps,dwmac-mdio";
++
++				phy0: ethernet-phy@0 {
++					reg = <0>;
++				};
++			};
++		};
++
++		gmac1: ethernet@16040000 {
++			compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
++			reg = <0x0 0x16040000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_GMAC1_AXI>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_AHB>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_PTP>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_TX_INV>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_GTXC>;
++			clock-names = "stmmaceth", "pclk", "ptp_ref",
++				      "tx", "gtx";
++			resets = <&syscrg JH7110_SYSRST_GMAC1_AXI>,
++				 <&syscrg JH7110_SYSRST_GMAC1_AHB>;
++			reset-names = "stmmaceth", "ahb";
++			interrupts = <78>, <77>, <76>;
++			interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
++			phy-mode = "rgmii-id";
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <8>;
++			rx-fifo-depth = <2048>;
++			tx-fifo-depth = <2048>;
++			snps,fixed-burst;
++			snps,no-pbl-x8;
++			snps,force_thresh_dma_mode;
++			snps,axi-config = <&stmmac_axi_setup>;
++			snps,tso;
++			snps,en-tx-lpi-clockgating;
++			snps,txpbl = <16>;
++			snps,rxpbl = <16>;
++			status = "disabled";
++			phy-handle = <&phy1>;
++
++			mdio {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				compatible = "snps,dwmac-mdio";
++
++				phy1: ethernet-phy@1 {
++					reg = <0>;
++				};
++			};
++		};
+ 	};
+ };
+-- 
+2.17.1
 
-Okay, this will be fixed.
-Thank you for pointing out the problem for me.
-
-Best regards,
-Walker
 
 _______________________________________________
 linux-riscv mailing list
