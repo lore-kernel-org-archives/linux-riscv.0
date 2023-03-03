@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3280C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 00:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14C1C6FA8E
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 00:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7Y5xsGsOU/RKdDSZamVlnR7eVxnpcUSm+ylEDhr8oU=; b=Y09q15+HeFd2D85a71SRZliyYi
-	0X9afijd93MLc1kOWMjLSazIdlpP23uWzmv35qCialZP+vErR3UKaql4FJtyRLxYD2A1q9J5iNMqz
-	jmsPEI2Jtd9uBFJtJ3JyLCch5dnh82lbugI4qDm/hGW8N+XxdtWXLM80+5trbRjRfis9MBwr4rU+S
-	/VbC360BJ+mhampTbvLaOp8ZnhuKlbrAsbZ2RlRPvLxKFHiyNR/kchf0GHLg/jPQNOkOjjl49ecKx
-	85vQ6YNSUcPGDqAWmQsvDr4rfH/FH+5zbDt/jJTEY8ix9BH4tPLSUAqyaqOXTtSpjsSRLLWFrKK8H
-	+S0U5u9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dudXyr1EWJ80+DCAOxwHf4YvqRvZGvgk9exTkexNCT8=; b=DYIOYR+2M3a9OG
+	EYMyxFN/nox7wYn2lCYELaSfLArLAokNIOLuNId9eoGOSz1LQnyHom3w+jSHyWm7Zop3ahg7JNqGT
+	jE8OZOGcXjl4LFJOclYZsnlMN2FD5PcqdJtYOX1H4T5tUr9b2c/V9f6Dp0P8WO5hQzLC/3HnsVE62
+	Ium1qU+EdJAFQCCxTbgLHHEf1SJ3woFaSRbqL/H6/8myc1u1kLOeO5BSRVCnyHfK3p80OUSXL8kF0
+	EgfCwUO5irLm0fQeEIIDx/TNkeEMIRTtDXkAiSgMTJ8aLaB1qttvKUJpxOZsnoc5zQFr+w6kpvDll
+	tXdzCrD4uph7fcowgo7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXtBW-003pm1-Cf; Fri, 03 Mar 2023 00:22:06 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pXtjD-0045Pw-OU; Fri, 03 Mar 2023 00:56:55 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXtBT-003pko-KC
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 00:22:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id AB527B815B8;
-	Fri,  3 Mar 2023 00:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA40FC433EF;
-	Fri,  3 Mar 2023 00:21:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677802916;
-	bh=Iot4NAkPu+mPo9V+OoiKhV7wLqbwyEvNwQoB+Vsfqvo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qzFx/yGXrESsoC6nzmB8ungB95oxWyxKxmSNFD1myD8IGLTPTkoX5an6WmQB6KeSr
-	 oawBmROdD9TNiPX+Jry8llNz2JW/lfZc+ZsSpygQ6Hq5T0r1UcgNan68UHlIbUs1c6
-	 eA4lymLRYq2DYjGGoC76vz5T4nW18FGjOva7FptH3GfA8seb+2fHq7plhTQsfT8Z5/
-	 L/F5swfUH0f0tcDAi6Dy3wZIwf3lc3mxb/QDO7xxJMFW8tBpP0BVJZUZqTaCl0NdFI
-	 /0sNjhDkt4jYH56FwGiy7xIWKxYf04Fc9K98XcRqNiv9exLHz+PvEQ63P7K/UZ5fX7
-	 OPmDY9HvIbytA==
-Date: Fri, 3 Mar 2023 00:21:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
-	linux-riscv@lists.infradead.org,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Changbin Du <changbin.du@gmail.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4] RISC-V: Don't check text_mutex during stop_machine
-Message-ID: <7d7af200-ddf6-4dbd-940c-cd7ce2a3338a@spud>
-References: <20230301223853.1444332-1-conor@kernel.org>
+	id 1pXtjA-0045Or-3P
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 00:56:54 +0000
+Received: by mail-lf1-x130.google.com with SMTP id i28so1686450lfv.0
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 16:56:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677805008;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hhOaUUtcn0GNvOjLHghATWbxYEsh5HHcckYl0flnDRk=;
+        b=7YKwPnHYHtEomAzauAtTEVCduneHnCHVYc8wA8mlRN/RDrPlrpjPy1EGiVFb4vKoDi
+         6MV2N/NOciUb1+E5YMjYIR3ngMdFO88f8EbqE0O5vDz5VV8uAql/BO6da9K0eHDyoCmd
+         wolQrVIQhNVnoKabot/cyFHYMoqIBv6dkEH4eg4C5eX9fFz9DWxK9GRmMDgXZr3b1QBk
+         OYbt3NVuVS34QR9on9pmWTyBv9lOgYjEUCGlusiAJO0krkT0lm62kpzwPmMwYyD7gczd
+         lHYsNdbX3w5HSW6Ea570UjQW8Iz6s3R4fBVrrYOsD8PKamXDsSd6OLXl3rBidIxviSso
+         KAPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677805008;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hhOaUUtcn0GNvOjLHghATWbxYEsh5HHcckYl0flnDRk=;
+        b=6IaW8GTnAzQIvlWEENr3JKME630e5XappJiAxGL8l+ipUym4XZWrSWldQHb231swl0
+         504y9mlM7llZ6yGbQFUxszeCbvwS4uWKnHmAzjK1En3o7N+o3qpBa04l4nZDIzTXiXr5
+         /VTLXQcWBRntgb3TOpkdu/S6hU13L7oErdvg39LaOkpVMmRk9XFKJgbvFs+GHCcMFqjI
+         4Ldo2BawxYSyyr1ne1HrKcSStiK20r99tPScGfYz+tKWmD1JN0IkrSOIWgdH6/PJmA+g
+         6Q8fy9q8dGtsOLEzBbR+AeN0X6VG9y3ovzqC6FOgjV9h8bgj6u7pvxnVg/wBkUaocXzZ
+         sXqA==
+X-Gm-Message-State: AO0yUKXFJqqF1OpPv+KdHNvowi1NvIj61vClgtCQckAopkoP0nn42rm7
+	RAXvP8oyUVFFZjDx3NLr/HSfM/2cUpfPDDou5UMA5A==
+X-Google-Smtp-Source: AK7set8Xec0hmZtsTEoXvSYXQ53A6NrkQ4OC6YHTS3jOwamMG773B1NC/0R48ttoRARWzEWE/Y09iqutqWRgiZkiCJU=
+X-Received: by 2002:ac2:48a2:0:b0:4dd:9931:c555 with SMTP id
+ u2-20020ac248a2000000b004dd9931c555mr1361458lfg.0.1677805008352; Thu, 02 Mar
+ 2023 16:56:48 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230301223853.1444332-1-conor@kernel.org>
+References: <20230221190858.3159617-1-evan@rivosinc.com> <20230221190858.3159617-4-evan@rivosinc.com>
+ <Y/0zC0Dn9gwC8N5w@spud>
+In-Reply-To: <Y/0zC0Dn9gwC8N5w@spud>
+From: Evan Green <evan@rivosinc.com>
+Date: Thu, 2 Mar 2023 16:56:12 -0800
+Message-ID: <CALs-HsvpGCpmnVouRL-Kyaes0Yy2jOktebM8DA5wXaDR=D0yvA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/7] RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, heiko@sntech.de, slewis@rivosinc.com, 
+	vineetg@rivosinc.com, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, 
+	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_162204_004940_2DE08AC1 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20230302_165652_376060_245EC3E9 
+X-CRM114-Status: GOOD (  34.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,127 +86,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0341868052357184603=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 27, 2023 at 2:47 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> Hey Evan,
+>
+> On Tue, Feb 21, 2023 at 11:08:54AM -0800, Evan Green wrote:
+> > We have an implicit set of base behaviors that userspace depends on,
+> > which are mostly defined in various ISA specifications.
+> >
+> > Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > Signed-off-by: Evan Green <evan@rivosinc.com>
+> > ---
+> >
+> > Changes in v3:
+> >  - Refactored base ISA behavior probe to allow kernel probing as well,
+> >    in prep for vDSO data initialization.
+> >  - Fixed doc warnings in IMA text list, use :c:macro:.
+> >
+> >  Documentation/riscv/hwprobe.rst       | 21 +++++++++++++++++++++
+> >  arch/riscv/include/asm/hwprobe.h      |  2 +-
+> >  arch/riscv/include/uapi/asm/hwprobe.h |  5 +++++
+> >  arch/riscv/kernel/sys_riscv.c         | 20 ++++++++++++++++++++
+> >  4 files changed, 47 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+> > index 88b015a2026e..9f2da414fbf8 100644
+> > --- a/Documentation/riscv/hwprobe.rst
+> > +++ b/Documentation/riscv/hwprobe.rst
+> > @@ -37,3 +37,24 @@ The following keys are defined:
+> >    defined by the RISC-V privileged architecture specification.
+> >  * :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
+> >    defined by the RISC-V privileged architecture specification.
+> > +* :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the base
+> > +  user-visible behavior that this kernel supports.  The following base user ABIs
+> > +  are defined:
+> > +
+> > +  * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: Support for rv32ima or
+> > +    rv64ima, as defined by version 2.2 of the user ISA and version 1.10 of the
+> > +    privileged ISA, with the following known exceptions (more exceptions may be
+> > +    added, but only if it can be demonstrated that the user ABI is not broken):
+> > +
+> > +    * The :fence.i: instruction cannot be directly executed by userspace
+> > +      programs (it may still be executed in userspace via a
+> > +      kernel-controlled mechanism such as the vDSO).
+> > +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing the extensions
+> > +  that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`:
+> > +  base system behavior.
+> > +
+> > +  * :c:macro:`RISCV_HWPROBE_IMA_FD`: The F and D extensions are supported, as
+> > +    defined by commit cd20cee ("FMIN/FMAX now implement
+> > +    minimumNumber/maximumNumber, not minNum/maxNum") of the RISC-V ISA manual.
+> > +  * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
+> > +    by version 2.2 of the RISC-V ISA manual.
+>
+> I think I asked for some newlines, but this all seems kinda random now
+> as to whether there is a blank line between list items or not.
 
---===============0341868052357184603==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZsWVi+CRQn/H7yC6"
-Content-Disposition: inline
+Yeah, this was the minimum number of newlines needed to make it
+actually render correctly. The relevant rules which I've now learned
+are that newlines are required before a list beginning (including a
+sub-list), but optional between items. I'll fix this up to add
+newlines between elements as well, then it will look pretty I think.
 
+>
+> > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> > index 02c2f1f7417e..f2b224550923 100644
+> > --- a/arch/riscv/kernel/sys_riscv.c
+> > +++ b/arch/riscv/kernel/sys_riscv.c
+> > @@ -9,6 +9,7 @@
+> >  #include <asm/cacheflush.h>
+> >  #include <asm/hwprobe.h>
+> >  #include <asm/sbi.h>
+> > +#include <asm/switch_to.h>
+> >  #include <asm/uaccess.h>
+> >  #include <asm/unistd.h>
+> >  #include <asm-generic/mman-common.h>
+> > @@ -124,6 +125,25 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+> >       case RISCV_HWPROBE_KEY_MIMPID:
+> >               hwprobe_arch_id(pair, cpus);
+> >               break;
+> > +     /*
+> > +      * The kernel already assumes that the base single-letter ISA
+> > +      * extensions are supported on all harts, and only supports the
+> > +      * IMA base, so just cheat a bit here and tell that to
+> > +      * userspace.
+> > +      */
+> > +     case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
+> > +             pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
+> > +             break;
+> > +
+> > +     case RISCV_HWPROBE_KEY_IMA_EXT_0:
+> > +             pair->value = 0;
+> > +             if (has_fpu())
+> > +                     pair->value |= RISCV_HWPROBE_IMA_FD;
+> > +
+> > +             if (elf_hwcap & RISCV_ISA_EXT_c)
+> > +                     pair->value |= RISCV_HWPROBE_IMA_C;
+> > +
+> > +             break;
+> >
+> >       /*
+> >        * For forward compatibility, unknown keys don't fail the whole
+>
+> This looks a lot nicer after the refactor, sans the {}.
+> With a consistent approach taken to newlines:
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---ZsWVi+CRQn/H7yC6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks Conor!
 
-On Wed, Mar 01, 2023 at 10:38:53PM +0000, Conor Dooley wrote:
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
->=20
-> We're currently using stop_machine() to update ftrace & kprobes, which
-> means that the thread that takes text_mutex during may not be the same
-> as the thread that eventually patches the code.  This isn't actually a
-> race because the lock is still held (preventing any other concurrent
-> accesses) and there is only one thread running during stop_machine(),
-> but it does trigger a lockdep failure.
->=20
-> This patch just elides the lockdep check during stop_machine.
->=20
-> Fixes: c15ac4fd60d5 ("riscv/ftrace: Add dynamic function tracer support")
-> Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-> Reported-by: Changbin Du <changbin.du@gmail.com>
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes since v3 [<20230215164317.727657-1-conor@kernel.org>]:
-> * rename the flag to riscv_patch_in_stop_machine as it is being used for
->   kprobes & ftrace, and just looked a bit odd.
-> * implement Changbin's suggestion of checking the lock is held in
->   patch_text(), rather than set the flag in callers of patch_text().
->=20
-> Changes since v2 [<20220322022331.32136-1-palmer@rivosinc.com>]:
-> * rebase on riscv/for-next as it as been a year.
-> * incorporate Changbin's suggestion that init_nop should take the lock
->   rather than call prepare() & post_process().
->=20
-> Changes since v1 [<20210506071041.417854-1-palmer@dabbelt.com>]:
-> * Use ftrace_arch_ocde_modify_{prepare,post_process}() to set the flag.
->   I remember having a reason I wanted the function when I wrote the v1,
->   but it's been almost a year and I forget what that was -- maybe I was
->   just crazy, the patch was sent at midnight.
-> * Fix DYNAMIC_FTRACE=3Dn builds.
-
-> @@ -121,13 +129,25 @@ NOKPROBE_SYMBOL(patch_text_cb);
-> =20
->  int patch_text(void *addr, u32 insn)
->  {
-> +	int ret;
->  	struct patch_insn patch =3D {
->  		.addr =3D addr,
->  		.insn =3D insn,
->  		.cpu_count =3D ATOMIC_INIT(0),
->  	};
-> =20
-> -	return stop_machine_cpuslocked(patch_text_cb,
-> -				       &patch, cpu_online_mask);
-> +	/*
-> +	 * kprobes takes text_mutex, before calling patch_text(), but as we call
-> +	 * calls stop_machine(), the lockdep assertion in patch_insn_write()
-> +	 * gets confused by the context in which the lock is taken.
-> +	 * Instead, ensure the lock is held before calling stop_machine(), and
-> +	 * set riscv_patch_in_stop_machine to skip the check in
-> +	 * patch_insn_write().
-> +	 */
-> +	lockdep_assert_held(&text_mutex);
-> +	riscv_patch_in_stop_machine =3D true;
-> +	ret =3D stop_machine_cpuslocked(patch_text_cb, &patch, cpu_online_mask);
-> +	riscv_patch_in_stop_machine =3D false;
-> +	return ret;
-
-*sigh*, automation reports that this is not possible:
-=2E./arch/riscv/kernel/patch.c:153:30: error: expression is not assignable
-        riscv_patch_in_stop_machine =3D true;
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
-=2E./arch/riscv/kernel/patch.c:155:30: error: expression is not assignable
-        riscv_patch_in_stop_machine =3D false;
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
-
-The rest of the patch (in the commit context) uses this variable inside
-ftrace code, but as this one is in patch.c, it's compiled in whether or
-not we have ftrace etc. On rv32 & nommu defconfigs, that results in a
-build failure:
-https://patchwork.kernel.org/project/linux-riscv/patch/20230301223853.14443=
-32-1-conor@kernel.org/
-
-A respin is in order...
-
---ZsWVi+CRQn/H7yC6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAE9oAAKCRB4tDGHoIJi
-0m/2AP9hDTldt/2pBd5dlFkVBGKuXG6JNewj15fuT8tpMwnCgwD9HO/Bwm3OZPBt
-Yu+ukD2p/rVNOl+xx9t8/cyHCiZbTQQ=
-=Iz+q
------END PGP SIGNATURE-----
-
---ZsWVi+CRQn/H7yC6--
-
-
---===============0341868052357184603==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-Evan
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0341868052357184603==--
-
