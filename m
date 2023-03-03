@@ -4,122 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3310FC64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 16:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5642DC64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 16:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/RrVSSNkFTBVVMlaoQROTu7XYIiy/nA9qZYYKKoYNM=; b=iAlVoGZI0Z1FTa
-	Nv3hHKW5PYN3mQFhA87XrXTnNkK+M3hmJXTGlBGhcjMW9iaOHpZHQ/a2ZVy/khos1vfVzzNd/P9kk
-	A9ARghpWYO7D5FdEaZ4oDolWvUOZFzGV/uIKElIgw3bbZTKqIMLXKtsbo7x3QUPhr2pucIcjWjmwW
-	XDdKYvxxcyHpmwXdrDEtkJjUJoNOt+ZURod42KlNjWCO8Cxs8vbQTWbmLQTMvVdS5NV8PlMtGp2KE
-	AnLbX53kRt4BQg91SY7g1lUYgnTrgt3Bt5JYY4f44GCxOrIH4zt48ZJp+DQ0+SHyVSAsMImu+ON3N
-	YoKdHunRWmqdrAjNQnew==;
+	List-Owner; bh=htKxTJApJtb5OuIgDkdEKBV4DYYwDFxCSKhGcmyZP5o=; b=4WIoz/hrJC6GMe
+	xZAgTyosFYrj2HM1774Bc/UTgsBkRV9W5cNE7j3GIvM432Sx1/G+exWovGTDNffUWuV61Ty/Z2uuL
+	32byti3yVfBLg6SvLUz8Gkl4toBWaoX4W2f+C7h+ns2hvejTrNnY/uXEiNf78T0dO2eDveXwGbCTD
+	mGOBzgjgEdtN2XXHKlbUvqwPkL+2WWjZTtWjP7h/1rdnYsV3is+4UVfJeFCxDg+lF9y6NPLPc1QsJ
+	9qFxF0kx1Tua8y4unN4++qEzx3AMsTXnWJ5TwLmjVb5B+POQUOKXM+1GXRxzcFRtA4yguUQQMPHfS
+	gIMWcUgaYgEOZkJhGP+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8TN-006pO8-1t; Fri, 03 Mar 2023 16:41:33 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1pY8d0-006qSJ-L2; Fri, 03 Mar 2023 16:51:30 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pY8TJ-006pN6-BS; Fri, 03 Mar 2023 16:41:31 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id 0DEE9581876;
-	Fri,  3 Mar 2023 11:41:23 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Fri, 03 Mar 2023 11:41:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1677861683; x=1677868883; bh=cq
-	QZ3RgaXf1BBbVEeoodJ6F1ZwSPMj6A5MLY/vjXzGA=; b=Qg18LNgvOVfFg7uMPf
-	8fRKoa7WlhijGwszu3Ic5SITTKwawR9B4I6XiClcZ6ujIEL9zVzHiioA2EjIov5s
-	tRcxg3C97rd5Qh3iqM/nd48Hb9b7a50w/6DZE1MzWvKwa+aOXKgEBbAuFqwTw8IO
-	2/zrTU4zUJhWjGOFVyk4cMUxKlr0jFTzBpR0rcRkXCqmlSQg+1mKD1l/rCUxrq7V
-	AihMHWGAQq5UOL4IcNCaCr0vFPf0edeb4YgCH1r82QvI+8miMlqwJ9RIy277z2fo
-	EYkDNEf8mCiriMB8VOffc0buYRAQEBhVnDohf6yDdBARed4fr/O8O2naCxLKuEJ1
-	FmIA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1677861683; x=1677868883; bh=cqQZ3RgaXf1BB
-	bVEeoodJ6F1ZwSPMj6A5MLY/vjXzGA=; b=B7rPNJeusJPtOmHPup8e0wxsJaB14
-	FGL6vkrY8GHqsXIc2V5zsu3B4xZEBJOHklvsYTn6cMwmxpEeSnRvlTctzLXXyrXP
-	9TrBh5erAm5rnNg9EUeTsf+lY9yT/91mQrCarXvtL1boNYFm9EBkDhTchuKj9wo/
-	Vcljkzp6um1LTXdLqg+kNYUapTvAI76XHCPOKqRJAjH8uzC14hkGGbIhqvg9smqE
-	9gk7xnhPT94YAL+KeKmqqFj3ep1BV/HHgDskGZEGHTV139D4jm59Krp4ve/+OW5/
-	HbWdFOCVWJeLjyz/P08DuMz9uoT2Z1BPftr9Y2L2ohywcFpCIMJxhhtIw==
-X-ME-Sender: <xms:MCMCZFL4Vj5B4o3IALIvz6pg60SCJX6TD7RqwuRdJoAXjFHZ0Phf8w>
-    <xme:MCMCZBKDr_18-ZCp9fq_mQ4hcfnV3bmMG_AWa-n5fjtp8mZF3Lhw2HF6H3yj4rqId
-    bqalm9nA4D9Or8b-2Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudelledgkeeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:MCMCZNtSdRvlahaw8kkpJg5S_mXaS2NGhMnRJHAOSZVgamhknWW26A>
-    <xmx:MCMCZGZ1LKp15mUy0pPlL-EOq16PpXi1zG62wPySDj-SICoXbN6kvg>
-    <xmx:MCMCZMZks1DsXpkJ0U23I5CMsMZR0ofN8WaGql7nqVneRcx1e3czpQ>
-    <xmx:MyMCZBjiubroXaC0t4anGM3CORVrncxIG1WjD4S72n_xh-uiQS8zyQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 9A291B60086; Fri,  3 Mar 2023 11:41:20 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-183-gbf7d00f500-fm-20230220.001-gbf7d00f5
-Mime-Version: 1.0
-Message-Id: <c500840b-b57d-47f2-a3d9-41465b10ffae@app.fastmail.com>
-In-Reply-To: <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
-References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
- <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
- <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
-Date: Fri, 03 Mar 2023 17:40:46 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Alexandre Ghiti" <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Heiko Carstens" <hca@linux.ibm.com>
-Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Jonathan Corbet" <corbet@lwn.net>,
- "Richard Henderson" <richard.henderson@linaro.org>,
- "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
- "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>, "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, gor@linux.ibm.com,
- "Alexander Gordeev" <agordeev@linux.ibm.com>, borntraeger@linux.ibm.com,
- "Sven Schnelle" <svens@linux.ibm.com>, ysato@users.osdn.me,
- "Rich Felker" <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- chris@zankel.net, "Max Filippov" <jcmvbkbc@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- Linux-Arch <linux-arch@vger.kernel.org>
-Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
+	id 1pY8cw-006qRO-Eo
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 16:51:28 +0000
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1813C4168E
+	for <linux-riscv@lists.infradead.org>; Fri,  3 Mar 2023 16:51:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1677862276;
+	bh=8104o3BXBuCMBg1EpGwp3Vv0rGGYeWcwxreEU+Uex7M=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=n+fPjrL3WkTrJYCNQc8fq38QIM/Wijq9b4aQR7osKIB1DBeSrosYHCYqs5WCSuHaL
+	 IqYS5TQV3xrFqcBdRIz/zco/AfELkuEBLynvcMuoB+3edbiro07Mp67BGVqI7M8Ceh
+	 Dvpb2k/jBtfM79y6G8rUCqsXp+LzxW/QcZjVuwbUqfZq0dFrScfpmbtpzH6UcdmurX
+	 9ucp+YFChrfLaHnxMsSa1LDLXFGOSRF5EFKv/ftu4F2F4X48BawnDyyTidEb05Sn36
+	 NlbB5RE31XYs0UtHVvQaIH/3pn0lrsEbcANOTc2ljl1RDn/tpmHjfDwERvVSGwE78w
+	 ci/6wYJyftK1A==
+Received: by mail-qv1-f72.google.com with SMTP id d27-20020a0caa1b000000b00572765a687cso1696666qvb.19
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Mar 2023 08:51:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677862271;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8104o3BXBuCMBg1EpGwp3Vv0rGGYeWcwxreEU+Uex7M=;
+        b=b+JKMUTkf6+/M1EyEkA7+KQ2xVf0HrNqk6C4+HpLg8JKJ9P4tiPjBB58KV7ePpPsV9
+         sKih0a+XvNQbBjv1yBShQJmqhJQvnxNyHj5RizIdsr4CKX8v3e8SwIC68bC149B5fGmN
+         QX3IIQEZkN785gQhnHVKA6qwlHXnyGECDzmFRUhXL/vxuQcaan+FId8cAcb2ggflJXua
+         TYkH5OXUGF5QkmeL3Fdcn1+p30bsZYkG4tvWgT+ADP779pAJ1cGK7dAgeEU0IOZC06cC
+         ROL3tTJu93d1O6T4A5BNSYR+el/aR8hjyq8ys2xUXhZM/e8+QhDQozFVUkLq6gDd47BI
+         6Bhg==
+X-Gm-Message-State: AO0yUKWrbLydgh2P8zvRq62z2CiIQVL9srzsDVAapTjjBVidLHWHgbBK
+	346DrvUZ0QGG9CBYZICx3VM5X9BXvcqvyKy0OSY1QG6gbBXFbZukGCbDOZQF1KBy5JEd7CEc+iC
+	PFKnVybY2fnS3MavmPySLBtghIwkgv+4bSJVfc2cjMQEmP+LF6O1ekqUYjljvnA==
+X-Received: by 2002:a05:6214:4a45:b0:56e:fbea:9e9a with SMTP id ph5-20020a0562144a4500b0056efbea9e9amr582085qvb.0.1677862271321;
+        Fri, 03 Mar 2023 08:51:11 -0800 (PST)
+X-Google-Smtp-Source: AK7set+UvCTIlmmgq2C8w/UG8U3QGIr2FvnAWY6e1IjhHGbnhoyZXgaQhdRhu7VVj9s+dyGlIuis3/tJJMBa0vv1UZ0=
+X-Received: by 2002:a05:6214:4a45:b0:56e:fbea:9e9a with SMTP id
+ ph5-20020a0562144a4500b0056efbea9e9amr582078qvb.0.1677862271002; Fri, 03 Mar
+ 2023 08:51:11 -0800 (PST)
+MIME-Version: 1.0
+References: <20230303085928.4535-1-samin.guo@starfivetech.com> <20230303085928.4535-9-samin.guo@starfivetech.com>
+In-Reply-To: <20230303085928.4535-9-samin.guo@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Fri, 3 Mar 2023 17:50:54 +0100
+Message-ID: <CAJM55Z-3CCY8xx81Qr9UqSSQ+gOer3XXJzOvnAe7yyESk23pQw@mail.gmail.com>
+Subject: Re: [PATCH v5 08/12] net: stmmac: starfive_dmac: Add phy interface settings
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, 
+	Yanhong Wang <yanhong.wang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230303_084129_873737_F9B7DEEA 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20230303_085126_934555_7B2F0CB8 
+X-CRM114-Status: GOOD (  27.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,58 +100,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 3, 2023, at 12:59, Alexandre Ghiti wrote:
-> On 3/2/23 20:50, H. Peter Anvin wrote:
->> On March 1, 2023 7:17:18 PM PST, Palmer Dabbelt <palmer@dabbelt.com> wrote:
-
->>>>> Commit 622021cd6c560ce7 ("s390: make command line configurable"),
->>>>> I assume?
->>>> Yes, sorry for that. I got distracted while writing and used the wrong
->>>> branch to look this up.
->>> Alex: Probably worth adding that to the list in the cover letter as it looks like you were planning on a v4 anyway (which I guess you now have to do, given that I just added the issue to RISC-V).
->> The only use that is uapi is the *default* length of the command line if the kernel header doesn't include it (in the case of x86, it is in the bzImage header, but that is atchitecture- or even boot format-specific.)
+On Fri, 3 Mar 2023 at 10:01, Samin Guo <samin.guo@starfivetech.com> wrote:
 >
-> Is COMMAND_LINE_SIZE what you call the default length? Does that mean 
-> that to you the patchset is wrong?
+> dwmac supports multiple modess. When working under rmii and rgmii,
+> you need to set different phy interfaces.
+>
+> According to the dwmac document, when working in rmii, it needs to be
+> set to 0x4, and rgmii needs to be set to 0x1.
+>
+> The phy interface needs to be set in syscon, the format is as follows:
+> starfive,syscon: <&syscon, offset, mask>
+>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> index 566378306f67..40fdd7036127 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> @@ -7,10 +7,15 @@
+>   *
+>   */
+>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/of_device.h>
+> +#include <linux/regmap.h>
+>
+>  #include "stmmac_platform.h"
+>
+> +#define MACPHYC_PHY_INFT_RMII  0x4
+> +#define MACPHYC_PHY_INFT_RGMII 0x1
 
-On x86, the COMMAND_LINE_SIZE value is already not part of a uapi header,
-but instead (since bzImage format version 2.06) is communicated from
-the kernel to the boot loader, which then knows how much data the
-kernel will read (at most) from the command line.
+Please prefix these with something like STARFIVE_DWMAC_
 
-Most x86 kernels these days are booted using UEFI, which I think has
-no such interface, the firmware just passes the command line and a
-length, but has no way of knowing if the kernel will truncate this.
-I think that is the same as with any other architecture that passes
-the command line through UEFI, DT or ATAGS, all of which use
-length/value pairs.
+>  struct starfive_dwmac {
+>         struct device *dev;
+>         struct clk *clk_tx;
+> @@ -53,6 +58,46 @@ static void starfive_eth_fix_mac_speed(void *priv, unsigned int speed)
+>                 dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+>  }
+>
+> +static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+> +{
+> +       struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
+> +       struct of_phandle_args args;
+> +       struct regmap *regmap;
+> +       unsigned int reg, mask, mode;
+> +       int err;
+> +
+> +       switch (plat_dat->interface) {
+> +       case PHY_INTERFACE_MODE_RMII:
+> +               mode = MACPHYC_PHY_INFT_RMII;
+> +               break;
+> +
+> +       case PHY_INTERFACE_MODE_RGMII:
+> +       case PHY_INTERFACE_MODE_RGMII_ID:
+> +               mode = MACPHYC_PHY_INFT_RGMII;
+> +               break;
+> +
+> +       default:
+> +               dev_err(dwmac->dev, "Unsupported interface %d\n",
+> +                       plat_dat->interface);
+> +       }
+> +
+> +       err = of_parse_phandle_with_fixed_args(dwmac->dev->of_node,
+> +                                              "starfive,syscon", 2, 0, &args);
+> +       if (err) {
+> +               dev_dbg(dwmac->dev, "syscon reg not found\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       reg = args.args[0];
+> +       mask = args.args[1];
+> +       regmap = syscon_node_to_regmap(args.np);
+> +       of_node_put(args.np);
 
-Russell argued on IRC that this can be considered an ABI since a
-boot loader may use its knowledge of the kernel's command line size
-limit to reject long command lines. On the other hand, I don't
-think that any boot loader actually does, they just trust that it
-fits and don't have a good way of rejecting invalid configuration
-other than truncating and/or warning.
+I think the above is basically
+unsigned int args[2];
+syscon_regmap_lookup_by_phandle_args(dwmac->dev_of_node,
+"starfive,syscon", 2, args);
 
-One notable exception I found while looking through is the old
-(pre-ATAGS) parameter structure on Arm, which uses COMMAND_LINE_SIZE
-as part of the structure definition. Apparently this was deprecated
-22 years ago, so hopefully the remaining riscpc and footbridge
-users have all upgraded their bootloaders.
+..but as Andrew points out another solution is to use platform match
+data for this. Eg.
 
-The only other case I could find that might go wrong is
-m68knommu with a few files copying a COMMAND_LINE_SIZE sized
-buffer from flash into a kernel buffer:
+static const struct starfive_dwmac_match_data starfive_dwmac_jh7110_data {
+  .phy_interface_offset = 0xc,
+  .phy_interface_mask = 0x1c0000,
+};
 
-arch/m68k/coldfire/m5206.c:void __init config_BSP(char *commandp, int size)
-arch/m68k/coldfire/m5206.c-{
-arch/m68k/coldfire/m5206.c-#if defined(CONFIG_NETtel)
-arch/m68k/coldfire/m5206.c-     /* Copy command line from FLASH to local buffer... */
-arch/m68k/coldfire/m5206.c-     memcpy(commandp, (char *) 0xf0004000, size);
-arch/m68k/coldfire/m5206.c-     commandp[size-1] = 0;
-arch/m68k/coldfire/m5206.c-#endif /* CONFIG_NETtel */
+static const struct of_device_id starfive_dwmac_match[] = {
+  { .compatible = "starfive,jh7110-dwmac", .data =
+&starfive_dwmac_jh7110_data },
+  { /* sentinel */ }
+};
 
-     Arnd
+and in the probe function:
+
+struct starfive_dwmac_match_data *pdata = device_get_match_data(&pdev->dev);
+
+> +       if (IS_ERR(regmap))
+> +               return PTR_ERR(regmap);
+> +
+> +       return regmap_update_bits(regmap, reg, mask, mode << __ffs(mask));
+> +}
+> +
+>  static int starfive_dwmac_probe(struct platform_device *pdev)
+>  {
+>         struct plat_stmmacenet_data *plat_dat;
+> @@ -93,6 +138,7 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+>         plat_dat->bsp_priv = dwmac;
+>         plat_dat->dma_cfg->dche = true;
+>
+> +       starfive_dwmac_set_mode(plat_dat);
+
+The function returns errors in an int, but you never check it :(
+
+>         err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>         if (err) {
+>                 stmmac_remove_config_dt(pdev, plat_dat);
+> --
+> 2.17.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
