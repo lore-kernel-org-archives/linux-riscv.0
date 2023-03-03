@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91891C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 01:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DAFC678D4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 03:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/1a7abHxa7QJ1NzjCshrcRqvkmXoQn4lPcHX5Vllga8=; b=TCi4hKNWmaH/uh
-	vEM/2IUG6XVV7Y5OGNHwG25vodXB7RorAaXhvfFUVQCx/tVHZwu4DdxqfYRND1HljwwtHxsk+2/Ks
-	z6B7rgNuG9bvpM/vu6GUbrMFkvchfu5NHYACCVT2zupMXwq+LPKbmjcZLSLN/S+xb3wy7mr/Pxfyb
-	RZlEqX14lMIdIfvZpTLBDV+PIWheRdTiEhqn6r0UGSzl5Gt+1wfMSOtlAMKH49XsEngbxns0OylJq
-	CsDFNuFNQxawFXG11aA1R7wURiteUq4ML5Fe9nbiJeGeQqgP2n4guCncAJZOWZmm9744D/IUsMMDd
-	W3kF6zk1HjGazS18/xVw==;
+	List-Owner; bh=AbC7qKUa6pgpC2YzaYKVp8K3xVn0J/1L2Bbrv6rMLAQ=; b=FXBuY2rEAU1sDq
+	FBA9GKSjEw8zjGPEfbBWQaKrl1k8wDkjMICSVXumHVpiu00j8xUyeaSa1gXWOszMwlPKfkgP2Kwes
+	/9M7yoT55jfW8MVAZLSn065uMOZXR2SJFc/Al7hyBq5Yx0Kp1QCzw63aStgn7OHGiOb4cCt9Ol3t3
+	3KnCj+ER7JMOcP5nmNyDaSkBbspLJH3J86FnLd12Tq8HCzFQa6cFj71oiSahjbGegR8i7aWApb1pL
+	fv2t4qV711jtRdKjclkFexKEMc1eP1mcKFxaYug6V8BX41vDJCGjXDUbKzgQs84ITR7ZPi9TZ4roi
+	k4xgCwrdhXLFnE+zwQqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXucO-004Jlf-4g; Fri, 03 Mar 2023 01:53:56 +0000
+	id 1pXvsn-004dWW-NQ; Fri, 03 Mar 2023 03:14:57 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXucJ-004Jhi-7o
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 01:53:54 +0000
+	id 1pXvsj-004dP2-4X
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 03:14:56 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0530F24E3BC;
-	Fri,  3 Mar 2023 09:53:20 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id F37B324E401;
+	Fri,  3 Mar 2023 11:13:54 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 09:53:20 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 09:53:19 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Fri, 3 Mar 2023 09:53:19 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//93Q9AAFcQCgP//eFGw//9zGYD/+hI3MA==
-Date: Fri, 3 Mar 2023 01:53:19 +0000
-Message-ID: <94325d78a0b74d8289b77ec743840941@EXMBX066.cuchost.com>
-References: <20230224120715.wgqnqmkadsbqusus@orel>
- <180fda36f9974809b436c52e4b3eda58@EXMBX066.cuchost.com>
- <20230227075942.rgl4hqnwttwvoroe@orel>
- <178ca008701147828d2e62402ff4f78a@EXMBX066.cuchost.com>
- <20230227114435.eow57ax5zhysz3kv@orel>
- <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
- <20230228050457.zfbflfawctaccepv@orel>
- <803ac603023c4eeda4a0b8e414cce6f1@EXMBX066.cuchost.com>
- <20230228071845.k6s6bcnesdsnw3jl@orel>
- <abd16b950ca744b081fc9f545977b8fa@EXMBX066.cuchost.com>
- <20230228073725.m5t6rkcbgbi3g26z@orel>
-In-Reply-To: <20230228073725.m5t6rkcbgbi3g26z@orel>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [60.50.196.81]
-x-yovoleruleagent: yovoleflag
+ 2023 11:13:54 +0800
+Received: from [192.168.125.128] (113.72.145.171) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
+ 2023 11:13:53 +0800
+Message-ID: <190f5d4b-77dd-8c2b-0d23-33f717fc1562@starfivetech.com>
+Date: Fri, 3 Mar 2023 11:14:07 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 01/11] dt-bindings: clock: Add StarFive JH7110
+ System-Top-Group clock and reset generator
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
+	<robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
+References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
+ <20230221083323.302471-2-xingyu.wu@starfivetech.com>
+ <CAJM55Z_O+Gh0RGaAuLPxs4aSi4=5Aa3UksN_SnU-4pOn3X5fDw@mail.gmail.com>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <CAJM55Z_O+Gh0RGaAuLPxs4aSi4=5Aa3UksN_SnU-4pOn3X5fDw@mail.gmail.com>
+X-Originating-IP: [113.72.145.171]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_175351_589313_EBE4919A 
-X-CRM114-Status: GOOD (  58.24  )
+X-CRM114-CacheID: sfid-20230302_191453_634755_3FA9A625 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,138 +81,273 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-
-> -----Original Message-----
-> From: Andrew Jones <ajones@ventanamicro.com>
-> Sent: Tuesday, February 28, 2023 3:37 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+On 2023/3/2 23:05, Emil Renner Berthing wrote:
+> On Tue, 21 Feb 2023 at 09:37, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
+>> on the JH7110 RISC-V SoC by StarFive Ltd.
+>>
+>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> ---
+>>  .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
+>>  MAINTAINERS                                   |  1 +
+>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
+>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
+>>  4 files changed, 145 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>> new file mode 100644
+>> index 000000000000..b64ccd84200a
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>> @@ -0,0 +1,82 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-stgcrg.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 System-Top-Group Clock and Reset Generator
+>> +
+>> +maintainers:
+>> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-stgcrg
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: Main Oscillator (24 MHz)
+>> +      - description: HIFI4 core
+>> +      - description: STG AXI/AHB
+>> +      - description: USB (125 MHz)
+>> +      - description: CPU Bus
+>> +      - description: HIFI4 Axi
+>> +      - description: NOC STG Bus
+>> +      - description: APB Bus
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: osc
+>> +      - const: hifi4_core
+>> +      - const: stg_axiahb
+>> +      - const: usb_125m
+>> +      - const: cpu_bus
+>> +      - const: hifi4_axi
+>> +      - const: nocstg_bus
+>> +      - const: apb_bus
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +  '#reset-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - '#clock-cells'
+>> +  - '#reset-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
+>> +
+>> +    stgcrg: clock-controller@10230000 {
+>> +        compatible = "starfive,jh7110-stgcrg";
+>> +        reg = <0x10230000 0x10000>;
+>> +        clocks = <&osc>,
+>> +                 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
+>> +                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
+>> +                 <&syscrg JH7110_SYSCLK_USB_125M>,
+>> +                 <&syscrg JH7110_SYSCLK_CPU_BUS>,
+>> +                 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
+>> +                 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
+>> +                 <&syscrg JH7110_SYSCLK_APB_BUS>;
+>> +        clock-names = "osc", "hifi4_core",
+>> +                      "stg_axiahb", "usb_125m",
+>> +                      "cpu_bus", "hifi4_axi",
+>> +                      "nocstg_bus", "apb_bus";
+>> +        #clock-cells = <1>;
+>> +        #reset-cells = <1>;
+>> +    };
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 93eb504c3b21..2e70c9f21989 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -19914,6 +19914,7 @@ F:      arch/riscv/boot/dts/starfive/
+>>  STARFIVE JH71X0 CLOCK DRIVERS
+>>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>>  M:     Hal Feng <hal.feng@starfivetech.com>
+>> +M:     Xingyu Wu <xingyu.wu@starfivetech.com>
+>>  S:     Maintained
+>>  F:     Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+>>  F:     drivers/clk/starfive/clk-starfive-jh71*
+>> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> index 5e4f21ca0642..5ac8a4d90a7a 100644
+>> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> @@ -1,6 +1,7 @@
+>>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>>  /*
+>>   * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + * Copyright 2022 StarFive Technology Co., Ltd.
+>>   */
+>>
+>>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>> @@ -222,4 +223,37 @@
+>>
+>>  #define JH7110_AONCLK_END                      14
 > 
-> On Tue, Feb 28, 2023 at 07:29:40AM +0000, JeeHeng Sia wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Andrew Jones <ajones@ventanamicro.com>
-> > > Sent: Tuesday, 28 February, 2023 3:19 PM
-> > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> > > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> > > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> > > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> > >
-> > > On Tue, Feb 28, 2023 at 05:33:32AM +0000, JeeHeng Sia wrote:
-> > > >
-> > > >
-> > > > > -----Original Message-----
-> > > > > From: Andrew Jones <ajones@ventanamicro.com>
-> > > > > Sent: Tuesday, 28 February, 2023 1:05 PM
-> > > > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> > > > > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> > > > > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> > > > > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> > > > >
-> > > > > On Tue, Feb 28, 2023 at 01:32:53AM +0000, JeeHeng Sia wrote:
-> > > > > > > > > > 	load image;
-> > > > > > > > > > loop:	Create pbe chain, return error if failed;
-> > > > > > > > >
-> > > > > > > > > This loop pseudocode is incomplete. It's
-> > > > > > > > >
-> > > > > > > > > loop:
-> > > > > > > > >         if (swsusp_page_is_forbidden(page) && swsusp_page_is_free(page))
-> > > > > > > > > 	   return page_address(page);
-> > > > > > > > > 	Create pbe chain, return error if failed;
-> > > > > > > > > 	...
-> > > > > > > > >
-> > > > > > > > > which I pointed out explicitly in my last reply. Also, as I asked in my
-> > > > > > > > > last reply (and have been asking four times now, albeit less explicitly
-> > > > > > > > > the first two times), how do we know at least one PBE will be linked?
-> > > > > > > > 1 PBE correspond to 1 page, you shouldn't expect only 1 page is saved.
-> > > > > > >
-> > > > > > > I know PBEs correspond to pages. *Why* should I not expect only one page
-> > > > > > > is saved? Or, more importantly, why should I expect more than zero pages
-> > > > > > > are saved?
-> > > > > > >
-> > > > > > > Convincing answers might be because we *always* put the restore code in
-> > > > > > > pages which get added to the PBE list or that the original page tables
-> > > > > > > *always* get put in pages which get added to the PBE list. It's not very
-> > > > > > > convincing to simply *assume* that at least one random page will always
-> > > > > > > meet the PBE list criteria.
-> > > > > > >
-> > > > > > > > Hibernation core will do the calculation. If the PBEs (restore_pblist) linked successfully, the hibernated image will be
-> restore
-> > > else
-> > > > > > > normal boot will take place.
-> > > > > > > > > Or, even more specifically this time, where is the proof that for each
-> > > > > > > > > hibernation resume, there exists some page such that
-> > > > > > > > > !swsusp_page_is_forbidden(page) or !swsusp_page_is_free(page) is true?
-> > > > > > > > forbidden_pages and free_pages are not contributed to the restore_pblist (as you already aware from the code). Infact,
-> the
-> > > > > > > forbidden_pages and free_pages are not save into the disk.
-> > > > > > >
-> > > > > > > Exactly, so those pages are *not* going to contribute to the greater than
-> > > > > > > zero pages. What I've been asking for, from the beginning, is to know
-> > > > > > > which page(s) are known to *always* contribute to the list. Or, IOW, how
-> > > > > > > do you know the PBE list isn't empty, a.k.a restore_pblist isn't NULL?
-> > > > > > Well, this is keep going around in a circle, thought the answer is in the hibernation code. restore_pblist get the pointer from
-> the
-> > > PBE,
-> > > > > and the PBE already checked for validity.
-> > > > >
-> > > > > It keeps going around in circles because you keep avoiding my question by
-> > > > > pointing out trivial linked list code. I'm not worried about the linked
-> > > > > list code being correct. My concern is that you're using a linked list
-> > > > > with an assumption that it is not empty. My question has been all along,
-> > > > > how do you know it's not empty?
-> > > > >
-> > > > > I'll change the way I ask this time. Please take a look at your PBE list
-> > > > > and let me know if there are PBEs on it that must be there on each
-> > > > > hibernation resume, e.g. the resume code page is there or whatever.
-> > > > >
-> > > > > > Can I suggest you to submit a patch to the hibernation core?
-> > > > >
-> > > > > Why? What's wrong with it?
-> > > > Kindly let me draw 2 scenarios for you. Option 1 is to add the restore_pblist checking to the hibernation core and option 2 is to
-> add
-> > > restore_pblist checking to the arch solution
-> > > > Although I really don't think it is needed. But if you really wanted to add the checking, I would suggest to go with option 1. again,
-> I
-> > > really think that it is not needed!
-> > >
-> > > This entire email thread is because you've first coded, and now stated,
-> > > that you don't think the PBE list will ever be empty. And now, below, I
-> > > see you're proposing to return an error when the PBE list is empty, why?
-> > > If there's nothing in the PBE list, then there's nothing to do for it.
-> > > Why is that an error condition?
-> > >
-> > > Please explain to me why you think the PBE list *must* not be empty
-> > > (which is what I've been asking for over and over). OIOW, are there
-> > > any pages you have in mind which the resume kernel always uses and
-> > > are also always going to end up in the suspend image? I don't know,
-> > > but I assume clean, file-backed pages do not get added to the suspend
-> > > image, which would rule out most kernel code pages. Also, many pages
-> > > written during boot (which is where the resume kernel is at resume time)
-> > > were no longer resident at hibernate time, so they won't be in the
-> > > suspend image either. While it's quite likely I'm missing something
-> > > obvious, I'd rather be told what that is than to assume the PBE list
-> > > will never be empty. Which is why I keep asking about it...
-> > The answer already in the Linux kernel hibernation core, do you need me to write a white paper to explain in detail or you need a
-> conference call?
+> Hi Xingyu,
 > 
-> I'm not sure why you don't just write a paragraph or two here in this
-> email thread explaining what "the answer" is. Anyway, feel free to
-> invite me to a call if you think it'd be easier to hash out that way.
-Thank you very much to free up time to join the call. It was very nice to talk to you over the conference call and I did learn a lot from you.
-Below is the summary of the experiment that benefit everyone:
-To avoid inspecting a huge log, the experiment was carried out on the Qemu with 512MB of memory (128000 pages). 
-During hibernation, there are 22770 pages (out of 128000 pages) were identified need to be stored to the disk. Those pages consists of the kernel text code, rodata, page table, stack/heap/kmalloc/vmalloc memory, user space app, rootfs.....etc. The number of pages need to be stored to the disk are depends on the "workload" on the system.
-When resume, only 21651 pages were assigned to the restore_pblist. The rest of the pages consists of meta_data pages and forbidden pages which were handled by the "resume kernel". Arch code will handle the pages assigned to the restore_pblist.
-From the experiment, we also know that the game that is activated before hibernation is still "alive" after resume from hibernation and can continue to play without problem.
+> The clock and reset names below have been shortened from the very long
+> names in the documentation. I see you've come to the same shortened
+> names as I used in the first STGCRG driver I pushed, which is great,
+> but I find it highly unlikely to have happened without looking at /
+> copying my code like you did for the SYSCRG and AONCRG drivers Hal has
+> posted. Unfortunately the commit message above doesn't reflect that,
+> so please add a
+> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 
-Thanks
-Jee Heng
+Thanks. But these STG/ISP/VOUT drivers are transplanted from 7110-SDK wrote
+by myself one year ago and followed 7100 clock drivers framework and structure
+at that time. And I haven't seen your STGCRG driver before. I improved these
+to follow these SYSCRG and AONCRG drivers' framework. So you could look like copying
+your code but these are still little different like these clock and reset name.
+
+But I don't know if I am right. I follow your code framework to write it and
+I should add 'Co-developed-by' and 'Signed-off-by' to reflect that. It that right?
+
+> 
+> I do have some updated suggestions for short names below though:
+> 
+>> +/* STGCRG clocks */
+>> +#define JH7110_STGCLK_HIFI4_CLK_CORE           0
+>> +#define JH7110_STGCLK_USB0_APB                 1
+>> +#define JH7110_STGCLK_USB0_UTMI_APB            2 unli
+>> +#define JH7110_STGCLK_USB0_AXI                 3
+>> +#define JH7110_STGCLK_USB0_LPM                 4
+>> +#define JH7110_STGCLK_USB0_STB                 5
+>> +#define JH7110_STGCLK_USB0_APP_125             6
+>> +#define JH7110_STGCLK_USB0_REFCLK              7
+>> +#define JH7110_STGCLK_PCIE0_AXI_MST0           8
+>> +#define JH7110_STGCLK_PCIE0_APB                        9
+>> +#define JH7110_STGCLK_PCIE0_TL                 10
+>> +#define JH7110_STGCLK_PCIE1_AXI_MST0           11
+>> +#define JH7110_STGCLK_PCIE1_APB                        12
+>> +#define JH7110_STGCLK_PCIE1_TL                 13
+>> +#define JH7110_STGCLK_PCIE01_SLV_DEC_MAINCLK   14
+> 
+> Does PCIE01 here mean that the clock is used by both pcie0 and pcie1?
+> If so then maybe just call it JH7110_PCIE_SLV_MAIN
+
+Yes, it is used by both pcie0 and pcie1. Will modify it.
+
+> 
+>> +#define JH7110_STGCLK_SEC_HCLK                 15
+> 
+> For other clocks I think "hclk" means ahb clock, so maybe JH7110_STGCLK_SEC_AHB
+
+Will modify it.
+
+> 
+>> +#define JH7110_STGCLK_SEC_MISCAHB              16
+> 
+> I find something like JH7110_STGCLK_SEC_MISC_AHB a little easier to read.
+
+Will modify it.
+
+> 
+>> +#define JH7110_STGCLK_GRP0_MAIN                        17
+>> +#define JH7110_STGCLK_GRP0_BUS                 18
+>> +#define JH7110_STGCLK_GRP0_STG                 19
+>> +#define JH7110_STGCLK_GRP1_MAIN                        20
+>> +#define JH7110_STGCLK_GRP1_BUS                 21
+>> +#define JH7110_STGCLK_GRP1_STG                 22
+>> +#define JH7110_STGCLK_GRP1_HIFI                        23
+>> +#define JH7110_STGCLK_E2_RTC                   24
+>> +#define JH7110_STGCLK_E2_CORE                  25
+>> +#define JH7110_STGCLK_E2_DBG                   26
+>> +#define JH7110_STGCLK_DMA1P_AXI                        27
+>> +#define JH7110_STGCLK_DMA1P_AHB                        28
+>> +
+>> +#define JH7110_STGCLK_END                      29
+>> +
+>>  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+>> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> index d78e38690ceb..4a865ded78b8 100644
+>> --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> @@ -1,6 +1,7 @@
+>>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>>  /*
+>>   * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>>   */
+>>
+>>  #ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
+>> @@ -151,4 +152,31 @@
+>>
+>>  #define JH7110_AONRST_END                      8
+>>
+>> +/* STGCRG resets */
+>> +#define JH7110_STGRST_SYSCON                   0
+>> +#define JH7110_STGRST_HIFI4_CORE               1
+>> +#define JH7110_STGRST_HIFI4_AXI                        2
+>> +#define JH7110_STGRST_SEC_TOP_HRESETN          3
+> 
+> JH7110_STGRST_SEC_AHB to match the clock above.
+
+Will modify it.
+
+> 
+>> +#define JH7110_STGRST_E24_CORE                 4
+>> +#define JH7110_STGRST_DMA1P_AXI                        5
+>> +#define JH7110_STGRST_DMA1P_AHB                        6
+>> +#define JH7110_STGRST_USB0_AXI                 7
+>> +#define JH7110_STGRST_USB0_APB                 8
+>> +#define JH7110_STGRST_USB0_UTMI_APB            9
+>> +#define JH7110_STGRST_USB0_PWRUP               10
+>> +#define JH7110_STGRST_PCIE0_AXI_MST0           11
+>> +#define JH7110_STGRST_PCIE0_AXI_SLV0           12
+>> +#define JH7110_STGRST_PCIE0_AXI_SLV            13
+>> +#define JH7110_STGRST_PCIE0_BRG                        14
+>> +#define JH7110_STGRST_PCIE0_CORE               15
+>> +#define JH7110_STGRST_PCIE0_APB                        16
+>> +#define JH7110_STGRST_PCIE1_AXI_MST0           17
+>> +#define JH7110_STGRST_PCIE1_AXI_SLV0           18
+>> +#define JH7110_STGRST_PCIE1_AXI_SLV            19
+>> +#define JH7110_STGRST_PCIE1_BRG                        20
+>> +#define JH7110_STGRST_PCIE1_CORE               21
+>> +#define JH7110_STGRST_PCIE1_APB                        22
+>> +
+>> +#define JH7110_STGRST_END                      23
+>> +
+>>  #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
+>> --
+>> 2.25.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+Best regards
 
 _______________________________________________
 linux-riscv mailing list
