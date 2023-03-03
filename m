@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE8DC678D4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 04:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6A5C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Mar 2023 05:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+19WKHXFkfa+UdMBfshsxRwvBwyDjfIveza3duMo4fw=; b=qPoD7J4/8ARptO
-	v3gkvEwu4BbXEFqocXXZ33Pw6DbIzZzk6cjagvBfm3Za7SJsWf0ZkCeJ1wtHoTvc9WpeuNyC5/peC
-	7gUNFrWExV5O7gsQAEUiHdHTii7etNKpr6At3sDrj/HN7SoUZfsZzWH0KC+wDGPYCnAkhI1jCYDY7
-	gT0eq4Sn89o9glf/cegdM1UbXD0nVQoBSxEv722NgMFEdJXUSmCHvY8DhdfPPPfwvZfnOcmg321dj
-	ATai5DDlJbHG046vYN2eKQRQui57Y/+jcteTBDptgMj2bfzyhyKtV0JsCjCCAINQVJQSo88k5RTcf
-	8LqiK4Dq2EkrDJEX3YEA==;
+	List-Owner; bh=GbdjtfQTaM3WV+XCMz7KKSagGCRJ2J/dGZ0C+Uq5wLc=; b=W+GRfTSpsDfz+W
+	OHKrDtJRAvR9UTA1YtiEXmex1kVsbNwnIeDo0bK6NHOA79DLKXzzi/ba35fxDImp/iPvRNtm1td4W
+	nyZaV7M6K/4eGwm7tgZj53XEy2eqTZtNhzhtiTY4h8+dz9fr4/u9MzlO/Egn9vfR1nkV7uJdVmK+1
+	fmA3uv4NOwHDqjH3sGx6FOYAm/ESUFD2PHzgwo7X4ymZrq8lpheIUVBfnGFY5y7CmQ53iJJ4z8xU0
+	Wj23U9jNoo17W3c5wQkzWFbVrEwhNJ6s01tlJwKYw+2MICopI+IHM39Hib9t8N+jkYkXaY6W+CAEu
+	j1lHDy6lkOw5QcmVMECg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXwaV-004kmM-EA; Fri, 03 Mar 2023 04:00:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXwaK-004kkY-W8
-	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 04:00:01 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5F17D24E409;
-	Fri,  3 Mar 2023 11:59:27 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 11:59:27 +0800
-Received: from [192.168.125.128] (113.72.145.171) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Mar
- 2023 11:59:26 +0800
-Message-ID: <7d78d2a1-d552-f25d-557b-c90e6a33eccd@starfivetech.com>
-Date: Fri, 3 Mar 2023 11:59:40 +0800
+	id 1pXyDh-004vQe-Tr; Fri, 03 Mar 2023 05:44:41 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pXyDe-004vO4-CK
+	for linux-riscv@lists.infradead.org; Fri, 03 Mar 2023 05:44:40 +0000
+Received: by mail-lf1-x129.google.com with SMTP id t11so2225803lfr.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Mar 2023 21:44:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112; t=1677822266;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qWOckUXkp6qY/RaSFL4tFSFedCAxs9RCvjBq2qAr3Sk=;
+        b=slrJxt7m91mU4tKNcS6G745WBEJLJYGQqLA+ZbjgSxpxv8ZHMq4f3hqPTcn4zi5ZKb
+         10bF6oatXcAD/MC5Yv+2YrdFfAy6QSU9Nh0QpZ7pdtblKoeyztrJflUW6ZD9rYItMVII
+         II9maCbUaBsj13ZNxVtiJcQqJbpDqJO2tGg+UD18AB8yFGPwPmAnoMQlxeM6XL0BP+mY
+         is8iDoQ1Isu9fEUA8shmxjaH3va+SETGlPHcbsBIIyY5Tc7ml9jX1P7u2WHsdAWQymKO
+         QkMqkqbd0s5B3I4BlKMc2rR7oBjm9vTR589yerSjbgnN4QjHmZBX6lolY8HgCfieloFk
+         L70g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677822266;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qWOckUXkp6qY/RaSFL4tFSFedCAxs9RCvjBq2qAr3Sk=;
+        b=CAS0RNTl9b1XsCDMjrnlNBjNLwW8B5o7KE0w9xvQJfyKOiVhSZMhLiDZeJZwN9opH/
+         dPruIy0jDS/0YtrdgSC6qs9M2I7Urjz81TZtgX4YM0ZbPBLyWQ8jfbzceGR3Vk8wGten
+         f64MmdD6IGvdaOgWOdip7mhmXLgDz6akBvQ0HNZ0xy7TfBwed1Oi/AM7T26Dj6X/ATp7
+         hAOFLAIjLrTMnKhOxrv/Y26TSIap8lz+uGQY82DD0SKrDN9c1p5HGsjjpfo2gDRNcJLx
+         qMODcg3cF8ahtR5Lb46UgEyqD2v9aE+axrJG85PgXryp9YYbmAQlD9my2ibiqFbEAyRA
+         mHFg==
+X-Gm-Message-State: AO0yUKUVJstiuDB5gK+G/aESqikVbvLaqP2/+9iOqo654MM7P4ZBsZF9
+	BEozWLGLncSXXpBzQ5EP1R5FXjEDeJorLfqzhxP6wfDZN+YUxKsn5T8=
+X-Google-Smtp-Source: AK7set9XCEMeOw//jV4x1KMpIwSyqO7GotrDaRAQZuWGjWJSJJak7l45tiHse4fz/QYi9N8nyExW0uYDKWMeoiPuew4=
+X-Received: by 2002:a05:6512:68:b0:4d5:ca32:9bd7 with SMTP id
+ i8-20020a056512006800b004d5ca329bd7mr248513lfo.3.1677822265864; Thu, 02 Mar
+ 2023 21:44:25 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v2 06/11] clk: starfive: Add StarFive JH7110
- Image-Signal-Process clock driver
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
-	<robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
- <20230221083323.302471-7-xingyu.wu@starfivetech.com>
- <CAJM55Z-D2s6FkQiR4_KSNkQ-QNHu3mLO_A8GBEY5XwVU5=VXAA@mail.gmail.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <CAJM55Z-D2s6FkQiR4_KSNkQ-QNHu3mLO_A8GBEY5XwVU5=VXAA@mail.gmail.com>
-X-Originating-IP: [113.72.145.171]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+References: <CAD7mqryyz0PGHotBxvME7Ff4V0zLS+OcL8=9z4TakaKagPBdLw@mail.gmail.com>
+ <789371c4-47fd-3de5-d6c0-bb36b2864796@ghiti.fr> <CAD7mqrzv-jr_o2U3Kz7vTgcsOYPKgwHW-L=ARAucAPPJgs4HCw@mail.gmail.com>
+ <CAD7mqryDQCYyJ1gAmtMm8SASMWAQ4i103ptTb0f6Oda=tPY2=A@mail.gmail.com> <067b7dda-8d3d-a26c-a0b1-bd6472a4b04d@ghiti.fr>
+In-Reply-To: <067b7dda-8d3d-a26c-a0b1-bd6472a4b04d@ghiti.fr>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Fri, 3 Mar 2023 06:44:13 +0100
+Message-ID: <CACT4Y+avaVT4sBOioxm8N+iH26udKwAogRhjMwGWcp4zzC8JdA@mail.gmail.com>
+Subject: Re: RISC-V Linux kernel not booting up with KASAN enabled
+To: alex@ghiti.fr
+Cc: Chathura Rajapaksha <chathura.abeyrathne.lk@gmail.com>, linux-riscv@lists.infradead.org, 
+	kasan-dev@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230302_195957_501599_A0118458 
-X-CRM114-Status: GOOD (  26.92  )
+X-CRM114-CacheID: sfid-20230302_214438_461751_67E0E8B6 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,344 +83,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/2 23:39, Emil Renner Berthing wrote:
-> On Tue, 21 Feb 2023 at 09:36, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->>
->> Add driver for the StarFive JH7110 Image-Signal-Process clock controller.
->>
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  drivers/clk/starfive/Kconfig                  |  11 +
->>  drivers/clk/starfive/Makefile                 |   1 +
->>  .../clk/starfive/clk-starfive-jh7110-isp.c    | 254 ++++++++++++++++++
->>  3 files changed, 266 insertions(+)
->>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
->>
->> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
->> index a462b6e53543..59499acb95f7 100644
->> --- a/drivers/clk/starfive/Kconfig
->> +++ b/drivers/clk/starfive/Kconfig
->> @@ -53,3 +53,14 @@ config CLK_STARFIVE_JH7110_STG
->>         help
->>           Say yes here to support the System-Top-Group clock controller
->>           on the StarFive JH7110 SoC.
->> +
->> +config CLK_STARFIVE_JH7110_ISP
->> +       tristate "StarFive JH7110 Image-Signal-Process clock support"
->> +       depends on CLK_STARFIVE_JH7110_SYS && JH71XX_PMU
->> +       select AUXILIARY_BUS
->> +       select CLK_STARFIVE_JH71X0
->> +       select RESET_STARFIVE_JH7110
->> +       default CLK_STARFIVE_JH7110_SYS
-> 
-> default m if ARCH_STARFIVE
-
-Oh, the ISPCRG and VOUTCRG depend on SYSCRG because it need to enable core clock.
-So I should modify that:
-
-default m if CLK_STARFIVE_JH7110_SYS
-
-It that OK?
-
-> 
->> +       help
->> +         Say yes here to support the Image-Signal-Process clock controller
->> +         on the StarFive JH7110 SoC.
->> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
->> index b81e97ee2659..76fb9f8d628b 100644
->> --- a/drivers/clk/starfive/Makefile
->> +++ b/drivers/clk/starfive/Makefile
->> @@ -7,3 +7,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO) += clk-starfive-jh7100-audio.o
->>  obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)  += clk-starfive-jh7110-sys.o
->>  obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)  += clk-starfive-jh7110-aon.o
->>  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)  += clk-starfive-jh7110-stg.o
->> +obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)  += clk-starfive-jh7110-isp.o
->> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-isp.c b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
->> new file mode 100644
->> index 000000000000..b5bce1ac22e0
->> --- /dev/null
->> +++ b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
->> @@ -0,0 +1,254 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * StarFive JH7110 Image-Signal-Process Clock Driver
->> + *
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/io.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/reset.h>
->> +
->> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
->> +
->> +#include "clk-starfive-jh71x0.h"
->> +
->> +/* external clocks */
->> +#define JH7110_ISPCLK_ISP_TOP_CORE             (JH7110_ISPCLK_END + 0)
->> +#define JH7110_ISPCLK_ISP_TOP_AXI              (JH7110_ISPCLK_END + 1)
->> +#define JH7110_ISPCLK_NOC_BUS_ISP_AXI          (JH7110_ISPCLK_END + 2)
->> +#define JH7110_ISPCLK_DVP_CLK                  (JH7110_ISPCLK_END + 3)
->> +#define JH7110_ISPCLK_EXT_END                  (JH7110_ISPCLK_END + 4)
->> +
->> +static const struct jh71x0_clk_data jh7110_ispclk_data[] = {
->> +       /* syscon */
->> +       JH71X0__DIV(JH7110_ISPCLK_DOM4_APB_FUNC, "dom4_apb_func", 15,
->> +                   JH7110_ISPCLK_ISP_TOP_AXI),
->> +       JH71X0__DIV(JH7110_ISPCLK_MIPI_RX0_PXL, "mipi_rx0_pxl", 8,
->> +                   JH7110_ISPCLK_ISP_TOP_CORE),
->> +       JH71X0__INV(JH7110_ISPCLK_DVP_INV, "dvp_inv", JH7110_ISPCLK_DVP_CLK),
->> +       /* vin */
->> +       JH71X0__DIV(JH7110_ISPCLK_M31DPHY_CFGCLK_IN, "m31dphy_cfgclk_in", 16,
->> +                   JH7110_ISPCLK_ISP_TOP_CORE),
->> +       JH71X0__DIV(JH7110_ISPCLK_M31DPHY_REFCLK_IN, "m31dphy_refclk_in", 16,
->> +                   JH7110_ISPCLK_ISP_TOP_CORE),
->> +       JH71X0__DIV(JH7110_ISPCLK_M31DPHY_TXCLKESC_LAN0, "m31dphy_txclkesc_lan0", 60,
->> +                   JH7110_ISPCLK_ISP_TOP_CORE),
->> +       JH71X0_GATE(JH7110_ISPCLK_VIN_PCLK, "vin_pclk", CLK_IGNORE_UNUSED,
->> +                   JH7110_ISPCLK_DOM4_APB_FUNC),
->> +       JH71X0__DIV(JH7110_ISPCLK_VIN_SYS_CLK, "vin_sys_clk", 8, JH7110_ISPCLK_ISP_TOP_CORE),
->> +       JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_CLK_IF0, "vin_pixel_clk_if0", CLK_IGNORE_UNUSED,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL),
->> +       JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_CLK_IF1, "vin_pixel_clk_if1", CLK_IGNORE_UNUSED,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL),
->> +       JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_CLK_IF2, "vin_pixel_clk_if2", CLK_IGNORE_UNUSED,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL),
->> +       JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_CLK_IF3, "vin_pixel_clk_if3", CLK_IGNORE_UNUSED,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL),
->> +       JH71X0__MUX(JH7110_ISPCLK_VIN_CLK_P_AXIWR, "vin_clk_p_axiwr", 2,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL,
->> +                   JH7110_ISPCLK_DVP_INV),
->> +       /* ispv2_top_wrapper */
->> +       JH71X0_GMUX(JH7110_ISPCLK_ISPV2_TOP_WRAPPER_CLK_C, "ispv2_top_wrapper_clk_c",
->> +                   CLK_IGNORE_UNUSED, 2,
->> +                   JH7110_ISPCLK_MIPI_RX0_PXL,
->> +                   JH7110_ISPCLK_DVP_INV),
->> +};
-> 
-> Are all the clocks marked CLK_IGNORE_UNUSED here critical or are they
-> just marked like so because the corresponding drivers don't yet claim
-> the clocks they need? Please mark the clocks that can never be turned
-> off CLK_IS_CRITICAL and remove the flag from the rest of the clocks.
-
-Thanks, I will test it carefully and modify it.
-
-> 
->> +struct isp_top_crg {
->> +       struct clk_bulk_data *top_clks;
->> +       struct reset_control *top_rsts;
->> +       int top_clks_num;
->> +       void __iomem *base;
->> +};
->> +
->> +static struct clk_bulk_data jh7110_isp_top_clks[] = {
->> +       { .id = "isp_top_core" },
->> +       { .id = "isp_top_axi" }
->> +};
->> +
->> +static struct isp_top_crg *top_crg_from(void __iomem **base)
->> +{
->> +       return container_of(base, struct isp_top_crg, base);
->> +}
->> +
->> +static int jh7110_isp_top_crg_get(struct jh71x0_clk_priv *priv, struct isp_top_crg *top)
->> +{
->> +       int ret;
->> +
->> +       top->top_clks = jh7110_isp_top_clks;
->> +       top->top_clks_num = ARRAY_SIZE(jh7110_isp_top_clks);
->> +       ret = devm_clk_bulk_get(priv->dev, top->top_clks_num, top->top_clks);
->> +       if (ret) {
->> +               dev_err(priv->dev, "top clks get failed: %d\n", ret);
->> +               return ret;
->> +       }
->> +
->> +       /* The resets should be shared and other ISP modules will use its. */
->> +       top->top_rsts = devm_reset_control_array_get_shared(priv->dev);
->> +       if (IS_ERR(top->top_rsts)) {
->> +               dev_err(priv->dev, "top rsts get failed\n");
->> +               return PTR_ERR(top->top_rsts);
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static int jh7110_isp_top_crg_enable(struct isp_top_crg *top)
->> +{
->> +       int ret;
->> +
->> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
->> +       if (ret)
->> +               return ret;
->> +
->> +       return reset_control_deassert(top->top_rsts);
->> +}
->> +
->> +static void jh7110_isp_top_crg_disable(struct isp_top_crg *top)
->> +{
->> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
->> +}
->> +
->> +static struct clk_hw *jh7110_ispclk_get(struct of_phandle_args *clkspec, void *data)
->> +{
->> +       struct jh71x0_clk_priv *priv = data;
->> +       unsigned int idx = clkspec->args[0];
->> +
->> +       if (idx < JH7110_ISPCLK_END)
->> +               return &priv->reg[idx].hw;
->> +
->> +       return ERR_PTR(-EINVAL);
->> +}
->> +
->> +static int jh7110_ispcrg_probe(struct platform_device *pdev)
->> +{
->> +       struct jh71x0_clk_priv *priv;
->> +       struct isp_top_crg *top;
->> +       unsigned int idx;
->> +       int ret;
->> +
->> +       priv = devm_kzalloc(&pdev->dev,
->> +                           struct_size(priv, reg, JH7110_ISPCLK_END),
->> +                           GFP_KERNEL);
->> +       if (!priv)
->> +               return -ENOMEM;
->> +
->> +       top = devm_kzalloc(&pdev->dev, sizeof(*top), GFP_KERNEL);
->> +       if (!top)
->> +               return -ENOMEM;
->> +
->> +       spin_lock_init(&priv->rmw_lock);
->> +       priv->dev = &pdev->dev;
->> +       priv->base = devm_platform_ioremap_resource(pdev, 0);
->> +       if (IS_ERR(priv->base))
->> +               return PTR_ERR(priv->base);
->> +
->> +       top->base = priv->base;
->> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
->> +
->> +       pm_runtime_enable(priv->dev);
->> +       ret = pm_runtime_get_sync(priv->dev);
->> +       if (ret < 0) {
->> +               dev_err(priv->dev, "failed to turn on power: %d\n", ret);
->> +               return ret;
->> +       }
->> +
->> +       ret = jh7110_isp_top_crg_get(priv, top);
->> +       if (ret)
->> +               goto err_clk;
->> +
->> +       ret = jh7110_isp_top_crg_enable(top);
->> +       if (ret)
->> +               goto err_clk;
->> +
->> +       for (idx = 0; idx < JH7110_ISPCLK_END; idx++) {
->> +               u32 max = jh7110_ispclk_data[idx].max;
->> +               struct clk_parent_data parents[4] = {};
->> +               struct clk_init_data init = {
->> +                       .name = jh7110_ispclk_data[idx].name,
->> +                       .ops = starfive_jh71x0_clk_ops(max),
->> +                       .parent_data = parents,
->> +                       .num_parents =
->> +                               ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
->> +                       .flags = jh7110_ispclk_data[idx].flags,
->> +               };
->> +               struct jh71x0_clk *clk = &priv->reg[idx];
->> +               unsigned int i;
->> +               char *fw_name[JH7110_ISPCLK_EXT_END - JH7110_ISPCLK_END] = {
->> +                       "isp_top_core",
->> +                       "isp_top_axi",
->> +                       "noc_bus_isp_axi",
->> +                       "dvp_clk"
->> +               };
->> +
->> +               for (i = 0; i < init.num_parents; i++) {
->> +                       unsigned int pidx = jh7110_ispclk_data[idx].parents[i];
->> +
->> +                       if (pidx < JH7110_ISPCLK_END)
->> +                               parents[i].hw = &priv->reg[pidx].hw;
->> +                       else
->> +                               parents[i].fw_name = fw_name[pidx - JH7110_ISPCLK_END];
->> +               }
->> +
->> +               clk->hw.init = &init;
->> +               clk->idx = idx;
->> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
->> +
->> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
->> +               if (ret)
->> +                       goto err_exit;
->> +       }
->> +
->> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_ispclk_get, priv);
->> +       if (ret)
->> +               goto err_exit;
->> +
->> +       ret = jh7110_reset_controller_register(priv, "reset-isp", 3);
->> +       if (ret)
->> +               goto err_exit;
->> +
->> +       return 0;
->> +
->> +err_exit:
->> +       jh7110_isp_top_crg_disable(top);
->> +err_clk:
->> +       pm_runtime_put_sync(priv->dev);
->> +       pm_runtime_disable(priv->dev);
->> +       return ret;
->> +}
->> +
->> +static int jh7110_ispcrg_remove(struct platform_device *pdev)
->> +{
->> +       void __iomem **base = dev_get_drvdata(&pdev->dev);
->> +       struct isp_top_crg *top = top_crg_from(base);
->> +
->> +       jh7110_isp_top_crg_disable(top);
->> +       pm_runtime_disable(&pdev->dev);
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct of_device_id jh7110_ispcrg_match[] = {
->> +       { .compatible = "starfive,jh7110-ispcrg" },
->> +       { /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, jh7110_ispcrg_match);
->> +
->> +static struct platform_driver jh7110_ispcrg_driver = {
->> +       .probe = jh7110_ispcrg_probe,
->> +       .remove = jh7110_ispcrg_remove,
->> +       .driver = {
->> +               .name = "clk-starfive-jh7110-isp",
->> +               .of_match_table = jh7110_ispcrg_match,
->> +       },
->> +};
->> +module_platform_driver(jh7110_ispcrg_driver);
->> +
->> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
->> +MODULE_DESCRIPTION("StarFive JH7110 Image-Signal-Process clock driver");
->> +MODULE_LICENSE("GPL");
->> --
->> 2.25.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Best regards,
-Xingyu Wu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyIE1hciAyMDIzIGF0IDIxOjExLCBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGku
+ZnI+IHdyb3RlOgo+Cj4gK2NjIERtaXRyeSBhbmQga2FzYW4tZGV2LCBpbiBjYXNlIHRoZXkga25v
+dyBhYm91dCB0aGlzIGJ1dCBJIGRpZCBub3QKPiBmaW5kIGFueXRoaW5nIHJlbGF0ZWQKCkhhcmQg
+dG8gc2F5IGFueXRoaW5nIHcvbyBjb21taXQvc3ltYm9saXplZCByZXBvcnQuCklmIGl0J3Mgc3Rh
+Y2sgdW53aW5kZXIgYW5kIGl0J3Mgc3VwcG9zZWQgdG8gYmUgcHJlY2lzZSwgdGhlbiBpdCBtYXkg
+YmUKYSBidWcgaW4gdGhlIHVud2luZGVyIHdoZXJlIGl0IHJlYWRzIGEgd3JvbmcgbG9jYXRpb24g
+YW5kIGlzIGltcHJlY2lzZQoobm90IHRoZSBmcmFtZSBwb2ludGVyKS4KSWYgaXQncyBzdXBwb3Nl
+ZCB0byBiZSBpbXByZWNpc2UsIHRoZW4gaXQgc2hvdWxkIHVzZSBSRUFEX09OQ0VfTk9DSEVDSwp0
+byByZWFkIHJhbmRvbSBzdGFjayBsb2NhdGlvbnMuCgo+IE9uIDMvMi8yMyAxOTowMSwgQ2hhdGh1
+cmEgUmFqYXBha3NoYSB3cm90ZToKPiA+IEhpIEFsZXgvQWxsLAo+ID4KPiA+IEtlcm5lbCBpcyBi
+b290aW5nIG5vdyBidXQgSSBnZXQgdGhlIGZvbGxvd2luZyBLQVNBTiBmYWlsdXJlIGluIHRoZQo+
+ID4gYm9vdHVwIGl0c2VsZi4KPiA+IEkgZGlkbid0IHNlZSB0aGlzIGJ1ZyB3YXMgcmVwb3J0ZWQg
+YmVmb3JlIGFueXdoZXJlLgo+ID4KPiA+IFsgICAgMC4wMDAwMDBdIE1lbW9yeTogNjM0MzZLLzEy
+OTAyNEsgYXZhaWxhYmxlICgyMDM4NUsga2VybmVsIGNvZGUsCj4gPiA3MTIwSyByd2RhdGEsIDQw
+OTZLIHJvZGF0YSwgMjEzOEsgaW5pdCwgNDc2SyBic3MsIDY1NTg4SyByZXNlcnZlZCwgMEsKPiA+
+IGNtYS1yZXNlcnZlZCkKPiA+IFsgICAgMC4wMDAwMDBdID09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ID4gWyAgICAwLjAw
+MDAwMF0gQlVHOiBLQVNBTjogc3RhY2stb3V0LW9mLWJvdW5kcyBpbiB3YWxrX3N0YWNrZnJhbWUr
+MHgxYjIvMHgxZTIKPiA+IFsgICAgMC4wMDAwMDBdIFJlYWQgb2Ygc2l6ZSA4IGF0IGFkZHIgZmZm
+ZmZmZmY4MWUwN2M0MCBieSB0YXNrIHN3YXBwZXIvMAo+ID4gWyAgICAwLjAwMDAwMF0KPiA+IFsg
+ICAgMC4wMDAwMDBdIENQVTogMCBQSUQ6IDAgQ29tbTogc3dhcHBlciBOb3QgdGFpbnRlZAo+ID4g
+Ni4yLjAtZ2FlMzQxOWZiYWM4NC1kaXJ0eSAjNwo+ID4gWyAgICAwLjAwMDAwMF0gSGFyZHdhcmUg
+bmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERUKQo+ID4gWyAgICAwLjAwMDAwMF0gQ2FsbCBUcmFj
+ZToKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAwYWI5ZT5dIHdhbGtfc3RhY2tmcmFt
+ZSsweDAvMHgxZTIKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEwODUwOD5dIGluaXRf
+cGFyYW1fbG9jaysweDI2LzB4MmEKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAwYWQ0
+Yz5dIHdhbGtfc3RhY2tmcmFtZSsweDFhZS8weDFlMgo+ID4gWyAgICAwLjAwMDAwMF0gWzxmZmZm
+ZmZmZjgxM2Q4NmUwPl0gZHVtcF9zdGFja19sdmwrMHgyMi8weDM2Cj4gPiBbICAgIDAuMDAwMDAw
+XSBbPGZmZmZmZmZmODEzYmQxN2E+XSBwcmludF9yZXBvcnQrMHgxOTgvMHg0YTgKPiA+IFsgICAg
+MC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEwODUwOD5dIGluaXRfcGFyYW1fbG9jaysweDI2LzB4MmEK
+PiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDAwYWQ0Yz5dIHdhbGtfc3RhY2tmcmFtZSsw
+eDFhZS8weDFlMgo+ID4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiZDUyPl0ga2FzYW5f
+cmVwb3J0KzB4OWEvMHhjOAo+ID4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMDBhZDRjPl0g
+d2Fsa19zdGFja2ZyYW1lKzB4MWFlLzB4MWUyCj4gPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZm
+ODAwMGFkNGM+XSB3YWxrX3N0YWNrZnJhbWUrMHgxYWUvMHgxZTIKPiA+IFsgICAgMC4wMDAwMDBd
+IFs8ZmZmZmZmZmY4MDEwODc0OD5dIHN0YWNrX3RyYWNlX3NhdmUrMHg4OC8weGE2Cj4gPiBbICAg
+IDAuMDAwMDAwXSBbPGZmZmZmZmZmODAxMDg2YmM+XSBmaWx0ZXJfaXJxX3N0YWNrcysweDhhLzB4
+OGUKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDBiNjVlMj5dIGRldmttc2dfcmVhZCsw
+eDNmOC8weDNmYwo+ID4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMjNiMmRlPl0ga2FzYW5f
+c2F2ZV9zdGFjaysweDJjLzB4NTYKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDEwODc0
+ND5dIHN0YWNrX3RyYWNlX3NhdmUrMHg4NC8weGE2Cj4gPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZm
+ZmZmODAyM2IzMWE+XSBrYXNhbl9zZXRfdHJhY2srMHgxMi8weDIwCj4gPiBbICAgIDAuMDAwMDAw
+XSBbPGZmZmZmZmZmODAyM2I4ZjY+XSBfX2thc2FuX3NsYWJfYWxsb2MrMHg1OC8weDVlCj4gPiBb
+ICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODAyM2FlYWU+XSBfX2ttZW1fY2FjaGVfY3JlYXRlKzB4
+MjFlLzB4MzlhCj4gPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODE0MTYyM2U+XSBjcmVhdGVf
+Ym9vdF9jYWNoZSsweDcwLzB4OWMKPiA+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MTQxYjVm
+Nj5dIGttZW1fY2FjaGVfaW5pdCsweDZjLzB4MTFlCj4gPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZm
+ZmZmODE0MDEyNWE+XSBtbV9pbml0KzB4ZDgvMHhmZQo+ID4gWyAgICAwLjAwMDAwMF0gWzxmZmZm
+ZmZmZjgxNDAxNDVjPl0gc3RhcnRfa2VybmVsKzB4MTkwLzB4M2NhCj4gPiBbICAgIDAuMDAwMDAw
+XQo+ID4gWyAgICAwLjAwMDAwMF0gVGhlIGJ1Z2d5IGFkZHJlc3MgYmVsb25ncyB0byBzdGFjayBv
+ZiB0YXNrIHN3YXBwZXIvMAo+ID4gWyAgICAwLjAwMDAwMF0gIGFuZCBpcyBsb2NhdGVkIGF0IG9m
+ZnNldCAwIGluIGZyYW1lOgo+ID4gWyAgICAwLjAwMDAwMF0gIHN0YWNrX3RyYWNlX3NhdmUrMHgw
+LzB4YTYKPiA+IFsgICAgMC4wMDAwMDBdCj4gPiBbICAgIDAuMDAwMDAwXSBUaGlzIGZyYW1lIGhh
+cyAxIG9iamVjdDoKPiA+IFsgICAgMC4wMDAwMDBdICBbMzIsIDU2KSAnYycKPiA+IFsgICAgMC4w
+MDAwMDBdCj4gPiBbICAgIDAuMDAwMDAwXSBUaGUgYnVnZ3kgYWRkcmVzcyBiZWxvbmdzIHRvIHRo
+ZSBwaHlzaWNhbCBwYWdlOgo+ID4gWyAgICAwLjAwMDAwMF0gcGFnZTooX19fX3B0cnZhbF9fX18p
+IHJlZmNvdW50OjEgbWFwY291bnQ6MAo+ID4gbWFwcGluZzowMDAwMDAwMDAwMDAwMDAwIGluZGV4
+OjB4MCBwZm46MHg4MjAwNwo+ID4gWyAgICAwLjAwMDAwMF0gZmxhZ3M6IDB4MTAwMChyZXNlcnZl
+ZHx6b25lPTApCj4gPiBbICAgIDAuMDAwMDAwXSByYXc6IDAwMDAwMDAwMDAwMDEwMDAgZmY2MDAw
+MDAwN2NhNTA5MCBmZjYwMDAwMDA3Y2E1MDkwCj4gPiAwMDAwMDAwMDAwMDAwMDAwCj4gPiBbICAg
+IDAuMDAwMDAwXSByYXc6IDAwMDAwMDAwMDAwMDAwMDAgMDAwMDAwMDAwMDAwMDAwMCAwMDAwMDAw
+MWZmZmZmZmZmCj4gPiBbICAgIDAuMDAwMDAwXSBwYWdlIGR1bXBlZCBiZWNhdXNlOiBrYXNhbjog
+YmFkIGFjY2VzcyBkZXRlY3RlZAo+ID4gWyAgICAwLjAwMDAwMF0KPiA+IFsgICAgMC4wMDAwMDBd
+IE1lbW9yeSBzdGF0ZSBhcm91bmQgdGhlIGJ1Z2d5IGFkZHJlc3M6Cj4gPiBbICAgIDAuMDAwMDAw
+XSAgZmZmZmZmZmY4MWUwN2IwMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAK
+PiA+IDAwIDAwIDAwIDAwCj4gPiBbICAgIDAuMDAwMDAwXSAgZmZmZmZmZmY4MWUwN2I4MDogMDAg
+MDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAKPiA+IDAwIDAwIDAwIDAwCj4gPiBbICAg
+IDAuMDAwMDAwXSA+ZmZmZmZmZmY4MWUwN2MwMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgZjEg
+ZjEgZjEgZjEKPiA+IDAwIDAwIDAwIGYzCj4gPiBbICAgIDAuMDAwMDAwXSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXgo+ID4gWyAgICAwLjAwMDAwMF0gIGZmZmZm
+ZmZmODFlMDdjODA6IGYzIGYzIGYzIGYzIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwCj4gPiAwMCAw
+MCAwMCAwMAo+ID4gWyAgICAwLjAwMDAwMF0gIGZmZmZmZmZmODFlMDdkMDA6IDAwIDAwIDAwIDAw
+IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwCj4gPiAwMCAwMCAwMCAwMAo+ID4gWyAgICAwLjAwMDAw
+MF0gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09Cj4KPgo+IEkgd2FzIGFibGUgdG8gcmVwcm9kdWNlIHRoZSBleGFjdCBzYW1l
+IHRyYWNlLCBJJ2xsIGRlYnVnIHRoYXQgdG9tb3Jyb3csCj4gSSBob3BlIGl0IGlzIGEgcmVhbCBi
+dWcgOikKPgo+IFRoYW5rcyBmb3IgdGhlIHJlcG9ydCBDaGF0dXJhLAo+Cj4gQWxleAo+Cj4KPiA+
+Cj4gPiBCZXN0LAo+ID4gQ2hhdGgKPiA+Cj4gPiBPbiBUaHUsIE1hciAyLCAyMDIzIGF0IDExOjI1
+4oCvQU0gQ2hhdGh1cmEgUmFqYXBha3NoYQo+ID4gPGNoYXRodXJhLmFiZXlyYXRobmUubGtAZ21h
+aWwuY29tPiB3cm90ZToKPiA+PiBIaSBBbGV4LAo+ID4+Cj4gPj4gVGhhbmsgeW91IHZlcnkgbXVj
+aCwga2VybmVsIGJvb3RlZCB1cCB3aXRoIHRoZSBwYXRjaGVzIHlvdSBtZW50aW9uZWQuCj4gPj4g
+Qm9vdHVwIHdhcyBwcmV0dHkgc2xvdyBjb21wYXJlZCB0byBiZWZvcmUgdGhvdWdoIChvbiBhIGRl
+diBib2FyZCkuCj4gPj4gSSBndWVzcyB0aGF0IGlzIGtpbmQgb2YgZXhwZWN0ZWQgd2l0aCBLQVNB
+TiBlbmFibGVkLgo+ID4+IFRoYW5rcyBhZ2Fpbi4KPiA+Pgo+ID4+IFJlZ2FyZHMsCj4gPj4gQ2hh
+dGgKPiA+Pgo+ID4+IE9uIFRodSwgTWFyIDIsIDIwMjMgYXQgMjo1MOKAr0FNIEFsZXhhbmRyZSBH
+aGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6Cj4gPj4+IEhpIENoYXR1cmEsCj4gPj4+Cj4gPj4+
+IE9uIDMvMi8yMyAwNDoxMywgQ2hhdGh1cmEgUmFqYXBha3NoYSB3cm90ZToKPiA+Pj4+IEhpIEFs
+bCwKPiA+Pj4+Cj4gPj4+PiBJIG9ic2VydmVkIHRoYXQgUklTQy1WIExpbnV4IGhhbmdzIHdoZW4g
+SSBlbmFibGUgS0FTQU4uCj4gPj4+PiBXaXRob3V0IEtBU0FOIGl0IHdvcmtzIGZpbmUgd2l0aCBR
+RU1VLgo+ID4+Pj4gSSBhbSB1c2luZyB0aGUgY29tbWl0IGFlMzQxOWZiYWM4NDViNGQzZjNhOWZh
+ZTRjYzgwYzY4ZDgyY2RmNmUKPiA+Pj4+Cj4gPj4+PiBXaGVuIEtBU0FOIGlzIGVuYWJsZWQsIFFF
+TVUgaGFuZ3MgYWZ0ZXIgT3BlblNCSSBwcmludHMuCj4gPj4+Pgo+ID4+Pj4gSSBub3RpY2VkIGEg
+c2ltaWxhciBpc3N1ZSB3YXMgcmVwb3J0ZWQgYmVmb3JlIGluCj4gPj4+PiBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9sa21sL0NBQ1Q0WStabXVPcHlmXzB2SFRUNHQzd2ttSnVXOEV6dmNnN3Y2eURW
+ZDhZT1ZpUz1HQUBtYWlsLmdtYWlsLmNvbS90Lwo+ID4+Pj4gQnV0IEkgYmVsaWV2ZSBJIGhhdmUg
+dGhlIHBhdGNoIG1lbnRpb25lZCBpbiB0aGF0IHRocmVhZC4KPiA+Pj4KPiA+Pj4gSSBwcm9wb3Nl
+ZCBhIHNlcmllcyB0aGF0IHdpbGwgYmUgaW5jbHVkZWQgaW4gNi4zIHJlZ2FyZGluZyBLQVNBTiBp
+c3N1ZXMKPiA+Pj4gaGVyZTogaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xp
+bnV4LXJpc2N2L2xpc3QvP3Nlcmllcz03MTg0NTgKPiA+Pj4KPiA+Pj4gQ2FuIHlvdSBnaXZlIGl0
+IGEgdHJ5IGFuZCB0ZWxsIG1lIGlmIGl0IHdvcmtzIGJldHRlcj8KPiA+Pj4KPiA+Pj4gVGhhbmtz
+LAo+ID4+Pgo+ID4+PiBBbGV4Cj4gPj4+Cj4gPj4+Cj4gPj4+PiBNeSBrZXJuZWwgY29uZmlnOgo+
+ID4+Pj4gaHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xajluVTdmOU14Q2NfaS1VSFVD
+VHZvN282bkRyY1V6MHcvdmlldz91c3A9c2hhcmluZwo+ID4+Pj4KPiA+Pj4+IEJlc3QgcmVnYXJk
+cywKPiA+Pj4+IENoYXRoCj4gPj4+Pgo+ID4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KPiA+Pj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+ID4+
+Pj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4+Pj4gaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+ID4KPiA+CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
