@@ -4,131 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B399C61DA4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92B2C6FD19
 	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LoOnYbCgqDBagfAw80T58T9ZuwVg9lTdoN+azerswkE=; b=i5exU+PUrJ7uU0
-	gDyu8F63MWkt+5XM73Y+C1oySgAG1XqxHnLh7ZopKxXQus2WspuQSBg2KGBAz8IiC9zgAwsOM00rC
-	TzR92k1QfKG6cQ33QjCd37Xn9xt0JG6FyTqFL4U7DtbtxIvJi0QTntVe/8Re77shUj9X/FQY1wDOb
-	HfsQLV/I4/Iuse4dYqzGMysFSIJYgtFrmwrDEtNaDBoMjSWiJL7VS64Op2+lqfV6L5cpgZ2TL0KmB
-	svDgc+ga2paZb3ZOM+X3TSstwzuiDy3Bfy1t6XMee1+SLnLh7JxG6DhAekiwuTl9rhruibs/98hKV
-	MysqAtA+GUjZ/YZRni4w==;
+	List-Owner; bh=cHy2V+3nJzCiLIlQvzEBStHJP3xR/KXqkM2wMMw9jLE=; b=y5PaUKEVTczjgF
+	vrzesVjxindrF8o1XjxPsYO2OZqJQ/jZNAOuOOewbIjkLoivRMA8qSdVbZu4zzzp1FpqlF6blQmlW
+	LUz3e3fI5pzRDiTH8/IfXc66W05tPrC73Thy95SSardXgsF5YAwAM5JAn/rsmXUxlxtsrUFwFyUM8
+	ZT8hchhw7eDPrj+M1NipsnskUerwTCsqbDndXi2sTsiDuOq18CrZ+Bd9epOCmwrOhsNxAgcjKjv+7
+	FngCNW/gZtafoJllNW5ZZhf0IZrF+pwR54/TCBV2BenoViEUgFBax/qhcusfJ7H8d3E6lIAUwySNu
+	lEezyevKFH7XXeopKsCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7z1-00CI1q-AX; Mon, 06 Mar 2023 10:22:20 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1pZ7z3-00CI2R-MY; Mon, 06 Mar 2023 10:22:21 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7yv-00CHzR-6u
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:22:15 +0000
-Received: by mail-wr1-x429.google.com with SMTP id h14so8229100wru.4
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:22:12 -0800 (PST)
+	id 1pZ7yu-00CHyw-Fq
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:22:14 +0000
+Received: by mail-ed1-x530.google.com with SMTP id ay14so32614741edb.11
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:22:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=llD45vs7BruCqN5Y6LuJ+UdeA+HWMt5VLzqATcaeE3k=;
-        b=biuy33Bk2mI4ZMPBuWVd+4iS4s3Hh5qbYt3PjTBlB6xKI3sqAN5/opSaH9Oq2FmLAj
-         /Bo+b8SV5ooGWiS/kzLE0AatJKaQQSoDImYsefz7b5oTictITyDKaFbdGHBUaody+kOH
-         Ho+ScOf9SGVsXyGS2CWJ2O+ezbS15TOBFh0MVgeTIcv93OFa65f4TG47OPXCTq07neAH
-         pPqPantWl3phD1rMQq2bMLpZlFMj7b6XLHIEPyAtb+PjzcONbalR8XfGBJufSVux/cwv
-         g/BzVUJlLgeJU7a7nSXyp6X1Dt0ohhIr8wGSwVkMa3b1H78/mrfIdl7RcOsLKEIpuH99
-         9WQQ==
+        d=gmail.com; s=20210112; t=1678098126;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hNrtJRsE6dABDiGSx7TOq0l2sTmEuXcCBgXcO3kg+/w=;
+        b=ezBMnHU7JH5JcFgDBHtf0mxNurKzwBRsUBybb11stGQgX3lSqbWsCFXKg2tTP6LJ3F
+         UDRS3i/R8NEnxKLFuij+qhSK8oL2k6lPZAzEb4NOa2CPjuhNgJaF6J3Zff+hbNRvVOo4
+         kre+grebg40q5JqzhxZ+Wv+5lAukx1xzRS39xm8fNIZM/uJ2BCy5Ia/cojoJvanvaxCW
+         rkuqiBaBCWwFyIBaCLTZr8mGqx5jeIq43mLo28v9D0mItwXl2LyF85+Sq23FS+m3whUl
+         RBmErGq5/D+HCJGqu7sIlbhzDXSYT4IH5ZHxjukkIfzUXJIlpu9mGVlNf5zZEd+PqNZ8
+         2PwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678098131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=llD45vs7BruCqN5Y6LuJ+UdeA+HWMt5VLzqATcaeE3k=;
-        b=F+bzXG3llrgddVQvJolilCcqtlnejMY/jMDOfE5+7Vge3v2lL38Ac+l/vi5NG/CNKY
-         nt0SVbcjLYI5ERVTstpL1YEgdAO7WTmNhTCAZDnbYhhh1bmk0c2XeNXaYElGOxG3Eisj
-         9q0co2dImbwJoudxC1KSOafQZw+edZRjey/NLpCu/Nup64tGSE0D1+BQNUcAethRRXj+
-         MmTHBW9e5ke6ltg3nOYfM0EVW6hnvkFWXTAVhvNU1VsruLG4f+7s7HVo+uN5nPKE5Rpl
-         2/CWndkyV1V3wHCC9bsTZx2/vFERS/fPseCol8Ni/axA2txAX4YXDzABvjOurCQIFx2e
-         HfYg==
-X-Gm-Message-State: AO0yUKUkNsTb0MN32TTCAuRQQOw8UvrbrdqqDgWK7jJoKGOLm/OD1g3A
-	nBsj6EFEEUQq4ZX5C6BXuDqeuA==
-X-Google-Smtp-Source: AK7set9CKdAXw9zT5b2S7XFTgcEiN4kPjtcCTBiE006KHZWMAQkWVtXBrm+fHU347RB7cSb9V0evYw==
-X-Received: by 2002:a5d:46c8:0:b0:2c7:df1:a09d with SMTP id g8-20020a5d46c8000000b002c70df1a09dmr6147537wrs.4.1678098131430;
-        Mon, 06 Mar 2023 02:22:11 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id h18-20020a5d4312000000b002c7107ce17fsm9587322wrq.3.2023.03.06.02.22.10
+        d=1e100.net; s=20210112; t=1678098126;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hNrtJRsE6dABDiGSx7TOq0l2sTmEuXcCBgXcO3kg+/w=;
+        b=Chs1BtlwVzqsMNhyPK1nLsUK+/HbC7IpuDHwpS312kImhRqGdo3iKy/Z5aDXT51D+N
+         Re+KymFn5qWJP8W5wqSBydPMbBvDSWTHkI9M1jFd3s+8iBXRhNWWTBO/rkjA1SdPkSEJ
+         HYkxrRFQNJovaqyMBZHTJoUXzoRXiX2N3aog0uq+nwsb9f2NtzS45jrmfKUsm+pH3tSW
+         2tIttaWOF0V9ZuFt1vG4yi1dqUqSYvEoCmVaVRmM3Z/RXu//PFsX0NsX1AYIwjwMXPpv
+         xvaoW28xazrzs5eIJDJnrdIMcRUoPWk37tWw03uL0rGwZuv+OPm/Pe2lZW67Svo3y+9p
+         NFnA==
+X-Gm-Message-State: AO0yUKWkoGE3clwk4ZPjcV7aoCbt4FBFW0MyQ2fYZuRgsrHDMttTWpEp
+	PPDMjVNQfrzwqTY9aEY7DyU=
+X-Google-Smtp-Source: AK7set+wUbFY7M3phB1lHjhvXIcWTL9OvRGQa7H3Z9KE8O9kqk1OJeI8bwA6WpZZUNlsMFGzAfmjhQ==
+X-Received: by 2002:aa7:c1c4:0:b0:4af:62af:460a with SMTP id d4-20020aa7c1c4000000b004af62af460amr11197692edp.8.1678098126517;
+        Mon, 06 Mar 2023 02:22:06 -0800 (PST)
+Received: from tom-HP-ZBook-Fury-15-G7-Mobile-Workstation (net-188-217-49-172.cust.vodafonedsl.it. [188.217.49.172])
+        by smtp.gmail.com with ESMTPSA id se18-20020a170906ce5200b008d6e551e1bcsm4366449ejb.2.2023.03.06.02.22.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Mar 2023 02:22:11 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Greg KH <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+        Mon, 06 Mar 2023 02:22:06 -0800 (PST)
+Date: Mon, 6 Mar 2023 11:22:03 +0100
+From: Tommaso Merciai <tomm.merciai@gmail.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 16/26] m68k: Remove empty <uapi/asm/setup.h>
-Date: Mon,  6 Mar 2023 11:04:58 +0100
-Message-Id: <20230306100508.1171812-17-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230306100508.1171812-1-alexghiti@rivosinc.com>
-References: <20230306100508.1171812-1-alexghiti@rivosinc.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/19] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Message-ID: <ZAW+y1CLMV7cJT+p@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
+References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+ <ZAJFpKlXPM+riuSa@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
+ <ae6ddeeb-81d3-81e5-c6ab-5d728007817d@starfivetech.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ae6ddeeb-81d3-81e5-c6ab-5d728007817d@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_022213_332897_88779F0C 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20230306_022212_554093_26E926A6 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,40 +104,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+Hi Hal,
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
----
- arch/m68k/include/uapi/asm/setup.h | 15 ---------------
- 1 file changed, 15 deletions(-)
- delete mode 100644 arch/m68k/include/uapi/asm/setup.h
+On Mon, Mar 06, 2023 at 11:29:48AM +0800, Hal Feng wrote:
+> On Fri, 3 Mar 2023 20:08:20 +0100, Tommaso Merciai wrote:
+> > Hello Hal,
+> > I start to play with jh7110-starfive-visionfive-2-v1.3b I have collect
+> > your series [3]. Now I'm trying to boot the image with the following
+> > cmds:
+> > 
+> > setenv bootfile vmlinuz;
+> > setenv fileaddr a0000000;
+> > setenv fdtcontroladdr 0xffffffffffffffff;
+> > setenv ipaddr 10.0.0.100;
+> > setenv serverip 10.0.0.1;
+> > setenv kernel_comp_addr_r 0xb0000000;
+> > setenv kernel_comp_size 0x10000000;
+> > tftpboot ${fdt_addr_r} jh7110-starfive-visionfive-2-v1.3b.dtb;
+> > tftpboot ${kernel_addr_r} Image.gz;
+> > run chipa_set_linux;
+> > booti ${kernel_addr_r} - ${fdt_addr_r}
+> > 
+> > 
+> > This the result:
+> > 
+> > Bytes transferred = 109443584 (685fa00 hex)
+> > StarFive # run chipa_set_linux;
+> > StarFive # printenv file
+> >   fileaddr filesize
+> > StarFive # printenv filesize
+> > filesize=685fa00
+> > StarFive # booti ${kernel_addr_r} - ${fdt_addr_r}
+> >    Uncompressing Kernel Image
+> > ## Flattened Device Tree blob at 46000000
+> >    Booting using the fdt blob at 0x46000000
+> >    Using Device Tree in place at 0000000046000000, end 0000000046005c14
+> > 
+> > Starting kernel ...
+> > 
+> > clk u5_dw_i2c_clk_core already disabled
+> > clk u5_dw_i2c_clk_apb already disabled
+> > 
+> > ---------------------------------------------
+> > 
+> > I'm missing something? Any hints?
+> > Many thanks in advance! :)
+> 
+> You can try the instructions at the link [1]. The branch [1] is
+> based on v2 of this series, so you need to change the dtb name
+> to "jh7110-starfive-visionfive-2-v1.3b.dtb" when using tftpboot.
+> I will send v5 and update it to [1] this week.
+> 
+> [1] https://github.com/starfive-tech/linux/tree/JH7110_VisionFive2_upstream
 
-diff --git a/arch/m68k/include/uapi/asm/setup.h b/arch/m68k/include/uapi/asm/setup.h
-deleted file mode 100644
-index 005593acc7d8..000000000000
---- a/arch/m68k/include/uapi/asm/setup.h
-+++ /dev/null
-@@ -1,15 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
--/*
--** asm/setup.h -- Definition of the Linux/m68k setup information
--**
--** Copyright 1992 by Greg Harp
--**
--** This file is subject to the terms and conditions of the GNU General Public
--** License.  See the file COPYING in the main directory of this archive
--** for more details.
--*/
--
--#ifndef _UAPI_M68K_SETUP_H
--#define _UAPI_M68K_SETUP_H
--
--#endif /* _UAPI_M68K_SETUP_H */
--- 
-2.37.2
+Thanks for your help!
+Collecting your latest 26 patches from [1] I'm able to boot the board
+using cmds suggested in your link [2].
 
+In particular I pick the following patches from your repo:
+
+11934a315b67 (HEAD -> visionfive2-minimal, tag: visionfive2-minimal-v4, origin/visionfive2-minimal) riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device tree
+c246291ed2d0 riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+53c360e87ee8 riscv: dts: starfive: Add initial StarFive JH7110 device tree
+e769528b7cd8 dt-bindings: riscv: Add SiFive S7 compatible
+1f4c7408d02a soc: sifive: ccache: Add StarFive JH7110 support
+cd1a430b56db dt-bindings: sifive,ccache0: Support StarFive JH7110 SoC
+96fcf2e390d3 dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+542c43452e08 dt-bindings: timer: Add StarFive JH7110 clint
+2b1bb27b0cff dt-bindings: riscv: Add StarFive JH7110 SoC and VisionFive 2 board
+328cac9205d2 pinctrl: starfive: Add StarFive JH7110 aon controller driver
+dd082f89c4fb pinctrl: starfive: Add StarFive JH7110 sys controller driver
+aabf6ba76b81 dt-bindings: pinctrl: Add StarFive JH7110 aon pinctrl
+f2c5025c54f9 dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+7601624bdde0 reset: starfive: Add StarFive JH7110 reset driver
+b1a2db0b97f4 clk: starfive: Add StarFive JH7110 always-on clock driver
+0b2aaa26d5c8 clk: starfive: Add StarFive JH7110 system clock driver
+2959b29a7d80 dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
+cfb65ad0957a dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+f9df80901f49 reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
+c9400fc69d3a reset: starfive: Rename "jh7100" to "jh71x0" for the common code
+8f05fdea85cd reset: starfive: Extract the common JH71X0 reset code
+28f5efaa3b06 reset: starfive: Factor out common JH71X0 reset code
+aa82ce33f593 reset: Create subdirectory for StarFive drivers
+fb87b93f6aa8 clk: starfive: Rename "jh7100" to "jh71x0" for the common code
+d73e36277d5f clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
+04611bf6db16 clk: starfive: Factor out common JH7100 and JH7110 code
+
+Hope this can help other peoples that start to play with
+jh7110-starfive-visionfive-2-v1.3b :)
+Thanks for your work!
+
+Regards,
+Tommaso
+
+[1] https://github.com/hal-feng/linux/commits/visionfive2-minimal
+[2] https://github.com/starfive-tech/linux/tree/JH7110_VisionFive2_upstream
+
+> 
+> Best regards,
+> Hal
 
 _______________________________________________
 linux-riscv mailing list
