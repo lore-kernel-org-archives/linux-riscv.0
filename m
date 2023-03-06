@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB876C6FD1A
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 22:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B53C64EC4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 22:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
 	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pOIfs650nIfWTKmBjcmRysYNXsFYItNSPAFM5i/PtpY=; b=mQcoDhS/BawRpw
-	DuBo4FrH6UAjsJ4jtNkstcQi2PaneFh9Y8flIbhvzGCWsZ5POAvuKeYRmzrMEym8l8oo2qINCm2vV
-	yW5yKLO+u1HkWrhDUdFcMbJLgRGRlzSSf0C/pRx7jlo4oswVyYtXrYbZlVCb7g1zqB+pjIo19azCb
-	QsHDGluwo1fSAd43E9W53e9GGSLwEAmfnpZ68lJuR4Jtq0oRqoakwZF5N7WaT4dv87OYNkzDazBAq
-	pTDTnVSni9ZFrcW5Lmwmamf/rQSAbjhkMSU8zUl1xAtFN1NnqAdGd+RYSewMTuD67f0LLmnFVQT8c
-	I3/mwAT5L/8rJl3Y1blA==;
+	List-Owner; bh=hzovbwA3+4KF6z8cV+X8ksL2RKMFUs797Zi55usmFh4=; b=qRBpJmJoFrhens
+	jlzNK6lwZ1cTfB4HtTiOtZ3tPKIuqei0oG5TXhdNtgGZ4n2UKhJ0c/Qn8V+NbEurzDJ48Q5esPheH
+	WI+ieQFPg4xWGhZJAvzQvH0DT9haeUX0atvvNEjjcZW0J9somZMVEiTrJoC/1A/OedTwbQBRyeVd2
+	q60Nsupu/Kup7DVU3wfGsg3RbglWSjCKZr/iOf+pE98eiE5kx46ASStiIvhfer26njtAPJJSZmUDp
+	GqAbhMIwqKXP4RigBsOEmqhMdDBg2uy7DWcXyhGnLpdyfSvMGGAtkKLP8lKkFV/W3445sFYZAp7B/
+	umpWDCqFEYnsRa6zZCHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZJSS-00FJ8x-RD; Mon, 06 Mar 2023 22:37:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pZJW9-00FJr0-Bc; Mon, 06 Mar 2023 22:41:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZJSP-00FJ7U-Cr
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 22:37:26 +0000
+	id 1pZJW7-00FJqT-1c
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 22:41:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E462860F6F;
-	Mon,  6 Mar 2023 22:37:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 454FCC433D2;
-	Mon,  6 Mar 2023 22:37:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9996160F79;
+	Mon,  6 Mar 2023 22:41:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02359C433D2;
+	Mon,  6 Mar 2023 22:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678142244;
-	bh=ikZNIXxA3bRlatWCfivxUT2xVL8WMgX6XJ1cfOvU6l0=;
+	s=k20201202; t=1678142474;
+	bh=u9uGh4pi784kK/BdrEWdlErP4vljBHvgMSyzioqQplY=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=QrFOsNUVyVo6dSpUl589Hl4QENjJvssunhxYJfuYFVzOADr4RMByRqGZOgzPAWm8R
-	 JEcGA8lgZ5ftUH+mlSyNNTkNzCocdevqsYgUOl1H2bpTYWgO2ZDJm6eyoFCHQiQ9TB
-	 56NUyq0oZt3wIokiRXN11sQGjAuY74qmO0/pw+i02n6clKu/SAv8G1k0owOY/MmS8d
-	 2RxAwqdUz3havCjVcrfZpOdCxV0KdnD51Om6hbtoYn9fUJeYg5g3X/3FaAc9d6DjMM
-	 xdYdtFHVL4FcCydFlEAQAdXT/YhdUep8LGWIcU/B/cH/R2BjwZxhnxTxytlodETJ82
-	 4/Qq4x8Dz+V0A==
-Message-ID: <39d89928de4c52d10fd98bca61b549fa.sboyd@kernel.org>
+	b=Ip9f8Hne+4n32QOvIfj1Q0VWOEfjj+Gv9Xt56nJ7n6E/U7BB6ipsGjQLEkUrkKBH5
+	 X8z6Iv/4C1kyrGgImFAWZ4PP1REHhRD9BKCE2UDsHMmMVndKqMEx7JlU/0xekKNkmh
+	 1snJPo9fNXmEwb1RsocN7MDmaX6fGXI2xpQR283vJLIbN7IU2qjLpZmZIPfKy0tZPo
+	 qNZlLibu9fYBGeO5qnLyaExJtdFY5xc4br6yReOc/06Uc3xKIK59jWwMLmeKC8TXV7
+	 8TBaql55HOU8Iyj0vUMCLTNr4AfjUuRRY8qX+hJqdojw3WqyNAG6mCsx1OEgeMJus9
+	 jfKdEk6H62jfA==
+Message-ID: <774cb6d15fef0e0b41e7a071eedef980.sboyd@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <be589843-dfc1-47dc-a488-a4fad645c638@spud>
-References: <20230301002657.352637-1-Mr.Bossman075@gmail.com> <20230301002657.352637-2-Mr.Bossman075@gmail.com> <3b0a1481873a2a7c26015fcedcc673b3.sboyd@kernel.org> <be589843-dfc1-47dc-a488-a4fad645c638@spud>
+In-Reply-To: <20230301002657.352637-2-Mr.Bossman075@gmail.com>
+References: <20230301002657.352637-1-Mr.Bossman075@gmail.com> <20230301002657.352637-2-Mr.Bossman075@gmail.com>
 Subject: Re: [PATCH v3 1/3] clk: k210: remove an implicit 64-bit division
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Jesse Taube <mr.bossman075@gmail.com>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, Yimin Gu <ustcymgu@gmail.com>, Damien Le Moal <damien.lemoal@wdc.com>, Michael Turquette <mturquette@baylibre.com>, Waldemar Brodkorb <wbx@openadk.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, kernel test robot <lkp@intel.com>
-To: Conor Dooley <conor@kernel.org>
-Date: Mon, 06 Mar 2023 14:37:22 -0800
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <Mr.Bossman075@gmail.com>, Yimin Gu <ustcymgu@gmail.com>, Damien Le Moal <damien.lemoal@wdc.com>, Michael Turquette <mturquette@baylibre.com>, Waldemar Brodkorb <wbx@openadk.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, kernel test robot <lkp@intel.com>
+To: Jesse Taube <mr.bossman075@gmail.com>, linux-riscv@lists.infradead.org
+Date: Mon, 06 Mar 2023 14:41:11 -0800
 User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_143725_491554_F5BE9896 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20230306_144115_142765_D9393282 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +72,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Conor Dooley (2023-03-06 14:35:01)
-> On Mon, Mar 06, 2023 at 02:31:00PM -0800, Stephen Boyd wrote:
-> > Quoting Jesse Taube (2023-02-28 16:26:55)
-> > > diff --git a/drivers/clk/clk-k210.c b/drivers/clk/clk-k210.c
-> > > index 67a7cb3503c3..4eed667eddaf 100644
-> > > --- a/drivers/clk/clk-k210.c
-> > > +++ b/drivers/clk/clk-k210.c
-> > > @@ -495,7 +495,7 @@ static unsigned long k210_pll_get_rate(struct clk_hw *hw,
-> > >         f = FIELD_GET(K210_PLL_CLKF, reg) + 1;
-> > >         od = FIELD_GET(K210_PLL_CLKOD, reg) + 1;
-> > >  
-> > > -       return (u64)parent_rate * f / (r * od);
-> > > +       return div_u64((u64)parent_rate * f, r * od);
-> > 
-> > The equation 'r * od' can't overflow 32-bits, right?
+Quoting Jesse Taube (2023-02-28 16:26:55)
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Yah, I checked that when writing the patch. They're 4-bit fields:
+> The K210 clock driver depends on SOC_CANAAN, which is only selectable
+> when !MMU on RISC-V. !MMU is not possible on 32-bit yet, but patches
+> have been sent for its enabling. The kernel test robot reported this
+> implicit 64-bit division there.
+> 
+> Replace the implicit division with an explicit one.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Link: https://lore.kernel.org/linux-riscv/202301201538.zNlqgE4L-lkp@intel.com/
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
+> ---
 
-Awesome
+Seems better to merge this one-liner earlier to unblock 32-bit.
+
+Applied to clk-fixes
 
 _______________________________________________
 linux-riscv mailing list
