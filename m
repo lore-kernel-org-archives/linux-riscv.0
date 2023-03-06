@@ -4,115 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 815FFC64EC4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 20:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385F5C6FD1A
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 20:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AdcFy4x3WWJvfoqk1InUMIDNO9fPAGE0cDyrlUv9+Ps=; b=SxF0eRq7Cz8nvp
-	YlGdXPl8B5rs+v6vOd0C4ZsRAoQU9V6kisrdFDlazoXjUUtByUCfV4xX4Yf8tgkygCAYO3fcorLkc
-	O+2KkK1FiJJNk6Ul4DNZcrw9ygH6bIiBpfzJPShDYC4Tzt8ceyUfMsHJ3UAjmH4t0VxL6Himmw6ax
-	K9j8UQN8sl4TFhPRMg82Hhbp2a7Y0XZ4mc+kNS6D+ASoEl/anj6pHf04089SKYHJYXtnob5Y1n2+v
-	VK7b/6fGXdbi3bBdTg1SPFLdGTiTTpcgjXFCp9xxPWPFRIBjH0WRyhEsl+61be6tCBCuRqQjmH93Z
-	w8QconE2ZXQfzFZQkaeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ulCSFxHfdtx0t7P14MShpyc1DZ28jxiuiPS9UzTkGkg=; b=fNtroMabhKrtTWHkGwLyUXEZ6D
+	V42XAuh7Z1Zs+A4dDxLbc6tVVUgDJppzFQfcDVZ2pvlh8LEtpbH8HMgK0a9jMROk2tmVax2h6L2HV
+	oZHp4O1vPBUOl98U6N9rA4F17LAgfgL1jzzD0kzszJvhNIgDWxT5IbC7N8dz8zukALxZsRTYxjWgF
+	TKvhgjHNxIKixjq82wP4KYZNtQspDUBAkRuXSKBwb4lK1Dy7Uo+BtLmJ1o10e82a1iWLtqBjfGlVR
+	OeiffhFDcn29PIfD1j2j+8JPaPG4rrpzZzrBaIbWJ5wcp8jKKxgkBH4cDSSM9qYTRGfJCMBWlNOCi
+	FhecjMMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZHKB-00EtEA-6l; Mon, 06 Mar 2023 20:20:47 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1pZHQB-00Evc5-4i; Mon, 06 Mar 2023 20:26:59 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZH10-00Ejp3-E7; Mon, 06 Mar 2023 20:01:11 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 6-20020a17090a190600b00237c5b6ecd7so14268005pjg.4;
-        Mon, 06 Mar 2023 12:00:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678132856;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uXR1hBuNmG/TwC91AeVvsW1UVH/MwkAfhUSEnuvNaoY=;
-        b=o6hZefnQYEnFw3COvoTdyyoXo9Zv4P0LTShB301lkw0/gGr+x1ou0XeYCSdcXXLXoz
-         Ie/lwSIsRhh9vBh4c56fFPeCbh1Mg/u0f+SLHuOsNnA01L3iQxuD6tKvCodPDyUeqcUA
-         ipzyAtvRXWR1nR5U0W8m7xh6fPIYtpAYIZVYRkCJb0GTxixFtDSEeec8W6O4TIR9SFvb
-         8TyLwk+heXtYmzhntJcZ54SphmylZPrikYFa1PRdJ8V5j+VefclzJKcG1hcN/EBRiJ2z
-         A5LjdstbOHhVHAVRXA7o2dTcBNuVBc27QoVtU1tjX+Yepbtmilj428R4Os2Xd6WiLWnA
-         Of4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678132856;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uXR1hBuNmG/TwC91AeVvsW1UVH/MwkAfhUSEnuvNaoY=;
-        b=H5gT6SrH83dk84HDWz55nSvIa30b0VmGlZCrfLWOya85LSa0w8rY3wzkmnKsdmBC5H
-         RuYpHDiHy4PgsFngp3bUvNA3AhsI2Zc2FqQ9HXKn2L1NW0ZCA4kwxaq5J/M2uGM/+kQb
-         ZzUrEPOAO5FOyKsWWpt3alt9vEAV/CszXGvBklC5C0lLPqqsK6XAj8XmrbZ9oYW9G7Ye
-         jZypaEOorifSY2ivn5dZwCeXNhYop6viP2kvasVRaR0DcqeTUcdoIGSSY3sKYPhZvT2L
-         XVU0NPb+l+OlSm6eegHOejK+y3voOFa5v4WNlVZVQe8XuOkKfXljUTlcne+npkQRLq29
-         oRjw==
-X-Gm-Message-State: AO0yUKUCU+qf/V4C1spRQynG3kgfREjgg4YJeg6UQpBsDPdCACqei/Q5
-	tV1H5WsqLXa8w4UCSiKztaf3VLq0WL1rrdTShqI=
-X-Google-Smtp-Source: AK7set/DxZtiZhO+z+A0Is7yokDniYYkETavBEcleYa7IPSvIEQBIV7zty9Y+UWe1CWFM73JZ5CBgh34wQSFC4iK+eg=
-X-Received: by 2002:a17:90a:5993:b0:233:b520:1544 with SMTP id
- l19-20020a17090a599300b00233b5201544mr6625621pji.0.1678132856231; Mon, 06 Mar
- 2023 12:00:56 -0800 (PST)
+	id 1pZHQ8-00EvaW-Gp
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 20:26:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E20B9B81107;
+	Mon,  6 Mar 2023 20:26:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD787C433D2;
+	Mon,  6 Mar 2023 20:26:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678134413;
+	bh=IgrsSBvQN4ROvRo5O3phazhRtEEiAn3qxcpkRoyKDvE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AWMLE5PfWhbV12VdnLkTA8CFqUi7eNYS3U7vVBLBRDJ7GOR8hm0h+Ys2xK4tjwVzG
+	 fEKUEJv/qzaWx3dsYNNvGsGhW07KHuvdad81fYXpI4FB/asY/svnX/gUkpflDD6drM
+	 sUhh13qetPkAvYTO+JLZVCNBIjsYCMQyjE6akilIDjCSnkksi86kLqnCKGK8nr2fER
+	 B3onZiM2rDcUbKWxqtJ+NFrfvpJ8QLWOaiuFgZ67ONa+8dA4tmDZMImL4wxSc7NMiy
+	 7HWpSdasoKYMZe+7m1vbIkPKo+aYVAdxj4/RoqED/k9GiGk82lxAxL15TNfoPQVLbB
+	 rtR7bF2dVMLaA==
+Date: Mon, 6 Mar 2023 20:26:47 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V3 12/20] RISC-V: cpufeature: Add ACPI support in
+ riscv_fill_hwcap()
+Message-ID: <ea37af34-ccb9-4b6a-a67c-a17f03fc0311@spud>
+References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+ <20230303133647.845095-13-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-References: <20230306172109.595464-1-amit.kumar-mahapatra@amd.com> <20230306172109.595464-10-amit.kumar-mahapatra@amd.com>
-In-Reply-To: <20230306172109.595464-10-amit.kumar-mahapatra@amd.com>
-From: Jonas Gorski <jonas.gorski@gmail.com>
-Date: Mon, 6 Mar 2023 21:00:44 +0100
-Message-ID: <CAOiHx=nmsAh3ADL3s0eZKpEZJqCB_POi=8YjfxrHYLEbjRfwHg@mail.gmail.com>
-Subject: Re: [PATCH V5 09/15] spi: Add stacked and parallel memories support
- in SPI core
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-Cc: broonie@kernel.org, miquel.raynal@bootlin.com, richard@nod.at, 
-	vigneshr@ti.com, jic23@kernel.org, tudor.ambarus@microchip.com, 
-	pratyush@kernel.org, Sanju.Mehta@amd.com, chin-ting_kuo@aspeedtech.com, 
-	clg@kaod.org, kdasu.kdev@gmail.com, f.fainelli@gmail.com, rjui@broadcom.com, 
-	sbranden@broadcom.com, eajames@linux.ibm.com, olteanv@gmail.com, 
-	han.xu@nxp.com, john.garry@huawei.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, narmstrong@baylibre.com, khilman@baylibre.com, 
-	matthias.bgg@gmail.com, haibo.chen@nxp.com, linus.walleij@linaro.org, 
-	daniel@zonque.org, haojian.zhuang@gmail.com, robert.jarzmik@free.fr, 
-	agross@kernel.org, bjorn.andersson@linaro.org, heiko@sntech.de, 
-	krzysztof.kozlowski@linaro.org, andi@etezian.org, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, wens@csie.org, jernej.skrabec@gmail.com, 
-	samuel@sholland.org, masahisa.kojima@linaro.org, jaswinder.singh@linaro.org, 
-	rostedt@goodmis.org, mingo@redhat.com, l.stelmach@samsung.com, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	alex.aring@gmail.com, stefan@datenfreihafen.org, kvalo@kernel.org, 
-	james.schulman@cirrus.com, david.rhodes@cirrus.com, 
-	tanureal@opensource.cirrus.com, rf@opensource.cirrus.com, perex@perex.cz, 
-	tiwai@suse.com, npiggin@gmail.com, christophe.leroy@csgroup.eu, 
-	mpe@ellerman.id.au, oss@buserror.net, windhl@126.com, 
-	yangyingliang@huawei.com, william.zhang@broadcom.com, 
-	kursad.oney@broadcom.com, anand.gore@broadcom.com, rafal@milecki.pl, 
-	git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com, 
-	fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
-	avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com, 
-	venture@google.com, yuenn@google.com, benjaminfair@google.com, 
-	yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org, 
-	alim.akhtar@samsung.com, ldewangan@nvidia.com, thierry.reding@gmail.com, 
-	jonathanh@nvidia.com, michal.simek@amd.com, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-wpan@vger.kernel.org, libertas-dev@lists.infradead.org, 
-	linux-wireless@vger.kernel.org, linux-mtd@lists.infradead.org, 
-	lars@metafoo.de, Michael.Hennerich@analog.com, linux-iio@vger.kernel.org, 
-	michael@walle.cc, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
-	alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
-	linuxppc-dev@lists.ozlabs.org, amitrkcian2002@gmail.com
+In-Reply-To: <20230303133647.845095-13-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_120059_561694_F652AB3C 
-X-CRM114-Status: GOOD (  22.22  )
-X-Mailman-Approved-At: Mon, 06 Mar 2023 12:20:25 -0800
+X-CRM114-CacheID: sfid-20230306_122656_733608_11CCA3AA 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,68 +81,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8825942917099006812=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, 6 Mar 2023 at 18:26, Amit Kumar Mahapatra
-<amit.kumar-mahapatra@amd.com> wrote:
->
-> For supporting multiple CS the SPI device need to be aware of all the CS
-> values. So, the "chip_select" member in the spi_device structure is now an
-> array that holds all the CS values.
->
-> spi_device structure now has a "cs_index_mask" member. This acts as an
-> index to the chip_select array. If nth bit of spi->cs_index_mask is set
-> then the driver would assert spi->chip_select[n].
->
-> In parallel mode all the chip selects are asserted/de-asserted
-> simultaneously and each byte of data is stored in both devices, the even
-> bits in one, the odd bits in the other. The split is automatically handled
-> by the GQSPI controller. The GQSPI controller supports a maximum of two
-> flashes connected in parallel mode. A "multi-cs-cap" flag is added in the
-> spi controntroller data, through ctlr->multi-cs-cap the spi core will make
-> sure that the controller is capable of handling multiple chip selects at
-> once.
->
-> For supporting multiple CS via GPIO the cs_gpiod member of the spi_device
-> structure is now an array that holds the gpio descriptor for each
-> chipselect.
->
-> Multi CS support using GPIO is not tested due to unavailability of
-> necessary hardware setup.
->
-> Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-> ---
->  drivers/spi/spi.c       | 213 +++++++++++++++++++++++++++-------------
->  include/linux/spi/spi.h |  34 +++++--
->  2 files changed, 173 insertions(+), 74 deletions(-)
->
-> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-> index 5866bf5813a4..8ec7f58fa111 100644
-> --- a/drivers/spi/spi.c
-> +++ b/drivers/spi/spi.c
-> @@ -613,7 +613,8 @@ static int spi_dev_check(struct device *dev, void *data)
->         struct spi_device *new_spi = data;
->
->         if (spi->controller == new_spi->controller &&
-> -           spi_get_chipselect(spi, 0) == spi_get_chipselect(new_spi, 0))
-> +           spi_get_chipselect(spi, 0) == spi_get_chipselect(new_spi, 0) &&
-> +           spi_get_chipselect(spi, 1) == spi_get_chipselect(new_spi, 1))
->                 return -EBUSY;
+--===============8825942917099006812==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="a8PADbTt3DS+5vFB"
+Content-Disposition: inline
 
-This will only reject new devices if both chip selects are identical,
-but not if they only share one, e.g. CS 1 + 2 vs 1 + 3, or 1 + 2 vs
-only 2, or if the order is different (1 + 2 vs 2 + 1 - haven't read
-the code too close to know if this is allowed/possible).
 
-Regards,
-Jonas
+--a8PADbTt3DS+5vFB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 03, 2023 at 07:06:39PM +0530, Sunil V L wrote:
+> On ACPI based systems, the information about the hart
+> like ISA is provided by the RISC-V Hart Capabilities Table (RHCT).
+> Enable filling up hwcap structure based on the information in RHCT.
+>=20
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+
+With Drew's split out of the riscv_of_processor_hartid() removal and his
+acpi_get_riscv_isa()-takes-a-cpu suggestion:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--a8PADbTt3DS+5vFB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAZMhwAKCRB4tDGHoIJi
+0nABAQCnF38Bn91wkehg27V7pP0e84DW4kc9w5CHtUNPsU8ruAEAkX7FZy7UJEOR
+dWOFx+i4IeK+2UNEiKaPlMuO32y/xAY=
+=bGRd
+-----END PGP SIGNATURE-----
+
+--a8PADbTt3DS+5vFB--
+
+
+--===============8825942917099006812==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8825942917099006812==--
+
