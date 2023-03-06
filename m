@@ -4,131 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23DDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB347C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=19EQzd6vZGA6Iw7CAowlJS5eHKX/vOwzUNjzkrWJo6s=; b=OQGU4Mcw4NnRN0
-	qNMMvzySSaQnPKnsNVdpZwoxbwskxmDQ6iHnv6HK4njpsR/pn48a6z87rT4tvXcniIKnxAZt4ZLI2
-	TBH2yh4O66w/jGkyPHSWAe63sHknpqUoLCz2S3Z/o1ZXJhYN/pd61zGray73UyVpzboh4BLZz+4sw
-	myTY7i0kx3UU9zBSEFasDSk8T6f7Gv4U5OKlecUw1zegqH2anvkLVnHSUCZ3xUKKO0fAtgnoH4SKj
-	mXR6dHx3zpoAnifNwpVUQE0Gnw4Qa8qi/9fiAwf8q8hRGt9bSYyVEi6diQiscIzPDFl1YfKy0a4fy
-	n+3EgjJMC+Z/HrpB6goA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/2dyQpMT+vumUipfZLndn51W9fCVqt0yDmm53ztvtp8=; b=GUDI9QkB5h01n0oUZOLCgb7NCs
+	Gl849CEcomwfVLhl8atkg0aHjeIC3CQ6D4GqNZE7gUFfm6EjkXorceORq2/34ol7/ir4ejTxPKJHJ
+	XpPzZ/W7S0OUZ6Th0/bi7N3NkmZHbXlxUVEa3GJaGgjWyzcYIwb/h2H1WCbf5XYSrWr/JamSPRBCO
+	vXQ5v9uT4d1wPc5FTjxbn2LKtLEzTZKiz8CMjSpKsYEVNOoEMfMc7JK80vKTw9IM4xBtZ55MErRS+
+	D6qfe7mBTjT8ExERHv2w7hbZyWuw2f2rEWVKvPMC39mso3Za5iZ/7BjEE210tGEE+v4/C4UEUtoMJ
+	EVMjGCsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7zz-00CIHs-Qz; Mon, 06 Mar 2023 10:23:19 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pZ80k-00CIWx-2b; Mon, 06 Mar 2023 10:24:06 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7zw-00CIFi-AQ
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:23:18 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id m25-20020a7bcb99000000b003e7842b75f2so4847095wmi.3
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:23:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098193;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bZl2MGTEHXobHnZZhmOouSAyxqbSE7xaVKrZmF7qt7s=;
-        b=NESzTJWLCuHvu2jDkZyWMECt8+ZgfQONb6h/TRsXr6VUD2HAeHDlqcM6Nthqqzkz7v
-         /XzQ0rJtzBQq7CiTOze5MfNbbRu+4/8ZbEx65dW2nXha3bQrnvST4jywyqdEwtoF3G/Y
-         tgxUawKTlFnYdfTlJSZeQ3PFy6wWBsoynk1CnOEchdF+Rq8alIT4bCVA2qc9gxo0zG4C
-         Zp/r07Uybcy8dUydQmsV+MrCxCwVTedO01H+NQvIWOXLGvNi9DdOiMJuST85gbnwmuUI
-         MRTr4SS8W1qczqXPJZwRcOGFC/gmtHrrzzzm45Bn5AIgdPSPCis/l7v34L/4UnIDvP1K
-         YOzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678098193;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bZl2MGTEHXobHnZZhmOouSAyxqbSE7xaVKrZmF7qt7s=;
-        b=3PpW+mCdmuV1RKSYiHqKwPuFxJLJgTfrbvB3dGaOH7nFcJB7AiXNP23s4crGWRyES/
-         jd9nIPXu6b3IMrb+oFud6Iql5UNncshb9Slx1+6FmMsrAogfJmlHiedsOn2D9cGMn1Yq
-         nFbzC3tHJ3on7idi4qECI/676ioo4TdtIY+8XQ9Hd7JLuEMDjH1DuE77fCbjwO3faQyG
-         Kq9GaMxazb/wOwVIEDfk5/5GvNRErhHd5EE/pF9By6qrrznq1YN7prMPcakbpN/4lJlN
-         BLKFs+cdJkLYCqL7m9IpxjJLMj41SrlDc/cFOxzzJx7uKPBlu4fumActBtR5Kz6llYOd
-         qK+w==
-X-Gm-Message-State: AO0yUKXBox2N8YkplgQ6Wsoh9RaR5c8acf6zznAqnhztYc0jym/1bmNf
-	AwCAVKXTikWlkHEIvGHUl7PU6A==
-X-Google-Smtp-Source: AK7set9vWVaVCOOnIsSW+KUGTszYaZVeSK3EcYRFpJTaLv/dYXycsieLeu7NM1JRjz4B48GZSjlpmw==
-X-Received: by 2002:a05:600c:4ecb:b0:3e7:b17f:9af1 with SMTP id g11-20020a05600c4ecb00b003e7b17f9af1mr8981864wmq.22.1678098193096;
-        Mon, 06 Mar 2023 02:23:13 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id n18-20020adfe352000000b002c567881dbcsm9415027wrj.48.2023.03.06.02.23.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Mar 2023 02:23:12 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Greg KH <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 17/26] arm64: Remove empty <uapi/asm/setup.h>
-Date: Mon,  6 Mar 2023 11:04:59 +0100
-Message-Id: <20230306100508.1171812-18-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230306100508.1171812-1-alexghiti@rivosinc.com>
-References: <20230306100508.1171812-1-alexghiti@rivosinc.com>
+	id 1pZ80e-00CIVF-RO; Mon, 06 Mar 2023 10:24:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678098240; x=1709634240;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fAROdIHL4rwOPVUkhhOPISkKYjWoQ2xKz6j6/njHS2w=;
+  b=Iwr2XJkGXYs6uzQvFXUzaBpO3YFsqYTME1ny1B7mjlLPLCypeKjaShGX
+   pGOO6KtoA9SO3idBZiLlUJFGcLps0TitxXj8CTHcehsXz/4qwTpeORyYn
+   AB6z2APedAc2iuy7+kENdsG8rnooN1Otu64oqS/zcTQxwOuABqg9oyD9g
+   Cl8AxwRUKPVStZtCEcgQXJYdcwi3sAoNlkSScazNhtW6ZAlQvxt6I7fmq
+   oKQbP7AWI4FKaYx7t1nFW2BGECrykgAIbf7OQHLG9x2tCR6s+VqupG3A+
+   nSSSW+fVYFPeomnSmazE9R6w+I+gP34lCGlI7raxccs/mQ3aDcgtTrrEe
+   A==;
+X-IronPort-AV: E=Sophos;i="5.98,236,1673938800"; 
+   d="asc'?scan'208";a="203456799"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Mar 2023 03:23:41 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Mon, 6 Mar 2023 03:23:41 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Mon, 6 Mar 2023 03:23:38 -0700
+Date: Mon, 6 Mar 2023 10:23:10 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Minda Chen <minda.chen@starfivetech.com>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak
+	<pawell@cadence.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter
+ Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Aswath
+ Govindraju <a-govindraju@ti.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 0/3] Add JH7110 USB driver support
+Message-ID: <ZAW/DqprkKaop4bg@wendy>
+References: <20230306095212.25840-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <20230306095212.25840-1-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_022317_565048_59A118DA 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20230306_022401_271727_2A1D65BE 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,56 +82,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0908909985783600944=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+--===============0908909985783600944==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zMsznMw5/Z/x33K0"
+Content-Disposition: inline
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/arm64/include/uapi/asm/setup.h | 25 -------------------------
- 1 file changed, 25 deletions(-)
- delete mode 100644 arch/arm64/include/uapi/asm/setup.h
+--zMsznMw5/Z/x33K0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/include/uapi/asm/setup.h b/arch/arm64/include/uapi/asm/setup.h
-deleted file mode 100644
-index f9f51e5925aa..000000000000
---- a/arch/arm64/include/uapi/asm/setup.h
-+++ /dev/null
-@@ -1,25 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
--/*
-- * Based on arch/arm/include/asm/setup.h
-- *
-- * Copyright (C) 1997-1999 Russell King
-- * Copyright (C) 2012 ARM Ltd.
-- *
-- * This program is free software; you can redistribute it and/or modify
-- * it under the terms of the GNU General Public License version 2 as
-- * published by the Free Software Foundation.
-- *
-- * This program is distributed in the hope that it will be useful,
-- * but WITHOUT ANY WARRANTY; without even the implied warranty of
-- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- * GNU General Public License for more details.
-- *
-- * You should have received a copy of the GNU General Public License
-- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-- */
--#ifndef __ASM_SETUP_H
--#define __ASM_SETUP_H
--
--#include <linux/types.h>
--
--#endif
--- 
-2.37.2
+Hey Minda!
 
+On Mon, Mar 06, 2023 at 05:52:12PM +0800, Minda Chen wrote:
+> This patchset adds USB driver for the StarFive JH7110 SoC.
+> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+> The patch has been tested on the VisionFive 2 board.
+>=20
+> This patchset should be applied after the patchset [1] and patch [2]:
+> [1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfiv=
+etech.com/
+> [2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfi=
+vetech.com/
+>=20
+> patch 1 is usb phy dt-binding document.
+> patch 2 is the glue layer of Cadence USB3 and USB phy
+> setting. USB controller IP is Cadence USB3.=20
+> patch 3 is USB device tree configuration.
+>=20
+> Minda Chen (3):
+>   dt-bindings: phy: Add StarFive JH7110 USB dt-binding
+>   usb: cdns3: add StarFive JH7110 USB glue layer
+>   dts: usb: add StarFive JH7110 USB dts configuration.
+
+Unfortunately, this patchset hasn't really landed correctly.
+Usually, in a series, patches are sent as replies to the cover letter.
+Git's send-email will do this for you if you pass it multiple patches
+and a cover letter (I do it by passing a directory, eg patches/foo/v1)
+
+It appears that you have sent each patch separately, and to different
+recipients, which makes this harder to review.
+Please re-submit this with proper threading (and as v2 ideally, so that
+Greg's bot doesn't complain).
+
+Thanks,
+Conor.
+
+--zMsznMw5/Z/x33K0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAW/DgAKCRB4tDGHoIJi
+0n+0AQD+Y8MI2RJ1ehfJEWSWYTvb547GcgP/f/R0S9BcWwWn8wEAynmRcm59mWRh
+Rz7uCk7KLQh077VMvMhoUxx305X21gU=
+=u/Bd
+-----END PGP SIGNATURE-----
+
+--zMsznMw5/Z/x33K0--
+
+
+--===============0908909985783600944==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0908909985783600944==--
+
