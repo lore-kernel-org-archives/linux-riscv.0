@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4AFC6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43289C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U92woJ+7/Cz7h0hTEvnRIIWF1L3zHKJuUot6j373M/o=; b=miPjhYoW58WoVa
-	CJUnq78Uy028JNbmQ7jqUi6dSNpkZpfgIuOvPYoSANTi+3NyYI6oCg5OSy6pqHUWQLBrrVgtTQXpY
-	qw0QmFQvFx3eemW7i1W2Cx7B2QeE9XAhkkyT5YsXlgJrQ09q49OZ4/QHiT3/UNUGVzxAlGRaxwHEs
-	itU3bfU4zdQFAzVGToc9d1+eycHOIvPdFgKlOmGur7GAv/qy0vK7mDHx9OPzLoxe+2UtSYS9CRoMN
-	ouSKBMtWh7l1bEqJVuG6k//BBEl/dgSJHMUqaEkGf1KtrsyPycNFSSbof/6HNmeRmbzER34uzO/o+
-	tDVirgUGAjdPxQVDqP7A==;
+	List-Owner; bh=V6TZXVytG3/ZtUKynd6tKKUrKPS+eeFefpNjFlfkIHY=; b=pv6H7SledvjaFH
+	h7gmdE7dNqLS1xlNYw8VnHK61ufaF9tvMzXF2Qun0m7c5dvxVDOd8IBEX5KHLGcYGxjpXP14WwHnM
+	oB3QazghNw4be11NzF76I6xNilk79EZZk+/Niuh2Sk8QAYTJDoQpSIiltYbTg1+LbCjR9EQUQkI8p
+	tDV4l0GOv9/R8RWM2aXhLKlcBp8LD1/RdPpxHi+bvmwFMyLYvQ4e9HyMgdpaEXmHugrqmfnRmmXsr
+	uH79mxdQAmvpYzu4JX+pMO5ueOc5IVfJ6KfW6YfSz/hXXCt9xiZGk9pab8JqY+1EJjrVQI5ZlZJ7w
+	74lWp0B6cxNsN89z0daA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ86w-00CKBA-2b; Mon, 06 Mar 2023 10:30:30 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pZ87v-00CKU0-Dq; Mon, 06 Mar 2023 10:31:31 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ86s-00CK9D-TS
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:30:28 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id j19-20020a05600c1c1300b003e9b564fae9so7819547wms.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:30:26 -0800 (PST)
+	id 1pZ87s-00CKSa-7e
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:31:29 +0000
+Received: by mail-wm1-x332.google.com with SMTP id p26so5280557wmc.4
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:31:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098625;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098687;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BXAvkdr/KDgKti1Qk0fGZtxrB/HUuKAsHe829QuSuFY=;
-        b=pgS35aCdmrPQvRmz+iyfEoK2FRpACPPCY0MT6mFvJKkIUhbtwnSzkh1nDZ4dLg4N66
-         6ZVDArxRLTZLYfBKXHPjVVXFk3ykL/Ll+SunOskkjFEC44CCkzVmJzYhiA/SpJcgPsXD
-         iaxTAEzNvivOqXbfNob2LDlmKw0ZcaqlzVRuIFVk8cR0s+FUBB5x+NoBb99m7FdgTTah
-         vZAnZAMHkL7V18QXzPHaCpzGGQWELRiT2WyIpZNXSgzp7qcnCjdjYhSVinAF3g/DsyXX
-         44dOQ7eQm940d/z5SFQ+4xJwQrGMZMea8UaCvouMgKgVikT1M0ZwEubwwnmdMLP5t9Zo
-         iu4g==
+        bh=iBrHhQ+ENLcTDHZblgvw5cJviEIcUkQODsWe9Dpzcfk=;
+        b=dMG398VnS6d7Sp/v2WHmOoLb1Pl0DUkmJwFGFlaFFE2NBSpl3bfx7goOgx/bA/e+eT
+         JlGXkZ/YKC5/CAaUgrAgf2hwRlXoi/w09fk+d6JbzRsi1xEOvnET1ZtQw1GHTDzGO9Kc
+         4tpVQXj5bbt90ZEPTxaGams7zZPu/WPnuP8OFNZQ10jn8lYY76GXgznimwmVX0LnUN36
+         +jRh0o9oGjoo103N9nKFb3gVEbdh9sBKJ7FOEhJBNFyEiOBkSLl1OpmtwlekjwfER05t
+         fJR2GSWXVNdO1/cuJA3g80GcEhaj/voiZrBUwN52fql9jSz5wH4gJd9Czzz14Ra75Rbq
+         MY0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678098625;
+        d=1e100.net; s=20210112; t=1678098687;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BXAvkdr/KDgKti1Qk0fGZtxrB/HUuKAsHe829QuSuFY=;
-        b=0HIWqBHUMLfijzHDUPJtYP4nwxkpli9iQXrmrGiJMvo6w1cLm20rPZjWs5u/kBUSF4
-         dHMwUfV3SGXYgdHATmfkScuv+5NXTxOwFg6oVKV4Vmye/lA6X2p1bCMgECf0YgHV6r+b
-         Wffk9GdSh+xSGenwZpXqDuCDj3rV5F67VB8Hx/kK4gtutc00ukL45ZF/iqeUafm2NWVD
-         k/Ou0+60hXxI78+9vgPKZwXdgptwdB23TjVpmdiaBW7/DRMBjzW6q/V9+trovD4L89It
-         nVxKNCAYBmG1Tc9DzOH+jLckE6VxRTnoE8db9xTqILxhdkhZtqduBtRhuvAHwpx/Z+DG
-         AE3w==
-X-Gm-Message-State: AO0yUKXaKfp2gT25U0n9LpEryJkRJL2y1isv8tCzWgb7Wl3+GKtOnnER
-	m2kU4m3cKRycINKGWZoypOpvdA==
-X-Google-Smtp-Source: AK7set9mPKitCfuwffMa4942mc5rcJfQ8KgUB3nP8TvnUmyeh9L6WaWHYflu+MFIUn26b3DlN/zC2w==
-X-Received: by 2002:a05:600c:4ece:b0:3de:d52:2cd2 with SMTP id g14-20020a05600c4ece00b003de0d522cd2mr9065487wmq.4.1678098625091;
-        Mon, 06 Mar 2023 02:30:25 -0800 (PST)
+        bh=iBrHhQ+ENLcTDHZblgvw5cJviEIcUkQODsWe9Dpzcfk=;
+        b=NJh959yffonXpU6qA23PDaIvwn+Z3iRUPyfK//d0bPq8BNVrnai32v9ihxWt6v9cpr
+         66IkR8hemPsYasSW1FpHfzBJfSFA2b2x4Idl6H+9reXI/UCZXn6FqfCpD7AgJaBmDmPJ
+         7yNgBX44pB5rmgbzkeY7/fWRfDu7O4geHxZvwYdnQ4XyhuExGwJ7VNHoS62aziYJ9Yvn
+         LxRv4UXhKuCfYp7yo7j38CcvWqu1q61P/LaRNiT8WLL5U7KoN+n0cL0RNh1Jdp6kBN/u
+         iAmXQrif+owJ1SlbOUWIgbVQpCmkaUprs+J2jHz4+HbZfV+8wSM2lfmZSEAr6CQF+C+2
+         TTiA==
+X-Gm-Message-State: AO0yUKUGd1X4DHtOBZsE0Jyob9xoAhBYBeHXYBp/dcV4NJZiqbFy9EAX
+	hbeGGNZ/n883I9f8paZlFTOkUw==
+X-Google-Smtp-Source: AK7set+mfsESm6FhCUVbPpBS4o2ZwfEIZrHS0GSjjE7LL6WnlaHBrOa5vkgBJgbjhYrNsG8jr1kFSQ==
+X-Received: by 2002:a05:600c:3550:b0:3ea:bc27:6a64 with SMTP id i16-20020a05600c355000b003eabc276a64mr8765213wmq.10.1678098686828;
+        Mon, 06 Mar 2023 02:31:26 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id y33-20020a05600c342100b003e21f20b646sm9913265wmp.21.2023.03.06.02.30.23
+        by smtp.gmail.com with ESMTPSA id h17-20020a05600c351100b003e4326a6d53sm14498645wmq.35.2023.03.06.02.31.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Mar 2023 02:30:24 -0800 (PST)
+        Mon, 06 Mar 2023 02:31:26 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Greg KH <gregkh@linuxfoundation.org>,
 	Jonathan Corbet <corbet@lwn.net>,
@@ -118,18 +118,18 @@ To: Greg KH <gregkh@linuxfoundation.org>,
 	linux-xtensa@linux-xtensa.org,
 	linux-arch@vger.kernel.org
 Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 24/26] mips: Remove empty <uapi/asm/setup.h>
-Date: Mon,  6 Mar 2023 11:05:06 +0100
-Message-Id: <20230306100508.1171812-25-alexghiti@rivosinc.com>
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>
+Subject: [PATCH v5 25/26] s390: Remove empty <uapi/asm/setup.h>
+Date: Mon,  6 Mar 2023 11:05:07 +0100
+Message-Id: <20230306100508.1171812-26-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230306100508.1171812-1-alexghiti@rivosinc.com>
 References: <20230306100508.1171812-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_023026_961736_42CFBC88 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230306_023128_301680_7CBEB6F2 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,36 +141,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
-
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/mips/include/uapi/asm/setup.h | 5 -----
- 1 file changed, 5 deletions(-)
- delete mode 100644 arch/mips/include/uapi/asm/setup.h
-
-diff --git a/arch/mips/include/uapi/asm/setup.h b/arch/mips/include/uapi/asm/setup.h
-deleted file mode 100644
-index 157c3c392fb4..000000000000
---- a/arch/mips/include/uapi/asm/setup.h
-+++ /dev/null
-@@ -1,5 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
--#ifndef _UAPI_MIPS_SETUP_H
--#define _UAPI_MIPS_SETUP_H
--
--#endif /* _UAPI_MIPS_SETUP_H */
--- 
-2.37.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+CgpTaWduZWQtb2ZmLWJ5
+OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogQWxl
+eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgpBY2tlZC1ieTogSGVpa28gQ2Fy
+c3RlbnMgPGhjYUBsaW51eC5pYm0uY29tPgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1E
+YXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgotLS0KIGFyY2gvczM5MC9pbmNsdWRlL2FzbS9zZXR1
+cC5oICAgICAgfCAxIC0KIGFyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmggfCAxIC0K
+IDIgZmlsZXMgY2hhbmdlZCwgMiBkZWxldGlvbnMoLSkKIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNo
+L3MzOTAvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oCgpkaWZmIC0tZ2l0IGEvYXJjaC9zMzkwL2lu
+Y2x1ZGUvYXNtL3NldHVwLmggYi9hcmNoL3MzOTAvaW5jbHVkZS9hc20vc2V0dXAuaAppbmRleCAx
+NzdiZjZkZWFhMjcuLjk5YzFjYzk3MzUwYSAxMDA2NDQKLS0tIGEvYXJjaC9zMzkwL2luY2x1ZGUv
+YXNtL3NldHVwLmgKKysrIGIvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3NldHVwLmgKQEAgLTcsNyAr
+Nyw2IEBACiAjZGVmaW5lIF9BU01fUzM5MF9TRVRVUF9ICiAKICNpbmNsdWRlIDxsaW51eC9iaXRz
+Lmg+Ci0jaW5jbHVkZSA8dWFwaS9hc20vc2V0dXAuaD4KICNpbmNsdWRlIDxsaW51eC9idWlsZF9i
+dWcuaD4KIAogI2RlZmluZSBQQVJNQVJFQQkJMHgxMDQwMApkaWZmIC0tZ2l0IGEvYXJjaC9zMzkw
+L2luY2x1ZGUvdWFwaS9hc20vc2V0dXAuaCBiL2FyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3Nl
+dHVwLmgKZGVsZXRlZCBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDU5OGQ3NjllNzZkZi4uMDAwMDAw
+MDAwMDAwCi0tLSBhL2FyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmgKKysrIC9kZXYv
+bnVsbApAQCAtMSArMCwwIEBACi0vKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCBX
+SVRIIExpbnV4LXN5c2NhbGwtbm90ZSAqLwotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
