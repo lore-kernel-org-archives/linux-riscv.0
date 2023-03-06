@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43289C61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08875C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 10:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V6TZXVytG3/ZtUKynd6tKKUrKPS+eeFefpNjFlfkIHY=; b=pv6H7SledvjaFH
-	h7gmdE7dNqLS1xlNYw8VnHK61ufaF9tvMzXF2Qun0m7c5dvxVDOd8IBEX5KHLGcYGxjpXP14WwHnM
-	oB3QazghNw4be11NzF76I6xNilk79EZZk+/Niuh2Sk8QAYTJDoQpSIiltYbTg1+LbCjR9EQUQkI8p
-	tDV4l0GOv9/R8RWM2aXhLKlcBp8LD1/RdPpxHi+bvmwFMyLYvQ4e9HyMgdpaEXmHugrqmfnRmmXsr
-	uH79mxdQAmvpYzu4JX+pMO5ueOc5IVfJ6KfW6YfSz/hXXCt9xiZGk9pab8JqY+1EJjrVQI5ZlZJ7w
-	74lWp0B6cxNsN89z0daA==;
+	List-Owner; bh=MpGclrdABiW6kdH9GmxNQCX9XjMnaWbFAgPb4ofmcPA=; b=aEbtJY4lM+6/hB
+	6thRf/FmTEbDLpq0/s1XmcMgyUQFheNsKcQgGHvTHDHGhykRarVQHPuIGsVgGdaYEeKhvGCvcOjuY
+	iYL6V/b8fmV/dw7EthlYtqmOMlDOJKdvuBJPdFkZFMmkjr13ODUiPCiAqVmmKuv7QIyJRWpGoUUAh
+	4vQ6KoNQRG5b8zb5q4SnNOHM5SUyfZ6Wz26n6FF2uZzvQxkQA5g3JziSBBt1pJwHwl70N5RV+MUxW
+	cnv42fhDpfQu5qyynGSeQEolqYotDGlqUeuynHCYPiM9sgm8oWQi9oSM8+2K+SlXa86RPQxDOgB5u
+	JTUs1fdL4U7mEymVQarw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ87v-00CKU0-Dq; Mon, 06 Mar 2023 10:31:31 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1pZ88z-00CKme-4x; Mon, 06 Mar 2023 10:32:37 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ87s-00CKSa-7e
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:31:29 +0000
-Received: by mail-wm1-x332.google.com with SMTP id p26so5280557wmc.4
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:31:28 -0800 (PST)
+	id 1pZ88s-00CKkm-2h
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 10:32:35 +0000
+Received: by mail-wr1-x432.google.com with SMTP id l25so8269383wrb.3
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 02:32:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098687;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678098748;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iBrHhQ+ENLcTDHZblgvw5cJviEIcUkQODsWe9Dpzcfk=;
-        b=dMG398VnS6d7Sp/v2WHmOoLb1Pl0DUkmJwFGFlaFFE2NBSpl3bfx7goOgx/bA/e+eT
-         JlGXkZ/YKC5/CAaUgrAgf2hwRlXoi/w09fk+d6JbzRsi1xEOvnET1ZtQw1GHTDzGO9Kc
-         4tpVQXj5bbt90ZEPTxaGams7zZPu/WPnuP8OFNZQ10jn8lYY76GXgznimwmVX0LnUN36
-         +jRh0o9oGjoo103N9nKFb3gVEbdh9sBKJ7FOEhJBNFyEiOBkSLl1OpmtwlekjwfER05t
-         fJR2GSWXVNdO1/cuJA3g80GcEhaj/voiZrBUwN52fql9jSz5wH4gJd9Czzz14Ra75Rbq
-         MY0Q==
+        bh=2S29OAojjkQ3ph5THndb/5w5HMdqHkAEAaj92KxD7KY=;
+        b=xCSHcSRaD2g1+2DbiYWhwBVgmLp88kCObvoul8o22gAShWEWRsDyBUbrABXr5fv65x
+         IGnHDZLJd6mZoZ4c8bkw6btaQ552OPPkQaMMyBEUs4Bc9wvEuBuP3LVKslg1nEKUwpBX
+         lIVGb+vuDvhF0cDTuCVOpyZV5LaEa7T8m8jfkVFpaCwFvyN4Z00Y7x/hHmTHM+tY2ap5
+         RgDlCHiOuFZ5W2OonNpFKfcm5MsZoArntnS/kOhW3H0fDHSI6TVfGt6dIbQVxoFWUZLC
+         VaMyxBHz7iI91g7KCZulrkhxAWoD0odFmgisNlLZZFPdJeVIIAgA47RuWu1Yjzh0KCRf
+         0raw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678098687;
+        d=1e100.net; s=20210112; t=1678098748;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iBrHhQ+ENLcTDHZblgvw5cJviEIcUkQODsWe9Dpzcfk=;
-        b=NJh959yffonXpU6qA23PDaIvwn+Z3iRUPyfK//d0bPq8BNVrnai32v9ihxWt6v9cpr
-         66IkR8hemPsYasSW1FpHfzBJfSFA2b2x4Idl6H+9reXI/UCZXn6FqfCpD7AgJaBmDmPJ
-         7yNgBX44pB5rmgbzkeY7/fWRfDu7O4geHxZvwYdnQ4XyhuExGwJ7VNHoS62aziYJ9Yvn
-         LxRv4UXhKuCfYp7yo7j38CcvWqu1q61P/LaRNiT8WLL5U7KoN+n0cL0RNh1Jdp6kBN/u
-         iAmXQrif+owJ1SlbOUWIgbVQpCmkaUprs+J2jHz4+HbZfV+8wSM2lfmZSEAr6CQF+C+2
-         TTiA==
-X-Gm-Message-State: AO0yUKUGd1X4DHtOBZsE0Jyob9xoAhBYBeHXYBp/dcV4NJZiqbFy9EAX
-	hbeGGNZ/n883I9f8paZlFTOkUw==
-X-Google-Smtp-Source: AK7set+mfsESm6FhCUVbPpBS4o2ZwfEIZrHS0GSjjE7LL6WnlaHBrOa5vkgBJgbjhYrNsG8jr1kFSQ==
-X-Received: by 2002:a05:600c:3550:b0:3ea:bc27:6a64 with SMTP id i16-20020a05600c355000b003eabc276a64mr8765213wmq.10.1678098686828;
-        Mon, 06 Mar 2023 02:31:26 -0800 (PST)
+        bh=2S29OAojjkQ3ph5THndb/5w5HMdqHkAEAaj92KxD7KY=;
+        b=tT7Vb4CMmCbjdIZUyhIW0X3+YXhTjn154uJ729UWbF7NiWHZq2wq3MDQawi2JDOucN
+         IoUhS5mEOWnlcF8EzNdhK31DGhZlpKke/xcJ28VzcbLkw+VrRfC5DiKchJexJY+Xi98W
+         jUDfMPV9nFor88+R7WijdkpF4pwFBC7vnHr0+peALk2Q7hNujka7wLrIknW3WlaHX2Ag
+         I3F0DsLC927oRO9Rz5cPg2+3IcHGL0stFVJdT6NSwX6i263Dq0gcWPmPVy3RnerVTqUK
+         sFiIq73lWqkY4hZvc0Cyh2o58Md3oyjziI9G4tQIT0akiSa1zgxWv761K92x2CJCZMqW
+         YrUg==
+X-Gm-Message-State: AO0yUKUxCfwE+cY90OqdevgoGPDCDmjUDEcAoU1OQv6BnGAp8fLqxfuP
+	n4cqgR40TttY44pzX5YpeS7vhg==
+X-Google-Smtp-Source: AK7set9Vv2uSkjazOq+f3rx/CCBKfCShLhiL1+01KwPuVcwWj2ucc2G1h2TzyZEz/iSKDj7DuGgpzw==
+X-Received: by 2002:adf:e70a:0:b0:2c9:e3d:88ca with SMTP id c10-20020adfe70a000000b002c90e3d88camr6289357wrm.67.1678098748535;
+        Mon, 06 Mar 2023 02:32:28 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id h17-20020a05600c351100b003e4326a6d53sm14498645wmq.35.2023.03.06.02.31.25
+        by smtp.gmail.com with ESMTPSA id u18-20020a5d6ad2000000b002c5539171d1sm9217902wrw.41.2023.03.06.02.32.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Mar 2023 02:31:26 -0800 (PST)
+        Mon, 06 Mar 2023 02:32:28 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Greg KH <gregkh@linuxfoundation.org>,
 	Jonathan Corbet <corbet@lwn.net>,
@@ -117,19 +117,18 @@ To: Greg KH <gregkh@linuxfoundation.org>,
 	sparclinux@vger.kernel.org,
 	linux-xtensa@linux-xtensa.org,
 	linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>
-Subject: [PATCH v5 25/26] s390: Remove empty <uapi/asm/setup.h>
-Date: Mon,  6 Mar 2023 11:05:07 +0100
-Message-Id: <20230306100508.1171812-26-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v5 26/26] riscv: Remove empty <uapi/asm/setup.h>
+Date: Mon,  6 Mar 2023 11:05:08 +0100
+Message-Id: <20230306100508.1171812-27-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230306100508.1171812-1-alexghiti@rivosinc.com>
 References: <20230306100508.1171812-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_023128_301680_7CBEB6F2 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20230306_023233_937847_4495E546 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,30 +140,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+CgpTaWduZWQtb2ZmLWJ5
-OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogQWxl
-eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgpBY2tlZC1ieTogSGVpa28gQ2Fy
-c3RlbnMgPGhjYUBsaW51eC5pYm0uY29tPgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1E
-YXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgotLS0KIGFyY2gvczM5MC9pbmNsdWRlL2FzbS9zZXR1
-cC5oICAgICAgfCAxIC0KIGFyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmggfCAxIC0K
-IDIgZmlsZXMgY2hhbmdlZCwgMiBkZWxldGlvbnMoLSkKIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNo
-L3MzOTAvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oCgpkaWZmIC0tZ2l0IGEvYXJjaC9zMzkwL2lu
-Y2x1ZGUvYXNtL3NldHVwLmggYi9hcmNoL3MzOTAvaW5jbHVkZS9hc20vc2V0dXAuaAppbmRleCAx
-NzdiZjZkZWFhMjcuLjk5YzFjYzk3MzUwYSAxMDA2NDQKLS0tIGEvYXJjaC9zMzkwL2luY2x1ZGUv
-YXNtL3NldHVwLmgKKysrIGIvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL3NldHVwLmgKQEAgLTcsNyAr
-Nyw2IEBACiAjZGVmaW5lIF9BU01fUzM5MF9TRVRVUF9ICiAKICNpbmNsdWRlIDxsaW51eC9iaXRz
-Lmg+Ci0jaW5jbHVkZSA8dWFwaS9hc20vc2V0dXAuaD4KICNpbmNsdWRlIDxsaW51eC9idWlsZF9i
-dWcuaD4KIAogI2RlZmluZSBQQVJNQVJFQQkJMHgxMDQwMApkaWZmIC0tZ2l0IGEvYXJjaC9zMzkw
-L2luY2x1ZGUvdWFwaS9hc20vc2V0dXAuaCBiL2FyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3Nl
-dHVwLmgKZGVsZXRlZCBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDU5OGQ3NjllNzZkZi4uMDAwMDAw
-MDAwMDAwCi0tLSBhL2FyY2gvczM5MC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmgKKysrIC9kZXYv
-bnVsbApAQCAtMSArMCwwIEBACi0vKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCBX
-SVRIIExpbnV4LXN5c2NhbGwtbm90ZSAqLwotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/include/uapi/asm/setup.h | 6 ------
+ 1 file changed, 6 deletions(-)
+ delete mode 100644 arch/riscv/include/uapi/asm/setup.h
+
+diff --git a/arch/riscv/include/uapi/asm/setup.h b/arch/riscv/include/uapi/asm/setup.h
+deleted file mode 100644
+index 17fcecd4a2f8..000000000000
+--- a/arch/riscv/include/uapi/asm/setup.h
++++ /dev/null
+@@ -1,6 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
+-
+-#ifndef _UAPI_ASM_RISCV_SETUP_H
+-#define _UAPI_ASM_RISCV_SETUP_H
+-
+-#endif /* _UAPI_ASM_RISCV_SETUP_H */
+-- 
+2.37.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
