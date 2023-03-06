@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8D4C678D4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 09:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DD8C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 09:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HdkP1nk6o3jg+mKFeJR3Wp8EFguMvCxhIJwJtFytgoE=; b=S3GZbZ70+fF0Yg
-	z0aAP9C9P4SUQGDI7ndj4eq5yOwR0kgM8MRJQZC+CbvkABskWUtLOYmDmHDM59dikH1kc2uXA4HQf
-	pWBNdRQCu4FbwfMdNjR2pQwrH4AAowmvMV1NSFAX/TG/TvzV6Y0Qb8oc4s1+oZZwRCbzsJETR0ehr
-	M7k0UKZqvfQ/j4c3FJkgds66agJwEwRtMdBsSy7PuxEflPxqi3l6LnlJ6u+XTtBgAKxLAGh/vXLdo
-	QdUAmg07/+nVDB/vnDOZHgZ7sfkxYf6UHPUu2W61T32VYJoADQBPXrP9D9u3ZFT2YDWvCd1y7Ys8g
-	y5sqYuc2Io9c7lHzLvwg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TPuPrbTh5xFLqLspN0XNAn6Qw9TwrLbLf6xi2maHPVg=; b=uuajU89Adkav9h
+	TSTIDTcxmYfFJeZrTysGE/rx2RBNo6IANX1/geDBnNP+gpWeB1ZnoJcUxOrpF9TFHHt+Wgmw3WQyc
+	9LoheUiwKpGs5Nnq2kY8E5A8AAqcfpumzHFjvc601HG+1zOKrm3cIn4J11nx61B9Xt7/jzRYwfsTA
+	yeMo7vnHNSjAk0fpeITGh1RCz7R53GJrX5Y+gcZO1+wjgNfdFiWQ/R3xMzD7M5QYME537c0hgdkc1
+	9niXIAEQVLFcRyONOX0Q7+ZUdj8WDcFJfkexV9uMLqjE0ZkwarF294Ogqrh8hNxrINlxLkDKboKtV
+	Rb4I81qTStY38U9r+awA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7G5-00C7Hv-Js; Mon, 06 Mar 2023 09:35:53 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1pZ7Tt-00CA9v-UM; Mon, 06 Mar 2023 09:50:09 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZ7Fq-00C77U-0u; Mon, 06 Mar 2023 09:35:45 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id D7AAE60017;
-	Mon,  6 Mar 2023 09:35:17 +0000 (UTC)
-Message-ID: <caaed678-4a5a-70e5-2ee7-cb2c8042afc0@ghiti.fr>
-Date: Mon, 6 Mar 2023 10:35:17 +0100
+	id 1pZ7Tp-00CA79-TZ
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 09:50:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678096205; x=1709632205;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=0SyElCUWTlCle3k2VOdcQEbG3TLOBs5Dv4yCPL7zPl8=;
+  b=Axxc/C3Kub4WA28Wed3VFF25exidU08MEs4cHpNVWgDSYWmhOabOyr5H
+   20n3JOBZ5y5zMt3OJbK3brfYKYHpVpv5LfjjnWFRqXmieSHd1NKm1Dejv
+   SJ1+1nNlRNHSH71Rr4oKODdk5eDQe33mrP1BR7WX7o38XOnJ3m2mh9gzd
+   9LDgL2bMYJzzAVDW4+O+oUS1o3W8kgI25JR8xBrboXCHvUKlh91sFfwR5
+   k6LiEzBFx4xkuiZWL7lyBjhUMe2dgW8iGd11l7iG0sKN2jHdvVYdAHX8K
+   dPXk7olSw3zO2W91jWgXheVPVBESeilUggqb8g715oDttWzQ8XGJRdHbp
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,236,1673938800"; 
+   d="scan'208";a="203807069"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Mar 2023 02:49:57 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Mon, 6 Mar 2023 02:49:56 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
+ Transport; Mon, 6 Mar 2023 02:49:55 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Daire McNamara <daire.mcnamara@microchip.com>,
+	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v14 0/2] Microchip Soft IP corePWM driver
+Date: Mon, 6 Mar 2023 09:48:57 +0000
+Message-ID: <20230306094858.1614819-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v3 00/24] Remove COMMAND_LINE_SIZE from uapi
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, "H. Peter Anvin" <hpa@zytor.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
- Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- gor@linux.ibm.com, Alexander Gordeev <agordeev@linux.ibm.com>,
- borntraeger@linux.ibm.com, Sven Schnelle <svens@linux.ibm.com>,
- ysato@users.osdn.me, Rich Felker <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, chris@zankel.net, Max Filippov <jcmvbkbc@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- Linux-Arch <linux-arch@vger.kernel.org>
-References: <mhng-e8b09772-24e5-4729-a0bf-01a9e4c76636@palmer-ri-x1c9a>
- <21F95EC4-71EA-4154-A7DC-8A5BA54F174B@zytor.com>
- <674bc31e-e4ed-988f-820d-54213d83f9c7@ghiti.fr>
- <c500840b-b57d-47f2-a3d9-41465b10ffae@app.fastmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <c500840b-b57d-47f2-a3d9-41465b10ffae@app.fastmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3956; i=conor.dooley@microchip.com; h=from:subject; bh=0SyElCUWTlCle3k2VOdcQEbG3TLOBs5Dv4yCPL7zPl8=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCms21lM7Kw27U24bxQnd9xa5Ou7rd314v/LJ63fN3HmzWoT YYP5HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIbi2Gv8K1C5+sutZ/+fCF9uao9e XxPV3/Lt3Yd9gzZ3mDt+a5ghCG/yH2/Bf3LZjiw3fHa46D0VtbrsptW85k7k7erbT0cFCxKzMA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_013538_559438_5B668D58 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20230306_015006_090624_36C18EF4 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,66 +76,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDMvMy8yMyAxNzo0MCwgQXJuZCBCZXJnbWFubiB3cm90ZToKPiBPbiBGcmksIE1hciAzLCAy
-MDIzLCBhdCAxMjo1OSwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+PiBPbiAzLzIvMjMgMjA6NTAs
-IEguIFBldGVyIEFudmluIHdyb3RlOgo+Pj4gT24gTWFyY2ggMSwgMjAyMyA3OjE3OjE4IFBNIFBT
-VCwgUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JvdGU6Cj4+Pj4+PiBDb21t
-aXQgNjIyMDIxY2Q2YzU2MGNlNyAoInMzOTA6IG1ha2UgY29tbWFuZCBsaW5lIGNvbmZpZ3VyYWJs
-ZSIpLAo+Pj4+Pj4gSSBhc3N1bWU/Cj4+Pj4+IFllcywgc29ycnkgZm9yIHRoYXQuIEkgZ290IGRp
-c3RyYWN0ZWQgd2hpbGUgd3JpdGluZyBhbmQgdXNlZCB0aGUgd3JvbmcKPj4+Pj4gYnJhbmNoIHRv
-IGxvb2sgdGhpcyB1cC4KPj4+PiBBbGV4OiBQcm9iYWJseSB3b3J0aCBhZGRpbmcgdGhhdCB0byB0
-aGUgbGlzdCBpbiB0aGUgY292ZXIgbGV0dGVyIGFzIGl0IGxvb2tzIGxpa2UgeW91IHdlcmUgcGxh
-bm5pbmcgb24gYSB2NCBhbnl3YXkgKHdoaWNoIEkgZ3Vlc3MgeW91IG5vdyBoYXZlIHRvIGRvLCBn
-aXZlbiB0aGF0IEkganVzdCBhZGRlZCB0aGUgaXNzdWUgdG8gUklTQy1WKS4KPj4+IFRoZSBvbmx5
-IHVzZSB0aGF0IGlzIHVhcGkgaXMgdGhlICpkZWZhdWx0KiBsZW5ndGggb2YgdGhlIGNvbW1hbmQg
-bGluZSBpZiB0aGUga2VybmVsIGhlYWRlciBkb2Vzbid0IGluY2x1ZGUgaXQgKGluIHRoZSBjYXNl
-IG9mIHg4NiwgaXQgaXMgaW4gdGhlIGJ6SW1hZ2UgaGVhZGVyLCBidXQgdGhhdCBpcyBhdGNoaXRl
-Y3R1cmUtIG9yIGV2ZW4gYm9vdCBmb3JtYXQtc3BlY2lmaWMuKQo+PiBJcyBDT01NQU5EX0xJTkVf
-U0laRSB3aGF0IHlvdSBjYWxsIHRoZSBkZWZhdWx0IGxlbmd0aD8gRG9lcyB0aGF0IG1lYW4KPj4g
-dGhhdCB0byB5b3UgdGhlIHBhdGNoc2V0IGlzIHdyb25nPwo+IE9uIHg4NiwgdGhlIENPTU1BTkRf
-TElORV9TSVpFIHZhbHVlIGlzIGFscmVhZHkgbm90IHBhcnQgb2YgYSB1YXBpIGhlYWRlciwKPiBi
-dXQgaW5zdGVhZCAoc2luY2UgYnpJbWFnZSBmb3JtYXQgdmVyc2lvbiAyLjA2KSBpcyBjb21tdW5p
-Y2F0ZWQgZnJvbQo+IHRoZSBrZXJuZWwgdG8gdGhlIGJvb3QgbG9hZGVyLCB3aGljaCB0aGVuIGtu
-b3dzIGhvdyBtdWNoIGRhdGEgdGhlCj4ga2VybmVsIHdpbGwgcmVhZCAoYXQgbW9zdCkgZnJvbSB0
-aGUgY29tbWFuZCBsaW5lLgo+Cj4gTW9zdCB4ODYga2VybmVscyB0aGVzZSBkYXlzIGFyZSBib290
-ZWQgdXNpbmcgVUVGSSwgd2hpY2ggSSB0aGluayBoYXMKPiBubyBzdWNoIGludGVyZmFjZSwgdGhl
-IGZpcm13YXJlIGp1c3QgcGFzc2VzIHRoZSBjb21tYW5kIGxpbmUgYW5kIGEKPiBsZW5ndGgsIGJ1
-dCBoYXMgbm8gd2F5IG9mIGtub3dpbmcgaWYgdGhlIGtlcm5lbCB3aWxsIHRydW5jYXRlIHRoaXMu
-Cj4gSSB0aGluayB0aGF0IGlzIHRoZSBzYW1lIGFzIHdpdGggYW55IG90aGVyIGFyY2hpdGVjdHVy
-ZSB0aGF0IHBhc3Nlcwo+IHRoZSBjb21tYW5kIGxpbmUgdGhyb3VnaCBVRUZJLCBEVCBvciBBVEFH
-UywgYWxsIG9mIHdoaWNoIHVzZQo+IGxlbmd0aC92YWx1ZSBwYWlycy4KPgo+IFJ1c3NlbGwgYXJn
-dWVkIG9uIElSQyB0aGF0IHRoaXMgY2FuIGJlIGNvbnNpZGVyZWQgYW4gQUJJIHNpbmNlIGEKPiBi
-b290IGxvYWRlciBtYXkgdXNlIGl0cyBrbm93bGVkZ2Ugb2YgdGhlIGtlcm5lbCdzIGNvbW1hbmQg
-bGluZSBzaXplCj4gbGltaXQgdG8gcmVqZWN0IGxvbmcgY29tbWFuZCBsaW5lcy4gT24gdGhlIG90
-aGVyIGhhbmQsIEkgZG9uJ3QKPiB0aGluayB0aGF0IGFueSBib290IGxvYWRlciBhY3R1YWxseSBk
-b2VzLCB0aGV5IGp1c3QgdHJ1c3QgdGhhdCBpdAo+IGZpdHMgYW5kIGRvbid0IGhhdmUgYSBnb29k
-IHdheSBvZiByZWplY3RpbmcgaW52YWxpZCBjb25maWd1cmF0aW9uCj4gb3RoZXIgdGhhbiB0cnVu
-Y2F0aW5nIGFuZC9vciB3YXJuaW5nLgo+Cj4gT25lIG5vdGFibGUgZXhjZXB0aW9uIEkgZm91bmQg
-d2hpbGUgbG9va2luZyB0aHJvdWdoIGlzIHRoZSBvbGQKPiAocHJlLUFUQUdTKSBwYXJhbWV0ZXIg
-c3RydWN0dXJlIG9uIEFybSwgd2hpY2ggdXNlcyBDT01NQU5EX0xJTkVfU0laRQo+IGFzIHBhcnQg
-b2YgdGhlIHN0cnVjdHVyZSBkZWZpbml0aW9uLiBBcHBhcmVudGx5IHRoaXMgd2FzIGRlcHJlY2F0
-ZWQKPiAyMiB5ZWFycyBhZ28sIHNvIGhvcGVmdWxseSB0aGUgcmVtYWluaW5nIHJpc2NwYyBhbmQg
-Zm9vdGJyaWRnZQo+IHVzZXJzIGhhdmUgYWxsIHVwZ3JhZGVkIHRoZWlyIGJvb3Rsb2FkZXJzLgo+
-Cj4gVGhlIG9ubHkgb3RoZXIgY2FzZSBJIGNvdWxkIGZpbmQgdGhhdCBtaWdodCBnbyB3cm9uZyBp
-cwo+IG02OGtub21tdSB3aXRoIGEgZmV3IGZpbGVzIGNvcHlpbmcgYSBDT01NQU5EX0xJTkVfU0la
-RSBzaXplZAo+IGJ1ZmZlciBmcm9tIGZsYXNoIGludG8gYSBrZXJuZWwgYnVmZmVyOgo+Cj4gYXJj
-aC9tNjhrL2NvbGRmaXJlL201MjA2LmM6dm9pZCBfX2luaXQgY29uZmlnX0JTUChjaGFyICpjb21t
-YW5kcCwgaW50IHNpemUpCj4gYXJjaC9tNjhrL2NvbGRmaXJlL201MjA2LmMtewo+IGFyY2gvbTY4
-ay9jb2xkZmlyZS9tNTIwNi5jLSNpZiBkZWZpbmVkKENPTkZJR19ORVR0ZWwpCj4gYXJjaC9tNjhr
-L2NvbGRmaXJlL201MjA2LmMtICAgICAvKiBDb3B5IGNvbW1hbmQgbGluZSBmcm9tIEZMQVNIIHRv
-IGxvY2FsIGJ1ZmZlci4uLiAqLwo+IGFyY2gvbTY4ay9jb2xkZmlyZS9tNTIwNi5jLSAgICAgbWVt
-Y3B5KGNvbW1hbmRwLCAoY2hhciAqKSAweGYwMDA0MDAwLCBzaXplKTsKPiBhcmNoL202OGsvY29s
-ZGZpcmUvbTUyMDYuYy0gICAgIGNvbW1hbmRwW3NpemUtMV0gPSAwOwo+IGFyY2gvbTY4ay9jb2xk
-ZmlyZS9tNTIwNi5jLSNlbmRpZiAvKiBDT05GSUdfTkVUdGVsICovCgoKSSBzZWUsIHRoYW5rcyB5
-b3VyIHRob3JvdWdoIGV4cGxhbmF0aW9uOiBJIGRvbid0IHNlZSB0aGlzIG02NGsgaXNzdWUgYXMg
-CmEgYmxvY2tlciAodW5sZXNzIEdlZXJ0IGRpc2FncmVlcyBidXQgaGUgYWxyZWFkeSByZXZpZXdl
-ZCB0aGUgbTY0ayAKcGF0Y2hlcykswqAgc28gSSdsbCBzZW5kIHRoZSB2NSBub3cuCgpUaGFua3Mg
-YWdhaW4sCgpBbGV4CgoKPgo+ICAgICAgIEFybmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+Hey Uwe, all,
+
+v14 is rebased on top of v6.3-rc1.
+
+Uwe & I had a long back and forth about period calculations on v13,
+my ultimate conclusion being that, after some testing of the "corrected"
+calculation in hardware, the original calculation was correct.
+I think we had gotten sucked into discussion the calculation of the
+period itself, when we were in fact trying to calculate a bound on the
+period instead. That discussion is here:
+https://lore.kernel.org/linux-pwm/Y+ow8tfAHo1yv1XL@wendy/
+
+Thanks,
+Conor.
+
+Changes since v13:
+- couple bits of cleanup to apply_locked(), suggested by Uwe
+- move the overhead waiting for a change to be applied, for channels
+  with shadow registers, to subsequent calls to apply(). This has the
+  benefit of only waiting when two calls to apply() are close in time
+  rather than eating the delay in every call.
+
+Changes since v11:
+- swap a "bare" multiply & divide for the corresponding helper to
+  prevent overflow
+- factor out duplicate clk rate acquisition & period calculation
+- make the period calculation return void by checking the validity of
+  the clock rate in the caller
+- drop the binding & dt patch, they're on-track for v6.2 via my tree
+
+Changes since v10:
+- reword some comments
+- try to assign the period if a disable is requested
+- drop a cast around a u8 -> u16 conversion
+- fix a check on period_steps that should be on the hw_ variant
+- split up the period calculation in get_state() to fix the result on
+  32 bit
+- add a rate variable in get_state() to only call get_rate() once
+- redo the locking as suggested to make it more straightforward.
+- stop checking for enablement in get_state() that was working around
+ intended behaviour of the sysfs interface
+
+Changes since v9:
+- fixed the missing unlock that Dan reported
+
+Changes since v8:
+- fixed a(nother) raw 64 bit division (& built it for riscv32!)
+- added a check to make sure we don't try to sleep for 0 us
+
+Changes since v7:
+- rebased on 6.0-rc1
+- reworded comments you highlighted in v7
+- fixed the overkill sleeping
+- removed the unused variables in calc_duty
+- added some extra comments to explain behaviours you questioned in v7
+- make the mutexes un-interruptible
+- fixed added the 1s you suggested for the if(period_locked) logic
+- added setup of the channel_enabled shadowing
+- fixed the period reporting for the negedge == posedge case in
+  get_state() I had to add the enabled check, as otherwise it broke
+  setting the period for the first time out of reset.
+- added a test for invalid PERIOD_STEPS values, in which case we abort
+  if we cannot fix the period
+
+Changes from v6:
+- Dropped an unused variable that I'd missed
+- Actually check the return values of the mutex lock()s
+- Re-rebased on -next for the MAINTAINERS patch (again...)
+
+Changes from v5:
+- switched to a mutex b/c we must sleep with the lock taken
+- simplified the locking in apply() and added locking to get_state()
+- reworked apply() as requested
+- removed the loop in the period calculation (thanks Uwe!)
+- add a copy of the enable registers in the driver to save on reads.
+- remove the second (useless) write to sync_update
+- added some missing rounding in get_state()
+- couple other minor cleanups as requested in:
+https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
+
+Changes from v4:
+- dropped some accidentally added files
+
+Changes before v4:
+https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
+
+Conor Dooley (2):
+  pwm: add microchip soft ip corePWM driver
+  MAINTAINERS: add pwm to PolarFire SoC entry
+
+ MAINTAINERS                      |   1 +
+ drivers/pwm/Kconfig              |  10 +
+ drivers/pwm/Makefile             |   1 +
+ drivers/pwm/pwm-microchip-core.c | 441 +++++++++++++++++++++++++++++++
+ 4 files changed, 453 insertions(+)
+ create mode 100644 drivers/pwm/pwm-microchip-core.c
+
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
