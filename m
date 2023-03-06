@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF15C678D5
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Mar 2023 22:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0BAC61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 02:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qy33PCFevNnZ6eELPX16IZ5m/ItxIuGrX5ykyLnRXuU=; b=cgCkjZ1DMC0K5c
-	sQaFuiV9tftw7KkqHZ6VBfTUxjIqWBMWYGyY7edvHPH7YwNkwk9c3BBig5rqpx9rTCi8E7pjgE2rC
-	NVk9puJTwXqzeOfNEuX+jnqyd6Usz0H3DJnHYumPt90ExRkwnTFxuwsCT/n77rsflTXxDk+VO0Y5D
-	oTSz/R4pgJnVC/DlDLT7JWtRxfAnq8CoP/Um1vFaKvAGCf/WiVelwtDJ5GUKEjSWo5z4NWGPqAGRi
-	M2SSF8tJFyfA+eReQz4DU7zz3tFhORBgyCxKe+TBDl3vhdALYWJYOd8rxB6aQ2n/fRfVEm+OpUJbf
-	FO7O+TDSHf0xDZ1x2CmQ==;
+	List-Owner; bh=pBYOR31Spb6TpEUGP2RHSFUmSxYiJc2V0Sn7JTER6P4=; b=Hxx4V4x8yK2FSO
+	RdRE1ChPAdVIPyAY77X78gJHqdqmTYXL1hVNFSZCWOthF9RU3IuD5REbo5V4R9rtWAb/Pz+GH53N9
+	P+RQGxrzRP9/q9T6duAMlJY42ukJWUr5yhhe0N3zgM8d4LYmGthdfKrFge0RGh/JYo4eOl8N9UyS9
+	b34lflFRhVENncaeBXW35kgKfgIIOgv0YhoMcaszL1D/MoVTBXjwLG0UnjhbpWys6cx8k2q6VsuRX
+	WRX8zgtNUJ4b7av+mXL4RcBZWCNabvyz004HYWYjN6kMk+K+1QxyV/zjkESNWrKVx2UG6R0Pt1JDk
+	mJ0rby9MOG8ywk1G2hwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYap5-009dbR-8l; Sat, 04 Mar 2023 22:57:51 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pYaox-009dak-EW
-	for linux-riscv@lists.infradead.org; Sat, 04 Mar 2023 22:57:49 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 2673C412FE
-	for <linux-riscv@lists.infradead.org>; Sat,  4 Mar 2023 22:57:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1677970657;
-	bh=Vju82LMq7Hb3dulxwnm87osrgbRmnYPvBM1vXLn4dUA=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=knN3wI6skCEfg3CF7eUoR9HNFZNppEtEiqFb6UwVugeio6mxUPA2R3mI+BbFsOA/M
-	 UjvKm/bIhaPP//TiA/kOeGtfKbMQtlBwjMo0+RzE1E40J9MO1A0KvmpLdzDXDvSSUY
-	 5YHaiH/4hjXZeAb3gUohIwr769VUAPBjvpDuHAEcsYf6JLhZMYWIX/ZELjw3DBhCwi
-	 X8bLtvEOYrCSvjc7UqAVeE4bp1jSSgaTnq0Xfi6RHL/OtF+U2WJ3H5jN1B3Br4kYCB
-	 igb9WnNV2c8NNXkVqHT7PE0r2jLPCZXMd/g3x9Hbarr8z592LFDB0MfpDhl4b0tPw0
-	 bfKIVl7B9xzHQ==
-Received: by mail-qt1-f200.google.com with SMTP id i24-20020ac84f58000000b003bfe3358691so3367514qtw.21
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Mar 2023 14:57:37 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677970655;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Vju82LMq7Hb3dulxwnm87osrgbRmnYPvBM1vXLn4dUA=;
-        b=H9N2oaGRBOF6LIDsZAuG9LKE7BEXVQ5JyVH+/mwpShXZ185enNL88OdIyNWoFKhXKh
-         Laf44ae1lkV5KDebhML9MOsURrPeWZ3ZCToTR7ZuWnfO8B6tQh1WdpYrFA1AWq+oKJ/m
-         hu3hbRxwSEjvvVKKt1PXW0uKiRIzh1YuQvCSjBrWY58Il14/2q5o/5ZNfJ9ieudXC9oL
-         I0cgOa3gRHtxwsG03uwZiZ8N5h9KLfqphZnsvehzLFg/zuu0IClYn+/QJmnivQO61l2b
-         VSf6l/FmLp0xLpL365MsEaxN4FmnrU/tYObiC0rMguHv/tca7M9i37vnP6KbyrajriLR
-         502Q==
-X-Gm-Message-State: AO0yUKUIFbCVIyCcvYvDcweBa7kMj06tzs1DNUPF70irqw+BS2WmPv0Y
-	h/OPDOVjiqNTk/8QNIsOGrhTdWBe2ZQH3hM0EUFB/kTKEE8kHb24Fb8IPCK1Hbjs5rdNbIzyKAT
-	IcScmJt6fxI9GlOgW/BYzk6hHp3Kw6kFklF/8YLXg08goigN2QHOUqjLUpQdbdw==
-X-Received: by 2002:a05:6214:933:b0:571:1409:5ee1 with SMTP id dk19-20020a056214093300b0057114095ee1mr1789539qvb.0.1677970655702;
-        Sat, 04 Mar 2023 14:57:35 -0800 (PST)
-X-Google-Smtp-Source: AK7set9OCpr8hRBc/QazhmBC/md4LdexEqTNSjYLrirDk7uhU3nwpz+1l8MCPf/QOPXZH2D1Js8bjRxfqR+PGxy3+lk=
-X-Received: by 2002:a05:6214:933:b0:571:1409:5ee1 with SMTP id
- dk19-20020a056214093300b0057114095ee1mr1789506qvb.0.1677970654498; Sat, 04
- Mar 2023 14:57:34 -0800 (PST)
+	id 1pZ0SN-00AynD-4X; Mon, 06 Mar 2023 02:20:07 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pZ0SH-00Aylv-QN
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 02:20:04 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id EED2624E34B;
+	Mon,  6 Mar 2023 10:19:18 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 6 Mar
+ 2023 10:19:19 +0800
+Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 6 Mar
+ 2023 10:19:17 +0800
+Message-ID: <9093ee69-eee3-7a6c-794e-3df2be11496e@starfivetech.com>
+Date: Mon, 6 Mar 2023 10:19:17 +0800
 MIME-Version: 1.0
-References: <20230303085928.4535-1-samin.guo@starfivetech.com> <20230303085928.4535-6-samin.guo@starfivetech.com>
-In-Reply-To: <20230303085928.4535-6-samin.guo@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Sat, 4 Mar 2023 23:57:18 +0100
-Message-ID: <CAJM55Z_SV3ig56JY9BF5LeWt4M+bKYh_HdxSY02CP+9i7F0vCQ@mail.gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
 Subject: Re: [PATCH v5 05/12] riscv: dts: starfive: jh7110: Add ethernet
  device nodes
-To: Samin Guo <samin.guo@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, 
-	Yanhong Wang <yanhong.wang@starfivetech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>
+References: <20230303085928.4535-1-samin.guo@starfivetech.com>
+ <20230303085928.4535-6-samin.guo@starfivetech.com> <ZAH6CGoXBKz0FmW3@lunn.ch>
+Content-Language: en-US
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <ZAH6CGoXBKz0FmW3@lunn.ch>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230304_145743_880567_7EE32796 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20230305_182002_286768_89EBC6D5 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,144 +77,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Mar 2023 at 10:01, Samin Guo <samin.guo@starfivetech.com> wrote:
->
-> Add JH7110 ethernet device node to support gmac driver for the JH7110
-> RISC-V SoC.
->
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 91 ++++++++++++++++++++++++
->  1 file changed, 91 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 09806418ed1b..2ce28292b721 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -233,6 +233,13 @@
->                 #clock-cells = <0>;
->         };
->
-> +       stmmac_axi_setup: stmmac-axi-config {
-> +               snps,lpi_en;
-> +               snps,wr_osr_lmt = <4>;
-> +               snps,rd_osr_lmt = <4>;
-> +               snps,blen = <256 128 64 32 0 0 0>;
-> +       };
-> +
->         tdm_ext: tdm-ext-clock {
->                 compatible = "fixed-clock";
->                 clock-output-names = "tdm_ext";
-> @@ -518,5 +525,89 @@
->                         gpio-controller;
->                         #gpio-cells = <2>;
->                 };
-> +
-> +               gmac0: ethernet@16030000 {
-> +                       compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
-> +                       reg = <0x0 0x16030000 0x0 0x10000>;
-> +                       clocks = <&aoncrg JH7110_AONCLK_GMAC0_AXI>,
-> +                                <&aoncrg JH7110_AONCLK_GMAC0_AHB>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC0_PTP>,
-> +                                <&aoncrg JH7110_AONCLK_GMAC0_TX_INV>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC0_GTXC>;
-> +                       clock-names = "stmmaceth", "pclk", "ptp_ref",
-> +                                     "tx", "gtx";
-> +                       resets = <&aoncrg JH7110_AONRST_GMAC0_AXI>,
-> +                                <&aoncrg JH7110_AONRST_GMAC0_AHB>;
-> +                       reset-names = "stmmaceth", "ahb";
-> +                       interrupts = <7>, <6>, <5>;
-> +                       interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
-> +                       phy-mode = "rgmii-id";
-> +                       snps,multicast-filter-bins = <64>;
-> +                       snps,perfect-filter-entries = <8>;
-> +                       rx-fifo-depth = <2048>;
-> +                       tx-fifo-depth = <2048>;
-> +                       snps,fixed-burst;
-> +                       snps,no-pbl-x8;
-> +                       snps,force_thresh_dma_mode;
-> +                       snps,axi-config = <&stmmac_axi_setup>;
-> +                       snps,tso;
-> +                       snps,en-tx-lpi-clockgating;
-> +                       snps,txpbl = <16>;
-> +                       snps,rxpbl = <16>;
-> +                       status = "disabled";
-> +                       phy-handle = <&phy0>;
-> +
-> +                       mdio {
-> +                               #address-cells = <1>;
-> +                               #size-cells = <0>;
-> +                               compatible = "snps,dwmac-mdio";
-> +
-> +                               phy0: ethernet-phy@0 {
-> +                                       reg = <0>;
-> +                               };
-> +                       };
-> +               };
-> +
-> +               gmac1: ethernet@16040000 {
-> +                       compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
-> +                       reg = <0x0 0x16040000 0x0 0x10000>;
-> +                       clocks = <&syscrg JH7110_SYSCLK_GMAC1_AXI>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC1_AHB>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC1_PTP>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC1_TX_INV>,
-> +                                <&syscrg JH7110_SYSCLK_GMAC1_GTXC>;
-> +                       clock-names = "stmmaceth", "pclk", "ptp_ref",
-> +                                     "tx", "gtx";
-> +                       resets = <&syscrg JH7110_SYSRST_GMAC1_AXI>,
-> +                                <&syscrg JH7110_SYSRST_GMAC1_AHB>;
-> +                       reset-names = "stmmaceth", "ahb";
-> +                       interrupts = <78>, <77>, <76>;
-> +                       interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
-> +                       phy-mode = "rgmii-id";
-> +                       snps,multicast-filter-bins = <64>;
-> +                       snps,perfect-filter-entries = <8>;
-> +                       rx-fifo-depth = <2048>;
-> +                       tx-fifo-depth = <2048>;
-> +                       snps,fixed-burst;
-> +                       snps,no-pbl-x8;
-> +                       snps,force_thresh_dma_mode;
-> +                       snps,axi-config = <&stmmac_axi_setup>;
-> +                       snps,tso;
-> +                       snps,en-tx-lpi-clockgating;
-> +                       snps,txpbl = <16>;
-> +                       snps,rxpbl = <16>;
-> +                       status = "disabled";
-> +                       phy-handle = <&phy1>;
-> +
-> +                       mdio {
-> +                               #address-cells = <1>;
-> +                               #size-cells = <0>;
-> +                               compatible = "snps,dwmac-mdio";
-> +
-> +                               phy1: ethernet-phy@1 {
-> +                                       reg = <0>;
-
-I'm getting errors on eth1 unless this is set to <1>. In any case the
-number after @ in the node name should match the reg value.
-
-> +                               };
-> +                       };
-> +               };
->         };
->  };
-> --
-> 2.17.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyMy8zLzMgMjE6NDU6NDQsIEFuZHJldyBMdW5uIOWGmemBkzoKPj4gKwkJZ21hYzA6
+IGV0aGVybmV0QDE2MDMwMDAwIHsKPj4gKwkJCWNvbXBhdGlibGUgPSAic3RhcmZpdmUsamg3MTEw
+LWR3bWFjIiwgInNucHMsZHdtYWMtNS4yMCI7Cj4+ICsJCQlyZWcgPSA8MHgwIDB4MTYwMzAwMDAg
+MHgwIDB4MTAwMDA+Owo+PiArCQkJY2xvY2tzID0gPCZhb25jcmcgSkg3MTEwX0FPTkNMS19HTUFD
+MF9BWEk+LAo+PiArCQkJCSA8JmFvbmNyZyBKSDcxMTBfQU9OQ0xLX0dNQUMwX0FIQj4sCj4+ICsJ
+CQkJIDwmc3lzY3JnIEpINzExMF9TWVNDTEtfR01BQzBfUFRQPiwKPj4gKwkJCQkgPCZhb25jcmcg
+Skg3MTEwX0FPTkNMS19HTUFDMF9UWF9JTlY+LAo+PiArCQkJCSA8JnN5c2NyZyBKSDcxMTBfU1lT
+Q0xLX0dNQUMwX0dUWEM+Owo+PiArCQkJY2xvY2stbmFtZXMgPSAic3RtbWFjZXRoIiwgInBjbGsi
+LCAicHRwX3JlZiIsCj4+ICsJCQkJICAgICAgInR4IiwgImd0eCI7Cj4+ICsJCQlyZXNldHMgPSA8
+JmFvbmNyZyBKSDcxMTBfQU9OUlNUX0dNQUMwX0FYST4sCj4+ICsJCQkJIDwmYW9uY3JnIEpINzEx
+MF9BT05SU1RfR01BQzBfQUhCPjsKPj4gKwkJCXJlc2V0LW5hbWVzID0gInN0bW1hY2V0aCIsICJh
+aGIiOwo+PiArCQkJaW50ZXJydXB0cyA9IDw3PiwgPDY+LCA8NT47Cj4+ICsJCQlpbnRlcnJ1cHQt
+bmFtZXMgPSAibWFjaXJxIiwgImV0aF93YWtlX2lycSIsICJldGhfbHBpIjsKPj4gKwkJCXBoeS1t
+b2RlID0gInJnbWlpLWlkIjsKPiAKPiBwaHktbW9kZSBpcyBhIGJvYXJkIHByb3BlcnR5LCBub3Qg
+YSBTb0MgcHJvcGVydHkuIEl0IHNob3VsZCBiZSBpbiB0aGUKPiBib2FyZCAuZHRzIGZpbGUsIG5v
+dCB0aGUgU29DIC5kdHNpIGZpbGUuCgpUaGFua3MuIEkgd2lsbCBmaXggaXQgaW4gdGhlIG5leHQg
+dmVyc2lvbi4KPiAKPj4gKwkJCXNucHMsbXVsdGljYXN0LWZpbHRlci1iaW5zID0gPDY0PjsKPj4g
+KwkJCXNucHMscGVyZmVjdC1maWx0ZXItZW50cmllcyA9IDw4PjsKPj4gKwkJCXJ4LWZpZm8tZGVw
+dGggPSA8MjA0OD47Cj4+ICsJCQl0eC1maWZvLWRlcHRoID0gPDIwNDg+Owo+PiArCQkJc25wcyxm
+aXhlZC1idXJzdDsKPj4gKwkJCXNucHMsbm8tcGJsLXg4Owo+PiArCQkJc25wcyxmb3JjZV90aHJl
+c2hfZG1hX21vZGU7Cj4+ICsJCQlzbnBzLGF4aS1jb25maWcgPSA8JnN0bW1hY19heGlfc2V0dXA+
+Owo+PiArCQkJc25wcyx0c287Cj4+ICsJCQlzbnBzLGVuLXR4LWxwaS1jbG9ja2dhdGluZzsKPj4g
+KwkJCXNucHMsdHhwYmwgPSA8MTY+Owo+PiArCQkJc25wcyxyeHBibCA9IDwxNj47Cj4+ICsJCQlz
+dGF0dXMgPSAiZGlzYWJsZWQiOwo+PiArCQkJcGh5LWhhbmRsZSA9IDwmcGh5MD47Cj4gCj4gVGhl
+IFBIWSBpcyBleHRlcm5hbCwgc28gdGhpcyBpcyBhbHNvIGEgYm9hcmQgcHJvcGVydHksIG5vdCBh
+IFNvQwo+IHByb3BlcnR5LiAKV2lsbCBmaXgsIHRoYW5rcy4KPiAKPj4gKwo+PiArCQkJbWRpbyB7
+Cj4+ICsJCQkJI2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4+ICsJCQkJI3NpemUtY2VsbHMgPSA8MD47
+Cj4+ICsJCQkJY29tcGF0aWJsZSA9ICJzbnBzLGR3bWFjLW1kaW8iOwo+PiArCj4+ICsJCQkJcGh5
+MDogZXRoZXJuZXQtcGh5QDAgewo+PiArCQkJCQlyZWcgPSA8MD47Cj4+ICsJCQkJfTsKPiAKPiBU
+aGUgUEhZIGlzIGFsc28gYSBib2FyZCBwcm9wZXJ0eS4gWW91IGNvdWxkIGZvciBleGFtcGxlIGRl
+c2lnbiBhIGJvYXJkCj4gd2hlcmUgYm90aCBQSFlzIGFyZSBvbiBvbmUgTURJTyBidXMsIGluIG9y
+ZGVyIHRvIHNhdmUgdHdvIFNvQyBwaW5zLgoKU291bmRzIGxpa2UgYSBnb29kIGlkZWEuCj4gCj4g
+ICAgICAgQW5kcmV3CgpUaGFuayB5b3UgZm9yIHRha2luZyB0aGUgdGltZSB0byByZXZpZXcuCi0t
+IApCZXN0IHJlZ2FyZHMsClNhbWluCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
