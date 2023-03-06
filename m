@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE09C61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 19:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC49C64EC4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 19:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=5OKlMCeMRc5Mf5AqRc5CWoTVJYio4lRHBiK0BH31u4Y=; b=HNbrER4DZuWzw6tyB+XlFPJckA
-	enkzbl8H3cbMSRD2dOqkq8DgQx8MXGFZdz0j5PeLK3upKiF98FyUGDdMhwO3jaZsWujclQ8RSgSfC
-	GKg4i/9Hi9QM5JDLCt8cFzk6a0W2uTfwDJerab1Jm2eYySrkR1FbsdezlRHvCx9CSjipukrXFdrWr
-	5oxJXDHfYiIzRuPuOp/ZPmFanESIm2bGnioxz4iJ5ePFP1WWfeZU/r/KkgKeUnC2PYKGidJyfW3BR
-	CYlGMU13u0yqdqO5kn29tf1Lw2umesJ5YaFWJHNN3sNlgM9uPeviYy2ilGZNdPlhqxeOpE3SkLKlQ
-	Zqo6PwFg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=atLZiaJvKm76EdsEauUx9uJK/tEuOxd3fdtWVZqB7PI=; b=wIs97SKxI7+t9ZzWUjARy+6U6g
+	Uo+YXkX3dMlMTQ1u8aPSRizWYhvKp8GJ2kkYT63Avlf51RrZQtqhcHnzMDg2rOVyiVkVbAea+Zju6
+	uxpsGlg2TPD8oz/G9TdW2F9Juxc9CFiqrQnW6uSI380/4FRfFxT9BpW8rKKful0uFwIV6/wKMD6ty
+	zla1TATEmIhJjOvtIIzcVlOe0OUWU4FrbVPi28yTY/XGcilaoAlE+mDLgDfTjIHMcsoZgO3Lc20Gl
+	P1Q3WPFmVcvjDwdSJTEtY6bKXWwgAONKTzZTktFrdeMm2jQdJKePFIYcBwtOddzQLTRoJZSeHgs3k
+	mRN6NqCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZG70-00ES2Q-OI; Mon, 06 Mar 2023 19:03:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pZGSD-00EZWt-08; Mon, 06 Mar 2023 19:25:01 +0000
+Received: from mail-pj1-f53.google.com ([209.85.216.53])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZG6A-00ERad-6g
-	for linux-riscv@bombadil.infradead.org; Mon, 06 Mar 2023 19:02:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Hy1Buh0DyhAQ1dsWc1I6Y0GrKiZLM4ytS70wq/2qiU0=; b=hK58AzGQBxAbfsw6G4kanEQDA1
-	0sqztLvxyUScj8jQ9sYAv1vP3QZZ8sPyivpu7o0IkZ2O6e5B185w35QNtZ9S9SwV6BtRWZiAEyal/
-	MkCRfCgnLYGfOw9m7Qbma3vba0pUSaI+iEnYCp4ZmBJARTPLlVCiBLEUHYWBgjRhaO56NNmf0BHk7
-	+grTpCKEu8pADEh2zO5QLOPvRfDQmSLxYvWYp+HuMkfuUNo1N+de0kaKwCXmSQhrQ3sxQV9ov/rVa
-	o6r4kIwMVQSr9WRLZh2lQUf41ZQ7BBjRdguElI3qR/B35gDFDPSEzXHFLmzrr0r87wNlo7ZZb4QPP
-	3zNEDgcg==;
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pZG66-00Glqt-2H
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Mar 2023 19:02:12 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id w192-20020a25dfc9000000b009fe14931caaso11492165ybg.7
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 11:02:07 -0800 (PST)
+	id 1pZGLc-00EWs2-G1
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 19:18:18 +0000
+Received: by mail-pj1-f53.google.com with SMTP id h11-20020a17090a2ecb00b00237c740335cso9689274pjs.3
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Mar 2023 11:18:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112; t=1678129326;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Hy1Buh0DyhAQ1dsWc1I6Y0GrKiZLM4ytS70wq/2qiU0=;
-        b=Letr5LRp7bS0YmkVINmE83RF8//+0ihwPomgSJZC4+dkD9sFUFEL35AQoxcfPpIbXW
-         Y1mVJA34aQ9Fn9+jBPkAovdeUPbAGsum3MVzw575zB3u4rfwK4ZVePdw3VSiVo2j9C9v
-         3XnoKl7fEhlmtkQ5DdG9/UhFj+tyVjNmSih/iYAuSQ6xwOtYmbjOYgHRAkzFRXa92dze
-         ZQvrRjBbIKvFglVzBDH4EAw30eROHuzuIjsYKsJXNnWsAQHIog+eYwButoAe0B9OxSD2
-         pOTz7b2aOyFjFOUOaTEw5+7DJRfnksutj0fbq9nxtjgFb7SGFFpwHZTOmxj6KpssL5px
-         NozA==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1678130287;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PlfUVnMpAeqg74Kjt8UEOETBGNFFbOVFaXPZinB2uzA=;
+        b=t5crri0WcTaC4dbDeFT8B1Wf41RotuxLDoQ4au4TS14bhzVMaHsw9aHDiNZ/QgfigO
+         pIri5VdgzvPiiJjI1Fi6ly7z7LM/WBF4IOflr++3YI+qk3fjdDueo9IiFarU45YM93jy
+         InVglw2HcfH0SVosPwcOZVudDiaF8aEsAty9SKv60VRlOJ6dbXxRUnEfnuwuksQRL+oH
+         MjCDHAW0mtGh5caILOuIvpWpotLpNMICgWII/CmspOGryPGZRcLIX7VDlhmcKqnho09M
+         v3nqHeyXn7TJizhYBWel17Os2plRYUMcAagxx2fq7Xno7HV5B6AU7E+r1P+9n6NyddI7
+         /lAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678129326;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Hy1Buh0DyhAQ1dsWc1I6Y0GrKiZLM4ytS70wq/2qiU0=;
-        b=8GEGB3xX1kH/aN0cBaUMQDP3Z8gpvs/UEf9VurrZV4ACfC/sVtewob9OSLXc3xARoK
-         zkt9tVA6GFALSNam0FlRtSryUTzsgSO/6jNv2nLLlR8Xy4A6U1IscTjvKjB9KwWkR+JR
-         lRn9SyD21ZhLEFMzAp1pXVjDch2w3BgJ9tGLGvibOi3XDA9BB5oDdjUKlek04xR3tnNJ
-         fNyEmrNwAJdE2nxiQgBao7PyXqfH8rMWRnu+qf85k9y0CLACyg0JQt60UAzRJexlbQqH
-         BNXvUE7XY8nLE67H56DHX1cbdQQsvSMhG3oTzET/Hd5NUJbcuZ8pyO/hCZAx7sN2hWc7
-         HOrw==
-X-Gm-Message-State: AO0yUKXKjDA8s8HAg1mhzX0no71n/35GeeW8y0dIMcnxNm4oZy2EaMh8
-	SOn+FE2pAqsMf5loHcZ1f/0+MG5S+hp6QQ==
-X-Google-Smtp-Source: AK7set9e2oV5ajrE5TnGPzkyECRcuaio2KGOJRsM0L6WhO9k90cawVld9W/AAFXa4Ih5X3b9O+P88E69HqyVhg==
-X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a81:b667:0:b0:534:d71f:14e6 with SMTP id
- h39-20020a81b667000000b00534d71f14e6mr7365447ywk.9.1678129326079; Mon, 06 Mar
- 2023 11:02:06 -0800 (PST)
-Date: Mon,  6 Mar 2023 11:01:56 -0800
-In-Reply-To: <20230306190156.434452-1-dmatlack@google.com>
-Mime-Version: 1.0
-References: <20230306190156.434452-1-dmatlack@google.com>
-X-Mailer: git-send-email 2.40.0.rc0.216.gc4246ad0f0-goog
-Message-ID: <20230306190156.434452-5-dmatlack@google.com>
-Subject: [PATCH v2 4/4] KVM: x86: Drop union for pages_{4k,2m,1g} stats
-From: David Matlack <dmatlack@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Eric Farman <farman@linux.ibm.com>, 
-	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>, David Matlack <dmatlack@google.com>, 
-	Sathvika Vasireddy <sv@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
+        d=1e100.net; s=20210112; t=1678130287;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PlfUVnMpAeqg74Kjt8UEOETBGNFFbOVFaXPZinB2uzA=;
+        b=RCAgiamN8XWaoQ9Xmef+FrZUmf8PDTU/6131s0txW4hpHfbrF3Sngd36QmzsBMYl9M
+         Olxcn0KCpcC87nf7+kOJzjwGDRNOoRSgIS2Q942ccwF8XgVvuOAH8OrZLky42ujqfXY9
+         lGYl3o1LULf+TdcfoQ9jVRFF2qhIRzbu7WSBzOfKmnD6/hiTE04ZQUZzQCTEQIirgub2
+         E/FpcBmg8SJA6qZqPZAy1xgelAoQQVeIfL9oMpK0PEvuUUwNgPynFnmYXlCF6ys6HlKG
+         LcmzEy9BS7IASF75bg2Nqugm8sz5JW6vVemQEGBCBPr6v9TX5wW3AGgH/1u4aWMVx5MG
+         TLMw==
+X-Gm-Message-State: AO0yUKXmMD/kdNaxU+KWNAipEUVxT4PXfNwqjCi9CUww7eLoYsC5ybue
+	RPPLxn1A1bjAJmTDgUT1MkIiTg==
+X-Google-Smtp-Source: AK7set+iNoJZ2cxy5qRgIoHSJ0YdyIfw0jMkr21udOVpB5izRmx1RUdTQKZ9Owwbph8LjbeyohY5Ag==
+X-Received: by 2002:a05:6a20:5483:b0:cc:50de:a2be with SMTP id i3-20020a056a20548300b000cc50dea2bemr13625900pzk.14.1678130287404;
+        Mon, 06 Mar 2023 11:18:07 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id d23-20020aa78697000000b005afda149679sm6782709pfo.179.2023.03.06.11.18.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Mar 2023 11:18:06 -0800 (PST)
+Date: Mon, 06 Mar 2023 11:18:06 -0800 (PST)
+X-Google-Original-Date: Mon, 06 Mar 2023 11:17:18 PST (-0800)
+Subject: Re: [RFC 0/2] RISC-V: enable rust
+In-Reply-To: <CANiq72ndkF0JM1kV=ewnO4uGirDowHDGLkhvjQgtLnuPEk_hTQ@mail.gmail.com>
+CC: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+  Conor Dooley <conor@kernel.org>, ojeda@kernel.org, alex.gaynor@gmail.com, wedsonaf@gmail.com,
+  boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, corbet@lwn.net,
+  Paul Walmsley <paul.walmsley@sifive.com>, nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
+  rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: miguel.ojeda.sandonis@gmail.com
+Message-ID: <mhng-a7ada57e-543c-434b-a4f3-4fbda9238eb0@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_190210_779615_0E696CEA 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20230306_111812_635037_E7B78BE0 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +87,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop the union for the pages_{4k,2m,1g} stats. The union is no longer
-necessary now that KVM supports choosing a custom name for stats.
+On Sat, 25 Feb 2023 00:37:29 PST (-0800), miguel.ojeda.sandonis@gmail.com wrote:
+> On Sat, Feb 25, 2023 at 12:18 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>>
+>> Works for me.
+>>
+>> I've got a few other things in the pipeline for this merge window so
+>> this probably won't make it, but I'll dig in after that.  We've got a
+>> bunch of Rust-types floating around Rivos as well, so with any luck
+>> someone else will have some time to poke around.  Having a full cycle in
+>> linux-next is probably the right way to go for this sort of thing
+>> anyway, as it's likely to shake out some long-tail issues.
+>
+> Thanks a lot! That would be great.
+>
+> At least from our side, no rush. In fact, we are letting users (or
+> arch maintainers) to request/submit the architectures themselves as
+> they need/want them.
 
-Eliminating the union also would allow future commits to more easily
-move pages[] into common code, e.g. if KVM ever gains support for a
-common page table code.
-
-An alternative would be to drop pages[] and have kvm_update_page_stats()
-update pages_{4k,2m,1g} directly. But that's not a good direction to go
-in since other architectures use other page sizes.
-
-No functional change intended.
-
-Link: https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- arch/x86/include/asm/kvm_host.h | 9 +--------
- arch/x86/kvm/x86.c              | 6 +++---
- 2 files changed, 4 insertions(+), 11 deletions(-)
-
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 808c292ad3f4..a59e41355ef4 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1473,14 +1473,7 @@ struct kvm_vm_stat {
- 	u64 mmu_recycled;
- 	u64 mmu_cache_miss;
- 	u64 mmu_unsync;
--	union {
--		struct {
--			atomic64_t pages_4k;
--			atomic64_t pages_2m;
--			atomic64_t pages_1g;
--		};
--		atomic64_t pages[KVM_NR_PAGE_SIZES];
--	};
-+	atomic64_t pages[KVM_NR_PAGE_SIZES];
- 	u64 nx_lpage_splits;
- 	u64 max_mmu_page_hash_collisions;
- 	u64 max_mmu_rmap_size;
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 072f5ba83170..101ad6b7e7b6 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -240,9 +240,9 @@ const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
- 	KVM_STAT(VM, CUMULATIVE, NONE, mmu_recycled),
- 	KVM_STAT(VM, CUMULATIVE, NONE, mmu_cache_miss),
- 	KVM_STAT(VM, INSTANT, NONE, mmu_unsync),
--	KVM_STAT(VM, INSTANT, NONE, pages_4k),
--	KVM_STAT(VM, INSTANT, NONE, pages_2m),
--	KVM_STAT(VM, INSTANT, NONE, pages_1g),
-+	__KVM_STAT(VM, INSTANT, NONE, pages[PG_LEVEL_4K - 1], "pages_4k"),
-+	__KVM_STAT(VM, INSTANT, NONE, pages[PG_LEVEL_2M - 1], "pages_2m"),
-+	__KVM_STAT(VM, INSTANT, NONE, pages[PG_LEVEL_1G - 1], "pages_1g"),
- 	KVM_STAT(VM, INSTANT, NONE, nx_lpage_splits),
- 	KVM_STAT(VM, PEAK, NONE, max_mmu_rmap_size),
- 	KVM_STAT(VM, PEAK, NONE, max_mmu_page_hash_collisions)
--- 
-2.40.0.rc0.216.gc4246ad0f0-goog
-
+It's time for the next release.  IIUC there were some authorship issues 
+here, did you guys want to re-spin this with those sorted out?  I can 
+give it a shot if you want, but I'm probably as likely to screw it up as 
+anyone else...
 
 _______________________________________________
 linux-riscv mailing list
