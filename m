@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF7CC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 21:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2632C6FD1A
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Mar 2023 21:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bK5jBDYLMLvad4ZBqBN1Iaua2UaCPRVEmuyDVGYUEms=; b=v/5W8zqFAaP3VJLfGUIp0dsGn4
-	ZE73LcCw8onZXiZvtqVR7OQmZ3Xz7VIHy9nPZU2c6n78MVh4ZHVQIXZobLHXS74xdUjLk71KbyPHW
-	P4ISS7goHxfhiIMuz5AXq2kUh0+jejm+jScg0e/bJloK0itJon8CiQIL2AqzB64UJPSIBV60JNYA8
-	q+1sxfI6ioMSrJVkDtYqHM2uE/mg7g0aqFc1VAQYJqbOBFD4m4C+bDM3UZ0ELFCe0PtkFSiY556MR
-	DkRknOB+PDdFZbIK1p6KnMGB1FowmWh0VeV3tludXBcbK0IvK0HnZdNEXSzuAxIawZyE8NgqcuO5a
-	kDaJVjFg==;
+	bh=C8Tp6i9/oj3L8G0KqPcH1V4obQVDdtXtzBur/h20vlk=; b=mS0fgU0yxK3bxrUyGYzhmhjwTA
+	V/gS/NBKWLWmwcCi0OfKPi90L0Cule/MYmzwiQtRQcrjgyEa6nIynk1t9qzYJUV7PZnNq75CreUyP
+	aUSVCdS9tm9uln0UAuBtQrs6hPEhD5Lbh0g22K0Qiq06wJYkJRrA07lGl5uVTf7kJ4ICdAajFDmOo
+	BWg8QGs8oDb/GSCp13x0Kc2SE5QXqVOpAFeBIb1x4/NfhJgArcF8DDFdYj1A0+m3Mu5thIudNKi6j
+	dktK7nn8ysGtpZxvyClj/yulHbt9Oj1ej+Xhy5T8WHuEGtUMKSyN8i99S4SwaLv6pzdsWteYObkf1
+	MTTsa1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZIDK-00F4KC-Nw; Mon, 06 Mar 2023 21:17:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pZIEA-00F4SQ-5j; Mon, 06 Mar 2023 21:18:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZIDH-00F4JC-Os
-	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 21:17:45 +0000
+	id 1pZIE7-00F4Rt-99
+	for linux-riscv@lists.infradead.org; Mon, 06 Mar 2023 21:18:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 568BDB81136;
-	Mon,  6 Mar 2023 21:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13D14C4339B;
-	Mon,  6 Mar 2023 21:17:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D33B060BB1;
+	Mon,  6 Mar 2023 21:18:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86E3C433D2;
+	Mon,  6 Mar 2023 21:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678137460;
-	bh=wSaQ1angfsAOIZ6JP6ZiMFA9+exAxA4Z70DBQooJak0=;
+	s=k20201202; t=1678137514;
+	bh=AxsVbuTwD9lcAnQSfFTEOvc+VhNCMa+HpFqJypkBt0s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k+CUUL2GjljKxVebr2unVC4wW4Dmj+JSWL2RAn1mJ8rj72IBVbcjAq6wBz96xeGEm
-	 dWwAsLcjFCToZTrwoH/y671tif1pt7qU4xvl2/tbR67AMYAaDGnBlG4juzmS3q/jN9
-	 /5gBUucQ5l3iF4JKcZMEFrzxBu5s2Y3dBk0HybVSUIJYtuCGNas5mK+QqWud7Paguv
-	 xeYkjhOtsAkWRXLHnWNQwoU2Ji7FkWMnFWIBEEviKuPoj2mugSOu1BvyfJ8cCNL5Ym
-	 hlT/J/GWR39uLj23dtmpBDv2lE3wIv49JDRm2nPaCD4G58IISmeAdgBPRvtgubOcjo
-	 ZbOidWRfuQ/tg==
-Date: Mon, 6 Mar 2023 21:17:34 +0000
+	b=owU5F1dBzl1UY142Ecej4ZNLS+vSVLIEXpquSYfLOKDDfeSoyxtj8WTOQ3IK/uLW+
+	 kyCwiewSs2RPsW5StQntBvNpumdvYaOGSolVMZUKApbzQqefTSqATPomdRZ7Ri5rpq
+	 pZqTYHUBUCoZIh8us2Ydqc2U8PfssIo4LGqm06JBgJ/OpYFMs4hsob8Dne5NPR8rll
+	 kA9D42AUrXNaIwGUAozx3BsYx7NNBj0zMJtFAfG7jPEPCI6J8CtevHL85MVUdDCuRW
+	 LtiGA9LiQIwcc6s0LULPb+1OF/YXlQiB2D/zwsoSur35EOy28pmoIkCeU1blqtlS8I
+	 ZpNEWbx5ClT8g==
+Date: Mon, 6 Mar 2023 21:18:28 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
@@ -59,15 +59,16 @@ Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
 	Atish Patra <atishp@rivosinc.com>,
 	'Conor Dooley ' <conor.dooley@microchip.com>,
 	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH V3 18/20] RISC-V: Add ACPI initialization in setup_arch()
-Message-ID: <b38179fe-f1b8-4146-ae22-11e8bbbd500e@spud>
+Subject: Re: [PATCH V3 19/20] RISC-V: Enable ACPI in defconfig
+Message-ID: <91cf4ebd-f22c-4cf9-9fb4-fa6349ea00ab@spud>
 References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
- <20230303133647.845095-19-sunilvl@ventanamicro.com>
+ <20230303133647.845095-20-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230303133647.845095-19-sunilvl@ventanamicro.com>
+In-Reply-To: <20230303133647.845095-20-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230306_131744_110258_2847B8D0 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20230306_131835_399413_57A780DA 
+X-CRM114-Status: UNSURE (   7.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,156 +80,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0982323544998151935=="
+Content-Type: multipart/mixed; boundary="===============3646693679391296373=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0982323544998151935==
+--===============3646693679391296373==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="EIryT2fP1CbWR+C6"
+	protocol="application/pgp-signature"; boundary="oiK0djp9YUeJc/e1"
 Content-Disposition: inline
 
 
---EIryT2fP1CbWR+C6
+--oiK0djp9YUeJc/e1
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 03, 2023 at 07:06:45PM +0530, Sunil V L wrote:
-> Initialize the ACPI core for RISC-V during boot.
->=20
-> ACPI tables and interpreter are initialized based on
-> the information passed from the firmware and the value of
-> the kernel parameter 'acpi'.
->=20
-> With ACPI support added for RISC-V, the kernel parameter 'acpi'
-> is also supported on RISC-V. Hence, update the documentation.
->=20
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +static int __init acpi_fadt_sanity_check(void)
-> +{
-> +	struct acpi_table_header *table;
-> +	struct acpi_table_fadt *fadt;
-> +	acpi_status status;
-> +	int ret =3D 0;
-> +
-> +	/*
-> +	 * FADT is required on riscv; retrieve it to check its presence
-> +	 * and carry out revision and ACPI HW reduced compliancy tests
-> +	 */
-> +	status =3D acpi_get_table(ACPI_SIG_FADT, 0, &table);
-> +	if (ACPI_FAILURE(status)) {
-> +		const char *msg =3D acpi_format_exception(status);
-> +
-> +		pr_err("Failed to get FADT table, %s\n", msg);
-> +		return -ENODEV;
-> +	}
-> +
-> +	fadt =3D (struct acpi_table_fadt *)table;
-> +
-> +	/*
-> +	 * Revision in table header is the FADT Major revision, and there
-> +	 * is a minor revision of FADT.
-
-What is the point of this part of the comment? Isn't it obvious from the
-below code that you expect a major and minor revision?
-If feel like you're trying to make a point in it, but the point has been
-lost :/
-
-> +	 *
-> +	 * TODO: Currently, we check for 6.5 as the minimum version to check
-> +	 * for HW_REDUCED flag. However, once RISC-V updates are released in
-> +	 * the ACPI spec, we need to update this check for exact minor revision
-> +	 */
-> +	if (table->revision < 6 || (table->revision =3D=3D 6 && fadt->minor_rev=
-ision < 5)) {
-> +		pr_err(FW_BUG "Unsupported FADT revision %d.%d, should be 6.5+\n",
-> +		       table->revision, fadt->minor_revision);
-> +	}
-> +
-> +	if (!(fadt->flags & ACPI_FADT_HW_REDUCED)) {
-> +		pr_err("FADT not ACPI hardware reduced compliant\n");
-> +		ret =3D -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * acpi_get_table() creates FADT table mapping that
-> +	 * should be released after parsing and before resuming boot
-> +	 */
-> +	acpi_put_table(table);
-> +	return ret;
-> +}
-
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 2d45a416d283..7b2b065a9f70 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -8,6 +8,7 @@
->   *  Nick Kossifidis <mick@ics.forth.gr>
->   */
-> =20
-> +#include <linux/acpi.h>
->  #include <linux/init.h>
->  #include <linux/mm.h>
->  #include <linux/memblock.h>
-> @@ -276,14 +277,22 @@ void __init setup_arch(char **cmdline_p)
-> =20
->  	efi_init();
->  	paging_init();
-> -#if IS_ENABLED(CONFIG_BUILTIN_DTB)
-> -	unflatten_and_copy_device_tree();
-> -#else
-> -	if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
-> -		unflatten_device_tree();
-> -	else
-> -		pr_err("No DTB found in kernel mappings\n");
-> -#endif
-> +
-> +	/* Parse the ACPI tables for possible boot-time configuration */
-> +	acpi_boot_table_init();
-> +	if (acpi_disabled) {
-> +		if (IS_ENABLED(CONFIG_BUILTIN_DTB)) {
-> +			unflatten_and_copy_device_tree();
-> +		} else {
-> +			if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
-> +				unflatten_device_tree();
-> +			else
-> +				pr_err("No DTB found in kernel mappings\n");
-> +		}
-> +	} else {
-> +		early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)));
-> +	}
-> +
->  	early_init_fdt_scan_reserved_mem();
->  	misc_mem_init();
-
-Thanks for removing the ifdeffery :)
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-
---EIryT2fP1CbWR+C6
+--oiK0djp9YUeJc/e1
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAZYbgAKCRB4tDGHoIJi
-0k0zAQCbBzFvKICyIrAsPcX8dLiJz0Ofva7w3fryNn/wqbvRxAD+Ilt6kQSAqc1a
-TmdQ6P76jU5amOA0cxsa523SitIqswg=
-=P3Nh
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAZYpAAKCRB4tDGHoIJi
+0gqPAQCEd5ofg+gQPDBDKWon4HPq/76ep5PMObYQ6wu4ecu2tAEAlaiu6jQSgrVT
+f8AT4d+fR8d2MHS4Dwh74nQBrfzfRQI=
+=55B+
 -----END PGP SIGNATURE-----
 
---EIryT2fP1CbWR+C6--
+--oiK0djp9YUeJc/e1--
 
 
---===============0982323544998151935==
+--===============3646693679391296373==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -239,5 +122,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0982323544998151935==--
+--===============3646693679391296373==--
 
