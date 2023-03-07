@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59253C678D5
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 11:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112BCC678D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 11:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iL9zeLmBVipRXYNwJTCacuKIDS8NASCWKPWf0mclKHw=; b=ouIAIg1rY4OkPq
-	qChpv6JLV33Zm30Az1F2Wu/Wz0V67n2cqfKmvyKd+7LR4Rtv9G1jhNXNxT3vZR7y8JgNfq41BwokB
-	1Xi/ecCcbh2UHdX2mPkulCpGHeYW+pBQzq4JtjGm9BMhnlTtMtb+dCUtSkTcrfOWRcdYv2gh3OBW1
-	6pQD9ilZ6eZa5YalbwIqJAiNjOwhGiNck7gma/ZldrCIcux8asqwefZkWXkG3856O+ioXD55sh3KC
-	LPg9b9jIYAoa0pGrSy5Moezq/B4bw2weRtlb4Bv7hnMoxs3S0/wVYfL4E5qHawBYLcet9YJ2mpd+0
-	/JYc1euSQA5SjlUgBsFg==;
+	List-Owner; bh=nOw7JAeNIhtaYDpTkkr9nMQ8Z1l9gvZNbWyzBwAu1Xk=; b=B4MD1ZezXXX3xc
+	Tv72nhHpHGZJSBJpiy6SXsnL+aBPaz3iyP/U8CDSUvof3BuAzX8bpQFHULyrfddJIdOUdS7zoNaQ9
+	Rzt/N43SASi44HUub7zcWD6cIbgbcS0DjPsmpkZod58/G/AP5ra4iBhXBxnfF7D3NtkO/r9SsPJ3T
+	Rr4sTwVUnXCoclj6AQdvoWo9eQNziCCPCiSuIRWhEVy1TOz/uHfcKqLdZYzVzoIK4SY4PQZiu5Jqx
+	9CBtPeiQYLZAUMZKtNbOWCwMJxBx8QHNaedhqu7ejsS8cbvxkC/E/S0CjNj/1KK2C2E1bc4iKGco0
+	k5yir8yFMqJKwdqSZ2Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZVbP-00HUPw-Nl; Tue, 07 Mar 2023 11:35:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pZVvz-00HYTy-Lz; Tue, 07 Mar 2023 11:56:47 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZVbM-00HUP5-Q3
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 11:35:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5B687612DA;
-	Tue,  7 Mar 2023 11:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54D8DC433EF;
-	Tue,  7 Mar 2023 11:35:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678188926;
-	bh=O9DxrT2ixzFtnLxnoTmcA3HN02EolxbP4FBXHA9+mNc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PCIUqadSagCnW6VTReL42z91XP19DLmi3J3CNWGdQhGxEr4fv0G9EWEdh1EVEdn12
-	 40xaXubONu33hsoCK9HHtA1SDTfevLaUYFtHnySvhT+1E2hd4WZZqFqWn0GoH7nu5i
-	 HiSX18mnUsuZrXoE84Fr6z5+4lmeJRjiLwOvuy5fmVrKjRFLagAOzQA2VPpfwld5IL
-	 Wu3m2AyUH2DcpiOtdkWufSI5zsdcEMCFNDZ52YUkaWIqQJWFaI7p+qTmhNMqCEBGu+
-	 Dejo1bJvHwjq5tYi562262K6MRvPUbGr//5ZYFcPcMe2K2xV06Zq9/vwzw4o1CNUfy
-	 dI/AwfhpRemHQ==
-Date: Tue, 7 Mar 2023 13:35:11 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor.Dooley@microchip.com, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, frowand.list@gmail.com,
-	robh+dt@kernel.org, mick@ics.forth.gr, paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu, Valentina.FernandezAlanis@microchip.com,
-	Daire.McNamara@microchip.com
-Subject: Re: RISC-V reserved memory problems
-Message-ID: <ZAchb/DfbIh+qaE4@kernel.org>
-References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
- <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
- <Y9wytv5KSt1ca+td@spud>
+	id 1pZVvw-00HYSA-8p
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 11:56:45 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-536c2a1cc07so239919837b3.5
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 03:56:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1678190201;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fpzu6mM9TObEaWPqTRbV/lVIlKZNjyI+OGMeOTlpmmM=;
+        b=HlTlFZ6JpzfQr4iv30oIdQyWt5EKVG4KlPTb+CtXgnhcokg9agdArzRPjQaAhjClKC
+         ZdKh92km6nxWkT3uQOqDjCk/L1h0yTo3J3/U6pK8OkC1WlgHQdR+UJzqYNSNfKh56g1h
+         P6SjgUcedkQsE7840DprGK0z/3YIOuMtgwSwzxamhNMXCsjz/bOD5MvATFVETc5SR+UT
+         iBVMPMKPl2EtwWqT8Im+I1/eoqcIyrslwnxUhawQPD4rEIjHRjbkTYaGZlWu3279wo1m
+         o9hRTRw9GolZcvpByHOv1j8JCWQJ9mYMpP+s0DjAfQlcib7hjtoM8L2U5RyjFmGHJHtj
+         o/vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678190201;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Fpzu6mM9TObEaWPqTRbV/lVIlKZNjyI+OGMeOTlpmmM=;
+        b=ypsH2tqxorEo2u2Ropgk5f+QWj3URTHbyc1yY0z9Lg2PdBZ+W8wx8pzQrd8R2KJhHN
+         +8ubsB6yRNcrRiwRXKUZNTvNK7XFkRlsj0mq1sOEKtIcYO8i/qTaM2yx7fFxP3hzBEKV
+         NFtF8aHGZlNZPwjym/yc/NT/1HnxGk5TkJzedAfO3vji8Qpu/4gm7i9E1uqco7z2BGcF
+         1kYh9DlnwToeNPbbBgCJCIoNPyDCHReTi/2KwQcROTI1EvxUJA/BLEraeQnp2Kybs9Uh
+         IeS+MmrY8beQWR9FRQ7RWD0e46FuM3VBetZqSMw9TW1yHmtUVtjVNgwODCDl6tEXRQ5U
+         /paA==
+X-Gm-Message-State: AO0yUKWatM4J8Ctv8tkj62liw3lrEuF2CSfbnVTG7WmZrdg5k6P6u+K2
+	UBXsH5lk5v1jnMeykhEmoOhFphNhx0wEu+2D8mA=
+X-Google-Smtp-Source: AK7set+XuApmsHpeE59OAObEV85h6yLM1xkplSm7PT1n4hNgCYOTpCcCuw40R2D3CdnvscfMkze9+dwV/8bTBkxG6YU=
+X-Received: by 2002:a81:b61a:0:b0:52e:c79a:cda with SMTP id
+ u26-20020a81b61a000000b0052ec79a0cdamr9075327ywh.10.1678190201054; Tue, 07
+ Mar 2023 03:56:41 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y9wytv5KSt1ca+td@spud>
+References: <20230307102441.94417-1-conor.dooley@microchip.com>
+ <20230307102441.94417-3-conor.dooley@microchip.com> <CANiq72nLjBgMSUTtWuF7qU5vG9rA3v=ekWk1d6+SNiGkfcaS8Q@mail.gmail.com>
+ <ZAcZeWYUU75BK5FO@wendy>
+In-Reply-To: <ZAcZeWYUU75BK5FO@wendy>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Tue, 7 Mar 2023 12:56:30 +0100
+Message-ID: <CANiq72kz2qxsB9JG7OB02KMAfy-YvokCFWMuEj_bkaY8i5tdVg@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] RISC-V: enable building 64-bit kernels with rust support
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, conor@kernel.org, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_033528_970781_5D4AD869 
-X-CRM114-Status: GOOD (  64.15  )
+X-CRM114-CacheID: sfid-20230307_035644_323642_35BF5E39 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,164 +91,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-Sorry for the delay, somehow this slipped between the cracks.
-
-On Thu, Feb 02, 2023 at 10:01:26PM +0000, Conor Dooley wrote:
-> Hullo Palmer, Mike & whoever else may read this,
-> 
-> Just reviving this thread from a little while ago as I have been in the
-> area again recently...
-
-TBH, I didn't really dig deep into the issues, but the thought I had was
-what if DT was mapped via fixmap until the setup_vm_final() and then it
-would be possible to call DT methods early.
-
-Could be I'm shooting in the dark :)
- 
-> On Tue, Aug 16, 2022 at 08:41:05PM +0000, Conor.Dooley@microchip.com wrote:
-> > Hey all,
-> > We've run into a bit of a problem with reserved memory on PolarFire, or
-> > more accurately a pair of problems that seem to have opposite fixes.
-> > 
-> > The first of these problems is triggered when trying to implement a
-> > remoteproc driver. To get the reserved memory buffer, remoteproc
-> > does an of_reserved_mem_lookup(), something like:
-> > 
-> > 	np = of_parse_phandle(pdev->of_node, "memory-region", 0);
-> > 	if (!np)
-> > 		return -EINVAL;
-> > 
-> > 	rmem = of_reserved_mem_lookup(np);
-> > 	if (!rmem)
-> > 		return -EINVAL;
-> > 
-> > of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
-> > a match - but this was triggering kernel panics for us. We did some
-> > debugging and found that the name string's pointer was pointing to an
-> > address in the 0x4000_0000 range. The minimum reproduction for this
-> > crash is attached - it hacks in some print_reserved_mem()s into
-> > setup_vm_final() around a tlb flush so you can see the before/after.
-> > (You'll need a reserved memory node in your dts to replicate)
-> > 
-> > The output is like so, with the same crash as in the remoteproc driver:
-> > 
-> > [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy) (riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutils) 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
-> 
-> [...]
-> 
-> > [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
-> > 
-> > We traced this back to early_init_fdt_scan_reserved_mem() in
-> > setup_bootmem() - moving it later back up the boot sequence to
-> > after the dt has been remapped etc has fixed the problem for us.
-> > 
-> > The least movement to get it working is attached, and also pushed
-> > here: git.kernel.org/conor/c/1735589baefc
-> 
-> This one is fixed now, as of commit 50e63dd8ed92 ("riscv: fix reserved
-> memory setup").
-> 
-> > The second problem is a bit more complicated to explain - but we
-> > found the solution conflicted with the remoteproc fix as we had
-> > to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
-> > process to solve this one.
-> > 
-> > We want to have a node in our devicetree that contains some memory
-> > that is non-cached & marked as reserved-memory. Maybe we have just
-> > missed something, but from what we've seen:
-> > - the really early setup looks at the dtb, picks the highest bit
-> >    of memory and puts the dtb etc there so it can start using it
-> > - early_init_fdt_scan_reserved_mem() is then called, which figures
-> >    out if memory is reserved or not.
-> > 
-> > Unfortunately, the highest bit of memory is the non-cached bit so
-> > everything falls over, but we can avoid this by moving the call to
-> > early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
-> > takes place right before it in setup_bootmem().
-> > 
-> > Obviously, both of these changes are moving the function call in
-> > opposite directions and we can only really do one of them. We are not
-> > sure if what we are doing with the non-cached reserved-memory section
-> > is just not permitted & cannot work - or if this is something that
-> > was overlooked for RISC-V specifically and works for other archs.
-> 
-> We ended up working around this one by making sure that U-Boot loaded
-> the dtb to somewhere that would be inside the kernel's memory map, thus
-> avoiding the remapping in the first place.
-> 
-> We did run into another problem recently though, and 50e63dd8ed92 is
-> kinda at fault for it.
-> This particular issue was encountered with a devicetree where the
-> top-most memory region was entirely reserved & was not observed prior
-> to my fix for the first issue.
-> 
-> On RISC-V, the boot sequence is something like:
-> 	setup_bootmem();
-> 	setup_vm_final();
-> 	unflatten_device_tree();
-> 	early_init_fdt_scan_reserved_mem();
-> 
-> Whereas, before my patch it used to be (give-or-take):
-> 	setup_bootmem();
-> 	early_init_fdt_scan_reserved_mem();
-> 	setup_vm_final();
-> 	unflatten_device_tree();
-> 
-> The difference being that we used to have scanned the reserved memory
-> regions before calling setup_vm_final() & therefore know which regions
-> we cannot use. As a reminder, calling early_init_fdt_scan_reserved_mem()
-> before we've got the dt in a proper virtual memory address will cause
-> the kernel to panic if it tries to read a reserved memory node's label.
-> 
-> As we are now calling setup_vm_final() *before* we know what the
-> reserved memory regions are & as RISC-V allocates memblocks from the top
-> down, the allocations in setup_vm_final() will be done in the highest
-> memory region.
-> When early_init_fdt_scan_reserved_mem() then tries to reserve the
-> entirety of that top-most memory region, the reservation fails as part
-> of this region has already been allocated.
-> In the scenario where I found this bug, that top-most region is non-
-> cached memory & the kernel ends up panicking.
-> The memblock debug code made this pretty easy to spot, otherwise I'd
-> probably have spent more than just a few hours trying to figure out why
-> it was panicking!
-> 
-> My "this needs to be fixed today" solution for this problem was calling
-> memblock_set_bottom_up(true) in setup_bootmem() & that's what we are
-> going to carry downstream for now.
-> 
-> I haven't tested it (yet) but I suspect that it would also fix our
-> problem of the dtb being remapped into a non-cached region of memory
-> that we would later go on to reserve too. Non-cached being an issue
-> mainly due to the panicking, but failing to reserve (and using!) memory
-> regions that are meant to be reserved is very far from ideal even when
-> they are memory that the kernel can actually use.
-> 
-> I have no idea if that is an acceptable solution for upstream though, so
-> I guess this is me putting out feelers as to whether this is something I
-> should send a patch to do *OR* if this is another sign of the issues
-> that you (Mike, Palmer) mentioned in the past.
-> If it isn't an acceptable solution, I'm not really too sure how to
-> proceed!
-> 
-> Cheers,
-> Conor.
-> 
-
-
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgNywgMjAyMyBhdCAxMjowMeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
+bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gQ29vbC4gR2l0IHNob3VsZCByZXNvbHZlIHRo
+YXQsIHByb2JhYmx5IHdpdGhvdXQgZXZlbiBnZW5lcmF0aW5nIGEKPiBjb25mbGljdCBpbiAtbmV4
+dCwgcmlnaHQ/CgpJIHRoaW5rIGl0IHdpbGwgY29uZmxpY3QuCgpTaW5jZSB0aGUgY2xlYW51cCBp
+cyBlbHNld2hlcmUgYW5kIGl0IG1heSBhZGQgd29yayBmb3IgdGhlIC1uZXh0Cm1haW50YWluZXIs
+IGl0IGlzIHByb2JhYmx5IGJlc3QgdG8gdGFrZSBpdCBvdXQgaW4gdjIuCgpDaGVlcnMsCk1pZ3Vl
+bAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
