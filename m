@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0F2C678D5
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 13:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFBDC678D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 15:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=phIty/yFT6f/SAQSahB16I9dH4a5A9jQPTy/7XNph5g=; b=4tw3YoIYrz2UtS
-	FOKWzFXHzo4TCrJpHmlgoWwUyOqHjn6ysO8xNHzVZwgZL5PBSAa2EW4vlluO0zgrOtLekqAMqVen4
-	dWkJh0Hutwqpf0hfZel8M8UD4WnEe7RRVdBRNOkT8ZFI7hJMBzERzc7Rse3kVLgQ8dePNDGWp69MO
-	kyyj92BJfPLABpAD9bO8LXoKL25z/+m2ZrXZOd6puFdzukmhSFdmRItmGcc7npzv+1357oTImqqz4
-	GrijiOgKuvWzfIvfFV/s+hvolm+9DDXulaYJN0QGSotk+IVOEi60r3J1vwyF1Kwd+omzWDk4P3qQM
-	VFBBHUqXsOnTmRv+qACQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TdEju0o7fTPKAE8ikJW+fgD5UQ2KdW7CRo6b34GtWTs=; b=pO41hemIFoYoF2
+	P9cP81DHcdr/v7oy9sZU5wAlr5fmYbMZW/oXCg3kGSNgps1L9tuwfKgxo1hjiijoliafRB3OHP7c/
+	417UhejTzldtciEPiT0oyd/QXePc2FSAyOYJ9rWONGQ04RGfeTTWZdXd/uSPnJlarg25w/gk1ddSU
+	dJcK9NaJk4Dnn0OdSjWknfyG8g9UUbYFBfobTYuLNd7iu2Zkr0vENAPmWh3+7cl3fZ02JZLC8er8S
+	VvDgPRxR/9KmB5a9VRa7AyN5nBGXYsaZObjL7EqGehfic9NOrnHj13gYorHhdfLSU5yzwHVDlI5F1
+	hJHLu9sEnmBVTGoXtFWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZXdh-000UmH-GQ; Tue, 07 Mar 2023 13:46:01 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1pZYuB-0015N8-4Q; Tue, 07 Mar 2023 15:07:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZXUj-000RFQ-EF
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 13:36:47 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id g3so12142147wri.6
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 05:36:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678196202;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=psTRywtzl68njLyoyMeFGZqYTnFyd3ofmQ3diHYsd3k=;
-        b=dZNhqcjc+Tyw7rHD240aQ69pbdZ7dN1ncj4vPHqRrgjYBOen6TwvDeBWaSH5Igte7X
-         7C/RYeDGxzzhpm8yfFsLR6gfLaVN+W6Q586eFpjRNWVHXHPcbOyeRmr6/9CJtjfyA7gb
-         blGDXSBcWZmaSfemM7JL8lVRkOncrTP4mMca73KdFqvxQ/+NgtuoyBbb3ekzZhEUb0sB
-         yxXDHoKwn4H2IQqNNWd72/mAghCto8ubanep2HgZFn3Qh9t3LO85lzAWyE9ANBxhzH+t
-         SRz907v0NM1lmUZ9y6ZGhVF05ij0iSlwSE+eYYjObIQyJOb+OkigEjOM974VBBMKRq4O
-         ADOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678196202;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=psTRywtzl68njLyoyMeFGZqYTnFyd3ofmQ3diHYsd3k=;
-        b=fTiYaVL/n2a/c2oV5tuKpcJWsH+cofuImjipap35fLGHYuLHM/rxaip++ZaM+XHTfV
-         2MCYO8vLcukBSDD6YxXNaBTKthyw56pVRMrvjpS2DYje9wFRqZrHlFA7xyGyOfPb4OQ8
-         VskSWVCqCIQB16NkOBCvhkKO5MztA19QCaPdu5LZkClSiiz+/nhLf75zdXj5keur7T00
-         QMB5WiFZkk5ctZHHcb8BOhk6G5HC0pKG39ecB6vVWSgDodPpSX47+nXUDd4zIaP2I+HB
-         fflaZ6uTMbX7pqRgiD5QCRLJwcDhZvv2VV87Z+sGEwdQO9otd4jKWMZlPVxN/O8EeeVE
-         melA==
-X-Gm-Message-State: AO0yUKUpIFTS9XQjNv4ojol35p4olFPwn5SGEqCckDJmjSYbQBK9AGs+
-	ncBATaVABw1uyUybHSe6VrU/NpmsCxiHapU5l6ydMw==
-X-Google-Smtp-Source: AK7set/BsN6tbDw8kZ/LkJFYQlT9RdjOo7dvo8ti9Techq1p7qOOko8EcxaT1uAy5MUHI2bAqFOUDwH2UlDF1pkJZpw=
-X-Received: by 2002:a5d:534e:0:b0:2c9:e34e:7d2 with SMTP id
- t14-20020a5d534e000000b002c9e34e07d2mr2655948wrv.11.1678196202706; Tue, 07
- Mar 2023 05:36:42 -0800 (PST)
+	id 1pZYQc-000r1k-DU
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 14:36:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1678199791;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yMscSn7/v7gE6eZusBzcl4tSE2iMOh2pPYNqXPmBjFI=;
+	b=OUohGG/J1AReH1N3f63roppCEHTIvJWMC32erNzd6xvJ/34tMeNdMo1wozUgv3cRhRlEZR
+	Yo5Ws6QW0zLD4xrp3xluty7UxMqmZWi0syRUe3r0uJKkAA/zKfgFMNj0cf4fwj5qPb3Nlh
+	gehnaeNN0oniYDkjYPo8bDxdPQ09meU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-635-8Xan7_2yOZyL38nkQLtwpw-1; Tue, 07 Mar 2023 09:36:28 -0500
+X-MC-Unique: 8Xan7_2yOZyL38nkQLtwpw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2A55D185A794;
+	Tue,  7 Mar 2023 14:36:26 +0000 (UTC)
+Received: from vschneid.remote.csb (unknown [10.33.37.13])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3D43B40CF8EE;
+	Tue,  7 Mar 2023 14:36:21 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org,
+	x86@kernel.org
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: [PATCH v5 0/7] Generic IPI sending tracepoint
+Date: Tue,  7 Mar 2023 14:35:51 +0000
+Message-Id: <20230307143558.294354-1-vschneid@redhat.com>
 MIME-Version: 1.0
-References: <20230301082552.274331-1-alexghiti@rivosinc.com>
- <CAK9=C2XAOKbyrbOnDP1GzW1VyO-f-V-oEVcp+PhGHeHKFh4C6A@mail.gmail.com>
- <CAHVXubj9sCEuANsVe0N7YRMg8OPx_eALZfy0vERKU9P6QUDM0Q@mail.gmail.com> <CAK9=C2XDkgZuaxO1fOWCxyCsGgiD=B_O4DmuAPwEhC65Mck9eA@mail.gmail.com>
-In-Reply-To: <CAK9=C2XDkgZuaxO1fOWCxyCsGgiD=B_O4DmuAPwEhC65Mck9eA@mail.gmail.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 7 Mar 2023 14:36:31 +0100
-Message-ID: <CAHVXubg6dgr9dM1-mR+xh6D+5cmistWmo2dJQaZavcWGcCshag@mail.gmail.com>
-Subject: Re: [PATCH v6 0/2] riscv: Use PUD/P4D/PGD pages for the linear mapping
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
-	Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_053645_750868_99D9ADCA 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20230307_063634_582700_130A1CD0 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +104,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgNywgMjAyMyBhdCAyOjE54oCvUE0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRh
-bmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gSGkgQWxleCwKPgo+IE9uIFR1ZSwgTWFyIDcsIDIwMjMg
-YXQgMTI6MjLigK9BTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdy
-b3RlOgo+ID4KPiA+IEhpIEFudXAsCj4gPgo+ID4gT24gTW9uLCBNYXIgNiwgMjAyMyBhdCA1OjMz
-4oCvUE0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4gPgo+
-ID4gPiBPbiBXZWQsIE1hciAxLCAyMDIzIGF0IDE6NTbigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFs
-ZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gVGhpcyBwYXRjaHNl
-dCBpbnRlbmRzIHRvIGltcHJvdmUgdGxiIHV0aWxpemF0aW9uIGJ5IHVzaW5nIGh1Z2VwYWdlcyBm
-b3IKPiA+ID4gPiB0aGUgbGluZWFyIG1hcHBpbmcuCj4gPiA+ID4KPiA+ID4gPiBiYXNlLWNvbW1p
-dC10YWc6IHY2LjItcmM3Cj4gPiA+ID4KPiA+ID4gPiB2NjoKPiA+ID4gPiAtIHF1aWV0IExMVk0g
-d2FybmluZyBieSBjYXN0aW5nIHBoeXNfcmFtX2Jhc2UgaW50byBhbiB1bnNpZ25lZCBsb25nCj4g
-PiA+ID4KPiA+ID4gPiB2NToKPiA+ID4gPiAtIEZpeCBub21tdSBidWlsZHMgYnkgZ2V0dGluZyBy
-aWQgb2YgcmlzY3ZfcGZuX2Jhc2UgaW4gcGF0Y2ggMSwgdGhhbmtzCj4gPiA+ID4gICBDb25vcgo+
-ID4gPiA+IC0gQWRkIFJCIGZyb20gQW5kcmV3Cj4gPiA+ID4KPiA+ID4gPiB2NDoKPiA+ID4gPiAt
-IFJlYmFzZSBvbiB0b3Agb2YgdjYuMi1yYzMsIGFzIG5vdGVkIGJ5IENvbm9yCj4gPiA+ID4gLSBB
-ZGQgQWNrZWQtYnkgUm9iCj4gPiA+ID4KPiA+ID4gPiB2MzoKPiA+ID4gPiAtIENoYW5nZSB0aGUg
-Y29tbWVudCBhYm91dCBpbml0cmRfc3RhcnQgVkEgY29udmVyc2lvbiBzbyB0aGF0IGl0IGZpdHMK
-PiA+ID4gPiAgIEFSTTY0IGFuZCBSSVNDVjY0IChhbmQgb3RoZXJzIGluIHRoZSBmdXR1cmUgaWYg
-bmVlZGVkKSwgYXMgc3VnZ2VzdGVkCj4gPiA+ID4gICBieSBSb2IKPiA+ID4gPgo+ID4gPiA+IHYy
-Ogo+ID4gPiA+IC0gQWRkIGEgY29tbWVudCBvbiB3aHkgUklTQ1Y2NCBkb2VzIG5vdCBuZWVkIHRv
-IHNldCBpbml0cmRfc3RhcnQvZW5kIHRoYXQKPiA+ID4gPiAgIGVhcmx5IGluIHRoZSBib290IHBy
-b2Nlc3MsIGFzIGFza2VkIGJ5IFJvYgo+ID4gPiA+Cj4gPiA+ID4gQWxleGFuZHJlIEdoaXRpICgy
-KToKPiA+ID4gPiAgIHJpc2N2OiBHZXQgcmlkIG9mIHJpc2N2X3Bmbl9iYXNlIHZhcmlhYmxlCj4g
-PiA+ID4gICByaXNjdjogVXNlIFBVRC9QNEQvUEdEIHBhZ2VzIGZvciB0aGUgbGluZWFyIG1hcHBp
-bmcKPiA+ID4KPiA+ID4gSSB0cmllZCB0aGlzIHNlcmllcyBidXQgaXQgaXMgZ2V0dGluZyBzdHVj
-ayBhZnRlciByZWFjaGluZyB1c2VyIHNwYWNlLgo+ID4gPgo+ID4gPiBEb2VzIHRoaXMgc2VyaWVz
-IHJlcXVpcmUgc29tZSBvdGhlciBkZXBlbmRlbnQgcGF0Y2hlcyA/Cj4gPgo+ID4gTm8gaXQgc2hv
-dWxkIG5vdC4gTGV0IG1lIHRha2UgYSBsb29rOiB3aGF0J3MgeW91ciBjb25maWcgYW5kIHRoZSBi
-YXNlIGNvbW1pdD8KPgo+IFBsZWFzZSB0cnkgdGhlIGFsZXhnaGl0aV90ZXN0IGJyYW5jaCBhdDoK
-PiBodHRwczovL2dpdGh1Yi5jb20vYXZwYXRlbC9saW51eC5naXQKPgo+IENvbXBpbGUgdGhlIGtl
-cm5lbCB3aXRoIGRlZmNvbmZpZyBhbmQgbGF1bmNoIFFFTVUgYXMgZm9sbG93czoKPiBxZW11LXN5
-c3RlbS1yaXNjdjY0IC1NIHZpcnQgLW0gMUcgLW5vZ3JhcGhpYyAtYmlvcwo+IG9wZW5zYmkvYnVp
-bGQvcGxhdGZvcm0vZ2VuZXJpYy9maXJtd2FyZS9md19qdW1wLmJpbiAta2VybmVsCj4gLi9idWls
-ZC1yaXNjdjY0L2FyY2gvcmlzY3YvYm9vdC9JbWFnZSAtYXBwZW5kICJyb290PS9kZXYvcmFtIHJ3
-Cj4gY29uc29sZT10dHlTMCBlYXJseWNvbiIgLWluaXRyZCAuL3Jvb3Rmc19yaXNjdjY0LmltZwo+
-Cj4gSW4gdGhlIGFib3ZlIGNvbW1hbmQsIHJvb3Rmc19yaXNjdjY0LmltZyBpcyBhIGJ1c3lib3gg
-YmFzZWQgcm9vdGZzLgoKT2sgSSBjYW4gcmVwcm9kdWNlIHRoZSBwcm9ibGVtLiBJJ2xsIGRlYnVn
-IHRoYXQgYSBiaXQgZnVydGhlciBidXQKaW5jcmVhc2luZyBtZW1vcnkgYWxsb3dzIGJvb3Rpbmcg
-dG8gdXNlcnNwYWNlLgoKPgo+IFJlZ2FyZHMsCj4gQW51cAo+Cj4gPgo+ID4gPgo+ID4gPiBSZWdh
-cmRzLAo+ID4gPiBBbnVwCj4gPiA+Cj4gPiA+ID4KPiA+ID4gPiAgYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9wYWdlLmggfCAxOSArKysrKysrKysrKysrKysrKy0tCj4gPiA+ID4gIGFyY2gvcmlzY3Yv
-bW0vaW5pdC5jICAgICAgICAgIHwgMjggKysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLQo+ID4g
-PiA+ICBhcmNoL3Jpc2N2L21tL3BoeXNhZGRyLmMgICAgICB8IDE2ICsrKysrKysrKysrKysrKysK
-PiA+ID4gPiAgZHJpdmVycy9vZi9mZHQuYyAgICAgICAgICAgICAgfCAxMSArKysrKystLS0tLQo+
-ID4gPiA+ICA0IGZpbGVzIGNoYW5nZWQsIDU3IGluc2VydGlvbnMoKyksIDE3IGRlbGV0aW9ucygt
-KQo+ID4gPiA+Cj4gPiA+ID4gLS0KPiA+ID4gPiAyLjM3LjIKPiA+ID4gPgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Background
+==========
+
+Detecting IPI *reception* is relatively easy, e.g. using
+trace_irq_handler_{entry,exit} or even just function-trace
+flush_smp_call_function_queue() for SMP calls.  
+
+Figuring out their *origin*, is trickier as there is no generic tracepoint tied
+to e.g. smp_call_function():
+
+o AFAIA x86 has no tracepoint tied to sending IPIs, only receiving them
+  (cf. trace_call_function{_single}_entry()).
+o arm/arm64 do have trace_ipi_raise(), which gives us the target cpus but also a
+  mostly useless string (smp_calls will all be "Function call interrupts").
+o Other architectures don't seem to have any IPI-sending related tracepoint.  
+
+I believe one reason those tracepoints used by arm/arm64 ended up as they were
+is because these archs used to handle IPIs differently from regular interrupts
+(the IRQ driver would directly invoke an IPI-handling routine), which meant they 
+never showed up in trace_irq_handler_{entry, exit}. The trace_ipi_{entry,exit}
+tracepoints gave a way to trace IPI reception but those have become redundant as
+of: 
+
+      56afcd3dbd19 ("ARM: Allow IPIs to be handled as normal interrupts")
+      d3afc7f12987 ("arm64: Allow IPIs to be handled as normal interrupts")
+
+which gave IPIs a "proper" handler function used through
+generic_handle_domain_irq(), which makes them show up via
+trace_irq_handler_{entry, exit}.
+
+Changing stuff up
+=================
+
+Per the above, it would make sense to reshuffle trace_ipi_raise() and move it
+into generic code. This also came up during Daniel's talk on Osnoise at the CPU
+isolation MC of LPC 2022 [1]. 
+
+Now, to be useful, such a tracepoint needs to export:
+o targeted CPU(s)
+o calling context
+
+The only way to get the calling context with trace_ipi_raise() is to trigger a
+stack dump, e.g. $(trace-cmd -e ipi* -T echo 42).
+
+This is instead introducing a new tracepoint which exports the relevant context
+(callsite, and requested callback for when the callsite isn't helpful), and is
+usable by all architectures as it sits in generic code. 
+
+Another thing worth mentioning is that depending on the callsite, the _RET_IP_
+fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
+you much about the actual callback being sent via IPI, which is why the new
+tracepoint also has a @callback argument.
+
+Patches
+=======
+
+o Patches 1-5 spread out the tracepoint across relevant sites.
+  Patch 5 ends up sprinkling lots of #include <trace/events/ipi.h> which I'm not
+  the biggest fan of, but is the least horrible solution I've been able to come
+  up with so far.
+  
+o Patch 7 is trying to be smart about tracing the callback associated with the
+  IPI.
+
+This results in having IPI trace events for:
+
+o smp_call_function*()
+o smp_send_reschedule()
+o irq_work_queue*()
+o standalone uses of __smp_call_single_queue()
+
+This is incomplete, just looking at arm64 there's more IPI types that aren't
+covered: 
+
+  IPI_CPU_STOP,
+  IPI_CPU_CRASH_STOP,
+  IPI_TIMER,
+  IPI_WAKEUP,
+
+but apart from IPI_TIMER (cf. tick_broadcast()), those IPIs are both unfrequent
+and accompanied with identifiable interference (stopper or cpuhp threads being
+scheduled). I've added a point in my todolist to handle those in a later series
+for the sake of completeness, but IMO this is ready to use.
+
+Results
+=======
+
+Using a recent enough libtraceevent (1.7.0 and above):
+
+  $ trace-cmd record -e 'ipi:*' hackbench
+  $ trace-cmd report
+	 hackbench-159   [002]   136.973122: ipi_send_cpumask:     cpumask=0 callsite=generic_exec_single+0x33 callback=nohz_csd_func+0x0
+	 hackbench-159   [002]   136.977945: ipi_send_cpumask:     cpumask=0 callsite=generic_exec_single+0x33 callback=nohz_csd_func+0x0
+	 hackbench-159   [002]   136.984576: ipi_send_cpumask:     cpumask=3 callsite=check_preempt_curr+0x37 callback=0x0
+	 hackbench-159   [002]   136.985996: ipi_send_cpumask:     cpumask=0 callsite=generic_exec_single+0x33 callback=nohz_csd_func+0x0
+	 [...]
+
+Links
+=====
+
+[1]: https://youtu.be/5gT57y4OzBM?t=14234
+
+Revisions
+=========
+
+v4: https://lore.kernel.org/lkml/20230119143619.2733236-1-vschneid@redhat.com/
+v3: https://lore.kernel.org/lkml/20221202155817.2102944-1-vschneid@redhat.com/
+v2: https://lore.kernel.org/lkml/20221102182949.3119584-1-vschneid@redhat.com/
+v1: https://lore.kernel.org/lkml/20221007154145.1877054-1-vschneid@redhat.com/
+
+v5 -> v4
+++++++++
+
+o Rebased against 6.3-rc1
+
+v3 -> v4
+++++++++
+
+o Rebased against 6.2-rc4
+  Re-ran my coccinelle scripts for the treewide change; only loongarch needed
+  changes
+o Dropped cpumask trace event field patch (now in 6.2-rc1)
+o Applied RB and Ack tags
+  Ingo, I wasn't sure if you meant to Ack the whole series or just the patch you
+  replied to, so since I didn't want to unlawfully forge any tag I only added
+  the one.
+o Did a small pass on comments and changelogs
+
+v2 -> v3
+++++++++
+
+o Dropped the generic export of smp_send_reschedule(), turned it into a macro
+  and a bunch of imports
+o Dropped the send_call_function_single_ipi() macro madness, split it into sched
+  and smp bits using some of Peter's suggestions
+
+v1 -> v2
+++++++++
+
+o Ditched single-CPU tracepoint
+o Changed tracepoint signature to include callback
+o Changed tracepoint callsite field to void *; the parameter is still UL to save
+  up on casts due to using _RET_IP_.
+o Fixed linking failures due to not exporting smp_send_reschedule()
+
+Valentin Schneider (7):
+  trace: Add trace_ipi_send_cpumask()
+  sched, smp: Trace IPIs sent via send_call_function_single_ipi()
+  smp: Trace IPIs sent via arch_send_call_function_ipi_mask()
+  irq_work: Trace self-IPIs sent via arch_irq_work_raise()
+  treewide: Trace IPIs sent via smp_send_reschedule()
+  smp: reword smp call IPI comment
+  sched, smp: Trace smp callback causing an IPI
+
+ arch/alpha/kernel/smp.c                  |  2 +-
+ arch/arc/kernel/smp.c                    |  2 +-
+ arch/arm/kernel/smp.c                    |  5 +-
+ arch/arm/mach-actions/platsmp.c          |  2 +
+ arch/arm64/kernel/smp.c                  |  3 +-
+ arch/csky/kernel/smp.c                   |  2 +-
+ arch/hexagon/kernel/smp.c                |  2 +-
+ arch/ia64/kernel/smp.c                   |  4 +-
+ arch/loongarch/kernel/smp.c              |  4 +-
+ arch/mips/include/asm/smp.h              |  2 +-
+ arch/mips/kernel/rtlx-cmp.c              |  2 +
+ arch/openrisc/kernel/smp.c               |  2 +-
+ arch/parisc/kernel/smp.c                 |  4 +-
+ arch/powerpc/kernel/smp.c                |  6 +-
+ arch/powerpc/kvm/book3s_hv.c             |  3 +
+ arch/powerpc/platforms/powernv/subcore.c |  2 +
+ arch/riscv/kernel/smp.c                  |  4 +-
+ arch/s390/kernel/smp.c                   |  2 +-
+ arch/sh/kernel/smp.c                     |  2 +-
+ arch/sparc/kernel/smp_32.c               |  2 +-
+ arch/sparc/kernel/smp_64.c               |  2 +-
+ arch/x86/include/asm/smp.h               |  2 +-
+ arch/x86/kvm/svm/svm.c                   |  4 ++
+ arch/x86/kvm/x86.c                       |  2 +
+ arch/xtensa/kernel/smp.c                 |  2 +-
+ include/linux/smp.h                      | 11 +++-
+ include/trace/events/ipi.h               | 22 +++++++
+ kernel/irq_work.c                        | 14 ++++-
+ kernel/sched/core.c                      | 19 ++++--
+ kernel/sched/smp.h                       |  2 +-
+ kernel/smp.c                             | 78 +++++++++++++++++++-----
+ virt/kvm/kvm_main.c                      |  2 +
+ 32 files changed, 164 insertions(+), 53 deletions(-)
+
+--
+2.31.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
