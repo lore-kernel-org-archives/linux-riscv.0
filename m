@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44A7C678D4
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58F7C678D5
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nP22EZ0tJKkvV5zMbLKIR/JMpv2Nqoyuk+t3J9242JI=; b=HZq+1ZBUr6MXiB
-	xChShTzi7G5cZE7259jtAeGmNNJ9vIrh9hDbv5pMVX8gWAE7dEBJOe0WSHuwjIZFemhQ5NSEyjDuu
-	TLrMebDt+joFya1tNDc78pb3Z0USArX8izVxEH7brEVWqNGZ1sWdhL0lookqVcDg1SOV8xLhNrlB+
-	vTTt4ANtMDP63Nsbic+VzqrBEWIeaej7NGQGyX/o47cxEemz/bYq1Puk/amYmcvj+IlYLnBD4+kWq
-	1atZRx73fVmatrUObQYgEp6xenqJx4+XsdImWBoh+egupvRtZ+U/fxEXeAp2k0U5dsiVCx2iKne1R
-	btJLW03TEvp1oJoruG4g==;
+	List-Owner; bh=l0OOgRSpmi8c76NdFULgAw/FxUVQDuuh8L9Ajbcuyh4=; b=xwGRFF1Uo4yEQd
+	Me3DWsU9fTqhlgazov2U6nMSq7H0w6BL8bdDFpSKoQPMzbeksLgRDX6sJUbbhYpJ7c7c4jxyHGRPj
+	LLrN/3vT09Qo4wn9ABKerh8zhMdDZbDL4BqyqLsS7P/1s+95XqG19A/cmTR1hBUBA6I9AkHJgRCZU
+	GS4prIdff9LTpaH3qL0z+6TLr1nBUCe+vl/LwPOc4vjkp7vdP0+Qj0bc4/w0MAjToVz1TJLHgAReu
+	vUXR1SWtQsM88iBt+gZh55OzjFMs47pkcVRW+wK1n3tvB4wVqf4K7oTNk4jDYoHzlLlgEnptmD5G4
+	O/B0loi9QNOECC5elGgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUG7-00HAML-7m; Tue, 07 Mar 2023 10:09:27 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUG3-00HAFf-C0
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 10:09:26 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DE50924E332;
-	Tue,  7 Mar 2023 18:08:55 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Mar
- 2023 18:08:55 +0800
-Received: from [192.168.125.124] (183.27.97.46) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Mar
- 2023 18:08:54 +0800
-Message-ID: <2f03dfb2-5cf8-e954-913c-f0c27db6bcf5@starfivetech.com>
-Date: Tue, 7 Mar 2023 18:08:53 +0800
+	id 1pZUVf-00HFDp-Di; Tue, 07 Mar 2023 10:25:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pZUVa-00HFA9-Q6
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 10:25:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678184726; x=1709720726;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=XVOGB1MKbCD9q0kwWf3Y939WJhlxGIP60HVW5R87Egg=;
+  b=iKXLsR5hWKZvFBqoMJ8snCDSXZx39fKAI0CYjMUE9+UsKHXgpar+TlFU
+   BHRk0KBlBMAbuPzJjim3wSd6+qyFpspsYreHuWiqoCTgvtlCEFrWHze5m
+   Rj1POo0DiZy5OYjkPdGOzzEmg4oC11cOlDX7usryaAwaHYUlWsA87mV5p
+   2/yhYsNkq1XtxAeh2PER7TnBl9DYN+ng9db8b9646EP12VMOgEl4md4/g
+   OpEa11JWf8z8QhXOaGF4rIRHr535xmgcQqrVkjRIAS48UI1VmmdDeokdr
+   sf3DwU/2u+VpaeVzezvWRxKBQK9XUK246W61y3AYaNqv7HmlZksFyNoLw
+   w==;
+X-IronPort-AV: E=Sophos;i="5.98,240,1673938800"; 
+   d="scan'208";a="140694259"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Mar 2023 03:25:19 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Tue, 7 Mar 2023 03:25:19 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
+ Transport; Tue, 7 Mar 2023 03:25:16 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <linux-riscv@lists.infradead.org>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho
+	<wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
+	<gary@garyguo.net>, =?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=
+	<bjorn3_gh@protonmail.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Nathan
+ Chancellor" <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, <rust-for-linux@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<llvm@lists.linux.dev>
+Subject: [PATCH v1 1/2] scripts: generate_rust_target: enable building on RISC-V
+Date: Tue, 7 Mar 2023 10:24:40 +0000
+Message-ID: <20230307102441.94417-2-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230307102441.94417-1-conor.dooley@microchip.com>
+References: <20230307102441.94417-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v4 00/19] Basic clock, reset & device tree support for
- StarFive JH7110 RISC-V SoC
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Marc
- Zyngier" <maz@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <3a605bc8-104e-0935-4fd8-2da16ab9053b@starfivetech.com>
- <ZAb7JVghuiwZF1Q5@wendy>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <ZAb7JVghuiwZF1Q5@wendy>
-X-Originating-IP: [183.27.97.46]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1821; i=conor.dooley@microchip.com; h=from:subject; bh=pr00Ws4xP6t9YpK/ZLk9y5gdrCaL6G8nYnSeAmZhBfg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnsAs9qpdez1rj9zF+iHerL/93bMvKB8jeJviVJhybu/Gd6 68z8jlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzEZyUjw2KV9qAllV8z2ve1q2iqfm rlu9qzNcK9bYd+ztKJZU6ZjQz/ayUOsLFt2TB1drtIkkjf9F3xt/UNFiqeuT6LKXBXxOtGTgA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_020923_754489_2CD7A120 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20230307_022526_985003_7DE4A7BE 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +90,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Mar 2023 08:51:49 +0000, Conor Dooley wrote:
-> On Tue, Mar 07, 2023 at 04:36:41PM +0800, Hal Feng wrote:
->> On Tue, 21 Feb 2023 10:46:26 +0800, Hal Feng wrote:
->> > This patch series adds basic clock, reset & DT support for StarFive
->> > JH7110 SoC. Patch 17 depends on series [1] which provides pinctrl
->> > dt-bindings. Patch 19 depends on series [2] which provides dt-bindings
->> > of VisionFive 2 board and JH7110 SoC.
->> > 
->> > You can simply review or test the patches at the link [3].
->> > 
->> > [1]: https://lore.kernel.org/all/20230209143702.44408-1-hal.feng@starfivetech.com/
->> > [2]: https://lore.kernel.org/all/20230216131511.3327943-1-conor.dooley@microchip.com/
->> > [3]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
->> 
->> Hi Conor,
->> 
->> When I tried to rebase these patches on v6.3-rc1, I found the kernel
->> would crash on the VisionFive 2 board during startup. The logs are as
->> below. I checkout the branch to the mainline and found that the kernel
->> would also crash on the VisionFive board which is equipped with JH7100
->> SoC.
->> 
->> --------------------------------
->> Unable to handle kernel paging request at virtual address 0000004cccccccd4
->> Oops [#1]
->> Modules linked in:
->> CPU: 3 PID: 87 Comm: udevd Not tainted 6.3.0-rc1-00019-g239e7809f291 #305
->> Hardware name: StarFive VisionFive 2 v1.3B (DT)
->> epc : enqueue_timer+0x18/0x90
->>  ra : internal_add_timer+0x2c/0x38
->> epc : ffffffff8006a714 ra : ffffffff8006a7b8 sp : ffffffc80443bc80
->>  gp : ffffffff80eb5100 tp : ffffffd8c01db200 t0 : 0000000000000000
->>  t1 : 000000000000000f t2 : 0000000038b3ea28 s0 : ffffffc80443bcb0
->>  s1 : ffffffff80813940 a0 : ffffffff80813940 a1 : ffffffc80443bd48
->>  a2 : 000000000000020b a3 : cccccccd0b000000 a4 : cccccccccccccccc
->>  a5 : 000000000000020b a6 : ffffffff80814a08 a7 : 0000000000000001
->>  s2 : ffffffc80443bd48 s3 : 0000000008400040 s4 : ffffffff80813940
->>  s5 : ffffffff80eea0b8 s6 : ffffffff80eb7220 s7 : 0000000000000040
->>  s8 : ffffffff80eb61e0 s9 : 0000002ac84a2548 s10: 0000002ad53e92c0
->>  s11: 0000000000000001 t3 : 000000000000003f t4 : 0000000000000000
->>  t5 : 0000000000000004 t6 : 0000000000000003
->> status: 0000000200000100 badaddr: 0000004cccccccd4 cause: 000000000000000f
->> [<ffffffff8006a714>] enqueue_timer+0x18/0x90
->> [<ffffffff8006aa64>] add_timer_on+0xf0/0x134
->> [<ffffffff80500f18>] try_to_generate_entropy+0x1ec/0x232
->> [<ffffffff8035a636>] urandom_read_iter+0x42/0xc2
->> [<ffffffff800fff16>] vfs_read+0x17c/0x1e4
->> [<ffffffff801005b6>] ksys_read+0x78/0x98
->> [<ffffffff801005e4>] sys_read+0xe/0x16
->> [<ffffffff800035dc>] ret_from_syscall+0x0/0x2
->> Code: 9381 9713 0037 0813 0705 983a 3703 0008 e198 c311 (e70c) d713 
->> ---[ end trace 0000000000000000 ]---
->> note: udevd[87] exited with irqs disabled
->> Segmentation fault
->> FAIL
->> Saving random seed: 
->> rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
->> rcu: 	1-...0: (0 ticks this GP) idle=19c4/1/0x4000000000000000 softirq=42/42 fqs=7474
->> rcu: 	(detected by 2, t=15005 jiffies, g=-195, q=35 ncpus=4)
->> Task dump for CPU 1:
->> task:dd              state:R  running task     stack:0     pid:92    ppid:88     flags:0x00000008
->> Call Trace:
->> [<ffffffff80003764>] ret_from_fork+0x0/0xc
->> rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
->> rcu: 	1-...0: (0 ticks this GP) idle=19c4/1/0x4000000000000000 softirq=42/42 fqs=29814
->> rcu: 	(detected by 2, t=60018 jiffies, g=-195, q=35 ncpus=4)
->> Task dump for CPU 1:
->> task:dd              state:R  running task     stack:0     pid:92    ppid:88     flags:0x00000008
->> Call Trace:
->> [<ffffffff80003764>] ret_from_fork+0x0/0xc
->> ...
->> --------------------------------
->> 
->> I used 'git bisect' and found out the commit 9493e6f3ce02 is the
->> cause. I tried to revert this commit on the tag v6.3-rc1, but it
->> seems there is no improvement.
-> 
-> Hmm, I'm not entirely sure that that is a good bisect.
-> This is a fix for my stupidity in the commit you mention:
-> https://lore.kernel.org/linux-riscv/20230302174154.970746-1-conor@kernel.org/
-> 
-> But the main backtrace there is not from that patch at all, I think it
-> is Linus' fault.
-> The HEAD of Linus' tree is currently 8ca09d5fa3549 ("cpumask: fix
-> incorrect cpumask scanning result checks") should be a fix for the
-> backtrace that you are seeing above.
-> 
->> Any options I am missing? Could you please give me some suggestions
->> to adapt to the new changes between 6.2 and 6.3? Thank you in
->> advance.
-> 
-> LMK if the above two things don't fix it for you & I'll go digging
-> tonight.
+From: Miguel Ojeda <ojeda@kernel.org>
 
-The above two methods can fix the problem. Here are my test results.
-The VisionFive board can boot up successfully if and only if all above
-two applied.
-The VisionFive 2 board can boot up successfully if I merge Linus's new
-changes.
+Add the required bits from rust-for-linux to enable generating a RISC-V
+target for rust. The script, written by Miguel, was originally a
+config file contributed by Gary.
 
-Hope your fix will be merged in rc2. Thank you for your reply.
+Co-developed-by: Gary Guo <gary@garyguo.net>
+Signed-off-by: Gary Guo <gary@garyguo.net>
+Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Despite removing 32-bit support, I kept the structure of the if
+statement, despite early return being stylistically preferred, for
+alignment with the Rust-for-Linux tree. I'm happy to respin to sort that
+out of desired.
+---
+ scripts/generate_rust_target.rs | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Best regards,
-Hal
+diff --git a/scripts/generate_rust_target.rs b/scripts/generate_rust_target.rs
+index 3c6cbe2b278d3..85d690f764389 100644
+--- a/scripts/generate_rust_target.rs
++++ b/scripts/generate_rust_target.rs
+@@ -161,6 +161,22 @@ fn main() {
+         ts.push("features", features);
+         ts.push("llvm-target", "x86_64-linux-gnu");
+         ts.push("target-pointer-width", "64");
++    } else if cfg.has("RISCV") {
++        if cfg.has("64BIT") {
++            ts.push("arch", "riscv64");
++            ts.push("data-layout", "e-m:e-p:64:64-i64:64-i128:128-n64-S128");
++            ts.push("llvm-target", "riscv64-linux-gnu");
++            ts.push("target-pointer-width", "64");
++        } else {
++            panic!("32-bit RISC-V is an unsupported architecture")
++        }
++        ts.push("code-model", "medium");
++        ts.push("disable-redzone", true);
++        let mut features = "+m,+a".to_string();
++        if cfg.has("RISCV_ISA_C") {
++            features += ",+c";
++        }
++        ts.push("features", features);
+     } else {
+         panic!("Unsupported architecture");
+     }
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
