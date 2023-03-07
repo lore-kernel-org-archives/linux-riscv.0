@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11749C6FD1B
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69FAC678D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ywzd8JgvbiFsRBSTUJ8oFBmH3fjzVKDLH1vlq53vnpI=; b=aCyflGt0O5/TEp
-	JB8vTQ8hMAW4nxcZW28PnfoHOJevvTB9hANiOACAb6AXZJh5hbWJVkE6r4OAlj1pUU4iEuCDqRojf
-	TssY63LoWmy2ebiEupMrMrMUBYAYhXVjs0IbxTQq7mHTY56wXc809BEuVFpfxQtzUCfYB8WUgz/rU
-	vPXK2dUwRsp1wHzrWbQTEFrT5cSXqoonwEALZI5LzHioHhptNmnQ9WFSH5SuvDuq9qBiAUFWPCshV
-	BuGGlGLx1kqsDuh0knFuXGs+5GgPRShRVth6Xt4r5rhYFoFlv3uBUBTvFO5sv/LWZoGNd64s7+hcS
-	YYjejwTxRuqTGRfRaL+w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f8IQot3WAgscaBhscKJx3toUGH0wvVkIgof8sWFA4eM=; b=MGjJwvmih+edmh
+	aNfZyZasaiArdV+kFhku6eyq9ARfYNiAd9rNm1NrHposcqYE/sAKo1+Rz4dGWZxMIvKGfeIcFescF
+	QSacY7rKevizcmLL17c/xgBAoOAASoDt56HndxF8i6NDhue1J/9cY2y9NmvF02MJUC+feiTIN5sqR
+	VvQfSCrGefUrG13WgXHWh4RXwVKaGK5xlDKO/VpOMqAxjEAuo6+kCA+UKE+SFttcajthhAr7Xg2tS
+	S7N+T17X89A9qD69U9pppOBZpGK+ftIyd8bKu12107Sj8jxrf9inoINqEnrVr13pb4PHzXLyRTOpG
+	OdU+r2I3nSs8+H/XsV8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUVh-00HFFb-TR; Tue, 07 Mar 2023 10:25:33 +0000
+	id 1pZUVk-00HFHG-AP; Tue, 07 Mar 2023 10:25:36 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUVa-00HFAW-O0
+	id 1pZUVa-00HF9A-SQ
 	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 10:25:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1678184726; x=1709720726;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=qWB3e5tgDGUKCOsNQtNNw5AKYgfS2AJpadcC4RT6yqQ=;
-  b=rTOH6dJOneMFXelocZNGnNvFxyWNOZGL1YG/KP4xR247oRBLf28OypYx
-   38wlGufuxf1Rpli/NBClWp1gPGxKFz01ukylDy8HOp3/tt6BdSBQRe6Rx
-   SvmhIFV9Ml60+HKFDYmsknF5UK41h83KzluOoi7NCL1qkvLxwlj4/W9sX
-   09pedx+eA5NgYeIjbjQEQthzShnM1VdQhUALSV/rL5mdfdfovsyqLpKBH
-   mX4ZlYR1jcDZXInI4dwk/nYb06E33SXK58tyEo6RBn4S9rMUvHbUvAky3
-   MCrnQgkHSIyWmgXMqUkaG4ap6kaM3tL72/OgR2RHevoJi0Zp9/5YYQN9s
-   Q==;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=OInxuMJtdIyDPn0imEFBCcfPVJWWAD2dQ/VhXFHBFuY=;
+  b=uCVlOl3qRvWuHFqu46He0r/1bPvmKGBMKhE/oPTR4twlvWEkigEynwN3
+   NE6ZvfopT0UNupr4kkKAOksz2LnDNi2KR3hpGgrJhrDIDOsP40Yc8kOvY
+   l3YuZwHQmj3pvqbgc7mjwlY3fIpuM+61NPscOLXofmarBO55GvNP7XuMO
+   hh5Hfy9ToeZTdTeoP341SG725ksdoqjLNFKct1OricCspXIkh2uy0j/d0
+   7Qxm6QYGuzi7L8QLIixHB+lQavIMO8aG+4CxTDIWZ4Oj4ZAxg8K1ajt/k
+   E0Z9X1XcviGOSQCtpvxG46VF1BD4VbLSgP+ZO0/FfOoMdJABtnkrwCwEW
+   w==;
 X-IronPort-AV: E=Sophos;i="5.98,240,1673938800"; 
-   d="scan'208";a="204052299"
+   d="scan'208";a="140694248"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Mar 2023 03:25:24 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Mar 2023 03:25:18 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Tue, 7 Mar 2023 03:25:22 -0700
+ 15.1.2507.16; Tue, 7 Mar 2023 03:25:15 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
- Transport; Tue, 7 Mar 2023 03:25:19 -0700
+ Transport; Tue, 7 Mar 2023 03:25:12 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <linux-riscv@lists.infradead.org>
 CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Miguel Ojeda
@@ -61,18 +61,16 @@ CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Miguel Ojeda
 	Tom Rix <trix@redhat.com>, <rust-for-linux@vger.kernel.org>,
 	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<llvm@lists.linux.dev>
-Subject: [PATCH v1 2/2] RISC-V: enable building 64-bit kernels with rust support
-Date: Tue, 7 Mar 2023 10:24:41 +0000
-Message-ID: <20230307102441.94417-3-conor.dooley@microchip.com>
+Subject: [PATCH v1 0/2] RISC-V: enable rust
+Date: Tue, 7 Mar 2023 10:24:39 +0000
+Message-ID: <20230307102441.94417-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230307102441.94417-1-conor.dooley@microchip.com>
-References: <20230307102441.94417-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2889; i=conor.dooley@microchip.com; h=from:subject; bh=yBD6MNol++6y2HAWMBBaDRLPC5EtLmNC6wyDPXZv0s4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnsAs+aOuwTWjpufIiaM2fzp6LVux5wqT1WnRVxQM+mrf5w VINVRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZyoI3hf4iJso1T2ZFneoqdb/5bWv Tebv2x8NxSR/1oV4uw6NaiVkaGdwZ6t/Wjz29b8GVH9OWbU7YeKJ5+V+Fi3plvhnYXf5s1sAAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2088; i=conor.dooley@microchip.com; h=from:subject; bh=OInxuMJtdIyDPn0imEFBCcfPVJWWAD2dQ/VhXFHBFuY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnsAs8kPwY+WPDTW83kbZ7n9rULE84/3btU3L1pj9Su+gea apKSHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIhAPDP9vQmtgpq6++Ptj9MuPKLd 5J942cmbL2szoy/Ciezv3hViXD//KFmxlmvp0gz2ITs0bPJ+dy7MGQD2/k7rwL1QlWf+3wgRcA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_022527_020825_B5C27814 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20230307_022527_039700_C9BBE550 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,86 +82,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Miguel Ojeda <ojeda@kernel.org>
-
-The rust modules work on 64-bit RISC-V, with no twiddling required.
-Select HAVE_RUST and provide the required flags to kbuild so that the
-modules can be used. The Makefile and Kconfig changes are lifted from
-work done by Miguel in the Rust-for-Linux tree, hence his authorship.
-Following the rabbit hole, the Makefile changes originated in a script,
-created based on config files originally added by Gary, hence his
-co-authorship.
-
-32-bit is broken in core rust code, so support is limited to 64-bit:
-ld.lld: error: undefined symbol: __udivdi3
-
-As 64-bit RISC-V is now supported, add it to the arch support table,
-taking the opportunity to sort the table in alphabetical order.
-
-Co-developed-by: Gary Guo <gary@garyguo.net>
-Signed-off-by: Gary Guo <gary@garyguo.net>
-Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-While adding RISC-V to the table, I took the chance to re-sort it
-alphabetically. I didn't think that warranted co-authorship, but given
-we had an authorship conversation already I am happy to provide one for
-that...
----
- Documentation/rust/arch-support.rst | 3 ++-
- arch/riscv/Kconfig                  | 1 +
- arch/riscv/Makefile                 | 2 ++
- 3 files changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
-index ed7f4f5b3cf15..77765ffd5af41 100644
---- a/Documentation/rust/arch-support.rst
-+++ b/Documentation/rust/arch-support.rst
-@@ -15,7 +15,8 @@ support corresponds to ``S`` values in the ``MAINTAINERS`` file.
- ============  ================  ==============================================
- Architecture  Level of support  Constraints
- ============  ================  ==============================================
--``x86``       Maintained        ``x86_64`` only.
-+``riscv``     Maintained        ``riscv64`` only.
- ``um``        Maintained        ``x86_64`` only.
-+``x86``       Maintained        ``x86_64`` only.
- ============  ================  ==============================================
- 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc376048..c3179b139361f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -114,6 +114,7 @@ config RISCV
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RSEQ
-+	select HAVE_RUST if 64BIT
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select IRQ_DOMAIN
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 6203c33789228..950612bf193cf 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -31,6 +31,8 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
- 	KBUILD_AFLAGS += -mabi=lp64
- 
- 	KBUILD_LDFLAGS += -melf64lriscv
-+
-+	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv64
- else
- 	BITS := 32
- 	UTS_MACHINE := riscv32
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWZ0ZXIgdGhlIGF1dGhvcnNoaXAgZGViYWNsZSBvbiB0aGUgUkZDLCBJJ3ZlIHRyaWVkIHRvIGJl
+IGV2ZW4gbW9yZQpjYXJlZnVsIHRoaXMgdGltZSBhcm91bmQuIEdhcnkgb3B0ZWQgZm9yIGEgQ28t
+ZGV2ZWxvcGVkLWJ5IGluIHRoZSByZXBsaWVzCm9mIHRoZSBSRkMgc3R1ZmYsIHNvIEkgaGF2ZSBn
+aXZlbiB0aGVtIG9uZS4KSSBoYXZlIGFkZGVkIFNvQidzIHRvbywgYnV0IGlmIHRoYXQgaXMgbm90
+IG9rYXkgR2FyeSwgdGhlbiBwbGVhc2Ugc2NyZWFtCmxvdWRseS4KCkFzIHRoaXMgaXMgbGlmdGVk
+IGZyb20gdGhlIHN0YXRlIG9mIHRoZSBSdXN0LWZvci1MaW51eCB0cmVlLCB0aGUgY29tbWl0Cm1l
+c3NhZ2VzIGZyb20gdGhlcmUgY2Fubm90IGJlIHByZXNlcnZlZCwgc28gdGhlc2UgcGF0Y2hlcyBo
+YXZlIGNvbW1pdAptZXNzYWdlcyB0aGF0IEkgd3JvdGUuCgpJJ3ZlIHRlc3RlZCB0aGlzIG9uIElj
+aWNsZSwgYW5kIHRoZSBtb2R1bGVzIHNlZW0gdG8gd29yayBhcyBleHBlY3RlZC4KVW5mb3J0dW5h
+dGVseSB0aGVyZSBhcHBlYXIgdG8gYmUgaW1wbGljaXQgMzItYml0IGRpdmlzaW9ucyAob3Igc2lt
+aWxhcikKaW4gY29yZSBSdXN0IGNvZGUsIHNvLCBhcyBpbiB0aGUgZG93bnN0cmVhbSBSdXN0LWZv
+ci1MaW51eCB0cmVlLCBSdXN0IGlzCm9ubHkgZW5hYmxlZCBmb3IgNjQtYml0LgoKVGhhbmtzLApD
+b25vci4KCkNoYW5nZXMgaW4gdjE6Ci0gcmViYXNlIG9uIHY2LjMtcmMxCi0gcmVzb3J0IHRoZSBg
+dW1gIGVudHJ5IGluIHRoZSBhcmNoLXN1cHBvcnQgdGFibGUgd2hpbGUgYWRkaW5nIFJJU0MtVgog
+IHRvIGl0Ci0gZHJvcCAzMi1iaXQgYml0cwotIGhhdmUgYW5vdGhlciBjcmFjayBhdCBhc3NpZ25p
+bmcgYXV0aG9yc2hpcAoKQ2hhbmdlcyBpbiBSRkMtUkVTRU5EOgotIGZpeCB0aGUgYXN5bW1ldHJp
+Y2FsIGFkZGl0aW9ucyBpbiB0aGUgTWFrZWZpbGUgYml0cwotIGFkZCBjYy1jb3ZlciB0byBteSBn
+aXQgc2VuZC1lbWFpbCBjb21tYW5kLi4uCgpDQzogTWlndWVsIE9qZWRhIDxvamVkYUBrZXJuZWwu
+b3JnPgpDQzogQWxleCBHYXlub3IgPGFsZXguZ2F5bm9yQGdtYWlsLmNvbT4KQ0M6IFdlZHNvbiBB
+bG1laWRhIEZpbGhvIDx3ZWRzb25hZkBnbWFpbC5jb20+CkNDOiBCb3F1biBGZW5nIDxib3F1bi5m
+ZW5nQGdtYWlsLmNvbT4KQ0M6IEdhcnkgR3VvIDxnYXJ5QGdhcnlndW8ubmV0PgpDQzogQmrDtnJu
+IFJveSBCYXJvbiA8Ympvcm4zX2doQHByb3Rvbm1haWwuY29tPgpDQzogSm9uYXRoYW4gQ29yYmV0
+IDxjb3JiZXRAbHduLm5ldD4KQ0M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZl
+LmNvbT4KQ0M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+CkNDOiBOYXRoYW4g
+Q2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5vcmc+CkNDOiBOaWNrIERlc2F1bG5pZXJzIDxuZGVz
+YXVsbmllcnNAZ29vZ2xlLmNvbT4KQ0M6IFRvbSBSaXggPHRyaXhAcmVkaGF0LmNvbT4KQ0M6IHJ1
+c3QtZm9yLWxpbnV4QHZnZXIua2VybmVsLm9yZwpDQzogbGludXgtZG9jQHZnZXIua2VybmVsLm9y
+ZwpDQzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwpDQzogbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpDQzogbGx2bUBsaXN0cy5saW51eC5kZXYKCk1pZ3VlbCBPamVkYSAoMik6
+CiAgc2NyaXB0czogZ2VuZXJhdGVfcnVzdF90YXJnZXQ6IGVuYWJsZSBidWlsZGluZyBvbiBSSVND
+LVYKICBSSVNDLVY6IGVuYWJsZSBidWlsZGluZyA2NC1iaXQga2VybmVscyB3aXRoIHJ1c3Qgc3Vw
+cG9ydAoKIERvY3VtZW50YXRpb24vcnVzdC9hcmNoLXN1cHBvcnQucnN0IHwgIDMgKystCiBhcmNo
+L3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3YvTWFrZWZp
+bGUgICAgICAgICAgICAgICAgIHwgIDIgKysKIHNjcmlwdHMvZ2VuZXJhdGVfcnVzdF90YXJnZXQu
+cnMgICAgIHwgMTYgKysrKysrKysrKysrKysrKwogNCBmaWxlcyBjaGFuZ2VkLCAyMSBpbnNlcnRp
+b25zKCspLCAxIGRlbGV0aW9uKC0pCgotLSAKMi4zOS4yCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
