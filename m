@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F6DC6FD1E
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D811C678D5
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 10:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OsAAd4LhliQ2FGlHwZonQYC8M/riI6JuwPexWxJFq3U=; b=amHvEJDCV5gcdy
-	+27biL5fP+/y4Qrs9D15wkZEhuOwMXOEeq4pJAy826oP45ZxUv8r6pjJPxwd9d6sbcGc41miviirX
-	xc0Vkndz8efeePa3HhQoiOa3shRxWrKpKOG4o/dNatqYl/J7fx3iIjnJVq1fjuFlO8gN3LEaZ7tKG
-	ZLp/eKDuRhNqnix6qL96/q1gW+YfSj88fgIKkbTmBptbkV2QIpQt9llnL9Cg0CGq4zIcGHbAZ9+uO
-	wt2FDWpPIBCFR0KCoExF0pjUU+6vDOrh4Xy9tCtxjQY+4Be4fkPdBo/N0KM5zNcY55Af24T91DbAs
-	66rfJTnjirSyUaZVaIBg==;
+	List-Owner; bh=T1lKHYmRs6LaB9IyZCqKmJU2wkYBSlsK9xkwsf27eMk=; b=tIqy+MOKw9uwDF
+	pt0voN8XFN2P+qhkQ+g5eDfdYTAfcA86lYpxbU5HFDBA0HmpfrI9+zS1nf825ikqH+NNgh+JgNy4y
+	VVUtKHGauMgROeIgcHoTuWGVV+g7PTDFSTcsfn6x4IZ5OUNlffLfCzPMzaHZrip2xAdBz6RSscT0e
+	+Gfz0Q0VV74dvKXOCUyqda8lI7Odgn9wxc/0MbNV3uXlmI9j0DNaMFD5oy/MDff9N5cRp/OdIK6nS
+	tgN7CIKY8EgGIdUPi+U6etSE4C3GApDfvwGZLn+2SAyREkEeuuhoQhO4tZ9p2d1tR9l3ITjPtJucd
+	o0IVYEJhdnmIDHJOnviA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUac-00HHqA-9F; Tue, 07 Mar 2023 10:30:38 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZUaY-00HHj7-Lp
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 10:30:37 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id EC71C24E31D;
-	Tue,  7 Mar 2023 18:30:10 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Mar
- 2023 18:30:10 +0800
-Received: from [192.168.125.96] (183.27.97.46) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Mar
- 2023 18:30:10 +0800
-Message-ID: <0725e451-7c0b-0aac-ecd3-502b02276a9a@starfivetech.com>
-Date: Tue, 7 Mar 2023 18:30:09 +0800
+	id 1pZUzv-00HNM6-3V; Tue, 07 Mar 2023 10:56:47 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pZUzr-00HNLA-AT
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 10:56:44 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-536cb25982eso236951787b3.13
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 02:56:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1678186601;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bPOHIY+gc8hcUU6SBmeBbgRx0IvK4FL5OmeKKmmeG0c=;
+        b=PFdukvBPDDh0hDaR0PstyR2iC4hbrhIkphg1WMlxchabdYYe2Twc9ALPRctsDXh66a
+         87KfbWOTKvcIGkhvH6+ML8X5Z+0VL4Es0451Qu370/K8u/mEc3WS/mCKa4OU3i2f5noE
+         QFYnVm/1ePinq+SbMpDWAUnLgNQaqxkexF1yKa+XakdjqxmvgdquTy1/O7pcvSEQEZH+
+         eh4k1B7/LNejIIEKKvwc0/7kXp46yNfUFFQ5NCYVeGdCbwtHF8vp1qqRTlcLQbPlkdrz
+         7dkwWdOPL1rq+9esaqYlvvePBXVcWh+BQPTGsZxKMyNVxhZ58nriRWAsj0aVr8dkGzxH
+         DN3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678186601;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bPOHIY+gc8hcUU6SBmeBbgRx0IvK4FL5OmeKKmmeG0c=;
+        b=UcuUD7Y34cDErRGnMXJexrCf0vejM2T6ELW0uehCAArYFREpKChiFx/gIoOW4+bVZI
+         mErk1ToM0l8LyH7zmuz0GfBrXmj95HfOeefehSnIU5aZleTsIK/pTnh/bDAUzs12AHiX
+         bckJzQOZTunRxFQmF6uGSeHo8O0/elz4b1tgGiOExFOJOeqCipgXP5a+/az3HRGdwI6j
+         Q/cm9LcEVBFkrJk5wBAN2VRqiIL0Gme4i15LNHZe0pkA3xqMRW9XlZhxMcE6Sf8Mt90e
+         sZUxK/B8WBc4BMzkl6VsQwSUWpwbAaTl04ryIZwg6U6Z8AU8Lj9hcIbwsTJBaE+dQT4M
+         nmxw==
+X-Gm-Message-State: AO0yUKWHXMr6te3L5yUq3QH1+bP7abAji0idiscpKqdT8OYuAiRI/4/u
+	a05Ms8btPe3HYg+NQSev0JLuH7Ps4aVvy1JCh2A=
+X-Google-Smtp-Source: AK7set/vZP5VgbdieRCGNt1P4MDgpVw9hkloznp6byCCn62NkrbtjZscaBSfnfsnnnnthyx3ZGOqFsywK3xzdXzGsPw=
+X-Received: by 2002:a81:431e:0:b0:533:8080:16ee with SMTP id
+ q30-20020a81431e000000b00533808016eemr9046679ywa.10.1678186601088; Tue, 07
+ Mar 2023 02:56:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.2
-Subject: Re: [PATCH v4 1/3] dt-bindings: dma: snps,dw-axi-dmac: constrain
- resets items for JH7110 dma
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Eugeniy Paltsev
-	<Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>
-CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230306140430.28951-1-walker.chen@starfivetech.com>
- <20230306140430.28951-2-walker.chen@starfivetech.com>
- <b2b36909-b0b1-7507-3145-141eb5ec0f3f@linaro.org>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <b2b36909-b0b1-7507-3145-141eb5ec0f3f@linaro.org>
-X-Originating-IP: [183.27.97.46]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+References: <20230307102441.94417-1-conor.dooley@microchip.com> <20230307102441.94417-3-conor.dooley@microchip.com>
+In-Reply-To: <20230307102441.94417-3-conor.dooley@microchip.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Tue, 7 Mar 2023 11:56:30 +0100
+Message-ID: <CANiq72nLjBgMSUTtWuF7qU5vG9rA3v=ekWk1d6+SNiGkfcaS8Q@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] RISC-V: enable building 64-bit kernels with rust support
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, conor@kernel.org, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_023035_057670_D0BD5E06 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20230307_025643_377011_38BAD9F0 
+X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +89,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/3/7 17:03, Krzysztof Kozlowski wrote:
-> On 06/03/2023 15:04, Walker Chen wrote:
->> The DMA controller needs two reset items to work properly on JH7110 SoC,
->> so there is need to constrain the items' value to 2, other platforms
->> have 1 reset item at most.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  .../bindings/dma/snps,dw-axi-dmac.yaml        | 24 +++++++++++++++----
->>  1 file changed, 20 insertions(+), 4 deletions(-)
->> 
->> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> index ad107a4d3b33..d8b5439f215c 100644
->> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> @@ -12,14 +12,12 @@ maintainers:
->>  description:
->>    Synopsys DesignWare AXI DMA Controller DT Binding
->>  
->> -allOf:
->> -  - $ref: "dma-controller.yaml#"
->> -
->>  properties:
->>    compatible:
->>      enum:
->>        - snps,axi-dma-1.01a
->>        - intel,kmb-axi-dma
->> +      - starfive,jh7110-axi-dma
->>  
->>    reg:
->>      minItems: 1
->> @@ -58,7 +56,8 @@ properties:
->>      maximum: 8
->>  
->>    resets:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 2
->>  
->>    snps,dma-masters:
->>      description: |
->> @@ -109,6 +108,23 @@ required:
->>    - snps,priority
->>    - snps,block-size
->>  
->> +allOf:
->> +  - $ref: "dma-controller.yaml#"
-> 
-> Rebase your patches on something recent... I would argue that it should
-> be based on maintainer's (or linux-next) tree, but that would be too
-> good to be true.
-
-This was written by referring to the syntax of other dt-binding, but your suggestion 
-is a good one, the next version of patches will be rebased on kernel 6.3.
-
-> 
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - starfive,jh7110-axi-dma
->> +    then:
->> +      properties:
->> +        resets:
->> +          minItems: 2
-> 
-> What are the items expected here?
-
-Do you mean to add descriptions for items here ?
-
-Thanks!
-
-Best regards,
-Walker
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgNywgMjAyMyBhdCAxMToyNeKAr0FNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
+bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gV2hpbGUgYWRkaW5nIFJJU0MtViB0byB0aGUg
+dGFibGUsIEkgdG9vayB0aGUgY2hhbmNlIHRvIHJlLXNvcnQgaXQKPiBhbHBoYWJldGljYWxseS4K
+CkZvciByZWZlcmVuY2UsIHRoZXJlIGlzIGEgcGF0Y2ggZm9yIHRoaXMgY29taW5nIGF0OgoKICAg
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3J1c3QtZm9yLWxpbnV4L0kwWWVhTmpUdGM0Tmg0N1pM
+SmZBczZyZ2ZBY19RWnhoeW5OZnotR1FLc3NWWjFTMlVJX2NUU2NDa3A5LW9YLWhQWVZjUDNFZkY3
+TjBITUI5aUFsbTFGY3ZPSmFnblFvTGVIdGlXM2JHQ2dNPUBiYW1lbGlzLmRldi8KCkNoZWVycywK
+TWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
