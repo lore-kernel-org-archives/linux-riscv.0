@@ -4,52 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DEBC6FD1E
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 20:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9403AC6FA99
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 20:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HE1cIzHZ/odusVrwZ0wQERiVV2C3S/ebQlAsG6rKeh8=; b=zgzaN2XITsd3Tl
-	IYxJae/6Ts9FiausQDtGR40shBq21EZ2191H5p3YjyyPgzm5fIsGLV1F8CF+OgtmMo0KMRRfMJ3l8
-	zIAohG/GS6gWPuEbbEMQtQ1urPndF3u56z3sH9LHWrB4kTyBIgUdRZaFS3hkeuI8Im01XYCb3s6u/
-	eETY1EeAHjYLkrFETthhk3/4rhVJjx0qNhFEiQwfkSNhk/FBUB+gYtb/f2SzTN4nEUsGIym5jZ1k7
-	yPbycPuMCczvpEv0FL/ghJW20saUlSCwyH6lb1GzZ/XEaxF+vVHxf4e64C/slIU+snHCrlbFDaLK7
-	C736Wls83vNkgeqHGjDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=bBkVMkBe2mmx/P1AnrD/GP2qfGAEQ/R1ClHp+fEOcC4=; b=2zAwAOutDxbsiaFMvxohzwRicx
+	2ayQwQnMyKpOOPpTcQtMTgT9ebXJ0ma0WAmlGAsVckKCnyl1yapocDaFzPY2Foa4Y7+WXmDV96GYT
+	RamEsqCDO5gPLz1lf4ubR84Tp2Migjpv34AsmgcZn1QFT6UClyBkTaLwg8TndZHFaGToCDXH1is6m
+	3Hrf8lYXhYh13IQnTux1536LXmCFg3g70YGdZojbRm5mXQhhCxaYLTnHO2yiIHty8rN5GZ7+cX+xJ
+	wv3tRLrlkujT8d959eBCGi4WCtdu39rkrZj0Qk7DJ5CmnGqwgPI/BSl6+jSlevepBo5gxtlD4m4fq
+	EFFTps/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZeOW-002Rdo-G1; Tue, 07 Mar 2023 20:58:48 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1pZePT-002RsB-AS; Tue, 07 Mar 2023 20:59:47 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZeOR-002RbK-7F
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 20:58:45 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=rainbowdash)
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1pZeOK-00FDQc-JU; Tue, 07 Mar 2023 20:58:36 +0000
-Received: from ben by rainbowdash with local (Exim 4.96)
-	(envelope-from <ben@rainbowdash>)
-	id 1pZeOK-005z4V-0C;
-	Tue, 07 Mar 2023 20:58:36 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	heiko.stuebner@vrull.eu,
-	conor.dooley@microchip.com,
-	ajones@ventanamicro.com,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH 1/2] riscv: alternatives: add 3-config alternative set
-Date: Tue,  7 Mar 2023 20:58:33 +0000
-Message-Id: <20230307205834.1426289-2-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230307205834.1426289-1-ben.dooks@codethink.co.uk>
-References: <20230307205834.1426289-1-ben.dooks@codethink.co.uk>
-MIME-Version: 1.0
+	id 1pZePJ-002Rpj-98
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 20:59:38 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id q31-20020a17090a17a200b0023750b69614so13067818pja.5
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 12:59:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1678222775;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=W6atF6I2q0Ii8LJH3Gz8PsiaDUZKWNvxsL7EGNgfsZ8=;
+        b=17PlGSKbkKuIupnjF7zLginu7kJrESk+P/cZNJX3rRw0zF5jTVklMTT4oR5QGRJVM7
+         td0ySlYq+69ZpSgNbAzR6FlBEXGLj2Nis9SADR+8/t3oWYFVdd1c8s8Eyy+n25AsiJOt
+         CiC+MRleb+/J3bbZRtBB3/bmGXFd/un/5H3hKP1sq+a2g1SiQrHa54iR/iizzfYy75st
+         ZSCa1KDT9CGoTh5cv/Lswq88zQ3lR9cBRvLTJhT5+JJq/gsHU8khfZp8LLNGcTMCMeQl
+         g0KFdVBvW8oyUCRSU+kvddY3z0TLf28jI0RrkaJcNvizuIkpYAEfriNVf7GtZNbClPEv
+         WPNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678222775;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W6atF6I2q0Ii8LJH3Gz8PsiaDUZKWNvxsL7EGNgfsZ8=;
+        b=aogS6VjAu9GyzPT3f6+bh5V/iQ6KdlmC8ztPXCXsX/4ukCavTcrD1XZjzX4FbcuIU5
+         UgBBiKzCZV7fosD9j/k3ZRtAzp7u8n2WrX7FUH5GgBl5tbn9yJMN7jWsOVoAmQZBP8Io
+         2hiL0jep6eTKMsx690g0Vs43xjFH53tP+WDAFnuEoGBp+ldGf26k52ioU057M62wHfe8
+         H1iEfGVAzyMBeIMYB6w8k/PSJSqmpIJ4LXkIWHkmUNLlFaFmqTRrs3EJGzMDt65RMQ52
+         STbc6ft7qbx2a1ICIyQFs04gObtqd5riJXmdnpQhZpJWNT5r0I1zjtJbhGZgBgP4XW7J
+         4TOA==
+X-Gm-Message-State: AO0yUKUFU4cVMHmN7FC5eSysdXp2lwVfR/+0sjL/pOSELMTlzIEBcYwm
+	O/XA4ApXGQqMqzzDn2/hp3hSXw==
+X-Google-Smtp-Source: AK7set8gIjw0BxRnruPT5teFvlmXm/ZFQq6QpH299KEvyKIMUvG5/5R6imaZgBOnNpMXCYoLV8qPeA==
+X-Received: by 2002:a17:902:c94e:b0:19a:ae30:3a42 with SMTP id i14-20020a170902c94e00b0019aae303a42mr17281637pla.21.1678222775335;
+        Tue, 07 Mar 2023 12:59:35 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id ke15-20020a170903340f00b0019aaba5c90bsm8828902plb.84.2023.03.07.12.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Mar 2023 12:59:34 -0800 (PST)
+Date: Tue, 07 Mar 2023 12:59:34 -0800 (PST)
+X-Google-Original-Date: Tue, 07 Mar 2023 12:58:37 PST (-0800)
+Subject: Re: [PATCH 1/4] dts: add riscv include prefix link
+In-Reply-To: <20230106010155.26868-2-andre.przywara@arm.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: andre.przywara@arm.com
+Message-ID: <mhng-6efe8a4c-7234-4324-8861-b4f1ff028ec2@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_125843_277620_901DFB19 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20230307_125937_341287_CB9EF201 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,107 +82,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, samuel@sholland.org, fabien.poussin@gmail.com, linux-kernel@vger.kernel.org, jernej.skrabec@gmail.com, wens@csie.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, frowand.list@gmail.com, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, szemzo.andras@gmail.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a 3-config alternative macro set for cases where there are
-three different choices for a given erratum. This will be used
-when we come to patch the issues with SVPBMT and ZICBOM.
+On Thu, 05 Jan 2023 17:01:52 PST (-0800), andre.przywara@arm.com wrote:
+> The Allwinner D1/D1s SoCs (with a RISC-V core) use an (almost?) identical
+> die as their R528/T113-s siblings with ARM Cortex-A7 cores.
+>
+> To allow sharing the basic SoC .dtsi files across those two
+> architectures as well, introduce a symlink to the RISC-V DT directory.
+>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  scripts/dtc/include-prefixes/riscv | 1 +
+>  1 file changed, 1 insertion(+)
+>  create mode 120000 scripts/dtc/include-prefixes/riscv
+>
+> diff --git a/scripts/dtc/include-prefixes/riscv b/scripts/dtc/include-prefixes/riscv
+> new file mode 120000
+> index 0000000000000..2025094189380
+> --- /dev/null
+> +++ b/scripts/dtc/include-prefixes/riscv
+> @@ -0,0 +1 @@
+> +../../../arch/riscv/boot/dts
+> \ No newline at end of file
 
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
----
- arch/riscv/include/asm/alternative-macros.h | 38 +++++++++++++++++++++
- 1 file changed, 38 insertions(+)
-
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 51c6867e02f3..8c74b00d707c 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -50,8 +50,18 @@
- 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
- .endm
- 
-+.macro ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+				new_c_2, vendor_id_2, errata_id_2, enable_2,	\
-+				new_c_3, vendor_id_3, errata_id_3, enable_3
-+	ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_id_1, \enable_1
-+	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-+	ALT_NEW_CONTENT \vendor_id_3, \errata_id_3, \enable_3, \new_c_3
-+.endm
-+
-+
- #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
- #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
-+#define __ALTERNATIVE_CFG_3(...)	ALTERNATIVE_CFG_3 __VA_ARGS__
- 
- #else /* !__ASSEMBLY__ */
- 
-@@ -98,6 +108,13 @@
- 	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
- 	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
- 
-+#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, errata_id_2, enable_2, \
-+				   new_c_3, vendor_id_3, errata_id_3, enable_3)	\
-+	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
-+	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)		\
-+	ALT_NEW_CONTENT(vendor_id_3, errata_id_3, enable_3, new_c_3)
-+	
- #endif /* __ASSEMBLY__ */
- 
- #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
-@@ -108,6 +125,13 @@
- 	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
- 				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
- 
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-+				  new_c_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-+	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
-+				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2),   \
-+				   new_c_3, vendor_id_3, errata_id_3, IS_ENABLED(CONFIG_k_3))
-+	
- #else /* CONFIG_RISCV_ALTERNATIVE */
- #ifdef __ASSEMBLY__
- 
-@@ -121,6 +145,9 @@
- #define _ALTERNATIVE_CFG_2(old_c, ...)	\
- 	ALTERNATIVE_CFG old_c
- 
-+#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-+	ALTERNATIVE_CFG old_c
-+
- #else /* !__ASSEMBLY__ */
- 
- #define __ALTERNATIVE_CFG(old_c)	\
-@@ -132,6 +159,9 @@
- #define _ALTERNATIVE_CFG_2(old_c, ...)	\
- 	__ALTERNATIVE_CFG(old_c)
- 
-+#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-+	__ALTERNATIVE_CFG(old_c)
-+
- #endif /* __ASSEMBLY__ */
- #endif /* CONFIG_RISCV_ALTERNATIVE */
- 
-@@ -163,4 +193,12 @@
- 	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
- 					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
- 
-+#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-+				   new_content_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-+	_ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
-+					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2,	\
-+					new_content_3, vendor_id_3, errata_id_3, CONFIG_k_3)
-+
-+
- #endif
--- 
-2.39.2
-
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
