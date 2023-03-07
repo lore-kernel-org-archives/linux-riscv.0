@@ -4,135 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D960AC678D4
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 17:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD696C678D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 18:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9GeHbpwy5mz3jmtdgtoiOgXLb+CQMAji4SaM1QS+qI=; b=ZYg4Pk/wEUo3D94KDDc37AVR+T
-	dKCcYk68OxLv8Q6Sn6oYzM2i1CGmA5ZMDiFT9cAYnkUVf/nkJSey8ZjzNZUG0VRQv808vrvop0vgG
-	TwfBHN0ubQLtQBRsHVqqCLomSMtKUNMGNdV2QGxtz3H1bm25d+yV0cMvwD4qnvOo3+fcatjEE2Ole
-	tdZy6MdNZGELxlIiwszW431/x7DMkFWfkkG9fVnv6XY+dPcmfmz+4QjdmhOo96uJaDFXcxuGRTVF/
-	UOMaW/6+7riAs4bkCgeoIX5HpWpoCVowwra+9+Wx5AhV3/x01EjHfbeU7x5QjTf9qP6usDpTfRI/T
-	G7JVhjiw==;
+	bh=zyu2VUKQvp/6RLYQaLkZI03bz0+EFPhhnBMDnR7bJtM=; b=ng3V4spEtnODjQ/3og8nEy2Jlu
+	UuOJpDcPgW7vjOV2q3sdLMtZzJ2lu35AusBjxM7qm1jo7HEE6GaJQt3XX5+7M2ZFgtBp9cs2LCoE0
+	sTo4z3OgM+09RciWC6AgQFtHuWbRuQ6b8Qrlc3ObAjzke+Bi0ho7iQ8WLrKHEpVljp3yBM53yfj+c
+	xM9JTHwnY8JSv2ySBanrLcKe4+pvTlVbxPP8jDtTPibZsa05ZzzfZo0o3fbgKEb+HfUNGBlaI6V7b
+	RZt1+DW7j6kg2TYu1wFiOH70R/4hilYKka1St9r/vy5OXJd8GzHGtGlOEtblVOYLdxSvgo7GaxKyS
+	6MycpTFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZbPy-001tF5-Ds; Tue, 07 Mar 2023 17:48:06 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1pZcIn-0024Yf-D2; Tue, 07 Mar 2023 18:44:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZbPv-001tCX-2E
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 17:48:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pZbOi-0001A8-23; Tue, 07 Mar 2023 18:46:48 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pZbOJ-002XP1-FG; Tue, 07 Mar 2023 18:46:23 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pZbOI-0034GD-GY; Tue, 07 Mar 2023 18:46:22 +0100
-Date: Tue, 7 Mar 2023 18:46:22 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>
-Cc: Kursad Oney <kursad.oney@broadcom.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Heiko Stuebner <heiko@sntech.de>, linux-samsung-soc@vger.kernel.org,
-	Samuel Holland <samuel@sholland.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	NXP Linux Team <linux-imx@nxp.com>, linux-sunxi@lists.linux.dev,
-	Anand Gore <anand.gore@broadcom.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Scott Branden <sbranden@broadcom.com>,
-	Andrew Jeffery <andrew@aj.id.au>, linux-spi@vger.kernel.org,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-rockchip@lists.infradead.org,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Jerome Brunet <jbrunet@baylibre.com>, linux-xtensa@linux-xtensa.org,
-	Andi Shyti <andi@etezian.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-arm-msm@vger.kernel.org,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Jay Fang <f.fangjian@huawei.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Jassi Brar <jaswinder.singh@linaro.org>,
-	=?utf-8?Q?C=C3=A9dric?= Le Goater <clg@kaod.org>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-rpi-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Masahisa Kojima <masahisa.kojima@linaro.org>,
-	Fabio Estevam <festevam@gmail.com>, linux-aspeed@lists.ozlabs.org,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Nancy Yuen <yuenn@google.com>, Chen-Yu Tsai <wens@csie.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Joel Stanley <joel@jms.id.au>, Orson Zhai <orsonzhai@gmail.com>,
-	William Zhang <william.zhang@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Li-hao Kuo <lhjeff911@gmail.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Tali Perry <tali.perry1@gmail.com>, linux-riscv@lists.infradead.org,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kamal Dasu <kdasu.kdev@gmail.com>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
-	Andy Gross <agross@kernel.org>, linux-mediatek@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, Han Xu <han.xu@nxp.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Patrick Venture <venture@google.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, openbmc@lists.ozlabs.org,
-	Daniel Mack <daniel@zonque.org>
-Subject: Re: [PATCH 00/87] spi: Convert to platform remove callback returning
- void
-Message-ID: <20230307174622.vluzrlicw2gdn7hq@pengutronix.de>
-References: <20230303172041.2103336-1-u.kleine-koenig@pengutronix.de>
- <ddcda593-f8e9-43a4-bba6-dae31e8d6b39@sirena.org.uk>
+	id 1pZcIk-0024Wp-7H
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 18:44:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C23DF61526;
+	Tue,  7 Mar 2023 18:44:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD2A7C433D2;
+	Tue,  7 Mar 2023 18:44:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678214681;
+	bh=98GSn9Nd5lbsZB8GQDRpBCln3pvxy2GNE1Kh/iUgG4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ci9N7xCRe3wAWKGx/fHN59ZdShHG3aGjM0ECdLco4W7QTTaolajEJDHRwxvUfIbl2
+	 JEdttpeYOYKITpWFhrQ8yqGYNxjMeIspbBV7yKxPZAQK3I5HeeJEKokX3QBFsITDmW
+	 9V8fMq3OnQktdbltjtKV1bfjg11yg2ZQvNHVgB9RuKE1fSY7Orgz/DmJeDCIadnSAi
+	 Rrp5S+qhFFAb7qkLDwhwzqdlBSZHO5aIyprEzfJ3x0t2e4euG1/C/Vp9wBJ17qEr/w
+	 iHo/7rodCX7H5a6n6XPg12/FabuzP9TBNbJ4Nww8tewlRAbmb1il3mvTUy2TpzQyHC
+	 3DzJX5Sv83O4w==
+Date: Tue, 7 Mar 2023 18:44:35 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>, llvm@lists.linux.dev
+Subject: Re: [PATCH V3 00/20] Add basic ACPI support for RISC-V
+Message-ID: <a9823561-2e32-49e8-b6c9-73e4b8f8cf8d@spud>
+References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+ <16007014-c5f2-4b07-baec-e19952236aa5@spud>
+ <ZAbGSA6F0kfv9YYw@sunil-laptop>
+ <E7FB4927-1FE6-435A-914E-9615C2AD9D34@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <ddcda593-f8e9-43a4-bba6-dae31e8d6b39@sirena.org.uk>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <E7FB4927-1FE6-435A-914E-9615C2AD9D34@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_094803_117449_08BB3817 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20230307_104442_361620_5FB64588 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,66 +80,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3853064866971406524=="
+Content-Type: multipart/mixed; boundary="===============0636548861375218887=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3853064866971406524==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="subqk3tp4gcmon6z"
+--===============0636548861375218887==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Syeh4y7IR+Jnz+iK"
 Content-Disposition: inline
 
 
---subqk3tp4gcmon6z
-Content-Type: text/plain; charset=iso-8859-1
+--Syeh4y7IR+Jnz+iK
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hello Mark,
-
-On Tue, Mar 07, 2023 at 05:00:47PM +0000, Mark Brown wrote:
-> On Fri, Mar 03, 2023 at 06:19:14PM +0100, Uwe Kleine-K=F6nig wrote:
+On Tue, Mar 07, 2023 at 06:13:22AM +0000, Conor Dooley wrote:
 >=20
-> >   spi: mpc512x-psc: Convert to platform remove callback returning void
-> >   spi: mpc52xx-psc: Convert to platform remove callback returning void
 >=20
-> As well as the Raspberry Pi patch dropped due to build failures I also
-> dropped these two as they conflicted with Rob's refactoring of that
-> driver, nothing especially complex but since there's stuff to resend
-> anyway...
+> On 7 March 2023 05:06:16 GMT, Sunil V L <sunilvl@ventanamicro.com> wrote:
+> >On Mon, Mar 06, 2023 at 09:51:09PM +0000, Conor Dooley wrote:
+> >> Hey Sunil,
+> >>=20
+> >> On Fri, Mar 03, 2023 at 07:06:27PM +0530, Sunil V L wrote:
+> >> > This patch series enables the basic ACPI infrastructure for RISC-V.
+> >> > Supporting external interrupt controllers is in progress and hence i=
+t is
+> >> > tested using poll based HVC SBI console and RAM disk.
+> >> >=20
+> >> > The first patch in this series is one of the patch from Jisheng's
+> >> > series [1] which is not merged yet. This patch is required to support
+> >> > ACPI since efi_init() which gets called before sbi_init() can enable
+> >> > static branches and hits a panic.
+> >> >=20
+> >> > Patch 2 and 3 are ACPICA patches which are not merged into acpica yet
+> >> > but a PR is raised already.
+> >> >=20
+> >> > Below are two ECRs approved by ASWG.
+> >> > RINTC - https://drive.google.com/file/d/1R6k4MshhN3WTT-hwqAquu5nX6xS=
+EqK2l/view
+> >> > RHCT - https://drive.google.com/file/d/1nP3nFiH4jkPMp6COOxP6123DCZKR=
+-tia/view
+> >> >=20
+> >> > The series depends on Anup's IPI improvement series [2].
+> >> >=20
+> >> > [1] https://lore.kernel.org/all/20220821140918.3613-1-jszhang@kernel=
+=2Eorg/
+> >> > [2] https://lore.kernel.org/lkml/20230103141221.772261-7-apatel@vent=
+anamicro.com/T/
+> >>=20
+> >> Building a clang-15 allmodconfig (I didn't try gcc) with this series, =
+and
+> >> Anup's IPI bits, results in a broken build, due to failings in cmpxchg:
+> >>=20
+> >> /stuff/linux/drivers/platform/surface/aggregator/controller.c:61:25: e=
+rror: call to __compiletime_assert_335 declared with 'error' attribute: BUI=
+LD_BUG failed
+> >>         while (unlikely((ret =3D cmpxchg(&c->value, old, new)) !=3D ol=
+d)) {
+> >>                                ^
 
-Fine for me. Given that my queue of patches to convert the remove
-callbacks is quite big, there is no pressure from my side to get these
-all in. 84 from 87 is great already, I'll care about the remaining 3
-patches (and the few drivers that don't return 0 in .remove()) later.
+> > I am able to build without any of these issues using clang-15. I am
+> > wondering whether the base is proper. I had rebased on top of the master
+> > and couple of patches from IPI series were already merged in the master.
+> >=20
+> > Do you mind verifying with my branch
+> > https://github.com/vlsunil/linux/commits/acpi_b1_us_review_ipi17_V3?
+>=20
+> I can check that later I suppose.
 
-Thanks
-Uwe
+That's broken too.
 
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+> > Or if you could provide me your branch details, I can look further.
+>=20
+> 6.3-rc1, with both series applied, sans Anups applied patches.
 
---subqk3tp4gcmon6z
+I've pushed my stuff here, but unlikely that it makes any odds since
+your branch experiences the same build issue.
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ borked-acp=
+i-surface
+
+My build commands are wrapped in a script, but it's an LLVM=3D1
+allmodconfig run w/ clang-15(.0.7) etc.
+
+Chees,
+Conor.
+
+--Syeh4y7IR+Jnz+iK
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmQHeGsACgkQwfwUeK3K
-7AmJQAf+OLFnhHHVOJXrgsKSMBVT9Qycgk1Nx3JjIocPvU73GYAc8BXwKRUCjb2G
-yTOGAdCjHSEwQuDZxv2NhBd/vpxLkpD7iy/doYJxHT2UMPWV54rl6CFYJEHlJPqW
-Z/Ml4CO3hzmB4BXtCN8RnFyPLmswQObzaXX8HL2DGHB1XE8S1ih7F9Kal3TQISuT
-hZmmMMLaoUtmq5BdGPNybIlL7hGGrMoH0ej+lkPelgMI+QnFAQ6ge26Uc1x9lkDb
-M9w96TPGO6fCBhTV7g21HUUO1P1MsEqJqTPxwUxg+iatcXPmt/w55d07QZQbST7b
-W1YrIAGbAt6hkfVtrrUIlqw3J57gTA==
-=WgaT
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAeGEwAKCRB4tDGHoIJi
+0pBJAQC6eUPL8agYJlDStZNq2bNTc9yH0rw+9QH9WnR5mdEIxwD+Ikx1pSDTQT/o
+2vHNHYLroiHM+zN28aBpih7YsooWjQI=
+=4gdL
 -----END PGP SIGNATURE-----
 
---subqk3tp4gcmon6z--
+--Syeh4y7IR+Jnz+iK--
 
 
---===============3853064866971406524==
+--===============0636548861375218887==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -214,5 +192,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3853064866971406524==--
+--===============0636548861375218887==--
 
