@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CABC1C678D5
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 15:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269D0C678D5
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Mar 2023 15:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Tpsl+AEQ0UHp6e6DhX2rdkLA8IIwawvuIIKapfjQDk=; b=Gp0z/GSqJq3CEq
-	h6b3piPzGNr2Ynjuc0ZO6/rQHqon9EQV78bfpGKWeBuPylo58Nw/WGrA5vr5zOZBVdSKMihvGe7Fu
-	TNOXYrDh5+RtdQ3s8lJo0i8KxD7PX96VQFzaGv9dEX81SGmcmJ2cFnkyFDnwu7wj4C9X5kT4HpihS
-	wnwKMcdzgReKjDyKAAaBe3le2gfmwvwkGDeKTWZ/NNYtp3uEYTEeaWAKxTqV9EvDuepgaXVU5GO4k
-	NQxXA2PGzS4oQUbvAf3uJADvzCDyzwgVlcykxexdSvuhoXQt+Raj9dkeGm2qb3FWrBQXwbOENGfMK
-	QMlKOZTmvbpPlXAnZA1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HEn7SXYvmecG2OAdS5eYR2k710nQjuuWvwK4OX1sOf8=; b=3pqu1F/1uIbGbr/28vzZ2hpK1l
+	U6OI8kHEhQ9C+KyFZqNyMjxjWxIKw8KOg2+eYgVXGoxLZzhqWSzxxndiReAQtdTsVSS9B9ErOba/G
+	7K4e2o+ZnbORjSnUEiJr0B7qaNtLI0t5p+WBrWd2+T68NkiqNJxogGoZSBszC6wiswCvd3PpFo8Xl
+	dK/Tly7JrifZsUp+OFSlZBhHvokW4WvAARxpVJTPOk0DijVqT8ck2hCep8VHmRp786mFr36Pnq9gr
+	duPsQXHFycYPMGzXwqYMzmvE8mCX7Quk5/sqd6gdfdvEL0I7rAL3GFSdZBASp8cT8NyVy1O+Pv62t
+	c5oHRM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZZ1A-001987-98; Tue, 07 Mar 2023 15:14:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pZZ8l-001Cjk-9O; Tue, 07 Mar 2023 15:22:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZYRG-000rPm-51
-	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 14:37:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1678199833;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XswZDw+iZ8+4q1nFeXIY6yQ9xCKRhgciDOrB6q6HEYQ=;
-	b=STQ2yx1nNXXH+FQAxk1phsKpQ0Vqm5eV7leaktXC0+dO4GVFO836Z0WKoPXjGnNA4TofBB
-	nf4HI+1fSbB2PsHgq7sEtFxhQMBQnqvkxSci7d0BspUG5fTUXpQvTUJHhFMDAK6+F60KYj
-	WR17Z37icdJ3LjxGuc96bqq8s3g3eJk=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-237-36ucpmLzP_2BcZo3oA4DaA-1; Tue, 07 Mar 2023 09:37:10 -0500
-X-MC-Unique: 36ucpmLzP_2BcZo3oA4DaA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3FD763C69860;
-	Tue,  7 Mar 2023 14:37:08 +0000 (UTC)
-Received: from vschneid.remote.csb (unknown [10.33.37.13])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EC778400DFA1;
-	Tue,  7 Mar 2023 14:37:02 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	x86@kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
-Date: Tue,  7 Mar 2023 14:35:58 +0000
-Message-Id: <20230307143558.294354-8-vschneid@redhat.com>
-In-Reply-To: <20230307143558.294354-1-vschneid@redhat.com>
-References: <20230307143558.294354-1-vschneid@redhat.com>
+	id 1pZZ3y-001AVA-B2
+	for linux-riscv@lists.infradead.org; Tue, 07 Mar 2023 15:17:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678202234; x=1709738234;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=j1UFQoVc1KhmUlZmmX46JsVapFdQK4AzDjQXMSFxCc8=;
+  b=xIwT4FFWqEEETdEB1xQ1IB3vbFqx8/Gk6MvUa5QT5IOpAeDwMd7FcC6C
+   7tfTu3PJ+wNr/tFvAv2atfkmi9IabU9tXtLvYBpV25zhRgV55ttojvzfk
+   6MS/BapouOl1rP+/yeBlZwAylFx99LjVM6472Zw408TyXQLD/yrCV31kU
+   OmwZv3p5XYm8iQCq1+MO4WeoavM62urTe+IyaCCnl+CCMTIrBNPjs1E9p
+   R8qVJ5lEq2DOlLTOOj3zVZ6SNNu6Cvmhbkv/7GQmGY2IRE/2vG3gqpgwI
+   Wm1rToAIbtdHokZw8LGRhgploojwbrS4RNG6EJKcUTf6TZ4LxXNnrzkRA
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,241,1673938800"; 
+   d="asc'?scan'208";a="140750219"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Mar 2023 08:16:49 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Tue, 7 Mar 2023 08:16:48 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Tue, 7 Mar 2023 08:16:46 -0700
+Date: Tue, 7 Mar 2023 15:16:17 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Claudiu Beznea <claudiu.beznea@microchip.com>,
+	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v5 07/14] riscv: dts: microchip: add mpfs specific macb
+ reset support
+Message-ID: <a1be181e-d09f-4640-97a4-a209527f71fc@spud>
+References: <20220909123123.2699583-1-conor.dooley@microchip.com>
+ <20220909123123.2699583-8-conor.dooley@microchip.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
+In-Reply-To: <20220909123123.2699583-8-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_063714_352018_9352F16C 
-X-CRM114-Status: GOOD (  32.98  )
+X-CRM114-CacheID: sfid-20230307_071714_556879_7BE65E95 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,227 +81,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7163936440066995408=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Context
-=======
+--===============7163936440066995408==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5b/Zg8OxUkflppoM"
+Content-Disposition: inline
 
-The newly-introduced ipi_send_cpumask tracepoint has a "callback" parameter
-which so far has only been fed with NULL.
+--5b/Zg8OxUkflppoM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-While CSD_TYPE_SYNC/ASYNC and CSD_TYPE_IRQ_WORK share a similar backing
-struct layout (meaning their callback func can be accessed without caring
-about the actual CSD type), CSD_TYPE_TTWU doesn't even have a function
-attached to its struct. This means we need to check the type of a CSD
-before eventually dereferencing its associated callback.
+On Fri, Sep 09, 2022 at 01:31:16PM +0100, Conor Dooley wrote:
+> The macb on PolarFire SoC has reset support which the generic compatible
+> does not use. Add the newly introduced MPFS specific compatible as the
+> primary compatible to avail of this support & wire up the reset to the
+> clock controllers devicetree entry.
+>=20
+> Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-This isn't as trivial as it sounds: the CSD type is stored in
-__call_single_node.u_flags, which get cleared right before the callback is
-executed via csd_unlock(). This implies checking the CSD type before it is
-enqueued on the call_single_queue, as the target CPU's queue can be flushed
-before we get to sending an IPI.
+Somehow I lost my own patch between the cracks..
+I've gone and applied it now as v6.4 content:
+https://git.kernel.org/conor/c/0e9b70c1e3623fa110fb6be553e644524228ef60
 
-Furthermore, send_call_function_single_ipi() only has a CPU parameter, and
-would need to have an additional argument to trickle down the invoked
-function. This is somewhat silly, as the extra argument will always be
-pushed down to the function even when nothing is being traced, which is
-unnecessary overhead.
+Cheers,
+Conor.
 
-Changes
-=======
+> ---
+>  arch/riscv/boot/dts/microchip/mpfs.dtsi | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dt=
+s/microchip/mpfs.dtsi
+> index 499c2e63ad35..ae5839534d9c 100644
+> --- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
+> +++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+> @@ -234,6 +234,7 @@ clkcfg: clkcfg@20002000 {
+>  			reg =3D <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
+>  			clocks =3D <&refclk>;
+>  			#clock-cells =3D <1>;
+> +			#reset-cells =3D <1>;
+>  		};
+> =20
+>  		mmuart0: serial@20000000 {
+> @@ -383,7 +384,7 @@ can1: can@2010d000 {
+>  		};
+> =20
+>  		mac0: ethernet@20110000 {
+> -			compatible =3D "cdns,macb";
+> +			compatible =3D "microchip,mpfs-macb", "cdns,macb";
+>  			reg =3D <0x0 0x20110000 0x0 0x2000>;
+>  			#address-cells =3D <1>;
+>  			#size-cells =3D <0>;
+> @@ -392,11 +393,12 @@ mac0: ethernet@20110000 {
+>  			local-mac-address =3D [00 00 00 00 00 00];
+>  			clocks =3D <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
+>  			clock-names =3D "pclk", "hclk";
+> +			resets =3D <&clkcfg CLK_MAC0>;
+>  			status =3D "disabled";
+>  		};
+> =20
+>  		mac1: ethernet@20112000 {
+> -			compatible =3D "cdns,macb";
+> +			compatible =3D "microchip,mpfs-macb", "cdns,macb";
+>  			reg =3D <0x0 0x20112000 0x0 0x2000>;
+>  			#address-cells =3D <1>;
+>  			#size-cells =3D <0>;
+> @@ -405,6 +407,7 @@ mac1: ethernet@20112000 {
+>  			local-mac-address =3D [00 00 00 00 00 00];
+>  			clocks =3D <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
+>  			clock-names =3D "pclk", "hclk";
+> +			resets =3D <&clkcfg CLK_MAC1>;
+>  			status =3D "disabled";
+>  		};
+> =20
+> --=20
+> 2.36.1
+>=20
+>=20
 
-send_call_function_single_ipi() is only used by smp.c, and is defined in
-sched/core.c as it contains scheduler-specific ops (set_nr_if_polling() of
-a CPU's idle task).
+--5b/Zg8OxUkflppoM
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Split it into two parts: the scheduler bits remain in sched/core.c, and the
-actual IPI emission is moved into smp.c. This lets us define an
-__always_inline helper function that can take the related callback as
-parameter without creating useless register pressure in the non-traced path
-which only gains a (disabled) static branch.
+-----BEGIN PGP SIGNATURE-----
 
-Do the same thing for the multi IPI case.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAdVQQAKCRB4tDGHoIJi
+0g+qAP4qmdNBwd5h4ZXDqYoJdC/kw8z42IjJJaq/SKhaeExK+wEAzOK3Q5ORxwwE
+P5myq6oC1hbQBpIoExbGIu7lnEqJVwM=
+=ImiC
+-----END PGP SIGNATURE-----
 
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- kernel/sched/core.c | 18 +++++++-----
- kernel/sched/smp.h  |  2 +-
- kernel/smp.c        | 72 +++++++++++++++++++++++++++++++++------------
- 3 files changed, 66 insertions(+), 26 deletions(-)
+--5b/Zg8OxUkflppoM--
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 85114f75f1c9c..60c79b4e4a5b1 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3827,16 +3827,20 @@ void sched_ttwu_pending(void *arg)
- 	rq_unlock_irqrestore(rq, &rf);
- }
- 
--void send_call_function_single_ipi(int cpu)
-+/*
-+ * Prepare the scene for sending an IPI for a remote smp_call
-+ *
-+ * Returns true if the caller can proceed with sending the IPI.
-+ * Returns false otherwise.
-+ */
-+bool call_function_single_prep_ipi(int cpu)
- {
--	struct rq *rq = cpu_rq(cpu);
--
--	if (!set_nr_if_polling(rq->idle)) {
--		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
--		arch_send_call_function_single_ipi(cpu);
--	} else {
-+	if (set_nr_if_polling(cpu_rq(cpu)->idle)) {
- 		trace_sched_wake_idle_without_ipi(cpu);
-+		return false;
- 	}
-+
-+	return true;
- }
- 
- /*
-diff --git a/kernel/sched/smp.h b/kernel/sched/smp.h
-index 2eb23dd0f2856..21ac44428bb02 100644
---- a/kernel/sched/smp.h
-+++ b/kernel/sched/smp.h
-@@ -6,7 +6,7 @@
- 
- extern void sched_ttwu_pending(void *arg);
- 
--extern void send_call_function_single_ipi(int cpu);
-+extern bool call_function_single_prep_ipi(int cpu);
- 
- #ifdef CONFIG_SMP
- extern void flush_smp_call_function_queue(void);
-diff --git a/kernel/smp.c b/kernel/smp.c
-index 821b5986721ac..5cd680a7e78ef 100644
---- a/kernel/smp.c
-+++ b/kernel/smp.c
-@@ -161,9 +161,18 @@ void __init call_function_init(void)
- }
- 
- static __always_inline void
--send_call_function_ipi_mask(const struct cpumask *mask)
-+send_call_function_single_ipi(int cpu, smp_call_func_t func)
- {
--	trace_ipi_send_cpumask(mask, _RET_IP_, NULL);
-+	if (call_function_single_prep_ipi(cpu)) {
-+		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, func);
-+		arch_send_call_function_single_ipi(cpu);
-+	}
-+}
-+
-+static __always_inline void
-+send_call_function_ipi_mask(const struct cpumask *mask, smp_call_func_t func)
-+{
-+	trace_ipi_send_cpumask(mask, _RET_IP_, func);
- 	arch_send_call_function_ipi_mask(mask);
- }
- 
-@@ -430,12 +439,16 @@ static void __smp_call_single_queue_debug(int cpu, struct llist_node *node)
- 	struct cfd_seq_local *seq = this_cpu_ptr(&cfd_seq_local);
- 	struct call_function_data *cfd = this_cpu_ptr(&cfd_data);
- 	struct cfd_percpu *pcpu = per_cpu_ptr(cfd->pcpu, cpu);
-+	struct __call_single_data *csd;
-+
-+	csd = container_of(node, call_single_data_t, node.llist);
-+	WARN_ON_ONCE(!(CSD_TYPE(csd) & (CSD_TYPE_SYNC | CSD_TYPE_ASYNC)));
- 
- 	cfd_seq_store(pcpu->seq_queue, this_cpu, cpu, CFD_SEQ_QUEUE);
- 	if (llist_add(node, &per_cpu(call_single_queue, cpu))) {
- 		cfd_seq_store(pcpu->seq_ipi, this_cpu, cpu, CFD_SEQ_IPI);
- 		cfd_seq_store(seq->ping, this_cpu, cpu, CFD_SEQ_PING);
--		send_call_function_single_ipi(cpu);
-+		send_call_function_single_ipi(cpu, csd->func);
- 		cfd_seq_store(seq->pinged, this_cpu, cpu, CFD_SEQ_PINGED);
- 	} else {
- 		cfd_seq_store(pcpu->seq_noipi, this_cpu, cpu, CFD_SEQ_NOIPI);
-@@ -477,6 +490,25 @@ static __always_inline void csd_unlock(struct __call_single_data *csd)
- 	smp_store_release(&csd->node.u_flags, 0);
- }
- 
-+static __always_inline void
-+raw_smp_call_single_queue(int cpu, struct llist_node *node, smp_call_func_t func)
-+{
-+	/*
-+	 * The list addition should be visible to the target CPU when it pops
-+	 * the head of the list to pull the entry off it in the IPI handler
-+	 * because of normal cache coherency rules implied by the underlying
-+	 * llist ops.
-+	 *
-+	 * If IPIs can go out of order to the cache coherency protocol
-+	 * in an architecture, sufficient synchronisation should be added
-+	 * to arch code to make it appear to obey cache coherency WRT
-+	 * locking and barrier primitives. Generic code isn't really
-+	 * equipped to do the right thing...
-+	 */
-+	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
-+		send_call_function_single_ipi(cpu, func);
-+}
-+
- static DEFINE_PER_CPU_SHARED_ALIGNED(call_single_data_t, csd_data);
- 
- void __smp_call_single_queue(int cpu, struct llist_node *node)
-@@ -493,21 +525,25 @@ void __smp_call_single_queue(int cpu, struct llist_node *node)
- 		}
- 	}
- #endif
--
- 	/*
--	 * The list addition should be visible to the target CPU when it pops
--	 * the head of the list to pull the entry off it in the IPI handler
--	 * because of normal cache coherency rules implied by the underlying
--	 * llist ops.
--	 *
--	 * If IPIs can go out of order to the cache coherency protocol
--	 * in an architecture, sufficient synchronisation should be added
--	 * to arch code to make it appear to obey cache coherency WRT
--	 * locking and barrier primitives. Generic code isn't really
--	 * equipped to do the right thing...
-+	 * We have to check the type of the CSD before queueing it, because
-+	 * once queued it can have its flags cleared by
-+	 *   flush_smp_call_function_queue()
-+	 * even if we haven't sent the smp_call IPI yet (e.g. the stopper
-+	 * executes migration_cpu_stop() on the remote CPU).
- 	 */
--	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
--		send_call_function_single_ipi(cpu);
-+	if (trace_ipi_send_cpumask_enabled()) {
-+		call_single_data_t *csd;
-+		smp_call_func_t func;
-+
-+		csd = container_of(node, call_single_data_t, node.llist);
-+		func = CSD_TYPE(csd) == CSD_TYPE_TTWU ?
-+			sched_ttwu_pending : csd->func;
-+
-+		raw_smp_call_single_queue(cpu, node, func);
-+	} else {
-+		raw_smp_call_single_queue(cpu, node, NULL);
-+	}
- }
- 
- /*
-@@ -976,9 +1012,9 @@ static void smp_call_function_many_cond(const struct cpumask *mask,
- 		 * provided mask.
- 		 */
- 		if (nr_cpus == 1)
--			send_call_function_single_ipi(last_cpu);
-+			send_call_function_single_ipi(last_cpu, func);
- 		else if (likely(nr_cpus > 1))
--			send_call_function_ipi_mask(cfd->cpumask_ipi);
-+			send_call_function_ipi_mask(cfd->cpumask_ipi, func);
- 
- 		cfd_seq_store(this_cpu_ptr(&cfd_seq_local)->pinged, this_cpu, CFD_SEQ_NOCPU, CFD_SEQ_PINGED);
- 	}
--- 
-2.31.1
 
+--===============7163936440066995408==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7163936440066995408==--
+
