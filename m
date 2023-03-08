@@ -4,47 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFF9C678D5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 13:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD05BC64EC4
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 13:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gUFUbi6JvD5EcQqw/eHs3ipH5Zvi1R5LnvFzZhOrMKc=; b=C0mJ4mmPvrIKV6
-	kca1nW/UKZ7BwvTDCHWMWxqcxuWlJ5z2Ozzh1DfIEGNNYvI5DeXk5xyD8ttfm6QR84IIcBBeqAl2H
-	OLpCxRG/4BhJQqs5YllbxSA3u1LvxtOtTecyW6hR8Et/4EAZZnxCctENlIFbk7DRcDUz8VoR3yycq
-	2lZVqOOryS1+Dpqs+4XbwSsul0ySGQEkQEZhF3UHD1FXt6oqRw9AaMgAFZSRA441BFaW6qQZlmvRa
-	NOPeKM5fox943G+XBveyN5rCdH0WTgMGyZ4GGpzT3Gyk/KQJsq8nXwQQ6a4eZUVIFmGixm6lX1/vq
-	zgOMLMJaBo0nsmi1uuFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bnH/woA1bsKc0sCkKQhfguO6+dcH9mbTTtZKe/6Kx50=; b=WJt1ZLKj7jgtpUwIrOFUgyaKD1
+	l+6V2WorieEG8Q6+SRkMbRFi2NrwHkGllXBciH1itr3grQITQ2xt6Y6TdoEXcf0r394WnPkKQIk4q
+	fG5drkFhIrDStwTigtt2h4UayJBkm+lg6yudu6VBBt1pdiT/riE/xdRotdoefupyVWGfph1HEHFaZ
+	mal8+Bu1RlfXBi6nGTp2HxKAH8FLAR6iW89yXyLYmYZlT6NSqAkgiQ6gHRhJjhtH73QRB6h7wkvYB
+	a8lOQn3NN3sMW6J4MfSlKO2T5vewnYszHQX+9+J3hmaoJJ8HZsHfU0iVMlN2lWEgEKe9GTK2Ohr09
+	koT4mqRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZthh-0059hF-1R; Wed, 08 Mar 2023 13:19:37 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pZtyP-005EbB-96; Wed, 08 Mar 2023 13:36:53 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZthd-0059dd-R1
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 13:19:35 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pZthX-0007Ji-27; Wed, 08 Mar 2023 14:19:27 +0100
-From: heiko@sntech.de
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
- ajones@ventanamicro.com, Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: Re: [PATCH 2/2] riscv: mm: add pgprot_dmacoherent for zicbom
-Date: Wed, 08 Mar 2023 14:19:35 +0100
-Message-ID: <1772602.TLkxdtWsSY@diego>
-In-Reply-To: <226aa2ae-dfa0-d947-0aaf-4407e0c0bc5b@codethink.co.uk>
-References:  <20230307205834.1426289-1-ben.dooks@codethink.co.uk>
- <20230307205834.1426289-3-ben.dooks@codethink.co.uk>
- <226aa2ae-dfa0-d947-0aaf-4407e0c0bc5b@codethink.co.uk>
+	id 1pZtyM-005EaW-Fm
+	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 13:36:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D82B5B81CBB;
+	Wed,  8 Mar 2023 13:36:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0E1C433D2;
+	Wed,  8 Mar 2023 13:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678282607;
+	bh=OWt+d3tO5ov32xGG5qMASavRsXPbCxmg5AnjKjZWCQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l1+WSDpglc0KQHoGoeALrFnjtOEecp+1lZU/z1//Lcn5pU0D11ODzFYixZPHhO4s3
+	 9wkMK/yg4dvTxbqvX2lyP8pLm/7d9PbjlWS13FReTUtQLlHwQYDUUuXs5Z4Gn17/uB
+	 0O6fSaBNA8q2o5lFGKU8vsB0a/VzPd4EIW4Zv5HHzVRZEneGCCnR+k5ViVqS4ncGTx
+	 V7dQtFyJcQw7DGz+7AdTpqJRdYEnwZ34J0WliqDc18fD8FOcBJMc9YyYXqvdnos0P2
+	 ckAZaJMejCTT9jcTozelYzYnUmu8FKNsI5/jeP8+Ep/toXkl7Bhl00bhYQVKY5fjQD
+	 HyBkHk7ruAvDA==
+Date: Wed, 8 Mar 2023 13:36:41 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Tommaso Merciai <tomm.merciai@gmail.com>
+Cc: Hal Feng <hal.feng@starfivetech.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/19] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Message-ID: <4c071642-e3c8-4716-a580-5b42e25efb1c@spud>
+References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+ <3a605bc8-104e-0935-4fd8-2da16ab9053b@starfivetech.com>
+ <ZAb7JVghuiwZF1Q5@wendy>
+ <2f03dfb2-5cf8-e954-913c-f0c27db6bcf5@starfivetech.com>
+ <ZAh/UeSlUeGoKxki@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
 MIME-Version: 1.0
+In-Reply-To: <ZAh/UeSlUeGoKxki@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_051933_912240_175D933F 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20230308_053650_693866_C5983AC2 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,119 +84,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============8516617457527361779=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 8. M=E4rz 2023, 10:35:14 CET schrieb Ben Dooks:
-> On 07/03/2023 20:58, Ben Dooks wrote:
-> > If the system uses both ZICBOM and SVPBMT then currently SVPBMT will be
-> > used for DMA allocated memory even though ZICBOM gives us the cache ops
-> > to use cached memory and clean/flush them as needed by the DMA code.
-> > =
 
-> > Fix this by adding pgprot_dmacoherent() which is used by the allocator
-> > code to map the dma memory, thus allowing the return of suitably mapped
-> > memory for any use of dma_alloc_attrs() code. This s uses the added
-> > riscv_page_dmacoherent() which will work out the correct page flags to
-> > return using ALT_SVPBMT_ZICBOM() to runtime patch the right result.
-> > =
-
-> > Note, we can't just disable SVPBMT as it will be neede for things like
-> > ioremap() which don't have assoicated cache management operations.
-> > =
-
-> > Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> > ---
-> >   arch/riscv/include/asm/errata_list.h | 16 ++++++++++++++++
-> >   arch/riscv/include/asm/pgtable-64.h  | 10 ++++++++++
-> >   2 files changed, 26 insertions(+)
-> > =
-
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/=
-asm/errata_list.h
-> > index fb1a810f3d8c..49ed2e7984a7 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -62,6 +62,22 @@ asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
-> >   		  "I"(ALT_SVPBMT_SHIFT),				\
-> >   		  "I"(ALT_THEAD_PBMT_SHIFT))
-> >   =
-
-> > +#define ALT_SVPBMT_ZICBOM(_val, prot)					\
-> > +asm(ALTERNATIVE_3("li %0, 0\t\nnop",					\
-> > +		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
-> > +			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
-> > +		  "li %0, 0\t\nnop", 0,					\
-> > +			RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
-> =
-
-> so, I tink this needs to be selected on CONFIG_RISCV_DMA_NONCOHERENT
-> as just having ZICBOM in the ISA isn't enough to actually use it, you'll
-> need the dma-noncoherent.o being built to do the cache management.
-
-CONFIG_RISCV_ISA_ZICBOM does a
-	select RISCV_DMA_NONCOHERENT
-same as CONFIG_ERRATA_THEAD_CMO
-
-So dma-noncoherent gets build if you enable at least one of them.
-What am I missing?
+--===============8516617457527361779==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="1Q9Amaw99NjcnKrY"
+Content-Disposition: inline
 
 
-> > +		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
-> > +			ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)	\
-> > +		: "=3Dr"(_val)						\
-> > +		: "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),		\
-> > +		  "I"(prot##_THEAD >> ALT_THEAD_PBMT_SHIFT),		\
-> > +		  "I"(ALT_SVPBMT_SHIFT),				\
-> > +		  "I"(ALT_THEAD_PBMT_SHIFT))
-> > +
-> > +
-> > +
-> >   #ifdef CONFIG_ERRATA_THEAD_PBMT
-> >   /*
-> >    * IO/NOCACHE memory types are handled together with svpbmt,
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/a=
-sm/pgtable-64.h
-> > index 42a042c0e13e..e0d2e5fda5a4 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -126,10 +126,20 @@ static inline u64 riscv_page_io(void)
-> >   	return val;
-> >   }
-> >   =
+--1Q9Amaw99NjcnKrY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > +static inline u64 riscv_page_dmacoherent(void)
-> > +{
-> > +	u64 val;
-> > +
-> > +	ALT_SVPBMT_ZICBOM(val, _PAGE_IO);
-> > +	return val;
-> > +}
-> > +
-> >   #define _PAGE_NOCACHE		riscv_page_nocache()
-> >   #define _PAGE_IO		riscv_page_io()
-> >   #define _PAGE_MTMASK		riscv_page_mtmask()
-> >   =
+On Wed, Mar 08, 2023 at 01:28:01PM +0100, Tommaso Merciai wrote:
+> On Tue, Mar 07, 2023 at 06:08:53PM +0800, Hal Feng wrote:
 
-> > +#define pgprot_dmacoherent(__prot) __pgprot(pgprot_val(__prot) | riscv=
-_page_dmacoherent())
-> > +
-> >   /* Set of bits to preserve across pte_modify() */
-> >   #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ =
-|	\
-> >   					  _PAGE_WRITE | _PAGE_EXEC |	\
-> =
+> > The above two methods can fix the problem. Here are my test results.
+> > The VisionFive board can boot up successfully if and only if all above
+> > two applied.
+> > The VisionFive 2 board can boot up successfully if I merge Linus's new
+> > changes.
+>=20
+> Tested also on my side. Hope this can be helpfull.
+>=20
+> > Hope your fix will be merged in rc2. Thank you for your reply.
+>=20
+> Fully agree.
 
-> =
+If you only have a VisionFive 2, it shouldn't matter to you, as you
+don't need to fix up any SiFive errata (at the moment at least).
+Linus' fix is already in his tree, so should be in -rc2!
+The fix for the VisionFive was applied to Palmer's RISC-V fixes tree
+last night:
+https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=
+=3Dfixes&id=3Dbf89b7ee52af5a5944fa3539e86089f72475055b
+
+Thanks,
+Conor.
+
+--1Q9Amaw99NjcnKrY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAiPVwAKCRB4tDGHoIJi
+0jkLAQDPFRsrm3jV2o7oZA41VzOVHxBFtUn0CPkVOzvVlHguFwD/eEMsCXuhUN65
+gD5cpKcLgiGCltbgB7imErj+jrsFrQg=
+=11W4
+-----END PGP SIGNATURE-----
+
+--1Q9Amaw99NjcnKrY--
 
 
-
-
-
+--===============8516617457527361779==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8516617457527361779==--
+
