@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5E0C64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 06:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B91CC678D5
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 07:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OLJnOgRe92uwTA3/r2f0uEe3OfOfx+nph73FYfT5fvo=; b=ja/UL9XUS3mSIL
-	Uqll43WB3oxc2vuqOgxgr3Xv6MC50Q8/FfYLO+jPh+jHckRu9Tp1U91daZbVQ+vM3ljI65lnqIC1B
-	DWBukUNJYnq4Wa2zIshOkvs+UGTElzUavG4Xl5yW1IHhYBU0BcOUpYj3bOazhXFLGGb6SEjbbMnMM
-	HT+ZIjJ51R2l1ifh1Gols9FwayCGcGM67QV9EdmNDaXQam1aoUGC4pftsNxewFyUqxzHM440zbGXX
-	8kdRvcVYaCMhlEw2pUb/wtAeeKVeu36Nefz+TYLf6fQkmfqysL4Oe444yxkEYiqTLwnE3NhzCvxy1
-	V8/hMygKU0raDUBIGBYg==;
+	List-Owner; bh=yFAE85vIteRvd09cDE4r61kD5rYOZOVntRT2bVbNRd8=; b=s6BpK7EkZHDos4
+	sb/tLHyI7w+u9N72+tbYczDB6hjaao1rzst018Re7Sq8eceS7HmexlHWxM4fedVLAaZmAighL6sZg
+	7L/Mkn+A2cKjseo8AP+cbOcwKblCcPl4LMjOKDH1WuNPZTFOMGRWTfAuHsPX5eL3v91qPdJNfYHTh
+	iFRI3H7Z3yVSlW2oWuEEbHOvtGkU7Gsk+saqtALBYqkVlZ1pOMtYdhwTWhFWeyekDkBAOiITqsiX3
+	14p375VKDES11/jQBujfitgC+UL5POeQ4x+fk6+2POq1FGRiE1sWtG3EtFO9gMCp2FHTD7N5RMnBn
+	qd1OmfWOKksaBDvsyQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZnaX-003kBO-Do; Wed, 08 Mar 2023 06:47:49 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1pZoXt-003qpu-IS; Wed, 08 Mar 2023 07:49:09 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZnaT-003kA8-Vk
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 06:47:47 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id h17-20020a17090aea9100b0023739b10792so1049178pjz.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 22:47:44 -0800 (PST)
+	id 1pZoXq-003qoT-Sr
+	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 07:49:08 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id ay18so9678557pfb.2
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 23:49:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678258064;
+        d=gmail.com; s=20210112; t=1678261743;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gG2oN8vtildG2P61+wI9F4PrJ+MvdmYrBhZL9NTK/Uo=;
-        b=qrtN7j5AXKWJsCG3E0PH4oiCMNwLFR6JCjdwKskXS/mauDKDcisfSfVFXcUnjsBlEC
-         ax3etlGwgmryLx5JXpm28/mwLf2AV7y6/B5orDESXqchdDaCntCp7hrjMuxEJdWQv5IT
-         AgCeScSiNGdLQAlN4bi06JOmybvt9w49xghgqxwRID4jZN4j6s3FLjJiNfBKrezBJUtD
-         p6iFalHB5coyIDEkCp8PxdBSaszXHzQcAilmx0+npCC88zVByWDRXfvCkqVbjlL3IbYe
-         Cc0SNWskqmmLHHu8PGumzRfI1SttVg1HYgrUfgJrnBRN0pkvdtNOacd31XdSqldMp0TG
-         qIFw==
+        bh=hUSXP8OPeE+Py/tN+GtoDlukZn/IgN2ig58WnMx/+RA=;
+        b=nb3in7NEA5qhA5G8RrgaUoTYwwXjWdLVHtpSaRXkCTmVKHIzflSZ8n1lDNd9rmNiit
+         ZBpd34ePq9Q1piGKaPpcbRF59QcxObZxblyuJjrX75Wb/6sFSmEyWvJFNwcCZKPBf985
+         HGSDNoASX96PyoVo2MpK2ySx57zhskymZ4yJToxjldIXf6iFtvqLo8WnEuzVndWdnKPx
+         NLIA2aA8AMTIt3I8hWL9bA3iWk+WB+2TvaQsJK/riRY3YYhSDEK8irNsph2d4u3z6udk
+         XGCLxVe097Bib7j423xQ8wSCI3OXMz+7/Z9Z9kjLW5wYpQgOk4CcNow+wNElFe++rUFs
+         3G2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678258064;
+        d=1e100.net; s=20210112; t=1678261743;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gG2oN8vtildG2P61+wI9F4PrJ+MvdmYrBhZL9NTK/Uo=;
-        b=S+ZAA868LsKpz3lQFCMAH9V9eaKRyI63QIIkYdi2M1W9oMV2GjyyP/t5y1J0IEQ3Ct
-         51I4SR/yJQFt8UeVpdwwajSznDJRo/wyRyJzml7o4kV2avt9HRujAbkFND+y6avhF9kA
-         bzhV9z+an4FanZZmwU9e9GEmvnULMq5gwJXH8tDY5v8ZYM+aDQqOf4bgdr4L2WkkdAT5
-         9wLfM+d2OpnJs2HN33ue6KI3a84moLBFcPuInKd1dqJSqbgrNiVtyhLCxwxv+opSPvEE
-         /rqEaptAkMePHe1LXo6Plg/0XmxqMaSX/Of80lq69yWfm5Q4n1mmxADarHvH3Zj7GLcV
-         edrg==
-X-Gm-Message-State: AO0yUKX19tH8/Gf977RNY+JQ0HhDezS0UXALtFMfbtf6WqFYryomaSzT
-	CDo/yUfz+nG0N+LwbBZTH/M=
-X-Google-Smtp-Source: AK7set9j5/uTj4qvRxW7bRO0mbX+0sl5auSDS2wZRxqHsunyU90ihaJiYjiNyp921WUS0zv/keFrDg==
-X-Received: by 2002:a17:90b:204:b0:23a:2038:bf4b with SMTP id fy4-20020a17090b020400b0023a2038bf4bmr17014620pjb.3.1678258063791;
-        Tue, 07 Mar 2023 22:47:43 -0800 (PST)
-Received: from localhost.localdomain ([221.226.144.218])
-        by smtp.gmail.com with ESMTPSA id y20-20020a17090aca9400b0023317104415sm10149201pjt.17.2023.03.07.22.47.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Mar 2023 22:47:43 -0800 (PST)
-From: Song Shuai <suagrfillet@gmail.com>
+        bh=hUSXP8OPeE+Py/tN+GtoDlukZn/IgN2ig58WnMx/+RA=;
+        b=1bwZGWvF251mx+a+X9vrXPMTVx6x7fK/qolo7mEtnGb0aLLobwm6tvBrFPKoaG3V+y
+         RjixlywxPfvlSUybLn6l+/nI+zDQ5pO0PFtUDq0BZg8U2EWC9MTisVk6byZ1NLq7HM83
+         UpHpMW9slDUx6RCfU+Aqv5ov+cSLrx2htgtlSe4E8sxStLIlaiW9LZH5Firzwnh7DpS1
+         Q9qndFuBVEsx45Z9anTOv6qf0qhf6QkYeNcs/X7hnfiAyQl7lnQn1jTa6oyP9K0X/RvO
+         9Tf1Y04svIHDaREJelc+DrJaNK5w/svsWO3qEDudasYCIAMFbbO7m2w45NK3iCXu7S1A
+         0sPQ==
+X-Gm-Message-State: AO0yUKU1OmcMhK83OTeHpIiKRbM3/pEJVtUCQlbtIa45Dx4XaUNZf2AY
+	7OMx1lQWjnV1yJfbX1/sOl4=
+X-Google-Smtp-Source: AK7set8uhW3+JOZeDvxJ0DIYyuROTyt/9jRCEIaLzbRwlCglsntZglA/zPApA7OtNCGVysrTb/5ilQ==
+X-Received: by 2002:a62:1b89:0:b0:5db:ba81:dd9f with SMTP id b131-20020a621b89000000b005dbba81dd9fmr14633245pfb.30.1678261743449;
+        Tue, 07 Mar 2023 23:49:03 -0800 (PST)
+Received: from localhost.localdomain ([47.75.78.161])
+        by smtp.gmail.com with ESMTPSA id b9-20020aa78109000000b005a8e97fc71bsm8873038pfi.84.2023.03.07.23.49.00
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 07 Mar 2023 23:49:03 -0800 (PST)
+From: Qinglin Pan <panqinglin00@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com,
-	pierre.gondois@arm.com,
-	conor.dooley@microchip.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH] Revert "riscv: Set more data to cacheinfo"
-Date: Wed,  8 Mar 2023 14:47:34 +0800
-Message-Id: <20230308064734.512457-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org,
+	xuyinan@ict.ac.cn,
+	conor@kernel.org,
+	ajones@ventanamicro.com,
+	Qinglin Pan <panqinglin00@gmail.com>
+Subject: [PATCH v14 0/3] riscv, mm: detect svnapot cpu support at runtime
+Date: Wed,  8 Mar 2023 15:48:50 +0800
+Message-Id: <20230308074853.4393-1-panqinglin00@gmail.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_224746_065849_4004B9EF 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20230307_234906_972273_5F1023E4 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,119 +92,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit baf7cbd94b5688f167443a2cc3dcea3300132099.
+Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+page. This patch set is for using Svnapot in hugetlb fs and huge vmap.
 
-There are some duplicate cache attributes populations executed
-in both ci_leaf_init() and later cache_setup_properties().
+This patchset adds a Kconfig item for using Svnapot in
+"Platform type"->"SVNAPOT extension support". Its default value is on,
+and people can set it off if they don't allow kernel to detect Svnapot
+hardware support and leverage it.
 
-Revert the commit baf7cbd94b56 ("riscv: Set more data to cacheinfo")
-to setup only the level and type attributes at this early place.
+Tested on:
+  - qemu rv64 with "Svnapot support" off and svnapot=true.
+  - qemu rv64 with "Svnapot support" on and svnapot=true.
+  - qemu rv64 with "Svnapot support" off and svnapot=false.
+  - qemu rv64 with "Svnapot support" on and svnapot=false.
 
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
- arch/riscv/kernel/cacheinfo.c | 66 ++++++++---------------------------
- 1 file changed, 15 insertions(+), 51 deletions(-)
 
-diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 3a13113f1b29..305ebbdc780d 100644
---- a/arch/riscv/kernel/cacheinfo.c
-+++ b/arch/riscv/kernel/cacheinfo.c
-@@ -64,53 +64,12 @@ uintptr_t get_cache_geometry(u32 level, enum cache_type type)
- 			   0;
- }
- 
--static void ci_leaf_init(struct cacheinfo *this_leaf, enum cache_type type,
--			 unsigned int level, unsigned int size,
--			 unsigned int sets, unsigned int line_size)
-+static void ci_leaf_init(struct cacheinfo *this_leaf,
-+			 struct device_node *node,
-+			 enum cache_type type, unsigned int level)
- {
- 	this_leaf->level = level;
- 	this_leaf->type = type;
--	this_leaf->size = size;
--	this_leaf->number_of_sets = sets;
--	this_leaf->coherency_line_size = line_size;
--
--	/*
--	 * If the cache is fully associative, there is no need to
--	 * check the other properties.
--	 */
--	if (sets == 1)
--		return;
--
--	/*
--	 * Set the ways number for n-ways associative, make sure
--	 * all properties are big than zero.
--	 */
--	if (sets > 0 && size > 0 && line_size > 0)
--		this_leaf->ways_of_associativity = (size / sets) / line_size;
--}
--
--static void fill_cacheinfo(struct cacheinfo **this_leaf,
--			   struct device_node *node, unsigned int level)
--{
--	unsigned int size, sets, line_size;
--
--	if (!of_property_read_u32(node, "cache-size", &size) &&
--	    !of_property_read_u32(node, "cache-block-size", &line_size) &&
--	    !of_property_read_u32(node, "cache-sets", &sets)) {
--		ci_leaf_init((*this_leaf)++, CACHE_TYPE_UNIFIED, level, size, sets, line_size);
--	}
--
--	if (!of_property_read_u32(node, "i-cache-size", &size) &&
--	    !of_property_read_u32(node, "i-cache-sets", &sets) &&
--	    !of_property_read_u32(node, "i-cache-block-size", &line_size)) {
--		ci_leaf_init((*this_leaf)++, CACHE_TYPE_INST, level, size, sets, line_size);
--	}
--
--	if (!of_property_read_u32(node, "d-cache-size", &size) &&
--	    !of_property_read_u32(node, "d-cache-sets", &sets) &&
--	    !of_property_read_u32(node, "d-cache-block-size", &line_size)) {
--		ci_leaf_init((*this_leaf)++, CACHE_TYPE_DATA, level, size, sets, line_size);
--	}
- }
- 
- int populate_cache_leaves(unsigned int cpu)
-@@ -121,24 +80,29 @@ int populate_cache_leaves(unsigned int cpu)
- 	struct device_node *prev = NULL;
- 	int levels = 1, level = 1;
- 
--	/* Level 1 caches in cpu node */
--	fill_cacheinfo(&this_leaf, np, level);
-+	if (of_property_read_bool(np, "cache-size"))
-+		ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
-+	if (of_property_read_bool(np, "i-cache-size"))
-+		ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
-+	if (of_property_read_bool(np, "d-cache-size"))
-+		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
- 
--	/* Next level caches in cache nodes */
- 	prev = np;
- 	while ((np = of_find_next_cache_node(np))) {
- 		of_node_put(prev);
- 		prev = np;
--
- 		if (!of_device_is_compatible(np, "cache"))
- 			break;
- 		if (of_property_read_u32(np, "cache-level", &level))
- 			break;
- 		if (level <= levels)
- 			break;
--
--		fill_cacheinfo(&this_leaf, np, level);
--
-+		if (of_property_read_bool(np, "cache-size"))
-+			ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
-+		if (of_property_read_bool(np, "i-cache-size"))
-+			ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
-+		if (of_property_read_bool(np, "d-cache-size"))
-+			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
- 		levels = level;
- 	}
- 	of_node_put(np);
+Changes in v2:
+  - detect Svnapot hardware support at boot time.
+Changes in v3:
+  - do linear mapping again if has_svnapot
+Changes in v4:
+  - fix some errors/warns reported by checkpatch.pl, thanks @Conor
+Changes in v5:
+  - modify code according to @Conor and @Heiko
+Changes in v6:
+  - use static key insead of alternative errata
+Changes in v7:
+  - add napot_cont_order for possible more napot order in the future
+  - remove linear mapping related code from this patchset to another patch
+  - refactor hugetlb code for svnapot according to thanks @Andrew @Conor
+  - use tools/testing/selftests/vm/map_hugetlb as hugetlb testing program
+  - support svnapot in huge vmap on newer for-next branch
+Changes in v8:
+  - fix compilation errors in rv32_defconfig
+  - insert some lines of whitespace according to @Conor's suggestion
+Changes in v9:
+  - use alternative to avoid using static branches inside heavily used
+    inline functions
+  - change napot_cont_mask definition
+  - post test_vmalloc modification about testing vmalloc_huge
+Changes in v10:
+  - fix some nits caught by @Andrew
+  - collect Reviewed-by/Acked-by
+  - add memory leak warning in KConfig text
+  - replace test_vmalloc patch link with the standard one
+Changes in v11:
+  - add more detailed warning about HUGETLBFS and SVNAPOT in KConfig text
+  - fix missing reverse-xmas tree
+Changes in v12:
+  - rebase on the new ISA extension API [1]
+Changes in v13:
+  - fix warnings reported by patchwork
+Changes in v14:
+  - rebase on for-next
+
+[1]https://lore.kernel.org/all/20230128172856.3814-5-jszhang@kernel.org/
+
+Qinglin Pan (3):
+  riscv: mm: modify pte format for Svnapot
+  riscv: mm: support Svnapot in hugetlb page
+  riscv: mm: support Svnapot in huge vmap
+
+ arch/riscv/Kconfig                  |  21 +-
+ arch/riscv/include/asm/hugetlb.h    |  34 +++-
+ arch/riscv/include/asm/hwcap.h      |   3 +-
+ arch/riscv/include/asm/page.h       |   5 -
+ arch/riscv/include/asm/pgtable-64.h |  34 ++++
+ arch/riscv/include/asm/pgtable.h    |  39 +++-
+ arch/riscv/include/asm/vmalloc.h    |  61 +++++-
+ arch/riscv/kernel/cpu.c             |   1 +
+ arch/riscv/kernel/cpufeature.c      |   1 +
+ arch/riscv/mm/hugetlbpage.c         | 301 ++++++++++++++++++++++++++++
+ 10 files changed, 490 insertions(+), 10 deletions(-)
+
 -- 
-2.20.1
+2.39.2
 
 
 _______________________________________________
