@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6E9C678D5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 10:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47434C64EC4
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 10:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlzDSrXMoxBk23i2CEvOj+I5Srmw9GhU4XEh3mCnpUw=; b=mLDt6tiFsPl056m6/gZeoNW1Ly
-	63Fi3GPaY16zr+lRPKVwwQb6yzKomd1fjkMkdncTecKWLTwk0Y4yp2egassgMVQGCJv+2UBtqGZzx
-	We4VcUkHhRNCqrx03W4gHVgrPItKwMiSgqxZaG5lu0cLkuDwxtJqdPDn53zCxzXLqWEjPyM2FuZlW
-	EjN+krteUU10KpzERp5jSI6njsRV0lYSxsadX9Hv9MPcrfKs608vCSCyoznkZ3AMFGgQBIljZuE9I
-	lNOpvez8B0efT+Mutj1eJOvEXHUk5AqA9pDFc6FoW4zfMNMW0WhscmMjPwMzBqKg89v2NBWwk1PPx
-	E2PYl8MA==;
+	bh=/GHG3YtNEp47DhWuHvmyHYfqpxMvrp/3HbL8C1hfpc0=; b=gLOP5UthIe4b56An5UXOxjvoZh
+	2fIfS1k803a95Oro4bf5pylZYsN7LE+H76NNOpPoUzgGpqLm0Q1yE5+fMzt8O3+aEKz9E39TZIX8W
+	t91ExhWrcrBp+nkY0UJhj5A26xDM4UaKjHOC4yDDPQdtj9DxWK+AdIhdCPjS0+odRiQ1nd0yQRd8Y
+	OKk9/CL68G6u/VWM8uoM3wfaXJqazE9E3oAAq30FKy43Qo8t69q6O43rTEHIrm80vGyk8MkeriQJz
+	oobGw/w7BkS2IEzPTJnK3CiRWtuGMjF5OizvO+NRzXT+DKEaFbhEG2BmP7iapjPMZmUsocIWzbJjG
+	/j+nY0cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZqnd-004Ml6-RS; Wed, 08 Mar 2023 10:13:33 +0000
+	id 1pZqv7-004OFe-PA; Wed, 08 Mar 2023 10:21:17 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZqna-004Mjs-Pj
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 10:13:32 +0000
+	id 1pZqv3-004ODw-Vv
+	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 10:21:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2D09BB81C14;
-	Wed,  8 Mar 2023 10:13:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64630C433EF;
-	Wed,  8 Mar 2023 10:13:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7FBC9B81C00;
+	Wed,  8 Mar 2023 10:21:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7C23C433D2;
+	Wed,  8 Mar 2023 10:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678270407;
-	bh=QIgfygovUu0BqGzkU3RgUu/0AppXmJ+6TwFjEH66yFw=;
+	s=k20201202; t=1678270871;
+	bh=4KQBiX+zBplgwRl6rTGlLz+7p9lJaG6/YAbBfam9ax8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WSnJ07Px4QneRPeaxzWTmPLhNCQhpOhDKRIMEFsXFM+ontRbIYGYIFToVDMOkKdTM
-	 elW00ynJIMVp1F5nzlHGq1AQvbfIZmePYkdzRpGgzlCxuoWad9OIVmbk37NW8DwzWK
-	 G7/NkdAfhZqWI/IQmi9zLCTR5jA1GT8V7N8wWBH2VtvZuhCrsfbkwM4FrV2AMuziTd
-	 AzO9zDZ5YTtENpDH+NC/QlGEaKUL5USybphyBype+iESDZh4LszdAa4AwtOvatW/eF
-	 A8e4n5p6fm8k8VEHrFCv8uAs1rWjhJUx8JMwNrjkfZEz+WWptJ1zrF7SG3DcPYwM+y
-	 frw9MQzLBnzjw==
-Date: Wed, 8 Mar 2023 10:13:23 +0000
+	b=b3OAOeSrAu1FcFxJNz/WU3Ux4YtOS5a3Fx2RygOGxk+DJzfs8TFol4Sg6TYBVuT1I
+	 qnC+XjChuawvxf6EWUZF/3TNWZaVP4E1H+g1QsFXE9gwqeCzClVt4dJl977eoVcP4d
+	 fZyhsGFpYIyDNH/EcAykYFi2zt/YUJ/HetK4QvZLGG4u6lBhfpruY5BeuXwwWbOaUQ
+	 l0Yxm8UD78gawFw9DwkKRQxx66E6q0fpA/N8UrGZrgFun+KpTN+cn0A7q16uJ0u4T+
+	 9zFTZdEM3dF5KzelHUYY7KtjGW9X3fzTVtl0m6q3TIBONW5XthXSQ1uwzx3Xjx5Mv/
+	 HwHpr7QJw8rzQ==
+Date: Wed, 8 Mar 2023 10:21:05 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, heiko.stuebner@vrull.eu,
-	conor.dooley@microchip.com, ajones@ventanamicro.com
-Subject: Re: [PATCH 2/2] riscv: mm: add pgprot_dmacoherent for zicbom
-Message-ID: <c1498777-f7c1-4b01-a40c-5ba0f547aaba@spud>
-References: <20230307205834.1426289-1-ben.dooks@codethink.co.uk>
- <20230307205834.1426289-3-ben.dooks@codethink.co.uk>
- <226aa2ae-dfa0-d947-0aaf-4407e0c0bc5b@codethink.co.uk>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V3 18/20] RISC-V: Add ACPI initialization in setup_arch()
+Message-ID: <e1cf9976-17a1-4096-b497-08985c1f8e0f@spud>
+References: <20230303133647.845095-1-sunilvl@ventanamicro.com>
+ <20230303133647.845095-19-sunilvl@ventanamicro.com>
+ <b38179fe-f1b8-4146-ae22-11e8bbbd500e@spud>
+ <ZAhYeuCmdYAnanNv@sunil-laptop>
 MIME-Version: 1.0
-In-Reply-To: <226aa2ae-dfa0-d947-0aaf-4407e0c0bc5b@codethink.co.uk>
+In-Reply-To: <ZAhYeuCmdYAnanNv@sunil-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_021331_159362_E7CF4159 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20230308_022114_355585_DDF7F0BB 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,141 +81,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2548676812814550788=="
+Content-Type: multipart/mixed; boundary="===============2215231951125016294=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2548676812814550788==
+--===============2215231951125016294==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MwQDbfSszxXLc4BJ"
+	protocol="application/pgp-signature"; boundary="63+IG2qcJZyEQHTv"
 Content-Disposition: inline
 
 
---MwQDbfSszxXLc4BJ
+--63+IG2qcJZyEQHTv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Mar 08, 2023 at 09:35:14AM +0000, Ben Dooks wrote:
-> On 07/03/2023 20:58, Ben Dooks wrote:
-> > If the system uses both ZICBOM and SVPBMT then currently SVPBMT will be
-> > used for DMA allocated memory even though ZICBOM gives us the cache ops
-> > to use cached memory and clean/flush them as needed by the DMA code.
+On Wed, Mar 08, 2023 at 03:12:18PM +0530, Sunil V L wrote:
+> On Mon, Mar 06, 2023 at 09:17:34PM +0000, Conor Dooley wrote:
+> > On Fri, Mar 03, 2023 at 07:06:45PM +0530, Sunil V L wrote:
+> > > Initialize the ACPI core for RISC-V during boot.
+> > >=20
+> > > ACPI tables and interpreter are initialized based on
+> > > the information passed from the firmware and the value of
+> > > the kernel parameter 'acpi'.
+> > >=20
+> > > With ACPI support added for RISC-V, the kernel parameter 'acpi'
+> > > is also supported on RISC-V. Hence, update the documentation.
+> > >=20
+> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > > ---
 > >=20
-> > Fix this by adding pgprot_dmacoherent() which is used by the allocator
-> > code to map the dma memory, thus allowing the return of suitably mapped
-> > memory for any use of dma_alloc_attrs() code. This s uses the added
-> > riscv_page_dmacoherent() which will work out the correct page flags to
-> > return using ALT_SVPBMT_ZICBOM() to runtime patch the right result.
+> > > +static int __init acpi_fadt_sanity_check(void)
+> > > +{
+> > > +	struct acpi_table_header *table;
+> > > +	struct acpi_table_fadt *fadt;
+> > > +	acpi_status status;
+> > > +	int ret =3D 0;
+> > > +
+> > > +	/*
+> > > +	 * FADT is required on riscv; retrieve it to check its presence
+> > > +	 * and carry out revision and ACPI HW reduced compliancy tests
+> > > +	 */
+> > > +	status =3D acpi_get_table(ACPI_SIG_FADT, 0, &table);
+> > > +	if (ACPI_FAILURE(status)) {
+> > > +		const char *msg =3D acpi_format_exception(status);
+> > > +
+> > > +		pr_err("Failed to get FADT table, %s\n", msg);
+> > > +		return -ENODEV;
+> > > +	}
+> > > +
+> > > +	fadt =3D (struct acpi_table_fadt *)table;
+> > > +
+> > > +	/*
+> > > +	 * Revision in table header is the FADT Major revision, and there
+> > > +	 * is a minor revision of FADT.
 > >=20
-> > Note, we can't just disable SVPBMT as it will be neede for things like
-> > ioremap() which don't have assoicated cache management operations.
+> > What is the point of this part of the comment? Isn't it obvious from the
+> > below code that you expect a major and minor revision?
+> > If feel like you're trying to make a point in it, but the point has been
+> > lost :/
 > >=20
-> > Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> > ---
-> >   arch/riscv/include/asm/errata_list.h | 16 ++++++++++++++++
-> >   arch/riscv/include/asm/pgtable-64.h  | 10 ++++++++++
-> >   2 files changed, 26 insertions(+)
-> >=20
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/=
-asm/errata_list.h
-> > index fb1a810f3d8c..49ed2e7984a7 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -62,6 +62,22 @@ asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
-> >   		  "I"(ALT_SVPBMT_SHIFT),				\
-> >   		  "I"(ALT_THEAD_PBMT_SHIFT))
-> > +#define ALT_SVPBMT_ZICBOM(_val, prot)					\
-> > +asm(ALTERNATIVE_3("li %0, 0\t\nnop",					\
-> > +		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
-> > +			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
-> > +		  "li %0, 0\t\nnop", 0,					\
-> > +			RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
->=20
-> so, I tink this needs to be selected on CONFIG_RISCV_DMA_NONCOHERENT
-> as just having ZICBOM in the ISA isn't enough to actually use it, you'll
-> need the dma-noncoherent.o being built to do the cache management.
+> It just highlights that major and minor revision fields are in two
+> different places.=20
 
-I think we are okay here w/ ZICBOM, as it selects RISCV_DMA_NONCOHERENT:
-config RISCV_ISA_ZICBOM
-	bool "Zicbom extension support for non-coherent DMA operation"
-	depends on !XIP_KERNEL && MMU
-	default y
-	select RISCV_ALTERNATIVE
-	select RISCV_DMA_NONCOHERENT
+I thought that that was what you meant, but only because the code does
+it. The comment doesn't actually say so!
 
-In fact, I think that RISCV_DMA_NONCOHERENT would not be correct here,
-as the THEAD CMO erratum selects RISCV_DMA_NONCOHERENT, so its presence
-doesn't mean that the kernel supports Zicbom.
+Instead of deleting it, something like the following?
+/*
+ * The revision in the table header is the FADT's Major revision. The
+ * FADT also has a minor revision, which is stored in the FADT itself.
+ * <snip>
 
-> > +		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
-> > +			ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)	\
-> > +		: "=3Dr"(_val)						\
-> > +		: "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),		\
-> > +		  "I"(prot##_THEAD >> ALT_THEAD_PBMT_SHIFT),		\
-> > +		  "I"(ALT_SVPBMT_SHIFT),				\
-> > +		  "I"(ALT_THEAD_PBMT_SHIFT))
-> > +
-> > +
-> > +
-> >   #ifdef CONFIG_ERRATA_THEAD_PBMT
-> >   /*
-> >    * IO/NOCACHE memory types are handled together with svpbmt,
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/a=
-sm/pgtable-64.h
-> > index 42a042c0e13e..e0d2e5fda5a4 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -126,10 +126,20 @@ static inline u64 riscv_page_io(void)
-> >   	return val;
-> >   }
-> > +static inline u64 riscv_page_dmacoherent(void)
-> > +{
-> > +	u64 val;
-> > +
-> > +	ALT_SVPBMT_ZICBOM(val, _PAGE_IO);
-> > +	return val;
-> > +}
-> > +
-> >   #define _PAGE_NOCACHE		riscv_page_nocache()
-> >   #define _PAGE_IO		riscv_page_io()
-> >   #define _PAGE_MTMASK		riscv_page_mtmask()
-> > +#define pgprot_dmacoherent(__prot) __pgprot(pgprot_val(__prot) | riscv=
-_page_dmacoherent())
-> > +
-> >   /* Set of bits to preserve across pte_modify() */
-> >   #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ =
-|	\
-> >   					  _PAGE_WRITE | _PAGE_EXEC |	\
->=20
-> --=20
-> Ben Dooks				http://www.codethink.co.uk/
-> Senior Engineer				Codethink - Providing Genius
->=20
-> https://www.codethink.co.uk/privacy.html
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---MwQDbfSszxXLc4BJ
+--63+IG2qcJZyEQHTv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAhfwwAKCRB4tDGHoIJi
-0m9qAQDu/Jf5DlEuGZ6SQpteCUcfuLhXd1+63XEhc9DZaGFTTQD9FHUALH3E8W5L
-6a7vC0KiyLQsSNSCStbs6J1RG9kZTA8=
-=GMUD
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAhhkQAKCRB4tDGHoIJi
+0krvAP0eBw+cdEVFy8lgx9EsKqFkr7cLWq8k9aDC+5LghJ2RuQD/ZnzN20QyBPC1
+imyxaNv7BcEyf8CQlBw+HH7hKVgtYQ4=
+=2b/3
 -----END PGP SIGNATURE-----
 
---MwQDbfSszxXLc4BJ--
+--63+IG2qcJZyEQHTv--
 
 
---===============2548676812814550788==
+--===============2215231951125016294==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -214,5 +182,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2548676812814550788==--
+--===============2215231951125016294==--
 
