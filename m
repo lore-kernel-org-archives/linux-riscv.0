@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD05BC64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 13:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48429C678D5
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 14:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnH/woA1bsKc0sCkKQhfguO6+dcH9mbTTtZKe/6Kx50=; b=WJt1ZLKj7jgtpUwIrOFUgyaKD1
-	l+6V2WorieEG8Q6+SRkMbRFi2NrwHkGllXBciH1itr3grQITQ2xt6Y6TdoEXcf0r394WnPkKQIk4q
-	fG5drkFhIrDStwTigtt2h4UayJBkm+lg6yudu6VBBt1pdiT/riE/xdRotdoefupyVWGfph1HEHFaZ
-	mal8+Bu1RlfXBi6nGTp2HxKAH8FLAR6iW89yXyLYmYZlT6NSqAkgiQ6gHRhJjhtH73QRB6h7wkvYB
-	a8lOQn3NN3sMW6J4MfSlKO2T5vewnYszHQX+9+J3hmaoJJ8HZsHfU0iVMlN2lWEgEKe9GTK2Ohr09
-	koT4mqRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PllbNC+0uPV53BeVExBZ7mC5HcvHv51CZw5m5YzOV08=; b=myBILDCeyxHE+Q
+	Mow977YdSGMjHrzHMCwyExfQxcMmwdYgzSliXWkcqukYpiHCJwoxVkvXXOJErxfolCYjSQqj8YD6+
+	H0ukAc28vmZrmPmETrSiA3DRn2FH4A82pLjdRabRpU+GYbl3EQVNbBY9MWO1NlyFiydc+A2NT9Uv2
+	LdFO7Zq4FlhlNcYVqg9TeGg1uxoLW5xZT072M0KI/RFTfLROfgJdG+wKAnNnnY1n7JzJHsu6kiVGY
+	Fr/GysQIMb/IUxQCu6BsYbTs66B1dQCs2oy8IoHJlcsg0g1VRHucnV4/Vrj/2pSB9K9Si5e8tWwb7
+	HWlBcm2GTTZumIbCleKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZtyP-005EbB-96; Wed, 08 Mar 2023 13:36:53 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pZuR7-005NHs-Vm; Wed, 08 Mar 2023 14:06:33 +0000
+Received: from mail-ot1-f52.google.com ([209.85.210.52])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZtyM-005EaW-Fm
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 13:36:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D82B5B81CBB;
-	Wed,  8 Mar 2023 13:36:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0E1C433D2;
-	Wed,  8 Mar 2023 13:36:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678282607;
-	bh=OWt+d3tO5ov32xGG5qMASavRsXPbCxmg5AnjKjZWCQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l1+WSDpglc0KQHoGoeALrFnjtOEecp+1lZU/z1//Lcn5pU0D11ODzFYixZPHhO4s3
-	 9wkMK/yg4dvTxbqvX2lyP8pLm/7d9PbjlWS13FReTUtQLlHwQYDUUuXs5Z4Gn17/uB
-	 0O6fSaBNA8q2o5lFGKU8vsB0a/VzPd4EIW4Zv5HHzVRZEneGCCnR+k5ViVqS4ncGTx
-	 V7dQtFyJcQw7DGz+7AdTpqJRdYEnwZ34J0WliqDc18fD8FOcBJMc9YyYXqvdnos0P2
-	 ckAZaJMejCTT9jcTozelYzYnUmu8FKNsI5/jeP8+Ep/toXkl7Bhl00bhYQVKY5fjQD
-	 HyBkHk7ruAvDA==
-Date: Wed, 8 Mar 2023 13:36:41 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Tommaso Merciai <tomm.merciai@gmail.com>
-Cc: Hal Feng <hal.feng@starfivetech.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/19] Basic clock, reset & device tree support for
- StarFive JH7110 RISC-V SoC
-Message-ID: <4c071642-e3c8-4716-a580-5b42e25efb1c@spud>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <3a605bc8-104e-0935-4fd8-2da16ab9053b@starfivetech.com>
- <ZAb7JVghuiwZF1Q5@wendy>
- <2f03dfb2-5cf8-e954-913c-f0c27db6bcf5@starfivetech.com>
- <ZAh/UeSlUeGoKxki@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
+	id 1pZuR4-005NFQ-Gd; Wed, 08 Mar 2023 14:06:32 +0000
+Received: by mail-ot1-f52.google.com with SMTP id r23-20020a05683001d700b00690eb18529fso9032011ota.1;
+        Wed, 08 Mar 2023 06:06:28 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678284387;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=W3V1JTSU4mAasV6Yy4rBnCyWxykGtCx/CwR52o/KvEc=;
+        b=arMMqNBBseCSyLknjmFYzCZX2TlwdHZ/DipiZaUHxFXmT2V9Q1zwPpndCxilJeeJb6
+         xc7wkJYqgeZ58dHFJ98cie4w6ugNhWR0vLaVV6yoH+NtNMO5lUYau+yJxmUt6ACVsmXc
+         NQPQfICPWbsM727vtxH/wxeOLgtSVEdvj15xayHE2VUrMPyGcoD7BwMbNek6BIMXmRD9
+         s4vcEOGpxTxdp930JTATw27iJKOeCRLdW5Mw3eSE/+NLiyEEHmUl6UD2I8OdoPTF9ju3
+         cyNdQ3R6iISnjjuBYvsy6Lh0IqY6E0kN1LEQpla8ZRYUtHRzuNk0EIojssnIU7HqHLua
+         YLZA==
+X-Gm-Message-State: AO0yUKXG2uDL7uoPPhUZzZnT5eRKQgt+uFfC0J0tnpI2PPYgRXrheiGU
+	if7sDxHnfvXRWO6oQt4VP5KHEO581g==
+X-Google-Smtp-Source: AK7set+6pXcrDnyjZYZJ0PqF6YB97KGKOLOLPb2e+N3hu1Ms1rlAgf+tDK3agSRy0jFFRDTN4/rVRQ==
+X-Received: by 2002:a9d:18f:0:b0:690:e7f9:bb61 with SMTP id e15-20020a9d018f000000b00690e7f9bb61mr8863276ote.26.1678284387420;
+        Wed, 08 Mar 2023 06:06:27 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id y22-20020a056830071600b0068d4dda3d61sm6434064ots.39.2023.03.08.06.06.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Mar 2023 06:06:26 -0800 (PST)
+Received: (nullmailer pid 2666451 invoked by uid 1000);
+	Wed, 08 Mar 2023 14:06:21 -0000
 MIME-Version: 1.0
-In-Reply-To: <ZAh/UeSlUeGoKxki@tom-HP-ZBook-Fury-15-G7-Mobile-Workstation>
+From: Rob Herring <robh@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Pawel Laszczak <pawell@cadence.com>, Vinod Koul <vkoul@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Kishon Vijay Abraham I <kishon@kernel.org>, Peter Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-usb@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+In-Reply-To: <20230308082800.3008-2-minda.chen@starfivetech.com>
+References: <20230308082800.3008-1-minda.chen@starfivetech.com>
+ <20230308082800.3008-2-minda.chen@starfivetech.com>
+Message-Id: <167828360080.2613078.14112010625330944896.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add StarFive JH7110 USB
+ dt-binding
+Date: Wed, 08 Mar 2023 08:06:21 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_053650_693866_C5983AC2 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20230308_060630_591104_594B0C05 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +74,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8516617457527361779=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8516617457527361779==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1Q9Amaw99NjcnKrY"
-Content-Disposition: inline
+On Wed, 08 Mar 2023 16:27:58 +0800, Minda Chen wrote:
+> Add StarFive JH7110 SoC USB 3.0 phy dt-binding.
+> USB controller is cadence USB 3.0 IP.
+> 
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> ---
+>  .../bindings/phy/starfive,jh7110-usb-phy.yaml | 158 ++++++++++++++++++
+>  1 file changed, 158 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> 
 
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
---1Q9Amaw99NjcnKrY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+yamllint warnings/errors:
 
-On Wed, Mar 08, 2023 at 01:28:01PM +0100, Tommaso Merciai wrote:
-> On Tue, Mar 07, 2023 at 06:08:53PM +0800, Hal Feng wrote:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.example.dtb: usb@10100000: phy-names:1: 'anyOf' conditional failed, one must be fixed:
+	'cdns3,usb2-phy' was expected
+	'cdns3,usb3-phy' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/cdns,usb3.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.example.dtb: usb@10100000: 'phys' is a dependency of 'phy-names'
+	From schema: /usr/local/lib/python3.10/dist-packages/dtschema/schemas/phy/phy-consumer.yaml
 
-> > The above two methods can fix the problem. Here are my test results.
-> > The VisionFive board can boot up successfully if and only if all above
-> > two applied.
-> > The VisionFive 2 board can boot up successfully if I merge Linus's new
-> > changes.
->=20
-> Tested also on my side. Hope this can be helpfull.
->=20
-> > Hope your fix will be merged in rc2. Thank you for your reply.
->=20
-> Fully agree.
+doc reference errors (make refcheckdocs):
 
-If you only have a VisionFive 2, it shouldn't matter to you, as you
-don't need to fix up any SiFive errata (at the moment at least).
-Linus' fix is already in his tree, so should be in -rc2!
-The fix for the VisionFive was applied to Palmer's RISC-V fixes tree
-last night:
-https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=
-=3Dfixes&id=3Dbf89b7ee52af5a5944fa3539e86089f72475055b
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230308082800.3008-2-minda.chen@starfivetech.com
 
-Thanks,
-Conor.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
---1Q9Amaw99NjcnKrY
-Content-Type: application/pgp-signature; name="signature.asc"
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
------BEGIN PGP SIGNATURE-----
+pip3 install dtschema --upgrade
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAiPVwAKCRB4tDGHoIJi
-0jkLAQDPFRsrm3jV2o7oZA41VzOVHxBFtUn0CPkVOzvVlHguFwD/eEMsCXuhUN65
-gD5cpKcLgiGCltbgB7imErj+jrsFrQg=
-=11W4
------END PGP SIGNATURE-----
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
---1Q9Amaw99NjcnKrY--
-
-
---===============8516617457527361779==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8516617457527361779==--
-
