@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C931C64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 08:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DA5C678D5
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 08:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BuXQtC8zr4y+cH/6bZGur/tHfo6lttSnLoSZR2dQQbA=; b=I1yBcFDGsBnGKr
-	mGMu4C6n14hgEthV++/yVbTTG66IKFw86KT8ljckAGFQinJyNH4VWnbkW219uENN03MG1/p5AiwQ9
-	iecxKf1Dag2++5fXw5XFq4Ei0tGAmRIL6bp77ryy8r4eHtvauk578XAxj96iIf4RwvvLG5BsHJXqZ
-	+LbARwK1cHviZB/MaJKRIJDfoL1T49M6NFWlTtYm7fsckJPlcvRrb8pP1M65T9NH434wxgu822GcK
-	8HS1e6CfkQU2mBu/jTGkHM4+MdYPRxIsm2mvAGBfC9wzP2BD2IQr1xND9JIXLyyoAQFNQz7ShznHB
-	PcBy0/pgWLDUDmwIfr6Q==;
+	List-Owner; bh=5pTaH/AVm5mFHTMQCGYiqfY5pcMRPc5s7RUgwgNKMkk=; b=NNtKv9/Sfy1fV3
+	lys9N6sYc0cGPtEQNuO/Ag/0mm7TfnEzaUE+VR1HDWOXMvPhmnqFYnuF+lduT8brfwCk1i65QcSCh
+	KclpldI4hbc6RvX9YJWNW2JxyaTMMwaj9U0MJnKFtI/XRbeoriDrE2iBQVY/wITHiSZyAM/5XB1Hp
+	HHSGoPCXoZqyWfhPcHPg2S04YLHn+F9lki/XtYlslWKT98DoKw5CimKJpn4nIJVSFsHFk2kLwkmW8
+	Qfj6MHoVpT72YTVRE1i25WcaEIHF8ktGjEB2u9Dat2xHozz2QCiaJMcXo7StFHCB4yV9skZgAF4pH
+	qyeBh8TT+ISReI8TCGLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZopM-003typ-Ti; Wed, 08 Mar 2023 08:07:12 +0000
+	id 1pZpA0-003yPG-T1; Wed, 08 Mar 2023 08:28:32 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZopK-003tnr-8D
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 08:07:11 +0000
+	id 1pZp9w-003yLC-VP; Wed, 08 Mar 2023 08:28:31 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 90EE124DBBD;
-	Wed,  8 Mar 2023 16:06:21 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 49FEB24E143;
+	Wed,  8 Mar 2023 16:28:03 +0800 (CST)
+Received: from EXMBX071.cuchost.com (172.16.6.81) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 8 Mar
- 2023 16:06:21 +0800
-Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
- EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 8 Mar 2023 16:06:19 +0800
-From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>,
-	<mason.huo@starfivetech.com>
-Subject: [PATCH v5 0/4] RISC-V Hibernation Support
-Date: Wed, 8 Mar 2023 16:06:08 +0800
-Message-ID: <20230308080612.122398-1-jeeheng.sia@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
+ 2023 16:28:02 +0800
+Received: from ubuntu.localdomain (183.27.97.46) by EXMBX071.cuchost.com
+ (172.16.6.81) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 8 Mar
+ 2023 16:28:02 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Vinod Koul
+	<vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Chen
+	<peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Minda Chen <minda.chen@starfivetech.com>
+Subject: [PATCH v2 0/3] Add JH7110 USB driver support
+Date: Wed, 8 Mar 2023 16:27:57 +0800
+Message-ID: <20230308082800.3008-1-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-X-Originating-IP: [202.188.176.82]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
- (172.16.6.66)
+X-Originating-IP: [183.27.97.46]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX071.cuchost.com
+ (172.16.6.81)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_000710_599047_DF5C492D 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20230308_002829_339791_A34D6856 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +76,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds RISC-V Hibernation/suspend to disk support.
-Low level Arch functions were created to support hibernation.
-swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-cpu state onto the stack, then calling swsusp_save() to save the memory
-image.
+This patchset adds USB driver for the StarFive JH7110 SoC.
+USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+The patch has been tested on the VisionFive 2 board.
 
-Arch specific hibernation header is implemented and is utilized by the
-arch_hibernation_header_restore() and arch_hibernation_header_save()
-functions. The arch specific hibernation header consists of satp, hartid,
-and the cpu_resume address. The kernel built version is also need to be
-saved into the hibernation image header to making sure only the same
-kernel is restore when resume.
+This patchset should be applied after the patchset [1] and patch [2]:
+[1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
 
-swsusp_arch_resume() creates a temporary page table that covering only
-the linear map. It copies the restore code to a 'safe' page, then start to
-restore the memory image. Once completed, it restores the original
-kernel's page table. It then calls into __hibernate_cpu_resume()
-to restore the CPU context. Finally, it follows the normal hibernation
-path back to the hibernation core.
+This patchset is base on v6.3-rc1
 
-To enable hibernation/suspend to disk into RISCV, the below config
-need to be enabled:
-- CONFIG_ARCH_HIBERNATION_HEADER
-- CONFIG_ARCH_HIBERNATION_POSSIBLE
+patch 1 is usb phy dt-binding document.
+patch 2 is the glue layer of Cadence USB3 and USB phy setting. USB controller IP is Cadence USB3.
+patch 3 is USB device tree configuration.
 
-At high-level, this series includes the following changes:
-1) Change suspend_save_csrs() and suspend_restore_csrs()
-   to public function as these functions are common to
-   suspend/hibernation. (patch 1)
-2) Refactor the common code in the __cpu_resume_enter() function and
-   __hibernate_cpu_resume() function. The common code are used by
-   hibernation and suspend. (patch 2)
-3) Enhance kernel_page_present() function to support huge page. (patch 3)
-4) Add arch/riscv low level functions to support
-   hibernation/suspend to disk. (patch 4)
+previous version
+---
+v1: https://patchwork.kernel.org/project/linux-usb/patch/20230306095339.26006-1-minda.chen@starfivetech.com/
 
-The above patches are based on kernel v6.3-rc1 and are tested on
-StarFive VF2 SBC board and Qemu. 
-ACPI platform mode is not supported in this series.
+changes
+v2
+  1. (patch 1) dt-binding check test pass and no warning. The document example is the same as dts config.
+  2. (patch 2) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+  3. (patch 3) dts nodes sorted by the address after @
 
-Changes since v4:
-- Rebased to kernel v6.3-rc1
-- Resolved typo(s)
-- Removed unnecessary helper function
-- Removed unnecessary "addr" local variable
-- Removed typecast of 'int'
-- Used def_bool HIBERNATION
-- Used "mv a0, zero" instead of "add a0, zero, zero"
-- Make linear region as executable and writable when restoring the
-  image
+Minda Chen (3):
+  dt-bindings: phy: Add StarFive JH7110 USB dt-binding
+  usb: cdns3: add StarFive JH7110 USB glue layer
+  dts: usb: add StarFive JH7110 USB dts configuration.
 
-Changes since v3:
-- Rebased to kernel v6.2
-- Temporary page table code refactoring by reference to ARM64
-- Resolved typo(s) and grammars
-- Resolved documentation errors
-- Resolved clang build issue
-- Removed unnecessary comments
-- Used kzalloc instead of kcalloc
-
-Changes since v2:
-- Rebased to kernel v6.2-rc5
-- Refactor the common code used by hibernation and suspend
-- Create copy_page macro
-- Solved other comments from Andrew and Conor
-
-Changes since v1:
-- Rebased to kernel v6.2-rc3
-- Fixed bot's compilation error
-
-Sia Jee Heng (4):
-  RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public
-    function
-  RISC-V: Factor out common code of __cpu_resume_enter()
-  RISC-V: mm: Enable huge page support to kernel_page_present() function
-  RISC-V: Add arch functions to support hibernation/suspend-to-disk
-
- arch/riscv/Kconfig                 |   6 +
- arch/riscv/include/asm/assembler.h |  82 ++++++
- arch/riscv/include/asm/suspend.h   |  22 ++
- arch/riscv/kernel/Makefile         |   1 +
- arch/riscv/kernel/asm-offsets.c    |   5 +
- arch/riscv/kernel/hibernate-asm.S  |  77 ++++++
- arch/riscv/kernel/hibernate.c      | 424 +++++++++++++++++++++++++++++
- arch/riscv/kernel/suspend.c        |   4 +-
- arch/riscv/kernel/suspend_entry.S  |  34 +--
- arch/riscv/mm/pageattr.c           |   8 +
- 10 files changed, 630 insertions(+), 33 deletions(-)
- create mode 100644 arch/riscv/include/asm/assembler.h
- create mode 100644 arch/riscv/kernel/hibernate-asm.S
- create mode 100644 arch/riscv/kernel/hibernate.c
+ .../bindings/phy/starfive,jh7110-usb-phy.yaml | 158 ++++++++
+ MAINTAINERS                                   |   7 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   6 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  38 ++
+ drivers/usb/cdns3/Kconfig                     |  11 +
+ drivers/usb/cdns3/Makefile                    |   1 +
+ drivers/usb/cdns3/cdns3-starfive.c            | 374 ++++++++++++++++++
+ 7 files changed, 595 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+ create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
 
 
-base-commit: 63355b9884b3d1677de6bd1517cd2b8a9bf53978
+base-commit: 8ca09d5fa3549d142c2080a72a4c70ce389163cd
+prerequisite-patch-id: 0e6d1df3ba9aecd925a0c604b9d91f7143be88ca
+prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
+prerequisite-patch-id: 044263ef2fb9f1e5a586edbf85d5f67814a28430
+prerequisite-patch-id: 74390c129b92fb35a7088e2e5c869632c4cb3d06
+prerequisite-patch-id: de93ebec041625e940f195403069b46ec17fc99c
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: f01a78c30f6f1970b4db7758c339bd4e5c882b16
+prerequisite-patch-id: 417736eb958e1158c60a5ed74bc2350394321a80
+prerequisite-patch-id: ff9fe0b043a5f7f74a1f6af5cebc4793c6f14ce7
+prerequisite-patch-id: 290602062703e666191c20ca02f2840471a6bf4f
+prerequisite-patch-id: f0b29adbb18edffbfeec7292c5f33e2bbeb30945
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: ea9a6d0313dd3936c8de0239dc2072c3360a2f6b
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 27197d69922ad1f33a193dfe0a8cc2b27d67982d
+prerequisite-patch-id: f9ce88e490c2473c3c94ad63fa26bc91829ce2cc
+prerequisite-patch-id: 7acbc9c924e802712d3574dd74a6b3576089f78c
+prerequisite-patch-id: b9b8fda5e8cd2dd4c9101ec03f4c8fb8e8caa573
+prerequisite-patch-id: 63a6de4511f1a7ae974551e7097af9bb91db1b0d
+prerequisite-patch-id: aaff99c0bdd1604048d0713b44084ad4604816e1
 -- 
-2.34.1
+2.17.1
 
 
 _______________________________________________
