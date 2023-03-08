@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44EFC6FA99
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 01:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01145C6FA99
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Mar 2023 02:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HeXgE4PHAikz3ZdoXefKmpfzjYGozlXl6k1NIgQH7Rw=; b=tOiFUQ0ORSxkfC
-	46V+F0eKmKXSEkt6DGbfByEE8rxOS0HJkJv4Hjx4aWP2H2vBD0NG2Qd8DdxpmGuSlDNyJ6CweWOgf
-	KdLnytaPk0nRxr6L0UyhM8QiRk2uwO9ZLQt/oOJwOvcWX51OZCRK2rpglJxyKdh/OT1OXcKOoif9N
-	V/DfAq9EoGSCMawh+z1xK1OYOPo0ZVrH2GK/eemzkpgFq5Lxl88IrKAj9crPMaEAYAlxtrhCUTrLM
-	1QbWMcCMGQ46gP1BevEqh4j7m0V/17OFXtBZqTn/cen8qTtmhY/wXQj5JWLWCXBEhFvCPdkiS2UOe
-	7IolwOqugiW9gp9e8j8Q==;
+	List-Owner; bh=TfSfOdaKh7vc9kgQhZdAeS8GJXvUse3H2Gwp3sKA7+M=; b=vbsak5rtrhdcha
+	7x3IzPg2cvCMFhx+X40O2OdxKZh0xHY6r62tz0/FHB+c/B+zy2SH9eb0YMfX14/+p73RMQWr8ADYV
+	5RavEDRf/VfZhllDS0Xsqk/2KCUluE1ohHmiGU0P1PHhKLttLftRg8LeI/RutTB5MZUebhFWirVXN
+	QgmZBzy8FWt3fOp6QmmUPDCtaN2g009vEddi5eQN5ELv+9KqMUghfkdViPiXpa176K+ycDOESMsIh
+	oc/bft1g5DeF6cIfkkacN8J4Xzfqd57onKg5Di1sO+gi3ki3f0QRS++L7RnA8ddJgn6OXCUjGuN1S
+	yTKZlYDXiAXnNqcx6XnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZiZT-0036ou-Ha; Wed, 08 Mar 2023 01:26:23 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1pZjZV-003CjW-0L; Wed, 08 Mar 2023 02:30:29 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pZiZQ-0036nq-Bb
-	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 01:26:21 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id r16so15074550qtx.9
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 17:26:18 -0800 (PST)
+	id 1pZjZR-003Cij-MR
+	for linux-riscv@lists.infradead.org; Wed, 08 Mar 2023 02:30:27 +0000
+Received: by mail-qt1-x831.google.com with SMTP id l18so16859019qtp.1
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Mar 2023 18:30:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678238778;
+        d=gmail.com; s=20210112; t=1678242622;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=HrGCJ5MSZDYIh72odbfCXv3OjB4aPWORM8fS9BuSe6U=;
-        b=V6/rzhlNCD4Os6IPrpRaMcKvSZkNbVv8YoB7DAg2rZNFKC/gq+qYQANoB5tjiqIuLE
-         aECdRlPQgor7Pln0eWGQxW47KU3XgYoWhkjeQ1QqHmzG+ZE1L79qaQh9nn7Zq92RmdSa
-         0lS3qBCvE3YFBkMInugQln3+6mkx0+NyqRGp5xna1rxdDh5mC0u4PpjnMkTFDXkhLFtN
-         LkgXd0+46L1ciRg4NOCNI+Owbmn9UjB0EIgqMthqbsIoRJOyo54tFotuUIFApzw1stLY
-         Lwqu/LPD+WEdJ5Mq5j7p/xH7ofwhdWPmESuesK4j80nHuZKXlLd+G2uc2l1dP0vb+MHF
-         FeMQ==
+        bh=vwm1K4ols2eiQIRxOttu3y7Xz4azJwmHdDxzSRJ6x94=;
+        b=fm6c2F6neK6PHR42UlUD9L4qBI5U6gfj8j2gNX0YJzRcR7njORuBrRvl7vURZ8fbqS
+         rCtgJw/x9OQHumm48Vr6OA64s7RfjTvrDJKlm0NSP+EwQ+bgfU3tSxRSZLggJsClqZnT
+         BsS0QzjjjHkEbWWhRmZ2haaHVaHWVWQv1bF9s1M1qDULrCbimMkzOziKIIK2CUmbhdc3
+         L2eEUftSYDo3gQXgnD2q4d8bGtaz3VyuzwcXh413L4lB2iowAplsjiR/RoJKni/ZJA09
+         8xq+OcOkjpLvhv5ok+ULaoCtmpXWcLUx9gsa7aZQPB1/tjdDdBXNMkluQ3iGbOauBEaz
+         zJRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678238778;
+        d=1e100.net; s=20210112; t=1678242622;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HrGCJ5MSZDYIh72odbfCXv3OjB4aPWORM8fS9BuSe6U=;
-        b=T+QbANmINIuynHpOI/WKVyO1YVkc1g1lnj/LGEjtxnwm+K6pI3atrIg8eALbXvCX/I
-         ckihSulLM1JK4eyhSREZVqhLpSyFjyZGxh6guB3oUoqSEFXYVlR19ry9ChytfKa5gxsr
-         8hqa4Pf+fCXbN0kANoKEXAMHMGpvgOs6CMuV09j8lQfbFlmg6ijTmrR59A3LBBqUsFsR
-         b236R9dYPmQzVIRLGADmaVJ4sfCdRATYKBL2QKzE+X0Oreii2PBwHzk6dhxyytv50rk9
-         izh6w6eXsndmTAycOGFPPOtKSbKQfGeWHaHv5icW+EB94G27sEZDaGlHq+WGgBbwHBc4
-         Oupg==
-X-Gm-Message-State: AO0yUKXpAxfWbUiY3BrKZcDVwNAfuLkkQoNKzmN1rDSoik45J/CrlRao
-	p6Lm/KEGMucx7+wYBoZODZtVKZTKBi4=
-X-Google-Smtp-Source: AK7set+dLHC4u0TbTmIumEqq6CCL5QcowmU62gPkQsoL1ySasKdM1qxtjrlwpgd66H5jV9QMV/5sNQ==
-X-Received: by 2002:a05:622a:d1:b0:3bf:d372:a5bf with SMTP id p17-20020a05622a00d100b003bfd372a5bfmr29304085qtw.45.1678238778121;
-        Tue, 07 Mar 2023 17:26:18 -0800 (PST)
+        bh=vwm1K4ols2eiQIRxOttu3y7Xz4azJwmHdDxzSRJ6x94=;
+        b=i7hPufS2bGb0HVGakHX2OsTEe1IAOb4Xt2OKOrNkK6gF1f0DDFRCsjy0/XCXUikHfn
+         GbLZS55QTpgtpyPkMzu7g7y1r5H7+AKe0068D0SLfjZgQBLvI3Ubfqw7pvKs9to7KPsX
+         KzCxTE34ShrOdNYpi2XG135ihRB60O0qI1esD87h1YH2Yh5eOBIuT6U3kL0UeyOfxyoZ
+         zwhN8k0rZAYpICff3n6gl19K4CR5n/Rs5BHqE5Al61t2kDuY5HQ7e0u07g3TDtWUepA0
+         KkW+6/nrLct6LWhkNYj/YHNw9TIrBS98ZVNndFadz+u/eZdYlamMg/Kds6InxOcE6kS6
+         3KgA==
+X-Gm-Message-State: AO0yUKUwXs4GDtnuEWzJ5v2NrPhOyE45hxinyDds3IO/SEtItc1uc6BF
+	mn95MFQXTIsPCkfRWqt4TrI=
+X-Google-Smtp-Source: AK7set/ztpYCMMWq+qAXTagXXx6tlvdbYERArp/gIov2QhPzggq89VtCbEToC1JcjXZWkBKMNXllkw==
+X-Received: by 2002:ac8:7fd5:0:b0:3bf:b75a:d7a7 with SMTP id b21-20020ac87fd5000000b003bfb75ad7a7mr38122459qtk.7.1678242622031;
+        Tue, 07 Mar 2023 18:30:22 -0800 (PST)
 Received: from [10.4.10.38] (pool-108-26-182-112.bstnma.fios.verizon.net. [108.26.182.112])
-        by smtp.gmail.com with ESMTPSA id r2-20020ac83b42000000b003c034837d8fsm3325676qtf.33.2023.03.07.17.26.17
+        by smtp.gmail.com with ESMTPSA id y16-20020a37f610000000b0074308a0124asm10534627qkj.50.2023.03.07.18.30.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Mar 2023 17:26:17 -0800 (PST)
-Message-ID: <f8f291d9-2723-4ab8-3020-49018757d470@gmail.com>
-Date: Tue, 7 Mar 2023 20:26:16 -0500
+        Tue, 07 Mar 2023 18:30:21 -0800 (PST)
+Message-ID: <c7941231-8ebd-dea5-81f8-3180cfc3f286@gmail.com>
+Date: Tue, 7 Mar 2023 21:30:20 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.0
 Subject: Re: [PATCH v3 0/3] Add RISC-V 32 NOMMU support
 Content-Language: en-US
-To: Damien Le Moal <damien.lemoal@opensource.wdc.com>,
- Randy Dunlap <rdunlap@infradead.org>, linux-riscv@lists.infradead.org
+To: Randy Dunlap <rdunlap@infradead.org>,
+ Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+ linux-riscv@lists.infradead.org
 Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  Yimin Gu <ustcymgu@gmail.com>, Damien Le Moal <damien.lemoal@wdc.com>,
  Stephen Boyd <sboyd@kernel.org>, Michael Turquette
@@ -78,11 +79,13 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
 References: <20230301002657.352637-1-Mr.Bossman075@gmail.com>
  <42446784-a88b-df09-41e9-5f685b4df6ee@infradead.org>
  <556ce787-80eb-dc48-f8d6-83e415538e36@opensource.wdc.com>
+ <f8f291d9-2723-4ab8-3020-49018757d470@gmail.com>
+ <62852ee1-3763-3323-c3a8-f1e84f70204a@infradead.org>
 From: Jesse Taube <mr.bossman075@gmail.com>
-In-Reply-To: <556ce787-80eb-dc48-f8d6-83e415538e36@opensource.wdc.com>
+In-Reply-To: <62852ee1-3763-3323-c3a8-f1e84f70204a@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230307_172620_436673_4DCDEA00 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20230307_183025_801544_31258E31 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,89 +97,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/28/23 23:42, Damien Le Moal wrote:
-> On 3/1/23 13:07, Randy Dunlap wrote:
->> Hi--
->>
->> On 2/28/23 16:26, Jesse Taube wrote:
->>> This patch-set aims to add NOMMU support to RV32.
->>> Many people want to build simple emulators or HDL
->>> models of RISC-V this patch makes it possible to
->>> run linux on them.
->>>
->>> Yimin Gu is the original author of this set.
->>> Submitted here:
->>> https://lists.buildroot.org/pipermail/buildroot/2022-November/656134.html
->>>
->>> Though Jesse T rewrote the Dconf.
->>
->> Dconf?
->>
->>>
->>> The new set:
->>> https://lists.buildroot.org/pipermail/buildroot/2022-December/658258.html
->>> ---
->>> V1->V2:
->>>   - Add Conor's clock patch for implicit div64
->>>   - Fix typo in commit title 3/3
->>>   - Fix typo in commit description 2/3
->>> V2->V3
->>>   - Change from defconfig file to a PHONY config
->>> ---
->>
->> Is this 'rv32_nommu_virt_defconfig' target the only build target
->> that is supported?
->>
->> I ask because I applied the 3 patches and did 25 randconfig builds.
->> 5 of them failed the same way:
->>
->> riscv32-linux-ld: drivers/soc/canaan/k210-sysctl.o: in function `k210_soc_early_init':
->> k210-sysctl.c:(.init.text+0x78): undefined reference to `k210_clk_early_init'
-I can not recreate this error.
-can you send me the .config you used.
-
-Thanks,
-Jesse Taube
-> 
-> Arg. Forgot about that. k210 is rv64 only and while the clk driver could still
-> compile test with rv32 (or any arch), that driver provides the
-> k210_clk_early_init() function which is called very early in the boot process
-> from k210_soc_early_init(), which is an SOC_EARLY_INIT_DECLARE() call. The
-> problem may be there. Probably should be disabled for rv32 if no SoC need that
-> sort of early init call.
-> 
->>
->> because
->> # CONFIG_COMMON_CLK_K210 is not set
->>
->>
->> Maybe SOC_CANAAN needs some more selects for required code?
->>
->>> Conor Dooley (1):
->>>    clk: k210: remove an implicit 64-bit division
->>>
->>> Jesse Taube (1):
->>>    riscv: configs: Add nommu PHONY defconfig for RV32
->>>
->>> Yimin Gu (1):
->>>    riscv: Kconfig: Allow RV32 to build with no MMU
->>>
->>>   arch/riscv/Kconfig     | 5 ++---
->>>   arch/riscv/Makefile    | 4 ++++
->>>   drivers/clk/clk-k210.c | 2 +-
->>>   3 files changed, 7 insertions(+), 4 deletions(-)
->>>
->>
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAzLzcvMjMgMjE6MTYsIFJhbmR5IER1bmxhcCB3cm90ZToKPiBIaS0tCj4gCj4gT24gMy83
+LzIzIDE3OjI2LCBKZXNzZSBUYXViZSB3cm90ZToKPj4KPj4KPj4gT24gMi8yOC8yMyAyMzo0Miwg
+RGFtaWVuIExlIE1vYWwgd3JvdGU6Cj4+PiBPbiAzLzEvMjMgMTM6MDcsIFJhbmR5IER1bmxhcCB3
+cm90ZToKPj4+PiBIaS0tCj4+Pj4KPj4+PiBPbiAyLzI4LzIzIDE2OjI2LCBKZXNzZSBUYXViZSB3
+cm90ZToKPj4+Pj4gVGhpcyBwYXRjaC1zZXQgYWltcyB0byBhZGQgTk9NTVUgc3VwcG9ydCB0byBS
+VjMyLgo+Pj4+PiBNYW55IHBlb3BsZSB3YW50IHRvIGJ1aWxkIHNpbXBsZSBlbXVsYXRvcnMgb3Ig
+SERMCj4+Pj4+IG1vZGVscyBvZiBSSVNDLVYgdGhpcyBwYXRjaCBtYWtlcyBpdCBwb3NzaWJsZSB0
+bwo+Pj4+PiBydW4gbGludXggb24gdGhlbS4KPj4+Pj4KPj4+Pj4gWWltaW4gR3UgaXMgdGhlIG9y
+aWdpbmFsIGF1dGhvciBvZiB0aGlzIHNldC4KPj4+Pj4gU3VibWl0dGVkIGhlcmU6Cj4+Pj4+IGh0
+dHBzOi8vbGlzdHMuYnVpbGRyb290Lm9yZy9waXBlcm1haWwvYnVpbGRyb290LzIwMjItTm92ZW1i
+ZXIvNjU2MTM0Lmh0bWwKPj4+Pj4KPj4+Pj4gVGhvdWdoIEplc3NlIFQgcmV3cm90ZSB0aGUgRGNv
+bmYuCj4+Pj4KPj4+PiBEY29uZj8KPj4+Pgo+Pj4+Pgo+Pj4+PiBUaGUgbmV3IHNldDoKPj4+Pj4g
+aHR0cHM6Ly9saXN0cy5idWlsZHJvb3Qub3JnL3BpcGVybWFpbC9idWlsZHJvb3QvMjAyMi1EZWNl
+bWJlci82NTgyNTguaHRtbAo+Pj4+PiAtLS0KPj4+Pj4gVjEtPlYyOgo+Pj4+PiAgwqAgLSBBZGQg
+Q29ub3IncyBjbG9jayBwYXRjaCBmb3IgaW1wbGljaXQgZGl2NjQKPj4+Pj4gIMKgIC0gRml4IHR5
+cG8gaW4gY29tbWl0IHRpdGxlIDMvMwo+Pj4+PiAgwqAgLSBGaXggdHlwbyBpbiBjb21taXQgZGVz
+Y3JpcHRpb24gMi8zCj4+Pj4+IFYyLT5WMwo+Pj4+PiAgwqAgLSBDaGFuZ2UgZnJvbSBkZWZjb25m
+aWcgZmlsZSB0byBhIFBIT05ZIGNvbmZpZwo+Pj4+PiAtLS0KPj4+Pgo+Pj4+IElzIHRoaXMgJ3J2
+MzJfbm9tbXVfdmlydF9kZWZjb25maWcnIHRhcmdldCB0aGUgb25seSBidWlsZCB0YXJnZXQKPj4+
+PiB0aGF0IGlzIHN1cHBvcnRlZD8KPj4+Pgo+Pj4+IEkgYXNrIGJlY2F1c2UgSSBhcHBsaWVkIHRo
+ZSAzIHBhdGNoZXMgYW5kIGRpZCAyNSByYW5kY29uZmlnIGJ1aWxkcy4KPj4+PiA1IG9mIHRoZW0g
+ZmFpbGVkIHRoZSBzYW1lIHdheToKPj4+Pgo+Pj4+IHJpc2N2MzItbGludXgtbGQ6IGRyaXZlcnMv
+c29jL2NhbmFhbi9rMjEwLXN5c2N0bC5vOiBpbiBmdW5jdGlvbiBgazIxMF9zb2NfZWFybHlfaW5p
+dCc6Cj4+Pj4gazIxMC1zeXNjdGwuYzooLmluaXQudGV4dCsweDc4KTogdW5kZWZpbmVkIHJlZmVy
+ZW5jZSB0byBgazIxMF9jbGtfZWFybHlfaW5pdCcKPj4gSSBjYW4gbm90IHJlY3JlYXRlIHRoaXMg
+ZXJyb3IuCj4+IGNhbiB5b3Ugc2VuZCBtZSB0aGUgLmNvbmZpZyB5b3UgdXNlZC4KPj4KPj4gVGhh
+bmtzLAo+PiBKZXNzZSBUYXViZQo+IAo+IFN1cmUsIGl0J3MgYXR0YWNoZWQuCgpIbW1tLCBpdCBs
+aW5rcyBmaW5lIGZvciBtZS4KCm9iamR1bXAgLXggdm1saW51eCB8IGdyZXAgazIxMF9jbGtfZWFy
+bHlfaW5pdAo4MWU0MDEyNCBnICAgICBGIC5pbml0LnRleHQgICAgIDAwMDAwMDg4IGsyMTBfY2xr
+X2Vhcmx5X2luaXQKCmdjYyB2ZXJzaW9uIDExLjMuMCAoQnVpbGRyb290IDIwMjIuMTEtMzYxLWcx
+YmUwZDQzOGY3KQpHTlUgYXNzZW1ibGVyIHZlcnNpb24gMi4zOCAocmlzY3YzMi1idWlsZHJvb3Qt
+bGludXgtdWNsaWJjKQpHTlUgbGQgKEdOVSBCaW51dGlscykgMi4zOAoKd2hhdCBnY2MgdmVyc2lv
+biBhcmUgeW91IHVzaW5nPwoKVGhhbmtzLApKZXNzZSBUYXViZQoKPiAKPj4+IEFyZy4gRm9yZ290
+IGFib3V0IHRoYXQuIGsyMTAgaXMgcnY2NCBvbmx5IGFuZCB3aGlsZSB0aGUgY2xrIGRyaXZlciBj
+b3VsZCBzdGlsbAo+Pj4gY29tcGlsZSB0ZXN0IHdpdGggcnYzMiAob3IgYW55IGFyY2gpLCB0aGF0
+IGRyaXZlciBwcm92aWRlcyB0aGUKPj4+IGsyMTBfY2xrX2Vhcmx5X2luaXQoKSBmdW5jdGlvbiB3
+aGljaCBpcyBjYWxsZWQgdmVyeSBlYXJseSBpbiB0aGUgYm9vdCBwcm9jZXNzCj4+PiBmcm9tIGsy
+MTBfc29jX2Vhcmx5X2luaXQoKSwgd2hpY2ggaXMgYW4gU09DX0VBUkxZX0lOSVRfREVDTEFSRSgp
+IGNhbGwuIFRoZQo+Pj4gcHJvYmxlbSBtYXkgYmUgdGhlcmUuIFByb2JhYmx5IHNob3VsZCBiZSBk
+aXNhYmxlZCBmb3IgcnYzMiBpZiBubyBTb0MgbmVlZCB0aGF0Cj4+PiBzb3J0IG9mIGVhcmx5IGlu
+aXQgY2FsbC4KPj4+Cj4+Pj4KPj4+PiBiZWNhdXNlCj4+Pj4gIyBDT05GSUdfQ09NTU9OX0NMS19L
+MjEwIGlzIG5vdCBzZXQKPj4+Pgo+Pj4+Cj4+Pj4gTWF5YmUgU09DX0NBTkFBTiBuZWVkcyBzb21l
+IG1vcmUgc2VsZWN0cyBmb3IgcmVxdWlyZWQgY29kZT8KPj4+Pgo+Pj4+PiBDb25vciBEb29sZXkg
+KDEpOgo+Pj4+PiAgwqDCoCBjbGs6IGsyMTA6IHJlbW92ZSBhbiBpbXBsaWNpdCA2NC1iaXQgZGl2
+aXNpb24KPj4+Pj4KPj4+Pj4gSmVzc2UgVGF1YmUgKDEpOgo+Pj4+PiAgwqDCoCByaXNjdjogY29u
+ZmlnczogQWRkIG5vbW11IFBIT05ZIGRlZmNvbmZpZyBmb3IgUlYzMgo+Pj4+Pgo+Pj4+PiBZaW1p
+biBHdSAoMSk6Cj4+Pj4+ICDCoMKgIHJpc2N2OiBLY29uZmlnOiBBbGxvdyBSVjMyIHRvIGJ1aWxk
+IHdpdGggbm8gTU1VCj4+Pj4+Cj4+Pj4+ICDCoCBhcmNoL3Jpc2N2L0tjb25maWfCoMKgwqDCoCB8
+IDUgKystLS0KPj4+Pj4gIMKgIGFyY2gvcmlzY3YvTWFrZWZpbGXCoMKgwqAgfCA0ICsrKysKPj4+
+Pj4gIMKgIGRyaXZlcnMvY2xrL2Nsay1rMjEwLmMgfCAyICstCj4+Pj4+ICDCoCAzIGZpbGVzIGNo
+YW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPj4+Pj4KPj4+Pgo+Pj4KPiAK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
