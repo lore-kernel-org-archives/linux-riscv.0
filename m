@@ -4,70 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F40C64EC4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 12:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36842C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 12:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9rqLVtnLUZ8B0de60DW1fy8SIGlM80xNCYCZ/WE8Oc=; b=t1wLKgGuH2IUQv78cBijy6LWQ7
-	ZWAI01h2GekQDl//ZF6VpjJeKaH+hhVjBoCBIKHWk1FgeNdgUuvsN1F0sKX4DzT67UQpavrJ2O7fc
-	fsb/Ql/C+/5W0dvqPeKM1LCVPutecxRitk8fbhRotTu3FZHAfzBF7rYZWhiwj958HKMSerhIjRqy0
-	s5lG4T/gSBbJEoqxsjK8iw5/slMzw8v2FoXLd1/Z/apJz0vUYiANOWqGzwYD96i9h3WjUPupiQkdM
-	iATsBJyDqSI35ma15M1l7lbwAf8RjakgmcH5INX295ZU6Sf6UrF6LM0Kdw+1fCSVr0B9UlHsFnnw7
-	h9dLM5dg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PJbacdHPZ78XwXKGfmuyldOkUPRZYJQGWBySDQW67sI=; b=wPfhtmZBE3y5+s
+	pw9bmtNWfOSUcLqbmu9Qci1B7eLHAuDoqa/ZPMGDx48QQ2M5HE0OOadl1MEytfdEKyJoZgarWRIzq
+	uLIQ9t4AENH6yZfUnZqKAODQE+oT8X41mfdToxwLD9jBIwyNDtnN8RoZykIWQEf7TTkkHQ4qj6zYP
+	XW/ishDy+TABi7G/hEcLsD1Cl2kTyGLHex+LNDkl5xG/ou+mxrHVuUJYqZkFg7HNXOl4tUCxJKWGz
+	4M1GS855vztDYR8IKUrkCTtY1kcK1JsnHjkr2aXpEvJ42Z2WDB5bEiOYgUFLjbZg5nbcMx6u6q3/0
+	Wk3NraYYWqt2VkSkEw3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paFSM-009sjy-M2; Thu, 09 Mar 2023 12:33:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1paFe3-009uyj-2f; Thu, 09 Mar 2023 12:45:19 +0000
+Received: from relay10.mail.gandi.net ([2001:4b98:dc4:8::230])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paFSI-009sih-NP
-	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 12:33:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1678365190; x=1709901190;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0/V0cEBZl4mwfLUDTheLkgp8EgxUGKm7HOLNFDHmou0=;
-  b=lcc0cLfe8Ck7rssVbeNVwxE30sKdN72m0Jvd4z2aga8+jC5Ely2Wfg0X
-   06y+g49MT2EXVKuwZBooEf0J6x+gmGt3z7D413+j0wDP4ZVmEj0Mmhsb/
-   WUA8G2qfn9ME1/h3kxx+N/Mbgjnpm0nUIJ6TN5XzhP6znzEHfrPcwC/Bl
-   WCuNFFxu9d2CrTXvFEBByKQgI4RrPPy+VT0Pfs54hqqEoVbRuMMQ2K6MY
-   UsCtAQ17msG6ULJ0VixmXF8klj1JmL9jTqimnIdiMW9PrEPD0NpzknG0L
-   ffEYMJ0+SXwsWBnNe9MUY7aJQCm8QIm0m2F5SXy43zt4vuHdR8Einl9I7
-   g==;
-X-IronPort-AV: E=Sophos;i="5.98,246,1673938800"; 
-   d="asc'?scan'208";a="215519697"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Mar 2023 05:33:07 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Thu, 9 Mar 2023 05:33:07 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Thu, 9 Mar 2023 05:33:05 -0700
-Date: Thu, 9 Mar 2023 12:32:36 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <frowand.list@gmail.com>, <robh+dt@kernel.org>,
-	<mick@ics.forth.gr>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <Valentina.FernandezAlanis@microchip.com>,
-	<Daire.McNamara@microchip.com>
-Subject: Re: RISC-V reserved memory problems
-Message-ID: <ababa7ca-68c6-4d1c-9179-10376999d367@spud>
-References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
- <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
- <fadac048-c648-6493-3f1c-1877692180c8@ghiti.fr>
+	id 1paFdy-009uy3-Tj
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 12:45:17 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 8AF89240006;
+	Thu,  9 Mar 2023 12:45:06 +0000 (UTC)
+Message-ID: <8abfb680-e1dd-8d1f-dd10-0a8bf086f5c3@ghiti.fr>
+Date: Thu, 9 Mar 2023 13:45:05 +0100
 MIME-Version: 1.0
-In-Reply-To: <fadac048-c648-6493-3f1c-1877692180c8@ghiti.fr>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: RISC-V reserved memory problems
+Content-Language: en-US
+To: Mike Rapoport <rppt@kernel.org>, Conor Dooley <conor@kernel.org>
+Cc: Conor.Dooley@microchip.com, palmer@dabbelt.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, frowand.list@gmail.com, robh+dt@kernel.org,
+ mick@ics.forth.gr, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ Valentina.FernandezAlanis@microchip.com, Daire.McNamara@microchip.com
+References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
+ <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com> <Y9wytv5KSt1ca+td@spud>
+ <ZAchb/DfbIh+qaE4@kernel.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <ZAchb/DfbIh+qaE4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_043310_800316_CAFC7EA5 
-X-CRM114-Status: GOOD (  63.73  )
+X-CRM114-CacheID: sfid-20230309_044515_302730_7D026EF7 
+X-CRM114-Status: GOOD (  49.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,287 +60,186 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0571223197501153863=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0571223197501153863==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="D9AVMx1vkdavINVt"
-Content-Disposition: inline
 
---D9AVMx1vkdavINVt
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Mar 09, 2023 at 11:30:07AM +0100, Alexandre Ghiti wrote:
+On 3/7/23 12:35, Mike Rapoport wrote:
 > Hi Conor,
-
-Hey Alex!
-
-> On 8/16/22 22:41, Conor.Dooley@microchip.com wrote:
-> > Hey all,
-> > We've run into a bit of a problem with reserved memory on PolarFire, or
-> > more accurately a pair of problems that seem to have opposite fixes.
-> >=20
-> > The first of these problems is triggered when trying to implement a
-> > remoteproc driver. To get the reserved memory buffer, remoteproc
-> > does an of_reserved_mem_lookup(), something like:
-> >=20
-> > 	np =3D of_parse_phandle(pdev->of_node, "memory-region", 0);
-> > 	if (!np)
-> > 		return -EINVAL;
-> >=20
-> > 	rmem =3D of_reserved_mem_lookup(np);
-> > 	if (!rmem)
-> > 		return -EINVAL;
-> >=20
-> > of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
-> > a match - but this was triggering kernel panics for us. We did some
-> > debugging and found that the name string's pointer was pointing to an
-> > address in the 0x4000_0000 range. The minimum reproduction for this
->=20
->=20
-> 0x4000_0000 corresponds to DTB_EARLY_BASE_VA: this is the address that is
-> used to map the dtb before we can access it using the linear mapping.
->=20
->=20
-> > crash is attached - it hacks in some print_reserved_mem()s into
-> > setup_vm_final() around a tlb flush so you can see the before/after.
-> > (You'll need a reserved memory node in your dts to replicate)
-> >=20
-> > The output is like so, with the same crash as in the remoteproc driver:
-> >=20
-> > [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy=
-) (riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutil=
-s) 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
-> > [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-> > [    0.000000] Machine model: Microchip PolarFire-SoC Icicle Kit
-> > [    0.000000] earlycon: ns16550a0 at MMIO32 0x0000000020100000 (option=
-s '115200n8')
-> > [    0.000000] printk: bootconsole [ns16550a0] enabled
-> > [    0.000000] printk: debug: skip boot console de-registration.
-> > [    0.000000] efi: UEFI not found.
-> > [    0.000000] before flush
-> > [    0.000000] OF: reserved mem: debug name is fabricbuf@ae000000
-> > [    0.000000] after flush
-> > [    0.000000] Unable to handle kernel paging request at virtual addres=
-s 00000000401c31ac
->=20
->=20
-> You take the trap here because the mapping for the dtb does not exist in
-> swapper_pg_dir, but you don't need this mapping anymore as you can access
-> the device tree through the linear mapping now.
->=20
-> I would say that: you build your kernel with CONFIG_BUILTIN_DTB
-
-I do not have any "NONPORTABLE" options selected.
-
-> and then you
-> don't call early_init_dt_verify which resets initial_boot_params to the
-> linear mapping address (it was initially set to 0x4000_0000 in parse_dtb).
-> If that's the case, does the following fix your issue?
-
-I dunno, I don't hit this issue anymore as of 50e63dd8ed92 ("riscv: fix
-reserved memory setup"). That might not be the right fix in the grand
-scheme of things, but it solved problems that both I and others were
-hitting.
-
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 376d2827e736..2b09f0bd8432 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -276,6 +276,7 @@ void __init setup_arch(char **cmdline_p)
-> =A0=A0=A0=A0=A0=A0=A0 efi_init();
-> =A0=A0=A0=A0=A0=A0=A0 paging_init();
-> =A0#if IS_ENABLED(CONFIG_BUILTIN_DTB)
-> +=A0=A0=A0=A0=A0=A0 initial_boot_params =3D __va(XIP_FIXUP(dtb_early_pa));
-> =A0=A0=A0=A0=A0=A0=A0 unflatten_and_copy_device_tree();
-> =A0#else
-> =A0=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_p=
-a))))
-
-I'll try and allocate some time for looking at this next week, got some
-items on my todo list first. I doubt it'll help me cos I have not get
-that option set, but I can go and test reserved memory stuff for systems
-that do use it (I have a k210).
-
-> > [    0.000000] Oops [#1]
-> > [    0.000000] Modules linked in:
-> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.0.0-rc1-00001-=
-g0d9d6953d834 #1
-> > [    0.000000] Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
-> > [    0.000000] epc : string+0x4a/0xea
-> > [    0.000000]  ra : vsnprintf+0x1e4/0x336
-> > [    0.000000] epc : ffffffff80335ea0 ra : ffffffff80338936 sp : ffffff=
-ff81203be0
-> > [    0.000000]  gp : ffffffff812e0a98 tp : ffffffff8120de40 t0 : 000000=
-0000000000
-> > [    0.000000]  t1 : ffffffff81203e28 t2 : 7265736572203a46 s0 : ffffff=
-ff81203c20
-> > [    0.000000]  s1 : ffffffff81203e28 a0 : ffffffff81203d22 a1 : 000000=
-0000000000
-> > [    0.000000]  a2 : ffffffff81203d08 a3 : 0000000081203d21 a4 : ffffff=
-ffffffffff
-> > [    0.000000]  a5 : 00000000401c31ac a6 : ffff0a00ffffff04 a7 : ffffff=
-ffffffffff
-> > [    0.000000]  s2 : ffffffff81203d08 s3 : ffffffff81203d00 s4 : 000000=
-0000000008
-> > [    0.000000]  s5 : ffffffff000000ff s6 : 0000000000ffffff s7 : 000000=
-00ffffff00
-> > [    0.000000]  s8 : ffffffff80d9821a s9 : ffffffff81203d22 s10: 000000=
-0000000002
-> > [    0.000000]  s11: ffffffff80d9821c t3 : ffffffff812f3617 t4 : ffffff=
-ff812f3617
-> > [    0.000000]  t5 : ffffffff812f3618 t6 : ffffffff81203d08
-> > [    0.000000] status: 0000000200000100 badaddr: 00000000401c31ac cause=
-: 000000000000000d
-> > [    0.000000] [<ffffffff80338936>] vsnprintf+0x1e4/0x336
-> > [    0.000000] [<ffffffff80055ae2>] vprintk_store+0xf6/0x344
-> > [    0.000000] [<ffffffff80055d86>] vprintk_emit+0x56/0x192
-> > [    0.000000] [<ffffffff80055ed8>] vprintk_default+0x16/0x1e
-> > [    0.000000] [<ffffffff800563d2>] vprintk+0x72/0x80
-> > [    0.000000] [<ffffffff806813b2>] _printk+0x36/0x50
-> > [    0.000000] [<ffffffff8068af48>] print_reserved_mem+0x1c/0x24
-> > [    0.000000] [<ffffffff808057ec>] paging_init+0x528/0x5bc
-> > [    0.000000] [<ffffffff808031ae>] setup_arch+0xd0/0x592
-> > [    0.000000] [<ffffffff8080070e>] start_kernel+0x82/0x73c
-> > [    0.000000] ---[ end trace 0000000000000000 ]---
-> > [    0.000000] Kernel panic - not syncing: Attempted to kill the idle t=
-ask!
-> > [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill t=
-he idle task! ]---
-> >=20
-> > We traced this back to early_init_fdt_scan_reserved_mem() in
-> > setup_bootmem() - moving it later back up the boot sequence to
-> > after the dt has been remapped etc has fixed the problem for us.
-> >=20
-> > The least movement to get it working is attached, and also pushed
-> > here: git.kernel.org/conor/c/1735589baefc
-> >=20
-> > The second problem is a bit more complicated to explain - but we
-> > found the solution conflicted with the remoteproc fix as we had
-> > to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
-> > process to solve this one.
-> >=20
-> > We want to have a node in our devicetree that contains some memory
-> > that is non-cached & marked as reserved-memory. Maybe we have just
-> > missed something, but from what we've seen:
-> > - the really early setup looks at the dtb, picks the highest bit
-> >     of memory and puts the dtb etc there so it can start using it
-> > - early_init_fdt_scan_reserved_mem() is then called, which figures
-> >     out if memory is reserved or not.
-> >=20
-> > Unfortunately, the highest bit of memory is the non-cached bit so
-> > everything falls over, but we can avoid this by moving the call to
-> > early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
-> > takes place right before it in setup_bootmem().
->=20
->=20
-> And then I suppose the allocations you are mentioning happen in
-> unflatten_XXX, so parsing the device tree for reserved memory nodes before
-> this should do the trick. Does the following fix your second issue?
-
-Again, I'll have to look at this.
-To give you a quick answer, I believe it is the create_pgd_mapping()
-stuff in setup_vm_final() actually.
-I'm not super sure about this particular bit of the issue, but in the
-email I sent more recently that expands on these issues (that Mike
-replied to the other day) the similar issue that I saw the allocations
-in reserved memory were inside paging_init().
-
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 2b09f0bd8432..94b3d049fe9d 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -277,14 +277,15 @@ void __init setup_arch(char **cmdline_p)
-> =A0=A0=A0=A0=A0=A0=A0 paging_init();
-> =A0#if IS_ENABLED(CONFIG_BUILTIN_DTB)
-> =A0=A0=A0=A0=A0=A0=A0 initial_boot_params =3D __va(XIP_FIXUP(dtb_early_pa=
-));
-> +=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_mem();
-> =A0=A0=A0=A0=A0=A0=A0 unflatten_and_copy_device_tree();
-> =A0#else
-> -=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)=
-)))
-> +=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)=
-))) {
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_=
-mem();
-> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 unflatten_device_tree();
-
-Previously, this was problematic (doing the scan before unflattening).
-I moved the scan to the earliest possible place that I could call it
-without issues.
-I'll get back to you...
-
-> -=A0=A0=A0=A0=A0=A0 else
-> +=A0=A0=A0=A0=A0=A0 } else
-> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr_err("No DTB found in ker=
-nel mappings\n");
-> =A0#endif
-> -=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_mem();
-> =A0=A0=A0=A0=A0=A0=A0 misc_mem_init();
->=20
-> =A0=A0=A0=A0=A0=A0=A0 init_resources();
->=20
->=20
->=20
-> >=20
-> > Obviously, both of these changes are moving the function call in
-> > opposite directions and we can only really do one of them. We are not
-> > sure if what we are doing with the non-cached reserved-memory section
-> > is just not permitted & cannot work - or if this is something that
-> > was overlooked for RISC-V specifically and works for other archs.
-> >=20
-> > It does seem like the first issue is a real bug, and I am happy to
-> > submit the patch for that whenever - but having two problems with
-> > opposite fixes seemed as if there was something else lurking that we
-> > just don't have enough understanding to detect.
-> >=20
-> > Any help would be great!
-> >=20
-> > Thanks,
-> > Conor.
-> >=20
->=20
-> Even if that does not fix your issue, the first patch is necessary as it
-> fixes initial_boot_params.
-
-Sure, send a patch (with a nice commit message please, so that I don't
-have to remember the whole process to review it!!) as my brain has long
-since swapped out the nitty gritty of the unflattening -> scanning
-process.
-
-Thanks Alex!
-
-Conor.
-
---D9AVMx1vkdavINVt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAnR5AAKCRB4tDGHoIJi
-0nd6AP9aKgJF6ZiRxDYTiFjoBjGvPICDi+XYXbGwQU7I1Blb0wEArb3aVt5GJKWv
-6ckBjMCoW9rpjjNTxl/1Bdp0Myy+wQU=
-=6lBC
------END PGP SIGNATURE-----
-
---D9AVMx1vkdavINVt--
+>
+> Sorry for the delay, somehow this slipped between the cracks.
+>
+> On Thu, Feb 02, 2023 at 10:01:26PM +0000, Conor Dooley wrote:
+>> Hullo Palmer, Mike & whoever else may read this,
+>>
+>> Just reviving this thread from a little while ago as I have been in the
+>> area again recently...
+> TBH, I didn't really dig deep into the issues, but the thought I had was
+> what if DT was mapped via fixmap until the setup_vm_final() and then it
+> would be possible to call DT methods early.
+>
+> Could be I'm shooting in the dark :)
 
 
---===============0571223197501153863==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I think I understand the issue now, it's because In riscv, we establish 
+2 different virtual mappings and we map the device tree at 2 different 
+virtual addresses, which is the problem.
+
+So to me, the solution is:
+
+- to revert your previous fix, that is calling 
+early_init_fdt_scan_reserved_mem() before any call to memblock_alloc() 
+(which could result in an allocation in the area you want to reserve)
+
+- to map the device tree at the same virtual address, because 
+early_init_fdt_scan_reserved_mem() initializes reserved_mem with the dtb 
+mapping established in setup_vm() and uses reserved_mem with the new 
+mapping from setup_vm_final (which is what Mike proposes, we should use 
+the fixmap region to have the same virtual addresses)
+
+Hope that makes sense: I'll come up with something this afternoon for 
+you to test!
+
+Sorry for the first completely wrong email,
+
+Thanks,
+
+Alex
+
+
+>   
+>> On Tue, Aug 16, 2022 at 08:41:05PM +0000, Conor.Dooley@microchip.com wrote:
+>>> Hey all,
+>>> We've run into a bit of a problem with reserved memory on PolarFire, or
+>>> more accurately a pair of problems that seem to have opposite fixes.
+>>>
+>>> The first of these problems is triggered when trying to implement a
+>>> remoteproc driver. To get the reserved memory buffer, remoteproc
+>>> does an of_reserved_mem_lookup(), something like:
+>>>
+>>> 	np = of_parse_phandle(pdev->of_node, "memory-region", 0);
+>>> 	if (!np)
+>>> 		return -EINVAL;
+>>>
+>>> 	rmem = of_reserved_mem_lookup(np);
+>>> 	if (!rmem)
+>>> 		return -EINVAL;
+>>>
+>>> of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
+>>> a match - but this was triggering kernel panics for us. We did some
+>>> debugging and found that the name string's pointer was pointing to an
+>>> address in the 0x4000_0000 range. The minimum reproduction for this
+>>> crash is attached - it hacks in some print_reserved_mem()s into
+>>> setup_vm_final() around a tlb flush so you can see the before/after.
+>>> (You'll need a reserved memory node in your dts to replicate)
+>>>
+>>> The output is like so, with the same crash as in the remoteproc driver:
+>>>
+>>> [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy) (riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutils) 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
+>> [...]
+>>
+>>> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+>>>
+>>> We traced this back to early_init_fdt_scan_reserved_mem() in
+>>> setup_bootmem() - moving it later back up the boot sequence to
+>>> after the dt has been remapped etc has fixed the problem for us.
+>>>
+>>> The least movement to get it working is attached, and also pushed
+>>> here: git.kernel.org/conor/c/1735589baefc
+>> This one is fixed now, as of commit 50e63dd8ed92 ("riscv: fix reserved
+>> memory setup").
+>>
+>>> The second problem is a bit more complicated to explain - but we
+>>> found the solution conflicted with the remoteproc fix as we had
+>>> to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
+>>> process to solve this one.
+>>>
+>>> We want to have a node in our devicetree that contains some memory
+>>> that is non-cached & marked as reserved-memory. Maybe we have just
+>>> missed something, but from what we've seen:
+>>> - the really early setup looks at the dtb, picks the highest bit
+>>>     of memory and puts the dtb etc there so it can start using it
+>>> - early_init_fdt_scan_reserved_mem() is then called, which figures
+>>>     out if memory is reserved or not.
+>>>
+>>> Unfortunately, the highest bit of memory is the non-cached bit so
+>>> everything falls over, but we can avoid this by moving the call to
+>>> early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
+>>> takes place right before it in setup_bootmem().
+>>>
+>>> Obviously, both of these changes are moving the function call in
+>>> opposite directions and we can only really do one of them. We are not
+>>> sure if what we are doing with the non-cached reserved-memory section
+>>> is just not permitted & cannot work - or if this is something that
+>>> was overlooked for RISC-V specifically and works for other archs.
+>> We ended up working around this one by making sure that U-Boot loaded
+>> the dtb to somewhere that would be inside the kernel's memory map, thus
+>> avoiding the remapping in the first place.
+>>
+>> We did run into another problem recently though, and 50e63dd8ed92 is
+>> kinda at fault for it.
+>> This particular issue was encountered with a devicetree where the
+>> top-most memory region was entirely reserved & was not observed prior
+>> to my fix for the first issue.
+>>
+>> On RISC-V, the boot sequence is something like:
+>> 	setup_bootmem();
+>> 	setup_vm_final();
+>> 	unflatten_device_tree();
+>> 	early_init_fdt_scan_reserved_mem();
+>>
+>> Whereas, before my patch it used to be (give-or-take):
+>> 	setup_bootmem();
+>> 	early_init_fdt_scan_reserved_mem();
+>> 	setup_vm_final();
+>> 	unflatten_device_tree();
+>>
+>> The difference being that we used to have scanned the reserved memory
+>> regions before calling setup_vm_final() & therefore know which regions
+>> we cannot use. As a reminder, calling early_init_fdt_scan_reserved_mem()
+>> before we've got the dt in a proper virtual memory address will cause
+>> the kernel to panic if it tries to read a reserved memory node's label.
+>>
+>> As we are now calling setup_vm_final() *before* we know what the
+>> reserved memory regions are & as RISC-V allocates memblocks from the top
+>> down, the allocations in setup_vm_final() will be done in the highest
+>> memory region.
+>> When early_init_fdt_scan_reserved_mem() then tries to reserve the
+>> entirety of that top-most memory region, the reservation fails as part
+>> of this region has already been allocated.
+>> In the scenario where I found this bug, that top-most region is non-
+>> cached memory & the kernel ends up panicking.
+>> The memblock debug code made this pretty easy to spot, otherwise I'd
+>> probably have spent more than just a few hours trying to figure out why
+>> it was panicking!
+>>
+>> My "this needs to be fixed today" solution for this problem was calling
+>> memblock_set_bottom_up(true) in setup_bootmem() & that's what we are
+>> going to carry downstream for now.
+>>
+>> I haven't tested it (yet) but I suspect that it would also fix our
+>> problem of the dtb being remapped into a non-cached region of memory
+>> that we would later go on to reserve too. Non-cached being an issue
+>> mainly due to the panicking, but failing to reserve (and using!) memory
+>> regions that are meant to be reserved is very far from ideal even when
+>> they are memory that the kernel can actually use.
+>>
+>> I have no idea if that is an acceptable solution for upstream though, so
+>> I guess this is me putting out feelers as to whether this is something I
+>> should send a patch to do *OR* if this is another sign of the issues
+>> that you (Mike, Palmer) mentioned in the past.
+>> If it isn't an acceptable solution, I'm not really too sure how to
+>> proceed!
+>>
+>> Cheers,
+>> Conor.
+>>
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0571223197501153863==--
-
