@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AE3C64EC4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 04:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B2AC64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 06:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vj1Crgk5P6/1ZRgLMp1/r5cJBFmiAGo2NUzZZeBGXSk=; b=C+a/v8USe9HLrw
-	n9jqNkFPS9pWQPfcwxJG4k5KMOw+IsZ/DPqO4ErvW41aq9g5q7FWzn9BmnJUi6gPIVYhwX9O/A8pu
-	AbNS3R9k2i7rj0z8oN2Ut4PR7YQG+42G3D3hXCD7jIZEh3MKxcCzPuQ1xEKxLcKAUyGBm/l9Z/pIw
-	Jgwe9G+K/uglkPF5LAKcKblBbzWolAVN7ZBC2bMwwfoo3WtRfjF/eNr2uUItBrP5vO94VkVAXG3f1
-	PZLaT5rD03hvUJPcjC4BxUqcrYWzqxEpwlTXq+eGpFCK6xyi9CqvXLVkuxS9pdSN0YN8B4sQOBop8
-	kf8dwMrXACX5R7wbivGw==;
+	List-Owner; bh=b0xDeiFDOJb5CEgJpCjbJ5bs0G2KPj5iCOl9oxrEfl0=; b=DStzEGFF0UyS5I
+	iNE1UEAMNjSJIL4pPKNUpEm/gpawfstWOfTJuiQ97PP31w9JS+/FEpbuKv/DuHf22VoyU1qg+KCcn
+	zJeWbtnaRDhafqLJU+VWU7Y2o9GownyLssV8T1oUMNzR4YfPT9/5CN8a5YZ2GNZ7xqgpBnyq/ceR1
+	GJACHIuUp70gIcWSkUXEWCGI9fLR0LhoqkmIhILoopf5eC7ZhUd+twWibE8dNNT1hunxQiLzFK5Hz
+	G90rDhtwzv7uwXO0DYyto40sZxJIwI04p8vJtz3dXXbAYFz3p9XsVC3X2J7t2kWlJXf7O0rnK/+ec
+	EBhEHSs8jWIM9c+lazaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pa7c7-007kva-Qj; Thu, 09 Mar 2023 04:10:47 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pa7c2-007ksO-PN; Thu, 09 Mar 2023 04:10:46 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id CD73A24DC7D;
-	Thu,  9 Mar 2023 12:10:08 +0800 (CST)
-Received: from EXMBX071.cuchost.com (172.16.6.81) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 12:10:08 +0800
-Received: from [192.168.125.108] (183.27.96.115) by EXMBX071.cuchost.com
- (172.16.6.81) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 12:10:07 +0800
-Message-ID: <e8462381-5006-18ab-cb98-91e2a6bc39e5@starfivetech.com>
-Date: Thu, 9 Mar 2023 12:10:06 +0800
+	id 1pa9cV-0082x3-3V; Thu, 09 Mar 2023 06:19:19 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pa9cS-0082vU-B9
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 06:19:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id A606ACE2279;
+	Thu,  9 Mar 2023 06:19:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 379A1C433D2;
+	Thu,  9 Mar 2023 06:19:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678342747;
+	bh=LTk3JCHGRe+TyYuQNOCTiDP23OkmIB+aL1dSoQuWeMk=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=TY6vA2YsJQg0fllmqZUrI3ydXqchsea80kIMp4OlFQ36O3/hXTXn+bmKxey5p/uY1
+	 4CEWCY7lCrBnvoVTWNFY9mZoaWImUB/4IgT872Ou0bTEBXbFJNiuHgOco6hYbH6s5y
+	 EmjPOWV1MoQDF2tclgTGOt3YbWN/UDE15aBp2c6vAUgZ3+MICD/fO13Ov1yHMgm+qJ
+	 AfvEeRpDW191ZsgFEUQpnwquklZ5qJAbYT940K5xO+rPQLfH0Uii+M7dYpQ7w0Mf3i
+	 AmtRHY2TpjLT41EPCAsgA1qtlYHIi/DC+v3uv9cluKnwH+3QfX/4JXkGQidqeiWXto
+	 DQzTWVkV9lacQ==
+Date: Thu, 09 Mar 2023 06:19:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jessica Clarke <jrtc27@jrtc27.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Nathan Chancellor <nathan@kernel.org>, naresh.kamboju@linaro.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org, aurelien@aurel32.net,
+ ndesaulniers@google.com, Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH v2] RISC-V: remove I-extension ISA spec version dance
+User-Agent: K-9 Mail for Android
+In-Reply-To: <3476D6EF-F7DD-4437-A71C-47EF05210AF3@jrtc27.com>
+References: <20230308220842.1231003-1-conor@kernel.org> <3476D6EF-F7DD-4437-A71C-47EF05210AF3@jrtc27.com>
+Message-ID: <DCDDEB71-B9CF-4F35-BFA6-CAD4F5B0ED74@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add StarFive JH7110 USB
- dt-binding
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Vinod Koul
-	<vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak
-	<pawell@cadence.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Peter
- Chen" <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-usb@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230308082800.3008-1-minda.chen@starfivetech.com>
- <20230308082800.3008-2-minda.chen@starfivetech.com>
- <20230308181236.GA3512870-robh@kernel.org>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230308181236.GA3512870-robh@kernel.org>
-X-Originating-IP: [183.27.96.115]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX071.cuchost.com
- (172.16.6.81)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_201043_289345_28258074 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20230308_221916_784546_B8FCC075 
+X-CRM114-Status: GOOD (  23.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,250 +71,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/3/9 2:12, Rob Herring wrote:
-> On Wed, Mar 08, 2023 at 04:27:58PM +0800, Minda Chen wrote:
->> Add StarFive JH7110 SoC USB 3.0 phy dt-binding.
->> USB controller is cadence USB 3.0 IP.
->> 
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> ---
->>  .../bindings/phy/starfive,jh7110-usb-phy.yaml | 158 ++++++++++++++++++
->>  1 file changed, 158 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
->> new file mode 100644
->> index 000000000000..daa88d065deb
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
-> 
-> Filename should match the compatible. The filename seems more correct 
-> than the compatible...
-> 
-[1] jh7110 USB dts configure is similar to  Documentation/devicetree/bindings/usb/ti,j721e-usb.yaml
-But we have PHY (10200000). So I will add  Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
-as a wrap level.
-starfive,jh7110-usb-phy.yaml contains only phy setting.
->> @@ -0,0 +1,158 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-usb-phy.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive USB 2.0 and 3.0 PHY
->> +
->> +maintainers:
->> +  - Minda Chen<minda.chen@starfivetech.com>
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - const: starfive,jh7110-usb
-> 
-> What's the USB controller called?
-> 
-I will change to "starfive,jh7110-usb-phy"
->> +
->> +  reg:
->> +    maxItems: 2
->> +
->> +  reg-names:
->> +    items:
->> +      - const: usb3
->> +      - const: usb2
->> +
->> +  clocks:
->> +    items:
->> +      - description: usb 125m clock
->> +      - description: app 125m clock
->> +      - description: lpm clock
->> +      - description: stb clock
->> +      - description: apb clock
->> +      - description: axi clock
->> +      - description: utmi apb clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: usb_125m
->> +      - const: usb0_app_125
->> +      - const: usb0_lpm
->> +      - const: usb0_stb
->> +      - const: usb0_apb
->> +      - const: usb0_axi
->> +      - const: usb0_utmi_apb
-> 
-> usb_ and usb0_ is redundant, drop.
-> 
-ok
->> +
->> +  resets:
->> +    items:
->> +      - description: USB0_PWRUP reset
->> +      - description: USB0_APB reset
->> +      - description: USB0_AXI reset
->> +      - description: USB0_UTMI_APB reset
->> +
->> +  starfive,sys-syscon:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    items:
->> +      items:
-> 
-ok
-> Are there multiple entries of phandle+offset because this says there 
-> are. You want '- items:' here to limit it to 1 phandle+offset.
-> 
->> +        - description: phandle to System Register Controller sys_syscon node.
->> +        - description: offset of SYS_SYSCONSAIF__SYSCFG register for USB.
->> +    description:
->> +      The phandle to System Register Controller syscon node and the offset
->> +      of SYS_SYSCONSAIF__SYSCFG register for USB.
->> +
->> +  starfive,stg-syscon:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    items:
->> +      items:
-> 
-> Same here.
-> 
-ok
->> +        - description: phandle to System Register Controller stg_syscon node.
->> +        - description: register0 offset of STG_SYSCONSAIF__SYSCFG register for USB.
->> +        - description: register1 offset of STG_SYSCONSAIF__SYSCFG register for USB.
->> +        - description: register2 offset of STG_SYSCONSAIF__SYSCFG register for USB.
->> +        - description: register3 offset of STG_SYSCONSAIF__SYSCFG register for USB.
->> +    description:
->> +      The phandle to System Register Controller syscon node and the offset
->> +      of STG_SYSCONSAIF__SYSCFG register for USB. Total 4 regsisters offset
->> +      for USB.
->> +
->> +  dr_mode:
-> 
-> Usually this belongs in the controller node.
-> 
-cdns3 usb controller IP default set to host mode. If cdns3 usb controller "dr_mode"
-set to "peripheral", cdns3 controller can't be registered.
-
-in driver/usb/cdns3/core.c
-132         } else if (cdns->dr_mode != dr_mode) {
-133                 dev_err(dev, "Incorrect DRD configuration\n");
-134                 return -EINVAL;
-135         }
-
-
-If dr_mode is not set in int wrap level, peripheral mode can not be work.
-
-And I see other USB PHY contain dr-mode setting.
->> +    description: PHY mode.
->> +    enum:
->> +      - host
->> +      - peripheral
->> +      - otg
->> +
->> +  "#address-cells":
->> +    maximum: 2
->> +
->> +  "#size-cells":
->> +    maximum: 2
->> +
->> +  ranges: true
->> +
->> +  starfive,usb2-only:
->> +    type: boolean
->> +    description: Set USB using usb 2.0 phy. Supprt USB 2.0 only
-> 
-> The 'maximum-speed' property in the controller should be enough. Why is 
-> this needed.
-> 
-maybe I can delete this setting.
-> Being a PHY, you are missing #phy-cells.
-> 
-ok
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - reg-names
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - starfive,sys-syscon
->> +  - starfive,stg-syscon
->> +  - dr_mode
->> +  - "#address-cells"
->> +  - "#size-cells"
->> +  - ranges
->> +
->> +patternProperties:
->> +  "^usb@[0-9a-f]+$":
->> +    type: object
->> +    description: |
->> +      usbphy node should have '1' usb controller subnode.
->> +      It could be Cadence USB3 DRD controller.
->> +      Cadence USB3 should follow the bindings specified in
->> +      Documentation/devicetree/bindings/usb/cdns,usb3.yaml
-> 
-> Why is the controller a child of the phy?
-> 
-same as [1]. I will change this .
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    usbphy@10200000 {
->> +      compatible = "starfive,jh7110-usb";
->> +      reg = <0x10210000 0x1000>,
->> +            <0x10200000 0x1000>;
->> +      reg-names = "usb3", "usb2";
->> +      clocks = <&syscrg 95>,
->> +               <&stgcrg 6>,
->> +               <&stgcrg 4>,
->> +               <&stgcrg 5>,
->> +               <&stgcrg 1>,
->> +               <&stgcrg 3>,
->> +               <&stgcrg 2>;
->> +      clock-names = "usb_125m", "usb0_app_125", "usb0_lpm",
->> +                    "usb0_stb", "usb0_apb", "usb0_axi", "usb0_utmi_apb";
->> +      resets = <&stgcrg 10>,
->> +               <&stgcrg 8>,
->> +               <&stgcrg 7>,
->> +               <&stgcrg 9>;
->> +      starfive,stg-syscon = <&stg_syscon 0x4 0xc4 0x148 0x1f4>;
->> +      starfive,sys-syscon = <&sys_syscon 0x18>;
->> +      dr_mode = "host";
->> +      #address-cells = <1>;
->> +      #size-cells = <1>;
->> +      ranges;
->> +
->> +      usb@10100000 {
->> +        compatible = "cdns,usb3";
-> 
-> This needs a platform specific compatible.
-> 
-same as [1]
->> +        reg = <0x10100000 0x10000>,
->> +              <0x10110000 0x10000>,
->> +              <0x10120000 0x10000>;
->> +        reg-names = "otg", "xhci", "dev";
->> +        interrupts = <100>, <108>, <110>;
->> +        interrupt-names = "host", "peripheral", "otg";
->> +        phy-names = "cdns3,usb3-phy", "cnds3,usb2-phy";
->> +        maximum-speed = "super-speed";
->> +      };
->> +    };
->> -- 
->> 2.17.1
->> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA5IE1hcmNoIDIwMjMgMDI6MTk6MzggR01ULCBKZXNzaWNhIENsYXJrZSA8anJ0YzI3QGpy
+dGMyNy5jb20+IHdyb3RlOgo+T24gOCBNYXIgMjAyMywgYXQgMjI6MDgsIENvbm9yIERvb2xleSA8
+Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4+IAo+PiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9y
+LmRvb2xleUBtaWNyb2NoaXAuY29tPgo+PiAKPj4gVGhlIHNwZWMgZm9saywgaW4gdGhlaXIgaW5m
+aW5pdGUgd2lzZG9tLCBtb3ZlZCBib3RoIGNvbnRyb2wgYW5kIHN0YXR1cwo+PiByZWdpc3RlcnMg
+JiB0aGUgRkVOQ0UuSSBpbnN0cnVjdGlvbnMgb3V0IG9mIHRoZSBJIGV4dGVuc2lvbiBpbnRvIHRo
+ZWlyCj4+IG93biBleHRlbnNpb25zIChaaWNzciwgWmlmZW5jZWkpIGluIHRoZSAyMDE5MDYwOCB2
+ZXJzaW9uIG9mIHRoZSBJU0EKPj4gc3BlYyBbMF0uCj4+IFRoZSBHQ0MvYmludXRpbHMgY3JldyBk
+ZWNpZGVkIFsxXSB0byBtb3ZlIHRoZWlyIGRlZmF1bHQgdmVyc2lvbiBvZiB0aGUKPj4gSVNBIHNw
+ZWMgdG8gdGhlIDIwMTkxMjEzIHZlcnNpb24gb2YgdGhlIElTQSBzcGVjLCB3aGljaCBjYW1lIGlu
+dG8gYmVpbmcKPj4gZm9yIHZlcnNpb24gMi4zOCBvZiBiaW51dGlscyBhbmQgR0NDIDEyLiBCdWls
+ZGluZyB3aXRoIHRoaXMgdG9vbGNoYWluCj4+IGNvbmZpZ3VyYXRpb24gd291bGQgcmVzdWx0IGlu
+IGFzc2VtYmxlciBpc3N1ZXM6Cj4+ICBDQyAgICAgIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmdl
+dHRpbWVvZmRheS5vCj4+ICA8PEJVSUxERElSPj4vYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNv
+L2dldHRpbWVvZmRheS5oOiBBc3NlbWJsZXIgbWVzc2FnZXM6Cj4+ICA8PEJVSUxERElSPj4vYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHRpbWVvZmRheS5oOjcxOiBFcnJvcjogdW5yZWNv
+Z25pemVkIG9wY29kZSBgY3NyciBhNSwweGMwMScKPj4gIDw8QlVJTERESVI+Pi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3Zkc28vZ2V0dGltZW9mZGF5Lmg6NzE6IEVycm9yOiB1bnJlY29nbml6ZWQg
+b3Bjb2RlIGBjc3JyIGE1LDB4YzAxJwo+PiAgPDxCVUlMRERJUj4+L2FyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vdmRzby9nZXR0aW1lb2ZkYXkuaDo3MTogRXJyb3I6IHVucmVjb2duaXplZCBvcGNvZGUg
+YGNzcnIgYTUsMHhjMDEnCj4+ICA8PEJVSUxERElSPj4vYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92
+ZHNvL2dldHRpbWVvZmRheS5oOjcxOiBFcnJvcjogdW5yZWNvZ25pemVkIG9wY29kZSBgY3NyciBh
+NSwweGMwMScKPj4gVGhpcyB3YXMgZml4ZWQgaW4gY29tbWl0IDZkZjJhMDE2YzBjOCAoInJpc2N2
+OiBmaXggYnVpbGQgd2l0aCBiaW51dGlscwo+PiAyLjM4IikgYnkgQXVyZWxpZW4gSmFybm8sIGJ1
+dCBoYXMgcHJvdmVuIGZyYWdpbGUuCj4+IAo+PiBCZWZvcmUgTExWTSAxNywgTExWTSBkaWQgbm90
+IHN1cHBvcnQgdGhlc2UgZXh0ZW5zaW9ucyBhbmQsIGFzIHN1Y2gsIHRoZQo+PiBjYy1vcHRpb24g
+Y2hlY2sgYWRkZWQgYnkgQXVyZWxpZW4gd29ya2VkLiBTaW5jZSBjb21taXQgMjJlMTk5ZTZhZmIx
+Cj4+ICgiW1JJU0NWXSBBY2NlcHQgemljc3IgYW5kIHppZmVuY2VpIGNvbW1hbmQgbGluZSBvcHRp
+b25zIikgaG93ZXZlciwgTExWTQo+PiAqZG9lcyogc3VwcG9ydCB0aGVtIGFuZCB0aGUgY2Mtb3B0
+aW9uIGNoZWNrIHBhc3Nlcy4KPj4gCj4+IFRoaXMgc3VyZmFjZWQgYXMgYSBwcm9ibGVtIHdoaWxl
+IGJ1aWxkaW5nIHRoZSA1LjEwIHN0YWJsZSBrZXJuZWwgdXNpbmcKPj4gdGhlIGRlZmF1bHQgVHV4
+bWFrZSBEZWJpYW4gaW1hZ2UgWzJdLCBhcyA1LjEwIGRpZCBub3QgeWV0IHN1cHBvcnQgbGQubGxk
+LAo+PiBhbmQgdXNlcyB0aGUgRGViaWFuIHByb3ZpZGVkIGJpbnV0aWxzIDIuMzUuCj4+IFZlcnNp
+b25zIG9mIGxkIHByaW9yIHRvIDIuMzggd2lsbCByZWZ1c2UgdG8gbGluayBpZiB0aGV5IGVuY291
+bnRlcgo+PiB1bmtub3duIElTQSBleHRlbnNpb25zLCBhbmQgdW5mb3J0dW5hdGVseSBaaWZlbmNl
+aSBpcyBub3Qgc3VwcG9ydGVkIGJ5Cj4+IGJpbnR1aWxzIDIuMzUuCj4+IAo+PiBJbnN0ZWFkIG9m
+IGRhbmNpbmcgYXJvdW5kIHdpdGggYWRkaW5nIHRoZXNlIGV4dGVuc2lvbnMgdG8gbWFyY2gsIGFz
+IHdlCj4+IGN1cnJlbnRseSBkbywgUGFsbWVyIHN1Z2dlc3RlZCBsb2NraW5nIEdDQyBidWlsZHMg
+dG8gdGhlIHNhbWUgdmVyc2lvbiBvZgo+PiB0aGUgSVNBIHNwZWMgdGhhdCBpcyB1c2VkIGJ5IExM
+Vk0uIEFzIGZhciBhcyBJIGNhbiB0ZWxsLCB0aGF0IGlzIDIuMiwKPj4gd2l0aCwgYXBwYXJlbnRs
+eSBbM10sIGEgbGFjayBvZiBpbnRlcmVzdCBpbiBpbXBsZW1lbnRpbmcgYSBmbGFnIGxpa2UKPj4g
+R0NDJ3MgLW1pc2Etc3BlYyBhdCBwcmVzZW50Lgo+PiAKPj4gQWRkIHtjYyxhc30tb3B0aW9uIGNo
+ZWNrcyB0byBhZGQgLW1pc2Etc3BlYyB0byBLQlVJTERfe0EsQ31GTEFHUyB3aGVuCj4+IEdDQyBp
+cyB1c2VkICYgcmVtb3ZlIHRoZSBtYXJjaCBkYW5jZS4KPj4gCj4+IEFzIGNsYW5nIGRvZXMgbm90
+IGFjY2VwdCB0aGlzIGFyZ3VtZW50LCBJIGhhZCBleHBlY3RlZCB0byBlbmNvdW50ZXIKPj4gaXNz
+dWVzIHdpdGggdGhlIGFzc2VtYmxlciwgYXMgbmVpdGhlciB6aWNzciBub3IgemlmZW5jZWkgYXJl
+IHByZXNlbnQgaW4KPj4gdGhlIElTQSBzdHJpbmcgYW5kIHRoZSBzcGVjIHZlcnNpb24gKnNob3Vs
+ZCogYmUgZGVmYXVsdGluZyB0byBhIHZlcnNpb24KPj4gdGhhdCByZXF1aXJlcyB0aGVtIHRvIGJl
+IHByZXNlbnQuIFRoZSBidWlsZCBwYXNzZWQgaG93ZXZlciBhbmQgdGhlCj4+IHJlc3VsdGluZyBr
+ZXJuZWwgd29ya2VkIHBlcmZlY3RseSBmaW5lIGZvciBtZSBvbiBhIFBvbGFyRmlyZSBTb0MuLi4K
+Pgo+Rm9yIHdoYXQgaXTigJlzIHdvcnRoLCBMTFZNIGlzIGxpa2VseSB0byBtb3ZlIGZyb20gb25s
+eSBzdXBwb3J0aW5nIHRoZQo+b2xkIHJhdGlmaWVkIHNwZWMgdG8gb25seSBzdXBwb3J0aW5nIHRo
+ZSBsYXRlc3Qgb25lLCB3aXRoIG5vIHVnbHkKPi1taXNhLXNwZWMgbGlrZSB0aGUgR05VIHdvcmxk
+LiBZb3UgbWF5IHRoZXJlZm9yZSB3aXNoIHRvIHJlY29uc2lkZXIKPnRoaXMuLi4KCk9oIHdlbGws
+IGF0IGxlYXN0IHdlIHRyaWVkLiBCYWNrIHRvIHRoZSBLY29uZmlnIHdheSBvZiBkb2luZyBpdCBJ
+IHN1cHBvc2UuLi4KCj4KPkplc3MKPgo+PiBMaW5rOiBodHRwczovL3Jpc2N2Lm9yZy93cC1jb250
+ZW50L3VwbG9hZHMvMjAxOS8wNi9yaXNjdi1zcGVjLnBkZiBbMF0KPj4gTGluazogaHR0cHM6Ly9n
+cm91cHMuZ29vZ2xlLmNvbS9hL2dyb3Vwcy5yaXNjdi5vcmcvZy9zdy1kZXYvYy9hRTFaZUhIQ1lm
+NCBbMV0KPj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0NBK0c5Zll0OVQ9RUxD
+TGFCOWJ5eGFMVzJRZjRwWmNETz1odUNBMEQ4dWcyVjIraXJKUUBtYWlsLmdtYWlsLmNvbS8gWzJd
+Cj4+IExpbms6IGh0dHBzOi8vZGlzY291cnNlLmxsdm0ub3JnL3Qvc3BlY2lmeWluZy11bnByaXZp
+bGVkZ2Utc3BlYy12ZXJzaW9uLW1pc2Etc3BlYy1nY2MtZmxhZy1lcXVpdmFsZW50LzY2OTM1IFsz
+XQo+PiBDQzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwo+PiBTdWdnZXN0ZWQtYnk6IFBhbG1lciBE
+YWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgo+PiBSZXBvcnRlZC1ieTogTmFyZXNoIEthbWJv
+anUgPG5hcmVzaC5rYW1ib2p1QGxpbmFyby5vcmc+Cj4+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERv
+b2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+IC0tLQo+PiBJIHRoaW5rIEF1cmVs
+aWVuJ3Mgb3JpZ2luYWwgY29tbWl0IG1lc3NhZ2UgbWlnaHQgYWN0dWFsbHkgbm90IGJlIHF1aXRl
+Cj4+IGNvcnJlY3Q/IEkgZm91bmQsIGluIG15IGxpbWl0ZWQgdGVzdGluZywgdGhhdCBpdCBpcyBu
+b3QgdGhlIGRlZmF1bHQKPj4gYmVoYXZpb3VyIG9mIGdhcyB0aGF0IG1hdHRlcnMsIGJ1dCByYXRo
+ZXIgdGhlIHRvb2xjaGFpbiBpdHNlbGY/Cj4+IE15IGJpbnV0aWxzIHZlcnNpb25zIChib3RoIHRo
+b3NlIGJ1aWx0IHVzaW5nIHRoZSBjbGFuZy1idWlsdC1saW51eAo+PiB0Yy1idWlsZCBzY3JpcHRz
+IHdoaWNoIGRvIG5vdCBzZXQgYW4gSVNBIHNwZWMgdmVyc2lvbiwgYW5kIG9uZSBidWlsdAo+PiB1
+c2luZyB0aGUgcmlzY3YtZ251LXRvb2xjaGFpbiBpbmZyYSB3LyBhbiBleHBsaWNpdCAyMDE5MTIx
+MyBzcGVjIHZlcnNpb24KPj4gc2V0KSBkbyBub3QgZW5jb3VudGVyIHRoZXNlIGlzc3Vlcy4KPj4g
+RnJvbSAqbXkqIHRlc3RpbmcsIEkgd2FzIG9ubHkgYWJsZSB0byByZXByb2R1Y2UgdGhlIGFib3Zl
+IGJ1aWxkIGZhaWx1cmVzCj4+IGJlY2F1c2Ugb2YgKkdDQyogZGVmYXVsdGluZyB0byBhIG5ld2Vy
+IElTQSBzcGVjIHZlcnNpb24sIGFuZCBzYXcgbm8KPj4gaXNzdWVzIHdpdGggQ0M9Y2xhbmcgYnVp
+bGRzLCB3aGVyZSAtbWlzYS1zcGVjIGlzIG5vdCAoQUZBSUNUKSBwYXNzZWQgdG8KPj4gZ2FzLgo+
+PiBJJ20gZmFyIGZyb20gYSB0b29sY2hhaW4gcGVyc29uLCBzbyBJIGFtIHZlcnkgdmVyeSBoYXBw
+eSB0byBoYXZlIHRoZQo+PiByZWFzb24gZm9yIHRoYXQgZXhwbGFpbmVkIHRvIG1lLCBhcyBJJ3Zl
+IGJlZW4gc2NyYXRjaGluZyBteSBoZWFkIGFib3V0Cj4+IGl0IGFsbCBldmVuaW5nLgo+PiAKPj4g
+SSdtIGFsc28gbm90IHN1cGVyIGNvbmZpZGVudCBpbiBteSAiYXMtb3B0aW9uImluZywgYnV0IGl0
+IHdvcmtlZCBmb3IgbWUsCj4+IHNvIGl0J3MgZ290dGEgYmUgcGVyZmVjdCwgcmlnaHQ/IHJpaWln
+aHQ/Pwo+PiAKPj4gQ2hhbmdlcyBmcm9tIHYxOgo+PiAtIGVudGlyZWx5IG5ldyBhcHByb2FjaCB0
+byB0aGUgaXNzdWUKPj4gLS0tCj4+IGFyY2gvcmlzY3YvTWFrZWZpbGUgfCA2ICsrLS0tLQo+PiAx
+IGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+PiAKPj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4+IGlu
+ZGV4IDYyMDNjMzM3ODkyMi4uMmRmN2E1ZGMwNzFjIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2
+L01ha2VmaWxlCj4+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPj4gQEAgLTU3LDEwICs1Nyw4
+IEBAIHJpc2N2LW1hcmNoLSQoQ09ORklHX0FSQ0hfUlY2NEkpCTo9IHJ2NjRpbWEKPj4gcmlzY3Yt
+bWFyY2gtJChDT05GSUdfRlBVKQkJOj0gJChyaXNjdi1tYXJjaC15KWZkCj4+IHJpc2N2LW1hcmNo
+LSQoQ09ORklHX1JJU0NWX0lTQV9DKQk6PSAkKHJpc2N2LW1hcmNoLXkpYwo+PiAKPj4gLSMgTmV3
+ZXIgYmludXRpbHMgdmVyc2lvbnMgZGVmYXVsdCB0byBJU0Egc3BlYyB2ZXJzaW9uIDIwMTkxMjEz
+IHdoaWNoIG1vdmVzIHNvbWUKPj4gLSMgaW5zdHJ1Y3Rpb25zIGZyb20gdGhlIEkgZXh0ZW5zaW9u
+IHRvIHRoZSBaaWNzciBhbmQgWmlmZW5jZWkgZXh0ZW5zaW9ucy4KPj4gLXRvb2xjaGFpbi1uZWVk
+LXppY3NyLXppZmVuY2VpIDo9ICQoY2FsbCBjYy1vcHRpb24teW4sIC1tYXJjaD0kKHJpc2N2LW1h
+cmNoLXkpX3ppY3NyX3ppZmVuY2VpKQo+PiAtcmlzY3YtbWFyY2gtJCh0b29sY2hhaW4tbmVlZC16
+aWNzci16aWZlbmNlaSkgOj0gJChyaXNjdi1tYXJjaC15KV96aWNzcl96aWZlbmNlaQo+PiArS0JV
+SUxEX0NGTEFHUyArPSAkKGNhbGwgY2Mtb3B0aW9uLC1taXNhLXNwZWM9Mi4yKQo+PiArS0JVSUxE
+X0FGTEFHUyArPSAkKGNhbGwgYXMtb3B0aW9uLC1XYSQoY29tbWEpLW1pc2Etc3BlYz0yLjIpCj4+
+IAo+PiAjIENoZWNrIGlmIHRoZSB0b29sY2hhaW4gc3VwcG9ydHMgWmloaW50cGF1c2UgZXh0ZW5z
+aW9uCj4+IHJpc2N2LW1hcmNoLSQoQ09ORklHX1RPT0xDSEFJTl9IQVNfWklISU5UUEFVU0UpIDo9
+ICQocmlzY3YtbWFyY2gteSlfemloaW50cGF1c2UKPj4gLS0gCj4+IDIuMzkuMgo+PiAKPj4gCj4+
+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IGxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+
+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
