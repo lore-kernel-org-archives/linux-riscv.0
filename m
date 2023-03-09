@@ -4,73 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B73C64EC4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 15:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A998C64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 15:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d56Q+PL2GcaQeb4aWysjz0o73jHsq8vj+rqOLutWDQw=; b=zX5DzU6rnT49FZ
-	ecjy0wkBBYKR+/wZ5uVQhcVOjlLaL2Yqdy1w91k/Wju0x+580/rlIws5iocixRFkS9RfFD1s0MTnB
-	lrwVj8XGy0Zlt0npssPLNjl8j/Axq32jQoYck51X+T91RnZ8BKAecgV9fW8BrVMeMpjVmKjNjxUrh
-	TtecfbXVBmqe1PafGEtMPJ4/sHAr0sGMnIlWztau38xXOwqNXvbdKR+GsDhZGv3J8eO6zj6ZoZZ1t
-	rW7NjHxYG3JLeSgADMBee0LMYfn5i+j7/wVrKhU+mAd/RyJSumsEDbw7buQ2IRnrUk1ALN0iYT0rv
-	sOEnHj0gdciQgRNWgSbg==;
+	List-Owner; bh=t/aWkrp0qsbH7jY6nR40z3Eta63XHAfb5JhdtiiSmDg=; b=UyRLeYnkeCDw/v
+	TmTcnZsFRGIGoqWproMvzlijc7Q3nxN6Hh7J+Bb/xPv06RsVsNmTRxcpdacfjPaIlqDZLk6JoOXTK
+	rjZRPWcV6DhCL/hG39swy7VPcMPL9Jbw2OhUTtg0HxFDxEezvL11nyzlslf4EZ7Sv26MedY04Lpa6
+	V+pGsabNz2hmeovg+cvV2aMdR8SO2fUiaw0WOyjTAd5yc/QB207HkuatU7Q16o21v4l+uX/Aritz7
+	8vrc3O5PHmAwMfiYWfT3zrn/HZ42SA/Z/KfgyqsyZ49f7Ljomw2chaVusfHDZ+RrreT78+/zS8xYS
+	1fvwRN7hMEYyzzIVvv8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paI2q-00AqZw-RK; Thu, 09 Mar 2023 15:19:05 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1paIHi-00AwCm-4H; Thu, 09 Mar 2023 15:34:26 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paHnD-00Al8V-CI
-	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 15:03:03 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id s18so1236192pgq.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Mar 2023 07:02:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1678374172;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mpG+8TjRKU1Xq1b7ChN1vz1PZS008U/FxhApKNmqYlY=;
-        b=ELYbTvyRDRvOH8dgBQ/Fwx17+m9R3aqgz5pT7V7fAkZJsA+oV5WiXFMZLcOenBBcbo
-         Iomz7JdnKuw/g52XHENDsg9hzunSk4MHravqG2QuI/iiHrQirjr8y73m7ZbBXY/o7vLg
-         qvwNTEDQsWU9Of4q0G3fEWJe30V6onvW2a3+JTt/V7Y4xmemTnj3zMSH2yh0yqy6v2Cj
-         a/57s24pd09PXcbhcLZVSXqhgklg7hVV+a1VfUTBgAPlfhwUzkjH5KHMImC7zUxFSqTO
-         FQHaGZXufx854DG2kV0GcvrLGNTYFThFRHLCUDrtkIwO46cukE2cBALux/qu3ME/ggcP
-         lUFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678374172;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mpG+8TjRKU1Xq1b7ChN1vz1PZS008U/FxhApKNmqYlY=;
-        b=kH5SShSwJJysPhcnAUUAH/3KJ/0yXb02P7hsTpLTjToTXx+2QMaqxHy8gWhDwnmISk
-         dysaOGP4Gg03FgWQOcfp/feKf/K+tfHglmnbegtuM2W5JEq5pxCZa39ZxcDnuJaXv0tI
-         NvRgYsfXKOQa7Gc8EpjA84TT4RQ3sXH45WwYXiZdHNHHqjMONfLLMN38W5HwRgfwjDut
-         IkJMBXYvQa+rJnXrM7ilwu2XUTW/08ZvQQnaNVxdq12FkYEkTFHSpcctS8xwCg/9UOnb
-         z7aYasXIU0YgChdCoiYwizg3gO7IlhsQ4zJXeQXMpEaoO9OPtpj6LDIZae7ynpreAeTU
-         tmhw==
-X-Gm-Message-State: AO0yUKVFwwNF761Q3KYHB2+5cRZyQjVhUx0VM7uil0e5CJNZhI1BX/ud
-	dMFTF6fubqtszDlqsL0vyoJr9EGUpM9CUIMgyE2kvw==
-X-Google-Smtp-Source: AK7set/Pu4XGzKcyUzu0ET/xIBNGm/Mc7zvqzaKEVvMGZxTLOsJ3vWQd5u10L1Z/1FJ77TF3nXXUVY+1mwvJkbrIn10=
-X-Received: by 2002:a63:bc02:0:b0:4fb:d6b9:abea with SMTP id
- q2-20020a63bc02000000b004fbd6b9abeamr7692841pge.5.1678374171737; Thu, 09 Mar
- 2023 07:02:51 -0800 (PST)
+	id 1paHx6-00Aold-Se
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 15:13:10 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 5A86A240014;
+	Thu,  9 Mar 2023 15:12:57 +0000 (UTC)
+Message-ID: <de204b7c-7c1d-bd7b-0072-d128757258e2@ghiti.fr>
+Date: Thu, 9 Mar 2023 16:12:57 +0100
 MIME-Version: 1.0
-References: <20230307024646.10216-1-william.qiu@starfivetech.com> <20230307024646.10216-3-william.qiu@starfivetech.com>
-In-Reply-To: <20230307024646.10216-3-william.qiu@starfivetech.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 9 Mar 2023 16:02:15 +0100
-Message-ID: <CAPDyKFp204LOmo9rD7DS5hE=s2jHuFfgsaj05MRzdTKNrscWWQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] mmc: starfive: Add initialization of prev_err
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: RISC-V reserved memory problems
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Mike Rapoport <rppt@kernel.org>, Conor Dooley <conor@kernel.org>,
+ palmer@dabbelt.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ frowand.list@gmail.com, robh+dt@kernel.org, mick@ics.forth.gr,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ Valentina.FernandezAlanis@microchip.com, Daire.McNamara@microchip.com
+References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
+ <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com> <Y9wytv5KSt1ca+td@spud>
+ <ZAchb/DfbIh+qaE4@kernel.org> <8abfb680-e1dd-8d1f-dd10-0a8bf086f5c3@ghiti.fr>
+ <b797bd15-ef3d-4d28-9aad-ffe0a32aa0b0@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <b797bd15-ef3d-4d28-9aad-ffe0a32aa0b0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_070255_494156_F3FAC4C9 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20230309_071309_128653_2A2A9D95 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +62,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Mar 2023 at 03:46, William Qiu <william.qiu@starfivetech.com> wrote:
+On 3/9/23 13:51, Conor Dooley wrote:
+> On Thu, Mar 09, 2023 at 01:45:05PM +0100, Alexandre Ghiti wrote:
+>> On 3/7/23 12:35, Mike Rapoport wrote:
+>>> Hi Conor,
+>>>
+>>> Sorry for the delay, somehow this slipped between the cracks.
+>>>
+>>> On Thu, Feb 02, 2023 at 10:01:26PM +0000, Conor Dooley wrote:
+>>>> Hullo Palmer, Mike & whoever else may read this,
+>>>>
+>>>> Just reviving this thread from a little while ago as I have been in the
+>>>> area again recently...
+>>> TBH, I didn't really dig deep into the issues, but the thought I had was
+>>> what if DT was mapped via fixmap until the setup_vm_final() and then it
+>>> would be possible to call DT methods early.
+>>>
+>>> Could be I'm shooting in the dark :)
+>>
+>> I think I understand the issue now, it's because In riscv, we establish 2
+>> different virtual mappings and we map the device tree at 2 different virtual
+>> addresses, which is the problem.
+>>
+>> So to me, the solution is:
+>>
+>> - to revert your previous fix, that is calling
+>> early_init_fdt_scan_reserved_mem() before any call to memblock_alloc()
+>> (which could result in an allocation in the area you want to reserve)
+>>
+>> - to map the device tree at the same virtual address, because
+>> early_init_fdt_scan_reserved_mem() initializes reserved_mem with the dtb
+>> mapping established in setup_vm() and uses reserved_mem with the new mapping
+>> from setup_vm_final (which is what Mike proposes, we should use the fixmap
+>> region to have the same virtual addresses)
+>>
+>> Hope that makes sense: I'll come up with something this afternoon for you to
+>> test!
+> Sounds good. Please give me some ELI5 commit messages if you can,
+> explanations for this stuff (which I found took a lot of archaeology to
+> understand) would be very welcome next time we need to go back looking
+> at this stuff.
+
+
+Can you give it a try here: 
+https://github.com/AlexGhiti/riscv-linux/commits/dev/alex/conor_dtb_fixmap_v1 
+?
+
+That works for me but I need to carefully explain and check that's 
+correct though, not upstreamable as is.
+
+Thanks,
+
+Alex
+
+
+> Thanks Alex!
+> Conor.
 >
-> Add a incremental updates to fix a bug that prev_err is uninitialized.
->
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> Reported-by: Dan Carpenter <error27@gmail.com>
-
-I took the liberty of updating the commit message a bit, to try to
-further clarify things. Moreover, future wise, let's use the prefix,
-"mmc: dw_mmc-starfive" for the commit message header, to be consistent
-with the other dw_mmc drivers.
-
-So, applied for fixes and by adding a fixes tag, thanks!
-
-Kind regards
-Uffe
-
-
-> ---
->  drivers/mmc/host/dw_mmc-starfive.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
-> index 40f5969b07a6..dab1508bf83c 100644
-> --- a/drivers/mmc/host/dw_mmc-starfive.c
-> +++ b/drivers/mmc/host/dw_mmc-starfive.c
-> @@ -51,7 +51,7 @@ static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
->         struct dw_mci *host = slot->host;
->         struct starfive_priv *priv = host->priv;
->         int rise_point = -1, fall_point = -1;
-> -       int err, prev_err;
-> +       int err, prev_err = 0;
->         int i;
->         bool found = 0;
->         u32 regval;
-> --
-> 2.34.1
->
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
