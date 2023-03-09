@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0D7C678D5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 02:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920A7C64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 03:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X7L5B34j2CSZeKA1IAOS84b69hv+p4mmAwxP9i24BGI=; b=RbJjw/CvDgefVM
-	3zUoPECLReNUAandk5jqNmYVobOi0gYExLBGOsTvwtrnJ/XuIxs8jxq6rcETo7RJoLamUQzU9VnJC
-	WNDBu4EnolA3TZf6G/t5b+NF2irru3lvF/fqOR+CoWPf0fQzG5YYksdZsE90u8771Rx4tmxt4guxd
-	7dAtBclNW9cknumVkjdy47vZLoXcVzmEunJCCmYlgKWJl9N3Iaqhq0efFlL2hyMacDYa6eoc0mB1o
-	ySgCyZsuVskjPWABdQMCNkYYWe4E/slnK9AuqvC5WSyLsQt3+q/JhsnVNI4RkzJ0rWKOgCUInGh7v
-	sYY+bHnJWf4wsZHhsbfQ==;
+	List-Owner; bh=Lko59cfZDHfVd2aK3KIEX7mOQMfc4Fa7gZJAWBBqOHw=; b=fsWLXfeGJo2csJ
+	wZEPDyhRITFEGOVrgiOmrQDzCNlOorUEkyZ8vOIICvOQ3Ema9HR94klprd8JuLIbWejefXy1Ak/FP
+	vPCUUd5kvOH7WD/3PPJdnoIMt5N3JAxADWlq7l463cEV5wudhfeeXuwQSG/Kw89vPmZrMC62X98w+
+	BsJbQ8vpoqbfW9ZsLA3RMyF45YbAD9/AaZMVtgZXxW8Qm4e7l9SjXx5xNrJq/niQ3WGbHDAmFpqs8
+	kqcjgrZCXyQ2ON7o+2eptvYyp7XIcGt3RcyuV6HgxEKAwcMviqeUxaIBpj4J80xPUBO6bxD8B6N2U
+	ntu05qXpyx0HwYfhhZNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pa6RK-007ZcM-Og; Thu, 09 Mar 2023 02:55:34 +0000
+	id 1pa6fd-007bxv-DE; Thu, 09 Mar 2023 03:10:21 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pa6RH-007ZY2-81
-	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 02:55:33 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pa6fY-007bwl-NN
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 03:10:18 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 82E7224E1DB;
-	Thu,  9 Mar 2023 10:54:41 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 10:54:41 +0800
-Received: from [192.168.125.128] (183.27.96.115) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 10:54:40 +0800
-Message-ID: <5f11e476-6017-46e3-f601-d192765c5fb2@starfivetech.com>
-Date: Thu, 9 Mar 2023 10:54:43 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id A461C24E1A4;
+	Thu,  9 Mar 2023 11:10:02 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
+ 2023 11:10:02 +0800
+Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
+ 2023 11:10:01 +0800
+Message-ID: <aac48eab-5f36-396a-d582-a944cd07c30d@starfivetech.com>
+Date: Thu, 9 Mar 2023 11:10:00 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v4 3/3] riscv: dts: starfive: jh7100: Add watchdog node
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v5 03/12] dt-bindings: net: snps,dwmac: Add an optional
+ resets single 'ahb'
 Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Samin Guo <samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>
-References: <20230308034036.99213-1-xingyu.wu@starfivetech.com>
- <20230308034036.99213-4-xingyu.wu@starfivetech.com>
- <CAJM55Z9-BK1zPop_C9JX8qGLpzGXPzizUSyEtaevwbQ4NT2xaQ@mail.gmail.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <CAJM55Z9-BK1zPop_C9JX8qGLpzGXPzizUSyEtaevwbQ4NT2xaQ@mail.gmail.com>
-X-Originating-IP: [183.27.96.115]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
+To: Rob Herring <robh@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Richard Cochran <richardcochran@gmail.com>, Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis
+	<pgwipeout@gmail.com>, Yanhong Wang <yanhong.wang@starfivetech.com>
+References: <20230303085928.4535-1-samin.guo@starfivetech.com>
+ <20230303085928.4535-4-samin.guo@starfivetech.com>
+ <20230308215709.GA3904341-robh@kernel.org>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <20230308215709.GA3904341-robh@kernel.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
+ (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230308_185531_622471_AAAB06A1 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20230308_191017_086192_1E9565E2 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +81,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/9 0:09, Emil Renner Berthing wrote:
-> On Wed, 8 Mar 2023 at 04:42, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->>
->> Add watchdog node for the StarFive JH7100 RISC-V SoC.
->>
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  arch/riscv/boot/dts/starfive/jh7100.dtsi | 10 ++++++++++
->>  1 file changed, 10 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
->> index 000447482aca..1eb7c21a94fd 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
->> @@ -238,5 +238,15 @@ i2c3: i2c@12460000 {
->>                         #size-cells = <0>;
->>                         status = "disabled";
->>                 };
->> +
->> +               wdog: watchdog@12480000 {
-> 
-> I don't see anything referencing this node, so the label can be dropped.
-> With that fixed:
-> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> 
 
-Will drop the label and just use:
-watchdog@12480000 {
+Re: [PATCH v5 03/12] dt-bindings: net: snps,dwmac: Add an optional resets single 'ahb'
+From: Rob Herring <robh@kernel.org>
+
+> On Fri, Mar 03, 2023 at 04:59:19PM +0800, Samin Guo wrote:
+>> According to:
+>> stmmac_platform.c: stmmac_probe_config_dt
+>> stmmac_main.c: stmmac_dvr_probe
+> 
+> That's not really a reason on its own. Maybe the driver is wrong. Do we 
+> know what hardware needs this?
+> 
+Hi Rob, Starfive JH7110 SOC must have two resets (stmmaceth+ahb), it uses snps,dwmac-5.20 IP.
 
 Best regards,
-Xingyu Wu
+Samin
+>> dwmac controller may require one (stmmaceth) or two (stmmaceth+ahb)
+>> reset signals, and the maxItems of resets/reset-names is going to be 2.
+>>
+>> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+>> ---
+>>  .../devicetree/bindings/net/snps,dwmac.yaml        | 14 ++++++++++----
+>>  1 file changed, 10 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> index b4135d5297b4..89099a888f0b 100644
+>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> @@ -133,12 +133,18 @@ properties:
+>>          - ptp_ref
+>>  
+>>    resets:
+>> -    maxItems: 1
+>> -    description:
+>> -      MAC Reset signal.
+>> +    minItems: 1
+>> +    items:
+>> +      - description: GMAC stmmaceth reset
+>> +      - description: AHB reset
+>>  
+>>    reset-names:
+>> -    const: stmmaceth
+>> +    minItems: 1
+>> +    maxItems: 2
+>> +    contains:
+> 
+> This means 'reset-names = "foo", "ahb";' is valid. You want 'items' 
+> instead. However, that still allows the below string in any order. Do we 
+> really need that? If not, then you want:
+> 
+> items:
+>   - const: stmmaceth
+>   - const: ahb
+> 
+Thank you for your guidance. It will be better to modify it in this way, I will fix it in next version.
+
+Best regards,
+Samin
+>> +      enum:
+>> +        - stmmaceth
+>> +        - ahb
+>>  
+>>    power-domains:
+>>      maxItems: 1
+>> -- 
+>> 2.17.1
+>>
+
 
 _______________________________________________
 linux-riscv mailing list
