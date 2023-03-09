@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20486C64EC4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 09:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19455C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 10:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=793KKz4mRbFtJQ1LZrFYU/N300V+0weaUJvFuXibT8g=; b=WKOhbaAU1/hLhx
-	a0SdhHphFEbbSBemJjXtFUNV2CSG7gSqcDG+v/39Vjhx5IygBsKirs8P7DFhZSnLl2fQGTXlkaxow
-	H2RZytMDwoK3GgT2fAblPekTPpjojCi/n6Oerdwl8p0ee2Ha78FXkVLF8ROrcyMzb5HwsemKrJYTk
-	rQ8hx5EWULpr2niZ7e1xOLrI5r+/mBxxNnyYCUsgoxWklltJfzcUF6IS5phwtgH4+QoSxZWtNJ/n5
-	Ar3UItnqrS5d6iz4ktr4x7nfpsZ1EMuvWf69p09CnWA9wBWeMtKGDJ+ke1Mpu1kfmzyih5mXslKH9
-	sFHR8QW5u/ESitCTStAg==;
+	List-Owner; bh=XgnPFygC7LFuQn8NRHXpe2wlPRAc93MAn8nlnSMHKYU=; b=SbWR07FtUEdtCM
+	qt6wJs3/o0RKsgUXl8xFd2T6xmI0UAZvxGStW8mVAPEC4HzFSN4JA/jEe5FHkNwzudKE120mnTZXh
+	+lBb7RKnR+Ms/bzOf+/8td7FCX3HFPQVa7mdtR8A4Vh6HjjH4dDwvLEAjgqpVqp5DMCLz30x3Uk+L
+	is4gejXZDxYxXaGiiAv+Ssx2Mcp14r4K3OJqIKVe9popLsl4F4Y+Idd+PsCvt7pyEDH0Olv1CujzQ
+	rxUkCDNKH6hD39+45l0Hyr4xzbrEMIswmTnKMuM6mUFlUySABCVdHY2fQf5dU+PUsM8C+3PNWRyR/
+	MCLj3saZmcJDMCyd5jsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paCos-008sdz-Ub; Thu, 09 Mar 2023 09:44:18 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paCon-008sVl-5f
-	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 09:44:17 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 20B8824E231;
-	Thu,  9 Mar 2023 17:43:44 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 17:43:44 +0800
-Received: from [192.168.125.124] (183.27.96.115) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Mar
- 2023 17:43:43 +0800
-Message-ID: <49ab1072-98ba-f364-9b66-68658566e732@starfivetech.com>
-Date: Thu, 9 Mar 2023 17:43:42 +0800
+	id 1paDB1-0090F9-2b; Thu, 09 Mar 2023 10:07:11 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1paDAw-0090DP-R1
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 10:07:10 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id x3so4710188edb.10
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Mar 2023 02:07:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1678356425;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=O1rKZQWrvQdsaiUknj2gLx58N9hXAh/NcUMYH+8P2Io=;
+        b=NiDoNuNKomZlAKL/pzyIYZUo/9we1SdUtGyI3dm+QSAUoxdzMY/2nMis/n7ozTn75i
+         HSwbe8wbQkXHxOAs30NTUKURdBt9sThyysncB6m1Yo6aDJ2QzR6S4UBYIDhbPFiTBSC/
+         NihP53M2ZqKtlgm4yaGtqyG3HVJNt/CwqGCdK1ZKu/Hg0yf6pnT5gnzUTlaBP4rpoRES
+         uhG/BDxi+XD/M4qr0/qq3y04uC4Gr1kA6DxGhWxgYgjE/nmgwwsrRWf7mTcU58Thgez8
+         GM9JgCHjwZxLJG1YapfL1jM3GriBjqgbZ0qxTMbX+mbpUzM/5+857XK4DKHmVZdcU+ej
+         c9eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678356425;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O1rKZQWrvQdsaiUknj2gLx58N9hXAh/NcUMYH+8P2Io=;
+        b=h1eCVWoUGa27GkUjy0sgBus5rcFGFeUPdseFLlEvIZNLPCEC55lMzD2ia/Iqrwb5a7
+         P5U28eVRJ9NUhUJzbyUz9poSbHc/CLrBifk5LpQbiDVjY42y05JYSdL1dHB5YGTCEAvR
+         MJpnEICaex8SEwiLpIo4l4RDJNjYuK1fWOYD6Y3Me2kINGd714EY0GgwOgZlEg7PAKvY
+         /JRzR1q2/974vcwRotrhxGUpGOrmyJBNkYNmw7xTLryuHfKJVj+O2bxM6npKtXvyEtWx
+         uvJGLlv2Gt7QVipGT5c8+E6YWkt4bSqnLwrV6NQoVUtB5CQK77F87ZSZOnCYJ9HScVMS
+         UK2w==
+X-Gm-Message-State: AO0yUKWXF+pfNg+oeG9cb3OOgkEJAONTJ9UQpWHzTgV51YbsgLFsxIti
+	an2QI/q66IOV5/y5Afy+lzA2bg==
+X-Google-Smtp-Source: AK7set9dG7e71ZUsBA8QSEtjZmcxScdoi257cMlVacjcfvEL5jfaX1PVjAAYQWu+1xVUYACTvB0xpA==
+X-Received: by 2002:a17:907:8b16:b0:8b1:2e7c:df49 with SMTP id sz22-20020a1709078b1600b008b12e7cdf49mr23571182ejc.7.1678356425261;
+        Thu, 09 Mar 2023 02:07:05 -0800 (PST)
+Received: from ?IPV6:2a02:810d:15c0:828:7ee2:e73e:802e:45c1? ([2a02:810d:15c0:828:7ee2:e73e:802e:45c1])
+        by smtp.gmail.com with ESMTPSA id t25-20020a50c259000000b004efd65452a5sm3335676edf.70.2023.03.09.02.07.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Mar 2023 02:07:04 -0800 (PST)
+Message-ID: <8124eed7-b9ab-046d-4eb2-9b853ce2bcdd@linaro.org>
+Date: Thu, 9 Mar 2023 11:07:02 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v4 12/19] clk: starfive: Add StarFive JH7110 always-on
- clock driver
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add StarFive JH7110 USB
+ dt-binding
 Content-Language: en-US
-From: Hal Feng <hal.feng@starfivetech.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-13-hal.feng@starfivetech.com>
- <CAJM55Z8H4qmy_BiD0SHW-w5ifzhzokdO-QxpUUz9aeUd+htrZg@mail.gmail.com>
- <8c30220a-abef-7518-cb44-abcea91408e2@starfivetech.com>
-In-Reply-To: <8c30220a-abef-7518-cb44-abcea91408e2@starfivetech.com>
-X-Originating-IP: [183.27.96.115]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+To: Minda Chen <minda.chen@starfivetech.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Pawel Laszczak <pawell@cadence.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20230308082800.3008-1-minda.chen@starfivetech.com>
+ <20230308082800.3008-2-minda.chen@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230308082800.3008-2-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_014413_568714_F3F6EBC4 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20230309_020706_987102_8A663EA2 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +105,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Feb 2023 10:42:35 +0800, Hal Feng wrote:
-> On Sun, 26 Feb 2023 18:34:52 +0100, Emil Renner Berthing wrote:
->> On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrote:
->>> From: Emil Renner Berthing <kernel@esmil.dk>
->>>
->>> Add driver for the StarFive JH7110 always-on clock controller
->>> and register an auxiliary device for always-on reset controller
->>> which is named as "reset-aon".
->>>
->>> Reported-by: kernel test robot <lkp@intel.com>
->>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->>> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
->>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->>> ---
->>>  drivers/clk/starfive/Kconfig                  |  11 ++
->>>  drivers/clk/starfive/Makefile                 |   1 +
->>>  .../clk/starfive/clk-starfive-jh7110-aon.c    | 156 ++++++++++++++++++
->>>  3 files changed, 168 insertions(+)
->>>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-aon.c
->>>
->>> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
->>> index 4640d0665d1c..2aa664f2cdee 100644
->>> --- a/drivers/clk/starfive/Kconfig
->>> +++ b/drivers/clk/starfive/Kconfig
->>> @@ -31,3 +31,14 @@ config CLK_STARFIVE_JH7110_SYS
->>>         help
->>>           Say yes here to support the system clock controller on the
->>>           StarFive JH7110 SoC.
->>> +
->>> +config CLK_STARFIVE_JH7110_AON
->>> +       tristate "StarFive JH7110 always-on clock support"
->>> +       depends on CLK_STARFIVE_JH7110_SYS
->>> +       select AUXILIARY_BUS
->>> +       select CLK_STARFIVE_JH71X0
->>> +       select RESET_STARFIVE_JH7110
->>> +       default CLK_STARFIVE_JH7110_SYS
->> 
->> As far as I can tell the JH7110 boots fine without this driver and it
->> already depends on the _SYS driver above, so please do
->> 
->> default m if SOC_STARFIVE
+On 08/03/2023 09:27, Minda Chen wrote:
+> Add StarFive JH7110 SoC USB 3.0 phy dt-binding.
+> USB controller is cadence USB 3.0 IP.
+
+Subject: drop second/last, redundant "binding". The "dt-bindings" prefix
+is already stating that these are bindings.
+
 > 
-> OK. Will fix it.
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> ---
+>  .../bindings/phy/starfive,jh7110-usb-phy.yaml | 158 ++++++++++++++++++
+>  1 file changed, 158 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..daa88d065deb
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> @@ -0,0 +1,158 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive USB 2.0 and 3.0 PHY
+> +
+> +maintainers:
+> +  - Minda Chen<minda.chen@starfivetech.com>
 
-Hi, Emil,
+Missing space
 
-The AON clock driver provides clocks for gmac0 which is used frequently.
-So I think it would be more convenient if we set "default y" here.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+
+Drop items, it's just one item.
+
+
+> +      - const: starfive,jh7110-usb
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: usb3
+> +      - const: usb2
+> +
+> +  clocks:
+> +    items:
+> +      - description: usb 125m clock
+> +      - description: app 125m clock
+> +      - description: lpm clock
+> +      - description: stb clock
+> +      - description: apb clock
+> +      - description: axi clock
+> +      - description: utmi apb clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: usb_125m
+> +      - const: usb0_app_125
+> +      - const: usb0_lpm
+> +      - const: usb0_stb
+> +      - const: usb0_apb
+> +      - const: usb0_axi
+> +      - const: usb0_utmi_apb
+> +
+> +  resets:
+> +    items:
+> +      - description: USB0_PWRUP reset
+> +      - description: USB0_APB reset
+> +      - description: USB0_AXI reset
+> +      - description: USB0_UTMI_APB reset
+> +
+> +  starfive,sys-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      items:
+> +        - description: phandle to System Register Controller sys_syscon node.
+> +        - description: offset of SYS_SYSCONSAIF__SYSCFG register for USB.
+> +    description:
+> +      The phandle to System Register Controller syscon node and the offset
+> +      of SYS_SYSCONSAIF__SYSCFG register for USB.
+> +
+> +  starfive,stg-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      items:
+> +        - description: phandle to System Register Controller stg_syscon node.
+> +        - description: register0 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+> +        - description: register1 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+> +        - description: register2 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+> +        - description: register3 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+> +    description:
+> +      The phandle to System Register Controller syscon node and the offset
+> +      of STG_SYSCONSAIF__SYSCFG register for USB. Total 4 regsisters offset
+> +      for USB.
+> +
+> +  dr_mode:
+> +    description: PHY mode.
+> +    enum:
+> +      - host
+> +      - peripheral
+> +      - otg
+> +
+> +  "#address-cells":
+> +    maximum: 2
+> +
+> +  "#size-cells":
+> +    maximum: 2
+> +
+> +  ranges: true
+> +
+> +  starfive,usb2-only:
+> +    type: boolean
+> +    description: Set USB using usb 2.0 phy. Supprt USB 2.0 only
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - starfive,sys-syscon
+> +  - starfive,stg-syscon
+> +  - dr_mode
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - ranges
+> +
+> +patternProperties:
+
+This goes before required block
+
+> +  "^usb@[0-9a-f]+$":
+> +    type: object
+> +    description: |
+> +      usbphy node should have '1' usb controller subnode.
+> +      It could be Cadence USB3 DRD controller.
+> +      Cadence USB3 should follow the bindings specified in
+> +      Documentation/devicetree/bindings/usb/cdns,usb3.yaml
+
+$ref instead of free form text
+
 
 Best regards,
-Hal
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
