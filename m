@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7062AC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 14:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B73C64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 15:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:In-Reply-To:
-	Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/tX+meDuOtF0Q4EQ2qfymnfSi4ML2aqZGxMaZ9XvtY=; b=mcHZJu8k/5sCF6Yq23tYUDC09W
-	j0WwEkzzDukNaD/L9C6UZntZ6Nzz5JhPFzGkboNaATGKl/p3/B3svr1mkFdE8bmeDdYM9Tr1/HRzc
-	xk1aunpq6b7zse0uwqW5P98EwOdNG2J49tfjudmCLPxrF6ffiZsjW0GePp7oe5DkAkDJTSwbj8iqe
-	G+Jp5uwuI8pn80S6luo9wlxjv2XmUwOdPwbh2tSyYMKVHE3IDW71qS5CsRtLqE7Dto2DNTZ/QeFep
-	LnJoN/j3iaLO/HWrFTIp6XXsrKv4jcmX3P2GEDXeMSiHJBhtlcPdDOoforCFbIZ0C5kZ5znFNNCOI
-	M00MZ55w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d56Q+PL2GcaQeb4aWysjz0o73jHsq8vj+rqOLutWDQw=; b=zX5DzU6rnT49FZ
+	ecjy0wkBBYKR+/wZ5uVQhcVOjlLaL2Yqdy1w91k/Wju0x+580/rlIws5iocixRFkS9RfFD1s0MTnB
+	lrwVj8XGy0Zlt0npssPLNjl8j/Axq32jQoYck51X+T91RnZ8BKAecgV9fW8BrVMeMpjVmKjNjxUrh
+	TtecfbXVBmqe1PafGEtMPJ4/sHAr0sGMnIlWztau38xXOwqNXvbdKR+GsDhZGv3J8eO6zj6ZoZZ1t
+	rW7NjHxYG3JLeSgADMBee0LMYfn5i+j7/wVrKhU+mAd/RyJSumsEDbw7buQ2IRnrUk1ALN0iYT0rv
+	sOEnHj0gdciQgRNWgSbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paHcp-00Agjb-1I; Thu, 09 Mar 2023 14:52:11 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1paI2q-00AqZw-RK; Thu, 09 Mar 2023 15:19:05 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paHWt-00Ae7d-FZ
-	for linux-riscv@bombadil.infradead.org; Thu, 09 Mar 2023 14:46:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=MazV93nWrvM+WuVhyoGwlZKRCfqVFkV7DMvX8xwr9Wk=; b=Nfq/T12Gpitc2QQpqjapLFdF75
-	1b9A0yhD2fvYYuGL7qYfMEDCnCXaV0syyPC2lao1BzZtn54x6Zc8vXKWLz0Qhur9abSe4c4BQEH7G
-	AqZInkQyZ3JY1N+79MqvxVT/N5X2miROkqX6iRYDY+od1/1Z9t3ScnkfL/vbQdQYnMoWhRXohwB57
-	wjHb2EpzGp5H5evzUod6Wjw/9WmRby09nUIjR7GIT0DxMduNLZ9XaYQ84BnvhwWIvCRxtvWub0Y4M
-	6CugogBGgujSyf5ibYlozDXk1rnDardWPWc9yUacrK+PMdc2GlPfagbZRfsOShXCKA2DPY+Yt2FCn
-	/j8wtB+Q==;
-Received: from weierstrass.telenet-ops.be ([2a02:1800:110:4::f00:11])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1paHAn-0008Vd-2H
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 Mar 2023 14:23:17 +0000
-Received: from andre.telenet-ops.be (andre.telenet-ops.be [IPv6:2a02:1800:120:4::f00:15])
-	by weierstrass.telenet-ops.be (Postfix) with ESMTPS id 4PXWcX1qrWz4x2RK
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Mar 2023 15:23:08 +0100 (CET)
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed50:3a77:63e:b168:ae06])
-	by andre.telenet-ops.be with bizsmtp
-	id WENu2900l54Hw2A01ENuF8; Thu, 09 Mar 2023 15:23:05 +0100
-Received: from geert (helo=localhost)
-	by ramsan.of.borg with local-esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1paHAU-00BKv0-Lk;
-	Thu, 09 Mar 2023 15:22:54 +0100
-Date: Thu, 9 Mar 2023 15:22:54 +0100 (CET)
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Hal Feng <hal.feng@starfivetech.com>, 
-    Emil Renner Berthing <emil.renner.berthing@canonical.com>
-cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
-    Michael Turquette <mturquette@baylibre.com>, 
-    Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, 
-    Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-    Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, 
-    Daniel Lezcano <daniel.lezcano@linaro.org>, 
-    Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 10/19] dt-bindings: clock: Add StarFive JH7110 always-on
- clock and reset generator
-In-Reply-To: <20230221024645.127922-11-hal.feng@starfivetech.com>
-Message-ID: <dc88e0df-4e2f-d2b8-4ecb-514862d01c3c@linux-m68k.org>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com> <20230221024645.127922-11-hal.feng@starfivetech.com>
+	id 1paHnD-00Al8V-CI
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 15:03:03 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id s18so1236192pgq.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Mar 2023 07:02:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1678374172;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=mpG+8TjRKU1Xq1b7ChN1vz1PZS008U/FxhApKNmqYlY=;
+        b=ELYbTvyRDRvOH8dgBQ/Fwx17+m9R3aqgz5pT7V7fAkZJsA+oV5WiXFMZLcOenBBcbo
+         Iomz7JdnKuw/g52XHENDsg9hzunSk4MHravqG2QuI/iiHrQirjr8y73m7ZbBXY/o7vLg
+         qvwNTEDQsWU9Of4q0G3fEWJe30V6onvW2a3+JTt/V7Y4xmemTnj3zMSH2yh0yqy6v2Cj
+         a/57s24pd09PXcbhcLZVSXqhgklg7hVV+a1VfUTBgAPlfhwUzkjH5KHMImC7zUxFSqTO
+         FQHaGZXufx854DG2kV0GcvrLGNTYFThFRHLCUDrtkIwO46cukE2cBALux/qu3ME/ggcP
+         lUFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678374172;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mpG+8TjRKU1Xq1b7ChN1vz1PZS008U/FxhApKNmqYlY=;
+        b=kH5SShSwJJysPhcnAUUAH/3KJ/0yXb02P7hsTpLTjToTXx+2QMaqxHy8gWhDwnmISk
+         dysaOGP4Gg03FgWQOcfp/feKf/K+tfHglmnbegtuM2W5JEq5pxCZa39ZxcDnuJaXv0tI
+         NvRgYsfXKOQa7Gc8EpjA84TT4RQ3sXH45WwYXiZdHNHHqjMONfLLMN38W5HwRgfwjDut
+         IkJMBXYvQa+rJnXrM7ilwu2XUTW/08ZvQQnaNVxdq12FkYEkTFHSpcctS8xwCg/9UOnb
+         z7aYasXIU0YgChdCoiYwizg3gO7IlhsQ4zJXeQXMpEaoO9OPtpj6LDIZae7ynpreAeTU
+         tmhw==
+X-Gm-Message-State: AO0yUKVFwwNF761Q3KYHB2+5cRZyQjVhUx0VM7uil0e5CJNZhI1BX/ud
+	dMFTF6fubqtszDlqsL0vyoJr9EGUpM9CUIMgyE2kvw==
+X-Google-Smtp-Source: AK7set/Pu4XGzKcyUzu0ET/xIBNGm/Mc7zvqzaKEVvMGZxTLOsJ3vWQd5u10L1Z/1FJ77TF3nXXUVY+1mwvJkbrIn10=
+X-Received: by 2002:a63:bc02:0:b0:4fb:d6b9:abea with SMTP id
+ q2-20020a63bc02000000b004fbd6b9abeamr7692841pge.5.1678374171737; Thu, 09 Mar
+ 2023 07:02:51 -0800 (PST)
 MIME-Version: 1.0
+References: <20230307024646.10216-1-william.qiu@starfivetech.com> <20230307024646.10216-3-william.qiu@starfivetech.com>
+In-Reply-To: <20230307024646.10216-3-william.qiu@starfivetech.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 9 Mar 2023 16:02:15 +0100
+Message-ID: <CAPDyKFp204LOmo9rD7DS5hE=s2jHuFfgsaj05MRzdTKNrscWWQ@mail.gmail.com>
+Subject: Re: [PATCH v5 2/2] mmc: starfive: Add initialization of prev_err
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_142314_193566_4825C44B 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20230309_070255_494156_F3FAC4C9 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +82,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
- 	Hi Hal, Esmil,
-
-On Tue, 21 Feb 2023, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
+On Tue, 7 Mar 2023 at 03:46, William Qiu <william.qiu@starfivetech.com> wrote:
 >
-> Add bindings for the always-on clock and reset generator (AONCRG) on the
-> JH7110 RISC-V SoC by StarFive Ltd.
+> Add a incremental updates to fix a bug that prev_err is uninitialized.
 >
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
 
-Thanks for your patch!
+I took the liberty of updating the commit message a bit, to try to
+further clarify things. Moreover, future wise, let's use the prefix,
+"mmc: dw_mmc-starfive" for the commit message header, to be consistent
+with the other dw_mmc drivers.
 
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 Always-On Clock and Reset Generator
-> +
-> +maintainers:
-> +  - Emil Renner Berthing <kernel@esmil.dk>
-> +
+So, applied for fixes and by adding a fixes tag, thanks!
 
-This lacks a top-level "description" section, to anwer the question:
-What is an "Always-On Clock and Reset Generator"?
+Kind regards
+Uffe
 
-To me, "always-on" sounds like it's critical, and thus the driver
-must always be built-in?
 
-Gr{oetje,eeting}s,
-
- 						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
- 							    -- Linus Torvalds
+> ---
+>  drivers/mmc/host/dw_mmc-starfive.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
+> index 40f5969b07a6..dab1508bf83c 100644
+> --- a/drivers/mmc/host/dw_mmc-starfive.c
+> +++ b/drivers/mmc/host/dw_mmc-starfive.c
+> @@ -51,7 +51,7 @@ static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
+>         struct dw_mci *host = slot->host;
+>         struct starfive_priv *priv = host->priv;
+>         int rise_point = -1, fall_point = -1;
+> -       int err, prev_err;
+> +       int err, prev_err = 0;
+>         int i;
+>         bool found = 0;
+>         u32 regval;
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
