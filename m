@@ -4,50 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CECC64EC4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 12:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F40C64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Mar 2023 12:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qjR+RCHWkT6xkL+E5tcInz2O44pNlIDyjZKlGrsHB8=; b=eMan/PNmRMMujE
-	96k2PThEfpkD7oS1K04ZWsLC7szzq0PByYkXbV7iKEUW5rDnZTvUtpIVMngrjehJ7nTJridERZOo9
-	yYsA9mZIByPT20jI2Xxn98lTl7O9tPk+vbyZBvQbhUBUr8DcQTh+IIiR2ntMkD116owxZ09oxA00+
-	6R97UhSBKHrl2XCI9PyCk4nVpFZDSV2P9ao7eECFV9p5EJausuqFeDI575obWOKH7nKqQmPBaeouA
-	DRVwlemHxtbFXJ/G4BoaLSW/zomo/FUwkXWA3y8bz15WCCbXJeMTFq8oxkksMcFlgMr94p95Kpkep
-	pSaDwE/92Epb7WlrASZg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/9rqLVtnLUZ8B0de60DW1fy8SIGlM80xNCYCZ/WE8Oc=; b=t1wLKgGuH2IUQv78cBijy6LWQ7
+	ZWAI01h2GekQDl//ZF6VpjJeKaH+hhVjBoCBIKHWk1FgeNdgUuvsN1F0sKX4DzT67UQpavrJ2O7fc
+	fsb/Ql/C+/5W0dvqPeKM1LCVPutecxRitk8fbhRotTu3FZHAfzBF7rYZWhiwj958HKMSerhIjRqy0
+	s5lG4T/gSBbJEoqxsjK8iw5/slMzw8v2FoXLd1/Z/apJz0vUYiANOWqGzwYD96i9h3WjUPupiQkdM
+	iATsBJyDqSI35ma15M1l7lbwAf8RjakgmcH5INX295ZU6Sf6UrF6LM0Kdw+1fCSVr0B9UlHsFnnw7
+	h9dLM5dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paFQl-009sUj-V5; Thu, 09 Mar 2023 12:31:35 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1paFSM-009sjy-M2; Thu, 09 Mar 2023 12:33:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paFQh-009sTf-I8
-	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 12:31:34 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 6B9791C0005;
-	Thu,  9 Mar 2023 12:31:25 +0000 (UTC)
-Message-ID: <8ed31c81-e6fd-a293-8418-5d0d863c7735@ghiti.fr>
-Date: Thu, 9 Mar 2023 13:31:24 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
+	id 1paFSI-009sih-NP
+	for linux-riscv@lists.infradead.org; Thu, 09 Mar 2023 12:33:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678365190; x=1709901190;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0/V0cEBZl4mwfLUDTheLkgp8EgxUGKm7HOLNFDHmou0=;
+  b=lcc0cLfe8Ck7rssVbeNVwxE30sKdN72m0Jvd4z2aga8+jC5Ely2Wfg0X
+   06y+g49MT2EXVKuwZBooEf0J6x+gmGt3z7D413+j0wDP4ZVmEj0Mmhsb/
+   WUA8G2qfn9ME1/h3kxx+N/Mbgjnpm0nUIJ6TN5XzhP6znzEHfrPcwC/Bl
+   WCuNFFxu9d2CrTXvFEBByKQgI4RrPPy+VT0Pfs54hqqEoVbRuMMQ2K6MY
+   UsCtAQ17msG6ULJ0VixmXF8klj1JmL9jTqimnIdiMW9PrEPD0NpzknG0L
+   ffEYMJ0+SXwsWBnNe9MUY7aJQCm8QIm0m2F5SXy43zt4vuHdR8Einl9I7
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,246,1673938800"; 
+   d="asc'?scan'208";a="215519697"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Mar 2023 05:33:07 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Thu, 9 Mar 2023 05:33:07 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Thu, 9 Mar 2023 05:33:05 -0700
+Date: Thu, 9 Mar 2023 12:32:36 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <frowand.list@gmail.com>, <robh+dt@kernel.org>,
+	<mick@ics.forth.gr>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <Valentina.FernandezAlanis@microchip.com>,
+	<Daire.McNamara@microchip.com>
 Subject: Re: RISC-V reserved memory problems
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Conor.Dooley@microchip.com, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- frowand.list@gmail.com, robh+dt@kernel.org, mick@ics.forth.gr,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- Valentina.FernandezAlanis@microchip.com, Daire.McNamara@microchip.com
+Message-ID: <ababa7ca-68c6-4d1c-9179-10376999d367@spud>
 References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
  <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
  <fadac048-c648-6493-3f1c-1877692180c8@ghiti.fr>
+MIME-Version: 1.0
 In-Reply-To: <fadac048-c648-6493-3f1c-1877692180c8@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_043131_889640_BBAF6B26 
-X-CRM114-Status: GOOD (  51.29  )
+X-CRM114-CacheID: sfid-20230309_043310_800316_CAFC7EA5 
+X-CRM114-Status: GOOD (  63.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,174 +79,287 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0571223197501153863=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMy85LzIzIDExOjMwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gSGkgQ29ub3IsCj4KPiBP
-biA4LzE2LzIyIDIyOjQxLCBDb25vci5Eb29sZXlAbWljcm9jaGlwLmNvbSB3cm90ZToKPj4gSGV5
-IGFsbCwKPj4gV2UndmUgcnVuIGludG8gYSBiaXQgb2YgYSBwcm9ibGVtIHdpdGggcmVzZXJ2ZWQg
-bWVtb3J5IG9uIFBvbGFyRmlyZSwgb3IKPj4gbW9yZSBhY2N1cmF0ZWx5IGEgcGFpciBvZiBwcm9i
-bGVtcyB0aGF0IHNlZW0gdG8gaGF2ZSBvcHBvc2l0ZSBmaXhlcy4KPj4KPj4gVGhlIGZpcnN0IG9m
-IHRoZXNlIHByb2JsZW1zIGlzIHRyaWdnZXJlZCB3aGVuIHRyeWluZyB0byBpbXBsZW1lbnQgYQo+
-PiByZW1vdGVwcm9jIGRyaXZlci4gVG8gZ2V0IHRoZSByZXNlcnZlZCBtZW1vcnkgYnVmZmVyLCBy
-ZW1vdGVwcm9jCj4+IGRvZXMgYW4gb2ZfcmVzZXJ2ZWRfbWVtX2xvb2t1cCgpLCBzb21ldGhpbmcg
-bGlrZToKPj4KPj4gwqDCoMKgwqBucCA9IG9mX3BhcnNlX3BoYW5kbGUocGRldi0+b2Zfbm9kZSwg
-Im1lbW9yeS1yZWdpb24iLCAwKTsKPj4gwqDCoMKgwqBpZiAoIW5wKQo+PiDCoMKgwqDCoMKgwqDC
-oCByZXR1cm4gLUVJTlZBTDsKPj4KPj4gwqDCoMKgwqBybWVtID0gb2ZfcmVzZXJ2ZWRfbWVtX2xv
-b2t1cChucCk7Cj4+IMKgwqDCoMKgaWYgKCFybWVtKQo+PiDCoMKgwqDCoMKgwqDCoCByZXR1cm4g
-LUVJTlZBTDsKPj4KPj4gb2ZfcmVzZXJ2ZWRfbWVtX2xvb2t1cCgpIHRoZW4gdXNlcyByZXNlcnZl
-ZF9tZW1baV0ubmFtZSB0byB0cnkgYW5kIGZpbmQKPj4gYSBtYXRjaCAtIGJ1dCB0aGlzIHdhcyB0
-cmlnZ2VyaW5nIGtlcm5lbCBwYW5pY3MgZm9yIHVzLiBXZSBkaWQgc29tZQo+PiBkZWJ1Z2dpbmcg
-YW5kIGZvdW5kIHRoYXQgdGhlIG5hbWUgc3RyaW5nJ3MgcG9pbnRlciB3YXMgcG9pbnRpbmcgdG8g
-YW4KPj4gYWRkcmVzcyBpbiB0aGUgMHg0MDAwXzAwMDAgcmFuZ2UuIFRoZSBtaW5pbXVtIHJlcHJv
-ZHVjdGlvbiBmb3IgdGhpcwo+Cj4KPiAweDQwMDBfMDAwMCBjb3JyZXNwb25kcyB0byBEVEJfRUFS
-TFlfQkFTRV9WQTogdGhpcyBpcyB0aGUgYWRkcmVzcyB0aGF0IAo+IGlzIHVzZWQgdG8gbWFwIHRo
-ZSBkdGIgYmVmb3JlIHdlIGNhbiBhY2Nlc3MgaXQgdXNpbmcgdGhlIGxpbmVhciBtYXBwaW5nLgo+
-Cj4KPj4gY3Jhc2ggaXMgYXR0YWNoZWQgLSBpdCBoYWNrcyBpbiBzb21lIHByaW50X3Jlc2VydmVk
-X21lbSgpcyBpbnRvCj4+IHNldHVwX3ZtX2ZpbmFsKCkgYXJvdW5kIGEgdGxiIGZsdXNoIHNvIHlv
-dSBjYW4gc2VlIHRoZSBiZWZvcmUvYWZ0ZXIuCj4+IChZb3UnbGwgbmVlZCBhIHJlc2VydmVkIG1l
-bW9yeSBub2RlIGluIHlvdXIgZHRzIHRvIHJlcGxpY2F0ZSkKPj4KPj4gVGhlIG91dHB1dCBpcyBs
-aWtlIHNvLCB3aXRoIHRoZSBzYW1lIGNyYXNoIGFzIGluIHRoZSByZW1vdGVwcm9jIGRyaXZlcjoK
-Pj4KPj4gW8KgwqDCoCAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA2LjAuMC1yYzEtMDAwMDEtZzBk
-OWQ2OTUzZDgzNCAKPj4gKGNvbm9yQHdlbmR5KSAocmlzY3Y2NC11bmtub3duLWxpbnV4LWdudS1n
-Y2MgKGc1OTY0YjVjZDcyNykgMTEuMS4wLCAKPj4gR05VIGxkIChHTlUgQmludXRpbHMpIDIuMzcp
-ICMxIFNNUCBUdWUgQXVnIDE2IDEzOjQyOjA5IElTVCAyMDIyCj4+IFvCoMKgwqAgMC4wMDAwMDBd
-IE9GOiBmZHQ6IElnbm9yaW5nIG1lbW9yeSByYW5nZSAweDgwMDAwMDAwIC0gMHg4MDIwMDAwMAo+
-PiBbwqDCoMKgIDAuMDAwMDAwXSBNYWNoaW5lIG1vZGVsOiBNaWNyb2NoaXAgUG9sYXJGaXJlLVNv
-QyBJY2ljbGUgS2l0Cj4+IFvCoMKgwqAgMC4wMDAwMDBdIGVhcmx5Y29uOiBuczE2NTUwYTAgYXQg
-TU1JTzMyIDB4MDAwMDAwMDAyMDEwMDAwMCAKPj4gKG9wdGlvbnMgJzExNTIwMG44JykKPj4gW8Kg
-wqDCoCAwLjAwMDAwMF0gcHJpbnRrOiBib290Y29uc29sZSBbbnMxNjU1MGEwXSBlbmFibGVkCj4+
-IFvCoMKgwqAgMC4wMDAwMDBdIHByaW50azogZGVidWc6IHNraXAgYm9vdCBjb25zb2xlIGRlLXJl
-Z2lzdHJhdGlvbi4KPj4gW8KgwqDCoCAwLjAwMDAwMF0gZWZpOiBVRUZJIG5vdCBmb3VuZC4KPj4g
-W8KgwqDCoCAwLjAwMDAwMF0gYmVmb3JlIGZsdXNoCj4+IFvCoMKgwqAgMC4wMDAwMDBdIE9GOiBy
-ZXNlcnZlZCBtZW06IGRlYnVnIG5hbWUgaXMgZmFicmljYnVmQGFlMDAwMDAwCj4+IFvCoMKgwqAg
-MC4wMDAwMDBdIGFmdGVyIGZsdXNoCj4+IFvCoMKgwqAgMC4wMDAwMDBdIFVuYWJsZSB0byBoYW5k
-bGUga2VybmVsIHBhZ2luZyByZXF1ZXN0IGF0IHZpcnR1YWwgCj4+IGFkZHJlc3MgMDAwMDAwMDA0
-MDFjMzFhYwo+Cj4KPiBZb3UgdGFrZSB0aGUgdHJhcCBoZXJlIGJlY2F1c2UgdGhlIG1hcHBpbmcg
-Zm9yIHRoZSBkdGIgZG9lcyBub3QgZXhpc3QgCj4gaW4gc3dhcHBlcl9wZ19kaXIsIGJ1dCB5b3Ug
-ZG9uJ3QgbmVlZCB0aGlzIG1hcHBpbmcgYW55bW9yZSBhcyB5b3UgY2FuIAo+IGFjY2VzcyB0aGUg
-ZGV2aWNlIHRyZWUgdGhyb3VnaCB0aGUgbGluZWFyIG1hcHBpbmcgbm93LgoKCllvdSBjYW4gZm9y
-Z2V0IGV2ZXJ5dGhpbmcgYmVsb3csIEkgd2FzIGNvbXBsZXRlbHkgd3JvbmcuIEknbGwgZm9sbG93
-IHVwIApvbiBNaWtlJ3MgYW5zd2VyLgoKCj4KPiBJIHdvdWxkIHNheSB0aGF0OiB5b3UgYnVpbGQg
-eW91ciBrZXJuZWwgd2l0aCBDT05GSUdfQlVJTFRJTl9EVEIgYW5kIAo+IHRoZW4geW91IGRvbid0
-IGNhbGwgZWFybHlfaW5pdF9kdF92ZXJpZnkgd2hpY2ggcmVzZXRzIAo+IGluaXRpYWxfYm9vdF9w
-YXJhbXMgdG8gdGhlIGxpbmVhciBtYXBwaW5nIGFkZHJlc3MgKGl0IHdhcyBpbml0aWFsbHkgCj4g
-c2V0IHRvIDB4NDAwMF8wMDAwIGluIHBhcnNlX2R0YikuIElmIHRoYXQncyB0aGUgY2FzZSwgZG9l
-cyB0aGUgCj4gZm9sbG93aW5nIGZpeCB5b3VyIGlzc3VlPwo+Cj4KPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiBpbmRl
-eCAzNzZkMjgyN2U3MzYuLjJiMDlmMGJkODQzMiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9zZXR1cC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IEBAIC0yNzYs
-NiArMjc2LDcgQEAgdm9pZCBfX2luaXQgc2V0dXBfYXJjaChjaGFyICoqY21kbGluZV9wKQo+IMKg
-wqDCoMKgwqDCoMKgIGVmaV9pbml0KCk7Cj4gwqDCoMKgwqDCoMKgwqAgcGFnaW5nX2luaXQoKTsK
-PiDCoCNpZiBJU19FTkFCTEVEKENPTkZJR19CVUlMVElOX0RUQikKPiArwqDCoMKgwqDCoMKgIGlu
-aXRpYWxfYm9vdF9wYXJhbXMgPSBfX3ZhKFhJUF9GSVhVUChkdGJfZWFybHlfcGEpKTsKPiDCoMKg
-wqDCoMKgwqDCoCB1bmZsYXR0ZW5fYW5kX2NvcHlfZGV2aWNlX3RyZWUoKTsKPiDCoCNlbHNlCj4g
-wqDCoMKgwqDCoMKgwqAgaWYgKGVhcmx5X2luaXRfZHRfdmVyaWZ5KF9fdmEoWElQX0ZJWFVQKGR0
-Yl9lYXJseV9wYSkpKSkKPgo+Cj4+IFvCoMKgwqAgMC4wMDAwMDBdIE9vcHMgWyMxXQo+PiBbwqDC
-oMKgIDAuMDAwMDAwXSBNb2R1bGVzIGxpbmtlZCBpbjoKPj4gW8KgwqDCoCAwLjAwMDAwMF0gQ1BV
-OiAwIFBJRDogMCBDb21tOiBzd2FwcGVyIE5vdCB0YWludGVkIAo+PiA2LjAuMC1yYzEtMDAwMDEt
-ZzBkOWQ2OTUzZDgzNCAjMQo+PiBbwqDCoMKgIDAuMDAwMDAwXSBIYXJkd2FyZSBuYW1lOiBNaWNy
-b2NoaXAgUG9sYXJGaXJlLVNvQyBJY2ljbGUgS2l0IChEVCkKPj4gW8KgwqDCoCAwLjAwMDAwMF0g
-ZXBjIDogc3RyaW5nKzB4NGEvMHhlYQo+PiBbwqDCoMKgIDAuMDAwMDAwXcKgIHJhIDogdnNucHJp
-bnRmKzB4MWU0LzB4MzM2Cj4+IFvCoMKgwqAgMC4wMDAwMDBdIGVwYyA6IGZmZmZmZmZmODAzMzVl
-YTAgcmEgOiBmZmZmZmZmZjgwMzM4OTM2IHNwIDogCj4+IGZmZmZmZmZmODEyMDNiZTAKPj4gW8Kg
-wqDCoCAwLjAwMDAwMF3CoCBncCA6IGZmZmZmZmZmODEyZTBhOTggdHAgOiBmZmZmZmZmZjgxMjBk
-ZTQwIHQwIDogCj4+IDAwMDAwMDAwMDAwMDAwMDAKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCB0MSA6
-IGZmZmZmZmZmODEyMDNlMjggdDIgOiA3MjY1NzM2NTcyMjAzYTQ2IHMwIDogCj4+IGZmZmZmZmZm
-ODEyMDNjMjAKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCBzMSA6IGZmZmZmZmZmODEyMDNlMjggYTAg
-OiBmZmZmZmZmZjgxMjAzZDIyIGExIDogCj4+IDAwMDAwMDAwMDAwMDAwMDAKPj4gW8KgwqDCoCAw
-LjAwMDAwMF3CoCBhMiA6IGZmZmZmZmZmODEyMDNkMDggYTMgOiAwMDAwMDAwMDgxMjAzZDIxIGE0
-IDogCj4+IGZmZmZmZmZmZmZmZmZmZmYKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCBhNSA6IDAwMDAw
-MDAwNDAxYzMxYWMgYTYgOiBmZmZmMGEwMGZmZmZmZjA0IGE3IDogCj4+IGZmZmZmZmZmZmZmZmZm
-ZmYKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCBzMiA6IGZmZmZmZmZmODEyMDNkMDggczMgOiBmZmZm
-ZmZmZjgxMjAzZDAwIHM0IDogCj4+IDAwMDAwMDAwMDAwMDAwMDgKPj4gW8KgwqDCoCAwLjAwMDAw
-MF3CoCBzNSA6IGZmZmZmZmZmMDAwMDAwZmYgczYgOiAwMDAwMDAwMDAwZmZmZmZmIHM3IDogCj4+
-IDAwMDAwMDAwZmZmZmZmMDAKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCBzOCA6IGZmZmZmZmZmODBk
-OTgyMWEgczkgOiBmZmZmZmZmZjgxMjAzZDIyIHMxMDogCj4+IDAwMDAwMDAwMDAwMDAwMDIKPj4g
-W8KgwqDCoCAwLjAwMDAwMF3CoCBzMTE6IGZmZmZmZmZmODBkOTgyMWMgdDMgOiBmZmZmZmZmZjgx
-MmYzNjE3IHQ0IDogCj4+IGZmZmZmZmZmODEyZjM2MTcKPj4gW8KgwqDCoCAwLjAwMDAwMF3CoCB0
-NSA6IGZmZmZmZmZmODEyZjM2MTggdDYgOiBmZmZmZmZmZjgxMjAzZDA4Cj4+IFvCoMKgwqAgMC4w
-MDAwMDBdIHN0YXR1czogMDAwMDAwMDIwMDAwMDEwMCBiYWRhZGRyOiAwMDAwMDAwMDQwMWMzMWFj
-IAo+PiBjYXVzZTogMDAwMDAwMDAwMDAwMDAwZAo+PiBbwqDCoMKgIDAuMDAwMDAwXSBbPGZmZmZm
-ZmZmODAzMzg5MzY+XSB2c25wcmludGYrMHgxZTQvMHgzMzYKPj4gW8KgwqDCoCAwLjAwMDAwMF0g
-WzxmZmZmZmZmZjgwMDU1YWUyPl0gdnByaW50a19zdG9yZSsweGY2LzB4MzQ0Cj4+IFvCoMKgwqAg
-MC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDA1NWQ4Nj5dIHZwcmludGtfZW1pdCsweDU2LzB4MTkyCj4+
-IFvCoMKgwqAgMC4wMDAwMDBdIFs8ZmZmZmZmZmY4MDA1NWVkOD5dIHZwcmludGtfZGVmYXVsdCsw
-eDE2LzB4MWUKPj4gW8KgwqDCoCAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwMDU2M2QyPl0gdnByaW50
-aysweDcyLzB4ODAKPj4gW8KgwqDCoCAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwNjgxM2IyPl0gX3By
-aW50aysweDM2LzB4NTAKPj4gW8KgwqDCoCAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwNjhhZjQ4Pl0g
-cHJpbnRfcmVzZXJ2ZWRfbWVtKzB4MWMvMHgyNAo+PiBbwqDCoMKgIDAuMDAwMDAwXSBbPGZmZmZm
-ZmZmODA4MDU3ZWM+XSBwYWdpbmdfaW5pdCsweDUyOC8weDViYwo+PiBbwqDCoMKgIDAuMDAwMDAw
-XSBbPGZmZmZmZmZmODA4MDMxYWU+XSBzZXR1cF9hcmNoKzB4ZDAvMHg1OTIKPj4gW8KgwqDCoCAw
-LjAwMDAwMF0gWzxmZmZmZmZmZjgwODAwNzBlPl0gc3RhcnRfa2VybmVsKzB4ODIvMHg3M2MKPj4g
-W8KgwqDCoCAwLjAwMDAwMF0gLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4+
-IFvCoMKgwqAgMC4wMDAwMDBdIEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5nOiBBdHRlbXB0ZWQg
-dG8ga2lsbCB0aGUgaWRsZSAKPj4gdGFzayEKPj4gW8KgwqDCoCAwLjAwMDAwMF0gLS0tWyBlbmQg
-S2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxsIAo+PiB0aGUgaWRs
-ZSB0YXNrISBdLS0tCj4+Cj4+IFdlIHRyYWNlZCB0aGlzIGJhY2sgdG8gZWFybHlfaW5pdF9mZHRf
-c2Nhbl9yZXNlcnZlZF9tZW0oKSBpbgo+PiBzZXR1cF9ib290bWVtKCkgLSBtb3ZpbmcgaXQgbGF0
-ZXIgYmFjayB1cCB0aGUgYm9vdCBzZXF1ZW5jZSB0bwo+PiBhZnRlciB0aGUgZHQgaGFzIGJlZW4g
-cmVtYXBwZWQgZXRjIGhhcyBmaXhlZCB0aGUgcHJvYmxlbSBmb3IgdXMuCj4+Cj4+IFRoZSBsZWFz
-dCBtb3ZlbWVudCB0byBnZXQgaXQgd29ya2luZyBpcyBhdHRhY2hlZCwgYW5kIGFsc28gcHVzaGVk
-Cj4+IGhlcmU6IGdpdC5rZXJuZWwub3JnL2Nvbm9yL2MvMTczNTU4OWJhZWZjCj4+Cj4+IFRoZSBz
-ZWNvbmQgcHJvYmxlbSBpcyBhIGJpdCBtb3JlIGNvbXBsaWNhdGVkIHRvIGV4cGxhaW4gLSBidXQg
-d2UKPj4gZm91bmQgdGhlIHNvbHV0aW9uIGNvbmZsaWN0ZWQgd2l0aCB0aGUgcmVtb3RlcHJvYyBm
-aXggYXMgd2UgaGFkCj4+IHRvIG1vdmUgZWFybHlfaW5pdF9mZHRfc2Nhbl9yZXNlcnZlZF9tZW0o
-KSBfZWFybGllcl8gaW4gdGhlIGJvb3QKPj4gcHJvY2VzcyB0byBzb2x2ZSB0aGlzIG9uZS4KPj4K
-Pj4gV2Ugd2FudCB0byBoYXZlIGEgbm9kZSBpbiBvdXIgZGV2aWNldHJlZSB0aGF0IGNvbnRhaW5z
-IHNvbWUgbWVtb3J5Cj4+IHRoYXQgaXMgbm9uLWNhY2hlZCAmIG1hcmtlZCBhcyByZXNlcnZlZC1t
-ZW1vcnkuIE1heWJlIHdlIGhhdmUganVzdAo+PiBtaXNzZWQgc29tZXRoaW5nLCBidXQgZnJvbSB3
-aGF0IHdlJ3ZlIHNlZW46Cj4+IC0gdGhlIHJlYWxseSBlYXJseSBzZXR1cCBsb29rcyBhdCB0aGUg
-ZHRiLCBwaWNrcyB0aGUgaGlnaGVzdCBiaXQKPj4gwqDCoMKgIG9mIG1lbW9yeSBhbmQgcHV0cyB0
-aGUgZHRiIGV0YyB0aGVyZSBzbyBpdCBjYW4gc3RhcnQgdXNpbmcgaXQKPj4gLSBlYXJseV9pbml0
-X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSgpIGlzIHRoZW4gY2FsbGVkLCB3aGljaCBmaWd1cmVzCj4+
-IMKgwqDCoCBvdXQgaWYgbWVtb3J5IGlzIHJlc2VydmVkIG9yIG5vdC4KPj4KPj4gVW5mb3J0dW5h
-dGVseSwgdGhlIGhpZ2hlc3QgYml0IG9mIG1lbW9yeSBpcyB0aGUgbm9uLWNhY2hlZCBiaXQgc28K
-Pj4gZXZlcnl0aGluZyBmYWxscyBvdmVyLCBidXQgd2UgY2FuIGF2b2lkIHRoaXMgYnkgbW92aW5n
-IHRoZSBjYWxsIHRvCj4+IGVhcmx5X2luaXRfZmR0X3NjYW5fcmVzZXJ2ZWRfbWVtKCkgYWJvdmUg
-dGhlIGR0YiBtZW1ibG9jayBhbGxvYyB0aGF0Cj4+IHRha2VzIHBsYWNlIHJpZ2h0IGJlZm9yZSBp
-dCBpbiBzZXR1cF9ib290bWVtKCkuCj4KPgo+IEFuZCB0aGVuIEkgc3VwcG9zZSB0aGUgYWxsb2Nh
-dGlvbnMgeW91IGFyZSBtZW50aW9uaW5nIGhhcHBlbiBpbiAKPiB1bmZsYXR0ZW5fWFhYLCBzbyBw
-YXJzaW5nIHRoZSBkZXZpY2UgdHJlZSBmb3IgcmVzZXJ2ZWQgbWVtb3J5IG5vZGVzIAo+IGJlZm9y
-ZSB0aGlzIHNob3VsZCBkbyB0aGUgdHJpY2suIERvZXMgdGhlIGZvbGxvd2luZyBmaXggeW91ciBz
-ZWNvbmQgCj4gaXNzdWU/Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAu
-YyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiBpbmRleCAyYjA5ZjBiZDg0MzIuLjk0YjNk
-MDQ5ZmU5ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gKysrIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IEBAIC0yNzcsMTQgKzI3NywxNSBAQCB2b2lkIF9f
-aW5pdCBzZXR1cF9hcmNoKGNoYXIgKipjbWRsaW5lX3ApCj4gwqDCoMKgwqDCoMKgwqAgcGFnaW5n
-X2luaXQoKTsKPiDCoCNpZiBJU19FTkFCTEVEKENPTkZJR19CVUlMVElOX0RUQikKPiDCoMKgwqDC
-oMKgwqDCoCBpbml0aWFsX2Jvb3RfcGFyYW1zID0gX192YShYSVBfRklYVVAoZHRiX2Vhcmx5X3Bh
-KSk7Cj4gK8KgwqDCoMKgwqDCoCBlYXJseV9pbml0X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSgpOwo+
-IMKgwqDCoMKgwqDCoMKgIHVuZmxhdHRlbl9hbmRfY29weV9kZXZpY2VfdHJlZSgpOwo+IMKgI2Vs
-c2UKPiAtwqDCoMKgwqDCoMKgIGlmIChlYXJseV9pbml0X2R0X3ZlcmlmeShfX3ZhKFhJUF9GSVhV
-UChkdGJfZWFybHlfcGEpKSkpCj4gK8KgwqDCoMKgwqDCoCBpZiAoZWFybHlfaW5pdF9kdF92ZXJp
-ZnkoX192YShYSVBfRklYVVAoZHRiX2Vhcmx5X3BhKSkpKSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgZWFybHlfaW5pdF9mZHRfc2Nhbl9yZXNlcnZlZF9tZW0oKTsKPiDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5mbGF0dGVuX2RldmljZV90cmVlKCk7Cj4gLcKgwqDC
-oMKgwqDCoCBlbHNlCj4gK8KgwqDCoMKgwqDCoCB9IGVsc2UKPiDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgcHJfZXJyKCJObyBEVEIgZm91bmQgaW4ga2VybmVsIG1hcHBpbmdzXG4iKTsK
-PiDCoCNlbmRpZgo+IC3CoMKgwqDCoMKgwqAgZWFybHlfaW5pdF9mZHRfc2Nhbl9yZXNlcnZlZF9t
-ZW0oKTsKPiDCoMKgwqDCoMKgwqDCoCBtaXNjX21lbV9pbml0KCk7Cj4KPiDCoMKgwqDCoMKgwqDC
-oCBpbml0X3Jlc291cmNlcygpOwo+Cj4KPgo+Pgo+PiBPYnZpb3VzbHksIGJvdGggb2YgdGhlc2Ug
-Y2hhbmdlcyBhcmUgbW92aW5nIHRoZSBmdW5jdGlvbiBjYWxsIGluCj4+IG9wcG9zaXRlIGRpcmVj
-dGlvbnMgYW5kIHdlIGNhbiBvbmx5IHJlYWxseSBkbyBvbmUgb2YgdGhlbS4gV2UgYXJlIG5vdAo+
-PiBzdXJlIGlmIHdoYXQgd2UgYXJlIGRvaW5nIHdpdGggdGhlIG5vbi1jYWNoZWQgcmVzZXJ2ZWQt
-bWVtb3J5IHNlY3Rpb24KPj4gaXMganVzdCBub3QgcGVybWl0dGVkICYgY2Fubm90IHdvcmsgLSBv
-ciBpZiB0aGlzIGlzIHNvbWV0aGluZyB0aGF0Cj4+IHdhcyBvdmVybG9va2VkIGZvciBSSVNDLVYg
-c3BlY2lmaWNhbGx5IGFuZCB3b3JrcyBmb3Igb3RoZXIgYXJjaHMuCj4+Cj4+IEl0IGRvZXMgc2Vl
-bSBsaWtlIHRoZSBmaXJzdCBpc3N1ZSBpcyBhIHJlYWwgYnVnLCBhbmQgSSBhbSBoYXBweSB0bwo+
-PiBzdWJtaXQgdGhlIHBhdGNoIGZvciB0aGF0IHdoZW5ldmVyIC0gYnV0IGhhdmluZyB0d28gcHJv
-YmxlbXMgd2l0aAo+PiBvcHBvc2l0ZSBmaXhlcyBzZWVtZWQgYXMgaWYgdGhlcmUgd2FzIHNvbWV0
-aGluZyBlbHNlIGx1cmtpbmcgdGhhdCB3ZQo+PiBqdXN0IGRvbid0IGhhdmUgZW5vdWdoIHVuZGVy
-c3RhbmRpbmcgdG8gZGV0ZWN0Lgo+Pgo+PiBBbnkgaGVscCB3b3VsZCBiZSBncmVhdCEKPj4KPj4g
-VGhhbmtzLAo+PiBDb25vci4KPj4KPgo+IEV2ZW4gaWYgdGhhdCBkb2VzIG5vdCBmaXggeW91ciBp
-c3N1ZSwgdGhlIGZpcnN0IHBhdGNoIGlzIG5lY2Vzc2FyeSBhcyAKPiBpdCBmaXhlcyBpbml0aWFs
-X2Jvb3RfcGFyYW1zLgo+Cj4KPj4KPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+IGxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+--===============0571223197501153863==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="D9AVMx1vkdavINVt"
+Content-Disposition: inline
+
+--D9AVMx1vkdavINVt
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Mar 09, 2023 at 11:30:07AM +0100, Alexandre Ghiti wrote:
+> Hi Conor,
+
+Hey Alex!
+
+> On 8/16/22 22:41, Conor.Dooley@microchip.com wrote:
+> > Hey all,
+> > We've run into a bit of a problem with reserved memory on PolarFire, or
+> > more accurately a pair of problems that seem to have opposite fixes.
+> >=20
+> > The first of these problems is triggered when trying to implement a
+> > remoteproc driver. To get the reserved memory buffer, remoteproc
+> > does an of_reserved_mem_lookup(), something like:
+> >=20
+> > 	np =3D of_parse_phandle(pdev->of_node, "memory-region", 0);
+> > 	if (!np)
+> > 		return -EINVAL;
+> >=20
+> > 	rmem =3D of_reserved_mem_lookup(np);
+> > 	if (!rmem)
+> > 		return -EINVAL;
+> >=20
+> > of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
+> > a match - but this was triggering kernel panics for us. We did some
+> > debugging and found that the name string's pointer was pointing to an
+> > address in the 0x4000_0000 range. The minimum reproduction for this
+>=20
+>=20
+> 0x4000_0000 corresponds to DTB_EARLY_BASE_VA: this is the address that is
+> used to map the dtb before we can access it using the linear mapping.
+>=20
+>=20
+> > crash is attached - it hacks in some print_reserved_mem()s into
+> > setup_vm_final() around a tlb flush so you can see the before/after.
+> > (You'll need a reserved memory node in your dts to replicate)
+> >=20
+> > The output is like so, with the same crash as in the remoteproc driver:
+> >=20
+> > [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy=
+) (riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutil=
+s) 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
+> > [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+> > [    0.000000] Machine model: Microchip PolarFire-SoC Icicle Kit
+> > [    0.000000] earlycon: ns16550a0 at MMIO32 0x0000000020100000 (option=
+s '115200n8')
+> > [    0.000000] printk: bootconsole [ns16550a0] enabled
+> > [    0.000000] printk: debug: skip boot console de-registration.
+> > [    0.000000] efi: UEFI not found.
+> > [    0.000000] before flush
+> > [    0.000000] OF: reserved mem: debug name is fabricbuf@ae000000
+> > [    0.000000] after flush
+> > [    0.000000] Unable to handle kernel paging request at virtual addres=
+s 00000000401c31ac
+>=20
+>=20
+> You take the trap here because the mapping for the dtb does not exist in
+> swapper_pg_dir, but you don't need this mapping anymore as you can access
+> the device tree through the linear mapping now.
+>=20
+> I would say that: you build your kernel with CONFIG_BUILTIN_DTB
+
+I do not have any "NONPORTABLE" options selected.
+
+> and then you
+> don't call early_init_dt_verify which resets initial_boot_params to the
+> linear mapping address (it was initially set to 0x4000_0000 in parse_dtb).
+> If that's the case, does the following fix your issue?
+
+I dunno, I don't hit this issue anymore as of 50e63dd8ed92 ("riscv: fix
+reserved memory setup"). That might not be the right fix in the grand
+scheme of things, but it solved problems that both I and others were
+hitting.
+
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 376d2827e736..2b09f0bd8432 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -276,6 +276,7 @@ void __init setup_arch(char **cmdline_p)
+> =A0=A0=A0=A0=A0=A0=A0 efi_init();
+> =A0=A0=A0=A0=A0=A0=A0 paging_init();
+> =A0#if IS_ENABLED(CONFIG_BUILTIN_DTB)
+> +=A0=A0=A0=A0=A0=A0 initial_boot_params =3D __va(XIP_FIXUP(dtb_early_pa));
+> =A0=A0=A0=A0=A0=A0=A0 unflatten_and_copy_device_tree();
+> =A0#else
+> =A0=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_p=
+a))))
+
+I'll try and allocate some time for looking at this next week, got some
+items on my todo list first. I doubt it'll help me cos I have not get
+that option set, but I can go and test reserved memory stuff for systems
+that do use it (I have a k210).
+
+> > [    0.000000] Oops [#1]
+> > [    0.000000] Modules linked in:
+> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.0.0-rc1-00001-=
+g0d9d6953d834 #1
+> > [    0.000000] Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+> > [    0.000000] epc : string+0x4a/0xea
+> > [    0.000000]  ra : vsnprintf+0x1e4/0x336
+> > [    0.000000] epc : ffffffff80335ea0 ra : ffffffff80338936 sp : ffffff=
+ff81203be0
+> > [    0.000000]  gp : ffffffff812e0a98 tp : ffffffff8120de40 t0 : 000000=
+0000000000
+> > [    0.000000]  t1 : ffffffff81203e28 t2 : 7265736572203a46 s0 : ffffff=
+ff81203c20
+> > [    0.000000]  s1 : ffffffff81203e28 a0 : ffffffff81203d22 a1 : 000000=
+0000000000
+> > [    0.000000]  a2 : ffffffff81203d08 a3 : 0000000081203d21 a4 : ffffff=
+ffffffffff
+> > [    0.000000]  a5 : 00000000401c31ac a6 : ffff0a00ffffff04 a7 : ffffff=
+ffffffffff
+> > [    0.000000]  s2 : ffffffff81203d08 s3 : ffffffff81203d00 s4 : 000000=
+0000000008
+> > [    0.000000]  s5 : ffffffff000000ff s6 : 0000000000ffffff s7 : 000000=
+00ffffff00
+> > [    0.000000]  s8 : ffffffff80d9821a s9 : ffffffff81203d22 s10: 000000=
+0000000002
+> > [    0.000000]  s11: ffffffff80d9821c t3 : ffffffff812f3617 t4 : ffffff=
+ff812f3617
+> > [    0.000000]  t5 : ffffffff812f3618 t6 : ffffffff81203d08
+> > [    0.000000] status: 0000000200000100 badaddr: 00000000401c31ac cause=
+: 000000000000000d
+> > [    0.000000] [<ffffffff80338936>] vsnprintf+0x1e4/0x336
+> > [    0.000000] [<ffffffff80055ae2>] vprintk_store+0xf6/0x344
+> > [    0.000000] [<ffffffff80055d86>] vprintk_emit+0x56/0x192
+> > [    0.000000] [<ffffffff80055ed8>] vprintk_default+0x16/0x1e
+> > [    0.000000] [<ffffffff800563d2>] vprintk+0x72/0x80
+> > [    0.000000] [<ffffffff806813b2>] _printk+0x36/0x50
+> > [    0.000000] [<ffffffff8068af48>] print_reserved_mem+0x1c/0x24
+> > [    0.000000] [<ffffffff808057ec>] paging_init+0x528/0x5bc
+> > [    0.000000] [<ffffffff808031ae>] setup_arch+0xd0/0x592
+> > [    0.000000] [<ffffffff8080070e>] start_kernel+0x82/0x73c
+> > [    0.000000] ---[ end trace 0000000000000000 ]---
+> > [    0.000000] Kernel panic - not syncing: Attempted to kill the idle t=
+ask!
+> > [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill t=
+he idle task! ]---
+> >=20
+> > We traced this back to early_init_fdt_scan_reserved_mem() in
+> > setup_bootmem() - moving it later back up the boot sequence to
+> > after the dt has been remapped etc has fixed the problem for us.
+> >=20
+> > The least movement to get it working is attached, and also pushed
+> > here: git.kernel.org/conor/c/1735589baefc
+> >=20
+> > The second problem is a bit more complicated to explain - but we
+> > found the solution conflicted with the remoteproc fix as we had
+> > to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
+> > process to solve this one.
+> >=20
+> > We want to have a node in our devicetree that contains some memory
+> > that is non-cached & marked as reserved-memory. Maybe we have just
+> > missed something, but from what we've seen:
+> > - the really early setup looks at the dtb, picks the highest bit
+> >     of memory and puts the dtb etc there so it can start using it
+> > - early_init_fdt_scan_reserved_mem() is then called, which figures
+> >     out if memory is reserved or not.
+> >=20
+> > Unfortunately, the highest bit of memory is the non-cached bit so
+> > everything falls over, but we can avoid this by moving the call to
+> > early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
+> > takes place right before it in setup_bootmem().
+>=20
+>=20
+> And then I suppose the allocations you are mentioning happen in
+> unflatten_XXX, so parsing the device tree for reserved memory nodes before
+> this should do the trick. Does the following fix your second issue?
+
+Again, I'll have to look at this.
+To give you a quick answer, I believe it is the create_pgd_mapping()
+stuff in setup_vm_final() actually.
+I'm not super sure about this particular bit of the issue, but in the
+email I sent more recently that expands on these issues (that Mike
+replied to the other day) the similar issue that I saw the allocations
+in reserved memory were inside paging_init().
+
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 2b09f0bd8432..94b3d049fe9d 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -277,14 +277,15 @@ void __init setup_arch(char **cmdline_p)
+> =A0=A0=A0=A0=A0=A0=A0 paging_init();
+> =A0#if IS_ENABLED(CONFIG_BUILTIN_DTB)
+> =A0=A0=A0=A0=A0=A0=A0 initial_boot_params =3D __va(XIP_FIXUP(dtb_early_pa=
+));
+> +=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_mem();
+> =A0=A0=A0=A0=A0=A0=A0 unflatten_and_copy_device_tree();
+> =A0#else
+> -=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)=
+)))
+> +=A0=A0=A0=A0=A0=A0 if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)=
+))) {
+> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_=
+mem();
+> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 unflatten_device_tree();
+
+Previously, this was problematic (doing the scan before unflattening).
+I moved the scan to the earliest possible place that I could call it
+without issues.
+I'll get back to you...
+
+> -=A0=A0=A0=A0=A0=A0 else
+> +=A0=A0=A0=A0=A0=A0 } else
+> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr_err("No DTB found in ker=
+nel mappings\n");
+> =A0#endif
+> -=A0=A0=A0=A0=A0=A0 early_init_fdt_scan_reserved_mem();
+> =A0=A0=A0=A0=A0=A0=A0 misc_mem_init();
+>=20
+> =A0=A0=A0=A0=A0=A0=A0 init_resources();
+>=20
+>=20
+>=20
+> >=20
+> > Obviously, both of these changes are moving the function call in
+> > opposite directions and we can only really do one of them. We are not
+> > sure if what we are doing with the non-cached reserved-memory section
+> > is just not permitted & cannot work - or if this is something that
+> > was overlooked for RISC-V specifically and works for other archs.
+> >=20
+> > It does seem like the first issue is a real bug, and I am happy to
+> > submit the patch for that whenever - but having two problems with
+> > opposite fixes seemed as if there was something else lurking that we
+> > just don't have enough understanding to detect.
+> >=20
+> > Any help would be great!
+> >=20
+> > Thanks,
+> > Conor.
+> >=20
+>=20
+> Even if that does not fix your issue, the first patch is necessary as it
+> fixes initial_boot_params.
+
+Sure, send a patch (with a nice commit message please, so that I don't
+have to remember the whole process to review it!!) as my brain has long
+since swapped out the nitty gritty of the unflattening -> scanning
+process.
+
+Thanks Alex!
+
+Conor.
+
+--D9AVMx1vkdavINVt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAnR5AAKCRB4tDGHoIJi
+0nd6AP9aKgJF6ZiRxDYTiFjoBjGvPICDi+XYXbGwQU7I1Blb0wEArb3aVt5GJKWv
+6ckBjMCoW9rpjjNTxl/1Bdp0Myy+wQU=
+=6lBC
+-----END PGP SIGNATURE-----
+
+--D9AVMx1vkdavINVt--
+
+
+--===============0571223197501153863==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0571223197501153863==--
+
