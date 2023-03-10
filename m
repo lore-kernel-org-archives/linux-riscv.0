@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4C1C6FD19
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 09:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D47C6FD19
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 09:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pyz6eSgQTqZki2qlLqEuMuoUqOcOMAn/tuOr8WKsCMc=; b=paLCxuFeO7FDoO
-	ddXvqJkeQyylgOb4VnNG3JFBG3yUNO/cBrQb7iNLBoRmDjZXHgXCzQAxrVvGeNMM9jHDnUFFeGLpv
-	UmG8obZDdoq4p4PChzal7pNz6WCRFmLobZ+p0L8A8C0aBIZXYuEp4w4OqgWJO9N0Kq63JcOZJH18O
-	7qfRYzcPn36q91sdfhxLX6psgWTT3cIA5tDnUSbbPmYYzIoxi0/09N01LSYpvfNbAkQeG2+pJM8fa
-	SSng8D6b4RA4KFuCaAKkMBw3tXP3NpR5gXHQRwTj6N9y77hcTa2MWdV0IMm2s6u0j5lNMwWAjyPl6
-	2vm1lI4utU2t+O0vhiHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6SLI665Agf4MuB+gqOJbzyZoyvLeML2O0ews8KD77C4=; b=TIUBFrnXaDJurM
+	TEgpaTaaVwQXMUV2UyT1xpDWmToa4MQqJPRHzWMcB5Gpno5AhxKlOwEFoguqslsSutEpKWW86WYNN
+	8GMsQXk9SO/Dq+B8/bVYMtRt4owwcxwDIm/a0YkSJn5SXJ29ikHLKN6dm6wprOMaevmXZxlJNxw9s
+	TDTdCh4kafvn/1aP0mtsQUGL35lj1iU5p45P6ARLZPG6l6Mbz31nHB5a0tISKTy1+gRLFzgZ2s03H
+	53RVeLZRma+55WbJYagFHzv1oKOS5j2AY9kFx5XcLj+1l8VlluSa1Kia1iZhMgBhFFEaHl9w0I7nG
+	1V9q1adNQx2JLZ/vCYgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paZK4-00E0t6-HR; Fri, 10 Mar 2023 09:46:00 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1paZL5-00E1CB-FK; Fri, 10 Mar 2023 09:47:03 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paZJt-00E0oi-12
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 09:45:51 +0000
-Received: by mail-wr1-x433.google.com with SMTP id l25so4467052wrb.3
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Mar 2023 01:45:45 -0800 (PST)
+	id 1paZKr-00E15S-7f
+	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 09:46:51 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id ay29-20020a05600c1e1d00b003e9f4c2b623so5551556wmb.3
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Mar 2023 01:46:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678441544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UftmAx9eMUlUVZ1zG+blrWbVPdUhF6IePoR+esHHRyE=;
-        b=mw/JcuakIGznshhAisrjTRMD8Po1tDitbLm42cReJ+D5WwLSfKHow3B63jzrH5HNzg
-         im0RBmwfWgltbaAWUJfikpey3379n7iZgcZV1xayELAh3GVtZKo9jw2i4oYXXL0/h3FX
-         vnKMl9pnCxls1xtoHkwRsxR73kAA1NnZ0Uvi9JFZokS5Oul8vNx2CdfxWCg25vVTzULy
-         /bL073+f9A0eCN03cbNr92x9ZQW1JVyhrVWHsaHy3G8YR4nIjwpNNqi8F/5MyxOjpXv8
-         IaWEpDsI+7aC3l8hLqSbbjhgSsESc6VIiplKe/ZqliiM6bRlTKclTHaj6U36MU59E2zp
-         tHjw==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678441605;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KgQQy0WOaC8x36p48NSIJDImmcDBT39MIpy6PGzDwU8=;
+        b=DK0AVNF24CSovjJHjfX2BnbZdKEc3SCRhmed7jkWmNWONYRQJpkIDL/dDxC8+TqV4s
+         iPdx2usmr4K0UsSvTjdyMJmHIJpwPpBtCXOt0TWuokX7Zry9p/D+3rjrf+QNRJWTAH9d
+         FjemEPIjcSPl6Z/IT3jQJZ+EuCULRYq4LA1+kUq2ILkogKGSgomgez1hILg2QQS3XD5g
+         MnLjt536CUEpLSQiQqLquY6n4kpR5vSmgTKTmGbi96kMFXMKcVgHdPrFYi3R8Xkr71dD
+         FrlWWYDKsTczd5y5BLAiMFpgQ4ohQfrZRU/KQHi3A7pE0F0Ua9QPnaql2wwabry3iuEd
+         DTwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678441544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UftmAx9eMUlUVZ1zG+blrWbVPdUhF6IePoR+esHHRyE=;
-        b=17She4qMX41yAKyijweaULGEt02IAxEkamWa/DlaDqED3uocKdApWxll7lRYh5cliH
-         KZL+2qcGtvsRbT2kPE8Ly0adChPPJ5kaud032pSecQyfWKIteLmFYKak+GqtyvRt3Tjf
-         DTi4yEbUG9GBr3eedQQB806TJCW1jE7R2/3VH9gQznMSjZTbWKchVXasst87+8mJ/Hsm
-         13H4d1uELRp3qw1odVApJra8ttWm6miAcsrAMoYHnh4XxVpdHzc3bMVrh/PyxEZuFS+S
-         uNm6YMeYntbAR2PMTk4eapPkzCYrMNncYfJCeMWBjG6WGBqZ+MAlDGkhE2X2y/y4MWTT
-         ja0Q==
-X-Gm-Message-State: AO0yUKVM7xfLZ7R+c6+WvsT+GY0OoU9vGfck6uRFtz9Ya0X9dmrido++
-	8sfoDGX1pLGsJnL9ii9r5o4/CQ==
-X-Google-Smtp-Source: AK7set+348Cnhg9OopXRYq6mmFzZ+O41Mzkm9zWAs2amuAeiaWL8WS531F/GY1Nq+XByYlhgrJNy4g==
-X-Received: by 2002:adf:fbcc:0:b0:2c7:bb13:e23f with SMTP id d12-20020adffbcc000000b002c7bb13e23fmr16291966wrs.24.1678441544476;
-        Fri, 10 Mar 2023 01:45:44 -0800 (PST)
+        d=1e100.net; s=20210112; t=1678441605;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KgQQy0WOaC8x36p48NSIJDImmcDBT39MIpy6PGzDwU8=;
+        b=DUspEdV4VyjDidqJaEZ6xKGFAt3ImR6T6Zcv5TqvXZuXkviTrGeVD3Dz1W4LSJAMSe
+         QsPjz6pEI25ETKqXPJYIAqNL6GLuj3SZ4J0MRL9kLxxI/Eb00f+XA1l6mXqaTjZ4BQz/
+         q4NTisifGowt/OPyOeoFKk30205kUW0ZYoM5dhLC+e+kvJyKzgL9jEjn3p94zpRVA4nd
+         lO1m0vSw8Gf+Pm2RYy930ZwmWJRt9g8pyheDc2l1XohsHouxGw9AGwSyqngrCFi/CHck
+         hohUT/vt077kwD/Y5ETr64C9mG454gzVZlSvhHn/el5WH/F+tc1hrQbfG9RFl8WseP77
+         YoRw==
+X-Gm-Message-State: AO0yUKWN9nbR9S1OR3U64Jt7Th+RdxjfGH8SM2DVCYJ45zD//H0yCKfj
+	tXGB/dP8t3AjNNYFaeQN3xLiLg==
+X-Google-Smtp-Source: AK7set8b349TneToQStuc8wRqpg6p575gxaExAvpkNXCodRjWOTreYyk5UxGc9fCPDchPDs9B8XsoA==
+X-Received: by 2002:a05:600c:4452:b0:3eb:2de8:b739 with SMTP id v18-20020a05600c445200b003eb2de8b739mr1958858wmn.37.1678441605417;
+        Fri, 10 Mar 2023 01:46:45 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id r7-20020a0560001b8700b002c7163660a9sm1646775wru.105.2023.03.10.01.45.43
+        by smtp.gmail.com with ESMTPSA id iz9-20020a05600c554900b003eb369abd92sm2461929wmb.2.2023.03.10.01.46.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Mar 2023 01:45:44 -0800 (PST)
+        Fri, 10 Mar 2023 01:46:45 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -75,15 +76,18 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v7 0/4] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Date: Fri, 10 Mar 2023 10:45:35 +0100
-Message-Id: <20230310094539.764357-1-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: [PATCH v7 1/4] riscv: Get rid of riscv_pfn_base variable
+Date: Fri, 10 Mar 2023 10:45:36 +0100
+Message-Id: <20230310094539.764357-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230310094539.764357-1-alexghiti@rivosinc.com>
+References: <20230310094539.764357-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230310_014549_320049_3F7FA748 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20230310_014649_302023_7CD4FC51 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +104,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset intends to improve tlb utilization by using hugepages for
-the linear mapping.
+Use directly phys_ram_base instead, riscv_pfn_base is just the pfn of
+the address contained in phys_ram_base.
 
-As reported by Anup in v6, when STRICT_KERNEL_RWX is enabled, we must
-take care of isolating the kernel text and rodata so that they are not
-mapped with a PUD mapping which would then assign wrong permissions to
-the whole region: it is achieved by introducing a new memblock API.
+Even if there is no functional change intended in this patch, actually
+setting phys_ram_base that early changes the behaviour of
+kernel_mapping_pa_to_va during the early boot: phys_ram_base used to be
+zero before this patch and now it is set to the physical start address of
+the kernel. But it does not break the conversion of a kernel physical
+address into a virtual address since kernel_mapping_pa_to_va should only
+be used on kernel physical addresses, i.e. addresses greater than the
+physical start address of the kernel.
 
-Another patch makes use of this new API in arm64 which used some sort of
-hack to solve this issue: it was built/boot tested successfully.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/include/asm/page.h | 3 +--
+ arch/riscv/mm/init.c          | 6 +-----
+ 2 files changed, 2 insertions(+), 7 deletions(-)
 
-base-commit-tag: v6.3-rc1
-
-v7:
-- Fix Anup bug report by introducing memblock_isolate_memory which
-  allows us to split the memblock mappings and then avoid to map the
-  the PUD which contains the kernel as read only
-- Add a patch to arm64 to use this newly introduced API
-
-v6:
-- quiet LLVM warning by casting phys_ram_base into an unsigned long
-
-v5:
-- Fix nommu builds by getting rid of riscv_pfn_base in patch 1, thanks
-  Conor
-- Add RB from Andrew
-
-v4:
-- Rebase on top of v6.2-rc3, as noted by Conor
-- Add Acked-by Rob
-
-v3:
-- Change the comment about initrd_start VA conversion so that it fits
-  ARM64 and RISCV64 (and others in the future if needed), as suggested
-  by Rob
-
-v2:
-- Add a comment on why RISCV64 does not need to set initrd_start/end that
-  early in the boot process, as asked by Rob
-
-Alexandre Ghiti (4):
-  riscv: Get rid of riscv_pfn_base variable
-  mm: Introduce memblock_isolate_memory
-  arm64: Make use of memblock_isolate_memory for the linear mapping
-  riscv: Use PUD/P4D/PGD pages for the linear mapping
-
- arch/arm64/mm/mmu.c           |  4 ++--
- arch/riscv/include/asm/page.h | 19 +++++++++++++++--
- arch/riscv/mm/init.c          | 39 ++++++++++++++++++++++++++---------
- arch/riscv/mm/physaddr.c      | 16 ++++++++++++++
- drivers/of/fdt.c              | 11 +++++-----
- include/linux/memblock.h      |  1 +
- mm/memblock.c                 | 22 +++++++++++++++++++-
- 7 files changed, 92 insertions(+), 20 deletions(-)
-
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 7fed7c431928..8dc686f549b6 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -91,8 +91,7 @@ typedef struct page *pgtable_t;
+ #endif
+ 
+ #ifdef CONFIG_MMU
+-extern unsigned long riscv_pfn_base;
+-#define ARCH_PFN_OFFSET		(riscv_pfn_base)
++#define ARCH_PFN_OFFSET		(PFN_DOWN((unsigned long)phys_ram_base))
+ #else
+ #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
+ #endif /* CONFIG_MMU */
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 478d6763a01a..225a7d2b65cc 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -271,9 +271,6 @@ static void __init setup_bootmem(void)
+ #ifdef CONFIG_MMU
+ struct pt_alloc_ops pt_ops __initdata;
+ 
+-unsigned long riscv_pfn_base __ro_after_init;
+-EXPORT_SYMBOL(riscv_pfn_base);
+-
+ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+@@ -285,7 +282,6 @@ static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAG
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ #define pt_ops			(*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
+-#define riscv_pfn_base         (*(unsigned long  *)XIP_FIXUP(&riscv_pfn_base))
+ #define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
+ #define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
+ #define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
+@@ -985,7 +981,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
+ 	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
+ 
+-	riscv_pfn_base = PFN_DOWN(kernel_map.phys_addr);
++	phys_ram_base = kernel_map.phys_addr;
+ 
+ 	/*
+ 	 * The default maximal physical memory size is KERN_VIRT_SIZE for 32-bit
 -- 
 2.37.2
 
