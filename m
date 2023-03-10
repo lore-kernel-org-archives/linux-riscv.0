@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2F3C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 02:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EF1C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 02:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P8eUJb1mPjRXxh0qk8CqUwNRxP+EzBf904+GwNDkw5A=; b=A6bwbpkJrDx9MK
-	I8srTYQxhLtJdXhxVHFJtf0Hq7C6b5T0C/2l/ClTw9dx6tSJadxPF2D080S0YoYwh6UNS1I5Nzw55
-	FQLRC88N1z7/Jdswm1xZZhaqIMNRnyO7hExVa5wL247xjYbvlBB5SXZMEUKj8Ga2TQjKKcookHVc9
-	8mHOhC2hWcKnuwiku5rHc4/kFIMt5GcR6czI3EPxlaKkzid4AiSPReF2P1252KrSHTYbXULjdL2TK
-	P7LF33Lka/CVA3MNZFVnhkbW7lviaX8e5BtqblAlvdX0UZgPDjyvMh9HU6uV80cbdyzg03Qb9LXmE
-	A9vnAq8duEFH0Ws0Kd+A==;
+	List-Owner; bh=6i+KA8kHNLnFXoNnAR66z+cbSOMvz9cDG2FEBWIX4eE=; b=vA8PAqa71Fw8Zf
+	JIk4Y41wU/wnsPKf2JavALYpL4wXnhhhomIbiw1m5HEH2lfCvNCNrkVCZUGkJr0cqFRBZS7cuBhQj
+	NeH3EF1WUV5Mi1EEkQy4eRPHznLdWvqJbllWra+OKaYepMpnedScV94sR9cEYKSapDAUQG9zi2Pon
+	QcFmTfhpQR7MZ5rDkeHZf9c37qi9ylZ59XzZMKLGbn4WxEspLOKNFbRxsymZssQ8iC9oajSiEM/6t
+	mMz1NwTpFlHHdjWV7lqU2TA7pSVHC/v8eHSuL+FznS0isFThl9PBLqQlC2V6rI5gkAOqC7x7LHWdV
+	8UdxZu01Sdn4igUti4rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paSWY-00CiKU-AT; Fri, 10 Mar 2023 02:30:26 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1paSWb-00CiLw-F5; Fri, 10 Mar 2023 02:30:29 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paSWU-00CiIO-K9
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 02:30:24 +0000
+	id 1paSWZ-00CiJw-5w
+	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 02:30:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 89BC8B8217F;
+	by sin.source.kernel.org (Postfix) with ESMTPS id E2673CE2716;
 	Fri, 10 Mar 2023 02:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 444ACC4339B;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 58C4DC4339C;
 	Fri, 10 Mar 2023 02:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1678415419;
-	bh=pMzNuN821RyzrFx8yXNEEI+x1tjaQJEKQdnWQcuD2CY=;
+	bh=bKiV0Xvo7sKCXPxFTqkgixvqM/7sMqdz4rxmS27H1GY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aUYzlu7h91RfNyr4eDlK3VcyOouEGQuzGKmd/xyEVTunNTGAyr7j6l/nWQqC3HpOk
-	 C1R02yoB8kGzu4URC9vWWt/hXIoa40fkt6q0kkP7EMZuwir/0bKtJ1jaAp0SvevEfE
-	 Avl2Lb+RaWzNqFxzKG5ToiQuJZOzSaXihPbdUm4UopcbQp7CoRmpEufwTN84Q0Spvz
-	 HOKMkcR3qaBQbh7l4TaC0X5ZwwOD/MSRndfGYp6vU8zElFeZom+sBlQurx75NF+CYT
-	 OZoQ2aWjxbnk8w75bGij3R/UGYQuwjx0MWurs7fFenDqfFpDu3CqhJ/JvfSusF6D3L
-	 6nY1UxDLaUj5w==
+	b=g+H34xjQ0y3JWgpcbTfVs35aBKwqKBbqt6dapC/QV5y46CiCEefULoETmvPCGHy6v
+	 MdGyrYH9WqMY/IA5k4Ft4SV/SH9DtlQn1T++3jOBoaL9ydOibuKAoG6j8ixEqV0q71
+	 2CkYs8FNkgeV1VqGNYDHydho15PG68Ov5rD8OPbIe5ns9gBOeA0NXmQ4CaDbQlQEMn
+	 VmNYuZfUci6oJ+jNWQAe+XNRZCe1hzVAl6479qagFykjZzGICZ41/C4H0EmwxY/9d8
+	 W7kywPJuNDIwnfKyOcnoxDSTyTk3pMuIoEfx92pcZTFRZgPDo5c6tDkf8XUSmuTc6q
+	 UHIr80Ua5g/mw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1C302E61B76;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3174DE21EEA;
 	Fri, 10 Mar 2023 02:30:19 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] riscv: asid: switch to alternative way to fix stale TLB
- entries
+Subject: Re: [PATCH] riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack
+ mode
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167841541911.17842.1187782812543670687.git-patchwork-notify@kernel.org>
+Message-Id:  <167841541919.17842.10261054652311897241.git-patchwork-notify@kernel.org>
 Date: Fri, 10 Mar 2023 02:30:19 +0000
-References: <20230226150137.1919750-1-geomatsi@gmail.com>
-In-Reply-To: <20230226150137.1919750-1-geomatsi@gmail.com>
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com, zong.li@sifive.com,
- guoren@kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
- paul.walmsley@sifive.com
+References: <20230308091639.602024-1-alexghiti@rivosinc.com>
+In-Reply-To: <20230308091639.602024-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ chathura.abeyrathne.lk@gmail.com, dvyukov@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_183022_832006_EF463D1F 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20230309_183027_585075_4D9B9422 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +78,74 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sun, 26 Feb 2023 18:01:35 +0300 you wrote:
-> Hi all,
+On Wed,  8 Mar 2023 10:16:39 +0100 you wrote:
+> When CONFIG_FRAME_POINTER is unset, the stack unwinding function
+> walk_stackframe randomly reads the stack and then, when KASAN is enabled,
+> it can lead to the following backtrace:
 > 
-> Some time ago two different patches have been posted to fix stale TLB
-> entries that caused applications crashes.
-> 
-> The patch [0] suggested 'aggregating' mm_cpumask, i.e. current cpu is not
-> cleared for the switched-out task in switch_mm function. For additional
-> explanations see the commit message by Guo Ren. The same approach is
-> used by arc architecture, so another good comment is for switch_mm
-> in arch/arc/include/asm/mmu_context.h.
+> [    0.000000] ==================================================================
+> [    0.000000] BUG: KASAN: stack-out-of-bounds in walk_stackframe+0xa6/0x11a
+> [    0.000000] Read of size 8 at addr ffffffff81807c40 by task swapper/0
+> [    0.000000]
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.2.0-12919-g24203e6db61f #43
+> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+> [    0.000000] Call Trace:
+> [    0.000000] [<ffffffff80007ba8>] walk_stackframe+0x0/0x11a
+> [    0.000000] [<ffffffff80099ecc>] init_param_lock+0x26/0x2a
+> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
+> [    0.000000] [<ffffffff80c49c80>] dump_stack_lvl+0x22/0x36
+> [    0.000000] [<ffffffff80c3783e>] print_report+0x198/0x4a8
+> [    0.000000] [<ffffffff80099ecc>] init_param_lock+0x26/0x2a
+> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
+> [    0.000000] [<ffffffff8015f68a>] kasan_report+0x9a/0xc8
+> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
+> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
+> [    0.000000] [<ffffffff8006e99c>] desc_make_final+0x80/0x84
+> [    0.000000] [<ffffffff8009a04e>] stack_trace_save+0x88/0xa6
+> [    0.000000] [<ffffffff80099fc2>] filter_irq_stacks+0x72/0x76
+> [    0.000000] [<ffffffff8006b95e>] devkmsg_read+0x32a/0x32e
+> [    0.000000] [<ffffffff8015ec16>] kasan_save_stack+0x28/0x52
+> [    0.000000] [<ffffffff8006e998>] desc_make_final+0x7c/0x84
+> [    0.000000] [<ffffffff8009a04a>] stack_trace_save+0x84/0xa6
+> [    0.000000] [<ffffffff8015ec52>] kasan_set_track+0x12/0x20
+> [    0.000000] [<ffffffff8015f22e>] __kasan_slab_alloc+0x58/0x5e
+> [    0.000000] [<ffffffff8015e7ea>] __kmem_cache_create+0x21e/0x39a
+> [    0.000000] [<ffffffff80e133ac>] create_boot_cache+0x70/0x9c
+> [    0.000000] [<ffffffff80e17ab2>] kmem_cache_init+0x6c/0x11e
+> [    0.000000] [<ffffffff80e00fd6>] mm_init+0xd8/0xfe
+> [    0.000000] [<ffffffff80e011d8>] start_kernel+0x190/0x3ca
+> [    0.000000]
+> [    0.000000] The buggy address belongs to stack of task swapper/0
+> [    0.000000]  and is located at offset 0 in frame:
+> [    0.000000]  stack_trace_save+0x0/0xa6
+> [    0.000000]
+> [    0.000000] This frame has 1 object:
+> [    0.000000]  [32, 56) 'c'
+> [    0.000000]
+> [    0.000000] The buggy address belongs to the physical page:
+> [    0.000000] page:(____ptrval____) refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81a07
+> [    0.000000] flags: 0x1000(reserved|zone=0)
+> [    0.000000] raw: 0000000000001000 ff600003f1e3d150 ff600003f1e3d150 0000000000000000
+> [    0.000000] raw: 0000000000000000 0000000000000000 00000001ffffffff
+> [    0.000000] page dumped because: kasan: bad access detected
+> [    0.000000]
+> [    0.000000] Memory state around the buggy address:
+> [    0.000000]  ffffffff81807b00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> [    0.000000]  ffffffff81807b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> [    0.000000] >ffffffff81807c00: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 00 f3
+> [    0.000000]                                            ^
+> [    0.000000]  ffffffff81807c80: f3 f3 f3 f3 00 00 00 00 00 00 00 00 00 00 00 00
+> [    0.000000]  ffffffff81807d00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> [    0.000000] ==================================================================
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] Revert "riscv: mm: notify remote harts about mmu cache updates"
-    https://git.kernel.org/riscv/c/e921050022f1
-  - [2/2] riscv: asid: Fixup stale TLB entry cause application crash
-    https://git.kernel.org/riscv/c/82dd33fde026
+  - riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack mode
+    https://git.kernel.org/riscv/c/76950340cf03
 
 You are awesome, thank you!
 -- 
