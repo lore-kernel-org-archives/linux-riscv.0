@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DD0C64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 16:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FAFC64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 17:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iOnUuUsQuiJrbJBX8xGg3VKHW65visZ3DaF5PCRDyXs=; b=UFowTFOR7tsbrA
-	1FFftJY13aDo/HbmEMcDoNGrWjacVvbit0JEcR5pX5i1Zwu5pzIMbEgYE+FcyrmvYaPRzbIM4pSuv
-	9AdtlWUIFFnRXg+hcQ3tn/HI8qmdxWzVnRl+YGw8YIBqDXeicyh+wNzLBtwkejw8s0vYX8Uyg9c9Q
-	+eT2CS5Cdqke/VTar9Q/b5SzZsNxs23gp0ez7Wsk3g4JLM9GIXkRdGUGWLeOL3uPJsPje0RtjR9CR
-	LTqv9qjeTaGn1+Sj4mFwOfpKQBoJezAtQrm2/yHL/xYkh3/A8tZ05ctZVmpv2hUF9xiFDEKZCB4Fn
-	N7vYPq3HMjRRwC5lxAIQ==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=53UyiOG9cPwFrMr/9oZyySOUR2WXM94v3Knd/3ZvgAc=; b=EILigZMm6KXhDC
+	MKz2tmskelHjGac5phkd5O9TZjieZt5NcFOBqQQma32rL6m6bluQXTozncBZ0oSCjoiyJHe0FaAfl
+	koya+Zgd94b/5xPHqzOS7Y83TWac/wPXzsAExNfV1LzJQt23qNzDSx0yJJUAHrSKC4l2Brg8vgZYB
+	6eRQEyoS2SOo5E5n5zTDcGg2d0zcLCmhl3ztS2WS+Pdkci/bqWXjsrtlGXvuc72JVv1ZMP1eNlDr9
+	UYJxxL5RcdxqaGyW9EJXvUCfd+BK3+xPxGkwcF4QgB4rhbgk+38DhDwQTsEUIF9ULomFLV5RPV6Ca
+	ioSe/OkBuOAkEKn0j88Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pafuy-00FNUs-4Q; Fri, 10 Mar 2023 16:48:32 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1pagVZ-00FWvY-1f; Fri, 10 Mar 2023 17:26:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paftE-00FMN6-Pu
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 16:46:46 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id i5so6229248pla.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Mar 2023 08:46:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678466802;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=35SjvhjPtwHw5aEHQu1svgOUWOsHT5bfGA8ICnLpgS0=;
-        b=zcdY0Nbj0AJ9UdeIQReFskHQI7bg46DdKpRB8sPggT48hTNg88rnjZsYmIDcGJAnKc
-         9z+xET/bx7NkkvSiFaGBD8Y6ETPwSf3tG8jLkkQhLQJ6Tqc1OxL/SHPw2pZwY42c66JP
-         qVuZ7Z4Yz0Of0xItPMzAAPCMLQH0DAxf2AhUezos//ta7iJeycGbg7Kw0vmGo53FGfc9
-         20fKVoklJga4anp3JSXYZMeaNi87+BBkf1fQnJyJkqtFKshxmcNSr04Lz8zOmGoHx1YW
-         SQ599UmwKOzeD/Tm7GCeBf8p03aVWjkG6FCCG5g6g3/xOCnUQVIevwNapChkxkYvD7mX
-         Cr9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678466802;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=35SjvhjPtwHw5aEHQu1svgOUWOsHT5bfGA8ICnLpgS0=;
-        b=Es04Za6KrMupu9sFq9BDROHU3FACSdlWknllZvaXfBokq05KiQrbuPwY9OBkRwGwbM
-         RFX0hssYTy+CumcTeNZnp9AaFryxeKoqmKMmEjudJiD+StS3ROMC8N/KblOOPWxPpLTD
-         75thmaVrRaL5AMcTNs4OvH854PcJVjnTy16nxh5Y57g+brdr4yLyPQ0e75E7ZYJ/upJO
-         1nqG6n2rpWy9I23dKzW2flX47NunZUXOwDCj3EnLOYtlFdISTqLAw1E3PuJS0tA1/cUO
-         p+OEBywUesDob3pZfGJENj7jou2E2VVB6iTfrmo4woJL6gg9ikn4tNHW2VOSHdxNo6jy
-         v8BA==
-X-Gm-Message-State: AO0yUKWwQpWckd8jYqYjk/DKh5t/7iAZf/rQXQ5px596sYZ/7MAaGb/i
-	UanOPhrinETqZ/KevEog2XmpD2hMCV6t3CiKFHY=
-X-Google-Smtp-Source: AK7set8I5RJlEXzf+OxgwsivP9v9gXmqOhyDr2jbVSvTQKe6bfEMoR9t4LXVe4wkaeYLmse+voku7Q==
-X-Received: by 2002:a17:90b:1a8f:b0:22c:59c3:8694 with SMTP id ng15-20020a17090b1a8f00b0022c59c38694mr26601678pjb.44.1678466802012;
-        Fri, 10 Mar 2023 08:46:42 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id t3-20020a17090a2f8300b0023b29b464f9sm59399pjd.27.2023.03.10.08.46.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Mar 2023 08:46:41 -0800 (PST)
-Date: Fri, 10 Mar 2023 08:46:41 -0800 (PST)
-X-Google-Original-Date: Fri, 10 Mar 2023 08:45:18 PST (-0800)
-Subject: [GIT PULL] RISC-V Fixes for 6.3-rc2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-6fd4abee-eb36-4748-9b07-d310908f08bb@palmer-ri-x1c9a>
+	id 1pagVV-00FWua-Kx
+	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 17:26:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2074561B95;
+	Fri, 10 Mar 2023 17:26:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 88E26C433D2;
+	Fri, 10 Mar 2023 17:26:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678469175;
+	bh=7yDJIksP2pkD5A3LIju0IAc34idp1TL6F956poMuw9k=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=BK1oXWYckL8LGBCJ1S00xqgZ/tciDQOUN/Idg8saL+6sf75aeAGHKrKpaeqRLlT0v
+	 ylzF3i5IZ+lvYv7n7sbRia58iKBU7+HDdkdpOY/DTLp+CQ8r5wqUw+hjfx83lUgyNv
+	 DhNopNy9/26An2QMIG6P4RbxJbPDWbiAz/h3gQm6TRtzFZT5gGlMTI6xZrKrpoMzsR
+	 ZuYwrvH3nep76yuJ2kdl4VIxlu5Z2MuIEMQHbfDCpi49iG74XSQBlKM2XwCU5IS6/D
+	 uA2yJQMqwfSPLSX2MizlfbBk/eQlsSrOH8mjq6cyYLVhlIdqssq0wTkNs/2wGnm/83
+	 OLwFqv49eQGcg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 7859FC59A4C;
+	Fri, 10 Mar 2023 17:26:15 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.3-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-6fd4abee-eb36-4748-9b07-d310908f08bb@palmer-ri-x1c9a>
+References: <mhng-6fd4abee-eb36-4748-9b07-d310908f08bb@palmer-ri-x1c9a>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-6fd4abee-eb36-4748-9b07-d310908f08bb@palmer-ri-x1c9a>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc2
+X-PR-Tracked-Commit-Id: 2a8db5ec4a28a0fce822d10224db9471a44b6925
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 55a21105ecc156495446d8ae75d7d73f66baed7b
+Message-Id: <167846917548.3321.5405028351126348489.pr-tracker-bot@kernel.org>
+Date: Fri, 10 Mar 2023 17:26:15 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230310_084645_063495_DE05477B 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20230310_092617_762082_219D3B10 
+X-CRM114-Status: UNSURE (   4.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +81,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit fe15c26ee26efa11741a7b632e9f23b01aca4cc6:
+The pull request you sent on Fri, 10 Mar 2023 08:46:41 -0800 (PST):
 
-  Linux 6.3-rc1 (2023-03-05 14:52:03 -0800)
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc2
 
-are available in the Git repository at:
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/55a21105ecc156495446d8ae75d7d73f66baed7b
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc2
+Thank you!
 
-for you to fetch changes up to 2a8db5ec4a28a0fce822d10224db9471a44b6925:
-
-  RISC-V: Don't check text_mutex during stop_machine (2023-03-09 14:58:51 -0800)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.3-rc2
-
-* RISC-V architecture-specific ELF attributes have been disabled in the
-  kernel builds.
-* A fix for a locking failure while during errata patching that
-  manifests on SiFive-based systems.
-* A fix for a KASAN failure during stack unwinding.
-* A fix for some lockdep failures during text patching.
-
-----------------------------------------------------------------
-There's a handful of failures with this alone, but they're all merge window
-regressions from other trees and have been fixed in master already.  I figured
-it would be saner to just keep this on rc1 rather than try and pull anything
-else in.
-
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack mode
-
-Conor Dooley (2):
-      RISC-V: fix taking the text_mutex twice during sifive errata patching
-      RISC-V: Don't check text_mutex during stop_machine
-
-Palmer Dabbelt (1):
-      RISC-V: Stop emitting attributes
-
- arch/riscv/Makefile                    |  7 +++++++
- arch/riscv/errata/sifive/errata.c      |  2 +-
- arch/riscv/include/asm/ftrace.h        |  2 +-
- arch/riscv/include/asm/patch.h         |  2 ++
- arch/riscv/kernel/compat_vdso/Makefile |  4 ++++
- arch/riscv/kernel/ftrace.c             | 13 +++++++++++--
- arch/riscv/kernel/patch.c              | 28 +++++++++++++++++++++++++---
- arch/riscv/kernel/stacktrace.c         |  2 +-
- 8 files changed, 52 insertions(+), 8 deletions(-)
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
