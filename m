@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21ADDC64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 07:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E50C64EC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 08:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gYbeFIIChaFaRsZYLHVhPyd867yGBcfTxuYG6yBucT4=; b=kNmtxYGGPt50kK
-	BZwmRLhtkKCTqUebI+trMrDQnmmSpVXh4B+GjjSCftT6RsH5sJWYD5+JBjF4cVR+NRXUpBCHGSkKU
-	/vVLx6w1i7xUfxXn/esbRC/VGrcDU6hC1y+K0q/fR4nHv8JT4XnZ4kcEshV31sOj9LVhTntQAWvsh
-	CfRoXvms1n57GoW+rMsWkTZ6eSz2yHDcgnGw60+xY/SH8vFJS0pGC6UlCBaQLLVucKaa3g/Dizq3/
-	QKMY0e+oIXbEpOJCO8xJq/GC0+QergAatNFMOtImQAbEaOdB522kATqCEhxRQHzIfIdHhmb5RCtJg
-	becK5j/cJrhVMJ0tZQUg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Kl/vdBcDBaCZQY3ytY5a9yUadmhiHC27T0Je9yejsk4=; b=UoBKZIFw54EehM
+	81w3uzVPv0g12ArLa88HgM0kniqySkAFIlkREYZ3AXTRJhZfAxDgkARCYU2jUKbGdZyBPM+UdNkYB
+	is1/cOK0fdKm4LhaiDa2+/GG0mf9gI8iqkEhEnGeoglTwTjOLZYqcc/SUmJnDKiCESYXf8D1DZ1Cq
+	8evbe0IoQkef0QRGHzaUphBpXUTMLOSkRyMnmwTTU6GsxYtKfzKn7blEVDY9ype7ir3CEIAF8PKhq
+	JtmQEmuoIzu2/s3fFFM3MBqKbljtCqnWnB94LGXNgqcSuFmz2wXfYqQTFqusXkYRH8CYYUKwEBMx+
+	1OL3bGmJ02AM2aso+YAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paXWx-00DTJz-Jx; Fri, 10 Mar 2023 07:51:11 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paXWu-00DTIx-DS
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 07:51:10 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 32A7oTCu050264;
-	Fri, 10 Mar 2023 15:50:29 +0800 (+08)
-	(envelope-from dylan@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Fri, 10 Mar 2023
- 15:50:26 +0800
-From: Dylan Jhong <dylan@andestech.com>
-To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <liushixin2@huawei.com>, <x5710999x@gmail.com>, <bjorn@rivosinc.com>,
-        <abrestic@rivosinc.com>, <peterx@redhat.com>, <hanchuanhua@oppo.com>,
-        <apopple@nvidia.com>, <hca@linux.ibm.com>, <aou@eecs.berkeley.edu>,
-        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
-        <tim609@andestech.com>, <peterlin@andestech.com>,
-        <ycliang@andestech.com>, Dylan Jhong
-	<dylan@andestech.com>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [RESEND PATCH v2] RISC-V: mm: Support huge page in vmalloc_fault()
-Date: Fri, 10 Mar 2023 15:50:21 +0800
-Message-ID: <20230310075021.3919290-1-dylan@andestech.com>
-X-Mailer: git-send-email 2.34.1
+	id 1paXi9-00DVXO-9f; Fri, 10 Mar 2023 08:02:45 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1paXi4-00DVR7-WE; Fri, 10 Mar 2023 08:02:43 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 19B0A24E1FE;
+	Fri, 10 Mar 2023 16:01:47 +0800 (CST)
+Received: from EXMBX071.cuchost.com (172.16.6.81) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Mar
+ 2023 16:01:47 +0800
+Received: from [192.168.125.108] (183.27.96.115) by EXMBX071.cuchost.com
+ (172.16.6.81) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Mar
+ 2023 16:01:45 +0800
+Message-ID: <5ebede90-7851-6b3b-adf7-81604f955817@starfivetech.com>
+Date: Fri, 10 Mar 2023 16:01:45 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.173]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 32A7oTCu050264
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add StarFive JH7110 USB
+ dt-binding
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Vinod Koul <vkoul@kernel.org>, "Kishon
+ Vijay Abraham I" <kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak
+	<pawell@cadence.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Peter
+ Chen" <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20230308082800.3008-1-minda.chen@starfivetech.com>
+ <20230308082800.3008-2-minda.chen@starfivetech.com>
+ <8124eed7-b9ab-046d-4eb2-9b853ce2bcdd@linaro.org>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <8124eed7-b9ab-046d-4eb2-9b853ce2bcdd@linaro.org>
+X-Originating-IP: [183.27.96.115]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX071.cuchost.com
+ (172.16.6.81)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_235108_909455_857B3014 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230310_000241_380941_42AB2A1A 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,55 +83,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since RISC-V supports ioremap() with huge page (pud/pmd) mapping,
-However, vmalloc_fault() assumes that the vmalloc range is limited
-to pte mappings. To complete the vmalloc_fault() function by adding
-huge page support.
 
-Fixes: 310f541a027b ("riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT")
-Signed-off-by: Dylan Jhong <dylan@andestech.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
----
-Changes in v2:
-  - Fix format of commit message
----
- arch/riscv/mm/fault.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index eb0774d9c03b..4b9953b47d81 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -143,6 +143,8 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
- 		no_context(regs, addr);
- 		return;
- 	}
-+	if (pud_leaf(*pud_k))
-+		goto flush_tlb;
- 
- 	/*
- 	 * Since the vmalloc area is global, it is unnecessary
-@@ -153,6 +155,8 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
- 		no_context(regs, addr);
- 		return;
- 	}
-+	if (pmd_leaf(*pmd_k))
-+		goto flush_tlb;
- 
- 	/*
- 	 * Make sure the actual PTE exists as well to
-@@ -172,6 +176,7 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
- 	 * ordering constraint, not a cache flush; it is
- 	 * necessary even after writing invalid entries.
- 	 */
-+flush_tlb:
- 	local_flush_tlb_page(addr);
- }
- 
--- 
-2.34.1
-
+On 2023/3/9 18:07, Krzysztof Kozlowski wrote:
+> On 08/03/2023 09:27, Minda Chen wrote:
+>> Add StarFive JH7110 SoC USB 3.0 phy dt-binding.
+>> USB controller is cadence USB 3.0 IP.
+> 
+> Subject: drop second/last, redundant "binding". The "dt-bindings" prefix
+> is already stating that these are bindings.
+> 
+>> 
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> ---
+>>  .../bindings/phy/starfive,jh7110-usb-phy.yaml | 158 ++++++++++++++++++
+>>  1 file changed, 158 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>> new file mode 100644
+>> index 000000000000..daa88d065deb
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>> @@ -0,0 +1,158 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-usb-phy.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive USB 2.0 and 3.0 PHY
+>> +
+>> +maintainers:
+>> +  - Minda Chen<minda.chen@starfivetech.com>
+> 
+> Missing space
+> 
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+> 
+> Drop items, it's just one item.
+> 
+> 
+>> +      - const: starfive,jh7110-usb
+>> +
+>> +  reg:
+>> +    maxItems: 2
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: usb3
+>> +      - const: usb2
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: usb 125m clock
+>> +      - description: app 125m clock
+>> +      - description: lpm clock
+>> +      - description: stb clock
+>> +      - description: apb clock
+>> +      - description: axi clock
+>> +      - description: utmi apb clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: usb_125m
+>> +      - const: usb0_app_125
+>> +      - const: usb0_lpm
+>> +      - const: usb0_stb
+>> +      - const: usb0_apb
+>> +      - const: usb0_axi
+>> +      - const: usb0_utmi_apb
+>> +
+>> +  resets:
+>> +    items:
+>> +      - description: USB0_PWRUP reset
+>> +      - description: USB0_APB reset
+>> +      - description: USB0_AXI reset
+>> +      - description: USB0_UTMI_APB reset
+>> +
+>> +  starfive,sys-syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    items:
+>> +      items:
+>> +        - description: phandle to System Register Controller sys_syscon node.
+>> +        - description: offset of SYS_SYSCONSAIF__SYSCFG register for USB.
+>> +    description:
+>> +      The phandle to System Register Controller syscon node and the offset
+>> +      of SYS_SYSCONSAIF__SYSCFG register for USB.
+>> +
+>> +  starfive,stg-syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    items:
+>> +      items:
+>> +        - description: phandle to System Register Controller stg_syscon node.
+>> +        - description: register0 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+>> +        - description: register1 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+>> +        - description: register2 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+>> +        - description: register3 offset of STG_SYSCONSAIF__SYSCFG register for USB.
+>> +    description:
+>> +      The phandle to System Register Controller syscon node and the offset
+>> +      of STG_SYSCONSAIF__SYSCFG register for USB. Total 4 regsisters offset
+>> +      for USB.
+>> +
+>> +  dr_mode:
+>> +    description: PHY mode.
+>> +    enum:
+>> +      - host
+>> +      - peripheral
+>> +      - otg
+>> +
+>> +  "#address-cells":
+>> +    maximum: 2
+>> +
+>> +  "#size-cells":
+>> +    maximum: 2
+>> +
+>> +  ranges: true
+>> +
+>> +  starfive,usb2-only:
+>> +    type: boolean
+>> +    description: Set USB using usb 2.0 phy. Supprt USB 2.0 only
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - reg-names
+>> +  - clocks
+>> +  - clock-names
+>> +  - resets
+>> +  - starfive,sys-syscon
+>> +  - starfive,stg-syscon
+>> +  - dr_mode
+>> +  - "#address-cells"
+>> +  - "#size-cells"
+>> +  - ranges
+>> +
+>> +patternProperties:
+> 
+> This goes before required block
+> 
+>> +  "^usb@[0-9a-f]+$":
+>> +    type: object
+>> +    description: |
+>> +      usbphy node should have '1' usb controller subnode.
+>> +      It could be Cadence USB3 DRD controller.
+>> +      Cadence USB3 should follow the bindings specified in
+>> +      Documentation/devicetree/bindings/usb/cdns,usb3.yaml
+> 
+> $ref instead of free form text
+> 
+> 
+ok, thanks. Next version I will follow the comments to change.
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
