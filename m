@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47E7C6FD1E
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 20:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FC1C6FD19
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 20:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dd0JnJLewHp0KbSAGAbqGzI/l+7J1DusLXzJ7kYD0HM=; b=zpj2pHlDYHz/ZO
-	PAG3DW8rEOhpu8DguI2eH47ICcRchJJ+Bo34eMkLvaWPGzD1NqAlM+WA0DVfYGrOf7YdgP/hoTVY2
-	QUxiYWi0EeDaroXj/d73N/Jk+VUssAwI1LAHXTtHw3CtCmAf/Mvt5Iyylva3Ij7z8LpDcl4O/DgMY
-	JKNhNx028tERAWM5PP82W3fkx3dSIW+9yHOTcbPxdnUHa/3DQ4S2RyCAjPH4KMT369UUKevSlhkdt
-	JzSENKCrnDjQPaOawxquoDXw7dQu8bCYS9vNT2AHun2UFfIM/NAi3oXtzFNB0xz9r3K1aJYYdAis2
-	bsOssNbUM0yR0KDkAzJQ==;
+	List-Owner; bh=9Hwt1FAiBIhvPNtMRQ5EmCnvjihQ6HlYhzZfXJKHR3U=; b=KHo8A5VEr1ixmq
+	ni1M2JI7H4x1JnQbrweXKwA0fopBGVA979/UgxvLyPHRSLc6/CdfH3/lv2eQvuR32fVOIrSWjCi9W
+	heceJI0JSOEWt1W44RkVkchaAo+UHlVR44aPzAwTbplsAz/g0avQkGo4oiwtNj/CWh2ywGeD7Bixi
+	lyPxuZRezEpDa4Crk8leuQPE3MWYgohLCh0VQZfKvtq8EbqIX+NMprrN3W6lsEWRo3XN/VG2BZgjC
+	D06Dq9ypBARXz/EjjXYYfWxUMRnB+1Z3smpW8t+1aWS5xQygMwjF81oqYmwAqOtH2nLPbce/I7jwZ
+	gmtFIR975dmOCDQ1jjnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pajD1-00FzMJ-Gi; Fri, 10 Mar 2023 20:19:23 +0000
-Received: from mail-bn8nam04on2062d.outbound.protection.outlook.com ([2a01:111:f400:7e8d::62d] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1pajCt-00FzIe-52; Fri, 10 Mar 2023 20:19:15 +0000
+Received: from mail-bn8nam12on20622.outbound.protection.outlook.com ([2a01:111:f400:fe5b::622] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pagfq-00Fa5B-En; Fri, 10 Mar 2023 17:37:01 +0000
+	id 1pagdD-00FYXe-VM; Fri, 10 Mar 2023 17:34:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fDRNQfAeBMsXvxLpEyufBkTljpAjB62YDYa9RYwlK0YKPvuapqQ17AIDfTzJ2kcSUA+FZZdrQKUEtWqloHO67hQlyNlUdiO2YShmb9aKyNJhlrkCkLQj85fDPUIia8wrjlC7PLLF2GuHnel8QwIn9qUpLJaOzP6TtbiMjZBDVLXVF+IRuBGjZMG7YZRzv+/BwwUM4ymeDFtXsc1hrwyg/vcRh2VI54D8+THIPovfrhhV6dEQeJ7l8+VWCeQe60/m4vZHgbVY8la3TJS1bOhDOMPFCA7ayRkZEGUsXO/SYjR04DRE+VAe5ffmDiu6HBaPXCW9VlLT8seFGhijin4y9g==
+ b=UtIb/v/UGk5nJL+pzs0c0LWa5+sO5iASGHR9GWviUERfUy/cnFl1ddq5Kb2lQx7aGjJA1si2qNt9PZ1onwofLLceGnCkUv1b2zG9VD2OUwOOs34kWB+2nRw+A5VMMVuqj6UxUslo9disxFAoegRfFyCZuwQyQDsWotsqyphFJOS+b4Sn7tql2uFzwjCflP6ZDBb278I+9t1hos2bfX1IUnqOsFOfeRH8pWbOfqPXUPFwGfBQywyYO/aYrbuKiWVM3vDPw60bpWydo605S37LqEl9vcX61iurJgiZ4lwu35wf75GqXQeRebj83plmbsdE9IaQjqfplaYLbPgC9pE/zg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TNYJPkJ8aaPK5awYxnsnKWkYB0u9T5qlqGRNHD3pdtg=;
- b=e947nPG59j9p0X4xa/4COFk6qswBkYRsXUuNWBp6av8fkTAU/p3j3OCOAJmDlbDnLFttMj8WkUtrxRZaG0V9QC/llHn3OSoW/GHzHk1nOatbE0h/Mqe0i3PVyi0fXpH6nq/MGLmvn/uXwaxKVPrC357YjAuF1/0hasMGidgsIvkVTq2sEnEWF5TUS4Jf+PjlYgwfCcgi46wDjj/Am8k9tUMFdmSMIRgHFujBpD+KK5ZMWLtD1DwrAM4D7xQcEWoyZWlRyjBraOSO/awXdDiN4CirQwhldwAK2Xu8riYBeRac+Na/gp+4swUmwaS3nKrNyuUGKWMwlV6JFeH3DCB5KQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none
+ bh=l/FkuphY6bwHQcB7w+5PPDqXWPlYdqqVovHuVQJsw7k=;
+ b=Iv1/pDGo4GXYzjAmT2VF4NeQpKDiDE/sSztb/iUTrmiFjTNoKMWlKOC6lOJKlLVtX6TLg873C0D918TsL3bBCjfs8zJr5f9L8UrxhLHt5yYrF5YJenCIyKSQMO2jGiS2wwfJUaz02zLnYnL/nRulM8U3bK6tNUFvgB9/5ooas4K6sytKKFrRT1ua/hBodc0g9sp2SAKSKtUWdMLo2tmtmtkECz4w+couohVVpIrRN7+wCRc5EfPz8RBt2clbLrXbxAPWPLxM3SpQPNnW7n2fQcFSB1nZON/R7iBCh1lZN4N4mvHR0aitfCiEERYF/PPFCIuduvukekjsFHotBEXDZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com;
+ dmarc=temperror action=none header.from=amd.com; dkim=none (message not
+ signed); arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TNYJPkJ8aaPK5awYxnsnKWkYB0u9T5qlqGRNHD3pdtg=;
- b=UMmMZbcBWItbrIBaBOta5O/k2bX3+xyUZrN07VP0ZW4Ks53SYj2K5Q+O5daGC5AZmW/Qq3MzqoMBa0VPOBwF9U5CN+UCZpSFb/IR3tiAmwHq3rhG+es5e4OpqDVJXU5mXlwXN0P97UWuP5b45mTm/3zAVD3VgdyzbKBNEF8Ek7s=
-Received: from BN8PR04CA0023.namprd04.prod.outlook.com (2603:10b6:408:70::36)
- by BN9PR12MB5290.namprd12.prod.outlook.com (2603:10b6:408:103::14) with
+ bh=l/FkuphY6bwHQcB7w+5PPDqXWPlYdqqVovHuVQJsw7k=;
+ b=fNlQ27ojAUnwzazpZkc5Sy7HriL3XHmfr255qShQs50mckcLZEHU1p4zJzgQxHCE4crrz0sJk66vlZmBL3IGZzmGee5TDsDssmRvHINsWpAOoOfpc++Ve7doV2oRwkePLzbg0a5J3W1v0f8Msg2a3pylmnJ/TK/gRDVjYTJrlaY=
+Received: from DS7PR03CA0176.namprd03.prod.outlook.com (2603:10b6:5:3b2::31)
+ by CY8PR12MB7099.namprd12.prod.outlook.com (2603:10b6:930:61::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.19; Fri, 10 Mar
- 2023 17:36:52 +0000
-Received: from BN8NAM11FT082.eop-nam11.prod.protection.outlook.com
- (2603:10b6:408:70:cafe::c6) by BN8PR04CA0023.outlook.office365.com
- (2603:10b6:408:70::36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.20 via Frontend
- Transport; Fri, 10 Mar 2023 17:36:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- BN8NAM11FT082.mail.protection.outlook.com (10.13.176.94) with Microsoft SMTP
+ 2023 17:34:10 +0000
+Received: from DM6NAM11FT032.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:5:3b2:cafe::f5) by DS7PR03CA0176.outlook.office365.com
+ (2603:10b6:5:3b2::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.19 via Frontend
+ Transport; Fri, 10 Mar 2023 17:34:10 +0000
+X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
+ 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=temperror action=none header.from=amd.com;
+Received-SPF: TempError (protection.outlook.com: error in processing during
+ lookup of amd.com: DNS Timeout)
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ DM6NAM11FT032.mail.protection.outlook.com (10.13.173.93) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.6178.20 via Frontend Transport; Fri, 10 Mar 2023 17:36:52 +0000
-Received: from SATLEXMB08.amd.com (10.181.40.132) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.6178.20 via Frontend Transport; Fri, 10 Mar 2023 17:34:09 +0000
+Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Mar
- 2023 11:36:51 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB08.amd.com
- (10.181.40.132) with Microsoft SMTP Server (version=TLS1_2,
+ 2023 11:34:06 -0600
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
+ (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Mar
- 2023 09:36:51 -0800
+ 2023 11:34:06 -0600
 Received: from xhdsneeli40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
  (10.181.40.144) with Microsoft SMTP Server id 15.1.2375.34 via Frontend
- Transport; Fri, 10 Mar 2023 11:36:24 -0600
+ Transport; Fri, 10 Mar 2023 11:33:39 -0600
 From: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
 To: <broonie@kernel.org>, <miquel.raynal@bootlin.com>, <richard@nod.at>,
 	<vigneshr@ti.com>, <jic23@kernel.org>, <tudor.ambarus@microchip.com>,
@@ -121,35 +120,35 @@ CC: <git@amd.com>, <linux-spi@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <alsa-devel@alsa-project.org>,
 	<patches@opensource.cirrus.com>, <linuxppc-dev@lists.ozlabs.org>,
 	<amitrkcian2002@gmail.com>, <amit.kumar-mahapatra@amd.com>
-Subject: [PATCH V6 08/15] ALSA: hda: cs35l41: Replace all spi->chip_select references with function call
-Date: Fri, 10 Mar 2023 23:02:10 +0530
-Message-ID: <20230310173217.3429788-9-amit.kumar-mahapatra@amd.com>
+Subject: [PATCH V6 02/15] net: Replace all spi->chip_select and spi->cs_gpiod references with function call
+Date: Fri, 10 Mar 2023 23:02:04 +0530
+Message-ID: <20230310173217.3429788-3-amit.kumar-mahapatra@amd.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230310173217.3429788-1-amit.kumar-mahapatra@amd.com>
 References: <20230310173217.3429788-1-amit.kumar-mahapatra@amd.com>
 MIME-Version: 1.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN8NAM11FT082:EE_|BN9PR12MB5290:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9861984-9939-4d87-1435-08db218e0955
+X-MS-TrafficTypeDiagnostic: DM6NAM11FT032:EE_|CY8PR12MB7099:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a99c183-284c-4367-e132-08db218da7d5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	bdnGfZoG9qzd2wnQn8OFchhoKOS+sgoSCITP3ZeO4aNDSx44PjwjLeJYnAPLo3ZEVtW3N6LCJ+veH6LPWomsyGBuYgEdbAMAuMq6fuCIM49t8Bm247zTDNIYJNNfoCLHQkpxa3amxxZC5k9FTgU8tKSni9DMdQuXpt7kv6dTkMbtl/sd5XvhX3v2w/clW3/wQcveHEEPGF13YrDFq792cwDj6OavXgd2CFdEiSHRky4YizeS9ylEe+m2amd60i7+h6vPBGpXGCH2aRoHfraNbnXWtBfjGbTzUqksUsoaoFWCZB7ynIYwbguT9Ju4LjIXlN4fRBQFPyNin7w/bAe25+LQGhq7CYr87+GUYKWEyDfTw79+zuyIBAhErzAtGjQjOlhzKLBG58ECb04uhdlz1IQnImSc2nDFy1DEm/Z9tL71oHSE8ehZlsjuKQ27KcVPbBIZ2YEZKXY2lr6L+vnQpAPWY6E/thYSwn1+n5W1Leb8AdNwm1Bu38o9nJcr5qBHIyVqA6cWo8iGmsrO4g8a+KBrNJaYmXtOJFMzymB75oTQIoEAxIN9zi0gcCG1/maSfoK0JV8MahRIq1agAGa+bp5zBm13IshtUmxPuqFnEAr1Lagm4qX9rDT8OWu7v2U1aE4TpSuHTPKYmkIlZ3iJv/LhLng9vjtEgQLsergEeDmAEs2qEBNWQ3hB8ctRTrvkdBHUymDj24KGCjphaDHVL9U8SgNpiMNtn87dNLVYO10iCD5oFKgvQ85/NHeN6NZWuHTG5Ixa3phUqCqFiNvZ+SJkPJRtdH+JwNaAIp10eWVuDhSsom4xe95LTh2hp7bFl1y8AfpoBGkGQTs0vx63oR3MPMgTjC26gcIMwCanaAA=
-X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230025)(4636009)(376002)(136003)(396003)(39860400002)(346002)(451199018)(46966006)(36840700001)(40470700004)(36756003)(82740400003)(36860700001)(186003)(40460700003)(26005)(426003)(2616005)(6666004)(41300700001)(83380400001)(110136005)(47076005)(8676002)(70586007)(8936002)(2906002)(70206006)(4326008)(1076003)(40480700001)(7336002)(7416002)(7276002)(5660300002)(7366002)(7406005)(316002)(54906003)(356005)(86362001)(336012)(478600001)(81166007)(82310400005)(921005)(1191002)(2101003)(41080700001)(83996005)(84006005)(36900700001);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: 	gV7hkcCGuLYxXSo0U11n5Vczs1ZH3w8xV52NCmVJsdgDIn7/rnnYxjg2CGY1wL8SP1ZJ0F/suTZw49HmDTiYT2jWlJ+2b1vip0RxKAcgIcqesohPTBvlhEAb+7YRGpjUs+02bgealk0387aYH0CGhPBpf0nFUyP//W0UjaKkraovJLuQ7dmaU053zgXNjkJoCTUsvV6G4sZeD3WDTGHcVVJ3e8V3Cp199kBgb83nne/fKV5hFzOVqMmqjOCDu7v4uleMXLFkOd7Q95415IznqcNhtyYCBiwez86vRPmEGp+AvoLysWcSo8ucxbbKeQ8yy/SqwkmhUoxQHnPwK6sITS6R2+/4v40vdtTLzAT0Y4DLYpVZsNxX/56iTgYsKn72ctpKU6GYw9EP9b2CfugyIyC9tqHVS6ODEURtcFFIsQlja7YKfU9ZHUTwbDJ0PQ4OjFhxJWTBcB79HZrngTeeE+jwgjId/NhnHV6z4KyWn6mk5YpWz3HuzcWTmPko7gKTNfKnAJtmgGlMiyatEFAZT5du6z35Non804lpPw7GhIuiptsiK58agUBghcAeNbo37rDkvUsRbUEwcS+jRaIz6A+dIHlLgTl7LDKCkSYQb70UwMGKnsL85phrZuSWui0+9kJ8dM94pieg/ASZjJJ7c9gflBeWQXunjrZ0cogOK59pyY8yO1kBEIUs0ZC+nxh/S3vUwzVwRl8FZ5CYgzT+Jf4NwxEr/5dbzeepIQcZU1iCwmjYReUPW4811UvzqKQBsq5GqqY2Pwfe7PzWB/TB9yqwQqSvyBoI7bzBEf+8hWS3S/5+bEFB75ONN2iWKlFKGtHsqR1Swp6Evln48ckpfendPW0KdUc0e3LLyDVr0R0=
+X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230025)(4636009)(346002)(376002)(39860400002)(136003)(396003)(451199018)(36840700001)(40470700004)(46966006)(40460700003)(36756003)(2616005)(186003)(54906003)(110136005)(478600001)(7276002)(2906002)(7366002)(316002)(7416002)(5660300002)(70586007)(70206006)(8676002)(7336002)(4326008)(41300700001)(8936002)(7406005)(26005)(1191002)(81166007)(356005)(921005)(86362001)(36860700001)(6666004)(40480700001)(82740400003)(1076003)(63370400001)(82310400005)(63350400001)(83380400001)(336012)(47076005)(426003)(36900700001)(84006005)(83996005)(2101003)(41080700001);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2023 17:36:52.7138
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2023 17:34:09.1411
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9861984-9939-4d87-1435-08db218e0955
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a99c183-284c-4367-e132-08db218da7d5
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: 	BN8NAM11FT082.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: 	DM6NAM11FT032.eop-nam11.prod.protection.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR12MB5290
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230310_093658_648619_6DD0CB69 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20230310_093416_133347_97A7C1A4 
+X-CRM114-Status: GOOD (  12.47  )
 X-Mailman-Approved-At: Fri, 10 Mar 2023 12:19:11 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -179,23 +178,136 @@ members of the spi_device structure would be converted to arrays & the
 spi->chip_select[idx] & spi->cs_gpiod[idx] respectively.
 
 Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+Reviewed-by: Michal Simek <michal.simek@amd.com>
 ---
- sound/pci/hda/cs35l41_hda_spi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/adi/adin1110.c            | 2 +-
+ drivers/net/ethernet/asix/ax88796c_main.c      | 2 +-
+ drivers/net/ethernet/davicom/dm9051.c          | 2 +-
+ drivers/net/ethernet/qualcomm/qca_debug.c      | 2 +-
+ drivers/net/ieee802154/ca8210.c                | 2 +-
+ drivers/net/wan/slic_ds26522.c                 | 2 +-
+ drivers/net/wireless/marvell/libertas/if_spi.c | 2 +-
+ drivers/net/wireless/silabs/wfx/bus_spi.c      | 2 +-
+ drivers/net/wireless/st/cw1200/cw1200_spi.c    | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/sound/pci/hda/cs35l41_hda_spi.c b/sound/pci/hda/cs35l41_hda_spi.c
-index 71979cfb4d7e..eb287aa5f782 100644
---- a/sound/pci/hda/cs35l41_hda_spi.c
-+++ b/sound/pci/hda/cs35l41_hda_spi.c
-@@ -25,7 +25,7 @@ static int cs35l41_hda_spi_probe(struct spi_device *spi)
- 	else
- 		return -ENODEV;
+diff --git a/drivers/net/ethernet/adi/adin1110.c b/drivers/net/ethernet/adi/adin1110.c
+index 3f316a0f4158..f5c2d7a9abc1 100644
+--- a/drivers/net/ethernet/adi/adin1110.c
++++ b/drivers/net/ethernet/adi/adin1110.c
+@@ -515,7 +515,7 @@ static int adin1110_register_mdiobus(struct adin1110_priv *priv,
+ 		return -ENOMEM;
  
--	return cs35l41_hda_probe(&spi->dev, device_name, spi->chip_select, spi->irq,
-+	return cs35l41_hda_probe(&spi->dev, device_name, spi_get_chipselect(spi, 0), spi->irq,
- 				 devm_regmap_init_spi(spi, &cs35l41_regmap_spi));
+ 	snprintf(priv->mii_bus_name, MII_BUS_ID_SIZE, "%s-%u",
+-		 priv->cfg->name, priv->spidev->chip_select);
++		 priv->cfg->name, spi_get_chipselect(priv->spidev, 0));
+ 
+ 	mii_bus->name = priv->mii_bus_name;
+ 	mii_bus->read = adin1110_mdio_read;
+diff --git a/drivers/net/ethernet/asix/ax88796c_main.c b/drivers/net/ethernet/asix/ax88796c_main.c
+index 21376c79f671..e551ffaed20d 100644
+--- a/drivers/net/ethernet/asix/ax88796c_main.c
++++ b/drivers/net/ethernet/asix/ax88796c_main.c
+@@ -1006,7 +1006,7 @@ static int ax88796c_probe(struct spi_device *spi)
+ 	ax_local->mdiobus->parent = &spi->dev;
+ 
+ 	snprintf(ax_local->mdiobus->id, MII_BUS_ID_SIZE,
+-		 "ax88796c-%s.%u", dev_name(&spi->dev), spi->chip_select);
++		 "ax88796c-%s.%u", dev_name(&spi->dev), spi_get_chipselect(spi, 0));
+ 
+ 	ret = devm_mdiobus_register(&spi->dev, ax_local->mdiobus);
+ 	if (ret < 0) {
+diff --git a/drivers/net/ethernet/davicom/dm9051.c b/drivers/net/ethernet/davicom/dm9051.c
+index de7105a84747..70728b2e5f18 100644
+--- a/drivers/net/ethernet/davicom/dm9051.c
++++ b/drivers/net/ethernet/davicom/dm9051.c
+@@ -1123,7 +1123,7 @@ static int dm9051_mdio_register(struct board_info *db)
+ 	db->mdiobus->phy_mask = (u32)~BIT(1);
+ 	db->mdiobus->parent = &spi->dev;
+ 	snprintf(db->mdiobus->id, MII_BUS_ID_SIZE,
+-		 "dm9051-%s.%u", dev_name(&spi->dev), spi->chip_select);
++		 "dm9051-%s.%u", dev_name(&spi->dev), spi_get_chipselect(spi, 0));
+ 
+ 	ret = devm_mdiobus_register(&spi->dev, db->mdiobus);
+ 	if (ret)
+diff --git a/drivers/net/ethernet/qualcomm/qca_debug.c b/drivers/net/ethernet/qualcomm/qca_debug.c
+index f62c39544e08..6f2fa2a42770 100644
+--- a/drivers/net/ethernet/qualcomm/qca_debug.c
++++ b/drivers/net/ethernet/qualcomm/qca_debug.c
+@@ -119,7 +119,7 @@ qcaspi_info_show(struct seq_file *s, void *what)
+ 	seq_printf(s, "SPI mode         : %x\n",
+ 		   qca->spi_dev->mode);
+ 	seq_printf(s, "SPI chip select  : %u\n",
+-		   (unsigned int)qca->spi_dev->chip_select);
++		   (unsigned int)spi_get_chipselect(qca->spi_dev, 0));
+ 	seq_printf(s, "SPI legacy mode  : %u\n",
+ 		   (unsigned int)qca->legacy_mode);
+ 	seq_printf(s, "SPI burst length : %u\n",
+diff --git a/drivers/net/ieee802154/ca8210.c b/drivers/net/ieee802154/ca8210.c
+index e1a569b99e4a..7093a07141bb 100644
+--- a/drivers/net/ieee802154/ca8210.c
++++ b/drivers/net/ieee802154/ca8210.c
+@@ -2967,7 +2967,7 @@ static int ca8210_test_interface_init(struct ca8210_priv *priv)
+ 		sizeof(node_name),
+ 		"ca8210@%d_%d",
+ 		priv->spi->master->bus_num,
+-		priv->spi->chip_select
++		spi_get_chipselect(priv->spi, 0)
+ 	);
+ 
+ 	test->ca8210_dfs_spi_int = debugfs_create_file(
+diff --git a/drivers/net/wan/slic_ds26522.c b/drivers/net/wan/slic_ds26522.c
+index 6063552cea9b..8a51cfcff99e 100644
+--- a/drivers/net/wan/slic_ds26522.c
++++ b/drivers/net/wan/slic_ds26522.c
+@@ -211,7 +211,7 @@ static int slic_ds26522_probe(struct spi_device *spi)
+ 
+ 	ret = slic_ds26522_init_configure(spi);
+ 	if (ret == 0)
+-		pr_info("DS26522 cs%d configured\n", spi->chip_select);
++		pr_info("DS26522 cs%d configured\n", spi_get_chipselect(spi, 0));
+ 
+ 	return ret;
  }
+diff --git a/drivers/net/wireless/marvell/libertas/if_spi.c b/drivers/net/wireless/marvell/libertas/if_spi.c
+index ff1c7ec8c450..1225fc0e3352 100644
+--- a/drivers/net/wireless/marvell/libertas/if_spi.c
++++ b/drivers/net/wireless/marvell/libertas/if_spi.c
+@@ -1051,7 +1051,7 @@ static int if_spi_init_card(struct if_spi_card *card)
+ 				"spi->max_speed_hz=%d\n",
+ 				card->card_id, card->card_rev,
+ 				card->spi->master->bus_num,
+-				card->spi->chip_select,
++				spi_get_chipselect(card->spi, 0),
+ 				card->spi->max_speed_hz);
+ 		err = if_spi_prog_helper_firmware(card, helper);
+ 		if (err)
+diff --git a/drivers/net/wireless/silabs/wfx/bus_spi.c b/drivers/net/wireless/silabs/wfx/bus_spi.c
+index 7fb1afb8ed31..160b90114aad 100644
+--- a/drivers/net/wireless/silabs/wfx/bus_spi.c
++++ b/drivers/net/wireless/silabs/wfx/bus_spi.c
+@@ -208,7 +208,7 @@ static int wfx_spi_probe(struct spi_device *func)
  
+ 	/* Trace below is also displayed by spi_setup() if compiled with DEBUG */
+ 	dev_dbg(&func->dev, "SPI params: CS=%d, mode=%d bits/word=%d speed=%d\n",
+-		func->chip_select, func->mode, func->bits_per_word, func->max_speed_hz);
++		spi_get_chipselect(func, 0), func->mode, func->bits_per_word, func->max_speed_hz);
+ 	if (func->bits_per_word != 16 && func->bits_per_word != 8)
+ 		dev_warn(&func->dev, "unusual bits/word value: %d\n", func->bits_per_word);
+ 	if (func->max_speed_hz > 50000000)
+diff --git a/drivers/net/wireless/st/cw1200/cw1200_spi.c b/drivers/net/wireless/st/cw1200/cw1200_spi.c
+index fe0d220da44d..c82c0688b549 100644
+--- a/drivers/net/wireless/st/cw1200/cw1200_spi.c
++++ b/drivers/net/wireless/st/cw1200/cw1200_spi.c
+@@ -378,7 +378,7 @@ static int cw1200_spi_probe(struct spi_device *func)
+ 	func->mode = SPI_MODE_0;
+ 
+ 	pr_info("cw1200_wlan_spi: Probe called (CS %d M %d BPW %d CLK %d)\n",
+-		func->chip_select, func->mode, func->bits_per_word,
++		spi_get_chipselect(func, 0), func->mode, func->bits_per_word,
+ 		func->max_speed_hz);
+ 
+ 	if (cw1200_spi_on(plat_data)) {
 -- 
 2.25.1
 
