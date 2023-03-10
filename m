@@ -4,95 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F658C6FD19
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 19:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A496AC6FD19
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 20:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJS1Wg7kul/fUCqIx9Swszp2rPvZgAZMAr+nj0CpaH4=; b=1BbiHcJKl5upQEZtUusPnrbh1P
-	fQF8StbvenSW8jae9Uriq6BudOklfsiTskIT1OABrK8TLCIfBAxGSQedwDHUiwAZ/XZsjTjcnf11G
-	noT6HylwqOtJsqlIRvoaSV7PF5UX7RtN0LxWPwLh/wWgEa3P3+Z6SQ8dnRmxjKI7J6mfSygaJ2/3s
-	9cYQN2cuYvJVhIOm20AVYOx8FTG2EfWux0Sfz6fI5jcXOCef8RcGpOkX9cIvTH5ooBK/MOmeQ1UdA
-	NOzrRdhP9tAqnqfYrJLkjFtSSzqN6MqyRpfxd923Qyz6R33FyHqNcATqu2aoHnm6vyOfkdNoSrzTX
-	tJqm+m7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1AxUDhABGRED2I7D2r6EZJjDvIN4L/68Ii02nfUF0nY=; b=gwoX1sVAf/reOV
+	V7b2xbkti27RqBi9Vvb+9VDKaACZh/dlTxvLwTy4irbPw3uj/CSZC+G5khPh4ao88JdyDDeJW06ir
+	dIpXbhB7f+1NWsE2P2VtCH3EBXmE9bAX4AMQFJWuSq8mx4/GVcvYT289C3ba2h/R/97iCSaYS836v
+	IZDjzuTO22bVyktwxJ3yHcP1jmwiSDAp5+lY6Bm1LAyEkjMbWHZKzsSFPNk3qZy5M0x4tJ5NDboLZ
+	kLK7NgL5YbaMkMQVw/sQGgfwKDPWBqqLEj8pJACSNaz4CHgtL8eC0Ve0EUHmUoRMmg9zhqjORMqTH
+	/a1B3jX8INKUJe4/l2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pai8Y-00FsF4-Tt; Fri, 10 Mar 2023 19:10:42 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1pajCq-00FzIP-Kf; Fri, 10 Mar 2023 20:19:12 +0000
+Received: from mail-bn8nam12on2061e.outbound.protection.outlook.com ([2a01:111:f400:fe5b::61e] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pai8P-00FsC0-VS
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 19:10:36 +0000
-Received: by mail-pl1-x629.google.com with SMTP id v11so6668952plz.8
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Mar 2023 11:10:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112; t=1678475426;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=5ZGDv5DIYIxsnE885FfpP47ttfnvxSWFDU6bB1hvtRM=;
-        b=SM3O0AGaHw4g2GV96u4cTK6Tpc6Elev94rU1WSnz6dEk7mnnAQwWdN1tW7EILcJ341
-         DWcfezFDow6lmCagtiwzRHZDBT0QpiWThRbybIdeeeP4eTP7eZotF9PfL4eraydzAtL5
-         K5Iit5j9g6fy3Uc64mkZypeF8BA0HsgfQf31h7iSpQzmBabxGGETmiz8znYMC+Izl0MG
-         T9TvguHRM2xzVnv3rMkXtSS4Lf4C+ZNnx4PIy/w8t7QMD3sM5Bwn4m1yvxjxb5MnW/qI
-         KfoEtbzF+NvUILwpeZc63uONvGbouRT1wJQzF0BEbG8e0QnbCKpF6BxWNAWVcUbOEYZx
-         UTLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678475426;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ZGDv5DIYIxsnE885FfpP47ttfnvxSWFDU6bB1hvtRM=;
-        b=RfpwGDd2Yi4nnjLoWgNx780SKylHJQR2dBjsQPh11Ch2BmPdsNsALdQu+2q+DD5ew5
-         sXYc9msFtrrx38hPSWLughlNFcWwge3YSNivSd+pUEyfffv9ktT6UVpYWIQtpfRHwxSG
-         ANp2bNQDSS4LhV6sUHrxyHIn7PHWVCcUVy7LiaZpFePSd/PMvv72qm1W7kpDaMIGwVN2
-         AcXNHi26S2B6kNqOMUtl0V3lb1ngy1jcO7AqVDIGHbA6MJIVROzjBidfb2haFWWtd44p
-         7Obfx2+LmnW8cyKnB8BeigGwXjePLOjqvru19j6JrZzLp+zMT0BJfBIKHmmmGe35+qH3
-         X6rQ==
-X-Gm-Message-State: AO0yUKXLHXwQVCnZTS/mDct7E6m9JX72muzgHLp0A7xsVaJr9io8WnNk
-	lQcSw1YnURDSWD2SKWf5hF/ylA==
-X-Google-Smtp-Source: AK7set+VmSF9aMozDA/zTApnsLW/h0LbKWWDE3MjBMjenGf4VotI5Cgco4B/N63Va2NujYg8V1UOdQ==
-X-Received: by 2002:a17:902:c3c5:b0:19c:c5d4:afd2 with SMTP id j5-20020a170902c3c500b0019cc5d4afd2mr283201plj.11.1678475426123;
-        Fri, 10 Mar 2023 11:10:26 -0800 (PST)
-Received: from google.com (25.11.145.34.bc.googleusercontent.com. [34.145.11.25])
-        by smtp.gmail.com with ESMTPSA id a14-20020aa7864e000000b005a84de344a6sm183124pfo.14.2023.03.10.11.10.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Mar 2023 11:10:25 -0800 (PST)
-Date: Fri, 10 Mar 2023 19:10:23 +0000
-From: Fangrui Song <maskray@google.com>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] vdso: Improve cmd_vdso_check to check all dynamic
- relocations
-Message-ID: <20230310191023.p25brljzyojtmn7e@google.com>
-References: <20220830193701.1702962-1-maskray@google.com>
- <20220910075316.no72fdyqjvunomwm@google.com>
- <CAFP8O3+OwanSJdzd5V3oGJ_MOJOSVdbn+4iBJJKm2LCR8mCA0Q@mail.gmail.com>
- <9ce45cd2-dcd8-11f8-e496-7efe3649e241@csgroup.eu>
- <20221115004625.x4wl6zbg4iiuxl5t@google.com>
- <CAFP8O3LdSJCChGEwT57e=iZopceYkBFuW9XD=yhO1ZszVZGm4g@mail.gmail.com>
- <3ec9737e-3d1a-c014-b91a-0e2d406a3b3d@csgroup.eu>
- <CAFP8O3KZTkSbxXJ2yWt4w-F3xWHY_owCs03wN3Bhss57O-E_JQ@mail.gmail.com>
- <20221221235147.45lkqmosndritfpe@google.com>
- <ecd41da2-d986-8890-a519-3dfc83019593@arm.com>
+	id 1pagcN-00FY9S-Ti; Fri, 10 Mar 2023 17:33:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SevqSHsmxp0FmIc40ttGp2W/TCembJTSWorTbaX5kRc61DT4EKLB8DtsBmUf6xkWd7w/dtVQtwt1KGbdFzeHiajKMle0iwu9nbqxhlwQcy0cRQn16gGFKpl2du9GJzZYpHRhZhM1Cp+X2tbT5nTlc++YTnXKoGaz9iOC7MsmUE2k/XL7cmgjtUxtOLa5mKTD4GaePHaXUoPrDPzH40eZAaMuCW6fjsATNxT8uF3AQTSL1x05kB4h+R/j7wfYo3mFVHYPXNCGdx9lpYRb/Q5brm7MMZfiod74nbLtXHCxReuGtvOt5h/VsOxif1rlJnVc8Qua0A+vwW2dSQacMNWPFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jNw8EK0TddiKfTFg9Oikb8cmErBYSKJrgEvq5Os+mfQ=;
+ b=NwBYc/pZrmYRSMdKUug9jslCxMsEC5IdXh5h9ahaFmjRnuX8XFuDNsET3NyT9bb6TMwVgiWdLuGkUwpAnlqz8pVAHjHf2g8dXrtFOrtnfBs4Sf2+00YuqqjRiHglSfhQg6xhSOK+H5nZATFn2vqfOywClBi3pQJ9fGB2YUF32zjfKEfokGMNMRBQ1BPuQUy+kYeTtkGPSNPCRC4JO+6JGVJ0qzkL6e4usXe1CP1szhtW6TYDS8P7KSLLeymBNk19jsFvimbkDD91Vl8S+9Mpf1CgauTdcM/XTA6zXhDDurbHTjJjZUfUou21YO1yCvIF/z+ZVrCDbWoYu1qXQ22gsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com;
+ dmarc=temperror action=none header.from=amd.com; dkim=none (message not
+ signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jNw8EK0TddiKfTFg9Oikb8cmErBYSKJrgEvq5Os+mfQ=;
+ b=FuhWBSAyMJQFBFl6fK+Shd2Zlj1wvhK5vY2pF5LQyDow+MKl7PVR9CYyDi3rNO02/kb5B0BZwIPAKm99qGcGS3PVBQ32xj+Pji/aceJfRMsnmt/BEwaR/W1QF6ORuNBw6C6KxTja+q2jybZDEHAldT+4tTTBke+9whDcEWSbP9M=
+Received: from DM6PR03CA0037.namprd03.prod.outlook.com (2603:10b6:5:100::14)
+ by PH7PR12MB6668.namprd12.prod.outlook.com (2603:10b6:510:1aa::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.19; Fri, 10 Mar
+ 2023 17:33:16 +0000
+Received: from DM6NAM11FT028.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:5:100:cafe::b9) by DM6PR03CA0037.outlook.office365.com
+ (2603:10b6:5:100::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.20 via Frontend
+ Transport; Fri, 10 Mar 2023 17:33:16 +0000
+X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
+ 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=temperror action=none header.from=amd.com;
+Received-SPF: TempError (protection.outlook.com: error in processing during
+ lookup of amd.com: DNS Timeout)
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ DM6NAM11FT028.mail.protection.outlook.com (10.13.173.140) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.6178.20 via Frontend Transport; Fri, 10 Mar 2023 17:33:14 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Mar
+ 2023 11:33:10 -0600
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Mar
+ 2023 11:33:10 -0600
+Received: from xhdsneeli40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2375.34 via Frontend
+ Transport; Fri, 10 Mar 2023 11:32:43 -0600
+From: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+To: <broonie@kernel.org>, <miquel.raynal@bootlin.com>, <richard@nod.at>,
+	<vigneshr@ti.com>, <jic23@kernel.org>, <tudor.ambarus@microchip.com>,
+	<pratyush@kernel.org>, <Sanju.Mehta@amd.com>, <chin-ting_kuo@aspeedtech.com>,
+	<clg@kaod.org>, <kdasu.kdev@gmail.com>, <f.fainelli@gmail.com>,
+	<rjui@broadcom.com>, <sbranden@broadcom.com>, <eajames@linux.ibm.com>,
+	<olteanv@gmail.com>, <han.xu@nxp.com>, <john.garry@huawei.com>,
+	<shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <narmstrong@baylibre.com>,
+	<khilman@baylibre.com>, <matthias.bgg@gmail.com>, <haibo.chen@nxp.com>,
+	<linus.walleij@linaro.org>, <daniel@zonque.org>, <haojian.zhuang@gmail.com>,
+	<robert.jarzmik@free.fr>, <agross@kernel.org>, <bjorn.andersson@linaro.org>,
+	<heiko@sntech.de>, <krzysztof.kozlowski@linaro.org>, <andi@etezian.org>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>, <wens@csie.org>,
+	<jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<masahisa.kojima@linaro.org>, <jaswinder.singh@linaro.org>,
+	<rostedt@goodmis.org>, <mingo@redhat.com>, <l.stelmach@samsung.com>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <alex.aring@gmail.com>, <stefan@datenfreihafen.org>,
+	<kvalo@kernel.org>, <james.schulman@cirrus.com>, <david.rhodes@cirrus.com>,
+	<tanureal@opensource.cirrus.com>, <rf@opensource.cirrus.com>,
+	<perex@perex.cz>, <tiwai@suse.com>, <npiggin@gmail.com>,
+	<christophe.leroy@csgroup.eu>, <mpe@ellerman.id.au>, <oss@buserror.net>,
+	<windhl@126.com>, <yangyingliang@huawei.com>, <william.zhang@broadcom.com>,
+	<kursad.oney@broadcom.com>, <jonas.gorski@gmail.com>,
+	<anand.gore@broadcom.com>, <rafal@milecki.pl>
+CC: <git@amd.com>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <joel@jms.id.au>, <andrew@aj.id.au>,
+	<radu_nicolae.pirea@upb.ro>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@microchip.com>,
+	<bcm-kernel-feedback-list@broadcom.com>, <fancer.lancer@gmail.com>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>, <linux-imx@nxp.com>,
+	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
+	<avifishman70@gmail.com>, <tmaimon77@gmail.com>, <tali.perry1@gmail.com>,
+	<venture@google.com>, <yuenn@google.com>, <benjaminfair@google.com>,
+	<yogeshgaur.83@gmail.com>, <konrad.dybcio@somainline.org>,
+	<alim.akhtar@samsung.com>, <ldewangan@nvidia.com>,
+	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <michal.simek@amd.com>,
+	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-wpan@vger.kernel.org>, <libertas-dev@lists.infradead.org>,
+	<linux-wireless@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
+	<lars@metafoo.de>, <Michael.Hennerich@analog.com>,
+	<linux-iio@vger.kernel.org>, <michael@walle.cc>, <palmer@dabbelt.com>,
+	<linux-riscv@lists.infradead.org>, <alsa-devel@alsa-project.org>,
+	<patches@opensource.cirrus.com>, <linuxppc-dev@lists.ozlabs.org>,
+	<amitrkcian2002@gmail.com>, <amit.kumar-mahapatra@amd.com>
+Subject: [PATCH V6 00/15] Add support for stacked/parallel memories
+Date: Fri, 10 Mar 2023 23:02:02 +0530
+Message-ID: <20230310173217.3429788-1-amit.kumar-mahapatra@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ecd41da2-d986-8890-a519-3dfc83019593@arm.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6NAM11FT028:EE_|PH7PR12MB6668:EE_
+X-MS-Office365-Filtering-Correlation-Id: 42a81058-4db1-45a1-4fe7-08db218d8748
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	owApOUK3Pzn4UiTIn9y5gnWGevi6zIeaN9Yjhuc4znPVFBCpmH9J9mJuBcqK8sv1jeV2Y7Bl12P8aX7B6PdRTAdcgs1o9/jSK4WS5z0gZqrxr+9ioR1B9Q9wXN3YisswM+tMeWLtMJ51QjtLqsZ4CuRsA8ALiyOJT3xFrSmBeylyV+Ev6bOqg3RWGp0fxiWwutFtnXBEbs8bskE3bfBtA3ofuraYRX+OgrbWN5rtE++qSZ4OG6FZrT9MDzzeZgauu4DoOEB9ukP185LQ9Bx6dwg92w8iUvnNygQZaukUUKFWVwbmGKdGQBjr8CC6DppQ+AZOQATHLg4D2PwBIa+RnIwhOiHRX7j1dr/wpSCpwjMwHg/YhXInEdrrOCJcQ+FCkcRxlx4kHBlmBalmTtmH/42jNZ8vgqDVur2DvAQh/OqOlnc4RFffmwNJ89UcWBDW1x080NV/uh9EgKM3z9fDqStDA3n8BNrUJHBn5eMzyqP1h1vY0UbckSL9innt3TrKhQMUYry6vrVGgnVH1f3CHrPm+MhnRAibhq3C8MM34s73WymULLDZ3w8jzyOY1n7Bkirj8ZSp5VCY/REsx5qaUvmsoZfySHjwCndyo+RUP5Ytznq2exGpQ4p1DqMwwd6KZBPBdxFyTr9gG2/kEJqVL8C2e6Dga9mVU526TZXz/AYuphL1NmPpHlqZSc+We+55157mzQHgmUdut+vDpo6uQIwIGEoBmlHb5NuppZro4rz0Mm4Cnfngl3RI62dA2B4i52dSTJJAtlvZ1SKCYRf5avU1iFHAIZvqdQa6IO2D4E3gvAzepMG1QOY/Sx/WD+1oYJgT/2l+di+P7/Y3up1cCXU2UBZmqTWmTWhF8un6YuMd7JtGzbbuhFjVCXZfYrxE
+X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230025)(4636009)(39860400002)(396003)(346002)(136003)(376002)(451199018)(36840700001)(46966006)(40470700004)(40460700003)(36756003)(186003)(110136005)(54906003)(966005)(7276002)(316002)(7336002)(5660300002)(7406005)(7416002)(70206006)(41300700001)(8936002)(8676002)(70586007)(4326008)(921005)(36860700001)(81166007)(82740400003)(1191002)(7366002)(356005)(40480700001)(1076003)(86362001)(26005)(6666004)(2616005)(63350400001)(83380400001)(478600001)(2906002)(63370400001)(82310400005)(47076005)(336012)(426003)(83996005)(41080700001)(36900700001)(84006005)(2101003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2023 17:33:14.5263
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42a81058-4db1-45a1-4fe7-08db218d8748
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: 	DM6NAM11FT028.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6668
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230310_111034_031188_AFBAF64C 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20230310_093324_099764_3FD5CBEA 
+X-CRM114-Status: GOOD (  14.09  )
+X-Mailman-Approved-At: Fri, 10 Mar 2023 12:19:11 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,321 +159,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch is in the continuation to the discussions which happened on
+'commit f89504300e94 ("spi: Stacked/parallel memories bindings")' for
+adding dt-binding support for stacked/parallel memories.
 
-On 2023-03-10, Vincenzo Frascino wrote:
->Hi Fangrui,
->
->Apologize for the delay, I totally missed that you had a new version of yo=
-ur
->patch since it was threaded with the old one.
+This patch series updated the spi-nor, spi core and the spi drivers
+to add stacked and parallel memories support.
 
-Thank you! No worries.
+The first patch
+https://lore.kernel.org/all/20230119185342.2093323-1-amit.kumar-mahapatra@amd.com/
+of the previous series got applied to
+https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+But the rest of the patches in the series did not get applied due to merge
+conflict, so send the remaining patches in the series after rebasing it
+on top of for-next branch.
+---
+BRANCH: for-next
 
->On 12/21/22 23:51, Fangrui Song wrote:
->> The actual intention is that no dynamic relocation exists. However, some
->> GNU ld ports produce unneeded R_*_NONE. (If a port fails to determine
->> the exact .rel[a].dyn size, the trailing zeros become R_*_NONE
->> relocations. E.g. ld's powerpc port recently fixed
->> https://sourceware.org/bugzilla/show_bug.cgi?id=3D29540) R_*_NONE are
->> generally no-op in the dynamic loaders. So just ignore them.
->>
->> With the change, we can remove ARCH_REL_TYPE_ABS. ARCH_REL_TYPE_ABS is a
->> bit misnomer as ports may check RELAVETIVE/GLOB_DAT/JUMP_SLOT which are
->> not called "absolute relocations". (The patch is motivated by the arm64
->> port missing R_AARCH64_RELATIVE.)
->
->It makes sense to update the name, it started as "absolute relocations" bu=
-t then
->it evolved into something else.
->
->A part that, did you perform any testing with the generated vDSO libraries?
+Changes in v6:
+- Rebased on top of latest v6.3-rc1 and fixed merge conflicts in
+  spi-mpc512x-psc.c, sfdp.c, spansion.c files and removed spi-omap-100k.c.
+- Updated spi_dev_check( ) to reject new devices if any one of the
+  chipselect is used by another device.
 
-I checked that the built vdso did not change (the patch just changes
-some post-link verification). =
+Changes in v5:
+- Rebased the patches on top of v6.3-rc1 and fixed the merge conflicts.
+- Fixed compilation warnings in spi-sh-msiof.c with shmobile_defconfig  
 
+Changes in v4:
+- Fixed build error in spi-pl022.c file - reported by Mark.
+- Fixed build error in spi-sn-f-ospi.c file.
+- Added Reviewed-by: Serge Semin <fancer.lancer@gmail.com> tag.
+- Added two more patches to replace spi->chip_select with API calls in
+  mpc832x_rdb.c & cs35l41_hda_spi.c files.
 
-To be more sure, I used commands like
-https://github.com/ClangBuiltLinux/tc-build/blob/main/kernel/build.sh#L305
-to build a kernel and commands like
+Changes in v3:
+- Rebased the patches on top of
+  https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+- Added a patch to convert spi_nor_otp_region_len(nor) &
+  spi_nor_otp_n_regions(nor) macros into inline functions
+- Added Reviewed-by & Acked-by tags
 
-     ~/Dev/ClangBuiltLinux/boot-utils/boot-qemu.py -a arm64 -k /tmp/linux/a=
-rm64
+Changes in v2:
+- Rebased the patches on top of v6.2-rc1
+- Created separate patch to add get & set APIs for spi->chip_select &
+  spi->cs_gpiod, and replaced all spi->chip_select and spi->cs_gpiod
+  references with the API calls.
+- Created separate patch to add get & set APIs for nor->params.
+---
 
-to run an image for a couple of architectures.
+Amit Kumar Mahapatra (15):
+  spi: Replace all spi->chip_select and spi->cs_gpiod references with
+    function call
+  net: Replace all spi->chip_select and spi->cs_gpiod references with
+    function call
+  iio: imu: Replace all spi->chip_select and spi->cs_gpiod references
+    with function call
+  mtd: devices: Replace all spi->chip_select and spi->cs_gpiod
+    references with function call
+  staging: Replace all spi->chip_select and spi->cs_gpiod references
+    with function call
+  platform/x86: serial-multi-instantiate: Replace all spi->chip_select
+    and spi->cs_gpiod references with function call
+  powerpc/83xx/mpc832x_rdb: Replace all spi->chip_select references with
+    function call
+  ALSA: hda: cs35l41: Replace all spi->chip_select references with
+    function call
+  spi: Add stacked and parallel memories support in SPI core
+  mtd: spi-nor: Convert macros with inline functions
+  mtd: spi-nor: Add APIs to set/get nor->params
+  mtd: spi-nor: Add stacked memories support in spi-nor
+  spi: spi-zynqmp-gqspi: Add stacked memories support in GQSPI driver
+  mtd: spi-nor: Add parallel memories support in spi-nor
+  spi: spi-zynqmp-gqspi: Add parallel memories support in GQSPI driver
 
-The initrd images run some init scripts along with
+ arch/powerpc/platforms/83xx/mpc832x_rdb.c     |   2 +-
+ drivers/iio/imu/adis16400.c                   |   2 +-
+ drivers/mtd/devices/mtd_dataflash.c           |   2 +-
+ drivers/mtd/spi-nor/atmel.c                   |  17 +-
+ drivers/mtd/spi-nor/core.c                    | 665 +++++++++++++++---
+ drivers/mtd/spi-nor/core.h                    |   8 +
+ drivers/mtd/spi-nor/debugfs.c                 |   4 +-
+ drivers/mtd/spi-nor/gigadevice.c              |   4 +-
+ drivers/mtd/spi-nor/issi.c                    |  11 +-
+ drivers/mtd/spi-nor/macronix.c                |   6 +-
+ drivers/mtd/spi-nor/micron-st.c               |  39 +-
+ drivers/mtd/spi-nor/otp.c                     |  48 +-
+ drivers/mtd/spi-nor/sfdp.c                    |  29 +-
+ drivers/mtd/spi-nor/spansion.c                |  50 +-
+ drivers/mtd/spi-nor/sst.c                     |   7 +-
+ drivers/mtd/spi-nor/swp.c                     |  22 +-
+ drivers/mtd/spi-nor/winbond.c                 |  10 +-
+ drivers/mtd/spi-nor/xilinx.c                  |  18 +-
+ drivers/net/ethernet/adi/adin1110.c           |   2 +-
+ drivers/net/ethernet/asix/ax88796c_main.c     |   2 +-
+ drivers/net/ethernet/davicom/dm9051.c         |   2 +-
+ drivers/net/ethernet/qualcomm/qca_debug.c     |   2 +-
+ drivers/net/ieee802154/ca8210.c               |   2 +-
+ drivers/net/wan/slic_ds26522.c                |   2 +-
+ .../net/wireless/marvell/libertas/if_spi.c    |   2 +-
+ drivers/net/wireless/silabs/wfx/bus_spi.c     |   2 +-
+ drivers/net/wireless/st/cw1200/cw1200_spi.c   |   2 +-
+ .../platform/x86/serial-multi-instantiate.c   |   3 +-
+ drivers/spi/spi-altera-core.c                 |   2 +-
+ drivers/spi/spi-amd.c                         |   4 +-
+ drivers/spi/spi-ar934x.c                      |   2 +-
+ drivers/spi/spi-armada-3700.c                 |   4 +-
+ drivers/spi/spi-aspeed-smc.c                  |  13 +-
+ drivers/spi/spi-at91-usart.c                  |   2 +-
+ drivers/spi/spi-ath79.c                       |   4 +-
+ drivers/spi/spi-atmel.c                       |  26 +-
+ drivers/spi/spi-au1550.c                      |   4 +-
+ drivers/spi/spi-axi-spi-engine.c              |   2 +-
+ drivers/spi/spi-bcm-qspi.c                    |  10 +-
+ drivers/spi/spi-bcm2835.c                     |  19 +-
+ drivers/spi/spi-bcm2835aux.c                  |   4 +-
+ drivers/spi/spi-bcm63xx-hsspi.c               |  30 +-
+ drivers/spi/spi-bcm63xx.c                     |   2 +-
+ drivers/spi/spi-bcmbca-hsspi.c                |  30 +-
+ drivers/spi/spi-cadence-quadspi.c             |   5 +-
+ drivers/spi/spi-cadence-xspi.c                |   4 +-
+ drivers/spi/spi-cadence.c                     |   4 +-
+ drivers/spi/spi-cavium.c                      |   8 +-
+ drivers/spi/spi-coldfire-qspi.c               |   8 +-
+ drivers/spi/spi-davinci.c                     |  18 +-
+ drivers/spi/spi-dln2.c                        |   6 +-
+ drivers/spi/spi-dw-core.c                     |   2 +-
+ drivers/spi/spi-dw-mmio.c                     |   4 +-
+ drivers/spi/spi-falcon.c                      |   2 +-
+ drivers/spi/spi-fsi.c                         |   2 +-
+ drivers/spi/spi-fsl-dspi.c                    |  16 +-
+ drivers/spi/spi-fsl-espi.c                    |   6 +-
+ drivers/spi/spi-fsl-lpspi.c                   |   2 +-
+ drivers/spi/spi-fsl-qspi.c                    |   6 +-
+ drivers/spi/spi-fsl-spi.c                     |   2 +-
+ drivers/spi/spi-geni-qcom.c                   |   6 +-
+ drivers/spi/spi-gpio.c                        |   4 +-
+ drivers/spi/spi-gxp.c                         |   4 +-
+ drivers/spi/spi-hisi-sfc-v3xx.c               |   2 +-
+ drivers/spi/spi-img-spfi.c                    |  14 +-
+ drivers/spi/spi-imx.c                         |  30 +-
+ drivers/spi/spi-ingenic.c                     |   4 +-
+ drivers/spi/spi-intel.c                       |   2 +-
+ drivers/spi/spi-jcore.c                       |   4 +-
+ drivers/spi/spi-lantiq-ssc.c                  |   6 +-
+ drivers/spi/spi-mem.c                         |   4 +-
+ drivers/spi/spi-meson-spicc.c                 |   2 +-
+ drivers/spi/spi-microchip-core.c              |   6 +-
+ drivers/spi/spi-mpc512x-psc.c                 |   8 +-
+ drivers/spi/spi-mpc52xx.c                     |   2 +-
+ drivers/spi/spi-mt65xx.c                      |   6 +-
+ drivers/spi/spi-mt7621.c                      |   2 +-
+ drivers/spi/spi-mux.c                         |   8 +-
+ drivers/spi/spi-mxic.c                        |  10 +-
+ drivers/spi/spi-mxs.c                         |   2 +-
+ drivers/spi/spi-npcm-fiu.c                    |  20 +-
+ drivers/spi/spi-nxp-fspi.c                    |  10 +-
+ drivers/spi/spi-omap-uwire.c                  |   8 +-
+ drivers/spi/spi-omap2-mcspi.c                 |  24 +-
+ drivers/spi/spi-orion.c                       |   4 +-
+ drivers/spi/spi-pci1xxxx.c                    |   4 +-
+ drivers/spi/spi-pic32-sqi.c                   |   2 +-
+ drivers/spi/spi-pic32.c                       |   4 +-
+ drivers/spi/spi-pl022.c                       |   4 +-
+ drivers/spi/spi-pxa2xx.c                      |   6 +-
+ drivers/spi/spi-qcom-qspi.c                   |   2 +-
+ drivers/spi/spi-rb4xx.c                       |   2 +-
+ drivers/spi/spi-rockchip-sfc.c                |   2 +-
+ drivers/spi/spi-rockchip.c                    |  26 +-
+ drivers/spi/spi-rspi.c                        |  10 +-
+ drivers/spi/spi-s3c64xx.c                     |   2 +-
+ drivers/spi/spi-sc18is602.c                   |   4 +-
+ drivers/spi/spi-sh-msiof.c                    |   6 +-
+ drivers/spi/spi-sh-sci.c                      |   2 +-
+ drivers/spi/spi-sifive.c                      |   6 +-
+ drivers/spi/spi-sn-f-ospi.c                   |   2 +-
+ drivers/spi/spi-st-ssc4.c                     |   2 +-
+ drivers/spi/spi-stm32-qspi.c                  |  12 +-
+ drivers/spi/spi-sun4i.c                       |   2 +-
+ drivers/spi/spi-sun6i.c                       |   2 +-
+ drivers/spi/spi-synquacer.c                   |   6 +-
+ drivers/spi/spi-tegra114.c                    |  28 +-
+ drivers/spi/spi-tegra20-sflash.c              |   2 +-
+ drivers/spi/spi-tegra20-slink.c               |   6 +-
+ drivers/spi/spi-tegra210-quad.c               |   8 +-
+ drivers/spi/spi-ti-qspi.c                     |  16 +-
+ drivers/spi/spi-topcliff-pch.c                |   4 +-
+ drivers/spi/spi-wpcm-fiu.c                    |  12 +-
+ drivers/spi/spi-xcomm.c                       |   2 +-
+ drivers/spi/spi-xilinx.c                      |   6 +-
+ drivers/spi/spi-xlp.c                         |   4 +-
+ drivers/spi/spi-zynq-qspi.c                   |   2 +-
+ drivers/spi/spi-zynqmp-gqspi.c                |  58 +-
+ drivers/spi/spi.c                             | 225 ++++--
+ drivers/spi/spidev.c                          |   6 +-
+ drivers/staging/fbtft/fbtft-core.c            |   2 +-
+ drivers/staging/greybus/spilib.c              |   2 +-
+ include/linux/mtd/spi-nor.h                   |  18 +-
+ include/linux/spi/spi.h                       |  34 +-
+ include/trace/events/spi.h                    |  10 +-
+ sound/pci/hda/cs35l41_hda_spi.c               |   2 +-
+ 126 files changed, 1350 insertions(+), 615 deletions(-)
 
-   # buildroot/overlay-poweroff/etc/init.d/S50yolo
-   cat /proc/version
-   poweroff
+-- 
+2.25.1
 
-I think these have exercised vdso.
-
->>
->> Signed-off-by: Fangrui Song <maskray@google.com>
->> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
->> ---
->> Change from v1:
->> * rebase after 8ac3b5cd3e0521d92f9755e90d140382fc292510 (lib/vdso: use "=
-grep -E"
->> instead of "egrep")
->> * change the commit message to mention an example GNU ld bug; no longer =
-say the
->> patch fixes a deprecated egrep use
->> ---
->> =A0arch/arm/vdso/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 3 ---
->> =A0arch/arm64/kernel/vdso/Makefile=A0=A0 |=A0 3 ---
->> =A0arch/arm64/kernel/vdso32/Makefile |=A0 3 ---
->> =A0arch/csky/kernel/vdso/Makefile=A0=A0=A0 |=A0 3 ---
->> =A0arch/loongarch/vdso/Makefile=A0=A0=A0=A0=A0 |=A0 3 ---
->> =A0arch/mips/vdso/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 3 ---
->> =A0arch/powerpc/kernel/vdso/Makefile |=A0 1 -
->> =A0arch/riscv/kernel/vdso/Makefile=A0=A0 |=A0 3 ---
->> =A0arch/s390/kernel/vdso32/Makefile=A0 |=A0 2 --
->> =A0arch/s390/kernel/vdso64/Makefile=A0 |=A0 2 --
->> =A0arch/x86/entry/vdso/Makefile=A0=A0=A0=A0=A0 |=A0 4 ----
->> =A0lib/vdso/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 | 1=
-3 ++++---------
->> =A012 files changed, 4 insertions(+), 39 deletions(-)
->>
->> diff --git a/arch/arm/vdso/Makefile b/arch/arm/vdso/Makefile
->> index a7ec06ce3785..e58197bba776 100644
->> --- a/arch/arm/vdso/Makefile
->> +++ b/arch/arm/vdso/Makefile
->> @@ -1,8 +1,5 @@
->> =A0# SPDX-License-Identifier: GPL-2.0
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_ARM_JUMP_SLOT|R_ARM_GLOB_DAT|R_ARM_ABS32
->
->I would still add a comment here to say why we are including the generic
->Makefile to prevent that it gets accidentally removed (similar thing for e=
-very
->architecture touched by this patch).
->
->With that:
->
->Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com> # for vDSO, aar=
-ch64
->Tested-by: Vincenzo Frascino <vincenzo.frascino@arm.com> # for aarch64
->
-
-Just sent v3
-(https://lore.kernel.org/all/20230310190750.3323802-1-maskray@google.com/)
-with the comment changes. Thanks!
-
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0hostprogs :=3D vdsomunge
->> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Ma=
-kefile
->> index beaf9586338f..1f2427b13410 100644
->> --- a/arch/arm64/kernel/vdso/Makefile
->> +++ b/arch/arm64/kernel/vdso/Makefile
->> @@ -6,9 +6,6 @@
->> =A0# Heavily based on the vDSO Makefiles for other archs.
->> =A0#
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_AARCH64_JUMP_SLOT|R_AARCH64_GLOB_DAT|R_AARCH64=
-_ABS64
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0obj-vdso :=3D vgettimeofday.o note.o sigreturn.o
->> diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso3=
-2/Makefile
->> index f59bd1a4ead6..d014162c5c71 100644
->> --- a/arch/arm64/kernel/vdso32/Makefile
->> +++ b/arch/arm64/kernel/vdso32/Makefile
->> @@ -3,9 +3,6 @@
->> =A0# Makefile for vdso32
->> =A0#
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_ARM_JUMP_SLOT|R_ARM_GLOB_DAT|R_ARM_ABS32
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0# Same as cc-*option, but using CC_COMPAT instead of CC
->> diff --git a/arch/csky/kernel/vdso/Makefile b/arch/csky/kernel/vdso/Make=
-file
->> index 0b6909f10667..86c8c4de1b0f 100644
->> --- a/arch/csky/kernel/vdso/Makefile
->> +++ b/arch/csky/kernel/vdso/Makefile
->> @@ -1,8 +1,5 @@
->> =A0# SPDX-License-Identifier: GPL-2.0-only
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_CKCORE_ADDR32|R_CKCORE_JUMP_SLOT
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0# Symbols present in the vdso
->> diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
->> index d89e2ac75f7b..1b2e0f149f55 100644
->> --- a/arch/loongarch/vdso/Makefile
->> +++ b/arch/loongarch/vdso/Makefile
->> @@ -1,9 +1,6 @@
->> =A0# SPDX-License-Identifier: GPL-2.0
->> =A0# Objects to go into the VDSO.
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_LARCH_32|R_LARCH_64|R_LARCH_MARK_LA|R_LARCH_JU=
-MP_SLOT
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0obj-vdso-y :=3D elf.o vgetcpu.o vgettimeofday.o sigreturn.o
->> diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
->> index 1f7d5c6c10b0..c060f3596304 100644
->> --- a/arch/mips/vdso/Makefile
->> +++ b/arch/mips/vdso/Makefile
->> @@ -4,9 +4,6 @@
->> =A0# Sanitizer runtimes are unavailable and cannot be linked here.
->> =A0 KCSAN_SANITIZE=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 :=3D n
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_MIPS_JUMP_SLOT|R_MIPS_GLOB_DAT
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0obj-vdso-y :=3D elf.o vgettimeofday.o sigreturn.o
->> diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vds=
-o/Makefile
->> index 6a977b0d8ffc..83c347e9136f 100644
->> --- a/arch/powerpc/kernel/vdso/Makefile
->> +++ b/arch/powerpc/kernel/vdso/Makefile
->> @@ -2,7 +2,6 @@
->> =A0
->> =A0# List of files in the vdso, has to be asm only for now
->> =A0
->> -ARCH_REL_TYPE_ABS :=3D
->> R_PPC_JUMP_SLOT|R_PPC_GLOB_DAT|R_PPC_ADDR32|R_PPC_ADDR24|R_PPC_ADDR16|R_=
-PPC_ADDR16_LO|R_PPC_ADDR16_HI|R_PPC_ADDR16_HA|R_PPC_ADDR14|R_PPC_ADDR14_BRT=
-AKEN|R_PPC_ADDR14_BRNTAKEN|R_PPC_REL24
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0obj-vdso32 =3D sigtramp32-32.o gettimeofday-32.o datapage-32.o cachef=
-lush-32.o
->> note-32.o getcpu-32.o
->> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Ma=
-kefile
->> index 06e6b27f3bcc..d85c37e11b21 100644
->> --- a/arch/riscv/kernel/vdso/Makefile
->> +++ b/arch/riscv/kernel/vdso/Makefile
->> @@ -1,9 +1,6 @@
->> =A0# SPDX-License-Identifier: GPL-2.0-only
->> =A0# Copied from arch/tile/kernel/vdso/Makefile
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_RISCV_32|R_RISCV_64|R_RISCV_JUMP_SLOT
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0# Symbols present in the vdso
->> =A0vdso-syms=A0 =3D rt_sigreturn
->> diff --git a/arch/s390/kernel/vdso32/Makefile b/arch/s390/kernel/vdso32/=
-Makefile
->> index 245bddfe9bc0..e795fdbbf484 100644
->> --- a/arch/s390/kernel/vdso32/Makefile
->> +++ b/arch/s390/kernel/vdso32/Makefile
->> @@ -2,8 +2,6 @@
->> =A0# List of files in the vdso
->> =A0
->> =A0KCOV_INSTRUMENT :=3D n
->> -ARCH_REL_TYPE_ABS :=3D R_390_COPY|R_390_GLOB_DAT|R_390_JMP_SLOT|R_390_R=
-ELATIVE
->> -ARCH_REL_TYPE_ABS +=3D R_390_GOT|R_390_PLT
->> =A0
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0obj-vdso32 =3D vdso_user_wrapper-32.o note-32.o
->> diff --git a/arch/s390/kernel/vdso64/Makefile b/arch/s390/kernel/vdso64/=
-Makefile
->> index 9e2b95a222a9..47dbbfdfad68 100644
->> --- a/arch/s390/kernel/vdso64/Makefile
->> +++ b/arch/s390/kernel/vdso64/Makefile
->> @@ -2,8 +2,6 @@
->> =A0# List of files in the vdso
->> =A0
->> =A0KCOV_INSTRUMENT :=3D n
->> -ARCH_REL_TYPE_ABS :=3D R_390_COPY|R_390_GLOB_DAT|R_390_JMP_SLOT|R_390_R=
-ELATIVE
->> -ARCH_REL_TYPE_ABS +=3D R_390_GOT|R_390_PLT
->> =A0
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0obj-vdso64 =3D vdso_user_wrapper.o note.o
->> diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
->> index 838613ac15b8..b292c24acb8e 100644
->> --- a/arch/x86/entry/vdso/Makefile
->> +++ b/arch/x86/entry/vdso/Makefile
->> @@ -3,10 +3,6 @@
->> =A0# Building vDSO images for x86.
->> =A0#
->> =A0
->> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined bef=
-ore
->> -# the inclusion of generic Makefile.
->> -ARCH_REL_TYPE_ABS :=3D R_X86_64_JUMP_SLOT|R_X86_64_GLOB_DAT|R_X86_64_RE=
-LATIVE|
->> -ARCH_REL_TYPE_ABS +=3D R_386_GLOB_DAT|R_386_JMP_SLOT|R_386_RELATIVE
->> =A0include $(srctree)/lib/vdso/Makefile
->> =A0
->> =A0# Sanitizer runtimes are unavailable and cannot be linked here.
->> diff --git a/lib/vdso/Makefile b/lib/vdso/Makefile
->> index e814061d6aa0..9f031eafc465 100644
->> --- a/lib/vdso/Makefile
->> +++ b/lib/vdso/Makefile
->> @@ -5,18 +5,13 @@ GENERIC_VDSO_DIR :=3D $(dir $(GENERIC_VDSO_MK_PATH))
->> =A0
->> =A0c-gettimeofday-$(CONFIG_GENERIC_GETTIMEOFDAY) :=3D $(addprefix
->> $(GENERIC_VDSO_DIR), gettimeofday.c)
->> =A0
->> -# This cmd checks that the vdso library does not contain absolute reloc=
-ation
->> +# This cmd checks that the vdso library does not contain dynamic reloca=
-tions.
->> =A0# It has to be called after the linking of the vdso library and requi=
-res it
->> =A0# as a parameter.
->> =A0#
->> -# $(ARCH_REL_TYPE_ABS) is defined in the arch specific makefile and cor=
-responds
->> -# to the absolute relocation types printed by "objdump -R" and accepted=
- by the
->> -# dynamic linker.
->> -ifndef ARCH_REL_TYPE_ABS
->> -$(error ARCH_REL_TYPE_ABS is not set)
->> -endif
->> -
->> +# As a workaround for some GNU ld ports which produce unneeded R_*_NONE
->> +# dynamic relocations, ignore R_*_NONE.
->> =A0quiet_cmd_vdso_check =3D VDSOCHK $@
->> -=A0=A0=A0=A0=A0 cmd_vdso_check =3D if $(OBJDUMP) -R $@ | grep -E -h "$(=
-ARCH_REL_TYPE_ABS)"; \
->> +=A0=A0=A0=A0=A0 cmd_vdso_check =3D if $(READELF) -rW $@ | grep -v _NONE=
- | grep -q " R_\w*_"; \
->> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 then (echo >&2 "$@: dynami=
-c relocations are not supported"; \
->> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 rm -f $@; /bin/false=
-); fi
->
->-- =
-
->Regards,
->Vincenzo
 
 _______________________________________________
 linux-riscv mailing list
