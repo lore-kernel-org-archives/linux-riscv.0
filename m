@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EF1C64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 02:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DE0C6FA99
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Mar 2023 07:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6i+KA8kHNLnFXoNnAR66z+cbSOMvz9cDG2FEBWIX4eE=; b=vA8PAqa71Fw8Zf
-	JIk4Y41wU/wnsPKf2JavALYpL4wXnhhhomIbiw1m5HEH2lfCvNCNrkVCZUGkJr0cqFRBZS7cuBhQj
-	NeH3EF1WUV5Mi1EEkQy4eRPHznLdWvqJbllWra+OKaYepMpnedScV94sR9cEYKSapDAUQG9zi2Pon
-	QcFmTfhpQR7MZ5rDkeHZf9c37qi9ylZ59XzZMKLGbn4WxEspLOKNFbRxsymZssQ8iC9oajSiEM/6t
-	mMz1NwTpFlHHdjWV7lqU2TA7pSVHC/v8eHSuL+FznS0isFThl9PBLqQlC2V6rI5gkAOqC7x7LHWdV
-	8UdxZu01Sdn4igUti4rQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aQyN08sTkeizZyZocd70UFysKgASoZ9s7rscn65xEnY=; b=UbDw+C3KeuKSgU
+	ViTxsUeFCKD6UHXRk73UAl2Ew3WRTYZ35YQobvo8nqj1ybxaoRuKaKJDDbKwxDu9Icq26YrXkjxZS
+	1e0+Z+95G9kvXsOP9ztV2A+aXXE+m0YAQypPtj2Ajz+1IlcmKmyrh7FTOhEWOv6K+0OL2Khr6voyF
+	rToexlROxispAULwv22TCvqm8e3TYH3nQatpnxQG9uATrr6qAc48X/+KjDzGc0tuhx5kjZoClyh22
+	Owic30kTub991+3Wk0JDUYB+WWJlLEyZeDqK7PbStDePGXVnlk2AnL56Vt/EOTRRlAVagNaa6QM1g
+	gIn8Gg176M9Y2z4zkTCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paSWb-00CiLw-F5; Fri, 10 Mar 2023 02:30:29 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1paXQr-00DS6f-4r; Fri, 10 Mar 2023 07:44:53 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1paSWZ-00CiJw-5w
-	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 02:30:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id E2673CE2716;
-	Fri, 10 Mar 2023 02:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 58C4DC4339C;
-	Fri, 10 Mar 2023 02:30:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678415419;
-	bh=bKiV0Xvo7sKCXPxFTqkgixvqM/7sMqdz4rxmS27H1GY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=g+H34xjQ0y3JWgpcbTfVs35aBKwqKBbqt6dapC/QV5y46CiCEefULoETmvPCGHy6v
-	 MdGyrYH9WqMY/IA5k4Ft4SV/SH9DtlQn1T++3jOBoaL9ydOibuKAoG6j8ixEqV0q71
-	 2CkYs8FNkgeV1VqGNYDHydho15PG68Ov5rD8OPbIe5ns9gBOeA0NXmQ4CaDbQlQEMn
-	 VmNYuZfUci6oJ+jNWQAe+XNRZCe1hzVAl6479qagFykjZzGICZ41/C4H0EmwxY/9d8
-	 W7kywPJuNDIwnfKyOcnoxDSTyTk3pMuIoEfx92pcZTFRZgPDo5c6tDkf8XUSmuTc6q
-	 UHIr80Ua5g/mw==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3174DE21EEA;
-	Fri, 10 Mar 2023 02:30:19 +0000 (UTC)
+	id 1paXQm-00DS5N-Nk
+	for linux-riscv@lists.infradead.org; Fri, 10 Mar 2023 07:44:51 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 32A7gvni045789;
+	Fri, 10 Mar 2023 15:42:57 +0800 (+08)
+	(envelope-from dylan@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Fri, 10 Mar 2023
+ 15:42:54 +0800
+From: Dylan Jhong <dylan@andestech.com>
+To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <liushixin2@huawei.com>, <x5710999x@gmail.com>, <bjorn@rivosinc.com>,
+        <abrestic@rivosinc.com>, <peterx@redhat.com>, <hanchuanhua@oppo.com>,
+        <apopple@nvidia.com>, <hca@linux.ibm.com>, <aou@eecs.berkeley.edu>,
+        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+        <tim609@andestech.com>, <peterlin@andestech.com>,
+        <ycliang@andestech.com>, Dylan Jhong
+	<dylan@andestech.com>,
+        Dylan Jhong <dylain@andestech.com>,
+        Alexandre Ghiti
+	<alexghiti@rivosinc.com>
+Subject: [PATCH v2] RISC-V: mm: Support huge page in vmalloc_fault()
+Date: Fri, 10 Mar 2023 15:42:52 +0800
+Message-ID: <20230310074252.3853262-1-dylan@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack
- mode
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167841541919.17842.10261054652311897241.git-patchwork-notify@kernel.org>
-Date: Fri, 10 Mar 2023 02:30:19 +0000
-References: <20230308091639.602024-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230308091639.602024-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- chathura.abeyrathne.lk@gmail.com, dvyukov@google.com
+X-Originating-IP: [10.0.15.173]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 32A7gvni045789
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230309_183027_585075_4D9B9422 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20230309_234449_246550_19B4D99A 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +72,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Since RISC-V supports ioremap() with huge page (pud/pmd) mapping,
+However, vmalloc_fault() assumes that the vmalloc range is limited
+to pte mappings. To complete the vmalloc_fault() function by adding
+huge page support.
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+Fixes: 310f541a027b ("riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT")
+Signed-off-by: Dylan Jhong <dylain@andestech.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-On Wed,  8 Mar 2023 10:16:39 +0100 you wrote:
-> When CONFIG_FRAME_POINTER is unset, the stack unwinding function
-> walk_stackframe randomly reads the stack and then, when KASAN is enabled,
-> it can lead to the following backtrace:
-> 
-> [    0.000000] ==================================================================
-> [    0.000000] BUG: KASAN: stack-out-of-bounds in walk_stackframe+0xa6/0x11a
-> [    0.000000] Read of size 8 at addr ffffffff81807c40 by task swapper/0
-> [    0.000000]
-> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.2.0-12919-g24203e6db61f #43
-> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
-> [    0.000000] Call Trace:
-> [    0.000000] [<ffffffff80007ba8>] walk_stackframe+0x0/0x11a
-> [    0.000000] [<ffffffff80099ecc>] init_param_lock+0x26/0x2a
-> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
-> [    0.000000] [<ffffffff80c49c80>] dump_stack_lvl+0x22/0x36
-> [    0.000000] [<ffffffff80c3783e>] print_report+0x198/0x4a8
-> [    0.000000] [<ffffffff80099ecc>] init_param_lock+0x26/0x2a
-> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
-> [    0.000000] [<ffffffff8015f68a>] kasan_report+0x9a/0xc8
-> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
-> [    0.000000] [<ffffffff80007c4a>] walk_stackframe+0xa2/0x11a
-> [    0.000000] [<ffffffff8006e99c>] desc_make_final+0x80/0x84
-> [    0.000000] [<ffffffff8009a04e>] stack_trace_save+0x88/0xa6
-> [    0.000000] [<ffffffff80099fc2>] filter_irq_stacks+0x72/0x76
-> [    0.000000] [<ffffffff8006b95e>] devkmsg_read+0x32a/0x32e
-> [    0.000000] [<ffffffff8015ec16>] kasan_save_stack+0x28/0x52
-> [    0.000000] [<ffffffff8006e998>] desc_make_final+0x7c/0x84
-> [    0.000000] [<ffffffff8009a04a>] stack_trace_save+0x84/0xa6
-> [    0.000000] [<ffffffff8015ec52>] kasan_set_track+0x12/0x20
-> [    0.000000] [<ffffffff8015f22e>] __kasan_slab_alloc+0x58/0x5e
-> [    0.000000] [<ffffffff8015e7ea>] __kmem_cache_create+0x21e/0x39a
-> [    0.000000] [<ffffffff80e133ac>] create_boot_cache+0x70/0x9c
-> [    0.000000] [<ffffffff80e17ab2>] kmem_cache_init+0x6c/0x11e
-> [    0.000000] [<ffffffff80e00fd6>] mm_init+0xd8/0xfe
-> [    0.000000] [<ffffffff80e011d8>] start_kernel+0x190/0x3ca
-> [    0.000000]
-> [    0.000000] The buggy address belongs to stack of task swapper/0
-> [    0.000000]  and is located at offset 0 in frame:
-> [    0.000000]  stack_trace_save+0x0/0xa6
-> [    0.000000]
-> [    0.000000] This frame has 1 object:
-> [    0.000000]  [32, 56) 'c'
-> [    0.000000]
-> [    0.000000] The buggy address belongs to the physical page:
-> [    0.000000] page:(____ptrval____) refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81a07
-> [    0.000000] flags: 0x1000(reserved|zone=0)
-> [    0.000000] raw: 0000000000001000 ff600003f1e3d150 ff600003f1e3d150 0000000000000000
-> [    0.000000] raw: 0000000000000000 0000000000000000 00000001ffffffff
-> [    0.000000] page dumped because: kasan: bad access detected
-> [    0.000000]
-> [    0.000000] Memory state around the buggy address:
-> [    0.000000]  ffffffff81807b00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> [    0.000000]  ffffffff81807b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> [    0.000000] >ffffffff81807c00: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 00 f3
-> [    0.000000]                                            ^
-> [    0.000000]  ffffffff81807c80: f3 f3 f3 f3 00 00 00 00 00 00 00 00 00 00 00 00
-> [    0.000000]  ffffffff81807d00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> [    0.000000] ==================================================================
-> 
-> [...]
+---
+Changes in v2:
+  - Fix format of commit message
+---
+ arch/riscv/mm/fault.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Here is the summary with links:
-  - riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack mode
-    https://git.kernel.org/riscv/c/76950340cf03
-
-You are awesome, thank you!
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index eb0774d9c03b..4b9953b47d81 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -143,6 +143,8 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 		no_context(regs, addr);
+ 		return;
+ 	}
++	if (pud_leaf(*pud_k))
++		goto flush_tlb;
+ 
+ 	/*
+ 	 * Since the vmalloc area is global, it is unnecessary
+@@ -153,6 +155,8 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 		no_context(regs, addr);
+ 		return;
+ 	}
++	if (pmd_leaf(*pmd_k))
++		goto flush_tlb;
+ 
+ 	/*
+ 	 * Make sure the actual PTE exists as well to
+@@ -172,6 +176,7 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	 * ordering constraint, not a cache flush; it is
+ 	 * necessary even after writing invalid entries.
+ 	 */
++flush_tlb:
+ 	local_flush_tlb_page(addr);
+ }
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.34.1
 
 
 _______________________________________________
