@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0070C678D5
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 05:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8471C74A44
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 08:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dPsKn10ex7+zsI9vF4/KZLfP22KV7Kz5NWFym4nJaNE=; b=sUMzLZMSM+eZ9W
-	3tpwnLNcF6tib+Ql2ra1XfYzrP8AuSDfLMeGdG/XF/F13pUajf/JVGf/t1FUvEwckUQTu1TnOjSym
-	ylxhre2mtw79XbbumwfOk7qYgeo8WOApXIsEIDbhh1j42SPrbnCwQfHIbEhgBx9grXN+k4OHuJAs+
-	HMlj4OzYJBsHcFtXfbWV1t2vAkNl/mNPlc71W/viylASLYD3b3jEKEiF2Qn0JSOmvK+Iz4jPTokfx
-	IzjzG/D7Rk8XzQLRGRGNiyZR8qCFZunvtzHtZTyd+Yj+G6sjawzIQ8IbUrM2WG/fMzRdTCfjFvK2w
-	aR2HXZnYTVMhfqEmVJVw==;
+	List-Owner; bh=TNgmzmRrPmBEmuiskinw/abKuqM4tWiy/ytH4fn4vFQ=; b=h8fRFIuMWqdXef
+	KUFteskeHLzvKbNA0TfxATv5YjaWu+Bgm0Mgpof3NnQFIAxj9d5S8zwAbNX/eA8Pk9SfZVZuRD2OP
+	aPwg2vJ0D5MIwBvU3g83DpYRDeqqM65HgfZfylb5BjbMSQZD27mMIu0ufkLlp4bpE2QKkXP9oQo20
+	P3Y/VjaTC61zRt/rVahZr5XO8ibqOQoeh2VggOPLUqKYEahXF3ZnMMMUDJhndCaO+9KNuKWb+Sd2O
+	jx79dhFFmRsJw73+E2DAmJY/F8aPvEfe4bVuO+NSMbvOPe37i8w+FthFqY/vplb0EzY1fa1YNKLHl
+	K/WFfmBMoqGesbc4YuQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1parzH-00HEAI-Bo; Sat, 11 Mar 2023 05:41:47 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1pauyM-00HWuB-PA; Sat, 11 Mar 2023 08:53:02 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1parzB-00HE9M-SR
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 05:41:46 +0000
-Received: by mail-ed1-x534.google.com with SMTP id i34so28915901eda.7
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Mar 2023 21:41:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678513299;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/sd8dW014vK210fbOwse3XQn+9FwnbuV9Aj9zLPSfTA=;
-        b=EALEr4fQHB8sTxCC5fOp8g12RQnqhkhsZG/NekLvuxMXmN8T7aA9O4jfY46KE7EZnJ
-         +xgGQiwjbnKZl7OT3bn64FzjsIoG9sK5/n5N2d3cJUvl50t8vuTIsQ9SWISvgJJ6oLth
-         cDi7O5ZLKIPM7T4OlU9/9PzdA4T9PH7B/IsO8ROJWjWGahCobbG5gWRNOyxPSvnrdktc
-         5gZrGGD6xQyGyfG6aKHwSDNp6op7+ZFlh/OVLIKNGrbWdg1UZdk6WUmS3U1zXBxh96ST
-         abON/Q0HEU1utZz+rCZyWyGgx7mo0zwNXHX1v5glUC8STECbj9LbyWWfPJs5hUZ7L5C6
-         1nHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678513299;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/sd8dW014vK210fbOwse3XQn+9FwnbuV9Aj9zLPSfTA=;
-        b=VsQF4rFEru/6iuQ1+92aKXIsy2wRMz0jDbEy/jpFTlRfPPszDt8CX0WtDhNd5g2xzP
-         OeVSn0MEHaurOHVFEPU11pvKi2KofF7NwNHqEVfGqvZqcsFhRiCRDJsykTSoPXPW5zcH
-         NGxfWLrnQR6h1GIcX9joX/8cmsr5RPXK55rejzpeDtzJ73Fm77fpEqjGFQJ67/qJjQzb
-         uZuBVoCjUpo40dXErY+niRnEGt5WfmAoZdPfhI75ck1KSUxX9ZOkPc1h2HiAhSaa1lWG
-         nKNmvBUsMkc7ckbmR21iKwT92BEoWrnBkSaYdlAvCurHOiTKaJD0x5/ko+YjJsCWkLu/
-         SFFg==
-X-Gm-Message-State: AO0yUKUtqTqUc5Gu22fE4E6AAwOdolJmMctBv+fSSSE6At8pstcl3Eoh
-	xDyCIPhCNvcSDyxthoVyeaCW4iSNkWTJ7EcYncI=
-X-Google-Smtp-Source: AK7set/DgviL/QBLBYU/H0NM/R9r2BYzhFdhydBWjNvSD+maEWSdfT/LiBqx8G/4q8Xi5A3CtaGFrOU+xWY+dSQKk34=
-X-Received: by 2002:a50:d602:0:b0:4bf:a788:1d68 with SMTP id
- x2-20020a50d602000000b004bfa7881d68mr15509692edi.6.1678513299037; Fri, 10 Mar
- 2023 21:41:39 -0800 (PST)
-MIME-Version: 1.0
-References: <20230308220842.1231003-1-conor@kernel.org> <20230310150754.535425-1-bmeng.cn@gmail.com>
- <CAEUhbmWcfcSmuU6VnbTdLoErT113RZPgHSK3c+3M5kU0Wsv1pg@mail.gmail.com> <243c92f1-c1e0-428b-ab31-3d9c9088b2c2@spud>
-In-Reply-To: <243c92f1-c1e0-428b-ab31-3d9c9088b2c2@spud>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Sat, 11 Mar 2023 13:41:27 +0800
-Message-ID: <CAEUhbmUf+-a8u_qaC3weP1xBy8gjsbdV=29bM8gp6SWA5KqH5A@mail.gmail.com>
+	id 1pauyI-00HWss-EI
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 08:53:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=oGlz0x3waUETRxmcy9pz+bC50AW+Mj+vbt06v0RUcGI=; b=k8vkyBbcUPKoQCtzQ2jgVV/flg
+	sLhI9zILLXp4T/qCOsob3BNijz3pCsR6e6oUleRMvu2Agn+QG/HLjvmV+YX9BUaFKqPnLcsF/xsH+
+	yPH9U++3miVB5IjiCG6AkOE/lqGT5EMRoThhfRYRig66Aim1nRmjvPfr2tnIqtkLE+YmeCNL3yssH
+	EQN2MF74lntRkUavlczPBIBXX/iI8FrCJY6/oVTi5lFQYbU1R1vzNjdcVv5G2FE+jb4HeBXXuFDje
+	YjrRKmbHJvFF6S1+FdcRy43CrSXnx8bhUdkX73g0uoydBASnHc2F5Gii0x9WilfgKFlP/st6m91Vk
+	XwYrfmIw==;
+Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pauy1-00Bga5-4p; Sat, 11 Mar 2023 09:52:41 +0100
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pauxz-009Tvm-1c;
+	Sat, 11 Mar 2023 09:52:39 +0100
+Date: Sat, 11 Mar 2023 09:52:39 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Bin Meng <bmeng.cn@gmail.com>
+Cc: conor@kernel.org, conor.dooley@microchip.com,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	naresh.kamboju@linaro.org, nathan@kernel.org,
+	ndesaulniers@google.com, palmer@dabbelt.com, palmer@rivosinc.com,
+	stable@vger.kernel.org
 Subject: Re: [PATCH v2] RISC-V: remove I-extension ISA spec version dance
-To: Conor Dooley <conor@kernel.org>
-Cc: aurelien@aurel32.net, conor.dooley@microchip.com, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	naresh.kamboju@linaro.org, nathan@kernel.org, ndesaulniers@google.com, 
-	palmer@dabbelt.com, palmer@rivosinc.com, stable@vger.kernel.org
+Message-ID: <ZAxBVwLsUr1yQ4GZ@aurel32.net>
+References: <20230308220842.1231003-1-conor@kernel.org>
+ <20230310150754.535425-1-bmeng.cn@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230310150754.535425-1-bmeng.cn@gmail.com>
+User-Agent: Mutt/2.2.7 (2022-08-07)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230310_214141_941762_9BECA11D 
-X-CRM114-Status: GOOD (  42.66  )
+X-CRM114-CacheID: sfid-20230311_005258_947060_B11DC485 
+X-CRM114-Status: GOOD (  29.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,132 +74,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMTEsIDIwMjMgYXQgMTI6NDDigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gRnJpLCBNYXIgMTAsIDIwMjMgYXQgMTE6MzU6NTdQTSAr
-MDgwMCwgQmluIE1lbmcgd3JvdGU6Cj4gPiBPbiBGcmksIE1hciAxMCwgMjAyMyBhdCAxMTowN+KA
-r1BNIEJpbiBNZW5nIDxibWVuZy5jbkBnbWFpbC5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiA+IEZy
-b206IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gPiA+ID4KPiA+
-ID4gPiBUaGUgc3BlYyBmb2xrLCBpbiB0aGVpciBpbmZpbml0ZSB3aXNkb20sIG1vdmVkIGJvdGgg
-Y29udHJvbCBhbmQgc3RhdHVzCj4gPiA+ID4gcmVnaXN0ZXJzICYgdGhlIEZFTkNFLkkgaW5zdHJ1
-Y3Rpb25zIG91dCBvZiB0aGUgSSBleHRlbnNpb24gaW50byB0aGVpcgo+ID4gPiA+IG93biBleHRl
-bnNpb25zIChaaWNzciwgWmlmZW5jZWkpIGluIHRoZSAyMDE5MDYwOCB2ZXJzaW9uIG9mIHRoZSBJ
-U0EKPiA+ID4gPiBzcGVjIFswXS4KPiA+ID4gPiBUaGUgR0NDL2JpbnV0aWxzIGNyZXcgZGVjaWRl
-ZCBbMV0gdG8gbW92ZSB0aGVpciBkZWZhdWx0IHZlcnNpb24gb2YgdGhlCj4gPiA+ID4gSVNBIHNw
-ZWMgdG8gdGhlIDIwMTkxMjEzIHZlcnNpb24gb2YgdGhlIElTQSBzcGVjLCB3aGljaCBjYW1lIGlu
-dG8gYmVpbmcKPiA+ID4gPiBmb3IgdmVyc2lvbiAyLjM4IG9mIGJpbnV0aWxzIGFuZCBHQ0MgMTIu
-IEJ1aWxkaW5nIHdpdGggdGhpcyB0b29sY2hhaW4KPiA+ID4gPiBjb25maWd1cmF0aW9uIHdvdWxk
-IHJlc3VsdCBpbiBhc3NlbWJsZXIgaXNzdWVzOgo+ID4gPiA+ICAgQ0MgICAgICBhcmNoL3Jpc2N2
-L2tlcm5lbC92ZHNvL3ZnZXR0aW1lb2ZkYXkubwo+ID4gPiA+ICAgPDxCVUlMRERJUj4+L2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXR0aW1lb2ZkYXkuaDogQXNzZW1ibGVyIG1lc3NhZ2Vz
-Ogo+ID4gPiA+ICAgPDxCVUlMRERJUj4+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXR0
-aW1lb2ZkYXkuaDo3MTogRXJyb3I6IHVucmVjb2duaXplZCBvcGNvZGUgYGNzcnIgYTUsMHhjMDEn
-Cj4gPiA+ID4gICA8PEJVSUxERElSPj4vYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHRp
-bWVvZmRheS5oOjcxOiBFcnJvcjogdW5yZWNvZ25pemVkIG9wY29kZSBgY3NyciBhNSwweGMwMScK
-PiA+ID4gPiAgIDw8QlVJTERESVI+Pi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0dGlt
-ZW9mZGF5Lmg6NzE6IEVycm9yOiB1bnJlY29nbml6ZWQgb3Bjb2RlIGBjc3JyIGE1LDB4YzAxJwo+
-ID4gPiA+ICAgPDxCVUlMRERJUj4+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXR0aW1l
-b2ZkYXkuaDo3MTogRXJyb3I6IHVucmVjb2duaXplZCBvcGNvZGUgYGNzcnIgYTUsMHhjMDEnCj4g
-PiA+ID4gVGhpcyB3YXMgZml4ZWQgaW4gY29tbWl0IDZkZjJhMDE2YzBjOCAoInJpc2N2OiBmaXgg
-YnVpbGQgd2l0aCBiaW51dGlscwo+ID4gPiA+IDIuMzgiKSBieSBBdXJlbGllbiBKYXJubywgYnV0
-IGhhcyBwcm92ZW4gZnJhZ2lsZS4KPiA+ID4gPgo+ID4gPiA+IEJlZm9yZSBMTFZNIDE3LCBMTFZN
-IGRpZCBub3Qgc3VwcG9ydCB0aGVzZSBleHRlbnNpb25zIGFuZCwgYXMgc3VjaCwgdGhlCj4gPiA+
-ID4gY2Mtb3B0aW9uIGNoZWNrIGFkZGVkIGJ5IEF1cmVsaWVuIHdvcmtlZC4gU2luY2UgY29tbWl0
-IDIyZTE5OWU2YWZiMQo+ID4gPiA+ICgiW1JJU0NWXSBBY2NlcHQgemljc3IgYW5kIHppZmVuY2Vp
-IGNvbW1hbmQgbGluZSBvcHRpb25zIikgaG93ZXZlciwgTExWTQo+ID4gPiA+ICpkb2VzKiBzdXBw
-b3J0IHRoZW0gYW5kIHRoZSBjYy1vcHRpb24gY2hlY2sgcGFzc2VzLgo+ID4gPiA+Cj4gPiA+ID4g
-VGhpcyBzdXJmYWNlZCBhcyBhIHByb2JsZW0gd2hpbGUgYnVpbGRpbmcgdGhlIDUuMTAgc3RhYmxl
-IGtlcm5lbCB1c2luZwo+ID4gPiA+IHRoZSBkZWZhdWx0IFR1eG1ha2UgRGViaWFuIGltYWdlIFsy
-XSwgYXMgNS4xMCBkaWQgbm90IHlldCBzdXBwb3J0IGxkLmxsZCwKPiA+ID4gPiBhbmQgdXNlcyB0
-aGUgRGViaWFuIHByb3ZpZGVkIGJpbnV0aWxzIDIuMzUuCj4gPiA+ID4gVmVyc2lvbnMgb2YgbGQg
-cHJpb3IgdG8gMi4zOCB3aWxsIHJlZnVzZSB0byBsaW5rIGlmIHRoZXkgZW5jb3VudGVyCj4gPiA+
-ID4gdW5rbm93biBJU0EgZXh0ZW5zaW9ucywgYW5kIHVuZm9ydHVuYXRlbHkgWmlmZW5jZWkgaXMg
-bm90IHN1cHBvcnRlZCBieQo+ID4gPiA+IGJpbnR1aWxzIDIuMzUuCj4gPiA+ID4KPiA+ID4gPiBJ
-bnN0ZWFkIG9mIGRhbmNpbmcgYXJvdW5kIHdpdGggYWRkaW5nIHRoZXNlIGV4dGVuc2lvbnMgdG8g
-bWFyY2gsIGFzIHdlCj4gPiA+ID4gY3VycmVudGx5IGRvLCBQYWxtZXIgc3VnZ2VzdGVkIGxvY2tp
-bmcgR0NDIGJ1aWxkcyB0byB0aGUgc2FtZSB2ZXJzaW9uIG9mCj4gPiA+ID4gdGhlIElTQSBzcGVj
-IHRoYXQgaXMgdXNlZCBieSBMTFZNLiBBcyBmYXIgYXMgSSBjYW4gdGVsbCwgdGhhdCBpcyAyLjIs
-Cj4gPiA+ID4gd2l0aCwgYXBwYXJlbnRseSBbM10sIGEgbGFjayBvZiBpbnRlcmVzdCBpbiBpbXBs
-ZW1lbnRpbmcgYSBmbGFnIGxpa2UKPiA+ID4gPiBHQ0MncyAtbWlzYS1zcGVjIGF0IHByZXNlbnQu
-Cj4gPiA+ID4KPiA+ID4gPiBBZGQge2NjLGFzfS1vcHRpb24gY2hlY2tzIHRvIGFkZCAtbWlzYS1z
-cGVjIHRvIEtCVUlMRF97QSxDfUZMQUdTIHdoZW4KPiA+ID4gPiBHQ0MgaXMgdXNlZCAmIHJlbW92
-ZSB0aGUgbWFyY2ggZGFuY2UuCj4gPiA+ID4KPiA+ID4gPiBBcyBjbGFuZyBkb2VzIG5vdCBhY2Nl
-cHQgdGhpcyBhcmd1bWVudCwgSSBoYWQgZXhwZWN0ZWQgdG8gZW5jb3VudGVyCj4gPiA+ID4gaXNz
-dWVzIHdpdGggdGhlIGFzc2VtYmxlciwgYXMgbmVpdGhlciB6aWNzciBub3IgemlmZW5jZWkgYXJl
-IHByZXNlbnQgaW4KPiA+ID4gPiB0aGUgSVNBIHN0cmluZyBhbmQgdGhlIHNwZWMgdmVyc2lvbiAq
-c2hvdWxkKiBiZSBkZWZhdWx0aW5nIHRvIGEgdmVyc2lvbgo+ID4gPiA+IHRoYXQgcmVxdWlyZXMg
-dGhlbSB0byBiZSBwcmVzZW50LiBUaGUgYnVpbGQgcGFzc2VkIGhvd2V2ZXIgYW5kIHRoZQo+ID4g
-PiA+IHJlc3VsdGluZyBrZXJuZWwgd29ya2VkIHBlcmZlY3RseSBmaW5lIGZvciBtZSBvbiBhIFBv
-bGFyRmlyZSBTb0MuLi4KPiA+ID4gPgo+ID4gPiA+IExpbms6IGh0dHBzOi8vcmlzY3Yub3JnL3dw
-LWNvbnRlbnQvdXBsb2Fkcy8yMDE5LzA2L3Jpc2N2LXNwZWMucGRmIFswXQo+ID4gPiA+IExpbms6
-IGh0dHBzOi8vZ3JvdXBzLmdvb2dsZS5jb20vYS9ncm91cHMucmlzY3Yub3JnL2cvc3ctZGV2L2Mv
-YUUxWmVISENZZjQgWzFdCj4gPiA+ID4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxs
-L0NBK0c5Zll0OVQ9RUxDTGFCOWJ5eGFMVzJRZjRwWmNETz1odUNBMEQ4dWcyVjIraXJKUUBtYWls
-LmdtYWlsLmNvbS8gWzJdCj4gPiA+ID4gTGluazogaHR0cHM6Ly9kaXNjb3Vyc2UubGx2bS5vcmcv
-dC9zcGVjaWZ5aW5nLXVucHJpdmlsZWRnZS1zcGVjLXZlcnNpb24tbWlzYS1zcGVjLWdjYy1mbGFn
-LWVxdWl2YWxlbnQvNjY5MzUgWzNdCj4gPiA+ID4gQ0M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcK
-PiA+ID4gPiBTdWdnZXN0ZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29t
-Pgo+ID4gPiA+IFJlcG9ydGVkLWJ5OiBOYXJlc2ggS2FtYm9qdSA8bmFyZXNoLmthbWJvanVAbGlu
-YXJvLm9yZz4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xl
-eUBtaWNyb2NoaXAuY29tPgo+ID4gPiA+IC0tLQo+ID4gPiA+IEkgdGhpbmsgQXVyZWxpZW4ncyBv
-cmlnaW5hbCBjb21taXQgbWVzc2FnZSBtaWdodCBhY3R1YWxseSBub3QgYmUgcXVpdGUKPiA+ID4g
-PiBjb3JyZWN0PyBJIGZvdW5kLCBpbiBteSBsaW1pdGVkIHRlc3RpbmcsIHRoYXQgaXQgaXMgbm90
-IHRoZSBkZWZhdWx0Cj4gPiA+ID4gYmVoYXZpb3VyIG9mIGdhcyB0aGF0IG1hdHRlcnMsIGJ1dCBy
-YXRoZXIgdGhlIHRvb2xjaGFpbiBpdHNlbGY/Cj4gPiA+ID4gTXkgYmludXRpbHMgdmVyc2lvbnMg
-KGJvdGggdGhvc2UgYnVpbHQgdXNpbmcgdGhlIGNsYW5nLWJ1aWx0LWxpbnV4Cj4gPiA+ID4gdGMt
-YnVpbGQgc2NyaXB0cyB3aGljaCBkbyBub3Qgc2V0IGFuIElTQSBzcGVjIHZlcnNpb24sIGFuZCBv
-bmUgYnVpbHQKPiA+ID4gPiB1c2luZyB0aGUgcmlzY3YtZ251LXRvb2xjaGFpbiBpbmZyYSB3LyBh
-biBleHBsaWNpdCAyMDE5MTIxMyBzcGVjIHZlcnNpb24KPiA+ID4gPiBzZXQpIGRvIG5vdCBlbmNv
-dW50ZXIgdGhlc2UgaXNzdWVzLgo+ID4gPgo+ID4gPiBJIGFtIHVuYWJsZSB0byByZXByb2R1Y2Ug
-dGhlIGJ1aWxkIGZhaWx1cmUgYXMgcmVwb3J0ZWQgYnkgY29tbWl0IDZkZjJhMDE2YzBjOAo+ID4g
-PiAoInJpc2N2OiBmaXggYnVpbGQgd2l0aCBiaW51dGlscyAyLjM4IikgYnkgQXVyZWxpZW4gSmFy
-bm8gdXNpbmcga2VybmVsLm9yZwo+ID4gPiBwcmUtYnVpbHQgR0NDIDExLjMuMCBbMV0gd2hpY2gg
-aW5jbHVkZXMgYmludXRpbHMgMi4zOC4KPiA+ID4KPiA+ID4gWzFdIGh0dHBzOi8vbWlycm9ycy5l
-ZGdlLmtlcm5lbC5vcmcvcHViL3Rvb2xzL2Nyb3NzdG9vbC9maWxlcy9iaW4veDg2XzY0LzExLjMu
-MC94ODZfNjQtZ2NjLTExLjMuMC1ub2xpYmMteDg2XzY0LWxpbnV4LnRhci54ego+ID4gPgo+ID4g
-PiBUaGUgZGVmY29uZmlnIG9mIHY1LjE2IGtlcm5lbCAoY29tbWl0IDZkZjJhMDE2YzBjOCBsYW5k
-cyBpbiB2NS4xNykgYnVpbGRzIGZpbmUKPiA+ID4gZm9yIG1lLiBBbnl0aGluZyBJIGFtIG1pc3Np
-bmc/Cj4gPiA+Cj4gPgo+ID4gU29tZSBmdXJ0aGVyIG5vdGU6Cj4gPgo+ID4gQWZ0ZXIgSSBzd2l0
-Y2hlZCB0byBrZXJuZWwub3JnIHByZS1idWlsdCBHQ0MgMTIuMi4wIFsxXSB3aGljaCBpbmNsdWRl
-cwo+ID4gYmludXRpbHMgMi4zOSwgSSB3YXMgYWJsZSB0byByZXByb2R1Y2UgdGhlIGV4YWN0IHNh
-bWUgYnVpbGQgZmFpbHVyZSBvZgo+ID4gdjUuMTYga2VybmVsIGFzIGRlc2NyaWJlZCBpbiB0aGUg
-Y29tbWl0IDZkZjJhMDE2YzBjOCAoInJpc2N2OiBmaXgKPiA+IGJ1aWxkIHdpdGggYmludXRpbHMg
-Mi4zOCIpIGJ5IEF1cmVsaWVuIEphcm5vLgo+ID4KPiA+IFRvIHZlcmlmeSB0aGUgY29tbWl0IG1l
-c3NhZ2Ugb2YgNmRmMmEwMTZjMGM4IGlzIGFjY3VyYXRlIG9yIG5vdCwgSQo+ID4gYnVpbHQgYSBH
-QVMgZnJvbSBiaW51dGlscyAyLjM3IGFuZCByZXBsYWNlZCB0aGUgR0FTIDIuMzkgaW4gdGhlCj4g
-PiBrZXJuZWwub3JnIHBhY2thZ2UsIHN1cnByaXNpbmdseSBrZXJuZWwgdjUuMTYgZGlkIG5vdCBi
-dWlsZCB3aXRoIHRoZQo+ID4gc2FtZSBidWlsZCBmYWlsdXJlLgo+ID4KPiA+IFNvIGl0IHNlZW1z
-IHRoYXQgaXQncyBHQ0MgdGhhdCBjYXVzZWQgdGhlIGJ1aWxkIGZhaWx1cmUgaW5zdGVhZCBvZiBH
-QVMKPiA+IGZyb20gYmludXRpbHM/Pwo+Cj4gUmlnaHQsIHRoYXQncyB3aGF0IEkgd2FzIGdldHRp
-bmcgYXQgaW4gdGhlIGJpdCBiZWxvdyB0aGUgLS0tIGxpbmUgaW4gbXkKPiBwYXRjaC4gSSB0aGlu
-ayBBdXJlbGllbiB3YXMgbWlzbGVkIGJ5IHRoZSBmYWlsdXJlIG1lc3NhZ2UgYW5kIHlvdXIgZW1h
-aWwKPiAoWzFdIGluIG15IGxpbmtzIGFib3ZlKSB3aGljaCBjbGFpbWVkIHRoYXQgYmludXRpbHMg
-d291bGQgZGVmYXVsdCB0bwo+IHRoZSAyMDE5MTIxMyBzcGVjLgo+IEl0IGFwcGVhcnMgKGFuZCBJ
-J20gbm90IGEgdGMgcGVyc29uKSB0aGF0IEdDQyBtdXN0IGNhbGwgR0FTIHdpdGggdGhlCj4gLS1t
-aXNhLXNwZWMgYXJndW1lbnQsIGFuZCBpbiBHQ0MgMTIgdGhlIHZhbHVlIHVzZWQgaXMgMjAxOTEy
-MTMuCj4gRWl0aGVyIEdDQyAxMSBtdXN0IHBhc3MgLS1taXNhLXNwZWM9Mi4yIHRvIGJpbnV0aWxz
-LCBvciBpdCBwYXNzZXMKPiBub3RoaW5nLCBsZWFkaW5nIGJpbnV0aWxzIHRvIGJlIHBlcm1pc3Np
-dmUgYWJvdXQgd2hhdCAtbWFyY2g9cnY2NGkKPiBtZWFucy4KCkkgdmVyaWZpZWQgdGhhdCAiLW1p
-c2Etc3BlYyIgaXMgYSBuZXcgb3B0aW9uIGludHJvZHVjZWQgaW4gR0NDIDEyIGFuZAp0aGUgZGVm
-YXVsdCB2YWx1ZSBpcyBzZXQgdG8gMjAxOTEyMTMgd2hpY2ggaXMgdW5mb3J0dW5hdGVseSBiYWNr
-d2FyZAppbmNvbXBhdGlibGUuCgpHQ0MgMTEgZG9lcyBub3QgaGF2ZSB0aGUgIi1taXNhLXNwZWMi
-IG9wdGlvbiwgc28gSSBhc3N1bWUgaXQgcHJvZHVjZXMKYmFja3dhcmQgY29tcGF0aWJsZSBjb2Rl
-cy4KCklPVywgd2hhdCBjb21taXQgNmRmMmEwMTZjMGM4IHdhcyB0cnlpbmcgdG8gZml4IGhhcyBu
-b3RoaW5nIHRvIGRvIHdpdGgKYmludXRpbHMgMi4zOCsuIEl0J3MgdGhlIEdDQyBjaGFuZ2VzIHRo
-YXQgaXMgdGhlIGN1bHByaXQuCgpGb3IgdGhpcyBwYXRjaCwgSSB0aGluayBpdCBMR1RNLCBzbzoK
-ClJldmlld2VkLWJ5OiBCaW4gTWVuZyA8Ym1lbmdAdGlueWxhYi5vcmc+Cgo+Cj4gVGhlIHBlcm1p
-c3NpdmUgb3B0aW9uIHdvdWxkICJzZWVtIiB0byBiZSBjb3JyZWN0LCBhcyBidWlsZGluZyB3aXRo
-IGNsYW5nCj4gKHRoYXQgdG8gbXkga25vd2xlZGdlIGRvZXNuJ3QgcGFzcyAtLW1pc2Etc3BlYyB0
-byBHQVMpIGFuZCB3aXRoCj4gLW1hcmNoPXJ2NjRpIGhhcyBubyBpc3N1ZXMgYXNzZW1ibGluZy4K
-Pgo+IEl0J2QgYXBwZWFyIHRvIG1lIHRoYXQgYmludXRpbHMgaXMgYSAqcGxheWVyKiBpbiB0aGlz
-IGlzc3VlLCBidXQgaXMgbm90Cj4gdGhlIGN1bHByaXQgb2YgdGhlIGlzc3VlIEF1cmVsaWVuIHNv
-dWdodCB0byBmaXguCj4KPiBJIGR1bm5vIHdoYXQgSSBhbSB0YWxraW5nIGFib3V0IHRob3VnaCwg
-dGhpcyBpcyBhbGwgZnJvbSBwbGF5aW5nIGFyb3VuZAo+IHdpdGggbWFueSB0YyB2YXJpYW50cyBh
-bmQgc2VlIGhvdyBpdCBnb2VzIQo+CgpSZWdhcmRzLApCaW4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 2023-03-10 23:07, Bin Meng wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> > 
+> > The spec folk, in their infinite wisdom, moved both control and status
+> > registers & the FENCE.I instructions out of the I extension into their
+> > own extensions (Zicsr, Zifencei) in the 20190608 version of the ISA
+> > spec [0].
+> > The GCC/binutils crew decided [1] to move their default version of the
+> > ISA spec to the 20191213 version of the ISA spec, which came into being
+> > for version 2.38 of binutils and GCC 12. Building with this toolchain
+> > configuration would result in assembler issues:
+> >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+> > This was fixed in commit 6df2a016c0c8 ("riscv: fix build with binutils
+> > 2.38") by Aurelien Jarno, but has proven fragile.
+> > 
+> > Before LLVM 17, LLVM did not support these extensions and, as such, the
+> > cc-option check added by Aurelien worked. Since commit 22e199e6afb1
+> > ("[RISCV] Accept zicsr and zifencei command line options") however, LLVM
+> > *does* support them and the cc-option check passes.
+> > 
+> > This surfaced as a problem while building the 5.10 stable kernel using
+> > the default Tuxmake Debian image [2], as 5.10 did not yet support ld.lld,
+> > and uses the Debian provided binutils 2.35.
+> > Versions of ld prior to 2.38 will refuse to link if they encounter
+> > unknown ISA extensions, and unfortunately Zifencei is not supported by
+> > bintuils 2.35.
+> > 
+> > Instead of dancing around with adding these extensions to march, as we
+> > currently do, Palmer suggested locking GCC builds to the same version of
+> > the ISA spec that is used by LLVM. As far as I can tell, that is 2.2,
+> > with, apparently [3], a lack of interest in implementing a flag like
+> > GCC's -misa-spec at present.
+> > 
+> > Add {cc,as}-option checks to add -misa-spec to KBUILD_{A,C}FLAGS when
+> > GCC is used & remove the march dance.
+> > 
+> > As clang does not accept this argument, I had expected to encounter
+> > issues with the assembler, as neither zicsr nor zifencei are present in
+> > the ISA string and the spec version *should* be defaulting to a version
+> > that requires them to be present. The build passed however and the
+> > resulting kernel worked perfectly fine for me on a PolarFire SoC...
+> > 
+> > Link: https://riscv.org/wp-content/uploads/2019/06/riscv-spec.pdf [0]
+> > Link: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1ZeHHCYf4 [1]
+> > Link: https://lore.kernel.org/all/CA+G9fYt9T=ELCLaB9byxaLW2Qf4pZcDO=huCA0D8ug2V2+irJQ@mail.gmail.com/ [2]
+> > Link: https://discourse.llvm.org/t/specifying-unpriviledge-spec-version-misa-spec-gcc-flag-equivalent/66935 [3]
+> > CC: stable@vger.kernel.org
+> > Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> > I think Aurelien's original commit message might actually not be quite
+> > correct? I found, in my limited testing, that it is not the default
+> > behaviour of gas that matters, but rather the toolchain itself?
+> > My binutils versions (both those built using the clang-built-linux
+> > tc-build scripts which do not set an ISA spec version, and one built
+> > using the riscv-gnu-toolchain infra w/ an explicit 20191213 spec version
+> > set) do not encounter these issues.
+> 
+> I am unable to reproduce the build failure as reported by commit 6df2a016c0c8
+> ("riscv: fix build with binutils 2.38") by Aurelien Jarno using kernel.org
+> pre-built GCC 11.3.0 [1] which includes binutils 2.38.
+> 
+> [1] https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/11.3.0/x86_64-gcc-11.3.0-nolibc-x86_64-linux.tar.xz
+
+I guess you mean https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/11.3.0/x86_64-gcc-11.3.0-nolibc-riscv64-linux.tar.gz
+
+> The defconfig of v5.16 kernel (commit 6df2a016c0c8 lands in v5.17) builds fine
+> for me. Anything I am missing?
+
+I can't find the corresponding source and unfortunately binutils doesn't
+record the configure options in the binaries, but my guess is that it
+has been configured with --with-isa-spec=2.2. This is not the
+recommended way to go, but given the mess many distribution went that
+road.
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                 http://www.aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
