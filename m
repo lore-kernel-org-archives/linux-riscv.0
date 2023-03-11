@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D040DC61DA4
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 14:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFDF8C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 21:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=69JWVkIO6VxW7JNVhkEWAU/ClYPHJ3pKctiZUYRzg0I=; b=nIvXaVn9toRnUD
-	JdpadUiViMEuWTUUPITC1VK0r7v+xElg1sPptu4BPCqbIPEXmQsiQPYl03OZ0W5kkbWxzV3yxPlMI
-	HQGVm99O5yAjScswphDxZg01Jo5xI2TrqQa7uscEB0T7BTddaIKc9m5IucOdQdwBpIoDmpkcSdvri
-	0GRfqX4niZX9nLoh0YPObgFWu+n0EUFxgRLqnHKARM4s9MFf+o7P9ZSoph8cuuqITlb9/jtI86tBs
-	a/Vpmiib7OWZpQ36VSJvFkdgV1uifUlOpb7ayCDjljsoeDpIqyjG66wPLAk53XyLeLHcwhSaeQrqB
-	FbQq8MdJ+R2pWdkaVxsg==;
+	List-Owner; bh=aHkEbEUSGK+jXwkkAmmbKXPqqDQCChEr86XF8ZtmUhg=; b=YzKL+uisHzLggP
+	TQFVTMbbnTZriJNh7SZt5AODqgyUhwsmi4XUq+KGtiKy10r3dJlaHKORayt4Q6yU/XyKbWdwO8bLB
+	ylUo/cDT6MBM7jvg8Lc1t+RZ45/qF2sxgok1VsV1WWTKx+tG39d7xxhjPp6LcyVyvvlLAlCLPx70o
+	/c7ZmhTD2ejPfBQVUkykXhyQ/O80N7y5s/WRkbKgAkzK6yXBg4p0jWaSa2FJPUSO/jWcNZ/RRhyst
+	2Jxj9ToAU7Fp8myluVOyATsl5hGokC87NXpw9AjuHjBviKeQqwYgRv+pNHIrplQuBVq93kdfsQ3wb
+	FWEfLgxCA01VPGss7RJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pb033-000iEI-3z; Sat, 11 Mar 2023 14:18:13 +0000
-Received: from mail-ot1-f41.google.com ([209.85.210.41])
+	id 1pb73X-001JNc-Lq; Sat, 11 Mar 2023 21:47:11 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pb030-000iDg-ME
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 14:18:12 +0000
-Received: by mail-ot1-f41.google.com with SMTP id e9-20020a056830200900b00694651d19f6so4476447otp.12
-        for <linux-riscv@lists.infradead.org>; Sat, 11 Mar 2023 06:18:09 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678544289;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	id 1pb73M-001JIl-Q3
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 21:47:03 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-5418c2b8ef2so1945427b3.5
+        for <linux-riscv@lists.infradead.org>; Sat, 11 Mar 2023 13:46:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1678571219;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XV/mrDBGKbRUqTXikDz3w8VFKTgqnuQ8vz5vXQLzCt4=;
-        b=XEQj+YGX5E9JSRAGvQiSm4aBeJ5o89zzqpf6C4OeDO4QwHXu7CiuTlRkhbjSPP1WJH
-         BuMAWX/HX/Fwrtn1K+48NN+t7cvlFfYhmfxD7mNwJRPAbCC6fVM+OGcgmWZz6No616Rk
-         Qq6MSEIcPu+7X1qxJYVWDuNj6RqEk7jO4BB9VlatkxvmpAVNdorBkrIsC/rKg0uTWYou
-         d4+IhjolX/yXub7dCrcm5MyAJc8gHicU9X2jNxxUyFe+giJBUjmyF6moPN6JESVuKemE
-         Gqalf5z7jklOnC8Y6qE/q+HbCcMOVRtyilEnHvsg7ACkblL9JFMDEEpJvH5JS9t/jLnA
-         8Nfg==
-X-Gm-Message-State: AO0yUKUnDeYB9OW2I7ULXIQPvqbj0LcgHfnYDkUrftEZX+bQdV5OflMm
-	mdRNDF7vCuQk1dDfA2NfkQ==
-X-Google-Smtp-Source: AK7set/I2cIlMz9mjzMsoaRlf96D2re3kZv70KnZkmskujOeyOmASWokfFmrMBBd5MHvRaSiMvy+MQ==
-X-Received: by 2002:a05:6830:2b1e:b0:693:d8a3:1816 with SMTP id l30-20020a0568302b1e00b00693d8a31816mr18572913otv.16.1678544289266;
-        Sat, 11 Mar 2023 06:18:09 -0800 (PST)
-Received: from robh_at_kernel.org ([2605:ef80:80f1:6fdb:8060:4df8:4037:6d6f])
-        by smtp.gmail.com with ESMTPSA id t9-20020a056830082900b0069452b2aa2dsm1172512ots.50.2023.03.11.06.18.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Mar 2023 06:18:08 -0800 (PST)
-Received: (nullmailer pid 142278 invoked by uid 1000);
-	Sat, 11 Mar 2023 14:18:03 -0000
-Date: Sat, 11 Mar 2023 08:18:03 -0600
-From: Rob Herring <robh@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Ben Dooks <ben.dooks@sifive.com>, Marc Zyngier <maz@kernel.org>, linux-riscv@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Michael Turquette <mturquette@baylibre.com>, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 12/21] dt-bindings: clock: Add StarFive JH7110
- always-on clock and reset generator
-Message-ID: <167854426637.141815.17209731765325744156.robh@kernel.org>
-References: <20230311090733.56918-1-hal.feng@starfivetech.com>
- <20230311090733.56918-13-hal.feng@starfivetech.com>
+        bh=j3BGxsLL0P2xeumMB7bEdeq9RgCc5RJW60xab3JcWmM=;
+        b=kwcJYojGXc7i5Cw4eiPmBcGY3cxrIlbNQQuF6G9c99eUWkl5qqoYCwNnSqw0mqLRBI
+         E/DVYL9cPcBC0CNafj1hr4JbY7lTGwoD9B42QqaNhXpCiryP9MJitp6OT5ytjBg4C1aI
+         8Zu53YMGAzAcEjN6by7I88ZsMxSGApOOH1tsSPOib8iyg8YpURdD2zNKNspwyKDqe06w
+         cVavHO/PktwawT7QB/Oztvt1lGhdQewMchl1Afz8uTrmOCaUOJvY30mTiPYc4VaRtT2a
+         R69AbyqOPKwkwNNoFVg4GosB4ks5HTaG4jb8AlEsmG2yW/2IW1zgk92UjVyo9EY4fiN6
+         s3ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678571219;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=j3BGxsLL0P2xeumMB7bEdeq9RgCc5RJW60xab3JcWmM=;
+        b=HY+bH0weTjJA1rVN4f2KaY9HKTaFchoMnaMj7cV9NxrjSfcfhwVs16myvkXz0KmL/F
+         8Crc/QZowuDvLHs7+tyHRo52GyaBVeNwYJuMc8Z+H1Z5CuHLKIwkaDX6/8DIU5lRQU6v
+         xDbyAJoZKUjnepOBL4Ga2rtyt2qvyu3H50fMCn+uvCSv2IydMnO6g4h8QxPh+wD+sX7Y
+         k4berRCG0mjJKfqT6B8N1Wo1mL0nopSH1ZrDuPnXmJUumb1KZq8DtsKrPKgPtg7EPguK
+         +V471HenRIjfBacurXeEuomEvbnoWa6j4UGFswNf7VHHfvWF6NsjeG1Fy6R9ViXsU5T1
+         NeGA==
+X-Gm-Message-State: AO0yUKUG6J0LscVkBiEPZ8IHenlheDDgj6YEWJni9VlAb2k+EcsbeoXs
+	MIKrp+JL5gQdO2XzfFaUPzmLbrGoNiZjK1RWwmvUVw==
+X-Google-Smtp-Source: AK7set/ivVF6AzD/O9ePnVc9AKWYerfOeZb4FLMTiJT/IwrTK7biY9sqp7oNVh/B77dfc4ZuIA+xnYP7wi7zrZS3v3I=
+X-Received: by 2002:a81:ae61:0:b0:541:822f:af40 with SMTP id
+ g33-20020a81ae61000000b00541822faf40mr964887ywk.10.1678571218976; Sat, 11 Mar
+ 2023 13:46:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230311090733.56918-13-hal.feng@starfivetech.com>
+References: <20230311111307.251123-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230311111307.251123-1-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Sat, 11 Mar 2023 22:46:48 +0100
+Message-ID: <CACRpkdav4Uas6UKOyz6iV9hzgSELvU+224Ewyy+o0w8tYCoaJA@mail.gmail.com>
+Subject: Re: [PATCH 1/8] gpio: ftgpio010: drop of_match_ptr for ID table
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Mun Yew Tham <mun.yew.tham@intel.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Florian Fainelli <f.fainelli@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, Nandor Han <nandor.han@ge.com>, 
+	Semi Malinen <semi.malinen@ge.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_061810_933622_7A133612 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20230311_134700_889202_9D65339E 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +89,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 11 Mar 2023 17:07:24 +0800, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
-> 
-> Add bindings for the always-on clock and reset generator (AONCRG) on the
-> JH7110 RISC-V SoC by StarFive Ltd.
-> 
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../clock/starfive,jh7110-aoncrg.yaml         | 107 ++++++++++++++++++
->  .../dt-bindings/clock/starfive,jh7110-crg.h   |  18 +++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   |  12 ++
->  3 files changed, 137 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-> 
-
-
-Please add Acked-by/Reviewed-by tags when posting new versions. However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for acks received on the version they apply.
-
-If a tag was not added on purpose, please state why and what changed.
-
-Missing tags:
-
-Reviewed-by: Rob Herring <robh@kernel.org>
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBNYXIgMTEsIDIwMjMgYXQgMTI6MTPigK9QTSBLcnp5c3p0b2YgS296bG93c2tpCjxr
+cnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+IHdyb3RlOgoKPiBUaGUgZHJpdmVyIGNhbiBt
+YXRjaCBvbmx5IHZpYSB0aGUgRFQgdGFibGUgc28gdGhlIHRhYmxlIHNob3VsZCBiZSBhbHdheXMK
+PiB1c2VkIGFuZCB0aGUgb2ZfbWF0Y2hfcHRyIGRvZXMgbm90IGhhdmUgYW55IHNlbnNlICh0aGlz
+IGFsc28gYWxsb3dzIEFDUEkKPiBtYXRjaGluZyB2aWEgUFJQMDAwMSwgZXZlbiB0aG91Z2ggaXQg
+bWlnaHQgbm90IGJlIHJlbGV2YW50IGhlcmUpLgo+Cj4gICBkcml2ZXJzL2dwaW8vZ3Bpby1mdGdw
+aW8wMTAuYzozMzY6MzQ6IGVycm9yOiDigJhmdGdwaW9fZ3Bpb19vZl9tYXRjaOKAmSBkZWZpbmVk
+IGJ1dCBub3QgdXNlZCBbLVdlcnJvcj11bnVzZWQtY29uc3QtdmFyaWFibGU9XQo+Cj4gU2lnbmVk
+LW9mZi1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8u
+b3JnPgoKUmV2aWV3ZWQtYnk6IExpbnVzIFdhbGxlaWogPGxpbnVzLndhbGxlaWpAbGluYXJvLm9y
+Zz4KCllvdXJzLApMaW51cyBXYWxsZWlqCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
