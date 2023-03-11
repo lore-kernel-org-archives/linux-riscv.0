@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0156C74A44
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC42C61DA4
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bf2LqKOxY+KhYmCa8Rktkf+tbsO66e27eIEeXmdnx+g=; b=YhF8tnyYeiOL0v
-	47Zkeh2qtcfQJ6ws8RW6VulMAzurDHg3CTgSCz8czIy7wxnf6vK4gUFSO7fJCdYV4WJVJEXCFpW2D
-	hNAmm/ocCC0otzA5MXk9+FQvL6L+E/tWR5zBn0Vtxzeb8F5GOoQ/OHsuGc32mjFc0iA60Ntz30Jdf
-	VI3lYznI8bL2ST0VfxXDkslNnQ7RseDhSNk8lknpgq5V1TBRdQ115io9ZTsjhwngc/x++FaEW3an4
-	CJCcfaJkfrB+Vq/Bk7+OlaPqtaZfQPQNKgKeQLkPjISR1ZttuMtwprUVZwaqyhcK8qtfrW7M3lauv
-	KjfBSrcafuvk/+nPpCtw==;
+	List-Owner; bh=OX6gWbbvcbhGQbkCENjx9BF1lKU2qGuQMF/lE2leS1A=; b=VrSdQ7jee6QBt/
+	C5psLTT927w0L/uywnjahA7rQMA8VA77e0oHPGtQsq1ETX9AxKvmQ1tRCaa3nycLup3atb5aukC58
+	WdL5fIgDksQs5WRg/7l8248oTCkKKwbNbWu7agQxXgzhg79/3HYllce5CFl9cO7lqKsmkNztUEFNd
+	bDO1TQgidm+4xkJZNbAdz7TOTPv83zr+2kjOjth/ZSSmtnyjme03PEo5oCfF5oLeEB5npcgUNz885
+	lknSjktt2Esa0nuWFzJoA/TXXAj36j7sX+IbqR7PD5FbEAARJ56vtQlaMBOiFbvYNZBGnK2wUN5ht
+	iRjA+yemI83X45KJYDog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDq-00HZVZ-9B; Sat, 11 Mar 2023 09:09:02 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pavE2-00HZhB-NC; Sat, 11 Mar 2023 09:09:14 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDT-00HZ5N-7d
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:42 +0000
+	id 1pavDc-00HZ4J-Sm
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:50 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id C678B24E1D3;
-	Sat, 11 Mar 2023 17:07:54 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7D29124DC09;
+	Sat, 11 Mar 2023 17:07:52 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:54 +0800
+ 2023 17:07:52 +0800
 Received: from ubuntu.localdomain (183.27.96.115) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:53 +0800
+ 2023 17:07:51 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -49,9 +49,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 20/21] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-Date: Sat, 11 Mar 2023 17:07:32 +0800
-Message-ID: <20230311090733.56918-21-hal.feng@starfivetech.com>
+Subject: [PATCH v5 18/21] dt-bindings: riscv: Add SiFive S7 compatible
+Date: Sat, 11 Mar 2023 17:07:30 +0800
+Message-ID: <20230311090733.56918-19-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230311090733.56918-1-hal.feng@starfivetech.com>
 References: <20230311090733.56918-1-hal.feng@starfivetech.com>
@@ -61,8 +61,9 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_010840_157021_9A1438AA 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20230311_010849_116413_93E6DE80 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,334 +80,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jianlong Huang <jianlong.huang@starfivetech.com>
+Add a new compatible string in cpu.yaml for SiFive S7 CPU
+core which is used on SiFive U74-MC core complex etc.
 
-Add pin function definitions for StarFive JH7110 SoC.
-
-Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++++++++++++
- 1 file changed, 308 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
-new file mode 100644
-index 000000000000..fb0139b56723
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
-@@ -0,0 +1,308 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+/*
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#ifndef __JH7110_PINFUNC_H__
-+#define __JH7110_PINFUNC_H__
-+
-+/*
-+ * mux bits:
-+ *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
-+ *  |  din    |  dout   |  doen   | function | gpio nr |
-+ *
-+ * dout:     output signal
-+ * doen:     output enable signal
-+ * din:      optional input signal, 0xff = none
-+ * function: function selector
-+ * gpio nr:  gpio number, 0 - 63
-+ */
-+#define GPIOMUX(n, dout, doen, din) ( \
-+		(((din)  & 0xff) << 24) | \
-+		(((dout) & 0xff) << 16) | \
-+		(((doen) & 0x3f) << 10) | \
-+		((n) & 0x3f))
-+
-+#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
-+
-+/* sys_iomux dout */
-+#define GPOUT_LOW				0
-+#define GPOUT_HIGH				1
-+#define GPOUT_SYS_WAVE511_UART_TX		2
-+#define GPOUT_SYS_CAN0_STBY			3
-+#define GPOUT_SYS_CAN0_TST_NEXT_BIT		4
-+#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		5
-+#define GPOUT_SYS_CAN0_TXD			6
-+#define GPOUT_SYS_USB_DRIVE_VBUS		7
-+#define GPOUT_SYS_QSPI_CS1			8
-+#define GPOUT_SYS_SPDIF				9
-+#define GPOUT_SYS_HDMI_CEC_SDA			10
-+#define GPOUT_SYS_HDMI_DDC_SCL			11
-+#define GPOUT_SYS_HDMI_DDC_SDA			12
-+#define GPOUT_SYS_WATCHDOG			13
-+#define GPOUT_SYS_I2C0_CLK			14
-+#define GPOUT_SYS_I2C0_DATA			15
-+#define GPOUT_SYS_SDIO0_BACK_END_POWER		16
-+#define GPOUT_SYS_SDIO0_CARD_POWER_EN		17
-+#define GPOUT_SYS_SDIO0_CCMD_OD_PULLUP_EN	18
-+#define GPOUT_SYS_SDIO0_RST			19
-+#define GPOUT_SYS_UART0_TX			20
-+#define GPOUT_SYS_HIFI4_JTAG_TDO		21
-+#define GPOUT_SYS_JTAG_TDO			22
-+#define GPOUT_SYS_PDM_MCLK			23
-+#define GPOUT_SYS_PWM_CHANNEL0			24
-+#define GPOUT_SYS_PWM_CHANNEL1			25
-+#define GPOUT_SYS_PWM_CHANNEL2			26
-+#define GPOUT_SYS_PWM_CHANNEL3			27
-+#define GPOUT_SYS_PWMDAC_LEFT			28
-+#define GPOUT_SYS_PWMDAC_RIGHT			29
-+#define GPOUT_SYS_SPI0_CLK			30
-+#define GPOUT_SYS_SPI0_FSS			31
-+#define GPOUT_SYS_SPI0_TXD			32
-+#define GPOUT_SYS_GMAC_PHYCLK			33
-+#define GPOUT_SYS_I2SRX_BCLK			34
-+#define GPOUT_SYS_I2SRX_LRCK			35
-+#define GPOUT_SYS_I2STX0_BCLK			36
-+#define GPOUT_SYS_I2STX0_LRCK			37
-+#define GPOUT_SYS_MCLK				38
-+#define GPOUT_SYS_TDM_CLK			39
-+#define GPOUT_SYS_TDM_SYNC			40
-+#define GPOUT_SYS_TDM_TXD			41
-+#define GPOUT_SYS_TRACE_DATA0			42
-+#define GPOUT_SYS_TRACE_DATA1			43
-+#define GPOUT_SYS_TRACE_DATA2			44
-+#define GPOUT_SYS_TRACE_DATA3			45
-+#define GPOUT_SYS_TRACE_REF			46
-+#define GPOUT_SYS_CAN1_STBY			47
-+#define GPOUT_SYS_CAN1_TST_NEXT_BIT		48
-+#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT		49
-+#define GPOUT_SYS_CAN1_TXD			50
-+#define GPOUT_SYS_I2C1_CLK			51
-+#define GPOUT_SYS_I2C1_DATA			52
-+#define GPOUT_SYS_SDIO1_BACK_END_POWER		53
-+#define GPOUT_SYS_SDIO1_CARD_POWER_EN		54
-+#define GPOUT_SYS_SDIO1_CLK			55
-+#define GPOUT_SYS_SDIO1_CMD_OD_PULLUP_EN	56
-+#define GPOUT_SYS_SDIO1_CMD			57
-+#define GPOUT_SYS_SDIO1_DATA0			58
-+#define GPOUT_SYS_SDIO1_DATA1			59
-+#define GPOUT_SYS_SDIO1_DATA2			60
-+#define GPOUT_SYS_SDIO1_DATA3			61
-+#define GPOUT_SYS_SDIO1_DATA4			63
-+#define GPOUT_SYS_SDIO1_DATA5			63
-+#define GPOUT_SYS_SDIO1_DATA6			64
-+#define GPOUT_SYS_SDIO1_DATA7			65
-+#define GPOUT_SYS_SDIO1_RST			66
-+#define GPOUT_SYS_UART1_RTS			67
-+#define GPOUT_SYS_UART1_TX			68
-+#define GPOUT_SYS_I2STX1_SDO0			69
-+#define GPOUT_SYS_I2STX1_SDO1			70
-+#define GPOUT_SYS_I2STX1_SDO2			71
-+#define GPOUT_SYS_I2STX1_SDO3			72
-+#define GPOUT_SYS_SPI1_CLK			73
-+#define GPOUT_SYS_SPI1_FSS			74
-+#define GPOUT_SYS_SPI1_TXD			75
-+#define GPOUT_SYS_I2C2_CLK			76
-+#define GPOUT_SYS_I2C2_DATA			77
-+#define GPOUT_SYS_UART2_RTS			78
-+#define GPOUT_SYS_UART2_TX			79
-+#define GPOUT_SYS_SPI2_CLK			80
-+#define GPOUT_SYS_SPI2_FSS			81
-+#define GPOUT_SYS_SPI2_TXD			82
-+#define GPOUT_SYS_I2C3_CLK			83
-+#define GPOUT_SYS_I2C3_DATA			84
-+#define GPOUT_SYS_UART3_TX			85
-+#define GPOUT_SYS_SPI3_CLK			86
-+#define GPOUT_SYS_SPI3_FSS			87
-+#define GPOUT_SYS_SPI3_TXD			88
-+#define GPOUT_SYS_I2C4_CLK			89
-+#define GPOUT_SYS_I2C4_DATA			90
-+#define GPOUT_SYS_UART4_RTS			91
-+#define GPOUT_SYS_UART4_TX			92
-+#define GPOUT_SYS_SPI4_CLK			93
-+#define GPOUT_SYS_SPI4_FSS			94
-+#define GPOUT_SYS_SPI4_TXD			95
-+#define GPOUT_SYS_I2C5_CLK			96
-+#define GPOUT_SYS_I2C5_DATA			97
-+#define GPOUT_SYS_UART5_RTS			98
-+#define GPOUT_SYS_UART5_TX			99
-+#define GPOUT_SYS_SPI5_CLK			100
-+#define GPOUT_SYS_SPI5_FSS			101
-+#define GPOUT_SYS_SPI5_TXD			102
-+#define GPOUT_SYS_I2C6_CLK			103
-+#define GPOUT_SYS_I2C6_DATA			104
-+#define GPOUT_SYS_SPI6_CLK			105
-+#define GPOUT_SYS_SPI6_FSS			106
-+#define GPOUT_SYS_SPI6_TXD			107
-+
-+/* aon_iomux dout */
-+#define GPOUT_AON_CLK_32K_OUT			2
-+#define GPOUT_AON_PTC0_PWM4			3
-+#define GPOUT_AON_PTC0_PWM5			4
-+#define GPOUT_AON_PTC0_PWM6			5
-+#define GPOUT_AON_PTC0_PWM7			6
-+#define GPOUT_AON_CLK_GCLK0			7
-+#define GPOUT_AON_CLK_GCLK1			8
-+#define GPOUT_AON_CLK_GCLK2			9
-+
-+/* sys_iomux doen */
-+#define GPOEN_ENABLE				0
-+#define GPOEN_DISABLE				1
-+#define GPOEN_SYS_HDMI_CEC_SDA			2
-+#define GPOEN_SYS_HDMI_DDC_SCL			3
-+#define GPOEN_SYS_HDMI_DDC_SDA			4
-+#define GPOEN_SYS_I2C0_CLK			5
-+#define GPOEN_SYS_I2C0_DATA			6
-+#define GPOEN_SYS_HIFI4_JTAG_TDO		7
-+#define GPOEN_SYS_JTAG_TDO			8
-+#define GPOEN_SYS_PWM0_CHANNEL0			9
-+#define GPOEN_SYS_PWM0_CHANNEL1			10
-+#define GPOEN_SYS_PWM0_CHANNEL2			11
-+#define GPOEN_SYS_PWM0_CHANNEL3			12
-+#define GPOEN_SYS_SPI0_NSSPCTL			13
-+#define GPOEN_SYS_SPI0_NSSP			14
-+#define GPOEN_SYS_TDM_SYNC			15
-+#define GPOEN_SYS_TDM_TXD			16
-+#define GPOEN_SYS_I2C1_CLK			17
-+#define GPOEN_SYS_I2C1_DATA			18
-+#define GPOEN_SYS_SDIO1_CMD			19
-+#define GPOEN_SYS_SDIO1_DATA0			20
-+#define GPOEN_SYS_SDIO1_DATA1			21
-+#define GPOEN_SYS_SDIO1_DATA2			22
-+#define GPOEN_SYS_SDIO1_DATA3			23
-+#define GPOEN_SYS_SDIO1_DATA4			24
-+#define GPOEN_SYS_SDIO1_DATA5			25
-+#define GPOEN_SYS_SDIO1_DATA6			26
-+#define GPOEN_SYS_SDIO1_DATA7			27
-+#define GPOEN_SYS_SPI1_NSSPCTL			28
-+#define GPOEN_SYS_SPI1_NSSP			29
-+#define GPOEN_SYS_I2C2_CLK			30
-+#define GPOEN_SYS_I2C2_DATA			31
-+#define GPOEN_SYS_SPI2_NSSPCTL			32
-+#define GPOEN_SYS_SPI2_NSSP			33
-+#define GPOEN_SYS_I2C3_CLK			34
-+#define GPOEN_SYS_I2C3_DATA			35
-+#define GPOEN_SYS_SPI3_NSSPCTL			36
-+#define GPOEN_SYS_SPI3_NSSP			37
-+#define GPOEN_SYS_I2C4_CLK			38
-+#define GPOEN_SYS_I2C4_DATA			39
-+#define GPOEN_SYS_SPI4_NSSPCTL			40
-+#define GPOEN_SYS_SPI4_NSSP			41
-+#define GPOEN_SYS_I2C5_CLK			42
-+#define GPOEN_SYS_I2C5_DATA			43
-+#define GPOEN_SYS_SPI5_NSSPCTL			44
-+#define GPOEN_SYS_SPI5_NSSP			45
-+#define GPOEN_SYS_I2C6_CLK			46
-+#define GPOEN_SYS_I2C6_DATA			47
-+#define GPOEN_SYS_SPI6_NSSPCTL			48
-+#define GPOEN_SYS_SPI6_NSSP			49
-+
-+/* aon_iomux doen */
-+#define GPOEN_AON_PTC0_OE_N_4			2
-+#define GPOEN_AON_PTC0_OE_N_5			3
-+#define GPOEN_AON_PTC0_OE_N_6			4
-+#define GPOEN_AON_PTC0_OE_N_7			5
-+
-+/* sys_iomux gin */
-+#define GPI_NONE				255
-+
-+#define GPI_SYS_WAVE511_UART_RX			0
-+#define GPI_SYS_CAN0_RXD			1
-+#define GPI_SYS_USB_OVERCURRENT			2
-+#define GPI_SYS_SPDIF				3
-+#define GPI_SYS_JTAG_RST			4
-+#define GPI_SYS_HDMI_CEC_SDA			5
-+#define GPI_SYS_HDMI_DDC_SCL			6
-+#define GPI_SYS_HDMI_DDC_SDA			7
-+#define GPI_SYS_HDMI_HPD			8
-+#define GPI_SYS_I2C0_CLK			9
-+#define GPI_SYS_I2C0_DATA			10
-+#define GPI_SYS_SDIO0_CD			11
-+#define GPI_SYS_SDIO0_INT			12
-+#define GPI_SYS_SDIO0_WP			13
-+#define GPI_SYS_UART0_RX			14
-+#define GPI_SYS_HIFI4_JTAG_TCK			15
-+#define GPI_SYS_HIFI4_JTAG_TDI			16
-+#define GPI_SYS_HIFI4_JTAG_TMS			17
-+#define GPI_SYS_HIFI4_JTAG_RST			18
-+#define GPI_SYS_JTAG_TDI			19
-+#define GPI_SYS_JTAG_TMS			20
-+#define GPI_SYS_PDM_DMIC0			21
-+#define GPI_SYS_PDM_DMIC1			22
-+#define GPI_SYS_I2SRX_SDIN0			23
-+#define GPI_SYS_I2SRX_SDIN1			24
-+#define GPI_SYS_I2SRX_SDIN2			25
-+#define GPI_SYS_SPI0_CLK			26
-+#define GPI_SYS_SPI0_FSS			27
-+#define GPI_SYS_SPI0_RXD			28
-+#define GPI_SYS_JTAG_TCK			29
-+#define GPI_SYS_MCLK_EXT			30
-+#define GPI_SYS_I2SRX_BCLK			31
-+#define GPI_SYS_I2SRX_LRCK			32
-+#define GPI_SYS_I2STX0_BCLK			33
-+#define GPI_SYS_I2STX0_LRCK			34
-+#define GPI_SYS_TDM_CLK				35
-+#define GPI_SYS_TDM_RXD				36
-+#define GPI_SYS_TDM_SYNC			37
-+#define GPI_SYS_CAN1_RXD			38
-+#define GPI_SYS_I2C1_CLK			39
-+#define GPI_SYS_I2C1_DATA			40
-+#define GPI_SYS_SDIO1_CD			41
-+#define GPI_SYS_SDIO1_INT			42
-+#define GPI_SYS_SDIO1_WP			43
-+#define GPI_SYS_SDIO1_CMD			44
-+#define GPI_SYS_SDIO1_DATA0			45
-+#define GPI_SYS_SDIO1_DATA1			46
-+#define GPI_SYS_SDIO1_DATA2			47
-+#define GPI_SYS_SDIO1_DATA3			48
-+#define GPI_SYS_SDIO1_DATA4			49
-+#define GPI_SYS_SDIO1_DATA5			50
-+#define GPI_SYS_SDIO1_DATA6			51
-+#define GPI_SYS_SDIO1_DATA7			52
-+#define GPI_SYS_SDIO1_STRB			53
-+#define GPI_SYS_UART1_CTS			54
-+#define GPI_SYS_UART1_RX			55
-+#define GPI_SYS_SPI1_CLK			56
-+#define GPI_SYS_SPI1_FSS			57
-+#define GPI_SYS_SPI1_RXD			58
-+#define GPI_SYS_I2C2_CLK			59
-+#define GPI_SYS_I2C2_DATA			60
-+#define GPI_SYS_UART2_CTS			61
-+#define GPI_SYS_UART2_RX			62
-+#define GPI_SYS_SPI2_CLK			63
-+#define GPI_SYS_SPI2_FSS			64
-+#define GPI_SYS_SPI2_RXD			65
-+#define GPI_SYS_I2C3_CLK			66
-+#define GPI_SYS_I2C3_DATA			67
-+#define GPI_SYS_UART3_RX			68
-+#define GPI_SYS_SPI3_CLK			69
-+#define GPI_SYS_SPI3_FSS			70
-+#define GPI_SYS_SPI3_RXD			71
-+#define GPI_SYS_I2C4_CLK			72
-+#define GPI_SYS_I2C4_DATA			73
-+#define GPI_SYS_UART4_CTS			74
-+#define GPI_SYS_UART4_RX			75
-+#define GPI_SYS_SPI4_CLK			76
-+#define GPI_SYS_SPI4_FSS			77
-+#define GPI_SYS_SPI4_RXD			78
-+#define GPI_SYS_I2C5_CLK			79
-+#define GPI_SYS_I2C5_DATA			80
-+#define GPI_SYS_UART5_CTS			81
-+#define GPI_SYS_UART5_RX			82
-+#define GPI_SYS_SPI5_CLK			83
-+#define GPI_SYS_SPI5_FSS			84
-+#define GPI_SYS_SPI5_RXD			85
-+#define GPI_SYS_I2C6_CLK			86
-+#define GPI_SYS_I2C6_DATA			87
-+#define GPI_SYS_SPI6_CLK			88
-+#define GPI_SYS_SPI6_FSS			89
-+#define GPI_SYS_SPI6_RXD			90
-+
-+/* aon_iomux gin */
-+#define GPI_AON_PMU_GPIO_WAKEUP_0		0
-+#define GPI_AON_PMU_GPIO_WAKEUP_1		1
-+#define GPI_AON_PMU_GPIO_WAKEUP_2		2
-+#define GPI_AON_PMU_GPIO_WAKEUP_3		3
-+
-+#endif
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 001931d526ec..14b5b7ea0ce0 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -35,6 +35,7 @@ properties:
+               - sifive,e7
+               - sifive,e71
+               - sifive,rocket0
++              - sifive,s7
+               - sifive,u5
+               - sifive,u54
+               - sifive,u7
 -- 
 2.38.1
 
