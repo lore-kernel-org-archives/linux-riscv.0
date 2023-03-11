@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA97C61DA4
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298E8C74A44
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 10:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WH23yhjQQ0fCGNJwo0+FUzTVKCjjsLEB0Ltd2bel3uo=; b=vuAZZi1zQjDfCV
-	YuyJuZC4salpigltBs2E5SzfT7tuyhLTGqLlnmn5byIl8CWK7tyvVucKPvORZ92/NT67NdwiRe/ur
-	mNpcnYyutyxSoG1VSvGIM/4UfmA25Z7RghuRbzwjqwsDGecZV4WYtJszGdLN09DBeVpP5dZw2AK+p
-	ABAwp4mSvlM2tHu8dqrZYISs17KwXNFlPcQa1xq/+pYCpXxu2cMpHAGBvyp31wzzbQEv3WWLE/Wrg
-	gLe+uMSpDmnh9BfKvhuzP0mPaNZbewngwOBkS+I3qn7NhDgho+5x5U4H6aAgs2cRjfAkLQ27DiOri
-	F190d5cfOMjwDZ1dhB6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X71+o4YH2TDMfBlX3lPe27mtfCK5u+O+rjj/+hIuUS4=; b=ndrqghFlLtVSKruvxyDmVTV6QJ
+	SZ6rWSOakiMpJ7GwEAFlRPU0x/6Fu4aLJV1C3j8WtfVEvqnpSZ1Oj2HC0U7eQ/BuudhEHv4R0DO9Y
+	QnrKaY+IqpZqrjc1en4Qb+T3SM+vozS+SqIHeffQZNOYlw7PYy0jAosQZrmC1GNzliyfNyPTJwI3p
+	xdkwl/jbUWX7vUp/HSi0do19TjbHl9FdGdfnDFzrT1yj2e9ep4+XENk7AkFw6sFxbuUkX9CrD2q5f
+	VxE41daQHZvBkubtW5q1I6JB1iNgxitl0VuJUmYGA7GGN6ZVS6a2dqS3jtNpIkWkWBx2f7rM0gCol
+	9TvuCznw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavE8-00HZmL-1l; Sat, 11 Mar 2023 09:09:20 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDc-00HZ4G-Sn
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:52 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E42A324E1C6;
-	Sat, 11 Mar 2023 17:07:46 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:46 +0800
-Received: from ubuntu.localdomain (183.27.96.115) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:45 +0800
-From: Hal Feng <hal.feng@starfivetech.com>
-To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 12/21] dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
-Date: Sat, 11 Mar 2023 17:07:24 +0800
-Message-ID: <20230311090733.56918-13-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20230311090733.56918-1-hal.feng@starfivetech.com>
-References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+	id 1pawD0-0007uE-57; Sat, 11 Mar 2023 10:12:14 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pawCt-0007ti-9E
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 10:12:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=AXhVj002+YM3P1P11s+c1XbHP0mwVOeTdK6U1eeL9f0=; b=XX3z7KEUArYU0H97wz7tAWgonv
+	gEH1D4yg44+wbfAyQgCoT0vaEqzUfluieugd6xGg32tesqk4kCmtJqEhwBHwhfePJvpcbNP8xxQ/h
+	4L4D2zxqYTr7bypQpL2invrXpDKl9km38F4kKVxal1kiN+bJrl3TJGUf0pJ32tE0ej6gNU4R/rPrq
+	Syzxagr3vr0FtedSDK7LE3BDG0P4xltAvs3Ak7lDAO28PSbgd3L9jd14U2bUZylK0KB7zgkzFN9BH
+	zrI+N6i7VaM8UZ2qtI7A2buqUcGf91xonLXUxrGOg6dJtPtT7vk3WCNz4Y4u7oeqAvHS84EN11bE3
+	IdHKjFLA==;
+Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pawCl-00Bj4R-FX; Sat, 11 Mar 2023 11:11:59 +0100
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pawCj-00A43y-0H;
+	Sat, 11 Mar 2023 11:11:57 +0100
+Date: Sat, 11 Mar 2023 11:11:57 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Conor Dooley <conor@kernel.org>
+Cc: Bin Meng <bmeng.cn@gmail.com>, conor.dooley@microchip.com,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	naresh.kamboju@linaro.org, nathan@kernel.org,
+	ndesaulniers@google.com, palmer@dabbelt.com, palmer@rivosinc.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: remove I-extension ISA spec version dance
+Message-ID: <ZAxT7T9Xy1Fo3d5W@aurel32.net>
+References: <20230308220842.1231003-1-conor@kernel.org>
+ <20230310150754.535425-1-bmeng.cn@gmail.com>
+ <CAEUhbmWcfcSmuU6VnbTdLoErT113RZPgHSK3c+3M5kU0Wsv1pg@mail.gmail.com>
+ <243c92f1-c1e0-428b-ab31-3d9c9088b2c2@spud>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.96.115]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <243c92f1-c1e0-428b-ab31-3d9c9088b2c2@spud>
+User-Agent: Mutt/2.2.7 (2022-08-07)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_010849_339249_EBFF7BD1 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20230311_021207_913488_13AB2E6C 
+X-CRM114-Status: GOOD (  44.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,191 +75,220 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7635812081550168047=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
 
-Add bindings for the always-on clock and reset generator (AONCRG) on the
-JH7110 RISC-V SoC by StarFive Ltd.
+--===============7635812081550168047==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="J2FxkmOiI/p+8WYE"
+Content-Disposition: inline
 
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
----
- .../clock/starfive,jh7110-aoncrg.yaml         | 107 ++++++++++++++++++
- .../dt-bindings/clock/starfive,jh7110-crg.h   |  18 +++
- .../dt-bindings/reset/starfive,jh7110-crg.h   |  12 ++
- 3 files changed, 137 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-new file mode 100644
-index 000000000000..923680a44aef
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 Always-On Clock and Reset Generator
-+
-+maintainers:
-+  - Emil Renner Berthing <kernel@esmil.dk>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-aoncrg
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    oneOf:
-+      - items:
-+          - description: Main Oscillator (24 MHz)
-+          - description: GMAC0 RMII reference or GMAC0 RGMII RX
-+          - description: STG AXI/AHB
-+          - description: APB Bus
-+          - description: GMAC0 GTX
-+
-+      - items:
-+          - description: Main Oscillator (24 MHz)
-+          - description: GMAC0 RMII reference or GMAC0 RGMII RX
-+          - description: STG AXI/AHB or GMAC0 RGMII RX
-+          - description: APB Bus or STG AXI/AHB
-+          - description: GMAC0 GTX or APB Bus
-+          - description: RTC Oscillator (32.768 kHz) or GMAC0 GTX
-+
-+      - items:
-+          - description: Main Oscillator (24 MHz)
-+          - description: GMAC0 RMII reference
-+          - description: GMAC0 RGMII RX
-+          - description: STG AXI/AHB
-+          - description: APB Bus
-+          - description: GMAC0 GTX
-+          - description: RTC Oscillator (32.768 kHz)
-+
-+  clock-names:
-+    oneOf:
-+      - minItems: 5
-+        items:
-+          - const: osc
-+          - enum:
-+              - gmac0_rmii_refin
-+              - gmac0_rgmii_rxin
-+          - const: stg_axiahb
-+          - const: apb_bus
-+          - const: gmac0_gtxclk
-+          - const: rtc_osc
-+
-+      - minItems: 6
-+        items:
-+          - const: osc
-+          - const: gmac0_rmii_refin
-+          - const: gmac0_rgmii_rxin
-+          - const: stg_axiahb
-+          - const: apb_bus
-+          - const: gmac0_gtxclk
-+          - const: rtc_osc
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+
-+    clock-controller@17000000 {
-+        compatible = "starfive,jh7110-aoncrg";
-+        reg = <0x17000000 0x10000>;
-+        clocks = <&osc>, <&gmac0_rmii_refin>,
-+                 <&gmac0_rgmii_rxin>,
-+                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-+                 <&syscrg JH7110_SYSCLK_APB_BUS>,
-+                 <&syscrg JH7110_SYSCLK_GMAC0_GTXCLK>,
-+                 <&rtc_osc>;
-+        clock-names = "osc", "gmac0_rmii_refin",
-+                      "gmac0_rgmii_rxin", "stg_axiahb",
-+                      "apb_bus", "gmac0_gtxclk",
-+                      "rtc_osc";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
-index fdd1852e34cc..06257bfd9ac1 100644
---- a/include/dt-bindings/clock/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-@@ -200,4 +200,22 @@
- 
- #define JH7110_SYSCLK_END			190
- 
-+/* AONCRG clocks */
-+#define JH7110_AONCLK_OSC_DIV4			0
-+#define JH7110_AONCLK_APB_FUNC			1
-+#define JH7110_AONCLK_GMAC0_AHB			2
-+#define JH7110_AONCLK_GMAC0_AXI			3
-+#define JH7110_AONCLK_GMAC0_RMII_RTX		4
-+#define JH7110_AONCLK_GMAC0_TX			5
-+#define JH7110_AONCLK_GMAC0_TX_INV		6
-+#define JH7110_AONCLK_GMAC0_RX			7
-+#define JH7110_AONCLK_GMAC0_RX_INV		8
-+#define JH7110_AONCLK_OTPC_APB			9
-+#define JH7110_AONCLK_RTC_APB			10
-+#define JH7110_AONCLK_RTC_INTERNAL		11
-+#define JH7110_AONCLK_RTC_32K			12
-+#define JH7110_AONCLK_RTC_CAL			13
-+
-+#define JH7110_AONCLK_END			14
-+
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
-index b88216a4fe40..d78e38690ceb 100644
---- a/include/dt-bindings/reset/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-@@ -139,4 +139,16 @@
- 
- #define JH7110_SYSRST_END			126
- 
-+/* AONCRG resets */
-+#define JH7110_AONRST_GMAC0_AXI			0
-+#define JH7110_AONRST_GMAC0_AHB			1
-+#define JH7110_AONRST_IOMUX			2
-+#define JH7110_AONRST_PMU_APB			3
-+#define JH7110_AONRST_PMU_WKUP			4
-+#define JH7110_AONRST_RTC_APB			5
-+#define JH7110_AONRST_RTC_CAL			6
-+#define JH7110_AONRST_RTC_32K			7
-+
-+#define JH7110_AONRST_END			8
-+
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
--- 
-2.38.1
+--J2FxkmOiI/p+8WYE
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On 2023-03-10 16:40, Conor Dooley wrote:
+> On Fri, Mar 10, 2023 at 11:35:57PM +0800, Bin Meng wrote:
+> > On Fri, Mar 10, 2023 at 11:07=E2=80=AFPM Bin Meng <bmeng.cn@gmail.com> =
+wrote:
+> > >
+> > > > From: Conor Dooley <conor.dooley@microchip.com>
+> > > >
+> > > > The spec folk, in their infinite wisdom, moved both control and sta=
+tus
+> > > > registers & the FENCE.I instructions out of the I extension into th=
+eir
+> > > > own extensions (Zicsr, Zifencei) in the 20190608 version of the ISA
+> > > > spec [0].
+> > > > The GCC/binutils crew decided [1] to move their default version of =
+the
+> > > > ISA spec to the 20191213 version of the ISA spec, which came into b=
+eing
+> > > > for version 2.38 of binutils and GCC 12. Building with this toolcha=
+in
+> > > > configuration would result in assembler issues:
+> > > >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assemble=
+r messages:
+> > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error=
+: unrecognized opcode `csrr a5,0xc01'
+> > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error=
+: unrecognized opcode `csrr a5,0xc01'
+> > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error=
+: unrecognized opcode `csrr a5,0xc01'
+> > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error=
+: unrecognized opcode `csrr a5,0xc01'
+> > > > This was fixed in commit 6df2a016c0c8 ("riscv: fix build with binut=
+ils
+> > > > 2.38") by Aurelien Jarno, but has proven fragile.
+> > > >
+> > > > Before LLVM 17, LLVM did not support these extensions and, as such,=
+ the
+> > > > cc-option check added by Aurelien worked. Since commit 22e199e6afb1
+> > > > ("[RISCV] Accept zicsr and zifencei command line options") however,=
+ LLVM
+> > > > *does* support them and the cc-option check passes.
+> > > >
+> > > > This surfaced as a problem while building the 5.10 stable kernel us=
+ing
+> > > > the default Tuxmake Debian image [2], as 5.10 did not yet support l=
+d.lld,
+> > > > and uses the Debian provided binutils 2.35.
+> > > > Versions of ld prior to 2.38 will refuse to link if they encounter
+> > > > unknown ISA extensions, and unfortunately Zifencei is not supported=
+ by
+> > > > bintuils 2.35.
+> > > >
+> > > > Instead of dancing around with adding these extensions to march, as=
+ we
+> > > > currently do, Palmer suggested locking GCC builds to the same versi=
+on of
+> > > > the ISA spec that is used by LLVM. As far as I can tell, that is 2.=
+2,
+> > > > with, apparently [3], a lack of interest in implementing a flag like
+> > > > GCC's -misa-spec at present.
+> > > >
+> > > > Add {cc,as}-option checks to add -misa-spec to KBUILD_{A,C}FLAGS wh=
+en
+> > > > GCC is used & remove the march dance.
+> > > >
+> > > > As clang does not accept this argument, I had expected to encounter
+> > > > issues with the assembler, as neither zicsr nor zifencei are presen=
+t in
+> > > > the ISA string and the spec version *should* be defaulting to a ver=
+sion
+> > > > that requires them to be present. The build passed however and the
+> > > > resulting kernel worked perfectly fine for me on a PolarFire SoC...
+> > > >
+> > > > Link: https://riscv.org/wp-content/uploads/2019/06/riscv-spec.pdf [=
+0]
+> > > > Link: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1Ze=
+HHCYf4 [1]
+> > > > Link: https://lore.kernel.org/all/CA+G9fYt9T=3DELCLaB9byxaLW2Qf4pZc=
+DO=3DhuCA0D8ug2V2+irJQ@mail.gmail.com/ [2]
+> > > > Link: https://discourse.llvm.org/t/specifying-unpriviledge-spec-ver=
+sion-misa-spec-gcc-flag-equivalent/66935 [3]
+> > > > CC: stable@vger.kernel.org
+> > > > Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > > > Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > ---
+> > > > I think Aurelien's original commit message might actually not be qu=
+ite
+> > > > correct? I found, in my limited testing, that it is not the default
+> > > > behaviour of gas that matters, but rather the toolchain itself?
+> > > > My binutils versions (both those built using the clang-built-linux
+> > > > tc-build scripts which do not set an ISA spec version, and one built
+> > > > using the riscv-gnu-toolchain infra w/ an explicit 20191213 spec ve=
+rsion
+> > > > set) do not encounter these issues.
+> > >
+> > > I am unable to reproduce the build failure as reported by commit 6df2=
+a016c0c8
+> > > ("riscv: fix build with binutils 2.38") by Aurelien Jarno using kerne=
+l.org
+> > > pre-built GCC 11.3.0 [1] which includes binutils 2.38.
+> > >
+> > > [1] https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86=
+_64/11.3.0/x86_64-gcc-11.3.0-nolibc-x86_64-linux.tar.xz
+> > >
+> > > The defconfig of v5.16 kernel (commit 6df2a016c0c8 lands in v5.17) bu=
+ilds fine
+> > > for me. Anything I am missing?
+> > >
+> >=20
+> > Some further note:
+> >=20
+> > After I switched to kernel.org pre-built GCC 12.2.0 [1] which includes
+> > binutils 2.39, I was able to reproduce the exact same build failure of
+> > v5.16 kernel as described in the commit 6df2a016c0c8 ("riscv: fix
+> > build with binutils 2.38") by Aurelien Jarno.
+> >=20
+> > To verify the commit message of 6df2a016c0c8 is accurate or not, I
+> > built a GAS from binutils 2.37 and replaced the GAS 2.39 in the
+> > kernel.org package, surprisingly kernel v5.16 did not build with the
+> > same build failure.
+> >=20
+> > So it seems that it's GCC that caused the build failure instead of GAS
+> > from binutils??
+>=20
+> Right, that's what I was getting at in the bit below the --- line in my
+> patch. I think Aurelien was misled by the failure message and your email
+> ([1] in my links above) which claimed that binutils would default to
+> the 20191213 spec.
+
+No I was not misled by that, at that time GCC 11.3 and GCC 12 were not
+released.
+
+binutils definitely defaults to 20191213 if you do not use the
+--with-isa-spec with a different value when configuring it.
+
+> It appears (and I'm not a tc person) that GCC must call GAS with the
+> --misa-spec argument, and in GCC 12 the value used is 20191213.
+> Either GCC 11 must pass --misa-spec=3D2.2 to binutils, or it passes
+> nothing, leading binutils to be permissive about what -march=3Drv64i
+> means.
+
+GCC 11.1 and 11.2 pass nothing to binutils, hence the issue I reported
+and the patch fixing that. Basic support for misa-spec has been
+backported to GCC 11.3, with a default to --misa-spec=3D2.2, hence the
+"permissive" behaviour you observe.
+
+> The permissive option would "seem" to be correct, as building with clang
+> (that to my knowledge doesn't pass --misa-spec to GAS) and with
+> -march=3Drv64i has no issues assembling.
+
+The "permissive" way only work if we drop support for GCC 11.1 and 11.2,
+which sounds acceptable to me.
+
+> It'd appear to me that binutils is a *player* in this issue, but is not
+> the culprit of the issue Aurelien sought to fix.
+
+I *disagree*. At the time the commit has been merged, binutils was the
+only culprit. With more recent versions of GCC 11.3 and GCC 12 released
+in the meantime, the situation is way more complex.
+
+--=20
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                 http://www.aurel32.net
+
+--J2FxkmOiI/p+8WYE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEUryGlb40+QrX1Ay4E4jA+JnoM2sFAmQMU+sACgkQE4jA+Jno
+M2u4uhAAnWl27lBSEWDqEh6CPLidd5L9w2YcEV+wRUyfpC2W1UJI/c60Xlh15o3m
+pExjXEXZt5dmo2pPHSv6awgqKvLXOKl3l/E1dMlBfN+Xs4QxbCKDSNSk1P5Jn3KN
+EEZaqkaAjO0Q+VgC1hLAZ2hq+QSODhy04n4oWhg4WbMlUpnkVZmaSenymwjqXcy4
+FSAPTVNSnq/JobUYJGdyniietMijrgIu61jzzqhTdAI2Lr0gHjXCrpVJVDZ3k4oy
+h1+E/8XRo+4L4+IxFSwtqRGQbyScA4XTLClYEfGr4q2GuSQg215aRJYAX9BwwRWG
+RyZKcbgw2IcydrTgBjHaYU1r9sA1ssYqZRhi8muznwB12M/ul6dyAPAuwi6U6A6d
+Vk96NsT/G0Q7+NXFkdHLLgHtIJp44YKPEpoNunAycxOoleshIweYQeU0zBqwAHqv
+RF8eiuWjtUewqfqXb0eB7fbMysNq4L3MSLjJfcNgUTj9qNB/lp55kviI78iMnXIt
+EGUYG1mTDcEY2m0c4jjq54cvSSh4CAGe1P84B5NDNy4TwxZcI9upLkIpeS7rjdU3
+I4vpFiKem1bB6XPltscpzLIh8v5fC0bA4/Qprlm6SbCbAD7uFemGyRxXwcwix4zZ
+8XSwCH70YkyewxtPGZC7s+b4A4NfGADgg6iDPG2gVw7cqMf4TBQ=
+=h/k0
+-----END PGP SIGNATURE-----
+
+--J2FxkmOiI/p+8WYE--
+
+
+--===============7635812081550168047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7635812081550168047==--
+
