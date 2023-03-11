@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EEBDC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 10:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18B6C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 10:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAASjZIY8EdkFAAicZwCUowrPXwGZjMP9IXbMRMO45Q=; b=4EWcBS3W66fx/KrrcVM8YHOBfY
-	raFCTSpMC5wncL1r/KLMZ9hKGZfbnuAio676rLU4jVKA1RGkp0GF9iyX+ldTn9Fn7Q5DnD5UvuwCE
-	SSz96GCeZcZluRRDtfCOnHGUENyLfsRhZjHH+u0r+wktirWcw8bmtCHcK88h/dL1CarKM2ErNX3oG
-	K21go2E1Qc1OdCmY4AY4XDKYUOn1aMdTDY1FXuNyHOA7vymqhzUwlKusg6xV7nyr1Ud4Ti+BVe7d1
-	s54Zq+ea3WZMDUgivZRXkLjsfBIIOFpl+f23H/rsuns7DzyJZXK4RpPnkVb6C/nkm6fL7JV9h4t2P
-	KFKAmAHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y/iEgRcC3thtZOGrmIUtI5nw0BAxl9ScyLBf0qiwy1w=; b=zpAPXV6uxP932D
+	cC3ipRS2B5lJhixOic6NKFlTTTmKqMFnooUzPsNDdm40wn5SMLuzqxjgRGRT2/P8eTJumfJqy+8mJ
+	le58CMLrn9vkis9H20TYWcktqoeuNmcmmeAe+MFWstTcq288soAl9F7wolZAFrmBed3eXZ+RNs9PJ
+	IHdV3gtl1iVpClA7O3IFhi5f9qLO1OdnUXCOJYJJXNHzTKuA6z+nKdASb6ifZAWIBHZnhlATPIYyx
+	+qBUQSwLKL0QFaa69TLDJCzt69STYtZxI2X4ZxC7rb57ITGHpbeph0aBvx2s/93juEZNGIN1MBz5P
+	m1Xtk7tybg13csVDLLng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pawes-000A6J-7W; Sat, 11 Mar 2023 10:41:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pawmq-000B7R-6d; Sat, 11 Mar 2023 10:49:16 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pawen-000A5a-Cx
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 10:41:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C18A060AEF;
-	Sat, 11 Mar 2023 10:40:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5986C433EF;
-	Sat, 11 Mar 2023 10:40:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678531254;
-	bh=7zsjzpHaJ2URUrzqH21gfr7zcR06Vsq1WlYTpLGN67k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hz/QgQV+tol0QGs1uiyUVU1YmQC/AXzitZL+kbYA7GInRtmiVQFTEY2iVDRO3dg9W
-	 Dn+aohn+jBeSOIE/jhaWHFlmdrQSfM29KnKsXPxiQb+ErCGf7hJ0loT1671wCPg4qU
-	 YipOiQZ7PMrtj+RmT4g2gYZo0eKssfXShK1dKJeNS1Y1iyjI/PTio57fapGQZFt27J
-	 IB7DAaBhis1H3YM2RwmK+MKXMV2SXZbF3nXtb0RVv+SBYOReSerBiB+mmvdrTaW7fI
-	 sxx3EVlcjjn4d5TnL56sL+iQzholyCixL7ZEsZgFWalbgwSIRW02F92fkaoBbKpOiX
-	 SLQGUBS/XfmKA==
-Date: Sat, 11 Mar 2023 10:40:49 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: Bin Meng <bmeng.cn@gmail.com>, conor.dooley@microchip.com,
+	id 1pawmn-000B6N-0E
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 10:49:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=DZvC+QNj8PHK37bCOUI9RaMY9M3fMNUqgaN+cHoRwBo=; b=QLZf8Nm28yWNluwu6O/LOSHmnC
+	+r6/Fgip9cLuGax+yctzFZ3rokqNN9A7wOjFP+gnZTz606y/lG6nWV5AJ51N3DgX9uwmgQPkCuwhQ
+	7XQYwtIb0YGswLwhtkCexHGtI0ZK/O1dxXCKA3MmQhUh2SZVgJ9GF/Y3gQLBelYS+SyoQoA4ZIShH
+	bPqA+820AhxYqh2zjnQW9QOVz3/CQbXFY8AtG6SC3gXrGVmVolNAe1ZjJh7zfuXiar/EF47I/j3gX
+	7cwM9x2ou+GMaTwuCG3aBSoLsXPRPkexnaajzWbGpOrTSbCaenweq1LU8v7rXJHQOVb3SoMHn6U2n
+	dHdqL1pQ==;
+Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pawmk-00Bk8D-A7; Sat, 11 Mar 2023 11:49:10 +0100
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1pawmj-00AAIA-2G;
+	Sat, 11 Mar 2023 11:49:09 +0100
+Date: Sat, 11 Mar 2023 11:49:09 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Bin Meng <bmeng.cn@gmail.com>
+Cc: Conor Dooley <conor@kernel.org>, conor.dooley@microchip.com,
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
 	naresh.kamboju@linaro.org, nathan@kernel.org,
 	ndesaulniers@google.com, palmer@dabbelt.com, palmer@rivosinc.com,
 	stable@vger.kernel.org
 Subject: Re: [PATCH v2] RISC-V: remove I-extension ISA spec version dance
-Message-ID: <88fadde1-27eb-40c6-b90e-881ebf9690df@spud>
+Message-ID: <ZAxcpTolZ74MweEW@aurel32.net>
 References: <20230308220842.1231003-1-conor@kernel.org>
  <20230310150754.535425-1-bmeng.cn@gmail.com>
  <CAEUhbmWcfcSmuU6VnbTdLoErT113RZPgHSK3c+3M5kU0Wsv1pg@mail.gmail.com>
  <243c92f1-c1e0-428b-ab31-3d9c9088b2c2@spud>
- <ZAxT7T9Xy1Fo3d5W@aurel32.net>
+ <CAEUhbmUf+-a8u_qaC3weP1xBy8gjsbdV=29bM8gp6SWA5KqH5A@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <ZAxT7T9Xy1Fo3d5W@aurel32.net>
+Content-Disposition: inline
+In-Reply-To: <CAEUhbmUf+-a8u_qaC3weP1xBy8gjsbdV=29bM8gp6SWA5KqH5A@mail.gmail.com>
+User-Agent: Mutt/2.2.7 (2022-08-07)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_024057_559471_350FA20C 
-X-CRM114-Status: GOOD (  52.89  )
+X-CRM114-CacheID: sfid-20230311_024913_212825_1062AC88 
+X-CRM114-Status: GOOD (  44.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,241 +77,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8976697412655241304=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8976697412655241304==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Uu0eTYwFSIAxBZgb"
-Content-Disposition: inline
-
-
---Uu0eTYwFSIAxBZgb
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Mar 11, 2023 at 11:11:57AM +0100, Aurelien Jarno wrote:
-> On 2023-03-10 16:40, Conor Dooley wrote:
-> > On Fri, Mar 10, 2023 at 11:35:57PM +0800, Bin Meng wrote:
-> > > On Fri, Mar 10, 2023 at 11:07=E2=80=AFPM Bin Meng <bmeng.cn@gmail.com=
-> wrote:
-> > > >
-> > > > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > > >
-> > > > > The spec folk, in their infinite wisdom, moved both control and s=
-tatus
-> > > > > registers & the FENCE.I instructions out of the I extension into =
-their
-> > > > > own extensions (Zicsr, Zifencei) in the 20190608 version of the I=
-SA
-> > > > > spec [0].
-> > > > > The GCC/binutils crew decided [1] to move their default version o=
-f the
-> > > > > ISA spec to the 20191213 version of the ISA spec, which came into=
- being
-> > > > > for version 2.38 of binutils and GCC 12. Building with this toolc=
-hain
-> > > > > configuration would result in assembler issues:
-> > > > >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> > > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assemb=
-ler messages:
-> > > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Err=
-or: unrecognized opcode `csrr a5,0xc01'
-> > > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Err=
-or: unrecognized opcode `csrr a5,0xc01'
-> > > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Err=
-or: unrecognized opcode `csrr a5,0xc01'
-> > > > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Err=
-or: unrecognized opcode `csrr a5,0xc01'
-> > > > > This was fixed in commit 6df2a016c0c8 ("riscv: fix build with bin=
-utils
-> > > > > 2.38") by Aurelien Jarno, but has proven fragile.
-> > > > >
-> > > > > Before LLVM 17, LLVM did not support these extensions and, as suc=
-h, the
-> > > > > cc-option check added by Aurelien worked. Since commit 22e199e6af=
-b1
-> > > > > ("[RISCV] Accept zicsr and zifencei command line options") howeve=
-r, LLVM
-> > > > > *does* support them and the cc-option check passes.
-> > > > >
-> > > > > This surfaced as a problem while building the 5.10 stable kernel =
-using
-> > > > > the default Tuxmake Debian image [2], as 5.10 did not yet support=
- ld.lld,
-> > > > > and uses the Debian provided binutils 2.35.
-> > > > > Versions of ld prior to 2.38 will refuse to link if they encounter
-> > > > > unknown ISA extensions, and unfortunately Zifencei is not support=
-ed by
-> > > > > bintuils 2.35.
-> > > > >
-> > > > > Instead of dancing around with adding these extensions to march, =
-as we
-> > > > > currently do, Palmer suggested locking GCC builds to the same ver=
-sion of
-> > > > > the ISA spec that is used by LLVM. As far as I can tell, that is =
-2.2,
-> > > > > with, apparently [3], a lack of interest in implementing a flag l=
-ike
-> > > > > GCC's -misa-spec at present.
-> > > > >
-> > > > > Add {cc,as}-option checks to add -misa-spec to KBUILD_{A,C}FLAGS =
-when
-> > > > > GCC is used & remove the march dance.
-> > > > >
-> > > > > As clang does not accept this argument, I had expected to encount=
-er
-> > > > > issues with the assembler, as neither zicsr nor zifencei are pres=
-ent in
-> > > > > the ISA string and the spec version *should* be defaulting to a v=
-ersion
-> > > > > that requires them to be present. The build passed however and the
-> > > > > resulting kernel worked perfectly fine for me on a PolarFire SoC.=
-=2E.
-> > > > >
-> > > > > Link: https://riscv.org/wp-content/uploads/2019/06/riscv-spec.pdf=
- [0]
-> > > > > Link: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1=
-ZeHHCYf4 [1]
-> > > > > Link: https://lore.kernel.org/all/CA+G9fYt9T=3DELCLaB9byxaLW2Qf4p=
-ZcDO=3DhuCA0D8ug2V2+irJQ@mail.gmail.com/ [2]
-> > > > > Link: https://discourse.llvm.org/t/specifying-unpriviledge-spec-v=
-ersion-misa-spec-gcc-flag-equivalent/66935 [3]
-> > > > > CC: stable@vger.kernel.org
-> > > > > Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > > > Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-> > > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > ---
-> > > > > I think Aurelien's original commit message might actually not be =
-quite
-> > > > > correct? I found, in my limited testing, that it is not the defau=
-lt
-> > > > > behaviour of gas that matters, but rather the toolchain itself?
-> > > > > My binutils versions (both those built using the clang-built-linux
-> > > > > tc-build scripts which do not set an ISA spec version, and one bu=
-ilt
-> > > > > using the riscv-gnu-toolchain infra w/ an explicit 20191213 spec =
-version
-> > > > > set) do not encounter these issues.
-> > > >
-> > > > I am unable to reproduce the build failure as reported by commit 6d=
-f2a016c0c8
-> > > > ("riscv: fix build with binutils 2.38") by Aurelien Jarno using ker=
-nel.org
-> > > > pre-built GCC 11.3.0 [1] which includes binutils 2.38.
-> > > >
-> > > > [1] https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x=
-86_64/11.3.0/x86_64-gcc-11.3.0-nolibc-x86_64-linux.tar.xz
-> > > >
-> > > > The defconfig of v5.16 kernel (commit 6df2a016c0c8 lands in v5.17) =
-builds fine
-> > > > for me. Anything I am missing?
-> > > >
-> > >=20
-> > > Some further note:
-> > >=20
-> > > After I switched to kernel.org pre-built GCC 12.2.0 [1] which includes
-> > > binutils 2.39, I was able to reproduce the exact same build failure of
-> > > v5.16 kernel as described in the commit 6df2a016c0c8 ("riscv: fix
-> > > build with binutils 2.38") by Aurelien Jarno.
-> > >=20
-> > > To verify the commit message of 6df2a016c0c8 is accurate or not, I
-> > > built a GAS from binutils 2.37 and replaced the GAS 2.39 in the
-> > > kernel.org package, surprisingly kernel v5.16 did not build with the
-> > > same build failure.
-> > >=20
-> > > So it seems that it's GCC that caused the build failure instead of GAS
-> > > from binutils??
-> >=20
-> > Right, that's what I was getting at in the bit below the --- line in my
-> > patch. I think Aurelien was misled by the failure message and your email
-> > ([1] in my links above) which claimed that binutils would default to
-> > the 20191213 spec.
->=20
-> No I was not misled by that, at that time GCC 11.3 and GCC 12 were not
-> released.
->=20
-> binutils definitely defaults to 20191213 if you do not use the
-> --with-isa-spec with a different value when configuring it.
-
-I specifically built binutils without that flag, and had no issues
-building the kernel with clang, which is the source of my confusion here
-really.
-I'd have expected that to fail
-
-> > It appears (and I'm not a tc person) that GCC must call GAS with the
-> > --misa-spec argument, and in GCC 12 the value used is 20191213.
-> > Either GCC 11 must pass --misa-spec=3D2.2 to binutils, or it passes
-> > nothing, leading binutils to be permissive about what -march=3Drv64i
-> > means.
->=20
-> GCC 11.1 and 11.2 pass nothing to binutils, hence the issue I reported
-> and the patch fixing that. Basic support for misa-spec has been
-> backported to GCC 11.3, with a default to --misa-spec=3D2.2, hence the
-> "permissive" behaviour you observe.
->=20
-> > The permissive option would "seem" to be correct, as building with clang
-> > (that to my knowledge doesn't pass --misa-spec to GAS) and with
-> > -march=3Drv64i has no issues assembling.
->=20
-> The "permissive" way only work if we drop support for GCC 11.1 and 11.2,
-> which sounds acceptable to me.
-
-I don't think that we can do that.
-
-> > It'd appear to me that binutils is a *player* in this issue, but is not
-> > the culprit of the issue Aurelien sought to fix.
->=20
-> I *disagree*. At the time the commit has been merged, binutils was the
-> only culprit.
-
-Okay, fair enough! I was only going off my observations with
-current-day, and clearly you remember well the situation that you
-encountered this with!
-
-> With more recent versions of GCC 11.3 and GCC 12 released
-> in the meantime, the situation is way more complex.
-
-This patch is going to be problematic w/ versions of gcc that do not
-understand -misa-spec + binutils 2.38 then, isn't it.
-Based on what Jess has said, pursuing this approach seems ill-advised
-anyway.
-
-I'm inclined to go back to my approach in v1 & only apply your march
-addition when AS_IS_GNU. That still leaves a problem for a configuration
-where GAS is 2.38 and LD is 2.35, which I don't think can be handled.
-I feel the only option there is just erroring the build if someones
-tries it.
-Ditto for a future IAS + LD 2.35 combination, if IAS is using a 20190608
-or later of the ISA spec.
-
---Uu0eTYwFSIAxBZgb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZAxargAKCRB4tDGHoIJi
-0swOAP9wQ/ggsW3fabpSO5xuN84Na5dj1CkvNR8szpLhZCpWogD+K74lvXnHb2AL
-8lDegQ+sy61FovaHwnUCC/f9X1O/8g8=
-=2vSF
------END PGP SIGNATURE-----
-
---Uu0eTYwFSIAxBZgb--
-
-
---===============8976697412655241304==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8976697412655241304==--
-
+T24gMjAyMy0wMy0xMSAxMzo0MSwgQmluIE1lbmcgd3JvdGU6Cj4gT24gU2F0LCBNYXIgMTEsIDIw
+MjMgYXQgMTI6NDDigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+
+ID4KPiA+IE9uIEZyaSwgTWFyIDEwLCAyMDIzIGF0IDExOjM1OjU3UE0gKzA4MDAsIEJpbiBNZW5n
+IHdyb3RlOgo+ID4gPiBPbiBGcmksIE1hciAxMCwgMjAyMyBhdCAxMTowN+KAr1BNIEJpbiBNZW5n
+IDxibWVuZy5jbkBnbWFpbC5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gPiBGcm9tOiBDb25v
+ciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+ID4gPiA+ID4KPiA+ID4gPiA+
+IFRoZSBzcGVjIGZvbGssIGluIHRoZWlyIGluZmluaXRlIHdpc2RvbSwgbW92ZWQgYm90aCBjb250
+cm9sIGFuZCBzdGF0dXMKPiA+ID4gPiA+IHJlZ2lzdGVycyAmIHRoZSBGRU5DRS5JIGluc3RydWN0
+aW9ucyBvdXQgb2YgdGhlIEkgZXh0ZW5zaW9uIGludG8gdGhlaXIKPiA+ID4gPiA+IG93biBleHRl
+bnNpb25zIChaaWNzciwgWmlmZW5jZWkpIGluIHRoZSAyMDE5MDYwOCB2ZXJzaW9uIG9mIHRoZSBJ
+U0EKPiA+ID4gPiA+IHNwZWMgWzBdLgo+ID4gPiA+ID4gVGhlIEdDQy9iaW51dGlscyBjcmV3IGRl
+Y2lkZWQgWzFdIHRvIG1vdmUgdGhlaXIgZGVmYXVsdCB2ZXJzaW9uIG9mIHRoZQo+ID4gPiA+ID4g
+SVNBIHNwZWMgdG8gdGhlIDIwMTkxMjEzIHZlcnNpb24gb2YgdGhlIElTQSBzcGVjLCB3aGljaCBj
+YW1lIGludG8gYmVpbmcKPiA+ID4gPiA+IGZvciB2ZXJzaW9uIDIuMzggb2YgYmludXRpbHMgYW5k
+IEdDQyAxMi4gQnVpbGRpbmcgd2l0aCB0aGlzIHRvb2xjaGFpbgo+ID4gPiA+ID4gY29uZmlndXJh
+dGlvbiB3b3VsZCByZXN1bHQgaW4gYXNzZW1ibGVyIGlzc3VlczoKPiA+ID4gPiA+ICAgQ0MgICAg
+ICBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3ZnZXR0aW1lb2ZkYXkubwo+ID4gPiA+ID4gICA8PEJV
+SUxERElSPj4vYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHRpbWVvZmRheS5oOiBBc3Nl
+bWJsZXIgbWVzc2FnZXM6Cj4gPiA+ID4gPiAgIDw8QlVJTERESVI+Pi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3Zkc28vZ2V0dGltZW9mZGF5Lmg6NzE6IEVycm9yOiB1bnJlY29nbml6ZWQgb3Bjb2Rl
+IGBjc3JyIGE1LDB4YzAxJwo+ID4gPiA+ID4gICA8PEJVSUxERElSPj4vYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS92ZHNvL2dldHRpbWVvZmRheS5oOjcxOiBFcnJvcjogdW5yZWNvZ25pemVkIG9wY29k
+ZSBgY3NyciBhNSwweGMwMScKPiA+ID4gPiA+ICAgPDxCVUlMRERJUj4+L2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vdmRzby9nZXR0aW1lb2ZkYXkuaDo3MTogRXJyb3I6IHVucmVjb2duaXplZCBvcGNv
+ZGUgYGNzcnIgYTUsMHhjMDEnCj4gPiA+ID4gPiAgIDw8QlVJTERESVI+Pi9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3Zkc28vZ2V0dGltZW9mZGF5Lmg6NzE6IEVycm9yOiB1bnJlY29nbml6ZWQgb3Bj
+b2RlIGBjc3JyIGE1LDB4YzAxJwo+ID4gPiA+ID4gVGhpcyB3YXMgZml4ZWQgaW4gY29tbWl0IDZk
+ZjJhMDE2YzBjOCAoInJpc2N2OiBmaXggYnVpbGQgd2l0aCBiaW51dGlscwo+ID4gPiA+ID4gMi4z
+OCIpIGJ5IEF1cmVsaWVuIEphcm5vLCBidXQgaGFzIHByb3ZlbiBmcmFnaWxlLgo+ID4gPiA+ID4K
+PiA+ID4gPiA+IEJlZm9yZSBMTFZNIDE3LCBMTFZNIGRpZCBub3Qgc3VwcG9ydCB0aGVzZSBleHRl
+bnNpb25zIGFuZCwgYXMgc3VjaCwgdGhlCj4gPiA+ID4gPiBjYy1vcHRpb24gY2hlY2sgYWRkZWQg
+YnkgQXVyZWxpZW4gd29ya2VkLiBTaW5jZSBjb21taXQgMjJlMTk5ZTZhZmIxCj4gPiA+ID4gPiAo
+IltSSVNDVl0gQWNjZXB0IHppY3NyIGFuZCB6aWZlbmNlaSBjb21tYW5kIGxpbmUgb3B0aW9ucyIp
+IGhvd2V2ZXIsIExMVk0KPiA+ID4gPiA+ICpkb2VzKiBzdXBwb3J0IHRoZW0gYW5kIHRoZSBjYy1v
+cHRpb24gY2hlY2sgcGFzc2VzLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoaXMgc3VyZmFjZWQgYXMg
+YSBwcm9ibGVtIHdoaWxlIGJ1aWxkaW5nIHRoZSA1LjEwIHN0YWJsZSBrZXJuZWwgdXNpbmcKPiA+
+ID4gPiA+IHRoZSBkZWZhdWx0IFR1eG1ha2UgRGViaWFuIGltYWdlIFsyXSwgYXMgNS4xMCBkaWQg
+bm90IHlldCBzdXBwb3J0IGxkLmxsZCwKPiA+ID4gPiA+IGFuZCB1c2VzIHRoZSBEZWJpYW4gcHJv
+dmlkZWQgYmludXRpbHMgMi4zNS4KPiA+ID4gPiA+IFZlcnNpb25zIG9mIGxkIHByaW9yIHRvIDIu
+Mzggd2lsbCByZWZ1c2UgdG8gbGluayBpZiB0aGV5IGVuY291bnRlcgo+ID4gPiA+ID4gdW5rbm93
+biBJU0EgZXh0ZW5zaW9ucywgYW5kIHVuZm9ydHVuYXRlbHkgWmlmZW5jZWkgaXMgbm90IHN1cHBv
+cnRlZCBieQo+ID4gPiA+ID4gYmludHVpbHMgMi4zNS4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBJbnN0
+ZWFkIG9mIGRhbmNpbmcgYXJvdW5kIHdpdGggYWRkaW5nIHRoZXNlIGV4dGVuc2lvbnMgdG8gbWFy
+Y2gsIGFzIHdlCj4gPiA+ID4gPiBjdXJyZW50bHkgZG8sIFBhbG1lciBzdWdnZXN0ZWQgbG9ja2lu
+ZyBHQ0MgYnVpbGRzIHRvIHRoZSBzYW1lIHZlcnNpb24gb2YKPiA+ID4gPiA+IHRoZSBJU0Egc3Bl
+YyB0aGF0IGlzIHVzZWQgYnkgTExWTS4gQXMgZmFyIGFzIEkgY2FuIHRlbGwsIHRoYXQgaXMgMi4y
+LAo+ID4gPiA+ID4gd2l0aCwgYXBwYXJlbnRseSBbM10sIGEgbGFjayBvZiBpbnRlcmVzdCBpbiBp
+bXBsZW1lbnRpbmcgYSBmbGFnIGxpa2UKPiA+ID4gPiA+IEdDQydzIC1taXNhLXNwZWMgYXQgcHJl
+c2VudC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBBZGQge2NjLGFzfS1vcHRpb24gY2hlY2tzIHRvIGFk
+ZCAtbWlzYS1zcGVjIHRvIEtCVUlMRF97QSxDfUZMQUdTIHdoZW4KPiA+ID4gPiA+IEdDQyBpcyB1
+c2VkICYgcmVtb3ZlIHRoZSBtYXJjaCBkYW5jZS4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBBcyBjbGFu
+ZyBkb2VzIG5vdCBhY2NlcHQgdGhpcyBhcmd1bWVudCwgSSBoYWQgZXhwZWN0ZWQgdG8gZW5jb3Vu
+dGVyCj4gPiA+ID4gPiBpc3N1ZXMgd2l0aCB0aGUgYXNzZW1ibGVyLCBhcyBuZWl0aGVyIHppY3Ny
+IG5vciB6aWZlbmNlaSBhcmUgcHJlc2VudCBpbgo+ID4gPiA+ID4gdGhlIElTQSBzdHJpbmcgYW5k
+IHRoZSBzcGVjIHZlcnNpb24gKnNob3VsZCogYmUgZGVmYXVsdGluZyB0byBhIHZlcnNpb24KPiA+
+ID4gPiA+IHRoYXQgcmVxdWlyZXMgdGhlbSB0byBiZSBwcmVzZW50LiBUaGUgYnVpbGQgcGFzc2Vk
+IGhvd2V2ZXIgYW5kIHRoZQo+ID4gPiA+ID4gcmVzdWx0aW5nIGtlcm5lbCB3b3JrZWQgcGVyZmVj
+dGx5IGZpbmUgZm9yIG1lIG9uIGEgUG9sYXJGaXJlIFNvQy4uLgo+ID4gPiA+ID4KPiA+ID4gPiA+
+IExpbms6IGh0dHBzOi8vcmlzY3Yub3JnL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDE5LzA2L3Jpc2N2
+LXNwZWMucGRmIFswXQo+ID4gPiA+ID4gTGluazogaHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS9h
+L2dyb3Vwcy5yaXNjdi5vcmcvZy9zdy1kZXYvYy9hRTFaZUhIQ1lmNCBbMV0KPiA+ID4gPiA+IExp
+bms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9DQStHOWZZdDlUPUVMQ0xhQjlieXhhTFcy
+UWY0cFpjRE89aHVDQTBEOHVnMlYyK2lySlFAbWFpbC5nbWFpbC5jb20vIFsyXQo+ID4gPiA+ID4g
+TGluazogaHR0cHM6Ly9kaXNjb3Vyc2UubGx2bS5vcmcvdC9zcGVjaWZ5aW5nLXVucHJpdmlsZWRn
+ZS1zcGVjLXZlcnNpb24tbWlzYS1zcGVjLWdjYy1mbGFnLWVxdWl2YWxlbnQvNjY5MzUgWzNdCj4g
+PiA+ID4gPiBDQzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwo+ID4gPiA+ID4gU3VnZ2VzdGVkLWJ5
+OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPiA+ID4gPiA+IFJlcG9ydGVk
+LWJ5OiBOYXJlc2ggS2FtYm9qdSA8bmFyZXNoLmthbWJvanVAbGluYXJvLm9yZz4KPiA+ID4gPiA+
+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+
+Cj4gPiA+ID4gPiAtLS0KPiA+ID4gPiA+IEkgdGhpbmsgQXVyZWxpZW4ncyBvcmlnaW5hbCBjb21t
+aXQgbWVzc2FnZSBtaWdodCBhY3R1YWxseSBub3QgYmUgcXVpdGUKPiA+ID4gPiA+IGNvcnJlY3Q/
+IEkgZm91bmQsIGluIG15IGxpbWl0ZWQgdGVzdGluZywgdGhhdCBpdCBpcyBub3QgdGhlIGRlZmF1
+bHQKPiA+ID4gPiA+IGJlaGF2aW91ciBvZiBnYXMgdGhhdCBtYXR0ZXJzLCBidXQgcmF0aGVyIHRo
+ZSB0b29sY2hhaW4gaXRzZWxmPwo+ID4gPiA+ID4gTXkgYmludXRpbHMgdmVyc2lvbnMgKGJvdGgg
+dGhvc2UgYnVpbHQgdXNpbmcgdGhlIGNsYW5nLWJ1aWx0LWxpbnV4Cj4gPiA+ID4gPiB0Yy1idWls
+ZCBzY3JpcHRzIHdoaWNoIGRvIG5vdCBzZXQgYW4gSVNBIHNwZWMgdmVyc2lvbiwgYW5kIG9uZSBi
+dWlsdAo+ID4gPiA+ID4gdXNpbmcgdGhlIHJpc2N2LWdudS10b29sY2hhaW4gaW5mcmEgdy8gYW4g
+ZXhwbGljaXQgMjAxOTEyMTMgc3BlYyB2ZXJzaW9uCj4gPiA+ID4gPiBzZXQpIGRvIG5vdCBlbmNv
+dW50ZXIgdGhlc2UgaXNzdWVzLgo+ID4gPiA+Cj4gPiA+ID4gSSBhbSB1bmFibGUgdG8gcmVwcm9k
+dWNlIHRoZSBidWlsZCBmYWlsdXJlIGFzIHJlcG9ydGVkIGJ5IGNvbW1pdCA2ZGYyYTAxNmMwYzgK
+PiA+ID4gPiAoInJpc2N2OiBmaXggYnVpbGQgd2l0aCBiaW51dGlscyAyLjM4IikgYnkgQXVyZWxp
+ZW4gSmFybm8gdXNpbmcga2VybmVsLm9yZwo+ID4gPiA+IHByZS1idWlsdCBHQ0MgMTEuMy4wIFsx
+XSB3aGljaCBpbmNsdWRlcyBiaW51dGlscyAyLjM4Lgo+ID4gPiA+Cj4gPiA+ID4gWzFdIGh0dHBz
+Oi8vbWlycm9ycy5lZGdlLmtlcm5lbC5vcmcvcHViL3Rvb2xzL2Nyb3NzdG9vbC9maWxlcy9iaW4v
+eDg2XzY0LzExLjMuMC94ODZfNjQtZ2NjLTExLjMuMC1ub2xpYmMteDg2XzY0LWxpbnV4LnRhci54
+ego+ID4gPiA+Cj4gPiA+ID4gVGhlIGRlZmNvbmZpZyBvZiB2NS4xNiBrZXJuZWwgKGNvbW1pdCA2
+ZGYyYTAxNmMwYzggbGFuZHMgaW4gdjUuMTcpIGJ1aWxkcyBmaW5lCj4gPiA+ID4gZm9yIG1lLiBB
+bnl0aGluZyBJIGFtIG1pc3Npbmc/Cj4gPiA+ID4KPiA+ID4KPiA+ID4gU29tZSBmdXJ0aGVyIG5v
+dGU6Cj4gPiA+Cj4gPiA+IEFmdGVyIEkgc3dpdGNoZWQgdG8ga2VybmVsLm9yZyBwcmUtYnVpbHQg
+R0NDIDEyLjIuMCBbMV0gd2hpY2ggaW5jbHVkZXMKPiA+ID4gYmludXRpbHMgMi4zOSwgSSB3YXMg
+YWJsZSB0byByZXByb2R1Y2UgdGhlIGV4YWN0IHNhbWUgYnVpbGQgZmFpbHVyZSBvZgo+ID4gPiB2
+NS4xNiBrZXJuZWwgYXMgZGVzY3JpYmVkIGluIHRoZSBjb21taXQgNmRmMmEwMTZjMGM4ICgicmlz
+Y3Y6IGZpeAo+ID4gPiBidWlsZCB3aXRoIGJpbnV0aWxzIDIuMzgiKSBieSBBdXJlbGllbiBKYXJu
+by4KPiA+ID4KPiA+ID4gVG8gdmVyaWZ5IHRoZSBjb21taXQgbWVzc2FnZSBvZiA2ZGYyYTAxNmMw
+YzggaXMgYWNjdXJhdGUgb3Igbm90LCBJCj4gPiA+IGJ1aWx0IGEgR0FTIGZyb20gYmludXRpbHMg
+Mi4zNyBhbmQgcmVwbGFjZWQgdGhlIEdBUyAyLjM5IGluIHRoZQo+ID4gPiBrZXJuZWwub3JnIHBh
+Y2thZ2UsIHN1cnByaXNpbmdseSBrZXJuZWwgdjUuMTYgZGlkIG5vdCBidWlsZCB3aXRoIHRoZQo+
+ID4gPiBzYW1lIGJ1aWxkIGZhaWx1cmUuCj4gPiA+Cj4gPiA+IFNvIGl0IHNlZW1zIHRoYXQgaXQn
+cyBHQ0MgdGhhdCBjYXVzZWQgdGhlIGJ1aWxkIGZhaWx1cmUgaW5zdGVhZCBvZiBHQVMKPiA+ID4g
+ZnJvbSBiaW51dGlscz8/Cj4gPgo+ID4gUmlnaHQsIHRoYXQncyB3aGF0IEkgd2FzIGdldHRpbmcg
+YXQgaW4gdGhlIGJpdCBiZWxvdyB0aGUgLS0tIGxpbmUgaW4gbXkKPiA+IHBhdGNoLiBJIHRoaW5r
+IEF1cmVsaWVuIHdhcyBtaXNsZWQgYnkgdGhlIGZhaWx1cmUgbWVzc2FnZSBhbmQgeW91ciBlbWFp
+bAo+ID4gKFsxXSBpbiBteSBsaW5rcyBhYm92ZSkgd2hpY2ggY2xhaW1lZCB0aGF0IGJpbnV0aWxz
+IHdvdWxkIGRlZmF1bHQgdG8KPiA+IHRoZSAyMDE5MTIxMyBzcGVjLgo+ID4gSXQgYXBwZWFycyAo
+YW5kIEknbSBub3QgYSB0YyBwZXJzb24pIHRoYXQgR0NDIG11c3QgY2FsbCBHQVMgd2l0aCB0aGUK
+PiA+IC0tbWlzYS1zcGVjIGFyZ3VtZW50LCBhbmQgaW4gR0NDIDEyIHRoZSB2YWx1ZSB1c2VkIGlz
+IDIwMTkxMjEzLgo+ID4gRWl0aGVyIEdDQyAxMSBtdXN0IHBhc3MgLS1taXNhLXNwZWM9Mi4yIHRv
+IGJpbnV0aWxzLCBvciBpdCBwYXNzZXMKPiA+IG5vdGhpbmcsIGxlYWRpbmcgYmludXRpbHMgdG8g
+YmUgcGVybWlzc2l2ZSBhYm91dCB3aGF0IC1tYXJjaD1ydjY0aQo+ID4gbWVhbnMuCj4gCj4gSSB2
+ZXJpZmllZCB0aGF0ICItbWlzYS1zcGVjIiBpcyBhIG5ldyBvcHRpb24gaW50cm9kdWNlZCBpbiBH
+Q0MgMTIgYW5kCj4gdGhlIGRlZmF1bHQgdmFsdWUgaXMgc2V0IHRvIDIwMTkxMjEzIHdoaWNoIGlz
+IHVuZm9ydHVuYXRlbHkgYmFja3dhcmQKPiBpbmNvbXBhdGlibGUuCj4gCj4gR0NDIDExIGRvZXMg
+bm90IGhhdmUgdGhlICItbWlzYS1zcGVjIiBvcHRpb24sIHNvIEkgYXNzdW1lIGl0IHByb2R1Y2Vz
+Cj4gYmFja3dhcmQgY29tcGF0aWJsZSBjb2Rlcy4KPiAKPiBJT1csIHdoYXQgY29tbWl0IDZkZjJh
+MDE2YzBjOCB3YXMgdHJ5aW5nIHRvIGZpeCBoYXMgbm90aGluZyB0byBkbyB3aXRoCj4gYmludXRp
+bHMgMi4zOCsuIEl0J3MgdGhlIEdDQyBjaGFuZ2VzIHRoYXQgaXMgdGhlIGN1bHByaXQuCgpJIGRp
+c2FncmVlIHdpdGggdGhhdCBzdGF0ZW1lbnQuIFlvdXIgdGVzdHMgc2VlbXMgdG8gaGF2ZSBiZWVu
+IGRvbmUgdXNpbmcKdGhlIHRvb2xjaGFpbnMgZnJvbSBbMV0sIHdoaWNoIGNoYW5nZXMgdHdvIHBh
+cmFtZXRlcnMsIGkuZS4gYm90aCB0aGUgR0NDCmFuZCBiaW51dGlscyB2ZXJzaW9uLgoKVGhlIG9y
+aWdpbmFsIGlzc3VlIGNhbiBiZSBkZW1vbnN0cmF0ZWQgdGhlIGZvbGxvd2luZyB3YXk6CgotIFJl
+dmVydCBjb21taXQgNmRmMmEwMTZjMGM4Ci0gR2V0IHRvb2xjaGFpbiBmcm9tOgogIGh0dHBzOi8v
+bWlycm9ycy5lZGdlLmtlcm5lbC5vcmcvcHViL3Rvb2xzL2Nyb3NzdG9vbC9maWxlcy9iaW4veDg2
+XzY0LzExLjEuMC94ODZfNjQtZ2NjLTExLjEuMC1ub2xpYmMtcmlzY3Y2NC1saW51eC50YXIueHoK
+LSBHZXQgdG9vbGNoYWluIGZyb206CiAgaHR0cHM6Ly9taXJyb3JzLmVkZ2Uua2VybmVsLm9yZy9w
+dWIvdG9vbHMvY3Jvc3N0b29sL2ZpbGVzL2Jpbi94ODZfNjQvMTEuMy4wL3g4Nl82NC1nY2MtMTEu
+My4wLW5vbGliYy1yaXNjdjY0LWxpbnV4LnRhci54egotIFJlcGxhY2UgdGhlIGFzIHZlcnNpb24g
+aW4gdGhlIDExLjEuMCB0b29sY2hhaW4gKDIuMzYuMSkgd2l0aCB0aGUgb25lCiAgZnJvbSB0aGUg
+MS4zLjAgb25lICgyLjM4KSwgZm9yIGluc3RhbmNlIHVzaW5nOgogIGxuIC1zZiAuLi8uLi8uLi8u
+Li9nY2MtMTEuMy4wLW5vbGliYy9yaXNjdjY0LWxpbnV4L3Jpc2N2NjQtbGludXgvYmluL2FzIGdj
+Yy0xMS4xLjAtbm9saWJjL3Jpc2N2NjQtbGludXgvcmlzY3Y2NC1saW51eC9iaW4vYXMKLSBCdWls
+ZCBhIGRlZmNvbmZpZyBrZXJuZWwgdXNpbmcgdGhlIDExLjEuMCB0b29sY2hhaW4sIHNvIHVzaW5n
+IEdDQyAxMS4xCiAgd2l0aCBiaW51dGlscyAyLjM4CgpbMV0gaHR0cHM6Ly9taXJyb3JzLmVkZ2Uu
+a2VybmVsLm9yZy9wdWIvdG9vbHMvY3Jvc3N0b29sLwoKLS0gCkF1cmVsaWVuIEphcm5vICAgICAg
+ICAgICAgICAgICAgICAgICAgICBHUEc6IDQwOTZSLzFEREQ4QzlCCmF1cmVsaWVuQGF1cmVsMzIu
+bmV0ICAgICAgICAgICAgICAgICBodHRwOi8vd3d3LmF1cmVsMzIubmV0CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
