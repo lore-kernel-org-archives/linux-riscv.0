@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2AEC7618A
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB99EC761A6
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ILcCP/chWEjXZjXTVlrw1pNvphVmO5fnk1FNEN8nhY=; b=lpY1DKizlXfuhp
-	7guTA8BPI8ckykC7LZ+A5otyPfHMrXa5VHaS2OLVXP16TNWjU3q6Nb3wnUmTugZjDlWMuUeejJlIa
-	JHS0w8WdHmVAa3Ds71DMNbKDk+5C76R4dwvs5yEbxbwAzPrmkmcxXHxJfvYTDb9LHmh75im7ExY5B
-	6fs+SLg2Gl7IAgzeKSi9/uTEo4CCSCMzZtvLl518ltcGGmZvW9nS6AA5bSzBk2kRSyMlH0ruiEZ6A
-	fb7DQJXSC4qP6Rk1L6Aq9jtYTyLvG2ZCNGV7urVW4zHHXT82pX+J2nVFEl8wiwBzAZnf/oUIqfxq8
-	vpC532iSVXWMMnCt3JHg==;
+	List-Owner; bh=Y5Zq++M8GMqZVFZ2YtQtdPnN5/ERE0m8RtJN9vje+2M=; b=hYU9hDPRrMkgrf
+	5ul/wb5ctgRNSVMIiZ7iHH5L37oi6/9QydNk/Rxgie2jmhHnmNwgtVx74bcQhzx11yiB967yKb4e3
+	0oLx6jkc3slsm/CIyNPaRLQ2/ndwLi+01ByeXb34OQTZejZ02ThcB2YtE6gkGygHOOfD3ufc/rORe
+	GR9z7RmQv1R9APbp9yA2hZkKdVSNXILm98hsPjKGObSolM5ejzV7lJp6rmU24qV+c94k5zwCaSIQn
+	w2mhTm4rO1Gx+r/bXRR2NguuyizHU7eob7bXaO3kOhjuTzNZOYQBHClCq9pyfTas2ct/2AubDTmRq
+	KMHJOXFB/roJ+kz8gyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDU-00HZ6E-3G; Sat, 11 Mar 2023 09:08:40 +0000
+	id 1pavDV-00HZ8C-Sf; Sat, 11 Mar 2023 09:08:41 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDI-00HYwl-AF
+	id 1pavDI-00HYwp-AE
 	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:30 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8277E24E1CE;
-	Sat, 11 Mar 2023 17:07:51 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:51 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8969524E1C9;
+	Sat, 11 Mar 2023 17:07:50 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
+ 2023 17:07:50 +0800
 Received: from ubuntu.localdomain (183.27.96.115) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:50 +0800
+ 2023 17:07:49 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -49,9 +49,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 17/21] dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-Date: Sat, 11 Mar 2023 17:07:29 +0800
-Message-ID: <20230311090733.56918-18-hal.feng@starfivetech.com>
+Subject: [PATCH v5 16/21] dt-bindings: timer: Add StarFive JH7110 clint
+Date: Sat, 11 Mar 2023 17:07:28 +0800
+Message-ID: <20230311090733.56918-17-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230311090733.56918-1-hal.feng@starfivetech.com>
 References: <20230311090733.56918-1-hal.feng@starfivetech.com>
@@ -61,8 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_010828_563702_7DA811C9 
-X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-CacheID: sfid-20230311_010828_583102_7B8E882F 
+X-CRM114-Status: UNSURE (   8.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,27 +82,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-Add compatible string for StarFive JH7110 plic.
+Add compatible string for the StarFive JH7110 clint.
 
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 63bc89e13480..4e98261f2948 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -59,6 +59,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index aada6957216c..94bef9424df1 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -31,6 +31,7 @@ properties:
            - enum:
-               - sifive,fu540-c000-plic
-               - starfive,jh7100-plic
-+              - starfive,jh7110-plic
-               - canaan,k210-plic
-           - const: sifive,plic-1.0.0
+               - sifive,fu540-c000-clint
+               - starfive,jh7100-clint
++              - starfive,jh7110-clint
+               - canaan,k210-clint
+           - const: sifive,clint0
        - items:
 -- 
 2.38.1
