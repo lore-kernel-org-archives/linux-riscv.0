@@ -4,53 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA84C6FA99
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Mar 2023 16:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA9BEC6FD19
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 02:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sn/rLlFFOC3Md5V9VCmMin22EsSYC9qxql6I36x5d5w=; b=SDk33DOTIT+iWE
-	9FoMUeCfCEPzYOyrBSkoY0VHn3B6bcSSkXTI3mOdOZ696INeB7sSSxRBZmGXGaYnbfnvoRPCyXPMU
-	gpeN1vAgHH6d9xd+tJaIgXSLL4MQUPZgNY4utcG7P0rm0NnLB39Ho96Q1sOmNXTVLUvc2ooJolXen
-	SQRNVs6AZD3FBi83S6tYXb3Z2DSMWzUyl5uLwjG5DPnuycnIpQv46XV3mleLBEZ1IBAYW2Qi4N2AJ
-	4GL3yovKg91FpcQSKaiTvc4W68op/rDbN18esqLsll9SEb1FdC6r6FjCwdrSXQ67zIcfvcsaMbFJD
-	lGklQQ/DtIcdch9uX8hA==;
+	List-Owner; bh=8LQ67FsnbZrLqY5uQIXKI3nruNYY5bBn1wNM+uFRRBY=; b=VDwKt8Xf+rSDo3
+	xDmMGOhtyxHh/uSXLbrYwmvF7Msulcmw7VtACtGj10V8qRAISKgjNuu7C358zHNinOaNk+1ITSM3u
+	hxOQ6nsXl9W/nRBRaS9Yd6GICgEELNqjrMO4wtKC7TMg7ZiErPjyVAZLtTjUkgnZiBaLc5sEqAIl/
+	uwluffrhEEMOXGIWyQMyWrKw5xA8UzizQvgcx7CDc1gMJWk5By7mIHt2O4kvEgHQi8pqM+8avxcrH
+	ysH/6j7XKcM742PepmwlcZLiu0sOmYn83MGqIBIVlezixD+dX3YpQmRStuQj6ubnkGN1PhTQztq0f
+	v69gwKu2T5U7OWaF+V7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbOLL-002pO4-JK; Sun, 12 Mar 2023 16:14:43 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1pbXkm-0041yK-W1; Mon, 13 Mar 2023 02:17:37 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbOLA-002pLj-Rs; Sun, 12 Mar 2023 16:14:34 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id EC8CA1C0002;
-	Sun, 12 Mar 2023 16:14:20 +0000 (UTC)
-Message-ID: <8b338d50-d790-a2e9-9ba9-fde444309bfc@ghiti.fr>
-Date: Sun, 12 Mar 2023 17:14:20 +0100
+	id 1pb6aZ-001H5Z-41; Sat, 11 Mar 2023 21:17:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A0B54B80B49;
+	Sat, 11 Mar 2023 21:17:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B025C433A8;
+	Sat, 11 Mar 2023 21:16:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678569432;
+	bh=nxjIZb2lDBuKK2G4lNzbnKP45y5UoeG95pRVo5INiRE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=bvzKGPqJVg2bAaBl8LvuSNq4FE4F8OHaj0dxY1RmvBRvrUteeh49EnCBFgpLpsimi
+	 X9QjmQX5ru5ARgvQanZf4uxwTdtbSXJBvWNRv/d86I7owOd9TPANApjMIEt8UOom/V
+	 rlpKM3DSWdmGVC5sTOOGKI7C35EJY3xqnU9SQBlbwRy+sPkyfeO2xcIoXPdhr3KG5S
+	 maSO5XBX1iOLzTj27xMUWw1Z5Arz1xysQ8bAZkDXGqorBZ3q1BRVnKovYh/ImB0NqZ
+	 5jPOxe6cAx/K/KlowItsOB1tQgOaqn0wX00B/jAga6Qsnzqoh25kwlapaLa6EQAQNP
+	 eT/NzyqjKOROw==
+From: Mark Brown <broonie@kernel.org>
+To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, 
+ jic23@kernel.org, pratyush@kernel.org, Sanju.Mehta@amd.com, 
+ chin-ting_kuo@aspeedtech.com, clg@kaod.org, kdasu.kdev@gmail.com, 
+ f.fainelli@gmail.com, rjui@broadcom.com, sbranden@broadcom.com, 
+ eajames@linux.ibm.com, olteanv@gmail.com, han.xu@nxp.com, 
+ john.garry@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+ khilman@baylibre.com, matthias.bgg@gmail.com, haibo.chen@nxp.com, 
+ linus.walleij@linaro.org, daniel@zonque.org, haojian.zhuang@gmail.com, 
+ robert.jarzmik@free.fr, agross@kernel.org, heiko@sntech.de, 
+ krzysztof.kozlowski@linaro.org, andi@etezian.org, mcoquelin.stm32@gmail.com, 
+ alexandre.torgue@foss.st.com, wens@csie.org, jernej.skrabec@gmail.com, 
+ samuel@sholland.org, masahisa.kojima@linaro.org, jaswinder.singh@linaro.org, 
+ rostedt@goodmis.org, mingo@redhat.com, l.stelmach@samsung.com, 
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+ pabeni@redhat.com, alex.aring@gmail.com, stefan@datenfreihafen.org, 
+ kvalo@kernel.org, james.schulman@cirrus.com, david.rhodes@cirrus.com, 
+ tanureal@opensource.cirrus.com, rf@opensource.cirrus.com, perex@perex.cz, 
+ tiwai@suse.com, npiggin@gmail.com, christophe.leroy@csgroup.eu, 
+ mpe@ellerman.id.au, oss@buserror.net, windhl@126.com, 
+ yangyingliang@huawei.com, william.zhang@broadcom.com, 
+ kursad.oney@broadcom.com, jonas.gorski@gmail.com, anand.gore@broadcom.com, 
+ rafal@milecki.pl, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+Cc: git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro, 
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+ claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com, 
+ fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com, 
+ linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
+ avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com, 
+ venture@google.com, yuenn@google.com, benjaminfair@google.com, 
+ yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org, 
+ alim.akhtar@samsung.com, ldewangan@nvidia.com, thierry.reding@gmail.com, 
+ jonathanh@nvidia.com, michal.simek@amd.com, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+ linux-tegra@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-wpan@vger.kernel.org, libertas-dev@lists.infradead.org, 
+ linux-wireless@vger.kernel.org, linux-mtd@lists.infradead.org, 
+ lars@metafoo.de, Michael.Hennerich@analog.com, linux-iio@vger.kernel.org, 
+ michael@walle.cc, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
+ alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
+ linuxppc-dev@lists.ozlabs.org, amitrkcian2002@gmail.com
+In-Reply-To: <20230310173217.3429788-1-amit.kumar-mahapatra@amd.com>
+References: <20230310173217.3429788-1-amit.kumar-mahapatra@amd.com>
+Subject: Re: (subset) [PATCH V6 00/15] Add support for stacked/parallel
+ memories
+Message-Id: <167856940280.964268.10660159170818600511.b4-ty@kernel.org>
+Date: Sat, 11 Mar 2023 21:16:42 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v7 2/4] mm: Introduce memblock_isolate_memory
-Content-Language: en-US
-To: Mike Rapoport <rppt@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>, Anup Patel <anup@brainfault.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-mm@kvack.org
-References: <20230310094539.764357-1-alexghiti@rivosinc.com>
- <20230310094539.764357-3-alexghiti@rivosinc.com>
- <ZA2c4X+acRLHKV38@kernel.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <ZA2c4X+acRLHKV38@kernel.org>
+X-Mailer: b4 0.13-dev-2eb1a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_091433_222497_10D1257C 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20230311_131715_482002_A0ABA582 
+X-CRM114-Status: GOOD (  14.49  )
+X-Mailman-Approved-At: Sun, 12 Mar 2023 19:17:33 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,119 +113,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 10 Mar 2023 23:02:02 +0530, Amit Kumar Mahapatra wrote:
+> This patch is in the continuation to the discussions which happened on
+> 'commit f89504300e94 ("spi: Stacked/parallel memories bindings")' for
+> adding dt-binding support for stacked/parallel memories.
+> 
+> This patch series updated the spi-nor, spi core and the spi drivers
+> to add stacked and parallel memories support.
+> 
+> [...]
 
-On 3/12/23 10:35, Mike Rapoport wrote:
-> Hi Alexandre,
->
-> On Fri, Mar 10, 2023 at 10:45:37AM +0100, Alexandre Ghiti wrote:
->> This function allows to split a region in memblock.memory and will be
->> useful when setting up the linear mapping with STRICT_KERNEL_RWX: it
->> allows to isolate the kernel text/rodata and then avoid to map those
->> regions with a PUD/P4D/PGD.
->>
->> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->> ---
->>   include/linux/memblock.h |  1 +
->>   mm/memblock.c            | 22 +++++++++++++++++++++-
->>   2 files changed, 22 insertions(+), 1 deletion(-)
->>
->> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->> index 50ad19662a32..2f7ef97c0da7 100644
->> --- a/include/linux/memblock.h
->> +++ b/include/linux/memblock.h
->> @@ -125,6 +125,7 @@ int memblock_clear_hotplug(phys_addr_t base, phys_addr_t size);
->>   int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
->>   int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
->>   int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
->> +int memblock_isolate_memory(phys_addr_t base, phys_addr_t size);
->>   
->>   void memblock_free_all(void);
->>   void memblock_free(void *ptr, size_t size);
->> diff --git a/mm/memblock.c b/mm/memblock.c
->> index 25fd0626a9e7..d8cf1c9eccf0 100644
->> --- a/mm/memblock.c
->> +++ b/mm/memblock.c
->> @@ -753,7 +753,8 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->>   	int idx;
->>   	struct memblock_region *rgn;
->>   
->> -	*start_rgn = *end_rgn = 0;
->> +	if (start_rgn && end_rgn)
->> +		*start_rgn = *end_rgn = 0;
-> Generally, it's possible that either start_rgn or end_rgn will be a valid
-> pointer and this should be handled here and below.
->
-> My preference, though would be to leave memblock_isolate_range() as is and
-> have unused start_rgn and end_rgn in memblock_isolate_memory().
+Applied to
 
+   broonie/spi.git for-next
 
-Sure, I'll do that then.
+Thanks!
 
+[01/15] spi: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: 9e264f3f85a56cc109cc2d6010a48aa89d5c1ff1
+[02/15] net: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: 25fd0550d9b9c92288a17fb7d605cdcdb4a65a64
+[03/15] iio: imu: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: 0183f81fce154ae1d4df2bb28d22ad6612317148
+[04/15] mtd: devices: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: 0817bcef53e4e3df23c023eddaa2b35b7288400e
+[05/15] staging: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: caa9d3475b1c5566f0272273c147cc9b72f2be28
+[06/15] platform/x86: serial-multi-instantiate: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: e20451f44ca33ec40422e9868775e117ef2da935
+[07/15] powerpc/83xx/mpc832x_rdb: Replace all spi->chip_select references with function call
+        commit: 3aba06a9fee04f6fefa9df71d3ee27dd4c464ad5
+[08/15] ALSA: hda: cs35l41: Replace all spi->chip_select references with function call
+        commit: 06b5e53c8b2b016e06a53ab6f01006ca7bbfa5df
 
->
->>   
->>   	if (!size)
->>   		return 0;
->> @@ -795,6 +796,9 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->>   					       memblock_get_region_node(rgn),
->>   					       rgn->flags);
->>   		} else {
->> +			if (!end_rgn || !start_rgn)
->> +				continue;
->> +
->>   			/* @rgn is fully contained, record it */
->>   			if (!*end_rgn)
->>   				*start_rgn = idx;
->> @@ -805,6 +809,22 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->>   	return 0;
->>   }
->>   
->> +/**
->> + * memblock_isolate_memory - isolate given range from memblock.memory
-> I think it'd better to use "... range in memblock.memory"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Ok
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
->
->> + * @base: base of range to isolate
->> + * @size: size of range to isolate
->> + *
->> + * Call memblock_isolate_range on memblock.memory to isolate the given range.
-> Please elaborate that isolate means that the range does not share regions
-> with other ranges.
+Thanks,
+Mark
 
-
-Sure, thanks, I'll come up with a v8 tomorrow along with other fixes 
-(rv32 and arm64 comments that I forgot to remove).
-
-Thanks again,
-
-Alex
-
-
->> + *
->> + * Return:
->> + * 0 on success, -errno on failure.
->> + */
->> +
->> +int __init_memblock memblock_isolate_memory(phys_addr_t base, phys_addr_t size)
->> +{
->> +	return memblock_isolate_range(&memblock.memory, base, size, NULL, NULL);
->> +}
->> +
->>   static int __init_memblock memblock_remove_range(struct memblock_type *type,
->>   					  phys_addr_t base, phys_addr_t size)
->>   {
->> -- 
->> 2.37.2
->>
 
 _______________________________________________
 linux-riscv mailing list
