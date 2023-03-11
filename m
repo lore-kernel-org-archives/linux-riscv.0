@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB99EC761A6
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0DFDC61DA4
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Mar 2023 09:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y5Zq++M8GMqZVFZ2YtQtdPnN5/ERE0m8RtJN9vje+2M=; b=hYU9hDPRrMkgrf
-	5ul/wb5ctgRNSVMIiZ7iHH5L37oi6/9QydNk/Rxgie2jmhHnmNwgtVx74bcQhzx11yiB967yKb4e3
-	0oLx6jkc3slsm/CIyNPaRLQ2/ndwLi+01ByeXb34OQTZejZ02ThcB2YtE6gkGygHOOfD3ufc/rORe
-	GR9z7RmQv1R9APbp9yA2hZkKdVSNXILm98hsPjKGObSolM5ejzV7lJp6rmU24qV+c94k5zwCaSIQn
-	w2mhTm4rO1Gx+r/bXRR2NguuyizHU7eob7bXaO3kOhjuTzNZOYQBHClCq9pyfTas2ct/2AubDTmRq
-	KMHJOXFB/roJ+kz8gyew==;
+	List-Owner; bh=SCR5zVvdYo1S+g9yilpbBEBCJqEX9hmN5Jmuv4i6C0Q=; b=EUoW+Dtt8q1NZ2
+	OE2Bby27A+UB7d+ToSHJjCqXdRvp/h3i6V5bj2dYjIybmgxSVPuCKZYuhONK3mnway46w8E7S65b+
+	L4eVUUmDzgiwc7toGGzhxcXR8UdhJ+xFu7cg7LPU8PbdVnjUctZWumr8/I3mrDIECdLbdGoUzSbYE
+	k6i8y4kzg7Adj6OdQnpsN6POho+HByDYHmld1zaW1/LJwxf2gXtQ5xMM8ahu7iInCfDVuh7cXSJSD
+	QsoPxQ64rwdj+PnuE62JzFG2D/ZY7NoqVLXPY5P8gcGNtHQk7USmLPREIh3TLp+Ya9fjez8ovJ+Ev
+	W/7zCC8FbVx4adsceF5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDV-00HZ8C-Sf; Sat, 11 Mar 2023 09:08:41 +0000
+	id 1pavDX-00HZ9M-8v; Sat, 11 Mar 2023 09:08:43 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pavDI-00HYwp-AE
-	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:30 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pavDI-00HYwn-AI
+	for linux-riscv@lists.infradead.org; Sat, 11 Mar 2023 09:08:32 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8969524E1C9;
-	Sat, 11 Mar 2023 17:07:50 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:50 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id A73E524E1C7;
+	Sat, 11 Mar 2023 17:07:49 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
+ 2023 17:07:49 +0800
 Received: from ubuntu.localdomain (183.27.96.115) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 11 Mar
- 2023 17:07:49 +0800
+ 2023 17:07:48 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -49,9 +49,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 16/21] dt-bindings: timer: Add StarFive JH7110 clint
-Date: Sat, 11 Mar 2023 17:07:28 +0800
-Message-ID: <20230311090733.56918-17-hal.feng@starfivetech.com>
+Subject: [PATCH v5 15/21] reset: starfive: Add StarFive JH7110 reset driver
+Date: Sat, 11 Mar 2023 17:07:27 +0800
+Message-ID: <20230311090733.56918-16-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230311090733.56918-1-hal.feng@starfivetech.com>
 References: <20230311090733.56918-1-hal.feng@starfivetech.com>
@@ -61,9 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230311_010828_583102_7B8E882F 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230311_010828_741419_B33FF6A8 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +79,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+Add auxiliary driver to support StarFive JH7110 system
+and always-on resets.
 
-Add compatible string for the StarFive JH7110 clint.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/reset/starfive/Kconfig                |  8 +++
+ drivers/reset/starfive/Makefile               |  1 +
+ .../reset/starfive/reset-starfive-jh7110.c    | 70 +++++++++++++++++++
+ 3 files changed, 79 insertions(+)
+ create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index aada6957216c..94bef9424df1 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -31,6 +31,7 @@ properties:
-           - enum:
-               - sifive,fu540-c000-clint
-               - starfive,jh7100-clint
-+              - starfive,jh7110-clint
-               - canaan,k210-clint
-           - const: sifive,clint0
-       - items:
+diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
+index 1927a5a3b53a..1fa706a2c3dc 100644
+--- a/drivers/reset/starfive/Kconfig
++++ b/drivers/reset/starfive/Kconfig
+@@ -10,3 +10,11 @@ config RESET_STARFIVE_JH7100
+ 	default ARCH_STARFIVE
+ 	help
+ 	  This enables the reset controller driver for the StarFive JH7100 SoC.
++
++config RESET_STARFIVE_JH7110
++	bool "StarFive JH7110 Reset Driver"
++	depends on AUXILIARY_BUS && CLK_STARFIVE_JH7110_SYS
++	select RESET_STARFIVE_JH71X0
++	default ARCH_STARFIVE
++	help
++	  This enables the reset controller driver for the StarFive JH7110 SoC.
+diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
+index f6aa12466fad..7a44b66fb9d5 100644
+--- a/drivers/reset/starfive/Makefile
++++ b/drivers/reset/starfive/Makefile
+@@ -2,3 +2,4 @@
+ obj-$(CONFIG_RESET_STARFIVE_JH71X0)		+= reset-starfive-jh71x0.o
+ 
+ obj-$(CONFIG_RESET_STARFIVE_JH7100)		+= reset-starfive-jh7100.o
++obj-$(CONFIG_RESET_STARFIVE_JH7110)		+= reset-starfive-jh7110.o
+diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
+new file mode 100644
+index 000000000000..4ccb3f72ca83
+--- /dev/null
++++ b/drivers/reset/starfive/reset-starfive-jh7110.c
+@@ -0,0 +1,70 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Reset driver for the StarFive JH7110 SoC
++ *
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/auxiliary_bus.h>
++
++#include "reset-starfive-jh71x0.h"
++
++#include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++struct jh7110_reset_info {
++	unsigned int nr_resets;
++	unsigned int assert_offset;
++	unsigned int status_offset;
++};
++
++static const struct jh7110_reset_info jh7110_sys_info = {
++	.nr_resets = JH7110_SYSRST_END,
++	.assert_offset = 0x2F8,
++	.status_offset = 0x308,
++};
++
++static const struct jh7110_reset_info jh7110_aon_info = {
++	.nr_resets = JH7110_AONRST_END,
++	.assert_offset = 0x38,
++	.status_offset = 0x3C,
++};
++
++static int jh7110_reset_probe(struct auxiliary_device *adev,
++			      const struct auxiliary_device_id *id)
++{
++	struct jh7110_reset_info *info = (struct jh7110_reset_info *)(id->driver_data);
++	void __iomem **base = (void __iomem **)dev_get_drvdata(adev->dev.parent);
++
++	if (!info || !base)
++		return -ENODEV;
++
++	return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
++					      *base + info->assert_offset,
++					      *base + info->status_offset,
++					      NULL,
++					      info->nr_resets,
++					      NULL);
++}
++
++static const struct auxiliary_device_id jh7110_reset_ids[] = {
++	{
++		.name = "clk_starfive_jh71x0.reset-sys",
++		.driver_data = (kernel_ulong_t)&jh7110_sys_info,
++	},
++	{
++		.name = "clk_starfive_jh71x0.reset-aon",
++		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
++
++static struct auxiliary_driver jh7110_reset_driver = {
++	.probe		= jh7110_reset_probe,
++	.id_table	= jh7110_reset_ids,
++};
++module_auxiliary_driver(jh7110_reset_driver);
++
++MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
++MODULE_DESCRIPTION("StarFive JH7110 reset driver");
++MODULE_LICENSE("GPL");
 -- 
 2.38.1
 
