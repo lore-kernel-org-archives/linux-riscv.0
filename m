@@ -4,70 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B305C6FA99
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Mar 2023 14:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA84C6FA99
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Mar 2023 16:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P85bXtP4yuvDHGJQtjYsRUOAJvrPUUI4POzFL28NUWU=; b=pveTgKerU/tRBEm+8khwbxmLmB
-	WqV85urbTPz9kv2lmoY3APjB+Gbf4h9Lxm9lMPPATaZQgVOesGZ9yXfsBv0H2NtfUxJDzHYAsuC75
-	pmw6GFLEbYGNsLA44CGMH9TI10eQ+uQjK2eQDkyZCJ72gsA1E8RIiiIL/LhkqxprCtxS7AKnBOuo+
-	QJNHpolNYDsWI6IDX0K2OUsdSxNsUjWy56uj53l7rzRNLkezItQtJqk3sVO68M6VQKkEIt1n1i9Kp
-	GDRmnrjGu/APFD+agEssrAOOsjga68aPeGL6TiD4AwypAWshfHC4BUDmjhCVEi0089lIMvvyz71RW
-	LnSQBMzw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Sn/rLlFFOC3Md5V9VCmMin22EsSYC9qxql6I36x5d5w=; b=SDk33DOTIT+iWE
+	9FoMUeCfCEPzYOyrBSkoY0VHn3B6bcSSkXTI3mOdOZ696INeB7sSSxRBZmGXGaYnbfnvoRPCyXPMU
+	gpeN1vAgHH6d9xd+tJaIgXSLL4MQUPZgNY4utcG7P0rm0NnLB39Ho96Q1sOmNXTVLUvc2ooJolXen
+	SQRNVs6AZD3FBi83S6tYXb3Z2DSMWzUyl5uLwjG5DPnuycnIpQv46XV3mleLBEZ1IBAYW2Qi4N2AJ
+	4GL3yovKg91FpcQSKaiTvc4W68op/rDbN18esqLsll9SEb1FdC6r6FjCwdrSXQ67zIcfvcsaMbFJD
+	lGklQQ/DtIcdch9uX8hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbMFZ-002cpb-Ex; Sun, 12 Mar 2023 14:00:37 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pbOLL-002pO4-JK; Sun, 12 Mar 2023 16:14:43 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbMFU-002cnG-6H
-	for linux-riscv@lists.infradead.org; Sun, 12 Mar 2023 14:00:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id AAD88B802C8;
-	Sun, 12 Mar 2023 14:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0531C433D2;
-	Sun, 12 Mar 2023 14:00:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678629629;
-	bh=wFICklcUPI9u10LmkC+Q32v0zLcHQBj1RUk9RVPheC4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FNSZvUlBwhDTbciaIRdrh2VcNDuAQhU39vfJX9Ds7rbIQaFekNjLpxEg8zoYYTv9V
-	 J7MDgE6GkXe4hJk7yBJ3vqJvpg8A/4y+xj++a4cacYWb/p2hG1XLt9wA8h+BotdIbQ
-	 XNx44pIH7SbR/3KnkheH/OvxtbYra9MtZhCsSDm9e2e8ebEIgCi2NKvldBXCP7hBs6
-	 16BEm1V9gAYIocE0J6VG6NfVCLTJvNY0TlZlKYVY/h5qK5gPmuD9ubLaJL39HMEZL1
-	 8cfNxAknrbH4TrFL3SjuDeR7vKWiVXBJG1LqVEIioM/DFY3OwhjTgY4zrULJfuY49u
-	 TupX2N/e8u/JQ==
-Date: Sun, 12 Mar 2023 14:00:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 03/21] clk: starfive: Rename clk-starfive-jh7100.h to
- clk-starfive-jh71x0.h
-Message-ID: <c7e5a23a-16f9-4e30-adc7-a422abeb50ef@spud>
-References: <20230311090733.56918-1-hal.feng@starfivetech.com>
- <20230311090733.56918-4-hal.feng@starfivetech.com>
+	id 1pbOLA-002pLj-Rs; Sun, 12 Mar 2023 16:14:34 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id EC8CA1C0002;
+	Sun, 12 Mar 2023 16:14:20 +0000 (UTC)
+Message-ID: <8b338d50-d790-a2e9-9ba9-fde444309bfc@ghiti.fr>
+Date: Sun, 12 Mar 2023 17:14:20 +0100
 MIME-Version: 1.0
-In-Reply-To: <20230311090733.56918-4-hal.feng@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: [PATCH v7 2/4] mm: Introduce memblock_isolate_memory
+Content-Language: en-US
+To: Mike Rapoport <rppt@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Anup Patel <anup@brainfault.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20230310094539.764357-1-alexghiti@rivosinc.com>
+ <20230310094539.764357-3-alexghiti@rivosinc.com>
+ <ZA2c4X+acRLHKV38@kernel.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <ZA2c4X+acRLHKV38@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_070032_740041_50874246 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20230312_091433_222497_10D1257C 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +62,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2388885803237969667=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2388885803237969667==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5IeCIlJW+LRtrZaq"
-Content-Disposition: inline
+On 3/12/23 10:35, Mike Rapoport wrote:
+> Hi Alexandre,
+>
+> On Fri, Mar 10, 2023 at 10:45:37AM +0100, Alexandre Ghiti wrote:
+>> This function allows to split a region in memblock.memory and will be
+>> useful when setting up the linear mapping with STRICT_KERNEL_RWX: it
+>> allows to isolate the kernel text/rodata and then avoid to map those
+>> regions with a PUD/P4D/PGD.
+>>
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>> ---
+>>   include/linux/memblock.h |  1 +
+>>   mm/memblock.c            | 22 +++++++++++++++++++++-
+>>   2 files changed, 22 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+>> index 50ad19662a32..2f7ef97c0da7 100644
+>> --- a/include/linux/memblock.h
+>> +++ b/include/linux/memblock.h
+>> @@ -125,6 +125,7 @@ int memblock_clear_hotplug(phys_addr_t base, phys_addr_t size);
+>>   int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
+>>   int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
+>>   int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
+>> +int memblock_isolate_memory(phys_addr_t base, phys_addr_t size);
+>>   
+>>   void memblock_free_all(void);
+>>   void memblock_free(void *ptr, size_t size);
+>> diff --git a/mm/memblock.c b/mm/memblock.c
+>> index 25fd0626a9e7..d8cf1c9eccf0 100644
+>> --- a/mm/memblock.c
+>> +++ b/mm/memblock.c
+>> @@ -753,7 +753,8 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
+>>   	int idx;
+>>   	struct memblock_region *rgn;
+>>   
+>> -	*start_rgn = *end_rgn = 0;
+>> +	if (start_rgn && end_rgn)
+>> +		*start_rgn = *end_rgn = 0;
+> Generally, it's possible that either start_rgn or end_rgn will be a valid
+> pointer and this should be handled here and below.
+>
+> My preference, though would be to leave memblock_isolate_range() as is and
+> have unused start_rgn and end_rgn in memblock_isolate_memory().
 
 
---5IeCIlJW+LRtrZaq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Mar 11, 2023 at 05:07:15PM +0800, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
->=20
-> Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h for making
-> the code to be common.
->=20
-> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../clk/starfive/{clk-starfive-jh7100.h =3D> clk-starfive-jh71x0.h} | 0
-
-So this patch has broken the build :(
-https://patchwork.kernel.org/project/linux-riscv/patch/20230311090733.56918=
--4-hal.feng@starfivetech.com/
-
-I would imagine it is because you can't rename the header without also
-changing the users of the header.
-
-Cheers,
-Conor.
-
---5IeCIlJW+LRtrZaq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZA3a9wAKCRB4tDGHoIJi
-0gBGAQCqn9Dop3s+ZM1ku4OZOOw18V5mmdfyZ6fqN4sUWFtnVQD8D7anScl1VOZH
-DBmBF/QCBa4RJq2bZCOK4qh28+oj/wQ=
-=VFFQ
------END PGP SIGNATURE-----
-
---5IeCIlJW+LRtrZaq--
+Sure, I'll do that then.
 
 
---===============2388885803237969667==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+>>   
+>>   	if (!size)
+>>   		return 0;
+>> @@ -795,6 +796,9 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
+>>   					       memblock_get_region_node(rgn),
+>>   					       rgn->flags);
+>>   		} else {
+>> +			if (!end_rgn || !start_rgn)
+>> +				continue;
+>> +
+>>   			/* @rgn is fully contained, record it */
+>>   			if (!*end_rgn)
+>>   				*start_rgn = idx;
+>> @@ -805,6 +809,22 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
+>>   	return 0;
+>>   }
+>>   
+>> +/**
+>> + * memblock_isolate_memory - isolate given range from memblock.memory
+> I think it'd better to use "... range in memblock.memory"
+
+
+Ok
+
+
+>
+>> + * @base: base of range to isolate
+>> + * @size: size of range to isolate
+>> + *
+>> + * Call memblock_isolate_range on memblock.memory to isolate the given range.
+> Please elaborate that isolate means that the range does not share regions
+> with other ranges.
+
+
+Sure, thanks, I'll come up with a v8 tomorrow along with other fixes 
+(rv32 and arm64 comments that I forgot to remove).
+
+Thanks again,
+
+Alex
+
+
+>> + *
+>> + * Return:
+>> + * 0 on success, -errno on failure.
+>> + */
+>> +
+>> +int __init_memblock memblock_isolate_memory(phys_addr_t base, phys_addr_t size)
+>> +{
+>> +	return memblock_isolate_range(&memblock.memory, base, size, NULL, NULL);
+>> +}
+>> +
+>>   static int __init_memblock memblock_remove_range(struct memblock_type *type,
+>>   					  phys_addr_t base, phys_addr_t size)
+>>   {
+>> -- 
+>> 2.37.2
+>>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2388885803237969667==--
-
