@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2F9C6FA99
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Mar 2023 09:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB29C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Mar 2023 12:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QpJpqB5MdzbMP3iqT1lEcNk+w0vOIprDb4p3uA5fUBE=; b=xy63qCcuFPR+eo
-	cmSBSQ9+m4pu7YG6a6GvfdOQBGU5Dc80z09B8O5HEL8GMmZGP8bTx6erwAhUypaZDnT5tsRTjHsEn
-	eFgE7X01rYbTaFDtX/LDQhNFwnjXibi9IWTjoeQt2KqaPVmWuz+iZR9IruS769vjBvRtbxeWtUuXo
-	JMKLH6z8cMejjS4WmtB7AJDTFed+0HLZoi3g/+ZYXVK942hr7lpaeC1IJWW5Pj5vXPBuqE6fFczwD
-	1WYZ+K6WXWxaW+gok70OEAVOzGcxevJhq4Xif12gTISijAXmVbMqj5llITM2JLAUkD2w/xBfL4dKN
-	L9TWTq2PQRChuZFn8fhQ==;
+	List-Owner; bh=KaAtUSI+eZT/e9MPng/lUOdgrwRVuCQc4KF9B4qdvX0=; b=ld4sxMaHOeddHh
+	uTxPzBSAm5QNFzPemruu5I3oLWzDUevtbKAIcbDtEQEE93sWFtmxLU4cxftPGgH1MO8318EiAY8S7
+	TgBEYDjegacH4eG6kW9YYEaT047zEjatNNmMQhXAwD7NmJSr++qwYZImYnUrh3quY7JlOsHUJ8ked
+	QI0MhQ9mCUqwG0ZXfK7RotPHA0Z+ETswpO+G2CVdLk6/galw2GbyiKXeKETe4cZLTIY5EF38Haksr
+	86GdufnQjbkkDHaIaVXUg+PELe4sgtdl8fBVc2Eu2Q7p1Wy0tDYKsZJBApsekl+3Dq1tTqzOj4Hj1
+	qgFFKVQ7pNIV/yqHgfoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbI7V-00224I-J0; Sun, 12 Mar 2023 09:36:01 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pbL0r-002ErO-Bv; Sun, 12 Mar 2023 12:41:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbI7J-002231-LT; Sun, 12 Mar 2023 09:35:51 +0000
+	id 1pbL0l-002Epl-QV
+	for linux-riscv@lists.infradead.org; Sun, 12 Mar 2023 12:41:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5D011B80A1F;
-	Sun, 12 Mar 2023 09:35:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58ED8C433D2;
-	Sun, 12 Mar 2023 09:35:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 406F960F1E
+	for <linux-riscv@lists.infradead.org>; Sun, 12 Mar 2023 12:41:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1226DC433A4
+	for <linux-riscv@lists.infradead.org>; Sun, 12 Mar 2023 12:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678613745;
-	bh=FGfHyiCN0aXermKd8RTGCSgYZKL3rHsRsRTObZ041wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mNdJn3zmkTmCNxGecjiwtvRHJj7oJCaSwKIpuW/qFtGgP7A45tHhzqfSv7PPJa38z
-	 KOQfUaRtfPZiFIVGpCfrsgXPfly7uYS4W06tmOSccRNuhxcRdqb5WiII42K8WNEgwg
-	 AjlCgSYSIHOOd7Vwcdi5H7rf0YNayRqHbIB7VShpX8VC/EjTHEtkYhWNP0AoL6mrvv
-	 XbfOgwo3T1XW1oQsmew9LoAvIPxNbjZM1qFbMHStoJSzJ3kLoBgUFrCTXRTHs7ws7T
-	 XSpl+DgyE34JTayrOcRfPYTMBQxDxt/lfqhTKT5hE8ZSBaYDxXUiJxZgT/HQTqaa+X
-	 3hp+zCPkrv3Fg==
-Date: Sun, 12 Mar 2023 11:35:29 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anup Patel <anup@brainfault.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v7 2/4] mm: Introduce memblock_isolate_memory
-Message-ID: <ZA2c4X+acRLHKV38@kernel.org>
-References: <20230310094539.764357-1-alexghiti@rivosinc.com>
- <20230310094539.764357-3-alexghiti@rivosinc.com>
+	s=k20201202; t=1678624873;
+	bh=BGavBv7KDuvgH4Q16a/CSuHp7Sto9Kb1YGzbv8hwxaU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SZTrIQkN72fss7NXE1QoK48wPS2HHDG+KsMjPUXc9H+KD6tvgde697q9T21+ByeiY
+	 SMyHPirRKpo8c7p/kydu6MhdqmPzE2FlbkMRwml4QXDcsYTs+5tDTa7DY5O1lFeUdr
+	 jM8QRHM7O09w88U7tnOsLfgwfCBSRCJTyGbYM+fjFSHf89FqgjCS814/npIV8bz/4g
+	 EZ/rvSoNI0cjzF1k1906/VxRCUkxmeLFIdG+eKGzlxYB7gveyE9cv73yZMz0nNhHWk
+	 zdhGOl5mMAQxJrKVwesxNyhzhBS42hP1X5mdEv6peDFuUiM7Q+dWKf/mJ0wYcJty3+
+	 N/gu4YiFOy/Bw==
+Received: by mail-ed1-f50.google.com with SMTP id ek18so7191784edb.6
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Mar 2023 05:41:12 -0700 (PDT)
+X-Gm-Message-State: AO0yUKUXiqD1ppNwRJiWZezaDEy5WRsf7kKQK92mFbiywlncE8FFf4K/
+	GFqe2qltPffsTZA4l8L0SGSV3sKZ9AH2j0YBGTc=
+X-Google-Smtp-Source: AK7set+xyo5/ylaMa6xZYzFt/j7uAwPz1MMxIRKlMS7m0bazR/E948SkWRrmQix7GuVrBs9C99cJl/XsekdoEKKUV0I=
+X-Received: by 2002:a17:906:eb10:b0:922:d565:3f9d with SMTP id
+ mb16-20020a170906eb1000b00922d5653f9dmr1351529ejb.8.1678624871295; Sun, 12
+ Mar 2023 05:41:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230310094539.764357-3-alexghiti@rivosinc.com>
+References: <20230310103144.396214-1-dylan@andestech.com>
+In-Reply-To: <20230310103144.396214-1-dylan@andestech.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 12 Mar 2023 20:40:59 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTwEJNmee7TcbdbcmLQKTTWpokrUST4xanyreUJHxETqg@mail.gmail.com>
+Message-ID: <CAJF2gTTwEJNmee7TcbdbcmLQKTTWpokrUST4xanyreUJHxETqg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: mm: Fix incorrect ASID argument when flushing TLB
+To: Dylan Jhong <dylan@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sergey.matyukevich@syntacore.com, aou@eecs.berkeley.edu, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, x5710999x@gmail.com, tim609@andestech.com, 
+	peterlin@andestech.com, ycliang@andestech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_013550_041188_EE9B4E1E 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20230312_054116_152514_8A55A180 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,107 +77,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
-
-On Fri, Mar 10, 2023 at 10:45:37AM +0100, Alexandre Ghiti wrote:
-> This function allows to split a region in memblock.memory and will be
-> useful when setting up the linear mapping with STRICT_KERNEL_RWX: it
-> allows to isolate the kernel text/rodata and then avoid to map those
-> regions with a PUD/P4D/PGD.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  include/linux/memblock.h |  1 +
->  mm/memblock.c            | 22 +++++++++++++++++++++-
->  2 files changed, 22 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index 50ad19662a32..2f7ef97c0da7 100644
-> --- a/include/linux/memblock.h
-> +++ b/include/linux/memblock.h
-> @@ -125,6 +125,7 @@ int memblock_clear_hotplug(phys_addr_t base, phys_addr_t size);
->  int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
->  int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
->  int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
-> +int memblock_isolate_memory(phys_addr_t base, phys_addr_t size);
->  
->  void memblock_free_all(void);
->  void memblock_free(void *ptr, size_t size);
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 25fd0626a9e7..d8cf1c9eccf0 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -753,7 +753,8 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->  	int idx;
->  	struct memblock_region *rgn;
->  
-> -	*start_rgn = *end_rgn = 0;
-> +	if (start_rgn && end_rgn)
-> +		*start_rgn = *end_rgn = 0;
-
-Generally, it's possible that either start_rgn or end_rgn will be a valid
-pointer and this should be handled here and below.
-
-My preference, though would be to leave memblock_isolate_range() as is and
-have unused start_rgn and end_rgn in memblock_isolate_memory().
-
->  
->  	if (!size)
->  		return 0;
-> @@ -795,6 +796,9 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->  					       memblock_get_region_node(rgn),
->  					       rgn->flags);
->  		} else {
-> +			if (!end_rgn || !start_rgn)
-> +				continue;
-> +
->  			/* @rgn is fully contained, record it */
->  			if (!*end_rgn)
->  				*start_rgn = idx;
-> @@ -805,6 +809,22 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
->  	return 0;
->  }
->  
-> +/**
-> + * memblock_isolate_memory - isolate given range from memblock.memory
-
-I think it'd better to use "... range in memblock.memory"
-
-> + * @base: base of range to isolate
-> + * @size: size of range to isolate
-> + *
-> + * Call memblock_isolate_range on memblock.memory to isolate the given range.
-
-Please elaborate that isolate means that the range does not share regions
-with other ranges.
-
-> + *
-> + * Return:
-> + * 0 on success, -errno on failure.
-> + */
-> +
-> +int __init_memblock memblock_isolate_memory(phys_addr_t base, phys_addr_t size)
-> +{
-> +	return memblock_isolate_range(&memblock.memory, base, size, NULL, NULL);
-> +}
-> +
->  static int __init_memblock memblock_remove_range(struct memblock_type *type,
->  					  phys_addr_t base, phys_addr_t size)
->  {
-> -- 
-> 2.37.2
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMTAsIDIwMjMgYXQgNjozMuKAr1BNIER5bGFuIEpob25nIDxkeWxhbkBhbmRl
+c3RlY2guY29tPiB3cm90ZToKPgo+IEN1cnJlbnRseSwgd2UgcGFzcyB0aGUgQ09OVEVYVElEIGlu
+c3RlYWQgb2YgdGhlIEFTSUQgdG8gdGhlIFRMQiBmbHVzaAo+IGZ1bmN0aW9uLiBXZSBzaG91bGQg
+b25seSB0YWtlIHRoZSBBU0lEIGZpZWxkIHRvIHByZXZlbnQgZnJvbSB0b3VjaGluZwo+IHRoZSBy
+ZXNlcnZlZCBiaXQgZmllbGQuCj4KPiBGaXhlczogM2YxZTc4Mjk5OGNkICgicmlzY3Y6IGFkZCBB
+U0lELWJhc2VkIHRsYmZsdXNoaW5nIG1ldGhvZHMiKQo+IFNpZ25lZC1vZmYtYnk6IER5bGFuIEpo
+b25nIDxkeWxhbkBhbmRlc3RlY2guY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3RsYmZsdXNoLmggfCAyICsrCj4gIGFyY2gvcmlzY3YvbW0vY29udGV4dC5jICAgICAgICAgICB8
+IDMgKystCj4gIGFyY2gvcmlzY3YvbW0vdGxiZmx1c2guYyAgICAgICAgICB8IDIgKy0KPiAgMyBm
+aWxlcyBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oIGIvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS90bGJmbHVzaC5oCj4gaW5kZXggOTA3YjllZmQzOWE4Li41OTdkNmQ4YWVjMjggMTAw
+NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gKysrIGIvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gQEAgLTEyLDYgKzEyLDggQEAKPiAgI2lu
+Y2x1ZGUgPGFzbS9lcnJhdGFfbGlzdC5oPgo+Cj4gICNpZmRlZiBDT05GSUdfTU1VCj4gK2V4dGVy
+biB1bnNpZ25lZCBsb25nIGFzaWRfbWFzazsKPiArCj4gIHN0YXRpYyBpbmxpbmUgdm9pZCBsb2Nh
+bF9mbHVzaF90bGJfYWxsKHZvaWQpCj4gIHsKPiAgICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9f
+ICgic2ZlbmNlLnZtYSIgOiA6IDogIm1lbW9yeSIpOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L21tL2NvbnRleHQuYyBiL2FyY2gvcmlzY3YvbW0vY29udGV4dC5jCj4gaW5kZXggODBjZTljYWJh
+OGQyLi5hNmI3NmIzM2UzNzcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9jb250ZXh0LmMK
+PiArKysgYi9hcmNoL3Jpc2N2L21tL2NvbnRleHQuYwo+IEBAIC0yMiw3ICsyMiw4IEBAIERFRklO
+RV9TVEFUSUNfS0VZX0ZBTFNFKHVzZV9hc2lkX2FsbG9jYXRvcik7Cj4KPiAgc3RhdGljIHVuc2ln
+bmVkIGxvbmcgYXNpZF9iaXRzOwo+ICBzdGF0aWMgdW5zaWduZWQgbG9uZyBudW1fYXNpZHM7Cj4g
+LXN0YXRpYyB1bnNpZ25lZCBsb25nIGFzaWRfbWFzazsKPiArdW5zaWduZWQgbG9uZyBhc2lkX21h
+c2s7Cj4gK0VYUE9SVF9TWU1CT0woYXNpZF9tYXNrKTsKV2h5IEVYUE9SVF9TWU1CT0w/IChObyBt
+b2R1bGUgd291bGQgdXNlIGl0IGJ5IHlvdXIgcGF0Y2guKQoKPgo+ICBzdGF0aWMgYXRvbWljX2xv
+bmdfdCBjdXJyZW50X3ZlcnNpb247Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS90bGJm
+bHVzaC5jIGIvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCj4gaW5kZXggY2U3ZGZjODFiYjNmLi5i
+YTRjMjcxODdjOTUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCj4gKysr
+IGIvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCj4gQEAgLTI3LDcgKzI3LDcgQEAgc3RhdGljIHZv
+aWQgX19zYmlfdGxiX2ZsdXNoX3JhbmdlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCB1bnNpZ25lZCBs
+b25nIHN0YXJ0LAo+ICAgICAgICAgLyogY2hlY2sgaWYgdGhlIHRsYmZsdXNoIG5lZWRzIHRvIGJl
+IHNlbnQgdG8gb3RoZXIgQ1BVcyAqLwo+ICAgICAgICAgYnJvYWRjYXN0ID0gY3B1bWFza19hbnlf
+YnV0KGNtYXNrLCBjcHVpZCkgPCBucl9jcHVfaWRzOwo+ICAgICAgICAgaWYgKHN0YXRpY19icmFu
+Y2hfdW5saWtlbHkoJnVzZV9hc2lkX2FsbG9jYXRvcikpIHsKPiAtICAgICAgICAgICAgICAgdW5z
+aWduZWQgbG9uZyBhc2lkID0gYXRvbWljX2xvbmdfcmVhZCgmbW0tPmNvbnRleHQuaWQpOwo+ICsg
+ICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGFzaWQgPSBhdG9taWNfbG9uZ19yZWFkKCZtbS0+
+Y29udGV4dC5pZCkgJiBhc2lkX21hc2s7Cj4KPiAgICAgICAgICAgICAgICAgLyoKPiAgICAgICAg
+ICAgICAgICAgICogVExCIHdpbGwgYmUgaW1tZWRpYXRlbHkgZmx1c2hlZCBvbiBoYXJ0cyBjb25j
+dXJyZW50bHkKPiAtLQo+IDIuMzQuMQo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
