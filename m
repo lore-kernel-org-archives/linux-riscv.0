@@ -4,61 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B9DC6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 18:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00658C6FD19
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gywgqarn4iHLYbxjvekDONbwOyW3MfsN5pQtuBi54ec=; b=38O2at4sGPu/r4SMz9y40FEB6k
-	UZzkZ58JFSfAryvup9Z4ssc0ymm0TaJgPYh+0w1GPQvEdXB9ckUsTULt704dJMJel1VgDGUjRQgqx
-	tFUXIkyt7wD8ZSomxGF/8IF2jivbZ9rBf24Q+JWGImuWuKzxn4I1aEsbgD+5eiF/sZuUKLc6NqFiO
-	Znhbj3/XTDopUxFIAsBtk/ghSgEyXsPny3TP0MyDoCV+sbxSJUpMEFewbNUu2Tc1OUEZzPgQaZshZ
-	XjtW6QlqcvC7+l2gadw4g5pOWrX/6EkZHW4I8M2csSCXlDNbEFK240Pw9FiFf6gPbx4/Ctktn/qqv
-	aRv3jrMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wUDXouTgOn1m4B2nXqO4eoE7PtEcQDiU8FSlggzaB8U=; b=SqTfiT5M1gJgTy
+	FaQ+dBroiW1kVppWWREa/K9zwdV+nXuO0KNkJSPxf61vJyQdZn3GxFsSbQdCRni9nC6f1XmUVjAwu
+	8cZT6NjNo8JnE0yqkiNs2HTV/jSvfwLMx3OtxVtbyKY/p4f68epLOiJVGrTw5lhBx1W4FwcBQooZ5
+	6VevolCxCwGXmsTIAuAZ1V53QtwMMXmCq2aCpplno+zYCirVHJJfKHZ2Vu0ix9jXSeUbIDTSQ0Bep
+	9k+b+S1C2z5QT2XH3cqkfhGA/6NT6XY3At6E7bqWV4TqtDKgbENSEzULwqYevGKvAmzImcAfBKNvy
+	2rnafaNMzRzCbxL4RWsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbmms-007HIK-NE; Mon, 13 Mar 2023 18:20:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pbnbl-007TDg-2P; Mon, 13 Mar 2023 19:13:21 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbmmp-007HFt-MM
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 18:20:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 14DDEB811D7;
-	Mon, 13 Mar 2023 18:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B98C433EF;
-	Mon, 13 Mar 2023 18:20:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678731638;
-	bh=hWZMAojXtdkUk6KFcyUE0Rz28e+UOMEvZEJ96F+azlY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=knALUTadtrScx9Y9mKwpTpov9X7zeATC4Joo8OUk0+vUJfvIBwRf6fGxEDeFWEDsv
-	 KGadp18xHvxd7l6SQ8+bPK9WPuJb8fL5PpnkCPhpmZjLiQQAPWZUKZanqAOwGLh2WV
-	 cmMiDuSMrtGob+DSXw96C6WOh2eBAJecnFemtOHkUJ7JaRD8dwtuOVi/RxcQkQtWfb
-	 MOjXHJ/NuLcycZc38YO+xqjqJJ/awT86FlmD52x3ig9WdIw7P8DYXADcS5C5Pjzvmy
-	 sBGeLqNSWoPUkAwrBU1WzeSngkKyNKI/yIY5s5Gpv+Tm/y6VSLRJFTVMqIRQzaRBXh
-	 HgIZ7Q05tozJw==
-Date: Mon, 13 Mar 2023 18:20:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Song Shuai <suagrfillet@gmail.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, conor.dooley@microchip.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	pierre.gondois@arm.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "riscv: Set more data to cacheinfo"
-Message-ID: <b9138aac-9f53-4e75-9377-660c5a6c9e25@spud>
-References: <20230308064734.512457-1-suagrfillet@gmail.com>
- <20230308113510.fb6y2xhylavkrgtl@bogus>
- <CAAYs2=jFe_ejN9O26AMCZqDtnVkt1bpyMUw2nx1Q9t=SBWj79A@mail.gmail.com>
+	id 1pbnbg-007TAT-UX
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 19:13:18 +0000
+Received: from ip4d1634a9.dynamic.kabel-deutschland.de ([77.22.52.169] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pbnbV-00028k-Qn; Mon, 13 Mar 2023 20:13:05 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@rivosinc.com
+Cc: greentime.hu@sifive.com,
+	conor@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	christoph.muellner@vrull.eu,
+	heiko@sntech.de
+Subject: [PATCH RFC v3 08/16] RISC-V: add vector crypto extension detection
+Date: Mon, 13 Mar 2023 20:12:54 +0100
+Message-Id: <20230313191302.580787-9-heiko.stuebner@vrull.eu>
+X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
+References: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
-In-Reply-To: <CAAYs2=jFe_ejN9O26AMCZqDtnVkt1bpyMUw2nx1Q9t=SBWj79A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_112044_056706_C5F3F997 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20230313_121317_009479_D0DAF5FC 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,90 +59,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5428817818677798867=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
---===============5428817818677798867==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZOtQIau5vhqWU/6/"
-Content-Disposition: inline
+Add detection for some extensions of the vector-crypto specification, namely
+- Zvkb: Vector Bit-manipulation used in Cryptography
+- Zvkg: Vector GCM/GMAC
+- Zvknha and Zvknhb: NIST Algorithm Suite
+- Zvkns: AES-128, AES-256 Single Round Suite
+- Zvksed: ShangMi Algorithm Suite
+- Zvksh: ShangMi Algorithm Suite
 
+As their use is very specific and will likely be limited to special places
+we expect current code to just pre-encode those instructions, so right now
+we don't introduce toolchain requirements.
 
---ZOtQIau5vhqWU/6/
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/hwcap.h | 7 +++++++
+ arch/riscv/kernel/cpu.c        | 7 +++++++
+ arch/riscv/kernel/cpufeature.c | 7 +++++++
+ 3 files changed, 21 insertions(+)
 
-On Thu, Mar 09, 2023 at 07:54:45AM +0000, Song Shuai wrote:
-> Hi, Conor & Sudeep :
->=20
-> Sudeep Holla <sudeep.holla@arm.com> =E4=BA=8E2023=E5=B9=B43=E6=9C=888=E6=
-=97=A5=E5=91=A8=E4=B8=89 11:35=E5=86=99=E9=81=93=EF=BC=9A
-> >
-> > On Wed, Mar 08, 2023 at 02:47:34PM +0800, Song Shuai wrote:
-> > > This reverts commit baf7cbd94b5688f167443a2cc3dcea3300132099.
-> > >
-> > > There are some duplicate cache attributes populations executed
-> > > in both ci_leaf_init() and later cache_setup_properties().
-> > >
-> > > Revert the commit baf7cbd94b56 ("riscv: Set more data to cacheinfo")
-> > > to setup only the level and type attributes at this early place.
-> > >
-> >
-> > I had noticed the same and had something similar when we did some rework
-> > around for v6.1 merge window. But there were lot of other issues to be
-> > addressed at the moment and hence deferred this.
-> >
-> > So for the change in general, but as Conor responded, it would be good
-> > to do some checking to ensure nothing breaks and all the requirements
-> > this patch(baf7cbd94b56) addressed are already handled in the core.
->=20
-> As you suggested, commit (da29dbcda49d "riscv: Add cache information
-> in AUX vector")
-> in the "Get cache information from userland" series should be checked.
->=20
-> The commit da29dbcda49d adds the cacheinfo (read from
-> ci_cacheinfo(cpu)) in ELF auxiliary vectors,
-> so process can fetch the cacheinfo through glibc sysconf() after ELF load=
-ing.
-> At the same time, the glibc related support was enabled by its commit
-> (15b38ffc10 "riscv: Get cache information through sysconf")
->=20
-> With this reverting patch applied, the output of `getconf -a` looks good
-> in Qemu sifive_u machine and rootfs image with glibc-2.35.
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index b28548fb10f3..914559e0e136 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -45,6 +45,13 @@
+ #define RISCV_ISA_EXT_ZIHINTPAUSE	32
+ #define RISCV_ISA_EXT_ZBC		33
+ #define RISCV_ISA_EXT_ZBKB		34
++#define RISCV_ISA_EXT_ZVKB		35
++#define RISCV_ISA_EXT_ZVKG		36
++#define RISCV_ISA_EXT_ZVKNED		37
++#define RISCV_ISA_EXT_ZVKNHA		38
++#define RISCV_ISA_EXT_ZVKNHB		39
++#define RISCV_ISA_EXT_ZVKSED		40
++#define RISCV_ISA_EXT_ZVKSH		41
+ 
+ #define RISCV_ISA_EXT_MAX		64
+ #define RISCV_ISA_EXT_NAME_LEN_MAX	32
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 6f65aac68018..c01e6673a947 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -190,6 +190,13 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+ 	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
+ 	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
++	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
++	__RISCV_ISA_EXT_DATA(zvkg, RISCV_ISA_EXT_ZVKG),
++	__RISCV_ISA_EXT_DATA(zvkned, RISCV_ISA_EXT_ZVKNED),
++	__RISCV_ISA_EXT_DATA(zvknha, RISCV_ISA_EXT_ZVKNHA),
++	__RISCV_ISA_EXT_DATA(zvknhb, RISCV_ISA_EXT_ZVKNHB),
++	__RISCV_ISA_EXT_DATA(zvksed, RISCV_ISA_EXT_ZVKSED),
++	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index eb7be8e7f24e..ad866321ae37 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -232,6 +232,13 @@ void __init riscv_fill_hwcap(void)
+ 				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
++				SET_ISA_EXT_MAP("zvkb", RISCV_ISA_EXT_ZVKB);
++				SET_ISA_EXT_MAP("zvkg", RISCV_ISA_EXT_ZVKG);
++				SET_ISA_EXT_MAP("zvkned", RISCV_ISA_EXT_ZVKNED);
++				SET_ISA_EXT_MAP("zvknha", RISCV_ISA_EXT_ZVKNHA);
++				SET_ISA_EXT_MAP("zvknhb", RISCV_ISA_EXT_ZVKNHB);
++				SET_ISA_EXT_MAP("zvksed", RISCV_ISA_EXT_ZVKSED);
++				SET_ISA_EXT_MAP("zvksh", RISCV_ISA_EXT_ZVKSH);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
+-- 
+2.39.0
 
-If, as I think you're implying, it is unchanged before/after:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
---ZOtQIau5vhqWU/6/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZA9pVQAKCRB4tDGHoIJi
-0om5AP4iccnul9cT0OrpPO01ZCjDIOxZ78jM8HFJl3V76uGWoAD8DL+ICgZ6Bb0w
-SzWLYX3+MYIrd1PDzPDzuSA7odXTaAg=
-=kkO8
------END PGP SIGNATURE-----
-
---ZOtQIau5vhqWU/6/--
-
-
---===============5428817818677798867==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5428817818677798867==--
-
