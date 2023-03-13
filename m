@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B6FC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 07:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A4AC61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 08:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HV4yI4ZGkcEJvMBe5APkwnuqAc4t3d8fXXPB0gHkBAc=; b=LQhb8bxrEqHNzT
-	SdKFHEjPkpn/QSjzqALl1zJJhWbBVTQGi/RSw78Zd60kegnCWrnfdnyXw4+ufABW6NiNKuR7VUBDw
-	CJCtrlz+BZFPXQRPDndgTaLacXOsGxfLLsn+z3b0NWwELiBxkdGIdugMIcsjOkm8j47TcQEPy5z7e
-	MZ2mANNafJLlVI9LRDwfm9yOSucv/6+EhnSpBgkjcMA6RVLRfKc+MfJarH/5WfWOiYzeauorSrMJq
-	WhjiCIDXEB+2emBHir5xxK7vP9A0OEtvabSs11pE6IRQdUGCdPQyNxQc0Yzd6qxhpMW4X2x5rNdTH
-	RyLfPJoCE2GTHzkkiRIw==;
+	List-Owner; bh=NQ4+XaRyvgJZFGFwNJ2B/DGZUlNSvsaYKWIGRxC6WVU=; b=Y+RJrcZNHgX17W
+	laKvTs0lOU8Y+MZFJtLyQEXgz66X5IKmUC6MUF+dt9mksmRK7+8lnWGaguZv7RsiciQuaKXkae7MX
+	XgcI1o31Thygu6sk6I4CnXN84qNo+WnIPZTJBbh39y8G54aCBDfE1ebWcvrNuBYAMNM/ikFAxZzZP
+	7MQ9QMV/Qy6y3bMQpowuiSrbANiBFz/kuVI+Psy7KFoG4jCYtNczfQt6WA52+XyBRVMH/44ZoXseN
+	KBXIDEloW9Z/LaOF+gi2bX24pZvMUe6BxW4OQ/GFHdKuNxXwkpbVRMZqGUKufTHYxDUx2ENHt/znW
+	3DZapl+HqN54lbu73EpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbcxx-004ex7-Fw; Mon, 13 Mar 2023 07:51:33 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1pbdvu-004riZ-Az; Mon, 13 Mar 2023 08:53:30 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbcxp-004etX-T4
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 07:51:31 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id o12so44875107edb.9
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Mar 2023 00:51:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1678693882;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ApcfsHN2wN7CiLQkpY6hRDWMeHf0lIJaK00DDrg5fNU=;
-        b=kQPrGnxYvasHxYFYfGSGho1RYetKH4JyMKJ3ud5unTPePmdSRjZrRVQ2DDQprphbqa
-         +r/m8bdt6bmvlyJDpEICv8tnMoRqoVjoSPb/VHJY+mR5PHDx5Ktfzcfsg4LRlK4ofQpO
-         UlW+5VSH/eaEjDfdof4PmhhiDf5LsxDX3AyoauL/4xCkhXbCaNoBmLO0bsH48989iZdI
-         10/GL6vzIfjDJvEgL9zKJnluIlENU3y5J8koECXzLnt00hCMy2OgIxN7WhgXAgqhfPg7
-         gsivioYUOX8yzoZkH3CxeTHLIp4SkWd0F2piLS9zeaUFVH0oKf4PWk3e0Xz445cQOeNU
-         I4SQ==
+	id 1pbdvq-004rg9-62
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 08:53:28 +0000
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 7E92B40797
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Mar 2023 08:53:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1678697599;
+	bh=rdDSrE0VIq+XmHMRyMrdPIQatR30pRaMUhYB/xPPqz8=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=dRUkVaI76q9CPTpgxlSgLIfN4e3vgNOB02uAdgPMCpwRnqavAYzp25GQl+WpX1rS0
+	 Sw1bRRtLl5SXKuVE27+UYAG8Cw1+tbsNWy49t29TwQvYGVeAcXEoAZtMHaAN0mrNhx
+	 yhGNLbyc5+w2Q83MfACT8R3zb0ymOk9olWtDQv2qde79eRTjn1sqWl5BQahmvjD3L8
+	 OnK+9NlqOBIRqGVYVoYgQjBrrcn2elM4Ol4x8QgOBsXMujTC5k3zgAiLjOKhUp7TQ/
+	 To5mgY6XVkqUg/Uom4YGKXYHACx8L0z6NaIonii6dQEopthGcXLkU+lct6q0nR5W6p
+	 0EgQ/1CYptxsw==
+Received: by mail-qv1-f71.google.com with SMTP id d27-20020a0caa1b000000b00572765a687cso6657048qvb.19
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Mar 2023 01:53:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678693882;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ApcfsHN2wN7CiLQkpY6hRDWMeHf0lIJaK00DDrg5fNU=;
-        b=kHkSjpOPc6yOcIc2MYX0hX/0r5zxlGxjeawSO2xXDPdElS89LMI991fG5DcMa9XESw
-         OuzxCRWV2JyS/JsYX0x1+F+uNRvxzVHWsEZcDpYK4xgvB10dEvwoyCKu424GJzWSPhmQ
-         iSC6qUBDiXES+SlgRpOCP4mKJ5bvDfH47zxtp4eVtM62wXzWU5Q55DtK3r5a2N5vHyPx
-         a4Lqbdag4WXZxdeD+2n9wFmh2GAJ696bWsOF+xeVPDpYriRIzL/UqMiuUrpgAz5pkg80
-         3a6ZFcwfSZUi30rYYFIujnZl6/czpRA6j++8lycq0M6VxIVNRikwDuF9yiPpR2/7w3o7
-         Bofg==
-X-Gm-Message-State: AO0yUKXjKCBCOEOJibvxZeymAB5fKlaTYj1n2/PCr2PWHWzpHJJirDOt
-	kwflpePNlfpVl6hnwNo9FWzYz6QJTnYxNcXQKCs=
-X-Google-Smtp-Source: AK7set/Wdx3mz3K2b03zcdbLEh+zTAXkriPquRH3CNjv2VE6Bjjx7PkESjwthAp40ot+7EmKIeFxmg==
-X-Received: by 2002:aa7:c54b:0:b0:4ac:b760:f07a with SMTP id s11-20020aa7c54b000000b004acb760f07amr33049256edr.19.1678693881955;
-        Mon, 13 Mar 2023 00:51:21 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:f052:f15:3f90:fcb3? ([2a02:810d:15c0:828:f052:f15:3f90:fcb3])
-        by smtp.gmail.com with ESMTPSA id l22-20020a50d6d6000000b004fa19f5ba99sm2652296edj.79.2023.03.13.00.51.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Mar 2023 00:51:21 -0700 (PDT)
-Message-ID: <834fb899-7a03-ba0a-8302-f64ea58c60dd@linaro.org>
-Date: Mon, 13 Mar 2023 08:51:20 +0100
+        d=1e100.net; s=20210112; t=1678697598;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rdDSrE0VIq+XmHMRyMrdPIQatR30pRaMUhYB/xPPqz8=;
+        b=RB/wXTzL9bpA3/TLpB2CAf6M84sxJJ8GGX7uXZUYifI2ZyqjzG+uvLkXoaArHwZeed
+         eBrsSOYr4p6SxKeu1GQFRs5dtJhJaMsJ4F/ubRaE0WxV3gLh47HLUUAlumst/ceTY26+
+         Oa1qQ85Pqgig/JaFDGckeLPjrm0bI7pTGFUUM9odGPN8tunWGwQXgTkfAZM35+Pfpxyw
+         Hec5T14FvFqBuSD2UtcWWwWsuysoFA2pLAWo4HHJ8zQix1hJBJn0YIQLHQS+nXi078PX
+         6r00KJmOH+093SD9z11f/VU6buPnWpH9MRksYwwZqymJlxWBegkfB2u7iI8db7gas/EQ
+         EhWA==
+X-Gm-Message-State: AO0yUKVGuL5A97Kj3w1vW+IcFmIsFpkpqKqgHURvpuxeiu5K35xjvHTd
+	/C6y7Hn0EQFqnfJCOE8eVBVgzIIk9csxmxcHvZdQT7vDXbX061VI/f/YL2n+TCSKxey5CqqLnfc
+	woPA58oAs+HvRKum1Sz7HvqI91Dloer1fUTohc/29VnZcKcVN1w++hzedawMn7g==
+X-Received: by 2002:ac8:56f7:0:b0:3bf:b9a4:6d41 with SMTP id 23-20020ac856f7000000b003bfb9a46d41mr9407550qtu.5.1678697598334;
+        Mon, 13 Mar 2023 01:53:18 -0700 (PDT)
+X-Google-Smtp-Source: AK7set8AA0sa2nCnrV8w1Osh5NxDD45ICECbteHeANn3sQWk04rh+36JVMJfWLEQ4krvOlUN6FZfm4pVyPz1TdTFshg=
+X-Received: by 2002:ac8:56f7:0:b0:3bf:b9a4:6d41 with SMTP id
+ 23-20020ac856f7000000b003bfb9a46d41mr9407529qtu.5.1678697597999; Mon, 13 Mar
+ 2023 01:53:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
+References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+ <20230311090733.56918-12-hal.feng@starfivetech.com> <34b0473a-91bd-453b-91dd-01defde92d68@spud>
+ <92306b73-d7d2-0d60-de15-87bcd71714ed@starfivetech.com>
+In-Reply-To: <92306b73-d7d2-0d60-de15-87bcd71714ed@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Mon, 13 Mar 2023 09:53:01 +0100
+Message-ID: <CAJM55Z-zps4gEohCGyia0nESWYWqQmoChnJZXkw2Zmi5TPV2Wg@mail.gmail.com>
 Subject: Re: [PATCH v5 11/21] dt-bindings: clock: Add StarFive JH7110 system
  clock and reset generator
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, Rob Herring <robh@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Ben Dooks <ben.dooks@sifive.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Stephen Boyd <sboyd@kernel.org>, linux-riscv@lists.infradead.org,
- Conor Dooley <conor@kernel.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, linux-clk@vger.kernel.org,
- Michael Turquette <mturquette@baylibre.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-References: <20230311090733.56918-1-hal.feng@starfivetech.com>
- <20230311090733.56918-12-hal.feng@starfivetech.com>
- <167854282659.42837.5915012938593380363.robh@kernel.org>
- <80549148-1bad-9190-c4ea-a9555d15ca38@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <80549148-1bad-9190-c4ea-a9555d15ca38@starfivetech.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Conor Dooley <conor@kernel.org>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_005126_418789_010B34BB 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20230313_015326_585428_419AC1F1 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +103,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/03/2023 03:47, Hal Feng wrote:
-> On Sat, 11 Mar 2023 08:17:00 -0600, Rob Herring wrote:
->> On Sat, 11 Mar 2023 17:07:23 +0800, Hal Feng wrote:
->>> From: Emil Renner Berthing <kernel@esmil.dk>
->>>
->>> Add bindings for the system clock and reset generator (SYSCRG) on the
->>> JH7110 RISC-V SoC by StarFive Ltd.
->>>
->>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->>> ---
->>>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
->>>  MAINTAINERS                                   |   8 +-
->>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
->>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
->>>  4 files changed, 454 insertions(+), 3 deletions(-)
->>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->>>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
->>>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
->>>
->>
->>
->> Please add Acked-by/Reviewed-by tags when posting new versions. However,
->> there's no need to repost patches *only* to add the tags. The upstream
->> maintainer will do that for acks received on the version they apply.
->>
->> If a tag was not added on purpose, please state why and what changed.
->>
->> Missing tags:
->>
->> Reviewed-by: Rob Herring <robh@kernel.org>
-> 
-> This patch has been changed a lot and I am not sure whether it's still
-> the one you want. So I removed the Reviewed-by tag.
+On Mon, 13 Mar 2023 at 04:22, Hal Feng <hal.feng@starfivetech.com> wrote:
+> On Sat, 11 Mar 2023 13:11:38 +0000, Conor Dooley wrote:
+> > On Sat, Mar 11, 2023 at 05:07:23PM +0800, Hal Feng wrote:
+> >> From: Emil Renner Berthing <kernel@esmil.dk>
+> >>
+> >> Add bindings for the system clock and reset generator (SYSCRG) on the
+> >> JH7110 RISC-V SoC by StarFive Ltd.
+> >>
+> >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> >> ---
+> >>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+> >>  MAINTAINERS                                   |   8 +-
+> >>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+> >>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+> >>  4 files changed, 454 insertions(+), 3 deletions(-)
+> >>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+> >>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+> >>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+> >> new file mode 100644
+> >> index 000000000000..84373ae31644
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+> >
+> >> +  clock-names:
+> >> +    oneOf:
+> >> +      - items:
+> >> +          - const: osc
+> >> +          - enum:
+> >> +              - gmac1_rmii_refin
+> >> +              - gmac1_rgmii_rxin
+> >> +          - const: i2stx_bclk_ext
+> >> +          - const: i2stx_lrck_ext
+> >> +          - const: i2srx_bclk_ext
+> >> +          - const: i2srx_lrck_ext
+> >> +          - const: tdm_ext
+> >> +          - const: mclk_ext
+> >> +
+> >> +      - items:
+> >> +          - const: osc
+> >> +          - const: gmac1_rmii_refin
+> >> +          - const: gmac1_rgmii_rxin
+> >> +          - const: i2stx_bclk_ext
+> >> +          - const: i2stx_lrck_ext
+> >> +          - const: i2srx_bclk_ext
+> >> +          - const: i2srx_lrck_ext
+> >> +          - const: tdm_ext
+> >> +          - const: mclk_ext
+> >
+> > Assuming nothing else here is optional,
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>
+> Yeah, nothing else here is optional. Thanks for your review.
 
-Then mention it in changelog, just like Rob asked:
-"If a tag was not added on purpose, please state why and what changed."
-I don't see any explanation in the changelog about it.
+Wait, what kind of optional are we talking about here? Surely all the
+i2s and tdm external clocks are optional in the sense that you don't
+need them on a board that never does any audio processing.
 
-Best regards,
-Krzysztof
+/Emil
 
+>
+> Best regards,
+> Hal
 
 _______________________________________________
 linux-riscv mailing list
