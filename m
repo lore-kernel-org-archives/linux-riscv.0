@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94857C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 03:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E56C6FD19
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 03:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HDsYnquX1CvBlokWGLi48sCOqAVbM5qbXhL4NXm/6QI=; b=hzcVk9mULF+ZwD
-	qsCRRmxy0O46UcYybWf1kWmkTKmHIW1c20KedO/m8FNC9zfSMc5XQ/euGPoi/h+C/vLALRqQtsn0o
-	IpB82UA9OgAZZDv9xySVJkh8Uc6FlkHj55l5mL9/9xdylwg4dmV1QlAQeGaZKaUF33gF/IcZwBGSs
-	MWB1KYwVR7FPjpZ/WuycwCjpax4ilUOwg6zfnMJlBiV54tFUdAlWnJGw6HC6t8HmvYLsqOXuUMAQg
-	XPzjugPRlGKsLOVOa6DnbYFgAMh8upbCqWD+ENmnnIx78sVBoxqFQUF/yLqUVdXMoy6ZoJ+GuKOwz
-	a1iJTM3MXaLlFkd5ucqQ==;
+	List-Owner; bh=fFkj1TFdjp8nZ70L3oBO3q8Xp5YxRLFyTjhqsqWLbcE=; b=28Kvpa9MGlFG8/
+	wu7LthkUEbhVYKeT/ubNoO3hEcI6GcoPswtOfChGZFVbFRq2vigttUVRazlMZ5PcfDmfQRmhPuu0w
+	TyQQ/ytX6Qa6Lj76K1VlNix3bccNxRc6NXqa9+bQIfq84hfX9rue6dNsMIGoBOUpdWqL1wrdyfQuJ
+	377xwdPPK6VgVNxICkxvETMuI+LhfoR3AXpG8oL8FIC8G8r0AH71HgjkmdjXs8IIKwg+6y7tmyIR9
+	BwL66qHyKLqI9PDstF+TyvOvlywf7LNbuY8slptIkm0BAHDS6mz/ggEcORk24ojtiYt+RYHXvptU1
+	H1XCBWK9UcBEGPAqNw8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbZ9c-004CUR-Rf; Mon, 13 Mar 2023 03:47:21 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pbZ9e-004CVG-9i; Mon, 13 Mar 2023 03:47:22 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbZ9U-004CLS-4B
+	id 1pbZ9U-004CKn-I1
 	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 03:47:15 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B970524E3B7;
-	Mon, 13 Mar 2023 11:46:52 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id E663124E1E1;
+	Mon, 13 Mar 2023 11:46:50 +0800 (CST)
 Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Mar
- 2023 11:46:52 +0800
+ 2023 11:46:50 +0800
 Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
  EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Mon, 13 Mar 2023 11:46:51 +0800
+ 15.0.1497.42; Mon, 13 Mar 2023 11:46:49 +0800
 From: Samin Guo <samin.guo@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
@@ -47,9 +47,9 @@ CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
 	Yanhong Wang <yanhong.wang@starfivetech.com>, Samin Guo
 	<samin.guo@starfivetech.com>
-Subject: [PATCH v6 6/8] net: stmmac: starfive_dmac: Add phy interface settings
-Date: Mon, 13 Mar 2023 11:46:43 +0800
-Message-ID: <20230313034645.5469-7-samin.guo@starfivetech.com>
+Subject: [PATCH v6 4/8] dt-bindings: net: Add support StarFive dwmac
+Date: Mon, 13 Mar 2023 11:46:41 +0800
+Message-ID: <20230313034645.5469-5-samin.guo@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230313034645.5469-1-samin.guo@starfivetech.com>
 References: <20230313034645.5469-1-samin.guo@starfivetech.com>
@@ -59,8 +59,8 @@ X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_204712_531339_EDA8C809 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20230312_204712_931476_D8A2CA86 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +77,184 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dwmac supports multiple modess. When working under rmii and rgmii,
-you need to set different phy interfaces.
+From: Yanhong Wang <yanhong.wang@starfivetech.com>
 
-According to the dwmac document, when working in rmii, it needs to be
-set to 0x4, and rgmii needs to be set to 0x1.
+Add documentation to describe StarFive dwmac driver(GMAC).
 
-The phy interface needs to be set in syscon, the format is as follows:
-starfive,syscon: <&syscon, offset, shift>
-
+Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
 Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
-Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 ---
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 130 ++++++++++++++++++
+ MAINTAINERS                                   |   6 +
+ 3 files changed, 137 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index ef5a769b1c75..84690c8f0250 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -13,6 +13,10 @@
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index e4519cf722ab..245f7d713261 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -91,6 +91,7 @@ properties:
+         - snps,dwmac-5.20
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
++        - starfive,jh7110-dwmac
  
- #include "stmmac_platform.h"
+   reg:
+     minItems: 1
+diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+new file mode 100644
+index 000000000000..b59e6bd8201f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+@@ -0,0 +1,130 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2022 StarFive Technology Co., Ltd.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/starfive,jh7110-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 DWMAC glue layer
++
++maintainers:
++  - Emil Renner Berthing <kernel@esmil.dk>
++  - Samin Guo <samin.guo@starfivetech.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - starfive,jh7110-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - starfive,jh7110-dwmac
++      - const: snps,dwmac-5.20
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: GMAC AHB clock
++      - description: PTP clock
++      - description: TX clock
++      - description: GTX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: pclk
++      - const: ptp_ref
++      - const: tx
++      - const: gtx
++
++  resets:
++    items:
++      - description: MAC Reset signal.
++      - description: AHB Reset signal.
++
++  reset-names:
++    items:
++      - const: stmmaceth
++      - const: ahb
++
++  starfive,tx-use-rgmii-clk:
++    description:
++      Tx clock is provided by external rgmii clock.
++    type: boolean
++
++  starfive,syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to syscon that configures phy mode
++          - description: Offset of phy mode selection
++          - description: Shift of phy mode selection
++    description:
++      A phandle to syscon with two arguments that configure phy mode.
++      The argument one is the offset of phy mode selection, the
++      argument two is the shift of phy mode selection.
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++
++examples:
++  - |
++    ethernet@16030000 {
++        compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
++        reg = <0x16030000 0x10000>;
++        clocks = <&clk 3>, <&clk 2>, <&clk 109>,
++                 <&clk 6>, <&clk 111>;
++        clock-names = "stmmaceth", "pclk", "ptp_ref",
++                      "tx", "gtx";
++        resets = <&rst 1>, <&rst 2>;
++        reset-names = "stmmaceth", "ahb";
++        interrupts = <7>, <6>, <5>;
++        interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
++        phy-mode = "rgmii-id";
++        snps,multicast-filter-bins = <64>;
++        snps,perfect-filter-entries = <8>;
++        rx-fifo-depth = <2048>;
++        tx-fifo-depth = <2048>;
++        snps,fixed-burst;
++        snps,no-pbl-x8;
++        snps,tso;
++        snps,force_thresh_dma_mode;
++        snps,axi-config = <&stmmac_axi_setup>;
++        snps,en-tx-lpi-clockgating;
++        snps,txpbl = <16>;
++        snps,rxpbl = <16>;
++        starfive,syscon = <&aon_syscon 0xc 0x12>;
++        phy-handle = <&phy0>;
++
++        mdio {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            compatible = "snps,dwmac-mdio";
++
++            phy0: ethernet-phy@0 {
++                reg = <0>;
++            };
++        };
++
++        stmmac_axi_setup: stmmac-axi-config {
++            snps,lpi_en;
++            snps,wr_osr_lmt = <4>;
++            snps,rd_osr_lmt = <4>;
++            snps,blen = <256 128 64 32 0 0 0>;
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 958b7ec118b4..ffcda7f2ac5e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19913,6 +19913,12 @@ M:	Emil Renner Berthing <kernel@esmil.dk>
+ S:	Maintained
+ F:	arch/riscv/boot/dts/starfive/
  
-+#define STARFIVE_DWMAC_PHY_INFT_RGMII	0x1
-+#define STARFIVE_DWMAC_PHY_INFT_RMII	0x4
-+#define STARFIVE_DWMAC_PHY_INFT_FIELD	0x7U
++STARFIVE DWMAC GLUE LAYER
++M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Samin Guo <samin.guo@starfivetech.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
 +
- struct starfive_dwmac {
- 	struct device *dev;
- 	struct clk *clk_tx;
-@@ -44,6 +48,43 @@ static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
- 		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
- }
- 
-+static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
-+{
-+	struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
-+	struct regmap *regmap;
-+	unsigned int args[2];
-+	unsigned int mode;
-+
-+	switch (plat_dat->interface) {
-+	case PHY_INTERFACE_MODE_RMII:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RMII;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
-+		break;
-+
-+	default:
-+		dev_err(dwmac->dev, "unsupported interface %d\n",
-+			plat_dat->interface);
-+		return -EINVAL;
-+	}
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
-+						      "starfive,syscon",
-+						      2, args);
-+	if (IS_ERR(regmap)) {
-+		dev_err(dwmac->dev, "syscon regmap failed.\n");
-+		return -ENXIO;
-+	}
-+
-+	/* args[0]:offset  args[1]: shift */
-+	return regmap_update_bits(regmap, args[0],
-+				  STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
-+				  mode << args[1]);
-+}
-+
- static int starfive_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-@@ -89,6 +130,12 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->dma_cfg->dche = true;
- 
-+	err = starfive_dwmac_set_mode(plat_dat);
-+	if (err) {
-+		dev_err(&pdev->dev, "dwmac set mode failed.\n");
-+		return err;
-+	}
-+
- 	err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- 	if (err) {
- 		stmmac_remove_config_dt(pdev, plat_dat);
+ STARFIVE JH71X0 CLOCK DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+ M:	Hal Feng <hal.feng@starfivetech.com>
 -- 
 2.17.1
 
