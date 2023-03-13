@@ -4,60 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D05DC74A5B
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 13:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55AA8C74A5B
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 14:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7BEowKRiZzj8j/4QkWEJjMd5pJ210L5i8kQ/Dp4JHU=; b=Utn6UNfPa3FxU5zEneA4aLmjVI
-	S908Tk/v3OT+QvMUItDliZleBaQigGUfsTRZGwGdzHSTbkXCf+7Ti0cL3xF53zwcu9g8wJ27HwAMP
-	eJmxLYdXZrVJX30N/mIgkMqjRNgEvCDaJ2P6O4Pjeatlb/NXdqkNtJMSVG6xqYB9z6fMUefcr2X+/
-	vQ1wpryWO6X+AuQaW1upw1NfyRBYUmU89STGnrH4JNFkP5jLfBySd3Udcgi5G4XgC76D6vOqaPNYE
-	w/nOsJlHBztkcq0N6XrlqhccQ67/OjQoIevYa0U1I6Z8klVkS6BcVu69a+nCXpEioESqqjoHO0HCN
-	fQIyK3xg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=roHqyXc/rCRBzhaplFxa0GWaINrrx2SH3zbHHBUO1/8=; b=q7vWbAOYQ885XE
+	HtJIkt9oFEgsMwBSYihB+/vOM6Dn0cpswd5+fYZ64/LNBDZueC496dgqhPiKReUYOWJTiXE2wN8A4
+	7n0OwdpG10cnPXjIGNuuRQemRGMQ3gxMpv1AnEn9RrnPIBCEodUH640CNTlEz0UxVLks1vEIyVd+J
+	eoUZSJdhAF4QHL1om8dnqB7muMNtovrVSYxVhjqFRLoStyKDpfSok9V23z9VRDGHqNw8r6uNIMbG4
+	8r3UQFSKP1zjn4mpv024WZvXMbfiVrY4YKRPuvfJXzVrbmohYYFbqCDPeCR8H77et8S4U9vUB096n
+	TeYao5WSo4hToMNwdM2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdAYu-002Nhe-28;
-	Fri, 17 Mar 2023 13:56:04 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdAYr-002NgI-3B
-	for linux-riscv@lists.infradead.org;
-	Fri, 17 Mar 2023 13:56:03 +0000
+	id 1pdApr-002QA3-10;
+	Fri, 17 Mar 2023 14:13:35 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pblMn-006rbU-JD; Mon, 13 Mar 2023 16:49:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 209A0B82586;
-	Fri, 17 Mar 2023 13:56:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758FEC433EF;
-	Fri, 17 Mar 2023 13:55:57 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D7852B811A0;
+	Mon, 13 Mar 2023 16:49:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD418C433EF;
+	Mon, 13 Mar 2023 16:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679061358;
-	bh=2iWlhO9St4so8fWA7g5c73Gq5h2pJ2xa4Np1O+uqquc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OwCUNotX29X5v7weMx+jEmNut39sYlNpOnDjuSCTdF0bOfy4QoGIDfFE7zFkteBAt
-	 A+fo9aHlEUBfE+LXFkFVNXCgAUleMz5OV+z+Ispef5sRq8FCsMfTKtVyGKlwsVHNYT
-	 9OnYUkgRmgIHhCE33vxe9xqWRZzHXN6R7pKpsgzSutkZifhv3Oea42mRmMo4dRyLkR
-	 h4bBbvHHMkgV6AqaaCmI95vmwN7SElEfgw3EGSLzQf0tyeiBYPaKuqXYD5g63RCjB+
-	 xNGFdvfNUKOdRImHBhv2wjH9FXW/iyFcJR6JYbhG1uv6fxTeRuwCjUl+If/5/GjeGf
-	 krnndYmPD5xlg==
-Date: Fri, 17 Mar 2023 13:55:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	conor.dooley@microchip.com, atishp@rivosinc.com
-Subject: Re: [PATCH] riscv: say disabling zicbom if no or bad
- riscv,cbom-block-size found
-Message-ID: <33912dc1-7d34-4cfd-ba04-5fec487bbb4d@spud>
-References: <20230317134512.254627-1-ben.dooks@codethink.co.uk>
+	s=k20201202; t=1678726182;
+	bh=8KYXMoHAD5Z4NBIseAq6bsT/0yPZHnSTiR9g+F3H6mQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=a2JoV3Ky1b2rAYHvjxOxSJk1TNI3heElPwvSF5YrOvneNeV0VdzwNhQXiUrffvmto
+	 JA7P0WeiStnDt/6J8n1J9O5jnVgObXfH8lS4KXLMLBqO4DJUKBDJIvP6ivTa/Y09Sn
+	 HR1pOKRuwrPDI/baAtt5wUZ6Gocqmmqr2buMgjA/aCshs3yaJSkT/BdMx60/VeJQN4
+	 dkvphu6x3RN4fI6sEcajBAho9BdeW92stv1wsZ7bHVNaqIqINFZydvDFvpdEiWiF0m
+	 eG/X/a/XjC1FXr2cscVZU8Cm2pQpTkDOWTAiQQum9/Cqx4Qc/c+wOmHVG5htVbTJPc
+	 eI6rbG1xa4RhQ==
+From: Mark Brown <broonie@kernel.org>
+To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, 
+ jic23@kernel.org, pratyush@kernel.org, Sanju.Mehta@amd.com, 
+ chin-ting_kuo@aspeedtech.com, clg@kaod.org, kdasu.kdev@gmail.com, 
+ f.fainelli@gmail.com, rjui@broadcom.com, sbranden@broadcom.com, 
+ eajames@linux.ibm.com, olteanv@gmail.com, han.xu@nxp.com, 
+ john.garry@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+ khilman@baylibre.com, matthias.bgg@gmail.com, haibo.chen@nxp.com, 
+ linus.walleij@linaro.org, daniel@zonque.org, haojian.zhuang@gmail.com, 
+ robert.jarzmik@free.fr, agross@kernel.org, heiko@sntech.de, 
+ krzysztof.kozlowski@linaro.org, andi@etezian.org, mcoquelin.stm32@gmail.com, 
+ alexandre.torgue@foss.st.com, wens@csie.org, jernej.skrabec@gmail.com, 
+ samuel@sholland.org, masahisa.kojima@linaro.org, jaswinder.singh@linaro.org, 
+ rostedt@goodmis.org, mingo@redhat.com, l.stelmach@samsung.com, 
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+ pabeni@redhat.com, alex.aring@gmail.com, stefan@datenfreihafen.org, 
+ kvalo@kernel.org, james.schulman@cirrus.com, david.rhodes@cirrus.com, 
+ tanureal@opensource.cirrus.com, rf@opensource.cirrus.com, perex@perex.cz, 
+ tiwai@suse.com, npiggin@gmail.com, christophe.leroy@csgroup.eu, 
+ mpe@ellerman.id.au, oss@buserror.net, windhl@126.com, 
+ yangyingliang@huawei.com, william.zhang@broadcom.com, 
+ kursad.oney@broadcom.com, jonas.gorski@gmail.com, anand.gore@broadcom.com, 
+ rafal@milecki.pl, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+Cc: git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro, 
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+ claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com, 
+ fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com, 
+ linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
+ avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com, 
+ venture@google.com, yuenn@google.com, benjaminfair@google.com, 
+ yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org, 
+ alim.akhtar@samsung.com, ldewangan@nvidia.com, thierry.reding@gmail.com, 
+ jonathanh@nvidia.com, michal.simek@amd.com, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+ linux-tegra@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-wpan@vger.kernel.org, libertas-dev@lists.infradead.org, 
+ linux-wireless@vger.kernel.org, linux-mtd@lists.infradead.org, 
+ lars@metafoo.de, Michael.Hennerich@analog.com, linux-iio@vger.kernel.org, 
+ michael@walle.cc, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
+ alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
+ linuxppc-dev@lists.ozlabs.org, amitrkcian2002@gmail.com
+In-Reply-To: <20230306172109.595464-1-amit.kumar-mahapatra@amd.com>
+References: <20230306172109.595464-1-amit.kumar-mahapatra@amd.com>
+Subject: Re: (subset) [PATCH V5 00/15] spi: Add support for
+ stacked/parallel memories
+Message-Id: <167872615942.75015.12960472969249845825.b4-ty@kernel.org>
+Date: Mon, 13 Mar 2023 16:49:19 +0000
 MIME-Version: 1.0
-In-Reply-To: <20230317134512.254627-1-ben.dooks@codethink.co.uk>
+X-Mailer: b4 0.13-dev-bd1bf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_065602_161521_A1486640 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20230313_094946_042225_6E79C08E 
+X-CRM114-Status: GOOD (  14.02  )
+X-Mailman-Approved-At: Fri, 17 Mar 2023 07:13:33 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,95 +114,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0045025620471595290=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 06 Mar 2023 22:50:54 +0530, Amit Kumar Mahapatra wrote:
+> This patch is in the continuation to the discussions which happened on
+> 'commit f89504300e94 ("spi: Stacked/parallel memories bindings")' for
+> adding dt-binding support for stacked/parallel memories.
+> 
+> This patch series updated the spi-nor, spi core and the spi drivers
+> to add stacked and parallel memories support.
+> 
+> [...]
 
---===============0045025620471595290==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7vE6e9j4e9AblTXz"
-Content-Disposition: inline
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
---7vE6e9j4e9AblTXz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks!
 
-On Fri, Mar 17, 2023 at 01:45:12PM +0000, Ben Dooks wrote:
-> If Zicbom is present but there was no riscv,cbom-blocks-size property fou=
-nd
-> during the cpu feeatures probe, or the cbom-block-size is not valid, then
-> the extension will be disabled. Make the print explicitly say this is
-> disabled to ensure that there is no confusion about what is being done.
->
+[01/15] spi: Replace all spi->chip_select and spi->cs_gpiod references with function call
+        commit: 9e264f3f85a56cc109cc2d6010a48aa89d5c1ff1
 
-Being explicit seems like a good idea,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Conor.
+Mark
 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> ---
->  arch/riscv/kernel/cpufeature.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 59d58ee0f68d..c8b883827840 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -72,10 +72,10 @@ static bool riscv_isa_extension_check(int id)
->  	switch (id) {
->  	case RISCV_ISA_EXT_ZICBOM:
->  		if (!riscv_cbom_block_size) {
-> -			pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n=
-");
-> +			pr_err("Zicbom detected in ISA string, disabling as no cbom-block-siz=
-e found\n");
->  			return false;
->  		} else if (!is_power_of_2(riscv_cbom_block_size)) {
-> -			pr_err("cbom-block-size present, but is not a power-of-2\n");
-> +			pr_err("Zicbom disabled as cbom-block-size present, but is not a powe=
-r-of-2\n");
->  			return false;
->  		}
->  		return true;
-> --=20
-> 2.39.2
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---7vE6e9j4e9AblTXz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBRxZwAKCRB4tDGHoIJi
-0tmgAQCmHTVUhnm3WhqVfKIWq5QcAxxCpTzqvwdyG4w5xcaq1wD/fdSsfz5S4U96
-6aLwXqQbkvkQo9fWbmWPtfAzX84l1Q4=
-=Y4qP
------END PGP SIGNATURE-----
-
---7vE6e9j4e9AblTXz--
-
-
---===============0045025620471595290==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0045025620471595290==--
-
