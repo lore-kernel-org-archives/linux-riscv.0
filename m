@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80126C61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF230C74A4B
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zpll70A+9+Dc2TZlwaxfTXlzrKU4O4r1cGcrXDVe+pQ=; b=IihePY16YAQV86
-	DYmS2ZDXtUx2/2mxm+rLlMSyylX0NXEVNYW45C4MzEzZJbaVA9TgfKHVZlDFtXqRBO7WVG9k6Xw2C
-	q2bLY4trFKZAP5fauLFKROQL+QV5tdpl+k0JphN5NUoTwyDj6CuXpj7YfJjSrkB6Vfou+V54D8nr6
-	BbUS4Lm2VGEuv3FJXokwvACnoc+WJX+xFAgRKtU1WdulH2oXbdT0ZpmkJ9/I8G5ERHbZtTtAKTAXx
-	TteG9IDLM4pdXsaYEVKD7dgUtTb+aZ+lUPtJg87/3E//7umWvp8n7brE5PZ+tF3oXYWSphnCQpcLr
-	zTqo7/CbDP0MA0MswypQ==;
+	List-Owner; bh=OvMWBYrcWcyp3I9mZsNgTNhgXRws5Mr/mnJgxhltWH8=; b=iEodLDAEZALw0F
+	m8fBLOq5JQzT7BTGe5ul1f9U6nqrw19wz1fTHoNHFYia9Z3dHGNWPMilAMhvzFSlCW35as+TbCcbN
+	hnEo2g1z3EUzIKk2Sjm7ThhsNzfxY7AwAkRq2+QDLGExyGxaLLkOmimLzCnPHKkx0NCuciEoH7qCf
+	VH0xyTwMpXrjmZYE1FscCjkTt5PwrDt7ZnpppiTEmveEnHtDk3b9JA6/Ywx4GVlUrBpDWVwDZwJsy
+	ManOHCypbNipAyCwvnKHnTaLHAG5xqoL4Uxqh+yIp/38Wq6+mNf5EijwXSIWZHUUGTZUmE3JEZhiD
+	GcXrcFF/a7tmlqWZ1jNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbnbm-007TEh-L9; Mon, 13 Mar 2023 19:13:22 +0000
+	id 1pbnbo-007TFZ-0y; Mon, 13 Mar 2023 19:13:24 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbnbg-007TAv-Tp
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 19:13:18 +0000
+	id 1pbnbg-007TAU-Vx
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 19:13:19 +0000
 Received: from ip4d1634a9.dynamic.kabel-deutschland.de ([77.22.52.169] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pbnbU-00028k-6z; Mon, 13 Mar 2023 20:13:04 +0100
+	id 1pbnbV-00028k-07; Mon, 13 Mar 2023 20:13:05 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -38,16 +38,16 @@ Cc: greentime.hu@sifive.com,
 	linux-riscv@lists.infradead.org,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de
-Subject: [PATCH RFC v3 02/16] riscv: Add vector extension XOR implementation
-Date: Mon, 13 Mar 2023 20:12:48 +0100
-Message-Id: <20230313191302.580787-3-heiko.stuebner@vrull.eu>
+Subject: [PATCH RFC v3 05/16] RISC-V: hook new crypto subdir into build-system
+Date: Mon, 13 Mar 2023 20:12:51 +0100
+Message-Id: <20230313191302.580787-6-heiko.stuebner@vrull.eu>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 References: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_121316_986807_75F22CE9 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20230313_121317_053292_E90B6D83 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,207 +64,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-This patch adds support for vector optimized XOR and it is tested in
-qemu.
+Create a crypto subdirectory for added accelerated cryptography routines
+and hook it into the riscv Kbuild and the main crypto Kconfig.
 
-Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/xor.h | 82 ++++++++++++++++++++++++++++++++++++
- arch/riscv/lib/Makefile      |  1 +
- arch/riscv/lib/xor.S         | 81 +++++++++++++++++++++++++++++++++++
- 3 files changed, 164 insertions(+)
- create mode 100644 arch/riscv/include/asm/xor.h
- create mode 100644 arch/riscv/lib/xor.S
+ arch/riscv/Kbuild          | 1 +
+ arch/riscv/crypto/Kconfig  | 5 +++++
+ arch/riscv/crypto/Makefile | 4 ++++
+ crypto/Kconfig             | 3 +++
+ 4 files changed, 13 insertions(+)
+ create mode 100644 arch/riscv/crypto/Kconfig
+ create mode 100644 arch/riscv/crypto/Makefile
 
-diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
-new file mode 100644
-index 000000000000..74867c7fd955
---- /dev/null
-+++ b/arch/riscv/include/asm/xor.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright (C) 2021 SiFive
-+ */
-+
-+#include <linux/hardirq.h>
-+#include <asm-generic/xor.h>
-+#ifdef CONFIG_VECTOR
-+#include <asm/vector.h>
-+#include <asm/switch_to.h>
-+
-+void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
-+		 const unsigned long *__restrict p2);
-+void xor_regs_3_(unsigned long bytes, unsigned long *__restrict p1,
-+		 const unsigned long *__restrict p2,
-+		 const unsigned long *__restrict p3);
-+void xor_regs_4_(unsigned long bytes, unsigned long *__restrict p1,
-+		 const unsigned long *__restrict p2,
-+		 const unsigned long *__restrict p3,
-+		 const unsigned long *__restrict p4);
-+void xor_regs_5_(unsigned long bytes, unsigned long *__restrict p1,
-+		 const unsigned long *__restrict p2,
-+		 const unsigned long *__restrict p3,
-+		 const unsigned long *__restrict p4,
-+		 const unsigned long *__restrict p5);
-+
-+static void xor_rvv_2(unsigned long bytes, unsigned long *__restrict p1,
-+		      const unsigned long *__restrict p2)
-+{
-+	kernel_rvv_begin();
-+	xor_regs_2_(bytes, p1, p2);
-+	kernel_rvv_end();
-+}
-+
-+static void xor_rvv_3(unsigned long bytes, unsigned long *__restrict p1,
-+		      const unsigned long *__restrict p2,
-+		      const unsigned long *__restrict p3)
-+{
-+	kernel_rvv_begin();
-+	xor_regs_3_(bytes, p1, p2, p3);
-+	kernel_rvv_end();
-+}
-+
-+static void xor_rvv_4(unsigned long bytes, unsigned long *__restrict p1,
-+		      const unsigned long *__restrict p2,
-+		      const unsigned long *__restrict p3,
-+		      const unsigned long *__restrict p4)
-+{
-+	kernel_rvv_begin();
-+	xor_regs_4_(bytes, p1, p2, p3, p4);
-+	kernel_rvv_end();
-+}
-+
-+static void xor_rvv_5(unsigned long bytes, unsigned long *__restrict p1,
-+		      const unsigned long *__restrict p2,
-+		      const unsigned long *__restrict p3,
-+		      const unsigned long *__restrict p4,
-+		      const unsigned long *__restrict p5)
-+{
-+	kernel_rvv_begin();
-+	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
-+	kernel_rvv_end();
-+}
-+
-+static struct xor_block_template xor_block_rvv = {
-+	.name = "rvv",
-+	.do_2 = xor_rvv_2,
-+	.do_3 = xor_rvv_3,
-+	.do_4 = xor_rvv_4,
-+	.do_5 = xor_rvv_5
-+};
-+
-+#undef XOR_TRY_TEMPLATES
-+#define XOR_TRY_TEMPLATES           \
-+	do {        \
-+		xor_speed(&xor_block_8regs);    \
-+		xor_speed(&xor_block_32regs);    \
-+		if (has_vector()) { \
-+			xor_speed(&xor_block_rvv);\
-+		} \
-+	} while (0)
-+#endif
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 6c74b0bedd60..d87e0b6fe1d0 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -10,3 +10,4 @@ lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
+diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+index afa83e307a2e..250d1fd38618 100644
+--- a/arch/riscv/Kbuild
++++ b/arch/riscv/Kbuild
+@@ -2,6 +2,7 @@
  
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-+lib-$(CONFIG_VECTOR)	+= xor.o
-diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+ obj-y += kernel/ mm/ net/
+ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
++obj-$(CONFIG_CRYPTO) += crypto/
+ obj-y += errata/
+ obj-$(CONFIG_KVM) += kvm/
+ 
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
 new file mode 100644
-index 000000000000..3bc059e18171
+index 000000000000..10d60edc0110
 --- /dev/null
-+++ b/arch/riscv/lib/xor.S
-@@ -0,0 +1,81 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright (C) 2021 SiFive
-+ */
-+#include <linux/linkage.h>
-+#include <asm-generic/export.h>
-+#include <asm/asm.h>
++++ b/arch/riscv/crypto/Kconfig
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+ENTRY(xor_regs_2_)
-+	vsetvli a3, a0, e8, m8, ta, ma
-+	vle8.v v0, (a1)
-+	vle8.v v8, (a2)
-+	sub a0, a0, a3
-+	vxor.vv v16, v0, v8
-+	add a2, a2, a3
-+	vse8.v v16, (a1)
-+	add a1, a1, a3
-+	bnez a0, xor_regs_2_
-+	ret
-+END(xor_regs_2_)
-+EXPORT_SYMBOL(xor_regs_2_)
++menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
 +
-+ENTRY(xor_regs_3_)
-+	vsetvli a4, a0, e8, m8, ta, ma
-+	vle8.v v0, (a1)
-+	vle8.v v8, (a2)
-+	sub a0, a0, a4
-+	vxor.vv v0, v0, v8
-+	vle8.v v16, (a3)
-+	add a2, a2, a4
-+	vxor.vv v16, v0, v16
-+	add a3, a3, a4
-+	vse8.v v16, (a1)
-+	add a1, a1, a4
-+	bnez a0, xor_regs_3_
-+	ret
-+END(xor_regs_3_)
-+EXPORT_SYMBOL(xor_regs_3_)
-+
-+ENTRY(xor_regs_4_)
-+	vsetvli a5, a0, e8, m8, ta, ma
-+	vle8.v v0, (a1)
-+	vle8.v v8, (a2)
-+	sub a0, a0, a5
-+	vxor.vv v0, v0, v8
-+	vle8.v v16, (a3)
-+	add a2, a2, a5
-+	vxor.vv v0, v0, v16
-+	vle8.v v24, (a4)
-+	add a3, a3, a5
-+	vxor.vv v16, v0, v24
-+	add a4, a4, a5
-+	vse8.v v16, (a1)
-+	add a1, a1, a5
-+	bnez a0, xor_regs_4_
-+	ret
-+END(xor_regs_4_)
-+EXPORT_SYMBOL(xor_regs_4_)
-+
-+ENTRY(xor_regs_5_)
-+	vsetvli a6, a0, e8, m8, ta, ma
-+	vle8.v v0, (a1)
-+	vle8.v v8, (a2)
-+	sub a0, a0, a6
-+	vxor.vv v0, v0, v8
-+	vle8.v v16, (a3)
-+	add a2, a2, a6
-+	vxor.vv v0, v0, v16
-+	vle8.v v24, (a4)
-+	add a3, a3, a6
-+	vxor.vv v0, v0, v24
-+	vle8.v v8, (a5)
-+	add a4, a4, a6
-+	vxor.vv v16, v0, v8
-+	add a5, a5, a6
-+	vse8.v v16, (a1)
-+	add a1, a1, a6
-+	bnez a0, xor_regs_5_
-+	ret
-+END(xor_regs_5_)
-+EXPORT_SYMBOL(xor_regs_5_)
++endmenu
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+new file mode 100644
+index 000000000000..b3b6332c9f6d
+--- /dev/null
++++ b/arch/riscv/crypto/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# linux/arch/riscv/crypto/Makefile
++#
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 9c86f7045157..003921cb0301 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -1401,6 +1401,9 @@ endif
+ if PPC
+ source "arch/powerpc/crypto/Kconfig"
+ endif
++if RISCV
++source "arch/riscv/crypto/Kconfig"
++endif
+ if S390
+ source "arch/s390/crypto/Kconfig"
+ endif
 -- 
 2.39.0
 
