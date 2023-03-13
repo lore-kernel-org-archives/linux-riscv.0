@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442EDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 20:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C6CC6FD19
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 23:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ons7dcPlngOt+lwUs66wVHR2Sr6faRo7iEKiZqa9Gec=; b=1YB6UszzE9RebqLlBRdE6+hkAX
-	cDHaNpt9dkwEeJzBQTbN5UcX3L24YYWodB9QUuWGRvwlk8m1fqmeWvCknaDAun9ZZJLmKzo26mg+J
-	dlyRzfHmioVhX0AsjDofCE5i495KyVZkETTjd+7Ld/ONtRojpE+XiVDHDYxlqZ+y4R59mQ6VBqXV2
-	G4CyBSL6lC5709JVxFOpP1avf3fk0+aV3UL7WSchtEy4JO6NJW0pO10unUo16wHygeJeLouiMhs81
-	8M53n6b+20Ps7pFS8fL5K6Ybj9Gzk48z/00YyXlK1uHYQJwLhcHv1zXgmX8x00+tUeGonLvpz4sNc
-	+JolYTfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MWa4ceN1oloIOZ87SKqALV0wjJtYVhEZyR54a6rJkww=; b=HqLnAv7nkqPmoB
+	dvk7BsHzu4gbw9BlmG0HnhCqD6zI8+uqzqgiUMuzYsz2G6v4dZ7K0LzPmsh2kYqu2k8dLZZ03UnTB
+	40SgzdNAuAl5zcTuyE6XdjfLa32dDvUcgJcHuht/WcIZzfu2hxYhDmQSNzxJEnJkLOmfhRRIPPCNI
+	YME1JW1oPshY9obwYsxdkRNh6mjcAceFv/FbHQTJM6AemiQexGOeK13CE4PUgHxF7uOECSoyU0Iue
+	NyFq4tIAVNwrUqqjJ588Zj7AygRKMS2V0Sg55NmKwtiuNu+vHjKqRXZ7PxeVHSEdyPbBfpg8lRx7+
+	XQ8t3t2Wz7Hqot3yDioQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbofZ-007fug-IW; Mon, 13 Mar 2023 20:21:21 +0000
+	id 1pbrCb-008FoC-7W; Mon, 13 Mar 2023 23:03:37 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbofW-007fsh-5Y
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 20:21:19 +0000
+	id 1pbr9w-008Edl-Tu
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 23:00:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8216C614B6;
-	Mon, 13 Mar 2023 20:21:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A95BC433EF;
-	Mon, 13 Mar 2023 20:21:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7CCBC61572;
+	Mon, 13 Mar 2023 23:00:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0B3C433EF;
+	Mon, 13 Mar 2023 23:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678738876;
-	bh=w2c/7n/ZoAl+p0Uo7jveovPwHe4Aq5dpA5N/WHL1AUY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eXC82vRkaVviiDEHK5QmlkvLY39qBwpBMBm0xhASGgVyCBluwlUxNFANYUH3UqmkU
-	 XJbolWZDaqwECABdRaM+LnJZVs7Uryd+XiqpzytGLXjHvmrBeQRPaYwWGGZy9gX1GB
-	 /u7H2QxfcbUXbqT3k29BVRvQtxlz3BNR1Al2voddkVt7FUCukTjEOM5b3vxXIb0Jyk
-	 2OvUQWJNGiSSpT9h7/ke8jG32R7l0yLUN7WzKAJg7ELXSz9oFpQE3GoDnUgoWygMTB
-	 pWB4QoxCaYGhQFexw3KrG08LRvJSAcpeQQp1DEpDuAmaPeQ+CGCi6bL/VByf75ID63
-	 /BXcvvWOQSC/A==
-Date: Mon, 13 Mar 2023 20:21:12 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Paran Lee <p4ranlee@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] perf tools riscv: Add support for riscv
- lookup_binutils_path
-Message-ID: <c47e371a-ea90-41f2-81e1-8e09f7524c42@spud>
-References: <20230311112122.28894-1-p4ranlee@gmail.com>
- <CAP-5=fWkAqX+Uy_XhXHjEx6sj-wpOJ+WQf=vMtRzRBS-0Kj32Q@mail.gmail.com>
- <09d44d74-f3c9-cf99-8d14-74499485e956@gmail.com>
- <CAP-5=fUqLdCD_Ks2WQxjyRoNO53PxzDv_P7GJuY320+gKF=vEw@mail.gmail.com>
+	s=k20201202; t=1678748448;
+	bh=JCeQvBY6bMqovbU34cXbJ4Zgnocr52q58fWGR8Okslg=;
+	h=From:Date:Subject:To:Cc:From;
+	b=db8ONJnU3rzg0GkiT8U7ITxd6f/Pcpenykg1Q3Gh7uOGiQUfuKf+uowPWc92kRciM
+	 XClRrybnkrciyd9wLhE/RVuTmdPSSpoo7sk4Uu7cFGrpVokmkJWJOy7Hrynp5WTs1A
+	 tKssWkWDmsSGhK3ZFN2v3EDos4Sx/zcxpYCOHTvciNdA1uUZhLXT8xgvToT2/9EtRR
+	 eyHRXwwGypRwKKEKNAucW0swKGz8yjRYkcN5tV3YiY7srhFlfRiL7r9aGbsW3iv4AB
+	 bOT+ASwBhst36EDe6ab+VBcGUZgESIgn8UzP1gnHdQMCaarY5lvCF/UM1LOA2QscI7
+	 IAT03dPN/YTGw==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Mon, 13 Mar 2023 16:00:23 -0700
+Subject: [PATCH] riscv: Handle zicsr/zifencei issues between clang and
+ binutils
 MIME-Version: 1.0
-In-Reply-To: <CAP-5=fUqLdCD_Ks2WQxjyRoNO53PxzDv_P7GJuY320+gKF=vEw@mail.gmail.com>
+Message-Id: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAarD2QC/x2NQQrDMAwEvxJ0riC2A6X9SulBVuRGhzpFKiE05
+ O91clkYFmY2cDEVh3u3gcmirnNtEC4d8ET1JahjY4h9TH0KCU2dF/wpu7UtUlkUi5LzjPE2BCb
+ Jch0ZmiGTC2ajytPheJN/xY7jY1J0PbOP577/AX8nSeKGAAAA
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+ conor.dooley@microchip.com
+Cc: nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, patches@lists.linux.dev, stable@vger.kernel.org
+X-Mailer: b4 0.12.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6797; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=JCeQvBY6bMqovbU34cXbJ4Zgnocr52q58fWGR8Okslg=;
+ b=owGbwMvMwCEmm602sfCA1DTG02pJDCn8q+W/p6yaqjirarFIdECezW+de4YNOQ0aynImBz++m
+ sKzSO9uRykLgxgHg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZhI53xGhu3M74vyHI/Vdh0N
+ Fnbm+HaSU2tO389nYWqvr3sy9NQrrWFkaFCeGvwou9z2E8P1nR6KSVdWnPwXds6/6nW4bNjJte0
+ XWQE=
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_132118_288413_A742AF8C 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230313_160053_124286_1FF7A580 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +79,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6109346496519963716=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There are two related issues that appear in certain combinations with
+clang and GNU binutils.
 
---===============6109346496519963716==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="iGjqrgvJjsqzLcOI"
-Content-Disposition: inline
+The first occurs when a version of clang that supports zicsr or zifencei
+via '-march=' [1] (i.e, >= 17.x) is used in combination with a version
+of GNU binutils that do not recognize zicsr and zifencei in the
+'-march=' value (i.e., < 2.36):
 
+  riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifencei2p0: Invalid or unknown z ISA extension: 'zifencei'
+  riscv64-linux-gnu-ld: failed to merge target specific data of file fs/efivarfs/file.o
+  riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifencei2p0: Invalid or unknown z ISA extension: 'zifencei'
+  riscv64-linux-gnu-ld: failed to merge target specific data of file fs/efivarfs/super.o
 
---iGjqrgvJjsqzLcOI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The second occurs when a version of clang that does not support zicsr or
+zifencei via '-march=' (i.e., <= 16.x) is used in combination with a
+version of GNU as that defaults to a newer ISA base spec, which requires
+specifying zicsr and zifencei in the '-march=' value explicitly (i.e, >=
+2.38):
 
-On Mon, Mar 13, 2023 at 09:27:35AM -0700, Ian Rogers wrote:
+  ../arch/riscv/kernel/kexec_relocate.S: Assembler messages:
+  ../arch/riscv/kernel/kexec_relocate.S:147: Error: unrecognized opcode `fence.i', extension `zifencei' required
+  clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
 
-> Wrt the patch, could you reply to Conor's response.
+This is the same issue addressed by commit 6df2a016c0c8 ("riscv: fix
+build with binutils 2.38") (see [2] for additional information) but
+older versions of clang miss out on it because the cc-option check
+fails:
 
-Apologies if I asked something silly, I've been ill and kinda out of it,
-just noticed it as I tried to keep up with mail and was curious...
+  clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupported standard user-level extension 'zicsr'
+  clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupported standard user-level extension 'zicsr'
 
---iGjqrgvJjsqzLcOI
-Content-Type: application/pgp-signature; name="signature.asc"
+To resolve the first issue, only attempt to add zicsr and zifencei to
+the march string when using the GNU assembler 2.38 or newer, which is
+when the default ISA spec was updated, requiring these extensions to be
+specified explicitly. LLVM implements an older version of the base
+specification for all currently released versions, so these instructions
+are available as part of the 'i' extension. If LLVM's implementation is
+updated in the future, a CONFIG_AS_IS_LLVM condition can be added to
+CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI.
 
------BEGIN PGP SIGNATURE-----
+To resolve the second issue, use version 2.2 of the base ISA spec when
+using an older version of clang that does not support zicsr or zifencei
+via '-march=', as that is the spec version most compatible with the one
+clang/LLVM implements and avoids the need to specify zicsr and zifencei
+explicitly due to still being a part of 'i'.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZA+FuAAKCRB4tDGHoIJi
-0v2DAPwNPwOTfYPSnx7Lb8DJXWaULL6Gd4dGKFzc/FHRMu995gEAoC/kPFb+do9W
-xTAs/uTGGEdCihXSG+5nD0dXjIWJmgQ=
-=eC1+
------END PGP SIGNATURE-----
+[1]: https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
+[2]: https://lore.kernel.org/ZAxT7T9Xy1Fo3d5W@aurel32.net/
 
---iGjqrgvJjsqzLcOI--
+Cc: stable@vger.kernel.org
+Link: https://github.com/ClangBuiltLinux/linux/issues/1808
+Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+This is essentially a v3 of Conor's v1 and v2 but since I am sending the
+patch after finding a separate but related issue, I left it at v1:
 
+- v1: https://lore.kernel.org/20230223220546.52879-1-conor@kernel.org/
+- v2: https://lore.kernel.org/20230308220842.1231003-1-conor@kernel.org/
 
---===============6109346496519963716==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I have built allmodconfig with the following toolchain combinations to
+confirm this problem is resolved:
+
+- clang 12/17 + GNU as and ld 2.35/2.39
+- clang 12/17 with the integrated assembler + GNU ld 2.35/2.39
+- clang 12/17 with the integrated assembler + ld.lld
+
+There are a couple of other incompatibilities between clang-17 and GNU
+binutils that I had to patch to get allmodconfig to build successfully
+but those are less likely to be hit in practice because the full LLVM
+stack can be used with LLVM versions 13.x and newer. I will follow up
+with separate issues and patches.
+---
+ arch/riscv/Kconfig  | 22 ++++++++++++++++++++++
+ arch/riscv/Makefile | 10 ++++++----
+ 2 files changed, 28 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c5e42cc37604..5b182d1c196c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -464,6 +464,28 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+ 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zihintpause)
+ 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23600
+ 
++config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
++	def_bool y
++	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
++	depends on AS_IS_GNU && AS_VERSION >= 23800
++	help
++	  Newer binutils versions default to ISA spec version 20191213 which
++	  moves some instructions from the I extension to the Zicsr and Zifencei
++	  extensions.
++
++config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
++	def_bool y
++	depends on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
++	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
++	depends on CC_IS_CLANG && CLANG_VERSION < 170000
++	help
++	  Certain versions of clang do not support zicsr and zifencei via -march
++	  but newer versions of binutils require it for the reasons noted in the
++	  help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. This
++	  option causes an older ISA spec compatible with these older versions
++	  of clang to be passed to GAS, which has the same result as passing zicsr
++	  and zifencei to -march.
++
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 4de83b9b1772..b05e833a022d 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -57,10 +57,12 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+ riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+ 
+-# Newer binutils versions default to ISA spec version 20191213 which moves some
+-# instructions from the I extension to the Zicsr and Zifencei extensions.
+-toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
+-riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
++ifdef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
++KBUILD_CFLAGS += -Wa,-misa-spec=2.2
++KBUILD_AFLAGS += -Wa,-misa-spec=2.2
++else
++riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) := $(riscv-march-y)_zicsr_zifencei
++endif
+ 
+ # Check if the toolchain supports Zihintpause extension
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+
+---
+base-commit: eeac8ede17557680855031c6f305ece2378af326
+change-id: 20230313-riscv-zicsr-zifencei-fiasco-2941caebe7dc
+
+Best regards,
+-- 
+Nathan Chancellor <nathan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6109346496519963716==--
-
