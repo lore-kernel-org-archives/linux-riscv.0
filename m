@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0ADC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 05:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B6FC61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 07:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SsDkmKGJUu4zsZlLeyd8Ut7vNJOHc9pWSeuu7yO59dY=; b=reOAHJIH9WMDRy
-	4y6YDhGyzotorYPXlozMdfJ8TnjwCzCr0VrX9ZrS98i/2GuQCQXDpdm4+M8Ov2zqA3g6br0a94B7N
-	CiH3CpKHmO85pCvzlkpD2ctN+mwhwBy9iNo0Vqxb2+2rC+p3KwMoy22D2TXniffs2hBnQSStUbHES
-	g92hY3XRo8sVQomSrksFR1mXfk5tCnrp+k+X7vnNIbKZGTDOxArt9Etyn1nWBh5rZGjBauI8y3ecX
-	CP+Rk8HjX3OQUmNZYhX2yJ5sI40b8cR4cGizi+B2IPPuZX5FIiLBPMB9b03WP7Kobzf4E1Myej3jH
-	BKEUd1XQrQ5iqlnkDrmg==;
+	List-Owner; bh=HV4yI4ZGkcEJvMBe5APkwnuqAc4t3d8fXXPB0gHkBAc=; b=LQhb8bxrEqHNzT
+	SdKFHEjPkpn/QSjzqALl1zJJhWbBVTQGi/RSw78Zd60kegnCWrnfdnyXw4+ufABW6NiNKuR7VUBDw
+	CJCtrlz+BZFPXQRPDndgTaLacXOsGxfLLsn+z3b0NWwELiBxkdGIdugMIcsjOkm8j47TcQEPy5z7e
+	MZ2mANNafJLlVI9LRDwfm9yOSucv/6+EhnSpBgkjcMA6RVLRfKc+MfJarH/5WfWOiYzeauorSrMJq
+	WhjiCIDXEB+2emBHir5xxK7vP9A0OEtvabSs11pE6IRQdUGCdPQyNxQc0Yzd6qxhpMW4X2x5rNdTH
+	RyLfPJoCE2GTHzkkiRIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbbCl-004Qhz-OP; Mon, 13 Mar 2023 05:58:43 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1pbcxx-004ex7-Fw; Mon, 13 Mar 2023 07:51:33 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbbCi-004QhE-IM
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 05:58:42 +0000
-Received: by mail-lj1-x229.google.com with SMTP id b13so11417229ljf.6
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Mar 2023 22:58:38 -0700 (PDT)
+	id 1pbcxp-004etX-T4
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 07:51:31 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id o12so44875107edb.9
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Mar 2023 00:51:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678687117;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=r42O6Y5cB+VDeHMbarldOxJ8LK3WTSPXYQqJukkf3Co=;
-        b=HULX4dIJAgeRdwtS5mfYykOMh13+Xqj/QT2rPJ1a+3ODMjiCUDWTKdK06fSvfPJ4HF
-         4/F8JZBua8UMySt2uLzxP4tPjKwDsogQ9+4TVtXfAAqGg3xwNKVYq1aS65bTyZoWlTs2
-         xevewOLFKBAQPf3mNOOvgSNr9LsqYI/ovCZGRTlJvqkHGD8RQDOlV/AVUT0pKVwrnt9g
-         uC3Lx5G5wj+Ouv2NtmVmew0mymJar+LWESghOlxK7N4sjc0xRDufn+DbPpBvViDUCMAR
-         uA+1IiQLPbIMxeXeFCE8jXiyC3e39cxSkDYsM3fLuTkHowWUwuml1F0DwpfnJnBa/Zr0
-         AAPA==
+        d=linaro.org; s=google; t=1678693882;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ApcfsHN2wN7CiLQkpY6hRDWMeHf0lIJaK00DDrg5fNU=;
+        b=kQPrGnxYvasHxYFYfGSGho1RYetKH4JyMKJ3ud5unTPePmdSRjZrRVQ2DDQprphbqa
+         +r/m8bdt6bmvlyJDpEICv8tnMoRqoVjoSPb/VHJY+mR5PHDx5Ktfzcfsg4LRlK4ofQpO
+         UlW+5VSH/eaEjDfdof4PmhhiDf5LsxDX3AyoauL/4xCkhXbCaNoBmLO0bsH48989iZdI
+         10/GL6vzIfjDJvEgL9zKJnluIlENU3y5J8koECXzLnt00hCMy2OgIxN7WhgXAgqhfPg7
+         gsivioYUOX8yzoZkH3CxeTHLIp4SkWd0F2piLS9zeaUFVH0oKf4PWk3e0Xz445cQOeNU
+         I4SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678687117;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r42O6Y5cB+VDeHMbarldOxJ8LK3WTSPXYQqJukkf3Co=;
-        b=YgQZjZsgK92nzg9l3Zql4KMgPbcwBJ8NfugmtNeZYvA20uGfKb5THz8M7ulPym5Oqn
-         ExRn75g1qLjddVaUK546ECOlu7QRx1bkJrhx/UsRr04buvy0JOLHrVpIEjqIuyXNaQs/
-         yMi3qZliDVwUHutFNxKn9MtTniEYxA0MVzzRdS9U8kfCiGMlVncObcWATitBh+09NMKx
-         0nplkdbAHpzeGV8RS74AWEOWaMOC9DsyfmsWHhd2Odw3/Px8UwqMaUybMSgozVDxvn64
-         JYzWg1vVyM6F56j1gydyMu3Ag/V5W7npuK+pXB/13oBCjKCASW1iFcDZyvNV+rleIAT+
-         ULtA==
-X-Gm-Message-State: AO0yUKVyeW4YuB8TOfgpwpmmi3y4FzSi5FDp9oe2LIcm5yFO7eQKztLe
-	4ITcRtY56RgTywiDB7uMhMA=
-X-Google-Smtp-Source: AK7set/VsUuMbBC5VMNZ+AreBezxbJCALlZZ3PkWVlsYj7vuYmyIll1BbItD6I0MhHQ5BEbf1diYTw==
-X-Received: by 2002:a2e:8012:0:b0:294:899:afc3 with SMTP id j18-20020a2e8012000000b002940899afc3mr11764874ljg.35.1678687116950;
-        Sun, 12 Mar 2023 22:58:36 -0700 (PDT)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id e17-20020a05651c039100b00293526a0c87sm888637ljp.41.2023.03.12.22.58.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Mar 2023 22:58:35 -0700 (PDT)
-Date: Mon, 13 Mar 2023 08:58:34 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Dylan Jhong <dylan@andestech.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	guoren@kernel.org, sergey.matyukevich@syntacore.com,
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	x5710999x@gmail.com, tim609@andestech.com, peterlin@andestech.com,
-	ycliang@andestech.com
-Subject: Re: [PATCH v2] riscv: mm: Fix incorrect ASID argument when flushing
- TLB
-Message-ID: <ZA67iqLoX9DUjGm/@curiosity>
-References: <20230313034906.2401730-1-dylan@andestech.com>
+        d=1e100.net; s=20210112; t=1678693882;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ApcfsHN2wN7CiLQkpY6hRDWMeHf0lIJaK00DDrg5fNU=;
+        b=kHkSjpOPc6yOcIc2MYX0hX/0r5zxlGxjeawSO2xXDPdElS89LMI991fG5DcMa9XESw
+         OuzxCRWV2JyS/JsYX0x1+F+uNRvxzVHWsEZcDpYK4xgvB10dEvwoyCKu424GJzWSPhmQ
+         iSC6qUBDiXES+SlgRpOCP4mKJ5bvDfH47zxtp4eVtM62wXzWU5Q55DtK3r5a2N5vHyPx
+         a4Lqbdag4WXZxdeD+2n9wFmh2GAJ696bWsOF+xeVPDpYriRIzL/UqMiuUrpgAz5pkg80
+         3a6ZFcwfSZUi30rYYFIujnZl6/czpRA6j++8lycq0M6VxIVNRikwDuF9yiPpR2/7w3o7
+         Bofg==
+X-Gm-Message-State: AO0yUKXjKCBCOEOJibvxZeymAB5fKlaTYj1n2/PCr2PWHWzpHJJirDOt
+	kwflpePNlfpVl6hnwNo9FWzYz6QJTnYxNcXQKCs=
+X-Google-Smtp-Source: AK7set/Wdx3mz3K2b03zcdbLEh+zTAXkriPquRH3CNjv2VE6Bjjx7PkESjwthAp40ot+7EmKIeFxmg==
+X-Received: by 2002:aa7:c54b:0:b0:4ac:b760:f07a with SMTP id s11-20020aa7c54b000000b004acb760f07amr33049256edr.19.1678693881955;
+        Mon, 13 Mar 2023 00:51:21 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:f052:f15:3f90:fcb3? ([2a02:810d:15c0:828:f052:f15:3f90:fcb3])
+        by smtp.gmail.com with ESMTPSA id l22-20020a50d6d6000000b004fa19f5ba99sm2652296edj.79.2023.03.13.00.51.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Mar 2023 00:51:21 -0700 (PDT)
+Message-ID: <834fb899-7a03-ba0a-8302-f64ea58c60dd@linaro.org>
+Date: Mon, 13 Mar 2023 08:51:20 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230313034906.2401730-1-dylan@andestech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v5 11/21] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Hal Feng <hal.feng@starfivetech.com>, Rob Herring <robh@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Ben Dooks <ben.dooks@sifive.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Stephen Boyd <sboyd@kernel.org>, linux-riscv@lists.infradead.org,
+ Conor Dooley <conor@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, Daniel Lezcano
+ <daniel.lezcano@linaro.org>, linux-clk@vger.kernel.org,
+ Michael Turquette <mturquette@baylibre.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+ <20230311090733.56918-12-hal.feng@starfivetech.com>
+ <167854282659.42837.5915012938593380363.robh@kernel.org>
+ <80549148-1bad-9190-c4ea-a9555d15ca38@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <80549148-1bad-9190-c4ea-a9555d15ca38@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_225840_649502_2B7D2C24 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20230313_005126_418789_010B34BB 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +107,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Currently, we pass the CONTEXTID instead of the ASID to the TLB flush
-> function. We should only take the ASID field to prevent from touching
-> the reserved bit field.
+On 13/03/2023 03:47, Hal Feng wrote:
+> On Sat, 11 Mar 2023 08:17:00 -0600, Rob Herring wrote:
+>> On Sat, 11 Mar 2023 17:07:23 +0800, Hal Feng wrote:
+>>> From: Emil Renner Berthing <kernel@esmil.dk>
+>>>
+>>> Add bindings for the system clock and reset generator (SYSCRG) on the
+>>> JH7110 RISC-V SoC by StarFive Ltd.
+>>>
+>>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>>> ---
+>>>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+>>>  MAINTAINERS                                   |   8 +-
+>>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+>>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+>>>  4 files changed, 454 insertions(+), 3 deletions(-)
+>>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>>>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>>>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+>>>
+>>
+>>
+>> Please add Acked-by/Reviewed-by tags when posting new versions. However,
+>> there's no need to repost patches *only* to add the tags. The upstream
+>> maintainer will do that for acks received on the version they apply.
+>>
+>> If a tag was not added on purpose, please state why and what changed.
+>>
+>> Missing tags:
+>>
+>> Reviewed-by: Rob Herring <robh@kernel.org>
 > 
-> Fixes: 3f1e782998cd ("riscv: add ASID-based tlbflushing methods")
-> Signed-off-by: Dylan Jhong <dylan@andestech.com>
-> ---
-> Changes from v2:
-> - Remove unsued EXPORT_SYMBOL()
-> ---
->  arch/riscv/include/asm/tlbflush.h | 2 ++
->  arch/riscv/mm/context.c           | 2 +-
->  arch/riscv/mm/tlbflush.c          | 2 +-
->  3 files changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index 907b9efd39a8..597d6d8aec28 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -12,6 +12,8 @@
->  #include <asm/errata_list.h>
->  
->  #ifdef CONFIG_MMU
-> +extern unsigned long asid_mask;
-> +
->  static inline void local_flush_tlb_all(void)
->  {
->  	__asm__ __volatile__ ("sfence.vma" : : : "memory");
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 80ce9caba8d2..6d1aeb063e81 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -22,7 +22,7 @@ DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
->  
->  static unsigned long asid_bits;
->  static unsigned long num_asids;
-> -static unsigned long asid_mask;
-> +unsigned long asid_mask;
->  
->  static atomic_long_t current_version;
->  
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index ce7dfc81bb3f..ba4c27187c95 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -27,7 +27,7 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
->  	/* check if the tlbflush needs to be sent to other CPUs */
->  	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
->  	if (static_branch_unlikely(&use_asid_allocator)) {
-> -		unsigned long asid = atomic_long_read(&mm->context.id);
-> +		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
->  
->  		/*
->  		 * TLB will be immediately flushed on harts concurrently
+> This patch has been changed a lot and I am not sure whether it's still
+> the one you want. So I removed the Reviewed-by tag.
 
-Reviewed-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Then mention it in changelog, just like Rob asked:
+"If a tag was not added on purpose, please state why and what changed."
+I don't see any explanation in the changelog about it.
 
-Thanks !
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
