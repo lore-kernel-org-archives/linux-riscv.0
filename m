@@ -4,47 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03053C6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F05C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BgQRMMwJIDvI22NxGNQFK25CZqkWaV4IVNGf23cRW24=; b=eb7O70TYevLAAd
-	zpcGM9S3ly27gzoRRM+cVxZWvnGq/r9qw/rkyul1ZvOkzZiJ7DF+PgzMAXuhhWT914W2fNaBmvGPF
-	+t0SHInd9gOGFB0Zj2sgfRzyhwPz/ncTb4m2wYZJjPPzSA+n3wVenNeLwZYMO3u0AFWV8tbyQ/8Cx
-	Su+qYA9J1q78APSZ2rWHpBY5dSMvPLcbOl5ROOC6wjPFN+g7ViyGP6hcKbNRwpx3+pGOppivMt2TN
-	ATy87/KaE/RAqeljzFPwuJlwk/oOWA/pG+7vp1wTj9p/5GtG4UTtimf6CBPJo6xrYFA69x/SoDImu
-	N/qyp9MnbYM3xptXVthg==;
+	List-Owner; bh=23DTd3ce6rxQV5rPGxN/wXcmxcwvvQpJ6RRIc+POjuI=; b=W4k9LXtIALM3Mi
+	DBkbxsYHwQICdzYg/CMKmBB9zfP92JMAZSjHQqoIC1c49IZ35EyoR8sWoVamuEpL5gK/gmfA9yIbj
+	my9BRHtJFLS8/0qlivqpmk9q+//SpQYvjTUGwNXZx6eCXIgbEKbxJLoKU+MMco0Ref9d2amZ/2ciy
+	Jw3Jee2KC95TzjzBFfctjD6xPN51wVpp4Is41geV0GaHKbjyVRY7BniQd+RsiKPxj0mXw27dpcO5x
+	mZgEeZ3NVVH8HCFmtIwGTw3FLVj1v73CvlOW9Tnvn03DbMgzF9X5O830CpyXXV3ktevQ6SOfO1/yQ
+	fryyqVrNEOjyXqvw9xHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbncC-007TVy-H1; Mon, 13 Mar 2023 19:13:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbnbt-007TId-Mx
-	for linux-riscv@bombadil.infradead.org; Mon, 13 Mar 2023 19:13:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3ME6kGGSq8N1B7fh9UKNG+KzI9iIShrWG6DRAEhS6Hc=; b=Nvoh0QEtkSJk+SexfFV8J85lgs
-	9kWYtNRGgjsBkLvRwPF/J5Wp007RX2mmY3Ss55y7yTs2DncfQTS6JePu9Tmd9V9m4US8BwyF6ar15
-	VttN4FtHAW/H5lVKngT4f7ZV66vNWZ6Zl0yS5SY1BeoufU+Dmb6Egda5+GwV3c6xvCrk8Ua5/CNCu
-	SAFmTVCvT1xb33ixy0AJ1j3BkyDftHuus6YCszfG8sQHKWeplrQ0meGEeK5harHZk6haONl3DgLjS
-	59yJGqnRiEqdTLdK3ZNvRzjQUcHX4vbVRsKftZ5l5pSsC/QZ+Tq6pAD5Cv4MGx1kG6jwrWWOVwdSH
-	hP+ra/Lg==;
+	id 1pbncy-007Tta-Ry; Mon, 13 Mar 2023 19:14:36 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pbnbo-001VBE-1L
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Mar 2023 19:13:28 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pbncv-007Tru-8P
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 19:14:36 +0000
 Received: from ip4d1634a9.dynamic.kabel-deutschland.de ([77.22.52.169] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pbnbW-00028k-3C; Mon, 13 Mar 2023 20:13:06 +0100
+	id 1pbnbX-00028k-5S; Mon, 13 Mar 2023 20:13:07 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -53,16 +38,16 @@ Cc: greentime.hu@sifive.com,
 	linux-riscv@lists.infradead.org,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de
-Subject: [PATCH RFC v3 09/16] RISC-V: crypto: update perl include with helpers for vector (crypto) instructions
-Date: Mon, 13 Mar 2023 20:12:55 +0100
-Message-Id: <20230313191302.580787-10-heiko.stuebner@vrull.eu>
+Subject: [PATCH RFC v3 13/16] RISC-V: crypto: add a vector-crypto-accelerated SHA512 implementation
+Date: Mon, 13 Mar 2023 20:12:59 +0100
+Message-Id: <20230313191302.580787-14-heiko.stuebner@vrull.eu>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 References: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_191324_648674_4B9E70C4 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20230313_121433_627776_C3CA8154 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,254 +59,540 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1PgoKVGhlIG9wZW5T
-U0wgc2NyaXB0cyB1c2UgYSBudW1iZXIgb2YgaGVscGVycyBmb3IgaGFuZGxpbmcgdmVjdG9yCmlu
-c3RydWN0aW9ucyBhbmQgaW5zdHJ1Y3Rpb25zIGZyb20gdGhlIHZlY3Rvci1jcnlwdG8tZXh0ZW5z
-aW9ucy4KClRoZXJlZm9yZSBwb3J0IHRoZXNlIG92ZXIgZnJvbSBvcGVuU1NMLgoKQ28tZGV2ZWxv
-cGVkLWJ5OiBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4K
-U2lnbmVkLW9mZi1ieTogQ2hyaXN0b3BoIE3DvGxsbmVyIDxjaHJpc3RvcGgubXVlbGxuZXJAdnJ1
-bGwuZXU+ClNpZ25lZC1vZmYtYnk6IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVlYm5lckB2cnVs
-bC5ldT4KLS0tCiBhcmNoL3Jpc2N2L2NyeXB0by9yaXNjdi5wbSB8IDQzMyArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKystCiAxIGZpbGUgY2hhbmdlZCwgNDMxIGluc2VydGlvbnMo
-KyksIDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9jcnlwdG8vcmlzY3Yu
-cG0gYi9hcmNoL3Jpc2N2L2NyeXB0by9yaXNjdi5wbQppbmRleCA2MWJjNGZjNDFhNDMuLmE3MDdk
-ZDNhNjhmYiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9jcnlwdG8vcmlzY3YucG0KKysrIGIvYXJj
-aC9yaXNjdi9jcnlwdG8vcmlzY3YucG0KQEAgLTQ4LDExICs0OCwzNCBAQCBzdWIgcmVhZF9yZWcg
-ewogICAgIHJldHVybiAkMTsKIH0KIAorbXkgQHZyZWdzID0gbWFwKCJ2JF8iLCgwLi4zMSkpOwor
-bXkgJXZyZWdsb29rdXA7CitAdnJlZ2xvb2t1cHtAdnJlZ3N9ID0gQHZyZWdzOworCitzdWIgcmVh
-ZF92cmVnIHsKKyAgICBteSAkdnJlZyA9IGxjIHNoaWZ0OworICAgIGlmICghZXhpc3RzKCR2cmVn
-bG9va3VweyR2cmVnfSkpIHsKKyAgICAgICAgbXkgJHRyYWNlID0gIiI7CisgICAgICAgIGlmICgk
-aGF2ZV9zdGFja3RyYWNlKSB7CisgICAgICAgICAgICAkdHJhY2UgPSBEZXZlbDo6U3RhY2tUcmFj
-ZS0+bmV3LT5hc19zdHJpbmc7CisgICAgICAgIH0KKyAgICAgICAgZGllKCJVbmtub3duIHZlY3Rv
-ciByZWdpc3RlciAiLiR2cmVnLiJcbiIuJHRyYWNlKTsKKyAgICB9CisgICAgaWYgKCEoJHZyZWcg
-PX4gL152KFswLTldKykkLykpIHsKKyAgICAgICAgbXkgJHRyYWNlID0gIiI7CisgICAgICAgIGlm
-ICgkaGF2ZV9zdGFja3RyYWNlKSB7CisgICAgICAgICAgICAkdHJhY2UgPSBEZXZlbDo6U3RhY2tU
-cmFjZS0+bmV3LT5hc19zdHJpbmc7CisgICAgICAgIH0KKyAgICAgICAgZGllKCJDb3VsZCBub3Qg
-cHJvY2VzcyB2ZWN0b3IgcmVnaXN0ZXIgIi4kdnJlZy4iXG4iLiR0cmFjZSk7CisgICAgfQorICAg
-IHJldHVybiAkMTsKK30KKwogIyBIZWxwZXIgZnVuY3Rpb25zCiAKIHN1YiBicmV2OF9ydjY0aSB7
-Ci0gICAgIyBicmV2OCB3aXRob3V0IGBicmV2OGAgaW5zdHJ1Y3Rpb24gKG9ubHkgaW4gWmtiaykK
-LSAgICAjIEJpdC1yZXZlcnNlcyB0aGUgZmlyc3QgYXJndW1lbnQgYW5kIG5lZWRzIHRocmVlIHNj
-cmF0Y2ggcmVnaXN0ZXJzCisgICAgIyBicmV2OCB3aXRob3V0IGBicmV2OGAgaW5zdHJ1Y3Rpb24g
-KG9ubHkgaW4gWmJrYikKKyAgICAjIEJpdC1yZXZlcnNlcyB0aGUgZmlyc3QgYXJndW1lbnQgYW5k
-IG5lZWRzIHR3byBzY3JhdGNoIHJlZ2lzdGVycwogICAgIG15ICR2YWwgPSBzaGlmdDsKICAgICBt
-eSAkdDAgPSBzaGlmdDsKICAgICBteSAkdDEgPSBzaGlmdDsKQEAgLTIyNyw0ICsyNTAsNDEwIEBA
-IHN1YiByZXY4IHsKICAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkcnMgPDwgMTUp
-IHwgKCRyZCA8PCA3KSk7CiB9CiAKKyMgVmVjdG9yIGluc3RydWN0aW9ucworCitzdWIgdmFkZF92
-diB7CisgICAgIyB2YWRkLnZ2IHZkLCB2czIsIHZzMQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAw
-MDAwMV8wMDAwMF8wMDAwMF8wMDBfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3Zy
-ZWcgc2hpZnQ7CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMxID0g
-cmVhZF92cmVnIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIg
-PDwgMjApIHwgKCR2czEgPDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2aWRfdiB7Cisg
-ICAgIyB2aWQudiB2ZAorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDEwMTAwMV8wMDAwMF8xMDAwMV8w
-MTBfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgcmV0
-dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZsZTMyX3Yg
-eworICAgICMgdmxlMzIudiB2ZCwgKHJzMSkKKyAgICBteSAkdGVtcGxhdGUgPSAwYjAwMDAwMDFf
-MDAwMDBfMDAwMDBfMTEwXzAwMDAwXzAwMDAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVnIHNo
-aWZ0OworICAgIG15ICRyczEgPSByZWFkX3JlZyBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIu
-KCR0ZW1wbGF0ZSB8ICgkcnMxIDw8IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdmxlNjRf
-diB7CisgICAgIyB2bGU2NC52IHZkLCAocnMxKQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAwMDAw
-MV8wMDAwMF8wMDAwMF8xMTFfMDAwMDBfMDAwMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcg
-c2hpZnQ7CisgICAgbXkgJHJzMSA9IHJlYWRfcmVnIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQg
-Ii4oJHRlbXBsYXRlIHwgKCRyczEgPDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2bHNl
-MzJfdiB7CisgICAgIyB2bHNlMzIudiB2ZCwgKHJzMSksIHJzMgorICAgIG15ICR0ZW1wbGF0ZSA9
-IDBiMDAwMDEwMV8wMDAwMF8wMDAwMF8xMTBfMDAwMDBfMDAwMDExMTsKKyAgICBteSAkdmQgPSBy
-ZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHJzMSA9IHJlYWRfcmVnIHNoaWZ0OworICAgIG15ICRy
-czIgPSByZWFkX3JlZyBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgk
-cnMyIDw8IDIwKSB8ICgkcnMxIDw8IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdmxzZTY0
-X3YgeworICAgICMgdmxzZTY0LnYgdmQsIChyczEpLCByczIKKyAgICBteSAkdGVtcGxhdGUgPSAw
-YjAwMDAxMDFfMDAwMDBfMDAwMDBfMTExXzAwMDAwXzAwMDAxMTE7CisgICAgbXkgJHZkID0gcmVh
-ZF92cmVnIHNoaWZ0OworICAgIG15ICRyczEgPSByZWFkX3JlZyBzaGlmdDsKKyAgICBteSAkcnMy
-ID0gcmVhZF9yZWcgc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHJz
-MiA8PCAyMCkgfCAoJHJzMSA8PCAxNSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZtZXJnZV92
-aW0geworICAgICMgdm1lcmdlLnZpbSB2ZCwgdnMyLCBpbW0sIHYwCisgICAgbXkgJHRlbXBsYXRl
-ID0gMGIwMTAxMTEwXzAwMDAwXzAwMDAwXzAxMV8wMDAwMF8xMDEwMTExOworICAgIG15ICR2ZCA9
-IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15
-ICRpbW0gPSBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8
-IDIwKSB8ICgkaW1tIDw8IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdm1lcmdlX3Z2bSB7
-CisgICAgIyB2bWVyZ2UudnZtIHZkIHZzMiB2czEKKyAgICBteSAkdGVtcGxhdGUgPSAwYjAxMDEx
-MTBfMDAwMDBfMDAwMDBfMDAwXzAwMDAwXzEwMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVn
-IHNoaWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHZzMSA9IHJl
-YWRfdnJlZyBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8
-IDIwKSB8ICgkdnMxIDw8ICAgMTUpIHwgKCR2ZCA8PCA3KSkKK30KKworc3ViIHZtc2VxX3ZpIHsK
-KyAgICAjIHZtc2VxIHZkIHZzMSwgaW1tCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMTEwMDAxXzAw
-MDAwXzAwMDAwXzAxMV8wMDAwMF8xMDEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlm
-dDsKKyAgICBteSAkdnMxID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICRpbW0gPSBzaGlmdDsK
-KyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMxIDw8IDIwKSB8ICgkaW1tIDw8
-ICAgMTUpIHwgKCR2ZCA8PCA3KSkKK30KKworc3ViIHZtdl92X2kgeworICAgICMgdm12LnYuaSB2
-ZCwgaW1tCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMTAxMTExXzAwMDAwXzAwMDAwXzAxMV8wMDAw
-MF8xMDEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkaW1tID0g
-c2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJGltbSA8PCAxNSkgfCAo
-JHZkIDw8IDcpKTsKK30KKworc3ViIHZtdl92X3YgeworICAgICMgdm12LnYudiB2ZCwgdnMxCisg
-ICAgbXkgJHRlbXBsYXRlID0gMGIwMTAxMTExXzAwMDAwXzAwMDAwXzAwMF8wMDAwMF8xMDEwMTEx
-OworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMxID0gcmVhZF92cmVn
-IHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czEgPDwgMTUpIHwg
-KCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2b3JfdnZfdjB0IHsKKyAgICAjIHZvci52diB2ZCwgdnMy
-LCB2czEsIHYwLnQKKyAgICBteSAkdGVtcGxhdGUgPSAwYjAwMTAxMDBfMDAwMDBfMDAwMDBfMDAw
-XzAwMDAwXzEwMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICR2
-czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHZzMSA9IHJlYWRfdnJlZyBzaGlmdDsKKyAg
-ICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8IDIwKSB8ICgkdnMxIDw8IDE1
-KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdnNlMzJfdiB7CisgICAgIyB2c2UzMi52IHZkLCAo
-cnMxKQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAwMDAwMV8wMDAwMF8wMDAwMF8xMTBfMDAwMDBf
-MDEwMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHJzMSA9IHJl
-YWRfcmVnIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCRyczEgPDwg
-MTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2c2U2NF92IHsKKyAgICAjIHZzZTY0LnYgdmQs
-IChyczEpCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMDAwMDAxXzAwMDAwXzAwMDAwXzExMV8wMDAw
-MF8wMTAwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkcnMxID0g
-cmVhZF9yZWcgc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHJzMSA8
-PCAxNSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzZXRpdmxpX194MF8yX2U2NF9tMV90YV9t
-YSB7CisgICAgIyB2c2V0aXZsaSB4MCwgMiwgZTY0LCBtMSwgdGEsIG1hCisgICAgcmV0dXJuICIu
-d29yZCAweGNkODE3MDU3IjsKK30KKworc3ViIHZzZXRpdmxpX194MF80X2UzMl9tMV90YV9tYSB7
-CisgICAgIyB2c2V0aXZsaSB4MCwgNCwgZTMyLCBtMSwgdGEsIG1hCisgICAgcmV0dXJuICIud29y
-ZCAweGNkMDI3MDU3IjsKK30KKworc3ViIHZzZXRpdmxpX194MF80X2U2NF9tMV90YV9tYSB7Cisg
-ICAgIyB2c2V0aXZsaSB4MCw0LGU2NCxtMSx0YSxtYQorICAgIHJldHVybiAiLndvcmQgMHhjZDgy
-NzA1NyI7Cit9CisKK3N1YiB2c2V0aXZsaV9feDBfOF9lMzJfbTFfdGFfbWEgeworICAgIHJldHVy
-biAiLndvcmQgMHhjZDA0NzA1NyI7Cit9CisKK3N1YiB2c2xpZGVkb3duX3ZpIHsKKyAgICAjIHZz
-bGlkZWRvd24udmkgdmQsIHZzMiwgdWltbQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAxMTExMV8w
-MDAwMF8wMDAwMF8wMTFfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hp
-ZnQ7CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdWltbSA9IHNoaWZ0
-OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR1aW1t
-IDw8IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdnNsaWRldXBfdmlfdjB0IHsKKyAgICAj
-IHZzbGlkZXVwLnZpIHZkLCB2czIsIHVpbW0sIHYwLnQKKyAgICBteSAkdGVtcGxhdGUgPSAwYjAw
-MTExMDBfMDAwMDBfMDAwMDBfMDExXzAwMDAwXzEwMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92
-cmVnIHNoaWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHVpbW0g
-PSBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8IDIwKSB8
-ICgkdWltbSA8PCAxNSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzbGlkZXVwX3ZpIHsKKyAg
-ICAjIHZzbGlkZXVwLnZpIHZkLCB2czIsIHVpbW0KKyAgICBteSAkdGVtcGxhdGUgPSAwYjAwMTEx
-MDFfMDAwMDBfMDAwMDBfMDExXzAwMDAwXzEwMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVn
-IHNoaWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHVpbW0gPSBz
-aGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8IDIwKSB8ICgk
-dWltbSA8PCAxNSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzbGxfdmkgeworICAgICMgdnNs
-bC52aSB2ZCwgdnMyLCB1aW1tLCB2bQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMTAwMTAxMV8wMDAw
-MF8wMDAwMF8wMTFfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7
-CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdWltbSA9IHNoaWZ0Owor
-ICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR1aW1tIDw8
-IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdnNybF92eCB7CisgICAgIyB2c3JsLnZ4IHZk
-LCB2czIsIHJzMQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMTAxMDAwMV8wMDAwMF8wMDAwMF8xMDBf
-MDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHZz
-MiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkcnMxID0gcmVhZF9yZWcgc2hpZnQ7CisgICAg
-cmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHJzMSA8PCAxNSkg
-fCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzc2UzMl92IHsKKyAgICAjIHZzZTMyLnYgdnMzLCAo
-cnMxKSwgcnMyCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMDAwMTAxXzAwMDAwXzAwMDAwXzExMF8w
-MDAwMF8wMTAwMTExOworICAgIG15ICR2czMgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHJz
-MSA9IHJlYWRfcmVnIHNoaWZ0OworICAgIG15ICRyczIgPSByZWFkX3JlZyBzaGlmdDsKKyAgICBy
-ZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkcnMyIDw8IDIwKSB8ICgkcnMxIDw8IDE1KSB8
-ICgkdnMzIDw8IDcpKTsKK30KKworc3ViIHZzc2U2NF92IHsKKyAgICAjIHZzc2U2NC52IHZzMywg
-KHJzMSksIHJzMgorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAwMDEwMV8wMDAwMF8wMDAwMF8xMTFf
-MDAwMDBfMDEwMDExMTsKKyAgICBteSAkdnMzID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICRy
-czEgPSByZWFkX3JlZyBzaGlmdDsKKyAgICBteSAkcnMyID0gcmVhZF9yZWcgc2hpZnQ7CisgICAg
-cmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHJzMiA8PCAyMCkgfCAoJHJzMSA8PCAxNSkg
-fCAoJHZzMyA8PCA3KSk7Cit9CisKK3N1YiB2eG9yX3Z2X3YwdCB7CisgICAgIyB2eG9yLnZ2IHZk
-LCB2czIsIHZzMSwgdjAudAorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAxMDExMF8wMDAwMF8wMDAw
-MF8wMDBfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAg
-bXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMxID0gcmVhZF92cmVnIHNoaWZ0
-OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR2czEg
-PDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2eG9yX3Z2IHsKKyAgICAjIHZ4b3IudnYg
-dmQsIHZzMiwgdnMxCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMDEwMTExXzAwMDAwXzAwMDAwXzAw
-MF8wMDAwMF8xMDEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAk
-dnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICR2czEgPSByZWFkX3ZyZWcgc2hpZnQ7Cisg
-ICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHZzMSA8PCAx
-NSkgfCAoJHZkIDw8IDcpKTsKK30KKworIyBWZWN0b3IgY3J5cHRvIGluc3RydWN0aW9ucworCisj
-IyBadmtiIGluc3RydWN0aW9ucworCitzdWIgdmNsbXVsaF92eCB7CisgICAgIyB2Y2xtdWxoLnZ4
-IHZkLCB2czIsIHJzMQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAxMTAxMV8wMDAwMF8wMDAwMF8x
-MTBfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkg
-JHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkcnMxID0gcmVhZF9yZWcgc2hpZnQ7Cisg
-ICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHJzMSA8PCAx
-NSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZjbG11bF92eF92MHQgeworICAgICMgdmNsbXVs
-LnZ4IHZkLCB2czIsIHJzMSwgdjAudAorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMDAxMTAwMF8wMDAw
-MF8wMDAwMF8xMTBfMDAwMDBfMTAxMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7
-CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkcnMxID0gcmVhZF9yZWcg
-c2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAo
-JHJzMSA8PCAxNSkgfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZjbG11bF92eCB7CisgICAgIyB2
-Y2xtdWwudnggdmQsIHZzMiwgcnMxCisgICAgbXkgJHRlbXBsYXRlID0gMGIwMDExMDAxXzAwMDAw
-XzAwMDAwXzExMF8wMDAwMF8xMDEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsK
-KyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICRyczEgPSByZWFkX3JlZyBz
-aGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8IDIwKSB8ICgk
-cnMxIDw8IDE1KSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdnJldjhfdiB7CisgICAgIyB2cmV2
-OC52IHZkLCB2czIKKyAgICBteSAkdGVtcGxhdGUgPSAwYjAxMDAxMDFfMDAwMDBfMDEwMDFfMDEw
-XzAwMDAwXzEwMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICR2
-czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAo
-JHZzMiA8PCAyMCkgfCAoJHZkIDw8IDcpKTsKK30KKworIyMgWnZrZyBpbnN0cnVjdGlvbnMKKwor
-c3ViIHZnaHNoX3Z2IHsKKyAgICAjIHZnaHNoLnZ2IHZkLCB2czIsIHZzMQorICAgIG15ICR0ZW1w
-bGF0ZSA9IDBiMTAxMTAwMV8wMDAwMF8wMDAwMF8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAk
-dmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAg
-ICBteSAkdnMxID0gcmVhZF92cmVnIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBs
-YXRlIHwgKCR2czIgPDwgMjApIHwgKCR2czEgPDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1
-YiB2Z211bF92diB7CisgICAgIyB2Z211bC52diB2ZCwgdnMyCisgICAgbXkgJHRlbXBsYXRlID0g
-MGIxMDEwMDAxXzAwMDAwXzEwMDAxXzAxMF8wMDAwMF8xMTEwMTExOworICAgIG15ICR2ZCA9IHJl
-YWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIHJldHVy
-biAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR2ZCA8PCA3KSk7Cit9CisK
-KyMjIFp2a25lZCBpbnN0cnVjdGlvbnMKKworc3ViIHZhZXNkZl92cyB7CisgICAgIyB2YWVzZGYu
-dnMgdmQsIHZzMgorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMTAxMDAxXzFfMDAwMDBfMDAwMDFfMDEw
-XzAwMDAwXzExMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVnICBzaGlmdDsKKyAgICBteSAk
-dnMyID0gcmVhZF92cmVnICBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8
-ICgkdnMyIDw8IDIwKSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdmFlc2RtX3ZzIHsKKyAgICAj
-IHZhZXNkbS52cyB2ZCwgdnMyCisgICAgbXkgJHRlbXBsYXRlID0gMGIxMDEwMDFfMV8wMDAwMF8w
-MDAwMF8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7Cisg
-ICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1w
-bGF0ZSB8ICgkdnMyIDw8IDIwKSB8ICgkdmQgPDwgNykpOworfQorCitzdWIgdmFlc2VmX3ZzIHsK
-KyAgICAjIHZhZXNlZi52cyB2ZCwgdnMyCisgICAgbXkgJHRlbXBsYXRlID0gMGIxMDEwMDFfMV8w
-MDAwMF8wMDAxMV8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgIHNo
-aWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQg
-Ii4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2YWVz
-ZW1fdnMgeworICAgICMgdmFlc2VtLnZzIHZkLCB2czIKKyAgICBteSAkdGVtcGxhdGUgPSAwYjEw
-MTAwMV8xXzAwMDAwXzAwMDEwXzAxMF8wMDAwMF8xMTEwMTExOworICAgIG15ICR2ZCA9IHJlYWRf
-dnJlZyAgc2hpZnQ7CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyAgc2hpZnQ7CisgICAgcmV0dXJu
-ICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHZkIDw8IDcpKTsKK30KKwor
-c3ViIHZhZXNrZjFfdmkgeworICAgICMgdmFlc2tmMS52aSB2ZCwgdnMyLCB1aW1tbQorICAgIG15
-ICR0ZW1wbGF0ZSA9IDBiMTAwMDEwXzFfMDAwMDBfMDAwMDBfMDEwXzAwMDAwXzExMTAxMTE7Cisg
-ICAgbXkgJHZkID0gcmVhZF92cmVnICBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnICBz
-aGlmdDsKKyAgICBteSAkdWltbSA9IHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBs
-YXRlIHwgKCR1aW1tIDw8IDE1KSB8ICgkdnMyIDw8IDIwKSB8ICgkdmQgPDwgNykpOworfQorCitz
-dWIgdmFlc2tmMl92aSB7CisgICAgIyB2YWVza2YyLnZpIHZkLCB2czIsIHVpbW0KKyAgICBteSAk
-dGVtcGxhdGUgPSAwYjEwMTAxMF8xXzAwMDAwXzAwMDAwXzAxMF8wMDAwMF8xMTEwMTExOworICAg
-IG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0
-OworICAgIG15ICR1aW1tID0gc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUg
-fCAoJHZzMiA8PCAyMCkgfCAoJHVpbW0gPDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2
-YWVzel92cyB7CisgICAgIyB2YWVzei52cyB2ZCwgdnMyCisgICAgbXkgJHRlbXBsYXRlID0gMGIx
-MDEwMDFfMV8wMDAwMF8wMDExMV8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAkdmQgPSByZWFk
-X3ZyZWcgIHNoaWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgIHNoaWZ0OworICAgIHJldHVy
-biAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR2ZCA8PCA3KSk7Cit9CisK
-KyMjIFp2a25oYSBhbmQgWnZrbmhiIGluc3RydWN0aW9ucworCitzdWIgdnNoYTJtc192diB7Cisg
-ICAgIyB2c2hhMm1zLnZ2IHZkLCB2czIsIHZzMQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMTAxMTAx
-MV8wMDAwMF8wMDAwMF8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcg
-c2hpZnQ7CisgICAgbXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMxID0gcmVh
-ZF92cmVnIHNoaWZ0OworICAgIHJldHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwg
-MjApfCAoJHZzMSA8PCAxNSApfCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzaGEyY2hfdnYgewor
-ICAgICMgdnNoYTJjaC52diB2ZCwgdnMyLCB2czEKKyAgICBteSAkdGVtcGxhdGUgPSAwYjEwMTEx
-MF8xMDAwMF8wMDAwMF8wMDFfMDAwMDBfMDExMTAxMTE7CisgICAgbXkgJHZkID0gcmVhZF92cmVn
-IHNoaWZ0OworICAgIG15ICR2czIgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAgbXkgJHZzMSA9IHJl
-YWRfdnJlZyBzaGlmdDsKKyAgICByZXR1cm4gIi53b3JkICIuKCR0ZW1wbGF0ZSB8ICgkdnMyIDw8
-IDIwKXwgKCR2czEgPDwgMTUgKXwgKCR2ZCA8PCA3KSk7Cit9CisKK3N1YiB2c2hhMmNsX3Z2IHsK
-KyAgICAjIHZzaGEyY2wudnYgdmQsIHZzMiwgdnMxCisgICAgbXkgJHRlbXBsYXRlID0gMGIxMDEx
-MTFfMTAwMDBfMDAwMDBfMDAxXzAwMDAwXzAxMTEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJl
-ZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICR2czEgPSBy
-ZWFkX3ZyZWcgc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8
-PCAyMCl8ICgkdnMxIDw8IDE1ICl8ICgkdmQgPDwgNykpOworfQorCisjIyBadmtzZWQgaW5zdHJ1
-Y3Rpb25zCisKK3N1YiB2c200a192aSB7CisgICAgIyB2c200ay52aSB2ZCwgdnMyLCB1aW1tCisg
-ICAgbXkgJHRlbXBsYXRlID0gMGIxMDAwMDExXzAwMDAwXzAwMDAwXzAxMF8wMDAwMF8xMTEwMTEx
-OworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVn
-IHNoaWZ0OworICAgIG15ICR1aW1tID0gc2hpZnQ7CisgICAgcmV0dXJuICIud29yZCAiLigkdGVt
-cGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHVpbW0gPDwgMTUpIHwgKCR2ZCA8PCA3KSk7Cit9CisK
-K3N1YiB2c200cl92cyB7CisgICAgIyB2c200ci52cyB2ZCwgdnMyCisgICAgbXkgJHRlbXBsYXRl
-ID0gMGIxMDEwMDExXzAwMDAwXzEwMDAwXzAxMF8wMDAwMF8xMTEwMTExOworICAgIG15ICR2ZCA9
-IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMyID0gcmVhZF92cmVnIHNoaWZ0OworICAgIHJl
-dHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR2ZCA8PCA3KSk7Cit9
-CisKKyMjIHp2a3NoIGluc3RydWN0aW9ucworCitzdWIgdnNtM2NfdmkgeworICAgICMgdnNtM2Mu
-dmkgdmQsIHZzMiwgdWltbQorICAgIG15ICR0ZW1wbGF0ZSA9IDBiMTAxMDExMV8wMDAwMF8wMDAw
-MF8wMTBfMDAwMDBfMTExMDExMTsKKyAgICBteSAkdmQgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAg
-bXkgJHZzMiA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdWltbSA9IHNoaWZ0OworICAgIHJl
-dHVybiAiLndvcmQgIi4oJHRlbXBsYXRlIHwgKCR2czIgPDwgMjApIHwgKCR1aW1tIDw8IDE1ICkg
-fCAoJHZkIDw8IDcpKTsKK30KKworc3ViIHZzbTNtZV92diB7CisgICAgIyB2c20zbWUudnYgdmQs
-IHZzMiwgdnMxCisgICAgbXkgJHRlbXBsYXRlID0gMGIxMDAwMDAxXzAwMDAwXzAwMDAwXzAxMF8w
-MDAwMF8xMTEwMTExOworICAgIG15ICR2ZCA9IHJlYWRfdnJlZyBzaGlmdDsKKyAgICBteSAkdnMy
-ID0gcmVhZF92cmVnIHNoaWZ0OworICAgIG15ICR2czEgPSByZWFkX3ZyZWcgc2hpZnQ7CisgICAg
-cmV0dXJuICIud29yZCAiLigkdGVtcGxhdGUgfCAoJHZzMiA8PCAyMCkgfCAoJHZzMSA8PCAxNSAp
-IHwgKCR2ZCA8PCA3KSk7Cit9CisKIDE7Ci0tIAoyLjM5LjAKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+This adds an accelerated SHA512 algorithm using either the Zvknhb
+vector crypto extension.
+
+Co-developed-by: Charalampos Mitrodimas <charalampos.mitrodimas@vrull.eu>
+Signed-off-by: Charalampos Mitrodimas <charalampos.mitrodimas@vrull.eu>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/crypto/Kconfig                  |  11 +
+ arch/riscv/crypto/Makefile                 |   8 +-
+ arch/riscv/crypto/sha512-riscv64-glue.c    | 104 ++++++
+ arch/riscv/crypto/sha512-riscv64-zvknhb.pl | 347 +++++++++++++++++++++
+ 4 files changed, 469 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
+ create mode 100644 arch/riscv/crypto/sha512-riscv64-zvknhb.pl
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 8645e02171f7..da6244f0c0c4 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -26,4 +26,15 @@ config CRYPTO_SHA256_RISCV64
+ 	  Architecture: riscv64 using
+ 	  - Zvknha or Zvknhb vector crypto extensions
+ 
++config CRYPTO_SHA512_RISCV64
++	tristate "Hash functions: SHA-512"
++	depends on 64BIT && RISCV_ISA_V
++	select CRYPTO_HASH
++	select CRYPTO_SHA512
++	help
++	  SHA-512 secure hash algorithm (FIPS 180)
++
++	  Architecture: riscv64
++	  - Zvknhb vector crypto extension
++
+ endmenu
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 02b3b4c32672..3c94753affdf 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -15,6 +15,9 @@ endif
+ obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
+ sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknhb.o
+ 
++obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
++sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb.o
++
+ quiet_cmd_perlasm = PERLASM $@
+       cmd_perlasm = $(PERL) $(<) void $(@)
+ 
+@@ -30,5 +33,8 @@ $(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
+ $(obj)/sha256-riscv64-zvknhb.S: $(src)/sha256-riscv64-zvknha.pl
+ 	$(call cmd,perlasm)
+ 
++$(obj)/sha512-riscv64-zvknhb.S: $(src)/sha512-riscv64-zvknhb.pl
++	$(call cmd,perlasm)
++
+ clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S ghash-riscv64-zvkg.S
+-clean-files += sha256-riscv64-zvknha.S
++clean-files += sha256-riscv64-zvknha.S sha512-riscv64-zvknhb.S
+diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
+new file mode 100644
+index 000000000000..fc35ba269bbc
+--- /dev/null
++++ b/arch/riscv/crypto/sha512-riscv64-glue.c
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Linux/riscv64 port of the OpenSSL SHA512 implementation for RISCV64
++ *
++ * Copyright (C) 2023 VRULL GmbH
++ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
++ */
++
++#include <linux/types.h>
++#include <asm/simd.h>
++#include <asm/vector.h>
++#include <crypto/internal/hash.h>
++#include <crypto/internal/simd.h>
++#include <crypto/sha2.h>
++#include <crypto/sha512_base.h>
++
++asmlinkage void sha512_block_data_order_zvknhb(u64 *digest, const void *data,
++					unsigned int num_blks);
++
++static void __sha512_block_data_order(struct sha512_state *sst, u8 const *src,
++				      int blocks)
++{
++	sha512_block_data_order_zvknhb(sst->state, src, blocks);
++}
++
++static int sha512_update(struct shash_desc *desc, const u8 *data,
++			 unsigned int len)
++{
++	if (crypto_simd_usable()) {
++		int ret;
++
++		kernel_rvv_begin();
++		ret = sha512_base_do_update(desc, data, len,
++					    __sha512_block_data_order);
++		kernel_rvv_end();
++		return ret;
++	} else { 
++		return crypto_sha512_update(desc, data, len);
++	}
++}
++
++static int sha512_finup(struct shash_desc *desc, const u8 *data,
++			unsigned int len, u8 *out)
++{
++	if (!crypto_simd_usable())
++		return crypto_sha512_finup(desc, data, len, out);
++
++	kernel_rvv_begin();
++	if (len)
++		sha512_base_do_update(desc, data, len,
++				      __sha512_block_data_order);
++
++	sha512_base_do_finalize(desc, __sha512_block_data_order);
++	kernel_rvv_end();
++
++	return sha512_base_finish(desc, out);
++}
++
++static int sha512_final(struct shash_desc *desc, u8 *out)
++{
++	return sha512_finup(desc, NULL, 0, out);
++}
++
++static struct shash_alg sha512_alg = {
++	.digestsize		= SHA512_DIGEST_SIZE,
++	.init			= sha512_base_init,
++	.update			= sha512_update,
++	.final			= sha512_final,
++	.finup			= sha512_finup,
++	.descsize		= sizeof(struct sha512_state),
++	.base.cra_name		= "sha512",
++	.base.cra_driver_name	= "sha512-riscv64-zvknhb",
++	.base.cra_priority	= 150,
++	.base.cra_blocksize	= SHA512_BLOCK_SIZE,
++	.base.cra_module	= THIS_MODULE,
++};
++
++static int __init sha512_mod_init(void)
++{
++	/* sha512 needs at least a vlen of 256 to work correctly */
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 256)
++		return crypto_register_shash(&sha512_alg);
++
++	return 0;
++}
++
++static void __exit sha512_mod_fini(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 256)
++		crypto_unregister_shash(&sha512_alg);
++}
++
++module_init(sha512_mod_init);
++module_exit(sha512_mod_fini);
++
++MODULE_DESCRIPTION("SHA-512 secure hash for riscv64");
++MODULE_AUTHOR("Andy Polyakov <appro@openssl.org>");
++MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
++MODULE_LICENSE("GPL v2");
++MODULE_ALIAS_CRYPTO("sha512");
+diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb.pl b/arch/riscv/crypto/sha512-riscv64-zvknhb.pl
+new file mode 100644
+index 000000000000..f7d609003358
+--- /dev/null
++++ b/arch/riscv/crypto/sha512-riscv64-zvknhb.pl
+@@ -0,0 +1,347 @@
++#! /usr/bin/env perl
++# Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
++#
++# Licensed under the Apache License 2.0 (the "License").  You may not use
++# this file except in compliance with the License.  You can obtain a copy
++# in the file LICENSE in the source distribution or at
++# https://www.openssl.org/source/license.html
++
++# The generated code of this file depends on the following RISC-V extensions:
++# - RV64I
++# - RISC-V vector ('V') with VLEN >= 256
++# - Vector Bit-manipulation used in Cryptography ('Zvkb')
++# - Vector SHA-2 Secure Hash ('Zvknhb')
++
++use strict;
++use warnings;
++
++use FindBin qw($Bin);
++use lib "$Bin";
++use lib "$Bin/../../perlasm";
++use riscv;
++
++# $output is the last argument if it looks like a file (it has an extension)
++# $flavour is the first argument if it doesn't look like a file
++my $output = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop : undef;
++my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.| ? shift : undef;
++
++$output and open STDOUT,">$output";
++
++my $code=<<___;
++.text
++___
++
++my ($V0, $V10, $V11, $V12, $V13, $V14, $V15, $V16, $V17) = ("v0", "v10", "v11", "v12", "v13", "v14","v15", "v16", "v17");
++my ($V26, $V27) = ("v26", "v27");
++
++my $K512 = "K512";
++
++# Function arguments
++my ($H, $INP, $LEN, $KT, $STRIDE) = ("a0", "a1", "a2", "a3", "t3");
++
++################################################################################
++# void sha512_block_data_order(void *c, const void *p, size_t len)
++$code .= <<___;
++.p2align 2
++.globl sha512_block_data_order_zvknhb
++.type sha512_block_data_order_zvknhb,\@function
++sha512_block_data_order_zvknhb:
++    @{[vsetivli__x0_4_e64_m1_ta_ma]}
++
++    # H is stored as {a,b,c,d},{e,f,g,h}, but we need {f,e,b,a},{h,g,d,c}
++    # We achieve this by reading with a negative stride followed by
++    # element sliding.
++    li $STRIDE, -8
++    addi $H, $H, 24
++    @{[vlse64_v $V16, $H, $STRIDE]} # {d,c,b,a}
++    addi $H, $H, 32
++    @{[vlse64_v $V17, $H, $STRIDE]} # {h,g,f,e}
++    # Keep H advanced by 24
++    addi $H, $H, -32
++
++    @{[vmv_v_v $V27, $V16]} # {d,c,b,a}
++    @{[vslidedown_vi $V26, $V16, 2]} # {b,a,0,0}
++    @{[vslidedown_vi $V16, $V17, 2]} # {f,e,0,0}
++    @{[vslideup_vi $V16, $V26, 2]} # {f,e,b,a}
++    @{[vslideup_vi $V17, $V27, 2]} # {h,g,d,c}
++
++    # Keep the old state as we need it later: H' = H+{a',b',c',...,h'}.
++    @{[vmv_v_v $V26, $V16]}
++    @{[vmv_v_v $V27, $V17]}
++
++L_round_loop:
++    la $KT, $K512 # Load round constants K512
++
++    # Load the 1024-bits of the message block in v10-v13 and perform
++    # an endian swap on each 4 bytes element.
++    @{[vle64_v $V10, $INP]}
++    @{[vrev8_v $V10, $V10]}
++    add $INP, $INP, 32
++    @{[vle64_v $V11, $INP]}
++    @{[vrev8_v $V11, $V11]}
++    add $INP, $INP, 32
++    @{[vle64_v $V12, $INP]}
++    @{[vrev8_v $V12, $V12]}
++    add $INP, $INP, 32
++    @{[vle64_v $V13, $INP]}
++    @{[vrev8_v $V13, $V13]}
++    add $INP, $INP, 32
++
++    # Decrement length by 1
++    add $LEN, $LEN, -1
++
++    # Set v0 up for the vmerge that replaces the first word (idx==0)
++    @{[vid_v $V0]}
++    @{[vmseq_vi $V0, $V0, 0x0]} # v0.mask[i] = (i == 0 ? 1 : 0)
++
++    # Quad-round 0 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
++
++    # Quad-round 1 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
++
++    # Quad-round 2 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
++
++    # Quad-round 3 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
++
++    # Quad-round 4 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
++
++    # Quad-round 5 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
++
++    # Quad-round 6 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
++
++    # Quad-round 7 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
++
++    # Quad-round 8 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
++
++    # Quad-round 9 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
++
++    # Quad-round 10 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
++
++    # Quad-round 11 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
++
++    # Quad-round 12 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
++
++    # Quad-round 13 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
++
++    # Quad-round 14 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
++
++    # Quad-round 15 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
++
++    # Quad-round 16 (+0, v10->v11->v12->v13)
++    # Note that we stop generating new message schedule words (Wt, v10-13)
++    # as we already generated all the words we end up consuming (i.e., W[79:76]).
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++
++    # Quad-round 17 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++
++    # Quad-round 18 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++
++    # Quad-round 19 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    # No t1 increment needed.
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++
++    # H' = H+{a',b',c',...,h'}
++    @{[vadd_vv $V16, $V26, $V16]}
++    @{[vadd_vv $V17, $V27, $V17]}
++    @{[vmv_v_v $V26, $V16]}
++    @{[vmv_v_v $V27, $V17]}
++    bnez $LEN, L_round_loop
++
++    # v26 = v16 = {f,e,b,a}
++    # v27 = v17 = {h,g,d,c}
++    # Let's do the opposit transformation like on entry.
++
++    @{[vslideup_vi $V17, $V16, 2]} # {h,g,f,e}
++
++    @{[vslidedown_vi $V16, $V27, 2]} # {d,c,0,0}
++    @{[vslidedown_vi $V26, $V26, 2]} # {b,a,0,0}
++    @{[vslideup_vi $V16, $V26, 2]} # {d,c,b,a}
++
++    # H is already advanced by 24
++    @{[vsse64_v $V16, $H, $STRIDE]} # {a,b,c,d}
++    addi $H, $H, 32
++    @{[vsse64_v $V17, $H, $STRIDE]} # {e,f,g,h}
++
++    ret
++.size sha512_block_data_order_zvknhb,.-sha512_block_data_order_zvknhb
++
++.p2align 3
++.type $K512,\@object
++$K512:
++    .dword 0x428a2f98d728ae22, 0x7137449123ef65cd
++    .dword 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc
++    .dword 0x3956c25bf348b538, 0x59f111f1b605d019
++    .dword 0x923f82a4af194f9b, 0xab1c5ed5da6d8118
++    .dword 0xd807aa98a3030242, 0x12835b0145706fbe
++    .dword 0x243185be4ee4b28c, 0x550c7dc3d5ffb4e2
++    .dword 0x72be5d74f27b896f, 0x80deb1fe3b1696b1
++    .dword 0x9bdc06a725c71235, 0xc19bf174cf692694
++    .dword 0xe49b69c19ef14ad2, 0xefbe4786384f25e3
++    .dword 0x0fc19dc68b8cd5b5, 0x240ca1cc77ac9c65
++    .dword 0x2de92c6f592b0275, 0x4a7484aa6ea6e483
++    .dword 0x5cb0a9dcbd41fbd4, 0x76f988da831153b5
++    .dword 0x983e5152ee66dfab, 0xa831c66d2db43210
++    .dword 0xb00327c898fb213f, 0xbf597fc7beef0ee4
++    .dword 0xc6e00bf33da88fc2, 0xd5a79147930aa725
++    .dword 0x06ca6351e003826f, 0x142929670a0e6e70
++    .dword 0x27b70a8546d22ffc, 0x2e1b21385c26c926
++    .dword 0x4d2c6dfc5ac42aed, 0x53380d139d95b3df
++    .dword 0x650a73548baf63de, 0x766a0abb3c77b2a8
++    .dword 0x81c2c92e47edaee6, 0x92722c851482353b
++    .dword 0xa2bfe8a14cf10364, 0xa81a664bbc423001
++    .dword 0xc24b8b70d0f89791, 0xc76c51a30654be30
++    .dword 0xd192e819d6ef5218, 0xd69906245565a910
++    .dword 0xf40e35855771202a, 0x106aa07032bbd1b8
++    .dword 0x19a4c116b8d2d0c8, 0x1e376c085141ab53
++    .dword 0x2748774cdf8eeb99, 0x34b0bcb5e19b48a8
++    .dword 0x391c0cb3c5c95a63, 0x4ed8aa4ae3418acb
++    .dword 0x5b9cca4f7763e373, 0x682e6ff3d6b2b8a3
++    .dword 0x748f82ee5defb2fc, 0x78a5636f43172f60
++    .dword 0x84c87814a1f0ab72, 0x8cc702081a6439ec
++    .dword 0x90befffa23631e28, 0xa4506cebde82bde9
++    .dword 0xbef9a3f7b2c67915, 0xc67178f2e372532b
++    .dword 0xca273eceea26619c, 0xd186b8c721c0c207
++    .dword 0xeada7dd6cde0eb1e, 0xf57d4f7fee6ed178
++    .dword 0x06f067aa72176fba, 0x0a637dc5a2c898a6
++    .dword 0x113f9804bef90dae, 0x1b710b35131c471b
++    .dword 0x28db77f523047d84, 0x32caab7b40c72493
++    .dword 0x3c9ebe0a15c9bebc, 0x431d67c49c100d4c
++    .dword 0x4cc5d4becb3e42b6, 0x597f299cfc657e2a
++    .dword 0x5fcb6fab3ad6faec, 0x6c44198c4a475817
++.size $K512,.-$K512
++___
++
++print $code;
++
++close STDOUT or die "error closing STDOUT: $!";
+-- 
+2.39.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
