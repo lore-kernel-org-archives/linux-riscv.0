@@ -4,57 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51318C6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 03:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC4FC61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 03:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9z+/l46qr5i4SabNjWYV+ekJ9rMQncZLSzkfTGG24/g=; b=hE9mwGxDYAsiiq
-	SRtK0yu/GeJWQGAUqVdIgdyRmngeTldhNLxP1oSp9WSz9h4809hpoZxCejboIihySCTYW0s49OiBE
-	hWiiedH5jP6MPuyUsHZlcvNZpTcq7LvApn5WGJgLQkj437ZxBNYUIEzxQGgS++D65Fg+QILS8J8BF
-	DkMxEwdmp5x/KhMfXLQzRXOTQXVrPM0OPh+A0YgfaThPlHWCxVyFYxH/JI+/jMbW6IzvaTgI225IH
-	OJRaZAuLI6UdINeMSIY7hTN3sjWXTA7qYdVe174syZv2T3+7LnIg9PzVhJmcR9wITc1aWlIAa3GHl
-	gSqvgr1PdarerNmkM73w==;
+	List-Owner; bh=f8YxndEhPvlcMWVCi4+7DW3TIAM2nBNAhhFu/uac4O0=; b=gPyDy/Hx7rBdQs
+	BcuO85QZHTLxT5bqo9RMBqcCJxOpmXF6CLFA+aN9QAqxBVf5JA3b/cCIZZpnj3wtBQARBxKjfKNEg
+	L46JE3pSNKfOxBMEQFHPdcb5kg+8KbGYHvaiMYDEDehJPaEdm8IqUG2ymxvAX5AuUbeEj66axY5dg
+	J+0EoS9YE8CulrV17etemqATk+QpQKa6xlCGRDPftWsiZz48fFCqG309rIE72SiFqwbexKvJHWNGX
+	txnstg+sVCwNnzGmeOaHeyOYUhQWiG11h/U42b+fXD13KNascvsasQyAxS9CK1I6eMyTi8NdnOfjS
+	tMjesAmUwZ8pwgUOW+RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbYeR-0047dp-EX; Mon, 13 Mar 2023 03:15:07 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbYeJ-0047bA-92
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 03:15:01 +0000
-Received: from kwepemi500014.china.huawei.com (unknown [172.30.72.54])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4PZhWp2WmTzSkfF;
-	Mon, 13 Mar 2023 11:11:34 +0800 (CST)
-Received: from [10.35.19.253] (10.35.19.253) by kwepemi500014.china.huawei.com
- (7.221.188.232) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21; Mon, 13 Mar
- 2023 11:13:17 +0800
-Message-ID: <e02fdfce-4574-8e7e-ec96-8e8eaa4067bc@huawei.com>
-Date: Mon, 13 Mar 2023 11:13:17 +0800
+	id 1pbYlt-0048OO-T4; Mon, 13 Mar 2023 03:22:49 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pbYlq-0048NP-Fj
+	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 03:22:48 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id B9B5724E1D2;
+	Mon, 13 Mar 2023 11:22:33 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Mar
+ 2023 11:22:33 +0800
+Received: from [192.168.125.74] (183.27.96.115) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Mar
+ 2023 11:22:32 +0800
+Message-ID: <92306b73-d7d2-0d60-de15-87bcd71714ed@starfivetech.com>
+Date: Mon, 13 Mar 2023 11:22:31 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-Subject: Re: [PATCH] riscv: relocate R_RISCV_CALL_PLT in kexec_file
-To: Torsten Duwe <duwe@lst.de>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>, Li Huafei <lihuafei1@huawei.com>, Liao
- Chang <liaochang1@huawei.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <liubao918@huawei.com>
-References: <20230310182726.GA25154@lst.de>
-From: Li Zhengyu <lizhengyu3@huawei.com>
-In-Reply-To: <20230310182726.GA25154@lst.de>
-X-Originating-IP: [10.35.19.253]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemi500014.china.huawei.com (7.221.188.232)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v5 11/21] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+ <20230311090733.56918-12-hal.feng@starfivetech.com>
+ <34b0473a-91bd-453b-91dd-01defde92d68@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <34b0473a-91bd-453b-91dd-01defde92d68@spud>
+X-Originating-IP: [183.27.96.115]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230312_201459_792037_F7A790C4 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230312_202246_852522_F21521EA 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,56 +78,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Mar 2023 19:27:03 +0100, Torsten Duwe <duwe@lst.de> wrote:
-> Depending on the toolchain (here: gcc-12, binutils-2.40) the
-> relocation entries for function calls are no longer R_RISCV_CALL, but
-> R_RISCV_CALL_PLT. When trying kexec_load_file on such kernels, it will
-> fail with
->
->   kexec_image: Unknown rela relocation: 19
->   kexec_image: Error loading purgatory ret=-8
->
-> The binary code at the call site remains the same, so tell
-> arch_kexec_apply_relocations_add() to handle _PLT alike.
+On Sat, 11 Mar 2023 13:11:38 +0000, Conor Dooley wrote:
+> On Sat, Mar 11, 2023 at 05:07:23PM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add bindings for the system clock and reset generator (SYSCRG) on the
+>> JH7110 RISC-V SoC by StarFive Ltd.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+>>  MAINTAINERS                                   |   8 +-
+>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+>>  4 files changed, 454 insertions(+), 3 deletions(-)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+>> 
+>> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> new file mode 100644
+>> index 000000000000..84373ae31644
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+> 
+>> +  clock-names:
+>> +    oneOf:
+>> +      - items:
+>> +          - const: osc
+>> +          - enum:
+>> +              - gmac1_rmii_refin
+>> +              - gmac1_rgmii_rxin
+>> +          - const: i2stx_bclk_ext
+>> +          - const: i2stx_lrck_ext
+>> +          - const: i2srx_bclk_ext
+>> +          - const: i2srx_lrck_ext
+>> +          - const: tdm_ext
+>> +          - const: mclk_ext
+>> +
+>> +      - items:
+>> +          - const: osc
+>> +          - const: gmac1_rmii_refin
+>> +          - const: gmac1_rgmii_rxin
+>> +          - const: i2stx_bclk_ext
+>> +          - const: i2stx_lrck_ext
+>> +          - const: i2srx_bclk_ext
+>> +          - const: i2srx_lrck_ext
+>> +          - const: tdm_ext
+>> +          - const: mclk_ext
+> 
+> Assuming nothing else here is optional,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-R_RISCV_CALL has already been deprecated, and replaced by R_RISCV_CALL_PLT.
+Yeah, nothing else here is optional. Thanks for your review.
 
-See Enum 18-19 in Table 3. Relocation types from 
-https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-elf.adoc 
-.
-
-It was deprecated in ("Deprecated R_RISCV_CALL, prefer 
-R_RISCV_CALL_PLT") 
-https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a0dced85018d7a0ec17023c9389cbd70b1dbc1b0
-
->
-> fixes: 838b3e28488f702 ("Load purgatory in kexec_file")
-> Signed-off-by: Torsten Duwe <duwe@suse.de>
-> Cc: stable@vger.kernel.org
->
-> ---
-> --- a/arch/riscv/kernel/elf_kexec.c
-> +++ b/arch/riscv/kernel/elf_kexec.c
-> @@ -425,6 +425,7 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
->   		 * sym, instead of searching the whole relsec.
->   		 */
->   		case R_RISCV_PCREL_HI20:
-> +		case R_RISCV_CALL_PLT:
->   		case R_RISCV_CALL:
->   			*(u64 *)loc = CLEAN_IMM(UITYPE, *(u64 *)loc) |
->   				 ENCODE_UJTYPE_IMM(val - addr);
->
-> .
-
-Palmer, please apply these references to the commit message.
-
-Reviewed-by: Li Zhengyu <lizhengyu3@huawei.com>
-
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
