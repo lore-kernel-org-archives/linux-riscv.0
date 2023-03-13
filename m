@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00658C6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80126C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 19:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wUDXouTgOn1m4B2nXqO4eoE7PtEcQDiU8FSlggzaB8U=; b=SqTfiT5M1gJgTy
-	FaQ+dBroiW1kVppWWREa/K9zwdV+nXuO0KNkJSPxf61vJyQdZn3GxFsSbQdCRni9nC6f1XmUVjAwu
-	8cZT6NjNo8JnE0yqkiNs2HTV/jSvfwLMx3OtxVtbyKY/p4f68epLOiJVGrTw5lhBx1W4FwcBQooZ5
-	6VevolCxCwGXmsTIAuAZ1V53QtwMMXmCq2aCpplno+zYCirVHJJfKHZ2Vu0ix9jXSeUbIDTSQ0Bep
-	9k+b+S1C2z5QT2XH3cqkfhGA/6NT6XY3At6E7bqWV4TqtDKgbENSEzULwqYevGKvAmzImcAfBKNvy
-	2rnafaNMzRzCbxL4RWsg==;
+	List-Owner; bh=zpll70A+9+Dc2TZlwaxfTXlzrKU4O4r1cGcrXDVe+pQ=; b=IihePY16YAQV86
+	DYmS2ZDXtUx2/2mxm+rLlMSyylX0NXEVNYW45C4MzEzZJbaVA9TgfKHVZlDFtXqRBO7WVG9k6Xw2C
+	q2bLY4trFKZAP5fauLFKROQL+QV5tdpl+k0JphN5NUoTwyDj6CuXpj7YfJjSrkB6Vfou+V54D8nr6
+	BbUS4Lm2VGEuv3FJXokwvACnoc+WJX+xFAgRKtU1WdulH2oXbdT0ZpmkJ9/I8G5ERHbZtTtAKTAXx
+	TteG9IDLM4pdXsaYEVKD7dgUtTb+aZ+lUPtJg87/3E//7umWvp8n7brE5PZ+tF3oXYWSphnCQpcLr
+	zTqo7/CbDP0MA0MswypQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbnbl-007TDg-2P; Mon, 13 Mar 2023 19:13:21 +0000
+	id 1pbnbm-007TEh-L9; Mon, 13 Mar 2023 19:13:22 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbnbg-007TAT-UX
+	id 1pbnbg-007TAv-Tp
 	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 19:13:18 +0000
 Received: from ip4d1634a9.dynamic.kabel-deutschland.de ([77.22.52.169] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pbnbV-00028k-Qn; Mon, 13 Mar 2023 20:13:05 +0100
+	id 1pbnbU-00028k-6z; Mon, 13 Mar 2023 20:13:04 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -38,16 +38,16 @@ Cc: greentime.hu@sifive.com,
 	linux-riscv@lists.infradead.org,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de
-Subject: [PATCH RFC v3 08/16] RISC-V: add vector crypto extension detection
-Date: Mon, 13 Mar 2023 20:12:54 +0100
-Message-Id: <20230313191302.580787-9-heiko.stuebner@vrull.eu>
+Subject: [PATCH RFC v3 02/16] riscv: Add vector extension XOR implementation
+Date: Mon, 13 Mar 2023 20:12:48 +0100
+Message-Id: <20230313191302.580787-3-heiko.stuebner@vrull.eu>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 References: <20230313191302.580787-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_121317_009479_D0DAF5FC 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20230313_121316_986807_75F22CE9 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,81 +64,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+From: Greentime Hu <greentime.hu@sifive.com>
 
-Add detection for some extensions of the vector-crypto specification, namely
-- Zvkb: Vector Bit-manipulation used in Cryptography
-- Zvkg: Vector GCM/GMAC
-- Zvknha and Zvknhb: NIST Algorithm Suite
-- Zvkns: AES-128, AES-256 Single Round Suite
-- Zvksed: ShangMi Algorithm Suite
-- Zvksh: ShangMi Algorithm Suite
+This patch adds support for vector optimized XOR and it is tested in
+qemu.
 
-As their use is very specific and will likely be limited to special places
-we expect current code to just pre-encode those instructions, so right now
-we don't introduce toolchain requirements.
-
+Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/hwcap.h | 7 +++++++
- arch/riscv/kernel/cpu.c        | 7 +++++++
- arch/riscv/kernel/cpufeature.c | 7 +++++++
- 3 files changed, 21 insertions(+)
+ arch/riscv/include/asm/xor.h | 82 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/lib/Makefile      |  1 +
+ arch/riscv/lib/xor.S         | 81 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 164 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b28548fb10f3..914559e0e136 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -45,6 +45,13 @@
- #define RISCV_ISA_EXT_ZIHINTPAUSE	32
- #define RISCV_ISA_EXT_ZBC		33
- #define RISCV_ISA_EXT_ZBKB		34
-+#define RISCV_ISA_EXT_ZVKB		35
-+#define RISCV_ISA_EXT_ZVKG		36
-+#define RISCV_ISA_EXT_ZVKNED		37
-+#define RISCV_ISA_EXT_ZVKNHA		38
-+#define RISCV_ISA_EXT_ZVKNHB		39
-+#define RISCV_ISA_EXT_ZVKSED		40
-+#define RISCV_ISA_EXT_ZVKSH		41
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+new file mode 100644
+index 000000000000..74867c7fd955
+--- /dev/null
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,82 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_VECTOR
++#include <asm/vector.h>
++#include <asm/switch_to.h>
++
++void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2);
++void xor_regs_3_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3);
++void xor_regs_4_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4);
++void xor_regs_5_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4,
++		 const unsigned long *__restrict p5);
++
++static void xor_rvv_2(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2)
++{
++	kernel_rvv_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_3(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3)
++{
++	kernel_rvv_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_4(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4)
++{
++	kernel_rvv_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_5(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4,
++		      const unsigned long *__restrict p5)
++{
++	kernel_rvv_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_rvv_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_rvv_2,
++	.do_3 = xor_rvv_3,
++	.do_4 = xor_rvv_4,
++	.do_5 = xor_rvv_5
++};
++
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector()) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6c74b0bedd60..d87e0b6fe1d0 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -10,3 +10,4 @@ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
  
- #define RISCV_ISA_EXT_MAX		64
- #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 6f65aac68018..c01e6673a947 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -190,6 +190,13 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
- 	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
- 	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
-+	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
-+	__RISCV_ISA_EXT_DATA(zvkg, RISCV_ISA_EXT_ZVKG),
-+	__RISCV_ISA_EXT_DATA(zvkned, RISCV_ISA_EXT_ZVKNED),
-+	__RISCV_ISA_EXT_DATA(zvknha, RISCV_ISA_EXT_ZVKNHA),
-+	__RISCV_ISA_EXT_DATA(zvknhb, RISCV_ISA_EXT_ZVKNHB),
-+	__RISCV_ISA_EXT_DATA(zvksed, RISCV_ISA_EXT_ZVKSED),
-+	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index eb7be8e7f24e..ad866321ae37 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -232,6 +232,13 @@ void __init riscv_fill_hwcap(void)
- 				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
- 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
- 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
-+				SET_ISA_EXT_MAP("zvkb", RISCV_ISA_EXT_ZVKB);
-+				SET_ISA_EXT_MAP("zvkg", RISCV_ISA_EXT_ZVKG);
-+				SET_ISA_EXT_MAP("zvkned", RISCV_ISA_EXT_ZVKNED);
-+				SET_ISA_EXT_MAP("zvknha", RISCV_ISA_EXT_ZVKNHA);
-+				SET_ISA_EXT_MAP("zvknhb", RISCV_ISA_EXT_ZVKNHB);
-+				SET_ISA_EXT_MAP("zvksed", RISCV_ISA_EXT_ZVKSED);
-+				SET_ISA_EXT_MAP("zvksh", RISCV_ISA_EXT_ZVKSH);
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
++lib-$(CONFIG_VECTOR)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..3bc059e18171
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/linkage.h>
++#include <asm-generic/export.h>
++#include <asm/asm.h>
++
++ENTRY(xor_regs_2_)
++	vsetvli a3, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
++	ret
++END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
++
++ENTRY(xor_regs_3_)
++	vsetvli a4, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
++	ret
++END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++ENTRY(xor_regs_4_)
++	vsetvli a5, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++ENTRY(xor_regs_5_)
++	vsetvli a6, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.39.0
 
