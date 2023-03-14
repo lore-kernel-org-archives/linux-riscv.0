@@ -4,70 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C6CC6FD19
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Mar 2023 23:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB436C6FD19
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 00:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MWa4ceN1oloIOZ87SKqALV0wjJtYVhEZyR54a6rJkww=; b=HqLnAv7nkqPmoB
-	dvk7BsHzu4gbw9BlmG0HnhCqD6zI8+uqzqgiUMuzYsz2G6v4dZ7K0LzPmsh2kYqu2k8dLZZ03UnTB
-	40SgzdNAuAl5zcTuyE6XdjfLa32dDvUcgJcHuht/WcIZzfu2hxYhDmQSNzxJEnJkLOmfhRRIPPCNI
-	YME1JW1oPshY9obwYsxdkRNh6mjcAceFv/FbHQTJM6AemiQexGOeK13CE4PUgHxF7uOECSoyU0Iue
-	NyFq4tIAVNwrUqqjJ588Zj7AygRKMS2V0Sg55NmKwtiuNu+vHjKqRXZ7PxeVHSEdyPbBfpg8lRx7+
-	XQ8t3t2Wz7Hqot3yDioQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MJQ7kVhbPp1s5GywQnvgdSv8wAuWuuAgtCixF5/2WBw=; b=hycVRRykQlEmqa
+	sA6kAx8eRBv4qaDA/QF5srtVgSFGSfF78mAScAUq7QdnzurAEA8/hhBzyA/mfaUf88OojFampHf9B
+	wpBLndYbWVJBRNnBFJqh8CA0xcwBs0ciYGd4ncwzoUeXv1vBFXWMODF8Lm8xgOpo0BILbUwZNDCVF
+	XWIKCyAPV8/3N82LEukU5Cuhjvoc7F7JSQ1fXZoX0dZ70yNZ4HqqQiw/vChsjTVKrEQWNdRonfb5O
+	f0f7mk8C8YTo65jkkcbUO8OgDPfvWugz1FL66bRjBUeBV+b4MInekR/ESLHCRbDZWrAi+wvULeFyX
+	d6m6rtC1hvTtOpIcjGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbrCb-008FoC-7W; Mon, 13 Mar 2023 23:03:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pbsMr-008PBJ-3k; Tue, 14 Mar 2023 00:18:17 +0000
+Received: from mail3-165.sinamail.sina.com.cn ([202.108.3.165])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pbr9w-008Edl-Tu
-	for linux-riscv@lists.infradead.org; Mon, 13 Mar 2023 23:00:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7CCBC61572;
-	Mon, 13 Mar 2023 23:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0B3C433EF;
-	Mon, 13 Mar 2023 23:00:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678748448;
-	bh=JCeQvBY6bMqovbU34cXbJ4Zgnocr52q58fWGR8Okslg=;
-	h=From:Date:Subject:To:Cc:From;
-	b=db8ONJnU3rzg0GkiT8U7ITxd6f/Pcpenykg1Q3Gh7uOGiQUfuKf+uowPWc92kRciM
-	 XClRrybnkrciyd9wLhE/RVuTmdPSSpoo7sk4Uu7cFGrpVokmkJWJOy7Hrynp5WTs1A
-	 tKssWkWDmsSGhK3ZFN2v3EDos4Sx/zcxpYCOHTvciNdA1uUZhLXT8xgvToT2/9EtRR
-	 eyHRXwwGypRwKKEKNAucW0swKGz8yjRYkcN5tV3YiY7srhFlfRiL7r9aGbsW3iv4AB
-	 bOT+ASwBhst36EDe6ab+VBcGUZgESIgn8UzP1gnHdQMCaarY5lvCF/UM1LOA2QscI7
-	 IAT03dPN/YTGw==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Mon, 13 Mar 2023 16:00:23 -0700
-Subject: [PATCH] riscv: Handle zicsr/zifencei issues between clang and
- binutils
+	id 1pbsMm-008PA2-PD
+	for linux-riscv@lists.infradead.org; Tue, 14 Mar 2023 00:18:15 +0000
+Received: from unknown (HELO localhost.localdomain)([114.249.61.130])
+	by sina.com (172.16.97.32) with ESMTP
+	id 640FBD140002BC27; Tue, 14 Mar 2023 08:17:25 +0800 (CST)
+X-Sender: hdanton@sina.com
+X-Auth-ID: hdanton@sina.com
+X-SMAIL-MID: 614649628911
+From: Hillf Danton <hdanton@sina.com>
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 4/4] crypto: starfive - Add hash and HMAC support
+Date: Tue, 14 Mar 2023 08:17:44 +0800
+Message-Id: <20230314001744.1911-1-hdanton@sina.com>
+In-Reply-To: <20230313135646.2077707-5-jiajie.ho@starfivetech.com>
+References: <20230313135646.2077707-1-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
-Message-Id: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAarD2QC/x2NQQrDMAwEvxJ0riC2A6X9SulBVuRGhzpFKiE05
- O91clkYFmY2cDEVh3u3gcmirnNtEC4d8ET1JahjY4h9TH0KCU2dF/wpu7UtUlkUi5LzjPE2BCb
- Jch0ZmiGTC2ajytPheJN/xY7jY1J0PbOP577/AX8nSeKGAAAA
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
- conor.dooley@microchip.com
-Cc: nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, patches@lists.linux.dev, stable@vger.kernel.org
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6797; i=nathan@kernel.org;
- h=from:subject:message-id; bh=JCeQvBY6bMqovbU34cXbJ4Zgnocr52q58fWGR8Okslg=;
- b=owGbwMvMwCEmm602sfCA1DTG02pJDCn8q+W/p6yaqjirarFIdECezW+de4YNOQ0aynImBz++m
- sKzSO9uRykLgxgHg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZhI53xGhu3M74vyHI/Vdh0N
- Fnbm+HaSU2tO389nYWqvr3sy9NQrrWFkaFCeGvwou9z2E8P1nR6KSVdWnPwXds6/6nW4bNjJte0
- XWQE=
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230313_160053_124286_1FF7A580 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20230313_171813_037844_2DD0796F 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,147 +65,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are two related issues that appear in certain combinations with
-clang and GNU binutils.
+On 13 Mar 2023 21:56:46 +0800 Jia Jie Ho <jiajie.ho@starfivetech.com>
+> +static int starfive_hash_xmit_dma(struct starfive_cryp_ctx *ctx)
+> +{
+> +	struct starfive_cryp_request_ctx *rctx = ctx->rctx;
+> +	struct starfive_cryp_dev *cryp = ctx->cryp;
+> +	struct dma_async_tx_descriptor	*in_desc;
+> +	dma_cookie_t cookie;
+> +	union  starfive_alg_cr alg_cr;
+> +	int total_len;
+> +	int ret;
+> +
+> +	if (!rctx->total)
+> +		return 0;
+> +
+> +	writel(rctx->total, cryp->base + STARFIVE_DMA_IN_LEN_OFFSET);
+> +
+> +	total_len = rctx->total;
+> +	total_len = (total_len & 0x3) ? (((total_len >> 2) + 1) << 2) : total_len;
+> +	sg_dma_len(rctx->in_sg) = total_len;
+> +
+> +	alg_cr.v = 0;
+> +	alg_cr.start = 1;
+> +	alg_cr.hash_dma_en = 1;
+> +
+> +	writel(alg_cr.v, cryp->base + STARFIVE_ALG_CR_OFFSET);
+> +
+> +	ret = dma_map_sg(cryp->dev, rctx->in_sg, rctx->in_sg_len, DMA_TO_DEVICE);
+> +	if (!ret)
+> +		return dev_err_probe(cryp->dev, -EINVAL, "dma_map_sg() error\n");
+> +
+> +	cryp->cfg_in.direction = DMA_MEM_TO_DEV;
+> +	cryp->cfg_in.src_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +	cryp->cfg_in.dst_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +	cryp->cfg_in.src_maxburst = cryp->dma_maxburst;
+> +	cryp->cfg_in.dst_maxburst = cryp->dma_maxburst;
+> +	cryp->cfg_in.dst_addr = cryp->phys_base + STARFIVE_ALG_FIFO_OFFSET;
+> +
+> +	dmaengine_slave_config(cryp->tx, &cryp->cfg_in);
+> +
+> +	in_desc = dmaengine_prep_slave_sg(cryp->tx, rctx->in_sg,
+> +					  rctx->in_sg_len, DMA_MEM_TO_DEV,
+> +					  DMA_PREP_INTERRUPT  |  DMA_CTRL_ACK);
+> +
+> +	if (!in_desc)
+> +		return -EINVAL;
+> +
+> +	reinit_completion(&cryp->tx_comp);
 
-The first occurs when a version of clang that supports zicsr or zifencei
-via '-march=' [1] (i.e, >= 17.x) is used in combination with a version
-of GNU binutils that do not recognize zicsr and zifencei in the
-'-march=' value (i.e., < 2.36):
+What breaks without reinit?
+> +
+> +	in_desc->callback = starfive_hash_dma_callback;
+> +	in_desc->callback_param = cryp;
+> +
+> +	cookie = dmaengine_submit(in_desc);
+> +	dma_async_issue_pending(cryp->tx);
+> +
+> +	if (!wait_for_completion_timeout(&cryp->tx_comp,
+> +					 msecs_to_jiffies(10000))) {
+> +		dev_err(cryp->dev, "wait_for_completion_timeout error, cookie = %x\n",
+> +			dma_async_is_tx_complete(cryp->rx, cookie,
+> +						 NULL, NULL));
 
-  riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifencei2p0: Invalid or unknown z ISA extension: 'zifencei'
-  riscv64-linux-gnu-ld: failed to merge target specific data of file fs/efivarfs/file.o
-  riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifencei2p0: Invalid or unknown z ISA extension: 'zifencei'
-  riscv64-linux-gnu-ld: failed to merge target specific data of file fs/efivarfs/super.o
-
-The second occurs when a version of clang that does not support zicsr or
-zifencei via '-march=' (i.e., <= 16.x) is used in combination with a
-version of GNU as that defaults to a newer ISA base spec, which requires
-specifying zicsr and zifencei in the '-march=' value explicitly (i.e, >=
-2.38):
-
-  ../arch/riscv/kernel/kexec_relocate.S: Assembler messages:
-  ../arch/riscv/kernel/kexec_relocate.S:147: Error: unrecognized opcode `fence.i', extension `zifencei' required
-  clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
-
-This is the same issue addressed by commit 6df2a016c0c8 ("riscv: fix
-build with binutils 2.38") (see [2] for additional information) but
-older versions of clang miss out on it because the cc-option check
-fails:
-
-  clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupported standard user-level extension 'zicsr'
-  clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupported standard user-level extension 'zicsr'
-
-To resolve the first issue, only attempt to add zicsr and zifencei to
-the march string when using the GNU assembler 2.38 or newer, which is
-when the default ISA spec was updated, requiring these extensions to be
-specified explicitly. LLVM implements an older version of the base
-specification for all currently released versions, so these instructions
-are available as part of the 'i' extension. If LLVM's implementation is
-updated in the future, a CONFIG_AS_IS_LLVM condition can be added to
-CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI.
-
-To resolve the second issue, use version 2.2 of the base ISA spec when
-using an older version of clang that does not support zicsr or zifencei
-via '-march=', as that is the spec version most compatible with the one
-clang/LLVM implements and avoids the need to specify zicsr and zifencei
-explicitly due to still being a part of 'i'.
-
-[1]: https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
-[2]: https://lore.kernel.org/ZAxT7T9Xy1Fo3d5W@aurel32.net/
-
-Cc: stable@vger.kernel.org
-Link: https://github.com/ClangBuiltLinux/linux/issues/1808
-Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
-This is essentially a v3 of Conor's v1 and v2 but since I am sending the
-patch after finding a separate but related issue, I left it at v1:
-
-- v1: https://lore.kernel.org/20230223220546.52879-1-conor@kernel.org/
-- v2: https://lore.kernel.org/20230308220842.1231003-1-conor@kernel.org/
-
-I have built allmodconfig with the following toolchain combinations to
-confirm this problem is resolved:
-
-- clang 12/17 + GNU as and ld 2.35/2.39
-- clang 12/17 with the integrated assembler + GNU ld 2.35/2.39
-- clang 12/17 with the integrated assembler + ld.lld
-
-There are a couple of other incompatibilities between clang-17 and GNU
-binutils that I had to patch to get allmodconfig to build successfully
-but those are less likely to be hit in practice because the full LLVM
-stack can be used with LLVM versions 13.x and newer. I will follow up
-with separate issues and patches.
----
- arch/riscv/Kconfig  | 22 ++++++++++++++++++++++
- arch/riscv/Makefile | 10 ++++++----
- 2 files changed, 28 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc37604..5b182d1c196c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -464,6 +464,28 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
- 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zihintpause)
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23600
- 
-+config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-+	def_bool y
-+	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-+	depends on AS_IS_GNU && AS_VERSION >= 23800
-+	help
-+	  Newer binutils versions default to ISA spec version 20191213 which
-+	  moves some instructions from the I extension to the Zicsr and Zifencei
-+	  extensions.
-+
-+config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
-+	def_bool y
-+	depends on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-+	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
-+	depends on CC_IS_CLANG && CLANG_VERSION < 170000
-+	help
-+	  Certain versions of clang do not support zicsr and zifencei via -march
-+	  but newer versions of binutils require it for the reasons noted in the
-+	  help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. This
-+	  option causes an older ISA spec compatible with these older versions
-+	  of clang to be passed to GAS, which has the same result as passing zicsr
-+	  and zifencei to -march.
-+
- config FPU
- 	bool "FPU support"
- 	default y
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 4de83b9b1772..b05e833a022d 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -57,10 +57,12 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
- riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
- riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
- 
--# Newer binutils versions default to ISA spec version 20191213 which moves some
--# instructions from the I extension to the Zicsr and Zifencei extensions.
--toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
--riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
-+ifdef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
-+KBUILD_CFLAGS += -Wa,-misa-spec=2.2
-+KBUILD_AFLAGS += -Wa,-misa-spec=2.2
-+else
-+riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) := $(riscv-march-y)_zicsr_zifencei
-+endif
- 
- # Check if the toolchain supports Zihintpause extension
- riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
-
----
-base-commit: eeac8ede17557680855031c6f305ece2378af326
-change-id: 20230313-riscv-zicsr-zifencei-fiasco-2941caebe7dc
-
-Best regards,
--- 
-Nathan Chancellor <nathan@kernel.org>
-
+What prevents wakeup from coming in case of timeout?
+> +	}
+> +
+> +	dma_unmap_sg(cryp->dev, rctx->in_sg, rctx->in_sg_len, DMA_TO_DEVICE);
+> +
+> +	alg_cr.v = 0;
+> +	alg_cr.clear = 1;
+> +
+> +	writel(alg_cr.v, cryp->base + STARFIVE_ALG_CR_OFFSET);
+> +
+> +	return 0;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
