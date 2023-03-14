@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A515EC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 17:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD42C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 18:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cdbRYmkxRErfhKQi0Mpqs92OeL1ivS4XeUELdG3yio=; b=g0RjfauGATmHsAr7bWw56VITJ2
-	qqeRKEwuvUhPmnwQH+qWr6Z0MKoV+c8wGniLmKthPESWFjhzVDiHHIclVuzafrryo2oHad7PBTARF
-	szAqdJXcQ6IRBkduDZWRkOI3HgIEzG2wP1Lqo+W1lCVL/cSuf7U/H74Z/fd+lew8Y9ZqIad1827Uz
-	TV4dm10/n+ij3wx7xqye92bmur4TJ75REKt/Zi1UnlD8NoAHMXjN1zjEf6n/tMcyd/mxpZiJcaV5N
-	PlrgSeNQg0l5PNKWA4fi3WLWagScyLEVYvV/HEd071dY7Bqyqkl7lICwqIB/v78hFnxAYW0hYrmmz
-	/3pi9ahg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l1mD1Y6Ws8RrcFRS7BrKSWrlJZ52Shl4YEOY+9pJ39E=; b=tPGtZZ3lKXbVX9
+	keTVqeI/TSmSxe4PhWWpvKIdZohn3fuMx4zh+oK2/OkfKY/AscwqYmhz8aNoqnwHitPMBrBIr6sPM
+	f0fRl/FhtWj6eFBer9VfxDxLuhNqp3BcsKRajDEWn2g2z2BcZw0tIDxFjFqpiDV1mqJ/0/KifS5DU
+	SIAGayBmWUgRn7B488AQRcBSs+COq7eO476qkB2QXzJtsPHzZXiSeYmI2aXIepyPd5aBRL2x1zGi5
+	+pQwywk5DC3spVp9XWNQZipnvExm1ILG0YrRMF1elcfcvhZ5YlQN3o92MpXN+XgKvphCfU3qr7x8Z
+	YQ+YQUZL7ETto+/4Ospg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc88K-00AwkN-1g;
-	Tue, 14 Mar 2023 17:08:20 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pc9Rt-00BCIy-1V;
+	Tue, 14 Mar 2023 18:32:37 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc88H-00Awjt-00
+	id 1pc9Rp-00BCI4-0m
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 17:08:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 502A4B817AE;
-	Tue, 14 Mar 2023 17:08:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88004C433D2;
-	Tue, 14 Mar 2023 17:08:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678813694;
-	bh=ucM21cLRUuIM1P+fjJ7tyXVrvw8aDslNNA8co2hjLB0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CQwA8hQi6papIwLzlFCwnT8ZgfxGYB2LsuTVCVtFvYeeMxK4u4qRxhb/NYejRj78g
-	 N+xHIw0JZfELVtT+p65MmB7c5tmgUhvmAEVq2ZRlzn8d2Ep76OavoWeOf10Monumx9
-	 KVSgQrxRkAPML1uZicpPU0RrnQjrGmVV4zE475+3hq3kpTScUqY2iviptRobfIg0f9
-	 wjdPGTCMNO5WeKwjE0rfZn2lFuAE6XDbzul3kV1qwjmAfrj0rvnlPO9IhRDalJzLso
-	 6MIzkKrpqlQdEkUuOJcyKSyHwsyzTjQNye0xdVmUGQTdDWD2O4rlsxv/CuP3eUnByC
-	 IdykfYulsxTgA==
-Date: Tue, 14 Mar 2023 17:08:09 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com, ndesaulniers@google.com,
-	trix@redhat.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	patches@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issues between clang and
- binutils
-Message-ID: <75037eb4-7be4-4182-a377-18343491c7da@spud>
-References: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
+	Tue, 14 Mar 2023 18:32:35 +0000
+Received: by mail-pl1-x631.google.com with SMTP id y11so17590052plg.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 11:32:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678818753;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tga5shMHyjc0TB9sW2hC3q3qhXdH8jnVVmQsmewODbI=;
+        b=fqdENcGiupBXLWJzcac75bZHKj70wOfrBAIlfGPvxgr7ssgFuE2Pf58C/qEZjdxlZw
+         Dt4Fn4iy/JmCqs+dRf5tBs676FfzjpVWwNOBa/NduDczdGAGUHdLmd67xbvFLUOEyI35
+         pSz5+LCMRdzzljXC068womITkk7ozLxH5T3+0JohxZIunhBOITQEGM7okiH0VW5lHSU3
+         MPI4aaMN53SpTf6XUApffLj9DNn6W1WOxT6iPtwlA6vn8DlKpMIlY7PG7ACn5IYJl/Eb
+         VF4hyc0UJFBJi+OLGqtpdE1C3TfFAYepbKoZXDLzzO7I/9BNf7dzlS7F7gGEhuESTwqn
+         OWgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678818753;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tga5shMHyjc0TB9sW2hC3q3qhXdH8jnVVmQsmewODbI=;
+        b=mRJe+Yt+Um/7xdlCMvzKnpUZRxvraSO/T22IHdeml5qZYZe/pwwWH0z7ND1opXMkUm
+         zrDNef0kUx6rJCmiQbGo76ldhOQjNE/DOwgF5jOsr8wt5TMD4+xjGPlBT/W4CNIVkBMo
+         Reethu+K+ghtQ2p09dcvoG99lQ4oYWpYcjbf0d0CLCKAa88ZbYao2AXwK7QyienvMIdq
+         +jsjQ3Gnpnm51zXCq4wbaUSPiez2QQyzQrwJgc29Q64+JUyjxxSB1/xHY4Yp8UmA1Baf
+         0uq18aLpj8wb58vy8k8jT9exXohGpihthP4bQRUwcbLFB9Dc4JqnKTjgjfdguTij6WgB
+         2D8A==
+X-Gm-Message-State: AO0yUKWpCxKEDmezfDcCzh9ZRcf+bWzjG+uNBd4fRZzVGrbRS7JsZPxr
+	qxDIp66cL5DZ8DwrHszERNleuw==
+X-Google-Smtp-Source: AK7set9v9zIkmYb9ikpU9Da6c1URJ3+lBxePQISeL3aEwed0jfmqNAFJLGyZD2Ib8PdTkZhgH0knog==
+X-Received: by 2002:a17:902:facf:b0:19e:dc0e:1269 with SMTP id ld15-20020a170902facf00b0019edc0e1269mr55859plb.7.1678818752836;
+        Tue, 14 Mar 2023 11:32:32 -0700 (PDT)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id kn3-20020a170903078300b0019d397b0f18sm2072019plb.214.2023.03.14.11.32.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Mar 2023 11:32:32 -0700 (PDT)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v4 1/6] RISC-V: Move struct riscv_cpuinfo to new header
+Date: Tue, 14 Mar 2023 11:32:15 -0700
+Message-Id: <20230314183220.513101-2-evan@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230314183220.513101-1-evan@rivosinc.com>
+References: <20230314183220.513101-1-evan@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_100817_358951_83221C71 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20230314_113233_303734_67FEC31F 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,147 +85,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6515397910677289491=="
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, heiko@sntech.de, Atish Patra <atishp@rivosinc.com>, Randy Dunlap <rdunlap@infradead.org>, vineetg@rivosinc.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, slewis@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, Dao Lu <daolu@rivosinc.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+In preparation for tracking and exposing microarchitectural details to
+userspace (like whether or not unaligned accesses are fast), move the
+riscv_cpuinfo struct out to its own new cpufeatures.h header. It will
+need to be used by more than just cpu.c.
 
---===============6515397910677289491==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1CEuDSeV8bwTFyS+"
-Content-Disposition: inline
+Signed-off-by: Evan Green <evan@rivosinc.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
 
+(no changes since v3)
 
---1CEuDSeV8bwTFyS+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changes in v3:
+ - Updated copyright date in cpufeature.h
+ - Fixed typo in cpufeature.h comment (Conor)
 
-Hey Nathan,
+Changes in v2:
+ - Factored the move of struct riscv_cpuinfo to its own header
 
-On Mon, Mar 13, 2023 at 04:00:23PM -0700, Nathan Chancellor wrote:
-> There are two related issues that appear in certain combinations with
-> clang and GNU binutils.
->=20
-> The first occurs when a version of clang that supports zicsr or zifencei
-> via '-march=3D' [1] (i.e, >=3D 17.x) is used in combination with a version
-> of GNU binutils that do not recognize zicsr and zifencei in the
-> '-march=3D' value (i.e., < 2.36):
->=20
->   riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifence=
-i2p0: Invalid or unknown z ISA extension: 'zifencei'
->   riscv64-linux-gnu-ld: failed to merge target specific data of file fs/e=
-fivarfs/file.o
->   riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifence=
-i2p0: Invalid or unknown z ISA extension: 'zifencei'
->   riscv64-linux-gnu-ld: failed to merge target specific data of file fs/e=
-fivarfs/super.o
->=20
-> The second occurs when a version of clang that does not support zicsr or
-> zifencei via '-march=3D' (i.e., <=3D 16.x) is used in combination with a
-> version of GNU as that defaults to a newer ISA base spec, which requires
-> specifying zicsr and zifencei in the '-march=3D' value explicitly (i.e, >=
-=3D
-> 2.38):
->=20
->   ../arch/riscv/kernel/kexec_relocate.S: Assembler messages:
->   ../arch/riscv/kernel/kexec_relocate.S:147: Error: unrecognized opcode `=
-fence.i', extension `zifencei' required
->   clang-12: error: assembler command failed with exit code 1 (use -v to s=
-ee invocation)
->=20
-> This is the same issue addressed by commit 6df2a016c0c8 ("riscv: fix
-> build with binutils 2.38") (see [2] for additional information) but
-> older versions of clang miss out on it because the cc-option check
-> fails:
->=20
->   clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupport=
-ed standard user-level extension 'zicsr'
->   clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupport=
-ed standard user-level extension 'zicsr'
->=20
-> To resolve the first issue, only attempt to add zicsr and zifencei to
-> the march string when using the GNU assembler 2.38 or newer, which is
-> when the default ISA spec was updated, requiring these extensions to be
-> specified explicitly. LLVM implements an older version of the base
-> specification for all currently released versions, so these instructions
-> are available as part of the 'i' extension. If LLVM's implementation is
-> updated in the future, a CONFIG_AS_IS_LLVM condition can be added to
-> CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI.
->=20
-> To resolve the second issue, use version 2.2 of the base ISA spec when
-> using an older version of clang that does not support zicsr or zifencei
-> via '-march=3D', as that is the spec version most compatible with the one
-> clang/LLVM implements and avoids the need to specify zicsr and zifencei
-> explicitly due to still being a part of 'i'.
->=20
-> [1]: https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d=
-4498694e15bf8a16
-> [2]: https://lore.kernel.org/ZAxT7T9Xy1Fo3d5W@aurel32.net/
->=20
-> Cc: stable@vger.kernel.org
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1808
-> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+ arch/riscv/include/asm/cpufeature.h | 21 +++++++++++++++++++++
+ arch/riscv/kernel/cpu.c             |  8 ++------
+ 2 files changed, 23 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/include/asm/cpufeature.h
 
-TBH, barely identifiable as having much to do with my V1 anymore, so
-could easily have dropped those.
-Either way, thanks for sorting this out while I've been sick :)
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+new file mode 100644
+index 000000000000..66ebaae449c8
+--- /dev/null
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2022-2023 Rivos, Inc
++ */
++
++#ifndef _ASM_CPUFEATURE_H
++#define _ASM_CPUFEATURE_H
++
++/*
++ * These are probed via a device_initcall(), via either the SBI or directly
++ * from the corresponding CSRs.
++ */
++struct riscv_cpuinfo {
++	unsigned long mvendorid;
++	unsigned long marchid;
++	unsigned long mimpid;
++};
++
++DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++#endif
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 1b9a5a66e55a..684e5419d37d 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -7,6 +7,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/cpufeature.h>
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+ #include <asm/sbi.h>
+@@ -70,12 +71,7 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+ 	return -1;
+ }
+ 
+-struct riscv_cpuinfo {
+-	unsigned long mvendorid;
+-	unsigned long marchid;
+-	unsigned long mimpid;
+-};
+-static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ 
+ unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
+ {
+-- 
+2.25.1
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> This is essentially a v3 of Conor's v1 and v2 but since I am sending the
-> patch after finding a separate but related issue, I left it at v1:
->=20
-> - v1: https://lore.kernel.org/20230223220546.52879-1-conor@kernel.org/
-> - v2: https://lore.kernel.org/20230308220842.1231003-1-conor@kernel.org/
->=20
-> I have built allmodconfig with the following toolchain combinations to
-> confirm this problem is resolved:
->=20
-> - clang 12/17 + GNU as and ld 2.35/2.39
-> - clang 12/17 with the integrated assembler + GNU ld 2.35/2.39
-> - clang 12/17 with the integrated assembler + ld.lld
->=20
-> There are a couple of other incompatibilities between clang-17 and GNU
-> binutils that I had to patch to get allmodconfig to build successfully
-> but those are less likely to be hit in practice because the full LLVM
-> stack can be used with LLVM versions 13.x and newer.
-
-> I will follow up
-> with separate issues and patches.
-
-Cool, I'll "look forward" to those...
-
-Thanks,
-Conor.
-
---1CEuDSeV8bwTFyS+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBCp+AAKCRB4tDGHoIJi
-0roxAQCXsosSBtzf9Ovi8xT5U07z0OBYx29ltaw6MCTxk1St1AD/R4eRfRoNh6BC
-vrfhzHF5bwseLnWtO2Yc8FoBMRGegQc=
-=UId/
------END PGP SIGNATURE-----
-
---1CEuDSeV8bwTFyS+--
-
-
---===============6515397910677289491==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6515397910677289491==--
-
