@@ -4,168 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182D4C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 14:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB80CC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 16:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9nrYZ5HrJcD/U4vMCrtpcGW6vsGcu1Ts/4DOIxko29U=; b=jSqMWvKRjlYt8o
-	KIwixgjV6w7vLeAlblk61dyNci4ZYTYK5/kEV8eTQjDwBky/59X6xxfWzSWMZWzkrnsC6++K3bYwT
-	JycSchoB1j0T2XI1SoKeTwu7yI7YCOWHU++A77UbApj0GMsCF+ni/oH4Wzzi3XAPcYjx6z5zZ1WPS
-	IPIZ6K1eOf9B0v6YBdsN9tr16QY1PWMq1j4NMG8lpIcYEzAzFuAVS3VXObtTkl3PsbP1aeEzQdito
-	xLP+5ER5+I/hqSEoiWsWkXpxAiLNu6Vm4+G2v2zk5nPJxpiBV36TmKz5mpY/ZzORXv9uALuG6QBsG
-	an01N4E/94iErDsia/7Q==;
+	List-Owner; bh=fUfChS2j9Zb1GYGw8GNnkca3VoMFc2U/dojQIqNQUdg=; b=0ZWiVmJ/xuM0Ru
+	gXuqDyIdcQHKPuWVq6Y8cYt0ucV6TsZIAWD1IlgSSjNj3Cj64FDK6Jy1IbjbPsBqggpLVcASV6XAt
+	mnqbRJ03BBYZmSHfKU3HFKo+EFn2cFQHYV6GqqFvr7epEjaKPMOjYfAd73SLX40a4qY9keSN95o3x
+	wRzJGzSuuCSbV7EWwJ9nMmNY6MjjmL9jxe98IMcPCazj5FaCzJ7giRm1swXdT8/+R/kX5/3+NEnvz
+	lCmCl9j0x48pbKsr6zoP4bqwaukaV1zhlEDt77/SpypzoQpTuZkTqyYzuum+c9715tFoq113RSJSd
+	8JvEjf9CPicLvDqM0AYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc5z4-00AWCA-0P;
-	Tue, 14 Mar 2023 14:50:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pc7Gd-00AlSo-2h;
+	Tue, 14 Mar 2023 16:12:51 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5] helo=mx0a-001b2d01.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc5yx-00AWA9-0V
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 14:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1678805430; x=1710341430;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=rh+plLuChogwjCVkrCVlhy8G1dIcmwhZ+Uhcbv0D51w=;
-  b=s6cJq3wrAPDkfrq0lBFKPs9V6L/X4bEZVYD6kmCmeSb1aMhO/StPUbBE
-   BBgo1oGRt117viLF3x5xwGwY9xhDpJIoW/Rwc59lfaMoUJQbdMa4EnUcq
-   4GifalSnYEVKLET3fFLHAVdYanbaH1VzD5A1OhwTa2V8hgrldtPbIOQC2
-   ow5mj/ZBUjZhaFrQEM80JH920bwqzE27OVYhF7n8A71bC4s6CRbBuG0zg
-   rBmYX2o2f5g4pU2X8g3kYjXbbqwwJrQzEw6Laa0at+Lb21CViCdqX23Xb
-   xrcX5DMicPKoLcAkMbcY7ulgn7bkNvL2ibi4JHcwkCi/dRgrblEModeTs
-   w==;
-X-IronPort-AV: E=Sophos;i="5.98,260,1673938800"; 
-   d="scan'208";a="216255967"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Mar 2023 07:50:26 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 14 Mar 2023 07:50:20 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 14 Mar 2023 07:50:19 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Xu9wYGEif1reTu4sEgcUu8IahOasYlUOnEnO0eKZAOpVtmR0hxuVmc1lZr2hM1hdSsZYPNnkrLp5wYtipaaequz/evxf429Hj5xVLKstlYgK7sjlE6VY+tDX3Ug6zzms314/dIwueCjE3CxTpH1o4W1ylLEjvX+ZEoqe9QwOFA9E7bGjErH64G/2bg2M6OKnZsuX1rYrYS74756cYlcb4b8sW1RQAyD6wyCvSyLiixVzDvHHDz2218AXpTXDJ6Esrut87u8TkQGIrE38MDRfDPW1tJzcD5a8P80fGwdDv+2trv0tiaOEMlJhTyO1PhL6HJx0qN4NbZSsMwd/CMsD5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rh+plLuChogwjCVkrCVlhy8G1dIcmwhZ+Uhcbv0D51w=;
- b=I2ADUXkuG4qpA8ed2t+FXb0ACir1G2mlSngpayFcfmnyB87y5RVLYfJdhtc/JqVwpRUQToLZzuwA2zH1OZChCjCwsklMXpIpi10ZUzzxvEOo7JrqLmbOpU4ThoW2DRvNxAxKSURKpkT/WX9Zjvhg1calJ9BhZlEjpsGiaEirXEmD1Et3qgg4D8YxAfFwyFj7u54fbdnfUaMrWkWXBO3mhAFjHVi0FVuPnHKRYJYXigCClO4xLIpb5X2N7U7GjIKAN8njIrf1UnLPNgG9C+sc5ZNDbTLrhLgiQir1dIwODVe1HZKGJpPejhb7BcN2rdWJyaZCvT3WSurbQqZ29CiM4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rh+plLuChogwjCVkrCVlhy8G1dIcmwhZ+Uhcbv0D51w=;
- b=bX/g4ZmvpIPUwLDv8qOSyF7WeNWX4+oxRY4MZvz9T6iL799l3brtIw4F4CGIBsCj3ErTV9cFWBFUo4eNLurIcaHk7uxnlak5yEvrUN4tPPTKmQXsaw+DhA4AbwrBif3wYPIlf/jFkvogckaZgwnBgiKRomLe96BQAJ9msfh+SWg=
-Received: from BN6PR11MB1953.namprd11.prod.outlook.com (2603:10b6:404:105::14)
- by MN6PR11MB8194.namprd11.prod.outlook.com (2603:10b6:208:477::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.26; Tue, 14 Mar
- 2023 14:50:18 +0000
-Received: from BN6PR11MB1953.namprd11.prod.outlook.com
- ([fe80::6eb8:36cd:3f97:ab32]) by BN6PR11MB1953.namprd11.prod.outlook.com
- ([fe80::6eb8:36cd:3f97:ab32%5]) with mapi id 15.20.6178.026; Tue, 14 Mar 2023
- 14:50:18 +0000
-From: <Claudiu.Beznea@microchip.com>
-To: <conor@kernel.org>, <linux-riscv@lists.infradead.org>
-CC: <Conor.Dooley@microchip.com>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <linux-clk@vger.kernel.org>, <jassisinghbrar@gmail.com>,
-	<linux-kernel@vger.kernel.org>, <a.zummo@towertech.it>,
-	<alexandre.belloni@bootlin.com>, <linux-rtc@vger.kernel.org>, <b-liu@ti.com>,
-	<gregkh@linuxfoundation.org>, <linux-usb@vger.kernel.org>, <wsa@kernel.org>,
-	<linux-i2c@vger.kernel.org>, <Daire.McNamara@microchip.com>
-Subject: Re: [PATCH v1 1/5] clk: microchip: convert SOC_MICROCHIP_POLARFIRE to
- ARCH_MICROCHIP_POLARFIRE
-Thread-Topic: [PATCH v1 1/5] clk: microchip: convert SOC_MICROCHIP_POLARFIRE
- to ARCH_MICROCHIP_POLARFIRE
-Thread-Index: AQHZVoRLYZNt644yhEaJqnt1gjfLKg==
-Date: Tue, 14 Mar 2023 14:50:18 +0000
-Message-ID: <a0fb3657-8f8b-565c-ca78-895dd5e8c94b@microchip.com>
-References: <20230309204452.969574-1-conor@kernel.org>
- <20230309204452.969574-2-conor@kernel.org>
-In-Reply-To: <20230309204452.969574-2-conor@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN6PR11MB1953:EE_|MN6PR11MB8194:EE_
-x-ms-office365-filtering-correlation-id: df9210f7-5422-40b7-6f08-08db249b6d9e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: H4KsqrIozZK66OWs84Ob4E7GmVm4k9sw0Letwfs+hoAMUlm5j2jWSW6IcOgBQ9IHBrnZprxA9BLp2LKrsdkMxcrgxedRGRibUviEBpcxAG7tWzGwruQt6c3LNl/KzlpJD6NhzdR05Cba106UGO5tq+pis2nbGEUn8m9Gl0SddqqmznHavzAY5BYzxbqjOUoReev+3wl2zy0Ier3GF3o9b351XVuh2VjQSiDjJThtNSFjGww7zTN7UToMahmW5tpS8JWD33hw/XXsVALn5Tcd1SAaevulRoPtMBqN4lr/ghu8o+g9t+4FNRSUtWlJdA3kjIGxwRCwolom3rSPQx6Es6sXJSCWinjcHPOJVtajZYSY7Z2EW03LcWiLSjnNdvhI7ol/S7xQXvKXw/q8KpCPvhh58HvKhiMbUSfRrWJicSwWr1az66DOix0hFOzP/Bd+y0J/4TIPZwMWcTCDlXnRU4oJIPhEOosqAxkg2KozGM5mhFZbEEZiyPhc3mX71zkS4RWZh2g9mzJc1mRDkxr+rSlyXqNMv8A3dJzgYPPsqmAjGAWRjTbJ8lnMd0vutvESqDi0uZT+02p5nF/tBLcibSN9kSD0YtL81Rr6XJiU/K0XZkZRUPA13YZd94vemXR3KNjIjA+z1kMPJavIQMA+xIEYMX1EfPmxpWfyvb63hmY4YKC9MCMoF/kX2nrAITkVAqwAr/aseTHyqWqwqk3nKvecF41Z1O3kFjtIFOzSDIrupLOjo0PFSc5Ke68G+jqxneofVEAu79zACJ7VoUR/bw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR11MB1953.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(376002)(366004)(136003)(346002)(396003)(39860400002)(451199018)(86362001)(31696002)(38070700005)(8676002)(36756003)(66946007)(8936002)(7416002)(4744005)(2906002)(5660300002)(110136005)(54906003)(91956017)(478600001)(316002)(76116006)(66556008)(41300700001)(66446008)(4326008)(66476007)(64756008)(38100700002)(83380400001)(122000001)(53546011)(107886003)(6512007)(6506007)(186003)(71200400001)(26005)(6486002)(2616005)(31686004)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?L0U4UnhPcU83Wit2RkFiWjgvVjhrNWVtZW5LbHhGNTZOY0VFZm5BcXhHR3d1?=
- =?utf-8?B?SDVZT1o0ZXE2amNkaDlGVFFzUDZxNHlVd3NUWjRlZFlhdVU4RmZNTG1GR29Q?=
- =?utf-8?B?cGFSanJIWit0QzFIT2FlMUFWWXl1SXFJYzJmZitXVVFZWUlTd3JsT3NtKzVP?=
- =?utf-8?B?QnNkSFJWU2ROVkZJWlFyZUpuS1pZS1lTVi81bi9mc3c5ZW1iZWM0ckpISDNV?=
- =?utf-8?B?UzBManVETFZZT1p2ZldsSXE2SlpISy9zeXMwamcxTjVscW5rTmtYc1hUeHB6?=
- =?utf-8?B?MFVsajBKL2JzbXJlbUJkMVhUbXAxNk9WNGZpbUNoSkk2OUN6eWxteTNpMnVh?=
- =?utf-8?B?WHZPaDJtWm9GbUlrRGhqZXorTHNvQWVzNmNpalBYNTdNeDg0SFVwZ29nWEdB?=
- =?utf-8?B?MzkwQktqUDE0aFBnWVNIMG5zaU91dlg4QkRQbWFURm5wMlExNm9qS3lKdC9y?=
- =?utf-8?B?R1QxNmllRGpGV1pDWDRrRy91OWFhalBjK296M3FNbjJaclplZnBNY25CY3NQ?=
- =?utf-8?B?Tm1YaXRSd3F2NzRoKytBejZEUTFBWkdWcU91TnNHNGU1MkEwQXVERkRFbC9n?=
- =?utf-8?B?bXkwcFhzSlFSaTZiUU1aRFdna2poeDJBdkQ5Z0tkcnZ6aUlhaWhmcFZSZ1Vy?=
- =?utf-8?B?cVFGYVk1VHFYNG5YNG85OFk0bDZqQjZJWWs5THFEQlI0d3JodEhsU1hOdG10?=
- =?utf-8?B?czl5MW9pMC9zS1kzSFVyaGEyKzQ0T2R4cUNKMjZoRmdyRFZyTFgvMzlGcGJH?=
- =?utf-8?B?SFFMVTZrWkhxZm92TDBRUUNZbmFXeTZ0RkJ4Z1AzZ1pZeUZNei9JUmcwZlNT?=
- =?utf-8?B?N3VWWmlkaC94dGNvVkY1Y1FWY2huc3pUNVh0cld5MmIzdk1CWlpyQ2t0bTlK?=
- =?utf-8?B?WUlQaUFqR0xJbS9CaGFIVFV5TnNMakJXK3JJSTF5R2hsdmpjdUZXN2JkRkVQ?=
- =?utf-8?B?OWxSOWhYbGNwU3FKY1FValRQaloycnZvamcxWUg1dFUyWmw4Q2NMSElYck1p?=
- =?utf-8?B?TFpNNGxXbWFWS3pRSUhVL2hrZ2RyUEdzMjdGaFg1c0NhYkZGNFg0U1JFZGdo?=
- =?utf-8?B?NjZtMXJJaTNQUDdZTk9sLytxQldwWVdjbytrbmZ0UUlMcWJqQTdvZ2l4UStm?=
- =?utf-8?B?eFo4dUtETW1TQ01CNWt3WUpiMUhQZDc3TkVwMGg0WXlpS2FENG41L3RrTktj?=
- =?utf-8?B?RTNmNUdLRXJSVFBFbkd1YThlY1BKK1dZTzNtdTZOM1FJMnJyMGs4ZzNmWlFM?=
- =?utf-8?B?ZUZVSldib2RZWmJrYS9nNnB3Kyt2eGxKZ2pnY1ZYVGdvTngzWkovSnRnbEFy?=
- =?utf-8?B?cGVKMjdlN1QyM2o5Uy92OVRaekVORXhzTVZsM2VMdXlqUGhybHVoYmRKNkZ0?=
- =?utf-8?B?bWFpSkJyOCtvT2VsaVNobngzcjlNTkJEVHVPbkttZWJrcGVJVkxTMGpiQU56?=
- =?utf-8?B?UU9YZlVhZTF0N0NmSjVteUx3bWkxOHQ0aEMyTGpPcU8wSjhLSnJHZlJHOHNY?=
- =?utf-8?B?WCt4Um9ZUWI3NisycWZMaVVQc1hML282cXNUS0l6T0NYNGJoWEdxRlh5TGtN?=
- =?utf-8?B?akxUU0llcVd2aFJOb1hzaTFYdkNqTm1YNHJnUkR1NXNWdlNJMjRsZ0ROVDlV?=
- =?utf-8?B?ejdxL0hqd1JQOVJaMmZZWHFtTlorZGxNcndmQmZYbG9sTUtIaHdJd0IrWk1y?=
- =?utf-8?B?N01Kck5zeFE4YnRXbHYvWm1wNlVMNEJCdGNhQWNqR2tabGt6SCtTQ3Q3ckxN?=
- =?utf-8?B?dHVwQzhseWxlTjNkb3NvYmpDWWlmREcrTFpYZ1ZEYUd1SThheUx2UENEbDZx?=
- =?utf-8?B?b08yanBQdFF1a2hLTzFLbXRUNjlKNy9selNZSHhSSER0WWttb0xkSmpUbVRl?=
- =?utf-8?B?Q1BVZ1FrSFpKYURvQm5qd3MySGpoRHhHeHlqMk96aW5kQmZtZWhYdE5lUG1p?=
- =?utf-8?B?M2dVd09zQk9pb00wOUpMclVjYldEWW9MTnl2UmMyekRRbFlpVmIrc2wrNmVI?=
- =?utf-8?B?bkJ2ZXJXMUVQMVUrQnE4aEN6UmJYL1BiK1lqWUNZaG4rZzBMcWp2M2tubGQy?=
- =?utf-8?B?SVhEVDhCbGJsNk93dlluV2lCdGJSYWZ6UmhQbFRFYjlrTXNycm8ybk9Zbk95?=
- =?utf-8?B?SDVrTllKeVRncm1yNUxPemxtNXZ4ZUR5Wkh2K2ZoNzduWFVNTSt1OFliTFox?=
- =?utf-8?B?RWc9PQ==?=
-Content-ID: <2A638E4DAA41B04A9B5050044F136B4C@namprd11.prod.outlook.com>
+	id 1pc7Ga-00AlQi-01;
+	Tue, 14 Mar 2023 16:12:49 +0000
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 32EFH2tq021797;
+	Tue, 14 Mar 2023 16:11:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=sdRNyLH4kLdrI+qcohJKVn4GGHSV4urB8tfYdgoZ3qU=;
+ b=dhsmZ+K8oq00bXlqRF9CXipZdfYC5yhyxbdkM0VeUNla5BiVxkTGNHG4nTOgUzGnpyc1
+ rToniBKIMdWWOF9xs7bLCEeDr+D7GNEGxRZ2tbHIrR2IuyBHcV6VyNhUwJjgaKp13mnL
+ nWa6dGChpS0J+QYz6TXPC7kigkptl1FOZvGVKEvaN8hKamljIDLwp1wpRhe6rSfRCl5z
+ w6hyyYC9nB0JPlXMdWN+A7Li/dILjHRTP24mDPZIVpcYK5myCvyvJ+EP6T8t7CgP7fzV
+ 5dQ4Fd5nnPXuTmZlr4Eadudr0uHb+5/XxwG+Zbj9fmGenzt/qMN6G3Dau3BcvxB4ZI+T wg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3papbaksaj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Mar 2023 16:11:53 +0000
+Received: from m0098419.ppops.net (m0098419.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 32EFH2KZ021927;
+	Tue, 14 Mar 2023 16:11:52 GMT
+Received: from ppma04fra.de.ibm.com (6a.4a.5195.ip4.static.sl-reverse.com [149.81.74.106])
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3papbaks8x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Mar 2023 16:11:51 +0000
+Received: from pps.filterd (ppma04fra.de.ibm.com [127.0.0.1])
+	by ppma04fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 32E5qEc2020629;
+	Tue, 14 Mar 2023 16:11:47 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma04fra.de.ibm.com (PPS) with ESMTPS id 3p8h96m043-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Mar 2023 16:11:47 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 32EGBj6Y30671604
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 14 Mar 2023 16:11:45 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id ECE4520040;
+	Tue, 14 Mar 2023 16:11:44 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 007CF20043;
+	Tue, 14 Mar 2023 16:11:40 +0000 (GMT)
+Received: from [9.171.50.237] (unknown [9.171.50.237])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 14 Mar 2023 16:11:40 +0000 (GMT)
+Message-ID: <c524798dd2039e5b2b0f0f964b927ced65070377.camel@linux.ibm.com>
+Subject: Re: [PATCH v3 01/38] Kconfig: introduce HAS_IOPORT option and
+ select it as necessary
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+        Richard Henderson
+ <richard.henderson@linaro.org>,
+        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+        Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        "James E . J . Bottomley"
+ <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley
+ <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+ <aou@eecs.berkeley.edu>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich
+ Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>,
+        "David S . Miller" <davem@davemloft.net>,
+        Richard Weinberger <richard@nod.at>,
+        Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>,
+        Johannes Berg
+ <johannes@sipsolutions.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin"
+ <hpa@zytor.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Bjorn Helgaas
+ <bhelgaas@google.com>,
+        Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+ <u.kleine-koenig@pengutronix.de>,
+        Mauro Carvalho Chehab
+ <mchehab@kernel.org>,
+        Alan Stern <stern@rowland.harvard.edu>,
+        "Rafael J .
+ Wysocki" <rafael@kernel.org>,
+        linux-kernel@vger.kernel.org, Linux-Arch
+ <linux-arch@vger.kernel.org>,
+        linux-pci@vger.kernel.org, Arnd Bergmann
+ <arnd@kernel.org>,
+        linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+        linux-um@lists.infradead.org
+Date: Tue, 14 Mar 2023 17:11:40 +0100
+In-Reply-To: <f8bdc245-38b0-4973-bd01-34f594a0ede4@app.fastmail.com>
+References: <20230314121216.413434-1-schnelle@linux.ibm.com>
+	 <20230314121216.413434-2-schnelle@linux.ibm.com>
+	 <f8bdc245-38b0-4973-bd01-34f594a0ede4@app.fastmail.com>
+User-Agent: Evolution 3.46.4 (3.46.4-1.fc37) 
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR11MB1953.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: df9210f7-5422-40b7-6f08-08db249b6d9e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Mar 2023 14:50:18.0218
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 1dN59FW3BAZH3rQPUloOeLefbxyJ86Qh6SXl2IrO4mDsVHB5Pt7Q/z6Ts3L6A8CimPbLjUAUhCDSANYDFF9jsYoXfyoNdqKoxcpDk9dr8wc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR11MB8194
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 0eGKEFAcBwfQg_NBnhwZRPWInLzlQ7lk
+X-Proofpoint-ORIG-GUID: TX80XVSaVIOsqiKspa3un8GJOHFTh7li
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-03-14_09,2023-03-14_02,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
+ impostorscore=0 malwarescore=0 bulkscore=0 spamscore=0 adultscore=0
+ clxscore=1015 mlxlogscore=265 phishscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2212070000 definitions=main-2303140134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_075031_629301_98E72AFE 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230314_091248_166303_17918E76 
+X-CRM114-Status: GOOD (  46.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,18 +168,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09.03.2023 22:44, Conor Dooley wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+On Tue, 2023-03-14 at 14:29 +0100, Arnd Bergmann wrote:
+> On Tue, Mar 14, 2023, at 13:11, Niklas Schnelle wrote:
+> > We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
+> > Port access. In a future patch HAS_IOPORT=n will disable compilation of
+> > the I/O accessor functions inb()/outb() and friends on architectures
+> > which can not meaningfully support legacy I/O spaces such as s390. Also
+> > add dependencies on HAS_IOPORT for the ISA and HAVE_EISA config options
+> > as these busses always go along with HAS_IOPORT.
+> > 
+> > The "depends on" relations on HAS_IOPORT in drivers as well as ifdefs
+> > for HAS_IOPORT specific sections will be added in subsequent patches on
+> > a per subsystem basis.
 > 
-> From: Conor Dooley <conor.dooley@microchip.com>
+> I think it would be helpful to enumerate which architectures
+> do not get HAS_IOPORT added, as they will be affected more.
 > 
-> As part of converting RISC-V SOC_FOO symbols to ARCH_FOO to match the
-> use of such symbols on other architectures, convert the Microchip FPGA
-> clock drivers to use the new symbol.
+> > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> If there are no objections, I could send this first patch for the
+> asm-generic tree as a preparation for 6.3, so we are able to merge
+> the other patches through subsystem maintainer tree for 6.4.
+> 
+> arch/loongarch/ will now also need to select HAS_IOPORT
+> uncontitionally, this architecture was added after you
+> sent v2.
 
-Applied to clk-microchip, thanks!
+Ah right. Added "select HAS_IOPORT" for LoongArch.
+
+> 
+> > diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+> > index a98940e64243..5eeacc72e4da 100644
+> > --- a/arch/parisc/Kconfig
+> > +++ b/arch/parisc/Kconfig
+> > @@ -47,6 +47,7 @@ config PARISC
+> >  	select MODULES_USE_ELF_RELA
+> >  	select CLONE_BACKWARDS
+> >  	select TTY # Needed for pdc_cons.c
+> > +	select HAS_IOPORT if PCI
+> 
+> It's also needed for EISA and I think you should select it
+> from CONFIG_GSC in drivers/parisc/Kconfig for this purpose.
+> 
+> This could also be 'select HAS_IOPORT if PCI || EISA', but
+> that would require removing the 'depends on HAS_IOPORT'
+> under drivers/eisa/.
+
+I did use "select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA" in m68k so
+I think ideally we would handle both in the same way. I don't have a
+strong preference but I think the "select HAS_IOPORT if ..." puts it
+all in a single place which is nice. Also I think this would make it
+more similar architectures with unconditional HAS_IOPORT that thus
+don't need "depends on HAS_IOPORT" in their "config ISA" either. As
+also pointed by your comment below for x86. So will try to go this
+route.
+
+> 
+> >  	select HAVE_DEBUG_STACKOVERFLOW
+> >  	select HAVE_ARCH_AUDITSYSCALL
+> >  	select HAVE_ARCH_HASH
+> > @@ -131,6 +132,7 @@ config STACKTRACE_SUPPORT
+> > 
+> >  config ISA_DMA_API
+> >  	bool
+> > +	depends on HAS_IOPORT
+> > 
+> 
+> This line is not really needed since there is no way to
+> enable ISA_DMA_API.
+
+Removed
+
+> 
+> > diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> > index a6c4407d3ec8..f7de646c074a 100644
+> > --- a/arch/powerpc/Kconfig
+> > +++ b/arch/powerpc/Kconfig
+> > @@ -188,6 +188,7 @@ config PPC
+> >  	select GENERIC_SMP_IDLE_THREAD
+> >  	select GENERIC_TIME_VSYSCALL
+> >  	select GENERIC_VDSO_TIME_NS
+> > +	select HAS_IOPORT			if PCI
+> >  	select HAVE_ARCH_AUDITSYSCALL
+> >  	select HAVE_ARCH_HUGE_VMALLOC		if HAVE_ARCH_HUGE_VMAP
+> >  	select HAVE_ARCH_HUGE_VMAP		if PPC_RADIX_MMU || PPC_8xx
+> > @@ -1070,7 +1071,6 @@ menu "Bus options"
+> > 
+> >  config ISA
+> >  	bool "Support for ISA-bus hardware"
+> > -	depends on PPC_CHRP
+> >  	select PPC_I8259
+> >  	help
+> >  	  Find out whether you have ISA slots on your motherboard.  ISA is the
+> 
+> This line looks wrong, I think we should keep that dependency.
+> Did you get a circular dependency if you leave it in?
+
+I don't recall why this was removed. I guess it happened when I was
+experimenting with adding "depends on HAS_IOPORT" for the ISA config
+options but that ultimately lead to circular dependencies, must have
+messed up when removing this here.
+
+> 
+> > diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> > index a825bf031f49..634dd42532f3 100644
+> > --- a/arch/x86/Kconfig
+> > +++ b/arch/x86/Kconfig
+> > @@ -162,6 +162,7 @@ config X86
+> >  	select GUP_GET_PXX_LOW_HIGH		if X86_PAE
+> >  	select HARDIRQS_SW_RESEND
+> >  	select HARDLOCKUP_CHECK_TIMESTAMP	if X86_64
+> > +	select HAS_IOPORT
+> >  	select HAVE_ACPI_APEI			if ACPI
+> >  	select HAVE_ACPI_APEI_NMI		if ACPI
+> >  	select HAVE_ALIGNED_STRUCT_PAGE		if SLUB
+> > @@ -2893,6 +2894,7 @@ if X86_32
+> > 
+> >  config ISA
+> >  	bool "ISA support"
+> > +	depends on HAS_IOPORT
+> >  	help
+> 
+> HAS_IOPORT is selected unconditionally already, so this doesn't
+> really do anything.
+
+Removed.
+
+> 
+> > diff --git a/lib/Kconfig.kgdb b/lib/Kconfig.kgdb
+> > index 3b9a44008433..c68e4d9dcecb 100644
+> > --- a/lib/Kconfig.kgdb
+> > +++ b/lib/Kconfig.kgdb
+> > @@ -121,7 +121,8 @@ config KDB_DEFAULT_ENABLE
+> > 
+> >  config KDB_KEYBOARD
+> >  	bool "KGDB_KDB: keyboard as input device"
+> > -	depends on VT && KGDB_KDB && !PARISC
+> > +	depends on HAS_IOPORT
+> > +	depends on VT && KGDB_KDB
+> >  	default n
+> 
+> This loses the !PARISC dependency, which I don't think is
+> intentional. The added HAS_IOPORT dependency makes sense
+> here, but I think this should be in a different patch
+> and not in the preparation.
+> 
+>     Arnd
+
+Agree will put into its own patch and re-add the !PARISC
+
 
 _______________________________________________
 linux-riscv mailing list
