@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B4BC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAD0C7618B
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ukhEY7HIldqJRLwmXH0bQwL8Ij2fIA8k3FIM0+MeBc=; b=JdHP4eVWYjL7C9
-	QZtYWf3s/yZzsWnz+mJUm8lFbfau6bIu1hIkjJxecLpbM7DVliLV7KNoujSCqWE+tydkd3brpklOD
-	UVa1gc+klbpc2/Lf/30BqNjXcKhWzXHb8ali2msnZcg7LTYgIYeqxe0SLkfAuP3XpTgJiNJImsWWW
-	AH9DC5IDBuvOfnIlBirKbm6l9qQIxg+kSjvaMLGYomO12/pbOajfly08fXy4kyJyEsxwJ5CrX2Kxn
-	g9+3CAKT72Zjm68REX1X5/syIrSWmSWiCvTVKru4Qa3yZE75h5aPrx4Dv4pTWEkXmJax3JZsNXKED
-	DHpNoyvcs4x91/ObMzqw==;
+	List-Owner; bh=xWjx2nWKupWN74tHTF+pl/YRmNtbMRtw/YuOoEF5pAg=; b=gWHkmd2kcrjIuP
+	Km50zgjmXl97xIE26zpORier+JBn7lSihhXaV5o6fk6aFwVRUD01CL/dWHJZb1TAZyW6NMZD3j16i
+	tbyt2PA1JrvrmKYkvuJO8px/HpDcDxX0NBKvOvBXiEugT/gcl+Tp/SyOmzyUWrjKA1xubhxDIF5fT
+	PFSVURKjpxf6YNLeb32WcrslcneJr5CSxAc7UJd31J/bOVRtFymG9ButXVuJnMCJ5r8yLhedWsHky
+	LrENfrDZvL/9O0ZZ+HNKTo2wcXnBGvCgBK9Jo2oYuLrD4YIcU9dunBZgcW5SwsSrTOM/HWyMTDWox
+	5UR1KTMAZb1XUNQzcXpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc3xE-00A8aj-15;
-	Tue, 14 Mar 2023 12:40:36 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:191:4433::2] helo=sipsolutions.net)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc3xB-00A8ZM-0f;
-	Tue, 14 Mar 2023 12:40:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=pOg2+UYpTygnBlX1RyGCO9nWu9fsmXuoawMaiLoDXLo=;
-	t=1678797630; x=1680007230; b=FRHH+0L3EXTxJU4jJhSPKTnXbRJt5P7rpPdWencY9wi5jed
-	vHkr7Y9FFmgU1uyivsDK8wmlmDSsu7iY/lCpdha4lsJTuzoXxylCjJK42SZC4CsP9VS6wJl8pQ9Pp
-	/P2DzmVC3D1cKGR/If9nOnMl/fkvJgv83mlNXhduhXPui1neupSdZn/ztiCYxM76/93UkKNOxmLBz
-	8czwPjqCEZST6ChMNelpoBGIKAEdPaqCgCchEcfrh4zmQQjAQATZXp2icABF55Nn7Hr1FzqBdHOKq
-	dIotZMWgdQ8XY9mHJm6cia/vtCduHNg+PLnLc6dzUEtIJFUlIOkVmNS9xFABIPig==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1pc3uU-003AIF-1Y;
-	Tue, 14 Mar 2023 13:37:46 +0100
-Message-ID: <21a828bae06b97b8ca806a6b76d867902b1e0e1f.camel@sipsolutions.net>
-Subject: Re: [PATCH v3 01/38] Kconfig: introduce HAS_IOPORT option and
- select it as necessary
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Niklas Schnelle <schnelle@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-  Richard Henderson <richard.henderson@linaro.org>, Ivan Kokshaysky
- <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Michal
- Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>,  Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Yoshinori Sato
- <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, John Paul
- Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller"
- <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, Anton Ivanov
- <anton.ivanov@cambridgegreys.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,  Dave
- Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bjorn Helgaas
- <bhelgaas@google.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <u.kleine-koenig@pengutronix.de>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Alan Stern <stern@rowland.harvard.edu>, "Rafael J.
- Wysocki" <rafael@kernel.org>,  linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org,  linux-pci@vger.kernel.org, Arnd Bergmann
- <arnd@kernel.org>,  linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,  linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org,  linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org,  linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org,  linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org,  linux-um@lists.infradead.org
-Date: Tue, 14 Mar 2023 13:37:43 +0100
-In-Reply-To: <20230314121216.413434-2-schnelle@linux.ibm.com>
-References: <20230314121216.413434-1-schnelle@linux.ibm.com>
-	 <20230314121216.413434-2-schnelle@linux.ibm.com>
-User-Agent: Evolution 3.46.4 (3.46.4-1.fc37) 
+	id 1pc41N-00AAIx-2n;
+	Tue, 14 Mar 2023 12:44:53 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pc41K-00A9wv-0f
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Mar 2023 12:44:52 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 6388824E202;
+	Tue, 14 Mar 2023 20:44:09 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
+ 2023 20:44:09 +0800
+Received: from localhost.localdomain (113.72.145.194) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
+ 2023 20:44:08 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
+CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: [PATCH v3 04/11] dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
+Date: Tue, 14 Mar 2023 20:43:57 +0800
+Message-ID: <20230314124404.117592-5-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
+References: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+X-Originating-IP: [113.72.145.194]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_054033_275707_5EC5F11B 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20230314_054450_628439_D6F2EDC0 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +78,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2023-03-14 at 13:11 +0100, Niklas Schnelle wrote:
-> --- a/arch/um/Kconfig
-> +++ b/arch/um/Kconfig
-> @@ -56,6 +56,7 @@ config NO_IOPORT_MAP
->  
->  config ISA
->  	bool
-> +	depends on HAS_IOPORT
-> 
+Add bindings for the Image-Signal-Process clock and reset
+generator (ISPCRG) on the JH7110 RISC-V SoC by StarFive Ltd.
 
-config ISA here is already unselectable, and nothing ever does "select
-ISA" (only in some other architectures), so is there much point in this?
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../clock/starfive,jh7110-ispcrg.yaml         | 87 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 ++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   | 16 ++++
+ 3 files changed, 121 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
 
-I'm not even sure why this exists at all.
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+new file mode 100644
+index 000000000000..3b8b85be5cd0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+@@ -0,0 +1,87 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jh7110-ispcrg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Image-Signal-Process Clock and Reset Generator
++
++maintainers:
++  - Xingyu Wu <xingyu.wu@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jh7110-ispcrg
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ISP Top core
++      - description: ISP Top Axi
++      - description: NOC ISP Bus
++      - description: external DVP
++
++  clock-names:
++    items:
++      - const: isp_top_core
++      - const: isp_top_axi
++      - const: noc_bus_isp_axi
++      - const: dvp_clk
++
++  resets:
++    items:
++      - description: ISP Top core
++      - description: ISP Top Axi
++      - description: NOC ISP Bus
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
++
++  power-domains:
++    maxItems: 1
++    description:
++      ISP domain power
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - '#clock-cells'
++  - '#reset-cells'
++  - power-domains
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++    #include <dt-bindings/power/starfive,jh7110-pmu.h>
++    #include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++    ispcrg: clock-controller@19810000 {
++        compatible = "starfive,jh7110-ispcrg";
++        reg = <0x19810000 0x10000>;
++        clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
++                 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
++                 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
++                 <&dvp_clk>;
++        clock-names = "isp_top_core", "isp_top_axi",
++                      "noc_bus_isp_axi", "dvp_clk";
++        resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
++                 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
++                 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++        power-domains = <&pwrc JH7110_PD_ISP>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+index 6c8e8b4cf1f6..a329836f6b53 100644
+--- a/include/dt-bindings/clock/starfive,jh7110-crg.h
++++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+@@ -252,4 +252,22 @@
+ 
+ #define JH7110_STGCLK_END			29
+ 
++/* ISPCRG clocks */
++#define JH7110_ISPCLK_DOM4_APB_FUNC		0
++#define JH7110_ISPCLK_MIPI_RX0_PXL		1
++#define JH7110_ISPCLK_DVP_INV			2
++#define JH7110_ISPCLK_M31DPHY_CFG_IN		3
++#define JH7110_ISPCLK_M31DPHY_REF_IN		4
++#define JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0	5
++#define JH7110_ISPCLK_VIN_ABP			6
++#define JH7110_ISPCLK_VIN_SYS			7
++#define JH7110_ISPCLK_VIN_PIXEL_IF0		8
++#define JH7110_ISPCLK_VIN_PIXEL_IF1		9
++#define JH7110_ISPCLK_VIN_PIXEL_IF2		10
++#define JH7110_ISPCLK_VIN_PIXEL_IF3		11
++#define JH7110_ISPCLK_VIN_P_AXI_WR		12
++#define JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C	13
++
++#define JH7110_ISPCLK_END			14
++
+ #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+index 4e96ab81dd8e..3ed5e0b1cebd 100644
+--- a/include/dt-bindings/reset/starfive,jh7110-crg.h
++++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+@@ -179,4 +179,20 @@
+ 
+ #define JH7110_STGRST_END			23
+ 
++/* ISPCRG resets */
++#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_P	0
++#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_C	1
++#define JH7110_ISPRST_M31DPHY_HW		2
++#define JH7110_ISPRST_M31DPHY_B09_AON		3
++#define JH7110_ISPRST_VIN_ABP			4
++#define JH7110_ISPRST_VIN_PIXEL_IF0		5
++#define JH7110_ISPRST_VIN_PIXEL_IF1		6
++#define JH7110_ISPRST_VIN_PIXEL_IF2		7
++#define JH7110_ISPRST_VIN_PIXEL_IF3		8
++#define JH7110_ISPRST_VIN_SYS			9
++#define JH7110_ISPRST_VIN_P_AXI_RD		10
++#define JH7110_ISPRST_VIN_P_AXI_WR		11
++
++#define JH7110_ISPRST_END			12
++
+ #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
+-- 
+2.25.1
 
-But anyway, adding a dependency to a always-false symbol doesn't make it
-less always-false :-)
-
-Acked-by: Johannes Berg <johannes@sipsolutions.net> # for ARCH=um
-
-
-Certainly will be nice to get rid of this cruft for architectures that
-don't have it.
-
-johannes
 
 _______________________________________________
 linux-riscv mailing list
