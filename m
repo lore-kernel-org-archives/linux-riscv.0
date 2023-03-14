@@ -4,105 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BA3C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940C5C77B60
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HFIY9oWFIDN20p6pcagO1PtlbkVezAGPMK4NcC99lDM=; b=yUmqApktCB65gK
-	VLSbORYC0Y008GFgbdi+Amr1T4hdnzJCQKM/EeBwge/iLYOT3RL+cQUiBF3EFrxCZ1G/K7zY413JI
-	pHYkZpgkPPYO37VECxESyTkbqOYTMUsJzDy165LqBGz8eAVsjZXn8NMKl+PwqklwK+cU0Ykwh5DCa
-	LY80ejkpEvItX4zWYcv8rOQ1YVeetAjd9dami0pc31PV6ZzsEbZQcS04W1vRGwtETBLoG/S77NFLU
-	ZIkHtyvHFsF7FnzIkFOX8Suy00wj5F98YdRrEkcWouDVF6bKHSp69wowvbJGCBFHPlSeaHyFjt+s9
-	eRD+aqD4T2CZc6kxubpA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ilt77LBIUR9K6Kb6cGsVlNDrk9F6Kro+y4pPeW7JUq0=; b=OPCr71SsOnsXFn
+	Fq/2RNQAbJqb4krJqmABCeKqn8OaSeif+mWhQBpJzE/7TryQoC/eV+7TxNTENaTsbwZVYh9dW/LRZ
+	Or1w7LAPShqMlP8TI50pQ/gQMX56j1jjnjPmfRNKhDRwS20SPGJSnTYXebL23lPTjS80sztkMEUQ/
+	P3LtSq48Uy3hoVNx/QsNvGViPsiuikAAHOx6uYIdwc3kZP+VPWRSOWHQ4+sLo/OczTUD9jxSNHJGJ
+	zhvzuIHw9uBw4OofXegQ7w04cH4Z7PYhjAImHaTjIPgYtw2m+pba/iUJBORTZGmlq21LhdoUV0LwX
+	q2ZbRlZs8KbyaO/LBLhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc3WG-00A4gl-0G;
-	Tue, 14 Mar 2023 12:12:44 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1pc3Wn-00A4ww-1i;
+	Tue, 14 Mar 2023 12:13:17 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5] helo=mx0a-001b2d01.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc3WC-00A4cJ-0N
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 12:12:42 +0000
-Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 32EAlCe4030805;
-	Tue, 14 Mar 2023 12:12:23 GMT
+	id 1pc3Wj-00A4uX-0v;
+	Tue, 14 Mar 2023 12:13:15 +0000
+Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 32EBuD9i021456;
+	Tue, 14 Mar 2023 12:12:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from : to : cc : subject
- : date : message-id : content-type : content-transfer-encoding :
- mime-version; s=pp1; bh=mPi3LbgQuSNYexgoT3hcnbR4oQlZpn8EZ58m3tFgNsU=;
- b=K7W+DE/oObKFXxJzypRN+jpOB49GGCtJ3WJEvnFdNyijVBC7rGx80PKEr1mhm1xnDTC5
- fZSxEi6D/KhodMHecdpWn4BTYX3Nra+S4xdvgHhL1M+ruv4SFnMVLiDuILgxMoYjlz/l
- HVy3R5yjJy5ocqHv92TNYPHjMA7UcIlBWjrVWmgl/o2m7qZ2vyi0hS60m5IruHsgTPBA
- axv0nPhrHh7W5OqARzSlojIw0eR6f0k1/HRF0KRr/T1ueYkmP/+tL6CHysXv3ivnankj
- vWkImdKZna3PDDcNpebGxTcybcbdvT7HWEWruZ0nilgOhCa27iNOtV3Wb2+05/4oyAIZ 2A== 
+ : date : message-id : in-reply-to : references : mime-version :
+ content-transfer-encoding; s=pp1;
+ bh=HdO4vE5VVMCsPa//8JbQ8fNZYQE0ELrX1Vo0vu7Lmcw=;
+ b=jRVugEP5xDd1pI58t3BVxvvVnhxolTgKNIlh5c3kHN9EjQ9FIlqdvRvCK/hgZWsnYtfw
+ WPZi3gAhF0WmcWhoLOEWq8SKtUxXST9FCtiYBlPEu2c9HOEjhfVyKM/LUtZBzk6haTli
+ Ml0I+ATW2ZciUnQl/t4U+TzOtcO7G64SqEcIVo/CYnDjGljcItau6MITA8YCJK3wbSHt
+ nMeWUNlThjdsr+WaQd5j8i3A4nbFM83o2XQ5z+Eg8oJVVTinH/t6cx47D4goX11RvPuk
+ VA/fXwS7l0Y9bonwrVFpJn6vk9F5Trs6j4Nyjkp8QZ+mrGh/taRCzmXxSzmCgjl8HhOs sw== 
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3paqftj4xb-1
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3papenbxfp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 12:12:22 +0000
-Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 32ECCLZP009325;
-	Tue, 14 Mar 2023 12:12:21 GMT
+	Tue, 14 Mar 2023 12:12:26 +0000
+Received: from m0098420.ppops.net (m0098420.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 32ECAYwG031131;
+	Tue, 14 Mar 2023 12:12:25 GMT
 Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com [159.122.73.71])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3paqftj4wc-1
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3papenbxer-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 12:12:21 +0000
+	Tue, 14 Mar 2023 12:12:25 +0000
 Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
-	by ppma02fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 32E9I2SS019091;
-	Tue, 14 Mar 2023 12:12:19 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma02fra.de.ibm.com (PPS) with ESMTPS id 3p8h96kru9-1
+	by ppma02fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 32E9dImv019195;
+	Tue, 14 Mar 2023 12:12:23 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma02fra.de.ibm.com (PPS) with ESMTPS id 3p8h96krue-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 12:12:19 +0000
+	Tue, 14 Mar 2023 12:12:23 +0000
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 32ECCHRL24904420
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 32ECCKPI65274356
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Mar 2023 12:12:17 GMT
+	Tue, 14 Mar 2023 12:12:20 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5CE682007C;
-	Tue, 14 Mar 2023 12:12:17 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9ADE32007C;
+	Tue, 14 Mar 2023 12:12:20 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DDBE42007A;
-	Tue, 14 Mar 2023 12:12:16 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 64E2D2007A;
+	Tue, 14 Mar 2023 12:12:19 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 14 Mar 2023 12:12:16 +0000 (GMT)
+	Tue, 14 Mar 2023 12:12:19 +0000 (GMT)
 From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>, Richard Cochran <richardcochran@gmail.com>,
+To: Arnd Bergmann <arnd@arndb.de>,
+        Richard Henderson <richard.henderson@linaro.org>,
+        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+        Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
         Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Richard Weinberger <richard@nod.at>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
         Bjorn Helgaas <bhelgaas@google.com>,
         =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
         Mauro Carvalho Chehab <mchehab@kernel.org>,
         Alan Stern <stern@rowland.harvard.edu>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-pci@vger.kernel.org, netdev@vger.kernel.org,
-        linux-riscv@lists.infradead.org
-Subject: [PATCH v3 00/38] Kconfig: Introduce HAS_IOPORT config option
-Date: Tue, 14 Mar 2023 13:11:38 +0100
-Message-Id: <20230314121216.413434-1-schnelle@linux.ibm.com>
+        "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
+        Arnd Bergmann <arnd@kernel.org>, linux-alpha@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org
+Subject: [PATCH v3 01/38] Kconfig: introduce HAS_IOPORT option and select it as necessary
+Date: Tue, 14 Mar 2023 13:11:39 +0100
+Message-Id: <20230314121216.413434-2-schnelle@linux.ibm.com>
 X-Mailer: git-send-email 2.37.2
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: NpNJ26LxVNFi9mX-gt0mikwNUv5Ciqfn
-X-Proofpoint-GUID: 2zSpA9rfjwQ1RiokepIA4tCq0vfAZ5G5
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+In-Reply-To: <20230314121216.413434-1-schnelle@linux.ibm.com>
+References: <20230314121216.413434-1-schnelle@linux.ibm.com>
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: jEeY3nBMThQ6e7_Ur-wLIeKSlt5g2V_U
+X-Proofpoint-GUID: P_xr1SfeNrScxKrnJYkVPc3TfzBTokPD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-03-14_04,2023-03-14_02,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 spamscore=0
- malwarescore=0 mlxscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0
- adultscore=0 impostorscore=0 priorityscore=1501 clxscore=1011 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2212070000
- definitions=main-2303140103
+ definitions=2023-03-14_06,2023-03-14_02,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ mlxlogscore=999 mlxscore=0 adultscore=0 phishscore=0 impostorscore=0
+ lowpriorityscore=0 malwarescore=0 clxscore=1011 priorityscore=1501
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2212070000 definitions=main-2303140103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_051240_291025_896CEEAC 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20230314_051313_442468_08B28819 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,211 +141,311 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gS2VybmVsIEhhY2tlcnMsCgpTb21lIHBsYXRmb3JtcyBzdWNoIGFzIHMzOTAgZG8gbm90
-IHN1cHBvcnQgUENJIEkvTyBzcGFjZXMuIE9uIHN1Y2ggcGxhdGZvcm1zCkkvTyBzcGFjZSBhY2Nl
-c3NvcnMgbGlrZSBpbmIoKS9vdXRiKCkgYXJlIHN0dWJzIHRoYXQgY2FuIG5ldmVyIGFjdHVhbGx5
-IHdvcmsuClRoZSB3YXkgdGhlc2Ugc3R1YnMgYXJlIGltcGxlbWVudGVkIGluIGFzbS1nZW5lcmlj
-L2lvLmggbGVhZHMgdG8gY29tcGlsZXIKd2FybmluZ3MgYmVjYXVzZSBhbnkgdXNlIHdpbGwgYmUg
-YSBOVUxMIHBvaW50ZXIgYWNjZXNzIG9uIHRoZXNlIHBsYXRmb3Jtcy4gSW4KYSBwcmV2aW91cyBw
-YXRjaCB3ZSB0cmllZCBoYW5kbGluZyB0aGlzIHdpdGggYSBydW4tdGltZSB3YXJuaW5nIG9uIGFj
-Y2Vzcy4gVGhpcwphcHByb2FjaCBob3dldmVyIHdhcyByZWplY3RlZCBieSBMaW51c1swXSB3aXRo
-IHRoZSBhcmd1bWVudCB0aGF0IHRoaXMgcmVhbGx5CnNob3VsZCBiZSBhIGNvbXBpbGUtdGltZSBj
-aGVjayBhbmQsIHRob3VnaCBhIG11Y2ggbW9yZSBpbnZhc2l2ZSBjaGFuZ2UsIHdlCmJlbGlldmUg
-dGhhdCBpcyBpbmRlZWQgdGhlIHJpZ2h0IGFwcHJvYWNoLgoKVGhpcyBwYXRjaCBzZXJpZXMgYWlt
-cyB0byBkbyBleGFjdGx5IHRoYXQgYnkgaW50cm9kdWNpbmcgYSBIQVNfSU9QT1JUIGNvbmZpZwpv
-cHRpb24gYWtpbiB0byB0aGUgZXhpc3RpbmcgSEFTX0lPTUVNLiBXaGVuIHRoaXMgaXMgdW5zZXQg
-aW5iKCkvb3V0YigpIGFuZApmcmllbmRzIG1heSBub3QgYmUgZGVmaW5lZC4gVGhpcyBpcyBhbHNv
-IHRoZSBzYW1lIGFwcHJvYWNoIG9yaWdpbmFsbHkgcGxhbm5lZCBieQpVd2UgS2xlaW5lLUvDtm5p
-ZyBhcyBtZW50aW9uZWQgaW4gY29tbWl0IGNlODE2ZmE4OGNjYSAoIktjb25maWc6IHJlbmFtZQpI
-QVNfSU9QT1JUIHRvIEhBU19JT1BPUlRfTUFQIikuCgpUaGlzIHNlcmllcyBidWlsZHMgaGVhdmls
-eSBvbiBhbiBvcmlnaW5hbCBwYXRjaCBmb3IgZGVtb25zdGF0aW5nIHRoZSBjb25jZXB0IGJ5CkFy
-bmQgQmVyZ21hbm5bMV0gYW5kIGluY29wb3JhdGVzIGZlZWRiYWNrIG9mIHByZXZpb3VzIFJGQyB2
-ZXJzaW9ucyBbMl0gYW5kIFszXS4KClRoaXMgdmVyc2lvbiBpcyBiYXNlZCBvbiB2Ni4zLXJjMSBh
-bmQgaXMgYWxzbyBhdmFpbGFibGUgb24gbXkga2VybmVsLm9yZyB0cmVlCmluIHRoZSBoYXNfaW9w
-b3J0X3YzIGJyYW5jaCB3aXRoIHRoZSBQR1Agc2lnbmVkIHRhZyBoYXNfaW9wb3J0X3YzX3NpZ25l
-ZDoKCmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L25pa3Mv
-bGludXguZ2l0CgpUaGFua3MsCk5pa2xhcyBTY2huZWxsZQoKQ2hhbmdlcyBmcm9tIFJGQyB2MjoK
-LSBSZWJhc2VkIG9uIHY2LjMtcmMxCi0gRml4ZWQgYSBOVUxMIHBvaW50ZXIgZGVyZWZlcmVuY2Ug
-aW4gc2V0X2lvX2Zyb21fdXBpbygpIGR1ZSB0byBhY2NpZGVudGlhbGx5CiAgZXhwYW5kZWQgI2lm
-ZGVmIENPTkZJR19TRVJJQUxfODI1MF9SVDI4OFggKGtlcm5lbCB0ZXN0IHJvYm90KQotIERyb3Bw
-ZWQgIkFDUEk6IGFkZCBkZXBlbmRlbmN5IG9uIEhBU19JT1BPUlQiIChCam9ybiBIZWxnYWFzKQot
-IFJld29yZGVkIGNvbW1pdCBtZXNzYWdlIGFuZCBtb3ZlZCBpZmRlZnMgZm9yICJQQ0kvc3lzZnM6
-IE1ha2UgSS9PIHJlc291cmNlCiAgZGVwZW5kIG9uIEhBU19JT1BPUlQiIChCam9ybiBIZWxnYWFz
-KQotIEluc3RlYWQgb2YgY29tcGxldGUgcmVtb3ZhbCBpbmIoKSBldGMuIGFyZSBtYXJrZWQgd2l0
-aCBfX2NvbXBpbGV0aW1lX2Vycm9yKCkKICB3aGVuIEhBU19JT1BPUlQgaXMgdW5zZXQgYWxsb3dp
-bmcgZm9yIGJldHRlciBlcnJvciByZXBvcnRpbmcgKEFobWFkIEZhdG91bSkKLSBSZW1vdmVkIEhB
-U19JT1BPUlQgZGVwZW5kZW5jeSBmcm9tIFBDTUNJQSBhcyBJL08gcG9ydCB1c2UgaXMgb3B0aW9u
-YWwgaW4gYXQKICBsZWFzdCBQQyBDYXJkLiBJbnN0ZWFkIGFkZGVkIEhBU19JT1BPUlQgb24gYSBw
-ZXIgZHJpdmVyIGJhc2lzLiAoQmpvcm4KICBIZWxnYWFzKQotIE1hZGUgdWhjaV9oYXNfcGNpX3Jl
-Z2lzdGVycygpIGNvbnN0YW50IDAgaWYgSEFTX0lPUE9SVCBpcyBub3QgZGVmaW5lZCAoQWxhbgog
-IFN0ZXJuKQoKQ2hhbmdlcyBmcm9tIFJGQyB2MToKLSBDb21wbGV0ZWx5IGRyb3BwZWQgdGhlIExF
-R0FDWV9QQ0kgb3B0aW9uIGFuZCByZXBsYWNlZCBpdHMgZGVwZW5kZW5jaWVzIHdpdGgKICBIQVNf
-SU9QT1JUIGFzIGFwcHJvcHJpYXRlCi0gSW4gdGhlIHVzYiBzdWJzeXN0ZW0gcGF0Y2ggSSBpbmNv
-cnBvcmF0ZWQgdGhlIGZlZWRiYWNrIGZyb20gdjEgYnkgQWxhbiBTdGVybjoKICAtIFVzZWQgYSBs
-b2NhbCBtYWNybyB0byBub3AgaW4qKCkvb3V0KigpIGluIHRoZSBoZWxwZXJzCiAgLSBSZW1vdmVk
-IGFuIHVubmVjZXNzYXJ5IGZ1cnRoZXIgcmVzdHJpY3Rpb24gb24gQ09ORklHX1VTQl9VSENJX0hD
-RAotIEFkZGVkIGEgZmV3IG1vcmUgc3Vic3lzdGVtcyBpbmNsdWRpbmcgd2lyZWxlc3MsIHB0cCwg
-YW5kLCBtSVNETiB0aGF0IEkgaGFkCiAgcHJldmlvdXNseSBtaXNzZWQgZHVlIHRvIGEgYmxhbmtl
-dCAhUzM5MC4KLSBSZW1vdmVkIGJsYW5rZXQgIVMzOTAgZGVwZW5kZW5jaWVzIHdoZXJlIHRoZXkg
-YXJlIGFkZGVkIGR1ZSB0byB0aGUgSS9PIHBvcnQKICBwcm9ibGVtCi0gSW4gdGhlIHNvdW5kIHN5
-c3RlbSBTTkRfT1BMM19MSUIgbmVlZGVkIHRvIHVzZSAiZGVwZW5kcyBvbiIgaW5zdGVhZCBvZgog
-ICJzZWxlY3QiIGJlY2F1c2Ugb2YgaXRzIGFkZGVkIEhBU19JT1BPUlQgZGVwZW5kZW5jeQotIElu
-IHRoZSBkcm0gc3Vic3lzdGVtIHRoZSBib2NocyBkcml2ZXIgZ2V0cyAjaWZkZWZzIGluc3RlYWQg
-b2YgYSBibGFua2V0CiAgZGVwZW5kZW5jeSBiZWNhdXNlIGl0cyBNTUlPIGNhcGFibGUgZGV2aWNl
-IHZhcmlhbnQgc2hvdWxkIHdvcmsgd2l0aG91dAogIEhBU19JT1BPUlQuCgpbMF0gaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGttbC9DQUhrLT13ZzgwamU9SzdtYWRGNGU3V3JSTnAzN2UzcWg2eTEw
-U3ZoZGM3TzhTWl8tOGdAbWFpbC5nbWFpbC5jb20vClsxXSBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9sa21sL0NBSzhQM2EwTU5ieC1pdXpXXy09MGFiNi1UVFp6d1YtUFRfNmdBQzFHcDVQZ1l5SGNy
-QUBtYWlsLmdtYWlsLmNvbS8KWzJdIGh0dHBzOi8veWhidC5uZXQvbG9yZS9hbGwvMjAyMTEyMjcx
-NjQzMTcuNDE0NjkxOC0xLXNjaG5lbGxlQGxpbnV4LmlibS5jb20vClszXSBodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9hbGwvMjAyMjA0MjkxMzUxMDguMjc4MTU3OS0xLXNjaG5lbGxlQGxpbnV4Lmli
-bS5jb20vCgpOaWtsYXMgU2NobmVsbGUgKDM4KToKICBLY29uZmlnOiBpbnRyb2R1Y2UgSEFTX0lP
-UE9SVCBvcHRpb24gYW5kIHNlbGVjdCBpdCBhcyBuZWNlc3NhcnkKICBhdGE6IGFkZCBIQVNfSU9Q
-T1JUIGRlcGVuZGVuY2llcwogIGNoYXI6IGltcGksIHRwbTogZGVwZW5kIG9uIEhBU19JT1BPUlQK
-ICBjb21lZGk6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIGNvdW50ZXI6IGFkZCBIQVNf
-SU9QT1JUIGRlcGVuZGVuY2llcwogIC9kZXYvcG9ydDogZG9uJ3QgY29tcGlsZSBmaWxlIG9wZXJh
-dGlvbnMgd2l0aG91dCBDT05GSUdfREVWUE9SVAogIGRybTogaGFuZGxlIEhBU19JT1BPUlQgZGVw
-ZW5kZW5jaWVzCiAgZmlybXdhcmU6IGRtaS1zeXNmczogaGFuZGxlIEhBU19JT1BPUlQ9bgogIGdw
-aW86IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIGh3bW9uOiBhZGQgSEFTX0lPUE9SVCBk
-ZXBlbmRlbmNpZXMKICBpMmM6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIGlpbzogYWQ3
-NjA2OiBLY29uZmlnOiBhZGQgSEFTX0lPUE9SVCBkZXBlbmRlbmNpZXMKICBJbnB1dDogYWRkIEhB
-U19JT1BPUlQgZGVwZW5kZW5jaWVzCiAgSW5wdXQ6IGdhbWVwb3J0OiBhZGQgSVNBIGFuZCBIQVNf
-SU9QT1JUIGRlcGVuZGVuY2llcwogIGxlZHM6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwog
-IG1lZGlhOiBhZGQgSEFTX0lPUE9SVCBkZXBlbmRlbmNpZXMKICBtaXNjOiBhZGQgSEFTX0lPUE9S
-VCBkZXBlbmRlbmNpZXMKICBtSVNETjogYWRkIEhBU19JT1BPUlQgZGVwZW5kZW5jaWVzCiAgbXB0
-IGZ1c2lvbjogYWRkIEhBU19JT1BPUlQgZGVwZW5kZW5jaWVzCiAgbmV0OiBoYW5kbGUgSEFTX0lP
-UE9SVCBkZXBlbmRlbmNpZXMKICBwYXJwb3J0OiBQQyBzdHlsZSBwYXJwb3J0IGRlcGVuZHMgb24g
-SEFTX0lPUE9SVAogIFBDSTogTWFrZSBxdWlyayB1c2luZyBpbncoKSBkZXBlbmQgb24gSEFTX0lP
-UE9SVAogIFBDSS9zeXNmczogTWFrZSBJL08gcmVzb3VyY2UgZGVwZW5kIG9uIEhBU19JT1BPUlQK
-ICBwY21jaWE6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIHBsYXRmb3JtOiBhZGQgSEFT
-X0lPUE9SVCBkZXBlbmRlbmNpZXMKICBwbnA6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwog
-IHBvd2VyOiBhZGQgSEFTX0lPUE9SVCBkZXBlbmRlbmNpZXMKICBydGM6IGFkZCBIQVNfSU9QT1JU
-IGRlcGVuZGVuY2llcwogIHNjc2k6IGFkZCBIQVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIHNvdW5k
-OiBhZGQgSEFTX0lPUE9SVCBkZXBlbmRlbmNpZXMKICBzcGVha3VwOiBhZGQgSEFTX0lPUE9SVCBk
-ZXBlbmRlbmN5IGZvciBTUEVBS1VQX1NFUklBTElPCiAgc3RhZ2luZzogYWRkIEhBU19JT1BPUlQg
-ZGVwZW5kZW5jaWVzCiAgdHR5OiBzZXJpYWw6IGhhbmRsZSBIQVNfSU9QT1JUIGRlcGVuZGVuY2ll
-cwogIHVzYjogaGFuZGxlIEhBU19JT1BPUlQgZGVwZW5kZW5jaWVzCiAgdmlkZW86IGhhbmRsZSBI
-QVNfSU9QT1JUIGRlcGVuZGVuY2llcwogIHdhdGNoZG9nOiBhZGQgSEFTX0lPUE9SVCBkZXBlbmRl
-bmNpZXMKICB3aXJlbGVzczogYWRkIEhBU19JT1BPUlQgZGVwZW5kZW5jaWVzCiAgYXNtLWdlbmVy
-aWMvaW8uaDogZHJvcCBpbmIoKSBldGMgZm9yIEhBU19JT1BPUlQ9bgoKIGFyY2gvYWxwaGEvS2Nv
-bmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvYXJtL0tjb25maWcg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvYXJtNjQvS2NvbmZpZyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvaWE2NC9LY29uZmlnICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvbTY4ay9LY29uZmlnICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvbWljcm9ibGF6ZS9LY29uZmlnICAgICAg
-ICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvbWlwcy9LY29uZmlnICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgICAyICsKIGFyY2gvcGFyaXNjL0tjb25maWcgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHwgICAyICsKIGFyY2gvcG93ZXJwYy9LY29uZmlnICAgICAgICAgICAgICAgICAg
-ICAgICAgIHwgICAyICstCiBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
-ICAgICB8ICAgMSArCiBhcmNoL3NoL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICB8ICAgMSArCiBhcmNoL3NwYXJjL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICB8
-ICAgMSArCiBhcmNoL3VtL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
-MSArCiBhcmNoL3g4Ni9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMiAr
-CiBkcml2ZXJzL2FjY2Vzc2liaWxpdHkvc3BlYWt1cC9LY29uZmlnICAgICAgICB8ICAgMSArCiBk
-cml2ZXJzL2F0YS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2
-ZXJzL2J1cy9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVy
-cy9jaGFyL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDMgKy0KIGRyaXZlcnMv
-Y2hhci9pcG1pL01ha2VmaWxlICAgICAgICAgICAgICAgICAgIHwgIDExICstCiBkcml2ZXJzL2No
-YXIvaXBtaS9pcG1pX3NpX2ludGYuYyAgICAgICAgICAgICB8ICAgMyArLQogZHJpdmVycy9jaGFy
-L2lwbWkvaXBtaV9zaV9wY2kuYyAgICAgICAgICAgICAgfCAgIDMgKwogZHJpdmVycy9jaGFyL21l
-bS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDYgKy0KIGRyaXZlcnMvY2hhci9wY21j
-aWEvS2NvbmZpZyAgICAgICAgICAgICAgICAgIHwgICA4ICstCiBkcml2ZXJzL2NoYXIvdHBtL0tj
-b25maWcgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2NoYXIvdHBtL3RwbV9p
-bmZpbmVvbi5jICAgICAgICAgICAgICB8ICAxNCArKy0KIGRyaXZlcnMvY2hhci90cG0vdHBtX3Rp
-c19jb3JlLmMgICAgICAgICAgICAgIHwgIDE5ICsrLQogZHJpdmVycy9jb21lZGkvS2NvbmZpZyAg
-ICAgICAgICAgICAgICAgICAgICAgfCAxMDMgKysrKysrKysrLS0tLS0tCiBkcml2ZXJzL2NvdW50
-ZXIvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2Vpc2EvS2Nv
-bmZpZyAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2Zpcm13YXJlL2Rt
-aS1zeXNmcy5jICAgICAgICAgICAgICAgICB8ICAgNCArCiBkcml2ZXJzL2dwaW8vS2NvbmZpZyAg
-ICAgICAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9ncHUvZHJtL3F4bC9LY29u
-ZmlnICAgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9ncHUvZHJtL3RpbnkvYm9jaHMu
-YyAgICAgICAgICAgICAgICAgfCAgMTkgKysrCiBkcml2ZXJzL2dwdS9kcm0vdGlueS9jaXJydXMu
-YyAgICAgICAgICAgICAgICB8ICAgMiArCiBkcml2ZXJzL2h3bW9uL0tjb25maWcgICAgICAgICAg
-ICAgICAgICAgICAgICB8ICAyMSArKystCiBkcml2ZXJzL2kyYy9idXNzZXMvS2NvbmZpZyAgICAg
-ICAgICAgICAgICAgICB8ICAzMSArKy0tLQogZHJpdmVycy9paW8vYWRjL0tjb25maWcgICAgICAg
-ICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvaW5wdXQvZ2FtZXBvcnQvS2NvbmZpZyAg
-ICAgICAgICAgICAgIHwgICA0ICstCiBkcml2ZXJzL2lucHV0L3NlcmlvL0tjb25maWcgICAgICAg
-ICAgICAgICAgICB8ICAgMiArCiBkcml2ZXJzL2lucHV0L3RvdWNoc2NyZWVuL0tjb25maWcgICAg
-ICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2lzZG4vS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICB8ICAgMSAtCiBkcml2ZXJzL2lzZG4vaGFyZHdhcmUvbUlTRE4vS2NvbmZpZyAgICAgICAg
-ICB8ICAxMiArLQogZHJpdmVycy9sZWRzL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAg
-fCAgIDIgKy0KIGRyaXZlcnMvbWVkaWEvcGNpL2RtMTEwNS9LY29uZmlnICAgICAgICAgICAgIHwg
-ICAyICstCiBkcml2ZXJzL21lZGlhL3JhZGlvL0tjb25maWcgICAgICAgICAgICAgICAgICB8ICAx
-NCArKy0KIGRyaXZlcnMvbWVkaWEvcmMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgIHwgICA2
-ICsKIGRyaXZlcnMvbWVzc2FnZS9mdXNpb24vS2NvbmZpZyAgICAgICAgICAgICAgIHwgICAyICst
-CiBkcml2ZXJzL21pc2MvYWx0ZXJhLXN0YXBsL01ha2VmaWxlICAgICAgICAgICB8ICAgMyArLQog
-ZHJpdmVycy9taXNjL2FsdGVyYS1zdGFwbC9hbHRlcmEuYyAgICAgICAgICAgfCAgIDYgKy0KIGRy
-aXZlcnMvbmV0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAyICstCiBkcml2
-ZXJzL25ldC9hcmNuZXQvS2NvbmZpZyAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVy
-cy9uZXQvY2FuL2NjNzcwL0tjb25maWcgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9u
-ZXQvY2FuL3NqYTEwMDAvS2NvbmZpZyAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9uZXQv
-ZXRoZXJuZXQvM2NvbS9LY29uZmlnICAgICAgICAgICAgfCAgIDQgKy0KIGRyaXZlcnMvbmV0L2V0
-aGVybmV0LzgzOTAvS2NvbmZpZyAgICAgICAgICAgIHwgICA2ICstCiBkcml2ZXJzL25ldC9ldGhl
-cm5ldC9hbWQvS2NvbmZpZyAgICAgICAgICAgICB8ICAgNCArLQogZHJpdmVycy9uZXQvZXRoZXJu
-ZXQvZnVqaXRzdS9LY29uZmlnICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbmV0L2V0aGVybmV0
-L2ludGVsL0tjb25maWcgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9z
-aXMvS2NvbmZpZyAgICAgICAgICAgICB8ICAgNCArLQogZHJpdmVycy9uZXQvZXRoZXJuZXQvc21z
-Yy9LY29uZmlnICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbmV0L2V0aGVybmV0L3RpL0tj
-b25maWcgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL25ldC9ldGhlcm5ldC92aWEvS2Nv
-bmZpZyAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL25ldC9ldGhlcm5ldC94aXJjb20vS2Nv
-bmZpZyAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9uZXQvZmRkaS9LY29uZmlnICAgICAgICAg
-ICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbmV0L2ZkZGkvZGVmeHguYyAgICAgICAgICAg
-ICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL25ldC9oYW1yYWRpby9LY29uZmlnICAgICAgICAg
-ICAgICAgICB8ICAgNiArLQogZHJpdmVycy9uZXQvd2FuL0tjb25maWcgICAgICAgICAgICAgICAg
-ICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbmV0L3dpcmVsZXNzL2F0bWVsL0tjb25maWcgICAgICAg
-ICAgIHwgICAyICstCiBkcml2ZXJzL25ldC93aXJlbGVzcy9pbnRlcnNpbC9ob3N0YXAvS2NvbmZp
-ZyB8ICAgMiArLQogZHJpdmVycy9wYXJwb3J0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
-fCAgIDQgKy0KIGRyaXZlcnMvcGNpL3BjaS1zeXNmcy5jICAgICAgICAgICAgICAgICAgICAgIHwg
-ICA0ICsKIGRyaXZlcnMvcGNpL3F1aXJrcy5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAy
-ICsKIGRyaXZlcnMvcGNtY2lhL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgIHwgICA1ICst
-CiBkcml2ZXJzL3BsYXRmb3JtL2Nocm9tZS9LY29uZmlnICAgICAgICAgICAgICB8ICAgMSArCiBk
-cml2ZXJzL3BsYXRmb3JtL2Nocm9tZS93aWxjb19lYy9LY29uZmlnICAgICB8ICAgMSArCiBkcml2
-ZXJzL3BucC9pc2FwbnAvS2NvbmZpZyAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVy
-cy9wb3dlci9yZXNldC9LY29uZmlnICAgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9y
-dGMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDQgKy0KIGRyaXZlcnMvc2Nz
-aS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDI1ICsrLS0KIGRyaXZlcnMvc2Nz
-aS9haWM3eHh4L0tjb25maWcuYWljNzl4eCAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL3Njc2kv
-YWljN3h4eC9LY29uZmlnLmFpYzd4eHggICAgICAgICB8ICAgMiArLQogZHJpdmVycy9zY3NpL2Fp
-Yzk0eHgvS2NvbmZpZyAgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvc2NzaS9tZWdh
-cmFpZC9LY29uZmlnLm1lZ2FyYWlkICAgICAgIHwgICA2ICstCiBkcml2ZXJzL3Njc2kvbXZzYXMv
-S2NvbmZpZyAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9zY3NpL3BjbWNpYS9L
-Y29uZmlnICAgICAgICAgICAgICAgICAgfCAgIDYgKy0KIGRyaXZlcnMvc2NzaS9xbGEyeHh4L0tj
-b25maWcgICAgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL3N0YWdpbmcvc203NTBmYi9L
-Y29uZmlnICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9zdGFnaW5nL3Z0NjY1NS9LY29u
-ZmlnICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvdHR5L0tjb25maWcgICAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL3R0eS9zZXJpYWwvODI1MC84MjUwX2Vh
-cmx5LmMgICAgICAgICB8ICAgNCArCiBkcml2ZXJzL3R0eS9zZXJpYWwvODI1MC84MjUwX3BjaS5j
-ICAgICAgICAgICB8ICAxNCArKysKIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUwLzgyNTBfcG9ydC5j
-ICAgICAgICAgIHwgIDQ0ICsrKysrLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUwL0tjb25maWcg
-ICAgICAgICAgICAgIHwgICA1ICstCiBkcml2ZXJzL3R0eS9zZXJpYWwvS2NvbmZpZyAgICAgICAg
-ICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy91c2IvY29yZS9oY2QtcGNpLmMgICAgICAgICAg
-ICAgICAgICAgfCAgIDIgKwogZHJpdmVycy91c2IvaG9zdC9LY29uZmlnICAgICAgICAgICAgICAg
-ICAgICAgfCAgIDQgKy0KIGRyaXZlcnMvdXNiL2hvc3QvcGNpLXF1aXJrcy5jICAgICAgICAgICAg
-ICAgIHwgMTI1ICsrKysrKysrKystLS0tLS0tLS0KIGRyaXZlcnMvdXNiL2hvc3QvcGNpLXF1aXJr
-cy5oICAgICAgICAgICAgICAgIHwgIDMxICsrKy0tCiBkcml2ZXJzL3VzYi9ob3N0L3VoY2ktaGNk
-LmMgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy91c2IvaG9zdC91aGNpLWhjZC5o
-ICAgICAgICAgICAgICAgICAgfCAgMzYgKysrKy0tCiBkcml2ZXJzL3ZpZGVvL2NvbnNvbGUvS2Nv
-bmZpZyAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3ZpZGVvL2ZiZGV2L0tjb25maWcg
-ICAgICAgICAgICAgICAgICB8ICAyNSArKy0tCiBkcml2ZXJzL3dhdGNoZG9nL0tjb25maWcgICAg
-ICAgICAgICAgICAgICAgICB8ICAgNiArLQogaW5jbHVkZS9hc20tZ2VuZXJpYy9pby5oICAgICAg
-ICAgICAgICAgICAgICAgfCAgNjAgKysrKysrKysrCiBpbmNsdWRlL2xpbnV4L2dhbWVwb3J0Lmgg
-ICAgICAgICAgICAgICAgICAgICB8ICAgOSArLQogaW5jbHVkZS9saW51eC9wYXJwb3J0LmggICAg
-ICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGluY2x1ZGUvdmlkZW8vdmdhLmggICAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgICA4ICsrCiBsaWIvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB8ICAgNCArCiBsaWIvS2NvbmZpZy5rZ2RiICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8ICAgMyArLQogbmV0L2F4MjUvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgIDIgKy0KIHNvdW5kL2RyaXZlcnMvS2NvbmZpZyAgICAgICAgICAgICAgICAg
-ICAgICAgIHwgICAzICsKIHNvdW5kL2lzYS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHwgIDMxICsrKystCiBzb3VuZC9wY2kvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICB8ICA0NSArKysrKy0tCiBzb3VuZC9wY21jaWEvS2NvbmZpZyAgICAgICAgICAgICAgICAg
-ICAgICAgICB8ICAgMiArCiAxMTQgZmlsZXMgY2hhbmdlZCwgNjQ5IGluc2VydGlvbnMoKyksIDI4
-MSBkZWxldGlvbnMoLSkKCgpiYXNlLWNvbW1pdDogZWVhYzhlZGUxNzU1NzY4MDg1NTAzMWM2ZjMw
-NWVjZTIzNzhhZjMyNgotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
+Port access. In a future patch HAS_IOPORT=n will disable compilation of
+the I/O accessor functions inb()/outb() and friends on architectures
+which can not meaningfully support legacy I/O spaces such as s390. Also
+add dependencies on HAS_IOPORT for the ISA and HAVE_EISA config options
+as these busses always go along with HAS_IOPORT.
+
+The "depends on" relations on HAS_IOPORT in drivers as well as ifdefs
+for HAS_IOPORT specific sections will be added in subsequent patches on
+a per subsystem basis.
+
+Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+---
+ arch/alpha/Kconfig      | 1 +
+ arch/arm/Kconfig        | 1 +
+ arch/arm64/Kconfig      | 1 +
+ arch/ia64/Kconfig       | 1 +
+ arch/m68k/Kconfig       | 1 +
+ arch/microblaze/Kconfig | 1 +
+ arch/mips/Kconfig       | 2 ++
+ arch/parisc/Kconfig     | 2 ++
+ arch/powerpc/Kconfig    | 2 +-
+ arch/riscv/Kconfig      | 1 +
+ arch/sh/Kconfig         | 1 +
+ arch/sparc/Kconfig      | 1 +
+ arch/um/Kconfig         | 1 +
+ arch/x86/Kconfig        | 2 ++
+ drivers/bus/Kconfig     | 2 +-
+ drivers/eisa/Kconfig    | 1 +
+ lib/Kconfig             | 4 ++++
+ lib/Kconfig.kgdb        | 3 ++-
+ 18 files changed, 25 insertions(+), 3 deletions(-)
+
+diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+index 780d4673c3ca..a5c2b1aa46b0 100644
+--- a/arch/alpha/Kconfig
++++ b/arch/alpha/Kconfig
+@@ -27,6 +27,7 @@ config ALPHA
+ 	select AUDIT_ARCH
+ 	select GENERIC_CPU_VULNERABILITIES
+ 	select GENERIC_SMP_IDLE_THREAD
++	select HAS_IOPORT
+ 	select HAVE_ARCH_AUDITSYSCALL
+ 	select HAVE_MOD_ARCH_SPECIFIC
+ 	select MODULES_USE_ELF_RELA
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index e24a9820e12f..4acb5bc4b52a 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -70,6 +70,7 @@ config ARM
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select HARDIRQS_SW_RESEND
++	select HAS_IOPORT
+ 	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
+ 	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
+ 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 1023e896d46b..b740019c4aee 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -145,6 +145,7 @@ config ARM64
+ 	select GENERIC_GETTIMEOFDAY
+ 	select GENERIC_VDSO_TIME_NS
+ 	select HARDIRQS_SW_RESEND
++	select HAS_IOPORT
+ 	select HAVE_MOVE_PMD
+ 	select HAVE_MOVE_PUD
+ 	select HAVE_PCI
+diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+index d7e4a24e8644..2e13ec8263b9 100644
+--- a/arch/ia64/Kconfig
++++ b/arch/ia64/Kconfig
+@@ -25,6 +25,7 @@ config IA64
+ 	select PCI_DOMAINS if PCI
+ 	select PCI_MSI
+ 	select PCI_SYSCALL if PCI
++	select HAS_IOPORT
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_UNSTABLE_SCHED_CLOCK
+ 	select HAVE_EXIT_THREAD
+diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+index 82154952e574..40198a1ebe27 100644
+--- a/arch/m68k/Kconfig
++++ b/arch/m68k/Kconfig
+@@ -18,6 +18,7 @@ config M68K
+ 	select GENERIC_CPU_DEVICES
+ 	select GENERIC_IOMAP
+ 	select GENERIC_IRQ_SHOW
++	select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA
+ 	select HAVE_ARCH_SECCOMP
+ 	select HAVE_ARCH_SECCOMP_FILTER
+ 	select HAVE_ASM_MODVERSIONS
+diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
+index cc88af6fa7a4..211f338d6235 100644
+--- a/arch/microblaze/Kconfig
++++ b/arch/microblaze/Kconfig
+@@ -21,6 +21,7 @@ config MICROBLAZE
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_PCI_IOMAP
+ 	select GENERIC_SCHED_CLOCK
++	select HAS_IOPORT if PCI
+ 	select HAVE_ARCH_HASH
+ 	select HAVE_ARCH_KGDB
+ 	select HAVE_ARCH_SECCOMP
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index e2f3ca73f40d..64760fcd7b52 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -47,6 +47,7 @@ config MIPS
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+ 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
++	select HAS_IOPORT if !NO_IOPORT_MAP
+ 	select HAVE_ARCH_COMPILER_H
+ 	select HAVE_ARCH_JUMP_LABEL
+ 	select HAVE_ARCH_KGDB if MIPS_FP_SUPPORT
+@@ -3120,6 +3121,7 @@ config PCI_DRIVERS_LEGACY
+ # users to choose the right thing ...
+ #
+ config ISA
++	depends on HAS_IOPORT
+ 	bool
+ 
+ config TC
+diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+index a98940e64243..5eeacc72e4da 100644
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -47,6 +47,7 @@ config PARISC
+ 	select MODULES_USE_ELF_RELA
+ 	select CLONE_BACKWARDS
+ 	select TTY # Needed for pdc_cons.c
++	select HAS_IOPORT if PCI
+ 	select HAVE_DEBUG_STACKOVERFLOW
+ 	select HAVE_ARCH_AUDITSYSCALL
+ 	select HAVE_ARCH_HASH
+@@ -131,6 +132,7 @@ config STACKTRACE_SUPPORT
+ 
+ config ISA_DMA_API
+ 	bool
++	depends on HAS_IOPORT
+ 
+ config ARCH_MAY_HAVE_PC_FDC
+ 	bool
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index a6c4407d3ec8..f7de646c074a 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -188,6 +188,7 @@ config PPC
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+ 	select GENERIC_VDSO_TIME_NS
++	select HAS_IOPORT			if PCI
+ 	select HAVE_ARCH_AUDITSYSCALL
+ 	select HAVE_ARCH_HUGE_VMALLOC		if HAVE_ARCH_HUGE_VMAP
+ 	select HAVE_ARCH_HUGE_VMAP		if PPC_RADIX_MMU || PPC_8xx
+@@ -1070,7 +1071,6 @@ menu "Bus options"
+ 
+ config ISA
+ 	bool "Support for ISA-bus hardware"
+-	depends on PPC_CHRP
+ 	select PPC_I8259
+ 	help
+ 	  Find out whether you have ISA slots on your motherboard.  ISA is the
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c5e42cc37604..b957d12a171b 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -74,6 +74,7 @@ config RISCV
+ 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+ 	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
+ 	select HARDIRQS_SW_RESEND
++	select HAS_IOPORT if MMU
+ 	select HAVE_ARCH_AUDITSYSCALL
+ 	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
+ 	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT && !XIP_KERNEL
+diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+index 0665ac0add0b..cfb797bc4200 100644
+--- a/arch/sh/Kconfig
++++ b/arch/sh/Kconfig
+@@ -25,6 +25,7 @@ config SUPERH
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GUP_GET_PXX_LOW_HIGH if X2TLB
++	select HAS_IOPORT if HAS_IOPORT_MAP
+ 	select HAVE_ARCH_AUDITSYSCALL
+ 	select HAVE_ARCH_KGDB
+ 	select HAVE_ARCH_SECCOMP_FILTER
+diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+index 84437a4c6545..d4c1d96f85cd 100644
+--- a/arch/sparc/Kconfig
++++ b/arch/sparc/Kconfig
+@@ -32,6 +32,7 @@ config SPARC
+ 	select GENERIC_IRQ_SHOW
+ 	select ARCH_WANT_IPC_PARSE_VERSION
+ 	select GENERIC_PCI_IOMAP
++	select HAS_IOPORT
+ 	select HAVE_NMI_WATCHDOG if SPARC64
+ 	select HAVE_CBPF_JIT if SPARC32
+ 	select HAVE_EBPF_JIT if SPARC64
+diff --git a/arch/um/Kconfig b/arch/um/Kconfig
+index 541a9b18e343..452d268be2e8 100644
+--- a/arch/um/Kconfig
++++ b/arch/um/Kconfig
+@@ -56,6 +56,7 @@ config NO_IOPORT_MAP
+ 
+ config ISA
+ 	bool
++	depends on HAS_IOPORT
+ 
+ config SBUS
+ 	bool
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index a825bf031f49..634dd42532f3 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -162,6 +162,7 @@ config X86
+ 	select GUP_GET_PXX_LOW_HIGH		if X86_PAE
+ 	select HARDIRQS_SW_RESEND
+ 	select HARDLOCKUP_CHECK_TIMESTAMP	if X86_64
++	select HAS_IOPORT
+ 	select HAVE_ACPI_APEI			if ACPI
+ 	select HAVE_ACPI_APEI_NMI		if ACPI
+ 	select HAVE_ALIGNED_STRUCT_PAGE		if SLUB
+@@ -2893,6 +2894,7 @@ if X86_32
+ 
+ config ISA
+ 	bool "ISA support"
++	depends on HAS_IOPORT
+ 	help
+ 	  Find out whether you have ISA slots on your motherboard.  ISA is the
+ 	  name of a bus system, i.e. the way the CPU talks to the other stuff
+diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
+index 7bfe998f3514..fcfa280df98a 100644
+--- a/drivers/bus/Kconfig
++++ b/drivers/bus/Kconfig
+@@ -81,7 +81,7 @@ config MOXTET
+ config HISILICON_LPC
+ 	bool "Support for ISA I/O space on HiSilicon Hip06/7"
+ 	depends on (ARM64 && ARCH_HISI) || (COMPILE_TEST && !ALPHA && !HEXAGON && !PARISC)
+-	depends on HAS_IOMEM
++	depends on HAS_IOPORT
+ 	select INDIRECT_PIO if ARM64
+ 	help
+ 	  Driver to enable I/O access to devices attached to the Low Pin
+diff --git a/drivers/eisa/Kconfig b/drivers/eisa/Kconfig
+index c8bbf90209f5..d3f62de72259 100644
+--- a/drivers/eisa/Kconfig
++++ b/drivers/eisa/Kconfig
+@@ -5,6 +5,7 @@
+ 
+ config HAVE_EISA
+ 	bool
++	depends on HAS_IOPORT
+ 
+ menuconfig EISA
+ 	bool "EISA support"
+diff --git a/lib/Kconfig b/lib/Kconfig
+index ce2abffb9ed8..5c2da561c516 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -92,6 +92,7 @@ config ARCH_USE_SYM_ANNOTATIONS
+ config INDIRECT_PIO
+ 	bool "Access I/O in non-MMIO mode"
+ 	depends on ARM64
++	depends on HAS_IOPORT
+ 	help
+ 	  On some platforms where no separate I/O space exists, there are I/O
+ 	  hosts which can not be accessed in MMIO mode. Using the logical PIO
+@@ -509,6 +510,9 @@ config HAS_IOMEM
+ 	depends on !NO_IOMEM
+ 	default y
+ 
++config HAS_IOPORT
++	bool
++
+ config HAS_IOPORT_MAP
+ 	bool
+ 	depends on HAS_IOMEM && !NO_IOPORT_MAP
+diff --git a/lib/Kconfig.kgdb b/lib/Kconfig.kgdb
+index 3b9a44008433..c68e4d9dcecb 100644
+--- a/lib/Kconfig.kgdb
++++ b/lib/Kconfig.kgdb
+@@ -121,7 +121,8 @@ config KDB_DEFAULT_ENABLE
+ 
+ config KDB_KEYBOARD
+ 	bool "KGDB_KDB: keyboard as input device"
+-	depends on VT && KGDB_KDB && !PARISC
++	depends on HAS_IOPORT
++	depends on VT && KGDB_KDB
+ 	default n
+ 	help
+ 	  KDB can use a PS/2 type keyboard for an input device
+-- 
+2.37.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
