@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71414C05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 20:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D5C05027
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 20:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6B59+Lc9rtgZEIO0/m33t63z6i86P8hMKcjuiPEai80=; b=NxViD6FLxVya7s
-	0Kj4mZLmAbhp/dD8cbEpXfo18f9p74p6YgdHkNjuL8+La+4qX29TatLWfG9poB+emMaebl/3dCZ2s
-	SJrckA9TPYxRdJlPfm0YifyhCS+ka7X8Vna3xSLeYesPFCxRIJr4d48Ey//xd4lMzktAvemRi5np6
-	XiIpcy44JglaWDyo2TjGPOxDxjaBdEn+yj4sgtqX7ToCXH1D4oDWEQ+DjLNMw6igj6qX4OCiR8+ne
-	X0vEU1hWPTt5FRwLLBq4d3sOoQrVKzlbAP8l2IEydq+NBGrVU7dQ5J0WDfjCHcPQFHc87Z5TDh6T/
-	p7yIFj5RW/Aat7LnMSMw==;
+	List-Owner; bh=6PpWPX/zBdNeOcrAz9Q1ApBwgZNH33PDBmQW+jd6RrI=; b=BzwHOxusnq4lNS
+	FT4/sm3Y/eWTPG2oN97ysrRjcb8BjTS6ncOIZBYdaKix7Tjy7OCbIR4VMmipL0gXT6tTwV6+e19fq
+	2klnueIiWEPcoBcN7e1naZ7aF0TSaAU/kbnhzmgF2/+qtux9KXZQgKV8e3v4Ie3QQcwlYDGunWb13
+	9faXP7ndyEekg4hQeUYBlvgtBCzAKAk1vgTIYPzJQKVmoR0UkSR+As3KwVBP9t2T5fr6tgvEjSDkC
+	g0JUhJsxwCIjXWXhwhPLqT5BlA5xjLNylqS5I4w75v85vcpVIeT/96KeNV86aB2g07sdS7i3w+/A8
+	IFSXJzC5xnEEaKMbAq+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcBMw-00BUv3-2x;
-	Tue, 14 Mar 2023 20:35:38 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1pcBVn-00BW44-0t;
+	Tue, 14 Mar 2023 20:44:47 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcBMt-00BUuA-05;
-	Tue, 14 Mar 2023 20:35:36 +0000
-Received: by mail-ed1-x535.google.com with SMTP id o12so67168389edb.9;
-        Tue, 14 Mar 2023 13:35:34 -0700 (PDT)
+	id 1pcBVj-00BW3D-0x;
+	Tue, 14 Mar 2023 20:44:45 +0000
+Received: by mail-ed1-x534.google.com with SMTP id y4so37826130edo.2;
+        Tue, 14 Mar 2023 13:44:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1678826133;
+        d=gmail.com; s=20210112; t=1678826682;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NxwSO/LBuR46CmjoeXSfo+IWSWZ/3pwKZV8PIGQHNrk=;
-        b=C4ylx+Vos6HtqYmeSZulI1EuEc8EaPUOfBPDLOFgvFEAqZLFPDAkR6+t48XM7KjrYy
-         zb86bFi+M5cyq1+JMrW2h0gT/X5utpQaCzusAngPMCnM1ifzrAotuCOzP/XF2+yaaQkh
-         7dycbEN4zQhpe/z3hawHy56L8Mu2SmKPZNduTRDRE9PItjeYDi083Kobx7bAVbOwKDA0
-         A2qZSTNk0Tppr/6w8gVt3C/4wcT3zMJ/BrSSRvvphwOlWddyRC7NugFJAPfGKSicHAdv
-         7DbnUk5173ijub6f/juCxDAMNr6Lk7toO8ii1/g1bvDzySxLQxbd9D2NpqNGcChRsxEH
-         KvCQ==
+        bh=0F87m94ibj5BbWan5aojgmhq+wBUFnl+QKEcaFZCdV0=;
+        b=gxf/72SsrSMbLFOqatSqFflVgNt1bbnS4+ok3reZFnlxYwbj3yInQ75d4sHWLgRoWO
+         L/FfRqKco5fsXDQjSMbbxxZKu1NVdu5FxKJ/D3FuRkXWQJTc5OdaHJN6lM11LgLONoG2
+         wO5RmrthdftggE/vw43pKxRU8IuRtB+sNjHSvjaVWdISM+t9nQdHMJcK7ANDHGFsvQ8t
+         GmsVlmCSgLyBmfRbsIxbbNr6hfol60zqqjnzg4SZyZ+8h7So4R7iNuIUi/yJoROGwDh9
+         /nM8YXT8NFV1DWNN+q69s6y69XmZJR2127XJ3nsNOJtp43M+CbfGzLcKccU3StkX5q32
+         16ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678826133;
+        d=1e100.net; s=20210112; t=1678826682;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NxwSO/LBuR46CmjoeXSfo+IWSWZ/3pwKZV8PIGQHNrk=;
-        b=T4b1p7Ec/RcUPRlJqytygcu/btfLTIUC9m1d/1RzSv6geAfRkh9BL5Fa+7QAWT/xF0
-         S8CxBMOBfjRydfNTK8vzXTZQsuR0WeHlq5P26CrWmqQQ6O5G147DxeqqpWvw052fwbzD
-         SjYL65cvicaeWW13vXuffFCJ65jLttFD2DnkHAheyUsxdRW1aOQdtY0HNEgcUvXyUK5G
-         6qns/EXDHj54sQ3q6gJUq9bwf7j8lO0zQliRsjCE3qQiQ0OsGDEr/TTkwLu83teoKhL9
-         bx3ZigOM2VAU5bU25U/y06FkdWUr5XIwQtrRJLi82iKT3uqVyT98kgm2QUV/+KqKuLjq
-         Juow==
-X-Gm-Message-State: AO0yUKV8GTtqwTipM1Jzvg4gWPJjRigyWjGjOzBN8h0YU3Tv/SbhZyYO
-	0E9C+v3SMB9ivHchCBN6jQA=
-X-Google-Smtp-Source: AK7set8qAKElSfLk862Fb1U9iBFSLCsZ8OOml5T1pwcqPd2vA6HdnOUeXnTHL6GcYsNrzwpY2GGN4w==
-X-Received: by 2002:a17:906:2512:b0:87d:f29:3a16 with SMTP id i18-20020a170906251200b0087d0f293a16mr4278916ejb.34.1678826133362;
-        Tue, 14 Mar 2023 13:35:33 -0700 (PDT)
+        bh=0F87m94ibj5BbWan5aojgmhq+wBUFnl+QKEcaFZCdV0=;
+        b=1yEkS0tHB7w9YmPTfnHqYsvEBYCLy7t/xzYxxwVvitgu6DTYQ14Kh+Zaz4YDM+jOjW
+         BqPTNtdPbXx0j5Po46e+ZmyRycqp/BX8RyyLZss0WYkROUMLIJFAE+mpJyu3qYXHcvyp
+         XML5Rqgk2bbmVJYRbhTzA7QMC4h0mf1xFO7lVrkXp5pZQSmrgqqvXUv4e/NXp7zgqGl7
+         tIPOEBKGUga6GxgYYtuEpz8jOIRT6NIMhUZGsSm/skoKLswcy5TxscgxWn3DwYNgCBMl
+         OD1OGICoryIoSSyYGpG7QOoMgT3nNm6vt2stRlzwvUmI7ZDqwqMPk9RoGVrmIaFs97On
+         KHXA==
+X-Gm-Message-State: AO0yUKWz58IOOahIyRAqjCaus6vxomfTvTUGePCRJu+fr9o79t22Zwnc
+	AQRlMOUaXKF6cpj+LWuBpY8=
+X-Google-Smtp-Source: AK7set+FjvdA2a7hcaGhydj/SDHPqvn+qyMA9hZ9eH7e5PKlEoMwB4q6/wpeL8xinWadVWDhw9g0lw==
+X-Received: by 2002:aa7:cc92:0:b0:4fc:7352:1131 with SMTP id p18-20020aa7cc92000000b004fc73521131mr318382edt.41.1678826681783;
+        Tue, 14 Mar 2023 13:44:41 -0700 (PDT)
 Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
-        by smtp.gmail.com with ESMTPSA id go37-20020a1709070da500b00927b85e48b0sm1539379ejc.111.2023.03.14.13.35.32
+        by smtp.gmail.com with ESMTPSA id hd31-20020a170907969f00b0092d58e24e11sm1081680ejc.137.2023.03.14.13.44.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Mar 2023 13:35:32 -0700 (PDT)
+        Tue, 14 Mar 2023 13:44:41 -0700 (PDT)
 From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Corentin Labbe <clabbe.montjoie@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S . Miller" <davem@davemloft.net>, Chen-Yu Tsai <wens@csie.org>,
+To: linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>, Samuel Holland <samuel@sholland.org>
-Cc: Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 3/3] riscv: dts: allwinner: d1: Add crypto engine node
-Date: Tue, 14 Mar 2023 21:35:31 +0100
-Message-ID: <3544095.R56niFO833@jernej-laptop>
-In-Reply-To: <20221231220146.646-4-samuel@sholland.org>
-References:  <20221231220146.646-1-samuel@sholland.org>
- <20221231220146.646-4-samuel@sholland.org>
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Trevor Woerner <twoerner@gmail.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/2] riscv: dts: nezha-d1: add gpio-line-names
+Date: Tue, 14 Mar 2023 21:44:40 +0100
+Message-ID: <2337214.NG923GbCHz@jernej-laptop>
+In-Reply-To: <20230210025132.36605-2-twoerner@gmail.com>
+References:  <20230210025132.36605-1-twoerner@gmail.com>
+ <20230210025132.36605-2-twoerner@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_133535_066058_8DC153FA 
-X-CRM114-Status: UNSURE (   6.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230314_134443_355909_0F70120C 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,15 +97,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 31. december 2022 ob 23:01:45 CET je Samuel Holland napisal(a):
-> D1 contains a crypto engine which is supported by the sun8i-ce driver.
+Dne petek, 10. februar 2023 ob 03:51:32 CET je Trevor Woerner napisal(a):
+> Add descriptive names so users can associate specific lines with their
+> respective pins on the 40-pin header according to the schematics.
 > 
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+> Link:
+> http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_diagram_2
+> 0210224.pdf
 
-Applied patch 3, thanks!
+Applied, but next time please make sure e-mails are not linked together, as 
+Conor said.
 
 Best regards,
 Jernej
+
+> ---
+> changes since v2:
+> - (no changes, skip to a v3 to align with the other patch in this group)
+> 
+> changes since v1:
+> - this patch needs to be placed in order, and come second, after a patch to
+>   update the schema for the nxp,pcf8575, put this patch in a group where it
+>   wasn't previously
+> - use a Link: to point to the schematic
+> - add a comment section describing the rational behind the naming that was
+>   used
+> - make the spacing of each line name uniform, don't try to "line them up"
+>   vertically
+> ---
+>  .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts index
+> a0769185be97..4ed33c1e7c9c 100644
+> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> @@ -1,6 +1,25 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ or MIT)
+>  // Copyright (C) 2021-2022 Samuel Holland <samuel@sholland.org>
+> 
+> +/*
+> + * gpio line names
+> + *
+> + * The Nezha-D1 has a 40-pin IO header. Some of these pins are routed
+> + * directly to pads on the SoC, others come from an 8-bit pcf857x IO
+> + * expander. Therefore, these line names are specified in two places:
+> + * one set for the pcf857x, and one set for the pio controller.
+> + *
+> + * Lines which are routed to the 40-pin header are named as follows:
+> + *	<pin#> [<pin name>]
+> + * where:
+> + *	<pin#>		is the actual pin number of the 40-pin 
+header
+> + *	<pin name>	is the name of the pin by function/gpio#
+> + *
+> + * For details regarding pin numbers and names see the schematics (under
+> + * "IO EXPAND"):
+> + *
+> http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_diagram_2
+> 0210224.pdf + */
+> +
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/input/input.h>
+> 
+> @@ -90,6 +109,15 @@ pcf8574a: gpio@38 {
+>  		gpio-controller;
+>  		#gpio-cells = <2>;
+>  		#interrupt-cells = <2>;
+> +		gpio-line-names =
+> +			"pin13 [gpio8]",
+> +			"pin16 [gpio10]",
+> +			"pin18 [gpio11]",
+> +			"pin26 [gpio17]",
+> +			"pin22 [gpio14]",
+> +			"pin28 [gpio19]",
+> +			"pin37 [gpio23]",
+> +			"pin11 [gpio6]";
+>  	};
+>  };
+> 
+> @@ -164,3 +192,47 @@ &usbphy {
+>  	usb1_vbus-supply = <&reg_vcc>;
+>  	status = "okay";
+>  };
+> +
+> +&pio {
+> +	gpio-line-names =
+> +		/* Port A */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port B */
+> +		"pin5 [gpio2/twi2-sck]",
+> +		"pin3 [gpio1/twi2-sda]",
+> +		"",
+> +		"pin38 [gpio24/i2s2-din]",
+> +		"pin40 [gpio25/i2s2-dout]",
+> +		"pin12 [gpio7/i2s-clk]",
+> +		"pin35 [gpio22/i2s2-lrck]",
+> +		"",
+> +		"pin8 [gpio4/uart0-txd]",
+> +		"pin10 [gpio5/uart0-rxd]",
+> +		"",
+> +		"",
+> +		"pin15 [gpio9]",
+> +		"", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port C */
+> +		"",
+> +		"pin31 [gpio21]",
+> +		"", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port D */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "",
+> +		"pin24 [gpio16/spi1-ce0]",
+> +		"pin23 [gpio15/spi1-clk]",
+> +		"pin19 [gpio12/spi1-mosi]",
+> +		"pin21 [gpio13/spi1-miso]",
+> +		"pin27 [gpio18/spi1-hold]",
+> +		"pin29 [gpio20/spi1-wp]",
+> +		"", "", "", "", "", "",
+> +		"pin7 [gpio3/pwm]";
+> +};
+
+
 
 
 
