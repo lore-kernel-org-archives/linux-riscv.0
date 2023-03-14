@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92FFC74A5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5598C74A5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GQ61oXrr3XE+4RUuQlDbxzWllUp8kqSO/sKWzxGi71Q=; b=KVc18O078NxU4k
-	2/nRCgewAO3omRuGcM/AfLDyQhxg1FPoTq03pRshey+9gS0EE4ruxJ0UbVd0wINzMUuYGxnq3KjAq
-	Uf3yvTo5R5GwU+MfupimQ5xor/hnycgHFK0rRVQEcpXG1FiTxMYnwaB5wlx2e7/KZIHjy8xZ9jSAp
-	Nog9Owalsqe0TOw4Kboa2fjVGEgTWeQSUTU4g7C5hnRsn0oqCt1gNMylkpNeHvvw5zw2+gQXKibW5
-	b8D+9BiQN9JCWfE+xUeWwbtmfHpAl7Owe1E2lwx9+HmxZaegOftJM29BXBVulUcqHUfRj7u/UlAU9
-	4SG4wmwuNPo6DYqvFfFA==;
+	List-Owner; bh=jsI0LrHf9VWlS2lmBtclvPGSPVzFViPJPuNmZYIGPU0=; b=gmcyQL5wz81DnO
+	ky3ZCI2FEOweiOGS9i+7SzOvnD3tZ4ph3MCMBEEJCzz6+uw90v/swFbBvcWUKlqj8SV6IxBqH09mr
+	qTmL63yg7dedXijcNafA+n10sepTDiAiFSPCj/R+G47Ag3Z3d4ZV+QVLhfpcMuj5HS7inWL18WL/t
+	2TJEd9VfrRI465qBPQxbX6jYYuvKcuiuyIpHhPw8bOf9A3MdoD/2MusCOLvXdhH1wLfDDQFUEZijP
+	ZghusshbLgnZD9wBO68I/c4Rjv3GC4T5ONCRJUZW8RUnYK/iwy9IW0HwI1N+5v+19mkoMkB2SFYlA
+	JOqd5kj2aG1qaGLmzS9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc41v-00AAjy-2c;
-	Tue, 14 Mar 2023 12:45:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pc45P-00ACvB-2w;
+	Tue, 14 Mar 2023 12:49:03 +0000
+Received: from mail-il1-f169.google.com ([209.85.166.169])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc41u-00AAhs-1O
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 14 Mar 2023 12:45:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6jC1NYDfhdwNPbK2t1fRr8fHVJjWzBhNxh6fKg2DpYY=; b=RyFEmmL1kcBKh/H8kGUJ+KJCFw
-	BGe1bn8oGMzPI/n5FzJEKBmq10dq5TXXhqhNBTfRoJDL/o60EOqolenfRStdvTH1kFZcQ8TaEHRZv
-	vwG/U16U0UF3nd2J7VKzCbERhC2WkF54asJUZEa62xr4TlgtxcGfWvj9en7t5mzyX/o2HG1FNDNB5
-	bEu/F7wcfSy0O8f/Emh/J/dbz2/kIdwdlmHjRpvH1ZsrzdZrMfYYp22bgIrSDHIp+HM7ViPYjRRbu
-	/W75N5FVH5jgfjPiOTvF65zcHQQeEpSQ7fiCRfZmYL2QmUSHu4xtSeUW4tGqlLwnn6mAiuIx0DrTB
-	YtrotRMw==;
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc41r-001mgm-08
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 12:45:25 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D7DA624E3C6;
-	Tue, 14 Mar 2023 20:44:07 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 20:44:07 +0800
-Received: from localhost.localdomain (113.72.145.194) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 20:44:06 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v3 02/11] reset: starfive: jh7110: Add StarFive System-Top-Group reset support
-Date: Tue, 14 Mar 2023 20:43:55 +0800
-Message-ID: <20230314124404.117592-3-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
-References: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
+	id 1pc45M-00ACsQ-0z;
+	Tue, 14 Mar 2023 12:49:01 +0000
+Received: by mail-il1-f169.google.com with SMTP id h5so4532316ile.13;
+        Tue, 14 Mar 2023 05:48:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678798137;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gBpmO88aubLNx5ds9k4LYpaw6LJjHZV6232nWb27C40=;
+        b=UnUSnr+Cwn/c3SZGKH6BfbJ6AZmG6Vh8mqpgV3mlUzO8yMRFMe9rODSI2NUnOlB+bj
+         NuBek8gMBlS5fQWQ1031q/1A7QtB3Af31Jgh0EInxWs/zDwZKLikEyt9h/AHa5Wzo9Rb
+         +bNGO+k/ZIzE7mdQ4YShQyxvwICBeMSI0zjyM1YnfsfkFmyyj3ya+xcfwSpFdVp/XPp6
+         P9I/IUyp1NYGWxqSaTqFP1eMCCNuhOw9apBDEN7DtD1Jy31PzUdKg1Ie7VK2e4jdMMDw
+         ehROLlsaBbebc9DMfqF6dCje/NHmQs8B6FjOc9NJauWsh4CABM2cHOD6Zj739qYN/EPW
+         KQWw==
+X-Gm-Message-State: AO0yUKXXwTVCuFer0fZNWaK7sNykdpI0Xcd79EBnQiKbMBUXIYXk2Gms
+	SzhWO6exIrInW36Vj05B39Y3XRYR2qRsVQ==
+X-Google-Smtp-Source: AK7set9zxted67qvDGTbsQDdQg9Ifl1ugWI5zrU6uQc/lpnjXfwrBF5+E2oQJ5yA9JwLeH3QDn/8Yw==
+X-Received: by 2002:a05:6e02:1ca8:b0:322:fe79:8141 with SMTP id x8-20020a056e021ca800b00322fe798141mr2895133ill.1.1678798137489;
+        Tue, 14 Mar 2023 05:48:57 -0700 (PDT)
+Received: from mail-il1-f170.google.com (mail-il1-f170.google.com. [209.85.166.170])
+        by smtp.gmail.com with ESMTPSA id d4-20020a92ddc4000000b003230c7d6a3csm767235ilr.67.2023.03.14.05.48.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Mar 2023 05:48:56 -0700 (PDT)
+Received: by mail-il1-f170.google.com with SMTP id 4so8573231ilz.6;
+        Tue, 14 Mar 2023 05:48:55 -0700 (PDT)
+X-Received: by 2002:a05:6902:1002:b0:b48:1359:4e28 with SMTP id
+ w2-20020a056902100200b00b4813594e28mr461087ybt.12.1678798114483; Tue, 14 Mar
+ 2023 05:48:34 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [113.72.145.194]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+References: <20230314121216.413434-1-schnelle@linux.ibm.com> <20230314121216.413434-2-schnelle@linux.ibm.com>
+In-Reply-To: <20230314121216.413434-2-schnelle@linux.ibm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Mar 2023 13:48:22 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV9ZoB5XNiiVEG-zBzB9eN5RJSC42WMDD-RZfcg=2tr4g@mail.gmail.com>
+Message-ID: <CAMuHMdV9ZoB5XNiiVEG-zBzB9eN5RJSC42WMDD-RZfcg=2tr4g@mail.gmail.com>
+Subject: Re: [PATCH v3 01/38] Kconfig: introduce HAS_IOPORT option and select
+ it as necessary
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Richard Henderson <richard.henderson@linaro.org>, 
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Michal Simek <monstr@monstr.eu>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller" <davem@davemloft.net>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-pci@vger.kernel.org, 
+	Arnd Bergmann <arnd@kernel.org>, linux-alpha@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_124523_406337_D79959FA 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20230314_054900_347296_00C0C3FA 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +104,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary_device_id to support StarFive JH7110 System-Top-Group resets
-of which the auxiliary device name is "clk_starfive_jh71x0.reset-stg".
-
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/reset/starfive/reset-starfive-jh7110.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-index 4ccb3f72ca83..2dc46d91a244 100644
---- a/drivers/reset/starfive/reset-starfive-jh7110.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -29,6 +29,12 @@ static const struct jh7110_reset_info jh7110_aon_info = {
- 	.status_offset = 0x3C,
- };
- 
-+static const struct jh7110_reset_info jh7110_stg_info = {
-+	.nr_resets = JH7110_STGRST_END,
-+	.assert_offset = 0x74,
-+	.status_offset = 0x78,
-+};
-+
- static int jh7110_reset_probe(struct auxiliary_device *adev,
- 			      const struct auxiliary_device_id *id)
- {
-@@ -55,6 +61,10 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 		.name = "clk_starfive_jh71x0.reset-aon",
- 		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
- 	},
-+	{
-+		.name = "clk_starfive_jh71x0.reset-stg",
-+		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgMTQsIDIwMjMgYXQgMToxM+KAr1BNIE5pa2xhcyBTY2huZWxsZSA8c2NobmVs
+bGVAbGludXguaWJtLmNvbT4gd3JvdGU6Cj4gV2UgaW50cm9kdWNlIGEgbmV3IEhBU19JT1BPUlQg
+S2NvbmZpZyBvcHRpb24gdG8gaW5kaWNhdGUgc3VwcG9ydCBmb3IgSS9PCj4gUG9ydCBhY2Nlc3Mu
+IEluIGEgZnV0dXJlIHBhdGNoIEhBU19JT1BPUlQ9biB3aWxsIGRpc2FibGUgY29tcGlsYXRpb24g
+b2YKPiB0aGUgSS9PIGFjY2Vzc29yIGZ1bmN0aW9ucyBpbmIoKS9vdXRiKCkgYW5kIGZyaWVuZHMg
+b24gYXJjaGl0ZWN0dXJlcwo+IHdoaWNoIGNhbiBub3QgbWVhbmluZ2Z1bGx5IHN1cHBvcnQgbGVn
+YWN5IEkvTyBzcGFjZXMgc3VjaCBhcyBzMzkwLiBBbHNvCj4gYWRkIGRlcGVuZGVuY2llcyBvbiBI
+QVNfSU9QT1JUIGZvciB0aGUgSVNBIGFuZCBIQVZFX0VJU0EgY29uZmlnIG9wdGlvbnMKPiBhcyB0
+aGVzZSBidXNzZXMgYWx3YXlzIGdvIGFsb25nIHdpdGggSEFTX0lPUE9SVC4KPgo+IFRoZSAiZGVw
+ZW5kcyBvbiIgcmVsYXRpb25zIG9uIEhBU19JT1BPUlQgaW4gZHJpdmVycyBhcyB3ZWxsIGFzIGlm
+ZGVmcwo+IGZvciBIQVNfSU9QT1JUIHNwZWNpZmljIHNlY3Rpb25zIHdpbGwgYmUgYWRkZWQgaW4g
+c3Vic2VxdWVudCBwYXRjaGVzIG9uCj4gYSBwZXIgc3Vic3lzdGVtIGJhc2lzLgo+Cj4gQ28tZGV2
+ZWxvcGVkLWJ5OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGtlcm5lbC5vcmc+Cj4gU2lnbmVkLW9mZi1i
+eTogTmlrbGFzIFNjaG5lbGxlIDxzY2huZWxsZUBsaW51eC5pYm0uY29tPgoKPiAgYXJjaC9tNjhr
+L0tjb25maWcgICAgICAgfCAxICsKCkFja2VkLWJ5OiBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0
+QGxpbnV4LW02OGsub3JnPgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAg
+ICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGlu
+dXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZl
+cnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBC
+dXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVy
+IiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
