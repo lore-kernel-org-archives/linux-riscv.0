@@ -4,151 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5D1C05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 16:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A515EC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 17:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0MR7dFIVUU1R2/QOrc1epHAaJi4FtSMkkmkK6acMmA0=; b=VQ6FhOOKzist3g
-	Ax0CrrC9ihewZk65zS8raKZDBKj/63/HqDQYDRxrikqiHKR039Uf2I4C5rwst1H+FP71nfNW6+FDd
-	e5MKB/aVJpfsEkdCYdEKYv4BFeu4vNbTki/iROHYfT6mlWxL8kKNHl2fuoef8UwD0KrqefPYv4PEO
-	eYdj0ybtOgsCMaO0wx9BHldtW2pVjvvEs8ruBNAFt3XW/UJzYr0uHxxV5edYLoK83suNW75C+DSuK
-	2l90HI2BEOq8Xm721AtFCmhNSCX3micAJUb7PyMSLnE4CmJvCc6+3yu4I3tmq4c7hAHcSdkpjAjfy
-	+bLXgqXMxXpzk1ket1LQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+cdbRYmkxRErfhKQi0Mpqs92OeL1ivS4XeUELdG3yio=; b=g0RjfauGATmHsAr7bWw56VITJ2
+	qqeRKEwuvUhPmnwQH+qWr6Z0MKoV+c8wGniLmKthPESWFjhzVDiHHIclVuzafrryo2oHad7PBTARF
+	szAqdJXcQ6IRBkduDZWRkOI3HgIEzG2wP1Lqo+W1lCVL/cSuf7U/H74Z/fd+lew8Y9ZqIad1827Uz
+	TV4dm10/n+ij3wx7xqye92bmur4TJ75REKt/Zi1UnlD8NoAHMXjN1zjEf6n/tMcyd/mxpZiJcaV5N
+	PlrgSeNQg0l5PNKWA4fi3WLWagScyLEVYvV/HEd071dY7Bqyqkl7lICwqIB/v78hFnxAYW0hYrmmz
+	/3pi9ahg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc7fU-00Arjg-2G;
-	Tue, 14 Mar 2023 16:38:32 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1pc88K-00AwkN-1g;
+	Tue, 14 Mar 2023 17:08:20 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc7fQ-00Arh0-1d;
-	Tue, 14 Mar 2023 16:38:30 +0000
-Received: from pps.filterd (m0187473.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 32EGRZv7022013;
-	Tue, 14 Mar 2023 16:37:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
- from : to : cc : date : in-reply-to : references : content-type :
- content-transfer-encoding : mime-version; s=pp1;
- bh=kD2FKGQJY5Kf8K0VUyX35AX5LQg3aJuJoe2kwtuWMw0=;
- b=iX+D+PfLCDYte+nyP0JUfTanv1++cGMzXrkEu0Li7gI+yPLgvxEuvkpjg4AncLeq64G9
- 2J9fKM7/vPtmoBOzbMKmeCDtmQG0XDWf54DltcsKhWYAuKplKoOIpPTtp95LGHgrmgiV
- Rq3jKvzt+N1JnIEz6jZRQsFU2f723zceIWqx9FuNuJRK75jzM/k+WABeQua+XcnSbykr
- bdRxuuZaXxG3TSQoNNiFZgrb+KDS3pIxhdEgt8PRwyQlXBieEpqK8ka56UgVrIypPnNx
- tnn7NWo4kn7j5vMmGl15UmWAXzMuzcf0dXBg5vuYXQnfj5PClVT6OaWcgCyyxtydI2AT YQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3pavf5r7qa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 16:37:45 +0000
-Received: from m0187473.ppops.net (m0187473.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 32EGRYU7021991;
-	Tue, 14 Mar 2023 16:37:44 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3pavf5r7nw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 16:37:43 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 32E8ZueW001600;
-	Tue, 14 Mar 2023 16:37:40 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3p8h96n2sy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Mar 2023 16:37:40 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 32EGbc0p46662236
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Mar 2023 16:37:38 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 59AC220040;
-	Tue, 14 Mar 2023 16:37:38 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A522C20043;
-	Tue, 14 Mar 2023 16:37:34 +0000 (GMT)
-Received: from [9.171.50.237] (unknown [9.171.50.237])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 14 Mar 2023 16:37:34 +0000 (GMT)
-Message-ID: <62b254d84463338f0210b52e37628d05416787d1.camel@linux.ibm.com>
-Subject: Re: [PATCH v3 01/38] Kconfig: introduce HAS_IOPORT option and
- select it as necessary
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-        Richard Henderson
- <richard.henderson@linaro.org>,
-        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-        Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>,
-        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Paul Walmsley
- <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou
- <aou@eecs.berkeley.edu>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Rich
- Felker <dalias@libc.org>,
-        John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Richard Weinberger <richard@nod.at>,
-        Anton Ivanov
- <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg
- <johannes@sipsolutions.net>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin"
- <hpa@zytor.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Bjorn Helgaas
- <bhelgaas@google.com>,
-        Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <u.kleine-koenig@pengutronix.de>,
-        Mauro Carvalho Chehab
- <mchehab@kernel.org>,
-        Alan Stern <stern@rowland.harvard.edu>,
-        "Rafael J.
- Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
-        Arnd Bergmann
- <arnd@kernel.org>, linux-alpha@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-um@lists.infradead.org
-Date: Tue, 14 Mar 2023 17:37:34 +0100
-In-Reply-To: <20230314121216.413434-2-schnelle@linux.ibm.com>
-References: <20230314121216.413434-1-schnelle@linux.ibm.com>
-	 <20230314121216.413434-2-schnelle@linux.ibm.com>
-User-Agent: Evolution 3.46.4 (3.46.4-1.fc37) 
+	id 1pc88H-00Awjt-00
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Mar 2023 17:08:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 502A4B817AE;
+	Tue, 14 Mar 2023 17:08:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88004C433D2;
+	Tue, 14 Mar 2023 17:08:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678813694;
+	bh=ucM21cLRUuIM1P+fjJ7tyXVrvw8aDslNNA8co2hjLB0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CQwA8hQi6papIwLzlFCwnT8ZgfxGYB2LsuTVCVtFvYeeMxK4u4qRxhb/NYejRj78g
+	 N+xHIw0JZfELVtT+p65MmB7c5tmgUhvmAEVq2ZRlzn8d2Ep76OavoWeOf10Monumx9
+	 KVSgQrxRkAPML1uZicpPU0RrnQjrGmVV4zE475+3hq3kpTScUqY2iviptRobfIg0f9
+	 wjdPGTCMNO5WeKwjE0rfZn2lFuAE6XDbzul3kV1qwjmAfrj0rvnlPO9IhRDalJzLso
+	 6MIzkKrpqlQdEkUuOJcyKSyHwsyzTjQNye0xdVmUGQTdDWD2O4rlsxv/CuP3eUnByC
+	 IdykfYulsxTgA==
+Date: Tue, 14 Mar 2023 17:08:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, ndesaulniers@google.com,
+	trix@redhat.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	patches@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issues between clang and
+ binutils
+Message-ID: <75037eb4-7be4-4182-a377-18343491c7da@spud>
+References: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: GueKt5igeUn3bYmxiu67S5oTPZyYNUi9
-X-Proofpoint-GUID: 5FevvOZ3EWLw6_zZHyJRkdUMIbd32WjR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-03-14_10,2023-03-14_02,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
- mlxlogscore=675 mlxscore=0 priorityscore=1501 impostorscore=0
- clxscore=1015 malwarescore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2212070000 definitions=main-2303140137
+In-Reply-To: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_093828_567047_DF5E8D2A 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20230314_100817_358951_83221C71 
+X-CRM114-Status: GOOD (  27.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,41 +72,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6515397910677289491=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2023-03-14 at 13:11 +0100, Niklas Schnelle wrote:
-> We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
-> Port access. In a future patch HAS_IOPORT=n will disable compilation of
-> the I/O accessor functions inb()/outb() and friends on architectures
-> which can not meaningfully support legacy I/O spaces such as s390. Also
-> add dependencies on HAS_IOPORT for the ISA and HAVE_EISA config options
-> as these busses always go along with HAS_IOPORT.
-> 
-> The "depends on" relations on HAS_IOPORT in drivers as well as ifdefs
-> for HAS_IOPORT specific sections will be added in subsequent patches on
-> a per subsystem basis.
-> 
-> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
-> ---
-> 
 
-@Arnd, I swear I asked you and then added Signed-off-bys for all these
-Co-developed-bys as suggested by checkpatch. Sadly that must have been
-during my failed attempt of converting to b4 prep / b4 send before
-sending this last Friday and then it got lost. It almost worked and is
-a very nice work flow except that b4 currently can only use a single
-list of To/Cc fields and for this treewide series that would probably
-hit mail server limits. Added it now.
+--===============6515397910677289491==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="1CEuDSeV8bwTFyS+"
+Content-Disposition: inline
+
+
+--1CEuDSeV8bwTFyS+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Nathan,
+
+On Mon, Mar 13, 2023 at 04:00:23PM -0700, Nathan Chancellor wrote:
+> There are two related issues that appear in certain combinations with
+> clang and GNU binutils.
+>=20
+> The first occurs when a version of clang that supports zicsr or zifencei
+> via '-march=3D' [1] (i.e, >=3D 17.x) is used in combination with a version
+> of GNU binutils that do not recognize zicsr and zifencei in the
+> '-march=3D' value (i.e., < 2.36):
+>=20
+>   riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifence=
+i2p0: Invalid or unknown z ISA extension: 'zifencei'
+>   riscv64-linux-gnu-ld: failed to merge target specific data of file fs/e=
+fivarfs/file.o
+>   riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_c2p0_zicsr2p0_zifence=
+i2p0: Invalid or unknown z ISA extension: 'zifencei'
+>   riscv64-linux-gnu-ld: failed to merge target specific data of file fs/e=
+fivarfs/super.o
+>=20
+> The second occurs when a version of clang that does not support zicsr or
+> zifencei via '-march=3D' (i.e., <=3D 16.x) is used in combination with a
+> version of GNU as that defaults to a newer ISA base spec, which requires
+> specifying zicsr and zifencei in the '-march=3D' value explicitly (i.e, >=
+=3D
+> 2.38):
+>=20
+>   ../arch/riscv/kernel/kexec_relocate.S: Assembler messages:
+>   ../arch/riscv/kernel/kexec_relocate.S:147: Error: unrecognized opcode `=
+fence.i', extension `zifencei' required
+>   clang-12: error: assembler command failed with exit code 1 (use -v to s=
+ee invocation)
+>=20
+> This is the same issue addressed by commit 6df2a016c0c8 ("riscv: fix
+> build with binutils 2.38") (see [2] for additional information) but
+> older versions of clang miss out on it because the cc-option check
+> fails:
+>=20
+>   clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupport=
+ed standard user-level extension 'zicsr'
+>   clang-12: error: invalid arch name 'rv64imac_zicsr_zifencei', unsupport=
+ed standard user-level extension 'zicsr'
+>=20
+> To resolve the first issue, only attempt to add zicsr and zifencei to
+> the march string when using the GNU assembler 2.38 or newer, which is
+> when the default ISA spec was updated, requiring these extensions to be
+> specified explicitly. LLVM implements an older version of the base
+> specification for all currently released versions, so these instructions
+> are available as part of the 'i' extension. If LLVM's implementation is
+> updated in the future, a CONFIG_AS_IS_LLVM condition can be added to
+> CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI.
+>=20
+> To resolve the second issue, use version 2.2 of the base ISA spec when
+> using an older version of clang that does not support zicsr or zifencei
+> via '-march=3D', as that is the spec version most compatible with the one
+> clang/LLVM implements and avoids the need to specify zicsr and zifencei
+> explicitly due to still being a part of 'i'.
+>=20
+> [1]: https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d=
+4498694e15bf8a16
+> [2]: https://lore.kernel.org/ZAxT7T9Xy1Fo3d5W@aurel32.net/
+>=20
+> Cc: stable@vger.kernel.org
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1808
+> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+TBH, barely identifiable as having much to do with my V1 anymore, so
+could easily have dropped those.
+Either way, thanks for sorting this out while I've been sick :)
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> This is essentially a v3 of Conor's v1 and v2 but since I am sending the
+> patch after finding a separate but related issue, I left it at v1:
+>=20
+> - v1: https://lore.kernel.org/20230223220546.52879-1-conor@kernel.org/
+> - v2: https://lore.kernel.org/20230308220842.1231003-1-conor@kernel.org/
+>=20
+> I have built allmodconfig with the following toolchain combinations to
+> confirm this problem is resolved:
+>=20
+> - clang 12/17 + GNU as and ld 2.35/2.39
+> - clang 12/17 with the integrated assembler + GNU ld 2.35/2.39
+> - clang 12/17 with the integrated assembler + ld.lld
+>=20
+> There are a couple of other incompatibilities between clang-17 and GNU
+> binutils that I had to patch to get allmodconfig to build successfully
+> but those are less likely to be hit in practice because the full LLVM
+> stack can be used with LLVM versions 13.x and newer.
+
+> I will follow up
+> with separate issues and patches.
+
+Cool, I'll "look forward" to those...
 
 Thanks,
-Niklas
+Conor.
 
+--1CEuDSeV8bwTFyS+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBCp+AAKCRB4tDGHoIJi
+0roxAQCXsosSBtzf9Ovi8xT5U07z0OBYx29ltaw6MCTxk1St1AD/R4eRfRoNh6BC
+vrfhzHF5bwseLnWtO2Yc8FoBMRGegQc=
+=UId/
+-----END PGP SIGNATURE-----
+
+--1CEuDSeV8bwTFyS+--
+
+
+--===============6515397910677289491==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6515397910677289491==--
+
