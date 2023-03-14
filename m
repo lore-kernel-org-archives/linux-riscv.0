@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DFFC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 13:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CEBC74A5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 13:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOyi+vlFalNwu/OQpdcjo/rPBEyx8wq7E/y0JLA2RD4=; b=1zHHUiq/ov+w0A
-	qW8RxoU+/46Fwes8c8kPXygQT9I/xqjKnrag7mgEA+HAil0oGcPyb/F9L6gtL+YqL9im28zSOMPe4
-	FQj7i/mek3dT1a2cP2DFtLtyutFbM/chV0hEm24bOAZm0j3mwyn1xhbLncuJg4maebTTQ41OdDBTt
-	WhjyN/i3U+mYqwaB/szTFQpEM6uoDE20C2d8h+uiuB0FaVWC0+dT9gLTaa6e/WonYiTk2w2jQaWdW
-	REG9Eu3uym0+i+WFtI+NEYl0Mcy5Ys8OBX/jzMIOUsEZRdW+7YIqqG6t0GGymixsLf77RCe7Y3MBB
-	EPGXkBWlVvPNpBLuqKCQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dOYJR160M911Y2+DcqY+uhEK2IucR9i9+VUDeCDH6oI=; b=0vdDqupI0gWf8b
+	cfNeugf92M+gMydne5WrivAGTll9qmtDLraD9Bc80Y3j4tRnAGo/EvCDWjdMr6ZHw5mrucu1C5r2u
+	XTuMAa3Ix7NByTxPdJBMSl/tY4C3mXv+Hgg5to0V7PMsL05rsMJl4W6uabbtudF2OEcvSlhzFDOV2
+	lQwyRvVHxPJAjUa1T1mml+zjjWgSt8oKGwzPH2P1Tbw49HBWXS/4FrFPg/M/CYnbNJ70deGs/JAaN
+	OUuLWtiyp9GSvxJN/QxqHn50zo7UtZhyN7qThySfMIZaFm6eY2V7CzJGV5OlXE9jpwDhMwRVDPMUG
+	WAiiGUQ9j3xb5hg7gwxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc4eO-00AHh0-0J;
-	Tue, 14 Mar 2023 13:25:12 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pc4eP-00AHhC-0d;
+	Tue, 14 Mar 2023 13:25:13 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc4eJ-00AHdc-2x
+	id 1pc4eJ-00AHd0-2x
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 13:25:10 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Tue, 14 Mar 2023 13:25:11 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B0EE224E208;
-	Tue, 14 Mar 2023 21:24:44 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 21:24:44 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5A1B424E20D;
+	Tue, 14 Mar 2023 21:24:39 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
+ 2023 21:24:39 +0800
 Received: from localhost.localdomain (113.72.145.194) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 21:24:43 +0800
+ 2023 21:24:37 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
@@ -49,21 +49,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 3/3] riscv: dts: starfive: jh7100: Add watchdog node
-Date: Tue, 14 Mar 2023 21:24:37 +0800
-Message-ID: <20230314132437.121534-4-xingyu.wu@starfivetech.com>
+Subject: [PATCH v5 0/3] Add watchdog driver for StarFive JH7100/JH7110 RISC-V SoCs
+Date: Tue, 14 Mar 2023 21:24:34 +0800
+Message-ID: <20230314132437.121534-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230314132437.121534-1-xingyu.wu@starfivetech.com>
-References: <20230314132437.121534-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.145.194]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_062508_222057_0D75AAC5 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230314_062508_479917_E2FEE12C 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +77,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add watchdog node for the StarFive JH7100 RISC-V SoC.
+This patch serises are to add watchdog driver for the StarFive
+JH7100 and JH7110 RISC-V SoCs. The first patch adds docunmentation to
+describe device tree bindings. The subsequent patch adds watchdog driver
+and support JH7100/JH7110 SoCs. And the last patch adds watchdog node in
+the JH7100 dts. And the addition of JH7110 device tree node will be
+submitted after the JH7110 dts merge. This patchset is based on 6.3-rc1.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+The watchdog driver has been tested on the VisionFive 1 and VisionFive 2
+boards which equip with JH7100 and JH7110 SoCs respectively and both
+works normally.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index 000447482aca..4218621ea3b9 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -238,5 +238,15 @@ i2c3: i2c@12460000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 		};
-+
-+		watchdog@12480000 {
-+			compatible = "starfive,jh7100-wdt";
-+			reg = <0x0 0x12480000 0x0 0x10000>;
-+			clocks = <&clkgen JH7100_CLK_WDTIMER_APB>,
-+				 <&clkgen JH7100_CLK_WDT_CORE>;
-+			clock-names = "apb", "core";
-+			resets = <&rstgen JH7100_RSTN_WDTIMER_APB>,
-+				 <&rstgen JH7100_RSTN_WDT>;
-+		};
- 	};
- };
+Changes since v4:
+Patch 2:
+- Dropped the struct device.
+- Renamed the struct watchdog_device.
+- Modified the struct reset_control to be local variable.
+- Fixed the exit error with spinlock.
+- Dropped the function of starfive_wdt_is_locked().
+- Changed the macro name of 'OPTIONS'.
+- Changed the order in probe to do less work if return '-EPROBE_DEFER'.
+- Fixed some function that ignored return value.
+Patch 3:
+- Dropped the label of watchdog node.
+
+Changes since v3:
+- Modified the dt-binding, driver and dts to support JH7100 watchdog.
+- Modified the register comments.
+- Changed the return value and order when getting clock rate.
+- Used dev_err_probe() when getting clocks and resets.
+- Improved the codes of setting default timeout.
+- Moved the watchdog_register_device() after setting WDOG_HW_RUNNING.
+- Changed 'SOC_STARFIVE' to 'ARCH_STARFIVE' in Kconfig file.
+- Dropped the struct of platform_device_id.
+- Used new functions to enable or disable clock.
+
+Changes since v2: 
+- Added watchdog.yaml and unevaluatedProperties in the dt-binding.
+- Removed some unnecessary include files.
+- Changed the 'module_param' name and dropped 'soft_noboot'.
+- Rrmoved 'CONFIG_OF'.
+- Added a check if clock rate is 0.
+- Modified the max_timeout calculation formula.
+- Removed restart function.
+- Removed duplicate checks on the upper and lower bounds of 'count'.
+- Removed 'started' variable.
+- Added pm_runtime_get_sync() and pm_runtime_put_sync().
+- Removed 'firmware_version = 0' variable.
+- Drop the device tree node commit.
+
+Changes since v1:
+- Renamed the dt-binding 'starfive,wdt.yaml' to 'starfive,jh7110-wdt.yaml'.
+- Dropped the '_clk' and 'rst_' about the 'clock-names' and 'reset-names'
+  in the dt-binding.
+- Updated the example context in the dt-binding 'starfive,jh7110-wdt.yaml'
+  to be independent of other patchset.
+- Deleted unused macros like 'JH7110_WDOG_INT_EN'.
+- Changed the type of 'freq' in the struct from u64 to u32.
+- Used 'devm_clk_get_enabled()' instead of 'devm_clk_get()' and
+  'clk_prepare_enable()'.
+- Removed the operation to get the frequency from the device tree.
+- Added watchdog_stop_on_unregister() and watchdog_stop_on_reboot().
+- Removed any operations about interrupt.
+
+v4:
+--- https://lore.kernel.org/all/20230308034036.99213-1-xingyu.wu@starfivetech.com/
+v3:
+--- https://lore.kernel.org/all/20230220081926.267695-1-xingyu.wu@starfivetech.com/
+v2:
+--- https://lore.kernel.org/all/20221219094233.179153-1-xingyu.wu@starfivetech.com/
+v1:
+--- https://lore.kernel.org/all/20221202093943.149674-1-xingyu.wu@starfivetech.com/
+
+Xingyu Wu (3):
+  dt-bindings: watchdog: Add watchdog for StarFive JH7100 and JH7110
+  drivers: watchdog: Add StarFive Watchdog driver
+  riscv: dts: starfive: jh7100: Add watchdog node
+
+ .../watchdog/starfive,jh7100-wdt.yaml         |  71 ++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      |  10 +
+ drivers/watchdog/Kconfig                      |  11 +
+ drivers/watchdog/Makefile                     |   3 +
+ drivers/watchdog/starfive-wdt.c               | 606 ++++++++++++++++++
+ 6 files changed, 708 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/watchdog/starfive,jh7100-wdt.yaml
+ create mode 100644 drivers/watchdog/starfive-wdt.c
+
+
+base-commit: 8ca09d5fa3549d142c2080a72a4c70ce389163cd
+prerequisite-patch-id: 558a5b43260d13a6f5229b139ccd45f737a4f686
 -- 
 2.25.1
 
