@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317BAC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 14:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CFAC7618B
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 14:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ScOSb2DJvXXKh6J6+hAc3mhtYbgNf6Mx7UMchMWUxI=; b=hQFpj0LqMaSODq
-	S6iON/8AsX8yi2kCkEm03mE3pEtVcAujPi8aWLrYTCB9/kJjNgevZoCYES31A+yxXX9MX3YT23cJl
-	Z99Qu7OF3ugmuh5mnZi5tNn9F7MloQ9L859xcH3BdZtmoIh9fbLpcvDFW+8wYbuRASCxX2uOSrQR4
-	7S5xtRHXV042g6m/mwj12k/n/Uh0X76o2OdayIql64QhOEHCRDr6e5f1TxjBTR+OEPBC9xf/5l3oj
-	H4XRit3Ml6vAUju/JQ3djR/CIYh63a7f4UxYQNmu+sfHLprURLK9T75oLm/SUCryaxvpiQbIsgBC/
-	5jhpo9Sh9qsIBHdR4LvQ==;
+	List-Owner; bh=4OnEdLfzKdQvBQP/ICRhNeijQsJe/j08cyozsz9JGIY=; b=J3a+RZFEDOobN/
+	QWp9PptnA4afE/s97gkbxINMCn/2pAvRh4QH1ctExGI4WM46reiRVzihhdLfIKRd0sTjyMhzLvGz/
+	tmZFVsQ8Nq6YmO/r0wmcZSSRGZO1y4VzMF0YvF4UdUp2Lyty3Dh4ZWCSJ6Xl76MSvhpX/ekyD8eRY
+	WLrHE0BW9WBkUsTez3/sflZIQDnqTkohcfp1a06I1btYBk7jRChxufvXTUs9ctS3vDhVtmJTqWWvd
+	+d72XXkUkeFYYjfxsSwt1y7In4sp0QXzG3h6Yk1ahwM2TBvgYxiJPYeYgCntfJmYObAVL2hRP/o8q
+	4HNe6qBpKT4xlHkYW2hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc5IH-00AOui-01;
-	Tue, 14 Mar 2023 14:06:25 +0000
-Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc5ID-00AOrS-2F
+	id 1pc5ME-00APi1-0q;
+	Tue, 14 Mar 2023 14:10:30 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pc5M9-00APZ9-2a
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 14:06:23 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id 66EE23200915;
-	Tue, 14 Mar 2023 10:06:11 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Tue, 14 Mar 2023 10:06:12 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm1; t=
-	1678802771; x=1678889171; bh=PdfK+KgXqfYYyNRjIkKag7bPoiI2QGHeotH
-	fnMzy5uI=; b=lRjz8gAgTrnap6Tbsvg1QVgqc6mc+U8iR/rghiWBlGt/3PSldo2
-	3ql0zJOXGWB2/0ZN0eEx1f4AP/dNiI3z3A++CfYn8kwNS4ymO+mr8aV6DeVLUpTS
-	445AvFcrlT+6uy86y1LzK3YOI8xWXRuAkZ4V0UB8KNbBgkpTl7ETQ+uX8ar0AKHJ
-	fwcVOMblHvKo1Htob+9okttczpE2sU94IbGqQ7kmN4rRK+ulGKtmrAull99iGETA
-	PJcAbnygwCwMjm2836O3HtmBhTpVkesIARFkuCPRpX57fBCSxIcSWdrSuEv+MMBC
-	HiYsOJ9svTIaYKvh7EuJLN0KAmjfP+Fcl9g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1678802771; x=1678889171; bh=PdfK+KgXqfYYyNRjIkKag7bPoiI2QGHeotH
-	fnMzy5uI=; b=teK+0BSFRYPnnWLZwAeeKsUTiOEAx1eqXoC0ysADEH9WTuH2KBf
-	GiYQN6UJLPyxoeMlKYLyEucj3rDazxlXMV4bBmPoQBfj7pyLJuxz7g08lwcIafIA
-	tZyk1ACiXmaCEXgUDpKsNtkT4lU1isMv4WP69/BrK7VNHqUHWPaYzzNaLxcAKbuZ
-	2koPei5dWjJ79aOL7rCUhBvbqYVmzDEkVyxnh2EzwZp7xjZwoGdRMzXAhyRXfEqE
-	ZL8u74wvvq6lujkAMU9U1nY4kM8IDBnizVwZECeIEZBO4P8Dlyv1NmkR+7MkRgO4
-	a72UqmHTz2q/jN36pvUp05p4V882tH0rilw==
-X-ME-Sender: <xms:Un8QZIkjSHHLJpVH5Zp66upFpggui2u4cvFIloxFbiduiQD_1zOHSA>
-    <xme:Un8QZH1T5uPhAVcwLGNXS7kzuaX_pxK4AqoAdZyf4ZkFrdEMldlosU60fF24IVnej
-    Fu2dwI4pheeUy7FaSA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvddviedgieduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtgfesthhqredtreerjeenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpefgkeeuleegieeghfduudeltdekfeffjeeuleehleefudettddtgfevueef
-    feeigeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:Un8QZGoysEz2YYLAuFxIn3qw_uL8BE9ISoqiu09qN1ur0bDRTVU96g>
-    <xmx:Un8QZEkf7J6Kga513TZD4j7g_Sxp-UpTacfl_UZun_wygq3wqGByHQ>
-    <xmx:Un8QZG2sNDBg_IUTM2oRGjnHoBZHMPRWbE14qlI8f6uIHoCx2nGpwQ>
-    <xmx:U38QZAM8V-fIt2la_6MojocqWRthSshF5NQ8bZQTAyvWB3JfEIKVRg>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 2464CB60086; Tue, 14 Mar 2023 10:06:10 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-221-gec32977366-fm-20230306.001-gec329773
-Mime-Version: 1.0
-Message-Id: <7ec48487-8565-4a1d-963b-5092eb5f4d15@app.fastmail.com>
-In-Reply-To: <20230314121216.413434-1-schnelle@linux.ibm.com>
-References: <20230314121216.413434-1-schnelle@linux.ibm.com>
-Date: Tue, 14 Mar 2023 15:05:49 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Niklas Schnelle" <schnelle@linux.ibm.com>,
- "Richard Cochran" <richardcochran@gmail.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Bjorn Helgaas" <bhelgaas@google.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- "Mauro Carvalho Chehab" <mchehab@kernel.org>,
- "Alan Stern" <stern@rowland.harvard.edu>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>, linux-kernel@vger.kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>, linux-pci@vger.kernel.org,
- Netdev <netdev@vger.kernel.org>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/38] Kconfig: Introduce HAS_IOPORT config option
+	Tue, 14 Mar 2023 14:10:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DD9D824E289;
+	Tue, 14 Mar 2023 22:09:29 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
+ 2023 22:09:29 +0800
+Received: from [192.168.125.74] (113.72.145.194) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
+ 2023 22:09:28 +0800
+Message-ID: <8e2f923a-34d6-e188-c845-471d4ef5acc1@starfivetech.com>
+Date: Tue, 14 Mar 2023 22:09:27 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v5 11/21] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Marc
+ Zyngier" <maz@kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+ <20230311090733.56918-12-hal.feng@starfivetech.com>
+ <34b0473a-91bd-453b-91dd-01defde92d68@spud>
+ <92306b73-d7d2-0d60-de15-87bcd71714ed@starfivetech.com>
+ <CAJM55Z-zps4gEohCGyia0nESWYWqQmoChnJZXkw2Zmi5TPV2Wg@mail.gmail.com>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <CAJM55Z-zps4gEohCGyia0nESWYWqQmoChnJZXkw2Zmi5TPV2Wg@mail.gmail.com>
+X-Originating-IP: [113.72.145.194]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_070621_766457_A66CBE1C 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20230314_071026_437526_C5F077B5 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +81,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgMTQsIDIwMjMsIGF0IDEzOjExLCBOaWtsYXMgU2NobmVsbGUgd3JvdGU6Cj4g
-SGVsbG8gS2VybmVsIEhhY2tlcnMsCj4KPiBTb21lIHBsYXRmb3JtcyBzdWNoIGFzIHMzOTAgZG8g
-bm90IHN1cHBvcnQgUENJIEkvTyBzcGFjZXMuIE9uIHN1Y2ggcGxhdGZvcm1zCj4gSS9PIHNwYWNl
-IGFjY2Vzc29ycyBsaWtlIGluYigpL291dGIoKSBhcmUgc3R1YnMgdGhhdCBjYW4gbmV2ZXIgYWN0
-dWFsbHkgd29yay4KPiBUaGUgd2F5IHRoZXNlIHN0dWJzIGFyZSBpbXBsZW1lbnRlZCBpbiBhc20t
-Z2VuZXJpYy9pby5oIGxlYWRzIHRvIGNvbXBpbGVyCj4gd2FybmluZ3MgYmVjYXVzZSBhbnkgdXNl
-IHdpbGwgYmUgYSBOVUxMIHBvaW50ZXIgYWNjZXNzIG9uIHRoZXNlIHBsYXRmb3Jtcy4gSW4KPiBh
-IHByZXZpb3VzIHBhdGNoIHdlIHRyaWVkIGhhbmRsaW5nIHRoaXMgd2l0aCBhIHJ1bi10aW1lIHdh
-cm5pbmcgb24gYWNjZXNzLiBUaGlzCj4gYXBwcm9hY2ggaG93ZXZlciB3YXMgcmVqZWN0ZWQgYnkg
-TGludXNbMF0gd2l0aCB0aGUgYXJndW1lbnQgdGhhdCB0aGlzIHJlYWxseQo+IHNob3VsZCBiZSBh
-IGNvbXBpbGUtdGltZSBjaGVjayBhbmQsIHRob3VnaCBhIG11Y2ggbW9yZSBpbnZhc2l2ZSBjaGFu
-Z2UsIHdlCj4gYmVsaWV2ZSB0aGF0IGlzIGluZGVlZCB0aGUgcmlnaHQgYXBwcm9hY2guCj4KPiBU
-aGlzIHBhdGNoIHNlcmllcyBhaW1zIHRvIGRvIGV4YWN0bHkgdGhhdCBieSBpbnRyb2R1Y2luZyBh
-IEhBU19JT1BPUlQgY29uZmlnCj4gb3B0aW9uIGFraW4gdG8gdGhlIGV4aXN0aW5nIEhBU19JT01F
-TS4gV2hlbiB0aGlzIGlzIHVuc2V0IGluYigpL291dGIoKSBhbmQKPiBmcmllbmRzIG1heSBub3Qg
-YmUgZGVmaW5lZC4gVGhpcyBpcyBhbHNvIHRoZSBzYW1lIGFwcHJvYWNoIG9yaWdpbmFsbHkgcGxh
-bm5lZCBieQo+IFV3ZSBLbGVpbmUtS8O2bmlnIGFzIG1lbnRpb25lZCBpbiBjb21taXQgY2U4MTZm
-YTg4Y2NhICgiS2NvbmZpZzogcmVuYW1lCj4gSEFTX0lPUE9SVCB0byBIQVNfSU9QT1JUX01BUCIp
-Lgo+Cj4gVGhpcyBzZXJpZXMgYnVpbGRzIGhlYXZpbHkgb24gYW4gb3JpZ2luYWwgcGF0Y2ggZm9y
-IGRlbW9uc3RhdGluZyB0aGUgY29uY2VwdCBieQo+IEFybmQgQmVyZ21hbm5bMV0gYW5kIGluY29w
-b3JhdGVzIGZlZWRiYWNrIG9mIHByZXZpb3VzIFJGQyB2ZXJzaW9ucyBbMl0gYW5kIFszXS4KPgo+
-IFRoaXMgdmVyc2lvbiBpcyBiYXNlZCBvbiB2Ni4zLXJjMSBhbmQgaXMgYWxzbyBhdmFpbGFibGUg
-b24gbXkga2VybmVsLm9yZyB0cmVlCj4gaW4gdGhlIGhhc19pb3BvcnRfdjMgYnJhbmNoIHdpdGgg
-dGhlIFBHUCBzaWduZWQgdGFnIGhhc19pb3BvcnRfdjNfc2lnbmVkOgo+Cj4gaHR0cHM6Ly9naXQu
-a2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbmlrcy9saW51eC5naXQKClRoYW5r
-cyBhIGxvdCBmb3IgdGhlIHJlYmFzZSwgaG9wZWZ1bGx5IHdlIGNhbiBmaW5hbGx5IGdldCB0aGlz
-IG1lcmdlZC4KSSdsbCBnbyB0aHJvdWdoIGFsbCBwYXRjaGVzIGFuZCBub3RlIGV2ZXJ5dGhpbmcg
-SSBzcG90IHRoYXQgc2hvdWxkCmJlIGltcHJvdmVkLiBJJ2QgbGlrZSB0byBtYWtlIHN1cmUgdGhh
-dCBhdCBsZWFzdCB0aGUgZmlyc3QgcGF0Y2gKY2FuIGdldCBtZXJnZWQgcXVpY2tseSBzbyB3ZSBj
-YW4gY29udGludWUgb24gdGhlIHJlc3QuCgpTaW5jZSB0aGlzIGlzIGFsbCByZWxhdGVkIHRvIGFz
-bS1nZW5lcmljL2lvLmggYW5kIGNyb3NzLWFyY2hpdGVjdHVyZQp3b3JrLCBJIGNhbiBwaWNrIHVw
-IGFueXRoaW5nIHRoYXQgaGFzIG5vYm9keSBlbHNlIG1haW50YWluaW5nIGl0CnRocm91Z2ggdGhl
-IGFzbS1nZW5lcmljIHRyZWUuCgogICBBcm5kCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 13 Mar 2023 09:53:01 +0100, Emil Renner Berthing wrote:
+> On Mon, 13 Mar 2023 at 04:22, Hal Feng <hal.feng@starfivetech.com> wrote:
+>> On Sat, 11 Mar 2023 13:11:38 +0000, Conor Dooley wrote:
+>> > On Sat, Mar 11, 2023 at 05:07:23PM +0800, Hal Feng wrote:
+>> >> From: Emil Renner Berthing <kernel@esmil.dk>
+>> >>
+>> >> Add bindings for the system clock and reset generator (SYSCRG) on the
+>> >> JH7110 RISC-V SoC by StarFive Ltd.
+>> >>
+>> >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> >> ---
+>> >>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+>> >>  MAINTAINERS                                   |   8 +-
+>> >>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+>> >>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+>> >>  4 files changed, 454 insertions(+), 3 deletions(-)
+>> >>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> >>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>> >>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+>> >>
+>> >> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> >> new file mode 100644
+>> >> index 000000000000..84373ae31644
+>> >> --- /dev/null
+>> >> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> >
+>> >> +  clock-names:
+>> >> +    oneOf:
+>> >> +      - items:
+>> >> +          - const: osc
+>> >> +          - enum:
+>> >> +              - gmac1_rmii_refin
+>> >> +              - gmac1_rgmii_rxin
+>> >> +          - const: i2stx_bclk_ext
+>> >> +          - const: i2stx_lrck_ext
+>> >> +          - const: i2srx_bclk_ext
+>> >> +          - const: i2srx_lrck_ext
+>> >> +          - const: tdm_ext
+>> >> +          - const: mclk_ext
+>> >> +
+>> >> +      - items:
+>> >> +          - const: osc
+>> >> +          - const: gmac1_rmii_refin
+>> >> +          - const: gmac1_rgmii_rxin
+>> >> +          - const: i2stx_bclk_ext
+>> >> +          - const: i2stx_lrck_ext
+>> >> +          - const: i2srx_bclk_ext
+>> >> +          - const: i2srx_lrck_ext
+>> >> +          - const: tdm_ext
+>> >> +          - const: mclk_ext
+>> >
+>> > Assuming nothing else here is optional,
+>> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>>
+>> Yeah, nothing else here is optional. Thanks for your review.
+> 
+> Wait, what kind of optional are we talking about here? Surely all the
+> i2s and tdm external clocks are optional in the sense that you don't
+> need them on a board that never does any audio processing.
+
+I think the "optional" means whether the clock is optional in the sense
+that we run all functions on the SoC.
+
+Best regards,
+Hal
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
