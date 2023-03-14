@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF4BC7618A
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01F0C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Mar 2023 12:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rMCzcIdj8B7UURVg5o0aizFxCGJFtYgT/IiJ+GcqLtc=; b=WS1ahTmqNdbf6c
-	gJG5rJnazeUR1CmgH2Rw2T53QF+ZO40frkG+fqKRITDzVu/3/gawL9qS8UKXOjX1uX54Wmhggv5ij
-	eNay8inPw6VJxf/w/VbXqwsE3LHH+VZK9kotkw4oMp4dhSX01Ce5noE9tLgqOIwHoVVD7dDbJxRHX
-	EC+GYfPYX9vR9S0FTafuh/om+Ssx1nCIQNc72zRTQMzsRYNHltmWVARDVb4YPYjK1/Md7Mr3Ml7m1
-	ez3sO8lcgcdaSbZGJTGtbHsURza5ALxn+a2558IJz1JXCeWUK7EQw2X+bkmyAwJ5xRbmGZRQsU0R7
-	jOh5QaG0G5kKFAooknYg==;
+	List-Owner; bh=qufpQM4K7rSF9ZxgyM/0cxpT0wgAsslgqB4LgVOiPi0=; b=SQIGvfYvu9N1J6
+	10W8NltZZVis3t0kdAxYLAr5KGx6KrkGOdXX+VD5EBPeyWz7/JEqeFeRfASwQcsRvvQyZdfvY5Im3
+	93ZpmiEWnUdNOz00Y+HZkT72Nfy1MR/Iw9ABbyoyOA9Uaz4/sUBENrr2BXM1khnanNPphfCRcNIns
+	d+0as/1+Vao0zCoxHcwBLO+3HcroWGkBz0vQQftHD/rHGwHS/UODoZ/TT01ITFg7ln4aK6DlBwreB
+	iN6O85Bx7rf70X6i7albcQSH7cM9vmNypDUwyTAm7ETgJw5yK3inay2FzT7MrVbob54hSuof3mfh8
+	9ccuORQ4F5iwwAGx+8hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc41M-00AAHv-0Z;
-	Tue, 14 Mar 2023 12:44:52 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pc41R-00AALn-1o;
+	Tue, 14 Mar 2023 12:44:57 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pc41I-00A9wu-0F
+	id 1pc41K-00A9xO-0E
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Mar 2023 12:44:50 +0000
+	Tue, 14 Mar 2023 12:44:53 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id AFF4024E208;
-	Tue, 14 Mar 2023 20:44:11 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 19D3624E39B;
+	Tue, 14 Mar 2023 20:44:07 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 20:44:11 +0800
+ 2023 20:44:06 +0800
 Received: from localhost.localdomain (113.72.145.194) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 14 Mar
- 2023 20:44:10 +0800
+ 2023 20:44:05 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -48,9 +48,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
 	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
 	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset generator
-Date: Tue, 14 Mar 2023 20:44:00 +0800
-Message-ID: <20230314124404.117592-8-xingyu.wu@starfivetech.com>
+Subject: [PATCH v3 01/11] dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and reset generator
+Date: Tue, 14 Mar 2023 20:43:54 +0800
+Message-ID: <20230314124404.117592-2-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
 References: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_054448_796265_A6470AAE 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20230314_054451_321692_22142EFC 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +78,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Video-Output clock and reset generator (VOUTCRG)
+Add bindings for the System-Top-Group clock and reset generator (STGCRG)
 on the JH7110 RISC-V SoC by StarFive Ltd.
 
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../clock/starfive,jh7110-voutcrg.yaml        | 90 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jh7110-crg.h   | 22 +++++
- .../dt-bindings/reset/starfive,jh7110-crg.h   | 16 ++++
- 3 files changed, 128 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+ .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
+ 3 files changed, 144 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
 new file mode 100644
-index 000000000000..af77bd8c86b1
+index 000000000000..b64ccd84200a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
-@@ -0,0 +1,90 @@
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+@@ -0,0 +1,82 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/starfive,jh7110-voutcrg.yaml#
++$id: http://devicetree.org/schemas/clock/starfive,jh7110-stgcrg.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: StarFive JH7110 Video-Output Clock and Reset Generator
++title: StarFive JH7110 System-Top-Group Clock and Reset Generator
 +
 +maintainers:
 +  - Xingyu Wu <xingyu.wu@starfivetech.com>
 +
 +properties:
 +  compatible:
-+    const: starfive,jh7110-voutcrg
++    const: starfive,jh7110-stgcrg
 +
 +  reg:
 +    maxItems: 1
 +
 +  clocks:
 +    items:
-+      - description: Vout Top core
-+      - description: Vout Top Ahb
-+      - description: Vout Top Axi
-+      - description: Vout Top HDMI MCLK
-+      - description: I2STX0 BCLK
-+      - description: external HDMI pixel
++      - description: Main Oscillator (24 MHz)
++      - description: HIFI4 core
++      - description: STG AXI/AHB
++      - description: USB (125 MHz)
++      - description: CPU Bus
++      - description: HIFI4 Axi
++      - description: NOC STG Bus
++      - description: APB Bus
 +
 +  clock-names:
 +    items:
-+      - const: vout_src
-+      - const: vout_top_ahb
-+      - const: vout_top_axi
-+      - const: vout_top_hdmitx0_mclk
-+      - const: i2stx0_bclk
-+      - const: hdmitx0_pixelclk
-+
-+  resets:
-+    maxItems: 1
-+    description: Vout Top core
++      - const: osc
++      - const: hifi4_core
++      - const: stg_axiahb
++      - const: usb_125m
++      - const: cpu_bus
++      - const: hifi4_axi
++      - const: nocstg_bus
++      - const: apb_bus
 +
 +  '#clock-cells':
 +    const: 1
@@ -146,100 +145,130 @@ index 000000000000..af77bd8c86b1
 +    description:
 +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
 +
-+  power-domains:
-+    maxItems: 1
-+    description:
-+      Vout domain power
-+
 +required:
 +  - compatible
 +  - reg
 +  - clocks
 +  - clock-names
-+  - resets
 +  - '#clock-cells'
 +  - '#reset-cells'
-+  - power-domains
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
 +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+    #include <dt-bindings/power/starfive,jh7110-pmu.h>
-+    #include <dt-bindings/reset/starfive,jh7110-crg.h>
 +
-+    voutcrg: clock-controller@295C0000 {
-+        compatible = "starfive,jh7110-voutcrg";
-+        reg = <0x295C0000 0x10000>;
-+        clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
-+                 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
-+                 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
-+                 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
-+                 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
-+                 <&hdmitx0_pixelclk>;
-+        clock-names = "vout_src", "vout_top_ahb",
-+                      "vout_top_axi", "vout_top_hdmitx0_mclk",
-+                      "i2stx0_bclk", "hdmitx0_pixelclk";
-+        resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
++    stgcrg: clock-controller@10230000 {
++        compatible = "starfive,jh7110-stgcrg";
++        reg = <0x10230000 0x10000>;
++        clocks = <&osc>,
++                 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
++                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
++                 <&syscrg JH7110_SYSCLK_USB_125M>,
++                 <&syscrg JH7110_SYSCLK_CPU_BUS>,
++                 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
++                 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
++                 <&syscrg JH7110_SYSCLK_APB_BUS>;
++        clock-names = "osc", "hifi4_core",
++                      "stg_axiahb", "usb_125m",
++                      "cpu_bus", "hifi4_axi",
++                      "nocstg_bus", "apb_bus";
 +        #clock-cells = <1>;
 +        #reset-cells = <1>;
-+        power-domains = <&pwrc JH7110_PD_VOUT>;
 +    };
 diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
-index a329836f6b53..0cd963a3a39c 100644
+index 06257bfd9ac1..6c8e8b4cf1f6 100644
 --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
 +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-@@ -270,4 +270,26 @@
+@@ -1,6 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+ /*
+  * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright 2022 StarFive Technology Co., Ltd.
+  */
  
- #define JH7110_ISPCLK_END			14
+ #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+@@ -218,4 +219,37 @@
  
-+/* VOUTCRG clocks */
-+#define JH7110_VOUTCLK_APB			0
-+#define JH7110_VOUTCLK_DC8200_PIX		1
-+#define JH7110_VOUTCLK_DSI_SYS			2
-+#define JH7110_VOUTCLK_TX_ESC			3
-+#define JH7110_VOUTCLK_DC8200_AXI		4
-+#define JH7110_VOUTCLK_DC8200_CORE		5
-+#define JH7110_VOUTCLK_DC8200_AHB		6
-+#define JH7110_VOUTCLK_DC8200_PIX0		7
-+#define JH7110_VOUTCLK_DC8200_PIX1		8
-+#define JH7110_VOUTCLK_DOM_VOUT_TOP_LCD		9
-+#define JH7110_VOUTCLK_DSITX_APB		10
-+#define JH7110_VOUTCLK_DSITX_SYS		11
-+#define JH7110_VOUTCLK_DSITX_DPI		12
-+#define JH7110_VOUTCLK_DSITX_TXESC		13
-+#define JH7110_VOUTCLK_MIPITX_DPHY_TXESC	14
-+#define JH7110_VOUTCLK_HDMI_TX_MCLK		15
-+#define JH7110_VOUTCLK_HDMI_TX_BCLK		16
-+#define JH7110_VOUTCLK_HDMI_TX_SYS		17
+ #define JH7110_AONCLK_END			14
+ 
++/* STGCRG clocks */
++#define JH7110_STGCLK_HIFI4_CLK_CORE		0
++#define JH7110_STGCLK_USB0_APB			1
++#define JH7110_STGCLK_USB0_UTMI_APB		2
++#define JH7110_STGCLK_USB0_AXI			3
++#define JH7110_STGCLK_USB0_LPM			4
++#define JH7110_STGCLK_USB0_STB			5
++#define JH7110_STGCLK_USB0_APP_125		6
++#define JH7110_STGCLK_USB0_REFCLK		7
++#define JH7110_STGCLK_PCIE0_AXI_MST0		8
++#define JH7110_STGCLK_PCIE0_APB			9
++#define JH7110_STGCLK_PCIE0_TL			10
++#define JH7110_STGCLK_PCIE1_AXI_MST0		11
++#define JH7110_STGCLK_PCIE1_APB			12
++#define JH7110_STGCLK_PCIE1_TL			13
++#define JH7110_STGCLK_PCIE_SLV_MAIN		14
++#define JH7110_STGCLK_SEC_AHB			15
++#define JH7110_STGCLK_SEC_MISC_AHB		16
++#define JH7110_STGCLK_GRP0_MAIN			17
++#define JH7110_STGCLK_GRP0_BUS			18
++#define JH7110_STGCLK_GRP0_STG			19
++#define JH7110_STGCLK_GRP1_MAIN			20
++#define JH7110_STGCLK_GRP1_BUS			21
++#define JH7110_STGCLK_GRP1_STG			22
++#define JH7110_STGCLK_GRP1_HIFI			23
++#define JH7110_STGCLK_E2_RTC			24
++#define JH7110_STGCLK_E2_CORE			25
++#define JH7110_STGCLK_E2_DBG			26
++#define JH7110_STGCLK_DMA1P_AXI			27
++#define JH7110_STGCLK_DMA1P_AHB			28
 +
-+#define JH7110_VOUTCLK_END			18
++#define JH7110_STGCLK_END			29
 +
  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
 diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
-index 3ed5e0b1cebd..57857a4ac7b2 100644
+index d78e38690ceb..4e96ab81dd8e 100644
 --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
 +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-@@ -195,4 +195,20 @@
+@@ -1,6 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+ /*
+  * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
+  */
  
- #define JH7110_ISPRST_END			12
+ #ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
+@@ -151,4 +152,31 @@
  
-+/* VOUTCRG resets */
-+#define JH7110_VOUTRST_DC8200_AXI		0
-+#define JH7110_VOUTRST_DC8200_AHB		1
-+#define JH7110_VOUTRST_DC8200_CORE		2
-+#define JH7110_VOUTRST_DSITX_DPI		3
-+#define JH7110_VOUTRST_DSITX_APB		4
-+#define JH7110_VOUTRST_DSITX_RXESC		5
-+#define JH7110_VOUTRST_DSITX_SYS		6
-+#define JH7110_VOUTRST_DSITX_TXBYTEHS		7
-+#define JH7110_VOUTRST_DSITX_TXESC		8
-+#define JH7110_VOUTRST_HDMI_TX_HDMI		9
-+#define JH7110_VOUTRST_MIPITX_DPHY_SYS		10
-+#define JH7110_VOUTRST_MIPITX_DPHY_TXBYTEHS	11
+ #define JH7110_AONRST_END			8
+ 
++/* STGCRG resets */
++#define JH7110_STGRST_SYSCON			0
++#define JH7110_STGRST_HIFI4_CORE		1
++#define JH7110_STGRST_HIFI4_AXI			2
++#define JH7110_STGRST_SEC_AHB			3
++#define JH7110_STGRST_E24_CORE			4
++#define JH7110_STGRST_DMA1P_AXI			5
++#define JH7110_STGRST_DMA1P_AHB			6
++#define JH7110_STGRST_USB0_AXI			7
++#define JH7110_STGRST_USB0_APB			8
++#define JH7110_STGRST_USB0_UTMI_APB		9
++#define JH7110_STGRST_USB0_PWRUP		10
++#define JH7110_STGRST_PCIE0_AXI_MST0		11
++#define JH7110_STGRST_PCIE0_AXI_SLV0		12
++#define JH7110_STGRST_PCIE0_AXI_SLV		13
++#define JH7110_STGRST_PCIE0_BRG			14
++#define JH7110_STGRST_PCIE0_CORE		15
++#define JH7110_STGRST_PCIE0_APB			16
++#define JH7110_STGRST_PCIE1_AXI_MST0		17
++#define JH7110_STGRST_PCIE1_AXI_SLV0		18
++#define JH7110_STGRST_PCIE1_AXI_SLV		19
++#define JH7110_STGRST_PCIE1_BRG			20
++#define JH7110_STGRST_PCIE1_CORE		21
++#define JH7110_STGRST_PCIE1_APB			22
 +
-+#define JH7110_VOUTRST_END			12
++#define JH7110_STGRST_END			23
 +
  #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
 -- 
