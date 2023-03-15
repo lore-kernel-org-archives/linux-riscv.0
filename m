@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABEFC61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 07:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D25BC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 08:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cwDBHNjIcyuJL7SqINRYfROhFyzRqbj+96Jaz3VJi7A=; b=4v3OBjIOxJiF8o
-	+kephWbT36wLTaJBvSXfnEV9NHjMqDDRPAhJviolh9tjh/jvpdaHBtdkNYT1ShJ1gLlPLsXb+rvUd
-	Sk2jKsbu0ceo/bdHYwsRGfoe1IC5nuHqk7mkT6Ju3UPr29M4tbZ9UH5qKLIZ3dW96TRFA9JHmvkjm
-	J43LiFKQ40gERdlRR6gGgfS/062gewK6RNJYbk0bdpc9q0GjBf03ORHP60UeNHez3umkSEpRK7S1o
-	Wq1+XhEzxZMYXHndoo7Y7PIcT7I6zmPchclcCSuAcwAfLnqlzNBrRoBT6WrWZDZ9llYyhPctr61m9
-	NjXLJ8B3IHX0R6pjjP6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vVuZ5E455JxaY/T0XkKrvGbSgY9cqXr/wwlD3JhrefQ=; b=Yo1PdfnQraREgTt5ltQkKf4WpI
+	h/MGxoMaHZlsZG6pqNjo58D3Qm7DLlk/dYmYopEojfN54B2KLL8QvY3OjKuRz47olL2XlZM1iGdcw
+	rcZ1nYYVriSiuDyC/mr8nTfOlAwiUrUqS5KD2KL6YAfIJjl2lA32rLJBEygEe8Q5nPf7uTBjkd6TE
+	cLNy/7HcXXuPL7iNpZXkw5sBwMzfHO8L5SQCbRXndKe6d0EVEAJ4wO2C7Q6GPQtsAMGpTcGE90Yu7
+	r2cF7aivXmgp2p1f9pjZ4nIANsPPh1k21SvYdn9sZ4uwNc2XuByMYmlElDlu2FuHt3D3e1VKIsZOj
+	t8JWhg7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcLzQ-00ChvH-2b;
-	Wed, 15 Mar 2023 07:56:05 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1pcMH3-00ClKt-0X;
+	Wed, 15 Mar 2023 08:14:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcLzO-00Chtn-0Z
+	id 1pcMGz-00ClKM-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 07:56:03 +0000
-Received: by mail-ed1-x532.google.com with SMTP id y4so42524809edo.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Mar 2023 00:56:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1678866960;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HH3s1nadjYLiGCsTK9aOpzfD2+JERQeAQNU/Lvtc2Ow=;
-        b=pyIUeB4eDEi6hzASiyAIA1sVSMEqON/+DatgKxKBc3woH5HcE8oKUMp65LSlTt42S2
-         DIJvaCPExRHWYZyq6IN8N3DysbTvmhll3GL+WvT9XDMqSQP151PRcYdV4asn6GOP7Z+E
-         RE4Wb4AJFD69kSj1LNkWSfTjBSHA1vTRylCNk4c/dVZ6gMIAhQb/2/bjY2bBdX7sPTa9
-         OKDBk25hrlbHK/ZzN2WT7KBZdM17ZZgj0kSdpABOkdEY60fZrIqo+E4eOPIRSpptV7uD
-         Np6lkFrUKCD3nYCdNtJMpyvOWNSKhrMBZwYbugwPtBEI3LWuEWOEZnaXBa6hrZh7FmlO
-         inxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678866960;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HH3s1nadjYLiGCsTK9aOpzfD2+JERQeAQNU/Lvtc2Ow=;
-        b=u/8xVI5ik/d/+7msdDT7aPJdHgeHxCWLjb0/LY+uavVS81nH6qrEVoPU5ObFx5jP24
-         KJh1CicRjaYl/2tIZOAqMWXV2KFLe05IJoMku5gSGFOEXjlb1usfml6989KwJUzqphua
-         Bzu4IB8UKDxTOi/crvV4fYpKPStU/F58zfSQduw0mr9PisQHUEQfe2EWkKj2ScRwgAof
-         OheMYDo3BnlDcmB/DV3+T04iLHTQPgqOHQYRnsOOaHY6LaTUWG3i6qfUYd4bIrkPWjVW
-         w4LwAaAiUgnMkw4Lx+0bw3KuQMYyQe3y2UlJ0hd+0MVGWgyLhf/onVdJGzQvXWWHDVM2
-         pquA==
-X-Gm-Message-State: AO0yUKUsxJIZ96GngT2292/Ysa/eTrVL8Bwh3K0pIlA1eJV7r8C6F8NB
-	GdjrxnK7S9FYUHaFgaV70w2p5A==
-X-Google-Smtp-Source: AK7set/ErDnbn3BQv8IhC67ttVzVAWaZY78GHDI3wn5ScSSkGhKNg62brrkV32t3unAb7CJcGuQqcw==
-X-Received: by 2002:a05:6402:899:b0:4fc:183d:ee18 with SMTP id e25-20020a056402089900b004fc183dee18mr1717845edy.35.1678866960639;
-        Wed, 15 Mar 2023 00:56:00 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:940e:8615:37dc:c2bd? ([2a02:810d:15c0:828:940e:8615:37dc:c2bd])
-        by smtp.gmail.com with ESMTPSA id co2-20020a0564020c0200b004fce9ff4830sm1945756edb.88.2023.03.15.00.55.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Mar 2023 00:56:00 -0700 (PDT)
-Message-ID: <478974c3-7302-e773-8d70-fcb2323f65ea@linaro.org>
-Date: Wed, 15 Mar 2023 08:55:59 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v3 01/11] dt-bindings: clock: Add StarFive JH7110
- System-Top-Group clock and reset generator
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>
-Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
+	Wed, 15 Mar 2023 08:14:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 231B561BF5;
+	Wed, 15 Mar 2023 08:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66742C433D2;
+	Wed, 15 Mar 2023 08:14:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678868052;
+	bh=RYBEOk+HK2aRj9LqS2VuCmRmezqPOUjCPLS3OrVq21o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=It7x0u2QWNI01AxqasCNsexzhbUEwlriKjOKPlU9dy1pPQR+mW0uMLAPF3YAeoUd3
+	 sH44L4IVmHXaHJoxrr5ECxgJCLWTE1FZLViiH+SMfafccYu+Xk3icuKLb5JO93jqBI
+	 FDOACRMCojYOw1j320frZcsO2VFKbDsKgnBnpnHthkSUxa9I8L+8L7My3vUSYvsC5e
+	 15PG6UnTZrQlHsNnYSn5P8qAzrpnc3084BpyUmVQgVqQ+TUG9HZzJGx5u+YpaEHLgp
+	 V1rIg+uy/JFhoKVnQhO9adsCJDSYvnlUZNB1IolAHtu4On3bJ023VbjED+TRCMfAcT
+	 ypfdd6PSkWlMw==
+Date: Wed, 15 Mar 2023 08:14:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 00/11] Add new partial clock and reset drivers for
+ StarFive JH7110
+Message-ID: <e895fea6-e13b-450f-97e8-34ecfe075691@spud>
 References: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
- <20230314124404.117592-2-xingyu.wu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230314124404.117592-2-xingyu.wu@starfivetech.com>
+ <de14f63beb2b3e424ec2375187c8087f.sboyd@kernel.org>
+ <729b1b69-aba6-4623-cf78-b08562d30d76@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <729b1b69-aba6-4623-cf78-b08562d30d76@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_005602_226636_22803DA0 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230315_011414_050517_21A6905B 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +79,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9149771627286343422=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2023 13:43, Xingyu Wu wrote:
-> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
-> on the JH7110 RISC-V SoC by StarFive Ltd.
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
->  .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
->  3 files changed, 144 insertions(+)
+
+--===============9149771627286343422==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KCsBIXoje4qDVRrt"
+Content-Disposition: inline
 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+--KCsBIXoje4qDVRrt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Krzysztof
+Hey Stephen,
 
+On Wed, Mar 15, 2023 at 11:44:00AM +0800, Xingyu Wu wrote:
+> On 2023/3/15 8:30, Stephen Boyd wrote:
+> > Quoting Xingyu Wu (2023-03-14 05:43:53)
+> >> This patch serises are to add new partial clock drivers and reset
+> >> supports about System-Top-Group(STG), Image-Signal-Process(ISP)
+> >> and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC.
+> >=20
+> > What is your merge plan for this series? Did you intend for clk tree to
+> > take the majority of patches? We won't take the dts changes through the
+> > clk tree.
+
+FWIW, I've been waiting for the "main" clock/reset series [1] to be ready
+to go, before suggesting that I take it (the main series) via the soc
+tree. This one is kinda in the same boat, with defines in the dt-binding
+headers that are used by both drivers and dts, so splitting the two
+doesn't make all that much sense.
+
+As Xingyu points out below, this series depends on the main one, so if I
+was to take that via soc, this one would need to go on top, or be
+delayed.
+At what point does that become too much to go via soc and some sort of
+shared tag become needed?
+
+Thanks,
+Conor.
+
+> >=20
+> > I think Philipp Zabel reviewed some earlier version of the patches and
+> > provided reviewed-by tags. Can you check if they can be added here? If
+> > so, please resend again, or get those merged through the reset tree.
+>=20
+> These patches add new clock & reset providers based on the basic clock & =
+reset
+> of the minimal system which Hal.feng had submitted[1], which are used in =
+USB, DMA,
+> VIN and Display modules that are merging.
+[1]: https://lore.kernel.org/all/20230311090733.56918-1-hal.feng@starfivete=
+ch.com/
+>=20
+> Oh I checked and had not received any comments from Philipp Zabel in earl=
+ier version
+> of these patches. Maybe it was confused with the patches of the minimal s=
+ystem.
+>=20
+> Best regards,
+> Xingyu Wu
+
+--KCsBIXoje4qDVRrt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBF+SgAKCRB4tDGHoIJi
+0m5xAQDTPvvjhBE832qUHY52KqkLnWO+zVLbPmehlEo0xNwyOgEAyLmITy69AFwW
+1sNnZiP3T9rxdKwPr1lXTsdPnIjPtA0=
+=kWwU
+-----END PGP SIGNATURE-----
+
+--KCsBIXoje4qDVRrt--
+
+
+--===============9149771627286343422==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9149771627286343422==--
+
