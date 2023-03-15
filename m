@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D25BC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 08:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D197C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 08:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVuZ5E455JxaY/T0XkKrvGbSgY9cqXr/wwlD3JhrefQ=; b=Yo1PdfnQraREgTt5ltQkKf4WpI
-	h/MGxoMaHZlsZG6pqNjo58D3Qm7DLlk/dYmYopEojfN54B2KLL8QvY3OjKuRz47olL2XlZM1iGdcw
-	rcZ1nYYVriSiuDyC/mr8nTfOlAwiUrUqS5KD2KL6YAfIJjl2lA32rLJBEygEe8Q5nPf7uTBjkd6TE
-	cLNy/7HcXXuPL7iNpZXkw5sBwMzfHO8L5SQCbRXndKe6d0EVEAJ4wO2C7Q6GPQtsAMGpTcGE90Yu7
-	r2cF7aivXmgp2p1f9pjZ4nIANsPPh1k21SvYdn9sZ4uwNc2XuByMYmlElDlu2FuHt3D3e1VKIsZOj
-	t8JWhg7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V3QvCeJLgf5eyNWTIwrP68nmfiXuql159Ypd5A5ibLk=; b=yA6s227/MRpeha
+	cLrsNhYXjYCFaB9lVxce03bLpjZ3JxdmxKgfYNBOUYtE0Mb6j4c66bw8HdGc+0Pg48s4NmlIR023p
+	nnUaAsoeu8iuAhkyO+qKLssn3rCoLRwEeyZ2N2HVTTUpemXLX/J2UU7uRFaRUE2g8UUmdSKPLo9gk
+	yF1n/8u3D8G8qeU9JOHf4R+hHVvscJhVFM5CmBbVboyxEoDX/UTZ43DmEE+VlEMXh/2iwWkGVNbq8
+	jAowgOMwwX8shQu7P98mbwI804ymbBPVhh7ZGXxkTSGboEqdW3xom+n156yGqXdjY0XB8bKDeXlZc
+	5f0ho+cVtZUCARyQmH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcMH3-00ClKt-0X;
-	Wed, 15 Mar 2023 08:14:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pcMtZ-00Cphe-1j;
+	Wed, 15 Mar 2023 08:54:05 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcMGz-00ClKM-2y
+	id 1pcMtW-00Cpgb-1H
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 08:14:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 231B561BF5;
-	Wed, 15 Mar 2023 08:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66742C433D2;
-	Wed, 15 Mar 2023 08:14:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678868052;
-	bh=RYBEOk+HK2aRj9LqS2VuCmRmezqPOUjCPLS3OrVq21o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=It7x0u2QWNI01AxqasCNsexzhbUEwlriKjOKPlU9dy1pPQR+mW0uMLAPF3YAeoUd3
-	 sH44L4IVmHXaHJoxrr5ECxgJCLWTE1FZLViiH+SMfafccYu+Xk3icuKLb5JO93jqBI
-	 FDOACRMCojYOw1j320frZcsO2VFKbDsKgnBnpnHthkSUxa9I8L+8L7My3vUSYvsC5e
-	 15PG6UnTZrQlHsNnYSn5P8qAzrpnc3084BpyUmVQgVqQ+TUG9HZzJGx5u+YpaEHLgp
-	 V1rIg+uy/JFhoKVnQhO9adsCJDSYvnlUZNB1IolAHtu4On3bJ023VbjED+TRCMfAcT
-	 ypfdd6PSkWlMw==
-Date: Wed, 15 Mar 2023 08:14:06 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
+	Wed, 15 Mar 2023 08:54:03 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id w9so1704449edc.3
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Mar 2023 01:53:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1678870438;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dolOVvlYZWJ9nCYk9trJ6kMCdZW/oXPHELzwkmem5Uk=;
+        b=MFbGxr4qvdjII5+dP1fGSBYixXjYcuZKIHk2d+ShrWlGblspW3sZJrwNZ77vZ2V+eK
+         fgjmeAR71wlzoh04kgfZyy/wKlgmFHqWkQcTiHUIu6/qDb0h9WxiNYOdgj2uFKleJ5j5
+         YCuu9Z/XL1VPPaKS92QHrBKFYKUTTNgL7WdfFo9gXAUbxC6uVtEN8dOC6rwN2wbyBRcK
+         XvfX7uANctyKHvt1OSlJUt4CH3bBksiUtpNFSpVXUqZHh8P4kcPIHoHEPYLJboALHC41
+         0ASsFEw18ovuOQD6hBQIifRRcXo2+f38PYlF76J4KxBjajuq7a/RRgwCdfFPzY0OIVTH
+         fn5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678870438;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dolOVvlYZWJ9nCYk9trJ6kMCdZW/oXPHELzwkmem5Uk=;
+        b=JAMX+v+HrWxfERAb6HRdWLgXLVcKwkH3FsaV4/k4BoHUAxD0xqw8ZtHp44oeKwCh6/
+         N+LEPuAfuOYzq9R9zFMwfK0QzPiVFI6k100x0eiFiUjtBE7od2Pz4CcVMNLJZPi4fE65
+         9tFY7XEPOLRLZEAwFQBNAt7Ysuh2EgnCLH2fMj8s7IV81MjULrvk737S18y0Lmqmid9R
+         8jELWLvo2gV0PbHsDohJO7T3wKnDs54fGRdUcUXqev6Y58kb4aCI8BJBOLvYf27691VU
+         pZ3bYOYHO7oDBSBHXU0s2obEfFKIrDC9/G6FKO5r5u/IPaCXC5S6AWYaSuem6g0Vgnos
+         mryw==
+X-Gm-Message-State: AO0yUKW8Q/AHTQbH7WtlrRkZrPXpG0dZc2U3JplAnC6tVXZqbbyTasWy
+	JuusvI+LT4kfbMKY1dye1yfaCA==
+X-Google-Smtp-Source: AK7set/VungzdGD3dRLBeKZZ7z4IK2H1QDutRY3N3WNFbdIsaJWOnMSmwzQBDqASChuqOZoNS4OOzA==
+X-Received: by 2002:a17:906:6cf:b0:8aa:875d:9d9a with SMTP id v15-20020a17090606cf00b008aa875d9d9amr5855591ejb.50.1678870438268;
+        Wed, 15 Mar 2023 01:53:58 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id rp15-20020a170906d96f00b00929fc8d264dsm2252847ejb.17.2023.03.15.01.53.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Mar 2023 01:53:57 -0700 (PDT)
+Date: Wed, 15 Mar 2023 09:53:56 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 00/11] Add new partial clock and reset drivers for
- StarFive JH7110
-Message-ID: <e895fea6-e13b-450f-97e8-34ecfe075691@spud>
-References: <20230314124404.117592-1-xingyu.wu@starfivetech.com>
- <de14f63beb2b3e424ec2375187c8087f.sboyd@kernel.org>
- <729b1b69-aba6-4623-cf78-b08562d30d76@starfivetech.com>
+	sudip.mukherjee@codethink.co.uk, ben.dooks@codethink.co.uk,
+	Atish Patra <atishp@rivosinc.com>, aou@eecs.berkeley.edu,
+	apatel@ventanamicro.com, krzysztof.kozlowski+dt@linaro.org,
+	robh@kernel.org, jszhang@kernel.org, heiko@sntech.de
+Subject: Re: [PATCH v6 0/8] RISC-V: Apply Zicboz to clear_page
+Message-ID: <20230315085356.zlmiz5qkz44d5ndf@orel>
+References: <20230224162631.405473-1-ajones@ventanamicro.com>
+ <mhng-72607fed-a923-4921-896f-7f703434083a@palmer-ri-x1c9a>
 MIME-Version: 1.0
-In-Reply-To: <729b1b69-aba6-4623-cf78-b08562d30d76@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <mhng-72607fed-a923-4921-896f-7f703434083a@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_011414_050517_21A6905B 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20230315_015402_454414_7253F5C0 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +93,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9149771627286343422=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 14, 2023 at 09:35:09PM -0700, Palmer Dabbelt wrote:
+> On Fri, 24 Feb 2023 08:26:23 PST (-0800), ajones@ventanamicro.com wrote:
+> > When the Zicboz extension is available we can more rapidly zero naturally
+> > aligned Zicboz block sized chunks of memory. As pages are always page
+> 
+> I guess we're sort of in a grey area here: this is just a performance thing
+> so in theory some sort of benchmark should be required, but IMO it's OK to
+> just hand wave this one away -- if the "zero a cache block" instruction
+> doesn't make "zero a page" go faster then something has gone so far off the
+> rails it's probably better to just pretend the machine doesn't implement
+> Zicboz.
+> 
+> This all LGTM, so unless anyone's opposed or it blows up on testing
+> overnight then it'll be on for-next.
 
---===============9149771627286343422==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="KCsBIXoje4qDVRrt"
-Content-Disposition: inline
+Thanks, Palmer!
 
-
---KCsBIXoje4qDVRrt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Stephen,
-
-On Wed, Mar 15, 2023 at 11:44:00AM +0800, Xingyu Wu wrote:
-> On 2023/3/15 8:30, Stephen Boyd wrote:
-> > Quoting Xingyu Wu (2023-03-14 05:43:53)
-> >> This patch serises are to add new partial clock drivers and reset
-> >> supports about System-Top-Group(STG), Image-Signal-Process(ISP)
-> >> and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC.
-> >=20
-> > What is your merge plan for this series? Did you intend for clk tree to
-> > take the majority of patches? We won't take the dts changes through the
-> > clk tree.
-
-FWIW, I've been waiting for the "main" clock/reset series [1] to be ready
-to go, before suggesting that I take it (the main series) via the soc
-tree. This one is kinda in the same boat, with defines in the dt-binding
-headers that are used by both drivers and dts, so splitting the two
-doesn't make all that much sense.
-
-As Xingyu points out below, this series depends on the main one, so if I
-was to take that via soc, this one would need to go on top, or be
-delayed.
-At what point does that become too much to go via soc and some sort of
-shared tag become needed?
-
-Thanks,
-Conor.
-
-> >=20
-> > I think Philipp Zabel reviewed some earlier version of the patches and
-> > provided reviewed-by tags. Can you check if they can be added here? If
-> > so, please resend again, or get those merged through the reset tree.
->=20
-> These patches add new clock & reset providers based on the basic clock & =
-reset
-> of the minimal system which Hal.feng had submitted[1], which are used in =
-USB, DMA,
-> VIN and Display modules that are merging.
-[1]: https://lore.kernel.org/all/20230311090733.56918-1-hal.feng@starfivete=
-ch.com/
->=20
-> Oh I checked and had not received any comments from Philipp Zabel in earl=
-ier version
-> of these patches. Maybe it was confused with the patches of the minimal s=
-ystem.
->=20
-> Best regards,
-> Xingyu Wu
-
---KCsBIXoje4qDVRrt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBF+SgAKCRB4tDGHoIJi
-0m5xAQDTPvvjhBE832qUHY52KqkLnWO+zVLbPmehlEo0xNwyOgEAyLmITy69AFwW
-1sNnZiP3T9rxdKwPr1lXTsdPnIjPtA0=
-=kWwU
------END PGP SIGNATURE-----
-
---KCsBIXoje4qDVRrt--
-
-
---===============9149771627286343422==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9149771627286343422==--
-
