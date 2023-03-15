@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03C0C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 14:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72333C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 18:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kTdnBsLVNJLC9JOMSndP5o0Y1vDM7abSoBbcmc0p+sY=; b=dY8P1W7fXKteyc
-	ONcvXdjCGgkaRqZZUOgC2eOlS7B7rOImC165I/aa0ToYRygoCnwD5cQMLNa/rdkhwBijZKm/wkUGd
-	ZpF3r+0w7qGK8HsIUuJjR6URatHIPXihsrddAlHkAvyAxOpXIM++nJnvhZKgESOV4Y9wvFENCuPey
-	8HEpCU25W1fcis1/SypRpJfpo7a/nnVTb82ef3I9Vmc0Fm44LKCh+FBN2kOZUgHg3jOCO8z/P/VBQ
-	HH1l/T5zGPeieybdXWWZAEx9wvy8kCPpe6WpUWRc0qdOeDQvsyHsUtQmEu1B5wJaZtxxJc2mPPyRP
-	yqb1xbVqrPdEgBHgghOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xheR1Id687X/u+pxAqpmFkXxQgH3gixo7ED1c8lPxAI=; b=v6f66gSSryYTBek/qGi/WTpNZS
+	S3hwf11Gn20jBzzh/2NhHdNYIGdiH2m2BcBFOd7qM5GnMNz04FDEBwRUqGsLUFuvqI/SkiKnonr7d
+	TfygY8qhBqxS4W4IUmwmllOTzFE714rLZ9SAiTc2j5U15mUF9NXRGghms4xf4a4oM5onVTIoOfhr+
+	xUMlFsxX3hGSYc7fTJ7uTeK77/zc8MU3LJicpIduh+HAse3njOynzusit7WYtwbiO2pATrC9+radJ
+	yPi3L5DMAVvVpmS6fEYaQ7fiZJbUwo+OSPmSlCdt32xz8gzV3Ls7G7f/wrBg8PfFmg5cpWaB/oe7e
+	pRVCNJEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcSZx-00DiaB-0I;
-	Wed, 15 Mar 2023 14:58:13 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pcVPv-00ECP7-3C;
+	Wed, 15 Mar 2023 18:00:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcSZu-00DiYl-09;
-	Wed, 15 Mar 2023 14:58:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wd8qK2CA6PymeHUSx0iaO6FA3rxmYEqXDRJEu+NxeFQ=; b=PFP1zbNSgF4Lhynb68W1Zs6OoH
-	HEDO+2MGSPoRsxZUfpjUK+DAEtI7EL9ir21q/hml31B0rqCSFtdkCG4//j87u+65tDB/SOig7IWbY
-	QdA45IM8LaNGDys8KDlhn0jtnKyPmz4PreME22ouaOEa1moXdFlsGB7qfzpQQ8ig8C5cQZSC2Px+C
-	PsaDe99yZvUZaOb5LVpCyrZRyKzsxfSRFPG10Rqi1fhJsAcDxB/Qosfj0DGyctMR458LS9bqW+ADs
-	1zf0SeHzabZeqQwiV4+mxEuwnHrhQ6sR4QyEfNDFbUeCStT8CXqhNzJ0ovfHNdc2Tww3A/B2Zzfgi
-	x/Z23HRg==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pcSZk-00DvdH-FK; Wed, 15 Mar 2023 14:58:01 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B85213001E5;
-	Wed, 15 Mar 2023 15:57:57 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6EA362408DE43; Wed, 15 Mar 2023 15:57:57 +0100 (CET)
-Date: Wed, 15 Mar 2023 15:57:57 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Donglin Peng <pengdonglin@sangfor.com.cn>, mhiramat@kernel.org,
-	linux@armlinux.org.uk, mark.rutland@arm.com, will@kernel.org,
-	catalin.marinas@arm.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, tglx@linutronix.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, mingo@redhat.com,
-	xiehuan09@gmail.com, dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
-	linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing
- the return value of function
-Message-ID: <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
-References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
- <20230315133911.958741-2-pengdonglin@sangfor.com.cn>
- <20230315134911.GD2006103@hirez.programming.kicks-ass.net>
- <20230315101348.1234c7f5@gandalf.local.home>
+	id 1pcVPt-00ECOP-1i
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Mar 2023 18:00:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 40EBB61DB4;
+	Wed, 15 Mar 2023 18:00:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F5FEC433EF;
+	Wed, 15 Mar 2023 17:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678903199;
+	bh=PSttNc6w/mKtHV5D1XaitgEFAhnPrAUkkifCk8iGO4w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AdBV017y2/fk2NDEMtjbyfZ6C8bt2Ik/OyybYbGjLGmUbekGVKzKGzV445ka5mEXt
+	 Y1Pd/aI5Cw6wKcD3QRu6tEf+zJxN5i8SHAGP9sEb0fXeXBvGlNncX/p68figDA1pjJ
+	 OaTYXuIoLfFDOcjCkmdvAdQJuv0wOi33cEMrmJDhxuZnOLLdJwFDlSi0HUNZaPf4T2
+	 53KbZJGyC7pVGzzfCl9GUbw50BkMTOBO+cecBSzmmADirUFrSMHD9hGaoFXj7j9q5j
+	 qgQanyDMxJ8qe1of8CjO8aDFR6JXW5oXvKXH39Ro/1nvsHleoHTEfSOVY0gVb5Sqb4
+	 doR8N6+uH30Lg==
+Date: Wed, 15 Mar 2023 17:59:55 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Song Shuai <suagrfillet@gmail.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Kconfig: enable SCHED_MC kconfig
+Message-ID: <d8cb0d9e-6b73-4f44-9165-ee66c2835906@spud>
+References: <20230310110336.970985-1-suagrfillet@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230315101348.1234c7f5@gandalf.local.home>
+In-Reply-To: <20230310110336.970985-1-suagrfillet@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230315_110001_635849_500EE8E2 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +68,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8101606868583149237=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 15, 2023 at 10:13:48AM -0400, Steven Rostedt wrote:
-> On Wed, 15 Mar 2023 14:49:11 +0100
-> Peter Zijlstra <peterz@infradead.org> wrote:
-> 
-> > > diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
-> > > index 1265ad519249..35ac9c58dc77 100644
-> > > --- a/arch/x86/kernel/ftrace_64.S
-> > > +++ b/arch/x86/kernel/ftrace_64.S
-> > > @@ -348,6 +348,10 @@ SYM_CODE_START(return_to_handler)
-> > >  	movq %rax, (%rsp)
-> > >  	movq %rdx, 8(%rsp)
-> > >  	movq %rbp, %rdi
-> > > +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-> > > +	/* Pass the function return value to ftrace_return_to_handler */
-> > > +	movq %rax, %rsi
-> > > +#endif
-> > >  
-> > >  	call ftrace_return_to_handler  
-> > 
-> > What about the case of double register return values (when the value
-> > is returned in the A,D pair) ?
-> 
-> Is there anything that does that in 64 bit kernels?
 
-Note sure; but I have a patch series that introduces cmpxchg128 and
-friends. Most of the actual functions are __always_inline, but still,
-the moment a compiler decides to break out a subfunction on a u128
-boundary we're in luck.
+--===============8101606868583149237==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="OWpXPeGNXXDj5/uS"
+Content-Disposition: inline
+
+
+--OWpXPeGNXXDj5/uS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 10, 2023 at 07:03:36PM +0800, Song Shuai wrote:
+> RISC-V now builds the sched domain based on the simple possible map.
+>=20
+> Enable SCHED_MC to make the building based on cpu_coregroup_mask()
+> which also takes care of the NUMA and cores with LLC.
+>=20
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+> ---
+>  arch/riscv/Kconfig | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index c5e42cc37604..5b9fdc1a619a 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -320,6 +320,14 @@ config SMP
+> =20
+>  	  If you don't know what to do here, say N.
+> =20
+> +config SCHED_MC
+> +	bool "Multi-core scheduler support"
+> +	depends on SMP
+> +	help
+> +	  Multi-core scheduler support improves the CPU scheduler's decision
+> +	  making when dealing with multi-core CPU chips at a cost of slightly
+> +	  increased overhead in some places. If unsure say N here.
+> +
+>  config NR_CPUS
+>  	int "Maximum number of CPUs (2-512)"
+>  	depends on SMP
+> --=20
+> 2.20.1
+>=20
+
+--OWpXPeGNXXDj5/uS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBIHmwAKCRB4tDGHoIJi
+0u3TAP4p7X1bFKHYWqXvJF9w0POBVQsE9vMmHTim/pXkpvfhswD/eudv8JIfFjAE
+ObulOfSDaYtba9N8J3sKD68ezsbIIAY=
+=Jj/C
+-----END PGP SIGNATURE-----
+
+--OWpXPeGNXXDj5/uS--
+
+
+--===============8101606868583149237==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8101606868583149237==--
+
