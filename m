@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3816C76196
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 11:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F9FC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 11:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zBrdU2IMDdslN5drG6BHDXLjcZKK4NrO1wuXPsHJoZI=; b=hPfACJQD5dZ/4z
-	vMVHOKT6u9zQp/2GF2mW25yoOpCgOymyhR2kfZp6xNWoeCdRSPrHW8c5qFqvUgeg76F3XFGDflJRg
-	KmdVPxxsel2HLT+E+P0VTm3UImFMgaepb3GLRXbViqgbHj6E42c3Vg2Ner/cLh1opVKGue0U1lnY6
-	wZ8m9a4zSE/BL0tHPjMAEi68D8YMC2k3nKMK2uRohjTt9oREgE6DI3AkJLBEt/m8mGNY/ASM3Sf/x
-	aIg6dcl+/v2M8QgbR58zACmA29qDWbnJhzLnY3xl0e6JdpDLgwc0Zm4Tbd5wWvUq471l9vZlLXxUp
-	b7d+mzDrCHhWfWEm0M7w==;
+	List-Owner; bh=dRjEj8lCVwRTqL1pEPVw39x5X3YoQ/MUjZhErqAQUk0=; b=dE8H7hTA5bXNLr
+	9nJwpZW65/ewS0mxVBS3+TOU/+ldGejsshya9ox9tKX8fYFNcIkfJrRkqycs2MXgOHlYZJFzhXJ/i
+	bXe+Y+V6EVBJKvaxVSEKNNssG31bxwhJo4C26/mF30BuF9IYuAFDsMwgIkRACqa6S+pgJuj/P8QlK
+	+h2UqDShblLhx7RSru0fLZh5Mh3606M3J7+czrRhWBzs8QIYSAVrQq04tik7RdyoXUcIjkHYcAvuc
+	e4gHoTM7vaZTL5NeECBmdCttNI63KOyBP8nSwJ5l4BwIBueXUQNLhYTwCgM2eg4e2C9cXOW81TjKi
+	yD1VIe2OqWPEOY5ZR+7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcPdO-00DEuU-1y;
-	Wed, 15 Mar 2023 11:49:34 +0000
+	id 1pcPdS-00DEyt-1u;
+	Wed, 15 Mar 2023 11:49:38 +0000
 Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcPcW-00DEA4-0U;
-	Wed, 15 Mar 2023 11:48:42 +0000
+	id 1pcPcZ-00DECk-0L;
+	Wed, 15 Mar 2023 11:48:44 +0000
 Received: from localhost (unknown [188.24.156.231])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id C982766030A0;
-	Wed, 15 Mar 2023 11:48:38 +0000 (GMT)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id BB7D566030A2;
+	Wed, 15 Mar 2023 11:48:41 +0000 (GMT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1678880918;
-	bh=k/FRJRGvTyGdarAsogRNZp731ApvQsx6xU0AYFlr704=;
+	s=mail; t=1678880921;
+	bh=eQCXYgqHtoDoPnQr1Kh/+2JsPmWvR1YeKeDsSCDErl8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P3rF+enRW7f+4WvC+3VmjfJWpniQPsGoxe46O7GoXu3M+DddaKAmXjNopZf+ss43d
-	 1p+wT7bv66tZdCuaTx92PRnIVIklHSOIwN9dwv2lek92Mcjtzw6ONi/cb5WAb//rpD
-	 BtFpyKQMlxpXIkcfQsn8rjykq9w5WSQhyevFqcgpcHcLgH/7rlaKYMcRga1syEfSEr
-	 cson7+7rMw5ufAXiS7ExOiL8bmM0jmhGkVBgCY4Cyauz7+03qyaTKM1CV1ewf4/Lk+
-	 4tAGNA/FbcSHxU/o3eMPcMvCcFeZGxrfyMCKTIFIPIiZcYQPtiulPyCBjxX3EZFlG7
-	 ixm93qrKoD00Q==
+	b=GEmnuHjtbURflUVDzcV7yWFrZAElkBCTYnUz7DjpcHovetAonO7zGPQbIan3IJAnA
+	 UcWvdUkCYQRVUVdg/tRiemEFSwjmU6kgtTqQ6nQ72p4Awe5tITzpVCMlDO18IqDn6p
+	 LGQ/Te6j5l+jy9QJlAoGUuP+us4oKwMY/bOvoHYZb6xqMFyXylDknNrbA6wB00F19Y
+	 IlVbHwUESru03GjNGeYxVyTMIpgSfRmDytfGtq8kHPS6LhWvkwVNzQRwiXjSsRUKKV
+	 wAWS7lj/+FSxwhR25bOE1IzXeHAAQakigOoSDzbw3Pk3hcn5o804pvTrZjx/P046EN
+	 KmBRFysr3KyCw==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Sudeep Holla <sudeep.holla@arm.com>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -68,16 +68,16 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH 09/11] arm64: dts: rockchip: rk3588s: Add I2S nodes
-Date: Wed, 15 Mar 2023 13:48:04 +0200
-Message-Id: <20230315114806.3819515-10-cristian.ciocaltea@collabora.com>
+Subject: [PATCH 10/11] arm64: dts: rockchip: rk3588: Add I2S nodes
+Date: Wed, 15 Mar 2023 13:48:05 +0200
+Message-Id: <20230315114806.3819515-11-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.39.1
 In-Reply-To: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
 References: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_044840_456395_6BAF9A61 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20230315_044843_308542_281CEDD0 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,186 +94,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are five I2S/PCM/TDM controllers and two I2S/PCM controllers
-embedded in the RK3588 and RK3588S SoCs.
+In addition to the five I2S/PCM/TDM controllers and the two I2S/PCM
+controllers shared between the RK3588 and RK3588S SoCs, RK3588 contains
+another four I2S/PCM/TDM controllers.
 
-Add the DT nodes corresponding to the above mentioned Rockchip
-controllers.
-
-Also note RK3588 SoC contains four additional I2S/PCM/TDM controllers,
-which are handled via a separate patch.
+Add the DT nodes corresponding to the additional controllers.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s.dtsi | 148 ++++++++++++++++++++++
- 1 file changed, 148 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588.dtsi | 68 ++++++++++++++++++++++++
+ 1 file changed, 68 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
-index 005cde61b4b2..a137e3450bd6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
-@@ -810,6 +810,57 @@ power-domain@RK3588_PD_SDMMC {
- 		};
- 	};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588.dtsi b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
+index d085e57fbc4c..8be75556af8f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
+@@ -7,6 +7,74 @@
+ #include "rk3588-pinctrl.dtsi"
  
-+	i2s4_8ch: i2s@fddc0000 {
+ / {
++	i2s8_8ch: i2s@fddc8000 {
 +		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddc0000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S4_8CH_TX>, <&cru MCLK_I2S4_8CH_TX>, <&cru HCLK_I2S4_8CH>;
++		reg = <0x0 0xfddc8000 0x0 0x1000>;
++		interrupts = <GIC_SPI 188 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru MCLK_I2S8_8CH_TX>, <&cru MCLK_I2S8_8CH_TX>, <&cru HCLK_I2S8_8CH>;
 +		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S4_8CH_TX_SRC>;
++		assigned-clocks = <&cru CLK_I2S8_8CH_TX_SRC>;
 +		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 0>;
++		dmas = <&dmac2 22>;
 +		dma-names = "tx";
 +		power-domains = <&power RK3588_PD_VO0>;
-+		resets = <&cru SRST_M_I2S4_8CH_TX>;
++		resets = <&cru SRST_M_I2S8_8CH_TX>;
 +		reset-names = "tx-m";
 +		#sound-dai-cells = <0>;
 +		status = "disabled";
 +	};
 +
-+	i2s5_8ch: i2s@fddf0000 {
++	i2s6_8ch: i2s@fddf4000 {
 +		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddf0000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S5_8CH_TX>, <&cru MCLK_I2S5_8CH_TX>, <&cru HCLK_I2S5_8CH>;
++		reg = <0x0 0xfddf4000 0x0 0x1000>;
++		interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru MCLK_I2S6_8CH_TX>, <&cru MCLK_I2S6_8CH_TX>, <&cru HCLK_I2S6_8CH>;
 +		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S5_8CH_TX_SRC>;
++		assigned-clocks = <&cru CLK_I2S6_8CH_TX_SRC>;
 +		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 2>;
++		dmas = <&dmac2 4>;
 +		dma-names = "tx";
 +		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_M_I2S5_8CH_TX>;
++		resets = <&cru SRST_M_I2S6_8CH_TX>;
 +		reset-names = "tx-m";
 +		#sound-dai-cells = <0>;
 +		status = "disabled";
 +	};
 +
-+	i2s9_8ch: i2s@fddfc000 {
++	i2s7_8ch: i2s@fddf8000 {
 +		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddfc000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S9_8CH_RX>, <&cru MCLK_I2S9_8CH_RX>, <&cru HCLK_I2S9_8CH>;
++		reg = <0x0 0xfddf8000 0x0 0x1000>;
++		interrupts = <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru MCLK_I2S7_8CH_RX>, <&cru MCLK_I2S7_8CH_RX>, <&cru HCLK_I2S7_8CH>;
 +		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S9_8CH_RX_SRC>;
++		assigned-clocks = <&cru CLK_I2S7_8CH_RX_SRC>;
 +		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 23>;
++		dmas = <&dmac2 21>;
 +		dma-names = "rx";
 +		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_M_I2S9_8CH_RX>;
++		resets = <&cru SRST_M_I2S7_8CH_RX>;
 +		reset-names = "rx-m";
 +		#sound-dai-cells = <0>;
 +		status = "disabled";
 +	};
 +
- 	qos_gpu_m0: qos@fdf35000 {
- 		compatible = "rockchip,rk3588-qos", "syscon";
- 		reg = <0x0 0xfdf35000 0x0 0x20>;
-@@ -1117,6 +1168,103 @@ sdhci: mmc@fe2e0000 {
- 		status = "disabled";
- 	};
- 
-+	i2s0_8ch: i2s@fe470000 {
++	i2s10_8ch: i2s@fde00000 {
 +		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfe470000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S0_8CH_TX>, <&cru MCLK_I2S0_8CH_RX>, <&cru HCLK_I2S0_8CH>;
++		reg = <0x0 0xfde00000 0x0 0x1000>;
++		interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru MCLK_I2S10_8CH_RX>, <&cru MCLK_I2S10_8CH_RX>, <&cru HCLK_I2S10_8CH>;
 +		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S0_8CH_TX_SRC>, <&cru CLK_I2S0_8CH_RX_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>, <&cru PLL_AUPLL>;
-+		dmas = <&dmac0 0>, <&dmac0 1>;
-+		dma-names = "tx", "rx";
-+		power-domains = <&power RK3588_PD_AUDIO>;
-+		resets = <&cru SRST_M_I2S0_8CH_TX>, <&cru SRST_M_I2S0_8CH_RX>;
-+		reset-names = "tx-m", "rx-m";
-+		rockchip,trcm-sync-tx-only;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2s0_lrck
-+			     &i2s0_sclk
-+			     &i2s0_sdi0
-+			     &i2s0_sdi1
-+			     &i2s0_sdi2
-+			     &i2s0_sdi3
-+			     &i2s0_sdo0
-+			     &i2s0_sdo1
-+			     &i2s0_sdo2
-+			     &i2s0_sdo3>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	i2s1_8ch: i2s@fe480000 {
-+		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfe480000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S1_8CH_TX>, <&cru MCLK_I2S1_8CH_RX>, <&cru HCLK_I2S1_8CH>;
-+		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		dmas = <&dmac0 2>, <&dmac0 3>;
-+		dma-names = "tx", "rx";
-+		resets = <&cru SRST_M_I2S1_8CH_TX>, <&cru SRST_M_I2S1_8CH_RX>;
-+		reset-names = "tx-m", "rx-m";
-+		rockchip,trcm-sync-tx-only;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2s1m0_lrck
-+			     &i2s1m0_sclk
-+			     &i2s1m0_sdi0
-+			     &i2s1m0_sdi1
-+			     &i2s1m0_sdi2
-+			     &i2s1m0_sdi3
-+			     &i2s1m0_sdo0
-+			     &i2s1m0_sdo1
-+			     &i2s1m0_sdo2
-+			     &i2s1m0_sdo3>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	i2s2_2ch: i2s@fe490000 {
-+		compatible = "rockchip,rk3588-i2s", "rockchip,rk3066-i2s";
-+		reg = <0x0 0xfe490000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 182 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S2_2CH>, <&cru HCLK_I2S2_2CH>;
-+		clock-names = "i2s_clk", "i2s_hclk";
-+		assigned-clocks = <&cru CLK_I2S2_2CH_SRC>;
++		assigned-clocks = <&cru CLK_I2S10_8CH_RX_SRC>;
 +		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac1 0>, <&dmac1 1>;
-+		dma-names = "tx", "rx";
-+		power-domains = <&power RK3588_PD_AUDIO>;
-+		rockchip,trcm-sync-tx-only;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2s2m1_lrck
-+			     &i2s2m1_sclk
-+			     &i2s2m1_sdi
-+			     &i2s2m1_sdo>;
++		dmas = <&dmac2 24>;
++		dma-names = "rx";
++		power-domains = <&power RK3588_PD_VO1>;
++		resets = <&cru SRST_M_I2S10_8CH_RX>;
++		reset-names = "rx-m";
 +		#sound-dai-cells = <0>;
 +		status = "disabled";
 +	};
 +
-+	i2s3_2ch: i2s@fe4a0000 {
-+		compatible = "rockchip,rk3588-i2s", "rockchip,rk3066-i2s";
-+		reg = <0x0 0xfe4a0000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S3_2CH>, <&cru HCLK_I2S3_2CH>;
-+		clock-names = "i2s_clk", "i2s_hclk";
-+		assigned-clocks = <&cru CLK_I2S3_2CH_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac1 2>, <&dmac1 3>;
-+		dma-names = "tx", "rx";
-+		power-domains = <&power RK3588_PD_AUDIO>;
-+		rockchip,trcm-sync-tx-only;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2s3_lrck
-+			     &i2s3_sclk
-+			     &i2s3_sdi
-+			     &i2s3_sdo>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
-+
- 	gic: interrupt-controller@fe600000 {
- 		compatible = "arm,gic-v3";
- 		reg = <0x0 0xfe600000 0 0x10000>, /* GICD */
+ 	gmac0: ethernet@fe1b0000 {
+ 		compatible = "rockchip,rk3588-gmac", "snps,dwmac-4.20a";
+ 		reg = <0x0 0xfe1b0000 0x0 0x10000>;
 -- 
 2.39.1
 
