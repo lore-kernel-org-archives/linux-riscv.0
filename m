@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E7CC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 10:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECC7C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 10:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1B4KoNj/Lh8pjGFrehfA1przJkPyRLDQi/usg9kkf/c=; b=HYg0TiUgN7kAqI
-	BGqcdLfbkWG9sU3mgsLZ486JiWocEPqd10/Yu020GRpQk1Gx3sfcHOJh+JXsOCkENUDYFawVp8h3n
-	34geVk3xMUoUbanLdtvkRnQvXTlJFSx9IZ+w72JzcWBiOx0HojuW1yU1FAn2Dq72ddSBT3/xwVN4l
-	iR83TMIbGHKLki06puJgiP4zJmaFbvxSD2uQTCLsYJoJOUPPVGZgic8Oj+PgB45Q64XECLbBP8YdH
-	+4gv03NJGdfNtZApxCRUgb4hSlgD5Cc1EcrUjES7W/4F5IxADc7Lc1Q6/ZQ5NmLeXPGvXe5cnJS8r
-	fXWC5hLeSOBtNwPOUWDg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PnNQBWDfpXaEj94NxxcQr/K5BGaGMC/Auk39bX8CHJo=; b=3fkrZ50WyY1oBX
+	V2/nqtQbcJ1o1769xa2J9bsnScfHmTI/cFnstOdV/8nxqvlkephnyrOay4J3ckxDIuQH/F8tITujB
+	SqVrsmkWEkjPIxGbB4rXJKZoT4UMaM93JRtqrDumwynhRsS5+f8C57Ol0MF+hzOx6GG1FDEi5CQvT
+	N4DTy8N5TscUuV0FsJC1yvUgY1F2qvObFDyVE0PySNb4l2/frGNnjE+MvX5ZVEVIx/6yJmNsYjHNb
+	+f0F+B0gHKFFs15oZfuKKLH12LbBYTFI4xCveZsX1OIQGOo7eXbXrHXrJZxK2yMOM1yjc7BVh9kpC
+	4KOaEbmCAlFcwbzoGE0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcO5X-00D1dY-0q;
-	Wed, 15 Mar 2023 10:10:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcO5Q-00D1b9-0p
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 10:10:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C4E2861BD2;
-	Wed, 15 Mar 2023 10:10:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88760C433D2;
-	Wed, 15 Mar 2023 10:10:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678875023;
-	bh=t6+L9+5TgsgHD5i71rZ4I1fBe7Dw8QjjaTgllTsJASg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FTfI9Axm5wAnGiuKp4LdSxj2zUd4+mexU7PMy/4ZvlZVAgRtgmuiSsKsrmAW/5JQ3
-	 Nx1+DYd12ijh+vY+2MMUj8nuQgQ5OedPPjhU8pNWewdow+wptVBXcwkFw4Bp4lSpet
-	 2soyzjifgj7cmNt/GzZpy1UpdUFQVMDzDg++8igWTouxWPqD+LEpYiFyE2Xgb2LCBW
-	 K42eDy6enK3rwqfFgLk8LIX18zMm2M8KEEACm/dcfJeoqEkQSISLHqOj6ibsLibzP4
-	 k+UaGeEDysFGEkPgfLQLqMgjLo3PqOdrUooNDmr87ylEWSdVmuLT3ijf8vnE5TGh2S
-	 CVUBTV2pOGODQ==
-Date: Wed, 15 Mar 2023 12:10:09 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-Cc: linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 21/36] riscv: Implement the new page table range API
-Message-ID: <ZBGZgfg+Ik+ckQvo@kernel.org>
-References: <20230315051444.3229621-1-willy@infradead.org>
- <20230315051444.3229621-22-willy@infradead.org>
+	id 1pcOcW-00D5tm-0v;
+	Wed, 15 Mar 2023 10:44:36 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pcOcQ-00D5qq-2y;
+	Wed, 15 Mar 2023 10:44:33 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 99A5424E1BD;
+	Wed, 15 Mar 2023 18:44:14 +0800 (CST)
+Received: from EXMBX071.cuchost.com (172.16.6.81) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
+ 2023 18:44:14 +0800
+Received: from ubuntu.localdomain (113.72.145.194) by EXMBX071.cuchost.com
+ (172.16.6.81) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
+ 2023 18:44:13 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+	<kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Chen
+	<peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Minda Chen" <minda.chen@starfivetech.com>
+Subject: [PATCH v3 0/5] Add JH7110 USB and USB PHY driver support
+Date: Wed, 15 Mar 2023 18:44:06 +0800
+Message-ID: <20230315104411.73614-1-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230315051444.3229621-22-willy@infradead.org>
+X-Originating-IP: [113.72.145.194]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX071.cuchost.com
+ (172.16.6.81)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_031027_726912_0C0D84B8 
-X-CRM114-Status: GOOD (  27.78  )
+X-CRM114-CacheID: sfid-20230315_034431_679916_01B22114 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,148 +78,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 15, 2023 at 05:14:29AM +0000, Matthew Wilcox (Oracle) wrote:
-> Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-> Change the PG_dcache_clean flag from being per-page to per-folio.
-> 
-> Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
+This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+The patch has been tested on the VisionFive 2 board.
 
-Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+This patchset should be applied after the patchset [1], [2] and[3]:
+[1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
+[3] https://lore.kernel.org/all/20230223015952.201841-1-changhuang.liang@starfivetech.com/
 
-> ---
->  arch/riscv/include/asm/cacheflush.h | 19 +++++++++----------
->  arch/riscv/include/asm/pgtable.h    | 26 +++++++++++++++++++-------
->  arch/riscv/mm/cacheflush.c          | 11 ++---------
->  3 files changed, 30 insertions(+), 26 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 03e3b95ae6da..10e5e96f09b5 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
->  
->  #define PG_dcache_clean PG_arch_1
->  
-> -static inline void flush_dcache_page(struct page *page)
-> +static inline void flush_dcache_folio(struct folio *folio)
->  {
-> -	/*
-> -	 * HugeTLB pages are always fully mapped and only head page will be
-> -	 * set PG_dcache_clean (see comments in flush_icache_pte()).
-> -	 */
-> -	if (PageHuge(page))
-> -		page = compound_head(page);
-> -
-> -	if (test_bit(PG_dcache_clean, &page->flags))
-> -		clear_bit(PG_dcache_clean, &page->flags);
-> +	if (test_bit(PG_dcache_clean, &folio->flags))
-> +		clear_bit(PG_dcache_clean, &folio->flags);
->  }
-> +#define flush_dcache_folio flush_dcache_folio
->  #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
->  
-> +static inline void flush_dcache_page(struct page *page)
-> +{
-> +	flush_dcache_folio(page_folio(page));
-> +}
-> +
->  /*
->   * RISC-V doesn't have an instruction to flush parts of the instruction cache,
->   * so instead we just flush the whole thing.
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index b516f3b59616..b077bc8c498c 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -405,8 +405,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
->  
->  
->  /* Commit new configuration to MMU hardware */
-> -static inline void update_mmu_cache(struct vm_area_struct *vma,
-> -	unsigned long address, pte_t *ptep)
-> +static inline void update_mmu_cache_range(struct vm_area_struct *vma,
-> +		unsigned long address, pte_t *ptep, unsigned int nr)
->  {
->  	/*
->  	 * The kernel assumes that TLBs don't cache invalid entries, but
-> @@ -415,8 +415,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
->  	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
->  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
->  	 */
-> -	local_flush_tlb_page(address);
-> +	while (nr--)
-> +		local_flush_tlb_page(address + nr * PAGE_SIZE);
->  }
-> +#define update_mmu_cache(vma, addr, ptep) \
-> +	update_mmu_cache_range(vma, addr, ptep, 1)
->  
->  #define __HAVE_ARCH_UPDATE_MMU_TLB
->  #define update_mmu_tlb update_mmu_cache
-> @@ -456,12 +459,21 @@ static inline void __set_pte_at(struct mm_struct *mm,
->  	set_pte(ptep, pteval);
->  }
->  
-> -static inline void set_pte_at(struct mm_struct *mm,
-> -	unsigned long addr, pte_t *ptep, pte_t pteval)
-> +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-> +		pte_t *ptep, pte_t pteval, unsigned int nr)
->  {
-> -	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
-> -	__set_pte_at(mm, addr, ptep, pteval);
-> +	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
-> +
-> +	for (;;) {
-> +		__set_pte_at(mm, addr, ptep, pteval);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-> +	}
->  }
-> +#define set_ptes set_ptes
->  
->  static inline void pte_clear(struct mm_struct *mm,
->  	unsigned long addr, pte_t *ptep)
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index fcd6145fbead..e36a851e5788 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -81,16 +81,9 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
->  #ifdef CONFIG_MMU
->  void flush_icache_pte(pte_t pte)
->  {
-> -	struct page *page = pte_page(pte);
-> +	struct folio *folio = page_folio(pte_page(pte));
->  
-> -	/*
-> -	 * HugeTLB pages are always fully mapped, so only setting head page's
-> -	 * PG_dcache_clean flag is enough.
-> -	 */
-> -	if (PageHuge(page))
-> -		page = compound_head(page);
-> -
-> -	if (!test_bit(PG_dcache_clean, &page->flags)) {
-> +	if (!test_bit(PG_dcache_clean, &folio->flags)) {
->  		flush_icache_all();
->  		set_bit(PG_dcache_clean, &page->flags);
->  	}
-> -- 
-> 2.39.2
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+This patchset is base on v6.3-rc1
 
+patch 1 is usb phy and pcie PHY layer dt-binding document.
+patch 2 is USB 2.0 PHY and PCIe PHY driver.
+patch 3 is usb wrapper layer dt-binding document.
+patch 4 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+patch 5 is USB device tree configuration.
+
+previous version
+---
+v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+
+changes
+v3:
+  1. Add patch 1 and patch2. Add USB driver. USB PHY codes are moved to patch 2.
+  2. (patch 3) USB wrapper module dts document is moved to usb directory.
+     Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+     Some dts format changes. dts binding check pass.
+  3. (patch 4) Remove the PHY codes. 
+     Search 'dr_mode' and phy setting from Cadence subnode.
+  4. (patch 5) Add USB PHY dts configurion. 
+     'dr_mode' is moved to Cadence controller submode.
+
+v2:
+  1. (patch 3) dt-binding changes. The document example is the same as dts config.
+  2. (patch 4) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+  3. (patch 5) dts nodes sorted by the address after @
+
+
+Minda Chen (5):
+  dt-bindings: phy: Add StarFive JH7110 USB/PCIe document
+  phy: starfive: add JH7110 PCIE 2.0 and USB 2.0 PHY driver.
+  dt-binding: Add JH7110 USB wrapper layer doc.
+  usb: cdns3: add StarFive JH7110 USB driver.
+  dts: usb: add StarFive JH7110 USB dts configuration.
+
+ .../phy/starfive,jh7110-usb-pcie-phy.yaml     |  62 ++++
+ .../bindings/usb/starfive,jh7110-usb.yaml     | 119 +++++++
+ MAINTAINERS                                   |  15 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  54 ++++
+ drivers/phy/starfive/Kconfig                  |  22 ++
+ drivers/phy/starfive/Makefile                 |   2 +
+ drivers/phy/starfive/phy-jh7110-pcie.c        | 136 ++++++++
+ drivers/phy/starfive/phy-jh7110-usb.c         | 167 ++++++++++
+ drivers/usb/cdns3/Kconfig                     |  11 +
+ drivers/usb/cdns3/Makefile                    |   1 +
+ drivers/usb/cdns3/cdns3-starfive.c            | 305 ++++++++++++++++++
+ 12 files changed, 901 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-pcie-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+ create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+ create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+ create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+
+
+base-commit: 8ca09d5fa3549d142c2080a72a4c70ce389163cd
+prerequisite-patch-id: 46cc850aa0e9e03ccf5ed23d8458babfca3d71af
+prerequisite-patch-id: a6975e61ee5803fbd74b1c21ab925fd81c3c0eab
+prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
+prerequisite-patch-id: 044263ef2fb9f1e5a586edbf85d5f67814a28430
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 9f3dbc9073eee89134e68977e941e457593c2757
+prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4c12d958e3a3d629d86dddb1e4f099d8909393e0
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8f5c66dfb14403424044192f6fa05b347ad356a7
+prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
+prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: f9ce88e490c2473c3c94ad63fa26bc91829ce2cc
+prerequisite-patch-id: 2c6b9fe2b00d9c1812d26fcffb4925335b359ede
+prerequisite-patch-id: 51c1ca0fa8e1e8910c4d6aba147b8a75fd90a07f
+prerequisite-patch-id: be0d260ac6eea34de411bf028828fea9f9fa0a9f
+prerequisite-patch-id: aaff99c0bdd1604048d0713b44084ad4604816e1
+prerequisite-patch-id: d7d5f5f35ecc3d66be8e3d8b0662788f875adc32
+prerequisite-patch-id: b3362bb851a0efaa848104bc0c2a1a264ba7904b
+prerequisite-patch-id: 6c25cbf9fe08218ee952d2202c5f6b645ea4b6e4
 -- 
-Sincerely yours,
-Mike.
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
