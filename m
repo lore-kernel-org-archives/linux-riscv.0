@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82505C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 05:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43203C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 05:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=zcuY5Mmk5BYLFQ49ElW5A+Y6GZywkxlmMKnC+f/IrrM=; b=dzYgFH1AqEuMqj9iFoJ/79s+c4
-	KYHNMazQe7KamsBSKqAUifkiBF2b1sidOF9fgTSS5M+Dt2UaNLq6wRbzUgqMKcp9z6YwMoSGHX6bX
-	xV8Mc+WRj1s17YI2W2QFT3opWC+UKffYoSWF5cZFKIuzNy4IA3Vsz/OP8qA4M5jDd+gu9oYZMSz3H
-	bKE+B/21iiqQkUGMnfiNuZOKV9MVdvK5c1zjmOGzGORR7Q80VjkxcGmzNZrvLyFU1jCzG450yEyIK
-	Kk8MiKGR+Dgta5xpHN7dC5LLtGXSNa6bF4itZF9ZZ8mDGZQzMEv+INpqFu9GBGnivq6dgSzbFjdwI
-	gEmmNYgQ==;
+	bh=u5y4bjWzIbFzuvwQWnJ/inN4CSJvCL4om6HGa/CzFCU=; b=CTOZ1OcEZ2jYxcLrOVBZimfiJE
+	4/9IT2TdRourmjnJgUs8kJOjzANB73BWlLgO3UJdRZ5Au0VIUwU8Ffin+aQkA9lTxvw4UAwC2LjJ/
+	pT7/6LZlyC6Z4ZUGhYSCh6PlnZOoX2Dl20fhXQa3tjcOmmkT1COC3q6BI4CagFiQ9lk33DZ0lzRcH
+	wsOG5aghznpmSZzmYy+mVCUp/py1YGTWGUqs089k5ULapRreoOdlaRUfbiuqhp0jtmFgWs7DxNLS4
+	LPweGfFV36SiSR5CxmURjPpXF444OYG7+uzhCKks7rtMUA5ACLcGh2yUeeIn1VKPWFphaaW2mRjLz
+	5hOoY/vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcJc7-00CPjG-1k;
-	Wed, 15 Mar 2023 05:23:51 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1pcJhu-00CQ9q-0u;
+	Wed, 15 Mar 2023 05:29:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcJc3-00CPhf-0f
+	id 1pcJhp-00CQ93-0x
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 05:23:49 +0000
-Received: by mail-pl1-x635.google.com with SMTP id v21so8750245ple.9
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 22:23:44 -0700 (PDT)
+	Wed, 15 Mar 2023 05:29:47 +0000
+Received: by mail-pl1-x633.google.com with SMTP id ja10so9217242plb.5
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 22:29:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1678857824;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1678858182;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SjKy7C3/cQxzvvNhh8JYH9DRhvpc3Xb8Ck3BTbP4FIw=;
-        b=NjtkBsAXpQlDU4BGX/gYRlZbgHpWpvX3bkRRTtqVjyc8H8Z5BdxENl4cGILMwU9+l7
-         6eh5ijqlaXpCMC1g0SgufHGBr9ypr1GR8LET17oDgHNNThI/Sa5eHSJN3Ak3P5x/MSxF
-         LKfQewvHVw2h8T74FL0iIOQqgpfVsw+vPMI2LpYPjJHhUd1kqA1fO/wYlxD442bZuy77
-         CIyUcwiP00DwhBwe3fYHarJbpJwNVQjtF5SqlgyfpYiyOh9sK/LTyWFaEjPvC8VdC0RZ
-         TJ/QZPkfKFKG/BGoXCCul1VsknFsIw/iQ7lvOYXrcjcqezvHS47WEz3Exy1EJ//nQxXS
-         U4cw==
+        bh=yO2JdZBhVT6K1R3HgGxTHc/9StnL6HlTJnhtNYvf5b8=;
+        b=XuLxPRJerXkMReEgVl/f2mnOOygVmUj/lGES6XEg2QF9HGWYxHEEd7ModPiSeLoQe/
+         JJhxbB0dGuJqqdYo1rbDU+5Fg/upImnHV+1uHRE+9IuE1i0NXRDZ8jTayPJXrtp76xPy
+         xaWfTIasXplx/YoCYdOz5jvlONSUmo+WUBRF4DlPJqUAyktTzreZPFkPxRGLF1GFBqG4
+         FQjzk/acv06/si0z0mVxBOqrN8azDRzRu3MGJqanLEsz8m07ehhutRjcqva2cAewJ2Xc
+         TqGhJnfFfaWjkeHsK6u1qA8Eks0m9NItfUpJJUfSlyJnWxnqhhVVsQHb7eqmj6dDgZh+
+         HCEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678857824;
+        d=1e100.net; s=20210112; t=1678858182;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SjKy7C3/cQxzvvNhh8JYH9DRhvpc3Xb8Ck3BTbP4FIw=;
-        b=2AXADOJOIbrXXAFsguhqswc4NJbePoiqmGTJBPaOlCysZk987b953wkteaRdu7pkxp
-         XN6Y953cIjwxaSZ4rV2W9kTaljImISZtGRuqXTX+daeWSsvCjKpkR1qIpvaFFH7lVZe0
-         YiPlgVRppwSsdbF4jU/FStAhMh6Hk8EZOzerLk/lRNnQCh0440j9SdZYv1yJmQJBP5SD
-         l7/NlmtL+qsV3IKwPAatRlI4sDSq6C2KrYjSspTqX4heu5SuQU/5FbXR5HPuihtjuWic
-         6iw2eThuKdakdVVZKONBsKJxcAxnohtcGyQS202x1lBL5PbGSYP+uf7d6JiqPotvArkL
-         PjZw==
-X-Gm-Message-State: AO0yUKUti/KZWE8h0TnucRdcZEyhM8NuYU8Mn0XUQkdwUOC+yUQwYg8n
-	o60ybUCL6KyriTRRl3GkmjtFOw==
-X-Google-Smtp-Source: AK7set/bva9pNCCVEG6ntKH5jwV71fM4HOjl4X0hHTrQaY1lziKShXYFg9iT0LR1BwYfjme5MnxaWg==
-X-Received: by 2002:a17:90b:1e42:b0:235:b712:4179 with SMTP id pi2-20020a17090b1e4200b00235b7124179mr39010890pjb.5.1678857823683;
-        Tue, 14 Mar 2023 22:23:43 -0700 (PDT)
+        bh=yO2JdZBhVT6K1R3HgGxTHc/9StnL6HlTJnhtNYvf5b8=;
+        b=A721roRWzedW0/wnqXeGozH7VxZh+0Csv0KNpSlhnNNNUk5ni0jBacbzjCkVKAtr6M
+         vq8cfsQles6ZN9q2IpFesVqlyrX+svBbDTIsdf8Iskx1tcqQnNuwPaf1HMRdUyKix1u5
+         KBZda4Z5idq8WE1k4qUwk6YniSCZHgR0/RLURRmTFlZSMsH+BR/KwJjlK+YEvfsJuYzZ
+         2d8KiLD4Q40OqFfy31nN3JuanJ6nJSUAgyLm141ZsaFSt5MDUp/JagGr8BztseZvPHcD
+         nHPRVIvrEe+/r114+Qvu+H6ZwDcp5haOcBIsGxGYkOQadrHBHi/JKxBG9StoPMn32dVx
+         NpZw==
+X-Gm-Message-State: AO0yUKUHsGocGsfJ0aMKuKC0ipd6wM/6xX3GdcUahSgmrXOYedkh1E5S
+	FWkCIE4QOdXUH3UweknAcsWsg/VVUTdt/W1L0b4=
+X-Google-Smtp-Source: AK7set+xKbFQdz8ev2g2AROltE2M+kKt2ZcWLgaiLiw2loNj9CyiqQ8fdncCa1eye2Iakvln0Vx3xQ==
+X-Received: by 2002:a05:6a20:4d8a:b0:c7:13be:fb53 with SMTP id gj10-20020a056a204d8a00b000c713befb53mr32479621pzb.3.1678858182370;
+        Tue, 14 Mar 2023 22:29:42 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id z22-20020a17090a015600b00234899c65e7sm392170pje.28.2023.03.14.22.23.43
+        by smtp.gmail.com with ESMTPSA id p12-20020aa7860c000000b005cd81a74821sm2526622pfn.152.2023.03.14.22.29.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Mar 2023 22:23:43 -0700 (PDT)
-Date: Tue, 14 Mar 2023 22:23:43 -0700 (PDT)
-X-Google-Original-Date: Tue, 14 Mar 2023 22:22:49 PDT (-0700)
-Subject: Re: [PATCH v3 20/34] riscv: Implement the new page table range API
-In-Reply-To: <20230228213738.272178-21-willy@infradead.org>
-CC: linux-mm@kvack.org, linux-arch@vger.kernel.org, willy@infradead.org,
-  linux-kernel@vger.kernel.org, alexghiti@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
+        Tue, 14 Mar 2023 22:29:41 -0700 (PDT)
+Date: Tue, 14 Mar 2023 22:29:41 -0700 (PDT)
+X-Google-Original-Date: Tue, 14 Mar 2023 22:28:31 PDT (-0700)
+Subject: Re: [PATCH RFC 0/2] RISC-V: T-Head vector handling
+In-Reply-To: <20230228215435.3366914-1-heiko@sntech.de>
+CC: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
+  christoph.muellner@vrull.eu, heiko@sntech.de, Conor Dooley <conor.dooley@microchip.com>,
+  linux-kernel@vger.kernel.org, heiko.stuebner@vrull.eu
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: willy@infradead.org
-Message-ID: <mhng-21d3fe96-715e-49c4-aec0-2ee4e91b462d@palmer-ri-x1c9a>
+To: heiko@sntech.de
+Message-ID: <mhng-6d6a325c-4adb-4d9a-98a0-012c75b4562e@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_222347_282004_321FE6BC 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20230314_222945_358609_0AC7F69E 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,135 +92,50 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Feb 2023 13:37:23 PST (-0800), willy@infradead.org wrote:
-> Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-> Change the PG_dcache_clean flag from being per-page to per-folio.
+On Tue, 28 Feb 2023 13:54:33 PST (-0800), heiko@sntech.de wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 >
-> Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
-> ---
->  arch/riscv/include/asm/cacheflush.h | 19 +++++++++----------
->  arch/riscv/include/asm/pgtable.h    | 26 +++++++++++++++++++-------
->  arch/riscv/mm/cacheflush.c          | 11 ++---------
->  3 files changed, 30 insertions(+), 26 deletions(-)
+> As is widely known the T-Head C9xx cores used for example in the
+> Allwinner D1 implement an older non-ratified variant of the vector spec.
 >
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 03e3b95ae6da..10e5e96f09b5 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
+> While userspace will probably have a lot more problems implementing
+> support for both, on the kernel side the needed changes are actually
+> somewhat small'ish and can be handled via alternatives somewhat nicely.
 >
->  #define PG_dcache_clean PG_arch_1
->
-> -static inline void flush_dcache_page(struct page *page)
-> +static inline void flush_dcache_folio(struct folio *folio)
->  {
-> -	/*
-> -	 * HugeTLB pages are always fully mapped and only head page will be
-> -	 * set PG_dcache_clean (see comments in flush_icache_pte()).
-> -	 */
-> -	if (PageHuge(page))
-> -		page = compound_head(page);
-> -
-> -	if (test_bit(PG_dcache_clean, &page->flags))
-> -		clear_bit(PG_dcache_clean, &page->flags);
-> +	if (test_bit(PG_dcache_clean, &folio->flags))
-> +		clear_bit(PG_dcache_clean, &folio->flags);
->  }
-> +#define flush_dcache_folio flush_dcache_folio
->  #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
->
-> +static inline void flush_dcache_page(struct page *page)
-> +{
-> +	flush_dcache_folio(page_folio(page));
-> +}
-> +
->  /*
->   * RISC-V doesn't have an instruction to flush parts of the instruction cache,
->   * so instead we just flush the whole thing.
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index b516f3b59616..3a3a776fc047 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -405,8 +405,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+> With this patchset I could run the same userspace program (picked from
+> some riscv-vector-test repository) that does some vector additions on
+> both qemu and a d1-nezha board. On both platforms it ran sucessfully and
+> even produced the same results.
 >
 >
->  /* Commit new configuration to MMU hardware */
-> -static inline void update_mmu_cache(struct vm_area_struct *vma,
-> -	unsigned long address, pte_t *ptep)
-> +static inline void update_mmu_cache_range(struct vm_area_struct *vma,
-> +		unsigned long address, pte_t *ptep, unsigned int nr)
->  {
->  	/*
->  	 * The kernel assumes that TLBs don't cache invalid entries, but
-> @@ -415,8 +415,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
->  	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
->  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
->  	 */
-> -	local_flush_tlb_page(address);
-> +	while (nr--)
-> +		local_flush_tlb_page(address + nr * PAGE_SIZE);
->  }
-> +#define update_mmu_cache(vma, addr, ptep) \
-> +	update_mmu_cache_range(vma, addr, ptep, 1)
+> As can be seen in the todo list, there are 2 places where the changed
+> SR_VS location still needs to be handled in the next revision
+> (assembly + ALTERNATIVES + constants + probably stringify resulted in
+>  some grey hair so far already)
 >
->  #define __HAVE_ARCH_UPDATE_MMU_TLB
->  #define update_mmu_tlb update_mmu_cache
-> @@ -456,12 +459,21 @@ static inline void __set_pte_at(struct mm_struct *mm,
->  	set_pte(ptep, pteval);
->  }
 >
-> -static inline void set_pte_at(struct mm_struct *mm,
-> -	unsigned long addr, pte_t *ptep, pte_t pteval)
-> +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-> +		pte_t *ptep, pte_t pteval, unsigned int nr)
->  {
-> -	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
-> -	__set_pte_at(mm, addr, ptep, pteval);
-> +	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
-> +
-> +	for (;;) {
-> +		__set_pte_at(mm, addr, ptep, pteval);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-> +	}
->  }
-> +#define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte, 1)
+> ToDo:
+> - follow along with the base vector patchset
+> - handle SR_VS access in _save_context and _secondary_start_sbi
 >
->  static inline void pte_clear(struct mm_struct *mm,
->  	unsigned long addr, pte_t *ptep)
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index fcd6145fbead..e36a851e5788 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -81,16 +81,9 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
->  #ifdef CONFIG_MMU
->  void flush_icache_pte(pte_t pte)
->  {
-> -	struct page *page = pte_page(pte);
-> +	struct folio *folio = page_folio(pte_page(pte));
 >
-> -	/*
-> -	 * HugeTLB pages are always fully mapped, so only setting head page's
-> -	 * PG_dcache_clean flag is enough.
-> -	 */
-> -	if (PageHuge(page))
-> -		page = compound_head(page);
-> -
-> -	if (!test_bit(PG_dcache_clean, &page->flags)) {
-> +	if (!test_bit(PG_dcache_clean, &folio->flags)) {
->  		flush_icache_all();
->  		set_bit(PG_dcache_clean, &page->flags);
->  	}
+> Heiko Stuebner (2):
+>   RISC-V: define the elements of the VCSR vector CSR
+>   RISC-V: add T-Head vector errata handling
+>
+>  arch/riscv/Kconfig.erratas           |  13 +++
+>  arch/riscv/errata/thead/errata.c     |  32 ++++++
+>  arch/riscv/include/asm/csr.h         |  31 +++++-
+>  arch/riscv/include/asm/errata_list.h |  62 +++++++++++-
+>  arch/riscv/include/asm/vector.h      | 139 +++++++++++++++++++++++++--
+>  5 files changed, 261 insertions(+), 16 deletions(-)
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+I have no opposition to calling the T-Head vector stuff an errata 
+against V, the RISC-V folks have already made it quite apparent that 
+anything goes here.  I would like to get the standard V uABI sorted out 
+first, though, as there's still a lot of moving pieces there.  It's kind 
+of hard here as T-Head got thrown under the bus, but I'm not sure what 
+else to do about it.
 
 _______________________________________________
 linux-riscv mailing list
