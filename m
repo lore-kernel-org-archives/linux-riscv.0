@@ -4,84 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D197C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 08:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2952EC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 09:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V3QvCeJLgf5eyNWTIwrP68nmfiXuql159Ypd5A5ibLk=; b=yA6s227/MRpeha
-	cLrsNhYXjYCFaB9lVxce03bLpjZ3JxdmxKgfYNBOUYtE0Mb6j4c66bw8HdGc+0Pg48s4NmlIR023p
-	nnUaAsoeu8iuAhkyO+qKLssn3rCoLRwEeyZ2N2HVTTUpemXLX/J2UU7uRFaRUE2g8UUmdSKPLo9gk
-	yF1n/8u3D8G8qeU9JOHf4R+hHVvscJhVFM5CmBbVboyxEoDX/UTZ43DmEE+VlEMXh/2iwWkGVNbq8
-	jAowgOMwwX8shQu7P98mbwI804ymbBPVhh7ZGXxkTSGboEqdW3xom+n156yGqXdjY0XB8bKDeXlZc
-	5f0ho+cVtZUCARyQmH5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wVTSrw/d93zwVOSIb1ESV/0H3jUT/2HqZq4YM7cyJBU=; b=vl7abQx19ph+Jv
+	VWOXSa6OSU6jo4l4/Qahmiks5RpvjhbaRVfhYrTcoho2y8dGHigpNW1lf+xTPjKut/FYRedoQu8qw
+	YuPTwJnZDnKa9aW+YEreQq8y70GS1HMcq/XqiuxC7yJTH2sxsbOsO+56Ms2E2j+lxuxir6ZWiIH4J
+	/6WM7M2+XUzNBeoa9qDe60m75HgRA/FBzrOxAxH2GaUrcLQrWfxa7hAjm09/9+GfpKTJerJvcp6UZ
+	gJZA4g7sJYpwfmgqAv/WPleGoHBsan5+wSJWNJ4O22aDBlLy/wOsKo4k7Ut1rTi0WEdIY2uvxmj3f
+	ILslOdFmfh+8z/2Vx7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcMtZ-00Cphe-1j;
-	Wed, 15 Mar 2023 08:54:05 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1pcN07-00CqjX-2w;
+	Wed, 15 Mar 2023 09:00:53 +0000
+Received: from mail.corrib.pl ([185.58.226.145])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcMtW-00Cpgb-1H
+	id 1pcN04-00CqhA-0I
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 08:54:03 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id w9so1704449edc.3
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Mar 2023 01:53:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1678870438;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dolOVvlYZWJ9nCYk9trJ6kMCdZW/oXPHELzwkmem5Uk=;
-        b=MFbGxr4qvdjII5+dP1fGSBYixXjYcuZKIHk2d+ShrWlGblspW3sZJrwNZ77vZ2V+eK
-         fgjmeAR71wlzoh04kgfZyy/wKlgmFHqWkQcTiHUIu6/qDb0h9WxiNYOdgj2uFKleJ5j5
-         YCuu9Z/XL1VPPaKS92QHrBKFYKUTTNgL7WdfFo9gXAUbxC6uVtEN8dOC6rwN2wbyBRcK
-         XvfX7uANctyKHvt1OSlJUt4CH3bBksiUtpNFSpVXUqZHh8P4kcPIHoHEPYLJboALHC41
-         0ASsFEw18ovuOQD6hBQIifRRcXo2+f38PYlF76J4KxBjajuq7a/RRgwCdfFPzY0OIVTH
-         fn5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678870438;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dolOVvlYZWJ9nCYk9trJ6kMCdZW/oXPHELzwkmem5Uk=;
-        b=JAMX+v+HrWxfERAb6HRdWLgXLVcKwkH3FsaV4/k4BoHUAxD0xqw8ZtHp44oeKwCh6/
-         N+LEPuAfuOYzq9R9zFMwfK0QzPiVFI6k100x0eiFiUjtBE7od2Pz4CcVMNLJZPi4fE65
-         9tFY7XEPOLRLZEAwFQBNAt7Ysuh2EgnCLH2fMj8s7IV81MjULrvk737S18y0Lmqmid9R
-         8jELWLvo2gV0PbHsDohJO7T3wKnDs54fGRdUcUXqev6Y58kb4aCI8BJBOLvYf27691VU
-         pZ3bYOYHO7oDBSBHXU0s2obEfFKIrDC9/G6FKO5r5u/IPaCXC5S6AWYaSuem6g0Vgnos
-         mryw==
-X-Gm-Message-State: AO0yUKW8Q/AHTQbH7WtlrRkZrPXpG0dZc2U3JplAnC6tVXZqbbyTasWy
-	JuusvI+LT4kfbMKY1dye1yfaCA==
-X-Google-Smtp-Source: AK7set/VungzdGD3dRLBeKZZ7z4IK2H1QDutRY3N3WNFbdIsaJWOnMSmwzQBDqASChuqOZoNS4OOzA==
-X-Received: by 2002:a17:906:6cf:b0:8aa:875d:9d9a with SMTP id v15-20020a17090606cf00b008aa875d9d9amr5855591ejb.50.1678870438268;
-        Wed, 15 Mar 2023 01:53:58 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id rp15-20020a170906d96f00b00929fc8d264dsm2252847ejb.17.2023.03.15.01.53.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Mar 2023 01:53:57 -0700 (PDT)
-Date: Wed, 15 Mar 2023 09:53:56 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	sudip.mukherjee@codethink.co.uk, ben.dooks@codethink.co.uk,
-	Atish Patra <atishp@rivosinc.com>, aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com, krzysztof.kozlowski+dt@linaro.org,
-	robh@kernel.org, jszhang@kernel.org, heiko@sntech.de
-Subject: Re: [PATCH v6 0/8] RISC-V: Apply Zicboz to clear_page
-Message-ID: <20230315085356.zlmiz5qkz44d5ndf@orel>
-References: <20230224162631.405473-1-ajones@ventanamicro.com>
- <mhng-72607fed-a923-4921-896f-7f703434083a@palmer-ri-x1c9a>
+	Wed, 15 Mar 2023 09:00:50 +0000
+Received: by mail.corrib.pl (Postfix, from userid 1001)
+	id 7189BA3D39; Wed, 15 Mar 2023 09:00:42 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corrib.pl; s=mail;
+	t=1678870852; bh=X6IEpSISwJiYlJ3uA866lskXve3r+4o2hf4z7VM6m5o=;
+	h=Date:From:To:Subject:From;
+	b=w6OWaNNw3tH5Lv4Y80YBaN6lKm6eFQ0ZN8dUDuqyZcXIjTAyWv8aVaZeXCf3rJI4Z
+	 LUo11w+3C9xtPzGWlhUS85mvqC6lpe7oAQ8Hoxpxezj6X2dMGU+QsZYEmu2ahnzvUx
+	 mfoCgcvaPY2ucgt7HqFU+X+g0ABtSaXGfcE3Hs8ZEFyw37Mtk6OpEIV/FqGh2NDn9r
+	 wnB2dddHWNm6A41W/G0j4DBDwUcEm3DgHTw6ZIvEmO5lFdgdY9KyKNDlXVY1x6A0Di
+	 hDmTfcNOJ8cCeLZtNRcdsnhToinoEK8Ycn9A7cFxlo56DHwPSQjWd+6ZMcHvlfuzHD
+	 KeYQTgan81anA==
+Received: by mail.corrib.pl for <linux-riscv@lists.infradead.org>; Wed, 15 Mar 2023 09:00:35 GMT
+Message-ID: <20230315074501-0.1.62.ivzz.0.o0816ns0r1@corrib.pl>
+Date: Wed, 15 Mar 2023 09:00:35 GMT
+From: =?UTF-8?Q?"Szczepan_Kie=C5=82basa"?= <szczepan.kielbasa@corrib.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Faktoring
+X-Mailer: mail.corrib.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-72607fed-a923-4921-896f-7f703434083a@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_015402_454414_7253F5C0 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20230315_020048_514896_7F7F5F20 
+X-CRM114-Status: UNSURE (   1.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +61,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 14, 2023 at 09:35:09PM -0700, Palmer Dabbelt wrote:
-> On Fri, 24 Feb 2023 08:26:23 PST (-0800), ajones@ventanamicro.com wrote:
-> > When the Zicboz extension is available we can more rapidly zero naturally
-> > aligned Zicboz block sized chunks of memory. As pages are always page
-> 
-> I guess we're sort of in a grey area here: this is just a performance thing
-> so in theory some sort of benchmark should be required, but IMO it's OK to
-> just hand wave this one away -- if the "zero a cache block" instruction
-> doesn't make "zero a page" go faster then something has gone so far off the
-> rails it's probably better to just pretend the machine doesn't implement
-> Zicboz.
-> 
-> This all LGTM, so unless anyone's opposed or it blows up on testing
-> overnight then it'll be on for-next.
-
-Thanks, Palmer!
-
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKcm96d2HFvGFsaSBQYcWEc3R3byB3eWLDs3IgZmluYW5zb3dhbmlhLCBr
+dMOzcmUgc3BlxYJuaSBwb3RyemVieSBmaXJteSwgemFwZXduaWFqxIVjIG5hdHljaG1pYXN0b3d5
+IGRvc3TEmXAgZG8gZ290w7N3a2ksIGJleiB6YsSZZG55Y2ggcHJ6ZXN0b2rDs3c/IAoKUHJ6eWdv
+dG93YWxpxZtteSByb3p3acSFemFuaWEgZmFrdG9yaW5nb3dlIGRvcGFzb3dhbmUgZG8gUGHFhHN0
+d2EgYnJhbsW8eSBpIHdpZWxrb8WbY2kgZmlybXksIGR6acSZa2kga3TDs3J5bSwgbmllIG11c3rE
+hSBQYcWEc3R3byBtYXJ0d2nEhyBzacSZIG8gbmlld3lwxYJhY2Fsbm/Fm8SHIGtvbnRyYWhlbnTD
+s3csIHBvbmlld2HFvCB0cmFuc2FrY2plIHPEhSB6YWJlenBpZWN6b25lIGkgcG9zaWFkYWrEhSBn
+d2FyYW5jasSZIHNwxYJhdHkuIApDaGPEhSBQYcWEc3R3byBwcnplYW5hbGl6b3dhxIcgZG9zdMSZ
+cG5lIG9wY2plPwoKClBvemRyYXdpYW0KU3pjemVwYW4gS2llxYJiYXNhCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
