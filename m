@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBD8C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 03:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF9EC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 03:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AMTltDKh9Chty8ewnxFLa2G9JzNipkcyHDbHCbyjCk4=; b=cUqhTZgv1qr7dp
-	gltuYm6K2hG6n9+teIo2oDLpmSRIIzt2W/+peMtfie692RqhN11BbP/ArSCTl/9ILiB9qJQSuB2ja
-	p4LwDQjrKyrRl20khuG+Bq5zTProYSDGmZqXSSww36RKvS6KuFdBek8hdKhw7AxViyZUBugr3ohPv
-	9HMd59vUl8Kw+GDxNpLGMcUM6WehMqvS1fBiJVQQ20Z/fkBjjabrQQZpG/QPlmIB1xzqfqqkmbBsp
-	MczAI+IlW39UFv/cswDIm2qtdG3iMJEs+F9MkailE18VI0P9Kb9L8lxg/8ntdy/wrIY0HZCOLZboP
-	bbbIOzOjktUFfFHmtrCg==;
+	List-Owner; bh=2FpDER7chDTyXGhTL/5aJFPeWNUlJfJX3rN6iyt+EJA=; b=x+8Fdci36fUZ00
+	gK9NXrDeuNkl4u4pxiad7iszwRqKGdVq4WX3QSwzxI/SA74DQG+nh89qMsjuT8RHIQTbYMlODVJvH
+	sIIyuxldYGp4fsOi/h9ys3LL7l2Fj3hDBIaa31CBkZefRIIn1A/S+1dk42wJb8RiXcc+Her2WfIl9
+	0LbAIWj+LtPhBVXbaC76b6Am2oFywd+HznOfPQskvkBAjNPNusub3qoCiw7rhHiQtl/9eNSRCzoby
+	9YAdzDEfoqdJNNi57ofDq40mhzmjt9WXy4jgkOOnDHrQtpChRguXjnytQa3Y1TGmIgoJfaSnzIYkO
+	NCxVh4z36/DDmLGMBnvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcHSP-00C6nO-22;
-	Wed, 15 Mar 2023 03:05:41 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1pcHSX-00C6p8-0L;
+	Wed, 15 Mar 2023 03:05:49 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcHSD-00C6hA-0t
+	id 1pcHSF-00C6i4-3A
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 03:05:33 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id f6-20020a17090ac28600b0023b9bf9eb63so458971pjt.5
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 20:05:29 -0700 (PDT)
+	Wed, 15 Mar 2023 03:05:34 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id bj12so1861396pfb.8
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 20:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678849529;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678849530;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kjXs6Q9el+E3DjFj75yzzOPO7Ucq3PFGsjms6Llyx9A=;
-        b=mRz3PKHV4IBxR+2dOFKG5hwZul2ABonaRfC7Ehdx0OfdaJc8X1QKmjbUc3A/sMtQmb
-         gbdDUmN6C0xqiSSvVk7V6RYl7rj70SnASOVED2xToUNivvfAXHpYOvdfNg9PNLDBWyDp
-         IncEoQPsAhVH27iWxXjZiY9+MPHJp6iXyumIDVQgIFvnpqQ2awg+ak4Y4xvxSFjC0zod
-         3dJQKPZ3iUEBFf1zv/1bEdn3ErqHsi/M0WCTCcYx6qxBUNzn+biRBb8C3pLH8Kmj08p4
-         BzamwZHJuVc6k1iXhWSR7eCcnQcS6MM7x9tkiaPkVq0c4rPipsvwrOOR87W+SmOuO7ef
-         mW4g==
+        bh=0CSfwyQHlQ4M4jXaSH+LdMi3uBUPZy3NPttk2ev1MeM=;
+        b=4mZhqkrZl2MkO6B6mqEDLTirH3SlLVvooXtpQuTuH/xzUmMWO0qlG33s8kcsf8vR+X
+         1FoOK2Rk0bJmVb+8FuKG/2Jxjnt0oUDaFG+VqsxM9hrbjvOV2ZarD+HZLutU5YIiAVXL
+         IZDZQgKVdEkHiqO2TWB2SNLAlsr0Wiul9s5npuCAjeBOJ5joViCl/33dOtfcuNA0qTKJ
+         wI89dyMtuHkmCnCcbUMyMFUQHfyAxxbiJrKXeydYHQhFoxpswgDnmjyFK1K2t7/bFmGC
+         dvm2FAw3pTK46SBSowzA4dhLd1uqkTrpZPHWJKiwmyDolqIdJoRm8AiDKGHFgfo1NVtm
+         xglA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678849529;
+        d=1e100.net; s=20210112; t=1678849530;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kjXs6Q9el+E3DjFj75yzzOPO7Ucq3PFGsjms6Llyx9A=;
-        b=KTcHXra1FiJ3UAbV+z9jQ9AT+SQdfAkikjvuX8t8HBspU0gd/1LZ30d/E2ENpcKA3e
-         Dkd1JA9dQiUmXU1DpU62EDzArdktntbiykZVurJe0wgOoCYqJFme3A1Rerfmf0lz8Sb2
-         2Ncd9kXh0IKR/TcohdqI0Y/bLElrZSDNKOnBdJDezSfBbZA8c45/td2JWzsrTQfWwHhT
-         3SrAGlPp7M0zIk3u8ikzA6hpVx8tQze+qzxzrU/ER8ngRuHcGM16JKaA9bac7y4PdCTC
-         wNeUi+8n5WhaYuI4Db8yVMguz+vJcjkhdgRzfl5uOadvBWXJyIRfXkr7OB4tpyf74UdA
-         k8LQ==
-X-Gm-Message-State: AO0yUKUGMev3AXB2YMwAPFJ6UVTXrkATV35+LZuU5zT5KBby23E3rVHc
-	nnPVmITF3O9Tv1Cv2eId6WhH8Q==
-X-Google-Smtp-Source: AK7set8aNlVZNOCixnv/wCzZZa//jnHG6FrTV/mi2NGNpxsUbRVCAmKzBlXv1PxwH+TLgm6P1rGJNQ==
-X-Received: by 2002:a17:903:48d:b0:19e:e39b:6d98 with SMTP id jj13-20020a170903048d00b0019ee39b6d98mr981507plb.35.1678849528720;
-        Tue, 14 Mar 2023 20:05:28 -0700 (PDT)
+        bh=0CSfwyQHlQ4M4jXaSH+LdMi3uBUPZy3NPttk2ev1MeM=;
+        b=n1iG6yD7pEO68ERJGmyGAUNRF7nvl/NhVvJH7vPqkWSpV1puBymRYKb+NrPtTWyvF5
+         AApUrY9Bct6qcScIEze5u/xQJTC4b/ZFcQ56BmHIK7OESmPvhyQxq3ghyDsVFZYrp9pO
+         Dj47LvwwjQ7PFTOIuTVK9dBEMiPKqMHnB7TG2YcoMcYr/RUbGOdUvHaeC8UrWTRFe5jd
+         kTk7mdqKotX+6uzxy7sFPS1xXyuwyD4l0RAn+1g7l2jBdJPuk+d5PN5xhvjF3+foSrUx
+         B5u0OqHa9xNYWad+8DeHuPz7JgaBATly+7do3vz1lyRkVSHbNZvEqqhR6UjgYRB3osOr
+         2FKQ==
+X-Gm-Message-State: AO0yUKUDaxsMizo3QRgnNgnTjWlEeltnr+vydPbsNW87k78377Xmsak8
+	sqTVsZCqeqnZqYQ5me3aFheP5w==
+X-Google-Smtp-Source: AK7set9ZnZdofrFWQ0U8lJyHxwjbzhYXBh8dBYrjkL6TD0h/9D1nJL1aS2SUyiziKQzZO7kTArkNIA==
+X-Received: by 2002:a62:18c8:0:b0:622:bdec:d49 with SMTP id 191-20020a6218c8000000b00622bdec0d49mr9133281pfy.11.1678849529904;
+        Tue, 14 Mar 2023 20:05:29 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jz12-20020a170903430c00b0019f2cee9221sm2447268plb.95.2023.03.14.20.05.28
+        by smtp.gmail.com with ESMTPSA id o6-20020a63f146000000b0050376cedb3asm2230300pgk.24.2023.03.14.20.05.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Mar 2023 20:05:28 -0700 (PDT)
-Subject: [PATCH v2 3/6] mm: Add VM_FAULT_ARCH_* codes
-Date: Tue, 14 Mar 2023 20:03:56 -0700
-Message-Id: <20230315030359.14162-4-palmer@rivosinc.com>
+        Tue, 14 Mar 2023 20:05:29 -0700 (PDT)
+Subject: [PATCH v2 4/6] RISC-V: fault: Convert to VM_FAULT_ARCH_* codes
+Date: Tue, 14 Mar 2023 20:03:57 -0700
+Message-Id: <20230315030359.14162-5-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230315030359.14162-1-palmer@rivosinc.com>
 References: <20230315030359.14162-1-palmer@rivosinc.com>
@@ -74,8 +74,9 @@ Cc: linux-mm@kvack.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: akpm@linux-foundation.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_200529_565383_2D74F5B3 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20230314_200532_025679_FBB12AB7 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,53 +93,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A handful of architectures (arm, s390, and soon RISC-V) define their
-own internal fault codes, so instead dedicate a few standard codes as
-being architecture-specific to avoid conflicts.
+These conflict with VM_FAULT_HINDEX_MASK, so move to some designated
+arch-specific values.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- include/linux/mm_types.h | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ arch/riscv/mm/fault.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index fd9b863869b4..47f36a2fdaac 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -938,6 +938,7 @@ typedef __bitwise unsigned int vm_fault_t;
-  *				in DAX)
-  * @VM_FAULT_COMPLETED:		->fault completed, meanwhile mmap lock released
-  * @VM_FAULT_HINDEX_MASK:	mask HINDEX value
-+ * @VM_FAULT_ARCH_*		Architecture-specific VM fault codes.
-  *
-  */
- enum vm_fault_reason {
-@@ -955,6 +956,11 @@ enum vm_fault_reason {
- 	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x0002000,
- 	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x0004000,
- 	VM_FAULT_HINDEX_MASK    = (__force vm_fault_t)0x00f0000,
-+	VM_FAULT_ARCH_0         = (__force vm_fault_t)0x0100000,
-+	VM_FAULT_ARCH_1         = (__force vm_fault_t)0x0200000,
-+	VM_FAULT_ARCH_2         = (__force vm_fault_t)0x0400000,
-+	VM_FAULT_ARCH_3         = (__force vm_fault_t)0x0800000,
-+	VM_FAULT_ARCH_4         = (__force vm_fault_t)0x1000000,
- };
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 0a8c9afeee22..5b035c0ae782 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -202,8 +202,8 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
+ 	return false;
+ }
  
- /* Encode hstate index for a hwpoisoned large page */
-@@ -977,7 +983,12 @@ enum vm_fault_reason {
- 	{ VM_FAULT_RETRY,               "RETRY" },	\
- 	{ VM_FAULT_FALLBACK,            "FALLBACK" },	\
- 	{ VM_FAULT_DONE_COW,            "DONE_COW" },	\
--	{ VM_FAULT_NEEDDSYNC,           "NEEDDSYNC" }
-+	{ VM_FAULT_NEEDDSYNC,           "NEEDDSYNC" },  \
-+	{ VM_FAULT_ARCH_0,              "ARCH_0" },     \
-+	{ VM_FAULT_ARCH_1,              "ARCH_1" },     \
-+	{ VM_FAULT_ARCH_2,              "ARCH_2" },     \
-+	{ VM_FAULT_ARCH_3,              "ARCH_3" },     \
-+	{ VM_FAULT_ARCH_4,              "ARCH_4" },     \
+-#define VM_FAULT_BADMAP		((__force vm_fault_t)0x010000)
+-#define VM_FAULT_BADACCESS	((__force vm_fault_t)0x020000)
++#define VM_FAULT_BADMAP		VM_FAULT_ARCH_0
++#define VM_FAULT_BADACCESS	VM_FAULT_ARCH_1
  
- struct vm_special_mapping {
- 	const char *name;	/* The name, e.g. "[vdso]". */
+ static vm_fault_t __do_page_fault(struct mm_struct *mm, unsigned long addr,
+ 				unsigned int mm_flags, struct pt_regs *regs)
 -- 
 2.39.2
 
