@@ -4,62 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EA7C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 05:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56218C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 06:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J5LlcY5sv8P0+YJLT5jazBLssLVBhJsdlXwPdC1HIzg=; b=x0L2h/zqEjlSzt
-	DYssrDjO5cwr+rHkAb02+gqx6qnY1yz0gwnZ8aTnIlYfb4t4mEUJBSRiLsoh4vMvKk9A/Eewot+3c
-	LSPCYsJaRJTu+nJcwYUXbvHhXzPW19eX5pxVwhfJCbPtS/SWCmVDGC9DJ5VcFuSkO2QQaq1Ros92F
-	qJwRmYeIr4mikNNCGjujUsPk80wv/ooSwvapzs/FevxHppSoHzUyv/f017Twl60LarPeGwUTzXNbe
-	46NqWXxI/YwfTLARvdDsPRAiKCarvI1V+RlO6ZVwB213SAe7W3Nw5Ei0xyx79yNZvSa9N967CYM5p
-	IYTZyxQxANtwIvbeYwsA==;
+	List-Owner; bh=s/RmoBHaTV/aEZjBff5Io9/J/7CgjENAj3DhapCaJHU=; b=CWMr/hl+vN0W38
+	7aSPSuMC0NLvxlCXZmEsERhmiO0XAbJiQYZ+YHhFAeb/zosnZwEUTiG2Ckw+5zotGnZCfvdrdwqsk
+	5RKkkyFfzoqUpseudwMW36QNDcH9lEQuUiMDNZqo5sZjjfqpKrvjQv1JqAPmBGbxKryMk/1vthVP4
+	9/G/vV/6Ofh+KGJdbcBi7G8AzUui48QLbF41bKya8TTR3gK7l31YNvGdW8/oeRZoCUhXaqREIcglT
+	XqDsIBvikR2u0MKRpXPrua4fkieEC8rrs5iI7qk9mkeTRCUbJCaY1wyTsCeNAJ9ItMMfcGv2zCbhW
+	SFx/eFEoFTMADn3tdayA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcKA1-00CTDR-1J;
-	Wed, 15 Mar 2023 05:58:53 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcK9x-00CT8h-0R
+	id 1pcKfL-00CX7j-28;
+	Wed, 15 Mar 2023 06:31:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pcKfH-00CX6z-32
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 05:58:51 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E536324E18D;
-	Wed, 15 Mar 2023 13:58:15 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
- 2023 13:58:15 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 15 Mar 2023 13:58:14 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Emil
- Renner Berthing" <kernel@esmil.dk>, William Qiu
-	<william.qiu@starfivetech.com>
-Subject: [RESEND v6 2/2] riscv: dts: starfive: Add syscon node
-Date: Wed, 15 Mar 2023 13:58:13 +0800
-Message-ID: <20230315055813.94740-3-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230315055813.94740-1-william.qiu@starfivetech.com>
-References: <20230315055813.94740-1-william.qiu@starfivetech.com>
+	Wed, 15 Mar 2023 06:31:13 +0000
+Received: from ip4d1634a9.dynamic.kabel-deutschland.de ([77.22.52.169] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pcKfD-0006gF-TQ; Wed, 15 Mar 2023 07:31:07 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
+ christoph.muellner@vrull.eu, Conor Dooley <conor.dooley@microchip.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC 0/2] RISC-V: T-Head vector handling
+Date: Wed, 15 Mar 2023 07:31:05 +0100
+Message-ID: <3344603.e9J7NaK4W3@phil>
+In-Reply-To: <mhng-6d6a325c-4adb-4d9a-98a0-012c75b4562e@palmer-ri-x1c9a>
+References: <mhng-6d6a325c-4adb-4d9a-98a0-012c75b4562e@palmer-ri-x1c9a>
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_225849_346095_FB10C637 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230314_233111_997650_CFC66A61 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,60 +57,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add stg_syscon/sys_syscon/aon_syscon node for JH7110 Soc.
+Hi Palmer,
 
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+Am Mittwoch, 15. M=E4rz 2023, 06:29:41 CET schrieb Palmer Dabbelt:
+> On Tue, 28 Feb 2023 13:54:33 PST (-0800), heiko@sntech.de wrote:
+> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> >
+> > As is widely known the T-Head C9xx cores used for example in the
+> > Allwinner D1 implement an older non-ratified variant of the vector spec.
+> >
+> > While userspace will probably have a lot more problems implementing
+> > support for both, on the kernel side the needed changes are actually
+> > somewhat small'ish and can be handled via alternatives somewhat nicely.
+> >
+> > With this patchset I could run the same userspace program (picked from
+> > some riscv-vector-test repository) that does some vector additions on
+> > both qemu and a d1-nezha board. On both platforms it ran sucessfully and
+> > even produced the same results.
+> >
+> >
+> > As can be seen in the todo list, there are 2 places where the changed
+> > SR_VS location still needs to be handled in the next revision
+> > (assembly + ALTERNATIVES + constants + probably stringify resulted in
+> >  some grey hair so far already)
+> >
+> >
+> > ToDo:
+> > - follow along with the base vector patchset
+> > - handle SR_VS access in _save_context and _secondary_start_sbi
+> >
+> >
+> > Heiko Stuebner (2):
+> >   RISC-V: define the elements of the VCSR vector CSR
+> >   RISC-V: add T-Head vector errata handling
+> >
+> >  arch/riscv/Kconfig.erratas           |  13 +++
+> >  arch/riscv/errata/thead/errata.c     |  32 ++++++
+> >  arch/riscv/include/asm/csr.h         |  31 +++++-
+> >  arch/riscv/include/asm/errata_list.h |  62 +++++++++++-
+> >  arch/riscv/include/asm/vector.h      | 139 +++++++++++++++++++++++++--
+> >  5 files changed, 261 insertions(+), 16 deletions(-)
+> =
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index d484ecdf93f7..49dd62276b0d 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -362,6 +362,11 @@ i2c2: i2c@10050000 {
- 			status = "disabled";
- 		};
+> I have no opposition to calling the T-Head vector stuff an errata =
 
-+		stg_syscon: syscon@10240000 {
-+			compatible = "starfive,jh7110-stg-syscon", "syscon";
-+			reg = <0x0 0x10240000 0x0 0x1000>;
-+		};
-+
- 		uart3: serial@12000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x12000000 0x0 0x10000>;
-@@ -466,6 +471,11 @@ syscrg: clock-controller@13020000 {
- 			#reset-cells = <1>;
- 		};
+> against V, the RISC-V folks have already made it quite apparent that =
 
-+		sys_syscon: syscon@13030000 {
-+			compatible = "starfive,jh7110-sys-syscon", "syscon";
-+			reg = <0x0 0x13030000 0x0 0x1000>;
-+		};
-+
- 		sysgpio: pinctrl@13040000 {
- 			compatible = "starfive,jh7110-sys-pinctrl";
- 			reg = <0x0 0x13040000 0x0 0x10000>;
-@@ -495,6 +505,11 @@ aoncrg: clock-controller@17000000 {
- 			#reset-cells = <1>;
- 		};
+> anything goes here.  I would like to get the standard V uABI sorted out =
 
-+		aon_syscon: syscon@17010000 {
-+			compatible = "starfive,jh7110-aon-syscon", "syscon";
-+			reg = <0x0 0x17010000 0x0 0x1000>;
-+		};
-+
- 		aongpio: pinctrl@17020000 {
- 			compatible = "starfive,jh7110-aon-pinctrl";
- 			reg = <0x0 0x17020000 0x0 0x10000>;
---
-2.34.1
+> first, though, as there's still a lot of moving pieces there.
+
+yeah, that's the reason the series is an RFC and is based on the main
+vector series and I fully expect the main support to land first :-) .
+
+
+> It's kind =
+
+> of hard here as T-Head got thrown under the bus, but I'm not sure what =
+
+> else to do about it.
+
+Thankfully on the kernel-side the differences to implemeent both "at the
+same time" are not that huge - userspace of course will need to figure
+out their own solution.
+
+
+Heiko
+
 
 
 _______________________________________________
