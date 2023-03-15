@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112D9C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03C0C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 14:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FDf4c7LLJUy55McjyNs9vfkwOLRTgCyG7czgTPzuNOA=; b=CLX2DL9vMM5vWq
-	NHQuB8M+6tjU6yPbIuqmGfWFf/Zf2zMoUucRHojA6o9EePJZkCUonhrbXt4/nYQDc6SXZBXCGql10
-	msilmnA3SKAk6gLA/2m9M9ZPTPcaaM/RvP2MHsXxhELP1Z3XtcK7X4AeApLby2Lut+8Rv2YgXdSwq
-	SFLpryUFIJLYDJ7ONiD9tWH0YPq4wY5CDpjT6c0Ucg+XMwsaU7aKuQGXL0abBAL16fCVsmvNvQVbM
-	/d91l+VTBvjpG22E4QFJrG/5T8vQvQts7YL1aF0IWziLZJxIQIkDpzepIitpAgr/2g5TzQv5lCBf4
-	y1S0Pw7kH2cZMbcrbEGA==;
+	List-Owner; bh=kTdnBsLVNJLC9JOMSndP5o0Y1vDM7abSoBbcmc0p+sY=; b=dY8P1W7fXKteyc
+	ONcvXdjCGgkaRqZZUOgC2eOlS7B7rOImC165I/aa0ToYRygoCnwD5cQMLNa/rdkhwBijZKm/wkUGd
+	ZpF3r+0w7qGK8HsIUuJjR6URatHIPXihsrddAlHkAvyAxOpXIM++nJnvhZKgESOV4Y9wvFENCuPey
+	8HEpCU25W1fcis1/SypRpJfpo7a/nnVTb82ef3I9Vmc0Fm44LKCh+FBN2kOZUgHg3jOCO8z/P/VBQ
+	HH1l/T5zGPeieybdXWWZAEx9wvy8kCPpe6WpUWRc0qdOeDQvsyHsUtQmEu1B5wJaZtxxJc2mPPyRP
+	yqb1xbVqrPdEgBHgghOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcSPc-00DeRh-06;
-	Wed, 15 Mar 2023 14:47:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pcSZx-00DiaB-0I;
+	Wed, 15 Mar 2023 14:58:13 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcSPY-00DeQc-2X
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 14:47:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3BD2261B69;
-	Wed, 15 Mar 2023 14:47:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89254C433EF;
-	Wed, 15 Mar 2023 14:47:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678891647;
-	bh=lefKxRIeaGhuG7GUHWIQ/1o0mLMrDt/fqv6cpg9LV/Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CRLDEUN/X2boEfYR46FSDwWfs8JqxYFPBma7wmQfoBCbxKO51hK2eXUmhCte9JvnC
-	 D04X9yWNgzc2HoQQLkZpNHOF6Wp6rUnjo0q38dh2CKtUFhflp1LOGZnzPaNcnW89Uc
-	 Nsrsmmmo3Vq6Mo4UDge4yzz15FqRugcn+jpa5xpFhYTpGkSJkK68b/Rezl2E6MEJUY
-	 86M8XkJnuK3HuLL28uRBB0mLQ08KMRu6EYEQVC2GxNAEZbw9t/52kcpQjn2hz93HeD
-	 y1ISIYV9lYGWIXSwawWH0MskB764MhtkklqZNuHAH0PrTsdQFWC9oH1LwAGHqTIe7h
-	 UshstWDmuKhyw==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	dare.mcnamara@microchip.com
-Subject: Re: [PATCH] riscv: dts: microchip: fix the mpfs' mailbox regs
-Date: Wed, 15 Mar 2023 14:47:23 +0000
-Message-Id: <167889162484.100936.7931674547067067350.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230307211053.1777066-1-conor@kernel.org>
-References: <20230307211053.1777066-1-conor@kernel.org>
+	id 1pcSZu-00DiYl-09;
+	Wed, 15 Mar 2023 14:58:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wd8qK2CA6PymeHUSx0iaO6FA3rxmYEqXDRJEu+NxeFQ=; b=PFP1zbNSgF4Lhynb68W1Zs6OoH
+	HEDO+2MGSPoRsxZUfpjUK+DAEtI7EL9ir21q/hml31B0rqCSFtdkCG4//j87u+65tDB/SOig7IWbY
+	QdA45IM8LaNGDys8KDlhn0jtnKyPmz4PreME22ouaOEa1moXdFlsGB7qfzpQQ8ig8C5cQZSC2Px+C
+	PsaDe99yZvUZaOb5LVpCyrZRyKzsxfSRFPG10Rqi1fhJsAcDxB/Qosfj0DGyctMR458LS9bqW+ADs
+	1zf0SeHzabZeqQwiV4+mxEuwnHrhQ6sR4QyEfNDFbUeCStT8CXqhNzJ0ovfHNdc2Tww3A/B2Zzfgi
+	x/Z23HRg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pcSZk-00DvdH-FK; Wed, 15 Mar 2023 14:58:01 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B85213001E5;
+	Wed, 15 Mar 2023 15:57:57 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 6EA362408DE43; Wed, 15 Mar 2023 15:57:57 +0100 (CET)
+Date: Wed, 15 Mar 2023 15:57:57 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Donglin Peng <pengdonglin@sangfor.com.cn>, mhiramat@kernel.org,
+	linux@armlinux.org.uk, mark.rutland@arm.com, will@kernel.org,
+	catalin.marinas@arm.com, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, tglx@linutronix.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, mingo@redhat.com,
+	xiehuan09@gmail.com, dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
+	linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing
+ the return value of function
+Message-ID: <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
+References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
+ <20230315133911.958741-2-pengdonglin@sangfor.com.cn>
+ <20230315134911.GD2006103@hirez.programming.kicks-ass.net>
+ <20230315101348.1234c7f5@gandalf.local.home>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=567; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vRIZJFUXhglgCIy45QMD/9OfFH8Sr2pjdz1s85mqUZw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmCt6pOJigUxt1KOft4L+eLbwvjJDXaf/Q4rdw2IztSu bTgem58RykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYycyojQ5e0+7nJ/XUh06S/ +osuT+0WvupvEVs/q/7hBFb2PbfF+Bj+x2vJa03LXnNDNCv88vO1YQbNIkICRcWJjwJrm7QP8Jj xAwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_074728_888680_DDE9540E 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20230315101348.1234c7f5@gandalf.local.home>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +85,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Tue, 07 Mar 2023 21:10:54 +0000, Conor Dooley wrote:
-> The mailbox on PolarFire SoC should really have three reg properties,
-> not two. Without splitting into three sections, the system controller's
-> QSPI cannot be accessed as it sits inside the current first range. The
-> driver & binding have been adapted to account for both two & three
-> ranges, so fix the dts too.
+On Wed, Mar 15, 2023 at 10:13:48AM -0400, Steven Rostedt wrote:
+> On Wed, 15 Mar 2023 14:49:11 +0100
+> Peter Zijlstra <peterz@infradead.org> wrote:
 > 
+> > > diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
+> > > index 1265ad519249..35ac9c58dc77 100644
+> > > --- a/arch/x86/kernel/ftrace_64.S
+> > > +++ b/arch/x86/kernel/ftrace_64.S
+> > > @@ -348,6 +348,10 @@ SYM_CODE_START(return_to_handler)
+> > >  	movq %rax, (%rsp)
+> > >  	movq %rdx, 8(%rsp)
+> > >  	movq %rbp, %rdi
+> > > +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
+> > > +	/* Pass the function return value to ftrace_return_to_handler */
+> > > +	movq %rax, %rsi
+> > > +#endif
+> > >  
+> > >  	call ftrace_return_to_handler  
+> > 
+> > What about the case of double register return values (when the value
+> > is returned in the A,D pair) ?
 > 
-> [...]
+> Is there anything that does that in 64 bit kernels?
 
-Applied to riscv-dt-for-next, thanks!
-
-[1/1] riscv: dts: microchip: fix the mpfs' mailbox regs
-      https://git.kernel.org/conor/c/e77da13b8e36
-
-Thanks,
-Conor.
+Note sure; but I have a patch series that introduces cmpxchg128 and
+friends. Most of the actual functions are __always_inline, but still,
+the moment a compiler decides to break out a subfunction on a u128
+boundary we're in luck.
 
 _______________________________________________
 linux-riscv mailing list
