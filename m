@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31864C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 01:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4A1C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 01:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zmJ4I1j/EcORpbK0qYRMadRILLXLC32KNoSl1a6H5A8=; b=TLNzBuZR6/Q2sL
-	t+8a4g4LlMyay4FwO1AOF5abthTHbTF8VMjWNl4Ky0n+FMMxiWVNu2FadapkR9x2zYC4bIfYpeQhI
-	hyTr8uXyoBV+NF7cBNnsDw4e6NbwKpCvvGRhL79AU5evRSFL/4vkn82viNfdrKOyVCQbqkaQIM9Cc
-	XVce9mK1i3SP3yq1Cej4h8yOuPYs8V7D+ert/xXwAJmkvCkWWHzbqSDAtUw61A/LctxXGACbR43dQ
-	c6lK2b3t/HCEzvpf5ye/ansaajPIOfWDCBvCQrDjxbjPNnbRYr6iUIWgrFwMhvzLditmBtfdO9/Yk
-	TeFyuk8aOGoTgVztn84g==;
+	List-Owner; bh=VztgAxC1DgYrkdnv91V5YricA/Tuv0DJEp2q5D00B/o=; b=SvoeSmVjx/mm5j
+	GKgMMSAFOh21hLwo7HFk2CveZDglWiRnXLOG6ikRS+DdlBiZhjAjOimcygyOOMr9DSm5fIBHlQLyK
+	6311xfE+jGUCsWr5Pt1SqECfkQVdU8TdBI1mUZEla9NSGcJauiqL+WAOWqXNH9GXU1dnFkcR/JUqo
+	i9NlGNsw8/Q0n2b7TMQH+fc5JZJ0Zb5HSwfwFUomNJ2giBttsOtm3mY4kJsa3XF0YIL5ilS87YMw0
+	CvpAWwQVtSNmi+PbL8TEXEbZIOMlwteOjnGKYpY9571F9/wUMzo2yDJ1Dedkf7kp/kLu0SM1SedW6
+	zH7YxNacQP45HoDuOu2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcG0A-00Bxv4-07;
-	Wed, 15 Mar 2023 01:32:26 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcG06-00Bxpz-32
+	id 1pcG7z-00Bypq-05;
+	Wed, 15 Mar 2023 01:40:31 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pcG7v-00Byp8-16
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 01:32:24 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E384F24E2A5;
-	Wed, 15 Mar 2023 09:31:42 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
- 2023 09:31:42 +0800
-Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
- 2023 09:31:41 +0800
-Message-ID: <51102144-1533-d2f7-5fde-e01160a6f49e@starfivetech.com>
-Date: Wed, 15 Mar 2023 09:31:39 +0800
+	Wed, 15 Mar 2023 01:40:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 02DDFB81C39;
+	Wed, 15 Mar 2023 01:40:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B88EFC4339B;
+	Wed, 15 Mar 2023 01:40:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1678844418;
+	bh=XhEHyb9RFf9lu117xkYXKrdJu7geiPfXN441Rj+1e2c=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=p/OfDeFAT9UUyt3kD5ScPHgsViHT/SneAcXSxUYphKmsim3fAp06ZCNuTFFtTsHZv
+	 T+Joepv2px7DS1S8Lk6h7WGaC0ipCshqlFN9JFk0zn2SNmCWc9yjTt/3KO/WHdVbta
+	 uBYH5SBDIDdZ2IKspVa5BJupXrOU03Uj7ZTsTthXSfydnROandXh1Vq85fB4j7hMJN
+	 lRnYTZrXEYr4IGTOBJwCucaMtxQxsz4QHBG3U5B5DvGDvpfZ8k0AsVu3FKoSe84riX
+	 oaeiYiIozq5UDXk47Q7dkrHHkuIXv7Y/RuN213zLgOfpcW7Mat6J6KXIFq0cka3Yg9
+	 g0jV9Mmfvu8pg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 97975E66CBD;
+	Wed, 15 Mar 2023 01:40:18 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v6 0/8] Add Ethernet driver for StarFive JH7110 SoC
-Content-Language: en-US
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
-	<kernel@esmil.dk>, Richard Cochran <richardcochran@gmail.com>, Andrew Lunn
-	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis
-	<pgwipeout@gmail.com>, Yanhong Wang <yanhong.wang@starfivetech.com>
-References: <20230313034645.5469-1-samin.guo@starfivetech.com>
- <20230313173330.797bf8e7@kernel.org>
-From: Guo Samin <samin.guo@starfivetech.com>
-In-Reply-To: <20230313173330.797bf8e7@kernel.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
- (172.16.6.72)
-X-YovoleRuleAgent: yovoleflag
+Subject: Re: [PATCH v14 0/3] riscv, mm: detect svnapot cpu support at runtime
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167884441861.5193.11313363491551108845.git-patchwork-notify@kernel.org>
+Date: Wed, 15 Mar 2023 01:40:18 +0000
+References: <20230308074853.4393-1-panqinglin00@gmail.com>
+In-Reply-To: <20230308074853.4393-1-panqinglin00@gmail.com>
+To: Qinglin Pan <panqinglin00@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
+ ajones@ventanamicro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_183223_186411_499E8A71 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230314_184027_554420_143EDC8E 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +77,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Re: [PATCH v6 0/8] Add Ethernet driver for StarFive JH7110 SoC
-From: Jakub Kicinski <kuba@kernel.org>
-to: Samin Guo <samin.guo@starfivetech.com>
-data: 2023/3/14
+Hello:
 
-> On Mon, 13 Mar 2023 11:46:37 +0800 Samin Guo wrote:
->> This series adds ethernet support for the StarFive JH7110 RISC-V SoC.
->> The series includes MAC driver. The MAC version is dwmac-5.20 (from
->> Synopsys DesignWare). For more information and support, you can visit
->> RVspace wiki[1].
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Wed,  8 Mar 2023 15:48:50 +0800 you wrote:
+> Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+> page. This patch set is for using Svnapot in hugetlb fs and huge vmap.
 > 
-> I'm guessing the first 6 patches need to go via networking and patches
-> 7 and 8 via riscv trees? Please repost those separately, otherwise
-> the series won't apply and relevant CIs can't run on it.
+> This patchset adds a Kconfig item for using Svnapot in
+> "Platform type"->"SVNAPOT extension support". Its default value is on,
+> and people can set it off if they don't allow kernel to detect Svnapot
+> hardware support and leverage it.
+> 
+> [...]
 
-Hi Jakub,
+Here is the summary with links:
+  - [v14,1/3] riscv: mm: modify pte format for Svnapot
+    (no matching commit)
+  - [v14,2/3] riscv: mm: support Svnapot in hugetlb page
+    (no matching commit)
+  - [v14,3/3] riscv: mm: support Svnapot in huge vmap
+    https://git.kernel.org/riscv/c/ce173474cf19
 
-	Thanks a lot, I will repost those separately.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Best regards,
-Samin
+
 
 _______________________________________________
 linux-riscv mailing list
