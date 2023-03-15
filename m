@@ -4,80 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC3F7C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 11:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E76C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 11:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+qJgoNfmDlYS7Ys6NG1lXt8+wbiG2Pl1gTTjTXKzjEc=; b=0PQmV1pr7pxKZr
-	L5OWJcJ2oO8r0dKzmw7BMBJCaJ5JQggyCqe1tVOegbbjofave992zHchcDDzovdTUM7RAlIAOmifO
-	QlXaiV2/YHFVIG0UTyIqqiCq9jP36IK2/UtWqVR3Yd/c4aMVS9Jo52tHtVPBrEu/utEMQhAV21dIE
-	1WcQOoMghYB+fcLYBKJfTt62+f0JG5dAdXge/j6OD5w2gitgzhX/6i4adqg1SCQqKF7Jq4TGTkV73
-	63ofCD1fb/s9jmefTr6IbceddAHAKm755Glcryhwo2Oq39D6sRWzVKzm8ukW6I0Q/ghII34UGeLN1
-	JYqMkz264VJucKTCoi2w==;
+	List-Owner; bh=oIX/JU5/t5+5ckV87O7D+69i+Gs7W1ITOrsLUNuuXTo=; b=dhxjIrjBKnHVnB
+	//KvROvcEhu87q4OcFFaHNF3rReC97eCTvpakLb+uhDFFmIT7Ey6Cu/mmEzPsZcaAuGUnlPvZJ836
+	PAQ3cyn6hTwJuvlMRkzfe1zEr60Bn3b0MF/ll9alcgpOGfG/OXph++bfXZyeJN62ypmPunsNjnYqg
+	aJh9mPzQZq37W8kKbis1SND5rwxp+TOBAOoLHgzepIq6Auki+ZPy4/r6j7GrqtZVsENWie2n5haYd
+	uZRQOuKTIsZ7IlgbPsruHadaoGV5WyTRQ1CGcm4kkJpaPs/llCfI9SHYjl3f2LOerndpxzxziZ7mn
+	paIZLUDJsWY0AC5IyAcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcPdd-00DFAd-3C;
-	Wed, 15 Mar 2023 11:49:50 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1pcPk3-00DHUg-2v;
+	Wed, 15 Mar 2023 11:56:27 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcPcd-00DEGW-06;
-	Wed, 15 Mar 2023 11:48:49 +0000
-Received: from localhost (unknown [188.24.156.231])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 8E64B66030A4;
-	Wed, 15 Mar 2023 11:48:45 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1678880925;
-	bh=wrYnFVXqR4x5khiXgk8aZhgK1Ok1W3waRicWpzY70j8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZrvzslQ6t0mFJsIwODjyUCMWcpCpX1Vh23/fY9DiS244etRA6/j8uUGzt9boQqdHR
-	 un7yCiajQCFimFeAnyWCWEQt/VlvijltG0Re4JcHTuRpEPCmNpAh52TzCyRVEkBP4X
-	 /k8E38z9SYh6otb6ywMwVqL7D45K+5BNNHDFnhYcLDJmjgCz5Oc+AHlHjXc/Cu44Cz
-	 ZWAXtj3HPzBXpAm9DKg7AzFRghmCUYfQ9eqOG5tzAqbhh+qM/s/8W23Fm+/lxJN/XQ
-	 KXjOpVNlnG2HqsYyconlqfCeFpDXa3ccz0l68nOqb0b1ftJsmWW6vbrbLHoxLb2I2u
-	 mJq1Zp4hoW99g==
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Drake <drake@endlessm.com>,
-	Katsuhiro Suzuki <katsuhiro@katsuster.net>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH 11/11] arm64: dts: rockchip: rk3588-rock-5b: Add analog audio
-Date: Wed, 15 Mar 2023 13:48:06 +0200
-Message-Id: <20230315114806.3819515-12-cristian.ciocaltea@collabora.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
-References: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
+	id 1pcPjz-00DHTX-3D
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Mar 2023 11:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1678881384; x=1710417384;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=RTSM8DU5spKDxpyz31Q8qr/jUPxKZ3szkKojU7jrmtM=;
+  b=1i88h3FD3aG0EXKOdUnmpHigA1TY/egxNlsRI3q81OguL4C33HNWLWtn
+   RzGy9woy0r5ngdeFF2qqhC6ultkH3Bd0CJVCkacOgOCU7TGhLqFb1AzMq
+   8tnibqVNYAV4y3Q2e5qcSUPegh991N/cDl9Z3UMSWuFH+q635qGKDxwST
+   fgAaZUYEyFQNuj1ccvspE/XII52IHl1eLdAhjOJUnjOZobNnUwEukJW6+
+   nJv271NYA9GRMSNUXvW8nnNKIte+xTVkwAS4GUr+OJ2tQ1idLWqJ3xXGv
+   gfmhdsV0vk/HYNerZ5U9b2QeOz/G/ffsp2BdkzGVmxYiMmngk/BG+SBks
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,262,1673938800"; 
+   d="scan'208";a="201746739"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Mar 2023 04:56:19 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 15 Mar 2023 04:56:18 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 15 Mar 2023 04:56:18 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TeHY2JbWtzyQa+gYqMblg85x2IEZ+NdPgLwfhxeK1FSMWq3SU/mqtBu9Z7e50kKex/9vTcucNwWD3GlbHA5SguJ2QU+o+/7qBVqoTzwi+GbOgV5+N9c+iBnG+Cv9uewegRP0yN5IM3sBQO4swLyYYAV9urukldWfdB1lJwbvnI7uHrFGXeSBwI6K5mIjLGP9fx6oNC+YxKW4ZuPxvRoFf0DkpaVkX4/5N2kN1Uk3BKAL+NqqFJt2CyE8hX88JNRrAfBQp/3d1U2uMQZna36dKUEYdbs4lWKUXDHWAkAZG3L5OT8PcKmncT8Z6IJnCl6RFvQf/fAbD4KkCTsIftEeKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RTSM8DU5spKDxpyz31Q8qr/jUPxKZ3szkKojU7jrmtM=;
+ b=ZipE7hIbyT8viH6owa9KbRHAEDewOsIBGpT+RPIz9oLDDMUM7sU4cnQIvZyjGmd9k4oHpA0pwO/umtGCy3pB2dbYuTmFEZEPOQhUIYyNpL10FZCww6iB/I1N3+BPa8SUtaB0105ihMmvXb5sS9ZMZkhGgVdfPfPPz+XWTAGpnMTVfS4RU7wQwiBepYLN74NfLNTFQ1wXS8SwHP5vL2HCTqbG++GMc1VGIg1s+N5D8eTe6g0Eaq7NNNHFAouYemnwaLuEDtAb4NNcwAdgOmb/aFbzjigjv5fNWwuiFblPV0dv2Er++bxqp8XZzKiDsFx4a+/eSkQu7/PymqeuGTCZWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RTSM8DU5spKDxpyz31Q8qr/jUPxKZ3szkKojU7jrmtM=;
+ b=WM6BW2pgQdrc9XdChu6gAZLbL3xilwX3TDZ/uj9JFKZ4MR+MkaJhU9DHGi8jRQDAaoVLSMhobGDmxT45tUWG3JoDnvNlFrOs9L3BYFxASblY5pVnzjRzJ4SQGUeVvI9jit5V4veG7eGZwzFMIJJhf53DrFC+CDhAWxjmC0cmsmc=
+Received: from DS0PR11MB6541.namprd11.prod.outlook.com (2603:10b6:8:d3::14) by
+ DS7PR11MB6126.namprd11.prod.outlook.com (2603:10b6:8:9e::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6178.23; Wed, 15 Mar 2023 11:56:16 +0000
+Received: from DS0PR11MB6541.namprd11.prod.outlook.com
+ ([fe80::df9f:c807:67be:19f1]) by DS0PR11MB6541.namprd11.prod.outlook.com
+ ([fe80::df9f:c807:67be:19f1%9]) with mapi id 15.20.6178.026; Wed, 15 Mar 2023
+ 11:56:16 +0000
+From: <Durai.ManickamKR@microchip.com>
+To: <michal.swiatkowski@linux.intel.com>
+CC: <Hari.PrasathGE@microchip.com>, <Balamanikandan.Gunasundar@microchip.com>,
+	<Manikandan.M@microchip.com>, <Varshini.Rajendran@microchip.com>,
+	<Dharma.B@microchip.com>, <Nayabbasha.Sayed@microchip.com>,
+	<Balakrishnan.S@microchip.com>, <Claudiu.Beznea@microchip.com>,
+	<Cristian.Birsan@microchip.com>, <Nicolas.Ferre@microchip.com>,
+	<davem@davemloft.net>, <linux-kernel@vger.kernel.org>, <edumazet@google.com>,
+	<kuba@kernel.org>, <richardcochran@gmail.com>, <linux@armlinux.org.uk>,
+	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <netdev@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <pabeni@redhat.com>
+Subject: Re: [PATCH 0/2] Add PTP support for sama7g5
+Thread-Topic: [PATCH 0/2] Add PTP support for sama7g5
+Thread-Index: AQHZVyOsxMscuSByuUOf3ASeldHu2q77uIEAgAADgAA=
+Date: Wed, 15 Mar 2023 11:56:15 +0000
+Message-ID: <cedc50dc-bbfa-d44c-1420-f72acba4bb81@microchip.com>
+References: <20230315095053.53969-1-durai.manickamkr@microchip.com>
+ <ZBGvbuue5e3vR8Fs@localhost.localdomain>
+In-Reply-To: <ZBGvbuue5e3vR8Fs@localhost.localdomain>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR11MB6541:EE_|DS7PR11MB6126:EE_
+x-ms-office365-filtering-correlation-id: c0653b87-0419-4bd3-3e19-08db254c47f1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: +ziSADKRfwrJEID9zpObfIMhq63PXGZ8ZAfvFuQVOWsVmABfcsGO809rer61Ros2FV/7vMBRsbUcNU1CZQbzt1HyYZoDaMV+kaMM4Y6Jj10QmvsVH7Hx282XtvNg+b2plF7FE/fovhL5oICtrfgs9FNRzUB/x29xKSAhmGrrqohOaV2v0N4mNMEulaYkMR3RZosYHU0h8c/zUHmqsw1V6Q36DkOeT6VqSzxU7eDO7YXiOns3FJ2Hni49c278Gj8hfczIAOxMEY7nt4WswhSgkO313pGuXcq6fKrkbeB3nNNLPLoeLkkb3W4pBPXgIwbkNRDmtOG3X2MKDHN1N5fH3Ixyrk+fGGJiaDDpugqz4+xeZKQnfQalsbNboBQMlT7KjFQ8b1Esw1yZblsGniP4dy0EVR1qQWSvhbwAwVVyrN/DI1fJLV3rGCTraQ00cfRnXsronPukzXdTPwrIAt7PZEBz3JTAFdZGTYgoCjaPmHRvLzV0SGN4jbZi0ktEw5idDwONPrMe6DvbhTsANsnihihaS3X1HlUYFfRO4E3zD3CkJYcCMaQBCE6h+cwf41268Km2PGVTISfBmUfmiuU5Dw2O+YWJzSrUc1UBefK+EZdybRj0/D++uWtIa88BNyFWt+X0lMXFAJD8nQ1zzLoqi6ji1xj0ce9JwrGWMfBOJ0Dj4BKACBod1tiNZsxywGhmsGOWsPk8hL4MwD0GJjkXXc6N9VvMUpY7PEAEQAgZNVwYKFW782tAGP7Ico8BKR90m0MA1OXbS9VY+wpifHsJNA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB6541.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(366004)(39860400002)(346002)(136003)(396003)(376002)(451199018)(91956017)(66446008)(66556008)(41300700001)(76116006)(66476007)(66946007)(2906002)(38100700002)(31696002)(64756008)(6916009)(31686004)(186003)(36756003)(4326008)(8676002)(7416002)(5660300002)(83380400001)(8936002)(4744005)(2616005)(53546011)(6512007)(38070700005)(478600001)(26005)(6506007)(122000001)(86362001)(54906003)(966005)(6486002)(316002)(71200400001)(138113003)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0JmWVlHZVVJejRLYTNUL3J1RWRmNGErTEVWaVB6aXJtNHZiYi82WHppNno0?=
+ =?utf-8?B?aWRvMnB2TndySmpOcVkvUmxHNU1pVzNpVlJsQWRJa2VKVjVOMDRxci9BN0Iw?=
+ =?utf-8?B?ODdUVkdrQmNhVW1LRU5YeGV0TmZkdXZBazRaM1VPRGhtSXVyR0tTMzdyZWpo?=
+ =?utf-8?B?OXdyc3RqTTRNMlgyQTRibldKWXZtNnZncEJEcXlOZmVuaGY3MkUyUUlySEJ3?=
+ =?utf-8?B?dGRHSmxwS3lTMTZwTy9odWNnR0ZOby9YRG4zYzVJT0JxcXpJZjJIc292THAx?=
+ =?utf-8?B?Z2lxejBUOEdidzJRMDUzWExmaWlleUExRUM4STdGVlZiMnQ3K3RsNWdtdmNT?=
+ =?utf-8?B?R3lPN2FDTE5KVGpjQVZXcDh4bVlKWXdyVnRqWkQ2ZkI1NU1Ba0trQlRZT1FR?=
+ =?utf-8?B?aVlLd1VzUUJ4Wld5Ni94a0RGY3JJSm5XSHhKZ055NUcvUnRLVnY5NmF6UWlQ?=
+ =?utf-8?B?c2RwQXJ1TEV3NTVYMnhmZ0tWQjFMbGt4djdxNkVLaFhSdm5ueFFNQk15VEFn?=
+ =?utf-8?B?WEc1dUtVcWd6SjZCcjVRNWxnbjlHb0JWWCt4YkJTMzN6ZUJsQkNmYk0waDdH?=
+ =?utf-8?B?NVN0cjA3TFZEbVlqZFhmSjRBTklGNTdXMTkxWHlucWRFQmJNd2h4WE5SNnFk?=
+ =?utf-8?B?Q1hyV1BLMmUyZDFleGR2ckVxc0RtUnp5MzVWYk5SRGVnZ1ppZUZpZzh6NmJ6?=
+ =?utf-8?B?NXNPQWI0aktTN2pJMlhPcjBmbmdYcWZsT29HUE1OdmplQ283VFgzVmF2cnNp?=
+ =?utf-8?B?V2JURHpGYjltMEwzRHJObWdwWnJ3Tjd1OS9OdHBlVHFSbkhva1VmdWtRTFdu?=
+ =?utf-8?B?UFVvT2JKS3hXbTh4UEVLbjZxRU82NzNPUTlQaVVKM0JCVEZHejFzL3EzQjlF?=
+ =?utf-8?B?NGxYSHJzR09mWk01cCszekJYMzRxVlJ5QTY4dTFRbCs5SDBxZG4rbXg3b09i?=
+ =?utf-8?B?NWVGVzVzcmJ2QUUyS2RrQU1janRiTmkvanFqTFUvcjJsUXB0M1JyRHFhbWph?=
+ =?utf-8?B?NWNQRk1oS3E4ZEVYWHRMc3BRN281TXpjK3ZTNThhMnNDdWRZUkwzN25zNXc2?=
+ =?utf-8?B?a0lFa1FWTVNjdW5TbS9WQnA4bS9oZU9KTWt2cjJqM1I0cVU1ZTQ5T3NKMjAr?=
+ =?utf-8?B?Yml2R2FnQW9oa0VLcWRRZ0JUc1FVdU9mdDBnSWU3K2xzbVR4UjFRSnF3STRD?=
+ =?utf-8?B?Sm1xMlR4cjhQclh1M1FHTGM0ZE0wbkxCOUhuU1c3K0RvN0wvTHpoaWxxZjh1?=
+ =?utf-8?B?Rk1qdGZUQkJubnhLSXBCczIwVGNDNktaUjNFY1lJL1NIZUJpTTNrVXlvZWh3?=
+ =?utf-8?B?Z3pQOWxPcXlQQktmWkJDKzNNaFBTNzVXSEVlMm5PeUlpSGxvNFIrNmdUSE9a?=
+ =?utf-8?B?SHZmaHphVzBIWlVPMVR1OWl0ZlpUYi81YTJCQ05nNEMzY3BNWi92OStUSDVB?=
+ =?utf-8?B?eC9Bd2s2Z2xERmhVSEdXWW9zQXVUR2lEVCtreDZYLzV3NHZuTWt0QUF4TElP?=
+ =?utf-8?B?eHJKc2lLQWM3eklSemNUN2k2YitqaDhnNkYrMWdoMjMySVFZcDZjYWhtOWVw?=
+ =?utf-8?B?R3JIeXpDdWpyVnUzb0RtMDZYSk9DQ21LbEdzeVEyZTQ2a0RwVXovSXY2R2M2?=
+ =?utf-8?B?dk9iL01IODF2dzZkSDZPTHRnME92LzNxZFcvY0owQytHaUlnQmtkRllTRTRu?=
+ =?utf-8?B?RWgrQXIzWUI3MXh2RUZMMFdKWlR1SnRoOFVBWXB4bkNhQ1BVTzIvS2J5bHor?=
+ =?utf-8?B?cmdvMDZ1UkVaRUhkVURDeHpzaDlERTFtV211M0RqZ1NPL21JWTFJUWNmaFhv?=
+ =?utf-8?B?QTNWbTlXTUU5clVpbkdyOGxIdG9iVHhsV09BUE9qR1owbTFaRExpc0d1Q0JR?=
+ =?utf-8?B?WXVrTEFrWDlVczBUL3B4cjJ5dWxEa2ZzM2pkcTdCcjNHdTZKejUzSGNMTktl?=
+ =?utf-8?B?LzZsSUhuL2xDT09Gb0JBQ3htUVZNWW14YXdNcjcwZlh1TGhMMW5YZVdUQWNx?=
+ =?utf-8?B?MWIyWUFiVVhnVzJ3bnVvOXhuYXpzUkpLWWdxaVZ5SU1TNzJnaE04TlF4aUw2?=
+ =?utf-8?B?YmxsWlR5UmtNM3hMLzdXVEtTV3BEblV3dXFFRGVqbVpqRnJYNXFoNUJhTzVa?=
+ =?utf-8?B?VkZZQ0dBQWd5VXVvdXRseGp2UjJEeHl4dUdLVHpzRDZqVDdwYjBZNUZRYWI4?=
+ =?utf-8?B?K0E9PQ==?=
+Content-ID: <3CB070819E10BD48AF07500A7A8AD377@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB6541.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0653b87-0419-4bd3-3e19-08db254c47f1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Mar 2023 11:56:15.7323
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: d54SWkfV5ADVT5dnCPIEgjwdYhfuEJ5HZ+qn/xDYN90YVccYFJoWlBEdWOaiZwodtReJYZsUPtBu1c7OKUUURCkYyFmIM46xb+X0kOe1Tco=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB6126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_044847_242793_A9A89476 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20230315_045624_320857_45D153CA 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,101 +179,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT nodes for the Rock 5B board to enable the analog
-audio support provided by the Everest Semi ES8316 codec.
+On 15/03/23 17:13, Michal Swiatkowski wrote:
+> [Some people who received this message don't often get email from michal.swiatkowski@linux.intel.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>
+> On Wed, Mar 15, 2023 at 03:20:51PM +0530, Durai Manickam KR wrote:
+>> This patch series is intended to add PTP capability to the GEM and
+>> EMAC for sama7g5.
+>>
+>> Durai Manickam KR (2):
+>>    net: macb: Add PTP support to GEM for sama7g5
+>>    net: macb: Add PTP support to EMAC for sama7g5
+>>
+>>   drivers/net/ethernet/cadence/macb_main.c | 5 +++--
+>>   1 file changed, 3 insertions(+), 2 deletions(-)
+>>
+> Reviewed-by: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+>
+> Side question, doesn't it need any software implementation? Or it is
+> already implemented, or it is only hw caps?
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- .../boot/dts/rockchip/rk3588-rock-5b.dts      | 62 +++++++++++++++++++
- 1 file changed, 62 insertions(+)
+Hi Michal,
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index 95805cb0adfa..945eac304766 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -2,6 +2,7 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
- #include "rk3588.dtsi"
- 
- / {
-@@ -25,6 +26,59 @@ vcc5v0_sys: vcc5v0-sys-regulator {
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
- 	};
-+
-+	sound {
-+		compatible = "audio-graph-card";
-+		label = "Analog";
-+
-+		widgets = "Microphone", "Mic Jack",
-+			  "Headphone", "Headphones";
-+
-+		routing = "MIC2", "Mic Jack",
-+			  "Headphones", "HPOL",
-+			  "Headphones", "HPOR";
-+
-+		dais = <&i2s0_8ch_p0>;
-+		hp-det-gpio = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_detect>;
-+	};
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+
-+	es8316: es8316@11 {
-+		compatible = "everest,es8316";
-+		reg = <0x11>;
-+		clocks = <&cru I2S0_8CH_MCLKOUT>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+
-+		port {
-+			es8316_p0_0: endpoint {
-+				remote-endpoint = <&i2s0_8ch_p0_0>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2s0_lrck
-+		     &i2s0_mclk
-+		     &i2s0_sclk
-+		     &i2s0_sdi0
-+		     &i2s0_sdo0>;
-+	status = "okay";
-+
-+	i2s0_8ch_p0: port {
-+		i2s0_8ch_p0_0: endpoint {
-+			dai-format = "i2s";
-+			mclk-fs = <256>;
-+			remote-endpoint = <&es8316_p0_0>;
-+		};
-+	};
- };
- 
- &sdhci {
-@@ -42,3 +96,11 @@ &uart2 {
- 	pinctrl-0 = <&uart2m0_xfer>;
- 	status = "okay";
- };
-+
-+&pinctrl {
-+	sound {
-+		hp_detect: hp-detect {
-+			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
--- 
-2.39.1
+It is already implemented. Here the scope is to just enable it for sama7g5.
 
+>> --
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
