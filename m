@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5D5C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 00:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31864C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 01:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	Subject:To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZQeekSxyFKCRW7bdQHjMHG3DteWFW9NybCA6fO/K2Yc=; b=R1/o78aIpVZMa/
-	sOiGPUIkepado/MvZLEe2LO5jGS9//vw3KqnpcBv5cWgK8Wq+Q8nG7bp9W86YwDX1WtKcY92tKHgu
-	fK7+vTluL8GkopIYdJZg40yaJFJ1jeSVkykeXgI83aUWuv2j3Y1jJ38mbwwDOi2C5hVLK41yGd9kJ
-	kGX+zBuWXQNBbGGJ6ftjU56bUl5mL2QRdqROJfI60c70nFKq6L6aB/Rai4AgowKx25WK8uYwPKB/6
-	faEracboOOyP6uh+BDbGNk8K1ACRpY0NJzyXNGUv19bgRkKSzCAeJGqYva3+Xmux42+AHUCsvGoTZ
-	bTMZdT4BjpoL4tooLkaw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zmJ4I1j/EcORpbK0qYRMadRILLXLC32KNoSl1a6H5A8=; b=TLNzBuZR6/Q2sL
+	t+8a4g4LlMyay4FwO1AOF5abthTHbTF8VMjWNl4Ky0n+FMMxiWVNu2FadapkR9x2zYC4bIfYpeQhI
+	hyTr8uXyoBV+NF7cBNnsDw4e6NbwKpCvvGRhL79AU5evRSFL/4vkn82viNfdrKOyVCQbqkaQIM9Cc
+	XVce9mK1i3SP3yq1Cej4h8yOuPYs8V7D+ert/xXwAJmkvCkWWHzbqSDAtUw61A/LctxXGACbR43dQ
+	c6lK2b3t/HCEzvpf5ye/ansaajPIOfWDCBvCQrDjxbjPNnbRYr6iUIWgrFwMhvzLditmBtfdO9/Yk
+	TeFyuk8aOGoTgVztn84g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcF3e-00BrUs-2d;
-	Wed, 15 Mar 2023 00:31:58 +0000
-Received: from [103.30.145.160] (helo=defaultworkshop.klidefectmanagement.com.novalocal)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcF3b-00BrUD-0I
+	id 1pcG0A-00Bxv4-07;
+	Wed, 15 Mar 2023 01:32:26 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pcG06-00Bxpz-32
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 00:31:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=asda.co.uk;
-	s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	Subject:To:From:Reply-To:Sender:Cc:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
-	List-Owner:List-Archive; bh=q78cjK9V18wO72c7vs4LdhQlmLO/5GuM6pHshjgw/Bg=; b=C
-	+SdyVsCCd4zvezK4EO0XTF66iFEaBLwdsK2zGPQHZl3kKNVv5W4QTU1U0q+MZu+bdvflkmUVreTdk
-	ldI5UA1OG1oBs5N5/TaEmiqgE0XYKz7wn8S7PlFigrN0YYnH9PzJtzpUr2Rp0kNg/VFGslUKWs37d
-	LyRzEz0PUcG+HTmA=;
-Received: from ec2-52-11-215-80.us-west-2.compute.amazonaws.com ([52.11.215.80] helo=asda.co.uk)
-	by defaultworkshop.klidefectmanagement.com.novalocal with esmtpa (Exim 4.94.2)
-	(envelope-from <sales1@asda.co.uk>)
-	id 1pblz2-00066e-Io
-	for linux-riscv@lists.infradead.org; Tue, 14 Mar 2023 00:29:17 +0700
-From: ASDA Stores Limited <sales1@asda.co.uk>
-To: linux-riscv@lists.infradead.org
-Subject: First quarter procurement order/enquiry
-Date: 13 Mar 2023 17:29:15 +0000
-Message-ID: <20230313152049.DE0D26EF80F265FB@asda.co.uk>
+	Wed, 15 Mar 2023 01:32:24 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E384F24E2A5;
+	Wed, 15 Mar 2023 09:31:42 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
+ 2023 09:31:42 +0800
+Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Mar
+ 2023 09:31:41 +0800
+Message-ID: <51102144-1533-d2f7-5fde-e01160a6f49e@starfivetech.com>
+Date: Wed, 15 Mar 2023 09:31:39 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v6 0/8] Add Ethernet driver for StarFive JH7110 SoC
+Content-Language: en-US
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
+ Abeni" <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Richard Cochran <richardcochran@gmail.com>, Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis
+	<pgwipeout@gmail.com>, Yanhong Wang <yanhong.wang@starfivetech.com>
+References: <20230313034645.5469-1-samin.guo@starfivetech.com>
+ <20230313173330.797bf8e7@kernel.org>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <20230313173330.797bf8e7@kernel.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230314_173155_134113_2CAD83F5 
-X-CRM114-Status: UNSURE (  -0.86  )
+X-CRM114-CacheID: sfid-20230314_183223_186411_499E8A71 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -62,34 +77,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: sales@asda-c.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dear linux-riscv
-I'm a procurement manager  with ASDA Group (the owners of ASDA 
-Stores) and your company product has caught our interest. 
-Therefore, we request you send
-list and prices of your hot selling items (products) for our 
-evaluation/pick.
+Re: [PATCH v6 0/8] Add Ethernet driver for StarFive JH7110 SoC
+From: Jakub Kicinski <kuba@kernel.org>
+to: Samin Guo <samin.guo@starfivetech.com>
+data: 2023/3/14
 
-Soon as we receive your reply, we shall send you our company 
-profile and buying proposal. You can also check our website below 
-for detailed info of our purchase area and trading capacity.
+> On Mon, 13 Mar 2023 11:46:37 +0800 Samin Guo wrote:
+>> This series adds ethernet support for the StarFive JH7110 RISC-V SoC.
+>> The series includes MAC driver. The MAC version is dwmac-5.20 (from
+>> Synopsys DesignWare). For more information and support, you can visit
+>> RVspace wiki[1].
+> 
+> I'm guessing the first 6 patches need to go via networking and patches
+> 7 and 8 via riscv trees? Please repost those separately, otherwise
+> the series won't apply and relevant CIs can't run on it.
 
-Your immediate response E-mail:  sales@asda-c.com   shall be 
-appreciated.
+Hi Jakub,
 
-Best Wishes
+	Thanks a lot, I will repost those separately.
 
-Ms Stelle Montgomery
-Purchasing Dept.
-ASDA Stores Limited
-Tel:  +44 7418367220
-WhatsApp: + 44-7502985874
-Website: www.asda.com
+Best regards,
+Samin
 
 _______________________________________________
 linux-riscv mailing list
