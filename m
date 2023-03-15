@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8040C7618B
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 09:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E63C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 09:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8HCJfIefjzPHbI2VDC0KSRoy3ZfNXZtBjSe9eCkEDhs=; b=KajW1Zv7gVkz7a
-	E9kfPIfUf1jrUofXfH/p76cp0ch0b7XLQ4NcVuZmp7OOUMcF1IXCWUsqe0aVWWG5S5rPlev4HDrro
-	SXtnR7FR/DpBO9Ik5Qss2lNlLZk2dc3P+mOR5Wt2uj0oIa4BHbDHO76IXFuIS0Qv2v5w94P2imxYk
-	ffD2LLrrk8dHJA1wzkIpJn3z7z4vAICnnjX9L40Hr/rI5aTPbix9gdl6Xl/xm58RuGCYPL3xjw+jL
-	69scrNbp+RYahCHauv19GMZ7CVw9jlOarsuzEFLpJ1efxV88ehJRmO8+pNW2rnYFskgRAf0MXsDmx
-	Wk9cVKJcwZPTn6vx36Kw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qE5B6yj8mCnmpb7ONrBemI9xupkz2K9Qr0cydpICpKw=; b=wGLjlofucOLWPk
+	zbf0WTKI2KDFeP1HbaXueMMarYbafFAjvSCJjEIyXKPalADfsllQfAOCOZ0z2b0ZwLxMjygbBJ8cH
+	IpNDg7skZSOUwMlzdu1Zvjw6ffbEcZb3KXp8/MYXU5urECs8RmPXD/XXs0ZrCchIrk+orhbiCK8Eq
+	ZSvvcgiJFkbGZH8MDdHIgwUdGjqKiy+G0WVx3WnBY/3leQXYDAchm3YSYfSOZf5JJvKTQlB6ZAdQv
+	2b5/qLavHywwQWHCZcAKgFX+27/e1b1R6OxyVgBKlmYxUFWDmZvYcMsgzvwE0RxN/D5kwyJHgr4zP
+	dzhJnwmy751GOg2aO4JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcNmw-00CzFR-12;
-	Wed, 15 Mar 2023 09:51:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pcNn4-00CzHG-0F;
+	Wed, 15 Mar 2023 09:51:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcNms-00CzDr-2T
+	id 1pcNmz-00CzFt-0B
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 09:51:17 +0000
+	Wed, 15 Mar 2023 09:51:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1678873874; x=1710409874;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Pmenu2GVkhSBQ5X5KgWqeKvBL7nngYZy4hgpQatRc4k=;
-  b=JkbzlP+HKJdjL5BqipVTpE3er+8cQ9dt2TmdhsyefiGSVyqIEG3F2d0Z
-   zQPJfS2wVgifVmnpUY36QACELqD7AMPvxVPJ1pKXGYjI2JD30NqiustJn
-   DbQz5CStBW34d2br5Fx0r8GKNzNdvPXyXQ9KBuCcaMz1vHPSnMGoFtTkc
-   ZnluofoWkqL2vhIcOSfbahju5enL1Zwlij50KMt6K2NdJejaQfcOkaiyA
-   CYLBCngMqT5WBtX8J1OyPf1ZNx/Tz/m5fe+QjlupavPm0gtUll9yjFdiX
-   Twgtvccy3sL2Q8EoNPAh3tfiAMzdmO0uf0fVlla/pmXPWVbwagIlnjkTT
-   Q==;
+  t=1678873881; x=1710409881;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=nfbCz9FTpMLY06ZI7/EfisAD7xlhHf8Ry0R/DcJAXtY=;
+  b=uzNXKAH6cj1F+PAKejRi84YMuPXjI61L9G+hPPm6ejVYsphoyByEELrP
+   7uZHca1D5XtnUWVjW5m8eB+OeSZ+5AitXBSs0fI7N5xxaKHw67BsCy7bD
+   hK6X7NWJ2n1OUia4ChKI1AjVfsdGjKU/7A26gT1wRw+HbiJzFFmrn0jFA
+   yWMxzBNzIH+FbZuuzYEfMYMYBk3BT3rhnSrPK/UkJlwGasxq1VsfsgPuL
+   o8MFCuUBi9ot9rK5qCGdfTa+yO6H50Uckv3C0Qj37S0HTklNv8OtqAp6F
+   4doDH/RoLJMKpnpfL1+ReGrSZqwdxVCuZGmD3A7SZL9wsmpT828J+ZHD6
+   A==;
 X-IronPort-AV: E=Sophos;i="5.98,262,1673938800"; 
-   d="scan'208";a="205492233"
+   d="scan'208";a="204854133"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Mar 2023 02:51:10 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Mar 2023 02:51:18 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 15 Mar 2023 02:51:08 -0700
+ 15.1.2507.21; Wed, 15 Mar 2023 02:51:17 -0700
 Received: from che-lt-i66125lx.microchip.com (10.10.115.15) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Wed, 15 Mar 2023 02:51:01 -0700
+ 15.1.2507.21 via Frontend Transport; Wed, 15 Mar 2023 02:51:10 -0700
 From: Durai Manickam KR <durai.manickamkr@microchip.com>
 To: <Hari.PrasathGE@microchip.com>, <balamanikandan.gunasundar@microchip.com>,
 	<manikandan.m@microchip.com>, <varshini.rajendran@microchip.com>,
@@ -62,14 +62,16 @@ To: <Hari.PrasathGE@microchip.com>, <balamanikandan.gunasundar@microchip.com>,
 	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <netdev@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <pabeni@redhat.com>
 CC: Durai Manickam KR <durai.manickamkr@microchip.com>
-Subject: [PATCH 0/2] Add PTP support for sama7g5
-Date: Wed, 15 Mar 2023 15:20:51 +0530
-Message-ID: <20230315095053.53969-1-durai.manickamkr@microchip.com>
+Subject: [PATCH 1/2] net: macb: Add PTP support to GEM for sama7g5
+Date: Wed, 15 Mar 2023 15:20:52 +0530
+Message-ID: <20230315095053.53969-2-durai.manickamkr@microchip.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230315095053.53969-1-durai.manickamkr@microchip.com>
+References: <20230315095053.53969-1-durai.manickamkr@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_025114_872326_DFD16567 
-X-CRM114-Status: UNSURE (   5.66  )
+X-CRM114-CacheID: sfid-20230315_025121_099089_208EC1C4 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,16 +89,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series is intended to add PTP capability to the GEM and 
-EMAC for sama7g5.
+Add PTP capability to the Gigabit Ethernet MAC.
 
-Durai Manickam KR (2):
-  net: macb: Add PTP support to GEM for sama7g5
-  net: macb: Add PTP support to EMAC for sama7g5
+Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+---
+ drivers/net/ethernet/cadence/macb_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- drivers/net/ethernet/cadence/macb_main.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 6e141a8bbf43..27fc6c903d25 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4844,7 +4844,7 @@ static const struct macb_config mpfs_config = {
+ 
+ static const struct macb_config sama7g5_gem_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
+-		MACB_CAPS_MIIONRGMII,
++		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP,
+ 	.dma_burst_length = 16,
+ 	.clk_init = macb_clk_init,
+ 	.init = macb_init,
 -- 
 2.25.1
 
