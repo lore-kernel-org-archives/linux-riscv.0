@@ -4,58 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5C0C7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 05:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52480C7618D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 05:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KjqVdD98b2EE0Xk2BFdNR0XukkRVFE8eQJhr4Z3oPn0=; b=k2+IX5dgmxy2vN
-	cdttjPQcmIGfdQzm3r/4jRSTfumQJ27PbJxJW8yGXJhRDbNZdN2w0Ng+pQQifsbhqzTr5AZeUNMMW
-	OKAw0XtqgZ1OxqY+LxeA44rZ8SPOso/sTzpdJdnyg/qyHgQr7pFqcaYxlP4EZfkrZhwxcAtFh4wTo
-	B1vB613CSCT2N+r6ekz+J4Z7LKj/aoeKqEcVYdXy53hG5oxR70rxXTbAjL6sdfLE8pS9LbX6veNZB
-	iIW1fzlTHG+Cdk76L5rXbFuJRCGY36bQ5f7OZLsiA4ERlb+QmA1fo/KrO1+DKr2svN3cHDd8OO2P9
-	Ufm0MVBoLjXBl2XsjXyw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U1VkaupWouxUsIIPPGzKBV/wi+dVzbgRgIBUbURGO50=; b=TltRrnjMVNr4Bh
+	cVxXP0KMtpk88cHNw7ZK+JQgs9V1wRGB2T/Q2NZWh8fUG5sNzpo0x8hedUt4FEtEV04aQHmXXaiXe
+	cgwrzlLapUmayE2itMdCcSwYpWsdF6gnimpVljV8MCXvEBKhphg8hs92PPXmvOdr76szduZQb78wa
+	E8fioiJ0HFbCcx7+WCZF4dVd1XIQ5Ce4VzJChcZf8DLQt85FheKAJS8ERn22LifIXqfZzWb1jUIdA
+	30DKpaolK5Sq19Yh5cyAWKS8oSEA7/q48PU1DV/jZPs7Im7ljgK7umcSRcJmNTtmHs7Hdet1wQDuE
+	FTUhlRTz2lKRlSFMFKqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcJTR-00CMAd-0w;
-	Wed, 15 Mar 2023 05:14:53 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pcJUw-00CNKC-2x;
+	Wed, 15 Mar 2023 05:16:26 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcJTP-00CM9U-1R
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 15 Mar 2023 05:14:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=38B1+LejdXOH6t72uoRMfRzsT0ieNPnJ8TZi4WwwYkA=; b=YSru/PFci3y3bCGvb/huM4Bus8
-	xg7e8+jo7m6B1eY/kE0HJW0YZ/jpoBBuU9KeOSdWhZ42Zi7JLSm5tEG6aFOLKQkrpXpupQ2fGhm9U
-	pA96HH6Qhxyy4UbB7cdqndmz5bxU3sgj/DfTeLck48vJE/qvEtpNw1fzrrcDSKvztNXKOGiTsqjdf
-	Pfs+hzfnE/S3roSZw6GVOLjmPUCfX2mjmWfM3nzUnJyygzCWp5P9JSgqk1wcDQ8/m2IyXv5lHjuoJ
-	GYoNBiPiS74kGZX5/SYXTFhGv1U9PV0fzL88fcYpy6vK6ydgySUupqbQjzCwu1UhkncUr1iorqjao
-	kUVFBJxw==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pcJTM-00DYCR-RM; Wed, 15 Mar 2023 05:14:48 +0000
-From: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-To: linux-arch@vger.kernel.org
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	id 1pcJUI-00CMpZ-2N
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Mar 2023 05:15:48 +0000
+Received: by mail-pg1-x535.google.com with SMTP id d10so10115140pgt.12
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Mar 2023 22:15:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1678857345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=85u2mP267MsDWaYI2anR0VTKt7dL+xKQUjJLVotEHs4=;
+        b=gBap95uEBpqian2RBARTrUhbt/kKcSUXiSo5c7Duq2LsgHsJd7sdPPRFiFg1axqEcx
+         LCEFgPx4s/l6A65imFaWZtjeJ9PYLAon3RKjoOlwq50YBEm/FikgnG8vlR6/pgNyWaVm
+         iUN0iCRDvqZzEzTi215AXkU5Fxb833GIShXRKYfuOxbeaLqRanNK5+oUDbdpif7kdJ+j
+         +/cPDEjjw3PAjywDo0XsFGrDw+DOyzfVWoJfaBf9LtEA13/OQSUQF9Usn6szyjPME+L/
+         UcdSXy/53dTBtT/b6TWWxp/bKilr/mflre5QrDHlMp8h885ORIa5iS0l1bJMOCQkRi9K
+         aFGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1678857345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=85u2mP267MsDWaYI2anR0VTKt7dL+xKQUjJLVotEHs4=;
+        b=eWMdQQLOyqHphdIxmy/cqHHtQRvH6z9ylZ+vcF8s1cQwwCNAyqaPlAPuHc5K1PeQeb
+         Lqr7dxjHpCuIno+/Pp5tkqlI1dTwUlVrw1EL5xPQBS4Dq+KFVJ1pSkKtSDuCD8d5F9JO
+         pTbmsDdNxJDZPgLgUdFQjcAze8ENMadt8DzTD/qR/oU14HC+NjKQAeKaYQ2UGpre0xEZ
+         bksHAp/2oqEyouoa7wEEYCR0wUtLYu2mKl92jRP8c0vczNWTteuyHVIOJ6iHMy7/QVJk
+         TEP0fW4bdFzTRpI59iSS3EIYeSpXBhnJE5WV/o5GxjdctN6ZXuflTZEOHk2c5ZD3sZWS
+         A6fA==
+X-Gm-Message-State: AO0yUKVUeSbSQjH5W6cQH8hs869D9ogBadhMGSyLO7ybbVZYdUFR0q+O
+	ZibU7Fv+L0bJM+sFMSABA94=
+X-Google-Smtp-Source: AK7set/qpV14jNC8aoJAxGYlBsaChSOHlujZd1EeVD7OBA4G2dFhCb+/fwJ/AIoqn083Mq9weK9KRQ==
+X-Received: by 2002:a62:3814:0:b0:623:c7ff:46c8 with SMTP id f20-20020a623814000000b00623c7ff46c8mr10052331pfa.1.1678857345006;
+        Tue, 14 Mar 2023 22:15:45 -0700 (PDT)
+Received: from kim-GL702ZC.. ([118.32.98.101])
+        by smtp.gmail.com with ESMTPSA id z64-20020a636543000000b004e28be19d1csm2442903pgb.32.2023.03.14.22.15.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Mar 2023 22:15:44 -0700 (PDT)
+From: Paran Lee <p4ranlee@gmail.com>
+To: Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 21/36] riscv: Implement the new page table range API
-Date: Wed, 15 Mar 2023 05:14:29 +0000
-Message-Id: <20230315051444.3229621-22-willy@infradead.org>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20230315051444.3229621-1-willy@infradead.org>
-References: <20230315051444.3229621-1-willy@infradead.org>
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Cc: Anton Blanchard <anton@ozlabs.org>,
+	Daniel Axtens <dja@axtens.net>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Paran Lee <p4ranlee@gmail.com>
+Subject: [PATCH v2] perf tools riscv: Add support for riscv lookup_binutils_path
+Date: Wed, 15 Mar 2023 14:15:01 +0900
+Message-Id: <20230315051500.13064-1-p4ranlee@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230314_221547_088722_A0CD9A43 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,134 +101,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-Change the PG_dcache_clean flag from being per-page to per-folio.
+Add RISC-V binutils path on lookup triplets.
 
-Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Paran Lee <p4ranlee@gmail.com>
 ---
- arch/riscv/include/asm/cacheflush.h | 19 +++++++++----------
- arch/riscv/include/asm/pgtable.h    | 26 +++++++++++++++++++-------
- arch/riscv/mm/cacheflush.c          | 11 ++---------
- 3 files changed, 30 insertions(+), 26 deletions(-)
+ tools/perf/arch/common.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 03e3b95ae6da..10e5e96f09b5 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
+diff --git a/tools/perf/arch/common.c b/tools/perf/arch/common.c
+index 59dd875fd5e4..e80d4d22cabf 100644
+--- a/tools/perf/arch/common.c
++++ b/tools/perf/arch/common.c
+@@ -43,6 +43,20 @@ const char *const powerpc_triplets[] = {
+ 	NULL
+ };
  
- #define PG_dcache_clean PG_arch_1
- 
--static inline void flush_dcache_page(struct page *page)
-+static inline void flush_dcache_folio(struct folio *folio)
- {
--	/*
--	 * HugeTLB pages are always fully mapped and only head page will be
--	 * set PG_dcache_clean (see comments in flush_icache_pte()).
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (test_bit(PG_dcache_clean, &page->flags))
--		clear_bit(PG_dcache_clean, &page->flags);
-+	if (test_bit(PG_dcache_clean, &folio->flags))
-+		clear_bit(PG_dcache_clean, &folio->flags);
- }
-+#define flush_dcache_folio flush_dcache_folio
- #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
- 
-+static inline void flush_dcache_page(struct page *page)
-+{
-+	flush_dcache_folio(page_folio(page));
-+}
++const char *const riscv32_triplets[] = {
++	"riscv32-unknown-linux-gnu-",
++	"riscv32-linux-android-",
++	"riscv32-linux-gnu-",
++	NULL
++};
 +
- /*
-  * RISC-V doesn't have an instruction to flush parts of the instruction cache,
-  * so instead we just flush the whole thing.
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index b516f3b59616..b077bc8c498c 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -405,8 +405,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- 
- 
- /* Commit new configuration to MMU hardware */
--static inline void update_mmu_cache(struct vm_area_struct *vma,
--	unsigned long address, pte_t *ptep)
-+static inline void update_mmu_cache_range(struct vm_area_struct *vma,
-+		unsigned long address, pte_t *ptep, unsigned int nr)
- {
- 	/*
- 	 * The kernel assumes that TLBs don't cache invalid entries, but
-@@ -415,8 +415,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
--	local_flush_tlb_page(address);
-+	while (nr--)
-+		local_flush_tlb_page(address + nr * PAGE_SIZE);
- }
-+#define update_mmu_cache(vma, addr, ptep) \
-+	update_mmu_cache_range(vma, addr, ptep, 1)
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb update_mmu_cache
-@@ -456,12 +459,21 @@ static inline void __set_pte_at(struct mm_struct *mm,
- 	set_pte(ptep, pteval);
- }
- 
--static inline void set_pte_at(struct mm_struct *mm,
--	unsigned long addr, pte_t *ptep, pte_t pteval)
-+static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-+		pte_t *ptep, pte_t pteval, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
--	__set_pte_at(mm, addr, ptep, pteval);
-+	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
++const char *const riscv64_triplets[] = {
++	"riscv64-unknown-linux-gnu-",
++	"riscv64-linux-android-",
++	"riscv64-linux-gnu-",
++	NULL
++};
 +
-+	for (;;) {
-+		__set_pte_at(mm, addr, ptep, pteval);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-+	}
- }
-+#define set_ptes set_ptes
- 
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index fcd6145fbead..e36a851e5788 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -81,16 +81,9 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- #ifdef CONFIG_MMU
- void flush_icache_pte(pte_t pte)
- {
--	struct page *page = pte_page(pte);
-+	struct folio *folio = page_folio(pte_page(pte));
- 
--	/*
--	 * HugeTLB pages are always fully mapped, so only setting head page's
--	 * PG_dcache_clean flag is enough.
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (!test_bit(PG_dcache_clean, &page->flags)) {
-+	if (!test_bit(PG_dcache_clean, &folio->flags)) {
- 		flush_icache_all();
- 		set_bit(PG_dcache_clean, &page->flags);
- 	}
+ const char *const s390_triplets[] = {
+ 	"s390-ibm-linux-",
+ 	"s390x-linux-gnu-",
+@@ -166,6 +180,10 @@ static int perf_env__lookup_binutils_path(struct perf_env *env,
+ 		path_list = arm64_triplets;
+ 	else if (!strcmp(arch, "powerpc"))
+ 		path_list = powerpc_triplets;
++	else if (!strcmp(arch, "riscv32"))
++		path_list = riscv32_triplets;
++	else if (!strcmp(arch, "riscv64"))
++		path_list = riscv64_triplets;
+ 	else if (!strcmp(arch, "sh"))
+ 		path_list = sh_triplets;
+ 	else if (!strcmp(arch, "s390"))
 -- 
-2.39.2
+2.34.1
 
 
 _______________________________________________
