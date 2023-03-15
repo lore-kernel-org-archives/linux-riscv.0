@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E71CC61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 14:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112D9C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Mar 2023 14:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pRJrd9lQnmw/4fCouqTwOvkCKHps/StHTIZO2dzOSvc=; b=nNAGSREWUUtlp0
-	2pPqOW6KmC3IbkJHFGNS16dmMURrUkhIxDAaBj8pIVF/O8MmkWkOaJm/flt4MEEGKvYYjEHpNx/OC
-	p5KeQvEdo0Um42oMHqkqGCfTdtYV8Yw8vSNTvU6ukTZhKAYVlfN+JzcEe0mzRwWl0y0TrCXPn+CMJ
-	SAs4pBTV40odzRxQhu5z6Vt7ntmZu7WxDUljecwqvVbXA0/uigTG9gC3g733lsreQdDP5R5354xDc
-	Wa2qFHZGfiUQXY/rdOYATZbgQw1KRTnomnGN6N9U78LGQCJ/eypjr7zjO9OClaZD/4ezgNuqR8oKP
-	DvwTc9g8Yk9CfaBbQAtw==;
+	List-Owner; bh=FDf4c7LLJUy55McjyNs9vfkwOLRTgCyG7czgTPzuNOA=; b=CLX2DL9vMM5vWq
+	NHQuB8M+6tjU6yPbIuqmGfWFf/Zf2zMoUucRHojA6o9EePJZkCUonhrbXt4/nYQDc6SXZBXCGql10
+	msilmnA3SKAk6gLA/2m9M9ZPTPcaaM/RvP2MHsXxhELP1Z3XtcK7X4AeApLby2Lut+8Rv2YgXdSwq
+	SFLpryUFIJLYDJ7ONiD9tWH0YPq4wY5CDpjT6c0Ucg+XMwsaU7aKuQGXL0abBAL16fCVsmvNvQVbM
+	/d91l+VTBvjpG22E4QFJrG/5T8vQvQts7YL1aF0IWziLZJxIQIkDpzepIitpAgr/2g5TzQv5lCBf4
+	y1S0Pw7kH2cZMbcrbEGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcS8c-00DcV1-0a;
-	Wed, 15 Mar 2023 14:29:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pcSPc-00DeRh-06;
+	Wed, 15 Mar 2023 14:47:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcS8Z-00DcUF-2V
+	id 1pcSPY-00DeQc-2X
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Mar 2023 14:29:57 +0000
+	Wed, 15 Mar 2023 14:47:30 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 393C661DA9;
-	Wed, 15 Mar 2023 14:29:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EF23C433EF;
-	Wed, 15 Mar 2023 14:29:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3BD2261B69;
+	Wed, 15 Mar 2023 14:47:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89254C433EF;
+	Wed, 15 Mar 2023 14:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678890594;
-	bh=yeoozDGy68VvFH5vyT1Uvv1fHYGrzFSj4yfihcifBiM=;
+	s=k20201202; t=1678891647;
+	bh=lefKxRIeaGhuG7GUHWIQ/1o0mLMrDt/fqv6cpg9LV/Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=utJE/6cMb3JgVNikhj5KXIVkJUVGjnQTuG5xH5dZmoxVyKAdcIy/hSqgcp1/aYN2M
-	 kxWJIxUnljOpD9g4okXeDazyiP0QDyQAuXCmt6vC1++rJXFVn2xPRn0HZHk1CzIH4N
-	 I1th88B3Y8nlpEo2gQtMDfzDqcn81ylGhBfeB9970RHbhD1lRaPgOcEZ0HYK7i2S1+
-	 uQytbzX+AcsZiIjGqgkUaoaYV6jJiC5BMkMSNO1ngbH98gDnNfB35nJ1Ccz9pJWXXA
-	 EFjByt3yNEdc0yPnspX2BaOQC5YQdxRI4d1PPZVuXZNPY33tH/y6zNAofnij49a8ri
-	 e3av8CUdEUKhg==
+	b=CRLDEUN/X2boEfYR46FSDwWfs8JqxYFPBma7wmQfoBCbxKO51hK2eXUmhCte9JvnC
+	 D04X9yWNgzc2HoQQLkZpNHOF6Wp6rUnjo0q38dh2CKtUFhflp1LOGZnzPaNcnW89Uc
+	 Nsrsmmmo3Vq6Mo4UDge4yzz15FqRugcn+jpa5xpFhYTpGkSJkK68b/Rezl2E6MEJUY
+	 86M8XkJnuK3HuLL28uRBB0mLQ08KMRu6EYEQVC2GxNAEZbw9t/52kcpQjn2hz93HeD
+	 y1ISIYV9lYGWIXSwawWH0MskB764MhtkklqZNuHAH0PrTsdQFWC9oH1LwAGHqTIe7h
+	 UshstWDmuKhyw==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org,
-	Jesse Taube <mr.bossman075@gmail.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jesse Taube <Mr.Bossman075@gmail.com>,
-	Damien Le Moal <damien.lemoal@wdc.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v1] RISCV: CANAAN: Make K210_SYSCTL depend on CLK_K210
-Date: Wed, 15 Mar 2023 14:29:31 +0000
-Message-Id: <167889030701.90562.14045600493618249277.b4-ty@microchip.com>
+	Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	dare.mcnamara@microchip.com
+Subject: Re: [PATCH] riscv: dts: microchip: fix the mpfs' mailbox regs
+Date: Wed, 15 Mar 2023 14:47:23 +0000
+Message-Id: <167889162484.100936.7931674547067067350.b4-ty@microchip.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230314211030.3953195-1-Mr.Bossman075@gmail.com>
-References: <20230314211030.3953195-1-Mr.Bossman075@gmail.com>
+In-Reply-To: <20230307211053.1777066-1-conor@kernel.org>
+References: <20230307211053.1777066-1-conor@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=538; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=6lWFOE6LTt1oRZCLjVCboDlTzeAL/GgThgDMSLLR1N8=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmC1zy2XghyrlbTZ4+vWbPxrvOPtxrfA/6n9GbVVywRn GgRVvG3o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABN5c5+R4XgFf83F+cVr2S2i thqfnRP48bnsCbtWNSZ2e9V988oifBkZPnD90TKKuhx97VsHy/3YXdPTAm/8/P30vsPbB+9CrzT fYgcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=567; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vRIZJFUXhglgCIy45QMD/9OfFH8Sr2pjdz1s85mqUZw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmCt6pOJigUxt1KOft4L+eLbwvjJDXaf/Q4rdw2IztSu bTgem58RykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYycyojQ5e0+7nJ/XUh06S/ +osuT+0WvupvEVs/q/7hBFb2PbfF+Bj+x2vJa03LXnNDNCv88vO1YQbNIkICRcWJjwJrm7QP8Jj xAwA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_072955_923798_B9036290 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20230315_074728_888680_DDE9540E 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,23 +80,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-On Tue, 14 Mar 2023 17:10:30 -0400, Jesse Taube wrote:
-> CLK_K210 is no longer a dependency of SOC_CANAAN,
-> but K210_SYSCTL depends on CLK_K210. This patch makes K210_SYSCTL
-> depend on CLK_K210. Also fix whitespace errors.
+On Tue, 07 Mar 2023 21:10:54 +0000, Conor Dooley wrote:
+> The mailbox on PolarFire SoC should really have three reg properties,
+> not two. Without splitting into three sections, the system controller's
+> QSPI cannot be accessed as it sits inside the current first range. The
+> driver & binding have been adapted to account for both two & three
+> ranges, so fix the dts too.
 > 
 > 
+> [...]
 
-Applied to riscv-soc-for-next, thanks!
+Applied to riscv-dt-for-next, thanks!
 
-[1/1] soc: canaan: Make K210_SYSCTL depend on CLK_K210
-      https://git.kernel.org/conor/c/49f965b6fbca63904d7397ce96066fa992f401a3
+[1/1] riscv: dts: microchip: fix the mpfs' mailbox regs
+      https://git.kernel.org/conor/c/e77da13b8e36
 
-I dropped the common clk dependency down onto its own line & tweaked
-the $subject a wee bit.
-
-Thanks for the patch!
-
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
