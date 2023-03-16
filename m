@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD451C7618B
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 16:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1A5C7618E
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 16:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ol1a8kK5inyXyZ9uaw48M8SdLgyx8q4zu8WHQkAt8qA=; b=GtARq+braM/Q/p
-	LnsjTeeg8LS5dA2MSDMQAq4eTNVXm5jYFYjErnagiL6GSk2tpg4I4wLlJqqbWY/keqRWNOxNShylx
-	4SwmECBDLKjqPjWWq3MJeUI0nQCNmq0saS4+dqR2gXzbcEj3ya9rHhMOWI0qkRWvIaMAK4YHjDRp0
-	Dd7Qk/Ip/sjviYNx+kOLoSNvbK3LKARvncvU+vkOFqLHCD+2TPtQY9mdqx798jOYxmgtVD61DmuTj
-	ZOOuQWZkirOw7FKG0j37BqReq9PYL+g295eY035pSMDQE8vYPku6gud25YmWMw58m1S6wUaW/pUEc
-	GRvOlMM+PxJyFQW5O9vA==;
+	List-Owner; bh=Ol1a8kK5inyXyZ9uaw48M8SdLgyx8q4zu8WHQkAt8qA=; b=bmfzoOkzIcn4Nw
+	rCQtji+ZI2ghQEitsYUbAEEr4c6Yucxlvyvm8yy82y6N7/PVg5FheIJq4Vld3UlTEmPA7SdGjpCWq
+	A8pFQ5WKImRo0FcS5BysH+gBAbho8GXShYwSVgftUwGy+gSh42qVC7v63YCdC4XK6hKv9H3UEq4DQ
+	HMMRP9m+/KuBuwX/+SPjSquW3uDlHI7EC79ADiD051V1X3YoQq1DS79mDlm6ZZGfbZNsuRD63rqM7
+	PR517laSIGwUBgPO8qbJi4A8nqSop0FPvLb+DrZfy/uLB1TbV7fg4+6BJBJ2yVASx2UuOrPrtCM79
+	E/x3NITPO4xFBAHt1bRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcqYM-00H11s-29;
-	Thu, 16 Mar 2023 16:34:10 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pcqYT-00H13l-1D;
+	Thu, 16 Mar 2023 16:34:17 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcqYJ-00H10X-0p
+	id 1pcqYQ-00H12c-1w
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Mar 2023 16:34:08 +0000
+	Thu, 16 Mar 2023 16:34:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id DD8CEB8228B;
-	Thu, 16 Mar 2023 16:34:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3705C4339B;
-	Thu, 16 Mar 2023 16:34:03 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 1B466B8228A;
+	Thu, 16 Mar 2023 16:34:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6D8EC433EF;
+	Thu, 16 Mar 2023 16:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1678984444;
+	s=k20201202; t=1678984451;
 	bh=mjOBt0hwl4VEkVOuBgR29W11lOITYRPWxwYwBi1U/4k=;
 	h=From:To:Cc:Subject:Date:From;
-	b=mpB+v9xV2onT9ZJifAlIGtBhPxPVfsEhCKD8saj9ByY69qDjoom5RO+QsBFq1BwA6
-	 XGIIBraJg4flfWdIoj9+2eI29P4kalc0BH4Cpvx+w3hYsz+ZXE0J7iyfZQi+NXg0lq
-	 EAVxbbe+YsrOC1b7QzMN4ni8zIw+pThOahEb9MlE3LG/H28dlcB6cYYCV16PsXoUYH
-	 2j4lPL4G1plw0aV+CsMO/K0RQ+1jrX4YpSCgnzqzYzgMdblqxt5YmtIi06ZEXklX6T
-	 jcrWhZmhg7oszgF1aoFVjzO4qNDrSuvDKNXz8tOXsBvu5P1/837lv6q3pDhsAAYCma
-	 GoX1N5UXkkqrA==
+	b=qbP9OtpNLzHBOyBlVvUQ320dSOpLLB9sl4zPFEqBnIBGKtEBkosLkF3kxkNsaSHZd
+	 drxrdWB+9eRYYViNp4mqcBnVY+bjdyFMwxyBalks6+mdqRc2b7mM8w1wVjrm5JjTDI
+	 mvISxVDlwREFt9HkYxMrQYcv0pBZr1SI0egb9LFQYiVGpWvbjr39ZZyiWr5MJX8ZnC
+	 anNfQu7Y01pvsA1uWn6TQDlSHGuUmRHvtkN+0rpus8OSqd9DJw1K7Rnvj0/Q4cMR6S
+	 3jTl/BKekVQxKe8yCNwZWrZLgJpkPHIDJps4cb6IvXIvSwmxCD/NjHby+LfU1uo09a
+	 xJsD2LQhv8HIg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,15 +55,15 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10] riscv: Bump COMMAND_LINE_SIZE value to 1024
-Date: Thu, 16 Mar 2023 12:33:57 -0400
-Message-Id: <20230316163401.708994-1-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4] riscv: Bump COMMAND_LINE_SIZE value to 1024
+Date: Thu, 16 Mar 2023 12:34:05 -0400
+Message-Id: <20230316163408.709028-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230316_093407_442136_86656F34 
+X-CRM114-CacheID: sfid-20230316_093414_780324_B0E366B1 
 X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
