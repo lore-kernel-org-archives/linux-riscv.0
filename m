@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF60C7618D
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 03:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EE5C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 03:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XhCHfW/+z3YlGDJ309PS7LGjaldKxGtcdiuHXWfPDuY=; b=e1iv4SgXjFLdMC
-	A3T79daxvYujj4x4UAZC6LgvcDW5u/2WFP2DkAURSPLaiwzVA7o82TYpXETVKUKoCJphlDq4VyFgm
-	hVfnvOd4+S7aa404GbfmFhPdwrBpx0HDEhgqnx9jUPxzOgK9WYvs/yfGFISvEGgCzJJYvuk91OJcS
-	bN+jdtUa7hmy8y4fjjEsIac1tR2IXZegx8id08tnUGaqobAkjo9r1akHfhuV/efq59X3tGqw2dP8X
-	PW4jhA9NkaSB8wEA3NdMfz8M4MS7elB5JLGek28vXHNUWykPhLA/RU16ebD+48gu1L0iHKDy84rc1
-	PU5wSEEq1Gt0eGyzq5SQ==;
+	List-Owner; bh=IS+MoqT34CTCOdMPObua0PvF0DcUUfSJXL0Z/FaJiiM=; b=o5hduQxcBqDIXF
+	kvXTHNvIEezIzeuA3YfLCnNzcF2H3ncA5T56dqTvqBnnVlZAApbZAAW6iAWi4IwUX/x2RVi+TY3uB
+	eRVKK/tO2fZSHoPn+Ef9BJGXC9tyt/+l+r0kmczCfNUrsvtMo3S+kHN6FAS/ZNgYiXvZ26/jJ5Joh
+	ZyqDkOL6/Sop8ds/ywyc0immTYB9nCDCHFEIJSCwvX0nJRMlu5ZsQfK/liYMRCn07tClOIsOzz5uQ
+	mdkNHKRHXCtrK0q60uHh8Ye9QMqRT8hTt2epErPH7i3QIQwCBl4h4gj9RAtUbM7y5+WF80QjjmqqA
+	O0nSv9jki+r/X5VhKyCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcdw6-00F3IW-1e;
-	Thu, 16 Mar 2023 03:05:50 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcdvz-00F3B4-20
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Mar 2023 03:05:46 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 21D6824E2AB;
-	Thu, 16 Mar 2023 11:05:21 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Mar
- 2023 11:05:21 +0800
-Received: from localhost.localdomain (113.72.145.194) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Mar
- 2023 11:05:19 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
- Berthing" <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-Subject: [PATCH v2 5/6] clk: starfive: jh7110-sys: Modify PLL clocks source
-Date: Thu, 16 Mar 2023 11:05:13 +0800
-Message-ID: <20230316030514.137427-6-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230316030514.137427-1-xingyu.wu@starfivetech.com>
-References: <20230316030514.137427-1-xingyu.wu@starfivetech.com>
+	id 1pce8T-00F50I-3C;
+	Thu, 16 Mar 2023 03:18:38 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pce8P-00F4vb-0i;
+	Thu, 16 Mar 2023 03:18:35 +0000
+Received: from [172.23.196.229] (unknown [121.32.254.146])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id B5BCD580405;
+	Thu, 16 Mar 2023 11:18:23 +0800 (CST)
+Message-ID: <664f9fa1-da31-2be9-76d9-3eb08e08b7f9@sangfor.com.cn>
+Date: Thu, 16 Mar 2023 11:18:23 +0800
 MIME-Version: 1.0
-X-Originating-IP: [113.72.145.194]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing the
+ return value of function
+To: Peter Zijlstra <peterz@infradead.org>,
+ Steven Rostedt <rostedt@goodmis.org>
+Cc: mhiramat@kernel.org, linux@armlinux.org.uk, mark.rutland@arm.com,
+ will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, mingo@redhat.com, xiehuan09@gmail.com,
+ dinghui@sangfor.com.cn, huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
+ linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
+ <20230315133911.958741-2-pengdonglin@sangfor.com.cn>
+ <20230315134911.GD2006103@hirez.programming.kicks-ass.net>
+ <20230315101348.1234c7f5@gandalf.local.home>
+ <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
+Content-Language: en-US
+In-Reply-To: <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHx4fVkxDTx8YSENMGRgfTFUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpJSlVISVVJTk9VSk9NWVdZFhoPEhUdFFlBWU9LSFVKSktPSEhVSktLVUtZBg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Py46FBw6Cz0VDxkpUTAJMQgZ
+	SEowC1FVSlVKTUxDQkhNTEtOSkpJVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSklKVUhJVUlOT1VKT01ZV1kIAVlBT09DSjcG
+X-HM-Tid: 0a86e86d066f2eb7kusnb5bcd580405
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_200543_955794_94770175 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20230315_201833_398844_39070C55 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +75,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Modify PLL clocks source to be got from dts instead of
-the fixed factor clocks.
+On 2023/3/15 22:57, Peter Zijlstra wrote:
+> On Wed, Mar 15, 2023 at 10:13:48AM -0400, Steven Rostedt wrote:
+>> On Wed, 15 Mar 2023 14:49:11 +0100
+>> Peter Zijlstra <peterz@infradead.org> wrote:
+>>
+>>>> diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
+>>>> index 1265ad519249..35ac9c58dc77 100644
+>>>> --- a/arch/x86/kernel/ftrace_64.S
+>>>> +++ b/arch/x86/kernel/ftrace_64.S
+>>>> @@ -348,6 +348,10 @@ SYM_CODE_START(return_to_handler)
+>>>>   	movq %rax, (%rsp)
+>>>>   	movq %rdx, 8(%rsp)
+>>>>   	movq %rbp, %rdi
+>>>> +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
+>>>> +	/* Pass the function return value to ftrace_return_to_handler */
+>>>> +	movq %rax, %rsi
+>>>> +#endif
+>>>>   
+>>>>   	call ftrace_return_to_handler
+>>>
+>>> What about the case of double register return values (when the value
+>>> is returned in the A,D pair) ?
+>>
+>> Is there anything that does that in 64 bit kernels?
+> 
+> Note sure; but I have a patch series that introduces cmpxchg128 and
+> friends. Most of the actual functions are __always_inline, but still,
+> the moment a compiler decides to break out a subfunction on a u128
+> boundary we're in luck.
+I have reviewed the kretprobe implementation and noticed that $retval
+only retrieves the value of pt_regs.ax, which is an unsigned long data
+type. I wrote a demo and tested it on an x86 machine, and found that
+$retval only shows the least significant 32 bits of retval.Therefore,I
+think it can be consistent with kretprobe.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/clk/starfive/Kconfig                  |  1 +
- .../clk/starfive/clk-starfive-jh7110-sys.c    | 35 ++++---------------
- 2 files changed, 7 insertions(+), 29 deletions(-)
+static noinline unsigned long long test_retval_func(void)
+{
+	unsigned long long value = 0x1234567887654321;
+	return value;
+}
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index e306edf4defa..903a5097c642 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
- 	select AUXILIARY_BUS
- 	select CLK_STARFIVE_JH71X0
- 	select RESET_STARFIVE_JH7110
-+	select CLK_STARFIVE_JH7110_PLL
- 	default ARCH_STARFIVE
- 	help
- 	  Say yes here to support the system clock controller on the
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index b90d8035ba18..4bd8ff5ff912 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -329,9 +329,6 @@ static struct clk_hw *jh7110_sysclk_get(struct of_phandle_args *clkspec, void *d
- 	if (idx < JH7110_SYSCLK_END)
- 		return &priv->reg[idx].hw;
- 
--	if (idx >= JH7110_SYSCLK_PLL0_OUT && idx <= JH7110_SYSCLK_PLL2_OUT)
--		return priv->pll[idx - JH7110_SYSCLK_PLL0_OUT];
--
- 	return ERR_PTR(-EINVAL);
- }
- 
-@@ -355,29 +352,6 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(priv->dev, (void *)(&priv->base));
- 
--	/*
--	 * These PLL clocks are not actually fixed factor clocks and can be
--	 * controlled by the syscon registers of JH7110. They will be dropped
--	 * and registered in the PLL clock driver instead.
--	 */
--	/* 24MHz -> 1000.0MHz */
--	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
--							 "osc", 0, 125, 3);
--	if (IS_ERR(priv->pll[0]))
--		return PTR_ERR(priv->pll[0]);
--
--	/* 24MHz -> 1066.0MHz */
--	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
--							 "osc", 0, 533, 12);
--	if (IS_ERR(priv->pll[1]))
--		return PTR_ERR(priv->pll[1]);
--
--	/* 24MHz -> 1188.0MHz */
--	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
--							 "osc", 0, 99, 2);
--	if (IS_ERR(priv->pll[2]))
--		return PTR_ERR(priv->pll[2]);
--
- 	for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
- 		u32 max = jh7110_sysclk_data[idx].max;
- 		struct clk_parent_data parents[4] = {};
-@@ -415,9 +389,12 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 				parents[i].fw_name = "tdm_ext";
- 			else if (pidx == JH7110_SYSCLK_MCLK_EXT)
- 				parents[i].fw_name = "mclk_ext";
--			else if (pidx >= JH7110_SYSCLK_PLL0_OUT &&
--				 pidx <= JH7110_SYSCLK_PLL2_OUT)
--				parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
-+			else if (pidx == JH7110_SYSCLK_PLL0_OUT)
-+				parents[i].fw_name = "pll0_out";
-+			else if (pidx == JH7110_SYSCLK_PLL1_OUT)
-+				parents[i].fw_name = "pll1_out";
-+			else if (pidx == JH7110_SYSCLK_PLL2_OUT)
-+				parents[i].fw_name = "pll2_out";
- 		}
- 
- 		clk->hw.init = &init;
--- 
-2.25.1
+add a kretprobe event:
+echo 'r:myretprobe test_retval_func $retval:x64' > kprobe_events
 
+the trace log:
+myretprobe: (retval_open+0x1c/0x2c [test_retval] <- test_retval_func) 
+arg1=0x87654321
 
 _______________________________________________
 linux-riscv mailing list
