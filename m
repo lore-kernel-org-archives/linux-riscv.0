@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA536C6FD19
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 04:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EC4C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 04:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HDsYnquX1CvBlokWGLi48sCOqAVbM5qbXhL4NXm/6QI=; b=41vgALZOMp9sxh
-	DBAYl0GiOZu5B7EUaHvSbVleCPUtoscNvDgYX7WkIab/fS4f8+ZuRT1TqjALjQiQqth7MWdXCocKr
-	CACZF+qsF1ui2QSR8xbkThvMCAzYYSNCF77Hx0w4G68TIqun4iN68hGsYMcLdsoexI59mNHjJfMjF
-	TwbMWJkLRC07Rfr+5WO1DjbqK0hEbcgoYCtTDQVzxBQ9YV1r63sJ5shN7Cbm79tQx8mTHU9GLRBSR
-	8ZgVMNHolhsDtarPPtQPx2hsDinHB1Av0vGY1f4/UAEwEDp40nkYfp3yom+Y9HofzFpbqC6RMeEba
-	e2K2uc5o/WssGeEdp6gQ==;
+	List-Owner; bh=Crw+mLvdvIXR0Wp8uw/MT1hP2YeC48y+/4HUUh+mXfQ=; b=2DxJSgn4LUbsLV
+	I0Wp3qe/tXiFRrLjXSEHQOpJFBEPLs2TDxYVjgctsTUD5xEnfrTBf7q1SrWt57kRMa1A0KtxBA9P8
+	9Cj8LFPu059czQaGkYo0Pnp7mULsbB2D1D1ZujR8kBeQ+3pBhOsdAM78m3lNIFEX7HK9rXaSa3840
+	39/qoqplIE8qLOO/hOuZfHiF74FEejfE9Xbn/9N2v/5SPrzUu5og52OOnvi0VxkLFHihbYfTRfl44
+	6MvKo6YS0C5kTuKO/d/LtB+511NB4iBOpj1pJBDbjJdBWHMTCZDTLYmZm+V0sz9ov4N/yZP/91ZrA
+	91GBRYPEJNE1Gu8wnuMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcfNP-00FCJu-29;
-	Thu, 16 Mar 2023 04:38:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pcfNC-00FCFH-2d;
+	Thu, 16 Mar 2023 04:37:54 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcfNM-00FC7y-2I
+	id 1pcfNA-00FC72-0D
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Mar 2023 04:38:06 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Thu, 16 Mar 2023 04:37:54 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 14B8F24E2AE;
-	Thu, 16 Mar 2023 12:37:21 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Mar
- 2023 12:37:21 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7728A24E1EC;
+	Thu, 16 Mar 2023 12:37:18 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Mar
+ 2023 12:37:18 +0800
 Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
  EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Thu, 16 Mar 2023 12:37:20 +0800
+ 15.0.1497.42; Thu, 16 Mar 2023 12:37:17 +0800
 From: Samin Guo <samin.guo@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
@@ -49,9 +49,9 @@ CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
 	Yanhong Wang <yanhong.wang@starfivetech.com>, Samin Guo
 	<samin.guo@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [PATCH v7 6/6] net: stmmac: starfive_dmac: Add phy interface settings
-Date: Thu, 16 Mar 2023 12:37:14 +0800
-Message-ID: <20230316043714.24279-7-samin.guo@starfivetech.com>
+Subject: [PATCH v7 3/6] dt-bindings: net: snps,dwmac: Add 'ahb' reset/reset-name
+Date: Thu, 16 Mar 2023 12:37:11 +0800
+Message-ID: <20230316043714.24279-4-samin.guo@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230316043714.24279-1-samin.guo@starfivetech.com>
 References: <20230316043714.24279-1-samin.guo@starfivetech.com>
@@ -61,8 +61,9 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_213805_053760_8739EAC5 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20230315_213752_253578_37802EBD 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,93 +80,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dwmac supports multiple modess. When working under rmii and rgmii,
-you need to set different phy interfaces.
+According to:
+stmmac_platform.c: stmmac_probe_config_dt
+stmmac_main.c: stmmac_dvr_probe
 
-According to the dwmac document, when working in rmii, it needs to be
-set to 0x4, and rgmii needs to be set to 0x1.
+dwmac controller may require one (stmmaceth) or two (stmmaceth+ahb)
+reset signals, and the maxItems of resets/reset-names is going to be 2.
 
-The phy interface needs to be set in syscon, the format is as follows:
-starfive,syscon: <&syscon, offset, shift>
+The gmac of Starfive Jh7110 SOC must have two resets.
+it uses snps,dwmac-5.20 IP.
 
 Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
 Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 ---
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ .../devicetree/bindings/net/snps,dwmac.yaml          | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index ef5a769b1c75..84690c8f0250 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -13,6 +13,10 @@
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 01b056ab71f7..e4519cf722ab 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -133,12 +133,16 @@ properties:
+         - ptp_ref
  
- #include "stmmac_platform.h"
+   resets:
+-    maxItems: 1
+-    description:
+-      MAC Reset signal.
++    minItems: 1
++    items:
++      - description: GMAC stmmaceth reset
++      - description: AHB reset
  
-+#define STARFIVE_DWMAC_PHY_INFT_RGMII	0x1
-+#define STARFIVE_DWMAC_PHY_INFT_RMII	0x4
-+#define STARFIVE_DWMAC_PHY_INFT_FIELD	0x7U
-+
- struct starfive_dwmac {
- 	struct device *dev;
- 	struct clk *clk_tx;
-@@ -44,6 +48,43 @@ static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
- 		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
- }
+   reset-names:
+-    const: stmmaceth
++    minItems: 1
++    items:
++      - const: stmmaceth
++      - const: ahb
  
-+static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
-+{
-+	struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
-+	struct regmap *regmap;
-+	unsigned int args[2];
-+	unsigned int mode;
-+
-+	switch (plat_dat->interface) {
-+	case PHY_INTERFACE_MODE_RMII:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RMII;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
-+		break;
-+
-+	default:
-+		dev_err(dwmac->dev, "unsupported interface %d\n",
-+			plat_dat->interface);
-+		return -EINVAL;
-+	}
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
-+						      "starfive,syscon",
-+						      2, args);
-+	if (IS_ERR(regmap)) {
-+		dev_err(dwmac->dev, "syscon regmap failed.\n");
-+		return -ENXIO;
-+	}
-+
-+	/* args[0]:offset  args[1]: shift */
-+	return regmap_update_bits(regmap, args[0],
-+				  STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
-+				  mode << args[1]);
-+}
-+
- static int starfive_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-@@ -89,6 +130,12 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->dma_cfg->dche = true;
- 
-+	err = starfive_dwmac_set_mode(plat_dat);
-+	if (err) {
-+		dev_err(&pdev->dev, "dwmac set mode failed.\n");
-+		return err;
-+	}
-+
- 	err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- 	if (err) {
- 		stmmac_remove_config_dt(pdev, plat_dat);
+   power-domains:
+     maxItems: 1
 -- 
 2.17.1
 
