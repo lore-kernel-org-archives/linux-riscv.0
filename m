@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB819C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 13:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D806C74A5B
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 14:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XG4iHWn26aVq9IFF6IF4l9RuW9H8zwPwhoGs6VHpPmc=; b=UsNi29jPNrSO6V
-	pHfXEtbn4ZNb5LNtIDqZZ5rGEhYGyig+9Vs9gzfQ6cFvzl4EML9HjaS0q9Avl1oVagL/Sb+bPYNw3
-	aTg2gQQSDJhdG5xpCyNf8LBpBRS27uJ5XcO6zeSaLQOz7uxFqKbo8JArFYXJu2+BMB39Kr1peWpn1
-	Q6znGTBK9j3nY35lV2cBU3atQvKpioNIcvHvkddCAZdfoiGMFpgo1vXFZo/PhJilBgbn2ANJGvZuA
-	Tr851XsUxjozgZro1SclDrJmXEMRYvLQE8FYNrYIfqXHVTISJC3HAzZZa9oQyO0czPL2/8F9hvMXe
-	KFxO4Q6tUoblN+bbTJuw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7o3dy5n3CO0ld7kHCm/Ctl0Kl+L9QrpwOe+geFTA6SI=; b=a7JMw6CqydapBm
+	xS0eRQn2AD5DTL7FHl8aACa4zkLvodeluY1DuJ6ddMUrEzktZJEonWTEZnZ+VtIfSrvWX5blIeov6
+	Qk7q7z8CPQO3ST5CNu5CXkN89a8XdWKDJpI01tFdH3t2MBDEgerIqKUUJrECu4j2KEDchuvJ79SHG
+	0+0HnQI2MhSYccQ8fiezx9gQyu++QzQhbkTk9yp5EdtalFdjFT9AWMK3StZFvgslntkHRMpNq5/9e
+	Xr0hSxMWNeNKyPSkl0661QGNDkiMlhrDmi5zRymlHTXoSsLfqQPrkgVMmIfP4lmZVdBzd8T0mDzz6
+	2FLzgq+VMDZ4GF7YjqJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcnl4-00GXqr-0f;
-	Thu, 16 Mar 2023 13:35:06 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1pcodI-00Ggwq-0Z;
+	Thu, 16 Mar 2023 14:31:08 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcnl2-00GXpR-0B
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 16 Mar 2023 13:35:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=yb0JNi6cRDb5cM5WC9CEwD00CUTLKwtDAX0RcxE9c8c=; b=b53vbKAYlfpWHOuuwMSqCT0iyn
-	aAN+Mn+PW4aKqsLd9xa6oKnxk2ogtZPe4/xJ85OVipgFju0SSc0uPKPo6NK5tw2oGLhKqWKJs0JWN
-	+vTxolh2zF1uGXxMQ1q/kMRHEC9l8GMdRuRsjQFiMkUNl8o86byGEBZQJ6KL2TEWouR3MFRb0TrNw
-	GOT+c1mgjY2pKbgVIX5d/DFIw8yVg3HnoIJ2WALIdKUxBcZrq5X7iPyuxCMEOQ0iOh4r+FbgXuz3J
-	uNnP+rexJlWV38LHA0X4UW6leVuAOWp/THFS9VrppGSIUsenV8wcfJyaA3QdAef/PcKNHepNeZuzq
-	h9u6c0sw==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pcnTt-002Roh-0V
+	id 1pcnVq-00GVHn-1X
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Mar 2023 13:17:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id k25-20020a7bc419000000b003ed23114fa7so3147703wmi.4
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Mar 2023 06:17:17 -0700 (PDT)
+	Thu, 16 Mar 2023 13:19:23 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id o7so1517643wrg.5
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Mar 2023 06:19:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678972636;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yb0JNi6cRDb5cM5WC9CEwD00CUTLKwtDAX0RcxE9c8c=;
-        b=2Ev7aL6Z6zhWHuGqPE5WRugL+grtCgf1Rw+DE5yPncJqWsJZHaCBhlqpfyHHzrwI1D
-         IUpoT5Oj2+AxeGLsJn0E0MGbjKM4v8gxIxDStGUIXy02nc+EgqABDoYG/hOTYXCiYSOG
-         iJXRweRTFhgYGpwr8xQprpP8UgTS76aclNF9Q88Vn0eLPUVtmLtJpd6cV7LoVTHbBvrh
-         1q5XhWPVPnaXpKPzJ2vWiPfcyS8XnUsHIEUE5rYpgUMCG70N6PMSUo4+vx3GXuGIPvt/
-         V4QCyObIV+J3zkqwYafQgaQwhM6mcbbbhcaBTGh3Ec5hqKIhtCwzq3Y8iM8EHnAJ0VUh
-         gAdQ==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1678972760;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yXNicKwHPUURyALO36PEegj/jGCRXjX7/YBezTaryXs=;
+        b=67doldxYgYKlU/XZ0kZu3+NOAqQ/2WbnP4mwdaTGI0McuaMhRPDAE/s74Wq3t6tF/V
+         J0nRxluNtH5jyXjG6gwranylrEnecoP/DUWgaO9JZ4gg6xFffDGE08IwIc2KOUXaspal
+         HHuTUIg4II4i6Oa5sRMFXG0qwnNOZQwEH5YClaHtl1ekxMRL+d17IM5dSSKvN8etH4o4
+         Gryhf8z+9DXYE61ol4wGcZdxrAPW2qatjZ5Q8iOQkHFCUmxFt43/+ApFfD1rBG+HZP3t
+         j+M2PnF2oTfQycLOuf/WXwZevaBF66GgvGXiPTY9lyNMUBSV3fX9CsUSbPa1JK7AlIvp
+         vKjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678972636;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yb0JNi6cRDb5cM5WC9CEwD00CUTLKwtDAX0RcxE9c8c=;
-        b=tsoIgo9H8XxeXozJjk6f6AHUPEcdOKEf2aRe6rHW2nv9iSAv/uwZcDv8HOwwYBDzTX
-         fw/APg8UrUKbf81egQmRAk5QgqR8g9xVtoEQj1v/erjYeJu85J/+IeWxqHZ66+h0QNgO
-         VOvWBpLMn8p7zPcefreEaXtVAh9Q9sNi7vPA69erqaaaSYwwRBA6j3CrCFBr/CvvCUlj
-         oYWjMvMbjxU/Ua0SgDIQ0FdJBTVCVu8oxK5fMDt4GMgZdyS/Q6lfN5SF//nsXgfJHHwF
-         /+6URGXgBjfAVnoEGe77I8JT95idOHVlRRfqcyyrbs6FI/rsylTH9BMxBHTiTIHAk3vq
-         QMzQ==
-X-Gm-Message-State: AO0yUKU8TKu/eSh4Qlkny92wbdopp8EdmW2TB9CUU7V3AxsbY0ExPv4J
-	vK6BrBoqhEt2w8dvIT7iW1fMVw==
-X-Google-Smtp-Source: AK7set/fhVDeuPDPVeUXVE63TtFOQa0R+UvB04ejBiBb1VAkOz3jRjT1WOxKNz9X4Jff53YqrdofPA==
-X-Received: by 2002:a7b:ca41:0:b0:3ea:f75d:4626 with SMTP id m1-20020a7bca41000000b003eaf75d4626mr21011181wml.38.1678972636633;
-        Thu, 16 Mar 2023 06:17:16 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1678972760;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yXNicKwHPUURyALO36PEegj/jGCRXjX7/YBezTaryXs=;
+        b=duzqXJzEpVqy8X0qqZACm+BgKdCeLqf3vXOnjzUi+/MrZJlla1TrvGwLZHu2GxC4zY
+         C0qhfRcjq5m7ZAJFhueT9+EhsX1T7CfAjShgFSRmw3OEpDiHiWnGja8anWQL7cwH/pC9
+         kDBq0b9pc0OzjOj78v/gGt9f3K3AJf0Zf6ucjxvK/KaPuy0JUbasBYHTwu+kcKI05xLS
+         RfpMZBnOS05L4EzDHfi1N6kLH91Y0Sv/CggKKSkdlFuYiGQbdKJaj1psrBU0EW+jvfLN
+         A31jurfiseVsTHsaA2wd8VxEjrpnz8F4xQjXOCbCmdSAbJna20aE7gDlRr8Bg1X2nD2Z
+         MkvQ==
+X-Gm-Message-State: AO0yUKVBSQCj7lsD1TRdDC4FRZ3ztkzt/BOs3PnaAyndrUZHtnLQAIPt
+	gWZ1LXHpo82RudaxfaR7EgJogw==
+X-Google-Smtp-Source: AK7set9ckwc+gnRj+k56d+SvgcefBu0ajEjl4o1f/HxCl/7FMrq5djA9ftFJ5OFMO4WJD/IRBsDEKA==
+X-Received: by 2002:a5d:49cc:0:b0:2c7:57e:633e with SMTP id t12-20020a5d49cc000000b002c7057e633emr4666191wrs.49.1678972760162;
+        Thu, 16 Mar 2023 06:19:20 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (238.174.185.81.rev.sfr.net. [81.185.174.238])
-        by smtp.gmail.com with ESMTPSA id a6-20020a1cf006000000b003ed4f6c6234sm1963364wmb.23.2023.03.16.06.17.15
+        by smtp.gmail.com with ESMTPSA id h5-20020a5d5485000000b002c5a1bd5280sm7210070wrv.95.2023.03.16.06.19.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Mar 2023 06:17:16 -0700 (PDT)
+        Thu, 16 Mar 2023 06:19:20 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -93,14 +79,16 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	devicetree@vger.kernel.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v8 0/4] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Date: Thu, 16 Mar 2023 14:17:07 +0100
-Message-Id: <20230316131711.1284451-1-alexghiti@rivosinc.com>
+Subject: [PATCH v8 2/4] mm: Introduce memblock_isolate_memory
+Date: Thu, 16 Mar 2023 14:17:09 +0100
+Message-Id: <20230316131711.1284451-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230316131711.1284451-1-alexghiti@rivosinc.com>
+References: <20230316131711.1284451-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230316_131721_458860_7B12A91F 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20230316_061922_520852_C7094131 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,69 +105,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset intends to improve tlb utilization by using hugepages for
-the linear mapping.
+This function allows to split a region in memblock.memory and will be
+useful when setting up the linear mapping with STRICT_KERNEL_RWX: it
+allows to isolate the kernel text/rodata and then avoid to map those
+regions with a PUD/P4D/PGD.
 
-As reported by Anup in v6, when STRICT_KERNEL_RWX is enabled, we must
-take care of isolating the kernel text and rodata so that they are not
-mapped with a PUD mapping which would then assign wrong permissions to
-the whole region: it is achieved by introducing a new memblock API.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Tested-by: Anup Patel <anup@brainfault.org>
+---
+ include/linux/memblock.h |  1 +
+ mm/memblock.c            | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+)
 
-Another patch makes use of this new API in arm64 which used some sort of
-hack to solve this issue: it was built/boot tested successfully.
-
-base-commit-tag: v6.3-rc1
-
-v8:
-- Fix rv32, as reported by Anup
-- Do not modify memblock_isolate_range and fixes comment, as suggested by Mike
-- Use the new memblock API for crash kernel too in arm64, as suggested by Andrew
-- Fix arm64 double mapping (which to me did not work in v7), but ends up not
-  being pretty at all, will wait for comments from arm64 reviewers, but
-  this patch can easily be dropped if they do not want it.
-
-v7:
-- Fix Anup bug report by introducing memblock_isolate_memory which
-  allows us to split the memblock mappings and then avoid to map the
-  the PUD which contains the kernel as read only
-- Add a patch to arm64 to use this newly introduced API
-
-v6:
-- quiet LLVM warning by casting phys_ram_base into an unsigned long
-
-v5:
-- Fix nommu builds by getting rid of riscv_pfn_base in patch 1, thanks
-  Conor
-- Add RB from Andrew
-
-v4:
-- Rebase on top of v6.2-rc3, as noted by Conor
-- Add Acked-by Rob
-
-v3:
-- Change the comment about initrd_start VA conversion so that it fits
-  ARM64 and RISCV64 (and others in the future if needed), as suggested
-  by Rob
-
-v2:
-- Add a comment on why RISCV64 does not need to set initrd_start/end that
-  early in the boot process, as asked by Rob
-
-Alexandre Ghiti (4):
-  riscv: Get rid of riscv_pfn_base variable
-  mm: Introduce memblock_isolate_memory
-  arm64: Make use of memblock_isolate_memory for the linear mapping
-  riscv: Use PUD/P4D/PGD pages for the linear mapping
-
- arch/arm64/mm/mmu.c           | 25 +++++++++++------
- arch/riscv/include/asm/page.h | 19 +++++++++++--
- arch/riscv/mm/init.c          | 53 ++++++++++++++++++++++++++++-------
- arch/riscv/mm/physaddr.c      | 16 +++++++++++
- drivers/of/fdt.c              | 11 ++++----
- include/linux/memblock.h      |  1 +
- mm/memblock.c                 | 20 +++++++++++++
- 7 files changed, 119 insertions(+), 26 deletions(-)
-
+diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+index 50ad19662a32..2f7ef97c0da7 100644
+--- a/include/linux/memblock.h
++++ b/include/linux/memblock.h
+@@ -125,6 +125,7 @@ int memblock_clear_hotplug(phys_addr_t base, phys_addr_t size);
+ int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
+ int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
+ int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
++int memblock_isolate_memory(phys_addr_t base, phys_addr_t size);
+ 
+ void memblock_free_all(void);
+ void memblock_free(void *ptr, size_t size);
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 25fd0626a9e7..e8c651a37012 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -805,6 +805,26 @@ static int __init_memblock memblock_isolate_range(struct memblock_type *type,
+ 	return 0;
+ }
+ 
++/**
++ * memblock_isolate_memory - isolate given range in memblock.memory
++ * @base: base of range to isolate
++ * @size: size of range to isolate
++ *
++ * Isolates the given range in memblock.memory so that it does not share any
++ * region with other ranges.
++ *
++ * Return:
++ * 0 on success, -errno on failure.
++ */
++
++int __init_memblock memblock_isolate_memory(phys_addr_t base, phys_addr_t size)
++{
++	int start_rgn, end_rgn;
++
++	return memblock_isolate_range(&memblock.memory, base, size,
++				      &start_rgn, &end_rgn);
++}
++
+ static int __init_memblock memblock_remove_range(struct memblock_type *type,
+ 					  phys_addr_t base, phys_addr_t size)
+ {
 -- 
 2.37.2
 
