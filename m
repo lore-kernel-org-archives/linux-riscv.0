@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EE5C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 03:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802EFC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Mar 2023 04:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IS+MoqT34CTCOdMPObua0PvF0DcUUfSJXL0Z/FaJiiM=; b=o5hduQxcBqDIXF
-	kvXTHNvIEezIzeuA3YfLCnNzcF2H3ncA5T56dqTvqBnnVlZAApbZAAW6iAWi4IwUX/x2RVi+TY3uB
-	eRVKK/tO2fZSHoPn+Ef9BJGXC9tyt/+l+r0kmczCfNUrsvtMo3S+kHN6FAS/ZNgYiXvZ26/jJ5Joh
-	ZyqDkOL6/Sop8ds/ywyc0immTYB9nCDCHFEIJSCwvX0nJRMlu5ZsQfK/liYMRCn07tClOIsOzz5uQ
-	mdkNHKRHXCtrK0q60uHh8Ye9QMqRT8hTt2epErPH7i3QIQwCBl4h4gj9RAtUbM7y5+WF80QjjmqqA
-	O0nSv9jki+r/X5VhKyCA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bPndDToHdaR0XKSStzisGKabE1r9qUMZj79Fsf1Wfbo=; b=i25ms18kOrEFdM
+	a7/UNEbtsswSNSeJvfMdu/Nt0ixvk6NGK7uDV3HoxadPe8A6bjXvBBs9GXI+t37yaX3krNRDKkHLO
+	BAWzYGn/M+ZM27/zJMJuosZyd0XFh93Hj0g1hw4e0wxvU61tDqhvFU7g4AVNkl87jbpdiDGS0pHLo
+	Ly3nSwbm6YyMqRRKLtzipV5MQTLp/+lKFfnvGS4TSuWKRcjSkdCBW0sKnI1939OrOM7a/vPPUtrYJ
+	06afGbHPwMaMVEonX9kTrRPvc5Y+yDh/YDMSx0zuLATu/s5SbS0D9YnkV9NDFa1z0udvG4qq5/Bgf
+	npY//hlgP4BKaWKy1Lcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pce8T-00F50I-3C;
-	Thu, 16 Mar 2023 03:18:38 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pce8P-00F4vb-0i;
-	Thu, 16 Mar 2023 03:18:35 +0000
-Received: from [172.23.196.229] (unknown [121.32.254.146])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id B5BCD580405;
-	Thu, 16 Mar 2023 11:18:23 +0800 (CST)
-Message-ID: <664f9fa1-da31-2be9-76d9-3eb08e08b7f9@sangfor.com.cn>
-Date: Thu, 16 Mar 2023 11:18:23 +0800
+	id 1pcfNG-00FCH4-1V;
+	Thu, 16 Mar 2023 04:37:58 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pcfN9-00FC70-36
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Mar 2023 04:37:54 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E834624E202;
+	Thu, 16 Mar 2023 12:37:15 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Mar
+ 2023 12:37:15 +0800
+Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
+ EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Thu, 16 Mar 2023 12:37:14 +0800
+From: Samin Guo <samin.guo@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>, Samin Guo
+	<samin.guo@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: [PATCH v7 0/6] Add Ethernet driver for StarFive JH7110 SoC
+Date: Thu, 16 Mar 2023 12:37:08 +0800
+Message-ID: <20230316043714.24279-1-samin.guo@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing the
- return value of function
-To: Peter Zijlstra <peterz@infradead.org>,
- Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, linux@armlinux.org.uk, mark.rutland@arm.com,
- will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
- x86@kernel.org, mingo@redhat.com, xiehuan09@gmail.com,
- dinghui@sangfor.com.cn, huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
- linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
- <20230315133911.958741-2-pengdonglin@sangfor.com.cn>
- <20230315134911.GD2006103@hirez.programming.kicks-ass.net>
- <20230315101348.1234c7f5@gandalf.local.home>
- <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
-Content-Language: en-US
-In-Reply-To: <20230315145757.GE2006103@hirez.programming.kicks-ass.net>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHx4fVkxDTx8YSENMGRgfTFUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpJSlVISVVJTk9VSk9NWVdZFhoPEhUdFFlBWU9LSFVKSktPSEhVSktLVUtZBg++
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Py46FBw6Cz0VDxkpUTAJMQgZ
-	SEowC1FVSlVKTUxDQkhNTEtOSkpJVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSklKVUhJVUlOT1VKT01ZV1kIAVlBT09DSjcG
-X-HM-Tid: 0a86e86d066f2eb7kusnb5bcd580405
-X-HM-MType: 1
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230315_201833_398844_39070C55 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20230315_213752_313272_BE3CE994 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +72,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/15 22:57, Peter Zijlstra wrote:
-> On Wed, Mar 15, 2023 at 10:13:48AM -0400, Steven Rostedt wrote:
->> On Wed, 15 Mar 2023 14:49:11 +0100
->> Peter Zijlstra <peterz@infradead.org> wrote:
->>
->>>> diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
->>>> index 1265ad519249..35ac9c58dc77 100644
->>>> --- a/arch/x86/kernel/ftrace_64.S
->>>> +++ b/arch/x86/kernel/ftrace_64.S
->>>> @@ -348,6 +348,10 @@ SYM_CODE_START(return_to_handler)
->>>>   	movq %rax, (%rsp)
->>>>   	movq %rdx, 8(%rsp)
->>>>   	movq %rbp, %rdi
->>>> +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
->>>> +	/* Pass the function return value to ftrace_return_to_handler */
->>>> +	movq %rax, %rsi
->>>> +#endif
->>>>   
->>>>   	call ftrace_return_to_handler
->>>
->>> What about the case of double register return values (when the value
->>> is returned in the A,D pair) ?
->>
->> Is there anything that does that in 64 bit kernels?
-> 
-> Note sure; but I have a patch series that introduces cmpxchg128 and
-> friends. Most of the actual functions are __always_inline, but still,
-> the moment a compiler decides to break out a subfunction on a u128
-> boundary we're in luck.
-I have reviewed the kretprobe implementation and noticed that $retval
-only retrieves the value of pt_regs.ax, which is an unsigned long data
-type. I wrote a demo and tested it on an x86 machine, and found that
-$retval only shows the least significant 32 bits of retval.Therefore,I
-think it can be consistent with kretprobe.
+This series adds ethernet support for the StarFive JH7110 RISC-V SoC.
+The series includes MAC driver. The MAC version is dwmac-5.20 (from
+Synopsys DesignWare).
+The series has been tested on the VisionFive-2-v1.2A and
+VisionFive-2-v1.3B board which equip with JH7110 SoC and works normally.
 
-static noinline unsigned long long test_retval_func(void)
-{
-	unsigned long long value = 0x1234567887654321;
-	return value;
-}
+For more information and support, you can visit RVspace wiki[1].
+You can simply review or test the patches at the link [2].
+This patchset should be applied after the patchset [3] [4].
 
-add a kretprobe event:
-echo 'r:myretprobe test_retval_func $retval:x64' > kprobe_events
+[1]: https://wiki.rvspace.org/
+[2]: https://github.com/SaminGuo/linux/tree/vf2-6.3rc1-gmac-repost
+[3]: https://patchwork.kernel.org/project/linux-riscv/cover/20230311090733.56918-1-hal.feng@starfivetech.com
+[4]: https://patchwork.kernel.org/project/linux-riscv/cover/20230315055813.94740-1-william.qiu@starfivetech.com
 
-the trace log:
-myretprobe: (retval_open+0x1c/0x2c [test_retval] <- test_retval_func) 
-arg1=0x87654321
+Changes since v6:
+- Sended network patches[patch 1,2,3,4,5,6] and riscv trees patches[patch 7,8] separately (by Jakub Kicinski)
+
+
+Changes history:
+Changes since v5:
+- Droped "depends on STMMAC_ETH" and compiled DWMAC_STARFIVE to m by default (by Emil)
+- Removed clk_gtx in struct starfive_dwmac due to this pointer is only set, but never read. (by Emil)
+- Only setting the plat_dat->fix_mac_speed callback when it is needed (by Emil)
+- Moved mdio/phy nodes from SOC .dtsi into board .dtsi (by Andrew)
+- Modified the parameters passed by starfive,syscon (by Andrew && Emil)
+    <syscon, offset, mask>  ==>  <syscon, offset, shift>
+- Optimized the patchs(Fewer patches from 12 to 8)
+    1)merged patch-7 into patch-4 (by Rob)
+    2)merged patch-9 into patch-5
+    2)merged patch-11,12 into patch-10
+    3)Adjusted the patchs order
+- Fixed the unevaluatedProperties property from true to false (by Rob)
+- Replaced contains:enum with items:const for reset-names in snps,dwmac.yaml (by Rob)
+- Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+
+Changes since v4:
+- Supported both visionfive 2 v1.2A and visionfive 2 v1.3B.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
+- Suggested by Emil, dropped the _PLAT/_plat from the config/function/struct/file names.
+- Suggested by Emil, added MODULE_DEVICE_TABLE().
+- Suggested by Emil, dropped clk_gtxclk and use clk_tx_inv to set the clock frequency.
+- Added phy interface mode configuration function.
+- Rebased on tag v6.2.
+
+Changes since v3:
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'
+- Removed the unused code in 'dwmac-starfive-plat.c'.
+- Reworded the return statement in 'starfive_eth_plat_fix_mac_speed' function.
+
+Changes since v2:
+- Renamed the dt-bindings 'starfive,jh71x0-dwmac.yaml' to 'starfive,jh7110-dwmac.yaml'.
+- Reworded the commit messages.
+- Reworded the example context in the dt-binding 'starfive,jh7110-dwmac.yaml'.
+- Removed "starfive,jh7100-dwmac" compatible string and special initialization of jh7100.
+- Removed the parts of YT8531,so dropped patch 5 and 6.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
+
+Changes since v1:
+- Recovered the author of the 1st and 3rd patches back to Emil Renner Berthing.
+- Added a new patch to update maxitems number of resets property in 'snps,dwmac.yaml'.
+- Fixed the check errors reported by "make dt_binding_check".
+- Renamed the dt-binding 'starfive,dwmac-plat.yaml' to 'starfive,jh71x0-dwmac.yaml'.
+- Updated the example context in the dt-binding 'starfive,jh71x0-dwmac.yaml'.
+- Added new dt-binding 'motorcomm,yt8531.yaml' to describe details of phy clock
+  delay configuration parameters.
+- Added more comments for PHY driver setting. For more details, see
+  'motorcomm,yt8531.yaml'.
+- Moved mdio device tree node from 'jh7110-starfive-visionfive-v2.dts' to 'jh7110.dtsi'.
+- Re-worded the commit message of several patches.
+- Renamed all the functions with starfive_eth_plat prefix in 'dwmac-starfive-plat.c'.
+- Added "starfive,jh7100-dwmac" compatible string and special init to support JH7100.
+
+Previous versions:
+v1 - https://patchwork.kernel.org/project/linux-riscv/cover/20221201090242.2381-1-yanhong.wang@starfivetech.com/
+v2 - https://patchwork.kernel.org/project/linux-riscv/cover/20221216070632.11444-1-yanhong.wang@starfivetech.com/
+v3 - https://patchwork.kernel.org/project/linux-riscv/cover/20230106030001.1952-1-yanhong.wang@starfivetech.com/
+v4 - https://patchwork.kernel.org/project/linux-riscv/cover/20230118061701.30047-1-yanhong.wang@starfivetech.com/
+v5 - https://patchwork.kernel.org/project/netdevbpf/cover/20230303085928.4535-1-samin.guo@starfivetech.com/
+v6 - https://patchwork.kernel.org/project/netdevbpf/cover/20230313034645.5469-1-samin.guo@starfivetech.com/
+
+Emil Renner Berthing (2):
+  dt-bindings: net: snps,dwmac: Add dwmac-5.20 version
+  net: stmmac: platform: Add snps,dwmac-5.20 IP compatible string
+
+Samin Guo (3):
+  dt-bindings: net: snps,dwmac: Add 'ahb' reset/reset-name
+  net: stmmac: Add glue layer for StarFive JH7110 SoC
+  net: stmmac: starfive_dmac: Add phy interface settings
+
+Yanhong Wang (1):
+  dt-bindings: net: Add support StarFive dwmac
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  17 +-
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 130 ++++++++++++++
+ MAINTAINERS                                   |   7 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 168 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   3 +-
+ 7 files changed, 333 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+
+
+base-commit: 8ca09d5fa3549d142c2080a72a4c70ce389163cd
+prerequisite-patch-id: 46cc850aa0e9e03ccf5ed23d8458babfca3d71af
+prerequisite-patch-id: a6975e61ee5803fbd74b1c21ab925fd81c3c0eab
+prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
+prerequisite-patch-id: 044263ef2fb9f1e5a586edbf85d5f67814a28430
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 9f3dbc9073eee89134e68977e941e457593c2757
+prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4c12d958e3a3d629d86dddb1e4f099d8909393e0
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8f5c66dfb14403424044192f6fa05b347ad356a7
+prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
+prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
+prerequisite-patch-id: 1be0fb49e0fbe293ca8fa94601e191b13c8c67d9
+--
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
