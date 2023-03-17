@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B17C74A5B
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 17:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A9FC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 17:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hdVJqyRFxCTJ1nfuCR8rsDEV+qpIYMstNXzrPJE8ipI=; b=O9JaWYiYG82eav
-	0rkKkHu5TWEKHmq0QnjEsZ6mmNUqtjHwhjnEnAx4DgHUKIGpUnSDh9KJFvAfUy0zCjcV+mmnYwTlf
-	k12v5xKMy+OlQi1ACgoFGl1EIzIw6XcLHcsWwqQOkfLyPWSyCtWE0JMwx5S+eOaD27TQErh6iYP1U
-	N0xLqWEI1tDmdbrIxRUlUk8KgTYRusIiqCPQ8o3O84QdF+o+kvJitZCADPAkoydSa9k0E5KQdtpXo
-	cU6j+zhj7FIh/mq4hAGoisnEt5F4YE78KpNsiaPinWKBXk9OHBz/2KrBJRc1SfJQ9yZRFY5E33ivE
-	kbvemq9JYC+z23xdSbQg==;
+	List-Owner; bh=rq8uWas82x8s2KT0ujKywBlUB1KnchT3fgt4RA1pqPc=; b=qw2Qjm/1Osy0B1
+	rVP/s7VG27PrsBwAr0zSLfhgXa/cLLApBZAh621LowcHKjufiCR4FAkx1z6iT+YnUKz+GtdtqT7/E
+	3Sk7Z2U0iTRwPRKm4uK8yeuXCE6QkGIAWXIxwdsHIXPQlvl2pfgNDDb+tY8ZxXN3PhGZMwTo6kmje
+	hf9H2NjTxS+3+UDElgwkxiGZ/xh8a1T8ThhDzqODGNQz5Ifd8EwYC7UnqWGTCYn3e+G3I3XjzW7+0
+	5hczriTgcj7llsBIxGktijQ/ebVPvMzuhnmsOhy0zNJGt1Ml4QQ103Yj8d0CA5jh+3Mi1M3/oZ5CX
+	TA1VZxYypG0S+RnZ/xvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdDwk-002tfe-1T;
-	Fri, 17 Mar 2023 17:32:54 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1pdE0G-002uAf-2U;
+	Fri, 17 Mar 2023 17:36:32 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdDwh-002ter-1N
+	id 1pdE0D-002u9a-0o
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Mar 2023 17:32:52 +0000
-Received: by mail-wm1-x329.google.com with SMTP id m18-20020a05600c3b1200b003ed2a3d635eso3854449wms.4
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 10:32:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679074367;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y3tLmVivm4ZX1LIiPKD0uKPzcTAw23ECMQvgHEddrLA=;
-        b=HczjKSanvzSGEJsRiyfEAnLFOgGMlNyi6bxVhgaS91CcJoH+NecD/kq67N7XoQC3hH
-         IG4aI8O7NNtcojKcl4nGE+S5MoM8DjfdT0GCPefqQMQlhdK+4dHblMTY7VFYLBYtPAif
-         STeYsgv3zqFve1VlwOpNvcTEh+JBLuBhUVqUhtRfCFdvQ+n/uF46C0FmItpYn85g6MXR
-         qvEuYryLSaYKoVBRC6TrvPVBn+LiEpaOcaMD5F/DnLZ4setI/sDWsm12FRiDrmAhbWdx
-         ELkx4gGStmhP+JZv6lpYSLyABatAd79QvTUUnn07x2+n+w4zXKvHold9zIJhQ145aO4O
-         jukA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679074367;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y3tLmVivm4ZX1LIiPKD0uKPzcTAw23ECMQvgHEddrLA=;
-        b=SjgWzfFsS0WKP3RSj2YBVLkoao3IFEzIagCPrNz1A6B/4OwXIBmXxocpwXWJ8lstxC
-         USY+VUSCe6Rbn6MdmiVn2dKPVRlZJ7QT5o5dygcs7Cd5WMbYCeF8VdispNNetbfh7pCZ
-         P3NTwveNxI2KyhJovEYOCRdLGfAJePt8/5R55htq79hgZ3j/5WP0mXr8F/CTOPN+VhbN
-         4ilghWYURAKbYUBgK/tlYW51AhHAwwCHpqy8JOwG5kG3hh5es4qTSd0V+uil2FviYVaS
-         dPTSooA4RcqlJNPyMNzKunYhUGZArODkGOy6N6G5NB3vayRw/OjLWZZRaxW91JYVMKQB
-         2Ysg==
-X-Gm-Message-State: AO0yUKXyBAa49qCrZ7fFBDDy23uLSwSO5SWm6NvsLrfMB+R+Wm0oxlzo
-	OAXTlpIUWzxystaHDebpkR+gKg==
-X-Google-Smtp-Source: AK7set+K8xWqbk1qLdXbeOwQtqqQQNjeP0qMGSLHykL5j6xdESb6W3h799Xh7f8uXN9l8YXz85doDw==
-X-Received: by 2002:a05:600c:1546:b0:3ed:22f2:554c with SMTP id f6-20020a05600c154600b003ed22f2554cmr18644512wmg.29.1679074367159;
-        Fri, 17 Mar 2023 10:32:47 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id f12-20020a1cc90c000000b003e20cf0408esm2535298wmb.40.2023.03.17.10.32.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Mar 2023 10:32:46 -0700 (PDT)
-Date: Fri, 17 Mar 2023 18:32:45 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	conor.dooley@microchip.com, atishp@rivosinc.com
-Subject: Re: [PATCH] riscv: say disabling zicbom if no or bad
- riscv,cbom-block-size found
-Message-ID: <20230317173245.27rhtnxlev4iaj2u@orel>
-References: <20230317134512.254627-1-ben.dooks@codethink.co.uk>
+	Fri, 17 Mar 2023 17:36:31 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 31013B8265C;
+	Fri, 17 Mar 2023 17:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033C0C433D2;
+	Fri, 17 Mar 2023 17:36:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679074583;
+	bh=WgaEumNAhponm7f5t3p0u/VAa21CfQiv3YN4Tt9H328=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=svUUcsoDYAyRlkH2RXjRDL9MfNu6rB9EiBsAIo81lTreka+5iuEDlLY2on+atLgGG
+	 uP/Nj3W9I3GbKNDVtk4Q5QE2zSt6lXLddNLSGOd3m7y+g6XKa8JT9Qndb1nbI821nT
+	 jdaT1xQDIPPfw0jOR589y2/J4sO40hBFzMwNFVPHzMu3gIU3Qr9ekotm0/eHvQscHF
+	 sqB+wgvpI8bKvdrhLs+4uxYmHGmhqmQrn5pALgVz4+2dlE/68rqqqbfVY+GIAt9FC1
+	 hsBWJ7FYfrixS3+88tKHe340viD7CsBkxQhqe3kZLIIy0dUlhuUB7XuXGZbY1pW81G
+	 x+vmO4XfcLsDQ==
+Date: Fri, 17 Mar 2023 23:06:19 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 2/3] dmaengine: dw-axi-dmac: Add support for StarFive
+ JH7110 DMA
+Message-ID: <ZBSlE/oV4rEwqRIK@matsya>
+References: <20230314083537.22571-1-walker.chen@starfivetech.com>
+ <20230314083537.22571-3-walker.chen@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230317134512.254627-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20230314083537.22571-3-walker.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_103251_469910_06162B4D 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20230317_103629_621371_7BEF78E6 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +82,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 17, 2023 at 01:45:12PM +0000, Ben Dooks wrote:
-> If Zicbom is present but there was no riscv,cbom-blocks-size property found
-> during the cpu feeatures probe, or the cbom-block-size is not valid, then
-> the extension will be disabled. Make the print explicitly say this is
-> disabled to ensure that there is no confusion about what is being done.
+On 14-03-23, 16:35, Walker Chen wrote:
+> Add DMA reset operation in device probe and use different configuration
+> on CH_CFG registers according to match data. Update all uses of
+> of_device_is_compatible with of_device_get_match_data.
 > 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
 > ---
->  arch/riscv/kernel/cpufeature.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 40 ++++++++++++++++---
+>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
+>  2 files changed, 35 insertions(+), 6 deletions(-)
 > 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 59d58ee0f68d..c8b883827840 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -72,10 +72,10 @@ static bool riscv_isa_extension_check(int id)
->  	switch (id) {
->  	case RISCV_ISA_EXT_ZICBOM:
->  		if (!riscv_cbom_block_size) {
-> -			pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
-> +			pr_err("Zicbom detected in ISA string, disabling as no cbom-block-size found\n");
->  			return false;
->  		} else if (!is_power_of_2(riscv_cbom_block_size)) {
-> -			pr_err("cbom-block-size present, but is not a power-of-2\n");
-> +			pr_err("Zicbom disabled as cbom-block-size present, but is not a power-of-2\n");
->  			return false;
->  		}
->  		return true;
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> index 4169e1d7d5ca..4390c91af522 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> @@ -21,10 +21,12 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_device.h>
+>  #include <linux/of_dma.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/property.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
+>  
+> @@ -46,6 +48,10 @@
+>  	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
+>  	DMA_SLAVE_BUSWIDTH_64_BYTES)
+>  
+> +#define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
+> +#define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
+> +#define AXI_DMA_FLAG_USE_CFG2		BIT(2)
+> +
+>  static inline void
+>  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
+>  {
+> @@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>  
+>  	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+>  		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+> -	if (chan->chip->dw->hdata->reg_map_8_channels) {
+> +	if (chan->chip->dw->hdata->reg_map_8_channels &&
+> +	    !chan->chip->dw->hdata->use_cfg2) {
+>  		cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+>  			 config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+>  			 config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+> @@ -1140,7 +1147,7 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
+>  	axi_chan_disable(chan);
+>  
+>  	ret = readl_poll_timeout_atomic(chan->chip->regs + DMAC_CHEN, val,
+> -					!(val & chan_active), 1000, 10000);
+> +					!(val & chan_active), 1000, 200000);
+
+why is timeout increased, if there is a reason that needs to be
+documented and preferably in a separate patch
+
+>  	if (ret == -ETIMEDOUT)
+>  		dev_warn(dchan2dev(dchan),
+>  			 "%s failed to stop\n", axi_chan_name(chan));
+> @@ -1367,10 +1374,11 @@ static int parse_device_properties(struct axi_dma_chip *chip)
+>  
+>  static int dw_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *node = pdev->dev.of_node;
+>  	struct axi_dma_chip *chip;
+>  	struct dw_axi_dma *dw;
+>  	struct dw_axi_dma_hcfg *hdata;
+> +	struct reset_control *resets;
+> +	unsigned int flags;
+>  	u32 i;
+>  	int ret;
+>  
+> @@ -1398,12 +1406,25 @@ static int dw_probe(struct platform_device *pdev)
+>  	if (IS_ERR(chip->regs))
+>  		return PTR_ERR(chip->regs);
+>  
+> -	if (of_device_is_compatible(node, "intel,kmb-axi-dma")) {
+> +	flags = (uintptr_t)of_device_get_match_data(&pdev->dev);
+> +	if (flags & AXI_DMA_FLAG_HAS_APB_REGS) {
+>  		chip->apb_regs = devm_platform_ioremap_resource(pdev, 1);
+>  		if (IS_ERR(chip->apb_regs))
+>  			return PTR_ERR(chip->apb_regs);
+>  	}
+>  
+> +	if (flags & AXI_DMA_FLAG_HAS_RESETS) {
+> +		resets = devm_reset_control_array_get_exclusive(&pdev->dev);
+> +		if (IS_ERR(resets))
+> +			return PTR_ERR(resets);
+> +
+> +		ret = reset_control_deassert(resets);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
+> +
+>  	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
+>  	if (IS_ERR(chip->core_clk))
+>  		return PTR_ERR(chip->core_clk);
+> @@ -1554,8 +1575,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
+>  };
+>  
+>  static const struct of_device_id dw_dma_of_id_table[] = {
+> -	{ .compatible = "snps,axi-dma-1.01a" },
+> -	{ .compatible = "intel,kmb-axi-dma" },
+> +	{
+> +		.compatible = "snps,axi-dma-1.01a"
+> +	}, {
+> +		.compatible = "intel,kmb-axi-dma",
+> +		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
+> +	}, {
+> +		.compatible = "starfive,jh7110-axi-dma",
+> +		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
+> +	},
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> index e9d5eb0fd594..eb267cb24f67 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> @@ -33,6 +33,7 @@ struct dw_axi_dma_hcfg {
+>  	/* Register map for DMAX_NUM_CHANNELS <= 8 */
+>  	bool	reg_map_8_channels;
+>  	bool	restrict_axi_burst_len;
+> +	bool	use_cfg2;
+>  };
+>  
+>  struct axi_dma_chan {
 > -- 
-> 2.39.2
->
+> 2.17.1
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
