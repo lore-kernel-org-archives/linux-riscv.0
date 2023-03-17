@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10A4C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 21:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF78C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 21:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F+yMSL2ivEUumjEP0QcWzN1X315imddAtMnS5Pr4PIA=; b=SXBfIA2Y0jJqdK
-	7CXGqZoAD0Sz+4LgBZ/UPhTAEzv4XaMLhkuhE5aZO/FwANsv44SxzEteuQoa7VEziPjcfqGL6ow3W
-	qTcgPSFLSpzZEdsd8HWeE72qJbbtOvmj5BKmkpgoNU9yhdBiN6ObgmSk5ZaYGIYsNUYEqrkWWOSfj
-	g93Yu7mzyfy/1gAZgFoTVjEJTHNvPFcynLuO1llO6W1r3lqdlc6EgFogcES2oPEebZQc94evN8c9N
-	daCLPrvqbYebIQJQG1IeM8uCpFI/NsQPlEF79JmjDh88eW/45J5bYb8wQpo6mYOP4v5LMSEJ0lraC
-	z4HnjRBQ6D3X865r+9KQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=xyRsBwVQtBJOLPe3j8CKy1GznoQBAPy0/qKfJI5u9gk=; b=xsx
+	JDGA72ygWGB+7tjkSaS+ATsEhyRnQ6mj0vuz2Cpj82ePDYD1avBbYhD7BV+M4L5ZvoyA6o5OP8oxy
+	HS6j57mpLDR0QCP0BM3nRlKECjZoA2sWugPdAlS+4oPzGhPFWjMAEaj+OzjHYej6MESsX3zCFQs1R
+	q0BD+HzS3GyzuuJ7yZ/v8ClSG769MrDcjb0WoPMRO3SelHihPOyUCroG15DDVh1hfiy2kCVG6mpcF
+	mFRZYshxRUA0ZEv4fsxh15wb9+umwW6dkJNiPSiMPn99ghfZe47XqkOtafJZM945mHZvdXjr7NsCA
+	ye32vBuDN3tb8BQkRng2ck360kwVIfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdHKn-003PMM-2A;
-	Fri, 17 Mar 2023 21:09:57 +0000
-Received: from mail-io1-f48.google.com ([209.85.166.48])
+	id 1pdHMJ-003PY0-2m;
+	Fri, 17 Mar 2023 21:11:31 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdHKl-003PJg-0y
+	id 1pdHMG-003PWE-2P
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Mar 2023 21:09:56 +0000
-Received: by mail-io1-f48.google.com with SMTP id v10so2870790iol.9
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 14:09:40 -0700 (PDT)
+	Fri, 17 Mar 2023 21:11:30 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 204-20020a2514d5000000b00a3637aea9e1so6485934ybu.17
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 14:11:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112; t=1679087482;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WQhD8cecG2lw7f4ASBIhYK1IsLLuRaNhUnK57Izlu3U=;
+        b=jBtf/Lll6PR9MHdfL1x0pC39HEwrPWpmRrFzvqVF7UlMMd8i4/hP1y0+L6fF3THf3P
+         wEaKAXmK1cs62qjKoNYfxxab7hni9OYTk8gkip+iurgAgqY3NyHrrBvvcaT7dydF5gWy
+         ie+sFGneLF6nLeiRHZ+uFkhtk75zn0Y6NYk5twxcfsURDUqkZ21r29I3ZTeQUf8PIBjU
+         crB8+SzXpx0rNLmOqMBhtICD/fLgqeh15WYGeYr9psNhS7slXyvzK/QLjNP4uQQkNPjq
+         8j4TzZoDocPQlLCddT9N39T0Z9lXUnBU5NvlzjphFq8V+ZFO6JaLOzcO+SubFV7h54gQ
+         BPaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679087379;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wJjkdUcY9AWxCDvg4UhtGFEbpOz8FP6Z6hjJ4WNipBE=;
-        b=1YlTTcIosA0fcUrQP1awbP5lQajVp3tDP1qjXcMTAtdg3XTJygXe5irxTZZU8sQVJy
-         iqoG7XlYEHNywVBEjALFyzGOGB/tDPSxZ8i6axcKr/oBmyfcqbkZyFW1B4j5d5RWCCML
-         Ch2yAUWSp0sapc83DYdL7EOO0BDL6HBDobsBBfOSwZS7clZRKXsDfbBDTQ6Gcj55awIq
-         7zeP7Cn1fYXlUN4H4d9Y4Nxd5pKiUdRDqKAKwDNgiDPDvmxAaxHJsCnWAJLMyCo3gt7H
-         FXHcpzqj+EjnWJIf6IAtc4JGrbroHryySPXQQD9+55m2r3rFTvvwWr3Pm3xRiLAES5Su
-         jp9g==
-X-Gm-Message-State: AO0yUKWIvrJLupUPwN49j8hYhViMQhrV6b5wsPqnzXOomTJ9Rv/i7S2X
-	G+l0Jusk9vjAy9h41NDHG3X2Fakgvw==
-X-Google-Smtp-Source: AK7set/ZUv+aH87BKtKr6DwPjobM7Ae5IZJ5lDL9yd5h2e+8QMtJhjH+new0tYZcxWxEgjV2zx9+BA==
-X-Received: by 2002:a5e:8c1a:0:b0:74e:3b0f:4498 with SMTP id n26-20020a5e8c1a000000b0074e3b0f4498mr30945ioj.7.1679087379656;
-        Fri, 17 Mar 2023 14:09:39 -0700 (PDT)
-Received: from robh_at_kernel.org ([64.188.179.249])
-        by smtp.gmail.com with ESMTPSA id x11-20020a056638248b00b0040637924a30sm598205jat.31.2023.03.17.14.09.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Mar 2023 14:09:39 -0700 (PDT)
-Received: (nullmailer pid 2809946 invoked by uid 1000);
-	Fri, 17 Mar 2023 21:09:38 -0000
-Date: Fri, 17 Mar 2023 16:09:38 -0500
-From: Rob Herring <robh@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v5 1/3] dt-bindings: dma: snps,dw-axi-dmac: constrain the
- items of resets for JH7110 dma
-Message-ID: <167908737748.2809883.11210849394769213152.robh@kernel.org>
-References: <20230314083537.22571-1-walker.chen@starfivetech.com>
- <20230314083537.22571-2-walker.chen@starfivetech.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230314083537.22571-2-walker.chen@starfivetech.com>
+        d=1e100.net; s=20210112; t=1679087482;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WQhD8cecG2lw7f4ASBIhYK1IsLLuRaNhUnK57Izlu3U=;
+        b=h1ox5MxTnNvC53kcN7UVM/v33O194UaUuyLNWpLM5fki8a+yGf5Hwy6wyebZY8OKJ5
+         sCUgr4K77T/m7k8HmXLYBBkvjnQV9NR6EVw4gAuU8G7j1Bu1/KFUeABjr2FkmJjxuGjE
+         IUk7uJi3TZHm+CNx42OOeYoncwfdfel2sBH1KxUlDE2CwJnHrF7QO5/ICR789OKVO9KI
+         84ADKyXJtPpx3BemYTYTaEi9tRV+IYPjKT0PsGRoL8wlKvN5/7EakaSlrCdCFYo5wzNF
+         xfXsArYrrLSuYPwrlDRUuTgc0F6etfxNxDsNj2dqLNgm0XPVkx8h35FeuWekt0M+jyZx
+         ZQOw==
+X-Gm-Message-State: AO0yUKVzOTJGv2mRsrOhzjEkCCVpRupc1+VI+pE91Td8jUzaZIOFnJBY
+	xX9jscbb7QUBhv5CbKMf3k5SJzdzsHPEmA==
+X-Google-Smtp-Source: AK7set+SNiTmP2J+IL8lUhNwhFNEIbJIkL/PTyLj01bi/FQZoOtY+P7EHKBhm7n4KUmvvVxo+kVpWzxe0kT5Pg==
+X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
+ (user=dmatlack job=sendgmr) by 2002:a05:6902:120b:b0:b51:2cba:b971 with SMTP
+ id s11-20020a056902120b00b00b512cbab971mr567372ybu.10.1679087482088; Fri, 17
+ Mar 2023 14:11:22 -0700 (PDT)
+Date: Fri, 17 Mar 2023 14:11:06 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.40.0.rc2.332.ga46443480c-goog
+Message-ID: <20230317211106.1234484-1-dmatlack@google.com>
+Subject: [PATCH] KVM: RISC-V: Retry fault if vma_lookup() results become invalid
+From: David Matlack <dmatlack@google.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Alexander Graf <graf@amazon.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	David Matlack <dmatlack@google.com>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_140955_341453_93B889F2 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230317_141128_785425_4E1D6855 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,19 +89,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Read mmu_invalidate_seq before dropping the mmap_lock so that KVM can
+detect if the results of vma_lookup() (e.g. vma_shift) become stale
+before it acquires kvm->mmu_lock. This fixes a theoretical bug where a
+VMA could be changed by userspace after vma_lookup() and before KVM
+reads the mmu_invalidate_seq, causing KVM to install page table entries
+based on a (possibly) no-longer-valid vma_shift.
 
-On Tue, 14 Mar 2023 16:35:35 +0800, Walker Chen wrote:
-> The DMA controller needs two reset items to work properly on JH7110 SoC,
-> so there is need to constrain the items' value to 2, other platforms
-> have 1 reset item at most.
-> 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-> ---
->  .../bindings/dma/snps,dw-axi-dmac.yaml        | 23 ++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
-> 
+Re-order the MMU cache top-up to earlier in user_mem_abort() so that it
+is not done after KVM has read mmu_invalidate_seq (i.e. so as to avoid
+inducing spurious fault retries).
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+It's unlikely that any sane userspace currently modifies VMAs in such a
+way as to trigger this race. And even with directed testing I was unable
+to reproduce it. But a sufficiently motivated host userspace might be
+able to exploit this race.
+
+Note KVM/ARM had the same bug and was fixed in a separate, near
+identical patch (see Link).
+
+Link: https://lore.kernel.org/kvm/20230313235454.2964067-1-dmatlack@google.com/
+Fixes: 9955371cc014 ("RISC-V: KVM: Implement MMU notifiers")
+Cc: stable@vger.kernel.org
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+Note: Compile-tested only.
+
+ arch/riscv/kvm/mmu.c | 25 ++++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 78211aed36fa..46d692995830 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -628,6 +628,13 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
+ 	unsigned long vma_pagesize, mmu_seq;
+ 
++	/* We need minimum second+third level pages */
++	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
++	if (ret) {
++		kvm_err("Failed to topup G-stage cache\n");
++		return ret;
++	}
++
+ 	mmap_read_lock(current->mm);
+ 
+ 	vma = vma_lookup(current->mm, hva);
+@@ -648,6 +655,15 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
+ 		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
+ 
++	/*
++	 * Read mmu_invalidate_seq so that KVM can detect if the results of
++	 * vma_lookup() or gfn_to_pfn_prot() become stale priort to acquiring
++	 * kvm->mmu_lock.
++	 *
++	 * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
++	 * with the smp_wmb() in kvm_mmu_invalidate_end().
++	 */
++	mmu_seq = kvm->mmu_invalidate_seq;
+ 	mmap_read_unlock(current->mm);
+ 
+ 	if (vma_pagesize != PUD_SIZE &&
+@@ -657,15 +673,6 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 		return -EFAULT;
+ 	}
+ 
+-	/* We need minimum second+third level pages */
+-	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
+-	if (ret) {
+-		kvm_err("Failed to topup G-stage cache\n");
+-		return ret;
+-	}
+-
+-	mmu_seq = kvm->mmu_invalidate_seq;
+-
+ 	hfn = gfn_to_pfn_prot(kvm, gfn, is_write, &writable);
+ 	if (hfn == KVM_PFN_ERR_HWPOISON) {
+ 		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
+
+base-commit: eeac8ede17557680855031c6f305ece2378af326
+-- 
+2.40.0.rc2.332.ga46443480c-goog
 
 
 _______________________________________________
