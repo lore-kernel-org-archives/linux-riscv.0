@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737C8C7618B
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 11:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07627C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 11:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7CZLKecBmpu/1CCb59zOXlGompWOy6aIpW1WZQ+8ZeY=; b=1HLJehIx3ovskq
-	9O/JSwQhbjHXtCofZPBOx9iqn/jKBL1rKHjz68tJl+wlY8NxQEufwCytoMCG6wWbpjzAYknrHYtq4
-	vJfsxBU3/bzh3/OgavvSQa9UdNPKrYBx8pHC+IXt+r4BlnLmdTrDZpsq7SOocei1fOJQuuLLcoOM9
-	59GJ+W+mZP8H4swMwc1eBTVGcz6y+b+ZvvDMnw4LIIXF+Z9tRo3igrGgBTUrQGyFIp31w6ayiLYaD
-	+Uvl5xEFvfABRomKyj4xxQZM4Ofls3RfWgVhkOMjaDBR7d+tZxBSgxG9WDD7SuP6LVUpOyj48pHOE
-	V3+RAcfr/xh6z3Rc8OxQ==;
+	List-Owner; bh=fl5v1hMM6FL3JpAZqWNHhkPrqerdqrOd/N9gsLJuGgc=; b=Yk9PhUcfmfXUnw
+	Nzj8hqYlAXlQAJDD79B612wcwTUoJEdd9zPzARe7viWRmNHGpdtMTmNVgk0TgSjNmCTHTE2rHxYIV
+	Vi8wL4w7dVBLkK5XnhsWWd4cZr+UQhJ7B7WqiNxLNEU5gt2El9p/n9obj+tAOKvYErPR8QwY2R882
+	Ue4neBm9bPE5zrJF2zJMe3nUkn2XsZDf9cQcKMXTuRRF8xiaqPFjfzI7ILU4AYYZ5X1xWalBHlQPp
+	/KSTJMOgwOEoU0k/TvDaWKgHOdqsHPQSBUyUReyf5uHuYvnv7kdD/ODIS5BVXDAHC177CUI05/dst
+	BzDzH8gLfTyQxEGa2+5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pd8PV-0025vk-27;
-	Fri, 17 Mar 2023 11:38:13 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1pd8fh-0028M4-1V;
+	Fri, 17 Mar 2023 11:54:57 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pd8PQ-0025on-0K
+	id 1pd8fe-0028L7-1N
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Mar 2023 11:38:12 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id om3-20020a17090b3a8300b0023efab0e3bfso8643200pjb.3
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 04:38:08 -0700 (PDT)
+	Fri, 17 Mar 2023 11:54:55 +0000
+Received: by mail-ed1-x529.google.com with SMTP id eh3so19244821edb.11
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 04:54:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679053087;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=7nse4H651gQWwjvfzxuALEV9PWCwDtW7Vpp5QzRUQkA=;
-        b=KAJhzfoxouXhNmh0BnXcUeZzTs5NSiUJQMo1bTi4zg4ppXg2UPO0WxbHxP8DljsfXl
-         d7ucZh+9Q7FJhsOArs9/u+ulxMpThUs/OvczGoUnzimq90pJX/YvQ7k5JCQfR1kNrOFq
-         xzEhUVFRNgBZ6h2IN+NjHKnuBj0ApSNXYadrvVYeQLcqzMMILyaCjswPyFNpsnrD3gVB
-         UUOQsxNVqGEr2f9TArWBY68ygO6Eic+F1OR6fVQCtJ1qdzzm9+YL0RDXN6sdwH16johl
-         aAJ0qd3FolMzPuyNbO5iomX52JVZ2fLDRIm5zNtsUn7cPrBAIfIomd1OqvRmOFdlzpkL
-         4zKA==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112; t=1679054090;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FZfMRNa8FGIfSyoZfd7pNoeUbhvxMUZ3twk8JQtru4g=;
+        b=qp5ET6DrTIyWL2fuyhLZ6S8luibcTZS89HQWeG5N2nlLMokpiCK5elK1fWS/l1+0sy
+         NgIwpXLPGXTDamDiuGsVafQ2EICWkyuGx0C62fEmLHpjgdQ5vr4uT+Py2ey5Ys9zlHFK
+         7vw7SqmFdKcGaoHTkCa1MqJ4fAgNUa+CV3m7VkTwYtLn0mKYnK1z8e4+n2HBxIkvdIr6
+         iQxZ5SLshxHhfAmUvlqzqtLkWGOeEnsk7lmWBGwHiPl5SySQPiCvo44IdY0fEvAUogqk
+         MMpXtucluoRl6/JDJiF8JR07lN9hm/tv1myRRWErQwqboe3onHVDKNqH+3W8MpYi9ZYd
+         nsJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679053087;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7nse4H651gQWwjvfzxuALEV9PWCwDtW7Vpp5QzRUQkA=;
-        b=i41pkEUcZw7Z62x4o5Jh1oUJdPmKvI8nez5QoYP88MzUqqJ0KOUVYsJgD95TzwgK7V
-         4uayn/r6CQvMQn9Pf9i04wbDc1vaRDlDJ6IdLL2OQmEzgsNt/aGg7kprwVJQy0dGMflE
-         yOTSuUWRrS2FS0+dQDxTlYXKr1u9c7DqDHwJJ5hLLlDxxmNPjfXqdx9uEO5CyambjZ+G
-         vQCImpcDbtSdgGTbK+rrfHVWFEnsrJGqEMvYp5y1JzZPcxFgItW1ZGdIvFHdf22Lf5zG
-         XBGFRZZnp5DluYUJzOkVQDXZ/IFdD155aczq32sYJa1d97ijXCXzGAoAv6uRS6xupv8P
-         rC6w==
-X-Gm-Message-State: AO0yUKWUJRUkFRBdNLeTzLhPV9phF36yrs9Mb9JODDO3cwfOzmxXg8Ws
-	Pz+oEIl8Rg8WLt3X9MxlNOZLQuPdregitrkXcjBYG8e37ChDU5dMy5YWev1IVY9muH7V3zHJ2CS
-	h+UPKMQtIx2T00thdNgZ/vMMctD/PjD5csmGljuDm3TAuGRV5rUBfDeluDy5SJ8YtAEhGloXihw
-	a0pbtEDG5aq2LS
-X-Google-Smtp-Source: AK7set9d9gXmb6m6eq9N88b1+NY1wOjkacSI7ZS9r8acOoqbX8Z+nye5qbASkA+KMYYjEtVhjDnjvg==
-X-Received: by 2002:a17:90b:388d:b0:23d:1948:6681 with SMTP id mu13-20020a17090b388d00b0023d19486681mr8142191pjb.39.1679053087270;
-        Fri, 17 Mar 2023 04:38:07 -0700 (PDT)
-Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id n63-20020a17090a2cc500b0023d3845b02bsm1188740pjd.45.2023.03.17.04.38.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Mar 2023 04:38:06 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>
-Subject: [PATCH -next v15 19/19] riscv: Enable Vector code to be built
-Date: Fri, 17 Mar 2023 11:35:38 +0000
-Message-Id: <20230317113538.10878-20-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230317113538.10878-1-andy.chiu@sifive.com>
-References: <20230317113538.10878-1-andy.chiu@sifive.com>
+        d=1e100.net; s=20210112; t=1679054090;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FZfMRNa8FGIfSyoZfd7pNoeUbhvxMUZ3twk8JQtru4g=;
+        b=f9DY4gdqIrz4CEB5eZZJRgF8CRhoOc9f74q5M4Rkxi1Rqp2y9vXxNoDodMslKpqBET
+         Bh1y/BhNgINX1dqWS3mHF98Ox6VWLEVjxyjf+GV/7bfArqeH3iwpwY0MST/RBxrzpvOe
+         Gfv6olKcWrroOPSVnfLbzP2oCQVoxJ6ISJ9u1JtWDecXpljRaE2cwMQT1Yjtb1t5JJ3v
+         hHrh6b0OQc6YrHjJfzrqtqtBIyNX11sUlPdrWJ1dTVq4hrZO5iFji1suAKpSvGx64Zqh
+         9KYdoCpkqvj9FfYuoQTlV8lj3zaIIy9QR8hJEP0hg1OLWJGZ+SOhEOFSIwFLHOPP8UoE
+         xsyg==
+X-Gm-Message-State: AO0yUKW1NNugXC31IFzv60JzPkiISx/XFy7gzenB75di9R+1P63AiXGK
+	jQZEP1tDkXd4K9MQ1tvQ3SrZ41YbKNeP20r19/kuUw==
+X-Google-Smtp-Source: AK7set9r1yJmif39um2UY6hYIh0CxgK4zk2KfkaIEQg56O8rtyFHNyMFbFX4EJuK0xaPwNEjtviX3o54r8Yp668IyEg=
+X-Received: by 2002:a17:906:9b94:b0:931:8502:ad29 with SMTP id
+ dd20-20020a1709069b9400b009318502ad29mr1578620ejc.13.1679054089719; Fri, 17
+ Mar 2023 04:54:49 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230317113538.10878-1-andy.chiu@sifive.com> <20230317113538.10878-18-andy.chiu@sifive.com>
+In-Reply-To: <20230317113538.10878-18-andy.chiu@sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 17 Mar 2023 17:24:37 +0530
+Message-ID: <CAAhSdy2yFkxpM3CyCvXcbUwDeMnF3BDRVt28fSuTwAkDUThT0A@mail.gmail.com>
+Subject: Re: [PATCH -next v15 17/19] riscv: kvm: Add V extension to KVM ISA
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, atishp@atishpatra.org, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, vineetg@rivosinc.com, 
+	greentime.hu@sifive.com, guoren@linux.alibaba.com, 
+	Vincent Chen <vincent.chen@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_043808_144546_EB873EF5 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20230317_045454_502628_3854D471 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,94 +86,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-This patch adds a config which enables vector feature from the kernel
-space.
-
-Support for RISC_V_ISA_V is limited to GNU-assembler for now, as LLVM
-has not acquired the functionality to selectively change the arch option
-in assembly code. This is still under review at
-    https://reviews.llvm.org/D123515
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-Suggested-by: Atish Patra <atishp@atishpatra.org>
-Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/Kconfig  | 20 ++++++++++++++++++++
- arch/riscv/Makefile |  6 +++++-
- 2 files changed, 25 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c736dc8e2593..bf9aba2f2811 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -436,6 +436,26 @@ config RISCV_ISA_SVPBMT
- 
- 	   If you don't know what to do here, say Y.
- 
-+config TOOLCHAIN_HAS_V
-+	bool
-+	default y
-+	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64iv)
-+	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32iv)
-+	depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
-+	depends on AS_IS_GNU
-+
-+config RISCV_ISA_V
-+	bool "VECTOR extension support"
-+	depends on TOOLCHAIN_HAS_V
-+	depends on FPU
-+	select DYNAMIC_SIGFRAME
-+	default y
-+	help
-+	  Say N here if you want to disable all vector related procedure
-+	  in the kernel.
-+
-+	  If you don't know what to do here, say Y.
-+
- config TOOLCHAIN_HAS_ZBB
- 	bool
- 	default y
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 6203c3378922..84a50cfaedf9 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -56,6 +56,7 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
- riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
- riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
- riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-+riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
- 
- # Newer binutils versions default to ISA spec version 20191213 which moves some
- # instructions from the I extension to the Zicsr and Zifencei extensions.
-@@ -65,7 +66,10 @@ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
- # Check if the toolchain supports Zihintpause extension
- riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
- 
--KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
-+# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
-+# keep non-v and multi-letter extensions out with the filter ([^v_]*)
-+KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed  -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-+
- KBUILD_AFLAGS += -march=$(riscv-march-y)
- 
- KBUILD_CFLAGS += -mno-save-restore
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMTcsIDIwMjMgYXQgNTowOOKAr1BNIEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNp
+Zml2ZS5jb20+IHdyb3RlOgo+Cj4gRnJvbTogVmluY2VudCBDaGVuIDx2aW5jZW50LmNoZW5Ac2lm
+aXZlLmNvbT4KPgo+IEFkZCBWIGV4dGVuc2lvbiB0byBLVk0gaXNhIGV4dGVuc2lvbiBsaXN0IHRv
+IGVuYWJsZSBzdXBwb3J0aW5nIG9mIFYKPiBleHRlbnNpb24gb24gVkNQVXMuCj4KPiBTaWduZWQt
+b2ZmLWJ5OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+IFNpZ25lZC1v
+ZmYtYnk6IEdyZWVudGltZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2ZS5jb20+Cj4gU2lnbmVkLW9m
+Zi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4KPiBSZXZpZXdlZC1ieTogQ29u
+b3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KCkxvb2tzIGdvb2QgdG8gbWUu
+CgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KQWNrZWQtYnk6
+IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggfCAxICsKPiAgYXJjaC9yaXNjdi9r
+dm0vdmNwdS5jICAgICAgICAgICAgIHwgMSArCj4gIDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRp
+b25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5o
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gaW5kZXggOTJhZjZmM2YwNTdj
+Li4zZTNkZTdkNDg2ZTEgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNt
+L2t2bS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gQEAgLTEw
+NSw2ICsxMDUsNyBAQCBlbnVtIEtWTV9SSVNDVl9JU0FfRVhUX0lEIHsKPiAgICAgICAgIEtWTV9S
+SVNDVl9JU0FfRVhUX1NWSU5WQUwsCj4gICAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9aSUhJTlRQ
+QVVTRSwKPiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1pJQ0JPTSwKPiArICAgICAgIEtWTV9S
+SVNDVl9JU0FfRVhUX1YsCj4gICAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9NQVgsCj4gIH07Cj4K
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdS5jIGIvYXJjaC9yaXNjdi9rdm0vdmNw
+dS5jCj4gaW5kZXggN2QwMTBiMGJlNTRlLi5hN2RkYjdjZjgxM2UgMTAwNjQ0Cj4gLS0tIGEvYXJj
+aC9yaXNjdi9rdm0vdmNwdS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdS5jCj4gQEAgLTU3
+LDYgKzU3LDcgQEAgc3RhdGljIGNvbnN0IHVuc2lnbmVkIGxvbmcga3ZtX2lzYV9leHRfYXJyW10g
+PSB7Cj4gICAgICAgICBbS1ZNX1JJU0NWX0lTQV9FWFRfSF0gPSBSSVNDVl9JU0FfRVhUX2gsCj4g
+ICAgICAgICBbS1ZNX1JJU0NWX0lTQV9FWFRfSV0gPSBSSVNDVl9JU0FfRVhUX2ksCj4gICAgICAg
+ICBbS1ZNX1JJU0NWX0lTQV9FWFRfTV0gPSBSSVNDVl9JU0FfRVhUX20sCj4gKyAgICAgICBbS1ZN
+X1JJU0NWX0lTQV9FWFRfVl0gPSBSSVNDVl9JU0FfRVhUX3YsCj4KPiAgICAgICAgIEtWTV9JU0Ff
+RVhUX0FSUihTU1RDKSwKPiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihTVklOVkFMKSwKPiAtLQo+
+IDIuMTcuMQo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
