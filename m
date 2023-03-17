@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF78C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 21:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4514DC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 22:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=xyRsBwVQtBJOLPe3j8CKy1GznoQBAPy0/qKfJI5u9gk=; b=xsx
-	JDGA72ygWGB+7tjkSaS+ATsEhyRnQ6mj0vuz2Cpj82ePDYD1avBbYhD7BV+M4L5ZvoyA6o5OP8oxy
-	HS6j57mpLDR0QCP0BM3nRlKECjZoA2sWugPdAlS+4oPzGhPFWjMAEaj+OzjHYej6MESsX3zCFQs1R
-	q0BD+HzS3GyzuuJ7yZ/v8ClSG769MrDcjb0WoPMRO3SelHihPOyUCroG15DDVh1hfiy2kCVG6mpcF
-	mFRZYshxRUA0ZEv4fsxh15wb9+umwW6dkJNiPSiMPn99ghfZe47XqkOtafJZM945mHZvdXjr7NsCA
-	ye32vBuDN3tb8BQkRng2ck360kwVIfg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=og9KNLik3frkYByyRXDfZ/bLgbqGzAnvM8dmb+RDLNk=; b=aR3cSOgKPit6id
+	5TMyxVdlEwWvu0sAN0j2EyetOA8nEQFl68geDemmlYS1yRqV00F5UCaXXMRJjneaFqyzoJ/dB4lX9
+	JmddEGWOGlzxaSR7vV3alfXsOk4JWGdhe9HpWLu8iN7RjBynw6kDTB9OdJZXbcNxxaH/1w7SdSv9I
+	uoFqiiWoKOGV2WOB8JKMxbntGSAbheNM5eetnQfuOvlyR+6p+65O0IrgW0P6l/ad2aeIL6fm64/hC
+	d/xg/bJJF2g+zEq+wtZvRqF+9q8EzQiDXgEQn3saYBD+CI08hzFwlV6osc9gSPbauCN0hJYSjFetz
+	s/1v4C7Y6k9cYq1C9M4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdHMJ-003PY0-2m;
-	Fri, 17 Mar 2023 21:11:31 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1pdIH5-003Y0S-1y;
+	Fri, 17 Mar 2023 22:10:11 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdHMG-003PWE-2P
-	for linux-riscv@lists.infradead.org;
-	Fri, 17 Mar 2023 21:11:30 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 204-20020a2514d5000000b00a3637aea9e1so6485934ybu.17
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 14:11:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112; t=1679087482;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WQhD8cecG2lw7f4ASBIhYK1IsLLuRaNhUnK57Izlu3U=;
-        b=jBtf/Lll6PR9MHdfL1x0pC39HEwrPWpmRrFzvqVF7UlMMd8i4/hP1y0+L6fF3THf3P
-         wEaKAXmK1cs62qjKoNYfxxab7hni9OYTk8gkip+iurgAgqY3NyHrrBvvcaT7dydF5gWy
-         ie+sFGneLF6nLeiRHZ+uFkhtk75zn0Y6NYk5twxcfsURDUqkZ21r29I3ZTeQUf8PIBjU
-         crB8+SzXpx0rNLmOqMBhtICD/fLgqeh15WYGeYr9psNhS7slXyvzK/QLjNP4uQQkNPjq
-         8j4TzZoDocPQlLCddT9N39T0Z9lXUnBU5NvlzjphFq8V+ZFO6JaLOzcO+SubFV7h54gQ
-         BPaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679087482;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WQhD8cecG2lw7f4ASBIhYK1IsLLuRaNhUnK57Izlu3U=;
-        b=h1ox5MxTnNvC53kcN7UVM/v33O194UaUuyLNWpLM5fki8a+yGf5Hwy6wyebZY8OKJ5
-         sCUgr4K77T/m7k8HmXLYBBkvjnQV9NR6EVw4gAuU8G7j1Bu1/KFUeABjr2FkmJjxuGjE
-         IUk7uJi3TZHm+CNx42OOeYoncwfdfel2sBH1KxUlDE2CwJnHrF7QO5/ICR789OKVO9KI
-         84ADKyXJtPpx3BemYTYTaEi9tRV+IYPjKT0PsGRoL8wlKvN5/7EakaSlrCdCFYo5wzNF
-         xfXsArYrrLSuYPwrlDRUuTgc0F6etfxNxDsNj2dqLNgm0XPVkx8h35FeuWekt0M+jyZx
-         ZQOw==
-X-Gm-Message-State: AO0yUKVzOTJGv2mRsrOhzjEkCCVpRupc1+VI+pE91Td8jUzaZIOFnJBY
-	xX9jscbb7QUBhv5CbKMf3k5SJzdzsHPEmA==
-X-Google-Smtp-Source: AK7set+SNiTmP2J+IL8lUhNwhFNEIbJIkL/PTyLj01bi/FQZoOtY+P7EHKBhm7n4KUmvvVxo+kVpWzxe0kT5Pg==
-X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a05:6902:120b:b0:b51:2cba:b971 with SMTP
- id s11-20020a056902120b00b00b512cbab971mr567372ybu.10.1679087482088; Fri, 17
- Mar 2023 14:11:22 -0700 (PDT)
-Date: Fri, 17 Mar 2023 14:11:06 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.40.0.rc2.332.ga46443480c-goog
-Message-ID: <20230317211106.1234484-1-dmatlack@google.com>
-Subject: [PATCH] KVM: RISC-V: Retry fault if vma_lookup() results become invalid
-From: David Matlack <dmatlack@google.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Alexander Graf <graf@amazon.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	David Matlack <dmatlack@google.com>, stable@vger.kernel.org
+	id 1pdIGz-003XzG-2r;
+	Fri, 17 Mar 2023 22:10:08 +0000
+Received: (Authenticated sender: alexandre.belloni@bootlin.com)
+	by mail.gandi.net (Postfix) with ESMTPSA id E8C1B60006;
+	Fri, 17 Mar 2023 22:09:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1679090998;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ydOYXHQbAQwRlDgBE8D09/DiUFJ7qXsxUL0PXkGETCE=;
+	b=gxdMZ2BrYyWyx9kX77EBkYQV9fTzdP0QG4+apoaarC7ba2aSSw4QOUeotjWwZPrtCPd+Vp
+	dR+z7o+0JFKbhXhzIOskw65hViO8jJseil7auBmA+VfYNzl9Ba869dUOHmGsAVOaiWFwd9
+	SWzvCOIEnPr83VO/3bNKnj8G+cCab+fKdo97zjpkLn+nyDciYAAFDYFxOXiX2m6xOGOQbE
+	f3J90EfvlrFKodrHbp3nLL3fhmXyWm2Ho3t2mwke+h12iD3ITeQ68F3lj85T6UASbZF974
+	/a71oqxxOaKR9AOjZvrAJVd2etTV8ox8FXMG5XjRSkgj9hS2jftwNMP8kwn6Vg==
+Date: Fri, 17 Mar 2023 23:09:54 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Alessandro Zummo <a.zummo@towertech.it>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Benson Leung <bleung@chromium.org>,
+	Joshua Kinard <kumba@gentoo.org>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Eddie Huang <eddie.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vincent Shih <vincent.sunplus@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Michal Simek <michal.simek@xilinx.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Guenter Roeck <groeck@chromium.org>,
+	chrome-platform@lists.linux.dev, linux-riscv@lists.infradead.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-tegra@vger.kernel.org, patches@opensource.cirrus.com,
+	kernel@pengutronix.de
+Subject: Re: [PATCH 00/41] rtc: Convert to platform remove callback returning
+ void
+Message-ID: <167909091159.113952.12576059020896222306.b4-ty@bootlin.com>
+References: <20230304133028.2135435-1-u.kleine-koenig@pengutronix.de>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230304133028.2135435-1-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_141128_785425_4E1D6855 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20230317_151006_213157_522E1E55 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,95 +98,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Read mmu_invalidate_seq before dropping the mmap_lock so that KVM can
-detect if the results of vma_lookup() (e.g. vma_shift) become stale
-before it acquires kvm->mmu_lock. This fixes a theoretical bug where a
-VMA could be changed by userspace after vma_lookup() and before KVM
-reads the mmu_invalidate_seq, causing KVM to install page table entries
-based on a (possibly) no-longer-valid vma_shift.
 
-Re-order the MMU cache top-up to earlier in user_mem_abort() so that it
-is not done after KVM has read mmu_invalidate_seq (i.e. so as to avoid
-inducing spurious fault retries).
+On Sat, 04 Mar 2023 14:29:47 +0100, Uwe Kleine-K=F6nig wrote:
+> this patch series adapts the platform drivers below drivers/rtc to use the
+> .remove_new() callback. Compared to the traditional .remove() callback
+> .remove_new() returns no value. This is a good thing because the driver c=
+ore
+> doesn't (and cannot) cope for errors during remove. The only effect of a
+> non-zero return value in .remove() is that the driver core emits a warnin=
+g. The
+> device is removed anyhow and an early return from .remove() usually yield=
+s a
+> resource leak.
+> =
 
-It's unlikely that any sane userspace currently modifies VMAs in such a
-way as to trigger this race. And even with directed testing I was unable
-to reproduce it. But a sufficiently motivated host userspace might be
-able to exploit this race.
+> [...]
 
-Note KVM/ARM had the same bug and was fixed in a separate, near
-identical patch (see Link).
+Applied, thanks!
 
-Link: https://lore.kernel.org/kvm/20230313235454.2964067-1-dmatlack@google.com/
-Fixes: 9955371cc014 ("RISC-V: KVM: Implement MMU notifiers")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Matlack <dmatlack@google.com>
----
-Note: Compile-tested only.
+[01/41] rtc: 88pm80x: Convert to platform remove callback returning void
+        commit: 8ef70a5ef3ed41ce4d700794d45fd9e084460a00
+[02/41] rtc: 88pm860x: Convert to platform remove callback returning void
+        commit: 8fbff75e2b7582fc03dbcd13e67831fb75345dcb
+[03/41] rtc: ab8500: Convert to platform remove callback returning void
+        commit: 8a700af1babfc0e5d34bd95264d65ea6adb0b288
+[04/41] rtc: ac100: Convert to platform remove callback returning void
+        commit: 28015e799ad9ff04d68107b7392a4884accedb0e
+[05/41] rtc: asm9260: Convert to platform remove callback returning void
+        commit: ad01bf83bfc33c53079415f02e160bf72221d7e6
+[06/41] rtc: at91sam9: Convert to platform remove callback returning void
+        commit: 06e5e4a5a996aefb5d8e0c8db05b014e3bd91a28
+[07/41] rtc: brcmstb-waketimer: Convert to platform remove callback returni=
+ng void
+        commit: d64906b320ce6fef446ea72c6043bbec19f0da60
+[08/41] rtc: cadence: Convert to platform remove callback returning void
+        commit: 0b9efd82a63b31c7c2ce17a3d8ad3aeb28b3a928
+[09/41] rtc: cmos: Convert to platform remove callback returning void
+        commit: 63c18a079bbb5f564b30e0fa7ec292eb123b1bf6
+[10/41] rtc: cros-ec: Convert to platform remove callback returning void
+        commit: 0d8742e61098b422b1ba1458a7ce80c4f1e299bb
+[11/41] rtc: ds1685: Convert to platform remove callback returning void
+        commit: de11783c9d2a4dec9e0e2c01b9a9897d72019d5f
+[12/41] rtc: ftrtc010: Convert to platform remove callback returning void
+        commit: 43eeb707afb00579a7bb611d14fc9a056bba849e
+[13/41] rtc: hid-sensor-time: Convert to platform remove callback returning=
+ void
+        commit: 30d5365c8dda63e31fb1fbbec446d72d0f1e5ce6
+[14/41] rtc: lpc24xx: Convert to platform remove callback returning void
+        commit: 52fcb90d8cdf117ade871b01861b8a8defbf3b78
+[15/41] rtc: max77686: Convert to platform remove callback returning void
+        commit: bf05de01160d493d53cc289be1b1092c26b378b4
+[16/41] rtc: mc13xxx: Convert to platform remove callback returning void
+        commit: 99c3a1367db02b6b57be54bf61da051a93e0615f
+[17/41] rtc: mpc5121: Convert to platform remove callback returning void
+        commit: 22edbc10a514a8cf56d9c8da5cc1a2d43e6832a5
+[18/41] rtc: mpfs: Convert to platform remove callback returning void
+        commit: fa147083acf61de306e2881d91401d817de11093
+[19/41] rtc: mt7622: Convert to platform remove callback returning void
+        commit: ae0ac71651c726c2f1d5af752d38bf40526b7026
+[20/41] rtc: mxc_v2: Convert to platform remove callback returning void
+        commit: 153f56f9ce99495ca4cb6d7f2047c29940aef9f5
+[21/41] rtc: omap: Convert to platform remove callback returning void
+        commit: 578afdb9084ed0446060d627e7f3ecd1c4100c3d
+[22/41] rtc: palmas: Convert to platform remove callback returning void
+        commit: a7f9864e4362e07e113517d647c5bc355cdee970
+[23/41] rtc: pcf50633: Convert to platform remove callback returning void
+        commit: d25f0ba97692b4a8ac63bbd2c562741525c5f5ca
+[24/41] rtc: pic32: Convert to platform remove callback returning void
+        commit: c3d12a10922dcf32a97d3c71f6a574529b061caf
+[25/41] rtc: pm8xxx: Convert to platform remove callback returning void
+        commit: 3fc5029a8f7d0d3c039c3649e82cc2e4eeeb46a6
+[26/41] rtc: rc5t583: Convert to platform remove callback returning void
+        commit: ade527dd2192ddabbd4926338c31ca281098c34c
+[27/41] rtc: rtd119x: Convert to platform remove callback returning void
+        commit: 0824a15b6863a19c7c8e1c16abf6090fd8ac615f
+[28/41] rtc: rzn1: Convert to platform remove callback returning void
+        commit: e55fbc80e9d2bf3ec0ec77551baa683f30e85b74
+[29/41] rtc: s3c: Convert to platform remove callback returning void
+        commit: 9e6a2ad120fa3f785f013e70ae7d872abafb8318
+[30/41] rtc: sa1100: Convert to platform remove callback returning void
+        commit: cf407e9f1a9dc290e2088c11bd0e5542334e7ab4
+[31/41] rtc: spear: Convert to platform remove callback returning void
+        commit: 25ffc856b3cb1bd08a8645839aa38505469a6edd
+[32/41] rtc: stm32: Convert to platform remove callback returning void
+        commit: 54c2cb2797cd76465dae08cd9b81676ffad36b27
+[33/41] rtc: stmp3xxx: Convert to platform remove callback returning void
+        commit: 16324165ab1f90fa06294679e3de58cb53c0423f
+[34/41] rtc: sunplus: Convert to platform remove callback returning void
+        commit: d6f525040eef1562327fccc4412acdb4f173e01b
+[35/41] rtc: tegra: Convert to platform remove callback returning void
+        commit: 31c94505f44b47493d62c0fd43d30838326d345f
+[36/41] rtc: tps6586x: Convert to platform remove callback returning void
+        commit: adebcc1c1916188c1c9ac8e8f54123b07431baf7
+[37/41] rtc: twl: Convert to platform remove callback returning void
+        commit: fff118c9e8331b9b08b69841498fbea34693a28c
+[38/41] rtc: vt8500: Convert to platform remove callback returning void
+        commit: 5b1064441f20fc3f397239599b1193fecb7a90e4
+[39/41] rtc: wm8350: Convert to platform remove callback returning void
+        commit: 631aa2d919f542373892d5ef6baf13e2969a10fd
+[40/41] rtc: xgene: Convert to platform remove callback returning void
+        commit: 257062d2679f4db5b6ebc9f4e6a77d0a45977278
+[41/41] rtc: zynqmp: Convert to platform remove callback returning void
+        commit: f45e5cfa73f445fa3cfbb7ebac3a7e2c66a9281c
 
- arch/riscv/kvm/mmu.c | 25 ++++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+Best regards,
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 78211aed36fa..46d692995830 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -628,6 +628,13 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
- 			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
- 	unsigned long vma_pagesize, mmu_seq;
- 
-+	/* We need minimum second+third level pages */
-+	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
-+	if (ret) {
-+		kvm_err("Failed to topup G-stage cache\n");
-+		return ret;
-+	}
-+
- 	mmap_read_lock(current->mm);
- 
- 	vma = vma_lookup(current->mm, hva);
-@@ -648,6 +655,15 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
- 	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
- 		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
- 
-+	/*
-+	 * Read mmu_invalidate_seq so that KVM can detect if the results of
-+	 * vma_lookup() or gfn_to_pfn_prot() become stale priort to acquiring
-+	 * kvm->mmu_lock.
-+	 *
-+	 * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
-+	 * with the smp_wmb() in kvm_mmu_invalidate_end().
-+	 */
-+	mmu_seq = kvm->mmu_invalidate_seq;
- 	mmap_read_unlock(current->mm);
- 
- 	if (vma_pagesize != PUD_SIZE &&
-@@ -657,15 +673,6 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
- 		return -EFAULT;
- 	}
- 
--	/* We need minimum second+third level pages */
--	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
--	if (ret) {
--		kvm_err("Failed to topup G-stage cache\n");
--		return ret;
--	}
--
--	mmu_seq = kvm->mmu_invalidate_seq;
--
- 	hfn = gfn_to_pfn_prot(kvm, gfn, is_write, &writable);
- 	if (hfn == KVM_PFN_ERR_HWPOISON) {
- 		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
+-- =
 
-base-commit: eeac8ede17557680855031c6f305ece2378af326
--- 
-2.40.0.rc2.332.ga46443480c-goog
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
