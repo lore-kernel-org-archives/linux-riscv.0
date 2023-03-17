@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54279C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 15:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C653C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Mar 2023 15:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fEr42F31AUR6dICU2llj3fCjoKQId1CIpf/cGS9xQs=; b=aZJDS4xgcSAad+
-	MgXJzWfcAjaLBHIsUOOQN62E1qPS5s5nyFL8CRAGYiE011461ULSBnBRaCmN39UzBZdadcyf4Ogae
-	knyejjhNlC4eng6npGajkC5pLFxaXYofGPjKNcjLDZhU8bp5seEWAN/8gd5TzOVBAmjOZCHSne4Vw
-	1QbLdbq5fyR9P2iZ8Lco+ETWa1ixziDt6nW+7hrGEQ3EVnCut5X5nbQumUk01G9wvVwaN/HGYs7w2
-	ZbVobMFGQI8f25Cd421PpnnnTwvnfwBBHfKK4/DenrbAn4mYvRCKRPwgP1N6PxAauy+OktI/Mzogc
-	sD1SjXt6egB2cwdiH9Gw==;
+	List-Owner; bh=CZFOSIlLykKmvZEPgJ2c9KfIc2s0V9j0GvtOVsNyfu0=; b=0IsL3tv/TrPczn
+	b49zFiifeoaoSxYbDsbjmpD9ev3obPHQYHwrhHCg8d9E78F8+ZsvCpK5Q4cah2/DTCwa2NfaFSzMZ
+	i7EwL3sV5n3HpNIksHKeQ3wPQNSxBlpBN0QlRzC4CFJ+5RdWer1/yfA2Z8tFRPJGkXjof4G+uvpFs
+	C8Y/UDVCOG/Bqgoh8Qq58Au6+CfgUAtGun5cV3EYHf+yc/ZZ/Qioxn/uWBZxyGEZcc2PQo+Xg+Zfj
+	tH7N77u+4iqdYmp434VZJAqCfjzEy7PhZQzFgONP+o1wkODH1a39ulcO9IX0d17TfEcrh9RD+b+d7
+	s+Xb3d/UVD+wthDF1pgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdCIO-002fFd-2j;
-	Fri, 17 Mar 2023 15:47:08 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pdCPv-002gE1-1W;
+	Fri, 17 Mar 2023 15:54:55 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdCIK-002fE4-2c;
-	Fri, 17 Mar 2023 15:47:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 06053B82628;
-	Fri, 17 Mar 2023 15:47:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D26C433D2;
-	Fri, 17 Mar 2023 15:47:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679068021;
-	bh=12zZKHOmdvjfV4b8aAhGOw58PKPbYKo3hyQtwGB9kH4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RGWS4Rlh6YFCbXnctrhVWv7Ykcq54wAf0H5U1Tl24lkPq9+EDAXqOp8EYBgGJiKcy
-	 9oeGW+NxZmZ+1ig0Dv8MhddFAYiPQsB1aOgo4ed0Iw+jdlsulNlE4awVPBqf5oFfLl
-	 vB7Wjffm8tzRjy6v5BWc0/sNZh7NKF5HXxMynCwg4b7Lf2qLIfKW0MRE5gBrVcPwbt
-	 OdNPHgECAur9yQOGf+r95wWpB8izSNJWncG+mI4fL/XYxZYRABEuEc6oBeyKIDXNzz
-	 GRwg+IbeogaDaVmdUYuWxSL9fCTJxOr6U9ySRBMWpKn/mGD+h30v6R1ZzuzzteDTb7
-	 18ANVBp7ud9Bw==
-Date: Fri, 17 Mar 2023 08:46:58 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	anup@brainfault.org, atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	vineetg@rivosinc.com, greentime.hu@sifive.com,
-	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>
-Subject: Re: [PATCH -next v15 19/19] riscv: Enable Vector code to be built
-Message-ID: <20230317154658.GA1122384@dev-arch.thelio-3990X>
-References: <20230317113538.10878-1-andy.chiu@sifive.com>
- <20230317113538.10878-20-andy.chiu@sifive.com>
+	id 1pdCPs-002gCM-1F
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Mar 2023 15:54:53 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id er8so10474316edb.0
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Mar 2023 08:54:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1679068490;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=a6MfDM7+OPKEruVq5Qw+tL9foQplTG2gH4LeyrZ6K0I=;
+        b=J3OI5NGj9npu+foP+NF4EKylYoqNwBGWTTFoaBFl/rtJptvgmBqbgaaNwy0O7xtBZV
+         OoRN0BmTI0Vf421lNAAHbcxY37muIyEDCYlutZBnnT5RsycZvFq/PuFUBlELpOocRsuJ
+         K0xbCzcc3REibeoG9AcCeLCc+b1sQocdX11eHVM8JkPs4x/rdJcow6Ii+OL2asqAn6zf
+         rFPh/33gn2hrfP6UFSb8aYJBRoSxMyXd5IrQNX/xxa37k91f2ZMBbsDpnJJM7Oepr39r
+         v3SYngKEeCsRngXiYqXXSOEwTxlT71jNY/ehg8AgbVg5CxUKjNiBr60b6cJpnHThX7pf
+         CoKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679068490;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=a6MfDM7+OPKEruVq5Qw+tL9foQplTG2gH4LeyrZ6K0I=;
+        b=gfllrvF/KOqBV3MZOUFZBj+xK7hH9bOdWtYduD1SfkIb0Lk5COFebFQjrrrS22Jb2V
+         GUfI5VPgeJLW5IbSqe/YRihifYgEGrP2UwdTlN0ZxLz2UPxc5Fkrn9ZcH4HFgRUjtf/t
+         pA65e2UP3KZiyOrVh86D6wgMbv9J+Pul+7mHxy818oHAj6tdafRZDMsGehQ7K5IowfVq
+         JQwkdnM2MrsVsllfgOEZK7Yty4qYwF6/icHVuJ9WVdZAN2wdjfvq7z+o+UiUfYdTCLgO
+         VITXIGO8WxymFgGIykb9Wj5zHowyo4qIK8FOumsioszHNBD74SNI8p1BalGDMw/jrvPm
+         cu2w==
+X-Gm-Message-State: AO0yUKVpUk3SmJpVcLgm6qqX5gj3Jtg1OjveG1MrcIyBe4eB2pdsJ7Bz
+	4ysvCnFMILJv7kcHPrHs+gyR+Q==
+X-Google-Smtp-Source: AK7set+MZ5pmlFpN+w8RxZMV5gSssYKuD9NQ8ZrDbPdbH6ontcivRAhcm8upFtI00t/Upa7xjOUp1Q==
+X-Received: by 2002:a17:907:cf88:b0:92f:7c42:8631 with SMTP id ux8-20020a170907cf8800b0092f7c428631mr10502230ejc.16.1679068489976;
+        Fri, 17 Mar 2023 08:54:49 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:d013:3eeb:7658:cec? ([2a02:810d:15c0:828:d013:3eeb:7658:cec])
+        by smtp.gmail.com with ESMTPSA id kx1-20020a170907774100b0091fdd2ee44bsm1112929ejc.197.2023.03.17.08.54.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Mar 2023 08:54:49 -0700 (PDT)
+Message-ID: <80796828-7b38-184a-2e8e-3cfe9158b67f@linaro.org>
+Date: Fri, 17 Mar 2023 16:54:47 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230317113538.10878-20-andy.chiu@sifive.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH 02/11] dt-bindings: serial: snps-dw-apb-uart: Relax
+ dma-names order constraint
+Content-Language: en-US
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+ Heiko Stuebner <heiko@sntech.de>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Drake <drake@endlessm.com>, Katsuhiro Suzuki <katsuhiro@katsuster.net>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ alsa-devel@alsa-project.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org, kernel@collabora.com
+References: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
+ <20230315114806.3819515-3-cristian.ciocaltea@collabora.com>
+ <3679f2d0-55f0-1710-abc2-b268b6fc6969@linaro.org>
+ <8ae57fe3-56aa-7e50-3eaa-a12a40657baf@collabora.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <8ae57fe3-56aa-7e50-3eaa-a12a40657baf@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230317_084705_169986_C7609DF0 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20230317_085452_425861_8C7416A4 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,150 +111,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-On Fri, Mar 17, 2023 at 11:35:38AM +0000, Andy Chiu wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On 17/03/2023 11:21, Cristian Ciocaltea wrote:
+> On 3/17/23 10:31, Krzysztof Kozlowski wrote:
+>> On 15/03/2023 12:47, Cristian Ciocaltea wrote:
+>>> Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
+>>> dma-names properties") documented dma-names property to handle Allwiner
+>>> D1 dtbs_check warnings, but relies on a strict rx->tx ordering, which is
+>>> the reverse of what a different board expects:
+>>>
+>>>    rk3326-odroid-go2.dtb: serial@ff030000: dma-names:0: 'rx' was expected
+>>>
+>>> A quick and incomplete check shows the inconsistency is present in many
+>>> other DT files:
+>>
+>> Why not fixing the DTS? The properties should have fixed order.
 > 
-> This patch adds a config which enables vector feature from the kernel
-> space.
+> I was initially concerned about the risk of a potential ABI breakage, 
+> but I think that's not really a problem since dma-names is not directly 
+> accessed in the driver and DT Kernel API doesn't rely on a particular order.
 > 
-> Support for RISC_V_ISA_V is limited to GNU-assembler for now, as LLVM
-> has not acquired the functionality to selectively change the arch option
-> in assembly code. This is still under review at
->     https://reviews.llvm.org/D123515
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-> Suggested-by: Atish Patra <atishp@atishpatra.org>
-> Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
->  arch/riscv/Kconfig  | 20 ++++++++++++++++++++
->  arch/riscv/Makefile |  6 +++++-
->  2 files changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index c736dc8e2593..bf9aba2f2811 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -436,6 +436,26 @@ config RISCV_ISA_SVPBMT
->  
->  	   If you don't know what to do here, say Y.
->  
-> +config TOOLCHAIN_HAS_V
-> +	bool
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64iv)
-> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32iv)
-> +	depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
-> +	depends on AS_IS_GNU
+> If there are no objections, I would switch the order in the binding to 
+> tx->rx, since that's what most of the DTS use, and fix the remaining ones.
 
-Consider hoisting this 'depends on AS_IS_GNU' into its own configuration
-option, as the same dependency is present in CONFIG_TOOLCHAIN_HAS_ZBB
-for the exact same reason, with no comment as to why. By having a shared
-dependency configuration option, we can easily update it when that
-change is merged into LLVM proper and gain access to the current and
-future options that depend on it. I imagine something like:
+Since we added the order recently, I rather assume it is the correct or
+preferred one.
 
-config AS_HAS_OPTION_ARCH
-    bool
-    default y
-    # https://reviews.llvm.org/D123515
-    depends on AS_IS_GNU
+Best regards,
+Krzysztof
 
-config TOOLCHAIN_HAS_ZBB
-    bool
-    default y
-    depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
-    depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
-    depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-    depends on AS_HAS_OPTION_ARCH
-
-config TOOLCHAIN_HAS_V
-    bool
-    default y
-    depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64iv)
-    depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32iv)
-    depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
-    depends on AS_HAS_OPTION_ARCH
-
-It would be nice if it was a hard error for LLVM like GCC so that we
-could just dynamically check support via as-instr but a version check is
-not the end of the world when we know the versions.
-
-  $ cat test.s
-  .option arch, +v
-
-  $ cat test-invalid.s
-  .option arch, +vv
-
-  $ clang --target=riscv64-linux-gnu -c -o /dev/null test.s
-  test.s:1:13: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax'
-  .option arch, +v
-              ^
-
-  $ clang --target=riscv64-linux-gnu -c -o /dev/null test-invalid.s
-  test-invalid.s:1:13: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax'
-  .option arch, +vv
-              ^
-
-  $ riscv64-linux-gcc -c -o /dev/null test.s
-
-  $ riscv64-linux-gcc -c -o /dev/null test-invalid.s
-  test-invalid.s: Assembler messages:
-  test-invalid.s:1: Error: unknown ISA extension `vv' in .option arch `+vv'
-
-As a side note, 'bool + default y' is the same as 'def_bool y', if you
-wanted to same some space.
-
-Cheers,
-Nathan
-
-> +config RISCV_ISA_V
-> +	bool "VECTOR extension support"
-> +	depends on TOOLCHAIN_HAS_V
-> +	depends on FPU
-> +	select DYNAMIC_SIGFRAME
-> +	default y
-> +	help
-> +	  Say N here if you want to disable all vector related procedure
-> +	  in the kernel.
-> +
-> +	  If you don't know what to do here, say Y.
-> +
->  config TOOLCHAIN_HAS_ZBB
->  	bool
->  	default y
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 6203c3378922..84a50cfaedf9 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -56,6 +56,7 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
->  riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
->  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
->  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-> +riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
->  
->  # Newer binutils versions default to ISA spec version 20191213 which moves some
->  # instructions from the I extension to the Zicsr and Zifencei extensions.
-> @@ -65,7 +66,10 @@ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
->  # Check if the toolchain supports Zihintpause extension
->  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
->  
-> -KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
-> +# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
-> +# keep non-v and multi-letter extensions out with the filter ([^v_]*)
-> +KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed  -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-> +
->  KBUILD_AFLAGS += -march=$(riscv-march-y)
->  
->  KBUILD_CFLAGS += -mno-save-restore
-> -- 
-> 2.17.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
