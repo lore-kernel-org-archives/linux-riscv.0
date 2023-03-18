@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0F4C74A5B
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Mar 2023 12:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86903C61DA4
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Mar 2023 16:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UiQkHltbxn/+Zc2e6h7jrXsJiTusoj5M4a7eRq4UKVc=; b=z4H3kE6QDFRx453/pYrSkAqbj7
-	yrll+kuc0idNkE06+x2zqT7DpGLN7YA/oJTBycppHhtoLEMTdjqpGscsvqG/uHeaarqJOOhPTpsws
-	g/A/8+jkZlbm3m5aoIXe7GWEoxSH/P6Mx7MGF3Z+aYimM+DIcaiCNNo9RlrWbHRiIBP4iz1berlr5
-	NqetE4EusaBCQWCQSoBK7I5pnHAl+DTpqxB7o1pp/cVaYoBQV11+JefINn6jwNuMNt5/W7+D8TfTo
-	fZxYCEHBhPojFBlx7716LxgItYIRtM2s+teoI5oR6bOw2HxjuFr1OWQosmxLgCt1f13lH7iC7YkGB
-	nQnH2Dww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=80GfcTBY7dvQdy422+qIf8ZJAFUp1ePyA+yujjn/T4o=; b=fFrZUwglJ3Y6El
+	GKlIGGrFtoSqxlCV1rECkfVD2FoiI72oClfgL6jOyQkk8jaSa7a1jXsPPiaeSDWxIR2kx6B9nSKz2
+	mOmsg7GA3nMWBbdrWtl0n8O0Ta05LTxFUvjyu/MJHW7sCS6MUeRr+RFWvuduhApAxfb7fAuvSoENi
+	g7xGl8qtNyzsU5XoSQZD+fR5SAbqE9a6089qfcb2vWytyjbVRqCovIBKQWCkEwrjd1K1JFLau4vTc
+	aUv5Jwf1IKvZI1rugzjK63l5ZxwJI+5qpK/QMGLnDqpiKnElDW64q/1epCKx5/tssECP09oOFEhF+
+	uO2WG0M/o9LZnSxHuMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdVGr-004hN0-2K;
-	Sat, 18 Mar 2023 12:02:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pdZbl-0050qd-16;
+	Sat, 18 Mar 2023 16:40:41 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdVGn-004hMZ-2m
-	for linux-riscv@lists.infradead.org;
-	Sat, 18 Mar 2023 12:02:47 +0000
+	id 1pdZbf-0050pQ-2F;
+	Sat, 18 Mar 2023 16:40:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E5CB3608C3;
-	Sat, 18 Mar 2023 12:02:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B48C433D2;
-	Sat, 18 Mar 2023 12:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679140964;
-	bh=1/kpsMfIhTJzo7DrQ5GgKD8mz006Yq3R7wnVhqWIcgg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xwde4tjFBCAh+CHYUqZOT27gav/7/dJnt1YL9R4AF9WrDqzA5ayhhuSND0uGXFvQA
-	 4pVKHeZRjBcgb4Xb/5Dlc2G1DCzREg8UYHBv8Pl4NTfffqsSS2jQrpTwwvrUgQKQuk
-	 iMorhEADbcHaWrjWuXMYRbRtYrdt8XuBIrQFZt6yalQ9kpLFwgfuoB3t8cPU4LXD3M
-	 cm30juQvQB51SmqPONbwcqvPrXsmk5hQZ6QkKJ4qaWM4WNRPzHaGJdDUcfiBPxErpp
-	 GO8xb1fJGw2wg1aiQ1Cp8Oaj9Mqkb/bHYiqk8RWfIwkk7Mh883tbLoSJwbqKCPhbeT
-	 /AI4KQSNNzoHA==
-Date: Sat, 18 Mar 2023 12:02:37 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v4 4/6] RISC-V: hwprobe: Support probing of misaligned
- access performance
-Message-ID: <95e82276-063a-4dad-b57d-8d938e0974de@spud>
-References: <20230314183220.513101-1-evan@rivosinc.com>
- <20230314183220.513101-5-evan@rivosinc.com>
+	by ams.source.kernel.org (Postfix) with ESMTPS id 582A8B8091A;
+	Sat, 18 Mar 2023 16:40:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EEBFC433EF;
+	Sat, 18 Mar 2023 16:40:30 +0000 (UTC)
+Date: Sat, 18 Mar 2023 12:40:28 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Donglin Peng <pengdonglin@sangfor.com.cn>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, mhiramat@kernel.org,
+ mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, mingo@redhat.com,
+ xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
+ dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing
+ the return value of function
+Message-ID: <20230318124028.4faf75d1@rorschach.local.home>
+In-Reply-To: <34781b74-8d3e-a7e6-9abe-e8d45d680eec@sangfor.com.cn>
+References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
+	<20230315133911.958741-2-pengdonglin@sangfor.com.cn>
+	<ZBOkY8FkqgoBfzQ2@shell.armlinux.org.uk>
+	<34781b74-8d3e-a7e6-9abe-e8d45d680eec@sangfor.com.cn>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20230314183220.513101-5-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230318_050245_995650_8758E036 
-X-CRM114-Status: GOOD (  39.37  )
+X-CRM114-CacheID: sfid-20230318_094035_901182_F886E488 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,395 +68,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: heiko@sntech.de, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Tsukasa OI <research_trasio@irq.a4lg.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, vineetg@rivosinc.com, Philipp Tomsich <philipp.tomsich@vrull.eu>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, slewis@rivosinc.com, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <sudeep.holla@arm.com>, Guo Ren <guoren@kernel.org>, Wei Fu <wefu@redhat.com>
-Content-Type: multipart/mixed; boundary="===============0211332346191851327=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 17 Mar 2023 10:49:49 +0800
+Donglin Peng <pengdonglin@sangfor.com.cn> wrote:
 
---===============0211332346191851327==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0Q/vSjzTMzK1nUkq"
-Content-Disposition: inline
+> > So, really it depends what size of return value we want to report.
+> > Also, please bear in mind that where a function returns a 32-bit
+> > value, that will be in r0, and r1 will be whatever happened to be
+> > in it at function exit - there's no defined value for r1.
+> >   
+> 
+> Thank you. I will document this as a limitation of fgraph return value.
+> It can just cover most cases at present and I think the r0 is enough.
 
+One thing we could possibly do here is to use BTF or objtool to denote
+the return value of each function and use 2 bits of the ftrace
+rec->flags to state that it is:
 
---0Q/vSjzTMzK1nUkq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+0 - void
+1 - 1 word size return
+2 - 2 word size return
 
-On Tue, Mar 14, 2023 at 11:32:18AM -0700, Evan Green wrote:
-> This allows userspace to select various routines to use based on the
-> performance of misaligned access on the target hardware.
->=20
-> Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
+I believe we can get access to the function's rec via the return call
+(or add that access) and pass both words to the return function, and
+then the return callback can use this lookup to determine what values
+are useful or not.
 
-I think this fine now, modulo the lack of an explanation in the commit
-message for the new thead feature/"errata" that you've added.
-With an explanation for that:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+In any case, I would suggest passing both regs to the callback, and for
+now just ignore the second reg until we can come up with a way to
+differentiate each function.
 
-Thanks,
-Conor.
-
-> ---
->=20
-> Changes in v4:
->  - Add newlines to CPUPERF_0 documentation (Conor)
->  - Add UNSUPPORTED value (Conor)
->  - Switched from DT to alternatives-based probing (Rob)
->  - Crispen up cpu index type to always be int (Conor)
->=20
-> Changes in v3:
->  - Have hwprobe_misaligned return int instead of long.
->  - Constify cpumask pointer in hwprobe_misaligned()
->  - Fix warnings in _PERF_O list documentation, use :c:macro:.
->  - Move include cpufeature.h to misaligned patch.
->  - Fix documentation mismatch for RISCV_HWPROBE_KEY_CPUPERF_0 (Conor)
->  - Use for_each_possible_cpu() instead of NR_CPUS (Conor)
->  - Break early in misaligned access iteration (Conor)
->  - Increase MISALIGNED_MASK from 2 bits to 3 for possible UNSUPPORTED fut=
-ure
->    value (Conor)
->=20
-> Changes in v2:
->  - Fixed logic error in if(of_property_read_string...) that caused crash
->  - Include cpufeature.h in cpufeature.h to avoid undeclared variable
->    warning.
->  - Added a _MASK define
->  - Fix random checkpatch complaints
->=20
->  Documentation/riscv/hwprobe.rst       | 21 ++++++++++++++++++++
->  arch/riscv/errata/thead/errata.c      |  9 +++++++++
->  arch/riscv/include/asm/alternative.h  |  5 +++++
->  arch/riscv/include/asm/cpufeature.h   |  2 ++
->  arch/riscv/include/asm/hwprobe.h      |  2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h |  7 +++++++
->  arch/riscv/kernel/alternative.c       | 19 ++++++++++++++++++
->  arch/riscv/kernel/cpufeature.c        |  3 +++
->  arch/riscv/kernel/smpboot.c           |  1 +
->  arch/riscv/kernel/sys_riscv.c         | 28 +++++++++++++++++++++++++++
->  10 files changed, 96 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprob=
-e.rst
-> index 945d44683c40..9f0dd62dcb5d 100644
-> --- a/Documentation/riscv/hwprobe.rst
-> +++ b/Documentation/riscv/hwprobe.rst
-> @@ -63,3 +63,24 @@ The following keys are defined:
-> =20
->    * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as def=
-ined
->      by version 2.2 of the RISC-V ISA manual.
-> +
-> +* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains perfor=
-mance
-> +  information about the selected set of processors.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misa=
-ligned
-> +    accesses is unknown.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
-> +    emulated via software, either in or below the kernel.  These accesse=
-s are
-> +    always extremely slow.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are su=
-pported
-> +    in hardware, but are slower than the cooresponding aligned accesses
-> +    sequences.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are su=
-pported
-> +    in hardware and are faster than the cooresponding aligned accesses
-> +    sequences.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses=
- are
-> +    not supported at all and will generate a misaligned address fault.
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/e=
-rrata.c
-> index fac5742d1c1e..f41a45af5607 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -10,7 +10,9 @@
->  #include <linux/uaccess.h>
->  #include <asm/alternative.h>
->  #include <asm/cacheflush.h>
-> +#include <asm/cpufeature.h>
->  #include <asm/errata_list.h>
-> +#include <asm/hwprobe.h>
->  #include <asm/patch.h>
->  #include <asm/vendorid_list.h>
-> =20
-> @@ -108,3 +110,10 @@ void __init_or_module thead_errata_patch_func(struct=
- alt_entry *begin, struct al
->  	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
->  		local_flush_icache_all();
->  }
-> +
-> +void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
-> +			      unsigned long impid)
-> +{
-> +	if ((archid =3D=3D 0) && (impid =3D=3D 0))
-> +		per_cpu(misaligned_access_speed, cpu) =3D RISCV_HWPROBE_MISALIGNED_FAS=
-T;
-> +}
-> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/as=
-m/alternative.h
-> index 6511dd73e812..7be6d4c6a27d 100644
-> --- a/arch/riscv/include/asm/alternative.h
-> +++ b/arch/riscv/include/asm/alternative.h
-> @@ -23,6 +23,7 @@
->  #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during modul=
-e-init */
->  #define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before m=
-mu start */
-> =20
-> +void probe_vendor_features(unsigned int cpu);
->  void __init apply_boot_alternatives(void);
->  void __init apply_early_boot_alternatives(void);
->  void apply_module_alternatives(void *start, size_t length);
-> @@ -47,11 +48,15 @@ void thead_errata_patch_func(struct alt_entry *begin,=
- struct alt_entry *end,
->  			     unsigned long archid, unsigned long impid,
->  			     unsigned int stage);
-> =20
-> +void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
-> +			      unsigned long impid);
-> +
->  void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_ent=
-ry *end,
->  				 unsigned int stage);
-> =20
->  #else /* CONFIG_RISCV_ALTERNATIVE */
-> =20
-> +static inline void probe_vendor_features(unsigned int cpu) { }
->  static inline void apply_boot_alternatives(void) { }
->  static inline void apply_early_boot_alternatives(void) { }
->  static inline void apply_module_alternatives(void *start, size_t length)=
- { }
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
-/cpufeature.h
-> index 66ebaae449c8..808d5403f2ac 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -18,4 +18,6 @@ struct riscv_cpuinfo {
-> =20
->  DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-> =20
-> +DECLARE_PER_CPU(long, misaligned_access_speed);
-> +
->  #endif
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
-probe.h
-> index 7e52f1e1fe10..4e45e33015bc 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -8,6 +8,6 @@
-> =20
->  #include <uapi/asm/hwprobe.h>
-> =20
-> -#define RISCV_HWPROBE_MAX_KEY 4
-> +#define RISCV_HWPROBE_MAX_KEY 5
-> =20
->  #endif
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
-api/asm/hwprobe.h
-> index fc5665411782..2968bb0984b5 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -25,6 +25,13 @@ struct riscv_hwprobe {
->  #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
->  #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
->  #define		RISCV_HWPROBE_IMA_C		(1 << 1)
-> +#define RISCV_HWPROBE_KEY_CPUPERF_0	5
-> +#define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
-> +#define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-> +#define		RISCV_HWPROBE_MISALIGNED_SLOW		(2 << 0)
-> +#define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
-> +#define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
-> +#define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
-> =20
->  #endif
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternat=
-ive.c
-> index a7d26a00beea..522d3d11e0c3 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -23,6 +23,8 @@ struct cpu_manufacturer_info_t {
->  	void (*patch_func)(struct alt_entry *begin, struct alt_entry *end,
->  				  unsigned long archid, unsigned long impid,
->  				  unsigned int stage);
-> +	void (*feature_probe_func)(unsigned int cpu, unsigned long archid,
-> +				   unsigned long impid);
->  };
-> =20
->  static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufact=
-urer_info_t *cpu_mfr_info)
-> @@ -37,6 +39,7 @@ static void __init_or_module riscv_fill_cpu_mfr_info(st=
-ruct cpu_manufacturer_inf
->  	cpu_mfr_info->imp_id =3D sbi_get_mimpid();
->  #endif
-> =20
-> +	cpu_mfr_info->feature_probe_func =3D NULL;
->  	switch (cpu_mfr_info->vendor_id) {
->  #ifdef CONFIG_ERRATA_SIFIVE
->  	case SIFIVE_VENDOR_ID:
-> @@ -46,6 +49,7 @@ static void __init_or_module riscv_fill_cpu_mfr_info(st=
-ruct cpu_manufacturer_inf
->  #ifdef CONFIG_ERRATA_THEAD
->  	case THEAD_VENDOR_ID:
->  		cpu_mfr_info->patch_func =3D thead_errata_patch_func;
-> +		cpu_mfr_info->feature_probe_func =3D thead_feature_probe_func;
->  		break;
->  #endif
->  	default:
-> @@ -53,6 +57,20 @@ static void __init_or_module riscv_fill_cpu_mfr_info(s=
-truct cpu_manufacturer_inf
->  	}
->  }
-> =20
-> +/* Called on each CPU as it starts */
-> +void probe_vendor_features(unsigned int cpu)
-> +{
-> +	struct cpu_manufacturer_info_t cpu_mfr_info;
-> +
-> +	riscv_fill_cpu_mfr_info(&cpu_mfr_info);
-> +	if (!cpu_mfr_info.feature_probe_func)
-> +		return;
-> +
-> +	cpu_mfr_info.feature_probe_func(cpu,
-> +					cpu_mfr_info.arch_id,
-> +					cpu_mfr_info.imp_id);
-> +}
-> +
->  /*
->   * This is called very early in the boot process (directly after we run
->   * a feature detect on the boot CPU). No need to worry about other CPUs
-> @@ -82,6 +100,7 @@ void __init apply_boot_alternatives(void)
->  	/* If called on non-boot cpu things could go wrong */
->  	WARN_ON(smp_processor_id() !=3D 0);
-> =20
-> +	probe_vendor_features(0);
->  	_apply_alternatives((struct alt_entry *)__alt_start,
->  			    (struct alt_entry *)__alt_end,
->  			    RISCV_ALTERNATIVES_BOOT);
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 93e45560af30..8ccf260e8b02 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -32,6 +32,9 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __r=
-ead_mostly;
->  DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
->  EXPORT_SYMBOL(riscv_isa_ext_keys);
-> =20
-> +/* Performance information */
-> +DEFINE_PER_CPU(long, misaligned_access_speed);
-> +
->  /**
->   * riscv_isa_extension_base() - Get base extension word
->   *
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 3373df413c88..1291ab5ba4c3 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -167,6 +167,7 @@ asmlinkage __visible void smp_callin(void)
->  	notify_cpu_starting(curr_cpuid);
->  	numa_add_cpu(curr_cpuid);
->  	set_cpu_online(curr_cpuid, 1);
-> +	probe_vendor_features(curr_cpuid);
-> =20
->  	/*
->  	 * Remote TLB flushes are ignored while the CPU is offline, so emit
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 1c118438b1b3..76d5b468914c 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -7,6 +7,7 @@
-> =20
->  #include <linux/syscalls.h>
->  #include <asm/cacheflush.h>
-> +#include <asm/cpufeature.h>
->  #include <asm/hwprobe.h>
->  #include <asm/sbi.h>
->  #include <asm/switch_to.h>
-> @@ -117,6 +118,29 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pa=
-ir,
->  	pair->value =3D id;
->  }
-> =20
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	int cpu;
-> +	u64 perf =3D -1ULL;
-> +
-> +	for_each_cpu(cpu, cpus) {
-> +		int this_perf =3D per_cpu(misaligned_access_speed, cpu);
-> +
-> +		if (perf =3D=3D -1ULL)
-> +			perf =3D this_perf;
-> +
-> +		if (perf !=3D this_perf) {
-> +			perf =3D RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (perf =3D=3D -1ULL)
-> +		return RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> +
-> +	return perf;
-> +}
-> +
->  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  			     const struct cpumask *cpus)
->  {
-> @@ -146,6 +170,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *p=
-air,
-> =20
->  		break;
-> =20
-> +	case RISCV_HWPROBE_KEY_CPUPERF_0:
-> +		pair->value =3D hwprobe_misaligned(cpus);
-> +		break;
-> +
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
->  	 * call, but get their element key set to -1 and value set to 0
-> --=20
-> 2.25.1
->=20
-
---0Q/vSjzTMzK1nUkq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBWoOgAKCRB4tDGHoIJi
-0jjbAQC8Pyk2ey4Voutcd0hhV8SfyCF+jl52xqMpQGDusR0MZgEA5rB6R62j62Us
-64D1LdX2D4FgZiqANThANuizktmLoQQ=
-=3WKM
------END PGP SIGNATURE-----
-
---0Q/vSjzTMzK1nUkq--
-
-
---===============0211332346191851327==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0211332346191851327==--
-
