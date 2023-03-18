@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179F9C74A5B
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Mar 2023 08:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB81C61DA4
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Mar 2023 08:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rhEqC4QblmgoXvVkzMSAt+CSBRwZ0Drq2F6AjAp7Nyo=; b=oNtLiC9uqU5NRk
-	/xdFnTaNUedduOUJu8cx3Knt1CAjMUc6uAhAFznzwzHZJWJGLoQcqap93HnoXPsEXGUas5S749uLx
-	CXnH23Htku/qgXAaHY4WtLJAx52MurTgkY8Aao1vqylbuJDgmprxhnqMsGB8qH5W3htovEMZ31WcS
-	8Fe3hC/N+a9iZWCNvQfMEI4fqi0OlyROtEX2pD6FuwmAUwFHwEmQhdfiqpKT+7KdzvM1GE+f6fhNz
-	9UEN6ZPpfE9SOXe2AHfUDvNLy9lu1LjFN8bPYBsBscMc1+BKQJ32NIw/rO5xmA2PwesuS1W23LU7W
-	uLnMQzJtvBOb05OTAGjg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zrd1Z1+2UIuJEzwFK2800IC971An8Ra7ejujlUZG86I=; b=SLqcIbLo9+7Us8
+	B0S3LYBcc0+LZDs4I7XTzZj7HRr241aFLO0XTpiPiG8cILL1Gv72r4so81hcXfL/OsirgjmZVLfjU
+	2j6slyf5gTkjTl72uucAIlF75CuncDTEvmQY77AG5VUgpb42jLWq7+NWRwqKeVxhgGTCEeDYU2GTt
+	lGCYAegLxpZnuubkWxSTtnLeskT8qUxuewUEnxAVtPtnEujewvD8AFoHHHAagN8ZSfQTq9rMzMHku
+	v4KVilPtno7rbwc7H5Ha7zBvkx+Fq2oWmAMvEow0c1NEvfzJtXoaNE+CwIliRszs2UiYgflHp3k/H
+	9+3oAZO0Q6zV/xpitKgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdRX5-004OTz-0B;
-	Sat, 18 Mar 2023 08:03:19 +0000
+	id 1pdRXB-004OWX-2U;
+	Sat, 18 Mar 2023 08:03:25 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdRX2-004OSx-25
+	id 1pdRX8-004OUp-2A
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Mar 2023 08:03:17 +0000
+	Sat, 18 Mar 2023 08:03:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679126595;
+	s=mimecast20190719; t=1679126601;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Qx6sO30KWXOeH8l6ZlBEQgHux3VGZ/RgcLtlMop/hXs=;
-	b=F7Kjy7q3cDtbV5aF1togYm1l7qQ2aHotMwH8k4gqJq/Dnqs2msaSo3OkEXynCSsz/8mI3J
-	XPrv33IpLXPgNeaGe+n7Pdwux/s9GOZhCpSEQfFjulZXsG0Lzsaad9dGfU8VaIn1Z3v9OJ
-	weZ/PDFAuy8zAmnQ7OVNJz7tR9De4ss=
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
- [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lpwvsmW/EIvjt3XpmgOB2tOjIn+1scWXRJYbQwzYCy4=;
+	b=Rsts4vE9uyMYBZK2MZWsDaYX28ikFK0oRJ/UpPbp8LgmXYiqu27Czdbsi0mG4pnvbT2sa5
+	nvf4FPU//OwwHItAjKQWhktrWpRhsTpYbs0qG+BYYpoDG8MAPGJzuuWppqA/eKCaw4umNG
+	dAOLDKU/h+LPUq3QplaBq/B812wN4qM=
+Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com
+ [209.85.160.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-81-5Oeqx1xuPM2cyUfp0TofyA-1; Sat, 18 Mar 2023 04:01:30 -0400
-X-MC-Unique: 5Oeqx1xuPM2cyUfp0TofyA-1
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-176249fbc56so4214947fac.6
-        for <linux-riscv@lists.infradead.org>; Sat, 18 Mar 2023 01:01:30 -0700 (PDT)
+ us-mta-191-nS_i3ZvDM6aORLwq6-eZsQ-1; Sat, 18 Mar 2023 04:01:52 -0400
+X-MC-Unique: nS_i3ZvDM6aORLwq6-eZsQ-1
+Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-177c2fb86b7so4223592fac.20
+        for <linux-riscv@lists.infradead.org>; Sat, 18 Mar 2023 01:01:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679126490;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Qx6sO30KWXOeH8l6ZlBEQgHux3VGZ/RgcLtlMop/hXs=;
-        b=jRvV9ZQYPKvWNhZwBaLR5eja4cylCnRuXuNE1hqqp/nLarUtzDcF7o99CxLwpvCXAp
-         kACCRBJVy7w4jkQ4a5K0kLTVQG2gur/7inPFoQgrvcEmSkQnF5lObpMhemQTAp2mDAxT
-         urMrrCGoygSsDxhExStCr6d/VKAlG+hK9Z9JH+7kh5KqE+9AlCNy+1DzKmfopDjdwkv/
-         IpwLJxaQndpONH3lWkZpXTEQ+DXd5iNr3ANYMp/ov7NXjJ8wqjLRZMYIqKWRmKzyFt7q
-         oZrIxsDlHaNXHTro53qED1avW04cn8hPkcBuulsurCtz1z8q1/ECFv7e2Hc6U+6S0ZVl
-         UmvQ==
-X-Gm-Message-State: AO0yUKWz/KoqBEgTsqb++zEeB2jyuFQzObdDeIvsWfOp4w02MO5Hsfa3
-	kz/ogH0KnVcTT6dw81aFsvwc59smeR92mHli3kvpJHfB27VxevbgMFtV9gTTWF8BlaFPxe0TcoM
-	kPx1yC+rb8RNu93ueW8F/mRVeAPY5
-X-Received: by 2002:a05:6808:1396:b0:386:c879:d3ae with SMTP id c22-20020a056808139600b00386c879d3aemr3370164oiw.10.1679126489993;
-        Sat, 18 Mar 2023 01:01:29 -0700 (PDT)
-X-Google-Smtp-Source: AK7set/mh3aE04hb4EIJpiXnxz24ex1/4nqqBvuGMupJ7eKKQmcSN0VSwWqLwBDIghHvTT66dP/YOA==
-X-Received: by 2002:a05:6808:1396:b0:386:c879:d3ae with SMTP id c22-20020a056808139600b00386c879d3aemr3370150oiw.10.1679126489729;
-        Sat, 18 Mar 2023 01:01:29 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1679126511;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lpwvsmW/EIvjt3XpmgOB2tOjIn+1scWXRJYbQwzYCy4=;
+        b=HIlE+m7xlK7vaaUJqv1tXKC9befbiqadAIwz0sokUboO4Fb4FjeC9WHRYIh1sF9GoP
+         ChVg3vvU1ns4b9oMT06FpfFAmlu/GKYdFxh9K01q8vqpNJ8878wey5k4hJtDlcXGOarJ
+         cAumk9fv3CDYH9ISDKaucWsKGiQlet+K+82wlPiiJPuEKnc0tlUkPRngTLuVXqw0vMhL
+         EeHrqrNimswnSfgfdCbY4xaF6UVaJ/6pTe9AadTNEwxFpit9Ss2x1AxPoBwAVDPC+L7G
+         Wc4SF3kP4y//ccuJQYthhsdP4p2muHK3S7OllXO/NsQhrdPI4EMupHM/HSZzi8FREROI
+         nlwg==
+X-Gm-Message-State: AO0yUKVyVaDH+Ggv4cuGMD9QY385wcY1YqF7Zab9lRBzOos/03Zr0pH7
+	RslohlP6uIjHXnJtog2KoRo1D2JjpDZNF8kcPk+GCNGj2OBsNbL+WZUiUs+Lve1AZ1ozH0posF3
+	sCkOZazZd9CgHFavrYUpGekgyBuiU
+X-Received: by 2002:a54:4105:0:b0:386:a6cb:82ed with SMTP id l5-20020a544105000000b00386a6cb82edmr5217853oic.33.1679126511679;
+        Sat, 18 Mar 2023 01:01:51 -0700 (PDT)
+X-Google-Smtp-Source: AK7set/JkYinclH5dcLs6EHBhSKruKldE5cS9Bd8lNlJcC0BBckJockV5iTHiGLJSuRSCGUw//8tvQ==
+X-Received: by 2002:a54:4105:0:b0:386:a6cb:82ed with SMTP id l5-20020a544105000000b00386a6cb82edmr5217850oic.33.1679126511452;
+        Sat, 18 Mar 2023 01:01:51 -0700 (PDT)
 Received: from localhost.localdomain ([2804:1b3:a801:b074:274d:d04e:badc:c89f])
-        by smtp.gmail.com with ESMTPSA id c3-20020a9d4803000000b0069dc250cb24sm1824462otf.3.2023.03.18.01.01.26
+        by smtp.gmail.com with ESMTPSA id c3-20020a9d4803000000b0069dc250cb24sm1824462otf.3.2023.03.18.01.01.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Mar 2023 01:01:29 -0700 (PDT)
+        Sat, 18 Mar 2023 01:01:51 -0700 (PDT)
 From: Leonardo Bras <leobras@redhat.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -75,16 +76,18 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Guo Ren <guoren@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 0/6] Deduplicating RISCV cmpxchg.h macros
-Date: Sat, 18 Mar 2023 05:00:54 -0300
-Message-Id: <20230318080059.1109286-1-leobras@redhat.com>
+Subject: [RFC PATCH 6/6] riscv/cmpxchg: Deduplicate arch_xchg() macros
+Date: Sat, 18 Mar 2023 05:01:00 -0300
+Message-Id: <20230318080059.1109286-7-leobras@redhat.com>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230318080059.1109286-1-leobras@redhat.com>
+References: <20230318080059.1109286-1-leobras@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230318_010316_757984_E931F041 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20230318_010322_782782_9C26560C 
+X-CRM114-Status: UNSURE (   9.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,35 +105,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While studying riscv's cmpxchg.h file, I got really interested in 
-understanding how RISCV asm implemented the different versions of 
-{cmp,}xchg.
+Every arch_xchg define (_relaxed, _acquire, _release, vanilla) contain it's
+own define for creating tmp variables and calling the correct internal
+macro for the desired version.
 
-When I understood the pattern, it made sense for me to remove the 
-duplications and create macros to make it easier to understand what exactly 
-changes between the versions: Instruction sufixes & barriers.
+Those defines are mostly the same code, so there is no need to keep the 4
+copies.
 
-I split those changes in 3 levels for each cmpxchg and xchg, resulting a 
-total of 6 patches. I did this so it becomes easier to review and remove 
-the last levels if desired, but I have no issue squashing them if it's 
-better.
+Create a helper define to avoid code duplication.
 
-Please provide comments.
+(This did not cause any change in generated asm)
 
-Thanks!
-Leo
+Signed-off-by: Leonardo Bras <leobras@redhat.com>
+---
+ arch/riscv/include/asm/cmpxchg.h | 26 +++++++++-----------------
+ 1 file changed, 9 insertions(+), 17 deletions(-)
 
-Leonardo Bras (6):
-  riscv/cmpxchg: Deduplicate cmpxchg() asm functions
-  riscv/cmpxchg: Deduplicate cmpxchg() macros
-  riscv/cmpxchg: Deduplicate arch_cmpxchg() macros
-  riscv/cmpxchg: Deduplicate xchg() asm functions
-  riscv/cmpxchg: Deduplicate xchg() macros
-  riscv/cmpxchg: Deduplicate arch_xchg() macros
-
- arch/riscv/include/asm/cmpxchg.h | 316 +++++++------------------------
- 1 file changed, 64 insertions(+), 252 deletions(-)
-
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 23da4d8e6f0c8..d13da2286c82a 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -43,41 +43,33 @@
+ #define __xchg_relaxed(ptr, new, size)					\
+ 	___xchg(ptr, new, size, "", "", "")
+ 
+-#define arch_xchg_relaxed(ptr, x)					\
++#define _arch_xchg(order, ptr, x)					\
+ ({									\
+ 	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_relaxed((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
++	(__typeof__(*(ptr))) __xchg ## order((ptr),			\
++						_x_, sizeof(*(ptr)));	\
+ })
+ 
++#define arch_xchg_relaxed(ptr, x)					\
++	_arch_xchg(_relaxed, ptr, x)
++
+ #define __xchg_acquire(ptr, new, size)					\
+ 	___xchg(ptr, new, size, "", "", RISCV_ACQUIRE_BARRIER)
+ 
+ #define arch_xchg_acquire(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_acquire((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
++	_arch_xchg(_acquire, ptr, x)
+ 
+ #define __xchg_release(ptr, new, size)					\
+ 	___xchg(ptr, new, size, "", RISCV_RELEASE_BARRIER, "")
+ 
+ #define arch_xchg_release(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_release((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
++	_arch_xchg(_release, ptr, x)
+ 
+ #define __xchg(ptr, new, size)						\
+ 	___xchg(ptr, new, size, ".aqrl", "", "")
+ 
+ #define arch_xchg(ptr, x)						\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg((ptr), _x_, sizeof(*(ptr)));	\
+-})
++	_arch_xchg(, ptr, x)
+ 
+ #define xchg32(ptr, x)							\
+ ({									\
 -- 
 2.40.0
 
