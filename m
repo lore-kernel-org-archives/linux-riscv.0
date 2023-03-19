@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15422C7618A
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Mar 2023 12:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2C2C7618A
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Mar 2023 13:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O/2HhmGBtLYPzy7euV9cJgwtfvtnDnPEY1dGqr/Pv/0=; b=Tm1Mq7G0JNKh9J
-	lTMiekn8+KhQTaYwdO3fwq1LE5znq7saxCzntxJNHLBOTbGz5KvhCj/Y8gU4R8r9UUQ0gRBWkquHd
-	N8vEvzBRtMA02zkBTURpp7G0TDNdTQm9cVpR/hfHPI7mpJKW0aLXYjnX2gJJeWCY+lHIw8V5Qe2XW
-	MPfVBAD5aQce0lo8btF/1AcICHjzdHK1FrMRgktiz8kihir/ybd7oaq4RS6NWoQl5b9y4xUG+0Fov
-	rAV/nA7kncTWPEoLwYGn2ObuJOrQc5XVApl+AL3QQ9P5gULFBx57x0WG7Z+3rJXHKz6JtdUv4adgj
-	H1diIAoS6Utx7plHCfOg==;
+	List-Owner; bh=NASJHqLycl09mAw4V/6N0TwvfwRTPMRVkFlKxh3PjCA=; b=ei2IaT2RE2dlyk
+	P04nb2G7IW5Mo+HF8Kb7NKX5DX8RUlSR0BxCQ4NPOVkYVzfqVtwIKEwtNj+XSrT2c4BOnpsXsjsmw
+	ccK8gUOqQJAun2SogKGOL+U0lzKiZFGEDfHbOTl3vLLxMibujIPrrcHNXSReXj3erY3VRGLnYbGyo
+	/BHWgShRKbM/Wstr4Oo88lvnV8q3EZvJbqWkytH1NY/J7ulz7mFiNJQxVQMwvAXbX54l/sP8YQnAJ
+	C4TBmIKksyaGC8CVp3aLiH7A2HFU7IAZkq2JUjfNhELv3f1L3HLZbFZRTHq8sSPCZsG1Rwfpqeca9
+	RlxmvP+ZrwjtMwzobOuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdsAY-006h4p-2T;
-	Sun, 19 Mar 2023 12:29:50 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdsAW-006h40-0Q
+	id 1pdt5l-006oPP-2n;
+	Sun, 19 Mar 2023 13:28:57 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pdt5f-006oNx-1l
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Mar 2023 12:29:49 +0000
-Received: by mail-ed1-x531.google.com with SMTP id er8so25170282edb.0
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 05:29:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679228986;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UsUw48AeQfsuxhASleLQv/pMcvboLL7epplAN7QGvnA=;
-        b=e11tqFxkO2vEWgK/fYt4JNN1jqJ6BmE7iiWx1OBXuupEzGzzxx73gK6UmKgZNqO3lM
-         b///VqVZaAouyjcn1bsy8R+vZ10Y0XsnW5FtYRXvOeG3E2hmpF5CTDpZvWCVCtjgUYHT
-         A99eDabjw7KHBjfYOibtRWRYNlEf575FSChx0SHbSDs0G6/ucCQ33tMdqZECj5g+x8zZ
-         rvGwfHMdgVAR6azQzWh256MWjgnJmMz8q6UPhjPc8IBbyha11ahGMu0JoXvxQ7Gr8lM8
-         nLQNX5t0SJ7lmjISDuw8eSlLx4V2FVojXb+a/YYVbTzb90sng5xVh0tPDUbKtq+M4ObH
-         HEfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679228986;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UsUw48AeQfsuxhASleLQv/pMcvboLL7epplAN7QGvnA=;
-        b=17/nCE35egNuf9LcoovWKCriQl3UBjcd7718MJjKzADUqicmD+HvuxHe0M+987DPcQ
-         VIMeSNY81CmiYHlavI/BZNQMoQ7cTGAS5VREnIXpkfhpgVCQoC7/V62Cpu1Cc3U5mkto
-         4a2W95zVJbbE8sWQcjKcuPbyKmdvumFKkMvU9FmZb1FwN/ytdq9mGkjkUNJjXpUX0+zZ
-         f3XvtasnGiwLf+In19CPC1vLcp1+ysl0u6jRR38+qGpvl8uXITcU0YEIm5fUdBEyss+S
-         f2DhcVbROzGse0wuxBAmsml2XWVieKRMUZuhSvDPbYcQ2PS9qLTyvxXuh3MXbXzH44kA
-         S3yQ==
-X-Gm-Message-State: AO0yUKVu5P9mDHziaJVBZSZvKU7YxpqlNTGHw7TNlEH5kvzGJKpkv3cJ
-	OMO6HaXBhji7ftjwFo6Pq200PA==
-X-Google-Smtp-Source: AK7set/sIqucjJzsdjLw5anFET0hlUfDmKmuGp8IZBJkYMcu3uNQirYCo+/8Hw66VbUsFcgrAUJkKg==
-X-Received: by 2002:a17:906:36d4:b0:932:d2bb:507 with SMTP id b20-20020a17090636d400b00932d2bb0507mr6793730ejc.24.1679228986490;
-        Sun, 19 Mar 2023 05:29:46 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:5b5f:f22b:a0b:559d? ([2a02:810d:15c0:828:5b5f:f22b:a0b:559d])
-        by smtp.gmail.com with ESMTPSA id r10-20020a1709063d6a00b00930e95446d0sm3185334ejf.120.2023.03.19.05.29.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Mar 2023 05:29:46 -0700 (PDT)
-Message-ID: <9dfc752b-7ae9-5e45-e9e2-50b87dabbca6@linaro.org>
-Date: Sun, 19 Mar 2023 13:29:45 +0100
+	Sun, 19 Mar 2023 13:28:56 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 43CB624DC09;
+	Sun, 19 Mar 2023 21:28:07 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 19 Mar
+ 2023 21:28:07 +0800
+Received: from [172.16.16.231] (183.27.96.84) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 19 Mar
+ 2023 21:28:06 +0800
+Message-ID: <6294ffee-3c66-5287-59b4-068a7f4e84ba@starfivetech.com>
+Date: Sun, 19 Mar 2023 21:28:04 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [RESEND v6 1/2] dt-bindings: soc: starfive: Add StarFive syscon
- doc
+Subject: Re: [PATCH v5 12/21] dt-bindings: clock: Add StarFive JH7110
+ always-on clock and reset generator
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20230311090733.56918-1-hal.feng@starfivetech.com>
+ <20230311090733.56918-13-hal.feng@starfivetech.com>
+ <b9a421c0-85df-4c8c-a3cb-8286328c5ed0@spud>
 Content-Language: en-US
-To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-References: <20230315055813.94740-1-william.qiu@starfivetech.com>
- <20230315055813.94740-2-william.qiu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230315055813.94740-2-william.qiu@starfivetech.com>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <b9a421c0-85df-4c8c-a3cb-8286328c5ed0@spud>
+X-Originating-IP: [183.27.96.84]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230319_052948_174709_8E07253A 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20230319_062852_098592_FDD6B7CD 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +85,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2023 06:58, William Qiu wrote:
-> Add documentation to describe StarFive System Controller Registers.
+On Sat, 11 Mar 2023 13:14:45 +0000, Conor Dooley wrote:
+> On Sat, Mar 11, 2023 at 05:07:24PM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add bindings for the always-on clock and reset generator (AONCRG) on the
+>> JH7110 RISC-V SoC by StarFive Ltd.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+>> @@ -0,0 +1,107 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 Always-On Clock and Reset Generator
+>> +
+>> +maintainers:
+>> +  - Emil Renner Berthing <kernel@esmil.dk>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-aoncrg
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    oneOf:
+>> +      - items:
+>> +          - description: Main Oscillator (24 MHz)
+>> +          - description: GMAC0 RMII reference or GMAC0 RGMII RX
+>> +          - description: STG AXI/AHB
+>> +          - description: APB Bus
+>> +          - description: GMAC0 GTX
+>> +
+>> +      - items:
+>> +          - description: Main Oscillator (24 MHz)
+>> +          - description: GMAC0 RMII reference or GMAC0 RGMII RX
+>> +          - description: STG AXI/AHB or GMAC0 RGMII RX
+>> +          - description: APB Bus or STG AXI/AHB
+>> +          - description: GMAC0 GTX or APB Bus
+>> +          - description: RTC Oscillator (32.768 kHz) or GMAC0 GTX
 > 
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  .../soc/starfive/starfive,jh7110-syscon.yaml  | 41 +++++++++++++++++++
->  MAINTAINERS                                   |  5 +++
->  2 files changed, 46 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> new file mode 100644
-> index 000000000000..ae7f1d6916af
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> @@ -0,0 +1,41 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 SoC system controller
+> Something tells me that the use of "or" means we're not doing this
+> correctly.
+> Otherwise,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-OK, I found the patch changing this. So basically you add knowingly
-incomplete bindings and a second later you fix them.
+There are two possible cases when the number of clock inputs is 6:
 
-Add complete bindings.
+Main Oscillator
+GMAC0 RMII reference or GMAC0 RGMII RX
+STG AXI/AHB
+APB Bus
+GMAC0 GTX
+RTC Oscillator
+
+and
+
+Main Oscillator
+GMAC0 RMII reference
+GMAC0 RGMII RX
+STG AXI/AHB
+APB Bus
+GMAC0 GTX
+
+So I used the "or" in the items descriptions. Thanks.
 
 Best regards,
-Krzysztof
+Hal
+
+> 
+>> +      - items:
+>> +          - description: Main Oscillator (24 MHz)
+>> +          - description: GMAC0 RMII reference
+>> +          - description: GMAC0 RGMII RX
+>> +          - description: STG AXI/AHB
+>> +          - description: APB Bus
+>> +          - description: GMAC0 GTX
+>> +          - description: RTC Oscillator (32.768 kHz)
+>> +
+>> +  clock-names:
+>> +    oneOf:
+>> +      - minItems: 5
+>> +        items:
+>> +          - const: osc
+>> +          - enum:
+>> +              - gmac0_rmii_refin
+>> +              - gmac0_rgmii_rxin
+>> +          - const: stg_axiahb
+>> +          - const: apb_bus
+>> +          - const: gmac0_gtxclk
+>> +          - const: rtc_osc
+>> +
+>> +      - minItems: 6
+>> +        items:
+>> +          - const: osc
+>> +          - const: gmac0_rmii_refin
+>> +          - const: gmac0_rgmii_rxin
+>> +          - const: stg_axiahb
+>> +          - const: apb_bus
+>> +          - const: gmac0_gtxclk
+>> +          - const: rtc_osc
+> 
 
 
 _______________________________________________
