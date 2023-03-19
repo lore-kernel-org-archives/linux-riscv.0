@@ -4,38 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86903C61DA4
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Mar 2023 16:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BEEC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Mar 2023 04:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=80GfcTBY7dvQdy422+qIf8ZJAFUp1ePyA+yujjn/T4o=; b=fFrZUwglJ3Y6El
-	GKlIGGrFtoSqxlCV1rECkfVD2FoiI72oClfgL6jOyQkk8jaSa7a1jXsPPiaeSDWxIR2kx6B9nSKz2
-	mOmsg7GA3nMWBbdrWtl0n8O0Ta05LTxFUvjyu/MJHW7sCS6MUeRr+RFWvuduhApAxfb7fAuvSoENi
-	g7xGl8qtNyzsU5XoSQZD+fR5SAbqE9a6089qfcb2vWytyjbVRqCovIBKQWCkEwrjd1K1JFLau4vTc
-	aUv5Jwf1IKvZI1rugzjK63l5ZxwJI+5qpK/QMGLnDqpiKnElDW64q/1epCKx5/tssECP09oOFEhF+
-	uO2WG0M/o9LZnSxHuMTw==;
+	List-Owner; bh=NQxHxJQLfS+Livz5mWfJjdNmDkW1Smyl8cZhh65zt2M=; b=oxmdRjre3Nx3LZ
+	XyrIjcZJZjwYLe92u8/CQ/wC+cDyDZ1OzfR48+9cavcBW7sLKjI5bR4g68DrSwCdSmpRW8wkRsEjc
+	/oqsKBdRQumwrymtLR2aOj6Q00UrVtgEiXwMnPWw0XtosxCZGIwp1rVwUqQi7pg28YMChxJDbDIES
+	ysCu6mfJ7jtfcAIAxD228g1Slx9PN8Zr48u6EAEG23RMvc2JonFLMIgc5lSrRuB7gyqnNvF3KwbZm
+	QR98nNYJvRiTU40V5SqsPEwTeCHWDsVHdOAZL/HEo5HtMHsadmcv0ybTo2NLKPhrwNcRK1tF7iov6
+	7Z6M1m+/MEEjKYJaOykA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdZbl-0050qd-16;
-	Sat, 18 Mar 2023 16:40:41 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pdkRd-005xB1-39;
+	Sun, 19 Mar 2023 04:14:57 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pdZbf-0050pQ-2F;
-	Sat, 18 Mar 2023 16:40:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 582A8B8091A;
-	Sat, 18 Mar 2023 16:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EEBFC433EF;
-	Sat, 18 Mar 2023 16:40:30 +0000 (UTC)
-Date: Sat, 18 Mar 2023 12:40:28 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Donglin Peng <pengdonglin@sangfor.com.cn>
+	id 1pdkRY-005x9f-1a;
+	Sun, 19 Mar 2023 04:14:54 +0000
+Received: from [192.168.2.16] (unknown [106.38.161.27])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id AFEDD5801B1;
+	Sun, 19 Mar 2023 12:14:26 +0800 (CST)
+Message-ID: <2147f6d6-24f8-7008-7b57-7a8509e79e0e@sangfor.com.cn>
+Date: Sun, 19 Mar 2023 12:14:22 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing the
+ return value of function
+To: Steven Rostedt <rostedt@goodmis.org>
 Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, mhiramat@kernel.org,
  mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com,
  palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de,
@@ -44,19 +46,23 @@ Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, mhiramat@kernel.org,
  dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] function_graph: Support recording and printing
- the return value of function
-Message-ID: <20230318124028.4faf75d1@rorschach.local.home>
-In-Reply-To: <34781b74-8d3e-a7e6-9abe-e8d45d680eec@sangfor.com.cn>
 References: <20230315133911.958741-1-pengdonglin@sangfor.com.cn>
-	<20230315133911.958741-2-pengdonglin@sangfor.com.cn>
-	<ZBOkY8FkqgoBfzQ2@shell.armlinux.org.uk>
-	<34781b74-8d3e-a7e6-9abe-e8d45d680eec@sangfor.com.cn>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+ <20230315133911.958741-2-pengdonglin@sangfor.com.cn>
+ <ZBOkY8FkqgoBfzQ2@shell.armlinux.org.uk>
+ <34781b74-8d3e-a7e6-9abe-e8d45d680eec@sangfor.com.cn>
+ <20230318124028.4faf75d1@rorschach.local.home>
+In-Reply-To: <20230318124028.4faf75d1@rorschach.local.home>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaQ0sdVh5IGUIdQkxJS0JOT1UTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpLTVVIQ1VKTUpVSUxZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nwg6Ijo4Nj0IDxwqK0gtHBFO
+	CzYwFCFVSlVKTUxCSkJCSU1MQ0hOVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSktNVUhDVUpNSlVJTFlXWQgBWUFPSkxLNwY+
+X-HM-Tid: 0a86f8136a742eb7kusnafedd5801b1
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230318_094035_901182_F886E488 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20230318_211452_700130_91EF9805 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,41 +74,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Mar 2023 10:49:49 +0800
-Donglin Peng <pengdonglin@sangfor.com.cn> wrote:
-
-> > So, really it depends what size of return value we want to report.
-> > Also, please bear in mind that where a function returns a 32-bit
-> > value, that will be in r0, and r1 will be whatever happened to be
-> > in it at function exit - there's no defined value for r1.
-> >   
+On 2023/3/19 0:40, Steven Rostedt wrote:
+> On Fri, 17 Mar 2023 10:49:49 +0800
+> Donglin Peng <pengdonglin@sangfor.com.cn> wrote:
 > 
-> Thank you. I will document this as a limitation of fgraph return value.
-> It can just cover most cases at present and I think the r0 is enough.
+>>> So, really it depends what size of return value we want to report.
+>>> Also, please bear in mind that where a function returns a 32-bit
+>>> value, that will be in r0, and r1 will be whatever happened to be
+>>> in it at function exit - there's no defined value for r1.
+>>>    
+>>
+>> Thank you. I will document this as a limitation of fgraph return value.
+>> It can just cover most cases at present and I think the r0 is enough.
+> 
+> One thing we could possibly do here is to use BTF or objtool to denote
+> the return value of each function and use 2 bits of the ftrace
+> rec->flags to state that it is:
+> 
+> 0 - void
+> 1 - 1 word size return
+> 2 - 2 word size return
 
-One thing we could possibly do here is to use BTF or objtool to denote
-the return value of each function and use 2 bits of the ftrace
-rec->flags to state that it is:
+Yeah, the BTF contains details of the function return type. However the
+direct search cost is a bit high, we may parse it to fill the 
+dyn_ftrace.flags.
 
-0 - void
-1 - 1 word size return
-2 - 2 word size return
+> 
+> I believe we can get access to the function's rec via the return call
+> (or add that access) and pass both words to the return function, and
+> then the return callback can use this lookup to determine what values
+> are useful or not.
 
-I believe we can get access to the function's rec via the return call
-(or add that access) and pass both words to the return function, and
-then the return callback can use this lookup to determine what values
-are useful or not.
+Yeah, we can obtain the function address via ret_stack in the function
+ftrace_pop_return_trace, then pass the address to lookup_rec to
+find the dyn_ftrace.
 
-In any case, I would suggest passing both regs to the callback, and for
-now just ignore the second reg until we can come up with a way to
-differentiate each function.
+> 
+> In any case, I would suggest passing both regs to the callback, and for
+> now just ignore the second reg until we can come up with a way to
+> differentiate each function.
+> 
 
--- Steve
+Yeah, I will modify it to pass two regs in v5.
+
+> -- Steve
+
 
 _______________________________________________
 linux-riscv mailing list
