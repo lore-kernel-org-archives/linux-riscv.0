@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4399C7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83932C7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cSOz6QA547dhEzEtQAMDB2NnLHqbnBFLtmVtksRuGok=; b=XO2i3udnGTR1EDTjaH38fP9fVR
-	8qo5ZBciWe8cZpM/zbD7gc80fW3/L+vA8qyfs5jz0kRwCcIcMYGfPk7CiWmdCy/3ekQzxFxK0eZEX
-	I8q51zQ+HHD/lah7Je1tTWgGMe3Vwg7IRR9Gu63XaT/D7OZcY3ZGinGB4aAW8IFpbZcPftVxUci7R
-	hGlYwKIRryZcsRlJOLrhTtB/ajkf/KSnysjNel6+fIMT+31sM+uNhuaNZv0HG51Yhu9t6K1AXCmhF
-	PQF02VrkrjPwDx2UG+VGPJ7aMMVnYj6aMu+3tW2gdEH8pZtqCT5bJKRn2GJl/dlM2dVLK7f58pUZG
-	wlv9rnBA==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XQspTWdlI6ltIkIZArDmwvVjCq4pGuqAh50oNABFlIs=; b=Wt4DU+D7IXDQsWIcmbhcyAI5m/
+	WBWsIiBzzqsEE9ZrPCwINwltDINigW/b5wLUgTh8LDPa6FpoxieytmgJ0tK7vsbCILn7PFtC9hDQS
+	gA2/sB3bL5whDbkGwudzyuJBOEVO426r6zFgwAN5s+mdhxKFu379GWpJvf6MJBkjB0WPe2nRaOhFC
+	oAFxyD0BfrU69yp4092oVOxZRuLDuXaGa02CugjN/6dPHh1JSHqx8P96s5ZHVwgZs6eqvHHA+LW8K
+	HxFK5ERwRxDvUvj8MmfIRkPVqkDeXtOfej0AwBjRZyNrOxke8yV+3JJQED0Fyly7lEjom4Wv0WdKg
+	C6jWbgzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFCp-00936M-1F;
-	Mon, 20 Mar 2023 13:05:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1peFEs-0093W2-0X;
+	Mon, 20 Mar 2023 13:07:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFCm-00935f-2Q;
-	Mon, 20 Mar 2023 13:05:42 +0000
+	id 1peFEo-0093Ud-1Q;
+	Mon, 20 Mar 2023 13:07:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1679317540; x=1710853540;
+  t=1679317666; x=1710853666;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=vPMTTr7gr1vB/hswDtcnPIfmmPNBZ98WhX1DDACOsbY=;
-  b=WxeaL23DJ1u+9M7xZS+WOFXgxi/kz3OAWXbkyHyxM0UQGxYppusfNXeu
-   5i78gtW7qVkOZdr8s0v7jHkgbc3ZXVlBkHB26aXp0Chi2JKoXR1CiLdCZ
-   cvbNCARAVmfrDXXg7+wW5Yuv2MIHjU4QO6gXgyNRgGMg5qMepRzNsyqev
-   LEPV+msmbRXvH+Oki7F1kCwS8pyEDBuLeYd725zGn6+zLpXJDnQkjSpU4
-   J5pWWcRTpLuwtNSjLNGHWL+Mr50up/71Q67VJctXsP77kIctqB/de/Qr7
-   qA3amaA/UOOZ5l9YpCgElcFL+Y8Ao54XfVeO9TkZEv3KNtGQlYlz2vgZW
-   g==;
+  bh=7w0/Fv7Y6Ejl6TmQJMw+6C+2veIfg3OxJTIOTANspNQ=;
+  b=f/3DoExI40U1J+1JCUqGunpVytezRVNjjkjGqrkm5Ejb9blrPfquThyS
+   wihIW545CWHMboSClJ6Vi9xLmGjTtP72RlnuRldqCS63jsH/7BPJH0bY6
+   xSSx/+/y9j8E0Tp245aQczly4MvSQB+JAdL4fYPEJLi8DMlaMRJ3md40X
+   K3mUuTqZF+v7EdzZoRn2zfyNzjjbWuuOJS1Y85c7npp0NEp1mSuIjaIY8
+   y7G1uOHkwACn2siQh50KRvXL1jSw2G8lxxgThI7Q/qEOC3Dd3G6wv9cns
+   lMnlTbyghT4DfPUjl+KFdRKMup3GyffGado3UctmiDooIp100pAe26NnM
+   A==;
 X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
-   d="asc'?scan'208";a="206279037"
+   d="asc'?scan'208";a="217103041"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 06:05:38 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 06:07:44 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 20 Mar 2023 06:05:37 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Mon, 20 Mar 2023 06:07:44 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 20 Mar 2023 06:05:35 -0700
-Date: Mon, 20 Mar 2023 13:05:05 +0000
+ Transport; Mon, 20 Mar 2023 06:07:41 -0700
+Date: Mon, 20 Mar 2023 13:07:11 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Andy Chiu <andy.chiu@sifive.com>
-CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<anup@brainfault.org>, <atishp@atishpatra.org>,
-	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
-	<vineetg@rivosinc.com>, <greentime.hu@sifive.com>,
-	<guoren@linux.alibaba.com>, Vincent Chen <vincent.chen@sifive.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo
- Ren <guoren@kernel.org>, Richard Henderson <richard.henderson@linaro.org>
-Subject: Re: [PATCH -next v15 08/19] riscv: Introduce struct/helpers to
- save/restore per-task Vector state
-Message-ID: <456a8e61-c6b7-46d5-a25c-c466820912d7@spud>
+Subject: Re: [PATCH -next v15 09/19] riscv: Add task switch support for vector
+Message-ID: <38d91df7-1a94-4e55-acff-fa74899091d3@spud>
 References: <20230317113538.10878-1-andy.chiu@sifive.com>
- <20230317113538.10878-9-andy.chiu@sifive.com>
+ <20230317113538.10878-10-andy.chiu@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20230317113538.10878-9-andy.chiu@sifive.com>
+In-Reply-To: <20230317113538.10878-10-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_060540_860376_0670D905 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20230320_060746_525137_93573387 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,238 +74,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6765440787891393938=="
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, guoren@linux.alibaba.com, Heiko Stuebner <heiko@sntech.de>, kvm@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, atishp@atishpatra.org, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Nick Knight <nick.knight@sifive.com>, anup@brainfault.org, Ruinland Tsai <ruinland.tsai@sifive.com>, greentime.hu@sifive.com, Albert Ou <aou@eecs.berkeley.edu>, vineetg@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Dmitry Vyukov <dvyukov@google.com>, Vincent Chen <vincent.chen@sifive.com>, palmer@dabbelt.com, "Eric W.
+ Biederman" <ebiederm@xmission.com>, kvm-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============6731562495114321774=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6765440787891393938==
+--===============6731562495114321774==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="im+qcLwrAl4VxO92"
+	protocol="application/pgp-signature"; boundary="DAVGBkmh26aPh/E2"
 Content-Disposition: inline
 
---im+qcLwrAl4VxO92
+--DAVGBkmh26aPh/E2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 17, 2023 at 11:35:27AM +0000, Andy Chiu wrote:
+On Fri, Mar 17, 2023 at 11:35:28AM +0000, Andy Chiu wrote:
 > From: Greentime Hu <greentime.hu@sifive.com>
 >=20
-> Add vector state context struct to be added later in thread_struct. And
-> prepare low-level helper functions to save/restore vector contexts.
+> This patch adds task switch support for vector. It also supports all
+> lengths of vlen.
 >=20
-> This include Vector Regfile and CSRs holding dynamic configuration state
-> (vstart, vl, vtype, vcsr). The Vec Register width could be implementation
-> defined, but same for all processes, so that is saved separately.
->=20
-> This is not yet wired into final thread_struct - will be done when
-> __switch_to actually starts doing this in later patches.
->=20
-> Given the variable (and potentially large) size of regfile, they are
-> saved in dynamically allocated memory, pointed to by datap pointer in
-> __riscv_v_ext_state.
->=20
+> Suggested-by: Andrew Waterman <andrew@sifive.com>
+> Co-developed-by: Nick Knight <nick.knight@sifive.com>
+> Signed-off-by: Nick Knight <nick.knight@sifive.com>
+> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Co-developed-by: Ruinland Tsai <ruinland.tsai@sifive.com>
+> Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
 > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 > Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
 > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 
-I think you missed a:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> @@ -131,6 +166,9 @@ static __always_inline bool has_vector(void) { return=
+ false; }
+>  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return f=
+alse; }
+>  #define riscv_v_vsize (0)
+>  #define riscv_v_setup_vsize()	 		do {} while (0)
+                                        ^
+vim complains that you added a space here, between the first and second
+tabs.
+
+Otherwise,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
 Conor.
 
-> ---
->  arch/riscv/include/asm/vector.h      | 97 ++++++++++++++++++++++++++++
->  arch/riscv/include/uapi/asm/ptrace.h | 17 +++++
->  2 files changed, 114 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
-tor.h
-> index 18448e24d77b..c7143b7d64d1 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -10,8 +10,10 @@
-> =20
->  #ifdef CONFIG_RISCV_ISA_V
-> =20
-> +#include <linux/stringify.h>
->  #include <asm/hwcap.h>
->  #include <asm/csr.h>
-> +#include <asm/asm.h>
-> =20
->  extern unsigned long riscv_v_vsize;
->  void riscv_v_setup_vsize(void);
-> @@ -21,6 +23,26 @@ static __always_inline bool has_vector(void)
->  	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
->  }
-> =20
-> +static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
-> +{
-> +	regs->status =3D (regs->status & ~SR_VS) | SR_VS_CLEAN;
-> +}
-> +
-> +static inline void riscv_v_vstate_off(struct pt_regs *regs)
-> +{
-> +	regs->status =3D (regs->status & ~SR_VS) | SR_VS_OFF;
-> +}
-> +
-> +static inline void riscv_v_vstate_on(struct pt_regs *regs)
-> +{
-> +	regs->status =3D (regs->status & ~SR_VS) | SR_VS_INITIAL;
-> +}
-> +
-> +static inline bool riscv_v_vstate_query(struct pt_regs *regs)
-> +{
-> +	return (regs->status & SR_VS) !=3D 0;
-> +}
-> +
->  static __always_inline void riscv_v_enable(void)
->  {
->  	csr_set(CSR_SSTATUS, SR_VS);
-> @@ -31,11 +53,86 @@ static __always_inline void riscv_v_disable(void)
->  	csr_clear(CSR_SSTATUS, SR_VS);
->  }
-> =20
-> +static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state=
- *dest)
-> +{
-> +	asm volatile (
-> +		"csrr	%0, " __stringify(CSR_VSTART) "\n\t"
-> +		"csrr	%1, " __stringify(CSR_VTYPE) "\n\t"
-> +		"csrr	%2, " __stringify(CSR_VL) "\n\t"
-> +		"csrr	%3, " __stringify(CSR_VCSR) "\n\t"
-> +		: "=3Dr" (dest->vstart), "=3Dr" (dest->vtype), "=3Dr" (dest->vl),
-> +		  "=3Dr" (dest->vcsr) : :);
-> +}
-> +
-> +static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_st=
-ate *src)
-> +{
-> +	asm volatile (
-> +		".option push\n\t"
-> +		".option arch, +v\n\t"
-> +		"vsetvl	 x0, %2, %1\n\t"
-> +		".option pop\n\t"
-> +		"csrw	" __stringify(CSR_VSTART) ", %0\n\t"
-> +		"csrw	" __stringify(CSR_VCSR) ", %3\n\t"
-> +		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
-> +		    "r" (src->vcsr) :);
-> +}
-> +
-> +static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *sav=
-e_to,
-> +					 void *datap)
-> +{
-> +	unsigned long vl;
-> +
-> +	riscv_v_enable();
-> +	__vstate_csr_save(save_to);
-> +	asm volatile (
-> +		".option push\n\t"
-> +		".option arch, +v\n\t"
-> +		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> +		"vse8.v		v0, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vse8.v		v8, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vse8.v		v16, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vse8.v		v24, (%1)\n\t"
-> +		".option pop\n\t"
-> +		: "=3D&r" (vl) : "r" (datap) : "memory");
-> +	riscv_v_disable();
-> +}
-> +
-> +static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *=
-restore_from,
-> +					    void *datap)
-> +{
-> +	unsigned long vl;
-> +
-> +	riscv_v_enable();
-> +	asm volatile (
-> +		".option push\n\t"
-> +		".option arch, +v\n\t"
-> +		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> +		"vle8.v		v0, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vle8.v		v8, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vle8.v		v16, (%1)\n\t"
-> +		"add		%1, %1, %0\n\t"
-> +		"vle8.v		v24, (%1)\n\t"
-> +		".option pop\n\t"
-> +		: "=3D&r" (vl) : "r" (datap) : "memory");
-> +	__vstate_csr_restore(restore_from);
-> +	riscv_v_disable();
-> +}
-> +
->  #else /* ! CONFIG_RISCV_ISA_V  */
-> =20
-> +struct pt_regs;
-> +
->  static __always_inline bool has_vector(void) { return false; }
-> +static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return f=
-alse; }
->  #define riscv_v_vsize (0)
->  #define riscv_v_setup_vsize()	 		do {} while (0)
-> +#define riscv_v_vstate_off(regs)		do {} while (0)
-> +#define riscv_v_vstate_on(regs)			do {} while (0)
-> =20
->  #endif /* CONFIG_RISCV_ISA_V */
-> =20
-> diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/ua=
-pi/asm/ptrace.h
-> index 882547f6bd5c..586786d023c4 100644
-> --- a/arch/riscv/include/uapi/asm/ptrace.h
-> +++ b/arch/riscv/include/uapi/asm/ptrace.h
-> @@ -77,6 +77,23 @@ union __riscv_fp_state {
->  	struct __riscv_q_ext_state q;
->  };
-> =20
-> +struct __riscv_v_ext_state {
-> +	unsigned long vstart;
-> +	unsigned long vl;
-> +	unsigned long vtype;
-> +	unsigned long vcsr;
-> +	void *datap;
-> +	/*
-> +	 * In signal handler, datap will be set a correct user stack offset
-> +	 * and vector registers will be copied to the address of datap
-> +	 * pointer.
-> +	 *
-> +	 * In ptrace syscall, datap will be set to zero and the vector
-> +	 * registers will be copied to the address right after this
-> +	 * structure.
-> +	 */
-> +};
-> +
->  #endif /* __ASSEMBLY__ */
-> =20
->  #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-> --=20
-> 2.17.1
->=20
->=20
+> +#define riscv_v_vstate_save(task, regs)		do {} while (0)
+> +#define riscv_v_vstate_restore(task, regs)	do {} while (0)
+> +#define __switch_to_vector(__prev, __next)	do {} while (0)
+>  #define riscv_v_vstate_off(regs)		do {} while (0)
+>  #define riscv_v_vstate_on(regs)			do {} while (0)
 
---im+qcLwrAl4VxO92
+--DAVGBkmh26aPh/E2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhaAQAKCRB4tDGHoIJi
-0ryLAPwOHJRz/7VkUSciIMzxHf7hR0Y8WFvJMjRRjvhpNPkQrAD+OfXytbiXW1fE
-0XAxG7whQZGTjvw/o61vV/Ufg85rzAI=
-=XZEP
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhafwAKCRB4tDGHoIJi
+0kjXAQD5Exvw6yVA+/p+41zcBfq0O+x3U+OW1HdH9H8D9oznigEA7MUhkJdXlA+j
+w8tQBq4mmlJuAbuBaJPiL4SFfayTYgo=
+=j0ZU
 -----END PGP SIGNATURE-----
 
---im+qcLwrAl4VxO92--
+--DAVGBkmh26aPh/E2--
 
 
---===============6765440787891393938==
+--===============6731562495114321774==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -324,5 +156,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6765440787891393938==--
+--===============6731562495114321774==--
 
