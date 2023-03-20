@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5F3C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 07:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A2BC7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 07:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9OL3I/BZWVoKQfraMZ8Z60K1Q5fg/PLZIhV8ZJFJ7dY=; b=QlmSR6pjcoIAXT
-	7q+spw2JMuVmUMHBsSbDNqwVK+K7OPTeinI2B3tqJ8bUh049gdDvRRP7oxCHVliekco4vAAhkduxq
-	dizLYyAQTpWN6yEzIrp8s3akJ2vxRXv2IZH9GyazE3kPh79B+GG8X6gmZM5Mo2I5DniGpuDXcJqNe
-	tdturcTyIDrtdz4gqHD6uHhygAhNk6K+gyrqRU7YbLNWLbPHRchWAqJJfWQfPmWfcczbHbU7hIcw6
-	wMmn0OcVlZj7N+d/xpZOXONHSq01oKKNm4UrshVIuLtqJcf45jwSxNh8/DDHl6OwkF29zbceoPlpf
-	ZoA3AzVJQxsYAEAQD14Q==;
+	List-Owner; bh=uqHFsr1VgQdoOFI7IG1zbX0eu90uJdCcs7Lu4yP0GxQ=; b=vUKGDZQMapE8x0
+	TuQj0DfTXpfflkqSt/QzefOKYU1rByK8UUxdAHDs43MZ6YwGgTkjGag6/0FyyWvfKywziaBKrf4ci
+	HAj/WtASEWqrltbmIcivSjljqiwnh6aQQ6beZ59nlgte8OP2I2tOTI/4ZhaBLxut74wEhhq/2Ms8O
+	hHO6SJ4gfuLZzQkN2QdvwyZ+jljZ5fGhNvgwCKeMcb+o1Idm/TnooWJC7FCmAnzBEJQvnVDn0+dTb
+	azVvBfJe2k321WB4WNY9h7BZP+rHeguFBWuhyiQOLpm5QJ/oeDj7R/HmND3+zPNSl874oTlibeGtq
+	AOqq+5DGe18h7dDULjog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peA03-008JQc-1G;
-	Mon, 20 Mar 2023 07:32:11 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1peA0N-008JUh-1R;
+	Mon, 20 Mar 2023 07:32:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peA00-008JNw-1M
+	id 1peA0K-008JTk-00
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 07:32:10 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 20 Mar 2023 07:32:29 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 027A824E227;
-	Mon, 20 Mar 2023 15:31:39 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 15:31:38 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 5D21524E269;
+	Mon, 20 Mar 2023 15:32:16 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
+ 2023 15:32:16 +0800
 Received: from [192.168.120.57] (171.223.208.138) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 15:31:38 +0800
-Message-ID: <8ee9b662-9e3e-45f7-4074-fc4f84bb2584@starfivetech.com>
-Date: Mon, 20 Mar 2023 15:31:37 +0800
+ 2023 15:32:15 +0800
+Message-ID: <d0b1d44e-6d6e-536c-046e-be6a53f1d240@starfivetech.com>
+Date: Mon, 20 Mar 2023 15:32:14 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
@@ -54,19 +54,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
  Renner Berthing" <kernel@esmil.dk>
 References: <20230315055813.94740-1-william.qiu@starfivetech.com>
  <20230315055813.94740-2-william.qiu@starfivetech.com>
- <9dfc752b-7ae9-5e45-e9e2-50b87dabbca6@linaro.org>
- <adcbc5a7-23e7-9396-a67b-776653e14b8d@starfivetech.com>
- <ccebb1c9-bbf3-8998-6611-8c0046a6e3d6@linaro.org>
+ <850bc37e-c6d1-2381-a851-965a4cbee8a0@linaro.org>
+ <e38efd81-9c79-553b-7556-7aff30f6ec50@starfivetech.com>
+ <f25cc55e-3405-4b17-fb45-5ae5eb36a404@linaro.org>
 From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <ccebb1c9-bbf3-8998-6611-8c0046a6e3d6@linaro.org>
+In-Reply-To: <f25cc55e-3405-4b17-fb45-5ae5eb36a404@linaro.org>
 X-Originating-IP: [171.223.208.138]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_003208_625211_D2E9AD4B 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230320_003228_398485_2478FA1C 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +85,70 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 2023/3/20 14:38, Krzysztof Kozlowski wrote:
-> On 20/03/2023 07:00, William Qiu wrote:
+> On 20/03/2023 06:54, William Qiu wrote:
+>> 
+>> 
+>> On 2023/3/19 20:27, Krzysztof Kozlowski wrote:
+>>> On 15/03/2023 06:58, William Qiu wrote:
+>>>> Add documentation to describe StarFive System Controller Registers.
+>>>>
+>>>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>>>> ---
+>>>>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 41 +++++++++++++++++++
+>>>>  MAINTAINERS                                   |  5 +++
+>>>>  2 files changed, 46 insertions(+)
+>>>>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..ae7f1d6916af
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>> @@ -0,0 +1,41 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: StarFive JH7110 SoC system controller
+>>>> +
+>>>> +maintainers:
+>>>> +  - William Qiu <william.qiu@starfivetech.com>
+>>>> +
+>>>> +description: |
+>>>> +  The StarFive JH7110 SoC system controller provides register information such
+>>>> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    items:
+>>>> +      - enum:
+>>>> +          - starfive,jh7110-aon-syscon
+>>>> +          - starfive,jh7110-stg-syscon
+>>>> +          - starfive,jh7110-sys-syscon
+>>>> +      - const: syscon
 >>>
->> Originally, I only wanted to add a base module, and the binding of other modules
->> was added as incremental updates by other related colleagues. So now I need to
->> add the complete binding, right?
+>>> Does not look like you tested the bindings. Please run `make
+>>> dt_binding_check` (see
+>>> Documentation/devicetree/bindings/writing-schema.rst for instructions).
+>>>
+>>> ... or your PLL clock controller was not tested.
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>>
+>> Hi Krzysztof,
+>> 
+>> I've already done`make dt_binding_check`, and get no error. So maybe PLL clock controller
+>> was not tested which I didn't add in this patch series. And PLL clock controller belongs
+>> to Xingyu Wu, I would tell him.
 > 
-> Binding should be complete.
+> What's confusing you do not allow here clock controller.
 > 
 > Best regards,
 > Krzysztof
 > 
-
 I'll add it then.
 
 Best regards
