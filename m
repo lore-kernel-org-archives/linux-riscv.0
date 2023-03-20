@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65BFAC7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB34C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yed5yjBJs4yjP4YTAwrtBoxrmk1CsuGFU7DsA7hReVo=; b=gpxqe0DnljBLzf
-	wEDlPkHiI6pePVnLOl3I+dqs1DJsQhu0cC7dY6dyItwyRKIOlm9cXtOJDtzDhCpPJoL0Hp0FO2/AM
-	Cu3Ae6yfLLkrJIqetWRCu1v57J0DRfSKT4Ykt5sn1lkzjHCV2QeK5LeJOOvOx+BRvQdNpSuH9JB4j
-	QvWFVl/j6tSwn6MpTOzWnTz5B0gwEVMZV/I2K08gURiX0Uac0PcM+TGwdthvOYI7bPZNxCo3jnNw3
-	oE0Tv3tc7hZIxu2HCBNZ4TMxfXmzKUuxeb4pXXYS8Vq3MF/fpQRiRSbF8u6ImuaNObU8UUut7fy6R
-	lPrSD7H65dns5O08lqWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tS4lnBV/7Oy6cOKbzYrUhlGuiiTgqR1QatctNRUAiPA=; b=LfWFSmwePI3kEAI59ZM2hzkKuO
+	nc0DOkY41HnDgw4EflWMtt+g44FDFcNW6DzlATaW4Iy7OvdB/8kQTxzUiDOW8/oIiPinrAfM0gLpV
+	SPI+Jwx2xo9LKigFt+libccI9c8dNL/N4m6gHkAvwGMVNAghSlUQhQUkAe0Vc5j3MDUZiULlrNscE
+	oaNfjWkFAJx2/Fa9VyXPz1+rFOYBKJv3IATEJIM9LNVG143WRkfxv0kLLAsId/kXi+qKEmV2WN5xk
+	+TJmHZbGe+BeXPAelQRNDfVuFywkYOacfB7Yeubrzo3a1WfYrviaeMSuLfm74AwiD0p1Euc5XZ68b
+	9PX2OlXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFOu-0095VX-2R;
-	Mon, 20 Mar 2023 13:18:12 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1peFZH-009ABz-2h;
+	Mon, 20 Mar 2023 13:28:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFOe-0095LH-1u;
-	Mon, 20 Mar 2023 13:18:01 +0000
-Received: from localhost.localdomain (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id C68275801AC;
-	Mon, 20 Mar 2023 21:17:36 +0800 (CST)
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-To: mhiramat@kernel.org,
-	rostedt@goodmis.org,
-	linux@armlinux.org.uk,
-	mark.rutland@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	tglx@linutronix.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	mingo@redhat.com,
-	xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com
-Cc: linux-trace-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v5 1/2] function_graph: Support recording and printing the return value of function
-Date: Mon, 20 Mar 2023 06:16:49 -0700
-Message-Id: <20230320131650.482594-2-pengdonglin@sangfor.com.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
-References: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
+	id 1peFYm-0099y2-1B;
+	Mon, 20 Mar 2023 13:28:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679318904; x=1710854904;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fwQ7M2cYyv6kPD8DWSHBD9nbpZ8kTjwSTiRPjPsp0PA=;
+  b=rNpkZ0+wYwBfTpGUci+JPfPKQRo0O9O4hAC8AA23ydbDk7URnJUS2PFd
+   DxMTOPOn5LeUSH1pc/XVrBV1PjNbzYxGb2u9I3M0G8WAo8aovItLrQ+dw
+   FQZrMrsDQNcRg0Yyf46qs7ZofIT1+qaTAMpbL+zry5RYWifTWvqctImD1
+   ekRO4xaQe3T6ALIFvlWiE4COccr9p24Yo6L2fH4hEDsCYGaxn2U1GMJP9
+   p1CDdesrdtY46jzX+9YU5I0RBlb8U2ETJ93bycxepYvawb9lClhV3xXui
+   n+kcFroxQiuqFU/joBD0QzQPF3B1iiDUuO3dJxWaM7Hvnvzeto0yPD2eK
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
+   d="asc'?scan'208";a="217110650"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 06:28:21 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 20 Mar 2023 06:28:20 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 20 Mar 2023 06:28:17 -0700
+Date: Mon, 20 Mar 2023 13:27:47 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<anup@brainfault.org>, <atishp@atishpatra.org>,
+	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+	<vineetg@rivosinc.com>, <greentime.hu@sifive.com>,
+	<guoren@linux.alibaba.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>, Heiko
+ Stuebner <heiko.stuebner@vrull.eu>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Liao Chang
+	<liaochang1@huawei.com>, Jisheng Zhang <jszhang@kernel.org>, Vincent Chen
+	<vincent.chen@sifive.com>, Guo Ren <guoren@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Xianting Tian
+	<xianting.tian@linux.alibaba.com>, Mattias Nissler <mnissler@rivosinc.com>,
+	Richard Henderson <richard.henderson@linaro.org>
+Subject: Re: [PATCH -next v15 10/19] riscv: Allocate user's vector context in
+ the first-use trap
+Message-ID: <31f08283-b815-4e50-80ed-3f94987ef227@spud>
+References: <20230317113538.10878-1-andy.chiu@sifive.com>
+ <20230317113538.10878-11-andy.chiu@sifive.com>
 MIME-Version: 1.0
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCQklDVhlJSUlMSx1CSUlDTVUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Kxg6Izo6Kj0NDxEKNxQeGAgi
-	ORMaCw1VSlVKTUxCSEpDSU5DSkNDVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFJS05OSzcG
-X-HM-Tid: 0a86ff2b0fba2eb7kusnc68275801ac
-X-HM-MType: 1
+In-Reply-To: <20230317113538.10878-11-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_061757_236076_5F07A36D 
-X-CRM114-Status: GOOD (  28.70  )
+X-CRM114-CacheID: sfid-20230320_062824_474968_A6F767EC 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,552 +88,293 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3064599754646881039=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When using the function_graph tracer to analyze system call failures,
-it can be time-consuming to analyze the trace logs and locate the kernel
-function that first returns an error. This change aims to simplify the
-process by recording the function return value to the 'retval' member of
-'ftrace_graph_ent' and printing it when outputing the trace log.
+--===============3064599754646881039==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="75fHXjzehm0ULJe4"
+Content-Disposition: inline
 
-New trace options are introduced: funcgraph-retval and graph_retval_hex.
-The former is used to control whether to display the return value, while
-the latter is used to control the display format of the reutrn value.
+--75fHXjzehm0ULJe4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Note that even if a function's return type is void, a return value will
-still be printed, so just ignore it.
+On Fri, Mar 17, 2023 at 11:35:29AM +0000, Andy Chiu wrote:
+> Vector unit is disabled by default for all user processes. Thus, a
+> process will take a trap (illegal instruction) into kernel at the first
+> time when it uses Vector. Only after then, the kernel allocates V
+> context and starts take care of the context for that user process.
+>=20
+> Suggested-by: Richard Henderson <richard.henderson@linaro.org>
+> Link: https://lore.kernel.org/r/3923eeee-e4dc-0911-40bf-84c34aee962d@lina=
+ro.org
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 
-Currently, this modification supports the following commonly used
-processor architectures: x86_64, x86, arm64, arm, riscv.
+I recall being mostly happy with the v13 of this, and the bits of
+complaints I had there were resolved, as does the build issue in v14.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+I think I also said that I would like if Heiko could have a brief look
+at the insn parsing bits.
 
-Here is an example:
+Cheers,
+Conor.
 
-I want to attach the demo process to a cpu cgroup, but it failed:
+> ---
+>  arch/riscv/include/asm/insn.h   | 29 +++++++++++
+>  arch/riscv/include/asm/vector.h |  2 +
+>  arch/riscv/kernel/traps.c       | 14 ++++-
+>  arch/riscv/kernel/vector.c      | 90 +++++++++++++++++++++++++++++++++
+>  4 files changed, 133 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> index 8d5c84f2d5ef..4e1505cef8aa 100644
+> --- a/arch/riscv/include/asm/insn.h
+> +++ b/arch/riscv/include/asm/insn.h
+> @@ -137,6 +137,26 @@
+>  #define RVG_OPCODE_JALR		0x67
+>  #define RVG_OPCODE_JAL		0x6f
+>  #define RVG_OPCODE_SYSTEM	0x73
+> +#define RVG_SYSTEM_CSR_OFF	20
+> +#define RVG_SYSTEM_CSR_MASK	GENMASK(12, 0)
+> +
+> +/* parts of opcode for RVF, RVD and RVQ */
+> +#define RVFDQ_FL_FS_WIDTH_OFF	12
+> +#define RVFDQ_FL_FS_WIDTH_MASK	GENMASK(3, 0)
+> +#define RVFDQ_FL_FS_WIDTH_W	2
+> +#define RVFDQ_FL_FS_WIDTH_D	3
+> +#define RVFDQ_LS_FS_WIDTH_Q	4
+> +#define RVFDQ_OPCODE_FL		0x07
+> +#define RVFDQ_OPCODE_FS		0x27
+> +
+> +/* parts of opcode for RVV */
+> +#define RVV_OPCODE_VECTOR	0x57
+> +#define RVV_VL_VS_WIDTH_8	0
+> +#define RVV_VL_VS_WIDTH_16	5
+> +#define RVV_VL_VS_WIDTH_32	6
+> +#define RVV_VL_VS_WIDTH_64	7
+> +#define RVV_OPCODE_VL		RVFDQ_OPCODE_FL
+> +#define RVV_OPCODE_VS		RVFDQ_OPCODE_FS
+> =20
+>  /* parts of opcode for RVC*/
+>  #define RVC_OPCODE_C0		0x0
+> @@ -304,6 +324,15 @@ static __always_inline bool riscv_insn_is_branch(u32=
+ code)
+>  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OF=
+F) | \
+>  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
+> =20
+> +#define RVG_EXTRACT_SYSTEM_CSR(x) \
+> +	({typeof(x) x_ =3D (x); RV_X(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MAS=
+K); })
+> +
+> +#define RVFDQ_EXTRACT_FL_FS_WIDTH(x) \
+> +	({typeof(x) x_ =3D (x); RV_X(x_, RVFDQ_FL_FS_WIDTH_OFF, \
+> +				   RVFDQ_FL_FS_WIDTH_MASK); })
+> +
+> +#define RVV_EXRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+> +
+>  /*
+>   * Get the immediate from a J-type instruction.
+>   *
+> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
+tor.h
+> index 3bfa223facd0..09f8dbad3dee 100644
+> --- a/arch/riscv/include/asm/vector.h
+> +++ b/arch/riscv/include/asm/vector.h
+> @@ -20,6 +20,7 @@
+> =20
+>  extern unsigned long riscv_v_vsize;
+>  void riscv_v_setup_vsize(void);
+> +bool riscv_v_first_use_handler(struct pt_regs *regs);
+> =20
+>  static __always_inline bool has_vector(void)
+>  {
+> @@ -163,6 +164,7 @@ static inline void __switch_to_vector(struct task_str=
+uct *prev,
+>  struct pt_regs;
+> =20
+>  static __always_inline bool has_vector(void) { return false; }
+> +static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { ret=
+urn false; }
+>  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return f=
+alse; }
+>  #define riscv_v_vsize (0)
+>  #define riscv_v_setup_vsize()	 		do {} while (0)
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index f6fda94e8e59..2a98fe74274e 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -24,6 +24,7 @@
+>  #include <asm/processor.h>
+>  #include <asm/ptrace.h>
+>  #include <asm/thread_info.h>
+> +#include <asm/vector.h>
+> =20
+>  int show_unhandled_signals =3D 1;
+> =20
+> @@ -135,8 +136,17 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
+>  	SIGBUS, BUS_ADRALN, "instruction address misaligned");
+>  DO_ERROR_INFO(do_trap_insn_fault,
+>  	SIGSEGV, SEGV_ACCERR, "instruction access fault");
+> -DO_ERROR_INFO(do_trap_insn_illegal,
+> -	SIGILL, ILL_ILLOPC, "illegal instruction");
+> +
+> +asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_=
+regs *regs)
+> +{
+> +	if (has_vector() && user_mode(regs)) {
+> +		if (riscv_v_first_use_handler(regs))
+> +			return;
+> +	}
+> +	do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+> +		      "Oops - illegal instruction");
+> +}
+> +
+>  DO_ERROR_INFO(do_trap_load_fault,
+>  	SIGSEGV, SEGV_ACCERR, "load access fault");
+>  #ifndef CONFIG_RISCV_M_MODE
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 082baf2a061f..f13d2f3d77fb 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -4,9 +4,19 @@
+>   * Author: Andy Chiu <andy.chiu@sifive.com>
+>   */
+>  #include <linux/export.h>
+> +#include <linux/sched/signal.h>
+> +#include <linux/types.h>
+> +#include <linux/slab.h>
+> +#include <linux/sched.h>
+> +#include <linux/uaccess.h>
+> =20
+> +#include <asm/thread_info.h>
+> +#include <asm/processor.h>
+> +#include <asm/insn.h>
+>  #include <asm/vector.h>
+>  #include <asm/csr.h>
+> +#include <asm/ptrace.h>
+> +#include <asm/bug.h>
+> =20
+>  unsigned long riscv_v_vsize __read_mostly;
+>  EXPORT_SYMBOL_GPL(riscv_v_vsize);
+> @@ -19,3 +29,83 @@ void riscv_v_setup_vsize(void)
+>  	riscv_v_disable();
+>  }
+> =20
+> +static bool insn_is_vector(u32 insn_buf)
+> +{
+> +	u32 opcode =3D insn_buf & __INSN_OPCODE_MASK;
+> +	bool is_vector =3D false;
+> +	u32 width, csr;
+> +
+> +	/*
+> +	 * All V-related instructions, including CSR operations are 4-Byte. So,
+> +	 * do not handle if the instruction length is not 4-Byte.
+> +	 */
+> +	if (unlikely(GET_INSN_LENGTH(insn_buf) !=3D 4))
+> +		return false;
+> +
+> +	switch (opcode) {
+> +	case RVV_OPCODE_VECTOR:
+> +		is_vector =3D true;
+> +		break;
+> +	case RVV_OPCODE_VL:
+> +	case RVV_OPCODE_VS:
+> +		width =3D RVV_EXRACT_VL_VS_WIDTH(insn_buf);
+> +		if (width =3D=3D RVV_VL_VS_WIDTH_8 || width =3D=3D RVV_VL_VS_WIDTH_16 =
+||
+> +		    width =3D=3D RVV_VL_VS_WIDTH_32 || width =3D=3D RVV_VL_VS_WIDTH_64)
+> +			is_vector =3D true;
+> +		break;
+> +	case RVG_OPCODE_SYSTEM:
+> +		csr =3D RVG_EXTRACT_SYSTEM_CSR(insn_buf);
+> +		if ((csr >=3D CSR_VSTART && csr <=3D CSR_VCSR) ||
+> +		    (csr >=3D CSR_VL && csr <=3D CSR_VLENB))
+> +			is_vector =3D true;
+> +		break;
+> +	}
+> +	return is_vector;
+> +}
+> +
+> +static int riscv_v_thread_zalloc(void)
+> +{
+> +	void *datap;
+> +
+> +	datap =3D kzalloc(riscv_v_vsize, GFP_KERNEL);
+> +	if (!datap)
+> +		return -ENOMEM;
+> +	current->thread.vstate.datap =3D datap;
+> +	memset(&current->thread.vstate, 0, offsetof(struct __riscv_v_ext_state,
+> +						    datap));
+> +	return 0;
+> +}
+> +
+> +bool riscv_v_first_use_handler(struct pt_regs *regs)
+> +{
+> +	__user u32 *epc =3D (u32 *)regs->epc;
+> +	u32 insn =3D (u32)regs->badaddr;
+> +
+> +	/* If V has been enabled then it is not the first-use trap */
+> +	if (riscv_v_vstate_query(regs))
+> +		return false;
+> +
+> +	/* Get the instruction */
+> +	if (!insn) {
+> +		if (__get_user(insn, epc))
+> +			return false;
+> +	}
+> +	/* Filter out non-V instructions */
+> +	if (!insn_is_vector(insn))
+> +		return false;
+> +
+> +	/* Sanity check. datap should be null by the time of the first-use trap=
+ */
+> +	WARN_ON(current->thread.vstate.datap);
+> +	/*
+> +	 * Now we sure that this is a V instruction. And it executes in the
+> +	 * context where VS has been off. So, try to allocate the user's V
+> +	 * context and resume execution.
+> +	 */
+> +	if (riscv_v_thread_zalloc()) {
+> +		force_sig(SIGKILL);
+> +		return true;
+> +	}
+> +	riscv_v_vstate_on(regs);
+> +	return true;
+> +}
+> +
+> --=20
+> 2.17.1
+>=20
+>=20
 
-echo `pidof demo` > /sys/fs/cgroup/cpu/test/tasks
--bash: echo: write error: Invalid argument
+--75fHXjzehm0ULJe4
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The strace logs tells that the write system call returned -EINVAL(-22):
-...
-write(1, "273\n", 4)                    = -1 EINVAL (Invalid argument)
-...
+-----BEGIN PGP SIGNATURE-----
 
-Use the following commands to capture trace logs when calling the write
-system call:
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhfUwAKCRB4tDGHoIJi
+0gQyAQDa/aNmdGxQcgE9f0VwjP+8KSctqk7yNbO5a3cAZoA+jQD9FaiaMUGxvJYL
+8hP7+CnPJrl65OMUdyHFdQXJpfWvQgI=
+=4gts
+-----END PGP SIGNATURE-----
 
-cd /sys/kernel/debug/tracing/
-echo 0 > tracing_on
-echo > trace
-echo *sys_write > set_graph_function
-echo *spin* > set_graph_notrace
-echo *rcu* >> set_graph_notrace
-echo *alloc* >> set_graph_notrace
-echo preempt* >> set_graph_notrace
-echo kfree* >> set_graph_notrace
-echo $$ > set_ftrace_pid
-echo function_graph > current_tracer
-echo 1 > tracing_on
-echo `pidof demo` > /sys/fs/cgroup/cpu/test/tasks
-echo 0 > tracing_on
-echo 1 > options/funcgraph-retval
-cat trace > ~/trace.log
+--75fHXjzehm0ULJe4--
 
-Search the error code -22 directly in the file trace.log and find the
-first function that return -22, then read the function code to get the
-root cause.
 
-...
-
- 1)          | cgroup_migrate() {
- 1) 0.651 us |   cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
- 1)          |   cgroup_migrate_execute() {
- 1)          |     cpu_cgroup_can_attach() {
- 1)          |       cgroup_taskset_first() {
- 1) 0.732 us |         cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
- 1) 1.232 us |       } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
- 1) 0.380 us |       sched_rt_can_attach(); /* = 0x0 */
- 1) 2.335 us |     } /* cpu_cgroup_can_attach = -22 */
- 1) 4.369 us |   } /* cgroup_migrate_execute = -22 */
- 1) 7.143 us | } /* cgroup_migrate = -22 */
-
-...
-
-Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
----
-v5:
- - Pass both the return values to ftrace_return_to_handler
- - Modify the parameter sequence of ftrace_return_to_handler to
-   decrease the modification of assembly code, thanks to Russell King
- - Wrap __ftrace_return_to_handler with ftrace_return_to_handler
-   for compatible
-
-v4:
- - Modify commit message
- - Introduce new option graph_retval_hex to control display format
- - Introduce macro CONFIG_FUNCTION_GRAPH_RETVAL and
-   CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
- - add each arch maintainers to review
-
-v3:
- - Modify the commit message: add trace logs processed with the btf tool
-
-v2:
- - Modify the commit message: use BTF to get the return type of function
----
- arch/arm/Kconfig                     |  1 +
- arch/arm/kernel/entry-ftrace.S       |  8 +++
- arch/arm64/Kconfig                   |  1 +
- arch/arm64/kernel/entry-ftrace.S     |  8 +++
- arch/riscv/Kconfig                   |  1 +
- arch/riscv/kernel/mcount.S           | 12 +++-
- arch/x86/Kconfig                     |  1 +
- arch/x86/kernel/ftrace_32.S          |  8 +++
- arch/x86/kernel/ftrace_64.S          | 10 +++
- include/linux/ftrace.h               |  3 +
- kernel/trace/Kconfig                 |  8 +++
- kernel/trace/fgraph.c                | 25 +++++++-
- kernel/trace/trace.h                 |  2 +
- kernel/trace/trace_entries.h         | 26 ++++++++
- kernel/trace/trace_functions_graph.c | 95 +++++++++++++++++++++++++---
- 15 files changed, 197 insertions(+), 12 deletions(-)
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index e24a9820e12f..ad03fc868f34 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -99,6 +99,7 @@ config ARM
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_FUNCTION_GRAPH_TRACER
-+	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_HW_BREAKPOINT if PERF_EVENTS && (CPU_V6 || CPU_V6K || CPU_V7)
-diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
-index 3e7bcaca5e07..ba1986e27af8 100644
---- a/arch/arm/kernel/entry-ftrace.S
-+++ b/arch/arm/kernel/entry-ftrace.S
-@@ -258,7 +258,15 @@ ENDPROC(ftrace_graph_regs_caller)
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
- ENTRY(return_to_handler)
- 	stmdb	sp!, {r0-r3}
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/*
-+	 * Pass both the function return values in the register r0 and r1
-+	 * to ftrace_return_to_handler
-+	 */
-+	add	r2, sp, #16		@ sp at exit of instrumented routine
-+#else
- 	add	r0, sp, #16		@ sp at exit of instrumented routine
-+#endif
- 	bl	ftrace_return_to_handler
- 	mov	lr, r0			@ r0 has real ret addr
- 	ldmia	sp!, {r0-r3}
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 1023e896d46b..5ad53d565f2b 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -196,6 +196,7 @@ config ARM64
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_FUNCTION_GRAPH_TRACER
-+	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_HW_BREAKPOINT if PERF_EVENTS
- 	select HAVE_IOREMAP_PROT
-diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
-index 350ed81324ac..d1a5d76e6d72 100644
---- a/arch/arm64/kernel/entry-ftrace.S
-+++ b/arch/arm64/kernel/entry-ftrace.S
-@@ -276,7 +276,15 @@ SYM_CODE_START(return_to_handler)
- 	stp x4, x5, [sp, #32]
- 	stp x6, x7, [sp, #48]
- 
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/*
-+	 * Pass both the function return values in the register x0 and x1
-+	 * to ftrace_return_to_handler.
-+	 */
-+	mov	x2, x29			//     parent's fp
-+#else
- 	mov	x0, x29			//     parent's fp
-+#endif
- 	bl	ftrace_return_to_handler// addr = ftrace_return_to_hander(fp);
- 	mov	x30, x0			// restore the original return address
- 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc37604..3efa4f645a39 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -139,6 +139,7 @@ config RISCV
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
-+	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
- 
- config ARCH_MMAP_RND_BITS_MIN
-diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
-index 30102aadc4d7..bba2f3835592 100644
---- a/arch/riscv/kernel/mcount.S
-+++ b/arch/riscv/kernel/mcount.S
-@@ -69,8 +69,18 @@ ENTRY(return_to_handler)
- 	mv	t6, s0
- #endif
- 	SAVE_RET_ABI_STATE
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/*
-+	 * Pass both the function return values in the register a0 and a1
-+	 * to ftrace_return_to_handler
-+	 */
-+	#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	mv	a2, t6
-+	#endif
-+#else
-+	#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	mv	a0, t6
-+	#endif
- #endif
- 	call	ftrace_return_to_handler
- 	mv	a2, a0
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a825bf031f49..af80f3c75a54 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -215,6 +215,7 @@ config X86
- 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
-+	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_HW_BREAKPOINT
-diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
-index a0ed0e4a2c0c..ae8f215d9820 100644
---- a/arch/x86/kernel/ftrace_32.S
-+++ b/arch/x86/kernel/ftrace_32.S
-@@ -184,7 +184,15 @@ SYM_CODE_END(ftrace_graph_caller)
- return_to_handler:
- 	pushl	%eax
- 	pushl	%edx
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/*
-+	 * Pass both the function return values in the register eax and edx
-+	 * to ftrace_return_to_handler
-+	 */
-+	movl	$0, %ecx
-+#else
- 	movl	$0, %eax
-+#endif
- 	call	ftrace_return_to_handler
- 	movl	%eax, %ecx
- 	popl	%edx
-diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
-index 1265ad519249..2eefa82814dc 100644
---- a/arch/x86/kernel/ftrace_64.S
-+++ b/arch/x86/kernel/ftrace_64.S
-@@ -347,7 +347,17 @@ SYM_CODE_START(return_to_handler)
- 	/* Save the return values */
- 	movq %rax, (%rsp)
- 	movq %rdx, 8(%rsp)
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/*
-+	 * Pass both the function return values in the register rax and rdx
-+	 * to ftrace_return_to_handler
-+	 */
-+	movq %rax, %rdi
-+	movq %rdx, %rsi
-+	movq %rbp, %rdx
-+#else
- 	movq %rbp, %rdi
-+#endif
- 
- 	call ftrace_return_to_handler
- 
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 366c730beaa3..be662a11cd13 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -1032,6 +1032,9 @@ struct ftrace_graph_ent {
-  */
- struct ftrace_graph_ret {
- 	unsigned long func; /* Current function */
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	unsigned long retval;
-+#endif
- 	int depth;
- 	/* Number of functions that overran the depth limit for current task */
- 	unsigned int overrun;
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index a856d4a34c67..319eb6dc2250 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -31,6 +31,9 @@ config HAVE_FUNCTION_GRAPH_TRACER
- 	help
- 	  See Documentation/trace/ftrace-design.rst
- 
-+config HAVE_FUNCTION_GRAPH_RETVAL
-+	bool
-+
- config HAVE_DYNAMIC_FTRACE
- 	bool
- 	help
-@@ -227,6 +230,11 @@ config FUNCTION_GRAPH_TRACER
- 	  the return value. This is done by setting the current return
- 	  address on the current task structure into a stack of calls.
- 
-+config FUNCTION_GRAPH_RETVAL
-+	def_bool y
-+	depends on HAVE_FUNCTION_GRAPH_RETVAL
-+	depends on FUNCTION_GRAPH_TRACER
-+
- config DYNAMIC_FTRACE
- 	bool "enable/disable function tracing dynamically"
- 	depends on FUNCTION_TRACER
-diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-index 218cd95bf8e4..f40b10fc6561 100644
---- a/kernel/trace/fgraph.c
-+++ b/kernel/trace/fgraph.c
-@@ -238,14 +238,24 @@ static struct notifier_block ftrace_suspend_notifier = {
- 
- /*
-  * Send the trace to the ring-buffer.
-+ *
-+ * For double register return, need to pass both register values.
-+ * However only the first one is saved currently.
-+ *
-+ * @retval_1st: the first return value
-+ * @retval_2nd: the second return value
-  * @return the original return address.
-  */
--unsigned long ftrace_return_to_handler(unsigned long frame_pointer)
-+static unsigned long __ftrace_return_to_handler(unsigned long retval_1st,
-+			unsigned long retval_2nd, unsigned long frame_pointer)
- {
- 	struct ftrace_graph_ret trace;
- 	unsigned long ret;
- 
- 	ftrace_pop_return_trace(&trace, &ret, frame_pointer);
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	trace.retval = retval_1st;
-+#endif
- 	trace.rettime = trace_clock_local();
- 	ftrace_graph_return(&trace);
- 	/*
-@@ -266,6 +276,19 @@ unsigned long ftrace_return_to_handler(unsigned long frame_pointer)
- 	return ret;
- }
- 
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+unsigned long ftrace_return_to_handler(unsigned long retval_1st,
-+			unsigned long retval_2nd, unsigned long frame_pointer)
-+{
-+	return __ftrace_return_to_handler(retval_1st, retval_2nd, frame_pointer);
-+}
-+#else
-+unsigned long ftrace_return_to_handler(unsigned long frame_pointer)
-+{
-+	return __ftrace_return_to_handler(0, 0, frame_pointer);
-+}
-+#endif
-+
- /**
-  * ftrace_graph_get_ret_stack - return the entry of the shadow stack
-  * @task: The task to read the shadow stack from
-diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
-index 616e1aa1c4da..0a3c4582df10 100644
---- a/kernel/trace/trace.h
-+++ b/kernel/trace/trace.h
-@@ -831,6 +831,8 @@ static __always_inline bool ftrace_hash_empty(struct ftrace_hash *hash)
- #define TRACE_GRAPH_PRINT_TAIL          0x100
- #define TRACE_GRAPH_SLEEP_TIME          0x200
- #define TRACE_GRAPH_GRAPH_TIME          0x400
-+#define TRACE_GRAPH_PRINT_RETVAL        0x800
-+#define TRACE_GRAPH_PRINT_RETVAL_HEX    0x1000
- #define TRACE_GRAPH_PRINT_FILL_SHIFT	28
- #define TRACE_GRAPH_PRINT_FILL_MASK	(0x3 << TRACE_GRAPH_PRINT_FILL_SHIFT)
- 
-diff --git a/kernel/trace/trace_entries.h b/kernel/trace/trace_entries.h
-index cd41e863b51c..340b2fa98218 100644
---- a/kernel/trace/trace_entries.h
-+++ b/kernel/trace/trace_entries.h
-@@ -86,6 +86,30 @@ FTRACE_ENTRY_PACKED(funcgraph_entry, ftrace_graph_ent_entry,
- );
- 
- /* Function return entry */
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+
-+FTRACE_ENTRY_PACKED(funcgraph_exit, ftrace_graph_ret_entry,
-+
-+	TRACE_GRAPH_RET,
-+
-+	F_STRUCT(
-+		__field_struct(	struct ftrace_graph_ret,	ret	)
-+		__field_packed(	unsigned long,	ret,		func	)
-+		__field_packed(	unsigned long,	ret,		retval	)
-+		__field_packed(	int,		ret,		depth	)
-+		__field_packed(	unsigned int,	ret,		overrun	)
-+		__field_packed(	unsigned long long, ret,	calltime)
-+		__field_packed(	unsigned long long, ret,	rettime	)
-+	),
-+
-+	F_printk("<-- %ps (%d) (start: %llx  end: %llx) over: %d retval: %lx",
-+		 (void *)__entry->func, __entry->depth,
-+		 __entry->calltime, __entry->rettime,
-+		 __entry->depth, __entry->retval)
-+);
-+
-+#else
-+
- FTRACE_ENTRY_PACKED(funcgraph_exit, ftrace_graph_ret_entry,
- 
- 	TRACE_GRAPH_RET,
-@@ -105,6 +129,8 @@ FTRACE_ENTRY_PACKED(funcgraph_exit, ftrace_graph_ret_entry,
- 		 __entry->depth)
- );
- 
-+#endif
-+
- /*
-  * Context switch trace entry - which task (and prio) we switched from/to:
-  *
-diff --git a/kernel/trace/trace_functions_graph.c b/kernel/trace/trace_functions_graph.c
-index 203204cadf92..e26f548a4d75 100644
---- a/kernel/trace/trace_functions_graph.c
-+++ b/kernel/trace/trace_functions_graph.c
-@@ -58,6 +58,12 @@ static struct tracer_opt trace_opts[] = {
- 	{ TRACER_OPT(funcgraph-irqs, TRACE_GRAPH_PRINT_IRQS) },
- 	/* Display function name after trailing } */
- 	{ TRACER_OPT(funcgraph-tail, TRACE_GRAPH_PRINT_TAIL) },
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+	/* Display function return value ? */
-+	{ TRACER_OPT(funcgraph-retval, TRACE_GRAPH_PRINT_RETVAL) },
-+	/* Display function return value in hexadecimal format ? */
-+	{ TRACER_OPT(graph_retval_hex, TRACE_GRAPH_PRINT_RETVAL_HEX) },
-+#endif
- 	/* Include sleep time (scheduled out) between entry and return */
- 	{ TRACER_OPT(sleep-time, TRACE_GRAPH_SLEEP_TIME) },
- 
-@@ -619,6 +625,58 @@ print_graph_duration(struct trace_array *tr, unsigned long long duration,
- 	trace_seq_puts(s, "|  ");
- }
- 
-+#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
-+
-+#define __TRACE_GRAPH_PRINT_RETVAL TRACE_GRAPH_PRINT_RETVAL
-+
-+static void print_graph_retval(struct trace_seq *s, unsigned long retval,
-+				bool leaf, void *func, bool hex_format)
-+{
-+	unsigned long err_code = 0;
-+
-+	if (retval == 0 || hex_format)
-+		goto done;
-+
-+	/* Guess whether the retval looks like an error code */
-+	if ((retval & BIT(7)) && (retval >> 8) == 0)
-+		err_code = (unsigned long)(s8)retval;
-+	else if ((retval & BIT(15)) && (retval >> 16) == 0)
-+		err_code = (unsigned long)(s16)retval;
-+	else if ((retval & BIT(31)) && (((u64)retval) >> 32) == 0)
-+		err_code = (unsigned long)(s32)retval;
-+	else
-+		err_code = retval;
-+
-+	if (!IS_ERR_VALUE(err_code))
-+		err_code = 0;
-+
-+done:
-+	if (leaf) {
-+		if (hex_format || (err_code == 0))
-+			trace_seq_printf(s, "%ps(); /* = 0x%lx */\n",
-+					func, retval);
-+		else
-+			trace_seq_printf(s, "%ps(); /* = %ld */\n",
-+					func, err_code);
-+	} else {
-+		if (hex_format || (err_code == 0))
-+			trace_seq_printf(s, "} /* %ps = 0x%lx */\n",
-+					func, retval);
-+		else
-+			trace_seq_printf(s, "} /* %ps = %ld */\n",
-+					func, err_code);
-+	}
-+}
-+
-+#else
-+
-+#define __TRACE_GRAPH_PRINT_RETVAL 0
-+
-+#define print_graph_retval(_seq, _retval, _leaf, _func, _format)	\
-+			  do {} while (0)
-+
-+#endif
-+
- /* Case of a leaf function on its call entry */
- static enum print_line_t
- print_graph_entry_leaf(struct trace_iterator *iter,
-@@ -663,7 +721,15 @@ print_graph_entry_leaf(struct trace_iterator *iter,
- 	for (i = 0; i < call->depth * TRACE_GRAPH_INDENT; i++)
- 		trace_seq_putc(s, ' ');
- 
--	trace_seq_printf(s, "%ps();\n", (void *)call->func);
-+	/*
-+	 * Write out the function return value if the option function-retval is
-+	 * enabled.
-+	 */
-+	if (flags & __TRACE_GRAPH_PRINT_RETVAL)
-+		print_graph_retval(s, graph_ret->retval, true, (void *)call->func,
-+				!!(flags & TRACE_GRAPH_PRINT_RETVAL_HEX));
-+	else
-+		trace_seq_printf(s, "%ps();\n", (void *)call->func);
- 
- 	print_graph_irq(iter, graph_ret->func, TRACE_GRAPH_RET,
- 			cpu, iter->ent->pid, flags);
-@@ -942,16 +1008,25 @@ print_graph_return(struct ftrace_graph_ret *trace, struct trace_seq *s,
- 		trace_seq_putc(s, ' ');
- 
- 	/*
--	 * If the return function does not have a matching entry,
--	 * then the entry was lost. Instead of just printing
--	 * the '}' and letting the user guess what function this
--	 * belongs to, write out the function name. Always do
--	 * that if the funcgraph-tail option is enabled.
-+	 * Always write out the function name and its return value if the
-+	 * function-retval option is enabled.
- 	 */
--	if (func_match && !(flags & TRACE_GRAPH_PRINT_TAIL))
--		trace_seq_puts(s, "}\n");
--	else
--		trace_seq_printf(s, "} /* %ps */\n", (void *)trace->func);
-+	if (flags & __TRACE_GRAPH_PRINT_RETVAL) {
-+		print_graph_retval(s, trace->retval, false, (void *)trace->func,
-+			!!(flags & TRACE_GRAPH_PRINT_RETVAL_HEX));
-+	} else {
-+		/*
-+		 * If the return function does not have a matching entry,
-+		 * then the entry was lost. Instead of just printing
-+		 * the '}' and letting the user guess what function this
-+		 * belongs to, write out the function name. Always do
-+		 * that if the funcgraph-tail option is enabled.
-+		 */
-+		if (func_match && !(flags & TRACE_GRAPH_PRINT_TAIL))
-+			trace_seq_puts(s, "}\n");
-+		else
-+			trace_seq_printf(s, "} /* %ps */\n", (void *)trace->func);
-+	}
- 
- 	/* Overrun */
- 	if (flags & TRACE_GRAPH_PRINT_OVERRUN)
--- 
-2.25.1
-
+--===============3064599754646881039==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3064599754646881039==--
+
