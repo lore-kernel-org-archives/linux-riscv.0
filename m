@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3A1C7618D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 11:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A400C7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 12:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oucahC6XBST6VO7PpfRr4zBv3pPF/eS64nTVTm8oExo=; b=ieuV7l7zIs0HV/
-	CSD9MRtjEZAEpBXwE5fhuemkAIZyZBRrbJ5/vwTiqFptIHZE12ng/tMgs7nn5z6MBLI0EpSD7ii/u
-	EQWL2ItKVd9sXuaSfp1h3Ducp0zC/Q//Pp5TpGow2V2eFRj3TlH7B+BsnsIuaplHhPgMGjKyDCir/
-	VSHSu3uyHDoR57iz6FTeA5wadu+cgvU08c7RdhOJDF46F5yyXTkHHZIBJc1lAN63NMAyM/i0eiDIn
-	S7scXtci6zUAe1b0s8E7cFDMwG3r+JtdufgzQ6olUxXcf0HhzkaenR6e9b95qUUFLoXiG+bdcliHn
-	FXqV0j5X+haMN9/IC1JA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s4lQS4gTo2vNIVHKrWNL2TvwAUfebMl+YRakETxjdRQ=; b=z7fiD6q2SwLZ2XGW1WUSYQsMZq
+	xdHvRHe17GZ+btRJ40REb+afPvCSvLp/P3gwPZV3obGHQAjnh0RCHEyq+aZeNrRe4YzDwgzghfOQ0
+	uwFhuGxrrXceJwm1wYJXZjJpybkrqLkXiaYrqWYj0ybdKbuU9LxkCIDvAzgbiFw919Azr+tqSLaBT
+	AzamhZq0xZkUakF3yycR/PB6kqtCXd2oRaiRZtDHq8geWlls2T6Qg16UJiL4yDwa0FeNB6Ch1nLo+
+	qpR0PWuNEhxF4u9kKrJdNqLRhUg+9KswVw5RKEfRXKMrzwQIOXsjUpWzmPUaXRX5h6dqxkcpQT14S
+	276uKPGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peE34-008t8g-2Y;
-	Mon, 20 Mar 2023 11:51:34 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1peEN2-008wRN-30;
+	Mon, 20 Mar 2023 12:12:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peE31-008t5m-1w
+	id 1peEN0-008wQH-0G
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 11:51:33 +0000
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 8B9F941BE2
-	for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 11:51:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1679313083;
-	bh=GGpWfsM5C1ImSMDFhmoi1LbWjuKbL/WrII+NG9/nakI=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=hM94kEI8J2CWhITw3n83CPVx9YzA536hjQLxYB06Fxl+w8uG0/GUhF93JlycEI8AZ
-	 dymKrPQWZZAsV/6EfntZ5gkHMMPrFq4ol60FfcOQqq+RBWxe4G4kJntWA0i6Edhofp
-	 f+vtVJEfeHVPeJea8V9q+C32gk7jABGBITbezAw2GuC1weGYHVcrxta2XEtNcMVFhG
-	 Ef3uD2YTZ3N0dyFcRlB7W4gtsACVUENNVpNoxJO+qE7ulF0uBcUfZ+tWdZnt/RdcO9
-	 WYl4GYOgIZ7GpjdbgMQLupexlwgQhMHwbSFXJ3sExIasIIhXs2skMyEJG1X+C9/Kmk
-	 Mlq+Zc0K7+q/A==
-Received: by mail-qk1-f198.google.com with SMTP id s12-20020a37a90c000000b007468eaf866aso523660qke.17
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 04:51:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679313082;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GGpWfsM5C1ImSMDFhmoi1LbWjuKbL/WrII+NG9/nakI=;
-        b=yyGcCLZtovzWL9yzB5M0l9ftnMIWgzdMavzWa8BHmQjNyw99Eipqo2aDDxXRM/ascM
-         ug6D3FTdif7mqMZHbBnLoLIvs7ncM6duA5BhTtmseYav+heSwF4UrfntSCKK1sXVa5NL
-         nVVSS8Jq8t+z7hGq3SXvotUlepzNzx3XSQ0i+qWH4EeYe6/pnxwKvyP2hg6nOsIChIoo
-         0qo8UoVkLhVEPdiPT9T08Rznp3IxCJvJj3VYKiHAulqTLyeszKUhZcBaAIe82xQYyx7l
-         lbQp6b1sGK6q5nbUMRFdF57CDFXQr5AOGwDnORwppFr7Yosem+PfsthZVL/LPLeOL3ey
-         Lp5g==
-X-Gm-Message-State: AO0yUKXn7qiDWK72lhQEJ+ojX2orn3nn4PDiislvof26SmiyGM7HJTlP
-	Ielc4YZimRR80fdd+rQ3oW6zAicq63mi+WLZ2ianSNFnDzEHodRpUvOzPDfD3KKReVnOKB7M6Gn
-	SvkP2ZROBT2oUfd4w3CEmM2epyWwcU0Bw/qjR/RKlB9rP2Ws1IIFdez9SqHyD/w==
-X-Received: by 2002:ad4:59c7:0:b0:56f:3e5:850e with SMTP id el7-20020ad459c7000000b0056f03e5850emr6960046qvb.3.1679313082556;
-        Mon, 20 Mar 2023 04:51:22 -0700 (PDT)
-X-Google-Smtp-Source: AK7set/l+AwVJZR40S7GPUVKDWevuOOVX4sYPIEehyQctIQv1qL8d4CCuDF//+jeSsWW86R+pXOcTviboByTpW6VUeI=
-X-Received: by 2002:ad4:59c7:0:b0:56f:3e5:850e with SMTP id
- el7-20020ad459c7000000b0056f03e5850emr6960029qvb.3.1679313082287; Mon, 20 Mar
- 2023 04:51:22 -0700 (PDT)
+	Mon, 20 Mar 2023 12:12:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679314329; x=1710850329;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=f0cFu0waq1sUq+AFu96iKtjuSciX3NLthHqTvv/AT2A=;
+  b=asuPxwct1Yv0KxXQe7aGMfpBno9xZjM//5RaFlZODaGC9yjKYZ1yfMf9
+   17jVYMgD1Zc7eO4DbcyTVaBtase2C0jQLBXQc12C+UqHzDFh9xAPu9ci9
+   g06VG5lK7cbbhqzoqSSPktdYZmU12eMG49azBtpG4umpKVHSx68CH3xAN
+   OI3cm6v2JKkPaAPWNE/MrFrJNT70tCZ4fWC3zdVqF7OJ6nWrHUI6J6S9z
+   dDcmLnp1RN56QhOOpvaL/0gnhlULbqyJui8YSgyx8E22wL3HiZOB4ZGIf
+   a3Se1ymHBbaz0OEVLYfoLz+vZZtxSya5mNechQxBdXsLaebVV+4MveBOf
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
+   d="asc'?scan'208";a="205502494"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 05:12:02 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 20 Mar 2023 05:12:01 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 20 Mar 2023 05:11:59 -0700
+Date: Mon, 20 Mar 2023 12:11:29 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: Mike Rapoport <rppt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	<palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<frowand.list@gmail.com>, <robh+dt@kernel.org>, <mick@ics.forth.gr>,
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+	<Valentina.FernandezAlanis@microchip.com>, <Daire.McNamara@microchip.com>
+Subject: Re: RISC-V reserved memory problems
+Message-ID: <e2203659-e1ac-4fbf-9b5d-2c561255b645@spud>
+References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
+ <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
+ <Y9wytv5KSt1ca+td@spud>
+ <ZAchb/DfbIh+qaE4@kernel.org>
+ <8abfb680-e1dd-8d1f-dd10-0a8bf086f5c3@ghiti.fr>
+ <b797bd15-ef3d-4d28-9aad-ffe0a32aa0b0@spud>
+ <de204b7c-7c1d-bd7b-0072-d128757258e2@ghiti.fr>
 MIME-Version: 1.0
-References: <20230311090733.56918-1-hal.feng@starfivetech.com> <20230311090733.56918-6-hal.feng@starfivetech.com>
-In-Reply-To: <20230311090733.56918-6-hal.feng@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Mon, 20 Mar 2023 12:51:06 +0100
-Message-ID: <CAJM55Z-2HB4PCw3fy6n3e0FErV9DXqGazVkq4TN+X+34ozNcbw@mail.gmail.com>
-Subject: Re: [PATCH v5 05/21] reset: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org
+In-Reply-To: <de204b7c-7c1d-bd7b-0072-d128757258e2@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_045131_787960_AE2499F8 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20230320_051210_127739_6AF2518B 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +86,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6939584661920013915=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Mar 2023 at 10:07, Hal Feng <hal.feng@starfivetech.com> wrote:
->
-> Using ARCH_FOO symbol is preferred than SOC_FOO.
->
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+--===============6939584661920013915==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pKzsOyM01oqrnRqw"
+Content-Disposition: inline
 
-Thanks!
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+--pKzsOyM01oqrnRqw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> ---
->  drivers/reset/Kconfig | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 2a52c990d4fe..6ae5aa46a6b2 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -234,8 +234,8 @@ config RESET_SOCFPGA
->
->  config RESET_STARFIVE_JH7100
->         bool "StarFive JH7100 Reset Driver"
-> -       depends on SOC_STARFIVE || COMPILE_TEST
-> -       default SOC_STARFIVE
-> +       depends on ARCH_STARFIVE || COMPILE_TEST
-> +       default ARCH_STARFIVE
->         help
->           This enables the reset controller driver for the StarFive JH7100 SoC.
->
-> --
-> 2.38.1
->
+On Thu, Mar 09, 2023 at 04:12:57PM +0100, Alexandre Ghiti wrote:
+> On 3/9/23 13:51, Conor Dooley wrote:
+> > On Thu, Mar 09, 2023 at 01:45:05PM +0100, Alexandre Ghiti wrote:
+> > > On 3/7/23 12:35, Mike Rapoport wrote:
+> > > > Hi Conor,
+> > > >=20
+> > > > Sorry for the delay, somehow this slipped between the cracks.
+> > > >=20
+> > > > On Thu, Feb 02, 2023 at 10:01:26PM +0000, Conor Dooley wrote:
+> > > > > Hullo Palmer, Mike & whoever else may read this,
+> > > > >=20
+> > > > > Just reviving this thread from a little while ago as I have been =
+in the
+> > > > > area again recently...
+> > > > TBH, I didn't really dig deep into the issues, but the thought I ha=
+d was
+> > > > what if DT was mapped via fixmap until the setup_vm_final() and the=
+n it
+> > > > would be possible to call DT methods early.
+> > > >=20
+> > > > Could be I'm shooting in the dark :)
+> > >=20
+> > > I think I understand the issue now, it's because In riscv, we establi=
+sh 2
+> > > different virtual mappings and we map the device tree at 2 different =
+virtual
+> > > addresses, which is the problem.
+> > >=20
+> > > So to me, the solution is:
+> > >=20
+> > > - to revert your previous fix, that is calling
+> > > early_init_fdt_scan_reserved_mem() before any call to memblock_alloc()
+> > > (which could result in an allocation in the area you want to reserve)
+> > >=20
+> > > - to map the device tree at the same virtual address, because
+> > > early_init_fdt_scan_reserved_mem() initializes reserved_mem with the =
+dtb
+> > > mapping established in setup_vm() and uses reserved_mem with the new =
+mapping
+> > > from setup_vm_final (which is what Mike proposes, we should use the f=
+ixmap
+> > > region to have the same virtual addresses)
+> > >=20
+> > > Hope that makes sense: I'll come up with something this afternoon for=
+ you to
+> > > test!
+> > Sounds good. Please give me some ELI5 commit messages if you can,
+> > explanations for this stuff (which I found took a lot of archaeology to
+> > understand) would be very welcome next time we need to go back looking
+> > at this stuff.
+>=20
+>=20
+> Can you give it a try here:
+> https://github.com/AlexGhiti/riscv-linux/commits/dev/alex/conor_dtb_fixma=
+p_v1
+> ?
+>=20
+> That works for me but I need to carefully explain and check that's correct
+> though, not upstreamable as is.
+
+Hey Alex,
+
+So I ended up being pretty sick & had to take a week off. I gave this an
+initial spin today & it appears to work.
+I'll take it for a longer test-drive when you send a "real" patch for
+it, but I tested both the lookup by name & the situation that was
+allocating in reserved memory and both were not an issue.
+
+Thanks for working on this,
+Conor.
+
+--pKzsOyM01oqrnRqw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhNcQAKCRB4tDGHoIJi
+0jHSAQDYXV+uHHctZPqRy4OTzH84+s3JkFLcich/mv5xUvEIsAEAttjvErnc91Wo
+/sgB9RuUAHwyl42K555VXdhZIr5oHQg=
+=vZ1A
+-----END PGP SIGNATURE-----
+
+--pKzsOyM01oqrnRqw--
+
+
+--===============6939584661920013915==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6939584661920013915==--
+
