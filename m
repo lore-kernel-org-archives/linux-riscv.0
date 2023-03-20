@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534D8C7618D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 10:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F22C7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 10:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/X3QCjOR6SJYu4AoXpnMLrKW7/Tdvd0264uCFq/9IQ=; b=yJNRtOJJlzA6c5
-	MKi230LU9TBybOnYtSHUyFN+kOQ8w7x6+tLnDecvNEUD2NHtJdDi1h7c5o17QhvFWK8GMj3t5g6BM
-	YQtgUPpRSs+Qr+fCZ3lcA66yKQ1VFXkKUmkq8tuhoWcDDTTtNjjhzohJPM8ZW2IynCT7VqNCRrRah
-	6joxIezlCgBOiKVjoTdyy2ioX9T9gEa8UHiZ7hpzS/Ln6S00+kW1DZ21bBkeORcJWL3KhQXYN1dV/
-	B7i3lTib1LBXzDRTYqEFBIZkG3v1GhSyvSRLw7UcrmNG197MJeFLPGlq4iCMyUex5oDrO2Fnt1ltT
-	rTBuUQAwYcQd6Dv6TiXQ==;
+	List-Owner; bh=ugvP4qeE1E9L9KG1BrDacBnBVe+DmvRa66Lz9gOYmWk=; b=iCBy3BDKy1FfC2
+	Ykl7YcC66XVq0tQNCF2dChUX0KpXTaTgIqDF/wfqpiDXs72r+Si18F/d5Z0/8LKKqQWieoydZR82I
+	B3Qvn5t0ge+cVJeoK2R3wqZO5r+7oAYU8iV1nF095kZj2TmS0skM8SJ9eMBcZA7D8Rt4nqyc2G82p
+	/Wz1T1eBjz/Gf+AcEfafCSCtbs942h7fp0YqIRs7w9uuVCimDiyLCMj+wzRbStdAcqgmBpuq+d+j4
+	6DQpuzv59eEFP0Et21bwRls98kaRnHcM97RwufDo4Kaqmi9fApTo5fUOY7EOcrGFKOzcFUeZnuaWk
+	JBzVLHNsDYh3OYjYKU5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peCuX-008eu8-1p;
-	Mon, 20 Mar 2023 10:38:41 +0000
+	id 1peCuZ-008evv-39;
+	Mon, 20 Mar 2023 10:38:43 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peCuS-008epf-0l
+	id 1peCuS-008epq-0l
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 10:38:39 +0000
+	Mon, 20 Mar 2023 10:38:40 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B72B324E29A;
-	Mon, 20 Mar 2023 18:38:08 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id B47DE24E294;
+	Mon, 20 Mar 2023 18:38:01 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 18:38:08 +0800
+ 2023 18:38:01 +0800
 Received: from ubuntu.localdomain (183.27.97.64) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 18:38:07 +0800
+ 2023 18:38:00 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -51,9 +51,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 19/21] riscv: dts: starfive: Add initial StarFive JH7110 device tree
-Date: Mon, 20 Mar 2023 18:37:48 +0800
-Message-ID: <20230320103750.60295-20-hal.feng@starfivetech.com>
+Subject: [PATCH v6 11/21] dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+Date: Mon, 20 Mar 2023 18:37:40 +0800
+Message-ID: <20230320103750.60295-12-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230320103750.60295-1-hal.feng@starfivetech.com>
 References: <20230320103750.60295-1-hal.feng@starfivetech.com>
@@ -63,8 +63,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_033836_736261_C123F30B 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20230320_033836_831766_9674EDD5 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,536 +83,521 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-Add initial device tree for the JH7110 RISC-V SoC by StarFive
-Technology Ltd.
+Add bindings for the system clock and reset generator (SYSCRG) on the
+JH7110 RISC-V SoC by StarFive Ltd.
 
-Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 509 +++++++++++++++++++++++
- 1 file changed, 509 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+ .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+ MAINTAINERS                                   |   8 +-
+ .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+ 4 files changed, 454 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+ create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+ create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
 new file mode 100644
-index 000000000000..d484ecdf93f7
+index 000000000000..84373ae31644
 --- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -0,0 +1,509 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+@@ -0,0 +1,104 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 System Clock and Reset Generator
++
++maintainers:
++  - Emil Renner Berthing <kernel@esmil.dk>
++
++properties:
++  compatible:
++    const: starfive,jh7110-syscrg
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    oneOf:
++      - items:
++          - description: Main Oscillator (24 MHz)
++          - description: GMAC1 RMII reference or GMAC1 RGMII RX
++          - description: External I2S TX bit clock
++          - description: External I2S TX left/right channel clock
++          - description: External I2S RX bit clock
++          - description: External I2S RX left/right channel clock
++          - description: External TDM clock
++          - description: External audio master clock
++
++      - items:
++          - description: Main Oscillator (24 MHz)
++          - description: GMAC1 RMII reference
++          - description: GMAC1 RGMII RX
++          - description: External I2S TX bit clock
++          - description: External I2S TX left/right channel clock
++          - description: External I2S RX bit clock
++          - description: External I2S RX left/right channel clock
++          - description: External TDM clock
++          - description: External audio master clock
++
++  clock-names:
++    oneOf:
++      - items:
++          - const: osc
++          - enum:
++              - gmac1_rmii_refin
++              - gmac1_rgmii_rxin
++          - const: i2stx_bclk_ext
++          - const: i2stx_lrck_ext
++          - const: i2srx_bclk_ext
++          - const: i2srx_lrck_ext
++          - const: tdm_ext
++          - const: mclk_ext
++
++      - items:
++          - const: osc
++          - const: gmac1_rmii_refin
++          - const: gmac1_rgmii_rxin
++          - const: i2stx_bclk_ext
++          - const: i2stx_lrck_ext
++          - const: i2srx_bclk_ext
++          - const: i2srx_lrck_ext
++          - const: tdm_ext
++          - const: mclk_ext
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@13020000 {
++        compatible = "starfive,jh7110-syscrg";
++        reg = <0x13020000 0x10000>;
++        clocks = <&osc>, <&gmac1_rmii_refin>,
++                 <&gmac1_rgmii_rxin>,
++                 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
++                 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
++                 <&tdm_ext>, <&mclk_ext>;
++        clock-names = "osc", "gmac1_rmii_refin",
++                      "gmac1_rgmii_rxin",
++                      "i2stx_bclk_ext", "i2stx_lrck_ext",
++                      "i2srx_bclk_ext", "i2srx_lrck_ext",
++                      "tdm_ext", "mclk_ext";
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4c788fa15cc4..9b66eaad0547 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19913,10 +19913,11 @@ F:	drivers/mmc/host/dw_mmc-starfive.c
+ 
+ STARFIVE JH71X0 CLOCK DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Hal Feng <hal.feng@starfivetech.com>
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/clock/starfive,jh7100-*.yaml
++F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh71*
+-F:	include/dt-bindings/clock/starfive-jh7100*.h
++F:	include/dt-bindings/clock/starfive?jh71*.h
+ 
+ STARFIVE JH71X0 PINCTRL DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+@@ -19930,10 +19931,11 @@ F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+ 
+ STARFIVE JH71X0 RESET CONTROLLER DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Hal Feng <hal.feng@starfivetech.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+ F:	drivers/reset/starfive/reset-starfive-jh71*
+-F:	include/dt-bindings/reset/starfive-jh7100.h
++F:	include/dt-bindings/reset/starfive?jh71*.h
+ 
+ STARFIVE JH71XX PMU CONTROLLER DRIVER
+ M:	Walker Chen <walker.chen@starfivetech.com>
+diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+new file mode 100644
+index 000000000000..fdd1852e34cc
+--- /dev/null
++++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+@@ -0,0 +1,203 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
++ */
++
++#ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
++#define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
++
++/* SYSCRG clocks */
++#define JH7110_SYSCLK_CPU_ROOT			0
++#define JH7110_SYSCLK_CPU_CORE			1
++#define JH7110_SYSCLK_CPU_BUS			2
++#define JH7110_SYSCLK_GPU_ROOT			3
++#define JH7110_SYSCLK_PERH_ROOT			4
++#define JH7110_SYSCLK_BUS_ROOT			5
++#define JH7110_SYSCLK_NOCSTG_BUS		6
++#define JH7110_SYSCLK_AXI_CFG0			7
++#define JH7110_SYSCLK_STG_AXIAHB		8
++#define JH7110_SYSCLK_AHB0			9
++#define JH7110_SYSCLK_AHB1			10
++#define JH7110_SYSCLK_APB_BUS			11
++#define JH7110_SYSCLK_APB0			12
++#define JH7110_SYSCLK_PLL0_DIV2			13
++#define JH7110_SYSCLK_PLL1_DIV2			14
++#define JH7110_SYSCLK_PLL2_DIV2			15
++#define JH7110_SYSCLK_AUDIO_ROOT		16
++#define JH7110_SYSCLK_MCLK_INNER		17
++#define JH7110_SYSCLK_MCLK			18
++#define JH7110_SYSCLK_MCLK_OUT			19
++#define JH7110_SYSCLK_ISP_2X			20
++#define JH7110_SYSCLK_ISP_AXI			21
++#define JH7110_SYSCLK_GCLK0			22
++#define JH7110_SYSCLK_GCLK1			23
++#define JH7110_SYSCLK_GCLK2			24
++#define JH7110_SYSCLK_CORE			25
++#define JH7110_SYSCLK_CORE1			26
++#define JH7110_SYSCLK_CORE2			27
++#define JH7110_SYSCLK_CORE3			28
++#define JH7110_SYSCLK_CORE4			29
++#define JH7110_SYSCLK_DEBUG			30
++#define JH7110_SYSCLK_RTC_TOGGLE		31
++#define JH7110_SYSCLK_TRACE0			32
++#define JH7110_SYSCLK_TRACE1			33
++#define JH7110_SYSCLK_TRACE2			34
++#define JH7110_SYSCLK_TRACE3			35
++#define JH7110_SYSCLK_TRACE4			36
++#define JH7110_SYSCLK_TRACE_COM			37
++#define JH7110_SYSCLK_NOC_BUS_CPU_AXI		38
++#define JH7110_SYSCLK_NOC_BUS_AXICFG0_AXI	39
++#define JH7110_SYSCLK_OSC_DIV2			40
++#define JH7110_SYSCLK_PLL1_DIV4			41
++#define JH7110_SYSCLK_PLL1_DIV8			42
++#define JH7110_SYSCLK_DDR_BUS			43
++#define JH7110_SYSCLK_DDR_AXI			44
++#define JH7110_SYSCLK_GPU_CORE			45
++#define JH7110_SYSCLK_GPU_CORE_CLK		46
++#define JH7110_SYSCLK_GPU_SYS_CLK		47
++#define JH7110_SYSCLK_GPU_APB			48
++#define JH7110_SYSCLK_GPU_RTC_TOGGLE		49
++#define JH7110_SYSCLK_NOC_BUS_GPU_AXI		50
++#define JH7110_SYSCLK_ISP_TOP_CORE		51
++#define JH7110_SYSCLK_ISP_TOP_AXI		52
++#define JH7110_SYSCLK_NOC_BUS_ISP_AXI		53
++#define JH7110_SYSCLK_HIFI4_CORE		54
++#define JH7110_SYSCLK_HIFI4_AXI			55
++#define JH7110_SYSCLK_AXI_CFG1_MAIN		56
++#define JH7110_SYSCLK_AXI_CFG1_AHB		57
++#define JH7110_SYSCLK_VOUT_SRC			58
++#define JH7110_SYSCLK_VOUT_AXI			59
++#define JH7110_SYSCLK_NOC_BUS_DISP_AXI		60
++#define JH7110_SYSCLK_VOUT_TOP_AHB		61
++#define JH7110_SYSCLK_VOUT_TOP_AXI		62
++#define JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK	63
++#define JH7110_SYSCLK_VOUT_TOP_MIPIPHY_REF	64
++#define JH7110_SYSCLK_JPEGC_AXI			65
++#define JH7110_SYSCLK_CODAJ12_AXI		66
++#define JH7110_SYSCLK_CODAJ12_CORE		67
++#define JH7110_SYSCLK_CODAJ12_APB		68
++#define JH7110_SYSCLK_VDEC_AXI			69
++#define JH7110_SYSCLK_WAVE511_AXI		70
++#define JH7110_SYSCLK_WAVE511_BPU		71
++#define JH7110_SYSCLK_WAVE511_VCE		72
++#define JH7110_SYSCLK_WAVE511_APB		73
++#define JH7110_SYSCLK_VDEC_JPG			74
++#define JH7110_SYSCLK_VDEC_MAIN			75
++#define JH7110_SYSCLK_NOC_BUS_VDEC_AXI		76
++#define JH7110_SYSCLK_VENC_AXI			77
++#define JH7110_SYSCLK_WAVE420L_AXI		78
++#define JH7110_SYSCLK_WAVE420L_BPU		79
++#define JH7110_SYSCLK_WAVE420L_VCE		80
++#define JH7110_SYSCLK_WAVE420L_APB		81
++#define JH7110_SYSCLK_NOC_BUS_VENC_AXI		82
++#define JH7110_SYSCLK_AXI_CFG0_MAIN_DIV		83
++#define JH7110_SYSCLK_AXI_CFG0_MAIN		84
++#define JH7110_SYSCLK_AXI_CFG0_HIFI4		85
++#define JH7110_SYSCLK_AXIMEM2_AXI		86
++#define JH7110_SYSCLK_QSPI_AHB			87
++#define JH7110_SYSCLK_QSPI_APB			88
++#define JH7110_SYSCLK_QSPI_REF_SRC		89
++#define JH7110_SYSCLK_QSPI_REF			90
++#define JH7110_SYSCLK_SDIO0_AHB			91
++#define JH7110_SYSCLK_SDIO1_AHB			92
++#define JH7110_SYSCLK_SDIO0_SDCARD		93
++#define JH7110_SYSCLK_SDIO1_SDCARD		94
++#define JH7110_SYSCLK_USB_125M			95
++#define JH7110_SYSCLK_NOC_BUS_STG_AXI		96
++#define JH7110_SYSCLK_GMAC1_AHB			97
++#define JH7110_SYSCLK_GMAC1_AXI			98
++#define JH7110_SYSCLK_GMAC_SRC			99
++#define JH7110_SYSCLK_GMAC1_GTXCLK		100
++#define JH7110_SYSCLK_GMAC1_RMII_RTX		101
++#define JH7110_SYSCLK_GMAC1_PTP			102
++#define JH7110_SYSCLK_GMAC1_RX			103
++#define JH7110_SYSCLK_GMAC1_RX_INV		104
++#define JH7110_SYSCLK_GMAC1_TX			105
++#define JH7110_SYSCLK_GMAC1_TX_INV		106
++#define JH7110_SYSCLK_GMAC1_GTXC		107
++#define JH7110_SYSCLK_GMAC0_GTXCLK		108
++#define JH7110_SYSCLK_GMAC0_PTP			109
++#define JH7110_SYSCLK_GMAC_PHY			110
++#define JH7110_SYSCLK_GMAC0_GTXC		111
++#define JH7110_SYSCLK_IOMUX_APB			112
++#define JH7110_SYSCLK_MAILBOX_APB		113
++#define JH7110_SYSCLK_INT_CTRL_APB		114
++#define JH7110_SYSCLK_CAN0_APB			115
++#define JH7110_SYSCLK_CAN0_TIMER		116
++#define JH7110_SYSCLK_CAN0_CAN			117
++#define JH7110_SYSCLK_CAN1_APB			118
++#define JH7110_SYSCLK_CAN1_TIMER		119
++#define JH7110_SYSCLK_CAN1_CAN			120
++#define JH7110_SYSCLK_PWM_APB			121
++#define JH7110_SYSCLK_WDT_APB			122
++#define JH7110_SYSCLK_WDT_CORE			123
++#define JH7110_SYSCLK_TIMER_APB			124
++#define JH7110_SYSCLK_TIMER0			125
++#define JH7110_SYSCLK_TIMER1			126
++#define JH7110_SYSCLK_TIMER2			127
++#define JH7110_SYSCLK_TIMER3			128
++#define JH7110_SYSCLK_TEMP_APB			129
++#define JH7110_SYSCLK_TEMP_CORE			130
++#define JH7110_SYSCLK_SPI0_APB			131
++#define JH7110_SYSCLK_SPI1_APB			132
++#define JH7110_SYSCLK_SPI2_APB			133
++#define JH7110_SYSCLK_SPI3_APB			134
++#define JH7110_SYSCLK_SPI4_APB			135
++#define JH7110_SYSCLK_SPI5_APB			136
++#define JH7110_SYSCLK_SPI6_APB			137
++#define JH7110_SYSCLK_I2C0_APB			138
++#define JH7110_SYSCLK_I2C1_APB			139
++#define JH7110_SYSCLK_I2C2_APB			140
++#define JH7110_SYSCLK_I2C3_APB			141
++#define JH7110_SYSCLK_I2C4_APB			142
++#define JH7110_SYSCLK_I2C5_APB			143
++#define JH7110_SYSCLK_I2C6_APB			144
++#define JH7110_SYSCLK_UART0_APB			145
++#define JH7110_SYSCLK_UART0_CORE		146
++#define JH7110_SYSCLK_UART1_APB			147
++#define JH7110_SYSCLK_UART1_CORE		148
++#define JH7110_SYSCLK_UART2_APB			149
++#define JH7110_SYSCLK_UART2_CORE		150
++#define JH7110_SYSCLK_UART3_APB			151
++#define JH7110_SYSCLK_UART3_CORE		152
++#define JH7110_SYSCLK_UART4_APB			153
++#define JH7110_SYSCLK_UART4_CORE		154
++#define JH7110_SYSCLK_UART5_APB			155
++#define JH7110_SYSCLK_UART5_CORE		156
++#define JH7110_SYSCLK_PWMDAC_APB		157
++#define JH7110_SYSCLK_PWMDAC_CORE		158
++#define JH7110_SYSCLK_SPDIF_APB			159
++#define JH7110_SYSCLK_SPDIF_CORE		160
++#define JH7110_SYSCLK_I2STX0_APB		161
++#define JH7110_SYSCLK_I2STX0_BCLK_MST		162
++#define JH7110_SYSCLK_I2STX0_BCLK_MST_INV	163
++#define JH7110_SYSCLK_I2STX0_LRCK_MST		164
++#define JH7110_SYSCLK_I2STX0_BCLK		165
++#define JH7110_SYSCLK_I2STX0_BCLK_INV		166
++#define JH7110_SYSCLK_I2STX0_LRCK		167
++#define JH7110_SYSCLK_I2STX1_APB		168
++#define JH7110_SYSCLK_I2STX1_BCLK_MST		169
++#define JH7110_SYSCLK_I2STX1_BCLK_MST_INV	170
++#define JH7110_SYSCLK_I2STX1_LRCK_MST		171
++#define JH7110_SYSCLK_I2STX1_BCLK		172
++#define JH7110_SYSCLK_I2STX1_BCLK_INV		173
++#define JH7110_SYSCLK_I2STX1_LRCK		174
++#define JH7110_SYSCLK_I2SRX_APB			175
++#define JH7110_SYSCLK_I2SRX_BCLK_MST		176
++#define JH7110_SYSCLK_I2SRX_BCLK_MST_INV	177
++#define JH7110_SYSCLK_I2SRX_LRCK_MST		178
++#define JH7110_SYSCLK_I2SRX_BCLK		179
++#define JH7110_SYSCLK_I2SRX_BCLK_INV		180
++#define JH7110_SYSCLK_I2SRX_LRCK		181
++#define JH7110_SYSCLK_PDM_DMIC			182
++#define JH7110_SYSCLK_PDM_APB			183
++#define JH7110_SYSCLK_TDM_AHB			184
++#define JH7110_SYSCLK_TDM_APB			185
++#define JH7110_SYSCLK_TDM_INTERNAL		186
++#define JH7110_SYSCLK_TDM_TDM			187
++#define JH7110_SYSCLK_TDM_TDM_INV		188
++#define JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG	189
++
++#define JH7110_SYSCLK_END			190
++
++#endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+new file mode 100644
+index 000000000000..b88216a4fe40
+--- /dev/null
++++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+@@ -0,0 +1,142 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
 + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 + */
 +
-+/dts-v1/;
-+#include <dt-bindings/clock/starfive,jh7110-crg.h>
-+#include <dt-bindings/reset/starfive,jh7110-crg.h>
++#ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
++#define __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
 +
-+/ {
-+	compatible = "starfive,jh7110";
-+	#address-cells = <2>;
-+	#size-cells = <2>;
++/* SYSCRG resets */
++#define JH7110_SYSRST_JTAG_APB			0
++#define JH7110_SYSRST_SYSCON_APB		1
++#define JH7110_SYSRST_IOMUX_APB			2
++#define JH7110_SYSRST_BUS			3
++#define JH7110_SYSRST_DEBUG			4
++#define JH7110_SYSRST_CORE0			5
++#define JH7110_SYSRST_CORE1			6
++#define JH7110_SYSRST_CORE2			7
++#define JH7110_SYSRST_CORE3			8
++#define JH7110_SYSRST_CORE4			9
++#define JH7110_SYSRST_CORE0_ST			10
++#define JH7110_SYSRST_CORE1_ST			11
++#define JH7110_SYSRST_CORE2_ST			12
++#define JH7110_SYSRST_CORE3_ST			13
++#define JH7110_SYSRST_CORE4_ST			14
++#define JH7110_SYSRST_TRACE0			15
++#define JH7110_SYSRST_TRACE1			16
++#define JH7110_SYSRST_TRACE2			17
++#define JH7110_SYSRST_TRACE3			18
++#define JH7110_SYSRST_TRACE4			19
++#define JH7110_SYSRST_TRACE_COM			20
++#define JH7110_SYSRST_GPU_APB			21
++#define JH7110_SYSRST_GPU_DOMA			22
++#define JH7110_SYSRST_NOC_BUS_APB		23
++#define JH7110_SYSRST_NOC_BUS_AXICFG0_AXI	24
++#define JH7110_SYSRST_NOC_BUS_CPU_AXI		25
++#define JH7110_SYSRST_NOC_BUS_DISP_AXI		26
++#define JH7110_SYSRST_NOC_BUS_GPU_AXI		27
++#define JH7110_SYSRST_NOC_BUS_ISP_AXI		28
++#define JH7110_SYSRST_NOC_BUS_DDRC		29
++#define JH7110_SYSRST_NOC_BUS_STG_AXI		30
++#define JH7110_SYSRST_NOC_BUS_VDEC_AXI		31
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
++#define JH7110_SYSRST_NOC_BUS_VENC_AXI		32
++#define JH7110_SYSRST_AXI_CFG1_AHB		33
++#define JH7110_SYSRST_AXI_CFG1_MAIN		34
++#define JH7110_SYSRST_AXI_CFG0_MAIN		35
++#define JH7110_SYSRST_AXI_CFG0_MAIN_DIV		36
++#define JH7110_SYSRST_AXI_CFG0_HIFI4		37
++#define JH7110_SYSRST_DDR_AXI			38
++#define JH7110_SYSRST_DDR_OSC			39
++#define JH7110_SYSRST_DDR_APB			40
++#define JH7110_SYSRST_ISP_TOP			41
++#define JH7110_SYSRST_ISP_TOP_AXI		42
++#define JH7110_SYSRST_VOUT_TOP_SRC		43
++#define JH7110_SYSRST_CODAJ12_AXI		44
++#define JH7110_SYSRST_CODAJ12_CORE		45
++#define JH7110_SYSRST_CODAJ12_APB		46
++#define JH7110_SYSRST_WAVE511_AXI		47
++#define JH7110_SYSRST_WAVE511_BPU		48
++#define JH7110_SYSRST_WAVE511_VCE		49
++#define JH7110_SYSRST_WAVE511_APB		50
++#define JH7110_SYSRST_VDEC_JPG			51
++#define JH7110_SYSRST_VDEC_MAIN			52
++#define JH7110_SYSRST_AXIMEM0_AXI		53
++#define JH7110_SYSRST_WAVE420L_AXI		54
++#define JH7110_SYSRST_WAVE420L_BPU		55
++#define JH7110_SYSRST_WAVE420L_VCE		56
++#define JH7110_SYSRST_WAVE420L_APB		57
++#define JH7110_SYSRST_AXIMEM1_AXI		58
++#define JH7110_SYSRST_AXIMEM2_AXI		59
++#define JH7110_SYSRST_INTMEM			60
++#define JH7110_SYSRST_QSPI_AHB			61
++#define JH7110_SYSRST_QSPI_APB			62
++#define JH7110_SYSRST_QSPI_REF			63
 +
-+		S7_0: cpu@0 {
-+			compatible = "sifive,s7", "riscv";
-+			reg = <0>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <8192>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <16384>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imac_zba_zbb";
-+			tlb-split;
-+			status = "disabled";
++#define JH7110_SYSRST_SDIO0_AHB			64
++#define JH7110_SYSRST_SDIO1_AHB			65
++#define JH7110_SYSRST_GMAC1_AXI			66
++#define JH7110_SYSRST_GMAC1_AHB			67
++#define JH7110_SYSRST_MAILBOX_APB		68
++#define JH7110_SYSRST_SPI0_APB			69
++#define JH7110_SYSRST_SPI1_APB			70
++#define JH7110_SYSRST_SPI2_APB			71
++#define JH7110_SYSRST_SPI3_APB			72
++#define JH7110_SYSRST_SPI4_APB			73
++#define JH7110_SYSRST_SPI5_APB			74
++#define JH7110_SYSRST_SPI6_APB			75
++#define JH7110_SYSRST_I2C0_APB			76
++#define JH7110_SYSRST_I2C1_APB			77
++#define JH7110_SYSRST_I2C2_APB			78
++#define JH7110_SYSRST_I2C3_APB			79
++#define JH7110_SYSRST_I2C4_APB			80
++#define JH7110_SYSRST_I2C5_APB			81
++#define JH7110_SYSRST_I2C6_APB			82
++#define JH7110_SYSRST_UART0_APB			83
++#define JH7110_SYSRST_UART0_CORE		84
++#define JH7110_SYSRST_UART1_APB			85
++#define JH7110_SYSRST_UART1_CORE		86
++#define JH7110_SYSRST_UART2_APB			87
++#define JH7110_SYSRST_UART2_CORE		88
++#define JH7110_SYSRST_UART3_APB			89
++#define JH7110_SYSRST_UART3_CORE		90
++#define JH7110_SYSRST_UART4_APB			91
++#define JH7110_SYSRST_UART4_CORE		92
++#define JH7110_SYSRST_UART5_APB			93
++#define JH7110_SYSRST_UART5_CORE		94
++#define JH7110_SYSRST_SPDIF_APB			95
 +
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
++#define JH7110_SYSRST_PWMDAC_APB		96
++#define JH7110_SYSRST_PDM_DMIC			97
++#define JH7110_SYSRST_PDM_APB			98
++#define JH7110_SYSRST_I2SRX_APB			99
++#define JH7110_SYSRST_I2SRX_BCLK		100
++#define JH7110_SYSRST_I2STX0_APB		101
++#define JH7110_SYSRST_I2STX0_BCLK		102
++#define JH7110_SYSRST_I2STX1_APB		103
++#define JH7110_SYSRST_I2STX1_BCLK		104
++#define JH7110_SYSRST_TDM_AHB			105
++#define JH7110_SYSRST_TDM_CORE			106
++#define JH7110_SYSRST_TDM_APB			107
++#define JH7110_SYSRST_PWM_APB			108
++#define JH7110_SYSRST_WDT_APB			109
++#define JH7110_SYSRST_WDT_CORE			110
++#define JH7110_SYSRST_CAN0_APB			111
++#define JH7110_SYSRST_CAN0_CORE			112
++#define JH7110_SYSRST_CAN0_TIMER		113
++#define JH7110_SYSRST_CAN1_APB			114
++#define JH7110_SYSRST_CAN1_CORE			115
++#define JH7110_SYSRST_CAN1_TIMER		116
++#define JH7110_SYSRST_TIMER_APB			117
++#define JH7110_SYSRST_TIMER0			118
++#define JH7110_SYSRST_TIMER1			119
++#define JH7110_SYSRST_TIMER2			120
++#define JH7110_SYSRST_TIMER3			121
++#define JH7110_SYSRST_INT_CTRL_APB		122
++#define JH7110_SYSRST_TEMP_APB			123
++#define JH7110_SYSRST_TEMP_CORE			124
++#define JH7110_SYSRST_JTAG_CERTIFICATION	125
 +
-+		U74_1: cpu@1 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <1>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc_zba_zbb";
-+			tlb-split;
++#define JH7110_SYSRST_END			126
 +
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_2: cpu@2 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <2>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc_zba_zbb";
-+			tlb-split;
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_3: cpu@3 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <3>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc_zba_zbb";
-+			tlb-split;
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_4: cpu@4 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <4>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc_zba_zbb";
-+			tlb-split;
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&S7_0>;
-+				};
-+
-+				core1 {
-+					cpu = <&U74_1>;
-+				};
-+
-+				core2 {
-+					cpu = <&U74_2>;
-+				};
-+
-+				core3 {
-+					cpu = <&U74_3>;
-+				};
-+
-+				core4 {
-+					cpu = <&U74_4>;
-+				};
-+			};
-+		};
-+	};
-+
-+	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "gmac0_rgmii_rxin";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac0_rmii_refin: gmac0-rmii-refin-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "gmac0_rmii_refin";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac1_rgmii_rxin: gmac1-rgmii-rxin-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "gmac1_rgmii_rxin";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac1_rmii_refin: gmac1-rmii-refin-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "gmac1_rmii_refin";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2srx_bclk_ext: i2srx-bclk-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "i2srx_bclk_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2srx_lrck_ext: i2srx-lrck-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "i2srx_lrck_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2stx_bclk_ext: i2stx-bclk-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "i2stx_bclk_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2stx_lrck_ext: i2stx-lrck-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "i2stx_lrck_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	mclk_ext: mclk-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "mclk_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	osc: oscillator {
-+		compatible = "fixed-clock";
-+		clock-output-names = "osc";
-+		#clock-cells = <0>;
-+	};
-+
-+	rtc_osc: rtc-oscillator {
-+		compatible = "fixed-clock";
-+		clock-output-names = "rtc_osc";
-+		#clock-cells = <0>;
-+	};
-+
-+	tdm_ext: tdm-ext-clock {
-+		compatible = "fixed-clock";
-+		clock-output-names = "tdm_ext";
-+		#clock-cells = <0>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		clint: timer@2000000 {
-+			compatible = "starfive,jh7110-clint", "sifive,clint0";
-+			reg = <0x0 0x2000000 0x0 0x10000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-+					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 3>, <&cpu4_intc 7>;
-+		};
-+
-+		ccache: cache-controller@2010000 {
-+			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
-+			reg = <0x0 0x2010000 0x0 0x4000>;
-+			interrupts = <1>, <3>, <4>, <2>;
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <2048>;
-+			cache-size = <2097152>;
-+			cache-unified;
-+		};
-+
-+		plic: interrupt-controller@c000000 {
-+			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
-+			reg = <0x0 0xc000000 0x0 0x4000000>;
-+			interrupts-extended = <&cpu0_intc 11>,
-+					      <&cpu1_intc 11>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 11>, <&cpu2_intc 9>,
-+					      <&cpu3_intc 11>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 11>, <&cpu4_intc 9>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+			#address-cells = <0>;
-+			riscv,ndev = <136>;
-+		};
-+
-+		uart0: serial@10000000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10000000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART0_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART0_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART0_APB>;
-+			interrupts = <32>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@10010000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10010000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART1_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART1_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART1_APB>;
-+			interrupts = <33>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@10020000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10020000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART2_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART2_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART2_APB>;
-+			interrupts = <34>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		i2c0: i2c@10030000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x10030000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C0_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C0_APB>;
-+			interrupts = <35>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c1: i2c@10040000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x10040000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C1_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C1_APB>;
-+			interrupts = <36>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c2: i2c@10050000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x10050000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C2_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C2_APB>;
-+			interrupts = <37>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@12000000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12000000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART3_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART3_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART3_APB>;
-+			interrupts = <45>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@12010000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12010000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART4_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART4_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART4_APB>;
-+			interrupts = <46>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart5: serial@12020000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12020000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART5_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART5_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART5_APB>;
-+			interrupts = <47>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		i2c3: i2c@12030000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x12030000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C3_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C3_APB>;
-+			interrupts = <48>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c4: i2c@12040000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x12040000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C4_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C4_APB>;
-+			interrupts = <49>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c5: i2c@12050000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x12050000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C5_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C5_APB>;
-+			interrupts = <50>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c6: i2c@12060000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x12060000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_I2C6_APB>;
-+			clock-names = "ref";
-+			resets = <&syscrg JH7110_SYSRST_I2C6_APB>;
-+			interrupts = <51>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		syscrg: clock-controller@13020000 {
-+			compatible = "starfive,jh7110-syscrg";
-+			reg = <0x0 0x13020000 0x0 0x10000>;
-+			clocks = <&osc>, <&gmac1_rmii_refin>,
-+				 <&gmac1_rgmii_rxin>,
-+				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-+				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-+				 <&tdm_ext>, <&mclk_ext>;
-+			clock-names = "osc", "gmac1_rmii_refin",
-+				      "gmac1_rgmii_rxin",
-+				      "i2stx_bclk_ext", "i2stx_lrck_ext",
-+				      "i2srx_bclk_ext", "i2srx_lrck_ext",
-+				      "tdm_ext", "mclk_ext";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		sysgpio: pinctrl@13040000 {
-+			compatible = "starfive,jh7110-sys-pinctrl";
-+			reg = <0x0 0x13040000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_IOMUX_APB>;
-+			resets = <&syscrg JH7110_SYSRST_IOMUX_APB>;
-+			interrupts = <86>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
-+		aoncrg: clock-controller@17000000 {
-+			compatible = "starfive,jh7110-aoncrg";
-+			reg = <0x0 0x17000000 0x0 0x10000>;
-+			clocks = <&osc>, <&gmac0_rmii_refin>,
-+				 <&gmac0_rgmii_rxin>,
-+				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-+				 <&syscrg JH7110_SYSCLK_APB_BUS>,
-+				 <&syscrg JH7110_SYSCLK_GMAC0_GTXCLK>,
-+				 <&rtc_osc>;
-+			clock-names = "osc", "gmac0_rmii_refin",
-+				      "gmac0_rgmii_rxin", "stg_axiahb",
-+				      "apb_bus", "gmac0_gtxclk",
-+				      "rtc_osc";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		aongpio: pinctrl@17020000 {
-+			compatible = "starfive,jh7110-aon-pinctrl";
-+			reg = <0x0 0x17020000 0x0 0x10000>;
-+			resets = <&aoncrg JH7110_AONRST_IOMUX>;
-+			interrupts = <85>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+	};
-+};
++#endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
 -- 
 2.38.1
 
