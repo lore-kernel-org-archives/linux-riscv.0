@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F901C7618D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 14:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E4EC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 14:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XLr/k+tv3KRwL1ddV0GOYMuT9creAoUQKFbqSuepN8E=; b=pQinXvXqIXzTye
-	KulaCEQhXG2iW7MPjfnjrBvqIjk/6ity0jNeTl/Rl0Zj3wDxaHrJxtlOi3SoFUJt1MDFLUzdt21Nq
-	HVzkB4NgRk9Zd/92QVVh9PPkrQ8yOy/iuVIwpy34R1hwbY31HfwxPlRIEubWlDQDurxpGtOQVH97q
-	ofNUhOohWU5+xjci115g20/JQoO5AFe0C8RHkQWUpOaWy1iZmLAiObxtRIXI1adkvSNl5TXxC0Rv1
-	qnyJERuU0/sTCR6Z/KuY50KCs/TIGpHndMbawMjxoogGdpSzlqRJokF6xqaPCdsrqUR2jwu8gF+ZH
-	uO6Z9Q0AbxqOOj+9MKsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=okX16mNaY7fhkR5nCZ7hvugybm6t/o6VVUTKa4uWr28=; b=vEmbpgaUqi1+rOfmGsnWoSi+cc
+	+Bx9iLRfBH19JOg7EU5uF7UN02nHUt7IPvJtPemGlsvGhLHGpk6f2d78hCBJ8KK44ThHxXHJsOy/+
+	IEgBzuPcK6v9aFOYPEqJCaOgR+YI6Y8ZR+ccrGKZeCZa3yVBJywX7RXObr97VKHtgZdfZhR4KoNLv
+	7Hk6+tBR+yO8juvZn07Opjfh+F6c5DWbX/mOfi1NglkBlN3QEYWfR1DiwYfuVAxtNlDTCYJXavCEp
+	jUEuBcBfaIsb2+3mksHZd1qBKdawNoavW4WidRx0weN1SNjSFLCJqPNGIBlpDXAXR2Y8bcqZoCSCr
+	+rl8NXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peGn5-009NIf-1g;
-	Mon, 20 Mar 2023 14:47:15 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1peGuv-009PSI-1v;
+	Mon, 20 Mar 2023 14:55:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peGn2-009NHK-1m
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 14:47:14 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id g17so15237433lfv.4
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 07:47:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679323629;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kc414cxHJJ4Rs2Usfe1VLFadO893WdMMNYN/EzyjUGE=;
-        b=l8nxmBq097o2mhqhQ32r2xzlCnOSVT51U6HhjTroWn1KW8CwnaGjZToUmrbA3ygIiD
-         wEbFFZq8rYty6ZsLpDzfxRfnMfOxLzlsFbNhCTVpOo7sqXGfIED+dFdczJIWXETCKyzy
-         KsjhEi6gMhYqziNZMZM123Lf9S29yCT6P7r5uu5l/7Nzf2i+oKXEFIjCG3pE+npkznDb
-         alvORS2ND+E9oxRPhsnKqT+bm1MuhsUdn4R1Ka38xB5HzJJwrd5mj8N8bt/02MJlJP8T
-         2iUvU963YsF6T/0G43vWpqyv2jSUQj9EIaQLN1SQ7F610bkWhPqX3La127WVUJcs0yIP
-         Qx/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679323629;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kc414cxHJJ4Rs2Usfe1VLFadO893WdMMNYN/EzyjUGE=;
-        b=IbzDs4WHx0hybbMzwizrVmS2DYuKewsPYjp1A/xtUbNhFyKFsk7eCxdVdXHxnaylkJ
-         w5cES3uta0RH03gkFbhZLD8K7+ruykdTle+REtpdUs53SD22FIeDJEGOsatLn4XDpjrq
-         /muX5dlSWzMjppeAdi6MUDSXqlf4nomgcJbXgwrdSbrWU2ULyORa8Ob3GjFuQ4kaqqJV
-         9x6RpO7ThxPRTZ6M51Tt3oG1IPxeBMYelJ/cp/pWvLot/evOvfWHs3//LNguW2yYjEG5
-         Rj5YRAMAx2+5zRd39UhKREINe4ffxf5NPYknxR0S898eY5/48Sz5ORm0JpRyEBR9oGqY
-         1owA==
-X-Gm-Message-State: AO0yUKUtor2+ChpKLqiWn1t3Y4LDOjivVmBcLSwEMItYXIYqjUCGNKw+
-	4BrEv9I7xrBorT5Yp6pFiMHXmmUglccCFNIu+NeXlQ==
-X-Google-Smtp-Source: AK7set+DvUj3j8tjxdsk6XcnxH+SLGzT+Hu5S0QmM1Yr26jly9HIRPsvYCs6G1aS8U70PrI2cUHaBIhI7pFyTRhHrkw=
-X-Received: by 2002:a05:6512:3084:b0:4e8:cfbf:d6f1 with SMTP id
- z4-20020a056512308400b004e8cfbfd6f1mr156529lfd.0.1679323629226; Mon, 20 Mar
- 2023 07:47:09 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230317113538.10878-1-andy.chiu@sifive.com> <20230317113538.10878-9-andy.chiu@sifive.com>
- <456a8e61-c6b7-46d5-a25c-c466820912d7@spud>
-In-Reply-To: <456a8e61-c6b7-46d5-a25c-c466820912d7@spud>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Mon, 20 Mar 2023 22:46:57 +0800
-Message-ID: <CABgGipVf3eTc9pj58wMYQr7NBcic+-m3fECEttqvPcn9Zu3qJw@mail.gmail.com>
+	id 1peGup-009PM1-0C;
+	Mon, 20 Mar 2023 14:55:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679324115; x=1710860115;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fukPmPRC7Rdv9VbzNLeqpzXj+z4ojMOPweVoyCaZe5c=;
+  b=bq5/FPCLmdovFAcHs11hl4fWjtyn1+EzWu3SXCXxHVumwB0E0viDYwmH
+   7/CMxLg2WRzpIpnAVgYzB80h4DDGyiGputbVA+mblUpvitgG2NrPQmM6j
+   uBQrLUY0PG6Tt9QkaZDEQqiF7GSRiTLsd2TEc+k837Bqit/qnTDHrivah
+   RCP69h3HXjF6OLGVrwOJV0NqnZzYmO/DfvnLvG2E3uoIDdD0g/G2EL0lR
+   7yu7/4DJmxwe6Ki3kejHJFpPqTfV7ldjusA5rmVBJigeehqHGNiUw5pTc
+   MQHBABZBnI4GDIPbb1za034rd7SW0tGD+Js05uRiZbHFn8Hj8WQN83QB5
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
+   d="asc'?scan'208";a="205543541"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 07:55:10 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 20 Mar 2023 07:55:09 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 20 Mar 2023 07:55:07 -0700
+Date: Mon, 20 Mar 2023 14:54:37 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<anup@brainfault.org>, <atishp@atishpatra.org>,
+	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+	<vineetg@rivosinc.com>, <greentime.hu@sifive.com>,
+	<guoren@linux.alibaba.com>, Vincent Chen <vincent.chen@sifive.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo
+ Ren <guoren@kernel.org>, Richard Henderson <richard.henderson@linaro.org>
 Subject: Re: [PATCH -next v15 08/19] riscv: Introduce struct/helpers to
  save/restore per-task Vector state
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, 
-	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	Vincent Chen <vincent.chen@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Richard Henderson <richard.henderson@linaro.org>
+Message-ID: <bcf933bc-b8d6-4b34-82ac-e6f542542e25@spud>
+References: <20230317113538.10878-1-andy.chiu@sifive.com>
+ <20230317113538.10878-9-andy.chiu@sifive.com>
+ <456a8e61-c6b7-46d5-a25c-c466820912d7@spud>
+ <CABgGipVf3eTc9pj58wMYQr7NBcic+-m3fECEttqvPcn9Zu3qJw@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CABgGipVf3eTc9pj58wMYQr7NBcic+-m3fECEttqvPcn9Zu3qJw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_074712_648527_391FAFB9 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20230320_075515_150235_38B79411 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +84,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2293936592816840662=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMjAsIDIwMjMgYXQgOTowNeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
-bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBNYXIgMTcsIDIwMjMgYXQgMTE6
-MzU6MjdBTSArMDAwMCwgQW5keSBDaGl1IHdyb3RlOgo+ID4gRnJvbTogR3JlZW50aW1lIEh1IDxn
-cmVlbnRpbWUuaHVAc2lmaXZlLmNvbT4KPiA+Cj4gPiBBZGQgdmVjdG9yIHN0YXRlIGNvbnRleHQg
-c3RydWN0IHRvIGJlIGFkZGVkIGxhdGVyIGluIHRocmVhZF9zdHJ1Y3QuIEFuZAo+ID4gcHJlcGFy
-ZSBsb3ctbGV2ZWwgaGVscGVyIGZ1bmN0aW9ucyB0byBzYXZlL3Jlc3RvcmUgdmVjdG9yIGNvbnRl
-eHRzLgo+ID4KPiA+IFRoaXMgaW5jbHVkZSBWZWN0b3IgUmVnZmlsZSBhbmQgQ1NScyBob2xkaW5n
-IGR5bmFtaWMgY29uZmlndXJhdGlvbiBzdGF0ZQo+ID4gKHZzdGFydCwgdmwsIHZ0eXBlLCB2Y3Ny
-KS4gVGhlIFZlYyBSZWdpc3RlciB3aWR0aCBjb3VsZCBiZSBpbXBsZW1lbnRhdGlvbgo+ID4gZGVm
-aW5lZCwgYnV0IHNhbWUgZm9yIGFsbCBwcm9jZXNzZXMsIHNvIHRoYXQgaXMgc2F2ZWQgc2VwYXJh
-dGVseS4KPiA+Cj4gPiBUaGlzIGlzIG5vdCB5ZXQgd2lyZWQgaW50byBmaW5hbCB0aHJlYWRfc3Ry
-dWN0IC0gd2lsbCBiZSBkb25lIHdoZW4KPiA+IF9fc3dpdGNoX3RvIGFjdHVhbGx5IHN0YXJ0cyBk
-b2luZyB0aGlzIGluIGxhdGVyIHBhdGNoZXMuCj4gPgo+ID4gR2l2ZW4gdGhlIHZhcmlhYmxlIChh
-bmQgcG90ZW50aWFsbHkgbGFyZ2UpIHNpemUgb2YgcmVnZmlsZSwgdGhleSBhcmUKPiA+IHNhdmVk
-IGluIGR5bmFtaWNhbGx5IGFsbG9jYXRlZCBtZW1vcnksIHBvaW50ZWQgdG8gYnkgZGF0YXAgcG9p
-bnRlciBpbgo+ID4gX19yaXNjdl92X2V4dF9zdGF0ZS4KPiA+Cj4gPiBDby1kZXZlbG9wZWQtYnk6
-IFZpbmNlbnQgQ2hlbiA8dmluY2VudC5jaGVuQHNpZml2ZS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5
-OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+ID4gU2lnbmVkLW9mZi1i
-eTogR3JlZW50aW1lIEh1IDxncmVlbnRpbWUuaHVAc2lmaXZlLmNvbT4KPiA+IFNpZ25lZC1vZmYt
-Ynk6IFZpbmVldCBHdXB0YSA8dmluZWV0Z0ByaXZvc2luYy5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5
-OiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgo+Cj4gSSB0aGluayB5b3UgbWlzc2Vk
-IGE6Cj4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+
-Cj4KPiBUaGFua3MsCj4gQ29ub3IuCj4KClllcywgcmVtb3ZlZCBpdCBvbiBwdXJwb3NlIGJlY2F1
-c2UgSSBjaGFuZ2VkIHNvbWUgaW5saW5lIGFzc2VtYmx5IGluCnRoaXMgc3VibWlzc2lvbi4gU28g
-SSB0aGluayB5b3UgbWF5IHdhbnQgdG8gdGFrZSBhIGxvb2sgaW4gY2FzZSBJIGRpZApzb21ldGhp
-bmcgc2lsbHkuCgpUaGFua3MsCkFuZHkuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+--===============2293936592816840662==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YmzgdUOAV0nH57Cg"
+Content-Disposition: inline
+
+--YmzgdUOAV0nH57Cg
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Mar 20, 2023 at 10:46:57PM +0800, Andy Chiu wrote:
+> On Mon, Mar 20, 2023 at 9:05=E2=80=AFPM Conor Dooley <conor.dooley@microc=
+hip.com> wrote:
+> >
+> > On Fri, Mar 17, 2023 at 11:35:27AM +0000, Andy Chiu wrote:
+> > > From: Greentime Hu <greentime.hu@sifive.com>
+> > >
+> > > Add vector state context struct to be added later in thread_struct. A=
+nd
+> > > prepare low-level helper functions to save/restore vector contexts.
+> > >
+> > > This include Vector Regfile and CSRs holding dynamic configuration st=
+ate
+> > > (vstart, vl, vtype, vcsr). The Vec Register width could be implementa=
+tion
+> > > defined, but same for all processes, so that is saved separately.
+> > >
+> > > This is not yet wired into final thread_struct - will be done when
+> > > __switch_to actually starts doing this in later patches.
+> > >
+> > > Given the variable (and potentially large) size of regfile, they are
+> > > saved in dynamically allocated memory, pointed to by datap pointer in
+> > > __riscv_v_ext_state.
+> > >
+> > > Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+> > > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> > > Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+> > > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> >
+> > I think you missed a:
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > Thanks,
+> > Conor.
+> >
+>=20
+> Yes, removed it on purpose because I changed some inline assembly in
+> this submission. So I think you may want to take a look in case I did
+> something silly.
+
+Heh, inline asm is usually why I do "acked-by" rather than "reviewed-by"
+as I am not particular confident in that realm ;)
+No harm in being careful and dropping tags I suppose!
+
+--YmzgdUOAV0nH57Cg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhzrQAKCRB4tDGHoIJi
+0mMRAP0ZcY7Sifv+CFgihncit9GeG67k7DvBV75qFFYjqobybgEA/DNDN+Bt0zf4
+Bo/x9k/2RFH3d8pO1LC/yl5OT9sM0Q0=
+=C2NE
+-----END PGP SIGNATURE-----
+
+--YmzgdUOAV0nH57Cg--
+
+
+--===============2293936592816840662==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2293936592816840662==--
+
