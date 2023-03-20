@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB30C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 16:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4599DC7618D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 16:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XHEeB1iCtIcx6HQp0mDSIYQmvdRhqBsC0L8uPwvm7b8=; b=wye9vWeebWpQNf
-	eM3GHPBNIvryS7J62+4W1khvZvYr0PZ8cSm5ehF3bSA83wv98tZ9+obT3TSPCfX+vc/INukjo899G
-	XhS5F7xdFNLDSR/fhZUSJv8wL+AZHbNbWcH5JYeergGiOxZxmHbQyr0ArIIXtVYFOFEusyr0BhMEq
-	+WljVxPMr2RvBj/3tkJBeU7ZydOI3M8SlnscNb1R6ehfxdmov0KZzEK0hhd7DOwA+HrJ4umTJaAVz
-	67JagBILKg9BiwRv9ycNvtXCzNwu4yFTCscBgSfz0hslp6muT3jPJ3Z5qLO29O7Q4WWgca01Em/rJ
-	Rbn4x4TiSYgbd2lfoolg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gRnNMn3L5PyahVGiIXHhNROYjLxLIo6tnpYvpKptT5E=; b=Mw27syCDDWfdmKvkxkP0Rf+1Ja
+	gUFjmpD8TsO7B36fbFTSVSHmJ7wrV9VaC5X2Wet+dLb/65oA8cB2NQGrwPXTQUS+vK7x5XOr7C8I4
+	5HXYhcljS434dy2N8RIt4wWRMBn8mscmkQANeCrgaIduRZau/AELa2x9E1ZkC07eB0b16Wi9PU2/G
+	wg8HdG6GimX0zi+i+P3YgYnkIXxnqpXE8cNfS1rYrUJj40q0BVi/7T4/NAFJpX04p2HnJI4T04mjj
+	yCf+5ulOvqxnu211IaRyXMn3OycLOVWhu/0zchR7E7rSHex/CWGMBAcrdZJRvOKUswXWfrwJddYkh
+	5YsjXGjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peHz6-009h49-1R;
-	Mon, 20 Mar 2023 16:03:44 +0000
-Received: from mail-oi1-f172.google.com ([209.85.167.172])
+	id 1peINi-009lwI-0P;
+	Mon, 20 Mar 2023 16:29:10 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peHyy-009gxe-0t;
-	Mon, 20 Mar 2023 16:03:40 +0000
-Received: by mail-oi1-f172.google.com with SMTP id bp22so2251152oib.6;
-        Mon, 20 Mar 2023 09:03:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679328214;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aykrVk11PH84fM2GSSqZSCXIg7R/09zXllx+hc7KgiE=;
-        b=O7Zu3kKFCCYzWGHeLOIcmiO3mDFfb/Zm8OO24Mag7G0cnqMHd2EzOr0X5vmuVZ0bkP
-         +R4YN+RtD/nGD5rbQ8LPRm4iCMgNdj6k2C8enXcE5e07cWU0q78GwpawMM7i28dMbZRo
-         LgkC9HCagSWu/ZX/l7e6wcGoaVfe/bc1EnsFgOc0mYqws0nUYz2VGh4WjbPr9g5y2ODA
-         uV9yIEs5Nht+1akkVw0bgEhGNUsxfMCl8iimKdRzNsWg3ft8/73UdhjBb0/fBm25hGeE
-         4Zqj05tOJgPcYSXCHPJ5FVfgLC69Zc3UDZ2cONF4uFoj9fXCBUrZwO083MI7GUGH5fer
-         vjLw==
-X-Gm-Message-State: AO0yUKUPfNzpiORYQ7bAe6pb/OjGCcUl7z+ywVCffMnB5SMEbaVXBsAM
-	Jgtw/Rl4grdVsi70wlDjug==
-X-Google-Smtp-Source: AK7set9ZC/44ndn2AZ6WEHBP02JZbPv8blbEpBCxNo4pJk573f1aK48pBSdsvLxsUX2DiFnh9mSSkw==
-X-Received: by 2002:a05:6808:6286:b0:386:c6ca:2b1e with SMTP id du6-20020a056808628600b00386c6ca2b1emr181632oib.7.1679328213843;
-        Mon, 20 Mar 2023 09:03:33 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id p204-20020acaf1d5000000b003845f4991c7sm3895828oih.11.2023.03.20.09.03.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Mar 2023 09:03:33 -0700 (PDT)
-Received: (nullmailer pid 1771818 invoked by uid 1000);
-	Mon, 20 Mar 2023 16:03:32 -0000
-Date: Mon, 20 Mar 2023 11:03:32 -0500
-From: Rob Herring <robh@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, Katsuhiro Suzuki <katsuhiro@katsuster.net>, Albert Ou <aou@eecs.berkeley.edu>, linux-rockchip@lists.infradead.org, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, alsa-devel@alsa-project.org, Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>, Mark Brown <broonie@kernel.org>, kernel@collabora.com, linux-serial@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, Daniel Drake <drake@endlessm.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, linux-riscv@lists.infradead.org, Sudeep Holla <sudeep.holla@arm.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-kernel@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH 07/11] ASoC: dt-bindings: rockchip: Add compatible for
- RK3588
-Message-ID: <167932821168.1771757.7958131150512632634.robh@kernel.org>
+	id 1peINe-009luR-2W;
+	Mon, 20 Mar 2023 16:29:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id F2074B80EF8;
+	Mon, 20 Mar 2023 16:29:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758DDC433A0;
+	Mon, 20 Mar 2023 16:28:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679329744;
+	bh=kjNE+xZqCrD8iMoVdwZ7yuZZfBEJymUt10XwIxYh2IY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Vv4sNgoQPQYZIt80kDvbscTGV8EyAOBLnvQJNKOVjOIWof8MSUsP1pcxCF0mz9ilD
+	 QdNVhF/zy/ob6sZsf7Np9llMREtIsDd3VQEp4F26Of52jZ44R5ryPsOTBtdIMQ1AE3
+	 8dugyBf2AOcS1qqBnqPzyb8hdBKvxChJ65hR7ns4FF8TnD9anxfVvrRrE8LbXM1ve5
+	 QeLODxSRqLl/EnwXRwUB96JZfcfb4trlUcc8RSaE5/6lvDa6NAaYzoT08VoT55/Onn
+	 37iXDFAs1+YyXU9uqijre8jtsuOUDS2/Zhf52EXBvYN8x3ECX6pphoxUdsqZ4YacrU
+	 +51lo3tKKklTA==
+Date: Mon, 20 Mar 2023 16:28:56 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Drake <drake@endlessm.com>,
+	Katsuhiro Suzuki <katsuhiro@katsuster.net>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	alsa-devel@alsa-project.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH 02/11] dt-bindings: serial: snps-dw-apb-uart: Relax
+ dma-names order constraint
+Message-ID: <3f544569-553c-40c5-9d9a-31dfc48d06a4@sirena.org.uk>
 References: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
- <20230315114806.3819515-8-cristian.ciocaltea@collabora.com>
+ <20230315114806.3819515-3-cristian.ciocaltea@collabora.com>
+ <3679f2d0-55f0-1710-abc2-b268b6fc6969@linaro.org>
+ <167904851367.26.16449705310108549543@mailman-core.alsa-project.org>
+ <20230320155812.GA1755078-robh@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230315114806.3819515-8-cristian.ciocaltea@collabora.com>
+In-Reply-To: <20230320155812.GA1755078-robh@kernel.org>
+X-Cookie: Keep away from fire or flame.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_090336_328768_F8805F7A 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20230320_092907_127644_6DB99135 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +90,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0253815852161570003=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 15 Mar 2023 13:48:02 +0200, Cristian Ciocaltea wrote:
-> Add new compatible string for the Rockchip I2S/PCM controller found on
-> RK3588 and RK3588S SoCs.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  Documentation/devicetree/bindings/sound/rockchip-i2s.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+--===============0253815852161570003==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SSpxkFyPmL3iEqN+"
+Content-Disposition: inline
 
-Acked-by: Rob Herring <robh@kernel.org>
 
+--SSpxkFyPmL3iEqN+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Mar 20, 2023 at 10:58:12AM -0500, Rob Herring wrote:
+> On Fri, Mar 17, 2023 at 12:21:41PM +0200, Cristian Ciocaltea via Alsa-dev=
+el wrote:
+
+> >  dma-names order constraint
+> > Message-ID: <8ae57fe3-56aa-7e50-3eaa-a12a40657baf@collabora.com>
+> > User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+> >  Thunderbird/102.7.2
+
+> There is something strange going on with your mails as there are 2=20
+> copies in the archives with the 2nd one getting the header twice. It's=20
+> coming from the alsa-devel list.
+
+This is probably caused by alsa-devel, it'll be mailman rewriting bits
+of the message.  There's stuff coming up with other people's mails too.
+
+--SSpxkFyPmL3iEqN+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmQYiccACgkQJNaLcl1U
+h9AWWgf+NrPa0MYP5i63yT+84rj5CMEVq9erNCfVLLi4aX7Rk2t3p7OHm6nPT5iH
+nEuh1CIOa+avBw3wouVQt6nokWi+mq6QbmYustWX7hPq0Gz2FRTJyXl78DNWj8Ys
+fZ4osjdXbr7f0Sa5lZVvImuVpGh7z03Fg9XbLkMXt7FDacubv1DY6RwJdphesoG7
+C99xjwHv55veTyp/QbwCuyctpKWo1Dn4HvkL8XU//892rRaHt6enBBju6DWo8GTF
+tr89XuM3flXYbOGumon2KSlsbzAXV7QKwnK9RCPsLaXuvO36PRBMippV/VmwnJCh
+dYBmTNrePnumx6r2BbCzk0Gx8LMfdw==
+=+3s7
+-----END PGP SIGNATURE-----
+
+--SSpxkFyPmL3iEqN+--
+
+
+--===============0253815852161570003==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0253815852161570003==--
+
