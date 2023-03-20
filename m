@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A3DC7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 16:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0040C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 16:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=43Vrt29E/XaRG8FJ9EqEZLsBknILeWtUw1yHditvp8s=; b=fjTkOdlP/5sUV/
-	dMJNKpEXAhRolg32GgtxsNGaUK16xYiDtGhIBk7hUvPp4uSRwVzbRKPd8Ozp1EHLemSr9X9/eQ+ri
-	yIemGrUK6AhRpEtOBjQTy63KDYwGAJ86kMgzd4+y4XRzFIxyEfk6RhI1WyNO7RKSO3KZfH+xOnbcs
-	C+WvsFJMX1w8v/DzD4qwyKA9iQrMiKvEbXV8BN2Apq/pu/TrV+1rYNKW8lyQ5lYVTAwVJeHg3P9P0
-	ErkhU9xIF6KBOa05ph4qU1XcnFYAx+ybP3+5lahrW0GoWn2lNGqfyDXq7Da1yNT7qNSDhnt9IE4qh
-	IkC5qs3Y7mXhOR4kBxHg==;
+	List-Owner; bh=a578nDTtnUt3hWcxEDLJEFGB1pzrpbfZSa0j9Aep5CI=; b=lOh/AxIvFycfMy
+	GtIbR8Rc25olKVed4DJpMboIMhiOmlOc4hIvRe6Esrmq/Xi/kQAJPeibDaksB/FT9zlGYTuXZEXyU
+	tlzLby249HaTy+j9ET8h/8q0vA5h8+4r5Z03OsZ2Mgkp/tHmDkDSAV3w8ChrSR3OCYIPJsO0mlpnT
+	mB6jvCnpar4bq4pOe8blBB1L+xAzvidGmmdpzXW3TKk8Qy7lWUN09ACnFgyJWoWoFIMHfvSvxcEPc
+	6NTwwsZDN6WLsYngG5Rj95MdYux+loyPyP/vismgyx7nzYiWuEwLQ+SH+JT/FwZOxBf9QAk7z50EL
+	RViz8ae5ThWChUB7ZC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peHyH-009gX5-1U;
-	Mon, 20 Mar 2023 16:02:53 +0000
-Received: from mail-oa1-f53.google.com ([209.85.160.53])
+	id 1peHyT-009geP-1G;
+	Mon, 20 Mar 2023 16:03:05 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peHyD-009gUS-3C;
-	Mon, 20 Mar 2023 16:02:51 +0000
-Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-17786581fe1so13473383fac.10;
-        Mon, 20 Mar 2023 09:02:48 -0700 (PDT)
+	id 1peHyQ-009gbm-18;
+	Mon, 20 Mar 2023 16:03:03 +0000
+Received: by mail-oi1-f177.google.com with SMTP id bo10so9046077oib.11;
+        Mon, 20 Mar 2023 09:03:00 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679328167;
+        d=1e100.net; s=20210112; t=1679328180;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GXPLPHoO6OcEzh0FRvvTkMYHJJivlJafTToDO4kOl40=;
-        b=tebiGTARqupP0FPMNqcdQcj26g0QnaObZ+MYyP1HPt5t8XkKXV3YA10FwmlL6LeCbl
-         RQjj9n2Hs3vpTi7canNlLRuUo9qm8fsKIzez5mbsZ8ZKOdOMTTKaL7ksnicoiOYYP57K
-         cx13DWK5c3Rto0AZLgRFElCBQdJg0Ip7f8E+kH1VaejaLWftsdnJXEOwkTwGoDJMHMVy
-         ytQNEK+Fz6LI29Iby/4HzDMRp1M/HzRhahQQf3BiizRlscm/uXX5o+rBfVR2aYrHHji2
-         QLqc7RxPWtmED6LDxtrluEJbTQXq0ClfpZbFn51tuM3dyB84g2QT2EifjfTegdsICYW+
-         YOrA==
-X-Gm-Message-State: AO0yUKWqr1zjXWu6K1q+SVnu44tOZOLDsyP/z4YsmiTUUNRurdReXTT4
-	nEOrXYIT1YikSNod8/LTmA==
-X-Google-Smtp-Source: AK7set8XvRgwjmJDOYipg3BA4ranqSKnJyKo74CpeOtIhfaO2wH4agFUVkOR5yGuCLkfnjT0NXGXHA==
-X-Received: by 2002:a05:6870:a549:b0:17a:b214:f004 with SMTP id p9-20020a056870a54900b0017ab214f004mr5277277oal.6.1679328167586;
-        Mon, 20 Mar 2023 09:02:47 -0700 (PDT)
+        bh=XNC+OXlKdlbVkyP5FbmhjfPQE78DDQdoT/lxRDWBrmE=;
+        b=qRHt0QQSUkDElJUjaniaN5sMiCDjsbou/3Ykak73wJNVzvOE4sbbt0OT8yEUlhffMs
+         Q/qIhF2gAULHHivVKJjqVLmIKJozygArPidwXZ3Ok9ZzVuIxx6EZh6cHwPFhzqVEjtZv
+         gV3NKdyXE1HJ/FlQzJe5erOYY6kFSF2KDe4JyIg3t0BZvlqCoXerCdho20UsDZa7Ha95
+         lXyLZhWMVwnUYrQm00N7nk2rSHz3FcAqImgSJzm+tc8FvejPKhI8CoJ0wI/JX6oDRP9C
+         DMcmqjNFLLLjJbjkMMQOUySOH95P8nwFMK1faS68sMIpgJp1wIojS/Rc0mUjn1rRJ6tp
+         cu9g==
+X-Gm-Message-State: AO0yUKUeQaVFAg4vAyqSgRrP+dNSyZz5e7LkPOb/2UWBjHft4vWXjSCO
+	XN3shUai9IW+aqodMy1tHg==
+X-Google-Smtp-Source: AK7set8Py2GSqg1krKh8kyywDWaz6ivjsTyoY4utp1Q09KYKg3F84NdU3xUAPh4qNBy0G//Ug9VI1w==
+X-Received: by 2002:aca:f04:0:b0:387:115d:1e26 with SMTP id 4-20020aca0f04000000b00387115d1e26mr209867oip.3.1679328180069;
+        Mon, 20 Mar 2023 09:03:00 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id tk6-20020a05687189c600b0017703cd8ff6sm3389673oab.7.2023.03.20.09.02.46
+        by smtp.gmail.com with ESMTPSA id bk38-20020a0568081a2600b0037832f60518sm3821272oib.14.2023.03.20.09.02.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Mar 2023 09:02:47 -0700 (PDT)
-Received: (nullmailer pid 1768734 invoked by uid 1000);
-	Mon, 20 Mar 2023 16:02:45 -0000
-Date: Mon, 20 Mar 2023 11:02:45 -0500
+        Mon, 20 Mar 2023 09:02:59 -0700 (PDT)
+Received: (nullmailer pid 1770233 invoked by uid 1000);
+	Mon, 20 Mar 2023 16:02:58 -0000
+Date: Mon, 20 Mar 2023 11:02:58 -0500
 From: Rob Herring <robh@kernel.org>
 To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Mark Brown <broonie@kernel.org>, alsa-devel@alsa-project.org, Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Cristian Marussi <cristian.marussi@arm.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, devicetree@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>, Jaroslav Kysela <perex@perex.cz>, Katsuhiro Suzuki <katsuhiro@katsuster.net>, Daniel Drake <drake@endlessm.com>, linux-arm-kernel@lists.infradead.org, Takashi Iwai <tiwai@suse.com>, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, Liam Girdwood <lgirdwood@gmail.com>, kernel@collabora.com, Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH 04/11] ASoC: dt-bindings: rockchip: Document audio graph
- port
-Message-ID: <167932816525.1768684.13404674229392132860.robh@kernel.org>
+Cc: Katsuhiro Suzuki <katsuhiro@katsuster.net>, Heiko Stuebner <heiko@sntech.de>, Cristian Marussi <cristian.marussi@arm.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org, alsa-devel@alsa-project.org, linux-rockchip@lists.infradead.org, linux-serial@vger.kernel.org, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-kernel@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>, Daniel Drake <drake@endlessm.com>, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <sudeep.holla@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh+dt@kernel.org>, kernel@collabora.com, Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 05/11] ASoC: dt-bindings: rockchip: i2s-tdm: Document
+ audio graph port
+Message-ID: <167932817831.1770182.9717265674737412940.robh@kernel.org>
 References: <20230315114806.3819515-1-cristian.ciocaltea@collabora.com>
- <20230315114806.3819515-5-cristian.ciocaltea@collabora.com>
+ <20230315114806.3819515-6-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230315114806.3819515-5-cristian.ciocaltea@collabora.com>
+In-Reply-To: <20230315114806.3819515-6-cristian.ciocaltea@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_090250_025399_032342DD 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20230320_090302_414223_F162E41C 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +83,16 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 15 Mar 2023 13:47:59 +0200, Cristian Ciocaltea wrote:
-> The Rockchip I2S controller is currently used in conjunction with
-> audio-graph-card to provide an endpoint for binding with the other side
-> of the audio link.
+On Wed, 15 Mar 2023 13:48:00 +0200, Cristian Ciocaltea wrote:
+> Document the 'port' property to allow the Rockchip I2S TDM controller to
+> be used in conjunction with the audio-graph-card.
 > 
-> This is achieved via the 'port' property, which is not allowed:
-> 
->   rk3399-rockpro64.dtb: i2s@ff890000: Unevaluated properties are not allowed ('port' was unexpected)
-> 
-> Fix the issue by documenting the missing property.
+> The property will be used to provide an endpoint for binding to the
+> other side of the audio link.
 > 
 > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  Documentation/devicetree/bindings/sound/rockchip-i2s.yaml | 4 ++++
+>  Documentation/devicetree/bindings/sound/rockchip,i2s-tdm.yaml | 4 ++++
 >  1 file changed, 4 insertions(+)
 > 
 
