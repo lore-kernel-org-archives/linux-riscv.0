@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF78C7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A54C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTfzqW2C1GBD0vvjb/LS+/9Y3437LR88Io8Y9szTH84=; b=Szei0CioryCqvP
-	y/wrOWv4EJE/6MgoJo5UQq4Fs269yo0tFODnhdXmVS0qQIBsZegbMP3b2VDee+gcyQk0S93AfdpJM
-	KZb2Skm9drFU2ysmOWNCiil43AbPYofQyzZiBdbEUZ8fsVQC0fTtxMg+B8JAHGYR7ia+NdXWPkfKi
-	tpvemP1Mnp5RtXrgVJ/1K9y/voCd0+sz4nZEsbwnyq0ZVeK1UTGhbTOj5TAS4RsAXNJpILyBfxDaa
-	O7JWEUKIAzlIRvIUtCCA7syE3XPpmeyP3A2mFud+mEk0KKCDcwnhYYzdavU7Vq1Hl9mR8/rVi3V7C
-	R/vnuZ13O2GAEJhbMYTg==;
+	List-Owner; bh=WVISSIs/7C3G39QJa/bsY/vhKqIlUH3KinrvJ6Fx3QI=; b=fyG7YnFgkxL9oY
+	laPnyM42yZJ8vXA0K91UVwwuuYj0LaknTNjOFM/dSev5OiIXVDfxoVarXvQG/nApRfyE7GaG1FrE7
+	/Czz1gn36vwXDvUENQelNlb6AVChOP3yRfTvaO5bikyxEP7WhVoNaZh5qsOPH5PAUSB/ziZvbVwiM
+	WGzVr0DA5fv1Dyt2UN8neynKmavk70XOWe01jbL7krqYdVdHoaCHoBrIsrh6eYaoLmSEYP9NmYlbb
+	yKqyg3yc3rdlbUhqgRiAXYrCumyR77ZaqIUIXa6h0qsDs415nHbfJHE5e6REOB7oQKraN6z9TjgAC
+	oWJT8R0aBNFINgfFhbtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe8a8-008Cmr-1z;
-	Mon, 20 Mar 2023 06:01:20 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe8a5-008CkQ-2Q
+	id 1pe996-008Evf-0k;
+	Mon, 20 Mar 2023 06:37:28 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pe993-008EvH-24
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 06:01:19 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B812024E1C7;
-	Mon, 20 Mar 2023 14:00:52 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 14:00:52 +0800
-Received: from [192.168.120.57] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 14:00:52 +0800
-Message-ID: <adcbc5a7-23e7-9396-a67b-776653e14b8d@starfivetech.com>
-Date: Mon, 20 Mar 2023 14:00:51 +0800
+	Mon, 20 Mar 2023 06:37:27 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id o12so42438601edb.9
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:37:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1679294241;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nMAbHeAxn10XpZBHVp/8FgkoGfk6Ak3SIPc/tdQAzaU=;
+        b=cKNT2IPoYuLDU3GHiau+62cf+h4z8T6ZyosMDPFLS7tYFBxWRjiygHSJFE56UKTXsj
+         GVgZTvOke3jD3hhizxQ/iV+y9D+TULtf+CCRjJFqBlIFG6o08a9UwLyWAlm3wGSqTyqo
+         53iHnDyWzIr7IlqSzhUaEsQzf59Qn8M8CA6dgCd2yn0gZPS2jDy0dqy0ChJo8U9gfF35
+         oyGLDa0bchDbYA2aE8rIfl0wavTdFSCwb5npB6+N9NxcEWOnnIp5a8qNKR6e1YrLL78B
+         6Wcq4DmHjKJlR3MGHqrU3vcLB7f1gl/Jx9mxGbuX0yz7CPX1DWuRNAe6RgnRcQ53pLH4
+         P8IA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679294241;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nMAbHeAxn10XpZBHVp/8FgkoGfk6Ak3SIPc/tdQAzaU=;
+        b=mqbuujA39LpL4exwkR1SOf7s1qHZOmdQhuy9QcuAK0fRudIADRijeKuLTwx9I/YPmK
+         ld+keZYHkTte4p42StsipxVk0KP3N4WzStemDRyVwMENvuF5msNbxPg+3Hx+1RbngBJx
+         lDV6hXMxBE8k7Su37Pyv+kBZIRHBKxGQ8zoi3xXGAGJz+XFuVTTD4sH+CPRzihaJw+fx
+         S1jfb2yOh8vhtdshAjEFCqBHOb39gcdpofMB9lUu4RTNLlBbBJRFhyU90VfZnVIGpber
+         CrRF9BRCGMHal2ulyBPwU6zbKv/aqZQJAb2PLz3nu3bio+nGwBFjqRrjBIdYx+XSwz7w
+         oH/g==
+X-Gm-Message-State: AO0yUKWrvHYUThp5O43L+xu5C2LkJpuxq4Pp6/3H5P/UbVklFhfMdfQU
+	xBXNYOO56aOCO50mZbYtSIv7NA==
+X-Google-Smtp-Source: AK7set8VRtL9ZQsZfjAfc7z9H6C2FM1URQbMoaWzmaCRPc426Ay97st5q+LNo4+luc9BKJHApke3UA==
+X-Received: by 2002:a05:6402:211:b0:500:50f6:dd33 with SMTP id t17-20020a056402021100b0050050f6dd33mr7570647edv.2.1679294240864;
+        Sun, 19 Mar 2023 23:37:20 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:4428:8354:afb6:2992? ([2a02:810d:15c0:828:4428:8354:afb6:2992])
+        by smtp.gmail.com with ESMTPSA id y70-20020a50bb4c000000b004fa380a14e7sm4389167ede.77.2023.03.19.23.37.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Mar 2023 23:37:20 -0700 (PDT)
+Message-ID: <a6b9bab2-4151-c811-85ff-2424866e21d8@linaro.org>
+Date: Mon, 20 Mar 2023 07:37:19 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [RESEND v6 1/2] dt-bindings: soc: starfive: Add StarFive syscon
- doc
+Subject: Re: [PATCH v2 3/6] dt-bindings: soc: starfive: syscon: Add optional
+ patternProperties
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hal Feng <hal.feng@starfivetech.com>,
+ William Qiu <william.qiu@starfivetech.com>, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20230316030514.137427-1-xingyu.wu@starfivetech.com>
+ <20230316030514.137427-4-xingyu.wu@starfivetech.com>
+ <1f352445-4677-e33b-be14-c76bd7ffa188@linaro.org>
+ <45221a1c-dc01-2759-3e32-658636625529@starfivetech.com>
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Emil
- Renner Berthing" <kernel@esmil.dk>
-References: <20230315055813.94740-1-william.qiu@starfivetech.com>
- <20230315055813.94740-2-william.qiu@starfivetech.com>
- <9dfc752b-7ae9-5e45-e9e2-50b87dabbca6@linaro.org>
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <9dfc752b-7ae9-5e45-e9e2-50b87dabbca6@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <45221a1c-dc01-2759-3e32-658636625529@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230319_230118_114603_37B62C7D 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20230319_233725_730434_9D4CC4FA 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +105,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 20/03/2023 04:54, Xingyu Wu wrote:
+> On 2023/3/19 20:28, Krzysztof Kozlowski wrote:
+>> On 16/03/2023 04:05, Xingyu Wu wrote:
+>>> Add optional compatible and patternProperties.
+>>>
+>>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>>> ---
+>>>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 39 ++++++++++++++++---
+>>>  1 file changed, 33 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>> index ae7f1d6916af..b61d8921ef42 100644
+>>> --- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>> @@ -15,16 +15,31 @@ description: |
+>>>  
+>>>  properties:
+>>>    compatible:
+>>> -    items:
+>>> -      - enum:
+>>> -          - starfive,jh7110-aon-syscon
+>>> -          - starfive,jh7110-stg-syscon
+>>> -          - starfive,jh7110-sys-syscon
+>>> -      - const: syscon
+>>> +    oneOf:
+>>> +      - items:
+>>> +          - enum:
+>>> +              - starfive,jh7110-aon-syscon
+>>> +              - starfive,jh7110-stg-syscon
+>>> +              - starfive,jh7110-sys-syscon
+>>> +          - const: syscon
+>>> +      - items:
+>>> +          - enum:
+>>> +              - starfive,jh7110-aon-syscon
+>>> +              - starfive,jh7110-stg-syscon
+>>> +              - starfive,jh7110-sys-syscon
+>>> +          - const: syscon
+>>> +          - const: simple-mfd
+>>>  
+>>>    reg:
+>>>      maxItems: 1
+>>>  
+>>> +patternProperties:
+>>> +  # Optional children
+>>> +  "pll-clock-controller":
+>>
+>> It's not a pattern.
+> 
+> Does it use 'properties' instead of 'patternProperties'?
+
+Yes.
+
+> 
+>>
+>> Anyway should be clock-controller
+> 
+> Will fix.
+> 
+>>
+>>> +    type: object
+>>> +    $ref: /schemas/clock/starfive,jh7110-pll.yaml#
+>>> +    description: Clock provider for PLL.
+>>> +
+>>
+>> You just added these bindings! So the initial submission was incomplete
+>> on purpose?
+>>
+>> No, add complete bindings.
+> 
+> Does you mean that it should drop the 'description', or add complete 'description',
+> or add 'compatible', 'clocks' and 'clock-cells' of complete clock-controller bindings?
+
+It means it should be squashed with the patch which adds it.
+
+> 
+>>
+>>>  required:
+>>>    - compatible
+>>>    - reg
+>>> @@ -38,4 +53,16 @@ examples:
+>>>          reg = <0x10240000 0x1000>;
+>>>      };
+>>>  
+>>> +  - |
+>>> +    syscon@13030000 {
+>>
+>> No need for new example... Just put it in existing one.
+>>
+> 
+> Actually, the PLL clock-controller are just set in sys-syscon resgisters. The stg-syscon and
+> aon-syscon don't need it. So PLL clock-controller node only is added in sys-syscon node.
+
+So why having other examples if they are included here? Drop them.
 
 
-On 2023/3/19 20:29, Krzysztof Kozlowski wrote:
-> On 15/03/2023 06:58, William Qiu wrote:
->> Add documentation to describe StarFive System Controller Registers.
->> 
->> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->> ---
->>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 41 +++++++++++++++++++
->>  MAINTAINERS                                   |  5 +++
->>  2 files changed, 46 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->> new file mode 100644
->> index 000000000000..ae7f1d6916af
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->> @@ -0,0 +1,41 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 SoC system controller
-> 
-> OK, I found the patch changing this. So basically you add knowingly
-> incomplete bindings and a second later you fix them.
-> 
-> Add complete bindings.
-> 
-> Best regards,
-> Krzysztof
-> 
-Originally, I only wanted to add a base module, and the binding of other modules
-was added as incremental updates by other related colleagues. So now I need to
-add the complete binding, right?
 
 Best regards,
-William
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
