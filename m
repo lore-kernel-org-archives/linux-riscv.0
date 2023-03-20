@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C26AC7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE38C76196
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NJBpbnGwwkBiyUiu2UvxTWRUWpU+NKKoPTsoFYbSQDE=; b=LTc1Gs9ZgX9l81
-	Po4CpbXpIVHoFynozrjzIP2V7pWsbNvkaMrBDcYILApTIRWD8Hk1VOM0JqupqTXQA9dPhY3YPASQ8
-	Py9gy5gghQUK2u/xCqtWKpHk2Odg2YYHZ5HkdEwosXCybSpjhi2hBFcM7UFOtSFyj0zYisJ4Q1G6P
-	go9PliBqY8gPiFh8TPss5T1S/51N5LZCvXrE/4Tf1I60ASBrbFa7LBChP9U9ulXI2va+pT7gJa53X
-	OYCEaKeWj5GA7RtVJNnDP/9IbezefFnTBYvJBLRasQGZC2cFg+/TBcIiD9QycWm20Ke6pGgPEryg3
-	eH52tSRBJ6Pz9KIHR3dQ==;
+	List-Owner; bh=f4pMGsJHymjJHHfBXE5QIhd3KVoW3SSkfTqgxpJlRRE=; b=TcmbKirbnRlSRl
+	CONOrSGxcO0UKAnoALlcrQWK63gLkSCHXXqI55JQ7J4KCmK3KLFQ5uW2OKZwVIRdLLOd9eH7rtjsx
+	8sGC5pOCvk7OpybrdfkF+RI9niVta+IgQZy/7muAyyw713pA4lF7Je/Zl3FSt9DHYAxBTNiAfk6Uk
+	HnK3Ncz6PBgYqEXlhpKQlxEKtDFYgaB+Ebj2pMCsllcX/0+QzV+Cxk8m1r8wwzV7bzGfWeaE+W57L
+	WXpHHG0rMjKdjnSKg4ceXWRE1g5S/1dYopvMixd4LyaViRzF9lv880gYnbX8M8cESEvSiGvWcIoT9
+	/XH4u/CowPUDh/KnjN3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9AC-008F07-1T;
-	Mon, 20 Mar 2023 06:38:36 +0000
+	id 1pe9AX-008F39-2A;
+	Mon, 20 Mar 2023 06:38:57 +0000
 Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9A9-008EzY-05
+	id 1pe9AU-008F2P-2E
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 06:38:34 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id cy23so42384835edb.12
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:38:30 -0700 (PDT)
+	Mon, 20 Mar 2023 06:38:55 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id x3so42423331edb.10
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:38:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679294309;
+        d=linaro.org; s=google; t=1679294333;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=t7XeoSe7UBuX/qyHKNlFZtj5mQnbrycYOrmZq1cWzw8=;
-        b=og1arrjvv3V1NdTKTL6nqWdto4cJlvx1lJaOUNCZQU3G6Z+9CVFWBZwA9KKnSw9aCN
-         AG75/Do04vm1Qf4H6oTVavstgAkPq6nCdoXdzjjkRh3Hnod3I/hA70S3G5qRXRazZ3ov
-         eDALdS055/VHd+mWMubR9Dg5B1MNq1EfJKbUtmWmPaZzxSpEGUa9h5RCr/K9i48XzaJ3
-         eA4n/AbtFz9gQv4nRpJZ1B2daPdP2um5KxxScW7XpjE76P2aZDJkuc+91Mze3/Uz0Mvk
-         OLvcAyE258gGyChEZjewf1ULjk0gfkA/IEMNzI4ItXaPGyH+bLbNBtqEkQg0UvfJ77S8
-         bz8w==
+        bh=aL001ady4NA4/hsn4xZG1v6Zr6XG/l61DgNleMsf6i8=;
+        b=OJAFgmI8/InvLBl0H5GobooZ6YXV9wZLYH90nbnlVGtt4s3AkYiORKceYX+YwHrDDZ
+         VEp7fhZ7AyVWCU29ZVQBQrZyzIhRnM9ZLVYY7MO8ZBRhOWmqrR+Aj8od2AVHqNJnqQRG
+         z1UXbLHDbarDcDtFd3RZQKUHTQyT+umQ9LI7odgCv0iXxJ+TgI5Iv6S6KGb58ZTilNbT
+         UqChP8OQXci0UX5vnmX2HDG9jtVLX1x+/SMRvEfhHS/XoCAPKhEJ2K0Wj7x+rs7nkOSJ
+         9oFGvS8ea5TLwRmOg016dkzmFlk+diHLpl5sZd7Tt/rKlXkhfR3ZNcI+eaVVfOGW5vmV
+         5XvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679294309;
+        d=1e100.net; s=20210112; t=1679294333;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t7XeoSe7UBuX/qyHKNlFZtj5mQnbrycYOrmZq1cWzw8=;
-        b=2L4GV9EoYKA9gVsKmZyVPeeZkOwRpw4OKXgTVv6ohWfO2H3xomIpMygqjMLm1VdVGN
-         N0L3VbY8IFgO0mYqifzBLTJs9Zs+/G6rWeefkZVNcQQdwzp2Bdu+feMDQaBILBXII5Na
-         acHJZMDKlqsMN1ESwO3jpZpgOCf+ugaAqSRz2a15i/7vWCR5brPxmv+Ta0chImw5Nuhu
-         kqrLbwjIz72eZr8M32XqdTCandq55y1hyWan+IdxDH3WydgPFuRv4NL/t4d5AJuf8r0x
-         J1L0HG4xixmBGv1FTbhfE/WZWOXLlt6YTe5UFCugBU5cMHMnJNt1vUx49xxiAdC+jwpH
-         QfjQ==
-X-Gm-Message-State: AO0yUKXfBYS7Mt1jxyzElM7AaAEbg+mVZsj3F01FyHO8Z9vpgNUaBfiU
-	eMgxecdNhPxskuJjrD/4/GPR7w==
-X-Google-Smtp-Source: AK7set8zaCmvCo/leOy8Mug11ajTRxSNFLkO0e1EhQz95/FxfjvSuWjkKWa7MhfAtVfj+tsoVUmaGQ==
-X-Received: by 2002:a17:906:1f53:b0:931:91a:fa4f with SMTP id d19-20020a1709061f5300b00931091afa4fmr8592424ejk.41.1679294309064;
-        Sun, 19 Mar 2023 23:38:29 -0700 (PDT)
+        bh=aL001ady4NA4/hsn4xZG1v6Zr6XG/l61DgNleMsf6i8=;
+        b=1S12GWsL1BjJ192yFnEazvUI92QNh1VDBZeEi1uk0Dt6wuLd9J2XC5vrg6pIkrCy+j
+         lqIhL5pz9SdeSo+fne5s+R8kTKb/LBM8l23BF+BLvG2Y7jeRtH5EG198smuCN20vPBGh
+         XXLINr+nRAZorK6mS0odn5Agy+NsuN4J8/kOz6jxp4iAFMJ+8utew+BLoVKvGUcYT7O0
+         /nMjusdganybDzBAEMC1nF28OEOsE4mVLY7aN2jgKDlWOsBAlzUlJsa0/3ENcM7rDOMV
+         90lpPYYvsopeg/nO2tua2bxgp0Ygmr62iyNKR7zI5o5oQ+V/nOZgka9FFOplqhDiptRu
+         C79w==
+X-Gm-Message-State: AO0yUKUe9Ggaevr29ZIgEqsuCamdcmjP9M+4MHV+UZlQCylXuR3PefF/
+	cLBbBhyM4Sl3wj4yqsXzyFWzYw==
+X-Google-Smtp-Source: AK7set/ZY0jx52sr1B3qF/Hpsv16SzPgkWnQ2bQGAUShEUbpOMmPcYjIMDF8J7VRk3bDNNkFO3R7Vw==
+X-Received: by 2002:a17:907:7294:b0:935:20d8:c3c with SMTP id dt20-20020a170907729400b0093520d80c3cmr1391024ejc.61.1679294333377;
+        Sun, 19 Mar 2023 23:38:53 -0700 (PDT)
 Received: from ?IPV6:2a02:810d:15c0:828:4428:8354:afb6:2992? ([2a02:810d:15c0:828:4428:8354:afb6:2992])
-        by smtp.gmail.com with ESMTPSA id 8-20020a170906300800b008e2dfc6382asm3967122ejz.125.2023.03.19.23.38.28
+        by smtp.gmail.com with ESMTPSA id jx3-20020a170907760300b00930876176e2sm4009892ejc.29.2023.03.19.23.38.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Mar 2023 23:38:28 -0700 (PDT)
-Message-ID: <f25cc55e-3405-4b17-fb45-5ae5eb36a404@linaro.org>
-Date: Mon, 20 Mar 2023 07:38:27 +0100
+        Sun, 19 Mar 2023 23:38:51 -0700 (PDT)
+Message-ID: <ccebb1c9-bbf3-8998-6611-8c0046a6e3d6@linaro.org>
+Date: Mon, 20 Mar 2023 07:38:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
@@ -77,13 +77,14 @@ Cc: Rob Herring <robh+dt@kernel.org>,
  Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
 References: <20230315055813.94740-1-william.qiu@starfivetech.com>
  <20230315055813.94740-2-william.qiu@starfivetech.com>
- <850bc37e-c6d1-2381-a851-965a4cbee8a0@linaro.org>
- <e38efd81-9c79-553b-7556-7aff30f6ec50@starfivetech.com>
+ <9dfc752b-7ae9-5e45-e9e2-50b87dabbca6@linaro.org>
+ <adcbc5a7-23e7-9396-a67b-776653e14b8d@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <e38efd81-9c79-553b-7556-7aff30f6ec50@starfivetech.com>
+In-Reply-To: <adcbc5a7-23e7-9396-a67b-776653e14b8d@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230319_233833_093635_9B499D68 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20230319_233854_727291_90E7A616 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,66 +101,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2023 06:54, William Qiu wrote:
-> 
-> 
-> On 2023/3/19 20:27, Krzysztof Kozlowski wrote:
->> On 15/03/2023 06:58, William Qiu wrote:
->>> Add documentation to describe StarFive System Controller Registers.
->>>
->>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->>> ---
->>>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 41 +++++++++++++++++++
->>>  MAINTAINERS                                   |  5 +++
->>>  2 files changed, 46 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>> new file mode 100644
->>> index 000000000000..ae7f1d6916af
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>> @@ -0,0 +1,41 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: StarFive JH7110 SoC system controller
->>> +
->>> +maintainers:
->>> +  - William Qiu <william.qiu@starfivetech.com>
->>> +
->>> +description: |
->>> +  The StarFive JH7110 SoC system controller provides register information such
->>> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - starfive,jh7110-aon-syscon
->>> +          - starfive,jh7110-stg-syscon
->>> +          - starfive,jh7110-sys-syscon
->>> +      - const: syscon
+On 20/03/2023 07:00, William Qiu wrote:
 >>
->> Does not look like you tested the bindings. Please run `make
->> dt_binding_check` (see
->> Documentation/devicetree/bindings/writing-schema.rst for instructions).
->>
->> ... or your PLL clock controller was not tested.
->>
->> Best regards,
->> Krzysztof
->>
-> Hi Krzysztof,
-> 
-> I've already done`make dt_binding_check`, and get no error. So maybe PLL clock controller
-> was not tested which I didn't add in this patch series. And PLL clock controller belongs
-> to Xingyu Wu, I would tell him.
+> Originally, I only wanted to add a base module, and the binding of other modules
+> was added as incremental updates by other related colleagues. So now I need to
+> add the complete binding, right?
 
-What's confusing you do not allow here clock controller.
+Binding should be complete.
 
 Best regards,
 Krzysztof
