@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00565C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 23:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA893C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 23:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OaUBM023SFE+ZuRR25iSw7tU2X7bgH2VBDdpB4GOyXM=; b=x5f4GlS44N6wAa
-	PNLI+6notX87hD19/CbrRu9iMe/JNjqDiRSlA+1jmlz8T3+7a9KVxtt5RdU18n/CHA+YaOKigIxUO
-	S1cIl5EzDAmWaO9l1kNK0xYCTYH1tjTxtxf3F+v9gTQIZ9KtB/f910zCT+SHFrqoyvOhUjYm8EhSb
-	CgQQfC7qz2YQe+vVcTSOK/ca6YGj9yCXhdFfr3nLGYxuDQDGwN8WvUlbeZ9vQdZz2e+eZvGtq2VVB
-	i2xQ6BKg1W7Jh07CLOLve8AwGhXHeQQOMqTaWVDuWTcQTJtA33Lq35gf7a6Jzowr9CmYRuLUtn+B4
-	CIyAuR2fLnuy3JYfomRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=E0aceVGsHpnqeJgP2fut9tO1DSnozV8KmgbFhLe+MvU=; b=ExrAcwJ2dTkEI6w08NVrdiaJu3
+	KGK1f9nyeZKQdJWkzu946dWFZz6f2zqWyWIE/d8/C+TKoQnj92CrgfdGDzxrXzd0/mUInMXCUkFAq
+	I+5enVG+PRT6bOHr7kNlG/z2XvNPtjWTvW2Bycc0wy7VhIU0p3n2yy7RgIkQjT4T6ANlDbXKJpBu6
+	CfvcyDvKIRSAxT4ixIep0APM0gKtSEVW8jhYu+akfAdR5890nA71ORkvhuQgAKz++YwtQtU6SmDOj
+	VwzX59MTz8nn+gtMSCl+DgxAjIvQ5I/2BV6xosGIO1VcLuOYdMKFcF9jsij3Jk6sA1SfIKFmf6V7R
+	2Yk5/uKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peP6K-00AnQ9-3C;
-	Mon, 20 Mar 2023 23:39:41 +0000
-Received: from mail-oo1-f52.google.com ([209.85.161.52])
+	id 1pePD1-00Ap19-2G;
+	Mon, 20 Mar 2023 23:46:35 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peP6G-00AnON-08;
-	Mon, 20 Mar 2023 23:39:38 +0000
-Received: by mail-oo1-f52.google.com with SMTP id h21-20020a4ad015000000b0053b587d9d28so16931oor.12;
-        Mon, 20 Mar 2023 16:39:35 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679355574;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+	id 1pePCx-00Ap0B-2K
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Mar 2023 23:46:33 +0000
+Received: by mail-pl1-x636.google.com with SMTP id ix20so14233959plb.3
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 16:46:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1679355989;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QbrxJ0fwPhPLKh98WJtIL8glo9hyZk6OP6hoto5Dg3E=;
-        b=N7dbLE440jjkKBa9kQ/lX55NL8OPjxHuOlbvbPxbKTwmTiArt9Eq/jpAnTtq69jpXa
-         P6rrt8a/NBR56Y03dCVkQrSvNelEMqBe5qe/DwA4GMm11+eaaKC00OzVFDt8+Iqu8Fu7
-         CB65HzORsVGP7mIyMkX5VlnZGIa2LsLWZGNe3j65u/+iIzmcDNfkhdoOGKlHjXxdvnkT
-         LxeoLteeWMRbVAO0eXTU9ya/Av1EVOmcAga3dxrlFVTTegQg/e1lFzWO7xJKAnIyK+yB
-         xl+cbXHqiRYfbqYHoMZTRsnLjDWfaJO36ekgkMBMCMR+XX/I1+BkegbYdOoYRrAg+lQ8
-         Enaw==
-X-Gm-Message-State: AO0yUKVztoNpKEmvfhomJPZxS9xpkNCQlLu6rk4heOh34Pxlin0E3T8x
-	STrAlowms6P76Z0yWN+TZA==
-X-Google-Smtp-Source: AK7set+VY226nc37Mz5PtD72QjJb4B/DciJqhSrxo7tuaqvkbUo3OFvcwJIaV3bzvjJaDPD+3QpqnQ==
-X-Received: by 2002:a4a:490e:0:b0:53b:5510:958d with SMTP id z14-20020a4a490e000000b0053b5510958dmr105786ooa.0.1679355574641;
-        Mon, 20 Mar 2023 16:39:34 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id v11-20020a4aaecb000000b0053732f1acd2sm4428977oon.5.2023.03.20.16.39.33
+        bh=CVD5kdtXy54YH3zU4G6cezFVCE0kWaOWnyh3a3H/fVw=;
+        b=gqS4hwId4OLnZEQgJI+kyIQkdjmZZrN+nyj53I24mqFbKwumRa3syzV+0mkcoQUlbp
+         I3AgRwMOV5tpdFgxUwMOdyobSn6YGJLq5ce4Okpmp1xF8WMyk+AYS/fECsmmnrjwBbvh
+         m416ye8JJBLiaMGKdPSU4vq6gcd8bwzfYtt4uBxxudYPXhLppUa4BnHpOAHtMLbQfY1m
+         MgvnWpRfkoiw5QiNdjNC8e97mTNXbNTRxWG+QQNHRgAgPLzHdXjluPpcHMXjwu63j5tq
+         +AkQmONBFJpyV0p6OQzwTmHpFlFVOZSZARJD9iWGVFgf52pT57vGrjmsDw1ywIryYuNH
+         Cqbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679355989;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CVD5kdtXy54YH3zU4G6cezFVCE0kWaOWnyh3a3H/fVw=;
+        b=yg814QC+NQGGC2xnC5AwfPe+JQ1W2FqlZ51cbCO9eMVNEYoniYH+aXNxekPQIGeHSI
+         H9F22H81TOM+UIjlPHo++QR/BBbkosvuj1SAnicPD/cEGNhpQI0SWox+cmu83wBHulC9
+         R9hNRYbpj6KNWEuI4TZTUOoTSBiBM5j46meezaFLVoamwHKR9liKd8oo6YmJjWUHmKe9
+         a0j8Xg13OlnL3em2nDuPKOphh9C6NpBQNhDfJjHMQsgvxCquE8XH7ni184eTD5S5kdO0
+         qNbF8V7CRXKR4phA7e9yRdYijpYNN1w3+bfBzZMQtkbXE0bxTlZobLyr6xkA4qBCzMq+
+         j/xA==
+X-Gm-Message-State: AO0yUKVx1q4zntQNXMvFXZQfXND0FV4tC9neTxm6CaunDX/AxFuwPlQV
+	L7GqBRU/90jqcIZ6wQ8mvheDrw==
+X-Google-Smtp-Source: AK7set+Eo6dVqOrcG8rwMRvHa6vfuVju4SycRcGmgII+64sM2O1goAy6bcstJI4WTVXmjXHmb/WVRA==
+X-Received: by 2002:a17:90b:1e43:b0:23f:9fac:6b31 with SMTP id pi3-20020a17090b1e4300b0023f9fac6b31mr367842pjb.25.1679355989349;
+        Mon, 20 Mar 2023 16:46:29 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id 30-20020a630c5e000000b00502fd141ffbsm6756689pgm.49.2023.03.20.16.46.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Mar 2023 16:39:33 -0700 (PDT)
-Received: (nullmailer pid 2920813 invoked by uid 1000);
-	Mon, 20 Mar 2023 23:39:32 -0000
-From: Rob Herring <robh@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, =?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, Krzysztof Halasa <khalasa@piap.pl>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: [PATCH] dt-bindings: interrupt-controller: Drop unneeded quotes
-Date: Mon, 20 Mar 2023 18:39:27 -0500
-Message-Id: <20230320233928.2920693-1-robh@kernel.org>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
+        Mon, 20 Mar 2023 16:46:28 -0700 (PDT)
+Date: Mon, 20 Mar 2023 16:46:28 -0700 (PDT)
+X-Google-Original-Date: Mon, 20 Mar 2023 16:45:32 PDT (-0700)
+Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible for StarFive JH7100 SoC
+In-Reply-To: <Y+vxw28NWPfaW7ql@spud>
+CC: cristian.ciocaltea@collabora.com, lee@kernel.org, robh+dt@kernel.org,
+  krzysztof.kozlowski+dt@linaro.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+  kernel@esmil.dk, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  peppe.cavallaro@st.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com, mcoquelin.stm32@gmail.com,
+  richardcochran@gmail.com, sagar.kadam@sifive.com, yanhong.wang@starfivetech.com,
+  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org,
+  kernel@collabora.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-49aaa4a3-0280-4401-ba33-7fe2f3b79534@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_163936_092899_C311F50E 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20230320_164631_961204_E73AC14F 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,281 +92,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Rob Herring <robh@kernel.org>
----
- .../bindings/interrupt-controller/actions,owl-sirq.yaml   | 4 ++--
- .../bindings/interrupt-controller/fsl,irqsteer.yaml       | 4 ++--
- .../interrupt-controller/intel,ce4100-ioapic.yaml         | 4 ++--
- .../bindings/interrupt-controller/intel,ce4100-lapic.yaml | 4 ++--
- .../interrupt-controller/intel,ixp4xx-interrupt.yaml      | 4 ++--
- .../bindings/interrupt-controller/loongson,htpic.yaml     | 4 ++--
- .../bindings/interrupt-controller/loongson,htvec.yaml     | 4 ++--
- .../bindings/interrupt-controller/loongson,liointc.yaml   | 8 ++++----
- .../bindings/interrupt-controller/loongson,pch-msi.yaml   | 8 ++++----
- .../bindings/interrupt-controller/loongson,pch-pic.yaml   | 6 +++---
- .../bindings/interrupt-controller/mrvl,intc.yaml          | 4 ++--
- .../interrupt-controller/mscc,ocelot-icpu-intr.yaml       | 4 ++--
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml  | 2 +-
- 13 files changed, 30 insertions(+), 30 deletions(-)
+On Tue, 14 Feb 2023 12:40:35 PST (-0800), Conor Dooley wrote:
+> Hey all,
+>
+> On Sat, Feb 11, 2023 at 05:18:10AM +0200, Cristian Ciocaltea wrote:
+>> Document the compatible for the SiFive Composable Cache Controller found
+>> on the StarFive JH7100 SoC.
+>> 
+>> This also requires extending the 'reg' property to handle distinct
+>> ranges, as specified via 'reg-names'.
+>> 
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  .../bindings/riscv/sifive,ccache0.yaml        | 28 ++++++++++++++++++-
+>>  1 file changed, 27 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+>> index 31d20efaa6d3..2b864b2f12c9 100644
+>> --- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+>> +++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+>> @@ -25,6 +25,7 @@ select:
+>>            - sifive,ccache0
+>>            - sifive,fu540-c000-ccache
+>>            - sifive,fu740-c000-ccache
+>> +          - starfive,jh7100-ccache
+>>  
+>>    required:
+>>      - compatible
+>> @@ -37,6 +38,7 @@ properties:
+>>                - sifive,ccache0
+>>                - sifive,fu540-c000-ccache
+>>                - sifive,fu740-c000-ccache
+>> +              - starfive,jh7100-ccache
+>>            - const: cache
+>>        - items:
+>>            - const: starfive,jh7110-ccache
+>> @@ -70,7 +72,13 @@ properties:
+>>        - description: DirFail interrupt
+>>  
+>>    reg:
+>> -    maxItems: 1
+>> +    minItems: 1
+>> +    maxItems: 2
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: control
+>> +      - const: sideband
+>
+> So why is this called "sideband"?
+> In the docs for the JH7100 it is called LIM & it's called LIM in our
+> docs for the PolarFire SoC (at the same address btw) and we run the HSS
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml b/Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
-index 5da333c644c9..27756d0c5419 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
-@@ -32,7 +32,7 @@ properties:
-       The first cell is the input IRQ number, between 0 and 2, while the second
-       cell is the trigger type as defined in interrupt.txt in this directory.
- 
--  'interrupts':
-+  interrupts:
-     description: |
-       Contains the GIC SPI IRQs mapped to the external interrupt lines.
-       They shall be specified sequentially from output 0 to 2.
-@@ -44,7 +44,7 @@ required:
-   - reg
-   - interrupt-controller
-   - '#interrupt-cells'
--  - 'interrupts'
-+  - interrupts
- 
- additionalProperties: false
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-index bcb5e20fa9ca..20ad4ad82ad6 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-@@ -48,13 +48,13 @@ properties:
-     const: 1
- 
-   fsl,channel:
--    $ref: '/schemas/types.yaml#/definitions/uint32'
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     description: |
-       u32 value representing the output channel that all input IRQs should be
-       steered into.
- 
-   fsl,num-irqs:
--    $ref: '/schemas/types.yaml#/definitions/uint32'
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     description: |
-       u32 value representing the number of input interrupts of this channel,
-       should be multiple of 32 input interrupts and up to 512 interrupts.
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-ioapic.yaml b/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-ioapic.yaml
-index 39ab8cdd19b4..a3ac818f067d 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-ioapic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-ioapic.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/intel,ce4100-ioapic.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/intel,ce4100-ioapic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Intel I/O Advanced Programmable Interrupt Controller (IO APIC)
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-lapic.yaml b/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-lapic.yaml
-index d2d0145cb889..6b20a5fa8590 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-lapic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/intel,ce4100-lapic.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/intel,ce4100-lapic.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/intel,ce4100-lapic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Intel Local Advanced Programmable Interrupt Controller (LAPIC)
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/intel,ixp4xx-interrupt.yaml b/Documentation/devicetree/bindings/interrupt-controller/intel,ixp4xx-interrupt.yaml
-index 14dced11877b..a02a6b5af205 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/intel,ixp4xx-interrupt.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/intel,ixp4xx-interrupt.yaml
-@@ -2,8 +2,8 @@
- # Copyright 2018 Linaro Ltd.
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/intel,ixp4xx-interrupt.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/intel,ixp4xx-interrupt.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Intel IXP4xx XScale Networking Processors Interrupt Controller
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,htpic.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,htpic.yaml
-index d6bc1a687fc7..f0acd5671bb1 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/loongson,htpic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,htpic.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/loongson,htpic.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/loongson,htpic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Loongson-3 HyperTransport Interrupt Controller
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,htvec.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,htvec.yaml
-index 87a74558204f..1d145763908e 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/loongson,htvec.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,htvec.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/loongson,htvec.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/loongson,htvec.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Loongson-3 HyperTransport Interrupt Vector Controller
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,liointc.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,liointc.yaml
-index 750cc44628e9..00b570c82903 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/loongson,liointc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,liointc.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/loongson,liointc.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/loongson,liointc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Loongson Local I/O Interrupt Controller
- 
-@@ -54,7 +54,7 @@ properties:
-   '#interrupt-cells':
-     const: 2
- 
--  'loongson,parent_int_map':
-+  loongson,parent_int_map:
-     description: |
-       This property points how the children interrupts will be mapped into CPU
-       interrupt lines. Each cell refers to a parent interrupt line from 0 to 3
-@@ -71,7 +71,7 @@ required:
-   - interrupts
-   - interrupt-controller
-   - '#interrupt-cells'
--  - 'loongson,parent_int_map'
-+  - loongson,parent_int_map
- 
- 
- unevaluatedProperties: false
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
-index 31e6bfbc3fd3..a71fc2218ede 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-msi.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/loongson,pch-msi.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/loongson,pch-msi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Loongson PCH MSI Controller
- 
-@@ -25,7 +25,7 @@ properties:
-     description:
-       u32 value of the base of parent HyperTransport vector allocated
-       to PCH MSI.
--    $ref: "/schemas/types.yaml#/definitions/uint32"
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     minimum: 0
-     maximum: 255
- 
-@@ -33,7 +33,7 @@ properties:
-     description:
-       u32 value of the number of parent HyperTransport vectors allocated
-       to PCH MSI.
--    $ref: "/schemas/types.yaml#/definitions/uint32"
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     minimum: 1
-     maximum: 256
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-pic.yaml b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-pic.yaml
-index fdd6a38a31db..b7bc5cb1dff2 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-pic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,pch-pic.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/loongson,pch-pic.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/loongson,pch-pic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Loongson PCH PIC Controller
- 
-@@ -25,7 +25,7 @@ properties:
-     description:
-       u32 value of the base of parent HyperTransport vector allocated
-       to PCH PIC.
--    $ref: "/schemas/types.yaml#/definitions/uint32"
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     minimum: 0
-     maximum: 192
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-index 9acc21028413..b7c5022eec84 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-@@ -53,8 +53,8 @@ allOf:
-           maxItems: 1
-         reg-names:
-           items:
--            - const: 'mux status'
--            - const: 'mux mask'
-+            - const: mux status
-+            - const: mux mask
-       required:
-         - interrupts
-     else:
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/mscc,ocelot-icpu-intr.yaml b/Documentation/devicetree/bindings/interrupt-controller/mscc,ocelot-icpu-intr.yaml
-index 27b798bfe29b..4ff609faba32 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/mscc,ocelot-icpu-intr.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/mscc,ocelot-icpu-intr.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/interrupt-controller/mscc,ocelot-icpu-intr.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/interrupt-controller/mscc,ocelot-icpu-intr.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Microsemi Ocelot SoC ICPU Interrupt Controller
- 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 63bc89e13480..b089e62f90aa 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -90,7 +90,7 @@ properties:
-       riscv,cpu-intc node, which has a riscv node as parent.
- 
-   riscv,ndev:
--    $ref: "/schemas/types.yaml#/definitions/uint32"
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     description:
-       Specifies how many external interrupts are supported by this controller.
- 
--- 
-2.39.2
+IIRC it's both: "LIM" is the memory, "sideband" is the port.  I can't 
+find any proper documentation of "sideband" outside of DT and errata, 
+but there's a hanful of references to it in the bootloader for the 
+fu540: 
+<https://github.com/sifive/freedom-u540-c000-bootloader/search?q=sideband>.
 
+It's not really clear which is more correct here: sideband accesses are 
+only useful when the cache is configured as an LIM, at least for general 
+software.  IIRC the accesses to the LIM only go through the sideband 
+port for the E core, but I might be wrong about that.
+
+> out of it! LIM being "loosely integrated memory", which by the limit
+> hits on Google may be a SiFive-ism?
+
+Yep: TIM is the SiFive version of Arm's TCM (tightly coupled memory), 
+and LIM is the flavor that's farther away (L2 instead of L1).
+
+> I'm not really sure if adding it as a "reg" section is the right thing
+> to do as it's not "just" a register bank.
+> Perhaps Rob/Krzysztof have a take on that one?
+>
+>>  
+>>    next-level-cache: true
+>>  
+>> @@ -89,6 +97,7 @@ allOf:
+>>            contains:
+>>              enum:
+>>                - sifive,fu740-c000-ccache
+>> +              - starfive,jh7100-ccache
+>>                - starfive,jh7110-ccache
+>>                - microchip,mpfs-ccache
+>>  
+>> @@ -106,12 +115,29 @@ allOf:
+>>              Must contain entries for DirError, DataError and DataFail signals.
+>>            maxItems: 3
+>>  
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: starfive,jh7100-ccache
+>> +
+>> +    then:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 2
+>> +
+>> +    else:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 1
+>> +
+>>    - if:
+>>        properties:
+>>          compatible:
+>>            contains:
+>>              enum:
+>>                - sifive,fu740-c000-ccache
+>> +              - starfive,jh7100-ccache
+>>                - starfive,jh7110-ccache
+>>  
+>>      then:
+>> -- 
+>> 2.39.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
