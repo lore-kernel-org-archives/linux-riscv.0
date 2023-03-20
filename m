@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F00CC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A774FC7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 07:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g0KXCj4bJcgcxbaLK8XXtPLKAWpZbat8ud6Pjm4WGH8=; b=4XEM28DjtX21Ix
-	GcZHEj/9e+nkAzQ8HtLWK0l4SCjEM49uAYiqX5EpfKaoyxB2Hqcxc48lUbXIZhekOtBCZoz7RI7Ro
-	Kd10z2wW7uTEN6BpNudKNM8wofQUIrXHRFb6LmC2sjiDrzkJIXR8trPx6Chdy4IT/zUsdRAaRmbvM
-	qjhi+OqxvdoAbOBMhPp60xv+7aMwcGIb0/1624w+b1RVS51bmaoH+KvZekUKfPjlgeJlaTBOmwn4y
-	fyHF8qzkwU8/5gFS3OWC7ROU+3J3eZ34YdrB68ZxS8Z/oP4Z7W6gE6bagswmuaEnqtqOUjgeOtQOR
-	bRu2jO/VjnJahr4mpVEw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RTMOh3Kifx9e1jNaq1g6ri03iGJq1jGHFgiM0a5Vqy4=; b=TGdmqQgoTREjsK
+	JDVXLQFvMwKt4E2SFuULChitEFrQBupdNNY6JKP7r7ulLiEKCW5mNZSTKsEWtrm8m4kJ9wrlciMFC
+	bPMzy8Rnzpu21qN68/nkaWexb8M2AhcJ/hVBFcfYUQUn4WC2FQgAC0mPXhz99Y3YnE/JwC3VnFXrf
+	33QZffGmkNvPRS1EbQ3Cp7cTMaYrKWIF1bAOCCoNpcf/4RarOKBF2BxxFdZ7zSbii1IiiE8Vw1T82
+	6sO8WuRNIvL6CGZIo85UyulYXUYg7+QeKSPczbd45BUeYJhu5f5sSdVmVU9m5sgxNDiyMh+20JGOa
+	wML5zBnmpcqG0cGshlVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9Oi-008FsO-39;
-	Mon, 20 Mar 2023 06:53:36 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9Og-008FrB-0f
+	id 1pe9qC-008IPf-27;
+	Mon, 20 Mar 2023 07:22:00 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pe9q8-008IMz-03
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 06:53:35 +0000
-Received: by mail-pg1-x532.google.com with SMTP id q189so5993719pga.9
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:53:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679295212;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Q3g41CkezKxnf5VWV/J1VVDSQcOZEqV2zQvUvC8Kkw=;
-        b=QxeUP2oK3Q1RQdbogQaT1WIpkFDZ46+ntu3Wd3pniW+c8lO3ixJmVNNWGOqv3lZMvG
-         Acn1AkM0BnfkXcjhIlmhNd81d+1sMV4wBsa+4cjxlv8KiEmdmVS6lyYUXcwYbHh+ZUiO
-         V4D0r47wyZkus0jvVgJmRSZ3jHReuYcH78uaMLLa7hkqqligmOroBq9SWJFjjRKSfA+S
-         ECqS9Ux2DonlgDW+Mz+UVPdWSZ+4GVxajfFtou0tfXRpjEhTGE++xK00KYQoAsIdXGnO
-         v6KanqTmkOxt4jE05v7bkLatMMTp6KI3oD1UR40srOzXVkBNYYGdfoOc8m3W0YLAmmDo
-         mveA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679295212;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1Q3g41CkezKxnf5VWV/J1VVDSQcOZEqV2zQvUvC8Kkw=;
-        b=skB2MpiVwFDUxlUrnqYlv3oox6d6a3kF62tzE+6bdcnF/v0b9l/1MGJDPJZRx9+HtD
-         /ne7mjlojSNdDMxZ7ALa2m2PgN2EH78RtyuIQTp7oUgACSaU1ekG3CPAT5vmmQYuM/Gf
-         VSekPGRb0pcQ586y5OXeseFpnGfY5r+3QO2YhD4XJi3mLK2h1EOgNnbeFF5HTZ1rN6s8
-         N7unMYP6e8h1MsjLNVJRHNU7Wj3bamcvg67pokZhNLG3PH8Yo+XgLlWi7TZqZV7wrtTh
-         S9KjTDwvzP81hAhrAuFuydwFmldY2Snc9OeARnhZ4P7ZHHSKrR044jWinjD1EEX3a1s2
-         GFPA==
-X-Gm-Message-State: AO0yUKUpE7330nkluA3U7MPL6hXKxtys4ForYqTCd2vlxLPYmQiVKjA6
-	Z38YL67eZZOQWsw+ULBBBhVYiw==
-X-Google-Smtp-Source: AK7set9uwaTpOM77izYFiwEvzM82LB06sz/M5zJslenvXLLDZU9VxBYgDVDFkgTrNNKCDfxMVbHMxQ==
-X-Received: by 2002:a62:7bc7:0:b0:5ce:ef1b:a86 with SMTP id w190-20020a627bc7000000b005ceef1b0a86mr13309840pfc.2.1679295211904;
-        Sun, 19 Mar 2023 23:53:31 -0700 (PDT)
-Received: from localhost.localdomain (111-251-215-182.dynamic-ip.hinet.net. [111.251.215.182])
-        by smtp.gmail.com with ESMTPSA id b1-20020a6567c1000000b005023496e339sm5501494pgs.63.2023.03.19.23.53.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Mar 2023 23:53:31 -0700 (PDT)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	vincent.chen@sifive.com
-Subject: [PATCH] riscv: mm: execute local TLB flush after populating vmemmap
-Date: Mon, 20 Mar 2023 14:53:24 +0800
-Message-Id: <20230320065324.1045276-1-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 20 Mar 2023 07:21:59 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 16B0A24E263;
+	Mon, 20 Mar 2023 15:21:00 +0800 (CST)
+Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
+ 2023 15:20:58 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX163.cuchost.com
+ (172.16.7.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
+ 2023 15:20:58 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Mon, 20 Mar 2023 15:20:58 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Mason Huo <mason.huo@starfivetech.com>
+Subject: RE: [PATCH v6 0/4] RISC-V Hibernation Support
+Thread-Topic: [PATCH v6 0/4] RISC-V Hibernation Support
+Thread-Index: AQHZVjJN8ydv64d8Vka8VV2EaIDg/68DSv4g
+Date: Mon, 20 Mar 2023 07:20:58 +0000
+Message-ID: <1a2b03d49ce1440b9e50ca8a13320782@EXMBX066.cuchost.com>
+References: <20230314050316.31701-1-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20230314050316.31701-1-jeeheng.sia@starfivetech.com>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230319_235334_316412_463CF7D1 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20230320_002156_404691_86856505 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +82,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vmemmap_populate() creates VA to PA mapping for the VMEMMAP area, where
-all "strcut page" are located once CONFIG_SPARSEMEM_VMEMMAP is defined.
-These "struct page" are later initialized in the zone_sizes_init()
-function. However, during this process, no sfence.vma instruction is
-executed for this VMEMMAP area. This omission may cause the core to fail to
-perform page table work because some data related to the address
-translation is invisible to the core. To solve this issue, here let
-zone_sizes_init() call local_flush_tlb_kernel_range() to execute a
-sfence.vma instruction for the VMEMMAP area, ensuring that all data related
-to the address translation is visible to the core.
+Hi,
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
----
- arch/riscv/include/asm/tlbflush.h | 7 +++++++
- arch/riscv/mm/init.c              | 3 +++
- 2 files changed, 10 insertions(+)
+I understand that you must be extremely busy, but I was wondering if there are any comments for the below v6 patch series?
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 801019381dea..b7696974e3c6 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -59,4 +59,11 @@ static inline void flush_tlb_kernel_range(unsigned long start,
- 	flush_tlb_all();
- }
- 
-+/* Flush a range of kernel pages without broadcasting */
-+static inline void local_flush_tlb_kernel_range(unsigned long start,
-+						unsigned long end)
-+{
-+	local_flush_tlb_all();
-+}
-+
- #endif /* _ASM_RISCV_TLBFLUSH_H */
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 2c4a64e97aec..62eea656e341 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -72,6 +72,9 @@ static void __init zone_sizes_init(void)
- #endif
- 	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
- 
-+#ifdef CONFIG_SPARSEMEM_VMEMMAP
-+	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
-+#endif
- 	free_area_init(max_zone_pfns);
- }
- 
--- 
-2.25.1
+Thanks
+Regards
+Jee Heng
+
+> -----Original Message-----
+> From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Sent: Tuesday, March 14, 2023 1:03 PM
+> To: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu
+> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; JeeHeng Sia <jeeheng.sia@starfivetech.com>; Leyfoon Tan
+> <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> Subject: [PATCH v6 0/4] RISC-V Hibernation Support
+> 
+> This series adds RISC-V Hibernation/suspend to disk support.
+> Low level Arch functions were created to support hibernation.
+> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> cpu state onto the stack, then calling swsusp_save() to save the memory
+> image.
+> 
+> Arch specific hibernation header is implemented and is utilized by the
+> arch_hibernation_header_restore() and arch_hibernation_header_save()
+> functions. The arch specific hibernation header consists of satp, hartid,
+> and the cpu_resume address. The kernel built version is also need to be
+> saved into the hibernation image header to making sure only the same
+> kernel is restore when resume.
+> 
+> swsusp_arch_resume() creates a temporary page table that covering only
+> the linear map. It copies the restore code to a 'safe' page, then start to
+> restore the memory image. Once completed, it restores the original
+> kernel's page table. It then calls into __hibernate_cpu_resume()
+> to restore the CPU context. Finally, it follows the normal hibernation
+> path back to the hibernation core.
+> 
+> To enable hibernation/suspend to disk into RISCV, the below config
+> need to be enabled:
+> - CONFIG_ARCH_HIBERNATION_HEADER
+> - CONFIG_ARCH_HIBERNATION_POSSIBLE
+> 
+> At high-level, this series includes the following changes:
+> 1) Change suspend_save_csrs() and suspend_restore_csrs()
+>    to public function as these functions are common to
+>    suspend/hibernation. (patch 1)
+> 2) Refactor the common code in the __cpu_resume_enter() function and
+>    __hibernate_cpu_resume() function. The common code are used by
+>    hibernation and suspend. (patch 2)
+> 3) Enhance kernel_page_present() function to support huge page. (patch 3)
+> 4) Add arch/riscv low level functions to support
+>    hibernation/suspend to disk. (patch 4)
+> 
+> The above patches are based on kernel v6.3-rc2 and are tested on
+> StarFive VF2 SBC board and Qemu.
+> ACPI platform mode is not supported in this series.
+> 
+> Changes since v5:
+> - Rebased to kernel v6.3-rc2
+> - Removed extra line at the commit msg
+> - Added comment to describe the reason to map the kernel address
+> 
+> Changes since v4:
+> - Rebased to kernel v6.3-rc1
+> - Resolved typo(s)
+> - Removed unnecessary helper function
+> - Removed unnecessary "addr" local variable
+> - Removed typecast of 'int'
+> - Used def_bool HIBERNATION
+> - Used "mv a0, zero" instead of "add a0, zero, zero"
+> - Make linear region as executable and writable when restoring the
+>   image
+> 
+> Changes since v3:
+> - Rebased to kernel v6.2
+> - Temporary page table code refactoring by reference to ARM64
+> - Resolved typo(s) and grammars
+> - Resolved documentation errors
+> - Resolved clang build issue
+> - Removed unnecessary comments
+> - Used kzalloc instead of kcalloc
+> 
+> Changes since v2:
+> - Rebased to kernel v6.2-rc5
+> - Refactor the common code used by hibernation and suspend
+> - Create copy_page macro
+> - Solved other comments from Andrew and Conor
+> 
+> Changes since v1:
+> - Rebased to kernel v6.2-rc3
+> - Fixed bot's compilation error
+> 
+> Sia Jee Heng (4):
+>   RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public
+>     function
+>   RISC-V: Factor out common code of __cpu_resume_enter()
+>   RISC-V: mm: Enable huge page support to kernel_page_present() function
+>   RISC-V: Add arch functions to support hibernation/suspend-to-disk
+> 
+>  arch/riscv/Kconfig                 |   6 +
+>  arch/riscv/include/asm/assembler.h |  82 ++++++
+>  arch/riscv/include/asm/suspend.h   |  22 ++
+>  arch/riscv/kernel/Makefile         |   1 +
+>  arch/riscv/kernel/asm-offsets.c    |   5 +
+>  arch/riscv/kernel/hibernate-asm.S  |  77 ++++++
+>  arch/riscv/kernel/hibernate.c      | 427 +++++++++++++++++++++++++++++
+>  arch/riscv/kernel/suspend.c        |   4 +-
+>  arch/riscv/kernel/suspend_entry.S  |  34 +--
+>  arch/riscv/mm/pageattr.c           |   8 +
+>  10 files changed, 633 insertions(+), 33 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/assembler.h
+>  create mode 100644 arch/riscv/kernel/hibernate-asm.S
+>  create mode 100644 arch/riscv/kernel/hibernate.c
+> 
+> 
+> base-commit: fc89d7fb499b0162e081f434d45e8d1b47e82ece
+> --
+> 2.34.1
 
 
 _______________________________________________
