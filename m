@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32146C7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 12:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26E8C76195
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 12:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PByF5hf3FpnQh4mi5vPtA8TFDOMpdxF/ycgyhyzGPtc=; b=dGibQajQwbCUuF
-	cjvhETcsN+ZalBcgzSXVdBvqyDO9FyVEbK+vGUOJGJT8sB0O+TlUiNPCFq29pniWvSR9s1n7ldlkX
-	cekvi5nUnU2tNDKGIxhGMr2bgsnmkYy4PLaH0xCG/v+TXt7xf69+3qzb8WtKKFoU9RAOef0fQpVYl
-	g2Fj39Bq1OPwrTYGKgv9LWyU3KMDTUk+LomJrItql4kY7/PwHNHhWzgjT/fvadFcE+Uu0TDlrwtoP
-	3hk1ljTRoa8Asju1bvO13lsA6rj1blg9jMRzRgzdV2fqDJSqxhFtLDfC5cagBSx+ZVOBzDC+1FC1g
-	3L5Z9EO2g+VPOTS7zRZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I0lyZLRYW78CeZycTGr8xKKp2Wsx6xl3QFfW9U5/qA0=; b=Dv+Rzuxt6H7Eng
+	UZSeLfXrxeh4y/yIKJ//WmeQh7FP4w6le311RckjhosfNees2n8oWdKxqvjmX20VsAqRvMeoiVZSn
+	Yn/BHT7edv4WZw+e6fM8MoekegnV1ZhZw6cPzsdr2v5LRwrjHxJLFbr08PziC2h4LNEho3SCRKDPF
+	zxq0wJ+CBxnftvSkQpdkKfIRV9fndRSZBGouUfBsqSFlQUWF889UCejWOB/zJHIv8WC36+EctUE8s
+	QjkyUukAiseu84y5j5w0licG9ggWSJ+JGKilvRywo2OpEQVwLWCQY121UW7vVTv7F4tibCt+8f1Hi
+	lPLe8n3ZPfRgz15muJGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peEnK-008zAf-2J;
-	Mon, 20 Mar 2023 12:39:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1peEu1-008zq4-1O;
+	Mon, 20 Mar 2023 12:46:17 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peEnH-008z9w-2m;
-	Mon, 20 Mar 2023 12:39:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6D1C0614CB;
-	Mon, 20 Mar 2023 12:39:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE693C433EF;
-	Mon, 20 Mar 2023 12:39:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679315958;
-	bh=4XG5NumHQKLf7FXfSZYEUp83adPFqOHQkgN7kVusg2w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pZ4FwmPJRa87abfQt+BW5QGgP2z4Fn9mlFEqZdMmW7gioonSgMDl34Vn2nFf1FcRJ
-	 eHqbSNDDbWVk/8f50Zsf1ijUinjooB9Pngpmc1lUjg1c1osv6iuaTDzuADL0tRbQuJ
-	 +7Hrwx2TKF9vmLBaWdzR7B43dxl7w7kagGNtKyXIUDfzPoKZNg5u0I0TINRkb6Oo3K
-	 eWweZDcup8tHiets3d3n3NzNHbaXhFk0HE7MJGJzJWG1fpis5UE+bqNGy+s744LsNX
-	 PSCaUz0mz5S4nM2QbvyxsXULT1ehPK+4LG6jNqT69HUht2QDShQbCiVDs+Uaj9soIb
-	 uHc7PTATmHIYg==
-Date: Mon, 20 Mar 2023 18:09:14 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/3] Add JH7110 MIPI DPHY RX support
-Message-ID: <ZBhT8tpBhdFugurm@matsya>
-References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
- <7e525c7d-d534-adba-4aea-a485ba37bcc7@starfivetech.com>
+	id 1peEtx-008zoP-2l;
+	Mon, 20 Mar 2023 12:46:15 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.55])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4PgDss0NYZz17MgP;
+	Mon, 20 Mar 2023 20:42:57 +0800 (CST)
+Received: from huawei.com (10.67.174.205) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21; Mon, 20 Mar
+ 2023 20:46:00 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
+Subject: [PATCH -next 0/2] support allocating crashkernel above 4G explicitly on riscv
+Date: Tue, 21 Mar 2023 04:42:42 +0800
+Message-ID: <20230320204244.1637821-1-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7e525c7d-d534-adba-4aea-a485ba37bcc7@starfivetech.com>
+X-Originating-IP: [10.67.174.205]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_053919_936023_D1E0AB12 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20230320_054614_079838_A5FBAF4F 
+X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +69,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03-03-23, 14:05, Changhuang Liang wrote:
-> 
-> 
-> On 2023/2/23 9:59, Changhuang Liang wrote:
-> > This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
-> > It is used to transfer CSI camera data. The series has been tested on
-> > the VisionFive 2 board.
-> > 
-> > This patchset should be applied after the patchset [1] and patch [2]:
-> > [1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
-> > [2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
-> > 
-> Hi, Vinod and Kishon
-> 
-> Could you please help to review and give me some suggestions
-> for this patch series? Thank you for your time.
+On riscv, the current crash kernel allocation logic is trying to
+allocate within 32bit addressible memory region by default, if
+failed, try to allocate without 4G restriction.
 
-There are already comments on dt-binding, please address them!
+In need of saving DMA zone memory while allocating a relatively large
+crash kernel region, allocating the reserved memory top down in
+high memory, without overlapping the DMA zone, is a mature solution.
+Hence this patchset introduces the parameter option crashkernel=X,[high,low].
 
-> 
-> Best regards,
-> Changhuang
+One can reserve the crash kernel from high memory above DMA zone range
+by explicitly passing "crashkernel=X,high"; or reserve a memory range
+below 4G with "crashkernel=X,low". Besides, there are few rules need
+to take notice:
+1. "crashkernel=X,[high,low]" will be ignored if "crashkernel=size"
+   is specified.
+2. "crashkernel=X,low" is valid only when "crashkernel=X,high" is passed
+   and there is enough memory to be allocated under 4G.
+3. When allocating crashkernel above 4G and no "crashkernel=X,low" is
+   specified, a 128M low memory will be allocated automatically for
+   swiotlb bounce buffer.
+See Documentation/admin-guide/kernel-parameters.txt for more information.
+
+Following test cases have been performed as expected:
+1) crashkernel=256M                          //low=256M
+2) crashkernel=1G                            //low=1G
+3) crashkernel=4G                            //high=4G, low=128M(default)
+4) crashkernel=4G crashkernel=256M,high      //high=4G, low=128M(default), high is ignored
+5) crashkernel=4G crashkernel=256M,low       //high=4G, low=128M(default), low is ignored
+6) crashkernel=4G,high                       //high=4G, low=128M(default)
+7) crashkernel=256M,low                      //low=0M, invalid
+8) crashkernel=4G,high crashkernel=256M,low  //high=4G, low=256M
+9) crashkernel=4G,high crashkernel=4G,low    //high=0M, low=0M, invalid
+10) crashkernel=512M@0xd0000000              //low=512M
+
+Chen Jiahao (2):
+  riscv: kdump: Implement crashkernel=X,[high,low]
+  docs: kdump: Update the crashkernel description for riscv
+
+ .../admin-guide/kernel-parameters.txt         | 15 ++---
+ arch/riscv/kernel/setup.c                     |  5 ++
+ arch/riscv/mm/init.c                          | 56 ++++++++++++++++++-
+ 3 files changed, 66 insertions(+), 10 deletions(-)
 
 -- 
-~Vinod
+2.31.1
+
 
 _______________________________________________
 linux-riscv mailing list
