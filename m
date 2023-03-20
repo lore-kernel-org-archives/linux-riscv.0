@@ -4,76 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2415BC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 09:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83EFC7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 10:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=saS5OEy8+Ujvc9Rfa18GpUoMZDrfLYIk4gYTx9Yll1g=; b=03eR/OQlqYBJ9K
-	KoxJSCvSxvymiqtFfiiSd79g7OMHb0nr2k655gatF3Bl7ZjDlYGJr2LdjVVtqvxTSkgbu7m4YMCyP
-	rvrQxkRM9BPC1wSX79fEYPNYPeqMPqdVBvEXsL/Xy/uziDiAt2ZEoqiowPO5x15zZ1zpPsfETLb8b
-	HnVDuXyQUpGLuxmPzo27f+7MvManxNOMXALPM0sDtD17ry2s8ZE7iP81AG1HSLfuWKFCDX1OFrR27
-	8wPJc8Ya89ZmnNgTyPBbxTaYqRawERXGhsDp0KU+Ucpv19tbep6s5qlGzvzlm5BfJHIcCIcI+eUWb
-	1hPhgR64jajjgpqlUi3A==;
+	List-Owner; bh=h9ewY+HhWtO74UOl4+SaCM8vJE0N13iFNFSv0XbbfYY=; b=kHMHTkxACf9oq1
+	tHwAmd9rztQH2ZglRsF9PQ6q6CRjA0p1FLUqdRCJs4BnLYTMa4q7ulAYHdf4WHR7gS+Wlg16KK3iO
+	7fBoAtoL0k7SRp8cOnFyybJhmf69VBrLVg6cPJD02zx8FuaZuD1Jgvc8iPcBYDcVbmzvNUpgEsbGe
+	uNHOM89IO+LV+LIKkBHtlLRbyb7t1rZIqXqMhyrILSPYt3Ak4fvJE4NK1GD9I6aOGKhfIBHamcGZj
+	JvWHFu4kGD7GPwnAhGKBOXASj/FkQv0OmQ3IfTGz9vnlv5aJDoisBKLTQP2WomZAS6dtrKY+eL/qo
+	/8DqYmrI1sXzddD5ldMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peBdG-008S2J-2t;
-	Mon, 20 Mar 2023 09:16:46 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peBdC-008S14-0R
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 09:16:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9508024E1B5;
-	Mon, 20 Mar 2023 17:16:29 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 17:16:29 +0800
-Received: from [192.168.125.128] (183.27.97.64) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 17:16:28 +0800
-Message-ID: <e3604902-2b7d-6ca5-9523-04dc09c920ed@starfivetech.com>
-Date: Mon, 20 Mar 2023 17:16:20 +0800
+	id 1peCU4-008aMk-2e;
+	Mon, 20 Mar 2023 10:11:20 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1peCU0-008aL9-2Y;
+	Mon, 20 Mar 2023 10:11:18 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d7so12333323qtr.12;
+        Mon, 20 Mar 2023 03:11:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1679307074;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yVu+5LM+n5S+m3afYfpgcD0EeRGmLNpp+tXakDwzmT8=;
+        b=beWuDmyL+NNsrvkK7dFnUmnYw04XKdrb13EeNF9Px9lt6H5FFNrH6JdvPf4+NOVRbW
+         UmEdZ9NJTRhTvjGJuV7GLe5wwPXQw516KPGlgxFMg4AXNDkjB2z1HJp0v/+9ebI8ynBX
+         3qtKBzEtxu+8mh1pAR6BgraUkxLRQqtUCn0O63niGzZnYvNrFB8RUEzftYvWxoqqkPtC
+         C34/aZNEmUvXUiBrAEkti0IENYv63XGjTczE1c8SH6OGJTYPhk08alV3aJsJ1uW88fzA
+         wZeiSGiM1C34wXrunmox3djy4K8/HHe0utwlH785SRutcG1OeSvBigKYkBkMgUxc08wZ
+         BYgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679307074;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yVu+5LM+n5S+m3afYfpgcD0EeRGmLNpp+tXakDwzmT8=;
+        b=POZjj2BT82/kR05wHLakVk3/z8UlmowyI8nHJptfkjzPU4WCIrmvLMg+evmzRr9ogO
+         hlRJj+gZTuLIHS0KdAXBLtDPYUspKrX7T1Yya+pn1itNuwbo6/fSv35nWwua4BE1Vvps
+         3v3tDegf88i80tMtdYsQ9FEzj3PTs3Mg63I74gQfs4oFfzsRD2pwZRiYymOOw8zLRePn
+         LNtOkb2EXX78swxifpbJ6CwhnlP4VQAKm4gomhEkavppz5eDwL2i+0skr1XIaQRenJuF
+         wkgT1yECfl8/2YiDnrwqy8BBRt4zqcNn2h8JUFD2xMd2dwHr8WkrpClEsgHA7RPACp69
+         SsYw==
+X-Gm-Message-State: AO0yUKUxmryYnUySiVsz7nTnHhWGDbjfHNovgBI4R9O9fFVYPgke6kl6
+	n0CZjBuSmgBvH2R0BVV7LhKxj5ZedGtxBjoQRBo=
+X-Google-Smtp-Source: AK7set/N/c1j9jpxMoJtOx8hIYRYm3z6xjz0i0SNt/oDvYWlcoKOLY50Y1BWLlTU5klU113E28kOdzETszUS/8JqKvY=
+X-Received: by 2002:a05:622a:1aa8:b0:3df:58e7:4aa5 with SMTP id
+ s40-20020a05622a1aa800b003df58e74aa5mr1704739qtc.0.1679307074525; Mon, 20 Mar
+ 2023 03:11:14 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v2 3/6] dt-bindings: soc: starfive: syscon: Add optional
- patternProperties
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
-	"Emil Renner Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
-	<hal.feng@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-References: <20230316030514.137427-1-xingyu.wu@starfivetech.com>
- <20230316030514.137427-4-xingyu.wu@starfivetech.com>
- <1f352445-4677-e33b-be14-c76bd7ffa188@linaro.org>
- <45221a1c-dc01-2759-3e32-658636625529@starfivetech.com>
- <a6b9bab2-4151-c811-85ff-2424866e21d8@linaro.org>
- <ce674ea9-41ec-2862-c39c-207f0b6c45a2@starfivetech.com>
- <a65697f4-0a75-23e2-517c-2784b0c382bc@linaro.org>
- <2eb0380e-bbb7-83fd-3916-9bdd8b068334@starfivetech.com>
- <8c5a7421-2948-674d-91a0-9cafe336401b@linaro.org>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <8c5a7421-2948-674d-91a0-9cafe336401b@linaro.org>
-X-Originating-IP: [183.27.97.64]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+References: <20230319115925.1317654-1-sensor1010@163.com>
+In-Reply-To: <20230319115925.1317654-1-sensor1010@163.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 20 Mar 2023 12:10:38 +0200
+Message-ID: <CAHp75Vf9kwhbZaGjZeN5Jq0Wr_yJtDdj9N48-3o79AMORqmS3w@mail.gmail.com>
+Subject: Re: [PATCH v2] drivers/gpio : Remove redundant platform_set_drvdata().
+To: Lizhe <sensor1010@163.com>
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, geert+renesas@glider.be, 
+	info@metux.net, rjui@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	f.fainelli@gmail.com, sbranden@broadcom.com, shc_work@mail.ru, 
+	j-keerthy@ti.com, hoan@os.amperecomputing.com, fancer.lancer@gmail.com, 
+	orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-imx@nxp.com, kaloz@openwrt.org, khalasa@piap.pl, 
+	keguang.zhang@gmail.com, daniel@thingy.jp, romain.perier@gmail.com, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de, 
+	grygorii.strashko@ti.com, ssantosh@kernel.org, khilman@kernel.org, 
+	mani@kernel.org, ludovic.desroches@microchip.com, andy@kernel.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, jonathanh@nvidia.com, 
+	sathyanarayanan.kuppuswamy@linux.intel.com, michal.simek@xilinx.com, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	linux-omap@vger.kernel.org, linux-unisoc@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-tegra@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_021642_456310_156B033D 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20230320_031116_827216_E9400CA7 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +100,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/20 16:36, Krzysztof Kozlowski wrote:
-> On 20/03/2023 09:26, Xingyu Wu wrote:
->> On 2023/3/20 15:40, Krzysztof Kozlowski wrote:
->>> On 20/03/2023 08:29, Xingyu Wu wrote:
->>>> On 2023/3/20 14:37, Krzysztof Kozlowski wrote:
->>>>> On 20/03/2023 04:54, Xingyu Wu wrote:
->>>>>> On 2023/3/19 20:28, Krzysztof Kozlowski wrote:
->>>>>>> On 16/03/2023 04:05, Xingyu Wu wrote:
->>>>>>>> Add optional compatible and patternProperties.
->>>>>>>>
->>>>>>>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->>>>>>>> ---
->>>>>>>>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 39 ++++++++++++++++---
->>>>>>>>  1 file changed, 33 insertions(+), 6 deletions(-)
->>>>>>>>
->>>>>>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>>>>>>> index ae7f1d6916af..b61d8921ef42 100644
->>>>>>>> --- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>>>>>>> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->>>>>>>> @@ -15,16 +15,31 @@ description: |
->>>>>>>>  
->>>>>>>>  properties:
->>>>>>>>    compatible:
->>>>>>>> -    items:
->>>>>>>> -      - enum:
->>>>>>>> -          - starfive,jh7110-aon-syscon
->>>>>>>> -          - starfive,jh7110-stg-syscon
->>>>>>>> -          - starfive,jh7110-sys-syscon
->>>>>>>> -      - const: syscon
->>>>>>>> +    oneOf:
->>>>>>>> +      - items:
->>>>>>>> +          - enum:
->>>>>>>> +              - starfive,jh7110-aon-syscon
->>>>>>>> +              - starfive,jh7110-stg-syscon
->>>>>>>> +              - starfive,jh7110-sys-syscon
->>>>>>>> +          - const: syscon
->>>>>>>> +      - items:
->>>>>>>> +          - enum:
->>>>>>>> +              - starfive,jh7110-aon-syscon
->>>>>>>> +              - starfive,jh7110-stg-syscon
->>>>>>>> +              - starfive,jh7110-sys-syscon
->>>>>>>> +          - const: syscon
->>>>>>>> +          - const: simple-mfd
->>>
->>> BTW, this also looks wrong. You just said that clock controller exists
->>> only in few variants. Also, why sometimes the same device  goes with
->>> simple-mfd and sometimies without? It's the same device.
->> 
->> Oh yes, If modified to:
->> 
->> oneOf:
->>       - items:
->>           - enum:
->>               - starfive,jh7110-aon-syscon
->>               - starfive,jh7110-stg-syscon
->>           - const: syscon
->>       - items:
->>           - const: starfive,jh7110-sys-syscon
->>           - const: syscon
->>           - const: simple-mfd
->> 
->> Or:
->> 
->>      - minItems: 2
->>        items:
->>          - enum:
->>              - starfive,jh7110-aon-syscon
->>              - starfive,jh7110-stg-syscon
->>              - starfive,jh7110-sys-syscon
->>          - const: syscon
->>          - const: simple-mfd
->> 
->> 
->> Which one is better?
-> 
-> If aon and stg are not supposed to have children, then only the first is
-> correct. It's not which is better, the second is not really correct in
-> such case.
-> 
-
-OK, will modify it in next version. Thanks.
-
-Best regards,
-Xingyu Wu
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBNYXIgMTksIDIwMjMgYXQgMjowMeKAr1BNIExpemhlIDxzZW5zb3IxMDEwQDE2My5j
+b20+IHdyb3RlOgo+Cj4gcGxhdGZvcm1fc2V0X2RydmRhdGEoKSBpcyByZWR1bmRhbnQgaW4gdGhl
+c2UgZnVuY3Rpb25zLgo+IHRoZSBwdXJwb3NlIG9mIGNhbGxpbmcgdGhpcyBmdW5jdGlvbiBpcyB0
+byBwbGFjZSBkYXRhCj4gaW4gKmRyaXZlcl9kYXRhLiBidXQgdGhlIGRhdGEgaXMgbm90IHJldHJp
+ZXZlZCBpbiB0aGVzZQo+IGZ1bmN0aW9ucwoKWW91IG5lZWQgdG86CjEpIHNwbGl0IHRoZSBzZXJp
+ZXMgb24gcGVyIGRyaXZlciBiYXNpcyAobm90IGFsbCBvZiB0aGUgZHJpdmVycyBhcmUKZ29pbmcg
+dGhydSB0aGUgc2FtZSBzdWJzeXN0ZW0pOwoyKSBpbXByb3ZlIEVuZ2xpc2ggZ3JhbW1hciBhbmQg
+c3R5bGUgaW4geW91ciBjb21taXQgbWVzc2FnZTsKMykgY2FyZWZ1bGx5IGV4cGxhaW4gaW4gdGhl
+IGNvdmVyIGxldHRlciB5b3VyIG1ldGhvZHMgb2YgZmluZGluZyB0aGUKcGxhY2VzIHlvdSB0aGlu
+ayBuZWVkIHRvIGJlIGltcHJvdmVkLgoKQmVmb3JlIHRoYXQgaXQncyBhIHdhc3RlIG9mIHRpbWUg
+dG8gbG9vayBhdCB5b3VyIGNvbnRyaWJ1dGlvbnMuCgotLSAKV2l0aCBCZXN0IFJlZ2FyZHMsCkFu
+ZHkgU2hldmNoZW5rbwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
