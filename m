@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8834FC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F00CC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 06:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R6ks9RBIySAUKoIwYssbOo+ivK9M0TwK0uloigbP07w=; b=FT/vCWxC7rTTOf
-	/F+tASN2+xIwMdbh/yEr6NeqN2I21XrrMlJGY62xuQ/uZpO6FF9w9rGqlB+xAx/wxGM7mIbxV0n2X
-	0i7vkp8+77iHsZ4Zlg/6fo5M8XwoOYy7WJDw/IKnFgJgchc5kPRzrC7aAepAynEABaMVGkHLG6EBz
-	5nWUHdMTURl9UiLC8W0/Dk2QFPJ6DDtj1chAM6PS38SNwK1TjUmWMh+KIjwDDw1F7zjncI0Owtkvh
-	eUCFEW0PUojUW1FR9stbAAEZ9mWFykfLFEhBv96WWl7g5IBLLOnmGBnOlh8NiAPA6TnF2Y2PCWI84
-	QKWPHxeKdEjdMUW/PwoA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g0KXCj4bJcgcxbaLK8XXtPLKAWpZbat8ud6Pjm4WGH8=; b=4XEM28DjtX21Ix
+	GcZHEj/9e+nkAzQ8HtLWK0l4SCjEM49uAYiqX5EpfKaoyxB2Hqcxc48lUbXIZhekOtBCZoz7RI7Ro
+	Kd10z2wW7uTEN6BpNudKNM8wofQUIrXHRFb6LmC2sjiDrzkJIXR8trPx6Chdy4IT/zUsdRAaRmbvM
+	qjhi+OqxvdoAbOBMhPp60xv+7aMwcGIb0/1624w+b1RVS51bmaoH+KvZekUKfPjlgeJlaTBOmwn4y
+	fyHF8qzkwU8/5gFS3OWC7ROU+3J3eZ34YdrB68ZxS8Z/oP4Z7W6gE6bagswmuaEnqtqOUjgeOtQOR
+	bRu2jO/VjnJahr4mpVEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9N3-008Fgc-2k;
-	Mon, 20 Mar 2023 06:51:53 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1pe9Oi-008FsO-39;
+	Mon, 20 Mar 2023 06:53:36 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9N0-008FfZ-2o
+	id 1pe9Og-008FrB-0f
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 06:51:52 +0000
-Received: by mail-ed1-x535.google.com with SMTP id eg48so42431006edb.13
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:51:47 -0700 (PDT)
+	Mon, 20 Mar 2023 06:53:35 +0000
+Received: by mail-pg1-x532.google.com with SMTP id q189so5993719pga.9
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Mar 2023 23:53:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679295106;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nwbSUlA3zxhSUQTAKIITpjLxnW9LRkO1uNXODCdYZpY=;
-        b=TJUA4HSk2vyI9uvLAda9IAbvHowKju3Ud7/DXFgBBR80st2dGVOk45Uwl5Va9IOjjd
-         60Fg7d1RElyizsQ7Xn8CQklSl/L7xdryMA13aiw8RDTjzDX0hBYwH94vyMo23ak4WxP8
-         qrO44K9jkavktz5l8YFgl0F+8dzybddaQiU37RcymS7bGAS7CH+nNfXLIr8U8tkJ4z04
-         QcbV7SHE0kqpFcAGpc3spwEFft8EwdSMVPXUbP8tCx1pxHcgrnzvrRukgGz40vAG+EyK
-         82GfMoREnRGKvHqRodNjc5PZe71AseLswOVGwKILOdkEYvI9gLONMieIHRKOmpreWKqK
-         dYsQ==
+        d=sifive.com; s=google; t=1679295212;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1Q3g41CkezKxnf5VWV/J1VVDSQcOZEqV2zQvUvC8Kkw=;
+        b=QxeUP2oK3Q1RQdbogQaT1WIpkFDZ46+ntu3Wd3pniW+c8lO3ixJmVNNWGOqv3lZMvG
+         Acn1AkM0BnfkXcjhIlmhNd81d+1sMV4wBsa+4cjxlv8KiEmdmVS6lyYUXcwYbHh+ZUiO
+         V4D0r47wyZkus0jvVgJmRSZ3jHReuYcH78uaMLLa7hkqqligmOroBq9SWJFjjRKSfA+S
+         ECqS9Ux2DonlgDW+Mz+UVPdWSZ+4GVxajfFtou0tfXRpjEhTGE++xK00KYQoAsIdXGnO
+         v6KanqTmkOxt4jE05v7bkLatMMTp6KI3oD1UR40srOzXVkBNYYGdfoOc8m3W0YLAmmDo
+         mveA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679295106;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nwbSUlA3zxhSUQTAKIITpjLxnW9LRkO1uNXODCdYZpY=;
-        b=jxMP72dqdNeKMEhdkOPuUEPuHtGQbZuxB07Bf2EL12U4eY2Wuqnm04et+4B+ajQeKJ
-         fCDCU5TSDsDICevcgrdr0X4FC1X7PPCBOiZGG2FZMzG8k0PpbqtDbzuM6hw8SuhKpaF4
-         k2mk9chq2Fqe6CbxTpIE67onKcdSaglO2bs1F81StmrIdTgLnVLdcALVguBepoO7jVga
-         nb+tiLs1gvVqBCzzNja0EGTze9KSyVYFguqkRadh2WwPDxjae/3ogMfi++G9qLOuTSSc
-         fv+P9b26euaaL2d9EWzCWSNYmXuHkKYV/XDwymoE16Z+8s6FXyU1apjdJdWii6IQykkO
-         Nugw==
-X-Gm-Message-State: AO0yUKX4ieKNwgOkJGc0RgI4H6+w8rhJKR8tyobr7bJ6QhAM6d5+QdPu
-	1Qbkeqk9azQNl9ziSsGN7KalJw==
-X-Google-Smtp-Source: AK7set8Sjm75w1NkHTe1vkKDO/DxHYYy69GkFCJ6+mezWU4SeCxP3PBNqIc3uz5JtTX1pbrqswwBjg==
-X-Received: by 2002:a17:906:cedd:b0:932:4cbf:5bcc with SMTP id si29-20020a170906cedd00b009324cbf5bccmr7853610ejb.37.1679295106132;
-        Sun, 19 Mar 2023 23:51:46 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:4428:8354:afb6:2992? ([2a02:810d:15c0:828:4428:8354:afb6:2992])
-        by smtp.gmail.com with ESMTPSA id g1-20020a1709061c8100b0092669fb4ba1sm3983391ejh.130.2023.03.19.23.51.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Mar 2023 23:51:44 -0700 (PDT)
-Message-ID: <170bc10c-143a-86d8-91b6-7841584b8f0a@linaro.org>
-Date: Mon, 20 Mar 2023 07:51:42 +0100
+        d=1e100.net; s=20210112; t=1679295212;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1Q3g41CkezKxnf5VWV/J1VVDSQcOZEqV2zQvUvC8Kkw=;
+        b=skB2MpiVwFDUxlUrnqYlv3oox6d6a3kF62tzE+6bdcnF/v0b9l/1MGJDPJZRx9+HtD
+         /ne7mjlojSNdDMxZ7ALa2m2PgN2EH78RtyuIQTp7oUgACSaU1ekG3CPAT5vmmQYuM/Gf
+         VSekPGRb0pcQ586y5OXeseFpnGfY5r+3QO2YhD4XJi3mLK2h1EOgNnbeFF5HTZ1rN6s8
+         N7unMYP6e8h1MsjLNVJRHNU7Wj3bamcvg67pokZhNLG3PH8Yo+XgLlWi7TZqZV7wrtTh
+         S9KjTDwvzP81hAhrAuFuydwFmldY2Snc9OeARnhZ4P7ZHHSKrR044jWinjD1EEX3a1s2
+         GFPA==
+X-Gm-Message-State: AO0yUKUpE7330nkluA3U7MPL6hXKxtys4ForYqTCd2vlxLPYmQiVKjA6
+	Z38YL67eZZOQWsw+ULBBBhVYiw==
+X-Google-Smtp-Source: AK7set9uwaTpOM77izYFiwEvzM82LB06sz/M5zJslenvXLLDZU9VxBYgDVDFkgTrNNKCDfxMVbHMxQ==
+X-Received: by 2002:a62:7bc7:0:b0:5ce:ef1b:a86 with SMTP id w190-20020a627bc7000000b005ceef1b0a86mr13309840pfc.2.1679295211904;
+        Sun, 19 Mar 2023 23:53:31 -0700 (PDT)
+Received: from localhost.localdomain (111-251-215-182.dynamic-ip.hinet.net. [111.251.215.182])
+        by smtp.gmail.com with ESMTPSA id b1-20020a6567c1000000b005023496e339sm5501494pgs.63.2023.03.19.23.53.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Mar 2023 23:53:31 -0700 (PDT)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org,
+	vincent.chen@sifive.com
+Subject: [PATCH] riscv: mm: execute local TLB flush after populating vmemmap
+Date: Mon, 20 Mar 2023 14:53:24 +0800
+Message-Id: <20230320065324.1045276-1-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v2 3/4] dt-bindings: arm: sunxi: document MangoPi MQ-R
- board names
-Content-Language: en-US
-To: Andre Przywara <andre.przywara@arm.com>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>
-References: <20230320005249.13403-1-andre.przywara@arm.com>
- <20230320005249.13403-4-andre.przywara@arm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230320005249.13403-4-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230319_235150_940313_7CB75F3D 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230319_235334_316412_463CF7D1 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +86,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?B?QW5kcsOhcyBTemVtesO2?= <szemzo.andras@gmail.com>, Belisko Marek <marek.belisko@gmail.com>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2023 01:52, Andre Przywara wrote:
-> The MangoPi MQ-R board is a small development board, using Allwinner
-> SoCs with co-packaged DRAM. There are versions with a RISC-V core and
-> ones with two Arm Cortex-A7 cores.
-> 
+The vmemmap_populate() creates VA to PA mapping for the VMEMMAP area, where
+all "strcut page" are located once CONFIG_SPARSEMEM_VMEMMAP is defined.
+These "struct page" are later initialized in the zone_sizes_init()
+function. However, during this process, no sfence.vma instruction is
+executed for this VMEMMAP area. This omission may cause the core to fail to
+perform page table work because some data related to the address
+translation is invisible to the core. To solve this issue, here let
+zone_sizes_init() call local_flush_tlb_kernel_range() to execute a
+sfence.vma instruction for the VMEMMAP area, ensuring that all data related
+to the address translation is visible to the core.
 
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+---
+ arch/riscv/include/asm/tlbflush.h | 7 +++++++
+ arch/riscv/mm/init.c              | 3 +++
+ 2 files changed, 10 insertions(+)
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 801019381dea..b7696974e3c6 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -59,4 +59,11 @@ static inline void flush_tlb_kernel_range(unsigned long start,
+ 	flush_tlb_all();
+ }
+ 
++/* Flush a range of kernel pages without broadcasting */
++static inline void local_flush_tlb_kernel_range(unsigned long start,
++						unsigned long end)
++{
++	local_flush_tlb_all();
++}
++
+ #endif /* _ASM_RISCV_TLBFLUSH_H */
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2c4a64e97aec..62eea656e341 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -72,6 +72,9 @@ static void __init zone_sizes_init(void)
+ #endif
+ 	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
+ 
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
++#endif
+ 	free_area_init(max_zone_pfns);
+ }
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
