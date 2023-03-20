@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C41C7619A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 12:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34190C7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 12:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ayl6qt2LJd8jZychG/i19E3fJI0hj3caCzaJGxfsHZw=; b=rRdh//kq6hTFce
-	RBRu8L7g2Hg8hV+a3vNMBB7ciYapnSR2eD49OHIeM4ozPCu29p+jNwDDgR8Lr18RLxPVk3xv/THwY
-	W4aib0tSYzp8Z7/XMvhqSQSavwPjKlxMbqUAZR9I49QZPuM8FoMxxpSfnWlcAOtru49MjI1O56XKB
-	HT+lUOhO+7WsJIDsXlMVzjE11+Fb3D9dA9k7jq+kdI9yJTsisjvSGRe3hnlYwnL8HaE2SOhRwTe6K
-	T/oR4XnjGoMnASQWsUmtiE0CVXO9E2uETiPmnuEPVs1dwqc7Z9EjD9VjihNOH8LLA6uHDHISexjru
-	QHkBYWWSDRhK55L0Lu4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+fYXLSZBef9cTYjKy3/BzJdZJAvaM/k5rsqWyphof48=; b=dgZVAaxXrEtlPmlM+W1Pw69etr
+	SrnRHl0kt0rbWekAbtvPa9XicE9j0HHTO0jDOy+AGRzhlCU6RGGjinPKH21zoF6SSpGjY1HrZrsiu
+	rb9f9mgMhmnuY7Y1LThETJ4oPI7miyGja+QpeREmZX/hh/TIEHbOaKWMnntLVUWIWipqSX7tTg5RK
+	4GNjZWLZE0O4zJmd2De7i1gUoTlapC95XM1XHYO4MWLpfwSxSXJhHsn4aE8adxVXS5JcxzfOp4XF2
+	W+xH1WS3i5I2CHYos57Al8AajOMGtugARseNCN+/aYDpEprBDOyEx91N2CK882RtR8sJTplY5CabY
+	zZoq2prw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peEu6-008zrc-08;
-	Mon, 20 Mar 2023 12:46:22 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1peF4K-0091fA-31;
+	Mon, 20 Mar 2023 12:56:56 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peEtx-008zoR-2x;
-	Mon, 20 Mar 2023 12:46:17 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.56])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4PgDss1SYdz17MgS;
-	Mon, 20 Mar 2023 20:42:57 +0800 (CST)
-Received: from huawei.com (10.67.174.205) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21; Mon, 20 Mar
- 2023 20:46:00 +0800
-From: Chen Jiahao <chenjiahao16@huawei.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
-Subject: [PATCH -next 1/2] riscv: kdump: Implement crashkernel=X,[high,low]
-Date: Tue, 21 Mar 2023 04:42:43 +0800
-Message-ID: <20230320204244.1637821-2-chenjiahao16@huawei.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20230320204244.1637821-1-chenjiahao16@huawei.com>
-References: <20230320204244.1637821-1-chenjiahao16@huawei.com>
+	id 1peF4H-0091di-1L
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Mar 2023 12:56:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679317013; x=1710853013;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=JxYQs4vBC++B9Sz4RVW+Z4iBWNDki12w1yoHgV52Gxk=;
+  b=Nqay76I22p++XKJ3kRwPJkrGqimbIjtL5nl4avJfgxj42+73+jW/RqqD
+   m+5MC9mEfyEL3oxNGjR1uhlxIcy6wZ8zc9ST11PnnqnYIaM5XOg/Clorn
+   L0vWSCBqLL/5BgtIp0utwo2z0pfgs6r8R3adJZU3pjyQ6ZxvAWLQEvsEt
+   hV3NJZHk9ILo/R0fWxGs24RM6AXwhpRjiNJrmw83nY4hIo9LzZPR12ybd
+   6YKrUaXV6R4HKsIppB23n4TvJfeF5EsJnHOONrDt31sjf/Jk4m0HTKFcU
+   P+Fmp86WpM54F1wtMpCdUo/89PExkI76jrW3ZgrOJBT0lfFeXoEE+EaVm
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
+   d="asc'?scan'208";a="142921144"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 05:56:49 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 20 Mar 2023 05:56:49 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 20 Mar 2023 05:56:48 -0700
+Date: Mon, 20 Mar 2023 12:56:18 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<leyfoon.tan@starfivetech.com>, <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v6 4/4] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Message-ID: <ad8fcf05-0e3f-4350-b9ad-533cee984580@spud>
+References: <20230314050316.31701-1-jeeheng.sia@starfivetech.com>
+ <20230314050316.31701-5-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.205]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+In-Reply-To: <20230314050316.31701-5-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_054614_293851_B426FEB5 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20230320_055653_516128_86702F31 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,148 +79,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6506755589072224307=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On riscv, the current crash kernel allocation logic is trying to
-allocate within 32bit addressible memory region by default, if
-failed, try to allocate without 4G restriction.
+--===============6506755589072224307==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="92iwmNY3MZHZxEZB"
+Content-Disposition: inline
 
-In need of saving DMA zone memory while allocating a relatively large
-crash kernel region, allocating the reserved memory top down in
-high memory, without overlapping the DMA zone, is a mature solution.
-Here introduce the parameter option crashkernel=X,[high,low].
+--92iwmNY3MZHZxEZB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-We can reserve the crash kernel from high memory above DMA zone range
-by explicitly passing "crashkernel=X,high"; or reserve a memory range
-below 4G with "crashkernel=X,low".
+On Tue, Mar 14, 2023 at 01:03:16PM +0800, Sia Jee Heng wrote:
+> Low level Arch functions were created to support hibernation.
+> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> cpu state onto the stack, then calling swsusp_save() to save the memory
+> image.
+>=20
+> Arch specific hibernation header is implemented and is utilized by the
+> arch_hibernation_header_restore() and arch_hibernation_header_save()
+> functions. The arch specific hibernation header consists of satp, hartid,
+> and the cpu_resume address. The kernel built version is also need to be
+> saved into the hibernation image header to making sure only the same
+> kernel is restore when resume.
+>=20
+> swsusp_arch_resume() creates a temporary page table that covering only
+> the linear map. It copies the restore code to a 'safe' page, then start
+> to restore the memory image. Once completed, it restores the original
+> kernel's page table. It then calls into __hibernate_cpu_resume()
+> to restore the CPU context. Finally, it follows the normal hibernation
+> path back to the hibernation core.
+>=20
+> To enable hibernation/suspend to disk into RISCV, the below config
+> need to be enabled:
+> - CONFIG_ARCH_HIBERNATION_HEADER
+> - CONFIG_ARCH_HIBERNATION_POSSIBLE
+>=20
+> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
 
-Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
----
- arch/riscv/kernel/setup.c |  5 ++++
- arch/riscv/mm/init.c      | 56 ++++++++++++++++++++++++++++++++++++---
- 2 files changed, 58 insertions(+), 3 deletions(-)
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index c5e42cc37604..473c2a1a6884 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -707,6 +707,12 @@  menu "Power management options"
+> =20
+>  source "kernel/power/Kconfig"
+> =20
+> +config ARCH_HIBERNATION_POSSIBLE
+> +	def_bool y
+> +
+> +config ARCH_HIBERNATION_HEADER
+> +	def_bool HIBERNATION
+> +
+>  endmenu # "Power management options"
+> =20
+>  menu "CPU Power Management"
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 376d2827e736..d867b1535da4 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -176,6 +176,11 @@ static void __init init_resources(void)
- 		if (ret < 0)
- 			goto error;
- 	}
-+	if (crashk_low_res.start != crashk_low_res.end) {
-+		ret = add_resource(&iomem_resource, &crashk_low_res);
-+		if (ret < 0)
-+			goto error;
-+	}
- #endif
- 
- #ifdef CONFIG_CRASH_DUMP
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 478d6763a01a..5def2174b243 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1152,6 +1152,28 @@ static inline void setup_vm_final(void)
- }
- #endif /* CONFIG_MMU */
- 
-+/* Reserve 128M low memory by default for swiotlb buffer */
-+#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
-+
-+static int __init reserve_crashkernel_low(unsigned long long low_size)
-+{
-+	unsigned long long low_base;
-+
-+	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
-+	if (!low_base) {
-+		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
-+		return -ENOMEM;
-+	}
-+
-+	pr_info("crashkernel low memory reserved: 0x%08llx - 0x%08llx (%lld MB)\n",
-+		low_base, low_base + low_size, low_size >> 20);
-+
-+	crashk_low_res.start = low_base;
-+	crashk_low_res.end = low_base + low_size - 1;
-+
-+	return 0;
-+}
-+
- /*
-  * reserve_crashkernel() - reserves memory for crash kernel
-  *
-@@ -1163,6 +1185,7 @@ static void __init reserve_crashkernel(void)
- {
- 	unsigned long long crash_base = 0;
- 	unsigned long long crash_size = 0;
-+	unsigned long long crash_low_size = 0;
- 	unsigned long search_start = memblock_start_of_DRAM();
- 	unsigned long search_end = memblock_end_of_DRAM();
- 
-@@ -1182,8 +1205,26 @@ static void __init reserve_crashkernel(void)
- 
- 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
- 				&crash_size, &crash_base);
--	if (ret || !crash_size)
-+	if (ret == -ENOENT) {
-+		ret = parse_crashkernel_high(boot_command_line, 0, &crash_size, &crash_base);
-+		if (ret || !crash_size)
-+			return;
-+
-+		/*
-+		 * crashkernel=Y,low can be specified or not, but invalid value
-+		 * is not allowed.
-+		 */
-+		ret = parse_crashkernel_low(boot_command_line, 0, &crash_low_size, &crash_base);
-+		if (ret == -ENOENT)
-+			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-+		else if (ret)
-+			return;
-+
-+		search_start = dma32_phys_limit;
-+	} else if (ret || !crash_size) {
-+		/* Invalid argument value specified */
- 		return;
-+	}
- 
- 	crash_size = PAGE_ALIGN(crash_size);
- 
-@@ -1201,16 +1242,25 @@ static void __init reserve_crashkernel(void)
- 	 */
- 	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
- 					       search_start,
--					       min(search_end, (unsigned long) SZ_4G));
-+					       min(search_end, (unsigned long) dma32_phys_limit));
- 	if (crash_base == 0) {
- 		/* Try again without restricting region to 32bit addressible memory */
- 		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
--						search_start, search_end);
-+						       search_start, search_end);
- 		if (crash_base == 0) {
- 			pr_warn("crashkernel: couldn't allocate %lldKB\n",
- 				crash_size >> 10);
- 			return;
- 		}
-+
-+		if (!crash_low_size)
-+			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-+	}
-+
-+	if ((crash_base > dma32_phys_limit - crash_low_size) &&
-+	     crash_low_size && reserve_crashkernel_low(crash_low_size)) {
-+		memblock_phys_free(crash_base, crash_size);
-+		return;
- 	}
- 
- 	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
--- 
-2.31.1
+Since these options are not user-selectable, how come these are
+def_bools, rather than just selecting them in the main `config RISCV`
+section? Is there some sort of dependency that goes wrong when
+structured that way?
 
+> diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
+> new file mode 100644
+> index 000000000000..f11be60b0668
+> --- /dev/null
+> +++ b/arch/riscv/kernel/hibernate.c
+
+> +/**
+> + * struct arch_hibernate_hdr_invariants - container to store kernel buil=
+d version.
+> + * @uts_version: to save the build number and date so that the we do not=
+ resume with
+
+nit: s/so that the we/so that we/
+
+I noted previously that the page table stuff is beyond me, so modulo
+that, I'm happy with how this looks now.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks for adding hibernation support!
+Conor.
+
+--92iwmNY3MZHZxEZB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhX8gAKCRB4tDGHoIJi
+0l8vAP9Ee+Fz+1lL0amzFYBI/Hu68qUOkYzhS1WKahRNKBYm7wD/VHK4GaBsPUg4
+KCiyt/fV6/UPkd/ICdIl2l/kmo6WUg0=
+=Npkv
+-----END PGP SIGNATURE-----
+
+--92iwmNY3MZHZxEZB--
+
+
+--===============6506755589072224307==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6506755589072224307==--
+
