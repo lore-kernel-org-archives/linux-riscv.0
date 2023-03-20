@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83932C7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F35C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 13:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQspTWdlI6ltIkIZArDmwvVjCq4pGuqAh50oNABFlIs=; b=Wt4DU+D7IXDQsWIcmbhcyAI5m/
-	WBWsIiBzzqsEE9ZrPCwINwltDINigW/b5wLUgTh8LDPa6FpoxieytmgJ0tK7vsbCILn7PFtC9hDQS
-	gA2/sB3bL5whDbkGwudzyuJBOEVO426r6zFgwAN5s+mdhxKFu379GWpJvf6MJBkjB0WPe2nRaOhFC
-	oAFxyD0BfrU69yp4092oVOxZRuLDuXaGa02CugjN/6dPHh1JSHqx8P96s5ZHVwgZs6eqvHHA+LW8K
-	HxFK5ERwRxDvUvj8MmfIRkPVqkDeXtOfej0AwBjRZyNrOxke8yV+3JJQED0Fyly7lEjom4Wv0WdKg
-	C6jWbgzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Td2WXUindLlO0F+qzn7id2veYATh97DMmJ7k6tEvHSc=; b=zG+dBL8YmwOkgO
+	gJlQ9yiq7V7OkPsHFpkoW8vBzBv6uiI9XyrUhaeonNfxVANVuiT36wvo1xwXSIUYjJprI6R9X9YiG
+	xvQrUbIPimeINyz05w0IsIGX54/yffy+AdtuDM/wd/QUoU0i5D4ZA1GJq++m0XNH1aDwUx+WtcFYQ
+	swqlS71GEBB1Qt5RjouwiynWj51rFLmCbWOgyic68ozD8cXFc1G97WUtZ+T2Cvr5y8HMdG6QujSSa
+	xQf4YnjTVX2IIo0WzsThQdZhKdYP+8MyPP5gzeup4y6ARmhvTmyxx2ah693KCQrTLYaSVFam+WaG2
+	XqQNtzvRy9bllj5tjiyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFEs-0093W2-0X;
-	Mon, 20 Mar 2023 13:07:50 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1peFOl-0095R2-2I;
+	Mon, 20 Mar 2023 13:18:03 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peFEo-0093Ud-1Q;
-	Mon, 20 Mar 2023 13:07:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1679317666; x=1710853666;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7w0/Fv7Y6Ejl6TmQJMw+6C+2veIfg3OxJTIOTANspNQ=;
-  b=f/3DoExI40U1J+1JCUqGunpVytezRVNjjkjGqrkm5Ejb9blrPfquThyS
-   wihIW545CWHMboSClJ6Vi9xLmGjTtP72RlnuRldqCS63jsH/7BPJH0bY6
-   xSSx/+/y9j8E0Tp245aQczly4MvSQB+JAdL4fYPEJLi8DMlaMRJ3md40X
-   K3mUuTqZF+v7EdzZoRn2zfyNzjjbWuuOJS1Y85c7npp0NEp1mSuIjaIY8
-   y7G1uOHkwACn2siQh50KRvXL1jSw2G8lxxgThI7Q/qEOC3Dd3G6wv9cns
-   lMnlTbyghT4DfPUjl+KFdRKMup3GyffGado3UctmiDooIp100pAe26NnM
-   A==;
-X-IronPort-AV: E=Sophos;i="5.98,274,1673938800"; 
-   d="asc'?scan'208";a="217103041"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Mar 2023 06:07:44 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 20 Mar 2023 06:07:44 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 20 Mar 2023 06:07:41 -0700
-Date: Mon, 20 Mar 2023 13:07:11 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-Subject: Re: [PATCH -next v15 09/19] riscv: Add task switch support for vector
-Message-ID: <38d91df7-1a94-4e55-acff-fa74899091d3@spud>
-References: <20230317113538.10878-1-andy.chiu@sifive.com>
- <20230317113538.10878-10-andy.chiu@sifive.com>
+	id 1peFOe-0095LU-22;
+	Mon, 20 Mar 2023 13:18:00 +0000
+Received: from localhost.localdomain (unknown [117.133.56.22])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 427315801C3;
+	Mon, 20 Mar 2023 21:17:38 +0800 (CST)
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+To: mhiramat@kernel.org,
+	rostedt@goodmis.org,
+	linux@armlinux.org.uk,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	mingo@redhat.com,
+	xiehuan09@gmail.com,
+	dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn,
+	dolinux.peng@gmail.com
+Cc: linux-trace-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: [PATCH v5 2/2] tracing: Add documentation for funcgraph-retval and graph_retval_hex
+Date: Mon, 20 Mar 2023 06:16:50 -0700
+Message-Id: <20230320131650.482594-3-pengdonglin@sangfor.com.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
+References: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
-In-Reply-To: <20230317113538.10878-10-andy.chiu@sifive.com>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZS0hMVk4YSEgdTE8dHU0dGlUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpISkJIT1VKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NQw6SDo4DD0VPRFJThQ8GAs#
+	NzpPCzBVSlVKTUxCSEpDSU5CT0NNVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFMS0pONwY+
+X-HM-Tid: 0a86ff2b15712eb7kusn427315801c3
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_060746_525137_93573387 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20230320_061757_063894_E6EE86E8 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +80,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, guoren@linux.alibaba.com, Heiko Stuebner <heiko@sntech.de>, kvm@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, atishp@atishpatra.org, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Nick Knight <nick.knight@sifive.com>, anup@brainfault.org, Ruinland Tsai <ruinland.tsai@sifive.com>, greentime.hu@sifive.com, Albert Ou <aou@eecs.berkeley.edu>, vineetg@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Dmitry Vyukov <dvyukov@google.com>, Vincent Chen <vincent.chen@sifive.com>, palmer@dabbelt.com, "Eric W.
- Biederman" <ebiederm@xmission.com>, kvm-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============6731562495114321774=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6731562495114321774==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DAVGBkmh26aPh/E2"
-Content-Disposition: inline
+Add documentation for the two newly introduced options for the
+function_graph tracer. The new option funcgraph-retval is used to
+control whether or not to display the return value. The new option
+graph_retval_hex is used to control the display format of the return
+value.
 
---DAVGBkmh26aPh/E2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+---
+v5:
+ - Describe the limitations of funcgraph-retval
+---
+ Documentation/trace/ftrace.rst | 75 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
 
-On Fri, Mar 17, 2023 at 11:35:28AM +0000, Andy Chiu wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
->=20
-> This patch adds task switch support for vector. It also supports all
-> lengths of vlen.
->=20
-> Suggested-by: Andrew Waterman <andrew@sifive.com>
-> Co-developed-by: Nick Knight <nick.knight@sifive.com>
-> Signed-off-by: Nick Knight <nick.knight@sifive.com>
-> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Co-developed-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-> Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
+index b927fb2b94dc..797841d15da9 100644
+--- a/Documentation/trace/ftrace.rst
++++ b/Documentation/trace/ftrace.rst
+@@ -1328,6 +1328,19 @@ Options for function_graph tracer:
+ 	only a closing curly bracket "}" is displayed for
+ 	the return of a function.
+ 
++  funcgraph-retval
++	When set, the return event will include the function and
++	its return value. Note that even if the function return
++	type is void, a return value will also be printed, you
++	should ignore it. This option is off by default.
++
++  graph_retval_hex
++	Depend on function-retval. When set, the function return
++	value will be printed in hexadecimal format. If this is not
++	set and the return value looks like an error code, it will
++	be printed in signed decimal format, else in hexadecimal
++	format. This option is off by default.
++
+   sleep-time
+ 	When running function graph tracer, to include
+ 	the time a task schedules out in its function.
+@@ -2673,6 +2686,68 @@ It is default disabled.
+     0)   1.757 us    |        } /* kmem_cache_free() */
+     0)   2.861 us    |      } /* putname() */
+ 
++The return value of each traced function can be displayed. This
++feature can be very useful when you encounter system call failures
++and want to locate the function that return errors firstly.
++
++	- hide: echo nofuncgraph-retval > trace_options
++	- show: echo funcgraph-retval > trace_options
++
++  Example with funcgraph-retval::
++
++    1)               |    cgroup_migrate() {
++    1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
++    1)               |      cgroup_migrate_execute() {
++    1)               |        cpu_cgroup_can_attach() {
++    1)               |          cgroup_taskset_first() {
++    1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
++    1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
++    1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
++    1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
++    1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
++    1)   7.143 us    |    } /* cgroup_migrate = -22 */
++
++The above example shows that the cgroup function cpu_cgroup_can_attach
++returned the error code -22 firstly, then we can read the code of this
++function to get the root cause.
++
++If the option graph_retval_hex is not set and the return value looks
++like an error code, it will be printed in signed decimal format. In
++other cases, it will be printed in hexadecimal format.
++
++	- hexadecimal or signed decimal: echo nograph_retval_hex > trace_options
++	- hexadecimal: echo graph_retval_hex > trace_options
++
++  Example with graph_retval_hex::
++
++    1)               |      cgroup_migrate() {
++    1)   0.651 us    |        cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
++    1)               |        cgroup_migrate_execute() {
++    1)               |          cpu_cgroup_can_attach() {
++    1)               |            cgroup_taskset_first() {
++    1)   0.732 us    |              cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
++    1)   1.232 us    |            } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
++    1)   0.380 us    |            sched_rt_can_attach(); /* = 0x0 */
++    1)   2.335 us    |          } /* cpu_cgroup_can_attach = 0xffffffea */
++    1)   4.369 us    |        } /* cgroup_migrate_execute = 0xffffffea */
++    1)   7.143 us    |      } /* cgroup_migrate = 0xffffffea */
++
++There are some limitations when using the funcgraph-retval currently:
++
++- Even if the function return type is void, a return value will still
++  be printed, and you can just ignore it.
++
++- Even if the return value is not an error code actually, it may be
++  displayed as an error code. You should read the code to check.
++  For example, both 0xfe and 0xfffe are be interpreted as -2.
++
++- Only the value of the first return register will be recorded and
++  printed even if the return values may be stored in two registers
++  actually. For example, both the eax and edx are used to store a
++  64 bit return value in the x86 architecture, and the eax stores
++  the low 32 bit, the edx stores the high 32 bit, however only the
++  value stored in eax will be recorded and printed.
++
+ You can put some comments on specific functions by using
+ trace_printk() For example, if you want to put a comment inside
+ the __might_sleep() function, you just have to include
+-- 
+2.25.1
 
-> @@ -131,6 +166,9 @@ static __always_inline bool has_vector(void) { return=
- false; }
->  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return f=
-alse; }
->  #define riscv_v_vsize (0)
->  #define riscv_v_setup_vsize()	 		do {} while (0)
-                                        ^
-vim complains that you added a space here, between the first and second
-tabs.
-
-Otherwise,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> +#define riscv_v_vstate_save(task, regs)		do {} while (0)
-> +#define riscv_v_vstate_restore(task, regs)	do {} while (0)
-> +#define __switch_to_vector(__prev, __next)	do {} while (0)
->  #define riscv_v_vstate_off(regs)		do {} while (0)
->  #define riscv_v_vstate_on(regs)			do {} while (0)
-
---DAVGBkmh26aPh/E2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBhafwAKCRB4tDGHoIJi
-0kjXAQD5Exvw6yVA+/p+41zcBfq0O+x3U+OW1HdH9H8D9oznigEA7MUhkJdXlA+j
-w8tQBq4mmlJuAbuBaJPiL4SFfayTYgo=
-=j0ZU
------END PGP SIGNATURE-----
-
---DAVGBkmh26aPh/E2--
-
-
---===============6731562495114321774==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6731562495114321774==--
-
