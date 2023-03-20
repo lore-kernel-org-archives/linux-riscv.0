@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8BFC7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 10:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1433C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 10:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SCR5zVvdYo1S+g9yilpbBEBCJqEX9hmN5Jmuv4i6C0Q=; b=iPFy/druNt9DJk
-	dB9pKzqOzOHiov56l5GvhPH44bSUbMLhklliGwSz+bmoe5wRr2LcM1fER79Mqg9ScuABIM51XyLTz
-	s0Evuk9esuWyou92m+k+G0fPFxmtH7Rl1gP9T+2KkBRPc5wmEZi1ty6c+TMuBoGUPImx0ZzUN5STn
-	LrhamrCiAqgWtUj8J3pdVGMZB3JVwNFrTCq5vt9wuLKsHcFE76To3+Yl+ZDGc/q9IasOuhrG6lCid
-	VnYmI5SJjpp0yWHJYEEZ9NwhpUW8l8fVTjSuZejnpgGNl+kT/SL5Kz8kHU/89d9Diqr2EGni+1CMu
-	Jbcfw7f98OuYOvGYHz+g==;
+	List-Owner; bh=Bf2LqKOxY+KhYmCa8Rktkf+tbsO66e27eIEeXmdnx+g=; b=iahePWSn4G42R6
+	1Y0TRKKtVNWKntuSjqkqorHUPKIqKR/v/yaazReL20/EnuwSPxSj2odzXUZz1cogOY795eosGVlCh
+	fUnf8Y6LKhPADsz9EgPLvhNKGXj7NjF6lQTAGFKIBk0VsyJAEGcOFcPD62DWyDDD44H/llQ02tWVM
+	6z/1llbpIn31dkWLuRCz+HE8y36FO89vopLosKklcD32WFoRJTWeRVmJlo/vy17Og7XrDuH+tGV/H
+	EhXU6rtLPWDxwCvwSHFFGEutZntl1UIeDB1KvEzmQl4rgqR9XkWBxZQgETdkgx3EUHAElDSS4wHl8
+	iswOO9aKT5429R4Z2zQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peCuV-008esu-2x;
-	Mon, 20 Mar 2023 10:38:39 +0000
+	id 1peCuY-008eue-0V;
+	Mon, 20 Mar 2023 10:38:42 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peCuS-008epn-0l
+	id 1peCuS-008epp-0l
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 10:38:38 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 20 Mar 2023 10:38:40 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2524524E196;
-	Mon, 20 Mar 2023 18:38:05 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 18:38:05 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 6557524E29B;
+	Mon, 20 Mar 2023 18:38:09 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
+ 2023 18:38:09 +0800
 Received: from ubuntu.localdomain (183.27.97.64) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 18:38:03 +0800
+ 2023 18:38:08 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -51,9 +51,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 15/21] reset: starfive: Add StarFive JH7110 reset driver
-Date: Mon, 20 Mar 2023 18:37:44 +0800
-Message-ID: <20230320103750.60295-16-hal.feng@starfivetech.com>
+Subject: [PATCH v6 20/21] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+Date: Mon, 20 Mar 2023 18:37:49 +0800
+Message-ID: <20230320103750.60295-21-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230320103750.60295-1-hal.feng@starfivetech.com>
 References: <20230320103750.60295-1-hal.feng@starfivetech.com>
@@ -63,8 +63,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_033836_601528_CC2DAA9C 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20230320_033836_885547_767B7BB3 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,119 +81,334 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary driver to support StarFive JH7110 system
-and always-on resets.
+From: Jianlong Huang <jianlong.huang@starfivetech.com>
+
+Add pin function definitions for StarFive JH7110 SoC.
 
 Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- drivers/reset/starfive/Kconfig                |  8 +++
- drivers/reset/starfive/Makefile               |  1 +
- .../reset/starfive/reset-starfive-jh7110.c    | 70 +++++++++++++++++++
- 3 files changed, 79 insertions(+)
- create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
+ arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++++++++++++
+ 1 file changed, 308 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
 
-diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
-index 1927a5a3b53a..1fa706a2c3dc 100644
---- a/drivers/reset/starfive/Kconfig
-+++ b/drivers/reset/starfive/Kconfig
-@@ -10,3 +10,11 @@ config RESET_STARFIVE_JH7100
- 	default ARCH_STARFIVE
- 	help
- 	  This enables the reset controller driver for the StarFive JH7100 SoC.
-+
-+config RESET_STARFIVE_JH7110
-+	bool "StarFive JH7110 Reset Driver"
-+	depends on AUXILIARY_BUS && CLK_STARFIVE_JH7110_SYS
-+	select RESET_STARFIVE_JH71X0
-+	default ARCH_STARFIVE
-+	help
-+	  This enables the reset controller driver for the StarFive JH7110 SoC.
-diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
-index f6aa12466fad..7a44b66fb9d5 100644
---- a/drivers/reset/starfive/Makefile
-+++ b/drivers/reset/starfive/Makefile
-@@ -2,3 +2,4 @@
- obj-$(CONFIG_RESET_STARFIVE_JH71X0)		+= reset-starfive-jh71x0.o
- 
- obj-$(CONFIG_RESET_STARFIVE_JH7100)		+= reset-starfive-jh7100.o
-+obj-$(CONFIG_RESET_STARFIVE_JH7110)		+= reset-starfive-jh7110.o
-diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
 new file mode 100644
-index 000000000000..4ccb3f72ca83
+index 000000000000..fb0139b56723
 --- /dev/null
-+++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -0,0 +1,70 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+@@ -0,0 +1,308 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * Reset driver for the StarFive JH7110 SoC
-+ *
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 + * Copyright (C) 2022 StarFive Technology Co., Ltd.
 + */
 +
-+#include <linux/auxiliary_bus.h>
++#ifndef __JH7110_PINFUNC_H__
++#define __JH7110_PINFUNC_H__
 +
-+#include "reset-starfive-jh71x0.h"
++/*
++ * mux bits:
++ *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
++ *  |  din    |  dout   |  doen   | function | gpio nr |
++ *
++ * dout:     output signal
++ * doen:     output enable signal
++ * din:      optional input signal, 0xff = none
++ * function: function selector
++ * gpio nr:  gpio number, 0 - 63
++ */
++#define GPIOMUX(n, dout, doen, din) ( \
++		(((din)  & 0xff) << 24) | \
++		(((dout) & 0xff) << 16) | \
++		(((doen) & 0x3f) << 10) | \
++		((n) & 0x3f))
 +
-+#include <dt-bindings/reset/starfive,jh7110-crg.h>
++#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
 +
-+struct jh7110_reset_info {
-+	unsigned int nr_resets;
-+	unsigned int assert_offset;
-+	unsigned int status_offset;
-+};
++/* sys_iomux dout */
++#define GPOUT_LOW				0
++#define GPOUT_HIGH				1
++#define GPOUT_SYS_WAVE511_UART_TX		2
++#define GPOUT_SYS_CAN0_STBY			3
++#define GPOUT_SYS_CAN0_TST_NEXT_BIT		4
++#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		5
++#define GPOUT_SYS_CAN0_TXD			6
++#define GPOUT_SYS_USB_DRIVE_VBUS		7
++#define GPOUT_SYS_QSPI_CS1			8
++#define GPOUT_SYS_SPDIF				9
++#define GPOUT_SYS_HDMI_CEC_SDA			10
++#define GPOUT_SYS_HDMI_DDC_SCL			11
++#define GPOUT_SYS_HDMI_DDC_SDA			12
++#define GPOUT_SYS_WATCHDOG			13
++#define GPOUT_SYS_I2C0_CLK			14
++#define GPOUT_SYS_I2C0_DATA			15
++#define GPOUT_SYS_SDIO0_BACK_END_POWER		16
++#define GPOUT_SYS_SDIO0_CARD_POWER_EN		17
++#define GPOUT_SYS_SDIO0_CCMD_OD_PULLUP_EN	18
++#define GPOUT_SYS_SDIO0_RST			19
++#define GPOUT_SYS_UART0_TX			20
++#define GPOUT_SYS_HIFI4_JTAG_TDO		21
++#define GPOUT_SYS_JTAG_TDO			22
++#define GPOUT_SYS_PDM_MCLK			23
++#define GPOUT_SYS_PWM_CHANNEL0			24
++#define GPOUT_SYS_PWM_CHANNEL1			25
++#define GPOUT_SYS_PWM_CHANNEL2			26
++#define GPOUT_SYS_PWM_CHANNEL3			27
++#define GPOUT_SYS_PWMDAC_LEFT			28
++#define GPOUT_SYS_PWMDAC_RIGHT			29
++#define GPOUT_SYS_SPI0_CLK			30
++#define GPOUT_SYS_SPI0_FSS			31
++#define GPOUT_SYS_SPI0_TXD			32
++#define GPOUT_SYS_GMAC_PHYCLK			33
++#define GPOUT_SYS_I2SRX_BCLK			34
++#define GPOUT_SYS_I2SRX_LRCK			35
++#define GPOUT_SYS_I2STX0_BCLK			36
++#define GPOUT_SYS_I2STX0_LRCK			37
++#define GPOUT_SYS_MCLK				38
++#define GPOUT_SYS_TDM_CLK			39
++#define GPOUT_SYS_TDM_SYNC			40
++#define GPOUT_SYS_TDM_TXD			41
++#define GPOUT_SYS_TRACE_DATA0			42
++#define GPOUT_SYS_TRACE_DATA1			43
++#define GPOUT_SYS_TRACE_DATA2			44
++#define GPOUT_SYS_TRACE_DATA3			45
++#define GPOUT_SYS_TRACE_REF			46
++#define GPOUT_SYS_CAN1_STBY			47
++#define GPOUT_SYS_CAN1_TST_NEXT_BIT		48
++#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT		49
++#define GPOUT_SYS_CAN1_TXD			50
++#define GPOUT_SYS_I2C1_CLK			51
++#define GPOUT_SYS_I2C1_DATA			52
++#define GPOUT_SYS_SDIO1_BACK_END_POWER		53
++#define GPOUT_SYS_SDIO1_CARD_POWER_EN		54
++#define GPOUT_SYS_SDIO1_CLK			55
++#define GPOUT_SYS_SDIO1_CMD_OD_PULLUP_EN	56
++#define GPOUT_SYS_SDIO1_CMD			57
++#define GPOUT_SYS_SDIO1_DATA0			58
++#define GPOUT_SYS_SDIO1_DATA1			59
++#define GPOUT_SYS_SDIO1_DATA2			60
++#define GPOUT_SYS_SDIO1_DATA3			61
++#define GPOUT_SYS_SDIO1_DATA4			63
++#define GPOUT_SYS_SDIO1_DATA5			63
++#define GPOUT_SYS_SDIO1_DATA6			64
++#define GPOUT_SYS_SDIO1_DATA7			65
++#define GPOUT_SYS_SDIO1_RST			66
++#define GPOUT_SYS_UART1_RTS			67
++#define GPOUT_SYS_UART1_TX			68
++#define GPOUT_SYS_I2STX1_SDO0			69
++#define GPOUT_SYS_I2STX1_SDO1			70
++#define GPOUT_SYS_I2STX1_SDO2			71
++#define GPOUT_SYS_I2STX1_SDO3			72
++#define GPOUT_SYS_SPI1_CLK			73
++#define GPOUT_SYS_SPI1_FSS			74
++#define GPOUT_SYS_SPI1_TXD			75
++#define GPOUT_SYS_I2C2_CLK			76
++#define GPOUT_SYS_I2C2_DATA			77
++#define GPOUT_SYS_UART2_RTS			78
++#define GPOUT_SYS_UART2_TX			79
++#define GPOUT_SYS_SPI2_CLK			80
++#define GPOUT_SYS_SPI2_FSS			81
++#define GPOUT_SYS_SPI2_TXD			82
++#define GPOUT_SYS_I2C3_CLK			83
++#define GPOUT_SYS_I2C3_DATA			84
++#define GPOUT_SYS_UART3_TX			85
++#define GPOUT_SYS_SPI3_CLK			86
++#define GPOUT_SYS_SPI3_FSS			87
++#define GPOUT_SYS_SPI3_TXD			88
++#define GPOUT_SYS_I2C4_CLK			89
++#define GPOUT_SYS_I2C4_DATA			90
++#define GPOUT_SYS_UART4_RTS			91
++#define GPOUT_SYS_UART4_TX			92
++#define GPOUT_SYS_SPI4_CLK			93
++#define GPOUT_SYS_SPI4_FSS			94
++#define GPOUT_SYS_SPI4_TXD			95
++#define GPOUT_SYS_I2C5_CLK			96
++#define GPOUT_SYS_I2C5_DATA			97
++#define GPOUT_SYS_UART5_RTS			98
++#define GPOUT_SYS_UART5_TX			99
++#define GPOUT_SYS_SPI5_CLK			100
++#define GPOUT_SYS_SPI5_FSS			101
++#define GPOUT_SYS_SPI5_TXD			102
++#define GPOUT_SYS_I2C6_CLK			103
++#define GPOUT_SYS_I2C6_DATA			104
++#define GPOUT_SYS_SPI6_CLK			105
++#define GPOUT_SYS_SPI6_FSS			106
++#define GPOUT_SYS_SPI6_TXD			107
 +
-+static const struct jh7110_reset_info jh7110_sys_info = {
-+	.nr_resets = JH7110_SYSRST_END,
-+	.assert_offset = 0x2F8,
-+	.status_offset = 0x308,
-+};
++/* aon_iomux dout */
++#define GPOUT_AON_CLK_32K_OUT			2
++#define GPOUT_AON_PTC0_PWM4			3
++#define GPOUT_AON_PTC0_PWM5			4
++#define GPOUT_AON_PTC0_PWM6			5
++#define GPOUT_AON_PTC0_PWM7			6
++#define GPOUT_AON_CLK_GCLK0			7
++#define GPOUT_AON_CLK_GCLK1			8
++#define GPOUT_AON_CLK_GCLK2			9
 +
-+static const struct jh7110_reset_info jh7110_aon_info = {
-+	.nr_resets = JH7110_AONRST_END,
-+	.assert_offset = 0x38,
-+	.status_offset = 0x3C,
-+};
++/* sys_iomux doen */
++#define GPOEN_ENABLE				0
++#define GPOEN_DISABLE				1
++#define GPOEN_SYS_HDMI_CEC_SDA			2
++#define GPOEN_SYS_HDMI_DDC_SCL			3
++#define GPOEN_SYS_HDMI_DDC_SDA			4
++#define GPOEN_SYS_I2C0_CLK			5
++#define GPOEN_SYS_I2C0_DATA			6
++#define GPOEN_SYS_HIFI4_JTAG_TDO		7
++#define GPOEN_SYS_JTAG_TDO			8
++#define GPOEN_SYS_PWM0_CHANNEL0			9
++#define GPOEN_SYS_PWM0_CHANNEL1			10
++#define GPOEN_SYS_PWM0_CHANNEL2			11
++#define GPOEN_SYS_PWM0_CHANNEL3			12
++#define GPOEN_SYS_SPI0_NSSPCTL			13
++#define GPOEN_SYS_SPI0_NSSP			14
++#define GPOEN_SYS_TDM_SYNC			15
++#define GPOEN_SYS_TDM_TXD			16
++#define GPOEN_SYS_I2C1_CLK			17
++#define GPOEN_SYS_I2C1_DATA			18
++#define GPOEN_SYS_SDIO1_CMD			19
++#define GPOEN_SYS_SDIO1_DATA0			20
++#define GPOEN_SYS_SDIO1_DATA1			21
++#define GPOEN_SYS_SDIO1_DATA2			22
++#define GPOEN_SYS_SDIO1_DATA3			23
++#define GPOEN_SYS_SDIO1_DATA4			24
++#define GPOEN_SYS_SDIO1_DATA5			25
++#define GPOEN_SYS_SDIO1_DATA6			26
++#define GPOEN_SYS_SDIO1_DATA7			27
++#define GPOEN_SYS_SPI1_NSSPCTL			28
++#define GPOEN_SYS_SPI1_NSSP			29
++#define GPOEN_SYS_I2C2_CLK			30
++#define GPOEN_SYS_I2C2_DATA			31
++#define GPOEN_SYS_SPI2_NSSPCTL			32
++#define GPOEN_SYS_SPI2_NSSP			33
++#define GPOEN_SYS_I2C3_CLK			34
++#define GPOEN_SYS_I2C3_DATA			35
++#define GPOEN_SYS_SPI3_NSSPCTL			36
++#define GPOEN_SYS_SPI3_NSSP			37
++#define GPOEN_SYS_I2C4_CLK			38
++#define GPOEN_SYS_I2C4_DATA			39
++#define GPOEN_SYS_SPI4_NSSPCTL			40
++#define GPOEN_SYS_SPI4_NSSP			41
++#define GPOEN_SYS_I2C5_CLK			42
++#define GPOEN_SYS_I2C5_DATA			43
++#define GPOEN_SYS_SPI5_NSSPCTL			44
++#define GPOEN_SYS_SPI5_NSSP			45
++#define GPOEN_SYS_I2C6_CLK			46
++#define GPOEN_SYS_I2C6_DATA			47
++#define GPOEN_SYS_SPI6_NSSPCTL			48
++#define GPOEN_SYS_SPI6_NSSP			49
 +
-+static int jh7110_reset_probe(struct auxiliary_device *adev,
-+			      const struct auxiliary_device_id *id)
-+{
-+	struct jh7110_reset_info *info = (struct jh7110_reset_info *)(id->driver_data);
-+	void __iomem **base = (void __iomem **)dev_get_drvdata(adev->dev.parent);
++/* aon_iomux doen */
++#define GPOEN_AON_PTC0_OE_N_4			2
++#define GPOEN_AON_PTC0_OE_N_5			3
++#define GPOEN_AON_PTC0_OE_N_6			4
++#define GPOEN_AON_PTC0_OE_N_7			5
 +
-+	if (!info || !base)
-+		return -ENODEV;
++/* sys_iomux gin */
++#define GPI_NONE				255
 +
-+	return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
-+					      *base + info->assert_offset,
-+					      *base + info->status_offset,
-+					      NULL,
-+					      info->nr_resets,
-+					      NULL);
-+}
++#define GPI_SYS_WAVE511_UART_RX			0
++#define GPI_SYS_CAN0_RXD			1
++#define GPI_SYS_USB_OVERCURRENT			2
++#define GPI_SYS_SPDIF				3
++#define GPI_SYS_JTAG_RST			4
++#define GPI_SYS_HDMI_CEC_SDA			5
++#define GPI_SYS_HDMI_DDC_SCL			6
++#define GPI_SYS_HDMI_DDC_SDA			7
++#define GPI_SYS_HDMI_HPD			8
++#define GPI_SYS_I2C0_CLK			9
++#define GPI_SYS_I2C0_DATA			10
++#define GPI_SYS_SDIO0_CD			11
++#define GPI_SYS_SDIO0_INT			12
++#define GPI_SYS_SDIO0_WP			13
++#define GPI_SYS_UART0_RX			14
++#define GPI_SYS_HIFI4_JTAG_TCK			15
++#define GPI_SYS_HIFI4_JTAG_TDI			16
++#define GPI_SYS_HIFI4_JTAG_TMS			17
++#define GPI_SYS_HIFI4_JTAG_RST			18
++#define GPI_SYS_JTAG_TDI			19
++#define GPI_SYS_JTAG_TMS			20
++#define GPI_SYS_PDM_DMIC0			21
++#define GPI_SYS_PDM_DMIC1			22
++#define GPI_SYS_I2SRX_SDIN0			23
++#define GPI_SYS_I2SRX_SDIN1			24
++#define GPI_SYS_I2SRX_SDIN2			25
++#define GPI_SYS_SPI0_CLK			26
++#define GPI_SYS_SPI0_FSS			27
++#define GPI_SYS_SPI0_RXD			28
++#define GPI_SYS_JTAG_TCK			29
++#define GPI_SYS_MCLK_EXT			30
++#define GPI_SYS_I2SRX_BCLK			31
++#define GPI_SYS_I2SRX_LRCK			32
++#define GPI_SYS_I2STX0_BCLK			33
++#define GPI_SYS_I2STX0_LRCK			34
++#define GPI_SYS_TDM_CLK				35
++#define GPI_SYS_TDM_RXD				36
++#define GPI_SYS_TDM_SYNC			37
++#define GPI_SYS_CAN1_RXD			38
++#define GPI_SYS_I2C1_CLK			39
++#define GPI_SYS_I2C1_DATA			40
++#define GPI_SYS_SDIO1_CD			41
++#define GPI_SYS_SDIO1_INT			42
++#define GPI_SYS_SDIO1_WP			43
++#define GPI_SYS_SDIO1_CMD			44
++#define GPI_SYS_SDIO1_DATA0			45
++#define GPI_SYS_SDIO1_DATA1			46
++#define GPI_SYS_SDIO1_DATA2			47
++#define GPI_SYS_SDIO1_DATA3			48
++#define GPI_SYS_SDIO1_DATA4			49
++#define GPI_SYS_SDIO1_DATA5			50
++#define GPI_SYS_SDIO1_DATA6			51
++#define GPI_SYS_SDIO1_DATA7			52
++#define GPI_SYS_SDIO1_STRB			53
++#define GPI_SYS_UART1_CTS			54
++#define GPI_SYS_UART1_RX			55
++#define GPI_SYS_SPI1_CLK			56
++#define GPI_SYS_SPI1_FSS			57
++#define GPI_SYS_SPI1_RXD			58
++#define GPI_SYS_I2C2_CLK			59
++#define GPI_SYS_I2C2_DATA			60
++#define GPI_SYS_UART2_CTS			61
++#define GPI_SYS_UART2_RX			62
++#define GPI_SYS_SPI2_CLK			63
++#define GPI_SYS_SPI2_FSS			64
++#define GPI_SYS_SPI2_RXD			65
++#define GPI_SYS_I2C3_CLK			66
++#define GPI_SYS_I2C3_DATA			67
++#define GPI_SYS_UART3_RX			68
++#define GPI_SYS_SPI3_CLK			69
++#define GPI_SYS_SPI3_FSS			70
++#define GPI_SYS_SPI3_RXD			71
++#define GPI_SYS_I2C4_CLK			72
++#define GPI_SYS_I2C4_DATA			73
++#define GPI_SYS_UART4_CTS			74
++#define GPI_SYS_UART4_RX			75
++#define GPI_SYS_SPI4_CLK			76
++#define GPI_SYS_SPI4_FSS			77
++#define GPI_SYS_SPI4_RXD			78
++#define GPI_SYS_I2C5_CLK			79
++#define GPI_SYS_I2C5_DATA			80
++#define GPI_SYS_UART5_CTS			81
++#define GPI_SYS_UART5_RX			82
++#define GPI_SYS_SPI5_CLK			83
++#define GPI_SYS_SPI5_FSS			84
++#define GPI_SYS_SPI5_RXD			85
++#define GPI_SYS_I2C6_CLK			86
++#define GPI_SYS_I2C6_DATA			87
++#define GPI_SYS_SPI6_CLK			88
++#define GPI_SYS_SPI6_FSS			89
++#define GPI_SYS_SPI6_RXD			90
 +
-+static const struct auxiliary_device_id jh7110_reset_ids[] = {
-+	{
-+		.name = "clk_starfive_jh71x0.reset-sys",
-+		.driver_data = (kernel_ulong_t)&jh7110_sys_info,
-+	},
-+	{
-+		.name = "clk_starfive_jh71x0.reset-aon",
-+		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
++/* aon_iomux gin */
++#define GPI_AON_PMU_GPIO_WAKEUP_0		0
++#define GPI_AON_PMU_GPIO_WAKEUP_1		1
++#define GPI_AON_PMU_GPIO_WAKEUP_2		2
++#define GPI_AON_PMU_GPIO_WAKEUP_3		3
 +
-+static struct auxiliary_driver jh7110_reset_driver = {
-+	.probe		= jh7110_reset_probe,
-+	.id_table	= jh7110_reset_ids,
-+};
-+module_auxiliary_driver(jh7110_reset_driver);
-+
-+MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive JH7110 reset driver");
-+MODULE_LICENSE("GPL");
++#endif
 -- 
 2.38.1
 
