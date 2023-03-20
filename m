@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A774FC7618A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 07:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A88C7618A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 07:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RTMOh3Kifx9e1jNaq1g6ri03iGJq1jGHFgiM0a5Vqy4=; b=TGdmqQgoTREjsK
-	JDVXLQFvMwKt4E2SFuULChitEFrQBupdNNY6JKP7r7ulLiEKCW5mNZSTKsEWtrm8m4kJ9wrlciMFC
-	bPMzy8Rnzpu21qN68/nkaWexb8M2AhcJ/hVBFcfYUQUn4WC2FQgAC0mPXhz99Y3YnE/JwC3VnFXrf
-	33QZffGmkNvPRS1EbQ3Cp7cTMaYrKWIF1bAOCCoNpcf/4RarOKBF2BxxFdZ7zSbii1IiiE8Vw1T82
-	6sO8WuRNIvL6CGZIo85UyulYXUYg7+QeKSPczbd45BUeYJhu5f5sSdVmVU9m5sgxNDiyMh+20JGOa
-	wML5zBnmpcqG0cGshlVQ==;
+	List-Owner; bh=DFN6GKuVurBcKUWw8BOv+DjJqqEEjBU0REcTLNwdtBY=; b=E4DaKGpkLyXkAx
+	HRpzMZoFtKpukgQ4HZt8df9DFI0jUSKdXWIJqfrOBKj0v6IpZT/0zRWzEIrLu9gUzrhzqxSq1mgGl
+	D2a9ti3r+yrbRVa7/CcPiamFgAGqSZMQ6qRg8UB1y2KnsSuseYFVEuOcNyvWZJHhnwXAPn3/iF7jV
+	7dAQdrYOP6aSOruzu4XuWbvoDxQjN3zwv/SrkswIjdzGycJDRgrOHX3RTMFmiwxZDzvjhR+v1lDXJ
+	ln+TX7WK3kqzIrBvHHA9PPv5t3AuHtzmGMl2mAyt9A343rtb6bcEC+wFtPZ5LHzB0QrFmUeNJ0KBx
+	xZxWuCLPcIZQXylCv/yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9qC-008IPf-27;
-	Mon, 20 Mar 2023 07:22:00 +0000
+	id 1pe9y6-008JCT-2k;
+	Mon, 20 Mar 2023 07:30:10 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pe9q8-008IMz-03
+	id 1pe9y3-008JBt-1g
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 07:21:59 +0000
+	Mon, 20 Mar 2023 07:30:10 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 16B0A24E263;
-	Mon, 20 Mar 2023 15:21:00 +0800 (CST)
-Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 8E20B24E1DF;
+	Mon, 20 Mar 2023 15:29:55 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 15:20:58 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX163.cuchost.com
- (172.16.7.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
- 2023 15:20:58 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Mon, 20 Mar 2023 15:20:58 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH v6 0/4] RISC-V Hibernation Support
-Thread-Topic: [PATCH v6 0/4] RISC-V Hibernation Support
-Thread-Index: AQHZVjJN8ydv64d8Vka8VV2EaIDg/68DSv4g
-Date: Mon, 20 Mar 2023 07:20:58 +0000
-Message-ID: <1a2b03d49ce1440b9e50ca8a13320782@EXMBX066.cuchost.com>
-References: <20230314050316.31701-1-jeeheng.sia@starfivetech.com>
-In-Reply-To: <20230314050316.31701-1-jeeheng.sia@starfivetech.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+ 2023 15:29:55 +0800
+Received: from [192.168.125.128] (183.27.97.64) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Mar
+ 2023 15:29:54 +0800
+Message-ID: <ce674ea9-41ec-2862-c39c-207f0b6c45a2@starfivetech.com>
+Date: Mon, 20 Mar 2023 15:29:46 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 3/6] dt-bindings: soc: starfive: syscon: Add optional
+ patternProperties
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
+	"Emil Renner Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
+	<hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
+References: <20230316030514.137427-1-xingyu.wu@starfivetech.com>
+ <20230316030514.137427-4-xingyu.wu@starfivetech.com>
+ <1f352445-4677-e33b-be14-c76bd7ffa188@linaro.org>
+ <45221a1c-dc01-2759-3e32-658636625529@starfivetech.com>
+ <a6b9bab2-4151-c811-85ff-2424866e21d8@linaro.org>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <a6b9bab2-4151-c811-85ff-2424866e21d8@linaro.org>
+X-Originating-IP: [183.27.97.64]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_002156_404691_86856505 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20230320_003007_876795_39A4A313 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,124 +85,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 2023/3/20 14:37, Krzysztof Kozlowski wrote:
+> On 20/03/2023 04:54, Xingyu Wu wrote:
+>> On 2023/3/19 20:28, Krzysztof Kozlowski wrote:
+>>> On 16/03/2023 04:05, Xingyu Wu wrote:
+>>>> Add optional compatible and patternProperties.
+>>>>
+>>>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>>>> ---
+>>>>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 39 ++++++++++++++++---
+>>>>  1 file changed, 33 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>> index ae7f1d6916af..b61d8921ef42 100644
+>>>> --- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>>>> @@ -15,16 +15,31 @@ description: |
+>>>>  
+>>>>  properties:
+>>>>    compatible:
+>>>> -    items:
+>>>> -      - enum:
+>>>> -          - starfive,jh7110-aon-syscon
+>>>> -          - starfive,jh7110-stg-syscon
+>>>> -          - starfive,jh7110-sys-syscon
+>>>> -      - const: syscon
+>>>> +    oneOf:
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - starfive,jh7110-aon-syscon
+>>>> +              - starfive,jh7110-stg-syscon
+>>>> +              - starfive,jh7110-sys-syscon
+>>>> +          - const: syscon
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - starfive,jh7110-aon-syscon
+>>>> +              - starfive,jh7110-stg-syscon
+>>>> +              - starfive,jh7110-sys-syscon
+>>>> +          - const: syscon
+>>>> +          - const: simple-mfd
+>>>>  
+>>>>    reg:
+>>>>      maxItems: 1
+>>>>  
+>>>> +patternProperties:
+>>>> +  # Optional children
+>>>> +  "pll-clock-controller":
+>>>
+>>> It's not a pattern.
+>> 
+>> Does it use 'properties' instead of 'patternProperties'?
+> 
+> Yes.
+> 
+>> 
+>>>
+>>> Anyway should be clock-controller
+>> 
+>> Will fix.
+>> 
+>>>
+>>>> +    type: object
+>>>> +    $ref: /schemas/clock/starfive,jh7110-pll.yaml#
+>>>> +    description: Clock provider for PLL.
+>>>> +
+>>>
+>>> You just added these bindings! So the initial submission was incomplete
+>>> on purpose?
+>>>
+>>> No, add complete bindings.
+>> 
+>> Does you mean that it should drop the 'description', or add complete 'description',
+>> or add 'compatible', 'clocks' and 'clock-cells' of complete clock-controller bindings?
+> 
+> It means it should be squashed with the patch which adds it.
 
-I understand that you must be extremely busy, but I was wondering if there are any comments for the below v6 patch series?
+Should I drop the 'decription' here and keep the 'decription' in patch1?
 
-Thanks
-Regards
-Jee Heng
+> 
+>> 
+>>>
+>>>>  required:
+>>>>    - compatible
+>>>>    - reg
+>>>> @@ -38,4 +53,16 @@ examples:
+>>>>          reg = <0x10240000 0x1000>;
+>>>>      };
+>>>>  
+>>>> +  - |
+>>>> +    syscon@13030000 {
+>>>
+>>> No need for new example... Just put it in existing one.
+>>>
+>> 
+>> Actually, the PLL clock-controller are just set in sys-syscon resgisters. The stg-syscon and
+>> aon-syscon don't need it. So PLL clock-controller node only is added in sys-syscon node.
+> 
+> So why having other examples if they are included here? Drop them.
+> 
 
-> -----Original Message-----
-> From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Sent: Tuesday, March 14, 2023 1:03 PM
-> To: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu
-> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; JeeHeng Sia <jeeheng.sia@starfivetech.com>; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> Subject: [PATCH v6 0/4] RISC-V Hibernation Support
-> 
-> This series adds RISC-V Hibernation/suspend to disk support.
-> Low level Arch functions were created to support hibernation.
-> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-> cpu state onto the stack, then calling swsusp_save() to save the memory
-> image.
-> 
-> Arch specific hibernation header is implemented and is utilized by the
-> arch_hibernation_header_restore() and arch_hibernation_header_save()
-> functions. The arch specific hibernation header consists of satp, hartid,
-> and the cpu_resume address. The kernel built version is also need to be
-> saved into the hibernation image header to making sure only the same
-> kernel is restore when resume.
-> 
-> swsusp_arch_resume() creates a temporary page table that covering only
-> the linear map. It copies the restore code to a 'safe' page, then start to
-> restore the memory image. Once completed, it restores the original
-> kernel's page table. It then calls into __hibernate_cpu_resume()
-> to restore the CPU context. Finally, it follows the normal hibernation
-> path back to the hibernation core.
-> 
-> To enable hibernation/suspend to disk into RISCV, the below config
-> need to be enabled:
-> - CONFIG_ARCH_HIBERNATION_HEADER
-> - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> 
-> At high-level, this series includes the following changes:
-> 1) Change suspend_save_csrs() and suspend_restore_csrs()
->    to public function as these functions are common to
->    suspend/hibernation. (patch 1)
-> 2) Refactor the common code in the __cpu_resume_enter() function and
->    __hibernate_cpu_resume() function. The common code are used by
->    hibernation and suspend. (patch 2)
-> 3) Enhance kernel_page_present() function to support huge page. (patch 3)
-> 4) Add arch/riscv low level functions to support
->    hibernation/suspend to disk. (patch 4)
-> 
-> The above patches are based on kernel v6.3-rc2 and are tested on
-> StarFive VF2 SBC board and Qemu.
-> ACPI platform mode is not supported in this series.
-> 
-> Changes since v5:
-> - Rebased to kernel v6.3-rc2
-> - Removed extra line at the commit msg
-> - Added comment to describe the reason to map the kernel address
-> 
-> Changes since v4:
-> - Rebased to kernel v6.3-rc1
-> - Resolved typo(s)
-> - Removed unnecessary helper function
-> - Removed unnecessary "addr" local variable
-> - Removed typecast of 'int'
-> - Used def_bool HIBERNATION
-> - Used "mv a0, zero" instead of "add a0, zero, zero"
-> - Make linear region as executable and writable when restoring the
->   image
-> 
-> Changes since v3:
-> - Rebased to kernel v6.2
-> - Temporary page table code refactoring by reference to ARM64
-> - Resolved typo(s) and grammars
-> - Resolved documentation errors
-> - Resolved clang build issue
-> - Removed unnecessary comments
-> - Used kzalloc instead of kcalloc
-> 
-> Changes since v2:
-> - Rebased to kernel v6.2-rc5
-> - Refactor the common code used by hibernation and suspend
-> - Create copy_page macro
-> - Solved other comments from Andrew and Conor
-> 
-> Changes since v1:
-> - Rebased to kernel v6.2-rc3
-> - Fixed bot's compilation error
-> 
-> Sia Jee Heng (4):
->   RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public
->     function
->   RISC-V: Factor out common code of __cpu_resume_enter()
->   RISC-V: mm: Enable huge page support to kernel_page_present() function
->   RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> 
->  arch/riscv/Kconfig                 |   6 +
->  arch/riscv/include/asm/assembler.h |  82 ++++++
->  arch/riscv/include/asm/suspend.h   |  22 ++
->  arch/riscv/kernel/Makefile         |   1 +
->  arch/riscv/kernel/asm-offsets.c    |   5 +
->  arch/riscv/kernel/hibernate-asm.S  |  77 ++++++
->  arch/riscv/kernel/hibernate.c      | 427 +++++++++++++++++++++++++++++
->  arch/riscv/kernel/suspend.c        |   4 +-
->  arch/riscv/kernel/suspend_entry.S  |  34 +--
->  arch/riscv/mm/pageattr.c           |   8 +
->  10 files changed, 633 insertions(+), 33 deletions(-)
->  create mode 100644 arch/riscv/include/asm/assembler.h
->  create mode 100644 arch/riscv/kernel/hibernate-asm.S
->  create mode 100644 arch/riscv/kernel/hibernate.c
-> 
-> 
-> base-commit: fc89d7fb499b0162e081f434d45e8d1b47e82ece
-> --
-> 2.34.1
+Should I drop the old example of stg-syscon and add a new example of sys-syscon which
+include clock-controller child node?
 
+Best regards,
+Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
