@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D01C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4784AC76195
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+6xDx5lsrJTL9jkKl7LFzSJYgm0fHVIPxupXpZkMZjI=; b=yrLBxCqvheFlM8
-	zz4ZQNGZ9CxNY2Zm+PeOUnSscPy3nhZikpCYJOHMckdzr5XDCVgukl1YwxkVnslJxb/AC8JD9deMB
-	F2urI6KDfExFrmnIuiNs+BYa4Y6Uxlku3M0mQWg+33YrSP+givvdI1TOaTGc3Bd537us4859RIGD4
-	l6NN7Bn4KPD15tcVkv2NMbXx6mID6Ik/Hn3Om+LSW9zzKj2TCq+Me0ZOmAB68rmisissIEYoHV6tj
-	1i001JFgRucPMFh1e6M/eaY8I/imUUdzemjTzGkToG2KfYsrLAUVapSY5lClfpp9u/FBcYcb7uzp1
-	T5y0KTHxoH64PnY5U2hA==;
+	List-Owner; bh=FZERb1tpiKRAqMHvWHn0ZGqRXSlXuw2xwWfNPgnAzow=; b=nfTJXw7g/hi3jI
+	ppxrKPy4Z0HKze0gCbs+NSSbbjeyIZvoYwEg8vL3CDEmE79bopOA0ybCv63im6qhdJl13yHrVJ24L
+	kq7u6wgvf9Kffck3IilQzLQSm9UdlwI62KLQTotzZB7leJDU50n7iuILoACo8rhIltIA+papKEOD/
+	q6AJznuNJSvwVArqfnciqIFsPBy4C9PZktPHxXbbPC4B0ePSLB+ddwGFZaEXGTcN0tA679zetloO/
+	cBgh3aEpqDQfxuz14bRFWWrh1GP4nvScfMztvdrOu6cuCirQXX8oK95XWJ/Uhwaps8oXgwSiXbSqB
+	o40oKwO46OOL29QB1SEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyi-00DsLx-1b;
-	Tue, 21 Mar 2023 21:57:12 +0000
+	id 1pejyj-00DsMX-11;
+	Tue, 21 Mar 2023 21:57:13 +0000
 Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyF-00Ds51-0w;
+	id 1pejyF-00Ds4R-0w;
 	Tue, 21 Mar 2023 21:56:44 +0000
 Received: from localhost (unknown [188.24.179.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 962C566030E5;
-	Tue, 21 Mar 2023 21:56:38 +0000 (GMT)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 4D88166030DF;
+	Tue, 21 Mar 2023 21:56:35 +0000 (GMT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1679435798;
-	bh=JQqVAql/b8lfHBRY2dfjEmOJ6R42cKTw5nJB8IbERcE=;
+	s=mail; t=1679435795;
+	bh=mOpDclaDTJeSc83M1BpXEgL629g/qm2tDMsr7YhSSc8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OrWD7eS5eHKkF4roA1WuJnkTZmgbA4XGwGyshEv6hiavNLOZpgg3HnvskW1qdpVXr
-	 NlwI89bNcvHnL1AJrr1se3DO/uwwHBSvONkP3WzGUCpJa8YmJ/ctkhKKOscWbF0PjN
-	 QnEdB56yPKMyzEg2J9m/PJN40J8JsIb/QIvs3NeyGgZ+zCZbEg9bfQfjQ0JkU844jC
-	 vCnHCVngezBzfzXLWHEQU9xr7DcNWbveQVBBSPys/1QiPQGOJdi2qX0ss0uD/K7w3W
-	 7q7TkerSbs+pDOJHUzINIDCc6Hpt4lVZW6QB+Q7BiWHq/sqwHF71cucBFFZ93HeMXT
-	 K6ntiQauyQwvg==
+	b=awyxbDIsZyjAwYN9hxxUriRmqW+9fKK3KifYSd90eQKgfubhh3FXVkSlmVsDhFI+f
+	 dTfCi313rWYgbgXXvPGyVQwU9dcHngG41SVzUWCV/i7/c69nyhFLgsIM2ZbH8PFwGz
+	 Kq0y9wD3Z5h9EZDX1Ed7TD4ZjsftVy90uZFp1v2joZGtZyma/b8I7tg52TBeWkAEyl
+	 5RK3vH8OY9hAnhSYqPTSVWWyibxGgY7LvQEmGcPJ75yT1Vt6ZD2Gcsd7Io7h2rpGYW
+	 4msJTtB0YrCPBnV2+vrcYj/OaCY6MMFVTiCvp9kmfn8SGI1E8fdPv4dEmDg4iYEkYb
+	 jQv5QTkzDTm7A==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -64,16 +64,16 @@ Cc: linux-serial@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 03/10] ARM: dts: sun8i: a23/a33: Switch dma-names order for snps,dw-apb-uart nodes
-Date: Tue, 21 Mar 2023 23:56:17 +0200
-Message-Id: <20230321215624.78383-4-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 02/10] ARM: dts: sun6i: a31: Switch dma-names order for snps,dw-apb-uart nodes
+Date: Tue, 21 Mar 2023 23:56:16 +0200
+Message-Id: <20230321215624.78383-3-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_145643_495782_9E8643C2 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20230321_145643_495087_57E5A920 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +107,62 @@ Do the same for the snps,dw-apb-uart nodes in the DTS file.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm/boot/dts/sun8i-a23-a33.dtsi | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/boot/dts/sun6i-a31.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/boot/dts/sun8i-a23-a33.dtsi b/arch/arm/boot/dts/sun8i-a23-a33.dtsi
-index f630ab55bb6a..4aa9d88c9ea3 100644
---- a/arch/arm/boot/dts/sun8i-a23-a33.dtsi
-+++ b/arch/arm/boot/dts/sun8i-a23-a33.dtsi
-@@ -490,7 +490,7 @@ uart0: serial@1c28000 {
- 			clocks = <&ccu CLK_BUS_UART0>;
- 			resets = <&ccu RST_BUS_UART0>;
+diff --git a/arch/arm/boot/dts/sun6i-a31.dtsi b/arch/arm/boot/dts/sun6i-a31.dtsi
+index 6cdadba6a3ac..5cce4918f84c 100644
+--- a/arch/arm/boot/dts/sun6i-a31.dtsi
++++ b/arch/arm/boot/dts/sun6i-a31.dtsi
+@@ -822,7 +822,7 @@ uart0: serial@1c28000 {
+ 			clocks = <&ccu CLK_APB2_UART0>;
+ 			resets = <&ccu RST_APB2_UART0>;
  			dmas = <&dma 6>, <&dma 6>;
 -			dma-names = "rx", "tx";
 +			dma-names = "tx", "rx";
  			status = "disabled";
  		};
  
-@@ -503,7 +503,7 @@ uart1: serial@1c28400 {
- 			clocks = <&ccu CLK_BUS_UART1>;
- 			resets = <&ccu RST_BUS_UART1>;
+@@ -835,7 +835,7 @@ uart1: serial@1c28400 {
+ 			clocks = <&ccu CLK_APB2_UART1>;
+ 			resets = <&ccu RST_APB2_UART1>;
  			dmas = <&dma 7>, <&dma 7>;
 -			dma-names = "rx", "tx";
 +			dma-names = "tx", "rx";
  			status = "disabled";
  		};
  
-@@ -516,7 +516,7 @@ uart2: serial@1c28800 {
- 			clocks = <&ccu CLK_BUS_UART2>;
- 			resets = <&ccu RST_BUS_UART2>;
+@@ -848,7 +848,7 @@ uart2: serial@1c28800 {
+ 			clocks = <&ccu CLK_APB2_UART2>;
+ 			resets = <&ccu RST_APB2_UART2>;
  			dmas = <&dma 8>, <&dma 8>;
 -			dma-names = "rx", "tx";
 +			dma-names = "tx", "rx";
  			status = "disabled";
  		};
  
-@@ -529,7 +529,7 @@ uart3: serial@1c28c00 {
- 			clocks = <&ccu CLK_BUS_UART3>;
- 			resets = <&ccu RST_BUS_UART3>;
+@@ -861,7 +861,7 @@ uart3: serial@1c28c00 {
+ 			clocks = <&ccu CLK_APB2_UART3>;
+ 			resets = <&ccu RST_APB2_UART3>;
  			dmas = <&dma 9>, <&dma 9>;
 -			dma-names = "rx", "tx";
 +			dma-names = "tx", "rx";
  			status = "disabled";
  		};
  
-@@ -542,7 +542,7 @@ uart4: serial@1c29000 {
- 			clocks = <&ccu CLK_BUS_UART4>;
- 			resets = <&ccu RST_BUS_UART4>;
+@@ -874,7 +874,7 @@ uart4: serial@1c29000 {
+ 			clocks = <&ccu CLK_APB2_UART4>;
+ 			resets = <&ccu RST_APB2_UART4>;
  			dmas = <&dma 10>, <&dma 10>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -887,7 +887,7 @@ uart5: serial@1c29400 {
+ 			clocks = <&ccu CLK_APB2_UART5>;
+ 			resets = <&ccu RST_APB2_UART5>;
+ 			dmas = <&dma 22>, <&dma 22>;
 -			dma-names = "rx", "tx";
 +			dma-names = "tx", "rx";
  			status = "disabled";
