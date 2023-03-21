@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF652C7618D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 07:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B83A2C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 07:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XvlnZGl1xhoupMCmJEQd3UyiaRePKwNkasVdQZECXy0=; b=nqm3SL2Cxwfvou
-	Ub6sdcMbSv05zg3cxX64r9ziDuFohRtla3X+XOm3QwzgO2+N9QDYnf0zSbrz+R/enAZiavcLOw3jB
-	TRG7fH87DJDA04yFFqpb2b6KNwlCz3q+oxZ+z2ZDxxqzCDNqRSZm6XW52NHfDeOXn1zP0TLJQzGa4
-	XKXCyuv3krKKnw9XxbvNqArivSBgox5tMkQ88zwNNF+tmAmrwu0Hw3E3RnyKJ8frHYs54mnlI6D6c
-	uWxh+Lkp8ood3kg+G/aqvK3qkK93wz+yLQIGeIOPojGDX9USpD7jD9btQYgXSxCecGKJe3s0IUb8s
-	c5ELSgf5bkyQBRPZtOZg==;
+	List-Owner; bh=XuidvFuotgnM1Afn4cWl7chjvYAOM/VV03uSv6awxMM=; b=ohgwFNjWxY83pB
+	1lyyHmgQO2AfO45Mm0IqkUsQtAEFahrJBcKF8fUOnjnWKWQ7b+kVd+ahS0ZY3jYr168gmYVNGgr6J
+	/lEYb+iKElHoeK1XTu7p0keuiYJ4fVfl673o+qoPLdKRakTaqc9buqwNhg8iHfT0ktcrUvq1ZHIv7
+	oSEVNOe+R+KX5wXIybNg0n00Wubtbnb5kpyR6xLg/gqhyOWhnvP0YjFFVczibt+Ue4CZ2oeRH0VQc
+	x/kaKOiEouDUgSAw618vtnbtAK9T/185tKcCBsBPbN/o29CipCZVEiJxeoukk4/gFxkVSET5BBnge
+	hB/lXc9qQkTKusJ9kU5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWAk-00BUUJ-1n;
-	Tue, 21 Mar 2023 07:12:42 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1peWC9-00BUfA-0n;
+	Tue, 21 Mar 2023 07:14:09 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWAh-00BUTc-2P
+	id 1peWC6-00BUe6-1c
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 07:12:40 +0000
-Received: by mail-ed1-x536.google.com with SMTP id eg48so55767074edb.13
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 00:12:34 -0700 (PDT)
+	Tue, 21 Mar 2023 07:14:08 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id r11so55906286edd.5
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 00:14:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679382753;
+        d=linaro.org; s=google; t=1679382845;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=dQDpM642Q7hh+JU6LrA9OjsR/cxj5kDzAwWOZcWdIbA=;
-        b=aQrcQgyo11wxnnw3d2eAgZ89uaAIlZ++7g1L/eFVF190EH3F4piD9wWL7Vb2XIroHC
-         41XYuHVmRxEODlVYCa+JlRTPAY8Q59zt7FmDTd6/h6gGueI3F0ZpxNyhfrVw/1Uo5s3b
-         NEW/cocSysXhyWTk6bGvZ9W6lRpM0gPDY47WSdvhV4LPAQ/4s+X9UDoV0IAokhpp9MGB
-         DrLonGdwBkY+qJiRkwhMZPzdW4y5Lu3WC/YqKDyG75YhPK+RYFJvyZoOYuCNazsKVXjO
-         kWBegtKb7SbKDZl3n5EBwSPz6/fhA8/RGgfnMKQWtgjtXnqzID3u42bh4hxwuheuY1pk
-         kbfQ==
+        bh=RpFiX0kGSU3MmscTQy/8QOp1uiypHFRfPT7CenGfskI=;
+        b=Ko+Rzx/RKcfeOZxi63DixRfyGBEy4+A/fIXbxkxRhPs06nPrmJGPpHihuOuyXwR5L/
+         V/dbazwfMzfdjgmST5WTYMP2S3uAJduFP2GT9rC7LtmwKIGvgnUWmi3fj1sdGZchqb44
+         M2CJKqg9B9qOLH1aEXIc82d7ekklCZPRosH8JvM9+fm9xZf0A75L0U8IxLaL4SALR64/
+         e/skkVxYlVo6umq/wqdPTC/8b+W7iqvsAerrF44GiNBhKg9Ln8dGuubYWF/RB1Iw6TGr
+         rKzxfJszS6iido/EEu9L2B7iIsrYpHdlVMwqEfKsAsOToaNh3N9Sd5q9ma7dO8JLA1As
+         HIpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679382753;
+        d=1e100.net; s=20210112; t=1679382845;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dQDpM642Q7hh+JU6LrA9OjsR/cxj5kDzAwWOZcWdIbA=;
-        b=TPlxONsnwhblAN3l/UAtvziG5UsXpT5j5sLTOm4Au8ZjfMZjSTYXRV6TVetSf68zcD
-         Vo4/6PYqo3k+0D9RbdY1UZE5RJ7AxShbheI08ZminoyrfGGL7VtcYThygbteOVLGTd2s
-         uGmHDTqKZz87tdpZBdpW/pTo1KewQJ2Poh/hRiZ6FbeauAZEO05G/prk6ZvT/AV33+5g
-         snl4TMieQPYfmyiRi2yb5yxL2ApkeC4epY7YgDjff17n5chGtRnlferrncWpwFGAxHNH
-         NrJffM4w/4y73HDgpaj8zsVvsex/oR8kCH8eYeqMbFJlxkiMoLd58dmZQ0jZ3ZYvQmF7
-         3edg==
-X-Gm-Message-State: AO0yUKUTfOTOvx95FQZYPU+QwSsTVRCgYnKKpWCn0u0iIf4CFlNs4XUI
-	GqlypCvPrao/5/mhuq1QHsxggvvdkHdnxwkE4Is=
-X-Google-Smtp-Source: AK7set/PS7SqaShaVg8CYnFcSB8qQVtfJLlDmBlSv3yu/1LJQBxNneLuUdR681oROTjjAhpE4BSueA==
-X-Received: by 2002:a17:906:5d0d:b0:931:9cd2:c214 with SMTP id g13-20020a1709065d0d00b009319cd2c214mr2276084ejt.66.1679382753642;
-        Tue, 21 Mar 2023 00:12:33 -0700 (PDT)
+        bh=RpFiX0kGSU3MmscTQy/8QOp1uiypHFRfPT7CenGfskI=;
+        b=eUliL+gZ4glUQ2Edz4JAa1VZPq9qxCHFC3uEVuWy0KB/eDuSYQPeKUAiSJXmzjB3Fu
+         4MJtTLIU0E2GsP3gSGsmcMO5P9VfkiqC7oHh0qqCQdxKqhBMugzURmY4VtydYOi4Xkxm
+         LdNhurulrMxdIMIShsdac2FQJKD0hpOPxbPdoNtXkmSA37nb6+NMOn8HWAiTwNzR9SD/
+         BOxKPbzBTLfQBMyPGW3jQFnn/BZ4jyR+DTIqGMhp7nRxygSsgAnYg6KQ6uSB1RKye4Gv
+         btr5CVruS+CguL5n5iQRX+d+IaltHMxb/wRJBxH/Mm1w4cuETD3i+0PErcFRw3yiA3q4
+         Cxyw==
+X-Gm-Message-State: AO0yUKWHlrj5a3RO3TwvAZx2PetlpSxxIpQSEpxbaQ/aaRZXL3OIxVfL
+	YwLnXlXCjGconLCgqPiuldMI2Q==
+X-Google-Smtp-Source: AK7set8YbhRjK1nsoK2w12o2BUz+XcJUSI/ULYsqTpkQiEwlmX58cny9P9DXEL6QlYFOpF3ZU8MZDQ==
+X-Received: by 2002:a17:906:7054:b0:932:4eea:17ce with SMTP id r20-20020a170906705400b009324eea17cemr1584920ejj.39.1679382845028;
+        Tue, 21 Mar 2023 00:14:05 -0700 (PDT)
 Received: from ?IPV6:2a02:810d:15c0:828:2142:d8da:5ae4:d817? ([2a02:810d:15c0:828:2142:d8da:5ae4:d817])
-        by smtp.gmail.com with ESMTPSA id d8-20020a170906c20800b0093a2160168esm282129ejz.35.2023.03.21.00.12.32
+        by smtp.gmail.com with ESMTPSA id n15-20020a170906118f00b0092421bf4927sm5458201eja.95.2023.03.21.00.14.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Mar 2023 00:12:33 -0700 (PDT)
-Message-ID: <8569e185-f49f-5095-ad87-f09c0a5719e2@linaro.org>
-Date: Tue, 21 Mar 2023 08:12:32 +0100
+        Tue, 21 Mar 2023 00:14:04 -0700 (PDT)
+Message-ID: <3f5e01bd-24ee-66cc-1a5d-b3fc09c2a96d@linaro.org>
+Date: Tue, 21 Mar 2023 08:14:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
@@ -84,9 +84,8 @@ References: <20230320135433.144832-1-xingyu.wu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 In-Reply-To: <20230320135433.144832-2-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_001239_790055_FCEE4265 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230321_001406_544788_9E3E103E 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,8 +108,31 @@ On 20/03/2023 14:54, Xingyu Wu wrote:
 > 
 > Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 > ---
+>  .../bindings/timer/starfive,jh7110-timer.yaml | 95 +++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+> new file mode 100644
+> index 000000000000..24b34618f2c8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+> @@ -0,0 +1,95 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/starfive,jh7110-timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 Timer
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Actually one change is needed - missing blank line.
+
+> +maintainers:
+> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+> +  - Samin Guo <samin.guo@starfivetech.com>
+> +
+
 
 Best regards,
 Krzysztof
