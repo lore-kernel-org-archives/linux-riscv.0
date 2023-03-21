@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E2DC6FD20
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 22:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CBCC6FD20
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 23:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=GNY1bKAWXvwPMYYG1u8YuMS5ELY/mSymAQ4ClBft30U=; b=W6+8OmRZ19P+vgeQVPQnQ/xfWs
-	hnT8fLHVpeHY0qCKZeMiHokZuhaNnTqs63zvLM/ZQWwXNVhmTe+0zmRKEaFvb1ewe5Pl9mT3zLGij
-	PvwbBCtVpNH4/gAdE/N5/X0nhOnoTaMOLr+OnSSK7PMpYpQCPjpwcvkdVSRuEAuHKl2zAHALYZWUu
-	9CjPsWIfbp8AW8e4tDKp+0elws8pxCK1EhbUr727y18u3fIgabYRM7tUyTDLJgw+IrgaGmVGemZXb
-	JxqCsL4uoqrUEHmljzgBnycL0Vox1l1lcTsfRSX5tYqFc7qsl+EzRKtIr1MJhehdGhINbfx/9Zh5h
-	4sLe7I+A==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zipVG1gt5f8rVjEBYzLhVIVVMWkzRtYr8JCr+Rs82ak=; b=K0/Uo06On1Ci0e4MSd+jcFrQt/
+	Zw1L1w9+RWd2r3FpC7pexF7fJpeLmdxevvYKiEtX+MqE/txajIVUe9hMkCNZ0mmDtZV5PWogf638B
+	b4bpQP3E5ewb2wuNgQlTV3kMWuXqvqXSlj08VR99IrFOK1VOWPbAi8iL0bFDza8+ntPBcYb74F227
+	/xKCHXtlpEtNKaS50xqPMyyk440qC09UO3hbVkXDUowvvvkApI2JpBcR3PAoJexBlUPU5qqMvtjWo
+	3vnE6VVPtMF7n0/5AQbuhefKF9A64pNgmLv5CVPq+KN47QoutgDlza6cWlBMoqs369v8WdNd5V9kA
+	0akEDuhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peknb-00E0a1-3D;
-	Tue, 21 Mar 2023 22:49:48 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1pel1S-00E1xj-0M;
+	Tue, 21 Mar 2023 23:04:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peknY-00E0Ya-0o
+	id 1pel1O-00E1x5-0F
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 22:49:46 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id x11so15007899pja.5
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 15:49:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1679438981;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4bphvEfMSl5avwhfXJT15aKIJis5gqq3QZ/zSLwV7oM=;
-        b=5Z9OtPiHsgOCytxq8aipGasjfx3iRy0mfHaVBZPnOUvMCszycDsXvonQ8kQyodP4/L
-         ECqdYMKy5wC08CVXBVlpR//wm9q3Td6hRetBkJ2y96o+niLp5e9mUr1ENenKWlytMRe4
-         RIKruTLDFb9A0OVtwZiTBvb+l02hkCOTMWPycvGcIvj8wqSNxWsIonpvST3ggbmYHkMH
-         yOFVaDPtlT6D2NYYLh1v+vG4Hcyy8ET4ro1UuEoGEDbSUvJmXy6wBJy/5M11v1HfW9Ei
-         biQR0mxjRoNeMH67NWCFV0K+e/aOLsWTUwN6jqWnaK5z5AeUbdihZd8F6NWa9uy95WH/
-         HHpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679438981;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4bphvEfMSl5avwhfXJT15aKIJis5gqq3QZ/zSLwV7oM=;
-        b=HITMDgugx4cXlj3R3RyHGZq/RXlC+U8BqRagB996fuPmjgDd8ASSlGHwXjfXqDL9ZK
-         M3FNHoo2GhbWgt7g8Z0/gQiVOdRfb8+nUqyNRfCgVXX8xHBh8oRhqMsf5k17MjBoYNbO
-         H1MNQ8iwhwJ+Vk2vsvglL4ulsWFAxupUWTKhyHAjIuByielLz6xEww6+cXU0HIGIWosJ
-         TqFjcRv9qDKVZjqkgbqY2xG+NUTNL553IWgx4sGKPcx51+6pWPIOcgHpQ9fRf8qHu9sK
-         9Iw8KkFXCjFFGkXslswQO+mKHJawXfnvKUf8SV6HU4Woz+97YOz8Jzve2141Lc/kRyyB
-         Xmpg==
-X-Gm-Message-State: AO0yUKVkYkTfInWmCAJGBG9zQMWx04NpO9TBslnlVxXP88zramiN9Gps
-	5IzO+jbLVKXGIacXzQMUehXBzEjRdIPp+D1ldW8=
-X-Google-Smtp-Source: AK7set+mUTGkFgE2itKnrOD55dCbBCqULX8O3ptlcVutoVPy7M0q3dEkR5UkxDe6P+toJl+Ro2Jeeg==
-X-Received: by 2002:a17:902:e5c3:b0:1a0:6d9e:3c78 with SMTP id u3-20020a170902e5c300b001a06d9e3c78mr740192plf.53.1679438980575;
-        Tue, 21 Mar 2023 15:49:40 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id b14-20020a170902b60e00b001a1c6048fc8sm5736379pls.63.2023.03.21.15.49.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Mar 2023 15:49:40 -0700 (PDT)
-Date: Tue, 21 Mar 2023 15:49:40 -0700 (PDT)
-X-Google-Original-Date: Tue, 21 Mar 2023 15:48:41 PDT (-0700)
-Subject: Re: [PATCH 1/2] binfmt_elf_fdpic: support 64-bit systems
-In-Reply-To: <20230228135126.1686427-2-gerg@kernel.org>
-CC: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-  linux-kernel@vger.kernel.org, gerg@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: gerg@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
-  ebiederm@xmission.com, keescook@chromium.org
-Message-ID: <mhng-fec49316-5da9-4cab-af79-6115f13668c1@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Tue, 21 Mar 2023 23:04:04 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 501FA61E6E;
+	Tue, 21 Mar 2023 23:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216E8C433EF;
+	Tue, 21 Mar 2023 23:03:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679439840;
+	bh=SpucqB9n75qjtnnvgZr6/rDAIPTz9Gr8WByPwr4TUVE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TPa6MgzH8BqqVX8cqk3S2+1Lj/Vr77J0ghRVFCAl5uZeHfZLPiAObOwP0eOTe+/qU
+	 9jZRLvf2RjJ84MGSsy8PGhVkS+qA/cXF52KDi1kA4tTl1csrBClkTcSJry3aOWibeY
+	 7iFa8R7J4eJMAIyg/G3BkBwcojlRkbpbaeXTrOAEEywn7MF8L02kMFmd9geswa/JYX
+	 93hBlwqBw0gBdwxtoYm4lJLpZEdp4dd3v9gdcBBL/6m7PhyF1gBFpjUDo4cWcSHbWx
+	 dJ/KeaOg8lJENGflTYkeEvcE1VFd6UmCglCFgC825zjNJsRmXT/bNiUcqNtC/Rm5jz
+	 DkEPAwlq1DwVw==
+Date: Tue, 21 Mar 2023 23:03:54 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>, kernel@esmil.dk
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 00/21] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Message-ID: <95f11f7c-611f-49a9-97e8-0de89846e430@spud>
+References: <20230320103750.60295-1-hal.feng@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <20230320103750.60295-1-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_154944_462933_CC5B44A1 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20230321_160402_197504_BA3B1F6A 
+X-CRM114-Status: GOOD (  49.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,218 +80,437 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0441555523443594629=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Feb 2023 05:51:25 PST (-0800), gerg@kernel.org wrote:
-> The binfmt_flat_fdpic code has a number of 32-bit specific data
-> structures associated with it. Extend it to be able to support and
-> be used on 64-bit systems as well.
->
-> The new code defines a number of key 64-bit variants of the core
-> elf-fdpic data structures - along side the existing 32-bit sized ones.
-> A common set of generic named structures are defined to be either
-> the 32-bit or 64-bit ones as required at compile time. This is a
-> similar technique to that used in the ELF binfmt loader.
->
-> For example:
->
->   elf_fdpic_loadseg is either elf32_fdpic_loadseg or elf64_fdpic_loadseg
->   elf_fdpic_loadmap is either elf32_fdpic_loadmap or elf64_fdpic_loadmap
->
-> the choice based on ELFCLASS32 or ELFCLASS64.
->
-> Signed-off-by: Greg Ungerer <gerg@kernel.org>
-> ---
->  fs/binfmt_elf_fdpic.c          | 38 +++++++++++++++++-----------------
->  include/linux/elf-fdpic.h      | 14 ++++++++++++-
->  include/uapi/linux/elf-fdpic.h | 15 ++++++++++++++
->  3 files changed, 47 insertions(+), 20 deletions(-)
 
-Adding some of the binfmt/fs folks, who weren't directly on the mail.  
-It's looking like we're generally OK with this in RISC-V land, though 
-there's still no userspace posted.  I don't think there's any rush here 
-and it might be prudent to wait for userspace to start going through a 
-bit of a review, but figured I'd at least poke everyone to see if 
-there's any thoughts.
+--===============0441555523443594629==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XrvLcEVwIxWnDgFn"
+Content-Disposition: inline
 
-I'm fine either way, so 
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+--XrvLcEVwIxWnDgFn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-if that helps any.  Also happy to take this through the RISC-V tree 
-along with the other if that's easier, but again no rush.
+Emil,
 
->
-> diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
-> index a05eafcacfb27..2eea6dd429fd6 100644
-> --- a/fs/binfmt_elf_fdpic.c
-> +++ b/fs/binfmt_elf_fdpic.c
-> @@ -138,7 +138,7 @@ static int is_constdisp(struct elfhdr *hdr)
->  static int elf_fdpic_fetch_phdrs(struct elf_fdpic_params *params,
->  				 struct file *file)
->  {
-> -	struct elf32_phdr *phdr;
-> +	struct elf_phdr *phdr;
->  	unsigned long size;
->  	int retval, loop;
->  	loff_t pos = params->hdr.e_phoff;
-> @@ -560,8 +560,8 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->  	sp &= ~7UL;
->
->  	/* stack the load map(s) */
-> -	len = sizeof(struct elf32_fdpic_loadmap);
-> -	len += sizeof(struct elf32_fdpic_loadseg) * exec_params->loadmap->nsegs;
-> +	len = sizeof(struct elf_fdpic_loadmap);
-> +	len += sizeof(struct elf_fdpic_loadseg) * exec_params->loadmap->nsegs;
->  	sp = (sp - len) & ~7UL;
->  	exec_params->map_addr = sp;
->
-> @@ -571,8 +571,8 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->  	current->mm->context.exec_fdpic_loadmap = (unsigned long) sp;
->
->  	if (interp_params->loadmap) {
-> -		len = sizeof(struct elf32_fdpic_loadmap);
-> -		len += sizeof(struct elf32_fdpic_loadseg) *
-> +		len = sizeof(struct elf_fdpic_loadmap);
-> +		len += sizeof(struct elf_fdpic_loadseg) *
->  			interp_params->loadmap->nsegs;
->  		sp = (sp - len) & ~7UL;
->  		interp_params->map_addr = sp;
-> @@ -740,12 +740,12 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
->  			      struct mm_struct *mm,
->  			      const char *what)
->  {
-> -	struct elf32_fdpic_loadmap *loadmap;
-> +	struct elf_fdpic_loadmap *loadmap;
->  #ifdef CONFIG_MMU
-> -	struct elf32_fdpic_loadseg *mseg;
-> +	struct elf_fdpic_loadseg *mseg;
->  #endif
-> -	struct elf32_fdpic_loadseg *seg;
-> -	struct elf32_phdr *phdr;
-> +	struct elf_fdpic_loadseg *seg;
-> +	struct elf_phdr *phdr;
->  	unsigned long load_addr, stop;
->  	unsigned nloads, tmp;
->  	size_t size;
-> @@ -767,7 +767,7 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
->
->  	params->loadmap = loadmap;
->
-> -	loadmap->version = ELF32_FDPIC_LOADMAP_VERSION;
-> +	loadmap->version = ELF_FDPIC_LOADMAP_VERSION;
->  	loadmap->nsegs = nloads;
->
->  	load_addr = params->load_addr;
-> @@ -843,8 +843,8 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
->  			if (phdr->p_vaddr >= seg->p_vaddr &&
->  			    phdr->p_vaddr + phdr->p_memsz <=
->  			    seg->p_vaddr + seg->p_memsz) {
-> -				Elf32_Dyn __user *dyn;
-> -				Elf32_Sword d_tag;
-> +				Elf_Dyn __user *dyn;
-> +				Elf_Sword d_tag;
->
->  				params->dynamic_addr =
->  					(phdr->p_vaddr - seg->p_vaddr) +
-> @@ -854,11 +854,11 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
->  				 * one item, and that the last item is a NULL
->  				 * entry */
->  				if (phdr->p_memsz == 0 ||
-> -				    phdr->p_memsz % sizeof(Elf32_Dyn) != 0)
-> +				    phdr->p_memsz % sizeof(Elf_Dyn) != 0)
->  					goto dynamic_error;
->
-> -				tmp = phdr->p_memsz / sizeof(Elf32_Dyn);
-> -				dyn = (Elf32_Dyn __user *)params->dynamic_addr;
-> +				tmp = phdr->p_memsz / sizeof(Elf_Dyn);
-> +				dyn = (Elf_Dyn __user *)params->dynamic_addr;
->  				if (get_user(d_tag, &dyn[tmp - 1].d_tag) ||
->  				    d_tag != 0)
->  					goto dynamic_error;
-> @@ -927,8 +927,8 @@ static int elf_fdpic_map_file_constdisp_on_uclinux(
->  	struct file *file,
->  	struct mm_struct *mm)
->  {
-> -	struct elf32_fdpic_loadseg *seg;
-> -	struct elf32_phdr *phdr;
-> +	struct elf_fdpic_loadseg *seg;
-> +	struct elf_phdr *phdr;
->  	unsigned long load_addr, base = ULONG_MAX, top = 0, maddr = 0;
->  	int loop, ret;
->
-> @@ -1011,8 +1011,8 @@ static int elf_fdpic_map_file_by_direct_mmap(struct elf_fdpic_params *params,
->  					     struct file *file,
->  					     struct mm_struct *mm)
->  {
-> -	struct elf32_fdpic_loadseg *seg;
-> -	struct elf32_phdr *phdr;
-> +	struct elf_fdpic_loadseg *seg;
-> +	struct elf_phdr *phdr;
->  	unsigned long load_addr, delta_vaddr;
->  	int loop, dvset;
->
-> diff --git a/include/linux/elf-fdpic.h b/include/linux/elf-fdpic.h
-> index 3bea95a1af537..e533f45131945 100644
-> --- a/include/linux/elf-fdpic.h
-> +++ b/include/linux/elf-fdpic.h
-> @@ -10,13 +10,25 @@
->
->  #include <uapi/linux/elf-fdpic.h>
->
-> +#if ELF_CLASS == ELFCLASS32
-> +#define Elf_Sword			Elf32_Sword
-> +#define elf_fdpic_loadseg		elf32_fdpic_loadseg
-> +#define elf_fdpic_loadmap		elf32_fdpic_loadmap
-> +#define ELF_FDPIC_LOADMAP_VERSION	ELF32_FDPIC_LOADMAP_VERSION
-> +#else
-> +#define Elf_Sword			Elf64_Sxword
-> +#define elf_fdpic_loadmap		elf64_fdpic_loadmap
-> +#define elf_fdpic_loadseg		elf64_fdpic_loadseg
-> +#define ELF_FDPIC_LOADMAP_VERSION	ELF64_FDPIC_LOADMAP_VERSION
-> +#endif
-> +
->  /*
->   * binfmt binary parameters structure
->   */
->  struct elf_fdpic_params {
->  	struct elfhdr			hdr;		/* ref copy of ELF header */
->  	struct elf_phdr			*phdrs;		/* ref copy of PT_PHDR table */
-> -	struct elf32_fdpic_loadmap	*loadmap;	/* loadmap to be passed to userspace */
-> +	struct elf_fdpic_loadmap	*loadmap;	/* loadmap to be passed to userspace */
->  	unsigned long			elfhdr_addr;	/* mapped ELF header user address */
->  	unsigned long			ph_addr;	/* mapped PT_PHDR user address */
->  	unsigned long			map_addr;	/* mapped loadmap user address */
-> diff --git a/include/uapi/linux/elf-fdpic.h b/include/uapi/linux/elf-fdpic.h
-> index 4fcc6cfebe185..ec23f08711292 100644
-> --- a/include/uapi/linux/elf-fdpic.h
-> +++ b/include/uapi/linux/elf-fdpic.h
-> @@ -32,4 +32,19 @@ struct elf32_fdpic_loadmap {
->
->  #define ELF32_FDPIC_LOADMAP_VERSION	0x0000
->
-> +/* segment mappings for ELF FDPIC libraries/executables/interpreters */
-> +struct elf64_fdpic_loadseg {
-> +	Elf64_Addr	addr;		/* core address to which mapped */
-> +	Elf64_Addr	p_vaddr;	/* VMA recorded in file */
-> +	Elf64_Word	p_memsz;	/* allocation size recorded in file */
-> +};
-> +
-> +struct elf64_fdpic_loadmap {
-> +	Elf64_Half	version;	/* version of these structures, just in case... */
-> +	Elf64_Half	nsegs;		/* number of segments */
-> +	struct elf64_fdpic_loadseg segs[];
-> +};
-> +
-> +#define ELF64_FDPIC_LOADMAP_VERSION	0x0000
-> +
->  #endif /* _UAPI_LINUX_ELF_FDPIC_H */
+I tried messaging you on IRC yesterday, but message probably got lost in
+the ether :(
 
+On Mon, Mar 20, 2023 at 06:37:29PM +0800, Hal Feng wrote:
+> This patch series adds basic clock, reset & DT support for StarFive
+> JH7110 SoC.
+
+Are you happy with how the series looks now and if so, how do you want
+to go about getting it applied?
+
+To me, what'd seem ideal, is a branch that starts w/ the two binding
+changes for clock and reset so that that bit can be shared between
+clock/reset drivers and dts bits.
+Since, I, at least, am happy with the dts since of things, I've gone and
+created such a branch with the dt-bindings at the start, followed by the
+dts bits, and pushed it here:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=3Dri=
+scv-jh7110_initial_dts
+
+If you're happy on the driver side of things, do you want to pick those
+patches up on top of the bindings and send a PR to Stephen?
+No rush if you're not, still got a fair bit of time til the merge window
+yada-yada & I won't merge this branch into the riscv-dt for-next one
+until the bindings are in the clock tree.
+
+Thanks,
+Conor.
+
+(I did end up re-creating the first patch on that branch, b4/git am
+didn't like the maintainers change, so hopefully I've not made a hames
+of it.)
+
+>=20
+> You can simply review or test the patches at the link [1].
+>=20
+> [1]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
+>=20
+> Changes since v5:
+> - Rebased on v6.3-rc3.
+> Patch 1:
+> - Set obj-y for starfive/ in drivers/clk/Makefile.
+> Patch 2:
+> - Sorted the StarFive entries alphabetically in MAINTAINERS.
+> Patch 3:
+> - Fixed the build error which caused by renaming the header without
+>   changing the users of the header.
+> Patch 4:
+> - Fixed the errors reported by checkpatch.pl.
+> Patch 6:
+> - Set obj-y for starfive/ in drivers/reset/Makefile.
+> Patch 13:
+> - Set the timer clock flags as 0.
+>=20
+>   v5: https://lore.kernel.org/all/20230311090733.56918-1-hal.feng@starfiv=
+etech.com/
+>=20
+> Changes since v4:
+> - Rebased on v6.3-rc1.
+> - Added two patches to replace SOC_STARFIVE with ARCH_STARFIVE.
+> - Added Tested-by tag for Tommaso.
+> Patch 9:
+> - Set GMAC1 related clocks as optional inputs.
+> - Dropped PLL clock definitions.
+> Patch 10:
+> - Set GMAC0 related clocks and RTC oscillator as optional inputs.
+> - Sorted the clocks.
+> Patch 11:
+> - Replaced SOC_STARFIVE with ARCH_STARFIVE.
+> - Added macros for PLL clocks and adjusted the code properly to
+>   make it easier to add the PLL clock driver later.
+> - Updated the clock flags.
+> Patch 12:
+> - Built as a module by default.
+> - Sorted the clocks.
+> - Updated the clock flags.
+> Patch 13:
+> - Replaced "default CLK_STARFIVE_JH7110_SYS" with "default ARCH_STARFIVE".
+> - Renamed "reset_info" struct to "jh7110_reset_info" and moved its
+>   definition into the driver.
+> - Put jh7110_sys_info and jh7110_sys_info before the probe().
+> Patch 17:
+> - Dropped "_zicsr" in ISA.
+> - Sorted the external clocks alphabetically.
+> - Put the ccache node before the plic node according to their addresses.
+> - Sorted the clock inputs of the aoncrg node.
+> Patch 19:
+> - Replaced SOC_STARFIVE with ARCH_STARFIVE.
+> - Sorted the nodes alphabetically.
+>=20
+>   v4: https://lore.kernel.org/all/20230221024645.127922-1-hal.feng@starfi=
+vetech.com/
+>=20
+> Changes since v3:
+> - Suggested by Conor, Merged clock & reset series and DT series together
+>   so that they could go via the same tree as the dt-binding headers are
+>   required by both driver & devicetree.
+> - Rebased on tag v6.2.
+>=20
+> [Clock & reset]
+> Patch 2:
+> - Split patch 2 into two. One for renaming file and one for renaming
+>   variables. (by Conor)
+> Patch 4:
+> - Split patch 4 into two. One for code movement and one for
+>   extraction. (by Conor)
+> Patch 5 & 9 & 10 & 11:
+> - Fixed the issues reported by kernel test robot.
+> Patch 9:
+> - Set (&priv->base) as driver data instead of (priv->base).
+> - Set the frequency of clock PLL0 as 1000MHz for Synchronizing with the
+>   lastest u-boot setting from StarFive. (by Emil)
+> - Used devm_kzalloc() instead of kzalloc() when registering aux device.
+> Patch 10:
+> - Set (&priv->base) as driver data instead of (priv->base).
+> Patch 11:
+> - Used (*base) to get the register base address instead of (base).
+>=20
+> [Device tree]
+> - Dropped patch 1, 4, 5 because they were accepted.
+> - Added a new patch to add SiFive S7 compatible. (by Conor)
+> - Added a new patch to add JH7110 pin function definitions.
+> Patch 6:
+> - Changed the label "S76_0" to "S7_0" and used compatible "sifive,s7"
+>   for core 0.
+> - Updated ISA of each cores. (by Conor)
+> - Made the node names generic. (by Krzysztof)
+> - Added clock-output-names for all external clocks.
+> - Added i2c0~6 nodes.
+> - Changed the node name "gpio" to "pinctrl". Changed the label "gpio"
+>   and "gpioa" to "sysgpio" and "aongpio". (by Conor)
+> Patch 7:
+> - Separated the long lines into more lines in Makefile. (by Conor)
+> - Renamed jh7110-starfive-visionfive-2-va.dts and
+>   jh7110-starfive-visionfive-2-vb.dts to
+>   jh7110-starfive-visionfive-2-v1.2a.dts and
+>   jh7110-starfive-visionfive-2-v1.3b.dts.
+>   Changed the model and compatible to match v1.2A and v1.3B which
+>   are printed on the silkscreen of VisionFive 2 board. (by Emil)
+> - Configured pins for i2c0/2/5/6 and enabled them.
+>=20
+>   clock & reset v3: https://lore.kernel.org/all/20221220005054.34518-1-ha=
+l.feng@starfivetech.com/
+>   DT v3: https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@star=
+fivetech.com/
+>=20
+> Changes since v2:
+> [Clock & reset]
+> - Rebased on tag v6.1.
+> - Added "JH71X0" to the StarFive driver headers in MAINTAINERS.
+> - Removed Co-developed-by tag of Hal in patch 1 and patch 4.
+> - Changed the commit author from Hal to Emil in patch 2 and patch 5.
+>   Removed Co-developed-by tag of Emil in patch 2 and patch 5. (by Emil)
+> - Improved the coding style of patch 11, 12 and 13.
+> - Dropped patch 14. (by Emil)
+> Patch 4:
+> - Passed the "owner" member of reset_controller_dev structure
+>   directly in reset_starfive_jh7100_register(). (by Emil)
+> - Added MAINTAINERS changes.
+> Patch 7:
+> - Split patch 7 into sys part and aon part. Merged them into patch 9 and
+>   patch 10 respectively. (by Krzysztof)
+> - Renamed include/dt-bindings/clock/starfive-jh7110.h to
+>   include/dt-bindings/clock/starfive,jh7110-crg.h. (by Krzysztof)
+> - Synchronized the definitions with the latest changes from Emil.
+> Patch 8:
+> - Split patch 8 into sys part and aon part. Merged them into patch 9 and
+>   patch 10 respectively. (by Krzysztof)
+> - Renamed include/dt-bindings/reset/starfive-jh7110.h to
+>   include/dt-bindings/reset/starfive,jh7110-crg.h. (by Krzysztof)
+> - Fixed the date of Copyright. (by Emil)
+> - Dropped weird indentations. (by Krzysztof)
+> - Synchronized the definitions with the latest changes from Emil.
+> Patch 9:
+> - Improved the description of clocks. (by Emil and Krzysztof)
+> - Added MAINTAINERS changes.
+> Patch 10:
+> - Improved the description of clocks. (by Emil and Krzysztof)
+> - Changed the clock-name "clk_rtc" to "rtc_osc" and  "apb_bus_func" to
+>   "apb_bus".
+> Patch 11:
+> - Removed the flags of trace/debug clocks and set the flags of core clocks
+>   as CLK_IS_CRITICAL. (by Emil)
+> - Deleted the extra 1-1 clocks and synchronized the clock tree with the
+>   latest changes from Emil. (by Emil)
+> - Selected RESET_STARFIVE_JH7110 in Kconfig option CLK_STARFIVE_JH7110_SY=
+S.
+> Patch 12:
+> - Changed the macro JH7110_AONCLK_RTC to JH7110_AONCLK_RTC_OSC and
+>   JH7110_AONCLK_APB_BUS_FUNC to JH7110_AONCLK_APB_BUS.
+> - Synchronized the clock tree with the latest changes from Emil.
+> - Set the MODULE_LICENSE as "GPL" according to commit bf7fbeeae6db.
+> Patch 13:
+> - Removed the "asserted" member in reset_info structure and always pass
+>   NULL when calling reset_starfive_jh71x0_register(). (by Emil)
+>=20
+> [Device tree]
+> - Rebased on tag v6.1.
+> - Dropped patch 8 because it was merged.
+> Patch 1:
+> - Made the links into "Link:" tags. (by Conor)
+> - Corrected the board name to "VisionFive 2" instead of
+>   "VisionFive V2" and added compatibles for version A and
+>   version B of VisionFive 2. (by Emil)
+> Patch 4:
+> - Used "sifive,ccache0" compatible string to match. (by Conor)
+> Patch 5:
+> - Dropped "select SIFIVE_CCACHE" in config SOC_STARFIVE. (by Conor)
+> - Dropped "starfive,jh7110-ccache" compatible in
+>   drivers/soc/sifive/sifive_ccache.c.
+> Patch 6:
+> - Removed all "clock-frequency =3D <0>". (by Conor)
+> - Sorted the nodes after their addresses. (by Emil)
+> - Renamed "clk_rtc" to "rtc_osc".
+> - Added "sifive,ccache0" compatible in the cache-controller node.
+> - Renamed "JH7110_SYSCLK_APB_BUS_FUNC" to "JH7110_SYSCLK_APB_BUS" and
+>   renamed "apb_bus_func" to "apb_bus".
+>   Renamed "JH7110_SYSCLK_IOMUX" to "JH7110_SYSCLK_IOMUX_APB".
+>   Renamed "JH7110_SYSRST_IOMUX" to "JH7110_SYSRST_IOMUX_APB".
+>   Renamed "JH7110_AONRST_AON_IOMUX" to "JH7110_AONRST_IOMUX".
+> - Removed "reg-names" in gpio nodes.
+> Patch 7:
+> - Corrected the board name to "VisionFive 2" instead of "VisionFive V2".
+> - Renamed jh7110-starfive-visionfive-v2.dts to
+>   jh7110-starfive-visionfive-2.dtsi.
+> - Added dts for VisionFive 2 version A and version B boards.
+> - In the chosen node, deleted "linux,initrd-start" and "linux,initrd-end"
+>   and changed the value of "stdout-path" to "serial0:115200n8".
+> - Changed the bias of uart0 "rx-pins" to
+>   "bias-disable; /* external pull-up */".
+> - Renamed "clk_rtc" to "rtc_osc".
+> - Moved the gpio node behind the uart0 node.
+>=20
+>   clock & reset v2: https://lore.kernel.org/all/20221118010627.70576-1-ha=
+l.feng@starfivetech.com/
+>   DT v2: https://lore.kernel.org/all/20221118011714.70877-1-hal.feng@star=
+fivetech.com/
+>=20
+> Changes since v1:
+> [Clock & reset]
+> - Rebased on tag v6.1-rc5.
+> - Rewrote the clock and reset drivers using auxiliary bus framework, so
+>   patch 8, 9, 15 were dropped and all patches changed a lot. (by Stephen)
+> - Split Patch 14 into two patches. One is for factoring out the common
+>   JH71X0 code, the another one is for renaming. (by Stephen)
+> - Created a subdirectory for StarFive reset drivers.
+> - Factored out common JH71X0 reset code.
+> - Renamed the common clock and reset code from "*starfive*" or
+>   "*STARFIVE*" to "*jh71x0*" or "*JH71X0*".
+> - Combined JH7110 system and always-on clock DT binding headers in one
+>   file named "include/dt-bindings/clock/starfive-jh7110.h".
+> - Renamed clock definitions "JH7110_SYSCLK_PCLK2_MUX_FUNC_PCLK" and
+>   "JH7110_SYSCLK_U2_PCLK_MUX_PCLK" to "JH7110_SYSCLK_PCLK2_MUX_FUNC" and
+>   "JH7110_SYSCLK_PCLK2_MUX".
+> - Rewrote the DT bindings of clock and reset for using auxiliary bus.
+> - Registered an auxiliary device for reset controller in clock drivers.
+> - Changed clock names "CODAJ*" and "WAVE*" to "codaj*" and "wave*".
+>   Changed clock names "u2_pclk_mux_func_pclk" and "u2_pclk_mux_pclk" to
+>   "pclk2_mux_func" and "pclk2_mux".
+> - Changed the flags of clock apb0 and noc_bus_isp_axi to CLK_IS_CRITICAL
+>   as suggested by StarFive SDK group.
+> - Registered clock gmac0_gtxc as a gate clock instead of a div clock
+>   as suggested by StarFive SDK group.
+> - Changed the frequency of clock pll2_out to 1188MHz as suggested by
+>   StarFive SDK group.
+> - Fixed the bug that the clock JH7110_AONCLK_GMAC0_GTXCLK was not handled
+>   in JH7110 always-on clock driver.
+> - Registered the reset driver as an auxiliary driver.
+> - Reworded the commit messages.
+>=20
+> [Device tree]
+> - Rebased on tag v6.1-rc5.
+> - Added blank line in patch 1. (by Krzysztof)
+> - Rebased patch 4 and 6 on the newest code. (by Conor)
+> - Dropped patch 5. (by Conor)
+> - Removed the quirk of JH7100 in patch 6, considering this patch series
+>   should only add support for JH7110.
+> - For patch 27, added Co-developed-by tag for Jianlong and me. Renamed
+>   cpu labels to "S76_0", "U74_*" instead of "cpu*" following the style
+>   of jh7100.dtsi. Moved all "clock-frequency" properties to the board dts.
+>   Rewrote clock-controller nodes and deleted reset-controller nodes for
+>   using auxiliary bus. Rewrote gpio nodes following generic pinctrl
+>   bindings. Removed the redundant second reset entry of uart nodes.
+> - For patch 28, added Co-developed-by tag for Jianlong and me. Added a
+>   chosen node. Removed reserved-memory node. Added fixed frequency clock
+>   nodes for overriding the "clock-frequency" properties. Rewrote the gpio
+>   nodes following generic pinctrl bindings.
+> - Dropped patch 30. (by Conor)
+> - Reworded the commit messages.
+>=20
+>   v1: https://lore.kernel.org/all/20220929143225.17907-1-hal.feng@linux.s=
+tarfivetech.com/
+>=20
+> Emil Renner Berthing (16):
+>   clk: starfive: Factor out common JH7100 and JH7110 code
+>   clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
+>   clk: starfive: Rename "jh7100" to "jh71x0" for the common code
+>   reset: Create subdirectory for StarFive drivers
+>   reset: starfive: Factor out common JH71X0 reset code
+>   reset: starfive: Extract the common JH71X0 reset code
+>   reset: starfive: Rename "jh7100" to "jh71x0" for the common code
+>   reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
+>   dt-bindings: clock: Add StarFive JH7110 system clock and reset
+>     generator
+>   dt-bindings: clock: Add StarFive JH7110 always-on clock and reset
+>     generator
+>   clk: starfive: Add StarFive JH7110 system clock driver
+>   clk: starfive: Add StarFive JH7110 always-on clock driver
+>   dt-bindings: timer: Add StarFive JH7110 clint
+>   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+>   riscv: dts: starfive: Add initial StarFive JH7110 device tree
+>   riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
+>     tree
+>=20
+> Hal Feng (4):
+>   clk: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+>   reset: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+>   reset: starfive: Add StarFive JH7110 reset driver
+>   dt-bindings: riscv: Add SiFive S7 compatible
+>=20
+> Jianlong Huang (1):
+>   riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+>=20
+>  .../clock/starfive,jh7110-aoncrg.yaml         | 107 +++
+>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++
+>  .../sifive,plic-1.0.0.yaml                    |   1 +
+>  .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+>  .../bindings/timer/sifive,clint.yaml          |   1 +
+>  MAINTAINERS                                   |  22 +-
+>  arch/riscv/boot/dts/starfive/Makefile         |   6 +-
+>  arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++
+>  .../jh7110-starfive-visionfive-2-v1.2a.dts    |  13 +
+>  .../jh7110-starfive-visionfive-2-v1.3b.dts    |  13 +
+>  .../jh7110-starfive-visionfive-2.dtsi         | 215 ++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 509 +++++++++++++
+>  drivers/clk/Makefile                          |   2 +-
+>  drivers/clk/starfive/Kconfig                  |  33 +-
+>  drivers/clk/starfive/Makefile                 |   6 +-
+>  .../clk/starfive/clk-starfive-jh7100-audio.c  |  74 +-
+>  drivers/clk/starfive/clk-starfive-jh7100.c    | 716 +++++-------------
+>  drivers/clk/starfive/clk-starfive-jh7100.h    | 112 ---
+>  .../clk/starfive/clk-starfive-jh7110-aon.c    | 156 ++++
+>  .../clk/starfive/clk-starfive-jh7110-sys.c    | 450 +++++++++++
+>  drivers/clk/starfive/clk-starfive-jh71x0.c    | 383 ++++++++++
+>  drivers/clk/starfive/clk-starfive-jh71x0.h    | 131 ++++
+>  drivers/reset/Kconfig                         |   8 +-
+>  drivers/reset/Makefile                        |   2 +-
+>  drivers/reset/reset-starfive-jh7100.c         | 173 -----
+>  drivers/reset/starfive/Kconfig                |  20 +
+>  drivers/reset/starfive/Makefile               |   5 +
+>  .../reset/starfive/reset-starfive-jh7100.c    |  74 ++
+>  .../reset/starfive/reset-starfive-jh7110.c    |  70 ++
+>  .../reset/starfive/reset-starfive-jh71x0.c    | 131 ++++
+>  .../reset/starfive/reset-starfive-jh71x0.h    |  14 +
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 221 ++++++
+>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 154 ++++
+>  33 files changed, 3370 insertions(+), 865 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh71=
+10-aoncrg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh71=
+10-syscrg.yaml
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfi=
+ve-2-v1.2a.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfi=
+ve-2-v1.3b.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfi=
+ve-2.dtsi
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+>  delete mode 100644 drivers/clk/starfive/clk-starfive-jh7100.h
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-aon.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-sys.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
+>  delete mode 100644 drivers/reset/reset-starfive-jh7100.c
+>  create mode 100644 drivers/reset/starfive/Kconfig
+>  create mode 100644 drivers/reset/starfive/Makefile
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jh7100.c
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.c
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
+>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+>=20
+>=20
+> base-commit: e8d018dd0257f744ca50a729e3d042cf2ec9da65
+> --=20
+> 2.38.1
+>=20
+
+--XrvLcEVwIxWnDgFn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBo32gAKCRB4tDGHoIJi
+0oehAQCLUkE37f1Hy5NcTttlUdXD++1x3tsxXB888RW2R0ZEjwD9Hq8/ZoRm0UOP
+ZCtx876tQvTAYdbLP+K9M8D0frYAyQg=
+=fOK2
+-----END PGP SIGNATURE-----
+
+--XrvLcEVwIxWnDgFn--
+
+
+--===============0441555523443594629==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0441555523443594629==--
+
