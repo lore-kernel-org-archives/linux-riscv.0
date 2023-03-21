@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED77BC6FD20
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4546C6FD20
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MisQmZ+nEOIfB3aozn3R1vfSEmORQahZ/wMwAVl4hpo=; b=3fO0oOuaYN+Ffi
-	wuKmxmSRj3bDLDAuaitx5gHr21oKzCUBVDIW1R6Fsi7UxCG0Hxrggri6C1jTYnznsL7ZaB0KVxYiQ
-	FoAzLWyk3qTCTCqsHdfqvff2eZbJMTCZdlCc1APLk+wEtDuVV5F+ddYaJleN/iTCffyRNzcVcmtL7
-	nlDnKLNQbnoegaQB4EMc9R/wyc03PXc8HvKb5+JuSbLFPPv3LzNpsvP9C7djAf5EtuGaizimw1cVj
-	E/G/HMh0flM7f5S5NeCjJQ6bLgFWSy7mxncvpfHdGt+rd6lc5dWkZSlA8JgAfiPiz2x1B59xZLvZW
-	tOMgRGJSJtJcoz0MJkyg==;
+	List-Owner; bh=sMdTpdaT+cIfJhPkJgi2j5FvIhujO3GQBFb014KbdkE=; b=x633+e/cuJhszB
+	VW3d9KncJfhoO4ggObmmD6dgKKK2xfWsobRUKb1qjJzyR7FPfX+3aD2t7LXqjfablsmkg6oNFH1bD
+	FjA9I9ZATW9ppYmRMDs1sb92MHpA987F+NYYTzyS6z6AW2XIxUG4dA5bdUfyzCKxJTUFBNG8gxoCq
+	xCIZop2bsjTdhny5MsqE4FpA6WIHExvDEUItIzgEy7v2jlFPGaHgT/92GQUsTTOHWmnWhUOYKRmIz
+	YEGYLR478uugnk62DqDGzVlZILmSrMUJiF0yEdsFTS1BWcbV2peXS0kZZh3u5eGXHgZvzl8uwdcKc
+	8BVq2RXX3wI7YVZr6byg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejzj-00Dt4L-0X;
-	Tue, 21 Mar 2023 21:58:15 +0000
+	id 1pejzs-00DtD5-2k;
+	Tue, 21 Mar 2023 21:58:24 +0000
 Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyW-00DsEz-1Z;
-	Tue, 21 Mar 2023 21:57:03 +0000
+	id 1pejyZ-00DsGP-2z;
+	Tue, 21 Mar 2023 21:57:06 +0000
 Received: from localhost (unknown [188.24.179.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 0F1E266030EE;
-	Tue, 21 Mar 2023 21:56:59 +0000 (GMT)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 8B35566030F1;
+	Tue, 21 Mar 2023 21:57:02 +0000 (GMT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1679435819;
-	bh=VEHW/c/2s4Nzddue0SQRQN8yI6FlgApEF6XFoJ9BplU=;
+	s=mail; t=1679435822;
+	bh=GwkI7NvsahRI9WNBHxkf1so8O+1ehcR5/nTJjj5XqyE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YHikRZMkteArmXf+6j+Pv+yyRFh6kTGWLU14uJXvbGqwk9ak6k/qAp0oWm2DLoU/U
-	 8InnJQRHA5oiDb2hB6mg3LC0xrx8uHHJnSAG7fM9l2yf27di8fe6PCG+uPoBt+VjXt
-	 aGwM/tHVP48G9ppE97w2xu9/tJCG5S/0KbLUNMSUS/dc7fhbAXXHnqRqfCE+NeRilc
-	 0egSiQtMWrSug3p6oVjYDwaDXA9iTAv3ZCWaNmoiorMceAmj1Kxf/qC7MSOI0WEKxW
-	 GMKyda18nDxGNuoLv1NeM4vu9gQfdM/G+KcwSHBQOyEUb9WG7C+t09ZqQMZ8VdN2pF
-	 n9ZJ0ThXS6Sdg==
+	b=byK0mMTEq51+ezXCzHTz6KzNJ+w0ZC98Udl6/zMTpEEzpptMWt0laFhQVm9j1S0i3
+	 8JR0X4E5elQRvtodxqrAT7dKFxnYdOYtF+t2dv9nbKN4xr/cN5pwY7abSPfc8sNtXo
+	 HZih93oHeVNx2y9TGHx3B9vBC+NC+5gqDrhKM6y2zVJg4FmGyoPn7joqmw+/WO28q4
+	 CtuTsX9UXuzPF/btdDE0fR7pQQq/vj7dVglw8NsrcI5G8hFwOh0Jis770zceqqOqpP
+	 UJgYfRxWfYcZO6psUdBNBir+QOL4SDEwiTeP2lvM3z+GBTkQ2DIP9zz5dpYXeIcc+i
+	 QMKLnbo2dhhiA==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -64,16 +64,16 @@ Cc: linux-serial@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 09/10] arm64: dts: rockchip: rk3588: Add I2S nodes
-Date: Tue, 21 Mar 2023 23:56:23 +0200
-Message-Id: <20230321215624.78383-10-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 10/10] arm64: dts: rockchip: rk3588-rock-5b: Add analog audio
+Date: Tue, 21 Mar 2023 23:56:24 +0200
+Message-Id: <20230321215624.78383-11-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_145701_686988_2AA0D334 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20230321_145704_562191_2C0AFC75 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,96 +90,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In addition to the five I2S/PCM/TDM controllers and the two I2S/PCM
-controllers shared between the RK3588 and RK3588S SoCs, RK3588 provides
-another group of four I2S/PCM/TDM controllers.
-
-Add the DT nodes corresponding to the additional controllers.
+Add the necessary DT nodes for the Rock 5B board to enable the analog
+audio support provided by the Everest Semi ES8316 codec.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588.dtsi | 68 ++++++++++++++++++++++++
- 1 file changed, 68 insertions(+)
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588.dtsi b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
-index d085e57fbc4c..8be75556af8f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
-@@ -7,6 +7,74 @@
- #include "rk3588-pinctrl.dtsi"
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index 95805cb0adfa..945eac304766 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -2,6 +2,7 @@
+ 
+ /dts-v1/;
+ 
++#include <dt-bindings/gpio/gpio.h>
+ #include "rk3588.dtsi"
  
  / {
-+	i2s8_8ch: i2s@fddc8000 {
-+		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddc8000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 188 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S8_8CH_TX>, <&cru MCLK_I2S8_8CH_TX>, <&cru HCLK_I2S8_8CH>;
-+		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S8_8CH_TX_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 22>;
-+		dma-names = "tx";
-+		power-domains = <&power RK3588_PD_VO0>;
-+		resets = <&cru SRST_M_I2S8_8CH_TX>;
-+		reset-names = "tx-m";
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
+@@ -25,6 +26,59 @@ vcc5v0_sys: vcc5v0-sys-regulator {
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+ 	};
 +
-+	i2s6_8ch: i2s@fddf4000 {
-+		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddf4000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S6_8CH_TX>, <&cru MCLK_I2S6_8CH_TX>, <&cru HCLK_I2S6_8CH>;
-+		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S6_8CH_TX_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 4>;
-+		dma-names = "tx";
-+		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_M_I2S6_8CH_TX>;
-+		reset-names = "tx-m";
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
++	sound {
++		compatible = "audio-graph-card";
++		label = "Analog";
 +
-+	i2s7_8ch: i2s@fddf8000 {
-+		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfddf8000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S7_8CH_RX>, <&cru MCLK_I2S7_8CH_RX>, <&cru HCLK_I2S7_8CH>;
-+		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S7_8CH_RX_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 21>;
-+		dma-names = "rx";
-+		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_M_I2S7_8CH_RX>;
-+		reset-names = "rx-m";
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
++		widgets = "Microphone", "Mic Jack",
++			  "Headphone", "Headphones";
 +
-+	i2s10_8ch: i2s@fde00000 {
-+		compatible = "rockchip,rk3588-i2s-tdm";
-+		reg = <0x0 0xfde00000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru MCLK_I2S10_8CH_RX>, <&cru MCLK_I2S10_8CH_RX>, <&cru HCLK_I2S10_8CH>;
-+		clock-names = "mclk_tx", "mclk_rx", "hclk";
-+		assigned-clocks = <&cru CLK_I2S10_8CH_RX_SRC>;
-+		assigned-clock-parents = <&cru PLL_AUPLL>;
-+		dmas = <&dmac2 24>;
-+		dma-names = "rx";
-+		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_M_I2S10_8CH_RX>;
-+		reset-names = "rx-m";
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+	};
++		routing = "MIC2", "Mic Jack",
++			  "Headphones", "HPOL",
++			  "Headphones", "HPOR";
 +
- 	gmac0: ethernet@fe1b0000 {
- 		compatible = "rockchip,rk3588-gmac", "snps,dwmac-4.20a";
- 		reg = <0x0 0xfe1b0000 0x0 0x10000>;
++		dais = <&i2s0_8ch_p0>;
++		hp-det-gpio = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&hp_detect>;
++	};
++};
++
++&i2c7 {
++	status = "okay";
++
++	es8316: es8316@11 {
++		compatible = "everest,es8316";
++		reg = <0x11>;
++		clocks = <&cru I2S0_8CH_MCLKOUT>;
++		clock-names = "mclk";
++		#sound-dai-cells = <0>;
++
++		port {
++			es8316_p0_0: endpoint {
++				remote-endpoint = <&i2s0_8ch_p0_0>;
++			};
++		};
++	};
++};
++
++&i2s0_8ch {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2s0_lrck
++		     &i2s0_mclk
++		     &i2s0_sclk
++		     &i2s0_sdi0
++		     &i2s0_sdo0>;
++	status = "okay";
++
++	i2s0_8ch_p0: port {
++		i2s0_8ch_p0_0: endpoint {
++			dai-format = "i2s";
++			mclk-fs = <256>;
++			remote-endpoint = <&es8316_p0_0>;
++		};
++	};
+ };
+ 
+ &sdhci {
+@@ -42,3 +96,11 @@ &uart2 {
+ 	pinctrl-0 = <&uart2m0_xfer>;
+ 	status = "okay";
+ };
++
++&pinctrl {
++	sound {
++		hp_detect: hp-detect {
++			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
 -- 
 2.40.0
 
