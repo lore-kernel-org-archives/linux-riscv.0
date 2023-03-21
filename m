@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A554C74A5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 13:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD372C74A5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 14:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:In-Reply-To:
-	Date:MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=fW4xV0M7SR+5S1x6ieYKGpA5RlZoN5AidNwi282vOkk=; b=F643qBoX7GY2Fj
-	/8+Qf2/NZAK+CkxIdwQrOIV5SbH/xm/2wqQaOR0wRfA9QEhExG/Waw0EmaDuD+8ZdWOBiuULGsOza
-	gSXEKNXcxVXH2fU2KoJ2UCSguxdRPxd8swyvxXaryipG/VLnq5uDIvh5P8nGzr/MYkGhexn6iq7tZ
-	QzmXtWZJWSxJbxCezPGLf/FcKPSnUUTyoD+qkJ9R1+CEmKKxUfcEBZV1YY0pde4f3K5PIwRNRx9vl
-	T3bRfOYixhJ/34DcQyL1jVXx1opI+X7P4JADi2YgKgvveXwdWqCd4Oc3J+RvDRo8VuIs7hv0jKWjN
-	/VlAJWJBLZOHzf9gDlhg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+GTiNsQrjAlQ2NG+e/DgCNQPxdZynS49HB9H6usNPG8=; b=NxZSv6Sd+VXLlA
+	2ejUGxiE5w9opgDzYWJYNnZ8417wLFJmHPrErET/32NxXgx814RIlyFv8shJozGsswkffrTSkwI6C
+	BHyluIAUmgk2GHXaDxp1hcTZRNM0gw10iieoqiLDlsWmkWpPOaUKwnlGHxTEtE2Y0mbbXOPEO0Jm1
+	cm9057Jo+qlR/89SCL2CNaKYoUQ/vlUZMoqO3TwjEFa0Px+Fd44Oosg7c1FYV00pAdSJ1HHStTaGh
+	T8AmiTRf+//m4MrDF4DlOPYxP2Gi2vsajeFg4gwym+CVoBeu/0IiduBsuS8rUyld2PSc6BUUnGU82
+	dhPwh5xHLsIk/uWuLrkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pebp6-00CTqM-0i;
-	Tue, 21 Mar 2023 13:14:44 +0000
-Received: from mail-il1-f200.google.com ([209.85.166.200])
+	id 1pecgc-00Cf9C-2Y;
+	Tue, 21 Mar 2023 14:10:02 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pebp3-00CTpN-1O
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 13:14:42 +0000
-Received: by mail-il1-f200.google.com with SMTP id i14-20020a056e0212ce00b0031d17f33e9aso7573645ilm.7
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 06:14:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679404478;
-        h=to:from:subject:message-id:in-reply-to:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d1E/CPVb6H8VyxRsyGiJWxP2UWi3TCzv8QPJdKDcVdk=;
-        b=qgmpmOuUYmMQcg9WJaTQ40zvthDNVdZOBwU03W+QXF10olsTjueotg8I8Dgg0M2NGB
-         /dJxJoQ5+06JpRtd+XED9mZqCpPdrieXacKFjCaJuuPNqhS97gHaZvJAq4ZSHTcsgmbH
-         pHbEsoN3guBV4juehne/YTw+VSBfn0NYhwWlF++aR33tUYmDM3S4+yeT4Yegw/30MfdT
-         a3zpPyTE+/Ea24eZVRzJKN5B54dJKCjco5vJIVL1e3oKTEPxzzuapO9Aqm1hhtnR9As/
-         +6a3i6aO8gTYks8vK7ZFPfX5+yI7ks5Duq+gsXujfR4OYetbTAvRteSzJvbJyvTYRjoj
-         3ygQ==
-X-Gm-Message-State: AO0yUKUQZ0zLC36xsT2bm3hBPsrGxkmXsGHZIFM8OrJ3x5yr3rM/YBjQ
-	+lReSqQxnG67nZ1yxDA5PEj9m8V1K1vKXOUml2QK8vGn7MSy
-X-Google-Smtp-Source: AK7set/s6ej3JV3Xsl6KlLwe5mBRC4+3HQxIGvDZNFwhkHinh5peA+vo1p3wVHAfY3eJ5A7/xT9ehxiKPiehGXUDwIA3ROPqBwGS
+	id 1pecgX-00Cf6V-31;
+	Tue, 21 Mar 2023 14:09:59 +0000
+Message-ID: <2eeef5a3-cbe7-7a01-489a-87c5ac00adf7@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1679407791;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r5H8ASVSpeYXRfPAZlDn5w3NGbDKpfLoIK9F2WWvxoA=;
+	b=EGvo+aT61qfofgcSXv3K8G1MMOu3tStw9OEXH1vZb9SoRHZ2B7mO8S7Ao9XQMjibgFggcn
+	18eURZVuSD/DA9p6M3KChX3Zrz9mF2GXbX4hV744zO+HObNbQfhGatkZwpwfXX4dyNWCgV
+	hejHnLgymlGYeugr9NJTw1nssYjITT4bfXCDZRxGFBmW6E0yaOfUIkRT3b3HeppCbSuQQj
+	BcNWv4Yv4a6BYx/QdzvLqypvJkq3Sk7lxpMUPhZEuAImEywmT5A2wDixCRnOJLhGQkne9O
+	t+Z/wOBYt/st0WrZyqnK37ngNAJm+HOeTvnglw1IFenWaAbkhUOHLiLT9Rck+Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1679407791;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r5H8ASVSpeYXRfPAZlDn5w3NGbDKpfLoIK9F2WWvxoA=;
+	b=/MOUIY6Jl9ficd77bzu9nZrapxO1JboBPr+MC/oT4b3oCnf2sw+mCQLVAVMZCTRnryoMMp
+	X502lf5YhjeA2VDA==
+Date: Tue, 21 Mar 2023 15:09:40 +0100
 MIME-Version: 1.0
-X-Received: by 2002:a6b:8d46:0:b0:752:f038:6322 with SMTP id
- p67-20020a6b8d46000000b00752f0386322mr846819iod.0.1679404478524; Tue, 21 Mar
- 2023 06:14:38 -0700 (PDT)
-Date: Tue, 21 Mar 2023 06:14:38 -0700
-In-Reply-To: <000000000000ea7a5c05f051fd00@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <0000000000006071aa05f768d333@google.com>
-Subject: Re: [syzbot] riscv/fixes boot error: WARNING in __apply_to_page_range (2)
-From: syzbot <syzbot+5702f46b5b22bdb38b7e@syzkaller.appspotmail.com>
-To: alex@ghiti.fr, andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, 
-	bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net, 
-	dvyukov@google.com, haoluo@google.com, john.fastabend@gmail.com, 
-	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, luke.r.nels@gmail.com, martin.lau@linux.dev, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, sdf@google.com, song@kernel.org, 
-	syzkaller-bugs@googlegroups.com, xi.wang@gmail.com, yhs@fb.com
+Content-Language: en-US
+To: Donglin Peng <pengdonglin@sangfor.com.cn>, mhiramat@kernel.org,
+ rostedt@goodmis.org, linux@armlinux.org.uk, mark.rutland@arm.com,
+ will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, mingo@redhat.com, xiehuan09@gmail.com,
+ dinghui@sangfor.com.cn, huangcun@sangfor.com.cn, dolinux.peng@gmail.com
+Cc: linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
+ <20230320131650.482594-2-pengdonglin@sangfor.com.cn>
+From: Florian Kauer <florian.kauer@linutronix.de>
+Subject: Re: [PATCH v5 1/2] function_graph: Support recording and printing the
+ return value of function
+In-Reply-To: <20230320131650.482594-2-pengdonglin@sangfor.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_061441_471109_B8CD971A 
-X-CRM114-Status: UNSURE (   4.63  )
+X-CRM114-CacheID: sfid-20230321_070958_157150_790A2DCF 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,37 +85,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This bug is marked as fixed by commit:
-riscv: Rework kasan population functions
+On 20.03.23 14:16, Donglin Peng wrote:
+> When using the function_graph tracer to analyze system call failures,
+> it can be time-consuming to analyze the trace logs and locate the kernel
+> function that first returns an error. This change aims to simplify the
+> process by recording the function return value to the 'retval' member of
+> 'ftrace_graph_ent' and printing it when outputing the trace log.
 
-But I can't find it in the tested trees[1] for more than 90 days.
-Is it a correct commit? Please update it by replying:
+I just came across your patch by pure luck and it helped me a lot
+to trace down a problem I had, thanks!
 
-#syz fix: exact-commit-title
+So you can have my
+Tested-by: Florian Kauer <florian.kauer@linutronix.de>
+ 
+> New trace options are introduced: funcgraph-retval and graph_retval_hex.
 
-Until then the bug is still considered open and new crashes with
-the same signature are ignored.
+I would personally prefer to have the second option scoped better, so for example
+"funcgraph-retval-hex".
 
-Kernel: Linux
-Dashboard link: https://syzkaller.appspot.com/bug?extid=5702f46b5b22bdb38b7e
-
----
-[1] I expect the commit to be present in:
-
-1. for-kernelci branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-
-2. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
-
-3. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
-
-4. main branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git
-
-The full list of 10 trees can be found at
-https://syzkaller.appspot.com/upstream/repos
+Greetings,
+Florian
 
 _______________________________________________
 linux-riscv mailing list
