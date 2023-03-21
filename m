@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BFEC74A5B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1F3C7618D
 	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 07:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oHlaSvdYs2O34Rvqk4uzYlnDqd6whwD1u4mAQ1Z6i8A=; b=bwe+OHUW7EzYuj
-	WHAgEDdqZm+LSAGt6rPx9fWZhvztO7d3sROTFvbySSEDH58ySjWNLSY6Y2sWRh46NTF2w63QR+gFB
-	YUPNUSyEltXwoedyrvhzGNW6cZ5luKSZuB9413Be0VoluQI+HYR5OSMzSs8bRRolcJl/1xt1hpWYW
-	3x4sFneA9kVCm7hcwEcoCsGKrIZQYCp4QtMIgAQXkAHKVcmV1UVnMDXH0jA88BEHSio7VS0WFtqsO
-	7K+jTP+2tP8yX6bnIzUej5Y8UBgr0thlDi5k/ww8pwZ6rv1GAZzc49icps8rskWXEACfVUT4j0HXu
-	fX+FIVdFnAw8jMdVUNwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=glth5ZQfJ92Ew+QvAS3yUfoAwq09QN7myoevLwZsoOM=; b=H+Ca16w+0lN5Wc
+	kuQOo9cbZmsY308aXP//b/0irNNq8WEEGZc73MuaccdMTU5XXX2BQiG7dfXI+EAE5X+/JAVSMt7bY
+	JW1uQ6rgxMg9HGXp3wccHqvTMdjq1/J2RG3OEAjScWvz9wSESV49mYKSxPK7ZZ82DYR7AOmKeDrRq
+	KJdkzpDIZ0vXbXWGLpA2eEZQR6O7OkgQS/u/4Ou7+n/oKz8RxaIogavLuoc8TRKDxEYkcROI1Yx3W
+	Ss6f0Z7CyNPKqiswxb7M9Y7y3uBfxEgOCQpp+w7W7E04VVw6sybwPMPvCn08FFEH05cK+6XcH5Avt
+	Y0RM3lrPZEYwoeL4eK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWeH-00BZHk-2h;
+	id 1peWeH-00BZHX-0m;
 	Tue, 21 Mar 2023 07:43:13 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWeE-00BZFe-1c
+	id 1peWeE-00BZFg-1s
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 07:43:12 +0000
+	Tue, 21 Mar 2023 07:43:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
 	s=mimecast20190719; t=1679384586;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/yn+twTZLAkRdUYrcTaC/OxuB+ZzmlZ8IAyD5qH6ScI=;
-	b=NBJ+lXR+Q5GOG2hhH7wbJ5MohgEgkjSjIM73FQDLFfCC2CfyaslrxPDGkq/ICi+LXhNDdI
-	I510Se+zZVVqjEiv4yrkP5NT8G+fjacO1o6Btn8KoBgynFe2zGRl0IEfUYBViYWuWGK2Gz
-	57i396Qu18gc87miphb21KHtNTvEuU4=
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com
- [209.85.167.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ESJ/1knv++fPH2odQdRy7nTNYhZrFIAGHXT1ZfrTzlo=;
+	b=S5oH/XkU1cSHZp3xwfDmM0yS1KB0kfqReKxRlQb9/xEFqJo9RfCWkk9j989I5/0C3T+Dhk
+	DAdbJYb9fRBVgeMm+UfChe/nCIKJMhVC51wHiGpJXHAce+clbKteocJDHZW09WZvdPrRgR
+	YU3DiUMws1CX7WLY1+3qsoiFaLiHwB4=
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com
+ [209.85.161.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-465-rwRxPin6NUiQSJS7m_qyTw-1; Tue, 21 Mar 2023 03:43:05 -0400
-X-MC-Unique: rwRxPin6NUiQSJS7m_qyTw-1
-Received: by mail-oi1-f199.google.com with SMTP id bf33-20020a056808192100b003872286998bso425620oib.23
+ us-mta-213-1t9qRHRVPOiL70s3Jqpjiw-1; Tue, 21 Mar 2023 03:43:05 -0400
+X-MC-Unique: 1t9qRHRVPOiL70s3Jqpjiw-1
+Received: by mail-oo1-f72.google.com with SMTP id m9-20020a4ac689000000b005255baa8dfbso4344933ooq.23
         for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 00:43:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112; t=1679384584;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/yn+twTZLAkRdUYrcTaC/OxuB+ZzmlZ8IAyD5qH6ScI=;
-        b=Z+NlX8SGvgGrWWHKtExsG2yFKxMzDTxVTeqZMwI2jkrOUYtIyb8CwZdzaZIV5Nl7t4
-         yV0MK3MfoboK5dw3raY2I8qX8NlCzymLNQZk1QfoWasA6Gon6DogY+9zOJ+g2RF4njQl
-         L7slfhuMDrgo7j8eKy8slV6xUtIPR/QR6Pr2BoEZaSGB7dHAaFd/OhJQjucLBk4ynvGu
-         Uo3jXjAnmoDzvQK33udaEgdpfpWI8HzkjuXlC0lZbcPNB5WhQ9/bfaQ41E0AdgZSnKF0
-         5Qfr5L1WoLWEiUxJe410GFx+DfM9s0pzlB1HY2VAI4ONgV7ZyItudP9X/zMEBZmvOY2i
-         KDMg==
-X-Gm-Message-State: AO0yUKXIpKKPZb32GWhut7pHguwOM5Cr59e4xVm3k3lX8IhD7zzlpNFD
-	bNZ/DTk4X+vKUJv2AmSah7eIJgCqbTn/FiO78m4CZdeozg18KZMdR0zxzILaPYln1M6RT8tc7St
-	hoK7EGH7Ltld2ofksiiV91CEkW5mzWVlsJ1eTpcU=
-X-Received: by 2002:a05:6870:d38f:b0:177:9a8f:2a6a with SMTP id k15-20020a056870d38f00b001779a8f2a6amr638646oag.6.1679384584385;
-        Tue, 21 Mar 2023 00:43:04 -0700 (PDT)
-X-Google-Smtp-Source: AK7set+5dYLqUwBoGwWqYbNO6rmNI6RXPTyQIcUwdLTaU41SFvlJEUkqNzr5SVTeAvo9r89hTVkcJg==
-X-Received: by 2002:a05:6870:d38f:b0:177:9a8f:2a6a with SMTP id k15-20020a056870d38f00b001779a8f2a6amr638640oag.6.1679384584181;
-        Tue, 21 Mar 2023 00:43:04 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ESJ/1knv++fPH2odQdRy7nTNYhZrFIAGHXT1ZfrTzlo=;
+        b=F6Ec+g2QdbA+lnk7BXcBfX8BkEZYoP8WsSJLUF7PwwW6p13QuxY6HLLzmyMmWaVVLQ
+         B2JpJjHIR7/A+eXTdYNsSxP2aC4ijr8UzP3rX9Keaopz29rf+PvaQvjqhAxTi+xPGhoK
+         206Fo/jMKEgwjA25RGi4qjYTCAnrMSsDAuVw4LH0HI34LqVx0IolE7GFEZkhhyoqmZ/o
+         pB3PK0N7UxQIRGWmbm7mLgfekZwrrGXWnLKaI/CKB7nUnL/5EvypGoAZU8vAMfyRBjWa
+         hrLrAMNOzcmwlUOLYBgCdc0MkIPBaiG6U9XPwgiuNkr30Fio1qByYiUGbRf0A+VDbyKP
+         Eppw==
+X-Gm-Message-State: AO0yUKWzG3DSgdd3G8daZRvM+U3+MphCTw3Ln/t/DaUikualFLmASN4Y
+	W5mQtDRmfAENvIwnn5SiVC4I83GjEUx1YGwvinBdua4Sg0d0Z0FTbqOZdZza1Cg5ACH448dWmKL
+	RFVi/idji3wzGrs/7oKQYS2H/5/fq
+X-Received: by 2002:a05:6870:4248:b0:17a:a3f9:9f5d with SMTP id v8-20020a056870424800b0017aa3f99f5dmr604193oac.29.1679384582157;
+        Tue, 21 Mar 2023 00:43:02 -0700 (PDT)
+X-Google-Smtp-Source: AK7set/A9uIR5EF4MO4MSwN8Ag5xIfJZhmykE+JqvDnTRRi0U8aZM3QFYPvL2/kXOaiQrFkYTcNKOQ==
+X-Received: by 2002:a05:6870:4248:b0:17a:a3f9:9f5d with SMTP id v8-20020a056870424800b0017aa3f99f5dmr604184oac.29.1679384581888;
+        Tue, 21 Mar 2023 00:43:01 -0700 (PDT)
 Received: from localhost.localdomain ([179.111.176.145])
-        by smtp.gmail.com with ESMTPSA id az15-20020a05687c230f00b0016a37572d17sm4047729oac.2.2023.03.21.00.43.02
+        by smtp.gmail.com with ESMTPSA id az15-20020a05687c230f00b0016a37572d17sm4047729oac.2.2023.03.21.00.42.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Mar 2023 00:43:03 -0700 (PDT)
+        Tue, 21 Mar 2023 00:43:01 -0700 (PDT)
 From: Leonardo Bras <leobras@redhat.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -76,18 +75,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Guo Ren <guoren@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [RESEND RFC PATCH v2 1/6] riscv/cmpxchg: Deduplicate cmpxchg() asm functions
-Date: Tue, 21 Mar 2023 04:42:44 -0300
-Message-Id: <20230321074249.2221674-2-leobras@redhat.com>
+Subject: [RESEND RFC PATCH v2 0/6] Deduplicating RISCV cmpxchg.h macros
+Date: Tue, 21 Mar 2023 04:42:43 -0300
+Message-Id: <20230321074249.2221674-1-leobras@redhat.com>
 X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230321074249.2221674-1-leobras@redhat.com>
-References: <20230321074249.2221674-1-leobras@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_004310_633632_E261D5C8 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20230321_004310_692927_E01270ED 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,172 +102,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In this header every cmpxchg define (_relaxed, _acquire, _release,
-vanilla) contain it's own asm file, both for 4-byte variables an 8-byte
-variables, on a total of 8 versions of mostly the same asm.
+Re-sending, since previous send did not work on patchwork.
 
-This is usually bad, as it means any change may be done in up to 8
-different places.
+While studying riscv's cmpxchg.h file, I got really interested in 
+understanding how RISCV asm implemented the different versions of 
+{cmp,}xchg.
 
-Unify those versions by creating a new define with enough parameters to
-generate any version of the previous 8.
+When I understood the pattern, it made sense for me to remove the 
+duplications and create macros to make it easier to understand what exactly 
+changes between the versions: Instruction sufixes & barriers.
 
-(This did not cause any change in generated asm)
+I split those changes in 3 levels for each cmpxchg and xchg, resulting a 
+total of 6 patches. I did this so it becomes easier to review and remove 
+the last levels if desired, but I have no issue squashing them if it's 
+better.
 
-Signed-off-by: Leonardo Bras <leobras@redhat.com>
----
- arch/riscv/include/asm/cmpxchg.h | 102 ++++++++-----------------------
- 1 file changed, 24 insertions(+), 78 deletions(-)
+Please provide comments.
 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 12debce235e52..21984d24cbfe7 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -163,6 +163,22 @@
-  * store NEW in MEM.  Return the initial value in MEM.  Success is
-  * indicated by comparing RETURN with OLD.
-  */
-+
-+#define ___cmpxchg(lr_sfx, sc_sfx, prepend, append)			\
-+{									\
-+	__asm__ __volatile__ (						\
-+		prepend							\
-+		"0:	lr" lr_sfx " %0, %2\n"				\
-+		"	bne  %0, %z3, 1f\n"				\
-+		"	sc" sc_sfx " %1, %z4, %2\n"			\
-+		"	bnez %1, 0b\n"					\
-+		append							\
-+		"1:\n"							\
-+		: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)		\
-+		: "rJ" ((long)__old), "rJ" (__new)			\
-+		: "memory");						\
-+}
-+
- #define __cmpxchg_relaxed(ptr, old, new, size)				\
- ({									\
- 	__typeof__(ptr) __ptr = (ptr);					\
-@@ -172,26 +188,10 @@
- 	register unsigned int __rc;					\
- 	switch (size) {							\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
-+		___cmpxchg(".w", ".w", "", "");				\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
-+		___cmpxchg(".d", ".d", "", "");				\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-@@ -216,28 +216,10 @@
- 	register unsigned int __rc;					\
- 	switch (size) {							\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
-+		___cmpxchg(".w", ".w", "", RISCV_ACQUIRE_BARRIER);	\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
-+		___cmpxchg(".d", ".d", "", RISCV_ACQUIRE_BARRIER);	\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-@@ -262,28 +244,10 @@
- 	register unsigned int __rc;					\
- 	switch (size) {							\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
-+		___cmpxchg(".w", ".w", RISCV_RELEASE_BARRIER, "");	\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
-+		___cmpxchg(".d", ".d", RISCV_RELEASE_BARRIER, "");	\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-@@ -308,28 +272,10 @@
- 	register unsigned int __rc;					\
- 	switch (size) {							\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
-+		___cmpxchg(".w", ".w.rl", "", "	fence rw, rw\n");	\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
-+		___cmpxchg(".d", ".d.rl", "", "	fence rw, rw\n");	\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
+Thanks!
+Leo
+
+Changes since v1:
+- Fixed patch 4/6 suffix from 'w.aqrl' to '.w.aqrl', to avoid build error
+
+Leonardo Bras (6):
+  riscv/cmpxchg: Deduplicate cmpxchg() asm functions
+  riscv/cmpxchg: Deduplicate cmpxchg() macros
+  riscv/cmpxchg: Deduplicate arch_cmpxchg() macros
+  riscv/cmpxchg: Deduplicate xchg() asm functions
+  riscv/cmpxchg: Deduplicate xchg() macros
+  riscv/cmpxchg: Deduplicate arch_xchg() macros
+
+ arch/riscv/include/asm/cmpxchg.h | 316 +++++++------------------------
+ 1 file changed, 64 insertions(+), 252 deletions(-)
+
 -- 
 2.40.0
 
