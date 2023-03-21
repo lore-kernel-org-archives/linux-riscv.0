@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B910DC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 22:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BD1C6FD20
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 22:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ciievncz/1Jps9rLtIzlmhQJPxmdB1HtJJWzpswATSs=; b=iKMBalvb38KxZI
-	1R+Bdk8JVEJCzuMotD0WqIWZXIc3zXWjv5bhR73eRO1szbr24+tCGFA6OLVl53VjCtwQqgDaeZ/G2
-	ErVJGZhTAXI5YnoJAUG6lbHMkGX6of3Dir4vFJvSCqh0U6oHPNmXtgopAaf2z7EGIsyVaxrZv1qI5
-	aH+uXSrR+nIOXAWm/PQe1Zz28VyQESJcPDeGDLt0IyZVXmU+b2ysLnWvMLPR8t12EKY2tiFA646dE
-	BlaFJypd8G4TBdn9t+rJ9Q/HLxGc+YJSGYg7XWHosFoeTA5noellgeAwhOzSk7YMZDcI7MX3j8txB
-	Z9AeR4XiYW6e3SPYK7lg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fjJ9IMoJ+emL52VL0gKv3hdOAXIcAM7ZnaKjGB7m51A=; b=u31yzNH6DSNPiFGTxGTtM0UrTS
+	Hi/A4X0NO7zADfC+Jr0mcemguJNbyAr6jRoMERvQJXWWpu41oU/C0gtRF8bAJn7IEI8KM2HtkZ9Jm
+	5i4ZDOwiucmmUypgOMrvPmDFFl1Hxt90+YpiSRhrwogSgWeOfoSonMglwGdZ8gKtYWlwRO3Bmb5zg
+	NlnFNl8r9NDQYYuWHn4C7qzglecWbjQLsvIQwmol6EWqEliaBEI3FNAnLxrcjQ3uSEfuUObNrbIpR
+	feo8e1KJYIRdRbSWFXDnGNlzmMyG4bDnqPPjDbew/MyhjQYcNPkkFrc28caF99/mzfj79VB2kHf9/
+	N9YHxyzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pekIV-00Dwo0-0r;
-	Tue, 21 Mar 2023 22:17:39 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1pekSH-00Dy5z-0I;
+	Tue, 21 Mar 2023 22:27:45 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pekIQ-00Dwml-2C;
-	Tue, 21 Mar 2023 22:17:36 +0000
-Received: from [192.168.1.90] (unknown [188.24.179.102])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	id 1pekSC-00Dy42-1H;
+	Tue, 21 Mar 2023 22:27:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id A31A866030D8;
-	Tue, 21 Mar 2023 22:17:31 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1679437052;
-	bh=kISYc8jF93sURnyHntnC1OZ2p4p1sWgcPPfEJiI3pho=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DAlF+kqBJ+TEevV3l2dvq4UP4emcgYVVXEzpExVl2nEEZQG5wPo/gPGRhrebUJ4jB
-	 6UuwSHDZL7gQadG/0pX/QwT7ZZZFuhysxpycz/tYEs+BX1pZC9hNMfwaFnJ8FI718S
-	 HX3dybyqVznpzuASOX/4MQKrkzxdElPKo0R0J7/oCJbOGQbBgfu15V3g2EEsCgKg3O
-	 I7C7YYalHMeiFiBzzMhgrgJqZtMzR9T1ai92Kz63OL3ffXAXSla6rJHdZbhEmEzNB6
-	 EftcQErQx9ncAjS18lQI5SGVnMHuwCrZxx0b1cCZ3EZvTR5On2hyhy1IxBeDicRKnm
-	 r++47+MMC+UQA==
-Message-ID: <7cd34af7-94e7-b5e2-053c-4cc831e4cfc4@collabora.com>
-Date: Wed, 22 Mar 2023 00:17:28 +0200
+	by ams.source.kernel.org (Postfix) with ESMTPS id E3208B81A63;
+	Tue, 21 Mar 2023 22:27:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C30DC433D2;
+	Tue, 21 Mar 2023 22:27:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679437657;
+	bh=XsHij0+BjfqI4rqTScfDv0AssQdKZ+pcm9X+ZsVj9qI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g0JEjCuWMLIE3T9sI7o71hYI6RGYvLIpfxbioYeLQa5FAz7EBzPRutNmbfUXBLsx6
+	 8+wR0LZaqO1dWzFiQILDai586zNGXaZQuyjAcik1/hsTUCEuroUjX/cs+I7294n6Gq
+	 UW852zdZvttEm9n+oqI8SGorf3kiNAKXgWBM1SN6fNUbl8qdHQ/lXL8+1M/7lYL3Rc
+	 vhn9L0rhYDZmywiB+VcqcdZ/ndJB9zupIPNzf487Sn5I44opvVNG2/Bd+8CZ/8qEXy
+	 l50E4Snc4j7AeJLCfjaRYs0RWd6TDSWbMH4Z+jTGLxkmunarRgTJ2lgeh0Jes9vgTD
+	 QMuG5xfGhRqEA==
+Date: Tue, 21 Mar 2023 22:27:30 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Donglin Peng <pengdonglin@sangfor.com.cn>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
+	mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, mingo@redhat.com,
+	peterz@infradead.org, xiehuan09@gmail.com, dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
+	linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] function_graph: Support recording and printing
+ the return value of function
+Message-ID: <89607a60-d3a7-4f89-84ae-bf3e65efb487@spud>
+References: <20230321084650.769212-1-pengdonglin@sangfor.com.cn>
+ <20230321084650.769212-2-pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v2 01/10] dt-bindings: serial: snps-dw-apb-uart: Switch
- dma-names order
-To: Conor Dooley <conor@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Heiko Stuebner <heiko@sntech.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, kernel@collabora.com
-References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
- <20230321215624.78383-2-cristian.ciocaltea@collabora.com>
- <5287504e-c0f7-4964-8a61-fd49b7ee9547@spud>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <5287504e-c0f7-4964-8a61-fd49b7ee9547@spud>
+In-Reply-To: <20230321084650.769212-2-pengdonglin@sangfor.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_151734_848857_E0655495 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20230321_152740_623570_7B494169 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +75,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4625635841445600046=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/22/23 00:09, Conor Dooley wrote:
-> On Tue, Mar 21, 2023 at 11:56:15PM +0200, Cristian Ciocaltea wrote:
->> Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
->> dma-names properties") documented dma-names property to handle Allwinner
->> D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
->> reverse of what a different board expects:
->>
->>    rk3326-odroid-go2.dtb: serial@ff030000: dma-names:0: 'rx' was expected
->>
->> A quick and incomplete check shows the inconsistency is present in many
->> other DTS files:
-> 
->> The initial proposed solution was to allow a flexible dma-names order in
->> the binding, due to potential ABI breakage concerns after fixing the DTS
->> files. But luckily the Allwinner boards are not really affected, since
->> all of them are using a shared DMA channel for rx and tx:
-> 
->> Switch dma-names order to tx->rx as the first step in fixing the
->> inconsistency. The remaining DTS fixes will be handled by separate
->> patches.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Thanks for doing all of the switch overs too. I should've probably
-> broadened my searching beyond the allwinner platforms when I initially
-> added this, so yeah, thanks.
 
-Thanks for the quick review! And no worries, I'm glad I could help, 
-hopefully I didn't miss anything..
+--===============4625635841445600046==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zJIfbxas1xSJly7d"
+Content-Disposition: inline
+
+
+--zJIfbxas1xSJly7d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Mar 21, 2023 at 01:46:49AM -0700, Donglin Peng wrote:
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index c5e42cc37604..3efa4f645a39 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -139,6 +139,7 @@ config RISCV
+>  	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_GRAPH_TRACER
+> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>  	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+
+BTW, and this is such a minor nit, but if you end up having to do a respin
+of this for some other reason, would you mind adding the new option in
+alphabetical order?
+
+Thanks,
+Conor.
+
+--zJIfbxas1xSJly7d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBovUgAKCRB4tDGHoIJi
+0pH1AP9ab3KXHhTA2YhZs4WtiizIGeRBhjdfsR9sovX0Iy+53AD/XUWT/IDFWMgh
+lK/ZPBfSfjgOJ90dNrP/Yemt9EuGRQc=
+=zBK+
+-----END PGP SIGNATURE-----
+
+--zJIfbxas1xSJly7d--
+
+
+--===============4625635841445600046==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4625635841445600046==--
+
