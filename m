@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2E6C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEABC6FD20
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CCljk6epk58TcM2/qf6fO/Swa215hF+mAl/bZCHBVTk=; b=bcWpTXFsAVKxM/
-	PCoIsqbwlZXS7AH7gVobzxNnlSF9tY8WePbgGlbTvrkX0swv+GJnv5uC7+X21S1gkG+NjAkUUSYY7
-	lZgdBXH1x09sfI+v/w4n11K/MZmIgXaCHG9/AGPEsTco0/ttAGpRlwGW0IsxOE3ekKitM3XQZYdTz
-	8Fp+f68ZFS1FVLKD8a5e02Kl2DiIyKo9nP/5akujozKxSJqyD4QdKiCHpcVYirQSgGlonYn6d9hoQ
-	7kvAlkjZ/SKMLNvmQSCUR2GT/s5fF0TLvQ3MUtaxtFjvIf+7xOuFk01EXtItxdW9hmi/hU/Q4KIAz
-	C39p4oCWw8Dg2H1qET2A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aS7jrFIMwitY/TXqDhdo76NbDzohdsNnmSXN6wglpAo=; b=rRS8zEWusCUpix
+	jgsn8zHs/7QmweD8gbtRbAKUfCPwIgXfFEt+P1q9Fp5B1yvwUl/h6uQJHlhbOKDTPQMMADPyNQvTX
+	Y7MbqmKoBMFVpnPS/+Z/JKF2CURj5lUTAAaeJ4x+vXPyb0QlFzXE0dzbPGCfmBI9+2xVyaVcW6FWB
+	e3L8KQ17YrHvhoNN6gm938iGRWFu6T0QyMbLbre8K2i7ksqpUqEr/XN17E+bI5Hf013yTVs3vsye7
+	VpYjnuROgPDzsjtuEHkipUMoJCKUQD/JTzQVe4DLl1ZC0nQW+i31x/vC2kh9DHzHeYdnHLSJJWwp9
+	sZby/PKR2HBffpqrXgyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyK-00Ds9O-1H;
-	Tue, 21 Mar 2023 21:56:48 +0000
+	id 1pejyJ-00Ds90-2G;
+	Tue, 21 Mar 2023 21:56:47 +0000
 Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyD-00Ds42-2G;
+	id 1pejyD-00Ds3Z-2N;
 	Tue, 21 Mar 2023 21:56:43 +0000
 Received: from localhost (unknown [188.24.179.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id E8FEC66030DE;
-	Tue, 21 Mar 2023 21:56:31 +0000 (GMT)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 3C3DB66030D8;
+	Tue, 21 Mar 2023 21:56:29 +0000 (GMT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1679435792;
-	bh=xlJOx3+BWzJjnvbq3Qx6ToCI9eSAdqOI6uhZgvbAeZo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l0AqkVN95YJGx/ASGaao9kh++1IZeZLcCcM4JgDq7PgYErL5x0ArdP7IInpQclbkj
-	 cspW85oZgxJst126hJdzYVTuwApoSXsPlPtk0y0EQK/Hbufitiu2g6Z+w2IWiHZLiA
-	 dZ9LAEGyqKlqxkQW6joE953xgBlVA4Nc1DrMCVAnS1Kv70Hhfux+iFcVHti7oki50M
-	 0dN6RtG8TTRFyfT1fV8ugic5scgfN95uBxkMT0ZwSM49l4ziz6qsAaPhd2eEikFd+2
-	 Ybxhi27SL4CDyeb2BZ8YsKxECSHvxfb5oCWfkCZTzFVSXXMpqinnLhpmguE7D3YCdo
-	 I6nLVsaA9cbKw==
+	s=mail; t=1679435789;
+	bh=LuZwe7bTMqmCqjiHWWchmraD16aQHXj8HS9LSc1Ljfk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=edLkylBsVvkmnZKiwqZHTkYbZEwGbNfmRImklUR10H7Mg6YnVIbOIFv1p0CQjjdAt
+	 LE6eaUFJL6kBiMfjWE+78/760zRywE2C90+6P3iXPqHGB2swj7A+k4dJ89tNL4nMS4
+	 N15IsfCJWCOGDYhuq+EwLL3qL7IlTH0PA3wxnVCl2uyQ8qYc0WpHDjbyTTuh819kPE
+	 c8poUMEq22cd5kZVShRByIfYFj1xdIdARjZXUOpcCZ7HcZPoamnyOGcDQp+iFkm8gw
+	 sKXu5EJ8Vv2hG77WmMblrybY9mDLxiMUyNAlE6eauIkFwJpF9Jvzsj0BOSFj9XBmmn
+	 S86+p7khrGDRA==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -64,16 +64,14 @@ Cc: linux-serial@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 01/10] dt-bindings: serial: snps-dw-apb-uart: Switch dma-names order
-Date: Tue, 21 Mar 2023 23:56:15 +0200
-Message-Id: <20230321215624.78383-2-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 00/10] Enable I2S support for RK3588/RK3588S SoCs
+Date: Tue, 21 Mar 2023 23:56:14 +0200
+Message-Id: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
-References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_145642_024870_2DC6FA39 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20230321_145641_924541_69BED107 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,85 +88,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
-dma-names properties") documented dma-names property to handle Allwinner
-D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
-reverse of what a different board expects:
+There are five I2S/PCM/TDM controllers and two I2S/PCM controllers embedded in
+the RK3588 and RK3588S SoCs. Furthermore, RK3588 provides four additional
+I2S/PCM/TDM controllers.
 
-  rk3326-odroid-go2.dtb: serial@ff030000: dma-names:0: 'rx' was expected
+This patch series adds the required device tree nodes to support all the above.
 
-A quick and incomplete check shows the inconsistency is present in many
-other DTS files:
+Additionally, it enables analog audio support for the Rock 5B SBC, which has
+been used to test both audio playback and recording.
 
-$ git grep -A10 snps,dw-apb-uart | grep dma-names | sort -u
-arch/arm64/boot/dts/rockchip/px30.dtsi-         dma-names = "tx", "rx";
-arch/arm64/boot/dts/rockchip/rk3328.dtsi-       dma-names = "tx", "rx";
-arch/arm64/boot/dts/rockchip/rk3588s.dtsi-      dma-names = "tx", "rx";
-arch/arm/boot/dts/rk3066a.dtsi-                 dma-names = "tx", "rx";
-arch/arm/boot/dts/rk3128.dtsi-                  dma-names = "tx", "rx";
-arch/arm/boot/dts/rk3288.dtsi-                  dma-names = "tx", "rx";
-arch/arm/boot/dts/rv1126.dtsi-                  dma-names = "tx", "rx";
-arch/arm/boot/dts/socfpga.dtsi-                 dma-names = "tx", "rx";
-arch/arm/boot/dts/sun6i-a31.dtsi-               dma-names = "rx", "tx";
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-           dma-names = "rx", "tx";
-arch/arm/boot/dts/sun8i-v3s.dtsi-               dma-names = "rx", "tx";
-arch/arm/boot/dts/sunxi-h3-h5.dtsi-             dma-names = "rx", "tx";
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dma-names = "rx", "tx";
+Note that some of the DT bindings fixes in this series are not particularly
+related to I2S, but are required for a proper dtbs_check validation.
 
-The initial proposed solution was to allow a flexible dma-names order in
-the binding, due to potential ABI breakage concerns after fixing the DTS
-files. But luckily the Allwinner boards are not really affected, since
-all of them are using a shared DMA channel for rx and tx:
+Changes in v2:
+ - Rebased onto next-20230321 and drop patches 03-08/11 already applied by Mark
+ - Replaced patch 01/11 with v2 07/10
+ - Reworked patch 02/11 to v2 01-06/10
+ - v1: https://lore.kernel.org/lkml/20230315114806.3819515-1-cristian.ciocaltea@collabora.com/
 
-$ git grep -A10 snps,dw-apb-uart | grep 'sun.*dmas' | sort -u
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 10>, <&dma 10>;
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 22>, <&dma 22>;
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 6>, <&dma 6>;
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 7>, <&dma 7>;
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 8>, <&dma 8>;
-arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 9>, <&dma 9>;
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 10>, <&dma 10>;
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 6>, <&dma 6>;
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 7>, <&dma 7>;
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 8>, <&dma 8>;
-arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 9>, <&dma 9>;
-arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 6>, <&dma 6>;
-arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 7>, <&dma 7>;
-arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 8>, <&dma 8>;
-arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 6>, <&dma 6>;
-arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 7>, <&dma 7>;
-arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 8>, <&dma 8>;
-arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 9>, <&dma 9>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 14>, <&dma 14>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 15>, <&dma 15>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 16>, <&dma 16>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 17>, <&dma 17>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 18>, <&dma 18>;
-arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 19>, <&dma 19>;
+Cristian Ciocaltea (10):
+  dt-bindings: serial: snps-dw-apb-uart: Switch dma-names order
+  ARM: dts: sun6i: a31: Switch dma-names order for snps,dw-apb-uart
+    nodes
+  ARM: dts: sun8i: a23/a33: Switch dma-names order for snps,dw-apb-uart
+    nodes
+  ARM: dts: sun8i: v3s: Switch dma-names order for snps,dw-apb-uart
+    nodes
+  ARM: dts: sunxi: h3/h5: Switch dma-names order for snps,dw-apb-uart
+    nodes
+  riscv: dts: allwinner: d1: Switch dma-names order for snps,dw-apb-uart
+    nodes
+  arm64: dts: rockchip: rk3588s: Move
+    assigned-clocks/assigned-clock-rates out of scmi
+  arm64: dts: rockchip: rk3588s: Add I2S nodes
+  arm64: dts: rockchip: rk3588: Add I2S nodes
+  arm64: dts: rockchip: rk3588-rock-5b: Add analog audio
 
-Switch dma-names order to tx->rx as the first step in fixing the
-inconsistency. The remaining DTS fixes will be handled by separate
-patches.
+ .../bindings/serial/snps-dw-apb-uart.yaml     |   2 +-
+ arch/arm/boot/dts/sun6i-a31.dtsi              |  12 +-
+ arch/arm/boot/dts/sun8i-a23-a33.dtsi          |  10 +-
+ arch/arm/boot/dts/sun8i-v3s.dtsi              |   6 +-
+ arch/arm/boot/dts/sunxi-h3-h5.dtsi            |   8 +-
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      |  62 +++++++
+ arch/arm64/boot/dts/rockchip/rk3588.dtsi      |  68 ++++++++
+ arch/arm64/boot/dts/rockchip/rk3588s.dtsi     | 156 +++++++++++++++++-
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +-
+ 9 files changed, 307 insertions(+), 29 deletions(-)
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index 2becdfab4f15..d28cc96fa8e9 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -72,8 +72,8 @@ properties:
- 
-   dma-names:
-     items:
--      - const: rx
-       - const: tx
-+      - const: rx
- 
-   snps,uart-16550-compatible:
-     description: reflects the value of UART_16550_COMPATIBLE configuration
 -- 
 2.40.0
 
