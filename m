@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A653C761A6
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 07:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E345C74A5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 08:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CkoQKGzKhZyKfqvNVgoONCdTlJZpzOkHDu21W540EwE=; b=Cwv+TLUpOHwvnHR9mbsw4wIdVi
-	95LCKUy0gLUKDDVZQ0nTWw1cFacONj5qMeinY3EXaewUByF45dGeiBSaxUUyVPTnhPsDPr//+e7kH
-	thH9cNwHhBpSZERRROmcadHol2yXjt6DKxSZul69N+oj1n2mdgJCHAvUXg/XLk+8UDQ5P/ROYeCnQ
-	VLo/hn1QK41clJh0TiT5ivzOi39IU+WH4RXqgq7rneF9EQJCBNswWFNvuCDeNSqk1oGCppZRmOcYG
-	iovoKoWR3bny9cDGNwjECSiK3X9i2R1yTZbk7w1mMHh3bd4CtbqfaWGW+HIw2LPXwdrozcxWszO4/
-	8NzyK1Vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Im8I9eUNnVkv1NY8Clmzz4qZbj5A7+dQDE75MY6nag8=; b=mfvx0hAdf8BKzF
+	i/3adJamkL+9VClhcMyzG8xLGICNajDknpJU7Xn//etzjKK99vrH/IDOhMcJWrF4YetwlGUjY0HHW
+	cKK77JU0ISujUNvO98wfn2fsiMC0da8yhqGxtk+km9625QIGoDRjJeAchRETl101iBJoxcpceTTT+
+	emOPneMXn/H39mDPJVL4ACwqKSclX6ykku1Ot/RHNtaZkkKuBe2KuH0hJh79M/2KeGEmyGhT7Ymyp
+	HLLwK9yFyVGByxg1n6AneFOS+VFJ0XfirBJ88DGR88SnSloDc+FmPbYnBeU7YaTnuIRlwTX3fgGMh
+	ig2TRX1Yoo6XA+0aEiHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWjd-00BaaW-0k;
-	Tue, 21 Mar 2023 07:48:45 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1peXeN-00BkhM-0r;
+	Tue, 21 Mar 2023 08:47:23 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peWjY-00BaYT-2R
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 07:48:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1679384921; x=1710920921;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6MyBY7psL5F53ecAKmJGuXc/BjEv9wV4jEJml3TJFIk=;
-  b=F9+F+h2GGrnuClEf94wVuk9OosEmYhW8i+++WywX1zwTdUHG7qLIPdht
-   GAQXWf0NEzhwmHmozJbnvl7Uz+Yo09SJi5pFuN3id4xU8MYTFs8PALqQJ
-   WjS1NYl/Cm3p8WuB07y/tchH2MQhwpWitU7WVMlIYR5biKX+tcTjnHXWS
-   uYf9a9UeitsvzAeWD/WShBy8K+UI/ofi2BKy+hLl17413VYDcqbE/mQ3S
-   GL2Q/6N5pik8/gmWhur+k4eKrEsGpnDTa81oqMdufJT+kE306C5LU4MXg
-   x3mNQqr6K7oSqY2w1u021tipEbGzFp8TFTG49F8Yqyx3U14Hqvc9AEnyn
-   w==;
-X-IronPort-AV: E=Sophos;i="5.98,278,1673938800"; 
-   d="asc'?scan'208";a="143073635"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Mar 2023 00:48:33 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 21 Mar 2023 00:48:33 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 21 Mar 2023 00:48:31 -0700
-Date: Tue, 21 Mar 2023 07:48:01 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Leonardo =?iso-8859-1?Q?Br=E1s?= <leobras@redhat.com>
-CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo
- Ren <guoren@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH 0/6] Deduplicating RISCV cmpxchg.h macros
-Message-ID: <18e07d0a-7e21-46d0-9166-6ee07817352a@spud>
-References: <20230318080059.1109286-1-leobras@redhat.com>
- <8f698f49-135a-4263-8471-96f406919cb1@spud>
- <4f35f41c143b02b6b815e7eb527ca3acd8b4aabe.camel@redhat.com>
+	id 1peXeF-00BkcE-0Z;
+	Tue, 21 Mar 2023 08:47:17 +0000
+Received: from ubuntu.localdomain (unknown [117.133.56.22])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 1CF7358063F;
+	Tue, 21 Mar 2023 16:47:07 +0800 (CST)
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+To: mhiramat@kernel.org,
+	rostedt@goodmis.org,
+	linux@armlinux.org.uk,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	xiehuan09@gmail.com,
+	dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn,
+	dolinux.peng@gmail.com
+Cc: linux-trace-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: [PATCH v6 2/2] tracing: Add documentation for funcgraph-retval and graph_retval_hex
+Date: Tue, 21 Mar 2023 01:46:50 -0700
+Message-Id: <20230321084650.769212-3-pengdonglin@sangfor.com.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230321084650.769212-1-pengdonglin@sangfor.com.cn>
+References: <20230321084650.769212-1-pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
-In-Reply-To: <4f35f41c143b02b6b815e7eb527ca3acd8b4aabe.camel@redhat.com>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGkkdVh0YGR1KHU1MQkNKHlUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpISkJIT1VKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NS46Azo6PT0UVhdNDyEZMBFP
+	SDgaCi1VSlVKTUxCSENDT0lDT09OVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNQ05ONwY+
+X-HM-Tid: 0a870359c6b12eb7kusn1cf7358063f
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_004841_821169_FCEE5240 
-X-CRM114-Status: GOOD (  38.12  )
+X-CRM114-CacheID: sfid-20230321_014715_550837_7CB08325 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,141 +81,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0381235063285003208=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0381235063285003208==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="92Q1AYY2bRdVQ9dX"
-Content-Disposition: inline
+Add documentation for the two newly introduced options for the
+function_graph tracer. The new option funcgraph-retval is used to
+control whether or not to display the return value. The new option
+graph_retval_hex is used to control the display format of the return
+value.
 
---92Q1AYY2bRdVQ9dX
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+---
+v6:
+ - Modify the limitations for funcgraph-retval
+ - Optimize the English expression
 
-On Tue, Mar 21, 2023 at 03:30:35AM -0300, Leonardo Br=E1s wrote:
-> Hello Conor, thanks for the feedback!
->=20
->=20
-> On Sun, 2023-03-19 at 20:35 +0000, Conor Dooley wrote:
-> > On Sat, Mar 18, 2023 at 05:00:54AM -0300, Leonardo Bras wrote:
-> > > While studying riscv's cmpxchg.h file, I got really interested in=20
-> > > understanding how RISCV asm implemented the different versions of=20
-> > > {cmp,}xchg.
-> > >=20
-> > > When I understood the pattern, it made sense for me to remove the=20
-> > > duplications and create macros to make it easier to understand what e=
-xactly=20
-> > > changes between the versions: Instruction sufixes & barriers.
-> > >=20
-> > > I split those changes in 3 levels for each cmpxchg and xchg, resultin=
-g a=20
-> > > total of 6 patches. I did this so it becomes easier to review and rem=
-ove=20
-> > > the last levels if desired, but I have no issue squashing them if it'=
-s=20
-> > > better.
-> > >=20
-> > > Please provide comments.
-> > >=20
-> > > Thanks!
-> > > Leo
-> > >=20
-> > > Leonardo Bras (6):
-> > >   riscv/cmpxchg: Deduplicate cmpxchg() asm functions
-> > >   riscv/cmpxchg: Deduplicate cmpxchg() macros
-> > >   riscv/cmpxchg: Deduplicate arch_cmpxchg() macros
-> >=20
-> > >   riscv/cmpxchg: Deduplicate xchg() asm functions
-> >=20
-> > FWIW, this patch seems to break the build pretty badly:
-> > https://patchwork.kernel.org/project/linux-riscv/patch/20230318080059.1=
-109286-5-leobras@redhat.com/
->=20
-> Thanks for pointing out!
->=20
-> It was an intermediary error:
-> Sufix for amoswap on acquire version was "d.aqrl" instead of the
-> correct".d.aqrl", and that caused the fail.
->=20
-> I did not notice anything because the next commit made it more general, a=
-nd thus
-> removed this line of code. I will send a v2-RFC shortly.
->=20
-> I see that patch 4/6 has 5 fails, but on each one of them I can see:
-> "I: build output in /ci/workspace/[...]", or
-> ""I: build output in /tmp/[...]".
+v5:
+ - Describe the limitations of funcgraph-retval
+---
+ Documentation/trace/ftrace.rst | 73 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
 
-I don't push the built artifacts anywhere, just the brief logs -
-although the "failed to build" log isn't very helpful other than telling
-you the build broke.
-That seems like a bug w.r.t. where tuxmake prints its output. I'll try
-to fix that.
+diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
+index b927fb2b94dc..1807f7752037 100644
+--- a/Documentation/trace/ftrace.rst
++++ b/Documentation/trace/ftrace.rst
+@@ -1328,6 +1328,19 @@ Options for function_graph tracer:
+ 	only a closing curly bracket "}" is displayed for
+ 	the return of a function.
+ 
++  funcgraph-retval
++	When set, the return value of each traced function
++	will be printed after an equal sign "=". By default
++	this is off.
++
++  graph_retval_hex
++	When set, the return value will always be printed
++	in hexadecimal format. If the option is not set and
++	the return value is an error code, it will be printed
++	in signed decimal format; otherwise it will also be
++	printed in hexadecimal format. By default, this option
++	is off.
++
+   sleep-time
+ 	When running function graph tracer, to include
+ 	the time a task schedules out in its function.
+@@ -2673,6 +2686,66 @@ It is default disabled.
+     0)   1.757 us    |        } /* kmem_cache_free() */
+     0)   2.861 us    |      } /* putname() */
+ 
++The return value of each traced function can be displayed after
++an equal sign "=". When encountering system call failures, it
++can be verfy helpful to quickly locate the function that first
++returns an error code.
++
++	- hide: echo nofuncgraph-retval > trace_options
++	- show: echo funcgraph-retval > trace_options
++
++  Example with funcgraph-retval::
++
++    1)               |    cgroup_migrate() {
++    1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
++    1)               |      cgroup_migrate_execute() {
++    1)               |        cpu_cgroup_can_attach() {
++    1)               |          cgroup_taskset_first() {
++    1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
++    1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
++    1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
++    1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
++    1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
++    1)   7.143 us    |    } /* cgroup_migrate = -22 */
++
++The above example shows that the function cpu_cgroup_can_attach
++returned the error code -22 firstly, then we can read the code
++of this function to get the root cause.
++
++When the option graph_retval_hex is not set, the return value can
++be displayed in a smart way. Specifically, if it is an error code,
++it will be printed in signed decimal format, otherwise it will
++printed in hexadecimal format.
++
++	- smart: echo nograph_retval_hex > trace_options
++	- hexadecimal always: echo graph_retval_hex > trace_options
++
++  Example with graph_retval_hex::
++
++    1)               |      cgroup_migrate() {
++    1)   0.651 us    |        cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
++    1)               |        cgroup_migrate_execute() {
++    1)               |          cpu_cgroup_can_attach() {
++    1)               |            cgroup_taskset_first() {
++    1)   0.732 us    |              cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
++    1)   1.232 us    |            } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
++    1)   0.380 us    |            sched_rt_can_attach(); /* = 0x0 */
++    1)   2.335 us    |          } /* cpu_cgroup_can_attach = 0xffffffea */
++    1)   4.369 us    |        } /* cgroup_migrate_execute = 0xffffffea */
++    1)   7.143 us    |      } /* cgroup_migrate = 0xffffffea */
++
++There are some limitations when using the funcgraph-retval currently:
++
++- Even if the function return type is void, a return value will still
++  be printed, and you can just ignore it.
++
++- Even if return values are stored in two registers, only the value of
++  the first return register will be recorded and printed. For example,
++  in x86 architecture, both eax and edx are used to store a 64-bit
++  return value. Eax stores the low 32 bits, and edx stores the high
++  32 bits. However, only the value stored in eax will be recorded and
++  printed.
++
+ You can put some comments on specific functions by using
+ trace_printk() For example, if you want to put a comment inside
+ the __might_sleep() function, you just have to include
+-- 
+2.25.1
 
-> I could not find any reference to where this is saved, though.
-> Could you point where can I find the error output, just for the sake of f=
-urther
-> debugging?
->=20
-> >=20
-> > Patches 1 & 5 also add quite a lot of sparse issues (like 1000), but I
-> > think that may be more of an artifact of the testing process as opposed
-> > to something caused by this patchset.
->=20
-> For those I can see the build output diffs. Both added error lines to
-> conchuod/build_rv64_gcc_allmodconfig.
-> I tried to mimic this with [make allmodconfig + gcc build with
-> CROSS_COMPILE=3Driscv64-linux-gnu- ] but I could not get any error in any=
- patch.
-
-If you can't replicate them, it's probably because they come from
-sparse. I only really mentioned it here in case you went looking at the
-other patches in the series and were wondering why things were so amiss.
-
-> For patch 1/6 it removes as much error lines (-) as it adds (+), and the =
-error
-> messages are mostly the same, apart for an line number.
-
-I don't see a line number difference, but rather an increase in the
-number of times the same error lines have appeared in the output.
-I don't find the single-line output from sparse to really be very
-helpful, I should probably have a bit of a think how to present that
-information better.
-
-> For patch 5/6 it actually adds many more lines, but tracking (some of) the
-> errors gave me no idea why.
-
-Probably just sparse being unhappy with some way the macros were
-changed - but some of it ("Should it be static?" bits) look very much
-like the patch causing things to be rebuilt only for the "after the
-patch" build, but somehow not for the "before" build.
-
---92Q1AYY2bRdVQ9dX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBlhLQAKCRB4tDGHoIJi
-0hZlAP4n0duDt3EuH405TYYD+EISOJ36GeTGI8Kt1+7QKXReaAEAql7EYVrXRAF3
-YdlzsFA20w5PSOvdJ5cWWZsdY2NFjgA=
-=lOX4
------END PGP SIGNATURE-----
-
---92Q1AYY2bRdVQ9dX--
-
-
---===============0381235063285003208==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0381235063285003208==--
-
