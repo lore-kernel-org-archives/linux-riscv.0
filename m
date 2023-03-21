@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B0FC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 06:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E96C74A5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 06:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ruwfpOaNzC3BA9g/STh42fq7A0DoyLUqfw5b5JQrWDk=; b=iW99TpKfjikjzE
-	S2+/QWhK+vYl8DPeTjXt/I0Zd6KQUuCT9ZNQfmuiYa7YI/l1vrzzgFoQ2heYeT012CG4wLfR5cAmK
-	rAo3HZ5xr4n5C9+vqPGa2c0sqzzhQ11nC9RP+vmIsBDonon7SQ3LxfO4PHjhkwejM7PBeCmGrpmUJ
-	DrxB8BI6Yhe9hgccrtyaByltQApz4NqVdSdeJMC3plWer/GjfbjpchfyNSFlJs2cyMvFizawj/xEi
-	DKxcllESiu9dpSfeYIEBCKgLgO3xXmIQZyfIiPnwwaxQBmcGR8KZPuhEucyV574u1KoPlQ6ojZIVh
-	M5wqO5b6EFQJ6JA8C7EA==;
+	List-Owner; bh=1AaGLXqxdZuotKkrHUq/bhpRZ1/zk439c+Vy+180hGU=; b=WqLeGOD9LJj6w8
+	7yTWDLRD9qUcNDmrlyTkzhYvvDhSJZa1sko1r3gpZ7DWpPsa0I3qqIxWnK1YfkVAWymot0EqdqpIo
+	PpeMx5/iHzD31o0066YvTdZ/QAXPNKGo74uhM54RHpkeyTtMr6KGiT2WGzWBsfwhXhhKOffMfymAx
+	775Mz3AUIKwwb4gspwsxGkjWDZA8fBgzAh9c+gMrLlisOxNgr0UpSceZVvAp2gcQFqjZCwLmhaePI
+	RDeX2aenUIxNxLgOHbd9NZSDumxFsCJ3b9rMdsoOjkuaYgHdyP8dpjbsOmNQtN0m0dfcB93ysOR55
+	AXXV35+CfRXGJF7Mej0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peVBd-00BLbr-1N;
-	Tue, 21 Mar 2023 06:09:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peVBX-00BLaU-1X;
-	Tue, 21 Mar 2023 06:09:31 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2267424DFE2;
-	Tue, 21 Mar 2023 14:08:54 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Mar
- 2023 14:08:54 +0800
-Received: from [192.168.125.82] (183.27.97.64) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Mar
- 2023 14:08:53 +0800
-Message-ID: <2aa1bdbd-e37e-941a-9422-0908545c14f7@starfivetech.com>
-Date: Tue, 21 Mar 2023 14:08:51 +0800
+	id 1peVWD-00BNhh-2n;
+	Tue, 21 Mar 2023 06:30:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1peVWB-00BNfm-0F
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Mar 2023 06:30:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1679380241;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hLfcaciqC2sQRgVuiIt5OYHvRdezwnP+Ui5lox0wguk=;
+	b=PF7iTdHplJ8+x6scSvXfSY5ot6SfSz1aKBq+W6awOj1QpQtUVwGqq1v8T0ngN08+p1RRUs
+	g+nDjTw9Uc1pE+hOV9n14lMfEQmkZQzh2JXWpCgamTzrn3v+igRMJdN7BKxWhuGIrcCj0N
+	yrmz1gc+mMCJTmnSt62qgJOdFEOV84M=
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com
+ [209.85.167.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-335-tn_0WDOXPtGNcvt_-TndTw-1; Tue, 21 Mar 2023 02:30:40 -0400
+X-MC-Unique: tn_0WDOXPtGNcvt_-TndTw-1
+Received: by mail-oi1-f198.google.com with SMTP id bf33-20020a056808192100b003872286998bso367288oib.23
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 23:30:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679380240;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hLfcaciqC2sQRgVuiIt5OYHvRdezwnP+Ui5lox0wguk=;
+        b=KwOI2HEOaRD0/E013pLEjYuM8nxpsMmVqbeOWYns1dfeF/g47huSCf4ryXENQtCckI
+         3WXWyMlN9JIIdJaslT36BbE9qr7j48GZlnCiGw3GLb2iza8lX/cbeizQwJpdCazJe+aO
+         52Mfb/Bahv6yRAcd5W/CG6xtlvNm4DhVOEmc5w+ykGljn9/75qxo8rJHcaHUKFwtDoP8
+         GOaumk3vsLRN/qFXltmXPnJZFur4HMpmaFlY6ifEuMIwMrC4bQVnXY8MJyyWv2764Rqg
+         duqlQ4opVTl4J26CkpQ6I6sZlEidAmf8nyzykN3IDK+FK6sSb0Hr8OvaGTv0mNAg+GoI
+         rG4g==
+X-Gm-Message-State: AO0yUKXezIS1d0a5zCWFfwpOB46jjqMizStBVgXmSySZkiSNB091EL4u
+	cIiZiAfYN7HnuulwJj7ueviF5PDKmiUSPgCE/E32do2j1+s6UbozEe5BQ6KbVJhLbLJxZJVwPmI
+	ePCq0vk3K4G67LMrWIlEBeqLu8z2N
+X-Received: by 2002:a05:6870:e9a6:b0:177:896a:cb06 with SMTP id r38-20020a056870e9a600b00177896acb06mr532675oao.17.1679380239779;
+        Mon, 20 Mar 2023 23:30:39 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+sAnExMk7SZzECJpvie0SkEMvlJl4END4aZkWBt8HSEfwk2lzAbzgMlaR1FWZJdyt92s7VUw==
+X-Received: by 2002:a05:6870:e9a6:b0:177:896a:cb06 with SMTP id r38-20020a056870e9a600b00177896acb06mr532663oao.17.1679380239515;
+        Mon, 20 Mar 2023 23:30:39 -0700 (PDT)
+Received: from ?IPv6:2804:1b3:a801:b074:274d:d04e:badc:c89f? ([2804:1b3:a801:b074:274d:d04e:badc:c89f])
+        by smtp.gmail.com with ESMTPSA id bd35-20020a056871b32300b00177be9585desm4021051oac.1.2023.03.20.23.30.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Mar 2023 23:30:39 -0700 (PDT)
+Message-ID: <4f35f41c143b02b6b815e7eb527ca3acd8b4aabe.camel@redhat.com>
+Subject: Re: [RFC PATCH 0/6] Deduplicating RISCV cmpxchg.h macros
+From: Leonardo =?ISO-8859-1?Q?Br=E1s?= <leobras@redhat.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+	 <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 21 Mar 2023 03:30:35 -0300
+In-Reply-To: <8f698f49-135a-4263-8471-96f406919cb1@spud>
+References: <20230318080059.1109286-1-leobras@redhat.com>
+	 <8f698f49-135a-4263-8471-96f406919cb1@spud>
+User-Agent: Evolution 3.46.4
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v2 2/3] phy: starfive: Add mipi dphy rx support
-Content-Language: en-US
-To: Vinod Koul <vkoul@kernel.org>
-CC: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
- <20230223015952.201841-3-changhuang.liang@starfivetech.com>
- <ZBhTmTEcrV59oaw3@matsya>
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <ZBhTmTEcrV59oaw3@matsya>
-X-Originating-IP: [183.27.97.64]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
- (172.16.6.72)
-X-YovoleRuleAgent: yovoleflag
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_230927_977634_6AF0000F 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20230320_233047_189958_590A4A0A 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,408 +103,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello Conor, thanks for the feedback!
 
 
-On 2023/3/20 20:37, Vinod Koul wrote:
-> On 22-02-23, 17:59, Changhuang Liang wrote:
->> [...]
->> +++ b/drivers/phy/starfive/phy-starfive-dphy-rx.c
->> @@ -0,0 +1,362 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * DPHY driver for the StarFive JH7110 SoC
->> + *
->> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
->> + */
->> +
->> +#include <linux/bitfield.h>
->> +#include <linux/bitops.h>
->> +#include <linux/clk.h>
->> +#include <linux/io.h>
->> +#include <linux/mfd/syscon.h>
->> +#include <linux/module.h>
->> +#include <linux/of_address.h>
->> +#include <linux/of_device.h>
->> +#include <linux/phy/phy.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/regmap.h>
->> +#include <linux/reset.h>
->> +
->> +#define STF_DPHY_APBCFGSAIF__SYSCFG(x)		(x)
+On Sun, 2023-03-19 at 20:35 +0000, Conor Dooley wrote:
+> On Sat, Mar 18, 2023 at 05:00:54AM -0300, Leonardo Bras wrote:
+> > While studying riscv's cmpxchg.h file, I got really interested in 
+> > understanding how RISCV asm implemented the different versions of 
+> > {cmp,}xchg.
+> > 
+> > When I understood the pattern, it made sense for me to remove the 
+> > duplications and create macros to make it easier to understand what exactly 
+> > changes between the versions: Instruction sufixes & barriers.
+> > 
+> > I split those changes in 3 levels for each cmpxchg and xchg, resulting a 
+> > total of 6 patches. I did this so it becomes easier to review and remove 
+> > the last levels if desired, but I have no issue squashing them if it's 
+> > better.
+> > 
+> > Please provide comments.
+> > 
+> > Thanks!
+> > Leo
+> > 
+> > Leonardo Bras (6):
+> >   riscv/cmpxchg: Deduplicate cmpxchg() asm functions
+> >   riscv/cmpxchg: Deduplicate cmpxchg() macros
+> >   riscv/cmpxchg: Deduplicate arch_cmpxchg() macros
 > 
-> What is the purpose of this? also whats with __ ?
+> >   riscv/cmpxchg: Deduplicate xchg() asm functions
 > 
+> FWIW, this patch seems to break the build pretty badly:
+> https://patchwork.kernel.org/project/linux-riscv/patch/20230318080059.1109286-5-leobras@redhat.com/
 
-In starfive jh7110 SoC, Dphy rx module register's name is called such as
-STF_DPHY_APBCFGSAIF__SYSCFG_4, STF_DPHY_APBCFGSAIF__SYSCFG_8, STF_DPHY_APBCFGSAIF__SYSCFG_12...
-so I merge them to use a marco STF_DPHY_APBCFGSAIF__SYSCFG(x).
+Thanks for pointing out!
 
-Should I use one "_" is enoughed?
+It was an intermediary error:
+Sufix for amoswap on acquire version was "d.aqrl" instead of the
+correct".d.aqrl", and that caused the fail.
 
->> +
->> +#define STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_EN BIT(6)
->> +#define STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_IN GENMASK(12, 7)
->> +#define STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_EN BIT(19)
->> +#define STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_IN GENMASK(25, 20)
->> +
->> +#define STF_DPHY_DATA_BUS16_8			BIT(8)
->> +#define STF_DPHY_DEBUG_MODE_SEL			GENMASK(15, 9)
->> +
->> +#define STF_DPHY_ENABLE_CLK			BIT(6)
->> +#define STF_DPHY_ENABLE_CLK1			BIT(7)
->> +#define STF_DPHY_ENABLE_LAN0			BIT(8)
->> +#define STF_DPHY_ENABLE_LAN1			BIT(9)
->> +#define STF_DPHY_ENABLE_LAN2			BIT(10)
->> +#define STF_DPHY_ENABLE_LAN3			BIT(11)
->> +#define STF_DPHY_GPI_EN				GENMASK(17, 12)
->> +#define STF_DPHY_HS_FREQ_CHANGE_CLK		BIT(18)
->> +#define STF_DPHY_HS_FREQ_CHANGE_CLK1		BIT(19)
->> +#define STF_DPHY_LANE_SWAP_CLK			GENMASK(22, 20)
->> +#define STF_DPHY_LANE_SWAP_CLK1			GENMASK(25, 23)
->> +#define STF_DPHY_LANE_SWAP_LAN0			GENMASK(28, 26)
->> +#define STF_DPHY_LANE_SWAP_LAN1			GENMASK(31, 29)
->> +
->> +#define STF_DPHY_LANE_SWAP_LAN2			GENMASK(2, 0)
->> +#define STF_DPHY_LANE_SWAP_LAN3			GENMASK(5, 3)
->> +#define STF_DPHY_MP_TEST_EN			BIT(6)
->> +#define STF_DPHY_MP_TEST_MODE_SEL		GENMASK(11, 7)
->> +#define STF_DPHY_PLL_CLK_SEL			GENMASK(21, 12)
->> +#define STF_DPHY_PRECOUNTER_IN_CLK		GENMASK(29, 22)
->> +
->> +#define STF_DPHY_PRECOUNTER_IN_CLK1		GENMASK(7, 0)
->> +#define STF_DPHY_PRECOUNTER_IN_LAN0		GENMASK(15, 8)
->> +#define STF_DPHY_PRECOUNTER_IN_LAN1		GENMASK(23, 16)
->> +#define STF_DPHY_PRECOUNTER_IN_LAN2		GENMASK(31, 24)
->> +
->> +#define STF_DPHY_PRECOUNTER_IN_LAN3		GENMASK(7, 0)
->> +#define STF_DPHY_RX_1C2C_SEL			BIT(8)
->> +
->> +struct regval_t {
+I did not notice anything because the next commit made it more general, and thus
+removed this line of code. I will send a v2-RFC shortly.
+
+I see that patch 4/6 has 5 fails, but on each one of them I can see:
+"I: build output in /ci/workspace/[...]", or
+""I: build output in /tmp/[...]".
+
+I could not find any reference to where this is saved, though.
+Could you point where can I find the error output, just for the sake of further
+debugging?
+
 > 
-> regval should be okay, no?
-> 
+> Patches 1 & 5 also add quite a lot of sparse issues (like 1000), but I
+> think that may be more of an artifact of the testing process as opposed
+> to something caused by this patchset.
 
-OK, will change to regval
+For those I can see the build output diffs. Both added error lines to
+conchuod/build_rv64_gcc_allmodconfig.
+I tried to mimic this with [make allmodconfig + gcc build with
+CROSS_COMPILE=riscv64-linux-gnu- ] but I could not get any error in any patch.
 
->> +	u32 addr;
->> +	u32 val;
->> +};
->> +
->> +struct stf_dphy {
->> +	struct device *dev;
->> +	void __iomem *regs;
->> +	struct clk *cfg_clk;
->> +	struct clk *ref_clk;
->> +	struct clk *tx_clk;
->> +	struct reset_control *rstc;
->> +	struct regulator *mipi_0p9;
->> +	struct phy *phy;
->> +	struct regmap *stf_aon_syscon;
->> +	unsigned int aon_gp_reg;
->> +};
->> +
->> +struct stf_dphy_info {
->> +	bool external_support;
->> +	int (*external_get)(struct stf_dphy *dphy);
->> +	void (*external_init)(struct stf_dphy *dphy);
->> +	void (*external_exit)(struct stf_dphy *dphy);
->> +};
->> +
->> +static const struct stf_dphy_info *stf_dphy_info;
->> +
->> +static const struct regval_t stf_dphy_init_list[] = {
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(4), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(8), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(12), 0x0000fff0 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(16), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(20), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(24), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(28), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(32), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(36), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(40), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(40), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(48), 0x24000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(52), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(56), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(60), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(64), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(68), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(72), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(76), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(80), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(84), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(88), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(92), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(96), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(100), 0x02000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(104), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(108), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(112), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(116), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(120), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(124), 0x0000000c },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(128), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(132), 0xcc500000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(136), 0x000000cc },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(140), 0x00000000 },
->> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(144), 0x00000000 },
->> +};
->> +
->> +static int stf_dphy_configure(struct phy *phy, union phy_configure_opts *opts)
->> +{
->> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
->> +	int map[6] = {4, 0, 1, 2, 3, 5};
-> 
-> what does this mean?
-> 
+For patch 1/6 it removes as much error lines (-) as it adds (+), and the error
+messages are mostly the same, apart for an line number.
 
-This is the physical lane and logical lane mapping table, should I add a note for it?
+For patch 5/6 it actually adds many more lines, but tracking (some of) the
+errors gave me no idea why.
 
->> +	int i;
->> +
->> +	for (i = 0; i < ARRAY_SIZE(stf_dphy_init_list); i++)
->> +		writel(stf_dphy_init_list[i].val,
->> +		       dphy->regs + stf_dphy_init_list[i].addr);
->> +
->> +	writel(FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_EN, 1) |
->> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_IN, 0x1b) |
->> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_EN, 1) |
->> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_IN, 0x1b),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(0));
->> +
->> +	writel(FIELD_PREP(STF_DPHY_DATA_BUS16_8, 0) |
->> +	       FIELD_PREP(STF_DPHY_DEBUG_MODE_SEL, 0x5a),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(184));
->> +
->> +	writel(FIELD_PREP(STF_DPHY_ENABLE_CLK, 1) |
->> +	       FIELD_PREP(STF_DPHY_ENABLE_CLK1, 1) |
->> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN0, 1) |
->> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN1, 1) |
->> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN2, 1) |
->> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN3, 1) |
->> +	       FIELD_PREP(STF_DPHY_GPI_EN, 0) |
->> +	       FIELD_PREP(STF_DPHY_HS_FREQ_CHANGE_CLK, 0) |
->> +	       FIELD_PREP(STF_DPHY_HS_FREQ_CHANGE_CLK1, 0) |
->> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_CLK, map[0]) |
->> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_CLK1, map[5]) |
->> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN0, map[1]) |
->> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN1, map[2]),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(188));
->> +
->> +	writel(FIELD_PREP(STF_DPHY_LANE_SWAP_LAN2, map[3]) |
->> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN3, map[4]) |
->> +	       FIELD_PREP(STF_DPHY_MP_TEST_EN, 0) |
->> +	       FIELD_PREP(STF_DPHY_MP_TEST_MODE_SEL, 0) |
->> +	       FIELD_PREP(STF_DPHY_PLL_CLK_SEL, 0x37c) |
->> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_CLK, 8),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(192));
->> +
->> +	writel(FIELD_PREP(STF_DPHY_PRECOUNTER_IN_CLK1, 8) |
->> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN0, 7) |
->> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN1, 7) |
->> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN2, 7),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(196));
->> +
->> +	writel(FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN3, 7) |
->> +	       FIELD_PREP(STF_DPHY_RX_1C2C_SEL, 0),
->> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(200));
->> +
->> +	return 0;
->> +}
->> +
->> +static int stf_dphy_init(struct phy *phy)
->> +{
->> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
->> +	int ret;
->> +
->> +	ret = regulator_enable(dphy->mipi_0p9);
->> +	if (ret)
->> +		goto err_0p9;
->> +
->> +	if (stf_dphy_info->external_support && stf_dphy_info->external_init)
->> +		stf_dphy_info->external_init(dphy);
->> +
->> +	return 0;
->> +
->> +err_0p9:
->> +	return ret;
->> +}
->> +
->> +static int stf_dphy_exit(struct phy *phy)
->> +{
->> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
->> +
->> +	if (stf_dphy_info->external_support && stf_dphy_info->external_exit)
->> +		stf_dphy_info->external_exit(dphy);
->> +
->> +	regulator_disable(dphy->mipi_0p9);
->> +
->> +	return 0;
->> +}
->> +
->> +static int stf_dphy_power_on(struct phy *phy)
->> +{
->> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
->> +
->> +	clk_set_rate(dphy->cfg_clk, 99000000);
->> +	clk_set_rate(dphy->ref_clk, 49500000);
->> +	clk_set_rate(dphy->tx_clk, 19800000);
->> +	reset_control_deassert(dphy->rstc);
->> +
->> +	return 0;
->> +}
->> +
->> +static int stf_dphy_power_off(struct phy *phy)
->> +{
->> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
->> +
->> +	reset_control_assert(dphy->rstc);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct phy_ops stf_dphy_ops = {
->> +	.init      = stf_dphy_init,
->> +	.exit      = stf_dphy_exit,
->> +	.configure = stf_dphy_configure,
->> +	.power_on  = stf_dphy_power_on,
->> +	.power_off = stf_dphy_power_off,
->> +};
->> +
->> +static int stf_dphy_probe(struct platform_device *pdev)
->> +{
->> +	struct phy_provider *phy_provider;
->> +	struct stf_dphy *dphy;
->> +	int ret;
->> +
->> +	dphy = devm_kzalloc(&pdev->dev, sizeof(*dphy), GFP_KERNEL);
->> +	if (!dphy)
->> +		return -ENOMEM;
->> +	stf_dphy_info = of_device_get_match_data(&pdev->dev);
->> +	dev_set_drvdata(&pdev->dev, dphy);
->> +	dphy->dev = &pdev->dev;
->> +
->> +	dphy->regs = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(dphy->regs))
->> +		return PTR_ERR(dphy->regs);
->> +
->> +	dphy->cfg_clk = devm_clk_get(&pdev->dev, "cfg");
->> +	if (IS_ERR(dphy->cfg_clk))
->> +		return PTR_ERR(dphy->cfg_clk);
->> +
->> +	dphy->ref_clk = devm_clk_get(&pdev->dev, "ref");
->> +	if (IS_ERR(dphy->ref_clk))
->> +		return PTR_ERR(dphy->ref_clk);
->> +
->> +	dphy->tx_clk = devm_clk_get(&pdev->dev, "tx");
->> +	if (IS_ERR(dphy->tx_clk))
->> +		return PTR_ERR(dphy->tx_clk);
->> +
->> +	dphy->rstc = devm_reset_control_array_get_exclusive(&pdev->dev);
->> +	if (IS_ERR(dphy->rstc))
->> +		return PTR_ERR(dphy->rstc);
->> +
->> +	dphy->mipi_0p9 = devm_regulator_get(&pdev->dev, "mipi_0p9");
->> +	if (IS_ERR(dphy->mipi_0p9))
->> +		return PTR_ERR(dphy->mipi_0p9);
->> +
->> +	if (stf_dphy_info->external_support && stf_dphy_info->external_get) {
->> +		ret = stf_dphy_info->external_get(dphy);
->> +		if (ret < 0) {
->> +			dev_err(&pdev->dev, "Failed to get PHY external info\n");
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	dphy->phy = devm_phy_create(&pdev->dev, NULL, &stf_dphy_ops);
->> +	if (IS_ERR(dphy->phy)) {
->> +		dev_err(&pdev->dev, "Failed to create PHY\n");
->> +		return PTR_ERR(dphy->phy);
->> +	}
->> +
->> +	phy_set_drvdata(dphy->phy, dphy);
->> +	phy_provider = devm_of_phy_provider_register(&pdev->dev,
->> +						     of_phy_simple_xlate);
->> +
->> +	return PTR_ERR_OR_ZERO(phy_provider);
->> +}
->> +
->> +static int stf_external_get(struct stf_dphy *dphy)
->> +{
->> +	struct of_phandle_args args;
->> +	int ret;
->> +
->> +	ret = of_parse_phandle_with_fixed_args(dphy->dev->of_node,
->> +					       "starfive,aon-syscon",
->> +					       1, 0, &args);
->> +	if (ret < 0) {
->> +		dev_err(dphy->dev, "Failed to parse starfive,aon-syscon\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	dphy->stf_aon_syscon = syscon_node_to_regmap(args.np);
->> +	of_node_put(args.np);
->> +	if (IS_ERR(dphy->stf_aon_syscon))
->> +		return PTR_ERR(dphy->stf_aon_syscon);
->> +
->> +	dphy->aon_gp_reg = args.args[0];
->> +
->> +	return 0;
->> +}
->> +
->> +static void stf_external_init(struct stf_dphy *dphy)
->> +{
->> +	regmap_update_bits(dphy->stf_aon_syscon, dphy->aon_gp_reg,
->> +			   BIT(31), BIT(31));
->> +}
->> +
->> +static void stf_external_exit(struct stf_dphy *dphy)
->> +{
->> +	regmap_update_bits(dphy->stf_aon_syscon, dphy->aon_gp_reg,
->> +			   BIT(31), 0);
->> +}
->> +
->> +static const struct stf_dphy_info starfive_dphy_info = {
->> +	.external_support = true,
->> +	.external_get = stf_external_get,
->> +	.external_init = stf_external_init,
->> +	.external_exit = stf_external_exit,
->> +};
->> +
->> +static const struct of_device_id stf_dphy_dt_ids[] = {
->> +	{
->> +		.compatible = "starfive,jh7110-dphy-rx",
->> +		.data = &starfive_dphy_info,
 > 
-> is there a plan to support multiple versions which need different
-> get/init/exit methods?
-> 
+> Cheers,
+> Conor.
 
-There is no plan to support multiple versions. So this different methods
-interface can cancel?
+Thanks a lot!
+Leo
 
->> +	},
->> +	{ /* sentinel */ },
->> +};
->> +MODULE_DEVICE_TABLE(of, stf_dphy_dt_ids);
->> +
->> +static struct platform_driver stf_dphy_driver = {
->> +	.probe = stf_dphy_probe,
->> +	.driver = {
->> +		.name	= "starfive-dphy-rx",
->> +		.of_match_table = stf_dphy_dt_ids,
->> +	},
->> +};
->> +module_platform_driver(stf_dphy_driver);
->> +
->> +MODULE_AUTHOR("Jack Zhu <jack.zhu@starfivetech.com>");
->> +MODULE_AUTHOR("Changhuang Liang <changhuang.liang@starfivetech.com>");
->> +MODULE_DESCRIPTION("Starfive DPHY RX driver");
->> +MODULE_LICENSE("GPL");
->> -- 
->> 2.25.1
-> 
+
 
 _______________________________________________
 linux-riscv mailing list
