@@ -4,48 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04179C6FD20
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 20:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2E6C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VcBQXDFYpMqzmNwiCDybq9hfYXV2uI1ZbIyheKM9Rb4=; b=MZ1gLEkvK0pSTf
-	8oyVctRUi0O9CLpz1voyKT3JiNE69FQypD/pkPeke39Jr0d2C7NXYXqqqVfeL2OWtkJy2ZUNppWKC
-	qcz+xHCxmdjD6R2W2qGUPC/Hb9Gap67zoePOWxGWpGuHmAsI3PrioCb/yiswyrwwVvGxJYaej5VDw
-	c051OSvn0q9Vs1Yo84QTTr7RgBjjMQ+ReJjIMQ0H9VjyxKPzFamTGKlk3exjE1MoYax/fP2jP2xkV
-	CBJXPDr6WMUN29lKuAKl9g3iYXtoqBePjVe2U1TOgh01/RNfups0Xj22CcGnzhR00CRBNoNgDrvAg
-	GTW3Ocfghtk0qntuOXyA==;
+	List-Owner; bh=CCljk6epk58TcM2/qf6fO/Swa215hF+mAl/bZCHBVTk=; b=bcWpTXFsAVKxM/
+	PCoIsqbwlZXS7AH7gVobzxNnlSF9tY8WePbgGlbTvrkX0swv+GJnv5uC7+X21S1gkG+NjAkUUSYY7
+	lZgdBXH1x09sfI+v/w4n11K/MZmIgXaCHG9/AGPEsTco0/ttAGpRlwGW0IsxOE3ekKitM3XQZYdTz
+	8Fp+f68ZFS1FVLKD8a5e02Kl2DiIyKo9nP/5akujozKxSJqyD4QdKiCHpcVYirQSgGlonYn6d9hoQ
+	7kvAlkjZ/SKMLNvmQSCUR2GT/s5fF0TLvQ3MUtaxtFjvIf+7xOuFk01EXtItxdW9hmi/hU/Q4KIAz
+	C39p4oCWw8Dg2H1qET2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peiaB-00DhMn-0O;
-	Tue, 21 Mar 2023 20:27:47 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pejyK-00Ds9O-1H;
+	Tue, 21 Mar 2023 21:56:48 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peia8-00DhMK-2Z
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 20:27:45 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1peiZr-00042j-6n; Tue, 21 Mar 2023 21:27:27 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@rivosinc.com>, Evan Green <evan@rivosinc.com>
-Subject:  Re: [PATCH v4 4/6] RISC-V: hwprobe: Support probing of misaligned access
- performance
-Date: Tue, 21 Mar 2023 21:27:25 +0100
-Message-ID: <4204101.kQq0lBPeGt@diego>
-In-Reply-To: <20230314183220.513101-5-evan@rivosinc.com>
-References:  <20230314183220.513101-1-evan@rivosinc.com>
- <20230314183220.513101-5-evan@rivosinc.com>
+	id 1pejyD-00Ds42-2G;
+	Tue, 21 Mar 2023 21:56:43 +0000
+Received: from localhost (unknown [188.24.179.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id E8FEC66030DE;
+	Tue, 21 Mar 2023 21:56:31 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1679435792;
+	bh=xlJOx3+BWzJjnvbq3Qx6ToCI9eSAdqOI6uhZgvbAeZo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=l0AqkVN95YJGx/ASGaao9kh++1IZeZLcCcM4JgDq7PgYErL5x0ArdP7IInpQclbkj
+	 cspW85oZgxJst126hJdzYVTuwApoSXsPlPtk0y0EQK/Hbufitiu2g6Z+w2IWiHZLiA
+	 dZ9LAEGyqKlqxkQW6joE953xgBlVA4Nc1DrMCVAnS1Kv70Hhfux+iFcVHti7oki50M
+	 0dN6RtG8TTRFyfT1fV8ugic5scgfN95uBxkMT0ZwSM49l4ziz6qsAaPhd2eEikFd+2
+	 Ybxhi27SL4CDyeb2BZ8YsKxECSHvxfb5oCWfkCZTzFVSXXMpqinnLhpmguE7D3YCdo
+	 I6nLVsaA9cbKw==
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
+Cc: linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v2 01/10] dt-bindings: serial: snps-dw-apb-uart: Switch dma-names order
+Date: Tue, 21 Mar 2023 23:56:15 +0200
+Message-Id: <20230321215624.78383-2-cristian.ciocaltea@collabora.com>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
+References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_132744_835482_C72DE0C2 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230321_145642_024870_2DC6FA39 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,25 +85,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: slewis@rivosinc.com, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Tsukasa OI <research_trasio@irq.a4lg.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, vineetg@rivosinc.com, Philipp Tomsich <philipp.tomsich@vrull.eu>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <sudeep.holla@arm.com>, Guo Ren <guoren@kernel.org>, Wei Fu <wefu@redhat.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 14. M=E4rz 2023, 19:32:18 CET schrieb Evan Green:
-> This allows userspace to select various routines to use based on the
-> performance of misaligned access on the target hardware.
-> =
+Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
+dma-names properties") documented dma-names property to handle Allwinner
+D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
+reverse of what a different board expects:
 
-> Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
+  rk3326-odroid-go2.dtb: serial@ff030000: dma-names:0: 'rx' was expected
 
-With the mentioned comment about the origin of the thead valie
+A quick and incomplete check shows the inconsistency is present in many
+other DTS files:
 
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+$ git grep -A10 snps,dw-apb-uart | grep dma-names | sort -u
+arch/arm64/boot/dts/rockchip/px30.dtsi-         dma-names = "tx", "rx";
+arch/arm64/boot/dts/rockchip/rk3328.dtsi-       dma-names = "tx", "rx";
+arch/arm64/boot/dts/rockchip/rk3588s.dtsi-      dma-names = "tx", "rx";
+arch/arm/boot/dts/rk3066a.dtsi-                 dma-names = "tx", "rx";
+arch/arm/boot/dts/rk3128.dtsi-                  dma-names = "tx", "rx";
+arch/arm/boot/dts/rk3288.dtsi-                  dma-names = "tx", "rx";
+arch/arm/boot/dts/rv1126.dtsi-                  dma-names = "tx", "rx";
+arch/arm/boot/dts/socfpga.dtsi-                 dma-names = "tx", "rx";
+arch/arm/boot/dts/sun6i-a31.dtsi-               dma-names = "rx", "tx";
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-           dma-names = "rx", "tx";
+arch/arm/boot/dts/sun8i-v3s.dtsi-               dma-names = "rx", "tx";
+arch/arm/boot/dts/sunxi-h3-h5.dtsi-             dma-names = "rx", "tx";
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dma-names = "rx", "tx";
 
+The initial proposed solution was to allow a flexible dma-names order in
+the binding, due to potential ABI breakage concerns after fixing the DTS
+files. But luckily the Allwinner boards are not really affected, since
+all of them are using a shared DMA channel for rx and tx:
+
+$ git grep -A10 snps,dw-apb-uart | grep 'sun.*dmas' | sort -u
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 10>, <&dma 10>;
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 22>, <&dma 22>;
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 6>, <&dma 6>;
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 7>, <&dma 7>;
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 8>, <&dma 8>;
+arch/arm/boot/dts/sun6i-a31.dtsi-       dmas = <&dma 9>, <&dma 9>;
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 10>, <&dma 10>;
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 6>, <&dma 6>;
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 7>, <&dma 7>;
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 8>, <&dma 8>;
+arch/arm/boot/dts/sun8i-a23-a33.dtsi-   dmas = <&dma 9>, <&dma 9>;
+arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 6>, <&dma 6>;
+arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 7>, <&dma 7>;
+arch/arm/boot/dts/sun8i-v3s.dtsi-       dmas = <&dma 8>, <&dma 8>;
+arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 6>, <&dma 6>;
+arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 7>, <&dma 7>;
+arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 8>, <&dma 8>;
+arch/arm/boot/dts/sunxi-h3-h5.dtsi-     dmas = <&dma 9>, <&dma 9>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 14>, <&dma 14>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 15>, <&dma 15>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 16>, <&dma 16>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 17>, <&dma 17>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 18>, <&dma 18>;
+arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi-  dmas = <&dma 19>, <&dma 19>;
+
+Switch dma-names order to tx->rx as the first step in fixing the
+inconsistency. The remaining DTS fixes will be handled by separate
+patches.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+index 2becdfab4f15..d28cc96fa8e9 100644
+--- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+@@ -72,8 +72,8 @@ properties:
+ 
+   dma-names:
+     items:
+-      - const: rx
+       - const: tx
++      - const: rx
+ 
+   snps,uart-16550-compatible:
+     description: reflects the value of UART_16550_COMPATIBLE configuration
+-- 
+2.40.0
 
 
 _______________________________________________
