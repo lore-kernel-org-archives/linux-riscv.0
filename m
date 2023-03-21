@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA893C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Mar 2023 23:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E51AC76195
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 01:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=E0aceVGsHpnqeJgP2fut9tO1DSnozV8KmgbFhLe+MvU=; b=ExrAcwJ2dTkEI6w08NVrdiaJu3
-	KGK1f9nyeZKQdJWkzu946dWFZz6f2zqWyWIE/d8/C+TKoQnj92CrgfdGDzxrXzd0/mUInMXCUkFAq
-	I+5enVG+PRT6bOHr7kNlG/z2XvNPtjWTvW2Bycc0wy7VhIU0p3n2yy7RgIkQjT4T6ANlDbXKJpBu6
-	CfvcyDvKIRSAxT4ixIep0APM0gKtSEVW8jhYu+akfAdR5890nA71ORkvhuQgAKz++YwtQtU6SmDOj
-	VwzX59MTz8nn+gtMSCl+DgxAjIvQ5I/2BV6xosGIO1VcLuOYdMKFcF9jsij3Jk6sA1SfIKFmf6V7R
-	2Yk5/uKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=l/4VKXZ4Q8BmA8xJO+eH7Fnx3kwVBb+1fVrGU5+/sEU=; b=Tgh5paK7DswtsTFqip1OCdc0ns
+	EQ5cA+h08JnkqzhrACW/FGPeLa1NE43InYJg/nSkCRBven35A4alsL6maCcSz1yuFXehtII1kGuHD
+	v/rN67H7/uYfv/R6GVO851OA+3Qvw94znNFDv0MF48oxNKV8EKivlhHZmKIh88zGBGAKnGe8Gcich
+	SehKF/oE+TRT1AlWIc+ObdAOgl1734V4l/1EyKTsUJmEhQTmj0YiL85RtmVtPmZVILQdo/39C+P5H
+	hPXDkboRIijsb6sgn4/rvo3euuvAwjj4JLIdqN1kEDaSi5N6o/jSsHYVhlumz8p9mwuFkwTfjRFWn
+	KQlZGf8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pePD1-00Ap19-2G;
-	Mon, 20 Mar 2023 23:46:35 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1peR1w-00AxX6-27;
+	Tue, 21 Mar 2023 01:43:16 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pePCx-00Ap0B-2K
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Mar 2023 23:46:33 +0000
-Received: by mail-pl1-x636.google.com with SMTP id ix20so14233959plb.3
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Mar 2023 16:46:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1679355989;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CVD5kdtXy54YH3zU4G6cezFVCE0kWaOWnyh3a3H/fVw=;
-        b=gqS4hwId4OLnZEQgJI+kyIQkdjmZZrN+nyj53I24mqFbKwumRa3syzV+0mkcoQUlbp
-         I3AgRwMOV5tpdFgxUwMOdyobSn6YGJLq5ce4Okpmp1xF8WMyk+AYS/fECsmmnrjwBbvh
-         m416ye8JJBLiaMGKdPSU4vq6gcd8bwzfYtt4uBxxudYPXhLppUa4BnHpOAHtMLbQfY1m
-         MgvnWpRfkoiw5QiNdjNC8e97mTNXbNTRxWG+QQNHRgAgPLzHdXjluPpcHMXjwu63j5tq
-         +AkQmONBFJpyV0p6OQzwTmHpFlFVOZSZARJD9iWGVFgf52pT57vGrjmsDw1ywIryYuNH
-         Cqbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679355989;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CVD5kdtXy54YH3zU4G6cezFVCE0kWaOWnyh3a3H/fVw=;
-        b=yg814QC+NQGGC2xnC5AwfPe+JQ1W2FqlZ51cbCO9eMVNEYoniYH+aXNxekPQIGeHSI
-         H9F22H81TOM+UIjlPHo++QR/BBbkosvuj1SAnicPD/cEGNhpQI0SWox+cmu83wBHulC9
-         R9hNRYbpj6KNWEuI4TZTUOoTSBiBM5j46meezaFLVoamwHKR9liKd8oo6YmJjWUHmKe9
-         a0j8Xg13OlnL3em2nDuPKOphh9C6NpBQNhDfJjHMQsgvxCquE8XH7ni184eTD5S5kdO0
-         qNbF8V7CRXKR4phA7e9yRdYijpYNN1w3+bfBzZMQtkbXE0bxTlZobLyr6xkA4qBCzMq+
-         j/xA==
-X-Gm-Message-State: AO0yUKVx1q4zntQNXMvFXZQfXND0FV4tC9neTxm6CaunDX/AxFuwPlQV
-	L7GqBRU/90jqcIZ6wQ8mvheDrw==
-X-Google-Smtp-Source: AK7set+Eo6dVqOrcG8rwMRvHa6vfuVju4SycRcGmgII+64sM2O1goAy6bcstJI4WTVXmjXHmb/WVRA==
-X-Received: by 2002:a17:90b:1e43:b0:23f:9fac:6b31 with SMTP id pi3-20020a17090b1e4300b0023f9fac6b31mr367842pjb.25.1679355989349;
-        Mon, 20 Mar 2023 16:46:29 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id 30-20020a630c5e000000b00502fd141ffbsm6756689pgm.49.2023.03.20.16.46.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Mar 2023 16:46:28 -0700 (PDT)
-Date: Mon, 20 Mar 2023 16:46:28 -0700 (PDT)
-X-Google-Original-Date: Mon, 20 Mar 2023 16:45:32 PDT (-0700)
-Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible for StarFive JH7100 SoC
-In-Reply-To: <Y+vxw28NWPfaW7ql@spud>
-CC: cristian.ciocaltea@collabora.com, lee@kernel.org, robh+dt@kernel.org,
-  krzysztof.kozlowski+dt@linaro.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-  kernel@esmil.dk, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  peppe.cavallaro@st.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com, mcoquelin.stm32@gmail.com,
-  richardcochran@gmail.com, sagar.kadam@sifive.com, yanhong.wang@starfivetech.com,
-  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org,
-  kernel@collabora.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-49aaa4a3-0280-4401-ba33-7fe2f3b79534@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1peR1p-00AxVg-21;
+	Tue, 21 Mar 2023 01:43:12 +0000
+Received: from dggpemm500006.china.huawei.com (unknown [172.30.72.53])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4PgZ6J69FJznYwQ;
+	Tue, 21 Mar 2023 09:39:52 +0800 (CST)
+Received: from [10.174.178.55] (10.174.178.55) by
+ dggpemm500006.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 21 Mar 2023 09:42:57 +0800
+Subject: Re: [PATCH -next 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+To: Chen Jiahao <chenjiahao16@huawei.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <conor.dooley@microchip.com>, <guoren@kernel.org>,
+	<heiko@sntech.de>, <bjorn@rivosinc.com>, <alex@ghiti.fr>,
+	<akpm@linux-foundation.org>, <atishp@rivosinc.com>, <bhe@redhat.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
+References: <20230320204244.1637821-1-chenjiahao16@huawei.com>
+ <20230320204244.1637821-2-chenjiahao16@huawei.com>
+From: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>
+Message-ID: <be3ff2fa-39ea-8d36-0e11-e75195509a2e@huawei.com>
+Date: Tue, 21 Mar 2023 09:42:56 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
+MIME-Version: 1.0
+In-Reply-To: <20230320204244.1637821-2-chenjiahao16@huawei.com>
+Content-Language: en-US
+X-Originating-IP: [10.174.178.55]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500006.china.huawei.com (7.185.36.236)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_164631_961204_E73AC14F 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20230320_184310_004723_38A49AB9 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,128 +70,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Feb 2023 12:40:35 PST (-0800), Conor Dooley wrote:
-> Hey all,
->
-> On Sat, Feb 11, 2023 at 05:18:10AM +0200, Cristian Ciocaltea wrote:
->> Document the compatible for the SiFive Composable Cache Controller found
->> on the StarFive JH7100 SoC.
->> 
->> This also requires extending the 'reg' property to handle distinct
->> ranges, as specified via 'reg-names'.
->> 
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  .../bindings/riscv/sifive,ccache0.yaml        | 28 ++++++++++++++++++-
->>  1 file changed, 27 insertions(+), 1 deletion(-)
->> 
->> diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
->> index 31d20efaa6d3..2b864b2f12c9 100644
->> --- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
->> +++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
->> @@ -25,6 +25,7 @@ select:
->>            - sifive,ccache0
->>            - sifive,fu540-c000-ccache
->>            - sifive,fu740-c000-ccache
->> +          - starfive,jh7100-ccache
->>  
->>    required:
->>      - compatible
->> @@ -37,6 +38,7 @@ properties:
->>                - sifive,ccache0
->>                - sifive,fu540-c000-ccache
->>                - sifive,fu740-c000-ccache
->> +              - starfive,jh7100-ccache
->>            - const: cache
->>        - items:
->>            - const: starfive,jh7110-ccache
->> @@ -70,7 +72,13 @@ properties:
->>        - description: DirFail interrupt
->>  
->>    reg:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 2
->> +
->> +  reg-names:
->> +    items:
->> +      - const: control
->> +      - const: sideband
->
-> So why is this called "sideband"?
-> In the docs for the JH7100 it is called LIM & it's called LIM in our
-> docs for the PolarFire SoC (at the same address btw) and we run the HSS
 
-IIRC it's both: "LIM" is the memory, "sideband" is the port.  I can't 
-find any proper documentation of "sideband" outside of DT and errata, 
-but there's a hanful of references to it in the bootloader for the 
-fu540: 
-<https://github.com/sifive/freedom-u540-c000-bootloader/search?q=sideband>.
 
-It's not really clear which is more correct here: sideband accesses are 
-only useful when the cache is configured as an LIM, at least for general 
-software.  IIRC the accesses to the LIM only go through the sideband 
-port for the E core, but I might be wrong about that.
+On 2023/3/21 4:42, Chen Jiahao wrote:
+> On riscv, the current crash kernel allocation logic is trying to
+> allocate within 32bit addressible memory region by default, if
+> failed, try to allocate without 4G restriction.
+> 
+> In need of saving DMA zone memory while allocating a relatively large
+> crash kernel region, allocating the reserved memory top down in
+> high memory, without overlapping the DMA zone, is a mature solution.
+> Here introduce the parameter option crashkernel=X,[high,low].
+> 
+> We can reserve the crash kernel from high memory above DMA zone range
+> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+> below 4G with "crashkernel=X,low".
+> 
+> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+> ---
+>  arch/riscv/kernel/setup.c |  5 ++++
+>  arch/riscv/mm/init.c      | 56 ++++++++++++++++++++++++++++++++++++---
+>  2 files changed, 58 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 376d2827e736..d867b1535da4 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -176,6 +176,11 @@ static void __init init_resources(void)
+>  		if (ret < 0)
+>  			goto error;
+>  	}
+> +	if (crashk_low_res.start != crashk_low_res.end) {
+> +		ret = add_resource(&iomem_resource, &crashk_low_res);
+> +		if (ret < 0)
+> +			goto error;
+> +	}
+>  #endif
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 478d6763a01a..5def2174b243 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1152,6 +1152,28 @@ static inline void setup_vm_final(void)
+>  }
+>  #endif /* CONFIG_MMU */
+>  
+> +/* Reserve 128M low memory by default for swiotlb buffer */
+> +#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
+> +
+> +static int __init reserve_crashkernel_low(unsigned long long low_size)
+> +{
+> +	unsigned long long low_base;
+> +
+> +	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
+> +	if (!low_base) {
+> +		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	pr_info("crashkernel low memory reserved: 0x%08llx - 0x%08llx (%lld MB)\n",
 
-> out of it! LIM being "loosely integrated memory", which by the limit
-> hits on Google may be a SiFive-ism?
+For unsigned long long, 08 --> 016.
 
-Yep: TIM is the SiFive version of Arm's TCM (tightly coupled memory), 
-and LIM is the flavor that's farther away (L2 instead of L1).
+> +		low_base, low_base + low_size, low_size >> 20);
+> +
+> +	crashk_low_res.start = low_base;
+> +	crashk_low_res.end = low_base + low_size - 1;
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * reserve_crashkernel() - reserves memory for crash kernel
+>   *
+> @@ -1163,6 +1185,7 @@ static void __init reserve_crashkernel(void)
+>  {
+>  	unsigned long long crash_base = 0;
+>  	unsigned long long crash_size = 0;
+> +	unsigned long long crash_low_size = 0;
+>  	unsigned long search_start = memblock_start_of_DRAM();
+>  	unsigned long search_end = memblock_end_of_DRAM();
+>  
+> @@ -1182,8 +1205,26 @@ static void __init reserve_crashkernel(void)
+>  
+>  	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+>  				&crash_size, &crash_base);
+> -	if (ret || !crash_size)
+> +	if (ret == -ENOENT) {
+> +		ret = parse_crashkernel_high(boot_command_line, 0, &crash_size, &crash_base);
+> +		if (ret || !crash_size)
+> +			return;
+> +
+> +		/*
+> +		 * crashkernel=Y,low can be specified or not, but invalid value
+> +		 * is not allowed.
+> +		 */
+> +		ret = parse_crashkernel_low(boot_command_line, 0, &crash_low_size, &crash_base);
+> +		if (ret == -ENOENT)
+> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> +		else if (ret)
+> +			return;
+> +
+> +		search_start = dma32_phys_limit;
+> +	} else if (ret || !crash_size) {
+> +		/* Invalid argument value specified */
+>  		return;
+> +	}
+>  
+>  	crash_size = PAGE_ALIGN(crash_size);
+>  
+> @@ -1201,16 +1242,25 @@ static void __init reserve_crashkernel(void)
+>  	 */
+>  	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>  					       search_start,
+> -					       min(search_end, (unsigned long) SZ_4G));
+> +					       min(search_end, (unsigned long) dma32_phys_limit));
+>  	if (crash_base == 0) {
+>  		/* Try again without restricting region to 32bit addressible memory */
+>  		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> -						search_start, search_end);
+> +						       search_start, search_end);
+>  		if (crash_base == 0) {
+>  			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+>  				crash_size >> 10);
+>  			return;
+>  		}
+> +
+> +		if (!crash_low_size)
+> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> +	}
+> +
+> +	if ((crash_base > dma32_phys_limit - crash_low_size) &&
+> +	     crash_low_size && reserve_crashkernel_low(crash_low_size)) {
+> +		memblock_phys_free(crash_base, crash_size);
+> +		return;
+>  	}
+>  
+>  	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+> 
 
-> I'm not really sure if adding it as a "reg" section is the right thing
-> to do as it's not "just" a register bank.
-> Perhaps Rob/Krzysztof have a take on that one?
->
->>  
->>    next-level-cache: true
->>  
->> @@ -89,6 +97,7 @@ allOf:
->>            contains:
->>              enum:
->>                - sifive,fu740-c000-ccache
->> +              - starfive,jh7100-ccache
->>                - starfive,jh7110-ccache
->>                - microchip,mpfs-ccache
->>  
->> @@ -106,12 +115,29 @@ allOf:
->>              Must contain entries for DirError, DataError and DataFail signals.
->>            maxItems: 3
->>  
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: starfive,jh7100-ccache
->> +
->> +    then:
->> +      properties:
->> +        reg:
->> +          maxItems: 2
->> +
->> +    else:
->> +      properties:
->> +        reg:
->> +          maxItems: 1
->> +
->>    - if:
->>        properties:
->>          compatible:
->>            contains:
->>              enum:
->>                - sifive,fu740-c000-ccache
->> +              - starfive,jh7100-ccache
->>                - starfive,jh7110-ccache
->>  
->>      then:
->> -- 
->> 2.39.1
->> 
+-- 
+Regards,
+  Zhen Lei
 
 _______________________________________________
 linux-riscv mailing list
