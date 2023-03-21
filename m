@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AECFC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 01:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23D5C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 02:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a1wshX+H5VU08C8ayoOz6rkqUfdvKVQA7F4Y1o1NL6c=; b=ebcassrVWYcysS
-	rx/DjGLo1PXuKJ6JyG3/tly6oTZ61J6GTOgvYQfjNiHmgII6+Y0bOY5wqwq4EXthGUf9flLnV7hNC
-	A/0IpvNLe78SUYL9wruHI8ImEUXKynPQCRVQoWg0mkOAXHMaDF7iYgCOvkRJQhVjonktsIIpJyRbh
-	t54qsbehBdFw75GLl9VWXw82PszHRQ9z9FaE0cUTkwPw0HLAaHetLU+Sz66Cs3Yk0TJvvRg6lSstL
-	y38WcD7ytYy8gAGl6qpY2u4Q8iDZLEJVcHTTAEIVLeHutnYiGUdtQY0hFZ/Hrp+raUs/975CBQp7W
-	ITG+EMly1O4q5CzNw4kw==;
+	List-Owner; bh=UiJC02BXMD9lINNTbogyUqKX0mX4fd7ACyi6v26odKU=; b=upiyVwyO/qB35l
+	a9QlszN4FpPJgwYsnZtP+eSf9B05pXMXzNoB2Jn3/zCiVPyZAkolsu8+/fXRIWa4iNbKKYaTahWpg
+	v6c15M8+2dbT8onbnSNPSzquJuPjMcu4IAbHrX7h5Onj9W/M081sSFez6EAlVgLHVFsshOqjwEZVY
+	J88627sYkX/Yv4P5hfigCn27ODdJYVfcrkqh1REPXv4T+X+lEzVb8RxuDnJ2yUWwsLk7AClwOjzi6
+	HqoSSm0MdAF04/37LD96EGaccxcYncmqKMxGSrGZck7goY1JotaYhvicRB6aPjHEK0kDGIO5cuX2n
+	5mwIubBwdZtGOE5XC0jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peRFZ-00AyWv-1p;
-	Tue, 21 Mar 2023 01:57:21 +0000
+	id 1peRSE-00AzUJ-1O;
+	Tue, 21 Mar 2023 02:10:26 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peRFV-00AyU5-2v;
-	Tue, 21 Mar 2023 01:57:20 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1peRS9-00AzTi-1z;
+	Tue, 21 Mar 2023 02:10:23 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 7830324E231;
-	Tue, 21 Mar 2023 09:56:42 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Mar
- 2023 09:56:42 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8748F24E1FB;
+	Tue, 21 Mar 2023 10:10:00 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Mar
+ 2023 10:10:00 +0800
 Received: from [192.168.125.82] (183.27.97.64) by EXMBX162.cuchost.com
  (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Mar
- 2023 09:56:41 +0800
-Message-ID: <c2a42311-1e26-f2be-6945-df45b1d81b70@starfivetech.com>
-Date: Tue, 21 Mar 2023 09:56:39 +0800
+ 2023 10:09:59 +0800
+Message-ID: <7f38d366-f3da-7441-3400-7719b0f33326@starfivetech.com>
+Date: Tue, 21 Mar 2023 10:09:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [PATCH v3 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Subject: Re: [PATCH v2 0/3] Add JH7110 MIPI DPHY RX support
 Content-Language: en-US
-To: Rob Herring <robh@kernel.org>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
-	<kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu
-	<jack.zhu@starfivetech.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20230315100421.133428-1-changhuang.liang@starfivetech.com>
- <20230315100421.133428-2-changhuang.liang@starfivetech.com>
- <20230320151437.GA1709620-robh@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>
+CC: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
+	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+ <7e525c7d-d534-adba-4aea-a485ba37bcc7@starfivetech.com>
+ <ZBhT8tpBhdFugurm@matsya>
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230320151437.GA1709620-robh@kernel.org>
+In-Reply-To: <ZBhT8tpBhdFugurm@matsya>
 X-Originating-IP: [183.27.97.64]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230320_185718_234694_FB4ED868 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230320_191021_990717_9734EA8F 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +76,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIzLzMvMjAgMjM6MTQsIFJvYiBIZXJyaW5nIHdyb3RlOgo+IE9uIFdlZCwgTWFyIDE1
-LCAyMDIzIGF0IDAzOjA0OjE5QU0gLTA3MDAsIENoYW5naHVhbmcgTGlhbmcgd3JvdGU6Cj4+IFsu
-Li5dCj4+ICsgIHJlc2V0czoKPj4gKyAgICBpdGVtczoKPj4gKyAgICAgIC0gZGVzY3JpcHRpb246
-IERQSFlfSFcgcmVzZXQKPj4gKyAgICAgIC0gZGVzY3JpcHRpb246IERQSFlfQjA5X0FMV0FZU19P
-TiByZXNldAo+PiArCj4+ICsgIHN0YXJmaXZlLGFvbi1zeXNjb246Cj4+ICsgICAgJHJlZjogL3Nj
-aGVtYXMvdHlwZXMueWFtbCMvZGVmaW5pdGlvbnMvcGhhbmRsZS1hcnJheQo+PiArICAgIGl0ZW1z
-Ogo+PiArICAgICAgLSBpdGVtczoKPj4gKyAgICAgICAgICAtIGRlc2NyaXB0aW9uOiBwaGFuZGxl
-IG9mIEFPTiBTWVNDT04KPj4gKyAgICAgICAgICAtIGRlc2NyaXB0aW9uOiByZWdpc3RlciBvZmZz
-ZXQKPj4gKyAgICBkZXNjcmlwdGlvbjogVGhlIHBvd2VyIG9mIGRwaHkgcnggaXMgY29uZmlndXJl
-ZCBieSBBT04gU1lTQ09OCj4+ICsgICAgICBpbiB0aGlzIHByb3BlcnR5Lgo+IAo+IFNvdW5kcyBs
-aWtlIEFPTiBTWVNDT04gc2hvdWxkIGJlIGEgcG93ZXItZG9tYWlucyBwcm92aWRlci4gQ3VzdG9t
-IAo+IHBoYW5kbGUgbGlua3MgYXJlIGZvciB0aGluZ3Mgd2hpY2ggZG9uJ3QgZml0IHN0YW5kYXJk
-IGJpbmRpbmdzLgo+IApIaSwgUm9iCgpJbiBzdGFyZml2ZSBqaDcxMTAgU29D77yMd2UgaGF2ZSBh
-Y2hpZXZlZCB0aGUgcG93ZXItZG9tYWlucyBwcm92aWRlciBhcyBmb2xsb3c6Cmh0dHBzOi8vcGF0
-Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1wbS9jb3Zlci8yMDIzMDExOTA5NDQ0Ny4y
-MTkzOS0xLXdhbGtlci5jaGVuQHN0YXJmaXZldGVjaC5jb20vCgpCdXQgdGhpcyBBT04gU1lTQ09O
-IGlzIGEgbWlzY2VsbGFuZW91cyByZWdpc3Rlci4gSXQgZGlmZmVyZW50IG9mZnNldHMgY29uZmln
-dXJlIHRoZSBkaWZmZXJlbnQgZnVuY3Rpb25zIApvZiB0aGUgZGlmZmVyZW50IG1vZHVsZXMuIFNv
-IHdlIGRvbid0IG1ha2UgYSBmcmFtZXdvcmsgZm90IGl0LiBXaGF0IGRvIHlvdSB0aGluaz8KClRo
-YW5rcwoKPj4gKwo+PiArICAiI3BoeS1jZWxscyI6Cj4+ICsgICAgY29uc3Q6IDAKPj4gKwo+PiAr
-cmVxdWlyZWQ6Cj4+ICsgIC0gY29tcGF0aWJsZQo+PiArICAtIHJlZwo+PiArICAtIGNsb2Nrcwo+
-PiArICAtIGNsb2NrLW5hbWVzCj4+ICsgIC0gcmVzZXRzCj4+ICsgIC0gc3RhcmZpdmUsYW9uLXN5
-c2Nvbgo+PiArICAtICIjcGh5LWNlbGxzIgo+PiBbLi4uXQo+PgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2023/3/20 20:39, Vinod Koul wrote:
+> On 03-03-23, 14:05, Changhuang Liang wrote:
+>>
+>>
+>> On 2023/2/23 9:59, Changhuang Liang wrote:
+>>> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
+>>> It is used to transfer CSI camera data. The series has been tested on
+>>> the VisionFive 2 board.
+>>>
+>>> This patchset should be applied after the patchset [1] and patch [2]:
+>>> [1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+>>> [2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
+>>>
+>> Hi, Vinod and Kishon
+>>
+>> Could you please help to review and give me some suggestions
+>> for this patch series? Thank you for your time.
+> 
+> There are already comments on dt-binding, please address them!
+> 
+
+I have address them on v3, and I am really looking forward to your comments. 
+Thank you so much for wasting your time.
+
+>>
+>> Best regards,
+>> Changhuang
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
