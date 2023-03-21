@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEABC6FD20
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D01C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 21:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aS7jrFIMwitY/TXqDhdo76NbDzohdsNnmSXN6wglpAo=; b=rRS8zEWusCUpix
-	jgsn8zHs/7QmweD8gbtRbAKUfCPwIgXfFEt+P1q9Fp5B1yvwUl/h6uQJHlhbOKDTPQMMADPyNQvTX
-	Y7MbqmKoBMFVpnPS/+Z/JKF2CURj5lUTAAaeJ4x+vXPyb0QlFzXE0dzbPGCfmBI9+2xVyaVcW6FWB
-	e3L8KQ17YrHvhoNN6gm938iGRWFu6T0QyMbLbre8K2i7ksqpUqEr/XN17E+bI5Hf013yTVs3vsye7
-	VpYjnuROgPDzsjtuEHkipUMoJCKUQD/JTzQVe4DLl1ZC0nQW+i31x/vC2kh9DHzHeYdnHLSJJWwp9
-	sZby/PKR2HBffpqrXgyg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+6xDx5lsrJTL9jkKl7LFzSJYgm0fHVIPxupXpZkMZjI=; b=yrLBxCqvheFlM8
+	zz4ZQNGZ9CxNY2Zm+PeOUnSscPy3nhZikpCYJOHMckdzr5XDCVgukl1YwxkVnslJxb/AC8JD9deMB
+	F2urI6KDfExFrmnIuiNs+BYa4Y6Uxlku3M0mQWg+33YrSP+givvdI1TOaTGc3Bd537us4859RIGD4
+	l6NN7Bn4KPD15tcVkv2NMbXx6mID6Ik/Hn3Om+LSW9zzKj2TCq+Me0ZOmAB68rmisissIEYoHV6tj
+	1i001JFgRucPMFh1e6M/eaY8I/imUUdzemjTzGkToG2KfYsrLAUVapSY5lClfpp9u/FBcYcb7uzp1
+	T5y0KTHxoH64PnY5U2hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyJ-00Ds90-2G;
-	Tue, 21 Mar 2023 21:56:47 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
+	id 1pejyi-00DsLx-1b;
+	Tue, 21 Mar 2023 21:57:12 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pejyD-00Ds3Z-2N;
-	Tue, 21 Mar 2023 21:56:43 +0000
+	id 1pejyF-00Ds51-0w;
+	Tue, 21 Mar 2023 21:56:44 +0000
 Received: from localhost (unknown [188.24.179.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 3C3DB66030D8;
-	Tue, 21 Mar 2023 21:56:29 +0000 (GMT)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 962C566030E5;
+	Tue, 21 Mar 2023 21:56:38 +0000 (GMT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1679435789;
-	bh=LuZwe7bTMqmCqjiHWWchmraD16aQHXj8HS9LSc1Ljfk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=edLkylBsVvkmnZKiwqZHTkYbZEwGbNfmRImklUR10H7Mg6YnVIbOIFv1p0CQjjdAt
-	 LE6eaUFJL6kBiMfjWE+78/760zRywE2C90+6P3iXPqHGB2swj7A+k4dJ89tNL4nMS4
-	 N15IsfCJWCOGDYhuq+EwLL3qL7IlTH0PA3wxnVCl2uyQ8qYc0WpHDjbyTTuh819kPE
-	 c8poUMEq22cd5kZVShRByIfYFj1xdIdARjZXUOpcCZ7HcZPoamnyOGcDQp+iFkm8gw
-	 sKXu5EJ8Vv2hG77WmMblrybY9mDLxiMUyNAlE6eauIkFwJpF9Jvzsj0BOSFj9XBmmn
-	 S86+p7khrGDRA==
+	s=mail; t=1679435798;
+	bh=JQqVAql/b8lfHBRY2dfjEmOJ6R42cKTw5nJB8IbERcE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OrWD7eS5eHKkF4roA1WuJnkTZmgbA4XGwGyshEv6hiavNLOZpgg3HnvskW1qdpVXr
+	 NlwI89bNcvHnL1AJrr1se3DO/uwwHBSvONkP3WzGUCpJa8YmJ/ctkhKKOscWbF0PjN
+	 QnEdB56yPKMyzEg2J9m/PJN40J8JsIb/QIvs3NeyGgZ+zCZbEg9bfQfjQ0JkU844jC
+	 vCnHCVngezBzfzXLWHEQU9xr7DcNWbveQVBBSPys/1QiPQGOJdi2qX0ss0uD/K7w3W
+	 7q7TkerSbs+pDOJHUzINIDCc6Hpt4lVZW6QB+Q7BiWHq/sqwHF71cucBFFZ93HeMXT
+	 K6ntiQauyQwvg==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -64,14 +64,16 @@ Cc: linux-serial@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 00/10] Enable I2S support for RK3588/RK3588S SoCs
-Date: Tue, 21 Mar 2023 23:56:14 +0200
-Message-Id: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 03/10] ARM: dts: sun8i: a23/a33: Switch dma-names order for snps,dw-apb-uart nodes
+Date: Tue, 21 Mar 2023 23:56:17 +0200
+Message-Id: <20230321215624.78383-4-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
+References: <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_145641_924541_69BED107 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20230321_145643_495782_9E8643C2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +90,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are five I2S/PCM/TDM controllers and two I2S/PCM controllers embedded in
-the RK3588 and RK3588S SoCs. Furthermore, RK3588 provides four additional
-I2S/PCM/TDM controllers.
+Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
+dma-names properties") documented dma-names property to handle Allwinner
+D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
+reverse of what a bunch of different boards expect.
 
-This patch series adds the required device tree nodes to support all the above.
+The initial proposed solution was to allow a flexible dma-names order in
+the binding, due to potential ABI breakage concerns after fixing the DTS
+files. But luckily the Allwinner boards are not affected, since they are
+using a shared DMA channel for rx and tx.
 
-Additionally, it enables analog audio support for the Rock 5B SBC, which has
-been used to test both audio playback and recording.
+Hence, the first step in fixing the inconsistency was to change
+dma-names order in the binding to tx->rx.
 
-Note that some of the DT bindings fixes in this series are not particularly
-related to I2S, but are required for a proper dtbs_check validation.
+Do the same for the snps,dw-apb-uart nodes in the DTS file.
 
-Changes in v2:
- - Rebased onto next-20230321 and drop patches 03-08/11 already applied by Mark
- - Replaced patch 01/11 with v2 07/10
- - Reworked patch 02/11 to v2 01-06/10
- - v1: https://lore.kernel.org/lkml/20230315114806.3819515-1-cristian.ciocaltea@collabora.com/
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm/boot/dts/sun8i-a23-a33.dtsi | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-Cristian Ciocaltea (10):
-  dt-bindings: serial: snps-dw-apb-uart: Switch dma-names order
-  ARM: dts: sun6i: a31: Switch dma-names order for snps,dw-apb-uart
-    nodes
-  ARM: dts: sun8i: a23/a33: Switch dma-names order for snps,dw-apb-uart
-    nodes
-  ARM: dts: sun8i: v3s: Switch dma-names order for snps,dw-apb-uart
-    nodes
-  ARM: dts: sunxi: h3/h5: Switch dma-names order for snps,dw-apb-uart
-    nodes
-  riscv: dts: allwinner: d1: Switch dma-names order for snps,dw-apb-uart
-    nodes
-  arm64: dts: rockchip: rk3588s: Move
-    assigned-clocks/assigned-clock-rates out of scmi
-  arm64: dts: rockchip: rk3588s: Add I2S nodes
-  arm64: dts: rockchip: rk3588: Add I2S nodes
-  arm64: dts: rockchip: rk3588-rock-5b: Add analog audio
-
- .../bindings/serial/snps-dw-apb-uart.yaml     |   2 +-
- arch/arm/boot/dts/sun6i-a31.dtsi              |  12 +-
- arch/arm/boot/dts/sun8i-a23-a33.dtsi          |  10 +-
- arch/arm/boot/dts/sun8i-v3s.dtsi              |   6 +-
- arch/arm/boot/dts/sunxi-h3-h5.dtsi            |   8 +-
- .../boot/dts/rockchip/rk3588-rock-5b.dts      |  62 +++++++
- arch/arm64/boot/dts/rockchip/rk3588.dtsi      |  68 ++++++++
- arch/arm64/boot/dts/rockchip/rk3588s.dtsi     | 156 +++++++++++++++++-
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +-
- 9 files changed, 307 insertions(+), 29 deletions(-)
-
+diff --git a/arch/arm/boot/dts/sun8i-a23-a33.dtsi b/arch/arm/boot/dts/sun8i-a23-a33.dtsi
+index f630ab55bb6a..4aa9d88c9ea3 100644
+--- a/arch/arm/boot/dts/sun8i-a23-a33.dtsi
++++ b/arch/arm/boot/dts/sun8i-a23-a33.dtsi
+@@ -490,7 +490,7 @@ uart0: serial@1c28000 {
+ 			clocks = <&ccu CLK_BUS_UART0>;
+ 			resets = <&ccu RST_BUS_UART0>;
+ 			dmas = <&dma 6>, <&dma 6>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -503,7 +503,7 @@ uart1: serial@1c28400 {
+ 			clocks = <&ccu CLK_BUS_UART1>;
+ 			resets = <&ccu RST_BUS_UART1>;
+ 			dmas = <&dma 7>, <&dma 7>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -516,7 +516,7 @@ uart2: serial@1c28800 {
+ 			clocks = <&ccu CLK_BUS_UART2>;
+ 			resets = <&ccu RST_BUS_UART2>;
+ 			dmas = <&dma 8>, <&dma 8>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -529,7 +529,7 @@ uart3: serial@1c28c00 {
+ 			clocks = <&ccu CLK_BUS_UART3>;
+ 			resets = <&ccu RST_BUS_UART3>;
+ 			dmas = <&dma 9>, <&dma 9>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -542,7 +542,7 @@ uart4: serial@1c29000 {
+ 			clocks = <&ccu CLK_BUS_UART4>;
+ 			resets = <&ccu RST_BUS_UART4>;
+ 			dmas = <&dma 10>, <&dma 10>;
+-			dma-names = "rx", "tx";
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
 -- 
 2.40.0
 
