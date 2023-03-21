@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2F7C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 09:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287DBC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Mar 2023 11:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QfrwOjlkKquMO7LXigm7RB95f32lhFn0AKD+uZC4tbI=; b=Z2EvyrvoDTnxdT
-	OFGdLRZEUf5lambwdckxvH3gIEPNO2rJiuVEF69N3f/rhbAWTChxE878BiQt/qW9gnu+KW9MMQS+I
-	ocyT2zYY8TA6wBg55cGleBOOAAvqgb1Mms8sUdUpdJbR7Bf7HKf7TPdl4dIGIe2zQarjrMqxNPpVk
-	+HbhAWSm0j4FEPR/E+qbgNVmJjavBwoNkpywZlSQySfs3KMY9dFk4VLyooFb//pxpmxmEtvkQPZ1+
-	jKoMQvYQRkyPXEx4NCb+WAv7txQgZY4SlV+4bmUwGEB0OfWv/nEcGYIYPKH2oZbablIoRxhLRw3Da
-	CEn3vP3Gu2llHOPJeuFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cpcn7AVPGMKZ3aMkWmZWzrAm7G+7FUbBUHfeU23ZNCo=; b=IhmQ5JmTucW0yk
+	JlA9hnqfi5OdyK80VLeXeaJTqe6b0Klm015ICCUhMLrScD+VApxEfwAD67tJnP88aUDQzPjDpwibd
+	xQGFo2tlUA+kCGYKndUZQNcab8kwevjcZeQXfRsldjMbHPSG/GFuo0iwe6Xue7yPEYG82C5pvcs9z
+	YX9FfPz2zZJDOkrUuBAPf/bBCyExMlgdfJIMQP4ULXWaqO1BmPP4kQBOALlDGysV9P52W1fHYxcbG
+	HTvh/BnroiDQkUDML8wsr4Zn4Z3CLXu3NU+wPxiJMdMNfDP5RVAK9+RkP3fOkr5hDKwjv8e6U52KG
+	h931dR12lvQQrW1mn7pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peYHz-00Bsq6-0E;
-	Tue, 21 Mar 2023 09:28:19 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1peZqy-00C8Xi-0o;
+	Tue, 21 Mar 2023 11:08:32 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peYHw-00Bsoi-2F
+	id 1peZqu-00C8Vq-1O
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Mar 2023 09:28:17 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-5416698e889so269990337b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Mar 2023 02:28:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679390894;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=76Qus1bli/VwOY3y8BO9Hj8Ms3aeQpfzWEQJcd1zGgg=;
-        b=VkpYKq5PwFB/4tSmj2zzDcO8TG8YaKieF9O6DL6vMZ17b6c3VAUsKvhZx9GWRjWNJW
-         tcPskQ6SjDjflBtEMeBhXQ+0YlUzTnKYc+W69Phzp50XFaNeNGmLAeDnqgfzSZK5ivSw
-         YQrGh2L9JNZ/Vaq0gHO3ipTylEYUiEE0pL7/2BTUAsQVCwe7R7JY03ywBVMGGSWqOb7s
-         Kx9WTRMdYGMMR0MSb7qKDY1AgspEJrZeWK3ubDyFmtGaAqQ/gRHAe5awTEPAGc/cXWdn
-         N6JzUarIhOdiehx8Hexc1yJuE0HYYnC1XQOIqeArQFNjYgpPWPTVNbjXraz8QMbtke8I
-         Sqzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679390894;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=76Qus1bli/VwOY3y8BO9Hj8Ms3aeQpfzWEQJcd1zGgg=;
-        b=EnKVBUsrpMG5pUH57DzpmAwCs/FmARZWOk8UR8LrlTLHVyZbpHlT2LKQb9l8Wp75Wa
-         l07x8fOlyGytBzRqZBre7kDwzJD3QE7+cQFXpl1z3Q/fGXWgcKsL/sc6eCytmG3qLedX
-         1H7BSA2L+UPC/TYrJSpInQ+aSummcFTG9IeYnadaBaVgBZNlp2ADnFEfrWRGmNmA4DSX
-         L2QjIaskx/ORf1nu/NrEFDG76OoGjMiihL4P1/GJ3Y0fy/J/IyF04h+XSCOt5PzNSK9G
-         DY98DZyD0MUNSrtylH5OMZ0WetUtjIAehIboRi+jkR1KRQi71WN/FQokvoJ19/kKIjPb
-         xriQ==
-X-Gm-Message-State: AAQBX9cvkpfNOAD3/VZlceLo5VsGyFLg4/1rmF66Cp2txGqjdzYEMs3d
-	LdRJIi4ocJTJRy2RAKqI835LUThu4DZkIhVkDUDrpK/VwoOpdpq9
-X-Google-Smtp-Source: AKy350YexCT1RHA6Cn204g9h8Q7dT08X4aKbreYthmzBiusk86//w6WusQsW0SU29UHZG3AZ4xmbQp5CwJHhY3dQlIQ=
-X-Received: by 2002:a81:e20a:0:b0:532:e887:2c23 with SMTP id
- p10-20020a81e20a000000b00532e8872c23mr636381ywl.9.1679390894044; Tue, 21 Mar
- 2023 02:28:14 -0700 (PDT)
+	Tue, 21 Mar 2023 11:08:30 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id C02795C00F7;
+	Tue, 21 Mar 2023 07:08:23 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute5.internal (MEProxy); Tue, 21 Mar 2023 07:08:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to; s=fm3; t=1679396903; x=1679483303; bh=ucFVl0jvwB
+	lsXTpy6dY8aDYX2Et9XXdL45q62ViNUpY=; b=MP2/yNnJwKFYsmKk1GbdT7UVeY
+	MnhDuCdn1Kh4b2i30s1NhE/BYCYizfM05wY6thE+2qaGzGZBKp15ThJ7yNCLgSrP
+	4iMF/POris7Y8iJS1wWEtFf4qUcMiZ2Pg3FEE4kwDGiKBiDTk639tIFa8UWnfwl9
+	nLUl8fExahyFqIHl5kdewXHTpmhqRLhtBRcFa7LGSr1ODNoGYXJlMg38rwPGOxoE
+	nKsOfFecPQkdCbULJ72em/Omlw3vHwC6FJIFXpVE2VVLWkhSLpNppCUizeDb/ng3
+	RI8kyQuPpCEiHW8r3E+aJrWMWSA461FlDmp8J3aIfh0u/8wyLyVztkNNqa+Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1679396903; x=1679483303; bh=ucFVl0jvwBlsX
+	Tpy6dY8aDYX2Et9XXdL45q62ViNUpY=; b=ed3m8O4t8pDFP9uG31nTqH5E2Fsy6
+	/MavdnRrUBaf2UNs1gaPi5dNuwxHhUpgYeRAinYx3J0Nb2FDGfjQqk84WKvGHSJ/
+	80zUxHQPox/V9110zRXfbe/xDXS7RjIRikXMliPJnEnFkfNJjV2j49UzUt4wwoKI
+	zPbqMw/Z8NT6kb7Epm8CkH0Y4cLyuG4S4LMGBre9rGQMd2Uf1NQicJewK3gCCj4i
+	WU0o8/XH0hhrTudrNetEoeEs70Kllwmeb3h6sdxDZXFzHhw043SIMN20RMvgdsR7
+	zQm0fePwbqF+Y7NWK8zE4bt2xrQ7xj74+sofkRTjVCIE+gngSi+lBIvbQ==
+X-ME-Sender: <xms:J5AZZK03El-5nGoBsBpePoSmLiN92j4n6qoNUt6xz5wSYB-45y2eDw>
+    <xme:J5AZZNE-OXpdylxmJ6nKWlW69GpksBi3vUejOPBHcMkBIeuA5Wj4dvD9QKw59KvUH
+    xM64MqqfRmsX0NKnuI>
+X-ME-Received: <xmr:J5AZZC7d25YEi7AA12sY20Bb0Mw7pJ3yhE-2w-0-doGTkMmIUahSCW4sWzxAxuThxpXrb0EzHUg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdegtddgvdegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucenucfjughrpefhvfevufffkffoggfgsedtkeertd
+    ertddtnecuhfhrohhmpeflihgrgihunhcujggrnhhguceojhhirgiguhhnrdihrghnghes
+    fhhlhihgohgrthdrtghomheqnecuggftrfgrthhtvghrnhephfetuddtudevieeljeejte
+    ffheeujeduhefgffejudfhueelleduffefgfffveeknecuvehluhhsthgvrhfuihiivgep
+    tdenucfrrghrrghmpehmrghilhhfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhihgoh
+    grthdrtghomh
+X-ME-Proxy: <xmx:J5AZZL3sn9PE5Xr9gRZ2P-Ak79OVg5NFOyIKOyFrtx5erx2k47N70w>
+    <xmx:J5AZZNFeSSpL6Q8C-W13zwenlKv9eRCqZEavZqss0oeSjyk9wCm2aA>
+    <xmx:J5AZZE_B_xO-_xStaW5k6Qoz_bgBs6pOie5pW3kVP2tqRLAiizs9iw>
+    <xmx:J5AZZM_F1InuLsw4qyd4uwdWQLTQt4smF3QZ2OKiZ0Wt05OjtA87Rg>
+Feedback-ID: ifd894703:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 21 Mar 2023 07:08:20 -0400 (EDT)
+From: Jiaxun Yang <jiaxun.yang@flygoat.com>
+To: linux-mips@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	tsbogend@alpha.franken.de,
+	mpe@ellerman.id.au,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	robh+dt@kernel.org,
+	hch@lst.de,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	linux-riscv@lists.infradead.org,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>
+Subject: [PATCH v3 0/4] Use dma_default_coherent for devicetree default coherency
+Date: Tue, 21 Mar 2023 11:08:09 +0000
+Message-Id: <20230321110813.26808-1-jiaxun.yang@flygoat.com>
+X-Mailer: git-send-email 2.37.1 (Apple Git-137.1)
 MIME-Version: 1.0
-References: <20230320233928.2920693-1-robh@kernel.org>
-In-Reply-To: <20230320233928.2920693-1-robh@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 21 Mar 2023 10:28:03 +0100
-Message-ID: <CACRpkdbrsh6e-AJ9Qp2G=47zBsRWxDxOfZXp9-7kvOSQ1Vw0Kg@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: Drop unneeded quotes
-To: Rob Herring <robh@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
-	Krzysztof Halasa <khalasa@piap.pl>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-actions@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230321_022816_733112_AD6DB321 
-X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-CacheID: sfid-20230321_040828_707744_DACCBB45 
+X-CRM114-Status: UNSURE (   9.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,15 +107,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgMjEsIDIwMjMgYXQgMTI6MznigK9BTSBSb2IgSGVycmluZyA8cm9iaEBrZXJu
-ZWwub3JnPiB3cm90ZToKCj4gU2lnbmVkLW9mZi1ieTogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVs
-Lm9yZz4KClJldmlld2VkLWJ5OiBMaW51cyBXYWxsZWlqIDxsaW51cy53YWxsZWlqQGxpbmFyby5v
-cmc+CgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+Hi all,
+
+This series split out second half of my previous series
+"[PATCH 0/4] MIPS DMA coherence fixes".
+
+It intends to use dma_default_coherent to determine the default coherency of
+devicetree probed devices instead of hardcoding it with Kconfig options.
+
+For some MIPS systems, dma_default_coherent is determined with either
+bootloader or hardware registers in platform initilization code, and devicetree
+does not explicility specify the coherency of the device, so we need the ability
+to change the default coherency of devicetree probed devices.
+
+For other platforms that supports noncoherent, dma_default_coherent is a fixed
+value set by arch code. It's defaulted to false for most archs except RISC-V.
+
+Thanks
+- Jiaxun
+---
+v2:
+  - Add PATCH 1 to help with backporting
+  - Use Kconfig option to set dma_default_coherent 
+
+v3:
+  - Style fixes
+  - Squash setting ARCH_DMA_DEFAULT_COHERENT into PATCH 4
+  - Setting ARCH_DMA_DEFAULT_COHERENT for PowerPC
+
+Jiaxun Yang (4):
+  of: address: Fix default coherency for MIPS
+  dma-mapping: Provide a fallback dma_default_coherent
+  dma-mapping: Provide CONFIG_ARCH_DMA_DEFAULT_COHERENT
+  of: address: Always use dma_default_coherent for default coherency
+
+ arch/powerpc/Kconfig        | 2 +-
+ arch/riscv/Kconfig          | 2 +-
+ drivers/of/Kconfig          | 4 ----
+ drivers/of/address.c        | 2 +-
+ include/linux/dma-map-ops.h | 2 ++
+ kernel/dma/Kconfig          | 7 +++++++
+ kernel/dma/mapping.c        | 6 +++++-
+ 7 files changed, 17 insertions(+), 8 deletions(-)
+
+-- 
+2.37.1 (Apple Git-137.1)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
