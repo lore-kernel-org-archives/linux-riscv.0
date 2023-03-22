@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B87C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 20:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D90C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 21:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=su+t8L6WdZ4PizT1jDeK6lF0sGmch8L9VJWmoywWrJQ=; b=WnSsEGUJ10nHhN
-	fb74NivevSxOodSyiLfDgfJP3Ozmdyj/6amYY3RVtIs+ZkvwXOzvomPHK4R9X5x7HM0T2menRhmRy
-	p/OdI24qb252ZROn+vnhZZnT6M7sg9987Yn2Pm5AGk4UV1nwfsGUE6e1RdluNbxoUerj0KvEpCxg3
-	BCcOa7kprv1kPpZJJAMnuFYav648JswGtrtpqg07bKmKiJVKeKLH6C9LrQlb6NXtTuvMJttZFM4Fo
-	SBo1y0PlD1F4yPUVEKDCoDKXR80shVGOa6IwI3au52KeJq1P/tHGbwu1IzVZ9HJHV7nCBjAcKJvmw
-	RSS7kP9R/Zk0irzlXHmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9GRQvFTt6CBIkZSdLY0PaQzyFKOhUEBiu5TkH/2OtU=; b=CwXUDLs0xYhhlf7RPS+cgyu7Hb
+	NeoCCLTJG0hqZkgdSiBAHk9SB+S5a0uyTdN8MiT/+IIRE50et/7T45JZZnZkMtXcfPhw9GOWDGyrB
+	RNhjvoaAO9w6PLkW+h9IJ6atIQ9b9SbZXBWDDZ0o2NHZRjO7Ck81OEM6r6R+x/XEVVZ/4rHz+Yrvb
+	JRyt6DQW/prSqDwrKYHLUdxoC706rTDoEUkT7HeO7Smcwwmh30LwfwHKnAFpojtTZCLommGBHs+k+
+	41y0ixmpAbf0bDNbk0MHs44DABfiM9DJA6vORU47SJ42XKgH5Ch4SIDUGqiiohUVzrOtPkDGu2dvX
+	mLlPTlfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf58D-00HLuH-2C;
-	Wed, 22 Mar 2023 20:32:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pf5es-00HQPe-2l;
+	Wed, 22 Mar 2023 21:06:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf583-00HLro-1X;
-	Wed, 22 Mar 2023 20:32:22 +0000
-Received: from p508fd58e.dip0.t-ipconnect.de ([80.143.213.142] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pf56y-0004XT-Oa; Wed, 22 Mar 2023 21:31:08 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andreas =?ISO-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Hector Martin <marcan@marcan.st>,
- Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>,
- Damien Le Moal <damien.lemoal@wdc.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, NXP Linux Team <linux-imx@nxp.com>,
- Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Tomasz Figa <tomasz.figa@gmail.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Jianlong Huang <jianlong.huang@starfivetech.com>,
- Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Michal Simek <michal.simek@xilinx.com>, Rob Herring <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
- asahi@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- patches@opensource.cirrus.com, alsa-devel@alsa-project.org,
- linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH] dt-bindings: pinctrl: Drop unneeded quotes
-Date: Wed, 22 Mar 2023 21:31:06 +0100
-Message-ID: <14697371.uLZWGnKmhe@phil>
-In-Reply-To: <20230317233623.3968172-1-robh@kernel.org>
-References: <20230317233623.3968172-1-robh@kernel.org>
+	id 1pf5ep-00HQOc-2L
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Mar 2023 21:06:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1AAB462285;
+	Wed, 22 Mar 2023 21:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BEBC433D2;
+	Wed, 22 Mar 2023 21:06:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679519166;
+	bh=IwqcGZUb+JAwQ49B5qlPxqjaSl7Z1L+y305zKBfg5xk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IPpZBwRMbkG1hrPfdnOcabVKfBq9aOmy9U0hxbSGokCQcO0A8voh1JNXTo9Ui92e7
+	 +oAT/mkzC3IcamAvCYtXv0yTUIfBeDgEbC1MtOWfzRWSdLSQnaSLHdaV4FSCSe0TaZ
+	 MgWIkW/D5X8HBrSCyZyol0h6+jAai0ufW/Qz0HupiQKtpHtQhG8C2btGprgZi5lbFX
+	 XEETgsDVJW0AEOVdeeiRlES75/Q25qQBvRYyGWVWpeLAuCmv6YHGGG+PhdExIvkXaA
+	 j5UADPATWWUwZYM8aOmlJMFlGbHg83GJ9xvkYI1IpGGjzsIqtCCV8lEJLLkmdqBKb6
+	 dOtDrHnzD9i/g==
+Date: Wed, 22 Mar 2023 21:06:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Hal Feng <hal.feng@starfivetech.com>, kernel@esmil.dk,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 00/21] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Message-ID: <a6358a5f-bbfd-4a14-a828-a3c28f82709a@spud>
+References: <20230320103750.60295-1-hal.feng@starfivetech.com>
+ <95f11f7c-611f-49a9-97e8-0de89846e430@spud>
+ <62b766cef78d95793af95f428693c359.sboyd@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <62b766cef78d95793af95f428693c359.sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_133221_112186_84AF63F7 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230322_140607_827571_ED8FE57C 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,25 +83,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============5706735464023205379=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 18. M=E4rz 2023, 00:36:18 CET schrieb Rob Herring:
-> Cleanup bindings dropping unneeded quotes. Once all these are fixed,
-> checking for this can be enabled in yamllint.
-> =
 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-
->  .../devicetree/bindings/pinctrl/rockchip,pinctrl.yaml  | 10 +++++-----
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de> #rockchip
+--===============5706735464023205379==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qDgrhF5nMeMRIFyO"
+Content-Disposition: inline
 
 
+--qDgrhF5nMeMRIFyO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Mar 21, 2023 at 04:57:52PM -0700, Stephen Boyd wrote:
+> Quoting Conor Dooley (2023-03-21 16:03:54)
+> >=20
+> > If you're happy on the driver side of things, do you want to pick those
+> > patches up on top of the bindings and send a PR to Stephen?
+>=20
+> This sounds fine to me. Let me know if you plan to send a PR with the
+> starfive clk bits.
+
+Since it was off-list:
+Emil and I spoke about this briefly today at the weekly linux-riscv
+meeting, the upshot of which is that it is likely to be me, rather than
+him, sending you a PR as he's pretty busy at the moment.
+That said, Emil mentioned that he has some doubts as to whether the
+bindings are correct, and from taking a look - he's right, so there'll
+likely not be a PR just yet! I'll go leave a comment about that...
+
+I've got no real desire to maintain these drivers going forward though,
+so perhaps Hal, or one of the other StarFive folks, can get themselves
+set up to send them to you going forwards?
+
+Cheers,
+Conor.
+
+--qDgrhF5nMeMRIFyO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBttuAAKCRB4tDGHoIJi
+0ov6AQCours97BTI/h1YoGjIRSzsJumk9V2x34rQsvT3HtmqjwEAsc+9b9pMzD1r
+LJ0vwnpZibKnjwdjkP9faV1TdgSO7Ac=
+=SQwY
+-----END PGP SIGNATURE-----
+
+--qDgrhF5nMeMRIFyO--
+
+
+--===============5706735464023205379==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5706735464023205379==--
+
