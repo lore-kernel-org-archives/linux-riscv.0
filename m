@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0079C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 17:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB18C76196
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 17:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=i3AOHjKPa4LD+SxmbOPjdqTgJ2SIALK1nFLJmSH1X3E=; b=hNsL/0Xpk4xAYy
-	3mQ8yGOrk6jhXpr92+afrt91JofLExo6TZS/zLcCCzfZxyRa/BRKtRYZQe1nU/cBNIAZeVh8wfh16
-	HVclvxvKDTYSHt4nliK9HZsqiEUjBNFY443fSe4bStB4D1Cd9ROhrME9oZKACUASQVpAmBFDjmid8
-	lzpoRdDQONnZEPDpgLrs+Rsf7nd63sufv/Y0CUpiRTJ/5MU90nINe+d2bpa1fYMvT260iIBvrhvrt
-	OvjyIw2L9g28CCiXZE55vHsKEqjSfkQk/5UWMd8AHKP/g8R6B8Qa+6W6ZDzTlnjbkAbj6Av7WPXDM
-	53C/Ot2M5FQ0SmLb2rmQ==;
+	List-Owner; bh=V/i/fYCBBtatr2g4f1l2imrigKNc9+ABSsJ3xWyR1qo=; b=0aGh3slw/crASg
+	0Ttyz7FO/EfGnz36WMY93hqp0vl0co6k052WAs8M/QIo+CuN9BILG4tDLAbhA/rR4nvTu/JB44WF1
+	TeYXb5dOmVbyKZ9CzgWXxOkdJSAPSH0315Kz6fT9f4CB9vLa3CvE7DEC8WDNYd7Wxzb/A/siHO2fd
+	wz9Mtg6V+TK/HdryadVHrc1DhrLwHosoe4XBIKJhZspG5Kl9Wfkx3jacx2ky3wmIZ56QvOUl7HMTn
+	vcCMum61lOOOfnBqcwjGaQwwxfT/B3Y4Q/fvPH3Hu46zwECxV83P0u/vyaffp8bYhq0Md+mw2FPS+
+	OY/44aD2FSyJsg/kgR4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2Mg-00GrBd-2v;
-	Wed, 22 Mar 2023 17:35:10 +0000
-Received: from mail-ot1-f47.google.com ([209.85.210.47])
+	id 1pf2N4-00GrLo-0Y;
+	Wed, 22 Mar 2023 17:35:34 +0000
+Received: from mail-oa1-f48.google.com ([209.85.160.48])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2Mb-00Gr96-0Z;
-	Wed, 22 Mar 2023 17:35:07 +0000
-Received: by mail-ot1-f47.google.com with SMTP id x22-20020a056830409600b0069b30fb38f7so10785714ott.5;
-        Wed, 22 Mar 2023 10:35:03 -0700 (PDT)
+	id 1pf2Mz-00GrIe-2q
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Mar 2023 17:35:32 +0000
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-17786581fe1so20130234fac.10
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 10:35:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679506503;
+        d=1e100.net; s=20210112; t=1679506528;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4iBFMrGCXs7aCaesF7jmbgEDqOsWeQiS1SA88xm+gP4=;
-        b=FIJ+e4YJFs6FdyD/av9Q7k4YG4wrr0om2eYCQNWH9QXsGS4a7kKJN+9j1T1Aywieqk
-         5CIdbZsICi2SjiIImuRRXr1tf5eY9/+cMAK67ewGpwvZIDINcY3DkmaZ791qMI6dp+sj
-         SPkMMO3Afgf0IhSDj8EDi4ihpLTwwLMKy6+5PnfbxWfeTQdX5Oz0G7ondycS6sO/9Jcl
-         PYgXNQ/GISeoJ4XfIzrh7FdXhh/GGCYqHqv8HJpIsm5M+VlVdSkpRBV4WtVpdJi1hZpV
-         y/M+wcUJ7T30RTIJRDZqwHe3oTFu433Lh0yEME3DI7q6O+EZ/n1WBwA0AqazT4RABTEs
-         PEng==
-X-Gm-Message-State: AO0yUKUngmsNVySYBkswQaCJvw2n0wAsVCO3l+D66jRPMf3ji2QSjuK5
-	dXBaQOexG3ipMgBX2VB/+7gYHJNlHg==
-X-Google-Smtp-Source: AK7set8m4syrOCyuvx0eJfcZmRDih7NX1pwJMSBfADgJk63vKLPYr43ZCbmjV3U24/oNGz5bTTge9g==
-X-Received: by 2002:a05:6830:129a:b0:69f:289:1fe9 with SMTP id z26-20020a056830129a00b0069f02891fe9mr2058230otp.17.1679506502895;
-        Wed, 22 Mar 2023 10:35:02 -0700 (PDT)
+        bh=r2HJVH8NQ+L3dWGKI8LYvcw5V5SCoSUd4ykrUldCTjs=;
+        b=EWBu/DfPlc2bga26MKTd+Ty6y1ii56CFCFjVLkKIX/dHL7tuC2oFu/oJfxnIcDfDuC
+         KfVAurtHypWcP6Qj3Ggtb95c83kL5AsmCnpRF1gfzdPc8xzfeKSF5+uGcgH0RFdaRLGw
+         mxddYNDZ5+cluKYGCkumlNQ+j4YW7D8VxxgNaXnhUlV+lmHb52J77ICAtJKvtEC+KJ9d
+         kQZEWp3wnDzBkcxuaG0dWxj/ErJaPgRzhGvWdAjEh/97Rre3kWqsm11AK/oVlZJ3gyP/
+         pURieFb1nqplW4OMOReQfQX7jsDi1xS5X432tKZKWC9Wp8SO2XN/gSF0RkXQyNTPjTjT
+         OCSQ==
+X-Gm-Message-State: AO0yUKX8LT1oLZblKwHk82IXcJ7ouz8A8ESY7tbFDACp2t1jztyh/w2o
+	Bnqo0uckh2PSQ9YqEO5SaQ==
+X-Google-Smtp-Source: AKy350aKehpe9mY2uKLG/NzguWjKAjUqLy10Rh6whZ8YLNa80OaxPFU52LxNUS4WyXi4QUqD01tEBw==
+X-Received: by 2002:a05:6870:392c:b0:177:dfdb:72 with SMTP id b44-20020a056870392c00b00177dfdb0072mr406238oap.9.1679506527672;
+        Wed, 22 Mar 2023 10:35:27 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id l26-20020a0568301d7a00b0069fa776d3c2sm162320oti.18.2023.03.22.10.34.56
+        by smtp.gmail.com with ESMTPSA id tk6-20020a05687189c600b0017703cd8ff6sm5379227oab.7.2023.03.22.10.35.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Mar 2023 10:34:58 -0700 (PDT)
-Received: (nullmailer pid 3970918 invoked by uid 1000);
-	Wed, 22 Mar 2023 17:34:56 -0000
+        Wed, 22 Mar 2023 10:35:27 -0700 (PDT)
+Received: (nullmailer pid 3971630 invoked by uid 1000);
+	Wed, 22 Mar 2023 17:35:26 -0000
 From: Rob Herring <robh@kernel.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Michal Simek <michal.simek@xilinx.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] dt-bindings: mailbox: Drop unneeded quotes
-Date: Wed, 22 Mar 2023 12:34:48 -0500
-Message-Id: <20230322173449.3970718-1-robh@kernel.org>
+To: Damien Le Moal <damien.lemoal@wdc.com>, Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, linux-arm-msm@vger.kernel.org, patches@opensource.cirrus.com
+Subject: [PATCH] dt-bindings: mfd: Drop unneeded quotes
+Date: Wed, 22 Mar 2023 12:35:18 -0500
+Message-Id: <20230322173519.3971434-1-robh@kernel.org>
 X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_103505_239005_630097AD 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230322_103530_215693_C86D7243 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,103 +84,213 @@ checking for this can be enabled in yamllint.
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- .../devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml   | 4 ++--
- .../devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml   | 4 ++--
- .../devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml    | 4 ++--
- Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml   | 4 ++--
- Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml  | 4 ++--
- .../devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml  | 4 ++--
- 6 files changed, 12 insertions(+), 12 deletions(-)
+ .../bindings/mfd/canaan,k210-sysctl.yaml      |  6 ++---
+ .../bindings/mfd/google,cros-ec.yaml          | 22 +++++++++----------
+ .../mfd/hisilicon,hi6421-spmi-pmic.yaml       |  2 +-
+ .../devicetree/bindings/mfd/qcom-pm8xxx.yaml  |  2 +-
+ .../bindings/mfd/rohm,bd71815-pmic.yaml       |  2 +-
+ .../bindings/mfd/rohm,bd71828-pmic.yaml       |  2 +-
+ .../devicetree/bindings/mfd/wlf,arizona.yaml  |  2 +-
+ .../bindings/mfd/x-powers,ac100.yaml          |  4 ++--
+ .../bindings/mfd/xylon,logicvc.yaml           |  4 ++--
+ 9 files changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml b/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
-index dfd26b998189..385809ed1569 100644
---- a/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
+diff --git a/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
+index e2046f07a40e..8459d3642205 100644
+--- a/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
++++ b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
+@@ -36,7 +36,7 @@ properties:
+   clock-controller:
+     # Child node
+     type: object
+-    $ref: "../clock/canaan,k210-clk.yaml"
++    $ref: ../clock/canaan,k210-clk.yaml
+     description:
+       Clock controller for the SoC clocks. This child node definition
+       should follow the bindings specified in
+@@ -45,7 +45,7 @@ properties:
+   reset-controller:
+     # Child node
+     type: object
+-    $ref: "../reset/canaan,k210-rst.yaml"
++    $ref: ../reset/canaan,k210-rst.yaml
+     description:
+       Reset controller for the SoC. This child node definition
+       should follow the bindings specified in
+@@ -54,7 +54,7 @@ properties:
+   syscon-reboot:
+     # Child node
+     type: object
+-    $ref: "../power/reset/syscon-reboot.yaml"
++    $ref: ../power/reset/syscon-reboot.yaml
+     description:
+       Reboot method for the SoC. This child node definition
+       should follow the bindings specified in
+diff --git a/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml b/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml
+index cdf1d719efe9..456465e35114 100644
+--- a/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml
++++ b/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml
+@@ -65,7 +65,7 @@ properties:
+       ARM Cortex M4 Co-processor. Contains the name of the rpmsg
+       device. Used to match the subnode to the rpmsg device announced by
+       the SCP.
+-    $ref: "/schemas/types.yaml#/definitions/string"
++    $ref: /schemas/types.yaml#/definitions/string
+ 
+   spi-max-frequency: true
+ 
+@@ -94,23 +94,23 @@ properties:
+     const: 0
+ 
+   typec:
+-    $ref: "/schemas/chrome/google,cros-ec-typec.yaml#"
++    $ref: /schemas/chrome/google,cros-ec-typec.yaml#
+ 
+   ec-pwm:
+-    $ref: "/schemas/pwm/google,cros-ec-pwm.yaml#"
++    $ref: /schemas/pwm/google,cros-ec-pwm.yaml#
+     deprecated: true
+ 
+   pwm:
+-    $ref: "/schemas/pwm/google,cros-ec-pwm.yaml#"
++    $ref: /schemas/pwm/google,cros-ec-pwm.yaml#
+ 
+   kbd-led-backlight:
+-    $ref: "/schemas/chrome/google,cros-kbd-led-backlight.yaml#"
++    $ref: /schemas/chrome/google,cros-kbd-led-backlight.yaml#
+ 
+   keyboard-controller:
+-    $ref: "/schemas/input/google,cros-ec-keyb.yaml#"
++    $ref: /schemas/input/google,cros-ec-keyb.yaml#
+ 
+   proximity:
+-    $ref: "/schemas/iio/proximity/google,cros-ec-mkbp-proximity.yaml#"
++    $ref: /schemas/iio/proximity/google,cros-ec-mkbp-proximity.yaml#
+ 
+   codecs:
+     type: object
+@@ -126,7 +126,7 @@ properties:
+     patternProperties:
+       "^ec-codec@[a-f0-9]+$":
+         type: object
+-        $ref: "/schemas/sound/google,cros-ec-codec.yaml#"
++        $ref: /schemas/sound/google,cros-ec-codec.yaml#
+ 
+     required:
+       - "#address-cells"
+@@ -151,15 +151,15 @@ properties:
+ patternProperties:
+   "^i2c-tunnel[0-9]*$":
+     type: object
+-    $ref: "/schemas/i2c/google,cros-ec-i2c-tunnel.yaml#"
++    $ref: /schemas/i2c/google,cros-ec-i2c-tunnel.yaml#
+ 
+   "^regulator@[0-9]+$":
+     type: object
+-    $ref: "/schemas/regulator/google,cros-ec-regulator.yaml#"
++    $ref: /schemas/regulator/google,cros-ec-regulator.yaml#
+ 
+   "^extcon[0-9]*$":
+     type: object
+-    $ref: "/schemas/extcon/extcon-usbc-cros-ec.yaml#"
++    $ref: /schemas/extcon/extcon-usbc-cros-ec.yaml#
+ 
+ required:
+   - compatible
+diff --git a/Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml b/Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml
+index 22edcb4b212f..bdff5b653453 100644
+--- a/Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml
++++ b/Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml
+@@ -53,7 +53,7 @@ properties:
+       '^ldo[0-9]+$':
+         type: object
+ 
+-        $ref: "/schemas/regulator/regulator.yaml#"
++        $ref: /schemas/regulator/regulator.yaml#
+ 
+         unevaluatedProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/qcom-pm8xxx.yaml b/Documentation/devicetree/bindings/mfd/qcom-pm8xxx.yaml
+index 9acad9d326eb..9c51c1b19067 100644
+--- a/Documentation/devicetree/bindings/mfd/qcom-pm8xxx.yaml
++++ b/Documentation/devicetree/bindings/mfd/qcom-pm8xxx.yaml
+@@ -49,7 +49,7 @@ patternProperties:
+ 
+   "rtc@[0-9a-f]+$":
+     type: object
+-    $ref: "../rtc/qcom-pm8xxx-rtc.yaml"
++    $ref: ../rtc/qcom-pm8xxx-rtc.yaml
+ 
+ required:
+   - compatible
+diff --git a/Documentation/devicetree/bindings/mfd/rohm,bd71815-pmic.yaml b/Documentation/devicetree/bindings/mfd/rohm,bd71815-pmic.yaml
+index d6d120a78094..05747e012516 100644
+--- a/Documentation/devicetree/bindings/mfd/rohm,bd71815-pmic.yaml
++++ b/Documentation/devicetree/bindings/mfd/rohm,bd71815-pmic.yaml
+@@ -46,7 +46,7 @@ properties:
+ 
+   rohm,clkout-open-drain:
+     description: clk32kout mode. Set to 1 for "open-drain" or 0 for "cmos".
+-    $ref: "/schemas/types.yaml#/definitions/uint32"
++    $ref: /schemas/types.yaml#/definitions/uint32
+     minimum: 0
+     maximum: 1
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/rohm,bd71828-pmic.yaml b/Documentation/devicetree/bindings/mfd/rohm,bd71828-pmic.yaml
+index ec3adcd3483d..11089aa89ec6 100644
+--- a/Documentation/devicetree/bindings/mfd/rohm,bd71828-pmic.yaml
++++ b/Documentation/devicetree/bindings/mfd/rohm,bd71828-pmic.yaml
+@@ -46,7 +46,7 @@ properties:
+ 
+   rohm,clkout-open-drain:
+     description: clk32kout mode. Set to 1 for "open-drain" or 0 for "cmos".
+-    $ref: "/schemas/types.yaml#/definitions/uint32"
++    $ref: /schemas/types.yaml#/definitions/uint32
+     minimum: 0
+     maximum: 1
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/wlf,arizona.yaml b/Documentation/devicetree/bindings/mfd/wlf,arizona.yaml
+index ea3337dafaf5..7902f3c5d289 100644
+--- a/Documentation/devicetree/bindings/mfd/wlf,arizona.yaml
++++ b/Documentation/devicetree/bindings/mfd/wlf,arizona.yaml
+@@ -156,7 +156,7 @@ properties:
+       entry has a value that is out of range for a 16 bit register then the
+       chip default will be used. If present exactly five values must be
+       specified.
+-    $ref: "/schemas/types.yaml#/definitions/uint32-array"
++    $ref: /schemas/types.yaml#/definitions/uint32-array
+     minItems: 1
+     maxItems: 5
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/x-powers,ac100.yaml b/Documentation/devicetree/bindings/mfd/x-powers,ac100.yaml
+index 309606d2d806..f3d8394b27e7 100644
+--- a/Documentation/devicetree/bindings/mfd/x-powers,ac100.yaml
++++ b/Documentation/devicetree/bindings/mfd/x-powers,ac100.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mfd/x-powers,ac100.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mfd/x-powers,ac100.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: X-Powers AC100
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/xylon,logicvc.yaml b/Documentation/devicetree/bindings/mfd/xylon,logicvc.yaml
+index 9efd49c39bd2..6e880a46d7ee 100644
+--- a/Documentation/devicetree/bindings/mfd/xylon,logicvc.yaml
++++ b/Documentation/devicetree/bindings/mfd/xylon,logicvc.yaml
 @@ -2,8 +2,8 @@
- # Copyright 2019 BayLibre, SAS
+ # Copyright 2019 Bootlin
  %YAML 1.2
  ---
--$id: "http://devicetree.org/schemas/mailbox/amlogic,meson-gxbb-mhu.yaml#"
+-$id: "http://devicetree.org/schemas/mfd/xylon,logicvc.yaml#"
 -$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/amlogic,meson-gxbb-mhu.yaml#
++$id: http://devicetree.org/schemas/mfd/xylon,logicvc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
  
- title: Amlogic Meson Message-Handling-Unit Controller
- 
-diff --git a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-index 935937c67133..404477910f02 100644
---- a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Microchip PolarFire SoC (MPFS) MSS (microprocessor subsystem) mailbox controller
- 
-diff --git a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-index d888ead09282..7f18fb10435d 100644
---- a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/qcom,apcs-kpss-global.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/qcom,apcs-kpss-global.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Qualcomm APCS global block
- 
-diff --git a/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
-index bdfb4a8220c5..b526f9c0c272 100644
---- a/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/sprd-mailbox.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/sprd-mailbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Spreadtrum mailbox controller
- 
-diff --git a/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml b/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
-index 0dfe05a04dd0..134fd223a02b 100644
---- a/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/st,stm32-ipcc.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/st,stm32-ipcc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: STMicroelectronics STM32 IPC controller
- 
-diff --git a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-index 2193141dd7fd..45df46343f6a 100644
---- a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/xlnx,zynqmp-ipi-mailbox.yaml#"
--$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+$id: http://devicetree.org/schemas/mailbox/xlnx,zynqmp-ipi-mailbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Xilinx IPI(Inter Processor Interrupt) mailbox controller
+ title: Xylon LogiCVC multi-function device
  
 -- 
 2.39.2
