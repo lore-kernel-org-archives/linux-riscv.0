@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39635C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 18:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18589C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 19:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyEyPpdxNnq4AJxKIwr27cXzRfvnYKUsk63QT8IOaCE=; b=zzi6twcdhII4cGxRAqYChltaRV
-	cwFG9r7QqMAWCA07xVQTTiirxCUMZKvkOOJZgD7PFsE0F5kQP3Ps8EJQGmL228ZOqKWkLmS0ms5Cr
-	h5sFnuE2ov1SmL/83G5FSY2MVcgPHQCw7Wk0vJK/QcLUG7DarkoS5HLPM7wZCocK41X+LLvgkoviP
-	wY/VaTgLysajwfPQfth+rKUBOf9H9ezvgKm8ODAkL/MS19Fhsw/SZrEHMc25Ou4Uj6eNub3reG8sq
-	B4ByVNBqD47AUbJd0sfH+H/K3Swof9GNm6owuSVhbXRISCMZqxMV1ULsc7PVQD79hXEGZJjNCrwHq
-	qVXAblsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UQgXFiH7gTD3/6hK7JmaLsc8rizfZcPm8/O0b/vp1Ss=; b=dD3H1n69WjiVjr
+	rPjXRcwW0s31c1fxCDGB4GrQ4S3EJA6l8yHVPrhEbWW8uwsW6N//hTEJHq7dHxQkzvjXTotURIyA+
+	Mv76I3AmWzRjl/2mVSEThBR18lKioKXjbmkxCWZu0eMIamHHhDwtBi1uQuFm+4oY8YVBwYG+0rwQc
+	9Xz40NngGoO07TAft+aCcTmC0y6SBNzE895nEzwNaFXrNJVqhqALUBncURawTqdC2sDRhC0YJV0FA
+	/Tz/sZOLVTAor160hz4b3GaNN6cA/sGK8kPss3wpkyuUTsWsy/KvhCGkpzh3EgA5NeeFTfOjgrOJh
+	gkR5/h0K0XvEvTLQh0iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf3Yq-00H4ux-2k;
-	Wed, 22 Mar 2023 18:51:48 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pf46E-00HBJT-1V;
+	Wed, 22 Mar 2023 19:26:18 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf3Ym-00H4u1-2W
+	id 1pf46B-00HBHs-2Y
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 18:51:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 82ACDB81DA8;
-	Wed, 22 Mar 2023 18:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A73C433D2;
-	Wed, 22 Mar 2023 18:51:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679511102;
-	bh=EHttEh6yxXxrUIBWgzA5oiNvBxxBhZB9e9/4ov+LfDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XfRKFEKfrThqNiROTnBwKYHtw+Fpi6ugZRRZqG3l1x/fsRsdC4gXQ33/0aESDhYl8
-	 CBuXEtk2+egbzEbgirKSFs0rfp7LJfzwOtPL2Q8vg6u60nFQ3PQGEt7NJ1LNP3kS3n
-	 ul3Uh3mtrVxqtDoddE9RsRJuwkqAT8RvXvQT5GVHgaeUu7Dxh/ni3uKyMqNLlqntC8
-	 Hsi94Di5ZJZkr3Hf+yKdOiCo4Zigu+V3oFask4ZwtYr7Mp/aKZ0ajNPyDa2MT16+bV
-	 95MHYaGWDAURaiFaFk4Q+oTWLOuFdpjVC3EGR75OaJRiN3D5r35VEFmAAhDW1WnR2E
-	 h2ewgpQ52AWzQ==
-Date: Wed, 22 Mar 2023 18:51:37 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Russ Weight <russell.h.weight@intel.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>,
-	Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-fpga@vger.kernel.org
-Subject: Re: [PATCH v1 0/6] PolarFire SoC Auto Update Support
-Message-ID: <bd80cf70-5545-4830-a4f4-7c4f79212f68@spud>
-References: <20230217164023.14255-1-conor@kernel.org>
- <Y/ht1eHgtRrLxIhC@yilunxu-OptiPlex-7050>
- <Y/h1KFGSw13OabYw@wendy>
- <21bebf9d-eb27-5607-b0a9-274c46ef8aa3@intel.com>
- <Y/0r1aR6Wik2KYBd@spud>
- <cc6176cb-6792-ef11-f42a-d2d5b12d04b4@intel.com>
- <Y/01B4hCOs9JPfR8@spud>
+	Wed, 22 Mar 2023 19:26:17 +0000
+Received: by mail-ed1-x532.google.com with SMTP id eh3so77324862edb.11
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 12:26:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1679513172;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TC6eNLv6iVcM+dLqVd9h+kHjsMmIK0cHmLbQH5XvCQ4=;
+        b=YWt+tkLlfdne2Kd0Awx/G4k2qdpzdqxUYDyTBl1Ztnt2ciLuzV00hGhXgAwtJraOta
+         foR02SN4g6mrdL4klrVO+c7tFOawmQREXUGb39aqVJgplHebbVKbDKt4rfoJICjBvCMu
+         wBK2gDh8hkB0IAhJCytrzvJckPBgh5K8Bt8+sUhwVZuFARuNc2HPfnpZAWb/gZhAHBHq
+         kdsvBwn5zagJhUTI8/WriLqEs0UsqOBQ2L8AwQN8ZEYSgKvcT+c7MRTTgCRjZ+bdh0qB
+         sZ+7dpMJR+G+PGeubi3mV2QNhg22WsB2UIRYmJqmyL2COl0dZwD8v2RsGie0Xjj8WSpI
+         WVDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679513172;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TC6eNLv6iVcM+dLqVd9h+kHjsMmIK0cHmLbQH5XvCQ4=;
+        b=osiEnUvRN4BLi+j3B7VtmbhRjmDaud6I+GDWNQBR9fWzoBvUt5qxkKv+qNmCljvBoY
+         udes5UVCEC6eItqYlWtRnvkU43dWVcG/2eOJvSg82gjHVwmJq7ZJ9Ora3jQ1JcXfp1QE
+         AFWVpNRM6kZoO01gVTpyXkX/eLTIdXEGu6kuIHFkcLAjrLBJWXaOBE7fPuA4/rVubE+L
+         RZ8gRmLNfG+KtqIJCCNv9607GhYz3PGgKlF9zb5mYQik7pkYKqb4fJi1Ypkte4+KYNTf
+         b6Nmdnt0YwUqB144VZRUljxKstF0hyrN0RmnPpCqvXScSwfQ5CpJP5fLwpa7q856iBCi
+         72Iw==
+X-Gm-Message-State: AO0yUKXlCz2I79onTQnMjdJ3fyRl9IstUDVCwcNoZU5qjOk9Qun14yt5
+	W3r9Bd4j08Fsn/9f7wQ5Qr4NEQ==
+X-Google-Smtp-Source: AK7set/uwReF6l3N0b+QrVmoQo5JsU4Z8X/6Kjo6ne/T8bhKCGGJPKxX52G9T9KTbzd4uWztJ0Q8Ww==
+X-Received: by 2002:a17:906:c257:b0:932:6452:2396 with SMTP id bl23-20020a170906c25700b0093264522396mr7250972ejb.74.1679513171843;
+        Wed, 22 Mar 2023 12:26:11 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id k19-20020a1709063fd300b00928de86245fsm7587557ejj.135.2023.03.22.12.26.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Mar 2023 12:26:11 -0700 (PDT)
+Date: Wed, 22 Mar 2023 20:26:10 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	regressions@leemhuis.info, regressions@lists.linux.dev
+Subject: Re: [PATCH] riscv: require alternatives framework when selecting FPU
+ support
+Message-ID: <20230322192610.sad42xau33ye5ayn@orel>
+References: <ZBruFRwt3rUVngPu@zx2c4.com>
+ <20230322120907.2968494-1-Jason@zx2c4.com>
+ <20230322124631.7p67thzeblrawsqj@orel>
+ <1884bd96-2783-4556-bc57-8b733758baff@spud>
 MIME-Version: 1.0
-In-Reply-To: <Y/01B4hCOs9JPfR8@spud>
+Content-Disposition: inline
+In-Reply-To: <1884bd96-2783-4556-bc57-8b733758baff@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_115145_100490_A88F5BAB 
-X-CRM114-Status: GOOD (  50.03  )
+X-CRM114-CacheID: sfid-20230322_122615_856203_9BFE044C 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,140 +99,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8782303299359765897=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 22, 2023 at 03:17:13PM +0000, Conor Dooley wrote:
+> On Wed, Mar 22, 2023 at 01:46:31PM +0100, Andrew Jones wrote:
+> > On Wed, Mar 22, 2023 at 01:09:07PM +0100, Jason A. Donenfeld wrote:
+> > > When moving switch_to's has_fpu() over to using riscv_has_extension_
+> > > likely() rather than static branchs, the FPU code gained a dependency on
+> > > the alternatives framework. If CONFIG_RISCV_ALTERNATIVE isn't selected
+> > > when CONFIG_FPU is, then has_fpu() returns false, and switch_to does not
+> > > work as intended. So select CONFIG_RISCV_ALTERNATIVE when CONFIG_FPU is
+> > > selected.
+> > > 
+> > > Fixes: 702e64550b12 ("riscv: fpu: switch has_fpu() to riscv_has_extension_likely()")
+> > > Link: https://lore.kernel.org/all/ZBruFRwt3rUVngPu@zx2c4.com/
+> > > Cc: Jisheng Zhang <jszhang@kernel.org>
+> > > Cc: Andrew Jones <ajones@ventanamicro.com>
+> > > Cc: Heiko Stuebner <heiko@sntech.de>
+> > > Cc: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Thanks for fixing it!
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> > > Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+> > > ---
+> > >  arch/riscv/Kconfig | 1 +
+> > >  1 file changed, 1 insertion(+)
+> > > 
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index c5e42cc37604..0f59350c699d 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -467,6 +467,7 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+> > >  config FPU
+> > >  	bool "FPU support"
+> > >  	default y
+> > > +	select RISCV_ALTERNATIVE
+> > >  	help
+> > >  	  Say N here if you want to disable all floating-point related procedure
+> > >  	  in the kernel.
+> > > -- 
+> > > 2.40.0
+> > >
+> > 
+> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > 
+> > I took a look to see if we missed anything else and see that we should
+> > do the same patch for KVM. I'll send one.
+> > 
+> > (It's tempting to just select RISCV_ALTERNATIVE from RISCV, but maybe we
+> >  can defer that wedding a bit longer.)
+> 
+> At that point, the config option should just go away entirely, no?
 
---===============8782303299359765897==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FgRuE+/bPgbqLyAD"
-Content-Disposition: inline
+Ah, yes, and that makes the idea even more attractive, as we could remove
+several ifdefs.
 
-
---FgRuE+/bPgbqLyAD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Russ,
-
-On Mon, Feb 27, 2023 at 10:56:07PM +0000, Conor Dooley wrote:
-> On Mon, Feb 27, 2023 at 02:42:30PM -0800, Russ Weight wrote:
-> > On 2/27/23 14:16, Conor Dooley wrote:
-> > > On Mon, Feb 27, 2023 at 02:04:36PM -0800, Russ Weight wrote:
-> > >> On 2/24/23 00:28, Conor Dooley wrote:
-> > >>> On Fri, Feb 24, 2023 at 03:57:09PM +0800, Xu Yilun wrote:
-> > >>>> On 2023-02-17 at 16:40:17 +0000, Conor Dooley wrote:
-> > >>>>> This patchset adds support for the "Auto Update" feature on Polar=
-Fire
-> > >>>>> SoC that allows for writing an FPGA bistream to the SPI flash con=
-nected
-> > >>>>> to the system controller.
-> > >>>> I haven't fully checked the patches yet, just some quick comments:
-> > >>>>
-> > >>>> Since this feature is just to R/W the flash, and would not affect =
-the
-> > >>>> runtime FPGA region, I don't think an FPGA manager is actually nee=
-ded.
-> > >>>> Why not just use the MTD uAPI? There is a set of exsiting MTD uAPI=
- &
-> > >>>> MTD tool if I remember correctly.
-> > >>> A lack of interest in opening up the system controller to userspace!
-> > >>> You're right in that the writing of the image can be done that way,=
- and
-> > >>> while I was testing I used the userspace bits of mtd along the way =
-- but
-> > >>> for validating that the image we are writing we rely on the system
-> > >>> controller.
-> > >>> I'm really not interested in exposing the system controller's
-> > >>> functionality, especially the bitstream manipulation parts, to user=
-space
-> > >>> due to the risk of input validation bugs, so at least that side of
-> > >>> things should remain in the kernel.
-> > >>> I suppose I could implement something custom in drivers/soc that do=
-es
-> > >>> the validation only, and push the rest out to userspace. Just seemed
-> > >>> fitting to do the whole lot in drivers/fpga.
-> > >> In case you haven't already looked at the new firmware-upload
-> > >> support in the firmware-loader, I'll give you some references
-> > >> here to see if it fit you needs. This would only support the
-> > >> write (not the read) but it would allow the controller to do
-> > >> validation on the write.
-> > >>
-> > >> The is the cover letter which shows a usage example:
-> > >> https://lore.kernel.org/lkml/20220421212204.36052-1-russell.h.weight=
-@intel.com/
-> > >>
-> > >> And this is a pointer to the latest documentation for it:
-> > >> https://docs.kernel.org/driver-api/firmware/fw_upload.html
-> > >>
-> > >> The only current user is: drivers/fpga/intel-m10-bmc-sec-update.c
-> > > Sounds interesting, I shall go and take a look. Just quickly, when you
-> > > say it wouldn't support the read, what exactly do you mean?
-> > > The only read that I am really interested in doing is reading the fir=
-st
-> > > 1K of flash as I need to RMW it, but I don't think that that's what y=
-ou
-> > > mean.
-> > > Do you mean that I would not be able to dump the firmware using your
-> > > fw_upload interface? If so, that's an acceptable constraint IMO.
-> >=20
-> > Yes - I mean that you couldn't dump the firmware image from userspace
-> > using the fw_upload interface. The sysfs interface allows you to read
-> > and write a temporary buffer, but once you "echo 0 > loading", there
-> > is no sysfs interface associated with the firmware-loader that would
-> > allow you to read the image from flash. Your controller actually does
-> > the writes, so RMW in that context is fine.
->=20
-> Ahh cool. I don't really care about dumping the firmware via such a
-> mechanism, so that sounds good to me.
-> I'll check out your approach, the immediate thought is that it sounds
-> suitable to my use case, so thanks!
-
-Taken me a while to get around to it, but thanks for your suggestion.
-Looks like it is suitable for what I am trying to do, so in the middle
-of working on another version of this using fw_upload.
-The enum return codes from write are a little clumsy, but oh well, could
-be worse I suppose.
-
-Just one thing I noted (although I rarely pay much attention to/rely on
-the driver-api docs when recent drivers exist as usable examples) is
-that the docs for this stuff is a wee bit out of date due to some API
-changes.
-In the code example in this document:
-https://docs.kernel.org/driver-api/firmware/fw_upload.html
-firmware_upload_register() has fewer arguments than it does when you
-look at the signature of the function in the documentation right below
-it.
-
-Cheers,
-Conor.
-
---FgRuE+/bPgbqLyAD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBtOOQAKCRB4tDGHoIJi
-0vEbAQDSmfFT1DQ/Pk7auDVcWj4C5E1dtcFcY5Al+msb3ok9JwD/RuO6ZvqpZ+fx
-2BDz3ttFebCLxjpRK9+HxVOXaeDD0wk=
-=Vitx
------END PGP SIGNATURE-----
-
---FgRuE+/bPgbqLyAD--
-
-
---===============8782303299359765897==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8782303299359765897==--
-
