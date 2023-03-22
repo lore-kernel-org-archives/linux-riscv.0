@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF1FC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 17:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0079C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 17:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LY0Uvo4a7xdW9hdHxIodc7Vu1lkPuYBklm7sgws6M7s=; b=qBSrOWwXwJhJH3
-	i11IgWZ2u4WJ/RE3f8OI0EI0JI1lQxr99NRWALH7D/TYJPp2ifx8NYRNjvzyTaWAmMY4Fplx2Pdqv
-	74mvbn6d0ZdkHSuDyxu7EDAy+L8gUMTWq4B0/ePvOQ1iP9vUE/hgdybsaU/5Ucj3T+JyRRpcZILoZ
-	ktPxFKB5j2s2opXXtr93yOppOWtBlzA7/+7dcIksbr2QdvlOPZ3wW9HGbepGvFQY4pzAJmhvemxFs
-	ISZr42IR65946+U7CMKSfP9siFw1gNoc4tRIeZBGeVy+1FLkSeME/2QH5seMYlpBp2XG1Kh66Ql0W
-	OjvHYX0BuH25J2mVmrjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=i3AOHjKPa4LD+SxmbOPjdqTgJ2SIALK1nFLJmSH1X3E=; b=hNsL/0Xpk4xAYy
+	3mQ8yGOrk6jhXpr92+afrt91JofLExo6TZS/zLcCCzfZxyRa/BRKtRYZQe1nU/cBNIAZeVh8wfh16
+	HVclvxvKDTYSHt4nliK9HZsqiEUjBNFY443fSe4bStB4D1Cd9ROhrME9oZKACUASQVpAmBFDjmid8
+	lzpoRdDQONnZEPDpgLrs+Rsf7nd63sufv/Y0CUpiRTJ/5MU90nINe+d2bpa1fYMvT260iIBvrhvrt
+	OvjyIw2L9g28CCiXZE55vHsKEqjSfkQk/5UWMd8AHKP/g8R6B8Qa+6W6ZDzTlnjbkAbj6Av7WPXDM
+	53C/Ot2M5FQ0SmLb2rmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2As-00GpP9-3B;
-	Wed, 22 Mar 2023 17:22:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pf2Mg-00GrBd-2v;
+	Wed, 22 Mar 2023 17:35:10 +0000
+Received: from mail-ot1-f47.google.com ([209.85.210.47])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2Ap-00GpOP-1t;
-	Wed, 22 Mar 2023 17:22:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HnYLxxQqsoSk7nx4q+NwD1PkqBw2pnBv/8dY5LfvgsA=; b=vKlpYO9J+SAy1WEvcIK14Yjf/L
-	ynXvDY79SlwKJanrwgzYEOXnnioQBgLUy3CrFk50zk6gexGOR1WBu1U+8z0ez8ooEunmN+/ckV8u/
-	fy6I/cTWTP+4yMLeJuJFSHIWQ42bpQDS+bJQxNOOStKEvKo3a2qnMtBXerFw3bacxs/V9jZatrsWt
-	uJV0KmhWKaEXSUc4+JDi8NPaOVbgXp0+gUnCEyoIpshljJbDcPWNCZ4z8pkm1g7PNfXMezXN9THbL
-	CZ6PxxMDhbKXM9wqJQTkrqybw+bklZDk0F+1b+Uh49FUnabKcm7orMqSW89DJ5taY4bb5wRmuPYfj
-	wjzBDEmQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pf2Ag-003CAY-SR; Wed, 22 Mar 2023 17:22:47 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 333E830030F;
-	Wed, 22 Mar 2023 18:22:42 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 1C3D4205D08C3; Wed, 22 Mar 2023 18:22:42 +0100 (CET)
-Date: Wed, 22 Mar 2023 18:22:42 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-	x86@kernel.org, "Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
-Message-ID: <20230322172242.GH2357380@hirez.programming.kicks-ass.net>
-References: <20230307143558.294354-1-vschneid@redhat.com>
- <20230307143558.294354-8-vschneid@redhat.com>
- <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
- <xhsmhmt45c703.mognet@vschneid.remote.csb>
- <20230322140434.GC2357380@hirez.programming.kicks-ass.net>
- <xhsmhjzz8d8km.mognet@vschneid.remote.csb>
+	id 1pf2Mb-00Gr96-0Z;
+	Wed, 22 Mar 2023 17:35:07 +0000
+Received: by mail-ot1-f47.google.com with SMTP id x22-20020a056830409600b0069b30fb38f7so10785714ott.5;
+        Wed, 22 Mar 2023 10:35:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679506503;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4iBFMrGCXs7aCaesF7jmbgEDqOsWeQiS1SA88xm+gP4=;
+        b=FIJ+e4YJFs6FdyD/av9Q7k4YG4wrr0om2eYCQNWH9QXsGS4a7kKJN+9j1T1Aywieqk
+         5CIdbZsICi2SjiIImuRRXr1tf5eY9/+cMAK67ewGpwvZIDINcY3DkmaZ791qMI6dp+sj
+         SPkMMO3Afgf0IhSDj8EDi4ihpLTwwLMKy6+5PnfbxWfeTQdX5Oz0G7ondycS6sO/9Jcl
+         PYgXNQ/GISeoJ4XfIzrh7FdXhh/GGCYqHqv8HJpIsm5M+VlVdSkpRBV4WtVpdJi1hZpV
+         y/M+wcUJ7T30RTIJRDZqwHe3oTFu433Lh0yEME3DI7q6O+EZ/n1WBwA0AqazT4RABTEs
+         PEng==
+X-Gm-Message-State: AO0yUKUngmsNVySYBkswQaCJvw2n0wAsVCO3l+D66jRPMf3ji2QSjuK5
+	dXBaQOexG3ipMgBX2VB/+7gYHJNlHg==
+X-Google-Smtp-Source: AK7set8m4syrOCyuvx0eJfcZmRDih7NX1pwJMSBfADgJk63vKLPYr43ZCbmjV3U24/oNGz5bTTge9g==
+X-Received: by 2002:a05:6830:129a:b0:69f:289:1fe9 with SMTP id z26-20020a056830129a00b0069f02891fe9mr2058230otp.17.1679506502895;
+        Wed, 22 Mar 2023 10:35:02 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id l26-20020a0568301d7a00b0069fa776d3c2sm162320oti.18.2023.03.22.10.34.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Mar 2023 10:34:58 -0700 (PDT)
+Received: (nullmailer pid 3970918 invoked by uid 1000);
+	Wed, 22 Mar 2023 17:34:56 -0000
+From: Rob Herring <robh@kernel.org>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Michal Simek <michal.simek@xilinx.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] dt-bindings: mailbox: Drop unneeded quotes
+Date: Wed, 22 Mar 2023 12:34:48 -0500
+Message-Id: <20230322173449.3970718-1-robh@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <xhsmhjzz8d8km.mognet@vschneid.remote.csb>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230322_103505_239005_630097AD 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +79,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 22, 2023 at 05:01:13PM +0000, Valentin Schneider wrote:
+Cleanup bindings dropping unneeded quotes. Once all these are fixed,
+checking for this can be enabled in yamllint.
 
-> > So I was thinking something like this:
+Signed-off-by: Rob Herring <robh@kernel.org>
+---
+ .../devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml   | 4 ++--
+ .../devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml   | 4 ++--
+ .../devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml    | 4 ++--
+ Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml   | 4 ++--
+ Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml  | 4 ++--
+ .../devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml  | 4 ++--
+ 6 files changed, 12 insertions(+), 12 deletions(-)
 
-> Hm, this does get rid of the func being passed down the helpers, but this
-> means the trace events are now stateful, i.e. I need the first and last
-> events in a CSD stack to figure out which one actually caused the IPI.
-
-Isn't much of tracing stateful? I mean, why am I always writing awk
-programs to parse trace output?
-
-The one that is directly followed by
-generic_smp_call_function_single_interrupt() (horrible name that), is
-the one that tripped the IPI.
-
-> It also requires whoever is looking at the trace to be aware of which IPIs
-> are attached to a CSD, and which ones aren't. ATM that's only the resched
-> IPI, but per the cover letter there's more to come (e.g. tick_broadcast()
-> for arm64/riscv and a few others). For instance:
-> 
->        hackbench-157   [001]    10.894320: ipi_send_cpu:         cpu=3 callsite=check_preempt_curr+0x37 callback=0x0
-
-Arguably we should be setting callback to scheduler_ipi(), except
-ofcourse, that's not an actual function...
-
-Maybe we can do "extern inline" for the actual users and provide a dummy
-function for the symbol when tracing.
-
->        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=sched_ttwu_pending+0x0
->        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=generic_smp_call_function_single_interrupt+0x0
-> 
-> That first one sent a RESCHEDULE IPI, the second one a CALL_FUNCTION one,
-> but you really have to know what you're looking at...
-
-But you have to know that anyway, you can't do tracing and not know wtf
-you're doing. Or rather, if you do, I don't give a crap and you can keep
-the pieces :-)
-
-Grepping the callback should be pretty quick resolution at to what trips
-it, no?
-
-(also, if you *realllllly* can't manage, we can always add yet another
-argument that gives a type thingy)
-
-> Are you worried about the @func being pushed down?
-
-Not really, I was finding it odd that only the first csd was being
-logged. Either you should log them all (after all, the target CPU will
-run them all and you might still wonder where the heck they came from)
-or it should log none and always report that hideous long function name
-I can't be arsed to type again :-)
-
-> Staring at x86 asm is not good for the soul,
-
-Scarred for life :-) What's worse, due to being exposed to Intel syntax
-at a young age, I'm now permantently confused as to the argument order
-of x86 asm.
+diff --git a/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml b/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
+index dfd26b998189..385809ed1569 100644
+--- a/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
++++ b/Documentation/devicetree/bindings/mailbox/amlogic,meson-gxbb-mhu.yaml
+@@ -2,8 +2,8 @@
+ # Copyright 2019 BayLibre, SAS
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/amlogic,meson-gxbb-mhu.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/amlogic,meson-gxbb-mhu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Amlogic Meson Message-Handling-Unit Controller
+ 
+diff --git a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+index 935937c67133..404477910f02 100644
+--- a/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Microchip PolarFire SoC (MPFS) MSS (microprocessor subsystem) mailbox controller
+ 
+diff --git a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
+index d888ead09282..7f18fb10435d 100644
+--- a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
++++ b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/qcom,apcs-kpss-global.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/qcom,apcs-kpss-global.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Qualcomm APCS global block
+ 
+diff --git a/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
+index bdfb4a8220c5..b526f9c0c272 100644
+--- a/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/sprd-mailbox.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/sprd-mailbox.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/sprd-mailbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Spreadtrum mailbox controller
+ 
+diff --git a/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml b/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
+index 0dfe05a04dd0..134fd223a02b 100644
+--- a/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
++++ b/Documentation/devicetree/bindings/mailbox/st,stm32-ipcc.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/st,stm32-ipcc.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/st,stm32-ipcc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: STMicroelectronics STM32 IPC controller
+ 
+diff --git a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
+index 2193141dd7fd..45df46343f6a 100644
+--- a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: "http://devicetree.org/schemas/mailbox/xlnx,zynqmp-ipi-mailbox.yaml#"
+-$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++$id: http://devicetree.org/schemas/mailbox/xlnx,zynqmp-ipi-mailbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Xilinx IPI(Inter Processor Interrupt) mailbox controller
+ 
+-- 
+2.39.2
 
 
 _______________________________________________
