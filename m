@@ -4,102 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523B5C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 12:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D58C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 12:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KOR3jEBTCkS/cHBV3KJkuf19hMp/y98lqpP0F3wfmyc=; b=0PKJW2U5J//iZ7
-	X/RECGSPG6/bXecd0mcEuKj4BsMpmokbl3OMP7g9QJ5TH+LhgUQbGcEoViNUEZGE75AGlNhUPwK/w
-	GMWo7jBUe6m7pc93f2hG/xXO1P7iZqBJI64QCk7omuxoZ5qRAWYHT80Vd63tZ5oBszVZ13IAyUIfP
-	yVzNHWUfdhauo6x/ci1+V/YXY2MQxWL1yuH5U1doUel4nk9bljOGyhGEKN5g0J9n+k6snIpcKU9On
-	C2hYBO9vGw+j1pfSGvR8TNXqJ6x4MMFXdiWuntjeS98QCLxl77g59Kl+heHtqXe3hS77rt85H0y5r
-	fJh06C2AWTbMBs1u5wMw==;
+	List-Owner; bh=6etKk/JU54lYa/fRHPD2bnpNnO5T970N7a+yoo+NU1Q=; b=ZHCQWDwdSMxBTS
+	gZhIq7+DFmAoJSJr2AYm7M7/TrZzfoYkMzsof7DjnRfYxWZ8c1v5OwhofqtFldURyl1KniJSHMfSh
+	Q6kEIjdlLlKmnZ7C9KZvNwhd8qZKFLokhkNnnPnKYcSCEKi8er37QrQQHChyMg+erXTGj4mc5SzfW
+	rVS27YbbIHMybssS4/ehJvWPyULJudz9GBg6ZdSK3OMptPuVEV8dV7eNt+jdpoOsarCvBZfwzHGtK
+	xi8m10dCnM7tEc8NEUMAOXaIIruRTpgyb9bKjNvkWkpx5HHihznMXWGS9LtuhezcXuAord7KqyOto
+	lCxnQverwDnUQtrQF4yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pexSR-00FudO-1O;
-	Wed, 22 Mar 2023 12:20:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pexrZ-00Fzao-1L;
+	Wed, 22 Mar 2023 12:46:45 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pexSL-00FuaT-1o
+	id 1pexrT-00FzWi-2M
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 12:20:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679487639;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hPXFCTl8qif3OA4s3YNypS2WhS0XvH7qdHBOusQ/gQI=;
-	b=YAxhCDZ7zuff0hxJriNCNI/IHuGCMIdwBOFuOdkHHnOpSK8kx1wNrtrQnimQqVxX18OEVn
-	hHNX7pyphAS80AO4UCkgsin+W4N44mod4q/vUa+//8FXNgbvdzTBzaD3oa75FTmdLQOXoK
-	D3sBMytS7XCmW2Ir7b/wRWhGMui8ov4=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-621-VDmjZP23MiO7JqQ7obMkcg-1; Wed, 22 Mar 2023 08:20:36 -0400
-X-MC-Unique: VDmjZP23MiO7JqQ7obMkcg-1
-Received: by mail-qt1-f197.google.com with SMTP id l2-20020ac87242000000b003bfecc6d046so10777411qtp.17
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 05:20:36 -0700 (PDT)
+	Wed, 22 Mar 2023 12:46:42 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id eg48so72312491edb.13
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 05:46:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1679489195;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=W5zKbHjfhgxF54RZN2uMVwaO/XV5lTFGogMg3VcS9Gw=;
+        b=g0bBuwgqfq8NKbwhZFZrgh3ILJQ25NRW5qmNmABpR/5J7UMpNHAgm8YKjMO2Sam/b1
+         MTvpDdEagorVMuehmgxKrl4YStGgrnAooCP+TADfp7Gms6SGocetTcammGQPbuNERIxm
+         OkR0IkAiwTXDztGkkP9JhEUx8qtCRNfLOA1zuX84EvQirnpJKEMR9BaDiPdWHtWwh9g1
+         ePEOpsQs8gcvuHGwZTBats0t6ZaUhAe6MaPKGUXknAROm4VvIa4KS9t3ODGfGMp7ZUK3
+         3WimQkNd1WdmFoQ8wRpIQKMvYjQnCDsJjqynML4PMoDU8iYKKLYX78DF7ObFk08gSpZK
+         Yhwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679487636;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hPXFCTl8qif3OA4s3YNypS2WhS0XvH7qdHBOusQ/gQI=;
-        b=6mTNgn1AiMv35lV15C5XOdOCfUJYQ47mvUYsxz/4DiZUgx89gPw7ySSAuKKX7BqHUM
-         I5KYw9xfiUHVccsgJAtFaBtrzEH0jUTiA827ceShc6HMohs7d9nErDjTdE+O7tVpIpLq
-         Qq+m84YZ8tA27/0hDuV/2nJLLWUvhUlonGwRyNOi3v01SotmePjheTv6Kr6bap2A44Yj
-         IB6JPIxjvMmQ6OL88S009z5LR79Fl/uJOszb2Rz+qwFDDzUgPKJ7G4nBEpR7hHzIqRR6
-         VI3oXvqV/11+ZdZ8j0kAM3iS7SIf77xphF+4bEzL64GKUTTd9sE2ultX1VSubNdwWfDq
-         GuNA==
-X-Gm-Message-State: AO0yUKUN5A9i4mc2uDPuoBsGI3v6zKvKGVgf6Q44shBfuCl6SDQL7Fw4
-	0aJ4o/wdrJX+odHH+crCgpYKon3e/mFhFoFgktNogP3okXSdWpTTIbxWi4Ap8DehjCXqVRLz7eM
-	Tn6QSfV8U8EkX26BJ5adWh/EBUrEB
-X-Received: by 2002:a05:6214:e6e:b0:5c5:95db:858a with SMTP id jz14-20020a0562140e6e00b005c595db858amr5249096qvb.31.1679487636136;
-        Wed, 22 Mar 2023 05:20:36 -0700 (PDT)
-X-Google-Smtp-Source: AK7set+c4qgqaBQUslatTuVuP/CBQYeSmWHcWFFuVnFTR+yoMggQM+H4NTuj8PmuW7zmUDZ2oj+NWg==
-X-Received: by 2002:a05:6214:e6e:b0:5c5:95db:858a with SMTP id jz14-20020a0562140e6e00b005c595db858amr5249039qvb.31.1679487635822;
-        Wed, 22 Mar 2023 05:20:35 -0700 (PDT)
-Received: from vschneid.remote.csb ([154.57.232.159])
-        by smtp.gmail.com with ESMTPSA id d185-20020a37b4c2000000b007425ef4cbc2sm11175799qkf.100.2023.03.22.05.20.29
+        d=1e100.net; s=20210112; t=1679489195;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W5zKbHjfhgxF54RZN2uMVwaO/XV5lTFGogMg3VcS9Gw=;
+        b=0oBqPSEt585vVLgLv4sR+FEc23m+w6p2mfk6LVVEOTiOjacmkQ7mT5nNE+tsUdf33/
+         x1E+Q4y4LB4VZ3j560obbCt7UxHY2gssAgsGLWKNvyqq8eStNsbfbpy1TpFA2NjbFy1N
+         5IOKF2D9k2Cvc2rArmHQS/alDo54ZBHBmgj0cbiNAuE69BulDFA07RxfXerqjOOqHKHO
+         fEAEADdzPzWYBRHlsdIfBNeIYaubG6dF2BJ9ADvyQNJ52p2Kd5rMncXmmiTL36x1AXTR
+         ADptR42yL8286RqT8omDvaD68WmtS7MTEDQdS5OroQOXUDLK0ag01tDXfsCv2mngCEob
+         KSMg==
+X-Gm-Message-State: AO0yUKVOz5qg5xXbXzcpBYNvDkzJ9Grhz9B800/xK8XHsaXWXyKBpPTq
+	kzvmVMiMmxVjZnLjQcBDOPxE0Q==
+X-Google-Smtp-Source: AK7set+gJyx2poiD3sfTmwA9axJroFF1RhsQFBXaCqd0DtnPZi3yDlC8QBiTKtp9e6oeJC2EllLOww==
+X-Received: by 2002:a05:6402:48c:b0:4fa:ad62:b1a0 with SMTP id k12-20020a056402048c00b004faad62b1a0mr5882545edv.41.1679489193201;
+        Wed, 22 Mar 2023 05:46:33 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id c25-20020a50f619000000b004bd6e3ed196sm7761962edn.86.2023.03.22.05.46.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Mar 2023 05:20:35 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, x86@kernel.org, "Paul E. McKenney"
- <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
- Gleixner <tglx@linutronix.de>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, Daniel
- Bristot de Oliveira <bristot@redhat.com>, Marcelo Tosatti
- <mtosatti@redhat.com>, Frederic Weisbecker <frederic@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Marc
- Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Russell
- King <linux@armlinux.org.uk>, Nicholas Piggin <npiggin@gmail.com>, Guo Ren
- <guoren@kernel.org>, "David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
-In-Reply-To: <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
-References: <20230307143558.294354-1-vschneid@redhat.com>
- <20230307143558.294354-8-vschneid@redhat.com>
- <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
-Date: Wed, 22 Mar 2023 12:20:28 +0000
-Message-ID: <xhsmhmt45c703.mognet@vschneid.remote.csb>
+        Wed, 22 Mar 2023 05:46:32 -0700 (PDT)
+Date: Wed, 22 Mar 2023 13:46:31 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	regressions@leemhuis.info, regressions@lists.linux.dev
+Subject: Re: [PATCH] riscv: require alternatives framework when selecting FPU
+ support
+Message-ID: <20230322124631.7p67thzeblrawsqj@orel>
+References: <ZBruFRwt3rUVngPu@zx2c4.com>
+ <20230322120907.2968494-1-Jason@zx2c4.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20230322120907.2968494-1-Jason@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_052041_803527_C7CCAF8A 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20230322_054639_796996_C633ABF4 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,77 +100,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/03/23 10:53, Peter Zijlstra wrote:
-> On Tue, Mar 07, 2023 at 02:35:58PM +0000, Valentin Schneider wrote:
+On Wed, Mar 22, 2023 at 01:09:07PM +0100, Jason A. Donenfeld wrote:
+> When moving switch_to's has_fpu() over to using riscv_has_extension_
+> likely() rather than static branchs, the FPU code gained a dependency on
+> the alternatives framework. If CONFIG_RISCV_ALTERNATIVE isn't selected
+> when CONFIG_FPU is, then has_fpu() returns false, and switch_to does not
+> work as intended. So select CONFIG_RISCV_ALTERNATIVE when CONFIG_FPU is
+> selected.
+> 
+> Fixes: 702e64550b12 ("riscv: fpu: switch has_fpu() to riscv_has_extension_likely()")
+> Link: https://lore.kernel.org/all/ZBruFRwt3rUVngPu@zx2c4.com/
+> Cc: Jisheng Zhang <jszhang@kernel.org>
+> Cc: Andrew Jones <ajones@ventanamicro.com>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+> ---
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index c5e42cc37604..0f59350c699d 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -467,6 +467,7 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+>  config FPU
+>  	bool "FPU support"
+>  	default y
+> +	select RISCV_ALTERNATIVE
+>  	help
+>  	  Say N here if you want to disable all floating-point related procedure
+>  	  in the kernel.
+> -- 
+> 2.40.0
 >
->> @@ -477,6 +490,25 @@ static __always_inline void csd_unlock(struct __call_single_data *csd)
->>      smp_store_release(&csd->node.u_flags, 0);
->>  }
->>
->> +static __always_inline void
->> +raw_smp_call_single_queue(int cpu, struct llist_node *node, smp_call_func_t func)
->> +{
->> +	/*
->> +	 * The list addition should be visible to the target CPU when it pops
->> +	 * the head of the list to pull the entry off it in the IPI handler
->> +	 * because of normal cache coherency rules implied by the underlying
->> +	 * llist ops.
->> +	 *
->> +	 * If IPIs can go out of order to the cache coherency protocol
->> +	 * in an architecture, sufficient synchronisation should be added
->> +	 * to arch code to make it appear to obey cache coherency WRT
->> +	 * locking and barrier primitives. Generic code isn't really
->> +	 * equipped to do the right thing...
->> +	 */
->> +	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
->> +		send_call_function_single_ipi(cpu, func);
->> +}
->> +
->>  static DEFINE_PER_CPU_SHARED_ALIGNED(call_single_data_t, csd_data);
->>
->>  void __smp_call_single_queue(int cpu, struct llist_node *node)
->> @@ -493,21 +525,25 @@ void __smp_call_single_queue(int cpu, struct llist_node *node)
->>              }
->>      }
->>  #endif
->>      /*
->> +	 * We have to check the type of the CSD before queueing it, because
->> +	 * once queued it can have its flags cleared by
->> +	 *   flush_smp_call_function_queue()
->> +	 * even if we haven't sent the smp_call IPI yet (e.g. the stopper
->> +	 * executes migration_cpu_stop() on the remote CPU).
->>       */
->> +	if (trace_ipi_send_cpumask_enabled()) {
->> +		call_single_data_t *csd;
->> +		smp_call_func_t func;
->> +
->> +		csd = container_of(node, call_single_data_t, node.llist);
->> +		func = CSD_TYPE(csd) == CSD_TYPE_TTWU ?
->> +			sched_ttwu_pending : csd->func;
->> +
->> +		raw_smp_call_single_queue(cpu, node, func);
->> +	} else {
->> +		raw_smp_call_single_queue(cpu, node, NULL);
->> +	}
->>  }
->
-> Hurmph... so we only really consume @func when we IPI. Would it not be
-> more useful to trace this thing for *every* csd enqeued?
 
-It's true that any CSD enqueued on that CPU's call_single_queue in the
-[first CSD llist_add()'ed, IPI IRQ hits] timeframe is a potential source of
-interference.
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-However, can we be sure that first CSD isn't an indirect cause for the
-following ones? say the target CPU exits RCU EQS due to the IPI, there's a
-bit of time before it gets to flush_smp_call_function_queue() where some other CSD
-could be enqueued *because* of that change in state.
+I took a look to see if we missed anything else and see that we should
+do the same patch for KVM. I'll send one.
 
-I couldn't find a easy example of that, I might be biased as this is where
-I'd like to go wrt IPI'ing isolated CPUs in usermode. But regardless, when
-correlating an IPI IRQ with its source, we'd always have to look at the
-first CSD in that CSD stack.
+(It's tempting to just select RISCV_ALTERNATIVE from RISCV, but maybe we
+ can defer that wedding a bit longer.)
 
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
