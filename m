@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFE3C77B60
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 21:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31E7C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 22:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4G3J6NhMBMbpdJfSLd4lperoyiDZFLk1/F1aLto+fM=; b=fHKX24LA+OM5BUvn/830WtX3JS
-	DF4IHLkthjUXx88zUcxF4JxnbMl6aoeFfx3dA5l9Zrz9IaCMnHmavltbbKhJWul2q0/BvLxvfoc7e
-	kxF7iJMbCfVc+0x5ynsYFUBEHTrcRcBfir6HDfBbR5VkFvHl5B4j4W4JiOlEEsVk2XdKxH6YDE/1u
-	mbDMd3HJSJNbvk4uE7D3KHCWRTTb8S36vvw9yrvAKAPyyvdFf8I0CT5r6eV+1Nu5HQChQKzzZvqWN
-	faP/oIUHgyvHYW0Aitkz3u8adyqVVhcj/g/njP8MEISn8/TTrJcXX1VKUf60lWR9pP7J+IzU3F681
-	V1FwsSmw==;
+	bh=uqr7NyqjlY6+CbAmnyfaU7uPny3aX3BFkz6STLFKxek=; b=N1ZlveTRQZjiwsS5A8v4i0MI6G
+	0PjconoePf7CMN5fBjsmHk9WvfNQq67p1qq0DmgIB0oLsFgkCtlm48vsoRNoTzxYwy0fSdTRBOBBN
+	U1SIcktGqyis3fBYZWHGQJnLYpOoxnt054dq/O5ik9OFO2EKwUQ7hDhKBYZHXZwl0gg0LO2e+arUu
+	1Ynyb2lymxm/waclcR9H4TWG1wO8HVxPKTf8WAZ+C9s9dC3C5DutPEuCPDbCnZ8AOtHL+nqudAd/A
+	G1xxiQJYq2ul3kYVQqDnTC9KZ4Kl9Yc1iPhQIv92/3tEo+1nz1Temtbn8NhnLolij2IuPxqIO7AQK
+	57uqvR9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf6P1-00HXD1-0q;
-	Wed, 22 Mar 2023 21:53:51 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pf6Xk-00HYRf-2R;
+	Wed, 22 Mar 2023 22:02:52 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf6Ow-00HXBe-0b
+	id 1pf6Xh-00HYR7-1R
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 21:53:50 +0000
+	Wed, 22 Mar 2023 22:02:50 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 99EE5B81B97;
-	Wed, 22 Mar 2023 21:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A544FC433EF;
-	Wed, 22 Mar 2023 21:53:39 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BA78DB81E22;
+	Wed, 22 Mar 2023 22:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF116C433D2;
+	Wed, 22 Mar 2023 22:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679522023;
-	bh=BD8ak/8cXFecddYGN/zIPABBed70emvYtdByC4lbq3s=;
+	s=k20201202; t=1679522566;
+	bh=hcMZNp9Ksh0riZoo4Yt+LZltGdkzddZrrKlsdq6SSFs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PhmMuV9JJMAzWFViXjKSLnLhI585V/r/HipMeXMyhQG8riqZU7Lk/ahfb7+jTImh/
-	 qhGITGFZTw8iutTy9I+5Fa41+LIW7hJpp+c8xrcpE86F6qHUNy+rgsTl5Xo5k39ers
-	 A/lYI0izjFuPmxE1reE15/o5EZJPVZ3x+54Exujkm9nPvzXx3jPOGuGw0pNiG51G7t
-	 0bow5PC1It9E3OckfUSMG4F6GrcndgJHWQ1f+rVmJ1Lbzyan+T6UY5+nno3L4BU2uV
-	 n2lNReX/NappDMXKRYm04gFgO1qmA3xQJ+UkFSbq1avKln4QygH5j7b9zhXfRLT4E4
-	 MKNeT278RSGxw==
-Date: Wed, 22 Mar 2023 21:53:37 +0000
+	b=SBeFLN+n+5IqXTMSRZF99iAhYSZN0+Ozu3ryCbzt6WCEDt4I+X1bWCEK/0N548dPQ
+	 x70PHNbkMmZBHS9Hod1NOld73/3AJcpG4jEN41y1wfIkwYBF0MbM0XLBdpXDdxEkyv
+	 LIzhWK4RML4OZXokBhd2Dydd3S+qwp2M9QvP/wnZs4XGvvV4tSqkRyij7RiY2fey4N
+	 y736dbmlQE9Bx8Iv+qSoyI7QDMJIxNxZXQiVZIPV+9d5Dm5+dh+eAqYZcym6yT16A3
+	 lvou2VM80uY7v66X9hwQt2qOeNua8XA5P6Lht/1sYQXgGpFL5RwQtQiZvukk9IsJkI
+	 IMSy7dvbzwppw==
+Date: Wed, 22 Mar 2023 22:02:40 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Hal Feng <hal.feng@starfivetech.com>
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
@@ -60,16 +60,16 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 11/21] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Message-ID: <b4beb457-8581-4b2f-8655-2e3f82a94f75@spud>
+Subject: Re: [PATCH v6 19/21] riscv: dts: starfive: Add initial StarFive
+ JH7110 device tree
+Message-ID: <60359574-8bce-40f2-99db-6d81f6e6c5c3@spud>
 References: <20230320103750.60295-1-hal.feng@starfivetech.com>
- <20230320103750.60295-12-hal.feng@starfivetech.com>
+ <20230320103750.60295-20-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230320103750.60295-12-hal.feng@starfivetech.com>
+In-Reply-To: <20230320103750.60295-20-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_145346_534748_45CC83E4 
-X-CRM114-Status: GOOD (  26.53  )
+X-CRM114-CacheID: sfid-20230322_150249_789509_DD4C70E5 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,608 +81,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7537502370032896807=="
+Content-Type: multipart/mixed; boundary="===============1435403941034794597=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7537502370032896807==
+--===============1435403941034794597==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1LHCok7dS4yffUo/"
+	protocol="application/pgp-signature"; boundary="LDF26h45g5RnUqDq"
 Content-Disposition: inline
 
 
---1LHCok7dS4yffUo/
+--LDF26h45g5RnUqDq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Hal,
-
-On Mon, Mar 20, 2023 at 06:37:40PM +0800, Hal Feng wrote:
+On Mon, Mar 20, 2023 at 06:37:48PM +0800, Hal Feng wrote:
 > From: Emil Renner Berthing <kernel@esmil.dk>
 >=20
-> Add bindings for the system clock and reset generator (SYSCRG) on the
-> JH7110 RISC-V SoC by StarFive Ltd.
+> Add initial device tree for the JH7110 RISC-V SoC by StarFive
+> Technology Ltd.
 >=20
+> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
 > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
->  MAINTAINERS                                   |   8 +-
->  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
->  4 files changed, 454 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh71=
-10-syscrg.yaml
->  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
->  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-sysc=
-rg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.ya=
-ml
-> new file mode 100644
-> index 000000000000..84373ae31644
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> @@ -0,0 +1,104 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 System Clock and Reset Generator
-> +
-> +maintainers:
-> +  - Emil Renner Berthing <kernel@esmil.dk>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-syscrg
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    oneOf:
-> +      - items:
-> +          - description: Main Oscillator (24 MHz)
-> +          - description: GMAC1 RMII reference or GMAC1 RGMII RX
-> +          - description: External I2S TX bit clock
-> +          - description: External I2S TX left/right channel clock
-> +          - description: External I2S RX bit clock
-> +          - description: External I2S RX left/right channel clock
-> +          - description: External TDM clock
-> +          - description: External audio master clock
-> +
-> +      - items:
-> +          - description: Main Oscillator (24 MHz)
-> +          - description: GMAC1 RMII reference
-> +          - description: GMAC1 RGMII RX
-> +          - description: External I2S TX bit clock
-> +          - description: External I2S TX left/right channel clock
-> +          - description: External I2S RX bit clock
-> +          - description: External I2S RX left/right channel clock
-> +          - description: External TDM clock
-> +          - description: External audio master clock
-> +
-> +  clock-names:
-> +    oneOf:
-> +      - items:
-> +          - const: osc
-> +          - enum:
-> +              - gmac1_rmii_refin
-> +              - gmac1_rgmii_rxin
-> +          - const: i2stx_bclk_ext
-> +          - const: i2stx_lrck_ext
-> +          - const: i2srx_bclk_ext
-> +          - const: i2srx_lrck_ext
-> +          - const: tdm_ext
-> +          - const: mclk_ext
-> +
-> +      - items:
-> +          - const: osc
-> +          - const: gmac1_rmii_refin
-> +          - const: gmac1_rgmii_rxin
-> +          - const: i2stx_bclk_ext
-> +          - const: i2stx_lrck_ext
-> +          - const: i2srx_bclk_ext
-> +          - const: i2srx_lrck_ext
-> +          - const: tdm_ext
-> +          - const: mclk_ext
 
-I'm sorry to be a bit of a bore about these bindings, but Emil mentioned
-to me today that he had some doubts about whether any of these audio
-clocks are actually required.
-I've had a bit of a look at the driver, cos the TRM that I have doesn't
-describe the clock tree (from what recall at least) and I think he is
-right.
-For example, the TDM clock:
-+	JH71X0_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
-+	JH71X0_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
-+	JH71X0_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYS=
-CLK_MCLK),
-+	JH71X0__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
-+		    JH7110_SYSCLK_TDM_INTERNAL,
-+		    JH7110_SYSCLK_TDM_EXT),
+> +		S7_0: cpu@0 {
+> +			compatible =3D "sifive,s7", "riscv";
+> +			reg =3D <0>;
+> +			d-cache-block-size =3D <64>;
+> +			d-cache-sets =3D <64>;
+> +			d-cache-size =3D <8192>;
+> +			d-tlb-sets =3D <1>;
+> +			d-tlb-size =3D <40>;
+> +			device_type =3D "cpu";
+> +			i-cache-block-size =3D <64>;
+> +			i-cache-sets =3D <64>;
+> +			i-cache-size =3D <16384>;
+> +			i-tlb-sets =3D <1>;
+> +			i-tlb-size =3D <40>;
+> +			mmu-type =3D "riscv,sv39";
+> +			next-level-cache =3D <&ccache>;
+> +			riscv,isa =3D "rv64imac_zba_zbb";
+> +			tlb-split;
+> +			status =3D "disabled";
 
-Hopefully, I'm not making a balls of something here, but it looks like I
-can choose an internal TDM clock, that is based on JH7110_SYSCLK_MCLK,
-which in turn comes from either an internal or external source.
-If I am following correctly, that'd be:
-+	JH71X0__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUD=
-IO_ROOT),
+Jess pointed out on IRC that this S7 entry looks wrong as it is claiming
+that the S7 has an mmu. I didn't go looking back in the history of
+u74-mc core complex manuals, but the latest version does not show an mmu
+for the S7.
 
-Which in turn comes from:
-+	JH71X0__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2=
-_OUT),
-
-This leaves me wondering which clocks are *actually* required for a
-functioning system - is it actually just osc and one of gmac1_rmii_refin
-or gmac1_rgmii_rxin.
-
-I really don't want you to have to go and spell out every combination of
-clocks to have some sort of validation here.
-
-Stephen, Rob or Krzysztof, do you have any guidance on this situation
-(assuming I've not made a fool of myself)? There's probably something
-"obvious" that I'm missing, as I am sure this is not a unique problem.
-
-Cheers,
-Conor.
-
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - '#clock-cells'
-> +  - '#reset-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@13020000 {
-> +        compatible =3D "starfive,jh7110-syscrg";
-> +        reg =3D <0x13020000 0x10000>;
-> +        clocks =3D <&osc>, <&gmac1_rmii_refin>,
-> +                 <&gmac1_rgmii_rxin>,
-> +                 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-> +                 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-> +                 <&tdm_ext>, <&mclk_ext>;
-> +        clock-names =3D "osc", "gmac1_rmii_refin",
-> +                      "gmac1_rgmii_rxin",
-> +                      "i2stx_bclk_ext", "i2stx_lrck_ext",
-> +                      "i2srx_bclk_ext", "i2srx_lrck_ext",
-> +                      "tdm_ext", "mclk_ext";
-> +        #clock-cells =3D <1>;
-> +        #reset-cells =3D <1>;
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 4c788fa15cc4..9b66eaad0547 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19913,10 +19913,11 @@ F:	drivers/mmc/host/dw_mmc-starfive.c
-> =20
->  STARFIVE JH71X0 CLOCK DRIVERS
->  M:	Emil Renner Berthing <kernel@esmil.dk>
-> +M:	Hal Feng <hal.feng@starfivetech.com>
->  S:	Maintained
-> -F:	Documentation/devicetree/bindings/clock/starfive,jh7100-*.yaml
-> +F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
->  F:	drivers/clk/starfive/clk-starfive-jh71*
-> -F:	include/dt-bindings/clock/starfive-jh7100*.h
-> +F:	include/dt-bindings/clock/starfive?jh71*.h
-> =20
->  STARFIVE JH71X0 PINCTRL DRIVERS
->  M:	Emil Renner Berthing <kernel@esmil.dk>
-> @@ -19930,10 +19931,11 @@ F:	include/dt-bindings/pinctrl/starfive,jh7110-=
-pinctrl.h
-> =20
->  STARFIVE JH71X0 RESET CONTROLLER DRIVERS
->  M:	Emil Renner Berthing <kernel@esmil.dk>
-> +M:	Hal Feng <hal.feng@starfivetech.com>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
->  F:	drivers/reset/starfive/reset-starfive-jh71*
-> -F:	include/dt-bindings/reset/starfive-jh7100.h
-> +F:	include/dt-bindings/reset/starfive?jh71*.h
-> =20
->  STARFIVE JH71XX PMU CONTROLLER DRIVER
->  M:	Walker Chen <walker.chen@starfivetech.com>
-> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt=
--bindings/clock/starfive,jh7110-crg.h
-> new file mode 100644
-> index 000000000000..fdd1852e34cc
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-> @@ -0,0 +1,203 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + */
-> +
-> +#ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
-> +#define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
-> +
-> +/* SYSCRG clocks */
-> +#define JH7110_SYSCLK_CPU_ROOT			0
-> +#define JH7110_SYSCLK_CPU_CORE			1
-> +#define JH7110_SYSCLK_CPU_BUS			2
-> +#define JH7110_SYSCLK_GPU_ROOT			3
-> +#define JH7110_SYSCLK_PERH_ROOT			4
-> +#define JH7110_SYSCLK_BUS_ROOT			5
-> +#define JH7110_SYSCLK_NOCSTG_BUS		6
-> +#define JH7110_SYSCLK_AXI_CFG0			7
-> +#define JH7110_SYSCLK_STG_AXIAHB		8
-> +#define JH7110_SYSCLK_AHB0			9
-> +#define JH7110_SYSCLK_AHB1			10
-> +#define JH7110_SYSCLK_APB_BUS			11
-> +#define JH7110_SYSCLK_APB0			12
-> +#define JH7110_SYSCLK_PLL0_DIV2			13
-> +#define JH7110_SYSCLK_PLL1_DIV2			14
-> +#define JH7110_SYSCLK_PLL2_DIV2			15
-> +#define JH7110_SYSCLK_AUDIO_ROOT		16
-> +#define JH7110_SYSCLK_MCLK_INNER		17
-> +#define JH7110_SYSCLK_MCLK			18
-> +#define JH7110_SYSCLK_MCLK_OUT			19
-> +#define JH7110_SYSCLK_ISP_2X			20
-> +#define JH7110_SYSCLK_ISP_AXI			21
-> +#define JH7110_SYSCLK_GCLK0			22
-> +#define JH7110_SYSCLK_GCLK1			23
-> +#define JH7110_SYSCLK_GCLK2			24
-> +#define JH7110_SYSCLK_CORE			25
-> +#define JH7110_SYSCLK_CORE1			26
-> +#define JH7110_SYSCLK_CORE2			27
-> +#define JH7110_SYSCLK_CORE3			28
-> +#define JH7110_SYSCLK_CORE4			29
-> +#define JH7110_SYSCLK_DEBUG			30
-> +#define JH7110_SYSCLK_RTC_TOGGLE		31
-> +#define JH7110_SYSCLK_TRACE0			32
-> +#define JH7110_SYSCLK_TRACE1			33
-> +#define JH7110_SYSCLK_TRACE2			34
-> +#define JH7110_SYSCLK_TRACE3			35
-> +#define JH7110_SYSCLK_TRACE4			36
-> +#define JH7110_SYSCLK_TRACE_COM			37
-> +#define JH7110_SYSCLK_NOC_BUS_CPU_AXI		38
-> +#define JH7110_SYSCLK_NOC_BUS_AXICFG0_AXI	39
-> +#define JH7110_SYSCLK_OSC_DIV2			40
-> +#define JH7110_SYSCLK_PLL1_DIV4			41
-> +#define JH7110_SYSCLK_PLL1_DIV8			42
-> +#define JH7110_SYSCLK_DDR_BUS			43
-> +#define JH7110_SYSCLK_DDR_AXI			44
-> +#define JH7110_SYSCLK_GPU_CORE			45
-> +#define JH7110_SYSCLK_GPU_CORE_CLK		46
-> +#define JH7110_SYSCLK_GPU_SYS_CLK		47
-> +#define JH7110_SYSCLK_GPU_APB			48
-> +#define JH7110_SYSCLK_GPU_RTC_TOGGLE		49
-> +#define JH7110_SYSCLK_NOC_BUS_GPU_AXI		50
-> +#define JH7110_SYSCLK_ISP_TOP_CORE		51
-> +#define JH7110_SYSCLK_ISP_TOP_AXI		52
-> +#define JH7110_SYSCLK_NOC_BUS_ISP_AXI		53
-> +#define JH7110_SYSCLK_HIFI4_CORE		54
-> +#define JH7110_SYSCLK_HIFI4_AXI			55
-> +#define JH7110_SYSCLK_AXI_CFG1_MAIN		56
-> +#define JH7110_SYSCLK_AXI_CFG1_AHB		57
-> +#define JH7110_SYSCLK_VOUT_SRC			58
-> +#define JH7110_SYSCLK_VOUT_AXI			59
-> +#define JH7110_SYSCLK_NOC_BUS_DISP_AXI		60
-> +#define JH7110_SYSCLK_VOUT_TOP_AHB		61
-> +#define JH7110_SYSCLK_VOUT_TOP_AXI		62
-> +#define JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK	63
-> +#define JH7110_SYSCLK_VOUT_TOP_MIPIPHY_REF	64
-> +#define JH7110_SYSCLK_JPEGC_AXI			65
-> +#define JH7110_SYSCLK_CODAJ12_AXI		66
-> +#define JH7110_SYSCLK_CODAJ12_CORE		67
-> +#define JH7110_SYSCLK_CODAJ12_APB		68
-> +#define JH7110_SYSCLK_VDEC_AXI			69
-> +#define JH7110_SYSCLK_WAVE511_AXI		70
-> +#define JH7110_SYSCLK_WAVE511_BPU		71
-> +#define JH7110_SYSCLK_WAVE511_VCE		72
-> +#define JH7110_SYSCLK_WAVE511_APB		73
-> +#define JH7110_SYSCLK_VDEC_JPG			74
-> +#define JH7110_SYSCLK_VDEC_MAIN			75
-> +#define JH7110_SYSCLK_NOC_BUS_VDEC_AXI		76
-> +#define JH7110_SYSCLK_VENC_AXI			77
-> +#define JH7110_SYSCLK_WAVE420L_AXI		78
-> +#define JH7110_SYSCLK_WAVE420L_BPU		79
-> +#define JH7110_SYSCLK_WAVE420L_VCE		80
-> +#define JH7110_SYSCLK_WAVE420L_APB		81
-> +#define JH7110_SYSCLK_NOC_BUS_VENC_AXI		82
-> +#define JH7110_SYSCLK_AXI_CFG0_MAIN_DIV		83
-> +#define JH7110_SYSCLK_AXI_CFG0_MAIN		84
-> +#define JH7110_SYSCLK_AXI_CFG0_HIFI4		85
-> +#define JH7110_SYSCLK_AXIMEM2_AXI		86
-> +#define JH7110_SYSCLK_QSPI_AHB			87
-> +#define JH7110_SYSCLK_QSPI_APB			88
-> +#define JH7110_SYSCLK_QSPI_REF_SRC		89
-> +#define JH7110_SYSCLK_QSPI_REF			90
-> +#define JH7110_SYSCLK_SDIO0_AHB			91
-> +#define JH7110_SYSCLK_SDIO1_AHB			92
-> +#define JH7110_SYSCLK_SDIO0_SDCARD		93
-> +#define JH7110_SYSCLK_SDIO1_SDCARD		94
-> +#define JH7110_SYSCLK_USB_125M			95
-> +#define JH7110_SYSCLK_NOC_BUS_STG_AXI		96
-> +#define JH7110_SYSCLK_GMAC1_AHB			97
-> +#define JH7110_SYSCLK_GMAC1_AXI			98
-> +#define JH7110_SYSCLK_GMAC_SRC			99
-> +#define JH7110_SYSCLK_GMAC1_GTXCLK		100
-> +#define JH7110_SYSCLK_GMAC1_RMII_RTX		101
-> +#define JH7110_SYSCLK_GMAC1_PTP			102
-> +#define JH7110_SYSCLK_GMAC1_RX			103
-> +#define JH7110_SYSCLK_GMAC1_RX_INV		104
-> +#define JH7110_SYSCLK_GMAC1_TX			105
-> +#define JH7110_SYSCLK_GMAC1_TX_INV		106
-> +#define JH7110_SYSCLK_GMAC1_GTXC		107
-> +#define JH7110_SYSCLK_GMAC0_GTXCLK		108
-> +#define JH7110_SYSCLK_GMAC0_PTP			109
-> +#define JH7110_SYSCLK_GMAC_PHY			110
-> +#define JH7110_SYSCLK_GMAC0_GTXC		111
-> +#define JH7110_SYSCLK_IOMUX_APB			112
-> +#define JH7110_SYSCLK_MAILBOX_APB		113
-> +#define JH7110_SYSCLK_INT_CTRL_APB		114
-> +#define JH7110_SYSCLK_CAN0_APB			115
-> +#define JH7110_SYSCLK_CAN0_TIMER		116
-> +#define JH7110_SYSCLK_CAN0_CAN			117
-> +#define JH7110_SYSCLK_CAN1_APB			118
-> +#define JH7110_SYSCLK_CAN1_TIMER		119
-> +#define JH7110_SYSCLK_CAN1_CAN			120
-> +#define JH7110_SYSCLK_PWM_APB			121
-> +#define JH7110_SYSCLK_WDT_APB			122
-> +#define JH7110_SYSCLK_WDT_CORE			123
-> +#define JH7110_SYSCLK_TIMER_APB			124
-> +#define JH7110_SYSCLK_TIMER0			125
-> +#define JH7110_SYSCLK_TIMER1			126
-> +#define JH7110_SYSCLK_TIMER2			127
-> +#define JH7110_SYSCLK_TIMER3			128
-> +#define JH7110_SYSCLK_TEMP_APB			129
-> +#define JH7110_SYSCLK_TEMP_CORE			130
-> +#define JH7110_SYSCLK_SPI0_APB			131
-> +#define JH7110_SYSCLK_SPI1_APB			132
-> +#define JH7110_SYSCLK_SPI2_APB			133
-> +#define JH7110_SYSCLK_SPI3_APB			134
-> +#define JH7110_SYSCLK_SPI4_APB			135
-> +#define JH7110_SYSCLK_SPI5_APB			136
-> +#define JH7110_SYSCLK_SPI6_APB			137
-> +#define JH7110_SYSCLK_I2C0_APB			138
-> +#define JH7110_SYSCLK_I2C1_APB			139
-> +#define JH7110_SYSCLK_I2C2_APB			140
-> +#define JH7110_SYSCLK_I2C3_APB			141
-> +#define JH7110_SYSCLK_I2C4_APB			142
-> +#define JH7110_SYSCLK_I2C5_APB			143
-> +#define JH7110_SYSCLK_I2C6_APB			144
-> +#define JH7110_SYSCLK_UART0_APB			145
-> +#define JH7110_SYSCLK_UART0_CORE		146
-> +#define JH7110_SYSCLK_UART1_APB			147
-> +#define JH7110_SYSCLK_UART1_CORE		148
-> +#define JH7110_SYSCLK_UART2_APB			149
-> +#define JH7110_SYSCLK_UART2_CORE		150
-> +#define JH7110_SYSCLK_UART3_APB			151
-> +#define JH7110_SYSCLK_UART3_CORE		152
-> +#define JH7110_SYSCLK_UART4_APB			153
-> +#define JH7110_SYSCLK_UART4_CORE		154
-> +#define JH7110_SYSCLK_UART5_APB			155
-> +#define JH7110_SYSCLK_UART5_CORE		156
-> +#define JH7110_SYSCLK_PWMDAC_APB		157
-> +#define JH7110_SYSCLK_PWMDAC_CORE		158
-> +#define JH7110_SYSCLK_SPDIF_APB			159
-> +#define JH7110_SYSCLK_SPDIF_CORE		160
-> +#define JH7110_SYSCLK_I2STX0_APB		161
-> +#define JH7110_SYSCLK_I2STX0_BCLK_MST		162
-> +#define JH7110_SYSCLK_I2STX0_BCLK_MST_INV	163
-> +#define JH7110_SYSCLK_I2STX0_LRCK_MST		164
-> +#define JH7110_SYSCLK_I2STX0_BCLK		165
-> +#define JH7110_SYSCLK_I2STX0_BCLK_INV		166
-> +#define JH7110_SYSCLK_I2STX0_LRCK		167
-> +#define JH7110_SYSCLK_I2STX1_APB		168
-> +#define JH7110_SYSCLK_I2STX1_BCLK_MST		169
-> +#define JH7110_SYSCLK_I2STX1_BCLK_MST_INV	170
-> +#define JH7110_SYSCLK_I2STX1_LRCK_MST		171
-> +#define JH7110_SYSCLK_I2STX1_BCLK		172
-> +#define JH7110_SYSCLK_I2STX1_BCLK_INV		173
-> +#define JH7110_SYSCLK_I2STX1_LRCK		174
-> +#define JH7110_SYSCLK_I2SRX_APB			175
-> +#define JH7110_SYSCLK_I2SRX_BCLK_MST		176
-> +#define JH7110_SYSCLK_I2SRX_BCLK_MST_INV	177
-> +#define JH7110_SYSCLK_I2SRX_LRCK_MST		178
-> +#define JH7110_SYSCLK_I2SRX_BCLK		179
-> +#define JH7110_SYSCLK_I2SRX_BCLK_INV		180
-> +#define JH7110_SYSCLK_I2SRX_LRCK		181
-> +#define JH7110_SYSCLK_PDM_DMIC			182
-> +#define JH7110_SYSCLK_PDM_APB			183
-> +#define JH7110_SYSCLK_TDM_AHB			184
-> +#define JH7110_SYSCLK_TDM_APB			185
-> +#define JH7110_SYSCLK_TDM_INTERNAL		186
-> +#define JH7110_SYSCLK_TDM_TDM			187
-> +#define JH7110_SYSCLK_TDM_TDM_INV		188
-> +#define JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG	189
-> +
-> +#define JH7110_SYSCLK_END			190
-> +
-> +#endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
-> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt=
--bindings/reset/starfive,jh7110-crg.h
-> new file mode 100644
-> index 000000000000..b88216a4fe40
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-> @@ -0,0 +1,142 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + */
-> +
-> +#ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
-> +#define __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
-> +
-> +/* SYSCRG resets */
-> +#define JH7110_SYSRST_JTAG_APB			0
-> +#define JH7110_SYSRST_SYSCON_APB		1
-> +#define JH7110_SYSRST_IOMUX_APB			2
-> +#define JH7110_SYSRST_BUS			3
-> +#define JH7110_SYSRST_DEBUG			4
-> +#define JH7110_SYSRST_CORE0			5
-> +#define JH7110_SYSRST_CORE1			6
-> +#define JH7110_SYSRST_CORE2			7
-> +#define JH7110_SYSRST_CORE3			8
-> +#define JH7110_SYSRST_CORE4			9
-> +#define JH7110_SYSRST_CORE0_ST			10
-> +#define JH7110_SYSRST_CORE1_ST			11
-> +#define JH7110_SYSRST_CORE2_ST			12
-> +#define JH7110_SYSRST_CORE3_ST			13
-> +#define JH7110_SYSRST_CORE4_ST			14
-> +#define JH7110_SYSRST_TRACE0			15
-> +#define JH7110_SYSRST_TRACE1			16
-> +#define JH7110_SYSRST_TRACE2			17
-> +#define JH7110_SYSRST_TRACE3			18
-> +#define JH7110_SYSRST_TRACE4			19
-> +#define JH7110_SYSRST_TRACE_COM			20
-> +#define JH7110_SYSRST_GPU_APB			21
-> +#define JH7110_SYSRST_GPU_DOMA			22
-> +#define JH7110_SYSRST_NOC_BUS_APB		23
-> +#define JH7110_SYSRST_NOC_BUS_AXICFG0_AXI	24
-> +#define JH7110_SYSRST_NOC_BUS_CPU_AXI		25
-> +#define JH7110_SYSRST_NOC_BUS_DISP_AXI		26
-> +#define JH7110_SYSRST_NOC_BUS_GPU_AXI		27
-> +#define JH7110_SYSRST_NOC_BUS_ISP_AXI		28
-> +#define JH7110_SYSRST_NOC_BUS_DDRC		29
-> +#define JH7110_SYSRST_NOC_BUS_STG_AXI		30
-> +#define JH7110_SYSRST_NOC_BUS_VDEC_AXI		31
-> +
-> +#define JH7110_SYSRST_NOC_BUS_VENC_AXI		32
-> +#define JH7110_SYSRST_AXI_CFG1_AHB		33
-> +#define JH7110_SYSRST_AXI_CFG1_MAIN		34
-> +#define JH7110_SYSRST_AXI_CFG0_MAIN		35
-> +#define JH7110_SYSRST_AXI_CFG0_MAIN_DIV		36
-> +#define JH7110_SYSRST_AXI_CFG0_HIFI4		37
-> +#define JH7110_SYSRST_DDR_AXI			38
-> +#define JH7110_SYSRST_DDR_OSC			39
-> +#define JH7110_SYSRST_DDR_APB			40
-> +#define JH7110_SYSRST_ISP_TOP			41
-> +#define JH7110_SYSRST_ISP_TOP_AXI		42
-> +#define JH7110_SYSRST_VOUT_TOP_SRC		43
-> +#define JH7110_SYSRST_CODAJ12_AXI		44
-> +#define JH7110_SYSRST_CODAJ12_CORE		45
-> +#define JH7110_SYSRST_CODAJ12_APB		46
-> +#define JH7110_SYSRST_WAVE511_AXI		47
-> +#define JH7110_SYSRST_WAVE511_BPU		48
-> +#define JH7110_SYSRST_WAVE511_VCE		49
-> +#define JH7110_SYSRST_WAVE511_APB		50
-> +#define JH7110_SYSRST_VDEC_JPG			51
-> +#define JH7110_SYSRST_VDEC_MAIN			52
-> +#define JH7110_SYSRST_AXIMEM0_AXI		53
-> +#define JH7110_SYSRST_WAVE420L_AXI		54
-> +#define JH7110_SYSRST_WAVE420L_BPU		55
-> +#define JH7110_SYSRST_WAVE420L_VCE		56
-> +#define JH7110_SYSRST_WAVE420L_APB		57
-> +#define JH7110_SYSRST_AXIMEM1_AXI		58
-> +#define JH7110_SYSRST_AXIMEM2_AXI		59
-> +#define JH7110_SYSRST_INTMEM			60
-> +#define JH7110_SYSRST_QSPI_AHB			61
-> +#define JH7110_SYSRST_QSPI_APB			62
-> +#define JH7110_SYSRST_QSPI_REF			63
-> +
-> +#define JH7110_SYSRST_SDIO0_AHB			64
-> +#define JH7110_SYSRST_SDIO1_AHB			65
-> +#define JH7110_SYSRST_GMAC1_AXI			66
-> +#define JH7110_SYSRST_GMAC1_AHB			67
-> +#define JH7110_SYSRST_MAILBOX_APB		68
-> +#define JH7110_SYSRST_SPI0_APB			69
-> +#define JH7110_SYSRST_SPI1_APB			70
-> +#define JH7110_SYSRST_SPI2_APB			71
-> +#define JH7110_SYSRST_SPI3_APB			72
-> +#define JH7110_SYSRST_SPI4_APB			73
-> +#define JH7110_SYSRST_SPI5_APB			74
-> +#define JH7110_SYSRST_SPI6_APB			75
-> +#define JH7110_SYSRST_I2C0_APB			76
-> +#define JH7110_SYSRST_I2C1_APB			77
-> +#define JH7110_SYSRST_I2C2_APB			78
-> +#define JH7110_SYSRST_I2C3_APB			79
-> +#define JH7110_SYSRST_I2C4_APB			80
-> +#define JH7110_SYSRST_I2C5_APB			81
-> +#define JH7110_SYSRST_I2C6_APB			82
-> +#define JH7110_SYSRST_UART0_APB			83
-> +#define JH7110_SYSRST_UART0_CORE		84
-> +#define JH7110_SYSRST_UART1_APB			85
-> +#define JH7110_SYSRST_UART1_CORE		86
-> +#define JH7110_SYSRST_UART2_APB			87
-> +#define JH7110_SYSRST_UART2_CORE		88
-> +#define JH7110_SYSRST_UART3_APB			89
-> +#define JH7110_SYSRST_UART3_CORE		90
-> +#define JH7110_SYSRST_UART4_APB			91
-> +#define JH7110_SYSRST_UART4_CORE		92
-> +#define JH7110_SYSRST_UART5_APB			93
-> +#define JH7110_SYSRST_UART5_CORE		94
-> +#define JH7110_SYSRST_SPDIF_APB			95
-> +
-> +#define JH7110_SYSRST_PWMDAC_APB		96
-> +#define JH7110_SYSRST_PDM_DMIC			97
-> +#define JH7110_SYSRST_PDM_APB			98
-> +#define JH7110_SYSRST_I2SRX_APB			99
-> +#define JH7110_SYSRST_I2SRX_BCLK		100
-> +#define JH7110_SYSRST_I2STX0_APB		101
-> +#define JH7110_SYSRST_I2STX0_BCLK		102
-> +#define JH7110_SYSRST_I2STX1_APB		103
-> +#define JH7110_SYSRST_I2STX1_BCLK		104
-> +#define JH7110_SYSRST_TDM_AHB			105
-> +#define JH7110_SYSRST_TDM_CORE			106
-> +#define JH7110_SYSRST_TDM_APB			107
-> +#define JH7110_SYSRST_PWM_APB			108
-> +#define JH7110_SYSRST_WDT_APB			109
-> +#define JH7110_SYSRST_WDT_CORE			110
-> +#define JH7110_SYSRST_CAN0_APB			111
-> +#define JH7110_SYSRST_CAN0_CORE			112
-> +#define JH7110_SYSRST_CAN0_TIMER		113
-> +#define JH7110_SYSRST_CAN1_APB			114
-> +#define JH7110_SYSRST_CAN1_CORE			115
-> +#define JH7110_SYSRST_CAN1_TIMER		116
-> +#define JH7110_SYSRST_TIMER_APB			117
-> +#define JH7110_SYSRST_TIMER0			118
-> +#define JH7110_SYSRST_TIMER1			119
-> +#define JH7110_SYSRST_TIMER2			120
-> +#define JH7110_SYSRST_TIMER3			121
-> +#define JH7110_SYSRST_INT_CTRL_APB		122
-> +#define JH7110_SYSRST_TEMP_APB			123
-> +#define JH7110_SYSRST_TEMP_CORE			124
-> +#define JH7110_SYSRST_JTAG_CERTIFICATION	125
-> +
-> +#define JH7110_SYSRST_END			126
-> +
-> +#endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
-> --=20
-> 2.38.1
->=20
-
---1LHCok7dS4yffUo/
+--LDF26h45g5RnUqDq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBt44QAKCRB4tDGHoIJi
-0kTEAP91K5EVABH7e87wgCA0Jkpx4qbwl0lfj2AjhfpqHQcKYwEAv+Cz0aH+ZPdG
-Ur9TYGX+eUbY/4gAZj+ug67yqRLZxg0=
-=fGaR
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBt7AAAKCRB4tDGHoIJi
+0qDMAQCIGeIN/1mCb1Q1snEUZqE//3UatgEEoP8CxHntNWLrTQD/XTmZpvTZFpwX
+3ByenbwoM1VkdniTFBdF5mZUoMNZQgY=
+=8Oss
 -----END PGP SIGNATURE-----
 
---1LHCok7dS4yffUo/--
+--LDF26h45g5RnUqDq--
 
 
---===============7537502370032896807==
+--===============1435403941034794597==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -693,5 +162,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7537502370032896807==--
+--===============1435403941034794597==--
 
