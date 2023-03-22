@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABA1C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C352C7619A
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2VpewIFpm7v9QVnhtW+13uFGN5b6XLasQX9AOe5LpsM=; b=2Df6i1Kuk4ISSW
-	4plzR6RQXDKCUDyImtmkFzwfNFIrQJHB/oJc7hVT5CUdoTL1rqvBT4MK4jLz7wDEDJErXy2+z8C3U
-	fJmKIsRpAgciu6vV8YbxP0szkOa9N5evVpMGdpVfAOsIE4XMBXFSEgTpJPr2XoT2aR/kWgrD1Pl+C
-	xiGJIXaXiqvGS8+ww3cFfawIdmHrjCcjBG5RarnwxJNlZKD4o3UY/9P4HG37earUAX/fIqeXG36oQ
-	ivzJBUHgBNtvcNzxdgh0DKiI8iVxXN2JQwt3xQFae4XxirkHzF58Ck823oZpXVXfgrPVwE48qLhLs
-	11foFBkVB0+27qEeVULA==;
+	List-Owner; bh=wA0KWg4wFUjCletOw93GIUDF9sqGU1HNgvwxyZ0ySPk=; b=2cU4T63DSTbt4H
+	DjFKbOP1hMrbl8rqbdVZTFexKT8UwqSz5u/lJw6FGz9fJZm6Leq6gJrlQDr0RZW4SY3InzlKKQmPU
+	49ZDcYaZN1fUlhByEKms+I+1sLm/Q8+AV1fwm+ZyJ8JHWyAwjIhcEj7aEO7Ebr4UwZ/hq0FnrEJtl
+	wHOqMB+t6FYVEJvjFrwyhilQujISkuJc0fCXHh61NF2xClKhfOgjhjhLpifIX1o2Q5xZpJS6Clnbg
+	gFDNbpZ9MmGtjbX/yh7KQOTb4v6gSmmKJ6R8C3dFtHzWpCPYN2cZMoJ2d5Xvtc1u7nsrief/1NRwQ
+	o3B84q05XJcwhCgNfZlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peuwz-00FTZr-1v;
-	Wed, 22 Mar 2023 09:40:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peuwx-00FTYm-24;
-	Wed, 22 Mar 2023 09:40:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NIAHg4If27BetC+4UZobAV0PxBnmTt3z+fWts2bKQWA=; b=rgS/CEWAlsTurPe5ucKBiXaDhr
-	ew26BoXauCH9lin/sWfYKxjLJe0WysSt1P4iOSDXV1qfu4JSoUQNAlogwxNIDbcZw5jKIurC6wBP0
-	+/+Z8kdUTp/ZyyNP9QPql3dhW8rHV0QqkfTXWuMoE0vryMGgt+T+aOFFPTKbmbiRK5T84YLaG6C4t
-	iRHD6M2ZFvI2kES3RCcIFI7D2yWW07o0ZjcKw1qqr5MTJddfTUE9AHHetindb2rqkUVxpV/GEVyQu
-	B4Z/fkelloNxIIEvBXXKz9pvL88Uc5JVf1N0nCKJVM3jEC4cK78BNevAeHHN3c0k/dy9sGC9ChrU5
-	42+coITw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1peuwq-002t99-FB; Wed, 22 Mar 2023 09:40:00 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7E63F3001F7;
-	Wed, 22 Mar 2023 10:39:56 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 16170205D08C3; Wed, 22 Mar 2023 10:39:56 +0100 (CET)
-Date: Wed, 22 Mar 2023 10:39:55 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-	x86@kernel.org, Steven Rostedt <rostedt@goodmis.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 1/7] trace: Add trace_ipi_send_cpumask()
-Message-ID: <20230322093955.GR2017917@hirez.programming.kicks-ass.net>
-References: <20230307143558.294354-1-vschneid@redhat.com>
- <20230307143558.294354-2-vschneid@redhat.com>
+	id 1pev5c-00FWUR-1P;
+	Wed, 22 Mar 2023 09:49:04 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pev5X-00FWLj-2Y
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Mar 2023 09:49:02 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BA79D24E047;
+	Wed, 22 Mar 2023 17:48:34 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
+ 2023 17:48:35 +0800
+Received: from localhost.localdomain (183.27.97.64) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
+ 2023 17:48:33 +0800
+From: Walker Chen <walker.chen@starfivetech.com>
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
+	<vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>, Walker Chen
+	<walker.chen@starfivetech.com>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v6 4/4] riscv: dts: starfive: add dma controller node
+Date: Wed, 22 Mar 2023 17:48:20 +0800
+Message-ID: <20230322094820.24738-5-walker.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230322094820.24738-1-walker.chen@starfivetech.com>
+References: <20230322094820.24738-1-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230307143558.294354-2-vschneid@redhat.com>
+X-Originating-IP: [183.27.97.64]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230322_024859_975781_3239AFAB 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +78,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 07, 2023 at 02:35:52PM +0000, Valentin Schneider wrote:
-> trace_ipi_raise() is unsuitable for generically tracing IPI sources due to
-> its "reason" argument being an uninformative string (on arm64 all you get
-> is "Function call interrupts" for SMP calls).
-> 
-> Add a variant of it that exports a target cpumask, a callsite and a callback.
-> 
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-> ---
->  include/trace/events/ipi.h | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/include/trace/events/ipi.h b/include/trace/events/ipi.h
-> index 0be71dad6ec03..b1125dc27682c 100644
-> --- a/include/trace/events/ipi.h
-> +++ b/include/trace/events/ipi.h
-> @@ -35,6 +35,28 @@ TRACE_EVENT(ipi_raise,
->  	TP_printk("target_mask=%s (%s)", __get_bitmask(target_cpus), __entry->reason)
->  );
->  
-> +TRACE_EVENT(ipi_send_cpumask,
-> +
-> +	TP_PROTO(const struct cpumask *cpumask, unsigned long callsite, void *callback),
-> +
-> +	TP_ARGS(cpumask, callsite, callback),
-> +
-> +	TP_STRUCT__entry(
-> +		__cpumask(cpumask)
-> +		__field(void *, callsite)
-> +		__field(void *, callback)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__assign_cpumask(cpumask, cpumask_bits(cpumask));
-> +		__entry->callsite = (void *)callsite;
-> +		__entry->callback = callback;
-> +	),
-> +
-> +	TP_printk("cpumask=%s callsite=%pS callback=%pS",
-> +		  __get_cpumask(cpumask), __entry->callsite, __entry->callback)
-> +);
+Add the dma controller node for the Starfive JH7110 SoC.
 
-Would it make sense to add a variant like: ipi_send_cpu() that records a
-single cpu instead of a cpumask. A lot of sites seems to do:
-cpumask_of(cpu) for that first argument, and it seems to me it is quite
-daft to have to memcpy a full multi-word cpumask in those cases.
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Remember, nr_possible_cpus > 64 is quite common these days.
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 17220576b21c..b503b6137743 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -510,6 +510,24 @@
+ 			#gpio-cells = <2>;
+ 		};
+ 
++		dma: dma-controller@16050000 {
++			compatible = "starfive,jh7110-axi-dma";
++			reg = <0x0 0x16050000 0x0 0x10000>;
++			clocks = <&stgcrg JH7110_STGCLK_DMA1P_AXI>,
++				 <&stgcrg JH7110_STGCLK_DMA1P_AHB>;
++			clock-names = "core-clk", "cfgr-clk";
++			resets = <&stgcrg JH7110_STGRST_DMA1P_AXI>,
++				 <&stgcrg JH7110_STGRST_DMA1P_AHB>;
++			interrupts = <73>;
++			#dma-cells = <1>;
++			dma-channels = <4>;
++			snps,dma-masters = <1>;
++			snps,data-width = <3>;
++			snps,block-size = <65536 65536 65536 65536>;
++			snps,priority = <0 1 2 3>;
++			snps,axi-max-burst-len = <16>;
++		};
++
+ 		aoncrg: clock-controller@17000000 {
+ 			compatible = "starfive,jh7110-aoncrg";
+ 			reg = <0x0 0x17000000 0x0 0x10000>;
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
