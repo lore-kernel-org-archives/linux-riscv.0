@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C352C7619A
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32676C761AF
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wA0KWg4wFUjCletOw93GIUDF9sqGU1HNgvwxyZ0ySPk=; b=2cU4T63DSTbt4H
-	DjFKbOP1hMrbl8rqbdVZTFexKT8UwqSz5u/lJw6FGz9fJZm6Leq6gJrlQDr0RZW4SY3InzlKKQmPU
-	49ZDcYaZN1fUlhByEKms+I+1sLm/Q8+AV1fwm+ZyJ8JHWyAwjIhcEj7aEO7Ebr4UwZ/hq0FnrEJtl
-	wHOqMB+t6FYVEJvjFrwyhilQujISkuJc0fCXHh61NF2xClKhfOgjhjhLpifIX1o2Q5xZpJS6Clnbg
-	gFDNbpZ9MmGtjbX/yh7KQOTb4v6gSmmKJ6R8C3dFtHzWpCPYN2cZMoJ2d5Xvtc1u7nsrief/1NRwQ
-	o3B84q05XJcwhCgNfZlA==;
+	List-Owner; bh=LVIxbuPpCEd3udSw5r2TyRa/0cn/MBGdydnYE1XdbMY=; b=jh8vAn3RLnq0mG
+	borjZS1VdPYqf5hTcW19KT6rljmbKPqWEtIgadNrZZLBi9UI/011jbCB/1O3YiX1f3iJDiGUHj7KV
+	ZvL4ah+Llv601Af+2IVtN6re8A3ShH5/+62sbbykwavhWmZ2L58s8Jm7SabKQjnRdVX/dX2FIdLEO
+	Hp1i5ceC9131uLdXvpUEwmr66dQD4lMAaMAjgW9uggyyRv+eG3FsVQ1EHIsF1fe0m8+DN7+wI14N8
+	hsFaXu+pqFzD9y5qMeCRzf10yZCYBhiYpvl7Cij6rvzUldldx8GOdbwLCHIU4l0D+lne7I5A5B2dv
+	pWtVUaCv8Y9wG52HSmWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pev5c-00FWUR-1P;
-	Wed, 22 Mar 2023 09:49:04 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pev5e-00FWUw-0H;
+	Wed, 22 Mar 2023 09:49:06 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pev5X-00FWLj-2Y
+	id 1pev5Y-00FWLc-0E
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 09:49:02 +0000
+	Wed, 22 Mar 2023 09:49:03 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BA79D24E047;
-	Wed, 22 Mar 2023 17:48:34 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 6215624E31D;
+	Wed, 22 Mar 2023 17:48:33 +0800 (CST)
 Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
- 2023 17:48:35 +0800
+ 2023 17:48:33 +0800
 Received: from localhost.localdomain (183.27.97.64) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
- 2023 17:48:33 +0800
+ 2023 17:48:32 +0800
 From: Walker Chen <walker.chen@starfivetech.com>
 To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
 	<vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -47,9 +47,9 @@ To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
 	<walker.chen@starfivetech.com>
 CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v6 4/4] riscv: dts: starfive: add dma controller node
-Date: Wed, 22 Mar 2023 17:48:20 +0800
-Message-ID: <20230322094820.24738-5-walker.chen@starfivetech.com>
+Subject: [PATCH v6 2/4] dmaengine: dw-axi-dmac: Add support for StarFive JH7110 DMA
+Date: Wed, 22 Mar 2023 17:48:18 +0800
+Message-ID: <20230322094820.24738-3-walker.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230322094820.24738-1-walker.chen@starfivetech.com>
 References: <20230322094820.24738-1-walker.chen@starfivetech.com>
@@ -59,9 +59,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_024859_975781_3239AFAB 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230322_024900_394554_CC9F5F1F 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +77,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the dma controller node for the Starfive JH7110 SoC.
+Add DMA reset operation in device probe and use different configuration
+on CH_CFG registers according to match data. Update all uses of
+of_device_is_compatible with of_device_get_match_data.
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 38 ++++++++++++++++---
+ drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
+ 2 files changed, 34 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 17220576b21c..b503b6137743 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -510,6 +510,24 @@
- 			#gpio-cells = <2>;
- 		};
+diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+index 4169e1d7d5ca..6cfcb541d8c3 100644
+--- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
++++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+@@ -21,10 +21,12 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_device.h>
+ #include <linux/of_dma.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/property.h>
++#include <linux/reset.h>
+ #include <linux/slab.h>
+ #include <linux/types.h>
  
-+		dma: dma-controller@16050000 {
-+			compatible = "starfive,jh7110-axi-dma";
-+			reg = <0x0 0x16050000 0x0 0x10000>;
-+			clocks = <&stgcrg JH7110_STGCLK_DMA1P_AXI>,
-+				 <&stgcrg JH7110_STGCLK_DMA1P_AHB>;
-+			clock-names = "core-clk", "cfgr-clk";
-+			resets = <&stgcrg JH7110_STGRST_DMA1P_AXI>,
-+				 <&stgcrg JH7110_STGRST_DMA1P_AHB>;
-+			interrupts = <73>;
-+			#dma-cells = <1>;
-+			dma-channels = <4>;
-+			snps,dma-masters = <1>;
-+			snps,data-width = <3>;
-+			snps,block-size = <65536 65536 65536 65536>;
-+			snps,priority = <0 1 2 3>;
-+			snps,axi-max-burst-len = <16>;
-+		};
+@@ -46,6 +48,10 @@
+ 	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
+ 	DMA_SLAVE_BUSWIDTH_64_BYTES)
+ 
++#define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
++#define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
++#define AXI_DMA_FLAG_USE_CFG2		BIT(2)
 +
- 		aoncrg: clock-controller@17000000 {
- 			compatible = "starfive,jh7110-aoncrg";
- 			reg = <0x0 0x17000000 0x0 0x10000>;
+ static inline void
+ axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
+ {
+@@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+ 
+ 	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+ 		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+-	if (chan->chip->dw->hdata->reg_map_8_channels) {
++	if (chan->chip->dw->hdata->reg_map_8_channels &&
++	    !chan->chip->dw->hdata->use_cfg2) {
+ 		cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+ 			 config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+ 			 config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+@@ -1367,10 +1374,11 @@ static int parse_device_properties(struct axi_dma_chip *chip)
+ 
+ static int dw_probe(struct platform_device *pdev)
+ {
+-	struct device_node *node = pdev->dev.of_node;
+ 	struct axi_dma_chip *chip;
+ 	struct dw_axi_dma *dw;
+ 	struct dw_axi_dma_hcfg *hdata;
++	struct reset_control *resets;
++	unsigned int flags;
+ 	u32 i;
+ 	int ret;
+ 
+@@ -1398,12 +1406,25 @@ static int dw_probe(struct platform_device *pdev)
+ 	if (IS_ERR(chip->regs))
+ 		return PTR_ERR(chip->regs);
+ 
+-	if (of_device_is_compatible(node, "intel,kmb-axi-dma")) {
++	flags = (uintptr_t)of_device_get_match_data(&pdev->dev);
++	if (flags & AXI_DMA_FLAG_HAS_APB_REGS) {
+ 		chip->apb_regs = devm_platform_ioremap_resource(pdev, 1);
+ 		if (IS_ERR(chip->apb_regs))
+ 			return PTR_ERR(chip->apb_regs);
+ 	}
+ 
++	if (flags & AXI_DMA_FLAG_HAS_RESETS) {
++		resets = devm_reset_control_array_get_exclusive(&pdev->dev);
++		if (IS_ERR(resets))
++			return PTR_ERR(resets);
++
++		ret = reset_control_deassert(resets);
++		if (ret)
++			return ret;
++	}
++
++	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
++
+ 	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
+ 	if (IS_ERR(chip->core_clk))
+ 		return PTR_ERR(chip->core_clk);
+@@ -1554,8 +1575,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
+ };
+ 
+ static const struct of_device_id dw_dma_of_id_table[] = {
+-	{ .compatible = "snps,axi-dma-1.01a" },
+-	{ .compatible = "intel,kmb-axi-dma" },
++	{
++		.compatible = "snps,axi-dma-1.01a"
++	}, {
++		.compatible = "intel,kmb-axi-dma",
++		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
++	}, {
++		.compatible = "starfive,jh7110-axi-dma",
++		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
++	},
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+index e9d5eb0fd594..eb267cb24f67 100644
+--- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
++++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+@@ -33,6 +33,7 @@ struct dw_axi_dma_hcfg {
+ 	/* Register map for DMAX_NUM_CHANNELS <= 8 */
+ 	bool	reg_map_8_channels;
+ 	bool	restrict_axi_burst_len;
++	bool	use_cfg2;
+ };
+ 
+ struct axi_dma_chan {
 -- 
 2.17.1
 
