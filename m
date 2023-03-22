@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E028CC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9EDC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tijfa0j9JfgcwLR4Cb+E6JcovQ7FDhyP7G9DJMzQY7Y=; b=Men4PIzVm/l+YE
-	pRfVcC7rjB0V/n+g6m5IHgkQnwYEkcLJ4CA4qabx8meGn4zDAbrzguJnbNt2scptjSrqx7pg9b9kQ
-	/xUWGfUsOi92EZS27Ii0EyM5yL1nys8g3eWxpEY0VvumICXscQ+UYypppeiQ2iSO76PPco2PufgEb
-	z7jNPO8+LRgMxEbx8P48ocAwqHIO/7ML0SlMqU5lZpj/bp0EoXavpQiEVakDpk0BpjDxIJzc2klha
-	fz/Gshh23/yWlVW88O+1QC4gph0OXtn2HTp31GcH1/S1xYRqIMDBIHTISoEeWW8AskaBPuHtz8b7j
-	B3Og6Ae04WAtk9XQin8Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P9Yl6qbeDcsr4AyS/9dwk7ADiMJCSmkdgaDGq3oeClw=; b=gXiQrsCzMq30ei
+	JNkR97BHRwVbRfIUKMY+8ZJi1FVtAtu/aaRb5Vjr3yFPMiw9jR4rAIT+p/RZgWTUAxL6IyQhtICo7
+	5EvxGo/Xy1Cv5KfsGlR8LvF9y77q2pbIYGxqldjVBVqJW4oLrSa3SZP+DcNu+XuK6JOvOr+0vxFsh
+	L8iGS0hT80iNlQelQ9dcv62fAQTZF7kl1Y5jdTRfciVNuHIpqx6VVZm84QvH2xpzOPTUWR8vQZUVD
+	n92OlgsXPJ6pvJSHtaEj2epefxn6GYQ1hIbT/CZbqTJjFSbIK+OTF+P6kjch34Ab8ZQc1nb2jqxHH
+	o6jajAtrPGNqggaCOsHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pev5t-00FWcn-2J;
-	Wed, 22 Mar 2023 09:49:21 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pev6A-00FWlr-0L;
+	Wed, 22 Mar 2023 09:49:38 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pev5q-00FWLi-2e
+	id 1pev66-00FWLb-2a
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 09:49:20 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 22 Mar 2023 09:49:36 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4651724E3CC;
-	Wed, 22 Mar 2023 17:48:32 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
- 2023 17:48:32 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0E07224E330;
+	Wed, 22 Mar 2023 17:48:34 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
+ 2023 17:48:33 +0800
 Received: from localhost.localdomain (183.27.97.64) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Mar
- 2023 17:48:31 +0800
+ 2023 17:48:33 +0800
 From: Walker Chen <walker.chen@starfivetech.com>
 To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
 	<vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -47,18 +47,20 @@ To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
 	<walker.chen@starfivetech.com>
 CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v6 0/4] Add DMA driver for StarFive JH7110 SoC
-Date: Wed, 22 Mar 2023 17:48:16 +0800
-Message-ID: <20230322094820.24738-1-walker.chen@starfivetech.com>
+Subject: [PATCH v6 3/4] dmaengine: dw-axi-dmac: Increase polling time to DMA transmission completion status
+Date: Wed, 22 Mar 2023 17:48:19 +0800
+Message-ID: <20230322094820.24738-4-walker.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230322094820.24738-1-walker.chen@starfivetech.com>
+References: <20230322094820.24738-1-walker.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.97.64]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_024919_157009_EC7C0EF5 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20230322_024935_117929_129193E7 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,105 +77,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The bit DMAC_CHEN[0] is automatically cleared by hardware to disable the
+channel after the last AMBA transfer of the DMA transfer to the
+destination has completed. Software can therefore poll this bit to
+determine when this channel is free for a new DMA transfer.
+This time requires at least 40 milliseconds on JH7110 SoC, otherwise an
+error message 'failed to stop' will be reported.
 
-This patch series adds dma support for the StarFive JH7110 RISC-V
-SoC. The first patch adds device tree binding. The second patch includes
-dma driver. The last patch adds device node of dma to JH7110 dts.
-
-The series has been tested on the VisionFive 2 board which equip with
-JH7110 SoC and works normally.
-
-The last patch should be applied after the following patchset:
-https://lore.kernel.org/all/20230314124404.117592-1-xingyu.wu@starfivetech.com/
-
-Changes since v5:
-- Modified polling time to DMA transmission completion status. Submit a
-  separate patch for this change.
-
-Changes since v4:
-- Rebased on Linux 6.3-rc1.
-- Added description for reset items in the dt-binding.
-- Simplified the usage of match data.
-
-Changes since v3:
-- Constrain the minItems of resets to 2 for jh7110 dma in the
-  dt-binding.
-- Replaced all uses of of_device_is_compatible with of_device_get_match_data.
-- Moved the definition of struct axi_dma_chip_config to dw-axi-dmac-platform.c
-
-Changes since v2:
-- Added minItems with value 1 and changed the maxItems' value to 2 about
-  resets properties in the dt-binding.
-- Added match data for jh7110-axi-dma and executed reset call to match
-  data.
-- Dropped reset-names from dma node of device tree.
-
-Changes since v1:
-- Rebased on Linux 6.2.
-- Changed the compatible string to SoC specific and dropped '-rst' from
-  reset-names in the dt-binding.
-- Dropped 'snps,num-hs-if' in the dt-binding.
-- Use different configuration on CH_CFG registers according to the compatible string.
-
+Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
 ---
-v5: https://lore.kernel.org/all/20230314083537.22571-1-walker.chen@starfivetech.com/
-v4: https://lore.kernel.org/all/20230306140430.28951-1-walker.chen@starfivetech.com/
-v3: https://lore.kernel.org/all/20230227131042.16125-1-walker.chen@starfivetech.com/
-v2: https://lore.kernel.org/all/20230221140424.719-1-walker.chen@starfivetech.com/
-v1: https://lore.kernel.org/all/20230206113811.23133-1-walker.chen@starfivetech.com/
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Walker Chen (4):
-  dt-bindings: dma: snps,dw-axi-dmac: constrain the items of resets for
-    JH7110 dma
-  dmaengine: dw-axi-dmac: Add support for StarFive JH7110 DMA
-  dmaengine: dw-axi-dmac: Increase polling time to DMA transmission
-    completion status
-  riscv: dts: starfive: add dma controller node
-
- .../bindings/dma/snps,dw-axi-dmac.yaml        | 23 ++++++++++-
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++
- .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 40 ++++++++++++++++---
- drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
- 4 files changed, 75 insertions(+), 7 deletions(-)
-
-
-base-commit: fe15c26ee26efa11741a7b632e9f23b01aca4cc6
-prerequisite-patch-id: c3a6b87df79b338fc97766406d010fedb79ab428
-prerequisite-patch-id: b49509523cf7c098f684647bdc4fdaece48b61bc
-prerequisite-patch-id: 46cc850aa0e9e03ccf5ed23d8458babfca3d71af
-prerequisite-patch-id: a6975e61ee5803fbd74b1c21ab925fd81c3c0eab
-prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
-prerequisite-patch-id: 044263ef2fb9f1e5a586edbf85d5f67814a28430
-prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
-prerequisite-patch-id: 9f3dbc9073eee89134e68977e941e457593c2757
-prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
-prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
-prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
-prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
-prerequisite-patch-id: 4c12d958e3a3d629d86dddb1e4f099d8909393e0
-prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
-prerequisite-patch-id: 8f5c66dfb14403424044192f6fa05b347ad356a7
-prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
-prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
-prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
-prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
-prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
-prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
-prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
-prerequisite-patch-id: be3d7a6a13098884ec26cd5e543cc95c39045e35
-prerequisite-patch-id: b3ce7955a80d90d992b7d1bca3409f465810b2bb
-prerequisite-patch-id: db2f66860cc5b2fd2f71747c4428287b6e3153fb
-prerequisite-patch-id: 9da71dcd3af4c68da9d855b43aab6927103e7525
-prerequisite-patch-id: 2d9e4f185631549094b6136cf8717a507b68c5bb
-prerequisite-patch-id: bb8e071ed43998874b9d98292c0dcdeedc0760ca
-prerequisite-patch-id: cd0b464336aabfbfad96c1a3595c0f9ce9401638
-prerequisite-patch-id: 24eab3d30274700c2be4727bece743c76d2618bd
-prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
-prerequisite-patch-id: 2bc43b375b470f7e8bbe937b78678ba3856e3b8f
+diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+index 6cfcb541d8c3..6937cc0c0b65 100644
+--- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
++++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+@@ -1147,7 +1147,7 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
+ 	axi_chan_disable(chan);
+ 
+ 	ret = readl_poll_timeout_atomic(chan->chip->regs + DMAC_CHEN, val,
+-					!(val & chan_active), 1000, 10000);
++					!(val & chan_active), 1000, 50000);
+ 	if (ret == -ETIMEDOUT)
+ 		dev_warn(dchan2dev(dchan),
+ 			 "%s failed to stop\n", axi_chan_name(chan));
 -- 
 2.17.1
 
