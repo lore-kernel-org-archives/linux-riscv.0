@@ -4,96 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE3AC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 17:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD0FC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 18:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fLWOARJpMgya0WCv7Qv7GwRy3Ogk/qfXvhcf1en00U=; b=2c68SiRwVdBUXZ
-	brnwka0Gb53ALb3IbGw/Dq5f8m5qdA4fYYSNB6h6PedKndciNi/MKKJWmY8ECuj60SwOiRLcWuJgu
-	UcaVBLLW0S6I8EuFiD48HsaEtn1SExhUbCwkxJTXHu1i2xkK7bz+Xbh6vNLLeJ/mWZU1egkXNK9ET
-	I557a3HRWdwYmPtRfvCVD6Xh54y/LMaUBFEWaEL0au4PFBotLCT6WgEroUwyIokg9rebgKJ4pmhic
-	81vzfXCSyqWzi7jCxmsZZjaY3QljR7KCv3MfXG+42Vy/bvJqy3kkULz4cNw/b2bE219IDs7J2tmxU
-	1uZfgPhOBmZM0yK12O1Q==;
+	List-Owner; bh=mG4+GyXPFjYqom6mbJYBPAXizhoX3fk6zcfrO8tuPZI=; b=4AacC8DHWo416V
+	uUBfWxUMFLvh0kpFk6t7nADJ/zCmXjWI1TQtGJyLYW+2NhSOmHZx1Z6UovmeVQ+J3KQglnQP44A2z
+	HF43ARMy5hg9z0Qn5HVuAL2nOiZBtuYCtQRBYvS4R2dq0ZlsPPNcRBrHJTyf69ncbksST5O6qbt+y
+	R7KDhAmYauzeXW4PbGsyowXIpz+1xnN2e82DZpCv/GHfX24OLBKt9NtJg4LovfK3nIWqM/RznAhxq
+	WbL/SksdfkSUPWLxT+lWtoOn+0jTVxZKOMRtoxWMJo0bOStPoQC+C0qvIp6KcWHpkoeBhsWBbQVCO
+	is/MuNkpbladQjxczokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2V1-00Gtvm-0q;
-	Wed, 22 Mar 2023 17:43:47 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1pf36i-00H0G6-1n;
+	Wed, 22 Mar 2023 18:22:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf2Uv-00Gts6-0x
+	id 1pf36d-00H0Cz-36
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 17:43:44 +0000
-Received: by mail-ed1-x534.google.com with SMTP id r11so76195380edd.5
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 10:43:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679507016;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Bz0GFwOBw4FSvdCteGZo11Dbw1t8O4+71KL8pO8s3Fw=;
-        b=OHOI8Z/2mnCkG1BpVa4vIPM872lkUsqnVFmvtNoXvprqmK453DF3RoKxCCkBTFmeLG
-         lLGk+LcT+GomsR5UIY53XrwQwOolIPtrnVFv7t9YVjzlxnRG4kY/TNHLD/wPpSfaokiY
-         Orxpz9nzQc3haBs0ggypW+juXJ663D0kdfN2LmYI6H2FUxycUsiN+663lEdkAxYQ519N
-         0k0z4yPhkn2rbgzYAfUEpeIgfYjMYVHdjf3ia/niqQLKHepo3AGDUfRCd+NWfgGanzy1
-         Vx7xyC68Azr7wFQqeAhCQhZJncHO5CsPpuS/bcYpWqyKyRJk8b3kPZyAaRaqxZgojD4j
-         ipXA==
+	Wed, 22 Mar 2023 18:22:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1679509358;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AQmTyEbfymjzRNtIW6wpo43MqQOqbzqrZwvZwgWkUpU=;
+	b=QuheHb3eWxy26Fnn/izIEgc1U4tzVaSflpr7m1ovhBLauyTNhFkQ8P+j+9OJXDZYgh2iVk
+	XRyLwI2DtoFdGDo6yjMdnVXygBBNuOw0e7i86D9RLv8M6SW8mofgCyP7fXRsMWwgQJ9++j
+	SJlDGvcVk2gJDLKZYnczbu5BZdeHpIs=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-58-qkW75I1_Pn-q0iMJf9qz3g-1; Wed, 22 Mar 2023 14:22:37 -0400
+X-MC-Unique: qkW75I1_Pn-q0iMJf9qz3g-1
+Received: by mail-qt1-f200.google.com with SMTP id x5-20020a05622a000500b003e259c363f9so5718142qtw.22
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 11:22:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679507016;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bz0GFwOBw4FSvdCteGZo11Dbw1t8O4+71KL8pO8s3Fw=;
-        b=pRypejmd1CU6RIjg9RZ4bcXQ7CpZtco4Zwtb7qHMxu8rcle8BDBVgYp0t9VPw9tNmR
-         ojOvlfyv7xdxYifSXm/dSyHm+pNh3rCpwRLsIHWYa7QEsCOnbzRfIaW81AB1igSbE53g
-         WrY5Q7qSBMiX3bNGEay1lM0oFXPbBEMhB2GZ+i0nP9q7OByN7CEpreFdzFEQcp7CPSho
-         N0Mf3ap+h4lN0pctaXjGXT66yVjAw4AcFzpYUhPrEH2CB3xvxFRcaET+TF1c6Gjicz1T
-         faNQv8aGDDMHSag/kJA3uVcMJpM0TeKaYbkfqIGpaJywyDtAz6xbH54ysT5GG7kqu8uE
-         NFww==
-X-Gm-Message-State: AO0yUKXP5eW2IVue9itiQaA0EazCdqlow4ofjOVrq7zhajTnPI0wMnxR
-	qRd/6aN7rONPbh//lVWdvaszqA==
-X-Google-Smtp-Source: AK7set+nkmtoqjYEzZaku0D/7qQI5HO9as0edhrib1GD9nZDSZ9uxRhZ1jH+E0y8NuK4755/15GYjw==
-X-Received: by 2002:a17:907:7050:b0:932:b7ce:27b4 with SMTP id ws16-20020a170907705000b00932b7ce27b4mr7503749ejb.27.1679507016059;
-        Wed, 22 Mar 2023 10:43:36 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:5050:151b:e755:1c6? ([2a02:810d:15c0:828:5050:151b:e755:1c6])
-        by smtp.gmail.com with ESMTPSA id bu6-20020a170906a14600b00933c52c2a0esm4959743ejb.173.2023.03.22.10.43.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Mar 2023 10:43:35 -0700 (PDT)
-Message-ID: <af57ecdb-5f06-9a5c-30d2-0bfd71c798cd@linaro.org>
-Date: Wed, 22 Mar 2023 18:43:34 +0100
+        d=1e100.net; s=20210112; t=1679509357;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AQmTyEbfymjzRNtIW6wpo43MqQOqbzqrZwvZwgWkUpU=;
+        b=6DDemsc5v3+8G6guhndfQYIbtTyL0h4R4RzjkodzdYAMBJg905hPO4oZdLpWfktZpE
+         CzID1zaUUCw/FZjU5XzYobRTlfTVcQAP2qaanjG9RTpaV9jb4u9TVRbjLAMm52A2UnpH
+         EcgajEwUoP02da0fIfrv5nQ0t7w+CWFl1xLX8r0vBIgln42CdwUHKHjXeukf0/uJv5uX
+         g/WxfuTrThllUGCxKD7WNNb9woferCfzrgiBqgZm+DdO1rt2D/BWrd8qL/HfPnb2WRzQ
+         26ZMFfJ36MR7JaHjExvN0xYcfkpsc8FpBxBdj9xvuRtMEkUYFvLryBwBx7vQJaqvbxpO
+         PHfw==
+X-Gm-Message-State: AO0yUKUFWp5HMRJpWdoppoOUPBKizIhLv47TcRka4sX5Yy0n8hnrTceO
+	F/npIpQMfOpvsbMRTf5DPElrsvyrs0EaETlpZAVG6w99BXhWaPfwJCWtfKN1CK8QLJVdyZC764Q
+	88lMhKvv5JnyOfqH4fjkrKF4UdwKG
+X-Received: by 2002:ac8:594a:0:b0:3e3:7e53:9a8f with SMTP id 10-20020ac8594a000000b003e37e539a8fmr7511751qtz.50.1679509356936;
+        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+t7wmz3/x7URy1IAcP9apu1JV9+38nhf9A/nHJ2ae3E1Cp8z62mk26+NWh6ExaxyxmUk07Nw==
+X-Received: by 2002:ac8:594a:0:b0:3e3:7e53:9a8f with SMTP id 10-20020ac8594a000000b003e37e539a8fmr7511693qtz.50.1679509356631;
+        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
+Received: from vschneid.remote.csb ([154.57.232.159])
+        by smtp.gmail.com with ESMTPSA id j23-20020ac86657000000b003e0c29112b6sm6351465qtp.7.2023.03.22.11.22.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, x86@kernel.org, "Paul E. McKenney"
+ <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, Daniel
+ Bristot de Oliveira <bristot@redhat.com>, Marcelo Tosatti
+ <mtosatti@redhat.com>, Frederic Weisbecker <frederic@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Marc
+ Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Russell
+ King <linux@armlinux.org.uk>, Nicholas Piggin <npiggin@gmail.com>, Guo Ren
+ <guoren@kernel.org>, "David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
+In-Reply-To: <20230322172242.GH2357380@hirez.programming.kicks-ass.net>
+References: <20230307143558.294354-1-vschneid@redhat.com>
+ <20230307143558.294354-8-vschneid@redhat.com>
+ <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
+ <xhsmhmt45c703.mognet@vschneid.remote.csb>
+ <20230322140434.GC2357380@hirez.programming.kicks-ass.net>
+ <xhsmhjzz8d8km.mognet@vschneid.remote.csb>
+ <20230322172242.GH2357380@hirez.programming.kicks-ass.net>
+Date: Wed, 22 Mar 2023 18:22:28 +0000
+Message-ID: <xhsmhh6ucd4t7.mognet@vschneid.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH] dt-bindings: mailbox: Drop unneeded quotes
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>, Andy Gross
- <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Michal Simek <michal.simek@xilinx.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20230322173449.3970718-1-robh@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230322173449.3970718-1-robh@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_104341_399880_F7F013C4 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230322_112240_104335_1119A904 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,17 +120,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/03/2023 18:34, Rob Herring wrote:
-> Cleanup bindings dropping unneeded quotes. Once all these are fixed,
-> checking for this can be enabled in yamllint.
-> 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
+On 22/03/23 18:22, Peter Zijlstra wrote:
+> On Wed, Mar 22, 2023 at 05:01:13PM +0000, Valentin Schneider wrote:
+>
+>> > So I was thinking something like this:
+>
+>> Hm, this does get rid of the func being passed down the helpers, but this
+>> means the trace events are now stateful, i.e. I need the first and last
+>> events in a CSD stack to figure out which one actually caused the IPI.
+>
+> Isn't much of tracing stateful? I mean, why am I always writing awk
+> programs to parse trace output?
+>
+> The one that is directly followed by
+> generic_smp_call_function_single_interrupt() (horrible name that), is
+> the one that tripped the IPI.
+>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Right.
 
-Best regards,
-Krzysztof
+>> It also requires whoever is looking at the trace to be aware of which IPIs
+>> are attached to a CSD, and which ones aren't. ATM that's only the resched
+>> IPI, but per the cover letter there's more to come (e.g. tick_broadcast()
+>> for arm64/riscv and a few others). For instance:
+>> 
+>>        hackbench-157   [001]    10.894320: ipi_send_cpu:         cpu=3 callsite=check_preempt_curr+0x37 callback=0x0
+>
+> Arguably we should be setting callback to scheduler_ipi(), except
+> ofcourse, that's not an actual function...
+>
+> Maybe we can do "extern inline" for the actual users and provide a dummy
+> function for the symbol when tracing.
+>
+
+Huh, I wasn't aware that was an option, I'll look into that. I did scribble
+down a comment next to smp_send_reschedule(), but having a decodable
+function name would be better!
+
+>>        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=sched_ttwu_pending+0x0
+>>        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=generic_smp_call_function_single_interrupt+0x0
+>> 
+>> That first one sent a RESCHEDULE IPI, the second one a CALL_FUNCTION one,
+>> but you really have to know what you're looking at...
+>
+> But you have to know that anyway, you can't do tracing and not know wtf
+> you're doing. Or rather, if you do, I don't give a crap and you can keep
+> the pieces :-)
+>
+> Grepping the callback should be pretty quick resolution at to what trips
+> it, no?
+>
+> (also, if you *realllllly* can't manage, we can always add yet another
+> argument that gives a type thingy)
+>
+
+Ah, I was a bit unclear here - I don't care too much about the IPI type
+being used, but rather being able to figure out on IRQ entry where that IPI
+came from - thinking some more about now, I don't think logging *all* CSDs
+causes an issue there, as you'd look at the earliest-not-seen-yet event
+targeting this CPU anyway.
+
+That'll be made easy once I get to having cpumask filters for ftrace, so
+I can just issue something like:
+
+  trace-cmd record -e 'ipi_send_cpu' -f "cpu == 3" -e 'ipi_send_cpumask' -f "cpus \in {3}" -T hackbench 
+
+(it's somewhere on the todolist...)
+
+TL;DR: I *think* I've convinced myself logging all of them isn't an issue -
+I'm going to play with this on something "smarter" than just hackbench
+under QEMU just to drill it in.
 
 
 _______________________________________________
