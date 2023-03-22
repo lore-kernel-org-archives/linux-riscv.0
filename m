@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B9CC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 19:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDFCC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 19:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=77RrVT1wN2XdPtT+l8MvwebkeneBM+cCUrZav2KeWUs=; b=itLmni5MT0MsYR
-	/8UTDt88f2LfTUZh1A28DNjtkbKVh7m2bvTp744U4AU80pLBeUC5Usvk3l4Pj0VpcMxu80lgDOf9m
-	+XrakGtw7svbSDjGirbqzvjWsSzHJA57CGzR/QDImuflOVwErXe60Wy58RnSh0FkYnYyuKew4Y0hV
-	KfNuiGbWjDsgXCG/dcqcteSIy8P/sKUAAut8f8RjHxKCX8gBNB67+olHbjJ8bHNfLb/JETMVU0D+U
-	mQ6h3LFJFy2O/8Ve3amxsZAlS9kTCTQ0JZV7yIV/zJKc06Yo0YQydFCEVCAZJWFVn7RJz8okWomCu
-	2WALwyJeVx62WJSiRkpg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Txfse87Zw9Fr7eIvUJ3jmHX9hf+NC67qpcChXsZ92hA=; b=iSMlYyvd84g6G3
+	anOzyKhK31Wgnj49wfT70u2voANlI39BQPKGJSFhCqq6YIieGtGmkzzLzBJQ6qzhWZS0kBqxkyUxT
+	bXYjvcqyu7qXBO88tJzQydcL6/I09rFcf5eUgC2gcWvG54bqB2iCt7GWMThpxkRhQKujeiep9VJrm
+	AK1HI/vILmtthhWAOkiHe/nmK3WFtlJJuhU0lqbDiBq7ZAHyyVXqKEhFrEINyrU5q5zA86wwOJgd7
+	YPeH8Kk3E566i807D+9TTbsnu0TL478+NG/cnLPDYfEYi9eMIPPsDTe7sBwHShMBo3S9BRk5iyQt/
+	9lh24mUNFp4YcPCFYD/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf48y-00HBm0-2L;
-	Wed, 22 Mar 2023 19:29:08 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1pf48z-00HBmd-2J;
+	Wed, 22 Mar 2023 19:29:09 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf48u-00HBiQ-09
+	id 1pf48v-00HBj1-0e
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 19:29:05 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id x3so77308632edb.10
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 12:29:01 -0700 (PDT)
+	Wed, 22 Mar 2023 19:29:06 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id cy23so77267018edb.12
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 12:29:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679513339;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1HvQLZQdPKNdJeLKbK81iJwhShUNhpZd0gdfjBwTA2Y=;
-        b=QMaKAQSmXL5vjlXpSnOxhB+U0ShTyU7l/EBOjiQd4y1pognhMCOhE88OEKMf2muoeg
-         ITaQqzjB5zoFpzD0EFHVq59TXWq0AhovfAnsU+6v+h6zwbRpUSGSHsOb13LeXHQjAWWs
-         VaM2vUFcMJAkzAPPMf3WnY6C30Isk0HhVVfuyqady26LRzK1FkF5ghbAO9xT7Uki8nkA
-         RIaN8W/FlFT06KIJ6sSDinyPHP3FkKnNEZ5WC555JHaLMt0Ux09tct/jHdp7Rb99vfz8
-         kdfblPktEWJLbZkIa3OUdUMwGsKXMffWJPEwp9Ylj3XuHpM1wv5pBewc1FIrvoB1Nox3
-         Yb/Q==
+        d=ventanamicro.com; s=google; t=1679513342;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c95xbZWaAIRYhTksuHZZaulfBNlGiZOzsEUakUKba/M=;
+        b=AZHh2e3RvEPuqPAFDFKi7mBkEnoIrq51pXGuITaIwJd6UnSscPWy4pFNM6+2/UYERP
+         rALcASdTEIl5V9dL2JfqB1CSo/7zPtLmZZtisfxQu4eIoyjKbVz04dzC3wkx/4xN3Xci
+         3b8j29Nv5eD2MSbgVVziJYXkKFP4LSEkG/+80Ll8im0OqCV+n8VxSi44NcUjNkhqQ0Rm
+         yK2733VBr6773tEEpfv4lk9McpTWQxiO+8hczlVcUZg/HStT2seBgg4Akk98qTbiLGT8
+         t2NnHVB3UCMcry4o01BxIFLhYisT+8f3JBpWpH6aGOQOyLTkqOaGCIEpKxSxPJzcyoxJ
+         LTGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679513339;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1HvQLZQdPKNdJeLKbK81iJwhShUNhpZd0gdfjBwTA2Y=;
-        b=P42yNY7gHMdgetOzescFv88K+XpPc+je3BpoVwHQVykY308Z/Fvvse88nZsKYnVPGM
-         jiAmp68b9rCNvfvWrOW91DuB1XkTEQHEIpqxT0u2z3hTt+G02DuPat0y0B+B8mkvFycn
-         j80dEVjLN8+WFS8DOKgTrpcPHR7LBuzS8tNptCk9nmdGqBnpsBpUO9uxINAADhBiU7SE
-         4/Ir/mRRDbtIzfwGwoXLAsz4H9TeOceJkPCm4wZWsEa2I+UjRLth2KcwbX9LsVyAH1V2
-         xjOKnEH0/HcXYuqWQQ30+7aSyqY3WU/8dlLK/cp03LTMOnLDeDaj7V1PB3Qw4PfAb7qh
-         Nrbw==
-X-Gm-Message-State: AO0yUKXTnALPjMFEzXoBDw6YIpl4U2zbLczlYSN+E2zABi04QSLdqaZN
-	AjecGdf1UnoHdKDQ9MTHwAFHZ+61T14bdsTtOCc=
-X-Google-Smtp-Source: AK7set+SkE5yi6qKZ1OUcoZ4Y8BL+sV9yLVOLfnpEQHUHmmoAJMybg4z8JBeeBJ0u6tJA5zXaNRMDw==
-X-Received: by 2002:a17:907:a0d1:b0:8a9:e031:c4ae with SMTP id hw17-20020a170907a0d100b008a9e031c4aemr8201486ejc.2.1679513339740;
-        Wed, 22 Mar 2023 12:28:59 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1679513342;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c95xbZWaAIRYhTksuHZZaulfBNlGiZOzsEUakUKba/M=;
+        b=cXdQEzloLRm/H9Tx+rKbzUYEZKyrYvS9SjMskMsiv6R039VEKgtKciztxN4T4ktDAs
+         pL8l6q4JHSSqMZ8gVSAquFTyOmXmikWwmbqZD//7v9uTo5JxnquG6wjPT/wP4ErFioGF
+         yC0pN+A0WhACk76/ODaF5qeWf64gsIpIuBxSaLx+x6FmXd1oqOqGzctkTc+kL9zTzw/D
+         UBfClRrw5chM9fvWp2t7ra9TXvGyfbi2f7tZYQoOc9CUuaEdT0wMUbG7SFGgNipLTrM5
+         arBKxmQQrKRskbJ3748zHJWKPhzekJgbRYb5/Fhr8wjmoEpx6Z/X8V4zVSGfdk7gPOmi
+         6tUQ==
+X-Gm-Message-State: AO0yUKVtV+Y/o5/+LYp75MyU6OSsk94VL3cEGmIHT+wl8bVAD1Pc2hfg
+	kel3fhCyrqwxShU7yi4vvDRfh2dFWNMW6A97byI=
+X-Google-Smtp-Source: AK7set+o+WNwer6VEh0RVsbmHe4pBkl4pxTm6q4d2d6btmLOsMwbz1CaqASHdB5l8nt3WiZ2suX+hQ==
+X-Received: by 2002:a17:906:8a7b:b0:92a:3709:e872 with SMTP id hy27-20020a1709068a7b00b0092a3709e872mr9989187ejc.19.1679513342604;
+        Wed, 22 Mar 2023 12:29:02 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id bv1-20020a170906b1c100b00939e76a0cabsm2657587ejb.111.2023.03.22.12.28.59
+        by smtp.gmail.com with ESMTPSA id bv1-20020a170906b1c100b00939e76a0cabsm2657647ejb.111.2023.03.22.12.29.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Mar 2023 12:28:59 -0700 (PDT)
+        Wed, 22 Mar 2023 12:29:02 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org
@@ -69,14 +70,16 @@ Cc: 'Palmer Dabbelt ' <palmer@dabbelt.com>,
 	'Paul Walmsley ' <paul.walmsley@sifive.com>,
 	'Atish Patra ' <atishp@atishpatra.org>,
 	'Albert Ou ' <aou@eecs.berkeley.edu>
-Subject: [PATCH 0/2] RISC-V: KVM: Require alternatives
-Date: Wed, 22 Mar 2023 20:28:56 +0100
-Message-Id: <20230322192858.1189272-1-ajones@ventanamicro.com>
+Subject: [PATCH 2/2] RISC-V: KVM: Require alternatives
+Date: Wed, 22 Mar 2023 20:28:58 +0100
+Message-Id: <20230322192858.1189272-3-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230322192858.1189272-1-ajones@ventanamicro.com>
+References: <20230322192858.1189272-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_122904_099297_13AC5274 
-X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-CacheID: sfid-20230322_122905_254126_FEF97727 
+X-CRM114-Status: UNSURE (   7.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,21 +100,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 KVM makes use of riscv_has_extension_unlikely() to check for the
 svinval extension. riscv_has_extension_unlikely() is built on
 alternatives, which means KVM should ensure alternatives support
-is available.
+is available. Select RISCV_ALTERNATIVE from KVM.
 
-The first patch takes the opportunity to cleanup KVM's select
-list. The second patch selects RISCV_ALTERNATIVE.
+Fixes: e8ad17d2b5f3 ("riscv: KVM: Switch has_svinval() to riscv_has_extension_unlikely()")
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kvm/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks,
-drew
-
-Andrew Jones (2):
-  RISC-V: KVM: Alphabetize selects
-  RISC-V: KVM: Require alternatives
-
- arch/riscv/kvm/Kconfig | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
-
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index 5bcb2d519b95..9dd61db0acc5 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -28,6 +28,7 @@ config KVM
+ 	select KVM_XFER_TO_GUEST_WORK
+ 	select MMU_NOTIFIER
+ 	select PREEMPT_NOTIFIERS
++	select RISCV_ALTERNATIVE
+ 	select SRCU
+ 	help
+ 	  Support hosting virtualized guest machines.
 -- 
 2.39.2
 
