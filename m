@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E13C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABA1C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 09:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IC3gnWAjdcqc6BWLOazUFafZV+pECH0LMFdlYijoyVU=; b=srpZbBBmVkzIyB
-	0KimNfpqgof0OYACHrp9+lci2Bmehfl9kKCsniw7v0hOzk++ML3elNUE3z2l88Z0Sw9zi0rCGv9yJ
-	8BeuSUxWooNXlbWKLpu70QFe3JFiLKRR8tdTcdsoO2/sS/YttnM9LY0LmWY1wI0QCpB3UQYuTPqmv
-	8B8gGjNG8iYYxrDlSoj0HKEJUrJO2BXT36V5sbavsUg5XYzXzEdlhFhemvA4cTNgrgpKd2VnXg8RJ
-	3FuQqThGBsgLzFI7KxRQDnJJ4VBNE3MhnbLDTw5irhpEx6blmSX6ckzx1+DM+9qJssgfoQyNF040K
-	TrJAifJ0ThjsVqG4HMRQ==;
+	List-Owner; bh=2VpewIFpm7v9QVnhtW+13uFGN5b6XLasQX9AOe5LpsM=; b=2Df6i1Kuk4ISSW
+	4plzR6RQXDKCUDyImtmkFzwfNFIrQJHB/oJc7hVT5CUdoTL1rqvBT4MK4jLz7wDEDJErXy2+z8C3U
+	fJmKIsRpAgciu6vV8YbxP0szkOa9N5evVpMGdpVfAOsIE4XMBXFSEgTpJPr2XoT2aR/kWgrD1Pl+C
+	xiGJIXaXiqvGS8+ww3cFfawIdmHrjCcjBG5RarnwxJNlZKD4o3UY/9P4HG37earUAX/fIqeXG36oQ
+	ivzJBUHgBNtvcNzxdgh0DKiI8iVxXN2JQwt3xQFae4XxirkHzF58Ck823oZpXVXfgrPVwE48qLhLs
+	11foFBkVB0+27qEeVULA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1peuMA-00FHOw-3A;
-	Wed, 22 Mar 2023 09:02:06 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1peuwz-00FTZr-1v;
+	Wed, 22 Mar 2023 09:40:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1peuM6-00FHNg-0V;
-	Wed, 22 Mar 2023 09:02:03 +0000
-Received: from [10.128.10.193] (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 9E5CB5807BE;
-	Wed, 22 Mar 2023 17:01:55 +0800 (CST)
-Message-ID: <88c2c37b-c221-5c27-9663-7026084adf8d@sangfor.com.cn>
-Date: Wed, 22 Mar 2023 17:01:54 +0800
+	id 1peuwx-00FTYm-24;
+	Wed, 22 Mar 2023 09:40:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NIAHg4If27BetC+4UZobAV0PxBnmTt3z+fWts2bKQWA=; b=rgS/CEWAlsTurPe5ucKBiXaDhr
+	ew26BoXauCH9lin/sWfYKxjLJe0WysSt1P4iOSDXV1qfu4JSoUQNAlogwxNIDbcZw5jKIurC6wBP0
+	+/+Z8kdUTp/ZyyNP9QPql3dhW8rHV0QqkfTXWuMoE0vryMGgt+T+aOFFPTKbmbiRK5T84YLaG6C4t
+	iRHD6M2ZFvI2kES3RCcIFI7D2yWW07o0ZjcKw1qqr5MTJddfTUE9AHHetindb2rqkUVxpV/GEVyQu
+	B4Z/fkelloNxIIEvBXXKz9pvL88Uc5JVf1N0nCKJVM3jEC4cK78BNevAeHHN3c0k/dy9sGC9ChrU5
+	42+coITw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1peuwq-002t99-FB; Wed, 22 Mar 2023 09:40:00 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7E63F3001F7;
+	Wed, 22 Mar 2023 10:39:56 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 16170205D08C3; Wed, 22 Mar 2023 10:39:56 +0100 (CET)
+Date: Wed, 22 Mar 2023 10:39:55 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+	x86@kernel.org, Steven Rostedt <rostedt@goodmis.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v5 1/7] trace: Add trace_ipi_send_cpumask()
+Message-ID: <20230322093955.GR2017917@hirez.programming.kicks-ass.net>
+References: <20230307143558.294354-1-vschneid@redhat.com>
+ <20230307143558.294354-2-vschneid@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v5 1/2] function_graph: Support recording and printing the
- return value of function
-Content-Language: en-US
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, mark.rutland@arm.com,
- will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
- x86@kernel.org, mingo@redhat.com, xiehuan09@gmail.com,
- dinghui@sangfor.com.cn, huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
- linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230320131650.482594-1-pengdonglin@sangfor.com.cn>
- <20230320131650.482594-2-pengdonglin@sangfor.com.cn>
- <ZBnqAYO7rdk4Qikq@shell.armlinux.org.uk>
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-In-Reply-To: <ZBnqAYO7rdk4Qikq@shell.armlinux.org.uk>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTx4eVkwdS0NOT04YGR0eTFUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PC46GSo*Kj0OKRRJLRI3QiE2
-	NwNPFA9VSlVKTUxCT0xOTEpMS01MVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFPTU1DNwY+
-X-HM-Tid: 0a87088db1662eb7kusn9e5cb5807be
-X-HM-MType: 1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_020202_344744_DCEB5286 
-X-CRM114-Status: GOOD (  14.23  )
+Content-Disposition: inline
+In-Reply-To: <20230307143558.294354-2-vschneid@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +92,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/22 1:31, Russell King (Oracle) wrote:
-> On Mon, Mar 20, 2023 at 06:16:49AM -0700, Donglin Peng wrote:
->> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
->> index 3e7bcaca5e07..ba1986e27af8 100644
->> --- a/arch/arm/kernel/entry-ftrace.S
->> +++ b/arch/arm/kernel/entry-ftrace.S
->> @@ -258,7 +258,15 @@ ENDPROC(ftrace_graph_regs_caller)
->>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->>   ENTRY(return_to_handler)
->>   	stmdb	sp!, {r0-r3}
->> +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
->> +	/*
->> +	 * Pass both the function return values in the register r0 and r1
->> +	 * to ftrace_return_to_handler
->> +	 */
->> +	add	r2, sp, #16		@ sp at exit of instrumented routine
->> +#else
->>   	add	r0, sp, #16		@ sp at exit of instrumented routine
->> +#endif
->>   	bl	ftrace_return_to_handler
-> ...
->> -unsigned long ftrace_return_to_handler(unsigned long frame_pointer)
->> +static unsigned long __ftrace_return_to_handler(unsigned long retval_1st,
->> +			unsigned long retval_2nd, unsigned long frame_pointer)
-> ...
->> +#ifdef CONFIG_FUNCTION_GRAPH_RETVAL
->> +unsigned long ftrace_return_to_handler(unsigned long retval_1st,
->> +			unsigned long retval_2nd, unsigned long frame_pointer)
->> +{
->> +	return __ftrace_return_to_handler(retval_1st, retval_2nd, frame_pointer);
->> +}
->> +#else
->> +unsigned long ftrace_return_to_handler(unsigned long frame_pointer)
->> +{
->> +	return __ftrace_return_to_handler(0, 0, frame_pointer);
->> +}
->> +#endif
->> +
+On Tue, Mar 07, 2023 at 02:35:52PM +0000, Valentin Schneider wrote:
+> trace_ipi_raise() is unsuitable for generically tracing IPI sources due to
+> its "reason" argument being an uninformative string (on arm64 all you get
+> is "Function call interrupts" for SMP calls).
 > 
-> Hi,
+> Add a variant of it that exports a target cpumask, a callsite and a callback.
 > 
-> To echo Mark's criticism, I also don't like this. I feel it would be
-> better if ftrace_return_to_handler() always took the same arguments
-> irrespective of the setting of CONFIG_FUNCTION_GRAPH_RETVAL.
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> ---
+>  include/trace/events/ipi.h | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 > 
-> On 32-bit ARM, we have to stack r0-r3 anyway to prevent the call to
-> ftrace_return_to_handler() corrupting the return value, and these
-> are the registers we need. So we might as well pass a pointer to
-> these stacked registers. Whether that's acceptable on other
-> architectures, I couldn't say.
+> diff --git a/include/trace/events/ipi.h b/include/trace/events/ipi.h
+> index 0be71dad6ec03..b1125dc27682c 100644
+> --- a/include/trace/events/ipi.h
+> +++ b/include/trace/events/ipi.h
+> @@ -35,6 +35,28 @@ TRACE_EVENT(ipi_raise,
+>  	TP_printk("target_mask=%s (%s)", __get_bitmask(target_cpus), __entry->reason)
+>  );
+>  
+> +TRACE_EVENT(ipi_send_cpumask,
+> +
+> +	TP_PROTO(const struct cpumask *cpumask, unsigned long callsite, void *callback),
+> +
+> +	TP_ARGS(cpumask, callsite, callback),
+> +
+> +	TP_STRUCT__entry(
+> +		__cpumask(cpumask)
+> +		__field(void *, callsite)
+> +		__field(void *, callback)
+> +	),
+> +
+> +	TP_fast_assign(
+> +		__assign_cpumask(cpumask, cpumask_bits(cpumask));
+> +		__entry->callsite = (void *)callsite;
+> +		__entry->callback = callback;
+> +	),
+> +
+> +	TP_printk("cpumask=%s callsite=%pS callback=%pS",
+> +		  __get_cpumask(cpumask), __entry->callsite, __entry->callback)
+> +);
 
-Agree, I think we can introduce a new structure called pt_ret_regs for
-each relevant architecture. The pt_ret_regs should only contain the
-return registers and the frame pointer register, for arm, they are r0~r3
-and r11.Then we can pass the pointer to the pt_ret_regs to 
-ftrace_return_to_handler.
+Would it make sense to add a variant like: ipi_send_cpu() that records a
+single cpu instead of a cpumask. A lot of sites seems to do:
+cpumask_of(cpu) for that first argument, and it seems to me it is quite
+daft to have to memcpy a full multi-word cpumask in those cases.
 
-> 
-> Thanks.
-> 
-
+Remember, nr_possible_cpus > 64 is quite common these days.
 
 _______________________________________________
 linux-riscv mailing list
