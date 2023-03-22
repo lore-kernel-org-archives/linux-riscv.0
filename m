@@ -4,106 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD0FC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 18:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811ECC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 18:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mG4+GyXPFjYqom6mbJYBPAXizhoX3fk6zcfrO8tuPZI=; b=4AacC8DHWo416V
-	uUBfWxUMFLvh0kpFk6t7nADJ/zCmXjWI1TQtGJyLYW+2NhSOmHZx1Z6UovmeVQ+J3KQglnQP44A2z
-	HF43ARMy5hg9z0Qn5HVuAL2nOiZBtuYCtQRBYvS4R2dq0ZlsPPNcRBrHJTyf69ncbksST5O6qbt+y
-	R7KDhAmYauzeXW4PbGsyowXIpz+1xnN2e82DZpCv/GHfX24OLBKt9NtJg4LovfK3nIWqM/RznAhxq
-	WbL/SksdfkSUPWLxT+lWtoOn+0jTVxZKOMRtoxWMJo0bOStPoQC+C0qvIp6KcWHpkoeBhsWBbQVCO
-	is/MuNkpbladQjxczokA==;
+	List-Owner; bh=8KCscQucmZQAFoeVwuxpBUOo4tl+cyBeimwnMDQzxC8=; b=YOFWvGTWFgDMY6
+	QzVojb4Zd77c7mpbzmDPLJiKIgpKrm/cSgcHdwlfI55FPo7kYx5F3wSNigCw8yplBNTQLJFrK2RWq
+	83FIPZZY85fWSaNYpA4TJt4Yiow0sbTWsH9g1v35s0xJsHt9AhB2Ej1DMheqXoGUHADb8eY32/Wlk
+	orvbj0V8FOmoejfEa0gQGmY/1Q4kweifMLdLAeE3PRvxOzaUtBtOwQdf15chb7OdWhN/ZxzoOWdr5
+	ghWfF87tzmU2CVadhT7Qji2SZeJJV817WAb1L8UKbl12+H2ysAMXehQ53J11n9W/kVJ4bXF43oj8T
+	4M/tFj+27CC5aZrSEpKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf36i-00H0G6-1n;
-	Wed, 22 Mar 2023 18:22:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1pf3A2-00H0vZ-0K;
+	Wed, 22 Mar 2023 18:26:10 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf36d-00H0Cz-36
+	id 1pf39v-00H0tF-22
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 18:22:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679509358;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AQmTyEbfymjzRNtIW6wpo43MqQOqbzqrZwvZwgWkUpU=;
-	b=QuheHb3eWxy26Fnn/izIEgc1U4tzVaSflpr7m1ovhBLauyTNhFkQ8P+j+9OJXDZYgh2iVk
-	XRyLwI2DtoFdGDo6yjMdnVXygBBNuOw0e7i86D9RLv8M6SW8mofgCyP7fXRsMWwgQJ9++j
-	SJlDGvcVk2gJDLKZYnczbu5BZdeHpIs=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-58-qkW75I1_Pn-q0iMJf9qz3g-1; Wed, 22 Mar 2023 14:22:37 -0400
-X-MC-Unique: qkW75I1_Pn-q0iMJf9qz3g-1
-Received: by mail-qt1-f200.google.com with SMTP id x5-20020a05622a000500b003e259c363f9so5718142qtw.22
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 11:22:37 -0700 (PDT)
+	Wed, 22 Mar 2023 18:26:08 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id j13so19301178pjd.1
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 11:25:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112; t=1679509557;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xai25ViACOhtMbP/9A/HIC69Te+6jb14im4nmgBreX0=;
+        b=Nc7bqPWvvVP0Fh9GRUREatEuPhbNWcj8ydyJq6p7WhnKTmZsmINp40U8jm2U/D3eOh
+         GiADNrvpDW1src3wBD86k8hybLw++0LHdLBlze0Q290ZO1ycLMYXpjqhF0bC849Amhtk
+         Uy0gNTTczAqnmq7Ne1eUnCmgjRAczfqeQ58RKE9Z1Dbo8WYhXCE+35mHwpNTZjinRv7Z
+         SvFY91A1LyC+CNVJab3PMehak5rGBLhjGTsCzg52VkGZ8uMK06Y5GA1JlP2dh0NN6NWH
+         L5Jzlk3GH1BS4NTePFlNBmFvEFZSn5SfhLcK85z0+yzixjDvudD4Wt6pqVVnBBIsUYXI
+         dcEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679509357;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AQmTyEbfymjzRNtIW6wpo43MqQOqbzqrZwvZwgWkUpU=;
-        b=6DDemsc5v3+8G6guhndfQYIbtTyL0h4R4RzjkodzdYAMBJg905hPO4oZdLpWfktZpE
-         CzID1zaUUCw/FZjU5XzYobRTlfTVcQAP2qaanjG9RTpaV9jb4u9TVRbjLAMm52A2UnpH
-         EcgajEwUoP02da0fIfrv5nQ0t7w+CWFl1xLX8r0vBIgln42CdwUHKHjXeukf0/uJv5uX
-         g/WxfuTrThllUGCxKD7WNNb9woferCfzrgiBqgZm+DdO1rt2D/BWrd8qL/HfPnb2WRzQ
-         26ZMFfJ36MR7JaHjExvN0xYcfkpsc8FpBxBdj9xvuRtMEkUYFvLryBwBx7vQJaqvbxpO
-         PHfw==
-X-Gm-Message-State: AO0yUKUFWp5HMRJpWdoppoOUPBKizIhLv47TcRka4sX5Yy0n8hnrTceO
-	F/npIpQMfOpvsbMRTf5DPElrsvyrs0EaETlpZAVG6w99BXhWaPfwJCWtfKN1CK8QLJVdyZC764Q
-	88lMhKvv5JnyOfqH4fjkrKF4UdwKG
-X-Received: by 2002:ac8:594a:0:b0:3e3:7e53:9a8f with SMTP id 10-20020ac8594a000000b003e37e539a8fmr7511751qtz.50.1679509356936;
-        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
-X-Google-Smtp-Source: AK7set+t7wmz3/x7URy1IAcP9apu1JV9+38nhf9A/nHJ2ae3E1Cp8z62mk26+NWh6ExaxyxmUk07Nw==
-X-Received: by 2002:ac8:594a:0:b0:3e3:7e53:9a8f with SMTP id 10-20020ac8594a000000b003e37e539a8fmr7511693qtz.50.1679509356631;
-        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
-Received: from vschneid.remote.csb ([154.57.232.159])
-        by smtp.gmail.com with ESMTPSA id j23-20020ac86657000000b003e0c29112b6sm6351465qtp.7.2023.03.22.11.22.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Mar 2023 11:22:36 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, x86@kernel.org, "Paul E. McKenney"
- <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
- Gleixner <tglx@linutronix.de>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, Daniel
- Bristot de Oliveira <bristot@redhat.com>, Marcelo Tosatti
- <mtosatti@redhat.com>, Frederic Weisbecker <frederic@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Marc
- Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Russell
- King <linux@armlinux.org.uk>, Nicholas Piggin <npiggin@gmail.com>, Guo Ren
- <guoren@kernel.org>, "David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
-In-Reply-To: <20230322172242.GH2357380@hirez.programming.kicks-ass.net>
-References: <20230307143558.294354-1-vschneid@redhat.com>
- <20230307143558.294354-8-vschneid@redhat.com>
- <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
- <xhsmhmt45c703.mognet@vschneid.remote.csb>
- <20230322140434.GC2357380@hirez.programming.kicks-ass.net>
- <xhsmhjzz8d8km.mognet@vschneid.remote.csb>
- <20230322172242.GH2357380@hirez.programming.kicks-ass.net>
-Date: Wed, 22 Mar 2023 18:22:28 +0000
-Message-ID: <xhsmhh6ucd4t7.mognet@vschneid.remote.csb>
+        d=1e100.net; s=20210112; t=1679509557;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Xai25ViACOhtMbP/9A/HIC69Te+6jb14im4nmgBreX0=;
+        b=KQhNQ6qZdnsp7URDD86xCmn+JRln74jt22fCvz4dKfUrMnJkT/s6cHOqa0X2aWY4p9
+         GMuJyabqtnesjSVq7pHcHnGKHaHjIySWK7azpBTc1Q501Xskg7o8J2Adl8tO5yZM27qU
+         83eN/wmniCDxJqw7ClrJawr4uB/hamYWU846t0p/y49VztC24pvYndrQl+gxd39tEw4B
+         mJ1QdjR0Y/EGcB7ppVWjwMUgJl40HtmIHpsC6PHYAQkoez9bd8yYGVeC1BohA+ZduoK4
+         lieuqBHLaNbaJ8KyT50iuoyg1NsJa178ykfWIP7NbsQMS+Kl/TaGUuT0uMaGmuFFVRAu
+         xuPg==
+X-Gm-Message-State: AO0yUKV5mdWfafLALO1cefrRL0KON++uJ2wtEgsqomC5LA5SVjzBHuYZ
+	MBGsSaGnUW4nJjqG0y/n7cFlAzfADAKivd2qFNGhlA==
+X-Google-Smtp-Source: AK7set/ZMXJixIFC4D/KWjt5E7Yb69EPs9KtjzG+BYb//151Eeugg7QbDH72EBo41HILsUMiYkKai/KWyETz2jWK8JA=
+X-Received: by 2002:a17:902:7b8b:b0:19a:82a2:fcf9 with SMTP id
+ w11-20020a1709027b8b00b0019a82a2fcf9mr1399015pll.2.1679509556719; Wed, 22 Mar
+ 2023 11:25:56 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+References: <20230215143626.453491-1-alexghiti@rivosinc.com>
+ <20230215143626.453491-2-alexghiti@rivosinc.com> <4a6fc7a3-9697-a49b-0941-97f32194b0d7@ghiti.fr>
+ <877cw7dphf.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <877cw7dphf.fsf@all.your.base.are.belong.to.us>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 22 Mar 2023 11:25:45 -0700
+Message-ID: <CAKwvOdk0Lr-9gt0xAKvkcwA53+Wy8oeYQo1RJ7XH-LKCCURQCQ@mail.gmail.com>
+Subject: Re: [PATCH v8 1/3] riscv: Introduce CONFIG_RELOCATABLE
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, nathan@kernel.org, 
+	linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_112240_104335_1119A904 
-X-CRM114-Status: GOOD (  28.19  )
+X-CRM114-CacheID: sfid-20230322_112603_670779_8B48F701 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,84 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/03/23 18:22, Peter Zijlstra wrote:
-> On Wed, Mar 22, 2023 at 05:01:13PM +0000, Valentin Schneider wrote:
->
->> > So I was thinking something like this:
->
->> Hm, this does get rid of the func being passed down the helpers, but this
->> means the trace events are now stateful, i.e. I need the first and last
->> events in a CSD stack to figure out which one actually caused the IPI.
->
-> Isn't much of tracing stateful? I mean, why am I always writing awk
-> programs to parse trace output?
->
-> The one that is directly followed by
-> generic_smp_call_function_single_interrupt() (horrible name that), is
-> the one that tripped the IPI.
->
-
-Right.
-
->> It also requires whoever is looking at the trace to be aware of which IPIs
->> are attached to a CSD, and which ones aren't. ATM that's only the resched
->> IPI, but per the cover letter there's more to come (e.g. tick_broadcast()
->> for arm64/riscv and a few others). For instance:
->> 
->>        hackbench-157   [001]    10.894320: ipi_send_cpu:         cpu=3 callsite=check_preempt_curr+0x37 callback=0x0
->
-> Arguably we should be setting callback to scheduler_ipi(), except
-> ofcourse, that's not an actual function...
->
-> Maybe we can do "extern inline" for the actual users and provide a dummy
-> function for the symbol when tracing.
->
-
-Huh, I wasn't aware that was an option, I'll look into that. I did scribble
-down a comment next to smp_send_reschedule(), but having a decodable
-function name would be better!
-
->>        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=sched_ttwu_pending+0x0
->>        hackbench-157   [001]    10.895068: ipi_send_cpu:         cpu=3 callsite=try_to_wake_up+0x29e callback=generic_smp_call_function_single_interrupt+0x0
->> 
->> That first one sent a RESCHEDULE IPI, the second one a CALL_FUNCTION one,
->> but you really have to know what you're looking at...
->
-> But you have to know that anyway, you can't do tracing and not know wtf
-> you're doing. Or rather, if you do, I don't give a crap and you can keep
-> the pieces :-)
->
-> Grepping the callback should be pretty quick resolution at to what trips
-> it, no?
->
-> (also, if you *realllllly* can't manage, we can always add yet another
-> argument that gives a type thingy)
->
-
-Ah, I was a bit unclear here - I don't care too much about the IPI type
-being used, but rather being able to figure out on IRQ entry where that IPI
-came from - thinking some more about now, I don't think logging *all* CSDs
-causes an issue there, as you'd look at the earliest-not-seen-yet event
-targeting this CPU anyway.
-
-That'll be made easy once I get to having cpumask filters for ftrace, so
-I can just issue something like:
-
-  trace-cmd record -e 'ipi_send_cpu' -f "cpu == 3" -e 'ipi_send_cpumask' -f "cpus \in {3}" -T hackbench 
-
-(it's somewhere on the todolist...)
-
-TL;DR: I *think* I've convinced myself logging all of them isn't an issue -
-I'm going to play with this on something "smarter" than just hackbench
-under QEMU just to drill it in.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBGZWIgMjQsIDIwMjMgYXQgNzo1OOKAr0FNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cml0
+ZXM6Cj4KPiA+ICtjYyBsaW51eC1rYnVpbGQsIGxsdm0sIE5hdGhhbiwgTmljawo+ID4KPiA+IE9u
+IDIvMTUvMjMgMTU6MzYsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiA+PiBGcm9tOiBBbGV4YW5k
+cmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+Cj4gPj4KPiA+IEkgdHJpZWQgYSBsb3Qgb2YgdGhpbmdz
+LCBidXQgSSBzdHJ1Z2dsZSB0byB1bmRlcnN0YW5kLCBkb2VzIGFueW9uZSBoYXZlCj4gPiBhbnkg
+aWRlYT8gRllJLCB0aGUgc2FtZSBwcm9ibGVtIGhhcHBlbnMgd2l0aCBMTFZNLgoKT2ZmIHRoZSB0
+b3Agb2YgbXkgaGVhZCwgbm8gaWRlYS4KCihNYXliZSBhcyBhIGZvbGxvdyB1cCB0byB0aGlzIHNl
+cmllcywgSSB3b25kZXIgaWYgcHVyc3VpbmcKQVJDSF9IQVNfUkVMUiBmb3IgQVJDSD1yaXNjdiBp
+cyB3b3J0aHdoaWxlPykKCj4KPiBEb24ndCBhc2sgbWUgKndoeSosIGJ1dCBhZGRpbmcgLS1lbWl0
+LXJlbG9jcyB0byB5b3VyIGxpbmtlciBmbGFncyBzb2x2ZXMKPiAidGhlIE5VTEwgLnJlbGEuZHlu
+IiBib3RoIGZvciBHQ0MgYW5kIExMVk0uCj4KPiBUaGUgZG93bnNpZGUgaXMgdGhhdCB5b3UgZW5k
+IHVwIHdpdGggYSBidW5jaCBvZiAucmVsYSBjcnVmdCBpbiB5b3VyCj4gdm1saW51eC4KClRoZXJl
+IHdhcyBhIHBhdGNoIGp1c3QgdGhpcyB3ZWVrIHRvIHVzZSAkKE9CSkNPUFkpIHRvIHN0cmlwIHRo
+ZXNlIGZyb20Kdm1saW51eCAoZm9yIHg4NikuIExvb2tzIGxpa2UgeDg2IHVzZXMgLS1lbWl0LXJl
+bG9jcyBmb3IgS0FTTFI6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMzAzMjAxMjEw
+MDYuNDg2My0xLXBldHIucGF2bHVAc3VzZS5jb20vCi0tIApUaGFua3MsCn5OaWNrIERlc2F1bG5p
+ZXJzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
