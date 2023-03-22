@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8032EC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 14:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1EEC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 15:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zjQvx03ieV77NYFb53C8CaHAXEQ+qe9WC5mFAS8lSnk=; b=y1E0rBjh9D0ZKl
-	GKkw0Mfvff6zaP8Vsm9A4qO896jbeGUDxXPFKVnJ22Z48Tj7UnCNL6L0GRYuBvRx6364CqT5GOl3a
-	qNEz2bcRsgZX7djl9dfDKQgkaO+/DJ2CBwVUoi37jMCB9Zz+vttVRAfZGqn6UojxsUBpQmP81wUSL
-	Mui2HLqw4f4cqfWlSctEwRDMpx0tFHRZZhLGvAANUblQJPtiAh0/ShGxrJLoIPuStETze/JWONQRB
-	HtUXwgLACLJAqkjEoahU+HG7OjDWTzEyJzx42JSC1FXEKhPc0un5azeLaEtefjjB1HDed5SgLAq4N
-	9OfxY4p9o/hYlUEZflew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WAbfRwzdIgBVTI5iIA/t2nm+4bgCd/ZD6BmiDvEb15w=; b=jAV4gQZ5NkwAH+nX2O91HjtkO8
+	YGfYd/sTgxMC71MqiOTeBnHAyoaCP+laSxXnsUfV0VjjA6BojhOreOWs0ykeWPg5TNIZbIHQS8Ksa
+	MTiFbzZEnSX5ldgleNyaHqkLdskQcP+GZi9R/Yq4+TdBpq+DHsMlsDCb+PRoOERIEJZP0xJWGzvVF
+	SZR0J8dehRjDjlBVcrFhmVjoL6kCUnj9wrfa9NGGodLDDNXTaXKd91euc+UCC00so0WZ8AWnCMIJI
+	pfnHlu1lHfcj4UenW3sdyW3cJ0ZhpGdftcRte4zYhqyg7f0VpGt15I3tThsyRDp+uUe/P2FATyalR
+	n9jUHJTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pezjR-00GMRF-2G;
-	Wed, 22 Mar 2023 14:46:29 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1pf0DN-00GTcd-0V;
+	Wed, 22 Mar 2023 15:17:25 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pezjP-00GMPm-0R
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 14:46:28 +0000
+	id 1pf0DJ-00GTap-0I;
+	Wed, 22 Mar 2023 15:17:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 0618BCE1DD3;
-	Wed, 22 Mar 2023 14:46:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8027C4339B;
-	Wed, 22 Mar 2023 14:46:22 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 31B26B81CE3;
+	Wed, 22 Mar 2023 15:17:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC84EC433D2;
+	Wed, 22 Mar 2023 15:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679496383;
-	bh=mcvsw1hiR3Qyp1OeN9vHnJd3gGmdmQuM7Wjd77b+bFE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=ELQQHZhIzJhFR/Tk978Cc4oL5KccT10G3P7OufM8u/DwJJrgnZYhnwjbsbICQlAMV
-	 H+J2nxPCk7sKDxEk34dFgAr484iXX4ipdk//qSUVurVNswYNy4ZSHw5nYc790DuL3M
-	 PnNS/ccgSsaYCQELdpk4B0pPGzXNVCo1CFLdg1MfyiNyibq7XYuZHOI0bzhHhix8lj
-	 U6J4yngMnQ+jtjD45ynxoDUuwZ57lvqd/kXS1x484UXRQ4eNCmEdQzZJDa/oy2x3Ia
-	 VYXpIz0i0RFlhNGItPYC8Dn2i2KTVu5XRZTviQ2+ZYGkJJUGLZ+Fac/BU6OCPSePxT
-	 XixNdk9EVFQPg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: guoren@kernel.org, arnd@arndb.de, guoren@kernel.org,
- palmer@rivosinc.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, conor.dooley@microchip.com, heiko@sntech.de,
- jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org,
- chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org,
- mark.rutland@arm.com, ben@decadent.org.uk, palmer@dabbelt.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Lai Jiangshan <laijs@linux.alibaba.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Miguel Ojeda
- <ojeda@kernel.org>, Kees Cook <keescook@chromium.org>, =?utf-8?B?QmrDtnJu?=
- =?utf-8?B?IFTDtnBlbA==?=
- <bjorn@rivosinc.com>
-Subject: Re: [PATCH -next V17 1/7] compiler_types.h: Add __noinstr_section()
- for noinstr
-In-Reply-To: <20230222033021.983168-2-guoren@kernel.org>
-References: <20230222033021.983168-1-guoren@kernel.org>
- <20230222033021.983168-2-guoren@kernel.org>
-Date: Wed, 22 Mar 2023 15:46:20 +0100
-Message-ID: <87ilesu9mr.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1679498238;
+	bh=x14uXdcyN6NwgG+IiJ4mbAithUacI0jt05p67YoWCxo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vHu19ck37uJ0Noh8bpkiMcCiwaHGbeUk3AoCX1D9/uQoq+m7Jeuc8mcRjW+sjs9Lk
+	 fbtSCGNHoVaCLkM+gy9b113QC3L9P3tPRFwAwXVYqne0L6m1WsStAc3vF68MVMmioy
+	 DFgwckFmD9AIGERIB82AVK9Ky5AeChx0LNAwp/CFcXL7eda2sw3GF0mPer4I4lyLnp
+	 gfkoc0/szZ4DO1Ledjhc2NLZDfgsL8NnB9ScltQ4AeiF9yhWDzy4Ovu7qZvWWgAy/5
+	 u3d8cxwwZoaBPfWmkClx6UKw4Dc/iBmHk4ZwkcWBzuibER73j2ug9b6v5sdS8H50su
+	 L4dbHUHyU98Zg==
+Date: Wed, 22 Mar 2023 15:17:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	regressions@leemhuis.info, regressions@lists.linux.dev
+Subject: Re: [PATCH] riscv: require alternatives framework when selecting FPU
+ support
+Message-ID: <1884bd96-2783-4556-bc57-8b733758baff@spud>
+References: <ZBruFRwt3rUVngPu@zx2c4.com>
+ <20230322120907.2968494-1-Jason@zx2c4.com>
+ <20230322124631.7p67thzeblrawsqj@orel>
 MIME-Version: 1.0
+In-Reply-To: <20230322124631.7p67thzeblrawsqj@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_074627_365188_6AE18441 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230322_081721_420518_6561FCF8 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +79,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2800233747433654512=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Z3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgoKPiBGcm9tOiBMYWkgSmlhbmdzaGFuIDxsYWlqc0Bs
-aW51eC5hbGliYWJhLmNvbT4KPgo+IFVzaW5nIF9fbm9pbnN0cl9zZWN0aW9uKCkgZG9lc24ndCBh
-dXRvbWF0aWNhbGx5IGRpc2FibGUgYWxsCj4gaW5zdHJ1bWVudGF0aW9ucyBvbiB0aGUgc2VjdGlv
-bi4gSW5oaWJpdGlvbiBmb3Igc29tZQo+IGluc3RydW1lbnRhdGlvbnMgcmVxdWlyZXMgZXh0cmEg
-Y29kZS4gSS5FLiBLUFJPQkVTIGV4cGxpY2l0bHkKPiBhdm9pZHMgaW5zdHJ1bWVudGluZyBvbiAu
-bm9pbnN0ci50ZXh0LgoKR3VvLCB0aGUgZ2VuZXJpYyBlbnRyeSBzZXJpZXMgZG9lc24ndCBhcHBs
-eSBjbGVhbmx5IG9uCnJpc2N2L2Zvci1uZXh0ID42LjItcmMxLCBhbmQgdGhpcyBwYXRjaCBpcyB0
-aGUgaXNzdWUuCgpDb3VsZCB5b3UgZG8gYSByZXNwaW4gKHBvdGVudGlhbGx5IHcvbyB0aGlzIHBh
-dGNoKT8KCgpDaGVlcnMsCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+
+--===============2800233747433654512==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="B7v5JtRVPQGXVgO3"
+Content-Disposition: inline
+
+
+--B7v5JtRVPQGXVgO3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Mar 22, 2023 at 01:46:31PM +0100, Andrew Jones wrote:
+> On Wed, Mar 22, 2023 at 01:09:07PM +0100, Jason A. Donenfeld wrote:
+> > When moving switch_to's has_fpu() over to using riscv_has_extension_
+> > likely() rather than static branchs, the FPU code gained a dependency on
+> > the alternatives framework. If CONFIG_RISCV_ALTERNATIVE isn't selected
+> > when CONFIG_FPU is, then has_fpu() returns false, and switch_to does not
+> > work as intended. So select CONFIG_RISCV_ALTERNATIVE when CONFIG_FPU is
+> > selected.
+> >=20
+> > Fixes: 702e64550b12 ("riscv: fpu: switch has_fpu() to riscv_has_extensi=
+on_likely()")
+> > Link: https://lore.kernel.org/all/ZBruFRwt3rUVngPu@zx2c4.com/
+> > Cc: Jisheng Zhang <jszhang@kernel.org>
+> > Cc: Andrew Jones <ajones@ventanamicro.com>
+> > Cc: Heiko Stuebner <heiko@sntech.de>
+> > Cc: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks for fixing it!
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+> > Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+> > ---
+> >  arch/riscv/Kconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index c5e42cc37604..0f59350c699d 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -467,6 +467,7 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+> >  config FPU
+> >  	bool "FPU support"
+> >  	default y
+> > +	select RISCV_ALTERNATIVE
+> >  	help
+> >  	  Say N here if you want to disable all floating-point related proced=
+ure
+> >  	  in the kernel.
+> > --=20
+> > 2.40.0
+> >
+>=20
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>=20
+> I took a look to see if we missed anything else and see that we should
+> do the same patch for KVM. I'll send one.
+>=20
+> (It's tempting to just select RISCV_ALTERNATIVE from RISCV, but maybe we
+>  can defer that wedding a bit longer.)
+
+At that point, the config option should just go away entirely, no?
+
+--B7v5JtRVPQGXVgO3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBsb2wAKCRB4tDGHoIJi
+0m+3AQCe8JDweaSMp3gkW9PkqtzV9SdMdFtfRNgo0IR/sPVzowD/brjdaYh5/LCw
+MO5YGP9cVuRb+cGX+RlJV2Skhb0lHgA=
+=pPeQ
+-----END PGP SIGNATURE-----
+
+--B7v5JtRVPQGXVgO3--
+
+
+--===============2800233747433654512==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2800233747433654512==--
+
