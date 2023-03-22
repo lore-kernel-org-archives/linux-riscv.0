@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC83C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 15:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D13DC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Mar 2023 16:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEQe4NZ1/EY+ohjCj0aAv/vu+7bzNSmBeaOdmIcRxwI=; b=of9udbwB99G5H+1amVCTGZ9DSj
-	J1q5dSR+BhUm0LG6sE3O+vSodhUNOG9zd83oODHqbjRzCYZHnAM1SJjZYGsTg5w04So++f/WE++up
-	bXl+RkxFxZCZR4KQCEIptlCKAJ6UooIeA1FsALi+ibrWJkTwcVKpLx6tmphRgnUcaeGrWQUAZG8Sa
-	pjmdCqu3V9uhK4LOKNUhsBe48yUoMWWPPL75Lrr8Zad/NjVjshHo3bJ/I2HgEBHAg6LvRGzdpVPBe
-	6am8aAag8E4Rnn6Ngd5m5UplzzX8ZiziAofjZslBWVqZdfz+L+3Bk7NwbYyPBdo7NYzEiLAa6plTx
-	hzuyQeNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=B4vnCbeDWXpm4k4HZ7urjghj5HSKIjj4+h9q3ETh8HU=; b=PLPnV6CRE6EPMs
+	8eb6XKgrPMSbX7UWShlzOQ+uI2znBB578+w4pPlar+uYMXfImrqprn5PRJjDoOKKQgScezcAZMXNM
+	dCcDin6AyQFASbAP0h5gZMXh+8SLzo12Ejvb9wYV2n2jbs1avSsEVmYix1zyNC3mEhUd1ECsemk6m
+	WN72M5OZ0k2sBdHQLpaQLtT/wFQqOPZLxGwU3nHNufXHHkk/kZrnfMLZqULLJQuksD9LSkBo22/nk
+	k61YOnAxBEMmliWLxtdopSx5HfE7jH2+F8A/f0IPauatnvUcH74myiBeiSDc0KjdX2BpnNIOldg5s
+	qoiNZFjdHaPxQcaC7qkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf0VZ-00GWpT-1J;
-	Wed, 22 Mar 2023 15:36:13 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pf0xZ-00GagN-0r;
+	Wed, 22 Mar 2023 16:05:09 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pf0VW-00GWoZ-1i
+	id 1pf0xV-00Gado-2q
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Mar 2023 15:36:12 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id BB09DB81CEE;
-	Wed, 22 Mar 2023 15:36:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BEB5C4339B;
-	Wed, 22 Mar 2023 15:36:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679499365;
-	bh=DZy9l2qyDKre9adLwkTIGVd6PoEOrq5ypuDZNWHxbJU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uWqGKRZENH6xhp47Uo6JUmbc8rMcVyCGI1wIWS9Ycu1PR1v0i/Lz6WE6+ITRbtQWP
-	 KAnd/amMvGloOOH7kvjSXNEUHUkGA1gaJqAMqsveJtnl/L2r+/wOKA/YOupxvhpISe
-	 P3FgL3ojHPObXM2v0pgehfxYKLrp39ovS8Ar51V52vhsmGInrbpfA4Mrw4C/S1FFTA
-	 DuFz4tYaXZxzg234CCAJ1GVEhXEQhPTgYATpEzg3nAgPu9x9So32+zEkijfb7Br4SN
-	 tkUOZaFPXlyyZwFHfh4HFM89T11cJdwBtYwAxhUy9nBxJT+LzAxHv3YCLVfdDX6RzX
-	 lx0Mz43ukmzFg==
-Date: Wed, 22 Mar 2023 15:35:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, slewis@rivosinc.com,
-	heiko@sntech.de, vineetg@rivosinc.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 3/6] RISC-V: hwprobe: Add support for
- RISCV_HWPROBE_BASE_BEHAVIOR_IMA
-Message-ID: <8e132bed-c85a-4bfd-bff8-5147db1cec32@spud>
-References: <20230314183220.513101-1-evan@rivosinc.com>
- <20230314183220.513101-4-evan@rivosinc.com>
+	Wed, 22 Mar 2023 16:05:07 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id t14so19491235ljd.5
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Mar 2023 09:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679501101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bQMj+UbSGYt/V4ItEl8Atz++wkEESN6wJSeRvZafcDU=;
+        b=fXDTK4UwWJxghhGY844FVJkS0jod018sFRa0JBR2+G/lVjO/CNliTnwbakz6nPokPM
+         ctesUpwtgM7AtGOBQBk/KcVJvZPTuY4YB+apo51lhApvb0i6T+YI89tfIMxJFGF/7ux5
+         juJINe4wcZSKbe5qz65JOk30xQa36Jqx3MzzCnYaHQ5IYG6+PO2I14y5OIXs5kxDTkdF
+         1GQzH/YyUtvAXNacXkMC5rRcgMYiaWgSG03Tag7KIj9qW4H+teBEqY4enNWq8SNghfg1
+         9+EuKVWvhD8tt7Fbg3arhOW22QAjiVRVddT5aSc3tb9uQ5pIPLeFLjsMPz+Guw2w8av6
+         2zDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679501101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bQMj+UbSGYt/V4ItEl8Atz++wkEESN6wJSeRvZafcDU=;
+        b=3RX4e+SU1CXrPLfpzEz1LRXbYpUT1yMpp4Ua+uwQFOJy889CJBOVVjdIyNNwBuQHIm
+         lxjZg6QV2KI8iDzdJpxP1MnAIddjymhSZ78AGwG7B0rRZHpCZ2K8bEc4wpbSpiBra+MK
+         6FWavoLhF7Ma9krRzm1sVAwlQ8a2h2cFmKVyoxh3n5VLHpu5NuaMpuLWbRpup0A4I/S2
+         a/ni7/377bPKfxU8WnJRsEAy9zkeYj1TAL/OCyhBjJJwxPEkDzXX+HZFy7zFWjBv2HSU
+         0W1pnhMkty+MknQdUqa5wtJx3hmtNDOjI1JqSVjxnncR39rtrkkiYyzCSlVQsfeEyqDT
+         M17g==
+X-Gm-Message-State: AO0yUKUdJj/wGCl7/bPxTBTrY/7rataEM+t8lQQa6eX3rUix0z9e0rJ7
+	BZEQa5gqaS0jcydWjUL2Z1hb+ea3lIKsCkPXrSTmNA==
+X-Google-Smtp-Source: AK7set9V3VY49u6SCjZkRbppQZLZPGl6botYkgoHJVVX0x35uhukV8uSf3SrWFeWx07P5q2ZlbHvjlPYcJhJ919zgfU=
+X-Received: by 2002:a2e:7e05:0:b0:299:ac4e:a8a6 with SMTP id
+ z5-20020a2e7e05000000b00299ac4ea8a6mr2145466ljc.9.1679501101548; Wed, 22 Mar
+ 2023 09:05:01 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230314183220.513101-4-evan@rivosinc.com>
+References: <20230314183220.513101-1-evan@rivosinc.com> <20230314183220.513101-4-evan@rivosinc.com>
+ <8e132bed-c85a-4bfd-bff8-5147db1cec32@spud>
+In-Reply-To: <8e132bed-c85a-4bfd-bff8-5147db1cec32@spud>
+From: Evan Green <evan@rivosinc.com>
+Date: Wed, 22 Mar 2023 09:04:25 -0700
+Message-ID: <CALs-HsskLpLg=yEfULXZNOCFeFU3M9j9Kzcj49gPtw+0VGGhzA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/6] RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, slewis@rivosinc.com, heiko@sntech.de, 
+	vineetg@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrew Bresticker <abrestic@rivosinc.com>, 
+	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230322_083610_903409_D6379517 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20230322_090506_147086_7F31D3ED 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,96 +89,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9223049978124257704=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============9223049978124257704==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r+TYFFM1/Jo8CP9z"
-Content-Disposition: inline
-
-
---r+TYFFM1/Jo8CP9z
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 14, 2023 at 11:32:17AM -0700, Evan Green wrote:
-> We have an implicit set of base behaviors that userspace depends on,
-> which are mostly defined in various ISA specifications.
->=20
-> Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-> @@ -125,6 +126,25 @@ static void hwprobe_one_pair(struct riscv_hwprobe *p=
-air,
->  	case RISCV_HWPROBE_KEY_MIMPID:
->  		hwprobe_arch_id(pair, cpus);
->  		break;
-> +	/*
-> +	 * The kernel already assumes that the base single-letter ISA
-> +	 * extensions are supported on all harts, and only supports the
-> +	 * IMA base, so just cheat a bit here and tell that to
-> +	 * userspace.
-> +	 */
-> +	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
-> +		pair->value =3D RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-> +		break;
-> +
-> +	case RISCV_HWPROBE_KEY_IMA_EXT_0:
-> +		pair->value =3D 0;
-> +		if (has_fpu())
-> +			pair->value |=3D RISCV_HWPROBE_IMA_FD;
-> +
-> +		if (elf_hwcap & RISCV_ISA_EXT_c)
-
-Random thought while reviewing another patch, and I kinda felt a bit
-stupid following the existing code to try and make sure, but should this
-become a call to riscv_isa_extension_available(NULL, c)?
-It may be nice to propagate that helper, if it works, than check the bit
-directly.
-
-Cheers,
-Conor.
-
-> +			pair->value |=3D RISCV_HWPROBE_IMA_C;
-> +
-> +		break;
-> =20
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
-> --=20
-> 2.25.1
->=20
-
---r+TYFFM1/Jo8CP9z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBsgXwAKCRB4tDGHoIJi
-0uXwAPwO6vaB4a7jTfh6cwcjIbakPGbW2KoWTWyZNWCElUCFGgEA/czXfGY7/Z9G
-0R/BZly3E44aKfHbp8z2S2DhkztM8QU=
-=2y2o
------END PGP SIGNATURE-----
-
---r+TYFFM1/Jo8CP9z--
-
-
---===============9223049978124257704==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9223049978124257704==--
-
+WWVwLCB5b3UgYW5kIEhlaWtvIGFyZSBvbiB0aGUgc2FtZSB3YXZlbGVuZ3RoIHRoZXNlIGRheXMu
+IEknbGwgbWFrZSB0aGF0IGNoYW5nZS4KLUV2YW4KCk9uIFdlZCwgTWFyIDIyLCAyMDIzIGF0IDg6
+MzbigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVHVl
+LCBNYXIgMTQsIDIwMjMgYXQgMTE6MzI6MTdBTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90ZToKPiA+
+IFdlIGhhdmUgYW4gaW1wbGljaXQgc2V0IG9mIGJhc2UgYmVoYXZpb3JzIHRoYXQgdXNlcnNwYWNl
+IGRlcGVuZHMgb24sCj4gPiB3aGljaCBhcmUgbW9zdGx5IGRlZmluZWQgaW4gdmFyaW91cyBJU0Eg
+c3BlY2lmaWNhdGlvbnMuCj4gPgo+ID4gQ28tZGV2ZWxvcGVkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8
+cGFsbWVyQHJpdm9zaW5jLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IFBhbG1lciBEYWJiZWx0IDxw
+YWxtZXJAcml2b3NpbmMuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogRXZhbiBHcmVlbiA8ZXZhbkBy
+aXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlA
+bWljcm9jaGlwLmNvbT4KPgo+ID4gQEAgLTEyNSw2ICsxMjYsMjUgQEAgc3RhdGljIHZvaWQgaHdw
+cm9iZV9vbmVfcGFpcihzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPiA+ICAgICAgIGNhc2Ug
+UklTQ1ZfSFdQUk9CRV9LRVlfTUlNUElEOgo+ID4gICAgICAgICAgICAgICBod3Byb2JlX2FyY2hf
+aWQocGFpciwgY3B1cyk7Cj4gPiAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gKyAgICAgLyoKPiA+
+ICsgICAgICAqIFRoZSBrZXJuZWwgYWxyZWFkeSBhc3N1bWVzIHRoYXQgdGhlIGJhc2Ugc2luZ2xl
+LWxldHRlciBJU0EKPiA+ICsgICAgICAqIGV4dGVuc2lvbnMgYXJlIHN1cHBvcnRlZCBvbiBhbGwg
+aGFydHMsIGFuZCBvbmx5IHN1cHBvcnRzIHRoZQo+ID4gKyAgICAgICogSU1BIGJhc2UsIHNvIGp1
+c3QgY2hlYXQgYSBiaXQgaGVyZSBhbmQgdGVsbCB0aGF0IHRvCj4gPiArICAgICAgKiB1c2Vyc3Bh
+Y2UuCj4gPiArICAgICAgKi8KPiA+ICsgICAgIGNhc2UgUklTQ1ZfSFdQUk9CRV9LRVlfQkFTRV9C
+RUhBVklPUjoKPiA+ICsgICAgICAgICAgICAgcGFpci0+dmFsdWUgPSBSSVNDVl9IV1BST0JFX0JB
+U0VfQkVIQVZJT1JfSU1BOwo+ID4gKyAgICAgICAgICAgICBicmVhazsKPiA+ICsKPiA+ICsgICAg
+IGNhc2UgUklTQ1ZfSFdQUk9CRV9LRVlfSU1BX0VYVF8wOgo+ID4gKyAgICAgICAgICAgICBwYWly
+LT52YWx1ZSA9IDA7Cj4gPiArICAgICAgICAgICAgIGlmIChoYXNfZnB1KCkpCj4gPiArICAgICAg
+ICAgICAgICAgICAgICAgcGFpci0+dmFsdWUgfD0gUklTQ1ZfSFdQUk9CRV9JTUFfRkQ7Cj4gPiAr
+Cj4gPiArICAgICAgICAgICAgIGlmIChlbGZfaHdjYXAgJiBSSVNDVl9JU0FfRVhUX2MpCj4KPiBS
+YW5kb20gdGhvdWdodCB3aGlsZSByZXZpZXdpbmcgYW5vdGhlciBwYXRjaCwgYW5kIEkga2luZGEg
+ZmVsdCBhIGJpdAo+IHN0dXBpZCBmb2xsb3dpbmcgdGhlIGV4aXN0aW5nIGNvZGUgdG8gdHJ5IGFu
+ZCBtYWtlIHN1cmUsIGJ1dCBzaG91bGQgdGhpcwo+IGJlY29tZSBhIGNhbGwgdG8gcmlzY3ZfaXNh
+X2V4dGVuc2lvbl9hdmFpbGFibGUoTlVMTCwgYyk/Cj4gSXQgbWF5IGJlIG5pY2UgdG8gcHJvcGFn
+YXRlIHRoYXQgaGVscGVyLCBpZiBpdCB3b3JrcywgdGhhbiBjaGVjayB0aGUgYml0Cj4gZGlyZWN0
+bHkuCj4KPiBDaGVlcnMsCj4gQ29ub3IuCj4KPiA+ICsgICAgICAgICAgICAgICAgICAgICBwYWly
+LT52YWx1ZSB8PSBSSVNDVl9IV1BST0JFX0lNQV9DOwo+ID4gKwo+ID4gKyAgICAgICAgICAgICBi
+cmVhazsKPiA+Cj4gPiAgICAgICAvKgo+ID4gICAgICAgICogRm9yIGZvcndhcmQgY29tcGF0aWJp
+bGl0eSwgdW5rbm93biBrZXlzIGRvbid0IGZhaWwgdGhlIHdob2xlCj4gPiAtLQo+ID4gMi4yNS4x
+Cj4gPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
