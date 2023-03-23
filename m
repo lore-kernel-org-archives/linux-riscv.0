@@ -4,129 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0ED3C76196
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DD4C74A5B
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YCgiQedRJ/xHXFinrqoe1dZTWQ7uMAAm5hBGx7BZ2VA=; b=CpRU6+f4lzyJ9Z
-	Ug/KFLB0PNc5Xqbjm0/mRW7kV4maKc7Wu3arlGwUoZjSk0y2hlndatvmrMfdSsAFtaz234CROgx8Z
-	NLBuh3x27Bq7o0XvnAfB975UQjvVKUdN885potlBvbcDwcnNCA8iXPI5A34VRZm4Zo/EPwpcVhb3s
-	BW3BUvNC5eP4tWiaSYLrCQ49MHIJYufGdaX0oBkoZNPfwCJt9KuSUKbv5vilw8X4TJEILXzvqjCCQ
-	jD2Dd1QfCksFD64MvaecNFL7ZkqOrls+eFr3z99YzlodqnrLz5P4JrJdl7SBGrVAzKAdj0+sx68Th
-	l50gE/xmPQo+v70KFC4Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tCgL0MxpVWsWGadNeFPQBI0nBidPMuZodlYMvgr8n80=; b=zpxpYUNKMyj6f/
+	Xm3nme2TdFayehqOpY/OY33/Nuoii8ioSESvFzhQ5JCCnczs6q8fxLycU4HVBGDHmq5CVEatnzy6C
+	IFlt9uigEpVrgzZYMFltPM+3HChlF7m9C7MBhuurjGzA36gse1g/hSlQzWwqC6v8T3kbiR5qlkMec
+	pXmmYbgd7d3BsV8ozOCbc6qdaQY6kfNtWq5zC037QGBFzzhXMxjUoWBkx+3MYQ6JrGGG3weg+2xPG
+	5ya7+cJoLzgmH0WrWinQc8FoecJvGe09nmg89VxcOLF9Unw2zL74ekC1APJgD9yzEdywrlEXY/9gy
+	HwMedvJw1270kRXJrAJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfNts-002UUf-1q;
-	Thu, 23 Mar 2023 16:34:52 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1pfNu6-002UZ0-0k;
+	Thu, 23 Mar 2023 16:35:06 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfNtn-002UTH-2g;
-	Thu, 23 Mar 2023 16:34:50 +0000
-Received: from pps.filterd (m0098396.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 32NF1iUH025741;
-	Thu, 23 Mar 2023 16:34:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from : to : cc : subject
- : date : message-id : content-transfer-encoding : mime-version; s=pp1;
- bh=acT/02utXawoH32mC8Zfy9FEHVZb3pNDgW9UY75G1Wk=;
- b=YNEDGxiOxwLIs2VW3/0EbLBpym/lbOGIAmIEe4boIucMp2OKupdarp2JDuWrpCRgddaf
- HSQ3e7ZQtspdf2U1PBjnkrtgOtrEN5AwFrC2yf0OZIkuzPUmbkppjb7f25tWefMFf06m
- HD3Lde7dxytPVRgDyW9xdn5fQHuFfTtwH06174Ygtdr4fektfdJkgSzq5hX3qEwLg+eS
- MEsSnTj18e+MnBAZ+A1d33fua28arpuz+Sh9A0s/c5ohGO3ADQCDf2FEFomDZgY/kCo1
- +OZG1ftII9VUAwlt0DJSJV7Zs+MAWxjQcPRl82UUwIH0FtG1szSBLC1tqYBnjakUQ32Z /Q== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3pgn871bqb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Mar 2023 16:34:03 +0000
-Received: from m0098396.ppops.net (m0098396.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 32NDr2iH023038;
-	Thu, 23 Mar 2023 16:34:02 GMT
-Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com [159.122.73.71])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3pgn871bp5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Mar 2023 16:34:02 +0000
-Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
-	by ppma02fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 32N4XR1f018070;
-	Thu, 23 Mar 2023 16:33:59 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma02fra.de.ibm.com (PPS) with ESMTPS id 3pd4x6eefv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Mar 2023 16:33:58 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 32NGXuTF27525836
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Mar 2023 16:33:56 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0B3E02004B;
-	Thu, 23 Mar 2023 16:33:56 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F0D5020040;
-	Thu, 23 Mar 2023 16:33:54 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 23 Mar 2023 16:33:54 +0000 (GMT)
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-        Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        WANG Xuerui <kernel@xen0n.name>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Rich Felker <dalias@libc.org>,
-        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Alan Stern <stern@rowland.harvard.edu>,
-        "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
-        Arnd Bergmann <arnd@kernel.org>,
-        Johannes Berg <johannes@sipsolutions.net>, linux-alpha@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-        loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
-Subject: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it as necessary
-Date: Thu, 23 Mar 2023 17:33:52 +0100
-Message-Id: <20230323163354.1454196-1-schnelle@linux.ibm.com>
+	id 1pfNu2-002UWa-2S
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Mar 2023 16:35:04 +0000
+Received: by mail-wr1-x434.google.com with SMTP id j24so12384796wrd.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 09:35:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679589299;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L4qXDule2Q2bm4m/tvaeO5IXD5ibTcdOO6060VBTFFk=;
+        b=ojVXZraQtG6MVGn6DcrcvVU6Ki7ve4ragp2UjfMM79R7W5wSlp/cAUQA41VhPYanKa
+         FLqLrWJWLsV6UnGDgy1nHEd92Ez9nFil9kLUNnFV7Lh2lmz5UwkLrRd85v7901SrWBvT
+         6U684vP4ESzL4e0OW2iwdEM9u0E+MC9Z5WOw/RWMw+C4kuzy7UmRsHfsDZK+yBx10lxG
+         sCgqGtjcwZbxNFwFU3Y0eeyh0CMvgblKtrvbir8T5HvOEOviyvuM5+4WTDug8yJzX2q7
+         kwnVxG4SUomz5YsK76JUZDHqyVjJqDLG1/vfeldQh3NKqDzLy35OWNeLTQ6VYRj46FrX
+         Zd/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679589299;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L4qXDule2Q2bm4m/tvaeO5IXD5ibTcdOO6060VBTFFk=;
+        b=5EBWupnQPIte3gnJdFuTAqCo64VHbfAVkqRB3yTIDhOSzAi0aPC+txo1ReM3cKWJ4Q
+         K7jnkUSzoTpkveh6COFO0X/k0X1OqQS5M9q6AMbLSIRL8LHL/5EVXnC3eL+gNbH0xqXt
+         P2FpIJLV26yQyy1t3yedwB7r9qhFNz3wFYt2jHSBfCF+y2dgY+2lsWaOUYx8vH6wzgTj
+         O4Rod9g9xfQgRPBO1d1aOAUG0jze026TXXPvCfaZeI3CtV2hPo2vONaES4+TaluAYdb2
+         wq1mgi+brKvef6p+IQcHPEuF3v4fxShX8lg265rkNw1UyDtZ01bIqOg47gkV6a+fu3Nm
+         3PMQ==
+X-Gm-Message-State: AAQBX9cR87jxdebl82c+xBbVbLqozdFE+W3jwe0+7ci7oNDMBOr6zZMn
+	euPGulKyWt0xntlSON3ICyp0yg==
+X-Google-Smtp-Source: AKy350aZeDXuopq3BMX5NmMCdXbkTWhL7byBF6Byyz7/sbbbPuoIeYi49K2YGsOrYrJNtF6npMd+qQ==
+X-Received: by 2002:a5d:6643:0:b0:2cf:e29f:d7f5 with SMTP id f3-20020a5d6643000000b002cfe29fd7f5mr2937437wrw.25.1679589298832;
+        Thu, 23 Mar 2023 09:34:58 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id x4-20020a1c7c04000000b003ee0d191539sm2342889wmc.10.2023.03.23.09.34.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Mar 2023 09:34:58 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <Conor.Dooley@microchip.com>
+Subject: [PATCH -fixes 1/2] riscv: Move early dtb mapping into the fixmap region
+Date: Thu, 23 Mar 2023 17:33:46 +0100
+Message-Id: <20230323163347.182895-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: OEQpOuYuicyDPRN5V_qRfK7Yk5Yc5L6E
-X-Proofpoint-ORIG-GUID: 3APFiBEOa4qTbFQTDE9ca29AX4ixw-8u
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+In-Reply-To: <20230323163347.182895-1-alexghiti@rivosinc.com>
+References: <20230323163347.182895-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-03-22_21,2023-03-23_02,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
- mlxlogscore=774 adultscore=0 spamscore=0 clxscore=1011 suspectscore=0
- impostorscore=0 malwarescore=0 priorityscore=1501 phishscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2303150002
- definitions=main-2303230120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_093447_877379_12DB3A6E 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20230323_093502_802156_723D5D6E 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,292 +99,246 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
-Port access. In a future patch HAS_IOPORT=n will disable compilation of
-the I/O accessor functions inb()/outb() and friends on architectures
-which can not meaningfully support legacy I/O spaces such as s390.
+riscv establishes 2 virtual mappings:
 
-The following architectures do not select HAS_IOPORT:
+- early_pg_dir maps the kernel which allows to discover the system
+  memory
+- swapper_pg_dir installs the final mapping (linear mapping included)
 
-* ARC
-* C-SKY
-* Hexagon
-* Nios II
-* OpenRISC
-* s390
-* User-Mode Linux
-* Xtensa
+We used to map the dtb in early_pg_dir using DTB_EARLY_BASE_VA, and this
+mapping was not carried over in swapper_pg_dir. It happens that
+early_init_fdt_scan_reserved_mem must be called before swapper_pg_dir is
+setup otherwise we could allocate reserved memory defined in the dtb.
+And this function initializes reserved_mem variable with addresses that
+lie in the early_pg_dir dtb mapping: when those addresses are reused
+with swapper_pg_dir, this mapping does not exist and then we trap.
 
-All other architectures select HAS_IOPORT at least conditionally.
+So move the dtb mapping in the fixmap region which is established in
+early_pg_dir and handed over to swapper_pg_dir.
 
-The "depends on" relations on HAS_IOPORT in drivers as well as ifdefs
-for HAS_IOPORT specific sections will be added in subsequent patches on
-a per subsystem basis.
-
-Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Arnd Bergmann <arnd@kernel.org>
-Acked-by: Johannes Berg <johannes@sipsolutions.net> # for ARCH=um
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+Fixes: 50e63dd8ed92 ("riscv: fix reserved memory setup")
+Reported-by: Conor Dooley <Conor.Dooley@microchip.com>
+Link: https://lore.kernel.org/all/f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com/
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
-Note: This patch is the initial patch of a larger series[0]. This patch
-introduces the HAS_IOPORT config option while the rest of the series adds
-driver dependencies and the final patch removes inb() / outb() and friends on
-platforms that don't support them. 
+ Documentation/riscv/vm-layout.rst |  6 +--
+ arch/riscv/include/asm/fixmap.h   |  8 ++++
+ arch/riscv/include/asm/pgtable.h  |  8 +++-
+ arch/riscv/kernel/setup.c         |  1 -
+ arch/riscv/mm/init.c              | 61 +++++++++++++++++--------------
+ 5 files changed, 51 insertions(+), 33 deletions(-)
 
-Thus each of the per-subsystem patches is independent from each other but
-depends on this patch while the final patch depends on the whole series. Thus
-splitting this initial patch off allows the per-subsytem HAS_IOPORT dependency
-addition be merged separately via different trees without breaking the build.
-
-[0] https://lore.kernel.org/lkml/20230314121216.413434-1-schnelle@linux.ibm.com/
-
-Changes since v3:
-- List archs without HAS_IOPORT in commit message (Arnd)
-- Select HAS_IOPORT for LoongArch (Arnd)
-- Use "select HAS_IOPORT if (E)ISA || .." instead of a "depends on" for (E)ISA
-  for m68k and parisc
-- Select HAS_IOPORT with config GSC on parisc (Arnd)
-- Drop "depends on HAS_IOPORT" for um's config ISA (Johannes)
-- Drop "depends on HAS_IOPORT" for config ISA on x86 and parisc where it is
-  always selected (Arnd)
-
- arch/alpha/Kconfig      | 1 +
- arch/arm/Kconfig        | 1 +
- arch/arm64/Kconfig      | 1 +
- arch/ia64/Kconfig       | 1 +
- arch/loongarch/Kconfig  | 1 +
- arch/m68k/Kconfig       | 1 +
- arch/microblaze/Kconfig | 1 +
- arch/mips/Kconfig       | 1 +
- arch/parisc/Kconfig     | 1 +
- arch/powerpc/Kconfig    | 1 +
- arch/riscv/Kconfig      | 1 +
- arch/sh/Kconfig         | 1 +
- arch/sparc/Kconfig      | 1 +
- arch/x86/Kconfig        | 1 +
- drivers/bus/Kconfig     | 2 +-
- drivers/parisc/Kconfig  | 1 +
- lib/Kconfig             | 4 ++++
- 17 files changed, 20 insertions(+), 1 deletion(-)
-
-diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-index 780d4673c3ca..a5c2b1aa46b0 100644
---- a/arch/alpha/Kconfig
-+++ b/arch/alpha/Kconfig
-@@ -27,6 +27,7 @@ config ALPHA
- 	select AUDIT_ARCH
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_SMP_IDLE_THREAD
-+	select HAS_IOPORT
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_MOD_ARCH_SPECIFIC
- 	select MODULES_USE_ELF_RELA
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index e24a9820e12f..4acb5bc4b52a 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -70,6 +70,7 @@ config ARM
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select HARDIRQS_SW_RESEND
-+	select HAS_IOPORT
- 	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
- 	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
- 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 1023e896d46b..b740019c4aee 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -145,6 +145,7 @@ config ARM64
- 	select GENERIC_GETTIMEOFDAY
- 	select GENERIC_VDSO_TIME_NS
- 	select HARDIRQS_SW_RESEND
-+	select HAS_IOPORT
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PCI
-diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-index d7e4a24e8644..2e13ec8263b9 100644
---- a/arch/ia64/Kconfig
-+++ b/arch/ia64/Kconfig
-@@ -25,6 +25,7 @@ config IA64
- 	select PCI_DOMAINS if PCI
- 	select PCI_MSI
- 	select PCI_SYSCALL if PCI
-+	select HAS_IOPORT
- 	select HAVE_ASM_MODVERSIONS
- 	select HAVE_UNSTABLE_SCHED_CLOCK
- 	select HAVE_EXIT_THREAD
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index 7fd51257e0ed..e1615dfb5437 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -80,6 +80,7 @@ config LOONGARCH
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GPIOLIB
-+	select HAS_IOPORT
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_MMAP_RND_BITS if MMU
- 	select HAVE_ARCH_SECCOMP_FILTER
-diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-index 82154952e574..40198a1ebe27 100644
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -18,6 +18,7 @@ config M68K
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_IOMAP
- 	select GENERIC_IRQ_SHOW
-+	select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA
- 	select HAVE_ARCH_SECCOMP
- 	select HAVE_ARCH_SECCOMP_FILTER
- 	select HAVE_ASM_MODVERSIONS
-diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
-index cc88af6fa7a4..211f338d6235 100644
---- a/arch/microblaze/Kconfig
-+++ b/arch/microblaze/Kconfig
-@@ -21,6 +21,7 @@ config MICROBLAZE
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_SCHED_CLOCK
-+	select HAS_IOPORT if PCI
- 	select HAVE_ARCH_HASH
- 	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_SECCOMP
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index e2f3ca73f40d..2ea3539a07ad 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -47,6 +47,7 @@ config MIPS
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
-+	select HAS_IOPORT if !NO_IOPORT_MAP || ISA
- 	select HAVE_ARCH_COMPILER_H
- 	select HAVE_ARCH_JUMP_LABEL
- 	select HAVE_ARCH_KGDB if MIPS_FP_SUPPORT
-diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-index a98940e64243..466a25525364 100644
---- a/arch/parisc/Kconfig
-+++ b/arch/parisc/Kconfig
-@@ -47,6 +47,7 @@ config PARISC
- 	select MODULES_USE_ELF_RELA
- 	select CLONE_BACKWARDS
- 	select TTY # Needed for pdc_cons.c
-+	select HAS_IOPORT if PCI || EISA
- 	select HAVE_DEBUG_STACKOVERFLOW
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HASH
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index a6c4407d3ec8..02fd9bcd9215 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -188,6 +188,7 @@ config PPC
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_VDSO_TIME_NS
-+	select HAS_IOPORT			if PCI
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HUGE_VMALLOC		if HAVE_ARCH_HUGE_VMAP
- 	select HAVE_ARCH_HUGE_VMAP		if PPC_RADIX_MMU || PPC_8xx
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc37604..b957d12a171b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -74,6 +74,7 @@ config RISCV
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
- 	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
- 	select HARDIRQS_SW_RESEND
-+	select HAS_IOPORT if MMU
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
- 	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT && !XIP_KERNEL
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index 0665ac0add0b..cfb797bc4200 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -25,6 +25,7 @@ config SUPERH
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GUP_GET_PXX_LOW_HIGH if X2TLB
-+	select HAS_IOPORT if HAS_IOPORT_MAP
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_SECCOMP_FILTER
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 84437a4c6545..d4c1d96f85cd 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -32,6 +32,7 @@ config SPARC
- 	select GENERIC_IRQ_SHOW
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select GENERIC_PCI_IOMAP
-+	select HAS_IOPORT
- 	select HAVE_NMI_WATCHDOG if SPARC64
- 	select HAVE_CBPF_JIT if SPARC32
- 	select HAVE_EBPF_JIT if SPARC64
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a825bf031f49..44514c63a476 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -162,6 +162,7 @@ config X86
- 	select GUP_GET_PXX_LOW_HIGH		if X86_PAE
- 	select HARDIRQS_SW_RESEND
- 	select HARDLOCKUP_CHECK_TIMESTAMP	if X86_64
-+	select HAS_IOPORT
- 	select HAVE_ACPI_APEI			if ACPI
- 	select HAVE_ACPI_APEI_NMI		if ACPI
- 	select HAVE_ALIGNED_STRUCT_PAGE		if SLUB
-diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
-index 7bfe998f3514..fcfa280df98a 100644
---- a/drivers/bus/Kconfig
-+++ b/drivers/bus/Kconfig
-@@ -81,7 +81,7 @@ config MOXTET
- config HISILICON_LPC
- 	bool "Support for ISA I/O space on HiSilicon Hip06/7"
- 	depends on (ARM64 && ARCH_HISI) || (COMPILE_TEST && !ALPHA && !HEXAGON && !PARISC)
--	depends on HAS_IOMEM
-+	depends on HAS_IOPORT
- 	select INDIRECT_PIO if ARM64
- 	help
- 	  Driver to enable I/O access to devices attached to the Low Pin
-diff --git a/drivers/parisc/Kconfig b/drivers/parisc/Kconfig
-index 9eb2c1b5de7d..2fc3222d2634 100644
---- a/drivers/parisc/Kconfig
-+++ b/drivers/parisc/Kconfig
-@@ -4,6 +4,7 @@ menu "Bus options (PCI, PCMCIA, EISA, GSC, ISA)"
- config GSC
- 	bool "VSC/GSC/HSC bus support"
- 	select HAVE_EISA
-+	select HAS_IOPORT
- 	default y
- 	help
- 	  The VSC, GSC and HSC busses were used from the earliest 700-series
-diff --git a/lib/Kconfig b/lib/Kconfig
-index ce2abffb9ed8..5c2da561c516 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -92,6 +92,7 @@ config ARCH_USE_SYM_ANNOTATIONS
- config INDIRECT_PIO
- 	bool "Access I/O in non-MMIO mode"
- 	depends on ARM64
-+	depends on HAS_IOPORT
- 	help
- 	  On some platforms where no separate I/O space exists, there are I/O
- 	  hosts which can not be accessed in MMIO mode. Using the logical PIO
-@@ -509,6 +510,9 @@ config HAS_IOMEM
- 	depends on !NO_IOMEM
- 	default y
- 
-+config HAS_IOPORT
-+	bool
+diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
+index 3be44e74ec5d..5462c84f4723 100644
+--- a/Documentation/riscv/vm-layout.rst
++++ b/Documentation/riscv/vm-layout.rst
+@@ -47,7 +47,7 @@ RISC-V Linux Kernel SV39
+                                                               | Kernel-space virtual memory, shared between all processes:
+   ____________________________________________________________|___________________________________________________________
+                     |            |                  |         |
+-   ffffffc6fee00000 | -228    GB | ffffffc6feffffff |    2 MB | fixmap
++   ffffffc6fea00000 | -228    GB | ffffffc6feffffff |    6 MB | fixmap
+    ffffffc6ff000000 | -228    GB | ffffffc6ffffffff |   16 MB | PCI io
+    ffffffc700000000 | -228    GB | ffffffc7ffffffff |    4 GB | vmemmap
+    ffffffc800000000 | -224    GB | ffffffd7ffffffff |   64 GB | vmalloc/ioremap space
+@@ -83,7 +83,7 @@ RISC-V Linux Kernel SV48
+                                                               | Kernel-space virtual memory, shared between all processes:
+   ____________________________________________________________|___________________________________________________________
+                     |            |                  |         |
+-   ffff8d7ffee00000 |  -114.5 TB | ffff8d7ffeffffff |    2 MB | fixmap
++   ffff8d7ffea00000 |  -114.5 TB | ffff8d7ffeffffff |    6 MB | fixmap
+    ffff8d7fff000000 |  -114.5 TB | ffff8d7fffffffff |   16 MB | PCI io
+    ffff8d8000000000 |  -114.5 TB | ffff8f7fffffffff |    2 TB | vmemmap
+    ffff8f8000000000 |  -112.5 TB | ffffaf7fffffffff |   32 TB | vmalloc/ioremap space
+@@ -119,7 +119,7 @@ RISC-V Linux Kernel SV57
+                                                               | Kernel-space virtual memory, shared between all processes:
+   ____________________________________________________________|___________________________________________________________
+                     |            |                  |         |
+-   ff1bfffffee00000 | -57     PB | ff1bfffffeffffff |    2 MB | fixmap
++   ff1bfffffea00000 | -57     PB | ff1bfffffeffffff |    6 MB | fixmap
+    ff1bffffff000000 | -57     PB | ff1bffffffffffff |   16 MB | PCI io
+    ff1c000000000000 | -57     PB | ff1fffffffffffff |    1 PB | vmemmap
+    ff20000000000000 | -56     PB | ff5fffffffffffff |   16 PB | vmalloc/ioremap space
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 5c3e7b97fcc6..0a55099bb734 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -22,6 +22,14 @@
+  */
+ enum fixed_addresses {
+ 	FIX_HOLE,
++	/*
++	 * The fdt fixmap mapping must be PMD aligned and will be mapped
++	 * using PMD entries in fixmap_pmd in 64-bit and a PGD entry in 32-bit.
++	 */
++	FIX_FDT_END,
++	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
 +
- config HAS_IOPORT_MAP
- 	bool
- 	depends on HAS_IOMEM && !NO_IOPORT_MAP
-
-base-commit: e8d018dd0257f744ca50a729e3d042cf2ec9da65
++	/* Below fixmaps will be mapped using fixmap_pte */
+ 	FIX_PTE,
+ 	FIX_PMD,
+ 	FIX_PUD,
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index ab05f892d317..f641837ccf31 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -87,9 +87,13 @@
+ 
+ #define FIXADDR_TOP      PCI_IO_START
+ #ifdef CONFIG_64BIT
+-#define FIXADDR_SIZE     PMD_SIZE
++#define MAX_FDT_SIZE	 PMD_SIZE
++#define FIX_FDT_SIZE	 (MAX_FDT_SIZE + SZ_2M)
++#define FIXADDR_SIZE     (PMD_SIZE + FIX_FDT_SIZE)
+ #else
+-#define FIXADDR_SIZE     PGDIR_SIZE
++#define MAX_FDT_SIZE	 PGDIR_SIZE
++#define FIX_FDT_SIZE	 MAX_FDT_SIZE
++#define FIXADDR_SIZE     (PGDIR_SIZE + FIX_FDT_SIZE)
+ #endif
+ #define FIXADDR_START    (FIXADDR_TOP - FIXADDR_SIZE)
+ 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 376d2827e736..542eed85ad2c 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -283,7 +283,6 @@ void __init setup_arch(char **cmdline_p)
+ 	else
+ 		pr_err("No DTB found in kernel mappings\n");
+ #endif
+-	early_init_fdt_scan_reserved_mem();
+ 	misc_mem_init();
+ 
+ 	init_resources();
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 478d6763a01a..fb78d6bbabae 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -57,7 +57,6 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+ EXPORT_SYMBOL(empty_zero_page);
+ 
+ extern char _start[];
+-#define DTB_EARLY_BASE_VA      PGDIR_SIZE
+ void *_dtb_early_va __initdata;
+ uintptr_t _dtb_early_pa __initdata;
+ 
+@@ -236,6 +235,14 @@ static void __init setup_bootmem(void)
+ 	set_max_mapnr(max_low_pfn - ARCH_PFN_OFFSET);
+ 
+ 	reserve_initrd_mem();
++
++	/*
++	 * No allocation should be done before reserving the memory as defined
++	 * in the device tree, otherwise the allocation could end up in a
++	 * reserved region.
++	 */
++	early_init_fdt_scan_reserved_mem();
++
+ 	/*
+ 	 * If DTB is built in, no need to reserve its memblock.
+ 	 * Otherwise, do reserve it but avoid using
+@@ -279,9 +286,6 @@ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ 
+ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+-static p4d_t __maybe_unused early_dtb_p4d[PTRS_PER_P4D] __initdata __aligned(PAGE_SIZE);
+-static pud_t __maybe_unused early_dtb_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
+-static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ #define pt_ops			(*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
+@@ -626,9 +630,6 @@ static void __init create_p4d_mapping(p4d_t *p4dp,
+ #define trampoline_pgd_next	(pgtable_l5_enabled ?			\
+ 		(uintptr_t)trampoline_p4d : (pgtable_l4_enabled ?	\
+ 		(uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd))
+-#define early_dtb_pgd_next	(pgtable_l5_enabled ?			\
+-		(uintptr_t)early_dtb_p4d : (pgtable_l4_enabled ?	\
+-		(uintptr_t)early_dtb_pud : (uintptr_t)early_dtb_pmd))
+ #else
+ #define pgd_next_t		pte_t
+ #define alloc_pgd_next(__va)	pt_ops.alloc_pte(__va)
+@@ -636,7 +637,6 @@ static void __init create_p4d_mapping(p4d_t *p4dp,
+ #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
+ 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
+ #define fixmap_pgd_next		((uintptr_t)fixmap_pte)
+-#define early_dtb_pgd_next	((uintptr_t)early_dtb_pmd)
+ #define create_p4d_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
+ #define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
+ #define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
+@@ -860,32 +860,28 @@ static void __init create_kernel_page_table(pgd_t *pgdir, bool early)
+  * this means 2 PMD entries whereas for 32-bit kernel, this is only 1 PGDIR
+  * entry.
+  */
+-static void __init create_fdt_early_page_table(pgd_t *pgdir, uintptr_t dtb_pa)
++static void __init create_fdt_early_page_table(pgd_t *pgdir,
++					       uintptr_t fix_fdt_va,
++					       uintptr_t dtb_pa)
+ {
+-#ifndef CONFIG_BUILTIN_DTB
+ 	uintptr_t pa = dtb_pa & ~(PMD_SIZE - 1);
+ 
+-	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+-			   IS_ENABLED(CONFIG_64BIT) ? early_dtb_pgd_next : pa,
+-			   PGDIR_SIZE,
+-			   IS_ENABLED(CONFIG_64BIT) ? PAGE_TABLE : PAGE_KERNEL);
+-
+-	if (pgtable_l5_enabled)
+-		create_p4d_mapping(early_dtb_p4d, DTB_EARLY_BASE_VA,
+-				   (uintptr_t)early_dtb_pud, P4D_SIZE, PAGE_TABLE);
+-
+-	if (pgtable_l4_enabled)
+-		create_pud_mapping(early_dtb_pud, DTB_EARLY_BASE_VA,
+-				   (uintptr_t)early_dtb_pmd, PUD_SIZE, PAGE_TABLE);
++#ifndef CONFIG_BUILTIN_DTB
++	/* Make sure the fdt fixmap address is always aligned on PMD size */
++	BUILD_BUG_ON(FIX_FDT % (PMD_SIZE / PAGE_SIZE));
+ 
+-	if (IS_ENABLED(CONFIG_64BIT)) {
+-		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
++	/* In 32-bit only, the fdt lies in its own PGD */
++	if (!IS_ENABLED(CONFIG_64BIT)) {
++		create_pgd_mapping(early_pg_dir, fix_fdt_va,
++				   pa, MAX_FDT_SIZE, PAGE_KERNEL);
++	} else {
++		create_pmd_mapping(fixmap_pmd, fix_fdt_va,
+ 				   pa, PMD_SIZE, PAGE_KERNEL);
+-		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
++		create_pmd_mapping(fixmap_pmd, fix_fdt_va + PMD_SIZE,
+ 				   pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
+ 	}
+ 
+-	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
++	dtb_early_va = (void *)fix_fdt_va + (dtb_pa & (PMD_SIZE - 1));
+ #else
+ 	/*
+ 	 * For 64-bit kernel, __va can't be used since it would return a linear
+@@ -1055,7 +1051,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	create_kernel_page_table(early_pg_dir, true);
+ 
+ 	/* Setup early mapping for FDT early scan */
+-	create_fdt_early_page_table(early_pg_dir, dtb_pa);
++	create_fdt_early_page_table(early_pg_dir,
++				    __fix_to_virt(FIX_FDT), dtb_pa);
+ 
+ 	/*
+ 	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
+@@ -1097,6 +1094,16 @@ static void __init setup_vm_final(void)
+ 	u64 i;
+ 
+ 	/* Setup swapper PGD for fixmap */
++#if !defined(CONFIG_64BIT)
++	/*
++	 * In 32-bit, the device tree lies in a pgd entry, so it must be copied
++	 * directly in swapper_pg_dir in addition to the pgd entry that points
++	 * to fixmap_pte.
++	 */
++	unsigned long idx = pgd_index(__fix_to_virt(FIX_FDT));
++
++	set_pgd(&swapper_pg_dir[idx], early_pg_dir[idx]);
++#endif
+ 	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
+ 			   __pa_symbol(fixmap_pgd_next),
+ 			   PGDIR_SIZE, PAGE_TABLE);
 -- 
 2.37.2
 
