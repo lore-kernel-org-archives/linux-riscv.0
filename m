@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577D9C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 15:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70991C76196
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 15:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MS+y9vexMeqnbpj7V1EUhfVD0gPOe12MhcgPSw0Eq8A=; b=NrD08VpNOJxjte
-	AiiPm9gL08ec47jCjuo+QbXls6l3zlB0lx3t+7wyw0vbGqV89vBtmWByw9OemIpD+Qsm4J17bYPiF
-	omAksWKB6RAF0LlfrNXDNjKFocj3rhRpuZDLflgTN1D4IDlweBPKoYFU44SKXyh5hEGggDu0RyD6F
-	5PVNMqOweTZtfGLAr0NcePexG0I8larXUEgTXjNZvvOrOLj7+HN0w8UYtZ+pkfJsDEmC7pQJP1z22
-	ux0tZDFHXHe2MitP5dYT5oWe6sJkky3OqXwAP1j7+HKrcvY4lKemYi66PJhNuGblFzsqEO2C0wsZ9
-	ovb44O7rONLhxvAmpaNg==;
+	List-Owner; bh=Yih9YS3CawQpDTK8R6f4yC9tg6V/3TBA83gD4gH3Wog=; b=B6UM/BGWthMyNe
+	HNfsAh+91cSC/MC/PZ5q6u/XFOR5nwIAiRi5sqg3vHgvJYiZ8xCr2+D9/UW5TeW/EM9yIiRMZ0unX
+	MttRfbCx1KxciEyX88baF3zEy0J8Jy/7OS3AJa6UTCvrlkFevyuaKmGs8uUuSix21/4TXOa+TkCZF
+	iIt8OlYI0wlyQSMtK5K6W5KTRzM76oL5sNkwzD+vwVA+DruduTasCzmstC/qZ6RggjToe4jSU269Q
+	5Pgm7fe7Hdf4fYw/ShChppzScSO5FtuJqCM4vYbWAebHCV72TOM9t2Q9Z1CtvOUs++XBWzCFA1Pv5
+	yGWuZ+CoYxNMqmolUnRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMQr-002HHm-1d;
-	Thu, 23 Mar 2023 15:00:49 +0000
+	id 1pfMQv-002HLz-2j;
+	Thu, 23 Mar 2023 15:00:53 +0000
 Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMQn-002HEw-37
+	id 1pfMQs-002HIY-0n
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 15:00:47 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id kq3so10158106plb.13
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 08:00:45 -0700 (PDT)
+	Thu, 23 Mar 2023 15:00:52 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id z19so12142573plo.2
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 08:00:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679583645;
+        d=sifive.com; s=google; t=1679583649;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=iCcObYH91oMWZ6bdmVu48SZE269reFVecBrOrqoWxGA=;
-        b=EedgoYClEcxGQrd7CKPRbbltCB2tJHu+Fmlpu8Pyj2bwl7Gnf6pMQCHledQLM5pNGt
-         eu/R4VHE3TUdT1hoMGOil5MG8hLG3yOvHuzb2/80pADS2gD8Ca8mYIRB6lydKe+RGB+4
-         5SkucqXXrvupapqLr7hGhptUAscK0M1iAg4gVQE8+Tfqv0cSu3I4WuzavtEIr06oClKn
-         J4skEaVk7mxy/P1vj1hNohtrzMGtmUYqauqo7vdv7WGBtHAYtXgc1kY4wckCqbG3vL5J
-         qVDEIQSdKBAtprO/vamwbfCszmuYY5ClsdJXXYAsnEdVQ0gut1Wkp7qirKDz3y0PckcO
-         ePjw==
+        bh=EnMly8Z4ZP6m5MefJgirtZn1/V9pgmnzrBMhkpUZtfA=;
+        b=NVwTzlEK2Gds43FwU0cLpEZhn54YcxwlTCLUsSTxDTqUEUYYt5DIgDXlc9//y81m7s
+         fQjoljnJpSYqIs3Z6oFR2D9HfihLmaaILuk0P+p1T+5QWedR8keaszunQbuE6HPpqRnp
+         B4ZvAY9d76vZrs2fC27teiTCScazZ9RWCV0r/117ROvCL+3vXy4ntWPqkH33ivz9+GXa
+         XjC8x7PzvADpGxpwOEvnuHjq9vHIXh1b231QpLJmhScReGM+rC6+YM2h2SN4rZLlUXpI
+         QkWBB77kTUEK3znFg/NCe4+zgtmhgWzjnGkGHNrAVdZeJvF521DwNqr/C+veMAUixG4b
+         NxAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679583645;
+        d=1e100.net; s=20210112; t=1679583649;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iCcObYH91oMWZ6bdmVu48SZE269reFVecBrOrqoWxGA=;
-        b=i2vMmLPVgBqIVSNnN6x5Ai8plo4iQ8EnOiqAD3a7o+83+kgR+OCslm/8xHzaGFeNEN
-         zSiJhbSZCMfO3/CJtGlTRF/TgsptYM6CXbXtXRt+KU6DrQM9HNIpG+ayumZJX/y6PpbY
-         CPQvqOjWza66rNtVvTp6oC0m0vSIyWvwXh4QR1thfVXKxIfOztcmogT/MCx7fc8IfOkB
-         7PFtDI9+GaR9lLngvos5B+Net1J15Um33Ws/MfDPCwp+OsevoFcFNfYO9novWFZ1pRtG
-         B1pnBU44ITvPQhuixRLtvK2coCRJ09EC6zi0DhxniS2qT59fSt9Sv8jqf3gmSpyGjpbJ
-         nUtw==
-X-Gm-Message-State: AO0yUKVHbZJWbPw1a0/XorjENmf5TLzXM4hOSpFnqpISebkCUilB6sbN
-	H9qTRXpGiSQRSZbboOSnAz2fiiG9TLXJDLIIV45Y8gyVra0i0o1yOQERKL/jGCQB1Vh/n5FGiJL
-	AqDJtqsYQ5590xiONKyo44q4x9cVjA0DcUm75FLOXYg9n8ok3EigmQVUbX4VeRatOrNjqxIq9/b
-	1MkImW1SQWD6rh
-X-Google-Smtp-Source: AK7set+KLpJHA+/Z+2zEQnRhf/oukFKUa4LDaaL+p8lySAkLSMylITH3L3Yp2iGzhZB2T4tJ79F5NQ==
-X-Received: by 2002:a17:903:41c1:b0:1a1:b7fc:eeba with SMTP id u1-20020a17090341c100b001a1b7fceebamr9008680ple.19.1679583644813;
-        Thu, 23 Mar 2023 08:00:44 -0700 (PDT)
+        bh=EnMly8Z4ZP6m5MefJgirtZn1/V9pgmnzrBMhkpUZtfA=;
+        b=U2OOfiYOr32lFPEbWy0SIp0MtW9B+m6xkmIcDpW+3nSXht7uwajOC+EnEq3auvWIOh
+         a8pKjY69KsSt6jY8Jz33aK/Szka1/iT+kx6NincTSLhvVYPo4nxl8hxx190AhosyRHVw
+         YZmbeusV2HgANh45ALQaJM4YtqnOV5304h07krJA59EEABuNS4fGn4F8gwGf2g2ZMY0P
+         gwOba/7kU7n770q4Edo/xjNeYMwzU+8wOOeVxqM69m9cTHuvtSAhVsYWhr4z0y4740ha
+         pqJWcFd/Fkn+RDu0RnblksxYIdwhzhypdPe6V3SIBoJxUzUQ1Gca6ckOJHcYdztF+hb+
+         HgSQ==
+X-Gm-Message-State: AO0yUKUAk2cclptpXttYDTQ6yFnR31uGMgTFDZK7iIneDbefYmn3jGID
+	Mm3/ykIJfjOTrh5A1IlC0HT7VWEMbbG6AhznE4hi8Xl2B85K/qrmMvEqiwSnznfNRWsopNxiD6E
+	lVjMaK0cTv0/19G0wDfblk2OPO8s4mvlwEd5pS5iZb+fdSyz4pjJLRCL2nVP+SRBPjKb4Wpg3lk
+	UtFYhdZwisPUKO
+X-Google-Smtp-Source: AK7set+DABhERXjaISFRv1JqomxsZIjenBSeZXajHTFO9RP7x7K96i1XQUT6LqKW+/vqMeX80/LJMg==
+X-Received: by 2002:a17:903:1389:b0:1a0:485c:a6c with SMTP id jx9-20020a170903138900b001a0485c0a6cmr5821899plb.8.1679583649117;
+        Thu, 23 Mar 2023 08:00:49 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.08.00.40
+        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.08.00.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 08:00:44 -0700 (PDT)
+        Thu, 23 Mar 2023 08:00:48 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -72,29 +72,23 @@ To: linux-riscv@lists.infradead.org,
 Cc: vineetg@rivosinc.com,
 	greentime.hu@sifive.com,
 	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Qing Zhang <zhangqing@loongson.cn>,
-	Rolf Eike Beer <eb@emlix.com>,
-	Alexey Dobriyan <adobriyan@gmail.com>
-Subject: [PATCH -next v16 11/20] riscv: Add ptrace vector support
-Date: Thu, 23 Mar 2023 14:59:15 +0000
-Message-Id: <20230323145924.4194-12-andy.chiu@sifive.com>
+	Guo Ren <guoren@kernel.org>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Andrew Bresticker <abrestic@rivosinc.com>
+Subject: [PATCH -next v16 12/20] riscv: signal: check fp-reserved words unconditionally
+Date: Thu, 23 Mar 2023 14:59:16 +0000
+Message-Id: <20230323145924.4194-13-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230323145924.4194-1-andy.chiu@sifive.com>
 References: <20230323145924.4194-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_080046_005701_2532F80D 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20230323_080050_290279_0D4630B8 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,158 +106,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
+In order to let kernel/user locate and identify an extension context on
+the existing sigframe, we are going to utilize reserved space of fp and
+encode the information there. And since the sigcontext has already
+preserved a space for fp context w or w/o CONFIG_FPU, we move those
+reserved words checking/setting routine back into generic code.
 
-This patch adds ptrace support for riscv vector. The vector registers will
-be saved in datap pointer of __riscv_v_ext_state. This pointer will be set
-right after the __riscv_v_ext_state data structure then it will be put in
-ubuf for ptrace system call to get or set. It will check if the datap got
-from ubuf is set to the correct address or not when the ptrace system call
-is trying to set the vector registers.
+This commit also undone an additional logical change carried by the
+refactor commit 007f5c3589578
+("Refactor FPU code in signal setup/return procedures"). Originally we
+did not restore fp context if restoring of gpr have failed. And it was
+fine on the other side. In such way the kernel could keep the regfiles
+intact, and potentially react at the failing point of restore.
 
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/uapi/asm/ptrace.h |  7 +++
- arch/riscv/kernel/ptrace.c           | 70 ++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 78 insertions(+)
+ arch/riscv/kernel/signal.c | 55 +++++++++++++++++++-------------------
+ 1 file changed, 28 insertions(+), 27 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index 586786d023c4..e8d127ec5cf7 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -94,6 +94,13 @@ struct __riscv_v_ext_state {
- 	 */
- };
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index bfb2afa4135f..eefc78d74055 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -38,26 +38,13 @@ static long restore_fp_state(struct pt_regs *regs,
+ {
+ 	long err;
+ 	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
+-	size_t i;
  
-+/*
-+ * According to spec: The number of bits in a single vector register,
-+ * VLEN >= ELEN, which must be a power of 2, and must be no greater than
-+ * 2^16 = 65536bits = 8192bytes
-+ */
-+#define RISCV_MAX_VLENB (8192)
-+
- #endif /* __ASSEMBLY__ */
+ 	err = __copy_from_user(&current->thread.fstate, state, sizeof(*state));
+ 	if (unlikely(err))
+ 		return err;
  
- #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 2ae8280ae475..84df5be90742 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -7,6 +7,7 @@
-  * Copied from arch/tile/kernel/ptrace.c
-  */
- 
-+#include <asm/vector.h>
- #include <asm/ptrace.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
-@@ -27,6 +28,9 @@ enum riscv_regset {
- #ifdef CONFIG_FPU
- 	REGSET_F,
- #endif
-+#ifdef CONFIG_RISCV_ISA_V
-+	REGSET_V,
-+#endif
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -83,6 +87,61 @@ static int riscv_fpr_set(struct task_struct *target,
+ 	fstate_restore(current, regs);
+-
+-	/* We support no other extension state at this time. */
+-	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
+-		u32 value;
+-
+-		err = __get_user(value, &sc_fpregs->q.reserved[i]);
+-		if (unlikely(err))
+-			break;
+-		if (value != 0)
+-			return -EINVAL;
+-	}
+-
+-	return err;
++	return 0;
  }
- #endif
  
-+#ifdef CONFIG_RISCV_ISA_V
-+static int riscv_vr_get(struct task_struct *target,
-+			const struct user_regset *regset,
-+			struct membuf to)
-+{
-+	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
-+
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -EINVAL;
-+
-+	/*
-+	 * Ensure the vector registers have been saved to the memory before
-+	 * copying them to membuf.
-+	 */
-+	if (target == current)
-+		riscv_v_vstate_save(current, task_pt_regs(current));
-+
-+	/* Copy vector header from vstate. */
-+	membuf_write(&to, vstate, offsetof(struct __riscv_v_ext_state, datap));
-+	membuf_zero(&to, sizeof(void *));
-+
-+	/* Copy all the vector registers from vstate. */
-+	return membuf_write(&to, vstate->datap, riscv_v_vsize);
-+}
-+
-+static int riscv_vr_set(struct task_struct *target,
-+			const struct user_regset *regset,
-+			unsigned int pos, unsigned int count,
-+			const void *kbuf, const void __user *ubuf)
-+{
-+	int ret, size;
-+	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
-+
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -EINVAL;
-+
-+	/* Copy rest of the vstate except datap */
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate, 0,
-+				 offsetof(struct __riscv_v_ext_state, datap));
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Skip copy datap. */
-+	size = sizeof(vstate->datap);
-+	count -= size;
-+	ubuf += size;
-+
-+	/* Copy all the vector registers. */
-+	pos = 0;
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate->datap,
-+				 0, riscv_v_vsize);
-+	return ret;
-+}
-+#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -102,6 +161,17 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = riscv_fpr_set,
- 	},
- #endif
-+#ifdef CONFIG_RISCV_ISA_V
-+	[REGSET_V] = {
-+		.core_note_type = NT_RISCV_VECTOR,
-+		.align = 16,
-+		.n = ((32 * RISCV_MAX_VLENB) +
-+		      sizeof(struct __riscv_v_ext_state)) / sizeof(__u32),
-+		.size = sizeof(__u32),
-+		.regset_get = riscv_vr_get,
-+		.set = riscv_vr_set,
-+	},
-+#endif
- };
+ static long save_fp_state(struct pt_regs *regs,
+@@ -65,20 +52,9 @@ static long save_fp_state(struct pt_regs *regs,
+ {
+ 	long err;
+ 	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
+-	size_t i;
  
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index ac3da855fb19..7d8d9ae36615 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -440,6 +440,7 @@ typedef struct elf64_shdr {
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
- #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
- #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
-+#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
- #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
+ 	fstate_save(current, regs);
+ 	err = __copy_to_user(state, &current->thread.fstate, sizeof(*state));
+-	if (unlikely(err))
+-		return err;
+-
+-	/* We support no other extension state at this time. */
+-	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
+-		err = __put_user(0, &sc_fpregs->q.reserved[i]);
+-		if (unlikely(err))
+-			break;
+-	}
+-
+ 	return err;
+ }
+ #else
+@@ -90,11 +66,30 @@ static long restore_sigcontext(struct pt_regs *regs,
+ 	struct sigcontext __user *sc)
+ {
+ 	long err;
++	size_t i;
++
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
++	if (unlikely(err))
++		return err;
++
+ 	/* Restore the floating-point state. */
+-	if (has_fpu())
+-		err |= restore_fp_state(regs, &sc->sc_fpregs);
++	if (has_fpu()) {
++		err = restore_fp_state(regs, &sc->sc_fpregs);
++		if (unlikely(err))
++			return err;
++	}
++
++	/* We support no other extension state at this time. */
++	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++) {
++		u32 value;
++
++		err = __get_user(value, &sc->sc_fpregs.q.reserved[i]);
++		if (unlikely(err))
++			break;
++		if (value != 0)
++			return -EINVAL;
++	}
+ 	return err;
+ }
+ 
+@@ -145,11 +140,17 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+ {
+ 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
+ 	long err;
++	size_t i;
++
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
+ 	/* Save the floating-point state. */
+ 	if (has_fpu())
+ 		err |= save_fp_state(regs, &sc->sc_fpregs);
++	/* We support no other extension state at this time. */
++	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
++		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
++
+ 	return err;
+ }
+ 
 -- 
 2.17.1
 
