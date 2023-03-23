@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E73C76196
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 14:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417E5C76196
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 14:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ouudiRHdDqYhRJyMVqjr7OGs7TIswItqnBrrQh+2J7c=; b=06GFRca52two65
-	Hozx9fn72Ii3FwCuKKTb1ghQ+EwJwnHTw0OX/wuwzk0lzLwS90+FjS2Tpu61jf/gTS33AqRhhMOMa
-	bHlfB2fmcoBTlamdOknB1g41UY8Pg9Xkgk9KGjdTaYrmHgkeMAh+joVV5DN/8K6Wn0dMhce/pZTh5
-	I1vR199hJzHuZbfNHFr2CL6MxVmcxcc0Fim/8JRIpZcI365G2KsWRMz/i7pfqYX5vrfnTjkMy+eg4
-	LeKBIfbmMIx6ccsM0sRu9/Cm7eRVFfYaMMpsrz5cK7LanjGNC4CWHUp01OtdjdzMJv2dI/hEAAJMe
-	eHcSojJC+iWkAkZX4qvA==;
+	List-Owner; bh=YNiQ3+JWLk5uWsiIJOFGVe5qrfp/yJkVgaSjcKlVgug=; b=Gzsp+p14tfJDEE
+	S+S1X4cipBDAEovxPBpSc1b+q4fVZ1l+zTsyrG1i2rJLpW/AOA3pxu/lbrowMJ51kZsR1sb4RI1jJ
+	rRr43pLG3zWzh6F42x9SN39Yh7Ku0mEpCr+kX2Mtp2bTxmQQL4wCmCxW0tAYrlcFGxXRGnj+S7LVL
+	Io3+xxQY9uuOsn5Kdfw+ppfVH0EdnLL+4EvJCjDL9HEmQzhOUvKy762+7XIflwW0nviv2/ouxqXYM
+	HJE78z4nSpEsFiYHYqpM4EamzbG5wNMF8d0IvP4i8XaZPNWVNqIQzzp/4Fw5opq+C0SsQM4dVPJFa
+	q5QwyW0dy6Sh3Z21kUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMPm-002GYP-2I;
-	Thu, 23 Mar 2023 14:59:42 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1pfMPw-002Gcp-2b;
+	Thu, 23 Mar 2023 14:59:52 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMPk-002GWH-1J
+	id 1pfMPt-002Gag-31
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 14:59:41 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id o11so22571786ple.1
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 07:59:39 -0700 (PDT)
+	Thu, 23 Mar 2023 14:59:51 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id a16so17365234pjs.4
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 07:59:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679583578;
+        d=sifive.com; s=google; t=1679583587;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=xZD7AFVtobxh1FGjEKQD2QW8IDIT5bzbSx/S1GQl+8U=;
-        b=EE4iyZ9ZIYFKB5FMvRNeYHxXk8u+i1yhDt4omFH12gjYyHwTnUUiC13hv+Il1HyF6s
-         rDXdUWb0h4Ie637VWRym/g/GXTm3eWY062jeeytZnqOgRxRu5dAhzahW6W4wRgoh0Jjh
-         ZEfTkXrLECW3ihGU8STm1NE6hOWmG7EzPpqt1Pyd3QbkBLvFgZ41nH7kZ2mEcb91ebJH
-         GEDqMHY53zS6Czn5N5+Bfr+Fx5vAlzIMcgn1Sv9Gq08CJJrPQ8I9p8F+7MScW4hMcSqE
-         1I7bS048M166lupwCQ8xyRVPoWr8gV/rb1IH9lvyAJTs2q+B4Mqgfemdugx3j7vzqbvE
-         paOg==
+        bh=8ysjVmLSFjJmySy1HzqCUzkjl7bv/RwwIsrQKPYD1lk=;
+        b=mOQ06MlFhAwl4tdwszxSxr1cfY5V78ViEsk9APJqofD0UlU/77e/kNfcI/QRqczkAr
+         V5BzJS8O5fqGR71Pk5cAU1c1viCQEztnwNbjf8SQhGVq7+7Tsnn7OFeZglBYjlOK6EW1
+         X9dyItoOJVC8q0lx6gtjXOv3A/sG2hEKvGAw6WafQHYz3xFz/xvhVdzcMrXp7sAKAW1e
+         EdJhyUj6goBP5Ym5ya7IQNX8RxHuFMheSs3bo2MxIIG/dndSd/QxuCZCwkGOdGW+7F1h
+         12cxJNxhFpxjvPPVsOKZ0DUNZHi/JAymogfQs/iVqNIYXuR9D29vbZ2y4cocvy6GIc6U
+         8+WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679583578;
+        d=1e100.net; s=20210112; t=1679583587;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xZD7AFVtobxh1FGjEKQD2QW8IDIT5bzbSx/S1GQl+8U=;
-        b=WbC9dku/MCkkNuxsei9Bs9Cr0zpiG7xBfkwIVfc0hZFDFufj/KJgTtrxke3MRU48xe
-         oCmgmaiIzZXNnDFTrwTa9k5Epqna48I0ObF23i/yKrJHHLPWqgVjqCJ3EYZinulWsUlU
-         fB1npQTL+kD6yAuL4eDocXRKRaqI95b5cFEeKdhbmDkAWIGkIVVtSu8uS6AntFBinNyB
-         0mxGSsPkqScrSlpA/LFbqdARRF1klnRRR/+mXrWujppyEq+jsakgwkexxSua1x2odoZi
-         U9a4YEznMkHxazUextJwgyNcJjnrldBDEYQz1F+Uon6UwH/LsNZqtiOajZCn8JtaiNpZ
-         GrYg==
-X-Gm-Message-State: AO0yUKW5vO5/eRPD09NmUUdS24gDm3X60FvmWHBEvKLU+Y4+Fxwoxsdj
-	l4FoL3hPAzOY5sBiS8BFU33iWoJWQ9rQb7whtzej72p0tV1uM1Jg+0Ss5IJaspzgWCAn0xDU2PV
-	N28Kca97u7wnw63x2BaZtIza5p6O4c4CznJ9iiyVdkYSrvy4PRzadcJNyOIbOxL0xvU3dYvX/h6
-	/9hUUfdLdz8XB7
-X-Google-Smtp-Source: AK7set+/B5nEPkQgpgS7TZzUH0y5Y+FUfRpzPltL0G5GjJIHTjTPQSYBW3inr/Q72qMdyce5IYxZZQ==
-X-Received: by 2002:a17:903:24f:b0:1a0:7508:daf2 with SMTP id j15-20020a170903024f00b001a07508daf2mr7393444plh.2.1679583578342;
-        Thu, 23 Mar 2023 07:59:38 -0700 (PDT)
+        bh=8ysjVmLSFjJmySy1HzqCUzkjl7bv/RwwIsrQKPYD1lk=;
+        b=2gjGvGcAeEzBLAR2x9n33pZPCdaLEl1rwEd1DVcwqgVds48h2gW9RgPWl5Ten3S/kD
+         RHb5ciVMCxU29aGH1071+tzTewh1edkeazWNnH99qx/EhQapVgVSw0SlMQLwNdVkA1EX
+         DfP4I9yI0lyn2IDMn7QmVe688HlNFjyhQ87iovfhJb2WdSbjqxXC2AfIN3PbdJS5KUNt
+         d6WTM5P5RfWCaYFGuySE/ayoHW5VLN6MZ9sgrmLKDzQT+Q03go3NEWvglJXgNgmaGBcf
+         Z+r4ZcYKaPV7MisL5l01F4jF99SZe/7b05kxy4+f7TtixX+ymceAu93e2DNPADGoiHVm
+         2eUw==
+X-Gm-Message-State: AO0yUKUR+iPNL3+ogxRqYjMKUC8vWYtOiIHnH2z5LdmmcenA659OXVFC
+	xj0nVXCm1K+SdedY4+bS1EEBIov0FH16cV2YVu9SgvHu+xuRRQtfcy8HA/aNMieCGlyWM+aZOEm
+	2zqPR2nLuZphg5dJuAi23dNwX+IBB6b8SQufIuONlZUIoraAdXv98y5gmYo/wy3plC3MrC2Yvs6
+	h9ib2019lTFiHN
+X-Google-Smtp-Source: AK7set86fbWkiv9YiIHGj3faRY7lEf+H+q24ZHOdFTkQ2PKKWiqta70OHUd/x0D9fUsMvnjP04qxrg==
+X-Received: by 2002:a17:902:e543:b0:1a0:7422:939a with SMTP id n3-20020a170902e54300b001a07422939amr8624796plf.4.1679583586964;
+        Thu, 23 Mar 2023 07:59:46 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.07.59.35
+        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.07.59.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 07:59:37 -0700 (PDT)
+        Thu, 23 Mar 2023 07:59:46 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -76,19 +76,23 @@ Cc: vineetg@rivosinc.com,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: [PATCH -next v16 01/20] riscv: Rename __switch_to_aux() -> fpu
-Date: Thu, 23 Mar 2023 14:59:05 +0000
-Message-Id: <20230323145924.4194-2-andy.chiu@sifive.com>
+	Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Dao Lu <daolu@rivosinc.com>,
+	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH -next v16 02/20] riscv: Extending cpufeature.c to detect V-extension
+Date: Thu, 23 Mar 2023 14:59:06 +0000
+Message-Id: <20230323145924.4194-3-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230323145924.4194-1-andy.chiu@sifive.com>
 References: <20230323145924.4194-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_075940_446516_36239F10 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20230323_075949_976655_93EE55F2 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,54 +112,108 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <ren_guo@c-sky.com>
 
-The name of __switch_to_aux() is not clear and rename it with the
-determine function: __switch_to_fpu(). Next we could add other regs'
-switch.
+Add V-extension into riscv_isa_ext_keys array and detect it with isa
+string parsing.
 
 Signed-off-by: Guo Ren <ren_guo@c-sky.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/asm/switch_to.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/hwcap.h      |  1 +
+ arch/riscv/include/asm/vector.h     | 26 ++++++++++++++++++++++++++
+ arch/riscv/include/uapi/asm/hwcap.h |  1 +
+ arch/riscv/kernel/cpufeature.c      | 11 +++++++++++
+ 4 files changed, 39 insertions(+)
+ create mode 100644 arch/riscv/include/asm/vector.h
 
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index 60f8ca01d36e..4b96b13dee27 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -46,7 +46,7 @@ static inline void fstate_restore(struct task_struct *task,
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index bbde5aafa957..7df8db320934 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -22,6 +22,7 @@
+ #define RISCV_ISA_EXT_m		('m' - 'a')
+ #define RISCV_ISA_EXT_s		('s' - 'a')
+ #define RISCV_ISA_EXT_u		('u' - 'a')
++#define RISCV_ISA_EXT_v		('v' - 'a')
+ 
+ /*
+  * These macros represent the logical IDs of each multi-letter RISC-V ISA
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+new file mode 100644
+index 000000000000..427a3b51df72
+--- /dev/null
++++ b/arch/riscv/include/asm/vector.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 SiFive
++ */
++
++#ifndef __ASM_RISCV_VECTOR_H
++#define __ASM_RISCV_VECTOR_H
++
++#include <linux/types.h>
++
++#ifdef CONFIG_RISCV_ISA_V
++
++#include <asm/hwcap.h>
++
++static __always_inline bool has_vector(void)
++{
++	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
++}
++
++#else /* ! CONFIG_RISCV_ISA_V  */
++
++static __always_inline bool has_vector(void) { return false; }
++
++#endif /* CONFIG_RISCV_ISA_V */
++
++#endif /* ! __ASM_RISCV_VECTOR_H */
+diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
+index 46dc3f5ee99f..c52bb7bbbabe 100644
+--- a/arch/riscv/include/uapi/asm/hwcap.h
++++ b/arch/riscv/include/uapi/asm/hwcap.h
+@@ -21,5 +21,6 @@
+ #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
+ #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
+ #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
++#define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
+ 
+ #endif /* _UAPI_ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 00d7cd2c9043..923ca75f2192 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -103,6 +103,7 @@ void __init riscv_fill_hwcap(void)
+ 	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
+ 	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
+ 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
++	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
+ 
+ 	elf_hwcap = 0;
+ 
+@@ -261,6 +262,16 @@ void __init riscv_fill_hwcap(void)
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
  	}
- }
  
--static inline void __switch_to_aux(struct task_struct *prev,
-+static inline void __switch_to_fpu(struct task_struct *prev,
- 				   struct task_struct *next)
- {
- 	struct pt_regs *regs;
-@@ -66,7 +66,7 @@ static __always_inline bool has_fpu(void)
- static __always_inline bool has_fpu(void) { return false; }
- #define fstate_save(task, regs) do { } while (0)
- #define fstate_restore(task, regs) do { } while (0)
--#define __switch_to_aux(__prev, __next) do { } while (0)
-+#define __switch_to_fpu(__prev, __next) do { } while (0)
- #endif
- 
- extern struct task_struct *__switch_to(struct task_struct *,
-@@ -77,7 +77,7 @@ do {							\
- 	struct task_struct *__prev = (prev);		\
- 	struct task_struct *__next = (next);		\
- 	if (has_fpu())					\
--		__switch_to_aux(__prev, __next);	\
-+		__switch_to_fpu(__prev, __next);	\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
- 
++	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
++		/*
++		 * ISA string in device tree might have 'v' flag, but
++		 * CONFIG_RISCV_ISA_V is disabled in kernel.
++		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
++		 */
++		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
++			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
++	}
++
+ 	memset(print_str, 0, sizeof(print_str));
+ 	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
 -- 
 2.17.1
 
