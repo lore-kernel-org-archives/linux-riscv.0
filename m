@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F82DC74A5B
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 21:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CF0C76195
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 21:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RhYA5LULE8nYWlY7d649OrPtdP1r2gzzCnbe45JHU+I=; b=gXUXtjaqdFURR4
-	Ur3X0izGYCCEY9bqxE6w3cBHANO1f/vPPoBOTOap1Dwpm9oHhOGVSOQ7ma4xN/KSVX/8ZZedvlMiN
-	3io2LTqNrYAD9B46hxT3UbMbo/xAOnxelVcVPLh6TWSfH6AQlQDbSxLa5D70xid6jLsyXVT0K7r8d
-	nZByZgc+8ReSTiAblTJY/vmiPozmLtaUQeJZc2yY0D3x0e/LyRLsaRFHg/YQvDPMbIxUuhWSWfv0W
-	IO11n6OhR6qHeLSWYGqiNhfzfTOV0jxSPhIjZnVk1wuQVWC1cmDo5VStuf/9zq2qkLoaha448wlcN
-	zToOv4sTRCz/6nMtwwKg==;
+	List-Owner; bh=TuloOx9hoeReKJq4opBDDfr/QN/vS4rFfBr46cC+R94=; b=2jxcKGkSf4dN41
+	beiQ1v/5wkzfdP3k6lajnTl2q0+djMAmD52ObCdW9d8eFDLTbKB3+7QAXseJoR0BCsHdY1GoUGysS
+	KCzJBuIP2BzyNKm/mlaIK5738ThgWfMkgf7BLxy63oTL1ciqCz+/CIkeUYV5hNjHjLpLIWWcjAFIC
+	T2Ud9FkHJW5nRzbKwZRHxp4QDagw8QDiyHPO2hAzWd94/eBt0muN62vIXVCOly84/SbRc08kAsjz5
+	A0sMYapwPeYImN8k/1DmOgSF9MohtX9G8yZE2gc5YFLE1OdWgW5CnklyAgkNaLTa8khueGCqP9MWI
+	ZRHmBaz5h8W3hZJsivAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfS2q-002yD0-2e;
-	Thu, 23 Mar 2023 21:00:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pfS2u-002yDn-1O;
+	Thu, 23 Mar 2023 21:00:28 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfS2o-002yBz-1j
+	id 1pfS2p-002yC8-1r
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 21:00:23 +0000
+	Thu, 23 Mar 2023 21:00:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A8F3E628CA;
-	Thu, 23 Mar 2023 21:00:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 09242C4339B;
-	Thu, 23 Mar 2023 21:00:21 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3F502B8226F;
+	Thu, 23 Mar 2023 21:00:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E70DDC433D2;
+	Thu, 23 Mar 2023 21:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1679605221;
-	bh=qz9uUNeJqZdiJlk66x6Wzj9ssG31ZuZs/3b6NtQinPE=;
+	bh=s9bXoRFsk51mtRO5vA9hAmomeuYjmlnifQIlKFwqLRA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VQDGvG0nMfeA/pF4tJWDj0mxY0iow9oifsGHClP9HZgYgROWBf1LBJ1mkJQvjYMwm
-	 sZyDqUoQReYbPP81QT/S5AjcBasEEXxUV43ftrRrMcYsGUQKJ2qphI80iHmc0F1TG1
-	 JvCy/2e4rS4FUPpT2QD+f71ixU+K0K5c7JA0ghzuahIMDH0j2qKpOSlTDr3wQH8cdO
-	 aliTjnwoIAZ8ZmqexUo4kP4OBq5cIuhgjE2TXjgKZc4rt03mMWAWihQqNTNFAVDf1h
-	 fV4wz9gNsJvnfDHtPS8p92eKBvNREv/nNbZ9QzWkqkBM7SlvjzaWkErMZEtcxTnQZ7
-	 tQMvaHAFoKb8A==
+	b=hEnHnpJu/YjO8wo/zmmNAKzwCotV3HbLsjEPtJR/hrPYzD7HNBCmLBQiEEjKkCJ5N
+	 eo+HEN12pWFCTu7e/dq1LoiVRq5d/qGnDgZ3AmajDl4otmFh+m/WPePz+9EQJEu7IL
+	 bM3Tp/ls5/0+i3WRy7fhqnMuqyx0+jSAbebi1/0ctJOPVbeYbq2AMH4cHW8mXT33VW
+	 NHFs6C0osOz8zNRC+B9s4i7W0WjZkWjxfAf5wQkb8vJ7VY1mIa8ALY9VJGZN6HcPHX
+	 NYQkV8YNpbVUuuACHIn4+z/tnO3TDqWyImzUZJ9tJEx6WAR2D3wtsj0i78xU+6A1i8
+	 XclvRqGIHux3w==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id DD26BE61B87;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D3605E4F0D7;
 	Thu, 23 Mar 2023 21:00:20 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issues between clang and
- binutils
+Subject: Re: [PATCH v2] riscv: mm: Fix incorrect ASID argument when flushing TLB
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167960522090.10481.16047974592958596683.git-patchwork-notify@kernel.org>
+Message-Id:  <167960522086.10481.6194294455098619740.git-patchwork-notify@kernel.org>
 Date: Thu, 23 Mar 2023 21:00:20 +0000
-References: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
-In-Reply-To: <20230313-riscv-zicsr-zifencei-fiasco-v1-1-dd1b7840a551@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
- ndesaulniers@google.com, trix@redhat.com, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, patches@lists.linux.dev, stable@vger.kernel.org
+References: <20230313034906.2401730-1-dylan@andestech.com>
+In-Reply-To: <20230313034906.2401730-1-dylan@andestech.com>
+To: Dylan Jhong <dylan@andestech.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, sergey.matyukevich@syntacore.com, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, x5710999x@gmail.com,
+ tim609@andestech.com, peterlin@andestech.com, ycliang@andestech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_140022_633125_75C8E167 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230323_140023_761496_3B042F66 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,20 +83,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 13 Mar 2023 16:00:23 -0700 you wrote:
-> There are two related issues that appear in certain combinations with
-> clang and GNU binutils.
+On Mon, 13 Mar 2023 11:49:06 +0800 you wrote:
+> Currently, we pass the CONTEXTID instead of the ASID to the TLB flush
+> function. We should only take the ASID field to prevent from touching
+> the reserved bit field.
 > 
-> The first occurs when a version of clang that supports zicsr or zifencei
-> via '-march=' [1] (i.e, >= 17.x) is used in combination with a version
-> of GNU binutils that do not recognize zicsr and zifencei in the
-> '-march=' value (i.e., < 2.36):
+> Fixes: 3f1e782998cd ("riscv: add ASID-based tlbflushing methods")
+> Signed-off-by: Dylan Jhong <dylan@andestech.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: Handle zicsr/zifencei issues between clang and binutils
-    https://git.kernel.org/riscv/c/e89c2e815e76
+  - [v2] riscv: mm: Fix incorrect ASID argument when flushing TLB
+    https://git.kernel.org/riscv/c/9a801afd3eb9
 
 You are awesome, thank you!
 -- 
