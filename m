@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07738C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 21:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378E5C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 21:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rq+Tp1+nxvEOX1V65XAjWqBkDwCAdozrgiYGuqs/aDA=; b=Zgg3B2jXUf/gh9
-	rAx3A3h/sI9BUAuQqDycfBFlhaOpNXpzK6nSoxr3gu1o46eX+HXwJKvwls8BA6FyMWRug0jv/dg/m
-	mHErECycC/JyQtU1IqbrqZ3XQbEawiVk9qrIogKUKnVu61hwqca36Mb1DLSfwCQ2hfvRehg4Vv8oz
-	OYSSKMd7kleLF8BgHfNMZLX7rrUC7n5nvKLsSfoLrzObN5g6Ncyd9l94zjAWi2AJogD4zd8r5xFb6
-	qPg9UdWaEKlyxctx6n3a+c85NWI5YjeuPpGhvT89ja/uZcLCwr5fwZAEKUlToe2U+gnFkBtvlUNIk
-	BOH2TFNumcIN90yj9JhQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0TS2wgOgNgeyD989T8Ya6GT3F9g9XJDZ43+99sFHLfQ=; b=jsHW/MuKdXZSJy
+	/BKiIcqlm7Qmx7Pv3f+kkNDlvZSHNQb/De1uKJk2nug+uk55GDlL4RuXOvJbK8LTiK3IeHVzo8SQt
+	4IUfdqVveJDXVxt2WA+WDx/yBIxa9wGWB7ZZ7meFBlrbZnG8ZZzCSKfH/1nplBLygwJXx19flf+hx
+	4PlHV/Zf/QFkHVfLSBW89PCkQFvu+XINMQw4a9fxbzqsLQQBYmW6NKHxYKppmEeBRoAg2Vd2dL+3J
+	ZGoCuUoo3v9Aw4Mf/UxYWBoMMdSky3fllf39rPG3meQ/hp/NijatoHjYviHbz+pOuGSpqAk+Zb7xq
+	G2qrriej7kZayGuUGfUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfSAA-002yrW-1w;
-	Thu, 23 Mar 2023 21:07:58 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1pfSJG-002zqT-27;
+	Thu, 23 Mar 2023 21:17:22 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfSA6-002yqe-1m
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 21:07:56 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 12B373200928;
-	Thu, 23 Mar 2023 17:07:46 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute5.internal (MEProxy); Thu, 23 Mar 2023 17:07:46 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm3; t=
-	1679605665; x=1679692065; bh=LXh8RcHlRytWdP5giYX5SGps2z/loe7CAU6
-	6Co3XisY=; b=XQhz4LBIVZPTu92lzWNdTkm4qB9wdOsltzzZLdkPOoLlT6yYGHc
-	XN+a5SM0Ihkz/5bLUHj/Orxabp2j/sV+kZH6+YdVRSJ/TB3nsiDih/6LGXOJyIut
-	scSWSFuqnoAUiPGYM4GF8f5cOI3q7DvJI+n3hz4UpqfXqnCO9Z5FEI9hGxPvjHXw
-	8RLhgGA9j8VwdrsvctXuQVLQi6l6NnYDqvTuAJAASSUanS0+7NT6pdPMt/D3pTbO
-	IyYPK34bdbsOl0HeQFBFDzpNXH4uWPj9PuDRhce1dAPFcr0uZAbzn0LMClpfqIHZ
-	n9ysRHghK6cMsQpUHYrzK1NfkDaotsHGVuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1679605665; x=1679692065; bh=LXh8RcHlRytWdP5giYX5SGps2z/loe7CAU6
-	6Co3XisY=; b=cpEQNvbE5hLlP++gVezAgQEgbsiuhx6dRxwW7PKr83NBB+M7pFV
-	eWwmjkCMKqOuE6V0mkV4PZXhwwNBLMfSbiMGZgSvLl7Wx4Ek1yh2KGfMfvc6lgcu
-	uza5xL4ZO0rb163/9UcZyhpaTHdM8mseUgFh4TLEDrwqFQH0jjNRcfgwiRpg4Kwf
-	nFOEoI0fBXH8AmU8zaJvZfvA1Qa74h449BuBqH/sBi78tg5yJzS1tSG1FHq0xzyK
-	oGXMGWr7CS3ZbUYBsBoRUtl/sDmiVrAl+jn54xCxRVNsjHrirMX9ls/IM1cYGBlw
-	lhYHb+J+YgWbG/kuaHG+0DGtBsa1c+0hBmw==
-X-ME-Sender: <xms:oL8cZN0DgW3OLroYtCxDwFYqR7FHjzuYwiKht8HgHLPt4iSzaR4Ucw>
-    <xme:oL8cZEFPGQclA8D3sCjgsO36VS_L7VmSCKBos1QIQYSiIIJKeezmqrqD0z8qLMUZ4
-    MWdTgQ-R8YdU5ADIAc>
-X-ME-Received: <xmr:oL8cZN58RyjaUsF1u28KDWgrDi66e2-wg8EW4H5jF0MBq7igueVmfuRoGYZiElOEAz2D>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdeggedgudeghecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpegtggfuhfgjffevgffkfhfvofesthhqmhdthhdtjeenucfhrhhomheplfhi
-    rgiguhhnucgjrghnghcuoehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhmqe
-    enucggtffrrghtthgvrhhnpedutdejffetteefkeejieehfeeuieeguedtveeijeeviefh
-    ffelvdfgudeihfdvtdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
-    hlfhhrohhmpehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhm
-X-ME-Proxy: <xmx:oL8cZK0KK0apa41-Seog06lFkBh2mBy9jsHVnabkuaNzgqKbl_8_IQ>
-    <xmx:oL8cZAG-qqU2-r1ZYwACu7bNCoumI1Ha6e0XWnQ5zoKsdDYXtHa1-Q>
-    <xmx:oL8cZL9oOnha_c0iuCXL5YPwF-QLzMrQSR5RnR8eXNTrXPAa5PyIXw>
-    <xmx:ob8cZI_SsG43gGf1L1mme11VE_CPTfEGk5dB_B0LoRHR7VXurq9SqA>
-Feedback-ID: ifd894703:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Mar 2023 17:07:42 -0400 (EDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
-Subject: Re: [PATCH v3 0/4] Use dma_default_coherent for devicetree default
- coherency
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-In-Reply-To: <20230323072944.GA18524@lst.de>
-Date: Thu, 23 Mar 2023 21:07:31 +0000
-Cc: "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- mpe@ellerman.id.au,
- paul.walmsley@sifive.com,
- palmer@dabbelt.com,
- Rob Herring <robh+dt@kernel.org>,
- m.szyprowski@samsung.com,
- Robin Murphy <robin.murphy@arm.com>,
- linux-riscv@lists.infradead.org
-Message-Id: <60D7FE31-D708-4495-949F-3F64DDC11377@flygoat.com>
-References: <20230321110813.26808-1-jiaxun.yang@flygoat.com>
- <20230323072944.GA18524@lst.de>
-To: Christoph Hellwig <hch@lst.de>
-X-Mailer: Apple Mail (2.3731.400.51.1.1)
+	id 1pfSJC-002zpm-2l;
+	Thu, 23 Mar 2023 21:17:20 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id b20so543728edd.1;
+        Thu, 23 Mar 2023 14:17:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1679606235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3+99Id4vlxpRMOhGjaSB6bloNnr3EAmVVri5OUB3HI0=;
+        b=Z0OU4zaxuMlq76Gk4nh+Y3sS3l4JuzykQcrJRFgVcU4j3G99BBLVe5F8T31Hs1pnfF
+         hYPLX9iuFec7w3kEKsmgrOGm7M0dfAXgq0u6Tw2FglaTMif9h7HGqo306Nz6FSKUfdxs
+         /E8CtpxeTvNfOIVx8LcKy/9AU6GDQj6pOXr30TAad6lh0Qw7dNL+V3CC17p0hpWI1PyJ
+         JP+dWjVOA3cB6bETXZ+L4xHytwjWrUfnrcmTWlxCLf9N6fpPp2lsvVpEmoGzz4RtQw9c
+         OcTeKFFPxCbmCtyYq2tUArCpX7wefJwkmGb4fS18m3V5qswE+8F7KsDwk4+R3De956Ie
+         uSEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679606235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3+99Id4vlxpRMOhGjaSB6bloNnr3EAmVVri5OUB3HI0=;
+        b=xVMP22XvBekVT4yb48GXiDmkjUeCtpl3v/Oj81hCWaYod+TKrBkYIBbGADBtsOMRqH
+         imC/d0L39Ds686RJzNGVUuW2cCZoIzEfd3/PxQcE/5p20e9cQ+oBZAau0QEwvrRGUle8
+         4d+n5c6hepVdRAL4+wraoB1QhLaw/m3jB9troYTnM6/lWtMEvxQVRMZleeKnHpOEX2um
+         EY4n4XBfTBjgs3Jbt6SOtrk28cW3zNXKCPfeQLK3DOwf43+uirE5K3jvX3AU+nbyQkYn
+         8BP6VlbnhaRMjbiW7wZPpQexAM/MDyYnnuWoXlULSPay+Tr8rVP27z8BPH7AS9iPBKg5
+         cBDQ==
+X-Gm-Message-State: AAQBX9d2DN20OzbpKaLfveM99Du8+FLU8unnsYRlDnE1V7g/QBj08otN
+	R4oalxSXlbefc1BSh17ju4E=
+X-Google-Smtp-Source: AKy350YXV7OnGGHypgylfPA7W/z5nJ+1x5GYw3D1Ob/zxZAWqv391Qz43ld0dBcs8lA0IxMw54UvSQ==
+X-Received: by 2002:a17:906:fa0b:b0:8b8:c06e:52d8 with SMTP id lo11-20020a170906fa0b00b008b8c06e52d8mr404362ejb.36.1679606234729;
+        Thu, 23 Mar 2023 14:17:14 -0700 (PDT)
+Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
+        by smtp.gmail.com with ESMTPSA id r5-20020a1709064d0500b00923f05b2931sm9111409eju.118.2023.03.23.14.17.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Mar 2023 14:17:14 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v2 2/4] ARM: dts: sunxi: add Allwinner T113-s SoC .dtsi
+Date: Thu, 23 Mar 2023 22:17:13 +0100
+Message-ID: <13227090.uLZWGnKmhe@jernej-laptop>
+In-Reply-To: <20230320005249.13403-3-andre.przywara@arm.com>
+References:  <20230320005249.13403-1-andre.przywara@arm.com>
+ <20230320005249.13403-3-andre.przywara@arm.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_140754_960683_64A6225E 
-X-CRM114-Status: UNSURE (   4.58  )
+X-CRM114-CacheID: sfid-20230323_141718_908286_88128785 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,15 +88,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, =?ISO-8859-1?Q?Andr=E1s_Szemz=F6?= <szemzo.andras@gmail.com>, Belisko Marek <marek.belisko@gmail.com>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IDIwMjPlubQz5pyIMjPml6UgMDc6MjnvvIxDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5k
-ZT4g5YaZ6YGT77yaCj4gCj4gVGhlIHNlcmllcyBsb29rcyBmaW5lIHRvIG1lLiAgSG93IHNob3Vs
-ZCB3ZSBtZXJnZSBpdD8KClBlcmhhcHMgZ28gdGhyb3VnaCBkbWEtbWFwcGluZyB0cmVlPwoKVGhh
-bmtzCi0gSmlheHVuCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Dne ponedeljek, 20. marec 2023 ob 01:52:47 CET je Andre Przywara napisal(a):
+> The Allwinner T113-s SoC is apparently using the same (or at least a very
+> similar) die as the D1/D1s, but replaces the single RISC-V core with
+> two Arm Cortex-A7 cores.
+> Since the D1 core .dtsi already describes all common peripherals, we
+> just need a DT describing the ARM specific peripherals: the CPU cores,
+> the Generic Timer, the GIC and the PMU.
+> We include the core .dtsi directly from the riscv DT directory.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Best regards,
+Jernej
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
