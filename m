@@ -4,88 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDC2C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CCDC76196
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WlKkYSW6y1jJ7BibbTu7JX/OdkGuFFeZMYgvEL01RA0=; b=UF6E7fHrxCsb4A
-	8wQh9aomWoC8je0b5eICaXFJb74VU1YxmsDj2Tp1aWzyEHpOa58E/ZQszKTBs1NAzZ7iXdNwWCY8l
-	mDIac6CKiLgvRHl+96KQdg2Gu/fnGUOWS8e6KNKjmIKmeY9EQyjDiohAmQC90B8cH9nnEa0HVLTB4
-	8ZiDMto0J/+W6kNSPAvODek4vpt5xmX5DdD2r7pOGUgCv2PSo3t4GyH9JX+jMDGJ/mbm6rJqOQGt+
-	fVWIKj5LUUle2Osz7l9ktizxHkCNueulYIx4Ud4SDO6VLNGdT+69sBiS2K3Pe/g3ePm0RG2ocfk84
-	bm1REj6NNQTj+9YhhLqw==;
+	List-Owner; bh=z46siptdGC7QbK7IprZFYfkRi2sqPpVOiEOuSwALRak=; b=kMXdxHEDj5NrH4
+	KL1Sndm7BGArhVEMZk+6jO8xFDMOWFadnvgTtopt6fxctj2qEmHnr1UEG3ivlqLEFwK8yawOZOlOl
+	xelMyh7aC7C3IG+/E4KpCqZZ4JQm0CnOq1kc7T1lxRDPzRByUfyoBHF/ZZIIOcsWdi20T7sM/GcV6
+	YUEZ7C4YlSTuM0k/UQW2JObB8hYeC2ZdRhIqVkQh4n4n6jYUQ1XMJVTK5FPIfBqWuI78Tp/Hy/HJ4
+	9Tbn+IwOyHxIVEdHQOEon9lkSDRUJ/9lmbDI+tXSEDZ6pWMnn9v90J9xvDfOepHzRyVgXVu9oaTAD
+	RM/8zPllzcMpBBhU+P9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfNNe-002Q5Q-2G;
-	Thu, 23 Mar 2023 16:01:34 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1pfNks-002So8-3B;
+	Thu, 23 Mar 2023 16:25:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMRJ-002HIY-1i
+	id 1pfNkq-002Sn5-2J
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 15:01:23 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id z19so12144210plo.2
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 08:01:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679583677;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=JozESal/Fbpp9RViTDB8Qd5//8qhpKIjNlNXSseO97c=;
-        b=GLZYv/aG+Ac/8djv6J4vsr0ttPd9TwjukVUqCjcfy7McPcuKFVHuqGy5w0iYCgH0ve
-         YRQhpVGOmVc4RurKC+5esLk2PdcLbPPFidaAN9Hp9u7ozr0XoOlEO5YKecamglCLfr+Y
-         0p75r2grShf5CGdEDVy65zHfCz86AqYD4ygkSKKuiUDhhfLFNWWY084z8ZwLFhwK7ids
-         R4w6yIbHpa2CiACplfWPfzv1nDfk4gnJO6CPCZLH+NyTylJ4Hp0GCsWVP4mbvnI6d1DI
-         CUTL7UkrdUSPWSfpdf1sI1Pw9RDsFBUuHaQhsOWnoxF7ZuJn3wxmIYay6txUTs3gwkO5
-         hNyQ==
+	Thu, 23 Mar 2023 16:25:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1679588730;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rf1EargHhjBzXfO07IgMLtInuWGSM9rCL6OoPVE8vbA=;
+	b=CLCmM0WSxtyElg+rV2NaoX9cNsA1z5rA7ILWJxtQfnoauVI4sVS+i/1dx6dmEGhD7QGjwW
+	ieVUHLQI89+/WnFSqHdOMyN7cvuSa5i7jQ4ENY1zX4hy7aRG8nE4HRcgbVapDzLLSyxMYb
+	WXQ45gfTZgsQx4Xjb6Am1fF1x4+m1OM=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-448-avd8OzJzNSWb3dpCFiGrAA-1; Thu, 23 Mar 2023 12:25:29 -0400
+X-MC-Unique: avd8OzJzNSWb3dpCFiGrAA-1
+Received: by mail-wm1-f72.google.com with SMTP id m7-20020a05600c4f4700b003ee7e120bdfso1533917wmq.6
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 09:25:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679583677;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JozESal/Fbpp9RViTDB8Qd5//8qhpKIjNlNXSseO97c=;
-        b=QZkAtjKEvT3846jfhtS6KxcMdIUPO7rEojJDdCfL8HlN5DTYSo3zJB8Zmu4oI+3k6d
-         Gq9gKKl3CtOj3b/E+GJLpxrcjguzz9VSamVjeTIh54doLZ+7kRUHb6sW+1uLTeCZ3KcZ
-         +qYYc8tdDrq8aP+QfEuzUhuSGc7R4o/sJycydUUoJm4lCJuuO8QqNfY3XkUtoxB3xD2V
-         +gUQYvCLgMZVNNz2qKqXzSYTt0twVyBnoKUWtZxBMh2gDK07MfFt8b18mZTcZw4GC21R
-         YmT9O5lsjLObuYsqHMC4XyyE5O0SJYFx2HjC4+1S3nBQj/GsXJo4YrjyGcprCFo87k9Y
-         zUoA==
-X-Gm-Message-State: AAQBX9cBpCVqM4FX4sHnlA/Nzmxs+enW2M1u8gr9gOvW/kHbj3pjG8Jd
-	jk95gXBXn7FUPSEX/VvRZFl/gS+QwN03j3lvYq9gHaiD8YsPN8IcPJJJKY7Q46xrMGdgQyqRQGt
-	6MsP+zVkrOs8fEjosvlBjj4IXdK7OLDXdH8Rj+OEdnxcmihZWTiT0SWetiKvq3kgJJUsAuAZFsX
-	N+hlMY68ZQo5Mw
-X-Google-Smtp-Source: AKy350a6Nkugs3BdGgoNETgzYze7cy/cXizByVIZO8sc3UhB/5O/9VTlWpWOJUEXeJgtEB1dDswOuQ==
-X-Received: by 2002:a17:902:e5c9:b0:19a:7217:32a9 with SMTP id u9-20020a170902e5c900b0019a721732a9mr6934775plf.26.1679583676752;
-        Thu, 23 Mar 2023 08:01:16 -0700 (PDT)
-Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.08.01.14
+        d=1e100.net; s=20210112; t=1679588728;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rf1EargHhjBzXfO07IgMLtInuWGSM9rCL6OoPVE8vbA=;
+        b=lOWEOvW/CO5vMiURMra9FCHfHLWyS8T7xupcto7ygReG/uUSP/YkR0vmwRy8gU7Vr0
+         JNO5Sdaw8ipck/n3FtNgwGfuby/oG1K13QTDs+ri/nADqgKlTaoN8cX/Qzq9fu8qIA2z
+         FL/dv/h2MBpwI5giSV7Qi9u3XIiM43Pw6MjKKVVWzuSZJ37JS73jmiVWi8W79R+theQb
+         ZkGaTbGrVwjxznl1gzIIVoAyP9obBao0TZ/V5U9uZEf7eMFOUDHe6f12GBDme0Ie72ov
+         dB+HkL8Iv1VatGFOHJof5fTDtJKGcAMWn7hOkD3fTB6pE7lCXGJOfsBloIoPiutxt7o0
+         sbFg==
+X-Gm-Message-State: AAQBX9eqhS8Hns8dNHc50XWUMEZdIPX7PmV9s2MD58fox1dAO/SVcYA4
+	SqN6NucbIVYPgwu/HIwQwfTuAMHHZxKB1pJfef5whYLHQlOGGghTKfsweXbp2Nx2x2967tS3mjF
+	pobTOWiFc7GJG2OQjbMho3biUZLlk
+X-Received: by 2002:a5d:4568:0:b0:2c7:e5f:e0e0 with SMTP id a8-20020a5d4568000000b002c70e5fe0e0mr2967360wrc.65.1679588728476;
+        Thu, 23 Mar 2023 09:25:28 -0700 (PDT)
+X-Google-Smtp-Source: AKy350Z2pOP19Ooh7wiG9F4iyBZnUcLGOtnlVl1iiXTySJV6QCXnwRVxEdgZiRrRO9IHVKHT4hkvPQ==
+X-Received: by 2002:a5d:4568:0:b0:2c7:e5f:e0e0 with SMTP id a8-20020a5d4568000000b002c70e5fe0e0mr2967333wrc.65.1679588728212;
+        Thu, 23 Mar 2023 09:25:28 -0700 (PDT)
+Received: from vschneid.remote.csb ([154.57.232.159])
+        by smtp.gmail.com with ESMTPSA id d10-20020adfe88a000000b002c70e60abd4sm16586783wrm.2.2023.03.23.09.25.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 08:01:16 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH -next v16 17/20] riscv: kvm: Add V extension to KVM ISA
-Date: Thu, 23 Mar 2023 14:59:21 +0000
-Message-Id: <20230323145924.4194-18-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230323145924.4194-1-andy.chiu@sifive.com>
-References: <20230323145924.4194-1-andy.chiu@sifive.com>
+        Thu, 23 Mar 2023 09:25:27 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, x86@kernel.org, "Paul E. McKenney"
+ <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, Daniel
+ Bristot de Oliveira <bristot@redhat.com>, Marcelo Tosatti
+ <mtosatti@redhat.com>, Frederic Weisbecker <frederic@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Marc
+ Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Russell
+ King <linux@armlinux.org.uk>, Nicholas Piggin <npiggin@gmail.com>, Guo Ren
+ <guoren@kernel.org>, "David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v5 7/7] sched, smp: Trace smp callback causing an IPI
+In-Reply-To: <20230322140434.GC2357380@hirez.programming.kicks-ass.net>
+References: <20230307143558.294354-1-vschneid@redhat.com>
+ <20230307143558.294354-8-vschneid@redhat.com>
+ <20230322095329.GS2017917@hirez.programming.kicks-ass.net>
+ <xhsmhmt45c703.mognet@vschneid.remote.csb>
+ <20230322140434.GC2357380@hirez.programming.kicks-ass.net>
+Date: Thu, 23 Mar 2023 16:25:25 +0000
+Message-ID: <xhsmhbkkjcu4q.mognet@vschneid.remote.csb>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_080117_567008_81C754EA 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230323_092532_829841_2F58FC2F 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +113,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Chen <vincent.chen@sifive.com>
+On 22/03/23 15:04, Peter Zijlstra wrote:
+> @@ -798,14 +794,20 @@ static void smp_call_function_many_cond(
+>  		}
+>  
+>  		/*
+> +		 * Trace each smp_function_call_*() as an IPI, actual IPIs
+> +		 * will be traced with func==generic_smp_call_function_single_ipi().
+> +		 */
+> +		trace_ipi_send_cpumask(cfd->cpumask_ipi, _RET_IP_, func);
 
-Add V extension to KVM isa extension list to enable supporting of V
-extension on VCPUs.
+I just got a trace pointing out this can emit an event even though no IPI
+is sent if e.g. the cond_func predicate filters all CPUs in the argument
+mask:
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Acked-by: Anup Patel <anup@brainfault.org>
+  ipi_send_cpumask:     cpumask= callsite=on_each_cpu_cond_mask+0x3c callback=flush_tlb_func+0x0
+
+Maybe something like so on top?
+
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu.c             | 1 +
- 2 files changed, 2 insertions(+)
-
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index e44c1e90eaa7..d562dcb929ea 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -107,6 +107,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
- 	KVM_RISCV_ISA_EXT_ZICBOM,
- 	KVM_RISCV_ISA_EXT_ZICBOZ,
-+	KVM_RISCV_ISA_EXT_V,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
+diff --git a/kernel/smp.c b/kernel/smp.c
+index ba5478814e677..1dc452017d000 100644
+--- a/kernel/smp.c
++++ b/kernel/smp.c
+@@ -791,6 +791,8 @@ static void smp_call_function_many_cond(const struct cpumask *mask,
+ 			}
+ 		}
  
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 6adb1b6112a1..bfdd5b73d462 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -57,6 +57,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	[KVM_RISCV_ISA_EXT_H] = RISCV_ISA_EXT_h,
- 	[KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
- 	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
-+	[KVM_RISCV_ISA_EXT_V] = RISCV_ISA_EXT_v,
++		if (!nr_cpus)
++			goto local;
+ 		/*
+ 		 * Trace each smp_function_call_*() as an IPI, actual IPIs
+ 		 * will be traced with func==generic_smp_call_function_single_ipi().
+@@ -804,10 +806,10 @@ static void smp_call_function_many_cond(const struct cpumask *mask,
+ 		 */
+ 		if (nr_cpus == 1)
+ 			send_call_function_single_ipi(last_cpu);
+-		else if (likely(nr_cpus > 1))
++		else
+ 			send_call_function_ipi_mask(cfd->cpumask_ipi);
+ 	}
+-
++local:
+ 	if (run_local && (!cond_func || cond_func(this_cpu, info))) {
+ 		unsigned long flags;
  
- 	KVM_ISA_EXT_ARR(SSTC),
- 	KVM_ISA_EXT_ARR(SVINVAL),
--- 
-2.17.1
 
 
 _______________________________________________
