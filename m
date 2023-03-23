@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98943C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 07:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C748C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 07:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OP2YhGqqal93Kc3x/kh1kGi3yvZsTml5ewit/8gd1uE=; b=38cxvB50SZ3zFM
-	s/4ri7mCeZWGiHqTG8wsiEQyM10jrjdOUFq+3hu+ywGDj+g8+0sDoxmi2seb+tkwVXg48Mown38fk
-	BD/Ujzifomqhiaxfhd97/DH+sEBLrHyS87zyQBQqF21KHOFm8JFTZY+whTj6xyCN0oyMy4kOVsYBX
-	gbf2BwdMLNL5VfMwtiSTBCd3jKBsYR2fY9Ga9XQYlR0pJG5IcFRY5iZzfKKzvOY6+8QuItTPBdYAx
-	NfRpD3wHqK6j8+9x/QaEJOJEJc5wY4xnuajEcvsYJZSpF5p/jbAcayjhH/mOuIItKskfkQxiLzY5l
-	0eztGzOhpJ/FzVp8yaow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SOVwUTHRRe1qfEiHWsOXMUDpexmcdlqYMOvaX7BGvHc=; b=RYKc/B+s6KQqLJWCoMnQatTDRO
+	FKiEuwc2U901I6Rdtu3bGbXaQJjTjEVPaPiYhc43BsSSyl4KBLqz8SVFj8ua46YWdM0KZdNxIElUA
+	XQlFu08qB7XLKtmv8kmuofTdV8ju85Hta9SM/lj31ynb6+DL0FoRxp1YATARwZn3O/4l+UVG3gViG
+	yAnDkpaWHGlilztLLUa0N8F3RRjPan8sFKa+4y9mDbaybWEI1DWwwF9ldP7uTgVECTzpypQBEjAN3
+	j6XyhLgN+9CiDn7aMeIc2iVG+QJoWIoP+Ib3OVkwFkDV8YwihE3+d/6ZLkzamwJzZwKKEmNQoS5Di
+	puRdUgtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfFds-0018fY-2o;
-	Thu, 23 Mar 2023 07:45:48 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfFdn-0018XM-1p
+	id 1pfFiO-0019XX-23;
+	Thu, 23 Mar 2023 07:50:28 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pfFiL-0019VU-2b
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 07:45:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 0B5F324E1BE;
-	Thu, 23 Mar 2023 15:44:43 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Mar
- 2023 15:44:43 +0800
-Received: from [192.168.125.74] (183.27.97.64) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Mar
- 2023 15:44:42 +0800
-Message-ID: <5b75161e-3d0d-50e5-fd4e-af92edf62317@starfivetech.com>
-Date: Thu, 23 Mar 2023 15:44:41 +0800
+	Thu, 23 Mar 2023 07:50:27 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id bc12so20960772plb.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 00:50:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1679557822;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6GQvyyWfzdZlNTPcJjFuNq4iVi6kYqIRTdIXM0bxkig=;
+        b=YrA6kgUuYXXc/yhtRQjq7msKg6c5+EDSg8TFX0Lx/oemng6GYs/2p+aorlJgMm/2fW
+         4wAgSJoVKSyBRG03vz63JfUwBWt/DBOgxVv+I2sIrRmEBmltH2QBWhPnh7Fccwtzgiq/
+         4gBCtyWPN9dafmH7irN5n0eiQ/jCT/lsUOC83oqw2Md577Ejk2UaClNJzgBen3RjXW1W
+         ZtzTgr2blbfcJf54cSlkKse2MCu8AFOlIoJmtSfNIHpzjJvE42Kblo2qEhJ1Fzb2lQFL
+         ED2e+kPUYtYAuV7dF7NGikoDI5sYKGLXUCHlqKK3u74OU/SxWrEjTMkSJmWC2fKvxlLD
+         TqYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679557822;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6GQvyyWfzdZlNTPcJjFuNq4iVi6kYqIRTdIXM0bxkig=;
+        b=j9C6peWL5zL1F+WdDFu0BgRJOge83PjXH+iXmE2AbCYCZ2awLoPeRyDp36olf8UQcl
+         BbMZAV9MSOhG4PZzP8nXfXoW3EZbGAzI4olTaV0KtfIjlxOMHa6czNq8iYvA0hYbkZGZ
+         f9EOwxSFHVfjlm2LMB9zq3rkcsuL9HmJk2R2HCoDpy8l+aXh6vO2THxTJXy7F39ml2OE
+         QmqaVGPZjb6bTyRt+lixbXwRV9ThYDucnGm2YNYqHchdwdXPD6dJ5OLDqLe5rrkWDxJH
+         4yFWdD4LNA2ciKEvjJqAmUWky9mHfbZYKbDloZaFk1hH6GnYwqf+6n1nbogmRQeMgVzL
+         fQdg==
+X-Gm-Message-State: AO0yUKU6ZisGMwD7oiXCVlgGnJHBCZ1HkCeZw4RitcmpYNCqNZ3sahfq
+	O5oEtu2Qze9Do5ZOFqMPKdCfPg==
+X-Google-Smtp-Source: AK7set8reMhX/0K1+rtbWu5hJYhaj/eSdvG6l3WSWzeAaiqpKAIhdJYZ/Zlz/C6BcxymP8O2h7O7/A==
+X-Received: by 2002:a05:6a20:6aa0:b0:db:d1d5:1e00 with SMTP id bi32-20020a056a206aa000b000dbd1d51e00mr1664778pzb.60.1679557822205;
+        Thu, 23 Mar 2023 00:50:22 -0700 (PDT)
+Received: from archlinux.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id x16-20020a63fe50000000b005004919b31dsm11063641pgj.72.2023.03.23.00.50.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Mar 2023 00:50:21 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: conor.dooley@microchip.com
+Cc: abrestic@rivosinc.com,
+	andy.chiu@sifive.com,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atishp@atishpatra.org,
+	bjorn@rivosinc.com,
+	david@redhat.com,
+	greentime.hu@sifive.com,
+	guoren@kernel.org,
+	guoren@linux.alibaba.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richard.henderson@linaro.org,
+	vincent.chen@sifive.com,
+	vineetg@rivosinc.com,
+	xianting.tian@linux.alibaba.com,
+	zephray@outlook.com
+Subject: Re: [PATCH -next v15 13/19] riscv: signal: Add sigcontext save/restore for vector
+Date: Thu, 23 Mar 2023 15:50:14 +0800
+Message-Id: <20230323075014.2135132-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.36.0
+In-Reply-To: <e0b5df49-4d78-4a0f-8509-ff29085486cf@spud>
+References: <e0b5df49-4d78-4a0f-8509-ff29085486cf@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v6 11/21] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20230320103750.60295-1-hal.feng@starfivetech.com>
- <20230320103750.60295-12-hal.feng@starfivetech.com>
- <b4beb457-8581-4b2f-8655-2e3f82a94f75@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <b4beb457-8581-4b2f-8655-2e3f82a94f75@spud>
-X-Originating-IP: [183.27.97.64]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_004543_965464_2EE1F6DF 
-X-CRM114-Status: GOOD (  33.61  )
+X-CRM114-CacheID: sfid-20230323_005025_897411_C6F02F72 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,209 +107,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2245542982460427306=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Mar 2023 21:53:37 +0000, Conor Dooley wrote:
-> Hey Hal,
-> 
-> On Mon, Mar 20, 2023 at 06:37:40PM +0800, Hal Feng wrote:
->> From: Emil Renner Berthing <kernel@esmil.dk>
->> 
->> Add bindings for the system clock and reset generator (SYSCRG) on the
->> JH7110 RISC-V SoC by StarFive Ltd.
->> 
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> Reviewed-by: Rob Herring <robh@kernel.org>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
->>  MAINTAINERS                                   |   8 +-
->>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
->>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
->>  4 files changed, 454 insertions(+), 3 deletions(-)
->>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
->>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
->> 
->> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->> new file mode 100644
->> index 000000000000..84373ae31644
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->> @@ -0,0 +1,104 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 System Clock and Reset Generator
->> +
->> +maintainers:
->> +  - Emil Renner Berthing <kernel@esmil.dk>
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-syscrg
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    oneOf:
->> +      - items:
->> +          - description: Main Oscillator (24 MHz)
->> +          - description: GMAC1 RMII reference or GMAC1 RGMII RX
->> +          - description: External I2S TX bit clock
->> +          - description: External I2S TX left/right channel clock
->> +          - description: External I2S RX bit clock
->> +          - description: External I2S RX left/right channel clock
->> +          - description: External TDM clock
->> +          - description: External audio master clock
->> +
->> +      - items:
->> +          - description: Main Oscillator (24 MHz)
->> +          - description: GMAC1 RMII reference
->> +          - description: GMAC1 RGMII RX
->> +          - description: External I2S TX bit clock
->> +          - description: External I2S TX left/right channel clock
->> +          - description: External I2S RX bit clock
->> +          - description: External I2S RX left/right channel clock
->> +          - description: External TDM clock
->> +          - description: External audio master clock
->> +
->> +  clock-names:
->> +    oneOf:
->> +      - items:
->> +          - const: osc
->> +          - enum:
->> +              - gmac1_rmii_refin
->> +              - gmac1_rgmii_rxin
->> +          - const: i2stx_bclk_ext
->> +          - const: i2stx_lrck_ext
->> +          - const: i2srx_bclk_ext
->> +          - const: i2srx_lrck_ext
->> +          - const: tdm_ext
->> +          - const: mclk_ext
->> +
->> +      - items:
->> +          - const: osc
->> +          - const: gmac1_rmii_refin
->> +          - const: gmac1_rgmii_rxin
->> +          - const: i2stx_bclk_ext
->> +          - const: i2stx_lrck_ext
->> +          - const: i2srx_bclk_ext
->> +          - const: i2srx_lrck_ext
->> +          - const: tdm_ext
->> +          - const: mclk_ext
-> 
-> I'm sorry to be a bit of a bore about these bindings, but Emil mentioned
-> to me today that he had some doubts about whether any of these audio
-> clocks are actually required.
-> I've had a bit of a look at the driver, cos the TRM that I have doesn't
-> describe the clock tree (from what recall at least) and I think he is
-> right.
-> For example, the TDM clock:
-> +	JH71X0_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
-> +	JH71X0_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
-> +	JH71X0_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYSCLK_MCLK),
-> +	JH71X0__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
-> +		    JH7110_SYSCLK_TDM_INTERNAL,
-> +		    JH7110_SYSCLK_TDM_EXT),
-> 
-> Hopefully, I'm not making a balls of something here, but it looks like I
-> can choose an internal TDM clock, that is based on JH7110_SYSCLK_MCLK,
-> which in turn comes from either an internal or external source.
-> If I am following correctly, that'd be:
-> +	JH71X0__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUDIO_ROOT),
-> 
-> Which in turn comes from:
-> +	JH71X0__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2_OUT),
-> 
-> This leaves me wondering which clocks are *actually* required for a
-> functioning system - is it actually just osc and one of gmac1_rmii_refin
-> or gmac1_rgmii_rxin.
+--===============2245542982460427306==
+Content-Type: text/plain; charset=ascii
+Content-Transfer-Encoding: 8bit
 
-As I had mentioned somewhere before, some audio clocks need to change their
-parents at different stages of work. I should explain in detail here.
+On Mon, Mar 20, 2023 at 9:37 PM Conor Dooley <conor.dooley@microchip.com> wrote:
+> Sparse, or at least Palmer's hacked up version of it that I am running
+> [1] complains a bit about this patch, that you've added a few:
+> +      1 ../arch/riscv/kernel/signal.c:145:29: warning: incorrect type in initializer (different address spaces)
+> +      1 ../arch/riscv/kernel/signal.c:171:24: warning: incorrect type in initializer (different address spaces)
+> +      1 ../arch/riscv/kernel/signal.c:172:24: warning: incorrect type in initializer (different address spaces)
+> +      1 ../arch/riscv/kernel/signal.c:268:47: warning: incorrect type in initializer (different address spaces)
+> +      1 ../arch/riscv/kernel/signal.c:282:16: warning: incorrect type in initializer (different address spaces)
+> +      1 ../arch/riscv/kernel/signal.c:283:16: warning: incorrect type in initializer (different address spaces)
+> Please have a look at those, and check whether they're valid complaints.
 
-For the i2s*_ext clocks, we should use these external clocks as parents when
-the I2S module is working in the slave mode, while we should use the internal
-clocks as parents when the I2S module is working in the master mode.
+Yes, they are valid. Meanwhile, running sparse locally, I found the 
+following, which are also reported at 19/19 patch:
+arch/riscv/kernel/signal.c:78:13: warning: incorrect type in assignment (different address spaces)                                                                                                                                                                              
+arch/riscv/kernel/signal.c:80:18: warning: cast removes address space '__user' of expression
+arch/riscv/kernel/signal.c:92:16: warning: incorrect type in initializer (different address spaces)
+arch/riscv/kernel/signal.c:114:51: warning: incorrect type in initializer (different address spaces)
 
-For the tdm_ext clock, we use it as the clock source for an accurate playback
-rate. If we use the internal clock as clock source, the TDM can't work
-normally, because it can't get a required rate from the internal divider.
-By the way, note that we need to use the internal clock as clock source when
-we try to reset the tdm clock, otherwise, the reset will fail.
+And these need to be fixed, while not found by your sparse:
+arch/riscv/kernel/vector.c:81:28: warning: incorrect type in initializer (different address spaces)
+arch/riscv/kernel/vector.c:81:28:    expected unsigned int [noderef] [usertype] __user *epc
+arch/riscv/kernel/vector.c:81:28:    got unsigned int [usertype] *
 
-For the mclk_ext clock, which is 12.288MHz, it's used as the clock source
-through all the running time, otherwise, the daughter clocks can't get the
-required rate from the internal PLL2 clock (1188MHz) through dividers.
+However, there is no way to get around signal.c:92 though. The copying of
+__user pointer to a __user address should be valid.
 
-So all these audio external clocks (i2s*_ext / tdm_ext / mclk_ext) are
-actually required.
++static long save_v_state(struct pt_regs *regs, void **sc_vec)
++{
+...
++	/* Copy the pointer datap itself. */
++	err |= __put_user(datap, &state->v_state.datap); 
+...
 
-Best regards,
-Hal
-
-> 
-> I really don't want you to have to go and spell out every combination of
-> clocks to have some sort of validation here.
-> 
-> Stephen, Rob or Krzysztof, do you have any guidance on this situation
-> (assuming I've not made a fool of myself)? There's probably something
-> "obvious" that I'm missing, as I am sure this is not a unique problem.
-> 
+>
+> Otherwise, this version of this patch seems a lot nicer than the last
+> version, so that makes me happy at least, even if sparse isn't..
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>
 > Cheers,
 > Conor.
-> 
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +    description:
->> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
->> +
->> +  '#reset-cells':
->> +    const: 1
->> +    description:
->> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - '#clock-cells'
->> +  - '#reset-cells'
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    clock-controller@13020000 {
->> +        compatible = "starfive,jh7110-syscrg";
->> +        reg = <0x13020000 0x10000>;
->> +        clocks = <&osc>, <&gmac1_rmii_refin>,
->> +                 <&gmac1_rgmii_rxin>,
->> +                 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
->> +                 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
->> +                 <&tdm_ext>, <&mclk_ext>;
->> +        clock-names = "osc", "gmac1_rmii_refin",
->> +                      "gmac1_rgmii_rxin",
->> +                      "i2stx_bclk_ext", "i2stx_lrck_ext",
->> +                      "i2srx_bclk_ext", "i2srx_lrck_ext",
->> +                      "tdm_ext", "mclk_ext";
->> +        #clock-cells = <1>;
->> +        #reset-cells = <1>;
->> +    };
 
+Thanks,
+Andy
+
+
+--===============2245542982460427306==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2245542982460427306==--
