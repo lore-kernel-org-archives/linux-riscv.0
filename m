@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CE9C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 22:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B9AC74A5B
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 22:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8MjDBtUmmxEpgiPob/iD/LOa8s9WdX9BLD9PrA5zi/Y=; b=Xw2uAUbPo0XDdMDpudH2W2YuaL
-	xYYYktoqdCnmjdne6cmk83ExxUxr84S9kP/I+oKByilfeY2aYiGq73mz8h8DMEx+fD+icNU39hvy6
-	6QznWrYIcDM9wP7tbc2tEWxeOls/hjk/0BIvFUeUJWVJ9rmn7HWXIGL8NEjQmljbWLlmT5EzE6RXj
-	9lNh0q6UnyfslO9OHU3/ND0QL6bV8a+/Pu67p8hTDp6gwEi5xpJHLs5+PQ6TwhVe1uwtUvgbUmJd4
-	fDkQMUlABUrAHEN4I0Y9BDmj211nZO2BU+oXGrBfS/WzTBS9JZVgucp7AC/fW+rchztnv/h8CKgVJ
-	A1AQNK2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=o23Je2Hs7L/O2PU3nUA0hVCNaz85Xj+oEg0d9BJdfAI=; b=HjB8XK94GnO8m4HWMiiQrV5JSt
+	WBijuu0+7/C6FIlN6p+C5Wrnamoji9PEGUqK2XDVFLM4h2y2WMk7AK4Z3o6HRWXgK0AJThdkGshbg
+	K/+LYfbhGGxzkPzaeXQmc4gGWNzc8jxadyEkdaztEhK17EUMBl2E/Xkfe5EFJ7GU9zUTUvr+Y0J7B
+	EIwR1mRTnA65B6vzuiF+vzViiN8RryTxOqDDA0jCLZ1GNkEnsBAedzP52jY2uLBO6SdUrmDz559MV
+	I4LVLd1UU9p2WPtVotukTrqYdn0vKj3YqsFg1ursY+WKKORWQTgbzSsrXIP4qLzQiX6oy2meT1+MN
+	2TyjBB5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfTHz-0034Cx-0E;
-	Thu, 23 Mar 2023 22:20:07 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pfTls-0037Ht-1L;
+	Thu, 23 Mar 2023 22:51:00 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfTHv-0034Bt-18;
-	Thu, 23 Mar 2023 22:20:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B573AB821F7;
-	Thu, 23 Mar 2023 22:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD80C4339B;
-	Thu, 23 Mar 2023 22:19:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679610000;
-	bh=EGro5R7FQWiMxlAAvFpkvWnKYj/UgWU6UGe7JmSDC+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D5fR7X4NGOeqePlms9r2wzI1F4U3DZhoilJCcWwgejrXBMbL4ZWwlk0iU7725Oyel
-	 Giyy59T2uqCMiI787vu3EfInUVmloOQcK2rackjlpDlzMaMQjyZMOFbKEZhtpuMgZi
-	 Ek4MoJCm9EI9zIBXo4H43zrHSBQ4LQhwGDqh5ZgkoR+t/AQqb+iVGr4HecAMUlOHdp
-	 lObO0xL69GahU6OqTx/YiOxvUV+uPh6xjzSlosVlITY03K+riOXoSeKrkSX4su0GqE
-	 o6oe1yfTEG47hNio434LDV/sH1HZoNaBcYW6nYWKWtDoCTjb9r6RNa4MtLVjFngEEH
-	 SJFeGt9P2Bh4w==
-Date: Thu, 23 Mar 2023 22:19:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, regressions@leemhuis.info,
-	regressions@lists.linux.dev
-Subject: Re: [PATCH] riscv: require alternatives framework when selecting FPU
- support
-Message-ID: <71fc0b56-0b63-4f0b-9f1d-5c4d6102ded6@spud>
-References: <ZBruFRwt3rUVngPu@zx2c4.com>
- <20230322120907.2968494-1-Jason@zx2c4.com>
- <20230322124631.7p67thzeblrawsqj@orel>
- <1884bd96-2783-4556-bc57-8b733758baff@spud>
- <20230322192610.sad42xau33ye5ayn@orel>
- <2a3b08ce-5ab1-41b6-ad58-edbeff7b1acb@spud>
- <ad445951-3d13-4644-94d9-e0989cda39c3@spud>
- <CAHmME9qEbUP7cq-iofN=ruSWhsHUva+qqavfEpNzDK_BjQVqxw@mail.gmail.com>
- <af690061-f962-498e-b2df-d2e6119292cf@spud>
- <ZBx2qFFiaRSyJubo@zx2c4.com>
-MIME-Version: 1.0
-In-Reply-To: <ZBx2qFFiaRSyJubo@zx2c4.com>
+	id 1pfTlo-0037Fi-1l
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Mar 2023 22:50:57 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id g187-20020a2520c4000000b00b74680a7904so144600ybg.15
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 15:50:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112; t=1679611852;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=74Bca3+J0Cb4vQ6fen5CaUBDEj5b5vV7i4MEot6v9Ds=;
+        b=Xq5j+lIleCd7gJ1dE8R8LdVZd6/Qv8NzcaxjC5hLBOUVeScHYE3rE5TNQ//r7yfN50
+         qu7jxQz7fyIymM4WAg9V2y7EeUrZ1wlQRQJj/+oujArw7fB9gKf4fErEtyo/4Mau9H09
+         RIH4AJrLkpQXI9YhLhOv3VdiCxQAA5Uwh49ZPWZDzZLUt123n+4iFfw1RAQFr/LIt3xS
+         ek6+9IaXVS7narxW8QBsp/0r+ivO8GmJOz2W9RcrZbFS5XUn3WI5+C0r4uBO4v461W3B
+         gUARs0ynmRRd//VGT3/J54QxG+U+Aj7Nv98fLTt44VUSX4ROdI9etjSbiMvNw6fgbQSp
+         UZqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679611852;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=74Bca3+J0Cb4vQ6fen5CaUBDEj5b5vV7i4MEot6v9Ds=;
+        b=jTS1f+WYdCHWWRJWE070FDXEa8IUlhIzEv9C/Yrir7lybuqs8g/raZvSLjbdAr1fyL
+         FchsZOUgdAEJTSjcZycjAlXfPPcDYHRdci8NlRo4ufZPUE+5CEXUnc/3187yFJdZWfDS
+         5GdnlsqA1AH8V+/xEYkM6GekZ7IO/8etKVB0JPAwxSKuydmQ52DsLj0nqLAZJXNTPBxv
+         Pg/PvXZnbXA2Nb5bYT+anu9BvgiZu13/Gfk/x7mu9QGapwmQ4Bx+eL7GW0TIMosK/WUl
+         VQSWorcwqdvq/F1CK3nMgsS8sgy60hbF8lzHEegVNgx2kIK4PwgYX3QSRq0LoITY1T1s
+         pDAg==
+X-Gm-Message-State: AAQBX9eXVDvgXIwpWjd7+hvDVei1u7HZiDK7eLhLJ/vghjabpXeMMdxX
+	eYxmVUC1j6zRhPAoPQX37eGqbR+QQPo=
+X-Google-Smtp-Source: AKy350ZsIJuSNQoMPlJ5+eoOr2kgPIQRx9B3zNmq76T9BVO+0ZLsWEOoUS4XgvR/h7pV3ogslqbmAO1mcEk=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a81:4426:0:b0:544:5aa0:e212 with SMTP id
+ r38-20020a814426000000b005445aa0e212mr87638ywa.6.1679611851706; Thu, 23 Mar
+ 2023 15:50:51 -0700 (PDT)
+Date: Thu, 23 Mar 2023 15:50:28 -0700
+In-Reply-To: <20230126184025.2294823-1-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20230126184025.2294823-1-dmatlack@google.com>
+X-Mailer: git-send-email 2.40.0.348.gf938b09366-goog
+Message-ID: <167934082066.1939558.14724526021018063522.b4-ty@google.com>
+Subject: Re: [PATCH v2 0/7] KVM: Add a common API for range-based TLB invalidation
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	David Matlack <dmatlack@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_152003_671781_CC9386A2 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20230323_155056_584828_B5575BF1 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,132 +93,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2535995223180081812=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 26 Jan 2023 10:40:18 -0800, David Matlack wrote:
+> This series introduces a common API for performing range-based TLB
+> invalidation. This is then used to supplant
+> kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
+> patch series:
+> 
+> 1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
+> 
+> [...]
 
---===============2535995223180081812==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vddSnN5vfBB77SnX"
-Content-Disposition: inline
+Applied the x86 specific cleanups to kvm-x86 mmu.  They're good changes on their
+own, I'm quite confident that this series a whole won't be going into 6.4, and I
+suspect/hope that getting these into 6.4 will make David's life easier (there are
+more cleanups in the related x86 code that I want to get into 6.4).  David, if
+I'm wrong, you'll have plenty of time to think of an appropriate punishment ;-)
 
+[3/7] KVM: x86/mmu: Collapse kvm_flush_remote_tlbs_with_{range,address}() together
+      https://github.com/kvm-x86/linux/commit/28e4b4597d65
+[4/7] KVM: x86/mmu: Rename kvm_flush_remote_tlbs_with_address()
+      https://github.com/kvm-x86/linux/commit/8c63e8c21765
+[5/7] KVM: x86/MMU: Use gfn_t in kvm_flush_remote_tlbs_range()
+      https://github.com/kvm-x86/linux/commit/9d4655da1a4c
 
---vddSnN5vfBB77SnX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Jason,
-
-I read this mail before I left work today & had a think about it on the
-bike home, and had a whole response thought out, got distracted and
-forgot it all.. Hopefully I've remembered everything I had to say!
-
-On Thu, Mar 23, 2023 at 04:56:24PM +0100, Jason A. Donenfeld wrote:
-> On Thu, Mar 23, 2023 at 02:49:34PM +0000, Conor Dooley wrote:
-> > This would requiring picking up your patch Jason, but with an
-> > "if !XIP_KERNEL" added to the select.
->=20
-> So the risk of making this all work is that we wind up forgetting to add
-> `select alternatives if !xip` to various places that need it (fpu, kvm,
-> maybe others? future others?), because it appears to work, thanks to the
-> code in your patch.
->=20
-> But making it work is also probably a good thing, since we obviously
-> want the fpu and maybe other things to work on xip kernels.
-
-I'm not super pushed about the "maybe other things", since the "maybe
-other things" that are in my head (errata and recently added extensions)
-have never worked on xip kernels, and losing them isn't a regression.
-Since XIP_KERNEL is deemed to be a "NONPORTABLE" option, we wouldn't
-need alternatives to enable it for them, but changes would be required
-for that to make the alternatives collapse to a build time thing.
-Can deal with that iff someone actually does come along wanting it.
-
-We do need to fix this so that situations like the one you hit can't
-happen, while not regressing the level of support for xip, so some level
-of "making it work" is needed, but I do agree that it needs to be done
-in a less footgun way.
-
-> So maybe we should get rid of the CONFIG_RISCV_ALTERNATIVES knob
-> entirely, making it "always enabled", and then conditonalize the
-> alternatives code to BUILD_BUG_ON when called with CONFIG_XIP_KERNEL=3Dy.
-> Then, this build bug will get hit immediately by
-> riscv_has_extension_*(), which will then require your patch, which can
-> run in a `if (IS_ENABLED(XIP_KERNEL))` block or similar.
->=20
-> The result of that will be:
-> - !xip kernels properly use the fast riscv_has_extension_*() code and
->   any alternatives code needed, since it's always selected.
-> - xip kernels get a BUILD_BUG_ON if they use any alternatives-based code
->   that doesn't have a xip fallback yet.
->=20
-> What do you think of that approach?
-
-Initially I thought "great, lets always enable the alternatives
-framework" but I don't think we can do that.
-For the has_extension() stuff a fallback is fine, but I don't think that
-applies to using alternatives for either errata or enabling extensions
-at runtime.
-I just don't really want to go through and modify the alternative macros
-so that they're evaluated at build time for xip unless that is
-absolutely required down the line. (I'd rather not even do it at all.)
-
-Most of the things that are currently selecting RISCV_ALTERNATIVE do so
-to patch in support for extensions or enable errata, and I don't think
-we should expose those config options if the alternatives that they rely
-on cannot be used. I think that means something like...
-
-> A "lighter weight" version of that approach would be to just remove all of
-> the `select RISCV_ALTERNATIVES` lines, and instead make
-> RISCV_ALTERNATIVES specify `default !XIP_KERNEL`. That would more or
-> less amount to the above too, though with weirder error cases.
-
-=2E..adding a "select RISCV_ALTERNATIVE if !XIP_KERNEL" to the
-CONFIG_RISCV entry, and similarly to what you suggest here, swapping all
-of the instances of "select RISCV_ALTERNATIVE" for "depends on
-RISCV_ALTERNATIVE". That does still mean we can drop all of the
-"depends on !XIP_KERNEL" that are littered around the place whereever we
-are using alternatives & should only get the slow path for extension
-checking for xip kernels.
-That'd handle the issue that you pointed out, where if the select is
-missing, my suggested change makes it appear to work if alternatives are
-not enabled too.
-
-The BUILD_BUG_ON idea is good too, probably not fixes material, but
-might be worth having to prevent alternatives somehow being used when
-XIP_KERNEL is set.
-
-I'll try to whip something up tomorrow...
-
-Thanks Jason,
-Conor.
-
---vddSnN5vfBB77SnX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBzQigAKCRB4tDGHoIJi
-0ncsAP9X22z2ivSfhQdtuoUsRvCx/661lKb5fqk89hLsE94cIQEAufUulDwROTp8
-wCqlVN+Ecvxd5O0NDQNhmpzYyrBOyQo=
-=bI1F
------END PGP SIGNATURE-----
-
---vddSnN5vfBB77SnX--
-
-
---===============2535995223180081812==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+--
+https://github.com/kvm-x86/linux/tree/next
+https://github.com/kvm-x86/linux/tree/fixes
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2535995223180081812==--
-
