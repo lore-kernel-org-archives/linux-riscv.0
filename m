@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DD4C74A5B
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C150BC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 16:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tCgL0MxpVWsWGadNeFPQBI0nBidPMuZodlYMvgr8n80=; b=zpxpYUNKMyj6f/
-	Xm3nme2TdFayehqOpY/OY33/Nuoii8ioSESvFzhQ5JCCnczs6q8fxLycU4HVBGDHmq5CVEatnzy6C
-	IFlt9uigEpVrgzZYMFltPM+3HChlF7m9C7MBhuurjGzA36gse1g/hSlQzWwqC6v8T3kbiR5qlkMec
-	pXmmYbgd7d3BsV8ozOCbc6qdaQY6kfNtWq5zC037QGBFzzhXMxjUoWBkx+3MYQ6JrGGG3weg+2xPG
-	5ya7+cJoLzgmH0WrWinQc8FoecJvGe09nmg89VxcOLF9Unw2zL74ekC1APJgD9yzEdywrlEXY/9gy
-	HwMedvJw1270kRXJrAJg==;
+	List-Owner; bh=jyhpxayQpQ/kNxfXIZw+fYaLGCS3Pn54OIJSv6ntVNI=; b=htxriBF5HrPCpR
+	uH2FgrLQEzwLotQdOnJsbOdE7C+DjRrXFYNb6k/npCJt5n+9iKfLMyiRp+N23otPR/gXugxmi3o+z
+	7GT/w/cJ6AT3uxHFIvTspXITDiF8ednHpKfajeC1Tqxbd6xyh/EiRioycK8x8vqhAGY4t9+nQPXOP
+	FF3vPsreyG0+ylFUzmd4N0uZROAznJ9OX4FEE+UVI2Ud5PPjxGGh5VpcLUxrcpncF0/xnvqUEdRYO
+	OGUwj9PSEErsL2yph5vED0mhinXOLWmf0/dt7+UTzC8IKPZFvMsA5hPU7jYNH3TRUXNfwnvyWmOga
+	ygmKVeX5+Hi7XLhXjcHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfNu6-002UZ0-0k;
-	Thu, 23 Mar 2023 16:35:06 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pfNv4-002UkN-0m;
+	Thu, 23 Mar 2023 16:36:06 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfNu2-002UWa-2S
+	id 1pfNv1-002Uj7-29
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 16:35:04 +0000
-Received: by mail-wr1-x434.google.com with SMTP id j24so12384796wrd.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 09:35:00 -0700 (PDT)
+	Thu, 23 Mar 2023 16:36:04 +0000
+Received: by mail-wr1-x435.google.com with SMTP id m2so21291468wrh.6
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 09:36:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679589299;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679589360;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=L4qXDule2Q2bm4m/tvaeO5IXD5ibTcdOO6060VBTFFk=;
-        b=ojVXZraQtG6MVGn6DcrcvVU6Ki7ve4ragp2UjfMM79R7W5wSlp/cAUQA41VhPYanKa
-         FLqLrWJWLsV6UnGDgy1nHEd92Ez9nFil9kLUNnFV7Lh2lmz5UwkLrRd85v7901SrWBvT
-         6U684vP4ESzL4e0OW2iwdEM9u0E+MC9Z5WOw/RWMw+C4kuzy7UmRsHfsDZK+yBx10lxG
-         sCgqGtjcwZbxNFwFU3Y0eeyh0CMvgblKtrvbir8T5HvOEOviyvuM5+4WTDug8yJzX2q7
-         kwnVxG4SUomz5YsK76JUZDHqyVjJqDLG1/vfeldQh3NKqDzLy35OWNeLTQ6VYRj46FrX
-         Zd/A==
+        bh=dFIdVMyY2JcOEfEYtk1Mrcm+ayayJpn4ssJH1y+Y8SY=;
+        b=XRx/qjnE9uNVUhjrkckwtZNfRSeDtPWLGHujMYbX+pUc6W8XwJmyzK1Ozrgu3VrsCw
+         ixX8yG4vVRdtvMmjSzsPFW6TAPtaQxa32kDhr/vEIxz/liX5Jnxy5ks5DMPn+9Tyqa0I
+         dhuIn3YjYroXQczSAF05RgaY7Kx28T0tYXahdqAvORqBe/APPcYemeDL+w3XcSMRAei/
+         FKvdHHP06rtfOitHpAAyJ0P4XX7VIzxGjRd4JUWIFZkTI6oVrvarr15s7codKgs0PYNT
+         zS2CfmUgxC4epAxnNbYREJe7YzKCstK51eH0rVUpoZ7mNbioJ0ywr2VQq6ujrDbSqDWe
+         XaZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679589299;
+        d=1e100.net; s=20210112; t=1679589360;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=L4qXDule2Q2bm4m/tvaeO5IXD5ibTcdOO6060VBTFFk=;
-        b=5EBWupnQPIte3gnJdFuTAqCo64VHbfAVkqRB3yTIDhOSzAi0aPC+txo1ReM3cKWJ4Q
-         K7jnkUSzoTpkveh6COFO0X/k0X1OqQS5M9q6AMbLSIRL8LHL/5EVXnC3eL+gNbH0xqXt
-         P2FpIJLV26yQyy1t3yedwB7r9qhFNz3wFYt2jHSBfCF+y2dgY+2lsWaOUYx8vH6wzgTj
-         O4Rod9g9xfQgRPBO1d1aOAUG0jze026TXXPvCfaZeI3CtV2hPo2vONaES4+TaluAYdb2
-         wq1mgi+brKvef6p+IQcHPEuF3v4fxShX8lg265rkNw1UyDtZ01bIqOg47gkV6a+fu3Nm
-         3PMQ==
-X-Gm-Message-State: AAQBX9cR87jxdebl82c+xBbVbLqozdFE+W3jwe0+7ci7oNDMBOr6zZMn
-	euPGulKyWt0xntlSON3ICyp0yg==
-X-Google-Smtp-Source: AKy350aZeDXuopq3BMX5NmMCdXbkTWhL7byBF6Byyz7/sbbbPuoIeYi49K2YGsOrYrJNtF6npMd+qQ==
-X-Received: by 2002:a5d:6643:0:b0:2cf:e29f:d7f5 with SMTP id f3-20020a5d6643000000b002cfe29fd7f5mr2937437wrw.25.1679589298832;
-        Thu, 23 Mar 2023 09:34:58 -0700 (PDT)
+        bh=dFIdVMyY2JcOEfEYtk1Mrcm+ayayJpn4ssJH1y+Y8SY=;
+        b=gjPRA/vsKnm75xXxkYAiqpmOKNZA0+uTC9Syt/mNAECVaEuBTN5DVAjzYMTXKyRqnF
+         FVvvHHLl0dJguAumzWeKMt3jqFRfhB+0e3gbXZ4hsjnfAd4Ztibyv+4x5bRzSYcbws7l
+         mo8Tc0gOHv28QtFXE6LLTH3zJIz5wACT1nOu5gYni/qmr+59oPd2U26NgHvmDIlK9PBF
+         UkDOvpnfzZCqymz9KaTYm6mTzILXDXvzTfMYgSA/8F8KV5aZCXoNsJdxxf/VV2eMq7nA
+         T6BAsb2qOAjLoZUOs0vr3a9Fi0V851LbYXUKkMl3Vyy7jh9x/SArFmBS+VfGKpsIuN5f
+         BkZQ==
+X-Gm-Message-State: AAQBX9c+Fm0mv6c5tmZSzafXMVgsoPTXb+LF2Hvc5eYZ6QQNYX4+8qN3
+	/TZDRnjWBlA+j2HtEXp2ROkGGw==
+X-Google-Smtp-Source: AKy350bZB6XINZ/e2OvUeiAx/NAII4Q3/0majzUkK7Zk38kV4Ea31iChLco4fr0gnvIX/KOBcmR+sw==
+X-Received: by 2002:adf:da50:0:b0:2cf:f312:86dd with SMTP id r16-20020adfda50000000b002cff31286ddmr2991280wrl.18.1679589359878;
+        Thu, 23 Mar 2023 09:35:59 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id x4-20020a1c7c04000000b003ee0d191539sm2342889wmc.10.2023.03.23.09.34.58
+        by smtp.gmail.com with ESMTPSA id v3-20020adfe4c3000000b002cf8220cc75sm8570661wrm.24.2023.03.23.09.35.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 09:34:58 -0700 (PDT)
+        Thu, 23 Mar 2023 09:35:59 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,18 +71,17 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-doc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <Conor.Dooley@microchip.com>
-Subject: [PATCH -fixes 1/2] riscv: Move early dtb mapping into the fixmap region
-Date: Thu, 23 Mar 2023 17:33:46 +0100
-Message-Id: <20230323163347.182895-2-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH -fixes 2/2] riscv: Do not set initial_boot_params to the linear address of the dtb
+Date: Thu, 23 Mar 2023 17:33:47 +0100
+Message-Id: <20230323163347.182895-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230323163347.182895-1-alexghiti@rivosinc.com>
 References: <20230323163347.182895-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_093502_802156_723D5D6E 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20230323_093603_701367_2CB6E51F 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,246 +98,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv establishes 2 virtual mappings:
+Now that the dtb early mapping was moved in the fixmap region, we can
+keep using this address since it is present in swapper_pg_dir, so remove
+the dtb relocation which was wrong anyway since early_memremap is
+restricted to 256K whereas the maximum fdt size is 2MB.
 
-- early_pg_dir maps the kernel which allows to discover the system
-  memory
-- swapper_pg_dir installs the final mapping (linear mapping included)
-
-We used to map the dtb in early_pg_dir using DTB_EARLY_BASE_VA, and this
-mapping was not carried over in swapper_pg_dir. It happens that
-early_init_fdt_scan_reserved_mem must be called before swapper_pg_dir is
-setup otherwise we could allocate reserved memory defined in the dtb.
-And this function initializes reserved_mem variable with addresses that
-lie in the early_pg_dir dtb mapping: when those addresses are reused
-with swapper_pg_dir, this mapping does not exist and then we trap.
-
-So move the dtb mapping in the fixmap region which is established in
-early_pg_dir and handed over to swapper_pg_dir.
-
-Fixes: 50e63dd8ed92 ("riscv: fix reserved memory setup")
-Reported-by: Conor Dooley <Conor.Dooley@microchip.com>
-Link: https://lore.kernel.org/all/f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com/
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- Documentation/riscv/vm-layout.rst |  6 +--
- arch/riscv/include/asm/fixmap.h   |  8 ++++
- arch/riscv/include/asm/pgtable.h  |  8 +++-
- arch/riscv/kernel/setup.c         |  1 -
- arch/riscv/mm/init.c              | 61 +++++++++++++++++--------------
- 5 files changed, 51 insertions(+), 33 deletions(-)
+ arch/riscv/kernel/setup.c |  5 +----
+ arch/riscv/mm/init.c      | 21 ++-------------------
+ 2 files changed, 3 insertions(+), 23 deletions(-)
 
-diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
-index 3be44e74ec5d..5462c84f4723 100644
---- a/Documentation/riscv/vm-layout.rst
-+++ b/Documentation/riscv/vm-layout.rst
-@@ -47,7 +47,7 @@ RISC-V Linux Kernel SV39
-                                                               | Kernel-space virtual memory, shared between all processes:
-   ____________________________________________________________|___________________________________________________________
-                     |            |                  |         |
--   ffffffc6fee00000 | -228    GB | ffffffc6feffffff |    2 MB | fixmap
-+   ffffffc6fea00000 | -228    GB | ffffffc6feffffff |    6 MB | fixmap
-    ffffffc6ff000000 | -228    GB | ffffffc6ffffffff |   16 MB | PCI io
-    ffffffc700000000 | -228    GB | ffffffc7ffffffff |    4 GB | vmemmap
-    ffffffc800000000 | -224    GB | ffffffd7ffffffff |   64 GB | vmalloc/ioremap space
-@@ -83,7 +83,7 @@ RISC-V Linux Kernel SV48
-                                                               | Kernel-space virtual memory, shared between all processes:
-   ____________________________________________________________|___________________________________________________________
-                     |            |                  |         |
--   ffff8d7ffee00000 |  -114.5 TB | ffff8d7ffeffffff |    2 MB | fixmap
-+   ffff8d7ffea00000 |  -114.5 TB | ffff8d7ffeffffff |    6 MB | fixmap
-    ffff8d7fff000000 |  -114.5 TB | ffff8d7fffffffff |   16 MB | PCI io
-    ffff8d8000000000 |  -114.5 TB | ffff8f7fffffffff |    2 TB | vmemmap
-    ffff8f8000000000 |  -112.5 TB | ffffaf7fffffffff |   32 TB | vmalloc/ioremap space
-@@ -119,7 +119,7 @@ RISC-V Linux Kernel SV57
-                                                               | Kernel-space virtual memory, shared between all processes:
-   ____________________________________________________________|___________________________________________________________
-                     |            |                  |         |
--   ff1bfffffee00000 | -57     PB | ff1bfffffeffffff |    2 MB | fixmap
-+   ff1bfffffea00000 | -57     PB | ff1bfffffeffffff |    6 MB | fixmap
-    ff1bffffff000000 | -57     PB | ff1bffffffffffff |   16 MB | PCI io
-    ff1c000000000000 | -57     PB | ff1fffffffffffff |    1 PB | vmemmap
-    ff20000000000000 | -56     PB | ff5fffffffffffff |   16 PB | vmalloc/ioremap space
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 5c3e7b97fcc6..0a55099bb734 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -22,6 +22,14 @@
-  */
- enum fixed_addresses {
- 	FIX_HOLE,
-+	/*
-+	 * The fdt fixmap mapping must be PMD aligned and will be mapped
-+	 * using PMD entries in fixmap_pmd in 64-bit and a PGD entry in 32-bit.
-+	 */
-+	FIX_FDT_END,
-+	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
-+
-+	/* Below fixmaps will be mapped using fixmap_pte */
- 	FIX_PTE,
- 	FIX_PMD,
- 	FIX_PUD,
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index ab05f892d317..f641837ccf31 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -87,9 +87,13 @@
- 
- #define FIXADDR_TOP      PCI_IO_START
- #ifdef CONFIG_64BIT
--#define FIXADDR_SIZE     PMD_SIZE
-+#define MAX_FDT_SIZE	 PMD_SIZE
-+#define FIX_FDT_SIZE	 (MAX_FDT_SIZE + SZ_2M)
-+#define FIXADDR_SIZE     (PMD_SIZE + FIX_FDT_SIZE)
- #else
--#define FIXADDR_SIZE     PGDIR_SIZE
-+#define MAX_FDT_SIZE	 PGDIR_SIZE
-+#define FIX_FDT_SIZE	 MAX_FDT_SIZE
-+#define FIXADDR_SIZE     (PGDIR_SIZE + FIX_FDT_SIZE)
- #endif
- #define FIXADDR_START    (FIXADDR_TOP - FIXADDR_SIZE)
- 
 diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 376d2827e736..542eed85ad2c 100644
+index 542eed85ad2c..a059b73f4ddb 100644
 --- a/arch/riscv/kernel/setup.c
 +++ b/arch/riscv/kernel/setup.c
-@@ -283,7 +283,6 @@ void __init setup_arch(char **cmdline_p)
- 	else
- 		pr_err("No DTB found in kernel mappings\n");
+@@ -278,10 +278,7 @@ void __init setup_arch(char **cmdline_p)
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+-	if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
+-		unflatten_device_tree();
+-	else
+-		pr_err("No DTB found in kernel mappings\n");
++	unflatten_device_tree();
  #endif
--	early_init_fdt_scan_reserved_mem();
  	misc_mem_init();
  
- 	init_resources();
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 478d6763a01a..fb78d6bbabae 100644
+index fb78d6bbabae..0f14f4a8d179 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -57,7 +57,6 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- EXPORT_SYMBOL(empty_zero_page);
- 
- extern char _start[];
--#define DTB_EARLY_BASE_VA      PGDIR_SIZE
- void *_dtb_early_va __initdata;
- uintptr_t _dtb_early_pa __initdata;
- 
-@@ -236,6 +235,14 @@ static void __init setup_bootmem(void)
- 	set_max_mapnr(max_low_pfn - ARCH_PFN_OFFSET);
- 
- 	reserve_initrd_mem();
-+
-+	/*
-+	 * No allocation should be done before reserving the memory as defined
-+	 * in the device tree, otherwise the allocation could end up in a
-+	 * reserved region.
-+	 */
-+	early_init_fdt_scan_reserved_mem();
-+
- 	/*
- 	 * If DTB is built in, no need to reserve its memblock.
- 	 * Otherwise, do reserve it but avoid using
-@@ -279,9 +286,6 @@ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
- 
- pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
--static p4d_t __maybe_unused early_dtb_p4d[PTRS_PER_P4D] __initdata __aligned(PAGE_SIZE);
--static pud_t __maybe_unused early_dtb_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
--static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
- 
- #ifdef CONFIG_XIP_KERNEL
- #define pt_ops			(*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
-@@ -626,9 +630,6 @@ static void __init create_p4d_mapping(p4d_t *p4dp,
- #define trampoline_pgd_next	(pgtable_l5_enabled ?			\
- 		(uintptr_t)trampoline_p4d : (pgtable_l4_enabled ?	\
- 		(uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd))
--#define early_dtb_pgd_next	(pgtable_l5_enabled ?			\
--		(uintptr_t)early_dtb_p4d : (pgtable_l4_enabled ?	\
--		(uintptr_t)early_dtb_pud : (uintptr_t)early_dtb_pmd))
- #else
- #define pgd_next_t		pte_t
- #define alloc_pgd_next(__va)	pt_ops.alloc_pte(__va)
-@@ -636,7 +637,6 @@ static void __init create_p4d_mapping(p4d_t *p4dp,
- #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
- 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
- #define fixmap_pgd_next		((uintptr_t)fixmap_pte)
--#define early_dtb_pgd_next	((uintptr_t)early_dtb_pmd)
- #define create_p4d_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
- #define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
- #define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
-@@ -860,32 +860,28 @@ static void __init create_kernel_page_table(pgd_t *pgdir, bool early)
-  * this means 2 PMD entries whereas for 32-bit kernel, this is only 1 PGDIR
-  * entry.
-  */
--static void __init create_fdt_early_page_table(pgd_t *pgdir, uintptr_t dtb_pa)
-+static void __init create_fdt_early_page_table(pgd_t *pgdir,
-+					       uintptr_t fix_fdt_va,
-+					       uintptr_t dtb_pa)
- {
--#ifndef CONFIG_BUILTIN_DTB
- 	uintptr_t pa = dtb_pa & ~(PMD_SIZE - 1);
- 
--	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
--			   IS_ENABLED(CONFIG_64BIT) ? early_dtb_pgd_next : pa,
--			   PGDIR_SIZE,
--			   IS_ENABLED(CONFIG_64BIT) ? PAGE_TABLE : PAGE_KERNEL);
+@@ -249,25 +249,8 @@ static void __init setup_bootmem(void)
+ 	 * early_init_fdt_reserve_self() since __pa() does
+ 	 * not work for DTB pointers that are fixmap addresses
+ 	 */
+-	if (!IS_ENABLED(CONFIG_BUILTIN_DTB)) {
+-		/*
+-		 * In case the DTB is not located in a memory region we won't
+-		 * be able to locate it later on via the linear mapping and
+-		 * get a segfault when accessing it via __va(dtb_early_pa).
+-		 * To avoid this situation copy DTB to a memory region.
+-		 * Note that memblock_phys_alloc will also reserve DTB region.
+-		 */
+-		if (!memblock_is_memory(dtb_early_pa)) {
+-			size_t fdt_size = fdt_totalsize(dtb_early_va);
+-			phys_addr_t new_dtb_early_pa = memblock_phys_alloc(fdt_size, PAGE_SIZE);
+-			void *new_dtb_early_va = early_memremap(new_dtb_early_pa, fdt_size);
 -
--	if (pgtable_l5_enabled)
--		create_p4d_mapping(early_dtb_p4d, DTB_EARLY_BASE_VA,
--				   (uintptr_t)early_dtb_pud, P4D_SIZE, PAGE_TABLE);
--
--	if (pgtable_l4_enabled)
--		create_pud_mapping(early_dtb_pud, DTB_EARLY_BASE_VA,
--				   (uintptr_t)early_dtb_pmd, PUD_SIZE, PAGE_TABLE);
-+#ifndef CONFIG_BUILTIN_DTB
-+	/* Make sure the fdt fixmap address is always aligned on PMD size */
-+	BUILD_BUG_ON(FIX_FDT % (PMD_SIZE / PAGE_SIZE));
+-			memcpy(new_dtb_early_va, dtb_early_va, fdt_size);
+-			early_memunmap(new_dtb_early_va, fdt_size);
+-			_dtb_early_pa = new_dtb_early_pa;
+-		} else
+-			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+-	}
++	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
++		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
  
--	if (IS_ENABLED(CONFIG_64BIT)) {
--		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
-+	/* In 32-bit only, the fdt lies in its own PGD */
-+	if (!IS_ENABLED(CONFIG_64BIT)) {
-+		create_pgd_mapping(early_pg_dir, fix_fdt_va,
-+				   pa, MAX_FDT_SIZE, PAGE_KERNEL);
-+	} else {
-+		create_pmd_mapping(fixmap_pmd, fix_fdt_va,
- 				   pa, PMD_SIZE, PAGE_KERNEL);
--		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
-+		create_pmd_mapping(fixmap_pmd, fix_fdt_va + PMD_SIZE,
- 				   pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
- 	}
- 
--	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
-+	dtb_early_va = (void *)fix_fdt_va + (dtb_pa & (PMD_SIZE - 1));
- #else
- 	/*
- 	 * For 64-bit kernel, __va can't be used since it would return a linear
-@@ -1055,7 +1051,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	create_kernel_page_table(early_pg_dir, true);
- 
- 	/* Setup early mapping for FDT early scan */
--	create_fdt_early_page_table(early_pg_dir, dtb_pa);
-+	create_fdt_early_page_table(early_pg_dir,
-+				    __fix_to_virt(FIX_FDT), dtb_pa);
- 
- 	/*
- 	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
-@@ -1097,6 +1094,16 @@ static void __init setup_vm_final(void)
- 	u64 i;
- 
- 	/* Setup swapper PGD for fixmap */
-+#if !defined(CONFIG_64BIT)
-+	/*
-+	 * In 32-bit, the device tree lies in a pgd entry, so it must be copied
-+	 * directly in swapper_pg_dir in addition to the pgd entry that points
-+	 * to fixmap_pte.
-+	 */
-+	unsigned long idx = pgd_index(__fix_to_virt(FIX_FDT));
-+
-+	set_pgd(&swapper_pg_dir[idx], early_pg_dir[idx]);
-+#endif
- 	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
- 			   __pa_symbol(fixmap_pgd_next),
- 			   PGDIR_SIZE, PAGE_TABLE);
+ 	dma_contiguous_reserve(dma32_phys_limit);
+ 	if (IS_ENABLED(CONFIG_64BIT))
 -- 
 2.37.2
 
