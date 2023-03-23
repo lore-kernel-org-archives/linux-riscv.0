@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B5EC76196
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 15:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0BFC74A5B
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 15:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UGM4qn1eNzK9Sqs7XyMXvVzMQTwo8IWcwbo3XcWxfVc=; b=lEFDNSbX9w7v5E
-	1m3q1zv8MppxV8konMuSYHBwmDPKMgtYHyyzZClRSgyZRrAir4nUOPwpehz44UKBsg9sXa9HxEp8C
-	bS3FB3PxZL13DYMQi8gtFth8Eia8b722+BQ1SOJ0X4SFv3XCvQQyvF3BISryfFv2fYCC9fx8dhHA9
-	Kk3ytfGQJB/fnFJ0GgTQLgeNrWqCvVhQiIMQm33iE+jhtIL7+ZsIhv8XGM0yLz3v0/xoqD9UKevJy
-	t0nISpFdV4EMtzcJNTe92vfiaWthSSykkF2vJlQ8lfA37dZTEp/Ndzbyd9qH8W/kUtl+6RDPQxtWa
-	S9lFa/sK4fSbrdH5oXHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6vCvvNGcqiSH6iM0sXPIUremQuz+J+865v7+xCKbX8E=; b=YV1GxGBrn2hDdDX2L4tPJWp1gq
+	oA5jslwBl8pI8PHppZDdscozxyVetFjc1g6V15oKTxtEZukai8a0R/b/7pUhWg3Vg++vL8zw7h9Y3
+	Xhigqw/k09sS+q2dJp99FnP4yKw55wLKPp1qpVZQcVrM4X0mnMRAfTgiVgGnxwA/UR3KwjFwb4q9q
+	H7cVMjHBQorWFlHpKvXbrZ28WoWGIPDmFFbju6M7+j+srbDK/jRwyNfDUxqtPcm1HL81lE2RzOheJ
+	8LIAIEmDpwHZlDxbziqBmf+sSkXq+QVZiu2KnwhmkFltF77c5hdXl3DH1Ifvmf+ZbaSzoSgKScefV
+	HkI2susg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMRT-002HiS-2A;
-	Thu, 23 Mar 2023 15:01:27 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1pfMpy-002LZx-1b;
+	Thu, 23 Mar 2023 15:26:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfMRN-002HVj-2I
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 15:01:26 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id c18so22540655ple.11
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 08:01:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679583681;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vAZY+/XOqMaX1ExO9L6qEYsxav+5DNgQkYhkRbyffRQ=;
-        b=Lg9vp/Cvikdo3jVtMbkTK94zZMtaV1eH+pA8ukZ+1h3e5WdYwvgsv4u2gH1DI11w4W
-         /v0MM4xf0awzlw1Rg7UGU0fVAtAtt1EIv8Cg5sDZA3OQZ9ylGkeo3nQLAUZXeC1HRhzU
-         YLXVlR5mcCNxGPeLPixG3eogTj23pXnOC6SLO54RH8f2RVoT8kOM9KuQ1rSPmysCEv4h
-         xYwBNO77F7SyBm5shSjJV8fAdoL2CQ+YdrSs1GPDZt3o977ODiKSEN3brVUFEhraGtYX
-         WdQoc9WEgigSyyjTTqQqfrKDevy6kd6N12F2KJ1xNlD+o21dmBvvrC+bm3SV/1aIkrTa
-         LVbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679583681;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vAZY+/XOqMaX1ExO9L6qEYsxav+5DNgQkYhkRbyffRQ=;
-        b=uxVU8Tl5C5QpuRWxEGXO0CpSIJKylKql+wLapu7NSO6r0iyq41hpiz2Iy/Xg2aUVn7
-         J8WspjBwZ0qrUPLGmdOX1+IjU8u/CffN+n4/kSlrNgLCMbkDTdQq5CjzA9qXpYZ1qthK
-         OrrOkif6nn37PNsciqws2ccr3FFolcQdgajtLHYcbCbsDMQo19XRHCrFGu7nHiWaEAIV
-         X4KW45esmKaKyUotSOVg3YpZljVufW0jG0Lnli6Vq8A8g2pwntbUNo/nA5O7i2dGPetz
-         cJoT1G9yArWb8gcKeHwhF5bmUo/cZ13n6vmlSq0jAPlgX0t4sle6bO/zitD4iX6KH9mL
-         Jadw==
-X-Gm-Message-State: AO0yUKU4NRMxo2LlZrf3OHoNG2PX42es2dSPJ8NPSRyL+9w/aMuniNLa
-	nnec1yOBXKuVKo9riT016twJWribJefqj6awSqaH90I9h73uN3F3aRSmuv4BEI3wwIi9Tc6yVOp
-	N/7+maTLsWwctmrEVtgPB4eFxn2LA8AEKWT3H1rylPE682XUEJhHmbTkqFV2PxkxEFtlude02v3
-	Ju+fidD8wxDIRW
-X-Google-Smtp-Source: AK7set8aCy9KnzdYMwX6JG5zRYT5REVZHp9YHk6yaXnQzlkaLDQ4PnTQ/nNUgNLAbq9pbijZ2Ydygg==
-X-Received: by 2002:a17:90b:4d0d:b0:23a:87d1:9586 with SMTP id mw13-20020a17090b4d0d00b0023a87d19586mr7787683pjb.23.1679583680726;
-        Thu, 23 Mar 2023 08:01:20 -0700 (PDT)
-Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9-20020a170902854900b0019f53e0f136sm12503965plo.232.2023.03.23.08.01.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 08:01:20 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH -next v16 18/20] riscv: KVM: Add vector lazy save/restore support
-Date: Thu, 23 Mar 2023 14:59:22 +0000
-Message-Id: <20230323145924.4194-19-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230323145924.4194-1-andy.chiu@sifive.com>
+	id 1pfMpv-002LZ6-1C;
+	Thu, 23 Mar 2023 15:26:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679585203; x=1711121203;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=86yrhXo0wuZkXMT9LRZ/k4xl+d7WKjf/eV20kO0UvSc=;
+  b=KlujklTzKHy3fMT1LYXGjOt+QI/mutl521KB911icZ5Lw6eZd3LWac/3
+   INXXzrT6SL5hbZYdpKkuTmwbwKC30Dj6i7g5Sb5FoEviOFiXuQtQZi9Bp
+   pC+jQdZqhIuI3GhWyCUFo7/Ojl3v49XTMIZqXxZ9WjuOL9uNusrX+PhN8
+   mT5k2Se+v6orgOD2P81q01i/oW/pemqhw4SGGDi2nyglyp8shbeCVAQw4
+   3ZNwF20jJzxIo6Dk0epI8gSeZe9HzyFKqYFmoQLYtiKXM/0HaZ2l435zE
+   psQaZs8/YMntvXI/TUSOXea7Ba75PKC65f6+QRpePkxpJ1D+d8EnDO5TB
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,285,1673938800"; 
+   d="asc'?scan'208";a="203103645"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 Mar 2023 08:26:39 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 23 Mar 2023 08:26:35 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 23 Mar 2023 08:26:32 -0700
+Date: Thu, 23 Mar 2023 15:26:14 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<anup@brainfault.org>, <atishp@atishpatra.org>,
+	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+	<vineetg@rivosinc.com>, <greentime.hu@sifive.com>,
+	<guoren@linux.alibaba.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>
+Subject: Re: [PATCH -next v16 19/20] riscv: detect assembler support for
+ .option arch
+Message-ID: <04cc3420-26a7-4263-b120-677c758eabea@spud>
 References: <20230323145924.4194-1-andy.chiu@sifive.com>
+ <20230323145924.4194-20-andy.chiu@sifive.com>
+MIME-Version: 1.0
+In-Reply-To: <20230323145924.4194-20-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_080121_758008_6907C74B 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20230323_082643_475085_638169CF 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,451 +82,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6282296989922827305=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Chen <vincent.chen@sifive.com>
+--===============6282296989922827305==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Yj+/LCxZH129o5eE"
+Content-Disposition: inline
 
-This patch adds vector context save/restore for guest VCPUs. To reduce the
-impact on KVM performance, the implementation imitates the FP context
-switch mechanism to lazily store and restore the vector context only when
-the kernel enters/exits the in-kernel run loop and not during the KVM
-world switch.
+--Yj+/LCxZH129o5eE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/include/asm/kvm_host.h        |   2 +
- arch/riscv/include/asm/kvm_vcpu_vector.h |  82 ++++++++++
- arch/riscv/include/uapi/asm/kvm.h        |   7 +
- arch/riscv/kvm/Makefile                  |   1 +
- arch/riscv/kvm/vcpu.c                    |  22 +++
- arch/riscv/kvm/vcpu_vector.c             | 186 +++++++++++++++++++++++
- 6 files changed, 300 insertions(+)
- create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
- create mode 100644 arch/riscv/kvm/vcpu_vector.c
+On Thu, Mar 23, 2023 at 02:59:23PM +0000, Andy Chiu wrote:
+> Some extensions use .option arch directive to selectively enable certain
+> extensions in parts of its assembly code. For example, Zbb uses it to
+> inform assmebler to emit bit manipulation instructions. However,
+> supporting of this directive only exist on GNU assembler and has not
+> landed on clang at the moment, making TOOLCHAIN_HAS_ZBB depend on
+> AS_IS_GNU.
+>=20
+> While it is still under review at https://reviews.llvm.org/D123515, the
+> upcoming Vector patch also requires this feature in assembler. Thus,
+> provide Kconfig AS_HAS_OPTION_ARCH to detect such feature. Then
+> TOOLCHAIN_HAS_XXX will be turned on automatically when the feature land.
+>=20
+> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> ---
+>  arch/riscv/Kconfig | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 36a5b6fed0d3..4f8fd4002f1d 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -244,6 +244,12 @@ config RISCV_DMA_NONCOHERENT
+>  config AS_HAS_INSN
+>  	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t=
+0$(comma) zero)
+> =20
+> +config AS_HAS_OPTION_ARCH
+> +	# https://reviews.llvm.org/D123515
+> +	def_bool y
+> +	depends on $(as-instr, .option arch$(comma) +m)
+> +	depends on !$(as-instr, .option arch$(comma) -i)
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index cc7da66ee0c0..7e7e23272d32 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -14,6 +14,7 @@
- #include <linux/kvm_types.h>
- #include <linux/spinlock.h>
- #include <asm/hwcap.h>
-+#include <asm/ptrace.h>
- #include <asm/kvm_vcpu_fp.h>
- #include <asm/kvm_vcpu_insn.h>
- #include <asm/kvm_vcpu_sbi.h>
-@@ -141,6 +142,7 @@ struct kvm_cpu_context {
- 	unsigned long sstatus;
- 	unsigned long hstatus;
- 	union __riscv_fp_state fp;
-+	struct __riscv_v_ext_state vector;
- };
- 
- struct kvm_vcpu_csr {
-diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h b/arch/riscv/include/asm/kvm_vcpu_vector.h
-new file mode 100644
-index 000000000000..ff994fdd6d0d
---- /dev/null
-+++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2022 SiFive
-+ *
-+ * Authors:
-+ *     Vincent Chen <vincent.chen@sifive.com>
-+ *     Greentime Hu <greentime.hu@sifive.com>
-+ */
-+
-+#ifndef __KVM_VCPU_RISCV_VECTOR_H
-+#define __KVM_VCPU_RISCV_VECTOR_H
-+
-+#include <linux/types.h>
-+
-+#ifdef CONFIG_RISCV_ISA_V
-+#include <asm/vector.h>
-+#include <asm/kvm_host.h>
-+
-+static __always_inline void __kvm_riscv_vector_save(struct kvm_cpu_context *context)
-+{
-+	__riscv_v_vstate_save(&context->vector, context->vector.datap);
-+}
-+
-+static __always_inline void __kvm_riscv_vector_restore(struct kvm_cpu_context *context)
-+{
-+	__riscv_v_vstate_restore(&context->vector, context->vector.datap);
-+}
-+
-+void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
-+				      unsigned long *isa);
-+void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
-+					 unsigned long *isa);
-+void kvm_riscv_vcpu_host_vector_save(struct kvm_cpu_context *cntx);
-+void kvm_riscv_vcpu_host_vector_restore(struct kvm_cpu_context *cntx);
-+int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
-+					struct kvm_cpu_context *cntx);
-+void kvm_riscv_vcpu_free_vector_context(struct kvm_vcpu *vcpu);
-+#else
-+
-+struct kvm_cpu_context;
-+
-+static inline void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
-+{
-+}
-+
-+static inline void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
-+						    unsigned long *isa)
-+{
-+}
-+
-+static inline void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
-+						       unsigned long *isa)
-+{
-+}
-+
-+static inline void kvm_riscv_vcpu_host_vector_save(struct kvm_cpu_context *cntx)
-+{
-+}
-+
-+static inline void kvm_riscv_vcpu_host_vector_restore(struct kvm_cpu_context *cntx)
-+{
-+}
-+
-+static inline int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
-+						      struct kvm_cpu_context *cntx)
-+{
-+	return 0;
-+}
-+
-+static inline void kvm_riscv_vcpu_free_vector_context(struct kvm_vcpu *vcpu)
-+{
-+}
-+#endif
-+
-+int kvm_riscv_vcpu_get_reg_vector(struct kvm_vcpu *vcpu,
-+				  const struct kvm_one_reg *reg,
-+				  unsigned long rtype);
-+int kvm_riscv_vcpu_set_reg_vector(struct kvm_vcpu *vcpu,
-+				  const struct kvm_one_reg *reg,
-+				  unsigned long rtype);
-+#endif
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index d562dcb929ea..0955f9460447 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -155,6 +155,13 @@ enum KVM_RISCV_ISA_EXT_ID {
- /* ISA Extension registers are mapped as type 7 */
- #define KVM_REG_RISCV_ISA_EXT		(0x07 << KVM_REG_RISCV_TYPE_SHIFT)
- 
-+/* V extension registers are mapped as type 8 */
-+#define KVM_REG_RISCV_VECTOR		(0x08 << KVM_REG_RISCV_TYPE_SHIFT)
-+#define KVM_REG_RISCV_VECTOR_CSR_REG(name)	\
-+		(offsetof(struct __riscv_v_ext_state, name) / sizeof(unsigned long))
-+#define KVM_REG_RISCV_VECTOR_REG(n)	\
-+		((n) + sizeof(struct __riscv_v_ext_state) / sizeof(unsigned long))
-+
- #endif
- 
- #endif /* __LINUX_KVM_RISCV_H */
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index 278e97c06e0a..f29854333cf2 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -17,6 +17,7 @@ kvm-y += mmu.o
- kvm-y += vcpu.o
- kvm-y += vcpu_exit.o
- kvm-y += vcpu_fp.o
-+kvm-y += vcpu_vector.o
- kvm-y += vcpu_insn.o
- kvm-y += vcpu_switch.o
- kvm-y += vcpu_sbi.o
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index bfdd5b73d462..c495ae1a8091 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -22,6 +22,8 @@
- #include <asm/cacheflush.h>
- #include <asm/hwcap.h>
- #include <asm/sbi.h>
-+#include <asm/vector.h>
-+#include <asm/kvm_vcpu_vector.h>
- 
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
-@@ -135,6 +137,8 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	kvm_riscv_vcpu_fp_reset(vcpu);
- 
-+	kvm_riscv_vcpu_vector_reset(vcpu);
-+
- 	kvm_riscv_vcpu_timer_reset(vcpu);
- 
- 	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
-@@ -192,6 +196,9 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	cntx->hstatus |= HSTATUS_SPVP;
- 	cntx->hstatus |= HSTATUS_SPV;
- 
-+	if (kvm_riscv_vcpu_alloc_vector_context(vcpu, cntx))
-+		return -ENOMEM;
-+
- 	/* By default, make CY, TM, and IR counters accessible in VU mode */
- 	reset_csr->scounteren = 0x7;
- 
-@@ -227,6 +234,9 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
- 
- 	/* Free unused pages pre-allocated for G-stage page table mappings */
- 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
-+
-+	/* Free vector context space for host and guest kernel */
-+	kvm_riscv_vcpu_free_vector_context(vcpu);
- }
- 
- int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
-@@ -610,6 +620,9 @@ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
- 						 KVM_REG_RISCV_FP_D);
- 	case KVM_REG_RISCV_ISA_EXT:
- 		return kvm_riscv_vcpu_set_reg_isa_ext(vcpu, reg);
-+	case KVM_REG_RISCV_VECTOR:
-+		return kvm_riscv_vcpu_set_reg_vector(vcpu, reg,
-+						 KVM_REG_RISCV_VECTOR);
- 	default:
- 		break;
- 	}
-@@ -637,6 +650,9 @@ static int kvm_riscv_vcpu_get_reg(struct kvm_vcpu *vcpu,
- 						 KVM_REG_RISCV_FP_D);
- 	case KVM_REG_RISCV_ISA_EXT:
- 		return kvm_riscv_vcpu_get_reg_isa_ext(vcpu, reg);
-+	case KVM_REG_RISCV_VECTOR:
-+		return kvm_riscv_vcpu_get_reg_vector(vcpu, reg,
-+						 KVM_REG_RISCV_VECTOR);
- 	default:
- 		break;
- 	}
-@@ -906,6 +922,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
- 	kvm_riscv_vcpu_guest_fp_restore(&vcpu->arch.guest_context,
- 					vcpu->arch.isa);
-+	kvm_riscv_vcpu_host_vector_save(&vcpu->arch.host_context);
-+	kvm_riscv_vcpu_guest_vector_restore(&vcpu->arch.guest_context,
-+					    vcpu->arch.isa);
- 
- 	vcpu->cpu = cpu;
- }
-@@ -921,6 +940,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
- 
- 	kvm_riscv_vcpu_timer_save(vcpu);
-+	kvm_riscv_vcpu_guest_vector_save(&vcpu->arch.guest_context,
-+					 vcpu->arch.isa);
-+	kvm_riscv_vcpu_host_vector_restore(&vcpu->arch.host_context);
- 
- 	csr->vsstatus = csr_read(CSR_VSSTATUS);
- 	csr->vsie = csr_read(CSR_VSIE);
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-new file mode 100644
-index 000000000000..edd2eecbddc2
---- /dev/null
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2022 SiFive
-+ *
-+ * Authors:
-+ *     Vincent Chen <vincent.chen@sifive.com>
-+ *     Greentime Hu <greentime.hu@sifive.com>
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/err.h>
-+#include <linux/kvm_host.h>
-+#include <linux/uaccess.h>
-+#include <asm/hwcap.h>
-+#include <asm/kvm_vcpu_vector.h>
-+#include <asm/vector.h>
-+
-+#ifdef CONFIG_RISCV_ISA_V
-+void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long *isa = vcpu->arch.isa;
-+	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-+
-+	cntx->sstatus &= ~SR_VS;
-+	if (riscv_isa_extension_available(isa, v)) {
-+		cntx->sstatus |= SR_VS_INITIAL;
-+		WARN_ON(!cntx->vector.datap);
-+		memset(cntx->vector.datap, 0, riscv_v_vsize);
-+	} else {
-+		cntx->sstatus |= SR_VS_OFF;
-+	}
-+}
-+
-+static void kvm_riscv_vcpu_vector_clean(struct kvm_cpu_context *cntx)
-+{
-+	cntx->sstatus &= ~SR_VS;
-+	cntx->sstatus |= SR_VS_CLEAN;
-+}
-+
-+void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
-+				      unsigned long *isa)
-+{
-+	if ((cntx->sstatus & SR_VS) == SR_VS_DIRTY) {
-+		if (riscv_isa_extension_available(isa, v))
-+			__kvm_riscv_vector_save(cntx);
-+		kvm_riscv_vcpu_vector_clean(cntx);
-+	}
-+}
-+
-+void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
-+					 unsigned long *isa)
-+{
-+	if ((cntx->sstatus & SR_VS) != SR_VS_OFF) {
-+		if (riscv_isa_extension_available(isa, v))
-+			__kvm_riscv_vector_restore(cntx);
-+		kvm_riscv_vcpu_vector_clean(cntx);
-+	}
-+}
-+
-+void kvm_riscv_vcpu_host_vector_save(struct kvm_cpu_context *cntx)
-+{
-+	/* No need to check host sstatus as it can be modified outside */
-+	if (riscv_isa_extension_available(NULL, v))
-+		__kvm_riscv_vector_save(cntx);
-+}
-+
-+void kvm_riscv_vcpu_host_vector_restore(struct kvm_cpu_context *cntx)
-+{
-+	if (riscv_isa_extension_available(NULL, v))
-+		__kvm_riscv_vector_restore(cntx);
-+}
-+
-+int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
-+					struct kvm_cpu_context *cntx)
-+{
-+	cntx->vector.datap = kmalloc(riscv_v_vsize, GFP_KERNEL);
-+	if (!cntx->vector.datap)
-+		return -ENOMEM;
-+
-+	vcpu->arch.host_context.vector.datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
-+	if (!vcpu->arch.host_context.vector.datap)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+void kvm_riscv_vcpu_free_vector_context(struct kvm_vcpu *vcpu)
-+{
-+	kfree(vcpu->arch.guest_reset_context.vector.datap);
-+	kfree(vcpu->arch.host_context.vector.datap);
-+}
-+#endif
-+
-+static void *kvm_riscv_vcpu_vreg_addr(struct kvm_vcpu *vcpu,
-+				      unsigned long reg_num,
-+				      size_t reg_size)
-+{
-+	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-+	void *reg_val;
-+	size_t vlenb = riscv_v_vsize / 32;
-+
-+	if (reg_num < KVM_REG_RISCV_VECTOR_REG(0)) {
-+		if (reg_size != sizeof(unsigned long))
-+			return NULL;
-+		switch (reg_num) {
-+		case KVM_REG_RISCV_VECTOR_CSR_REG(vstart):
-+			reg_val = &cntx->vector.vstart;
-+			break;
-+		case KVM_REG_RISCV_VECTOR_CSR_REG(vl):
-+			reg_val = &cntx->vector.vl;
-+			break;
-+		case KVM_REG_RISCV_VECTOR_CSR_REG(vtype):
-+			reg_val = &cntx->vector.vtype;
-+			break;
-+		case KVM_REG_RISCV_VECTOR_CSR_REG(vcsr):
-+			reg_val = &cntx->vector.vcsr;
-+			break;
-+		case KVM_REG_RISCV_VECTOR_CSR_REG(datap):
-+		default:
-+			return NULL;
-+		}
-+	} else if (reg_num <= KVM_REG_RISCV_VECTOR_REG(31)) {
-+		if (reg_size != vlenb)
-+			return NULL;
-+		reg_val = cntx->vector.datap
-+			  + (reg_num - KVM_REG_RISCV_VECTOR_REG(0)) * vlenb;
-+	} else {
-+		return NULL;
-+	}
-+
-+	return reg_val;
-+}
-+
-+int kvm_riscv_vcpu_get_reg_vector(struct kvm_vcpu *vcpu,
-+				  const struct kvm_one_reg *reg,
-+				  unsigned long rtype)
-+{
-+	unsigned long *isa = vcpu->arch.isa;
-+	unsigned long __user *uaddr =
-+			(unsigned long __user *)(unsigned long)reg->addr;
-+	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-+					    KVM_REG_SIZE_MASK |
-+					    rtype);
-+	void *reg_val = NULL;
-+	size_t reg_size = KVM_REG_SIZE(reg->id);
-+
-+	if (rtype == KVM_REG_RISCV_VECTOR &&
-+	    riscv_isa_extension_available(isa, v)) {
-+		reg_val = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size);
-+	}
-+
-+	if (!reg_val)
-+		return -EINVAL;
-+
-+	if (copy_to_user(uaddr, reg_val, reg_size))
-+		return -EFAULT;
-+
-+	return 0;
-+}
-+
-+int kvm_riscv_vcpu_set_reg_vector(struct kvm_vcpu *vcpu,
-+				  const struct kvm_one_reg *reg,
-+				  unsigned long rtype)
-+{
-+	unsigned long *isa = vcpu->arch.isa;
-+	unsigned long __user *uaddr =
-+			(unsigned long __user *)(unsigned long)reg->addr;
-+	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-+					    KVM_REG_SIZE_MASK |
-+					    rtype);
-+	void *reg_val = NULL;
-+	size_t reg_size = KVM_REG_SIZE(reg->id);
-+
-+	if (rtype == KVM_REG_RISCV_VECTOR &&
-+	    riscv_isa_extension_available(isa, v)) {
-+		reg_val = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size);
-+	}
-+
-+	if (!reg_val)
-+		return -EINVAL;
-+
-+	if (copy_from_user(reg_val, uaddr, reg_size))
-+		return -EFAULT;
-+
-+	return 0;
-+}
--- 
-2.17.1
+Oh cool, I didn't expect this to work given what Nathan said in his
+mail, but I gave it a whirl and it does seem to.
+I suppose:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
+I'd rather it be this way so that it is "hands off", as opposed to the
+version check that would need updating in the future. And I guess it
+means that support for V & IAS will automatically turn on for stable
+kernels too once the LLVM change lands, which is nice ;)
+
+Thanks Andy!
+
+> +
+>  source "arch/riscv/Kconfig.socs"
+>  source "arch/riscv/Kconfig.errata"
+> =20
+> @@ -442,7 +448,7 @@ config TOOLCHAIN_HAS_ZBB
+>  	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zbb)
+>  	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zbb)
+>  	depends on LLD_VERSION >=3D 150000 || LD_VERSION >=3D 23900
+> -	depends on AS_IS_GNU
+> +	depends on AS_HAS_OPTION_ARCH
+> =20
+>  config RISCV_ISA_ZBB
+>  	bool "Zbb extension support for bit manipulation instructions"
+> --=20
+> 2.17.1
+>=20
+>=20
+
+--Yj+/LCxZH129o5eE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZBxvlgAKCRB4tDGHoIJi
+0uljAP0QSmWLx9NqoMEEU7pnQbE6zzkqpFQ5YjbqmKh316V3zwD/enaTKpjMwAaq
+HMvtUIntHRWG0phcQM9GLmnilJBSlQk=
+=byEg
+-----END PGP SIGNATURE-----
+
+--Yj+/LCxZH129o5eE--
+
+
+--===============6282296989922827305==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6282296989922827305==--
+
