@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A38FC7619A
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 07:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98943C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Mar 2023 07:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Qw1gX6Wgvk+46i/C1rYfHWkKVd6msFPI4naBKxp76o=; b=j/I3US8zruhsF9
-	FmsHveFxUalVr7haQtfzfzqhvPqWbUBGoyaMVQrOyABGw4ycmsn8CXc5+L/jIK395cHMBYC7ogtEs
-	v92Tv05CPDbupHSeyxaykUNbGMFpruJiFSwn4y2DEdBJxNu6pXw4/s7uzXtjqGFDc+BpW6gPHTsPH
-	tUCnd17d/XwAsle8sOaM9LvVLd/O5F6szC/PnP0WbTGnzZXKZDuQ5mLn/QdyEwMJCXsFwuS549JR4
-	JLgv7Auux06Tf35OIrjLhlHcw98/mlgXTF66bufejlkMhIxHC4YAKYp1XD6t1LTrsOzmIrDPicWD1
-	6Rdl5vhZECU3gMDyF2Tg==;
+	List-Owner; bh=OP2YhGqqal93Kc3x/kh1kGi3yvZsTml5ewit/8gd1uE=; b=38cxvB50SZ3zFM
+	s/4ri7mCeZWGiHqTG8wsiEQyM10jrjdOUFq+3hu+ywGDj+g8+0sDoxmi2seb+tkwVXg48Mown38fk
+	BD/Ujzifomqhiaxfhd97/DH+sEBLrHyS87zyQBQqF21KHOFm8JFTZY+whTj6xyCN0oyMy4kOVsYBX
+	gbf2BwdMLNL5VfMwtiSTBCd3jKBsYR2fY9Ga9XQYlR0pJG5IcFRY5iZzfKKzvOY6+8QuItTPBdYAx
+	NfRpD3wHqK6j8+9x/QaEJOJEJc5wY4xnuajEcvsYJZSpF5p/jbAcayjhH/mOuIItKskfkQxiLzY5l
+	0eztGzOhpJ/FzVp8yaow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfFQX-0016fy-0D;
-	Thu, 23 Mar 2023 07:32:01 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfFQU-0016fa-1o
+	id 1pfFds-0018fY-2o;
+	Thu, 23 Mar 2023 07:45:48 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pfFdn-0018XM-1p
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Mar 2023 07:31:59 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id b20so49671702edd.1
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 00:31:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1679556716;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ekZUPnt2Vozh7f2sOzqBtvIcIMLGfykVhoLT/YHh2xE=;
-        b=MxAap6yrlqQe+CS3DpDJfF5WuV4QamV9krsmqhN6cV++/4g87dcsgqDPv9l4+5jTSN
-         fpREq+ql5ZTsrvXKij5+szUYFIjJ0KrLkBQo4LjQ1Xb8NggiUvcGJK175r4xihf79DWH
-         T9KnIy/W0K7sT2bZN78BDTWH3LR1I9CbJ5kYRt9N0WwtKZTPt5K7HgBM2XmjXuODk0Fl
-         eyZrEpQKsNQcqJg8O8ItsV46io0ofcKBAqE9mSXi9A/p5D9UQd6ntvzQtllz758dL0dv
-         Np4e6EQf/FAiZDraFfnXffKia8k+jFmBUof/QJ6Bb3WX2KDSPFstWow9QJ3ylAscvjmg
-         zAYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679556716;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ekZUPnt2Vozh7f2sOzqBtvIcIMLGfykVhoLT/YHh2xE=;
-        b=SqtNbvxN0NfVbdZNPypw6aZ9NA6fxerODKO2pwnzjFpYRI0VYRSI10TkDZ3Xr5sGHT
-         LQeHTQJ+D6cQvptAHJlHtZ+Eoo2EkbV0SHdbLSe2jyLQCU70BB96pnjdHWFoDSAfagMX
-         1bDftZogPmyi6ml04XwD2kYY7r2Fmn6tsQSIinuUoeoZoMskjQtHX8z4QnfvhQ7a7D+k
-         VZYRppoIU8njBb5jqrTeimx1Ile/yYezjmMc6VaRP+LJkZYVrts6YVRiWuMpWNOXkxZi
-         4Vbxjp8FW/wv0E4RXv3qlJmws4+xUtWboaJknErnmcp7hAOjO7UZA6bzsamWOpqK1DZZ
-         4d5A==
-X-Gm-Message-State: AO0yUKW+hkdXTRZ7SuPXwkfD1h+kqjDahgMFCMg5RhUGZ/asysUpufya
-	GEo57BxCLsLsYznqTMqXQ9Uqtw==
-X-Google-Smtp-Source: AK7set+iWZt444eNKE55ycB9BgkADqbdT5/QwpCrCYcQJ7NbBWuq6iqdS3q/l5rzTRalH/MtURCskw==
-X-Received: by 2002:a17:906:5cd:b0:8af:3b78:315d with SMTP id t13-20020a17090605cd00b008af3b78315dmr10894973ejt.23.1679556716702;
-        Thu, 23 Mar 2023 00:31:56 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:a665:ed1e:3966:c991? ([2a02:810d:15c0:828:a665:ed1e:3966:c991])
-        by smtp.gmail.com with ESMTPSA id gv27-20020a1709072bdb00b008b9b4ab6ad1sm8235164ejc.102.2023.03.23.00.31.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Mar 2023 00:31:56 -0700 (PDT)
-Message-ID: <a767418b-1e2a-6d02-fc07-8caea8f877e2@linaro.org>
-Date: Thu, 23 Mar 2023 08:31:55 +0100
+	Thu, 23 Mar 2023 07:45:47 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0B5F324E1BE;
+	Thu, 23 Mar 2023 15:44:43 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Mar
+ 2023 15:44:43 +0800
+Received: from [192.168.125.74] (183.27.97.64) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Mar
+ 2023 15:44:42 +0800
+Message-ID: <5b75161e-3d0d-50e5-fd4e-af92edf62317@starfivetech.com>
+Date: Thu, 23 Mar 2023 15:44:41 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH] dt-bindings: mfd: Drop unneeded quotes
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v6 11/21] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
 Content-Language: en-US
-To: Rob Herring <robh@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- Lee Jones <lee@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, patches@opensource.cirrus.com
-References: <20230322173519.3971434-1-robh@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230322173519.3971434-1-robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20230320103750.60295-1-hal.feng@starfivetech.com>
+ <20230320103750.60295-12-hal.feng@starfivetech.com>
+ <b4beb457-8581-4b2f-8655-2e3f82a94f75@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <b4beb457-8581-4b2f-8655-2e3f82a94f75@spud>
+X-Originating-IP: [183.27.97.64]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_003158_599102_7B85AF8C 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230323_004543_965464_2EE1F6DF 
+X-CRM114-Status: GOOD (  33.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,17 +85,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/03/2023 18:35, Rob Herring wrote:
-> Cleanup bindings dropping unneeded quotes. Once all these are fixed,
-> checking for this can be enabled in yamllint.
+On Wed, 22 Mar 2023 21:53:37 +0000, Conor Dooley wrote:
+> Hey Hal,
 > 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
+> On Mon, Mar 20, 2023 at 06:37:40PM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add bindings for the system clock and reset generator (SYSCRG) on the
+>> JH7110 RISC-V SoC by StarFive Ltd.
+>> 
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>> Reviewed-by: Rob Herring <robh@kernel.org>
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../clock/starfive,jh7110-syscrg.yaml         | 104 +++++++++
+>>  MAINTAINERS                                   |   8 +-
+>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 203 ++++++++++++++++++
+>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+>>  4 files changed, 454 insertions(+), 3 deletions(-)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
+>> 
+>> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> new file mode 100644
+>> index 000000000000..84373ae31644
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> @@ -0,0 +1,104 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 System Clock and Reset Generator
+>> +
+>> +maintainers:
+>> +  - Emil Renner Berthing <kernel@esmil.dk>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-syscrg
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    oneOf:
+>> +      - items:
+>> +          - description: Main Oscillator (24 MHz)
+>> +          - description: GMAC1 RMII reference or GMAC1 RGMII RX
+>> +          - description: External I2S TX bit clock
+>> +          - description: External I2S TX left/right channel clock
+>> +          - description: External I2S RX bit clock
+>> +          - description: External I2S RX left/right channel clock
+>> +          - description: External TDM clock
+>> +          - description: External audio master clock
+>> +
+>> +      - items:
+>> +          - description: Main Oscillator (24 MHz)
+>> +          - description: GMAC1 RMII reference
+>> +          - description: GMAC1 RGMII RX
+>> +          - description: External I2S TX bit clock
+>> +          - description: External I2S TX left/right channel clock
+>> +          - description: External I2S RX bit clock
+>> +          - description: External I2S RX left/right channel clock
+>> +          - description: External TDM clock
+>> +          - description: External audio master clock
+>> +
+>> +  clock-names:
+>> +    oneOf:
+>> +      - items:
+>> +          - const: osc
+>> +          - enum:
+>> +              - gmac1_rmii_refin
+>> +              - gmac1_rgmii_rxin
+>> +          - const: i2stx_bclk_ext
+>> +          - const: i2stx_lrck_ext
+>> +          - const: i2srx_bclk_ext
+>> +          - const: i2srx_lrck_ext
+>> +          - const: tdm_ext
+>> +          - const: mclk_ext
+>> +
+>> +      - items:
+>> +          - const: osc
+>> +          - const: gmac1_rmii_refin
+>> +          - const: gmac1_rgmii_rxin
+>> +          - const: i2stx_bclk_ext
+>> +          - const: i2stx_lrck_ext
+>> +          - const: i2srx_bclk_ext
+>> +          - const: i2srx_lrck_ext
+>> +          - const: tdm_ext
+>> +          - const: mclk_ext
+> 
+> I'm sorry to be a bit of a bore about these bindings, but Emil mentioned
+> to me today that he had some doubts about whether any of these audio
+> clocks are actually required.
+> I've had a bit of a look at the driver, cos the TRM that I have doesn't
+> describe the clock tree (from what recall at least) and I think he is
+> right.
+> For example, the TDM clock:
+> +	JH71X0_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
+> +	JH71X0_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
+> +	JH71X0_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYSCLK_MCLK),
+> +	JH71X0__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
+> +		    JH7110_SYSCLK_TDM_INTERNAL,
+> +		    JH7110_SYSCLK_TDM_EXT),
+> 
+> Hopefully, I'm not making a balls of something here, but it looks like I
+> can choose an internal TDM clock, that is based on JH7110_SYSCLK_MCLK,
+> which in turn comes from either an internal or external source.
+> If I am following correctly, that'd be:
+> +	JH71X0__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUDIO_ROOT),
+> 
+> Which in turn comes from:
+> +	JH71X0__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2_OUT),
+> 
+> This leaves me wondering which clocks are *actually* required for a
+> functioning system - is it actually just osc and one of gmac1_rmii_refin
+> or gmac1_rgmii_rxin.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+As I had mentioned somewhere before, some audio clocks need to change their
+parents at different stages of work. I should explain in detail here.
+
+For the i2s*_ext clocks, we should use these external clocks as parents when
+the I2S module is working in the slave mode, while we should use the internal
+clocks as parents when the I2S module is working in the master mode.
+
+For the tdm_ext clock, we use it as the clock source for an accurate playback
+rate. If we use the internal clock as clock source, the TDM can't work
+normally, because it can't get a required rate from the internal divider.
+By the way, note that we need to use the internal clock as clock source when
+we try to reset the tdm clock, otherwise, the reset will fail.
+
+For the mclk_ext clock, which is 12.288MHz, it's used as the clock source
+through all the running time, otherwise, the daughter clocks can't get the
+required rate from the internal PLL2 clock (1188MHz) through dividers.
+
+So all these audio external clocks (i2s*_ext / tdm_ext / mclk_ext) are
+actually required.
 
 Best regards,
-Krzysztof
+Hal
+
+> 
+> I really don't want you to have to go and spell out every combination of
+> clocks to have some sort of validation here.
+> 
+> Stephen, Rob or Krzysztof, do you have any guidance on this situation
+> (assuming I've not made a fool of myself)? There's probably something
+> "obvious" that I'm missing, as I am sure this is not a unique problem.
+> 
+> Cheers,
+> Conor.
+> 
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +  '#reset-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - '#clock-cells'
+>> +  - '#reset-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    clock-controller@13020000 {
+>> +        compatible = "starfive,jh7110-syscrg";
+>> +        reg = <0x13020000 0x10000>;
+>> +        clocks = <&osc>, <&gmac1_rmii_refin>,
+>> +                 <&gmac1_rgmii_rxin>,
+>> +                 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+>> +                 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
+>> +                 <&tdm_ext>, <&mclk_ext>;
+>> +        clock-names = "osc", "gmac1_rmii_refin",
+>> +                      "gmac1_rgmii_rxin",
+>> +                      "i2stx_bclk_ext", "i2stx_lrck_ext",
+>> +                      "i2srx_bclk_ext", "i2srx_lrck_ext",
+>> +                      "tdm_ext", "mclk_ext";
+>> +        #clock-cells = <1>;
+>> +        #reset-cells = <1>;
+>> +    };
 
 
 _______________________________________________
