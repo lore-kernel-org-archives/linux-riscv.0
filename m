@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617B2C6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 11:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C53C6FD20
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZZbT3w0HvcbG0OWRzlRWb3GQfs5YDgk0j/G8qyGohCQ=; b=VeoCyIPTV9heR6
-	7oBJgoEXLIP0CyA0XUgMpdvKSAiijJFTWOFwjsRxwpV+ZqIqI1lqe2oKwsc+j9k8NTwPrB8gNo9EP
-	bu7upz8ha9fVxWCNWR7LvyLOqY/V+ZbZxL9kHUkigDUS5RwO3BuYycfb7WxihKhKAPXZZKnNYHkC2
-	kkPnoH5w8cPet7RZWVSUcPY7VXgTkATe/LDk3tJ1h+F7J19If55om2arlwADFHN4VYydijr5FOj77
-	k8SHGzTyNdXRlVqzi1mSa6SvpdWM9p9PBHdPGHJcIKkzgcd2x6i2pvCOMzlvm/+GIDGL4zeigKc8R
-	RyJ03f+FePewY4KDYeqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CDtSOmRvQnu68M60+sUh8kk3evBRBti09ElTZypLEdE=; b=3LUVWdYxZvmHSg
+	d5amvn3+L5q5trmXUv3jxr9NwXnSBducFKnv/KbG0mw7cE2Mbl4vt4SRJXvS9O6LG5GUUPUOgrP0V
+	qP0VZnNtpX3GL/vIp8B/GNypRCuq32gnSLA0x9eEt0WpveB7n3QU43P3VRp6pjg8gX0Rj4udhVY0T
+	cC5Qwi3wXmbeatrLR0i4hsHoY8c2yqGzNkcGNV0wm7dhmJmCQhbna7CreL886robNKSBbkqvvKRHu
+	NxmgCKVX2lE1sZieiBkd30uGbAobVffk4vNVnxgTxM0Z+VaNXZeIkCqY8naRp4h15I4qF57VvsyKE
+	HNNDolveLuH3+pEpUncw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfg2c-004IWa-2w;
-	Fri, 24 Mar 2023 11:57:06 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1pfgIH-004JzZ-19;
+	Fri, 24 Mar 2023 12:13:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfg2a-004IUS-2W
+	id 1pfgIE-004Jym-1W
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 11:57:06 +0000
-Received: by mail-wr1-x431.google.com with SMTP id m2so1542108wrh.6
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 04:57:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679659019;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R0unISm1YBF3N3u4OntuyZTyz64WUPRtz0o+7OArZng=;
-        b=YXMMlF27QUTKyRH1BAGSxUvTD4ybqs5cxcjfarqa9r0dB+bDWv35cVDxfVt+oR3xTR
-         qHwJ0BvHHK+liKcecydMhp6TJvK6kQt8UUydikByoG6W0PEL8UQPEpWqudrV1/kdsLAc
-         4Jx0ZTTbY157T/nHWBieS/eDtmg5lIVrDMjWjuRRmObJVNX+gzdn62sYJ5jsNC1WAQeO
-         1xJ3eD7wtLEEhUSw//gu5v7j+8sYp2i/vQPkYCDlNvRWFc50+8NLyKgMrBKgjOh1ZRCP
-         VCwKoffEwdcl2cAyHRfPjf8lFvFy3Bs1pbdj7P7nkmX4gep5HVdSU+F6pfpgzEysVwoV
-         xdVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679659019;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R0unISm1YBF3N3u4OntuyZTyz64WUPRtz0o+7OArZng=;
-        b=jxSQFA9Ew/OMfqKKWQLzgDQc7msqo6uj5Sk3qZRd8d6/2nSqfxaLat7SssFnZ4lfuB
-         jzss3XR7KW8Y8iWqApmp0/xcZ93yXVtaN3ykmXsxrwsAaUzBUxbN1r1/lx4NTzo87Msb
-         dDKgGmM/EGkr9rim4jlXDprsHOJSk/OJ4Dt7n69hkj3sM8IM1ne57X3v0VXTLZfgngmX
-         UKH1x9qm9qYC9BeTuoFR/usnWAmde2TmePsCMsZ51omomcT6JofxArL1m1xZDsGYsPg5
-         h1pHdPMBWGYTQ+oR7xKobsrbUAoUHzlGciOYz96PSC+GsByfWr/ADg7d9UCriZ6GYCgL
-         knVQ==
-X-Gm-Message-State: AAQBX9dnx4OUh2ut9w1W8lMYm8gsFuuTdPMvyHX/3x7DIW826BL8Pxmw
-	10QwAbbdgEWrml1ytq2Q66HPig==
-X-Google-Smtp-Source: AKy350YI4YSy6q90vi2zy6fOPKcDzbIyXuo/qjulHMB60ZqKeQKZd4Hk6rIO5h01CvkypuLrObHloQ==
-X-Received: by 2002:adf:dcc6:0:b0:2c7:1b4c:da75 with SMTP id x6-20020adfdcc6000000b002c71b4cda75mr2255785wrm.69.1679659019426;
-        Fri, 24 Mar 2023 04:56:59 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id p17-20020adfcc91000000b002c71dd1109fsm18370048wrj.47.2023.03.24.04.56.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Mar 2023 04:56:59 -0700 (PDT)
-Date: Fri, 24 Mar 2023 12:56:58 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Anup Patel ' <anup@brainfault.org>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Atish Patra ' <atishp@atishpatra.org>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH 0/2] RISC-V: KVM: Require alternatives
-Message-ID: <20230324115658.lqkdsdzntorchmso@orel>
-References: <20230322192858.1189272-1-ajones@ventanamicro.com>
- <6d263b50-e2f0-4331-b930-c54e27f52fcc@spud>
- <427628e0-4c6d-4934-b873-fa1b81b7daa0@spud>
- <20230324113259.jbfncctnclvkzjkz@orel>
- <a58c463e-a3f3-4a4c-8c6e-df707bbd76e0@spud>
+	Fri, 24 Mar 2023 12:13:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679659994; x=1711195994;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=vqediUMzXqF6NjXsWDqodVWUF23Z9yjoQDiTJA0nKpw=;
+  b=n7c6rSL7qBdWsATOaxCc3SVMDN1QZ3sja5fRK/jXJZ8SsSiAyeCvcIgv
+   YOYPXotk3afrdLD1i6rq6edffm1ZZzfdrwrt4rvgo0OPtShIDetil9nPO
+   GNg/xK97su9Rslqo2qaDCU1rh07D1xhQtoS22Q5LFJU3OJbr0zCoIPsPM
+   EYX0Gs1Pn+dYokZbfg0T6jbVzed5MI2F4WzJICKa3HE6t9W6ULVo8al46
+   0uYTBdhGcOu03pq9WKbSMNAKJtOLKOW8ceTCMyAqJTu9wf2xw+OAOZFDE
+   TfTW5IXbuYSn1xKMW3qDIxnb2Ax+3B6eHfZFNNTfKHTj22+PugrVMdZdr
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,287,1673938800"; 
+   d="scan'208";a="203263383"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Mar 2023 05:13:13 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 24 Mar 2023 05:13:12 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Fri, 24 Mar 2023 05:13:10 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>,
+	<ajones@ventanamicro.com>, <Jason@zx2c4.com>, <apatel@ventanamicro.com>,
+	<heiko.stuebner@vrull.eu>, <jszhang@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<paul.walmsley@sifive.com>
+Subject: [PATCH v1] RISC-V: convert new selectors of RISCV_ALTERNATIVE to dependencies
+Date: Fri, 24 Mar 2023 12:12:41 +0000
+Message-ID: <20230324121240.3594777-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a58c463e-a3f3-4a4c-8c6e-df707bbd76e0@spud>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1705; i=conor.dooley@microchip.com; h=from:subject; bh=vqediUMzXqF6NjXsWDqodVWUF23Z9yjoQDiTJA0nKpw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmyk7epz3t10Pa3/WadLys8Fp7RXJJ+ccKxWNW4vJkLNpUE Hlym1FHKwiDGwSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJBMgwMlwNXGc+/8DxnRUHVu9QaO h52W9itXrZjq3bSn6XL3VKbPvCyLDA0kQtJT/o0q7lpSvtvmzz/aJV+6hPOcnPP8iCm9VMngkA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_045704_823268_A0DCA9F3 
-X-CRM114-Status: GOOD (  28.23  )
+X-CRM114-CacheID: sfid-20230324_051314_573244_0489B7A5 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +84,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 24, 2023 at 11:52:13AM +0000, Conor Dooley wrote:
-> On Fri, Mar 24, 2023 at 12:32:59PM +0100, Andrew Jones wrote:
-> > On Thu, Mar 23, 2023 at 05:57:14PM +0000, Conor Dooley wrote:
-> > > On Wed, Mar 22, 2023 at 07:40:14PM +0000, Conor Dooley wrote:
-> > > > On Wed, Mar 22, 2023 at 08:28:56PM +0100, Andrew Jones wrote:
-> > > > > KVM makes use of riscv_has_extension_unlikely() to check for the
-> > > > > svinval extension. riscv_has_extension_unlikely() is built on
-> > > > > alternatives, which means KVM should ensure alternatives support
-> > > > > is available.
-> > > > > 
-> > > > > The first patch takes the opportunity to cleanup KVM's select
-> > > > > list. The second patch selects RISCV_ALTERNATIVE.
-> > > > 
-> > > > Reminds me, I need to re-submit my patch doing that for the top-level
-> > > > RISC-V Kconfig...
-> > > > For the pair:
-> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > 
-> > > Actually, I would like to take this back for patch 2.
-> > > Per the discussion on the other thread about XIP [1], I don't think
-> > > that KVM should be selecting alternatives like this.
-> > > Would you mind if I picked up these patches & submitted them as a v2,
-> > > alongside a patch trying to make sure that we do not clip the wings of
-> > > of XIP kernels by selecting RISCV_ALTERNATIVE?
-> > 
-> > Hi Conor,
-> > 
-> > I take it that resubmitting these patches is no longer part of the plan.
-> 
-> Ah crap, sorry. I meant to reply here after submitting and forgot.
-> 
-> > Should I rebase on "[PATCH v1 0/2] RISC-V: Fixes for
-> > riscv_has_extension[un]likely()'s alternative dependency" and change the
-> > select to a depends on?
-> 
-> I don't think you need to. Does KVM actually make use of alternatives,
-> other than for riscv_has_extension_unlikely(), that are not gated by
-> extension/erratum specific config options?
-> 
-> With my patch 2/2, alternatives are always enabled for !XIP_KERNEL
-> builds, and will fall back to the "slow" path in
-> riscv_has_extension_unlikely() otherwise.
-> If KVM doesn't need alternatives for another reason, I don't think you
-> need to introduce a dependency on them and just inherit the decision
-> made by CONFIG_RISCV.
+for-next contains two additional extensions that select
+RISCV_ALTERNATIVE. RISCV_ALTERNATIVE no longer needs to be selected by
+individual config options as it is now selected for !XIP_KERNEL builds
+by the top level RISCV option.
+These extensions rely on the alternative framework, so convert the
+"select"s to "depends on"s instead.
 
-Ack, thanks, Conor.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Applies on top of my series doing the aforementioned conversion:
+https://lore.kernel.org/all/20230324100538.3514663-3-conor.dooley@microchip.com/
 
-Anup, we can either drop patch 2/2 or the whole series, as you like.
+This patch is sent on its own, because I expect the others to be applied
+to fixes, as it fixes a v6.3 regression.
+For this patch, I applied my other series to v6.3-rc1 and merged that
+into for-next, and created this patch on top of the result.
+---
+ arch/riscv/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thanks,
-drew
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d2acd69d6e3e..a48d1ee677ec 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -402,8 +402,8 @@ config RISCV_ISA_C
+ config RISCV_ISA_SVNAPOT
+ 	bool "SVNAPOT extension support"
+ 	depends on 64BIT && MMU
++	depends on RISCV_ALTERNATIVE
+ 	default y
+-	select RISCV_ALTERNATIVE
+ 	help
+ 	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
+ 	  time and enable its usage.
+@@ -478,8 +478,8 @@ config RISCV_ISA_ZICBOM
+ 
+ config RISCV_ISA_ZICBOZ
+ 	bool "Zicboz extension support for faster zeroing of memory"
+-	depends on !XIP_KERNEL && MMU
+-	select RISCV_ALTERNATIVE
++	depends on MMU
++	depends on RISCV_ALTERNATIVE
+ 	default y
+ 	help
+ 	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
