@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFA6C76195
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 03:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0621C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 04:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mq6ozdATvbn9i63FcB8EZvDuFSgj2pw5oGEEdQRGryg=; b=CY/yL1GJS5H3HX
-	AE13HWfp3JeWZ+TioS+1yr9STPHAJTL892r0Th8sq+l0qL8BPV0C53ijbrcB2zPlO/RiHUxQRvlA2
-	tm7ZR88Qpm2A3SYB80MVbSgWSFXMnKas4gV04pPQPKgTe2+C69NlLi2hYrDL0hMhjq0haBxGZoq0t
-	e6tLbjULHwqi8YAEfvjXXfNrkPKlQhmLli2M8QXt4FPTsTpaSehERuidqXksUzmm/Ij/N+OJrW8Rk
-	GDKV11LLfPc0q0X6JKo/V/MG73z8RrE2DZfcoFIljGN4A5PbRtsJ84Qr7wo/PCdLVk/TOD1NkxdyE
-	CbwnQDilOco8JRy0yxRA==;
+	List-Owner; bh=RkZhbA6Z6CzTZNvfXLT0VmyXJvvInvgTJ2oBPVz1vH8=; b=FGhG85EcEhXQ9c
+	6b154VrxhkTLFvP5Qf5g/ngXG6QwCVxX1mSJPDEmKxnaoAebIbEj9QQ6zhL7J31ST27fzOt43vjgm
+	aeySsHG01ZdnwInbv7lprh97qNyaUST38qxlD/0wZLaYpyHtwbo48yWhCqdVb15D/Cxze/1V6rROL
+	gVoytN+cyb9aHmJnwDDwvYrvA+dup96qZht95uoKHJQbLJaLa2z0l8ClDhpLh+sBWv4hKGQ7VsygS
+	G7nuU+PaxPL0AL7d6Zo8GfO+JURQHrIJ6xjP0CfppWTzJRfPQjwUyuA05SOPitrSZ9a7jEsJk/ySU
+	9UztodVGTPuMlNBqxLqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfYBv-003Sz2-2Z;
-	Fri, 24 Mar 2023 03:34:11 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfYBs-003SxN-2g
+	id 1pfZPn-003XCP-1w;
+	Fri, 24 Mar 2023 04:52:35 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pfZPi-003XAn-32
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 03:34:10 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id mp3-20020a17090b190300b0023fcc8ce113so3851726pjb.4
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Mar 2023 20:34:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1679628847;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h3q26JSTHb9HYIOZ2NkxVcC/C3mDBZ5uwCCl/dONZmQ=;
-        b=cuRpWV5cKp07vKKkNf/V5y1lMpltfHXdtPyPSyVUxRT0PvblGr1GZBBms70dHT4LIV
-         4cLikAHxv86L3624SAn+yQv8m/7Q+PJFHAENozudSc0ikV7ecbWW36MP2pOzt23itJvY
-         dbVRAoWVf3OJa4qOKWTdeOlWRiyOa2L70DhV9CMJZobBE11PlCXVklMjCb0sJK3eVbFw
-         eR5nBayIzej1NuAyunK9R7zvHnt5HYCHSuboai5o0UxNT9uzxkzpyv3ofyaWUJKj/+p7
-         ztdQee2/V/Vb1Pt1hERh6wRx00yqrHdXNkmUQIAqcN5MX/ChRJ7TY5PdqaUrD/Wol4ia
-         hXKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679628847;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h3q26JSTHb9HYIOZ2NkxVcC/C3mDBZ5uwCCl/dONZmQ=;
-        b=y78q3q28dolmKZASkMov/QqqG98c4q5hbdObGZJXQo4nUPUsBMTRzCCNn8n4utW0Tm
-         JFj5mZba/ytK47mDoJIAghgI4+Jd7pHsHsbpgJ1LK6UHlb3wCNBl/PgwFxlPo3FFNgBx
-         WnzqCFKy8ZcduRDjD6rVBa9NOlmbHdqEUaYk1lqSAnjVgW387WD5oYcVR4OOsgb+3VVH
-         1X3njPzBb/HEqExeg0b07PVM5w0GC7Wn0TXr9o0RCYtLvmW0gCHgB8MG8WwQvNMLtF1w
-         UKJHf6hQadVM/XDKfzOxmC7pNL7H7L2cLIgyOAG3WwaEkWSpfbzD2JoSAWtHy6tWEb0M
-         Fulw==
-X-Gm-Message-State: AAQBX9fmvM7LJ/0LAvi3QP53TaEXLb9GQSxyIjdyDqUUdtrQvDrYgjbc
-	U7z4ubkNF3SFlsezKjuOu7Y=
-X-Google-Smtp-Source: AKy350Zhb8seJM1p6xL9hPA76B1b6gt2oZuXkKR09k+XlG3QkiYRvOdukNAY2H7Ug32Uuo+Eu2O8ZQ==
-X-Received: by 2002:a17:903:41cf:b0:1a1:a800:96a7 with SMTP id u15-20020a17090341cf00b001a1a80096a7mr1388838ple.8.1679628847167;
-        Thu, 23 Mar 2023 20:34:07 -0700 (PDT)
-Received: from localhost.localdomain ([221.226.144.218])
-        by smtp.gmail.com with ESMTPSA id h13-20020a170902f7cd00b0019d1f42b00csm13014101plw.17.2023.03.23.20.34.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 20:34:06 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mark.rutland@arm.com,
-	guoren@kernel.org,
-	e.shatokhin@yadro.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH V8 4/4] samples: ftrace: Add riscv support for SAMPLE_FTRACE_DIRECT[_MULTI]
-Date: Fri, 24 Mar 2023 11:33:42 +0800
-Message-Id: <20230324033342.3177979-5-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20230324033342.3177979-1-suagrfillet@gmail.com>
-References: <20230324033342.3177979-1-suagrfillet@gmail.com>
+	Fri, 24 Mar 2023 04:52:33 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9EEBD24DBFD;
+	Fri, 24 Mar 2023 12:51:43 +0800 (CST)
+Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
+ 2023 12:51:43 +0800
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX163.cuchost.com
+ (172.16.6.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
+ 2023 12:51:43 +0800
+Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
+ EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
+ 15.00.1497.044; Fri, 24 Mar 2023 12:51:43 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>
+CC: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: RE: [PATCH v3 0/4] crypto: starfive - Add drivers for crypto engine
+Thread-Topic: [PATCH v3 0/4] crypto: starfive - Add drivers for crypto engine
+Thread-Index: AQHZVbQGpGqpyyNhMUOCrVA7ceGTta8JaAiQ
+Date: Fri, 24 Mar 2023 04:51:43 +0000
+Message-ID: <734f3a559d28408fa5b95ade203626f2@EXMBX168.cuchost.com>
+References: <20230313135646.2077707-1-jiajie.ho@starfivetech.com>
+In-Reply-To: <20230313135646.2077707-1-jiajie.ho@starfivetech.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.190.105.77]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_203408_870615_63F8A94D 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230323_215231_445727_CBBFF342 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,238 +85,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-select HAVE_SAMPLE_FTRACE_DIRECT and HAVE_SAMPLE_FTRACE_DIRECT_MULTI
-for ARCH_RV64I in arch/riscv/Kconfig. And add riscv asm code for
-the ftrace-direct*.c files in samples/ftrace/.
 
-Link: https://lore.kernel.org/linux-riscv/c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com/T/#ma13012560331c66b051b580b3ab4a04ba44455ec
-Tested-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Tested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig                          |  2 ++
- samples/ftrace/ftrace-direct-modify.c       | 33 +++++++++++++++++
- samples/ftrace/ftrace-direct-multi-modify.c | 39 +++++++++++++++++++++
- samples/ftrace/ftrace-direct-multi.c        | 23 ++++++++++++
- samples/ftrace/ftrace-direct-too.c          | 26 ++++++++++++++
- samples/ftrace/ftrace-direct.c              | 22 ++++++++++++
- 6 files changed, 145 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 17052b2dc83c..5b35496ac644 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -115,6 +115,8 @@ config RISCV
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RSEQ
-+	select HAVE_SAMPLE_FTRACE_DIRECT
-+	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select IRQ_DOMAIN
-diff --git a/samples/ftrace/ftrace-direct-modify.c b/samples/ftrace/ftrace-direct-modify.c
-index d93abbcb1f4c..32f973e7bab1 100644
---- a/samples/ftrace/ftrace-direct-modify.c
-+++ b/samples/ftrace/ftrace-direct-modify.c
-@@ -22,6 +22,39 @@ extern void my_tramp2(void *);
- 
- static unsigned long my_ip = (unsigned long)schedule;
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"	addi sp,sp,-16\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func1\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"	addi sp,sp,-16\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func2\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi-modify.c b/samples/ftrace/ftrace-direct-multi-modify.c
-index b58c594efb51..045a4af041ce 100644
---- a/samples/ftrace/ftrace-direct-multi-modify.c
-+++ b/samples/ftrace/ftrace-direct-multi-modify.c
-@@ -20,6 +20,45 @@ void my_direct_func2(unsigned long ip)
- extern void my_tramp1(void *);
- extern void my_tramp2(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       mv   a0,t0\n"
-+"       call my_direct_func1\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       mv   a0,t0\n"
-+"       call my_direct_func2\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi.c b/samples/ftrace/ftrace-direct-multi.c
-index c27cf130c319..918cf325d3a3 100644
---- a/samples/ftrace/ftrace-direct-multi.c
-+++ b/samples/ftrace/ftrace-direct-multi.c
-@@ -15,6 +15,29 @@ void my_direct_func(unsigned long ip)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       mv   a0,t0\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
-index 8139dce2a31c..5a552b710d8c 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -17,6 +17,32 @@ void my_direct_func(struct vm_area_struct *vma,
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-40\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   a1,8(sp)\n"
-+"       sd   a2,16(sp)\n"
-+"       sd   t0,24(sp)\n"
-+"       sd   ra,32(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   a1,8(sp)\n"
-+"       ld   a2,16(sp)\n"
-+"       ld   t0,24(sp)\n"
-+"       ld   ra,32(sp)\n"
-+"       addi sp,sp,40\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct.c b/samples/ftrace/ftrace-direct.c
-index 1d3d307ca33d..33e7bde013aa 100644
---- a/samples/ftrace/ftrace-direct.c
-+++ b/samples/ftrace/ftrace-direct.c
-@@ -14,6 +14,28 @@ void my_direct_func(struct task_struct *p)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
--- 
-2.20.1
+> -----Original Message-----
+> From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+> Sent: 13 March, 2023 9:57 PM
+> To: Herbert Xu <herbert@gondor.apana.org.au>; David S . Miller
+> <davem@davemloft.net>; Rob Herring <robh+dt@kernel.org>; Krzysztof
+> Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Emil Renner Berthing
+> <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>
+> Cc: linux-crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+> Subject: [PATCH v3 0/4] crypto: starfive - Add drivers for crypto engine
+> 
+> This patch series adds kernel driver support for StarFive JH7110 crypto engine.
+> The first patch adds Documentations for the device and Patch 2 adds device
+> probe and DMA init for the module. Patch 3 adds crypto and DMA dts node
+> for VisionFive 2 board. Patch 4 adds hash/hmac support to the module.
+> 
+> Patch 3 needs to be applied on top of:
+> https://patchwork.kernel.org/project/linux-
+> riscv/patch/20230221024645.127922-18-hal.feng@starfivetech.com/
+> https://patchwork.kernel.org/project/linux-
+> riscv/cover/20230120024445.244345-1-xingyu.wu@starfivetech.com/
+> 
+> Changes v2->v3:
+> - Only implement digest and use fallback for other ops (Herbert)
+> - Use interrupt instead of polling for hash complete (Herbert)
+> - Remove manual data copy from out-of-bound memory location as it will
+>   be handled by DMA API. (Christoph & Herbert)
+> 
+> Changes v1->v2:
+> - Fixed yaml filename and format (Krzysztof)
+> - Removed unnecessary property names in yaml (Krzysztof)
+> - Moved of_device_id table close to usage (Krzysztof)
+> - Use dev_err_probe for error returns (Krzysztof)
+> - Dropped redundant readl and writel wrappers (Krzysztof)
+> - Updated commit signed offs (Conor)
+> - Dropped redundant node in dts, module set to on in dtsi (Conor)
+> 
+> Jia Jie Ho (4):
+>   dt-bindings: crypto: Add StarFive crypto module
+>   crypto: starfive - Add crypto engine support
+>   riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+>   crypto: starfive - Add hash and HMAC support
+> 
+>  .../crypto/starfive,jh7110-crypto.yaml        |   70 ++
+>  MAINTAINERS                                   |    7 +
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |   28 +
+>  drivers/crypto/Kconfig                        |    1 +
+>  drivers/crypto/Makefile                       |    1 +
+>  drivers/crypto/starfive/Kconfig               |   21 +
+>  drivers/crypto/starfive/Makefile              |    4 +
+>  drivers/crypto/starfive/jh7110-cryp.c         |  239 ++++
+>  drivers/crypto/starfive/jh7110-cryp.h         |  134 +++
+>  drivers/crypto/starfive/jh7110-hash.c         | 1041 +++++++++++++++++
+>  10 files changed, 1546 insertions(+)
+>  create mode 100644
+> Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+>  create mode 100644 drivers/crypto/starfive/Kconfig  create mode 100644
+> drivers/crypto/starfive/Makefile  create mode 100644
+> drivers/crypto/starfive/jh7110-cryp.c
+>  create mode 100644 drivers/crypto/starfive/jh7110-cryp.h
+>  create mode 100644 drivers/crypto/starfive/jh7110-hash.c
+> 
+> --
+> 2.25.1
 
+
+Hi Herbert/David,
+
+Could you please help review this patch series?
+Thanks in advance.
+
+Best regards,
+Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
