@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973BAC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 09:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85744C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 09:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kg7bIuHXwYTy/ALg09bzpHceZcysUHdC/NZCub2R3bg=; b=zUqQPIT2iE6LqR
-	tYWIYykedO1wZqA6Elw6Rc2bHcMi0CSNilp3joOhAlKNnavSr3rgPoli0gCGQDxB9wOmTij7E1mGT
-	KrvVFXY7iNWOqgs4/4jjMj8an6q5XPfpb1/3z0bF1yyFoEP7EeG4/NLxozoZhDl0KqlhhdzeaCjsE
-	+04W2n/mnpEvQ13DEjluWS9yjlwV1NZvlA5CyxrvEX1e/20kj1MmseVpkI/5NRq0TFaiE3vXJmNGC
-	Nrr/q5zZe3IDp715XkAmE8RazfKL75wGH/jHdzw1qkz3CPUWSPVt6SAvI+vPslpkweHyY0qBXtonN
-	EoCg6dSHeUEYDWKnqJoA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9jufqXSPROOOylWR3QtmRAYI1yjlHUOpmrkvDsyq9tw=; b=20hFY2YGPDhrdk
+	t7HD4dGrc15dFc89SCg+xiu460sLCFJMjvP72Gh8TTBKA1/hs65BlP0WyMCwTJdkWS4gXela5a4G2
+	2ymroX59Am8rxR6JTGoZ1aggRsbsHhYuzSjwcm/wwnYMEgI6d7VptADDmzdjIAl0zDleahnEN/xoh
+	FbVP3Hh4GLz1uSC9++PBWotbBUEaurF59aVUIpFFeHQ5KDXIivW7pHuG7AX9+sOPS81c5U8TpEF5v
+	cq4rw8jLNg6TvvOiAnXT9I/gC2Zp8NzOfoCSejbDMY2kzhIuAqyfWtNHwbYObzQy3xcl2E0Uok9Vx
+	kGLgnUamlxixPNwY53Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfdYe-00401Y-1L;
-	Fri, 24 Mar 2023 09:18:00 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1pfdjx-0041VS-2x;
+	Fri, 24 Mar 2023 09:29:41 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfdYa-00400G-0n
+	id 1pfdjv-0041Uu-0c
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 09:17:58 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id D91FE5C00D0;
-	Fri, 24 Mar 2023 05:17:52 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute1.internal (MEProxy); Fri, 24 Mar 2023 05:17:52 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm3; t=
-	1679649472; x=1679735872; bh=TXn9bh8NNQiaq9RCNIuEb1mA2gEV5NsgDpg
-	JpUdv/CY=; b=UgsRLR9CZYS9v7HxbOhO1Ht7dpegLxuTjK3G0tMgwmMzlAbJw/y
-	U9HlpavWJLBaeTE4VEdafvz57R0rK7HQLUol36Qnwp60zAakk00EMhB65LEt84tA
-	U43B1xJQJ7knz5Sz95Cl8pSrmjn2ISQYeYCskrbZEnIAxZKESLkyGsl7e2amr03c
-	jqQz/0DTEVpdG7TUR7w9wfNYuUPIxYq9WIDjY2oVuhG9XqCjr4gSL/qP2E5hLXw6
-	7KrL0Z8EQs2SxUyR1RRalFNhqwMXACbkDO8YWr3cfceVYglRMukqd0oyCRSdMKFd
-	rERfEvUu+7bBOo7kH347K8JHKDdAAH86rQQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1679649472; x=1679735872; bh=TXn9bh8NNQiaq9RCNIuEb1mA2gEV5NsgDpg
-	JpUdv/CY=; b=bOkAriQ7SnMVdc9qlRXrg5zjYuHLUnhkL6Unzsl8BtPHLmS3GXe
-	J6cE/oQ9wv8dIarPz0lMPZ5XmKxcd8+GI1QK7tguZGdNGzM2+DEE4xnVTQFTXYFo
-	y8lK+wmchkkV6NOzQngQq9SLF4fxFrFESKJvgSJd2GLXjX86jlAhQs9VC65mX3HW
-	5sTD9UaWye41qO4s5Q8HZOJOmcqA/qumqDU0Mh9SqhrxsG9M57fKYu5nwH6BxOen
-	BvlBpRQPlK+whAqHIzJXDYbZwwmdRDvo8ledWUeo1oXZMDtjw4z1rwfDrHR9IZAX
-	6ABMlrnc+AjRMD4Kz0Sj27qYvKPA00lTNeQ==
-X-ME-Sender: <xms:v2odZP0DKBmYhJwawl6AQqFJbRYwbeSdSF6WdW1t_xW_kf6YDCA1ZA>
-    <xme:v2odZOEc0QRgUxZYSV48BYhgnDEkQtvTB3g3UCU3TrW7CzFs7D0iyHpcD0VJnkx-c
-    kIWyrRPumnVUWbgVOc>
-X-ME-Received: <xmr:v2odZP7Jx6EtWVylFcEP02YbQr1V9F0NqX4lUk6bZIUs6RuqAHlihHcQnV_dwQVA7-uH>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdegiedgtdduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurheptggguffhjgffvefgkfhfvffosehtqhhmtdhhtdejnecuhfhrohhmpeflihgr
-    gihunhcujggrnhhguceojhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomheqne
-    cuggftrfgrthhtvghrnhepuddtjeffteetfeekjeeiheefueeigeeutdevieejveeihfff
-    ledvgfduiefhvddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomh
-X-ME-Proxy: <xmx:wGodZE2hliBxevB73UB7FDxctXUd7Mw7JuXZPD87jbsd4EFvk9gKCA>
-    <xmx:wGodZCGgTeqiAZ5Lm-8-REfVc_xlmMESyx8WazmcKLOxI3WVQvdjcA>
-    <xmx:wGodZF9wPT7NC7kNhDO8E_rpjgU5KuY5looZwimGRHo1r153OEF9dw>
-    <xmx:wGodZK98UJgeF9dxp_Q9540JaqZEFReCb9Xx_acBTbK_3ql_xaXMLw>
-Feedback-ID: ifd894703:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 24 Mar 2023 05:17:50 -0400 (EDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
-Subject: Re: [PATCH v3 0/4] Use dma_default_coherent for devicetree default
- coherency
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-In-Reply-To: <20230323213930.GA7730@lst.de>
-Date: Fri, 24 Mar 2023 09:17:38 +0000
-Cc: "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- mpe@ellerman.id.au,
- paul.walmsley@sifive.com,
- palmer@dabbelt.com,
- Rob Herring <robh+dt@kernel.org>,
- m.szyprowski@samsung.com,
- Robin Murphy <robin.murphy@arm.com>,
- linux-riscv@lists.infradead.org
-Message-Id: <CB41D3AF-20F6-42F3-9168-C0D6E716431A@flygoat.com>
-References: <20230321110813.26808-1-jiaxun.yang@flygoat.com>
- <20230323072944.GA18524@lst.de>
- <60D7FE31-D708-4495-949F-3F64DDC11377@flygoat.com>
- <20230323213930.GA7730@lst.de>
-To: Christoph Hellwig <hch@lst.de>
-X-Mailer: Apple Mail (2.3731.400.51.1.1)
+	Fri, 24 Mar 2023 09:29:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679650179; x=1711186179;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=AVss23QZpMuEARiPskn7cqME9h3VNDW9IrkiYCSbcZ8=;
+  b=jYmzJQrIzFb7iOtjioUxVOMLT8UIa0oX8+7V3XxRDN2M1mBeCvehc3H+
+   SyUnbTX3roo1GzyYnbGJS8aSaBdtbFFLfIiSFTGBCPYDsiLQ9yfY0yZlE
+   x30IywZS68HCZYKzULYovWq0Ck+0Eda+DoeV5LhxH8F7n84o2RFZIFW++
+   qs9Dhr6xKzCtl9oQBffb4uC9xxFbE5ON5JwKRVjuEiKQ2p/zy1YtV3qsD
+   nxOyzTu1TGj05xVh6hPgEZOTgLYZEe0rkxst7hTdTGoyP67vdx1tg6yiv
+   KCU9KefjmU2kyd+VcPzOTbKi42Pk6v7JCiluXvbxB5Sq+ac/ioLfY1MYM
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,287,1673938800"; 
+   d="scan'208";a="206548983"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Mar 2023 02:29:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 24 Mar 2023 02:29:34 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Fri, 24 Mar 2023 02:29:33 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v1] RISC-V: align Svpbmt Kconfig help text with other extensions
+Date: Fri, 24 Mar 2023 09:28:41 +0000
+Message-ID: <20230324092840.3504267-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1165; i=conor.dooley@microchip.com; h=from:subject; bh=AVss23QZpMuEARiPskn7cqME9h3VNDW9IrkiYCSbcZ8=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmyuW5evr9bNuy+OdXmvZnR9e6TbyTWBp6yOF0eEKisfD+C Nau2o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABOZvJeR4exhnuU7Jsxlbtjqa68qcf t1g3H53bI1PE6xl/ZNvWbD3MXI8ERsxWyvl2Gfbc107Z5L2S239RPWDMt6s2dtyR9lqcuFjAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_021757_085847_ED2ECC13 
-X-CRM114-Status: UNSURE (   5.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230324_022939_277773_F4F33719 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,20 +76,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IDIwMjPlubQz5pyIMjPml6UgMjE6MznvvIxDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5k
-ZT4g5YaZ6YGT77yaCj4gCj4gT24gVGh1LCBNYXIgMjMsIDIwMjMgYXQgMDk6MDc6MzFQTSArMDAw
-MCwgSmlheHVuIFlhbmcgd3JvdGU6Cj4+IAo+PiAKPj4+IDIwMjPlubQz5pyIMjPml6UgMDc6Mjnv
-vIxDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5kZT4g5YaZ6YGT77yaCj4+PiAKPj4+IFRoZSBz
-ZXJpZXMgbG9va3MgZmluZSB0byBtZS4gIEhvdyBzaG91bGQgd2UgbWVyZ2UgaXQ/Cj4+IAo+PiBQ
-ZXJoYXBzIGdvIHRocm91Z2ggZG1hLW1hcHBpbmcgdHJlZT8KPiAKPiBJcyBwYXRjaCBhIDYuMyBj
-YW5kaWRhdGUgb3Igc2hvdWxkIGFsbCBvZiBpdCBnbyBpbnRvIDYuND8KClBsZWFzZSBsZWF2ZSBp
-dCBmb3IgNi40LCBhcyBjb3JyZXNwb25kaW5nIE1JUFMgYXJjaCBwYXJ0IHdpbGwgYmUgYSBwYXJ0
-IG9mIDYuNC4KClRoYW5rcwpKaWF4dW4KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Other extensions only capitalise the first letter in Kconfig text
+menus, and provide a short comment about the extension's meaning.
+Do the same for Svpbmt.
+While editing one of the lines, reformat the "spelling" of 64-bit.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 2f6976418d0a..b12ab7a9d481 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -400,7 +400,7 @@ config RISCV_ISA_C
+ 	  If you don't know what to do here, say Y.
+ 
+ config RISCV_ISA_SVPBMT
+-	bool "SVPBMT extension support"
++	bool "Svpbmt extension support for supervisor mode page-based memory types"
+ 	depends on 64BIT && MMU
+ 	depends on RISCV_ALTERNATIVE
+ 	default y
+@@ -413,7 +413,7 @@ config RISCV_ISA_SVPBMT
+ 	   that indicate the cacheability, idempotency, and ordering
+ 	   properties for access to that page.
+ 
+-	   The SVPBMT extension is only available on 64Bit cpus.
++	   The Svpbmt extension is only available on 64-bit cpus.
+ 
+ 	   If you don't know what to do here, say Y.
+ 
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
