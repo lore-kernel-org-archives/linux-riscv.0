@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF645C6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 15:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D2FC76195
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 17:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aAjtkaSoFV6O+b7ZRwgTmI6q6PYtLXDL/MMZMBWTCm8=; b=cJULJ/Ias1Aycc
-	Srz3Qcu0pyvinHA1yOJL2rfvF5ad055umpvk1TUEz7BWw1OHC1n63ZoyiVyo60CckGd8N0VXWTx0A
-	7jROztnP7pAxu0Ck8mqRRS+OW3zLU72U/+aiNQUqzA684X3PS9Me0AfNNT0bC8k5KzzXyayWMtJD6
-	4+AW2keLxJIVfx6YuC7Kmo+4gy0XLamz7RZj6ThN8MR18/2pT2IEDL8wv2Gt4SXsjqWfCiFB9pZAo
-	/f5hwz88vPF7dHdXFq4vRPq3r3CHeqodzmeEV2Wkt55jk5PCUh2XiUYfALItNZcA163/uGcbUQ2RK
-	nWTEEQE6lqX1AojDxtbQ==;
+	List-Owner; bh=XZ5rwA5Zwdp3uHNV5YQv0gpCMBmaYUum7oDhC6GY34c=; b=WYog+OSjCiBNBN
+	sCs6C/w7cBuOEyxKP2F6LtcG/nZSujHDZbamEtPXBq2LGl2SNxaMYNA07MoYESM+fo6f/wloCKJvq
+	wIXpnFoI3VDfcvAdmoNvwtMs8qsUL+E9L2lV0X9Cybxyu5iURaXUOm1gfQYyOmU84WHXW+RFL7ehx
+	yvpAj3rv5QvPgD7CSAt2VJtsYob9cOSZTuzNk8b+6c4/DKf8sevrPjYg86fQAYct3jCJSRx70W9Er
+	N9My9XEEBUmkG1jWbG8JrZ+fOjS8AobC0xozHli/TB54P/0+gUxxN/VpC0Tvh+97/4vgtHehQm+0B
+	Oj9EFy2N0hfVYdqUvVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfjnN-004vZ6-1a;
-	Fri, 24 Mar 2023 15:57:37 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1pfl1C-0054Y3-1y;
+	Fri, 24 Mar 2023 17:15:58 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfjnK-004vXM-0y
+	id 1pfl15-0054T6-2i
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 15:57:36 +0000
-Received: by mail-wr1-x436.google.com with SMTP id i9so2318187wrp.3
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 08:57:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679673452;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zhhEYFPCPVqM+bv/vdKyIuWfXi+AjGplPQmUGopcOcU=;
-        b=m3WT+FNIduuiQuRRQK2gEavpehgueTGx9br5jILqJam7WzWuSCoSPo70Vaz7WrYBFt
-         +HFMqSyA/nMVG4EKyFRyElCmY5Nie3HcgRSGEi3jmHn5KN7ohI6QKhZOaVmtHfUKgNud
-         M5/SrhKd3BLN/ZcRChD/whjG8SIpO4w3gtuXl/PIMiGPSE7RrTVgHNXG4No7leGMQRSF
-         2cPN4OBEwwOYFmt7K0UVK/yopyZAaaq2DOxf6l/fzvVYIoL3GxNS1YqIfr1L7nSLsM0I
-         p2xjtt2YI6AP5y+I55Pa7/ddwecKFUmQHaiXaUsXAofsELfar9qoEg/M3IrnW+6cg7tl
-         R9EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679673452;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zhhEYFPCPVqM+bv/vdKyIuWfXi+AjGplPQmUGopcOcU=;
-        b=cAw7+BPMLKiXDoM/7TCCfQOMVpGNa1Ms10x6CsDsXueTqNQpXepZio4ow9KcVZJVX9
-         MF60YDKO+KnbaLNDAP/43dvLAXiCP5TcoNe6xqtX8Hnpb0eVjVOhgRUtoxcjnYngsUcV
-         lfYbJKtnDirUCnEX+O0/11adPRjPBKHSTbngAU85F+zx0OaTglWRst8AK2MRha4TDTGV
-         Cz56aP2z5275TGBKDG819d0zVoEbMbup6n+fHAWBRcbBnT7dyMNOiuVrlBEFWmIWSwfz
-         d6kFJriZanQ1UXxBRT2pw0kJGbM4QFuaxmVRjSxgJ5FE0KVPu0ZaN2MIYtrYuXYVgkJa
-         QI4Q==
-X-Gm-Message-State: AAQBX9ci57/elr0W4p9LIQnS4isx8sPmHDh/iut459ScPfJTp7HKSoum
-	TPn+I6hl2KvDt5n70jMaw/ZdWA==
-X-Google-Smtp-Source: AKy350ZKFS9Zknv3kJTbWN0OS/rVhFjsRCqh2HsrZErz2y8l5F7eehLZBdmucO6ButWIk1v8iCKvAA==
-X-Received: by 2002:adf:e64d:0:b0:2c5:4af3:3d26 with SMTP id b13-20020adfe64d000000b002c54af33d26mr2912903wrn.9.1679673452317;
-        Fri, 24 Mar 2023 08:57:32 -0700 (PDT)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id w2-20020a5d6082000000b002c6d0462163sm18580112wrt.100.2023.03.24.08.57.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Mar 2023 08:57:32 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v9 3/3] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Date: Fri, 24 Mar 2023 16:54:21 +0100
-Message-Id: <20230324155421.271544-4-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230324155421.271544-1-alexghiti@rivosinc.com>
-References: <20230324155421.271544-1-alexghiti@rivosinc.com>
-MIME-Version: 1.0
+	Fri, 24 Mar 2023 17:15:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 18F44B825BA;
+	Fri, 24 Mar 2023 17:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BEC46C4339B;
+	Fri, 24 Mar 2023 17:15:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679678149;
+	bh=3vK7EQHW/mUxIGD0tXcolxrLVKt2Ft5l+RQ3l5IVXBc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=KqEWTcGZGFnVHSBzcdzh3sUNr6kTMIJ78JDdZzEvB9GAV4guT4RkSTLALCOJ7eqn9
+	 hTIpUFF1/HC3r/tJDx7zoYgEinEBOk7P3pwHB6CJxbCwIHG3AV5IrCw46OnCalBE2m
+	 2pQT9L8FFoTJiN403q2vwNvPJYDTKyRpU8ybGMjo0y3/UnwpuStGiw334SXbS6fzQP
+	 pBqchLJqG3iwhXNI+xjjv+cBPN/LoJvKLWUUVIWJG8/dNnrHc9Qjq44XBFLH7uV+9X
+	 4EgGNX6vvf3BLB734Gg1cfFeedLQCi3lS9TPlKJQM+Rul9prh9MSKxv/enGHGohoyU
+	 TRXbBfnJ3UaNg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A6049C41612;
+	Fri, 24 Mar 2023 17:15:49 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.3-rc4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-4d782094-e4c0-4626-a038-78e17e33b19e@palmer-ri-x1c9>
+References: <mhng-4d782094-e4c0-4626-a038-78e17e33b19e@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-4d782094-e4c0-4626-a038-78e17e33b19e@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc4
+X-PR-Tracked-Commit-Id: e89c2e815e76471cb507bd95728bf26da7976430
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 19a6b66ca5244203214726376fda978cda2fc488
+Message-Id: <167967814967.905.5197343284289553060.pr-tracker-bot@kernel.org>
+Date: Fri, 24 Mar 2023 17:15:49 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_085734_343292_BF2C4304 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20230324_101552_059853_15D3E6C0 
+X-CRM114-Status: UNSURE (   4.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,245 +77,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During the early page table creation, we used to set the mapping for
-PAGE_OFFSET to the kernel load address: but the kernel load address is
-always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-PAGE_OFFSET is).
+The pull request you sent on Fri, 24 Mar 2023 07:44:56 -0700 (PDT):
 
-But actually we don't have to establish this mapping (ie set va_pa_offset)
-that early in the boot process because:
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc4
 
-- first, setup_vm installs a temporary kernel mapping and among other
-  things, discovers the system memory,
-- then, setup_vm_final creates the final kernel mapping and takes
-  advantage of the discovered system memory to create the linear
-  mapping.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/19a6b66ca5244203214726376fda978cda2fc488
 
-During the first phase, we don't know the start of the system memory and
-then until the second phase is finished, we can't use the linear mapping at
-all and phys_to_virt/virt_to_phys translations must not be used because it
-would result in a different translation from the 'real' one once the final
-mapping is installed.
+Thank you!
 
-So here we simply delay the initialization of va_pa_offset to after the
-system memory discovery. But to make sure noone uses the linear mapping
-before, we add some guard in the DEBUG_VIRTUAL config.
-
-Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-in a better TLB utilization.
-
-Note that:
-- this does not apply to rv32 as the kernel mapping lies in the linear
-  mapping.
-- we rely on the firmware to protect itself using PMP.
-
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Acked-by: Rob Herring <robh@kernel.org> # DT bits
----
- arch/riscv/include/asm/page.h | 16 ++++++++++
- arch/riscv/mm/init.c          | 58 +++++++++++++++++++++++++++++++----
- arch/riscv/mm/physaddr.c      | 16 ++++++++++
- drivers/of/fdt.c              | 11 ++++---
- 4 files changed, 90 insertions(+), 11 deletions(-)
-
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 8dc686f549b6..ea1a0e237211 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -90,6 +90,14 @@ typedef struct page *pgtable_t;
- #define PTE_FMT "%08lx"
- #endif
- 
-+#ifdef CONFIG_64BIT
-+/*
-+ * We override this value as its generic definition uses __pa too early in
-+ * the boot process (before kernel_map.va_pa_offset is set).
-+ */
-+#define MIN_MEMBLOCK_ADDR      0
-+#endif
-+
- #ifdef CONFIG_MMU
- #define ARCH_PFN_OFFSET		(PFN_DOWN((unsigned long)phys_ram_base))
- #else
-@@ -121,7 +129,11 @@ extern phys_addr_t phys_ram_base;
- #define is_linear_mapping(x)	\
- 	((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
- 
-+#ifndef CONFIG_DEBUG_VIRTUAL
- #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + kernel_map.va_pa_offset))
-+#else
-+void *linear_mapping_pa_to_va(unsigned long x);
-+#endif
- #define kernel_mapping_pa_to_va(y)	({					\
- 	unsigned long _y = (unsigned long)(y);					\
- 	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < phys_ram_base) ?			\
-@@ -130,7 +142,11 @@ extern phys_addr_t phys_ram_base;
- 	})
- #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
- 
-+#ifndef CONFIG_DEBUG_VIRTUAL
- #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - kernel_map.va_pa_offset)
-+#else
-+phys_addr_t linear_mapping_va_to_pa(unsigned long x);
-+#endif
- #define kernel_mapping_va_to_pa(y) ({						\
- 	unsigned long _y = (unsigned long)(y);					\
- 	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFFSET) ? \
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 3b37d8606920..f803671d18b2 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -213,6 +213,14 @@ static void __init setup_bootmem(void)
- 	phys_ram_end = memblock_end_of_DRAM();
- 	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
- 		phys_ram_base = memblock_start_of_DRAM();
-+
-+	/*
-+	 * In 64-bit, any use of __va/__pa before this point is wrong as we
-+	 * did not know the start of DRAM before.
-+	 */
-+	if (IS_ENABLED(CONFIG_64BIT))
-+		kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
-+
- 	/*
- 	 * memblock allocator is not aware of the fact that last 4K bytes of
- 	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-@@ -667,9 +675,16 @@ void __init create_pgd_mapping(pgd_t *pgdp,
- 
- static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- {
--	/* Upgrade to PMD_SIZE mappings whenever possible */
--	base &= PMD_SIZE - 1;
--	if (!base && size >= PMD_SIZE)
-+	if (!(base & (PGDIR_SIZE - 1)) && size >= PGDIR_SIZE)
-+		return PGDIR_SIZE;
-+
-+	if (!(base & (P4D_SIZE - 1)) && size >= P4D_SIZE)
-+		return P4D_SIZE;
-+
-+	if (!(base & (PUD_SIZE - 1)) && size >= PUD_SIZE)
-+		return PUD_SIZE;
-+
-+	if (!(base & (PMD_SIZE - 1)) && size >= PMD_SIZE)
- 		return PMD_SIZE;
- 
- 	return PAGE_SIZE;
-@@ -978,11 +993,22 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	set_satp_mode();
- #endif
- 
--	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
-+	/*
-+	 * In 64-bit, we defer the setup of va_pa_offset to setup_bootmem,
-+	 * where we have the system memory layout: this allows us to align
-+	 * the physical and virtual mappings and then make use of PUD/P4D/PGD
-+	 * for the linear mapping. This is only possible because the kernel
-+	 * mapping lies outside the linear mapping.
-+	 * In 32-bit however, as the kernel resides in the linear mapping,
-+	 * setup_vm_final can not change the mapping established here,
-+	 * otherwise the same kernel addresses would get mapped to different
-+	 * physical addresses (if the start of dram is different from the
-+	 * kernel physical address start).
-+	 */
-+	kernel_map.va_pa_offset = IS_ENABLED(CONFIG_64BIT) ?
-+				0UL : PAGE_OFFSET - kernel_map.phys_addr;
- 	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
- 
--	phys_ram_base = kernel_map.phys_addr;
--
- 	/*
- 	 * The default maximal physical memory size is KERN_VIRT_SIZE for 32-bit
- 	 * kernel, whereas for 64-bit kernel, the end of the virtual address
-@@ -1106,6 +1132,17 @@ static void __init create_linear_mapping_page_table(void)
- 	phys_addr_t start, end;
- 	u64 i;
- 
-+#ifdef CONFIG_STRICT_KERNEL_RWX
-+	phys_addr_t ktext_start = __pa_symbol(_start);
-+	phys_addr_t ktext_size = __init_data_begin - _start;
-+	phys_addr_t krodata_start = __pa_symbol(__start_rodata);
-+	phys_addr_t krodata_size = _data - __start_rodata;
-+
-+	/* Isolate kernel text and rodata so they don't get mapped with a PUD */
-+	memblock_mark_nomap(ktext_start,  ktext_size);
-+	memblock_mark_nomap(krodata_start, krodata_size);
-+#endif
-+
- 	/* Map all memory banks in the linear mapping */
- 	for_each_mem_range(i, &start, &end) {
- 		if (start >= end)
-@@ -1118,6 +1155,15 @@ static void __init create_linear_mapping_page_table(void)
- 
- 		create_linear_mapping_range(start, end);
- 	}
-+
-+#ifdef CONFIG_STRICT_KERNEL_RWX
-+	create_linear_mapping_range(ktext_start, ktext_start + ktext_size);
-+	create_linear_mapping_range(krodata_start,
-+				    krodata_start + krodata_size);
-+
-+	memblock_clear_nomap(ktext_start,  ktext_size);
-+	memblock_clear_nomap(krodata_start, krodata_size);
-+#endif
- }
- 
- static void __init setup_vm_final(void)
-diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-index 9b18bda74154..18706f457da7 100644
---- a/arch/riscv/mm/physaddr.c
-+++ b/arch/riscv/mm/physaddr.c
-@@ -33,3 +33,19 @@ phys_addr_t __phys_addr_symbol(unsigned long x)
- 	return __va_to_pa_nodebug(x);
- }
- EXPORT_SYMBOL(__phys_addr_symbol);
-+
-+phys_addr_t linear_mapping_va_to_pa(unsigned long x)
-+{
-+	BUG_ON(!kernel_map.va_pa_offset);
-+
-+	return ((unsigned long)(x) - kernel_map.va_pa_offset);
-+}
-+EXPORT_SYMBOL(linear_mapping_va_to_pa);
-+
-+void *linear_mapping_pa_to_va(unsigned long x)
-+{
-+	BUG_ON(!kernel_map.va_pa_offset);
-+
-+	return ((void *)((unsigned long)(x) + kernel_map.va_pa_offset));
-+}
-+EXPORT_SYMBOL(linear_mapping_pa_to_va);
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index d1a68b6d03b3..d14735a81301 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -887,12 +887,13 @@ const void * __init of_flat_dt_match_machine(const void *default_match,
- static void __early_init_dt_declare_initrd(unsigned long start,
- 					   unsigned long end)
- {
--	/* ARM64 would cause a BUG to occur here when CONFIG_DEBUG_VM is
--	 * enabled since __va() is called too early. ARM64 does make use
--	 * of phys_initrd_start/phys_initrd_size so we can skip this
--	 * conversion.
-+	/*
-+	 * __va() is not yet available this early on some platforms. In that
-+	 * case, the platform uses phys_initrd_start/phys_initrd_size instead
-+	 * and does the VA conversion itself.
- 	 */
--	if (!IS_ENABLED(CONFIG_ARM64)) {
-+	if (!IS_ENABLED(CONFIG_ARM64) &&
-+	    !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
- 		initrd_start = (unsigned long)__va(start);
- 		initrd_end = (unsigned long)__va(end);
- 		initrd_below_start_ok = 1;
 -- 
-2.37.2
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
