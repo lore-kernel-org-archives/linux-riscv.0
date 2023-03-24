@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874BDC6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FE8C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jfs+Qn8jgiD+hcenciGiOHn0qtxclpP0ZEhBUO2Xv8U=; b=BIoFENyVhy27sm
-	r64DGEmH41bhcnu377xVS0Ni3zUkie4cgdnaUlTWeJcyjSy5DEqm7S0bn2ykZocQcCeumxlsh+u+2
-	ZO7ehxDmOV2Nanup89lo+dHVjmntLc1xLeNBxxSoLmb7KMfvn3u1plUcdwCnnqzEy0MbsBGba8Lya
-	D8WD53Uayd9FKkg9uwz+Lr3kqKxUBsR5Te0RGYbHacxPil8X8af070k3EA00vIV4B1vHwMYIbht2d
-	Q14BxSrsJPgCIIs0DDb1mhqfBIysFKc//s7iIFZBucy79D8ablol5+mcdDRMZgiUwo3z+WVijTjZP
-	6KGw4yQkYeVWAQL8iqSg==;
+	List-Owner; bh=hq/mDFi/4grOd2SkcKV+nMD49iLekjKkSl26bC/VxiM=; b=G3ZcjoqwwmNuaY
+	YU3LFYotKevfnYXsDytozHyvSsUfcqJZtUQXlToTAV3Xp3vLAujvPqvhkVWaR8iFkx1ZRKDBwpDcj
+	7XWMFlJiBwOQGTy+JDuq6KY1yg3F74e83rYrZbiuTvPdXv0fKPKE5xoKF8s2BieNXh7Wp7sRjM9rg
+	bx0u0mcsBYNTRnWJuNYqDoDPs4J0ta0IhrJy3SY+0zh5YxTh32a8/bzduCvsfvWdClx+XPn3H4nyZ
+	dYlmtKUfM+AAEEeK29KXdlg1kxC4CtSfjek8WEj0BlDIMcoxC6IBRz6R/4KXES0Ph7KKoT4SwGEiR
+	J9mx19LbjTef2UrRIRoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfggy-004NaH-0o;
-	Fri, 24 Mar 2023 12:38:48 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1pfghl-004O2R-1I;
+	Fri, 24 Mar 2023 12:39:37 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfggY-004NEu-1M;
-	Fri, 24 Mar 2023 12:38:25 +0000
-Received: from ubuntu.localdomain (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 099C358090C;
-	Fri, 24 Mar 2023 20:37:45 +0800 (CST)
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-To: mhiramat@kernel.org,
-	rostedt@goodmis.org,
-	linux@armlinux.org.uk,
-	mark.rutland@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	tglx@linutronix.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	chenhuacai@kernel.org,
-	zhangqing@loongson.cn,
-	kernel@xen0n.name,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com
-Cc: linux-trace-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v7 6/8] x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Date: Fri, 24 Mar 2023 05:37:29 -0700
-Message-Id: <20230324123731.3801920-7-pengdonglin@sangfor.com.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
-References: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
+	id 1pfghf-004NyR-0k
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Mar 2023 12:39:33 +0000
+Received: by mail-wr1-x429.google.com with SMTP id r29so1647150wra.13
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 05:39:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1679661567;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2vDjOO3u5NrLuNTfiEX5xpBBmNaynKtTiPAN1r+oGQA=;
+        b=SlEaAlQdUiCY9rRw+Jpcudsuh4bqM00Umv1wD3ZyEY3C8mY5/gcTxF/dK1XO7rbp9L
+         QYWASLIfIa8trRlXG+RD8ahU+LtJxjn2Chy21ejcYjqG10O0bfyQdeVpnMBu0yWLGRfk
+         9ygaXal4Ek75ASiZlSeljLCnJGHReo9qNxQyXUuU22aPRa3zPXK523GTV15rDrAoCfor
+         rbxb1cHHMIehP1NKcqSLcMyqp3kMZ2ehArDtbD81zFFOrgvOT9ekHm8McYXQoCVpbM5f
+         sm8WMNevDFmM4Ns5nmXzhfEgBoTssRveQnCAuiCXrBHEkQFtHO6eySgcMHA49qBIefmK
+         FgRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679661567;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2vDjOO3u5NrLuNTfiEX5xpBBmNaynKtTiPAN1r+oGQA=;
+        b=HffS2HNjxVxzTPslxDpcKNkCpp5bb4gn/ovSDESujN2Cd3KmJqTI97kJQ1AjJkpPV9
+         baasogbsL351DGpXB2nyVTeyZvwKxiTE0l4F3wXzYRi5GJtrhNMn21zMaYRI4fjRe0j7
+         24CyMPP4SXJOms1TSuYhhuLjB4Xy8Hoqf7pbE594hvq806gSYvLFAiiiwQn/Vi3pAEaU
+         8iOIFyAHDg0SFUM3CwPyLBkJLYvLBtUIdcCP+0NtWlwBIFPcX2W1RGDkK3YYpA//l2kr
+         bz9LvO13m4fZcYw2SVMiDROdvQPVZTyCjjLHAF+nEJb5uNXBFWGIRWO1I2LUtY29rf/w
+         XICA==
+X-Gm-Message-State: AAQBX9c0mMoxQF7wWQKjzyW/SijaTCY8x3m7AG34CqmZjsXCDz7eG114
+	WZEnOH1/jwkwU07AOMVXE9hbQg==
+X-Google-Smtp-Source: AKy350bEOg0BRw1mif/aUXNxqiGlaUM9IfAMPTpKin+hA349t7znDFrZd5iEERPDJ4/Fx8Mi7EnT3w==
+X-Received: by 2002:adf:ef85:0:b0:2c7:bb13:e23f with SMTP id d5-20020adfef85000000b002c7bb13e23fmr2013765wro.24.1679661567156;
+        Fri, 24 Mar 2023 05:39:27 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id e13-20020a5d4e8d000000b002ceacff44c7sm18456350wru.83.2023.03.24.05.39.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Mar 2023 05:39:26 -0700 (PDT)
+Date: Fri, 24 Mar 2023 13:39:25 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: palmer@dabbelt.com, conor@kernel.org, Jason@zx2c4.com,
+	apatel@ventanamicro.com, heiko.stuebner@vrull.eu,
+	jszhang@kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, paul.walmsley@sifive.com
+Subject: Re: [PATCH v1] RISC-V: convert new selectors of RISCV_ALTERNATIVE to
+ dependencies
+Message-ID: <20230324123925.4snctouu2zyvizot@orel>
+References: <20230324121240.3594777-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDH08ZVh9JGkpDS09CSR9MTlUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Njo6CDo5ET0THw8iCkgNEREt
-	NTIaCxpVSlVKTUxCTU1KT01NTktJVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFOTUlMNwY+
-X-HM-Tid: 0a8713a001d52eb7kusn099c358090c
-X-HM-MType: 1
+Content-Disposition: inline
+In-Reply-To: <20230324121240.3594777-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_053822_693745_2B49AC14 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20230324_053931_270737_F6B64429 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,122 +94,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The commit d4815c5d1bbd ("function_graph: Support recording and
-printing the return value of function") laid the groundwork for the
-for the funcgraph-retval, and this modification makes it available
-on the x86 platform.
+On Fri, Mar 24, 2023 at 12:12:41PM +0000, Conor Dooley wrote:
+> for-next contains two additional extensions that select
+> RISCV_ALTERNATIVE. RISCV_ALTERNATIVE no longer needs to be selected by
+> individual config options as it is now selected for !XIP_KERNEL builds
+> by the top level RISCV option.
+> These extensions rely on the alternative framework, so convert the
+> "select"s to "depends on"s instead.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Applies on top of my series doing the aforementioned conversion:
+> https://lore.kernel.org/all/20230324100538.3514663-3-conor.dooley@microchip.com/
+> 
+> This patch is sent on its own, because I expect the others to be applied
+> to fixes, as it fixes a v6.3 regression.
+> For this patch, I applied my other series to v6.3-rc1 and merged that
+> into for-next, and created this patch on top of the result.
+> ---
+>  arch/riscv/Kconfig | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d2acd69d6e3e..a48d1ee677ec 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -402,8 +402,8 @@ config RISCV_ISA_C
+>  config RISCV_ISA_SVNAPOT
+>  	bool "SVNAPOT extension support"
+>  	depends on 64BIT && MMU
+> +	depends on RISCV_ALTERNATIVE
+>  	default y
+> -	select RISCV_ALTERNATIVE
+>  	help
+>  	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
+>  	  time and enable its usage.
+> @@ -478,8 +478,8 @@ config RISCV_ISA_ZICBOM
+>  
+>  config RISCV_ISA_ZICBOZ
+>  	bool "Zicboz extension support for faster zeroing of memory"
+> -	depends on !XIP_KERNEL && MMU
+> -	select RISCV_ALTERNATIVE
+> +	depends on MMU
+> +	depends on RISCV_ALTERNATIVE
+>  	default y
+>  	help
+>  	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
+> -- 
+> 2.39.2
+>
 
-We introduce a new structure called fgraph_ret_regs for the x86
-platform to hold return registers and the frame pointer. We then
-fill its content in the return_to_handler and pass its address
-to the function ftrace_return_to_handler to record the return
-value.
-
-Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
----
- arch/x86/Kconfig              |  1 +
- arch/x86/include/asm/ftrace.h | 22 ++++++++++++++++++++++
- arch/x86/kernel/ftrace_32.S   |  8 +++++---
- arch/x86/kernel/ftrace_64.S   |  7 ++++---
- 4 files changed, 32 insertions(+), 6 deletions(-)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a825bf031f49..956cc988bdf9 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -214,6 +214,7 @@ config X86
- 	select HAVE_FAST_GUP
- 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD
-+	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_GCC_PLUGINS
-diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
-index 5061ac98ffa1..bb12f5b7505a 100644
---- a/arch/x86/include/asm/ftrace.h
-+++ b/arch/x86/include/asm/ftrace.h
-@@ -147,4 +147,26 @@ static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
- #endif /* !COMPILE_OFFSETS */
- #endif /* !__ASSEMBLY__ */
- 
-+#ifndef __ASSEMBLY__
-+
-+#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-+struct fgraph_ret_regs {
-+	unsigned long ax;
-+	unsigned long dx;
-+	unsigned long bp;
-+};
-+
-+static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
-+{
-+	return ret_regs->ax;
-+}
-+
-+static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
-+{
-+	return ret_regs->bp;
-+}
-+#endif
-+
-+#endif
-+
- #endif /* _ASM_X86_FTRACE_H */
-diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
-index a0ed0e4a2c0c..5a9cc723f81f 100644
---- a/arch/x86/kernel/ftrace_32.S
-+++ b/arch/x86/kernel/ftrace_32.S
-@@ -182,12 +182,14 @@ SYM_CODE_END(ftrace_graph_caller)
- 
- .globl return_to_handler
- return_to_handler:
--	pushl	%eax
-+	pushl	$0
- 	pushl	%edx
--	movl	$0, %eax
-+	pushl	%eax
-+	movl	%esp, %eax
- 	call	ftrace_return_to_handler
- 	movl	%eax, %ecx
--	popl	%edx
- 	popl	%eax
-+	popl	%edx
-+	addl	$4, %esp		# skip ebp
- 	JMP_NOSPEC ecx
- #endif
-diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
-index fb4f1e01b64a..ef78c0bbae62 100644
---- a/arch/x86/kernel/ftrace_64.S
-+++ b/arch/x86/kernel/ftrace_64.S
-@@ -344,12 +344,13 @@ STACK_FRAME_NON_STANDARD_FP(__fentry__)
- SYM_CODE_START(return_to_handler)
- 	UNWIND_HINT_EMPTY
- 	ANNOTATE_NOENDBR
--	subq  $16, %rsp
-+	subq  $24, %rsp
- 
- 	/* Save the return values */
- 	movq %rax, (%rsp)
- 	movq %rdx, 8(%rsp)
--	movq %rbp, %rdi
-+	movq %rbp, 16(%rsp)
-+	movq %rsp, %rdi
- 
- 	call ftrace_return_to_handler
- 
-@@ -357,7 +358,7 @@ SYM_CODE_START(return_to_handler)
- 	movq 8(%rsp), %rdx
- 	movq (%rsp), %rax
- 
--	addq $16, %rsp
-+	addq $24, %rsp
- 	/*
- 	 * Jump back to the old return address. This cannot be JMP_NOSPEC rdi
- 	 * since IBT would demand that contain ENDBR, which simply isn't so for
--- 
-2.25.1
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
