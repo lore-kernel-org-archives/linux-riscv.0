@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FE3C6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 13:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AD3C6FD20
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 13:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EHM5CeNxWac7QglHBlCxYdVgwCElQuksjyEuPUgyzw4=; b=XhEbOrgevZ2Fun
-	q1hM/6O4VaEJ7zpksNSktsrpGmnrr5a7vAbcrdwP3SOTURqMun2YSVdZloiXSXquPZR0WUV/T6wYs
-	+j3QMFyPLpa+nD0B/cfHPh1MCHBJvn9H4570sjQLL2lVOs1JF0Zhf/+w/ufzYjmS7ObuG7Jb4eBm/
-	ckHJotBqU+YN70nH5H/pTI/L5bQdLseb1XpWZTAS6sgFg6y2jCSeQfADS0ITeb/r/e+Q0VuWYX7rx
-	V7Q6g/89GD/BJtHVZnA/YJhcHm88z7VqNSClGzZ0WL0epYXlabC3aMNW/f5m/yP1jnU8YoFlmnqm9
-	1OzGb38/8hXVm+/VCJgw==;
+	List-Owner; bh=68kslQx+jZxtuD7n0OUH5/ctq4L+sOEPvuYN4uxiHco=; b=y8Idyen9ycPucQ
+	vTSwwgrSQ4x64Xvs+HmA8qSm8+/WSxI8cvlDf5Y2woNhKsxr9BVXVNXVc+idnPmzHtTrKN4kRJiNO
+	OH5LNcogXFFKk7+AbldDmdK3rO8+eanOVKODUrQlt0dhv/dh/9+3+4yI4v+OfDUo9b1KfF6m3W/IC
+	FmYJFS7LP6xSacMZdBIDpkgRZhJVoL1AqU8JI0SaDeNKwUGs2D09zhzd3Ls1bBXA/xwZqSE4ojbXu
+	c6q/cRe/LZqYSauVqIK+EL51q1hqz5sMvuUSnewD7Rmi7VCVcQ+malm9PLSy4M1pPhaguJQMKJQ3Z
+	Jwm5/qp8KtA5VF4bEMMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfhYR-004VUN-0H;
-	Fri, 24 Mar 2023 13:34:03 +0000
+	id 1pfhxI-004Z8Z-02;
+	Fri, 24 Mar 2023 13:59:44 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfhYN-004VTH-2E
+	id 1pfhxE-004Z71-1M
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 13:34:01 +0000
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	Fri, 24 Mar 2023 13:59:42 +0000
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 65FD44430B
-	for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 13:33:55 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id BC1294430B
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 13:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1679664835;
-	bh=baRLhktlWOxcXvwHFNv0QgrA5IgUVwTfkSsdMkEu4+4=;
+	s=20210705; t=1679666378;
+	bh=0CzCezUBFius1/QvCjfVKLrX7WEPXSwgwzTCxhDCoiA=;
 	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=b34nfFRc1TfAcYkAdvQbNUvYd2zY0XJmbIxm4YuEEqwbARIb3CoHSAAKNtgykJZDg
-	 Sa3aBSNsXcgs36j1XG5VwnqCqmlvblPCKgNanTRh2QclfcW6rq7/MKz+5kUDI9rTq3
-	 1YPXCASO/60wnY45RTVq3LFngmVKm3P1btuNk69+1sgkUOoWna6yXMF2w0+xvfOT3a
-	 xGaAhqDf99yYwYAB1nBrTlpqs6+YWYx5nfpZMq3QUWlBzooWVwhZCAag0xz9NJpDWj
-	 tiTc/F4JUEyWNnywsRt3MMmI4m3VNlCYxusYyVUMjePX81+VrxnlVapQRywAnF0bPK
-	 CydrXFrzReHFA==
-Received: by mail-qv1-f72.google.com with SMTP id a10-20020a0ccdca000000b005d70160fbb0so988407qvn.21
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 06:33:55 -0700 (PDT)
+	b=OmUDwCnLqdBtqb3GFy9r6zh6719eF7W6DROxdNM7xgIYzyhAOmAeZzJ1bpxU3/q9C
+	 0jfRabi9cOoeQvRqXIjTTWFf+cCqoZkxtwH4VnaXcNF8eFQiM/c5PKqSc13jabGdpJ
+	 VfuPS/FOzJ3APRYZfOm0oxiTdBSYW+YPysQOtv0a+YnbfzR2lglz8QdkrxtxWqkpLh
+	 jEjLbhBF2HkuJ9CQdD6DXjrNW6nQ9Ue6vNzbmljfxtyuLR2RtV8tNNBuSkYjRDd125
+	 xm5VgwJPETDQ5o2xnm60EYEfNWgJRMT5YQGBvxnS/zY+4Q59NaD/qqUJKWI7nXIMJa
+	 k7V0K1R74WqeA==
+Received: by mail-qv1-f69.google.com with SMTP id z14-20020a0cd78e000000b005adc8684170so1051359qvi.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 06:59:38 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679664834;
+        d=1e100.net; s=20210112; t=1679666378;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=baRLhktlWOxcXvwHFNv0QgrA5IgUVwTfkSsdMkEu4+4=;
-        b=ezBlWtEgKMuiUWdYXh3HiJncD5I1h+8jDTc0HqgDXun/qD8tceAS852hzwZE2FsnzW
-         sZgCCCpG67AshHhsVkPGXIV7CHh/bHdfdU2V7y/KzA6yBRJPbwK9QMKSXZqffbIMRgi5
-         ICSgxDA7Wz7DSOQRGLtqk0oVfYDLc2qY87WL3DutMaafChFoj3fsOvBvczyQqgi+6MzS
-         bJM6jnJRPtYZb/i9hC+cOI3pN8yQm2CwRtIJ7dHxctAslKVi+VQRMnrnKU4mTm+Zj2Qe
-         abKfZ37SDQV++wfWLQ3nwM4f2XJ49O0U+k9scyjTFZtpOhp0qPSZbXqcy1z43oq8ahGZ
-         5U0Q==
-X-Gm-Message-State: AO0yUKWTlTsnRr8Ehuh5+ZhNYLH//3PvdgqpLuNbzV2aWxtyNas5EGlX
-	4sUIFlg9WOQXV2BdA2/RSywUbFSftgVyABGn8Ey+jLPI4j8Nn65iu5ryyMVQ/Z/jfhHkNLfIB6P
-	WMXv0TPC8XGBks+SyS/3D7a/25BOhnKiFMx6MzzjYBi9AfqiXY9QSPv1mpwZl/w==
-X-Received: by 2002:a05:620a:a18:b0:746:7f12:f2f3 with SMTP id i24-20020a05620a0a1800b007467f12f2f3mr651791qka.13.1679664834416;
-        Fri, 24 Mar 2023 06:33:54 -0700 (PDT)
-X-Google-Smtp-Source: AK7set+PMWroXLuUn1KxCXS1+t1n+7MwGF6fo/rG+E0PHsQotj4U0S9r3aNHlQweDVOeiRzH2jNJj64BuscgHlEEvaU=
-X-Received: by 2002:a05:620a:a18:b0:746:7f12:f2f3 with SMTP id
- i24-20020a05620a0a1800b007467f12f2f3mr651787qka.13.1679664834154; Fri, 24 Mar
- 2023 06:33:54 -0700 (PDT)
+        bh=0CzCezUBFius1/QvCjfVKLrX7WEPXSwgwzTCxhDCoiA=;
+        b=wktOUXR93yRBfgLSEjD3nXbMaqdIMPWaLNExxw9bZtTKIRrBxxgs0XOsizMjIwk13+
+         tn/anhcsqSCk+KSvNnp4XDciWApVc7rcCnvPGdwcdNGj1MNEW2f5jy3IHvm8Lx/RldiV
+         +Cd6DusxHmRRCJh7SeBDtcqmNnwlXi1d1dFf6cM5qi2tYjWU7fxc0DXtig+qZKelkrU2
+         lTT7458FA8eUXEZ36wifEK9xU1xBZtdWKZiJU5jwp7yaRhcVL+gI7XonXvsODUYDdmsY
+         xz4xnSR19ZebmFOecCiBV/g5Dk2+6TpeWRDYhadrBps+Le3j7XixFuPrV7eQiGo/e5fR
+         KCKg==
+X-Gm-Message-State: AO0yUKXfikvtIIpi4aegOBc8+UF9mK5NNU7cLU8qIm/RShjsUBtRbxn1
+	5YVf+vJCP0cvlRdREAlIC9R1+FGsnfs5QdplmcluN8uzg04ScQygKgNIsJIf1VLZRIUoFoItC+J
+	uye8QuwF4oujSvC0CFE+e8+9KISF9kjQm9kacyKtI09v3spP8VXQg1BIhSTuwxQ==
+X-Received: by 2002:a37:a8cf:0:b0:745:8c04:2777 with SMTP id r198-20020a37a8cf000000b007458c042777mr503409qke.13.1679666377807;
+        Fri, 24 Mar 2023 06:59:37 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+fYwdhVgyb9GNd32TrH8t4Pv6a28VQzyoEpE+xeNGm/T2XLuOweT5dKvtRVRvgDmnoGhBHVQhMCfEkxFGjGIU=
+X-Received: by 2002:a37:a8cf:0:b0:745:8c04:2777 with SMTP id
+ r198-20020a37a8cf000000b007458c042777mr503392qke.13.1679666377512; Fri, 24
+ Mar 2023 06:59:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20230322094820.24738-1-walker.chen@starfivetech.com> <20230322094820.24738-3-walker.chen@starfivetech.com>
-In-Reply-To: <20230322094820.24738-3-walker.chen@starfivetech.com>
+References: <20230324022819.2324-1-samin.guo@starfivetech.com> <20230324022819.2324-7-samin.guo@starfivetech.com>
+In-Reply-To: <20230324022819.2324-7-samin.guo@starfivetech.com>
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 24 Mar 2023 14:33:38 +0100
-Message-ID: <CAJM55Z9VfY76ZxTxX-o56MNppALKbYuYvx6+fXvx=3LAg6gKDw@mail.gmail.com>
-Subject: Re: [PATCH v6 2/4] dmaengine: dw-axi-dmac: Add support for StarFive
- JH7110 DMA
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Fri, 24 Mar 2023 14:59:21 +0100
+Message-ID: <CAJM55Z8_W9yOcL+yGAwB-qanD_-bbf16VjCP66P_xDFW6-c+3A@mail.gmail.com>
+Subject: Re: [PATCH v8 6/6] net: stmmac: starfive_dmac: Add phy interface settings
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, netdev@vger.kernel.org, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Jose Abreu <joabreu@synopsys.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, 
+	Yanhong Wang <yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_063400_144848_943E1FD3 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20230324_065940_799566_4C26FCB3 
+X-CRM114-Status: GOOD (  27.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,133 +104,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Mar 2023 at 10:48, Walker Chen <walker.chen@starfivetech.com> wrote:
+On Fri, 24 Mar 2023 at 03:30, Samin Guo <samin.guo@starfivetech.com> wrote:
 >
-> Add DMA reset operation in device probe and use different configuration
-> on CH_CFG registers according to match data. Update all uses of
-> of_device_is_compatible with of_device_get_match_data.
+> dwmac supports multiple modess. When working under rmii and rgmii,
+> you need to set different phy interfaces.
 >
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-
-Thanks!
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
+> According to the dwmac document, when working in rmii, it needs to be
+> set to 0x4, and rgmii needs to be set to 0x1.
+>
+> The phy interface needs to be set in syscon, the format is as follows:
+> starfive,syscon: <&syscon, offset, shift>
+>
+> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
 > ---
->  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 38 ++++++++++++++++---
->  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
->  2 files changed, 34 insertions(+), 5 deletions(-)
+>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
 >
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index 4169e1d7d5ca..6cfcb541d8c3 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -21,10 +21,12 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_device.h>
->  #include <linux/of_dma.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/property.h>
-> +#include <linux/reset.h>
->  #include <linux/slab.h>
->  #include <linux/types.h>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> index ef5a769b1c75..84690c8f0250 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> @@ -13,6 +13,10 @@
 >
-> @@ -46,6 +48,10 @@
->         DMA_SLAVE_BUSWIDTH_32_BYTES     | \
->         DMA_SLAVE_BUSWIDTH_64_BYTES)
+>  #include "stmmac_platform.h"
 >
-> +#define AXI_DMA_FLAG_HAS_APB_REGS      BIT(0)
-> +#define AXI_DMA_FLAG_HAS_RESETS                BIT(1)
-> +#define AXI_DMA_FLAG_USE_CFG2          BIT(2)
+> +#define STARFIVE_DWMAC_PHY_INFT_RGMII  0x1
+> +#define STARFIVE_DWMAC_PHY_INFT_RMII   0x4
+> +#define STARFIVE_DWMAC_PHY_INFT_FIELD  0x7U
 > +
->  static inline void
->  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
->  {
-> @@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>  struct starfive_dwmac {
+>         struct device *dev;
+>         struct clk *clk_tx;
+> @@ -44,6 +48,43 @@ static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
+>                 dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+>  }
 >
->         cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
->                   config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
-> -       if (chan->chip->dw->hdata->reg_map_8_channels) {
-> +       if (chan->chip->dw->hdata->reg_map_8_channels &&
-> +           !chan->chip->dw->hdata->use_cfg2) {
->                 cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
->                          config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
->                          config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
-> @@ -1367,10 +1374,11 @@ static int parse_device_properties(struct axi_dma_chip *chip)
->
->  static int dw_probe(struct platform_device *pdev)
->  {
-> -       struct device_node *node = pdev->dev.of_node;
->         struct axi_dma_chip *chip;
->         struct dw_axi_dma *dw;
->         struct dw_axi_dma_hcfg *hdata;
-> +       struct reset_control *resets;
-> +       unsigned int flags;
->         u32 i;
->         int ret;
->
-> @@ -1398,12 +1406,25 @@ static int dw_probe(struct platform_device *pdev)
->         if (IS_ERR(chip->regs))
->                 return PTR_ERR(chip->regs);
->
-> -       if (of_device_is_compatible(node, "intel,kmb-axi-dma")) {
-> +       flags = (uintptr_t)of_device_get_match_data(&pdev->dev);
-> +       if (flags & AXI_DMA_FLAG_HAS_APB_REGS) {
->                 chip->apb_regs = devm_platform_ioremap_resource(pdev, 1);
->                 if (IS_ERR(chip->apb_regs))
->                         return PTR_ERR(chip->apb_regs);
->         }
->
-> +       if (flags & AXI_DMA_FLAG_HAS_RESETS) {
-> +               resets = devm_reset_control_array_get_exclusive(&pdev->dev);
-> +               if (IS_ERR(resets))
-> +                       return PTR_ERR(resets);
+> +static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+> +{
+> +       struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
+> +       struct regmap *regmap;
+> +       unsigned int args[2];
+> +       unsigned int mode;
 > +
-> +               ret = reset_control_deassert(resets);
-> +               if (ret)
-> +                       return ret;
+> +       switch (plat_dat->interface) {
+> +       case PHY_INTERFACE_MODE_RMII:
+> +               mode = STARFIVE_DWMAC_PHY_INFT_RMII;
+> +               break;
+> +
+> +       case PHY_INTERFACE_MODE_RGMII:
+> +       case PHY_INTERFACE_MODE_RGMII_ID:
+> +               mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
+> +               break;
+> +
+> +       default:
+> +               dev_err(dwmac->dev, "unsupported interface %d\n",
+> +                       plat_dat->interface);
+> +               return -EINVAL;
 > +       }
 > +
-> +       chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
+> +       regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
+> +                                                     "starfive,syscon",
+> +                                                     2, args);
+> +       if (IS_ERR(regmap)) {
+> +               dev_err(dwmac->dev, "syscon regmap failed.\n");
+> +               return -ENXIO;
+> +       }
 > +
->         chip->core_clk = devm_clk_get(chip->dev, "core-clk");
->         if (IS_ERR(chip->core_clk))
->                 return PTR_ERR(chip->core_clk);
-> @@ -1554,8 +1575,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
->  };
+> +       /* args[0]:offset  args[1]: shift */
+> +       return regmap_update_bits(regmap, args[0],
+> +                                 STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
+> +                                 mode << args[1]);
+> +}
+> +
+>  static int starfive_dwmac_probe(struct platform_device *pdev)
+>  {
+>         struct plat_stmmacenet_data *plat_dat;
+> @@ -89,6 +130,12 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+>         plat_dat->bsp_priv = dwmac;
+>         plat_dat->dma_cfg->dche = true;
 >
->  static const struct of_device_id dw_dma_of_id_table[] = {
-> -       { .compatible = "snps,axi-dma-1.01a" },
-> -       { .compatible = "intel,kmb-axi-dma" },
-> +       {
-> +               .compatible = "snps,axi-dma-1.01a"
-> +       }, {
-> +               .compatible = "intel,kmb-axi-dma",
-> +               .data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
-> +       }, {
-> +               .compatible = "starfive,jh7110-axi-dma",
-> +               .data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
-> +       },
->         {}
->  };
->  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> index e9d5eb0fd594..eb267cb24f67 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> @@ -33,6 +33,7 @@ struct dw_axi_dma_hcfg {
->         /* Register map for DMAX_NUM_CHANNELS <= 8 */
->         bool    reg_map_8_channels;
->         bool    restrict_axi_burst_len;
-> +       bool    use_cfg2;
->  };
->
->  struct axi_dma_chan {
+> +       err = starfive_dwmac_set_mode(plat_dat);
+> +       if (err) {
+> +               dev_err(&pdev->dev, "dwmac set mode failed.\n");
+> +               return err;
+> +       }
+
+Usually it's better to keep all error messages at the same "level".
+Like this you'll get two error messages if
+syscon_regmap_lookup_by_phandle_args fails. So I'd suggest moving this
+message into the starfive_dwmac_set_mode function and while you're at
+it you can do
+
+err = regmap_update_bits(...);
+if (err)
+  return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
+
+Also the file is called dwmac-starfive.c, so I'd expect the patch
+header to be "net: stmmac: dwmac-starfive: Add phy interface
+settings".
+
+/Emil
+
+>         err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>         if (err) {
+>                 stmmac_remove_config_dt(pdev, plat_dat);
 > --
 > 2.17.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
