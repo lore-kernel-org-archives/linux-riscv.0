@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65AAC6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A6DC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 13:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yh91F9shis47Ja8GXwNTJKjQ0lDMJcwkG00KQD32WCA=; b=wYUy6FNZxlU/dk
-	zlSuPn3GSOYKTVjYYZEj3D90NXxUmNfQsHQwRxlwn8/9Irxhd7s+o9BuNjIeayx4F58P6NGB/y+Ca
-	r2SHo5MotxUxRlDMYeD+SipCyNZ+owOFD39lRp6NO1QOkWsm/A6TZVUgk9S7SC7oTt/7mG7sJDH9m
-	fBj2a3b63V78N4yzvwYKcAIAqLhv3jtv33YXRwGOO0L3mka6SpMOH2F9yEMPOcy1wu5Qla63KveMb
-	+YKisZMH47AlqVLOd6lW/0jSZuZZ1Eca609+zQT/3WaVUFC5Kd1qaSysW4zZrtgFHJMz8FRsjKm0F
-	zLCPNyMo33rMOb8ek68Q==;
+	List-Owner; bh=i3689OT4IxGwAXwFQsnql8AomONXt8L1e9micykHUrQ=; b=UHHn5FkXAZQvdU
+	tHDfzKRoAuIPyDMfLN9AigVSCkr3p9jc4o8CCahQn2VO89n6obOZMvBKdiwm7IQ+FzAovocsRbdlY
+	S0fjeCdTQfVDo9M8A9xkvLkQ5sSaFtA2IRz+URqRnEvaOcWtrxgG5qFWx2LcfiVabyHotOD+8sgJT
+	WNRblxV+UsSvKNjgL5QSHrblWuhlepNOX/dKxtPFVOgyym3CeAHCt2z1B40DFN1dkaDW97n8yuZ7F
+	HLEnh/CUuiyEifpp9KMcsE9+fzqrLccb58ygQoLoaKHJ7H2z4FhVBY9SdLDnSUXdBYxBjkmZaXVaK
+	mN6JRzKUKmKC2zZ33ZZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfgzs-004QVQ-1o;
-	Fri, 24 Mar 2023 12:58:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfgzo-004QTX-0q;
-	Fri, 24 Mar 2023 12:58:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B64711FB;
-	Fri, 24 Mar 2023 05:58:56 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.56.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1BC043F766;
-	Fri, 24 Mar 2023 05:58:07 -0700 (PDT)
-Date: Fri, 24 Mar 2023 12:57:18 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Donglin Peng <pengdonglin@sangfor.com.cn>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
-	will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, tglx@linutronix.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	chenhuacai@kernel.org, zhangqing@loongson.cn, kernel@xen0n.name,
-	mingo@redhat.com, peterz@infradead.org, xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 4/8] arm64: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Message-ID: <ZB2eLsD4aoR3LEOV@FVFF77S0Q05N>
-References: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
- <20230324123731.3801920-5-pengdonglin@sangfor.com.cn>
+	id 1pfhLq-004TUr-1R;
+	Fri, 24 Mar 2023 13:21:02 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pfhLk-004TTW-0E
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Mar 2023 13:21:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E077AB822D8
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 13:20:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A4D8C433D2
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 13:20:52 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="UcaD22D1"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1679664051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vh+MpBmDcTqJR8bkipH3xoGChH7Ag1enS9/gWacPJ1k=;
+	b=UcaD22D1xyBs/YD56414QQHY+lLm6AyAbPmWOp9ozuvaMub/ujDD3ybm9egBVkT6AxHd9z
+	JR3MalB7XqWRkhbz4dESz+TUYkG66za6zHKyTRyyacy0g2n65oxef0VLrI19ZcakJRI9m2
+	dhX9A1j3QNmywzVgEpv6RbRg1oqwdko=
+Received: 	by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id d4c5f058 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO)
+	for <linux-riscv@lists.infradead.org>;
+	Fri, 24 Mar 2023 13:20:50 +0000 (UTC)
+Received: by mail-ua1-f43.google.com with SMTP id s23so1375604uae.5
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 06:20:50 -0700 (PDT)
+X-Gm-Message-State: AAQBX9d9ITpbQOIql7aM5sMwyNCBuZuJy3aqtqpTJjbIsh9FYkzKqiG0
+	2bXHC/p8kswgpWM6KQmCUOnPFk0ERbiPhb2LkqQ=
+X-Google-Smtp-Source: AKy350b1md9rigPAnpbhwmFCMweNJSrwFYI/hWGjwWc5fHcz5EcX48KZGgbC9py4QNmzptwva3DmNM5WCw5Be/H0FIM=
+X-Received: by 2002:a1f:2997:0:b0:432:8b30:81b7 with SMTP id
+ p145-20020a1f2997000000b004328b3081b7mr1695217vkp.2.1679664049753; Fri, 24
+ Mar 2023 06:20:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230324123731.3801920-5-pengdonglin@sangfor.com.cn>
+References: <20230324100538.3514663-1-conor.dooley@microchip.com>
+In-Reply-To: <20230324100538.3514663-1-conor.dooley@microchip.com>
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Fri, 24 Mar 2023 14:20:38 +0100
+X-Gmail-Original-Message-ID: <CAHmME9p4LAY5XLLU+A6qtnHHDT_sZ4=D=VJCj6qs5_kmx61Tcg@mail.gmail.com>
+Message-ID: <CAHmME9p4LAY5XLLU+A6qtnHHDT_sZ4=D=VJCj6qs5_kmx61Tcg@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] RISC-V: Fixes for riscv_has_extension[un]likely()'s
+ alternative dependency
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: palmer@dabbelt.com, conor@kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
+	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_055816_399472_B2BFC963 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20230324_062056_520267_9FC698FD 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,129 +91,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 24, 2023 at 05:37:27AM -0700, Donglin Peng wrote:
-> The commit d4815c5d1bbd ("function_graph: Support recording and
-> printing the return value of function") laid the groundwork for the
-> for the funcgraph-retval, and this modification makes it available
-> on the ARM64 platform.
-> 
-> We introduce a new structure called fgraph_ret_regs for the ARM64
-> platform to hold return registers and the frame pointer. We then
-> fill its content in the return_to_handler and pass its address to
-> the function ftrace_return_to_handler to record the return value.
+Seems like a good approach to me. I'm not a RISC-V maintainer or
+reviewer, but in case it helps,
 
-I'm happy with this, or with using ftrace_regs and capturing more regs here.
-
-This overall looks good, but there's one functional issue and a couple of minor
-nits which I've detailed below.
-
-> 
-> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
-> ---
->  arch/arm64/Kconfig               |  1 +
->  arch/arm64/include/asm/ftrace.h  | 23 +++++++++++++++++++++++
->  arch/arm64/kernel/entry-ftrace.S |  9 +++++----
->  3 files changed, 29 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 1023e896d46b..48856d230800 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -195,6 +195,7 @@ config ARM64
->  	select HAVE_FTRACE_MCOUNT_RECORD
->  	select HAVE_FUNCTION_TRACER
->  	select HAVE_FUNCTION_ERROR_INJECTION
-> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_GCC_PLUGINS
->  	select HAVE_HW_BREAKPOINT if PERF_EVENTS
-> diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-> index 1c2672bbbf37..f68dcc41be3b 100644
-> --- a/arch/arm64/include/asm/ftrace.h
-> +++ b/arch/arm64/include/asm/ftrace.h
-> @@ -170,4 +170,27 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
->  }
->  #endif /* ifndef __ASSEMBLY__ */
->  
-> +#ifndef __ASSEMBLY__
-> +
-> +#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-> +struct fgraph_ret_regs {
-> +	/* x0 - x7 */
-> +	u64 regs[8];
-> +
-> +	u64 fp;
-> +};
-
-As a minor nit, for ftrace_regs we used `unsigned long` rather than `u64`;
-could we do the same here for consistency?
-
-This will need to be padded to 16 bytes, as within the kernel, arm64 requires
-the SP to be aligned to 16 bytes at all time. Please can you add an `__unused`
-field, like we have in ftrace_regs, to ensure that?
-
-> +
-> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->regs[0];
-> +}
-> +
-> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->fp;
-> +}
-> +#endif
-> +
-> +#endif
-> +
->  #endif /* __ASM_FTRACE_H */
-> diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
-> index 350ed81324ac..8ac6f952e68f 100644
-> --- a/arch/arm64/kernel/entry-ftrace.S
-> +++ b/arch/arm64/kernel/entry-ftrace.S
-> @@ -270,14 +270,15 @@ SYM_FUNC_END(ftrace_stub_graph)
->   */
->  SYM_CODE_START(return_to_handler)
->  	/* save return value regs */
-> -	sub sp, sp, #64
-> +	sub sp, sp, #72
->  	stp x0, x1, [sp]
->  	stp x2, x3, [sp, #16]
->  	stp x4, x5, [sp, #32]
->  	stp x6, x7, [sp, #48]
-> +	str x29,    [sp, #64]		//     parent's fp
-
-As above, this will need to be padded to keep the stack aligned to 16 bytes,
-and I'd prefer if we could use asm-offsets so that we can have something like:
-
-	sub	sp, sp, #FRET_REGS_SIZE
-	stp	x0, x1, [sp, #FRET_REGS_X0]
-	stp	x2, x3, [sp, #FRET_REGS_X2]
-	stp	x4, x5, [sp, #FRET_REGS_X4]
-	stp	x6, x7, [sp, #FRET_REGS_X6]
-	str	x29, [sp, FRET_REGS_FP]
-
->  
-> -	mov	x0, x29			//     parent's fp
-> -	bl	ftrace_return_to_handler// addr = ftrace_return_to_hander(fp);
-> +	mov	x0, sp
-> +	bl	ftrace_return_to_handler// addr = ftrace_return_to_hander(regs);
->  	mov	x30, x0			// restore the original return address
->  
->  	/* restore return value regs */
-> @@ -285,7 +286,7 @@ SYM_CODE_START(return_to_handler)
->  	ldp x2, x3, [sp, #16]
->  	ldp x4, x5, [sp, #32]
->  	ldp x6, x7, [sp, #48]
-> -	add sp, sp, #64
-> +	add sp, sp, #72
-
-Likewise here.
-
-Other than that, this looks good to me, thanks for respinning!
-
-Thanks,
-Mark.
+Reviewed-by: Jason A. Donenfeld <Jason@zx2c4.com>
 
 _______________________________________________
 linux-riscv mailing list
