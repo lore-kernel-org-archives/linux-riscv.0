@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37F6C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874BDC6FD20
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 12:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VuozOWWzwwfdeV62QcVwRgbeaoZI8dJv1nX16VLPloc=; b=1p/Qv0dAuzD/Xy
-	4smCEY5ZGsiZSQ7odBvvKkdTRBJtTHg14CIArckRjtOkzSpNkiYm8KCZDAX76Y9yQkro6KcKn4jha
-	nJNynNpU2ZnCCuhb/1Gou4WtAjXdi5dnU+AcZnEhM5d/obxWmnXNgiQN3FCdDYiogk8J9ECqT+i0+
-	Ucw+ZH+NkxjFEyZj5OlXJYDwJSH3fg5ClGxj53TACUgQalg5o8wOUhr2SXKb3ppP4ug+jURGoI63h
-	jvNpfNZuUyQ/0IyJAL8z4LQ7pjNuNBcJC9NS7LoMQbi0sZP36ppsKQBuP0CM7bx/PpSj7yvhxsB1e
-	B1F7Qi5tu2+y4vblvaBg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jfs+Qn8jgiD+hcenciGiOHn0qtxclpP0ZEhBUO2Xv8U=; b=BIoFENyVhy27sm
+	r64DGEmH41bhcnu377xVS0Ni3zUkie4cgdnaUlTWeJcyjSy5DEqm7S0bn2ykZocQcCeumxlsh+u+2
+	ZO7ehxDmOV2Nanup89lo+dHVjmntLc1xLeNBxxSoLmb7KMfvn3u1plUcdwCnnqzEy0MbsBGba8Lya
+	D8WD53Uayd9FKkg9uwz+Lr3kqKxUBsR5Te0RGYbHacxPil8X8af070k3EA00vIV4B1vHwMYIbht2d
+	Q14BxSrsJPgCIIs0DDb1mhqfBIysFKc//s7iIFZBucy79D8ablol5+mcdDRMZgiUwo3z+WVijTjZP
+	6KGw4yQkYeVWAQL8iqSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfggr-004NUd-0P;
-	Fri, 24 Mar 2023 12:38:41 +0000
+	id 1pfggy-004NaH-0o;
+	Fri, 24 Mar 2023 12:38:48 +0000
 Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfggV-004NEt-2Q;
-	Fri, 24 Mar 2023 12:38:24 +0000
+	id 1pfggY-004NEu-1M;
+	Fri, 24 Mar 2023 12:38:25 +0000
 Received: from ubuntu.localdomain (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 193D0580A50;
-	Fri, 24 Mar 2023 20:37:35 +0800 (CST)
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 099C358090C;
+	Fri, 24 Mar 2023 20:37:45 +0800 (CST)
 From: Donglin Peng <pengdonglin@sangfor.com.cn>
 To: mhiramat@kernel.org,
 	rostedt@goodmis.org,
@@ -57,22 +57,24 @@ Cc: linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v7 0/8] function_graph: Support recording and printing the return value of function
-Date: Fri, 24 Mar 2023 05:37:23 -0700
-Message-Id: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
+Subject: [PATCH v7 6/8] x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Date: Fri, 24 Mar 2023 05:37:29 -0700
+Message-Id: <20230324123731.3801920-7-pengdonglin@sangfor.com.cn>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
+References: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSx8aVhpPGB8dQkxLT08ZTFUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpISkJIT1VKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OTo6CCo*TD0NFw84Gk4fESIz
-	Tx4aFDdVSlVKTUxCTU1KT05NQ0lJVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFDTUNLNwY+
-X-HM-Tid: 0a87139fdbe02eb7kusn193d0580a50
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDH08ZVh9JGkpDS09CSR9MTlUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Njo6CDo5ET0THw8iCkgNEREt
+	NTIaCxpVSlVKTUxCTU1KT01NTktJVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFOTUlMNwY+
+X-HM-Tid: 0a8713a001d52eb7kusn099c358090c
 X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_053820_891455_C08DC38A 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20230324_053822_693745_2B49AC14 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,151 +91,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When using the function_graph tracer to analyze system call failures,
-it can be time-consuming to analyze the trace logs and locate the kernel
-function that first returns an error. This change aims to simplify the
-process by recording the function return value to the 'retval' member of
-'ftrace_graph_ent' and printing it when outputing the trace log.
+The commit d4815c5d1bbd ("function_graph: Support recording and
+printing the return value of function") laid the groundwork for the
+for the funcgraph-retval, and this modification makes it available
+on the x86 platform.
 
-Note that even if a function's return type is void, a return value will
-still be printed, so it should be ignored. If you care about this, the
-BTF file can be used to obtain the details of function return type. We
-can implement a tool to process the trace log and display the return
-value based on its actual type.
+We introduce a new structure called fgraph_ret_regs for the x86
+platform to hold return registers and the frame pointer. We then
+fill its content in the return_to_handler and pass its address
+to the function ftrace_return_to_handler to record the return
+value.
 
-Here is an example:
-
-...
-
- 1)               |  cgroup_attach_task() {
- 1)               |    cgroup_migrate_add_src() {
- 1)   1.403 us    |      cset_cgroup_from_root(); /* = 0xffff93fc86f58010 */
- 1)   2.154 us    |    } /* cgroup_migrate_add_src = 0xffffb286c1297d00 */
- 1) ! 386.538 us  |    cgroup_migrate_prepare_dst(); /* = 0x0 */
- 1)               |    cgroup_migrate() {
- 1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
- 1)               |      cgroup_migrate_execute() {
- 1)               |        cpu_cgroup_can_attach() {
- 1)               |          cgroup_taskset_first() {
- 1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
- 1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
- 1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
- 1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
- 1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
- 1)   7.143 us    |    } /* cgroup_migrate = -22 */
- 1)               |    cgroup_migrate_finish() {
- 1)   0.411 us    |      put_css_set_locked(); /* = 0x8 */
- 1) + 62.397 us   |      put_css_set_locked(); /* = 0x80000001 */
- 1) + 64.742 us   |    } /* cgroup_migrate_finish = 0x80000000 */
- 1) ! 465.605 us  |  } /* cgroup_attach_task = -22 */
-
-...
-
-After processing the above trace logs using BTF information:
-
-...
-
- 1)               |  cgroup_attach_task() {
- 1)               |    cgroup_migrate_add_src() {
- 1)   1.403 us    |      cset_cgroup_from_root(); /* = 0xffff93fc86f58010 */
- 1)   2.154 us    |    } /* cgroup_migrate_add_src */
- 1) ! 386.538 us  |    cgroup_migrate_prepare_dst(); /* = 0 */
- 1)               |    cgroup_migrate() {
- 1)   0.651 us    |      cgroup_migrate_add_task();
- 1)               |      cgroup_migrate_execute() {
- 1)               |        cpu_cgroup_can_attach() {
- 1)               |          cgroup_taskset_first() {
- 1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
- 1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
- 1)   0.380 us    |          sched_rt_can_attach(); /* = 0 */
- 1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
- 1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
- 1)   7.143 us    |    } /* cgroup_migrate = -22 */
- 1)               |    cgroup_migrate_finish() {
- 1)   0.411 us    |      put_css_set_locked();
- 1) + 62.397 us   |      put_css_set_locked();
- 1) + 64.742 us   |    } /* cgroup_migrate_finish */
- 1) ! 465.605 us  |  } /* cgroup_attach_task = -22 */
-
-...
-
+Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
 ---
-v7:
- - Rename trace option 'graph_retval_hex' to 'funcgraph-retval-hex'
- - Introduce a new structure fgraph_ret_regs for each architecture to
-   hold return registers
- - Separate each architecture modification info individual patches
- - Add a test case for funcgraph-retval
- - Update documentation description
- - Support LoongArch
+ arch/x86/Kconfig              |  1 +
+ arch/x86/include/asm/ftrace.h | 22 ++++++++++++++++++++++
+ arch/x86/kernel/ftrace_32.S   |  8 +++++---
+ arch/x86/kernel/ftrace_64.S   |  7 ++++---
+ 4 files changed, 32 insertions(+), 6 deletions(-)
 
-v6:
- - Remove the conversion code for short and char types, because these
-   two types are rarely used to store an error code.
- - Modify the limitations for funcgraph-retval
- - Optimize the English expression
-
-v5:
- - Pass both the return values to ftrace_return_to_handler
- - Modify the parameter sequence of ftrace_return_to_handler to
-   decrease the modification of assembly code, thanks to Russell King
- - Wrap __ftrace_return_to_handler with ftrace_return_to_handler
-   for compatible
- - Describe the limitations of funcgraph-retval
-
-v4:
- - Modify commit message
- - Introduce new option graph_retval_hex to control display format
- - Introduce macro CONFIG_FUNCTION_GRAPH_RETVAL and
-   CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
- - Add related arch maintainers to review
-
-v3:
- - Modify the commit message: add trace logs processed with the btf tool
-
-v2:
- - Modify the commit message: use BTF to get the return type of function
-
-Donglin Peng (8):
-  function_graph: Support recording and printing the return value of
-    function
-  tracing: Add documentation for funcgraph-retval and
-    funcgraph-retval-hex
-  ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-  arm64: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-  riscv: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-  x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-  LoongArch: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-  selftests/ftrace: Add funcgraph-retval test case
-
- Documentation/trace/ftrace.rst                | 74 +++++++++++++++
- arch/arm/Kconfig                              |  1 +
- arch/arm/include/asm/ftrace.h                 | 22 +++++
- arch/arm/kernel/entry-ftrace.S                |  6 +-
- arch/arm64/Kconfig                            |  1 +
- arch/arm64/include/asm/ftrace.h               | 23 +++++
- arch/arm64/kernel/entry-ftrace.S              |  9 +-
- arch/loongarch/Kconfig                        |  1 +
- arch/loongarch/include/asm/ftrace.h           | 22 +++++
- arch/loongarch/kernel/mcount.S                |  6 +-
- arch/loongarch/kernel/mcount_dyn.S            |  7 +-
- arch/riscv/Kconfig                            |  1 +
- arch/riscv/include/asm/ftrace.h               | 23 +++++
- arch/riscv/kernel/mcount.S                    |  7 +-
- arch/x86/Kconfig                              |  1 +
- arch/x86/include/asm/ftrace.h                 | 22 +++++
- arch/x86/kernel/ftrace_32.S                   |  8 +-
- arch/x86/kernel/ftrace_64.S                   |  7 +-
- include/linux/ftrace.h                        |  3 +
- kernel/trace/Kconfig                          |  8 ++
- kernel/trace/fgraph.c                         | 21 ++++-
- kernel/trace/trace.h                          |  2 +
- kernel/trace/trace_entries.h                  | 26 ++++++
- kernel/trace/trace_functions_graph.c          | 93 +++++++++++++++++--
- .../ftrace/test.d/ftrace/fgraph-retval.tc     | 43 +++++++++
- 25 files changed, 404 insertions(+), 33 deletions(-)
- create mode 100644 tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
-
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index a825bf031f49..956cc988bdf9 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -214,6 +214,7 @@ config X86
+ 	select HAVE_FAST_GUP
+ 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD
++	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
+ 	select HAVE_FUNCTION_TRACER
+ 	select HAVE_GCC_PLUGINS
+diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
+index 5061ac98ffa1..bb12f5b7505a 100644
+--- a/arch/x86/include/asm/ftrace.h
++++ b/arch/x86/include/asm/ftrace.h
+@@ -147,4 +147,26 @@ static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
+ #endif /* !COMPILE_OFFSETS */
+ #endif /* !__ASSEMBLY__ */
+ 
++#ifndef __ASSEMBLY__
++
++#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
++struct fgraph_ret_regs {
++	unsigned long ax;
++	unsigned long dx;
++	unsigned long bp;
++};
++
++static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->ax;
++}
++
++static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->bp;
++}
++#endif
++
++#endif
++
+ #endif /* _ASM_X86_FTRACE_H */
+diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
+index a0ed0e4a2c0c..5a9cc723f81f 100644
+--- a/arch/x86/kernel/ftrace_32.S
++++ b/arch/x86/kernel/ftrace_32.S
+@@ -182,12 +182,14 @@ SYM_CODE_END(ftrace_graph_caller)
+ 
+ .globl return_to_handler
+ return_to_handler:
+-	pushl	%eax
++	pushl	$0
+ 	pushl	%edx
+-	movl	$0, %eax
++	pushl	%eax
++	movl	%esp, %eax
+ 	call	ftrace_return_to_handler
+ 	movl	%eax, %ecx
+-	popl	%edx
+ 	popl	%eax
++	popl	%edx
++	addl	$4, %esp		# skip ebp
+ 	JMP_NOSPEC ecx
+ #endif
+diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
+index fb4f1e01b64a..ef78c0bbae62 100644
+--- a/arch/x86/kernel/ftrace_64.S
++++ b/arch/x86/kernel/ftrace_64.S
+@@ -344,12 +344,13 @@ STACK_FRAME_NON_STANDARD_FP(__fentry__)
+ SYM_CODE_START(return_to_handler)
+ 	UNWIND_HINT_EMPTY
+ 	ANNOTATE_NOENDBR
+-	subq  $16, %rsp
++	subq  $24, %rsp
+ 
+ 	/* Save the return values */
+ 	movq %rax, (%rsp)
+ 	movq %rdx, 8(%rsp)
+-	movq %rbp, %rdi
++	movq %rbp, 16(%rsp)
++	movq %rsp, %rdi
+ 
+ 	call ftrace_return_to_handler
+ 
+@@ -357,7 +358,7 @@ SYM_CODE_START(return_to_handler)
+ 	movq 8(%rsp), %rdx
+ 	movq (%rsp), %rax
+ 
+-	addq $16, %rsp
++	addq $24, %rsp
+ 	/*
+ 	 * Jump back to the old return address. This cannot be JMP_NOSPEC rdi
+ 	 * since IBT would demand that contain ENDBR, which simply isn't so for
 -- 
 2.25.1
 
