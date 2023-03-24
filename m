@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B6AC6FD20
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 08:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973BAC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 09:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LpGJY08WJcexONQIqEYajD5xW4ngD+nZziz2tVuniys=; b=rgDpser3q8VoUQ
-	A3pXVoDgnMPjcx9vbt9VttDKQxn86AvsuaSIOCV6uA9Av8UWerCD3lclBe5/QI8HiNYJ+uftvuvT0
-	rs5tlcPtac/bPXFB580vuFRgP6tvVCAb3cD2nj4BO/CXmHzRFoImV01+js9EbgtqRs/WVyaquiT97
-	6mJqd9kskpXMgr96SFFx4fG+ZitffT1Z+lp0ij9NUaIO/Pf8rX6F2CQOARqOs2G2UOtggAruPAwJ8
-	3awKYfuvdHcqcDmAtlp+utJnn8nXcAIez4B8zYf49/u4aYtcUQeIpswjhmzqKfospcdeo5cU1uKDI
-	JNdYk3tIgh2f/AUrYRrw==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kg7bIuHXwYTy/ALg09bzpHceZcysUHdC/NZCub2R3bg=; b=zUqQPIT2iE6LqR
+	tYWIYykedO1wZqA6Elw6Rc2bHcMi0CSNilp3joOhAlKNnavSr3rgPoli0gCGQDxB9wOmTij7E1mGT
+	KrvVFXY7iNWOqgs4/4jjMj8an6q5XPfpb1/3z0bF1yyFoEP7EeG4/NLxozoZhDl0KqlhhdzeaCjsE
+	+04W2n/mnpEvQ13DEjluWS9yjlwV1NZvlA5CyxrvEX1e/20kj1MmseVpkI/5NRq0TFaiE3vXJmNGC
+	Nrr/q5zZe3IDp715XkAmE8RazfKL75wGH/jHdzw1qkz3CPUWSPVt6SAvI+vPslpkweHyY0qBXtonN
+	EoCg6dSHeUEYDWKnqJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfciO-003rh7-0G;
-	Fri, 24 Mar 2023 08:24:00 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1pfdYe-00401Y-1L;
+	Fri, 24 Mar 2023 09:18:00 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfciK-003reN-1q
+	id 1pfdYa-00400G-0n
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 08:23:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 98DA1CE2437;
-	Fri, 24 Mar 2023 08:23:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43031C433EF;
-	Fri, 24 Mar 2023 08:23:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679646228;
-	bh=WNmnBMlXQbbzSIzNbiTJv8PajglyS7jPcj9FFmg6NWU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dDeq+INQJQ8cdGwiqzVv1YUb+oIdwqPJJHuTj1Q0fbnl92ex0saerlTqYpdWYHewN
-	 7CF1K1iztsPDj71V0OW3fxLF/4LCJVPqvt1gitdHYBWfUfRHssbptB7A0tdQN3VG6p
-	 3xDGQe+GA3LdUHIFx+Yh5EihmAcO7RdA9gqiVoHQIjfB/MENJKU090orHMCrRU++Ks
-	 thLUVJeZlY9O/HNWXo5LuNn22vCOzw1j7jatENm+YJDEV2xili6xuUmTDnbS8Ud/6J
-	 USGAGp4AH+yBsBdNwBnvZlFvpNR/J5aEu53kvZ0Aijlxp8iO7UY0E2bSauakE6Xcow
-	 H9Ady5C0BXUpQ==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	guoren@kernel.org,
-	palmer@rivosinc.com,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	jszhang@kernel.org,
-	bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH -next V4] riscv: jump_label: Optimize the code size with compressed instruction
-Date: Fri, 24 Mar 2023 04:23:20 -0400
-Message-Id: <20230324082320.290410-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-MIME-Version: 1.0
+	Fri, 24 Mar 2023 09:17:58 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id D91FE5C00D0;
+	Fri, 24 Mar 2023 05:17:52 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute1.internal (MEProxy); Fri, 24 Mar 2023 05:17:52 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to; s=fm3; t=
+	1679649472; x=1679735872; bh=TXn9bh8NNQiaq9RCNIuEb1mA2gEV5NsgDpg
+	JpUdv/CY=; b=UgsRLR9CZYS9v7HxbOhO1Ht7dpegLxuTjK3G0tMgwmMzlAbJw/y
+	U9HlpavWJLBaeTE4VEdafvz57R0rK7HQLUol36Qnwp60zAakk00EMhB65LEt84tA
+	U43B1xJQJ7knz5Sz95Cl8pSrmjn2ISQYeYCskrbZEnIAxZKESLkyGsl7e2amr03c
+	jqQz/0DTEVpdG7TUR7w9wfNYuUPIxYq9WIDjY2oVuhG9XqCjr4gSL/qP2E5hLXw6
+	7KrL0Z8EQs2SxUyR1RRalFNhqwMXACbkDO8YWr3cfceVYglRMukqd0oyCRSdMKFd
+	rERfEvUu+7bBOo7kH347K8JHKDdAAH86rQQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1679649472; x=1679735872; bh=TXn9bh8NNQiaq9RCNIuEb1mA2gEV5NsgDpg
+	JpUdv/CY=; b=bOkAriQ7SnMVdc9qlRXrg5zjYuHLUnhkL6Unzsl8BtPHLmS3GXe
+	J6cE/oQ9wv8dIarPz0lMPZ5XmKxcd8+GI1QK7tguZGdNGzM2+DEE4xnVTQFTXYFo
+	y8lK+wmchkkV6NOzQngQq9SLF4fxFrFESKJvgSJd2GLXjX86jlAhQs9VC65mX3HW
+	5sTD9UaWye41qO4s5Q8HZOJOmcqA/qumqDU0Mh9SqhrxsG9M57fKYu5nwH6BxOen
+	BvlBpRQPlK+whAqHIzJXDYbZwwmdRDvo8ledWUeo1oXZMDtjw4z1rwfDrHR9IZAX
+	6ABMlrnc+AjRMD4Kz0Sj27qYvKPA00lTNeQ==
+X-ME-Sender: <xms:v2odZP0DKBmYhJwawl6AQqFJbRYwbeSdSF6WdW1t_xW_kf6YDCA1ZA>
+    <xme:v2odZOEc0QRgUxZYSV48BYhgnDEkQtvTB3g3UCU3TrW7CzFs7D0iyHpcD0VJnkx-c
+    kIWyrRPumnVUWbgVOc>
+X-ME-Received: <xmr:v2odZP7Jx6EtWVylFcEP02YbQr1V9F0NqX4lUk6bZIUs6RuqAHlihHcQnV_dwQVA7-uH>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdegiedgtdduucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurheptggguffhjgffvefgkfhfvffosehtqhhmtdhhtdejnecuhfhrohhmpeflihgr
+    gihunhcujggrnhhguceojhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomheqne
+    cuggftrfgrthhtvghrnhepuddtjeffteetfeekjeeiheefueeigeeutdevieejveeihfff
+    ledvgfduiefhvddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomh
+X-ME-Proxy: <xmx:wGodZE2hliBxevB73UB7FDxctXUd7Mw7JuXZPD87jbsd4EFvk9gKCA>
+    <xmx:wGodZCGgTeqiAZ5Lm-8-REfVc_xlmMESyx8WazmcKLOxI3WVQvdjcA>
+    <xmx:wGodZF9wPT7NC7kNhDO8E_rpjgU5KuY5looZwimGRHo1r153OEF9dw>
+    <xmx:wGodZK98UJgeF9dxp_Q9540JaqZEFReCb9Xx_acBTbK_3ql_xaXMLw>
+Feedback-ID: ifd894703:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 24 Mar 2023 05:17:50 -0400 (EDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
+Subject: Re: [PATCH v3 0/4] Use dma_default_coherent for devicetree default
+ coherency
+From: Jiaxun Yang <jiaxun.yang@flygoat.com>
+In-Reply-To: <20230323213930.GA7730@lst.de>
+Date: Fri, 24 Mar 2023 09:17:38 +0000
+Cc: "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ mpe@ellerman.id.au,
+ paul.walmsley@sifive.com,
+ palmer@dabbelt.com,
+ Rob Herring <robh+dt@kernel.org>,
+ m.szyprowski@samsung.com,
+ Robin Murphy <robin.murphy@arm.com>,
+ linux-riscv@lists.infradead.org
+Message-Id: <CB41D3AF-20F6-42F3-9168-C0D6E716431A@flygoat.com>
+References: <20230321110813.26808-1-jiaxun.yang@flygoat.com>
+ <20230323072944.GA18524@lst.de>
+ <60D7FE31-D708-4495-949F-3F64DDC11377@flygoat.com>
+ <20230323213930.GA7730@lst.de>
+To: Christoph Hellwig <hch@lst.de>
+X-Mailer: Apple Mail (2.3731.400.51.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_012357_043455_01144C01 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20230324_021757_085847_ED2ECC13 
+X-CRM114-Status: UNSURE (   5.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,149 +114,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-Reduce the size of the static branch instruction and prevent atomic
-update problems when CONFIG_RISCV_ISA_C=y. It also reduces the jump
-range from 1MB to 4KB, but 4KB is enough for the current riscv
-requirement.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
-Changelog
-v4:
- - Rebase on palmer/for-next (20230324)
- - Separate from "riscv: jump_label: Fixup & Optimization"
-
-v3:
-https://lore.kernel.org/linux-riscv/20230126170607.1489141-3-guoren@kernel.org/
-
-v2:
-https://lore.kernel.org/linux-riscv/20221210100927.835145-3-guoren@kernel.org/
-
-v1:
-https://lore.kernel.org/linux-riscv/20220913094252.3555240-6-andy.chiu@sifive.com/
----
- arch/riscv/include/asm/jump_label.h | 16 +++++++++++----
- arch/riscv/kernel/jump_label.c      | 30 +++++++++++++++++++++++++++--
- 2 files changed, 40 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-index 14a5ea8d8ef0..afc58c31d02b 100644
---- a/arch/riscv/include/asm/jump_label.h
-+++ b/arch/riscv/include/asm/jump_label.h
-@@ -12,17 +12,23 @@
- #include <linux/types.h>
- #include <asm/asm.h>
- 
-+#ifdef CONFIG_RISCV_ISA_C
-+#define JUMP_LABEL_NOP_SIZE 2
-+#else
- #define JUMP_LABEL_NOP_SIZE 4
-+#endif
- 
- static __always_inline bool arch_static_branch(struct static_key * const key,
- 					       const bool branch)
- {
- 	asm_volatile_goto(
--		"	.align		2			\n\t"
- 		"	.option push				\n\t"
- 		"	.option norelax				\n\t"
--		"	.option norvc				\n\t"
-+#ifdef CONFIG_RISCV_ISA_C
-+		"1:	c.nop					\n\t"
-+#else
- 		"1:	nop					\n\t"
-+#endif
- 		"	.option pop				\n\t"
- 		"	.pushsection	__jump_table, \"aw\"	\n\t"
- 		"	.align		" RISCV_LGPTR "		\n\t"
-@@ -40,11 +46,13 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
- 						    const bool branch)
- {
- 	asm_volatile_goto(
--		"	.align		2			\n\t"
- 		"	.option push				\n\t"
- 		"	.option norelax				\n\t"
--		"	.option norvc				\n\t"
-+#ifdef CONFIG_RISCV_ISA_C
-+		"1:	c.j		%l[label]		\n\t"
-+#else
- 		"1:	jal		zero, %l[label]		\n\t"
-+#endif
- 		"	.option pop				\n\t"
- 		"	.pushsection	__jump_table, \"aw\"	\n\t"
- 		"	.align		" RISCV_LGPTR "		\n\t"
-diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-index e6694759dbd0..08f42c49e3a0 100644
---- a/arch/riscv/kernel/jump_label.c
-+++ b/arch/riscv/kernel/jump_label.c
-@@ -11,26 +11,52 @@
- #include <asm/bug.h>
- #include <asm/patch.h>
- 
-+#ifdef CONFIG_RISCV_ISA_C
-+#define RISCV_INSN_NOP 0x0001U
-+#define RISCV_INSN_C_J 0xa001U
-+#else
- #define RISCV_INSN_NOP 0x00000013U
- #define RISCV_INSN_JAL 0x0000006fU
-+#endif
- 
- void arch_jump_label_transform(struct jump_entry *entry,
- 			       enum jump_label_type type)
- {
- 	void *addr = (void *)jump_entry_code(entry);
-+#ifdef CONFIG_RISCV_ISA_C
-+	u16 insn;
-+#else
- 	u32 insn;
-+#endif
- 
- 	if (type == JUMP_LABEL_JMP) {
- 		long offset = jump_entry_target(entry) - jump_entry_code(entry);
--
--		if (WARN_ON(offset & 1 || offset < -524288 || offset >= 524288))
-+		if (WARN_ON(offset & 1 || offset < -2048 || offset >= 2048))
- 			return;
- 
-+#ifdef CONFIG_RISCV_ISA_C
-+		/*
-+		 * 001 | imm[11|4|9:8|10|6|7|3:1|5] 01 - C.J
-+		 */
-+		insn = RISCV_INSN_C_J |
-+			(((u16)offset & GENMASK(5, 5)) >> (5 - 2)) |
-+			(((u16)offset & GENMASK(3, 1)) << (3 - 1)) |
-+			(((u16)offset & GENMASK(7, 7)) >> (7 - 6)) |
-+			(((u16)offset & GENMASK(6, 6)) << (7 - 6)) |
-+			(((u16)offset & GENMASK(10, 10)) >> (10 - 8)) |
-+			(((u16)offset & GENMASK(9, 8)) << (9 - 8)) |
-+			(((u16)offset & GENMASK(4, 4)) << (11 - 4)) |
-+			(((u16)offset & GENMASK(11, 11)) << (12 - 11));
-+#else
-+		/*
-+		 * imm[20|10:1|11|19:12] | rd | 1101111 - JAL
-+		 */
- 		insn = RISCV_INSN_JAL |
- 			(((u32)offset & GENMASK(19, 12)) << (12 - 12)) |
- 			(((u32)offset & GENMASK(11, 11)) << (20 - 11)) |
- 			(((u32)offset & GENMASK(10,  1)) << (21 -  1)) |
- 			(((u32)offset & GENMASK(20, 20)) << (31 - 20));
-+#endif
- 	} else {
- 		insn = RISCV_INSN_NOP;
- 	}
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IDIwMjPlubQz5pyIMjPml6UgMjE6MznvvIxDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5k
+ZT4g5YaZ6YGT77yaCj4gCj4gT24gVGh1LCBNYXIgMjMsIDIwMjMgYXQgMDk6MDc6MzFQTSArMDAw
+MCwgSmlheHVuIFlhbmcgd3JvdGU6Cj4+IAo+PiAKPj4+IDIwMjPlubQz5pyIMjPml6UgMDc6Mjnv
+vIxDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5kZT4g5YaZ6YGT77yaCj4+PiAKPj4+IFRoZSBz
+ZXJpZXMgbG9va3MgZmluZSB0byBtZS4gIEhvdyBzaG91bGQgd2UgbWVyZ2UgaXQ/Cj4+IAo+PiBQ
+ZXJoYXBzIGdvIHRocm91Z2ggZG1hLW1hcHBpbmcgdHJlZT8KPiAKPiBJcyBwYXRjaCBhIDYuMyBj
+YW5kaWRhdGUgb3Igc2hvdWxkIGFsbCBvZiBpdCBnbyBpbnRvIDYuND8KClBsZWFzZSBsZWF2ZSBp
+dCBmb3IgNi40LCBhcyBjb3JyZXNwb25kaW5nIE1JUFMgYXJjaCBwYXJ0IHdpbGwgYmUgYSBwYXJ0
+IG9mIDYuNC4KClRoYW5rcwpKaWF4dW4KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
