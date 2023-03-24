@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D626C74A5B
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 02:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96FEC6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 02:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TGQRHfUxhU8peCokyWQH0Wj9Q9MmPrGYQSvc4aZ7BDs=; b=mQTzrqP/85X5Zx
-	eNEEy7TSlf1Z9N5kavXiLEwcCdJnNips+qQn4WUcdHxiBfCkI4q2/iB8tkJeZWIZi1pPQSI2AorQt
-	CL3ksrA9NZjj0jsObA09hMIOWIBafOxju4fdNofLudVADoJJMcldcWG9V9/aUsHqfQnqJb4CV6c6C
-	8qB07Z93+r4cEHP//2XpHrYDRZDeMGoz20IeKgfECuzZFCaZcH261cVFKGek9KnjKP9sDHuo8YF1d
-	+oqLic47Tfb33Q2c0BEKLmVPJx5s3nD95wqtUq++v/MU9ZQ84YYqXsa98NpK0IIV4nmvbjoZjXnHa
-	7pOJhMLuFrn1BGiNpqAQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yUifxV897ZKlzpCkoFBJAGMIlCXsNfMxIBqJFJaU+ho=; b=iMgxXHeeln7fYK
+	2WxR5WnMrVQgIv4nbjyR8MLi9euz+b3W9kozGi+13fTOOw1VrUCqLol1yCjxm3jwjUCpSqfi5NUjS
+	O0888kN/lCsnEGu2xyCGg00piu+RxKwUnG7dCfZqPUVVhbLavJ2diMjEqE1Hakg/5bKd9UyIJaZuT
+	IEJScZVfxse/4e3+s3Af7SujVCvwvALwbhGg9DtyIA+pKke3gkCwUWQCIDkVIScBE4m7FQHIKeOsl
+	vs3Of0QM1fB6Ic2loxfqx22GpCL4ZYbFASZTa/fB4kx3xMqVogf9XgCESDj3j0ois6vOUNWIYVITT
+	Y73EUC8uSPXec3gkzhAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfXB6-003Oo1-2K;
-	Fri, 24 Mar 2023 02:29:16 +0000
+	id 1pfXBI-003OrV-1q;
+	Fri, 24 Mar 2023 02:29:28 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfXB3-003OaW-1H
+	id 1pfXBF-003OaT-0G
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 02:29:15 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Fri, 24 Mar 2023 02:29:27 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1F40524E1EC;
-	Fri, 24 Mar 2023 10:28:27 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
- 2023 10:28:27 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 61FCC24E094;
+	Fri, 24 Mar 2023 10:28:21 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
+ 2023 10:28:21 +0800
 Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
  EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 24 Mar 2023 10:28:25 +0800
+ 15.0.1497.42; Fri, 24 Mar 2023 10:28:20 +0800
 From: Samin Guo <samin.guo@starfivetech.com>
 To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
@@ -52,20 +52,18 @@ CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
 	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
 	Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [PATCH v8 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
-Date: Fri, 24 Mar 2023 10:28:18 +0800
-Message-ID: <20230324022819.2324-6-samin.guo@starfivetech.com>
+Subject: [PATCH v8 0/6] Add Ethernet driver for StarFive JH7110 SoC
+Date: Fri, 24 Mar 2023 10:28:13 +0800
+Message-ID: <20230324022819.2324-1-samin.guo@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230324022819.2324-1-samin.guo@starfivetech.com>
-References: <20230324022819.2324-1-samin.guo@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [171.223.208.138]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230323_192913_756432_D90EE8E1 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20230323_192925_432786_550C19BD 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,194 +80,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds StarFive dwmac driver support on the StarFive JH7110 SoC.
+This series adds ethernet support for the StarFive JH7110 RISC-V SoC,
+which includes a dwmac-5.20 MAC driver (from Synopsys DesignWare).
+This series has been tested and works fine on VisionFive-2 v1.2A and
+v1.3B SBC boards.
 
-Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
----
- MAINTAINERS                                   |   1 +
+For more information and support, you can visit RVspace wiki[1].
+You can simply review or test the patches at the link [2].
+This patchset should be applied after the patchset [3] [4].
+
+[1]: https://wiki.rvspace.org/
+[2]: https://github.com/SaminGuo/linux/tree/vf2-6.3rc3-gmac
+[3]: https://patchwork.kernel.org/project/linux-riscv/cover/20230320103750.60295-1-hal.feng@starfivetech.com
+[4]: https://patchwork.kernel.org/project/linux-riscv/cover/20230315055813.94740-1-william.qiu@starfivetech.com
+
+Changes since v7:
+Patch 4:
+- Constrained the reg/interrupts/interrupt-names properties (by Krzysztof Kozlowski)
+
+
+Changes history:
+
+Changes since v6:
+- Sended network patches[patch 1,2,3,4,5,6] and riscv trees patches[patch 7,8] separately (by Jakub Kicinski)
+
+Changes since v5:
+- Dropped "depends on STMMAC_ETH" and compiled DWMAC_STARFIVE to m by default (by Emil)
+- Removed clk_gtx in struct starfive_dwmac due to this pointer is only set, but never read. (by Emil)
+- Only setting the plat_dat->fix_mac_speed callback when it is needed (by Emil)
+- Moved mdio/phy nodes from SOC .dtsi into board .dtsi (by Andrew)
+- Modified the parameters passed by starfive,syscon (by Andrew && Emil)
+    <syscon, offset, mask>  ==>  <syscon, offset, shift>
+- Optimized the patchs(Fewer patches from 12 to 8)
+    1)merged patch-7 into patch-4 (by Rob)
+    2)merged patch-9 into patch-5
+    2)merged patch-11,12 into patch-10
+    3)Adjusted the patchs order
+- Fixed the unevaluatedProperties property from true to false (by Rob)
+- Replaced contains:enum with items:const for reset-names in snps,dwmac.yaml (by Rob)
+- Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+
+Changes since v4:
+- Supported both visionfive 2 v1.2A and visionfive 2 v1.3B.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
+- Suggested by Emil, dropped the _PLAT/_plat from the config/function/struct/file names.
+- Suggested by Emil, added MODULE_DEVICE_TABLE().
+- Suggested by Emil, dropped clk_gtxclk and use clk_tx_inv to set the clock frequency.
+- Added phy interface mode configuration function.
+- Rebased on tag v6.2.
+
+Changes since v3:
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'
+- Removed the unused code in 'dwmac-starfive-plat.c'.
+- Reworded the return statement in 'starfive_eth_plat_fix_mac_speed' function.
+
+Changes since v2:
+- Renamed the dt-bindings 'starfive,jh71x0-dwmac.yaml' to 'starfive,jh7110-dwmac.yaml'.
+- Reworded the commit messages.
+- Reworded the example context in the dt-binding 'starfive,jh7110-dwmac.yaml'.
+- Removed "starfive,jh7100-dwmac" compatible string and special initialization of jh7100.
+- Removed the parts of YT8531,so dropped patch 5 and 6.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
+
+Changes since v1:
+- Recovered the author of the 1st and 3rd patches back to Emil Renner Berthing.
+- Added a new patch to update maxitems number of resets property in 'snps,dwmac.yaml'.
+- Fixed the check errors reported by "make dt_binding_check".
+- Renamed the dt-binding 'starfive,dwmac-plat.yaml' to 'starfive,jh71x0-dwmac.yaml'.
+- Updated the example context in the dt-binding 'starfive,jh71x0-dwmac.yaml'.
+- Added new dt-binding 'motorcomm,yt8531.yaml' to describe details of phy clock
+  delay configuration parameters.
+- Added more comments for PHY driver setting. For more details, see
+  'motorcomm,yt8531.yaml'.
+- Moved mdio device tree node from 'jh7110-starfive-visionfive-v2.dts' to 'jh7110.dtsi'.
+- Re-worded the commit message of several patches.
+- Renamed all the functions with starfive_eth_plat prefix in 'dwmac-starfive-plat.c'.
+- Added "starfive,jh7100-dwmac" compatible string and special init to support JH7100.
+
+Previous versions:
+v1 - https://patchwork.kernel.org/project/linux-riscv/cover/20221201090242.2381-1-yanhong.wang@starfivetech.com/
+v2 - https://patchwork.kernel.org/project/linux-riscv/cover/20221216070632.11444-1-yanhong.wang@starfivetech.com/
+v3 - https://patchwork.kernel.org/project/linux-riscv/cover/20230106030001.1952-1-yanhong.wang@starfivetech.com/
+v4 - https://patchwork.kernel.org/project/linux-riscv/cover/20230118061701.30047-1-yanhong.wang@starfivetech.com/
+v5 - https://patchwork.kernel.org/project/netdevbpf/cover/20230303085928.4535-1-samin.guo@starfivetech.com/
+v6 - https://patchwork.kernel.org/project/netdevbpf/cover/20230313034645.5469-1-samin.guo@starfivetech.com/
+v7 - https://patchwork.kernel.org/project/netdevbpf/cover/20230316043714.24279-1-samin.guo@starfivetech.com/
+
+Emil Renner Berthing (2):
+  dt-bindings: net: snps,dwmac: Add dwmac-5.20 version
+  net: stmmac: platform: Add snps,dwmac-5.20 IP compatible string
+
+Samin Guo (3):
+  dt-bindings: net: snps,dwmac: Add 'ahb' reset/reset-name
+  net: stmmac: Add glue layer for StarFive JH7110 SoC
+  net: stmmac: starfive_dmac: Add phy interface settings
+
+Yanhong Wang (1):
+  dt-bindings: net: Add support StarFive dwmac
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  17 +-
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 144 +++++++++++++++
+ MAINTAINERS                                   |   7 +
  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 121 ++++++++++++++++++
- 4 files changed, 135 insertions(+)
+ .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 168 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   3 +-
+ 7 files changed, 347 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5c6d53a9f62a..c27182492a6c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19909,6 +19909,7 @@ STARFIVE DWMAC GLUE LAYER
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Samin Guo <samin.guo@starfivetech.com>
- S:	Maintained
-+F:	Documentation/devicetree/bindings/net/dwmac-starfive.c
- F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
- 
- STARFIVE JH7110 MMC/SD/SDIO DRIVER
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index f77511fe4e87..5f5a997f21f3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -165,6 +165,18 @@ config DWMAC_SOCFPGA
- 	  for the stmmac device driver. This driver is used for
- 	  arria5 and cyclone5 FPGA SoCs.
- 
-+config DWMAC_STARFIVE
-+	tristate "StarFive dwmac support"
-+	depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
-+	select MFD_SYSCON
-+	default m if ARCH_STARFIVE
-+	help
-+	  Support for ethernet controllers on StarFive RISC-V SoCs
-+
-+	  This selects the StarFive platform specific glue layer support for
-+	  the stmmac device driver. This driver is used for StarFive JH7110
-+	  ethernet controller.
-+
- config DWMAC_STI
- 	tristate "STi GMAC support"
- 	default ARCH_STI
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index 057e4bab5c08..8738fdbb4b2d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_DWMAC_OXNAS)	+= dwmac-oxnas.o
- obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
-+obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
- obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
- obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-new file mode 100644
-index 000000000000..ef5a769b1c75
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -0,0 +1,121 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * StarFive DWMAC platform driver
-+ *
-+ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ *
-+ */
-+
-+#include <linux/mfd/syscon.h>
-+#include <linux/of_device.h>
-+#include <linux/regmap.h>
-+
-+#include "stmmac_platform.h"
-+
-+struct starfive_dwmac {
-+	struct device *dev;
-+	struct clk *clk_tx;
-+};
-+
-+static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
-+{
-+	struct starfive_dwmac *dwmac = priv;
-+	unsigned long rate;
-+	int err;
-+
-+	switch (speed) {
-+	case SPEED_1000:
-+		rate = 125000000;
-+		break;
-+	case SPEED_100:
-+		rate = 25000000;
-+		break;
-+	case SPEED_10:
-+		rate = 2500000;
-+		break;
-+	default:
-+		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-+		break;
-+	}
-+
-+	err = clk_set_rate(dwmac->clk_tx, rate);
-+	if (err)
-+		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
-+}
-+
-+static int starfive_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct starfive_dwmac *dwmac;
-+	struct clk *clk_gtx;
-+	int err;
-+
-+	err = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (err)
-+		return err;
-+
-+	plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat)) {
-+		dev_err(&pdev->dev, "dt configuration failed\n");
-+		return PTR_ERR(plat_dat);
-+	}
-+
-+	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-+	if (!dwmac)
-+		return -ENOMEM;
-+
-+	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(dwmac->clk_tx))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-+				     "error getting tx clock\n");
-+
-+	clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
-+	if (IS_ERR(clk_gtx))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk_gtx),
-+				     "error getting gtx clock\n");
-+
-+	/* Generally, the rgmii_tx clock is provided by the internal clock,
-+	 * which needs to match the corresponding clock frequency according
-+	 * to different speeds. If the rgmii_tx clock is provided by the
-+	 * external rgmii_rxin, there is no need to configure the clock
-+	 * internally, because rgmii_rxin will be adaptively adjusted.
-+	 */
-+	if (!device_property_read_bool(&pdev->dev, "starfive,tx-use-rgmii-clk"))
-+		plat_dat->fix_mac_speed = starfive_dwmac_fix_mac_speed;
-+
-+	dwmac->dev = &pdev->dev;
-+	plat_dat->bsp_priv = dwmac;
-+	plat_dat->dma_cfg->dche = true;
-+
-+	err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (err) {
-+		stmmac_remove_config_dt(pdev, plat_dat);
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id starfive_dwmac_match[] = {
-+	{ .compatible = "starfive,jh7110-dwmac"	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, starfive_dwmac_match);
-+
-+static struct platform_driver starfive_dwmac_driver = {
-+	.probe  = starfive_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name = "starfive-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = starfive_dwmac_match,
-+	},
-+};
-+module_platform_driver(starfive_dwmac_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("StarFive DWMAC platform driver");
-+MODULE_AUTHOR("Emil Renner Berthing <kernel@esmil.dk>");
-+MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
+
+base-commit: e8d018dd0257f744ca50a729e3d042cf2ec9da65
+prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
+prerequisite-patch-id: 1da7255d6aeb5576ca810116a9323452be2202fa
+prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
+prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 85c5bb437c383b2e68c79e59a439f01b7bcd963e
+prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 42d352fe14713b74951c4513128a0a494b2dce76
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 4f10a3d827679eafbd3d49d2e21f31032dc9c418
+prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
+prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
+prerequisite-patch-id: 1be0fb49e0fbe293ca8fa94601e191b13c8c67d9
 -- 
 2.17.1
 
