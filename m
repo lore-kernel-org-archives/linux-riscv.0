@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F192C76195
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 07:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5EBC6FD20
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 07:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RqAx+8im8V3u6dy1jYQGhJ+/c8AqW9Y5ddQls1PmZBw=; b=o4Rh3MESejg45R
-	lk33raqJcjRRCPt4QTYJ6A9cJF77FVM1fsuJnjiRX44aLYpM+feZv+uoGMAjnCQq/rKhL7TvajfT1
-	+20FTnSKo9VRgpTual5RZK2X49a427z0sYYIEEh8F0Naj2/6IjDTrJScpAin+T+4R5dLZDPf7u/T7
-	iFV9C0YTKIkOv4RGrbYutXTB6nEYU9YplG0trTTC7r/djH0lu7u0nUsdm4WcY3fsgq70Lilva2ddQ
-	0gGz1SguE94x2zXvSzs7Wm1gBBgO7kkPzQVlq4jo9eMQUOdCGgGvzqrKSQpb1IFr++a2h4ddaxIZf
-	SJhwDwFVu4Y1Ik4mVzgg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lRgIsnQFsg2+Y3HSvRN5Z/Gfv/XHcAkhAxxKE8xdzyY=; b=gN8qiHrthV0TZi
+	c1hJht+muNmvI2diviUr6B6re5huGel9gN+LMEDjZY6uhlWLB7KgMa9BnHr3jDbHnGaQjRLMlwNDo
+	7y6NqPEvKx1GLMHYOLL3ugXvKs0wpYvqG+oe4KbCer1hNzeNj7wmKx5BpIjxxi9hcu0D0YydI+mHd
+	upZyNlcuAkGVNTqxdCHse2yWtttO1owSaeea0/jPKpeAk44EuZ06AE/ZQkfcs19amZhuLvNlZHz8+
+	YO/F0MLYGIa6pW67CmpTIzGIzMIOJl/YKWSyQPIqgIoX4qTkSjXIiaigFwxljtnFq0rILeKjuFGCa
+	hhzNKejFX/mgcMpfW8pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfbT7-003iio-1u;
-	Fri, 24 Mar 2023 07:04:09 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfbT3-003ihc-1H
+	id 1pfbd6-003jsX-2n;
+	Fri, 24 Mar 2023 07:14:28 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pfbd3-003jqz-1i
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 07:04:07 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4220624E1E2;
-	Fri, 24 Mar 2023 15:03:42 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
- 2023 15:03:42 +0800
-Received: from [192.168.125.74] (113.72.145.117) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar
- 2023 15:03:41 +0800
-Message-ID: <0c9c19ad-815c-fb0f-3024-96ea55e7c6c0@starfivetech.com>
-Date: Fri, 24 Mar 2023 15:03:40 +0800
+	Fri, 24 Mar 2023 07:14:27 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3F872B819BA;
+	Fri, 24 Mar 2023 07:14:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBDBC4339B;
+	Fri, 24 Mar 2023 07:14:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679642063;
+	bh=EedrYgr7tkK5Mvh078T+7DfsEEWhgvcGC/Eoj8RUZNk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eWxOyk+vXuOr7sWjquE27lpMmBg6b7f5Qpcd6b/YERHMsqBBznLDpSuG3j+ax4Y6m
+	 6z6nVG20YkUtNYY/FShqzI9xKLN3HSk7F0JhHzJlb/aJvt7wnL7Nr5GeoFJb1mOcb8
+	 68bcG5eFXBfxpwK8QheCkvvqTlsi6CHkSgy+6LhCmJxKrZbnupTevCfxkiccrb/zgm
+	 vc0HWcmnKbV5zsGfDm0/1Mdkxl3Bd2eIYAWv9aLIabNy3wx/t3KcK0jpWGGQlxAIEI
+	 onysatkm+FHHrYp3GD8RsZFcLt+O26yKkJ22ijiUgVCbVjutX8TCfDsd+niYSJWQgj
+	 XPdWr/klbRQSg==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	guoren@kernel.org,
+	palmer@rivosinc.com,
+	tglx@linutronix.de,
+	peterz@infradead.org,
+	luto@kernel.org,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	lazyparser@gmail.com,
+	falcon@tinylab.org,
+	chenhuacai@kernel.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	mark.rutland@arm.com,
+	bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH -next V11 0/3] riscv: Add independent irq/softirq stacks
+Date: Fri, 24 Mar 2023 03:12:36 -0400
+Message-Id: <20230324071239.151677-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v6 19/21] riscv: dts: starfive: Add initial StarFive
- JH7110 device tree
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley <conor@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20230320103750.60295-1-hal.feng@starfivetech.com>
- <20230320103750.60295-20-hal.feng@starfivetech.com>
- <60359574-8bce-40f2-99db-6d81f6e6c5c3@spud>
- <6ce5b897-f1c2-4b58-9353-9d9e881ad237@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <6ce5b897-f1c2-4b58-9353-9d9e881ad237@spud>
-X-Originating-IP: [113.72.145.117]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_000405_787190_FF530E82 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20230324_001425_857575_6A4D2DF1 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +89,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Mar 2023 09:03:23 +0000, Conor Dooley wrote:
-> On Wed, Mar 22, 2023 at 10:02:40PM +0000, Conor Dooley wrote:
->> On Mon, Mar 20, 2023 at 06:37:48PM +0800, Hal Feng wrote:
->> > From: Emil Renner Berthing <kernel@esmil.dk>
->> > 
->> > Add initial device tree for the JH7110 RISC-V SoC by StarFive
->> > Technology Ltd.
->> > 
->> > Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
->> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> > Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
->> > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
->> > Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
->> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> > ---
->> 
->> > +		S7_0: cpu@0 {
->> > +			compatible = "sifive,s7", "riscv";
->> > +			reg = <0>;
->> > +			d-cache-block-size = <64>;
->> > +			d-cache-sets = <64>;
->> > +			d-cache-size = <8192>;
->> > +			d-tlb-sets = <1>;
->> > +			d-tlb-size = <40>;
->> > +			device_type = "cpu";
->> > +			i-cache-block-size = <64>;
->> > +			i-cache-sets = <64>;
->> > +			i-cache-size = <16384>;
->> > +			i-tlb-sets = <1>;
->> > +			i-tlb-size = <40>;
->> > +			mmu-type = "riscv,sv39";
->> > +			next-level-cache = <&ccache>;
->> > +			riscv,isa = "rv64imac_zba_zbb";
->> > +			tlb-split;
->> > +			status = "disabled";
->> 
->> Jess pointed out on IRC that this S7 entry looks wrong as it is claiming
->> that the S7 has an mmu. I didn't go looking back in the history of
->> u74-mc core complex manuals, but the latest version does not show an mmu
->> for the S7.
-> 
-> BTW Hal, if the dt-binding stuff is okay with Emil, I can just remove
-> the mmu here if you confirm it is a mistake rather than you needing to
-> resubmit to remove it.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-I confirm that the S7 core has no L1 data cache and MMU, so some properties
-should be deleted. I have submitted a new patch for the correction.
+This patch series adds independent irq/softirq stacks to decrease the
+press of the thread stack. Also, add a thread STACK_SIZE config for
+users to adjust the proper size during compile time.
 
-https://lore.kernel.org/all/20230324064651.84670-1-hal.feng@starfivetech.com/
+This patch series belonged to the generic entry, which has been merged
+to for-next now.
 
-Best regards,
-Hal
+v11:
+ - Rebase on palmer/for-next (20230324)
+ - Separate from generic entry patch series.
+
+v10:
+https://lore.kernel.org/linux-riscv/20221208025816.138712-1-guoren@kernel.org/
+ - Rebase on palmer/for-next branch (20221208)
+ - Remove unrelated patches from the series (Suggested-by: Bjorn)
+ - Fixup Typos.
+
+v9:
+https://lore.kernel.org/linux-riscv/20221130034059.826599-1-guoren@kernel.org/
+ - Fixup NR_syscalls check (by Ben Hutchings)
+ - Add Tested-by: Jisheng Zhang
+
+v8:
+https://lore.kernel.org/linux-riscv/20221103075047.1634923-1-guoren@kernel.org/
+ - Rebase on palmer/for-next branch (20221102)
+ - Add save/restore_from_x5_to_x31 .macro (JishengZhang)
+ - Consolidate ret_from_kernel_thread into ret_from_fork (JishengZhang)
+ - Optimize __noinstr_section comment (JiangshanLai)
+
+v7:
+https://lore.kernel.org/linux-riscv/20221015114702.3489989-1-guoren@kernel.org/
+ - Fixup regs_irqs_disabled with SR_PIE
+ - Optimize stackleak_erase -> stackleak_erase_on_task_stack (Thx Mark
+   Rutland)
+ - Add BUG_ON(!irqs_disabled()) in trap handlers
+ - Using regs_irqs_disabled in __do_page_fault
+ - Remove unnecessary irq disable in ret_from_exception and add comment
+
+v6:
+https://lore.kernel.org/linux-riscv/20221002012451.2351127-1-guoren@kernel.org/
+ - Use THEAD_SIZE_ORDER for thread size adjustment in kconfig (Thx Arnd)
+ - Move call_on_stack to inline style (Thx Peter Zijlstra)
+ - Fixup fp chain broken (Thx Chen Zhongjin)
+ - Remove common entry modification, and fixup page_fault entry (Thx
+   Peter Zijlstra)
+ - Treat some traps as nmi entry (Thx Peter Zijlstra)
+
+v5:
+https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
+ - Add riscv own stackleak patch instead of generic entry modification
+   (by Mark Rutland)
+ - Add EXPERT dependency for THREAD_SIZE (by Arnd)
+ - Add EXPERT dependency for IRQ_STACK (by Sebastian, David Laight)
+ - Corrected __trap_section (by Peter Zijlstra)
+ - Add Tested-by (Yipeng Zou)
+ - Use CONFIG_SOFTIRQ_ON_OWN_STACK replace "#ifndef CONFIG_PREEMPT_RT"
+ - Fixup systrace_enter compile error
+ - Fixup exit_to_user_mode_prepare preempt_disable warning
+
+V4:
+https://lore.kernel.org/linux-riscv/20220908022506.1275799-1-guoren@kernel.org/
+ - Fixup entry.S with "la" bug (by Conor.Dooley)
+ - Fixup missing noinstr bug (by Peter Zijlstra)
+
+V3:
+https://lore.kernel.org/linux-riscv/20220906035423.634617-1-guoren@kernel.org/
+ - Fixup CONFIG_COMPAT=n compile error
+ - Add THREAD_SIZE_ORDER config
+ - Optimize elf_kexec.c warning fixup
+ - Add static to irq_stack_ptr definition
+
+V2:
+https://lore.kernel.org/linux-riscv/20220904072637.8619-1-guoren@kernel.org/
+ - Fixup compile error by include "riscv: ptrace: Remove duplicate
+   operation"
+ - Fixup compile warning
+   Reported-by: kernel test robot <lkp@intel.com>
+ - Add test repo link in cover letter
+
+V1:
+https://lore.kernel.org/linux-riscv/20220903163808.1954131-1-guoren@kernel.org/
+
+Guo Ren (3):
+  riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+  riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK
+  riscv: stack: Add config of thread stack size
+
+ arch/riscv/Kconfig                   | 19 ++++++++
+ arch/riscv/include/asm/thread_info.h | 14 ++----
+ arch/riscv/include/asm/vmap_stack.h  | 28 ++++++++++++
+ arch/riscv/kernel/irq.c              | 66 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/traps.c            | 38 +++++++++++++++-
+ 5 files changed, 152 insertions(+), 13 deletions(-)
+ create mode 100644 arch/riscv/include/asm/vmap_stack.h
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
