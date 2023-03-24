@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75C7C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 10:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5291C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 10:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vj0v1ZtgX++Xs2QI86GtrzTmHXOcu8Fada/dVTGECb8=; b=wL5ADUsUkeRS0f
-	y7DtpK5fwx32bwn63x6ySdZUQsFZsK+GJbRiv9wRhEdlcvvbmVegAHUaOs/s3GrDaa9hjl54vj0hw
-	lPb36luh7+7jSygBy/qIj+J5urLbvST/58OjOKfDOBrS2mQCprjs9QJ5pZRY31LL5F4l+5pXHB0S9
-	925vPi9/+L2ujgcFd3czcE9Z+0XEERuEsZyL+pzr9iqwQsWpS1jyS9hRNZiIljTBIWC8huBvF+r0m
-	t/2l1+ddc+ohSL5EutHStEjkw66PWp6n/zbAPWF1VUcbmDvdcZMmpsKfFDTd2AcDG8iNHJWD4hwr4
-	BWf7UxCmZU1U/5bBxNVg==;
+	List-Owner; bh=hmHlhTA4lYzFummlZ0B9NIkFQOCr105ZExxsd5CgvkQ=; b=2SedK6SIDAJj2v
+	9p8df8ov/rR1oDUaJv45N4HI5O+bmaQNQtHmPOhfCojpQgAcLAUeLZBKVruJ9aqrCMVwI7zE3ix/D
+	ThCoVLTK2z3mXA7wqEjirZBFqmlQ3zIMz4wVjv1pgmELZJS5Hr0cM3RAaEEc9Fla5MmHzSLGLwKME
+	YpkT/iq4UrYC2O4j3X1NctcU2dKP8/dPd7xndFM3yGCVxt1GTqH27YLQhXuVwasOkvG04ym7lMV33
+	Xz4hj2QwfW65Emm2olQ6HMVEikHfSnm9abgwb/LXTkFfYo+bL7/qIWEqa6GkDDH/b1Fb3+eWCotHt
+	egBhkABvziojiPBzfBCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfeJn-0046lt-0A;
-	Fri, 24 Mar 2023 10:06:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pfekt-004AzS-1H;
+	Fri, 24 Mar 2023 10:34:43 +0000
+Received: from relay11.mail.gandi.net ([217.70.178.231])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pfeJg-0046jm-2h
+	id 1pfekq-004AyY-1p
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 10:06:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1679652398; x=1711188398;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Bexdfvthgmxm24yne5iPZQH4IuiGSYCds0iNgWbzBLw=;
-  b=W/Xogp3z7vKexdDOLXplHZaHbV3Gf0K3GDCSGTxLRGbEl7fZll8J6zZy
-   +8ngBHgrI2JrZ/1gAWBpotJoess5fAnxhk9qTEzLrNnZHzE614LJVA66H
-   oACB/fQxYDsbO/F87pf9DyDA4fj/C3VHWHX15x5DwP5iuykRJxbjdJwaX
-   ReUP6kNzV4xzMgnosCA7XFA43sBL20X+yKQRZ9fdwvs30MdkieuVgCxtt
-   jYB5nMSkIGe+WQCGVFEd4yM0yAEQc12IN5TBWdWH3JeymzHAUkAjvBEem
-   2EfxLbnIu9uUqFsWH4b4hzwZdF6dfi4svg+sIxAV5klN9A4bMsaStNl0v
-   w==;
-X-IronPort-AV: E=Sophos;i="5.98,287,1673938800"; 
-   d="scan'208";a="206553567"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Mar 2023 03:06:36 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 24 Mar 2023 03:06:35 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Fri, 24 Mar 2023 03:06:33 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <palmer@dabbelt.com>
-CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, "Andrew
- Jones" <ajones@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 2/2] RISC-V: always select RISCV_ALTERNATIVE for non-xip kernels
-Date: Fri, 24 Mar 2023 10:05:39 +0000
-Message-ID: <20230324100538.3514663-3-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230324100538.3514663-1-conor.dooley@microchip.com>
-References: <20230324100538.3514663-1-conor.dooley@microchip.com>
+	Fri, 24 Mar 2023 10:34:42 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 55EDD100004;
+	Fri, 24 Mar 2023 10:34:27 +0000 (UTC)
+Message-ID: <877d03e1-b00b-7863-6104-21b42bc63711@ghiti.fr>
+Date: Fri, 24 Mar 2023 11:34:26 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3921; i=conor.dooley@microchip.com; h=from:subject; bh=Bexdfvthgmxm24yne5iPZQH4IuiGSYCds0iNgWbzBLw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmypS/iNOXXBArcsThyz3Zxon3V/LmPYr5tiWxWLFBfp3cj 7N3NjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzk6BuGv9I9bwPFNSy7XGNb5z5rPL EmVvxn3fSU9Uevzv8+93OEhw3DfzdB5T+T92V8Mr2ga9ituLvixiTpLZ+0dOTcj3yaW/PrIxsA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v8 1/3] riscv: Introduce CONFIG_RELOCATABLE
+Content-Language: en-US
+To: Nick Desaulniers <ndesaulniers@google.com>, =?UTF-8?B?QmrDtnJuIFTDtnBl?=
+ =?UTF-8?Q?l?= <bjorn@kernel.org>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, nathan@kernel.org,
+ linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
+References: <20230215143626.453491-1-alexghiti@rivosinc.com>
+ <20230215143626.453491-2-alexghiti@rivosinc.com>
+ <4a6fc7a3-9697-a49b-0941-97f32194b0d7@ghiti.fr>
+ <877cw7dphf.fsf@all.your.base.are.belong.to.us>
+ <CAKwvOdk0Lr-9gt0xAKvkcwA53+Wy8oeYQo1RJ7XH-LKCCURQCQ@mail.gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAKwvOdk0Lr-9gt0xAKvkcwA53+Wy8oeYQo1RJ7XH-LKCCURQCQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_030636_878777_8F76EB55 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20230324_033441_174542_A4651319 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +68,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When moving switch_to's has_fpu() over to using
-riscv_has_extension_likely() rather than static branches, the FPU code
-gained a dependency on the alternatives framework.
-That dependency has now been removed, as riscv_has_extension_ikely() now
-contains a fallback path, using __riscv_isa_extension_available(), but
-if CONFIG_RISCV_ALTERNATIVE isn't selected when CONFIG_FPU is, has_fpu()
-checks will not benefit from the "fast path" that the alternatives
-framework provides.
-
-We want to ensure that alternatives are available whenever
-riscv_has_extension_[un]likely() is used, rather than silently falling
-back to the slow path, but rather than rely on selecting
-RISCV_ALTERNATIVE in the myriad of locations that may use
-riscv_has_extension_[un]likely(), select it (almost) always instead by
-adding it to the main RISCV config entry.
-xip kernels cannot make use of the alternatives framework, so it is not
-enabled for those configurations, although this is the status quo.
-
-All current sites that select RISCV_ALTERNATIVE are converted to
-dependencies on the option instead. The explicit dependencies on
-!XIP_KERNEL can be dropped, as RISCV_ALTERNATIVE is not user selectable.
-
-Fixes: 702e64550b12 ("riscv: fpu: switch has_fpu() to riscv_has_extension_likely()")
-Link: https://lore.kernel.org/all/ZBruFRwt3rUVngPu@zx2c4.com/
-Reported-by: Jason A. Donenfeld <Jason@zx2c4.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/Kconfig         | 12 ++++++------
- arch/riscv/Kconfig.erratas |  6 ++----
- 2 files changed, 8 insertions(+), 10 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc37604..2f6976418d0a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -126,6 +126,7 @@ config RISCV
- 	select OF_IRQ
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_MSI if PCI
-+	select RISCV_ALTERNATIVE if !XIP_KERNEL
- 	select RISCV_INTC
- 	select RISCV_TIMER if RISCV_SBI
- 	select SIFIVE_PLIC
-@@ -401,9 +402,8 @@ config RISCV_ISA_C
- config RISCV_ISA_SVPBMT
- 	bool "SVPBMT extension support"
- 	depends on 64BIT && MMU
--	depends on !XIP_KERNEL
-+	depends on RISCV_ALTERNATIVE
- 	default y
--	select RISCV_ALTERNATIVE
- 	help
- 	   Adds support to dynamically detect the presence of the SVPBMT
- 	   ISA-extension (Supervisor-mode: page-based memory types) and
-@@ -428,8 +428,8 @@ config TOOLCHAIN_HAS_ZBB
- config RISCV_ISA_ZBB
- 	bool "Zbb extension support for bit manipulation instructions"
- 	depends on TOOLCHAIN_HAS_ZBB
--	depends on !XIP_KERNEL && MMU
--	select RISCV_ALTERNATIVE
-+	depends on MMU
-+	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Adds support to dynamically detect the presence of the ZBB
-@@ -443,9 +443,9 @@ config RISCV_ISA_ZBB
- 
- config RISCV_ISA_ZICBOM
- 	bool "Zicbom extension support for non-coherent DMA operation"
--	depends on !XIP_KERNEL && MMU
-+	depends on MMU
-+	depends on RISCV_ALTERNATIVE
- 	default y
--	select RISCV_ALTERNATIVE
- 	select RISCV_DMA_NONCOHERENT
- 	help
- 	   Adds support to dynamically detect the presence of the ZICBOM
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index 69621ae6d647..0c8f4652cd82 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -2,8 +2,7 @@ menu "CPU errata selection"
- 
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
--	depends on !XIP_KERNEL
--	select RISCV_ALTERNATIVE
-+	depends on RISCV_ALTERNATIVE
- 	help
- 	  All SiFive errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all SiFive errata. Please say "Y"
-@@ -35,8 +34,7 @@ config ERRATA_SIFIVE_CIP_1200
- 
- config ERRATA_THEAD
- 	bool "T-HEAD errata"
--	depends on !XIP_KERNEL
--	select RISCV_ALTERNATIVE
-+	depends on RISCV_ALTERNATIVE
- 	help
- 	  All T-HEAD errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all T-HEAD errata. Please say "Y"
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTmljaywKCk9uIDMvMjIvMjMgMTk6MjUsIE5pY2sgRGVzYXVsbmllcnMgd3JvdGU6Cj4gT24g
+RnJpLCBGZWIgMjQsIDIwMjMgYXQgNzo1OOKAr0FNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5l
+bC5vcmc+IHdyb3RlOgo+PiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyaXRlczoK
+Pj4KPj4+ICtjYyBsaW51eC1rYnVpbGQsIGxsdm0sIE5hdGhhbiwgTmljawo+Pj4KPj4+IE9uIDIv
+MTUvMjMgMTU6MzYsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4+PiBGcm9tOiBBbGV4YW5kcmUg
+R2hpdGkgPGFsZXhAZ2hpdGkuZnI+Cj4+Pj4KPj4+IEkgdHJpZWQgYSBsb3Qgb2YgdGhpbmdzLCBi
+dXQgSSBzdHJ1Z2dsZSB0byB1bmRlcnN0YW5kLCBkb2VzIGFueW9uZSBoYXZlCj4+PiBhbnkgaWRl
+YT8gRllJLCB0aGUgc2FtZSBwcm9ibGVtIGhhcHBlbnMgd2l0aCBMTFZNLgo+IE9mZiB0aGUgdG9w
+IG9mIG15IGhlYWQsIG5vIGlkZWEuCj4KPiAoTWF5YmUgYXMgYSBmb2xsb3cgdXAgdG8gdGhpcyBz
+ZXJpZXMsIEkgd29uZGVyIGlmIHB1cnN1aW5nCj4gQVJDSF9IQVNfUkVMUiBmb3IgQVJDSD1yaXNj
+diBpcyB3b3J0aHdoaWxlPykKCgpJSVVDLCB0aGUgZ29hbCBmb3IgdXNpbmcgUkVMUiBpcyB0byBy
+ZWR1Y2UgdGhlIHNpemUgb2YgYSBrZXJuZWwgaW1hZ2U6IApyaWdodCBub3csIHRoaXMgaXMgbm90
+IG15IHByaW9yaXR5LCBidXQgSSdsbCBhZGQgdGhhdCB0byBteSB0b2RvIGxpc3QgCmJlY2F1c2Ug
+dGhhdCBtYXkgYmUgdXNlZnVsIHRvIGRpc3Ryb3MuCgoKPgo+PiBEb24ndCBhc2sgbWUgKndoeSos
+IGJ1dCBhZGRpbmcgLS1lbWl0LXJlbG9jcyB0byB5b3VyIGxpbmtlciBmbGFncyBzb2x2ZXMKPj4g
+InRoZSBOVUxMIC5yZWxhLmR5biIgYm90aCBmb3IgR0NDIGFuZCBMTFZNLgo+Pgo+PiBUaGUgZG93
+bnNpZGUgaXMgdGhhdCB5b3UgZW5kIHVwIHdpdGggYSBidW5jaCBvZiAucmVsYSBjcnVmdCBpbiB5
+b3VyCj4+IHZtbGludXguCj4gVGhlcmUgd2FzIGEgcGF0Y2gganVzdCB0aGlzIHdlZWsgdG8gdXNl
+ICQoT0JKQ09QWSkgdG8gc3RyaXAgdGhlc2UgZnJvbQo+IHZtbGludXggKGZvciB4ODYpLiBMb29r
+cyBsaWtlIHg4NiB1c2VzIC0tZW1pdC1yZWxvY3MgZm9yIEtBU0xSOgo+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2xrbWwvMjAyMzAzMjAxMjEwMDYuNDg2My0xLXBldHIucGF2bHVAc3VzZS5jb20v
+CgoKVGhhdCdzIG5pY2UsIHRoYXQgd291bGQgYmUgYW4gaW50ZXJlc3RpbmcgaW50ZXJtZWRpYXRl
+IHN0ZXAgdW50aWwgd2UgCmZpbmQgdGhlIGlzc3VlIGhlcmUgYXMgSSBiZWxpZXZlIGl0IGlzIGlt
+cG9ydGFudCB0byBoYXZlIHRoZSByZWxvY2F0aW9ucyAKaW4gdGhlIGluaXQgc2VjdGlvbiB0byBz
+YXZlIG1lbW9yeS4KClRoYW5rcyBmb3IgeW91ciBhbnN3ZXIgTmljaywgcmVhbGx5IGFwcHJlY2lh
+dGVkLAoKQWxleAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
