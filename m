@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B94EC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 11:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAF0C6FD20
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Mar 2023 11:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y0K00l5HzY+naVqK+KDGWmKp6zSYJIphcwVmmjC0p/4=; b=z+JXfKxDrcSmMP
-	3JxyTyMI6KC65ba66dvAmOtAbKqsRsR0+u2PewWzn1fLofUSJawVZg6MYfV+u4K7EN83QpB5BX7ZR
-	X76R5rOAXRaOBYXcFHqet/bI1sThFGBxXVpSe+eKc8s8rqg9n4Sp7FTymiw3gcPmfbATxD7zJSDcB
-	kuJCCHxq/r2viZZ2EQHc5xbq1SEyEv/K7NaWhvlincYzuSzrU4rmTDNl7rppEr3g3Jh1uguTIeXqX
-	AIxHokhUdTjnJ4lR2qakioDNc/+OZdn9suxmjN4X/ZCxFngrIqEqFFAVPAxwCAVjBcsgwIg9I6ZrZ
-	LjLSArZZ5jKFSTMzggDQ==;
+	List-Owner; bh=xbzFg+abyhPwuzub/RDKUVkE88moWmQYcfb4YWtTUk8=; b=NKbjI5IjlaOkuX
+	+y6fCV9Q2vYnnt+n4IUu0VxYGTTazKZ0Ays8MZvrcupBti8Wi+S8vLC4GwuXxz3VBeHbGgvNexyh/
+	UFT1D/Ozf7sFUJRAAdmrOqfKi/piRdGBgQHucVKCYT1C89tIiQYvIDF6LWyKfWU9uTkwxZdoympJg
+	6GhIG/ny4ew3dIv2gHppKiS0dugl3/jkXe+RW1/zwGzKYFlYy5oqzEqJMjFgDhfGh6ayvSgTHhx2v
+	auCK41ogXRBwlloyqUEke8OkugSiZc8IECj/Ucld6fBEC+hdraBwVnXYxwCc7nK3ir0xUZ8ZBTWZ/
+	S4a2v6xkgN6l/oIQ46sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pffdb-004Fbl-07;
-	Fri, 24 Mar 2023 11:31:15 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pfffQ-004FnY-2U;
+	Fri, 24 Mar 2023 11:33:08 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pffdY-004Fax-0f
+	id 1pfffN-004FmT-2v
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Mar 2023 11:31:13 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id l15-20020a05600c4f0f00b003ed58a9a15eso794610wmq.5
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 04:31:09 -0700 (PDT)
+	Fri, 24 Mar 2023 11:33:07 +0000
+Received: by mail-wr1-x429.google.com with SMTP id y14so1471200wrq.4
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Mar 2023 04:33:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679657468;
+        d=ventanamicro.com; s=google; t=1679657580;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3f6o0AI12RH51u4tiMa8ok8ddso/WpX9mlrkI0ZUu0w=;
-        b=P7MGoAM/2B0An/hP4AHitapxcPDSq7vRUPNE7aa6gf7AlO5KgYVw+iE5cDl0nuxNSo
-         bIuB51BQrVxtU2a4mNCgfg83mSVWjTaQ77YrAXbp0XAxUVYmw13/gTqJHrXjeLULyhMr
-         VwkkvDVEuOIwU8zDdX3oArtR1Y2DbHZgol4F7jxOWDpZ7OPqVO1qoJendXyLuRuZWo7B
-         c/tmZmE9sTFrpqbKUaHIFHI/mLLV9MrDxdKglqmSJ/rOXAzucYQ1hNN/PqsGiweulo9T
-         DZcTdkjbBdLZHmRePmljMUiN9NBi3KjAKSx9YJr2TuQqFKCqhTK/ZZV30YBYJJDEj7DU
-         /QiA==
+        bh=c9mfBPHWNXxTIV1nQvXSPtgehyiQ/bBaTzK8juytk8Q=;
+        b=JaZ3WjwRx2x3DXON+Dzw4Die5tS3FHA3mLfgJNuYOXKL2mOZoXxFGo3n5hzThLZ40G
+         /EVDXHiC68IvxsqXpZOIBM/Pe5gijz2+eysIVMGzklSx2s2z+AkcuUwoZT50r1af6tWZ
+         9ciXPnXZtCXLgdOh5BuPX6a3W+ehk0txs7KfoDXFQo4wv1m/jsFrVG+TeNyx+RjDKSO3
+         qh7PFciMXKkw1KT5RcFvVAgc3aXxUjHN5Ozo/4jep3DWASx1J1pl5+yuY8L0pcHVgeo9
+         9GWhtnfA1YDsach8O3F9en4wX7ncRMhot+cLVEyAmNwyBM8jnFFaQ65Ja4N8nwFWJO1E
+         9Jeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679657468;
+        d=1e100.net; s=20210112; t=1679657580;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3f6o0AI12RH51u4tiMa8ok8ddso/WpX9mlrkI0ZUu0w=;
-        b=NXptnxTMuC/AmhaowGhfQ8rOI8ZJZPD7oxmpJHeuo4oOG29cZ9agsiVkjbZJwl+p8g
-         u07ICbflfBIz2zyj6HrxS8KR+V7vK4fSViBC3ZaKvrod6Mb1g231FYbOI2UN8VagwVqU
-         PUvIKrUUAVZyVBs1LYLiB3S8sCYJyBpYsJgyPmvXjfcqO2gNsThzRCw18V9Wx7v6H5z0
-         627OvBlt+KriQUHviHdBcJKl1onNvqLFCdlGnb3/HusrdVRxx4IcdbOfr0OhsvMwAjbJ
-         43/Or+mfl7GPoikwcCLLD3SocBBcby0mX5R0DtAN1yRd0nBLYQ7GE3dTnLiMfgKUsJIp
-         0cmg==
-X-Gm-Message-State: AO0yUKUdtM/pOykfgovJmiTlK+baPQoj/Ey/QUucNy5Z/b+ogYpA/tOE
-	VIjinm0fCydZmhewi3SRbF6hG9KKvGp3Hpijpsg=
-X-Google-Smtp-Source: AK7set90HHQGOSmYwIhfXbBeLYZ6w7qAmsMo8qC4WtVE1IN71eLboJgV4HF2Ym6aKBH6h674mWcsdg==
-X-Received: by 2002:a7b:cb90:0:b0:3dc:4b87:a570 with SMTP id m16-20020a7bcb90000000b003dc4b87a570mr2381902wmi.35.1679657468483;
-        Fri, 24 Mar 2023 04:31:08 -0700 (PDT)
+        bh=c9mfBPHWNXxTIV1nQvXSPtgehyiQ/bBaTzK8juytk8Q=;
+        b=hfHdjYQwbk2MTAUk6MAlQGayOLiFUqdWipUm3bMMOpBwDRKqzvM/Bjeue2EVBGYfid
+         ZJDWu1gilklCjAK0DX8BuJJyspbFZ90CbPfq1zplEpp8yLmtf0k5IM9Zb5ebeXztXVbh
+         vrx/u3O8jysjZ/CImxm6e7B9uR3T7gD6gKuN2/7iVJcUBaV1KHosE8cNB6Jrr7QYY/Zl
+         RxVYuOJN/jXsiDzFCVBIqhSDt7flqBneq2y0t9U8kW8NuxPGz0ZjjsF56cbat0hhELnP
+         bvSGLTqjvWi5CUEFA954aSVsQ8+L8hbABbmFnhOsprJkKciKNm+MKswV/KhIAlnG7Sur
+         lybQ==
+X-Gm-Message-State: AAQBX9cUXRj7pdw5E1kwQkazuU3igx6nOuADQysBYr8QuBxlkvcSTbP6
+	JXmEv63yvieJ/PuvnCO7+mOMRA==
+X-Google-Smtp-Source: AKy350aBxNX7eHqvxLnHFQWKp5rLscPVvYmFvx8SewNdH/IanXYNfineJs4agHM6Lz8XHBl3gEbZzA==
+X-Received: by 2002:a5d:484c:0:b0:2ce:aa63:6dad with SMTP id n12-20020a5d484c000000b002ceaa636dadmr1658548wrs.45.1679657580544;
+        Fri, 24 Mar 2023 04:33:00 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id f24-20020a7bc8d8000000b003eb596cbc54sm4724396wml.0.2023.03.24.04.31.07
+        by smtp.gmail.com with ESMTPSA id x2-20020a5d60c2000000b002cfe71153b4sm18204863wrt.60.2023.03.24.04.32.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Mar 2023 04:31:08 -0700 (PDT)
-Date: Fri, 24 Mar 2023 12:31:07 +0100
+        Fri, 24 Mar 2023 04:33:00 -0700 (PDT)
+Date: Fri, 24 Mar 2023 12:32:59 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: palmer@dabbelt.com, conor@kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/2] RISC-V: Fixes for
- riscv_has_extension[un]likely()'s alternative dependency
-Message-ID: <20230324113107.djp4ejnlpzn3qzrb@orel>
-References: <20230324100538.3514663-1-conor.dooley@microchip.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Anup Patel ' <anup@brainfault.org>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Atish Patra ' <atishp@atishpatra.org>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH 0/2] RISC-V: KVM: Require alternatives
+Message-ID: <20230324113259.jbfncctnclvkzjkz@orel>
+References: <20230322192858.1189272-1-ajones@ventanamicro.com>
+ <6d263b50-e2f0-4331-b930-c54e27f52fcc@spud>
+ <427628e0-4c6d-4934-b873-fa1b81b7daa0@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230324100538.3514663-1-conor.dooley@microchip.com>
+In-Reply-To: <427628e0-4c6d-4934-b873-fa1b81b7daa0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230324_043112_245020_014832F0 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20230324_043305_951995_9FDFED10 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,69 +97,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 24, 2023 at 10:05:37AM +0000, Conor Dooley wrote:
-> Here's my attempt at fixing both the use of an FPU on XIP kernels and
-> the issue that Jason ran into where CONFIG_FPU, which needs the
-> alternatives frame work for has_fpu() checks, could be enabled without
-> the alternatives actually being present.
+On Thu, Mar 23, 2023 at 05:57:14PM +0000, Conor Dooley wrote:
+> On Wed, Mar 22, 2023 at 07:40:14PM +0000, Conor Dooley wrote:
+> > On Wed, Mar 22, 2023 at 08:28:56PM +0100, Andrew Jones wrote:
+> > > KVM makes use of riscv_has_extension_unlikely() to check for the
+> > > svinval extension. riscv_has_extension_unlikely() is built on
+> > > alternatives, which means KVM should ensure alternatives support
+> > > is available.
+> > > 
+> > > The first patch takes the opportunity to cleanup KVM's select
+> > > list. The second patch selects RISCV_ALTERNATIVE.
+> > 
+> > Reminds me, I need to re-submit my patch doing that for the top-level
+> > RISC-V Kconfig...
+> > For the pair:
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > 
-> For the former, a "slow" fallback that does not use alternatives is
-> added to riscv_has_extension_[un]likely() that can be used with XIP.
-> Obviously, we want to make use of Jisheng's alternatives based approach
-> where possible, so any users of riscv_has_extension_[un]likely() will
-> want to make sure that they select RISCV_ALTERNATIVE.
-> If they don't however, they'll hit the fallback path which (should,
-> sparing a silly mistake from me!) behave in the same way, thus
-> succeeding silently. Sounds like a
-> 
-> To prevent "depends on !XIP_KERNEL; select RISCV_ALTERNATIVE" spreading
-> like the plague through the various places that want to check for the
-> presence of extensions, and sidestep the potential silent "success"
-> mentioned above, all users RISCV_ALTERNATIVE are converted from selects
-> to dependencies, with the option being selected for all !XIP_KERNEL
-> builds.
-> 
-> I know that the VDSO was a key place that Jisheng wanted to use the new
-> helper rather than static branches, and I think the fallback path
-> should not cause issues there.
-> 
-> See the thread at [1] for the prior discussion.
-> 
-> Cheers,
-> Conor.
-> 
-> 1 - https://lore.kernel.org/linux-riscv/20230128172856.3814-1-jszhang@kernel.org/T/#m21390d570997145d31dd8bb95002fd61f99c6573
-> 
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> CC: Andrew Jones <ajones@ventanamicro.com>
-> CC: Anup Patel <apatel@ventanamicro.com>
-> CC: Jisheng Zhang <jszhang@kernel.org>
-> CC: Andrew Jones <ajones@ventanamicro.com>
-> CC: Jason A. Donenfeld <Jason@zx2c4.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-kernel@vger.kernel.org
-> 
-> Conor Dooley (2):
->   RISC-V: add non-alternative fallback for
->     riscv_has_extension_[un]likely()
->   RISC-V: always select RISCV_ALTERNATIVE for non-xip kernels
-> 
->  arch/riscv/Kconfig             | 12 ++++----
->  arch/riscv/Kconfig.erratas     |  6 ++--
->  arch/riscv/include/asm/hwcap.h | 50 ++++++++++++++++++++--------------
->  3 files changed, 38 insertions(+), 30 deletions(-)
-> 
-> -- 
-> 2.39.2
->
+> Actually, I would like to take this back for patch 2.
+> Per the discussion on the other thread about XIP [1], I don't think
+> that KVM should be selecting alternatives like this.
+> Would you mind if I picked up these patches & submitted them as a v2,
+> alongside a patch trying to make sure that we do not clip the wings of
+> of XIP kernels by selecting RISCV_ALTERNATIVE?
 
-LGTM, but if it was based on for-next then it could also immediately be
-applied to zicboz. For the series,
+Hi Conor,
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+I take it that resubmitting these patches is no longer part of the plan.
+Should I rebase on "[PATCH v1 0/2] RISC-V: Fixes for
+riscv_has_extension[un]likely()'s alternative dependency" and change the
+select to a depends on?
 
 Thanks,
 drew
