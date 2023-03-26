@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD808C6FD1C
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Mar 2023 16:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDE1C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Mar 2023 18:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVkfvYUnKLcMe956Cor8PlHIByPsDKl5HTkC9RVqHDM=; b=YL7uGgYF2ZsqKa
-	NrVHasQzp340vVgjlGmoNGj5zhiu5aO7rkCJqepoEk7IqrknmGxLOAv/UVPYFb2FLF1a4nOwWly7F
-	NRKOgI5NgQCpYtDV1XaU7/61/rzeiJ4C0SJgQsWGqnK/CrwsIWNr2u9tSkOvZZ9UMoHGw0gTtDQvr
-	Jq8hle2+7SezKfSoyJDO1fViMrDr4Hh8uiSpBNt8f2PL8OynmRXX8P98qycW32yZTbXofed1jJx0K
-	Peib5f3I1sL7yX1YXHip0XbQMGKeSXiE0LvEjqL7Da76NZsjNBJMxULYPnjVgmymcHtdZgexcrIue
-	912J4srXGkt4yDf5aA1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=t98RQZnEiSwdSrilWwDuwNUnDNMoIpdmlFnHwXRUvsY=; b=x4Hl6vGRxp/M5j
+	T0lS9+tlE43o2bNqM5ekp+p/s38Sjz7THjAA0suNcrKKo0zFeGkKIqG4LIwH6E6mXD3Whd1Pn6uHl
+	brpxLeQ05rpRBJoO/Vfzdu04g6+LC0H6nyBHUlzy48L6EspTeKW1uIy/ONPp1+CuhzW2Ux+fwGauD
+	pXX3UO/fGrRgbxIcz7pJ7g1Mqo0yt9CLOsspgGEGi1/MOsJqcMracKuxRE+Y3q4+Dx8Waoq3oRF8i
+	YOyYM1a3WBeuygfbCs86IvsplVyPeQELU7/tt98vwXfN8hOUdiwPXmBT/Jjwh652FBSbJP5QPG3YC
+	GL7edHZFDsivhiCrs0JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgTY0-008ptU-31;
-	Sun, 26 Mar 2023 16:48:48 +0000
-Received: from iad0.nichi.link ([5.161.83.9])
+	id 1pgV1c-008ziT-1J;
+	Sun, 26 Mar 2023 18:23:28 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgTXx-008psn-2z
+	id 1pgV1Y-008zga-1K
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Mar 2023 16:48:47 +0000
-Received: from [IPV6:2402:f000:2:c801:3a00:25ff:fe59:8c06] (unknown [IPv6:2402:f000:2:c801:3a00:25ff:fe59:8c06])
-	by iad0.nichi.link (Postfix) with ESMTPA id DD5A887A02;
-	Sun, 26 Mar 2023 16:48:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nichi.co; s=default;
-	t=1679849316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VWn62rWoesr1V+Jp7k/v6C+Nt0B/JD6KJm7XDX0ZcKc=;
-	b=F4FKRJcUCMPpnaM9P5gN6jHEGLeMEv2703QQMls5hBQlIuu7B37ZLAroMiOHDz0ft2j9EG
-	7bwp10mFfNIwt6S7z15djRxHlN42VxOTUMTElNyhDiIUxqWH945MbE7oOz4ueh7zfblIco
-	lb+YloLzv045ZonQ40my3l7bIV7Lfgg=
-Message-ID: <3db66793-c647-f6c9-7c5b-d7a331c8f328@nichi.co>
-Date: Mon, 27 Mar 2023 00:48:31 +0800
+	Sun, 26 Mar 2023 18:23:27 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id 126F15C00D5;
+	Sun, 26 Mar 2023 14:23:20 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute5.internal (MEProxy); Sun, 26 Mar 2023 14:23:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alyssa.is; h=cc
+	:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1679855000; x=1679941400; bh=M9VSG9c5T3
+	1aOotkBu3C2E0xwoGSkwmuq4Ti2Ve1tEI=; b=orWuq3xj1DQJl0roms82XWSlII
+	t1c1S/Ye9/R+L0SYSrmZs5se42zKmLvIl0BK+jt8RxsvEG5B2vwpvoyq7RHQNwRP
+	7nR8Quwq1qpKlDpjZXkSWNSwYv6KAiUKPAo9MYnUWvFl6XvwIG3kvlL5ZTj2T6Xq
+	k4Nq0Q+MOjdaQTXJ1n7qz1HSjZvTqGjqE9bfPy1szFq/i1PmJar7VLmqa/XXBBYb
+	r2gjHHXCNC3C7VvgHg7yA+1ekXC/gf6Pl+mQMoQSCcWZGqUT42/eOY3bohLxGpLE
+	L0LCb6rpLborL+uJd6ydVFYA2252LOMLluikix5FsakrlaCb+RGoAAlMgZqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1679855000; x=1679941400; bh=M9VSG9c5T31aO
+	otkBu3C2E0xwoGSkwmuq4Ti2Ve1tEI=; b=E1ySVSOLCRpuJZeZSzSlbiX1sACyt
+	MdkKZGKgEXBxMne9wvX8u1ODpNwGPkkvt/Y4qU2DMe/xndPyVVkqC33rVfhhvI4X
+	tjUyIyltAyxxhiyHfb4GEW71zYQ2W/mMR8vWlfdGXP8waIoHsEbKCuSNAAVLoNAH
+	F3PD9XXrxjUXxeK8aGuUUSvGZdCN1J2KRLNSbRVyws0MuRKkAPw/L/WIqLxD+oN9
+	dIpYqZD090Qbgzx6PrFoS9eYldGGsJECst6cmcp5ksJiZAI7i1AfSUS3/w0Z30Uj
+	bAruyuOQPVtlUsI2L231A0LbaUEiDe/fgyyiERGtQGFNOQzlbcpVQtNFg==
+X-ME-Sender: <xms:l40gZFg7B5UjJR6dNlVCQ6J8nkicnFzZjMX9eTixU38lS74SpxvRYQ>
+    <xme:l40gZKBwe0BaP1iGsOkX-IPJYpYvsdNuVoctkMObon87KSqFApnGqj4a_aQSjrZVh
+    1cPDO2UVHdDcp8f4Q>
+X-ME-Received: <xmr:l40gZFEMn-ZKQDX-4XaQUwzxAlwIqkNTigGmJYYffX6B6zd4JMvWnkUi-RcVbenoxFJh81dD_LXCRbUq4RJfOxvMDvmyCY0Kog>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdehtddguddvhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeetlhihshhs
+    rgcutfhoshhsuceohhhisegrlhihshhsrgdrihhsqeenucggtffrrghtthgvrhhnpeehke
+    fgtdevtedtkeduudeguefgudejheeugfelgeettdfhffduhfehudfhudeuhfenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehhihesrghlhihssh
+    grrdhish
+X-ME-Proxy: <xmx:l40gZKRwWPSWbSlLt5dhyr0CaylzZI70BVU9ivslFitOmZetZCBn9g>
+    <xmx:l40gZCwST8pEHX7K-SiTUacztM63AhI1OyKh63MIJ_2HhIooaQOCLg>
+    <xmx:l40gZA7hdJdcEQ57udqoCya1Uah6Jh2omM-ZIsFpJHjlYcFNPJMHsA>
+    <xmx:mI0gZE5TXdcl9GwN5Fi-Mbv9pqrbLjaTlBbnjaB8EeX1wjfsgvaYQQ>
+Feedback-ID: i12284293:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 26 Mar 2023 14:23:19 -0400 (EDT)
+Received: by x220.qyliss.net (Postfix, from userid 1000)
+	id 494C81FD7; Sun, 26 Mar 2023 18:23:17 +0000 (UTC)
+From: Alyssa Ross <hi@alyssa.is>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nick Cao <nickcao@nichi.co>,
+	linux-kbuild@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	Tom Rix <trix@redhat.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alyssa Ross <hi@alyssa.is>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] purgatory: fix disabling debug info
+Date: Sun, 26 Mar 2023 18:21:21 +0000
+Message-Id: <20230326182120.194541-1-hi@alyssa.is>
+X-Mailer: git-send-email 2.37.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH] purgatory: fix disabling debug info
-To: Alyssa Ross <hi@alyssa.is>, Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
- Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
- Tom Rix <trix@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, stable@vger.kernel.org
-References: <20230326153412.63128-1-hi@alyssa.is>
-Content-Language: en-US
-From: Nick Cao <nickcao@nichi.co>
-In-Reply-To: <20230326153412.63128-1-hi@alyssa.is>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230326_094846_088526_5A256F7F 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20230326_112325_734121_9B403341 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +110,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With this patch applied on top of 
-https://github.com/NickCao/linux/tree/f258de7fdb1e69492f8962da5d34646da49685db, 
-the built kernel image no longer contains reference to the source 
-directory (which is not allowed in the Nixpkgs kernel building 
-infrastructure).
+Since 32ef9e5054ec, -Wa,-gdwarf-2 is no longer used in KBUILD_AFLAGS.
+Instead, it includes -g, the appropriate -gdwarf-* flag, and also the
+-Wa versions of both of those if building with Clang and GNU as.  As a
+result, debug info was being generated for the purgatory objects, even
+though the intention was that it not be.
 
-Tested-by: Nick Cao <nickcao@nichi.co>
+Fixes: 32ef9e5054ec ("Makefile.debug: re-enable debug info for .S files")
+Signed-off-by: Alyssa Ross <hi@alyssa.is>
+Cc: stable@vger.kernel.org
+---
 
-On 3/26/23 23:34, Alyssa Ross wrote:
-> Since 32ef9e5054ec, -Wa,-gdwarf-2 is no longer used in KBUILD_AFLAGS.
-> Instead, it includes -g, the appropriate -gdwarf-* flag, and also the
-> -Wa versions of both of those if building with Clang and GNU as.  As a
-> result, debug info was being generated for the purgatory objects, even
-> though the intention was that it not be.
-> 
-> Fixes: 32ef9e5054ec ("Makefile.debug: re-enable debug info for .S files")
-> Signed-off-by: Alyssa Ross <hi@alyssa.is>
-> Cc: stable@vger.kernel.org
-> ---
->   arch/riscv/purgatory/Makefile | 12 ++++++------
->   arch/x86/purgatory/Makefile   |  4 ++--
->   2 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index d16bf715a586..97001798fa19 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -84,12 +84,12 @@ CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
->   CFLAGS_REMOVE_ctype.o		+= $(PURGATORY_CFLAGS_REMOVE)
->   CFLAGS_ctype.o			+= $(PURGATORY_CFLAGS)
->   
-> -AFLAGS_REMOVE_entry.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_memcpy.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_memset.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strcmp.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strlen.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strncmp.o		+= -Wa,-gdwarf-2
-> +AFLAGS_REMOVE_entry.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_memcpy.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_memset.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_strcmp.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_strlen.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_strncmp.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
->   
->   $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
->   		$(call if_changed,ld)
-> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> index 17f09dc26381..f1b1ef6c4cbf 100644
-> --- a/arch/x86/purgatory/Makefile
-> +++ b/arch/x86/purgatory/Makefile
-> @@ -69,8 +69,8 @@ CFLAGS_sha256.o			+= $(PURGATORY_CFLAGS)
->   CFLAGS_REMOVE_string.o		+= $(PURGATORY_CFLAGS_REMOVE)
->   CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
->   
-> -AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_entry64.o			+= -Wa,-gdwarf-2
-> +AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-> +AFLAGS_REMOVE_entry64.o			+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
->   
->   $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
->   		$(call if_changed,ld)
-> 
-> base-commit: da8e7da11e4ba758caf4c149cc8d8cd555aefe5f
+Difference from v2: replace each AFLAGS_REMOVE_* assignment with a
+single aflags-remove-y line, and use foreach to add the -Wa versions,
+as suggested by Masahiro Yamada.
+
+ arch/riscv/purgatory/Makefile | 7 +------
+ arch/x86/purgatory/Makefile   | 3 +--
+ 2 files changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index d16bf715a586..5730797a6b40 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -84,12 +84,7 @@ CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
+ CFLAGS_REMOVE_ctype.o		+= $(PURGATORY_CFLAGS_REMOVE)
+ CFLAGS_ctype.o			+= $(PURGATORY_CFLAGS)
+ 
+-AFLAGS_REMOVE_entry.o		+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_memcpy.o		+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_memset.o		+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_strcmp.o		+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_strlen.o		+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_strncmp.o		+= -Wa,-gdwarf-2
++asflags-remove-y		+= $(foreach x, -g -gdwarf-4 -gdwarf-5, $(x) -Wa,$(x))
+ 
+ $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
+ 		$(call if_changed,ld)
+diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
+index 17f09dc26381..82fec66d46d2 100644
+--- a/arch/x86/purgatory/Makefile
++++ b/arch/x86/purgatory/Makefile
+@@ -69,8 +69,7 @@ CFLAGS_sha256.o			+= $(PURGATORY_CFLAGS)
+ CFLAGS_REMOVE_string.o		+= $(PURGATORY_CFLAGS_REMOVE)
+ CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
+ 
+-AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -Wa,-gdwarf-2
+-AFLAGS_REMOVE_entry64.o			+= -Wa,-gdwarf-2
++asflags-remove-y		+= $(foreach x, -g -gdwarf-4 -gdwarf-5, $(x) -Wa,$(x))
+ 
+ $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
+ 		$(call if_changed,ld)
+
+base-commit: da8e7da11e4ba758caf4c149cc8d8cd555aefe5f
+-- 
+2.37.1
+
 
 _______________________________________________
 linux-riscv mailing list
