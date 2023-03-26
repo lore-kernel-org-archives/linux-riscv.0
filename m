@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF4BC6FD1C
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Mar 2023 15:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C83C6FD1C
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Mar 2023 16:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J/ERffdkcz8HRwv5B172CD/K8RCMOrnQmf48V89v2qI=; b=Rp1Y+ownvEOAKb
-	ahrb7+UosGV1vpBgJI3AwcDBAbE3hxBN4XHl3XyWQXjLrf5MApR6qAY1Riqxcnnp5m8/FTfKxgMAL
-	CC+0+2MGH58vcZ27uIXYg4DlS0KCdwvVmAv0xEocElYZ8VOtZvp7KE7WntcZvIwn7mIybsFeK4y1i
-	vFBezwhumQHKC+I8cBCXf1kJSgfwJujy0wYpvP/WVO5nvy3JYSVGJqcZgZ50vlUbMO1EC1T7dwwM3
-	O+R9wNSlAsCsJ9vaMUSoTSzRUKcH1K3RWvwNugStAi6f1C5h5PGLYPBp/BPMOrmq+ZoUI0vvtmDfb
-	akcNie6jjadXkNzFvq3w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eq5ECBQqOP7yCCToaP2X/KsP+8+k/7Og4SaulbuJP/w=; b=l8MC9aZYsGFACh
+	8epWjaEXXfXODFNjkc2RyuGL8qmzRIoeDoG7P2udH/m9NPpWY8TODRBzJM1Z8rGlVyNE96kP1bMCW
+	EUU155b9xhYXAXU2BvEOc5WN2LS43453bocCuCMsoDoo5S+800eZT4wanCKil/679RvpzzrDH0QDW
+	Ox8HFc6dnCBowBUDq552/QTuLj6xx4Rb8T/qCrSubTKW3FWUxx+kpAbYkaluCD4Tw5ejlnTE2l1x4
+	2wAcVhSPxkWVurRtJBfA1RsuFXIiPitrI6uUyx3dJpvKkLymZR1yA5Hzx7T+1Quq6ZKSHV0UYFd2c
+	N3qGKuQuI0ytIqZ0Qqvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgSP7-008ipF-0K;
-	Sun, 26 Mar 2023 15:35:33 +0000
-Received: from out4-smtp.messagingengine.com ([66.111.4.28])
+	id 1pgTKW-008pK5-2B;
+	Sun, 26 Mar 2023 16:34:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgSP2-008ioL-0t
+	id 1pgTKT-008pJd-0a
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Mar 2023 15:35:31 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.nyi.internal (Postfix) with ESMTP id E8DA35C0097;
-	Sun, 26 Mar 2023 11:35:19 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute2.internal (MEProxy); Sun, 26 Mar 2023 11:35:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alyssa.is; h=cc
-	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:sender:subject
-	:subject:to:to; s=fm1; t=1679844919; x=1679931319; bh=yoT/5dYYqL
-	s4VW9DjOm5vJu5zkmQqNSHt74uigodyG0=; b=DcZ8FFH+ZKH5Cc/KPXyQ6095+J
-	FZRtvDPa/cwFzEybbsCEo67TJTLbJjKI32Agk+2/Ta7JP1bVMjB6H6pQuYL1YYGe
-	OM7+8hHmWdvcCNnAQE8CqEh9VcTjJ0iajDhMkDKsb5aKsAcz8m3oLevEmSfmRtJx
-	vXtw3tKwrNi+Q6upRcWR4TLDKAQ8r4OxsgC8bEfz078fMl4kBFiknFa2xqYE7Knp
-	gy2fB9SJvq78kd6bTwrw7j6kPZDc7LiFvY/UjyjfvBWu1LLwCHoiAXZNsUsYnPOP
-	vIZh+d7vcSs/KhwF7irakcBe08zzoeduyAeId4rgcs44WUYrDuvrRBKOge/A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1679844919; x=1679931319; bh=yoT/5dYYqLs4V
-	W9DjOm5vJu5zkmQqNSHt74uigodyG0=; b=mhZV1XekrPJxvBxD+08qQSkVdeuHR
-	S6BLfD8jUebaNfB/6llIvVPeE+iVnyc+8i0ZrUISs9EGu3FEhDc9tXfbbiDg6/Rp
-	t7Cn82Z9jTTNrKuBE65KTl4sedDz2sbHCW2KWC7oOV4ccZ7er1pKGXX/0kZ6JuLE
-	phrZpaorSOV7tFazWTLIWhvoq4vAEwK8kE89kb1ZVvkxstNRGtqy4YUQ4g7AhDTc
-	sipaGzN+dOV63OWWAUGdRIaEgxHBe8U5Vdd8GTgt3UrVrbwgTYJX5DB4jtd0b6lT
-	c+5BPvcCm4lcd9mmTPIBApSqYbAZaLyN8GJs9/tHci8u6L/N45yQgwYzA==
-X-ME-Sender: <xms:NmYgZAM8DwGMN29GdqG2obCVpaousxTdJZa6vkygu7TjX902y_UrIQ>
-    <xme:NmYgZG9bIVhl6RlvVfKGXSiUp2XKl1W7jBH30f9LUUXKeycGjahB1tQdThnWsNNgV
-    uBmN3Tn6ETHuUZOtA>
-X-ME-Received: <xmr:NmYgZHQADgJ9KkqK31FnxV0-RBbzBDE3czPXOKHDuYSNYD5XClVJaTpJvxw3qT2VPdIa60q8kgUM_CHHhlEWHSGFbVN-yFdrIQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdehtddgleduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomheptehlhihsshgr
-    ucftohhsshcuoehhihesrghlhihsshgrrdhisheqnecuggftrfgrthhtvghrnhepheekgf
-    dtveettdekuddugeeugfdujeehuefgleegtedthfffudfhheduhfduuefhnecuvehluhhs
-    thgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhephhhisegrlhihshhsrg
-    drihhs
-X-ME-Proxy: <xmx:NmYgZIvVMbyCHcHQxKTyvg8vqLI4GiwVwP7PATduFkE3bs1DW-ltag>
-    <xmx:NmYgZIeSeol3dytw8tE4J0nI_2MO4_sd3JolAgVRPukBHgA8Attc8Q>
-    <xmx:NmYgZM1JMFDh7Ug-WGuZ-l_VeLkZvoe9YaSntQwKbDxl7NnIO8HrtQ>
-    <xmx:N2YgZM1pUExcWP24azkIfCk7vwjrJZspEDwALDyH0_ShsoBlT4Foyw>
-Feedback-ID: i12284293:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 26 Mar 2023 11:35:18 -0400 (EDT)
-Received: by x220.qyliss.net (Postfix, from userid 1000)
-	id 8850F1FD0; Sun, 26 Mar 2023 15:35:16 +0000 (UTC)
-From: Alyssa Ross <hi@alyssa.is>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Nick Cao <nickcao@nichi.co>,
-	linux-kbuild@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Tom Rix <trix@redhat.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alyssa Ross <hi@alyssa.is>,
-	stable@vger.kernel.org
-Subject: [PATCH] purgatory: fix disabling debug info
-Date: Sun, 26 Mar 2023 15:34:12 +0000
-Message-Id: <20230326153412.63128-1-hi@alyssa.is>
-X-Mailer: git-send-email 2.37.1
+	Sun, 26 Mar 2023 16:34:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0812C60EFE
+	for <linux-riscv@lists.infradead.org>; Sun, 26 Mar 2023 16:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA8DC433A4
+	for <linux-riscv@lists.infradead.org>; Sun, 26 Mar 2023 16:34:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679848486;
+	bh=lniLhjzAVP4A7/HZzVY4+OrTbNpVJm/gYIDl+oQterE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JK3Yveqek/OJHInqxbDUOO4UWY67DeXaOjY5IknYOWk+oxY5lR1xHuR77gsb143FU
+	 kvRAzHEad2ehIHdRTM/RHydR6QCWR+uuhY2J1gbT/HI6YtlqiOtUG61VBQaQ/b+xyZ
+	 rwVEB5LxxQmV/hMzeKVGhmu/o9OQwsJx++9XdX8Cvp968Tr73FxM0epsJ+ujdcAI61
+	 sC1IH1WNzp3+89nKTG1XA2dkn899Qjt5NeBSq8LSIpbRRiRYTCMY830+VCSPdL3GEb
+	 0Kwt03VBvIyqBKN0pjk4satvfryw7CSOwgFwMqsRaIqI9J08PZ3ev/1ZxRwvSSUhu4
+	 dFX7zy5UTOvAQ==
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-17aaa51a911so6920699fac.5
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Mar 2023 09:34:46 -0700 (PDT)
+X-Gm-Message-State: AO0yUKUSXH5dIGJIxHd7WC+A+PJODYx7NUYoQ5zMVHGD61t0//xYz9/8
+	N7rvM3HgpPxKuqjED+sCgzk6uTJPjD32qVtqO/A=
+X-Google-Smtp-Source: AKy350ZKevNh0OIe4jwck411MTacKfhxDKD4eEX6xDTuM7GhMe3UsweBg/WHTc/a+KMwbk0nCqKHqiBgIpefvnGdVjA=
+X-Received: by 2002:a05:6870:a2a:b0:177:aff1:a393 with SMTP id
+ bf42-20020a0568700a2a00b00177aff1a393mr2203464oac.11.1679848485974; Sun, 26
+ Mar 2023 09:34:45 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230326153412.63128-1-hi@alyssa.is>
+In-Reply-To: <20230326153412.63128-1-hi@alyssa.is>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Mon, 27 Mar 2023 01:34:09 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARyn3R3BRxJ0Wdd_djTNQQR3Qh56jXAhR+gzgTsPY7Xew@mail.gmail.com>
+Message-ID: <CAK7LNARyn3R3BRxJ0Wdd_djTNQQR3Qh56jXAhR+gzgTsPY7Xew@mail.gmail.com>
+Subject: Re: [PATCH] purgatory: fix disabling debug info
+To: Alyssa Ross <hi@alyssa.is>
+Cc: Nick Cao <nickcao@nichi.co>, linux-kbuild@vger.kernel.org, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, Tom Rix <trix@redhat.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230326_083530_002698_04576399 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230326_093449_320293_67F2C24F 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,70 +81,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since 32ef9e5054ec, -Wa,-gdwarf-2 is no longer used in KBUILD_AFLAGS.
-Instead, it includes -g, the appropriate -gdwarf-* flag, and also the
--Wa versions of both of those if building with Clang and GNU as.  As a
-result, debug info was being generated for the purgatory objects, even
-though the intention was that it not be.
-
-Fixes: 32ef9e5054ec ("Makefile.debug: re-enable debug info for .S files")
-Signed-off-by: Alyssa Ross <hi@alyssa.is>
-Cc: stable@vger.kernel.org
----
- arch/riscv/purgatory/Makefile | 12 ++++++------
- arch/x86/purgatory/Makefile   |  4 ++--
- 2 files changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index d16bf715a586..97001798fa19 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -84,12 +84,12 @@ CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
- CFLAGS_REMOVE_ctype.o		+= $(PURGATORY_CFLAGS_REMOVE)
- CFLAGS_ctype.o			+= $(PURGATORY_CFLAGS)
- 
--AFLAGS_REMOVE_entry.o		+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_memcpy.o		+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_memset.o		+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_strcmp.o		+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_strlen.o		+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_strncmp.o		+= -Wa,-gdwarf-2
-+AFLAGS_REMOVE_entry.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_memcpy.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_memset.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_strcmp.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_strlen.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_strncmp.o		+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
- 
- $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
- 		$(call if_changed,ld)
-diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-index 17f09dc26381..f1b1ef6c4cbf 100644
---- a/arch/x86/purgatory/Makefile
-+++ b/arch/x86/purgatory/Makefile
-@@ -69,8 +69,8 @@ CFLAGS_sha256.o			+= $(PURGATORY_CFLAGS)
- CFLAGS_REMOVE_string.o		+= $(PURGATORY_CFLAGS_REMOVE)
- CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
- 
--AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -Wa,-gdwarf-2
--AFLAGS_REMOVE_entry64.o			+= -Wa,-gdwarf-2
-+AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
-+AFLAGS_REMOVE_entry64.o			+= -g -gdwarf-4 -gdwarf-5 -Wa,-g -Wa,-gdwarf4 -Wa,-gdwarf-5
- 
- $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
- 		$(call if_changed,ld)
-
-base-commit: da8e7da11e4ba758caf4c149cc8d8cd555aefe5f
--- 
-2.37.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXIgMjcsIDIwMjMgYXQgMTI6MzXigK9BTSBBbHlzc2EgUm9zcyA8aGlAYWx5c3Nh
+LmlzPiB3cm90ZToKPgo+IFNpbmNlIDMyZWY5ZTUwNTRlYywgLVdhLC1nZHdhcmYtMiBpcyBubyBs
+b25nZXIgdXNlZCBpbiBLQlVJTERfQUZMQUdTLgo+IEluc3RlYWQsIGl0IGluY2x1ZGVzIC1nLCB0
+aGUgYXBwcm9wcmlhdGUgLWdkd2FyZi0qIGZsYWcsIGFuZCBhbHNvIHRoZQo+IC1XYSB2ZXJzaW9u
+cyBvZiBib3RoIG9mIHRob3NlIGlmIGJ1aWxkaW5nIHdpdGggQ2xhbmcgYW5kIEdOVSBhcy4gIEFz
+IGEKPiByZXN1bHQsIGRlYnVnIGluZm8gd2FzIGJlaW5nIGdlbmVyYXRlZCBmb3IgdGhlIHB1cmdh
+dG9yeSBvYmplY3RzLCBldmVuCj4gdGhvdWdoIHRoZSBpbnRlbnRpb24gd2FzIHRoYXQgaXQgbm90
+IGJlLgo+Cj4gRml4ZXM6IDMyZWY5ZTUwNTRlYyAoIk1ha2VmaWxlLmRlYnVnOiByZS1lbmFibGUg
+ZGVidWcgaW5mbyBmb3IgLlMgZmlsZXMiKQo+IFNpZ25lZC1vZmYtYnk6IEFseXNzYSBSb3NzIDxo
+aUBhbHlzc2EuaXM+Cj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiAtLS0KPiAgYXJjaC9y
+aXNjdi9wdXJnYXRvcnkvTWFrZWZpbGUgfCAxMiArKysrKystLS0tLS0KPiAgYXJjaC94ODYvcHVy
+Z2F0b3J5L01ha2VmaWxlICAgfCAgNCArKy0tCj4gIDIgZmlsZXMgY2hhbmdlZCwgOCBpbnNlcnRp
+b25zKCspLCA4IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvcHVyZ2F0
+b3J5L01ha2VmaWxlIGIvYXJjaC9yaXNjdi9wdXJnYXRvcnkvTWFrZWZpbGUKPiBpbmRleCBkMTZi
+ZjcxNWE1ODYuLjk3MDAxNzk4ZmExOSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L3B1cmdhdG9y
+eS9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcmlzY3YvcHVyZ2F0b3J5L01ha2VmaWxlCj4gQEAgLTg0
+LDEyICs4NCwxMiBAQCBDRkxBR1Nfc3RyaW5nLm8gICAgICAgICAgICAgICAgICAgICArPSAkKFBV
+UkdBVE9SWV9DRkxBR1MpCj4gIENGTEFHU19SRU1PVkVfY3R5cGUubyAgICAgICAgICArPSAkKFBV
+UkdBVE9SWV9DRkxBR1NfUkVNT1ZFKQo+ICBDRkxBR1NfY3R5cGUubyAgICAgICAgICAgICAgICAg
+Kz0gJChQVVJHQVRPUllfQ0ZMQUdTKQo+Cj4gLUFGTEFHU19SRU1PVkVfZW50cnkubyAgICAgICAg
+ICArPSAtV2EsLWdkd2FyZi0yCj4gLUFGTEFHU19SRU1PVkVfbWVtY3B5Lm8gICAgICAgICArPSAt
+V2EsLWdkd2FyZi0yCj4gLUFGTEFHU19SRU1PVkVfbWVtc2V0Lm8gICAgICAgICArPSAtV2EsLWdk
+d2FyZi0yCj4gLUFGTEFHU19SRU1PVkVfc3RyY21wLm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0y
+Cj4gLUFGTEFHU19SRU1PVkVfc3RybGVuLm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFG
+TEFHU19SRU1PVkVfc3RybmNtcC5vICAgICAgICAgICAgICAgICs9IC1XYSwtZ2R3YXJmLTIKPiAr
+QUZMQUdTX1JFTU9WRV9lbnRyeS5vICAgICAgICAgICs9IC1nIC1nZHdhcmYtNCAtZ2R3YXJmLTUg
+LVdhLC1nIC1XYSwtZ2R3YXJmNCAtV2EsLWdkd2FyZi01Cj4gK0FGTEFHU19SRU1PVkVfbWVtY3B5
+Lm8gICAgICAgICArPSAtZyAtZ2R3YXJmLTQgLWdkd2FyZi01IC1XYSwtZyAtV2EsLWdkd2FyZjQg
+LVdhLC1nZHdhcmYtNQo+ICtBRkxBR1NfUkVNT1ZFX21lbXNldC5vICAgICAgICAgKz0gLWcgLWdk
+d2FyZi00IC1nZHdhcmYtNSAtV2EsLWcgLVdhLC1nZHdhcmY0IC1XYSwtZ2R3YXJmLTUKPiArQUZM
+QUdTX1JFTU9WRV9zdHJjbXAubyAgICAgICAgICs9IC1nIC1nZHdhcmYtNCAtZ2R3YXJmLTUgLVdh
+LC1nIC1XYSwtZ2R3YXJmNCAtV2EsLWdkd2FyZi01Cj4gK0FGTEFHU19SRU1PVkVfc3RybGVuLm8g
+ICAgICAgICArPSAtZyAtZ2R3YXJmLTQgLWdkd2FyZi01IC1XYSwtZyAtV2EsLWdkd2FyZjQgLVdh
+LC1nZHdhcmYtNQo+ICtBRkxBR1NfUkVNT1ZFX3N0cm5jbXAubyAgICAgICAgICAgICAgICArPSAt
+ZyAtZ2R3YXJmLTQgLWdkd2FyZi01IC1XYSwtZyAtV2EsLWdkd2FyZjQgLVdhLC1nZHdhcmYtNQoK
+CllvdSBjYW4gbWVyZ2UgdGhlc2UgaW50byBhIHNpbmdsZSBsaW5lOgoKIGFzZmxhZ3MtcmVtb3Zl
+LXkgKz0gLWcgLWdkd2FyZi00IC1nZHdhcmYtNSAtV2EsLWcgLVdhLC1nZHdhcmY0IC1XYSwtZ2R3
+YXJmLTUKCgpPciwgYSBzbGlnaHRseSBzaG9ydGVyIGJ1dCB0cmlja3kgd2F5IGlzOgoKIGFzZmxh
+Z3MtcmVtb3ZlLXkgKz0gJChmb3JlYWNoIHgsIC1nIC1nZHdhcmYtNCAtZ2R3YXJmLTUsICQoeCkg
+LVdhLCQoeCkpCgoKPiAgJChvYmopL3B1cmdhdG9yeS5ybzogJChQVVJHQVRPUllfT0JKUykgRk9S
+Q0UKPiAgICAgICAgICAgICAgICAgJChjYWxsIGlmX2NoYW5nZWQsbGQpCj4gZGlmZiAtLWdpdCBh
+L2FyY2gveDg2L3B1cmdhdG9yeS9NYWtlZmlsZSBiL2FyY2gveDg2L3B1cmdhdG9yeS9NYWtlZmls
+ZQo+IGluZGV4IDE3ZjA5ZGMyNjM4MS4uZjFiMWVmNmM0Y2JmIDEwMDY0NAo+IC0tLSBhL2FyY2gv
+eDg2L3B1cmdhdG9yeS9NYWtlZmlsZQo+ICsrKyBiL2FyY2gveDg2L3B1cmdhdG9yeS9NYWtlZmls
+ZQo+IEBAIC02OSw4ICs2OSw4IEBAIENGTEFHU19zaGEyNTYubyAgICAgICAgICAgICAgICAgICAg
+ICAgKz0gJChQVVJHQVRPUllfQ0ZMQUdTKQo+ICBDRkxBR1NfUkVNT1ZFX3N0cmluZy5vICAgICAg
+ICAgKz0gJChQVVJHQVRPUllfQ0ZMQUdTX1JFTU9WRSkKPiAgQ0ZMQUdTX3N0cmluZy5vICAgICAg
+ICAgICAgICAgICAgICAgICAgKz0gJChQVVJHQVRPUllfQ0ZMQUdTKQo+Cj4gLUFGTEFHU19SRU1P
+VkVfc2V0dXAteDg2XyQoQklUUykubyAgICAgICs9IC1XYSwtZ2R3YXJmLTIKPiAtQUZMQUdTX1JF
+TU9WRV9lbnRyeTY0Lm8gICAgICAgICAgICAgICAgICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4g
+K0FGTEFHU19SRU1PVkVfc2V0dXAteDg2XyQoQklUUykubyAgICAgICs9IC1nIC1nZHdhcmYtNCAt
+Z2R3YXJmLTUgLVdhLC1nIC1XYSwtZ2R3YXJmNCAtV2EsLWdkd2FyZi01Cj4gK0FGTEFHU19SRU1P
+VkVfZW50cnk2NC5vICAgICAgICAgICAgICAgICAgICAgICAgKz0gLWcgLWdkd2FyZi00IC1nZHdh
+cmYtNSAtV2EsLWcgLVdhLC1nZHdhcmY0IC1XYSwtZ2R3YXJmLTUKCgpEaXR0by4KCgpUaGFua3Mu
+CgoKCj4gICQob2JqKS9wdXJnYXRvcnkucm86ICQoUFVSR0FUT1JZX09CSlMpIEZPUkNFCj4gICAg
+ICAgICAgICAgICAgICQoY2FsbCBpZl9jaGFuZ2VkLGxkKQo+Cj4gYmFzZS1jb21taXQ6IGRhOGU3
+ZGExMWU0YmE3NThjYWY0YzE0OWNjOGQ4Y2Q1NTVhZWZlNWYKPiAtLQo+IDIuMzcuMQo+CgoKLS0g
+CkJlc3QgUmVnYXJkcwpNYXNhaGlybyBZYW1hZGEKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
