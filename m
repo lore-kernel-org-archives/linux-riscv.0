@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3BCC7619A
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 12:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A4FC7619A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 12:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NgIQnYDcRr39n4sfzibg5fE0JZAVtrKnOwqX4GatimM=; b=odO1zgI6InDGSC
-	HnAN9eLnI7x7Pu2TrV8MRlrpYVLN24AGKQtxuHoFgoUq0PFbSBCowdjivm3VD0lCVOIYxYouth881
-	KzkPWrXdSBeOnqgZcEeCsOO6XO8kCHLvGO1TYLzUQydx7Kx5VSR9910UaONdqs9cXBjootnM4s9Dq
-	8BLNOuZDEf6G0KuUJ0oG5nPW+L98lvS+A4fOmuUwuy5RyxwYLA2B8DLPf94Zh9HFoA7U0vQO/MDA8
-	T8WTBk/gcuGrlEMXcLUDzLarNyLSPR9o88JOKuS1PxgmJKM89QWxU5Ad3IxeW9Nz6Qx31pgfljqfP
-	oSx0ryRrMtOQF4mX2LQQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=t8FREJKmirGGnVfqeUhnD7ak6hJKTY2AtAqVHMnFUpg=; b=GyRSZbKE5W2FRD
+	WyhzukhIMRZMrhSFn8VcNA+AzuVs0hKMxArl/HDaaYiyYKvg6TKr2L28U6xlljXuQo92A3/JpcW5e
+	JqmqkW08hbBoRAJuVXEYm135X3ONfGYrDlX2wr/boNsN1O83CNt4ROwJpcZNV9BVZpc+1T7/dx66r
+	bcy4GnEh27oOVSZ7+x4cWgBFOdhYwWw7ER5mDrA+dLEWLT8nX78qzzO23O2p/EMQsMA5RnkhUylxg
+	7m2ONiKTmJHrvsHJ/krrqLDC7qf4UNjULxs0KeY4Glxkf0xPWEvGW3Xn2iLWCrueALn/hT0WWJVuO
+	/4Os/jzyUJY3zqZSvnBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgljQ-00AqiO-0h;
-	Mon, 27 Mar 2023 12:13:48 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1pgljk-00Aqog-1W;
+	Mon, 27 Mar 2023 12:14:08 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgljN-00AqhW-0j
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 12:13:47 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id eh3so35166333edb.11
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 05:13:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112; t=1679919223;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=trl+bImJQ3EgoJ4i2dWsILqUzku4TBzDkRq+ya+AVms=;
-        b=S3QwttMFY5Sba4ck9s2mbvVljORJ8LjGP/BHdTQuCiCDqGHgJoOxr+Xzkhkmzp6ecC
-         +K56RSQdXa6mmIHqH3S25tgsrNbWx5Nhh05O/V6Gb4zIc2w2ihWV/UyvwHt8iXeEglZK
-         dm537GxXf15MZMb4F8xMCoQkeVv4UqVhvVUi/SnkCw6lOc+drjFASQBJKMu3lECF3uxY
-         rV9bvxUDUOAdxL+bFi/G9RRZMOBXxKxtiBwl18YoPUO2S4XUt6C1HaLIO5ZUxTKjp3cR
-         j/tF8hvmrKT8dweDu+lgJnfQoLaQX3JL4HbNLH+h9VSnMjEvSjy4+vlMd4gjo2x/ogvA
-         7jPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679919223;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=trl+bImJQ3EgoJ4i2dWsILqUzku4TBzDkRq+ya+AVms=;
-        b=cf5/OzhAIXlcVTH57rBJy0mBi3U0SKQX2t/gGmALBtfDWQ8OICMeStkyDnaS8Zt20Z
-         BA6zecAy4CbtS/ztfVlEmOzEKaXEb9UvWhtW6Z2dZY3df5kzYJyFJmcNbGXpG4CKl4Hs
-         uS0f9iz0spox/NJpXj1VdmDkyzkxE1GaUQOlQi6bfB1AlqRKHypUiCikxOzSTsvE7bW8
-         8yfrKnUBF2hST+V5XY2udS1EohYZgDCZmf/MXYLKxfrM9PVBBNH3iXmOvcy08QT4Qz6N
-         Kmij+BSV184s5YTw0a4M2CPx43WHIHhlRt033T0BKRpMaJ2lyhVi+3+/e0f4XGdkF56z
-         3WIQ==
-X-Gm-Message-State: AAQBX9e9hB9eYYpBhIgHZUAD8+WEbudih0sR9hb9D/+v4C2ZHS++xPpw
-	EW6/4M8WYxAoaUYFkOiNOU7ysdx51+ExFfBGFm+qpw==
-X-Google-Smtp-Source: AKy350aDMC6dh+BEhiA05N5lQnQ89RL6xNP8S7Jq5R9NwPKSWnVPqUxY0N2g97djIE1AOxmIIGL3hr8CGGaCujMVx+g=
-X-Received: by 2002:a17:906:184d:b0:930:310:abc3 with SMTP id
- w13-20020a170906184d00b009300310abc3mr5003850eje.13.1679919223437; Mon, 27
- Mar 2023 05:13:43 -0700 (PDT)
+	id 1pgljf-00Aqkf-23;
+	Mon, 27 Mar 2023 12:14:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3AEF2B8114B;
+	Mon, 27 Mar 2023 12:13:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F8CC433D2;
+	Mon, 27 Mar 2023 12:13:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679919237;
+	bh=GiqSNoh/gnOD0kxoCZ+KxN9c2SO+z1nJBns1fyyi+vo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pq3BAphM3wHtatYjV+DfN2I8sJHS4IYBYyDE+v6/Qc8ZwCT8gpvS4DAGv7VxPzFGA
+	 QTONxH3L5u7xfGpaWF72Vn6IOud15UVhnlOu7Pkpc4MFJc3T+eyi/9YHM2uw4o3Q19
+	 hlFRkjcr9R2SPBbGCiCcG9K2ncI1oTIHchYegylFXUpPuOkFuj5EhA9x60aFehDKxy
+	 Qltw/cCcMI8A23tAm4waeZqorYzy7ERYFcrUh9Z5Dt10vOC7n/8mHT1x94BLc8QwMZ
+	 RjkfvTiQw9Na09hCmY2JMMUGUbEev+PR6WHG/lHK6hz99r9Xiisa4orl4KnTMuyptQ
+	 /3AEVTN69OUkQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org
+Subject: [PATCH 00/21] dma-mapping: unify support for cache flushes
+Date: Mon, 27 Mar 2023 14:12:56 +0200
+Message-Id: <20230327121317.4081816-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20230324155421.271544-1-alexghiti@rivosinc.com> <20230324155421.271544-4-alexghiti@rivosinc.com>
-In-Reply-To: <20230324155421.271544-4-alexghiti@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 27 Mar 2023 17:43:32 +0530
-Message-ID: <CAAhSdy3j38AZt7BOipiW_b+t-NZg6xVHEAhOfJLU6TQzSSdcXQ@mail.gmail.com>
-Subject: Re: [PATCH v9 3/3] riscv: Use PUD/P4D/PGD pages for the linear mapping
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
-	Frank Rowand <frowand.list@gmail.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_051345_270177_C8552CE7 
-X-CRM114-Status: GOOD (  44.43  )
+X-CRM114-CacheID: sfid-20230327_051403_995601_64EB2B1C 
+X-CRM114-Status: GOOD (  28.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,191 +105,202 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXIgMjQsIDIwMjMgYXQgOToyN+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBEdXJpbmcgdGhlIGVhcmx5IHBhZ2UgdGFibGUg
-Y3JlYXRpb24sIHdlIHVzZWQgdG8gc2V0IHRoZSBtYXBwaW5nIGZvcgo+IFBBR0VfT0ZGU0VUIHRv
-IHRoZSBrZXJuZWwgbG9hZCBhZGRyZXNzOiBidXQgdGhlIGtlcm5lbCBsb2FkIGFkZHJlc3MgaXMK
-PiBhbHdheXMgb2Zmc2V0ZWQgYnkgUE1EX1NJWkUgd2hpY2ggbWFrZXMgaXQgaW1wb3NzaWJsZSB0
-byB1c2UgUFVEL1A0RC9QR0QKPiBwYWdlcyBhcyB0aGlzIHBoeXNpY2FsIGFkZHJlc3MgaXMgbm90
-IGFsaWduZWQgb24gUFVEL1A0RC9QR0Qgc2l6ZSAod2hlcmVhcwo+IFBBR0VfT0ZGU0VUIGlzKS4K
-Pgo+IEJ1dCBhY3R1YWxseSB3ZSBkb24ndCBoYXZlIHRvIGVzdGFibGlzaCB0aGlzIG1hcHBpbmcg
-KGllIHNldCB2YV9wYV9vZmZzZXQpCj4gdGhhdCBlYXJseSBpbiB0aGUgYm9vdCBwcm9jZXNzIGJl
-Y2F1c2U6Cj4KPiAtIGZpcnN0LCBzZXR1cF92bSBpbnN0YWxscyBhIHRlbXBvcmFyeSBrZXJuZWwg
-bWFwcGluZyBhbmQgYW1vbmcgb3RoZXIKPiAgIHRoaW5ncywgZGlzY292ZXJzIHRoZSBzeXN0ZW0g
-bWVtb3J5LAo+IC0gdGhlbiwgc2V0dXBfdm1fZmluYWwgY3JlYXRlcyB0aGUgZmluYWwga2VybmVs
-IG1hcHBpbmcgYW5kIHRha2VzCj4gICBhZHZhbnRhZ2Ugb2YgdGhlIGRpc2NvdmVyZWQgc3lzdGVt
-IG1lbW9yeSB0byBjcmVhdGUgdGhlIGxpbmVhcgo+ICAgbWFwcGluZy4KPgo+IER1cmluZyB0aGUg
-Zmlyc3QgcGhhc2UsIHdlIGRvbid0IGtub3cgdGhlIHN0YXJ0IG9mIHRoZSBzeXN0ZW0gbWVtb3J5
-IGFuZAo+IHRoZW4gdW50aWwgdGhlIHNlY29uZCBwaGFzZSBpcyBmaW5pc2hlZCwgd2UgY2FuJ3Qg
-dXNlIHRoZSBsaW5lYXIgbWFwcGluZyBhdAo+IGFsbCBhbmQgcGh5c190b192aXJ0L3ZpcnRfdG9f
-cGh5cyB0cmFuc2xhdGlvbnMgbXVzdCBub3QgYmUgdXNlZCBiZWNhdXNlIGl0Cj4gd291bGQgcmVz
-dWx0IGluIGEgZGlmZmVyZW50IHRyYW5zbGF0aW9uIGZyb20gdGhlICdyZWFsJyBvbmUgb25jZSB0
-aGUgZmluYWwKPiBtYXBwaW5nIGlzIGluc3RhbGxlZC4KPgo+IFNvIGhlcmUgd2Ugc2ltcGx5IGRl
-bGF5IHRoZSBpbml0aWFsaXphdGlvbiBvZiB2YV9wYV9vZmZzZXQgdG8gYWZ0ZXIgdGhlCj4gc3lz
-dGVtIG1lbW9yeSBkaXNjb3ZlcnkuIEJ1dCB0byBtYWtlIHN1cmUgbm9vbmUgdXNlcyB0aGUgbGlu
-ZWFyIG1hcHBpbmcKPiBiZWZvcmUsIHdlIGFkZCBzb21lIGd1YXJkIGluIHRoZSBERUJVR19WSVJU
-VUFMIGNvbmZpZy4KPgo+IEZpbmFsbHkgd2UgY2FuIHVzZSBQVUQvUDREL1BHRCBodWdlcGFnZXMg
-d2hlbiBwb3NzaWJsZSwgd2hpY2ggd2lsbCByZXN1bHQKPiBpbiBhIGJldHRlciBUTEIgdXRpbGl6
-YXRpb24uCj4KPiBOb3RlIHRoYXQ6Cj4gLSB0aGlzIGRvZXMgbm90IGFwcGx5IHRvIHJ2MzIgYXMg
-dGhlIGtlcm5lbCBtYXBwaW5nIGxpZXMgaW4gdGhlIGxpbmVhcgo+ICAgbWFwcGluZy4KPiAtIHdl
-IHJlbHkgb24gdGhlIGZpcm13YXJlIHRvIHByb3RlY3QgaXRzZWxmIHVzaW5nIFBNUC4KPgo+IFNp
-Z25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPiBB
-Y2tlZC1ieTogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4gIyBEVCBiaXRzCgpSZXZpZXdl
-ZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KVGVzdGVkLWJ5OiBBbnVwIFBh
-dGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKUmVnYXJkcywKQW51cAoKPiAtLS0KPiAgYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wYWdlLmggfCAxNiArKysrKysrKysrCj4gIGFyY2gvcmlzY3YvbW0v
-aW5pdC5jICAgICAgICAgIHwgNTggKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0K
-PiAgYXJjaC9yaXNjdi9tbS9waHlzYWRkci5jICAgICAgfCAxNiArKysrKysrKysrCj4gIGRyaXZl
-cnMvb2YvZmR0LmMgICAgICAgICAgICAgIHwgMTEgKysrKy0tLQo+ICA0IGZpbGVzIGNoYW5nZWQs
-IDkwIGluc2VydGlvbnMoKyksIDExIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgK
-PiBpbmRleCA4ZGM2ODZmNTQ5YjYuLmVhMWEwZTIzNzIxMSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFn
-ZS5oCj4gQEAgLTkwLDYgKzkwLDE0IEBAIHR5cGVkZWYgc3RydWN0IHBhZ2UgKnBndGFibGVfdDsK
-PiAgI2RlZmluZSBQVEVfRk1UICIlMDhseCIKPiAgI2VuZGlmCj4KPiArI2lmZGVmIENPTkZJR182
-NEJJVAo+ICsvKgo+ICsgKiBXZSBvdmVycmlkZSB0aGlzIHZhbHVlIGFzIGl0cyBnZW5lcmljIGRl
-ZmluaXRpb24gdXNlcyBfX3BhIHRvbyBlYXJseSBpbgo+ICsgKiB0aGUgYm9vdCBwcm9jZXNzIChi
-ZWZvcmUga2VybmVsX21hcC52YV9wYV9vZmZzZXQgaXMgc2V0KS4KPiArICovCj4gKyNkZWZpbmUg
-TUlOX01FTUJMT0NLX0FERFIgICAgICAwCj4gKyNlbmRpZgo+ICsKPiAgI2lmZGVmIENPTkZJR19N
-TVUKPiAgI2RlZmluZSBBUkNIX1BGTl9PRkZTRVQgICAgICAgICAgICAgICAgKFBGTl9ET1dOKCh1
-bnNpZ25lZCBsb25nKXBoeXNfcmFtX2Jhc2UpKQo+ICAjZWxzZQo+IEBAIC0xMjEsNyArMTI5LDEx
-IEBAIGV4dGVybiBwaHlzX2FkZHJfdCBwaHlzX3JhbV9iYXNlOwo+ICAjZGVmaW5lIGlzX2xpbmVh
-cl9tYXBwaW5nKHgpICAgXAo+ICAgICAgICAgKCh4KSA+PSBQQUdFX09GRlNFVCAmJiAoIUlTX0VO
-QUJMRUQoQ09ORklHXzY0QklUKSB8fCAoeCkgPCBQQUdFX09GRlNFVCArIEtFUk5fVklSVF9TSVpF
-KSkKPgo+ICsjaWZuZGVmIENPTkZJR19ERUJVR19WSVJUVUFMCj4gICNkZWZpbmUgbGluZWFyX21h
-cHBpbmdfcGFfdG9fdmEoeCkgICAgICgodm9pZCAqKSgodW5zaWduZWQgbG9uZykoeCkgKyBrZXJu
-ZWxfbWFwLnZhX3BhX29mZnNldCkpCj4gKyNlbHNlCj4gK3ZvaWQgKmxpbmVhcl9tYXBwaW5nX3Bh
-X3RvX3ZhKHVuc2lnbmVkIGxvbmcgeCk7Cj4gKyNlbmRpZgo+ICAjZGVmaW5lIGtlcm5lbF9tYXBw
-aW5nX3BhX3RvX3ZhKHkpICAgICAoeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgXAo+ICAgICAgICAgdW5zaWduZWQgbG9uZyBfeSA9ICh1bnNpZ25lZCBsb25nKSh5KTsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgKElTX0VOQUJMRUQoQ09O
-RklHX1hJUF9LRVJORUwpICYmIF95IDwgcGh5c19yYW1fYmFzZSkgPyAgICAgICAgICAgICAgICAg
-XAo+IEBAIC0xMzAsNyArMTQyLDExIEBAIGV4dGVybiBwaHlzX2FkZHJfdCBwaHlzX3JhbV9iYXNl
-Owo+ICAgICAgICAgfSkKPiAgI2RlZmluZSBfX3BhX3RvX3ZhX25vZGVidWcoeCkgICAgICAgICAg
-bGluZWFyX21hcHBpbmdfcGFfdG9fdmEoeCkKPgo+ICsjaWZuZGVmIENPTkZJR19ERUJVR19WSVJU
-VUFMCj4gICNkZWZpbmUgbGluZWFyX21hcHBpbmdfdmFfdG9fcGEoeCkgICAgICgodW5zaWduZWQg
-bG9uZykoeCkgLSBrZXJuZWxfbWFwLnZhX3BhX29mZnNldCkKPiArI2Vsc2UKPiArcGh5c19hZGRy
-X3QgbGluZWFyX21hcHBpbmdfdmFfdG9fcGEodW5zaWduZWQgbG9uZyB4KTsKPiArI2VuZGlmCj4g
-ICNkZWZpbmUga2VybmVsX21hcHBpbmdfdmFfdG9fcGEoeSkgKHsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICB1bnNpZ25lZCBsb25nIF95ID0gKHVu
-c2lnbmVkIGxvbmcpKHkpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAg
-ICAgICAoSVNfRU5BQkxFRChDT05GSUdfWElQX0tFUk5FTCkgJiYgX3kgPCBrZXJuZWxfbWFwLnZp
-cnRfYWRkciArIFhJUF9PRkZTRVQpID8gXAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2lu
-aXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gaW5kZXggM2IzN2Q4NjA2OTIwLi5mODAzNjcx
-ZDE4YjIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiArKysgYi9hcmNoL3Jp
-c2N2L21tL2luaXQuYwo+IEBAIC0yMTMsNiArMjEzLDE0IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBz
-ZXR1cF9ib290bWVtKHZvaWQpCj4gICAgICAgICBwaHlzX3JhbV9lbmQgPSBtZW1ibG9ja19lbmRf
-b2ZfRFJBTSgpOwo+ICAgICAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19YSVBfS0VSTkVMKSkK
-PiAgICAgICAgICAgICAgICAgcGh5c19yYW1fYmFzZSA9IG1lbWJsb2NrX3N0YXJ0X29mX0RSQU0o
-KTsKPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogSW4gNjQtYml0LCBhbnkgdXNlIG9mIF9f
-dmEvX19wYSBiZWZvcmUgdGhpcyBwb2ludCBpcyB3cm9uZyBhcyB3ZQo+ICsgICAgICAgICogZGlk
-IG5vdCBrbm93IHRoZSBzdGFydCBvZiBEUkFNIGJlZm9yZS4KPiArICAgICAgICAqLwo+ICsgICAg
-ICAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSkKPiArICAgICAgICAgICAgICAga2VybmVs
-X21hcC52YV9wYV9vZmZzZXQgPSBQQUdFX09GRlNFVCAtIHBoeXNfcmFtX2Jhc2U7Cj4gKwo+ICAg
-ICAgICAgLyoKPiAgICAgICAgICAqIG1lbWJsb2NrIGFsbG9jYXRvciBpcyBub3QgYXdhcmUgb2Yg
-dGhlIGZhY3QgdGhhdCBsYXN0IDRLIGJ5dGVzIG9mCj4gICAgICAgICAgKiB0aGUgYWRkcmVzc2Fi
-bGUgbWVtb3J5IGNhbiBub3QgYmUgbWFwcGVkIGJlY2F1c2Ugb2YgSVNfRVJSX1ZBTFVFCj4gQEAg
-LTY2Nyw5ICs2NzUsMTYgQEAgdm9pZCBfX2luaXQgY3JlYXRlX3BnZF9tYXBwaW5nKHBnZF90ICpw
-Z2RwLAo+Cj4gIHN0YXRpYyB1aW50cHRyX3QgX19pbml0IGJlc3RfbWFwX3NpemUocGh5c19hZGRy
-X3QgYmFzZSwgcGh5c19hZGRyX3Qgc2l6ZSkKPiAgewo+IC0gICAgICAgLyogVXBncmFkZSB0byBQ
-TURfU0laRSBtYXBwaW5ncyB3aGVuZXZlciBwb3NzaWJsZSAqLwo+IC0gICAgICAgYmFzZSAmPSBQ
-TURfU0laRSAtIDE7Cj4gLSAgICAgICBpZiAoIWJhc2UgJiYgc2l6ZSA+PSBQTURfU0laRSkKPiAr
-ICAgICAgIGlmICghKGJhc2UgJiAoUEdESVJfU0laRSAtIDEpKSAmJiBzaXplID49IFBHRElSX1NJ
-WkUpCj4gKyAgICAgICAgICAgICAgIHJldHVybiBQR0RJUl9TSVpFOwo+ICsKPiArICAgICAgIGlm
-ICghKGJhc2UgJiAoUDREX1NJWkUgLSAxKSkgJiYgc2l6ZSA+PSBQNERfU0laRSkKPiArICAgICAg
-ICAgICAgICAgcmV0dXJuIFA0RF9TSVpFOwo+ICsKPiArICAgICAgIGlmICghKGJhc2UgJiAoUFVE
-X1NJWkUgLSAxKSkgJiYgc2l6ZSA+PSBQVURfU0laRSkKPiArICAgICAgICAgICAgICAgcmV0dXJu
-IFBVRF9TSVpFOwo+ICsKPiArICAgICAgIGlmICghKGJhc2UgJiAoUE1EX1NJWkUgLSAxKSkgJiYg
-c2l6ZSA+PSBQTURfU0laRSkKPiAgICAgICAgICAgICAgICAgcmV0dXJuIFBNRF9TSVpFOwo+Cj4g
-ICAgICAgICByZXR1cm4gUEFHRV9TSVpFOwo+IEBAIC05NzgsMTEgKzk5MywyMiBAQCBhc21saW5r
-YWdlIHZvaWQgX19pbml0IHNldHVwX3ZtKHVpbnRwdHJfdCBkdGJfcGEpCj4gICAgICAgICBzZXRf
-c2F0cF9tb2RlKCk7Cj4gICNlbmRpZgo+Cj4gLSAgICAgICBrZXJuZWxfbWFwLnZhX3BhX29mZnNl
-dCA9IFBBR0VfT0ZGU0VUIC0ga2VybmVsX21hcC5waHlzX2FkZHI7Cj4gKyAgICAgICAvKgo+ICsg
-ICAgICAgICogSW4gNjQtYml0LCB3ZSBkZWZlciB0aGUgc2V0dXAgb2YgdmFfcGFfb2Zmc2V0IHRv
-IHNldHVwX2Jvb3RtZW0sCj4gKyAgICAgICAgKiB3aGVyZSB3ZSBoYXZlIHRoZSBzeXN0ZW0gbWVt
-b3J5IGxheW91dDogdGhpcyBhbGxvd3MgdXMgdG8gYWxpZ24KPiArICAgICAgICAqIHRoZSBwaHlz
-aWNhbCBhbmQgdmlydHVhbCBtYXBwaW5ncyBhbmQgdGhlbiBtYWtlIHVzZSBvZiBQVUQvUDREL1BH
-RAo+ICsgICAgICAgICogZm9yIHRoZSBsaW5lYXIgbWFwcGluZy4gVGhpcyBpcyBvbmx5IHBvc3Np
-YmxlIGJlY2F1c2UgdGhlIGtlcm5lbAo+ICsgICAgICAgICogbWFwcGluZyBsaWVzIG91dHNpZGUg
-dGhlIGxpbmVhciBtYXBwaW5nLgo+ICsgICAgICAgICogSW4gMzItYml0IGhvd2V2ZXIsIGFzIHRo
-ZSBrZXJuZWwgcmVzaWRlcyBpbiB0aGUgbGluZWFyIG1hcHBpbmcsCj4gKyAgICAgICAgKiBzZXR1
-cF92bV9maW5hbCBjYW4gbm90IGNoYW5nZSB0aGUgbWFwcGluZyBlc3RhYmxpc2hlZCBoZXJlLAo+
-ICsgICAgICAgICogb3RoZXJ3aXNlIHRoZSBzYW1lIGtlcm5lbCBhZGRyZXNzZXMgd291bGQgZ2V0
-IG1hcHBlZCB0byBkaWZmZXJlbnQKPiArICAgICAgICAqIHBoeXNpY2FsIGFkZHJlc3NlcyAoaWYg
-dGhlIHN0YXJ0IG9mIGRyYW0gaXMgZGlmZmVyZW50IGZyb20gdGhlCj4gKyAgICAgICAgKiBrZXJu
-ZWwgcGh5c2ljYWwgYWRkcmVzcyBzdGFydCkuCj4gKyAgICAgICAgKi8KPiArICAgICAgIGtlcm5l
-bF9tYXAudmFfcGFfb2Zmc2V0ID0gSVNfRU5BQkxFRChDT05GSUdfNjRCSVQpID8KPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIDBVTCA6IFBBR0VfT0ZGU0VUIC0ga2VybmVsX21hcC5w
-aHlzX2FkZHI7Cj4gICAgICAgICBrZXJuZWxfbWFwLnZhX2tlcm5lbF9wYV9vZmZzZXQgPSBrZXJu
-ZWxfbWFwLnZpcnRfYWRkciAtIGtlcm5lbF9tYXAucGh5c19hZGRyOwo+Cj4gLSAgICAgICBwaHlz
-X3JhbV9iYXNlID0ga2VybmVsX21hcC5waHlzX2FkZHI7Cj4gLQo+ICAgICAgICAgLyoKPiAgICAg
-ICAgICAqIFRoZSBkZWZhdWx0IG1heGltYWwgcGh5c2ljYWwgbWVtb3J5IHNpemUgaXMgS0VSTl9W
-SVJUX1NJWkUgZm9yIDMyLWJpdAo+ICAgICAgICAgICoga2VybmVsLCB3aGVyZWFzIGZvciA2NC1i
-aXQga2VybmVsLCB0aGUgZW5kIG9mIHRoZSB2aXJ0dWFsIGFkZHJlc3MKPiBAQCAtMTEwNiw2ICsx
-MTMyLDE3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBjcmVhdGVfbGluZWFyX21hcHBpbmdfcGFnZV90
-YWJsZSh2b2lkKQo+ICAgICAgICAgcGh5c19hZGRyX3Qgc3RhcnQsIGVuZDsKPiAgICAgICAgIHU2
-NCBpOwo+Cj4gKyNpZmRlZiBDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1gKPiArICAgICAgIHBoeXNf
-YWRkcl90IGt0ZXh0X3N0YXJ0ID0gX19wYV9zeW1ib2woX3N0YXJ0KTsKPiArICAgICAgIHBoeXNf
-YWRkcl90IGt0ZXh0X3NpemUgPSBfX2luaXRfZGF0YV9iZWdpbiAtIF9zdGFydDsKPiArICAgICAg
-IHBoeXNfYWRkcl90IGtyb2RhdGFfc3RhcnQgPSBfX3BhX3N5bWJvbChfX3N0YXJ0X3JvZGF0YSk7
-Cj4gKyAgICAgICBwaHlzX2FkZHJfdCBrcm9kYXRhX3NpemUgPSBfZGF0YSAtIF9fc3RhcnRfcm9k
-YXRhOwo+ICsKPiArICAgICAgIC8qIElzb2xhdGUga2VybmVsIHRleHQgYW5kIHJvZGF0YSBzbyB0
-aGV5IGRvbid0IGdldCBtYXBwZWQgd2l0aCBhIFBVRCAqLwo+ICsgICAgICAgbWVtYmxvY2tfbWFy
-a19ub21hcChrdGV4dF9zdGFydCwgIGt0ZXh0X3NpemUpOwo+ICsgICAgICAgbWVtYmxvY2tfbWFy
-a19ub21hcChrcm9kYXRhX3N0YXJ0LCBrcm9kYXRhX3NpemUpOwo+ICsjZW5kaWYKPiArCj4gICAg
-ICAgICAvKiBNYXAgYWxsIG1lbW9yeSBiYW5rcyBpbiB0aGUgbGluZWFyIG1hcHBpbmcgKi8KPiAg
-ICAgICAgIGZvcl9lYWNoX21lbV9yYW5nZShpLCAmc3RhcnQsICZlbmQpIHsKPiAgICAgICAgICAg
-ICAgICAgaWYgKHN0YXJ0ID49IGVuZCkKPiBAQCAtMTExOCw2ICsxMTU1LDE1IEBAIHN0YXRpYyB2
-b2lkIF9faW5pdCBjcmVhdGVfbGluZWFyX21hcHBpbmdfcGFnZV90YWJsZSh2b2lkKQo+Cj4gICAg
-ICAgICAgICAgICAgIGNyZWF0ZV9saW5lYXJfbWFwcGluZ19yYW5nZShzdGFydCwgZW5kKTsKPiAg
-ICAgICAgIH0KPiArCj4gKyNpZmRlZiBDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1gKPiArICAgICAg
-IGNyZWF0ZV9saW5lYXJfbWFwcGluZ19yYW5nZShrdGV4dF9zdGFydCwga3RleHRfc3RhcnQgKyBr
-dGV4dF9zaXplKTsKPiArICAgICAgIGNyZWF0ZV9saW5lYXJfbWFwcGluZ19yYW5nZShrcm9kYXRh
-X3N0YXJ0LAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGtyb2RhdGFfc3Rh
-cnQgKyBrcm9kYXRhX3NpemUpOwo+ICsKPiArICAgICAgIG1lbWJsb2NrX2NsZWFyX25vbWFwKGt0
-ZXh0X3N0YXJ0LCAga3RleHRfc2l6ZSk7Cj4gKyAgICAgICBtZW1ibG9ja19jbGVhcl9ub21hcChr
-cm9kYXRhX3N0YXJ0LCBrcm9kYXRhX3NpemUpOwo+ICsjZW5kaWYKPiAgfQo+Cj4gIHN0YXRpYyB2
-b2lkIF9faW5pdCBzZXR1cF92bV9maW5hbCh2b2lkKQo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L21tL3BoeXNhZGRyLmMgYi9hcmNoL3Jpc2N2L21tL3BoeXNhZGRyLmMKPiBpbmRleCA5YjE4YmRh
-NzQxNTQuLjE4NzA2ZjQ1N2RhNyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL3BoeXNhZGRy
-LmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL3BoeXNhZGRyLmMKPiBAQCAtMzMsMyArMzMsMTkgQEAg
-cGh5c19hZGRyX3QgX19waHlzX2FkZHJfc3ltYm9sKHVuc2lnbmVkIGxvbmcgeCkKPiAgICAgICAg
-IHJldHVybiBfX3ZhX3RvX3BhX25vZGVidWcoeCk7Cj4gIH0KPiAgRVhQT1JUX1NZTUJPTChfX3Bo
-eXNfYWRkcl9zeW1ib2wpOwo+ICsKPiArcGh5c19hZGRyX3QgbGluZWFyX21hcHBpbmdfdmFfdG9f
-cGEodW5zaWduZWQgbG9uZyB4KQo+ICt7Cj4gKyAgICAgICBCVUdfT04oIWtlcm5lbF9tYXAudmFf
-cGFfb2Zmc2V0KTsKPiArCj4gKyAgICAgICByZXR1cm4gKCh1bnNpZ25lZCBsb25nKSh4KSAtIGtl
-cm5lbF9tYXAudmFfcGFfb2Zmc2V0KTsKPiArfQo+ICtFWFBPUlRfU1lNQk9MKGxpbmVhcl9tYXBw
-aW5nX3ZhX3RvX3BhKTsKPiArCj4gK3ZvaWQgKmxpbmVhcl9tYXBwaW5nX3BhX3RvX3ZhKHVuc2ln
-bmVkIGxvbmcgeCkKPiArewo+ICsgICAgICAgQlVHX09OKCFrZXJuZWxfbWFwLnZhX3BhX29mZnNl
-dCk7Cj4gKwo+ICsgICAgICAgcmV0dXJuICgodm9pZCAqKSgodW5zaWduZWQgbG9uZykoeCkgKyBr
-ZXJuZWxfbWFwLnZhX3BhX29mZnNldCkpOwo+ICt9Cj4gK0VYUE9SVF9TWU1CT0wobGluZWFyX21h
-cHBpbmdfcGFfdG9fdmEpOwo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL29mL2ZkdC5jIGIvZHJpdmVy
-cy9vZi9mZHQuYwo+IGluZGV4IGQxYTY4YjZkMDNiMy4uZDE0NzM1YTgxMzAxIDEwMDY0NAo+IC0t
-LSBhL2RyaXZlcnMvb2YvZmR0LmMKPiArKysgYi9kcml2ZXJzL29mL2ZkdC5jCj4gQEAgLTg4Nywx
-MiArODg3LDEzIEBAIGNvbnN0IHZvaWQgKiBfX2luaXQgb2ZfZmxhdF9kdF9tYXRjaF9tYWNoaW5l
-KGNvbnN0IHZvaWQgKmRlZmF1bHRfbWF0Y2gsCj4gIHN0YXRpYyB2b2lkIF9fZWFybHlfaW5pdF9k
-dF9kZWNsYXJlX2luaXRyZCh1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCkKPiAgewo+IC0gICAg
-ICAgLyogQVJNNjQgd291bGQgY2F1c2UgYSBCVUcgdG8gb2NjdXIgaGVyZSB3aGVuIENPTkZJR19E
-RUJVR19WTSBpcwo+IC0gICAgICAgICogZW5hYmxlZCBzaW5jZSBfX3ZhKCkgaXMgY2FsbGVkIHRv
-byBlYXJseS4gQVJNNjQgZG9lcyBtYWtlIHVzZQo+IC0gICAgICAgICogb2YgcGh5c19pbml0cmRf
-c3RhcnQvcGh5c19pbml0cmRfc2l6ZSBzbyB3ZSBjYW4gc2tpcCB0aGlzCj4gLSAgICAgICAgKiBj
-b252ZXJzaW9uLgo+ICsgICAgICAgLyoKPiArICAgICAgICAqIF9fdmEoKSBpcyBub3QgeWV0IGF2
-YWlsYWJsZSB0aGlzIGVhcmx5IG9uIHNvbWUgcGxhdGZvcm1zLiBJbiB0aGF0Cj4gKyAgICAgICAg
-KiBjYXNlLCB0aGUgcGxhdGZvcm0gdXNlcyBwaHlzX2luaXRyZF9zdGFydC9waHlzX2luaXRyZF9z
-aXplIGluc3RlYWQKPiArICAgICAgICAqIGFuZCBkb2VzIHRoZSBWQSBjb252ZXJzaW9uIGl0c2Vs
-Zi4KPiAgICAgICAgICAqLwo+IC0gICAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19BUk02NCkp
-IHsKPiArICAgICAgIGlmICghSVNfRU5BQkxFRChDT05GSUdfQVJNNjQpICYmCj4gKyAgICAgICAg
-ICAgIShJU19FTkFCTEVEKENPTkZJR19SSVNDVikgJiYgSVNfRU5BQkxFRChDT05GSUdfNjRCSVQp
-KSkgewo+ICAgICAgICAgICAgICAgICBpbml0cmRfc3RhcnQgPSAodW5zaWduZWQgbG9uZylfX3Zh
-KHN0YXJ0KTsKPiAgICAgICAgICAgICAgICAgaW5pdHJkX2VuZCA9ICh1bnNpZ25lZCBsb25nKV9f
-dmEoZW5kKTsKPiAgICAgICAgICAgICAgICAgaW5pdHJkX2JlbG93X3N0YXJ0X29rID0gMTsKPiAt
-LQo+IDIuMzcuMgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+From: Arnd Bergmann <arnd@arndb.de>
+
+After a long discussion about adding SoC specific semantics for when
+to flush caches in drivers/soc/ drivers that we determined to be
+fundamentally flawed[1], I volunteered to try to move that logic into
+architecture-independent code and make all existing architectures do
+the same thing.
+
+As we had determined earlier, the behavior is wildly different across
+architectures, but most of the differences come down to either bugs
+(when required flushes are missing) or extra flushes that are harmless
+but might hurt performance.
+
+I finally found the time to come up with an implementation of this, which
+starts by replacing every outlier with one of the three common options:
+
+ 1. architectures without speculative prefetching (hegagon, m68k,
+    openrisc, sh, sparc, and certain armv4 and xtensa implementations)
+    only flush their caches before a DMA, by cleaning write-back caches
+    (if any) before a DMA to the device, and by invalidating the caches
+    before a DMA from a device
+
+ 2. arc, microblaze, mips, nios2, sh and later xtensa now follow the
+    normal 32-bit arm model and invalidate their writeback caches
+    again after a DMA from the device, to remove stale cache lines
+    that got prefetched during the DMA. arc, csky and mips used to
+    invalidate buffers also before the bidirectional DMA, but this
+    is now skipped whenever we know it gets invalidated again
+    after the DMA.
+
+ 3. parisc, powerpc and riscv already flushed buffers before
+    a DMA_FROM_DEVICE, and these get moved to the arm64 behavior
+    that does the writeback before and invalidate after both
+    DMA_FROM_DEVICE and DMA_BIDIRECTIONAL in order to avoid the
+    problem of accidentally leaking stale data if the DMA does
+    not actually happen[2].
+
+The last patch in the series replaces the architecture specific code
+with a shared version that implements all three based on architecture
+specific parameters that are almost always determined at compile time.
+
+The difference between cases 1. and 2. is hardware specific, while between
+2. and 3. we need to decide which semantics we want, but I explicitly
+avoid this question in my series and leave it to be decided later.
+
+Another difference that I do not address here is what cache invalidation
+does for partical cache lines. On arm32, arm64 and powerpc, a partial
+cache line always gets written back before invalidation in order to
+ensure that data before or after the buffer is not discarded. On all
+other architectures, the assumption is cache lines are never shared
+between DMA buffer and data that is accessed by the CPU. If we end up
+always writing back dirty cache lines before a DMA (option 3 above),
+then this point becomes moot, otherwise we should probably address this
+in a follow-up series to document one behavior or the other and implement
+it consistently.
+
+Please review!
+
+      Arnd
+
+[1] https://lore.kernel.org/all/20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+[2] https://lore.kernel.org/all/20220606152150.GA31568@willie-the-truck/
+
+Arnd Bergmann (21):
+  openrisc: dma-mapping: flush bidirectional mappings
+  xtensa: dma-mapping: use normal cache invalidation rules
+  sparc32: flush caches in dma_sync_*for_device
+  microblaze: dma-mapping: skip extra DMA flushes
+  powerpc: dma-mapping: split out cache operation logic
+  powerpc: dma-mapping: minimize for_cpu flushing
+  powerpc: dma-mapping: always clean cache in _for_device() op
+  riscv: dma-mapping: only invalidate after DMA, not flush
+  riscv: dma-mapping: skip invalidation before bidirectional DMA
+  csky: dma-mapping: skip invalidating before DMA from device
+  mips: dma-mapping: skip invalidating before bidirectional DMA
+  mips: dma-mapping: split out cache operation logic
+  arc: dma-mapping: skip invalidating before bidirectional DMA
+  parisc: dma-mapping: use regular flush/invalidate ops
+  ARM: dma-mapping: always invalidate WT caches before DMA
+  ARM: dma-mapping: bring back dmac_{clean,inv}_range
+  ARM: dma-mapping: use arch_sync_dma_for_{device,cpu}() internally
+  ARM: drop SMP support for ARM11MPCore
+  ARM: dma-mapping: use generic form of arch_sync_dma_* helpers
+  ARM: dma-mapping: split out arch_dma_mark_clean() helper
+  dma-mapping: replace custom code with generic implementation
+
+ arch/arc/mm/dma.c                          |  66 ++------
+ arch/arm/Kconfig                           |   4 +
+ arch/arm/include/asm/cacheflush.h          |  21 +++
+ arch/arm/include/asm/glue-cache.h          |   4 +
+ arch/arm/mach-oxnas/Kconfig                |   4 -
+ arch/arm/mach-oxnas/Makefile               |   1 -
+ arch/arm/mach-oxnas/headsmp.S              |  23 ---
+ arch/arm/mach-oxnas/platsmp.c              |  96 -----------
+ arch/arm/mach-versatile/platsmp-realview.c |   4 -
+ arch/arm/mm/Kconfig                        |  19 ---
+ arch/arm/mm/cache-fa.S                     |   4 +-
+ arch/arm/mm/cache-nop.S                    |   6 +
+ arch/arm/mm/cache-v4.S                     |  13 +-
+ arch/arm/mm/cache-v4wb.S                   |   4 +-
+ arch/arm/mm/cache-v4wt.S                   |  22 ++-
+ arch/arm/mm/cache-v6.S                     |  35 +---
+ arch/arm/mm/cache-v7.S                     |   6 +-
+ arch/arm/mm/cache-v7m.S                    |   4 +-
+ arch/arm/mm/dma-mapping-nommu.c            |  36 ++--
+ arch/arm/mm/dma-mapping.c                  | 181 ++++++++++-----------
+ arch/arm/mm/proc-arm1020.S                 |   4 +-
+ arch/arm/mm/proc-arm1020e.S                |   4 +-
+ arch/arm/mm/proc-arm1022.S                 |   4 +-
+ arch/arm/mm/proc-arm1026.S                 |   4 +-
+ arch/arm/mm/proc-arm920.S                  |   4 +-
+ arch/arm/mm/proc-arm922.S                  |   4 +-
+ arch/arm/mm/proc-arm925.S                  |   4 +-
+ arch/arm/mm/proc-arm926.S                  |   4 +-
+ arch/arm/mm/proc-arm940.S                  |   4 +-
+ arch/arm/mm/proc-arm946.S                  |   4 +-
+ arch/arm/mm/proc-feroceon.S                |   8 +-
+ arch/arm/mm/proc-macros.S                  |   2 +
+ arch/arm/mm/proc-mohawk.S                  |   4 +-
+ arch/arm/mm/proc-xsc3.S                    |   4 +-
+ arch/arm/mm/proc-xscale.S                  |   6 +-
+ arch/arm64/mm/dma-mapping.c                |  28 ++--
+ arch/csky/mm/dma-mapping.c                 |  46 +++---
+ arch/hexagon/kernel/dma.c                  |  44 ++---
+ arch/m68k/kernel/dma.c                     |  43 +++--
+ arch/microblaze/kernel/dma.c               |  38 ++---
+ arch/mips/mm/dma-noncoherent.c             |  75 +++------
+ arch/nios2/mm/dma-mapping.c                |  57 +++----
+ arch/openrisc/kernel/dma.c                 |  62 ++++---
+ arch/parisc/include/asm/cacheflush.h       |   6 +-
+ arch/parisc/kernel/pci-dma.c               |  33 +++-
+ arch/powerpc/mm/dma-noncoherent.c          |  76 +++++----
+ arch/riscv/mm/dma-noncoherent.c            |  51 +++---
+ arch/sh/kernel/dma-coherent.c              |  43 +++--
+ arch/sparc/Kconfig                         |   2 +-
+ arch/sparc/kernel/ioport.c                 |  38 +++--
+ arch/xtensa/Kconfig                        |   1 -
+ arch/xtensa/include/asm/cacheflush.h       |   6 +-
+ arch/xtensa/kernel/pci-dma.c               |  47 +++---
+ include/linux/dma-sync.h                   | 107 ++++++++++++
+ 54 files changed, 721 insertions(+), 699 deletions(-)
+ delete mode 100644 arch/arm/mach-oxnas/headsmp.S
+ delete mode 100644 arch/arm/mach-oxnas/platsmp.c
+ create mode 100644 include/linux/dma-sync.h
+
+-- 
+2.39.2
+
+Cc: Vineet Gupta <vgupta@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Brian Cain <bcain@quicinc.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Michal Simek <monstr@monstr.eu>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Stafford Horne <shorne@gmail.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Rich Felker <dalias@libc.org>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-oxnas@groups.io
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-xtensa@linux-xtensa.org
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
