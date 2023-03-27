@@ -4,128 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07164C7619A
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 13:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467DEC76195
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 13:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=foINxHA1nBKViHuY9q6EMYcI/PyWa1+M4nTKsseHmgA=; b=aPvZ0Mpd7rDdFJ
-	Ya2vdH20j9TvXaCO/a0O8eqkprr7iEg84poAQFHlJUPMNJWeFWF/EKio1Uw2+XPKKw1oQyF9pDyOM
-	ow6aHajiraWflL6EPIcpGGrDYLxgb+DwPCELJpKNqvqEP9EdLdT/CsAecbtPE9LcW8uwYmnW+osfV
-	yoZtcnbcEVPC9QJfbXt3vDZt7YPloOu1JTUjCsPxz3T2XbbNH/I54X2/oQ9djA/exlTBUNXgSiSxv
-	k7Y2YaOL4aUwYdvI01/uJduaVfJJvBe/cz39nmT6wbCvCLJGIWhGNrwuvuO6qfn05w4KZAsSEhRDV
-	27zdtgKrL3vcuTnCzo6g==;
+	List-Owner; bh=JyxUALIW31OBxG8lgceqJ4CUTXcSj+nTDLkf+fB6UUY=; b=AwRX5Y7AVhR/6S
+	He5CluQ07X4H8wqwxx8dlZXaFA4BUKso3nwqviCtm8uI+wRqSQGwz6OlwOGj4+JTi30u4LF1X9F+V
+	BLzCOFvvXYa6MhFtSurh8ntjAQa6QVsnfjhCeRF1JhdQqeXvXXL3CvATb05N7rC+yOeddhZMOuXCL
+	5EwNIJor/vvgrOZFiS2BDfgO9fLtAIrfT7EADlT39cYn0+xFYZQI3kdnq6u32RMn25698cipsQ5TT
+	fiYjiJSLd7teioos2Uk3CVAndJQlBVPuTqtfIHiiF4quKQwRR7tN6ldjpDe2Zd71UKGmxI8qNzUEA
+	DhA/PHmGevsfeORioyJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgmUl-00B2u4-29;
-	Mon, 27 Mar 2023 13:02:43 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1pgmcM-00B4JY-0D;
+	Mon, 27 Mar 2023 13:10:34 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgmUe-00B2ok-0y;
-	Mon, 27 Mar 2023 13:02:40 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id 01DFD582160;
-	Mon, 27 Mar 2023 09:02:29 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Mon, 27 Mar 2023 09:02:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm1; t=
-	1679922148; x=1679929348; bh=C0t+VBsIdNHlcZByrnG5NPOW3/HDBRin4l1
-	1iuQ2qiw=; b=Y61mr9XUfXVFhUlJdoF8OWNZ1qM6LGTHSqUwPXey+5SLhbXuszz
-	IX4F35TzFt8tNJqu3TdHQy42BVXRNe3bcFUV8/zj9nSivnmtuzQXp6yIK2l3HJtv
-	arNn0qdsSFaxnf2jpGCdO42ZY/Yo7maZ9JJxQnYT9zQ6fDNdG0CMXLPJSTiBiuYc
-	DxowTYLJD3TZAMG+gAP8IaltLqnFWdByE0RMezkwvVUj8PXoa7+fgC1mMOdcybmk
-	FOSp8xBGb8i1lrklfr+C8l8mm7z3rZwyVo/iOqMqn8kIsrxCMYlMByaiI+EkJOfO
-	AksZxvdJBavSBPl8RAWIMzvbBRTXG6xIPuQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1679922148; x=1679929348; bh=C0t+VBsIdNHlcZByrnG5NPOW3/HDBRin4l1
-	1iuQ2qiw=; b=S8t3E1mZSSbesGBfIrPg8iez5iynYZ434j4/P/C+PFUpzIj6OWt
-	K13vVMOr45Pq/x54idE06yYJdGJHsAgbut8cysdL7NSE20F2ZB97nGf6sGl0XtnJ
-	9XT1e/v2R2VMawWFs9cAUtCqiZnEUzvQi5oNF6VrsD0uvg+IwkaMgefkI++oVxUX
-	P6oUU+TSxGqMMY77icyCim+29Cz39zEK5CEbEi/5s9/A6kWKWjnkM9cNn+OZr9OG
-	+PTT8iBaVt9Y7UzKaNo9juS2P9bsmSmnzuVEEp99tvwuhj8CNT8gHrMIM+y46L5g
-	RgKT+E9GeicOtbPmieJjqHY7nt82g7IMpvg==
-X-ME-Sender: <xms:4JMhZKEbJtHy_-7r0mhUuAf1RDVX6ONGet-C4uHDHI8aFxDwJeBTbg>
-    <xme:4JMhZLWFbqjeW-l2s4SA4L2AsblAYcYuZ6OQ60CbfoemRcndoOUNn99kWSsbLC3eM
-    b-EfXBxvzBJwVrahuc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdehvddgheelucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtgfesthhqredtreerjeenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeegfeejhedvledvffeijeeijeeivddvhfeliedvleevheejleetgedukedt
-    gfejveenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:4JMhZELkazMXWEydSMGlmDWOa0OVgB7P_WKB0YhrlPTlihQYux3WDg>
-    <xmx:4JMhZEHovsEueCzwFyZ_7j_02sVES08XwzN6GBrtdqzrQFX09dmI0A>
-    <xmx:4JMhZAUOI7kSkdg94xSzJhhTWcVlrr09q_AxuFUHeLD9-JISNVRWQg>
-    <xmx:5JMhZP2bf1MV6jKd0e2JRv6hBv-xH3H71MSGG9ZG8p0hNuqV3tmOJw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 75C74B60086; Mon, 27 Mar 2023 09:02:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-236-g06c0f70e43-fm-20230313.001-g06c0f70e
-Mime-Version: 1.0
-Message-Id: <a0b2c6a1-9f9a-490a-af1b-52d856102bc7@app.fastmail.com>
-In-Reply-To: <52eef604-085e-acf9-f3ee-41ba9d8441d2@csgroup.eu>
-References: <20230327121317.4081816-1-arnd@kernel.org>
- <20230327121317.4081816-7-arnd@kernel.org>
- <52eef604-085e-acf9-f3ee-41ba9d8441d2@csgroup.eu>
-Date: Mon, 27 Mar 2023 15:02:04 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Arnd Bergmann" <arnd@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "Vineet Gupta" <vgupta@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
- "Brian Cain" <bcain@quicinc.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Dinh Nguyen" <dinguyen@kernel.org>, "Stafford Horne" <shorne@gmail.com>,
- "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- "Max Filippov" <jcmvbkbc@gmail.com>, "Christoph Hellwig" <hch@lst.de>,
- "Robin Murphy" <robin.murphy@arm.com>, "Lad,
- Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>
-Subject: Re: [PATCH 06/21] powerpc: dma-mapping: minimize for_cpu flushing
+	id 1pgmcJ-00B4IV-1T
+	for linux-riscv@lists.infradead.org;
+	Mon, 27 Mar 2023 13:10:32 +0000
+Received: by mail-ed1-x529.google.com with SMTP id t10so35848544edd.12
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 06:10:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1679922627;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ON1TRFTyjP269YlSlypUfBZaP5DJM7YPobS1hNusbJA=;
+        b=oPkcSdVZEGtbuQOXS697FnTNSJxMY5MC+8ocH1eK91m1uNM89kJSQzhIqIoiWXl1pk
+         iCuROR2/Go4dnukO7B3eGxalDbuIi4oYmQQTDAZTseZhPZQAT6SGKeeE34WsNp7ljS/E
+         NwnuILPs46OmmAKz6xfUBPtBYHPTlVKSLNMmRCPSblZzVOCIMI1LvGyV+sBqv5aaZaCI
+         XSuiQeSQIeZKLJanv0Wj/lVkz5rbRfFS/N6PqXKAmKTx099fxnDlXiMNqPDFpkTAiF7t
+         c0THPpKVaCmH9k2zo05XDcVbt8zPzrw35mT5iOZg1xYZifclwcNzkhwgUKc5sAyw4CVX
+         y1dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679922627;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ON1TRFTyjP269YlSlypUfBZaP5DJM7YPobS1hNusbJA=;
+        b=XHj6fVJnM3LmjWkcTtpMbRICJutxhmTNh0lSYVvYTFidFVSYnFHcIXEkBNdf/G8O9X
+         ElF7FifoEr5+BNsmrWkqMC+tMcXqSljFjMm0CaZhb9wisg84HinpxgoCNVR0Sz+Y8w1m
+         iS7B3ARNqrmSz9XFTHRNn+BhU5unRH2XR2b8RYdfqtKEpYhhhLNM40IUbkGsK0Lbx7z1
+         xq1zkPvmEGy+tc0b8V1kTEIifrrJPAJy9+7Vg1okgQFRpEi7Q17jpVCRYw3byV1Uf/6t
+         r5T4btvW+JHR12fPVNFvNWBi90k0Qoi7wQQSAZOaH2szthfqxg9waMJAgqFasQ9qhtlg
+         H7Tg==
+X-Gm-Message-State: AAQBX9fkhzoqJ9r/oE0+gH8qba+lCCwVE9CjUZForODdsmvRUZXJE9ri
+	J/uL+yi4RuaWlYtxclkLiX9RpA==
+X-Google-Smtp-Source: AKy350Yi2wo1LkaGRXXGGfRvdgclqblvOUAJV7al09yJLUCGZzgx0fvK5AIXEyEsSdVVcX154pxpVg==
+X-Received: by 2002:a17:906:2f96:b0:932:8cd:1021 with SMTP id w22-20020a1709062f9600b0093208cd1021mr11597586eji.33.1679922627362;
+        Mon, 27 Mar 2023 06:10:27 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id b4-20020a17090630c400b0092b5384d6desm14061725ejb.153.2023.03.27.06.10.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Mar 2023 06:10:26 -0700 (PDT)
+Date: Mon, 27 Mar 2023 15:10:25 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 4/4] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Message-ID: <20230327131025.6bawvoti65sth4rk@orel>
+References: <20230323045604.536099-1-jeeheng.sia@starfivetech.com>
+ <20230323045604.536099-5-jeeheng.sia@starfivetech.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230323045604.536099-5-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_060237_112206_912B4D7C 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20230327_061031_496398_491B329F 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,41 +90,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMjcsIDIwMjMsIGF0IDE0OjU2LCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+
-IExlIDI3LzAzLzIwMjMgw6AgMTQ6MTMsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoKPj4gRnJv
-bTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KPj4gCj4+IFRoZSBwb3dlcnBjIGRtYV9z
-eW5jXypfZm9yX2NwdSgpIHZhcmlhbnRzIGRvIG1vcmUgZmx1c2hlcyB0aGFuIG9uIG90aGVyCj4+
-IGFyY2hpdGVjdHVyZXMuIFJlZHVjZSBpdCB0byB3aGF0IGV2ZXJ5b25lIGVsc2UgZG9lczoKPj4g
-Cj4+ICAgLSBObyBmbHVzaCBpcyBuZWVkZWQgYWZ0ZXIgZGF0YSBoYXMgYmVlbiBzZW50IHRvIGEg
-ZGV2aWNlCj4+IAo+PiAgIC0gV2hlbiBkYXRhIGhhcyBiZWVuIHJlY2VpdmVkIGZyb20gYSBkZXZp
-Y2UsIHRoZSBjYWNoZSBvbmx5IG5lZWRzIHRvCj4+ICAgICBiZSBpbnZhbGlkYXRlZCB0byBjbGVh
-ciBvdXQgY2FjaGUgbGluZXMgdGhhdCB3ZXJlIHNwZWN1bGF0aXZlbHkKPj4gICAgIHByZWZldGNo
-ZWQuCj4+IAo+PiBJbiBwYXJ0aWN1bGFyLCB0aGUgc2Vjb25kIGZsdXNoaW5nIG9mIHBhcnRpYWwg
-Y2FjaGUgbGluZXMgb2YgYmlkaXJlY3Rpb25hbAo+PiBidWZmZXJzIGlzIGFjdGl2ZWx5IGhhcm1m
-dWwgLS0gaWYgYSBzaW5nbGUgY2FjaGUgbGluZSBpcyB3cml0dGVuIGJ5IGJvdGgKPj4gdGhlIENQ
-VSBhbmQgdGhlIGRldmljZSwgZmx1c2hpbmcgaXQgYWdhaW4gZG9lcyBub3QgbWFpbnRhaW4gY29o
-ZXJlbmN5Cj4+IGJ1dCBpbnN0ZWFkIG92ZXJ3cml0ZSB0aGUgZGF0YSB0aGF0IHdhcyBqdXN0IHJl
-Y2VpdmVkIGZyb20gdGhlIGRldmljZS4KPgo+IEh1bSAuLi4uLiBXaG8gaXMgcmlnaHQgPwo+Cj4g
-VGhhdCBiZWhhdmlvdXIgd2FzIGludHJvZHVjZWQgYnkgY29tbWl0IDAzZDcwNjE3YjhhNyAoInBv
-d2VycGM6IFByZXZlbnQgCj4gbWVtb3J5IGNvcnJ1cHRpb24gZHVlIHRvIGNhY2hlIGludmFsaWRh
-dGlvbiBvZiB1bmFsaWduZWQgRE1BIGJ1ZmZlciIpCj4KPiBJIHRoaW5rIHlvdXIgY29tbWl0IGxv
-ZyBzaG91bGQgZXhwbGFpbiB3aHkgdGhhdCBjb21taXQgd2FzIHdyb25nLCBhbmQgCj4gbWF5YmUg
-c2F5IHRoYXQgeW91ciBwYXRjaCBpcyBhIHJldmVydCBvZiB0aGF0IGNvbW1pdCA/CgpPaywgSSds
-bCB0cnkgdG8gZXhwbGFpbiB0aGlzIGJldHRlci4gVG8gY2xhcmlmeSBoZXJlOiB0aGUgX19kbWFf
-c3luYygpCmZ1bmN0aW9uIGluIGNvbW1pdCAwM2Q3MDYxN2I4YTcgaXMgdXNlZCBib3RoIGJlZm9y
-ZSBhbmQgYWZ0ZXIgYSBETUEsCmJ1dCBteSBwYXRjaCAwNS8yMSBzcGxpdHMgdGhpcyBpbiB0d28s
-IGFuZCBwYXRjaCAwNi8yMSBvbmx5IGNoYW5nZXMKdGhlIHBhcnQgdGhhdCBnZXRzIGNhbGxlZCBh
-ZnRlciB0aGUgRE1BLWZyb20tZGV2aWNlIGJ1dCBsZWF2ZXMgdGhlCnBhcnQgYmVmb3JlIERNQS1m
-cm9tLWRldmljZSB1bmNoYW5nZWQsIHdoaWNoIEFuZHJldydzIHBhdGNoCmFkZHJlc3NlZC4KCkFz
-IEkgbWVudGlvbmVkIGluIHRoZSBjb3ZlciBsZXR0ZXIsIGl0IGlzIHN0aWxsIHVuY2xlYXIgd2hl
-dGhlcgp3ZSB3YW50IHRvIGNvbnNpZGVyIHRoaXMgdGhlIGV4cGVjdGVkIGJlaGF2aW9yIGFzIHRo
-ZSBkb2N1bWVudGF0aW9uCnNlZW1zIHVuY2xlYXIsIGJ1dCBteSBzZXJpZXMgZG9lcyBub3QgYXR0
-ZW1wdCB0byBhbnN3ZXIgdGhhdApxdWVzdGlvbi4KCiAgICAgQXJuZAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Mar 23, 2023 at 12:56:04PM +0800, Sia Jee Heng wrote:
+> Low level Arch functions were created to support hibernation.
+> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> cpu state onto the stack, then calling swsusp_save() to save the memory
+> image.
+> 
+> Arch specific hibernation header is implemented and is utilized by the
+> arch_hibernation_header_restore() and arch_hibernation_header_save()
+> functions. The arch specific hibernation header consists of satp, hartid,
+> and the cpu_resume address. The kernel built version is also need to be
+> saved into the hibernation image header to making sure only the same
+> kernel is restore when resume.
+> 
+> swsusp_arch_resume() creates a temporary page table that covering only
+> the linear map. It copies the restore code to a 'safe' page, then start
+> to restore the memory image. Once completed, it restores the original
+> kernel's page table. It then calls into __hibernate_cpu_resume()
+> to restore the CPU context. Finally, it follows the normal hibernation
+> path back to the hibernation core.
+> 
+> To enable hibernation/suspend to disk into RISCV, the below config
+> need to be enabled:
+> - CONFIG_ARCH_HIBERNATION_HEADER
+> - CONFIG_ARCH_HIBERNATION_POSSIBLE
+> 
+> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  arch/riscv/Kconfig                 |   6 +
+>  arch/riscv/include/asm/assembler.h |  20 ++
+>  arch/riscv/include/asm/suspend.h   |  19 ++
+>  arch/riscv/kernel/Makefile         |   1 +
+>  arch/riscv/kernel/asm-offsets.c    |   5 +
+>  arch/riscv/kernel/hibernate-asm.S  |  77 ++++++
+>  arch/riscv/kernel/hibernate.c      | 427 +++++++++++++++++++++++++++++
+>  7 files changed, 555 insertions(+)
+>  create mode 100644 arch/riscv/kernel/hibernate-asm.S
+>  create mode 100644 arch/riscv/kernel/hibernate.c
+>
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
