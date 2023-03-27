@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CC5C77B70
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 12:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3BEC7619A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 12:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lrr+0mXB+RIp/7XgQjcN4tsM8kub/aD1vSglgxkxYsk=; b=mb3tRJFBMkquLH
-	4ET1Ar8eXxXb/o5bcidZS7rwaHN++3Cy0GxTeZsNybfz2hs4hcKPjoPeeoA6syCTNk/2J1UH1ObAe
-	hAC9blPf5F2WcY1qfdC5QgLqhWbJVL0Z9mY0/fFSJbSh2PmX4GTrz+NnhYxfwD2Glg70ueA0i/uIy
-	U9+9lE5pzTx3TlLp2Da5EOkq7GCtDWx/uJA245G8DQZIcurPNBGt/dQKCDzlQ1UKN33lFBDCQ6Mfa
-	UirUSlpktWB3jsGBGf9muVjM0Q4q2Xc6n3xbUSTWLGZAjxuNpeAvdpjFnocdYkXxNMYcA0/6a30J/
-	iaA9pHHU2ez5ke9YG9Pw==;
+	List-Owner; bh=2D9fdnjRgm78fk0R0YeKxWG5p3IuOnf1YntyAaN/5jo=; b=gxZ92MZOfNjQXr
+	3LFAbhkqQjoh0F3Ex3kfJD0vQ2UGr2MijKTt1fXaXeLTf+HQGcCNUtaCY5umwUWXgDDoY+VG4LTmI
+	J4a+iT/BIr20UYM5pkJBuNGlQrenfzCo7PEIn2r0sXZVkv6C3zS7xqzoie/pflJDbDa/b1UVIEIYb
+	9t/yjz35jTcHgbU1GM8bLwTYMZoqRHUA5ztuOT7uPAs4fBNY0fQ2jTtvpUC784n8mg0K4scep53Ru
+	ktIVASk3CuO7xMM6dzx5UamCRX+Odma46rN2WheZcU9TFxQJdPmFMzNK1/J45pldSWhYYnit1n/qC
+	+h9sDY3Bi7YhuSruyLbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pglkR-00ArEn-1q;
-	Mon, 27 Mar 2023 12:14:51 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1pglkd-00ArNI-1H;
+	Mon, 27 Mar 2023 12:15:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pglkH-00Ar6F-25
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 12:14:42 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id t10so35144268edd.12
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 05:14:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112; t=1679919278;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zV7l9gwzS8uQDvU8ghGXWk1DwKUvHBE9MrpysU0Lhqw=;
-        b=cCLCI0wMW6IRrmquuFwWgV0/AtgncU+z6G0YwRGCKcPihYxqfjtEUP9PZFwIrsmigW
-         VtZxXoT3CsK5aVgrLkaFP04/rxndWu5A0D+zj2F/oXxRRqjL/9qL3tUwo4qqjxrboSLC
-         hAhmnuNeQTYq5qv17YcKG32fYUexBlRjb1vDJI/bxNPFOIot+Xi95OHKx0W/+W0zm+Js
-         UDYjhTCiiuhDCL2kWG2AMsnUOOVd/pgT15aMbQP7fuvK7zWzVONVaNdSmZPmNBYpplzk
-         KmoKrfdQVBQg82RyQiyYtLhIZ5C2/y3PhA327LsJxffMNrzKHZlte7+NcO8wTOpj1h3+
-         a+RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679919278;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zV7l9gwzS8uQDvU8ghGXWk1DwKUvHBE9MrpysU0Lhqw=;
-        b=yTSMvn9bMtpSLBBjANCNmknyLoH1W6Qda5UmRfcLZNsYj5I39prFmTFLY3dh9RVB2I
-         wxfWMmyNVe6zL+bpyEWDScV1CnkzAwx/63IKg2p6fiLWvPKJO2ftL/DBgTeMcvNQgJPz
-         9nf7VFvWUTY7DcVgDqGEkzLrfnqHZPrj+sdcvwdVZTUPz9IOAr2xXw76YoFSRozHGf3w
-         ff0PIwGcm/1+UpWw1Gsw3LBtSAQUzDIQR1fUGibzW1JCqrgl2exQbC9d6l9sd0JeOK9i
-         UmzDJPIy9c5oRp98v0E4gUErT4TuxksCycEkej/i2g7FLHHtxVlKY66JRRFTyslHKkB7
-         d/ZA==
-X-Gm-Message-State: AAQBX9dgz47LwvFvZo6AcoJwynzfEabC+9HP3cPXTPFBJc5wcwJc9kWu
-	tcmNUvtX0C4BcdCTO97Pm3DNcavE9eG/zFFk+w5Au141q8qfknrJU+g=
-X-Google-Smtp-Source: AKy350YoU2vC7aokDmLDWrPj3cpvgmucjwtQQi8VTcpal+Pl/zZwRYz8X50BsBIvSx7RUVyUkJ/fyLGgiTzEnTe0gn0=
-X-Received: by 2002:a50:9fef:0:b0:4fc:2096:b15c with SMTP id
- c102-20020a509fef000000b004fc2096b15cmr5975228edf.1.1679919277773; Mon, 27
- Mar 2023 05:14:37 -0700 (PDT)
+	id 1pglkI-00Ar8h-0u;
+	Mon, 27 Mar 2023 12:14:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D0689611CA;
+	Mon, 27 Mar 2023 12:14:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C784C433A4;
+	Mon, 27 Mar 2023 12:14:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1679919281;
+	bh=hpHzcJ3T0vShL1lzlkbvi7pqgHNybQdWukxJR0vOP3E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mfm6R/WQZMh61DGU+9uuCWkv0/tyJ6gJGGUPX4zG+Mk/WG5WkNGo0dAhhcwKvkeNZ
+	 Z7uItq3PdOnRh7TPukjXUvNYAGRmmdeX8JS3mT3qo9kJY6F3XOZKksXOchdcM4Ox8m
+	 YIgytC8vdHgG83EpJ1D/64cYqPwsTsUhPZ6rhpeC62QxfG4lJkjHaP4sM0VmU9aHOb
+	 tvmNcya7wRhmDLi1iqOu44WhuiEB0TW0zubz6bYucmFVCHU+7L/S2wlSb9kE6kLicK
+	 5hCctagI4UhCeLS7HyFjmcfLaXiJY5HRdWEL6v0y+dDF92dndyAz6eMDrhb79Jejef
+	 K08wGLvDTfBVg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org
+Subject: [PATCH 05/21] powerpc: dma-mapping: split out cache operation logic
+Date: Mon, 27 Mar 2023 14:13:01 +0200
+Message-Id: <20230327121317.4081816-6-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230327121317.4081816-1-arnd@kernel.org>
+References: <20230327121317.4081816-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20230324155421.271544-1-alexghiti@rivosinc.com> <20230324155421.271544-3-alexghiti@rivosinc.com>
-In-Reply-To: <20230324155421.271544-3-alexghiti@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 27 Mar 2023 17:44:26 +0530
-Message-ID: <CAAhSdy3fMm5gVASMqfs7qMdUp7omZG5tKSeDCxvDA1YALPDiTA@mail.gmail.com>
-Subject: Re: [PATCH v9 2/3] riscv: Move the linear mapping creation in its own function
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
-	Frank Rowand <frowand.list@gmail.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_051441_693614_6A2DE8D3 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20230327_051442_423214_8779332B 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +107,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXIgMjQsIDIwMjMgYXQgOToyNuKAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBObyBjaGFuZ2UgaW50ZW5kZWQsIGl0IGp1c3Qg
-c3BsaXRzIHRoZSBsaW5lYXIgbWFwcGluZyBjcmVhdGlvbiBmcm9tCj4gc2V0dXBfdm1fZmluYWw6
-IHRoaXMgcHJlcGFyZXMgZm9yIHVwY29taW5nIGFkZGl0aW9ucyB0byB0aGUgbGluZWFyCj4gbWFw
-cGluZyBjcmVhdGlvbi4KPgo+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4KClJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1
-bHQub3JnPgpUZXN0ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdh
-cmRzLApBbnVwCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L21tL2luaXQuYyB8IDQyICsrKysrKysrKysr
-KysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMjggaW5z
-ZXJ0aW9ucygrKSwgMTQgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9t
-bS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+IGluZGV4IGNjNTU4ZDk0NTU5YS4uM2Iz
-N2Q4NjA2OTIwIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gKysrIGIvYXJj
-aC9yaXNjdi9tbS9pbml0LmMKPiBAQCAtMTA4NiwxNiArMTA4NiwyNSBAQCBhc21saW5rYWdlIHZv
-aWQgX19pbml0IHNldHVwX3ZtKHVpbnRwdHJfdCBkdGJfcGEpCj4gICAgICAgICBwdF9vcHNfc2V0
-X2ZpeG1hcCgpOwo+ICB9Cj4KPiAtc3RhdGljIHZvaWQgX19pbml0IHNldHVwX3ZtX2ZpbmFsKHZv
-aWQpCj4gK3N0YXRpYyB2b2lkIF9faW5pdCBjcmVhdGVfbGluZWFyX21hcHBpbmdfcmFuZ2UocGh5
-c19hZGRyX3Qgc3RhcnQsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICBwaHlzX2FkZHJfdCBlbmQpCj4gIHsKPiArICAgICAgIHBoeXNfYWRkcl90IHBhOwo+
-ICAgICAgICAgdWludHB0cl90IHZhLCBtYXBfc2l6ZTsKPiAtICAgICAgIHBoeXNfYWRkcl90IHBh
-LCBzdGFydCwgZW5kOwo+IC0gICAgICAgdTY0IGk7Cj4KPiAtICAgICAgIC8qIFNldHVwIHN3YXBw
-ZXIgUEdEIGZvciBmaXhtYXAgKi8KPiAtICAgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhzd2FwcGVy
-X3BnX2RpciwgRklYQUREUl9TVEFSVCwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICBfX3Bh
-X3N5bWJvbChmaXhtYXBfcGdkX25leHQpLAo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgIFBH
-RElSX1NJWkUsIFBBR0VfVEFCTEUpOwo+ICsgICAgICAgZm9yIChwYSA9IHN0YXJ0OyBwYSA8IGVu
-ZDsgcGEgKz0gbWFwX3NpemUpIHsKPiArICAgICAgICAgICAgICAgdmEgPSAodWludHB0cl90KV9f
-dmEocGEpOwo+ICsgICAgICAgICAgICAgICBtYXBfc2l6ZSA9IGJlc3RfbWFwX3NpemUocGEsIGVu
-ZCAtIHBhKTsKPiArCj4gKyAgICAgICAgICAgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhzd2FwcGVy
-X3BnX2RpciwgdmEsIHBhLCBtYXBfc2l6ZSwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHBncHJvdF9mcm9tX3ZhKHZhKSk7Cj4gKyAgICAgICB9Cj4gK30KPiArCj4gK3N0YXRp
-YyB2b2lkIF9faW5pdCBjcmVhdGVfbGluZWFyX21hcHBpbmdfcGFnZV90YWJsZSh2b2lkKQo+ICt7
-Cj4gKyAgICAgICBwaHlzX2FkZHJfdCBzdGFydCwgZW5kOwo+ICsgICAgICAgdTY0IGk7Cj4KPiAg
-ICAgICAgIC8qIE1hcCBhbGwgbWVtb3J5IGJhbmtzIGluIHRoZSBsaW5lYXIgbWFwcGluZyAqLwo+
-ICAgICAgICAgZm9yX2VhY2hfbWVtX3JhbmdlKGksICZzdGFydCwgJmVuZCkgewo+IEBAIC0xMTA3
-LDE0ICsxMTE2LDE5IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBzZXR1cF92bV9maW5hbCh2b2lkKQo+
-ICAgICAgICAgICAgICAgICBpZiAoZW5kID49IF9fcGEoUEFHRV9PRkZTRVQpICsgbWVtb3J5X2xp
-bWl0KQo+ICAgICAgICAgICAgICAgICAgICAgICAgIGVuZCA9IF9fcGEoUEFHRV9PRkZTRVQpICsg
-bWVtb3J5X2xpbWl0Owo+Cj4gLSAgICAgICAgICAgICAgIGZvciAocGEgPSBzdGFydDsgcGEgPCBl
-bmQ7IHBhICs9IG1hcF9zaXplKSB7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgdmEgPSAodWlu
-dHB0cl90KV9fdmEocGEpOwo+IC0gICAgICAgICAgICAgICAgICAgICAgIG1hcF9zaXplID0gYmVz
-dF9tYXBfc2l6ZShwYSwgZW5kIC0gcGEpOwo+IC0KPiAtICAgICAgICAgICAgICAgICAgICAgICBj
-cmVhdGVfcGdkX21hcHBpbmcoc3dhcHBlcl9wZ19kaXIsIHZhLCBwYSwgbWFwX3NpemUsCj4gLSAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBncHJvdF9mcm9tX3ZhKHZh
-KSk7Cj4gLSAgICAgICAgICAgICAgIH0KPiArICAgICAgICAgICAgICAgY3JlYXRlX2xpbmVhcl9t
-YXBwaW5nX3JhbmdlKHN0YXJ0LCBlbmQpOwo+ICAgICAgICAgfQo+ICt9Cj4gKwo+ICtzdGF0aWMg
-dm9pZCBfX2luaXQgc2V0dXBfdm1fZmluYWwodm9pZCkKPiArewo+ICsgICAgICAgLyogU2V0dXAg
-c3dhcHBlciBQR0QgZm9yIGZpeG1hcCAqLwo+ICsgICAgICAgY3JlYXRlX3BnZF9tYXBwaW5nKHN3
-YXBwZXJfcGdfZGlyLCBGSVhBRERSX1NUQVJULAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
-IF9fcGFfc3ltYm9sKGZpeG1hcF9wZ2RfbmV4dCksCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgUEdESVJfU0laRSwgUEFHRV9UQUJMRSk7Cj4gKwo+ICsgICAgICAgLyogTWFwIHRoZSBsaW5l
-YXIgbWFwcGluZyAqLwo+ICsgICAgICAgY3JlYXRlX2xpbmVhcl9tYXBwaW5nX3BhZ2VfdGFibGUo
-KTsKPgo+ICAgICAgICAgLyogTWFwIHRoZSBrZXJuZWwgKi8KPiAgICAgICAgIGlmIChJU19FTkFC
-TEVEKENPTkZJR182NEJJVCkpCj4gLS0KPiAyLjM3LjIKPgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Arnd Bergmann <arnd@arndb.de>
+
+The powerpc arch_sync_dma_for_device()/arch_sync_dma_for_cpu() functions
+behave differently from all other architectures, at least for some of
+the operations.
+
+As a preparation for making the behavior more consistent, reorder the
+logic in which they decide whether to flush, invalidate or clean the.
+No change in behavior is intended.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/powerpc/mm/dma-noncoherent.c | 91 +++++++++++++++++++++----------
+ 1 file changed, 63 insertions(+), 28 deletions(-)
+
+diff --git a/arch/powerpc/mm/dma-noncoherent.c b/arch/powerpc/mm/dma-noncoherent.c
+index 30260b5d146d..f10869d27de5 100644
+--- a/arch/powerpc/mm/dma-noncoherent.c
++++ b/arch/powerpc/mm/dma-noncoherent.c
+@@ -16,31 +16,28 @@
+ #include <asm/tlbflush.h>
+ #include <asm/dma.h>
+ 
++enum dma_cache_op {
++	DMA_CACHE_CLEAN,
++	DMA_CACHE_INVAL,
++	DMA_CACHE_FLUSH,
++};
++
+ /*
+  * make an area consistent.
+  */
+-static void __dma_sync(void *vaddr, size_t size, int direction)
++static void __dma_op(void *vaddr, size_t size, enum dma_cache_op op)
+ {
+ 	unsigned long start = (unsigned long)vaddr;
+ 	unsigned long end   = start + size;
+ 
+-	switch (direction) {
+-	case DMA_NONE:
+-		BUG();
+-	case DMA_FROM_DEVICE:
+-		/*
+-		 * invalidate only when cache-line aligned otherwise there is
+-		 * the potential for discarding uncommitted data from the cache
+-		 */
+-		if ((start | end) & (L1_CACHE_BYTES - 1))
+-			flush_dcache_range(start, end);
+-		else
+-			invalidate_dcache_range(start, end);
+-		break;
+-	case DMA_TO_DEVICE:		/* writeback only */
++	switch (op) {
++	case DMA_CACHE_CLEAN:
+ 		clean_dcache_range(start, end);
+ 		break;
+-	case DMA_BIDIRECTIONAL:	/* writeback and invalidate */
++	case DMA_CACHE_INVAL:
++		invalidate_dcache_range(start, end);
++		break;
++	case DMA_CACHE_FLUSH:
+ 		flush_dcache_range(start, end);
+ 		break;
+ 	}
+@@ -48,16 +45,16 @@ static void __dma_sync(void *vaddr, size_t size, int direction)
+ 
+ #ifdef CONFIG_HIGHMEM
+ /*
+- * __dma_sync_page() implementation for systems using highmem.
++ * __dma_highmem_op() implementation for systems using highmem.
+  * In this case, each page of a buffer must be kmapped/kunmapped
+- * in order to have a virtual address for __dma_sync(). This must
++ * in order to have a virtual address for __dma_op(). This must
+  * not sleep so kmap_atomic()/kunmap_atomic() are used.
+  *
+  * Note: yes, it is possible and correct to have a buffer extend
+  * beyond the first page.
+  */
+-static inline void __dma_sync_page_highmem(struct page *page,
+-		unsigned long offset, size_t size, int direction)
++static inline void __dma_highmem_op(struct page *page,
++		unsigned long offset, size_t size, enum dma_cache_op op)
+ {
+ 	size_t seg_size = min((size_t)(PAGE_SIZE - offset), size);
+ 	size_t cur_size = seg_size;
+@@ -71,7 +68,7 @@ static inline void __dma_sync_page_highmem(struct page *page,
+ 		start = (unsigned long)kmap_atomic(page + seg_nr) + seg_offset;
+ 
+ 		/* Sync this buffer segment */
+-		__dma_sync((void *)start, seg_size, direction);
++		__dma_op((void *)start, seg_size, op);
+ 		kunmap_atomic((void *)start);
+ 		seg_nr++;
+ 
+@@ -88,32 +85,70 @@ static inline void __dma_sync_page_highmem(struct page *page,
+ #endif /* CONFIG_HIGHMEM */
+ 
+ /*
+- * __dma_sync_page makes memory consistent. identical to __dma_sync, but
+- * takes a struct page instead of a virtual address
++ * __dma_phys_op makes memory consistent. identical to __dma_op, but
++ * takes a phys_addr_t instead of a virtual address
+  */
+-static void __dma_sync_page(phys_addr_t paddr, size_t size, int dir)
++static void __dma_phys_op(phys_addr_t paddr, size_t size, enum dma_cache_op op)
+ {
+ 	struct page *page = pfn_to_page(paddr >> PAGE_SHIFT);
+ 	unsigned offset = paddr & ~PAGE_MASK;
+ 
+ #ifdef CONFIG_HIGHMEM
+-	__dma_sync_page_highmem(page, offset, size, dir);
++	__dma_highmem_op(page, offset, size, op);
+ #else
+ 	unsigned long start = (unsigned long)page_address(page) + offset;
+-	__dma_sync((void *)start, size, dir);
++	__dma_op((void *)start, size, op);
+ #endif
+ }
+ 
+ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+ 		enum dma_data_direction dir)
+ {
+-	__dma_sync_page(paddr, size, dir);
++	switch (direction) {
++	case DMA_NONE:
++		BUG();
++	case DMA_FROM_DEVICE:
++		/*
++		 * invalidate only when cache-line aligned otherwise there is
++		 * the potential for discarding uncommitted data from the cache
++		 */
++		if ((start | end) & (L1_CACHE_BYTES - 1))
++			__dma_phys_op(start, end, DMA_CACHE_FLUSH);
++		else
++			__dma_phys_op(start, end, DMA_CACHE_INVAL);
++		break;
++	case DMA_TO_DEVICE:		/* writeback only */
++		__dma_phys_op(start, end, DMA_CACHE_CLEAN);
++		break;
++	case DMA_BIDIRECTIONAL:	/* writeback and invalidate */
++		__dma_phys_op(start, end, DMA_CACHE_FLUSH);
++		break;
++	}
+ }
+ 
+ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 		enum dma_data_direction dir)
+ {
+-	__dma_sync_page(paddr, size, dir);
++	switch (direction) {
++	case DMA_NONE:
++		BUG();
++	case DMA_FROM_DEVICE:
++		/*
++		 * invalidate only when cache-line aligned otherwise there is
++		 * the potential for discarding uncommitted data from the cache
++		 */
++		if ((start | end) & (L1_CACHE_BYTES - 1))
++			__dma_phys_op(start, end, DMA_CACHE_FLUSH);
++		else
++			__dma_phys_op(start, end, DMA_CACHE_INVAL);
++		break;
++	case DMA_TO_DEVICE:		/* writeback only */
++		__dma_phys_op(start, end, DMA_CACHE_CLEAN);
++		break;
++	case DMA_BIDIRECTIONAL:	/* writeback and invalidate */
++		__dma_phys_op(start, end, DMA_CACHE_FLUSH);
++		break;
++	}
+ }
+ 
+ void arch_dma_prep_coherent(struct page *page, size_t size)
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
