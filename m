@@ -4,98 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D408C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 16:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0135C76195
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 16:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jrvwl4LjFyUUkc4nC4166sJsFE4yaB7aZqBjYQcmyYw=; b=1Bjs45FW6Qv/uT
-	tsvAX0NW0xyg1QI7e402WWPSNy3u8Q8UPUaGl47gsKXIBHkmbM84qszqksxa08i/Kl0qe5NBS2lKG
-	pDK0A1RXhb/DBPLuQAMZC0Ip4ZYd+ws4LxOCUcz8Fm9zlFIVEplivzfMKVS2nFQ5sMwvgT1uLOB8f
-	YrTZ0bwlEV/c2RxNAUe10xAfRdTa3FhXs8xA1rc8OW3ICdZnduAxbf5afiFYelAQtJ186EYE4ZQ9Y
-	QRuHnwhyepMZXpN8H6IC19QjYZ7Oof4lrA2A2S84ssgkNx0R53GCMnlo5dp1klbcum97WgeZCE5Fg
-	dIF9G5qU2KStxttIOSJA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4M72rGzoa0FeHKalOz3IVqhlIqFYoQ1ppP3QjTO1UPo=; b=mrVtTbTkYqp1QH
+	Dn3Rzj3+YkxtQ+iAxyhOLc4A7p4LiR5hjKfPnZ0yvdG+HkJe1EIdm6aGkO/NEBc0pkcOwLl93Zr52
+	Lh0UwBqZdvy3VD81549enFVqB13PDDecQT3YN/KQt6OQNAIhqfcch9quxEdgxTsVA70sV4MFCdOJ6
+	//Qhjb3pCZN0d+ghSNpca/1nCeS8LxW2XH9AyxolBSNkkxkN5fqbIU+b+WqW31Rif2MfVUWLa/KFC
+	c8Vcz3hAHfk+/2PwfprFbGwJZkPKozKkXVIpRSJ2PdFQxxrsHEaj67XOQbPpAGVREIDaOhOput6aH
+	ys1hoGsIA33rlU5btPXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgplw-00Bibn-2L;
-	Mon, 27 Mar 2023 16:32:40 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1pgq2d-00BkuV-18;
+	Mon, 27 Mar 2023 16:49:55 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgplt-00BiZo-1i
+	id 1pgq2Z-00BkqG-04
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 16:32:39 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id gp15-20020a17090adf0f00b0023d1bbd9f9eso12376612pjb.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 09:32:36 -0700 (PDT)
+	Mon, 27 Mar 2023 16:49:53 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id gp15-20020a17090adf0f00b0023d1bbd9f9eso12426933pjb.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 09:49:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1679934756;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5Uj1wHCrEjaubFJIf/ukmoK8QYWtkDXIKavVvOr6CFo=;
-        b=U/vXWoOY9zH2pdJUJfpkZRYRplwKQyRKiSjajenTVDvLGSgKyXVjKlhL1OTVj/82/5
-         M3/HkVZ1lSlHXLkiw1+FQHhJXeObxVOHOHvtPx49lX8c6TncUYSYFZiJvSrlf5FcYS3P
-         iq3cd9aZs0FEbAK9uSTf2YKiA9Fo/L2ALr5xQb9/I6P2Fx7f7zjpnGBeQYnJ/0O1zNtQ
-         DgWuKvr0EeFOsnirjCIDWUOvu7/0tB3zd60SOvpITI9Te8iOU1/1mHt66EUpMVFMEaLm
-         czysmWW/XwX1dRFRY/xebYzfUzmgT2onzta7TFTtyLbVVlms/hV/5A6eEagitoShhrqQ
-         kt7w==
+        d=sifive.com; s=google; t=1679935788;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tdUFmaq7u79G774KQc9ypVCe2BnAZIMgxiji5+Qs7A4=;
+        b=dNW4o+xajDZvMcr0T5CXYHCOdN7vmv5s68AMCIKTHEp7itb+0wEpWGGCFre8v0OrgP
+         1iSQhvN8sKhNIVtxd9OJmVbT+a+GQBO95uRnw7DMroWlZbGcCTGEOpGBeMVxJFsfClpV
+         5OTXGhFrU6nJA8lladRka6pjW58FUlAK5k/Q4oV1quJOR5Sv4rKUYItT5XUNbTCtNnM1
+         KYfOzBal46jMCm4KvC1glpyeKw3kGrfpG7qep8nvg8JNAvRLYsAaIH14JEfX2esOOCKC
+         B7ZiQ8U6Cx7szoQuoHAPaaUpmLQc9Vo5JAZEu6yEm2O6qXkiDEG+5dmX6eQiM6mAzsZ6
+         LSkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679934756;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5Uj1wHCrEjaubFJIf/ukmoK8QYWtkDXIKavVvOr6CFo=;
-        b=wquTCE80C9i3PaTaaTS101tDUjcPwpvua7C6DN+eUHNfCT+SxcIVXNhxnpsoLC3/zm
-         7jgby4X2g4sfQ+NvWjHHNG6NzvFMJoIyaj7PY1jlfEIsLHKGieUtGZAXz4D93jwYflzY
-         nzaxtmzZvcsMYiX9Rm0I9PSD463NBRFkJyK5WZKiv28+QfQnt2BTrUF9LX//4VE2W8nH
-         lX9J5ZEOhjukggq1QMALWGG2rwYIc6z3u/o6wt2asxSL3MxMy7fKrWODIe7lZQ0GnnwX
-         DmCKgTt4YZ64BCn2ddfnl+D3sQpdsB3MHGX2TtL9Lx4bJssOmjo7uSoEQznJ0hEjk4aF
-         Ynwg==
-X-Gm-Message-State: AAQBX9eZffNyKDTvLyV60Mt+0Zn9sat5wRWFBgxzffj+qLBlPg/JCify
-	FuvKpW8lbZZVPC9RWeSrCreryA==
-X-Google-Smtp-Source: AKy350bBvWXBPzyfvzs5lOxafwN9mpAUlPpzle3RaEY6sKVDGAeBPX77LeTT5wRTpPHcOJ2msZnnWg==
-X-Received: by 2002:a17:90b:1e01:b0:23f:b35b:7789 with SMTP id pg1-20020a17090b1e0100b0023fb35b7789mr13666266pjb.28.1679934756417;
-        Mon, 27 Mar 2023 09:32:36 -0700 (PDT)
-Received: from evan.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id io20-20020a17090312d400b001a1faeac240sm8963524plb.186.2023.03.27.09.32.34
+        d=1e100.net; s=20210112; t=1679935788;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tdUFmaq7u79G774KQc9ypVCe2BnAZIMgxiji5+Qs7A4=;
+        b=P1xmH6AjK711fyBY/Gwe7NPUa9gWxtjqv315d1RKveDzezlVwiVWSoB05RkQkaW4vo
+         vgBme3zkrvvvOLYr++hlKciK0F015RJxF9Kp4Av8vjncjmtTEB5pLFnl+oZA/BEW3Eu5
+         +BA93QqUhijvuQYS52bVjHKz0q1WdUNlDiF2143mgDolMVfhHRemUqo4uuUEjSzecRbM
+         uIjRw2o1ZEpHMUyyQ3pLTWsmpjD2ZajTf0CiSNADhO+GFjVnHhrINyWOn0uDfy5hUbrQ
+         9yCR86AMMh9thgHu5xp+QaGjNpgUZ0ktmr/vMCewxHyu20Xp7Y6UVCFwJtzVcg5zQOnh
+         zrUQ==
+X-Gm-Message-State: AO0yUKWh2REhzZ0Dt9EdnS7LG+Nek6iVVohOCM7JfI6or0AlQe+Z/ceY
+	vbdUGNks/B20s2ATwoGmUqh1be7csT5J+G1Rcuv30JpGuiDNZfOhjR3mJk0nHwkGlDZfjaDqnwK
+	7hWkVkEl33sfjDypmMHyGdUR5KlX/y9GD6n7OF+UM38tJbN++RI7TtNL5Z2Z9eBN43DJoV6o+X7
+	nt31kSAiDsAqc7
+X-Google-Smtp-Source: AK7set9Tv8plFf2XkmlpEpqjnzxJtZMO1dvxVpcCRU2I971Im21ranWmw31b7MwsUM2merx/s1M3dA==
+X-Received: by 2002:a05:6a20:b71b:b0:d9:7af9:6a82 with SMTP id fg27-20020a056a20b71b00b000d97af96a82mr11980375pzb.9.1679935787379;
+        Mon, 27 Mar 2023 09:49:47 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id q20-20020a62e114000000b0061949fe3beasm19310550pfh.22.2023.03.27.09.49.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Mar 2023 09:32:36 -0700 (PDT)
-From: Evan Green <evan@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: slewis@rivosinc.com,
-	vineetg@rivosinc.com,
-	heiko@sntech.de,
-	Conor Dooley <conor@kernel.org>,
-	Evan Green <evan@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Celeste Liu <coelacanthus@outlook.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Jann Horn <jannh@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+        Mon, 27 Mar 2023 09:49:46 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Xu <peterx@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 6/6] RISC-V: Add hwprobe vDSO function and data
-Date: Mon, 27 Mar 2023 09:32:03 -0700
-Message-Id: <20230327163203.2918455-7-evan@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230327163203.2918455-1-evan@rivosinc.com>
-References: <20230327163203.2918455-1-evan@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>
+Subject: [PATCH -next v17 00/20] riscv: Add vector ISA support
+Date: Mon, 27 Mar 2023 16:49:20 +0000
+Message-Id: <20230327164941.20491-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_093237_576435_B6CE3015 
-X-CRM114-Status: GOOD (  31.80  )
+X-CRM114-CacheID: sfid-20230327_094951_081936_1317438F 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,324 +103,248 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a vDSO function __vdso_riscv_hwprobe, which can sit in front of the
-riscv_hwprobe syscall and answer common queries. We stash a copy of
-static answers for the "all CPUs" case in the vDSO data page. This data
-is private to the vDSO, so we can decide later to change what's stored
-there or under what conditions we defer to the syscall. Currently all
-data can be discovered at boot, so the vDSO function answers all queries
-when the cpumask is set to the "all CPUs" hint.
+This patchset is implemented based on vector 1.0 spec to add vector support
+in riscv Linux kernel. There are some assumptions for this implementations.
 
-There's also a boolean in the data that lets the vDSO function know that
-all CPUs are the same. In that case, the vDSO will also answer queries
-for arbitrary CPU masks in addition to the "all CPUs" hint.
+1. We assume all harts has the same ISA in the system.
+2. We disable vector in both kernel andy user space [1] by default. Only
+   enable an user's vector after an illegal instruction trap where it
+   actually starts executing vector (the first-use trap [2]).
+3. We detect "riscv,isa" to determine whether vector is support or not.
 
-Signed-off-by: Evan Green <evan@rivosinc.com>
+We defined a new structure __riscv_v_ext_state in struct thread_struct to
+save/restore the vector related registers. It is used for both kernel space
+and user space.
+ - In kernel space, the datap pointer in __riscv_v_ext_state will be
+   allocated to save vector registers.
+ - In user space,
+	- In signal handler of user space, the structure is placed
+	  right after __riscv_ctx_hdr, which is embedded in fp reserved
+	  aera. This is required to avoid ABI break [2]. And datap points
+	  to the end of __riscv_v_ext_state.
+	- In ptrace, the data will be put in ubuf in which we use
+	  riscv_vr_get()/riscv_vr_set() to get or set the
+	  __riscv_v_ext_state data structure from/to it, datap pointer
+	  would be zeroed and vector registers will be copied to the
+	  address right after the __riscv_v_ext_state structure in ubuf.
+
+This patchset is rebased to v6.3-rc1 and it is tested by running several
+vector programs simultaneously. It delivers signals correctly in a test
+where we can see a valid ucontext_t in a signal handler, and a correct V
+context returing back from it. And the ptrace interface is tested by
+PTRACE_{GET,SET}REGSET. Lastly, KVM is tested by running above tests in
+a guest using the same kernel image. All tests are done on an rv64gcv
+virt QEMU.
+
+Note: please apply the patch at [4] due to a regression introduced by
+commit 596ff4a09b89 ("cpumask: re-introduce constant-sized cpumask
+optimizations") before testing the series.
+
+Meanwhile, some user space daemons have failed to start up since commit
+e45d6a52fe2b ("Merge patch series "riscv: Add GENERIC_ENTRY support""). We
+ managed to boot into user space then carry out tests without starting
+systemd. All vector tests are passing as usual. Though it seems not
+related to Vector, I am going to check if there is anything wrong on my
+QEMU setup and report it if I find something.
+
+Source tree:
+https://github.com/sifive/riscv-linux/tree/riscv/for-next/vector-v17
+
+Links:
+ - [1] https://lore.kernel.org/all/20220921214439.1491510-17-stillson@rivosinc.com/
+ - [2] https://lore.kernel.org/all/73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com/T/#u
+ - [3] https://lore.kernel.org/all/20230128082847.3055316-1-apatel@ventanamicro.com/
+ - [4] https://lore.kernel.org/all/CAHk-=wiAxtKyxs6BPEzirrXw1kXJ-7ZyGpgOrbzhmC=ud-6jBA@mail.gmail.com/
 ---
+Changelog V17
+ - A quick respin of v16.
+ - Rebase to the latest -next branch (at e45d6a5):
+   - Solve conflicts at 9 and 13 due to generic entry
+   - Use generic entry in do_trap_insn_illegal() trap handler
 
-Changes in v5:
- - Fixed compat vdso compilation failure (lkp).
+Changelog V16
+ - Rebase to the latest for-next (at 4b74077):
+   - Solve conflicts at 7, and 17
+ - Use as-instr to detect if assembler supports .option arch directive
+   and remove dependency from GAS, for both ZBB and V.
+ - Cleanup code in KVM vector
+ - Address issue reported by sparse
+ - Refine code:
+   - Fix a mixed-use of space/tab
+   - Remove new lines at the end of file
 
-Changes in v4:
- - Added a prototype to fix -Wmissing-prototype warning (lkp@intel.com)
- - Fixed rv32 build failure (lkp@intel.com)
- - Make vdso prototype match syscall types update
+Changelog V15
+ - Rebase to risc-v -next (v6.3-rc1)
+ - Make V depend on FD in Kconfig according to the spec and shut off v
+   properly.
+ - Fix a syntax error for clang build. But mark RISCV_ISA_V GAS only due
+   to https://reviews.llvm.org/D123515
+ - Use scratch reg in inline asm instead of t4.
+ - Refine code.
+ - Cleanup per-patch changelogs.
 
-Changes in v3:
- - Introduced vDSO function
+Changelog V14
+ - Rebase to risc-v -next (v6.2-rc7)
+ - Use TOOLCHAIN_HAS_V to detect if we can enable Vector. And refine
+   KBUILD_CFLAGS to remove v from default compile option.
+ - Drop illegal instruction handling patch in kvm and leave it to a
+   independent series[3]. The series has merged into 6.3-rc1
+ - Move KVM_RISCV_ISA_EXT_V to the end of enum to prevent potential ABI
+   breaks.
+ - Use PT_SIZE_ON_STACK instead of PT_SIZE to fit alignment. Also,
+   remove panic log from v13 (15/19) because it is no longer relevant.
+ - Rewrite insn_is_vector for better structuring (change if-else chain to
+   a switch)
+ - Fix compilation error in the middle of the series
+ - Validate size of the alternative signal frame if V is enabled
+   whenever:
+     - The user call sigaltstack to update altstack
+     - A signal is being delivered
+ - Rename __riscv_v_state to __riscv_v_ext_state.
+ - Add riscv_v_ prefix and rename rvv appropriately
+ - Organize riscv_v_vsize setup code into vector.c
+ - Address the issue mentioned by Heiko on !FPU case
+ - Honor orignal authors that got changed accidentally in v13 4,5,6
 
+Changelog V13
+ - Rebase to latest risc-v next (v6.2-rc1)
+ - vineetg: Re-organize the series to comply with bisect-ability
+ - andy.chiu: Improve task switch with inline assembly
+ - Re-structure the signal frame to avoid user ABI break.
+ - Implemnt first-use trap and drop prctl for per-task V state
+   enablement. Also, redirect this trap from hs to vs for kvm setup.
+ - Do not expose V context in ptrace/sigframe until the task start using
+   V. But still reserve V context for size ofsigframe reported by auxv.
+ - Drop the kernel mode vector and leave it to another (future) series.
 
-One aspect of this that's less than perfect is that there are two copies
-of the arch_vdso_data in the data page. This stems from the fact that
-vdso_data is arrayed by CS_BASES. Since we're very far away from filling
-up the page, and this is not ABI, I left it for now. If things get full
-we can move this data out to its own page, or refactor vdso_data
-tree-wide to allow for non-arrayed data.
+Changelog V12 (Chris)
+ - rebases to some point after v5.18-rc6
+ - add prctl to control per-process V state
 
----
- arch/riscv/Kconfig                         |  1 +
- arch/riscv/include/asm/vdso/data.h         | 17 +++++++
- arch/riscv/include/asm/vdso/gettimeofday.h |  8 ++++
- arch/riscv/kernel/compat_vdso/Makefile     |  2 +-
- arch/riscv/kernel/sys_riscv.c              | 41 +++++++++++++++++
- arch/riscv/kernel/vdso.c                   |  6 ---
- arch/riscv/kernel/vdso/Makefile            |  4 ++
- arch/riscv/kernel/vdso/hwprobe.c           | 52 ++++++++++++++++++++++
- arch/riscv/kernel/vdso/sys_hwprobe.S       | 15 +++++++
- arch/riscv/kernel/vdso/vdso.lds.S          |  3 ++
- 10 files changed, 142 insertions(+), 7 deletions(-)
- create mode 100644 arch/riscv/include/asm/vdso/data.h
- create mode 100644 arch/riscv/kernel/vdso/hwprobe.c
- create mode 100644 arch/riscv/kernel/vdso/sys_hwprobe.S
+Chnagelog V10
+ - Rebase to v5.18-rc6
+ - Merge several patches
+ - Refine codes
+ - Fix bugs
+ - Add kvm vector support
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c5e42cc37604..a20e105efa4e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -33,6 +33,7 @@ config RISCV
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
-+	select ARCH_HAS_VDSO_DATA
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_STACKWALK
-diff --git a/arch/riscv/include/asm/vdso/data.h b/arch/riscv/include/asm/vdso/data.h
-new file mode 100644
-index 000000000000..dc2f76f58b76
---- /dev/null
-+++ b/arch/riscv/include/asm/vdso/data.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __RISCV_ASM_VDSO_DATA_H
-+#define __RISCV_ASM_VDSO_DATA_H
-+
-+#include <linux/types.h>
-+#include <vdso/datapage.h>
-+#include <asm/hwprobe.h>
-+
-+struct arch_vdso_data {
-+	/* Stash static answers to the hwprobe queries when all CPUs are selected. */
-+	__u64 all_cpu_hwprobe_values[RISCV_HWPROBE_MAX_KEY + 1];
-+
-+	/* Boolean indicating all CPUs have the same static hwprobe values. */
-+	__u8 homogeneous_cpus;
-+};
-+
-+#endif /* __RISCV_ASM_VDSO_DATA_H */
-diff --git a/arch/riscv/include/asm/vdso/gettimeofday.h b/arch/riscv/include/asm/vdso/gettimeofday.h
-index 77d9c2f721c4..ba3283cf7acc 100644
---- a/arch/riscv/include/asm/vdso/gettimeofday.h
-+++ b/arch/riscv/include/asm/vdso/gettimeofday.h
-@@ -9,6 +9,12 @@
- #include <asm/csr.h>
- #include <uapi/linux/time.h>
- 
-+/*
-+ * 32-bit land is lacking generic time vsyscalls as well as the legacy 32-bit
-+ * time syscalls like gettimeofday. Skip these definitions since on 32-bit.
-+ */
-+#ifdef CONFIG_GENERIC_TIME_VSYSCALL
-+
- #define VDSO_HAS_CLOCK_GETRES	1
- 
- static __always_inline
-@@ -60,6 +66,8 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
- 	return ret;
- }
- 
-+#endif /* CONFIG_GENERIC_TIME_VSYSCALL */
-+
- static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
- 						 const struct vdso_data *vd)
- {
-diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
-index 260daf3236d3..91a3431ae1fe 100644
---- a/arch/riscv/kernel/compat_vdso/Makefile
-+++ b/arch/riscv/kernel/compat_vdso/Makefile
-@@ -22,7 +22,7 @@ targets := $(obj-compat_vdso) compat_vdso.so compat_vdso.so.dbg compat_vdso.lds
- obj-compat_vdso := $(addprefix $(obj)/, $(obj-compat_vdso))
- 
- obj-y += compat_vdso.o
--CPPFLAGS_compat_vdso.lds += -P -C -U$(ARCH)
-+CPPFLAGS_compat_vdso.lds += -P -C -DCOMPAT_VDSO -U$(ARCH)
- 
- # Disable profiling and instrumentation for VDSO code
- GCOV_PROFILE := n
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 19a6def6bb00..096fee3b2f8c 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -14,6 +14,7 @@
- #include <asm/uaccess.h>
- #include <asm/unistd.h>
- #include <asm-generic/mman-common.h>
-+#include <vdso/vsyscall.h>
- 
- static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 			   unsigned long prot, unsigned long flags,
-@@ -244,6 +245,46 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
- 
- }
- 
-+static int __init init_hwprobe_vdso_data(void)
-+{
-+	struct vdso_data *vd = __arch_get_k_vdso_data();
-+	struct arch_vdso_data *avd = &vd->arch_data;
-+	u64 id_bitsmash = 0;
-+	struct riscv_hwprobe pair;
-+	int key;
-+
-+	/*
-+	 * Initialize vDSO data with the answers for the "all CPUs" case, to
-+	 * save a syscall in the common case.
-+	 */
-+	for (key = 0; key <= RISCV_HWPROBE_MAX_KEY; key++) {
-+		pair.key = key;
-+		hwprobe_one_pair(&pair, cpu_online_mask);
-+
-+		WARN_ON_ONCE(pair.key < 0);
-+
-+		avd->all_cpu_hwprobe_values[key] = pair.value;
-+		/*
-+		 * Smash together the vendor, arch, and impl IDs to see if
-+		 * they're all 0 or any negative.
-+		 */
-+		if (key <= RISCV_HWPROBE_KEY_MIMPID)
-+			id_bitsmash |= pair.value;
-+	}
-+
-+	/*
-+	 * If the arch, vendor, and implementation ID are all the same across
-+	 * all harts, then assume all CPUs are the same, and allow the vDSO to
-+	 * answer queries for arbitrary masks. However if all values are 0 (not
-+	 * populated) or any value returns -1 (varies across CPUs), then the
-+	 * vDSO should defer to the kernel for exotic cpu masks.
-+	 */
-+	avd->homogeneous_cpus = (id_bitsmash > 0);
-+	return 0;
-+}
-+
-+arch_initcall_sync(init_hwprobe_vdso_data);
-+
- SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
- 		size_t, pair_count, size_t, cpu_count, unsigned long __user *,
- 		cpus, unsigned int, flags)
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index cc2d1e8c8736..9a68e7eaae4d 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -14,13 +14,7 @@
- #include <asm/page.h>
- #include <asm/vdso.h>
- #include <linux/time_namespace.h>
--
--#ifdef CONFIG_GENERIC_TIME_VSYSCALL
- #include <vdso/datapage.h>
--#else
--struct vdso_data {
--};
--#endif
- 
- enum vvar_pages {
- 	VVAR_DATA_PAGE_OFFSET,
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 06e6b27f3bcc..022258426050 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -12,6 +12,8 @@ vdso-syms += vgettimeofday
- endif
- vdso-syms += getcpu
- vdso-syms += flush_icache
-+vdso-syms += hwprobe
-+vdso-syms += sys_hwprobe
- 
- # Files to link into the vdso
- obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
-@@ -23,6 +25,8 @@ ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
- endif
- 
-+CFLAGS_hwprobe.o += -fPIC
-+
- # Build rules
- targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
- obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
-diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-new file mode 100644
-index 000000000000..d40bec6ac078
---- /dev/null
-+++ b/arch/riscv/kernel/vdso/hwprobe.c
-@@ -0,0 +1,52 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2023 Rivos, Inc
-+ */
-+
-+#include <linux/types.h>
-+#include <vdso/datapage.h>
-+#include <vdso/helpers.h>
-+
-+extern int riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+			 size_t cpu_count, unsigned long *cpus,
-+			 unsigned int flags);
-+
-+/* Add a prototype to avoid -Wmissing-prototypes warning. */
-+int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+			 size_t cpu_count, unsigned long *cpus,
-+			 unsigned int flags);
-+
-+int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+			 size_t cpu_count, unsigned long *cpus,
-+			 unsigned int flags)
-+{
-+	const struct vdso_data *vd = __arch_get_vdso_data();
-+	const struct arch_vdso_data *avd = &vd->arch_data;
-+	bool all_cpus = !cpu_count && !cpus;
-+	struct riscv_hwprobe *p = pairs;
-+	struct riscv_hwprobe *end = pairs + pair_count;
-+
-+	/*
-+	 * Defer to the syscall for exotic requests. The vdso has answers
-+	 * stashed away only for the "all cpus" case. If all CPUs are
-+	 * homogeneous, then this function can handle requests for arbitrary
-+	 * masks.
-+	 */
-+	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus))
-+		return riscv_hwprobe(pairs, pair_count, cpu_count, cpus, flags);
-+
-+	/* This is something we can handle, fill out the pairs. */
-+	while (p < end) {
-+		if (p->key <= RISCV_HWPROBE_MAX_KEY) {
-+			p->value = avd->all_cpu_hwprobe_values[p->key];
-+
-+		} else {
-+			p->key = -1;
-+			p->value = 0;
-+		}
-+
-+		p++;
-+	}
-+
-+	return 0;
-+}
-diff --git a/arch/riscv/kernel/vdso/sys_hwprobe.S b/arch/riscv/kernel/vdso/sys_hwprobe.S
-new file mode 100644
-index 000000000000..2511c8ba8f86
---- /dev/null
-+++ b/arch/riscv/kernel/vdso/sys_hwprobe.S
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2022 Rivos, Inc */
-+
-+#include <linux/linkage.h>
-+#include <asm/unistd.h>
-+
-+.text
-+ENTRY(riscv_hwprobe)
-+	.cfi_startproc
-+	li a7, __NR_riscv_hwprobe
-+	ecall
-+	ret
-+
-+	.cfi_endproc
-+ENDPROC(riscv_hwprobe)
-diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index 4a0606633290..82ce64900f3d 100644
---- a/arch/riscv/kernel/vdso/vdso.lds.S
-+++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -82,6 +82,9 @@ VERSION
- #endif
- 		__vdso_getcpu;
- 		__vdso_flush_icache;
-+#ifndef COMPAT_VDSO
-+		__vdso_riscv_hwprobe;
-+#endif
- 	local: *;
- 	};
- }
+Changelog V9
+ - Rebase to v5.15
+ - Merge several patches
+ - Refine codes
+ - Fix a kernel panic issue
+
+Changelog V8
+ - Rebase to v5.14
+ - Refine struct __riscv_v_ext_state with struct __riscv_ctx_hdr
+ - Refine has_vector into a static key
+ - Defined __reserved space in struct sigcontext for vector and future extensions
+
+Changelog V7
+ - Add support for kernel mode vector
+ - Add vector extension XOR implementation
+ - Optimize task switch codes of vector
+ - Allocate space for vector registers in start_thread()
+ - Fix an illegal instruction exception when accessing vlenb
+ - Optimize vector registers initialization
+ - Initialize vector registers with proper vsetvli then it can work normally
+ - Refine ptrace porting due to generic API changed
+ - Code clean up
+
+Changelog V6
+ - Replace vle.v/vse.v instructions with vle8.v/vse8.v based on 0.9 spec
+ - Add comments based on mailinglist feedback
+ - Fix rv32 build error
+
+Changelog V5
+ - Using regset_size() correctly in generic ptrace
+ - Fix the ptrace porting
+ - Fix compile warning
+
+Changelog V4
+ - Support dynamic vlen
+ - Fix bugs: lazy save/resotre, not saving vtype
+ - Update VS bit offset based on latest vector spec
+ - Add new vector csr based on latest vector spec
+ - Code refine and removed unused macros
+
+Changelog V3
+ - Rebase linux-5.6-rc3 and tested with qemu
+ - Seperate patches with Anup's advice
+ - Give out a ABI puzzle with unlimited vlen
+
+Changelog V2
+ - Fixup typo "vecotr, fstate_save->vstate_save".
+ - Fixup wrong saved registers' length in vector.S.
+ - Seperate unrelated patches from this one.
+
+Andy Chiu (4):
+  riscv: Allocate user's vector context in the first-use trap
+  riscv: signal: check fp-reserved words unconditionally
+  riscv: signal: validate altstack to reflect Vector
+  riscv: detect assembler support for .option arch
+
+Greentime Hu (9):
+  riscv: Add new csr defines related to vector extension
+  riscv: Clear vector regfile on bootup
+  riscv: Introduce Vector enable/disable helpers
+  riscv: Introduce riscv_v_vsize to record size of Vector context
+  riscv: Introduce struct/helpers to save/restore per-task Vector state
+  riscv: Add task switch support for vector
+  riscv: Add ptrace vector support
+  riscv: signal: Add sigcontext save/restore for vector
+  riscv: prevent stack corruption by reserving task_pt_regs(p) early
+
+Guo Ren (4):
+  riscv: Rename __switch_to_aux() -> fpu
+  riscv: Extending cpufeature.c to detect V-extension
+  riscv: Disable Vector Instructions for kernel itself
+  riscv: Enable Vector code to be built
+
+Vincent Chen (3):
+  riscv: signal: Report signal frame size to userspace via auxv
+  riscv: kvm: Add V extension to KVM ISA
+  riscv: KVM: Add vector lazy save/restore support
+
+ arch/riscv/Kconfig                       |  28 ++-
+ arch/riscv/Makefile                      |   6 +-
+ arch/riscv/include/asm/csr.h             |  18 +-
+ arch/riscv/include/asm/elf.h             |   9 +
+ arch/riscv/include/asm/hwcap.h           |   1 +
+ arch/riscv/include/asm/insn.h            |  29 +++
+ arch/riscv/include/asm/kvm_host.h        |   2 +
+ arch/riscv/include/asm/kvm_vcpu_vector.h |  82 +++++++++
+ arch/riscv/include/asm/processor.h       |   3 +
+ arch/riscv/include/asm/switch_to.h       |   9 +-
+ arch/riscv/include/asm/thread_info.h     |   3 +
+ arch/riscv/include/asm/vector.h          | 179 ++++++++++++++++++
+ arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+ arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+ arch/riscv/include/uapi/asm/kvm.h        |   8 +
+ arch/riscv/include/uapi/asm/ptrace.h     |  39 ++++
+ arch/riscv/include/uapi/asm/sigcontext.h |  16 +-
+ arch/riscv/kernel/Makefile               |   1 +
+ arch/riscv/kernel/cpufeature.c           |  13 ++
+ arch/riscv/kernel/entry.S                |   6 +-
+ arch/riscv/kernel/head.S                 |  41 ++++-
+ arch/riscv/kernel/process.c              |  18 ++
+ arch/riscv/kernel/ptrace.c               |  70 ++++++++
+ arch/riscv/kernel/setup.c                |   3 +
+ arch/riscv/kernel/signal.c               | 220 ++++++++++++++++++++---
+ arch/riscv/kernel/traps.c                |  26 ++-
+ arch/riscv/kernel/vector.c               | 110 ++++++++++++
+ arch/riscv/kvm/Makefile                  |   1 +
+ arch/riscv/kvm/vcpu.c                    |  23 +++
+ arch/riscv/kvm/vcpu_vector.c             | 186 +++++++++++++++++++
+ include/uapi/linux/elf.h                 |   1 +
+ 31 files changed, 1104 insertions(+), 49 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
+ create mode 100644 arch/riscv/include/asm/vector.h
+ create mode 100644 arch/riscv/kernel/vector.c
+ create mode 100644 arch/riscv/kvm/vcpu_vector.c
+
 -- 
-2.25.1
+2.17.1
 
 
 _______________________________________________
