@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BC8C74A5B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 02:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169BCC74A5B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 03:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w53IVoHL2cypORXhL1GxZthRjrrm1G0uwm1c1vKujRY=; b=p6WACQE+Wcma+6
-	oa0pwdgITGqCQne/+6cTk4mC/rrSxdWYQ+Tp1fi6/kD+A4+MpepK8UrEti1S33CT2fDzaHJof4cjk
-	IcscoODHZtH/S5/azrD5FUCJdTIz8kaid3otNe51W0uVdq+u7kDNiXJTIcE2Za6sSx7VKHodOa7R8
-	IkZx0R3kcawfaezajnfYvuCh3jWHhaMhFf4l9iSStHVNNq6MKWL+uwEjJnmPL7WAbCM3DApFHuIDR
-	OPMdI1ZsJktmWkbTEKgDZjPzAXgeEkESII51Esu3CMULzXPDPe4LRAWBptAVpuTU6cQkMpvhimKQK
-	QYXcUzrZ7FweaxMuvfPg==;
+	List-Owner; bh=VRpWkUPsr5IKJMqhKv0qsEoWKr024fekx7lPv+nY1rY=; b=PkMrLiYD+kIVXA
+	Cn15ESc1/iFQPtdYg43aGTOnxs613T6KOBi2gNzDfATR31RHyaflPnZga13AS4mCjj263zswUqXgE
+	oIyATQskqUGHD7jgzLyi4rszCvdVWRmp9kRB81EpektnuyOWFkh+vU1+x+FfgS4gLW1e5E74FFPBn
+	gaTq066qsOdhNMqIEH1GQG2sEZ1bf+9QL+/gC06pk/18JLa6QfEbPqQ14dQwcJMe5JZ/SQsIDi5Ws
+	rT8x25ecrta9i0dvCZ0Ff7b5I7ERHA0WlsQsYs5oq6PtwsfGG/FfgsOCZ2kiqZy3nDuNQCTWIcCyn
+	JsM2CIUHysthfHZH/3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgcoR-009YSJ-1J;
-	Mon, 27 Mar 2023 02:42:23 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pgd9V-009bFC-1v;
+	Mon, 27 Mar 2023 03:04:09 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgcoN-009YRY-2Y
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 02:42:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8D839B80B9E
-	for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 02:42:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3B3C433A1
-	for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 02:42:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1679884930;
-	bh=6VzDqX48Vl38IiLh2rkurFRzDn0V2PY1IZwfkVKLHBs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=le+wVaujnmigkIxLcC+BBlb+L/EMpxeO7Na5IaemZUVhnFs3HUxmNZHz7oPcctthu
-	 xKbTOv+VAm17PPXvskg+agwZs0QJhMklxMh7wf3BOpHkVrbgbEILQgzGLzYvOqQGUv
-	 e/poab9zYziebClPUO3ZyGyUhe8NMoonf9lc+0uyfnLM7t9JVXmEnuizf4bL/8xGdR
-	 2OxDPf0urRfD7akRCN+pa3di3mvIwCrXCnhr3DvnDUOx004YT6uAL7fifIWYlgoKVP
-	 Xj+euO8CwKwp5AMM/ca5VYm5y1nAOTrHQEQ4ZnqFpYT701MxbojYvK6BN3G8CgmxFs
-	 qK3ALWFQo7jAA==
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-17aa62d0a4aso7820205fac.4
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Mar 2023 19:42:10 -0700 (PDT)
-X-Gm-Message-State: AAQBX9cjp690jBVY+R45pi6gSJaRn5aI7jx+tr6wvVt3qX5e3qMRLwOc
-	z07U44il4VuwV+uIqYIuOqmmZ8bD3lkG1I2+Wsw=
-X-Google-Smtp-Source: AKy350bMxmeywLQZtcIhcbwfTUAlICv85a5HdlyEXx820LhBAGY0y4TcQppgHU2tLzA5NynqOEARjQGH1XU2iOfJIuY=
-X-Received: by 2002:a05:6871:e86:b0:17e:d9e2:a55c with SMTP id
- vl6-20020a0568710e8600b0017ed9e2a55cmr3302021oab.11.1679884929854; Sun, 26
- Mar 2023 19:42:09 -0700 (PDT)
+	id 1pgd9O-009bD6-2P;
+	Mon, 27 Mar 2023 03:04:06 +0000
+Received: from [192.168.2.16] (unknown [106.38.161.27])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 8A9D35807D9;
+	Mon, 27 Mar 2023 11:03:38 +0800 (CST)
+Message-ID: <3c8e08d5-1069-4df8-5f53-5bd5c6aedd75@sangfor.com.cn>
+Date: Mon, 27 Mar 2023 11:03:39 +0800
 MIME-Version: 1.0
-References: <20230326182120.194541-1-hi@alyssa.is>
-In-Reply-To: <20230326182120.194541-1-hi@alyssa.is>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Mon, 27 Mar 2023 11:41:33 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAR6W9=dOwV8E=biPQ_KGF7LXcb2-6PdSevej7H0xs7EUA@mail.gmail.com>
-Message-ID: <CAK7LNAR6W9=dOwV8E=biPQ_KGF7LXcb2-6PdSevej7H0xs7EUA@mail.gmail.com>
-Subject: Re: [PATCH v2] purgatory: fix disabling debug info
-To: Alyssa Ross <hi@alyssa.is>
-Cc: Nick Cao <nickcao@nichi.co>, linux-kbuild@vger.kernel.org, 
-	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, Tom Rix <trix@redhat.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, stable@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v7 4/8] arm64: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
+ will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
+ kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
+ xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
+ dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230324123731.3801920-1-pengdonglin@sangfor.com.cn>
+ <20230324123731.3801920-5-pengdonglin@sangfor.com.cn>
+ <ZB2eLsD4aoR3LEOV@FVFF77S0Q05N>
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+In-Reply-To: <ZB2eLsD4aoR3LEOV@FVFF77S0Q05N>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHU1LVkNJHRlDSU5KSE9IT1UTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpLTVVIQ1VKTUpVSUxZV1kWGg8SFR0UWUFZT0tIVUpKS09ISFVKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MC46Szo4SD0IMQwfKwECMy8t
+	CSxPCj1VSlVKTUxCQ0NNSUlLSk9MVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSktNVUhDVUpNSlVJTFlXWQgBWUFMSUpKNwY+
+X-HM-Tid: 0a872105794b2eb7kusn8a9d35807d9
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230326_194220_133514_AC9C3A65 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20230326_200403_074644_F3198963 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +72,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMjcsIDIwMjMgYXQgMzoyM+KAr0FNIEFseXNzYSBSb3NzIDxoaUBhbHlzc2Eu
-aXM+IHdyb3RlOgo+Cj4gU2luY2UgMzJlZjllNTA1NGVjLCAtV2EsLWdkd2FyZi0yIGlzIG5vIGxv
-bmdlciB1c2VkIGluIEtCVUlMRF9BRkxBR1MuCj4gSW5zdGVhZCwgaXQgaW5jbHVkZXMgLWcsIHRo
-ZSBhcHByb3ByaWF0ZSAtZ2R3YXJmLSogZmxhZywgYW5kIGFsc28gdGhlCj4gLVdhIHZlcnNpb25z
-IG9mIGJvdGggb2YgdGhvc2UgaWYgYnVpbGRpbmcgd2l0aCBDbGFuZyBhbmQgR05VIGFzLiAgQXMg
-YQo+IHJlc3VsdCwgZGVidWcgaW5mbyB3YXMgYmVpbmcgZ2VuZXJhdGVkIGZvciB0aGUgcHVyZ2F0
-b3J5IG9iamVjdHMsIGV2ZW4KPiB0aG91Z2ggdGhlIGludGVudGlvbiB3YXMgdGhhdCBpdCBub3Qg
-YmUuCj4KPiBGaXhlczogMzJlZjllNTA1NGVjICgiTWFrZWZpbGUuZGVidWc6IHJlLWVuYWJsZSBk
-ZWJ1ZyBpbmZvIGZvciAuUyBmaWxlcyIpCj4gU2lnbmVkLW9mZi1ieTogQWx5c3NhIFJvc3MgPGhp
-QGFseXNzYS5pcz4KPiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwoKCgpUaGFua3MsIGxvb2tz
-IGdvb2QgdG8gbWUuCgpJIGNhbiBvZmZlciB0byBwaWNrIHRoaXMgdXAgdG8gbXkgdHJlZSBsYXRl
-ciwKYnV0IEkgd2lsbCB3YWl0IGZvciBBY2sgZnJvbSB0aGUgYXJjaCBtYWludGFpbmVycwphbmQg
-b3RoZXIgY29tbWVudHMuCgoKCgoKCgo+IC0tLQo+Cj4gRGlmZmVyZW5jZSBmcm9tIHYyOiByZXBs
-YWNlIGVhY2ggQUZMQUdTX1JFTU9WRV8qIGFzc2lnbm1lbnQgd2l0aCBhCj4gc2luZ2xlIGFmbGFn
-cy1yZW1vdmUteSBsaW5lLCBhbmQgdXNlIGZvcmVhY2ggdG8gYWRkIHRoZSAtV2EgdmVyc2lvbnMs
-Cj4gYXMgc3VnZ2VzdGVkIGJ5IE1hc2FoaXJvIFlhbWFkYS4KPgo+ICBhcmNoL3Jpc2N2L3B1cmdh
-dG9yeS9NYWtlZmlsZSB8IDcgKy0tLS0tLQo+ICBhcmNoL3g4Ni9wdXJnYXRvcnkvTWFrZWZpbGUg
-ICB8IDMgKy0tCj4gIDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9u
-cygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvcHVyZ2F0b3J5L01ha2VmaWxlIGIvYXJj
-aC9yaXNjdi9wdXJnYXRvcnkvTWFrZWZpbGUKPiBpbmRleCBkMTZiZjcxNWE1ODYuLjU3MzA3OTdh
-NmI0MCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L3B1cmdhdG9yeS9NYWtlZmlsZQo+ICsrKyBi
-L2FyY2gvcmlzY3YvcHVyZ2F0b3J5L01ha2VmaWxlCj4gQEAgLTg0LDEyICs4NCw3IEBAIENGTEFH
-U19zdHJpbmcubyAgICAgICAgICAgICAgICAgICAgICArPSAkKFBVUkdBVE9SWV9DRkxBR1MpCj4g
-IENGTEFHU19SRU1PVkVfY3R5cGUubyAgICAgICAgICArPSAkKFBVUkdBVE9SWV9DRkxBR1NfUkVN
-T1ZFKQo+ICBDRkxBR1NfY3R5cGUubyAgICAgICAgICAgICAgICAgKz0gJChQVVJHQVRPUllfQ0ZM
-QUdTKQo+Cj4gLUFGTEFHU19SRU1PVkVfZW50cnkubyAgICAgICAgICArPSAtV2EsLWdkd2FyZi0y
-Cj4gLUFGTEFHU19SRU1PVkVfbWVtY3B5Lm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFG
-TEFHU19SRU1PVkVfbWVtc2V0Lm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFGTEFHU19S
-RU1PVkVfc3RyY21wLm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFGTEFHU19SRU1PVkVf
-c3RybGVuLm8gICAgICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFGTEFHU19SRU1PVkVfc3RybmNt
-cC5vICAgICAgICAgICAgICAgICs9IC1XYSwtZ2R3YXJmLTIKPiArYXNmbGFncy1yZW1vdmUteSAg
-ICAgICAgICAgICAgICs9ICQoZm9yZWFjaCB4LCAtZyAtZ2R3YXJmLTQgLWdkd2FyZi01LCAkKHgp
-IC1XYSwkKHgpKQo+Cj4gICQob2JqKS9wdXJnYXRvcnkucm86ICQoUFVSR0FUT1JZX09CSlMpIEZP
-UkNFCj4gICAgICAgICAgICAgICAgICQoY2FsbCBpZl9jaGFuZ2VkLGxkKQo+IGRpZmYgLS1naXQg
-YS9hcmNoL3g4Ni9wdXJnYXRvcnkvTWFrZWZpbGUgYi9hcmNoL3g4Ni9wdXJnYXRvcnkvTWFrZWZp
-bGUKPiBpbmRleCAxN2YwOWRjMjYzODEuLjgyZmVjNjZkNDZkMiAxMDA2NDQKPiAtLS0gYS9hcmNo
-L3g4Ni9wdXJnYXRvcnkvTWFrZWZpbGUKPiArKysgYi9hcmNoL3g4Ni9wdXJnYXRvcnkvTWFrZWZp
-bGUKPiBAQCAtNjksOCArNjksNyBAQCBDRkxBR1Nfc2hhMjU2Lm8gICAgICAgICAgICAgICAgICAg
-ICAgICs9ICQoUFVSR0FUT1JZX0NGTEFHUykKPiAgQ0ZMQUdTX1JFTU9WRV9zdHJpbmcubyAgICAg
-ICAgICs9ICQoUFVSR0FUT1JZX0NGTEFHU19SRU1PVkUpCj4gIENGTEFHU19zdHJpbmcubyAgICAg
-ICAgICAgICAgICAgICAgICAgICs9ICQoUFVSR0FUT1JZX0NGTEFHUykKPgo+IC1BRkxBR1NfUkVN
-T1ZFX3NldHVwLXg4Nl8kKEJJVFMpLm8gICAgICArPSAtV2EsLWdkd2FyZi0yCj4gLUFGTEFHU19S
-RU1PVkVfZW50cnk2NC5vICAgICAgICAgICAgICAgICAgICAgICAgKz0gLVdhLC1nZHdhcmYtMgo+
-ICthc2ZsYWdzLXJlbW92ZS15ICAgICAgICAgICAgICAgKz0gJChmb3JlYWNoIHgsIC1nIC1nZHdh
-cmYtNCAtZ2R3YXJmLTUsICQoeCkgLVdhLCQoeCkpCj4KPiAgJChvYmopL3B1cmdhdG9yeS5ybzog
-JChQVVJHQVRPUllfT0JKUykgRk9SQ0UKPiAgICAgICAgICAgICAgICAgJChjYWxsIGlmX2NoYW5n
-ZWQsbGQpCj4KPiBiYXNlLWNvbW1pdDogZGE4ZTdkYTExZTRiYTc1OGNhZjRjMTQ5Y2M4ZDhjZDU1
-NWFlZmU1Zgo+IC0tCj4gMi4zNy4xCj4KCgotLSAKQmVzdCBSZWdhcmRzCk1hc2FoaXJvIFlhbWFk
-YQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2023/3/24 20:57, Mark Rutland wrote:
+> On Fri, Mar 24, 2023 at 05:37:27AM -0700, Donglin Peng wrote:
+>> The commit d4815c5d1bbd ("function_graph: Support recording and
+>> printing the return value of function") laid the groundwork for the
+>> for the funcgraph-retval, and this modification makes it available
+>> on the ARM64 platform.
+>>
+>> We introduce a new structure called fgraph_ret_regs for the ARM64
+>> platform to hold return registers and the frame pointer. We then
+>> fill its content in the return_to_handler and pass its address to
+>> the function ftrace_return_to_handler to record the return value.
+> 
+> I'm happy with this, or with using ftrace_regs and capturing more regs here.
+
+Thanks, I think ftrace_regs has several members that are unnecessary to
+fill. And each function that can be traced will do this work when using
+function graph tracer, so the overhead is bit high.
+
+> 
+> This overall looks good, but there's one functional issue and a couple of minor
+> nits which I've detailed below.
+
+Thanks.
+
+> 
+>>
+>> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+>> ---
+>>   arch/arm64/Kconfig               |  1 +
+>>   arch/arm64/include/asm/ftrace.h  | 23 +++++++++++++++++++++++
+>>   arch/arm64/kernel/entry-ftrace.S |  9 +++++----
+>>   3 files changed, 29 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 1023e896d46b..48856d230800 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -195,6 +195,7 @@ config ARM64
+>>   	select HAVE_FTRACE_MCOUNT_RECORD
+>>   	select HAVE_FUNCTION_TRACER
+>>   	select HAVE_FUNCTION_ERROR_INJECTION
+>> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>>   	select HAVE_FUNCTION_GRAPH_TRACER
+>>   	select HAVE_GCC_PLUGINS
+>>   	select HAVE_HW_BREAKPOINT if PERF_EVENTS
+>> diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+>> index 1c2672bbbf37..f68dcc41be3b 100644
+>> --- a/arch/arm64/include/asm/ftrace.h
+>> +++ b/arch/arm64/include/asm/ftrace.h
+>> @@ -170,4 +170,27 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
+>>   }
+>>   #endif /* ifndef __ASSEMBLY__ */
+>>   
+>> +#ifndef __ASSEMBLY__
+>> +
+>> +#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+>> +struct fgraph_ret_regs {
+>> +	/* x0 - x7 */
+>> +	u64 regs[8];
+>> +
+>> +	u64 fp;
+>> +};
+> 
+> As a minor nit, for ftrace_regs we used `unsigned long` rather than `u64`;
+> could we do the same here for consistency?
+
+Yes, I will fix it.
+
+> 
+> This will need to be padded to 16 bytes, as within the kernel, arm64 requires
+> the SP to be aligned to 16 bytes at all time. Please can you add an `__unused`
+> field, like we have in ftrace_regs, to ensure that?
+> 
+
+Yes, I will fix it.
+
+>> +
+>> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
+>> +{
+>> +	return ret_regs->regs[0];
+>> +}
+>> +
+>> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
+>> +{
+>> +	return ret_regs->fp;
+>> +}
+>> +#endif
+>> +
+>> +#endif
+>> +
+>>   #endif /* __ASM_FTRACE_H */
+>> diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
+>> index 350ed81324ac..8ac6f952e68f 100644
+>> --- a/arch/arm64/kernel/entry-ftrace.S
+>> +++ b/arch/arm64/kernel/entry-ftrace.S
+>> @@ -270,14 +270,15 @@ SYM_FUNC_END(ftrace_stub_graph)
+>>    */
+>>   SYM_CODE_START(return_to_handler)
+>>   	/* save return value regs */
+>> -	sub sp, sp, #64
+>> +	sub sp, sp, #72
+>>   	stp x0, x1, [sp]
+>>   	stp x2, x3, [sp, #16]
+>>   	stp x4, x5, [sp, #32]
+>>   	stp x6, x7, [sp, #48]
+>> +	str x29,    [sp, #64]		//     parent's fp
+> 
+> As above, this will need to be padded to keep the stack aligned to 16 bytes,
+> and I'd prefer if we could use asm-offsets so that we can have something like:
+> 
+> 	sub	sp, sp, #FRET_REGS_SIZE
+> 	stp	x0, x1, [sp, #FRET_REGS_X0]
+> 	stp	x2, x3, [sp, #FRET_REGS_X2]
+> 	stp	x4, x5, [sp, #FRET_REGS_X4]
+> 	stp	x6, x7, [sp, #FRET_REGS_X6]
+> 	str	x29, [sp, FRET_REGS_FP]
+
+Thank you, I will fix it.
+
+> 
+>>   
+>> -	mov	x0, x29			//     parent's fp
+>> -	bl	ftrace_return_to_handler// addr = ftrace_return_to_hander(fp);
+>> +	mov	x0, sp
+>> +	bl	ftrace_return_to_handler// addr = ftrace_return_to_hander(regs);
+>>   	mov	x30, x0			// restore the original return address
+>>   
+>>   	/* restore return value regs */
+>> @@ -285,7 +286,7 @@ SYM_CODE_START(return_to_handler)
+>>   	ldp x2, x3, [sp, #16]
+>>   	ldp x4, x5, [sp, #32]
+>>   	ldp x6, x7, [sp, #48]
+>> -	add sp, sp, #64
+>> +	add sp, sp, #72
+> 
+> Likewise here.
+
+Thank you, I will fix it.
+
+> 
+> Other than that, this looks good to me, thanks for respinning!
+> 
+> Thanks,
+> Mark.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
