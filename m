@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE58BC761A6
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 16:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54046C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 16:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UHUu3+eguyYDmMJCvmPlEtJnNmYPtozdOYqAd+rKHPY=; b=JpcenvHWx6bWTY
-	V9v1EW4zwnS8L6tfnNLmoozeoKIzswfKF1K7ge33l/WWaaD6M4josr/SIgj2nzcgld5qseTNDNIC2
-	aBwQxIKdsGhxG8YV/K8zfYLRzjIajWmGgVZYrcU20n1nO5Emp/PxZX/LiflA/W4vFAI7rTKLHctYC
-	U+9p3B1rMTl3tYZGZVypNE/CbtzTrgDQ0HKRpNgXzjdXJbkUj6rgD074NqtCFgDAb0KfwK6OUf+vp
-	URPsxGs5b4LOTXay9nSOybwl/dhmHNO+C3MTm1Lt+oU9x9psauS4RxEGmTqsAo/lSAiC/U9egZ/yj
-	z6pr1NR/1I2OwZRzRltw==;
+	List-Owner; bh=ICq+jo0BsgaziIrMsu7SC+0gEWpBWPYacwkQQCn5SKA=; b=oZYiIyVENrhoV5
+	roXddS5qCsT47eGItFyZkTyUhRh6VN0s8m0I5y0rn4Qyl29PhtdhsCgmLkJ+gqt5KPNlJiRPpJX1f
+	r9zNAwjJaYRDNxvuQp8GMhd6dRJqoFw7l+UYG8vko2zcri8VYudp5vdiXua7SfJ5Kt80Tnlrkh9PD
+	QJhsTHsoACvqh4Cip0FkZappBT0OqR6Cn8JsnLbJDv1VeNRn6ovJ+AZQvaB2FTjrshdVjZSLct91C
+	dxLu1UkX6rqpFQvHI4zkQvoi3c/fAHH7kuJTqcOGACSp5VMosWGx/d/RKIiqfCSLk6ok44JGChFcX
+	KJ+6bfEr3g35imBtpHAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgq3v-00Blmc-21;
-	Mon, 27 Mar 2023 16:51:15 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1pgq42-00Blrx-1P;
+	Mon, 27 Mar 2023 16:51:22 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgq3q-00BljE-2X
+	id 1pgq3y-00Bl8q-21
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 16:51:13 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id h12-20020a17090aea8c00b0023d1311fab3so9545687pjz.1
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 09:51:10 -0700 (PDT)
+	Mon, 27 Mar 2023 16:51:20 +0000
+Received: by mail-pg1-x531.google.com with SMTP id k15so5530954pgt.10
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 09:51:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1679935870;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=kbPvfgrdRY0STjgf1epvmG77qmC2gmvRCR+WrxvNVuE=;
-        b=NvS9bJGTF9syZkDnlBVm2E/UDPzCRF7fusD3qxGYXiSYkwtV3ja9C/tMOSZwZprLFz
-         He9NG/wqMek/nGoYFMYaz4rAk2/bcT1snd4Wu11qx9xg9ktbZCRHz6dYjpKaR2+eXw+e
-         uG8mteLLlONslftKoTpCwenMUV2/RZEn4pba5APgkDt0dzELezrJMGjhcyWQPCmRYJIT
-         yPMAkKavxZ54S733DUmcsy5AhSLC8vqhWNR62l6w6QLE09LIZ1rWCfC3GR1szq9yKzzV
-         5NaSCmg4N9URxhfvhbfciNyB1QbQmWt10hftJ1SGyqeZm+Jm4YZMlUyL+sIltXpU+Yln
-         8GPw==
+        d=sifive.com; s=google; t=1679935878;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qzAmKYXM2XOf3NeM3nR+dloZ9w8Z5wHrioWtDxR0LaU=;
+        b=WeODDZ+B1BjItWEyl4vt4o93iCkGCW3BIyDbsce91EHe1dCQb5jGeq1L18tOgEKEU+
+         aI7D6DgWiypEfeTya4NhsSXH/5+qDC8Xwf7XJoTNcTYPe3EnCrFxcN8lvSLbTJENocgw
+         xJIMdL4rIe4OtkCJJKUHCXvY1Y2dcwIqyC+dKY8o/OIdVBlOPVlkFLNdhzuBapEyRIdK
+         gbWVeFj8rg6rKzSCqK6oDv4xPJ6lNolZypIc5LKzEw9BZl9f/FBb3/QOk8vHkQcWpY6M
+         XAJNLMUUIGzqRa15DaPGwF7OkVowQ3LyY0eO9TZ1QRvk87Z0sY4g1va9mTZuSkJ23NZC
+         5Esg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679935870;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kbPvfgrdRY0STjgf1epvmG77qmC2gmvRCR+WrxvNVuE=;
-        b=SR0xF2866raJa6zET7Y8MnPHyypPwftO7QGkdHA/AK6jE2pClPibsSgbYgKlxfXtEB
-         /Of7XvTMkAEAOFeOeGck5j5yxS8EDwSUXY1BThYqJWZBwhvdUhpR8k4tg6uV6oueQKU2
-         V02JODQzU4W/zOcniVuu8dB4pTEf+vOL9mKqV82QH2Q9i9sUuGa+1V3cFnL9bQEOzEDQ
-         wjqSGpMjTGCXFrQjowCEuHhq7ZqFnQy3i7zqgY/ENVIOJBDFJCph0bnbZwDXwP4xaAPp
-         NjyGlWIxrI/m66j2vvpPF1g+cWoIFyfXGqBHir4s11bVNv95JPrBEQN4q7/KOEZUXaaQ
-         HROw==
-X-Gm-Message-State: AO0yUKWYmmab6mMngKJ3I48qXc0JVwsVHYEpvwH8bAc3djwSWnuGHkXN
-	An7ThqBI8QmBVRIacvIRy6qxjzPrLdmLAc+2qiNSFcESVdL5c56+uDWgfNrNRoxwYdgcdaP1haL
-	JvB08Nny3HpqrpdnVTpKjSJ51Pngy5xr2fSpO8eO2FEohOxxlkxepwbI118LcLaNjNICApGY6cG
-	JGttb9ko8iNZMW
-X-Google-Smtp-Source: AK7set97g2TU0PQLuLSO5wnI6VsCHRFsbRwAy1g7Jxxi++r/nSbn2oJU7rOnzjlTMQK6n08wpOFSYQ==
-X-Received: by 2002:a05:6a20:8b9c:b0:da:d9e7:9a5d with SMTP id m28-20020a056a208b9c00b000dad9e79a5dmr11627916pzh.4.1679935869654;
-        Mon, 27 Mar 2023 09:51:09 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1679935878;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qzAmKYXM2XOf3NeM3nR+dloZ9w8Z5wHrioWtDxR0LaU=;
+        b=SH1fxv7/TbZtLUE+oXZX5a8kQGexriuVMM5+VEzLPbS6bV5GvREHCpU6WCXOEVDRvG
+         g8h5msALtgz8ubjN9HQQBxJMRb5DuJ16sSEf5rOHyzf4gPuehlb2eTn/9qTtG03GvVcj
+         ts9+hHhX1on7qHn+Qhjw1xIpdHNtGaV4v68gD1ebpM+rvqTCKgX6gvnMoeYdDfljbKQb
+         K7Iops1XhwtuNtvxAEP/N4UdTUC+SGywJiqmQ86oHgSvjQyvUAxKa+lLHy1LjscsGJA9
+         bBrE7H05wcMMeZunOTyxxHhTME/JrDyBO5qJ9ezcIyHyjYNgpP4XsGLbO/jM39Gc9P8G
+         PbwA==
+X-Gm-Message-State: AAQBX9c/mz5hIRv1S+Zb0n5kdYEW6YxKnJLEzNwe4DiHwAxugT9EVTSl
+	v1QCUnHvRiqqkLpxcwAq0Qo0pGBBjPRWWvN6cdzShYMpMR/PRlBAj5WmZdeIAtQ0c0j6XXeeDU7
+	algJb9Li+QKppFBJVrbOoPDegLzQ5CudN54UdytFuHYZy+q2mMlvrqvKs9yBhGNQTZzbQBMwtrz
+	fqo5k5GpAoOxug
+X-Google-Smtp-Source: AKy350auufiX01FHWePcT8ozw542dHklxz/Uhcd8ROCySGp1S1QDyMvKleWo9snUSXurnqBAHz+NJQ==
+X-Received: by 2002:a62:1d83:0:b0:622:749a:b9df with SMTP id d125-20020a621d83000000b00622749ab9dfmr10893140pfd.3.1679935877360;
+        Mon, 27 Mar 2023 09:51:17 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id q20-20020a62e114000000b0061949fe3beasm19310550pfh.22.2023.03.27.09.51.05
+        by smtp.gmail.com with ESMTPSA id q20-20020a62e114000000b0061949fe3beasm19310550pfh.22.2023.03.27.09.51.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Mar 2023 09:51:09 -0700 (PDT)
+        Mon, 27 Mar 2023 09:51:16 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -69,33 +71,16 @@ To: linux-riscv@lists.infradead.org,
 	atishp@atishpatra.org,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Guo Ren <guoren@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Xianting Tian <xianting.tian@linux.alibaba.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Wenting Zhang <zephray@outlook.com>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Andrew Bresticker <abrestic@rivosinc.com>
-Subject: [PATCH -next v17 13/20] riscv: signal: Add sigcontext save/restore for vector
-Date: Mon, 27 Mar 2023 16:49:33 +0000
-Message-Id: <20230327164941.20491-14-andy.chiu@sifive.com>
+Subject: [PATCH -next v17 14/20] riscv: signal: Report signal frame size to userspace via auxv
+Date: Mon, 27 Mar 2023 16:49:34 +0000
+Message-Id: <20230327164941.20491-15-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230327164941.20491-1-andy.chiu@sifive.com>
 References: <20230327164941.20491-1-andy.chiu@sifive.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_095110_849027_CA28CAA4 
-X-CRM114-Status: GOOD (  31.90  )
+X-CRM114-CacheID: sfid-20230327_095118_668510_306AA5AF 
+X-CRM114-Status: GOOD (  22.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,406 +92,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, guoren@linux.alibaba.com, Kees Cook <keescook@chromium.org>, Nick Knight <nick.knight@sifive.com>, Andrew Bresticker <abrestic@rivosinc.com>, vineetg@rivosinc.com, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>, Vincent Chen <vincent.chen@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Eric Biederman <ebiederm@xmission.com>, Andy Chiu <andy.chiu@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Zong Li <zong.li@sifive.com>, Heiko Stuebner <heiko@sntech.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
-
-This patch facilitates the existing fp-reserved words for placement of
-the first extension's context header on the user's sigframe. A context
-header consists of a distinct magic word and the size, including the
-header itself, of an extension on the stack. Then, the frame is followed
-by the context of that extension, and then a header + context body for
-another extension if exists. If there is no more extension to come, then
-the frame must be ended with a null context header. A special case is
-rv64gc, where the kernel support no extensions requiring to expose
-additional regfile to the user. In such case the kernel would place the
-null context header right after the first reserved word of
-__riscv_q_ext_state when saving sigframe. And the kernel would check if
-all reserved words are zeros when a signal handler returns.
-
-__riscv_q_ext_state---->|	|<-__riscv_extra_ext_header
-			~	~
-	.reserved[0]--->|0	|<-	.reserved
-		<-------|magic	|<-	.hdr
-		|	|size	|_______ end of sc_fpregs
-		|	|ext-bdy|
-		|	~	~
-	+)size	------->|magic	|<- another context header
-			|size	|
-			|ext-bdy|
-			~	~
-			|magic:0|<- null context header
-			|size:0	|
-
-The vector registers will be saved in datap pointer. The datap pointer
-will be allocated dynamically when the task needs in kernel space. On
-the other hand, datap pointer on the sigframe will be set right after
-the __riscv_v_ext_state data structure.
-
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-Suggested-by: Richard Henderson <richard.henderson@linaro.org>
-Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/include/uapi/asm/ptrace.h     |  15 ++
- arch/riscv/include/uapi/asm/sigcontext.h |  16 ++-
- arch/riscv/kernel/setup.c                |   3 +
- arch/riscv/kernel/signal.c               | 174 +++++++++++++++++++++--
- 4 files changed, 193 insertions(+), 15 deletions(-)
-
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index e8d127ec5cf7..e17c550986a6 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -71,6 +71,21 @@ struct __riscv_q_ext_state {
- 	__u32 reserved[3];
- };
- 
-+struct __riscv_ctx_hdr {
-+	__u32 magic;
-+	__u32 size;
-+};
-+
-+struct __riscv_extra_ext_header {
-+	__u32 __padding[129] __attribute__((aligned(16)));
-+	/*
-+	 * Reserved for expansion of sigcontext structure.  Currently zeroed
-+	 * upon signal, and must be zero upon sigreturn.
-+	 */
-+	__u32 reserved;
-+	struct __riscv_ctx_hdr hdr;
-+};
-+
- union __riscv_fp_state {
- 	struct __riscv_f_ext_state f;
- 	struct __riscv_d_ext_state d;
-diff --git a/arch/riscv/include/uapi/asm/sigcontext.h b/arch/riscv/include/uapi/asm/sigcontext.h
-index 84f2dfcfdbce..8b8a8541673a 100644
---- a/arch/riscv/include/uapi/asm/sigcontext.h
-+++ b/arch/riscv/include/uapi/asm/sigcontext.h
-@@ -8,6 +8,17 @@
- 
- #include <asm/ptrace.h>
- 
-+/* The Magic number for signal context frame header. */
-+#define RISCV_V_MAGIC	0x53465457
-+#define END_MAGIC	0x0
-+
-+/* The size of END signal context header. */
-+#define END_HDR_SIZE	0x0
-+
-+struct __sc_riscv_v_state {
-+	struct __riscv_v_ext_state v_state;
-+} __attribute__((aligned(16)));
-+
- /*
-  * Signal context structure
-  *
-@@ -16,7 +27,10 @@
-  */
- struct sigcontext {
- 	struct user_regs_struct sc_regs;
--	union __riscv_fp_state sc_fpregs;
-+	union {
-+		union __riscv_fp_state sc_fpregs;
-+		struct __riscv_extra_ext_header sc_extdesc;
-+	};
- };
- 
- #endif /* _UAPI_ASM_RISCV_SIGCONTEXT_H */
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 5d3184cbf518..bb53b2e22386 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -262,6 +262,8 @@ static void __init parse_dtb(void)
- #endif
- }
- 
-+extern void __init init_rt_signal_env(void);
-+
- void __init setup_arch(char **cmdline_p)
- {
- 	parse_dtb();
-@@ -299,6 +301,7 @@ void __init setup_arch(char **cmdline_p)
- 
- 	riscv_init_cbo_blocksizes();
- 	riscv_fill_hwcap();
-+	init_rt_signal_env();
- 	apply_boot_alternatives();
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
- 	    riscv_isa_extension_available(NULL, ZICBOM))
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 4d2f41078f46..5222ed4eb677 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -19,9 +19,11 @@
- #include <asm/signal.h>
- #include <asm/signal32.h>
- #include <asm/switch_to.h>
-+#include <asm/vector.h>
- #include <asm/csr.h>
- 
- extern u32 __user_rt_sigreturn[2];
-+static size_t riscv_v_sc_size __ro_after_init;
- 
- #define DEBUG_SIG 0
- 
-@@ -63,12 +65,87 @@ static long save_fp_state(struct pt_regs *regs,
- #define restore_fp_state(task, regs) (0)
- #endif
- 
-+#ifdef CONFIG_RISCV_ISA_V
-+
-+static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
-+{
-+	struct __riscv_ctx_hdr __user *hdr;
-+	struct __sc_riscv_v_state __user *state;
-+	void __user *datap;
-+	long err;
-+
-+	hdr = *sc_vec;
-+	/* Place state to the user's signal context space after the hdr */
-+	state = (struct __sc_riscv_v_state __user *)(hdr + 1);
-+	/* Point datap right after the end of __sc_riscv_v_state */
-+	datap = state + 1;
-+
-+	/* datap is designed to be 16 byte aligned for better performance */
-+	WARN_ON(unlikely(!IS_ALIGNED((unsigned long)datap, 16)));
-+
-+	riscv_v_vstate_save(current, regs);
-+	/* Copy everything of vstate but datap. */
-+	err = __copy_to_user(&state->v_state, &current->thread.vstate,
-+			     offsetof(struct __riscv_v_ext_state, datap));
-+	/* Copy the pointer datap itself. */
-+	err |= __put_user(datap, &state->v_state.datap);
-+	/* Copy the whole vector content to user space datap. */
-+	err |= __copy_to_user(datap, current->thread.vstate.datap, riscv_v_vsize);
-+	/* Copy magic to the user space after saving  all vector conetext */
-+	err |= __put_user(RISCV_V_MAGIC, &hdr->magic);
-+	err |= __put_user(riscv_v_sc_size, &hdr->size);
-+	if (unlikely(err))
-+		return err;
-+
-+	/* Only progress the sv_vec if everything has done successfully  */
-+	*sc_vec += riscv_v_sc_size;
-+	return 0;
-+}
-+
-+/*
-+ * Restore Vector extension context from the user's signal frame. This function
-+ * assumes a valid extension header. So magic and size checking must be done by
-+ * the caller.
-+ */
-+static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
-+{
-+	long err;
-+	struct __sc_riscv_v_state __user *state = sc_vec;
-+	void __user *datap;
-+
-+	/* Copy everything of __sc_riscv_v_state except datap. */
-+	err = __copy_from_user(&current->thread.vstate, &state->v_state,
-+			       offsetof(struct __riscv_v_ext_state, datap));
-+	if (unlikely(err))
-+		return err;
-+
-+	/* Copy the pointer datap itself. */
-+	err = __get_user(datap, &state->v_state.datap);
-+	if (unlikely(err))
-+		return err;
-+	/*
-+	 * Copy the whole vector content from user space datap. Use
-+	 * copy_from_user to prevent information leak.
-+	 */
-+	err = copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
-+	if (unlikely(err))
-+		return err;
-+
-+	riscv_v_vstate_restore(current, regs);
-+
-+	return err;
-+}
-+#else
-+#define save_v_state(task, regs) (0)
-+#define __restore_v_state(task, regs) (0)
-+#endif
-+
- static long restore_sigcontext(struct pt_regs *regs,
- 	struct sigcontext __user *sc)
- {
-+	void __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
-+	__u32 rsvd;
- 	long err;
--	size_t i;
--
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
- 	if (unlikely(err))
-@@ -81,32 +158,81 @@ static long restore_sigcontext(struct pt_regs *regs,
- 			return err;
- 	}
- 
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++) {
--		u32 value;
-+	/* Check the reserved word before extensions parsing */
-+	err = __get_user(rsvd, &sc->sc_extdesc.reserved);
-+	if (unlikely(err))
-+		return err;
-+	if (unlikely(rsvd))
-+		return -EINVAL;
-+
-+	while (!err) {
-+		__u32 magic, size;
-+		struct __riscv_ctx_hdr __user *head = sc_ext_ptr;
- 
--		err = __get_user(value, &sc->sc_fpregs.q.reserved[i]);
-+		err |= __get_user(magic, &head->magic);
-+		err |= __get_user(size, &head->size);
- 		if (unlikely(err))
-+			return err;
-+
-+		sc_ext_ptr += sizeof(*head);
-+		switch (magic) {
-+		case END_MAGIC:
-+			if (size != END_HDR_SIZE)
-+				return -EINVAL;
-+
-+			return 0;
-+		case RISCV_V_MAGIC:
-+			if (!has_vector() || !riscv_v_vstate_query(regs) ||
-+			    size != riscv_v_sc_size)
-+				return -EINVAL;
-+
-+			err = __restore_v_state(regs, sc_ext_ptr);
- 			break;
--		if (value != 0)
-+		default:
- 			return -EINVAL;
-+		}
-+		sc_ext_ptr = (void __user *)head + size;
- 	}
- 	return err;
- }
- 
-+static size_t get_rt_frame_size(void)
-+{
-+	struct rt_sigframe __user *frame;
-+	size_t frame_size;
-+	size_t total_context_size = 0;
-+
-+	frame_size = sizeof(*frame);
-+
-+	if (has_vector() && riscv_v_vstate_query(task_pt_regs(current)))
-+		total_context_size += riscv_v_sc_size;
-+	/*
-+	 * Preserved a __riscv_ctx_hdr for END signal context header if an
-+	 * extension uses __riscv_extra_ext_header
-+	 */
-+	if (total_context_size)
-+		total_context_size += sizeof(struct __riscv_ctx_hdr);
-+
-+	frame_size += total_context_size;
-+
-+	frame_size = round_up(frame_size, 16);
-+	return frame_size;
-+}
-+
- SYSCALL_DEFINE0(rt_sigreturn)
- {
- 	struct pt_regs *regs = current_pt_regs();
- 	struct rt_sigframe __user *frame;
- 	struct task_struct *task;
- 	sigset_t set;
-+	size_t frame_size = get_rt_frame_size();
- 
- 	/* Always make any pending restarted system calls return -EINTR */
- 	current->restart_block.fn = do_no_restart_syscall;
- 
- 	frame = (struct rt_sigframe __user *)regs->sp;
- 
--	if (!access_ok(frame, sizeof(*frame)))
-+	if (!access_ok(frame, frame_size))
- 		goto badframe;
- 
- 	if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-@@ -140,17 +266,22 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- 	struct pt_regs *regs)
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
-+	struct __riscv_ctx_hdr __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
- 	long err;
--	size_t i;
- 
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
- 	/* Save the floating-point state. */
- 	if (has_fpu())
- 		err |= save_fp_state(regs, &sc->sc_fpregs);
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
--		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
-+	/* Save the vector state. */
-+	if (has_vector() && riscv_v_vstate_query(regs))
-+		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
-+	/* Write zero to fp-reserved space and check it on restore_sigcontext */
-+	err |= __put_user(0, &sc->sc_extdesc.reserved);
-+	/* And put END __riscv_ctx_hdr at the end. */
-+	err |= __put_user(END_MAGIC, &sc_ext_ptr->magic);
-+	err |= __put_user(END_HDR_SIZE, &sc_ext_ptr->size);
- 
- 	return err;
- }
-@@ -175,6 +306,13 @@ static inline void __user *get_sigframe(struct ksignal *ksig,
- 	/* Align the stack frame. */
- 	sp &= ~0xfUL;
- 
-+	/*
-+	 * Fail if the size of the altstack is not large enough for the
-+	 * sigframe construction.
-+	 */
-+	if (current->sas_ss_size && sp < current->sas_ss_sp)
-+		return (void __user __force *)-1UL;
-+
- 	return (void __user *)sp;
- }
- 
-@@ -183,9 +321,10 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- {
- 	struct rt_sigframe __user *frame;
- 	long err = 0;
-+	size_t frame_size = get_rt_frame_size();
- 
--	frame = get_sigframe(ksig, regs, sizeof(*frame));
--	if (!access_ok(frame, sizeof(*frame)))
-+	frame = get_sigframe(ksig, regs, frame_size);
-+	if (!access_ok(frame, frame_size))
- 		return -EFAULT;
- 
- 	err |= copy_siginfo_to_user(&frame->info, &ksig->info);
-@@ -313,3 +452,10 @@ void arch_do_signal_or_restart(struct pt_regs *regs)
- 	 */
- 	restore_saved_sigmask();
- }
-+
-+void init_rt_signal_env(void);
-+void __init init_rt_signal_env(void)
-+{
-+	riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
-+			  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
-+}
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogVmluY2VudCBDaGVuIDx2aW5jZW50LmNoZW5Ac2lmaXZlLmNvbT4KClRoZSB2ZWN0b3Ig
+cmVnaXN0ZXIgYmVsb25ncyB0byB0aGUgc2lnbmFsIGNvbnRleHQuIFRoZXkgbmVlZCB0byBiZSBz
+dG9yZWQKYW5kIHJlc3RvcmVkIGFzIGVudGVyaW5nIGFuZCBsZWF2aW5nIHRoZSBzaWduYWwgaGFu
+ZGxlci4gQWNjb3JkaW5nIHRvIHRoZQpWLWV4dGVuc2lvbiBzcGVjaWZpY2F0aW9uLCB0aGUgbWF4
+aW11bSBsZW5ndGggb2YgdGhlIHZlY3RvciByZWdpc3RlcnMgY2FuCmJlIDJeMTYuIEhlbmNlLCBp
+ZiB1c2Vyc3BhY2UgcmVmZXJzIHRvIHRoZSBNSU5TSUdTVEtTWiB0byBjcmVhdGUgYQpzaWdmcmFt
+ZSwgaXQgbWF5IG5vdCBiZSBlbm91Z2guIFRvIHJlc29sdmUgdGhpcyBwcm9ibGVtLCB0aGlzIHBh
+dGNoIHJlZmVycwp0byB0aGUgY29tbWl0IDk0YjA3YzFmOGMzOWMKKCJhcm02NDogc2lnbmFsOiBS
+ZXBvcnQgc2lnbmFsIGZyYW1lIHNpemUgdG8gdXNlcnNwYWNlIHZpYSBhdXh2IikgdG8gZW5hYmxl
+CnVzZXJzcGFjZSB0byBrbm93IHRoZSBtaW5pbXVtIHJlcXVpcmVkIHNpZ2ZyYW1lIHNpemUgdGhy
+b3VnaCB0aGUgYXV4aWxpYXJ5CnZlY3RvciBhbmQgdXNlIGl0IHRvIGFsbG9jYXRlIGVub3VnaCBt
+ZW1vcnkgZm9yIHNpZ25hbCBjb250ZXh0LgoKTm90ZSB0aGF0IGF1eHYgYWx3YXlzIHJlcG9ydHMg
+c2l6ZSBvZiB0aGUgc2lnZnJhbWUgYXMgaWYgViBleGlzdHMgZm9yCmFsbCBzdGFydGluZyBwcm9j
+ZXNzZXMsIHdoZW5ldmVyIHRoZSBrZXJuZWwgaGFzIENPTkZJR19SSVNDVl9JU0FfVi4gVGhlCnJl
+YXNvbiBpcyB0aGF0IHVzZXJzIHVzdWFsbHkgcmVmZXJlbmNlIHRoaXMgdmFsdWUgdG8gYWxsb2Nh
+dGUgYW4KYWx0ZXJuYXRpdmUgc2lnbmFsIHN0YWNrLCBhbmQgdGhlIHVzZXIgbWF5IHVzZSBWIGFu
+eXRpbWUuIFNvIHRoZSB1c2VyCm11c3QgcmVzZXJ2ZSBhIHNwYWNlIGZvciBWLWNvbnRleHQgaW4g
+c2lnZnJhbWUgaW4gY2FzZSB0aGF0IHRoZSBzaWduYWwKaGFuZGxlciBpbnZva2VzIGFmdGVyIHRo
+ZSBrZXJuZWwgYWxsb2NhdGluZyBWLgoKU2lnbmVkLW9mZi1ieTogR3JlZW50aW1lIEh1IDxncmVl
+bnRpbWUuaHVAc2lmaXZlLmNvbT4KU2lnbmVkLW9mZi1ieTogVmluY2VudCBDaGVuIDx2aW5jZW50
+LmNoZW5Ac2lmaXZlLmNvbT4KU2lnbmVkLW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lm
+aXZlLmNvbT4KQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5j
+b20+ClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+ClJldmll
+d2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2VsZi5oICAgICAgICAgfCAgOSArKysrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vcHJvY2Vzc29yLmggICB8ICAyICsrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vYXV4
+dmVjLmggfCAgMSArCiBhcmNoL3Jpc2N2L2tlcm5lbC9zaWduYWwuYyAgICAgICAgICAgfCAyMCAr
+KysrKysrKysrKysrKystLS0tLQogNCBmaWxlcyBjaGFuZ2VkLCAyNyBpbnNlcnRpb25zKCspLCA1
+IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZWxmLmgg
+Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VsZi5oCmluZGV4IDMwZTdkMjQ1NTk2MC4uY2EyM2M0
+ZjZjNDQwIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VsZi5oCisrKyBiL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vZWxmLmgKQEAgLTEwNSw2ICsxMDUsMTUgQEAgZG8gewkJCQkJ
+CQkJXAogCQlnZXRfY2FjaGVfc2l6ZSgzLCBDQUNIRV9UWVBFX1VOSUZJRUQpKTsJCVwKIAlORVdf
+QVVYX0VOVChBVF9MM19DQUNIRUdFT01FVFJZLAkJCVwKIAkJZ2V0X2NhY2hlX2dlb21ldHJ5KDMs
+IENBQ0hFX1RZUEVfVU5JRklFRCkpOwlcCisJLyoJCQkJCQkJIFwKKwkgKiBTaG91bGQgYWx3YXlz
+IGJlIG5vbnplcm8gdW5sZXNzIHRoZXJlJ3MgYSBrZXJuZWwgYnVnLiBcCisJICogSWYgd2UgaGF2
+ZW4ndCBkZXRlcm1pbmVkIGEgc2Vuc2libGUgdmFsdWUgdG8gZ2l2ZSB0bwkgXAorCSAqIHVzZXJz
+cGFjZSwgb21pdCB0aGUgZW50cnk6CQkJCSBcCisJICovCQkJCQkJCSBcCisJaWYgKGxpa2VseShz
+aWduYWxfbWluc2lnc3Rrc3opKQkJCQkgXAorCQlORVdfQVVYX0VOVChBVF9NSU5TSUdTVEtTWiwg
+c2lnbmFsX21pbnNpZ3N0a3N6KTsgXAorCWVsc2UJCQkJCQkJIFwKKwkJTkVXX0FVWF9FTlQoQVRf
+SUdOT1JFLCAwKTsJCQkgXAogfSB3aGlsZSAoMCkKICNkZWZpbmUgQVJDSF9IQVNfU0VUVVBfQURE
+SVRJT05BTF9QQUdFUwogc3RydWN0IGxpbnV4X2JpbnBybTsKZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nl
+c3Nvci5oCmluZGV4IGYwZGRmNjkxYWM1ZS4uMzhkZWQ4YzVmMjA3IDEwMDY0NAotLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vcHJvY2Vzc29yLmgKQEAgLTcsNiArNyw3IEBACiAjZGVmaW5lIF9BU01fUklTQ1ZfUFJPQ0VT
+U09SX0gKIAogI2luY2x1ZGUgPGxpbnV4L2NvbnN0Lmg+CisjaW5jbHVkZSA8bGludXgvY2FjaGUu
+aD4KIAogI2luY2x1ZGUgPHZkc28vcHJvY2Vzc29yLmg+CiAKQEAgLTgxLDYgKzgyLDcgQEAgaW50
+IHJpc2N2X29mX3BhcmVudF9oYXJ0aWQoc3RydWN0IGRldmljZV9ub2RlICpub2RlLCB1bnNpZ25l
+ZCBsb25nICpoYXJ0aWQpOwogZXh0ZXJuIHZvaWQgcmlzY3ZfZmlsbF9od2NhcCh2b2lkKTsKIGV4
+dGVybiBpbnQgYXJjaF9kdXBfdGFza19zdHJ1Y3Qoc3RydWN0IHRhc2tfc3RydWN0ICpkc3QsIHN0
+cnVjdCB0YXNrX3N0cnVjdCAqc3JjKTsKIAorZXh0ZXJuIHVuc2lnbmVkIGxvbmcgc2lnbmFsX21p
+bnNpZ3N0a3N6IF9fcm9fYWZ0ZXJfaW5pdDsKICNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KIAog
+I2VuZGlmIC8qIF9BU01fUklTQ1ZfUFJPQ0VTU09SX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS91YXBpL2FzbS9hdXh2ZWMuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2Fz
+bS9hdXh2ZWMuaAppbmRleCBmYjE4N2EzM2NlNTguLjEwYWFhODNkYjg5ZSAxMDA2NDQKLS0tIGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2F1eHZlYy5oCisrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS91YXBpL2FzbS9hdXh2ZWMuaApAQCAtMzUsNSArMzUsNiBAQAogCiAvKiBlbnRyaWVzIGlu
+IEFSQ0hfRExJTkZPICovCiAjZGVmaW5lIEFUX1ZFQ1RPUl9TSVpFX0FSQ0gJOQorI2RlZmluZSBB
+VF9NSU5TSUdTVEtTWgkJNTEKIAogI2VuZGlmIC8qIF9VQVBJX0FTTV9SSVNDVl9BVVhWRUNfSCAq
+LwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9zaWduYWwuYwppbmRleCA1MjIyZWQ0ZWI2NzcuLjQwZjc0MDE4Mzc2OCAxMDA2NDQKLS0t
+IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2ln
+bmFsLmMKQEAgLTIyLDYgKzIyLDggQEAKICNpbmNsdWRlIDxhc20vdmVjdG9yLmg+CiAjaW5jbHVk
+ZSA8YXNtL2Nzci5oPgogCit1bnNpZ25lZCBsb25nIHNpZ25hbF9taW5zaWdzdGtzeiBfX3JvX2Fm
+dGVyX2luaXQ7CisKIGV4dGVybiB1MzIgX191c2VyX3J0X3NpZ3JldHVyblsyXTsKIHN0YXRpYyBz
+aXplX3QgcmlzY3Zfdl9zY19zaXplIF9fcm9fYWZ0ZXJfaW5pdDsKIApAQCAtMTk2LDcgKzE5OCw3
+IEBAIHN0YXRpYyBsb25nIHJlc3RvcmVfc2lnY29udGV4dChzdHJ1Y3QgcHRfcmVncyAqcmVncywK
+IAlyZXR1cm4gZXJyOwogfQogCi1zdGF0aWMgc2l6ZV90IGdldF9ydF9mcmFtZV9zaXplKHZvaWQp
+CitzdGF0aWMgc2l6ZV90IGdldF9ydF9mcmFtZV9zaXplKGJvb2wgY2FsX2FsbCkKIHsKIAlzdHJ1
+Y3QgcnRfc2lnZnJhbWUgX191c2VyICpmcmFtZTsKIAlzaXplX3QgZnJhbWVfc2l6ZTsKQEAgLTIw
+NCw4ICsyMDYsMTAgQEAgc3RhdGljIHNpemVfdCBnZXRfcnRfZnJhbWVfc2l6ZSh2b2lkKQogCiAJ
+ZnJhbWVfc2l6ZSA9IHNpemVvZigqZnJhbWUpOwogCi0JaWYgKGhhc192ZWN0b3IoKSAmJiByaXNj
+dl92X3ZzdGF0ZV9xdWVyeSh0YXNrX3B0X3JlZ3MoY3VycmVudCkpKQotCQl0b3RhbF9jb250ZXh0
+X3NpemUgKz0gcmlzY3Zfdl9zY19zaXplOworCWlmIChoYXNfdmVjdG9yKCkpIHsKKwkJaWYgKGNh
+bF9hbGwgfHwgcmlzY3Zfdl92c3RhdGVfcXVlcnkodGFza19wdF9yZWdzKGN1cnJlbnQpKSkKKwkJ
+CXRvdGFsX2NvbnRleHRfc2l6ZSArPSByaXNjdl92X3NjX3NpemU7CisJfQogCS8qCiAJICogUHJl
+c2VydmVkIGEgX19yaXNjdl9jdHhfaGRyIGZvciBFTkQgc2lnbmFsIGNvbnRleHQgaGVhZGVyIGlm
+IGFuCiAJICogZXh0ZW5zaW9uIHVzZXMgX19yaXNjdl9leHRyYV9leHRfaGVhZGVyCkBAIC0yMjUs
+NyArMjI5LDcgQEAgU1lTQ0FMTF9ERUZJTkUwKHJ0X3NpZ3JldHVybikKIAlzdHJ1Y3QgcnRfc2ln
+ZnJhbWUgX191c2VyICpmcmFtZTsKIAlzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRhc2s7CiAJc2lnc2V0
+X3Qgc2V0OwotCXNpemVfdCBmcmFtZV9zaXplID0gZ2V0X3J0X2ZyYW1lX3NpemUoKTsKKwlzaXpl
+X3QgZnJhbWVfc2l6ZSA9IGdldF9ydF9mcmFtZV9zaXplKGZhbHNlKTsKIAogCS8qIEFsd2F5cyBt
+YWtlIGFueSBwZW5kaW5nIHJlc3RhcnRlZCBzeXN0ZW0gY2FsbHMgcmV0dXJuIC1FSU5UUiAqLwog
+CWN1cnJlbnQtPnJlc3RhcnRfYmxvY2suZm4gPSBkb19ub19yZXN0YXJ0X3N5c2NhbGw7CkBAIC0z
+MjEsNyArMzI1LDcgQEAgc3RhdGljIGludCBzZXR1cF9ydF9mcmFtZShzdHJ1Y3Qga3NpZ25hbCAq
+a3NpZywgc2lnc2V0X3QgKnNldCwKIHsKIAlzdHJ1Y3QgcnRfc2lnZnJhbWUgX191c2VyICpmcmFt
+ZTsKIAlsb25nIGVyciA9IDA7Ci0Jc2l6ZV90IGZyYW1lX3NpemUgPSBnZXRfcnRfZnJhbWVfc2l6
+ZSgpOworCXNpemVfdCBmcmFtZV9zaXplID0gZ2V0X3J0X2ZyYW1lX3NpemUoZmFsc2UpOwogCiAJ
+ZnJhbWUgPSBnZXRfc2lnZnJhbWUoa3NpZywgcmVncywgZnJhbWVfc2l6ZSk7CiAJaWYgKCFhY2Nl
+c3Nfb2soZnJhbWUsIGZyYW1lX3NpemUpKQpAQCAtNDU4LDQgKzQ2MiwxMCBAQCB2b2lkIF9faW5p
+dCBpbml0X3J0X3NpZ25hbF9lbnYodm9pZCkKIHsKIAlyaXNjdl92X3NjX3NpemUgPSBzaXplb2Yo
+c3RydWN0IF9fcmlzY3ZfY3R4X2hkcikgKwogCQkJICBzaXplb2Yoc3RydWN0IF9fc2NfcmlzY3Zf
+dl9zdGF0ZSkgKyByaXNjdl92X3ZzaXplOworCS8qCisJICogRGV0ZXJtaW5lIHRoZSBzdGFjayBz
+cGFjZSByZXF1aXJlZCBmb3IgZ3VhcmFudGVlZCBzaWduYWwgZGVsaXZlcnkuCisJICogVGhlIHNp
+Z25hbF9taW5zaWdzdGtzeiB3aWxsIGJlIHBvcHVsYXRlZCBpbnRvIHRoZSBBVF9NSU5TSUdTVEtT
+WiBlbnRyeQorCSAqIGluIHRoZSBhdXhpbGlhcnkgYXJyYXkgYXQgcHJvY2VzcyBzdGFydHVwLgor
+CSAqLworCXNpZ25hbF9taW5zaWdzdGtzeiA9IGdldF9ydF9mcmFtZV9zaXplKHRydWUpOwogfQot
+LSAKMi4xNy4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
