@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467DEC76195
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 13:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B9DC7619A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 13:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JyxUALIW31OBxG8lgceqJ4CUTXcSj+nTDLkf+fB6UUY=; b=AwRX5Y7AVhR/6S
-	He5CluQ07X4H8wqwxx8dlZXaFA4BUKso3nwqviCtm8uI+wRqSQGwz6OlwOGj4+JTi30u4LF1X9F+V
-	BLzCOFvvXYa6MhFtSurh8ntjAQa6QVsnfjhCeRF1JhdQqeXvXXL3CvATb05N7rC+yOeddhZMOuXCL
-	5EwNIJor/vvgrOZFiS2BDfgO9fLtAIrfT7EADlT39cYn0+xFYZQI3kdnq6u32RMn25698cipsQ5TT
-	fiYjiJSLd7teioos2Uk3CVAndJQlBVPuTqtfIHiiF4quKQwRR7tN6ldjpDe2Zd71UKGmxI8qNzUEA
-	DhA/PHmGevsfeORioyJw==;
+	List-Owner; bh=7tHb9ZJGonGA4HLUCR6m/s/nr48zKimObBXJGi2zJjc=; b=dclROBrGsTMkAU
+	uC7cJs1Cf9N9GJAnJL1C2Li4+fvedFeWzFtcej8zQQ73ByegAIpFLg+aVAmAJsEhAjTuDi6Rxisuu
+	CB8P/9ds6GtjqPZPM/TK/3J2OcwaGFy4G2gWNgi8MXIqQc18vVvzDaBwaTZEkET6AiZ5kmBm892nk
+	Jaz1K6a1U+MJWSxETdzikFI7uTdNn3LUk4o4m7PsgJ4NBtTseeCbqkypSljx4gG45WltPrwuADxBg
+	9B9WSYC9REjmIVnBPQ9WJ7xlz5s3bWxB8uAN0rr7EfckMDW2CYR6WFHdOteP5egCX+I3xslY66WkB
+	MzkuBQdoDVm+O7Z0aD5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgmcM-00B4JY-0D;
-	Mon, 27 Mar 2023 13:10:34 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1pgmfG-00B4pC-1l;
+	Mon, 27 Mar 2023 13:13:34 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgmcJ-00B4IV-1T
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 13:10:32 +0000
-Received: by mail-ed1-x529.google.com with SMTP id t10so35848544edd.12
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 06:10:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679922627;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ON1TRFTyjP269YlSlypUfBZaP5DJM7YPobS1hNusbJA=;
-        b=oPkcSdVZEGtbuQOXS697FnTNSJxMY5MC+8ocH1eK91m1uNM89kJSQzhIqIoiWXl1pk
-         iCuROR2/Go4dnukO7B3eGxalDbuIi4oYmQQTDAZTseZhPZQAT6SGKeeE34WsNp7ljS/E
-         NwnuILPs46OmmAKz6xfUBPtBYHPTlVKSLNMmRCPSblZzVOCIMI1LvGyV+sBqv5aaZaCI
-         XSuiQeSQIeZKLJanv0Wj/lVkz5rbRfFS/N6PqXKAmKTx099fxnDlXiMNqPDFpkTAiF7t
-         c0THPpKVaCmH9k2zo05XDcVbt8zPzrw35mT5iOZg1xYZifclwcNzkhwgUKc5sAyw4CVX
-         y1dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679922627;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ON1TRFTyjP269YlSlypUfBZaP5DJM7YPobS1hNusbJA=;
-        b=XHj6fVJnM3LmjWkcTtpMbRICJutxhmTNh0lSYVvYTFidFVSYnFHcIXEkBNdf/G8O9X
-         ElF7FifoEr5+BNsmrWkqMC+tMcXqSljFjMm0CaZhb9wisg84HinpxgoCNVR0Sz+Y8w1m
-         iS7B3ARNqrmSz9XFTHRNn+BhU5unRH2XR2b8RYdfqtKEpYhhhLNM40IUbkGsK0Lbx7z1
-         xq1zkPvmEGy+tc0b8V1kTEIifrrJPAJy9+7Vg1okgQFRpEi7Q17jpVCRYw3byV1Uf/6t
-         r5T4btvW+JHR12fPVNFvNWBi90k0Qoi7wQQSAZOaH2szthfqxg9waMJAgqFasQ9qhtlg
-         H7Tg==
-X-Gm-Message-State: AAQBX9fkhzoqJ9r/oE0+gH8qba+lCCwVE9CjUZForODdsmvRUZXJE9ri
-	J/uL+yi4RuaWlYtxclkLiX9RpA==
-X-Google-Smtp-Source: AKy350Yi2wo1LkaGRXXGGfRvdgclqblvOUAJV7al09yJLUCGZzgx0fvK5AIXEyEsSdVVcX154pxpVg==
-X-Received: by 2002:a17:906:2f96:b0:932:8cd:1021 with SMTP id w22-20020a1709062f9600b0093208cd1021mr11597586eji.33.1679922627362;
-        Mon, 27 Mar 2023 06:10:27 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id b4-20020a17090630c400b0092b5384d6desm14061725ejb.153.2023.03.27.06.10.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Mar 2023 06:10:26 -0700 (PDT)
-Date: Mon, 27 Mar 2023 15:10:25 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Message-ID: <20230327131025.6bawvoti65sth4rk@orel>
-References: <20230323045604.536099-1-jeeheng.sia@starfivetech.com>
- <20230323045604.536099-5-jeeheng.sia@starfivetech.com>
+	id 1pgmfC-00B4Sd-0J;
+	Mon, 27 Mar 2023 13:13:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FP/g5MMoh+bWH6/vaV4x7gdcx8r1AfO8OwzqUj0gats=; b=BYOMa7b7myCi6QMrt+S21c5RGt
+	YZDhEXdlYS9/d40xW81RY3VSFHod0WMESd9MiyZKORnxnEZFeVJJs7K9EQpCCJNgACyCDiWwXsPpF
+	2ncxKuwaEj+3S6ea0k5rIgw856TBVM7SFtMKupTw4OZBsMh//aO6uH7zbUx8Sbaq5V1oENeXmR4Vh
+	loGRRUxL9sZTfR/yJHmBKGHA4OwzrrWY32nZcUlyLJv+oeCwO/EaBTazPTgD3adb6YTVyS8/5GbNt
+	xTGhL00gRXzdrhq16LpLYea53LMoH2KCDQ7kcOIb5YUjAGGqvLHrMH1gd6RuV30JD6ZwdzzKEiLDp
+	jETc+EDQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50576)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1pgmcV-0003kT-41; Mon, 27 Mar 2023 14:10:43 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1pgmcK-0005Rv-Ob; Mon, 27 Mar 2023 14:10:32 +0100
+Date: Mon, 27 Mar 2023 14:10:32 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 16/21] ARM: dma-mapping: bring back dmac_{clean,inv}_range
+Message-ID: <ZCGVyB+Sdve78LrK@shell.armlinux.org.uk>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-17-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230323045604.536099-5-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20230327121317.4081816-17-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_061031_496398_491B329F 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20230327_061330_159049_C4CDADC6 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +106,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 23, 2023 at 12:56:04PM +0800, Sia Jee Heng wrote:
-> Low level Arch functions were created to support hibernation.
-> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-> cpu state onto the stack, then calling swsusp_save() to save the memory
-> image.
+On Mon, Mar 27, 2023 at 02:13:12PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Arch specific hibernation header is implemented and is utilized by the
-> arch_hibernation_header_restore() and arch_hibernation_header_save()
-> functions. The arch specific hibernation header consists of satp, hartid,
-> and the cpu_resume address. The kernel built version is also need to be
-> saved into the hibernation image header to making sure only the same
-> kernel is restore when resume.
-> 
-> swsusp_arch_resume() creates a temporary page table that covering only
-> the linear map. It copies the restore code to a 'safe' page, then start
-> to restore the memory image. Once completed, it restores the original
-> kernel's page table. It then calls into __hibernate_cpu_resume()
-> to restore the CPU context. Finally, it follows the normal hibernation
-> path back to the hibernation core.
-> 
-> To enable hibernation/suspend to disk into RISCV, the below config
-> need to be enabled:
-> - CONFIG_ARCH_HIBERNATION_HEADER
-> - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> 
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/Kconfig                 |   6 +
->  arch/riscv/include/asm/assembler.h |  20 ++
->  arch/riscv/include/asm/suspend.h   |  19 ++
->  arch/riscv/kernel/Makefile         |   1 +
->  arch/riscv/kernel/asm-offsets.c    |   5 +
->  arch/riscv/kernel/hibernate-asm.S  |  77 ++++++
->  arch/riscv/kernel/hibernate.c      | 427 +++++++++++++++++++++++++++++
->  7 files changed, 555 insertions(+)
->  create mode 100644 arch/riscv/kernel/hibernate-asm.S
->  create mode 100644 arch/riscv/kernel/hibernate.c
->
+> These were remove ages ago in commit 702b94bff3c5 ("ARM: dma-mapping:
+> remove dmac_clean_range and dmac_inv_range") in an effort to sanitize
+> the dma-mapping API.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Really no, please no. Let's not go back to this, let's keep the
+buffer ownership model that came at around that time.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
