@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02702C76195
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 14:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12729C76195
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 15:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LGCd9s5Frvmy1KoHWGRYkx2n3ZK8KVRaCbAi4/Txe7E=; b=w6A4v03K7197j/
-	madH6pnULWgYJVTQNNyhBsf0J8G8JlaYStqgiKzN+bxeBgvDTN7It7qXDRkLGYINLUljVBGdUAOJf
-	srwSTLWYBgKBEMrOy2FZWyK/N3UL2ZPTaLKePkYsdBOJDbObfEaZAFhBCGlOIp3z8cotTL1EW5LUt
-	/PX5Aa9s4T6GzTxZLnYsX/qP9M4leuqh6at+AfS5QLv9r0q/hth9nawNH3RpVI4po8J0Drsg9Xpel
-	a24GtnFUsUrfhQ1/rtZi0wRJyeV1w7Kx/KvDgKF8+cx9WrrYOZxywCfbPArVyGPqCG1iWaAPWdk/m
-	eI15tDXXdM9k6c2J17sQ==;
+	List-Owner; bh=MAVwHuVFrkuAzrnZpfhOvS1KuyEMQpABqatpxG7h2HU=; b=i7P80UzuaJfWJH
+	bRtPgaYglNxAe9Ew6Newaw1yiMoENaCStUmCtBmb/xojEECcMgh43G1OZLku2j53BZAgeIZ5MlZuh
+	wVVFiAn9yl0ruYFbP6CKdwo64l6gcE6JcB8OiQz4LcvbL/giq8FUkQgnlwzhyahwj7UChkW3lGQEO
+	SQiUPcY5sDG/K4geyA7N1g+GOngXULFBJvKL/HKhLHPnv6XKW8HAIDP/h3zwWHxV4ELg2n/5FVhIj
+	mmGcF9W43BDlUleLwnTJ5cuCAJHhLEHntV8C7USGkkl5iXMX8yTnbMtT/kdLIA+B7cMa59Kig4e4G
+	15B6JwIKOnHCFjPGOK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgnm2-00BJXQ-1k;
-	Mon, 27 Mar 2023 14:24:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pgoNG-00BQes-1w;
+	Mon, 27 Mar 2023 15:03:06 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pgnlu-00BJTN-0S
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 14:24:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679927063;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HCb5CYARt/ke0PXUaZENV1Zy7rv4z1suyv4cHWiEzRY=;
-	b=Hn80hCBCNCUyFIXgn9PZYriiCiDVT1yW1X/9lEPxisIrXL6exOM7OzIVD3utZ9GtSj8ilP
-	PUkFLdHZOIrfMu6fgVvReVvYqno9UUqg1C+GGevg14XNz/byl1UuCCN63W6FRZJhOxUjse
-	uxIw0SfxqCEYnRcg3fO6LdzoiuNz9aY=
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com
- [209.85.217.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-339-umNRG5RaMjqHn0eklC85qQ-1; Mon, 27 Mar 2023 10:24:22 -0400
-X-MC-Unique: umNRG5RaMjqHn0eklC85qQ-1
-Received: by mail-vs1-f69.google.com with SMTP id y22-20020a67d216000000b00425ef23aa54so2644670vsi.20
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 07:24:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679927062;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HCb5CYARt/ke0PXUaZENV1Zy7rv4z1suyv4cHWiEzRY=;
-        b=wErLy5h6w5cj2cqGEqLNj1W3g3mqAZEB9tKsubVrzs6qkm5XW1nnasJep1//IX0Rz9
-         8xVLki1YjZx6CQQOZmhUbWCy8jn91j6VYMqfCa1Xdt0mJG09p8IChXFxDGNUUFjAGhhL
-         1Xg8NVLkM3kEO+xnOoR6J/s+rVwKvSrzszGacxGYfy4KKnNIAopGcjbb4SNwxJOwAnsa
-         FfUUOiKKo1/wvQofdKNelOxLZhJ+RUiUrtwYtNMAdQNXmAnP5RGnaZkU/q78mI3rJcy9
-         23XpP1PS9zexXpc8Au0FOvO8ShBuPPHgdCiQKn1UQpia+sN6+2pU5sZ/G1SBWG9VJhpq
-         /xuw==
-X-Gm-Message-State: AAQBX9dKvgHKvqTQnPPBQxXv6rz27+0kG9NTwGiL4u9tLIDhzifG3/Md
-	BVCYBnUWM9iMdeP8/LzwII1G9BoAMPvhgrgh6/fnazEaYKYgkMWhH8dtY+xCiD4/FAeMNxs9bEE
-	430OsXlbsKB3qVswShJxaPwZS8zrCBsH7Dxy0drVKDmjk
-X-Received: by 2002:a05:6130:c91:b0:68b:94c5:7683 with SMTP id ch17-20020a0561300c9100b0068b94c57683mr8105355uab.0.1679927062162;
-        Mon, 27 Mar 2023 07:24:22 -0700 (PDT)
-X-Google-Smtp-Source: AKy350ZKtMex/tpaadhC7/A3kbiPaqwpdCTnb7TmvYuHGDG5Er/ULTE+vcIozX5oGSBN+/KNP3M3qgRvXJabwVIbX7U=
-X-Received: by 2002:a05:6130:c91:b0:68b:94c5:7683 with SMTP id
- ch17-20020a0561300c9100b0068b94c57683mr8105338uab.0.1679927061918; Mon, 27
- Mar 2023 07:24:21 -0700 (PDT)
+	id 1pgoN0-00BQUg-0N;
+	Mon, 27 Mar 2023 15:02:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GEE0ldPCAv+f5hC1f+jvTvP/uCZufNK448SDtGAe4Zk=; b=v1TiVcw6SlE1jYl57XDWmMLk7R
+	EWSel/m8qaxtTIpi1wpcv4wbnE7RPavO3PfN2/IvOoiwi/gCP7xcE5F2askSa5L3uzpsODKQD61x8
+	StfEk4v08foXfrG7VasjwmrT+4yuDajfp3NNHvjaYyh4aLuCmqN87WdluK/CgHa4tXqQusBd9TUSf
+	rgoEiiSrmdHN6nfAY4zrzY2ufcDHt1crFZ4RO0F/V9Ze42PDJKXYA8Ce8yBzBCsjOpJfgasawcEnA
+	+RKV1eekKL4QKumS3WLMLcQq87DVakybcmXPiUHI+Lzv6UbDhiuLRCeqCognGPTq1tbBLbTgEZBez
+	GAl3pldA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58066)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1pgoM7-00040C-4u; Mon, 27 Mar 2023 16:01:55 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1pgoLv-0005Vg-EZ; Mon, 27 Mar 2023 16:01:43 +0100
+Date: Mon, 27 Mar 2023 16:01:43 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 20/21] ARM: dma-mapping: split out arch_dma_mark_clean()
+ helper
+Message-ID: <ZCGv18wnEtoFvtfM@shell.armlinux.org.uk>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-21-arnd@kernel.org>
 MIME-Version: 1.0
-References: <CAAhSdy320bsv7=EBLcdiXyJcO6NWUFK9_XUvwF_KvFF8v91RpA@mail.gmail.com>
-In-Reply-To: <CAAhSdy320bsv7=EBLcdiXyJcO6NWUFK9_XUvwF_KvFF8v91RpA@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Mon, 27 Mar 2023 16:24:10 +0200
-Message-ID: <CABgObfaCR0NDj7ipZg2YYHnv4vQbOW4yz9140e+nyZBnF0QgyA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv fixes for 6.3, take #1
-To: anup@brainfault.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
-	KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20230327121317.4081816-21-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_072430_300721_DE92FD2F 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20230327_080250_157492_94FD10B8 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +101,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHVsbGVkLCB0aGFua3MuCgpQYW9sbwoKT24gRnJpLCBNYXIgMTcsIDIwMjMgYXQgMTI6MzPigK9Q
-TSBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPiB3cm90ZToKPgo+IEhpIFBhb2xvLAo+
-Cj4gV2UgaGF2ZSBvbmUgS1ZNIFJJU0MtViBmaXggZm9yIDYuMzoKPiAxKSBGaXggVk0gaGFuZyBp
-biBjYXNlIG9mIHRpbWVyIGRlbHRhIGJlaW5nIHplcm8KPgo+IFBsZWFzZSBwdWxsLgo+Cj4gUmVn
-YXJkcywKPiBBbnVwCj4KPiBUaGUgZm9sbG93aW5nIGNoYW5nZXMgc2luY2UgY29tbWl0IGVlYWM4
-ZWRlMTc1NTc2ODA4NTUwMzFjNmYzMDVlY2UyMzc4YWYzMjY6Cj4KPiAgIExpbnV4IDYuMy1yYzIg
-KDIwMjMtMDMtMTIgMTY6MzY6NDQgLTA3MDApCj4KPiBhcmUgYXZhaWxhYmxlIGluIHRoZSBHaXQg
-cmVwb3NpdG9yeSBhdDoKPgo+ICAgaHR0cHM6Ly9naXRodWIuY29tL2t2bS1yaXNjdi9saW51eC5n
-aXQgdGFncy9rdm0tcmlzY3YtZml4ZXMtNi4zLTEKPgo+IGZvciB5b3UgdG8gZmV0Y2ggY2hhbmdl
-cyB1cCB0byA2ZWZmMzgwNDg5NDRjYWRjM2NkZGNmMTE3YWNmYTUxOTllYzMyNDkwOgo+Cj4gICBy
-aXNjdi9rdm06IEZpeCBWTSBoYW5nIGluIGNhc2Ugb2YgdGltZXIgZGVsdGEgYmVpbmcgemVyby4K
-PiAoMjAyMy0wMy0xNyAxMzozMjo1NCArMDUzMCkKPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBLVk0vcmlzY3YgZml4
-ZXMgZm9yIDYuMywgdGFrZSAjMQo+Cj4gLSBGaXggVk0gaGFuZyBpbiBjYXNlIG9mIHRpbWVyIGRl
-bHRhIGJlaW5nIHplcm8KPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBSYWpuZXNoIEthbndhbCAoMSk6Cj4gICAgICAg
-cmlzY3Yva3ZtOiBGaXggVk0gaGFuZyBpbiBjYXNlIG9mIHRpbWVyIGRlbHRhIGJlaW5nIHplcm8u
-Cj4KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV90aW1lci5jIHwgNiArKy0tLS0KPiAgMSBmaWxlIGNo
-YW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPgoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Mar 27, 2023 at 02:13:16PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The arm version of the arch_sync_dma_for_cpu() function annotates pages as
+> PG_dcache_clean after a DMA, but no other architecture does this here.
+
+... because this is an arm32 specific feature. Generically, it's
+PG_arch_1, which is a page flag free for architecture use. On arm32
+we decided to use this to mark whether we can skip dcache writebacks
+when establishing a PTE - and thus it was decided to call it
+PG_dcache_clean to reflect how arm32 decided to use that bit.
+
+This isn't just a DMA thing, there are other places that we update
+the bit, such as flush_dcache_page() and copy_user_highpage().
+
+So thinking that the arm32 PG_dcache_clean is something for DMA is
+actually wrong.
+
+Other architectures are free to do their own other optimisations
+using that bit, and their implementations may be DMA-centric.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
