@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AABEC76195
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 11:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78036C761A6
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Mar 2023 11:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tc1Tt95fe3hENnXHIUSV4BNFoRqK6WZW1wosgU2YV6w=; b=xObs5rIFyzLNaR
-	t9Ya3z3FL9CZjn+Yg/WkPKWfMygCu21gLicthf2f7L5idaSWrtKjOsBrhbuesOtRjQ0KxqTy0g/7Z
-	Od3Ug9jlwaAMpAKWb+cGBLugp1j9yK06OINm/cU5rp7Sf++UZTtab2w5wfuFBB17YQeOn2fFR+HhM
-	uSH8NvmYUgiSBPVKFALqiL9l7KkdSuv4IeHSVsAWZMlNQwkoD7N/cIS/aZzYApIdNoWIdGEns17MK
-	j7rUsj3Jb085SGl26PFPkixsGTEllsXAh67qij52Dyc1RjYLkZhxMHnqWhXPqDAtMpd3x1N7ZwfpH
-	XsrDJM41VRF9FfE1nSSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nwtet85FQzLpLzWZbOA0XLgJ0Nt+y3+pixbu5gcUKkM=; b=SLRcV9uv+HAWBAHoc1bi0uv1uA
+	ibwwPknIIlJRb3oMyweCJerkeBSXu5xpjqdobR2ABzggAyxnV8XSQc4uHP1ecsWrWGbKelIO6Oi+7
+	tBFo9PnBWnXLvkGpcDMdC5sC8KImwgyowUwUPwhDZdW2miTwQNJonIxUvHpIgUwLuRHEUKyOULPWW
+	2/tjz/u8c6QYucCFFVmrz4pJHyiVoIP3259kO1GEAZgKS1HS5xcUswcfJiy6WvnYMgRPAIMkybmZ3
+	ueK1ka3iIqtJXWEKkTtHx0oieeJSCKZRsOb/quTaxKL3ADKlbGPz+Qx5sC/l6ZoM9TiSvYVYBj930
+	dttK1Ghg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pglAk-00AluP-1X;
-	Mon, 27 Mar 2023 11:37:58 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1pglBP-00AlyN-06;
+	Mon, 27 Mar 2023 11:38:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pglAh-00Alt2-1b
+	id 1pglBJ-00Alxe-2X
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Mar 2023 11:37:56 +0000
-Received: by mail-ed1-x535.google.com with SMTP id y4so34877512edo.2
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 04:37:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679917071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lFk1Od/+EdFCUvY552WWMWkI0eZLoEwGftRpKewd8rg=;
-        b=DJZmuSfOOXMci0CCcQn88zNuGofkdZkxnSNwJ0x4zQstHMQky3y5QlTg5FVpotfbcP
-         TQ4ByFJ0dp6h+arNG44mFKA4ZywVCsFeVzHYiQh2NJrMf6oZhJYryF387zRz8jhRoXk9
-         ES4DBioW9Z9a6U5H3QlyNZOouR1KKWmMEjuT1maFPfW/k544tPLkUxFRb+Hnf2RYI5h1
-         EZoY8Y69rWi3msOKEHdgttPTTJQ+JhoZXWctsUT1qA0k5BOC6C4AqEtOO/ixslGR/9H2
-         dfNsFAh0TIGyambe6bm0rFUk8Xxn+OMjrgsda1PRyYRRZklZm1PgBPLkUXLo1MZkPlT3
-         o7CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679917071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lFk1Od/+EdFCUvY552WWMWkI0eZLoEwGftRpKewd8rg=;
-        b=DwZpiy6F4f+OHgsqHIy2U4iq6MutQz6/5Zl/f1JM0XkI1AekgpL48Le4+qRuxmGxKI
-         +P64XxD54fspCRaa9zpnCp9MjgaTv/VbYs1UtMlUUIhPyWrkuVeBu35tjev/8vSCxhwk
-         0UnvDS+EQatt/3jxShvl/SIMSh14R+tvtHnH8tdG6uHiJp4WmBIuZO6gvhhUlpuvYI4G
-         zDgsLVVO6a/iYsTl+Z7ThBn1WfCTQMohWzhbyyLGCM3wB9SfLk1uPFKwFmXNILk2wJcn
-         XqBOQvmrClR1oXrJi9vCyXJDproGoM1Ea7MJC4XBzTQm2Fh/i/Ok31HyiRQ8giccLHGI
-         djWg==
-X-Gm-Message-State: AAQBX9dum0eUFYKrcfOaVIWtqsJt2yFB4rsqKy2ehL8XAqiur/JgSJD0
-	JcfpNUvafX5dzGuNFmqpbcnX4w==
-X-Google-Smtp-Source: AKy350a+xAzIAbxpLmLmCH/0KNk1tkTjeH1fEruONhgv3OXe/3DHnb9cBTHt4wnrFQpYd0e8eXUy7g==
-X-Received: by 2002:a17:906:f143:b0:933:4c93:69ee with SMTP id gw3-20020a170906f14300b009334c9369eemr12617295ejb.45.1679917071855;
-        Mon, 27 Mar 2023 04:37:51 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id kg2-20020a17090776e200b009334219656dsm12248051ejc.56.2023.03.27.04.37.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Mar 2023 04:37:51 -0700 (PDT)
-Date: Mon, 27 Mar 2023 13:37:50 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v9 3/3] riscv: Use PUD/P4D/PGD pages for the linear
- mapping
-Message-ID: <20230327113750.4dahiicpcg3b27mz@orel>
-References: <20230324155421.271544-1-alexghiti@rivosinc.com>
- <20230324155421.271544-4-alexghiti@rivosinc.com>
+	Mon, 27 Mar 2023 11:38:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1679917113; x=1711453113;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Q2B4kA6um1AUrS22dRB1g2bdoajEizZ7FOgCaLz1DVw=;
+  b=nuiM1DC+IfZ5sR1k92C1joyoF23EVkF3srU379YY751ilzK0E3QfWIOT
+   B2Otz1V6fmpxN70Zyg3gXsqUwlnlDHGM9mlg6UO8J4LVXXtIZuX/os3d3
+   NSxK2lvU9DfN43gBUFZzVzMiJnj3DigG69l4g54p3SeLTmhSqBOiLTRx3
+   A+7nsOwGp0uYXNCxAI5t0NYh/kW70O96OlzQYAF94G6YBO6qHlDNkZeYR
+   ehx1fGQudVKOVeBHd6GlLQ4LyAwZYLPp/FGVXO1cPyS0M9Ki8kLZMkJXN
+   0a4Ym8MmC3mFIMnunPBLueiYC9CFsAKKkz9Fa2pcOoMuvBMucelaB7N/Q
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.98,294,1673938800"; 
+   d="asc'?scan'208";a="207407574"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Mar 2023 04:38:31 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 27 Mar 2023 04:38:28 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 27 Mar 2023 04:38:27 -0700
+Date: Mon, 27 Mar 2023 12:49:44 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Song Shuai <suagrfillet@gmail.com>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<bjorn@kernel.org>
+Subject: Re: [PATCH V2] riscv: export cpu/freq invariant to scheduler
+Message-ID: <b6d48638-92b6-4406-b472-90d3d53b021f@spud>
+References: <20230323123924.3032174-1-suagrfillet@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230324155421.271544-4-alexghiti@rivosinc.com>
+In-Reply-To: <20230323123924.3032174-1-suagrfillet@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_043755_540326_5A3FEFAA 
-X-CRM114-Status: GOOD (  24.36  )
+X-CRM114-CacheID: sfid-20230327_043833_889384_9065EB33 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +77,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0403122540651486148=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 24, 2023 at 04:54:21PM +0100, Alexandre Ghiti wrote:
-> During the early page table creation, we used to set the mapping for
-> PAGE_OFFSET to the kernel load address: but the kernel load address is
-> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-> PAGE_OFFSET is).
-> 
-> But actually we don't have to establish this mapping (ie set va_pa_offset)
-> that early in the boot process because:
-> 
-> - first, setup_vm installs a temporary kernel mapping and among other
->   things, discovers the system memory,
-> - then, setup_vm_final creates the final kernel mapping and takes
->   advantage of the discovered system memory to create the linear
->   mapping.
-> 
-> During the first phase, we don't know the start of the system memory and
-> then until the second phase is finished, we can't use the linear mapping at
-> all and phys_to_virt/virt_to_phys translations must not be used because it
-> would result in a different translation from the 'real' one once the final
-> mapping is installed.
-> 
-> So here we simply delay the initialization of va_pa_offset to after the
-> system memory discovery. But to make sure noone uses the linear mapping
-> before, we add some guard in the DEBUG_VIRTUAL config.
-> 
-> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-> in a better TLB utilization.
-> 
-> Note that:
-> - this does not apply to rv32 as the kernel mapping lies in the linear
->   mapping.
-> - we rely on the firmware to protect itself using PMP.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Acked-by: Rob Herring <robh@kernel.org> # DT bits
-> ---
->  arch/riscv/include/asm/page.h | 16 ++++++++++
->  arch/riscv/mm/init.c          | 58 +++++++++++++++++++++++++++++++----
->  arch/riscv/mm/physaddr.c      | 16 ++++++++++
->  drivers/of/fdt.c              | 11 ++++---
->  4 files changed, 90 insertions(+), 11 deletions(-)
-> 
+--===============0403122540651486148==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Edl0/TOuOami8mTi"
+Content-Disposition: inline
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+--Edl0/TOuOami8mTi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
++CC Bjorn,
+
+On Thu, Mar 23, 2023 at 08:39:24PM +0800, Song Shuai wrote:
+> RISC-V now manages CPU topology using arch_topology which provides
+> CPU capacity and frequency related interfaces to access the cpu/freq
+> invariant in possible heterogeneous or DVFS-enabled platforms.
+>=20
+> Here adds topology.h file to export the arch_topology interfaces for
+> replacing the scheduler's constant-based cpu/freq invariant accounting.
+>=20
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+
+Something in CI really, really doesn't like this patch:
+https://patchwork.kernel.org/project/linux-riscv/patch/20230323123924.30321=
+74-1-suagrfillet@gmail.com/
+
+The CI stuff applies the patch, builds the tree, resets to HEAD~1,
+builds it again, goes back to the applied patch and builds a third time.
+Builds 2 and 3 are incremental.
+In theory the same stuff should change between applying and removing the
+patch, and therefore each of builds 2 and 3 should have the same coverage,
+but that doesn't seem to be happening here.
+Build 2 looks to have rebuilt almost nothing and build 3 has rebuilt the
+world.
+I'm gonna chalk that one down as a CI issue rather than your patch!
+
+That said, I was wondering if you would end up submitting this patch,
+given the discussion on your last one ;)
+
+Looks to be the same as was done for arm64, so fwiw:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
-drew
+Conor.
+
+> ---
+> changes from V1:
+>   - fix the leading underscore and tidy the patch up=20
+> ---
+>  arch/riscv/include/asm/topology.h | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/topology.h
+>=20
+> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/t=
+opology.h
+> new file mode 100644
+> index 000000000000..727e8d163a3b
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/topology.h
+> @@ -0,0 +1,20 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_TOPOLOGY_H
+> +#define _ASM_RISCV_TOPOLOGY_H
+> +
+> +#include <linux/arch_topology.h>
+> +
+> +/* Replace task scheduler's default frequency-invariant accounting */
+> +#define arch_scale_freq_tick	topology_scale_freq_tick
+> +#define arch_set_freq_scale	topology_set_freq_scale
+> +#define arch_scale_freq_capacity	topology_get_freq_scale
+> +#define arch_scale_freq_invariant	topology_scale_freq_invariant
+> +
+> +/* Replace task scheduler's default cpu-invariant accounting */
+> +#define arch_scale_cpu_capacity	topology_get_cpu_scale
+> +
+> +/* Enable topology flag updates */
+> +#define arch_update_cpu_topology	topology_update_cpu_topology
+> +
+> +#include <asm-generic/topology.h>
+> +#endif /* _ASM_RISCV_TOPOLOGY_H */
+> --=20
+> 2.20.1
+>=20
+>=20
+
+--Edl0/TOuOami8mTi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCGC2AAKCRB4tDGHoIJi
+0l+xAP0XEpkCEwAle/m9iBKU+5bYreUYM96+rKjw0G4g24GPGgEAxMrUg2z+QaPq
+gEVLcP4H1EF+3p8QDiDa+tdyUjhgyA0=
+=noGV
+-----END PGP SIGNATURE-----
+
+--Edl0/TOuOami8mTi--
+
+
+--===============0403122540651486148==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0403122540651486148==--
+
