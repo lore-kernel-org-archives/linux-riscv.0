@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684E6C76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 03:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16747C76196
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 03:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mew/DP1jtzytLGY8D6XiLunXzvqxXouwXYRXRUwzN+M=; b=ehoppJGteh+GgF
-	Zgywr8VoSAqRp6IG+ck8AfU7lDJiMbDwHA+5Ti+ouPy+D697TVLsBfgiN+2FQCLULx06OSX88gp6c
-	k/LVPGlXYKbj0QlhT90F5Zy/E37n1Xc++Dbjlw14L3NzRKNYUDyITA+KbdyWD1knN62O20Wygvb5Q
-	JryqGdEm0jCHRZCV1EtWNiTry+ppkYnVMVoaYNRyDSxQrzplSdrdw+KkJfHLHFe5M1rVQS8pYrPmX
-	X+PZ1evEfQFSFE+SZvGn+cz1v+H+sRiELcPlF9oCHaEuO53rbGYgStoATZ0hlhWKgUc8x8j6nImZE
-	gg5c0kbKVEONVLWsgltw==;
+	List-Owner; bh=UmuBFqg5hsJRbIps70tmJ8XCz+RRTvWbYbxCBo6c1ec=; b=y2ifpFp+spc4Oe
+	e/jHYh27aMY8uWgXGF6bH0QYC+JyVt+wUKHH9mfHHgb8doyvEATzPPJDfUv2PvqPV07dMjN4rdccy
+	RfRMbj6ea9ydhecqXoMCjgRjc+A7hZrki0j7MD9abbBuqUG2w8u4ijWhssshSbrPWPbOJkweQBy/O
+	B9uVLEzn4iSzJuqjxMbwN8hOlaKP6WAaEXpkTGpovD5aT3oifqYVEGR6m5AX8MbLAFvPTMcCWhs75
+	5J85nIyuZwQNeUwhi4ajHtBoMCGKX/R/bHFL88aMkk8BhyVXzWvlXMOg2fGZn1dP+JXRNvUcqnWFE
+	MZLMHP/LL+4hJcUS83/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph0OV-00D3qW-0q;
-	Tue, 28 Mar 2023 03:53:11 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1ph0OZ-00D3t1-2t;
+	Tue, 28 Mar 2023 03:53:15 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph0OS-00D3ot-35
+	id 1ph0OX-00D3r2-1y
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Mar 2023 03:53:10 +0000
-Received: by mail-pl1-x636.google.com with SMTP id o11so10448391ple.1
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 20:53:07 -0700 (PDT)
+	Tue, 28 Mar 2023 03:53:14 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id o6-20020a17090a9f8600b0023f32869993so13888669pjp.1
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Mar 2023 20:53:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1679975587;
+        d=ventanamicro.com; s=google; t=1679975592;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fYuh0nFD6NwJIy6fdJnMZv8jO7haLudDJ7hSHLvipCc=;
-        b=NRNMyNcfhSZoLR9QbApNoQGXQbsEn+nMfcydEcWh43W2IrC9oJayOkID0hWw2bbqud
-         pNNWjHB5OsIh6Cr6PvSd/uU38XSrUeybs01nBOpjb3Mc5iQOwqktTIQcn5zoQcFz3Uon
-         gZN2VHNBarpa5eMPfvR8p60EQQUFD3MgAC7OTC+P8WLF6SjIUUeuFkgZMQnC0CFB6IgA
-         PVn+fVGZm45Qv46wtNxfOq3uHDxA6KA7bD3CMl22qgA1d01jGEqIE+in216JphBA2OfU
-         PXT6kjzlmbUgKUhP0M2daD0hxQUifb4FoJbbIK2zDj8myPaBCwMg+jP2Jz4gv63cH92Q
-         AyfQ==
+        bh=y7s+91AtfNZFr11BBB79AwltySbIUEsIHQ1Gjnv2r90=;
+        b=GEjjNtl9m0uaQ14T5Cp1Xzcub+kVAmI1XQP1g3dY3m8lo5LAKKLNNVYVlxv7+bKlMA
+         aRe3MlgyoNB6TZOAM3CmHphWZB7MwQpq0xEz1SPLpc9j43+L+WzMCZhR2jJHCsZrxxBg
+         oauGLWdq3+weB5U+6utGq3PfFDXlHAfL36MmLcIh4IxAF9oCkYpIUhILDb6O1c2kMBCC
+         GkI1ZvIh6E/Zh4Qbn3Jz8fcQj3inLGLdNzP3RyHR3tiTE9dzWt6EdvPV+wzYExHZX7ZE
+         ZMoysS6lt4jlK4loF2zpDXRDDPEoWJaT5LhD8kuYoUoxU0iK7elxFMScvp0V6EnJi2lE
+         yPKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679975587;
+        d=1e100.net; s=20210112; t=1679975592;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fYuh0nFD6NwJIy6fdJnMZv8jO7haLudDJ7hSHLvipCc=;
-        b=JuOWF9zUI7rFV/bY84+4AxuDP2MAxhrk8tv3BKYG6j8IDYIpJVZtqDjcZ/nOIrjdbc
-         bqN8+hbOSEAWLd7MmPws8iwY9E+8I/zg7NmsfLP8QUm2mDw+bTvYhBmDW1P0JOjQ9A06
-         jHbKJl81ft32KvKtg74G5HAnJ/AKs/pXOvjvjtXud90WueoNKOEuMB2lW0hloYVEWhWo
-         XHUaFeiRy6Dhv423Lj29dViR3XnBPHI1A/4sEiXONL4Py6QWnCzryEWhRxcA/ZwJ1sRr
-         tXKNZtpi/3FUFLw1CwCMoQLedjkYn70a/afJVCejclP0ArePrxn/sINqOpjmDGGfLHpf
-         Yv0w==
-X-Gm-Message-State: AAQBX9dT6l8rnEcum8329LjqGHSxHxY7TE6agygoP/6ZerVEN6Hv9GvE
-	9EWBq7rbdA17Z3E7h/ra04cqDw==
-X-Google-Smtp-Source: AKy350bLV4PR6X0dU3ueROaof97i4KEfz0eeNx8Bf+3cEA9GQev1ByHDUyeQfvUumBlKcwHa7FSKNw==
-X-Received: by 2002:a17:902:e80c:b0:19b:afb:b92e with SMTP id u12-20020a170902e80c00b0019b0afbb92emr18463729plg.40.1679975587300;
-        Mon, 27 Mar 2023 20:53:07 -0700 (PDT)
+        bh=y7s+91AtfNZFr11BBB79AwltySbIUEsIHQ1Gjnv2r90=;
+        b=WQkzzMD/1DAfNftqDfQc4NeXc70Yn4ag50039npMN+6hHA6s13FhpX/HyyJjDk+6Hc
+         AZg8gtbIFMXNSCDal+RA7nw/z1McIyR8jF6ujWs0qFeK3XGcRQdOYTdk3+t3AVbg4F2G
+         lD9NRF1wR+gyCsZ4i9XTwXKXOEWeWTpiMQUSWVj2i0zM6Stdx3LG+owPaRttyvmGzqWf
+         0LBRgEzXHNWgQXUJ8qpUKgqOu5y0CrOAjR8klB4ag2zwuxZjIQxWCV6EjP+NzAOwYbdl
+         ZjS31iAQ3u7ldLsIc6Pz3rLOkNWpxMSZTImxU31y1kJaSF9LuxWsXxBviqmPNgOVwoH8
+         D1Og==
+X-Gm-Message-State: AAQBX9feimjBi4hb6Ex8DT2CQAWGbsSRI3Tk5t22fr/MlM24yDmV6oYM
+	1bZd68CZI+ObsfE6QDbS+u1Syg==
+X-Google-Smtp-Source: AKy350blb+cJVDOCRTgjKfm7KJqOhQzjeIhTlA8ZV+SWnKT1CdLB9KsiVTmjKDZxHKrOPWQ3G5xUKw==
+X-Received: by 2002:a17:90b:3b90:b0:23f:a674:dc0b with SMTP id pc16-20020a17090b3b9000b0023fa674dc0bmr16062620pjb.15.1679975591902;
+        Mon, 27 Mar 2023 20:53:11 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([171.76.82.104])
-        by smtp.gmail.com with ESMTPSA id g6-20020a170902740600b0019cb534a824sm19880278pll.172.2023.03.27.20.53.03
+        by smtp.gmail.com with ESMTPSA id g6-20020a170902740600b0019cb534a824sm19880278pll.172.2023.03.27.20.53.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Mar 2023 20:53:06 -0700 (PDT)
+        Mon, 27 Mar 2023 20:53:11 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -74,18 +74,17 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v18 6/7] RISC-V: Use IPIs for remote icache flush when possible
-Date: Tue, 28 Mar 2023 09:22:22 +0530
-Message-Id: <20230328035223.1480939-7-apatel@ventanamicro.com>
+Subject: [PATCH v18 7/7] irqchip/riscv-intc: Add empty irq_eoi() for chained irq handlers
+Date: Tue, 28 Mar 2023 09:22:23 +0530
+Message-Id: <20230328035223.1480939-8-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230328035223.1480939-1-apatel@ventanamicro.com>
 References: <20230328035223.1480939-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_205308_994036_7BF2DE75 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20230327_205313_647137_F336D015 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +101,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If we have specialized interrupt controller (such as AIA IMSIC) which
-allows supervisor mode to directly inject IPIs without any assistance
-from M-mode or HS-mode then using such specialized interrupt controller,
-we can do remote icache flushe directly from supervisor mode instead of
-using the SBI RFENCE calls.
-
-This patch extends remote icache flush functions to use supervisor mode
-IPIs whenever direct supervisor mode IPIs.are supported by interrupt
-controller.
+We add empty irq_eoi() in RISC-V INTC driver for child irqchip
+drivers (such as PLIC, SBI IPI, CLINT, APLIC, IMSIC, etc) which
+implement chained handlers for parent per-HART local interrupts.
+This hels us avoid unnecessary mask/unmask of per-HART local
+interrupts at the time of handling interrupts.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/mm/cacheflush.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-riscv-intc.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index fcd6145fbead..20cec5e7cdbf 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -19,7 +19,7 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 784d25645704..f229e3e66387 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -46,10 +46,27 @@ static void riscv_intc_irq_unmask(struct irq_data *d)
+ 	csr_set(CSR_IE, BIT(d->hwirq));
+ }
  
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
-+	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
- 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
-@@ -67,7 +67,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 * with flush_icache_deferred().
- 		 */
- 		smp_mb();
--	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-+	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
-+		   !riscv_use_ipi_for_rfence()) {
- 		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
++static void riscv_intc_irq_eoi(struct irq_data *d)
++{
++	/*
++	 * The RISC-V INTC driver uses handle_percpu_devid_irq() flow
++	 * for the per-HART local interrupts and child irqchip drivers
++	 * (such as PLIC, SBI IPI, CLINT, APLIC, IMSIC, etc) implement
++	 * chained handlers for the per-HART local interrupts.
++	 *
++	 * In the absence of irq_eoi(), the chained_irq_enter() and
++	 * chained_irq_exit() functions (used by child irqchip drivers)
++	 * will do unnecessary mask/unmask of per-HART local interrupts
++	 * at the time of handling interrupts. To avoid this, we provide
++	 * an empty irq_eoi() callback for RISC-V INTC irqchip.
++	 */
++}
++
+ static struct irq_chip riscv_intc_chip = {
+ 	.name = "RISC-V INTC",
+ 	.irq_mask = riscv_intc_irq_mask,
+ 	.irq_unmask = riscv_intc_irq_unmask,
++	.irq_eoi = riscv_intc_irq_eoi,
+ };
+ 
+ static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
 -- 
 2.34.1
 
