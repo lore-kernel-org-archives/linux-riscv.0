@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C93CC76195
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 05:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B2EC76195
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 06:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LmfrnklMr+LRRGENoAKN0b9RYL9a0frfV+FeTf3tOL4=; b=X3q7MKOnMzF+A1/fFexw5vmyZC
-	F1KygM/dna5GiEo/HFt7aAFRTZRygQVOBnxyphsMWKefhQHuofOa2KBKj3TvbWPUx6z9e/iK6mMpe
-	lbarTjNrWJh0jAYY0mTFp2nBuZdQBtlHs1tYzG+baPjBU808CbYeyCzlo/uQ7C9UR3RMTgDpaDKTw
-	oZR5KBabDYV7h5+1xlrSYG5iq2l4wdAS1PmHBOoTGpX0+TPbnfzH4AfnsS5BU3syq+01qO3Jc6x/r
-	aW4omiFLqtZBmFM4W/bLrhDYzCwiR2Hr9Hhz7gwfFMdsLDXcLTyizvtHyq+jxszGGqqibfVYdNDDJ
-	iYoqF4zA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eBm9c2gQoa6I6KBelyGWX4M5850tepRmISqlZsBi6ys=; b=jRA10tOd0X6RBn
+	zInQzS0TD4LSgHrHhPXa/yCiMMe52IdfMfKOKZM1f8d5MOdBLxuLLwe8PcCCNEf2YS5T9aE3WGIdX
+	Ri+MCxmGEIsqJCeHBy4v/E/CAF+B3goGr57lrYO/lWuMyDKB4k4oQJuBntw/qnpUlFnWsxBB+aFPo
+	EKeuoufK1RKJm82mli8LVmihts/f9WVtthlyo+Bd+thu2NTmZBhBIOaGuM6G+dEkN3k4E6KvixlyP
+	rMdewCWsLcjn7S/2OAlDdA1QEOvRYKsdCMAMu8Rjy586nSWMyMn+uCHOMUEl8WtU5RvElyPE6W65/
+	bsHM1Yb4IFMdoetsWtbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph2Gq-00DEId-08;
-	Tue, 28 Mar 2023 05:53:24 +0000
-Received: from mx1.emlix.com ([136.243.223.33])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph2Gl-00DEHB-0h;
-	Tue, 28 Mar 2023 05:53:21 +0000
-Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
-	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.emlix.com (Postfix) with ESMTPS id 0298D5FB8C;
-	Tue, 28 Mar 2023 07:53:12 +0200 (CEST)
-From: Rolf Eike Beer <eb@emlix.com>
-To: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org,
- atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- Andy Chiu <andy.chiu@sifive.com>
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
- Vincent Chen <vincent.chen@sifive.com>, Andy Chiu <andy.chiu@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>,
- Kees Cook <keescook@chromium.org>, Conor Dooley <conor.dooley@microchip.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, Alexey Dobriyan <adobriyan@gmail.com>,
- Qing Zhang <zhangqing@loongson.cn>
-Subject: Re: [PATCH -next v17 11/20] riscv: Add ptrace vector support
-Date: Tue, 28 Mar 2023 07:53:00 +0200
-Message-ID: <5660672.DvuYhMxLoT@devpool47.emlix.com>
-Organization: emlix GmbH
-In-Reply-To: <20230327164941.20491-12-andy.chiu@sifive.com>
-References:  <20230327164941.20491-1-andy.chiu@sifive.com>
- <20230327164941.20491-12-andy.chiu@sifive.com>
+	id 1ph2hU-00DIHP-1R;
+	Tue, 28 Mar 2023 06:20:56 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1ph2hQ-00DIDC-1A
+	for linux-riscv@lists.infradead.org;
+	Tue, 28 Mar 2023 06:20:55 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8C25524E2B2;
+	Tue, 28 Mar 2023 14:20:11 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Mar
+ 2023 14:20:11 +0800
+Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
+ EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Tue, 28 Mar 2023 14:20:10 +0800
+From: Samin Guo <samin.guo@starfivetech.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Jose Abreu <joabreu@synopsys.com>, Richard Cochran
+	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: [net-next v9 0/6] Add Ethernet driver for StarFive JH7110 SoC
+Date: Tue, 28 Mar 2023 14:20:03 +0800
+Message-ID: <20230328062009.25454-1-samin.guo@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230327_225319_433101_8204A3B8 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20230327_232052_725170_D7BD4FD6 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,132 +75,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5746332039436796448=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5746332039436796448==
-Content-Type: multipart/signed; boundary="nextPart5919597.lOV4Wx5bFT";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+This series adds ethernet support for the StarFive JH7110 RISC-V SoC,
+which includes a dwmac-5.20 MAC driver (from Synopsys DesignWare).
+This series has been tested and works fine on VisionFive-2 v1.2A and
+v1.3B SBC boards.
 
---nextPart5919597.lOV4Wx5bFT
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"; protected-headers="v1"
-From: Rolf Eike Beer <eb@emlix.com>
-Subject: Re: [PATCH -next v17 11/20] riscv: Add ptrace vector support
-Date: Tue, 28 Mar 2023 07:53:00 +0200
-Message-ID: <5660672.DvuYhMxLoT@devpool47.emlix.com>
-Organization: emlix GmbH
-In-Reply-To: <20230327164941.20491-12-andy.chiu@sifive.com>
-MIME-Version: 1.0
+For more information and support, you can visit RVspace wiki[1].
+You can simply review or test the patches at the link [2].
+This patchset should be applied after the patchset [3] [4].
 
-On Montag, 27. M=C3=A4rz 2023 18:49:31 CEST Andy Chiu wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
->=20
-> This patch adds ptrace support for riscv vector. The vector registers will
-> be saved in datap pointer of __riscv_v_ext_state. This pointer will be set
-> right after the __riscv_v_ext_state data structure then it will be put in
-> ubuf for ptrace system call to get or set. It will check if the datap got
-> from ubuf is set to the correct address or not when the ptrace system call
-> is trying to set the vector registers.
->=20
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/include/uapi/asm/ptrace.h |  7 +++
->  arch/riscv/kernel/ptrace.c           | 70 ++++++++++++++++++++++++++++
->  include/uapi/linux/elf.h             |  1 +
->  3 files changed, 78 insertions(+)
->=20
-> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-> index 23c48b14a0e7..75e66c040b64 100644
-> --- a/arch/riscv/kernel/ptrace.c
-> +++ b/arch/riscv/kernel/ptrace.c
-> @@ -80,6 +84,61 @@ static int riscv_fpr_set(struct task_struct *target,
->  }
->  #endif
->=20
-> +#ifdef CONFIG_RISCV_ISA_V
-> +static int riscv_vr_get(struct task_struct *target,
-> +			const struct user_regset *regset,
-> +			struct membuf to)
-> +{
-> +	struct __riscv_v_ext_state *vstate =3D &target->thread.vstate;
-> +
-> +	if (!riscv_v_vstate_query(task_pt_regs(target)))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Ensure the vector registers have been saved to the memory before
-> +	 * copying them to membuf.
-> +	 */
-> +	if (target =3D=3D current)
-> +		riscv_v_vstate_save(current, task_pt_regs(current));
-> +
-> +	/* Copy vector header from vstate. */
-> +	membuf_write(&to, vstate, offsetof(struct __riscv_v_ext_state,=20
-datap));
-> +	membuf_zero(&to, sizeof(void *));
+[1]: https://wiki.rvspace.org/
+[2]: https://github.com/saminGuo/linux/tree/vf2-6.3rc3-gmac-net-next
+[3]: https://patchwork.kernel.org/project/linux-riscv/cover/20230320103750.60295-1-hal.feng@starfivetech.com
+[4]: https://patchwork.kernel.org/project/linux-riscv/cover/20230315055813.94740-1-william.qiu@starfivetech.com
 
-No idea why I have not seen it in any previous version, but this "sizeof(vo=
-id=20
-*)" just made me thing "what is going on here?". I personally would have=20
-written something like "sizeof(to.var)" or "offsetof(to.buf)" or something =
-like=20
-that. That makes it easier for me to understand what is skipped/zeroed here=
-,=20
-let alone making it a bit more fool proof when someone changes one of the=20
-struct layouts. YMMV.
+Changes since v8:
+Patch 4:
+- Dropped irrelevant MAINTAINERS context (by Jakub Kicinski)
+Patch 6:
+- Moved error messages to starfive_dwmac_set_mode function to avoid getting error
+  messages twice when syscon_regmap_lookup_by_phandle_args fails. (by Emil)
+- Renamed patch header to "net: stmmac: dwmac-starfive:xxx" (by Emil)
 
-Regards,
+hanges history:
+Changes since v7:
+Patch 4:
+- Constrained the reg/interrupts/interrupt-names properties (by Krzysztof Kozlowski)
 
-Eike
-=2D-=20
-Rolf Eike Beer, emlix GmbH, http://www.emlix.com
-=46on +49 551 30664-0, Fax +49 551 30664-11
-Gothaer Platz 3, 37083 G=C3=B6ttingen, Germany
-Sitz der Gesellschaft: G=C3=B6ttingen, Amtsgericht G=C3=B6ttingen HR B 3160
-Gesch=C3=A4ftsf=C3=BChrung: Heike Jordan, Dr. Uwe Kracke =E2=80=93 Ust-IdNr=
-=2E: DE 205 198 055
+Changes since v6:
+- Sended network patches[patch 1,2,3,4,5,6] and riscv trees patches[patch 7,8] separately (by Jakub Kicinski)
 
-emlix - smart embedded open source
+Changes since v5:
+- Dropped "depends on STMMAC_ETH" and compiled DWMAC_STARFIVE to m by default (by Emil)
+- Removed clk_gtx in struct starfive_dwmac due to this pointer is only set, but never read. (by Emil)
+- Only setting the plat_dat->fix_mac_speed callback when it is needed (by Emil)
+- Moved mdio/phy nodes from SOC .dtsi into board .dtsi (by Andrew)
+- Modified the parameters passed by starfive,syscon (by Andrew && Emil)
+    <syscon, offset, mask>  ==>  <syscon, offset, shift>
+- Optimized the patchs(Fewer patches from 12 to 8)
+    1)merged patch-7 into patch-4 (by Rob)
+    2)merged patch-9 into patch-5
+    2)merged patch-11,12 into patch-10
+    3)Adjusted the patchs order
+- Fixed the unevaluatedProperties property from true to false (by Rob)
+- Replaced contains:enum with items:const for reset-names in snps,dwmac.yaml (by Rob)
+- Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
 
---nextPart5919597.lOV4Wx5bFT
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+Changes since v4:
+- Supported both visionfive 2 v1.2A and visionfive 2 v1.3B.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
+- Suggested by Emil, dropped the _PLAT/_plat from the config/function/struct/file names.
+- Suggested by Emil, added MODULE_DEVICE_TABLE().
+- Suggested by Emil, dropped clk_gtxclk and use clk_tx_inv to set the clock frequency.
+- Added phy interface mode configuration function.
+- Rebased on tag v6.2.
 
------BEGIN PGP SIGNATURE-----
+Changes since v3:
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'
+- Removed the unused code in 'dwmac-starfive-plat.c'.
+- Reworded the return statement in 'starfive_eth_plat_fix_mac_speed' function.
 
-iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCZCKAvAAKCRCr5FH7Xu2t
-/MJqA/43E26RHc98CNLURi6a5ci9ANMlv1pRjWuGyTEhG7ZIhzJwW/ys2IXttNkq
-ffUrDmMgY9C24EggVrxESn9Qp2pn2tlZpE5+Xfn8tvULfzzhcO4HFRMJddIVI1pX
-YdXWklrHCdQSwU6abUys9yyAkM/cK1G1VB36bANrm3nXoDQI7A==
-=OeNr
------END PGP SIGNATURE-----
+Changes since v2:
+- Renamed the dt-bindings 'starfive,jh71x0-dwmac.yaml' to 'starfive,jh7110-dwmac.yaml'.
+- Reworded the commit messages.
+- Reworded the example context in the dt-binding 'starfive,jh7110-dwmac.yaml'.
+- Removed "starfive,jh7100-dwmac" compatible string and special initialization of jh7100.
+- Removed the parts of YT8531,so dropped patch 5 and 6.
+- Reworded the maxitems number of resets property in 'snps,dwmac.yaml'.
 
---nextPart5919597.lOV4Wx5bFT--
+Changes since v1:
+- Recovered the author of the 1st and 3rd patches back to Emil Renner Berthing.
+- Added a new patch to update maxitems number of resets property in 'snps,dwmac.yaml'.
+- Fixed the check errors reported by "make dt_binding_check".
+- Renamed the dt-binding 'starfive,dwmac-plat.yaml' to 'starfive,jh71x0-dwmac.yaml'.
+- Updated the example context in the dt-binding 'starfive,jh71x0-dwmac.yaml'.
+- Added new dt-binding 'motorcomm,yt8531.yaml' to describe details of phy clock
+  delay configuration parameters.
+- Added more comments for PHY driver setting. For more details, see
+  'motorcomm,yt8531.yaml'.
+- Moved mdio device tree node from 'jh7110-starfive-visionfive-v2.dts' to 'jh7110.dtsi'.
+- Re-worded the commit message of several patches.
+- Renamed all the functions with starfive_eth_plat prefix in 'dwmac-starfive-plat.c'.
+- Added "starfive,jh7100-dwmac" compatible string and special init to support JH7100.
+
+Previous versions:
+v1 - https://patchwork.kernel.org/project/linux-riscv/cover/20221201090242.2381-1-yanhong.wang@starfivetech.com/
+v2 - https://patchwork.kernel.org/project/linux-riscv/cover/20221216070632.11444-1-yanhong.wang@starfivetech.com/
+v3 - https://patchwork.kernel.org/project/linux-riscv/cover/20230106030001.1952-1-yanhong.wang@starfivetech.com/
+v4 - https://patchwork.kernel.org/project/linux-riscv/cover/20230118061701.30047-1-yanhong.wang@starfivetech.com/
+v5 - https://patchwork.kernel.org/project/netdevbpf/cover/20230303085928.4535-1-samin.guo@starfivetech.com/
+v6 - https://patchwork.kernel.org/project/netdevbpf/cover/20230313034645.5469-1-samin.guo@starfivetech.com/
+v7 - https://patchwork.kernel.org/project/netdevbpf/cover/20230316043714.24279-1-samin.guo@starfivetech.com/
+v8 - https://patchwork.kernel.org/project/linux-riscv/cover/20230324022819.2324-1-samin.guo@starfivetech.com/
 
 
+Emil Renner Berthing (2):
+  dt-bindings: net: snps,dwmac: Add dwmac-5.20 version
+  net: stmmac: platform: Add snps,dwmac-5.20 IP compatible string
+
+Samin Guo (3):
+  dt-bindings: net: snps,dwmac: Add 'ahb' reset/reset-name
+  net: stmmac: Add glue layer for StarFive JH7110 SoC
+  net: stmmac: starfive-dmac: Add phy interface settings
+
+Yanhong Wang (1):
+  dt-bindings: net: Add support StarFive dwmac
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  17 +-
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 144 +++++++++++++++
+ MAINTAINERS                                   |   7 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 169 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   3 +-
+ 7 files changed, 348 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
 
 
+base-commit: e8d018dd0257f744ca50a729e3d042cf2ec9da65
+prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
+prerequisite-patch-id: 1da7255d6aeb5576ca810116a9323452be2202fa
+prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
+prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 85c5bb437c383b2e68c79e59a439f01b7bcd963e
+prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 42d352fe14713b74951c4513128a0a494b2dce76
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 4f10a3d827679eafbd3d49d2e21f31032dc9c418
+prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
+prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
+prerequisite-patch-id: 1be0fb49e0fbe293ca8fa94601e191b13c8c67d9
+--
+2.17.1
 
---===============5746332039436796448==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5746332039436796448==--
-
-
-
-
