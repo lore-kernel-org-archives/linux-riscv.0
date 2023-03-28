@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2989BC76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 17:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EBEC6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 17:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKqCapEuCsKzRWv0rbHl1iUiBhHKSVCNTxJRhwxvsmU=; b=Za1GU8beNJqMEwQxofxhDEVlfk
-	kjGscfyhooHW5NaobrRddJTJFQaGeoYyHKe+S445sEbcjyFVaHZZWyFLy3H0bYEXe+eN3wi9HBuhP
-	GFePKEfu1kzDqav0tgNC33lFCNZJUf4XbqQ67pQGozH3eaxxcDXGhj34wvsMQ9PR2ZfxiBaN3GR5u
-	9rZYFQeD6BYggasb5QHAo+b1fAlXfZpTFwxGC8ogiH2Bqg6njtNKuxeHAvUYS57z+ng493mYtsxvQ
-	bDPQ6KnIjhEISEq5nihFAxtOAb8spd/hadN5II26i8+FPIFClb0CA0DYNn27G/npwSmtoKjGQtG+Z
-	1ZR3Apcg==;
+	bh=V5EcX7W7rzXxHB0ZM1g1yiwxO2YaEy+ma8CGwcQEvNg=; b=3FY9lRlKFoL6dlfWiSuZQMBrfx
+	SZ/eOExrhgIdX0Lrh8zeCkXai50Imn8pdWFPRlV6duH3PwYe97Yf4ayMZTX2ipskYFSiAjbvpGUUC
+	MmZVoAPuumxNl53kq0c48KLY1NvAeQv6IQ8i4k19rL6hu5D3kgPsWBNODwI6C6U8iHpll1vNjjIqJ
+	n70WDtMIMNj6dY/yWx8i+0JA/OikrW3oEnM7bdECwPH7G5GmSlqCp/3NLSzntTUfKbrEB7GqETyq3
+	nUqzj3zTX8Vn+Fe0mcEsEeSN1mOUdA9ZluH/+Mxg/cEFB9BUTm6i4LpB3JdLEuoEBSRLBIB/CJeVQ
+	OXrplQng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phCjO-00FF7r-1y;
-	Tue, 28 Mar 2023 17:03:34 +0000
+	id 1phD22-00FJ70-1y;
+	Tue, 28 Mar 2023 17:22:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phCjL-00FF6n-05
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Mar 2023 17:03:33 +0000
+	id 1phD1y-00FJ5s-0f;
+	Tue, 28 Mar 2023 17:22:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DFE6C61888;
-	Tue, 28 Mar 2023 17:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0870C433D2;
-	Tue, 28 Mar 2023 17:03:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B3DF7618AF;
+	Tue, 28 Mar 2023 17:22:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A232CC433D2;
+	Tue, 28 Mar 2023 17:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680023009;
-	bh=in0IdUiQPH3Cv4MI/zIdwXOMEHraRgEvyxAlOWnfFm0=;
+	s=k20201202; t=1680024165;
+	bh=yZoCiqbjlM5Iq++/P0UgJqbRE1VwShDas+TFKv5SZAk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nvCdDWGuafHDjP2V7kD1KJP+i46DEda3R4GL0p14N49usgSmntPk/iZzrvlnQmvvS
-	 /MA0UzAkuUzNtGIV3J2rEPtkfyDfEkoGxsWaC6ciejXHgKn3X0BhvwkcHXHxIMdghy
-	 cZBh4pQ5XeTTY0D7JJ8qbDIyLtOfKb06RtVx0Uzd8/EhARQDXhIYD58OBcaIwppd8G
-	 l/SKNn3J3Z5ADmDx59y/P+KSge4Z4aaLNsI3skjFni3a+tHMyM0edp4XI/7U+R7G8f
-	 sTq947L1JruZRGkPDJ5+RMi6RutKeMT62wxwCUSl9iRCWf7BGf/oeuYupngAmGKbM/
-	 X2hyg29GXuwAw==
-Date: Tue, 28 Mar 2023 18:03:25 +0100
+	b=SAOhLt7RZnCcXA+F2NG9wPP2Kk9mxdtBaiv2WuMtHzgmTnIDya43tZuCyWDD8fZaC
+	 tGYp1+5yp5RSi4V6e4tMyKAilH3oH+w0cJZpZkiHNW9hUu3yOC3toeSSuHFZinaqxv
+	 OlVLAr9FCocD7KDyn1hisWhI1aMBUhbgdl76JI+NTydL91cbJjGowW8PNx8Nxff8Ra
+	 MsrRV4BcbcqrLbUj2dy6iSLHImF0+ohpAxFrPoRfYLWPv5+R12L4mOfR9o0XH9fDO2
+	 Kn3pdLJu7JDdlwvWsRCYhLXaZ2l+Dz5gJUyk9IddYzc3dw4Gb37a4FzBq0LB7trlRn
+	 AuPjg2fTHzyQA==
+Date: Tue, 28 Mar 2023 18:22:38 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv/fault: Dump user opcode bytes on fatal faults
-Message-ID: <d7111158-7e17-4c88-a8c1-a568db5891fa@spud>
-References: <20230327115642.1610-1-cuiyunhui@bytedance.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	vineetg@rivosinc.com, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Liao Chang <liaochang1@huawei.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>,
+	Mattias Nissler <mnissler@rivosinc.com>,
+	Richard Henderson <richard.henderson@linaro.org>
+Subject: Re: [PATCH -next v17 10/20] riscv: Allocate user's vector context in
+ the first-use trap
+Message-ID: <3435e5c9-5969-4abc-b929-5a73806e3506@spud>
+References: <20230327164941.20491-1-andy.chiu@sifive.com>
+ <20230327164941.20491-11-andy.chiu@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20230327115642.1610-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20230327164941.20491-11-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_100331_162015_D0BA61E3 
-X-CRM114-Status: GOOD (  27.67  )
+X-CRM114-CacheID: sfid-20230328_102246_342403_6723BFA2 
+X-CRM114-Status: GOOD (  31.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,185 +84,295 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8858277994557808913=="
+Content-Type: multipart/mixed; boundary="===============1473346225761978436=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8858277994557808913==
+--===============1473346225761978436==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="E30cZZlBmncUM56x"
+	protocol="application/pgp-signature"; boundary="Y7P5vdGDfxnAG3k7"
 Content-Disposition: inline
 
 
---E30cZZlBmncUM56x
+--Y7P5vdGDfxnAG3k7
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey,
-
-riscv/fault: Dump user opcode bytes on fatal faults
-
-I think you can drop the /fault, we don't usually use prefixes that like
-for RISC-V.
-
-On Mon, Mar 27, 2023 at 07:56:42PM +0800, Yunhui Cui wrote:
-> We encountered such a problem(logs are below). We are more curious about
-> which instruction execution caused the exception. After dumping it
-> through show_opcodes(), we found that it was caused by a floating-point
-> instruction.
+On Mon, Mar 27, 2023 at 04:49:30PM +0000, Andy Chiu wrote:
+> Vector unit is disabled by default for all user processes. Thus, a
+> process will take a trap (illegal instruction) into kernel at the first
+> time when it uses Vector. Only after then, the kernel allocates V
+> context and starts take care of the context for that user process.
 >=20
-> In this way, we found the problem: in the system bringup , it is
-> precisely that we have not enabled the floating point function.
+> Suggested-by: Richard Henderson <richard.henderson@linaro.org>
+> Link: https://lore.kernel.org/r/3923eeee-e4dc-0911-40bf-84c34aee962d@lina=
+ro.org
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 
-What do you mean by that "have not enabled the floating point function"?
+I see you dropped two R-b from this patch, what actually changed here?
+It's not immediately obvious to me (sorry!) and the cover doesn't mention
+why they were dropped.
 
-> So when an exception occurs, it is necessary to dump the instruction
-> that caused the exception, like x86/fault (ba54d856a9d8).
-
-That's not the usual format for referring to commits, checkpatch should
-complain about that.
-
->=20
-> Logs:
-> [    0.822481] Run /init as init process
-> [    0.837569] init[1]: unhandled signal 4 code 0x1 at 0x000000000005e028=
- in bb[10000+5fe000]
-> [    0.932292] CPU: 0 PID: 1 Comm: init Not tainted 5.14.0-rc4-00048-g4a8=
-43c9043e8-dirty #138
-
-5.14-rc4?, oof! Need to get yourself onto a released, LTS kernel I
-think!
-
-Anyway, this patch doesn't apply to either riscv/for-next, riscv/fixes
-or v6.3-rc1. What is the appropriate base to apply this patch?
-
-> [    0.932949] Hardware name:  , BIOS
-> [    0.933399] epc : 000000000005e028 ra : 000000000007c7c4 sp : 0000003f=
-ffd45da0
-> [    0.933855]  gp : ffffffff816ea2d8 tp : 0000000000000000 t0 : 00000000=
-00000000
-> [    0.934303]  t1 : 0000003fffd35df0 t2 : 0000000000000000 s0 : 00000000=
-00000000
-> [    0.934734]  s1 : 0000000000000000 a0 : 0000003fffd36190 a1 : 0000003f=
-ffd45e18
-> [    0.935200]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 00000000=
-00000000
-> [    0.935622]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000=
-00000000
-> [    0.936073]  s2 : 0000000000000000 s3 : 0000000000000000 s4 : 00000000=
-00000000
-> [    0.936495]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 00000000=
-00000000
-> [    0.936947]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 00000000=
-00000000
-> [    0.937487]  s11: 0000000000d14980 t3 : 0000000000000000 t4 : 00000000=
-00000000
-> [    0.937954]  t5 : 0000000000000000 t6 : 0000000000000000
-> [    0.938510] status: 0000000200000020 badaddr: 00000000f0028053 cause: =
-0000000000000002
-
-I have no idea what the significance of this particular backtrace is,
-could you elaborate on what this is demonstrating? (and drop the leading
-[###] too as it doesn't exactly add anything!
-
-Thanks,
+Thanks Andy!
 Conor.
 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 > ---
->  arch/riscv/include/asm/bug.h |  1 +
->  arch/riscv/kernel/process.c  | 30 ++++++++++++++++++++++++++++++
->  arch/riscv/kernel/traps.c    |  1 +
->  3 files changed, 32 insertions(+)
+>  arch/riscv/include/asm/insn.h   | 29 +++++++++++
+>  arch/riscv/include/asm/vector.h |  2 +
+>  arch/riscv/kernel/traps.c       | 26 +++++++++-
+>  arch/riscv/kernel/vector.c      | 90 +++++++++++++++++++++++++++++++++
+>  4 files changed, 145 insertions(+), 2 deletions(-)
 >=20
-> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-> index d3804a2f9aad..77655dd10a2c 100644
-> --- a/arch/riscv/include/asm/bug.h
-> +++ b/arch/riscv/include/asm/bug.h
-> @@ -86,6 +86,7 @@ struct pt_regs;
->  struct task_struct;
+> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> index 8d5c84f2d5ef..4e1505cef8aa 100644
+> --- a/arch/riscv/include/asm/insn.h
+> +++ b/arch/riscv/include/asm/insn.h
+> @@ -137,6 +137,26 @@
+>  #define RVG_OPCODE_JALR		0x67
+>  #define RVG_OPCODE_JAL		0x6f
+>  #define RVG_OPCODE_SYSTEM	0x73
+> +#define RVG_SYSTEM_CSR_OFF	20
+> +#define RVG_SYSTEM_CSR_MASK	GENMASK(12, 0)
+> +
+> +/* parts of opcode for RVF, RVD and RVQ */
+> +#define RVFDQ_FL_FS_WIDTH_OFF	12
+> +#define RVFDQ_FL_FS_WIDTH_MASK	GENMASK(3, 0)
+> +#define RVFDQ_FL_FS_WIDTH_W	2
+> +#define RVFDQ_FL_FS_WIDTH_D	3
+> +#define RVFDQ_LS_FS_WIDTH_Q	4
+> +#define RVFDQ_OPCODE_FL		0x07
+> +#define RVFDQ_OPCODE_FS		0x27
+> +
+> +/* parts of opcode for RVV */
+> +#define RVV_OPCODE_VECTOR	0x57
+> +#define RVV_VL_VS_WIDTH_8	0
+> +#define RVV_VL_VS_WIDTH_16	5
+> +#define RVV_VL_VS_WIDTH_32	6
+> +#define RVV_VL_VS_WIDTH_64	7
+> +#define RVV_OPCODE_VL		RVFDQ_OPCODE_FL
+> +#define RVV_OPCODE_VS		RVFDQ_OPCODE_FS
 > =20
->  void __show_regs(struct pt_regs *regs);
-> +void show_opcodes(struct pt_regs *regs);
->  void die(struct pt_regs *regs, const char *str);
->  void do_trap(struct pt_regs *regs, int signo, int code, unsigned long ad=
-dr);
+>  /* parts of opcode for RVC*/
+>  #define RVC_OPCODE_C0		0x0
+> @@ -304,6 +324,15 @@ static __always_inline bool riscv_insn_is_branch(u32=
+ code)
+>  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OF=
+F) | \
+>  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
 > =20
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 03ac3aa611f5..759dc74fe160 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -83,6 +83,36 @@ void show_regs(struct pt_regs *regs)
->  		dump_backtrace(regs, NULL, KERN_DEFAULT);
->  }
+> +#define RVG_EXTRACT_SYSTEM_CSR(x) \
+> +	({typeof(x) x_ =3D (x); RV_X(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MAS=
+K); })
+> +
+> +#define RVFDQ_EXTRACT_FL_FS_WIDTH(x) \
+> +	({typeof(x) x_ =3D (x); RV_X(x_, RVFDQ_FL_FS_WIDTH_OFF, \
+> +				   RVFDQ_FL_FS_WIDTH_MASK); })
+> +
+> +#define RVV_EXRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+> +
+>  /*
+>   * Get the immediate from a J-type instruction.
+>   *
+> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
+tor.h
+> index 4161352d6ea8..70a5e696c1de 100644
+> --- a/arch/riscv/include/asm/vector.h
+> +++ b/arch/riscv/include/asm/vector.h
+> @@ -20,6 +20,7 @@
 > =20
-> +static int copy_code(struct pt_regs *regs, u8 *buf, unsigned long src,
-> +		     unsigned int nbytes)
+>  extern unsigned long riscv_v_vsize;
+>  void riscv_v_setup_vsize(void);
+> +bool riscv_v_first_use_handler(struct pt_regs *regs);
+> =20
+>  static __always_inline bool has_vector(void)
+>  {
+> @@ -163,6 +164,7 @@ static inline void __switch_to_vector(struct task_str=
+uct *prev,
+>  struct pt_regs;
+> =20
+>  static __always_inline bool has_vector(void) { return false; }
+> +static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { ret=
+urn false; }
+>  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return f=
+alse; }
+>  #define riscv_v_vsize (0)
+>  #define riscv_v_setup_vsize()			do {} while (0)
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 1f4e37be7eb3..f543e5ebfd29 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -26,6 +26,7 @@
+>  #include <asm/ptrace.h>
+>  #include <asm/syscall.h>
+>  #include <asm/thread_info.h>
+> +#include <asm/vector.h>
+> =20
+>  int show_unhandled_signals =3D 1;
+> =20
+> @@ -145,8 +146,29 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
+>  	SIGBUS, BUS_ADRALN, "instruction address misaligned");
+>  DO_ERROR_INFO(do_trap_insn_fault,
+>  	SIGSEGV, SEGV_ACCERR, "instruction access fault");
+> -DO_ERROR_INFO(do_trap_insn_illegal,
+> -	SIGILL, ILL_ILLOPC, "illegal instruction");
+> +
+> +asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_=
+regs *regs)
 > +{
-> +	if (!user_mode(regs))
-> +		return copy_from_kernel_nofault(buf, (u8 *)src, nbytes);
+> +	if (user_mode(regs)) {
+> +		irqentry_enter_from_user_mode(regs);
 > +
-> +	/* The user space code from other tasks cannot be accessed. */
-> +	if (regs !=3D task_pt_regs(current))
-> +		return -EPERM;
+> +		local_irq_enable();
 > +
-> +	return copy_from_user_nofault(buf, (void __user *)src, nbytes);
-> +}
+> +		if (!has_vector() || !riscv_v_first_use_handler(regs))
+> +			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+> +				      "Oops - illegal instruction");
 > +
-> +void show_opcodes(struct pt_regs *regs)
-> +{
-> +	u8 opcodes[4];
+> +		irqentry_exit_to_user_mode(regs);
+> +	} else {
+> +		irqentry_state_t state =3D irqentry_nmi_enter(regs);
 > +
-> +	switch (copy_code(regs, opcodes, regs->epc, sizeof(opcodes))) {
-> +	case 0:
-> +		pr_info("Opcode: %4ph", opcodes);
-> +		break;
-> +	case -EPERM:
-> +		pr_err("Unable to access userspace of other tasks");
-> +		break;
-> +	default:
-> +		pr_err("Failed to access opcode");
-> +		break;
+> +		do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+> +			      "Oops - illegal instruction");
+> +
+> +		irqentry_nmi_exit(regs, state);
 > +	}
 > +}
 > +
->  void start_thread(struct pt_regs *regs, unsigned long pc,
->  	unsigned long sp)
->  {
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 0a98fd0ddfe9..a6f6851e4e87 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -68,6 +68,7 @@ void do_trap(struct pt_regs *regs, int signo, int code,=
- unsigned long addr)
->  		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
->  		pr_cont("\n");
->  		__show_regs(regs);
-> +		show_opcodes(regs);
->  	}
+>  DO_ERROR_INFO(do_trap_load_fault,
+>  	SIGSEGV, SEGV_ACCERR, "load access fault");
+>  #ifndef CONFIG_RISCV_M_MODE
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 03582e2ade83..ea59f32adf46 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -4,9 +4,19 @@
+>   * Author: Andy Chiu <andy.chiu@sifive.com>
+>   */
+>  #include <linux/export.h>
+> +#include <linux/sched/signal.h>
+> +#include <linux/types.h>
+> +#include <linux/slab.h>
+> +#include <linux/sched.h>
+> +#include <linux/uaccess.h>
 > =20
->  	force_sig_fault(signo, code, (void __user *)addr);
+> +#include <asm/thread_info.h>
+> +#include <asm/processor.h>
+> +#include <asm/insn.h>
+>  #include <asm/vector.h>
+>  #include <asm/csr.h>
+> +#include <asm/ptrace.h>
+> +#include <asm/bug.h>
+> =20
+>  unsigned long riscv_v_vsize __read_mostly;
+>  EXPORT_SYMBOL_GPL(riscv_v_vsize);
+> @@ -18,3 +28,83 @@ void riscv_v_setup_vsize(void)
+>  	riscv_v_vsize =3D csr_read(CSR_VLENB) * 32;
+>  	riscv_v_disable();
+>  }
+> +
+> +static bool insn_is_vector(u32 insn_buf)
+> +{
+> +	u32 opcode =3D insn_buf & __INSN_OPCODE_MASK;
+> +	bool is_vector =3D false;
+> +	u32 width, csr;
+> +
+> +	/*
+> +	 * All V-related instructions, including CSR operations are 4-Byte. So,
+> +	 * do not handle if the instruction length is not 4-Byte.
+> +	 */
+> +	if (unlikely(GET_INSN_LENGTH(insn_buf) !=3D 4))
+> +		return false;
+> +
+> +	switch (opcode) {
+> +	case RVV_OPCODE_VECTOR:
+> +		is_vector =3D true;
+> +		break;
+> +	case RVV_OPCODE_VL:
+> +	case RVV_OPCODE_VS:
+> +		width =3D RVV_EXRACT_VL_VS_WIDTH(insn_buf);
+> +		if (width =3D=3D RVV_VL_VS_WIDTH_8 || width =3D=3D RVV_VL_VS_WIDTH_16 =
+||
+> +		    width =3D=3D RVV_VL_VS_WIDTH_32 || width =3D=3D RVV_VL_VS_WIDTH_64)
+> +			is_vector =3D true;
+> +		break;
+> +	case RVG_OPCODE_SYSTEM:
+> +		csr =3D RVG_EXTRACT_SYSTEM_CSR(insn_buf);
+> +		if ((csr >=3D CSR_VSTART && csr <=3D CSR_VCSR) ||
+> +		    (csr >=3D CSR_VL && csr <=3D CSR_VLENB))
+> +			is_vector =3D true;
+> +		break;
+> +	}
+> +	return is_vector;
+> +}
+> +
+> +static int riscv_v_thread_zalloc(void)
+> +{
+> +	void *datap;
+> +
+> +	datap =3D kzalloc(riscv_v_vsize, GFP_KERNEL);
+> +	if (!datap)
+> +		return -ENOMEM;
+> +	current->thread.vstate.datap =3D datap;
+> +	memset(&current->thread.vstate, 0, offsetof(struct __riscv_v_ext_state,
+> +						    datap));
+> +	return 0;
+> +}
+> +
+> +bool riscv_v_first_use_handler(struct pt_regs *regs)
+> +{
+> +	u32 __user *epc =3D (u32 __user *)regs->epc;
+> +	u32 insn =3D (u32)regs->badaddr;
+> +
+> +	/* If V has been enabled then it is not the first-use trap */
+> +	if (riscv_v_vstate_query(regs))
+> +		return false;
+> +
+> +	/* Get the instruction */
+> +	if (!insn) {
+> +		if (__get_user(insn, epc))
+> +			return false;
+> +	}
+> +	/* Filter out non-V instructions */
+> +	if (!insn_is_vector(insn))
+> +		return false;
+> +
+> +	/* Sanity check. datap should be null by the time of the first-use trap=
+ */
+> +	WARN_ON(current->thread.vstate.datap);
+> +	/*
+> +	 * Now we sure that this is a V instruction. And it executes in the
+> +	 * context where VS has been off. So, try to allocate the user's V
+> +	 * context and resume execution.
+> +	 */
+> +	if (riscv_v_thread_zalloc()) {
+> +		force_sig(SIGKILL);
+> +		return true;
+> +	}
+> +	riscv_v_vstate_on(regs);
+> +	return true;
+> +}
 > --=20
-> 2.20.1
+> 2.17.1
 >=20
 
---E30cZZlBmncUM56x
+--Y7P5vdGDfxnAG3k7
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCMd3QAKCRB4tDGHoIJi
-0nJKAP9oJW+U6s6WiBG8oDlJhmx8KPX90ULPIfUpYQ1nxxY8IQEAmUowIBaGhB3C
-SlrhQD6IrQ8MekBvxWWSBkONCR3A+AM=
-=D2JS
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCMiXgAKCRB4tDGHoIJi
+0jMmAQCaInylf//VdjxfZgyyYEd9IDsdG79/68umbwc7AIpxQQD/Vkj6O49KYAXG
+/72tkJy98giXEeMh3w0CBAARmrOfpAk=
+=sob6
 -----END PGP SIGNATURE-----
 
---E30cZZlBmncUM56x--
+--Y7P5vdGDfxnAG3k7--
 
 
---===============8858277994557808913==
+--===============1473346225761978436==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -257,5 +383,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8858277994557808913==--
+--===============1473346225761978436==--
 
