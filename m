@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788E7C761AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 14:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A0CC77B6D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 14:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GnUFSrBuE5bGHqkerPShxBmlttvBaNrlvwzH5d2l/8Q=; b=eCyg9pWr2gUP6Y
-	C7JpUEYTRjx9BNFxG8NoIW0UluNnGePrLiZveknxueaT3KLw0MB++wC7KL+QvGfRUOCSSzbiMgNgf
-	mC20dkaQy8OVePAi/95Q2Ia45nRRtIUTf1JfYxJ14AbG1fKH7/aNNpHUQCdGmt2DS6t4SwzP11MBv
-	OQZXQFSItHCutC2Rde5zvcbv8C/AtDDhlq2lr9FbwV3Qd56Hox8onzKb95757oBKf6xhMsVJIhodP
-	7L+j78VShKtkvxVWcHA4dyKjDDC3NPNN3Sggc9KRv1AfD/yTBGM3nuzxzVKffBMlcaA07R6ENv5VJ
-	THhLm2X/E3++++Qxe22Q==;
+	List-Owner; bh=04YmccgaephWN+bn9dvzRl7LFfo8Zxyn6on7VdsKJRA=; b=U1PyCHBf+qSkXt
+	goJnRemgV5IKAl/AmDKbfyTfqIrnegu6bGZcYcOEnEXRp+QMBGBIHNwz31/ljMnn7uL/zd87NgQL/
+	yuEuPpOxGvbuTJanja7pnhtKg04Z/QgarI9YCCkY+i8/t5YRiFzbc5p7hOSIprVxpyXDAS59h8Uwf
+	YNrHJqNYhW3z3be/pTwF4JOKWdOeffioCY5pyc0YNt+yyNTLwPC7Enh91lIYvA9xflE3CTiTzMa8M
+	1rhz26C5O4TkCC0CdlkXoIyBb0G+izk++kFRcyqAil/+LV/fTQvJepVUtY8jn9dFlTQ7UdvEedQ6U
+	TTfMXxwuEUdVJ/VfC6tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph9xi-00EjZ9-1U;
-	Tue, 28 Mar 2023 14:06:10 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1phA6q-00Eklf-2I;
+	Tue, 28 Mar 2023 14:15:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph9xd-00EjHz-0v;
-	Tue, 28 Mar 2023 14:06:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=04vP3RzMs3P/u6ra9aohOJriuOsHdgwipqyExrFrTjc=; b=mh6/AUJNqn+FdcuZzLxS1JRPCX
-	9PjtU4toaTdFVFl8Oq9o4nbuQoE4aiZM9QOcGREWE4jLWY5DoSYbELFv8DeY1wFP2mTYG070hd6Wd
-	Tfe7eR5++Rk8eczns5zb+jJ9Ky7ydT3o9MEOVkd+Mvo6y2Qjj49i8W/cXrM3mUJ50OxS/wVoAjwtZ
-	4xrdvc55AKGF1grOslzBDBZlBkvSAxdNwdMzb7XPRz/+prNath1ct2o3sL3EpinKQF/tOKsNcQqQw
-	Ig2781259z8H1OdssQ8MsAn/tTHXr6eCszj7n0Dxt3/by0YcDWPkadhEKH46s76AMvQbseCeW5+h7
-	yic00bRw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51186)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ph9uX-0006Pz-8z; Tue, 28 Mar 2023 15:02:53 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ph9uJ-0006WX-6C; Tue, 28 Mar 2023 15:02:39 +0100
-Date: Tue, 28 Mar 2023 15:02:39 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Donglin Peng <pengdonglin@sangfor.com.cn>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, mark.rutland@arm.com,
-	will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, tglx@linutronix.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	chenhuacai@kernel.org, zhangqing@loongson.cn, kernel@xen0n.name,
-	mingo@redhat.com, peterz@infradead.org, xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Message-ID: <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
-References: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
- <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
+	id 1phA6o-00Ekl8-25
+	for linux-riscv@lists.infradead.org;
+	Tue, 28 Mar 2023 14:15:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 38CD9617F1
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 14:15:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A852C433A1
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 14:15:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680012933;
+	bh=KTQ5pqCwMxjCLp76U2Ck6TsKhM8aPCCJcsNQkFmamtQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=NjwxT+f/vKnR4L6Jji+0GXiJYbs3EytFhBJu6zjfnJlKNjoJfNbWafw5LbezNcfCL
+	 cB5BVrYIvGqgLPm8zf4MFSkEcBaMzER02mm7yB4tE/NdOSWFa++lmRQ2OpyEpwv+o1
+	 S1jeLSdaTtOIktyXA9Jkbj/m+Ba8Nge9aNb2ckgkMe3YB59VyFgcBQdkUkMzwohfNP
+	 ubiwVWkkp1MwoBwIj4IVRf9SUodlO3Ll4e6qqgPi1wtV2z7j0za1tfxg1ZDxTy3ZgT
+	 gDefivX83lskrgK0iS1yAkFfGIGstJa77tyqE2guTtAzlfwYCb4l/SQvnAyw9Tj36w
+	 tCOkzOIQHkqBg==
+Received: by mail-yb1-f180.google.com with SMTP id k17so15194542ybm.11
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 07:15:33 -0700 (PDT)
+X-Gm-Message-State: AAQBX9cR1SnE8EyzpVfD8BfO71+8alvjJXMpAhVIp1zkEoC8UUzVme2W
+	i2trNLPOM1jUEEN6pdu041evlS6R/yEprKobyQ==
+X-Google-Smtp-Source: AKy350ZeXniVT2W0ktHF46dUuFUd+2aQjm+2XyAkxeqa0Slnktr+HmXjjIzlRv8cYTFNbgA1dPwAYhkFOMccqFv+ZgM=
+X-Received: by 2002:a05:6902:1586:b0:b68:7b14:186b with SMTP id
+ k6-20020a056902158600b00b687b14186bmr7386177ybu.1.1680012932155; Tue, 28 Mar
+ 2023 07:15:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
+References: <20230321110813.26808-1-jiaxun.yang@flygoat.com> <20230321110813.26808-2-jiaxun.yang@flygoat.com>
+In-Reply-To: <20230321110813.26808-2-jiaxun.yang@flygoat.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Tue, 28 Mar 2023 09:15:20 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKxJ-u4owKhY1tSiDyBo0=92iQoJM0G6TAZ7BSNpJAZAw@mail.gmail.com>
+Message-ID: <CAL_JsqKxJ-u4owKhY1tSiDyBo0=92iQoJM0G6TAZ7BSNpJAZAw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] of: address: Fix default coherency for MIPS
+To: Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, tsbogend@alpha.franken.de, mpe@ellerman.id.au, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, hch@lst.de, 
+	m.szyprowski@samsung.com, robin.murphy@arm.com, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_070605_343879_B6309B89 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20230328_071534_718794_89593688 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,121 +80,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 28, 2023 at 06:43:14AM -0700, Donglin Peng wrote:
-> The commit d4815c5d1bbd ("function_graph: Support recording and printing
-> the return value of function") laid the groundwork for the for the
-> funcgraph-retval, and this modification makes it available on the
-> ARM platform.
-> 
-> We introduce a new structure called fgraph_ret_regs for the ARM platform
-> to hold return registers and the frame pointer. We then fill its content
-> in the return_to_handler and pass its address to the function
-> ftrace_return_to_handler to record the return value.
-> 
-> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
-> ---
-> v8:
->  - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-> ---
->  arch/arm/Kconfig               |  1 +
->  arch/arm/include/asm/ftrace.h  | 18 ++++++++++++++++++
->  arch/arm/kernel/entry-ftrace.S |  6 +++++-
->  3 files changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index e24a9820e12f..73061379855a 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -98,6 +98,7 @@ config ARM
->  	select HAVE_FAST_GUP if ARM_LPAE
->  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->  	select HAVE_FUNCTION_ERROR_INJECTION
-> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
->  	select HAVE_GCC_PLUGINS
-> diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
-> index 7e9251ca29fe..2ab4bee21d79 100644
-> --- a/arch/arm/include/asm/ftrace.h
-> +++ b/arch/arm/include/asm/ftrace.h
-> @@ -77,4 +77,22 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
->  
->  #endif /* ifndef __ASSEMBLY__ */
->  
-> +
-> +#ifndef __ASSEMBLY__
-> +struct fgraph_ret_regs {
-> +	unsigned long regs[4];
-> +	unsigned long fp;
-> +};
-> +
-> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->regs[0];
-> +}
-> +
-> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->fp;
-> +}
-> +#endif
-> +
->  #endif /* _ASM_ARM_FTRACE */
-> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
-> index 3e7bcaca5e07..5f1e74555b25 100644
-> --- a/arch/arm/kernel/entry-ftrace.S
-> +++ b/arch/arm/kernel/entry-ftrace.S
-> @@ -257,11 +257,15 @@ ENDPROC(ftrace_graph_regs_caller)
->  
->  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->  ENTRY(return_to_handler)
-> +	sub	sp, sp, #4
->  	stmdb	sp!, {r0-r3}
-> -	add	r0, sp, #16		@ sp at exit of instrumented routine
-> +	add	r0, sp, #20		@ sp at exit of instrumented routine
-> +	str	r0, [sp, #16]
-> +	mov	r0, sp
-
-1) EABI wants the stack to be aligned to 8 bytes.
-2) We can do better than this.
-
-	mov	ip, sp
-	stmdb	sp!, {r0-r3, ip, lr}
-	mov	r0, sp
-
->  	bl	ftrace_return_to_handler
->  	mov	lr, r0			@ r0 has real ret addr
->  	ldmia	sp!, {r0-r3}
-
-	ldmia	sp, {r0-r3}		@ since we need to manually adjust sp,
-
-> +	add	sp, sp, #4		@ skip fp
-
-	add	sp, sp, #4 * 6		@ restore stack pointer here
-
->  	ret	lr
->  ENDPROC(return_to_handler)
->  #endif
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
-> 
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgMjEsIDIwMjMgYXQgNjowOOKAr0FNIEppYXh1biBZYW5nIDxqaWF4dW4ueWFu
+Z0BmbHlnb2F0LmNvbT4gd3JvdGU6Cj4KPiBEVC1iYXNlZCBNSVBTIGRvZXNuJ3QgdXNlIE9GX0RN
+QV9ERUZBVUxUX0NPSEVSRU5ULCBidXQKPiBtaWdodCBvdmVycmlkZSB0aGUgc3lzdGVtLXdpZGUg
+ZGVmYXVsdCBhdCBydW50aW1lLgo+Cj4gVXNlIGRtYV9kZWZhdWx0X2NvaGVyZW50IHRvIG92ZXJy
+aWRlIGRlZmF1bHQgY29oZXJlbmNlIGZvcgo+IE1JUFMuCj4KCkkgYXNzdW1lIHlvdSB3YW50IHRo
+aXMgdGFnZ2VkIGZvciBzdGFibGU/IE90aGVyd2lzZSwgSSBkb24ndAp1bmRlcnN0YW5kIHdoeSB5
+b3UgYWRkIHRoaXMgaGVyZSBhbmQgdGhlbiByZW1vdmUgaW4gcGF0Y2ggNC4KCj4gU2lnbmVkLW9m
+Zi1ieTogSmlheHVuIFlhbmcgPGppYXh1bi55YW5nQGZseWdvYXQuY29tPgo+IC0tLQo+ICBkcml2
+ZXJzL29mL2FkZHJlc3MuYyB8IDggKysrKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0
+aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvb2YvYWRkcmVzcy5jIGIvZHJpdmVycy9v
+Zi9hZGRyZXNzLmMKPiBpbmRleCA0YzBiMTY5ZWY5YmYuLmMxMDVkNjZhMWZhNCAxMDA2NDQKPiAt
+LS0gYS9kcml2ZXJzL29mL2FkZHJlc3MuYwo+ICsrKyBiL2RyaXZlcnMvb2YvYWRkcmVzcy5jCj4g
+QEAgLTExMDUsNiArMTEwNSwxNCBAQCBib29sIG9mX2RtYV9pc19jb2hlcmVudChzdHJ1Y3QgZGV2
+aWNlX25vZGUgKm5wKQo+ICAgICAgICAgc3RydWN0IGRldmljZV9ub2RlICpub2RlOwo+ICAgICAg
+ICAgYm9vbCBpc19jb2hlcmVudCA9IElTX0VOQUJMRUQoQ09ORklHX09GX0RNQV9ERUZBVUxUX0NP
+SEVSRU5UKTsKPgo+ICsgICAgICAgLyoKPiArICAgICAgICAqIERULWJhc2VkIE1JUFMgZG9lc24n
+dCB1c2UgT0ZfRE1BX0RFRkFVTFRfQ09IRVJFTlQsIGJ1dAo+ICsgICAgICAgICogbWlnaHQgb3Zl
+cnJpZGUgdGhlIHN5c3RlbS13aWRlIGRlZmF1bHQgYXQgcnVudGltZS4KPiArICAgICAgICAqLwo+
+ICsjaWYgZGVmaW5lZChDT05GSUdfTUlQUykgJiYgZGVmaW5lZChDT05GSUdfRE1BX05PTkNPSEVS
+RU5UKQo+ICsgICAgICAgaXNfY29oZXJlbnQgPSBkbWFfZGVmYXVsdF9jb2hlcmVudDsKPiArI2Vu
+ZGlmCj4gKwo+ICAgICAgICAgbm9kZSA9IG9mX25vZGVfZ2V0KG5wKTsKPgo+ICAgICAgICAgd2hp
+bGUgKG5vZGUpIHsKPiAtLQo+IDIuMzcuMSAoQXBwbGUgR2l0LTEzNy4xKQo+CgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
