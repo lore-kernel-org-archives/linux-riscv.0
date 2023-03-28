@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500FEC76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 13:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C81C6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 13:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XdTudJCnFuU80do102W6ihz6vVKJLXNjo7C6TJko9BA=; b=DIhcxwaEow4yZW
-	nzpf0a3EQrcqpcoc5GfoXoUCROw6C1gZDcqVh1pQp4Wr9uK7tP6ysNqP+kZlUmv8eWzNiNsp8lKe7
-	c15pss8ITMbokHV4tRk0+3Yb01iu64/QYfflHaq4Rur/rPggO/gi6ZkglthcYOpyHXU9rMGdth1BB
-	jwtuhZXHgY1+NXlfV7TUQDyzmWPFpLdAXyaQRXWRZV6ZL5km3PZmtdQ0KsoeaD8VY9E8y48XAa8Zb
-	0WOoTXHKJr1sDVSkSY7ZZLVpFDFkguZhrwXFzQKibDHY3GrkW4ZU03oPmHRO5VY5gTs5n38yJrb5I
-	c2UMUv5Ke0lefJb/kpSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1IkY6wwLbssCoVFhhFJmujm77QQNHMhAj/9JKdmhNNg=; b=zO/FVed+1qi1pD
+	rZcaYOruNRyEANcZuEtrK/YTHqDNcRp7sAbfxoEnRsoUEinZ1KSRfcj0YkWlv0KP9AHV7Az6jZhqe
+	MFgTi5G6yAnKLZdYLM16zKbsKfPWfXE6hCuffE6RrRBORhMW/QK+W9WWzk4M+RuJKwKOmBvsEulcK
+	5XEF4lYfSFEaKH5YeunChJ+M3P5bLDj/Geynru4h4c7T7Zyn2pekMv82yZeV4258U3LjIGXNcUSXA
+	iC2PzfHcIuLGbqyhdJCXs/rWst/ZNPqwyuPz40BqbyapSN9eH0TKLTXo0zcFvybLd7ffnYD85np8C
+	rWtVxn4IBZVn2RU1QT/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph8yE-00EU2x-2s;
-	Tue, 28 Mar 2023 13:02:38 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1ph9cA-00EeUR-22;
+	Tue, 28 Mar 2023 13:43:54 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph8y9-00EU1b-1C
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Mar 2023 13:02:37 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.nyi.internal (Postfix) with ESMTP id 2497E5C0068;
-	Tue, 28 Mar 2023 09:02:27 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Tue, 28 Mar 2023 09:02:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm3; t=
-	1680008547; x=1680094947; bh=RgfOcRz7Y9eemhhj/K9vB90mPZhFUINw5BF
-	WLJTEWvg=; b=XT1bkKRGOh2E/x5JAYAuMLyNiDnIUuvpodvt5driju1aWi80oeN
-	mPc0FqqTR2bqYsXBLvTzWR/01JPImuxllDpvWUHmHHbK6ccdBe4cs1pCTptd/4C6
-	Cai74nhcYmf7d1MGKvueVSauZ1D5LyaEREBsyJy5pKdN0Mv5h1LHjHc3JZKMyOs/
-	1OpH4tfi2KLvjPWyOjiTrRyGnabyS1zzk1qo/3H8c9l6Yc8QNYdFbHLxP/JIH0Xg
-	fjAB+m3OG1Cy4jAsWMBQ3j/3LpGA2tH7LYxwDPG1Pw1E9S54FBLwr+VN/qhb1QzY
-	43YM4j4NrQTCpmO+XA4Ho2pHKstjkg9QQgQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1680008547; x=1680094947; bh=RgfOcRz7Y9eemhhj/K9vB90mPZhFUINw5BF
-	WLJTEWvg=; b=Ng4ehF7ju2al1N83yAu1TPFPrqY8x8L44K+/SjGec6oyQfK57hp
-	BAOLQ0pPp1sE0oealjiVsj/Gou+YqDkaT9UZJ0SJGpnQgfQ52iI5RmKL4CRneZL1
-	KTyarNnWIpXVVAJAGXpQNJSmXJUCcQcc9JCfKpzU5YrBxqFR2fA0lMCzDxUuDSyb
-	yMjn2VwXBQDc9MZGRqLd+eFg/8cWcSRjr5aTECiN1I58+CT4zNKyFfwecDrrcu5k
-	L+WZ4ejxgDmPFJyqtcbqQ45pQxwzAlUUwZw9gbdGcpX952vig83kp8ddce4W0/Z0
-	c9EnQ7uUQOH2mRigkfDEIr1RrR9M0Ghg4Pg==
-X-ME-Sender: <xms:YeUiZDu9OG480fT8HAXyiUJiwyAATFHVvxjH3VB-CAFjpZ5PMUZpHA>
-    <xme:YeUiZEewhcybDReytqiXw6s8ezwnOSY7ApkZ9Edsx7gI-RH7AsBnrVtohaavhR7oP
-    E_iA20oDhTblJazl-k>
-X-ME-Received: <xmr:YeUiZGwwIDzGdySRBP3SKo_ItGOA5wjfWoYSHxwydHxCBqvOupm3j-ybPCDBmS-YbuLO>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdehgedgheekucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurheptggguffhjgffvefgkfhfvffosehtqhhmtdhhtdejnecuhfhrohhmpeflihgr
-    gihunhcujggrnhhguceojhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomheqne
-    cuggftrfgrthhtvghrnhepuddtjeffteetfeekjeeiheefueeigeeutdevieejveeihfff
-    ledvgfduiefhvddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhihgohgrthdrtghomh
-X-ME-Proxy: <xmx:YeUiZCMSqRV3eaooG1vh72OUOb3OZZBs1PGMZo9g9r4L0XtLzOst5w>
-    <xmx:YeUiZD_vz22qEpX_9pGKYk4PlQSqSh6Tt5h8OlIYeOoF7aFlfvvDvg>
-    <xmx:YeUiZCUUdkNhGjeBz3hWAHzJA5R__gsxJcWyeg1v1L7QnBsYIekjdw>
-    <xmx:Y-UiZGXDEOYvSE_eKUnGgZOtc9OvLtb-xcYXbTgnhv2pd44pm-_4lw>
-Feedback-ID: ifd894703:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 28 Mar 2023 09:02:23 -0400 (EDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
-Subject: Re: [PATCH v3 0/4] Use dma_default_coherent for devicetree default
- coherency
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-In-Reply-To: <20230328074511.GA6188@alpha.franken.de>
-Date: Tue, 28 Mar 2023 14:02:12 +0100
-Cc: Christoph Hellwig <hch@lst.de>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org,
- mpe@ellerman.id.au,
- paul.walmsley@sifive.com,
- palmer@dabbelt.com,
- Rob Herring <robh+dt@kernel.org>,
- m.szyprowski@samsung.com,
- Robin Murphy <robin.murphy@arm.com>,
- linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org,
- frowand.list@gmail.com
-Message-Id: <9CCE7638-91FE-4B1F-9EAC-17362C041CE9@flygoat.com>
-References: <20230321110813.26808-1-jiaxun.yang@flygoat.com>
- <20230323072944.GA18524@lst.de>
- <60D7FE31-D708-4495-949F-3F64DDC11377@flygoat.com>
- <20230323213930.GA7730@lst.de>
- <CB41D3AF-20F6-42F3-9168-C0D6E716431A@flygoat.com>
- <20230328011812.GA21977@lst.de> <20230328074511.GA6188@alpha.franken.de>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-X-Mailer: Apple Mail (2.3731.400.51.1.1)
+	id 1ph9c5-00EeIE-1b;
+	Tue, 28 Mar 2023 13:43:51 +0000
+Received: from ubuntu.localdomain (unknown [117.133.56.22])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 36CB95807E2;
+	Tue, 28 Mar 2023 21:43:26 +0800 (CST)
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+To: mhiramat@kernel.org,
+	rostedt@goodmis.org,
+	linux@armlinux.org.uk,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	chenhuacai@kernel.org,
+	zhangqing@loongson.cn,
+	kernel@xen0n.name,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	xiehuan09@gmail.com,
+	dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn,
+	dolinux.peng@gmail.com
+Cc: linux-trace-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: [PATCH v8 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Date: Tue, 28 Mar 2023 06:43:14 -0700
+Message-Id: <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
+References: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
+MIME-Version: 1.0
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGE0fVkIaQk5LTEoeSUkYTVUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Njo6CDo4FD0LSFYaERQtDz00
+	CA4aChJVSlVKTUNLS0pKS0tMTkxCVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFPQ01PNwY+
+X-HM-Tid: 0a872875948f2eb7kusn36cb95807e2
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_060233_611958_4346042F 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20230328_064349_680050_27683CB3 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +86,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IDIwMjPlubQz5pyIMjjml6UgMDg6NDXvvIxUaG9tYXMgQm9nZW5kb2VyZmVyIDx0c2JvZ2Vu
-ZEBhbHBoYS5mcmFua2VuLmRlPiDlhpnpgZPvvJoKPiAKPiBPbiBUdWUsIE1hciAyOCwgMjAyMyBh
-dCAwMzoxODoxMkFNICswMjAwLCBDaHJpc3RvcGggSGVsbHdpZyB3cm90ZToKPj4gT24gRnJpLCBN
-YXIgMjQsIDIwMjMgYXQgMDk6MTc6MzhBTSArMDAwMCwgSmlheHVuIFlhbmcgd3JvdGU6Cj4+Pj4g
-Cj4+Pj4gSXMgcGF0Y2ggYSA2LjMgY2FuZGlkYXRlIG9yIHNob3VsZCBhbGwgb2YgaXQgZ28gaW50
-byA2LjQ/Cj4+PiAKPj4+IFBsZWFzZSBsZWF2ZSBpdCBmb3IgNi40LCBhcyBjb3JyZXNwb25kaW5n
-IE1JUFMgYXJjaCBwYXJ0IHdpbGwgYmUgYSBwYXJ0IG9mIDYuNC4KPj4gCj4+IE9rLiAgSSdsbCBy
-ZWFsbHkgbmVlZCByZXZpZXcgZnJvbSB0aGUgTUlQUyBhbmQgZHJpdmVycy9vZi8gbWFpbnRhaW5l
-cnMsCj4+IHRocm91Z2guCgorY2MgZGV2aWNldHJlZSBmb2tzLgoKPiAKPiBJIGRvbid0IHNlZSBh
-bnkgTUlQUyBjaGFuZ2VzIGluIHRoZSBzZXJpZXMgYmVzaWRlcyB0aGUgaWZkZWYgQ09ORklHX01J
-UFMKPiBwYXJ0IGluIHBhdGNoIDEsIHdoaWNoIGdldHMgcmVtb3ZlZCBhZ2FpbiBpbiBwYXRjaCA0
-IChjaGFuY2UgdG8gZHJvcAo+IHRoYXQgY29tcGxldGVseSA/KS4KCkl0IHdhcyBzdWdnZXN0ZWQg
-YnkgRE1BIGZvbGtzIHRvIGhhdmUgdGhhdCBwYXRjaC4KCj4gSSd2ZSBtZXJnZWQgdGhlIGNvcnJl
-c3BvbmRpbmcgTUlQUyBwYXRjaGVzIGludG8gbWlwcy1uZXh0IGxhc3Qgd2Vlay4KClRoYW5rcwot
-IEppYXh1bgoKPiAKPiBUaG9tYXMuCj4gCj4gLS0gCj4gQ3JhcCBjYW4gd29yay4gR2l2ZW4gZW5v
-dWdoIHRocnVzdCBwaWdzIHdpbGwgZmx5LCBidXQgaXQncyBub3QgbmVjZXNzYXJpbHkgYQo+IGdv
-b2QgaWRlYS4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBb
-IFJGQzE5MjUsIDIuMyBdCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+The commit d4815c5d1bbd ("function_graph: Support recording and printing
+the return value of function") laid the groundwork for the for the
+funcgraph-retval, and this modification makes it available on the
+ARM platform.
+
+We introduce a new structure called fgraph_ret_regs for the ARM platform
+to hold return registers and the frame pointer. We then fill its content
+in the return_to_handler and pass its address to the function
+ftrace_return_to_handler to record the return value.
+
+Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+---
+v8:
+ - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+---
+ arch/arm/Kconfig               |  1 +
+ arch/arm/include/asm/ftrace.h  | 18 ++++++++++++++++++
+ arch/arm/kernel/entry-ftrace.S |  6 +++++-
+ 3 files changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index e24a9820e12f..73061379855a 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -98,6 +98,7 @@ config ARM
+ 	select HAVE_FAST_GUP if ARM_LPAE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_ERROR_INJECTION
++	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+ 	select HAVE_GCC_PLUGINS
+diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
+index 7e9251ca29fe..2ab4bee21d79 100644
+--- a/arch/arm/include/asm/ftrace.h
++++ b/arch/arm/include/asm/ftrace.h
+@@ -77,4 +77,22 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
+ 
+ #endif /* ifndef __ASSEMBLY__ */
+ 
++
++#ifndef __ASSEMBLY__
++struct fgraph_ret_regs {
++	unsigned long regs[4];
++	unsigned long fp;
++};
++
++static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->regs[0];
++}
++
++static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->fp;
++}
++#endif
++
+ #endif /* _ASM_ARM_FTRACE */
+diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
+index 3e7bcaca5e07..5f1e74555b25 100644
+--- a/arch/arm/kernel/entry-ftrace.S
++++ b/arch/arm/kernel/entry-ftrace.S
+@@ -257,11 +257,15 @@ ENDPROC(ftrace_graph_regs_caller)
+ 
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ ENTRY(return_to_handler)
++	sub	sp, sp, #4
+ 	stmdb	sp!, {r0-r3}
+-	add	r0, sp, #16		@ sp at exit of instrumented routine
++	add	r0, sp, #20		@ sp at exit of instrumented routine
++	str	r0, [sp, #16]
++	mov	r0, sp
+ 	bl	ftrace_return_to_handler
+ 	mov	lr, r0			@ r0 has real ret addr
+ 	ldmia	sp!, {r0-r3}
++	add	sp, sp, #4		@ skip fp
+ 	ret	lr
+ ENDPROC(return_to_handler)
+ #endif
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
