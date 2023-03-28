@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009AAC761AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 13:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788E7C761AF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 14:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tiAA1pyoQ9sDebKlxKFsmBVM9ozWcFVrMLZOrwP9UDY=; b=mcQq8YJl6ZAX0G
-	pbT32KeogCuQLvBn8v+/ENXmDsDDKDcG5DHiqCu1HSK4EtiaSTJYoSZ3KVydaUB2gYuwvlGAmFwB4
-	iS2ENcQxy8Ls8RuMSMKQahD3bzcEfOCDgchbrsRAI7KtcBvuzRsbMmz9ZAe0ijhUTTmZvN0evdROs
-	YIitb2LeHfoX21Sqfp7Xm54Bonbe5R1htxKhaT8qrdDj29ZC275OilDaUP2My2o/CFtDnybOTOJYv
-	0PSOt2U8uG4cbJNzdhndYtO4RmA2XGjIbIuvHkZymIjbaBT7Gq1QOAn6LPjeiAEHUG/dkCU7rLHfx
-	OE9hys1yaWk9ltA5MbWA==;
+	List-Owner; bh=GnUFSrBuE5bGHqkerPShxBmlttvBaNrlvwzH5d2l/8Q=; b=eCyg9pWr2gUP6Y
+	C7JpUEYTRjx9BNFxG8NoIW0UluNnGePrLiZveknxueaT3KLw0MB++wC7KL+QvGfRUOCSSzbiMgNgf
+	mC20dkaQy8OVePAi/95Q2Ia45nRRtIUTf1JfYxJ14AbG1fKH7/aNNpHUQCdGmt2DS6t4SwzP11MBv
+	OQZXQFSItHCutC2Rde5zvcbv8C/AtDDhlq2lr9FbwV3Qd56Hox8onzKb95757oBKf6xhMsVJIhodP
+	7L+j78VShKtkvxVWcHA4dyKjDDC3NPNN3Sggc9KRv1AfD/yTBGM3nuzxzVKffBMlcaA07R6ENv5VJ
+	THhLm2X/E3++++Qxe22Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph9dC-00Ef2D-24;
-	Tue, 28 Mar 2023 13:44:58 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1ph9xi-00EjZ9-1U;
+	Tue, 28 Mar 2023 14:06:10 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ph9cA-00EeSV-2E;
-	Tue, 28 Mar 2023 13:43:58 +0000
-Received: from ubuntu.localdomain (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id BFAA9580979;
-	Tue, 28 Mar 2023 21:43:33 +0800 (CST)
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-To: mhiramat@kernel.org,
-	rostedt@goodmis.org,
-	linux@armlinux.org.uk,
-	mark.rutland@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	tglx@linutronix.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	chenhuacai@kernel.org,
-	zhangqing@loongson.cn,
-	kernel@xen0n.name,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com
-Cc: linux-trace-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v8 8/8] selftests/ftrace: Add funcgraph-retval test case
-Date: Tue, 28 Mar 2023 06:43:19 -0700
-Message-Id: <20230328134319.2185812-9-pengdonglin@sangfor.com.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
+	id 1ph9xd-00EjHz-0v;
+	Tue, 28 Mar 2023 14:06:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=04vP3RzMs3P/u6ra9aohOJriuOsHdgwipqyExrFrTjc=; b=mh6/AUJNqn+FdcuZzLxS1JRPCX
+	9PjtU4toaTdFVFl8Oq9o4nbuQoE4aiZM9QOcGREWE4jLWY5DoSYbELFv8DeY1wFP2mTYG070hd6Wd
+	Tfe7eR5++Rk8eczns5zb+jJ9Ky7ydT3o9MEOVkd+Mvo6y2Qjj49i8W/cXrM3mUJ50OxS/wVoAjwtZ
+	4xrdvc55AKGF1grOslzBDBZlBkvSAxdNwdMzb7XPRz/+prNath1ct2o3sL3EpinKQF/tOKsNcQqQw
+	Ig2781259z8H1OdssQ8MsAn/tTHXr6eCszj7n0Dxt3/by0YcDWPkadhEKH46s76AMvQbseCeW5+h7
+	yic00bRw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51186)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ph9uX-0006Pz-8z; Tue, 28 Mar 2023 15:02:53 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ph9uJ-0006WX-6C; Tue, 28 Mar 2023 15:02:39 +0100
+Date: Tue, 28 Mar 2023 15:02:39 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Donglin Peng <pengdonglin@sangfor.com.cn>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, mark.rutland@arm.com,
+	will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, tglx@linutronix.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	chenhuacai@kernel.org, zhangqing@loongson.cn, kernel@xen0n.name,
+	mingo@redhat.com, peterz@infradead.org, xiehuan09@gmail.com,
+	dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
+	dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Message-ID: <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
 References: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
+ <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSB8eVh5OSR5LQx8ZHk0ZHVUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mz46Aio6NT0WA1YJAQo6DzoZ
-	Hi0wFDpVSlVKTUNLS0pKS0pOSkpCVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFIQk9INwY+
-X-HM-Tid: 0a872875b2232eb7kusnbfaa9580979
-X-HM-MType: 1
+Content-Disposition: inline
+In-Reply-To: <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_064354_939818_DD5FBDBB 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20230328_070605_343879_B6309B89 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +85,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test case for the funcgraph-retval and funcgraph-retval-hex
-trace options.
+On Tue, Mar 28, 2023 at 06:43:14AM -0700, Donglin Peng wrote:
+> The commit d4815c5d1bbd ("function_graph: Support recording and printing
+> the return value of function") laid the groundwork for the for the
+> funcgraph-retval, and this modification makes it available on the
+> ARM platform.
+> 
+> We introduce a new structure called fgraph_ret_regs for the ARM platform
+> to hold return registers and the frame pointer. We then fill its content
+> in the return_to_handler and pass its address to the function
+> ftrace_return_to_handler to record the return value.
+> 
+> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+> ---
+> v8:
+>  - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+> ---
+>  arch/arm/Kconfig               |  1 +
+>  arch/arm/include/asm/ftrace.h  | 18 ++++++++++++++++++
+>  arch/arm/kernel/entry-ftrace.S |  6 +++++-
+>  3 files changed, 24 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index e24a9820e12f..73061379855a 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -98,6 +98,7 @@ config ARM
+>  	select HAVE_FAST_GUP if ARM_LPAE
+>  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_ERROR_INJECTION
+> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>  	select HAVE_FUNCTION_GRAPH_TRACER
+>  	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+>  	select HAVE_GCC_PLUGINS
+> diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
+> index 7e9251ca29fe..2ab4bee21d79 100644
+> --- a/arch/arm/include/asm/ftrace.h
+> +++ b/arch/arm/include/asm/ftrace.h
+> @@ -77,4 +77,22 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
+>  
+>  #endif /* ifndef __ASSEMBLY__ */
+>  
+> +
+> +#ifndef __ASSEMBLY__
+> +struct fgraph_ret_regs {
+> +	unsigned long regs[4];
+> +	unsigned long fp;
+> +};
+> +
+> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
+> +{
+> +	return ret_regs->regs[0];
+> +}
+> +
+> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
+> +{
+> +	return ret_regs->fp;
+> +}
+> +#endif
+> +
+>  #endif /* _ASM_ARM_FTRACE */
+> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
+> index 3e7bcaca5e07..5f1e74555b25 100644
+> --- a/arch/arm/kernel/entry-ftrace.S
+> +++ b/arch/arm/kernel/entry-ftrace.S
+> @@ -257,11 +257,15 @@ ENDPROC(ftrace_graph_regs_caller)
+>  
+>  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+>  ENTRY(return_to_handler)
+> +	sub	sp, sp, #4
+>  	stmdb	sp!, {r0-r3}
+> -	add	r0, sp, #16		@ sp at exit of instrumented routine
+> +	add	r0, sp, #20		@ sp at exit of instrumented routine
+> +	str	r0, [sp, #16]
+> +	mov	r0, sp
 
-Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
----
-v8:
- - Fix issues in selftest
----
- .../ftrace/test.d/ftrace/fgraph-retval.tc     | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
- create mode 100644 tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
+1) EABI wants the stack to be aligned to 8 bytes.
+2) We can do better than this.
 
-diff --git a/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
-new file mode 100644
-index 000000000000..ac6d0183e4d9
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
-@@ -0,0 +1,39 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: ftrace - function graph print function return value
-+# requires: set_graph_function options/funcgraph-retval options/funcgraph-retval-hex function_graph:tracer
-+
-+# Make sure that funcgraph-retval works
-+
-+fail() { # msg
-+    echo $1
-+    exit_fail
-+}
-+
-+echo proc_reg_write > set_graph_function
-+echo function_graph > current_tracer
-+echo funcgraph-retval > trace_options
-+
-+enable_tracing
-+
-+set +e
-+echo > /proc/interrupts
-+set -e
-+
-+disable_tracing
-+
-+: "Test printing the error code in signed decimal format"
-+echo nofuncgraph-retval-hex > trace_options
-+count=`cat trace | grep 'proc_reg_write' | grep '= -5' | wc -l`
-+if [ $count -eq 0 ]; then
-+    fail "Return value can not be printed in signed decimal format"
-+fi
-+
-+: "Test printing the error code in hexadecimal format"
-+echo funcgraph-retval-hex > trace_options
-+count=`cat trace | grep 'proc_reg_write' | grep 'fffffffb' | wc -l`
-+if [ $count -eq 0 ]; then
-+    fail "Return value can not be printed in hexadecimal format"
-+fi
-+
-+exit 0
+	mov	ip, sp
+	stmdb	sp!, {r0-r3, ip, lr}
+	mov	r0, sp
+
+>  	bl	ftrace_return_to_handler
+>  	mov	lr, r0			@ r0 has real ret addr
+>  	ldmia	sp!, {r0-r3}
+
+	ldmia	sp, {r0-r3}		@ since we need to manually adjust sp,
+
+> +	add	sp, sp, #4		@ skip fp
+
+	add	sp, sp, #4 * 6		@ restore stack pointer here
+
+>  	ret	lr
+>  ENDPROC(return_to_handler)
+>  #endif
+> -- 
+> 2.25.1
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+> 
+
 -- 
-2.25.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
