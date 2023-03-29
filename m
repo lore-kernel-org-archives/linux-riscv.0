@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A5BC77B6D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DA1C87FDD
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bJPhEqqSFi+o1enkLeRxRTj34rWyvH3jQpcvF+flVjE=; b=RfrKt22XkBttLa
-	GBXRtZzqEa7E5Mo3t/wCQ5vOSDR89HkKGQp+GPjQrMrEr6CNIXhgr+Ve+3SpnESOseWxguYOTaEuj
-	R8aQJT0DeYxpbLaeSzgkxZs6K0USG1RcmqVLCVyBQ/XZILsnhk4aViCl5ss82CeOrLfLsK5+OsbSY
-	rtC/db9+IwxUFYE6ph66s6xOQ45pDXNco8450sJ7nuemDo0I+29mzv23tl/RCIQ39ZyYQQCGrjtBb
-	GK881DGuUGpJjCezSEIc0ngT/MRQ/UAm36DzuuRLrEgVZXGb1lQay+Ju6GYiKGWhT979c1ZBZHynS
-	MZxRbV6wSTp0AkuBA+cA==;
+	List-Owner; bh=jp+9t+QakiYobHzoWb68iWL2rDZ/JohvLhhXcP26V18=; b=fxM294H1ilRThe
+	epHoMT6C7CYvDrHqCgGZ/4s+mkL/4goPn8sk8KiRPEnqWNAi0krBtaOejAMCK0PuMWl7fCHVA0lrC
+	wL3qdG4tvW4PXCO0n0q5b8uubiQws16/c38I2sWBoljzqzxMJ69svcK1QpsQpf28zX3XVnNK91Psc
+	tiEhtlc++9RAQJiGNT9eAXtf8a2OW/xpp/Uxj/F+0AVCs90PoMlHGIGv6hqRTFk6T5V7hM4l+JOGX
+	E4KjvBqx2fzQ4lEskB3yF93uUgpIG19gmjdGPQHbXNeCix5lKZiKjlWKrUfpeHukPisMxGcwRNNKp
+	Ojyl4H/4btEJMU1A219A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY7I-000t8M-3D;
-	Wed, 29 Mar 2023 15:53:41 +0000
-Received: from mail-oo1-f48.google.com ([209.85.161.48])
+	id 1phY7O-000tCO-0r;
+	Wed, 29 Mar 2023 15:53:46 +0000
+Received: from mail-ot1-f48.google.com ([209.85.210.48])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6t-000slG-24;
-	Wed, 29 Mar 2023 15:53:16 +0000
-Received: by mail-oo1-f48.google.com with SMTP id p2-20020a056820044200b0053e5914a50fso1233309oou.2;
-        Wed, 29 Mar 2023 08:53:14 -0700 (PDT)
+	id 1phY6v-000snP-2c;
+	Wed, 29 Mar 2023 15:53:19 +0000
+Received: by mail-ot1-f48.google.com with SMTP id x8-20020a9d3788000000b0069f922cd5ceso8440195otb.12;
+        Wed, 29 Mar 2023 08:53:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105194;
+        d=1e100.net; s=20210112; t=1680105196;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tOFzIiTcs5glICtXCi7orAKYw6mLzzis64IJ8Etn534=;
-        b=4V8d0tBWvJKBB5o5WF2Bp8yWPWZUv9t8SOVRb6jUAjgAEnTfyiFoOCnfRAJqYVcnKg
-         wcfpTooIosbT71DYRF5hFCpcChB/yjBbdePyJf0qP54Dv48ZMa9nxA5LgwQFXb0HxnAW
-         sN6exEbSWMmcHHtRi2LJJF11tbjVSSMJ6Kx3B/xMeoB45nQO+95VAx9Mc+QMOYbK6wwM
-         ANo93hJZ0KQtFUW4GvbIgEHV/DZ/Vh52Hn+wjLs1AWF6Mzgfa1XrnfEOSELocJx4k6e0
-         lK4bqmweiAE0Kj4cNXrHRMFAsXbwBIqfxer371MjhE4ueKAX1cInBI45tcn8oRA8yCnF
-         TZbA==
-X-Gm-Message-State: AO0yUKUjHCZHQkkG2wbhpMkGm+h+QQn6cpzEtoZCWoCXhAUEI5BPrYkJ
-	UhDfEfZAh8jvXjNeZNP3fA==
-X-Google-Smtp-Source: AK7set9MAD4tg5pc/rHdBuixw1K3iao0K53LrjqhMjiHjl+aL1ahzPwsk7GYhgXBJpfdS1Uabklemg==
-X-Received: by 2002:a4a:41cb:0:b0:537:ad3c:d74f with SMTP id x194-20020a4a41cb000000b00537ad3cd74fmr9577499ooa.9.1680105194254;
-        Wed, 29 Mar 2023 08:53:14 -0700 (PDT)
+        bh=tWmtLeCB2PTcAHpGNr0ZZYDBf99xMHUdOSjMIZXheFk=;
+        b=ePIeJFA54AjuxPD7DMipdbunJvfRUH7tvFqAXYGFa7qAtnICPp5QoOms7Cma/THWKo
+         h4mY5ej7Inf+qsPxsh5OsQtuubcc4W9onsi79aOUMSk3Zk4FSW/YvRW1y1StKDSpGGms
+         zfrgoZAgzauAliwopls4S1p0vereYDOfMeY50MQRBxwgkLpuZtTewQ36gN+KH7jPLwCr
+         jR+yzvwivM9DL4vQkJjkofbh7CoJ7wnqumyVL8WFVolViOkZrf6vgIJL5/UVgb94+HNj
+         4545OqIbRh2ORTDcjsmRqHITzmFzYodxkKW41p6SlwwiYEVe0uxh+reNxWuKwFj2jh63
+         7G+g==
+X-Gm-Message-State: AO0yUKXjwnKpdN4L/zSjw7gFhFv+dMMNT38D88f+p+iHsUUqUGbksVE7
+	L+lwxF1L+U1p5eqnKv61zA==
+X-Google-Smtp-Source: AKy350by63hvThVx+G6CTPOFFLOe4lmhMruBxp6akfw7h8ZCmJHsyJFTMVn+Dn/8by4Bc4xtRU8hFQ==
+X-Received: by 2002:a05:6830:1695:b0:694:3972:dbae with SMTP id k21-20020a056830169500b006943972dbaemr9305044otr.2.1680105196435;
+        Wed, 29 Mar 2023 08:53:16 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id q125-20020a4a4b83000000b0051ffe0fe11bsm14001119ooa.6.2023.03.29.08.53.12
+        by smtp.gmail.com with ESMTPSA id q4-20020a9d4b04000000b0069f509ad088sm5047619otf.65.2023.03.29.08.53.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:53:13 -0700 (PDT)
-Received: (nullmailer pid 3198073 invoked by uid 1000);
+        Wed, 29 Mar 2023 08:53:16 -0700 (PDT)
+Received: (nullmailer pid 3198067 invoked by uid 1000);
 	Wed, 29 Mar 2023 15:52:45 -0000
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:52:03 -0500
-Subject: [PATCH 06/19] ARM: sunxi: Drop of_device.h include
+Date: Wed, 29 Mar 2023 10:52:00 -0500
+Subject: [PATCH 03/19] of: Move of_device_get_match_data() declaration
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-6-581e2605fe47@kernel.org>
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-3-581e2605fe47@kernel.org>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
@@ -81,8 +81,8 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_085315_680948_3BD0A635 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20230329_085317_866637_7204AACD 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +99,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
-implicitly including other includes, and is no longer needed. Just drop
-including of_device.h as of.h is already included.
+of_device.h mostly defines functions for bus drivers whereas
+of_device_get_match_data() is used by drivers. Let's move it to of.h.
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
-Please ack and I will take the series via the DT tree.
----
- arch/arm/mach-sunxi/mc_smp.c | 1 -
- 1 file changed, 1 deletion(-)
+ include/linux/of.h        | 2 ++
+ include/linux/of_device.h | 2 --
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/mach-sunxi/mc_smp.c b/arch/arm/mach-sunxi/mc_smp.c
-index 26cbce135338..cb63921232a6 100644
---- a/arch/arm/mach-sunxi/mc_smp.c
-+++ b/arch/arm/mach-sunxi/mc_smp.c
-@@ -19,7 +19,6 @@
- #include <linux/irqchip/arm-gic.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/of_device.h>
- #include <linux/smp.h>
+diff --git a/include/linux/of.h b/include/linux/of.h
+index 36cf94596eba..b7118d68c73a 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -416,6 +416,8 @@ extern int of_detach_node(struct device_node *);
  
- #include <asm/cacheflush.h>
+ #define of_match_ptr(_ptr)	(_ptr)
+ 
++extern const void *of_device_get_match_data(const struct device *dev);
++
+ /*
+  * struct property *prop;
+  * const __be32 *p;
+diff --git a/include/linux/of_device.h b/include/linux/of_device.h
+index e4aa61cb2bd0..6af4c3acd502 100644
+--- a/include/linux/of_device.h
++++ b/include/linux/of_device.h
+@@ -26,8 +26,6 @@ static inline int of_driver_match_device(struct device *dev,
+ 	return of_match_device(drv->of_match_table, dev) != NULL;
+ }
+ 
+-extern const void *of_device_get_match_data(const struct device *dev);
+-
+ extern ssize_t of_device_modalias(struct device *dev, char *str, ssize_t len);
+ extern int of_device_request_module(struct device *dev);
+ 
 
 -- 
 2.39.2
