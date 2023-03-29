@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F028EC761AF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31BEC74A5B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pRk+5q6ym40cbhGUDbfMVX55oAD+pN9X/5idiegg73Y=; b=dMVvHNkOob2eVs
-	EjgnT34AfjZaTa/h0z3/xYkcvahJE389e2CC66eQuIE1jP1BYJCz93bbmFZn7TJl6xeSIuM/H9mqD
-	HS69moYhBuFfq4HIB/C4qZAr9zeVGnXp8BMfWKDzk+Wsv3uFc167oIYfkW3rPBsc1t0TiKk9K1D70
-	zqre2PVm2kGP0kFoO+AqBrV22tiK1tiwmCu2VJQZaYhQmKFkXogfpTqjpWzYTHF7bInHrDWb8tpVR
-	x3VckQGV94uPS/VKmP+f3D1PgQHX3mvCjXe9RKSTMY98El2Lscs/QZob5MDzwKbsDWSk1zOAbneS/
-	WnLsHqBygqnPRbn6FoUw==;
+	List-Owner; bh=1MxGk/DdJXR+ZNteBNDgFMfmIHH+KtKbFhPNwkPpc0A=; b=HNc7+/EiWvQFI/
+	uBKroCEocYUaKug0vsBouUTHlkES+O5m6jcgc7SDC78lM5yrBYiAXGCq9rLW4X7dyJZVn796YVvLu
+	qhT293ZTfz5MDfeKoR2f5K7k1qEYWL8N53tyozD6GpVBDZprsHUw4EOXJv5bz5gbG63gf6t8XTuXK
+	GT1+C0eyXM9qjuyPdqb/wrvC9OAJdTdi8t2uv2UGj1NZPtz4ZqYcBoxARGxqIUOqIMPmrD+o3jDCK
+	j2qdTYwk74oCyo06YgD/lRnVwinzroeGUl4SK10x2q7jz9y6D/km9goNdTOzY/fq9SXlsHAcGa3hu
+	7FPcHU8htgp9o9LpKGbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY73-000svN-1n;
-	Wed, 29 Mar 2023 15:53:25 +0000
-Received: from mail-oo1-f41.google.com ([209.85.161.41])
+	id 1phY7G-000t6L-1p;
+	Wed, 29 Mar 2023 15:53:38 +0000
+Received: from mail-oa1-f50.google.com ([209.85.160.50])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6m-000ses-1D;
-	Wed, 29 Mar 2023 15:53:09 +0000
-Received: by mail-oo1-f41.google.com with SMTP id g21-20020a4ad855000000b0053e563c2f72so1297409oov.6;
-        Wed, 29 Mar 2023 08:53:08 -0700 (PDT)
+	id 1phY6r-000sjV-1J;
+	Wed, 29 Mar 2023 15:53:14 +0000
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-17ab3a48158so16687094fac.1;
+        Wed, 29 Mar 2023 08:53:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105188;
+        d=1e100.net; s=20210112; t=1680105192;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/qOq2NGpUAbxXp1g8F5WR4fkX2S7bH0m0xxnMP60FJ8=;
-        b=RONegMvxInDtKpeZcWpRm01t6sHF+jm/LvMzyQh7ecDSpa0m9YgOcCA91CTS+zY8pR
-         fvVSVjr4yOQN2BfCObbZIJkwdGnHVLxyRBfm3u4hhcNSensnXxexF6juO4+SPFbkhLiT
-         pzaS5osbqypEEwi3cnRXxJN9K7UC8z0tdyWyPvv+fkYJvSvAWDRtQqrt8E8UhAXz0xnq
-         cEul4SQHfnsSoV3xV5bn02Y0Mu5g7zI9ITnvNDJVcyyUXnqt2zOqn2vyTuL6Hee+fbg9
-         xX2yhrBz0ZzLAo9z4wMvvdD7jTl+4lb/2ejeJLv69L/6cYQTHrVirZV/CvuB0ndIoYvo
-         vbhw==
-X-Gm-Message-State: AO0yUKUch33PT3rf5fbHyTlsvff7eIpPJPPu5IrpXMa81CrVOpPFQwKB
-	7t3wgvyRYhIfX3Q97uDmJWvBUkvuBw==
-X-Google-Smtp-Source: AK7set+oji6+6UZVdlF32jW97Cd5wKPzdK3BfB/MTFUCEZ/Z55TdZpfcLorcJt7g+5txg06Aa2xkVA==
-X-Received: by 2002:a4a:3797:0:b0:538:1e63:1725 with SMTP id r145-20020a4a3797000000b005381e631725mr10070334oor.4.1680105187664;
-        Wed, 29 Mar 2023 08:53:07 -0700 (PDT)
+        bh=WurTN6TQClVnhKzRVCxCDshUnc0lAKMY5Mp4cC77h0Y=;
+        b=f8znrAxYN2GzZSr25Ez+y2Yqvs4pPgsAdX7dwsR2fj92g9rhhZCYZEI0o6f2XbNHJl
+         8KWJ9FyoTlKej58yovm+SJAIj3KiC+hBEoFxoRLvfJSIrZIruk6KilzMuu/ZmgpORHTb
+         sqkgfwPFjMUuwqyzMXHNIYnLiKIsADJyO9E+TaGWTFpwYkNXpCM5XaJp6SaGDb3FYwCz
+         olwLc8LwxGxVZgRxpmU+f6uZXYpTZOuklZhcN816Hp3KTpz7s2gKWPMaF+dXDtYsxC6W
+         2FUAbhc+ELLBKNENeYS7OtM46RqGdHmEgtg+ecmS2Vzx/Qb/xDSChvCkiiX3xj21ZsUp
+         gArg==
+X-Gm-Message-State: AAQBX9errTOMwSj0ZpQKbxF+dnn6wzkrqnzeBo3uZrW7KBpt5lCdwrIB
+	gdshvzEvkehEU3Z72TCDJw==
+X-Google-Smtp-Source: AKy350Zo9NclgwNBZoANioCGcuLyMicsG3a/5+eN9bgHMpdMdqlYEHn7LZHT8hqlsIh4r2ZmsXlMnw==
+X-Received: by 2002:a05:6870:2194:b0:17e:cb7:29c0 with SMTP id l20-20020a056870219400b0017e0cb729c0mr13838293oae.13.1680105192039;
+        Wed, 29 Mar 2023 08:53:12 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id s9-20020a4a9689000000b005255e556399sm13966954ooi.43.2023.03.29.08.53.05
+        by smtp.gmail.com with ESMTPSA id aw8-20020a0568707f8800b001762d1bf6a9sm11897731oac.45.2023.03.29.08.53.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:53:07 -0700 (PDT)
-Received: (nullmailer pid 3198063 invoked by uid 1000);
+        Wed, 29 Mar 2023 08:53:11 -0700 (PDT)
+Received: (nullmailer pid 3198075 invoked by uid 1000);
 	Wed, 29 Mar 2023 15:52:45 -0000
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:51:58 -0500
-Subject: [PATCH 01/19] of: Make devtree_lock declaration private
+Date: Wed, 29 Mar 2023 10:52:04 -0500
+Subject: [PATCH 07/19] ARM: cpuidle: Drop of_device.h include
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-1-581e2605fe47@kernel.org>
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-7-581e2605fe47@kernel.org>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
@@ -81,8 +81,8 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_085308_413266_A24D38D6 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20230329_085313_443968_5A0FC888 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +99,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sparc is the only place devtree_lock is used outside of drivers/of/.
-Move the devtree_lock declaration into of_private.h and Sparc's prom.h
-so pulling in spinlock.h to of.h can be avoided for everything besides
-Sparc.
+Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
+implicitly including other includes, and is no longer needed. Just drop
+including of_device.h as of.h is already included.
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- arch/sparc/include/asm/prom.h | 3 +++
- drivers/of/of_private.h       | 1 +
- include/linux/of.h            | 2 --
- 3 files changed, 4 insertions(+), 2 deletions(-)
+Please ack and I will take the series via the DT tree.
+---
+ arch/arm/kernel/cpuidle.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/sparc/include/asm/prom.h b/arch/sparc/include/asm/prom.h
-index 587edb8b5a65..8184575b1336 100644
---- a/arch/sparc/include/asm/prom.h
-+++ b/arch/sparc/include/asm/prom.h
-@@ -19,11 +19,14 @@
- #include <linux/mutex.h>
- #include <linux/atomic.h>
- #include <linux/irqdomain.h>
-+#include <linux/spinlock.h>
+diff --git a/arch/arm/kernel/cpuidle.c b/arch/arm/kernel/cpuidle.c
+index 437ff39f7808..fba1f8bb03b5 100644
+--- a/arch/arm/kernel/cpuidle.c
++++ b/arch/arm/kernel/cpuidle.c
+@@ -5,7 +5,6 @@
  
- #define of_compat_cmp(s1, s2, l)	strncmp((s1), (s2), (l))
- #define of_prop_cmp(s1, s2)		strcasecmp((s1), (s2))
- #define of_node_cmp(s1, s2)		strcmp((s1), (s2))
+ #include <linux/cpuidle.h>
+ #include <linux/of.h>
+-#include <linux/of_device.h>
+ #include <asm/cpuidle.h>
  
-+extern raw_spinlock_t devtree_lock;
-+
- struct of_irq_controller {
- 	unsigned int	(*irq_build)(struct device_node *, unsigned int, void *);
- 	void		*data;
-diff --git a/drivers/of/of_private.h b/drivers/of/of_private.h
-index fb6792d381a6..b57f1014e419 100644
---- a/drivers/of/of_private.h
-+++ b/drivers/of/of_private.h
-@@ -38,6 +38,7 @@ struct alias_prop {
- #define OF_ROOT_NODE_SIZE_CELLS_DEFAULT 1
- 
- extern struct mutex of_mutex;
-+extern raw_spinlock_t devtree_lock;
- extern struct list_head aliases_lookup;
- extern struct kset *of_kset;
- 
-diff --git a/include/linux/of.h b/include/linux/of.h
-index 0af611307db2..36cf94596eba 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -16,7 +16,6 @@
- #include <linux/errno.h>
- #include <linux/kobject.h>
- #include <linux/mod_devicetable.h>
--#include <linux/spinlock.h>
- #include <linux/topology.h>
- #include <linux/notifier.h>
- #include <linux/property.h>
-@@ -145,7 +144,6 @@ extern struct device_node *of_root;
- extern struct device_node *of_chosen;
- extern struct device_node *of_aliases;
- extern struct device_node *of_stdout;
--extern raw_spinlock_t devtree_lock;
- 
- /*
-  * struct device_node flag descriptions
+ extern struct of_cpuidle_method __cpuidle_method_of_table[];
 
 -- 
 2.39.2
