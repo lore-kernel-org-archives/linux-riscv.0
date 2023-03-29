@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD6DC74A5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2031C74A5B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dH9rC7gEOY4RZRlH3W71GwF957pcCQnBSeQWXHZfrOY=; b=aL0QREhkU+dpTSJkdY1mXk5p+D
-	MHAJ/cf0JWB3JYFxe1JSl3O0grZCM5azTm0cu8YBjTpwpBNdo4dGEY7rd75jrcV6eFfSsHVIS3VW9
-	qPIRLuGEeVumKWxVfyR2C9izjm0UtSdtqoO6xjGmDFkfu3asV3wKho5UT4qjDYQh64N3E2XBib2SK
-	RuPn3UqLPR0Kv8qrV6Cif1yWeOrobPdOKRn4anfLrp8eAMieJRP4QJBzk1IVEW2laDCnM1+5Q5pgk
-	XuSn9cVwq3Ff4S6YWBT4b2vMjya2bTDQpsFmYAU9EfK8HxnFbb+UHhVUeMMzeR5yBeDiKfwgJurPG
-	7hT8SOgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nFKA6vHu8YveRda1Bb0Yhz0XLYw/J0RWSfBT5IsDI3Y=; b=1zbGuCOPDz0v4U
+	k2bFe1je8S71ja2WyMc5KOdIXsUBMVkI/zeJlCSB/S1W0EyvFVVbDFOsq+0rq8pJrh5BPRC73zYKF
+	hSTLER/laEwk1Cn2Yj2wIFK0R9WovaGWO4bPJXlAnUBqUGXO/hkWWwUVFry/izw9qn3ppDM0VT3pM
+	31ftbhCu7QOvSX9Ajp9eddxT1YFBRv/dxuYCugKfnSdrSza0jZI4ulzeArfa3YT3Od+gnHXVTJWaQ
+	PbU3pZ2xO2HokSOhHvXx9gioqL5up8wb2Xz21tJztvZPOqv3ENnJLjaVGv/qFnBRMTF9JMTOcCvG4
+	eLdkDmR5WZ3iqyleQoKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phXoA-000niZ-1B;
-	Wed, 29 Mar 2023 15:33:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phXo7-000nhK-2w
+	id 1phXoR-000not-11;
+	Wed, 29 Mar 2023 15:34:11 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1phXoM-000nh5-0E
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 15:33:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5192FB82370;
-	Wed, 29 Mar 2023 15:33:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28112C433D2;
-	Wed, 29 Mar 2023 15:33:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680104030;
-	bh=IxAbBP9UjglHluPryJjf4M5TDGTVE3KN+oepn4YHf/w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g0APkOz/qZlNfpr2NCNDI4Pxe00LN4KoAe4O+FwTiY/73aViE1XZUWX9msBX4VEUR
-	 p67+BKKQJlNR7Lj+fjdM/ZfVWb7Pr4yAP9i4Rp+Vi8KFRw651xspY0SFOzlqLnxZON
-	 zMant2XIebI+d/+eV80EXyK5c1zt8Bnxuvd/ML9bnE7tdAUwkJLJGhGtpTPlaX0s8/
-	 oLpETCOSK91MCNujSKsefWxOSoATkQBWOh7cqWCK7bYp7Vct5dDH63jYR1czg6Z6V6
-	 ipU59BL2UDAV4M9hPSAlmyAXIQIF562uUKjo0eRIta/o6JPHxAVR3g+JrDcSwIEIwi
-	 Yh7SKufVBPXmg==
-Date: Wed, 29 Mar 2023 16:33:45 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes v2 3/3] riscv: No need to relocate the dtb as it
- lies in the fixmap region
-Message-ID: <9c90f390-92d2-4dde-8cd7-b50e9c858787@spud>
-References: <20230329081932.79831-1-alexghiti@rivosinc.com>
- <20230329081932.79831-4-alexghiti@rivosinc.com>
- <381c2753-cbcc-40a0-bcb2-67d18e367822@spud>
- <CAHVXubhVGR1vjqFVv1vuDGDMSiG0JBpKtRZnzgzpa9VBK+BuNw@mail.gmail.com>
+	Wed, 29 Mar 2023 15:34:09 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9F10024E0FC;
+	Wed, 29 Mar 2023 23:33:32 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Mar
+ 2023 23:33:32 +0800
+Received: from localhost.localdomain (113.72.144.76) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Mar
+ 2023 23:33:32 +0800
+From: Walker Chen <walker.chen@starfivetech.com>
+To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Walker Chen
+	<walker.chen@starfivetech.com>
+CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v1 0/3] Add TDM audio on StarFive JH7110
+Date: Wed, 29 Mar 2023 23:33:17 +0800
+Message-ID: <20230329153320.31390-1-walker.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubhVGR1vjqFVv1vuDGDMSiG0JBpKtRZnzgzpa9VBK+BuNw@mail.gmail.com>
+X-Originating-IP: [113.72.144.76]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_083352_106057_E4BDD24C 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20230329_083406_420518_578EC56F 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +70,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1220040190055419317=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patchset adds TDM audio driver for the StarFive JH7110 SoC. The
+first patch adds device tree binding for TDM module. The second patch
+adds tdm driver support for JH7110 SoC. The last patch adds device node
+of tdm and sound card to JH7110 dts.
 
---===============1220040190055419317==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="nf9NXaBcWq31jVDo"
-Content-Disposition: inline
+The series has been tested on the VisionFive 2 boards which equip with
+JH7110 SoC and works normally.
 
+The last patch should be applied after the following patchset:
+https://lore.kernel.org/all/20230322094820.24738-1-walker.chen@starfivetech.com/
 
---nf9NXaBcWq31jVDo
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Walker Chen (3):
+  dt-bindings: sound: Add TDM for StarFive JH7110
+  ASoC: starfive: Add JH7110 TDM driver
+  riscv: dts: starfive: add tdm node and sound card
 
-On Wed, Mar 29, 2023 at 04:40:18PM +0200, Alexandre Ghiti wrote:
-> On Wed, Mar 29, 2023 at 3:56=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Wed, Mar 29, 2023 at 10:19:32AM +0200, Alexandre Ghiti wrote:
-> > > We used to access the dtb via its linear mapping address but now that=
- the
-> > > dtb early mapping was moved in the fixmap region, we can keep using t=
-his
-> > > address since it is present in swapper_pg_dir, and remove the dtb
-> > > relocation.
-> > >
-> > > Note that the relocation was wrong anyway since early_memremap() is
-> > > restricted to 256K whereas the maximum fdt size is 2MB.
-> >
-> > So, should this be marked as a fix, and backported along with 1/3?
->=20
-> Hmmm the whole series should be backported, it does not make sense to
-> move the dtb mapping and keep accessing it using its linear mapping
-> address since it could fail for the exact reason the relocation was
-> implemented in the first place and the relocation is wrong.
->=20
-> Maybe we should simply add a "Cc: stable@vger.kernel.org" on all the patc=
-hes?
-
-Yup, although hopefully Palmer can handle that if nothing else needs
-changing.
-
---nf9NXaBcWq31jVDo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCRaWQAKCRB4tDGHoIJi
-0mnyAQDXKpwmfpB5q4X6QPOw2jiCPiYKY75s1bbJ5ruHbLirBAD/XxFephOltSEa
-xNmJKur1/tjGtJkHfUraiWjc0d6WGgo=
-=WNhR
------END PGP SIGNATURE-----
-
---nf9NXaBcWq31jVDo--
+ .../bindings/sound/starfive,jh7110-tdm.yaml   |  95 +++
+ MAINTAINERS                                   |   6 +
+ .../jh7110-starfive-visionfive-2.dtsi         |  87 +++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  34 +
+ sound/soc/Kconfig                             |   1 +
+ sound/soc/Makefile                            |   1 +
+ sound/soc/starfive/Kconfig                    |  15 +
+ sound/soc/starfive/Makefile                   |   2 +
+ sound/soc/starfive/jh7110_tdm.c               | 579 ++++++++++++++++++
+ sound/soc/starfive/jh7110_tdm.h               | 155 +++++
+ 10 files changed, 975 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
+ create mode 100644 sound/soc/starfive/Kconfig
+ create mode 100644 sound/soc/starfive/Makefile
+ create mode 100644 sound/soc/starfive/jh7110_tdm.c
+ create mode 100644 sound/soc/starfive/jh7110_tdm.h
 
 
---===============1220040190055419317==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+base-commit: fe15c26ee26efa11741a7b632e9f23b01aca4cc6
+prerequisite-patch-id: c3a6b87df79b338fc97766406d010fedb79ab428
+prerequisite-patch-id: b49509523cf7c098f684647bdc4fdaece48b61bc
+prerequisite-patch-id: 46cc850aa0e9e03ccf5ed23d8458babfca3d71af
+prerequisite-patch-id: a6975e61ee5803fbd74b1c21ab925fd81c3c0eab
+prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
+prerequisite-patch-id: 044263ef2fb9f1e5a586edbf85d5f67814a28430
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 9f3dbc9073eee89134e68977e941e457593c2757
+prerequisite-patch-id: 8600b156a235be2b3db53be3f834e7a370e2cfb9
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4c12d958e3a3d629d86dddb1e4f099d8909393e0
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8f5c66dfb14403424044192f6fa05b347ad356a7
+prerequisite-patch-id: fd93763b95469912bde9bdfa4cd827c8d5dba9c6
+prerequisite-patch-id: 6987950c2eb4b3773b2df8f7934eff434244aeab
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
+prerequisite-patch-id: be3d7a6a13098884ec26cd5e543cc95c39045e35
+prerequisite-patch-id: b3ce7955a80d90d992b7d1bca3409f465810b2bb
+prerequisite-patch-id: db2f66860cc5b2fd2f71747c4428287b6e3153fb
+prerequisite-patch-id: 9da71dcd3af4c68da9d855b43aab6927103e7525
+prerequisite-patch-id: 2d9e4f185631549094b6136cf8717a507b68c5bb
+prerequisite-patch-id: bb8e071ed43998874b9d98292c0dcdeedc0760ca
+prerequisite-patch-id: cd0b464336aabfbfad96c1a3595c0f9ce9401638
+prerequisite-patch-id: 24eab3d30274700c2be4727bece743c76d2618bd
+prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
+prerequisite-patch-id: 2bc43b375b470f7e8bbe937b78678ba3856e3b8f
+prerequisite-patch-id: 32deea16304859842af5c2151bc41d91cf6dfc9b
+prerequisite-patch-id: d85dbedbb3b36bbd6806f4eb84a2129c8f8963aa
+prerequisite-patch-id: c0bdbdd3db98f7ebae0661dd331edac2c84c70f8
+prerequisite-patch-id: 6abf359fa445f4104432ddee27044dfbfb128417
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1220040190055419317==--
-
