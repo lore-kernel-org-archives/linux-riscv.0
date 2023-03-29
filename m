@@ -4,89 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071F7C74A5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 20:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45EAC761A6
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 21:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iu5GhXlp55aReB7Po5xecOREqHp6jQWwzo3ixn4ea6w=; b=h0vGty52UuJSESDl9159RXv35Q
-	JED09wltbq6LoXxSqsRJ9QPsrZVvZgpt1zeWTbXFYquXE+5lMMruYC8zsu4fCD79jOErK1ogq/3Ak
-	NDa3Bo6VxHGde88la99aBKvmClbo2ClV6dPkMaSpwQljMTet5CSZJ/HIpfOmdvtWeESwlqjQSuTXJ
-	rIT6DN7IF4BtKHZPLq73par5Q1090lKgg0z2bwgh7lV6xTULIh48Fv3Yd+US4lD1gWrpJFcEmY1NF
-	Q84m/YdAcm4xTEOn6I5HrMCBDQPEaewBOf2WFpnEp1tPqTo9lU3ZogaC4IlGmVrrXqVrhqiFwxIzx
-	RFnOU5nQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hHzW6j6tAR6puU209zX0jbZ2pQIrkjVSFBhlYIwIYTA=; b=23ocMBOiRJh5P5
+	tu6u7dl9QQdzQIVVOOGsx546+8gl642f6xQCXnVunnxmhLLEMdcuHaYdFm5uMUgt6cct6xta1/QlN
+	duvQAGXUeRPykKO7ZtwpkQipsaMJSEH+zj4tsH8wywHay++aJwTT9sPDxcqk1EYvvGQkI2b5Z3urh
+	6npudigkPayXB8d+5CKpY0s/o/Ucf+MEB4Ekka7OaSRoejEb27f8j7rC/DmtCNp9QbYQ7RU0aAf+x
+	JaGnNM2nGHhJE6gA7gA9rfh+xnMHaab+nRBGxXHQ9cUpm7KdRoxHgLwbCjy3MxDo8O2fatlqB+KlC
+	p2EosUnl5NSGd7LLoIkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phciW-001oYd-1i;
-	Wed, 29 Mar 2023 20:48:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1phdiC-001vWx-0f;
+	Wed, 29 Mar 2023 21:52:08 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phciT-001oX3-1o;
-	Wed, 29 Mar 2023 20:48:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 57B1161E31;
-	Wed, 29 Mar 2023 20:48:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B6DC433D2;
-	Wed, 29 Mar 2023 20:48:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680122898;
-	bh=1FYJm+9Wk+njTFrcUWRvLdevGIDr+W6Tthp7LWzQkuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=boCWhpdBtoliUn63FbbfND/v9Mp/RWyo9JXf+EnIrqGcts24RG6WSsaX8OyyMGpmR
-	 OMhsdzI6wjHZ9L9dRgyM81y9GcdEGjJbQ79P89OVt+ES0GP7Dab665WOCD3VG6YGrA
-	 QdNC7Z/6qjDNQcC72DoCALVe17ZlH3sMsJ8P/IOLvgrMuYTNGz+ml1q07Ok7jWvsWU
-	 B3at/aLp5IMLfrV1PTn7Moz0cGHMllPHtGc4hbYxsce+5WQaL0vhZbd/zaOLetW4Wx
-	 Xp1CXJmoO48d6OQNzqYx6AfUxQeMqIO245DQTnKIpDIYzxX7MyaWN5fbqCYcz99XKE
-	 SxWP3/q/5qgvQ==
-Date: Wed, 29 Mar 2023 21:48:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Brian Cain <bcain@quicinc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org, samuel@sholland.org
+	id 1phdi7-001vV8-2B
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Mar 2023 21:52:07 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id l37so9746208wms.2
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Mar 2023 14:51:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jrtc27.com; s=gmail.jrtc27.user; t=1680126716;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mR/Zj1PB00aaXey9QznQEyL9cgsnbEviFfaDBojU/PA=;
+        b=X0RSiXgHE7YkzJiBvPfuECvjvZh/j9OCTlp5vS9G1kUZuHyE1mJThY46uxE8TkBE8F
+         26YKvU03kRSEEbihp0nG/r6HBhciobPuGf3L9XG5lP7LIGmFx1xuZOCywjcKmPOmTu8N
+         GYJA3eb2b0Q6VlUVpDCKV/9pvTj9LkixTX22pUdw50wCneJbfivXkkSI84dON9P5F9zR
+         aPsg4Jeh3iGHabX4d9hb5dRKHYvbcqGCgHjWCSflhUWkYsO9R2cu9K7Yx5HZpgAK9C+P
+         FR/T+Ct46EkosCoWvECTXbDfM4FfGO3jzQMNS58kzGepVwnhUrHOmPZqrc1qrzv6vlJT
+         efvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680126716;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mR/Zj1PB00aaXey9QznQEyL9cgsnbEviFfaDBojU/PA=;
+        b=n2TjbB1gCS5ipR4zuiUu9qBfN5knktpDON8eRd0e9imsclg4lGhCcATsV36OUIUPsH
+         /5yrFwsVcGffNG+xSDWPm3ABME1UQL/RPjT1Ko3qG0391CjZvqwDYC3OQOJN8f0cnEdp
+         PCThMTPTTRABa24MBCcFsic1Fe1R4S20trT4oQ4zsHz8QX6kUy7s/JGPrBJl0ExMxAEp
+         Da7lC3X+K7JoSzp9S5AQ3gsSpBKJbPIBTXDcLUURWW7aR6qEOJj1Kf1rldQ8HQG5a6xn
+         eXMMuXPOTueIk5JwITOZR3iKJCaHAlMNU1wgHsPZRfUQLlDskJKdUZDALyBUxGwWB9OZ
+         pJxA==
+X-Gm-Message-State: AO0yUKVDXEYukk9T2Ii9hoHoSSSBKfGdAdWQxBHMMUZi8JYE+rX3QdI/
+	W9pqrcxRYgDLAQCO01GYEjm1xQ==
+X-Google-Smtp-Source: AK7set8QoMq1gGRgzzGqEiUi0STo43D8VYRH41LQHDT7NbD/gZR3RJOV/DBadJ5PrJGjWGmEaVtwcg==
+X-Received: by 2002:a7b:c413:0:b0:3ee:4531:8448 with SMTP id k19-20020a7bc413000000b003ee45318448mr17263952wmi.39.1680126716518;
+        Wed, 29 Mar 2023 14:51:56 -0700 (PDT)
+Received: from smtpclient.apple (global-5-144.n-2.net.cam.ac.uk. [131.111.5.144])
+        by smtp.gmail.com with ESMTPSA id a18-20020a1cf012000000b003ed4f6c6234sm3437896wmb.23.2023.03.29.14.51.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Mar 2023 14:51:55 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
 Subject: Re: [PATCH 08/21] riscv: dma-mapping: only invalidate after DMA, not
  flush
-Message-ID: <2668e232-ae83-4576-beaa-08e420236996@spud>
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20230327121317.4081816-9-arnd@kernel.org>
+Date: Wed, 29 Mar 2023 22:51:54 +0100
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>,
+ Brian Cain <bcain@quicinc.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "David S. Miller" <davem@davemloft.net>,
+ Max Filippov <jcmvbkbc@gmail.com>,
+ Christoph Hellwig <hch@lst.de>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ linux-snps-arc@lists.infradead.org,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-oxnas@groups.io,
+ linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org
+Message-Id: <837F1B2F-7090-4F9F-A894-594ACF6A8DB2@jrtc27.com>
 References: <20230327121317.4081816-1-arnd@kernel.org>
  <20230327121317.4081816-9-arnd@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20230327121317.4081816-9-arnd@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+X-Mailer: Apple Mail (2.3696.120.41.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_134821_679316_B1AC649D 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20230329_145203_734907_13710641 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,100 +129,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8504613911640565481=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8504613911640565481==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kOOpdYQXwAfFVnAo"
-Content-Disposition: inline
-
-
---kOOpdYQXwAfFVnAo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Mar 27, 2023 at 02:13:04PM +0200, Arnd Bergmann wrote:
+On 27 Mar 2023, at 13:13, Arnd Bergmann <arnd@kernel.org> wrote:
+> 
 > From: Arnd Bergmann <arnd@arndb.de>
->=20
+> 
 > No other architecture intentionally writes back dirty cache lines into
 > a buffer that a device has just finished writing into. If the cache is
-> clean, this has no effect at all, but
-
-> if a cacheline in the buffer has
+> clean, this has no effect at all, but if a cacheline in the buffer has
 > actually been written by the CPU,  there is a drive bug that is likely
 > made worse by overwriting that buffer.
 
-So does this need a
-Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zic=
-bom extension")
-then, even if the cacheline really should not have been touched by the
-CPU?
-Also, minor typo, s/drive/driver/.
+FYI [1] proposed this same change a while ago but its justification was
+flawed (which was my objection at the time, not the diff itself).
 
-In the thread we had that sparked this, I went digging for the source of
-the flushes, and it came from a review comment:
-https://lore.kernel.org/linux-riscv/342e3c12-ebb0-badf-7d4c-c444a2b842b2@sh=
-olland.org/
-But *surely* if no other arch needs to do that, then we are safe to also
-not do it... Your logic seems right by me at least, especially given the
-lack of flushes elsewhere.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Jess
 
-Cheers,
-Conor.
+[1] https://lore.kernel.org/all/20220818165105.99746-1-s.miroshnichenko@yadro.com
 
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  arch/riscv/mm/dma-noncoherent.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoher=
-ent.c
+> arch/riscv/mm/dma-noncoherent.c | 2 +-
+> 1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
 > index d919efab6eba..640f4c496d26 100644
 > --- a/arch/riscv/mm/dma-noncoherent.c
 > +++ b/arch/riscv/mm/dma-noncoherent.c
-> @@ -42,7 +42,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t si=
-ze,
->  		break;
->  	case DMA_FROM_DEVICE:
->  	case DMA_BIDIRECTIONAL:
+> @@ -42,7 +42,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+> 		break;
+> 	case DMA_FROM_DEVICE:
+> 	case DMA_BIDIRECTIONAL:
 > -		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
 > +		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
->  		break;
->  	default:
->  		break;
-> --=20
+> 		break;
+> 	default:
+> 		break;
+> -- 
 > 2.39.2
->=20
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---kOOpdYQXwAfFVnAo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCSkCAAKCRB4tDGHoIJi
-0pCKAQCFyZKqUabYSSJXqqHCLgZcuhg7cae4P41SpPSV+c3z5gEA/c0XOLzsLOMI
-IgRP+ghvnIZnEAVO3yHmHKYu0MBqmQM=
-=36EO
------END PGP SIGNATURE-----
-
---kOOpdYQXwAfFVnAo--
-
-
---===============8504613911640565481==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8504613911640565481==--
-
