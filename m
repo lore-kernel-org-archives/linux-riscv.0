@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D3FC76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Mar 2023 20:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D822C76196
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 01:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R2i6qZ//Gh0B/rjRUmHBUQGNr+KW5I/a12zdGelvDGo=; b=B/f7NLZi2fi/ZQ
-	LXmR20QdmysJPuffzWqdYTswDv0nJXgf95ifd+ciZxZgTdF02F2L5BCxBVQOWUu9SoNnyAwCzv+Rq
-	utdHEca+imUabcDumStuSfDCdy4eKXbSk6wJapAbbJPPC4rjA/m9SKRPTRm61L9hdiqK0avktjHAl
-	VbUryyMlOHIaqeKWQtHTM9Be+PwQXGOqGAp4b4VX0v/6ztMNskuaWWs3lF105z/PudPVoldGzYSpd
-	+ztqSJhH3chNFY/gBDamG1Vw+7ZK1UXWi5GBvtOjQ4XSfSQeUbF4F90iPlGSVnK4zivdyk303Uv9a
-	JNJZg+IY64h1CFfNBwnA==;
+	List-Owner; bh=Ezy7faO8o0YF2w3j8+2W03foMp5By99Jdx+y1sSHCuE=; b=EHJXnT4QaFg6ua
+	u0I+rPPvsUItAqSXqW/gD4PGjo6mkwIrGlNarC8eT9ThsqWAPEyTEztrT3pr3iTUrH5CBKQr/cgq7
+	cPf/gHY6at4UEbR5r0S4tErnm6TX/KqZJcLdRGOPZWL0IJ300sgee5bYnsfOSdvrwdhqdlusFo4L7
+	IaFcBIiI8wWWSokd8ElVsMwpKCTXIX7OSRj+vwgCZjeOsVLun1BcR7RDiKKl/M0Nnxe2w3VtMZR8Q
+	7c2qWZ2TX6MbkO2S45OYBAmM3uXDpCWTIpkzh8piMPzYEdAUm4OZIgl1T2w36g1TQLakCexKV87IR
+	+6os787KU7H/YQJySrzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phFUb-00Fj8F-2d;
-	Tue, 28 Mar 2023 20:00:29 +0000
-Received: from mail-pj1-f46.google.com ([209.85.216.46])
+	id 1phKPS-00GFdM-21;
+	Wed, 29 Mar 2023 01:15:30 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phEOu-00FWEu-2p
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Mar 2023 18:50:34 +0000
-Received: by mail-pj1-f46.google.com with SMTP id mp3-20020a17090b190300b0023fcc8ce113so16090837pjb.4
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 11:50:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680029430;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Aclulig/0cfgGpGgV4u2S3tdNeq79Q6EXLxPCDRVnhs=;
-        b=HocprYJL3KkdQ38U4oCRR6ZmkWsefj9ZzPHM3NVz7mFT7/1swDRkZmrzI9KLhPaPEu
-         WTjvhcEk1bvJsjUgLc+dUpJBaKs8bR8LQTDso6D0HKIlaMFos8Fq72QXfskBawrYNgYJ
-         Sf57zvusns/FArDHCdcTszk/2hwAxcUm9cQQqtWSgk+IMK0RPQpcBcO7l5FGzHnHU28K
-         V3ni0maTj5rAkQsz62/vhlaIv8L8oX9X0X84kTQUCJJRJ52vjjBUE8T/s5if5lwTDFkj
-         5X0CU9aJkWjRHb+x2PCx7DUiZxEbcjOa++lzcClqVCgzDQvJid928qK5ZmFHwQOFBA1z
-         itlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680029430;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Aclulig/0cfgGpGgV4u2S3tdNeq79Q6EXLxPCDRVnhs=;
-        b=une34/PnHbGJT7ozKqbPb3mwtzmdQDwqLh6qtubocmAH1wHJVnyuare+k5DeLbQYm/
-         sW6Xw0HziqpJFpKD5TvY3GXzWusp/1BuIKNbb89tsVombGkawEQg3qN4o/GAFidj+MsT
-         sY2HyX9qL8qRsGeHAfw/HUSu28Vo3YPFy8DjA7x2CPQyvhQpTjzuIdyVz+GF3KwrAfhd
-         zKVQ0/SdIqjD2si2ByhUCTvHzzxtPmK2uqWZ8QeefiFzXteRU191PFqPghcxB4tGqf1v
-         hDg/DNeorI8dqLhS/T219VdkUVJi5YAvgOMBryuiH9WcDQxGEXYKU7EF4n4ASv9vCyMg
-         Ms3Q==
-X-Gm-Message-State: AO0yUKUmGzhNUJdLPzp2UfQlaPQVSHRhVbIcESB2myXXFgWM6fwoeDPP
-	6ZtnDvjvpucQgzblIEYoKa+6FQ==
-X-Google-Smtp-Source: AK7set8uvctoh/nJkDcpyIUFGHdxrv7NFMLkftZwEZXTua9H6PiYWtD5qB1zOx63VGJ9TOv670v8fg==
-X-Received: by 2002:a05:6a20:78a2:b0:d9:2cef:949a with SMTP id d34-20020a056a2078a200b000d92cef949amr12028036pzg.28.1680029430067;
-        Tue, 28 Mar 2023 11:50:30 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d2-20020a639742000000b00502e7115cbdsm17453090pgo.51.2023.03.28.11.50.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Mar 2023 11:50:29 -0700 (PDT)
-In-Reply-To: <20230301002657.352637-1-Mr.Bossman075@gmail.com>
-References: <20230301002657.352637-1-Mr.Bossman075@gmail.com>
-Subject: Re: (subset) [PATCH v3 0/3] Add RISC-V 32 NOMMU support
-Message-Id: <168002941844.20337.2129252480039803517.b4-ty@rivosinc.com>
-Date: Tue, 28 Mar 2023 11:50:18 -0700
+	id 1phKPN-00GFbR-2i;
+	Wed, 29 Mar 2023 01:15:27 +0000
+Received: from [10.128.10.193] (unknown [117.133.56.22])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 495325805E3;
+	Wed, 29 Mar 2023 09:15:12 +0800 (CST)
+Message-ID: <c043935e-3961-8896-45de-03fcad676e08@sangfor.com.cn>
+Date: Wed, 29 Mar 2023 09:15:11 +0800
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-  Jesse Taube <Mr.Bossman075@gmail.com>, Yimin Gu <ustcymgu@gmail.com>, Damien Le Moal <damien.lemoal@wdc.com>,
-  Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-  Waldemar Brodkorb <wbx@openadk.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, Jesse Taube <mr.bossman075@gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v8 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Content-Language: en-US
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, mark.rutland@arm.com,
+ will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
+ kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
+ xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
+ dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
+ <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
+ <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+In-Reply-To: <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSE9PVh9NGRhJSE0fT00dSlUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09LQ1VKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBQ6Kww4Oj0cOVYRDyssOigM
+	GQ9PCkJVSlVKTUNLS05JTkpITEpDVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNSUtNNwY+
+X-HM-Tid: 0a872aeee9a02eb7kusn495325805e3
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_115033_130923_914C88A4 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20230328_181526_034882_41565A34 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +73,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 28 Feb 2023 19:26:54 -0500, Jesse Taube wrote:
-> This patch-set aims to add NOMMU support to RV32.
-> Many people want to build simple emulators or HDL
-> models of RISC-V this patch makes it possible to
-> run linux on them.
+On 2023/3/28 22:02, Russell King (Oracle) wrote:
+> On Tue, Mar 28, 2023 at 06:43:14AM -0700, Donglin Peng wrote:
+>> The commit d4815c5d1bbd ("function_graph: Support recording and printing
+>> the return value of function") laid the groundwork for the for the
+>> funcgraph-retval, and this modification makes it available on the
+>> ARM platform.
+>>
+>> We introduce a new structure called fgraph_ret_regs for the ARM platform
+>> to hold return registers and the frame pointer. We then fill its content
+>> in the return_to_handler and pass its address to the function
+>> ftrace_return_to_handler to record the return value.
+>>
+>> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+>> ---
+>> v8:
+>>   - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+>> ---
+>>   arch/arm/Kconfig               |  1 +
+>>   arch/arm/include/asm/ftrace.h  | 18 ++++++++++++++++++
+>>   arch/arm/kernel/entry-ftrace.S |  6 +++++-
+>>   3 files changed, 24 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+>> index e24a9820e12f..73061379855a 100644
+>> --- a/arch/arm/Kconfig
+>> +++ b/arch/arm/Kconfig
+>> @@ -98,6 +98,7 @@ config ARM
+>>   	select HAVE_FAST_GUP if ARM_LPAE
+>>   	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>>   	select HAVE_FUNCTION_ERROR_INJECTION
+>> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>>   	select HAVE_FUNCTION_GRAPH_TRACER
+>>   	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+>>   	select HAVE_GCC_PLUGINS
+>> diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
+>> index 7e9251ca29fe..2ab4bee21d79 100644
+>> --- a/arch/arm/include/asm/ftrace.h
+>> +++ b/arch/arm/include/asm/ftrace.h
+>> @@ -77,4 +77,22 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
+>>   
+>>   #endif /* ifndef __ASSEMBLY__ */
+>>   
+>> +
+>> +#ifndef __ASSEMBLY__
+>> +struct fgraph_ret_regs {
+>> +	unsigned long regs[4];
+>> +	unsigned long fp;
+>> +};
+>> +
+>> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
+>> +{
+>> +	return ret_regs->regs[0];
+>> +}
+>> +
+>> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
+>> +{
+>> +	return ret_regs->fp;
+>> +}
+>> +#endif
+>> +
+>>   #endif /* _ASM_ARM_FTRACE */
+>> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
+>> index 3e7bcaca5e07..5f1e74555b25 100644
+>> --- a/arch/arm/kernel/entry-ftrace.S
+>> +++ b/arch/arm/kernel/entry-ftrace.S
+>> @@ -257,11 +257,15 @@ ENDPROC(ftrace_graph_regs_caller)
+>>   
+>>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+>>   ENTRY(return_to_handler)
+>> +	sub	sp, sp, #4
+>>   	stmdb	sp!, {r0-r3}
+>> -	add	r0, sp, #16		@ sp at exit of instrumented routine
+>> +	add	r0, sp, #20		@ sp at exit of instrumented routine
+>> +	str	r0, [sp, #16]
+>> +	mov	r0, sp
 > 
-> Yimin Gu is the original author of this set.
-> Submitted here:
-> https://lists.buildroot.org/pipermail/buildroot/2022-November/656134.html
+> 1) EABI wants the stack to be aligned to 8 bytes.
+> 2) We can do better than this.
 > 
-> [...]
+> 	mov	ip, sp
+> 	stmdb	sp!, {r0-r3, ip, lr}
+> 	mov	r0, sp
 
-Applied, thanks!
+Great, I will modify it.
 
-[2/3] riscv: Kconfig: Allow RV32 to build with no MMU
-      https://git.kernel.org/palmer/c/b5e2c507b06c
-[3/3] riscv: configs: Add nommu PHONY defconfig for RV32
-      https://git.kernel.org/palmer/c/77c0c966719f
+> 
+>>   	bl	ftrace_return_to_handler
+>>   	mov	lr, r0			@ r0 has real ret addr
+>>   	ldmia	sp!, {r0-r3}
+> 
+> 	ldmia	sp, {r0-r3}		@ since we need to manually adjust sp,
 
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Thanks, I will modify it.
+
+> 
+>> +	add	sp, sp, #4		@ skip fp
+> 
+> 	add	sp, sp, #4 * 6		@ restore stack pointer here
+
+Thanks, I will modify it.
+
+> 
+>>   	ret	lr
+>>   ENDPROC(return_to_handler)
+>>   #endif
+>> -- 
+>> 2.25.1
+>>
+>>
+>> _______________________________________________
+>> linux-arm-kernel mailing list
+>> linux-arm-kernel@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+>>
+> 
 
 
 _______________________________________________
