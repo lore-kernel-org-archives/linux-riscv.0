@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02BAC74A5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 03:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C18DC6FD18
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 03:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bOn83/tHcgwUPgI3csr2SQNgqUaic3G/Vf7S/LJmGaA=; b=ahDAO0/R2nXhRx
-	F7Ng5uzkoq8F+63LCEu5juVy1zCOVNItoEduneXVs+mPVFkzmAGDJIz6AbO7wfkYxcKJcquRgxi7R
-	bf4gGlVA+Sa+VQygazfZnWC8FEra7e+jLMPhiWrVFlc74KCPKRB/uouHT9ZtCGRP3Bokfoc821Z7i
-	4TQY5na5vqKfVDCRSp3wPmXNHkJxGRJ+2up7PtrtSkpu+bGX8JxBlvS+I2jrbBM+6Rse7lIiP8VS/
-	tUhnqrwfjXmvEDKm2kJo+wGCPXRauOPJg5YXvbfrIHV15Tm3of1RwFWEe4FY0w3UcOhLdjQlifGE5
-	imENB3y+Nzz6unbIy5iw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3iNahXuwimnEF6/BbmWq4M48qM3e31ngTRYffGHrslU=; b=JuNEG47FSeYDbU
+	MfCCRtacD/yw4d+UoYOEtaenHMRaoJ1ska7/ydCXpQtCn5JdbPpzQ7nf1bEJB1e4l8vVawKkBfYjr
+	MWggsUOc2LsLJd1bT7DTHzi/f1+2YMTqdpwbjdjoCZbLjVrpp5X4lNVUwxFkB/wHD3vGWgQ9DvteU
+	dISlPb0o5sl3WeNWFsklIZt/GvgW5NPKhAMSqtNddkav84/gmVL986JFjeyzmmLlLUXmu8DlhINsN
+	CtKUt5vNyu5ugt8Vkoh10QRrBzboC/N2CrKubQtBHwSEnG3+ioJA7X1LA34mbCBu2HQiwWelV79Je
+	QkA+k63EQIyBhtsjCKog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phMrZ-00GUKf-2u;
-	Wed, 29 Mar 2023 03:52:41 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1phMuq-00GUcB-1u;
+	Wed, 29 Mar 2023 03:56:04 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phMrX-00GUJd-1T
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 03:52:40 +0000
-Received: by mail-wr1-x430.google.com with SMTP id q19so11167662wrc.5
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 20:52:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1680061952;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sxGaqLyKO1TN0pSBe4xZ3Bl0DqqI6clzZtcK/yjTF7U=;
-        b=Bg6O58r7hoxolYUP1MmFER3k3jKGZGxL4khw0OL6OElNmfbPi6G/IugpY79p8r2NQC
-         Ix0IOyILyuOfKT8r1+tse0+BW5VOKD3SofIWK50yyjF1ywrvY8OcMsjZ8LXGGn2AQuKh
-         7PgD69LIPjUrG1SS98FPfbhCpqqodi2fWRwda0BvQ70uKepeVqvqSxDUOdSTc49Qt0mf
-         sQYFY1V+gHsec7OuksjC6rBWNtM0Yv89y6wXTFkKW/X31UHnJOHoi95A7mFLwjmzBhWp
-         EoMUvqJGe8dyTgmuAi9r3TxKdWq7eW85N2jRTDGnaqKvkfD+Fw1fofX8OYvMvh3I5WvZ
-         ME4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680061952;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sxGaqLyKO1TN0pSBe4xZ3Bl0DqqI6clzZtcK/yjTF7U=;
-        b=L9FkkzCtcerzPoWw4k15py2lzvq9QrCLj6zLwlJQ3stYxjgzhi3ReoET/yX3eDZX89
-         fIYfmIHz73zmI//twrkFlxg9oRHFMXI+ryxD48C5Sn8YK4R+AWzKEthTsnZ1PSpkqe25
-         QfXO+ctGUug9SFe8Aacm++lrCWUmHM6OfAsiVoECg3dv5l7wwFXmJtzaIjhQgS9D0ewY
-         xGiCm2yitXDnNvJnkLIr0WbMzm4PfLpDltzkRyJREPjwlBRZsFZiKOoJ7ONY7FFjgHNM
-         R6qwCwj5z0Z7OxyhoLcE8G8aU2ff+D2L8GQ9848vluBqC8+afHvn+g2z9hkjmmi+3rbu
-         GU8Q==
-X-Gm-Message-State: AAQBX9cjVXLMM12cv/14FUmbhE9lDBHBRVmC7FWXnQqP4sBRXTamtwjC
-	bhrFf60iqsVQEC7djaiAIRlKm8j+7bO5dUhlEFyGLA==
-X-Google-Smtp-Source: AKy350ZJEKNgAfeLl8iFYh0WtB68/u80mVXbwZzO4ynTLgaC60l429Z+cbqfWCRLLGb09urTuZTRPLBtBV3NpOHVPk8=
-X-Received: by 2002:adf:db4b:0:b0:2ce:ac97:6f51 with SMTP id
- f11-20020adfdb4b000000b002ceac976f51mr2959523wrj.13.1680061952265; Tue, 28
- Mar 2023 20:52:32 -0700 (PDT)
+	id 1phMul-00GUZp-10;
+	Wed, 29 Mar 2023 03:56:01 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4PmXgr1q2hz17QM4;
+	Wed, 29 Mar 2023 11:52:40 +0800 (CST)
+Received: from localhost.localdomain (10.50.163.32) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 29 Mar 2023 11:55:55 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <akpm@linux-foundation.org>, <linux-mm@kvack.org>,
+	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <anshuman.khandual@arm.com>,
+	<linux-doc@vger.kernel.org>
+CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
+	<punit.agrawal@bytedance.com>, <linux-kernel@vger.kernel.org>,
+	<darren@os.amperecomputing.com>, <yangyicong@hisilicon.com>,
+	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
+	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
+	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
+	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
+	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>
+Subject: [PATCH v8 0/2] arm64: support batched/deferred tlb shootdown during page reclamation
+Date: Wed, 29 Mar 2023 11:55:10 +0800
+Message-ID: <20230329035512.57392-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
-References: <20230327115642.1610-1-cuiyunhui@bytedance.com> <d7111158-7e17-4c88-a8c1-a568db5891fa@spud>
-In-Reply-To: <d7111158-7e17-4c88-a8c1-a568db5891fa@spud>
-From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
-Date: Wed, 29 Mar 2023 11:52:21 +0800
-Message-ID: <CAEEQ3wkKr9NhKwo0O3D=pfi80j7-cup3VgaWuk8vdk87=ryy6g@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH] riscv/fault: Dump user opcode bytes on
- fatal faults
-To: Conor Dooley <conor@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_205239_501062_4F77AED1 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20230328_205559_686910_E2FFA8F5 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +70,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsCgpPbiBXZWQsIE1hciAyOSwgMjAyMyBhdCAxOjAz4oCvQU0gQ29ub3IgRG9vbGV5
-IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKCj4gcmlzY3YvZmF1bHQ6IER1bXAgdXNlciBvcGNv
-ZGUgYnl0ZXMgb24gZmF0YWwgZmF1bHRzCj4KPiBJIHRoaW5rIHlvdSBjYW4gZHJvcCB0aGUgL2Zh
-dWx0LCB3ZSBkb24ndCB1c3VhbGx5IHVzZSBwcmVmaXhlcyB0aGF0IGxpa2UKPiBmb3IgUklTQy1W
-Lgo+Cm9rLCBpJ2xsIHVwZGF0ZSBpdCBvbiB2MgoKCj4gPiBJbiB0aGlzIHdheSwgd2UgZm91bmQg
-dGhlIHByb2JsZW06IGluIHRoZSBzeXN0ZW0gYnJpbmd1cCAsIGl0IGlzCj4gPiBwcmVjaXNlbHkg
-dGhhdCB3ZSBoYXZlIG5vdCBlbmFibGVkIHRoZSBmbG9hdGluZyBwb2ludCBmdW5jdGlvbi4KPgo+
-IFdoYXQgZG8geW91IG1lYW4gYnkgdGhhdCAiaGF2ZSBub3QgZW5hYmxlZCB0aGUgZmxvYXRpbmcg
-cG9pbnQgZnVuY3Rpb24iPwoKVGhlIHJlbGF0ZWQgY3B1IGZlYXR1cmUoQ09NUEFUX0hXQ0FQX0lT
-QV9GKSBpcyBub3QgZW5hYmxlZCBpbiB0aGUKcmlzY3ZfZmlsbF9od2NhcCBmdW5jdGlvbiBpbnRl
-cmZhY2UuCgoKPiA+IFNvIHdoZW4gYW4gZXhjZXB0aW9uIG9jY3VycywgaXQgaXMgbmVjZXNzYXJ5
-IHRvIGR1bXAgdGhlIGluc3RydWN0aW9uCj4gPiB0aGF0IGNhdXNlZCB0aGUgZXhjZXB0aW9uLCBs
-aWtlIHg4Ni9mYXVsdCAoYmE1NGQ4NTZhOWQ4KS4KPgo+IFRoYXQncyBub3QgdGhlIHVzdWFsIGZv
-cm1hdCBmb3IgcmVmZXJyaW5nIHRvIGNvbW1pdHMsIGNoZWNrcGF0Y2ggc2hvdWxkCj4gY29tcGxh
-aW4gYWJvdXQgdGhhdC4KCm9rLCBpJ2xsIHVwZGF0ZSBpdCBvbiB2Mi4KCj4gPgo+ID4gTG9nczoK
-PiA+IFsgICAgMC44MjI0ODFdIFJ1biAvaW5pdCBhcyBpbml0IHByb2Nlc3MKPiA+IFsgICAgMC44
-Mzc1NjldIGluaXRbMV06IHVuaGFuZGxlZCBzaWduYWwgNCBjb2RlIDB4MSBhdCAweDAwMDAwMDAw
-MDAwNWUwMjggaW4gYmJbMTAwMDArNWZlMDAwXQo+ID4gWyAgICAwLjkzMjI5Ml0gQ1BVOiAwIFBJ
-RDogMSBDb21tOiBpbml0IE5vdCB0YWludGVkIDUuMTQuMC1yYzQtMDAwNDgtZzRhODQzYzkwNDNl
-OC1kaXJ0eSAjMTM4Cj4KPiA1LjE0LXJjND8sIG9vZiEgTmVlZCB0byBnZXQgeW91cnNlbGYgb250
-byBhIHJlbGVhc2VkLCBMVFMga2VybmVsIEkKPiB0aGluayEKCkp1c3QgYSBwcmludCx2Ni4zLXJj
-MSBhbHNvIGhhcyB0aGlzIHByb2JsZW0uCgo+Cj4gQW55d2F5LCB0aGlzIHBhdGNoIGRvZXNuJ3Qg
-YXBwbHkgdG8gZWl0aGVyIHJpc2N2L2Zvci1uZXh0LCByaXNjdi9maXhlcwo+IG9yIHY2LjMtcmMx
-LiBXaGF0IGlzIHRoZSBhcHByb3ByaWF0ZSBiYXNlIHRvIGFwcGx5IHRoaXMgcGF0Y2g/Cgpvaywg
-aSdsbCB1cGRhdGUgaXQgb24gdjIuCgoKPiA+IFsgICAgMC45MzYwNzNdICBzMiA6IDAwMDAwMDAw
-MDAwMDAwMDAgczMgOiAwMDAwMDAwMDAwMDAwMDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwMAo+ID4g
-WyAgICAwLjkzNjQ5NV0gIHM1IDogMDAwMDAwMDAwMDAwMDAwMCBzNiA6IDAwMDAwMDAwMDAwMDAw
-MDAgczcgOiAwMDAwMDAwMDAwMDAwMDAwCj4gPiBbICAgIDAuOTM2OTQ3XSAgczggOiAwMDAwMDAw
-MDAwMDAwMDAwIHM5IDogMDAwMDAwMDAwMDAwMDAwMCBzMTA6IDAwMDAwMDAwMDAwMDAwMDAKPiA+
-IFsgICAgMC45Mzc0ODddICBzMTE6IDAwMDAwMDAwMDBkMTQ5ODAgdDMgOiAwMDAwMDAwMDAwMDAw
-MDAwIHQ0IDogMDAwMDAwMDAwMDAwMDAwMAo+ID4gWyAgICAwLjkzNzk1NF0gIHQ1IDogMDAwMDAw
-MDAwMDAwMDAwMCB0NiA6IDAwMDAwMDAwMDAwMDAwMDAKPiA+IFsgICAgMC45Mzg1MTBdIHN0YXR1
-czogMDAwMDAwMDIwMDAwMDAyMCBiYWRhZGRyOiAwMDAwMDAwMGYwMDI4MDUzIGNhdXNlOiAwMDAw
-MDAwMDAwMDAwMDAyCj4KPiBJIGhhdmUgbm8gaWRlYSB3aGF0IHRoZSBzaWduaWZpY2FuY2Ugb2Yg
-dGhpcyBwYXJ0aWN1bGFyIGJhY2t0cmFjZSBpcywKPiBjb3VsZCB5b3UgZWxhYm9yYXRlIG9uIHdo
-YXQgdGhpcyBpcyBkZW1vbnN0cmF0aW5nPyAoYW5kIGRyb3AgdGhlIGxlYWRpbmcKPiBbIyMjXSB0
-b28gYXMgaXQgZG9lc24ndCBleGFjdGx5IGFkZCBhbnl0aGluZyEKClRoZSBjdXJyZW50IGNhbGwg
-dHJhY2UgZG9lcyBub3Qgc2hvdyB0aGUgaW5zdHJ1Y3Rpb24gdGhhdCBjYXVzZWQgdGhlCmV4Y2Vw
-dGlvbi4gb2ssIEknbGwgcmVtb3ZlIGl0IG9uIHYyLgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Yicong Yang <yangyicong@hisilicon.com>
+
+Though ARM64 has the hardware to do tlb shootdown, the hardware
+broadcasting is not free.
+A simplest micro benchmark shows even on snapdragon 888 with only
+8 cores, the overhead for ptep_clear_flush is huge even for paging
+out one page mapped by only one process:
+5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
+
+While pages are mapped by multiple processes or HW has more CPUs,
+the cost should become even higher due to the bad scalability of
+tlb shootdown.
+
+The same benchmark can result in 16.99% CPU consumption on ARM64
+server with around 100 cores according to Yicong's test on patch
+4/4.
+
+This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
+1. only send tlbi instructions in the first stage -
+	arch_tlbbatch_add_mm()
+2. wait for the completion of tlbi by dsb while doing tlbbatch
+	sync in arch_tlbbatch_flush()
+Testing on snapdragon shows the overhead of ptep_clear_flush
+is removed by the patchset. The micro benchmark becomes 5% faster
+even for one page mapped by single process on snapdragon 888.
+
+This support also optimize the page migration more than 50% with support
+of batched TLB flushing [*].
+
+[*] https://lore.kernel.org/linux-mm/20230213123444.155149-1-ying.huang@intel.com/
+
+-v8:
+1. Rebase on 6.3-rc4
+2. Tested the optimization on page migration and mentioned it in the commit
+3. Thanks the review from Anshuman.
+Link: https://lore.kernel.org/linux-mm/20221117082648.47526-1-yangyicong@huawei.com/
+
+-v7:
+1. rename arch_tlbbatch_add_mm() to arch_tlbbatch_add_pending() as suggested, since it
+   takes an extra address for arm64, per Nadav and Anshuman. Also mentioned in the commit.
+2. add tags from Xin Hao, thanks.
+Link: https://lore.kernel.org/lkml/20221115031425.44640-1-yangyicong@huawei.com/
+
+-v6:
+1. comment we don't defer TLB flush on platforms affected by ARM64_WORKAROUND_REPEAT_TLBI
+2. use cpus_have_const_cap() instead of this_cpu_has_cap()
+3. add tags from Punit, Thanks.
+4. default enable the feature when cpus >= 8 rather than > 8, since the original
+   improvement is observed on snapdragon 888 with 8 cores.
+Link: https://lore.kernel.org/lkml/20221028081255.19157-1-yangyicong@huawei.com/
+
+-v5:
+1. Make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends on EXPERT for this stage on arm64.
+2. Make a threshold of CPU numbers for enabling batched TLP flush on arm64
+Link: https://lore.kernel.org/linux-arm-kernel/20220921084302.43631-1-yangyicong@huawei.com/T/
+
+-v4:
+1. Add tags from Kefeng and Anshuman, Thanks.
+2. Limit the TLB batch/defer on systems with >4 CPUs, per Anshuman
+3. Merge previous Patch 1,2-3 into one, per Anshuman
+Link: https://lore.kernel.org/linux-mm/20220822082120.8347-1-yangyicong@huawei.com/
+
+-v3:
+1. Declare arch's tlbbatch defer support by arch_tlbbatch_should_defer() instead
+   of ARCH_HAS_MM_CPUMASK, per Barry and Kefeng
+2. Add Tested-by from Xin Hao
+Link: https://lore.kernel.org/linux-mm/20220711034615.482895-1-21cnbao@gmail.com/
+
+-v2:
+1. Collected Yicong's test result on kunpeng920 ARM64 server;
+2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
+   according to the comments of Peter Zijlstra and Dave Hansen
+3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
+   is empty according to the comments of Nadav Amit
+
+Thanks, Peter, Dave and Nadav for your testing or reviewing
+, and comments.
+
+-v1:
+https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
+
+Anshuman Khandual (1):
+  mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
+
+Barry Song (1):
+  arm64: support batched/deferred tlb shootdown during page reclamation
+
+ .../features/vm/TLB/arch-support.txt          |  2 +-
+ arch/arm64/Kconfig                            |  6 +++
+ arch/arm64/include/asm/tlbbatch.h             | 12 +++++
+ arch/arm64/include/asm/tlbflush.h             | 52 ++++++++++++++++++-
+ arch/x86/include/asm/tlbflush.h               | 17 +++++-
+ include/linux/mm_types_task.h                 |  4 +-
+ mm/rmap.c                                     | 21 +++-----
+ 7 files changed, 94 insertions(+), 20 deletions(-)
+ create mode 100644 arch/arm64/include/asm/tlbbatch.h
+
+-- 
+2.24.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
