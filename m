@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F58C6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B047C74A5B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kHzboLhmrF3M9U0mlzU4Gu6M0Q9ohZeNdbbFBkoEqhg=; b=SiQAM14cbJtbSl
-	wo1Izh53BnB+TToT/GksO4ENi2GQmxis2Lj9eDqJDpq65Bw89WzqSaLPQWkwIrmqH5H4j8tw96SNK
-	sIBYADlylxraNYL6zefxt/pSUhZPhyUuj1p8pNaaQqHyIROhmVeM6aRh9YM3QvzBCFtXSRH8zWvam
-	eZ6xfvtFb0C/PJjcPrAvokCIHQjnreAzEPvpZ9l48casUuZWRfPlvrrXG6cTusnykKhP8+BkN7ofM
-	sdDzPd43hACNlMEcb089hJdsJsmHKU/jt7PlDJa9s439GZaYpSOkRGWk5LI7J9nhL2tZ6QMdV8ZUO
-	p6LJMwVarQinyGa1EwNA==;
+	List-Owner; bh=x6aKSu7vLJ0ZLLfeoMZkeN4twaZfsYW7pXD0NapqrNw=; b=eiY0YXy5X5psEy
+	+f2JazskMMA8qbwRmOL3T6iiui5V5eOzjcNBqukh7v5QTxevNECXl26hPStfoaY3aSmNvEBZX5EeP
+	eZrofgkMLLZ/m6NIbz3tVP0Bx800Lny+kxodQ2UbiSq/VCOmzmRMY35B28WeN7N8Utbn08oyr3E4a
+	7furIzyPz6PJo8UieycjuWgPXhGAYDCVzMXy1NaVGi9KJknMFxjMaCo4EJtgb31UYAx7mxhmkXmT4
+	XiYlUMG4f9p4YRT1GWHWNTupGFJuBdar6weunwYu8efy8ULvNWg7Wpp9X4u98X7c7IZRKQADEx23p
+	EBP/p7j5V5Ue32Btvj8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6Z-000sUN-2i;
-	Wed, 29 Mar 2023 15:52:55 +0000
-Received: from mail-oi1-f170.google.com ([209.85.167.170])
+	id 1phY6c-000sWa-2i;
+	Wed, 29 Mar 2023 15:52:58 +0000
+Received: from mail-oo1-f50.google.com ([209.85.161.50])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6W-000sSQ-1S;
-	Wed, 29 Mar 2023 15:52:53 +0000
-Received: by mail-oi1-f170.google.com with SMTP id r84so10635031oih.11;
-        Wed, 29 Mar 2023 08:52:50 -0700 (PDT)
+	id 1phY6Z-000sSq-0S;
+	Wed, 29 Mar 2023 15:52:56 +0000
+Received: by mail-oo1-f50.google.com with SMTP id n3-20020a4ad403000000b0053351dadc20so2495852oos.13;
+        Wed, 29 Mar 2023 08:52:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105169;
+        d=1e100.net; s=20210112; t=1680105172;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UL9zh/S00J+cmPfrAtv4vflOTxQVISfijtGfdl2R3L0=;
-        b=BKsMKGW8DYBrhxXfQHIW+cQfDTXisldfLg140ErlOOMI18UVt7TXB0enxpzzA4Xm4M
-         3lA13fSGkMYdvvr/5sPINTlRD9nIfxTsj88cNbSUqvAwaHEGhG0p096zzbQBd7lmJZDG
-         BQOm5LEaLoTl1QZFeNChBeqkw31fcRiOFda/zie3B+zyu8kkiD0XEDJBtYqu7UJIF7X6
-         KUaYkoTYcgNc8O6V1rd9jcD0lU1nSrUMN9DHu4Fo5ZceoK/IVKrcbdNPZkmE8gclmXub
-         pJnNzFVPmxkmfSyznhZg6kMp9aufuX/IVUKwF/rJz33SGvw4JavmGH1FW1wPHp5EGrok
-         VhLw==
-X-Gm-Message-State: AAQBX9e9LvQTVHHASkReQUDB1MlQmBLf4Og7HQqsptY7pl/3c8mg5ViP
-	RY5Ub7bG9q3lRdycTqhFBQ==
-X-Google-Smtp-Source: AKy350YWPg6naXojJ+dh5QDGD5h6eaepx41Bc/m1xdmR3LQVsEP9dglulW7uPvOZ4q19z4rMeJNnvA==
-X-Received: by 2002:a05:6808:4da:b0:386:9883:ca9d with SMTP id a26-20020a05680804da00b003869883ca9dmr1291968oie.2.1680105169571;
-        Wed, 29 Mar 2023 08:52:49 -0700 (PDT)
+        bh=hUvdSWvlelGy1WbXkwFcUNCtjmz5cL2Z3yoJim8fyN4=;
+        b=aisEJMQeOkOVR+SMsyEThIGOLH8EJJgsuBBb0THMaIHvtI0AkBKN3wqIo0h6KNHqdU
+         2ue9Z8JzjMeISFORNrvR8EAYqzRXNLJ6ES6G0Ug2M4Tfmj1PGsXUhbWARqC83HOa6ohR
+         KToD5DxgFKcavrJaDQSbXtWUPaYwwIClkjc9EbH3bPPW6AEzanl9tXrkEGwKipGhmX3X
+         iqioh1d3c//GJtog40pXd4Ba3XeydxGyc5vFJVg5nxI5NjwSjOqMY+6+AHQr2wvSNln6
+         o/E+u/9ly7ImtiXiPJoLWy9UJs1DGioTemFosK8bT3fR6OG3YTlO3PwqnWx7b4v6AI7K
+         AeeA==
+X-Gm-Message-State: AO0yUKU275iP0yr0+JM+YKsuj0EHP2oy1kIHLRxWVqF0TkOFE3dLhTVi
+	2+UKiyBuqrMyt00nqzj9hQ==
+X-Google-Smtp-Source: AK7set8fZmNpueyLlqRjeVxsIcrGmIm7sG0omBAJB7zOEj3TTntZfmKbMnjZiGlZRcAnzZ6+ha8iMg==
+X-Received: by 2002:a4a:4191:0:b0:538:4d29:30cb with SMTP id x139-20020a4a4191000000b005384d2930cbmr9034039ooa.8.1680105171818;
+        Wed, 29 Mar 2023 08:52:51 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id v184-20020acadec1000000b003871471f894sm10161090oig.27.2023.03.29.08.52.47
+        by smtp.gmail.com with ESMTPSA id 129-20020a4a1887000000b005252d376caesm13850273ooo.22.2023.03.29.08.52.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:52:49 -0700 (PDT)
-Received: (nullmailer pid 3198065 invoked by uid 1000);
+        Wed, 29 Mar 2023 08:52:51 -0700 (PDT)
+Received: (nullmailer pid 3198095 invoked by uid 1000);
 	Wed, 29 Mar 2023 15:52:45 -0000
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:51:59 -0500
-Subject: [PATCH 02/19] of: Move of_device_(add|register|unregister) to
- of_platform.h
+Date: Wed, 29 Mar 2023 10:52:14 -0500
+Subject: [PATCH 17/19] irqchip: loongson-eiointc: Add explicit include for
+ cpuhotplug.h
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-2-581e2605fe47@kernel.org>
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-17-581e2605fe47@kernel.org>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
@@ -82,8 +82,8 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_085252_499671_AE0E1841 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20230329_085255_184645_5555D57C 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,48 +100,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As of_device_(add|register|unregister) functions work on struct
-platform_device, they should be declared in of_platform.h instead.
+Removing the include of cpu.h from of_device.h causes an error:
 
-This move is transparent for now as both headers include each other.
+drivers/irqchip/irq-loongson-eiointc.c:420:9: error: implicit declaration of function 'cpuhp_setup_state_nocalls' [-Werror=implicit-function-declaration]
+
+This driver doesn't even use DT, so all the DT includes can be dropped.
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- include/linux/of_device.h   | 4 ----
- include/linux/of_platform.h | 5 +++++
- 2 files changed, 5 insertions(+), 4 deletions(-)
+Please ack and I will take the series via the DT tree.
+---
+ drivers/irqchip/irq-loongson-eiointc.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/include/linux/of_device.h b/include/linux/of_device.h
-index f4b57614979d..e4aa61cb2bd0 100644
---- a/include/linux/of_device.h
-+++ b/include/linux/of_device.h
-@@ -26,10 +26,6 @@ static inline int of_driver_match_device(struct device *dev,
- 	return of_match_device(drv->of_match_table, dev) != NULL;
- }
+diff --git a/drivers/irqchip/irq-loongson-eiointc.c b/drivers/irqchip/irq-loongson-eiointc.c
+index d15fd38c1756..fd9d87f1470e 100644
+--- a/drivers/irqchip/irq-loongson-eiointc.c
++++ b/drivers/irqchip/irq-loongson-eiointc.c
+@@ -7,16 +7,13 @@
  
--extern int of_device_add(struct platform_device *pdev);
--extern int of_device_register(struct platform_device *ofdev);
--extern void of_device_unregister(struct platform_device *ofdev);
--
- extern const void *of_device_get_match_data(const struct device *dev);
+ #define pr_fmt(fmt) "eiointc: " fmt
  
- extern ssize_t of_device_modalias(struct device *dev, char *str, ssize_t len);
-diff --git a/include/linux/of_platform.h b/include/linux/of_platform.h
-index d15b6cd5e1c3..8ac5cb933dc3 100644
---- a/include/linux/of_platform.h
-+++ b/include/linux/of_platform.h
-@@ -52,6 +52,11 @@ extern const struct of_device_id of_default_bus_match_table[];
- extern struct platform_device *of_device_alloc(struct device_node *np,
- 					 const char *bus_id,
- 					 struct device *parent);
-+
-+extern int of_device_add(struct platform_device *pdev);
-+extern int of_device_register(struct platform_device *ofdev);
-+extern void of_device_unregister(struct platform_device *ofdev);
-+
- #ifdef CONFIG_OF
- extern struct platform_device *of_find_device_by_node(struct device_node *np);
- #else
++#include <linux/cpuhotplug.h>
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/kernel.h>
+-#include <linux/platform_device.h>
+-#include <linux/of_address.h>
+-#include <linux/of_irq.h>
+-#include <linux/of_platform.h>
+ #include <linux/syscore_ops.h>
+ 
+ #define EIOINTC_REG_NODEMAP	0x14a0
 
 -- 
 2.39.2
