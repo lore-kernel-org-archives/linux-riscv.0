@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C085C6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 04:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF1BC761AF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 04:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RNfHB3lnGeDc+Uc4S8hFq4VzLyDRQka5WXdTgqf7M1c=; b=AXnULGUH3nJtJ3
-	/AvUKuUiA9k2CK5fQccOsCMNGjRR5Lc++R/VHBpLvIsnTnI6mRu3Z+uhujlq9dmlX0hy435JMSksY
-	4NqiMAb8B6PyoiaR/cAAAglJPaBeAstdR3IsQBme2k7I5RDf4EtiNOq75my/PMs4hXCkuwIgfxo+V
-	U+qHkmAxAQv2EU9eQ37YWLa9Az9s4WFPaPpWUOI2GRm6Lrq9McE1IiyxpENJCcqdzTLwfC5XnmJv5
-	wHVAu0+8qaRs15oAI/Xbj4S3ovl+nC3+xz8IzzGBcc8h29jjpY3hwagk3cQe8WRwWG8+H8x8SkuOE
-	Zlrh5bY2+EMElrgxLwBQ==;
+	List-Owner; bh=W+dFR/Sq2DedrHg3WxDfJ/MSTsBvsypZOhz7mH6wtjc=; b=CN7zr08AmkrGyf
+	5kdqO5vaKgzpXf1CyUq7SE7ZVikK3IOti5VzEcbXLRYLdODPdxIeQbuWi9RRNXIQYg1mCrOH8hU8v
+	ZH+cgxDuO8oAs1odvr8oXVzQii4iO0cOgO996I5SThi0LwNSmDV/fiT0OnMewhuFwEoDNdhNKa4B0
+	hgE3wAmJxBBnbalViwfCSkskqnVWqvnGwGJmduKSxGfiARzPepkiGWg2X6fkLZVmL+XkkNP9Psr8+
+	ZGX5/mfSVYS44G4ywvOeW+8GfvR/IILJtLDfDq7363eIm26oc1DcT466kDdQO9kKQIkfu7/DE6rvz
+	hP3KHlXsc5IKoJpFPj+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phNtT-00GcLu-2y;
-	Wed, 29 Mar 2023 04:58:43 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1phNuT-00GcZ6-01;
+	Wed, 29 Mar 2023 04:59:45 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phNtR-00GcL3-0f
+	id 1phNuP-00GcYJ-2e
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 04:58:42 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id v1so14339658wrv.1
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 21:58:40 -0700 (PDT)
+	Wed, 29 Mar 2023 04:59:43 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id i5-20020a05600c354500b003edd24054e0so10648725wmq.4
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Mar 2023 21:59:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680065919;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680065980;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZSs9kTLEr3gcw2nAKoZU9JNtCpmjcd0KenqM1ZfQgo4=;
-        b=lO1y4yq1PwBxe+8AJb6u6BDoMPFaCMy/BL0GvwPGmyd2EIze0IcibTOK/QPflRVmnA
-         hFY/Ukba0Dp3YB+iOiOOfTTbrDUDqxk57w8qLlZaBwAVPw6orKn+jDfJTUabT0vjO0Gs
-         MfPreJqaqCjbjpaep9XRh3Fz1bImQeDyizQ6Au5kaxkj2sVzhTrc2F4yTwlM9Y6JNti6
-         3AGBBA0b/J0E8pFGlRtm4995Qb3cbWvFO5oIp26KsHCaNh2+toBq9Ct/1yIrbic4HaBy
-         WkA3LLbqfJ8UkkYCF0H5KXjY5f/NBPGG0LChQRG7/6oYxj54WKXo7p7eTNs+mi7QSLNx
-         xG8Q==
+        bh=l2nyBWkEl893cb8p3Xcv9ddibZeqm3dx5h/n4mJzM0I=;
+        b=a+A3vmtN33rV7G2K+kBT5+09RNfw/x9RSy+q2X3PBbr29xgkn5AQt12Fbediy1rrcC
+         iHU5gwK6JXKuap5Q1K7ZWEHCpYah/bxgqzwBr1yWkZ7mh7r58y1ARcbbZcV8tzEpyFZf
+         VDgXJr/tDJG2F0g9ahkj0NkZFJvy+ATuc/EtdJZvDtU/skKpBzTkNMEHgFcM7dZ0S8Er
+         0eHpqVt7Wim1e1rCAGgxA04h6ZrRWhIYTlP6NK+v9auLZyoJkLfTpVcTWrSdLfMq4V8r
+         hjcdeqmxZeOMiEHhoNumsB/hafrv2w9DmhB2P7mDfgctEKEXOeNUvMmKfuAJRA7CSlDX
+         2FeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680065919;
+        d=1e100.net; s=20210112; t=1680065980;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZSs9kTLEr3gcw2nAKoZU9JNtCpmjcd0KenqM1ZfQgo4=;
-        b=aPBg8PlvvKw4/jZq/7eOkBhNS6XLE42Ueo/GoLsLsR5CNYBQuTi146jZr6jpCOhRmm
-         lshtkZnpgFiL+cEwIy5sD1AMQA8Sed21O3dkijKu+8XH6R076NISrwd7ZhlA7PccqeUD
-         eHVY7sRnoMvzCOcaIAS9s0w5u1RQjQrF0DMMldqRxoLdWF4U4ElX85oNqRdNIvruIWZk
-         jnk5YJHRamqLhdfHJg9Bu8Bg9/kUvlxamnW8X4zNHQcqOc3kgqNpI2v78vTPQ4synQta
-         fzAPZjBlE6qa3KEDPomShgUyfeluaavu27igWPPOThZMNtd3QMF3UQBndYCRfYs/3qKx
-         ieqg==
-X-Gm-Message-State: AAQBX9fA+kOAwPzMvuEFQJUmD9DNZZZ96fyZW4nCL4wKKRVvwwJFo+VX
-	ukm9o8pcb548bgz45gVw7WQZvw==
-X-Google-Smtp-Source: AKy350Z51j1bBKrXk97y5JX1wSgTTowVMS1BaZOjNaHlHomGdJnrKLmbOfwk1rsbLBsYnb7mc20NEQ==
-X-Received: by 2002:adf:eace:0:b0:2cf:e3d0:2a43 with SMTP id o14-20020adfeace000000b002cfe3d02a43mr16161943wrn.4.1680065919124;
-        Tue, 28 Mar 2023 21:58:39 -0700 (PDT)
+        bh=l2nyBWkEl893cb8p3Xcv9ddibZeqm3dx5h/n4mJzM0I=;
+        b=vOkdxPIf/FPDYmOmcMVbGxBYUD8F2VNcmDmKSvRJu3sUTZBn1QjieRJqmh0+6iLTRc
+         U6y9dgV7r6rEyZuCFqNU/h9m5l/GWspKwadpGOIRs9fg9gZepOr6v5b4QFDRPn2c27tL
+         xOqswV1kNP+RxaKRRbhEe+2bIrhiqVYQSAshvOrr8rU4jtTSz+oG1WpBDGcVaBshR7Qq
+         kLb81LC3/knuqhoW3n+dOf/ojGPcWZ2jfUk9jQ8juMLI2tX3mEP7LdGUCYFQnFyytmBW
+         7YhXzB6lujo44s4AekK5WxTDBa7CLeovhkRHk+3i6W+X8G/8VYvoHbfxXRF8dukAKFcK
+         zpfw==
+X-Gm-Message-State: AO0yUKUcNpgBp6tLFcAsThc3Jn28R4S7QmQIgDVP7iKjHoWkX0CnNxRs
+	PF15wngIhw2kTUvOxkFvs8lS2+mWIQlr7l4VFC0=
+X-Google-Smtp-Source: AK7set/hrrFzd6yhsYIengKEXesiDvT2OHC1fUfzzUtI8h99/a73zFv/Utk9ctYdbI75FCHmhSsncw==
+X-Received: by 2002:a05:600c:209:b0:3ee:282d:1016 with SMTP id 9-20020a05600c020900b003ee282d1016mr13218010wmi.25.1680065980323;
+        Tue, 28 Mar 2023 21:59:40 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id p12-20020a5d48cc000000b002d431f61b18sm27284287wrs.103.2023.03.28.21.58.38
+        by smtp.gmail.com with ESMTPSA id q18-20020a7bce92000000b003ef71d541cbsm842566wmj.1.2023.03.28.21.59.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Mar 2023 21:58:38 -0700 (PDT)
+        Tue, 28 Mar 2023 21:59:39 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Nick Desaulniers <ndesaulniers@google.com>,
 	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
@@ -75,18 +75,17 @@ To: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kbuild@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v9 5/6] riscv: Check relocations at compile time
-Date: Wed, 29 Mar 2023 06:53:28 +0200
-Message-Id: <20230329045329.64565-6-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v9 6/6] riscv: Use --emit-relocs in order to move .rela.dyn in init
+Date: Wed, 29 Mar 2023 06:53:29 +0200
+Message-Id: <20230329045329.64565-7-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230329045329.64565-1-alexghiti@rivosinc.com>
 References: <20230329045329.64565-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_215841_242558_2651E888 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20230328_215941_859537_2683B70A 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,108 +97,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Ghiti <alex@ghiti.fr>
-
-Relocating kernel at runtime is done very early in the boot process, so
-it is not convenient to check for relocations there and react in case a
-relocation was not expected.
-
-There exists a script in scripts/ that extracts the relocations from
-vmlinux that is then used at postlink to check the relocations.
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/Makefile.postlink     | 36 ++++++++++++++++++++++++++++++++
- arch/riscv/tools/relocs_check.sh | 26 +++++++++++++++++++++++
- 2 files changed, 62 insertions(+)
- create mode 100644 arch/riscv/Makefile.postlink
- create mode 100755 arch/riscv/tools/relocs_check.sh
-
-diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
-new file mode 100644
-index 000000000000..d5de8d520d3e
---- /dev/null
-+++ b/arch/riscv/Makefile.postlink
-@@ -0,0 +1,36 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# ===========================================================================
-+# Post-link riscv pass
-+# ===========================================================================
-+#
-+# Check that vmlinux relocations look sane
-+
-+PHONY := __archpost
-+__archpost:
-+
-+-include include/config/auto.conf
-+include $(srctree)/scripts/Kbuild.include
-+
-+quiet_cmd_relocs_check = CHKREL  $@
-+cmd_relocs_check = 							\
-+	$(CONFIG_SHELL) $(srctree)/arch/riscv/tools/relocs_check.sh "$(OBJDUMP)" "$(NM)" "$@"
-+
-+# `@true` prevents complaint when there is nothing to be done
-+
-+vmlinux: FORCE
-+	@true
-+ifdef CONFIG_RELOCATABLE
-+	$(call if_changed,relocs_check)
-+endif
-+
-+%.ko: FORCE
-+	@true
-+
-+clean:
-+	@true
-+
-+PHONY += FORCE clean
-+
-+FORCE:
-+
-+.PHONY: $(PHONY)
-diff --git a/arch/riscv/tools/relocs_check.sh b/arch/riscv/tools/relocs_check.sh
-new file mode 100755
-index 000000000000..baeb2e7b2290
---- /dev/null
-+++ b/arch/riscv/tools/relocs_check.sh
-@@ -0,0 +1,26 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0-or-later
-+# Based on powerpc relocs_check.sh
-+
-+# This script checks the relocations of a vmlinux for "suspicious"
-+# relocations.
-+
-+if [ $# -lt 3 ]; then
-+        echo "$0 [path to objdump] [path to nm] [path to vmlinux]" 1>&2
-+        exit 1
-+fi
-+
-+bad_relocs=$(
-+${srctree}/scripts/relocs_check.sh "$@" |
-+	# These relocations are okay
-+	#	R_RISCV_RELATIVE
-+	grep -F -w -v 'R_RISCV_RELATIVE'
-+)
-+
-+if [ -z "$bad_relocs" ]; then
-+	exit 0
-+fi
-+
-+num_bad=$(echo "$bad_relocs" | wc -l)
-+echo "WARNING: $num_bad bad relocations"
-+echo "$bad_relocs"
--- 
-2.37.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VG8gY2lyY3VtdmVudCBhbiBpc3N1ZSB3aGVyZSBwbGFjaW5nIHRoZSByZWxvY2F0aW9ucyBpbnNp
+ZGUgdGhlIGluaXQKc2VjdGlvbnMgcHJvZHVjZXMgZW1wdHkgcmVsb2NhdGlvbnMsIHVzZSAtLWVt
+aXQtcmVsb2NzLiBCdXQgdG8gYXZvaWQKY2FycnlpbmcgdGhvc2UgcmVsb2NhdGlvbnMgaW4gdm1s
+aW51eCwgdXNlIGFuIGludGVybWVkaWF0ZQp2bWxpbnV4LnJlbG9jcyBmaWxlIHdoaWNoIGlzIGEg
+Y29weSBvZiB2bWxpbnV4ICpiZWZvcmUqIHN0cmlwcGluZyBpdHMKcmVsb2NhdGlvbnMuCgpTdWdn
+ZXN0ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+ClN1Z2dlc3RlZC1ieTog
+TmljayBEZXNhdWxuaWVycyA8bmRlc2F1bG5pZXJzQGdvb2dsZS5jb20+ClNpZ25lZC1vZmYtYnk6
+IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2
+L01ha2VmaWxlICAgICAgICAgIHwgIDIgKy0KIGFyY2gvcmlzY3YvTWFrZWZpbGUucG9zdGxpbmsg
+fCAxMyArKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUgICAgIHwgIDcgKysr
+KysrKwogMyBmaWxlcyBjaGFuZ2VkLCAyMSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCgpk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKaW5k
+ZXggODYwYjA5ZTQwOWM3Li43ZGM2OTA0YTY4MzYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvTWFr
+ZWZpbGUKKysrIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQpAQCAtOCw3ICs4LDcgQEAKIAogT0JKQ09Q
+WUZMQUdTICAgIDo9IC1PIGJpbmFyeQogaWZlcSAoJChDT05GSUdfUkVMT0NBVEFCTEUpLHkpCi0J
+TERGTEFHU192bWxpbnV4ICs9IC1zaGFyZWQgLUJzeW1ib2xpYyAteiBub3RleHQgLXogbm9yZWxy
+bworCUxERkxBR1Nfdm1saW51eCArPSAtc2hhcmVkIC1Cc3ltYm9saWMgLXogbm90ZXh0IC16IG5v
+cmVscm8gLS1lbWl0LXJlbG9jcwogCUtCVUlMRF9DRkxBR1MgKz0gLWZQSUUKIGVuZGlmCiBpZmVx
+ICgkKENPTkZJR19EWU5BTUlDX0ZUUkFDRSkseSkKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvTWFr
+ZWZpbGUucG9zdGxpbmsgYi9hcmNoL3Jpc2N2L01ha2VmaWxlLnBvc3RsaW5rCmluZGV4IGQ1ZGU4
+ZDUyMGQzZS4uYTQ2ZmM1NzhiMzBiIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxlLnBv
+c3RsaW5rCisrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUucG9zdGxpbmsKQEAgLTE1LDEyICsxNSwy
+NSBAQCBxdWlldF9jbWRfcmVsb2NzX2NoZWNrID0gQ0hLUkVMICAkQAogY21kX3JlbG9jc19jaGVj
+ayA9IAkJCQkJCQlcCiAJJChDT05GSUdfU0hFTEwpICQoc3JjdHJlZSkvYXJjaC9yaXNjdi90b29s
+cy9yZWxvY3NfY2hlY2suc2ggIiQoT0JKRFVNUCkiICIkKE5NKSIgIiRAIgogCitpZmRlZiBDT05G
+SUdfUkVMT0NBVEFCTEUKK3F1aWV0X2NtZF9jcF92bWxpbnV4X3JlbG9jcyA9IENQUkVMICAgdm1s
+aW51eC5yZWxvY3MKK2NtZF9jcF92bWxpbnV4X3JlbG9jcyA9IGNwIHZtbGludXggdm1saW51eC5y
+ZWxvY3MKKworcXVpZXRfY21kX3JlbG9jc19zdHJpcCA9IFNUUklQUkVMICRACitjbWRfcmVsb2Nz
+X3N0cmlwID0gJChPQkpDT1BZKSAgIC0tcmVtb3ZlLXNlY3Rpb249Jy5yZWwuKicgICAgICAgXAor
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLXJlbW92ZS1zZWN0aW9uPScucmVsX18q
+JyAgICAgIFwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS1yZW1vdmUtc2VjdGlv
+bj0nLnJlbGEuKicgICAgICBcCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tcmVt
+b3ZlLXNlY3Rpb249Jy5yZWxhX18qJyAkQAorZW5kaWYKKwogIyBgQHRydWVgIHByZXZlbnRzIGNv
+bXBsYWludCB3aGVuIHRoZXJlIGlzIG5vdGhpbmcgdG8gYmUgZG9uZQogCiB2bWxpbnV4OiBGT1JD
+RQogCUB0cnVlCiBpZmRlZiBDT05GSUdfUkVMT0NBVEFCTEUKIAkkKGNhbGwgaWZfY2hhbmdlZCxy
+ZWxvY3NfY2hlY2spCisJJChjYWxsIGlmX2NoYW5nZWQsY3Bfdm1saW51eF9yZWxvY3MpCisJJChj
+YWxsIGlmX2NoYW5nZWQscmVsb2NzX3N0cmlwKQogZW5kaWYKIAogJS5rbzogRk9SQ0UKZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvYm9vdC9NYWtlZmls
+ZQppbmRleCBjNzJkZTcyMzJhYmIuLjIyYjEzOTQ3YmQxMyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNj
+di9ib290L01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3YvYm9vdC9NYWtlZmlsZQpAQCAtMzMsNyAr
+MzMsMTQgQEAgJChvYmopL3hpcEltYWdlOiB2bWxpbnV4IEZPUkNFCiAKIGVuZGlmCiAKK2lmZGVm
+IENPTkZJR19SRUxPQ0FUQUJMRQordm1saW51eC5yZWxvY3M6IHZtbGludXgKKwlAICghIFsgLWYg
+dm1saW51eC5yZWxvY3MgXSAmJiBlY2hvICJ2bWxpbnV4LnJlbG9jcyBjYW4ndCBiZSBmb3VuZCwg
+cGxlYXNlIHJlbW92ZSB2bWxpbnV4IGFuZCB0cnkgYWdhaW4iKSB8fCB0cnVlCisKKyQob2JqKS9J
+bWFnZTogdm1saW51eC5yZWxvY3MgRk9SQ0UKK2Vsc2UKICQob2JqKS9JbWFnZTogdm1saW51eCBG
+T1JDRQorZW5kaWYKIAkkKGNhbGwgaWZfY2hhbmdlZCxvYmpjb3B5KQogCiAkKG9iaikvSW1hZ2Uu
+Z3o6ICQob2JqKS9JbWFnZSBGT1JDRQotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
