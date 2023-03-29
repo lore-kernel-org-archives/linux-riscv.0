@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4325C77B76
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64188C6FD18
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OKsrllr40AGalJxY2xD6l+CnMLX5+fXBzxDerOl8Z0c=; b=tPhkbLWzNgWoeM
-	h25sa+ZLJ7O22P0vek0GfftcJDfZkPybMiAwrMurGnzryB1jiup6oEmaacJI1Y6Y6xycAmYG2tPqe
-	0a7TevDeZOTob3Q0Xllwlw1f+xJI4/Rqffj1JDiq8R2641YRAh/p90yHGokh2CazzWjCdp5l51mWe
-	fa3nqQr779fyUXCsM0f5rmKrPhjDxUGCW/mGS/rL0DP2N/Oo1Pm1org+wFGJIRbJiOEOzuSLbVc6X
-	7IBx8c6RcmYKDOnazF8/TSg8A6KQsG5ZLiwvxgYXSz0ammw3AGOzb9eW2Inx57KT+QoSOhzWIARrI
-	b84e9oKiyKGVXfU7zNJg==;
+	List-Owner; bh=g54MnumEKoejvKunDx0g9adu4p+/4qrxim8B/0m+bJs=; b=GcvXoN3fh7IbvE
+	A8g3FMgcCU8IwB8ANIpCNe7JqnjrcMSjqERN0dJrNFrgFw6fRFzy1SE99dgZ+/ZwJf1jompSjInH0
+	MBoFBYjUhXM8f6dsjk2jYDpgvFCu+V7R/AfbfsmmWJF6vMeOkJbWP0S/J39IS2tp794xhnulVKfP1
+	75uNs1MQnVQH7QzDkB8Y97fCp5bT3+6z8Ul8vUmDj3d4/ZNYzDcJnkTFOFT/PJqQBeUrEVQmbGwSb
+	XRhuBp8480RYd3qjTfwFujD+6/tdwV6Hfsul0NFJK3CxkO2f9CLiJEc5IGs8RwFWA02KEV493lwgM
+	A8dLACekk/sEnNjXxgRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY7X-000tOb-1N;
-	Wed, 29 Mar 2023 15:53:55 +0000
-Received: from mail-oo1-f49.google.com ([209.85.161.49])
+	id 1phY7b-000tSE-0Q;
+	Wed, 29 Mar 2023 15:53:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY75-000svV-1u;
+	id 1phY79-000syq-0n;
+	Wed, 29 Mar 2023 15:53:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=GcRNyMomlVIyDJBO4v13lmumWoZCHsVn17zoo+wPdkk=; b=PHVsA6iP2XffLba7L4v8fujkWM
+	aPtb6U6GfiXE+0iLi6Ym1+eaGaIlvaxHVegTUUfagttTeUT59afFVK5HyuDVB1oUejOXEROhSV36S
+	PSceyOqAkF2GzB09Tu/TMdUC4ZgFhPoiDNP3dXPq/bqc6Fvh9NCMSuprygS8gelMDGlZJdE66I5ia
+	b5QLrYxxz6gmmjBiWp4HxVik6ori/Icc6pwkn6Zpfzj/w+vV+XOaAt24BmaXXP/xmOOchHDX8EeFp
+	C++68ChmR9/FTiYWWODKmCdfuxJBY4iKUVhWtnL5L1k7PiA349tLe0fUPdy28ch52aaKBTldU8OcC
+	fKosN7dA==;
+Received: from mail-ot1-f41.google.com ([209.85.210.41])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1phY73-006t3Z-33;
 	Wed, 29 Mar 2023 15:53:28 +0000
-Received: by mail-oo1-f49.google.com with SMTP id m6-20020a4ae846000000b0053b9059edd5so2497344oom.3;
-        Wed, 29 Mar 2023 08:53:25 -0700 (PDT)
+Received: by mail-ot1-f41.google.com with SMTP id f4-20020a9d0384000000b0069fab3f4cafso8431196otf.9;
+        Wed, 29 Mar 2023 08:53:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105205;
+        d=1e100.net; s=20210112; t=1680105203;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GxrilhvfwDlef/A2YTUefG5k1p916jMGPiiHrDKkFR0=;
-        b=XXIlHBDkA0Og/+BxjYmlFbZ4POHJ2qVkwZzrENcHeb5CrviotEN1XZMLZHKFDe8yj2
-         qoAMG6fxV+pNmx3Ikj50V20dnwWmFm3AZBei3uSYERHjRCYvF30GxNuy+qicS9K/u2A1
-         7kYxjRo/a2qtdFWKMQQqbX2yP8RBnK02HHPxANK61G+7UbJJN/hdF1b1CNqzWYmzQnIb
-         F1Tgx6LHxBPO1nnUjU/5Xc5Kh4LsgN2u6CCBLOenyYrStIzQ1NE8qswL3YeLC3sO1nNo
-         X7gPotLsH9IY1/NxXsHLHIa5g7qZHsqSkE4nIYwFOYDvjpo0f1sox6dm9suE6femhCIE
-         xQbQ==
-X-Gm-Message-State: AO0yUKU7BJrMpVswSpWqzvabl1eOyAMyiG2nYx0CiPPofdIOgAH6ZZX/
-	j9SaHBrmWm24quv8U/dn7w==
-X-Google-Smtp-Source: AK7set/IvKP58b96RyfRxVRB8Yjm2uXbhHwCU35QLNRLqkqctfQoMFiFz1/Ijy3GHwDVb/O3xlHYvQ==
-X-Received: by 2002:a4a:52d4:0:b0:53b:8b5:48d0 with SMTP id d203-20020a4a52d4000000b0053b08b548d0mr9782179oob.1.1680105205203;
-        Wed, 29 Mar 2023 08:53:25 -0700 (PDT)
+        bh=GcRNyMomlVIyDJBO4v13lmumWoZCHsVn17zoo+wPdkk=;
+        b=menYUoPlbpw4i2lQp34/J4AXbxNVwll4iVg5uLEt/VAUofvfk7dDc8/4UCTVXEOu9v
+         0gCHDo+zgbp9YM44FWbdqDx09+mR1V7U9RTq7HkQWd0PlnVdqx15Sl9Ir09w0Wf42MLB
+         zz7IThoGAGj60uSryABdTk7NjetbBx3f6t0tInufzrVWD4lZmuggdMDUyU9vAy5gcUk+
+         SEw/F4dSU6+XDRmsxe5p7cMxWCKb3VrgatZh1T8zSosjNngX0UMm4/0M4gXWGgB7bLwz
+         7p8N6Z2CWAcGXFiCCo6vQwVTVNOAwzchJozUfZpqWgqPxh7vzKhcCBfOJdThvAAW+k8K
+         Ztjg==
+X-Gm-Message-State: AO0yUKWrLcVczu0x/yULYXMXyKWveo6+wdGxIlXKH16PXAaZpP5wb/er
+	u949EmEn3rLKqU30BPdwHA==
+X-Google-Smtp-Source: AK7set+G4RUI7e7LVlBDXGQ8p8x17CahM2R0t8c+RybdcRc83FcjeXtVKZHsxX3oO+Yqeus+IJNu+w==
+X-Received: by 2002:a05:6830:124e:b0:68e:da51:2cb2 with SMTP id s14-20020a056830124e00b0068eda512cb2mr10233310otp.37.1680105202916;
+        Wed, 29 Mar 2023 08:53:22 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id 4-20020a4a1704000000b00524faf3d2d7sm13940444ooe.41.2023.03.29.08.53.23
+        by smtp.gmail.com with ESMTPSA id y26-20020a056830209a00b006a06e7972ebsm6242943otq.38.2023.03.29.08.53.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:53:24 -0700 (PDT)
-Received: (nullmailer pid 3198097 invoked by uid 1000);
+        Wed, 29 Mar 2023 08:53:22 -0700 (PDT)
+Received: (nullmailer pid 3198087 invoked by uid 1000);
 	Wed, 29 Mar 2023 15:52:45 -0000
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:52:15 -0500
-Subject: [PATCH 18/19] OPP: Adjust includes to remove of_device.h
+Date: Wed, 29 Mar 2023 10:52:10 -0500
+Subject: [PATCH 13/19] soc: mediatek: mtk-svs: Add explicit include for
+ cpu.h
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-18-581e2605fe47@kernel.org>
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-13-581e2605fe47@kernel.org>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
@@ -81,8 +96,8 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_085327_631297_EB6D2015 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20230329_165326_209657_FDAA3817 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +114,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
-implicitly including other includes, and is no longer needed. Adjust the
-include files with what was implicitly included by of_device.h (cpu.h and
-of.h) and drop including of_device.h.
+Removing the include of cpu.h from of_device.h (included by
+of_platform.h) causes an error:
+
+drivers/soc/mediatek/mtk-svs.c:2134:41: error: implicit declaration of function 'get_cpu_device'; did you mean 'get_swap_device'? [-Werror=implicit-function-declaration]
+
+of_platform.h is still needed for of_find_device_by_node().
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
 Please ack and I will take the series via the DT tree.
 ---
- drivers/opp/of.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/mediatek/mtk-svs.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/opp/of.c b/drivers/opp/of.c
-index e55c6095adf0..63b126c6215e 100644
---- a/drivers/opp/of.c
-+++ b/drivers/opp/of.c
-@@ -13,7 +13,7 @@
- #include <linux/cpu.h>
- #include <linux/errno.h>
+diff --git a/drivers/soc/mediatek/mtk-svs.c b/drivers/soc/mediatek/mtk-svs.c
+index f26eb2f637d5..1b7579a5bec6 100644
+--- a/drivers/soc/mediatek/mtk-svs.c
++++ b/drivers/soc/mediatek/mtk-svs.c
+@@ -7,6 +7,7 @@
+ #include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/completion.h>
++#include <linux/cpu.h>
+ #include <linux/cpuidle.h>
+ #include <linux/debugfs.h>
  #include <linux/device.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/pm_domain.h>
- #include <linux/slab.h>
- #include <linux/export.h>
 
 -- 
 2.39.2
