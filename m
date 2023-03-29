@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1FAC74A5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 14:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6700C77B61
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 14:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=16ee5tTuCg3q8gTmoSlmMJswNcsAk5Qkg+V+hl9lGug=; b=P6cH27fHhdbFe8
-	qavg5w7az9aa2CbZurKtlvloLJqRBGWn513yI5kwbn5Hu51l1xJMZxFwx0yjroAb25Nkjl6tQ/DJr
-	6hWEZWUP0OpG7QiGPMKku14WuyyUNFy+YOIqEQ3Z4d1hVwtG6CoWAgRlc3onzfmdsSLKRQrotBq/A
-	Dt4qF7clc++DPGuHMeh8C3bDay/uQbb2Nmsajln9BxyfaxiJS6BjWnk8ct2K4yabfjP2kjjgfVuzY
-	2bAC1FmPQSnVCMNXq4CkNc1EBOgq2nYYvGqWlSSjBGZ4sQbOdedwi7NjUhu1BWjtdhOApibxTY0fc
-	sEgcsUp9hUalMmfmGA0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w2+XhC0hTyaF50WfFADe9a4GoYS5zUphZvPldcyIFfU=; b=i5aMhdzvPr9Gb3
+	XqG524XGOEr6zl1TEe7Z5/ltGuD0YxdG07zNZX/avSA1OZXAvG7tqbHQPmeWqirwxwt7LxTiC0x8x
+	y7sJpqbny1yti3kEZJ25f4/sqwmx30RmtvcNKRDfO3WSmloxz31985KF9gIyZNsN5GJm7DGmJ8X/b
+	f3+UBmZ8vvGxXFYZGjILo7EBIj1kc2EyKKqWJAN4yehzRYXFsNg/ko31s8rEhY2aOokNaII65d3HS
+	37OtNvNqUJwNdc3BSyfZ9FsbNSGmfALjaddwtFbO+/NTUhWjcV4Uqa30Ru8ulX912hYZ0uQWMohzw
+	SKZ8+3USzugejeQyFwbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phWSY-000Xwo-1l;
-	Wed, 29 Mar 2023 14:07:30 +0000
+	id 1phWSb-000Xxs-2S;
+	Wed, 29 Mar 2023 14:07:33 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phWSQ-000Xrm-14
+	id 1phWSQ-000Xrh-14
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 14:07:28 +0000
+	Wed, 29 Mar 2023 14:07:29 +0000
 Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1phWSA-0004ZJ-0m; Wed, 29 Mar 2023 16:07:06 +0200
+	id 1phWSA-0004ZJ-Pd; Wed, 29 Mar 2023 16:07:06 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com
 Cc: paul.walmsley@sifive.com,
@@ -45,14 +45,16 @@ Cc: paul.walmsley@sifive.com,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v4 0/4] Implement GCM ghash using Zbc and Zbkb extensions
-Date: Wed, 29 Mar 2023 16:06:38 +0200
-Message-Id: <20230329140642.2186644-1-heiko.stuebner@vrull.eu>
+Subject: [PATCH v4 2/4] RISC-V: add Zbkb extension detection
+Date: Wed, 29 Mar 2023 16:06:40 +0200
+Message-Id: <20230329140642.2186644-3-heiko.stuebner@vrull.eu>
 X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230329140642.2186644-1-heiko.stuebner@vrull.eu>
+References: <20230329140642.2186644-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_070722_389795_215357AD 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20230329_070722_396805_B706935B 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,60 +73,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-This was originally part of my vector crypto series, but was part
-of a separate openssl merge request implementing GCM ghash as using
-non-vector extensions.
+Add detection for Zbkb extension.
 
-As that pull-request
-    https://github.com/openssl/openssl/pull/20078
-got merged recently into openssl, we could also check if this could
-go into the kernel as well and provide a base for further accelerated
-cryptographic support.
+Zbkb is part of the set of scalar cryptography extensions and provides
+bitmanip instructions for cryptography, with them being a "subset of the
+Zbb extension particularly useful for cryptography".
 
+Zbkb was ratified in january 2022.
 
-Changes in v4:
-- rebase on top of riscv/for-next
-- split out the scalar crypto implementation from the vector series
-- refresh code from openSSL to match exactly
-- Remove RFC label, as Zbc and Zbkb are ratified and
-  the cryptographic code was merged into openSSL
+Expect code using the extension to pre-encode zbkb instructions, so
+don't introduce special toolchain requirements for now.
 
-changes in v3:
-- rebase on top of 6.3-rc2
-- rebase on top of vector-v14 patchset
-- add the missing Co-developed-by mentions to showcase
-  the people that did the actual openSSL crypto code
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/hwcap.h | 1 +
+ arch/riscv/kernel/cpu.c        | 1 +
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 3 files changed, 3 insertions(+)
 
-changes in v2:
-- rebased on 6.2 + zbb series, so don't include already
-  applied changes anymore
-- refresh code picked from openssl as that side matures
-- more algorithms (SHA512, AES, SM3, SM4)
-
-Heiko Stuebner (4):
-  RISC-V: add Zbc extension detection
-  RISC-V: add Zbkb extension detection
-  RISC-V: hook new crypto subdir into build-system
-  RISC-V: crypto: add accelerated GCM GHASH implementation
-
- arch/riscv/Kbuild                      |   1 +
- arch/riscv/Kconfig                     |  22 ++
- arch/riscv/crypto/Kconfig              |  18 ++
- arch/riscv/crypto/Makefile             |  18 ++
- arch/riscv/crypto/ghash-riscv64-glue.c | 258 ++++++++++++++++
- arch/riscv/crypto/ghash-riscv64-zbc.pl | 400 +++++++++++++++++++++++++
- arch/riscv/crypto/riscv.pm             | 231 ++++++++++++++
- arch/riscv/include/asm/hwcap.h         |   2 +
- arch/riscv/kernel/cpu.c                |   2 +
- arch/riscv/kernel/cpufeature.c         |   2 +
- crypto/Kconfig                         |   3 +
- 11 files changed, 957 insertions(+)
- create mode 100644 arch/riscv/crypto/Kconfig
- create mode 100644 arch/riscv/crypto/Makefile
- create mode 100644 arch/riscv/crypto/ghash-riscv64-glue.c
- create mode 100644 arch/riscv/crypto/ghash-riscv64-zbc.pl
- create mode 100644 arch/riscv/crypto/riscv.pm
-
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index c3cdad6b6ec8..90b02d01ded4 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -45,6 +45,7 @@
+ #define RISCV_ISA_EXT_SVNAPOT		33
+ #define RISCV_ISA_EXT_ZICBOZ		34
+ #define RISCV_ISA_EXT_ZBC		35
++#define RISCV_ISA_EXT_ZBKB		36
+ 
+ #define RISCV_ISA_EXT_MAX		64
+ #define RISCV_ISA_EXT_NAME_LEN_MAX	32
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 4cab0432d7ef..32470119f31c 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -190,6 +190,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+ 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+ 	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
++	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3ddc7cebd810..1c4392421fe9 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -233,6 +233,7 @@ printk("!!!! isa-string: %s\n\n\n", isa);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+ 				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
+ 				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
++				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+ 				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
 -- 
 2.39.0
 
