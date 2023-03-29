@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA37C74A5B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17589C74A5B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hblCNK8A2WHxyG3XvjelzAUp2bnk4OaWUSQ7wK1Vl+4=; b=K0TXEJIFptw6Mb
-	Q2OvkocwI9IR5C0KyHAz35w2DVvguz5FYV4ylGheAK+23/+sxiDNgIKVXzcF0j/OaSx8HVb7nXA0a
-	nVACBOzEsihwPSoGH7wBP9y+NTM3WMlyBkfn+ZAekQmP6fEYSn/8JsNYGHGk/6XV/RxHm3p+CRmF8
-	W3nyH8pBgsNYOXFwtAE8tBuTXA7/8HAbvtyZPZwlMJteJpTjm6eJmDmHshrYib+ew1TuyvrjkL1gP
-	13McWfzt5j7KZfkS2O//tq4oNvT4vw6wMrmOOpjjRtchpfBtpeSoj8lNRnnCkZOH0nczvr8Qo2j0K
-	tqSu1LxzMlu05J+6th1g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MXfw8VxrWB9SicUC9rbAilwHuZn7QzadCzyt9BBUUQI=; b=1FiHW4TXLAvJp+
+	PvMKVsbls8PKckb/yVTGCrHu9o62aDoXunt8faRz7ZxXLP0tWKuPrXczBsbNox3MAv5daBxU0MbH1
+	9PZtsup+vK9TuCMfNZ6mSuvVEDzUOLc4HtGUs7Srfl/yAaWhoX6cHQHjTK1KsXugcTeSD0ELa+EhS
+	Hodan62MXWcOeNJYKS8AThB48rda7uCLt3hksE4k/CWo/uaw26A4vzNhjGgWjigjwF51568/xu9Wx
+	pkVp2zeDW6o0IECQx8nxq24KJv3fgdB6BVfcbDGpnVuI1/mGSMhWlQrsXDmwzmvdf7ySDxqW2lQ1r
+	yRbUs7m3Z6gbxglIc0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phXoe-000nvK-1G;
-	Wed, 29 Mar 2023 15:34:24 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phXoY-000nhE-1k
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 15:34:22 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id CCC9824E194;
-	Wed, 29 Mar 2023 23:33:34 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Mar
- 2023 23:33:34 +0800
-Received: from localhost.localdomain (113.72.144.76) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Mar
- 2023 23:33:33 +0800
-From: Walker Chen <walker.chen@starfivetech.com>
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Walker Chen
-	<walker.chen@starfivetech.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v1 3/3] riscv: dts: starfive: add tdm node and sound card
-Date: Wed, 29 Mar 2023 23:33:20 +0800
-Message-ID: <20230329153320.31390-4-walker.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230329153320.31390-1-walker.chen@starfivetech.com>
-References: <20230329153320.31390-1-walker.chen@starfivetech.com>
+	id 1phY6X-000sT8-39;
+	Wed, 29 Mar 2023 15:52:53 +0000
+Received: from mail-oa1-f53.google.com ([209.85.160.53])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1phY6T-000sS0-2O;
+	Wed, 29 Mar 2023 15:52:51 +0000
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-177ca271cb8so16672939fac.2;
+        Wed, 29 Mar 2023 08:52:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680105167;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=myNahkzgyzJXsmSpdQrVTovV/3CgUWg7sSEu7RQwjG0=;
+        b=1K8gn7LXYJSMcjXoAfq8hSAyoJHIVEI7uB74ab2Q+bR6XFimGkF4LOd1TsZJrfNf8P
+         op8pUGldJLyYIVPxqDbm5dg2/4onf6t/RRtGkPPhZUW4fcOWE6dtP214JWQ1VWByfT9X
+         maMX7ErXHwNp2Ftvxura0Mucayd5dIEoI3KK5+909CsM1LUWxHu+2InV8SgfMYKA+0Dw
+         LXI8benkmBe32IjzfmCpSuGEAzK8OMbauMFDq3Mxn0vLiVsV9vlWPEWg0DECaCfVBNX+
+         u2XX5yDhCO9L1Ul7ynypwYWt1XDwDjQNFEhOs1jMEcoPuQC+EUQD5ewFVhf2iAJuRPIS
+         xNlA==
+X-Gm-Message-State: AAQBX9dRyKWHj1liJopQ2eo7fOnGW9O2bZZYP8+pO9BZyOGEXEilmXNV
+	AoJGYRZ6/eR+6Rs42nrfDA==
+X-Google-Smtp-Source: AK7set9u04Mn8XGtckt02xXgvmDdYPAodmqaRmO7QbQsn4pMne9ZnJvBTvxw9bjwWx1vNoyCfeyKQg==
+X-Received: by 2002:a05:6870:eca0:b0:177:baf4:5b10 with SMTP id eo32-20020a056870eca000b00177baf45b10mr12821109oab.31.1680105167283;
+        Wed, 29 Mar 2023 08:52:47 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id hv12-20020a056870f98c00b00176209a6d6asm11896178oab.10.2023.03.29.08.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Mar 2023 08:52:46 -0700 (PDT)
+Received: (nullmailer pid 3198060 invoked by uid 1000);
+	Wed, 29 Mar 2023 15:52:45 -0000
+From: Rob Herring <robh@kernel.org>
+Subject: [PATCH 00/19] DT header disentangling, part 1
+Date: Wed, 29 Mar 2023 10:51:57 -0500
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.144.76]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+X-B4-Tracking: v=1; b=H4sIAJ1eJGQC/x2NywoCMQwAf2XJ2UBtER+/Ih7SNNpCqaWxi7Dsv
+ xs8zsAwG6iMIgq3ZYMha9HybgbHwwKcqb0ESzIG73xwwV8xfZD7xCyUZCBXoTa7Ip+jpAu7GE4
+ eLI6kgnFQ42x5m7Wa7EOe5fu/3R/7/gPTb5swfQAAAA==
+To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
+	Frank Rowand <frowand.list@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Amit Daniel Kachhap <amit.kachhap@gmail.com>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Amit Kucheria <amitk@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Yangtao Li <tiny.windzz@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@linaro.org>, Anup Patel <anup@brainfault.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, Jiaxun Yang <jiaxun.yang@flygoat.com>, 
+	Marc Zyngier <maz@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Stephen Boyd <sboyd@kernel.org>
+Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
+X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_083419_181206_4BA3AB0C 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20230329_085249_778413_4D9B8E6A 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,190 +100,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the tdm controller node and sound card for the StarFive JH7110 SoC.
+This is the first of a series of clean-ups to disentangle the DT 
+includes. There's a decade plus old comment in of_device.h:
 
-Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+ #include <linux/of_platform.h> /* temporary until merge */
+
+Who's this Grant person that wrote this? ;)
+
+It gets better. of_device.h also pulls in of.h, and of_platform.h 
+includes of_device.h. So naturally, drivers include all combinations of 
+those 3 headers and sometimes they actually need them. 
+
+I started on fixing this years ago, but just dropping the circular 
+includes and fixing all the fallout was massive and didn't sit well. 
+Pulling in of_device.h in all the drivers that happen to call only
+of_device_get_match_data/of_match_device didn't seem great when the rest 
+of of_device.h would never be needed. of_device.h being everything that 
+works on a struct device is not a great split because several types of 
+users deal with struct device. The better split seems to be by user 
+(subsys driver vs. consumer) which several subsystems now do. For 
+of_device.h, the users can primarily be split between bus 
+implementations and device drivers. Device drivers also typically need 
+of.h to read properties. So let's move of_device.h towards just bus 
+related functions and move device driver related functions to of.h.
+
+This series is just the first step. It makes a couple of clean-ups to 
+replace some includes with forward declarations. It moves 
+of_device_get_match_data() and of_cpu_device_node_get() to of.h. The 
+former move is transparent for now and preparation for the next series.
+The last part of the series updates drivers using 
+of_cpu_device_node_get() and/or relying on the implicit cpu.h include 
+which is removed in the last patch.
+
+Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 87 +++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 34 ++++++++
- 2 files changed, 121 insertions(+)
+Rob Herring (19):
+      of: Make devtree_lock declaration private
+      of: Move of_device_(add|register|unregister) to of_platform.h
+      of: Move of_device_get_match_data() declaration
+      of: Move CPU node related functions to their own file
+      of: Drop unnecessary includes in headers
+      ARM: sunxi: Drop of_device.h include
+      ARM: cpuidle: Drop of_device.h include
+      riscv: Add explicit include for cpu.h
+      riscv: cacheinfo: Adjust includes to remove of_device.h
+      cacheinfo: Adjust includes to remove of_device.h
+      clocksource: ingenic: Add explicit include for cpuhotplug.h
+      thermal: cpuidle_cooling: Adjust includes to remove of_device.h
+      soc: mediatek: mtk-svs: Add explicit include for cpu.h
+      cpufreq: Adjust includes to remove of_device.h
+      cpufreq: sun50i: Add explicit include for cpu.h
+      cpuidle: Adjust includes to remove of_device.h
+      irqchip: loongson-eiointc: Add explicit include for cpuhotplug.h
+      OPP: Adjust includes to remove of_device.h
+      of: Drop cpu.h include from of_device.h
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 1155b97b593d..35137c2edf5d 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -62,6 +62,10 @@
- 	clock-frequency = <297000000>;
- };
- 
-+&wm8960_mclk {
-+	clock-frequency = <24576000>;
-+};
-+
- &i2srx_bclk_ext {
- 	clock-frequency = <12288000>;
- };
-@@ -102,6 +106,14 @@
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c0_pins>;
- 	status = "okay";
-+
-+	wm8960: codec@1a {
-+		compatible = "wlf,wm8960";
-+		reg = <0x1a>;
-+		#sound-dai-cells = <0>;
-+
-+		wlf,shared-lrclk;
-+	};
- };
- 
- &i2c2 {
-@@ -214,6 +226,40 @@
- 			slew-rate = <0>;
- 		};
- 	};
-+
-+	tdm0_pins: tdm0-pins {
-+		tdm0-pins-tx {
-+			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <2>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		tdm0-pins-rx {
-+			pinmux = <GPIOMUX(61, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_RXD)>;
-+			input-enable;
-+		};
-+
-+		tdm0-pins-sync {
-+			pinmux = <GPIOMUX(63, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_SYNC)>;
-+			input-enable;
-+		};
-+
-+		tdm0-pins-pcmclk {
-+			pinmux = <GPIOMUX(38, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_CLK)>;
-+			input-enable;
-+		};
-+	};
- };
- 
- &uart0 {
-@@ -221,3 +267,44 @@
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-+
-+&tdm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&tdm0_pins>;
-+	status = "okay";
-+};
-+
-+&sound0 {
-+	simple-audio-card,dai-link@0 {
-+		reg = <0>;
-+		status = "okay";
-+		format = "dsp_a";
-+		bitclock-master = <&dailink_master>;
-+		frame-master = <&dailink_master>;
-+
-+		widgets =
-+				"Microphone", "Mic Jack",
-+				"Line", "Line In",
-+				"Line", "Line Out",
-+				"Speaker", "Speaker",
-+				"Headphone", "Headphone Jack";
-+		routing =
-+				"Headphone Jack", "HP_L",
-+				"Headphone Jack", "HP_R",
-+				"Speaker", "SPK_LP",
-+				"Speaker", "SPK_LN",
-+				"LINPUT1", "Mic Jack",
-+				"LINPUT3", "Mic Jack",
-+				"RINPUT1", "Mic Jack",
-+				"RINPUT2", "Mic Jack";
-+		cpu {
-+			sound-dai = <&tdm>;
-+		};
-+
-+		dailink_master:codec {
-+			sound-dai = <&wm8960>;
-+			clocks = <&wm8960_mclk>;
-+			clock-names = "mclk";
-+		};
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index b503b6137743..a89158d1d7a6 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -210,6 +210,12 @@
- 		#clock-cells = <0>;
- 	};
- 
-+	wm8960_mclk: wm8960_mclk {
-+		compatible = "fixed-clock";
-+		clock-output-names = "wm8960_mclk";
-+		#clock-cells = <0>;
-+	};
-+
- 	i2srx_bclk_ext: i2srx-bclk-ext-clock {
- 		compatible = "fixed-clock";
- 		clock-output-names = "i2srx_bclk_ext";
-@@ -375,6 +381,27 @@
- 			status = "disabled";
- 		};
- 
-+		tdm: tdm@10090000 {
-+			compatible = "starfive,jh7110-tdm";
-+			reg = <0x0 0x10090000 0x0 0x1000>;
-+			clocks = <&syscrg JH7110_SYSCLK_TDM_AHB>,
-+				 <&syscrg JH7110_SYSCLK_TDM_APB>,
-+				 <&syscrg JH7110_SYSCLK_TDM_INTERNAL>,
-+				 <&syscrg JH7110_SYSCLK_TDM_TDM>,
-+				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
-+				 <&tdm_ext>;
-+			clock-names = "tdm_ahb", "tdm_apb",
-+				      "tdm_internal", "tdm",
-+				      "mclk_inner", "tdm_ext";
-+			resets = <&syscrg JH7110_SYSRST_TDM_AHB>,
-+				 <&syscrg JH7110_SYSRST_TDM_APB>,
-+				 <&syscrg JH7110_SYSRST_TDM_CORE>;
-+			dmas = <&dma 20>, <&dma 21>;
-+			dma-names = "rx","tx";
-+			#sound-dai-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		stgcrg: clock-controller@10230000 {
- 			compatible = "starfive,jh7110-stgcrg";
- 			reg = <0x0 0x10230000 0x0 0x10000>;
-@@ -601,5 +628,12 @@
- 			#reset-cells = <1>;
- 			power-domains = <&pwrc JH7110_PD_VOUT>;
- 		};
-+
-+		sound0: snd-card0 {
-+			compatible = "simple-audio-card";
-+			simple-audio-card,name = "Starfive-TDM-Sound-Card";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
- 	};
- };
+ arch/arm/kernel/cpuidle.c              |   1 -
+ arch/arm/mach-sunxi/mc_smp.c           |   1 -
+ arch/riscv/kernel/cacheinfo.c          |   1 -
+ arch/riscv/kernel/setup.c              |   2 +-
+ arch/sparc/include/asm/prom.h          |   3 +
+ drivers/base/cacheinfo.c               |   2 +-
+ drivers/clocksource/ingenic-timer.c    |   3 +-
+ drivers/cpufreq/cpufreq-dt-platdev.c   |   1 -
+ drivers/cpufreq/kirkwood-cpufreq.c     |   2 +-
+ drivers/cpufreq/maple-cpufreq.c        |   2 +-
+ drivers/cpufreq/pmac32-cpufreq.c       |   2 +-
+ drivers/cpufreq/pmac64-cpufreq.c       |   2 +-
+ drivers/cpufreq/qcom-cpufreq-hw.c      |   4 +-
+ drivers/cpufreq/spear-cpufreq.c        |   2 +-
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c |   3 +-
+ drivers/cpufreq/tegra124-cpufreq.c     |   1 -
+ drivers/cpufreq/tegra20-cpufreq.c      |   2 +-
+ drivers/cpuidle/cpuidle-psci.c         |   1 -
+ drivers/cpuidle/cpuidle-qcom-spm.c     |   3 +-
+ drivers/cpuidle/cpuidle-riscv-sbi.c    |   2 +-
+ drivers/cpuidle/dt_idle_states.c       |   1 -
+ drivers/irqchip/irq-loongson-eiointc.c |   5 +-
+ drivers/of/Makefile                    |   2 +-
+ drivers/of/base.c                      | 187 -----------------------------
+ drivers/of/cpu.c                       | 210 +++++++++++++++++++++++++++++++++
+ drivers/of/of_private.h                |   1 +
+ drivers/opp/of.c                       |   2 +-
+ drivers/soc/mediatek/mtk-svs.c         |   1 +
+ drivers/thermal/cpuidle_cooling.c      |   3 +-
+ include/linux/cpufreq.h                |   1 -
+ include/linux/of.h                     |  28 +++--
+ include/linux/of_device.h              |  24 +---
+ include/linux/of_platform.h            |  10 +-
+ 33 files changed, 261 insertions(+), 254 deletions(-)
+---
+base-commit: fe15c26ee26efa11741a7b632e9f23b01aca4cc6
+change-id: 20230329-dt-cpu-header-cleanups-c7bed8c0b352
+
+Best regards,
 -- 
-2.17.1
+Rob Herring <robh@kernel.org>
 
 
 _______________________________________________
