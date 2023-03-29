@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D71EC761AF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DBD7C77B6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ta1bsdo0A6n0beCiXvHkviLj0+glztcc7OtMYGzBYK8=; b=eVwp/NKsG8byzA
-	T9T/ef5wdoLQkXqZwUkszJfY2wA3TyeC7u25fVtFPJAbWljGFv5sM/t9wfFuc96iX3Nq7aehczHxb
-	pIDhKufU6m5fpfTgYstjcQBtP0l+Tl8M+3rFOojcSHq0FZ6eZxLW4r7sTfnkprUEEinnldgAL1FEG
-	w8Y5iRP7bNA2uH6RzkL5wKVtwZmwoxWBZHpP+5xS8RsUiQQO56QUi3WXg7L4t2w8UsaoUazQ7Ix8s
-	c8p3+VgCRNn1e24AHM/X6yYHAk4IBxNyc6fsu4kKIgCK7IKCSZcf/fvSqQ4TRt8c595MHq8cnCX5n
-	AdvDk2sYurEMYFcydJ5w==;
+	List-Owner; bh=LmLMACP5rOJYXDdYfdF+z2rQLZ/Q4deXoVvBkpAUzXw=; b=G8IKnFyvtP50ej
+	mntTBlY7qmTHIKrRetiPbfnlaokSGyfbWyumVSlzcow94tINzBlqO7QfNWxLuDlocBtOxLuUhSgb1
+	eQIk6OcO15ELknQcbcWxthR8GZ26cWk6exitECvq3wUHsW4c+UGBCPgYlmYcvt1Eac/UtSzwamN4r
+	gyctbIec+lWjY8afA76p4vS4D/wNX6mamlgZuEqxIXQ6TmnshoDrJSPk4LxOYGqaA/87tkWNliLXT
+	4uf6tcnpN5Gu1/Aca0yPuFoxA3tuLqo18M5+ZBtUdU8p9qWq95LPcZbak8V9JnI5mU2cpMUJhmdeM
+	eHwUYO/XgQU3Y69mMSiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6i-000saV-1o;
-	Wed, 29 Mar 2023 15:53:04 +0000
-Received: from mail-oi1-f170.google.com ([209.85.167.170])
+	id 1phY6n-000sgH-2b;
+	Wed, 29 Mar 2023 15:53:09 +0000
+Received: from mail-oo1-f41.google.com ([209.85.161.41])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY6a-000sSQ-27;
-	Wed, 29 Mar 2023 15:52:58 +0000
-Received: by mail-oi1-f170.google.com with SMTP id r84so10635315oih.11;
-        Wed, 29 Mar 2023 08:52:56 -0700 (PDT)
+	id 1phY6e-000sWd-35;
+	Wed, 29 Mar 2023 15:53:02 +0000
+Received: by mail-oo1-f41.google.com with SMTP id n7-20020a4ae1c7000000b0053b61145406so2495080oot.11;
+        Wed, 29 Mar 2023 08:52:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105176;
+        d=1e100.net; s=20210112; t=1680105178;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gXYasbFGyOzjbVgkFYQhHdq2LiUoVceQJn8x4Q7U0Lg=;
-        b=zVWqK1+q4pC584Z9WZqHC/psiWZugeOjf3v53/unbZysemoa0yToyB+ZtPJK+um2gA
-         MQAL2eQZb2yzckudtH0DbTf4MhhJWFhYuj9UMMPg4GJCfydXIANOMwg0lWKfewa1itEo
-         YmXYXl7U8h3OhzPAVvlOzAHL7SXhOecsA1iA2x5Bpt74IjyFHPnyLyR7PzIhiudpjoU9
-         3PG7b3bhlrXJrwjVu/W9F5ZohkRY/8YRBUsl77JZFFIIo40xCv20t5hM+jE5QCFhKMBC
-         p8Y+qtPD1PNFQz152saA7N/PR7FGVntsk/u761Qk+dJ/A8qB+y5JbkTKy3BqEWMDgEuq
-         ySag==
-X-Gm-Message-State: AO0yUKWbCamK8CWmyMoqSyqgqwwajY/VXVBYwic4tZFkRKOUfmYhANF7
-	W7nkkesaVCvnrr4DwLSYeg==
-X-Google-Smtp-Source: AK7set9WFLmG+nDxrfFiYKr/Y1X4gukEgmYRhjOb4gvixi7TQjjzvpWDqSzTEx2qAniqrP2lpYSRIg==
-X-Received: by 2002:aca:1316:0:b0:364:ebf2:735f with SMTP id e22-20020aca1316000000b00364ebf2735fmr8517999oii.24.1680105176210;
-        Wed, 29 Mar 2023 08:52:56 -0700 (PDT)
+        bh=xaKQY99G3HY+F9cltbrOFgoelmJMxNBfQJcO0sLBgas=;
+        b=pOdl9sqZPRoFPUCUIvq64nbGp7hW4CN3E+32SjKIxN0wDY5Ni4Wp7hG4IVxJM+VYoA
+         nwbeO3zKB6vJYmoWi+FaabYndYqt9eGi3WeFbwsu4ZS8OKABlsNSXr/bW+WCnUd3LnPJ
+         anqs3IgYuKemvz0qZnenBaF3YXf+ZZselm9uwT8nFf9a95VHkFzfZ7uUGy2mzNwwOSWA
+         XG1/lw/r5iPV80SL8PsaLRKuWO7IPBaxWLy3EIDjCHn2c5a8zHHGznbJYzeVEXr4ZWdv
+         2OLukaDGhM1+iOjbTJ9DjrAsXH6p3sTRhRGk9z9NOjUcasDbsBYFxZ1SQ/QNHE4zln3N
+         P/QA==
+X-Gm-Message-State: AO0yUKWhGU/v0VPvlQ+hEkuToKv0xXZLZz14XoC9dlsAazXEcB1L6vU/
+	ECkEXwzvgQsujgxuaijFIw==
+X-Google-Smtp-Source: AK7set/NHlve/5dROzrE0RjwFIfWzeZwZim5jtRZxJnjvVhB2968rp1PLl6KK6w8FucuWDAPMr2x9Q==
+X-Received: by 2002:a4a:890d:0:b0:51a:6ea9:5053 with SMTP id f13-20020a4a890d000000b0051a6ea95053mr8240938ooi.9.1680105178376;
+        Wed, 29 Mar 2023 08:52:58 -0700 (PDT)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id bx32-20020a0568081b2000b0038733b00a5fsm8526890oib.10.2023.03.29.08.52.54
+        by smtp.gmail.com with ESMTPSA id c192-20020a4a4fc9000000b0053b88b03e24sm8091146oob.18.2023.03.29.08.52.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:52:55 -0700 (PDT)
-Received: (nullmailer pid 3198093 invoked by uid 1000);
+        Wed, 29 Mar 2023 08:52:58 -0700 (PDT)
+Received: (nullmailer pid 3198071 invoked by uid 1000);
 	Wed, 29 Mar 2023 15:52:45 -0000
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:52:13 -0500
-Subject: [PATCH 16/19] cpuidle: Adjust includes to remove of_device.h
+Date: Wed, 29 Mar 2023 10:52:02 -0500
+Subject: [PATCH 05/19] of: Drop unnecessary includes in headers
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-16-581e2605fe47@kernel.org>
+Message-Id: <20230329-dt-cpu-header-cleanups-v1-5-581e2605fe47@kernel.org>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
 To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
@@ -81,8 +81,8 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-Mailer: b4 0.13-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_085256_724558_615FF8D9 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20230329_085300_993756_4C41A233 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,79 +99,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
-implicitly including other includes, and is no longer needed. Adjust the
-include files with what was implicitly included by of_device.h (cpu.h,
-cpuhotplug.h, of.h, and of_platform.h) and drop including of_device.h.
+Drop unnecessary includes in DT headers. Some simply aren't needed and
+some can be replaced with forward declarations.
 
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
-Please ack and I will take the series via the DT tree.
----
- drivers/cpuidle/cpuidle-psci.c      | 1 -
- drivers/cpuidle/cpuidle-qcom-spm.c  | 3 +--
- drivers/cpuidle/cpuidle-riscv-sbi.c | 2 +-
- drivers/cpuidle/dt_idle_states.c    | 1 -
- 4 files changed, 2 insertions(+), 5 deletions(-)
+ include/linux/of.h          | 5 ++---
+ include/linux/of_device.h   | 3 ++-
+ include/linux/of_platform.h | 5 +++--
+ 3 files changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index 6de027f9f6f5..bf68920d038a 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -16,7 +16,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
+diff --git a/include/linux/of.h b/include/linux/of.h
+index 1f1e847a1c13..96979c67c5fa 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -16,13 +16,10 @@
+ #include <linux/errno.h>
+ #include <linux/kobject.h>
+ #include <linux/mod_devicetable.h>
+-#include <linux/topology.h>
+-#include <linux/notifier.h>
+ #include <linux/property.h>
+ #include <linux/list.h>
+ 
+ #include <asm/byteorder.h>
+-#include <asm/errno.h>
+ 
+ typedef u32 phandle;
+ typedef u32 ihandle;
+@@ -1517,6 +1514,8 @@ enum of_reconfig_change {
+ 	OF_RECONFIG_CHANGE_REMOVE,
+ };
+ 
++struct notifier_block;
++
+ #ifdef CONFIG_OF_DYNAMIC
+ extern int of_reconfig_notifier_register(struct notifier_block *);
+ extern int of_reconfig_notifier_unregister(struct notifier_block *);
+diff --git a/include/linux/of_device.h b/include/linux/of_device.h
+index 910951a22eb4..5cdafe19dc80 100644
+--- a/include/linux/of_device.h
++++ b/include/linux/of_device.h
+@@ -7,9 +7,10 @@
+ #include <linux/of_platform.h> /* temporary until merge */
+ 
  #include <linux/of.h>
--#include <linux/of_device.h>
+-#include <linux/mod_devicetable.h>
+ 
+ struct device;
++struct of_device_id;
++struct kobj_uevent_env;
+ 
+ #ifdef CONFIG_OF
+ extern const struct of_device_id *of_match_device(
+diff --git a/include/linux/of_platform.h b/include/linux/of_platform.h
+index 8ac5cb933dc3..d8045bcfc35e 100644
+--- a/include/linux/of_platform.h
++++ b/include/linux/of_platform.h
+@@ -6,12 +6,13 @@
+  *			 <benh@kernel.crashing.org>
+  */
+ 
+-#include <linux/device.h>
+ #include <linux/mod_devicetable.h>
+-#include <linux/pm.h>
+ #include <linux/of_device.h>
  #include <linux/platform_device.h>
- #include <linux/psci.h>
- #include <linux/pm_domain.h>
-diff --git a/drivers/cpuidle/cpuidle-qcom-spm.c b/drivers/cpuidle/cpuidle-qcom-spm.c
-index c6e2e91bb4c3..1fc9968eae19 100644
---- a/drivers/cpuidle/cpuidle-qcom-spm.c
-+++ b/drivers/cpuidle/cpuidle-qcom-spm.c
-@@ -11,8 +11,7 @@
- #include <linux/io.h>
- #include <linux/slab.h>
- #include <linux/of.h>
--#include <linux/of_address.h>
--#include <linux/of_device.h>
-+#include <linux/of_platform.h>
- #include <linux/err.h>
- #include <linux/platform_device.h>
- #include <linux/cpuidle.h>
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index be383f4b6855..ae0b838a0634 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -8,6 +8,7 @@
  
- #define pr_fmt(fmt) "cpuidle-riscv-sbi: " fmt
- 
-+#include <linux/cpuhotplug.h>
- #include <linux/cpuidle.h>
- #include <linux/cpumask.h>
- #include <linux/cpu_pm.h>
-@@ -15,7 +16,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/slab.h>
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
-diff --git a/drivers/cpuidle/dt_idle_states.c b/drivers/cpuidle/dt_idle_states.c
-index 02aa0b39af9d..12fec92a85fd 100644
---- a/drivers/cpuidle/dt_idle_states.c
-+++ b/drivers/cpuidle/dt_idle_states.c
-@@ -14,7 +14,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- 
- #include "dt_idle_states.h"
- 
++struct device;
++struct of_device_id;
++
+ /**
+  * struct of_dev_auxdata - lookup table entry for device names & platform_data
+  * @compatible: compatible value of node to match against node
 
 -- 
 2.39.2
