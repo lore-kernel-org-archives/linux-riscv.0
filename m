@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6ABC761AF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 16:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4E0C74A5B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 16:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIJXaykIqZldIwWZnRbwe/IUHgAq0zrGEn2mCBMqqGg=; b=ZqX6BS/4mWK56ZadymDanEnJ73
-	A6SexfVgkbXPYW/EzZDoTh4Vj0+hYMCJ1GYiM4iLAi0RHpS2sYD52N0epJWfk/bJtZKdH/Igkvcqg
-	hBGi56dW3TcUSEPilduWaqXpsRxsachKTWuQMrXg1bsp0AAPpxmwEkaq+PyHG7LMg5q/YhZh4/AOJ
-	9Ourqu+XBs38dysPqAAB7UWu9B3m/jcM29uwRQHJggIlf1WasAoSIxgccc6DTfy3dOZSTh0TaijBG
-	DhDo+51A5udtwSN0PwlstsdF5qSM/3SIscBd6KClEXt0saATajmYygiZYrBHuVljjEM5zxnJcFV0a
-	09Rk9Z/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4X1uJo/70/aPFIKcqSXCfjdQTovhfYPfOYL1qIJnRU8=; b=JdKPzW4RVlFSnv
+	P1Qd5kkM43Eu1hJYJQph5FIKAgUDLGvEHnYQHLkwUvhvlPj/uL08/ur+nc+HehgEG5JGNWnC0WUri
+	QoW9k1kxaBIIb+QybmevvcHORpPZb6L6+LlMscmyG5gpdeXclRxN6H0JRl1RmAEP/GvJWJOGRlnDr
+	OSdKTSI4trwxJeeFYlAH5WkH3LYKSpeii5Su0yjO+bymDw8RFGvGenzoRnBgRG3tdmah9cda6lpg/
+	uWX4NR1Bz+GwjNViAGrXmnznXMJC0S+PI06EnX3wsHh6o0fMikphwH8jOBUGowwrV6qRRctWSju11
+	djYjewqybMu8hk/oVRUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phYlg-0017r5-30;
-	Wed, 29 Mar 2023 16:35:24 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1phYur-0019q3-08;
+	Wed, 29 Mar 2023 16:44:53 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phYle-0017p3-0J
+	id 1phYun-0019nJ-0w
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Mar 2023 16:35:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	Wed, 29 Mar 2023 16:44:51 +0000
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 61598B8235D;
-	Wed, 29 Mar 2023 16:35:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35CEAC433A4;
-	Wed, 29 Mar 2023 16:35:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680107717;
-	bh=9Qz5EAmCOL+i+u0TEzl9COJMOzeqVFdc0yFKt5x5s1c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Go7xWPDCKBNfq4Ytevsuw8fdbZYMfquPT5WqMXt5jkfMK8rHWFAEMXPniq6MkRxKV
-	 pLRo7kbE/bB1NJOgdSiyzoVxcXmmp9YrZQUo/elIokZSlkTDOrFxfyyPUfYsJ3PE6y
-	 fCRzRWzPNDaaLUIzpH4XbarDbFqfYLzCkdQZZ9X3pys1e3P/jPVhlyPrXq0SA99WDw
-	 ic9mE49NIASEX2Iz6XnIQRV85YQ1Aqq3gRNlJnJ32hBSXTIrMVUi2ya7R2inE8BnQH
-	 kS3QNRQ0Xu3dLJh3+Y7JU6pDt0pR3yi3LZZBToP9Gga9ARu/UZVO8KG74Jiz3SjmrR
-	 JsYF7Zrj3jGmg==
-Date: Wed, 29 Mar 2023 17:35:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes v2 2/3] riscv: Do not set initial_boot_params to
- the linear address of the dtb
-Message-ID: <5f01d8ec-553b-4954-a72d-de212230be96@spud>
-References: <20230329081932.79831-1-alexghiti@rivosinc.com>
- <20230329081932.79831-3-alexghiti@rivosinc.com>
- <179c38d6-4298-4a16-b0d7-8aee49a91f58@spud>
- <CAHVXubh9t7VuM337Br-4y7zJp1msr6+bAtr1eVLc+P50V9Bikg@mail.gmail.com>
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E1E653F230
+	for <linux-riscv@lists.infradead.org>; Wed, 29 Mar 2023 16:44:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1680108285;
+	bh=EyeEQ1AHWnCSnuIf8XiK8lJXYQEG/nT/Q5+PoE7cTkw=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=bByMShUNl10QA2w3GkSQ9I3BVA4joqiJ+gZEWlFed7tp7H/g3AWijcv9gL4slhpS7
+	 OjH3iSRN9us1JovZWRjBfqPRfETKcDdT/Ae6wj7LsX5GBqAVmv1tPiw4S0e51n9Vln
+	 bq6l6/nwB+pxpkK/gHTWdOpiA3AUpwmG1Q0dp6F/awyG6X/pZVixkzz5Eh4JXZpzjQ
+	 Xc19z/Z7CknJR2QwKMJHNxS3/dNxQjmugBtyXJP1Dtuo2G3jWdTyVV+xzCCrtKC/GO
+	 ADy3WYVwn3SzIDrhoELcRamJKb1qxs9qLgEbiiOWrjqYKCaju+YMk/ZRbzkxdK5T5i
+	 7zq21V8DC+QOw==
+Received: by mail-qk1-f199.google.com with SMTP id 72-20020a37064b000000b007467c5d3abeso7570859qkg.19
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Mar 2023 09:44:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680108285;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EyeEQ1AHWnCSnuIf8XiK8lJXYQEG/nT/Q5+PoE7cTkw=;
+        b=wICdaqk6yt1Cr524+NH4ThnLIvdsb3a+oNuQ8ta/5kVzXAouSdGw3D6sjzgHfHr4QQ
+         E9k9l8MhAWHvpUt7lyBEuqgp9hqx4zzh5IgkgY+RQRa6xGjvv/7vSRzsxbB3dxHU/SPv
+         v4ZjUwnyw7+NuEa/psDD8dzqkdqTulH8fciQZZyw0hJMfQcsoQcWpmM/25AYEdTsT9FN
+         J9i5DfCYtbBpUioIcQ9qgLJ//KImf5AXn60Rp/eaZjklsabcNPwtlalWsiX4wWaMHK0E
+         eQ7cV6TW18hhWimwAyCx+AeCJ8wQBsTYB0EreoqNy/2GgHsieJdH0hpr/CojCgUcUvzn
+         4nQQ==
+X-Gm-Message-State: AO0yUKU3gH0Gj90Fqy5kdj0JVKubPKBcOX8C4a95lJff0aPhUbGFRLO7
+	O23RK3GSPfEfT7fzILirS4S8W4wGFciE40lX3TBhZxAer4h2wK78VvAuHQmOdnfs73YUCC5DYgo
+	FgdWFLdDG+LcVfQ10zHAapdRFUbJAZ0euR5WoK8kgDQ0uEmdE0u02IiFIsPSwYw==
+X-Received: by 2002:a05:622a:1884:b0:3df:bda6:6932 with SMTP id v4-20020a05622a188400b003dfbda66932mr7869657qtc.5.1680108284782;
+        Wed, 29 Mar 2023 09:44:44 -0700 (PDT)
+X-Google-Smtp-Source: AKy350Y1cVxGuPtBTs1wRb/jyIhkYUN/54t+rl3mcjEBrkbwCHAbaWmaIbnZhzUATvLj14fK9TXwo7iF2IFoPdOcByI=
+X-Received: by 2002:a05:622a:1884:b0:3df:bda6:6932 with SMTP id
+ v4-20020a05622a188400b003dfbda66932mr7869652qtc.5.1680108284532; Wed, 29 Mar
+ 2023 09:44:44 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubh9t7VuM337Br-4y7zJp1msr6+bAtr1eVLc+P50V9Bikg@mail.gmail.com>
+References: <20230308064643.24805-1-mason.huo@starfivetech.com>
+In-Reply-To: <20230308064643.24805-1-mason.huo@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 29 Mar 2023 18:44:28 +0200
+Message-ID: <CAJM55Z8aOqAOfnNSJcKNuxJKRhjj7PzWia0Cu5kmyt9znbqcNQ@mail.gmail.com>
+Subject: Re: [PATCH v4] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
+To: Mason Huo <mason.huo@starfivetech.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_093522_441485_89A9FB12 
-X-CRM114-Status: GOOD (  29.88  )
+X-CRM114-CacheID: sfid-20230329_094449_744113_8DD01EB3 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,114 +93,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3365417951953141827=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 8 Mar 2023 at 07:49, Mason Huo <mason.huo@starfivetech.com> wrote:
+>
+> The priority and enable registers of plic will be reset
+> during hibernation power cycle in poweroff mode,
+> add the syscore callbacks to save/restore those registers.
+>
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Link: https://lore.kernel.org/r/202302140709.CdkxgtPi-lkp@intel.com/
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
+>  1 file changed, 91 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index ff47bd0dec45..2800e7bb149a 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/of_irq.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/spinlock.h>
+> +#include <linux/syscore_ops.h>
+>  #include <asm/smp.h>
+>
+>  /*
+> @@ -67,6 +68,8 @@ struct plic_priv {
+>         struct irq_domain *irqdomain;
+>         void __iomem *regs;
+>         unsigned long plic_quirks;
+> +       unsigned int nr_irqs;
+> +       unsigned long *prio_save;
+>  };
+>
+>  struct plic_handler {
+> @@ -78,6 +81,7 @@ struct plic_handler {
+>          */
+>         raw_spinlock_t          enable_lock;
+>         void __iomem            *enable_base;
+> +       u32                     *enable_save;
+>         struct plic_priv        *priv;
+>  };
+>  static int plic_parent_irq __ro_after_init;
+> @@ -229,6 +233,71 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+>         return IRQ_SET_MASK_OK;
+>  }
+>
+> +static int plic_irq_suspend(void)
+> +{
+> +       unsigned int i, cpu;
+> +       u32 __iomem *reg;
+> +       struct plic_priv *priv;
+> +
+> +       priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
+> +
+> +       for (i = 0; i < priv->nr_irqs; i++)
+> +               if (readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
+> +                       __set_bit(i, priv->prio_save);
+> +               else
+> +                       __clear_bit(i, priv->prio_save);
+> +
+> +       for_each_cpu(cpu, cpu_present_mask) {
+> +               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +               if (!handler->present)
+> +                       continue;
+> +
+> +               raw_spin_lock(&handler->enable_lock);
+> +               for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
+> +                       reg = handler->enable_base + i * sizeof(u32);
+> +                       handler->enable_save[i] = readl(reg);
+> +               }
+> +               raw_spin_unlock(&handler->enable_lock);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static void plic_irq_resume(void)
+> +{
+> +       unsigned int i, index, cpu;
+> +       u32 __iomem *reg;
+> +       struct plic_priv *priv;
+> +
+> +       priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
+> +
+> +       for (i = 0; i < priv->nr_irqs; i++) {
+> +               index = (i / BITS_PER_LONG);
+> +               writel((priv->prio_save[index] & BIT(i % BITS_PER_LONG)) ? 1 : 0,
 
---===============3365417951953141827==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kjAfQifgMlHd6Dn/"
-Content-Disposition: inline
+This looks like BIT_WORD and test_bit (or at least BIT_MASK).
 
-
---kjAfQifgMlHd6Dn/
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Mar 29, 2023 at 04:52:45PM +0200, Alexandre Ghiti wrote:
-> On Wed, Mar 29, 2023 at 4:37=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Wed, Mar 29, 2023 at 10:19:31AM +0200, Alexandre Ghiti wrote:
-> > > early_init_dt_verify() is already called in parse_dtb() and since the=
- dtb
-> > > address does not change anymore (it is now in the fixmap region), no =
-need
-> > > to reset initial_boot_params by calling early_init_dt_verify() again.
-> > >
-> > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > > ---
-> > >  arch/riscv/kernel/setup.c | 5 +----
-> > >  1 file changed, 1 insertion(+), 4 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > > index 542eed85ad2c..a059b73f4ddb 100644
-> > > --- a/arch/riscv/kernel/setup.c
-> > > +++ b/arch/riscv/kernel/setup.c
-> > > @@ -278,10 +278,7 @@ void __init setup_arch(char **cmdline_p)
-> > >  #if IS_ENABLED(CONFIG_BUILTIN_DTB)
-> > >       unflatten_and_copy_device_tree();
-> > >  #else
-> > > -     if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
-> > > -             unflatten_device_tree();
-> >
-> > Silly question maybe, but since it isn't explicitly mentioned, the
-> > XIP_FIXUP bits no longer matter?
->=20
-> The XIP_FIXUP is only needed when translating virtual to physical
-> addresses, but that does not mean I did not break it, I haven't
-> considered XIP at all...
-
-So, what currently happens is that, during early boot, we call
-parse_dtb() right at the beginning of setup_arch().
-That calls early_init_dt_scan(dtb_early_pa), which in turn calls
-early_init_dt_verify(dtb_early_pa).
-
-Here, relatively late during boot, we are coming along and calling the
-function again. This existed prior to the XIP stuff landing, but the
-specific XIP_FIXUP handling looks to be the fallout from:
-https://lore.kernel.org/linux-riscv/82a05081-5662-c787-44e4-d480774ce31c@gh=
-iti.fr/
-
-The check in the first place was added by Anup's move away from fixmap
-for dtb stuff, which makes me wonder - should this actually be part of
-1/3? Something, something we no longer need to do this because these
-addresses no longer change as per 1/3?
-
-> > Also, in related news, I assume you don't have a QEMU setup that can do
-> > boot an XIP kernel?
->=20
-> I haven't booted a XIP kernel for a long time now, here are my notes
-> from that time:
-> https://github.com/AlexGhiti/alexghiti.github.io/blob/main/xip/XIP.md
-
-Right, I'll have to get around to trying that. We never put any
-investment into QEMU internally, nor run any CI against it, so the HSS
-doesn't actually work in QEMU anymore.
-Assertion failures due to missing peripheral emulation :(
-Probably don't need the HSS though and can do a direct kernel boot, I'll
-have to see if that works for this XIP stuff, I know it does for regular
-kernels.
-
-Cheers,
-Conor.
-
---kjAfQifgMlHd6Dn/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCRowAAKCRB4tDGHoIJi
-0ha3AQDqn5pBsE36Dp/vUjZCUYNwqjpdLvfFR9ru62ASV7a8CwEAgUXOc+FcR+Ok
-bwGeyZ4aob+H7tDntX3k8QaoUhlvkAE=
-=idAD
------END PGP SIGNATURE-----
-
---kjAfQifgMlHd6Dn/--
-
-
---===============3365417951953141827==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +                      priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+> +       }
+> +
+> +       for_each_cpu(cpu, cpu_present_mask) {
+> +               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +               if (!handler->present)
+> +                       continue;
+> +
+> +               raw_spin_lock(&handler->enable_lock);
+> +               for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
+> +                       reg = handler->enable_base + i * sizeof(u32);
+> +                       writel(handler->enable_save[i], reg);
+> +               }
+> +               raw_spin_unlock(&handler->enable_lock);
+> +       }
+> +}
+> +
+> +static struct syscore_ops plic_irq_syscore_ops = {
+> +       .suspend        = plic_irq_suspend,
+> +       .resume         = plic_irq_resume,
+> +};
+> +
+>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>                               irq_hw_number_t hwirq)
+>  {
+> @@ -345,6 +414,7 @@ static int __init __plic_init(struct device_node *node,
+>         u32 nr_irqs;
+>         struct plic_priv *priv;
+>         struct plic_handler *handler;
+> +       unsigned int cpu;
+>
+>         priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+>         if (!priv)
+> @@ -363,15 +433,21 @@ static int __init __plic_init(struct device_node *node,
+>         if (WARN_ON(!nr_irqs))
+>                 goto out_iounmap;
+>
+> +       priv->nr_irqs = nr_irqs;
+> +
+> +       priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
+> +       if (!priv->prio_save)
+> +               goto out_free_priority_reg;
+> +
+>         nr_contexts = of_irq_count(node);
+>         if (WARN_ON(!nr_contexts))
+> -               goto out_iounmap;
+> +               goto out_free_priority_reg;
+>
+>         error = -ENOMEM;
+>         priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+>                         &plic_irqdomain_ops, priv);
+>         if (WARN_ON(!priv->irqdomain))
+> -               goto out_iounmap;
+> +               goto out_free_priority_reg;
+>
+>         for (i = 0; i < nr_contexts; i++) {
+>                 struct of_phandle_args parent;
+> @@ -441,6 +517,11 @@ static int __init __plic_init(struct device_node *node,
+>                 handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+>                         i * CONTEXT_ENABLE_SIZE;
+>                 handler->priv = priv;
+> +
+> +               handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
+> +                                               sizeof(*handler->enable_save), GFP_KERNEL);
+> +               if (!handler->enable_save)
+> +                       goto out_free_enable_reg;
+>  done:
+>                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+>                         plic_toggle(handler, hwirq, 0);
+> @@ -461,11 +542,19 @@ static int __init __plic_init(struct device_node *node,
+>                                   plic_starting_cpu, plic_dying_cpu);
+>                 plic_cpuhp_setup_done = true;
+>         }
+> +       register_syscore_ops(&plic_irq_syscore_ops);
+>
+>         pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+>                 " %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+>         return 0;
+>
+> +out_free_enable_reg:
+> +       for_each_cpu(cpu, cpu_present_mask) {
+> +               handler = per_cpu_ptr(&plic_handlers, cpu);
+> +               kfree(handler->enable_save);
+> +       }
+> +out_free_priority_reg:
+> +       kfree(priv->prio_save);
+>  out_iounmap:
+>         iounmap(priv->regs);
+>  out_free_priv:
+> --
+> 2.39.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3365417951953141827==--
-
