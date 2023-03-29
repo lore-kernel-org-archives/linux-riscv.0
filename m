@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1C9C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C23C761AF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 15:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
+	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0f568lsvxa7GK61yvmGWa7dpCD8B0gEUbXY8o2Rek/k=; b=uelE+ArcwPKlAG
-	mn2cWHyzyHMlRPpnlR7TFWmE4L/GF3yucU/iiQPnzR2wKtDhGETRUrJeH8i3HoH3HRk/nKnKtK1Z0
-	URq/EB4izs/kb1qXsn7/Fo2zyFAY8mDpw09FbEuGjIObjqWz8VkfAMqc0swGZmPASDD9mUZ+xzTU9
-	YlpH60JNnOAIqBf0VtWdSAH7LwlpoT8DRvshjM60LspuFdw5e3fyAZZrjnEO+FJoCjJawwEEUAL/T
-	6UE/pcHsqCVw8PxgFh8gJR4SmvGZQWYsj5zTMmNUMSybXBg8nvMMnxSbXNqPfQf7H04w0BHbEkM+1
-	Ro/t08LbUMFpjMSjrEgQ==;
+	List-Owner; bh=PH1aRxc8O0w2Uvxx9uZG1Ut0bcLI+4jFP4gb5p4Ox7w=; b=uQi8Z+LL0IYUba
+	vFbzFLG8KEKTai+L0eok8JFQq9Whuvvrmo+kRY9Xa/v8nF38X8javFi1FF7Se7AHcBb9bdH7uGEik
+	Dg7zOBXUKB1iDV1hUo8zE+DnVoZ0gA2TVSCLd5OtBq4jzZTaZv7EMvEA7iwMn5+/KX6iCcn611onX
+	9TZRfwaYAD65AuDjhQQFn0dLYtz0CHFkQC4qqgSeXRdaiH4tytkDuASKC1GEYY4ZMfp1EWVmqaaDg
+	AzQpJfedw3wB4Ad9guH+N9K08y4JHk59N34+TTubtkZvqF73D6a2GohLsgxa72mhjRrP/NUQ0okDn
+	ok6ogi+q9rfNfP5c1jzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY7p-000tfF-14;
-	Wed, 29 Mar 2023 15:54:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1phYAq-000v3A-13;
+	Wed, 29 Mar 2023 15:57:20 +0000
+Received: from mail-ed1-f48.google.com ([209.85.208.48])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY7D-000t3T-0q;
-	Wed, 29 Mar 2023 15:53:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=022ntgbo/qozcpOEnF6DlWHlLfWcIn+6VTfzUh5A9FY=; b=hUKr/nD5ay4RJHuscvkTQdPmD9
-	/Tu6BwTJOshI7mgReh8lYsAjP3ZfrGyodatU0kw5hIgNRN8S6+FW7tepC3W3RIqBz8qZIaC9qo5GI
-	28yVUE6ySaLVjt2k0tBi0BLEKRpchRcg/IeACTpLqpLARsaDyzQ6yfzdnHleF83MKk7CPzStE30xa
-	+khEPtjQKpTJie1Z4dYEQ+QgockpIO67uUhTU+gRiPHjldz8sbeBq1RdK7VGHLGZHqaKjH0hITjTi
-	OLoybl1wzykkR8ugcE/tB5K8yhf1AC7WDfoSf7nLXPdh6aZBr+1fJnN0Z6eqB4YPD12bxjRZMkqMm
-	r3NsXUEw==;
-Received: from mail-oi1-f176.google.com ([209.85.167.176])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phY79-006t48-2p;
-	Wed, 29 Mar 2023 15:53:33 +0000
-Received: by mail-oi1-f176.google.com with SMTP id r14so6243157oiw.12;
-        Wed, 29 Mar 2023 08:53:30 -0700 (PDT)
+	id 1phYAm-000v16-0k;
+	Wed, 29 Mar 2023 15:57:17 +0000
+Received: by mail-ed1-f48.google.com with SMTP id ek18so65300250edb.6;
+        Wed, 29 Mar 2023 08:57:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680105207;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=022ntgbo/qozcpOEnF6DlWHlLfWcIn+6VTfzUh5A9FY=;
-        b=fZ8Ri6y0JgmTCiYjFX5GQTPhL0K+2yUWaSArKcrMNE6xTLD/AUAzEbgQv/kzwgQjga
-         3uKrQwKrbahvq7aBX4I722BjGH7WranyHFk522oxxBlu0uDiHYW9vwwDMJyPFT7GDXNa
-         BwR11mWS0yPnQ/dhCFXaANHbWgj06Lhpa56IjKS4Ix+SAjIsvX7qDA7l4WkDANc37b6N
-         WOOSEdnQTXWnPxliyskBDEUbKj6JDJh8s/bbkPb341BvO4XK4WmEmAA/GNQYiaRKj/ZG
-         6K6mQia672YNjGjlGQ7aWzmhGp2AX6otr0pHo1qvAyuQYtEOZuXYxV6XY/AlO2YZpgbh
-         oXIg==
-X-Gm-Message-State: AO0yUKVCambFrnugQcyjLZgY5ZNzOrkJB3Mkg5bldG8iFgRa8/yG1pSi
-	6aabKQ+zUUaN0av3iPqQWA==
-X-Google-Smtp-Source: AK7set+mgwqrtp3sj8LCfLB0ZJyIWcTnGcbFer41ylAZRGD0ZYDF+G/GFDHWLU149fBQcrWXcPEKPQ==
-X-Received: by 2002:a05:6808:616:b0:386:db46:f6fb with SMTP id y22-20020a056808061600b00386db46f6fbmr8106850oih.17.1680105207535;
-        Wed, 29 Mar 2023 08:53:27 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id l8-20020a056808020800b003874631e249sm8002092oie.36.2023.03.29.08.53.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 08:53:26 -0700 (PDT)
-Received: (nullmailer pid 3198085 invoked by uid 1000);
-	Wed, 29 Mar 2023 15:52:45 -0000
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 29 Mar 2023 10:52:09 -0500
-Subject: [PATCH 12/19] thermal: cpuidle_cooling: Adjust includes to remove
- of_device.h
+        d=1e100.net; s=20210112; t=1680105431;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Mv45vqNNvk7gfjj9ywv5t87xL9EGo+L1vyvtzDS68LU=;
+        b=wan2cXi0N+Pl6l5DqJjs1dkI3WZFA2l1dqNedFmIXDTME+KLzgwwBph4luGoOActwJ
+         c85baZwuaalxqGhD9rxvyLQiPcbPPhw1jRC24ZvPQ/qfpsSFkM+73GLFkauD/KVVtzGr
+         vUqJi6pQifCVKS2IloADkOnxwuQgKcLbLz5EOw+kj+j8inmU8fonO2lXqd6jNBtmrkLo
+         DNAic+kDawgbj9/FGJzzNG9D6G/5ATi2+WMKnBjBEiumW3CKBalsZRr4Im7MJhUovoyU
+         KFDGJF73GS00I8BxgBB4Bdx6Sis1bDkZDdeTGit+/rCeTq08N9Z7pujD3YT1V6CGgxBC
+         +yNg==
+X-Gm-Message-State: AAQBX9dIJ/jpSYsChhLjfzGsfj5NISG1C9pr9XNMEeCX1ID3fXdTArzu
+	yfnAMfcAokOgk2VtDBOOE7d37GJwGAAMb5Tz
+X-Google-Smtp-Source: AKy350Zn6h38w2yjxfvIrrw/9HTWdRKBDOF7Mr35oHitHjDVXxEoWMU2diDNrqh6/N1lGRTd/+utjw==
+X-Received: by 2002:aa7:c859:0:b0:4fb:78a0:eabe with SMTP id g25-20020aa7c859000000b004fb78a0eabemr20880731edt.14.1680105431338;
+        Wed, 29 Mar 2023 08:57:11 -0700 (PDT)
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com. [209.85.221.44])
+        by smtp.gmail.com with ESMTPSA id v6-20020a50d086000000b004fb00831851sm17086281edd.66.2023.03.29.08.57.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Mar 2023 08:57:11 -0700 (PDT)
+Received: by mail-wr1-f44.google.com with SMTP id y14so16282158wrq.4;
+        Wed, 29 Mar 2023 08:57:11 -0700 (PDT)
+X-Received: by 2002:a5d:591c:0:b0:2ca:4533:5d6a with SMTP id
+ v28-20020a5d591c000000b002ca45335d6amr4154237wrd.7.1680105410028; Wed, 29 Mar
+ 2023 08:56:50 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20230329-dt-cpu-header-cleanups-v1-12-581e2605fe47@kernel.org>
-References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
-In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
+References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org> <20230329-dt-cpu-header-cleanups-v1-6-581e2605fe47@kernel.org>
+In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-6-581e2605fe47@kernel.org>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 29 Mar 2023 23:56:38 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64tNZa_LCUpHBbBUdpftB_Dms=oHcb7ZAD42qL-ov73hw@mail.gmail.com>
+Message-ID: <CAGb2v64tNZa_LCUpHBbBUdpftB_Dms=oHcb7ZAD42qL-ov73hw@mail.gmail.com>
+Subject: Re: [PATCH 06/19] ARM: sunxi: Drop of_device.h include
+To: Rob Herring <robh@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, 
 	Frank Rowand <frowand.list@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Amit Daniel Kachhap <amit.kachhap@gmail.com>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Amit Kucheria <amitk@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Amit Daniel Kachhap <amit.kachhap@gmail.com>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Amit Kucheria <amitk@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
 	Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
 	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
@@ -92,12 +82,15 @@ To: "David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
 	Konrad Dybcio <konrad.dybcio@linaro.org>, Anup Patel <anup@brainfault.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, Jiaxun Yang <jiaxun.yang@flygoat.com>, 
 	Marc Zyngier <maz@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Stephen Boyd <sboyd@kernel.org>
-Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
-X-Mailer: b4 0.13-dev
+	Stephen Boyd <sboyd@kernel.org>, sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_165332_049629_8AF491A1 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20230329_085716_267190_23F05C1F 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,48 +102,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: wens@csie.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
-implicitly including other includes, and is no longer needed. Adjust the
-include files with what was implicitly included by of_device.h (cpu.h and
-of.h) and drop including of_device.h.
-
-Signed-off-by: Rob Herring <robh@kernel.org>
----
-Please ack and I will take the series via the DT tree.
----
- drivers/thermal/cpuidle_cooling.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/thermal/cpuidle_cooling.c b/drivers/thermal/cpuidle_cooling.c
-index 4f41102e8b16..6f6daead485e 100644
---- a/drivers/thermal/cpuidle_cooling.c
-+++ b/drivers/thermal/cpuidle_cooling.c
-@@ -7,12 +7,13 @@
-  */
- #define pr_fmt(fmt) "cpuidle cooling: " fmt
- 
-+#include <linux/cpu.h>
- #include <linux/cpu_cooling.h>
- #include <linux/cpuidle.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/idle_inject.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/slab.h>
- #include <linux/thermal.h>
- 
-
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXIgMjksIDIwMjMgYXQgMTE6NTPigK9QTSBSb2IgSGVycmluZyA8cm9iaEBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IE5vdyB0aGF0IG9mX2NwdV9kZXZpY2Vfbm9kZV9nZXQoKSBpcyBk
+ZWZpbmVkIGluIG9mLmgsIG9mX2RldmljZS5oIGlzIGp1c3QKPiBpbXBsaWNpdGx5IGluY2x1ZGlu
+ZyBvdGhlciBpbmNsdWRlcywgYW5kIGlzIG5vIGxvbmdlciBuZWVkZWQuIEp1c3QgZHJvcAo+IGlu
+Y2x1ZGluZyBvZl9kZXZpY2UuaCBhcyBvZi5oIGlzIGFscmVhZHkgaW5jbHVkZWQuCj4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPgo+IC0tLQo+IFBsZWFzZSBh
+Y2sgYW5kIEkgd2lsbCB0YWtlIHRoZSBzZXJpZXMgdmlhIHRoZSBEVCB0cmVlLgoKQWNrZWQtYnk6
+IENoZW4tWXUgVHNhaSA8d2Vuc0Bjc2llLm9yZz4KCkkgZG91YnQgdGhpcyBmaWxlIHdvdWxkIGV2
+ZXIgc2VlIGFueSBtb3JlIGNoYW5nZXMuCgo+IC0tLQo+ICBhcmNoL2FybS9tYWNoLXN1bnhpL21j
+X3NtcC5jIHwgMSAtCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9hcm0vbWFjaC1zdW54aS9tY19zbXAuYyBiL2FyY2gvYXJtL21hY2gtc3VueGkv
+bWNfc21wLmMKPiBpbmRleCAyNmNiY2UxMzUzMzguLmNiNjM5MjEyMzJhNiAxMDA2NDQKPiAtLS0g
+YS9hcmNoL2FybS9tYWNoLXN1bnhpL21jX3NtcC5jCj4gKysrIGIvYXJjaC9hcm0vbWFjaC1zdW54
+aS9tY19zbXAuYwo+IEBAIC0xOSw3ICsxOSw2IEBACj4gICNpbmNsdWRlIDxsaW51eC9pcnFjaGlw
+L2FybS1naWMuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L29mLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9v
+Zl9hZGRyZXNzLmg+Cj4gLSNpbmNsdWRlIDxsaW51eC9vZl9kZXZpY2UuaD4KPiAgI2luY2x1ZGUg
+PGxpbnV4L3NtcC5oPgo+Cj4gICNpbmNsdWRlIDxhc20vY2FjaGVmbHVzaC5oPgo+Cj4gLS0KPiAy
+LjM5LjIKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
