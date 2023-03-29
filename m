@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D822C76196
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 01:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C727C76196
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Mar 2023 02:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ezy7faO8o0YF2w3j8+2W03foMp5By99Jdx+y1sSHCuE=; b=EHJXnT4QaFg6ua
-	u0I+rPPvsUItAqSXqW/gD4PGjo6mkwIrGlNarC8eT9ThsqWAPEyTEztrT3pr3iTUrH5CBKQr/cgq7
-	cPf/gHY6at4UEbR5r0S4tErnm6TX/KqZJcLdRGOPZWL0IJ300sgee5bYnsfOSdvrwdhqdlusFo4L7
-	IaFcBIiI8wWWSokd8ElVsMwpKCTXIX7OSRj+vwgCZjeOsVLun1BcR7RDiKKl/M0Nnxe2w3VtMZR8Q
-	7c2qWZ2TX6MbkO2S45OYBAmM3uXDpCWTIpkzh8piMPzYEdAUm4OZIgl1T2w36g1TQLakCexKV87IR
-	+6os787KU7H/YQJySrzQ==;
+	List-Owner; bh=nSdBn0U9vC2dV3a06fdu1IBv/vHUiCzCTGpc0BgdrwI=; b=QrUaMjIK5SDKov
+	nvgSf6NbGqOg+95FXk2hL0hx+l7/78u5stIKE8Dsk1HWHUtFmj5o8X3tMmUErwb4lpoPB0P1kvegV
+	dma0hKBDvxrXZK4A8h4T22GHDmaXvj0JuCzHLVzyH2FADXt85w9f1QF2pdPVWw0ffEytUDEAjevtz
+	Z8SkTmwgkaPA0CSMAT0khbmWoialj8Z40G8h7iw9cfkVzfJrXXkn4jmrtenH3WduG29Yvftq+yJdi
+	Z4t03zHcYhBZgmKn+36eZtiNpuMqoUpafWdmwHqET46b4KEfrjTuLvHkBGU1mvJQ/xGMY0IyIbXd6
+	uLwHRUKS2mjL11cQgJng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phKPS-00GFdM-21;
-	Wed, 29 Mar 2023 01:15:30 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1phLNM-00GKjC-1a;
+	Wed, 29 Mar 2023 02:17:24 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phKPN-00GFbR-2i;
-	Wed, 29 Mar 2023 01:15:27 +0000
-Received: from [10.128.10.193] (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 495325805E3;
-	Wed, 29 Mar 2023 09:15:12 +0800 (CST)
-Message-ID: <c043935e-3961-8896-45de-03fcad676e08@sangfor.com.cn>
-Date: Wed, 29 Mar 2023 09:15:11 +0800
+	id 1phLNK-00GKiC-04
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Mar 2023 02:17:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 76746B81F91;
+	Wed, 29 Mar 2023 02:17:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 235D6C433EF;
+	Wed, 29 Mar 2023 02:17:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680056238;
+	bh=HFOVDJOz0rbImC9oGs5gHJAEVLKuq6QbRug+jFmJR5Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BLYaPxU7FwPY+yezNxX8b+04N3VOjJX1R4VH9FfD2FmrXIPxaWF9GXMx+bR+wGUgq
+	 FcTP3nGb5mD360od7UXDV+CsJdl0B/z0xYOLo8t2AueXz9/bvW4nWy0aH19dWvWJCv
+	 rngogYAcmgzwCYs3tXrQ/7lJbby6V072F9ly974jhtWzPaAH+94fgAxhMlQNzXni+e
+	 /KEc+cgXRrTQnH1mZHNT6HaMDJniM5DwMpw5vejG1mjqLxvp9nMQ9/2q1O7+Q9guV1
+	 b7UFbDATJ3YUpZXvh825j2ta0uxs/YMWBNYGBQmv/GtI1SDseD25/1pmvmLmfazqzb
+	 9zyosH8AZMpHg==
+Date: Tue, 28 Mar 2023 19:17:16 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+ <kernel@esmil.dk>, Jose Abreu <joabreu@synopsys.com>, Richard Cochran
+ <richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+ <yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: Re: [net-next v9 5/6] net: stmmac: Add glue layer for StarFive
+ JH7110 SoC
+Message-ID: <20230328191716.18a302a1@kernel.org>
+In-Reply-To: <20230328062009.25454-6-samin.guo@starfivetech.com>
+References: <20230328062009.25454-1-samin.guo@starfivetech.com>
+	<20230328062009.25454-6-samin.guo@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v8 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Content-Language: en-US
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, mark.rutland@arm.com,
- will@kernel.org, catalin.marinas@arm.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, tglx@linutronix.de, dave.hansen@linux.intel.com,
- x86@kernel.org, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
- kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
- xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
- dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230328134319.2185812-1-pengdonglin@sangfor.com.cn>
- <20230328134319.2185812-4-pengdonglin@sangfor.com.cn>
- <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-In-Reply-To: <ZCLzf6RX4U00g9Cu@shell.armlinux.org.uk>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSE9PVh9NGRhJSE0fT00dSlUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS09LQ1VKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBQ6Kww4Oj0cOVYRDyssOigM
-	GQ9PCkJVSlVKTUNLS05JTkpITEpDVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNSUtNNwY+
-X-HM-Tid: 0a872aeee9a02eb7kusn495325805e3
-X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230328_181526_034882_41565A34 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20230328_191722_214939_7BFD15BA 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,127 +80,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/28 22:02, Russell King (Oracle) wrote:
-> On Tue, Mar 28, 2023 at 06:43:14AM -0700, Donglin Peng wrote:
->> The commit d4815c5d1bbd ("function_graph: Support recording and printing
->> the return value of function") laid the groundwork for the for the
->> funcgraph-retval, and this modification makes it available on the
->> ARM platform.
->>
->> We introduce a new structure called fgraph_ret_regs for the ARM platform
->> to hold return registers and the frame pointer. We then fill its content
->> in the return_to_handler and pass its address to the function
->> ftrace_return_to_handler to record the return value.
->>
->> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
->> ---
->> v8:
->>   - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
->> ---
->>   arch/arm/Kconfig               |  1 +
->>   arch/arm/include/asm/ftrace.h  | 18 ++++++++++++++++++
->>   arch/arm/kernel/entry-ftrace.S |  6 +++++-
->>   3 files changed, 24 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
->> index e24a9820e12f..73061379855a 100644
->> --- a/arch/arm/Kconfig
->> +++ b/arch/arm/Kconfig
->> @@ -98,6 +98,7 @@ config ARM
->>   	select HAVE_FAST_GUP if ARM_LPAE
->>   	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->>   	select HAVE_FUNCTION_ERROR_INJECTION
->> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->>   	select HAVE_FUNCTION_GRAPH_TRACER
->>   	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
->>   	select HAVE_GCC_PLUGINS
->> diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
->> index 7e9251ca29fe..2ab4bee21d79 100644
->> --- a/arch/arm/include/asm/ftrace.h
->> +++ b/arch/arm/include/asm/ftrace.h
->> @@ -77,4 +77,22 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
->>   
->>   #endif /* ifndef __ASSEMBLY__ */
->>   
->> +
->> +#ifndef __ASSEMBLY__
->> +struct fgraph_ret_regs {
->> +	unsigned long regs[4];
->> +	unsigned long fp;
->> +};
->> +
->> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
->> +{
->> +	return ret_regs->regs[0];
->> +}
->> +
->> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
->> +{
->> +	return ret_regs->fp;
->> +}
->> +#endif
->> +
->>   #endif /* _ASM_ARM_FTRACE */
->> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
->> index 3e7bcaca5e07..5f1e74555b25 100644
->> --- a/arch/arm/kernel/entry-ftrace.S
->> +++ b/arch/arm/kernel/entry-ftrace.S
->> @@ -257,11 +257,15 @@ ENDPROC(ftrace_graph_regs_caller)
->>   
->>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->>   ENTRY(return_to_handler)
->> +	sub	sp, sp, #4
->>   	stmdb	sp!, {r0-r3}
->> -	add	r0, sp, #16		@ sp at exit of instrumented routine
->> +	add	r0, sp, #20		@ sp at exit of instrumented routine
->> +	str	r0, [sp, #16]
->> +	mov	r0, sp
+On Tue, 28 Mar 2023 14:20:08 +0800 Samin Guo wrote:
+> This adds StarFive dwmac driver support on the StarFive JH7110 SoC.
 > 
-> 1) EABI wants the stack to be aligned to 8 bytes.
-> 2) We can do better than this.
-> 
-> 	mov	ip, sp
-> 	stmdb	sp!, {r0-r3, ip, lr}
-> 	mov	r0, sp
+> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
 
-Great, I will modify it.
+Excellent, now it applies cleanly :)
 
-> 
->>   	bl	ftrace_return_to_handler
->>   	mov	lr, r0			@ r0 has real ret addr
->>   	ldmia	sp!, {r0-r3}
-> 
-> 	ldmia	sp, {r0-r3}		@ since we need to manually adjust sp,
+Our clang build with W=1 complains that:
 
-Thanks, I will modify it.
+drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c:37:2: warning: variable 'rate' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
+        default:
+        ^~~~~~~
+drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c:42:36: note: uninitialized use occurs here
+        err = clk_set_rate(dwmac->clk_tx, rate);
+                                          ^~~~
+drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c:24:20: note: initialize the variable 'rate' to silence this warning
+        unsigned long rate;
+                          ^
+                           = 0
 
-> 
->> +	add	sp, sp, #4		@ skip fp
-> 
-> 	add	sp, sp, #4 * 6		@ restore stack pointer here
 
-Thanks, I will modify it.
-
-> 
->>   	ret	lr
->>   ENDPROC(return_to_handler)
->>   #endif
->> -- 
->> 2.25.1
->>
->>
->> _______________________________________________
->> linux-arm-kernel mailing list
->> linux-arm-kernel@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
->>
-> 
-
+not sure how you prefer to fix this. Maybe return early?
 
 _______________________________________________
 linux-riscv mailing list
