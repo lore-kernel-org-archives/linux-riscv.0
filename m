@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36ECC77B60
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 17:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B9FC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 18:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=L5msw1KTmA6Cl8Bks4sWOsiKhikiaAwiOaaHsgT5oco=; b=Apd/2EG5vVJrxV
-	hHAVQOcz1jf0Aq/pOjbivGn1UQ4LhJhNgWaaRkn61xIRMwhtZiHl/E9BJCwQcQmDyCZeG3ZgtXyQx
-	Dr0ju+pFnwqxbRWPRwb2ntOL7Rfu9Ua1T/E3eTFxJOgMKPV2CwXUFrKYAjHp0Pre3UCyrH2JmQELw
-	QKsa1OguTXgj0S2BW+POPVR7qPE4/vRf+xLapOy/j4rDhoL+C7Shfo34vJj2WD6x7vpSJy+Bx0DSo
-	WhAlqHugJxAdbomFziIAPftp5svZJmM4qSZs65Yg4LI8ePDWZsQXEAqZHpPWOrOj/b1aKoAuXISze
-	IVImArKCH4T+llwUjgxQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BGfU4GhOUFIcMyB/FKi53SN9UWKp4s08DVXHorBu7zk=; b=TEenfM3KQMip42
+	XTaN0+HxcWaLN8zXwlPCo2M4dnbdmiHKa/EmjxLWCsGvOl+PA3nDz0XMGTtSOfW5svKYyB+bj62No
+	3vEWHFgU6o4XgAUBvAU0rFm37r8vYpR/Es/T2pvK6yQdrk6KKVZfBqitna4TcoHSDyfxDxgIyGa9L
+	CB0rA3r1y7Dx3ZuMvEFgex682UC1RnHscjoa7w9L8jZ8kN6pfgHpj5ueo4QKYMV42ywwYWcap15gE
+	ihT+/EDtKEnZdhsI8hYFuy4KNikJWbVA+QNFNE3Ws4JyYA5HVIr5BzI5O+2LZHh6V5kyt1hd3Km/b
+	DJ0uj2jaoMOreT9V/N/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phw9S-004eb5-1X;
-	Thu, 30 Mar 2023 17:33:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1phx3H-004p1Q-2m;
+	Thu, 30 Mar 2023 18:31:11 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phw9O-004eZq-33;
-	Thu, 30 Mar 2023 17:33:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 33F556214B;
-	Thu, 30 Mar 2023 17:33:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E270AC4339B;
-	Thu, 30 Mar 2023 17:33:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680197605;
-	bh=TGL8LvZqyVxudl1AdJeWsuMMfvnopGjKpYxAOrJpzy4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Dz70YwfcOg3FFIMMjW+kEPATlY4d4XAso+J4MLhYZCUi8c1MQIJJR9ArlXFXtn6Po
-	 WDizL1uUvqCozQYSQxSGBFe8f2C3v7pTaHXUTsCfRis0BTMRd8IM52D+aDAh9Uw5qR
-	 XgTB12gaYTU5pfa5zfjNcQyNjaeZnmQO6wtjpPzGTBWflqEkFW6iJ5LEoEH8gGnONb
-	 spzh9sQIoTBqSgYRgUeI+AX39IpoaQhu2Fgf7ZaBIwjoezxBbkSiwxrWPsQT9bbfXq
-	 2ucqx2MUXVSPeRzhcnFHQUK5mJ43Erp/lrqjCN5cQA/Lm9E89eECLFThDkws4GiOJy
-	 Dt5+Es/74O7+g==
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: conor@kernel.org,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Scott Wood <oss@buserror.net>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Rishabh Bhatnagar <rishabhb@codeaurora.org>,
-	Prakash Ranjan <saiprakash.ranjan@codeaurora.org>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v1] dt-bindings: move cache controller bindings to a cache directory
-Date: Thu, 30 Mar 2023 18:32:56 +0100
-Message-Id: <20230330173255.109731-1-conor@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	id 1phx3E-004p0I-0P
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Mar 2023 18:31:09 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 20so20626164lju.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 11:31:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680201065;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y4QG32glT+tPHqBHPO/ahp4Rj/Y6Ok/1/jb66T0Ro+s=;
+        b=Qh8bK7i7hfJEM+1W1rQTmIoi2XDNoN9PWIpdbxIWkpGlQUUU9eImLC7wy5nuo3DzfN
+         yLLvaWPgAIxb2EyRzYunmxDmUDVS8nULxt8VddcXJEt0APRFPSyidKmu/hKICKNvyi4u
+         w70DWAHUVtSFLiYo6+9irFiYZLewPu3rkShiyfKyS+reTYaazmrIR7krCkkZm6N629wC
+         aVIbZztnw0jQx4DpJhnTFGeDqe1Mxs6H7EUiLFNymACzxrj/jUPeZQUCm9PG7ngfO7NI
+         jhetQus9nZezECvnMgw8kySj7hwy9GGBe4MOgr8wLpaiDL0src1x8+dl9obApepTIT6R
+         evhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680201065;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y4QG32glT+tPHqBHPO/ahp4Rj/Y6Ok/1/jb66T0Ro+s=;
+        b=8GMTl1OkIJbdAUaMFy2BESKId8K1y1xhD75UiYGN4Ch1HLfj/pcxDZjZHgkJtuaINW
+         KbugyR6oG8tphJu0ziVuZRCadW1mbN53uW5IYy+5mvCTXAwCpBsQvOXc0pyabNWG1Y9k
+         kc69YSB1O887RN7iuZFYwJq/ox0wxpiaz9GxFfwvf8tvKOvEfjUO2l1rsFLiuywqpjdv
+         ULahHcQlmivHMe8NBd2jG/vlnE1/HhWLmcumg62vO5A14jIFBzzIU9zzbzVQAaFwkjnB
+         rMV0HP4AsVyP7zRNbZIJRz42YtyUCKQ3xY6HkYGpPzBaoFIpJIqP1hNBvn7lt6e/uls7
+         Yi0Q==
+X-Gm-Message-State: AAQBX9d5W6+EwLnusHC95ccmu34VCpec/KEVj4fqjc8gvYIMcf19hIYK
+	aP4vp7Nm3bvGaLcPKBf5hAoEKjfpbQFSh8LkIVllDQ==
+X-Google-Smtp-Source: AKy350ac0Ym4n+b7VsgrP64Z2yOkhqsCxyYEAUlayK34y4u4/HjIP7opTmYIxOLRCt8DA9iOPeeG7EoKst5bN4EsmnE=
+X-Received: by 2002:a2e:9887:0:b0:298:72a8:c6c4 with SMTP id
+ b7-20020a2e9887000000b0029872a8c6c4mr7514253ljj.9.1680201065020; Thu, 30 Mar
+ 2023 11:31:05 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7705; i=conor.dooley@microchip.com; h=from:subject; bh=U174NDGDWgBy3a6MdGCxngbevjl5LWTvwwYlkqVhFOU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmqx4+/W3VH8+eXe3LXF4bmrv5kxlLtPcvql9nNt4wlY kpd3r0yHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIv0yGv8IP2QrkFOpE/P6p VB84cOlmx07PxwW2PffnVz7lMOBpL2Fk6Ej/scgw8P6E9Tv7D97XSDn+oOgS24HLK7mm2Vl9nW3 FyAsA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20230221190858.3159617-1-evan@rivosinc.com> <20230221190858.3159617-3-evan@rivosinc.com>
+ <605fb2fd-bda2-4922-92bf-e3e416d54398@app.fastmail.com>
+In-Reply-To: <605fb2fd-bda2-4922-92bf-e3e416d54398@app.fastmail.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Thu, 30 Mar 2023 11:30:29 -0700
+Message-ID: <CALs-HstAKtvORKwRWeh97SuAuYR61aiR-3jA2_0JCZGAJXVHbg@mail.gmail.com>
+Subject: Re: [PATCH v3 2/7] RISC-V: Add a syscall for HW probing
+To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_103327_062119_AED97541 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20230330_113108_161540_FC6C0D67 
+X-CRM114-Status: GOOD (  35.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,158 +82,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Niklas Cassel <niklas.cassel@wdc.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, "Conor.Dooley" <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, slewis@rivosinc.com, Bagas Sanjaya <bagasdotme@gmail.com>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Vineet Gupta <vineetg@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, guoren <guoren@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-There's a bunch of bindings for (mostly l2) cache controllers
-scattered to the four winds, move them to a common directory.
-I renamed the freescale l2cache.txt file, as while that might make sense
-when the parent dir is fsl, it's confusing after the move.
-The two Marvell bindings have had a "marvell," prefix added to match
-their compatibles.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../{memory-controllers => cache}/baikal,bt1-l2-ctl.yaml        | 2 +-
- .../{powerpc/fsl/l2cache.txt => cache/freescale-l2cache.txt}    | 0
- Documentation/devicetree/bindings/{arm => cache}/l2c2x0.yaml    | 2 +-
- .../{arm/mrvl/feroceon.txt => cache/marvell,feroceon-cache.txt} | 0
- .../{arm/mrvl/tauros2.txt => cache/marvell,tauros2-cache.txt}   | 0
- .../devicetree/bindings/{arm/msm => cache}/qcom,llcc.yaml       | 2 +-
- .../devicetree/bindings/{riscv => cache}/sifive,ccache0.yaml    | 2 +-
- .../socionext => cache}/socionext,uniphier-system-cache.yaml    | 2 +-
- MAINTAINERS                                                     | 2 ++
- 9 files changed, 7 insertions(+), 5 deletions(-)
- rename Documentation/devicetree/bindings/{memory-controllers => cache}/baikal,bt1-l2-ctl.yaml (95%)
- rename Documentation/devicetree/bindings/{powerpc/fsl/l2cache.txt => cache/freescale-l2cache.txt} (100%)
- rename Documentation/devicetree/bindings/{arm => cache}/l2c2x0.yaml (99%)
- rename Documentation/devicetree/bindings/{arm/mrvl/feroceon.txt => cache/marvell,feroceon-cache.txt} (100%)
- rename Documentation/devicetree/bindings/{arm/mrvl/tauros2.txt => cache/marvell,tauros2-cache.txt} (100%)
- rename Documentation/devicetree/bindings/{arm/msm => cache}/qcom,llcc.yaml (96%)
- rename Documentation/devicetree/bindings/{riscv => cache}/sifive,ccache0.yaml (98%)
- rename Documentation/devicetree/bindings/{arm/socionext => cache}/socionext,uniphier-system-cache.yaml (96%)
-
-diff --git a/Documentation/devicetree/bindings/memory-controllers/baikal,bt1-l2-ctl.yaml b/Documentation/devicetree/bindings/cache/baikal,bt1-l2-ctl.yaml
-similarity index 95%
-rename from Documentation/devicetree/bindings/memory-controllers/baikal,bt1-l2-ctl.yaml
-rename to Documentation/devicetree/bindings/cache/baikal,bt1-l2-ctl.yaml
-index 1fca282f64a2..ec4f367bc0b4 100644
---- a/Documentation/devicetree/bindings/memory-controllers/baikal,bt1-l2-ctl.yaml
-+++ b/Documentation/devicetree/bindings/cache/baikal,bt1-l2-ctl.yaml
-@@ -2,7 +2,7 @@
- # Copyright (C) 2020 BAIKAL ELECTRONICS, JSC
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/memory-controllers/baikal,bt1-l2-ctl.yaml#
-+$id: http://devicetree.org/schemas/cache/baikal,bt1-l2-ctl.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Baikal-T1 L2-cache Control Block
-diff --git a/Documentation/devicetree/bindings/powerpc/fsl/l2cache.txt b/Documentation/devicetree/bindings/cache/freescale-l2cache.txt
-similarity index 100%
-rename from Documentation/devicetree/bindings/powerpc/fsl/l2cache.txt
-rename to Documentation/devicetree/bindings/cache/freescale-l2cache.txt
-diff --git a/Documentation/devicetree/bindings/arm/l2c2x0.yaml b/Documentation/devicetree/bindings/cache/l2c2x0.yaml
-similarity index 99%
-rename from Documentation/devicetree/bindings/arm/l2c2x0.yaml
-rename to Documentation/devicetree/bindings/cache/l2c2x0.yaml
-index 6b8f4d4fa580..d7840a5c4037 100644
---- a/Documentation/devicetree/bindings/arm/l2c2x0.yaml
-+++ b/Documentation/devicetree/bindings/cache/l2c2x0.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/arm/l2c2x0.yaml#
-+$id: http://devicetree.org/schemas/cache/l2c2x0.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: ARM L2 Cache Controller
-diff --git a/Documentation/devicetree/bindings/arm/mrvl/feroceon.txt b/Documentation/devicetree/bindings/cache/marvell,feroceon-cache.txt
-similarity index 100%
-rename from Documentation/devicetree/bindings/arm/mrvl/feroceon.txt
-rename to Documentation/devicetree/bindings/cache/marvell,feroceon-cache.txt
-diff --git a/Documentation/devicetree/bindings/arm/mrvl/tauros2.txt b/Documentation/devicetree/bindings/cache/marvell,tauros2-cache.txt
-similarity index 100%
-rename from Documentation/devicetree/bindings/arm/mrvl/tauros2.txt
-rename to Documentation/devicetree/bindings/cache/marvell,tauros2-cache.txt
-diff --git a/Documentation/devicetree/bindings/arm/msm/qcom,llcc.yaml b/Documentation/devicetree/bindings/cache/qcom,llcc.yaml
-similarity index 96%
-rename from Documentation/devicetree/bindings/arm/msm/qcom,llcc.yaml
-rename to Documentation/devicetree/bindings/cache/qcom,llcc.yaml
-index 38efcad56dbd..14eb5175dac4 100644
---- a/Documentation/devicetree/bindings/arm/msm/qcom,llcc.yaml
-+++ b/Documentation/devicetree/bindings/cache/qcom,llcc.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/arm/msm/qcom,llcc.yaml#
-+$id: http://devicetree.org/schemas/cache/qcom,llcc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Last Level Cache Controller
-diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-similarity index 98%
-rename from Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-rename to Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-index eb6ab73c0f31..8a6a78e1a7ab 100644
---- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-+++ b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-@@ -2,7 +2,7 @@
- # Copyright (C) 2020 SiFive, Inc.
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/riscv/sifive,ccache0.yaml#
-+$id: http://devicetree.org/schemas/cache/sifive,ccache0.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: SiFive Composable Cache Controller
-diff --git a/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml b/Documentation/devicetree/bindings/cache/socionext,uniphier-system-cache.yaml
-similarity index 96%
-rename from Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml
-rename to Documentation/devicetree/bindings/cache/socionext,uniphier-system-cache.yaml
-index 6096c082d56d..3196263685a3 100644
---- a/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml
-+++ b/Documentation/devicetree/bindings/cache/socionext,uniphier-system-cache.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/arm/socionext/socionext,uniphier-system-cache.yaml#
-+$id: http://devicetree.org/schemas/cache/socionext,uniphier-system-cache.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: UniPhier outer cache controller
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8d5bc223f305..bbb0f252522b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11893,6 +11893,7 @@ M:	Scott Wood <oss@buserror.net>
- L:	linuxppc-dev@lists.ozlabs.org
- S:	Odd fixes
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/scottwood/linux.git
-+F:	Documentation/devicetree/bindings/cache/freescale-l2cache.txt
- F:	Documentation/devicetree/bindings/powerpc/fsl/
- F:	arch/powerpc/platforms/83xx/
- F:	arch/powerpc/platforms/85xx/
-@@ -19073,6 +19074,7 @@ M:	Conor Dooley <conor@kernel.org>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-+F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
- F:	drivers/soc/sifive/
- 
- SILEAD TOUCHSCREEN DRIVER
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBGZWIgMjMsIDIwMjMgYXQgMjowNuKAr0FNIEFybmQgQmVyZ21hbm4gPGFybmRAYXJu
+ZGIuZGU+IHdyb3RlOgo+Cj4gT24gVHVlLCBGZWIgMjEsIDIwMjMsIGF0IDIwOjA4LCBFdmFuIEdy
+ZWVuIHdyb3RlOgo+ID4gV2UgZG9uJ3QgaGF2ZSBlbm91Z2ggc3BhY2UgZm9yIHRoZXNlIGFsbCBp
+biBFTEZfSFdDQVB7LDJ9IGFuZCB0aGVyZSdzIG5vCj4gPiBzeXN0ZW0gY2FsbCB0aGF0IHF1aXRl
+IGRvZXMgdGhpcywgc28gbGV0J3MganVzdCBwcm92aWRlIGFuIGFyY2gtc3BlY2lmaWMKPiA+IG9u
+ZSB0byBwcm9iZSBmb3IgaGFyZHdhcmUgY2FwYWJpbGl0aWVzLiAgVGhpcyBjdXJyZW50bHkganVz
+dCBwcm92aWRlcwo+ID4gbXthcmNoLGltcCx2ZW5kb3J9aWQsIGJ1dCB3aXRoIHRoZSBrZXktdmFs
+dWUgcGFpcnMgd2UgY2FuIHBhc3MgbW9yZSBpbgo+ID4gdGhlIGZ1dHVyZS4KPiA+Cj4gPiBDby1k
+ZXZlbG9wZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgo+ID4gU2ln
+bmVkLW9mZi1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBFdmFuIEdyZWVuIDxldmFuQHJpdm9zaW5jLmNvbT4KPgo+IEknbSBzdGlsbCBz
+a2VwdGljYWwgYWJvdXQgdGhlIG5lZWQgZm9yIGEgY3VzdG9tIHN5c2NhbGwgaW50ZXJmYWNlIGhl
+cmUuCj4gSSBoYWQgbm90IGxvb2tlZCBhdCB0aGUgaW50ZXJmYWNlIHNvIGZhciwgYnV0IHRoZXJl
+IGFyZSBhIGZldyB0aGluZ3MKPiB0aGF0IHN0aWNrIG91dDoKPgo+ID4gK1JJU0MtViBIYXJkd2Fy
+ZSBQcm9iaW5nIEludGVyZmFjZQo+ID4gKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LQo+ID4gKwo+ID4gK1RoZSBSSVNDLVYgaGFyZHdhcmUgcHJvYmluZyBpbnRlcmZhY2UgaXMgYmFz
+ZWQgYXJvdW5kIGEgc2luZ2xlCj4gPiBzeXNjYWxsLCB3aGljaAo+ID4gK2lzIGRlZmluZWQgaW4g
+PGFzbS9od3Byb2JlLmg+OjoKPiA+ICsKPiA+ICsgICAgc3RydWN0IHJpc2N2X2h3cHJvYmUgewo+
+ID4gKyAgICAgICAgX19zNjQga2V5Owo+ID4gKyAgICAgICAgX191NjQgdmFsdWU7Cj4gPiArICAg
+IH07Cj4KPiBUaGUgd2F5IHRoaXMgaXMgZGVmaW5lZCwgdGhlIGtlcm5lbCB3aWxsIGFsd2F5cyBo
+YXZlIHRvIGtub3cKPiBhYm91dCB0aGUgc3BlY2lmaWMgc2V0IG9mIGZlYXR1cmVzLCBpdCBjYW4n
+dCBqdXN0IGZvcndhcmQKPiB1bmtub3duIGZlYXR1cmVzIHRvIHVzZXIgc3BhY2UgYWZ0ZXIgcHJv
+YmluZyB0aGVtIGZyb20gYW4KPiBhcmNoaXRlY3R1cmVkIGhhcmR3YXJlIGludGVyZmFjZSBvciBm
+cm9tIERULgoKWW91J3JlIGNvcnJlY3QgdGhhdCB0aGlzIGludGVyZmFjZSB3YXNuJ3QgaW50ZW5k
+ZWQgdG8gaGF2ZSB1c2VybW9kZQpjb21lIGluIHdpdGggYXVnbWVudGVkIGRhdGEgb3IgYWRkaXRp
+b25hbCBrZXkvdmFsdWUgcGFpcnMuIFRoaXMgd2FzCnB1cmVseSBtZWFudCB0byBwcm92aWRlIGFj
+Y2VzcyB0byB0aGUga2VybmVsJ3MgcmVwb3NpdG9yeSBvZgphcmNoaXRlY3R1cmFsIGFuZCBtaWNy
+b2FyY2hpdGVjdHVyYWwgZGV0YWlscy4gSWYgdXNlcm1vZGUgd2FudHMgdG8KcHJvdmlkZSBleHRy
+YSBpbmZvIGluIHRoaXMgc2FtZSBmb3JtLCBtYXliZSB0aGV5IGNvdWxkIHdyYXAgdGhpcwppbnRl
+cmZhY2UuCgo+Cj4gSWYgJ2tleScgaXMganVzdCBhbiBlbnVtZXJhdGVkIHZhbHVlIHdpdGggYSBz
+bWFsbCBudW1iZXIgb2YKPiBwb3NzaWJsZSB2YWx1ZXMsIEkgZG9uJ3Qgc2VlIGFueXRoaW5nIHdy
+b25nIHdpdGggdXNpbmcgZWxmCj4gYXV4IGRhdGEuIEkgdW5kZXJzdGFuZCBpdCdzIGhhcmQgdG8g
+a25vdyBob3cgbWFueSBrZXlzCj4gbWlnaHQgYmUgbmVlZGVkIGluIHRoZSBsb25nIHJ1biwgZnJv
+bSB0aGUgd2F5IHlvdSBkZWZpbmUKPiB0aGUga2V5L3ZhbHVlIHBhaXJzIGhlcmUsIEkgd291bGQg
+ZXhwZWN0IGl0IHRvIGhhdmUgYSBsb3QKPiBvZiB0aGUgc2FtZSBsaW1pdGF0aW9ucyB0aGF0IHRo
+ZSBhdXggZGF0YSBoYXMsIGV4Y2VwdCBmb3IKPiBhIGZldyBieXRlcyB0byBiZSBjb3BpZWQuCgpD
+b3JyZWN0LCB0aGlzIG1ha2VzIGFsbG9jYXRpbmcgYml0cyBvdXQgb2YgaGVyZSBjaGVhcGVyIGJ5
+IG5vdApyZXF1aXJpbmcgdGhhdCB3ZSBhY3RpdmVseSBjb3B5IHRoZW0gaW50byBldmVyeSBuZXcg
+cHJvY2VzcyBmb3JldmVyLgpZb3UncmUgcmlnaHQgdGhhdCB0aGUgYXV4IHZlY3RvciB3b3VsZCB3
+b3JrIGFzIHdlbGwsIGJ1dCB0aGUgdGhpbmtpbmcKYmVoaW5kIHRoaXMgc2VyaWVzIHdhcyB0aGF0
+IGFuIGludGVyZmFjZSBsaWtlIHRoaXMgbWlnaHQgYmUgYmV0dGVyIGZvcgphbiBhcmNoaXRlY3R1
+cmUgYXMgZXh0ZW5zaWJsZSBhcyByaXNjLXYuCgo+Cj4gPiArICAgIGxvbmcgc3lzX3Jpc2N2X2h3
+cHJvYmUoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnBhaXJzLCBzaXplX3QKPiA+IHBhaXJfY291bnQs
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZV90IGNwdV9jb3VudCwgY3B1X3Nl
+dF90ICpjcHVzLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcg
+ZmxhZ3MpOwo+Cj4gVGhlIGNwdSBzZXQgYXJndW1lbnQgd29ycmllcyBtZSBtb3JlOiB0aGVyZSBz
+aG91bGQgbmV2ZXIgYmUgYQo+IG5lZWQgdG8gb3B0aW1pemUgZm9yIGJyb2tlbiBoYXJkd2FyZSB0
+aGF0IGhhcyBhbiBhc3ltbWV0cmljIHNldAo+IG9mIGZlYXR1cmVzLiBKdXN0IGxldCB0aGUga2Vy
+bmVsIGZpZ3VyZSBvdXQgdGhlIG1pbmltdW0gc2V0Cj4gb2YgZmVhdHVyZXMgdGhhdCB3b3JrcyBh
+Y3Jvc3MgYWxsIENQVXMgYW5kIHJlcG9ydCB0aGF0IGxpa2Ugd2UKPiBkbyB3aXRoIEhXQ0FQLiBJ
+ZiB0aGVyZSBpcyBhIFNvQyB0aGF0IGlzIHNvIGJyb2tlbiB0aGF0IGl0IGhhcwo+IGltcG9ydGFu
+dCBmZWF0dXJlcyBvbiBhIHN1YnNldCBvZiBjb3JlcyB0aGF0IHNvbWUgdXNlciBtaWdodAo+IGFj
+dHVhbGx5IHdhbnQgdG8gcmVseSBvbiwgdGhlbiBoYXZlIHRoZW0gZ28gdGhyb3VnaCB0aGUgc2xv
+dwo+IHN5c2ZzIGludGVyZmFjZSBmb3IgcHJvYmluZyB0aGUgQ1BVcyBpbmRpZHVhbGx5LCBidXQg
+ZG9uJ3QgbWFrZQo+IHRoZSBicm9rZW4gY2FzZSBlYXNpZXIgYXQgdGhlIGV4cGVuc2Ugb2Ygbm9y
+bWFsIHVzZXJzIHRoYXQKPiBydW4gb24gd29ya2luZyBoYXJkd2FyZS4KCkknbSBub3Qgc28gc3Vy
+ZS4gV2hpbGUgSSBhZ3JlZSB3aXRoIHlvdSBmb3IgbWFqb3IgY2xhc3NlcyBvZiBmZWF0dXJlcwoo
+ZWcgb25lIENQVSBoYXMgZmxvYXRpbmcgcG9pbnQgc3VwcG9ydCBidXQgYW5vdGhlciBkb2VzIG5v
+dCksIEkgZXhwZWN0CnRoZXNlIGJpdHMgdG8gY29udGFpbiBtb3JlIHN1YnRsZSBkZXRhaWxzIGFz
+IHdlbGwsIHdoaWNoIG1pZ2h0IHZhcnkKYWNyb3NzIGFzeW1tZXRyaWMgaW1wbGVtZW50YXRpb25z
+IHdpdGhvdXQgYnJlYWtpbmcgQUJJIGNvbXBhdGliaWxpdHkKcGVyLXNlLiBNYXliZSBzb21lIHZl
+bmRvciBoYXMgaW1wbGVtZW50ZWQgZXhvdGljIHZpZGVvIGRlY29kaW5nCmFjY2VsZXJhdGlvbiBp
+bnN0cnVjdGlvbnMgdGhhdCBvbmx5IHdvcmsgb24gdGhlIGJpZyBjb3JlLiBPciBtYXliZSB0aGUK
+YmlnIGNvcmVzIHN1cHBvcnQgdjMuMSBvZiBzb21lIGV4dGVuc2lvbiAod2hlcmUgY2VydGFpbiB0
+aGluZ3MgcnVuCmZhc3RlciksIGJ1dCB0aGUgbGl0dGxlIGNvcmVzIG9ubHkgaGF2ZSB2My4wLCB3
+aGVyZSBpdCdzIGEgbGl0dGxlCnNsb3dlci4gQ2VydGFpbiBhcHBzIHdvdWxkIGxpa2VseSB3YW50
+IHRvIGtub3cgdGhlc2UgdGhpbmdzIHNvIHRoZXkKY2FuIGFsbG9jYXRlIHRoZWlyIHdvcmsgb3B0
+aW1hbGx5IGFjcm9zcyBjb3Jlcy4KCj4KPiA+ICthc21saW5rYWdlIGxvbmcgc3lzX3Jpc2N2X2h3
+cHJvYmUodWludHB0cl90LCB1aW50cHRyX3QsIHVpbnRwdHJfdCwKPiA+IHVpbnRwdHJfdCwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdWludHB0cl90LCB1aW50cHRyX3QpOwo+
+Cj4gV2h5ICd1aW50cHRyX3QnIHJhdGhlciB0aGFuIHRoZSBjb3JyZWN0IHR5cGU/CgpGaXhlZC4K
+LUV2YW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
