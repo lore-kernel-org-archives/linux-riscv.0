@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411D7C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEA3C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H+vysZ0fhdkj+noKqyGeNXQvuMgD1dQw/kBW/gMa6Fg=; b=P/jScv/nk728Ed
-	iKT2Q7wJuAzBLbdA/x3blHzk2VjcnxftW6VbqM8y+B8ztfISalQVtjtQ+IVGzO5jhL/6yDSaCl60d
-	0il/GaD/me0eZC57zZRJ9SVDyQFUliBmA+l5Lg1udG6ujgMKpwaQMb2EpsDxz2n+7R/W4r9bjL7sK
-	YqDA7Ov2a4G6iAeQzV7E7UaJlmh+Dkw5emfMxnQiUEFfZitGRK7LWUBCSztgBEF1J43a0PtvKMTLg
-	fdT/cTFhegcx52lJXxvRt53+wcGBfGSWdbVG7sIrAnn76RWoItKKYCB3Rne5xrPFKxNLCwV7r4OpQ
-	6jXv5Sd/OKNkaQciN05Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NcUzU6QyGbDzcy/vMWLZfWfWPaJm/++BoemxF3teOLc=; b=HG6CTtq5BLat4DJy8H6a9Mqtn+
+	8kKLj8Uhzjc5TSlHLIRR3L8GGrwg4c1LO6HsdeKwrdWWjaqYcuWGsVoJPIhjpF3lfMV2uIZAu6rDA
+	SOPnRGqhchh+MQKcgQbYHb64Oxnyi1M/W6WdhvMKnSAXDuwRKjxq6FMl7ZIijEQWoYq3CWfk0xeZA
+	IXDCR4xvWRpeEkHB4h3DLKcy7vG14xKD0VS9BwPmoBGv3zRL4ibuvPqzueWs7sKALHzlD9sPhRuCn
+	8DxGDGEjMtqBBPNR/QFTuJL9vaDWfyphR9I21rC019o49AxlSzqC3Ee/AqKQZtont7cyIvhhd6NRd
+	08DS7fRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmwG-002xLb-2l;
-	Thu, 30 Mar 2023 07:43:16 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1phn1l-002yHL-0V;
+	Thu, 30 Mar 2023 07:48:57 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmwD-002xKs-2d
+	id 1phn1e-002yEf-2M
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 07:43:15 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id k37so23436215lfv.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 00:43:13 -0700 (PDT)
+	Thu, 30 Mar 2023 07:48:55 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id t4so12852636wra.7
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 00:48:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1680162191;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4zuZ7AJ+urGiuWJ6O4WJPaOH0rhv1jf2+srORpX4K/Y=;
-        b=VFgq8bbjUfROWOqUvRrcNQlzsT4ilwA91/7+wugNbVngG3akeaii4iHP53uBR9EcLb
-         Hh56rV0B0S9udnu6ZDFMczEtvJXVwy0onkcaLV5VbrsiDczd+riGAa8hTNBIPANFl92X
-         3KzX4vKfh+vEAbz7AfUKCOkajNPVmK9Hr/VxMWHu+SqKYhEzfTlNxDFYUzvScP54achN
-         IXaGIQvolcSN1bSUu7gesQ1e4W5+12gSoKlzJFBqLYPgtQ1xsUh16R8S2P1s/PIpgdCs
-         LXmljO/YjAyEbuJd3r5mLoku2RelpvshyDOkadbLy24PUTfm4fslCCv4E82JyiZiaYC/
-         dMgQ==
+        d=linaro.org; s=google; t=1680162528;
+        h=content-transfer-encoding:in-reply-to:organization:references:cc:to
+         :content-language:subject:reply-to:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=okeSFnANawi1LC1aBHEsxSK/GYfBSKiaqPeM+AamHZg=;
+        b=HzMJRijwdPPEPy8qvkSlWVtDrQWbV6dX/IL9jpBcjDXV5uqcfCKxOOzHCZbYFRAYG9
+         PusIZChCya8EGmAMCT6kgYuzD4J2gzg2TMrbZr/2YX4LHmNMTKGkwWb+1qc/m3Aouwo0
+         Pk8GcPYf09RdHiRVewn+Z085xM0Qb9aDCv1E+ZRCKQBq1j+mwW6mkzvRepX9pEnryCbo
+         LNK6+ZH8/UojXRD/l6SrrhXj6lreIAjsqW0h+a28rfzS1vPWYufZ7uObUt8gdDt931rC
+         S/gMa8KGdjKfyceVQVMUx5FjJS76Sc32y8i/cAO0ok/3Nnf/1vgP9lvisyAOrgPVObJQ
+         nypg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680162191;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4zuZ7AJ+urGiuWJ6O4WJPaOH0rhv1jf2+srORpX4K/Y=;
-        b=Ni3U+x4mXJMUBYB6bHf9dQZ5FdkCHz+tT1lWIQV1R7c0Dy6FJkXBUldM44BI1pli5O
-         OO1t4GNEhpXSAekjbuywqe0sunkfxxrSHrXIfiCz9HFNuHZIW/Dylp8YImSn9xOo6PKu
-         ONdiNdSmfScvs12A9St1B2jImerFPw1yi4ncWm+8DsI0gTJKydJU3kKG6/XRbirN7okx
-         Am2/sEs8v3TUpcfxSBCkdyLGWvncJ2Ny9N4W8CBtUFK5WykBMrjwwqGTVrh3RvMvNhGY
-         oeMnSvJEzPvLTeNN5xaT5qB5pF59wZRswfBfOvHmaUSY4i2Cwe2VRKYgb/zdjnch7Lh8
-         CiGw==
-X-Gm-Message-State: AAQBX9fxmV0ISKGlAz+rX9sB1in7FECNmPJVa5l3S7yxy7mepwqKx7ee
-	aJ4mUrrO77rIHrpN66nX9eqFTA==
-X-Google-Smtp-Source: AKy350ZsAuQmcXRHoK+KQymYwvc+9+fujqTKeBRI50gKJ8CU7idfpzKcaaZoWyt6UOY23zghCl9J5g==
-X-Received: by 2002:a19:ad44:0:b0:4db:38ba:ca61 with SMTP id s4-20020a19ad44000000b004db38baca61mr6228770lfd.53.1680162191597;
-        Thu, 30 Mar 2023 00:43:11 -0700 (PDT)
-Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
-        by smtp.gmail.com with ESMTPSA id f16-20020ac25330000000b004e844eeb555sm5801328lfh.214.2023.03.30.00.43.10
+        d=1e100.net; s=20210112; t=1680162528;
+        h=content-transfer-encoding:in-reply-to:organization:references:cc:to
+         :content-language:subject:reply-to:from:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=okeSFnANawi1LC1aBHEsxSK/GYfBSKiaqPeM+AamHZg=;
+        b=maEgINEDarixLFtRkfTBRUxJ0gH3uNdssckysSGFY2lRNnAO2HDEOJrAWMRk/PvERY
+         fSxsTlBYnqKcIUS+HgIOtW9gwaHuNdKWPV1cpbUYpaDl0j87lXt16XL04zw1vrBuTdkR
+         w6nBl8qV6Hbd3wGBtqwG79npUZMmb5Sn/ML7BQJFpQhLiWy/KLftRtVH103DDEzVtDY5
+         a40VPnhb0hpqsIU41Bfyk9E80eREflobkiKiFgEe8ILI2X/krS7EcsiRRqHoin0FjvRS
+         Nq+94Z1vUvEBrZcbilk6JVS/LJqIkncv235oqgxBs4u/qVns4flRRhZVyUI+8uTKANam
+         hKRw==
+X-Gm-Message-State: AAQBX9cYlwDH+rzoCpYs1vm5SZ/2r9cJfkfa6R+7alcDgcU06X3m899I
+	VlDjOOfaVKrS/FlI3w9gkcPN+w==
+X-Google-Smtp-Source: AKy350YBDtDK4PFtkzL9mw2TdTBg5d1e+av3yV0hQ8sa0sVV3ghf+fwGAiaHFlngdg878+Nut7sZlA==
+X-Received: by 2002:adf:f0ca:0:b0:2d3:f610:8417 with SMTP id x10-20020adff0ca000000b002d3f6108417mr16612494wro.0.1680162527868;
+        Thu, 30 Mar 2023 00:48:47 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:982:cbb0:fe8e:8291:fc25:6c8f? ([2a01:e0a:982:cbb0:fe8e:8291:fc25:6c8f])
+        by smtp.gmail.com with ESMTPSA id z1-20020adff1c1000000b002c6e8af1037sm32115528wro.104.2023.03.30.00.48.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Mar 2023 00:43:11 -0700 (PDT)
-Message-ID: <d455a90a-7e63-2254-75cb-70cb26ae7483@linaro.org>
-Date: Thu, 30 Mar 2023 09:43:10 +0200
+        Thu, 30 Mar 2023 00:48:47 -0700 (PDT)
+Message-ID: <d7f36a28-0cae-a035-791b-363754aefeee@linaro.org>
+Date: Thu, 30 Mar 2023 09:48:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: add tdm node and sound card
+ Thunderbird/102.8.0
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 18/21] ARM: drop SMP support for ARM11MPCore
 Content-Language: en-US
-To: Walker Chen <walker.chen@starfivetech.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+To: Arnd Bergmann <arnd@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "David S. Miller" <davem@davemloft.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Christoph Hellwig <hch@lst.de>, Robin Murphy <robin.murphy@arm.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
  Conor Dooley <conor.dooley@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20230329153320.31390-1-walker.chen@starfivetech.com>
- <20230329153320.31390-4-walker.chen@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230329153320.31390-4-walker.chen@starfivetech.com>
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-oxnas@groups.io, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-19-arnd@kernel.org>
+Organization: Linaro Developer Services
+In-Reply-To: <20230327121317.4081816-19-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_004313_858568_852AB2D9 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20230330_004850_782055_88C62861 
+X-CRM114-Status: GOOD (  51.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,221 +115,385 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: neil.armstrong@linaro.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/03/2023 17:33, Walker Chen wrote:
-> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
+On 27/03/2023 14:13, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> The cache management operations for noncoherent DMA on ARMv6 work
+> in two different ways:
+> 
+>   * When CONFIG_DMA_CACHE_RWFO is set, speculative prefetches on in-flight
+>     DMA buffers lead to data corruption when the prefetched data is written
+>     back on top of data from the device.
+> 
+>   * When CONFIG_DMA_CACHE_RWFO is disabled, a cache flush on one CPU
+>     is not seen by the other core(s), leading to inconsistent contents
+>     accross the system.
+> 
+> As a consequence, neither configuration is actually safe to use in a
+> general-purpose kernel that is used on both MPCore systems and ARM1176
+> with prefetching enabled.
+> 
+> We could add further workarounds to make the behavior more dynamic based
+> on the system, but realistically, there are close to zero remaining
+> users on any ARM11MPCore anyway, and nobody seems too interested in it,
+> compared to the more popular ARM1176 used in BMC2835 and AST2500.
+> 
+> The Oxnas platform has some minimal support in OpenWRT, but most of the
+> drivers and dts files never made it into the mainline kernel, while the
+> Arm Versatile/Realview platform mainly serves as a reference system but
+> is not necessary to be kept working once all other ARM11MPCore are gone.
+
+Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+It's sad but it's the reality, there's no chance full OXNAS support will
+ever come upstream and no real work has been done for years.
+
+I think OXNAS support can be programmed for removal for next release,
+it would need significant work to rework current support to make it acceptable
+before trying to upstream missing bits anyway.
+
+Thanks,
+Neil
+
+
+> 
+> Take the easy way out here and drop support for multiprocessing on
+> ARMv6, along with the CONFIG_DMA_CACHE_RWFO option and the cache
+> management implementation for it. This also helps with other ARMv6
+> issues, but for the moment leaves the ability to build a kernel that
+> can run on both ARMv7 SMP and single-processor ARMv6, which we probably
+> want to stop supporting as well, but not as part of this series.
+> 
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Daniel Golle <daniel@makrotopia.org>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: linux-oxnas@groups.io
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  .../jh7110-starfive-visionfive-2.dtsi         | 87 +++++++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 34 ++++++++
->  2 files changed, 121 insertions(+)
+> I could use some help clarifying the above changelog text to describe
+> the exact problem, and how the CONFIG_DMA_CACHE_RWFO actually works on
+> MPCore. The TRMs for both 1176 and 11MPCore only describe prefetching
+> into the instruction cache, not the data cache, but this can end up in
+> the outercache as a result. The 1176 has some extra control bits to
+> control prefetching, but I found no reference that explains why an
+> MPCore does not run into the problem.
+> ---
+>   arch/arm/mach-oxnas/Kconfig                |  4 -
+>   arch/arm/mach-oxnas/Makefile               |  1 -
+>   arch/arm/mach-oxnas/headsmp.S              | 23 ------
+>   arch/arm/mach-oxnas/platsmp.c              | 96 ----------------------
+>   arch/arm/mach-versatile/platsmp-realview.c |  4 -
+>   arch/arm/mm/Kconfig                        | 19 -----
+>   arch/arm/mm/cache-v6.S                     | 31 -------
+>   7 files changed, 178 deletions(-)
+>   delete mode 100644 arch/arm/mach-oxnas/headsmp.S
+>   delete mode 100644 arch/arm/mach-oxnas/platsmp.c
 > 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 1155b97b593d..35137c2edf5d 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -62,6 +62,10 @@
->  	clock-frequency = <297000000>;
->  };
->  
-> +&wm8960_mclk {
-> +	clock-frequency = <24576000>;
-> +};
-> +
->  &i2srx_bclk_ext {
->  	clock-frequency = <12288000>;
->  };
-> @@ -102,6 +106,14 @@
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&i2c0_pins>;
->  	status = "okay";
-> +
-> +	wm8960: codec@1a {
-> +		compatible = "wlf,wm8960";
-> +		reg = <0x1a>;
-> +		#sound-dai-cells = <0>;
-> +
-> +		wlf,shared-lrclk;
-> +	};
->  };
->  
->  &i2c2 {
-> @@ -214,6 +226,40 @@
->  			slew-rate = <0>;
->  		};
->  	};
-> +
-> +	tdm0_pins: tdm0-pins {
-> +		tdm0-pins-tx {
-> +			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
-> +					      GPOEN_ENABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-up;
-> +			drive-strength = <2>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		tdm0-pins-rx {
-> +			pinmux = <GPIOMUX(61, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_RXD)>;
-> +			input-enable;
-> +		};
-> +
-> +		tdm0-pins-sync {
-> +			pinmux = <GPIOMUX(63, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_SYNC)>;
-> +			input-enable;
-> +		};
-> +
-> +		tdm0-pins-pcmclk {
-> +			pinmux = <GPIOMUX(38, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_CLK)>;
-> +			input-enable;
-> +		};
-> +	};
->  };
->  
->  &uart0 {
-> @@ -221,3 +267,44 @@
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&tdm {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&tdm0_pins>;
-> +	status = "okay";
-> +};
-> +
-> +&sound0 {
-> +	simple-audio-card,dai-link@0 {
-> +		reg = <0>;
-> +		status = "okay";
-
-Why? Drop.
-
-> +		format = "dsp_a";
-> +		bitclock-master = <&dailink_master>;
-> +		frame-master = <&dailink_master>;
-> +
-> +		widgets =
-
-Drop line break.
-
-> +				"Microphone", "Mic Jack",
-> +				"Line", "Line In",
-> +				"Line", "Line Out",
-> +				"Speaker", "Speaker",
-> +				"Headphone", "Headphone Jack";
-> +		routing =
-
-Drop unnecessary line break.
-
-> +				"Headphone Jack", "HP_L",
-> +				"Headphone Jack", "HP_R",
-> +				"Speaker", "SPK_LP",
-> +				"Speaker", "SPK_LN",
-> +				"LINPUT1", "Mic Jack",
-> +				"LINPUT3", "Mic Jack",
-> +				"RINPUT1", "Mic Jack",
-> +				"RINPUT2", "Mic Jack";
-> +		cpu {
-> +			sound-dai = <&tdm>;
-> +		};
-> +
-> +		dailink_master:codec {
-
-Missing space after label:.
-
-> +			sound-dai = <&wm8960>;
-> +			clocks = <&wm8960_mclk>;
-> +			clock-names = "mclk";
-> +		};
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index b503b6137743..a89158d1d7a6 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -210,6 +210,12 @@
->  		#clock-cells = <0>;
->  	};
->  
-> +	wm8960_mclk: wm8960_mclk {
-
-No underscores in node names. Use consistent naming - do you see here
-any nodes named "mclk"?
-
-Anyway this is some fake clock. Real clock should come out from wm8960.
-
-> +		compatible = "fixed-clock";
-> +		clock-output-names = "wm8960_mclk";
-> +		#clock-cells = <0>;
-> +	};
-> +
->  	i2srx_bclk_ext: i2srx-bclk-ext-clock {
->  		compatible = "fixed-clock";
->  		clock-output-names = "i2srx_bclk_ext";
-> @@ -375,6 +381,27 @@
->  			status = "disabled";
->  		};
->  
-> +		tdm: tdm@10090000 {
-> +			compatible = "starfive,jh7110-tdm";
-> +			reg = <0x0 0x10090000 0x0 0x1000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_TDM_AHB>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_APB>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_INTERNAL>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_TDM>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
-> +				 <&tdm_ext>;
-> +			clock-names = "tdm_ahb", "tdm_apb",
-> +				      "tdm_internal", "tdm",
-> +				      "mclk_inner", "tdm_ext";
-> +			resets = <&syscrg JH7110_SYSRST_TDM_AHB>,
-> +				 <&syscrg JH7110_SYSRST_TDM_APB>,
-> +				 <&syscrg JH7110_SYSRST_TDM_CORE>;
-> +			dmas = <&dma 20>, <&dma 21>;
-> +			dma-names = "rx","tx";
-> +			#sound-dai-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		stgcrg: clock-controller@10230000 {
->  			compatible = "starfive,jh7110-stgcrg";
->  			reg = <0x0 0x10230000 0x0 0x10000>;
-> @@ -601,5 +628,12 @@
->  			#reset-cells = <1>;
->  			power-domains = <&pwrc JH7110_PD_VOUT>;
->  		};
-> +
-> +		sound0: snd-card0 {
-
-1. Why card0?
-2. Where is this node located? In MMIO bus? Run some basic checks on
-your DTS before submitting upstream.
-dtbs_check
-dtbs W=1
-
-3. Why this is even in the DTSI? This really looks wrong.
-
-> +			compatible = "simple-audio-card";
-> +			simple-audio-card,name = "Starfive-TDM-Sound-Card";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-
-Best regards,
-Krzysztof
+> diff --git a/arch/arm/mach-oxnas/Kconfig b/arch/arm/mach-oxnas/Kconfig
+> index a9ded7079268..a054235c3d6c 100644
+> --- a/arch/arm/mach-oxnas/Kconfig
+> +++ b/arch/arm/mach-oxnas/Kconfig
+> @@ -28,10 +28,6 @@ config MACH_OX820
+>   	bool "Support OX820 Based Products"
+>   	depends on ARCH_MULTI_V6
+>   	select ARM_GIC
+> -	select DMA_CACHE_RWFO if SMP
+> -	select HAVE_SMP
+> -	select HAVE_ARM_SCU if SMP
+> -	select HAVE_ARM_TWD if SMP
+>   	help
+>   	  Include Support for the Oxford Semiconductor OX820 SoC Based Products.
+>   
+> diff --git a/arch/arm/mach-oxnas/Makefile b/arch/arm/mach-oxnas/Makefile
+> index 0e78ecfe6c49..a4e40e534e6a 100644
+> --- a/arch/arm/mach-oxnas/Makefile
+> +++ b/arch/arm/mach-oxnas/Makefile
+> @@ -1,2 +1 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+> -obj-$(CONFIG_SMP)		+= platsmp.o headsmp.o
+> diff --git a/arch/arm/mach-oxnas/headsmp.S b/arch/arm/mach-oxnas/headsmp.S
+> deleted file mode 100644
+> index 9c0f1479f33a..000000000000
+> --- a/arch/arm/mach-oxnas/headsmp.S
+> +++ /dev/null
+> @@ -1,23 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0-only */
+> -/*
+> - * Copyright (C) 2013 Ma Haijun <mahaijuns@gmail.com>
+> - * Copyright (c) 2003 ARM Limited
+> - * All Rights Reserved
+> - */
+> -#include <linux/linkage.h>
+> -#include <linux/init.h>
+> -
+> -	__INIT
+> -
+> -/*
+> - * OX820 specific entry point for secondary CPUs.
+> - */
+> -ENTRY(ox820_secondary_startup)
+> -	mov r4, #0
+> -	/* invalidate both caches and branch target cache */
+> -	mcr p15, 0, r4, c7, c7, 0
+> -	/*
+> -	 * we've been released from the holding pen: secondary_stack
+> -	 * should now contain the SVC stack for this core
+> -	 */
+> -	b	secondary_startup
+> diff --git a/arch/arm/mach-oxnas/platsmp.c b/arch/arm/mach-oxnas/platsmp.c
+> deleted file mode 100644
+> index f0a50b9e61df..000000000000
+> --- a/arch/arm/mach-oxnas/platsmp.c
+> +++ /dev/null
+> @@ -1,96 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0-only
+> -/*
+> - * Copyright (C) 2016 Neil Armstrong <narmstrong@baylibre.com>
+> - * Copyright (C) 2013 Ma Haijun <mahaijuns@gmail.com>
+> - * Copyright (C) 2002 ARM Ltd.
+> - * All Rights Reserved
+> - */
+> -#include <linux/io.h>
+> -#include <linux/delay.h>
+> -#include <linux/of.h>
+> -#include <linux/of_address.h>
+> -
+> -#include <asm/cacheflush.h>
+> -#include <asm/cp15.h>
+> -#include <asm/smp_plat.h>
+> -#include <asm/smp_scu.h>
+> -
+> -extern void ox820_secondary_startup(void);
+> -
+> -static void __iomem *cpu_ctrl;
+> -static void __iomem *gic_cpu_ctrl;
+> -
+> -#define HOLDINGPEN_CPU_OFFSET		0xc8
+> -#define HOLDINGPEN_LOCATION_OFFSET	0xc4
+> -
+> -#define GIC_NCPU_OFFSET(cpu)		(0x100 + (cpu)*0x100)
+> -#define GIC_CPU_CTRL			0x00
+> -#define GIC_CPU_CTRL_ENABLE		1
+> -
+> -static int __init ox820_boot_secondary(unsigned int cpu,
+> -		struct task_struct *idle)
+> -{
+> -	/*
+> -	 * Write the address of secondary startup into the
+> -	 * system-wide flags register. The BootMonitor waits
+> -	 * until it receives a soft interrupt, and then the
+> -	 * secondary CPU branches to this address.
+> -	 */
+> -	writel(virt_to_phys(ox820_secondary_startup),
+> -			cpu_ctrl + HOLDINGPEN_LOCATION_OFFSET);
+> -
+> -	writel(cpu, cpu_ctrl + HOLDINGPEN_CPU_OFFSET);
+> -
+> -	/*
+> -	 * Enable GIC cpu interface in CPU Interface Control Register
+> -	 */
+> -	writel(GIC_CPU_CTRL_ENABLE,
+> -		gic_cpu_ctrl + GIC_NCPU_OFFSET(cpu) + GIC_CPU_CTRL);
+> -
+> -	/*
+> -	 * Send the secondary CPU a soft interrupt, thereby causing
+> -	 * the boot monitor to read the system wide flags register,
+> -	 * and branch to the address found there.
+> -	 */
+> -	arch_send_wakeup_ipi_mask(cpumask_of(cpu));
+> -
+> -	return 0;
+> -}
+> -
+> -static void __init ox820_smp_prepare_cpus(unsigned int max_cpus)
+> -{
+> -	struct device_node *np;
+> -	void __iomem *scu_base;
+> -
+> -	np = of_find_compatible_node(NULL, NULL, "arm,arm11mp-scu");
+> -	scu_base = of_iomap(np, 0);
+> -	of_node_put(np);
+> -	if (!scu_base)
+> -		return;
+> -
+> -	/* Remap CPU Interrupt Interface Registers */
+> -	np = of_find_compatible_node(NULL, NULL, "arm,arm11mp-gic");
+> -	gic_cpu_ctrl = of_iomap(np, 1);
+> -	of_node_put(np);
+> -	if (!gic_cpu_ctrl)
+> -		goto unmap_scu;
+> -
+> -	np = of_find_compatible_node(NULL, NULL, "oxsemi,ox820-sys-ctrl");
+> -	cpu_ctrl = of_iomap(np, 0);
+> -	of_node_put(np);
+> -	if (!cpu_ctrl)
+> -		goto unmap_scu;
+> -
+> -	scu_enable(scu_base);
+> -	flush_cache_all();
+> -
+> -unmap_scu:
+> -	iounmap(scu_base);
+> -}
+> -
+> -static const struct smp_operations ox820_smp_ops __initconst = {
+> -	.smp_prepare_cpus	= ox820_smp_prepare_cpus,
+> -	.smp_boot_secondary	= ox820_boot_secondary,
+> -};
+> -
+> -CPU_METHOD_OF_DECLARE(ox820_smp, "oxsemi,ox820-smp", &ox820_smp_ops);
+> diff --git a/arch/arm/mach-versatile/platsmp-realview.c b/arch/arm/mach-versatile/platsmp-realview.c
+> index 5d363385c801..fa31fd2d211d 100644
+> --- a/arch/arm/mach-versatile/platsmp-realview.c
+> +++ b/arch/arm/mach-versatile/platsmp-realview.c
+> @@ -18,16 +18,12 @@
+>   #define REALVIEW_SYS_FLAGSSET_OFFSET	0x30
+>   
+>   static const struct of_device_id realview_scu_match[] = {
+> -	{ .compatible = "arm,arm11mp-scu", },
+>   	{ .compatible = "arm,cortex-a9-scu", },
+>   	{ .compatible = "arm,cortex-a5-scu", },
+>   	{ }
+>   };
+>   
+>   static const struct of_device_id realview_syscon_match[] = {
+> -        { .compatible = "arm,core-module-integrator", },
+> -        { .compatible = "arm,realview-eb-syscon", },
+> -        { .compatible = "arm,realview-pb11mp-syscon", },
+>           { .compatible = "arm,realview-pbx-syscon", },
+>           { },
+>   };
+> diff --git a/arch/arm/mm/Kconfig b/arch/arm/mm/Kconfig
+> index c5bbae86f725..16b62bc0a970 100644
+> --- a/arch/arm/mm/Kconfig
+> +++ b/arch/arm/mm/Kconfig
+> @@ -937,25 +937,6 @@ config VDSO
+>   	  You must have glibc 2.22 or later for programs to seamlessly
+>   	  take advantage of this.
+>   
+> -config DMA_CACHE_RWFO
+> -	bool "Enable read/write for ownership DMA cache maintenance"
+> -	depends on CPU_V6K && SMP
+> -	default y
+> -	help
+> -	  The Snoop Control Unit on ARM11MPCore does not detect the
+> -	  cache maintenance operations and the dma_{map,unmap}_area()
+> -	  functions may leave stale cache entries on other CPUs. By
+> -	  enabling this option, Read or Write For Ownership in the ARMv6
+> -	  DMA cache maintenance functions is performed. These LDR/STR
+> -	  instructions change the cache line state to shared or modified
+> -	  so that the cache operation has the desired effect.
+> -
+> -	  Note that the workaround is only valid on processors that do
+> -	  not perform speculative loads into the D-cache. For such
+> -	  processors, if cache maintenance operations are not broadcast
+> -	  in hardware, other workarounds are needed (e.g. cache
+> -	  maintenance broadcasting in software via FIQ).
+> -
+>   config OUTER_CACHE
+>   	bool
+>   
+> diff --git a/arch/arm/mm/cache-v6.S b/arch/arm/mm/cache-v6.S
+> index abae7ff5defc..f6ee53c1de20 100644
+> --- a/arch/arm/mm/cache-v6.S
+> +++ b/arch/arm/mm/cache-v6.S
+> @@ -201,10 +201,6 @@ ENTRY(v6_flush_kern_dcache_area)
+>    *	- end     - virtual end address of region
+>    */
+>   ENTRY(v6_dma_inv_range)
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldrb	r2, [r0]			@ read for ownership
+> -	strb	r2, [r0]			@ write for ownership
+> -#endif
+>   	tst	r0, #D_CACHE_LINE_SIZE - 1
+>   	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
+>   #ifdef HARVARD_CACHE
+> @@ -213,10 +209,6 @@ ENTRY(v6_dma_inv_range)
+>   	mcrne	p15, 0, r0, c7, c11, 1		@ clean unified line
+>   #endif
+>   	tst	r1, #D_CACHE_LINE_SIZE - 1
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldrbne	r2, [r1, #-1]			@ read for ownership
+> -	strbne	r2, [r1, #-1]			@ write for ownership
+> -#endif
+>   	bic	r1, r1, #D_CACHE_LINE_SIZE - 1
+>   #ifdef HARVARD_CACHE
+>   	mcrne	p15, 0, r1, c7, c14, 1		@ clean & invalidate D line
+> @@ -231,10 +223,6 @@ ENTRY(v6_dma_inv_range)
+>   #endif
+>   	add	r0, r0, #D_CACHE_LINE_SIZE
+>   	cmp	r0, r1
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldrlo	r2, [r0]			@ read for ownership
+> -	strlo	r2, [r0]			@ write for ownership
+> -#endif
+>   	blo	1b
+>   	mov	r0, #0
+>   	mcr	p15, 0, r0, c7, c10, 4		@ drain write buffer
+> @@ -248,9 +236,6 @@ ENTRY(v6_dma_inv_range)
+>   ENTRY(v6_dma_clean_range)
+>   	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
+>   1:
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldr	r2, [r0]			@ read for ownership
+> -#endif
+>   #ifdef HARVARD_CACHE
+>   	mcr	p15, 0, r0, c7, c10, 1		@ clean D line
+>   #else
+> @@ -269,10 +254,6 @@ ENTRY(v6_dma_clean_range)
+>    *	- end     - virtual end address of region
+>    */
+>   ENTRY(v6_dma_flush_range)
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldrb	r2, [r0]		@ read for ownership
+> -	strb	r2, [r0]		@ write for ownership
+> -#endif
+>   	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
+>   1:
+>   #ifdef HARVARD_CACHE
+> @@ -282,10 +263,6 @@ ENTRY(v6_dma_flush_range)
+>   #endif
+>   	add	r0, r0, #D_CACHE_LINE_SIZE
+>   	cmp	r0, r1
+> -#ifdef CONFIG_DMA_CACHE_RWFO
+> -	ldrblo	r2, [r0]			@ read for ownership
+> -	strblo	r2, [r0]			@ write for ownership
+> -#endif
+>   	blo	1b
+>   	mov	r0, #0
+>   	mcr	p15, 0, r0, c7, c10, 4		@ drain write buffer
+> @@ -301,13 +278,7 @@ ENTRY(v6_dma_map_area)
+>   	add	r1, r1, r0
+>   	teq	r2, #DMA_FROM_DEVICE
+>   	beq	v6_dma_inv_range
+> -#ifndef CONFIG_DMA_CACHE_RWFO
+>   	b	v6_dma_clean_range
+> -#else
+> -	teq	r2, #DMA_TO_DEVICE
+> -	beq	v6_dma_clean_range
+> -	b	v6_dma_flush_range
+> -#endif
+>   ENDPROC(v6_dma_map_area)
+>   
+>   /*
+> @@ -317,11 +288,9 @@ ENDPROC(v6_dma_map_area)
+>    *	- dir	- DMA direction
+>    */
+>   ENTRY(v6_dma_unmap_area)
+> -#ifndef CONFIG_DMA_CACHE_RWFO
+>   	add	r1, r1, r0
+>   	teq	r2, #DMA_TO_DEVICE
+>   	bne	v6_dma_inv_range
+> -#endif
+>   	ret	lr
+>   ENDPROC(v6_dma_unmap_area)
+>   
 
 
 _______________________________________________
