@@ -4,47 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B817C7619A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 20:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4871FC7619A
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 20:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pl7xlS3EG/5n8jcfG3Wblyp0nZ0x/ZK9wfncoshnRsM=; b=CN21776u0DHwor
-	Kjokh+XACeUrfjeqGGZxlQfiS85A3XwG3BhpcHA4xOnqCkY1YfryCcDg8nid7nqlD4mRqkHsfj84P
-	SR2aSRh5PIAedvJrXSvsgbns2QfrhfJ3nYYSTQLppK7nLN76NekX9xvyVMCgsLGZRucaZnFqfJILJ
-	qVlDP8jLcLXOASsZYcEbiKDBq1aFGC+8A7klUZmllv7lm+IWGkrCOCaPznP0I+svqhIz37IKRbe+/
-	rM1C2joFtmEUkoniKVKXLlZ89wsKNBhojWtet2/5ZiRdfnt6mPirs7Zvpum8BCPsxpqMjcA8b4Z7/
-	cSxemMp0BZAQlwGTB1Qg==;
+	List-Owner; bh=CMF2ysoVCsb3VJ0gF2JfmAr9ESiHXsRPjwGffsRRnOo=; b=DuwkEGlFOsfD91
+	SerLAzgRF6ttcKQ287KrDRny0m7iOCiZiZ0g2kVWPi+a2NC/W7z6aEdsHrjFqabjLvNld3BwBbVCP
+	5GwQptr4b6EPigum7TpSt9gDNeqcD4ZKG35L0x6kBEDvVkGlo+p/YofU9SSt86bWtVOcVxdvl21Z/
+	qf73r+YMypbKwALyUuuO+ZQwQfdz6SuDfyeAVifdbrwJfB0dQeM7nNF+QUXlviARMSDkkpnWWRfQB
+	BwLpW77thrIIXEpAdP3VJchrLb6M4rf2Wy7C6DiJcr/JA8kC2qKYVv/ZAfHh2juWOyrxWqpRziFwN
+	M0+BTFx+8F2otBONtZpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phylg-004zsg-35;
-	Thu, 30 Mar 2023 20:21:08 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1phz6e-0051vm-23;
+	Thu, 30 Mar 2023 20:42:48 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phyld-004zsI-31
+	id 1phz6b-0051sh-14
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 20:21:07 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1phylD-0006W9-Vs; Thu, 30 Mar 2023 22:20:40 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Arnd Bergmann <arnd@arndb.de>, Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v3 2/7] RISC-V: Add a syscall for HW probing
-Date: Thu, 30 Mar 2023 22:20:38 +0200
-Message-ID: <6540574.4vTCxPXJkl@diego>
-In-Reply-To:  <CALs-HstAKtvORKwRWeh97SuAuYR61aiR-3jA2_0JCZGAJXVHbg@mail.gmail.com>
-References:  <20230221190858.3159617-1-evan@rivosinc.com>
- <605fb2fd-bda2-4922-92bf-e3e416d54398@app.fastmail.com>
- <CALs-HstAKtvORKwRWeh97SuAuYR61aiR-3jA2_0JCZGAJXVHbg@mail.gmail.com>
+	Thu, 30 Mar 2023 20:42:46 +0000
+Received: by mail-wm1-x332.google.com with SMTP id r19-20020a05600c459300b003eb3e2a5e7bso12624316wmo.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 13:42:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1680208962; x=1682800962;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s7kxFEuDvqvRsu/15YqHcVl/pTqu+171A8GL2tXTVtE=;
+        b=nekpz3TVzSg19iWdmhaU8wFQz//KdLZ1tLIPifgqOIKPBqc56TEbYZERbamq6zeqB4
+         J4TfE3JyeVi/m2nUGwDC4Yt4CvqDziYoQOyLMRqfAVAnghdVKplKpnoZbENB9yXg1e9Q
+         nnAqSqUde+6lVADQKlLsZG0Y6JD6iIVhuxrLevzxmilHaAZyMhXA7Oe5VBO6RJJtA8W1
+         dySWTg3pC8j05fis10Y4YjGBsNnxL62+yLk1emP0SLIopZoMDylYMGs3+ujxtb0ojaU+
+         0JODgnX27CODaQ4Lir72dZmoEJeCFgLjjKFgYxPSXwefHo5F7oy2nH+EV/unujA2EQjK
+         0DTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680208962; x=1682800962;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s7kxFEuDvqvRsu/15YqHcVl/pTqu+171A8GL2tXTVtE=;
+        b=cmptPMcRBm08tcyqHHi6meSIA8tJ3XmeWZPAQrQhgUxKHUQy2a4iPX5DjLYyMbUsdf
+         vGcHEeKpSb1s1jEMaTeiyrjnIfZhSdxy2OpuRGPX6pSEumwonTpBQP1knAqTO0jE2QUX
+         ErpVHONRCfS5qjYF5Ms3l+Dg3X7H77S3+75/0yDdhrbJp5bdzHgNFEBsXqMqRt+WaPcD
+         QWg14cVig4Ii/xxgm8OFWLw14eaFA8bh361Fv8nZA7R9XrepBSXhrxEiCN3oI/zSIzaV
+         nt+6ANFRdkEJMGL/PuKfCLt2S1G41x6XGedM/JLrwBw77e4bb4p+gaMui5vrSpgC4Yt2
+         N7XQ==
+X-Gm-Message-State: AAQBX9csI6Hph4hDibCyULvkYHHabOJpNK7d5KUsQozTgx07kQVQPjc6
+	6gaf2FliheAsyCBDXgKBu7A=
+X-Google-Smtp-Source: AKy350YExm3QsmDb5bKqs2Q8NH9RSHthiIzr4tXraGH9J/z7WwEbDgWlW7+6BcMnPHzhbkypOpBl1g==
+X-Received: by 2002:a05:600c:220c:b0:3ee:3fd7:5f85 with SMTP id z12-20020a05600c220c00b003ee3fd75f85mr5007343wml.11.1680208961876;
+        Thu, 30 Mar 2023 13:42:41 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:30f2:5b7:ab32:c3f])
+        by smtp.gmail.com with ESMTPSA id v12-20020a5d4b0c000000b002cfed482e9asm297981wrq.61.2023.03.30.13.42.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Mar 2023 13:42:41 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Guo Ren <guoren@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v7 2/6] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+Date: Thu, 30 Mar 2023 21:42:13 +0100
+Message-Id: <20230330204217.47666-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_132105_971499_434E25E7 
-X-CRM114-Status: GOOD (  46.88  )
+X-CRM114-CacheID: sfid-20230330_134245_369543_57625B1D 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,96 +105,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Niklas Cassel <niklas.cassel@wdc.com>, slewis@rivosinc.com, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, "Conor.Dooley" <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, Bagas Sanjaya <bagasdotme@gmail.com>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Vineet Gupta <vineetg@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, guoren <guoren@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW0gRG9ubmVyc3RhZywgMzAuIE3DpHJ6IDIwMjMsIDIwOjMwOjI5IENFU1Qgc2NocmllYiBFdmFu
-IEdyZWVuOgo+IE9uIFRodSwgRmViIDIzLCAyMDIzIGF0IDI6MDbigK9BTSBBcm5kIEJlcmdtYW5u
-IDxhcm5kQGFybmRiLmRlPiB3cm90ZToKPiA+Cj4gPiBPbiBUdWUsIEZlYiAyMSwgMjAyMywgYXQg
-MjA6MDgsIEV2YW4gR3JlZW4gd3JvdGU6Cj4gPiA+IFdlIGRvbid0IGhhdmUgZW5vdWdoIHNwYWNl
-IGZvciB0aGVzZSBhbGwgaW4gRUxGX0hXQ0FQeywyfSBhbmQgdGhlcmUncyBubwo+ID4gPiBzeXN0
-ZW0gY2FsbCB0aGF0IHF1aXRlIGRvZXMgdGhpcywgc28gbGV0J3MganVzdCBwcm92aWRlIGFuIGFy
-Y2gtc3BlY2lmaWMKPiA+ID4gb25lIHRvIHByb2JlIGZvciBoYXJkd2FyZSBjYXBhYmlsaXRpZXMu
-ICBUaGlzIGN1cnJlbnRseSBqdXN0IHByb3ZpZGVzCj4gPiA+IG17YXJjaCxpbXAsdmVuZG9yfWlk
-LCBidXQgd2l0aCB0aGUga2V5LXZhbHVlIHBhaXJzIHdlIGNhbiBwYXNzIG1vcmUgaW4KPiA+ID4g
-dGhlIGZ1dHVyZS4KPiA+ID4KPiA+ID4gQ28tZGV2ZWxvcGVkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8
-cGFsbWVyQHJpdm9zaW5jLmNvbT4KPiA+ID4gU2lnbmVkLW9mZi1ieTogUGFsbWVyIERhYmJlbHQg
-PHBhbG1lckByaXZvc2luYy5jb20+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IEV2YW4gR3JlZW4gPGV2
-YW5Acml2b3NpbmMuY29tPgo+ID4KPiA+IEknbSBzdGlsbCBza2VwdGljYWwgYWJvdXQgdGhlIG5l
-ZWQgZm9yIGEgY3VzdG9tIHN5c2NhbGwgaW50ZXJmYWNlIGhlcmUuCj4gPiBJIGhhZCBub3QgbG9v
-a2VkIGF0IHRoZSBpbnRlcmZhY2Ugc28gZmFyLCBidXQgdGhlcmUgYXJlIGEgZmV3IHRoaW5ncwo+
-ID4gdGhhdCBzdGljayBvdXQ6Cj4gPgo+ID4gPiArUklTQy1WIEhhcmR3YXJlIFByb2JpbmcgSW50
-ZXJmYWNlCj4gPiA+ICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiA+ID4gKwo+
-ID4gPiArVGhlIFJJU0MtViBoYXJkd2FyZSBwcm9iaW5nIGludGVyZmFjZSBpcyBiYXNlZCBhcm91
-bmQgYSBzaW5nbGUKPiA+ID4gc3lzY2FsbCwgd2hpY2gKPiA+ID4gK2lzIGRlZmluZWQgaW4gPGFz
-bS9od3Byb2JlLmg+OjoKPiA+ID4gKwo+ID4gPiArICAgIHN0cnVjdCByaXNjdl9od3Byb2JlIHsK
-PiA+ID4gKyAgICAgICAgX19zNjQga2V5Owo+ID4gPiArICAgICAgICBfX3U2NCB2YWx1ZTsKPiA+
-ID4gKyAgICB9Owo+ID4KPiA+IFRoZSB3YXkgdGhpcyBpcyBkZWZpbmVkLCB0aGUga2VybmVsIHdp
-bGwgYWx3YXlzIGhhdmUgdG8ga25vdwo+ID4gYWJvdXQgdGhlIHNwZWNpZmljIHNldCBvZiBmZWF0
-dXJlcywgaXQgY2FuJ3QganVzdCBmb3J3YXJkCj4gPiB1bmtub3duIGZlYXR1cmVzIHRvIHVzZXIg
-c3BhY2UgYWZ0ZXIgcHJvYmluZyB0aGVtIGZyb20gYW4KPiA+IGFyY2hpdGVjdHVyZWQgaGFyZHdh
-cmUgaW50ZXJmYWNlIG9yIGZyb20gRFQuCj4gCj4gWW91J3JlIGNvcnJlY3QgdGhhdCB0aGlzIGlu
-dGVyZmFjZSB3YXNuJ3QgaW50ZW5kZWQgdG8gaGF2ZSB1c2VybW9kZQo+IGNvbWUgaW4gd2l0aCBh
-dWdtZW50ZWQgZGF0YSBvciBhZGRpdGlvbmFsIGtleS92YWx1ZSBwYWlycy4gVGhpcyB3YXMKPiBw
-dXJlbHkgbWVhbnQgdG8gcHJvdmlkZSBhY2Nlc3MgdG8gdGhlIGtlcm5lbCdzIHJlcG9zaXRvcnkg
-b2YKPiBhcmNoaXRlY3R1cmFsIGFuZCBtaWNyb2FyY2hpdGVjdHVyYWwgZGV0YWlscy4gSWYgdXNl
-cm1vZGUgd2FudHMgdG8KPiBwcm92aWRlIGV4dHJhIGluZm8gaW4gdGhpcyBzYW1lIGZvcm0sIG1h
-eWJlIHRoZXkgY291bGQgd3JhcCB0aGlzCj4gaW50ZXJmYWNlLgo+Cj4gPiBJZiAna2V5JyBpcyBq
-dXN0IGFuIGVudW1lcmF0ZWQgdmFsdWUgd2l0aCBhIHNtYWxsIG51bWJlciBvZgo+ID4gcG9zc2li
-bGUgdmFsdWVzLCBJIGRvbid0IHNlZSBhbnl0aGluZyB3cm9uZyB3aXRoIHVzaW5nIGVsZgo+ID4g
-YXV4IGRhdGEuIEkgdW5kZXJzdGFuZCBpdCdzIGhhcmQgdG8ga25vdyBob3cgbWFueSBrZXlzCj4g
-PiBtaWdodCBiZSBuZWVkZWQgaW4gdGhlIGxvbmcgcnVuLCBmcm9tIHRoZSB3YXkgeW91IGRlZmlu
-ZQo+ID4gdGhlIGtleS92YWx1ZSBwYWlycyBoZXJlLCBJIHdvdWxkIGV4cGVjdCBpdCB0byBoYXZl
-IGEgbG90Cj4gPiBvZiB0aGUgc2FtZSBsaW1pdGF0aW9ucyB0aGF0IHRoZSBhdXggZGF0YSBoYXMs
-IGV4Y2VwdCBmb3IKPiA+IGEgZmV3IGJ5dGVzIHRvIGJlIGNvcGllZC4KPiAKPiBDb3JyZWN0LCB0
-aGlzIG1ha2VzIGFsbG9jYXRpbmcgYml0cyBvdXQgb2YgaGVyZSBjaGVhcGVyIGJ5IG5vdAo+IHJl
-cXVpcmluZyB0aGF0IHdlIGFjdGl2ZWx5IGNvcHkgdGhlbSBpbnRvIGV2ZXJ5IG5ldyBwcm9jZXNz
-IGZvcmV2ZXIuCj4gWW91J3JlIHJpZ2h0IHRoYXQgdGhlIGF1eCB2ZWN0b3Igd291bGQgd29yayBh
-cyB3ZWxsLCBidXQgdGhlIHRoaW5raW5nCj4gYmVoaW5kIHRoaXMgc2VyaWVzIHdhcyB0aGF0IGFu
-IGludGVyZmFjZSBsaWtlIHRoaXMgbWlnaHQgYmUgYmV0dGVyIGZvcgo+IGFuIGFyY2hpdGVjdHVy
-ZSBhcyBleHRlbnNpYmxlIGFzIHJpc2Mtdi4KCldoYXQgd291bGQgYmUgdGhlIHJhbWlmaWNhdGlv
-bnMgb2YgZGVmaW5pbmcgc29tZSBzb3J0IG9mIHZkc28tbGlrZQpkYXRhLXN0cnVjdHVyZSBhbmQg
-anVzdCBwdXR0aW5nIHRoZSBhZGRyZXNzIGludG8gQVRfSFdDQVAyID8KKHNpbWlsYXIgdG8gd2hh
-dCB2ZHNvIGRvZXMpIC0gdGhhdCBjb3VsZCB0aGVuIGV2ZW4gYmUgcmUtdXNhYmxlCndpdGggb3Ro
-ZXIgT1Mga2VybmVscy4KCkFuZCB3b3VsZCBhbHNvIHNhdmUgZGVjbGFyaW5nIG51bWVyb3VzIG5l
-dyBBVF8qIGtleXMuCgoKQmVjYXVzZSB0aGVyZSBhcmUgYWxyZWFkeSBuZWFybHkgMTMwIHN0YW5k
-YXJkIGV4dGVuc2lvbnMgYW5kIHZlbmRvcnMKYXJlIGFsbG93ZWQgdG8gZGVmaW5lcyB0aGVpciBv
-d24gYXMgd2VsbCwgYW5kIHdlIHdpbGwgcHJvYmFibHkgYWxzbyB3YW50CnRvIHRlbGwgdXNlcnNw
-YWNlIGFib3V0IHRoZW0uCgoKSGVpa28KCgo+ID4gPiArICAgIGxvbmcgc3lzX3Jpc2N2X2h3cHJv
-YmUoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnBhaXJzLCBzaXplX3QKPiA+ID4gcGFpcl9jb3VudCwK
-PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIHNpemVfdCBjcHVfY291bnQsIGNwdV9z
-ZXRfdCAqY3B1cywKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxv
-bmcgZmxhZ3MpOwo+ID4KPiA+IFRoZSBjcHUgc2V0IGFyZ3VtZW50IHdvcnJpZXMgbWUgbW9yZTog
-dGhlcmUgc2hvdWxkIG5ldmVyIGJlIGEKPiA+IG5lZWQgdG8gb3B0aW1pemUgZm9yIGJyb2tlbiBo
-YXJkd2FyZSB0aGF0IGhhcyBhbiBhc3ltbWV0cmljIHNldAo+ID4gb2YgZmVhdHVyZXMuIEp1c3Qg
-bGV0IHRoZSBrZXJuZWwgZmlndXJlIG91dCB0aGUgbWluaW11bSBzZXQKPiA+IG9mIGZlYXR1cmVz
-IHRoYXQgd29ya3MgYWNyb3NzIGFsbCBDUFVzIGFuZCByZXBvcnQgdGhhdCBsaWtlIHdlCj4gPiBk
-byB3aXRoIEhXQ0FQLiBJZiB0aGVyZSBpcyBhIFNvQyB0aGF0IGlzIHNvIGJyb2tlbiB0aGF0IGl0
-IGhhcwo+ID4gaW1wb3J0YW50IGZlYXR1cmVzIG9uIGEgc3Vic2V0IG9mIGNvcmVzIHRoYXQgc29t
-ZSB1c2VyIG1pZ2h0Cj4gPiBhY3R1YWxseSB3YW50IHRvIHJlbHkgb24sIHRoZW4gaGF2ZSB0aGVt
-IGdvIHRocm91Z2ggdGhlIHNsb3cKPiA+IHN5c2ZzIGludGVyZmFjZSBmb3IgcHJvYmluZyB0aGUg
-Q1BVcyBpbmRpZHVhbGx5LCBidXQgZG9uJ3QgbWFrZQo+ID4gdGhlIGJyb2tlbiBjYXNlIGVhc2ll
-ciBhdCB0aGUgZXhwZW5zZSBvZiBub3JtYWwgdXNlcnMgdGhhdAo+ID4gcnVuIG9uIHdvcmtpbmcg
-aGFyZHdhcmUuCj4gCj4gSSdtIG5vdCBzbyBzdXJlLiBXaGlsZSBJIGFncmVlIHdpdGggeW91IGZv
-ciBtYWpvciBjbGFzc2VzIG9mIGZlYXR1cmVzCj4gKGVnIG9uZSBDUFUgaGFzIGZsb2F0aW5nIHBv
-aW50IHN1cHBvcnQgYnV0IGFub3RoZXIgZG9lcyBub3QpLCBJIGV4cGVjdAo+IHRoZXNlIGJpdHMg
-dG8gY29udGFpbiBtb3JlIHN1YnRsZSBkZXRhaWxzIGFzIHdlbGwsIHdoaWNoIG1pZ2h0IHZhcnkK
-PiBhY3Jvc3MgYXN5bW1ldHJpYyBpbXBsZW1lbnRhdGlvbnMgd2l0aG91dCBicmVha2luZyBBQkkg
-Y29tcGF0aWJpbGl0eQo+IHBlci1zZS4gTWF5YmUgc29tZSB2ZW5kb3IgaGFzIGltcGxlbWVudGVk
-IGV4b3RpYyB2aWRlbyBkZWNvZGluZwo+IGFjY2VsZXJhdGlvbiBpbnN0cnVjdGlvbnMgdGhhdCBv
-bmx5IHdvcmsgb24gdGhlIGJpZyBjb3JlLiBPciBtYXliZSB0aGUKPiBiaWcgY29yZXMgc3VwcG9y
-dCB2My4xIG9mIHNvbWUgZXh0ZW5zaW9uICh3aGVyZSBjZXJ0YWluIHRoaW5ncyBydW4KPiBmYXN0
-ZXIpLCBidXQgdGhlIGxpdHRsZSBjb3JlcyBvbmx5IGhhdmUgdjMuMCwgd2hlcmUgaXQncyBhIGxp
-dHRsZQo+IHNsb3dlci4gQ2VydGFpbiBhcHBzIHdvdWxkIGxpa2VseSB3YW50IHRvIGtub3cgdGhl
-c2UgdGhpbmdzIHNvIHRoZXkKPiBjYW4gYWxsb2NhdGUgdGhlaXIgd29yayBvcHRpbWFsbHkgYWNy
-b3NzIGNvcmVzLgo+IAo+ID4KPiA+ID4gK2FzbWxpbmthZ2UgbG9uZyBzeXNfcmlzY3ZfaHdwcm9i
-ZSh1aW50cHRyX3QsIHVpbnRwdHJfdCwgdWludHB0cl90LAo+ID4gPiB1aW50cHRyX3QsCj4gPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdWludHB0cl90LCB1aW50cHRyX3QpOwo+
-ID4KPiA+IFdoeSAndWludHB0cl90JyByYXRoZXIgdGhhbiB0aGUgY29ycmVjdCB0eXBlPwo+IAo+
-IEZpeGVkLgo+IC1FdmFuCj4gCgoKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Add Andes Technology to the vendors list.
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+v6 -> v7
+* No change
+
+v5 -> v6
+* No change
+
+v4 -> v5
+* Included RB tags
+
+RFC v3 -> v4
+* New patch
+---
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index cb89af3f0704..e55407ace0c3 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,6 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
+ 
++#define ANDESTECH_VENDOR_ID	0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
