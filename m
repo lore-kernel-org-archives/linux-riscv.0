@@ -4,81 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924BAC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6CCC6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZrZt6oUWMfnmTx49W9Jmya4hpPP5fTKS3lEZKbzJDkU=; b=dca1nke9dg1u3r
-	PtCjIor+h1DhemhP15O3+WjIxBBLWNHQz8SbIyTC6ggp6kI4T+IRZ9V0H3DayNrTv9hJwpcXlUPPI
-	8bAPmVhJr/TeaqQpzzs1QQ2vEy9crqvNhc+RbSIwqnyxpp0X30JgPVS0IA79bBAC2y9cM62LECAaP
-	Rech4AGBi4kQnEuC2hIcZXw8Ioa6T18rpPJ7pG4/ALKWlsv8CxE0XNGkBMiOoidz63E6heaoM4fR0
-	GFg0juLilKPt6gP3Bpq+XME+P7CaNEOForiu2uJ7oE8+SOF3c5fAWb5f9ko/btBd7sDANqMMEypjf
-	Wffimubzbbg0rVaS2KnQ==;
+	List-Owner; bh=yIL4BKpauQGs2opnny3ZT7bGhGX3CDhCI1abNDSXOjY=; b=rY7drDbbfmEdJH
+	r32UX92bPkcwH6uR/DbjIH1yorEtvnqans+3PwDtRiW/nj6GfWzE+EjuCf9qhtpwinW8/IKu5Y88/
+	Ahw5Gbk385UAqYW4K9f+v4vJfSuutn6iVanoM6hqN1qH8xUQ/WwNniys2BlWm8x1iypLG0SAKAgxI
+	HoQHit8XMjabnrxTefoluTC3Wnc47eW6KrHTX84Wz8cokFruH/KkJm8L7QCpFbljmaASTMKZeC1Z0
+	BKXLxyPt/KQ9mGN7NY4+Cf/tXEU4nGBUFy68AAn0SSbaaqtXFJ4WmO2uGMWrmzpHtjurddbIERgn5
+	KF9C/6aFLBoCXjO7hTog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmKk-002qiv-1L;
-	Thu, 30 Mar 2023 07:04:30 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1phmRV-002rbQ-1G;
+	Thu, 30 Mar 2023 07:11:29 +0000
+Received: from new4-smtp.messagingengine.com ([66.111.4.230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmKf-002qhS-0o
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 07:04:29 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id l15-20020a05600c4f0f00b003ef6d684102so7487370wmq.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 00:04:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680159861;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nRGiYGWRgIJrDplYiJC4OiBTDpjb4NhXXJybivPhzkU=;
-        b=G5Z6DmgR420dgC0k7KbGQW2vFAwxyBVgh4e5fs4et3PuZ4Ex8/MujEnrcXDSSzsKpb
-         uAIRBudKdy5FDt8SF5RSvwilIuvBzCiUEAJQQRNkDIMo6KvRZ5vl9Zc+JQPcaU2EofAK
-         c/RW2LHVjix3T1nKHVrtsmhHciU+cgax9vqTk4994C3Mxp4AuyB7KlePtKvxIfVMZVG/
-         2Juzs9sbXTqbDYRgVb0gTRsPxFimEIFPb5srSPJjSMSeb5b22cDbupxeWqizJzjsnFu7
-         JRvwIPZ3ZaTt2rr5TwOr9tU9Av9xNMBOuq+RZeCshQxjLId2kF8vKvQB3OCM6+W5QVds
-         vN4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680159861;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nRGiYGWRgIJrDplYiJC4OiBTDpjb4NhXXJybivPhzkU=;
-        b=iHFpvLm53FDmCESsxBwR2yaMYPl/5XFc4KQPZmzLdhm80hF8ABcCOFG4TqkECMyrmD
-         FHNBDQfxrjVDjEXkB1RiLf4UjWwocJALD+21I+0W1LTL2iru7rEDXVS/NAMrXtT3FEaI
-         F+FamvhMud6n+ptvC72hsmhGWUJW4hgM3hqZAntlh9GNVFB1P9a+BUymXBo7Xup47tlA
-         lGqFnr5G0epftLA+dAo3KSD4bTUDrFtHT1NBCTQUumht0NQ8akfckvFAZUmHP04Ts1aR
-         iw73lcBo2QodOnYIEp4ta24q8jtvGsKHbV5z7wRNvULRKo6orAeEIv2km/xG2k652A5z
-         MHQA==
-X-Gm-Message-State: AAQBX9c8/XedCnwWspm1Pf+qzcIeoe9azn16mk2l/9b8HDQYJPmofueT
-	QH2mR0OyVedHF/IpNIM1uSRXYQ==
-X-Google-Smtp-Source: AKy350Y9dd/w3dLzY2picTM4Z/c+Qx2PWAavqOB3PR4TxjvReyxdswF+WuyQBNgLPl7Z+/oanWuEug==
-X-Received: by 2002:a7b:c8c5:0:b0:3ef:62cd:1ef with SMTP id f5-20020a7bc8c5000000b003ef62cd01efmr12918593wml.25.1680159861145;
-        Thu, 30 Mar 2023 00:04:21 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id i22-20020a05600c355600b003ede6540190sm5122800wmq.0.2023.03.30.00.04.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Mar 2023 00:04:20 -0700 (PDT)
-Date: Thu, 30 Mar 2023 09:04:19 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] RISC-V: KVM: Add ONE_REG interface to
- enable/disable SBI extensions
-Message-ID: <7gtvgdxjwa662kfafnd5xrgugjt3w6iwv4w7rbrfeooviq2cnb@dqplsikshpzw>
-References: <20230330053135.1686577-1-apatel@ventanamicro.com>
- <20230330053135.1686577-2-apatel@ventanamicro.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230330053135.1686577-2-apatel@ventanamicro.com>
+	id 1phmRQ-002rZy-34;
+	Thu, 30 Mar 2023 07:11:26 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.nyi.internal (Postfix) with ESMTP id 91091581DB4;
+	Thu, 30 Mar 2023 03:11:20 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Thu, 30 Mar 2023 03:11:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1680160280; x=1680167480; bh=wG
+	Aj9k8TObyqA6xHoUKa8szJrjCAJbphSDFQitQcQQs=; b=QVEDTKeVke/4u7Kg+r
+	/f0Ng8qyMJQjA0k7T1uZbzE62G/ueNBnWjpEnArFMDM92zNIXQ0BVhpsTK81gyt0
+	xSP5pbZY1IxVpqUBM+h72I4sgGKqPjbLqxNcKo6QCWkB1PzdfOUSKkfxHkuBpgbQ
+	cYQ6HqJa3bwV0Vkf7hmy8ejQKyFDSRYDfGJpYSPAochCUC5d86UJcSmtdy6Sxo6B
+	Jwxhii7JHhX5S3HrIP0mKrvU6BvYZqwsLNUfy16VYFyQuCPOCAze4qZ6sDRlwyQw
+	F08a6VUS4QIWlJ5ptfnwv75T7l2QsYPv/2qWlc1FTlhkx6SDxxZZxa17eJWjG25W
+	8QyA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1680160280; x=1680167480; bh=wGAj9k8TObyqA
+	6xHoUKa8szJrjCAJbphSDFQitQcQQs=; b=oomTeCD59PNC83Jndx1U6VLOVE5Dm
+	iHmSiz3n1GUnKD2uHg/nJb7LQ4xFS4iggJ6sXq9/uqeoafmTb21qaw3LmGDGWVXs
+	zFRwDOtSbIgfSbefSTdQy+SDzfOWXM+Nas8Aqo7qkiw5wE6y4qdG6iwjS4DRWXtn
+	XctTZFf5GY9RMg5ciHLqGdffXqZGKOwN45T9El3FCgUi5LSy7a/pQo0750iSwL/f
+	RG+pNkv9fRAgzmmzo4HLa1cEOhymbMSIXzYbzI354FYA0THouxwTuuuM0yobQ3gk
+	LFgzGrnAkD2cRuN42h7TslpEIGdInF1W2TSA3tfbtXeFABGM7k1iBb/7Q==
+X-ME-Sender: <xms:FTYlZOrkzwdxpCxeIZzclV90hxzPUSC3ms8-E11J67_aPSJXJ1BIkg>
+    <xme:FTYlZMrP3FZFc1NJSA8GIlQPVO9kl25CsPN1r07QL_dGO5vWTCxWy7o2eATgnKdQ9
+    a578gSy3QQoXr1upcg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdehjedguddujecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
+    htthgvrhhnpeevhfffledtgeehfeffhfdtgedvheejtdfgkeeuvefgudffteettdekkeeu
+    feehudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:FjYlZDNNTBCw6HhWBDqV-oUWPDwRI7BTNiBMI3iXI3sHS545zVmJ2w>
+    <xmx:FjYlZN4cwCdj47vqSASOc6XR5L2duLCySn6_f-BJZvURW8Sn6XqTzw>
+    <xmx:FjYlZN6Cp-M6Z89_Yu31L8qrA-V1bCiPBKi9s_taeLF3yPIrQttNLw>
+    <xmx:GDYlZL7CJyRZz1a_FlDEKTyWBaiLrIUUjNVWWchrrS5Jr6hXYCWp0A>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id E08C7B60086; Thu, 30 Mar 2023 03:11:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-238-g746678b8b6-fm-20230329.001-g746678b8
+Mime-Version: 1.0
+Message-Id: <34f3e043-20eb-40b2-a7f5-b1b98a0d452a@app.fastmail.com>
+In-Reply-To: <2668e232-ae83-4576-beaa-08e420236996@spud>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-9-arnd@kernel.org>
+ <2668e232-ae83-4576-beaa-08e420236996@spud>
+Date: Thu, 30 Mar 2023 09:10:57 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Conor Dooley" <conor@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
+ "Brian Cain" <bcain@quicinc.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Dinh Nguyen" <dinguyen@kernel.org>, "Stafford Horne" <shorne@gmail.com>,
+ "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Rich Felker" <dalias@libc.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Max Filippov" <jcmvbkbc@gmail.com>, "Christoph Hellwig" <hch@lst.de>,
+ "Robin Murphy" <robin.murphy@arm.com>, "Lad,
+ Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ "Samuel Holland" <samuel@sholland.org>
+Subject: Re: [PATCH 08/21] riscv: dma-mapping: only invalidate after DMA, not flush
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_000425_289763_D6D52A4A 
-X-CRM114-Status: GOOD (  31.15  )
+X-CRM114-CacheID: sfid-20230330_001125_506873_F4FDA83A 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,298 +134,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 30, 2023 at 11:01:35AM +0530, Anup Patel wrote:
-> We add ONE_REG interface to enable/disable SBI extensions (just
-> like the ONE_REG interface for ISA extensions). This allows KVM
-> user-space to decide the set of SBI extension enabled for a Guest
-> and by default all SBI extensions are enabled.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |   8 +-
->  arch/riscv/include/uapi/asm/kvm.h     |  20 ++++
->  arch/riscv/kvm/vcpu.c                 |   2 +
->  arch/riscv/kvm/vcpu_sbi.c             | 150 +++++++++++++++++++++++---
->  arch/riscv/kvm/vcpu_sbi_base.c        |   2 +-
->  5 files changed, 163 insertions(+), 19 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> index 8425556af7d1..4278125a38a5 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -16,6 +16,7 @@
->  
->  struct kvm_vcpu_sbi_context {
->  	int return_handled;
-> +	bool extension_disabled[KVM_RISCV_SBI_EXT_MAX];
->  };
->  
->  struct kvm_vcpu_sbi_return {
-> @@ -45,7 +46,12 @@ void kvm_riscv_vcpu_sbi_system_reset(struct kvm_vcpu *vcpu,
->  				     struct kvm_run *run,
->  				     u32 type, u64 flags);
->  int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
-> -const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid);
-> +int kvm_riscv_vcpu_set_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg);
-> +int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg);
-> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
-> +				struct kvm_vcpu *vcpu, unsigned long extid);
->  int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
->  
->  #ifdef CONFIG_RISCV_SBI_V01
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 92af6f3f057c..33c3457b94e7 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -108,6 +108,23 @@ enum KVM_RISCV_ISA_EXT_ID {
->  	KVM_RISCV_ISA_EXT_MAX,
->  };
->  
-> +/*
-> + * SBI extension IDs specific to KVM. This is not the same as the SBI
-> + * extension IDs defined by the RISC-V SBI specification.
-> + */
-> +enum KVM_RISCV_SBI_EXT_ID {
-> +	KVM_RISCV_SBI_EXT_V01 = 0,
-> +	KVM_RISCV_SBI_EXT_TIME,
-> +	KVM_RISCV_SBI_EXT_IPI,
-> +	KVM_RISCV_SBI_EXT_RFENCE,
-> +	KVM_RISCV_SBI_EXT_SRST,
-> +	KVM_RISCV_SBI_EXT_HSM,
-> +	KVM_RISCV_SBI_EXT_PMU,
-> +	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> +	KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_RISCV_SBI_EXT_MAX,
-> +};
-> +
->  /* Possible states for kvm_riscv_timer */
->  #define KVM_RISCV_TIMER_STATE_OFF	0
->  #define KVM_RISCV_TIMER_STATE_ON	1
-> @@ -152,6 +169,9 @@ enum KVM_RISCV_ISA_EXT_ID {
->  /* ISA Extension registers are mapped as type 7 */
->  #define KVM_REG_RISCV_ISA_EXT		(0x07 << KVM_REG_RISCV_TYPE_SHIFT)
->  
-> +/* SBI extension registers are mapped as type 8 */
-> +#define KVM_REG_RISCV_SBI_EXT		(0x08 << KVM_REG_RISCV_TYPE_SHIFT)
-> +
->  #endif
->  
->  #endif /* __LINUX_KVM_RISCV_H */
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 7d010b0be54e..311fd347c5a8 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -601,6 +601,8 @@ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
->  						 KVM_REG_RISCV_FP_D);
->  	case KVM_REG_RISCV_ISA_EXT:
->  		return kvm_riscv_vcpu_set_reg_isa_ext(vcpu, reg);
-> +	case KVM_REG_RISCV_SBI_EXT:
-> +		return kvm_riscv_vcpu_set_reg_sbi_ext(vcpu, reg);
->  	default:
->  		break;
->  	}
-> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-> index 15fde15f9fb8..bedd7d78a5f0 100644
-> --- a/arch/riscv/kvm/vcpu_sbi.c
-> +++ b/arch/riscv/kvm/vcpu_sbi.c
-> @@ -30,17 +30,52 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
->  };
->  #endif
->  
-> -static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
-> -	&vcpu_sbi_ext_v01,
-> -	&vcpu_sbi_ext_base,
-> -	&vcpu_sbi_ext_time,
-> -	&vcpu_sbi_ext_ipi,
-> -	&vcpu_sbi_ext_rfence,
-> -	&vcpu_sbi_ext_srst,
-> -	&vcpu_sbi_ext_hsm,
-> -	&vcpu_sbi_ext_pmu,
-> -	&vcpu_sbi_ext_experimental,
-> -	&vcpu_sbi_ext_vendor,
-> +struct kvm_riscv_sbi_extension_entry {
-> +	enum KVM_RISCV_SBI_EXT_ID dis_idx;
-> +	const struct kvm_vcpu_sbi_extension *ext_ptr;
-> +};
-> +
-> +static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_V01,
-> +		.ext_ptr = &vcpu_sbi_ext_v01,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_MAX, /* Can't be disabled */
-> +		.ext_ptr = &vcpu_sbi_ext_base,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_TIME,
-> +		.ext_ptr = &vcpu_sbi_ext_time,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_IPI,
-> +		.ext_ptr = &vcpu_sbi_ext_ipi,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_RFENCE,
-> +		.ext_ptr = &vcpu_sbi_ext_rfence,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_SRST,
-> +		.ext_ptr = &vcpu_sbi_ext_srst,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_HSM,
-> +		.ext_ptr = &vcpu_sbi_ext_hsm,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_PMU,
-> +		.ext_ptr = &vcpu_sbi_ext_pmu,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> +		.ext_ptr = &vcpu_sbi_ext_experimental,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_VENDOR,
-> +		.ext_ptr = &vcpu_sbi_ext_vendor,
-> +	},
->  };
->  
->  void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
-> @@ -99,14 +134,95 @@ int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  	return 0;
->  }
->  
-> -const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid)
-> +int kvm_riscv_vcpu_set_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg)
-> +{
-> +	unsigned long __user *uaddr =
-> +			(unsigned long __user *)(unsigned long)reg->addr;
-> +	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> +					    KVM_REG_SIZE_MASK |
-> +					    KVM_REG_RISCV_SBI_EXT);
-> +	unsigned long i, reg_val;
-> +	const struct kvm_riscv_sbi_extension_entry *sext = NULL;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-> +
-> +	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
-> +		return -EINVAL;
-> +
-> +	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
-> +		return -EFAULT;
-> +
-> +	if (reg_num >= KVM_RISCV_SBI_EXT_MAX ||
-> +	    (reg_val != 1 && reg_val != 0))
-> +		return -EINVAL;
-> +
-> +	if (vcpu->arch.ran_atleast_once)
-> +		return -EBUSY;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		if (sbi_ext[i].dis_idx == reg_num) {
-> +			sext = &sbi_ext[i];
-> +			break;
-> +		}
-> +	}
-> +	if (!sext)
-> +		return -ENOENT;
-> +
-> +	scontext->extension_disabled[sext->dis_idx] = !reg_val;
-> +
-> +	return 0;
-> +}
-> +
-> +int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg)
-> +{
-> +	unsigned long __user *uaddr =
-> +			(unsigned long __user *)(unsigned long)reg->addr;
-> +	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> +					    KVM_REG_SIZE_MASK |
-> +					    KVM_REG_RISCV_SBI_EXT);
-> +	unsigned long i, reg_val;
-> +	const struct kvm_riscv_sbi_extension_entry *sext = NULL;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-> +
-> +	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
-> +		return -EINVAL;
-> +
-> +	if (reg_num >= KVM_RISCV_SBI_EXT_MAX)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		if (sbi_ext[i].dis_idx == reg_num) {
-> +			sext = &sbi_ext[i];
-> +			break;
-> +		}
-> +	}
-> +	if (!sext)
-> +		return -ENOENT;
-> +
-> +	reg_val = !scontext->extension_disabled[sext->dis_idx];
-> +	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> +		return -EFAULT;
-> +
-> +	return 0;
-> +}
-> +
-> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
-> +				struct kvm_vcpu *vcpu, unsigned long extid)
->  {
-> -	int i = 0;
-> +	int i;
-> +	const struct kvm_riscv_sbi_extension_entry *sext;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
->  
->  	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> -		if (sbi_ext[i]->extid_start <= extid &&
-> -		    sbi_ext[i]->extid_end >= extid)
-> -			return sbi_ext[i];
-> +		sext = &sbi_ext[i];
-> +		if (sext->ext_ptr->extid_start <= extid &&
-> +		    sext->ext_ptr->extid_end >= extid) {
-> +			if (sext->dis_idx < KVM_RISCV_SBI_EXT_MAX &&
-> +			    scontext->extension_disabled[sext->dis_idx])
-> +				return NULL;
-> +			return sbi_ext[i].ext_ptr;
-> +		}
->  	}
->  
->  	return NULL;
-> @@ -126,7 +242,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  	};
->  	bool ext_is_v01 = false;
->  
-> -	sbi_ext = kvm_vcpu_sbi_find_ext(cp->a7);
-> +	sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a7);
->  	if (sbi_ext && sbi_ext->handler) {
->  #ifdef CONFIG_RISCV_SBI_V01
->  		if (cp->a7 >= SBI_EXT_0_1_SET_TIMER &&
-> diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
-> index 9945aff34c14..5bc570b984f4 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_base.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_base.c
-> @@ -44,7 +44,7 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->  			kvm_riscv_vcpu_sbi_forward(vcpu, run);
->  			retdata->uexit = true;
->  		} else {
-> -			sbi_ext = kvm_vcpu_sbi_find_ext(cp->a0);
-> +			sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a0);
->  			*out_val = sbi_ext && sbi_ext->probe ?
->  					   sbi_ext->probe(vcpu) : !!sbi_ext;
->  		}
-> -- 
-> 2.34.1
+On Wed, Mar 29, 2023, at 22:48, Conor Dooley wrote:
+> On Mon, Mar 27, 2023 at 02:13:04PM +0200, Arnd Bergmann wrote:
+>> From: Arnd Bergmann <arnd@arndb.de>
+>> 
+>> No other architecture intentionally writes back dirty cache lines into
+>> a buffer that a device has just finished writing into. If the cache is
+>> clean, this has no effect at all, but
 >
+>> if a cacheline in the buffer has
+>> actually been written by the CPU,  there is a drive bug that is likely
+>> made worse by overwriting that buffer.
+>
+> So does this need a
+> Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using 
+> zicbom extension")
+> then, even if the cacheline really should not have been touched by the
+> CPU?
+> Also, minor typo, s/drive/driver/.
 
-This looks good, but I wonder if we shouldn't instead get/set a bitmap of
-all SBI extension enables at once for scalability.
+done
 
-Thanks,
-drew
+> In the thread we had that sparked this, I went digging for the source of
+> the flushes, and it came from a review comment:
+> https://lore.kernel.org/linux-riscv/342e3c12-ebb0-badf-7d4c-c444a2b842b2@sholland.org/
+
+Ah, so the comment that led to it was 
+
+"For arch_sync_dma_for_cpu(DMA_BIDIRECTIONAL), we expect the CPU to have
+written to the buffer, so this should flush, not invalidate."
+
+which sounds like Samuel just misunderstood what "bidirectional"
+means: the comment implies that both the cpu and the device access
+the buffer before arch_sync_dma_for_cpu(DMA_BIDIRECTIONAL), but
+this is not allowed. Instead, the point is that the device may both
+read and write the buffer, requiring that we must do a writeback
+at arch_sync_dma_for_device(DMA_BIDIRECTIONAL) and an invalidate
+at arch_sync_dma_for_cpu(DMA_BIDIRECTIONAL).
+
+The comment about arch_sync_dma_for_device(DMA_FROM_DEVICE) (in the
+same email) seems equally confused. It's of course easy to
+misunderstand these, and many others have gotten confused in
+similar ways before.
+
+> But *surely* if no other arch needs to do that, then we are safe to also
+> not do it... Your logic seems right by me at least, especially given the
+> lack of flushes elsewhere.
+
+Right, I remove the extra writeback from powerpc, parisc and microblaze
+for the same reason. Those appear to only be there because they used the
+same function for _for_device() as for _for_cpu(), not because someone
+thought they were required.
+
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks!
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
