@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21ED5C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 10:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91191C761A6
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 10:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rv7mw36xeXaipakJ5rMMwU7iCXgpnvKVMcWMM3wIBM8=; b=FfyWt6ghpQfIl4
-	TDIF29IXeg2bv1PDAJcHArwj9hcShtiM1n96BrvDufgeys/x7a/L/Xc5sLXwE1zy2grLhoV5s/Xy2
-	Qf2Fwt9pDwh7S2x+v4wL9eT/mGaikwwBAn9BUuxsKchvPgZj3YFQ5GS4COOj28H4ybPNkK/ohuDjq
-	mHKQz4Oa+fhdoJtsqEemVa/87/zkHY0LCWkG7mSjjdbjhWzlWaq7AG1ViZZ5rleRzzDJxT0PGODgz
-	Hy4joPYToG18+BUbk6jYKb/xEzslaZL/yxsdiRPCrTEXKykRpBuvrn8yESYcnbBIm6pgTsGMlkY91
-	pCLBbsKIn6szofjHDq4A==;
+	List-Owner; bh=vjLn09FG4ZlG+oyCoy9yHDtLMRRXqYHE709U3sX56qs=; b=S+xpjnYHoiBBAZ
+	p1l6rWsva+lZB8ly2kdTAkGsqq/VUA/6ZNeexE6ZurlE+xKxbSZrr+7eWQT0lyUgNpjeQeF2+wztc
+	+CTGLY1GsGAyg2U2AYHw8KnDrf2y+ymMDCSWN50WkkXZLCb/uEjo214cp/VqfkC4dYG6gpLKrhPTc
+	IXinNhvQ/hykp+gTCFdIv1zYMf74q7FxOXWl1pbyhb47gqOxa4tsrFI97ZWVrpwOkyIHlNXHw73yj
+	WzXzEN4GM0NYEM86lx3vKKPyP/Jv8RfdYKNXpJ91yPDqgIYtlGE1ZDMyRN2lYXC0r8cmkjM7sU+MD
+	TLxC4QI2ZXr9wouPVKAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phpbf-003Tpe-1f;
-	Thu, 30 Mar 2023 10:34:11 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1phpks-003Vot-0p;
+	Thu, 30 Mar 2023 10:43:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phpba-003TkL-2x
+	id 1phpko-003Vn2-3B
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 10:34:09 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id CA0E424E268;
-	Thu, 30 Mar 2023 18:33:26 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 30 Mar
- 2023 18:33:26 +0800
-Received: from [192.168.125.89] (113.72.144.76) by EXMBX067.cuchost.com
- (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 30 Mar
- 2023 18:33:26 +0800
-Message-ID: <66dba937-9364-b28a-5d4b-c6e36b6c7852@starfivetech.com>
-Date: Thu, 30 Mar 2023 18:33:25 +0800
+	Thu, 30 Mar 2023 10:43:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 185102F4;
+	Thu, 30 Mar 2023 03:44:21 -0700 (PDT)
+Received: from [10.57.54.254] (unknown [10.57.54.254])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 419A43F663;
+	Thu, 30 Mar 2023 03:43:35 -0700 (PDT)
+Message-ID: <068c45ae-dd60-7ab6-ee08-64f95a85f510@arm.com>
+Date: Thu, 30 Mar 2023 11:43:29 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v4] irqchip/irq-sifive-plic: Add syscore callbacks for
- hibernation
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Ley Foon Tan
-	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
-References: <20230308064643.24805-1-mason.huo@starfivetech.com>
- <CAJM55Z8aOqAOfnNSJcKNuxJKRhjj7PzWia0Cu5kmyt9znbqcNQ@mail.gmail.com>
-Content-Language: en-US
-From: Mason Huo <mason.huo@starfivetech.com>
-In-Reply-To: <CAJM55Z8aOqAOfnNSJcKNuxJKRhjj7PzWia0Cu5kmyt9znbqcNQ@mail.gmail.com>
-X-Originating-IP: [113.72.144.76]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX067.cuchost.com
- (172.16.6.67)
-X-YovoleRuleAgent: yovoleflag
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH] iommu: PGTABLE_LPAE is also for RISCV
+Content-Language: en-GB
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Conor Dooley <conor.dooley@microchip.com>
+Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ iommu@lists.linux.dev, Conor Dooley <conor@kernel.org>,
+ linux-riscv@lists.infradead.org, geert+renesas@glider.be
+References: <20230330060105.29460-1-rdunlap@infradead.org>
+ <e1b6f12a-899b-4985-8725-556bcb5d0991@spud>
+ <CAMuHMdW2r1f7C_BdXn9BnDktLwHjBA_0Kvq6OeLJ1sZ7azhqkg@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <CAMuHMdW2r1f7C_BdXn9BnDktLwHjBA_0Kvq6OeLJ1sZ7azhqkg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_033407_432800_CAB4C820 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20230330_034339_116998_F7AF5C7E 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,210 +65,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/3/30 0:44, Emil Renner Berthing wrote:
-> On Wed, 8 Mar 2023 at 07:49, Mason Huo <mason.huo@starfivetech.com> wrote:
->>
->> The priority and enable registers of plic will be reset
->> during hibernation power cycle in poweroff mode,
->> add the syscore callbacks to save/restore those registers.
->>
->> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
->> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
->> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
->> Reported-by: Dan Carpenter <error27@gmail.com>
->> Link: https://lore.kernel.org/r/202302140709.CdkxgtPi-lkp@intel.com/
->> ---
->>  drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
->>  1 file changed, 91 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
->> index ff47bd0dec45..2800e7bb149a 100644
->> --- a/drivers/irqchip/irq-sifive-plic.c
->> +++ b/drivers/irqchip/irq-sifive-plic.c
->> @@ -17,6 +17,7 @@
->>  #include <linux/of_irq.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/spinlock.h>
->> +#include <linux/syscore_ops.h>
->>  #include <asm/smp.h>
->>
->>  /*
->> @@ -67,6 +68,8 @@ struct plic_priv {
->>         struct irq_domain *irqdomain;
->>         void __iomem *regs;
->>         unsigned long plic_quirks;
->> +       unsigned int nr_irqs;
->> +       unsigned long *prio_save;
->>  };
->>
->>  struct plic_handler {
->> @@ -78,6 +81,7 @@ struct plic_handler {
->>          */
->>         raw_spinlock_t          enable_lock;
->>         void __iomem            *enable_base;
->> +       u32                     *enable_save;
->>         struct plic_priv        *priv;
->>  };
->>  static int plic_parent_irq __ro_after_init;
->> @@ -229,6 +233,71 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
->>         return IRQ_SET_MASK_OK;
->>  }
->>
->> +static int plic_irq_suspend(void)
->> +{
->> +       unsigned int i, cpu;
->> +       u32 __iomem *reg;
->> +       struct plic_priv *priv;
->> +
->> +       priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
->> +
->> +       for (i = 0; i < priv->nr_irqs; i++)
->> +               if (readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
->> +                       __set_bit(i, priv->prio_save);
->> +               else
->> +                       __clear_bit(i, priv->prio_save);
->> +
->> +       for_each_cpu(cpu, cpu_present_mask) {
->> +               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
->> +
->> +               if (!handler->present)
->> +                       continue;
->> +
->> +               raw_spin_lock(&handler->enable_lock);
->> +               for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
->> +                       reg = handler->enable_base + i * sizeof(u32);
->> +                       handler->enable_save[i] = readl(reg);
->> +               }
->> +               raw_spin_unlock(&handler->enable_lock);
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static void plic_irq_resume(void)
->> +{
->> +       unsigned int i, index, cpu;
->> +       u32 __iomem *reg;
->> +       struct plic_priv *priv;
->> +
->> +       priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
->> +
->> +       for (i = 0; i < priv->nr_irqs; i++) {
->> +               index = (i / BITS_PER_LONG);
->> +               writel((priv->prio_save[index] & BIT(i % BITS_PER_LONG)) ? 1 : 0,
-> 
-> This looks like BIT_WORD and test_bit (or at least BIT_MASK).
-> 
-Hi Emil,
-Thanks for your review, will replace it. 
-
->> +                      priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
->> +       }
->> +
->> +       for_each_cpu(cpu, cpu_present_mask) {
->> +               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
->> +
->> +               if (!handler->present)
->> +                       continue;
->> +
->> +               raw_spin_lock(&handler->enable_lock);
->> +               for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
->> +                       reg = handler->enable_base + i * sizeof(u32);
->> +                       writel(handler->enable_save[i], reg);
->> +               }
->> +               raw_spin_unlock(&handler->enable_lock);
->> +       }
->> +}
->> +
->> +static struct syscore_ops plic_irq_syscore_ops = {
->> +       .suspend        = plic_irq_suspend,
->> +       .resume         = plic_irq_resume,
->> +};
->> +
->>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->>                               irq_hw_number_t hwirq)
->>  {
->> @@ -345,6 +414,7 @@ static int __init __plic_init(struct device_node *node,
->>         u32 nr_irqs;
->>         struct plic_priv *priv;
->>         struct plic_handler *handler;
->> +       unsigned int cpu;
->>
->>         priv = kzalloc(sizeof(*priv), GFP_KERNEL);
->>         if (!priv)
->> @@ -363,15 +433,21 @@ static int __init __plic_init(struct device_node *node,
->>         if (WARN_ON(!nr_irqs))
->>                 goto out_iounmap;
->>
->> +       priv->nr_irqs = nr_irqs;
->> +
->> +       priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
->> +       if (!priv->prio_save)
->> +               goto out_free_priority_reg;
->> +
->>         nr_contexts = of_irq_count(node);
->>         if (WARN_ON(!nr_contexts))
->> -               goto out_iounmap;
->> +               goto out_free_priority_reg;
->>
->>         error = -ENOMEM;
->>         priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
->>                         &plic_irqdomain_ops, priv);
->>         if (WARN_ON(!priv->irqdomain))
->> -               goto out_iounmap;
->> +               goto out_free_priority_reg;
->>
->>         for (i = 0; i < nr_contexts; i++) {
->>                 struct of_phandle_args parent;
->> @@ -441,6 +517,11 @@ static int __init __plic_init(struct device_node *node,
->>                 handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
->>                         i * CONTEXT_ENABLE_SIZE;
->>                 handler->priv = priv;
->> +
->> +               handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
->> +                                               sizeof(*handler->enable_save), GFP_KERNEL);
->> +               if (!handler->enable_save)
->> +                       goto out_free_enable_reg;
->>  done:
->>                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
->>                         plic_toggle(handler, hwirq, 0);
->> @@ -461,11 +542,19 @@ static int __init __plic_init(struct device_node *node,
->>                                   plic_starting_cpu, plic_dying_cpu);
->>                 plic_cpuhp_setup_done = true;
->>         }
->> +       register_syscore_ops(&plic_irq_syscore_ops);
->>
->>         pr_info("%pOFP: mapped %d interrupts with %d handlers for"
->>                 " %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
->>         return 0;
->>
->> +out_free_enable_reg:
->> +       for_each_cpu(cpu, cpu_present_mask) {
->> +               handler = per_cpu_ptr(&plic_handlers, cpu);
->> +               kfree(handler->enable_save);
->> +       }
->> +out_free_priority_reg:
->> +       kfree(priv->prio_save);
->>  out_iounmap:
->>         iounmap(priv->regs);
->>  out_free_priv:
->> --
->> 2.39.2
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy0wMy0zMCAwODozMSwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+IEhpIENvbm9y
+LAo+IAo+IE9uIFRodSwgTWFyIDMwLCAyMDIzIGF0IDg6MjXigK9BTSBDb25vciBEb29sZXkgPGNv
+bm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPj4gT24gV2VkLCBNYXIgMjksIDIwMjMg
+YXQgMTE6MDE6MDVQTSAtMDcwMCwgUmFuZHkgRHVubGFwIHdyb3RlOgo+Pj4gT24gcmlzY3Y2NCwg
+bGludXgtbmV4dC0yMDIzMzAzMCAoYW5kIGZvciBzZXZlcmFsIGRheXMgZWFybGllciksCj4+PiB0
+aGVyZSBpcyBhIGtjb25maWcgd2FybmluZzoKPj4+Cj4+PiBXQVJOSU5HOiB1bm1ldCBkaXJlY3Qg
+ZGVwZW5kZW5jaWVzIGRldGVjdGVkIGZvciBJT01NVV9JT19QR1RBQkxFX0xQQUUKPj4+ICAgIERl
+cGVuZHMgb24gW25dOiBJT01NVV9TVVBQT1JUIFs9eV0gJiYgKEFSTSB8fCBBUk02NCB8fCBDT01Q
+SUxFX1RFU1QgWz1uXSkgJiYgIUdFTkVSSUNfQVRPTUlDNjQgWz1uXQo+Pj4gICAgU2VsZWN0ZWQg
+YnkgW3ldOgo+Pj4gICAgLSBJUE1NVV9WTVNBIFs9eV0gJiYgSU9NTVVfU1VQUE9SVCBbPXldICYm
+IChBUkNIX1JFTkVTQVMgWz15XSB8fCBDT01QSUxFX1RFU1QgWz1uXSkgJiYgIUdFTkVSSUNfQVRP
+TUlDNjQgWz1uXQo+Pj4KPj4+IGFuZCBidWlsZCBlcnJvcnM6Cj4+Pgo+Pj4gcmlzY3Y2NC1saW51
+eC1sZDogZHJpdmVycy9pb21tdS9pby1wZ3RhYmxlLWFybS5vOiBpbiBmdW5jdGlvbiBgLkwxNDAn
+Ogo+Pj4gaW8tcGd0YWJsZS1hcm0uYzooLmluaXQudGV4dCsweDFlOCk6IHVuZGVmaW5lZCByZWZl
+cmVuY2UgdG8gYGFsbG9jX2lvX3BndGFibGVfb3BzJwo+Pj4gcmlzY3Y2NC1saW51eC1sZDogZHJp
+dmVycy9pb21tdS9pby1wZ3RhYmxlLWFybS5vOiBpbiBmdW5jdGlvbiBgLkwxNjgnOgo+Pj4gaW8t
+cGd0YWJsZS1hcm0uYzooLmluaXQudGV4dCsweGFiMCk6IHVuZGVmaW5lZCByZWZlcmVuY2UgdG8g
+YGZyZWVfaW9fcGd0YWJsZV9vcHMnCj4+PiByaXNjdjY0LWxpbnV4LWxkOiBkcml2ZXJzL2lvbW11
+L2lwbW11LXZtc2EubzogaW4gZnVuY3Rpb24gYC5MMTQwJzoKPj4+IGlwbW11LXZtc2EuYzooLnRl
+eHQrMHhiYzQpOiB1bmRlZmluZWQgcmVmZXJlbmNlIHRvIGBmcmVlX2lvX3BndGFibGVfb3BzJwo+
+Pj4gcmlzY3Y2NC1saW51eC1sZDogZHJpdmVycy9pb21tdS9pcG1tdS12bXNhLm86IGluIGZ1bmN0
+aW9uIGAuTDAgJzoKPj4+IGlwbW11LXZtc2EuYzooLnRleHQrMHgxNDVlKTogdW5kZWZpbmVkIHJl
+ZmVyZW5jZSB0byBgYWxsb2NfaW9fcGd0YWJsZV9vcHMnCj4+Pgo+Pj4gQWRkIFJJU0NWIGFzIGFu
+IGFsbG93ZWQgQVJDSCBkZXBlbmRlbmN5IHRvIGZpeCB0aGVzZSBwcm9ibGVtcy4KPj4+Cj4+PiBG
+aXhlczogZDI4NmE1OGJjOGY0ICgiaW9tbXU6IFRpZHkgdXAgaW8tcGd0YWJsZSBkZXBlbmRlbmNp
+ZXMiKQo+Pj4gU2lnbmVkLW9mZi1ieTogUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5v
+cmc+Cj4+PiBDYzogSm9lcmcgUm9lZGVsIDxqb3JvQDhieXRlcy5vcmc+Cj4+PiBDYzogV2lsbCBE
+ZWFjb24gPHdpbGxAa2VybmVsLm9yZz4KPj4+IENjOiBSb2JpbiBNdXJwaHkgPHJvYmluLm11cnBo
+eUBhcm0uY29tPgo+Pj4gQ2M6IGlvbW11QGxpc3RzLmxpbnV4LmRldgo+Pj4gQ2M6IENvbm9yIERv
+b2xleSA8Y29ub3JAa2VybmVsLm9yZz4KPj4+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCj4+PiAtLS0KPj4+ICAgZHJpdmVycy9pb21tdS9LY29uZmlnIHwgICAgMiArLQo+Pj4g
+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4+Cj4+PiBk
+aWZmIC0tIGEvZHJpdmVycy9pb21tdS9LY29uZmlnIGIvZHJpdmVycy9pb21tdS9LY29uZmlnCj4+
+PiAtLS0gYS9kcml2ZXJzL2lvbW11L0tjb25maWcKPj4+ICsrKyBiL2RyaXZlcnMvaW9tbXUvS2Nv
+bmZpZwo+Pj4gQEAgLTMyLDcgKzMyLDcgQEAgY29uZmlnIElPTU1VX0lPX1BHVEFCTEUKPj4+ICAg
+Y29uZmlnIElPTU1VX0lPX1BHVEFCTEVfTFBBRQo+Pj4gICAgICAgIGJvb2wgIkFSTXY3L3Y4IExv
+bmcgRGVzY3JpcHRvciBGb3JtYXQiCj4+Cj4+IEknbSBwcm9iYWJseSBtaXNzaW5nIHNvbWV0aGlu
+ZyBoZXJlLCBidXQgd2h5IHdvdWxkIHdlIHdhbnQgdG8gZW5hYmxlCj4+ICJBUk12Ny92OCBMb25n
+IERlc2NyaXB0b3IgRm9ybWF0IiBvbiBSSVNDLVY/Cj4gCj4gSW5kZWVkLCB3ZSBzaG91bGQgbm90
+IGVuYWJsZSBpdCwgdW5sZXNzIGNvbXBpbGUtdGVzdGluZy4KPiAKPj4gV291bGQgaXQgbm90IGJl
+IGJldHRlciB0byBtYWtlIHRoZSBSZW5lc2FzIGRlcGVuZCBvbiwgcmF0aGVyIHRoYW4KPj4gc2Vs
+ZWN0IHRoZSBvcHRpb24/IEl0IGRvZXMgc2VlbSBoaWdobHkgYXJjaCBzcGVjaWZpYywgYW5kIEkg
+ZmVlbCBsaWtlCj4+IEdlZXJ0IHByZXZpb3VzbHkgbWVudGlvbmVkIHRoYXQgdGhlIFJaL0ZpdmUg
+KHRoZWlyIFJJU0MtViBvZmZlcmluZykKPj4gZGlkbid0IHVzZSBpdC4KPiAKPiBJIHRoaW5rIHRo
+ZSBJUE1NVV9WTVNBIGRlcGVuZGVuY3kgc2hvdWxkIGdhaW4KPiAKPiAgICAgICAgICBkZXBlbmRz
+IG9uIEFSTSB8fCBBUk02NCB8fCBDT01QSUxFX1RFU1QKCkluZGVlZCwgSSB0aG91Z2h0IHdlJ2Qg
+c2V0dGxlZCBvbiBzb21ldGhpbmcgbGlrZSB0aGF0IGluIHRoZSBwcmV2aW91cyAKdGhyZWFkKHMp
+IG9uIEFSQ0hfUkVORVNBUyB2cy4gUlYzMiwgYnV0IEkgZ3Vlc3Mgbm9ib2R5IGdvdCByb3VuZCB0
+byAKYWN0dWFsbHkgcmVzcGluaW5uZyB0aGUgcGF0Y2ggKHBvc3NpYmx5IHNpbmNlIG15IHJlZmFj
+dG9yaW5nIGhlcmUgZW5kZWQgCnVwIHBhcGVyaW5nIG92ZXIgdGhlIGltbWVkaWF0ZSBSVjMyIGlz
+c3VlKS4KCkNoZWVycywKUm9iaW4uCgo+Pj4gICAgICAgIHNlbGVjdCBJT01NVV9JT19QR1RBQkxF
+Cj4+PiAtICAgICBkZXBlbmRzIG9uIEFSTSB8fCBBUk02NCB8fCBDT01QSUxFX1RFU1QKPj4+ICsg
+ICAgIGRlcGVuZHMgb24gQVJNIHx8IEFSTTY0IHx8IFJJU0NWIHx8IENPTVBJTEVfVEVTVAo+Pj4g
+ICAgICAgIGRlcGVuZHMgb24gIUdFTkVSSUNfQVRPTUlDNjQgICAgIyBmb3IgY21weGNoZzY0KCkK
+Pj4+ICAgICAgICBoZWxwCj4+PiAgICAgICAgICBFbmFibGUgc3VwcG9ydCBmb3IgdGhlIEFSTSBs
+b25nIGRlc2NyaXB0b3IgcGFnZXRhYmxlIGZvcm1hdC4KPiAKPiBHcntvZXRqZSxlZXRpbmd9cywK
+PiAKPiAgICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKPiAKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
