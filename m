@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D90C7619A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 22:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D814C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 23:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q9UvwK6zfOTJDjsmiwYGw+DxZ4xRDqYSawZRiWYL6Tc=; b=bOgsttjb0md2VA
-	aAvtIlss9PyrhJrDdaxvFKWUNooB3JcGMWfWZ7LH59yU0ykO9LgXAbIQihOgLb3AJ+eDp/KuZbzXe
-	s+VfjpF8kwR7xkuME51ZpEriWMCg9kGOieQUyPglzI+CuvSYMNqYgIjpCACvvrcDsylDDLTDTSIcG
-	uB9u1AhKI3bfHnRoKHlOmvaTT5woz2GSXYddqebU/xlYNE0DJnWjonGGj3eeh7mQyzHS5j2h8Fea2
-	RBlLIU5plATRBuM8b/0dqudi+kVbMA4/zqdoDGk1w3tS2zW8llYjDdr5kOZZWg3p9sEYn9HxrVpoy
-	zsYTh1Esv76EP9YMk1VA==;
+	List-Owner; bh=uU6i8+YKdcLGCUTcutBw3Yl5UiXUhQcXCatJg3GPUSM=; b=2AN0d0zF7WGMP1
+	utXQDLTm5xmPhI2OeT6z9GI92FZvD/wtG4swptExJ9dUH6pwDwb9zPC7UvHDtlTS1ofmAkM36Aj0y
+	8bgcHsPzPswp/URxTzL9Y+Ruw5WlVjHI5AiNLAwyDCHXYffyhhcRjCUyAgVZL0IZf/aHgan3hklxP
+	tGs3l8jCYg6mAUR8nvGf9Br2YsEZQWFWpIaGojFdgJofRRXZg50iKeRMsayXZisHN73plX5NS7l8+
+	LfM9rsAX4zUe46uVMPkTGsOrhhDT1paD9+4v0Q8Hju+htFN7pMWesyykbyU+dzbWDOj4uKXQghFlz
+	Kd+d3r6TryEgqdCdAWwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pi0lz-005Dzd-1Z;
-	Thu, 30 Mar 2023 22:29:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pi1lY-005LSl-1U;
+	Thu, 30 Mar 2023 23:33:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pi0lw-005Dyy-1r
+	id 1pi1lV-005LRV-1d
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 22:29:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	Thu, 30 Mar 2023 23:33:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1680219188;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HFKIO15sTpdAt8JGYcoib0o9EwbibSfqk1NxeizxC3g=;
+	b=eaOTwDZQIi+U1HLaFkkdTIFjrGpbNz6s6Jjy0QKhFD/bweO7KydUTRJrsCXd5IzBtLMPsl
+	G1C3gREQSv4XKTpLoJw/cUJWpCxXJ6py6Pr5ydX1cmVfkEdsU6kMvw/ohJKzZbb0cOdnxa
+	7aLsGf6JlYyXhAjH0AZZHe8OPfJ6KW0=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-43-KMXxKy-dMLmNmEpxqNMX8w-1; Thu, 30 Mar 2023 19:33:01 -0400
+X-MC-Unique: KMXxKy-dMLmNmEpxqNMX8w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 618E1621BB;
-	Thu, 30 Mar 2023 22:29:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC7A5C433D2;
-	Thu, 30 Mar 2023 22:29:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680215370;
-	bh=u2AAe8FW/d2n59lqS7oxavb/IFRSqDdeC/+2NOlYXK4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AUlflJsHxIOWgUT8O51/LP3fvE+9CyMewxcLGkAwdlQZ/H6ZsEKF2KE3nKN1Ne6Wl
-	 ub3IbFjL4UMTqa/YilAfGgiGN7fKyCAmN15sdnrUCuvaSu0ex3iJ+ROlvHaLbOutTM
-	 r2MOJff0meJ5288S/Vy8745DraPnWP33+SqkeHd7MIctbhNWtJj3af4Fx8pBkPYM1z
-	 mZufZAet1ZMNREpUalbCkfJLP9VjwZH4tDbiQnFMitrYNon+zYhEyEylGIMbz1A//r
-	 fhAtB2eaMa202c6M0GWDq5KpMctuL2nPH5Dv9+WZypHfUujGzukIGVRRwTJvFrFQEy
-	 RDtSQJIxPstIA==
-Date: Thu, 30 Mar 2023 15:29:28 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alyssa Ross <hi@alyssa.is>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Nick Cao <nickcao@nichi.co>,
-	linux-kbuild@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-riscv@lists.infradead.org, Tom Rix <trix@redhat.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, stable@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: [PATCH v3] purgatory: fix disabling debug info
-Message-ID: <20230330222928.GA644044@dev-arch.thelio-3990X>
-References: <20230330182223.181775-1-hi@alyssa.is>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 625BB3C0F231;
+	Thu, 30 Mar 2023 23:33:00 +0000 (UTC)
+Received: from localhost (ovpn-12-64.pek2.redhat.com [10.72.12.64])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F368202701E;
+	Thu, 30 Mar 2023 23:32:58 +0000 (UTC)
+Date: Fri, 31 Mar 2023 07:32:54 +0800
+From: Baoquan He <bhe@redhat.com>
+To: "chenjiahao (C)" <chenjiahao16@huawei.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
+	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
+	atishp@rivosinc.com, thunder.leizhen@huawei.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH -next v2 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+Message-ID: <ZCYcJos4MLBvpP9/@MiWiFi-R3L-srv>
+References: <20230328115150.2700016-1-chenjiahao16@huawei.com>
+ <20230328115150.2700016-2-chenjiahao16@huawei.com>
+ <ZCQewkvSpaI52DSM@MiWiFi-R3L-srv>
+ <b8a32e3c-c083-20de-16d1-f628b02b739b@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230330182223.181775-1-hi@alyssa.is>
+In-Reply-To: <b8a32e3c-c083-20de-16d1-f628b02b739b@huawei.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_152932_716682_13595C7E 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20230330_163309_620803_43C471B2 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +88,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 30, 2023 at 06:22:24PM +0000, Alyssa Ross wrote:
-> Since 32ef9e5054ec, -Wa,-gdwarf-2 is no longer used in KBUILD_AFLAGS.
-> Instead, it includes -g, the appropriate -gdwarf-* flag, and also the
-> -Wa versions of both of those if building with Clang and GNU as.  As a
-> result, debug info was being generated for the purgatory objects, even
-> though the intention was that it not be.
+On 03/30/23 at 09:40pm, chenjiahao (C) wrote:
+......
+> Agreed, I will clean this up later in next version.
+> > > +		if (ret || !crash_size)
+> > > +			return;
+> > > +
+> > > +		/*
+> > > +		 * crashkernel=Y,low is valid only when crashkernel=X,high
+> > > +		 * is passed and high memory is reserved successful.
+> > > +		 */
+> > > +		ret = parse_crashkernel_low(boot_command_line, 0, &crash_low_size, &crash_base);
+> > > +		if (ret == -ENOENT)
+> > > +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> > > +		else if (ret)
+> > > +			return;
+> > > +
+> > > +		search_start = dma32_phys_limit;
+> > > +	} else if (ret || !crash_size) {
+> > > +		/* Invalid argument value specified */
+> > >   		return;
+> > > +	}
+> > >   	crash_size = PAGE_ALIGN(crash_size);
+> > > @@ -1201,16 +1246,26 @@ static void __init reserve_crashkernel(void)
+> > >   	 */
+> > >   	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> > >   					       search_start,
+> > > -					       min(search_end, (unsigned long) SZ_4G));
+> > > +					       min(search_end, (unsigned long)dma32_phys_limit));
+> > >   	if (crash_base == 0) {
+> > The above conditional check isn't right. If crashkernel=size@offset
+> > specified, the reservation failure won't trigger retry. This seems to be
+> > originally introduced by old commit, while this need be fixed firstly.
 > 
-> Fixes: 32ef9e5054ec ("Makefile.debug: re-enable debug info for .S files")
-> Signed-off-by: Alyssa Ross <hi@alyssa.is>
-> Cc: stable@vger.kernel.org
-> Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+> Just a little curious about the rule to cope with this specific case. If
+> "crashkernel=size@offset" was passed
+> 
+> but reserve failed, should try again to allocate in high memory, regardless
+> the specified size@offset,
+> 
+> or just throw a warning and return? Since I noticed the current logic here
+> on Arm64 is to check if !fixed_base first
 
-This is definitely more future proof.
+Yeah, we need mark the "crashkernel=size@offset" case and avoid to
+retry. Because you won't succeed if  memblock has already failed to
+reserve an unavailable memory region, retry is meaningless. This has
+been done in x86, arm64.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
-
-> ---
-> v2: https://lore.kernel.org/r/20230326182120.194541-1-hi@alyssa.is
-> 
-> Difference from v2: replaced asflags-remove-y with every possible
-> debug flag with asflags-y += -g0, as suggested by Nick Desaulniers.
-> 
-> Additionally, I've CCed the x86 maintainers this time, since Masahiro
-> said he would like acks from subsystem maintainers, and
-> get_maintainer.pl didn't pick them the first time around.
-> 
->  arch/riscv/purgatory/Makefile | 7 +------
->  arch/x86/purgatory/Makefile   | 3 +--
->  2 files changed, 2 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index d16bf715a586..9c1e71853ee7 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -84,12 +84,7 @@ CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
->  CFLAGS_REMOVE_ctype.o		+= $(PURGATORY_CFLAGS_REMOVE)
->  CFLAGS_ctype.o			+= $(PURGATORY_CFLAGS)
->  
-> -AFLAGS_REMOVE_entry.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_memcpy.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_memset.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strcmp.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strlen.o		+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_strncmp.o		+= -Wa,-gdwarf-2
-> +asflags-y			+= -g0
->  
->  $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
->  		$(call if_changed,ld)
-> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> index 17f09dc26381..8e6c81b1c8f7 100644
-> --- a/arch/x86/purgatory/Makefile
-> +++ b/arch/x86/purgatory/Makefile
-> @@ -69,8 +69,7 @@ CFLAGS_sha256.o			+= $(PURGATORY_CFLAGS)
->  CFLAGS_REMOVE_string.o		+= $(PURGATORY_CFLAGS_REMOVE)
->  CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
->  
-> -AFLAGS_REMOVE_setup-x86_$(BITS).o	+= -Wa,-gdwarf-2
-> -AFLAGS_REMOVE_entry64.o			+= -Wa,-gdwarf-2
-> +asflags-y			+= -g0
->  
->  $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
->  		$(call if_changed,ld)
-> -- 
-> 2.37.1
-> 
-> 
 
 _______________________________________________
 linux-riscv mailing list
