@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02AAC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 03:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D19C761AF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 03:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PoHx5ShDoZrirez5TZQ8N7ZxuR1KKvCd53ZW5c1S+pA=; b=TxUnWzRWs0eK9B
-	V7ipO99T2kV5Sn++/zCeERObMCqMNztcFsMUfhp4bhUG6FP0Su83ZegO5at3R2RddCnUMBKcQ5xK4
-	ZIPd3BH8E67n3B3bVK0OqUIKLuiOdy+qFbdxMOWqM3uHzcfhqI81JtWwQ8oJecDgz5676CgxRNHWv
-	14CSnZydd9dc+z0dxqVyGCfvbjUzLPHLFn+erOCjE1Ivtd6FLDXY3BZRcYZ/0ldwBP8H9qWmZANad
-	3psIkKRa8gP/GKXQ0cmLSjYELEFD799QYmjE/wdWfucAk1Wg2eZrnngbFN7AeUg4UnV7XRsUxty8s
-	mqDZWbhyNvOS68YF/CeA==;
+	List-Owner; bh=l2Su7k5oebmJua2Oq908eom5CN3oTrDM5uTBHhn8WAE=; b=p6/drIsndO4V4t
+	wq9CSIhIABJpRgEIRPHeO+okJJjVBzdtAN4Fk7vMrOhVOgsYZlyGcZlm7dB31UYiAMzfwDv+D+nlG
+	N1x0MtApZY8iSWVq4lc6VFi463a8lk1NHUJ3iD4Vis+N1Zo4396O3PmqsJc6/6hGoFrwFZrYT2J6A
+	JxIq1JsyAlMr/l46UDjPdNfZ3qUAxQ5EQ9h6YGFrttvewVz+0dhWi9YkJL/2nLPCyB0+hLlJ/I+2+
+	/zgCJoE/R42QBbgrEF2wS6ZxRv0mgT51MXCP867gd/KC68ruklGHN0AEIy0WahTHNqtQFevmFZ0Ls
+	lTFq5VHfs6rnzlVL7KtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phjND-002T2R-1p;
-	Thu, 30 Mar 2023 03:54:51 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1phjNL-002T63-09;
+	Thu, 30 Mar 2023 03:54:59 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phjNA-002T0R-1z
+	id 1phjNG-002T0Q-2S
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 03:54:49 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id ja10so16910748plb.5
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Mar 2023 20:54:46 -0700 (PDT)
+	Thu, 30 Mar 2023 03:54:56 +0000
+Received: by mail-pl1-x632.google.com with SMTP id iw3so16911476plb.6
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Mar 2023 20:54:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1680148485;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mwmSNDnybMqBEh0Z+gPmCfYtw9bkrJ0PR1su4QL+8ng=;
-        b=GfolM2geRXzvdw+ehZXpU8LIxL1xjz8Gj7iUHWYn0dQe/xK6gKP+jAnnfACd9dNas/
-         V++Sm0TyABcLhhIGfP5TWHGwoCe9wculMPYuWNh8MX5dslq4eZGiHhMbH8QnfrjFjyDi
-         1R02/q4m606IhgQClA65oAaxUmLy9Tlpoo3VU7hbegQucmzXRckhRFIw+Bte6EBu90qm
-         Eybgi+WtfZP6vwZHlApEpFbN2Q1QBxtwJODT8JmI2ozap/CAX0ZDAlAhOh4ro/TsRICH
-         q6vFusF7IDZ1ivkOyQ2u6hFyH7XuM27wai0R73hAJNlIGTC/gbz4+yD+DIAgG5FzF0WR
-         8Nww==
+        d=linaro.org; s=google; t=1680148494;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ORTcc1S4DbhSj9bYXgbzlVEJUmJSEuJEOt6fEFrhs3I=;
+        b=KDkr9GukbLDb5E0cjryjb5Wh0SCZaycf/IUr90YlJNe0yf+CJFbuqVLgseHvC1XTAs
+         Mj696hVP3J+/JyxeccnDx4sbyBLoQR8t6nLYlyTiLLcc21ZTbl5DObP3Sn5N4aoPtg5K
+         vT05+Dy7pELaLbJ3Jtjg4yd67A4IfUXlaie5LW1NfYlipHOIwyXNtqF0se+FNlmkrAW9
+         0bSdtfv+XKaMh8hj340BwSg3B4py1O/ULmxkhI+S+4sADQi7xMUd3Eyip4T50rRfAII+
+         GbYAWTbGyTjtff51zxbKYOhiJVlu3d4/NXIx3s+ZSTQbkwQZhq1bYkwIvzgmP/zufxWD
+         V87Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680148485;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mwmSNDnybMqBEh0Z+gPmCfYtw9bkrJ0PR1su4QL+8ng=;
-        b=Jz5wzRd5hkgnbyJ9EIA2LXObHn7w0A8vVEyW1BUHcbIr5h1kh+djBUnKXhXFTTwROO
-         gd4ZmdKQia87lyI7+DMvI9v1K5oT18UgSBbBB/0kB43lXrdtqf2byxo0vsDrtodKWIu3
-         AUJEJl9hcV+QsdRgBp5W7n3VXZBPuktu/RiaIAcK8hxIf22WWYCXHmFMss+itOede001
-         VTsZAlEc6LatjEeQUnRmG8IlvIErqyDzy7YL/NYHPm/Ta4DeSn2FYIygDadIvr0yMfW7
-         wDJCoMXMLJrtl9LwkQEkagUwkjY8AFfs5wLF0UVc//3/njSOowbYslrYszXcGrGwFj/m
-         djNw==
-X-Gm-Message-State: AAQBX9dncSFtOFNWBQBmrMgnbuzu01WKiJQsVpKIk26dcVOGe1JtI1iU
-	0C2emK5L74g1KQTN91vbU/wOKw==
-X-Google-Smtp-Source: AKy350ZtoosHc1UXvyJfiqR7/4WaAgxoUcypk7oVcM2Qe5NgerUZWsBCiwEUDE9iUeMBrzKflkrmgQ==
-X-Received: by 2002:a05:6a20:b71f:b0:e0:316a:d62c with SMTP id fg31-20020a056a20b71f00b000e0316ad62cmr11170953pzb.60.1680148485691;
-        Wed, 29 Mar 2023 20:54:45 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1680148494;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ORTcc1S4DbhSj9bYXgbzlVEJUmJSEuJEOt6fEFrhs3I=;
+        b=tHeLL0wRkj3dnRCIfABeRqwcm9d5W2qrp8ldhLiAcBGrMI+I54r5GphxhZiMeCSKcc
+         cD78cq+jpt+XHf8b/39CrJzPOzgw+yOnucwPssRhx8Q2mK1Vb/B1CWeBa1Od7LlMEYjt
+         VR2TCCpH1hOpwoszGk8VLDDN3s6WmjAbZPnCQkRIYlir4Rpemb6yNIV9nMWDHwbtxR0f
+         YArZYqIRxwx7YapcUJbwoZ+Ofcz31BmxtTUmYW6m8Zb/xulEAff4lx2VcqS/lzuQjJ17
+         8jF3SHJbzqp14OKqEGcRtWMSJ2Bc4jImMpVVWySFe7O6SX0WF8y04H6wpQ7qEGMQYsN2
+         tKHg==
+X-Gm-Message-State: AAQBX9cWsbtpRUkJRIbW73OniJ7x3/AhqAyxhyoHFL52aw1ba/zI2Nqi
+	hcuoJk8TfafepNKU2Z8WFHqJzA==
+X-Google-Smtp-Source: AKy350Z3+wrY9ZgUHedACp4BaESa2FvIEkabhjg74d5bnPV2JCYBYbJoHjnYpjGWoPDBynyeKDWcRw==
+X-Received: by 2002:a17:902:d503:b0:19d:1720:3873 with SMTP id b3-20020a170902d50300b0019d17203873mr24981326plg.57.1680148494287;
+        Wed, 29 Mar 2023 20:54:54 -0700 (PDT)
 Received: from localhost ([122.172.85.168])
-        by smtp.gmail.com with ESMTPSA id q17-20020a62ae11000000b0062607d604b2sm23791281pff.53.2023.03.29.20.54.44
+        by smtp.gmail.com with ESMTPSA id q9-20020a17090ad38900b002340d317f3esm2154710pju.52.2023.03.29.20.54.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Mar 2023 20:54:45 -0700 (PDT)
-Date: Thu, 30 Mar 2023 09:24:43 +0530
+        Wed, 29 Mar 2023 20:54:53 -0700 (PDT)
+Date: Thu, 30 Mar 2023 09:24:51 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
 To: Rob Herring <robh@kernel.org>
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -104,16 +103,16 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 15/19] cpufreq: sun50i: Add explicit include for cpu.h
-Message-ID: <20230330035443.kowj26o4z22yg5f7@vireshk-i7>
+Subject: Re: [PATCH 18/19] OPP: Adjust includes to remove of_device.h
+Message-ID: <20230330035451.huc3ae2acvgoh4xs@vireshk-i7>
 References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
- <20230329-dt-cpu-header-cleanups-v1-15-581e2605fe47@kernel.org>
+ <20230329-dt-cpu-header-cleanups-v1-18-581e2605fe47@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-15-581e2605fe47@kernel.org>
+In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-18-581e2605fe47@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230329_205448_652214_11051284 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20230329_205454_808970_9672EB10 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +124,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjktMDMtMjMsIDEwOjUyLCBSb2IgSGVycmluZyB3cm90ZToKPiBSZW1vdmluZyB0aGUgaW5j
-bHVkZSBvZiBjcHUuaCBmcm9tIG9mX2RldmljZS5oIGNhdXNlcyBhbiBlcnJvcjoKPiAKPiBkcml2
-ZXJzL2NwdWZyZXEvc3VuNTBpLWNwdWZyZXEtbnZtZW0uYzo0MjoxOTogZXJyb3I6IGltcGxpY2l0
-IGRlY2xhcmF0aW9uIG9mIGZ1bmN0aW9uIOKAmGdldF9jcHVfZGV2aWNl4oCZOyBkaWQgeW91IG1l
-YW4g4oCYZ2V0X2RldmljZeKAmT8gWy1XZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRp
-b25dCj4gCj4gQXMgb2ZfZGV2aWNlLmggaXMgbm90IG90aGVyd2lzZSBuZWVkZWQsIGl0IGNhbiBi
-ZSByZXBsYWNlZCB3aXRoIG9mLmgKPiAoYWxzbyBpbXBsaWNpdGx5IGluY2x1ZGVkKS4KPiAKPiBT
-aWduZWQtb2ZmLWJ5OiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPgo+IC0tLQo+IFBsZWFz
-ZSBhY2sgYW5kIEkgd2lsbCB0YWtlIHRoZSBzZXJpZXMgdmlhIHRoZSBEVCB0cmVlLgo+IC0tLQo+
-ICBkcml2ZXJzL2NwdWZyZXEvc3VuNTBpLWNwdWZyZXEtbnZtZW0uYyB8IDMgKystCj4gIDEgZmls
-ZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0
-IGEvZHJpdmVycy9jcHVmcmVxL3N1bjUwaS1jcHVmcmVxLW52bWVtLmMgYi9kcml2ZXJzL2NwdWZy
-ZXEvc3VuNTBpLWNwdWZyZXEtbnZtZW0uYwo+IGluZGV4IDE1ODNhMzcwZGEzOS4uNDMyMWQ3YmJl
-NzY5IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvY3B1ZnJlcS9zdW41MGktY3B1ZnJlcS1udm1lbS5j
-Cj4gKysrIGIvZHJpdmVycy9jcHVmcmVxL3N1bjUwaS1jcHVmcmVxLW52bWVtLmMKPiBAQCAtMTAs
-OSArMTAsMTAgQEAKPiAgCj4gICNkZWZpbmUgcHJfZm10KGZtdCkgS0JVSUxEX01PRE5BTUUgIjog
-IiBmbXQKPiAgCj4gKyNpbmNsdWRlIDxsaW51eC9jcHUuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L21v
-ZHVsZS5oPgo+ICAjaW5jbHVkZSA8bGludXgvbnZtZW0tY29uc3VtZXIuaD4KPiAtI2luY2x1ZGUg
-PGxpbnV4L29mX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvb2YuaD4KPiAgI2luY2x1ZGUg
-PGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ICAjaW5jbHVkZSA8bGludXgvcG1fb3BwLmg+Cj4g
-ICNpbmNsdWRlIDxsaW51eC9zbGFiLmg+CgpBY2tlZC1ieTogVmlyZXNoIEt1bWFyIDx2aXJlc2gu
-a3VtYXJAbGluYXJvLm9yZz4KCi0tIAp2aXJlc2gKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On 29-03-23, 10:52, Rob Herring wrote:
+> Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
+> implicitly including other includes, and is no longer needed. Adjust the
+> include files with what was implicitly included by of_device.h (cpu.h and
+> of.h) and drop including of_device.h.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+> Please ack and I will take the series via the DT tree.
+> ---
+>  drivers/opp/of.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/opp/of.c b/drivers/opp/of.c
+> index e55c6095adf0..63b126c6215e 100644
+> --- a/drivers/opp/of.c
+> +++ b/drivers/opp/of.c
+> @@ -13,7 +13,7 @@
+>  #include <linux/cpu.h>
+>  #include <linux/errno.h>
+>  #include <linux/device.h>
+> -#include <linux/of_device.h>
+> +#include <linux/of.h>
+>  #include <linux/pm_domain.h>
+>  #include <linux/slab.h>
+>  #include <linux/export.h>
+
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+
+-- 
+viresh
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
