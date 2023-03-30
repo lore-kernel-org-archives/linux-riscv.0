@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD12AC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3160C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Mar 2023 07:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/6n4nvDpMVZtxxC34JBF7uToOWXCKcBN9nKuW8LBdQU=; b=Nw3y3zBvJ+9DZf
-	7yShQBFMOQsJJ2Ikea48tUf50RtKwZZU5t66HkB5KGPp40PAxDmR0gae81eFwBJgKlfaRi90qAGJ1
-	mGpbqK0jheBWfssNMjTzUIphyfEJvzlxWwmVQVCW7NZIKa3yALgwcO+nM9V3n1jzsqGTHCd6oRMl5
-	/dpCidNOLZXVyS8mdOKJI3EAOLFibnByS5Vs3U5/efNsPJwg3BeRAgPORMc4vrhaAy4Hdy5aoIf75
-	1BKhR/VCYWsQvptC1GcqfiSAGV2ftMC0j2M5Gx2Xd3Kv/ZQyC1iHCpsnPk+9vEKdbtM31QOhP4zM0
-	vex/gj8/ewkk7RBkbeOQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=avIrgbqIbH1xttXOyyTycoLtl+3gnpBMudAZ+4RUKeg=; b=LvURcfqZQgq0b6
+	x8NE72S9Wpp3g+ddMkQvpKDZfh4jdbDleK8uEyZPCSkTAK32gNwpQg9SsSGE3askjvkja9h+ciO6K
+	/uKF7MIy6zNFfPBAVVnGMjOmRQGPZfU3pSWAc0DF1Fz9bU1XRlDHMINHPC2jUjBveBYo7OSncoxI9
+	6qqwGFZRwb5EqSNE/05ZX90k5DsvuYkuMkbD0OIf6erURV/z/HOAc80sFOb/IKyNsuJGIr6/O2eMY
+	zMjFr3Eu4dVsyiUCBU4Q0+29a5iPD3bsFLCetbUuBEIXRaeyGyUMsKLa66FDugJh+y1d9iTdnAw0M
+	I9W066t8Lu74wAyga21Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmT1-002rz1-39;
-	Thu, 30 Mar 2023 07:13:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1phml7-002u54-1n;
+	Thu, 30 Mar 2023 07:31:45 +0000
+Received: from mail-yb1-f170.google.com ([209.85.219.170])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1phmSy-002ruq-0k
+	id 1phml4-002u2f-37
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Mar 2023 07:13:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1680160380; x=1711696380;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Yhc7Flvtw7DygHF2DgeNSHPYJ8ZzS+g4efc4mrx+3WI=;
-  b=Xy4NJYwG2SZzCRGdH5FI+6wG3sxmltPUonzvryHRADPCBIdrOeesGOrX
-   Kqb2XUyLWLCMq3eoOT+uin122kng8q0hCXmMIydDU3LBfD8IQEknnYzwH
-   ATYylrsT0u4VTftavQ5/SiYbijZCz3BStrK5/lMdSJ3bJlJCKsCi5ct41
-   gIrc8ZlNJukOShHKht51HM4Qe4kVVjmDODSjTIjyVSI9a7OwxddVcDHaH
-   Z8cIqoG/ikJgC7iFPckQ6CxTxbDcNR/uF7rRyXslkjBS0HiLp7U6Y+HtK
-   hkoq1PjNpO/q2nW3UST9O4YC4TavNyw5tZyDvB/AnD42y61vtpNAO/ZIa
-   A==;
-X-IronPort-AV: E=Sophos;i="5.98,303,1673938800"; 
-   d="scan'208";a="144635864"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Mar 2023 00:12:37 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 30 Mar 2023 00:12:35 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 30 Mar 2023 00:12:34 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-CC: Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v15 0/2] Microchip Soft IP corePWM driver
-Date: Thu, 30 Mar 2023 08:12:02 +0100
-Message-ID: <20230330071203.286972-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.39.2
+	Thu, 30 Mar 2023 07:31:44 +0000
+Received: by mail-yb1-f170.google.com with SMTP id p15so22347050ybl.9
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 00:31:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680161500;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LxN0r0AhgneifQhzqL4mjT7JfsmxnYyFrUEJ452tNfU=;
+        b=o+/CFzkKQV+JoEtUXC9mLZvY0S7helT9oss7x2RQ0EHIkZ7kX3O1GhWBfFHni46Kng
+         gkknuDwMfWK8FRUm4C9k9h9L5hyrA6LIY46E58/8Nzg++ejoZMLFKYRV9JR/i3/oJr0N
+         VDyFAoL3EXXMBlujti+lZ9ufoBRnsxIkmMnXSvmGioewBB+ePOylM3kPNH4pEHW2A/Bp
+         7q25/x0huI6M4u+Z0EvYiGIWoNvdgdZmW/iip/didHKm/u3Y2VVBxZ0n3beA1cxcM7M8
+         U5Te5UBtTDweNSfTC6ls6iEuZeMzBCU4DocjNI0V48+ElN4IA75fL+sBhs5cuPi4nxaZ
+         P4jw==
+X-Gm-Message-State: AAQBX9fil7WjHcaV/1bgu822seUgHbW9/OU3B83XfGfOtWU+qR855mD9
+	Bw+SkKCKB7TVYMuIf6C2/YL8Iw6lmcrSSQ==
+X-Google-Smtp-Source: AKy350bbqQlEVlxm8jPN/fqJOCbW17rTndMJRBQxVSCPVNDH3J4OETxxDENUrdbyO1+C8IMrSA8XAA==
+X-Received: by 2002:a25:541:0:b0:9ed:13e9:fe65 with SMTP id 62-20020a250541000000b009ed13e9fe65mr5616566ybf.19.1680161500181;
+        Thu, 30 Mar 2023 00:31:40 -0700 (PDT)
+Received: from mail-yb1-f180.google.com (mail-yb1-f180.google.com. [209.85.219.180])
+        by smtp.gmail.com with ESMTPSA id r144-20020a257696000000b00b7a23b337eesm2734763ybc.27.2023.03.30.00.31.39
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Mar 2023 00:31:39 -0700 (PDT)
+Received: by mail-yb1-f180.google.com with SMTP id j7so22390058ybg.4
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Mar 2023 00:31:39 -0700 (PDT)
+X-Received: by 2002:a25:1185:0:b0:a27:3ecc:ffe7 with SMTP id
+ 127-20020a251185000000b00a273eccffe7mr2687305ybr.3.1680161499271; Thu, 30 Mar
+ 2023 00:31:39 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5109; i=conor.dooley@microchip.com; h=from:subject; bh=Yhc7Flvtw7DygHF2DgeNSHPYJ8ZzS+g4efc4mrx+3WI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmqZs7M+sffl+YqNccp2R9ZWMzUv3TuQmXmXzJzchwy3EO5 rrJ1lLIwiHEwyIopsiTe7muRWv/HZYdzz1uYOaxMIEMYuDgFYCI9Zxn+Cofu3t5W8nyKp8Lytj9XAg 8qNYatvmn7PH3F8WXzXoUXVTAyXKo8NTnDNym99USnUvubO73bHQ3P3Qh1/nA9ov2E5KF6PgA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20230330060105.29460-1-rdunlap@infradead.org> <e1b6f12a-899b-4985-8725-556bcb5d0991@spud>
+In-Reply-To: <e1b6f12a-899b-4985-8725-556bcb5d0991@spud>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 30 Mar 2023 09:31:27 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdW2r1f7C_BdXn9BnDktLwHjBA_0Kvq6OeLJ1sZ7azhqkg@mail.gmail.com>
+Message-ID: <CAMuHMdW2r1f7C_BdXn9BnDktLwHjBA_0Kvq6OeLJ1sZ7azhqkg@mail.gmail.com>
+Subject: Re: [PATCH] iommu: PGTABLE_LPAE is also for RISCV
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	iommu@lists.linux.dev, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+	geert+renesas@glider.be
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230330_001300_299322_93DE2316 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20230330_003143_003677_8C0AAA21 
+X-CRM114-Status: GOOD (  31.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,135 +83,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Uwe, all,
-
-Uwe & I had a long back and forth about period calculations on v13,
-my ultimate conclusion being that, after some testing of the "corrected"
-calculation in hardware, the original calculation was correct.
-I think we had gotten sucked into discussion the calculation of the
-period itself, when we were in fact trying to calculate a bound on the
-period instead. That discussion is here:
-https://lore.kernel.org/linux-pwm/Y+ow8tfAHo1yv1XL@wendy/
-
-There was, of course, another chat about the niche bits of this
-calculation on v14 too:
-https://lore.kernel.org/linux-pwm/20230322105536.kgt3ffowefqlg6eu@pengutronix.de/
-
-Thanks,
-Conor.
-
-Changes since v14:
-- change period_steps calculation logic to correctly handle the cases
-  where tmp % (254 + 1) == 0, by swapping implicit truncation for
-  explicit rounding upwards and subtracting zero
-- special case periods < 1/clk_rate & add a note in limitations about
-  this, although I think this issue wasn't present prior to v15's
-  changes
-- check for smaller suitable values of prescale, which picks the "more
-  correct" value in about half of all cases, particularly those where
-  tmp is large.
-- explain what I mean by the "optimal" values for prescale/period steps
-  re-fix use of defines
-- add a comment about how sync_upd mode works
-- make the use of period_steps and prescale consistently refer to the
-  register values rather than, in comments, using these to mean the
-  resulting values after 1 has been added
-- drop the PREG_TO_VAL() macro, as most of its users are now gone & it
-  only added to the register value versus "real" value problem
-- report pwmchip_add() failures
-
-Changes since v13:
-- couple bits of cleanup to apply_locked(), suggested by Uwe
-- move the overhead waiting for a change to be applied, for channels
-  with shadow registers, to subsequent calls to apply(). This has the
-  benefit of only waiting when two calls to apply() are close in time
-  rather than eating the delay in every call.
-
-Changes since v11:
-- swap a "bare" multiply & divide for the corresponding helper to
-  prevent overflow
-- factor out duplicate clk rate acquisition & period calculation
-- make the period calculation return void by checking the validity of
-  the clock rate in the caller
-- drop the binding & dt patch, they're on-track for v6.2 via my tree
-
-Changes since v10:
-- reword some comments
-- try to assign the period if a disable is requested
-- drop a cast around a u8 -> u16 conversion
-- fix a check on period_steps that should be on the hw_ variant
-- split up the period calculation in get_state() to fix the result on
-  32 bit
-- add a rate variable in get_state() to only call get_rate() once
-- redo the locking as suggested to make it more straightforward.
-- stop checking for enablement in get_state() that was working around
- intended behaviour of the sysfs interface
-
-Changes since v9:
-- fixed the missing unlock that Dan reported
-
-Changes since v8:
-- fixed a(nother) raw 64 bit division (& built it for riscv32!)
-- added a check to make sure we don't try to sleep for 0 us
-
-Changes since v7:
-- rebased on 6.0-rc1
-- reworded comments you highlighted in v7
-- fixed the overkill sleeping
-- removed the unused variables in calc_duty
-- added some extra comments to explain behaviours you questioned in v7
-- make the mutexes un-interruptible
-- fixed added the 1s you suggested for the if(period_locked) logic
-- added setup of the channel_enabled shadowing
-- fixed the period reporting for the negedge == posedge case in
-  get_state() I had to add the enabled check, as otherwise it broke
-  setting the period for the first time out of reset.
-- added a test for invalid PERIOD_STEPS values, in which case we abort
-  if we cannot fix the period
-
-Changes from v6:
-- Dropped an unused variable that I'd missed
-- Actually check the return values of the mutex lock()s
-- Re-rebased on -next for the MAINTAINERS patch (again...)
-
-Changes from v5:
-- switched to a mutex b/c we must sleep with the lock taken
-- simplified the locking in apply() and added locking to get_state()
-- reworked apply() as requested
-- removed the loop in the period calculation (thanks Uwe!)
-- add a copy of the enable registers in the driver to save on reads.
-- remove the second (useless) write to sync_update
-- added some missing rounding in get_state()
-- couple other minor cleanups as requested in:
-https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
-
-Changes from v4:
-- dropped some accidentally added files
-
-Changes before v4:
-https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
-
-Conor Dooley (2):
-  pwm: add microchip soft ip corePWM driver
-  MAINTAINERS: add pwm to PolarFire SoC entry
-
- MAINTAINERS                      |   1 +
- drivers/pwm/Kconfig              |  10 +
- drivers/pwm/Makefile             |   1 +
- drivers/pwm/pwm-microchip-core.c | 507 +++++++++++++++++++++++++++++++
- 4 files changed, 519 insertions(+)
- create mode 100644 drivers/pwm/pwm-microchip-core.c
-
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBUaHUsIE1hciAzMCwgMjAyMyBhdCA4OjI14oCvQU0gQ29ub3IgRG9vbGV5
+IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4gT24gV2VkLCBNYXIgMjksIDIw
+MjMgYXQgMTE6MDE6MDVQTSAtMDcwMCwgUmFuZHkgRHVubGFwIHdyb3RlOgo+ID4gT24gcmlzY3Y2
+NCwgbGludXgtbmV4dC0yMDIzMzAzMCAoYW5kIGZvciBzZXZlcmFsIGRheXMgZWFybGllciksCj4g
+PiB0aGVyZSBpcyBhIGtjb25maWcgd2FybmluZzoKPiA+Cj4gPiBXQVJOSU5HOiB1bm1ldCBkaXJl
+Y3QgZGVwZW5kZW5jaWVzIGRldGVjdGVkIGZvciBJT01NVV9JT19QR1RBQkxFX0xQQUUKPiA+ICAg
+RGVwZW5kcyBvbiBbbl06IElPTU1VX1NVUFBPUlQgWz15XSAmJiAoQVJNIHx8IEFSTTY0IHx8IENP
+TVBJTEVfVEVTVCBbPW5dKSAmJiAhR0VORVJJQ19BVE9NSUM2NCBbPW5dCj4gPiAgIFNlbGVjdGVk
+IGJ5IFt5XToKPiA+ICAgLSBJUE1NVV9WTVNBIFs9eV0gJiYgSU9NTVVfU1VQUE9SVCBbPXldICYm
+IChBUkNIX1JFTkVTQVMgWz15XSB8fCBDT01QSUxFX1RFU1QgWz1uXSkgJiYgIUdFTkVSSUNfQVRP
+TUlDNjQgWz1uXQo+ID4KPiA+IGFuZCBidWlsZCBlcnJvcnM6Cj4gPgo+ID4gcmlzY3Y2NC1saW51
+eC1sZDogZHJpdmVycy9pb21tdS9pby1wZ3RhYmxlLWFybS5vOiBpbiBmdW5jdGlvbiBgLkwxNDAn
+Ogo+ID4gaW8tcGd0YWJsZS1hcm0uYzooLmluaXQudGV4dCsweDFlOCk6IHVuZGVmaW5lZCByZWZl
+cmVuY2UgdG8gYGFsbG9jX2lvX3BndGFibGVfb3BzJwo+ID4gcmlzY3Y2NC1saW51eC1sZDogZHJp
+dmVycy9pb21tdS9pby1wZ3RhYmxlLWFybS5vOiBpbiBmdW5jdGlvbiBgLkwxNjgnOgo+ID4gaW8t
+cGd0YWJsZS1hcm0uYzooLmluaXQudGV4dCsweGFiMCk6IHVuZGVmaW5lZCByZWZlcmVuY2UgdG8g
+YGZyZWVfaW9fcGd0YWJsZV9vcHMnCj4gPiByaXNjdjY0LWxpbnV4LWxkOiBkcml2ZXJzL2lvbW11
+L2lwbW11LXZtc2EubzogaW4gZnVuY3Rpb24gYC5MMTQwJzoKPiA+IGlwbW11LXZtc2EuYzooLnRl
+eHQrMHhiYzQpOiB1bmRlZmluZWQgcmVmZXJlbmNlIHRvIGBmcmVlX2lvX3BndGFibGVfb3BzJwo+
+ID4gcmlzY3Y2NC1saW51eC1sZDogZHJpdmVycy9pb21tdS9pcG1tdS12bXNhLm86IGluIGZ1bmN0
+aW9uIGAuTDAgJzoKPiA+IGlwbW11LXZtc2EuYzooLnRleHQrMHgxNDVlKTogdW5kZWZpbmVkIHJl
+ZmVyZW5jZSB0byBgYWxsb2NfaW9fcGd0YWJsZV9vcHMnCj4gPgo+ID4gQWRkIFJJU0NWIGFzIGFu
+IGFsbG93ZWQgQVJDSCBkZXBlbmRlbmN5IHRvIGZpeCB0aGVzZSBwcm9ibGVtcy4KPiA+Cj4gPiBG
+aXhlczogZDI4NmE1OGJjOGY0ICgiaW9tbXU6IFRpZHkgdXAgaW8tcGd0YWJsZSBkZXBlbmRlbmNp
+ZXMiKQo+ID4gU2lnbmVkLW9mZi1ieTogUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5v
+cmc+Cj4gPiBDYzogSm9lcmcgUm9lZGVsIDxqb3JvQDhieXRlcy5vcmc+Cj4gPiBDYzogV2lsbCBE
+ZWFjb24gPHdpbGxAa2VybmVsLm9yZz4KPiA+IENjOiBSb2JpbiBNdXJwaHkgPHJvYmluLm11cnBo
+eUBhcm0uY29tPgo+ID4gQ2M6IGlvbW11QGxpc3RzLmxpbnV4LmRldgo+ID4gQ2M6IENvbm9yIERv
+b2xleSA8Y29ub3JAa2VybmVsLm9yZz4KPiA+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCj4gPiAtLS0KPiA+ICBkcml2ZXJzL2lvbW11L0tjb25maWcgfCAgICAyICstCj4gPiAg
+MSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlm
+ZiAtLSBhL2RyaXZlcnMvaW9tbXUvS2NvbmZpZyBiL2RyaXZlcnMvaW9tbXUvS2NvbmZpZwo+ID4g
+LS0tIGEvZHJpdmVycy9pb21tdS9LY29uZmlnCj4gPiArKysgYi9kcml2ZXJzL2lvbW11L0tjb25m
+aWcKPiA+IEBAIC0zMiw3ICszMiw3IEBAIGNvbmZpZyBJT01NVV9JT19QR1RBQkxFCj4gPiAgY29u
+ZmlnIElPTU1VX0lPX1BHVEFCTEVfTFBBRQo+ID4gICAgICAgYm9vbCAiQVJNdjcvdjggTG9uZyBE
+ZXNjcmlwdG9yIEZvcm1hdCIKPgo+IEknbSBwcm9iYWJseSBtaXNzaW5nIHNvbWV0aGluZyBoZXJl
+LCBidXQgd2h5IHdvdWxkIHdlIHdhbnQgdG8gZW5hYmxlCj4gIkFSTXY3L3Y4IExvbmcgRGVzY3Jp
+cHRvciBGb3JtYXQiIG9uIFJJU0MtVj8KCkluZGVlZCwgd2Ugc2hvdWxkIG5vdCBlbmFibGUgaXQs
+IHVubGVzcyBjb21waWxlLXRlc3RpbmcuCgo+IFdvdWxkIGl0IG5vdCBiZSBiZXR0ZXIgdG8gbWFr
+ZSB0aGUgUmVuZXNhcyBkZXBlbmQgb24sIHJhdGhlciB0aGFuCj4gc2VsZWN0IHRoZSBvcHRpb24/
+IEl0IGRvZXMgc2VlbSBoaWdobHkgYXJjaCBzcGVjaWZpYywgYW5kIEkgZmVlbCBsaWtlCj4gR2Vl
+cnQgcHJldmlvdXNseSBtZW50aW9uZWQgdGhhdCB0aGUgUlovRml2ZSAodGhlaXIgUklTQy1WIG9m
+ZmVyaW5nKQo+IGRpZG4ndCB1c2UgaXQuCgpJIHRoaW5rIHRoZSBJUE1NVV9WTVNBIGRlcGVuZGVu
+Y3kgc2hvdWxkIGdhaW4KCiAgICAgICAgZGVwZW5kcyBvbiBBUk0gfHwgQVJNNjQgfHwgQ09NUElM
+RV9URVNUCgo+ID4gICAgICAgc2VsZWN0IElPTU1VX0lPX1BHVEFCTEUKPiA+IC0gICAgIGRlcGVu
+ZHMgb24gQVJNIHx8IEFSTTY0IHx8IENPTVBJTEVfVEVTVAo+ID4gKyAgICAgZGVwZW5kcyBvbiBB
+Uk0gfHwgQVJNNjQgfHwgUklTQ1YgfHwgQ09NUElMRV9URVNUCj4gPiAgICAgICBkZXBlbmRzIG9u
+ICFHRU5FUklDX0FUT01JQzY0ICAgICMgZm9yIGNtcHhjaGc2NCgpCj4gPiAgICAgICBoZWxwCj4g
+PiAgICAgICAgIEVuYWJsZSBzdXBwb3J0IGZvciB0aGUgQVJNIGxvbmcgZGVzY3JpcHRvciBwYWdl
+dGFibGUgZm9ybWF0LgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAg
+ICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXgg
+YmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNh
+dGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQK
+d2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBv
+ciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0t
+IExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
