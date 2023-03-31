@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DEBC761A6
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 15:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52F9C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 15:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CSc5lggwpUSbGHmNtHYxHnONWHt/jJaABRtVykiX94c=; b=S0F13JR6Ida3in
-	C9JeW4/Vwt4cUtFjJ+TAwy8hZGwRIMnGm0qVhXUGcWYm7GDD1nYdmDh1WkSxUCHkx4jBcA0R10ang
-	hZQcBZID5fllsFrV8rdJEStE3NaKPgB98GBhD2b/zidUstFXOJr5P6YJta9iJahQzFYR/SadFPAaH
-	ghXjBEEbvHj4tmYYPyMChBULY/TRRkSw03EuCNqYiBEt0eVZC3sZDWAQq/7MIC1nx6S/juRd+yc3L
-	skU5DXbAUzCtGMGkD/MDvRtkv2uRu5b+dKj2WG8yOwQX45LSPrEfKsdBZBzQmIdbRatoU+z2706Tq
-	kC0qK/33wNSx7oPLel3A==;
+	List-Owner; bh=QT4gaJtaJ00vdakMVQ8FA3epXCPR5qAkXL/GdaZSizs=; b=Lo1Rj1letZmz90
+	TclJaKmOO3lDcEXjZI89gJKNBYpk4p/OgsBhjUzw1CUsxTZnQcG/Ta7QFXzRMo/mPELSNTSbAbwW2
+	h8EDyvn3b+TZPM+DvFj7eeMIE4H2Ooa+WyaUAQcCl/bFc2VDSPievMdgTOn9EPJPcuZO8MBRbBbqN
+	Mwy+/vnyRUbJWblLdN5ZoXWlphUg7m/YUxn8Ij/qnm2t+U5X+TdI4ODb6r7SuaNoChLSp4F9OBhaG
+	Biy9j0dxMgM4HGfej8ip4YH+ro644vJy9W9UlaoF9ySpn6YlHLWra1cYDQ4o/lRFJ9okyDWOAJbMr
+	85wHWKsaOAN3lg+ZmhVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piGHl-007pyH-39;
-	Fri, 31 Mar 2023 15:03:25 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piGHj-007pxm-26
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 15:03:24 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id w9so90804494edc.3
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 08:03:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1680275000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=284uuIzp37htGE1Cyqz8zv6IM9mt+Q3/Rg8O/gIrt9s=;
-        b=kDcj0QENY0JHJFz1J18pgkJaE5w20/yoGjYa33AR1u2XPinZBZ0wh9C/ZyhP+xsBTP
-         DZ4J3pZJjcc6D9RSQceKpNb0EsGYDoY+mNC1yMi6RWsjxF1sC6byOJd1hgd+MlX3QiXq
-         ZFKWwy0O7J9J/VWWw/FiRluHx0nC0daGAEOOkJDqdBlJejH6Qz6L8thgy8vqSHFuXF0G
-         Q0iLr4LCJ+2xRK+1dE59W93TX88RuTdwp9uAOssj5a6ZVET5gDVbLnYLf9VTH3prqL7R
-         NRsnXbqvbsaXTsMOUXWAY6bhdg3pMXCEdfdWGKwkUIio+Ibrt3EAm7N8pNwx/aru4yZ6
-         p83A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680275000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=284uuIzp37htGE1Cyqz8zv6IM9mt+Q3/Rg8O/gIrt9s=;
-        b=zynwghdtt5QdmF5hjXENaFpPP+w0ggV5yG5qLzLL7nsD1KnaHZP/5hw/hUPdVKdJI0
-         UDA9qdxv37IQULXr0GzHhPAPHFuhFtZsJS0tHyqAThQ/ZcCZRZV/6a2oZxuZYUb8kKw1
-         y4Q24IM8uWsHVxQARahyk6cmAGkIXcUBE2wpOe9TWxnBRGDfAGqMvqEQTKSt8SvF/ern
-         iwni1J1cqDtdc6dm5QsPCc0EWuQVMMqkzfArVJJnbEmQ76TzRVwZYyhlozhrKOa1UfkQ
-         12t0hz6Pt+3wkrh7uaSrljyoG3/4aIHjSUks+OJAFE60hse8ORnOjRFHhEvoPpR4Nxiu
-         1A2Q==
-X-Gm-Message-State: AAQBX9fF+EW69ngchQcpc5edm752S3dDjojyiAF/dSjxCIPVnwv/1O19
-	w7VMEcZX0sTKRyGvAKh6IsQUn2YkoMfIIwKDEcw=
-X-Google-Smtp-Source: AKy350bA4ih4UrkiZ292pYQQOog5OLP5WG08x6Y2AxFx/7ljqZhCejYmJPlclzs70qhXxs6FLLgP3ulsBZif3Biklvc=
-X-Received: by 2002:a17:907:7b8a:b0:931:6e39:3d0b with SMTP id
- ne10-20020a1709077b8a00b009316e393d0bmr14114905ejc.15.1680274999562; Fri, 31
- Mar 2023 08:03:19 -0700 (PDT)
+	id 1piGR1-007s4F-04;
+	Fri, 31 Mar 2023 15:12:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1piGQv-007s1D-2G;
+	Fri, 31 Mar 2023 15:12:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C21D02F4;
+	Fri, 31 Mar 2023 08:13:33 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E8D83F6C4;
+	Fri, 31 Mar 2023 08:12:37 -0700 (PDT)
+Message-ID: <cc3a78b6-b126-226f-b41a-061716aacd15@arm.com>
+Date: Fri, 31 Mar 2023 16:12:32 +0100
 MIME-Version: 1.0
-References: <20230307202257.1762151-1-conor@kernel.org> <d7c3ec51-8493-444a-bdec-2a30b0a15bdc@spud>
- <09cdec20-c3c8-4eb1-9a74-87f429543d3c@spud>
-In-Reply-To: <09cdec20-c3c8-4eb1-9a74-87f429543d3c@spud>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Fri, 31 Mar 2023 10:03:08 -0500
-Message-ID: <CABb+yY0ocpdB5RWyxncM7VJzJde6G-WscTKbT2=GMt3uJAccVA@mail.gmail.com>
-Subject: Re: mailbox,soc: mpfs: add support for fallible services (was [PATCH
- v3 0/8] Hey Jassi, all,)
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH 20/21] ARM: dma-mapping: split out arch_dma_mark_clean()
+ helper
+To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>,
+ linux-kernel@vger.kernel.org
+Cc: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ guoren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "David S . Miller" <davem@davemloft.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Christoph Hellwig <hch@lst.de>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-21-arnd@kernel.org>
+ <cb9367fb-0897-244d-15b6-fdfafde2a1c0@arm.com>
+ <df6340c8-6ac2-4459-a9e5-c411020962d6@app.fastmail.com>
+Content-Language: en-GB
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <df6340c8-6ac2-4459-a9e5-c411020962d6@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_080323_698207_1B96E03D 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20230331_081253_834848_395F53CC 
+X-CRM114-Status: GOOD (  26.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +88,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjksIDIwMjMgYXQgMTE6MTXigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gSGV5IEphc3NpLAo+Cj4gT24gVHVlLCBNYXIgMDcsIDIwMjMg
-YXQgMDg6MzA6MzFQTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gT24gVHVlLCBNYXIg
-MDcsIDIwMjMgYXQgMDg6MjI6NTBQTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gPiBG
-cm9tOiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+ID4KPiA+IEkg
-Ym90Y2hlZCAkc3ViamVjdCwgSSBibGFtZSBjb3B5IHBhc3RpbmcgdGhlIGJyYW5jaC1kZXNjcmlw
-dGlvbiBmcm9tCj4gPiBsb3JlIGFuZCBub3QgZG91YmxlIGNoZWNraW5nIHRoZSBvdXRwdXQgb2Yg
-LS1jb3Zlci1mcm9tLWRlc2NyaXB0aW9uPWF1dG8KPiA+Cj4gPiBUaGlzIHNob3VsZCBiZSBhIG1v
-cmUgc3VpdGFibGUgb25lLi4uIC9zaWdoCj4KPiBSZXBseWluZyB0byB0aGUgb25lIHdpdGggYSBy
-ZWFzb25hYmxlICRzdWJqZWN0Li4uIEFyZSB5b3Ugb2theSB3aXRoIHRoaXMKPiByZXZpc2VkIHZl
-cnNpb24gb2YgdGhlIHNlcmllcyAoeW91IHdlcmUgaGFwcHkgd2l0aCBtb3N0IG9mIHRoZSB2MiBJ
-SVJDKSwKPiBhbmQgaWYgeW91IGFyZSwgd291bGQgeW91IGJlIG9rYXkgd2l0aCBtZSB0YWtpbmcg
-dGhlIGxvdCB2aWEgdGhlIHNvYwo+IHRyZWUgYXMgSSBoYXZlIHNvbWUgb3RoZXIgYml0cyB0aGF0
-IGRlcGVuZCBvbiB0aGUgY2hhbmdlcyBoZXJlPwo+CkkgYW0gb2theS4gQWNrZWQtYnk6IEphc3Np
-IEJyYXIgPGphc3dpbmRlci5zaW5naEBsaW5hcm8ub3JnPgoKY2hlZXJzLgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 31/03/2023 3:00 pm, Arnd Bergmann wrote:
+> On Mon, Mar 27, 2023, at 14:48, Robin Murphy wrote:
+>> On 2023-03-27 13:13, Arnd Bergmann wrote:
+>>>
+>>> [ HELP NEEDED: can anyone confirm that it is a correct assumption
+>>>     on arm that a cache-coherent device writing to a page always results
+>>>     in it being in a PG_dcache_clean state like on ia64, or can a device
+>>>     write directly into the dcache?]
+>>
+>> In AMBA at least, if a snooping write hits in a cache then the data is
+>> most likely going to get routed directly into that cache. If it has
+>> write-back write-allocate attributes it could also land in any cache
+>> along its normal path to RAM; it wouldn't have to go all the way.
+>>
+>> Hence all the fun we have where treating a coherent device as
+>> non-coherent can still be almost as broken as the other way round :)
+> 
+> Ok, thanks for the information. I'm still not sure whether this can
+> result in the situation where PG_dcache_clean is wrong though.
+> 
+> Specifically, the question is whether a DMA to a coherent buffer
+> can end up in a dirty L1 dcache of one core and require to write
+> back the dcache before invalidating the icache for that page.
+> 
+> On ia64, this is not the case, the optimization here is to
+> only flush the icache after a coherent DMA into an executable
+> user page, while Arm only does this for noncoherent DMA but not
+> coherent DMA.
+> 
+>  From your explanation it sounds like this might happen,
+> even though that would mean that "coherent" DMA is slightly
+> less coherent than it is elsewhere.
+> 
+> To be on the safe side, I'd have to pass a flag into
+> arch_dma_mark_clean() about coherency, to let the arm
+> implementation still require the extra dcache flush
+> for coherent DMA, while ia64 can ignore that flag.
+
+Coherent DMA on Arm is assumed to be inner-shareable, so a coherent DMA 
+write should be pretty much equivalent to a coherent write by another 
+CPU (or indeed the local CPU itself) - nothing says that it *couldn't* 
+dirty a line in a data cache above the level of unification, so in 
+general the assumption must be that, yes, if coherent DMA is writing 
+data intended to be executable, then it's going to want a Dcache clean 
+to PoU and an Icache invalidate to PoU before trying to execute it. By 
+comparison, a non-coherent DMA transfer will inherently have to 
+invalidate the Dcache all the way to PoC in its dma_unmap, thus cannot 
+leave dirty data above the PoU, so only the Icache maintenance is 
+required in the executable case.
+
+(FWIW I believe the Armv8 IDC/DIC features can safely be considered 
+irrelevant to 32-bit kernels)
+
+I don't know a great deal about IA-64, but it appears to be using its 
+PG_arch_1 flag in a subtly different manner to Arm, namely to optimise 
+out the *Icache* maintenance. So if anything, it seems IA-64 is the 
+weirdo here (who'd have guessed?) where DMA manages to be *more* 
+coherent than the CPUs themselves :)
+
+This is all now making me think we need some careful consideration of 
+whether the benefits of consolidating code outweigh the confusion of 
+conflating multiple different meanings of "clean" together...
+
+Thanks,
+Robin.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
