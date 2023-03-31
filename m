@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86D6C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 18:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8A8C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 18:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AGsIDrwt4NX7hJPeLQ8BD3kjfSF22glAEiLNZj0wpQA=; b=Af4vaclyK2ANJeC0JpStUZnpxM
-	oBL9t+AXYYiD+JPVc0QLmlQGg/Cd+c776YcNS2OUmAqvmdA5mZ0IXPkFvbfWT3SvfiWei4Vy4tkSb
-	ywHlqXFtiQEj2nmPhGqS6zJ/9BbGIhoAcZPKvxygOpdmr2El9uB+JIMyuPTbQVopV5XLcSv1M/ypI
-	XH01YPAk5WFs8hM0TCX3wQGdsCW1IuQxQrf3cjbxPxQbx3oEsKRN5hEWsh9atPSa16AQJrnHLtACN
-	uoAsJF2vzMG20lzzekN8fCoYBhvZiruqbkbWYb+BzRRf4bK3aU5mZy6SCURpjHOV3aQKNNc8w3gAa
-	0UNDzGcQ==;
+	bh=BkXjvZSTj4Gb88GqYByGjK9zjNyJwA667+DUrIcwKzE=; b=V/Vwbhh8M7YQk4uuX1pKlbc72w
+	8hHj2llHvBGr/cBOiRa7oV9eXd0JWYlLMGJ3YMkzcytldGlA9MwAdJuUsUM0YS/CrqFnNAf2GGnVV
+	3cTKhYrevHs/BMSQzQcqEVRbUPeJMTi0/p4ElmcZ9rLPw5KGTVF0wpu59kvmzUDprWxEY2ZHHRX2Z
+	glB6j091xCbSlmTeMKSWY3smVHR1ydeo0cmE69hc2HVJNbftV7vBlt2VuWPnU+Bo0eV2kcAOxxWBG
+	WwSyGjdgOJFEhX0i8PcKRt3AVHZImetqXC/UsSP9QCWXZT7kpl0OlyjrbqGdFBRvgJ7BUKtmhx17Q
+	LSZtEGPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piJek-008U4N-09;
-	Fri, 31 Mar 2023 18:39:22 +0000
+	id 1piJh7-008UVi-1c;
+	Fri, 31 Mar 2023 18:41:49 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piJef-008U2c-2c;
-	Fri, 31 Mar 2023 18:39:19 +0000
+	id 1piJh3-008UUS-1d
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Mar 2023 18:41:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 80ECFB8319F;
-	Fri, 31 Mar 2023 18:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3256CC433EF;
-	Fri, 31 Mar 2023 18:39:12 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 17652B83143;
+	Fri, 31 Mar 2023 18:41:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6508AC433EF;
+	Fri, 31 Mar 2023 18:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680287955;
-	bh=eqEkQdcItulIBYfu63tsCeTblX411ylkWCoUY/V/uWs=;
+	s=k20201202; t=1680288102;
+	bh=3p/O9/CLo4800DOPyq8SsH+lR09J6hidgfyfB1UwbMc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CBQ+Ry2iM7+5i9TV/gOsUHqOL/h49W1vS9TeUUVJ9gJtWjuI+vRd9yHkwrGpjrmn8
-	 W0N4XstXsBEomURTXLS6AEwngiWkZ/UcMOeyRSJ+xVP50JxxJaZ6s9epZaJ8nfOtpJ
-	 ad2Wylb7EtVa6kXpe2J1S8BsEf+IE/h8rUuDjl5BzMPUNMHniUO9Eo9RHwDioYBDVO
-	 npuOA+mZBcWz7b69M/NXBfWIrPRgI51acgb/du9+JUEHKIY39+Ti90f0BQWXQwLHr4
-	 cRfSjYpXTDnqehIiCcEolchbHALgutD+6rDaBTcYknnl3ZcL+0v99sBx+7CGb8+ctE
-	 MXKlJ7dXbu63Q==
-Date: Fri, 31 Mar 2023 19:39:09 +0100
+	b=VxtkU6Hac0u1ir+DqGNebk0fkqDIppqx0euv07VJQ4ZQFAzvG2M8ZmXeot+AiC8vt
+	 4fYnwSsGiYMhjfNGImhXbimSozpRmJM9XSnRHQuwvj1aaThMxY+AncV2401PXXy4O8
+	 xZYFO7RDOUYKKKsTE3szzVMRFHYluYppqPDYdK9cXnMUuY6N8wKB1jVIlNYtSZh4gn
+	 2IQpz6LL0OYndgZIbrH88Qi3HBKz+h9mOC0eMcWADuiD66iaf/zgXg3a00C/48A6sG
+	 EwPpJdlxToLadYc9P0IwfGIWuuI5prNQ3wpJFnaBKTNPmfGD5Ai/IpNKTUhMWWzsyH
+	 3WZWez09Bwtbg==
+Date: Fri, 31 Mar 2023 19:41:35 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: linux-sunxi@lists.linux.dev, conor.dooley@microchip.com,
-	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Trevor Woerner <twoerner@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH] riscv: dts: nezha-d1: Add memory
-Message-ID: <25837ca5-b709-4d20-912b-ab13e6353069@spud>
-References: <20230331182727.4062790-1-evan@rivosinc.com>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de,
+	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
+	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com,
+	falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
+	atishp@atishpatra.org, mark.rutland@arm.com, ben@decadent.org.uk,
+	bjorn@kernel.org, palmer@dabbelt.com, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Yipeng Zou <zouyipeng@huawei.com>
+Subject: Re: [PATCH -next V17 4/7] riscv: entry: Convert to generic entry
+Message-ID: <ee83cd00-1f97-49a0-b1f6-b8b4f3ce7258@spud>
+References: <20230222033021.983168-1-guoren@kernel.org>
+ <20230222033021.983168-5-guoren@kernel.org>
+ <60ee7c26-1a70-427d-beaf-92e2989fc479@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230331182727.4062790-1-evan@rivosinc.com>
+In-Reply-To: <60ee7c26-1a70-427d-beaf-92e2989fc479@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_113918_135343_8EC5BF0C 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20230331_114145_828619_0D83DDB0 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +78,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5460834243742931639=="
+Content-Type: multipart/mixed; boundary="===============7663374585538848499=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5460834243742931639==
+--===============7663374585538848499==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TnwQBgyZeUS8jdJs"
+	protocol="application/pgp-signature"; boundary="wc5Ye/0zXmFh17VW"
 Content-Disposition: inline
 
 
---TnwQBgyZeUS8jdJs
-Content-Type: text/plain; charset=us-ascii
+--wc5Ye/0zXmFh17VW
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 31, 2023 at 11:27:27AM -0700, Evan Green wrote:
-> Add memory info for the D1 Nezha, which seems to be required for it to
-> boot with the stock firmware. Note that this hardcodes 1GB, which is
-> not technically correct as they also make models with different amounts
-> of RAM.
+On Fri, Mar 31, 2023 at 07:34:38PM +0100, Conor Dooley wrote:
+> On Tue, Feb 21, 2023 at 10:30:18PM -0500, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >=20
+> > This patch converts riscv to use the generic entry infrastructure from
+> > kernel/entry/*. The generic entry makes maintainers' work easier and
+> > codes more elegant. Here are the changes:
+> >=20
+> >  - More clear entry.S with handle_exception and ret_from_exception
+> >  - Get rid of complex custom signal implementation
+> >  - Move syscall procedure from assembly to C, which is much more
+> >    readable.
+> >  - Connect ret_from_fork & ret_from_kernel_thread to generic entry.
+> >  - Wrap with irqentry_enter/exit and syscall_enter/exit_from_user_mode
+> >  - Use the standard preemption code instead of custom
+>=20
+> This has unfortunately broken booting my usual NFS rootfs on both my D1
+> and Icicle. It's one of the Fedora images from David, I think this one:
+> http://fedora.riscv.rocks/kojifiles/work/tasks/3933/1313933/
+>=20
+> It gets pretty far into things, it's once systemd is operational that
+> things go pear shaped:
 
-> Is the firmware supposed to populate this?
-
-Yup. Samuel intentionally did it this way:
-https://lore.kernel.org/linux-riscv/8a2194bf-93bd-de4d-8d39-0cd72aabb0a9@sh=
-olland.org/
-
-Since I don't like using the firmware provided stuff to more easily
-test I do this in my u-boot boot script:
-
-tftp 0x54000000 d1-fitImage.fit
-bootm start 0x54000000
-bootm loados 0x54000000
-bootm ramdisk;
-bootm prep;
-fdt memory 0x40000000 0x20000000
-bootm go;
-
-Hope either of the above are helpful,
-Conor.
+Shoulda said, can share the full logs if required of course, but they're
+quite verbose cos systemd etc.
 
 >=20
-> Signed-off-by: Evan Green <evan@rivosinc.com>
+> [  OK  ] Mounted Huge Pages File System.
+> [   70.297439] systemd[1]: Mounted POSIX Message Queue File System.
+> [  OK  ] Mounted POSIX Message Queue File System.
+> [   70.453489] systemd[1]: Mounted Kernel Debug File System.
+> [  OK  ] Mounted Kernel Debug File System.
+> [   70.516331] systemd[1]: Mounted Kernel Trace File System.
+> [  OK  ] Mounted Kernel Trace File System.
+> [   70.679253] systemd[1]: modprobe@configfs.service: Succeeded.
+> [   70.788400] systemd[1]: Finished Load Kernel Module configfs.
+> [  OK  ] Finished Load Kernel Module configfs.
+> [   71.501222] systemd[1]: modprobe@drm.service: Succeeded.
+> [   71.573295] systemd[1]: Finished Load Kernel Module drm.
+> [  OK  ] Finished Load Kernel Module drm.
+> [   71.825934] systemd[1]: modprobe@fuse.service: Succeeded.
+> [   71.886945] systemd[1]: Finished Load Kernel Module fuse.
+> [  OK  ] Finished Load Kernel Module fuse.
+> [   71.991932] systemd[1]: nfs-convert.service: Succeeded.
+> [   72.034674] systemd[1]: Finished Preprocess NFS configuration converti=
+on.
+> [  OK  ] Finished Preprocess NFS configuration convertion.
+> [   72.148778] systemd[1]: systemd-modules-load.service: Main process exi=
+ted, code=3Dexited, status=3D1/FAILURE
+> [   72.256659] systemd[1]: systemd-modules-load.service: Failed with resu=
+lt 'exit-code'.
+> [   72.337818] systemd[1]: Failed to start Load Kernel Modules.
+> [FAILED] Failed to start Load Kernel Modules.
+> See 'systemctl status systemd-modules-load.service' for details.
+> [   72.410491] systemd[1]: systemd-modules-load.service: Consumed 1.463s =
+CPU time.
+> [   72.496739] systemd[1]: Condition check resulted in FUSE Control File =
+System being skipped.
+> [   72.513689] systemd[1]: Condition check resulted in Kernel Configurati=
+on File System being skipped.
+> [   72.682549] systemd[1]: Starting Apply Kernel Variables..
+> [  OK  ] Finished Apply Kernel Variables.
+> [   76.314434] systemd[1]: Finished Load/Save Random Seed.
+> [  OK  ] Finished Load/Save Random Seed.
+> [***   ] (1 of 6) A start job is running for=E2=80=A6p Virtual Console (1=
+4s / no limit)
+> [  OK  ] Finished Create Static Device Nodes in /dev.
+> [   79.787065] systemd[1]: Started Entropy Daemon based on the HAVEGE alg=
+orithm.
+> [  OK  ] Started Entropy Daemon based on the HAVEGE algorithm.
+> [   80.186295] systemd[1]: Starting Journal Service...
+>          Starting Journal Service...
+> [   80.713508] systemd[1]: Starting Rule-based Manager for Device Events =
+and Files...
+>          Starting Rule-based Manage=E2=80=A6for Device Events and Files...
+> [  *** ] (2 of 7) A start job is running for=E2=80=A6 All udev Devices (1=
+7s / no limit)
+> [   82.939347] systemd[1]: systemd-journald.service: Main process exited,=
+ code=3Dexited, status=3D1/FAILURE
+> [   83.032046] systemd[1]: systemd-journald.service: Failed with result '=
+exit-code'.
+> [FAILED] Failed to start Journal Service.
+> See 'systemctl status systemd-journald.service' for details.
+> [   83.210041] systemd[1]: Dependency failed for Flush Journal to Persist=
+ent Storage.
+> [DEPEND] Dependency failed for Flus=E2=80=A6Journal to Persistent Storage.
+> [   83.254122] systemd[1]: systemd-journal-flush.service: Job systemd-jou=
+rnal-flush.service/start failed with result 'dependency'.
+> [   83.272366] systemd[1]: systemd-journald.service: Consumed 1.443s CPU =
+time.
+> [   83.334360] systemd[1]: systemd-journald.service: Scheduled restart jo=
+b, restart counter is at 1.
+> [   83.427839] systemd[1]: Finished Setup Virtual Console.
+> [  OK  ] Finished Setup Virtual Console.
+> [   83.510650] systemd[1]: Stopped Journal Service.
+> [  OK  ] Stopped Journal Service.
+> [   83.554417] systemd[1]: systemd-journald.service: Consumed 1.443s CPU =
+time.
+> [   83.576573] systemd[1]: Condition check resulted in Journal Audit Sock=
+et being skipped.
+> [   83.904878] systemd[1]: Starting Journal Service...
+>          Starting Journal Service...
+> [   85.752090] systemd[1]: systemd-journald.service: Main process exited,=
+ code=3Dexited, status=3D1/FAILURE
+> [   85.826421] systemd[1]: systemd-journald.service: Failed with result '=
+exit-code'.
+> [   85.876165] systemd[1]: Failed to start Journal Service.
+> [FAILED] Failed to start Journal Service.
+> See 'systemctl status systemd-journald.service' for details.
+> [   85.952221] systemd[1]: systemd-journald.service: Consumed 1.355s CPU =
+time.
+> [   86.002092] systemd[1]: systemd-journald.service: Scheduled restart jo=
+b, restart counter is at 2.
+> [   86.015081] systemd[1]: Stopped Journal Service.
+> [  OK  ] Stopped Journal Service.
+> [   86.076429] systemd[1]: systemd-journald.service: Consumed 1.355s CPU =
+time.
+> [   86.089700] systemd[1]: Condition check resulted in Journal Audit Sock=
+et being skipped.
+> [   86.390162] systemd[1]: Starting Journal Service...
+>          Starting Journal Service...
+> [   87.904427] systemd[1]: systemd-journald.service: Main process exited,=
+ code=3Dexited, status=3D1/FAILURE
+> [   87.950259] systemd[1]: systemd-journald.service: Failed with result '=
+exit-code'.
+> [   88.000661] systemd[1]: Failed to start Journal Service.
+> [FAILED] Failed to start Journal Service.
+> See 'systemctl status systemd-journald.service' for details.
+> [   88.079953] systemd[1]: systemd-journald.service: Consumed 1.316s CPU =
+time.
+> [   88.128956] systemd[1]: systemd-journald.service: Scheduled restart jo=
+b, restart counter is at 3.
+> [   88.145365] systemd[1]: Stopped Journal Service.
+> [  OK  ] Stopped Journal Service.
+> [   88.189975] systemd[1]: systemd-journald.service: Consumed 1.316s CPU =
+time.
+> [   88.205799] systemd[1]: Condition check resulted in Journal Audit Sock=
+et being skipped.
+> [   88.514817] systemd[1]: Starting Journal Service...
+>          Starting Journal Service...
 >=20
-> ---
+> (Note, you need to merge -rc2 into riscv/for-next to actually boot)
 >=20
->  arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts b/arch/ris=
-cv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> index 4ed33c1e7c9c..6aba68cf5541 100644
-> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> @@ -32,6 +32,12 @@ / {
->  	model =3D "Allwinner D1 Nezha";
->  	compatible =3D "allwinner,d1-nezha", "allwinner,sun20i-d1";
-> =20
-> +	// FIXME: this is temporary.
-> +	memory@40000000 {
-> +		device_type =3D "memory";
-> +		reg =3D <0x40000000 0x40000000>; /* 1 GB */
-> +	};
-> +
->  	aliases {
->  		ethernet0 =3D &emac;
->  		ethernet1 =3D &xr829;
-> --=20
-> 2.25.1
->=20
+> Cheers,
+> Conor.
 
---TnwQBgyZeUS8jdJs
+
+
+--wc5Ye/0zXmFh17VW
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCcozQAKCRB4tDGHoIJi
-0htEAP0diQJ9Zbhuux3uzUrGT5BnDcXMtCUEsij5CLqMnsP97wD+MhvYerrIgPU2
-VSRJF3YaWTBm0hqklFNbFU7LFRj0sg0=
-=cDyc
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCcpXwAKCRB4tDGHoIJi
+0gW6AQDI28/go9okNXNTDXLjSCttIpeBd0rRc4eSF+3vqbawegD/VWTdRfmbB6Ug
+Q4XU0kzKQwFyM3Rx5dTOeUOUKZOQxwU=
+=0M5y
 -----END PGP SIGNATURE-----
 
---TnwQBgyZeUS8jdJs--
+--wc5Ye/0zXmFh17VW--
 
 
---===============5460834243742931639==
+--===============7663374585538848499==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +267,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5460834243742931639==--
+--===============7663374585538848499==--
 
