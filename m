@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D97AC76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 11:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632B8C6FD18
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l08syzK6VBwbZ9kJv7FqVfnusDwXVAQdV9z7NRx7y6I=; b=GOw4KSXKQ/mt16
-	Ut2Z5eY0G14aINMnVgPd9FWDQCrgF8Rm/+dkSpuk2S2H0mNp7l9YTKR0YvqdLM0G8WtGlBsTjdvmg
-	GMUpOpZ3B+F8uLyPRtJutT9iZJ+8g4eeW82ntfuJLwOMwa+IqgVxBF59/TpVRgdotb4DsQPcIdzk1
-	3Vyo0XS/ft/ymKTWUd8Ys7V99vYt2q9LHry+rmKTZpYjrcstwUHb+qCZk7yjDJdhPB/utfm6P4D1m
-	yfpzAgkV4htkWbXyV5ODZwrXdQuGo+DKbEiAHWoAm3y4ev4XaO48dEBrS+ukxHPR6AOJ3K49jA5IB
-	0CrOFtvIhD8KpD1c/R0w==;
+	List-Owner; bh=kSurang5uunQ00GmzKxnRMrmeQM44Llip9Vr27wahj0=; b=gM1cnzwqkiLfGk
+	hJWlAAPb7UJjX414vklWOUzGuyZvyBU/mnnb3o0S+ex2z+AmFDZNu7NezdQaogqCAZTYVq1zk+o4A
+	HKLQ7z3hSGn4o0QIuDchbX6LM81+aEpenY2kKFDMqtub+h12enjhXvljnqRVStqA+LB00kRYG/Nxn
+	qLc89NDUL7XG8ssrnPzAIyWI+rZpSzD1i2ezAwaejJjy5RDUat7z9ip7j6pkDDjTPBgGMb6eC3qUU
+	yqpq8rYqQGniRVnKLHNox+aF6ocaAUlO8HNN/WUwURFMiwM+/XAxV2+J7nUsRCTDNBNxdQdacI77c
+	BEcOY5VRpxiKgz0LXW4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piD3y-0079Ny-2f;
-	Fri, 31 Mar 2023 11:36:59 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1piDUd-007CkO-1R;
+	Fri, 31 Mar 2023 12:04:31 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piD3r-0079LN-00;
-	Fri, 31 Mar 2023 11:36:57 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4PnypX3DWVz17RGV;
-	Fri, 31 Mar 2023 19:33:24 +0800 (CST)
-Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21; Fri, 31 Mar
- 2023 19:36:42 +0800
-Message-ID: <f1fcf149-4d40-f10e-39d4-6580f025629c@huawei.com>
-Date: Fri, 31 Mar 2023 19:36:42 +0800
+	id 1piDUa-007CjD-1h
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Mar 2023 12:04:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E3569B82D42;
+	Fri, 31 Mar 2023 12:04:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F19C433EF;
+	Fri, 31 Mar 2023 12:04:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680264265;
+	bh=h1nh1rfKygeOBSqs+0Qh9w3Xt4TkX0FJXwvf6qPEE+o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Kk9Z/i9ElUX9QEmYvLZIE/AJtI7AN4mOBicdZFecBEy48TLLXk9kJBXeNoRDzLk0Y
+	 1+427hDffWnfqqKPZ6wlFNn+xgcGYXlB8P1xWLF1E3TmkRKVFl6bBtYZ7xMddwjG9A
+	 1Cbzeb8UoPn+Gtml5Y/4f3Wq5/vdnCfdBMmPFcxZOSoGvU8hkrAfHoUe/tlxfYROrF
+	 9H/jKklZSgwG/W1aswyJiuf0tjD1LK6UT8cdi/4qKGdErPaiP7GSbG5G56skUxZege
+	 ZO/K6XSdpv/AvZWBOs6Y68dGnPUSxp8PcC8Cs+UQRYyDKDom79yWWljodBsogn0ayx
+	 v8FGmn8e+jjGg==
+Date: Fri, 31 Mar 2023 17:34:21 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v6 2/4] dmaengine: dw-axi-dmac: Add support for StarFive
+ JH7110 DMA
+Message-ID: <ZCbMRdSCf5vKUk/c@matsya>
+References: <20230322094820.24738-1-walker.chen@starfivetech.com>
+ <20230322094820.24738-3-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH -next v2 1/2] riscv: kdump: Implement
- crashkernel=X,[high,low]
-Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <thunder.leizhen@huawei.com>, <horms@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
-References: <20230328115150.2700016-1-chenjiahao16@huawei.com>
- <20230328115150.2700016-2-chenjiahao16@huawei.com>
- <ZCQewkvSpaI52DSM@MiWiFi-R3L-srv>
- <b8a32e3c-c083-20de-16d1-f628b02b739b@huawei.com>
- <ZCYcJos4MLBvpP9/@MiWiFi-R3L-srv>
-From: "chenjiahao (C)" <chenjiahao16@huawei.com>
-In-Reply-To: <ZCYcJos4MLBvpP9/@MiWiFi-R3L-srv>
-X-Originating-IP: [10.67.108.26]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20230322094820.24738-3-walker.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_043655_040738_F02D3898 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20230331_050428_870903_726EFB0C 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,70 +77,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 22-03-23, 17:48, Walker Chen wrote:
+> Add DMA reset operation in device probe and use different configuration
+> on CH_CFG registers according to match data. Update all uses of
+> of_device_is_compatible with of_device_get_match_data.
+> 
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> ---
+>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 38 ++++++++++++++++---
+>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
+>  2 files changed, 34 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> index 4169e1d7d5ca..6cfcb541d8c3 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> @@ -21,10 +21,12 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_device.h>
+>  #include <linux/of_dma.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/property.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
+>  
+> @@ -46,6 +48,10 @@
+>  	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
+>  	DMA_SLAVE_BUSWIDTH_64_BYTES)
+>  
+> +#define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
+> +#define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
+> +#define AXI_DMA_FLAG_USE_CFG2		BIT(2)
+> +
+>  static inline void
+>  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
+>  {
+> @@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>  
+>  	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+>  		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+> -	if (chan->chip->dw->hdata->reg_map_8_channels) {
+> +	if (chan->chip->dw->hdata->reg_map_8_channels &&
+> +	    !chan->chip->dw->hdata->use_cfg2) {
 
-On 2023/3/31 7:32, Baoquan He wrote:
-> On 03/30/23 at 09:40pm, chenjiahao (C) wrote:
-> ......
->> Agreed, I will clean this up later in next version.
->>>> +		if (ret || !crash_size)
->>>> +			return;
->>>> +
->>>> +		/*
->>>> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
->>>> +		 * is passed and high memory is reserved successful.
->>>> +		 */
->>>> +		ret = parse_crashkernel_low(boot_command_line, 0, &crash_low_size, &crash_base);
->>>> +		if (ret == -ENOENT)
->>>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
->>>> +		else if (ret)
->>>> +			return;
->>>> +
->>>> +		search_start = dma32_phys_limit;
->>>> +	} else if (ret || !crash_size) {
->>>> +		/* Invalid argument value specified */
->>>>    		return;
->>>> +	}
->>>>    	crash_size = PAGE_ALIGN(crash_size);
->>>> @@ -1201,16 +1246,26 @@ static void __init reserve_crashkernel(void)
->>>>    	 */
->>>>    	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
->>>>    					       search_start,
->>>> -					       min(search_end, (unsigned long) SZ_4G));
->>>> +					       min(search_end, (unsigned long)dma32_phys_limit));
->>>>    	if (crash_base == 0) {
->>> The above conditional check isn't right. If crashkernel=size@offset
->>> specified, the reservation failure won't trigger retry. This seems to be
->>> originally introduced by old commit, while this need be fixed firstly.
->> Just a little curious about the rule to cope with this specific case. If
->> "crashkernel=size@offset" was passed
->>
->> but reserve failed, should try again to allocate in high memory, regardless
->> the specified size@offset,
->>
->> or just throw a warning and return? Since I noticed the current logic here
->> on Arm64 is to check if !fixed_base first
-> Yeah, we need mark the "crashkernel=size@offset" case and avoid to
-> retry. Because you won't succeed if  memblock has already failed to
-> reserve an unavailable memory region, retry is meaningless. This has
-> been done in x86, arm64.
+I think this will break existing users.. 
 
-Make sense, thanks.
+This is set for reg_map_8_channels && use_cfg2, latter being set only
+for new controller, so what about existing users of these bits?
 
-Actually, in my previous tests, the result in this case is the same
-as expectation, i.e. when allocating "crashkernel=size@offset" failed
-on low memory, it would retry but return on failure. Since the
-search_end is assigned with offset + size, which is lower than DMA32
-limit, the second allocation is definitely invalid.
+>  		cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+>  			 config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+>  			 config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+> @@ -1367,10 +1374,11 @@ static int parse_device_properties(struct axi_dma_chip *chip)
+>  
+>  static int dw_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *node = pdev->dev.of_node;
+>  	struct axi_dma_chip *chip;
+>  	struct dw_axi_dma *dw;
+>  	struct dw_axi_dma_hcfg *hdata;
+> +	struct reset_control *resets;
+> +	unsigned int flags;
+>  	u32 i;
+>  	int ret;
+>  
+> @@ -1398,12 +1406,25 @@ static int dw_probe(struct platform_device *pdev)
+>  	if (IS_ERR(chip->regs))
+>  		return PTR_ERR(chip->regs);
+>  
+> -	if (of_device_is_compatible(node, "intel,kmb-axi-dma")) {
+> +	flags = (uintptr_t)of_device_get_match_data(&pdev->dev);
+> +	if (flags & AXI_DMA_FLAG_HAS_APB_REGS) {
+>  		chip->apb_regs = devm_platform_ioremap_resource(pdev, 1);
+>  		if (IS_ERR(chip->apb_regs))
+>  			return PTR_ERR(chip->apb_regs);
+>  	}
+>  
+> +	if (flags & AXI_DMA_FLAG_HAS_RESETS) {
+> +		resets = devm_reset_control_array_get_exclusive(&pdev->dev);
+> +		if (IS_ERR(resets))
+> +			return PTR_ERR(resets);
+> +
+> +		ret = reset_control_deassert(resets);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
+> +
+>  	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
+>  	if (IS_ERR(chip->core_clk))
+>  		return PTR_ERR(chip->core_clk);
+> @@ -1554,8 +1575,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
+>  };
+>  
+>  static const struct of_device_id dw_dma_of_id_table[] = {
+> -	{ .compatible = "snps,axi-dma-1.01a" },
+> -	{ .compatible = "intel,kmb-axi-dma" },
+> +	{
+> +		.compatible = "snps,axi-dma-1.01a"
+> +	}, {
+> +		.compatible = "intel,kmb-axi-dma",
+> +		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
+> +	}, {
+> +		.compatible = "starfive,jh7110-axi-dma",
+> +		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
+> +	},
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> index e9d5eb0fd594..eb267cb24f67 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> @@ -33,6 +33,7 @@ struct dw_axi_dma_hcfg {
+>  	/* Register map for DMAX_NUM_CHANNELS <= 8 */
+>  	bool	reg_map_8_channels;
+>  	bool	restrict_axi_burst_len;
+> +	bool	use_cfg2;
+>  };
+>  
+>  struct axi_dma_chan {
+> -- 
+> 2.17.1
 
-But for sure, to make the code easy to read and eradicate other
-possible corner cases, I will check if !fixed_base first on retry.
-
->
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
