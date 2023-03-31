@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F54DC761AF
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 10:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CB6C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 10:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiBYkEkUd1MXD12XELwELDpsELVwBRWIQKLHU3jmIXA=; b=gGNRkGLfIqp1FaeIfN9Ubkdsqu
-	c0WhGlCT9maAjvYDJ9rFQbhUAYTyxMM7IYJARUmTVRIFVE0yupgneLejNf3J5K7sHFmVC/qSfm1aX
-	4AaEN95+QSgcfCe7eR1yZxVAIradsWb0922Djovq/i7ER6xJhjexl43ziLWmBCtTusCgOJKepoIXj
-	kcN7s7XzPcdPiw55D51CXubQ/3Nf49bRM2fBLDZzcoxDjzyc6hfEHtY2ByuOKqHD3odvxOsRMYTGQ
-	RUOp+sDVnUl1V/vloEtOjUhZPchfZlaP6TSnjo/Mgf81MMzZ1OZTK0qj+WLHTq2jXgaEeBCoJufBI
-	6L90t2dw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zVLvkzS0JbEJdRGjmHXrbbZklgLm/N97k3hzxxViJhc=; b=p9MztIYph0427Y
+	DJvn/ZlqqVqxOqak35nepNgEd43TcDbkfeSbxhxUcvucKniIZkcWjMwr3f4XyGERMoyI+n7QggM4r
+	ihPPnIdhM4//hFeK9Fr4UOVuhV8Qad1pJuvJpOe2UwCEhGv7RPIPfFEczOKX5ZddnQ4BhhbKUcWgm
+	u7zP64ctebIUJhAq8X63dce/26tCB+2E84zdpichChzOUyKEyUzj7/yaPI8nX2JWAauEXZWtoJBce
+	SM96w9XZ9GK40cEuzPPLojYpG1LtTRVYR+FIF1BtDOJsxJ8S9qcHf/pKHqpm/8N9vowivA0IG5gGW
+	20GlCtxIVUuqqe2kjU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piCPw-0070b9-15;
-	Fri, 31 Mar 2023 10:55:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1piCQf-0070iz-0R;
+	Fri, 31 Mar 2023 10:56:21 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piCPt-0070aV-1I
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 10:55:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1680260133; x=1711796133;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fmFXNjlDNk/NwlvKemf9I4yf1T0EbLEfb7ypDG0gvOg=;
-  b=uQKKseIUQkDZ04FpXyOA/S3+SFUvc0Rlayxz61CACuNAtH3wWWyT5cEN
-   Fvlkw7Kol6kWxXPxKSbT/h7hllwyohcAyczjAVJbgSHxgXoIhPsngLrYz
-   7U1ps+ve7w0IJGpsL945k3TsvzGIcUcd7D4PEA9Op3x93yUE7sQquz3T6
-   UsT6d6a1o/YDYbIrmHJu1CfRs+Na7Yft8wtB4o5T5Xh7BaqSpeQ4ZY7+u
-   GPn/hhqh7Espa/scTduds12+iZONMU7CH+dY4LC0tNR1bNx37UOihUHBK
-   7ggDLZJ4bI4JQRnlC99fO5pFQf6dpbf78dKmA5lutm0+6M79/EA3uJUgo
-   A==;
-X-IronPort-AV: E=Sophos;i="5.98,307,1673938800"; 
-   d="asc'?scan'208";a="207170249"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 31 Mar 2023 03:55:32 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 31 Mar 2023 03:55:31 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 31 Mar 2023 03:55:29 -0700
-Date: Fri, 31 Mar 2023 11:55:15 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-CC: Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, Heiko =?iso-8859-1?Q?St=FCbner?=
-	<heiko@sntech.de>, guoren <guoren@kernel.org>, Andrew Jones
-	<ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Samuel
- Holland <samuel@sholland.org>, <linux-riscv@lists.infradead.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Linux-Renesas
-	<linux-renesas-soc@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>,
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
- pointers for cache management
-Message-ID: <50e932df-cb20-4679-b911-fd9d7f0f2c1d@spud>
-References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <6ca5941a-8803-477d-8b40-17292decc5af@app.fastmail.com>
- <CA+V-a8tkiDXG37YjFKPxrGoXVQMVBemMdBcfb+uUDzBofOWH_A@mail.gmail.com>
+	id 1piCQY-0070hY-3B;
+	Fri, 31 Mar 2023 10:56:19 +0000
+Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1piCQW-00034D-HX; Fri, 31 Mar 2023 12:56:12 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org,
+ atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Han-Kuan Chen <hankuan.chen@sifive.com>, Andy Chiu <andy.chiu@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+ =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Andrew Bresticker <abrestic@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Andy Chiu <andy.chiu@sifive.com>
+Subject:  Re: [PATCH -next v17 05/20] riscv: Disable Vector Instructions for kernel
+ itself
+Date: Fri, 31 Mar 2023 12:56:11 +0200
+Message-ID: <3227690.44csPzL39Z@diego>
+In-Reply-To: <20230327164941.20491-6-andy.chiu@sifive.com>
+References:  <20230327164941.20491-1-andy.chiu@sifive.com>
+ <20230327164941.20491-6-andy.chiu@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <CA+V-a8tkiDXG37YjFKPxrGoXVQMVBemMdBcfb+uUDzBofOWH_A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_035533_452471_DFE34740 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20230331_035618_403169_0A53E248 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +69,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6963101298250748719=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6963101298250748719==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CSbvtOdTMuQLjL4r"
-Content-Disposition: inline
+Am Montag, 27. M=E4rz 2023, 18:49:25 CEST schrieb Andy Chiu:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> =
 
---CSbvtOdTMuQLjL4r
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> Disable vector instructions execution for kernel mode at its entrances.
 
-On Fri, Mar 31, 2023 at 11:37:30AM +0100, Lad, Prabhakar wrote:
+nit: Might be nice to just add the simple explanation from the code-
+comments that this helps for example to find illegal vector uses in the
+kernel space, similar to the fpu.
 
-> > As far as I recall, the #else path here was needed previously
-> > to work around a binutils dependency, but with the current
-> > code, it should be possible to just always enable
-> > CONFIG_RISCV_ISA_ZICBOM when RISCV_DMA_NONCOHERENT is used.
-> >
-> Are you suggesting something like below?
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4dadf35ac721..a55dee98ccf8 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -242,6 +242,7 @@ config RISCV_DMA_NONCOHERENT
->         select ARCH_HAS_SYNC_DMA_FOR_CPU
->         select ARCH_HAS_SYNC_DMA_FOR_DEVICE
->         select DMA_DIRECT_REMAP
-> +       select RISCV_ISA_ZICBOM
->=20
->  config AS_HAS_INSN
->         def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma)
-> t0$(comma) t0$(comma) zero)
-> @@ -465,7 +466,6 @@ config RISCV_ISA_ZICBOM
->         depends on MMU
->         depends on RISCV_ALTERNATIVE
->         default y
-> -       select RISCV_DMA_NONCOHERENT
->         help
->            Adds support to dynamically detect the presence of the ZICBOM
->            extension (Cache Block Management Operations) and enable its
->
+> =
 
-Does that actually work? I don't think it does.
-If you try to enable RISCV_ISA_ZICBOM then you won't get
-RISC_DMA_NONCOHERENT turned on. Run menuconfig and disable support for
-Renesas, SiFive and T-Head SoCs & you can replicate.
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-I think one of RISCV_ISA_ZICBOM and RISCV_DMA_NONCOHERENT should just be
-dropped, although I don't know which one to pick!
-Making RISCV_DMA_NONCOHERENT user selectable probably makes the most
-sense.
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+> ---
+>  arch/riscv/kernel/entry.S |  6 +++---
+>  arch/riscv/kernel/head.S  | 12 ++++++------
+>  2 files changed, 9 insertions(+), 9 deletions(-)
+> =
+
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 3fbb100bc9e4..e9ae284a55c1 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -48,10 +48,10 @@ _save_context:
+>  	 * Disable user-mode memory access as it should only be set in the
+>  	 * actual user copy routines.
+>  	 *
+> -	 * Disable the FPU to detect illegal usage of floating point in kernel
+> -	 * space.
+> +	 * Disable the FPU/Vector to detect illegal usage of floating point
+> +	 * or vector in kernel space.
+>  	 */
+> -	li t0, SR_SUM | SR_FS
+> +	li t0, SR_SUM | SR_FS_VS
+>  =
+
+>  	REG_L s0, TASK_TI_USER_SP(tp)
+>  	csrrc s1, CSR_STATUS, t0
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index 3fd6a4bd9c3e..e16bb2185d55 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -140,10 +140,10 @@ secondary_start_sbi:
+>  	.option pop
+>  =
+
+>  	/*
+> -	 * Disable FPU to detect illegal usage of
+> -	 * floating point in kernel space
+> +	 * Disable FPU & VECTOR to detect illegal usage of
+> +	 * floating point or vector in kernel space
+>  	 */
+> -	li t0, SR_FS
+> +	li t0, SR_FS_VS
+>  	csrc CSR_STATUS, t0
+>  =
+
+>  	/* Set trap vector to spin forever to help debug */
+> @@ -234,10 +234,10 @@ pmp_done:
+>  .option pop
+>  =
+
+>  	/*
+> -	 * Disable FPU to detect illegal usage of
+> -	 * floating point in kernel space
+> +	 * Disable FPU & VECTOR to detect illegal usage of
+> +	 * floating point or vector in kernel space
+>  	 */
+> -	li t0, SR_FS
+> +	li t0, SR_FS_VS
+>  	csrc CSR_STATUS, t0
+>  =
+
+>  #ifdef CONFIG_RISCV_BOOT_SPINWAIT
+> =
 
 
---CSbvtOdTMuQLjL4r
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCa8EwAKCRB4tDGHoIJi
-0gv8AQDmXopbmBtrwgpdT70H1KpMBgB8DRztldVostbpyT7KpAEA2JJggZT9ayUa
-tSrS0FeAl7Q+HC4ExyMuP+/iqLDQLAQ=
-=rDeY
------END PGP SIGNATURE-----
-
---CSbvtOdTMuQLjL4r--
 
 
---===============6963101298250748719==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6963101298250748719==--
-
