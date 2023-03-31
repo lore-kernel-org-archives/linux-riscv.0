@@ -4,53 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49A0C761A6
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 16:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B605C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 16:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SNjuiSWoGkRhXCodl0QJoYNNIFqLtpl4jL8AqkRkx5U=; b=pljfo/JNvEJGsq
-	ezNI/JN4UaNlqQ2Iv1tDk3DDzYTrijCvjV33hEqxEOoOKvzxEsV3Mzjxg+bgTA7i9ozvF80NKd0Rl
-	Rr7qlRSMxTRdrokWywP3OV0RkxVWDbTC7RVPj7+s3dnSZ2JtbWXtKJUz4RiS3wc+qNMFCEgUWsFCG
-	z0Kh3cpQ20rrW0m19pqS9F2RRs7L0jgSOhgp9M4bN5StQ2tcm4ivvodH2R6t8WVKeZW4thrn8QPGl
-	uX500o2HptmJC7nebOLHzMwoFPyLntTwSF0KA3uJU0452aN/DHLGrWrBIsdI5C46efFPa20zwlRCg
-	ii/McVssn5yGYWssYM7g==;
+	List-Owner; bh=jKoUeqA3s/EnoS12/mr/7SE53gScjEYguAoPH39s79g=; b=nIAXJWz7aZcEFT
+	AwsYzCSSfaj2h6QQgUzJwTbCFwcuct/JhQXiYHU+yIK+/M3qsuoNHXRaKhojudpgr1p3wLjKkAnej
+	T0PBtuE95whn4BCgt/t63w519Tz5DxA2ajmb+qF2m2te/e2G/OAWhtfyVMZFdj59AsMNzqhVOzzkZ
+	i9wlCLdNwBkCYHiYuPisatnk/oFgF4UYpQmXU8zXmf8cEyK5EQLOLaJTdJAZzYM21oUaPaIxwNjsF
+	XQiQlkHoQuc7h2H/qva5OsftKqTjblFfMffXyYe+1BgSS+eGqs+9NhVW95USq/Ekj/Uw9UnzCOcKQ
+	MS+EGyyY3ztV4ddZt+Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piHEJ-00809M-2k;
-	Fri, 31 Mar 2023 16:03:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1piI0n-008Cdr-3A;
+	Fri, 31 Mar 2023 16:54:01 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piHEF-00807r-0K;
-	Fri, 31 Mar 2023 16:03:53 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1piHE8-0004hH-Uv; Fri, 31 Mar 2023 18:03:44 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org,
- atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
- Vincent Chen <vincent.chen@sifive.com>, Andy Chiu <andy.chiu@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Anup Patel <apatel@ventanamicro.com>,
- Atish Patra <atishp@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>
-Subject:  Re: [PATCH -next v17 03/20] riscv: Add new csr defines related to vector
- extension
-Date: Fri, 31 Mar 2023 18:03:44 +0200
-Message-ID: <3030152.CbtlEUcBR6@diego>
-In-Reply-To: <20230327164941.20491-4-andy.chiu@sifive.com>
-References:  <20230327164941.20491-1-andy.chiu@sifive.com>
- <20230327164941.20491-4-andy.chiu@sifive.com>
+	id 1piI0k-008Cd0-0B;
+	Fri, 31 Mar 2023 16:53:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4E972B8310F;
+	Fri, 31 Mar 2023 16:53:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 457CDC433D2;
+	Fri, 31 Mar 2023 16:53:48 +0000 (UTC)
+Date: Fri, 31 Mar 2023 17:53:45 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 00/21] dma-mapping: unify support for cache flushes
+Message-ID: <ZCcQGX/i8xBPiG7T@arm.com>
+References: <20230327121317.4081816-1-arnd@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230327121317.4081816-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_090351_161445_F5EC33C2 
-X-CRM114-Status: UNSURE (   6.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230331_095358_250840_783CFE26 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,33 +86,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 27. M=E4rz 2023, 18:49:23 CEST schrieb Andy Chiu:
-> From: Greentime Hu <greentime.hu@sifive.com>
-> =
+On Mon, Mar 27, 2023 at 02:12:56PM +0200, Arnd Bergmann wrote:
+> Another difference that I do not address here is what cache invalidation
+> does for partical cache lines. On arm32, arm64 and powerpc, a partial
+> cache line always gets written back before invalidation in order to
+> ensure that data before or after the buffer is not discarded. On all
+> other architectures, the assumption is cache lines are never shared
+> between DMA buffer and data that is accessed by the CPU.
 
-> Follow the riscv vector spec to add new csr numbers.
-> =
+I don't think sharing the DMA buffer with other data is safe even with
+this clean+invalidate on the unaligned cache. Mapping the DMA buffer as
+FROM_DEVICE or BIDIRECTIONAL can cause the shared cache line to be
+evicted and override the device written data. This sharing only works if
+the CPU guarantees not to dirty the corresponding cache line.
 
-> Acked-by: Guo Ren <guoren@kernel.org>
-> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+I'm fine with removing this partial cache line hack from arm64 as it's
+not safe anyway. We'll see if any driver stops working. If there's some
+benign sharing (I wouldn't trust it), the cache cleaning prior to
+mapping and invalidate on unmap would not lose any data.
 
-Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-
-
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
