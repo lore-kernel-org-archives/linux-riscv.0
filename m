@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632B8C6FD18
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2992AC76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kSurang5uunQ00GmzKxnRMrmeQM44Llip9Vr27wahj0=; b=gM1cnzwqkiLfGk
-	hJWlAAPb7UJjX414vklWOUzGuyZvyBU/mnnb3o0S+ex2z+AmFDZNu7NezdQaogqCAZTYVq1zk+o4A
-	HKLQ7z3hSGn4o0QIuDchbX6LM81+aEpenY2kKFDMqtub+h12enjhXvljnqRVStqA+LB00kRYG/Nxn
-	qLc89NDUL7XG8ssrnPzAIyWI+rZpSzD1i2ezAwaejJjy5RDUat7z9ip7j6pkDDjTPBgGMb6eC3qUU
-	yqpq8rYqQGniRVnKLHNox+aF6ocaAUlO8HNN/WUwURFMiwM+/XAxV2+J7nUsRCTDNBNxdQdacI77c
-	BEcOY5VRpxiKgz0LXW4w==;
+	List-Owner; bh=XuY+A37eB97HwZUZ90iZ4zwJaZj3CYMZkcOTbcvf4nI=; b=G/YxJBQulkT3JK
+	SVdcrhKqcwbLWEby2z8NyZyTEJgcDrJVVih44v8qDmN5QgjY3bBjTrcHaZ+1a4E5AT5B0bdyDvGF0
+	QYWfrvrE8dV8QesZcHkrsX2KXdPRxecTWYPhwxh8FoM90wq8qB1OfMK0P4cx/Hr9XA02+fj4staLO
+	ShuLjqWzoU+QMEPJ35vRHP/OYwllwRtnhbbXhEYglON7mcerWWtFFIpxCTR7N0xunObu9qhAlYXOr
+	zrxTEBelgnh+98axC3XtvGanbzai4wvE9kqIu+mrh+18H5yaWxya3ubbVIoiLuPwfhsPEcXaJT4ak
+	6s5y1NXJUGHmHWRnrAxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piDUd-007CkO-1R;
-	Fri, 31 Mar 2023 12:04:31 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1piDcA-007ELX-2l;
+	Fri, 31 Mar 2023 12:12:18 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piDUa-007CjD-1h
+	id 1piDc8-007EKk-1s
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 12:04:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E3569B82D42;
-	Fri, 31 Mar 2023 12:04:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F19C433EF;
-	Fri, 31 Mar 2023 12:04:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680264265;
-	bh=h1nh1rfKygeOBSqs+0Qh9w3Xt4TkX0FJXwvf6qPEE+o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Kk9Z/i9ElUX9QEmYvLZIE/AJtI7AN4mOBicdZFecBEy48TLLXk9kJBXeNoRDzLk0Y
-	 1+427hDffWnfqqKPZ6wlFNn+xgcGYXlB8P1xWLF1E3TmkRKVFl6bBtYZ7xMddwjG9A
-	 1Cbzeb8UoPn+Gtml5Y/4f3Wq5/vdnCfdBMmPFcxZOSoGvU8hkrAfHoUe/tlxfYROrF
-	 9H/jKklZSgwG/W1aswyJiuf0tjD1LK6UT8cdi/4qKGdErPaiP7GSbG5G56skUxZege
-	 ZO/K6XSdpv/AvZWBOs6Y68dGnPUSxp8PcC8Cs+UQRYyDKDom79yWWljodBsogn0ayx
-	 v8FGmn8e+jjGg==
-Date: Fri, 31 Mar 2023 17:34:21 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v6 2/4] dmaengine: dw-axi-dmac: Add support for StarFive
- JH7110 DMA
-Message-ID: <ZCbMRdSCf5vKUk/c@matsya>
-References: <20230322094820.24738-1-walker.chen@starfivetech.com>
- <20230322094820.24738-3-walker.chen@starfivetech.com>
+	Fri, 31 Mar 2023 12:12:17 +0000
+Received: by mail-il1-x135.google.com with SMTP id q5so6011826ilg.12
+        for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 05:12:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1680264735; x=1682856735;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TOa0WDEClE+kNIsNikxxp7PL+bWJ4DGdBDO+mmYy+aM=;
+        b=F1QoNAEfg2cAj7U4wmA8PsIz83ZH1hMOPIj90UszYnqjjAXygAdESm02pWCWaLiN03
+         +N26IGPZ6VAcXGOGtkaT3lmgpEPrZ7XYH1kH+HUdZG0zONOdhYJd40NsnSiaRvY+wCwQ
+         SF2oSruQD3hw3pY5L2mFY94IuVdZmjRwXqF0fxVoGsTCIA+udLKqJlEuhhVxI/C+CS6j
+         bKjm1Os3GsIJuKn+jlib5867fTgj3pMjjPFuCeDpy8SqeuSSgXCX6Kx1gInm/A6cxy2h
+         MUkql7GaUJltCFPrGYzIY5a7/kVOl9NmjiG8G8UKkEt1BOS/RSl+EdUjg8kewmnrJPA6
+         cLIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680264735; x=1682856735;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TOa0WDEClE+kNIsNikxxp7PL+bWJ4DGdBDO+mmYy+aM=;
+        b=Heuoih6t2QFvGXJh8uIXuQ8qJo2Cl34f7Y2GcGzY9cQmX11cqm8k8mrlSt42QYQitZ
+         /cDw6qVU4F55NVSb7OF0sxO7w3jaYbyTPmUMuxvKVMJtOCtFDILsD4wevYZ8MYU5xDOp
+         dQxKz4gcAmX4OVUn6SQn6u27F2/GBYWNkhEpskjRB6Q8Lorv7IR4pVHac555Ei3GsVuy
+         QjYgODuzVBt+ETNcGnjYwQ0i37SCe9455rpukpr6R+MS06lAZT/sj6cTTo/ZvRrbT/6q
+         h2C4hSvcFkN69YviCOGN/Gh8qaGQRaOia/KAoPUGp98EalvmGywLt6+OBYGZZRaUTpov
+         Yn+w==
+X-Gm-Message-State: AAQBX9eXC4AyXMsRZJKTwtOMSsOXN+e6MdPaUh350d8cJYlSzNV81yA0
+	B0tpuYRXd1EbT/PV14FaFIOQK6s+QwRMjTcNuGU=
+X-Google-Smtp-Source: AKy350a6CpiHAw/8PBeQohWWJaeNroiWBab+H6eZzow8rf2zzcfKecGDt6RIbJ/ASWV/e1FauShuiLz6VaQ/PBseZ88=
+X-Received: by 2002:a05:6e02:1047:b0:325:dd36:7451 with SMTP id
+ p7-20020a056e02104700b00325dd367451mr12904804ilj.1.1680264735446; Fri, 31 Mar
+ 2023 05:12:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230322094820.24738-3-walker.chen@starfivetech.com>
+References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <6ca5941a-8803-477d-8b40-17292decc5af@app.fastmail.com> <CA+V-a8tkiDXG37YjFKPxrGoXVQMVBemMdBcfb+uUDzBofOWH_A@mail.gmail.com>
+ <1c441d20-951d-407b-90ba-4cda3b0505b2@app.fastmail.com>
+In-Reply-To: <1c441d20-951d-407b-90ba-4cda3b0505b2@app.fastmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 31 Mar 2023 13:11:49 +0100
+Message-ID: <CA+V-a8t_kozAobT028-RN39uoXcd7-0oJAhAR24MEzmoLVKX8Q@mail.gmail.com>
+Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
+ pointers for cache management
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: "Conor.Dooley" <conor.dooley@microchip.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	guoren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, 
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_050428_870903_726EFB0C 
+X-CRM114-CacheID: sfid-20230331_051216_640780_FAEFAC8D 
 X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,143 +95,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22-03-23, 17:48, Walker Chen wrote:
-> Add DMA reset operation in device probe and use different configuration
-> on CH_CFG registers according to match data. Update all uses of
-> of_device_is_compatible with of_device_get_match_data.
-> 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-> ---
->  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 38 ++++++++++++++++---
->  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
->  2 files changed, 34 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index 4169e1d7d5ca..6cfcb541d8c3 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -21,10 +21,12 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_device.h>
->  #include <linux/of_dma.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/property.h>
-> +#include <linux/reset.h>
->  #include <linux/slab.h>
->  #include <linux/types.h>
->  
-> @@ -46,6 +48,10 @@
->  	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
->  	DMA_SLAVE_BUSWIDTH_64_BYTES)
->  
-> +#define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
-> +#define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
-> +#define AXI_DMA_FLAG_USE_CFG2		BIT(2)
-> +
->  static inline void
->  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
->  {
-> @@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
->  
->  	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
->  		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
-> -	if (chan->chip->dw->hdata->reg_map_8_channels) {
-> +	if (chan->chip->dw->hdata->reg_map_8_channels &&
-> +	    !chan->chip->dw->hdata->use_cfg2) {
-
-I think this will break existing users.. 
-
-This is set for reg_map_8_channels && use_cfg2, latter being set only
-for new controller, so what about existing users of these bits?
-
->  		cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
->  			 config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
->  			 config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
-> @@ -1367,10 +1374,11 @@ static int parse_device_properties(struct axi_dma_chip *chip)
->  
->  static int dw_probe(struct platform_device *pdev)
->  {
-> -	struct device_node *node = pdev->dev.of_node;
->  	struct axi_dma_chip *chip;
->  	struct dw_axi_dma *dw;
->  	struct dw_axi_dma_hcfg *hdata;
-> +	struct reset_control *resets;
-> +	unsigned int flags;
->  	u32 i;
->  	int ret;
->  
-> @@ -1398,12 +1406,25 @@ static int dw_probe(struct platform_device *pdev)
->  	if (IS_ERR(chip->regs))
->  		return PTR_ERR(chip->regs);
->  
-> -	if (of_device_is_compatible(node, "intel,kmb-axi-dma")) {
-> +	flags = (uintptr_t)of_device_get_match_data(&pdev->dev);
-> +	if (flags & AXI_DMA_FLAG_HAS_APB_REGS) {
->  		chip->apb_regs = devm_platform_ioremap_resource(pdev, 1);
->  		if (IS_ERR(chip->apb_regs))
->  			return PTR_ERR(chip->apb_regs);
->  	}
->  
-> +	if (flags & AXI_DMA_FLAG_HAS_RESETS) {
-> +		resets = devm_reset_control_array_get_exclusive(&pdev->dev);
-> +		if (IS_ERR(resets))
-> +			return PTR_ERR(resets);
-> +
-> +		ret = reset_control_deassert(resets);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	chip->dw->hdata->use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);
-> +
->  	chip->core_clk = devm_clk_get(chip->dev, "core-clk");
->  	if (IS_ERR(chip->core_clk))
->  		return PTR_ERR(chip->core_clk);
-> @@ -1554,8 +1575,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
->  };
->  
->  static const struct of_device_id dw_dma_of_id_table[] = {
-> -	{ .compatible = "snps,axi-dma-1.01a" },
-> -	{ .compatible = "intel,kmb-axi-dma" },
-> +	{
-> +		.compatible = "snps,axi-dma-1.01a"
-> +	}, {
-> +		.compatible = "intel,kmb-axi-dma",
-> +		.data = (void *)AXI_DMA_FLAG_HAS_APB_REGS,
-> +	}, {
-> +		.compatible = "starfive,jh7110-axi-dma",
-> +		.data = (void *)(AXI_DMA_FLAG_HAS_RESETS | AXI_DMA_FLAG_USE_CFG2),
-> +	},
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> index e9d5eb0fd594..eb267cb24f67 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> @@ -33,6 +33,7 @@ struct dw_axi_dma_hcfg {
->  	/* Register map for DMAX_NUM_CHANNELS <= 8 */
->  	bool	reg_map_8_channels;
->  	bool	restrict_axi_burst_len;
-> +	bool	use_cfg2;
->  };
->  
->  struct axi_dma_chan {
-> -- 
-> 2.17.1
-
--- 
-~Vinod
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMzEsIDIwMjMgYXQgMTE6NDXigK9BTSBBcm5kIEJlcmdtYW5uIDxhcm5kQGFy
+bmRiLmRlPiB3cm90ZToKPgo+IE9uIEZyaSwgTWFyIDMxLCAyMDIzLCBhdCAxMjozNywgTGFkLCBQ
+cmFiaGFrYXIgd3JvdGU6Cj4gPiBPbiBUaHUsIE1hciAzMCwgMjAyMyBhdCAxMDozNOKAr1BNIEFy
+bmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+IHdyb3RlOgo+ID4KPiA+PiBJdCBhbHNvIHNlZW1z
+IHdyb25nIHRvIGhhdmUgdGhlIGZhbGxiYWNrIGJlIHRvIGRvIG5vdGhpbmcKPiA+PiB3aGVuIHRo
+ZSBwb2ludGVyIGlzIE5VTEwsIHNpbmNlIHRoYXQgY2Fubm90IGFjdHVhbGx5IHdvcmsKPiA+PiB3
+aGVuIGEgZGV2aWNlIGlzIG5vdCBjYWNoZSBjb2hlcmVudC4KPiA+Pgo+ID4gSWYgdGhlIGRldmlj
+ZSBpcyBub24gY2FjaGUgY29oZXJlbnQgYW5kIGlmIGl0IGRvZXNuJ3Qgc3VwcG9ydCBaSUNCT00K
+PiA+IElTQSBleHRlbnNpb24gdGhlIGRldmljZSB3b24ndCB3b3JrIGFueXdheS4gU28gbm9uLWNh
+Y2hlIGNvaGVyZW50Cj4gPiBkZXZpY2VzIHVudGlsIHRoZXkgaGF2ZSB0aGVpciBDTU8gY29uZmln
+IGVuYWJsZWQgd29uJ3Qgd29yayBhbnl3YXkuIFNvCj4gPiBJIGRpZG4ndCBzZWUgYW55IGJlbmVm
+aXQgaW4gZW5hYmxpbmcgWklDQk9NIGJ5IGRlZmF1bHQuIFBsZWFzZSBsZXQgbWUKPiA+IGtub3cg
+aWYgSSBhbSBtaXN1bmRlcnN0YW5kaW5nLgo+Cj4gVHdvIHRoaW5nczoKPgo+IC0gSGF2aW5nIGEg
+YnJva2VuIG1hY2hpbmUgY3Jhc2ggd2l0aCBpbiBpbnZhbGlkIGluc3RydWN0aW9uCj4gICBleGNl
+cHRpb24gaXMgYmV0dGVyIHRoYW4gaGF2aW5nIGl0IHJ1biBpbnRvIHNpbGVudCBkYXRhCj4gICBj
+b3JydXB0aW9uLgo+Cj4gLSBhIGNvcnJlY3RseSBwcmVkaWN0ZWQgYnJhbmNoIGlzIHR5cGljYWxs
+eSBmYXN0ZXIgdGhhbiBhbgo+ICAgaW5kaXJlY3QgZnVuY3Rpb24gY2FsbCwgc28gdGhlIGZhbGxi
+YWNrIHRvIHppY2JvbSBtYWtlcyB0aGUKPiAgIGV4cGVjdGVkIChhdCBsZWFzdCBpbiB0aGUgZnV0
+dXJlKSBjYXNlIHRoZSBmYXN0IG9uZS4KPgpPaywgdGhhbmsgeW91IGZvciB0aGUgY2xhcmlmaWNh
+dGlvbi4gSSdsbCBkZWZhdWx0IHRvIHppY2JvbS4KCj4gPiBAQCAtNDY1LDcgKzQ2Niw2IEBAIGNv
+bmZpZyBSSVNDVl9JU0FfWklDQk9NCj4gPiAgICAgICAgIGRlcGVuZHMgb24gTU1VCj4gPiAgICAg
+ICAgIGRlcGVuZHMgb24gUklTQ1ZfQUxURVJOQVRJVkUKPiA+ICAgICAgICAgZGVmYXVsdCB5Cj4g
+PiAtICAgICAgIHNlbGVjdCBSSVNDVl9ETUFfTk9OQ09IRVJFTlQKPiA+ICAgICAgICAgaGVscAo+
+ID4gICAgICAgICAgICBBZGRzIHN1cHBvcnQgdG8gZHluYW1pY2FsbHkgZGV0ZWN0IHRoZSBwcmVz
+ZW5jZSBvZiB0aGUgWklDQk9NCj4gPiAgICAgICAgICAgIGV4dGVuc2lvbiAoQ2FjaGUgQmxvY2sg
+TWFuYWdlbWVudCBPcGVyYXRpb25zKSBhbmQgZW5hYmxlIGl0cwo+ID4KPiA+IEJ1dCB3aGF0IGlm
+IHRoZSBwbGF0Zm9ybSBkb2Vzbid0IGhhdmUgdGhlIFpJQ0JPTSBJU0EgZXh0ZW5zaW9uPwo+Cj4g
+VGhlbiBpdCBuZWVkcyB0byByZWdpc3RlciBpdHMgY2FjaGUgb3BlcmF0aW9ucyBiZWZvcmUgdGhl
+IGZpcnN0Cj4gRE1BLCB3aGljaCBpcyBzb21ldGhpbmcgdGhhdCBpdCBzaG91bGQgZG8gYW55d2F5
+LiBXaXRoIHlvdXIKPiBjdXJyZW50IGNvZGUsIGl0IG1heSB3b3JrIGJ5IGFjY2lkZW50IGRlcGVu
+ZGluZyBvbiB0aGUgc3RhdGUgb2YKPiB0aGUgY2FjaGUsIGJ1dCB3aXRoIHRoZSB2ZXJzaW9uIEkg
+c3VnZ2VzdGVkLCBpdCB3aWxsIGVpdGhlciB3b3JrCj4gY29ycmVjdGx5IGFsbCB0aGUgdGltZSBv
+ciBjcmFzaCBpbiBhbiBvYnZpb3VzIHdheSB3aGVuIG1pc2NvbmZpZ3VyZWQuCj4KT2theSwgYWdy
+ZWVkLgoKQ2hlZXJzLApQcmFiaGFrYXIKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
