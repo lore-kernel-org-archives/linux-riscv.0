@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A526EC76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 15:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA330C761A6
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 15:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i45qFVLFQeo73Ym5MGJkTC3q1TV9Rb3Z5UpZZxkk68w=; b=cqbBhAXa650f9u
-	k5t4U28EeFkhp8xyMe/5HYEwzypdi+9F/zte29UgWCgzHLU2xyDnmuV5pdMCmLTiKuHnfCtXQ0bf/
-	3xI4wLzfY1JPYKRJ5HRMnmKFuz+cRDJ7KJsujyK7zSO555sWHrXKeSdsFOeD9tDjO1fOBQAsS5nQh
-	0nVTXsAITW2RExfwsfwnhxDZkS61AbHPPaDgXNZaKnMGIRG8IFrLBpPpcBEVpNVzFhUH6uXaiAhTV
-	2aw22ATNN+q/TahPQMG/cYWjRlBUBd+xHKCAPvu1szlr6qNWYYipvpR3hXbiAu4QRrOQpXUesbVNu
-	3udoLJ9ITWPcy0vaqyTw==;
+	List-Owner; bh=GHlvUzzrrTbC2l5wGTbFdE7nJJtIUgD377Uvj0l09hM=; b=pIHVxDgOF6djlS
+	q9ppaY8ZYuOH1j6NqZmqubXw2uIOd71yLkgZV0p/LB9fncpOCm1KB9pL2kEMO4v2BrowERt1CseCE
+	OyBFEDudVX0UO4ReVLHUqpqYoHpWHKtTECKhVN0GAeOD7GOqCY+L0Tc06qcGZ0roZGyJ7kCOFplyL
+	WHhB6gAbFvhsGFWb9VBd7czv5d5kadL+Wb8uaSZnB2yZe74DsRUOgw2mrNpytq77iVUMgH9EXc50+
+	b+SkOCEdsADJCZypXz+VrNtBO9yA5VjjCNNyKTrceBXzFcRtl1G2jw3ccvtwA7VEJ6EEotk9RR7Q4
+	WrbeS5ikCuoAD6+Zwubw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piGu3-007xTu-0N;
-	Fri, 31 Mar 2023 15:42:59 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1piH65-007zAk-1R;
+	Fri, 31 Mar 2023 15:55:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piGty-007xSP-0e
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 15:42:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4CD58B83090
-	for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 15:42:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83FD0C433AC
-	for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 15:42:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680277370;
-	bh=MDMgoc2IHS3flEDrGytsmQQeZFpux/6WiPc3RwT4puI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KWP9HPhTUvEN7mYuxZPxlkF9Hl4S+oz79fLOt03iQof2x7wP1wOPeSbl9oenZyFrQ
-	 fkDVPvQe5EUtdywvNQCWWcj7+r87TalOf+BPYuacQ2p1R6v/ePP33qPL8LzC+eU2xO
-	 s1W/QtS443bcYDdsN8uY5Cjvf3MzPXY5p4ZFjS3i1w306JKYM5VqXtdK6qe7ySxce9
-	 VJoiB1rjWIUZASVQBZeVMhZYDh00vVW1OSd4xWx1hf69M1b4sdmS+D+f/CinScQgcb
-	 xFZ+rNIpK+I1kT7u0Wj87x17ousfsfA6X04sI5JZXryQjh5NiOquyoDPdKlC+l22La
-	 aywDmtF2nKWAg==
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-17997ccf711so23616298fac.0
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 08:42:50 -0700 (PDT)
-X-Gm-Message-State: AAQBX9dkMeunHu6SSEJLov+4uvdLEhopPbLubExFrksQDNKzuBCwz8kh
-	P6saFfFmd0urV0FKHeQIJKJeL8Ktz2TpXHEnkZY=
-X-Google-Smtp-Source: AKy350ZKdZjJtD7mXFXhuBEd3X3QxuVbk6K1rSdL3mLEnsD4V+CltTewuKSddNWpcoR4U4lyRHFFTL+c+TbiUqnDZcc=
-X-Received: by 2002:a05:6871:2797:b0:17e:9b69:3ee5 with SMTP id
- zd23-20020a056871279700b0017e9b693ee5mr9426869oab.11.1680277369598; Fri, 31
- Mar 2023 08:42:49 -0700 (PDT)
+	id 1piH60-007z8w-16;
+	Fri, 31 Mar 2023 15:55:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gUELt2K1QKph0U/mDlh4dwcj3jRy49Fgp81dawItijs=; b=F86J/lODgmEA0uwbHcY3bvQDIg
+	TgPZqAN80ItsKKu+iPQcuv/pts9DIvFXJeSEZcyq0SOfARV88djehGMYXJuDHo94xmNoUdc8so8TQ
+	lO3DlUKNl0JE1n5lC4OQRNQJ3a+9RGNNtr5VJSUX9rNMXskzfjoEtNIzNUj9gswxqSmuoQ2K/eCd1
+	sHbsLGLpmn7B5oFOttF1NlFGM73bvkK8EdPHfxwwzdfF3QwqoSTJnWaOA3vfMNEshnYYvIU/akmQr
+	wtBcESnlgj18abmkEesn3hmvJxyBrWubIThmP6qLXHE/lCCqgaePhuHTPqwc712P40mYINjGZoZVl
+	F0iXSnJA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60182)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1piH5K-0005f8-U5; Fri, 31 Mar 2023 16:54:38 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1piH5B-0001I3-3X; Fri, 31 Mar 2023 16:54:29 +0100
+Date: Fri, 31 Mar 2023 16:54:29 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>, linux-kernel@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, guoren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S . Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"Conor.Dooley" <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-oxnas@groups.io" <linux-oxnas@groups.io>,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	"linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 20/21] ARM: dma-mapping: split out arch_dma_mark_clean()
+ helper
+Message-ID: <ZCcCNXyb9TZvA8wD@shell.armlinux.org.uk>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-21-arnd@kernel.org>
+ <ZCGv18wnEtoFvtfM@shell.armlinux.org.uk>
+ <1be05746-9deb-49cb-b106-71b2db8318cd@app.fastmail.com>
 MIME-Version: 1.0
-References: <20230330182223.181775-1-hi@alyssa.is> <20230330222928.GA644044@dev-arch.thelio-3990X>
-In-Reply-To: <20230330222928.GA644044@dev-arch.thelio-3990X>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 1 Apr 2023 00:42:13 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARU444UrZXVodNftud-scy5KKUjdtTM0GOrxHB9pyKmkg@mail.gmail.com>
-Message-ID: <CAK7LNARU444UrZXVodNftud-scy5KKUjdtTM0GOrxHB9pyKmkg@mail.gmail.com>
-Subject: Re: [PATCH v3] purgatory: fix disabling debug info
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Alyssa Ross <hi@alyssa.is>, Nick Cao <nickcao@nichi.co>, linux-kbuild@vger.kernel.org, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Tom Rix <trix@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, stable@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>
+Content-Disposition: inline
+In-Reply-To: <1be05746-9deb-49cb-b106-71b2db8318cd@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_084254_574713_8045B44F 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20230331_085520_384406_49B6CEC6 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,92 +105,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXIgMzEsIDIwMjMgYXQgNzoyOeKAr0FNIE5hdGhhbiBDaGFuY2VsbG9yIDxuYXRo
-YW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUaHUsIE1hciAzMCwgMjAyMyBhdCAwNjoyMjoy
-NFBNICswMDAwLCBBbHlzc2EgUm9zcyB3cm90ZToKPiA+IFNpbmNlIDMyZWY5ZTUwNTRlYywgLVdh
-LC1nZHdhcmYtMiBpcyBubyBsb25nZXIgdXNlZCBpbiBLQlVJTERfQUZMQUdTLgo+ID4gSW5zdGVh
-ZCwgaXQgaW5jbHVkZXMgLWcsIHRoZSBhcHByb3ByaWF0ZSAtZ2R3YXJmLSogZmxhZywgYW5kIGFs
-c28gdGhlCj4gPiAtV2EgdmVyc2lvbnMgb2YgYm90aCBvZiB0aG9zZSBpZiBidWlsZGluZyB3aXRo
-IENsYW5nIGFuZCBHTlUgYXMuICBBcyBhCj4gPiByZXN1bHQsIGRlYnVnIGluZm8gd2FzIGJlaW5n
-IGdlbmVyYXRlZCBmb3IgdGhlIHB1cmdhdG9yeSBvYmplY3RzLCBldmVuCj4gPiB0aG91Z2ggdGhl
-IGludGVudGlvbiB3YXMgdGhhdCBpdCBub3QgYmUuCj4gPgo+ID4gRml4ZXM6IDMyZWY5ZTUwNTRl
-YyAoIk1ha2VmaWxlLmRlYnVnOiByZS1lbmFibGUgZGVidWcgaW5mbyBmb3IgLlMgZmlsZXMiKQo+
-ID4gU2lnbmVkLW9mZi1ieTogQWx5c3NhIFJvc3MgPGhpQGFseXNzYS5pcz4KPiA+IENjOiBzdGFi
-bGVAdmdlci5rZXJuZWwub3JnCj4gPiBBY2tlZC1ieTogTmljayBEZXNhdWxuaWVycyA8bmRlc2F1
-bG5pZXJzQGdvb2dsZS5jb20+Cj4KPiBUaGlzIGlzIGRlZmluaXRlbHkgbW9yZSBmdXR1cmUgcHJv
-b2YuCj4KPiBSZXZpZXdlZC1ieTogTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhhbkBrZXJuZWwub3Jn
-Pgo+IFRlc3RlZC1ieTogTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhhbkBrZXJuZWwub3JnPgoKCgpJ
-IHByZWZlciB2MyBzaW5jZSBpdCBpcyBjbGVhbmVyLCBidXQgdW5mb3J0dW5hdGVseQppdCBkb2Vz
-IG5vdCB3b3JrIGZvciBDbGFuZytHQVMuCgoKV2l0aCB2MyBhcHBsaWVkLCBJIHN0aWxsIHNlZSB0
-aGUgZGVidWcgaW5mby4KCgoKJCBtYWtlIExMVk09MSBMTFZNX0lBUz0wICBhcmNoL3g4Ni9wdXJn
-YXRvcnkvc2V0dXAteDg2XzY0Lm8KICBVUEQgICAgIGluY2x1ZGUvY29uZmlnL2tlcm5lbC5yZWxl
-YXNlCiAgVVBEICAgICBpbmNsdWRlL2dlbmVyYXRlZC91dHNyZWxlYXNlLmgKICBDQUxMICAgIHNj
-cmlwdHMvY2hlY2tzeXNjYWxscy5zaAogIERFU0NFTkQgb2JqdG9vbAogIElOU1RBTEwgbGlic3Vi
-Y21kX2hlYWRlcnMKICBBUyAgICAgIGFyY2gveDg2L3B1cmdhdG9yeS9zZXR1cC14ODZfNjQubwok
-IHJlYWRlbGYgLVMgYXJjaC94ODYvcHVyZ2F0b3J5L3NldHVwLXg4Nl82NC5vClRoZXJlIGFyZSAx
-OCBzZWN0aW9uIGhlYWRlcnMsIHN0YXJ0aW5nIGF0IG9mZnNldCAweDE0ZDg6CgpTZWN0aW9uIEhl
-YWRlcnM6CiAgW05yXSBOYW1lICAgICAgICAgICAgICBUeXBlICAgICAgICAgICAgIEFkZHJlc3Mg
-ICAgICAgICAgIE9mZnNldAogICAgICAgU2l6ZSAgICAgICAgICAgICAgRW50U2l6ZSAgICAgICAg
-ICBGbGFncyAgTGluayAgSW5mbyAgQWxpZ24KICBbIDBdICAgICAgICAgICAgICAgICAgIE5VTEwg
-ICAgICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDAwMDAKICAgICAgIDAwMDAwMDAwMDAw
-MDAwMDAgIDAwMDAwMDAwMDAwMDAwMDAgICAgICAgICAgIDAgICAgIDAgICAgIDAKICBbIDFdIC50
-ZXh0ICAgICAgICAgICAgIFBST0dCSVRTICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDAw
-NDAKICAgICAgIDAwMDAwMDAwMDAwMDAwMjcgIDAwMDAwMDAwMDAwMDAwMDAgIEFYICAgICAgIDAg
-ICAgIDAgICAgIDE2CiAgWyAyXSAucmVsYS50ZXh0ICAgICAgICBSRUxBICAgICAgICAgICAgIDAw
-MDAwMDAwMDAwMDAwMDAgIDAwMDAxMmY4CiAgICAgICAwMDAwMDAwMDAwMDAwMDYwICAwMDAwMDAw
-MDAwMDAwMDE4ICAgSSAgICAgIDE1ICAgICAxICAgICA4CiAgWyAzXSAuZGF0YSAgICAgICAgICAg
-ICBQUk9HQklUUyAgICAgICAgIDAwMDAwMDAwMDAwMDAwMDAgIDAwMDAwMDY3CiAgICAgICAwMDAw
-MDAwMDAwMDAwMDAwICAwMDAwMDAwMDAwMDAwMDAwICBXQSAgICAgICAwICAgICAwICAgICAxCiAg
-WyA0XSAuYnNzICAgICAgICAgICAgICBOT0JJVFMgICAgICAgICAgIDAwMDAwMDAwMDAwMDAwMDAg
-IDAwMDAxMDAwCiAgICAgICAwMDAwMDAwMDAwMDAxMDAwICAwMDAwMDAwMDAwMDAwMDAwICBXQSAg
-ICAgICAwICAgICAwICAgICA0MDk2CiAgWyA1XSAucm9kYXRhICAgICAgICAgICBQUk9HQklUUyAg
-ICAgICAgIDAwMDAwMDAwMDAwMDAwMDAgIDAwMDAxMDAwCiAgICAgICAwMDAwMDAwMDAwMDAwMDIw
-ICAwMDAwMDAwMDAwMDAwMDAwICAgQSAgICAgICAwICAgICAwICAgICAxNgogIFsgNl0gLnJlbGEu
-cm9kYXRhICAgICAgUkVMQSAgICAgICAgICAgICAwMDAwMDAwMDAwMDAwMDAwICAwMDAwMTM1OAog
-ICAgICAgMDAwMDAwMDAwMDAwMDAxOCAgMDAwMDAwMDAwMDAwMDAxOCAgIEkgICAgICAxNSAgICAg
-NSAgICAgOAogIFsgN10gLmRlYnVnX2xpbmUgICAgICAgUFJPR0JJVFMgICAgICAgICAwMDAwMDAw
-MDAwMDAwMDAwICAwMDAwMTAyMAogICAgICAgMDAwMDAwMDAwMDAwMDA1ZiAgMDAwMDAwMDAwMDAw
-MDAwMCAgICAgICAgICAgMCAgICAgMCAgICAgMQogIFsgOF0gLnJlbGEuZGVidWdfbGluZSAgUkVM
-QSAgICAgICAgICAgICAwMDAwMDAwMDAwMDAwMDAwICAwMDAwMTM3MAogICAgICAgMDAwMDAwMDAw
-MDAwMDAxOCAgMDAwMDAwMDAwMDAwMDAxOCAgIEkgICAgICAxNSAgICAgNyAgICAgOAogIFsgOV0g
-LmRlYnVnX2luZm8gICAgICAgUFJPR0JJVFMgICAgICAgICAwMDAwMDAwMDAwMDAwMDAwICAwMDAw
-MTA3ZgogICAgICAgMDAwMDAwMDAwMDAwMDAyNyAgMDAwMDAwMDAwMDAwMDAwMCAgICAgICAgICAg
-MCAgICAgMCAgICAgMQogIFsxMF0gLnJlbGEuZGVidWdfaW5mbyAgUkVMQSAgICAgICAgICAgICAw
-MDAwMDAwMDAwMDAwMDAwICAwMDAwMTM4OAogICAgICAgMDAwMDAwMDAwMDAwMDA5MCAgMDAwMDAw
-MDAwMDAwMDAxOCAgIEkgICAgICAxNSAgICAgOSAgICAgOAogIFsxMV0gLmRlYnVnX2FiYnJldiAg
-ICAgUFJPR0JJVFMgICAgICAgICAwMDAwMDAwMDAwMDAwMDAwICAwMDAwMTBhNgogICAgICAgMDAw
-MDAwMDAwMDAwMDAxNCAgMDAwMDAwMDAwMDAwMDAwMCAgICAgICAgICAgMCAgICAgMCAgICAgMQog
-IFsxMl0gLmRlYnVnX2FyYW5nZXMgICAgUFJPR0JJVFMgICAgICAgICAwMDAwMDAwMDAwMDAwMDAw
-ICAwMDAwMTBjMAogICAgICAgMDAwMDAwMDAwMDAwMDAzMCAgMDAwMDAwMDAwMDAwMDAwMCAgICAg
-ICAgICAgMCAgICAgMCAgICAgMTYKICBbMTNdIC5yZWxhLmRlYnVnX1suLi5dIFJFTEEgICAgICAg
-ICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDE0MTgKICAgICAgIDAwMDAwMDAwMDAwMDAwMzAg
-IDAwMDAwMDAwMDAwMDAwMTggICBJICAgICAgMTUgICAgMTIgICAgIDgKICBbMTRdIC5kZWJ1Z19z
-dHIgICAgICAgIFBST0dCSVRTICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDEwZjAKICAg
-ICAgIDAwMDAwMDAwMDAwMDAwNTQgIDAwMDAwMDAwMDAwMDAwMDEgIE1TICAgICAgIDAgICAgIDAg
-ICAgIDEKICBbMTVdIC5zeW10YWIgICAgICAgICAgIFNZTVRBQiAgICAgICAgICAgMDAwMDAwMDAw
-MDAwMDAwMCAgMDAwMDExNDgKICAgICAgIDAwMDAwMDAwMDAwMDAxNjggIDAwMDAwMDAwMDAwMDAw
-MTggICAgICAgICAgMTYgICAgMTIgICAgIDgKICBbMTZdIC5zdHJ0YWIgICAgICAgICAgIFNUUlRB
-QiAgICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDEyYjAKICAgICAgIDAwMDAwMDAwMDAw
-MDAwNDEgIDAwMDAwMDAwMDAwMDAwMDAgICAgICAgICAgIDAgICAgIDAgICAgIDEKICBbMTddIC5z
-aHN0cnRhYiAgICAgICAgIFNUUlRBQiAgICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCAgMDAwMDE0
-NDgKICAgICAgIDAwMDAwMDAwMDAwMDAwOGQgIDAwMDAwMDAwMDAwMDAwMDAgICAgICAgICAgIDAg
-ICAgIDAgICAgIDEKS2V5IHRvIEZsYWdzOgogIFcgKHdyaXRlKSwgQSAoYWxsb2MpLCBYIChleGVj
-dXRlKSwgTSAobWVyZ2UpLCBTIChzdHJpbmdzKSwgSSAoaW5mbyksCiAgTCAobGluayBvcmRlciks
-IE8gKGV4dHJhIE9TIHByb2Nlc3NpbmcgcmVxdWlyZWQpLCBHIChncm91cCksIFQgKFRMUyksCiAg
-QyAoY29tcHJlc3NlZCksIHggKHVua25vd24pLCBvIChPUyBzcGVjaWZpYyksIEUgKGV4Y2x1ZGUp
-LAogIEQgKG1iaW5kKSwgbCAobGFyZ2UpLCBwIChwcm9jZXNzb3Igc3BlY2lmaWMpCgoKCgoKCldp
-dGggLWcwIGdpdmVuLCBHQ0Mgc3RvcHMgcGFzc2luZyAtZyAtZ2R3YXJmLTQgZG93biB0byBHQVMu
-CgoKQ2xhbmcgZG9lcyBub3QgZG8gYW55dGhpbmcgYWJvdXQgLWcwIGZvciB0aGUgZXh0ZXJuYWwg
-YXNzZW1ibGVyLgoKCgoKSSB3YXMgdGhpbmtpbmcgb2YgZHJvcHBpbmcgTExWTV9JQVM9MCBzdXBw
-b3J0LgpXaGVuIHdlIGRlY2lkZSB0byBnaXZlIHVwIC1mbm8taW50ZWdyYXRlZC1hcywKd2UgY2Fu
-IGNsZWFuIHVwIHRoZSBjb2RlIGluIHZhcmlvdXMgcGxhY2VzLgoKCkFueXdheSwgdjMgZG9lcyBu
-b3Qgd29yayBpbiB0aGUgY3VycmVudCBzaXR1YXRpb24uCgoKVjIgd29ya3MgZm9yIGFsbCB1c2Vj
-YXNlcy4KCgoKCi0tIApCZXN0IFJlZ2FyZHMKTWFzYWhpcm8gWWFtYWRhCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Mar 31, 2023 at 04:06:37PM +0200, Arnd Bergmann wrote:
+> On Mon, Mar 27, 2023, at 17:01, Russell King (Oracle) wrote:
+> > On Mon, Mar 27, 2023 at 02:13:16PM +0200, Arnd Bergmann wrote:
+> >> From: Arnd Bergmann <arnd@arndb.de>
+> >> 
+> >> The arm version of the arch_sync_dma_for_cpu() function annotates pages as
+> >> PG_dcache_clean after a DMA, but no other architecture does this here.
+> >
+> > ... because this is an arm32 specific feature. Generically, it's
+> > PG_arch_1, which is a page flag free for architecture use. On arm32
+> > we decided to use this to mark whether we can skip dcache writebacks
+> > when establishing a PTE - and thus it was decided to call it
+> > PG_dcache_clean to reflect how arm32 decided to use that bit.
+> >
+> > This isn't just a DMA thing, there are other places that we update
+> > the bit, such as flush_dcache_page() and copy_user_highpage().
+> >
+> > So thinking that the arm32 PG_dcache_clean is something for DMA is
+> > actually wrong.
+> >
+> > Other architectures are free to do their own other optimisations
+> > using that bit, and their implementations may be DMA-centric.
+> 
+> The flag is used the same way on most architectures, though some
+> use the opposite polarity and call it PG_dcache_dirty. The only
+> other architecture that uses it for DMA is ia64, with the difference
+> being that this also marks the page as clean even for coherent
+> DMA, not just when doing a flush as part of noncoherent DMA.
+> 
+> Based on Robin's reply it sounds that this is not a valid assumption
+> on Arm, if a coherent DMA can target a dirty dcache line without
+> cleaning it.
+
+The other thing to note here is that PG_dcache_clean doesn't have
+much meaning on modern CPUs with PIPT caches. For these,
+cache_is_vipt_nonaliasing() will be true, and
+cache_ops_need_broadcast() will be false.
+
+Firstly, if we're using coherent DMA, then PG_dcache_clean is
+intentionally not touched, because the data cache isn't cleaned
+in any way by DMA operations.
+
+flush_dcache_page() turns into a no-op apart from clearing
+PG_dcache_clean if it was set.
+
+__sync_icache_dcache() will do nothing for non-executable pages,
+but will write-back a page that isn't marked PG_dcache_clean to
+ensure that it is visible to the instruction stream. This is only
+used to ensure that a the instructions are visible to a newly
+established executable mapping when e.g. the page has been DMA'd
+in. The default state of PG_dcache_clean is zero on any new
+allocation, so this has the effect of causing any executable page
+to be flushed such that the instruction stream can see the
+instructions, but only for the first establishment of the mapping.
+That means that e.g. libc text pages don't keep getting flushed on
+the start of every program.
+
+update_mmu_cache() isn't compiled, so it's use of PG_dcache_clean
+is irrelevant.
+
+v6_copy_user_highpage_aliasing() won't be called because we're not
+using an aliasing cache.
+
+So, for modern ARM systems with DMA-coherent PG_dcache_clean only
+serves for the __sync_icache_dcache() optimisation.
+
+ARMs use of this remains valid in this circumstance.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
