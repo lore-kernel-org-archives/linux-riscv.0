@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5CAC6FD18
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A0B0C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QgMkQeSHfxhl37Vmvq+zwCranlRlG/5wDyZr6uYs6JU=; b=AmlvrrY9GWx8bS
-	S49PYT4Fdx9MHwm79rhGECnNx8F1OVp7bHRVeXJEimNNCVsC8BK0OeaP0ax39eRkrBCxm7Sh2m0W5
-	04K3cbutnPwSmNKadgbugBE726LbFRhZc9F2TyaLQ05YCCyDfForKNIHUL3LZeybQinPLSK7uQ2UT
-	rrEdIStCOtcjPazkJmh+VqoTeLS1srk3Pq7a/z4hcNCvqKpbm/2dG/d+mgpxkMJmQgaWe8krLdk45
-	jijhZlLTDF8J8RFbnytf4/okId+TJcAZwVUO/DX+qHRwmkQz2hVxjq5ZQi8lO5JBYQodSeA+vxJNC
-	JAZOyHKxo0KTrRCzZOqg==;
+	List-Owner; bh=s4ABp9359Y/0RXUJVmLxKxQd0ic+78lLHBiIw0eARg8=; b=4QkamT7JkmIJQ3
+	snH0ZFG/GUo/JJcV5wTXorIkJma2Z3mv9vEBQ4WA/3ZLwJqqjdbHxrNMR3V+Imll461TmEb98r+k6
+	evfBWfeo1l6OeAqGTayvJoINKWSWeNwtkNEXhGFiRqrF1PHnKuMt04F2oZrItoWcW4DzFfM/rQ7yt
+	00lyG6ktYdvoA8SM6nhYsTWBFzwAgUWGZK1l4Ud1f8rwQV1f65t0TbT/CVoLLSCAKKl8TyrzKka+U
+	xuej4+jCLuYBtnIZxr8Ctk30521ghpkxp64EUWnUOe3ruU3MpNCJBFx+xyo3NHG/FEllK6pLd6aM5
+	hNbTS6XgtmjxaaL1SmbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piEBK-007Osm-05;
-	Fri, 31 Mar 2023 12:48:38 +0000
+	id 1piEBO-007Ovz-2S;
+	Fri, 31 Mar 2023 12:48:42 +0000
 Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piEB6-007Oe0-01;
-	Fri, 31 Mar 2023 12:48:26 +0000
+	id 1piEB6-007Odw-00;
+	Fri, 31 Mar 2023 12:48:28 +0000
 Received: from ubuntu.localdomain (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 9F28A580172;
-	Fri, 31 Mar 2023 20:48:11 +0800 (CST)
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 5001158015C;
+	Fri, 31 Mar 2023 20:48:06 +0800 (CST)
 From: Donglin Peng <pengdonglin@sangfor.com.cn>
 To: mhiramat@kernel.org,
 	rostedt@goodmis.org,
@@ -60,24 +60,24 @@ Cc: linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v10 6/8] x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Date: Fri, 31 Mar 2023 05:47:42 -0700
-Message-Id: <d80de826945a3f5b67c32c867332188d5700c3cf.1680265828.git.pengdonglin@sangfor.com.cn>
+Subject: [PATCH v10 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Date: Fri, 31 Mar 2023 05:47:39 -0700
+Message-Id: <4737b3d08e1a4a7218e16c99f8ac308881d695c9.1680265828.git.pengdonglin@sangfor.com.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
 References: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSR5KVkJISx1PTxgaTR4fQlUTARMWGhIXJBQOD1
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGRlIVh8dHR9NSklPQk9PTVUTARMWGhIXJBQOD1
 	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Phw6LRw*Nz0KTE0aHT84ITka
-	USJPCgxVSlVKTUNLSU1NQ0JIT0lOVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNS0hPNwY+
-X-HM-Tid: 0a8737b616012eb7kusn9f28a580172
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OD46NTo5PD0OLU09QjkeITgW
+	HUgKCj9VSlVKTUNLSU1NQ0NMQklIVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNSE5MNwY+
+X-HM-Tid: 0a8737b601162eb7kusn5001158015c
 X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_054824_261175_9E49045A 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20230331_054824_396412_77DB9B2E 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,13 +97,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 The previous patch ("function_graph: Support recording and printing
 the return value of function") has laid the groundwork for the for
 the funcgraph-retval, and this modification makes it available on
-the x86 platform.
+the ARM platform.
 
-We introduce a new structure called fgraph_ret_regs for the x86
-platform to hold return registers and the frame pointer. We then
-fill its content in the return_to_handler and pass its address
-to the function ftrace_return_to_handler to record the return
-value.
+We introduce a new structure called fgraph_ret_regs for the ARM platform
+to hold return registers and the frame pointer. We then fill its content
+in the return_to_handler and pass its address to the function
+ftrace_return_to_handler to record the return value.
 
 Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
 ---
@@ -111,109 +110,107 @@ v10:
  - Use CONFIG_FUNCTION_GRAPH_TRACER to control fgraph_ret_regs definition
 
 v9:
+ - Fix stack pointer align issues
  - Update the commit message
 
 v8:
  - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
 ---
- arch/x86/Kconfig              |  1 +
- arch/x86/include/asm/ftrace.h | 20 ++++++++++++++++++++
- arch/x86/kernel/ftrace_32.S   |  8 +++++---
- arch/x86/kernel/ftrace_64.S   |  7 ++++---
- 4 files changed, 30 insertions(+), 6 deletions(-)
+ arch/arm/Kconfig               |  1 +
+ arch/arm/include/asm/ftrace.h  | 22 ++++++++++++++++++++++
+ arch/arm/kernel/asm-offsets.c  |  8 +++++++-
+ arch/arm/kernel/entry-ftrace.S | 10 ++++++----
+ 4 files changed, 36 insertions(+), 5 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a825bf031f49..956cc988bdf9 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -214,6 +214,7 @@ config X86
- 	select HAVE_FAST_GUP
- 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD
-+	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
- 	select HAVE_FUNCTION_TRACER
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index e24a9820e12f..73061379855a 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -98,6 +98,7 @@ config ARM
+ 	select HAVE_FAST_GUP if ARM_LPAE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_ERROR_INJECTION
++	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
  	select HAVE_GCC_PLUGINS
-diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
-index 5061ac98ffa1..38d1df9aed37 100644
---- a/arch/x86/include/asm/ftrace.h
-+++ b/arch/x86/include/asm/ftrace.h
-@@ -147,4 +147,24 @@ static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
- #endif /* !COMPILE_OFFSETS */
- #endif /* !__ASSEMBLY__ */
+diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
+index 7e9251ca29fe..3c457902b355 100644
+--- a/arch/arm/include/asm/ftrace.h
++++ b/arch/arm/include/asm/ftrace.h
+@@ -77,4 +77,26 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
+ 
+ #endif /* ifndef __ASSEMBLY__ */
  
 +#ifndef __ASSEMBLY__
 +#ifdef CONFIG_FUNCTION_GRAPH_TRACER
 +struct fgraph_ret_regs {
-+	unsigned long ax;
-+	unsigned long dx;
-+	unsigned long bp;
++	/* r0 - r3 */
++	unsigned long regs[4];
++
++	unsigned long fp;
++	unsigned long __unused;
 +};
 +
 +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
 +{
-+	return ret_regs->ax;
++	return ret_regs->regs[0];
 +}
 +
 +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
 +{
-+	return ret_regs->bp;
++	return ret_regs->fp;
 +}
 +#endif /* ifdef CONFIG_FUNCTION_GRAPH_TRACER */
 +#endif
 +
- #endif /* _ASM_X86_FTRACE_H */
-diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
-index a0ed0e4a2c0c..5a9cc723f81f 100644
---- a/arch/x86/kernel/ftrace_32.S
-+++ b/arch/x86/kernel/ftrace_32.S
-@@ -182,12 +182,14 @@ SYM_CODE_END(ftrace_graph_caller)
+ #endif /* _ASM_ARM_FTRACE */
+diff --git a/arch/arm/kernel/asm-offsets.c b/arch/arm/kernel/asm-offsets.c
+index 38121c59cbc2..18bb85115b21 100644
+--- a/arch/arm/kernel/asm-offsets.c
++++ b/arch/arm/kernel/asm-offsets.c
+@@ -23,6 +23,7 @@
+ #include <asm/suspend.h>
+ #include <asm/vdso_datapage.h>
+ #include <asm/hardware/cache-l2x0.h>
++#include <asm/ftrace.h>
+ #include <linux/kbuild.h>
+ #include <linux/arm-smccc.h>
+ #include "signal.h"
+@@ -170,5 +171,10 @@ int main(void)
+   DEFINE(KEXEC_INDIR_PAGE,	offsetof(struct kexec_relocate_data, kexec_indirection_page));
+   DEFINE(KEXEC_MACH_TYPE,	offsetof(struct kexec_relocate_data, kexec_mach_type));
+   DEFINE(KEXEC_R2,		offsetof(struct kexec_relocate_data, kexec_r2));
+-  return 0; 
++#ifdef CONFIG_FUNCTION_GRAPH_TRACER
++  BLANK();
++  DEFINE(FGRET_REGS_SIZE,	sizeof(struct fgraph_ret_regs));
++  BLANK();
++#endif
++  return 0;
+ }
+diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
+index 3e7bcaca5e07..d41a1676608c 100644
+--- a/arch/arm/kernel/entry-ftrace.S
++++ b/arch/arm/kernel/entry-ftrace.S
+@@ -257,11 +257,13 @@ ENDPROC(ftrace_graph_regs_caller)
  
- .globl return_to_handler
- return_to_handler:
--	pushl	%eax
-+	pushl	$0
- 	pushl	%edx
--	movl	$0, %eax
-+	pushl	%eax
-+	movl	%esp, %eax
- 	call	ftrace_return_to_handler
- 	movl	%eax, %ecx
--	popl	%edx
- 	popl	%eax
-+	popl	%edx
-+	addl	$4, %esp		# skip ebp
- 	JMP_NOSPEC ecx
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ ENTRY(return_to_handler)
+-	stmdb	sp!, {r0-r3}
+-	add	r0, sp, #16		@ sp at exit of instrumented routine
++	mov	ip, sp				@ sp at exit of instrumented routine
++	stmdb	sp!, {r0-r3, ip, lr}		@ fill fgraph_ret_regs
++	mov	r0, sp
+ 	bl	ftrace_return_to_handler
+-	mov	lr, r0			@ r0 has real ret addr
+-	ldmia	sp!, {r0-r3}
++	mov	lr, r0				@ r0 has real ret addr
++	ldmia	sp, {r0-r3}
++	add	sp, sp, #FGRET_REGS_SIZE	@ restore stack pointer
+ 	ret	lr
+ ENDPROC(return_to_handler)
  #endif
-diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
-index fb4f1e01b64a..ef78c0bbae62 100644
---- a/arch/x86/kernel/ftrace_64.S
-+++ b/arch/x86/kernel/ftrace_64.S
-@@ -344,12 +344,13 @@ STACK_FRAME_NON_STANDARD_FP(__fentry__)
- SYM_CODE_START(return_to_handler)
- 	UNWIND_HINT_EMPTY
- 	ANNOTATE_NOENDBR
--	subq  $16, %rsp
-+	subq  $24, %rsp
- 
- 	/* Save the return values */
- 	movq %rax, (%rsp)
- 	movq %rdx, 8(%rsp)
--	movq %rbp, %rdi
-+	movq %rbp, 16(%rsp)
-+	movq %rsp, %rdi
- 
- 	call ftrace_return_to_handler
- 
-@@ -357,7 +358,7 @@ SYM_CODE_START(return_to_handler)
- 	movq 8(%rsp), %rdx
- 	movq (%rsp), %rax
- 
--	addq $16, %rsp
-+	addq $24, %rsp
- 	/*
- 	 * Jump back to the old return address. This cannot be JMP_NOSPEC rdi
- 	 * since IBT would demand that contain ENDBR, which simply isn't so for
 -- 
 2.25.1
 
