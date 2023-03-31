@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B605C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 16:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF3BC76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 17:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jKoUeqA3s/EnoS12/mr/7SE53gScjEYguAoPH39s79g=; b=nIAXJWz7aZcEFT
-	AwsYzCSSfaj2h6QQgUzJwTbCFwcuct/JhQXiYHU+yIK+/M3qsuoNHXRaKhojudpgr1p3wLjKkAnej
-	T0PBtuE95whn4BCgt/t63w519Tz5DxA2ajmb+qF2m2te/e2G/OAWhtfyVMZFdj59AsMNzqhVOzzkZ
-	i9wlCLdNwBkCYHiYuPisatnk/oFgF4UYpQmXU8zXmf8cEyK5EQLOLaJTdJAZzYM21oUaPaIxwNjsF
-	XQiQlkHoQuc7h2H/qva5OsftKqTjblFfMffXyYe+1BgSS+eGqs+9NhVW95USq/Ekj/Uw9UnzCOcKQ
-	MS+EGyyY3ztV4ddZt+Lw==;
+	List-Owner; bh=/lewQwUYZtXVFQaHXNX4MmY14Cq8TFdCNLezoLtH91I=; b=DIqJgF2vGdKp0Y
+	6tQKxDFDKzp01y9gRG2O6aYTD1DN3s2F/nOqYmphZXFCHh/GG1yKoAiWvFbrnUDwCmwVHEKzBMUhe
+	ha5aJ42mLgTCVGqb16yl3Xaqrn6ucbd0wwigtc22JbkvVkIZ2VrewZKC7FibLekUPrlzdg4lJTzkC
+	GBv5eHz8vDe/L1XfMjjrcT4MUy2EAaEF0lNntFOGWgSPsi71JBIrlinB2t0qXiFqZ8B1nDd9YyjDp
+	99YY/84efc5A0Pmat5Z4oWHPKZMgtDTuQgUybJ7vE0sx6kbBakGUHffREKiGK9BByLwyGUbuKnnCy
+	/YonWDYhwwCIQS3ROIFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piI0n-008Cdr-3A;
-	Fri, 31 Mar 2023 16:54:01 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1piIFn-008FKo-2J;
+	Fri, 31 Mar 2023 17:09:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piI0k-008Cd0-0B;
-	Fri, 31 Mar 2023 16:53:59 +0000
+	id 1piIFk-008FK3-0c;
+	Fri, 31 Mar 2023 17:09:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4E972B8310F;
-	Fri, 31 Mar 2023 16:53:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 457CDC433D2;
-	Fri, 31 Mar 2023 16:53:48 +0000 (UTC)
-Date: Fri, 31 Mar 2023 17:53:45 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7AB3A62AAE;
+	Fri, 31 Mar 2023 17:09:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E1FC433D2;
+	Fri, 31 Mar 2023 17:09:19 +0000 (UTC)
+Date: Fri, 31 Mar 2023 18:09:16 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
@@ -65,16 +65,17 @@ Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
 	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
 	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH 00/21] dma-mapping: unify support for cache flushes
-Message-ID: <ZCcQGX/i8xBPiG7T@arm.com>
+	linux-xtensa@linux-xtensa.org, Daniel Golle <daniel@makrotopia.org>
+Subject: Re: [PATCH 18/21] ARM: drop SMP support for ARM11MPCore
+Message-ID: <ZCcTvN5DAbjOVWUX@arm.com>
 References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-19-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230327121317.4081816-1-arnd@kernel.org>
+In-Reply-To: <20230327121317.4081816-19-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_095358_250840_783CFE26 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20230331_100928_308955_09396853 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +92,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 27, 2023 at 02:12:56PM +0200, Arnd Bergmann wrote:
-> Another difference that I do not address here is what cache invalidation
-> does for partical cache lines. On arm32, arm64 and powerpc, a partial
-> cache line always gets written back before invalidation in order to
-> ensure that data before or after the buffer is not discarded. On all
-> other architectures, the assumption is cache lines are never shared
-> between DMA buffer and data that is accessed by the CPU.
+On Mon, Mar 27, 2023 at 02:13:14PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The cache management operations for noncoherent DMA on ARMv6 work
+> in two different ways:
+> 
+>  * When CONFIG_DMA_CACHE_RWFO is set, speculative prefetches on in-flight
+>    DMA buffers lead to data corruption when the prefetched data is written
+>    back on top of data from the device.
+> 
+>  * When CONFIG_DMA_CACHE_RWFO is disabled, a cache flush on one CPU
+>    is not seen by the other core(s), leading to inconsistent contents
+>    accross the system.
+> 
+> As a consequence, neither configuration is actually safe to use in a
+> general-purpose kernel that is used on both MPCore systems and ARM1176
+> with prefetching enabled.
 
-I don't think sharing the DMA buffer with other data is safe even with
-this clean+invalidate on the unaligned cache. Mapping the DMA buffer as
-FROM_DEVICE or BIDIRECTIONAL can cause the shared cache line to be
-evicted and override the device written data. This sharing only works if
-the CPU guarantees not to dirty the corresponding cache line.
+As the author of this terrible hack (created under duress ;))
 
-I'm fine with removing this partial cache line hack from arm64 as it's
-not safe anyway. We'll see if any driver stops working. If there's some
-benign sharing (I wouldn't trust it), the cache cleaning prior to
-mapping and invalidate on unmap would not lose any data.
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+
+IIRC, RWFO is working in combination with the cache operations. Because
+the cache maintenance broadcast did not happen, we forced the cache
+lines to migrate to a CPU via a write (for ownership) and doing the
+cache maintenance on that CPU (that was the FROM_DEVICE case). For the
+TO_DEVICE case, reading on a CPU would cause dirty lines on another CPU
+to be evicted (or migrated as dirty to the current CPU IIRC) then the
+cache maintenance to clean them to PoC on the local CPU.
+
+But there's always a small window between read/write for ownership and
+the actual cache maintenance which can cause a cache line to migrate to
+other CPUs if they do speculative prefetches. At the time ARM11MPCore
+was deemed safe-ish but I haven't followed what later implementations
+actually did (luckily we fixed the architecture in ARMv7).
 
 -- 
 Catalin
