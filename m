@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDF3C77B6C
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 13:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86531C761A6
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 13:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aetf7McLtgyVxT3H3tQWQNdi8IdBzSfeew9zSB4VgvY=; b=1TulEFe+6aPpeG
-	eK4CwZjUOz64oyyPwtszMcsf6eyldfhdx7VtlT3jcEE154S3xjbHa4ttxrpcqW+rxF3FQh5sfHuLs
-	z4zBtDn4N4NvxOMOTrZHfTGuADOBvbjFBWHD7/CVcfeJksiMJpeFP6rWGc6+a6g+oiq5WgS6VY/6M
-	dTHH6S8AalVBJ6+ACyEJUYpyghKOyaVIpU+/fnwpGhV0CBsTXwZDEFs3HYjp0K9TtciJjdE1LAGIp
-	0T+Obo05HBOmtDAy6dhzGzxsc7VwBe1+JFWaO1PBaLmwvvn6q0LCspziUd0BXYmWDLTmZxgEK6JCC
-	XXPy7M+fRCMaGpw/b4fw==;
+	List-Owner; bh=tPlXQV+TkWtn+3yYzo/rLB7w0ZzSVUwYPe3RfnaXBmg=; b=JHVi8hbPmFOZpM
+	kePTuaXiZ982gGvd7wkekZ3F8i5sIJJjyTH5dgrQOEiQ6+LaPvDJydUS97JVm1XioLHGRqXzKsAWC
+	m9tUoODcpwOe/E7TLpD6b48WSQ8kXypBHKLrGA/II7cAD7dD+9/9ZlW0U1f9n8MH/QI0ZcG3v8yWh
+	FSa6TrM8LWcUhTwXHPJAoPidPcxIjz1EGtTcOeTYJ/OLhLgwFAMrjbP8jRwDOgXAsdTyUF2KHmPin
+	LKiy2BSGEJjbEGfgQBeVeTZi/vi4yVmE5DF8hcz+W0BYZGBeS25iimN3vSOjcM2YMmcrg5NDuOa1D
+	7czA54TRIb9VW/Mpvnbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piF6H-007Zk0-0O;
-	Fri, 31 Mar 2023 13:47:29 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1piFBP-007bMk-18;
+	Fri, 31 Mar 2023 13:52:47 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piF69-007ZeG-35
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 13:47:24 +0000
-Received: by mail-ed1-x530.google.com with SMTP id w9so89842419edc.3
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 06:47:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680270437;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0mLh+XUTx4g87iH06ThLncQPc7iUTCzoPcHW2jAuS0Y=;
-        b=RIWgMJTKPkbR7DmLcPs9WpKgalexcaM0TTMbhXtyaJ74pIRvxvJpbKH+CiEbQQfxDt
-         yQXNIBwmQeZtFiPnX8r5xdEDxRdyB+S8ECVu00yEIhOPgbbdID83JeRaZ9KQ7O9Nt28l
-         DZ7xA2Lz4YUgEdqAIrxnNnC3fHCjl0RBnNKhZ4kfrnmzFDNTgo4mF2kWAAvuLlKWIc0s
-         p251yw8kYKv1sCR+gGYZpKskOJPB9LsYWCWVJGGMfwOBef4JiMlU28X89+6H3iq6Qx0t
-         RiVpLtodbBkv+CfysCBfJbXP5jWqYXzpzc+qd0ZE1TcFV5R/H28JdMLvLH8SRk8zwczv
-         LE3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680270437;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0mLh+XUTx4g87iH06ThLncQPc7iUTCzoPcHW2jAuS0Y=;
-        b=PZxrAcjmIL0SW7GCZEXWnIqu1ip6tsoDIXaeWUULVs4bIzTV5kc1ztjf24rfffuhjg
-         5nL3BObOenSsWQzNuEQeFkZ9CaNImRcP2WtlK7h2JgTpuA7B0qZcCMgrAXD9AhpaShq7
-         D5npxc0eBcpKDakPaNyabWKbCpzgt+5FVosYw2GyQEsMB1Y9SkXwq9jvnOIBEoasSmOl
-         gwLgsFAUZq6hGBj2Jvq01V0ste+EG+evjgRwYP1TQfQngXNVM7EbHJ3aThIIsZI56QyC
-         UA627YLMG5QbhLRQ19BTtM0StkxfEwg8eJI5ZqaEVcuOpZZHGin+Mvv68bNV2+tbk20L
-         DQww==
-X-Gm-Message-State: AAQBX9eahKx3OnWiM7GkgmnWbBge/JwcTCTDMXT+2KgAVvpwYuKTXAbl
-	2FYJJ4h5whZKeG1Y5EGbGOYpiA==
-X-Google-Smtp-Source: AKy350ZRp8030l2Cdvye899p50zpajWeCx8jna8pTvFo68tfQis8l8vp2ise6WlEq2cuqJL6ud7RwA==
-X-Received: by 2002:aa7:d611:0:b0:502:30e6:1e47 with SMTP id c17-20020aa7d611000000b0050230e61e47mr21884058edr.13.1680270437189;
-        Fri, 31 Mar 2023 06:47:17 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id i24-20020a508718000000b005024aff3bb5sm1065384edb.80.2023.03.31.06.47.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Mar 2023 06:47:16 -0700 (PDT)
-Date: Fri, 31 Mar 2023 15:47:15 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/1] RISC-V: KVM: Add ONE_REG interface to
- enable/disable SBI extensions
-Message-ID: <a5b4bt6pggh42iaenmtwpjyniues2s2w33umrz2akn5gs67ndr@4medbq2mil6a>
-References: <20230331123655.1991260-1-apatel@ventanamicro.com>
- <20230331123655.1991260-2-apatel@ventanamicro.com>
+	id 1piFBK-007bJr-2q;
+	Fri, 31 Mar 2023 13:52:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 6B945CE2F25;
+	Fri, 31 Mar 2023 13:52:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DF19C433D2;
+	Fri, 31 Mar 2023 13:52:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680270756;
+	bh=uZ8ekznunZfHCtX9H3pfXo3r44jn8CX1qcu+00uMGFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i7igy4KZwlKs5fcsWxOyp8wxE6pI9xgIb42hAhuLdiLGRB1qhbYTspRkIEhbeT0Zp
+	 8GR2C+aeD0rwP+WfCMo2a9XAZ525KLPfZGYcZ99qpDoiXrQ1tyX6BM3HlO7DEIDotY
+	 MDckv6v0W8fvyqwL4iBwb7j0+AJXVAu5uRqnB/WGzkXWpXbDpNy96ap6qJTTwzliBM
+	 E09n1JyYWJxpb1R90LF4M8bQBtsn1sNMjI+qpDy6VczweGtsM2TzE61NCFPMu77sOq
+	 Nrt3lkr/yKQ52EjKO4K13mWxMV5Q0SurJdk727/9GOq1mYyfNXT0bF84S9U1EVk9pP
+	 Fk6WiJWVIFKFQ==
+Date: Fri, 31 Mar 2023 19:22:32 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] phy: starfive: Add mipi dphy rx support
+Message-ID: <ZCbloBdeffocT3Os@matsya>
+References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+ <20230223015952.201841-3-changhuang.liang@starfivetech.com>
+ <ZBhTmTEcrV59oaw3@matsya>
+ <2aa1bdbd-e37e-941a-9422-0908545c14f7@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230331123655.1991260-2-apatel@ventanamicro.com>
+In-Reply-To: <2aa1bdbd-e37e-941a-9422-0908545c14f7@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_064722_078763_8BB0F9F3 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20230331_065243_318709_9D0C3274 
+X-CRM114-Status: GOOD (  26.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,427 +86,422 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 31, 2023 at 06:06:55PM +0530, Anup Patel wrote:
-> We add ONE_REG interface to enable/disable SBI extensions (just
-> like the ONE_REG interface for ISA extensions). This allows KVM
-> user-space to decide the set of SBI extension enabled for a Guest
-> and by default all SBI extensions are enabled.
+On 21-03-23, 14:08, Changhuang Liang wrote:
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |   8 +-
->  arch/riscv/include/uapi/asm/kvm.h     |  32 ++++
->  arch/riscv/kvm/vcpu.c                 |   2 +
->  arch/riscv/kvm/vcpu_sbi.c             | 245 ++++++++++++++++++++++++--
->  arch/riscv/kvm/vcpu_sbi_base.c        |   2 +-
->  5 files changed, 270 insertions(+), 19 deletions(-)
 > 
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> index 8425556af7d1..4278125a38a5 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -16,6 +16,7 @@
->  
->  struct kvm_vcpu_sbi_context {
->  	int return_handled;
-> +	bool extension_disabled[KVM_RISCV_SBI_EXT_MAX];
+> On 2023/3/20 20:37, Vinod Koul wrote:
+> > On 22-02-23, 17:59, Changhuang Liang wrote:
+> >> [...]
+> >> +++ b/drivers/phy/starfive/phy-starfive-dphy-rx.c
+> >> @@ -0,0 +1,362 @@
+> >> +// SPDX-License-Identifier: GPL-2.0+
+> >> +/*
+> >> + * DPHY driver for the StarFive JH7110 SoC
+> >> + *
+> >> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> >> + */
+> >> +
+> >> +#include <linux/bitfield.h>
+> >> +#include <linux/bitops.h>
+> >> +#include <linux/clk.h>
+> >> +#include <linux/io.h>
+> >> +#include <linux/mfd/syscon.h>
+> >> +#include <linux/module.h>
+> >> +#include <linux/of_address.h>
+> >> +#include <linux/of_device.h>
+> >> +#include <linux/phy/phy.h>
+> >> +#include <linux/platform_device.h>
+> >> +#include <linux/regmap.h>
+> >> +#include <linux/reset.h>
+> >> +
+> >> +#define STF_DPHY_APBCFGSAIF__SYSCFG(x)		(x)
+> > 
+> > What is the purpose of this? also whats with __ ?
+> > 
+> 
+> In starfive jh7110 SoC, Dphy rx module register's name is called such as
+> STF_DPHY_APBCFGSAIF__SYSCFG_4, STF_DPHY_APBCFGSAIF__SYSCFG_8, STF_DPHY_APBCFGSAIF__SYSCFG_12...
+> so I merge them to use a marco STF_DPHY_APBCFGSAIF__SYSCFG(x).
+> 
+> Should I use one "_" is enoughed?
 
-This could be a bitmap too, but maybe we can defer the conversion until
-later when there are more SBI extensions.
+Yes, it should be enough
 
->  };
->  
->  struct kvm_vcpu_sbi_return {
-> @@ -45,7 +46,12 @@ void kvm_riscv_vcpu_sbi_system_reset(struct kvm_vcpu *vcpu,
->  				     struct kvm_run *run,
->  				     u32 type, u64 flags);
->  int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
-> -const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid);
-> +int kvm_riscv_vcpu_set_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg);
-> +int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg);
-> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
-> +				struct kvm_vcpu *vcpu, unsigned long extid);
->  int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
->  
->  #ifdef CONFIG_RISCV_SBI_V01
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 92af6f3f057c..d8ead5952ed9 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -12,6 +12,7 @@
->  #ifndef __ASSEMBLY__
->  
->  #include <linux/types.h>
-> +#include <asm/bitsperlong.h>
->  #include <asm/ptrace.h>
->  
->  #define __KVM_HAVE_READONLY_MEM
-> @@ -108,6 +109,23 @@ enum KVM_RISCV_ISA_EXT_ID {
->  	KVM_RISCV_ISA_EXT_MAX,
->  };
->  
-> +/*
-> + * SBI extension IDs specific to KVM. This is not the same as the SBI
-> + * extension IDs defined by the RISC-V SBI specification.
-> + */
-> +enum KVM_RISCV_SBI_EXT_ID {
-> +	KVM_RISCV_SBI_EXT_V01 = 0,
-> +	KVM_RISCV_SBI_EXT_TIME,
-> +	KVM_RISCV_SBI_EXT_IPI,
-> +	KVM_RISCV_SBI_EXT_RFENCE,
-> +	KVM_RISCV_SBI_EXT_SRST,
-> +	KVM_RISCV_SBI_EXT_HSM,
-> +	KVM_RISCV_SBI_EXT_PMU,
-> +	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> +	KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_RISCV_SBI_EXT_MAX,
-> +};
-> +
->  /* Possible states for kvm_riscv_timer */
->  #define KVM_RISCV_TIMER_STATE_OFF	0
->  #define KVM_RISCV_TIMER_STATE_ON	1
-> @@ -118,6 +136,8 @@ enum KVM_RISCV_ISA_EXT_ID {
->  /* If you need to interpret the index values, here is the key: */
->  #define KVM_REG_RISCV_TYPE_MASK		0x00000000FF000000
->  #define KVM_REG_RISCV_TYPE_SHIFT	24
-> +#define KVM_REG_RISCV_SUBTYPE_MASK	0x0000000000FF0000
-> +#define KVM_REG_RISCV_SUBTYPE_SHIFT	16
->  
->  /* Config registers are mapped as type 1 */
->  #define KVM_REG_RISCV_CONFIG		(0x01 << KVM_REG_RISCV_TYPE_SHIFT)
-> @@ -152,6 +172,18 @@ enum KVM_RISCV_ISA_EXT_ID {
->  /* ISA Extension registers are mapped as type 7 */
->  #define KVM_REG_RISCV_ISA_EXT		(0x07 << KVM_REG_RISCV_TYPE_SHIFT)
->  
-> +/* SBI extension registers are mapped as type 8 */
-> +#define KVM_REG_RISCV_SBI_EXT		(0x08 << KVM_REG_RISCV_TYPE_SHIFT)
-> +#define KVM_REG_RISCV_SBI_SINGLE	(0x0 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-> +#define KVM_REG_RISCV_SBI_MULTI_EN	(0x1 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-> +#define KVM_REG_RISCV_SBI_MULTI_DIS	(0x2 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-> +#define KVM_REG_RISCV_SBI_MULTI_REG(__ext_id)	\
-> +		((__ext_id) / __BITS_PER_LONG)
-> +#define KVM_REG_RISCV_SBI_MULTI_MASK(__ext_id)	\
-> +		(1UL << ((__ext_id) % __BITS_PER_LONG))
-> +#define KVM_REG_RISCV_SBI_MULTI_REG_LAST	\
-> +		KVM_REG_RISCV_SBI_MULTI_REG(KVM_RISCV_SBI_EXT_MAX - 1)
-> +
->  #endif
->  
->  #endif /* __LINUX_KVM_RISCV_H */
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 7d010b0be54e..311fd347c5a8 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -601,6 +601,8 @@ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
->  						 KVM_REG_RISCV_FP_D);
->  	case KVM_REG_RISCV_ISA_EXT:
->  		return kvm_riscv_vcpu_set_reg_isa_ext(vcpu, reg);
-> +	case KVM_REG_RISCV_SBI_EXT:
-> +		return kvm_riscv_vcpu_set_reg_sbi_ext(vcpu, reg);
->  	default:
->  		break;
->  	}
 
-Missing the kvm_riscv_vcpu_get_reg() change.
+> 
+> >> +
+> >> +#define STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_EN BIT(6)
+> >> +#define STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_IN GENMASK(12, 7)
+> >> +#define STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_EN BIT(19)
+> >> +#define STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_IN GENMASK(25, 20)
+> >> +
+> >> +#define STF_DPHY_DATA_BUS16_8			BIT(8)
+> >> +#define STF_DPHY_DEBUG_MODE_SEL			GENMASK(15, 9)
+> >> +
+> >> +#define STF_DPHY_ENABLE_CLK			BIT(6)
+> >> +#define STF_DPHY_ENABLE_CLK1			BIT(7)
+> >> +#define STF_DPHY_ENABLE_LAN0			BIT(8)
+> >> +#define STF_DPHY_ENABLE_LAN1			BIT(9)
+> >> +#define STF_DPHY_ENABLE_LAN2			BIT(10)
+> >> +#define STF_DPHY_ENABLE_LAN3			BIT(11)
+> >> +#define STF_DPHY_GPI_EN				GENMASK(17, 12)
+> >> +#define STF_DPHY_HS_FREQ_CHANGE_CLK		BIT(18)
+> >> +#define STF_DPHY_HS_FREQ_CHANGE_CLK1		BIT(19)
+> >> +#define STF_DPHY_LANE_SWAP_CLK			GENMASK(22, 20)
+> >> +#define STF_DPHY_LANE_SWAP_CLK1			GENMASK(25, 23)
+> >> +#define STF_DPHY_LANE_SWAP_LAN0			GENMASK(28, 26)
+> >> +#define STF_DPHY_LANE_SWAP_LAN1			GENMASK(31, 29)
+> >> +
+> >> +#define STF_DPHY_LANE_SWAP_LAN2			GENMASK(2, 0)
+> >> +#define STF_DPHY_LANE_SWAP_LAN3			GENMASK(5, 3)
+> >> +#define STF_DPHY_MP_TEST_EN			BIT(6)
+> >> +#define STF_DPHY_MP_TEST_MODE_SEL		GENMASK(11, 7)
+> >> +#define STF_DPHY_PLL_CLK_SEL			GENMASK(21, 12)
+> >> +#define STF_DPHY_PRECOUNTER_IN_CLK		GENMASK(29, 22)
+> >> +
+> >> +#define STF_DPHY_PRECOUNTER_IN_CLK1		GENMASK(7, 0)
+> >> +#define STF_DPHY_PRECOUNTER_IN_LAN0		GENMASK(15, 8)
+> >> +#define STF_DPHY_PRECOUNTER_IN_LAN1		GENMASK(23, 16)
+> >> +#define STF_DPHY_PRECOUNTER_IN_LAN2		GENMASK(31, 24)
+> >> +
+> >> +#define STF_DPHY_PRECOUNTER_IN_LAN3		GENMASK(7, 0)
+> >> +#define STF_DPHY_RX_1C2C_SEL			BIT(8)
+> >> +
+> >> +struct regval_t {
+> > 
+> > regval should be okay, no?
+> > 
+> 
+> OK, will change to regval
+> 
+> >> +	u32 addr;
+> >> +	u32 val;
+> >> +};
+> >> +
+> >> +struct stf_dphy {
+> >> +	struct device *dev;
+> >> +	void __iomem *regs;
+> >> +	struct clk *cfg_clk;
+> >> +	struct clk *ref_clk;
+> >> +	struct clk *tx_clk;
+> >> +	struct reset_control *rstc;
+> >> +	struct regulator *mipi_0p9;
+> >> +	struct phy *phy;
+> >> +	struct regmap *stf_aon_syscon;
+> >> +	unsigned int aon_gp_reg;
+> >> +};
+> >> +
+> >> +struct stf_dphy_info {
+> >> +	bool external_support;
+> >> +	int (*external_get)(struct stf_dphy *dphy);
+> >> +	void (*external_init)(struct stf_dphy *dphy);
+> >> +	void (*external_exit)(struct stf_dphy *dphy);
+> >> +};
+> >> +
+> >> +static const struct stf_dphy_info *stf_dphy_info;
+> >> +
+> >> +static const struct regval_t stf_dphy_init_list[] = {
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(4), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(8), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(12), 0x0000fff0 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(16), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(20), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(24), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(28), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(32), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(36), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(40), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(40), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(48), 0x24000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(52), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(56), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(60), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(64), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(68), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(72), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(76), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(80), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(84), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(88), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(92), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(96), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(100), 0x02000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(104), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(108), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(112), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(116), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(120), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(124), 0x0000000c },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(128), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(132), 0xcc500000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(136), 0x000000cc },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(140), 0x00000000 },
+> >> +	{ STF_DPHY_APBCFGSAIF__SYSCFG(144), 0x00000000 },
+> >> +};
+> >> +
+> >> +static int stf_dphy_configure(struct phy *phy, union phy_configure_opts *opts)
+> >> +{
+> >> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
+> >> +	int map[6] = {4, 0, 1, 2, 3, 5};
+> > 
+> > what does this mean?
+> 
+> This is the physical lane and logical lane mapping table, should I add a note for it?
 
-> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-> index 15fde15f9fb8..89e3e7bace6c 100644
-> --- a/arch/riscv/kvm/vcpu_sbi.c
-> +++ b/arch/riscv/kvm/vcpu_sbi.c
-> @@ -30,17 +30,52 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
->  };
->  #endif
->  
-> -static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
-> -	&vcpu_sbi_ext_v01,
-> -	&vcpu_sbi_ext_base,
-> -	&vcpu_sbi_ext_time,
-> -	&vcpu_sbi_ext_ipi,
-> -	&vcpu_sbi_ext_rfence,
-> -	&vcpu_sbi_ext_srst,
-> -	&vcpu_sbi_ext_hsm,
-> -	&vcpu_sbi_ext_pmu,
-> -	&vcpu_sbi_ext_experimental,
-> -	&vcpu_sbi_ext_vendor,
-> +struct kvm_riscv_sbi_extension_entry {
-> +	enum KVM_RISCV_SBI_EXT_ID dis_idx;
-> +	const struct kvm_vcpu_sbi_extension *ext_ptr;
-> +};
-> +
-> +static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_V01,
-> +		.ext_ptr = &vcpu_sbi_ext_v01,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_MAX, /* Can't be disabled */
-> +		.ext_ptr = &vcpu_sbi_ext_base,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_TIME,
-> +		.ext_ptr = &vcpu_sbi_ext_time,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_IPI,
-> +		.ext_ptr = &vcpu_sbi_ext_ipi,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_RFENCE,
-> +		.ext_ptr = &vcpu_sbi_ext_rfence,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_SRST,
-> +		.ext_ptr = &vcpu_sbi_ext_srst,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_HSM,
-> +		.ext_ptr = &vcpu_sbi_ext_hsm,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_PMU,
-> +		.ext_ptr = &vcpu_sbi_ext_pmu,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> +		.ext_ptr = &vcpu_sbi_ext_experimental,
-> +	},
-> +	{
-> +		.dis_idx = KVM_RISCV_SBI_EXT_VENDOR,
-> +		.ext_ptr = &vcpu_sbi_ext_vendor,
-> +	},
->  };
->  
->  void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
-> @@ -99,14 +134,190 @@ int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  	return 0;
->  }
->  
-> -const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid)
-> +static int riscv_vcpu_set_sbi_ext_single(struct kvm_vcpu *vcpu,
-> +					 unsigned long reg_num,
-> +					 unsigned long reg_val)
-> +{
-> +	unsigned long i;
-> +	const struct kvm_riscv_sbi_extension_entry *sext = NULL;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-> +
-> +	if (reg_num >= KVM_RISCV_SBI_EXT_MAX ||
-> +	    (reg_val != 1 && reg_val != 0))
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		if (sbi_ext[i].dis_idx == reg_num) {
-> +			sext = &sbi_ext[i];
-> +			break;
-> +		}
-> +	}
-> +	if (!sext)
-> +		return -ENOENT;
-> +
-> +	scontext->extension_disabled[sext->dis_idx] = !reg_val;
-> +
-> +	return 0;
-> +}
-> +
-> +static int riscv_vcpu_get_sbi_ext_single(struct kvm_vcpu *vcpu,
-> +					 unsigned long reg_num,
-> +					 unsigned long *reg_val)
-> +{
-> +	unsigned long i;
-> +	const struct kvm_riscv_sbi_extension_entry *sext = NULL;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-> +
-> +	if (reg_num >= KVM_RISCV_SBI_EXT_MAX)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		if (sbi_ext[i].dis_idx == reg_num) {
-> +			sext = &sbi_ext[i];
-> +			break;
-> +		}
-> +	}
-> +	if (!sext)
-> +		return -ENOENT;
-> +
-> +	*reg_val = !scontext->extension_disabled[sext->dis_idx];
-> +
-> +	return 0;
-> +}
-> +
-> +static int riscv_vcpu_set_sbi_ext_multi(struct kvm_vcpu *vcpu,
-> +					unsigned long reg_num,
-> +					unsigned long reg_val, bool enable)
-> +{
-> +	unsigned long i, ext_id;
-> +
-> +	if (reg_num > KVM_REG_RISCV_SBI_MULTI_REG_LAST)
-> +		return -EINVAL;
-> +
-> +	for_each_set_bit(i, &reg_val, BITS_PER_LONG) {
-> +		ext_id = i + reg_num * BITS_PER_LONG;
-> +		if (ext_id >= KVM_RISCV_SBI_EXT_MAX)
-> +			break;
-> +
-> +		riscv_vcpu_set_sbi_ext_single(vcpu, ext_id, enable);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int riscv_vcpu_get_sbi_ext_multi(struct kvm_vcpu *vcpu,
-> +					unsigned long reg_num,
-> +					unsigned long *reg_val)
-> +{
-> +	unsigned long i, ext_id, ext_val;
-> +
-> +	if (reg_num > KVM_REG_RISCV_SBI_MULTI_REG_LAST)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < BITS_PER_LONG; i++) {
-> +		ext_id = i + reg_num * BITS_PER_LONG;
-> +		if (ext_id >= KVM_RISCV_SBI_EXT_MAX)
-> +			break;
-> +
-> +		ext_val = 0;
-> +		riscv_vcpu_get_sbi_ext_single(vcpu, ext_id, &ext_val);
-> +		if (ext_val)
-> +			*reg_val |= KVM_REG_RISCV_SBI_MULTI_MASK(ext_id);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +int kvm_riscv_vcpu_set_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg)
-> +{
-> +	unsigned long __user *uaddr =
-> +			(unsigned long __user *)(unsigned long)reg->addr;
-> +	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> +					    KVM_REG_SIZE_MASK |
-> +					    KVM_REG_RISCV_SBI_EXT);
-> +	unsigned long reg_val, reg_subtype;
-> +
-> +	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
-> +		return -EINVAL;
-> +
-> +	if (vcpu->arch.ran_atleast_once)
-> +		return -EBUSY;
-> +
-> +	reg_subtype = reg_num & KVM_REG_RISCV_SUBTYPE_MASK;
-> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
-> +		return -EFAULT;
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_SINGLE:
-> +		return riscv_vcpu_set_sbi_ext_single(vcpu, reg_num, reg_val);
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +		return riscv_vcpu_set_sbi_ext_multi(vcpu, reg_num, reg_val, true);
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		return riscv_vcpu_set_sbi_ext_multi(vcpu, reg_num, reg_val, false);
-> +	default:
-> +		return -EINVAL;
-> +	};
-> +
-> +	return 0;
-> +}
-> +
-> +int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
-> +				   const struct kvm_one_reg *reg)
-> +{
-> +	int rc;
-> +	unsigned long __user *uaddr =
-> +			(unsigned long __user *)(unsigned long)reg->addr;
-> +	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> +					    KVM_REG_SIZE_MASK |
-> +					    KVM_REG_RISCV_SBI_EXT);
-> +	unsigned long reg_val, reg_subtype;
-> +
-> +	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
-> +		return -EINVAL;
-> +
-> +	reg_subtype = reg_num & KVM_REG_RISCV_SUBTYPE_MASK;
-> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	reg_val = 0;
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_SINGLE:
-> +		rc = riscv_vcpu_get_sbi_ext_single(vcpu, reg_num, &reg_val);
-> +		break;
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		rc = riscv_vcpu_get_sbi_ext_multi(vcpu, reg_num, &reg_val);
+Yes please. Also will the mapping be always static or ever change?
 
-It seems odd that a user calling GET(KVM_REG_RISCV_SBI_MULTI_DIS) will get
-all the enabled extensions.
 
-> +		break;
-> +	default:
-> +		rc = -EINVAL;
-> +	};
-> +	if (rc)
-> +		return rc;
-> +
-> +	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> +		return -EFAULT;
-> +
-> +	return 0;
-> +}
-> +
-> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
-> +				struct kvm_vcpu *vcpu, unsigned long extid)
->  {
-> -	int i = 0;
-> +	int i;
-> +	const struct kvm_riscv_sbi_extension_entry *sext;
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
->  
->  	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> -		if (sbi_ext[i]->extid_start <= extid &&
-> -		    sbi_ext[i]->extid_end >= extid)
-> -			return sbi_ext[i];
-> +		sext = &sbi_ext[i];
-> +		if (sext->ext_ptr->extid_start <= extid &&
-> +		    sext->ext_ptr->extid_end >= extid) {
-> +			if (sext->dis_idx < KVM_RISCV_SBI_EXT_MAX &&
-> +			    scontext->extension_disabled[sext->dis_idx])
-> +				return NULL;
-> +			return sbi_ext[i].ext_ptr;
-> +		}
->  	}
->  
->  	return NULL;
-> @@ -126,7 +337,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  	};
->  	bool ext_is_v01 = false;
->  
-> -	sbi_ext = kvm_vcpu_sbi_find_ext(cp->a7);
-> +	sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a7);
->  	if (sbi_ext && sbi_ext->handler) {
->  #ifdef CONFIG_RISCV_SBI_V01
->  		if (cp->a7 >= SBI_EXT_0_1_SET_TIMER &&
-> diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
-> index 9945aff34c14..5bc570b984f4 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_base.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_base.c
-> @@ -44,7 +44,7 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->  			kvm_riscv_vcpu_sbi_forward(vcpu, run);
->  			retdata->uexit = true;
->  		} else {
-> -			sbi_ext = kvm_vcpu_sbi_find_ext(cp->a0);
-> +			sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a0);
->  			*out_val = sbi_ext && sbi_ext->probe ?
->  					   sbi_ext->probe(vcpu) : !!sbi_ext;
->  		}
-> -- 
-> 2.34.1
->
+> 
+> >> +	int i;
+> >> +
+> >> +	for (i = 0; i < ARRAY_SIZE(stf_dphy_init_list); i++)
+> >> +		writel(stf_dphy_init_list[i].val,
+> >> +		       dphy->regs + stf_dphy_init_list[i].addr);
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_EN, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL0_2D1C_EFUSE_IN, 0x1b) |
+> >> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_EN, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_DA_CDPHY_R100_CTRL1_2D1C_EFUSE_IN, 0x1b),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(0));
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_DATA_BUS16_8, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_DEBUG_MODE_SEL, 0x5a),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(184));
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_ENABLE_CLK, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_ENABLE_CLK1, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN0, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN1, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN2, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_ENABLE_LAN3, 1) |
+> >> +	       FIELD_PREP(STF_DPHY_GPI_EN, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_HS_FREQ_CHANGE_CLK, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_HS_FREQ_CHANGE_CLK1, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_CLK, map[0]) |
+> >> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_CLK1, map[5]) |
+> >> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN0, map[1]) |
+> >> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN1, map[2]),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(188));
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_LANE_SWAP_LAN2, map[3]) |
+> >> +	       FIELD_PREP(STF_DPHY_LANE_SWAP_LAN3, map[4]) |
+> >> +	       FIELD_PREP(STF_DPHY_MP_TEST_EN, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_MP_TEST_MODE_SEL, 0) |
+> >> +	       FIELD_PREP(STF_DPHY_PLL_CLK_SEL, 0x37c) |
+> >> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_CLK, 8),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(192));
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_PRECOUNTER_IN_CLK1, 8) |
+> >> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN0, 7) |
+> >> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN1, 7) |
+> >> +	       FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN2, 7),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(196));
+> >> +
+> >> +	writel(FIELD_PREP(STF_DPHY_PRECOUNTER_IN_LAN3, 7) |
+> >> +	       FIELD_PREP(STF_DPHY_RX_1C2C_SEL, 0),
+> >> +	       dphy->regs + STF_DPHY_APBCFGSAIF__SYSCFG(200));
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static int stf_dphy_init(struct phy *phy)
+> >> +{
+> >> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
+> >> +	int ret;
+> >> +
+> >> +	ret = regulator_enable(dphy->mipi_0p9);
+> >> +	if (ret)
+> >> +		goto err_0p9;
+> >> +
+> >> +	if (stf_dphy_info->external_support && stf_dphy_info->external_init)
+> >> +		stf_dphy_info->external_init(dphy);
+> >> +
+> >> +	return 0;
+> >> +
+> >> +err_0p9:
+> >> +	return ret;
+> >> +}
+> >> +
+> >> +static int stf_dphy_exit(struct phy *phy)
+> >> +{
+> >> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
+> >> +
+> >> +	if (stf_dphy_info->external_support && stf_dphy_info->external_exit)
+> >> +		stf_dphy_info->external_exit(dphy);
+> >> +
+> >> +	regulator_disable(dphy->mipi_0p9);
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static int stf_dphy_power_on(struct phy *phy)
+> >> +{
+> >> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
+> >> +
+> >> +	clk_set_rate(dphy->cfg_clk, 99000000);
+> >> +	clk_set_rate(dphy->ref_clk, 49500000);
+> >> +	clk_set_rate(dphy->tx_clk, 19800000);
+> >> +	reset_control_deassert(dphy->rstc);
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static int stf_dphy_power_off(struct phy *phy)
+> >> +{
+> >> +	struct stf_dphy *dphy = phy_get_drvdata(phy);
+> >> +
+> >> +	reset_control_assert(dphy->rstc);
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static const struct phy_ops stf_dphy_ops = {
+> >> +	.init      = stf_dphy_init,
+> >> +	.exit      = stf_dphy_exit,
+> >> +	.configure = stf_dphy_configure,
+> >> +	.power_on  = stf_dphy_power_on,
+> >> +	.power_off = stf_dphy_power_off,
+> >> +};
+> >> +
+> >> +static int stf_dphy_probe(struct platform_device *pdev)
+> >> +{
+> >> +	struct phy_provider *phy_provider;
+> >> +	struct stf_dphy *dphy;
+> >> +	int ret;
+> >> +
+> >> +	dphy = devm_kzalloc(&pdev->dev, sizeof(*dphy), GFP_KERNEL);
+> >> +	if (!dphy)
+> >> +		return -ENOMEM;
+> >> +	stf_dphy_info = of_device_get_match_data(&pdev->dev);
+> >> +	dev_set_drvdata(&pdev->dev, dphy);
+> >> +	dphy->dev = &pdev->dev;
+> >> +
+> >> +	dphy->regs = devm_platform_ioremap_resource(pdev, 0);
+> >> +	if (IS_ERR(dphy->regs))
+> >> +		return PTR_ERR(dphy->regs);
+> >> +
+> >> +	dphy->cfg_clk = devm_clk_get(&pdev->dev, "cfg");
+> >> +	if (IS_ERR(dphy->cfg_clk))
+> >> +		return PTR_ERR(dphy->cfg_clk);
+> >> +
+> >> +	dphy->ref_clk = devm_clk_get(&pdev->dev, "ref");
+> >> +	if (IS_ERR(dphy->ref_clk))
+> >> +		return PTR_ERR(dphy->ref_clk);
+> >> +
+> >> +	dphy->tx_clk = devm_clk_get(&pdev->dev, "tx");
+> >> +	if (IS_ERR(dphy->tx_clk))
+> >> +		return PTR_ERR(dphy->tx_clk);
+> >> +
+> >> +	dphy->rstc = devm_reset_control_array_get_exclusive(&pdev->dev);
+> >> +	if (IS_ERR(dphy->rstc))
+> >> +		return PTR_ERR(dphy->rstc);
+> >> +
+> >> +	dphy->mipi_0p9 = devm_regulator_get(&pdev->dev, "mipi_0p9");
+> >> +	if (IS_ERR(dphy->mipi_0p9))
+> >> +		return PTR_ERR(dphy->mipi_0p9);
+> >> +
+> >> +	if (stf_dphy_info->external_support && stf_dphy_info->external_get) {
+> >> +		ret = stf_dphy_info->external_get(dphy);
+> >> +		if (ret < 0) {
+> >> +			dev_err(&pdev->dev, "Failed to get PHY external info\n");
+> >> +			return ret;
+> >> +		}
+> >> +	}
+> >> +
+> >> +	dphy->phy = devm_phy_create(&pdev->dev, NULL, &stf_dphy_ops);
+> >> +	if (IS_ERR(dphy->phy)) {
+> >> +		dev_err(&pdev->dev, "Failed to create PHY\n");
+> >> +		return PTR_ERR(dphy->phy);
+> >> +	}
+> >> +
+> >> +	phy_set_drvdata(dphy->phy, dphy);
+> >> +	phy_provider = devm_of_phy_provider_register(&pdev->dev,
+> >> +						     of_phy_simple_xlate);
+> >> +
+> >> +	return PTR_ERR_OR_ZERO(phy_provider);
+> >> +}
+> >> +
+> >> +static int stf_external_get(struct stf_dphy *dphy)
+> >> +{
+> >> +	struct of_phandle_args args;
+> >> +	int ret;
+> >> +
+> >> +	ret = of_parse_phandle_with_fixed_args(dphy->dev->of_node,
+> >> +					       "starfive,aon-syscon",
+> >> +					       1, 0, &args);
+> >> +	if (ret < 0) {
+> >> +		dev_err(dphy->dev, "Failed to parse starfive,aon-syscon\n");
+> >> +		return -EINVAL;
+> >> +	}
+> >> +
+> >> +	dphy->stf_aon_syscon = syscon_node_to_regmap(args.np);
+> >> +	of_node_put(args.np);
+> >> +	if (IS_ERR(dphy->stf_aon_syscon))
+> >> +		return PTR_ERR(dphy->stf_aon_syscon);
+> >> +
+> >> +	dphy->aon_gp_reg = args.args[0];
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static void stf_external_init(struct stf_dphy *dphy)
+> >> +{
+> >> +	regmap_update_bits(dphy->stf_aon_syscon, dphy->aon_gp_reg,
+> >> +			   BIT(31), BIT(31));
+> >> +}
+> >> +
+> >> +static void stf_external_exit(struct stf_dphy *dphy)
+> >> +{
+> >> +	regmap_update_bits(dphy->stf_aon_syscon, dphy->aon_gp_reg,
+> >> +			   BIT(31), 0);
+> >> +}
+> >> +
+> >> +static const struct stf_dphy_info starfive_dphy_info = {
+> >> +	.external_support = true,
+> >> +	.external_get = stf_external_get,
+> >> +	.external_init = stf_external_init,
+> >> +	.external_exit = stf_external_exit,
+> >> +};
+> >> +
+> >> +static const struct of_device_id stf_dphy_dt_ids[] = {
+> >> +	{
+> >> +		.compatible = "starfive,jh7110-dphy-rx",
+> >> +		.data = &starfive_dphy_info,
+> > 
+> > is there a plan to support multiple versions which need different
+> > get/init/exit methods?
+> > 
+> 
+> There is no plan to support multiple versions. So this different methods
+> interface can cancel?
 
-Thanks,
-drew
+yes
+
+> 
+> >> +	},
+> >> +	{ /* sentinel */ },
+> >> +};
+> >> +MODULE_DEVICE_TABLE(of, stf_dphy_dt_ids);
+> >> +
+> >> +static struct platform_driver stf_dphy_driver = {
+> >> +	.probe = stf_dphy_probe,
+> >> +	.driver = {
+> >> +		.name	= "starfive-dphy-rx",
+> >> +		.of_match_table = stf_dphy_dt_ids,
+> >> +	},
+> >> +};
+> >> +module_platform_driver(stf_dphy_driver);
+> >> +
+> >> +MODULE_AUTHOR("Jack Zhu <jack.zhu@starfivetech.com>");
+> >> +MODULE_AUTHOR("Changhuang Liang <changhuang.liang@starfivetech.com>");
+> >> +MODULE_DESCRIPTION("Starfive DPHY RX driver");
+> >> +MODULE_LICENSE("GPL");
+> >> -- 
+> >> 2.25.1
+> > 
+
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
