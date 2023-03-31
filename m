@@ -4,121 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA95C761A6
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 17:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D969C76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 17:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tUyPB3E4HjYJzILf3rB3VjdbBORiS566+fUtbotYtgk=; b=Q1H8VjeueaWcw+
-	Tdx0pzkdI+VueteL/LuyYeP7G58AIiIUil8g453Z7kcPnyw4PCZURIcJ7XTgy2jlrTpkpAdyUi7pH
-	GyEqG8FPIx6QbSxkdEijMUN+IToscwvwb22s78YO6BKnj75Ppnd7A9TRIuuIeVxAZoxO3vgnQw7EQ
-	PY75vIeEbmWN4gP+2BOZPgN5jQ7t3aIVlzm58kyGoqTMyKeEWOxom0DnY5Pl0SQHY0Vugn/f4pSCe
-	qJBRj5rwuUKtVfk5JDj54TZ79IM2T/p8b+OYSPv888LDVba7YU3nE6dPSDg5tcDLW5hVRagSIfpet
-	0fXKTRpShGFJAPzZQIcg==;
+	List-Owner; bh=zrwPv3HPH5lxonzHBZ2ZFvV7Ivtdg32wcaC4LJaQjpw=; b=OiIBeYhoMXxL0i
+	QDW7Q4uskPJqRpsL43rOht9Yh3R8+18cmWYpTfmFMgVsPuyZ2wQZTMk8bzpJgEhOySP38fAYf4lGC
+	+VyzP0tMQ8Ylh1gp6gpJs2fRI4zD+FuBevs/xWQIunT0PqTUng3iqOW7EH8vgErGH0XQXzFtN+cMw
+	kVtdDpjWdFAO97jjlHIHWLGp9urvdQuguPs5VmnMdV2mC5Bj0GTxrM1zOLox9gVRaZm4rhot1iFdg
+	j3hbTrJh2JGYkusEaNeEAp1fhdO7CAcKbfZkKHhAdoE1kLEDCxwQN+IIn18vzOGVTzfLWBII2Qma4
+	bUEycuD8xpZKYl8WmFcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piIQj-008H2D-3A;
-	Fri, 31 Mar 2023 17:20:49 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1piIWi-008I0X-1u;
+	Fri, 31 Mar 2023 17:27:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piIQb-008H0b-2f;
-	Fri, 31 Mar 2023 17:20:43 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id ED12F5825B1;
-	Fri, 31 Mar 2023 13:20:37 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Fri, 31 Mar 2023 13:20:37 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1680283237; x=1680290437; bh=Io
-	6Y2nZvpWRrWXAKol5WpEbEU7vs4k1dMfq+xXU6ebw=; b=NzNnOxCFwRCxKTIhBp
-	UkTdA1QrJ0VBJBAssHPYnFLTEc20QImZBr+yhF1WHFOwiVQ/TkKmYOFyeYEr7/8r
-	GD1FXZ+DOdP4irwH+qJns8z0e3B/ONHZgjzpSHCzaPaMhJFZzUPm3TK2xUS0BQlh
-	V9VtSyul+J/OV+r3iY3+NHZkA/eHv3BHVJqTGYmRGB+AKO62xQhh3c/bffk1QrCL
-	4R0Dy4NdEfwvXMfOXe9abUeXxvUMNzrGZC+L2sJKtKN5Y24hiaazrc9fhLwyYNrz
-	RuUulKg1j4ExMX9feY2TsdjGjqZMe6J9bcUYIHHFkMRYqyDd5msKT4MskvSGpcAG
-	21NA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1680283237; x=1680290437; bh=Io6Y2nZvpWRrW
-	XAKol5WpEbEU7vs4k1dMfq+xXU6ebw=; b=U+cgwONxidqWgKBVF4Cwme9zOzYI2
-	GHfNWmF7faOn2hpYWAXr9uCaB+kRfx8x+If9o7AiJRQdXmZzrLTIx+01XlSobpGj
-	tx/B80EyyvLzhr0jS+WvKCsZENulYL7m5wPMUTdJb7/jnKnzVYJe9r53sFvFdoUS
-	ORJ0wKGqlFZ/gnR1aDkea3h9mr+spOIyBw2wQ5ta5IE5aJ2ENRQn77Ui1q5LYroG
-	Ey/jSpqL6OllDKNAU05Fmyz8Di7Du486u0d4ZaTD/TXHw+8DPr0T0wqs2W1r3ODK
-	XNS0I4c5ax7vZ0LR3yLyhzXIyKPFJT8esJCNqFzAmfFa35y/YQvJUZmdw==
-X-ME-Sender: <xms:YxYnZFHZks67OPDKgqM3qNN1TrlveZNOuQOJuwJ7nkUmBpfYrB4jOA>
-    <xme:YxYnZKVpZ8DtZm9lpeqkdhWozXvOOYyLLHmXUbWyTH7ZHAbHnlhCIWBJyqSHtQL49
-    neyAs4_hbX1694_koU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdeiuddguddtkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:YxYnZHKRbkbB-44_TpVFkjPVaYYSIMc47ok1I9ZYEBlajcxJz7OEbg>
-    <xmx:YxYnZLHFu4lfS71F1yqzdUx9_eqZeQ-f2fZ0nfGecguxlfzUs5YbfQ>
-    <xmx:YxYnZLX2_1EWxKGOoANqHtihIaHICg9c9O-TrgOS4Ld0OigXHrR5FQ>
-    <xmx:ZRYnZO0TSJVIJiVIXYibXzBAOoD0hgjOerlHiYWlfC4-7fTTbUhOEQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id AD8E3B60092; Fri, 31 Mar 2023 13:20:35 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-238-g746678b8b6-fm-20230329.001-g746678b8
-Mime-Version: 1.0
-Message-Id: <f32d19da-8f33-4707-8be2-65dc060f4a78@app.fastmail.com>
-In-Reply-To: <cc3a78b6-b126-226f-b41a-061716aacd15@arm.com>
-References: <20230327121317.4081816-1-arnd@kernel.org>
- <20230327121317.4081816-21-arnd@kernel.org>
- <cb9367fb-0897-244d-15b6-fdfafde2a1c0@arm.com>
- <df6340c8-6ac2-4459-a9e5-c411020962d6@app.fastmail.com>
- <cc3a78b6-b126-226f-b41a-061716aacd15@arm.com>
-Date: Fri, 31 Mar 2023 19:20:10 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Robin Murphy" <robin.murphy@arm.com>, "Arnd Bergmann" <arnd@kernel.org>,
- linux-kernel@vger.kernel.org
-Cc: "Vineet Gupta" <vgupta@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
- "Brian Cain" <bcain@quicinc.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Dinh Nguyen" <dinguyen@kernel.org>, "Stafford Horne" <shorne@gmail.com>,
- "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- "Max Filippov" <jcmvbkbc@gmail.com>, "Christoph Hellwig" <hch@lst.de>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH 20/21] ARM: dma-mapping: split out arch_dma_mark_clean() helper
+	id 1piIWg-008Hzp-0q
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Mar 2023 17:26:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9FAB462AC8;
+	Fri, 31 Mar 2023 17:26:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0CF07C433EF;
+	Fri, 31 Mar 2023 17:26:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680283616;
+	bh=/dM+IjqDVKCbWfVL0N2lP1q7XwfnF+NxY6ITegE3JmU=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=GzjVDpl8xX7Hm0iF2BlE8s8Bc3MSvjRzzy8fCEFLBajz4u0Lg2tynJPaqWyx/LJ9H
+	 TxH1SIOM7l4RF9qF3lltueqXTj+DWnl+XxnHmO+g/H/gkOzRMJig9gPH6KfvosrTEj
+	 lq/ji+/E5NSxKX2a2VXOW/r3GoAEJs363dYAxAQTTAyFRNolcIS1a9nsvemASuchJ+
+	 WJcyvXT1ZRRG95XxA0B7an8Ht6ETimc+Pov7yODyoaMGK+8YAl2kDH79+1z8ai0I45
+	 CdxI1fVRyFhsLr3eQfFXuFMR9BWuUnfserBjT6Y5LgZXO708bd6KI66petWLfpZC31
+	 QCsp46J9w4zDg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id EBFD6C43157;
+	Fri, 31 Mar 2023 17:26:55 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.3-rc5
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-39dd74a6-0889-4b33-b276-201f02823d17@palmer-ri-x1c9>
+References: <mhng-39dd74a6-0889-4b33-b276-201f02823d17@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-39dd74a6-0889-4b33-b276-201f02823d17@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc5
+X-PR-Tracked-Commit-Id: 4622f159098e098611f393cccf73d52b007e70bc
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 39f692125c388aa657e77e5ae07ea72be02d99a5
+Message-Id: <168028361595.4567.13902678577977519217.pr-tracker-bot@kernel.org>
+Date: Fri, 31 Mar 2023 17:26:55 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_102042_121800_4B8FB346 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20230331_102658_339166_C3FF86C4 
+X-CRM114-Status: UNSURE (   4.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,67 +77,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 31, 2023, at 17:12, Robin Murphy wrote:
-> On 31/03/2023 3:00 pm, Arnd Bergmann wrote:
->> On Mon, Mar 27, 2023, at 14:48, Robin Murphy wrote:
->> 
->> To be on the safe side, I'd have to pass a flag into
->> arch_dma_mark_clean() about coherency, to let the arm
->> implementation still require the extra dcache flush
->> for coherent DMA, while ia64 can ignore that flag.
->
-> Coherent DMA on Arm is assumed to be inner-shareable, so a coherent DMA 
-> write should be pretty much equivalent to a coherent write by another 
-> CPU (or indeed the local CPU itself) - nothing says that it *couldn't* 
-> dirty a line in a data cache above the level of unification, so in 
-> general the assumption must be that, yes, if coherent DMA is writing 
-> data intended to be executable, then it's going to want a Dcache clean 
-> to PoU and an Icache invalidate to PoU before trying to execute it. By 
-> comparison, a non-coherent DMA transfer will inherently have to 
-> invalidate the Dcache all the way to PoC in its dma_unmap, thus cannot 
-> leave dirty data above the PoU, so only the Icache maintenance is 
-> required in the executable case.
+The pull request you sent on Fri, 31 Mar 2023 08:01:05 -0700 (PDT):
 
-Ok, makes sense. I've already started reworking my patch for it.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc5
 
-> (FWIW I believe the Armv8 IDC/DIC features can safely be considered 
-> irrelevant to 32-bit kernels)
->
-> I don't know a great deal about IA-64, but it appears to be using its 
-> PG_arch_1 flag in a subtly different manner to Arm, namely to optimise 
-> out the *Icache* maintenance. So if anything, it seems IA-64 is the 
-> weirdo here (who'd have guessed?) where DMA manages to be *more* 
-> coherent than the CPUs themselves :)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/39f692125c388aa657e77e5ae07ea72be02d99a5
 
-I checked this in the ia64 manual, and as far as I can tell, it originally
-only had one cacheflush instruction that flushes the dcache and invalidates
-the icache at the same time. So flush_icache_range() actually does
-both and flush_dcache_page() instead just marks the page as dirty to
-ensure flush_icache_range() does not get skipped after a writing a
-page from the kernel.
+Thank you!
 
-On later Itaniums, there is apparently a separate icache flush
-instruction that gets used in flush_icache_range(), but that
-still works for the DMA case that is allowed to skip the flush.
-
-> This is all now making me think we need some careful consideration of 
-> whether the benefits of consolidating code outweigh the confusion of 
-> conflating multiple different meanings of "clean" together...
-
-The difference in usage of PG_dcache_clean/PG_dcache_dirty/PG_arch_1
-across architectures is certainly big enough that we can't just
-define a a common arch_dma_mark_clean() across architectures, but
-I think the idea of having a common entry point for
-arch_dma_mark_clean() to be called from the dma-mapping code
-to do something architecture specific after a DMA is clean still
-makes sense, 
-
-     Arnd
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
