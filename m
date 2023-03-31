@@ -4,76 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4C0C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 12:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E030CC76196
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 13:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V/JUmTstYoTCUuYfEAlC1YJ7tpBpKtmabVlEol6oOTg=; b=Mh9RG71Jje9gE/
-	K4RMTRY+vlpVVFVaiW8v1b9OndZCCEb+MY8BcqOA5FOR75n5/qWx4MNRMISpsdIWELh/5YgvUMTOJ
-	4UnpfBOWi6LAS6uhXhKWa+o6cl6yMiSP7oeEpQI98pbHeezFOW4CvRUq9cQF1VgqZPo1D6UGgM5sm
-	+xRu0UhiRdP/eOUqkjBJHnbmPpLUN+GLrb3eq520hyUyYpXPydCX8xOlUpBFZ6zibSgBFNepCyyu/
-	ykq6lw8B1qnhQlEDGu7pO4pX5CQ+bFfq5Py9OEexGsk1860zjNg49t8s0fInaQr7iVRPxEZ33RtOf
-	9PKtOA+b2SpLF6kwQHQQ==;
+	List-Owner; bh=LyhItHJmZxatnR3Uw6R2qeT6tBgoN5h6LvVd6fTTzK4=; b=019CvOF6atJMc5
+	VE/37bQ3uknasFm9k7T6IcSxDjeN/p5sxMes7mKwk6BGg1rNtHKyA+r1q53qhai4QS55gqX5lAI3W
+	TT5RKz0+jVXB1cPc/3sGGRLRSdHzleIxiSN3TV6u95bc9Zc8xUdArAq7EDDCZ5YwqOsbM8HZUXP13
+	3MkJf7ethWwe+3Ros1OP9Y6oWFbndXHJSkbKTxTKDat9UtmFIpu7TxnjgDEwFk2RFq8QTQNohJ7+Y
+	Jl/3o20dW9ONuJHm9cxMHupH2KNImulPtk6+sTHHlCEBK1W4mRCshF2mXtnEHWRiaI7WOKjW/SEfv
+	BiNL0SBXXYLkC3wNoXfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piEG2-007Qpl-1q;
-	Fri, 31 Mar 2023 12:53:30 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1piER0-007TJF-23;
+	Fri, 31 Mar 2023 13:04:50 +0000
+Received: from new1-smtp.messagingengine.com ([66.111.4.221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piEG0-007Qop-0n
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 12:53:29 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id er13so48194966edb.9
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Mar 2023 05:53:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112; t=1680267204;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YIZnVNAeusSw2DklqSF0RmxvOxwbV5Dj+erXFtgfBtA=;
-        b=WzN8sl+ja+DSJjEqAeZpmG8GXY9GKJuU8urNlcQdUzweq6Uu3o5ks6Ju9S74aGupiR
-         HzV2uKx/E9/Pj4I7qg1mHYPxO1pdtSQ87bT/eU0ZQD9BPaZojeN086LXpX+0a4y1IrhJ
-         uF/f+zQDB/jDpRYyHR7/2GfCCB9VhQ33mlYwKH1Jd+VAy5ulzlOPrmczkiKTIICqUXya
-         xU9TGe94YFKPmlE2btyW2PE0Qv/ymnr+0NKGmFvq7NXYesbNYZrMV5ZWCLj0tmUhX647
-         TQROSUPOZ2ocj3iWDrm6DUEB9JGcHWR2/FFLvt/aqFZAFwdNyTP9Zd8tK/PvTnfg78zE
-         vLmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680267204;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YIZnVNAeusSw2DklqSF0RmxvOxwbV5Dj+erXFtgfBtA=;
-        b=s6e8BI+iAY2ep6qhpla9AI2p4RwTyMYtJsDjaP5Zoaf69vwzZi82wW5wp6xGW9YZ+z
-         9onOu93/P5mGrQCBL3/5kwU0mruzKBtWTc7IoHSEqhWD38JfTnQSvGkGQXsGYRXoP7WN
-         SPQw7XpvFyVznG7rhjgF837vZupimHocuz1bBoN7d2DZttDSzWRlV8P/wc9on4u7mVxb
-         jbPDbiKBXXA8U1zNC3gGitiZnjOa8muaSI+30GOeol5cZNuA3orNVMvC5iM4eOl6PmC6
-         KcdKiXzGg5cLVT6h+6tLLJX30ZaLM6xwrDoxVwiCSmOoErRC4P+9W1m9fYVBO0oklX1v
-         KXPw==
-X-Gm-Message-State: AAQBX9cDgjGy7QxHpfjgygOrSWkjXKwedWbzYmLLoPK7ZU3VkWQDuMsc
-	w5XJ5TUkvyMCFWIkpgDy0YN1x7NBlxahEBKarn5xeQ==
-X-Google-Smtp-Source: AKy350aXJtieoI5T98QbeE9lxz4pl2omhYkDSZLjnzLzVIg3TVO430qunA++yOjjQfcGF1NH3RBLqUE4qLo4jY8BK6w=
-X-Received: by 2002:a17:907:9623:b0:93e:aac:bb8d with SMTP id
- gb35-20020a170907962300b0093e0aacbb8dmr13612957ejc.13.1680267203799; Fri, 31
- Mar 2023 05:53:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230128072737.2995881-3-apatel@ventanamicro.com> <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
-In-Reply-To: <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 31 Mar 2023 18:23:11 +0530
-Message-ID: <CAAhSdy3vPQw1OcRx3kQwt8UHgKa+18Ut-SzZkb8gQTHDRK7e2w@mail.gmail.com>
-Subject: Re: [PATCH v2 2/7] RISC-V: Detect AIA CSRs from ISA string
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: apatel@ventanamicro.com, pbonzini@redhat.com, atishp@atishpatra.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	id 1piEQw-007TI8-2q;
+	Fri, 31 Mar 2023 13:04:48 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.nyi.internal (Postfix) with ESMTP id BE5C8582670;
+	Fri, 31 Mar 2023 09:04:45 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 31 Mar 2023 09:04:45 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1680267885; x=1680275085; bh=Yf
+	6BPXqc5+4lmQ5wl2xtIuAGvUiY5BeudyAFy0EZ0G8=; b=uZNEHaxzYCVqJlOAFe
+	QyTGIrtKOzaG3cycJ6z13gjgQTZlhniIOf1HqwjYjO+LKgEQjawzudKts8yI8F6C
+	s8uj/7ZqVN8UGH5ZgZFIXMyd5b75HqrmeNrZ8vsEJBVSpi2J3ZWlL4UkN8mHXtQA
+	GGAWo9PRgMqmoTCuDthWrNh+w6KhXBpQbLLxMJMKAnJljfVDgqgBdZYQ1YQkl+H6
+	LZF9xoMeCYQEcBMHzHxAdJ1E4ywnG504K4JuUFuXrw0flCzwupmtajEoLwVwD19b
+	WT1JJ6Nt4Zmjo8gqjmpMMSo4dacmgE9f6vIbQ+V6NrcMdQ2gozhdVyKm6v87HBEM
+	ZV+g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1680267885; x=1680275085; bh=Yf6BPXqc5+4lm
+	Q5wl2xtIuAGvUiY5BeudyAFy0EZ0G8=; b=KUzHmHuPZ/ods4YSgTzEfYrM3rPW4
+	wY1sW3YIixU8cPi3ERC0CqbsRY1SanLUJ0aZrBgOR4qWoyaz63HiFfoH3UAybnQT
+	l28FyLxSxhC8yvKK0U29T5xndO1MnAOFIprhP3Ccq4nl8DZqPNjxy1R1RtNY8tPM
+	10Qj7i/N0QTRDJZBhjBFHWgb2R8ePLqUj5cPixNs1c/I5cS8MzaXIOWn+kPofhss
+	o5aXvgsWtBzOhKzG5Xt8hpy17hyFm2BD/GRH9jCAvBdUli4r8v/AMdn17Lkc1Dnf
+	2N0OT3xREpdvfAtCeC38I5tHCQLbXD8KwEF4WisGqz7N4lPVjlEATH8EA==
+X-ME-Sender: <xms:a9omZJiVtEYr1gohWls37IVQ9CF9nCvR52uadevxUFI1_ahiwQbGsQ>
+    <xme:a9omZOBdYFlhmVUP9ZBAqzcVv6dLmbnpmpoT8ZWMWWFuha-Upa5ii3-9dUxiHVJ0i
+    DLrKcmmak_QunOyTR0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdeiuddgheeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:a9omZJGQP2SDLfTdlNtHU58KujmMjCCPjp2MYZCkx8VxOoIam26ptg>
+    <xmx:a9omZOQ_ghP1D54G9gFIpRX34_QWI9HuBF_xpFDLUfbARzYmsBB3BQ>
+    <xmx:a9omZGzQTy4b94FH_vNyNLKxzInd5lNSDOVNKdl-OYMtJ2YLHoMEew>
+    <xmx:bdomZGimMTY80mozuQ0VHFtNe8ro8DDcPyeY5KEc4gKNnNfwg49O4A>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 6B754B6008D; Fri, 31 Mar 2023 09:04:43 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-238-g746678b8b6-fm-20230329.001-g746678b8
+Mime-Version: 1.0
+Message-Id: <f25d74a0-9e61-44df-b4c7-f495462fa648@app.fastmail.com>
+In-Reply-To: <20230327222514.GA17904@lst.de>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-22-arnd@kernel.org> <20230327222514.GA17904@lst.de>
+Date: Fri, 31 Mar 2023 15:04:23 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christoph Hellwig" <hch@lst.de>, "Arnd Bergmann" <arnd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
+ "Brian Cain" <bcain@quicinc.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Dinh Nguyen" <dinguyen@kernel.org>, "Stafford Horne" <shorne@gmail.com>,
+ "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Rich Felker" <dalias@libc.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Max Filippov" <jcmvbkbc@gmail.com>,
+ "Robin Murphy" <robin.murphy@arm.com>, "Lad,
+ Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 21/21] dma-mapping: replace custom code with generic implementation
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_055328_473401_617DDC33 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20230331_060446_992117_8E1AB109 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,76 +127,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyCgpPbiBGcmksIEZlYiAzLCAyMDIzIGF0IDU6NTTigK9BTSBQYWxtZXIgRGFiYmVs
-dCA8cGFsbWVyQGRhYmJlbHQuY29tPiB3cm90ZToKPgo+IE9uIEZyaSwgMjcgSmFuIDIwMjMgMjM6
-Mjc6MzIgUFNUICgtMDgwMCksIGFwYXRlbEB2ZW50YW5hbWljcm8uY29tIHdyb3RlOgo+ID4gV2Ug
-aGF2ZSB0d28gZXh0ZW5zaW9uIG5hbWVzIGZvciBBSUEgSVNBIHN1cHBvcnQ6IFNtYWlhIChNLW1v
-ZGUgQUlBIENTUnMpCj4gPiBhbmQgU3NhaWEgKFMtbW9kZSBBSUEgQ1NScykuCj4KPiBUaGlzIGhh
-cyBwcmV0dHkgbXVjaCB0aGUgc2FtZSBwcm9ibGVtIHRoYXQgd2UgaGFkIHdpdGggdGhlIG90aGVy
-Cj4gQUlBLXJlbGF0ZWQgSVNBIHN0cmluZyBwYXRjaGVzLCB3aGVyZSB0aGVyZSdzIHRoYXQgYW1i
-aWd1aXR5IHdpdGggdGhlCj4gbm9uLXJhdGlmaWVkIGNoYXB0ZXJzLiAgSUlSQyB3aGVuIHRoaXMg
-Y2FtZSB1cCBpbiBHQ0MgdGhlIHJvdWdoIGlkZWEgd2FzCj4gdG8gdHJ5IGFuZCBkb2N1bWVudCB0
-aGF0IHdlJ3JlIGdvaW5nIHRvIGludGVycHJldCB0aGUgc3RhbmRhcmQgSVNBCj4gc3RyaW5ncyB0
-aGF0IHdheSwgYnV0IG5vdyB0aGF0IHdlJ3JlIGRvaW5nIGN1c3RvbSBJU0EgZXh0ZW5zaW9ucyBp
-dAo+IHNlZW1zIHNhbmVyIHRvIGp1c3QgZGVmaW5lIG9uIGhlcmUgdGhhdCByZW1vdmVzIHRoZSBh
-bWJpZ3VpdHkuCj4KPiBJIGp1c3Qgc2VudAo+IDxodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIw
-MjMwMjAzMDAxMjAxLjE0NzcwLTEtcGFsbWVyQHJpdm9zaW5jLmNvbS8+Cj4gd2hpY2ggZG9jdW1l
-bnRzIHRoYXQuCgpUaGUgSU9NTVUgYW5kIEFJQSBjaGFwdGVyOCBhcmUgZnJvemVuIGFuZCBpbiBw
-dWJsaWMgcmV2aWV3LgpSZWZlciwgaHR0cHM6Ly9saXN0cy5yaXNjdi5vcmcvZy90ZWNoLWFpYS9t
-ZXNzYWdlLzM0NgoKVGhpcyBtZWFucyB0aGUgZW50aXJlIEFJQSBzcGVjaWZpY2F0aW9uIGlzIG5v
-dyBmcm96ZW4gKGkuZS4gbm8KY2hhcHRlcnMgaW4gZHJhZnQgc3RhdGUpLgoKSSB3aWxsIHJlYmFz
-ZSB0aGlzIHNlcmllcyBhbmQgc2VuZC1vdXQgdjMuIEl0IHdvdWxkIGJlIGdyZWF0IGlmIHlvdQpj
-YW4gQUNLIHRoZSBQQVRDSDIgb2YgdGhpcyBzZXJpZXMuCgpUaGFua3MsCkFudXAKCj4KPiA+IFdl
-IGV4dGVuZCB0aGUgSVNBIHN0cmluZyBwYXJzaW5nIHRvIGRldGVjdCBTbWFpYSBhbmQgU3NhaWEg
-ZXh0ZW5zaW9ucy4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVu
-dGFuYW1pY3JvLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50
-YW5hbWljcm8uY29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5o
-IHwgMiArKwo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdS5jICAgICAgICB8IDIgKysKPiA+ICBh
-cmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCAyICsrCj4gPiAgMyBmaWxlcyBjaGFuZ2Vk
-LCA2IGluc2VydGlvbnMoKykKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9od2NhcC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiBpbmRleCA4
-NjMyOGUzYWNiMDIuLjM0MWVmMzBhMzcxOCAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vaHdjYXAuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5o
-Cj4gPiBAQCAtNTksNiArNTksOCBAQCBlbnVtIHJpc2N2X2lzYV9leHRfaWQgewo+ID4gICAgICAg
-UklTQ1ZfSVNBX0VYVF9aSUhJTlRQQVVTRSwKPiA+ICAgICAgIFJJU0NWX0lTQV9FWFRfU1NUQywK
-PiA+ICAgICAgIFJJU0NWX0lTQV9FWFRfU1ZJTlZBTCwKPiA+ICsgICAgIFJJU0NWX0lTQV9FWFRf
-U01BSUEsCj4gPiArICAgICBSSVNDVl9JU0FfRVhUX1NTQUlBLAo+ID4gICAgICAgUklTQ1ZfSVNB
-X0VYVF9JRF9NQVgKPiA+ICB9Owo+ID4gIHN0YXRpY19hc3NlcnQoUklTQ1ZfSVNBX0VYVF9JRF9N
-QVggPD0gUklTQ1ZfSVNBX0VYVF9NQVgpOwo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
-bmVsL2NwdS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiA+IGluZGV4IDFiOWE1YTY2ZTU1
-YS4uYTIxNWVjOTI5MTYwIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMK
-PiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jCj4gPiBAQCAtMTYyLDYgKzE2Miw4IEBA
-IGFyY2hfaW5pdGNhbGwocmlzY3ZfY3B1aW5mb19pbml0KTsKPiA+ICAgKiAgICBleHRlbnNpb25z
-IGJ5IGFuIHVuZGVyc2NvcmUuCj4gPiAgICovCj4gPiAgc3RhdGljIHN0cnVjdCByaXNjdl9pc2Ff
-ZXh0X2RhdGEgaXNhX2V4dF9hcnJbXSA9IHsKPiA+ICsgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRB
-KHNtYWlhLCBSSVNDVl9JU0FfRVhUX1NNQUlBKSwKPiA+ICsgICAgIF9fUklTQ1ZfSVNBX0VYVF9E
-QVRBKHNzYWlhLCBSSVNDVl9JU0FfRVhUX1NTQUlBKSwKPgo+IFRoaXMgd2lsbCBjb25mbGljdCB3
-aXRoIHRoYXQgSVNBIHN0cmluZyByZWZhY3RvcmluZyBJIGp1c3QgbWVyZ2VkLiAgSXQKPiBzaG91
-bGQgYmUgYSBwcmV0dHkgbWVjaGFuaWNhbCBtZXJnZSBjb25mbGljdCwgYnV0IGlmIHlvdSB3YW50
-IHdlIGNhbiBkbwo+IGEgc2hhcmVkIHRhZyB3aXRoIHRoZSBmaXJzdCBmZXcgcGF0Y2hlcyBhbmQg
-SSBjYW4gaGFuZGxlIHRoZSBtZXJnZQo+IGNvbmZsaWN0IGxvY2FsbHkuCj4KPiA+ICAgICAgIF9f
-UklTQ1ZfSVNBX0VYVF9EQVRBKHNzY29mcG1mLCBSSVNDVl9JU0FfRVhUX1NTQ09GUE1GKSwKPiA+
-ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzdGMsIFJJU0NWX0lTQV9FWFRfU1NUQyksCj4g
-PiAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQShzdmludmFsLCBSSVNDVl9JU0FfRVhUX1NWSU5W
-QUwpLAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ID4gaW5kZXggOTNlNDU1NjBhZjMwLi4zYzVi
-NTFmNTE5ZDUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
-PiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ID4gQEAgLTIyOCw2ICsy
-MjgsOCBAQCB2b2lkIF9faW5pdCByaXNjdl9maWxsX2h3Y2FwKHZvaWQpCj4gPiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInppaGludHBhdXNlIiwgUklTQ1Zf
-SVNBX0VYVF9aSUhJTlRQQVVTRSk7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBT
-RVRfSVNBX0VYVF9NQVAoInNzdGMiLCBSSVNDVl9JU0FfRVhUX1NTVEMpOwo+ID4gICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJzdmludmFsIiwgUklTQ1ZfSVNB
-X0VYVF9TVklOVkFMKTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0Ff
-RVhUX01BUCgic21haWEiLCBSSVNDVl9JU0FfRVhUX1NNQUlBKTsKPiA+ICsgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgic3NhaWEiLCBSSVNDVl9JU0FfRVhUX1NT
-QUlBKTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICB9Cj4gPiAgI3VuZGVmIFNFVF9JU0FfRVhU
-X01BUAo+ID4gICAgICAgICAgICAgICB9CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Mar 28, 2023, at 00:25, Christoph Hellwig wrote:
+>> +static inline void arch_dma_cache_wback(phys_addr_t paddr, size_t size)
+>>  {
+>> +	dma_cache_wback(paddr, size);
+>> +}
+>>  
+>> +static inline void arch_dma_cache_inv(phys_addr_t paddr, size_t size)
+>> +{
+>> +	dma_cache_inv(paddr, size);
+>>  }
+>
+>> +static inline void arch_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
+>>  {
+>> +	dma_cache_wback_inv(paddr, size);
+>> +}
+>
+> There are the only calls for the three functions for each of the
+> involved functions.  So I'd rather rename the low-level symbols
+> (and drop the pointless exports for two of them) rather than adding
+> these wrapppers.
+>
+> The same is probably true for many other architectures.
+
+Ok, done that now.
+
+>> +static inline bool arch_sync_dma_clean_before_fromdevice(void)
+>> +{
+>> +	return false;
+>> +}
+>>  
+>> +static inline bool arch_sync_dma_cpu_needs_post_dma_flush(void)
+>> +{
+>> +	return true;
+>>  }
+>
+> Is there a way to cut down on this boilerplate code by just having
+> sane default, and Kconfig options to override them if they are not
+> runtime decisions?
+
+I've changed arch_sync_dma_clean_before_fromdevice() to a
+Kconfig symbol now, as this is never a runtime decision.
+
+For arch_sync_dma_cpu_needs_post_dma_flush(), I have this
+version now in common code, which lets mips and arm have
+their own logic and has the same effect elsewhere:
+
++#ifndef arch_sync_dma_cpu_needs_post_dma_flush
++static inline bool arch_sync_dma_cpu_needs_post_dma_flush(void)
++{
++       return IS_ENABLED(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU);
++}
++#endif
+
+>> +#include <linux/dma-sync.h>
+>
+> I can't really say I like the #include version here despite your
+> rationale in the commit log.  I can probably live with it if you
+> think it is absolutely worth it, but I'm really not in favor of it.
+>
+>> +config ARCH_DMA_MARK_DCACHE_CLEAN
+>> +	def_bool y
+>
+> What do we need this symbol for?  Unless I'm missing something it is
+> always enable for arm32, and only used in arm32 code.
+
+This was left over from an earlier draft and accidentally duplicates
+the thing that I have in the Arm version for the existing
+ARCH_HAS_DMA_MARK_CLEAN. I dropped this one and the
+generic copy of the arch_dma_mark_dcache_clean() function
+now, but still need to revisit the arm version, as it sounds
+like it has slightly different semantics from the ia64 version.
+
+     Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
