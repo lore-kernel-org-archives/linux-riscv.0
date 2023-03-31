@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8A8C76196
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 18:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE46C77B60
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Mar 2023 18:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BkXjvZSTj4Gb88GqYByGjK9zjNyJwA667+DUrIcwKzE=; b=V/Vwbhh8M7YQk4uuX1pKlbc72w
-	8hHj2llHvBGr/cBOiRa7oV9eXd0JWYlLMGJ3YMkzcytldGlA9MwAdJuUsUM0YS/CrqFnNAf2GGnVV
-	3cTKhYrevHs/BMSQzQcqEVRbUPeJMTi0/p4ElmcZ9rLPw5KGTVF0wpu59kvmzUDprWxEY2ZHHRX2Z
-	glB6j091xCbSlmTeMKSWY3smVHR1ydeo0cmE69hc2HVJNbftV7vBlt2VuWPnU+Bo0eV2kcAOxxWBG
-	WwSyGjdgOJFEhX0i8PcKRt3AVHZImetqXC/UsSP9QCWXZT7kpl0OlyjrbqGdFBRvgJ7BUKtmhx17Q
-	LSZtEGPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nVTq3XKqiBCm9+dyGyK6/RS9WONoUrv8MejurNgHXNE=; b=eSNQO3ZawKJFqx
+	xE3GOM3y7WVfJcgPk8A5pgEvSn2V9cYZvAvnLlOcaeTPRc2siyU1wmsuIbkx7ln24/0T+XWDGvh7o
+	pFBHBQIWDXheA0s+LE/o22UpalwARv8DX9GiSYsmnG5YjAOciMujyO5Tpuv/wIVLj8XqgyhND1g9y
+	5rGG28+v1IeFIyFmMFIAqRgLnL0YoARof0X8j0YQMzfVmD2rKV9w8KpKCE0XGofHe0TEMibjXhrzu
+	zVXuSBQVjWqCLKQZvL6HCClTqZbcKXd7wd/FVq6U6JOY9fNE/MtiY4qhp6AlEjHl6LMQ2B+0GteDP
+	nroxn8wgAAXCzR30Pk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piJh7-008UVi-1c;
-	Fri, 31 Mar 2023 18:41:49 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1piJmV-008Vzd-0z;
+	Fri, 31 Mar 2023 18:47:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piJh3-008UUS-1d
+	id 1piJmP-008VwW-1j
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Mar 2023 18:41:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 17652B83143;
-	Fri, 31 Mar 2023 18:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6508AC433EF;
-	Fri, 31 Mar 2023 18:41:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680288102;
-	bh=3p/O9/CLo4800DOPyq8SsH+lR09J6hidgfyfB1UwbMc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VxtkU6Hac0u1ir+DqGNebk0fkqDIppqx0euv07VJQ4ZQFAzvG2M8ZmXeot+AiC8vt
-	 4fYnwSsGiYMhjfNGImhXbimSozpRmJM9XSnRHQuwvj1aaThMxY+AncV2401PXXy4O8
-	 xZYFO7RDOUYKKKsTE3szzVMRFHYluYppqPDYdK9cXnMUuY6N8wKB1jVIlNYtSZh4gn
-	 2IQpz6LL0OYndgZIbrH88Qi3HBKz+h9mOC0eMcWADuiD66iaf/zgXg3a00C/48A6sG
-	 EwPpJdlxToLadYc9P0IwfGIWuuI5prNQ3wpJFnaBKTNPmfGD5Ai/IpNKTUhMWWzsyH
-	 3WZWez09Bwtbg==
-Date: Fri, 31 Mar 2023 19:41:35 +0100
-From: Conor Dooley <conor@kernel.org>
-To: guoren@kernel.org
+	Fri, 31 Mar 2023 18:47:20 +0000
+Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1piJlt-0005U1-Sg; Fri, 31 Mar 2023 20:46:45 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: guoren@kernel.org, Conor Dooley <conor@kernel.org>
 Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de,
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com,
-	falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
-	atishp@atishpatra.org, mark.rutland@arm.com, ben@decadent.org.uk,
-	bjorn@kernel.org, palmer@dabbelt.com, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Yipeng Zou <zouyipeng@huawei.com>
+ peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
+ jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org,
+ chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org,
+ mark.rutland@arm.com, ben@decadent.org.uk, bjorn@kernel.org,
+ palmer@dabbelt.com, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+ =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+ Yipeng Zou <zouyipeng@huawei.com>
 Subject: Re: [PATCH -next V17 4/7] riscv: entry: Convert to generic entry
-Message-ID: <ee83cd00-1f97-49a0-b1f6-b8b4f3ce7258@spud>
-References: <20230222033021.983168-1-guoren@kernel.org>
- <20230222033021.983168-5-guoren@kernel.org>
+Date: Fri, 31 Mar 2023 20:46:44 +0200
+Message-ID: <23668656.ouqheUzb2q@diego>
+In-Reply-To: <ee83cd00-1f97-49a0-b1f6-b8b4f3ce7258@spud>
+References:  <20230222033021.983168-1-guoren@kernel.org>
  <60ee7c26-1a70-427d-beaf-92e2989fc479@spud>
+ <ee83cd00-1f97-49a0-b1f6-b8b4f3ce7258@spud>
 MIME-Version: 1.0
-In-Reply-To: <60ee7c26-1a70-427d-beaf-92e2989fc479@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230331_114145_828619_0D83DDB0 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20230331_114717_729263_EA3ED05F 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,194 +65,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7663374585538848499=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7663374585538848499==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wc5Ye/0zXmFh17VW"
-Content-Disposition: inline
-
-
---wc5Ye/0zXmFh17VW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 31, 2023 at 07:34:38PM +0100, Conor Dooley wrote:
-> On Tue, Feb 21, 2023 at 10:30:18PM -0500, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >=20
-> > This patch converts riscv to use the generic entry infrastructure from
-> > kernel/entry/*. The generic entry makes maintainers' work easier and
-> > codes more elegant. Here are the changes:
-> >=20
-> >  - More clear entry.S with handle_exception and ret_from_exception
-> >  - Get rid of complex custom signal implementation
-> >  - Move syscall procedure from assembly to C, which is much more
-> >    readable.
-> >  - Connect ret_from_fork & ret_from_kernel_thread to generic entry.
-> >  - Wrap with irqentry_enter/exit and syscall_enter/exit_from_user_mode
-> >  - Use the standard preemption code instead of custom
->=20
-> This has unfortunately broken booting my usual NFS rootfs on both my D1
-> and Icicle. It's one of the Fedora images from David, I think this one:
-> http://fedora.riscv.rocks/kojifiles/work/tasks/3933/1313933/
->=20
-> It gets pretty far into things, it's once systemd is operational that
-> things go pear shaped:
-
-Shoulda said, can share the full logs if required of course, but they're
-quite verbose cos systemd etc.
-
->=20
-> [  OK  ] Mounted Huge Pages File System.
-> [   70.297439] systemd[1]: Mounted POSIX Message Queue File System.
-> [  OK  ] Mounted POSIX Message Queue File System.
-> [   70.453489] systemd[1]: Mounted Kernel Debug File System.
-> [  OK  ] Mounted Kernel Debug File System.
-> [   70.516331] systemd[1]: Mounted Kernel Trace File System.
-> [  OK  ] Mounted Kernel Trace File System.
-> [   70.679253] systemd[1]: modprobe@configfs.service: Succeeded.
-> [   70.788400] systemd[1]: Finished Load Kernel Module configfs.
-> [  OK  ] Finished Load Kernel Module configfs.
-> [   71.501222] systemd[1]: modprobe@drm.service: Succeeded.
-> [   71.573295] systemd[1]: Finished Load Kernel Module drm.
-> [  OK  ] Finished Load Kernel Module drm.
-> [   71.825934] systemd[1]: modprobe@fuse.service: Succeeded.
-> [   71.886945] systemd[1]: Finished Load Kernel Module fuse.
-> [  OK  ] Finished Load Kernel Module fuse.
-> [   71.991932] systemd[1]: nfs-convert.service: Succeeded.
-> [   72.034674] systemd[1]: Finished Preprocess NFS configuration converti=
-on.
-> [  OK  ] Finished Preprocess NFS configuration convertion.
-> [   72.148778] systemd[1]: systemd-modules-load.service: Main process exi=
-ted, code=3Dexited, status=3D1/FAILURE
-> [   72.256659] systemd[1]: systemd-modules-load.service: Failed with resu=
-lt 'exit-code'.
-> [   72.337818] systemd[1]: Failed to start Load Kernel Modules.
-> [FAILED] Failed to start Load Kernel Modules.
-> See 'systemctl status systemd-modules-load.service' for details.
-> [   72.410491] systemd[1]: systemd-modules-load.service: Consumed 1.463s =
-CPU time.
-> [   72.496739] systemd[1]: Condition check resulted in FUSE Control File =
-System being skipped.
-> [   72.513689] systemd[1]: Condition check resulted in Kernel Configurati=
-on File System being skipped.
-> [   72.682549] systemd[1]: Starting Apply Kernel Variables..
-> [  OK  ] Finished Apply Kernel Variables.
-> [   76.314434] systemd[1]: Finished Load/Save Random Seed.
-> [  OK  ] Finished Load/Save Random Seed.
-> [***   ] (1 of 6) A start job is running for=E2=80=A6p Virtual Console (1=
-4s / no limit)
-> [  OK  ] Finished Create Static Device Nodes in /dev.
-> [   79.787065] systemd[1]: Started Entropy Daemon based on the HAVEGE alg=
-orithm.
-> [  OK  ] Started Entropy Daemon based on the HAVEGE algorithm.
-> [   80.186295] systemd[1]: Starting Journal Service...
->          Starting Journal Service...
-> [   80.713508] systemd[1]: Starting Rule-based Manager for Device Events =
-and Files...
->          Starting Rule-based Manage=E2=80=A6for Device Events and Files...
-> [  *** ] (2 of 7) A start job is running for=E2=80=A6 All udev Devices (1=
-7s / no limit)
-> [   82.939347] systemd[1]: systemd-journald.service: Main process exited,=
- code=3Dexited, status=3D1/FAILURE
-> [   83.032046] systemd[1]: systemd-journald.service: Failed with result '=
-exit-code'.
-> [FAILED] Failed to start Journal Service.
-> See 'systemctl status systemd-journald.service' for details.
-> [   83.210041] systemd[1]: Dependency failed for Flush Journal to Persist=
-ent Storage.
-> [DEPEND] Dependency failed for Flus=E2=80=A6Journal to Persistent Storage.
-> [   83.254122] systemd[1]: systemd-journal-flush.service: Job systemd-jou=
-rnal-flush.service/start failed with result 'dependency'.
-> [   83.272366] systemd[1]: systemd-journald.service: Consumed 1.443s CPU =
-time.
-> [   83.334360] systemd[1]: systemd-journald.service: Scheduled restart jo=
-b, restart counter is at 1.
-> [   83.427839] systemd[1]: Finished Setup Virtual Console.
-> [  OK  ] Finished Setup Virtual Console.
-> [   83.510650] systemd[1]: Stopped Journal Service.
-> [  OK  ] Stopped Journal Service.
-> [   83.554417] systemd[1]: systemd-journald.service: Consumed 1.443s CPU =
-time.
-> [   83.576573] systemd[1]: Condition check resulted in Journal Audit Sock=
-et being skipped.
-> [   83.904878] systemd[1]: Starting Journal Service...
->          Starting Journal Service...
-> [   85.752090] systemd[1]: systemd-journald.service: Main process exited,=
- code=3Dexited, status=3D1/FAILURE
-> [   85.826421] systemd[1]: systemd-journald.service: Failed with result '=
-exit-code'.
-> [   85.876165] systemd[1]: Failed to start Journal Service.
-> [FAILED] Failed to start Journal Service.
-> See 'systemctl status systemd-journald.service' for details.
-> [   85.952221] systemd[1]: systemd-journald.service: Consumed 1.355s CPU =
-time.
-> [   86.002092] systemd[1]: systemd-journald.service: Scheduled restart jo=
-b, restart counter is at 2.
-> [   86.015081] systemd[1]: Stopped Journal Service.
-> [  OK  ] Stopped Journal Service.
-> [   86.076429] systemd[1]: systemd-journald.service: Consumed 1.355s CPU =
-time.
-> [   86.089700] systemd[1]: Condition check resulted in Journal Audit Sock=
-et being skipped.
-> [   86.390162] systemd[1]: Starting Journal Service...
->          Starting Journal Service...
-> [   87.904427] systemd[1]: systemd-journald.service: Main process exited,=
- code=3Dexited, status=3D1/FAILURE
-> [   87.950259] systemd[1]: systemd-journald.service: Failed with result '=
-exit-code'.
-> [   88.000661] systemd[1]: Failed to start Journal Service.
-> [FAILED] Failed to start Journal Service.
-> See 'systemctl status systemd-journald.service' for details.
-> [   88.079953] systemd[1]: systemd-journald.service: Consumed 1.316s CPU =
-time.
-> [   88.128956] systemd[1]: systemd-journald.service: Scheduled restart jo=
-b, restart counter is at 3.
-> [   88.145365] systemd[1]: Stopped Journal Service.
-> [  OK  ] Stopped Journal Service.
-> [   88.189975] systemd[1]: systemd-journald.service: Consumed 1.316s CPU =
-time.
-> [   88.205799] systemd[1]: Condition check resulted in Journal Audit Sock=
-et being skipped.
-> [   88.514817] systemd[1]: Starting Journal Service...
->          Starting Journal Service...
->=20
-> (Note, you need to merge -rc2 into riscv/for-next to actually boot)
->=20
-> Cheers,
-> Conor.
-
-
-
---wc5Ye/0zXmFh17VW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCcpXwAKCRB4tDGHoIJi
-0gW6AQDI28/go9okNXNTDXLjSCttIpeBd0rRc4eSF+3vqbawegD/VWTdRfmbB6Ug
-Q4XU0kzKQwFyM3Rx5dTOeUOUKZOQxwU=
-=0M5y
------END PGP SIGNATURE-----
-
---wc5Ye/0zXmFh17VW--
-
-
---===============7663374585538848499==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7663374585538848499==--
-
+SGksCgpBbSBGcmVpdGFnLCAzMS4gTcOkcnogMjAyMywgMjA6NDE6MzUgQ0VTVCBzY2hyaWViIENv
+bm9yIERvb2xleToKPiBPbiBGcmksIE1hciAzMSwgMjAyMyBhdCAwNzozNDozOFBNICswMTAwLCBD
+b25vciBEb29sZXkgd3JvdGU6Cj4gPiBPbiBUdWUsIEZlYiAyMSwgMjAyMyBhdCAxMDozMDoxOFBN
+IC0wNTAwLCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiA+ID4gRnJvbTogR3VvIFJlbiA8Z3Vv
+cmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gPiAKPiA+ID4gVGhpcyBwYXRjaCBjb252ZXJ0cyBy
+aXNjdiB0byB1c2UgdGhlIGdlbmVyaWMgZW50cnkgaW5mcmFzdHJ1Y3R1cmUgZnJvbQo+ID4gPiBr
+ZXJuZWwvZW50cnkvKi4gVGhlIGdlbmVyaWMgZW50cnkgbWFrZXMgbWFpbnRhaW5lcnMnIHdvcmsg
+ZWFzaWVyIGFuZAo+ID4gPiBjb2RlcyBtb3JlIGVsZWdhbnQuIEhlcmUgYXJlIHRoZSBjaGFuZ2Vz
+Ogo+ID4gPiAKPiA+ID4gIC0gTW9yZSBjbGVhciBlbnRyeS5TIHdpdGggaGFuZGxlX2V4Y2VwdGlv
+biBhbmQgcmV0X2Zyb21fZXhjZXB0aW9uCj4gPiA+ICAtIEdldCByaWQgb2YgY29tcGxleCBjdXN0
+b20gc2lnbmFsIGltcGxlbWVudGF0aW9uCj4gPiA+ICAtIE1vdmUgc3lzY2FsbCBwcm9jZWR1cmUg
+ZnJvbSBhc3NlbWJseSB0byBDLCB3aGljaCBpcyBtdWNoIG1vcmUKPiA+ID4gICAgcmVhZGFibGUu
+Cj4gPiA+ICAtIENvbm5lY3QgcmV0X2Zyb21fZm9yayAmIHJldF9mcm9tX2tlcm5lbF90aHJlYWQg
+dG8gZ2VuZXJpYyBlbnRyeS4KPiA+ID4gIC0gV3JhcCB3aXRoIGlycWVudHJ5X2VudGVyL2V4aXQg
+YW5kIHN5c2NhbGxfZW50ZXIvZXhpdF9mcm9tX3VzZXJfbW9kZQo+ID4gPiAgLSBVc2UgdGhlIHN0
+YW5kYXJkIHByZWVtcHRpb24gY29kZSBpbnN0ZWFkIG9mIGN1c3RvbQo+ID4gCj4gPiBUaGlzIGhh
+cyB1bmZvcnR1bmF0ZWx5IGJyb2tlbiBib290aW5nIG15IHVzdWFsIE5GUyByb290ZnMgb24gYm90
+aCBteSBEMQo+ID4gYW5kIEljaWNsZS4gSXQncyBvbmUgb2YgdGhlIEZlZG9yYSBpbWFnZXMgZnJv
+bSBEYXZpZCwgSSB0aGluayB0aGlzIG9uZToKPiA+IGh0dHA6Ly9mZWRvcmEucmlzY3Yucm9ja3Mv
+a29qaWZpbGVzL3dvcmsvdGFza3MvMzkzMy8xMzEzOTMzLwo+ID4gCj4gPiBJdCBnZXRzIHByZXR0
+eSBmYXIgaW50byB0aGluZ3MsIGl0J3Mgb25jZSBzeXN0ZW1kIGlzIG9wZXJhdGlvbmFsIHRoYXQK
+PiA+IHRoaW5ncyBnbyBwZWFyIHNoYXBlZDoKPiAKPiBTaG91bGRhIHNhaWQsIGNhbiBzaGFyZSB0
+aGUgZnVsbCBsb2dzIGlmIHJlcXVpcmVkIG9mIGNvdXJzZSwgYnV0IHRoZXkncmUKPiBxdWl0ZSB2
+ZXJib3NlIGNvcyBzeXN0ZW1kIGV0Yy4KCkkgd2FzIGp1c3QgaW52ZXN0aWdhdGluZyB0aGUgc2Ft
+ZSB0aGluZyBqdXN0IG5vdy4gU28gdGhhdCBzYXZlcyBtZSBzb21lCnRyYWNraW5nIGRvd24gdGhl
+IGN1bHByaXQgOi0pIC4KCk15IG1haW4gcWVtdSBpcyBsaXZpbmcgYXMgYSAiYm9hcmQiIGluIG15
+IGJvYXJkZmFybSAoYWxzbyBkb2luZyBuZnNyb290KQphcyB3ZWxsIGFzIG15IGQxIG5lemhhIHdp
+dGggbmZzcm9vdCB3YXMgYWZmZWN0ZWQuCgpUaG91Z2ggbXkgYm9hcmQgaXMgc3R1Y2sgaW4gc29t
+ZSBmYWlsdXJlIGxvb3Agd2l0aCBib3RoIHRoZSBqb3VybmFsLSBhcwp3ZWxsIGFzIHRoZSB0aW1l
+c3luY2Qgc2VydmljZSBmYWlsaW5nIGFnYWluIGFuZCBhZ2Fpbi4gQW5kIEkgaGF2ZW4ndApmaWd1
+cmVkIG91dCBob3cgdG8gZ2V0IGxvZ3Mgd2l0aG91dCBhIHdvcmtpbmcgbG9naW4gY29uc29sZSB5
+ZXQuCgoKSGVpa28KCgo+IAo+ID4gCj4gPiBbICBPSyAgXSBNb3VudGVkIEh1Z2UgUGFnZXMgRmls
+ZSBTeXN0ZW0uCj4gPiBbICAgNzAuMjk3NDM5XSBzeXN0ZW1kWzFdOiBNb3VudGVkIFBPU0lYIE1l
+c3NhZ2UgUXVldWUgRmlsZSBTeXN0ZW0uCj4gPiBbICBPSyAgXSBNb3VudGVkIFBPU0lYIE1lc3Nh
+Z2UgUXVldWUgRmlsZSBTeXN0ZW0uCj4gPiBbICAgNzAuNDUzNDg5XSBzeXN0ZW1kWzFdOiBNb3Vu
+dGVkIEtlcm5lbCBEZWJ1ZyBGaWxlIFN5c3RlbS4KPiA+IFsgIE9LICBdIE1vdW50ZWQgS2VybmVs
+IERlYnVnIEZpbGUgU3lzdGVtLgo+ID4gWyAgIDcwLjUxNjMzMV0gc3lzdGVtZFsxXTogTW91bnRl
+ZCBLZXJuZWwgVHJhY2UgRmlsZSBTeXN0ZW0uCj4gPiBbICBPSyAgXSBNb3VudGVkIEtlcm5lbCBU
+cmFjZSBGaWxlIFN5c3RlbS4KPiA+IFsgICA3MC42NzkyNTNdIHN5c3RlbWRbMV06IG1vZHByb2Jl
+QGNvbmZpZ2ZzLnNlcnZpY2U6IFN1Y2NlZWRlZC4KPiA+IFsgICA3MC43ODg0MDBdIHN5c3RlbWRb
+MV06IEZpbmlzaGVkIExvYWQgS2VybmVsIE1vZHVsZSBjb25maWdmcy4KPiA+IFsgIE9LICBdIEZp
+bmlzaGVkIExvYWQgS2VybmVsIE1vZHVsZSBjb25maWdmcy4KPiA+IFsgICA3MS41MDEyMjJdIHN5
+c3RlbWRbMV06IG1vZHByb2JlQGRybS5zZXJ2aWNlOiBTdWNjZWVkZWQuCj4gPiBbICAgNzEuNTcz
+Mjk1XSBzeXN0ZW1kWzFdOiBGaW5pc2hlZCBMb2FkIEtlcm5lbCBNb2R1bGUgZHJtLgo+ID4gWyAg
+T0sgIF0gRmluaXNoZWQgTG9hZCBLZXJuZWwgTW9kdWxlIGRybS4KPiA+IFsgICA3MS44MjU5MzRd
+IHN5c3RlbWRbMV06IG1vZHByb2JlQGZ1c2Uuc2VydmljZTogU3VjY2VlZGVkLgo+ID4gWyAgIDcx
+Ljg4Njk0NV0gc3lzdGVtZFsxXTogRmluaXNoZWQgTG9hZCBLZXJuZWwgTW9kdWxlIGZ1c2UuCj4g
+PiBbICBPSyAgXSBGaW5pc2hlZCBMb2FkIEtlcm5lbCBNb2R1bGUgZnVzZS4KPiA+IFsgICA3MS45
+OTE5MzJdIHN5c3RlbWRbMV06IG5mcy1jb252ZXJ0LnNlcnZpY2U6IFN1Y2NlZWRlZC4KPiA+IFsg
+ICA3Mi4wMzQ2NzRdIHN5c3RlbWRbMV06IEZpbmlzaGVkIFByZXByb2Nlc3MgTkZTIGNvbmZpZ3Vy
+YXRpb24gY29udmVydGlvbi4KPiA+IFsgIE9LICBdIEZpbmlzaGVkIFByZXByb2Nlc3MgTkZTIGNv
+bmZpZ3VyYXRpb24gY29udmVydGlvbi4KPiA+IFsgICA3Mi4xNDg3NzhdIHN5c3RlbWRbMV06IHN5
+c3RlbWQtbW9kdWxlcy1sb2FkLnNlcnZpY2U6IE1haW4gcHJvY2VzcyBleGl0ZWQsIGNvZGU9ZXhp
+dGVkLCBzdGF0dXM9MS9GQUlMVVJFCj4gPiBbICAgNzIuMjU2NjU5XSBzeXN0ZW1kWzFdOiBzeXN0
+ZW1kLW1vZHVsZXMtbG9hZC5zZXJ2aWNlOiBGYWlsZWQgd2l0aCByZXN1bHQgJ2V4aXQtY29kZScu
+Cj4gPiBbICAgNzIuMzM3ODE4XSBzeXN0ZW1kWzFdOiBGYWlsZWQgdG8gc3RhcnQgTG9hZCBLZXJu
+ZWwgTW9kdWxlcy4KPiA+IFtGQUlMRURdIEZhaWxlZCB0byBzdGFydCBMb2FkIEtlcm5lbCBNb2R1
+bGVzLgo+ID4gU2VlICdzeXN0ZW1jdGwgc3RhdHVzIHN5c3RlbWQtbW9kdWxlcy1sb2FkLnNlcnZp
+Y2UnIGZvciBkZXRhaWxzLgo+ID4gWyAgIDcyLjQxMDQ5MV0gc3lzdGVtZFsxXTogc3lzdGVtZC1t
+b2R1bGVzLWxvYWQuc2VydmljZTogQ29uc3VtZWQgMS40NjNzIENQVSB0aW1lLgo+ID4gWyAgIDcy
+LjQ5NjczOV0gc3lzdGVtZFsxXTogQ29uZGl0aW9uIGNoZWNrIHJlc3VsdGVkIGluIEZVU0UgQ29u
+dHJvbCBGaWxlIFN5c3RlbSBiZWluZyBza2lwcGVkLgo+ID4gWyAgIDcyLjUxMzY4OV0gc3lzdGVt
+ZFsxXTogQ29uZGl0aW9uIGNoZWNrIHJlc3VsdGVkIGluIEtlcm5lbCBDb25maWd1cmF0aW9uIEZp
+bGUgU3lzdGVtIGJlaW5nIHNraXBwZWQuCj4gPiBbICAgNzIuNjgyNTQ5XSBzeXN0ZW1kWzFdOiBT
+dGFydGluZyBBcHBseSBLZXJuZWwgVmFyaWFibGVzLi4KPiA+IFsgIE9LICBdIEZpbmlzaGVkIEFw
+cGx5IEtlcm5lbCBWYXJpYWJsZXMuCj4gPiBbICAgNzYuMzE0NDM0XSBzeXN0ZW1kWzFdOiBGaW5p
+c2hlZCBMb2FkL1NhdmUgUmFuZG9tIFNlZWQuCj4gPiBbICBPSyAgXSBGaW5pc2hlZCBMb2FkL1Nh
+dmUgUmFuZG9tIFNlZWQuCj4gPiBbKioqICAgXSAoMSBvZiA2KSBBIHN0YXJ0IGpvYiBpcyBydW5u
+aW5nIGZvcuKApnAgVmlydHVhbCBDb25zb2xlICgxNHMgLyBubyBsaW1pdCkKPiA+IFsgIE9LICBd
+IEZpbmlzaGVkIENyZWF0ZSBTdGF0aWMgRGV2aWNlIE5vZGVzIGluIC9kZXYuCj4gPiBbICAgNzku
+Nzg3MDY1XSBzeXN0ZW1kWzFdOiBTdGFydGVkIEVudHJvcHkgRGFlbW9uIGJhc2VkIG9uIHRoZSBI
+QVZFR0UgYWxnb3JpdGhtLgo+ID4gWyAgT0sgIF0gU3RhcnRlZCBFbnRyb3B5IERhZW1vbiBiYXNl
+ZCBvbiB0aGUgSEFWRUdFIGFsZ29yaXRobS4KPiA+IFsgICA4MC4xODYyOTVdIHN5c3RlbWRbMV06
+IFN0YXJ0aW5nIEpvdXJuYWwgU2VydmljZS4uLgo+ID4gICAgICAgICAgU3RhcnRpbmcgSm91cm5h
+bCBTZXJ2aWNlLi4uCj4gPiBbICAgODAuNzEzNTA4XSBzeXN0ZW1kWzFdOiBTdGFydGluZyBSdWxl
+LWJhc2VkIE1hbmFnZXIgZm9yIERldmljZSBFdmVudHMgYW5kIEZpbGVzLi4uCj4gPiAgICAgICAg
+ICBTdGFydGluZyBSdWxlLWJhc2VkIE1hbmFnZeKApmZvciBEZXZpY2UgRXZlbnRzIGFuZCBGaWxl
+cy4uLgo+ID4gWyAgKioqIF0gKDIgb2YgNykgQSBzdGFydCBqb2IgaXMgcnVubmluZyBmb3LigKYg
+QWxsIHVkZXYgRGV2aWNlcyAoMTdzIC8gbm8gbGltaXQpCj4gPiBbICAgODIuOTM5MzQ3XSBzeXN0
+ZW1kWzFdOiBzeXN0ZW1kLWpvdXJuYWxkLnNlcnZpY2U6IE1haW4gcHJvY2VzcyBleGl0ZWQsIGNv
+ZGU9ZXhpdGVkLCBzdGF0dXM9MS9GQUlMVVJFCj4gPiBbICAgODMuMDMyMDQ2XSBzeXN0ZW1kWzFd
+OiBzeXN0ZW1kLWpvdXJuYWxkLnNlcnZpY2U6IEZhaWxlZCB3aXRoIHJlc3VsdCAnZXhpdC1jb2Rl
+Jy4KPiA+IFtGQUlMRURdIEZhaWxlZCB0byBzdGFydCBKb3VybmFsIFNlcnZpY2UuCj4gPiBTZWUg
+J3N5c3RlbWN0bCBzdGF0dXMgc3lzdGVtZC1qb3VybmFsZC5zZXJ2aWNlJyBmb3IgZGV0YWlscy4K
+PiA+IFsgICA4My4yMTAwNDFdIHN5c3RlbWRbMV06IERlcGVuZGVuY3kgZmFpbGVkIGZvciBGbHVz
+aCBKb3VybmFsIHRvIFBlcnNpc3RlbnQgU3RvcmFnZS4KPiA+IFtERVBFTkRdIERlcGVuZGVuY3kg
+ZmFpbGVkIGZvciBGbHVz4oCmSm91cm5hbCB0byBQZXJzaXN0ZW50IFN0b3JhZ2UuCj4gPiBbICAg
+ODMuMjU0MTIyXSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLWpvdXJuYWwtZmx1c2guc2VydmljZTogSm9i
+IHN5c3RlbWQtam91cm5hbC1mbHVzaC5zZXJ2aWNlL3N0YXJ0IGZhaWxlZCB3aXRoIHJlc3VsdCAn
+ZGVwZW5kZW5jeScuCj4gPiBbICAgODMuMjcyMzY2XSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLWpvdXJu
+YWxkLnNlcnZpY2U6IENvbnN1bWVkIDEuNDQzcyBDUFUgdGltZS4KPiA+IFsgICA4My4zMzQzNjBd
+IHN5c3RlbWRbMV06IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTogU2NoZWR1bGVkIHJlc3RhcnQg
+am9iLCByZXN0YXJ0IGNvdW50ZXIgaXMgYXQgMS4KPiA+IFsgICA4My40Mjc4MzldIHN5c3RlbWRb
+MV06IEZpbmlzaGVkIFNldHVwIFZpcnR1YWwgQ29uc29sZS4KPiA+IFsgIE9LICBdIEZpbmlzaGVk
+IFNldHVwIFZpcnR1YWwgQ29uc29sZS4KPiA+IFsgICA4My41MTA2NTBdIHN5c3RlbWRbMV06IFN0
+b3BwZWQgSm91cm5hbCBTZXJ2aWNlLgo+ID4gWyAgT0sgIF0gU3RvcHBlZCBKb3VybmFsIFNlcnZp
+Y2UuCj4gPiBbICAgODMuNTU0NDE3XSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLWpvdXJuYWxkLnNlcnZp
+Y2U6IENvbnN1bWVkIDEuNDQzcyBDUFUgdGltZS4KPiA+IFsgICA4My41NzY1NzNdIHN5c3RlbWRb
+MV06IENvbmRpdGlvbiBjaGVjayByZXN1bHRlZCBpbiBKb3VybmFsIEF1ZGl0IFNvY2tldCBiZWlu
+ZyBza2lwcGVkLgo+ID4gWyAgIDgzLjkwNDg3OF0gc3lzdGVtZFsxXTogU3RhcnRpbmcgSm91cm5h
+bCBTZXJ2aWNlLi4uCj4gPiAgICAgICAgICBTdGFydGluZyBKb3VybmFsIFNlcnZpY2UuLi4KPiA+
+IFsgICA4NS43NTIwOTBdIHN5c3RlbWRbMV06IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTogTWFp
+biBwcm9jZXNzIGV4aXRlZCwgY29kZT1leGl0ZWQsIHN0YXR1cz0xL0ZBSUxVUkUKPiA+IFsgICA4
+NS44MjY0MjFdIHN5c3RlbWRbMV06IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTogRmFpbGVkIHdp
+dGggcmVzdWx0ICdleGl0LWNvZGUnLgo+ID4gWyAgIDg1Ljg3NjE2NV0gc3lzdGVtZFsxXTogRmFp
+bGVkIHRvIHN0YXJ0IEpvdXJuYWwgU2VydmljZS4KPiA+IFtGQUlMRURdIEZhaWxlZCB0byBzdGFy
+dCBKb3VybmFsIFNlcnZpY2UuCj4gPiBTZWUgJ3N5c3RlbWN0bCBzdGF0dXMgc3lzdGVtZC1qb3Vy
+bmFsZC5zZXJ2aWNlJyBmb3IgZGV0YWlscy4KPiA+IFsgICA4NS45NTIyMjFdIHN5c3RlbWRbMV06
+IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTogQ29uc3VtZWQgMS4zNTVzIENQVSB0aW1lLgo+ID4g
+WyAgIDg2LjAwMjA5Ml0gc3lzdGVtZFsxXTogc3lzdGVtZC1qb3VybmFsZC5zZXJ2aWNlOiBTY2hl
+ZHVsZWQgcmVzdGFydCBqb2IsIHJlc3RhcnQgY291bnRlciBpcyBhdCAyLgo+ID4gWyAgIDg2LjAx
+NTA4MV0gc3lzdGVtZFsxXTogU3RvcHBlZCBKb3VybmFsIFNlcnZpY2UuCj4gPiBbICBPSyAgXSBT
+dG9wcGVkIEpvdXJuYWwgU2VydmljZS4KPiA+IFsgICA4Ni4wNzY0MjldIHN5c3RlbWRbMV06IHN5
+c3RlbWQtam91cm5hbGQuc2VydmljZTogQ29uc3VtZWQgMS4zNTVzIENQVSB0aW1lLgo+ID4gWyAg
+IDg2LjA4OTcwMF0gc3lzdGVtZFsxXTogQ29uZGl0aW9uIGNoZWNrIHJlc3VsdGVkIGluIEpvdXJu
+YWwgQXVkaXQgU29ja2V0IGJlaW5nIHNraXBwZWQuCj4gPiBbICAgODYuMzkwMTYyXSBzeXN0ZW1k
+WzFdOiBTdGFydGluZyBKb3VybmFsIFNlcnZpY2UuLi4KPiA+ICAgICAgICAgIFN0YXJ0aW5nIEpv
+dXJuYWwgU2VydmljZS4uLgo+ID4gWyAgIDg3LjkwNDQyN10gc3lzdGVtZFsxXTogc3lzdGVtZC1q
+b3VybmFsZC5zZXJ2aWNlOiBNYWluIHByb2Nlc3MgZXhpdGVkLCBjb2RlPWV4aXRlZCwgc3RhdHVz
+PTEvRkFJTFVSRQo+ID4gWyAgIDg3Ljk1MDI1OV0gc3lzdGVtZFsxXTogc3lzdGVtZC1qb3VybmFs
+ZC5zZXJ2aWNlOiBGYWlsZWQgd2l0aCByZXN1bHQgJ2V4aXQtY29kZScuCj4gPiBbICAgODguMDAw
+NjYxXSBzeXN0ZW1kWzFdOiBGYWlsZWQgdG8gc3RhcnQgSm91cm5hbCBTZXJ2aWNlLgo+ID4gW0ZB
+SUxFRF0gRmFpbGVkIHRvIHN0YXJ0IEpvdXJuYWwgU2VydmljZS4KPiA+IFNlZSAnc3lzdGVtY3Rs
+IHN0YXR1cyBzeXN0ZW1kLWpvdXJuYWxkLnNlcnZpY2UnIGZvciBkZXRhaWxzLgo+ID4gWyAgIDg4
+LjA3OTk1M10gc3lzdGVtZFsxXTogc3lzdGVtZC1qb3VybmFsZC5zZXJ2aWNlOiBDb25zdW1lZCAx
+LjMxNnMgQ1BVIHRpbWUuCj4gPiBbICAgODguMTI4OTU2XSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLWpv
+dXJuYWxkLnNlcnZpY2U6IFNjaGVkdWxlZCByZXN0YXJ0IGpvYiwgcmVzdGFydCBjb3VudGVyIGlz
+IGF0IDMuCj4gPiBbICAgODguMTQ1MzY1XSBzeXN0ZW1kWzFdOiBTdG9wcGVkIEpvdXJuYWwgU2Vy
+dmljZS4KPiA+IFsgIE9LICBdIFN0b3BwZWQgSm91cm5hbCBTZXJ2aWNlLgo+ID4gWyAgIDg4LjE4
+OTk3NV0gc3lzdGVtZFsxXTogc3lzdGVtZC1qb3VybmFsZC5zZXJ2aWNlOiBDb25zdW1lZCAxLjMx
+NnMgQ1BVIHRpbWUuCj4gPiBbICAgODguMjA1Nzk5XSBzeXN0ZW1kWzFdOiBDb25kaXRpb24gY2hl
+Y2sgcmVzdWx0ZWQgaW4gSm91cm5hbCBBdWRpdCBTb2NrZXQgYmVpbmcgc2tpcHBlZC4KPiA+IFsg
+ICA4OC41MTQ4MTddIHN5c3RlbWRbMV06IFN0YXJ0aW5nIEpvdXJuYWwgU2VydmljZS4uLgo+ID4g
+ICAgICAgICAgU3RhcnRpbmcgSm91cm5hbCBTZXJ2aWNlLi4uCj4gPiAKPiA+IChOb3RlLCB5b3Ug
+bmVlZCB0byBtZXJnZSAtcmMyIGludG8gcmlzY3YvZm9yLW5leHQgdG8gYWN0dWFsbHkgYm9vdCkK
+PiA+IAo+ID4gQ2hlZXJzLAo+ID4gQ29ub3IuCj4gCj4gCj4gCgoKCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
