@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35F9C76196
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 12:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D44BC761AF
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 12:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9bX+Qu+05iTplIk+ki/yVDDNskeR6kZEinXnzzZo6gE=; b=GuXkAnEXigtTFH
-	k5druby2ae2LK+jz+HSZrZUFOO4ocPvt9iwqHNw1WcxKXj9WNjKzdOlUaxx/VgpVgbuA1063+g4d2
-	vPIFWooyQeTJCKJAtdPtg6N+10kK8NosHvqX8fRPdnpGeLc0YE3MeJXnbK9ZCf6lrHNKN2G0u4GBx
-	5NWjjVxL8XTxLD9FoCtoadE9xRk3SqCRejeiwnIJ+ctq3l+kA4zlebqYC0jt/H8OXV5ZkfPt2Q0eF
-	KzrGpmf+L3DYL27mo+80fRvwob3zM4T4AXd6Q926kUaafPoWrWQAk0p9sG7l/cCsH118YzNWKWO4Y
-	SwLuCtRgDlmKdSl/hIEQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:To:From:Subject:CC:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=0mJbxmK2iCjzq5ZENoxj+EqdQ1x1PZFEYOxSEDOv3G8=; b=kssdPf3eb8N4Njkhm1qWurbqa3
+	Lse9F+gCW80U/AmJiHGxjCuPOdpfi1kccQWEqRiK7EVOelR4Ya3Eb8lLjFEerf0/SID8Pdh29TOMK
+	aXrwQ4/vV5CSGAIx2gUBhG4B6j89586kM67T4Yjb42fIIZK8jFqqhTnigosfTtRci82vg1VthSLc9
+	TStfc0hkWlq4+CWmiwqZ+WAGqqspg5JlgNbShItN7FAp2hHdvOiOircjmQp04OqQa01euGdSPzKrb
+	tx+TVKaL2UUXRrJsv9RPvcf2Z2VcYNS325w04B6qzguE42rDGom+xmsCDNeyw9bTQY5q5N/TGGzh2
+	eC7ke3YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piaX1-00AWkm-1E;
-	Sat, 01 Apr 2023 12:40:31 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1piaX3-00AWle-28;
+	Sat, 01 Apr 2023 12:40:33 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pia4U-00ANP5-04
-	for linux-riscv@lists.infradead.org;
-	Sat, 01 Apr 2023 12:11:03 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pia3u-0002IB-NC; Sat, 01 Apr 2023 14:10:26 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Guo Ren <guoren@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, arnd@arndb.de, palmer@rivosinc.com,
- tglx@linutronix.de, peterz@infradead.org, luto@kernel.org,
- conor.dooley@microchip.com, jszhang@kernel.org, lazyparser@gmail.com,
- falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
- atishp@atishpatra.org, mark.rutland@arm.com, ben@decadent.org.uk,
- bjorn@kernel.org, palmer@dabbelt.com, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Guo Ren <guoren@linux.alibaba.com>,
- =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
- Yipeng Zou <zouyipeng@huawei.com>
-Subject: Re: [PATCH -next V17 4/7] riscv: entry: Convert to generic entry
-Date: Sat, 01 Apr 2023 14:10:25 +0200
-Message-ID: <2587778.7s5MMGUR32@diego>
-In-Reply-To:  <CAJF2gTSWETHhQFuE19H+RVX6Jbue+UAu8o94QoBFx65NABas1Q@mail.gmail.com>
-References:  <20230222033021.983168-1-guoren@kernel.org> <23668656.ouqheUzb2q@diego>
- <CAJF2gTSWETHhQFuE19H+RVX6Jbue+UAu8o94QoBFx65NABas1Q@mail.gmail.com>
+	id 1pia70-00AO6l-0M;
+	Sat, 01 Apr 2023 12:13:41 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.53])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4PpbZH6cNNz17LnP;
+	Sat,  1 Apr 2023 20:09:59 +0800 (CST)
+Received: from [10.67.102.169] (10.67.102.169) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.23; Sat, 1 Apr 2023 20:12:30 +0800
+CC: <yangyicong@hisilicon.com>, <akpm@linux-foundation.org>,
+	<linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+	<x86@kernel.org>, <will@kernel.org>, <anshuman.khandual@arm.com>,
+	<linux-doc@vger.kernel.org>, <corbet@lwn.net>, <peterz@infradead.org>,
+	<arnd@arndb.de>, <linux-kernel@vger.kernel.org>,
+	<darren@os.amperecomputing.com>, <huzhanyuan@oppo.com>, <lipeifeng@oppo.com>,
+	<zhangshiming@oppo.com>, <guojian@oppo.com>, <realmz6@gmail.com>,
+	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, Barry Song <21cnbao@gmail.com>,
+	<wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
+	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>, Barry Song
+	<v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman
+	<mgorman@suse.de>
+Subject: Re: [PATCH v8 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+From: Yicong Yang <yangyicong@huawei.com>
+To: Punit Agrawal <punit.agrawal@bytedance.com>, <catalin.marinas@arm.com>
+References: <20230329035512.57392-1-yangyicong@huawei.com>
+ <20230329035512.57392-3-yangyicong@huawei.com> <87cz4qwfbt.fsf_-_@stealth>
+ <2687a998-6dbe-de8f-2f62-1456d2de7940@huawei.com>
+Message-ID: <241c3a4c-642e-e871-72ae-e3098a967b69@huawei.com>
+Date: Sat, 1 Apr 2023 20:12:30 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
+In-Reply-To: <2687a998-6dbe-de8f-2f62-1456d2de7940@huawei.com>
+X-Originating-IP: [10.67.102.169]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230401_051102_068356_8BE64179 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20230401_051338_546843_CAE04CEE 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,76 +79,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgR3VvLAoKQW0gU2Ftc3RhZywgMS4gQXByaWwgMjAyMywgMDQ6MTU6MzIgQ0VTVCBzY2hyaWVi
-IEd1byBSZW46Cj4gT24gRnJpLCBNYXIgMzEsIDIwMjMgYXQgMjo0N+KAr1BNIEhlaWtvIFN0w7xi
-bmVyIDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+ID4gQW0gRnJlaXRhZywgMzEuIE3DpHJ6IDIw
-MjMsIDIwOjQxOjM1IENFU1Qgc2NocmllYiBDb25vciBEb29sZXk6Cj4gPiA+IE9uIEZyaSwgTWFy
-IDMxLCAyMDIzIGF0IDA3OjM0OjM4UE0gKzAxMDAsIENvbm9yIERvb2xleSB3cm90ZToKPiA+ID4g
-PiBPbiBUdWUsIEZlYiAyMSwgMjAyMyBhdCAxMDozMDoxOFBNIC0wNTAwLCBndW9yZW5Aa2VybmVs
-Lm9yZyB3cm90ZToKPiA+ID4gPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJh
-LmNvbT4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBUaGlzIHBhdGNoIGNvbnZlcnRzIHJpc2N2IHRvIHVz
-ZSB0aGUgZ2VuZXJpYyBlbnRyeSBpbmZyYXN0cnVjdHVyZSBmcm9tCj4gPiA+ID4gPiBrZXJuZWwv
-ZW50cnkvKi4gVGhlIGdlbmVyaWMgZW50cnkgbWFrZXMgbWFpbnRhaW5lcnMnIHdvcmsgZWFzaWVy
-IGFuZAo+ID4gPiA+ID4gY29kZXMgbW9yZSBlbGVnYW50LiBIZXJlIGFyZSB0aGUgY2hhbmdlczoK
-PiA+ID4gPiA+Cj4gPiA+ID4gPiAgLSBNb3JlIGNsZWFyIGVudHJ5LlMgd2l0aCBoYW5kbGVfZXhj
-ZXB0aW9uIGFuZCByZXRfZnJvbV9leGNlcHRpb24KPiA+ID4gPiA+ICAtIEdldCByaWQgb2YgY29t
-cGxleCBjdXN0b20gc2lnbmFsIGltcGxlbWVudGF0aW9uCj4gPiA+ID4gPiAgLSBNb3ZlIHN5c2Nh
-bGwgcHJvY2VkdXJlIGZyb20gYXNzZW1ibHkgdG8gQywgd2hpY2ggaXMgbXVjaCBtb3JlCj4gPiA+
-ID4gPiAgICByZWFkYWJsZS4KPiA+ID4gPiA+ICAtIENvbm5lY3QgcmV0X2Zyb21fZm9yayAmIHJl
-dF9mcm9tX2tlcm5lbF90aHJlYWQgdG8gZ2VuZXJpYyBlbnRyeS4KPiA+ID4gPiA+ICAtIFdyYXAg
-d2l0aCBpcnFlbnRyeV9lbnRlci9leGl0IGFuZCBzeXNjYWxsX2VudGVyL2V4aXRfZnJvbV91c2Vy
-X21vZGUKPiA+ID4gPiA+ICAtIFVzZSB0aGUgc3RhbmRhcmQgcHJlZW1wdGlvbiBjb2RlIGluc3Rl
-YWQgb2YgY3VzdG9tCj4gPiA+ID4KPiA+ID4gPiBUaGlzIGhhcyB1bmZvcnR1bmF0ZWx5IGJyb2tl
-biBib290aW5nIG15IHVzdWFsIE5GUyByb290ZnMgb24gYm90aCBteSBEMQo+ID4gPiA+IGFuZCBJ
-Y2ljbGUuIEl0J3Mgb25lIG9mIHRoZSBGZWRvcmEgaW1hZ2VzIGZyb20gRGF2aWQsIEkgdGhpbmsg
-dGhpcyBvbmU6Cj4gPiA+ID4gaHR0cDovL2ZlZG9yYS5yaXNjdi5yb2Nrcy9rb2ppZmlsZXMvd29y
-ay90YXNrcy8zOTMzLzEzMTM5MzMvCj4gPiA+ID4KPiA+ID4gPiBJdCBnZXRzIHByZXR0eSBmYXIg
-aW50byB0aGluZ3MsIGl0J3Mgb25jZSBzeXN0ZW1kIGlzIG9wZXJhdGlvbmFsIHRoYXQKPiA+ID4g
-PiB0aGluZ3MgZ28gcGVhciBzaGFwZWQ6Cj4gPiA+Cj4gPiA+IFNob3VsZGEgc2FpZCwgY2FuIHNo
-YXJlIHRoZSBmdWxsIGxvZ3MgaWYgcmVxdWlyZWQgb2YgY291cnNlLCBidXQgdGhleSdyZQo+ID4g
-PiBxdWl0ZSB2ZXJib3NlIGNvcyBzeXN0ZW1kIGV0Yy4KPiA+Cj4gPiBJIHdhcyBqdXN0IGludmVz
-dGlnYXRpbmcgdGhlIHNhbWUgdGhpbmcganVzdCBub3cuIFNvIHRoYXQgc2F2ZXMgbWUgc29tZQo+
-ID4gdHJhY2tpbmcgZG93biB0aGUgY3VscHJpdCA6LSkgLgo+ID4KPiA+IE15IG1haW4gcWVtdSBp
-cyBsaXZpbmcgYXMgYSAiYm9hcmQiIGluIG15IGJvYXJkZmFybSAoYWxzbyBkb2luZyBuZnNyb290
-KQo+ID4gYXMgd2VsbCBhcyBteSBkMSBuZXpoYSB3aXRoIG5mc3Jvb3Qgd2FzIGFmZmVjdGVkLgo+
-IENhbiB5b3UgcmVwcm9kdWNlIGl0IHdpdGggcWVtdT8gQ291bGQgZ2l2ZSBtZSBzb21lIHRpcHMg
-YW5kIGxldCBtZQo+IHJlcHJvZHVjZSBpdCBvbiBxZW11PwoKQXMgd3JpdHRlbiB0aGUgaXNzdWUg
-Ym90aCBoYXBwZW5zIG9uIHFlbXUtdmlydCBhbmQgYWxzbyB0aGUgZDEtbmV6aGEgYm9hcmQuCkJl
-bG93IEkndmUgc3VtbWFyaXplZCBteSBzZXR1cCBhIGJpdDoKCgooMSkgUWVtdS1jb21tYW5kbGlu
-ZToKLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgovdXNyL2xvY2FsL2Jpbi9xZW11LXN5c3RlbS1yaXNj
-djY0IC1NIHZpcnQgLXNtcCAyIC1tIDFHIC1kaXNwbGF5IG5vbmUgXAogIC1jcHUgcnY2NCx6YmI9
-dHJ1ZSx6YmM9dHJ1ZSxzdnBibXQ9dHJ1ZSxaaWNib209dHJ1ZSxaYXdycz10cnVlLHNzY29mcG1m
-PXRydWUsdj10cnVlIFwKICAtc2VyaWFsIHRlbG5ldDpsb2NhbGhvc3Q6NTUwMCxzZXJ2ZXIsbm93
-YWl0IC1rZXJuZWwgL2hvbWUvZGV2ZWwvbmZzL2tlcm5lbC9yaXNjdjY0L0ltYWdlIFwKICAtYXBw
-ZW5kICJlYXJseWNvbj1zYmkgcm9vdD0vZGV2L25mcyBuZnNyb290PTEwLjAuMi4yOi9ob21lL2Rl
-dmVsL25mcy9yb290ZnMtcmlzY3Y2NHZpcnQgaXA9ZGhjcCBydyIgXAogIC1uZXRkZXYgdXNlcixp
-ZD1uMSAtZGV2aWNlIHZpcnRpby1uZXQtcGNpLG5ldGRldj1uMQoKV2hpY2ggZG9lcyB0aGUgc3Rh
-cnQgdXNpbmcgYSBuZnMtcm9vdCBjb21pbmcgZnJvbSBhbiBuZnMtc2VydmVyIHJ1bm5pbmcKb24g
-dGhlIHNhbWUgaG9zdCBhcyBxZW11LgoKVGhvdWdoIHRoZSBpc3N1ZSBkb2VzIG5vdCBzZWVtIHRv
-IGJlIHJlbGF0ZWQgdG8gdGhlIG5mcy4gSSBhbHNvIHRyaWVkCnN0YXJ0aW5nIHdpdGggYSBsb2Nh
-bCBkaXNrIGltYWdlIGxpa2UgWzBdIGFuZCB0aGUgaXNzdWUgd2l0aCB0aGUgam91cm5hbGQKc3Rp
-bGwgcGVyc2lzdHMuCgoKKDIpIHRoZSByb290ZnMtY29udGVudHM6Ci0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLQoKQ29ub3Igc2VlbXMgdG8gYmUgdXNpbmcgRmVkb3JhLCB3aGlsZSBteSBkaXN0cmli
-dXRpb24gb2YgY2hvaWNlIGlzIERlYmlhbi4KTXkgcm9vdGZzIHdhcyBjcmVhdGVkIGZvbGxvd2lu
-ZyB0aGUgaW5zdHJ1Y3Rpb25zIG9uIHRoZSBEZWJpYW4gd2lraSBmb3IKdGhlIGRlYnBvcnRzIHdp
-dGggZGVib290c3RyYXAgWzFdLgoKClRoaXMgbW9ybmluZyBJIGFsc28gcmUtY3JlYXRlZCBhIGNv
-bXBsZXRlbHkgbmV3IGFuZCBwcmlzdGluZSByb290ZnMgdXNpbmcKdGhvc2UgaW5zdHJ1Y3Rpb25z
-IGFuZCB0aGUgaXNzdWUgYXBwZWFyZWQgaW1tZWRpYXRlbHkgb24gZmlyc3QtYm9vdC4KCgpIb3Bl
-IHRoaXMgaGVscHMgYSBiaXQKSGVpa28KCgpbMF0gc2FtZSByZXN1bHQgd2l0aCBhIGRpc2staW1h
-Z2UgLi4uIGpvdXJuYWxkIGZhaWxpbmcKL3Vzci9sb2NhbC9iaW4vcWVtdS1zeXN0ZW0tcmlzY3Y2
-NCAtTSB2aXJ0IC1zbXAgMiAtbSAxRyAtZGlzcGxheSBub25lIFwKICAtY3B1IHJ2NjQsemJiPXRy
-dWUsemJjPXRydWUsc3ZwYm10PXRydWUsWmljYm9tPXRydWUsWmF3cnM9dHJ1ZSxzc2NvZnBtZj10
-cnVlLHY9dHJ1ZSBcCiAgLXNlcmlhbCB0ZWxuZXQ6bG9jYWxob3N0OjU1MDAsc2VydmVyLG5vd2Fp
-dCAta2VybmVsIC9ob21lL2RldmVsL25mcy9rZXJuZWwvcmlzY3Y2NC9JbWFnZSBcCiAgLWFwcGVu
-ZCAncm9vdD0vZGV2L3ZkYSBjb25zb2xlPXR0eVMwJyBcCiAgLWRyaXZlIGZpbGU9L2hvbWUvZGV2
-ZWwvbmZzL3Jvb3Rmcy1yaXNjdjY0dmlydC5leHQ0LGZvcm1hdD1yYXcsaWQ9aGQwIFwKICAtZGV2
-aWNlIHZpcnRpby1ibGstcGNpLGRyaXZlPWhkMAoKWzFdIGh0dHBzOi8vd2lraS5kZWJpYW4ub3Jn
-L1JJU0MtViNkZWJvb3RzdHJhcAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On 2023/3/30 21:45, Yicong Yang wrote:
+> Hi Punit,
+> 
+> On 2023/3/30 21:15, Punit Agrawal wrote:
+>> Hi Yicong,
+>>
+>> Yicong Yang <yangyicong@huawei.com> writes:
+>>
+>>> From: Barry Song <v-songbaohua@oppo.com>
+>>>
+>>> on x86, batched and deferred tlb shootdown has lead to 90%
+>>> performance increase on tlb shootdown. on arm64, HW can do
+>>> tlb shootdown without software IPI. But sync tlbi is still
+>>> quite expensive.
+>>>
+>>> Even running a simplest program which requires swapout can
+>>> prove this is true,
+>>>  #include <sys/types.h>
+>>>  #include <unistd.h>
+>>>  #include <sys/mman.h>
+>>>  #include <string.h>
+>>>
+>>>  int main()
+>>>  {
+>>>  #define SIZE (1 * 1024 * 1024)
+>>>          volatile unsigned char *p = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
+>>>                                           MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+>>>
+>>>          memset(p, 0x88, SIZE);
+>>>
+>>>          for (int k = 0; k < 10000; k++) {
+>>>                  /* swap in */
+>>>                  for (int i = 0; i < SIZE; i += 4096) {
+>>>                          (void)p[i];
+>>>                  }
+>>>
+>>>                  /* swap out */
+>>>                  madvise(p, SIZE, MADV_PAGEOUT);
+>>>          }
+>>>  }
+>>>
+>>> Perf result on snapdragon 888 with 8 cores by using zRAM
+>>> as the swap block device.
+>>>
+>>>  ~ # perf record taskset -c 4 ./a.out
+>>>  [ perf record: Woken up 10 times to write data ]
+>>>  [ perf record: Captured and wrote 2.297 MB perf.data (60084 samples) ]
+>>>  ~ # perf report
+>>>  # To display the perf.data header info, please use --header/--header-only options.
+>>>  # To display the perf.data header info, please use --header/--header-only options.
+>>>  #
+>>>  #
+>>>  # Total Lost Samples: 0
+>>>  #
+>>>  # Samples: 60K of event 'cycles'
+>>>  # Event count (approx.): 35706225414
+>>>  #
+>>>  # Overhead  Command  Shared Object      Symbol
+>>>  # ........  .......  .................  .............................................................................
+>>>  #
+>>>     21.07%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock_irq
+>>>      8.23%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
+>>>      6.67%  a.out    [kernel.kallsyms]  [k] filemap_map_pages
+>>>      6.16%  a.out    [kernel.kallsyms]  [k] __zram_bvec_write
+>>>      5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
+>>>      3.71%  a.out    [kernel.kallsyms]  [k] _raw_spin_lock
+>>>      3.49%  a.out    [kernel.kallsyms]  [k] memset64
+>>>      1.63%  a.out    [kernel.kallsyms]  [k] clear_page
+>>>      1.42%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock
+>>>      1.26%  a.out    [kernel.kallsyms]  [k] mod_zone_state.llvm.8525150236079521930
+>>>      1.23%  a.out    [kernel.kallsyms]  [k] xas_load
+>>>      1.15%  a.out    [kernel.kallsyms]  [k] zram_slot_lock
+>>>
+>>> ptep_clear_flush() takes 5.36% CPU in the micro-benchmark
+>>> swapping in/out a page mapped by only one process. If the
+>>> page is mapped by multiple processes, typically, like more
+>>> than 100 on a phone, the overhead would be much higher as
+>>> we have to run tlb flush 100 times for one single page.
+>>> Plus, tlb flush overhead will increase with the number
+>>> of CPU cores due to the bad scalability of tlb shootdown
+>>> in HW, so those ARM64 servers should expect much higher
+>>> overhead.
+>>>
+>>> Further perf annonate shows 95% cpu time of ptep_clear_flush
+>>> is actually used by the final dsb() to wait for the completion
+>>> of tlb flush. This provides us a very good chance to leverage
+>>> the existing batched tlb in kernel. The minimum modification
+>>> is that we only send async tlbi in the first stage and we send
+>>> dsb while we have to sync in the second stage.
+>>>
+>>> With the above simplest micro benchmark, collapsed time to
+>>> finish the program decreases around 5%.
+>>>
+>>> Typical collapsed time w/o patch:
+>>>  ~ # time taskset -c 4 ./a.out
+>>>  0.21user 14.34system 0:14.69elapsed
+>>> w/ patch:
+>>>  ~ # time taskset -c 4 ./a.out
+>>>  0.22user 13.45system 0:13.80elapsed
+>>>
+>>> Also, Yicong Yang added the following observation.
+>>> 	Tested with benchmark in the commit on Kunpeng920 arm64 server,
+>>> 	observed an improvement around 12.5% with command
+>>> 	`time ./swap_bench`.
+>>> 		w/o		w/
+>>> 	real	0m13.460s	0m11.771s
+>>> 	user	0m0.248s	0m0.279s
+>>> 	sys	0m12.039s	0m11.458s
+>>>
+>>> 	Originally it's noticed a 16.99% overhead of ptep_clear_flush()
+>>> 	which has been eliminated by this patch:
+>>>
+>>> 	[root@localhost yang]# perf record -- ./swap_bench && perf report
+>>> 	[...]
+>>> 	16.99%  swap_bench  [kernel.kallsyms]  [k] ptep_clear_flush
+>>>
+>>> It is tested on 4,8,128 CPU platforms and shows to be beneficial on
+>>> large systems but may not have improvement on small systems like on
+>>> a 4 CPU platform. So make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends
+>>> on CONFIG_EXPERT for this stage and make this disabled on systems
+>>> with less than 8 CPUs. User can modify this threshold according to
+>>> their own platforms by CONFIG_NR_CPUS_FOR_BATCHED_TLB.
+>>
+>> The commit log and the patch disagree on the name of the config option
+>> (CONFIG_NR_CPUS_FOR_BATCHED_TLB vs CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB).
+>>
+> 
+> ah yes, it's a typo and I'll fix it.
+> 
+>> But more importantly, I was wondering why this posting doesn't address
+>> Catalin's feedback [a] about using a runtime tunable. Maybe I missed the
+>> follow-up discussion.
+>>
+> 
+
+So I used below patch based on this to provide a knob /proc/sys/vm/batched_tlb_enabled
+for turning on/off the batched TLB. But wondering flush.c is the best place for putting
+this, any comments?
+
+Thanks.
+
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 41a763cf8c1b..2b2c69c23b47 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -280,6 +280,8 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+
+ #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+
++extern struct static_key_false batched_tlb_enabled;
++
+ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+ {
+        /*
+@@ -289,7 +291,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+         * a threshold for enabling this to avoid potential side effects on
+         * these platforms.
+         */
+-       if (num_online_cpus() < CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB)
++       if (!static_branch_unlikely(&batched_tlb_enabled))
+                return false;
+
+        /*
+diff --git a/arch/arm64/mm/flush.c b/arch/arm64/mm/flush.c
+index 5f9379b3c8c8..ce3bc32523f7 100644
+--- a/arch/arm64/mm/flush.c
++++ b/arch/arm64/mm/flush.c
+@@ -7,8 +7,10 @@
+  */
+
+ #include <linux/export.h>
++#include <linux/jump_label.h>
+ #include <linux/mm.h>
+ #include <linux/pagemap.h>
++#include <linux/sysctl.h>
+
+ #include <asm/cacheflush.h>
+ #include <asm/cache.h>
+@@ -107,3 +109,53 @@ void arch_invalidate_pmem(void *addr, size_t size)
+ }
+ EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
+ #endif
++
++#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
++
++DEFINE_STATIC_KEY_FALSE(batched_tlb_enabled);
++
++int batched_tlb_enabled_handler(struct ctl_table *table, int write,
++                                     void *buffer, size_t *lenp, loff_t *ppos)
++{
++       unsigned int enabled = static_branch_unlikely(&batched_tlb_enabled);
++       struct ctl_table t;
++       int err;
++
++       if (write && !capable(CAP_SYS_ADMIN))
++               return -EPERM;
++
++       t = *table;
++       t.data = &enabled;
++       err = proc_dointvec_minmax(&t, write, buffer, lenp, ppos);
++       if (!err && write) {
++               if (enabled)
++                       static_branch_enable(&batched_tlb_enabled);
++               else
++                       static_branch_disable(&batched_tlb_enabled);
++       }
++
++       return err;
++}
++
++static struct ctl_table batched_tlb_sysctls[] = {
++       {
++               .procname       = "batched_tlb_enabled",
++               .data           = NULL,
++               .maxlen         = sizeof(unsigned int),
++               .mode           = 0644,
++               .proc_handler   = batched_tlb_enabled_handler,
++               .extra1         = SYSCTL_ZERO,
++               .extra2         = SYSCTL_ONE,
++       },
++       {}
++};
++
++static int __init batched_tlb_sysctls_init(void)
++{
++       register_sysctl_init("vm", batched_tlb_sysctls);
++
++       return 0;
++}
++late_initcall(batched_tlb_sysctls_init);
++
++#endif
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
