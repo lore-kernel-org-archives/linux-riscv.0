@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF69DC76196
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 20:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D500C76196
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 21:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1VVtIm6ox46pSk1MPyLIjDGO8c6gaA93n++39pHX5Sg=; b=viL/ViIqbsLOxOo59VArC/oV02
-	dXmZzp0nrbENf8Mt0RVTNMnd5Jwlf2qbIOfhfEemEBu/ikdikcOb2CvJIhLLfndeNVk1GziwY+KuR
-	8VJcASsHlHpy/PAtAhOVmWDnve9DfUsc4sNmFTn5YvHvGsqgfY4RGrMiaLVmKsjQa1oYY9b5DH1jN
-	EWwKvQ6e1X56qx3CZzR1YU1LqVcVCH1T9AFPXn5DhgTZ6OtHKhmiR4ZvIx3zA3DQygnShMk97aXIX
-	VIpSOh1CLU4UZ5aplI29OoHcsW/GOycSUVBRiBe3nKHjo2qAPz+GPbq0J9DLmkdjVwgMZDuSb8PeE
-	sM4oGtBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wfu5LZhczt4LJIjhJXxGu1kPK80p3tbE1DOs4mhGldc=; b=CTVsmwG0/4fiWX
+	dB28FhZ18xYW3g9xLjhJhRJUUyBsfXn4F9s82SfE4ufyr8gbkyoEjsOAM2EOeuvy3HNcaAetC/aiF
+	CUR38d+J4bJf0YUe+AZ3fYp64hadhCFmtKCE/JdObv9PIdlYwwxdLP6C/Q5nkydMFheut/Dw8SgbK
+	4sd5wGR77NacBRQr7fz4yMwijqgq0J9y3u4pyJT4gvhP30hZTPM4eQhEBNN1S1OLjqQYNmEeijJJY
+	oLc16DYBQdh9dnrg5iTtFT3rmVv4u4FCtdiGBNR12Z/9rzCFx1PhZX2nFjF+PuNviEj3HDb1BP9EA
+	6QkatXoXClsA1Qo/poBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piiBd-00BIE4-3A;
-	Sat, 01 Apr 2023 20:50:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1piigW-00BKSW-1L;
+	Sat, 01 Apr 2023 21:22:52 +0000
+Received: from mga07.intel.com ([134.134.136.100])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piiBa-00BIDh-2Q
+	id 1piigS-00BKS7-2A
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Apr 2023 20:50:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BDB7E60F92;
-	Sat,  1 Apr 2023 20:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A83A1C433EF;
-	Sat,  1 Apr 2023 20:50:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680382251;
-	bh=cblNPwspiLiu6TBVBEScNWqtn9HgaLDxVomWxXoSOWQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R2Xsf7OmDrvxKOnaV1o2olTZD/+xO24c1NxVVjgi4tY54cdvVXRkP8hJX46e8UoKN
-	 vHFfU3gTbKbx1gzg/9ZYBwKR77EFvO/bE9X5mbcwTnp5Xav6jrPMbaxht6AO6eYeeU
-	 8uZ8Q6WVgufuMawepfUsnfuH+0iPYWMfn+pjTVn+FOP5n6swmE7RwLL05Fp4hH719s
-	 trz6qOMwQ7pEP0BXeCulcHfwhx2FbZDit9dRQgxqa4X+m6eps5Cu7fkyEs8Jd/kMXl
-	 yBu1tZ0WR2yiKZf80HCi8SKkX8C0Q74lFP4zMMEs70FtCI4Ykck7/2RopRFMfOCEyW
-	 HPxAvf8S4LXqQ==
-Date: Sat, 1 Apr 2023 21:50:47 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Sat, 01 Apr 2023 21:22:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1680384168; x=1711920168;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fhwNesxe6ke8KocxC20SOUuPRnmmVMa1sYZs1M2LhAs=;
+  b=kxVUynLHQNbHBE7ZLKBPmLnhsif2KhOLYz4drIeN5W4d17uhMHlXeDxb
+   /oXZNdlgkIu6BHoZ/iSeZDcQm1vspFu4w8dupJubi5lsPfqh5T2SO1MMw
+   tEQxSS0tPI+vebKrvK9sfQfiYZPGttQTpiyjX9s5paynB7rh5pMZxLX3R
+   2lhYV9QhVCrNfrhOSaP3iSjoVaQqovgZ05AMikktcFr/1dci77r4ne8Ur
+   tUsHIFHcOpl0suIm2nE4lR7TPwfIW3eNYs3+UfkncI3MTx9otwlMR2jsv
+   ErF9fxmmplIQpsG6HaU6ilDIGXboh5Jf0r2Jkjvhlvb4RFbfIE6RQhrc2
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10667"; a="406726443"
+X-IronPort-AV: E=Sophos;i="5.98,311,1673942400"; 
+   d="scan'208";a="406726443"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Apr 2023 14:22:45 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10667"; a="809415495"
+X-IronPort-AV: E=Sophos;i="5.98,311,1673942400"; 
+   d="scan'208";a="809415495"
+Received: from lkp-server01.sh.intel.com (HELO b613635ddfff) ([10.239.97.150])
+  by orsmga004.jf.intel.com with ESMTP; 01 Apr 2023 14:22:40 -0700
+Received: from kbuild by b613635ddfff with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1piigJ-000N3J-11;
+	Sat, 01 Apr 2023 21:22:39 +0000
+Date: Sun, 2 Apr 2023 05:22:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: oe-kbuild-all@lists.linux.dev, slewis@rivosinc.com,
+	vineetg@rivosinc.com, heiko@sntech.de,
+	Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Bresticker <abrestic@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Jann Horn <jannh@google.com>, Jisheng Zhang <jszhang@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Xu <peterx@redhat.com>, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v15 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <0b91dee7-6c1d-4a33-8235-8fd5d58b200e@spud>
-References: <20230330071203.286972-1-conor.dooley@microchip.com>
- <20230330071203.286972-2-conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 6/6] RISC-V: Add hwprobe vDSO function and data
+Message-ID: <202304020554.WGmuSRal-lkp@intel.com>
+References: <20230327163203.2918455-7-evan@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230330071203.286972-2-conor.dooley@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <20230327163203.2918455-7-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230401_135054_854497_B96E00D3 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20230401_142248_775448_9A5454CA 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,90 +94,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2562040224550905192=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Evan,
 
---===============2562040224550905192==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WqrHL50fzIiM0DjG"
-Content-Disposition: inline
+Thank you for the patch! Yet something to improve:
 
+[auto build test ERROR on shuah-kselftest/next]
+[also build test ERROR on shuah-kselftest/fixes linus/master v6.3-rc4 next-20230331]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
---WqrHL50fzIiM0DjG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+url:    https://github.com/intel-lab-lkp/linux/commits/Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230328-003521
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
+patch link:    https://lore.kernel.org/r/20230327163203.2918455-7-evan%40rivosinc.com
+patch subject: [PATCH v5 6/6] RISC-V: Add hwprobe vDSO function and data
+config: riscv-nommu_k210_sdcard_defconfig (https://download.01.org/0day-ci/archive/20230402/202304020554.WGmuSRal-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/36489c1f81535a512da07d7d0272dd607bb217ca
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230328-003521
+        git checkout 36489c1f81535a512da07d7d0272dd607bb217ca
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash
 
-On Thu, Mar 30, 2023 at 08:12:03AM +0100, Conor Dooley wrote:
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202304020554.WGmuSRal-lkp@intel.com/
 
-> +	/*
-> +	 * Because 0xff is not a permitted value some error will seep into the
-> +	 * calculation of prescale as prescale grows. Specifically, this error
-> +	 * occurs where the remainder of the prescale calculation is less than
-> +	 * prescale.
-> +	 * For small values of prescale, only a handful of values will need
-> +	 * correction, but overall this applies to almost half of the valid
-> +	 * values for tmp.
-> +	 *
-> +	 * To keep the algorithm's decision making consistent, this case is
-> +	 * checked for and the simple solution is to, in these cases,
-> +	 * decrement prescale and check that the resulting value of period_steps
-> +	 * is valid.
-> +	 *
-> +	 * period_steps can be computed from prescale:
-> +	 *                      period * clk_rate
-> +	 * period_steps = ----------------------------- - 1
-> +	 *                NSEC_PER_SEC * (prescale + 1)
-> +	 *
-> +	 */
-> +	if (tmp % (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) < *prescale) {
+All errors (new ones prefixed by >>):
 
-Hmm, looks like 32-bit doesn't like this modulus.
-I pushed things out for LKP to test before sending as I felt I'd not be
-allowed to do that operation, but got a build success email from it.
-I'm not sure why the mail wasn't sent as a reply to this, but
-<202304020410.A86IBNES-lkp@intel.com> complains:
-pwm-microchip-core.c:(.text+0x20a): undefined reference to `__aeabi_uldivmod'
+   riscv64-linux-ld: arch/riscv/kernel/sys_riscv.o: in function `.L0 ':
+>> sys_riscv.c:(.init.text+0x4): undefined reference to `vdso_data'
 
-I know that tmp < 65536 at this point, so if the general approach is
-fine, I can always cast it to a non 64-bit type without losing any
-information.
-
-> +		u16 smaller_prescale = *prescale - 1;
-> +
-> +		*period_steps = div_u64(tmp, smaller_prescale + 1) - 1;
-> +		if (*period_steps < 255) {
-> +			*prescale = smaller_prescale;
-> +
-> +			return 0;
-> +		}
-> +	}
-
---WqrHL50fzIiM0DjG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCiZJwAKCRB4tDGHoIJi
-0iJlAQCB2UJl++XV4NMR+7ECnWEx79RdqD/XDFZb1Ug8Y9BRwwEAvSU+APt+rIRQ
-PbPJgMxFUNyTzMFYCMWtE6d2M3dPCQ8=
-=v2Y6
------END PGP SIGNATURE-----
-
---WqrHL50fzIiM0DjG--
-
-
---===============2562040224550905192==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2562040224550905192==--
-
