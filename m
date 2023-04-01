@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB06C77B60
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 09:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2030C76196
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 09:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mdd5b2GZgV0m755UdkBVvbEJagIlrAXdOaWvULNxMRo=; b=Iy0/N6MvkRI75t
-	WJNfYIwx+ZelXyfLKqkYbxxTqmjc7Gn7loHB8x9rCH8amuEI0EgmLY0p1EJgDJMtUDhYvrTVEs4uI
-	GOaYkXNWlp7WtlJaGgYYBRRVc4sJ8Sa5PXB44OX195glF8lWV/6LTm0RHCzZu3tipQrlcX7Osa6Rq
-	C56R1/Mz+n7X1gaudKMKwEsnWNhJGq0OWznemDKov/Iye/s8DH/rlZcUWQTVWgIsj7PWa0sEYUPlb
-	lVRfzCYuaaXhlnziW59yxtDP7jahd3WGKovud+9CnPR0S99IblKIm3FkyyEYpIDax4UQLAWfRsdAM
-	t9HZrYTWoJD48glwPrBQ==;
+	List-Owner; bh=kzvTGrZtl/bWOFQQTX3DwoMDJ1utYOmNOvaHq+p0UWs=; b=3hG09b3952uYAW
+	tyP5BvSjIR8yyNSYoIJaQt2tuLvLz9fwBg/KSBoO5KiG+gjnmvkwrv54wMcv7L6JaAaNHxDmQLoYV
+	Bf0VyxOOwlH92Vfge36O7sDg/eD96CydUZLnVN7DwQ8JLE8YHh+lWaaBcaylsD5nW9036Z/gVDL92
+	xyv2cEQy83R4AKOoProsnqerINbhHT/o0rnuSTyBK0AlXhqbreCMS40GTMA5aIlykdoxBIvr1apKO
+	hongCuDV4wgkORYbjuY02L19Wohm7oxmq1H4Lks5Ns36d6tGaRghOGA8YzjFXB499iSCSYEG4bH9b
+	EYbQ097KgzXn0jiepfYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1piXKw-00A5Sa-0M;
-	Sat, 01 Apr 2023 09:15:50 +0000
+	id 1piXKu-00A5R9-0C;
+	Sat, 01 Apr 2023 09:15:48 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1piXKt-00A5Qt-1R
+	id 1piXKq-00A5PK-2t
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Apr 2023 09:15:48 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailout.nyi.internal (Postfix) with ESMTP id D4D1C5C0215;
-	Sat,  1 Apr 2023 05:15:46 -0400 (EDT)
+	Sat, 01 Apr 2023 09:15:46 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id 3CDED5C0209;
+	Sat,  1 Apr 2023 05:15:42 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
-  by compute4.internal (MEProxy); Sat, 01 Apr 2023 05:15:46 -0400
+  by compute2.internal (MEProxy); Sat, 01 Apr 2023 05:15:42 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
 	cc:cc:content-transfer-encoding:content-type:date:date:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1680340546; x=
-	1680426946; bh=hcnHw+44/BST0LlazN+bGPEtcTMQwb2S8vINX4/AFbM=; b=B
-	tjfwkOCgUBddKw0AfFN9aSDCGtJ7cj6iPzmn9lNGjgaMMuN2p0D1voxnc0b+D0t1
-	WSiLn6iLpMaHZL9npSONbVslZKur2IP/nHqDCz1MrLWnCa3fhjwkp3dDacdFwUdF
-	O5R1AdhTwBel7MRg0GuwuXCrVBB5VEO8ICxl2wvVbQzHDhvPemaP7sQI/wEKMhN7
-	pYMQt0OWrOGaVEGMOQgzPhW002om69/yLvNYTPwqlEZ1UqUEiVVPLsS9Y42s1Mbx
-	fMEBdeL9qaLdH6C45x+5kDiCS2AsIB3f6ebNnq6jzfA4z3bMrffYPnk9mDTVHqt+
-	GlJXIe8DxGkTlA5H+8W/A==
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1680340542; x=
+	1680426942; bh=6ZdUaz0bULSUdlfaxIi2pdkawZZOMF82ZopwMrFwfbc=; b=Z
+	Yb64APEBRmQX6qnsbQ+gNGAqCe47A5ugfKPHsjoS0juWhirZbuCy5OqsbGVin0aQ
+	MCprU8gXASeLV3u4fhQCB8Xmr6q9QR4w2HZJpdtlKTwu5UTiyxJEYkR+RtRyVRde
+	UTwLtqN6qhUwO6xah+aI7dLJmA/yb8qsL05ZmqE47UppENL8RgKP+t5PLWHyEYgv
+	sxhwSxbBQD+ye3z4TVmNgvmBGIE+aGU84qke6fbp70ckULSF34+i1MBOcxAd3u2K
+	aob00h3PmgtGo76UIlwN0CqufBnhZt1E57/1uA+egkRWe6wX35P3VsqLKRW9J3oR
+	P1NvJ1J8XM4zvQBVfbpog==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1680340546; x=
-	1680426946; bh=hcnHw+44/BST0LlazN+bGPEtcTMQwb2S8vINX4/AFbM=; b=R
-	O5MclV+8iYZGEjTibnyUUa6zqcv/oOriD0wfapql6pJXDi33Z+FTOdEkg2RfemmH
-	nf+BcjZLGWjZLyz0cQolPfXYoc86OC7UpeSMQNTd3A/qhOlbI5WMZWZNyy73PoS0
-	ob5+F7+ag7xUC/b8Vqdx4GrjcSsZe1jaL9Q1jadu158xshYBoJQbAfYnaBfsn76C
-	7Na7uwtKsJw6EQ6KNULJwiUfQslSJOV2wTSC1dPXbvHBEZxdfLwTeuvm98X+aK1c
-	DDMY0TUlKFR89L8p4akclzvJJ4vmbj4gqGDhqrr9U68YpNsYJ2Zc0njLUJYnbnE3
-	Frz+qUvEF8vQaCEnVXUTg==
-X-ME-Sender: <xms:QvYnZAlpxqfkAovtGi8vJp7TdPRGJROs_Ow-GtC6wgMJGiQGpR_XZg>
-    <xme:QvYnZP3qGpwF1nMYL8ZRyZMJhxoh70gWmuf-rejHsAE_dl64t6RUz2THMUtPqpbiZ
-    Pl41H5m12kTZ4HZqqI>
-X-ME-Received: <xmr:QvYnZOqzMaXzslXPmkFsO1qkKJW9Wfn8odWcGKeSXmmWt0nLQwuTLteS2b41OqwaiDomnnbovFk>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1680340542; x=
+	1680426942; bh=6ZdUaz0bULSUdlfaxIi2pdkawZZOMF82ZopwMrFwfbc=; b=n
+	2+Sns5MlCMh2CS5VbD4r4+tfWPBNZW4RfSSeYLJQ1wxvtWZeI+w//zhC/SBMe2wN
+	Ue5yAxnK70ImQ5HLFWx9k1/JZJ3vvGMKku6U7/6tioBsUC5cTtJekxHafJNmyZMh
+	hUfkRF+AkKbFh00IiA8DUKvrLFElH8m8uZF2yJcPjkaUmm3LnOm40eWxKN6e7AKe
+	6MGiQItIbp/g9gx/F0//fNfDMvpcMLTWiAdmoCfZpKcNQGBEeeNXWetaW27oUc1G
+	KardIf3w6xRRk8YcR5R5mVHjbM/0sHBYN3d2fSqnbAGZkeleeQp9xCv24tHbLrut
+	ukVhLPN80yCeH5PYfwmtw==
+X-ME-Sender: <xms:PvYnZKt-zWPqZrgcrFY6AOOemameG7W6-C2QSx77SsyR9Z2_z-CHNw>
+    <xme:PvYnZPes5nXJmw3iDxG2X_9YZsQ7N179e2hdLMPN_9u0YkfajE3BixuH1pLuq-f4_
+    zZOQ9VuePXcGexJ6VI>
+X-ME-Received: <xmr:PvYnZFznsQ_q-aL2pCmlfQaEv0wP31Q8WUaTzsrnlD2q5ulJuw2TW78xT4Rpt5xy_cJjP_WDaI8>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdeifedgudegucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomheplfhirgig
-    uhhnucgjrghnghcuoehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpeefledufeehgedvuedvvdegkefgvddttedtleeiiefhgeetudeg
-    kefhvdfhjeeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhm
-X-ME-Proxy: <xmx:QvYnZMlCaQp3a1PCwGyfqDgmremxuc5qFh-hTSjz7myxEs_Ux5aNww>
-    <xmx:QvYnZO3JYRwyCFR-LDNXEYy7ejg5p9BvVdUK3x79vIZutxwv-Dt-FA>
-    <xmx:QvYnZDuEcB6TvrFL6xsB4PqMBGFOcoQi8tuVZUZ5vmZG2LCvN37yTw>
-    <xmx:QvYnZIMRkcNwlrv90KaiAIkK7O43n5TNPAH1LirkYSx8ePtSjkEQXw>
+    uceurghilhhouhhtmecufedttdenucenucfjughrpefhvfevufffkffojghfggfgsedtke
+    ertdertddtnecuhfhrohhmpeflihgrgihunhcujggrnhhguceojhhirgiguhhnrdihrghn
+    ghesfhhlhihgohgrthdrtghomheqnecuggftrfgrthhtvghrnhepfeeludefheegvdeuvd
+    dvgeekgfdvtdettdelieeihfegtedugeekhfdvhfejfedtnecuvehluhhsthgvrhfuihii
+    vgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhi
+    hgohgrthdrtghomh
+X-ME-Proxy: <xmx:PvYnZFOWT9rX4KVETjZaH87LUHkf-7NkzbN_Qib2QMqlBWf03QhrHA>
+    <xmx:PvYnZK9XuT8G4n4z6Lq2OJzsz3B2lX7isTLmDh7Lqzv4yP7p3BjP8w>
+    <xmx:PvYnZNUr7L6sbtxlAO2w7uTxFHLdkyeMdR9I0B4bWla1dJma3HUUOA>
+    <xmx:PvYnZMcuntpmBcB4d9JK6LDt8H-UanPzN6G1vOiuUwwUbjxBBLzSZQ>
 Feedback-ID: ifd894703:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 1 Apr 2023 05:15:44 -0400 (EDT)
+ 1 Apr 2023 05:15:40 -0400 (EDT)
 From: Jiaxun Yang <jiaxun.yang@flygoat.com>
 To: iommu@lists.linux.dev
 Cc: linux-mips@vger.kernel.org,
@@ -90,18 +90,18 @@ Cc: linux-mips@vger.kernel.org,
 	robin.murphy@arm.com,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v4 3/3] of: address: Always use dma_default_coherent for default coherency
-Date: Sat,  1 Apr 2023 10:15:31 +0100
-Message-Id: <20230401091531.47412-4-jiaxun.yang@flygoat.com>
+	Jiaxun Yang <jiaxun.yang@flygoat.com>
+Subject: [PATCH v4 1/3] dma-mapping: Provide a fallback dma_default_coherent
+Date: Sat,  1 Apr 2023 10:15:29 +0100
+Message-Id: <20230401091531.47412-2-jiaxun.yang@flygoat.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20230401091531.47412-1-jiaxun.yang@flygoat.com>
 References: <20230401091531.47412-1-jiaxun.yang@flygoat.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230401_021547_552629_D34F3FC4 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20230401_021545_342615_00F9B413 
+X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,88 +118,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As for now all arches have dma_default_coherent reflecting default
-DMA coherency for of devices, so there is no need to have a standalone
-config option.
+dma_default_coherent was decleared unconditionally at kernel/dma/mapping.c
+but only decleared when any of non-coherent options is enabled in
+dma-map-ops.h.
+
+Guard the declaration in mapping.c with non-coherent options and provide
+a fallback definition.
 
 Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 ---
-v3: Squash setting ARCH_DMA_DEFAULT_COHERENT into this patch.
+v3: Style fix
 ---
- arch/powerpc/Kconfig | 2 +-
- arch/riscv/Kconfig   | 2 +-
- drivers/of/Kconfig   | 4 ----
- drivers/of/address.c | 2 +-
- 4 files changed, 3 insertions(+), 7 deletions(-)
+ include/linux/dma-map-ops.h | 2 ++
+ kernel/dma/mapping.c        | 4 ++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 26725cdef2be..6777f6158bdd 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -113,6 +113,7 @@ config PPC
- 	#
- 	select ARCH_32BIT_OFF_T if PPC32
- 	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
-+	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
- 	select ARCH_ENABLE_MEMORY_HOTPLUG
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
- 	select ARCH_HAS_COPY_MC			if PPC64
-@@ -273,7 +274,6 @@ config PPC
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK	if PPC64
- 	select NEED_SG_DMA_LENGTH
- 	select OF
--	select OF_DMA_DEFAULT_COHERENT		if !NOT_COHERENT_CACHE
- 	select OF_EARLY_FLATTREE
- 	select OLD_SIGACTION			if PPC32
- 	select OLD_SIGSUSPEND
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 3fb099bfa232..5a28e36b1ef1 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,6 +12,7 @@ config 32BIT
- 
- config RISCV
- 	def_bool y
-+	select ARCH_DMA_DEFAULT_COHERENT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-@@ -122,7 +123,6 @@ config RISCV
- 	select MODULES_USE_ELF_RELA if MODULES
- 	select MODULE_SECTIONS if MODULES
- 	select OF
--	select OF_DMA_DEFAULT_COHERENT
- 	select OF_EARLY_FLATTREE
- 	select OF_IRQ
- 	select PCI_DOMAINS_GENERIC if PCI
-diff --git a/drivers/of/Kconfig b/drivers/of/Kconfig
-index 644386833a7b..e40f10bf2ba4 100644
---- a/drivers/of/Kconfig
-+++ b/drivers/of/Kconfig
-@@ -102,8 +102,4 @@ config OF_OVERLAY
- config OF_NUMA
- 	bool
- 
--config OF_DMA_DEFAULT_COHERENT
--	# arches should select this if DMA is coherent by default for OF devices
--	bool
--
- endif # OF
-diff --git a/drivers/of/address.c b/drivers/of/address.c
-index 4c0b169ef9bf..23ade4919853 100644
---- a/drivers/of/address.c
-+++ b/drivers/of/address.c
-@@ -1103,7 +1103,7 @@ phys_addr_t __init of_dma_get_max_cpu_address(struct device_node *np)
- bool of_dma_is_coherent(struct device_node *np)
+diff --git a/include/linux/dma-map-ops.h b/include/linux/dma-map-ops.h
+index 41bf4bdb117a..31f114f486c4 100644
+--- a/include/linux/dma-map-ops.h
++++ b/include/linux/dma-map-ops.h
+@@ -269,6 +269,8 @@ static inline bool dev_is_dma_coherent(struct device *dev)
+ 	return dev->dma_coherent;
+ }
+ #else
++#define dma_default_coherent true
++
+ static inline bool dev_is_dma_coherent(struct device *dev)
  {
- 	struct device_node *node;
--	bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
-+	bool is_coherent = dma_default_coherent;
+ 	return true;
+diff --git a/kernel/dma/mapping.c b/kernel/dma/mapping.c
+index 68106e3791f6..80f9663ffe26 100644
+--- a/kernel/dma/mapping.c
++++ b/kernel/dma/mapping.c
+@@ -17,7 +17,11 @@
+ #include "debug.h"
+ #include "direct.h"
  
- 	node = of_node_get(np);
++#if defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE) || \
++	defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU) || \
++	defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU_ALL)
+ bool dma_default_coherent;
++#endif
  
+ /*
+  * Managed DMA API
 -- 
 2.39.2 (Apple Git-143)
 
