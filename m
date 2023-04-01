@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E3AC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 19:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF69DC76196
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Apr 2023 20:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JrCnNTS3kNS/1rf+wRFNFq70hCTS1hm1rY9cN4A1V30=; b=lk0bCck15v5hM1
-	ft+iZBkV3wJawluMlegKnuspb0ie3pRbhIWlHlAMuc1V25PeuzAd5ib4q1Ycl4q9hit/c/8Zr9nK7
-	AlmrCMtGj9tlrvmyb8Y5NQW8OGDADg3mOe+UJ5ekHMdPAUT3KuNxjRLLLLSJpe32KC99sG6lAKOK2
-	ivT0EMz74BQ2yiU7/gvFBfR6E2ccAZbLmbVY1HNZ2Zqjhnkf5lK7JMb5PMgYtkuciT+EO5QGvJLD9
-	wyP2bYdOB2Nwfa6R3dWdS6SaZ1kiOvsr90RiGAUjSUBuXrJA6QEzLpCJ6AVoI4EDNhtULqsTNDcZi
-	rKM/VSh0tyFq38LJmkgg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1VVtIm6ox46pSk1MPyLIjDGO8c6gaA93n++39pHX5Sg=; b=viL/ViIqbsLOxOo59VArC/oV02
+	dXmZzp0nrbENf8Mt0RVTNMnd5Jwlf2qbIOfhfEemEBu/ikdikcOb2CvJIhLLfndeNVk1GziwY+KuR
+	8VJcASsHlHpy/PAtAhOVmWDnve9DfUsc4sNmFTn5YvHvGsqgfY4RGrMiaLVmKsjQa1oYY9b5DH1jN
+	EWwKvQ6e1X56qx3CZzR1YU1LqVcVCH1T9AFPXn5DhgTZ6OtHKhmiR4ZvIx3zA3DQygnShMk97aXIX
+	VIpSOh1CLU4UZ5aplI29OoHcsW/GOycSUVBRiBe3nKHjo2qAPz+GPbq0J9DLmkdjVwgMZDuSb8PeE
+	sM4oGtBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pigo8-00BCIU-1I;
-	Sat, 01 Apr 2023 19:22:36 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1piiBd-00BIE4-3A;
+	Sat, 01 Apr 2023 20:50:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pigo4-00BCGQ-2u
+	id 1piiBa-00BIDh-2Q
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Apr 2023 19:22:34 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id j1-20020a05600c1c0100b003f04da00d07so212075wms.1
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Apr 2023 12:22:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1680376950;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YsdIX4QaNsFy8jAUYtXLUiYq0pMM/KF7S/HscFFRFa8=;
-        b=wLou/172SsZ4tbZKAmsf4wdm/jkdhPJhgp/9PODUlSx+8zj3bvceTjgZUslKBzMWw8
-         dbzF5WM+xXp7t01zz37q83r+zoMvSKVW3P/J28MwkqEbL9aNMV8iCK1aq/f4+7SIi4B9
-         qp2UZBwhIDmh3rDtCB63WKwzAN5BUgdGepgfYA2wOSMqur9AYXlb5tF5t3JYnBT9m+FF
-         QZNbjh2HDQTcX3YBnp/khnrydEiI2K5FE2h9klkr7WGo/ExSeTZ8Jium1tK606uJuIKM
-         bxjPVjsLqxf1k5WstPx4prev8VXkZHddRS3F63SKw/dTy0euJ1u4Vad24HvY2PFiL49V
-         8UgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680376950;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YsdIX4QaNsFy8jAUYtXLUiYq0pMM/KF7S/HscFFRFa8=;
-        b=qduYOrmrGW/ep+v1C5LbKQPLPHUqgdpsIf/NkXwK7yWLDNEvxHv012i+GP3o63bxLx
-         awCbGxdaUEb3vNkJC/kF9BZnLlTxckzwa+DJjFb8a5CUnvikV8b3NqNicT4O6adX1JUt
-         Yr8X1rQ/eE8Mgt75ualR5up37W0vs0vrL5gDf84kt48hFudfw4Md4UytA/gT+nZSj+nT
-         MMJBEBeHOutvQQITGUgZ5PN3HBGdnqp7iUW0Wy7xS73sq4jQPYa9vZGC4oCpc+uHNaTS
-         bFp1B5kZW5VQ32ErgFgCA7EEy77Q9seTIfyOwPkeiJe2NCCWQg3q7yZ2hnNgxCEqCaeI
-         se6Q==
-X-Gm-Message-State: AO0yUKWnVVveeRGnuTSfWSkaCDMpivYvbTAm6u3P1g/YpD+1mMUOggAd
-	jg150+MmzO1Zask8g7rbYlHOZw==
-X-Google-Smtp-Source: AK7set9y5bHkZCySLIhsJfaK02RbOBp8M7OwMT91WfVTWaYaVc0pGHqd8wtNzjk/5/WSJSDGT1LTiA==
-X-Received: by 2002:a7b:cd88:0:b0:3ee:7061:1bdd with SMTP id y8-20020a7bcd88000000b003ee70611bddmr22820919wmj.4.1680376950405;
-        Sat, 01 Apr 2023 12:22:30 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:b36a:1186:309c:1f9a? ([2a05:6e02:1041:c10:b36a:1186:309c:1f9a])
-        by smtp.googlemail.com with ESMTPSA id r5-20020adfe685000000b002e61e002943sm4791678wrm.116.2023.04.01.12.22.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Apr 2023 12:22:29 -0700 (PDT)
-Message-ID: <93ffd73a-4544-5148-0159-1a9ea773c0a0@linaro.org>
-Date: Sat, 1 Apr 2023 21:22:28 +0200
+	Sat, 01 Apr 2023 20:50:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BDB7E60F92;
+	Sat,  1 Apr 2023 20:50:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A83A1C433EF;
+	Sat,  1 Apr 2023 20:50:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680382251;
+	bh=cblNPwspiLiu6TBVBEScNWqtn9HgaLDxVomWxXoSOWQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R2Xsf7OmDrvxKOnaV1o2olTZD/+xO24c1NxVVjgi4tY54cdvVXRkP8hJX46e8UoKN
+	 vHFfU3gTbKbx1gzg/9ZYBwKR77EFvO/bE9X5mbcwTnp5Xav6jrPMbaxht6AO6eYeeU
+	 8uZ8Q6WVgufuMawepfUsnfuH+0iPYWMfn+pjTVn+FOP5n6swmE7RwLL05Fp4hH719s
+	 trz6qOMwQ7pEP0BXeCulcHfwhx2FbZDit9dRQgxqa4X+m6eps5Cu7fkyEs8Jd/kMXl
+	 yBu1tZ0WR2yiKZf80HCi8SKkX8C0Q74lFP4zMMEs70FtCI4Ykck7/2RopRFMfOCEyW
+	 HPxAvf8S4LXqQ==
+Date: Sat, 1 Apr 2023 21:50:47 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v15 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <0b91dee7-6c1d-4a33-8235-8fd5d58b200e@spud>
+References: <20230330071203.286972-1-conor.dooley@microchip.com>
+ <20230330071203.286972-2-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH 12/19] thermal: cpuidle_cooling: Adjust includes to remove
- of_device.h
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Amit Daniel Kachhap <amit.kachhap@gmail.com>,
- Viresh Kumar <viresh.kumar@linaro.org>, Lukasz Luba <lukasz.luba@arm.com>,
- Amit Kucheria <amitk@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Yangtao Li <tiny.windzz@gmail.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>, Andy Gross <agross@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>, Anup Patel <anup@brainfault.org>,
- Huacai Chen <chenhuacai@kernel.org>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Marc Zyngier <maz@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
-References: <20230329-dt-cpu-header-cleanups-v1-0-581e2605fe47@kernel.org>
- <20230329-dt-cpu-header-cleanups-v1-12-581e2605fe47@kernel.org>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-12-581e2605fe47@kernel.org>
+In-Reply-To: <20230330071203.286972-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230401_122232_936335_19594748 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20230401_135054_854497_B96E00D3 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,24 +72,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2562040224550905192=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjkvMDMvMjAyMyAxNzo1MiwgUm9iIEhlcnJpbmcgd3JvdGU6Cj4gTm93IHRoYXQgb2ZfY3B1
-X2RldmljZV9ub2RlX2dldCgpIGlzIGRlZmluZWQgaW4gb2YuaCwgb2ZfZGV2aWNlLmggaXMganVz
-dAo+IGltcGxpY2l0bHkgaW5jbHVkaW5nIG90aGVyIGluY2x1ZGVzLCBhbmQgaXMgbm8gbG9uZ2Vy
-IG5lZWRlZC4gQWRqdXN0IHRoZQo+IGluY2x1ZGUgZmlsZXMgd2l0aCB3aGF0IHdhcyBpbXBsaWNp
-dGx5IGluY2x1ZGVkIGJ5IG9mX2RldmljZS5oIChjcHUuaCBhbmQKPiBvZi5oKSBhbmQgZHJvcCBp
-bmNsdWRpbmcgb2ZfZGV2aWNlLmguCj4gCj4gU2lnbmVkLW9mZi1ieTogUm9iIEhlcnJpbmcgPHJv
-YmhAa2VybmVsLm9yZz4KPiAtLS0KPiBQbGVhc2UgYWNrIGFuZCBJIHdpbGwgdGFrZSB0aGUgc2Vy
-aWVzIHZpYSB0aGUgRFQgdHJlZS4KCkFja2VkLWJ5OiBEYW5pZWwgTGV6Y2FubyA8ZGFuaWVsLmxl
-emNhbm9AbGluYXJvLm9yZz4KCi0tIAo8aHR0cDovL3d3dy5saW5hcm8ub3JnLz4gTGluYXJvLm9y
-ZyDilIIgT3BlbiBzb3VyY2Ugc29mdHdhcmUgZm9yIEFSTSBTb0NzCgpGb2xsb3cgTGluYXJvOiAg
-PGh0dHA6Ly93d3cuZmFjZWJvb2suY29tL3BhZ2VzL0xpbmFybz4gRmFjZWJvb2sgfAo8aHR0cDov
-L3R3aXR0ZXIuY29tLyMhL2xpbmFyb29yZz4gVHdpdHRlciB8CjxodHRwOi8vd3d3LmxpbmFyby5v
-cmcvbGluYXJvLWJsb2cvPiBCbG9nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+
+--===============2562040224550905192==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="WqrHL50fzIiM0DjG"
+Content-Disposition: inline
+
+
+--WqrHL50fzIiM0DjG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Thu, Mar 30, 2023 at 08:12:03AM +0100, Conor Dooley wrote:
+
+> +	/*
+> +	 * Because 0xff is not a permitted value some error will seep into the
+> +	 * calculation of prescale as prescale grows. Specifically, this error
+> +	 * occurs where the remainder of the prescale calculation is less than
+> +	 * prescale.
+> +	 * For small values of prescale, only a handful of values will need
+> +	 * correction, but overall this applies to almost half of the valid
+> +	 * values for tmp.
+> +	 *
+> +	 * To keep the algorithm's decision making consistent, this case is
+> +	 * checked for and the simple solution is to, in these cases,
+> +	 * decrement prescale and check that the resulting value of period_steps
+> +	 * is valid.
+> +	 *
+> +	 * period_steps can be computed from prescale:
+> +	 *                      period * clk_rate
+> +	 * period_steps = ----------------------------- - 1
+> +	 *                NSEC_PER_SEC * (prescale + 1)
+> +	 *
+> +	 */
+> +	if (tmp % (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) < *prescale) {
+
+Hmm, looks like 32-bit doesn't like this modulus.
+I pushed things out for LKP to test before sending as I felt I'd not be
+allowed to do that operation, but got a build success email from it.
+I'm not sure why the mail wasn't sent as a reply to this, but
+<202304020410.A86IBNES-lkp@intel.com> complains:
+pwm-microchip-core.c:(.text+0x20a): undefined reference to `__aeabi_uldivmod'
+
+I know that tmp < 65536 at this point, so if the general approach is
+fine, I can always cast it to a non 64-bit type without losing any
+information.
+
+> +		u16 smaller_prescale = *prescale - 1;
+> +
+> +		*period_steps = div_u64(tmp, smaller_prescale + 1) - 1;
+> +		if (*period_steps < 255) {
+> +			*prescale = smaller_prescale;
+> +
+> +			return 0;
+> +		}
+> +	}
+
+--WqrHL50fzIiM0DjG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCiZJwAKCRB4tDGHoIJi
+0iJlAQCB2UJl++XV4NMR+7ECnWEx79RdqD/XDFZb1Ug8Y9BRwwEAvSU+APt+rIRQ
+PbPJgMxFUNyTzMFYCMWtE6d2M3dPCQ8=
+=v2Y6
+-----END PGP SIGNATURE-----
+
+--WqrHL50fzIiM0DjG--
+
+
+--===============2562040224550905192==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2562040224550905192==--
+
