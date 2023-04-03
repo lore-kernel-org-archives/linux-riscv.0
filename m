@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBA6C76196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 07:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F180CC76196
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 07:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PCd0HRjg3IYma3WfuGuoTqMGWg8+G/mAoPi0NCRpIjY=; b=FLhbUDco2nHPzz
-	DvqWiaEpFn4RRnCdPOTo3r6UoxSflIukBefaPI67qO3qkXNdKQKOD3VZHe97OIMgzC2QssnVX6OaU
-	OKg/cFBjfm1UNIHG76iOcl5BJV4IcOezaOS7dRB8/b3c6CTuNhE4hXglT7apRRaoJYRNiqM9o4UbH
-	uRfv8ANVVsfJ+5ufE9oN3P4sEI/M6nCiKwtvNBwGpAZFIfFaScsLpAlFdVdmH9kNQRC+dYR+jQ1yk
-	FNIxnA/67ZqMRNtNl8YNZ+mcC8l3JStsyMhteUKdgCSFW/BQHW7sPKB9Gw9qxiWQTjUh1TGKPubnZ
-	B1oQvSHlbuCObd1S1GCQ==;
+	List-Owner; bh=zL857xb6uV7zyljUdURGlD3WRnBw10WqOThIwWsQr88=; b=iaRNQdfkt2erDZ
+	4i3yjtppPZFm4HduPbxqJvtrxxhiDRqCXLUKIkxJcb70LcqMn2E0ZIezsIXfMP4cCtRCFJR4GCAlw
+	X0GExaX4HJc3EvG4V2frBq1vSXuTEsQ+J3oM8jw3lwCx+N/Eufx176spP4i779wa2D+Lu5sZH9S8w
+	01bve3vJ48pyK1vClw8CMNuRphEzkiM3j+VJ4Bo5KLkADpsddPPPd6JMhg+6NldWkv0XvBripl9d7
+	a6p0blvJf6lLqfBySocEYQewHdTY6PZncMixXhtPVYltYd67vp+TfIGL1b/vnyEgF1VWQ66oldmaq
+	xxhFnt4rbavOjy8giK/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjEAr-00EJOy-0I;
-	Mon, 03 Apr 2023 07:00:17 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pjEen-00EOxv-18;
+	Mon, 03 Apr 2023 07:31:13 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjEAk-00EJIb-19
+	id 1pjEei-00EOtt-1r
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Apr 2023 07:00:14 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Mon, 03 Apr 2023 07:31:11 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5EC2124E29F;
-	Mon,  3 Apr 2023 14:59:41 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 14:59:41 +0800
-Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
- EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Mon, 3 Apr 2023 14:59:40 +0800
-From: Samin Guo <samin.guo@starfivetech.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Jose Abreu <joabreu@synopsys.com>, Richard Cochran
-	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
-	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
-	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [-net-next v10 6/6] net: stmmac: starfive-dmac: Add phy interface settings
-Date: Mon, 3 Apr 2023 14:59:32 +0800
-Message-ID: <20230403065932.7187-7-samin.guo@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230403065932.7187-1-samin.guo@starfivetech.com>
-References: <20230403065932.7187-1-samin.guo@starfivetech.com>
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CA09124E22F;
+	Mon,  3 Apr 2023 15:30:34 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
+ 2023 15:30:34 +0800
+Received: from [192.168.125.87] (183.27.97.179) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
+ 2023 15:30:33 +0800
+Message-ID: <ce4ee037-c53c-5bd4-8968-437ee21c9c51@starfivetech.com>
+Date: Mon, 3 Apr 2023 15:30:32 +0800
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
- (172.16.6.72)
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v7 00/22] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20230401111934.130844-1-hal.feng@starfivetech.com>
+ <acb36897-8085-4f41-9b68-b243467ffc6f@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <acb36897-8085-4f41-9b68-b243467ffc6f@spud>
+X-Originating-IP: [183.27.97.179]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
+ (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_000010_726041_0239D4A7 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20230403_003109_102037_EE9ECF48 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +84,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dwmac supports multiple modess. When working under rmii and rgmii,
-you need to set different phy interfaces.
+On Sun, 2 Apr 2023 20:19:41 +0100, Conor Dooley wrote:
+> Hey Hal,
+> 
+> On Sat, Apr 01, 2023 at 07:19:12PM +0800, Hal Feng wrote:
+>> This patch series adds basic clock, reset & DT support for StarFive
+>> JH7110 SoC.
+>> 
+>> @Stephen and @Conor, I have made this series start with the shared
+>> dt-bindings, so it will be easier to merge.
+> 
+> Thanks. I probably should have asked for that, makes my life easier
+> that's for sure!
 
-According to the dwmac document, when working in rmii, it needs to be
-set to 0x4, and rgmii needs to be set to 0x1.
+My pleasure.
 
-The phy interface needs to be set in syscon, the format is as follows:
-starfive,syscon: <&syscon, offset, shift>
+> 
+>> @Conor, patch 1, 2, 16~21 were already in your branch. Patch 22 is the
+>> same with the patch [1] I submitted before, which you had accepted but
+>> not merge it into your branch.
+> 
+> I hadn't merged that into anywhere, so I just went and dropped the
+> original incarnation of that branch and have re-created it.
+> I don't recall there being a maintainers pattern error (from running
+> scripts/get_maintainer.pl --self-test=patterns) with what I had done in
+> my branch, but with your patch 1 applied I see one. To save myself a
+> complaint from LKP, I stripped out the MAINTAINERS bits from patch 1
+> into their own patch that can go with the clock/reset bits.
+> 
+> I squashed 22 into "riscv: dts: starfive: Add initial StarFive JH7110
+> device tree" since there's no reason to add something knowingly
+> incorrect IMO.
+> 
+> I've gone and pushed out the following as riscv-jh7110_initial_dts:
+> riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
+> riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+> riscv: dts: starfive: Add initial StarFive JH7110 device tree
+> dt-bindings: riscv: Add SiFive S7 compatible
+> dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+> dt-bindings: timer: Add StarFive JH7110 clint
+> dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
+> dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+> 
+> And the rest as riscv-jh7110_clk_reset:
+> MAINTAINERS: generalise StarFive clk/reset entries
 
-Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
-Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
----
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 48 +++++++++++++++++++
- 1 file changed, 48 insertions(+)
+For this patch, I find something to improve.
+1. Could you please help me sort the StarFive entries in MAINTAINERS?
+"STARFIVE JH71X0 CLOCK DRIVERS" should be added after
+"STARFIVE JH7110 MMC/SD/SDIO DRIVER".
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 4963d4008485..d6a1eddb51e8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -13,6 +13,10 @@
- 
- #include "stmmac_platform.h"
- 
-+#define STARFIVE_DWMAC_PHY_INFT_RGMII	0x1
-+#define STARFIVE_DWMAC_PHY_INFT_RMII	0x4
-+#define STARFIVE_DWMAC_PHY_INFT_FIELD	0x7U
-+
- struct starfive_dwmac {
- 	struct device *dev;
- 	struct clk *clk_tx;
-@@ -46,6 +50,46 @@ static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
- 		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
- }
- 
-+static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
-+{
-+	struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
-+	struct regmap *regmap;
-+	unsigned int args[2];
-+	unsigned int mode;
-+	int err;
-+
-+	switch (plat_dat->interface) {
-+	case PHY_INTERFACE_MODE_RMII:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RMII;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
-+		break;
-+
-+	default:
-+		dev_err(dwmac->dev, "unsupported interface %d\n",
-+			plat_dat->interface);
-+		return -EINVAL;
-+	}
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
-+						      "starfive,syscon",
-+						      2, args);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dwmac->dev, PTR_ERR(regmap), "syscon regmap failed\n");
-+
-+	/* args[0]:offset  args[1]: shift */
-+	err = regmap_update_bits(regmap, args[0],
-+				 STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
-+				 mode << args[1]);
-+	if (err)
-+		return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
-+
-+	return 0;
-+}
-+
- static int starfive_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-@@ -91,6 +135,10 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->dma_cfg->dche = true;
- 
-+	err = starfive_dwmac_set_mode(plat_dat);
-+	if (err)
-+		return err;
-+
- 	err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- 	if (err) {
- 		stmmac_remove_config_dt(pdev, plat_dat);
--- 
-2.17.1
+2. A "S" should be added at the end of
+"STARFIVE JH7100 RESET CONTROLLER DRIVER".
+
+I have tested your branch and have no comments on the other patches.
+
+> reset: starfive: Add StarFive JH7110 reset driver
+> clk: starfive: Add StarFive JH7110 always-on clock driver
+> clk: starfive: Add StarFive JH7110 system clock driver
+> reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
+> reset: starfive: Rename "jh7100" to "jh71x0" for the common code
+> reset: starfive: Extract the common JH71X0 reset code
+> reset: starfive: Factor out common JH71X0 reset code
+> reset: Create subdirectory for StarFive drivers
+> reset: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+> clk: starfive: Rename "jh7100" to "jh71x0" for the common code
+> clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
+> clk: starfive: Factor out common JH7100 and JH7110 code
+> clk: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+> dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
+> dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+> 
+> <https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/refs>
+> 
+> As it looks like everything has been resolved in terms of comments on
+> v6, provided LKP doesn't complain or people don't spot something else,
+> my plan is to send Stephen a PR around Wednesday for the driver bits.
+
+Thanks for your work.
+
+Best regards,
+Hal
+
+> 
+> Please LMK if I screwed up anything,
+> Conor.
 
 
 _______________________________________________
