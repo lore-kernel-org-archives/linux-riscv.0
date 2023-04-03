@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA7EC76196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 21:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C174C76188
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 22:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CPt3B9Co2jRbkNJCGlCIWtUL13PBckwTefiRRs7W/GQ=; b=uQwLB+7n43yEUB
-	jG6JVw2K99ym8Zld6CscMUmGJx/3H7BcvY4jLWcPYMZQ6RRfLuWhrqvFx+0Rv9oz+WcDD3svFHn02
-	oMEci2A7+oVTetcktO2MWhhYmWYVIhqUeG14TcGEisMc43FuXTK6CjJOiYP/W2tVrYkLfdBAWf7+s
-	aI+PLx2h4RGcVW2+dLHYGIqBk4HuRMiA2rPQCyxg8dNTBTZC1LPRCQTXTtawtZgDjIvN0vQ7Ahpn4
-	kiXH/CHW4LHhIkYFzN609T2gs0jokmaQsvi1du3/nR0vjkiHsg6pDqgffaiucC1EsTixoMiywpIit
-	KKnXarfHlYNeJ5NGfv2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gurvNMZpy4bA4bDRwGKkK7ahJxFPttAsufzwZn8LiYM=; b=E89kSr28ImSbZO2DXQO5VuCu7Y
+	lj1S65bwunJ4uW5OqTkgdzOA/P9r8DoeUa/DajxXcX8lT/7QNf2bv470DiAcTHl7QfOUzCPRZaRRw
+	d5RFJdozeynisIRj0Qc8u7d3ZoAOP+eg/sqvDfTTMI9yPA1hS9fQ1ApkP5PShK82LC7maMM09dXim
+	8DIANk9XIuIsY5SOeYZgmgv1cHGtmNsSqLEQKa317XlW09qRVz+aVegJvqkjNZAuI2AmC3avGWAtq
+	Fpi038Ddk7IJVGGCTYZ2aYHFwJEnQf2AxS3XyNoGJGDd6cbGMcSkKoSoNEWKyeIhePEUQWaZaezyi
+	OhbXRw1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjRug-00GwvX-1w;
-	Mon, 03 Apr 2023 21:40:30 +0000
-Received: from mail-oa1-f46.google.com ([209.85.160.46])
+	id 1pjSSQ-00H2BO-07;
+	Mon, 03 Apr 2023 22:15:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjRuc-00GwuY-1H;
-	Mon, 03 Apr 2023 21:40:27 +0000
-Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-17683b570b8so32339433fac.13;
-        Mon, 03 Apr 2023 14:40:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680558024;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GjyuESymcsR2VMINdm5Bfho26ybLnXPxoDubHNZ3lbA=;
-        b=URxzkaheelf3j0Hn5svw3Q6xY0QUoS0q/W3uilCjV9XcFv7TXiiIl9mwJMeOlDN2gn
-         yov25g6xq4e8XXRDXZMGKtl/sbPdfB1rwYyTUhNNwItZwQ7tuksrtju9L2jUx5pJTt+o
-         LPd9ZjI8eyl0qdnZ+34rHfnzlpYCD5HU5JflGxY2iBg6px+zXgViK4JhRGViqKrVwriK
-         m05Mo8CW+FGl7qXVrDTXmkjM1gvtdYCS9RXz3IHzAAT/1nlRHS/AIrjinhkXVtLRuYWJ
-         cVxAVRXvikVHC9JQjcBq+9+UCZuveaKhsARV/uhmmOVnwNwP2jEul/SvkT6+3pZJWXBx
-         ImRA==
-X-Gm-Message-State: AAQBX9fEcqKXuNnY9Z44oxElbOf/dgJr4Dz/FTMeuVRTkFpbow7gvaCG
-	NZ9AVjSRRs1UnzrKCy+LdA==
-X-Google-Smtp-Source: AKy350aFlhW6NPkDPCD/nqbhHu6uFB2MQkICizhIFFbEPL5jfztjWv/9j8uFDgl83EMtCrKL01hYiQ==
-X-Received: by 2002:a05:6870:b38a:b0:177:c013:9dac with SMTP id w10-20020a056870b38a00b00177c0139dacmr366185oap.48.1680558024171;
-        Mon, 03 Apr 2023 14:40:24 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id d11-20020a9d5e0b000000b006a3170fe3efsm2942956oti.27.2023.04.03.14.40.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Apr 2023 14:40:23 -0700 (PDT)
-Received: (nullmailer pid 1920507 invoked by uid 1000);
-	Mon, 03 Apr 2023 21:40:22 -0000
-Date: Mon, 3 Apr 2023 16:40:22 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Konrad Dybcio <konrad.dybcio@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Rishabh Bhatnagar <rishabhb@codeaurora.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-arm-kernel@lists.infradead.org, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Masahiro Yamada <yamada.masahiro@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, linuxppc-dev@lists.ozlabs.org, Serge Semin <fancer.lancer@gmail.com>, Prakash Ranjan <saiprakash.ranjan@codeaurora.org>, Palmer Dabbelt <palmer@dabbelt.com>, Nicholas Piggin <npiggin@gmail.com>, linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, Scott Wood <oss@buserror.net>, linux-arm-msm@vger.kernel.org, Andy Gross <agross@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1] dt-bindings: move cache controller bindings to a
- cache directory
-Message-ID: <168055794093.1918674.10704326537545829066.robh@kernel.org>
-References: <20230330173255.109731-1-conor@kernel.org>
+	id 1pjSSN-00H2At-2D
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Apr 2023 22:15:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4266A61DB5;
+	Mon,  3 Apr 2023 22:15:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88528C433D2;
+	Mon,  3 Apr 2023 22:15:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680560118;
+	bh=57QA0D3vMKUxVxiGwf9bCE+CVxDRjP2244HhifV2zpw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=auNZJlAFrquPLRfqf4+Mg/ydhzeX03nR2BHZhssNIr60GLrXdRFNwla7sdquGTJoX
+	 tBbn5zn2w8ojwIgOPCaItN0L5jGXwCWYg5S1/0qNdQnCSOLYVbN3bVxx/3nd5EoVjW
+	 j8zAZJWIbikpAOY/ED/FMva8a8pLbAPt5IXQwkI0uaoVQWYJuID/nk+YyCNjsSB0KP
+	 rGPENaVbj+1STeyw2qGcV9iAiQ1dUhB9K2UnXQt3AfHA/InzLMtIws22kBDTSWaBeE
+	 mue4cTvAiNQ235Dl8Hm+DOjuHi0KpNfe0owHejloFUH1I/3zGu5xp8rHafdMl5EiID
+	 s8+Eu9k14Tg2A==
+Date: Mon, 3 Apr 2023 23:15:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, netdev@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Peter Geis <pgwipeout@gmail.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: Re: [-net-next v10 5/6] net: stmmac: Add glue layer for StarFive
+ JH7110 SoC
+Message-ID: <20230403-data-dawdler-afaaaf6fa87c@spud>
+References: <20230403065932.7187-1-samin.guo@starfivetech.com>
+ <20230403065932.7187-6-samin.guo@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230330173255.109731-1-conor@kernel.org>
+In-Reply-To: <20230403065932.7187-6-samin.guo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_144026_456948_CC15DF4D 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20230403_151519_768889_9364407F 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +85,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5328563678834917115=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 30 Mar 2023 18:32:56 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> There's a bunch of bindings for (mostly l2) cache controllers
-> scattered to the four winds, move them to a common directory.
-> I renamed the freescale l2cache.txt file, as while that might make sense
-> when the parent dir is fsl, it's confusing after the move.
-> The two Marvell bindings have had a "marvell," prefix added to match
-> their compatibles.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../{memory-controllers => cache}/baikal,bt1-l2-ctl.yaml        | 2 +-
->  .../{powerpc/fsl/l2cache.txt => cache/freescale-l2cache.txt}    | 0
->  Documentation/devicetree/bindings/{arm => cache}/l2c2x0.yaml    | 2 +-
->  .../{arm/mrvl/feroceon.txt => cache/marvell,feroceon-cache.txt} | 0
->  .../{arm/mrvl/tauros2.txt => cache/marvell,tauros2-cache.txt}   | 0
->  .../devicetree/bindings/{arm/msm => cache}/qcom,llcc.yaml       | 2 +-
->  .../devicetree/bindings/{riscv => cache}/sifive,ccache0.yaml    | 2 +-
->  .../socionext => cache}/socionext,uniphier-system-cache.yaml    | 2 +-
->  MAINTAINERS                                                     | 2 ++
->  9 files changed, 7 insertions(+), 5 deletions(-)
->  rename Documentation/devicetree/bindings/{memory-controllers => cache}/baikal,bt1-l2-ctl.yaml (95%)
->  rename Documentation/devicetree/bindings/{powerpc/fsl/l2cache.txt => cache/freescale-l2cache.txt} (100%)
->  rename Documentation/devicetree/bindings/{arm => cache}/l2c2x0.yaml (99%)
->  rename Documentation/devicetree/bindings/{arm/mrvl/feroceon.txt => cache/marvell,feroceon-cache.txt} (100%)
->  rename Documentation/devicetree/bindings/{arm/mrvl/tauros2.txt => cache/marvell,tauros2-cache.txt} (100%)
->  rename Documentation/devicetree/bindings/{arm/msm => cache}/qcom,llcc.yaml (96%)
->  rename Documentation/devicetree/bindings/{riscv => cache}/sifive,ccache0.yaml (98%)
->  rename Documentation/devicetree/bindings/{arm/socionext => cache}/socionext,uniphier-system-cache.yaml (96%)
-> 
+--===============5328563678834917115==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="84nP7Z0ce07Qtixm"
+Content-Disposition: inline
 
-Applied, thanks!
 
+--84nP7Z0ce07Qtixm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Apr 03, 2023 at 02:59:31PM +0800, Samin Guo wrote:
+
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 6b6b67468b8f..a9684b3c24f9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19909,6 +19909,7 @@ STARFIVE DWMAC GLUE LAYER
+>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>  M:	Samin Guo <samin.guo@starfivetech.com>
+>  S:	Maintained
+
+> +F:	Documentation/devicetree/bindings/net/dwmac-starfive.c
+
+Funny name you got for a binding there mate!
+
+--84nP7Z0ce07Qtixm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCtP7wAKCRB4tDGHoIJi
+0myQAP9wARDgakX8FcF58KbJswTnvpTw2I1YphYE7uWfxOLrlwD7Bo0T6w52woIL
+AhFB+0TUkn9D0MEdo0+3Cvoz6DRWuww=
+=tani
+-----END PGP SIGNATURE-----
+
+--84nP7Z0ce07Qtixm--
+
+
+--===============5328563678834917115==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5328563678834917115==--
+
