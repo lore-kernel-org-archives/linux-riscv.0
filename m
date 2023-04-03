@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CB1C761A6
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 12:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C513C76188
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 16:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Be+kpkQzm4tCH05avTo4ej0ab9fFb3QamacN49zIyk=; b=UrqO8WdF5CS8t2
-	AaCveM0bidobrxc4/FgzniCra7bSJb8glySsP0T/cKvh33f93pIaFaH0m+QTV18q8mWpqDqwWEHr1
-	6j2V1OxJA+EKUK2mOV2j3z/AjNQWhJsNqV9QED3a/pCnN+ZUGX1SbuLVuV75dWsLjuuaI+zdVPbEl
-	bMBMSEoOWArCvztwN6eHXc5QiVkmUKosMez5gGuok4p0dR242hLayoeyLQUzx3Cw3QJ8roA3OTlaf
-	pUnVdpTLtvr6sf0vSehCnb8xyYrCArGh0V/LL8vF+Hq0OsAkMkwZXeXkVBo4U8bWGtGa2CdGM3Vfa
-	Rt1yejjJpqMsG1pk04LA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAn70NdYHgmUJvd8eDF41bIbi6tGHuJJDSheaCAIHVs=; b=KfaC2RVXBbjKZVivBKhhW8eeO9
+	+ikemcdkdVSrkMjThhMKcms/IHyG8ZDM4YM1Qft6S5Z1lpDQ2Vb/R4+qbzEhy0EtzyJFK0+3v87qY
+	DE/ksqE+P5FFgWB6GzUNxzejchWDykPl+EkA/zLPikWJ6wVxAoZs82wIQcwD7pAWmxzdep7WHjrAL
+	tCF/HLZmEdTygGDdvt2dfvZvexYUXIrZs2pJkx3u3fNghBs2UmfBbFweF9GqHb4Bp+zGEKKsan+Qk
+	AK0ox3Uoqpgj6FZ7/9rhSWj+igWCidRZ6w0/sRiaXo/BLI57GW70suESrNsIi2mjKJmD8Vv1NBUYO
+	x1NBIY0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjJmQ-00FN1b-02;
-	Mon, 03 Apr 2023 12:59:26 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjJmK-00FMzc-0R
+	id 1pjMwA-00Fwbk-2g;
+	Mon, 03 Apr 2023 16:21:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pjMw8-00FwbD-3A
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 03 Apr 2023 16:21:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6afTO4oEQn+AHLNviC7P4YfdPdFleXN53RJrps7nDgM=; b=MORXeAtSRjXs1GHv0j0dWBw9PQ
+	0a5ugtDxl3PRXku4evvnrAyHcjMrW/5sTFI4AajXOupLeGFmyh1unHyHNPmpJGqUTPfIpiH60BaIb
+	rS+wJIyC7VhF8iQcs99lWwIABjZOodlb6TQTH7utwUQc/SX1B6i7ahUPhCVCA4SwsSiSspjctFWrX
+	leVQ/3tQyM/Y5H2q0cD1jD6VUud4ZdxqN5xALmf93lAEG17DPPKuXgWj+UxGMbDDWNFzWGJuOqvMG
+	X4L/aZJS0UYOs7wq75maNsVltZiD5uVzQXQ50H7SyUjVDorwNr5+fDUgGq7tYBAcQnGMPZ7FAKJKy
+	tnR0CYFA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pjMw4-008vq0-38
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Apr 2023 12:59:23 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2625724E094;
-	Mon,  3 Apr 2023 20:58:56 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 20:58:56 +0800
-Received: from [192.168.125.145] (183.27.97.179) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 20:58:55 +0800
-Message-ID: <693c38f8-6aec-dd50-94a0-65300b6ed1b2@starfivetech.com>
-Date: Mon, 3 Apr 2023 20:58:54 +0800
+	Mon, 03 Apr 2023 16:21:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 68E8762122;
+	Mon,  3 Apr 2023 16:21:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 723CBC433EF;
+	Mon,  3 Apr 2023 16:21:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680538891;
+	bh=s/h9BxcKiHCWDLpRMf/OxHcfV+3/cmpO+wdtHk8dx9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ItTLRmpc/AKSD7fGCTzArFPVOVs1SdvwB4iP5dIPOx7YxjQFjLCxCB6H5P757Z28V
+	 UJeH1fNjndM2vu0bFuSlGA99VEslIY01Vznl2H+fqiGQR//nBIG+MyMVnqC7IdwuSk
+	 S2GDdtpfhKhCx6OzrhJfwOF7rl24AzReK4x7Lm24JO96e0P6iAR5RKPc7R7idrIDiH
+	 CeSFMBuXf6GPzVwDaFJ3wBiRrY9WvNuRHFSRhlb7BQPVCZ0ApSiZG0AYoXswhe5CKM
+	 G3TKTVXi9WoVP0LsqpUM7aLMnbz6eVwgsqUAbh62Essc/tl4GVwhBLUJaOxi21w0qB
+	 2sadR7e3s7Uuw==
+Date: Mon, 3 Apr 2023 17:21:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Yipeng Zou <zouyipeng@huawei.com>, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH] riscv: entry: Save a0 prior
+ syscall_enter_from_user_mode()
+Message-ID: <20230403-crisping-animosity-04ed8a45c625@spud>
+References: <20230403065207.1070974-1-bjorn@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: add tdm node and sound card
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Jaroslav Kysela
-	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230329153320.31390-1-walker.chen@starfivetech.com>
- <20230329153320.31390-4-walker.chen@starfivetech.com>
- <d455a90a-7e63-2254-75cb-70cb26ae7483@linaro.org>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <d455a90a-7e63-2254-75cb-70cb26ae7483@linaro.org>
-X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230403065207.1070974-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_055920_566857_A9248ECC 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20230403_172137_412891_4640732E 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,242 +91,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8798757650552518444=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============8798757650552518444==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="R7iREP1gQeGxJksL"
+Content-Disposition: inline
 
-On 2023/3/30 15:43, Krzysztof Kozlowski wrote:
-> On 29/03/2023 17:33, Walker Chen wrote:
->> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  .../jh7110-starfive-visionfive-2.dtsi         | 87 +++++++++++++++++++
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 34 ++++++++
->>  2 files changed, 121 insertions(+)
->> 
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> index 1155b97b593d..35137c2edf5d 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> @@ -62,6 +62,10 @@
->>  	clock-frequency = <297000000>;
->>  };
->>  
->> +&wm8960_mclk {
->> +	clock-frequency = <24576000>;
->> +};
->> +
->>  &i2srx_bclk_ext {
->>  	clock-frequency = <12288000>;
->>  };
->> @@ -102,6 +106,14 @@
->>  	pinctrl-names = "default";
->>  	pinctrl-0 = <&i2c0_pins>;
->>  	status = "okay";
->> +
->> +	wm8960: codec@1a {
->> +		compatible = "wlf,wm8960";
->> +		reg = <0x1a>;
->> +		#sound-dai-cells = <0>;
->> +
->> +		wlf,shared-lrclk;
->> +	};
->>  };
->>  
->>  &i2c2 {
->> @@ -214,6 +226,40 @@
->>  			slew-rate = <0>;
->>  		};
->>  	};
->> +
->> +	tdm0_pins: tdm0-pins {
->> +		tdm0-pins-tx {
->> +			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
->> +					      GPOEN_ENABLE,
->> +					      GPI_NONE)>;
->> +			bias-pull-up;
->> +			drive-strength = <2>;
->> +			input-disable;
->> +			input-schmitt-disable;
->> +			slew-rate = <0>;
->> +		};
->> +
->> +		tdm0-pins-rx {
->> +			pinmux = <GPIOMUX(61, GPOUT_HIGH,
->> +					      GPOEN_DISABLE,
->> +					      GPI_SYS_TDM_RXD)>;
->> +			input-enable;
->> +		};
->> +
->> +		tdm0-pins-sync {
->> +			pinmux = <GPIOMUX(63, GPOUT_HIGH,
->> +					      GPOEN_DISABLE,
->> +					      GPI_SYS_TDM_SYNC)>;
->> +			input-enable;
->> +		};
->> +
->> +		tdm0-pins-pcmclk {
->> +			pinmux = <GPIOMUX(38, GPOUT_HIGH,
->> +					      GPOEN_DISABLE,
->> +					      GPI_SYS_TDM_CLK)>;
->> +			input-enable;
->> +		};
->> +	};
->>  };
->>  
->>  &uart0 {
->> @@ -221,3 +267,44 @@
->>  	pinctrl-0 = <&uart0_pins>;
->>  	status = "okay";
->>  };
->> +
->> +&tdm {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&tdm0_pins>;
->> +	status = "okay";
->> +};
->> +
->> +&sound0 {
->> +	simple-audio-card,dai-link@0 {
->> +		reg = <0>;
->> +		status = "okay";
-> 
-> Why? Drop.
 
-Will drop it.
+--R7iREP1gQeGxJksL
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
->> +		format = "dsp_a";
->> +		bitclock-master = <&dailink_master>;
->> +		frame-master = <&dailink_master>;
->> +
->> +		widgets =
-> 
-> Drop line break.
+On Mon, Apr 03, 2023 at 08:52:07AM +0200, Bj=F6rn T=F6pel wrote:
+> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+>=20
+> The RISC-V calling convention passes the first argument, and the
+> return value in the a0 register. For this reason, the a0 register
+> needs some extra care; When handling syscalls, the a0 register is
+> saved into regs->orig_a0, so a0 can be properly restored for,
+> e.g. interrupted syscalls.
+>=20
+> This functionality was broken with the introduction of the generic
+> entry patches. Here, a0 was saved into orig_a0 after calling
+> syscall_enter_from_user_mode(), which can change regs->a0 for some
+> paths, incorrectly restoring a0.
+>=20
+> This is resolved, by saving a0 prior doing the
+> syscall_enter_from_user_mode() call.
+>=20
+> Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
+> Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
 
-OK, will drop it.
+As you pointed out, v12 did indeed have this ordering, so *deep breath*
+Reported-by: Conor Dooley <conor.dooley@microchip.com>
+Link: https://lore.kernel.org/linux-riscv/60ee7c26-1a70-427d-beaf-92e2989fc=
+479@spud/
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
 
-> 
->> +				"Microphone", "Mic Jack",
->> +				"Line", "Line In",
->> +				"Line", "Line Out",
->> +				"Speaker", "Speaker",
->> +				"Headphone", "Headphone Jack";
->> +		routing =
-> 
-> Drop unnecessary line break.
+Thanks for fixing this Bj=F6rn!
+> ---
+>  arch/riscv/kernel/traps.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 1f4e37be7eb3..8c258b78c925 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -270,11 +270,11 @@ asmlinkage __visible __trap_section void do_trap_ec=
+all_u(struct pt_regs *regs)
+>  	if (user_mode(regs)) {
+>  		ulong syscall =3D regs->a7;
+> =20
+> -		syscall =3D syscall_enter_from_user_mode(regs, syscall);
+> -
+>  		regs->epc +=3D 4;
+>  		regs->orig_a0 =3D regs->a0;
+> =20
+> +		syscall =3D syscall_enter_from_user_mode(regs, syscall);
+> +
+>  		if (syscall < NR_syscalls)
+>  			syscall_handler(regs, syscall);
+>  		else
+>=20
+> base-commit: d34a6b715a23ccd9c9d0bc7a475bea59dc3e28b2
+> --=20
+> 2.37.2
+>=20
 
-OK, will drop it.
+--R7iREP1gQeGxJksL
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
->> +				"Headphone Jack", "HP_L",
->> +				"Headphone Jack", "HP_R",
->> +				"Speaker", "SPK_LP",
->> +				"Speaker", "SPK_LN",
->> +				"LINPUT1", "Mic Jack",
->> +				"LINPUT3", "Mic Jack",
->> +				"RINPUT1", "Mic Jack",
->> +				"RINPUT2", "Mic Jack";
->> +		cpu {
->> +			sound-dai = <&tdm>;
->> +		};
->> +
->> +		dailink_master:codec {
-> 
-> Missing space after label:.
+-----BEGIN PGP SIGNATURE-----
 
-Will be fixed.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCr9AwAKCRB4tDGHoIJi
+0uChAP9U8xmkAUQFANUtusPF/nQKVwoeUIJlqkQQzmUlIl6dZQEA2Rg5robA6oPH
+5h312z8HKnb5QE9lXkT3WQea0531eQA=
+=Ks/G
+-----END PGP SIGNATURE-----
 
-> 
->> +			sound-dai = <&wm8960>;
->> +			clocks = <&wm8960_mclk>;
->> +			clock-names = "mclk";
->> +		};
->> +	};
->> +};
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index b503b6137743..a89158d1d7a6 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -210,6 +210,12 @@
->>  		#clock-cells = <0>;
->>  	};
->>  
->> +	wm8960_mclk: wm8960_mclk {
-> 
-> No underscores in node names. Use consistent naming - do you see here
-> any nodes named "mclk"?
-> 
-> Anyway this is some fake clock. Real clock should come out from wm8960.
+--R7iREP1gQeGxJksL--
 
-Thank you for pointing out this, it will be fixed.
 
-> 
->> +		compatible = "fixed-clock";
->> +		clock-output-names = "wm8960_mclk";
->> +		#clock-cells = <0>;
->> +	};
->> +
->>  	i2srx_bclk_ext: i2srx-bclk-ext-clock {
->>  		compatible = "fixed-clock";
->>  		clock-output-names = "i2srx_bclk_ext";
->> @@ -375,6 +381,27 @@
->>  			status = "disabled";
->>  		};
->>  
->> +		tdm: tdm@10090000 {
->> +			compatible = "starfive,jh7110-tdm";
->> +			reg = <0x0 0x10090000 0x0 0x1000>;
->> +			clocks = <&syscrg JH7110_SYSCLK_TDM_AHB>,
->> +				 <&syscrg JH7110_SYSCLK_TDM_APB>,
->> +				 <&syscrg JH7110_SYSCLK_TDM_INTERNAL>,
->> +				 <&syscrg JH7110_SYSCLK_TDM_TDM>,
->> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
->> +				 <&tdm_ext>;
->> +			clock-names = "tdm_ahb", "tdm_apb",
->> +				      "tdm_internal", "tdm",
->> +				      "mclk_inner", "tdm_ext";
->> +			resets = <&syscrg JH7110_SYSRST_TDM_AHB>,
->> +				 <&syscrg JH7110_SYSRST_TDM_APB>,
->> +				 <&syscrg JH7110_SYSRST_TDM_CORE>;
->> +			dmas = <&dma 20>, <&dma 21>;
->> +			dma-names = "rx","tx";
->> +			#sound-dai-cells = <0>;
->> +			status = "disabled";
->> +		};
->> +
->>  		stgcrg: clock-controller@10230000 {
->>  			compatible = "starfive,jh7110-stgcrg";
->>  			reg = <0x0 0x10230000 0x0 0x10000>;
->> @@ -601,5 +628,12 @@
->>  			#reset-cells = <1>;
->>  			power-domains = <&pwrc JH7110_PD_VOUT>;
->>  		};
->> +
->> +		sound0: snd-card0 {
-> 
-> 1. Why card0?
-
-There are several audio interfaces in JH7110 SoC, each as an independent sound card.
-TDM is for snd-card0, latter i2s will be for snd-card1, spdif will be for snd-card2, etc.
-
-> 2. Where is this node located? In MMIO bus? Run some basic checks on
-> your DTS before submitting upstream.
-> dtbs_check
-> dtbs W=1
-> 
-> 3. Why this is even in the DTSI? This really looks wrong.
-
-It seems that the sound node should be located in DTS file more appropriately.
-
-Best regards,
-Walker
+--===============8798757650552518444==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8798757650552518444==--
+
