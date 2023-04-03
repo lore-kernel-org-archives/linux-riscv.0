@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9B3C76196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 02:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C61C76196
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 04:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ANDIcJsbLEy99AHhyNir14jFENm8vAVcKAh8Vf+9Ro=; b=RCvrrLraODKIiC
-	X+QYeMRwRUg2ut0erI7vQBzlTdU0STPVwCOTEeq8vCyyRrY7dXEFDv8wxrbDzrIYoiOJdnhJdBYI6
-	YUbPHfFKvMgOLmLdTkQIJLv9kskyrZ602wAb/tSrYmd+w3QW/ULRVsly9/r7FxcZ3eyy7/YRQo3ph
-	nSMgjB+25I1mzu7EhiZAmJdnULUXgLKApbvgOOJ4rYiqmS4d+zedmrq3I5F5Inc8tqU/u6QGiVj6D
-	EY5431i6rWpPU9VceKXfsAczU3R08Cs+A05Ja1yj8+fwQVDGBwU9NHMyD6ssb5MrT11EocIHjTGcb
-	jscjjMI3heGYR2nUVYkA==;
+	List-Owner; bh=UIkrXaTUIjiwJYADj5LHdhGtx+6dxnUtEo85ocg5Gcs=; b=f8Sllu+9kNuQWH
+	ccYC9FwVUCSSzKP/EcrYywHHkaGbAtumNIrcdFExGcGXDIK35g4t5ijapKhgL7mzIVLcqJo98Yx/G
+	8SPRdfWo1wNnyFlzf6Q8rz5CDX8Wo0wfSGebzeQ0xWcpm9unEsEVfcocLa039dnj320cKINHh4jLR
+	xkd8szjOdlI1nHuveqTKV12iGZlERdy1swo+Cp9Lcg/CiBYQBZ3v7mPedg2ioZTMd8oj1xWomObzQ
+	lzvNNuC705Ol07oFv+pkz8yuwRLLSfgjcSt+v26F9J+TLH7Qgqpq5HznCkK72morhkXoCcODJleCs
+	4g/KhPrJqKfK2lxNyNYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjA0t-00DxBW-11;
-	Mon, 03 Apr 2023 02:33:43 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1pjBkf-00E7P0-0b;
+	Mon, 03 Apr 2023 04:25:05 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjA0o-00Dx9V-38;
-	Mon, 03 Apr 2023 02:33:41 +0000
-Received: from [10.128.10.193] (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 3C5025805A8;
-	Mon,  3 Apr 2023 10:33:10 +0800 (CST)
-Message-ID: <f4eabd56-2f91-05fc-b882-9dd8328f87ae@sangfor.com.cn>
-Date: Mon, 3 Apr 2023 10:33:09 +0800
+	id 1pjBkb-00E7Ni-1N
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Apr 2023 04:25:02 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id s19so16706344pgi.0
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Apr 2023 21:24:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google; t=1680495899;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9DUWV9ktqlDY/BbjAabfUWG15IVJ8NNADNU0tp46NqU=;
+        b=ecCTgHwD+RX5VqoH89r+CLiINbWmHhR+Doo+KG6KQPo5T9RpBIFceUdzn8stTHl1KY
+         qwvrNkD1b36X3KW4mXOefj+7llceiyqvhRV0ro1ZZ8VvAtwv71Zq1/iQ6cZQOwJrQdCs
+         TTzpCj8DU44ITnJXab5cryMIo9/P277vU029M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680495899;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9DUWV9ktqlDY/BbjAabfUWG15IVJ8NNADNU0tp46NqU=;
+        b=Pjp6hEhsj+U2NLia7EpFXxeQSM9h/+MSuf5EXQCrkODbUgrOPYytTII66uqbLYV9Mz
+         KygoT3dCeooQ5JiuoQUdw5G2UCJrdY4DDo5JbU3lyvrL4xAiRpaDmbZiKI45ZU5Z8oVS
+         xN400uMr/JtxwMH6Ysl8Gx6Q8WdzMj1RRmT6P5Xaa+N6XSJjuhalrtUdr0unxATAOWRz
+         yi9Jm5CaxOeQpQ2A7bowPJMwcUWadPHFoVxdeoi73EuwglVYNGxdm2bP76zIJNmkg/+/
+         6xD5X7uOggdzD6PBz8/pCmY9natbGBnSX+tSAVfFd+vrWvHz8EkhiLaNhTpmuQ0jS3AU
+         VU/A==
+X-Gm-Message-State: AAQBX9c6+tdtp81LzlJpyJfhuHazsCF1FHvHG5CQLY9Y9mbgiJT110SE
+	uuDFvI2TG6GKeOwJXEKRvZZUQK8Phq2jg5uDrLMXaXSL7lJtUrI=
+X-Google-Smtp-Source: AKy350buPR6+d9jPTSOjsqUWE4vPnoVCi1WyVz7aXHC5S1Qdm0BMiGAb7aL0Tx+OP3pzy3gzY6/7lWFNCwWLO5eD3gs=
+X-Received: by 2002:a05:6a00:130c:b0:623:129f:6269 with SMTP id
+ j12-20020a056a00130c00b00623129f6269mr16947692pfu.1.1680495899232; Sun, 02
+ Apr 2023 21:24:59 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v10 8/8] selftests/ftrace: Add funcgraph-retval test case
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: rostedt@goodmis.org, linux@armlinux.org.uk, mark.rutland@arm.com,
- will@kernel.org, catalin.marinas@arm.com, rmk+kernel@armlinux.org.uk,
- palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- tglx@linutronix.de, dave.hansen@linux.intel.com, x86@kernel.org,
- bp@alien8.de, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
- kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
- xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
- dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
- <ba23c2429f1ef798946ce65e21c7a7a2bff0019e.1680265828.git.pengdonglin@sangfor.com.cn>
- <20230402070406.177f09cc34f9860baf3e6ec2@kernel.org>
-Content-Language: en-US
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-In-Reply-To: <20230402070406.177f09cc34f9860baf3e6ec2@kernel.org>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZTU9LVh8fS0pNTk5KGEhJGFUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PyI6Mhw*Fz0KEjo4Kig4OkMw
-	UUsKFEtVSlVKTUNLT0NCSkJJS0hOVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFNSktDNwY+
-X-HM-Tid: 0a8744f6185f2eb7kusn3c5025805a8
-X-HM-MType: 1
+References: <20230401112730.2105240-1-apatel@ventanamicro.com>
+In-Reply-To: <20230401112730.2105240-1-apatel@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 3 Apr 2023 09:54:47 +0530
+Message-ID: <CAOnJCUJ9zgEjMDVo+rBuhzfaBWY1iaCL6Dy0Og+-QU3x4+GSmA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Allow Zbb extension for Guest/VM
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230402_193339_166659_3299C2B9 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20230402_212501_637138_6C170183 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,127 +82,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/4/2 6:04, Masami Hiramatsu (Google) wrote:
-> On Fri, 31 Mar 2023 05:47:44 -0700
-> Donglin Peng <pengdonglin@sangfor.com.cn> wrote:
-> 
->> Add a test case for the funcgraph-retval and funcgraph-retval-hex
->> trace options.
->>
->> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
->> ---
->> v10:
->>   - Fix issues in selftest
->>
->> v8:
->>   - Fix issues in selftest
->> ---
->>   .../ftrace/test.d/ftrace/fgraph-retval.tc     | 43 +++++++++++++++++++
->>   1 file changed, 43 insertions(+)
->>   create mode 100644 tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
->>
->> diff --git a/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
->> new file mode 100644
->> index 000000000000..5819aa2dd6ad
->> --- /dev/null
->> +++ b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
->> @@ -0,0 +1,43 @@
->> +#!/bin/sh
->> +# SPDX-License-Identifier: GPL-2.0
->> +# description: ftrace - function graph print function return value
->> +# requires: options/funcgraph-retval options/funcgraph-retval-hex function_graph:tracer
->> +
->> +# Make sure that funcgraph-retval works
->> +
->> +fail() { # msg
->> +    echo $1
->> +    exit_fail
->> +}
->> +
->> +disable_tracing
->> +clear_trace
->> +
->> +read PID _ < /proc/self/stat
-> 
-> You can use "$$" for self pid.
-
-Yeah, I will fix it.
-
-> 
->> +[ -f set_ftrace_pid ] && echo ${PID} > set_ftrace_pid
->> +[ -f set_ftrace_filter ] && echo proc_reg_write > set_ftrace_filter
->> +[ -f set_graph_function ] && echo proc_reg_write > set_graph_function
-> 
-> You should set the required files for this test, so that the test result
-> is always same. BTW, you need to set either 'set_ftrace_filter' or
-> 'set_graph_function'.
-
-Yes, but I discovered that set_ftrace_filter and set_graph_function rely 
-on the CONFIG_DYNAMIC_FTRACE configuration, which means that these two 
-files are not present when CONFIG_DYNAMIC_FTRACE is disabled, even if 
-CONFIG_FUNCTION_GRAPH_RETVAL is enabled. Therefore, I think that these 
-two trace files are not necessary for this test.
-
-I will modify the above like this:
-
-[ -f set_ftrace_pid ] && echo $$ > set_ftrace_pid
-[ -f set_ftrace_filter ] && echo proc_reg_write > set_ftrace_filter
-
-> 
->> +echo function_graph > current_tracer
->> +echo funcgraph-retval > trace_options
->> +
->> +set +e
->> +enable_tracing
->> +echo > /proc/interrupts
->> +disable_tracing
->> +set -e
->> +
->> +: "Test printing the error code in signed decimal format"
->> +echo nofuncgraph-retval-hex > trace_options
-> 
-> echo 0 > options/funcgraph-retval-hex
-> 
-> If you require 'options/funcgraph-retval-hex' file, you can use the
-> file to set it or clear it.
-
-Yeah.
-
-> 
->> +count=`cat trace | grep 'proc_reg_write' | grep '= -5' | wc -l`
->> +if [ $count -eq 0 ]; then
->> +    fail "Return value can not be printed in signed decimal format"
->> +fi
->> +
->> +: "Test printing the error code in hexadecimal format"
->> +echo funcgraph-retval-hex > trace_options
-> 
-> Ditto.
-
-Thanks.
-
-> 
-> Thanks,
-> 
->> +count=`cat trace | grep 'proc_reg_write' | grep 'fffffffb' | wc -l`
->> +if [ $count -eq 0 ]; then
->> +    fail "Return value can not be printed in hexadecimal format"
->> +fi
->> +
->> +exit 0
->> -- 
->> 2.25.1
->>
-> 
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBBcHIgMSwgMjAyMyBhdCA0OjU34oCvUE0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRh
+bmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gV2UgZXh0ZW5kIHRoZSBLVk0gSVNBIGV4dGVuc2lvbiBP
+TkVfUkVHIGludGVyZmFjZSB0byBhbGxvdyBLVk0KPiB1c2VyIHNwYWNlIHRvIGRldGVjdCBhbmQg
+ZW5hYmxlIFpiYiBleHRlbnNpb24gZm9yIEd1ZXN0L1ZNLgo+Cj4gU2lnbmVkLW9mZi1ieTogQW51
+cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5j
+bHVkZS91YXBpL2FzbS9rdm0uaCB8IDEgKwo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1LmMgICAgICAg
+ICAgICAgfCAyICsrCj4gIDIgZmlsZXMgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4KPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oIGIvYXJjaC9yaXNjdi9p
+bmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gaW5kZXggZDhlYWQ1OTUyZWQ5Li40N2E3YzM5NTgyMjkg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gKysrIGIv
+YXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gQEAgLTEwNiw2ICsxMDYsNyBAQCBl
+bnVtIEtWTV9SSVNDVl9JU0FfRVhUX0lEIHsKPiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1NW
+SU5WQUwsCj4gICAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9aSUhJTlRQQVVTRSwKPiAgICAgICAg
+IEtWTV9SSVNDVl9JU0FfRVhUX1pJQ0JPTSwKPiArICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1pC
+QiwKPiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX01BWCwKPiAgfTsKPgo+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBpbmRleCAz
+MTEyNjk3Y2IxMmQuLjAyYjQ5Y2I5NDU2MSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92
+Y3B1LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBAQCAtNjEsNiArNjEsNyBAQCBz
+dGF0aWMgY29uc3QgdW5zaWduZWQgbG9uZyBrdm1faXNhX2V4dF9hcnJbXSA9IHsKPiAgICAgICAg
+IEtWTV9JU0FfRVhUX0FSUihTU1RDKSwKPiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihTVklOVkFM
+KSwKPiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihTVlBCTVQpLAo+ICsgICAgICAgS1ZNX0lTQV9F
+WFRfQVJSKFpCQiksCj4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIoWklISU5UUEFVU0UpLAo+ICAg
+ICAgICAgS1ZNX0lTQV9FWFRfQVJSKFpJQ0JPTSksCj4gIH07Cj4gQEAgLTk5LDYgKzEwMCw3IEBA
+IHN0YXRpYyBib29sIGt2bV9yaXNjdl92Y3B1X2lzYV9kaXNhYmxlX2FsbG93ZWQodW5zaWduZWQg
+bG9uZyBleHQpCj4gICAgICAgICBjYXNlIEtWTV9SSVNDVl9JU0FfRVhUX1NTVEM6Cj4gICAgICAg
+ICBjYXNlIEtWTV9SSVNDVl9JU0FfRVhUX1NWSU5WQUw6Cj4gICAgICAgICBjYXNlIEtWTV9SSVND
+Vl9JU0FfRVhUX1pJSElOVFBBVVNFOgo+ICsgICAgICAgY2FzZSBLVk1fUklTQ1ZfSVNBX0VYVF9a
+QkI6Cj4gICAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPiAgICAgICAgIGRlZmF1bHQ6Cj4g
+ICAgICAgICAgICAgICAgIGJyZWFrOwo+IC0tCj4gMi4zNC4xCj4KClJldmlld2VkLWJ5OiBBdGlz
+aCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KCi0tIApSZWdhcmRzLApBdGlzaAoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
