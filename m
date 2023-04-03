@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5A0C76196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 12:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A79C761A6
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 12:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+UjnnT5FTn1PSDvE4HFnPwtav8rQJlBV4c2TpibyAI=; b=NdsP6c8V9yWjIA
-	1lqZyDd1kPmTZpiqiy6lYY/h22HnmpeeZamJE/gPhUSRJqnyiVRoP2QSbiL/2yPJD40lSdyQ5abEm
-	a5TwVgTY5b/YKKrkGkYvW4pSYwC9lg3XfeIeayYNQcQqiorYYpxhzQnZ0pbGMHkmtClpBM6OTLIBk
-	u92pUzZc71NPgdISWkHjgq+G3xiYDibz+Je1FjPwjuBvVWKlWj4YRyeteWE4LjcyidWT1mjwoBtpp
-	vZaL6QodeVXHSt5DdIdHgDlyEpyUW2Q6x9OhzEleXKmL/opxp/Au7eUBkrqjqK7hZAlUNhcpTp9UG
-	ii0cTFQXefEN8j1HVv5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QuW7vIrXL8SiihbKbQ8fuitjIdRp9stBJl5+kM+DG8U=; b=npFjVuuFz3sCAL
+	v11ACa54b2nUinX5R6afag5E/GLeCL8YGT2DYTixuRzyV+15MVqoVVdqfpDE3ydU9ECqR2dZCSWDT
+	Uo0kv1Oq5g3VtoFuq/Ocvy7xmNrjqZil3YPys6Q5krtHiWU8JW8nm/OmHuHsZhv9YlM0PPB6A3u5M
+	Th+85rd9WLhd9cL7MCD9TGcmgiPiKiMpaYB0Ds0qs5h3S1JD1lARfFpYXiNmF7DKg9ZMWK6hpC0EC
+	BDFwGRvFZYaPSyiCzLf5H3cIJqyMYgxKp3A1SW3ss+aHThw5eKwGjeWKobPOk5L/khfoX38LskuDh
+	ASJ2Q4k2jPT+c/tCI8pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjIyz-00FEBL-0n;
-	Mon, 03 Apr 2023 12:08:21 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjIyu-00FE55-1x
+	id 1pjJ66-00FEpd-08;
+	Mon, 03 Apr 2023 12:15:42 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pjJ63-00FEoy-1x
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Apr 2023 12:08:19 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1625724E38D;
-	Mon,  3 Apr 2023 20:07:22 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 20:07:22 +0800
-Received: from [192.168.125.145] (183.27.97.179) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 20:07:21 +0800
-Message-ID: <8128d57b-17cd-8307-ed8c-2611a5658e18@starfivetech.com>
-Date: Mon, 3 Apr 2023 20:07:20 +0800
+	Mon, 03 Apr 2023 12:15:41 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id q27so20794878oiw.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Apr 2023 05:15:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1680524137; x=1683116137;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TS4dMW3hhVrS92UnjrQfADuzhNuNJZ4W/UKQPMy/KVU=;
+        b=IExzSnPyPAJHwnxo3Oylte7PPjAayTEknYvoCwnajbhtx5YetGon+QIEGI94KzY2Vm
+         vPtyY6g3jIZ+BUd2HJAVHj4FE/5KCipA8PN5P0+UYdb5xfAmYfyS//AMn7M/UaQy5VK7
+         FeCALgtrQoxEe2WVkRsox3W1r/mFLPfG+4JXmPz0LNphCfhlCVe2dxd5r0Lpd0O1gKz5
+         Cmvq/k7Y904bcF1BbxxlImvP7yDxlUsW4Ylr/J0JcpaDIh5pFTgLzIB5+MEL1u6DtsZe
+         t+CjxqlNyH+ZFt78KMPr1kDqwxUDN1UKTf0iiZYMMl2FoHqNa6aR/RG8GwBYe4TlS6tg
+         fTVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680524137; x=1683116137;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TS4dMW3hhVrS92UnjrQfADuzhNuNJZ4W/UKQPMy/KVU=;
+        b=aF6yfMGhYAiBDJetiMdgM97DzVjGXLQgra5NNx7YzCxRVfGu4iiO+2p7qvAhgxXMo0
+         N3nP00Mg+a8WVvKfwch0m4MJ2IcvZajdFgChaGmoF4xwaGlTa/EC0TE5eQOXxyFh5vrl
+         3qqONh9j6KpQKD/MADxjp5e/MtiY3oleumeUxqi8+RWfz8JWEnhTv+qou2l5iOZ1SFnl
+         42rDXCnYvEyE4pDuzghouWxyKqOc7leWHQOjlu9X1bThJP1CbEcnUuU2kp6FNkvAmECs
+         2p0OhmsLGR3msAY4Zfi5PrAD9MlXpHsjhFgDiVKozadYncBzSnSrz/9bnsQ66D5Sr20D
+         QtsQ==
+X-Gm-Message-State: AAQBX9cg1RX5lRmpeW97/jxxoZFv+DZbnfAzyI/qIakCBS9hGKSV3m9V
+	70UO80656+bchAIGwjfwqMQqZA==
+X-Google-Smtp-Source: AKy350a93rTa/oVPFxJKYmjl+NPqKh1OJsbT5rNPcxqR7/VE6ouSaH3Z+beN96oY3IaG85BTVTpTjA==
+X-Received: by 2002:a05:6808:4245:b0:38b:197b:902 with SMTP id dp5-20020a056808424500b0038b197b0902mr2262654oib.21.1680524137523;
+        Mon, 03 Apr 2023 05:15:37 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id a1-20020a05680804c100b00384fa407a06sm3763695oie.8.2023.04.03.05.15.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Apr 2023 05:15:37 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v5 0/1] RISC-V KVM ONE_REG interface for SBI
+Date: Mon,  3 Apr 2023 17:45:26 +0530
+Message-Id: <20230403121527.2286489-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v6 2/4] dmaengine: dw-axi-dmac: Add support for StarFive
- JH7110 DMA
-To: Vinod Koul <vkoul@kernel.org>
-CC: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>,
-	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230322094820.24738-1-walker.chen@starfivetech.com>
- <20230322094820.24738-3-walker.chen@starfivetech.com>
- <ZCbMRdSCf5vKUk/c@matsya>
-Content-Language: en-US
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <ZCbMRdSCf5vKUk/c@matsya>
-X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_050816_993502_EDB35F22 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20230403_051539_671097_CFA3371D 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +98,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series first does few cleanups/fixes (PATCH1 to PATCH5) and adds
+ONE-REG interface for customizing the SBI interface visible to the
+Guest/VM.
 
+The testing of this series has been done with KVMTOOL changes in
+riscv_sbi_imp_v1 branch at:
+https://github.com/avpatel/kvmtool.git
 
-On 2023/3/31 20:04, Vinod Koul wrote:
-> On 22-03-23, 17:48, Walker Chen wrote:
->> Add DMA reset operation in device probe and use different configuration
->> on CH_CFG registers according to match data. Update all uses of
->> of_device_is_compatible with of_device_get_match_data.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 38 ++++++++++++++++---
->>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  1 +
->>  2 files changed, 34 insertions(+), 5 deletions(-)
->> 
->> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
->> index 4169e1d7d5ca..6cfcb541d8c3 100644
->> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
->> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
->> @@ -21,10 +21,12 @@
->>  #include <linux/kernel.h>
->>  #include <linux/module.h>
->>  #include <linux/of.h>
->> +#include <linux/of_device.h>
->>  #include <linux/of_dma.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/pm_runtime.h>
->>  #include <linux/property.h>
->> +#include <linux/reset.h>
->>  #include <linux/slab.h>
->>  #include <linux/types.h>
->>  
->> @@ -46,6 +48,10 @@
->>  	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
->>  	DMA_SLAVE_BUSWIDTH_64_BYTES)
->>  
->> +#define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
->> +#define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
->> +#define AXI_DMA_FLAG_USE_CFG2		BIT(2)
->> +
->>  static inline void
->>  axi_dma_iowrite32(struct axi_dma_chip *chip, u32 reg, u32 val)
->>  {
->> @@ -86,7 +92,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
->>  
->>  	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
->>  		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
->> -	if (chan->chip->dw->hdata->reg_map_8_channels) {
->> +	if (chan->chip->dw->hdata->reg_map_8_channels &&
->> +	    !chan->chip->dw->hdata->use_cfg2) {
-> 
-> I think this will break existing users.. 
-> 
-> This is set for reg_map_8_channels && use_cfg2, latter being set only
-> for new controller, so what about existing users of these bits?
+These patches can also be found in the riscv_kvm_sbi_imp_v5 branch at:
+https://github.com/avpatel/linux.git
 
-Firstly thank you for your comments!
-There is a statement 'use_cfg2 = !!(flags & AXI_DMA_FLAG_USE_CFG2);' to be added in dw_probe function.
-Assuming older/existing platform run this code block, e.g. when compatible is "snps,axi-dma-1.01a", 
-the value of variable 'use_cfg2' is still false, the original logic will not be broken. So other existing
-users are not affected by this.
-Looking forward to your more comments. Thanks!
+Changes since v4:
+ - Rebased on Linux-6.3-rc5
+ - Removed redundant semi-colons after switch cases
 
-Best regards,
-Walker
+Changes since v3:
+ - Added missing switch case for KVM_REG_RISCV_SBI_EXT in
+   kvm_riscv_vcpu_get_reg().
+ - Return a bit mask of disabled extensions for
+   GET(KVM_REG_RISCV_SBI_MULTI_DIS).
+
+Changes since v2:
+ - Improve ONE_REG interface to allow enabling/disabling multiple SBI
+   extensions in one ioctl().
+
+Changes since v1:
+ - Dropped patches 1 to 8 since these are already merged.
+ - Rebased on Linux-6.3-rc4
+
+Anup Patel (1):
+  RISC-V: KVM: Add ONE_REG interface to enable/disable SBI extensions
+
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |   8 +-
+ arch/riscv/include/uapi/asm/kvm.h     |  32 ++++
+ arch/riscv/kvm/vcpu.c                 |   4 +
+ arch/riscv/kvm/vcpu_sbi.c             | 247 ++++++++++++++++++++++++--
+ arch/riscv/kvm/vcpu_sbi_base.c        |   2 +-
+ 5 files changed, 274 insertions(+), 19 deletions(-)
+
+-- 
+2.34.1
 
 
 _______________________________________________
