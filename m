@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F180CC76196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 07:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6C2C76196
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Apr 2023 07:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zL857xb6uV7zyljUdURGlD3WRnBw10WqOThIwWsQr88=; b=iaRNQdfkt2erDZ
-	4i3yjtppPZFm4HduPbxqJvtrxxhiDRqCXLUKIkxJcb70LcqMn2E0ZIezsIXfMP4cCtRCFJR4GCAlw
-	X0GExaX4HJc3EvG4V2frBq1vSXuTEsQ+J3oM8jw3lwCx+N/Eufx176spP4i779wa2D+Lu5sZH9S8w
-	01bve3vJ48pyK1vClw8CMNuRphEzkiM3j+VJ4Bo5KLkADpsddPPPd6JMhg+6NldWkv0XvBripl9d7
-	a6p0blvJf6lLqfBySocEYQewHdTY6PZncMixXhtPVYltYd67vp+TfIGL1b/vnyEgF1VWQ66oldmaq
-	xxhFnt4rbavOjy8giK/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LkopM+P2F3hzo9al1+zqNvDWmjPY7G+OU5345lfsIy4=; b=4sK7lvoJcNBkGjJ0UEWglro+13
+	hxp3e29qGRM/OvioqhdtNEfN9tZvf4rUK9YDA8suKmo3Geo4jhoJBtd7wdWZVueWPagm8jgdn5+DB
+	2qWP5Go4oSb4VkUAFMaPWEwlc1Bu6mr40MJ2u9RTBCawhoUObXxe4u03731d8XmzZF/hWtDojQcOT
+	VjuOCaX05MKB8V14YTRvUfeRXsHAMUsTt4vpj9TBrvAK7dA8btTIFSUFGx401WULb95Qnzpn2vMDi
+	/BSROYfmgeqIEWUk9h8+ogmt+As7dwadUSAtH/84c09Q1ejepyvXBiX5u0muh3khnw9kH3pkkUz67
+	RBlolTuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjEen-00EOxv-18;
-	Mon, 03 Apr 2023 07:31:13 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjEei-00EOtt-1r
+	id 1pjEv4-00EQy9-2C;
+	Mon, 03 Apr 2023 07:48:02 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pjEv1-00EQwk-0l
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Apr 2023 07:31:11 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CA09124E22F;
-	Mon,  3 Apr 2023 15:30:34 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 15:30:34 +0800
-Received: from [192.168.125.87] (183.27.97.179) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 3 Apr
- 2023 15:30:33 +0800
-Message-ID: <ce4ee037-c53c-5bd4-8968-437ee21c9c51@starfivetech.com>
-Date: Mon, 3 Apr 2023 15:30:32 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
+	Mon, 03 Apr 2023 07:48:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1680508079; x=1712044079;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zGqIFvsIBpWbq/uZw0Ixb3JhhlFXJPObQzt1HnJSOpc=;
+  b=mGi/20Tx5SQnCDfmAE3z1N5zdzZl9bkhEKfWmRwyTnpafmgKkmvuE3Md
+   qsMPDO9Aj4QOUUuYISU/sXxZPNJ6RpSbVa20eHpN679RoiqGhW3I4Bpnf
+   +l2Zn86KOSrSNlVLoHzxcd8r3yWMUpfdhww5DGoFsGB4TLxjhJ3GeZHnT
+   35Utsu6stbwM+GpHt8lOniJXLC/WAuJlbHd70iJ8SgYkNlbQqNeq4IgEm
+   m5WGU4EfL5iX2ZS0oNi3DOtYnqNx2nXjKB7vZ7yuhJ5jEPURAMyxtGkzB
+   BqmHPu9wEmMynTCjDkmIGkFLJ0az9E5kZmVQBx+tjSQZpH42VaxblYY6b
+   w==;
+X-IronPort-AV: E=Sophos;i="5.98,314,1673938800"; 
+   d="asc'?scan'208";a="145174505"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Apr 2023 00:47:54 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 3 Apr 2023 00:47:53 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 3 Apr 2023 00:47:50 -0700
+Date: Mon, 3 Apr 2023 08:47:35 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH v7 00/22] Basic clock, reset & device tree support for
  StarFive JH7110 RISC-V SoC
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
+Message-ID: <1eda304a-a8e0-4f19-bfe4-8793052f73a9@spud>
 References: <20230401111934.130844-1-hal.feng@starfivetech.com>
  <acb36897-8085-4f41-9b68-b243467ffc6f@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <acb36897-8085-4f41-9b68-b243467ffc6f@spud>
-X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+ <ce4ee037-c53c-5bd4-8968-437ee21c9c51@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <ce4ee037-c53c-5bd4-8968-437ee21c9c51@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_003109_102037_EE9ECF48 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20230403_004759_386667_3E3A1D85 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +87,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9193953444071830025=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2 Apr 2023 20:19:41 +0100, Conor Dooley wrote:
-> Hey Hal,
-> 
-> On Sat, Apr 01, 2023 at 07:19:12PM +0800, Hal Feng wrote:
->> This patch series adds basic clock, reset & DT support for StarFive
->> JH7110 SoC.
->> 
->> @Stephen and @Conor, I have made this series start with the shared
->> dt-bindings, so it will be easier to merge.
-> 
-> Thanks. I probably should have asked for that, makes my life easier
-> that's for sure!
+--===============9193953444071830025==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="QEXRWawa+Yd/Oc16"
+Content-Disposition: inline
 
-My pleasure.
+--QEXRWawa+Yd/Oc16
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
->> @Conor, patch 1, 2, 16~21 were already in your branch. Patch 22 is the
->> same with the patch [1] I submitted before, which you had accepted but
->> not merge it into your branch.
-> 
-> I hadn't merged that into anywhere, so I just went and dropped the
-> original incarnation of that branch and have re-created it.
-> I don't recall there being a maintainers pattern error (from running
-> scripts/get_maintainer.pl --self-test=patterns) with what I had done in
-> my branch, but with your patch 1 applied I see one. To save myself a
-> complaint from LKP, I stripped out the MAINTAINERS bits from patch 1
-> into their own patch that can go with the clock/reset bits.
-> 
-> I squashed 22 into "riscv: dts: starfive: Add initial StarFive JH7110
-> device tree" since there's no reason to add something knowingly
-> incorrect IMO.
-> 
-> I've gone and pushed out the following as riscv-jh7110_initial_dts:
-> riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
-> riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-> riscv: dts: starfive: Add initial StarFive JH7110 device tree
-> dt-bindings: riscv: Add SiFive S7 compatible
-> dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-> dt-bindings: timer: Add StarFive JH7110 clint
-> dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
-> dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
-> 
-> And the rest as riscv-jh7110_clk_reset:
-> MAINTAINERS: generalise StarFive clk/reset entries
+On Mon, Apr 03, 2023 at 03:30:32PM +0800, Hal Feng wrote:
+> On Sun, 2 Apr 2023 20:19:41 +0100, Conor Dooley wrote:
+> > On Sat, Apr 01, 2023 at 07:19:12PM +0800, Hal Feng wrote:
 
-For this patch, I find something to improve.
-1. Could you please help me sort the StarFive entries in MAINTAINERS?
-"STARFIVE JH71X0 CLOCK DRIVERS" should be added after
-"STARFIVE JH7110 MMC/SD/SDIO DRIVER".
+> > And the rest as riscv-jh7110_clk_reset:
+> > MAINTAINERS: generalise StarFive clk/reset entries
+>=20
+> For this patch, I find something to improve.
+> 1. Could you please help me sort the StarFive entries in MAINTAINERS?
+> "STARFIVE JH71X0 CLOCK DRIVERS" should be added after
+> "STARFIVE JH7110 MMC/SD/SDIO DRIVER".
+>=20
+> 2. A "S" should be added at the end of
+> "STARFIVE JH7100 RESET CONTROLLER DRIVER".
+>=20
+> I have tested your branch and have no comments on the other patches.
 
-2. A "S" should be added at the end of
-"STARFIVE JH7100 RESET CONTROLLER DRIVER".
+Done:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f405114bf096..0a701632b0b5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19907,6 +19907,12 @@ M:     Emil Renner Berthing <kernel@esmil.dk>
+ S:     Maintained
+ F:     arch/riscv/boot/dts/starfive/
+=20
++STARFIVE JH7110 MMC/SD/SDIO DRIVER
++M:     William Qiu <william.qiu@starfivetech.com>
++S:     Supported
++F:     Documentation/devicetree/bindings/mmc/starfive*
++F:     drivers/mmc/host/dw_mmc-starfive.c
++
+ STARFIVE JH71X0 CLOCK DRIVERS
+ M:     Emil Renner Berthing <kernel@esmil.dk>
+ M:     Hal Feng <hal.feng@starfivetech.com>
+@@ -19915,12 +19921,6 @@ F:     Documentation/devicetree/bindings/clock/sta=
+rfive,jh71*.yaml
+ F:     drivers/clk/starfive/clk-starfive-jh71*
+ F:     include/dt-bindings/clock/starfive?jh71*.h
+=20
+-STARFIVE JH7110 MMC/SD/SDIO DRIVER
+-M:     William Qiu <william.qiu@starfivetech.com>
+-S:     Supported
+-F:     Documentation/devicetree/bindings/mmc/starfive*
+-F:     drivers/mmc/host/dw_mmc-starfive.c
+-
+ STARFIVE JH71X0 PINCTRL DRIVERS
+ M:     Emil Renner Berthing <kernel@esmil.dk>
+ M:     Jianlong Huang <jianlong.huang@starfivetech.com>
+@@ -19931,7 +19931,7 @@ F:      drivers/pinctrl/starfive/pinctrl-starfive-j=
+h71*
+ F:     include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
+ F:     include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+=20
+-STARFIVE JH71X0 RESET CONTROLLER DRIVER
++STARFIVE JH71X0 RESET CONTROLLER DRIVERS
+ M:     Emil Renner Berthing <kernel@esmil.dk>
+ M:     Hal Feng <hal.feng@starfivetech.com>
+ S:     Maintained
 
-I have tested your branch and have no comments on the other patches.
+ Cheers,
+ Conor.
 
-> reset: starfive: Add StarFive JH7110 reset driver
-> clk: starfive: Add StarFive JH7110 always-on clock driver
-> clk: starfive: Add StarFive JH7110 system clock driver
-> reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
-> reset: starfive: Rename "jh7100" to "jh71x0" for the common code
-> reset: starfive: Extract the common JH71X0 reset code
-> reset: starfive: Factor out common JH71X0 reset code
-> reset: Create subdirectory for StarFive drivers
-> reset: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-> clk: starfive: Rename "jh7100" to "jh71x0" for the common code
-> clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
-> clk: starfive: Factor out common JH7100 and JH7110 code
-> clk: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-> dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
-> dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
-> 
-> <https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/refs>
-> 
-> As it looks like everything has been resolved in terms of comments on
-> v6, provided LKP doesn't complain or people don't spot something else,
-> my plan is to send Stephen a PR around Wednesday for the driver bits.
+--QEXRWawa+Yd/Oc16
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks for your work.
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
-Hal
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCqElwAKCRB4tDGHoIJi
+0sqbAQCMsACpQzkzhLoKfCAGm331fVF+ABaBHJYSyLnVCVgBVAEAmAp9CCOzimm4
+keaJvJy+j9w82evuGi+U1ktFrXhXDQs=
+=7zTB
+-----END PGP SIGNATURE-----
 
-> 
-> Please LMK if I screwed up anything,
-> Conor.
+--QEXRWawa+Yd/Oc16--
 
+
+--===============9193953444071830025==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9193953444071830025==--
+
