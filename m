@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D4FC761A6
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 16:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D44C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 16:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pBlrwR+pf2us5jGEI6gOSWxPhdARC1DYDsbErs9p/i0=; b=CRZxFjsgz9s1RCmdJdirXSavgX
-	ZlH8PSIlXskzumH/6WmIEeoeW8hfbPjX2/3Z3jL+yc8aab2YJ6F9iW3uoJOK8f6TJJ3GV8bd0ruzI
-	ui54uspJr1pLxzl1t+8HYBKTim8JJH5UhXl4WclLorWuOxnIKMwwZWtM5s16Ln7k58JgfNJi0NTzu
-	gKaVCCWzrRy1CdsmmZ6NyMsSMUxN2S5RB+MLYkl9hrFStWIxk2+EnGlsizEufPV+OSszcYW3pSvx+
-	L4b6Y4d9jP31PFeUuwsfm0uOw9p6+8L5ubW+fZ/4HJkSIhiBQ2ZONUmWGfZqirAaXFAxbQb6vmkzF
-	/rXtIeuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u22qNyUFmGAefa+V69gzfGXAvXNT4M0IW0UL48VKUhs=; b=QwAeFGi+TLz+KI
+	Yb42UJELrFgL7HKSjcMegKI8mpw4EImM0sjPCr1CqfVaAVmYA9op1S0NPanJVTOMjf2KMIwvybN+n
+	fXr3mae92D94eWVOJgBEVdp93p/TxoKqD22ieC12XI1yAoM7ZcyOXyweVl52olmkloXpqZYdPEcZO
+	vYi+6+h5+t3lgWZyJfsw60Sp6y6xrlYTlCN8AiuQtp5tB73qd+HA97BRX961ch7TqWrf9sexRNCTI
+	j6OAv/T4lhkDe+GskADOwk02vStBoiI/pVVe6XIdCTt4uW3NbuXtALJKAz8zgTmKj48Bh87JsNuyO
+	cSVgMOGL6uQniTziBR8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjjny-002GHJ-2N;
-	Tue, 04 Apr 2023 16:46:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pjjx2-002I9k-1J;
+	Tue, 04 Apr 2023 16:56:08 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjjnw-002GGm-05;
-	Tue, 04 Apr 2023 16:46:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 54804636FF;
-	Tue,  4 Apr 2023 16:46:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A65CC433EF;
-	Tue,  4 Apr 2023 16:46:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680626802;
-	bh=EOynIrMe4icDg+MA2Rcia/HiUrf33I33TA7StNPiBIg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jcMQoxexEFGKw823dUQ0DXje5S8P4gWt/XM+l1CwqRBWpU/+PfsrdEIXJUj3oKaAX
-	 xJXVvlfESDScv2bwz+tmUg92jDon22E204DzabM7ZOk+7MoMVI3C4fZqAZpB4gzGu/
-	 a6RbTXgzRmIFvMzLhDWkkzEDXqHW5ezdTj4x1xQ5vZBzdcULzR20GmvG+poIBROMjJ
-	 fznTMFVJMQtM9S9Z0NWbA+86yUYQ3lYsixpySxWdk/AhqD9z+h+4fFCSo/WF3BNev3
-	 fsz11Wnc8X0orn7Pe8XVmgdM0lburhJTjmAtSKl2LEcF+nG6AL1TzvcvofAUiz1SQP
-	 N2iua/noEMuoQ==
-Date: Tue, 4 Apr 2023 17:46:37 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 2/9] RISC-V: Detect AIA CSRs from ISA string
-Message-ID: <20230404-facecloth-curdle-f2d5d46e1375@spud>
-References: <20230404153452.2405681-1-apatel@ventanamicro.com>
- <20230404153452.2405681-3-apatel@ventanamicro.com>
+	id 1pjjwz-002I7E-0e
+	for linux-riscv@lists.infradead.org;
+	Tue, 04 Apr 2023 16:56:06 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id cn12so133315193edb.4
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Apr 2023 09:56:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112; t=1680627361;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iDkPzCPbOwFeM8pNdOTQrKFLlnDQsoU1nXWtiK+e4mA=;
+        b=iqVXNb1R8IhevzghcBO7gutyLdEil8JOM8mrMNUbzoGbutuR4NhoydBe6+ztX7RaJ4
+         ZcbQM2+TDOSHPyJg0o9hN/vcHilQk0aOrtGsH3kDLRy6qXniIe+VaEYeA3ejGLWJSUEU
+         Q+ZwU6x/YAT/pVpnQApEznh4Qdj6GtTBWOi3A3S6nNa3ZptUSEY0Z8KENFgytfb8SBmx
+         2Fc6eOj6GTEc8LBZb08sVY2ZOeR74va24Ca910/PYw/TUfYAwMYEx3bDCkM2IHGk8G/b
+         rrYX9wGAkcGnDkUCv5w6XXbhRbtX4UIoLG/qoC2VU/Ad8KTe41EaYV00qzZPoIr/85iq
+         tyOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680627361;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iDkPzCPbOwFeM8pNdOTQrKFLlnDQsoU1nXWtiK+e4mA=;
+        b=19AMB5UdeyQp8mU9V3iIy6rwF3Pc39f9GR7EmdI1PdVOqKwzoLsny9VeErLrrmib5J
+         ZbqZz0BQ/BA6E7V2Zl7dHNNNzp1FQWJ3jiw9NKHi+vUtq7cq8LALTj0CewPAuebdqVS/
+         3c9oKxMR854HNVFO0ukU58ahVvlgfH1VLSph49bFcE6CI8gqU2Gn9dMAdtBlx2DXGoja
+         +ZGVLU5xcF6X6Kt9u0dUbYDiB5qG28AC9YTcSpGa5/JVtZzbJlB1SSNCqYsNa927Jfgq
+         XKVEQjHWc8wxktR75qfLbqkUq2GCj9U0RXrkGEnXwwtqZ9E8Bu5EaJMMalTvnOUpbw/R
+         2fxw==
+X-Gm-Message-State: AAQBX9eKQ1i1AoeFzZF89VjISiX3UVA0iqgxb9USVAyRqtAorM7mXPyi
+	BdvyLN9HwTsUVfXUeURjT+9RgRn7IVQRiFNdUmdyNmGLayfQAiBU
+X-Google-Smtp-Source: AKy350b+i1ZaHEs6KA4tVR+ORII+g9X7ahgaAwofvUDz5ArlGO5oyFewenVOA2gJs50Nil3n4pEW5ATyQv1fgM49iYg=
+X-Received: by 2002:a17:906:3e54:b0:8b1:780d:e43d with SMTP id
+ t20-20020a1709063e5400b008b1780de43dmr103679eji.13.1680627360948; Tue, 04 Apr
+ 2023 09:56:00 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230404153452.2405681-3-apatel@ventanamicro.com>
+References: <20230404153452.2405681-1-apatel@ventanamicro.com>
+ <20230404153452.2405681-3-apatel@ventanamicro.com> <20230404-facecloth-curdle-f2d5d46e1375@spud>
+In-Reply-To: <20230404-facecloth-curdle-f2d5d46e1375@spud>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 4 Apr 2023 22:25:49 +0530
+Message-ID: <CAAhSdy1Qk2offdz3zn0gNQKbhBy6a5MmRG0i0pgRCDZBH3dn6g@mail.gmail.com>
+Subject: Re: [PATCH v4 2/9] RISC-V: Detect AIA CSRs from ISA string
+To: Conor Dooley <conor@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230404_094644_126308_2F8E477F 
-X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-CacheID: sfid-20230404_095605_432522_3A1A3001 
+X-CRM114-Status: UNSURE (   6.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,49 +88,15 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3018173613309669492=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3018173613309669492==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Y+UmWbrC7kSZZPyg"
-Content-Disposition: inline
-
-
---Y+UmWbrC7kSZZPyg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks for fixing up the order Anup.
-
---Y+UmWbrC7kSZZPyg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCxUWgAKCRB4tDGHoIJi
-0lq2AP9V7qRL9e4htc1SIvwLo8GdgdrsRvqOb05PBMTv8maS1wEApsDgm01rwMwv
-g3teQBkWZLDsAZADrY9kH1KQi72E/AM=
-=wrvU
------END PGP SIGNATURE-----
-
---Y+UmWbrC7kSZZPyg--
-
-
---===============3018173613309669492==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3018173613309669492==--
-
+T24gVHVlLCBBcHIgNCwgMjAyMyBhdCAxMDoxNuKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4KPgo+IFRoYW5rcyBmb3IgZml4aW5nIHVwIHRoZSBvcmRlciBBbnVw
+LgoKSSBmb3Jnb3QgdG8gbWVudGlvbiB0aGlzIGluIHRoZSBjaGFuZ2UgbG9nLgoKUmVnYXJkcywK
+QW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
