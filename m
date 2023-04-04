@@ -4,58 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B225FC76196
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 03:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFACBC761A6
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 05:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5TmRaVjQp9DJC3losFveBerOt3Oyg4MFK2fS3QuVShI=; b=h0KYDuC2KifI4L
-	13aU36bIG3rZ1Zsb8rBg+0ZfOgY52FQr2d11fLX34a1CFcvL1zXevFPeP6UAGk+289qtApt+wjy/x
-	ucnovfPugd+Phln3/JHOQcmYx1mGpKKIzrvV0AT5u5F/hEB4glId7Me9IlDUgERnHXmqQ03Q4mLdS
-	RV5pfNiu5YKUOZerTPTsrgjrD0sTKv5z34Y1xBjFvMS3jtmGhWM3RdIgwK75HYVQPjJMO1+XnPhT9
-	om+YjTZzKHRyTmNE4aD5ClLi+Espf0BRma3PWt1HFniPgvjWikLdck54ke5yaFc14Vdh0Kz5oHvE6
-	6BVb22tDpRrCJ1DiCNWQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uA54pLRtnHgVqYVb1dME7nLfudgVS5bJNudAM99B+yo=; b=ffav1X7q6CGDH3
+	9pTmPUxMRjQD1qN1I7kDNpfTSsd/dfANP4XK0/5h57brj2OVWWFHTMHrmRySb4v1m3Vn1NwVmmPrt
+	GHH4rhMZSuy3hASMVeBETFueEedmH+LLTB6K8u+kw0eozy3COTg3BZ51JNuBbk5z+KuxTUFODTUVm
+	BRGKlB2bxDClM8EeUk+CzN2VMgC5rRQmapnbF2kYprXjdJsqFBG0cfDStwzNEycRs+rU2hSwmQesw
+	xvJ92et/lcScKX5PnIAlchOXg4/07s5c9USY/KaQ7CBA2lDCopQzQJKg4qbZfCa1r2OYjFp7w96Uk
+	EqSMlKDg4oRx2hW3ix4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjXMo-00HW9h-2p;
-	Tue, 04 Apr 2023 03:29:54 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjXMk-00HW6o-2J
-	for linux-riscv@lists.infradead.org;
-	Tue, 04 Apr 2023 03:29:53 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 15C8724E258;
-	Tue,  4 Apr 2023 11:29:10 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 4 Apr
- 2023 11:29:10 +0800
-Received: from localhost.localdomain (183.27.97.179) by EXMBX067.cuchost.com
- (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 4 Apr
- 2023 11:29:09 +0800
-From: Mason Huo <mason.huo@starfivetech.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Mason
- Huo" <mason.huo@starfivetech.com>, Ley Foon Tan
-	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Subject: [PATCH v5] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
-Date: Tue, 4 Apr 2023 11:29:08 +0800
-Message-ID: <20230404032908.89638-1-mason.huo@starfivetech.com>
-X-Mailer: git-send-email 2.39.2
+	id 1pjZEW-000617-2u;
+	Tue, 04 Apr 2023 05:29:28 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.96 #2 (Red Hat Linux))
+	id 1pjZES-00060U-2V;
+	Tue, 04 Apr 2023 05:29:24 +0000
+Date: Mon, 3 Apr 2023 22:29:24 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
+ pointers for cache management
+Message-ID: <ZCu1tFrQCVe2sgNz@infradead.org>
+References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX067.cuchost.com
- (172.16.6.67)
-X-YovoleRuleAgent: yovoleflag
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230403_202951_081851_3DDAD2A5 
-X-CRM114-Status: GOOD (  18.65  )
+Content-Disposition: inline
+In-Reply-To: <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,186 +67,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The priority and enable registers of plic will be reset
-during hibernation power cycle in poweroff mode,
-add the syscore callbacks to save/restore those registers.
+On Thu, Mar 30, 2023 at 09:42:12PM +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> Currently, selecting which CMOs to use on a given platform is done using
+> and ALTERNATIVE_X() macro. This was manageable when there were just two
+> CMO implementations, but now that there are more and more platforms coming
+> needing custom CMOs, the use of the ALTERNATIVE_X() macro is unmanageable.
+> 
+> To avoid such issues this patch switches to use of function pointers
+> instead of ALTERNATIVE_X() macro for cache management (the only drawback
+> being performance over the previous approach).
+> 
+> void (*clean_range)(unsigned long addr, unsigned long size);
+> void (*inv_range)(unsigned long addr, unsigned long size);
+> void (*flush_range)(unsigned long addr, unsigned long size);
+> 
 
-Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Link: https://lore.kernel.org/r/202302140709.CdkxgtPi-lkp@intel.com/
----
- drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
- 1 file changed, 91 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index ff47bd0dec45..e1484905b7bd 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -17,6 +17,7 @@
- #include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-+#include <linux/syscore_ops.h>
- #include <asm/smp.h>
- 
- /*
-@@ -67,6 +68,8 @@ struct plic_priv {
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
- 	unsigned long plic_quirks;
-+	unsigned int nr_irqs;
-+	unsigned long *prio_save;
- };
- 
- struct plic_handler {
-@@ -78,6 +81,7 @@ struct plic_handler {
- 	 */
- 	raw_spinlock_t		enable_lock;
- 	void __iomem		*enable_base;
-+	u32			*enable_save;
- 	struct plic_priv	*priv;
- };
- static int plic_parent_irq __ro_after_init;
-@@ -229,6 +233,71 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
- 	return IRQ_SET_MASK_OK;
- }
- 
-+static int plic_irq_suspend(void)
-+{
-+	unsigned int i, cpu;
-+	u32 __iomem *reg;
-+	struct plic_priv *priv;
-+
-+	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
-+
-+	for (i = 0; i < priv->nr_irqs; i++)
-+		if (readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
-+			__set_bit(i, priv->prio_save);
-+		else
-+			__clear_bit(i, priv->prio_save);
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			handler->enable_save[i] = readl(reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+
-+	return 0;
-+}
-+
-+static void plic_irq_resume(void)
-+{
-+	unsigned int i, index, cpu;
-+	u32 __iomem *reg;
-+	struct plic_priv *priv;
-+
-+	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
-+
-+	for (i = 0; i < priv->nr_irqs; i++) {
-+		index = BIT_WORD(i);
-+		writel((priv->prio_save[index] & BIT_MASK(i)) ? 1 : 0,
-+		       priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
-+	}
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			writel(handler->enable_save[i], reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+}
-+
-+static struct syscore_ops plic_irq_syscore_ops = {
-+	.suspend	= plic_irq_suspend,
-+	.resume		= plic_irq_resume,
-+};
-+
- static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 			      irq_hw_number_t hwirq)
- {
-@@ -345,6 +414,7 @@ static int __init __plic_init(struct device_node *node,
- 	u32 nr_irqs;
- 	struct plic_priv *priv;
- 	struct plic_handler *handler;
-+	unsigned int cpu;
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
-@@ -363,15 +433,21 @@ static int __init __plic_init(struct device_node *node,
- 	if (WARN_ON(!nr_irqs))
- 		goto out_iounmap;
- 
-+	priv->nr_irqs = nr_irqs;
-+
-+	priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
-+	if (!priv->prio_save)
-+		goto out_free_priority_reg;
-+
- 	nr_contexts = of_irq_count(node);
- 	if (WARN_ON(!nr_contexts))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	error = -ENOMEM;
- 	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
- 			&plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	for (i = 0; i < nr_contexts; i++) {
- 		struct of_phandle_args parent;
-@@ -441,6 +517,11 @@ static int __init __plic_init(struct device_node *node,
- 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
-+
-+		handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
-+						sizeof(*handler->enable_save), GFP_KERNEL);
-+		if (!handler->enable_save)
-+			goto out_free_enable_reg;
- done:
- 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-@@ -461,11 +542,19 @@ static int __init __plic_init(struct device_node *node,
- 				  plic_starting_cpu, plic_dying_cpu);
- 		plic_cpuhp_setup_done = true;
- 	}
-+	register_syscore_ops(&plic_irq_syscore_ops);
- 
- 	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
- 		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
-+out_free_enable_reg:
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		handler = per_cpu_ptr(&plic_handlers, cpu);
-+		kfree(handler->enable_save);
-+	}
-+out_free_priority_reg:
-+	kfree(priv->prio_save);
- out_iounmap:
- 	iounmap(priv->regs);
- out_free_priv:
--- 
-2.39.2
+NAK.  Function pointers for somthing high performance as cache
+maintainance is a complete no-go.
 
 
 _______________________________________________
