@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D0FC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 11:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA14C761A6
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 12:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ZKmnwUVf5UOZAY9iBOn0UG54Re/wSVzacG4Ab99KL8=; b=P0zISD4RJ085tYrIwLLbxRvBJI
-	B7+16+ZPhqDCRxf26zSQ8jmo48N5z0kJpUw2IUwaevTAIgjewwCf0/wStb0ntMm+9lADu1tOIt542
-	AIWML9HKqGZvoi9evMPCwHRedJXHgCKp8fT7cJnKn+sfFGeDnELE1a/v4m3oAunGn15xluvdN6CYE
-	8h2l0biRRLXnZhV7uH06R8FD7Mh2zCdFqsfhjA3jKPNKuhrUMwTNQ8t9N0M9fRzycpw/Fn9D7FZra
-	B0Ewnoh3BKs/CYxF+2vujVnE4MjvVaApYSIo/RWM5hd/RVlARYOvy92k57/NuAcCKujIl0CFcbiDd
-	UxWGXKkw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5vaOYjOXszjfKZw9fuyRdZVUBqhFd1x+9cE4xGyYUJI=; b=HC6TZlwmKktE8h
+	3JVh1XsDdqQvJXoFcsKoYx944io3bdasTcD63gyhGfKZq5PdLqIoQD5igai0MOx7YzROwCv5traA7
+	Bx3jv7jEfk0g9UVEaAlmJeiJDfXuvUDtYeEFGx1rDiLaSrk3HPmBmN0rAPhbv10+dLwxdKUAik77V
+	hBLIyi18tJHCAR3VWFU48vByHpC7aCQfiPHdkXuTD3vaA1BW8QvhZtE4/sfXqWm8pEllwKmux+QJ1
+	4ZKB/tXo16JzO7Z5dU0r0Atq7wWa/SWrQS1aOYrTS3LdZq8fPZe6ESogyEwBryp5GJDiInvTCESuK
+	eprUJe0xByw9EXeAkcZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjfJe-001BBZ-1U;
-	Tue, 04 Apr 2023 11:59:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pjfNg-001C6j-0l;
+	Tue, 04 Apr 2023 12:03:20 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjfJa-001B8d-0U;
-	Tue, 04 Apr 2023 11:59:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1680609546; x=1712145546;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yf84yJ47fRZZVKYSzUL/KnC/GlQL2L+iPq43dwG8FL8=;
-  b=fimpj79JmaUEeoP4CCqmkSp1u7m7b8DOwCKz92iKHzYVMReHdA0Fp4Xc
-   bjKvDwe0bwrBw4qb+g8N8dacC8iwXbCH6Wld2Miw07U1srR10DZwzssLO
-   SIVP+ZRVSTgyWl4ZfBay41uHrbPAOs1QhAER/YWjdBi9Phz1WnFrMzFNx
-   3mxZgpZpBxFLKIiM3cSOlfApxJIthaPKN0hH0+f33lN2Fy+RGFX/SyIxS
-   fm05b3ZHrelKJ2sUHTYm0k4YRF5d0EJBSmD2cxx7/ZseBCwfeikKfNqIe
-   1duN0+mZ/QuXTHLqhPsrx+zInH/Ea+X1rrlietpfEtaokXOXS+um6OEXn
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.98,317,1673938800"; 
-   d="asc'?scan'208";a="208769362"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Apr 2023 04:59:00 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 4 Apr 2023 04:58:57 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 4 Apr 2023 04:58:55 -0700
-Date: Tue, 4 Apr 2023 12:58:41 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: Anup Patel <anup@brainfault.org>, Anup Patel <apatel@ventanamicro.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, <kvm@vger.kernel.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <bjorn@kernel.org>
-Subject: Re: [PATCH v3 6/8] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
-Message-ID: <20230404-5cfffb017198773dc3e81dab@wendy>
-References: <20230403093310.2271142-1-apatel@ventanamicro.com>
- <20230403093310.2271142-7-apatel@ventanamicro.com>
- <osrpjiywxtkgxb5i6mfvxzfrzrnjv75uqzvlu3fouo4mqsktgj@blcmyjt3twqg>
- <CAAhSdy1JEQBiO55iCy97arO63VjGc+NicUvvwzTpK97W97LmJg@mail.gmail.com>
- <ejt3x4p7xhxfvwiafnogfwdn5dzd4qyowlht22utnbvzefsbyh@7dch4mebwckm>
- <uogikq56rf7jytuufhsutdedb73b3rh67biwpzsz6ngg5rudco@qcwt7plumwpb>
+	id 1pjfNa-001C21-21;
+	Tue, 04 Apr 2023 12:03:17 +0000
+Received: from [10.128.10.193] (unknown [117.133.56.22])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 7CA695809D2;
+	Tue,  4 Apr 2023 20:02:48 +0800 (CST)
+Message-ID: <d8b58492-e702-05b7-399e-054892ba6ded@sangfor.com.cn>
+Date: Tue, 4 Apr 2023 20:02:44 +0800
 MIME-Version: 1.0
-In-Reply-To: <uogikq56rf7jytuufhsutdedb73b3rh67biwpzsz6ngg5rudco@qcwt7plumwpb>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: Re: [PATCH v10 2/8] tracing: Add documentation for funcgraph-retval
+ and funcgraph-retval-hex
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
+ will@kernel.org, catalin.marinas@arm.com, rmk+kernel@armlinux.org.uk,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ tglx@linutronix.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ bp@alien8.de, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
+ kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
+ xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
+ dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
+ <a3dcdd61b3ac07eefabc1b11fc18e9fae23d8cbe.1680265828.git.pengdonglin@sangfor.com.cn>
+ <ZCqOl1TCHGhbf0hf@FVFF77S0Q05N>
+Content-Language: en-US
+In-Reply-To: <ZCqOl1TCHGhbf0hf@FVFF77S0Q05N>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTE4YVkIZQ0lMGEIdTUtJH1UTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nxw6GCo*GD0OGj4WAQ8tAQlO
+	EiwKC0xVSlVKTUNLTUtCTExLSkJNVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFKSkpLTTcG
+X-HM-Tid: 0a874c25f8c72eb7kusn7ca695809d2
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230404_045906_299492_2D9A8471 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20230404_050315_032761_2E77F27E 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +75,249 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2219630445949189138=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2219630445949189138==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5GJ1H1BOzV0sFIzx"
-Content-Disposition: inline
+On 2023/4/3 16:30, Mark Rutland wrote:
+> On Fri, Mar 31, 2023 at 05:47:38AM -0700, Donglin Peng wrote:
+>> Add documentation for the two newly introduced options for the
+>> function_graph tracer. The funcgraph-retval option is used to
+>> control whether or not to display the return value, while the
+>> funcgraph-retval-hex option is used to control the display
+>> format of the return value.
+>>
+>> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+>> ---
+>> v9:
+>>   - Update limitation description
+>>
+>> v7:
+>>   - Rename trace option 'graph_retval_hex' to 'funcgraph-retval-hex'
+>>   - Update documentation description
+>>
+>> v6:
+>>   - Modify the limitations for funcgraph-retval
+>>   - Optimize the English expression
+>>
+>> v5:
+>>   - Describe the limitations of funcgraph-retval
+>> ---
+>>   Documentation/trace/ftrace.rst | 74 ++++++++++++++++++++++++++++++++++
+>>   1 file changed, 74 insertions(+)
+>>
+>> diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
+>> index b927fb2b94dc..f572ae419219 100644
+>> --- a/Documentation/trace/ftrace.rst
+>> +++ b/Documentation/trace/ftrace.rst
+>> @@ -1328,6 +1328,19 @@ Options for function_graph tracer:
+>>   	only a closing curly bracket "}" is displayed for
+>>   	the return of a function.
+>>   
+>> +  funcgraph-retval
+>> +	When set, the return value of each traced function
+>> +	will be printed after an equal sign "=". By default
+>> +	this is off.
+>> +
+>> +  funcgraph-retval-hex
+>> +	When set, the return value will always be printed
+>> +	in hexadecimal format. If the option is not set and
+>> +	the return value is an error code, it will be printed
+>> +	in signed decimal format; otherwise it will also be
+>> +	printed in hexadecimal format. By default, this option
+>> +	is off.
+>> +
+>>     sleep-time
+>>   	When running function graph tracer, to include
+>>   	the time a task schedules out in its function.
+>> @@ -2673,6 +2686,67 @@ It is default disabled.
+>>       0)   1.757 us    |        } /* kmem_cache_free() */
+>>       0)   2.861 us    |      } /* putname() */
+>>   
+>> +The return value of each traced function can be displayed after
+>> +an equal sign "=". When encountering system call failures, it
+>> +can be verfy helpful to quickly locate the function that first
+>> +returns an error code.
+>> +
+>> +	- hide: echo nofuncgraph-retval > trace_options
+>> +	- show: echo funcgraph-retval > trace_options
+>> +
+>> +  Example with funcgraph-retval::
+>> +
+>> +    1)               |    cgroup_migrate() {
+>> +    1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
+>> +    1)               |      cgroup_migrate_execute() {
+>> +    1)               |        cpu_cgroup_can_attach() {
+>> +    1)               |          cgroup_taskset_first() {
+>> +    1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
+>> +    1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
+>> +    1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
+>> +    1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
+>> +    1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
+>> +    1)   7.143 us    |    } /* cgroup_migrate = -22 */
+>> +
+>> +The above example shows that the function cpu_cgroup_can_attach
+>> +returned the error code -22 firstly, then we can read the code
+>> +of this function to get the root cause.
+>> +
+>> +When the option funcgraph-retval-hex is not set, the return value can
+>> +be displayed in a smart way. Specifically, if it is an error code,
+>> +it will be printed in signed decimal format, otherwise it will
+>> +printed in hexadecimal format.
+>> +
+>> +	- smart: echo nofuncgraph-retval-hex > trace_options
+>> +	- hexadecimal always: echo funcgraph-retval-hex > trace_options
+>> +
+>> +  Example with funcgraph-retval-hex::
+>> +
+>> +    1)               |      cgroup_migrate() {
+>> +    1)   0.651 us    |        cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
+>> +    1)               |        cgroup_migrate_execute() {
+>> +    1)               |          cpu_cgroup_can_attach() {
+>> +    1)               |            cgroup_taskset_first() {
+>> +    1)   0.732 us    |              cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
+>> +    1)   1.232 us    |            } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
+>> +    1)   0.380 us    |            sched_rt_can_attach(); /* = 0x0 */
+>> +    1)   2.335 us    |          } /* cpu_cgroup_can_attach = 0xffffffea */
+>> +    1)   4.369 us    |        } /* cgroup_migrate_execute = 0xffffffea */
+>> +    1)   7.143 us    |      } /* cgroup_migrate = 0xffffffea */
+>> +
+>> +At present, there are some limitations when using the funcgraph-retval
+>> +option, and these limitations will be eliminated in the future:
+>> +
+>> +- Even if the function return type is void, a return value will still
+>> +  be printed, and you can just ignore it.
+>> +
+>> +- Even if return values are stored in multiple registers, only the
+>> +  value contained in the first register will be recorded and printed.
+>> +  To illustrate, in the x86 architecture, eax and edx are used to store
+>> +  a 64-bit return value, with the lower 32 bits saved in eax and the
+>> +  upper 32 bits saved in edx. However, only the value stored in eax
+>> +  will be recorded and printed.
+> 
+> With some procedure call standards (e.g. arm64's AAPCS64), when a type is
+> smaller than a GPR it's up to the consumer to perform the narrowing, and the
+> upport bits may contain UNKNOWN values. For example, with a u8 in a 64-bit GPR,
+> bits [3:8] may contain arbitrary values.
 
---5GJ1H1BOzV0sFIzx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you. Just to clarify, Should it be that bits [63:8] may contain
+arbitrary values in such cases?
 
-On Tue, Apr 04, 2023 at 01:52:43PM +0200, Andrew Jones wrote:
-> On Mon, Apr 03, 2023 at 02:23:01PM +0200, Andrew Jones wrote:
+> 
+> It's probably worth noting that this means *some* manual processing will always
+> be necessary for such cases.
+> 
+> That's mostly visible around where largelr types get truncated (whether
+> explciitly or implicitly), e.g.
+> 
+> 	u8 narrow_to_u8(u64 val)
+> 	{
+> 		// implicitly truncated
+> 		return val;
+> 	}
+> 
+> ... could be compiled to:
+> 
+> 	narrow_to_u8:
+> 		< ... ftrace instrumentation ... >
+> 		RET
+> 
+> ... and so:
+> 	
+> 	narrow_to_u8(0x123456789abcdef);
+> 
+> ... might be recorded as returning 0x123456789abcdef rather than 0xef.
+> 
+> 
+> That can happen in surprising ways, e.g.
+> 
+> 	int error_if_not_4g_aligned(u64 val)
+> 	{
+> 		if (val & GENMASK(63, 32))
 
-> > It's probably best if neither depend on each other, since they're
-> > independent, but otherwise the order doesn't matter. It'd be nice to ca=
-ll
-> > the order out in the cover letter to give patchwork a chance at automat=
-ic
-> > build testing, though. To call it out, I believe adding
-> >=20
-> > Based-on: 20230401112730.2105240-1-apatel@ventanamicro.com
-> >=20
-> > to the cover letter should work.
->=20
-> I also just noticed that this based on "RISC-V: KVM: Add ONE_REG
-> interface to enable/disable SBI extensions"[1] and it needs to be
-> in order to pick up the KVM_REG_RISCV_SUBTYPE_MASK and
-> KVM_REG_RISCV_SUBTYPE_SHIFT defines. It'd be good to call that
-> patch out with Based-on.
->=20
-> [1]: 20230331174542.2067560-2-apatel@ventanamicro.com
+Should it be GENMASK(31, 0)?
 
-I've been waiting for a review on that for a while.. It's been 3
-weeks, so just gonna merge it and see what breaks!
+> 			return -EINVAL;
+> 
+> 		return 0;
+> 	}
+> 
+> ... could be compiled to:
+> 
+> 	error_if_not_4g_aligned:
+> 		CBNZ	w0, .Lnot_aligned
+> 		RET				// bits [31:0] are zero, bits
+> 						// [63:32] are UNKNOWN
+> 	.Lnot_aligned:
+> 		MOV	x0, #-EINVAL
+> 		RET
+> 
+> .... and so:
+> 
+> 	error_if_not_4g_aligned(SZ_8G)
+> 
+> ... could return with bits [63:32] non-zero
+> 
+> Thanks,
+> Mark.
 
---5GJ1H1BOzV0sFIzx
-Content-Type: application/pgp-signature; name="signature.asc"
+Thank you for sharing this note. I will append the following limitation.
 
------BEGIN PGP SIGNATURE-----
+In certain procedure call standards, such as arm64's AAPCS64, when a
+type is smaller than a GPR, it is the responsibility of the consumer to
+perform the narrowing, and the upper bits may contain UNKNOWN values.
+Therefore, it is advisable to check the code for such cases. For
+instance,when using a u8 in a 64-bit GPR, bits [63:8] may contain
+arbitrary values, especially when larger types are truncated, whether
+explicitly or implicitly. Here are some specific cases to illustrate
+this point:
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZCwQ8QAKCRB4tDGHoIJi
-0i39APsEperqNGR68oYf4cBWUJa5Q4Lux1nXIgwKhMES4jyVVAD/V7XKtbDF5fmm
-GjZMMXMQKhoi5KsqHDaTwOKJ7BrEjwg=
-=kicz
------END PGP SIGNATURE-----
+  - Case One:
 
---5GJ1H1BOzV0sFIzx--
+   The function narrow_to_u8 is defined as follows:
 
+  	u8 narrow_to_u8(u64 val)
+	{
+		// implicitly truncated
+		return val;
+	}
 
---===============2219630445949189138==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+   It may be compiled to:
+
+	narrow_to_u8:
+		< ... ftrace instrumentation ... >
+		RET
+
+   If you pass 0x123456789abcdef to this function and want to narrow it,
+   it may be recorded as 0x123456789abcdef instead of 0xef.
+
+   - Case Two:
+
+   The function error_if_not_4g_aligned is defined as follows:
+
+	int error_if_not_4g_aligned(u64 val)
+	{
+		if (val & GENMASK(31, 0))
+			return -EINVAL;
+
+		return 0;
+	}
+
+   It could be compile to:
+
+	error_if_not_4g_aligned:
+		CBNZ	w0, .Lnot_aligned
+		RET				// bits [31:0] are zero, bits
+						// [63:32] are UNKNOWN
+	.Lnot_aligned:
+		MOV	x0, #-EINVAL
+		RET
+
+   When passing 0x2_0000_0000 to it, the return value may be recorded as
+   0x2_0000_0000 instead of 0.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2219630445949189138==--
-
