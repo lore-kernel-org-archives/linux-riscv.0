@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8388AC6FD1D
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 18:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C81C77B60
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 18:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tjpkMxwC2UoN4SPNwdMe+H0CoR34GZFgcZqgnh0gs9w=; b=bcnKd6EmYLh3XD
-	UB3bL3c6BzoNYD9QH/QfmLjvjgQ99aDhQKBNIUrzkyWIawejnK/v8tXt4JZkFIUg9aIEXwZwS7fsh
-	bagWsltVbe1pziYd1k91fIqpLWdmEvhU2qjjehSJ1enFwoLkfBEsRuWkVMqSoVFXFmqR9BE7L/GCp
-	9fOO341kqsHpxpWiSa4ch2RlY6MX1H60jpvbRtjw8qu+JrDpt4trfPhMQBr7TuiiJfJS6Dghkv0jQ
-	Skt1Rsnga1t3HSPLh4W2winNfaG16pYghXVfFYeeHXfdfZQvT2xtzbh8C68Y9m0zOl6QyYvIfru6/
-	bLxpdbgtS92Wsm/Wy+ZQ==;
+	List-Owner; bh=94BHaI67t9/j6DueAm9R1SxDZfXE7e98UyI+8ePBeVg=; b=TLjaZtI/LPrfv7
+	AcR/VAutvVO4l5hA8r3EI8BPqsfKFu2ILhaCc1TywCiDmcMPNdVzfT8zZN0oiqgZIcbf/aEg+Vk+K
+	tBdsm4ZBHOgg36ww+pUeZPBbdNoyeDsTufG8BWWASzZekSExh9Uq/eQFbfemFBedyUePQh2czBoMe
+	KTJRIHtsFgnJwS1gyWfOSMCtIJz+zPI9RfRE2y8cXbveOU1Xsei57gVjy9rGOToMzHCJA/l2cTCNy
+	JpYK4Twdy6oKi3pkO7bU+Ir4MBlgVZD1PMI2KPDlaGOI4lFloBKVzQUggzlchlkAPrbQXwW4SU/oX
+	5W3l9g+AyG/6GM/F6/DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjlHM-002TqH-2H;
-	Tue, 04 Apr 2023 18:21:12 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1pjlHT-002Ts0-1D;
+	Tue, 04 Apr 2023 18:21:19 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjlHJ-002Tp1-1j
+	id 1pjlHQ-002Tr2-37
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Apr 2023 18:21:11 +0000
-Received: by mail-pf1-x433.google.com with SMTP id fb38so22063359pfb.7
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Apr 2023 11:21:08 -0700 (PDT)
+	Tue, 04 Apr 2023 18:21:18 +0000
+Received: by mail-pg1-x533.google.com with SMTP id l184so11107480pgd.11
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Apr 2023 11:21:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680632467;
+        d=ventanamicro.com; s=google; t=1680632475;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b3qZ67y38AFkmcquwwQ+jCEdL0KsuQFOs2StQrvk1r4=;
-        b=XNL5wXfoQpA8JsGSjQuuq5wSUIpDur/gFmvmgAhrVBcqxN0sZ7ILN08tIz7feSsspz
-         ZgbCYW7Oj5TG/XPo/GlGOOTCVPQvrVI4DQ8lbbTyKz6HIn2aemsBMb+T0hx87Cei4nl8
-         Rew1Fs1jNngJ2L3xig4oSohNtjluWLOjVmYvF4Un2Goahq3aSJc6R6M3UdIPShqpaUoc
-         GqVXWXy1n48x/C3ZJx6nlep571O9amcOnmFi7AWFmX9T3hkv1aGeV00MMWvyTruilF+0
-         u0dFJpxCaJt00eocdVaREbn90Dn/FqHHxy7PX/33GkL/I8OH2YaG61/S4jJz2NN6hOSn
-         kktw==
+        bh=1wcGbfhUP5NrwGCYl7Q1yL0FMzRdJBr1PIlnUSkktJs=;
+        b=aYnlk3BgOfMNMmnnhaJrZqutCOgYZzErmuUTfDAmJFbvnkoL40ha8ijOrqYPZBnsvX
+         ycgrTCK+kybVGhevfZFf/SGdnPx4JTrEY/3nEoA07S7d5HXOb2elq4hnDxEyN6ynebyX
+         pxRENZLVc0MVnk0sqIXk0LiheSEXSJfSZYELyQaaaESNbrIvTGzzFGa80tp0dixJwm26
+         MFd72Gyap2rcWTEzOB7E2LJyMrSviE1LMGX1n+TmEeB9vhYzg8cDk7jRSGhYZbMxL/6K
+         AK4NCOD4Jkn6qi9PR3YhUp4EKjjdlwzOK8m4HBMWjFa/5J0IG6nZymCMMx2rvgDS4P3m
+         8OdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680632467;
+        d=1e100.net; s=20210112; t=1680632475;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=b3qZ67y38AFkmcquwwQ+jCEdL0KsuQFOs2StQrvk1r4=;
-        b=kh1yxjhGXREhN0xnYHEg2FvjbfpSFIw4WczbI8LbmYytnslPepzO0lkuguXyT9WYcI
-         TJjh357d6/eSxenhbi3uR4Ts8QwI48l9PM5UtmOMUnGD7RQlHhS/JWvodj7WjN/m9NOd
-         vL3xyMPA4XE0bN+4AGaGp9nsS9gk2Q1SXT1K7vudK0F0NBpkl8avq8cvewclXquFZt7w
-         1sv2IJGr79EO0FwMUVDU+BhzAZVbenTyfZqaec146YmNGmewRJ7BabL2vKx0chTLl4cW
-         uLLX8/BL3Zl61Ki4EKSRnlG1HNDbdBfragP4KBlokACVmiy3k5Em+NAu52wEld0rj3YG
-         IoTw==
-X-Gm-Message-State: AAQBX9er4QV83o+IaO3yKCDJLPljYs0E1n7u6m3KfTkGAr9rPv0hzreb
-	PW0QsEWOzinMQD2Ffvng8GVQXg==
-X-Google-Smtp-Source: AKy350aJ11cfvfuinWgzemdLN2e0YGrThp1w/tWD+sQXOlzKFnn6WTki0m658NPy4mdIa7czviajYw==
-X-Received: by 2002:aa7:9a07:0:b0:62b:47fc:a968 with SMTP id w7-20020aa79a07000000b0062b47fca968mr3052337pfj.8.1680632467769;
-        Tue, 04 Apr 2023 11:21:07 -0700 (PDT)
+        bh=1wcGbfhUP5NrwGCYl7Q1yL0FMzRdJBr1PIlnUSkktJs=;
+        b=FgLfL2uA4DuYBplVHLuryZhz9A8l8KBiMSjNE3MtSaqq29wTHeRFcQwTXVNzfmjz0b
+         npgoLOxDHmTxgnKWsk7GAKYOA2fEjjEdBCg9kZvEbdAnALv3ZOOjS0Hu/1KB1JPHo6vr
+         Xl0NADWrrJwgkzcvu13RUKIZ78PBAppwnls2dJeFMb/gPB6dGTnWYgE7Pn5A9tPwfpcU
+         hzX/rSlyNfdaiwE0LYWpI7wEpMCmMGwuO9HaUEJKfPlFdESvuOjm4FmPhuFMQwDDfZjw
+         Xs/YGyEdv3mDBcjWPjOjDvWxw7bz3k7No79/MZGXLejFgsrNrp/aGmZShbrt2keq3I9a
+         ts7A==
+X-Gm-Message-State: AAQBX9fBjG6RjMJ+Luw7iLmdkJg3t+9m3xbNf/Q5Fd8Y5GNUQobG2Dy4
+	FMON3y6GyMfYbasfbnyN32W32g==
+X-Google-Smtp-Source: AKy350bk0wFBRLbn4XAN/Q3xySFnNlV3qYKkPkqFm43h5C2tri1AqLTnk71cXWF8+MbPS5+mwyzFrg==
+X-Received: by 2002:a62:7bc7:0:b0:625:c048:2f81 with SMTP id w190-20020a627bc7000000b00625c0482f81mr3438951pfc.32.1680632474822;
+        Tue, 04 Apr 2023 11:21:14 -0700 (PDT)
 Received: from localhost.localdomain ([106.51.184.50])
-        by smtp.gmail.com with ESMTPSA id o12-20020a056a001bcc00b0062dcf5c01f9sm9018524pfw.36.2023.04.04.11.21.01
+        by smtp.gmail.com with ESMTPSA id o12-20020a056a001bcc00b0062dcf5c01f9sm9018524pfw.36.2023.04.04.11.21.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Apr 2023 11:21:07 -0700 (PDT)
+        Tue, 04 Apr 2023 11:21:14 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -70,16 +70,17 @@ To: linux-doc@vger.kernel.org,
 	linux-crypto@vger.kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH V4 03/23] ACPICA: Add structure definitions for RISC-V RHCT
-Date: Tue,  4 Apr 2023 23:50:17 +0530
-Message-Id: <20230404182037.863533-4-sunilvl@ventanamicro.com>
+Subject: [PATCH V4 04/23] ACPI: tables: Print RINTC information when MADT is parsed
+Date: Tue,  4 Apr 2023 23:50:18 +0530
+Message-Id: <20230404182037.863533-5-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230404182037.863533-1-sunilvl@ventanamicro.com>
 References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230404_112109_576628_77549A8E 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20230404_112117_004007_7CB0AC20 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,91 +92,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Weili Qian <qianweili@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>, Herbert Xu <herbert@gondor.apana.org.au>, Tom Rix <trix@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Nick Desaulniers <ndesaulniers@google.com>, Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>, Zhou Wang <wangzhou1@hisilicon.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Maximilian Luz <luzmaximilian@gmail.com>, "David S . Miller" <davem@davemloft.net>, Len Brown <lenb@kernel.org>
+Cc: "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Tom Rix <trix@redhat.com>, Weili Qian <qianweili@huawei.com>, Herbert Xu <herbert@gondor.apana.org.au>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Zhou Wang <wangzhou1@hisilicon.com>, Palmer Dabbelt <palmer@dabbelt.com>, Len Brown <lenb@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>, "David S . Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ACPICA commit 82afd0434e79f74b96a6be88115ddc8343a1ba40
+When MADT is parsed, print RINTC information as below:
 
-RISC-V Hart Capabilities Table (RHCT) is a new static table.
-The ECR to add RHCT is approved by the UEFI forum and will be
-available in the next version of the ACPI spec.
+ACPI: RISC-V INTC (acpi_uid[0x0000] hart_id[0x0] enabled)
+ACPI: RISC-V INTC (acpi_uid[0x0001] hart_id[0x1] enabled)
+...
+ACPI: RISC-V INTC (acpi_uid[0x000f] hart_id[0xf] enabled)
 
-Link: https://github.com/acpica/acpica/commit/82afd043
-Reference: Mantis: 2349
+This debug information will be very helpful during bring up.
+
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- include/acpi/actbl2.h | 48 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
+ drivers/acpi/tables.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
-index c432fd15db65..86bb79fdfa62 100644
---- a/include/acpi/actbl2.h
-+++ b/include/acpi/actbl2.h
-@@ -47,6 +47,7 @@
- #define ACPI_SIG_PRMT           "PRMT"	/* Platform Runtime Mechanism Table */
- #define ACPI_SIG_RASF           "RASF"	/* RAS Feature table */
- #define ACPI_SIG_RGRT           "RGRT"	/* Regulatory Graphics Resource Table */
-+#define ACPI_SIG_RHCT           "RHCT"	/* RISC-V Hart Capabilities Table */
- #define ACPI_SIG_SBST           "SBST"	/* Smart Battery Specification Table */
- #define ACPI_SIG_SDEI           "SDEI"	/* Software Delegated Exception Interface Table */
- #define ACPI_SIG_SDEV           "SDEV"	/* Secure Devices table */
-@@ -2604,6 +2605,53 @@ enum acpi_rgrt_image_type {
- 	ACPI_RGRT_TYPE_RESERVED = 2	/* 2 and greater are reserved */
- };
+diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
+index 7b4680da57d7..8ab0a82b4da4 100644
+--- a/drivers/acpi/tables.c
++++ b/drivers/acpi/tables.c
+@@ -220,6 +220,16 @@ void acpi_table_print_madt_entry(struct acpi_subtable_header *header)
+ 		}
+ 		break;
  
-+/*******************************************************************************
-+ *
-+ * RHCT - RISC-V Hart Capabilities Table
-+ *        Version 1
-+ *
-+ ******************************************************************************/
++	case ACPI_MADT_TYPE_RINTC:
++		{
++			struct acpi_madt_rintc *p = (struct acpi_madt_rintc *)header;
 +
-+struct acpi_table_rhct {
-+	struct acpi_table_header header;	/* Common ACPI table header */
-+	u32 reserved;
-+	u64 time_base_freq;
-+	u32 node_count;
-+	u32 node_offset;
-+};
++			pr_debug("RISC-V INTC (acpi_uid[0x%04x] hart_id[0x%llx] %s)\n",
++				 p->uid, p->hart_id,
++				 (p->flags & ACPI_MADT_ENABLED) ? "enabled" : "disabled");
++		}
++		break;
 +
-+/*
-+ * RHCT subtables
-+ */
-+struct acpi_rhct_node_header {
-+	u16 type;
-+	u16 length;
-+	u16 revision;
-+};
-+
-+/* Values for RHCT subtable Type above */
-+
-+enum acpi_rhct_node_type {
-+	ACPI_RHCT_NODE_TYPE_ISA_STRING = 0x0000,
-+	ACPI_RHCT_NODE_TYPE_HART_INFO = 0xFFFF,
-+};
-+
-+/*
-+ * RHCT node specific subtables
-+ */
-+
-+/* ISA string node structure */
-+struct acpi_rhct_isa_string {
-+	u16 isa_length;
-+	char isa[];
-+};
-+
-+/* Hart Info node structure */
-+struct acpi_rhct_hart_info {
-+	u16 num_offsets;
-+	u32 uid;		/* ACPI processor UID */
-+};
-+
- /*******************************************************************************
-  *
-  * SBST - Smart Battery Specification Table
+ 	default:
+ 		pr_warn("Found unsupported MADT entry (type = 0x%x)\n",
+ 			header->type);
 -- 
 2.34.1
 
