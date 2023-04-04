@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA14C761A6
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 12:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A78C761A6
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Apr 2023 12:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5vaOYjOXszjfKZw9fuyRdZVUBqhFd1x+9cE4xGyYUJI=; b=HC6TZlwmKktE8h
-	3JVh1XsDdqQvJXoFcsKoYx944io3bdasTcD63gyhGfKZq5PdLqIoQD5igai0MOx7YzROwCv5traA7
-	Bx3jv7jEfk0g9UVEaAlmJeiJDfXuvUDtYeEFGx1rDiLaSrk3HPmBmN0rAPhbv10+dLwxdKUAik77V
-	hBLIyi18tJHCAR3VWFU48vByHpC7aCQfiPHdkXuTD3vaA1BW8QvhZtE4/sfXqWm8pEllwKmux+QJ1
-	4ZKB/tXo16JzO7Z5dU0r0Atq7wWa/SWrQS1aOYrTS3LdZq8fPZe6ESogyEwBryp5GJDiInvTCESuK
-	eprUJe0xByw9EXeAkcZg==;
+	List-Owner; bh=YQhjQnueZDVD+6e9jq9Ff7R+a4/yYOCr0YEJNAL1j3U=; b=E7V6+lbO8W5yjq
+	PHK00qtQZv3O5+a+F/1zzC4HbD4rAaMt8xo0dJa8liRV10dDGHfr9Ufx6qqkKwOPQVgdBME5EHQBa
+	TkuAhGChEV1nynUC8/lMHNQ557sqR0kr8EYksfo6dXEtXckV3CnPUFjZPTifF2+lKrzDoCePykul8
+	kWjSu30LklhndABGF0+gEms8BhEnhzd0jDVf+cfKGXJd3H8iPHatZRMBCb6R4AycQSMQ8VcChV4Il
+	zBl62YUShKK50lSKafsvE3J5MfKD4E6KJmMCX4QzegYefmaqLgCfYHWW2xniWO0Xc6eypzinjtYDU
+	luJI7Tnqr44C7zKat4zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjfNg-001C6j-0l;
-	Tue, 04 Apr 2023 12:03:20 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1pjfOO-001CLX-24;
+	Tue, 04 Apr 2023 12:04:04 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjfNa-001C21-21;
-	Tue, 04 Apr 2023 12:03:17 +0000
-Received: from [10.128.10.193] (unknown [117.133.56.22])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 7CA695809D2;
-	Tue,  4 Apr 2023 20:02:48 +0800 (CST)
-Message-ID: <d8b58492-e702-05b7-399e-054892ba6ded@sangfor.com.cn>
-Date: Tue, 4 Apr 2023 20:02:44 +0800
+	id 1pjfOK-001CJ7-2n
+	for linux-riscv@lists.infradead.org;
+	Tue, 04 Apr 2023 12:04:03 +0000
+Received: by mail-wr1-x432.google.com with SMTP id t4so27297114wra.7
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Apr 2023 05:03:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1680609837;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=H2I56WrDZlwIyTwZv99JWrXVc0DEeAqRMvCpScLvpPM=;
+        b=F3sVftBT1QGr7zDiPp6MLlWECDJLKeCxMjdAHa9LvbwfH23ZJoySJejSFzYUWQSWkM
+         1KNuZ3Gn38+p9Fn9lpr0ce0HGXzeOLeb63rUS9Ashpg2I0fMLVuC6BMXWSvcuyAlIFzV
+         EvohsGoRHux8Jl5droMXr+TmE+upVwgkZh3o3I4kP8eLsF1Y8kPHjzNvyQf6T+XHi9+x
+         0dTNfHj/0etbmjOcrU6wbnd3OZiAaQcy6sKnaaHqRK1MC3ISEJ4a28TZCA0puV7Fxwxd
+         twdvHBFDirCURjGXnAKlCqa54/hJA2B94Sy9NhUxN3O36U+R2J+5xjpu4dTtb5hjF2km
+         V8CQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680609837;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H2I56WrDZlwIyTwZv99JWrXVc0DEeAqRMvCpScLvpPM=;
+        b=zIPjjpnkivC9prJPY6ruGnTGDBJkw5SNZvEN9fqaa+C1KATOaO0frghVo/OsKj5dTO
+         N5IOVriYC2L23glSaih65VFugfSX/ljrx57WZ/wNDt6JBSKJnewT49rTeUY3o+xV7u8t
+         N+nWuD52eYd/efBfv8XPuG139bBjtJtP6V4P+6XYcAjG2q3x1G584XESzAGBgNY0ihzK
+         tdDXCl3VzW+Owo8wU+XpL9DKkewHZOV5qJrkKce0CbNMr99qNKV3ZXhuWhKXpM7wZsp8
+         L3lW0F0FLW0kzt2JRpZ6jZnZHru7/cOujIZCjdUFX2U547hE2evSXBbpiA2b1dHjFv3I
+         FMjA==
+X-Gm-Message-State: AAQBX9cot1DbLmR9OkC+G2VOnM2QMxLmUWkzn8LsA22GCoErL2r1kAbU
+	YUITHGaLHSTl86y1Y635ja1KjA==
+X-Google-Smtp-Source: AKy350b7Ly63qP2Zz28vd6eldPQmdJJlgZViuOREMlTV8zIkN2q/Jzc2kuKF2MYFmZ5YqYfvGOfhDQ==
+X-Received: by 2002:a05:6000:51:b0:2dc:2431:67d0 with SMTP id k17-20020a056000005100b002dc243167d0mr1383808wrx.19.1680609836931;
+        Tue, 04 Apr 2023 05:03:56 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id e38-20020a5d5966000000b002d78a96cf5fsm12259781wri.70.2023.04.04.05.03.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Apr 2023 05:03:56 -0700 (PDT)
+Date: Tue, 4 Apr 2023 14:03:55 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 6/8] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+Message-ID: <p3ifmb3r7g3soolhapkzlqyt5nq7ivb53w5fb5pp3274dd4ohp@whtjluacebeo>
+References: <20230403093310.2271142-1-apatel@ventanamicro.com>
+ <20230403093310.2271142-7-apatel@ventanamicro.com>
+ <osrpjiywxtkgxb5i6mfvxzfrzrnjv75uqzvlu3fouo4mqsktgj@blcmyjt3twqg>
+ <CAAhSdy1JEQBiO55iCy97arO63VjGc+NicUvvwzTpK97W97LmJg@mail.gmail.com>
+ <ejt3x4p7xhxfvwiafnogfwdn5dzd4qyowlht22utnbvzefsbyh@7dch4mebwckm>
+ <uogikq56rf7jytuufhsutdedb73b3rh67biwpzsz6ngg5rudco@qcwt7plumwpb>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: Re: [PATCH v10 2/8] tracing: Add documentation for funcgraph-retval
- and funcgraph-retval-hex
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
- will@kernel.org, catalin.marinas@arm.com, rmk+kernel@armlinux.org.uk,
- palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- tglx@linutronix.de, dave.hansen@linux.intel.com, x86@kernel.org,
- bp@alien8.de, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
- kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
- xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
- dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
- <a3dcdd61b3ac07eefabc1b11fc18e9fae23d8cbe.1680265828.git.pengdonglin@sangfor.com.cn>
- <ZCqOl1TCHGhbf0hf@FVFF77S0Q05N>
-Content-Language: en-US
-In-Reply-To: <ZCqOl1TCHGhbf0hf@FVFF77S0Q05N>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTE4YVkIZQ0lMGEIdTUtJH1UTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpKTFVKSEhVTk1VSUlZV1kWGg8SFR0UWUFZT0tIVUpKS0hKTFVKS0tVS1kG
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nxw6GCo*GD0OGj4WAQ8tAQlO
-	EiwKC0xVSlVKTUNLTUtCTExLSkJNVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSkpMVUpISFVOTVVJSVlXWQgBWUFKSkpLTTcG
-X-HM-Tid: 0a874c25f8c72eb7kusn7ca695809d2
-X-HM-MType: 1
+Content-Disposition: inline
+In-Reply-To: <uogikq56rf7jytuufhsutdedb73b3rh67biwpzsz6ngg5rudco@qcwt7plumwpb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230404_050315_032761_2E77F27E 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20230404_050400_909243_29B3BE15 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,249 +94,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/4/3 16:30, Mark Rutland wrote:
-> On Fri, Mar 31, 2023 at 05:47:38AM -0700, Donglin Peng wrote:
->> Add documentation for the two newly introduced options for the
->> function_graph tracer. The funcgraph-retval option is used to
->> control whether or not to display the return value, while the
->> funcgraph-retval-hex option is used to control the display
->> format of the return value.
->>
->> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
->> ---
->> v9:
->>   - Update limitation description
->>
->> v7:
->>   - Rename trace option 'graph_retval_hex' to 'funcgraph-retval-hex'
->>   - Update documentation description
->>
->> v6:
->>   - Modify the limitations for funcgraph-retval
->>   - Optimize the English expression
->>
->> v5:
->>   - Describe the limitations of funcgraph-retval
->> ---
->>   Documentation/trace/ftrace.rst | 74 ++++++++++++++++++++++++++++++++++
->>   1 file changed, 74 insertions(+)
->>
->> diff --git a/Documentation/trace/ftrace.rst b/Documentation/trace/ftrace.rst
->> index b927fb2b94dc..f572ae419219 100644
->> --- a/Documentation/trace/ftrace.rst
->> +++ b/Documentation/trace/ftrace.rst
->> @@ -1328,6 +1328,19 @@ Options for function_graph tracer:
->>   	only a closing curly bracket "}" is displayed for
->>   	the return of a function.
->>   
->> +  funcgraph-retval
->> +	When set, the return value of each traced function
->> +	will be printed after an equal sign "=". By default
->> +	this is off.
->> +
->> +  funcgraph-retval-hex
->> +	When set, the return value will always be printed
->> +	in hexadecimal format. If the option is not set and
->> +	the return value is an error code, it will be printed
->> +	in signed decimal format; otherwise it will also be
->> +	printed in hexadecimal format. By default, this option
->> +	is off.
->> +
->>     sleep-time
->>   	When running function graph tracer, to include
->>   	the time a task schedules out in its function.
->> @@ -2673,6 +2686,67 @@ It is default disabled.
->>       0)   1.757 us    |        } /* kmem_cache_free() */
->>       0)   2.861 us    |      } /* putname() */
->>   
->> +The return value of each traced function can be displayed after
->> +an equal sign "=". When encountering system call failures, it
->> +can be verfy helpful to quickly locate the function that first
->> +returns an error code.
->> +
->> +	- hide: echo nofuncgraph-retval > trace_options
->> +	- show: echo funcgraph-retval > trace_options
->> +
->> +  Example with funcgraph-retval::
->> +
->> +    1)               |    cgroup_migrate() {
->> +    1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
->> +    1)               |      cgroup_migrate_execute() {
->> +    1)               |        cpu_cgroup_can_attach() {
->> +    1)               |          cgroup_taskset_first() {
->> +    1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
->> +    1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
->> +    1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
->> +    1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
->> +    1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
->> +    1)   7.143 us    |    } /* cgroup_migrate = -22 */
->> +
->> +The above example shows that the function cpu_cgroup_can_attach
->> +returned the error code -22 firstly, then we can read the code
->> +of this function to get the root cause.
->> +
->> +When the option funcgraph-retval-hex is not set, the return value can
->> +be displayed in a smart way. Specifically, if it is an error code,
->> +it will be printed in signed decimal format, otherwise it will
->> +printed in hexadecimal format.
->> +
->> +	- smart: echo nofuncgraph-retval-hex > trace_options
->> +	- hexadecimal always: echo funcgraph-retval-hex > trace_options
->> +
->> +  Example with funcgraph-retval-hex::
->> +
->> +    1)               |      cgroup_migrate() {
->> +    1)   0.651 us    |        cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
->> +    1)               |        cgroup_migrate_execute() {
->> +    1)               |          cpu_cgroup_can_attach() {
->> +    1)               |            cgroup_taskset_first() {
->> +    1)   0.732 us    |              cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
->> +    1)   1.232 us    |            } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
->> +    1)   0.380 us    |            sched_rt_can_attach(); /* = 0x0 */
->> +    1)   2.335 us    |          } /* cpu_cgroup_can_attach = 0xffffffea */
->> +    1)   4.369 us    |        } /* cgroup_migrate_execute = 0xffffffea */
->> +    1)   7.143 us    |      } /* cgroup_migrate = 0xffffffea */
->> +
->> +At present, there are some limitations when using the funcgraph-retval
->> +option, and these limitations will be eliminated in the future:
->> +
->> +- Even if the function return type is void, a return value will still
->> +  be printed, and you can just ignore it.
->> +
->> +- Even if return values are stored in multiple registers, only the
->> +  value contained in the first register will be recorded and printed.
->> +  To illustrate, in the x86 architecture, eax and edx are used to store
->> +  a 64-bit return value, with the lower 32 bits saved in eax and the
->> +  upper 32 bits saved in edx. However, only the value stored in eax
->> +  will be recorded and printed.
-> 
-> With some procedure call standards (e.g. arm64's AAPCS64), when a type is
-> smaller than a GPR it's up to the consumer to perform the narrowing, and the
-> upport bits may contain UNKNOWN values. For example, with a u8 in a 64-bit GPR,
-> bits [3:8] may contain arbitrary values.
-
-Thank you. Just to clarify, Should it be that bits [63:8] may contain
-arbitrary values in such cases?
-
-> 
-> It's probably worth noting that this means *some* manual processing will always
-> be necessary for such cases.
-> 
-> That's mostly visible around where largelr types get truncated (whether
-> explciitly or implicitly), e.g.
-> 
-> 	u8 narrow_to_u8(u64 val)
-> 	{
-> 		// implicitly truncated
-> 		return val;
-> 	}
-> 
-> ... could be compiled to:
-> 
-> 	narrow_to_u8:
-> 		< ... ftrace instrumentation ... >
-> 		RET
-> 
-> ... and so:
-> 	
-> 	narrow_to_u8(0x123456789abcdef);
-> 
-> ... might be recorded as returning 0x123456789abcdef rather than 0xef.
-> 
-> 
-> That can happen in surprising ways, e.g.
-> 
-> 	int error_if_not_4g_aligned(u64 val)
-> 	{
-> 		if (val & GENMASK(63, 32))
-
-Should it be GENMASK(31, 0)?
-
-> 			return -EINVAL;
-> 
-> 		return 0;
-> 	}
-> 
-> ... could be compiled to:
-> 
-> 	error_if_not_4g_aligned:
-> 		CBNZ	w0, .Lnot_aligned
-> 		RET				// bits [31:0] are zero, bits
-> 						// [63:32] are UNKNOWN
-> 	.Lnot_aligned:
-> 		MOV	x0, #-EINVAL
-> 		RET
-> 
-> .... and so:
-> 
-> 	error_if_not_4g_aligned(SZ_8G)
-> 
-> ... could return with bits [63:32] non-zero
-> 
-> Thanks,
-> Mark.
-
-Thank you for sharing this note. I will append the following limitation.
-
-In certain procedure call standards, such as arm64's AAPCS64, when a
-type is smaller than a GPR, it is the responsibility of the consumer to
-perform the narrowing, and the upper bits may contain UNKNOWN values.
-Therefore, it is advisable to check the code for such cases. For
-instance,when using a u8 in a 64-bit GPR, bits [63:8] may contain
-arbitrary values, especially when larger types are truncated, whether
-explicitly or implicitly. Here are some specific cases to illustrate
-this point:
-
-  - Case One:
-
-   The function narrow_to_u8 is defined as follows:
-
-  	u8 narrow_to_u8(u64 val)
-	{
-		// implicitly truncated
-		return val;
-	}
-
-   It may be compiled to:
-
-	narrow_to_u8:
-		< ... ftrace instrumentation ... >
-		RET
-
-   If you pass 0x123456789abcdef to this function and want to narrow it,
-   it may be recorded as 0x123456789abcdef instead of 0xef.
-
-   - Case Two:
-
-   The function error_if_not_4g_aligned is defined as follows:
-
-	int error_if_not_4g_aligned(u64 val)
-	{
-		if (val & GENMASK(31, 0))
-			return -EINVAL;
-
-		return 0;
-	}
-
-   It could be compile to:
-
-	error_if_not_4g_aligned:
-		CBNZ	w0, .Lnot_aligned
-		RET				// bits [31:0] are zero, bits
-						// [63:32] are UNKNOWN
-	.Lnot_aligned:
-		MOV	x0, #-EINVAL
-		RET
-
-   When passing 0x2_0000_0000 to it, the return value may be recorded as
-   0x2_0000_0000 instead of 0.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBcHIgMDQsIDIwMjMgYXQgMDE6NTI6NDNQTSArMDIwMCwgQW5kcmV3IEpvbmVzIHdy
+b3RlOgo+IE9uIE1vbiwgQXByIDAzLCAyMDIzIGF0IDAyOjIzOjAxUE0gKzAyMDAsIEFuZHJldyBK
+b25lcyB3cm90ZToKPiA+IE9uIE1vbiwgQXByIDAzLCAyMDIzIGF0IDA1OjM0OjU3UE0gKzA1MzAs
+IEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiA+IE9uIE1vbiwgQXByIDMsIDIwMjMgYXQgNTowMeKAr1BN
+IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4gPiA+Cj4g
+PiA+ID4gT24gTW9uLCBBcHIgMDMsIDIwMjMgYXQgMDM6MDM6MDhQTSArMDUzMCwgQW51cCBQYXRl
+bCB3cm90ZToKPiA+ID4gPiA+IFdlIGltcGxlbWVudCBPTkVfUkVHIGludGVyZmFjZSBmb3IgQUlB
+IENTUnMgYXMgYSBzZXBhcmF0ZSBzdWJ0eXBlCj4gPiA+ID4gPiB1bmRlciB0aGUgQ1NSIE9ORV9S
+RUcgaW50ZXJmYWNlLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEFudXAgUGF0
+ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPgo+ID4gPiA+ID4gLS0tCj4gPiA+ID4gPiAgYXJj
+aC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oIHwgOCArKysrKysrKwo+ID4gPiA+ID4gIGFy
+Y2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAgICAgICAgICB8IDggKysrKysrKysKPiA+ID4gPiA+ICAy
+IGZpbGVzIGNoYW5nZWQsIDE2IGluc2VydGlvbnMoKykKPiA+ID4gPiA+Cj4gPiA+ID4gPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oIGIvYXJjaC9yaXNjdi9p
+bmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gPiA+ID4gPiBpbmRleCAxODIwMjNkYzlhNTEuLmNiYzNl
+NzRmYTY3MCAxMDA2NDQKPiA+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2Fz
+bS9rdm0uaAo+ID4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5o
+Cj4gPiA+ID4gPiBAQCAtNzksNiArNzksMTAgQEAgc3RydWN0IGt2bV9yaXNjdl9jc3Igewo+ID4g
+PiA+ID4gICAgICAgdW5zaWduZWQgbG9uZyBzY291bnRlcmVuOwo+ID4gPiA+ID4gIH07Cj4gPiA+
+ID4gPgo+ID4gPiA+ID4gKy8qIEFJQSBDU1IgcmVnaXN0ZXJzIGZvciBLVk1fR0VUX09ORV9SRUcg
+YW5kIEtWTV9TRVRfT05FX1JFRyAqLwo+ID4gPiA+ID4gK3N0cnVjdCBrdm1fcmlzY3ZfYWlhX2Nz
+ciB7Cj4gPiA+ID4gPiArfTsKPiA+ID4gPiA+ICsKPiA+ID4gPiA+ICAvKiBUSU1FUiByZWdpc3Rl
+cnMgZm9yIEtWTV9HRVRfT05FX1JFRyBhbmQgS1ZNX1NFVF9PTkVfUkVHICovCj4gPiA+ID4gPiAg
+c3RydWN0IGt2bV9yaXNjdl90aW1lciB7Cj4gPiA+ID4gPiAgICAgICBfX3U2NCBmcmVxdWVuY3k7
+Cj4gPiA+ID4gPiBAQCAtMTA3LDYgKzExMSw3IEBAIGVudW0gS1ZNX1JJU0NWX0lTQV9FWFRfSUQg
+ewo+ID4gPiA+ID4gICAgICAgS1ZNX1JJU0NWX0lTQV9FWFRfWklISU5UUEFVU0UsCj4gPiA+ID4g
+PiAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9aSUNCT00sCj4gPiA+ID4gPiAgICAgICBLVk1fUklT
+Q1ZfSVNBX0VYVF9aQkIsCj4gPiA+ID4KPiA+ID4gPiBMb29rcyBsaWtlIHRoaXMgcGF0Y2ggaXMg
+YWxzbyBiYXNlZCBvbiAiW1BBVENIXSBSSVNDLVY6IEtWTTogQWxsb3cgWmJiCj4gPiA+ID4gZXh0
+ZW5zaW9uIGZvciBHdWVzdC9WTSIKPiA+ID4gCj4gPiA+IFllcywgZG8geW91IHdhbnQgbWUgdG8g
+Y2hhbmdlIHRoZSBvcmRlciBvZiBkZXBlbmRlbmN5Pwo+ID4gCj4gPiBJdCdzIHByb2JhYmx5IGJl
+c3QgaWYgbmVpdGhlciBkZXBlbmQgb24gZWFjaCBvdGhlciwgc2luY2UgdGhleSdyZQo+ID4gaW5k
+ZXBlbmRlbnQsIGJ1dCBvdGhlcndpc2UgdGhlIG9yZGVyIGRvZXNuJ3QgbWF0dGVyLiBJdCdkIGJl
+IG5pY2UgdG8gY2FsbAo+ID4gdGhlIG9yZGVyIG91dCBpbiB0aGUgY292ZXIgbGV0dGVyIHRvIGdp
+dmUgcGF0Y2h3b3JrIGEgY2hhbmNlIGF0IGF1dG9tYXRpYwo+ID4gYnVpbGQgdGVzdGluZywgdGhv
+dWdoLiBUbyBjYWxsIGl0IG91dCwgSSBiZWxpZXZlIGFkZGluZwo+ID4gCj4gPiBCYXNlZC1vbjog
+MjAyMzA0MDExMTI3MzAuMjEwNTI0MC0xLWFwYXRlbEB2ZW50YW5hbWljcm8uY29tCj4gPiAKPiA+
+IHRvIHRoZSBjb3ZlciBsZXR0ZXIgc2hvdWxkIHdvcmsuCj4gCj4gSSBhbHNvIGp1c3Qgbm90aWNl
+ZCB0aGF0IHRoaXMgYmFzZWQgb24gIlJJU0MtVjogS1ZNOiBBZGQgT05FX1JFRwo+IGludGVyZmFj
+ZSB0byBlbmFibGUvZGlzYWJsZSBTQkkgZXh0ZW5zaW9ucyJbMV0gYW5kIGl0IG5lZWRzIHRvIGJl
+Cj4gaW4gb3JkZXIgdG8gcGljayB1cCB0aGUgS1ZNX1JFR19SSVNDVl9TVUJUWVBFX01BU0sgYW5k
+Cj4gS1ZNX1JFR19SSVNDVl9TVUJUWVBFX1NISUZUIGRlZmluZXMuIEl0J2QgYmUgZ29vZCB0byBj
+YWxsIHRoYXQKPiBwYXRjaCBvdXQgd2l0aCBCYXNlZC1vbi4KPiAKPiBbMV06IDIwMjMwMzMxMTc0
+NTQyLjIwNjc1NjAtMi1hcGF0ZWxAdmVudGFuYW1pY3JvLmNvbQoKQW5kICJSSVNDLVYgSVBJIElt
+cHJvdmVtZW50cyIsCjIwMjMwMzI4MDM1MjIzLjE0ODA5MzktMS1hcGF0ZWxAdmVudGFuYW1pY3Jv
+LmNvbSwgd2hpY2ggaXMgcmVxdWlyZWQKZm9yIHJpc2N2X2dldF9pbnRjX2h3bm9kZSgpCgpUaGFu
+a3MsCmRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
