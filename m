@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026FAC76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 09:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB543C76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 10:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IO/clUmAwWcUGOJrDr2xO0kwUdFOLBjIzj4h4bWTc9A=; b=WmB2w6Cwd7aIpE
-	Tzuj/kbwJXWhk6U0ScwdOa/gZQk4p3+noLgQWywj8hCaLEn1jm+Ky8vmQtIqZurM6Gp1uslpujv+r
-	lPTXPtqvtpx0L9qVvf3V6wo/qLf7KjzXw1pirfZsX89yaJQl1PjCnH7NS+esxM7as3PkpFprDnFcL
-	ZREfW/j57Ul8ZS4SU7tr+zIHu2zfSv3nsWFUrjUAqw4DKrt65x6J6hrBMme+APO4Fcs5y+wpjTn5s
-	lVSMB1RwMglH1E8KPDBLLBw85YV9pZTZEfHr83ivYkX5Fmi8x8PzRH35pXfU99LJHWYtoHaeYdnCz
-	9R8BdvRRp80/GTobjs2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5Loph3fPKKvA55VGt+xd+g89q0zBAtLec6abQrmRLcQ=; b=Fua8eHp7CciRT5
+	wRjEea+Mf3YevdV/YlAvysK/8M3jlyVKlqLQx1rMtr7uLGefkuNxSeSV5nEmKmMOTGO3RSHhSVB8U
+	5IgJwpDYhA2EVkpSajPoWuWJq9D2WSg5FTavtIKYeWLidxtAvlElR87wgnyl6X+cKuY+N1bZzHkf/
+	Oz4EdCOc8pzvYkk8+DV1JuEQ4uJTfVJfDpR36MG83mjNK1/7HxmyQiGL55vXFE+BD9/CBqi8G3Mse
+	a2FFLlboxfQxXVuMLPbsJxh71DgDdM7+7YISbM2wgIBHIhUX6ReC+bfNX5deAHyJ0b9+K/2KpIt2E
+	OOHcPpx7KcBXHqyhxxjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjzVq-003yFE-2B;
-	Wed, 05 Apr 2023 09:33:06 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pk0Gu-004543-1t;
+	Wed, 05 Apr 2023 10:21:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjzVn-003yDz-2G
+	id 1pk0Gr-00453Y-2p
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 09:33:05 +0000
-Received: by mail-wr1-x434.google.com with SMTP id l12so35495410wrm.10
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Apr 2023 02:33:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1680687182;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+m6lntKXuHckes3DfOCLKyfUm4RY1tSieGlGMdRdeCg=;
-        b=ovQ3eb1eiAQwqbo5Ec1rsGTce+Hz+32WrCzTCV6aKN7VzI1t4WTQw+oi5Fjm2tx9ED
-         U2PLKAiosMdQeR7Kkq4DSD9rqJjesQPtz0iZSEb7eXbSbTNSow2QT+s6rufHSiuQosKa
-         BBYiEAEslILdu1TIp0BUOeiJSb1WUTPzbKIV26qCpu4lIhlb/AcewWwRltj5jdlAzBZ5
-         /n6V3UzQce7EFM/A/DlgNUEX5Iq0veIkKxpe/lw9Z594oiA4n/TAkEb7ebKyjKkVcFUq
-         JcXG+bAOF2T3hOwYu4OUr5B6YAZw0RkrUJEmwBPsQiySJx/lS0eoCWjMoLpGDbByT/Kf
-         MxJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680687182;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+m6lntKXuHckes3DfOCLKyfUm4RY1tSieGlGMdRdeCg=;
-        b=J0Pf1CZE6bwXwHEZGdmzCynyAbBtuBEQ1j5w4qgaYc6KEqC4L2uoUfBcBI00KApPne
-         6WzRLVQ+OgLRtPLTuhLLog5tKwcQbQ+wElP7QE+ITzzCrBUhdlokXfQos26O1erQCuxQ
-         Ng0/487HE5z+wFO8+LwNc3LKqrxEsIf+9MZhiBEU+sDTVc/Yod05sgi1KTn7sn2g0trj
-         iIsMb9k+I255DclYiSmb1+YxocmS1Ni+8BS8tJv+Z14QMqJBiImmtVxysWXeH2qpCAIw
-         +wQNtUUulcxBQbh/uAq2u6PZfmcOn280Rx+tHGzSdCynQHFKCEJEpkCmwG5LyJ4bwUNB
-         h3qA==
-X-Gm-Message-State: AAQBX9dkkaTWhMOBqxJX/vktpvjs5ywMJ7LpUgibVrcbuvpNminVG07I
-	ljWNIMbuTaJbO1+0g4ZfC/c=
-X-Google-Smtp-Source: AKy350bEmXKhbpOLml2JKednF6JyosoF9/Y0Oyj1dYtb90pMMFwBNblSBshHAYOgh5VmCXkMUWMlIQ==
-X-Received: by 2002:adf:dc01:0:b0:2cf:9889:8428 with SMTP id t1-20020adfdc01000000b002cf98898428mr3327565wri.35.1680687181685;
-        Wed, 05 Apr 2023 02:33:01 -0700 (PDT)
-Received: from [192.168.2.202] (pd9e5a520.dip0.t-ipconnect.de. [217.229.165.32])
-        by smtp.gmail.com with ESMTPSA id y5-20020a1c4b05000000b003ede06f3178sm1599550wma.31.2023.04.05.02.33.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Apr 2023 02:33:01 -0700 (PDT)
-Message-ID: <0c433e15-640e-280f-fcb0-a8fe081d1bcc@gmail.com>
-Date: Wed, 5 Apr 2023 11:33:00 +0200
+	Wed, 05 Apr 2023 10:21:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1680690102; x=1712226102;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=byvjw5DT3z13axDGyDhMYvIPDHulKaB13GUHx0xoYp0=;
+  b=F6ddXSWNEztTHkkD+85rvB7MdsslLoq/DXxXnSydwAelXa1lK8SmnPBV
+   u3iE3CnMPJPKLWCzgiKXGMztHjQ9PjkD+w55ogqXPbWFTT+eEonr4lYJh
+   5nzA0bM5SMi4eNN5Zwbdii/v/g4HFEK5j7v/ts9QnKV5AVoebqh9x8A//
+   7mzm4qd+1RsPmkvADJbBl+P2e9J+JxKQQYZJmzxmzl7ASdGsJXZ9JNftR
+   tkEUQY1e7ncBxnf15QCgT0K3s7EHFvkQrkudlAsOrqC5zzzDWlejRQrew
+   enpXSJcBmvpqzV50Fq5MLBcG9msvxFGV0fQaST+SFqdWv5L4z6wYJ5RRA
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,319,1673938800"; 
+   d="scan'208";a="208249257"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Apr 2023 03:21:40 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 5 Apr 2023 03:21:39 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Wed, 5 Apr 2023 03:21:39 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v2] RISC-V: align ISA extension Kconfig help text with each other
+Date: Wed, 5 Apr 2023 11:21:10 +0100
+Message-ID: <20230405-pucker-cogwheel-3a999a94a2f2@wendy>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH V4 22/23] platform/surface: Disable for RISC-V
-To: Sunil V L <sunilvl@ventanamicro.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev
-Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Weili Qian <qianweili@huawei.com>,
- Zhou Wang <wangzhou1@hisilicon.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, Marc Zyngier <maz@kernel.org>,
- Hans de Goede <hdegoede@redhat.com>, Mark Gross <markgross@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "David S . Miller" <davem@davemloft.net>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-23-sunilvl@ventanamicro.com>
-Content-Language: en-US
-From: Maximilian Luz <luzmaximilian@gmail.com>
-In-Reply-To: <20230404182037.863533-23-sunilvl@ventanamicro.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3205; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=byvjw5DT3z13axDGyDhMYvIPDHulKaB13GUHx0xoYp0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCm63pNjUo7Un/bN3BhZ4tpbHSgcf609f2GSQEusjpVs9tv9 d3g6SlkYxDgYZMUUWRJv97VIrf/jssO55y3MHFYmkCEMXJwCMJGdMxj+Solr6T9vmOIg65z1h3P9g8 qIzteMsYtvz/SavDHdcP4eFYb/Acm8qZ4VJfcOTrp4WGjn401nDjqnvavvO2q4Xbt+TsVnFgA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_023303_761600_66B2BA27 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20230405_032141_918915_B0BC50F5 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +76,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC80LzIzIDIwOjIwLCBTdW5pbCBWIEwgd3JvdGU6Cj4gV2l0aCBDT05GSUdfQUNQSSBlbmFi
-bGVkIGZvciBSSVNDLVYsIHRoaXMgZHJpdmVyIGdldHMgZW5hYmxlZAo+IGluIGFsbG1vZGNvbmZp
-ZyBidWlsZC4gSG93ZXZlciwgUklTQy1WIGRvZXNuJ3Qgc3VwcG9ydCBzdWItd29yZAo+IGF0b21p
-Y3Mgd2hpY2ggaXMgdXNlZCBieSB0aGlzIGRyaXZlci4gRHVlIHRvIHRoaXMsIHRoZSBidWlsZCBm
-YWlscwo+IHdpdGggYmVsb3cgZXJyb3IuCj4gCj4gSW4gZnVuY3Rpb24gw6LigqzLnHNzaF9zZXFf
-bmV4dMOi4oKs4oSiLAo+ICAgICAgaW5saW5lZCBmcm9tIMOi4oKsy5xzc2FtX3JlcXVlc3Rfd3Jp
-dGVfZGF0YcOi4oKs4oSiIGF0IGRyaXZlcnMvcGxhdGZvcm0vc3VyZmFjZS9hZ2dyZWdhdG9yL2Nv
-bnRyb2xsZXIuYzoxNDgzOjg6Cj4gLi8uL2luY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaDoz
-OTk6NDU6IGVycm9yOiBjYWxsIHRvIMOi4oKsy5xfX2NvbXBpbGV0aW1lX2Fzc2VydF8zMzXDouKC
-rOKEoiBkZWNsYXJlZCB3aXRoIGF0dHJpYnV0ZSBlcnJvcjogQlVJTERfQlVHIGZhaWxlZAo+ICAg
-IDM5OSB8ICAgICAgICAgX2NvbXBpbGV0aW1lX2Fzc2VydChjb25kaXRpb24sIG1zZywgX19jb21w
-aWxldGltZV9hc3NlcnRfLCBfX0NPVU5URVJfXykKPiAgICAgICAgfCAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIF4KPiAuL2luY2x1ZGUvbGludXgvY29tcGlsZXIu
-aDo3ODo0NTogbm90ZTogaW4gZGVmaW5pdGlvbiBvZiBtYWNybyDDouKCrMucdW5saWtlbHnDouKC
-rOKEogo+ICAgICA3OCB8ICMgZGVmaW5lIHVubGlrZWx5KHgpICAgIF9fYnVpbHRpbl9leHBlY3Qo
-ISEoeCksIDApCj4gICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICBeCj4gLi8uL2luY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaDozODc6OTogbm90
-ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvIMOi4oKsy5xfX2NvbXBpbGV0aW1lX2Fzc2VydMOi4oKs
-4oSiCj4gICAgMzg3IHwgICAgICAgICBfX2NvbXBpbGV0aW1lX2Fzc2VydChjb25kaXRpb24sIG1z
-ZywgcHJlZml4LCBzdWZmaXgpCj4gICAgICAgIHwgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fn5+
-fgo+IC4vLi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyX3R5cGVzLmg6Mzk5Ojk6IG5vdGU6IGluIGV4
-cGFuc2lvbiBvZiBtYWNybyDDouKCrMucX2NvbXBpbGV0aW1lX2Fzc2VydMOi4oKs4oSiCj4gICAg
-Mzk5IHwgICAgICAgICBfY29tcGlsZXRpbWVfYXNzZXJ0KGNvbmRpdGlvbiwgbXNnLCBfX2NvbXBp
-bGV0aW1lX2Fzc2VydF8sIF9fQ09VTlRFUl9fKQo+ICAgICAgICB8ICAgICAgICAgXn5+fn5+fn5+
-fn5+fn5+fn5+fgo+IC4vaW5jbHVkZS9saW51eC9idWlsZF9idWcuaDozOTozNzogbm90ZTogaW4g
-ZXhwYW5zaW9uIG9mIG1hY3JvIMOi4oKsy5xjb21waWxldGltZV9hc3NlcnTDouKCrOKEogo+ICAg
-ICAzOSB8ICNkZWZpbmUgQlVJTERfQlVHX09OX01TRyhjb25kLCBtc2cpIGNvbXBpbGV0aW1lX2Fz
-c2VydCghKGNvbmQpLCBtc2cpCj4gICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+Cj4gLi9pbmNsdWRlL2xpbnV4L2J1aWxkX2J1Zy5o
-OjU5OjIxOiBub3RlOiBpbiBleHBhbnNpb24gb2YgbWFjcm8gw6LigqzLnEJVSUxEX0JVR19PTl9N
-U0fDouKCrOKEogo+ICAgICA1OSB8ICNkZWZpbmUgQlVJTERfQlVHKCkgQlVJTERfQlVHX09OX01T
-RygxLCAiQlVJTERfQlVHIGZhaWxlZCIpCj4gICAgICAgIHwgICAgICAgICAgICAgICAgICAgICBe
-fn5+fn5+fn5+fn5+fn5+Cj4gLi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NtcHhjaGcuaDozMzU6
-MTc6IG5vdGU6IGluIGV4cGFuc2lvbiBvZiBtYWNybyDDouKCrMucQlVJTERfQlVHw6LigqzihKIK
-PiAgICAzMzUgfCAgICAgICAgICAgICAgICAgQlVJTERfQlVHKCk7ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgIHwgICAgICAgICAgICAgICAgIF5+
-fn5+fn5+fgo+IC4vYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmg6MzQ0OjMwOiBub3Rl
-OiBpbiBleHBhbnNpb24gb2YgbWFjcm8gw6LigqzLnF9fY21weGNoZ8Oi4oKs4oSiCj4gICAgMzQ0
-IHwgICAgICAgICAoX190eXBlb2ZfXygqKHB0cikpKSBfX2NtcHhjaGcoKHB0ciksICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgXn5+fn5+fn5+Cj4gLi9pbmNsdWRlL2xpbnV4L2F0b21pYy9hdG9taWMtaW5zdHJ1bWVudGVk
-Lmg6MTkxNjo5OiBub3RlOiBpbiBleHBhbnNpb24gb2YgbWFjcm8gw6LigqzLnGFyY2hfY21weGNo
-Z8Oi4oKs4oSiCj4gICAxOTE2IHwgICAgICAgICBhcmNoX2NtcHhjaGcoX19haV9wdHIsIF9fVkFf
-QVJHU19fKTsgXAo+ICAgICAgICB8ICAgICAgICAgXn5+fn5+fn5+fn5+Cj4gZHJpdmVycy9wbGF0
-Zm9ybS9zdXJmYWNlL2FnZ3JlZ2F0b3IvY29udHJvbGxlci5jOjYxOjMyOiBub3RlOiBpbiBleHBh
-bnNpb24gb2YgbWFjcm8gw6LigqzLnGNtcHhjaGfDouKCrOKEogo+ICAgICA2MSB8ICAgICAgICAg
-d2hpbGUgKHVubGlrZWx5KChyZXQgPSBjbXB4Y2hnKCZjLT52YWx1ZSwgb2xkLCBuZXcpKSAhPSBv
-bGQpKSB7Cj4gICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn4K
-PiAKPiBTbywgZGlzYWJsZSB0aGlzIGRyaXZlciBmb3IgUklTQy1WIGV2ZW4gd2hlbiBBQ1BJIGlz
-IGVuYWJsZWQgZm9yIG5vdy4KCkNPTkZJR19TVVJGQUNFX1BMQVRGT1JNUyBzaG91bGQgYmUgZW5h
-YmxlZCBmb3IgQVJNNjQgfHwgWDg2IHx8IENPTVBJTEVfVEVTVCBvbmx5LApzbyBJIGd1ZXNzIHRo
-ZSBpc3N1ZSBvbmx5IGhhcHBlbnMgd2hlbiBjb21waWxpbmcgd2l0aCB0aGUgbGF0dGVyIGVuYWJs
-ZWQ/CgpJJ20gbm90IGF3YXJlIG9mIGFueSBjdXJyZW50IHBsYW5zIG9mIE1TIHRvIHJlbGVhc2Ug
-UklTQy1WLWJhc2VkIFN1cmZhY2UKZGV2aWNlcywgc28geW91IGNvdWxkIG1heWJlIGFsc28ganVz
-dCBleHBsaWNpdGx5IGRpc2FibGUgQ09ORklHX1NVUkZBQ0VfUExBVEZPUk1TLgpJbiBhbnkgY2Fz
-ZSwgSSBkb24ndCBzZWUgYW55IGlzc3VlcyB3aXRoIGRpc2FibGluZyB0aGUgd2hvbGUgcGxhdGZv
-cm0vc3VyZmFjZQpvciBvbmx5IGluZGl2aWR1YWwgZHJpdmVycyBmb3IgUklTQy1WLCBzbyBmb3Ig
-ZWl0aGVyIHNvbHV0aW9uOgoKQWNrZWQtYnk6IE1heGltaWxpYW4gTHV6IDxsdXptYXhpbWlsaWFu
-QGdtYWlsLmNvbT4KCj4gU2lnbmVkLW9mZi1ieTogU3VuaWwgViBMIDxzdW5pbHZsQHZlbnRhbmFt
-aWNyby5jb20+Cj4gLS0tCj4gICBkcml2ZXJzL3BsYXRmb3JtL3N1cmZhY2UvYWdncmVnYXRvci9L
-Y29uZmlnIHwgMiArLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0
-aW9uKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGxhdGZvcm0vc3VyZmFjZS9hZ2dyZWdh
-dG9yL0tjb25maWcgYi9kcml2ZXJzL3BsYXRmb3JtL3N1cmZhY2UvYWdncmVnYXRvci9LY29uZmln
-Cj4gaW5kZXggYzExNGY5ZGQ1ZmUxLi44OGFmYzM4ZmZkYzUgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVy
-cy9wbGF0Zm9ybS9zdXJmYWNlL2FnZ3JlZ2F0b3IvS2NvbmZpZwo+ICsrKyBiL2RyaXZlcnMvcGxh
-dGZvcm0vc3VyZmFjZS9hZ2dyZWdhdG9yL0tjb25maWcKPiBAQCAtNCw3ICs0LDcgQEAKPiAgIG1l
-bnVjb25maWcgU1VSRkFDRV9BR0dSRUdBVE9SCj4gICAJdHJpc3RhdGUgIk1pY3Jvc29mdCBTdXJm
-YWNlIFN5c3RlbSBBZ2dyZWdhdG9yIE1vZHVsZSBTdWJzeXN0ZW0gYW5kIERyaXZlcnMiCj4gICAJ
-ZGVwZW5kcyBvbiBTRVJJQUxfREVWX0JVUwo+IC0JZGVwZW5kcyBvbiBBQ1BJCj4gKwlkZXBlbmRz
-IG9uIEFDUEkgJiYgIVJJU0NWCj4gICAJc2VsZWN0IENSQ19DQ0lUVAo+ICAgCWhlbHAKPiAgIAkg
-IFRoZSBTdXJmYWNlIFN5c3RlbSBBZ2dyZWdhdG9yIE1vZHVsZSAoU3VyZmFjZSBTQU0gb3IgU1NB
-TSkgaXMgYW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Other extensions only capitalise the first letter in the text visible
+in Kconfig menus, and provide a short comment about the extension's
+meaning. Do the same for Svnapot & Svpbmt.
+
+The precedent for capitalisation in the Kconfig text was set by Zicbom
+& sorta followed for Zicboz. The RVI styling used for multi-letter
+extensions only capitalises the first letter, so do the same here.
+If nothing else, my OCD likes it when the extensions follow a consistent
+pattern.
+
+While editing one of the lines, reformat the "spelling" of 64-bit.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v2:
+- do the same for Svnapot too
+- s/ZICBOZ/Zicboz
+---
+ arch/riscv/Kconfig | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index cc02eb9eee1f..92e8b4d908b6 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -400,31 +400,31 @@ config RISCV_ISA_C
+ 	  If you don't know what to do here, say Y.
+ 
+ config RISCV_ISA_SVNAPOT
+-	bool "SVNAPOT extension support"
++	bool "Svnapot extension support for supervisor mode NAPOT pages"
+ 	depends on 64BIT && MMU
+ 	depends on RISCV_ALTERNATIVE
+ 	default y
+ 	help
+-	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
++	  Allow kernel to detect the Svnapot ISA-extension dynamically at boot
+ 	  time and enable its usage.
+ 
+-	  The SVNAPOT extension is used to mark contiguous PTEs as a range
++	  The Svnapot extension is used to mark contiguous PTEs as a range
+ 	  of contiguous virtual-to-physical translations for a naturally
+ 	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+ 	  size. When HUGETLBFS is also selected this option unconditionally
+ 	  allocates some memory for each NAPOT page size supported by the kernel.
+ 	  When optimizing for low memory consumption and for platforms without
+-	  the SVNAPOT extension, it may be better to say N here.
++	  the Svnapot extension, it may be better to say N here.
+ 
+ 	  If you don't know what to do here, say Y.
+ 
+ config RISCV_ISA_SVPBMT
+-	bool "SVPBMT extension support"
++	bool "Svpbmt extension support for supervisor mode page-based memory types"
+ 	depends on 64BIT && MMU
+ 	depends on RISCV_ALTERNATIVE
+ 	default y
+ 	help
+-	   Adds support to dynamically detect the presence of the SVPBMT
++	   Adds support to dynamically detect the presence of the Svpbmt
+ 	   ISA-extension (Supervisor-mode: page-based memory types) and
+ 	   enable its usage.
+ 
+@@ -432,7 +432,7 @@ config RISCV_ISA_SVPBMT
+ 	   that indicate the cacheability, idempotency, and ordering
+ 	   properties for access to that page.
+ 
+-	   The SVPBMT extension is only available on 64Bit cpus.
++	   The Svpbmt extension is only available on 64-bit cpus.
+ 
+ 	   If you don't know what to do here, say Y.
+ 
+@@ -482,7 +482,7 @@ config RISCV_ISA_ZICBOZ
+ 	depends on RISCV_ALTERNATIVE
+ 	default y
+ 	help
+-	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
++	   Enable the use of the Zicboz extension (cbo.zero instruction)
+ 	   when available.
+ 
+ 	   The Zicboz extension is used for faster zeroing of memory.
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
