@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C45C76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 16:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F95C76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 17:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JS5LxYQMB0yAqSOGpSfFCq8iXpVXUfeRVlR5zkWckOY=; b=krmx0f0J1ke5fm
-	V70dXgAAiyhH8+W+YnKz3LsZf+Pj3zPWABDt2Z3Xvln/LOt3V+SUHEDiD20FOvGDn4ag8Z7oikclH
-	0Euh0hc/+EyBgkgjAD/+PM9ByYP8CBo/MCUfVC/1AvzS8lwbWNkbusn/eIF0V8LiYNa89Hj4njV8l
-	4M1a1HrT9TyXnrOKpO2EbrfoStNa5GvKrfc2lfvHCWeQnfDam1xtXjWGslY5utAZehD3+z/ZMLTh3
-	UOUhflemaAE35gp3r6ObmC5cSSF3bBEog9YgjRnTT4phbdSwIuirStk0VfHf66soim24dDZ6fwB8y
-	Om8l04pQLSm1Vo0OEWxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rpArKwMgCN8oEG84zqTisXYDvaFySChJ51VvKwr5xm8=; b=IkB4QXFcpjci3xbCZvq7aG2kBt
+	0JLYS+OIQdHbN32vah7UVZF6AejweyJ9y4Yl5m6Wtp53ibkshaWy2QcYbpZK6oncTQK23f8uYJoQZ
+	D52u1ed8KDhtePqksBQixXaTmrKCFS1ShpbkwghPHiACaj9O8eS5M7W0cCbZBXSNVkiNje7ow8uGY
+	BYBV/4zlButzA9pS4QkonXtL5P1JO3VuDy15VPX20qduynzf51lm66PgFLARlH8uPk4+ITY/1EuPR
+	T3v050TD53GNlZQiSYxnWc9kh5B/yR/YWfdaeBMGYcHETOUsv+qdzW8rKOW7e/6W1jSxvLTd2diYv
+	bWUw1RpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk6IL-005A8r-0W;
-	Wed, 05 Apr 2023 16:47:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pk7NJ-005JdA-2B;
+	Wed, 05 Apr 2023 17:56:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk6IH-005A52-2F
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 05 Apr 2023 16:47:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bEilYgmHZ7l/bQLzCewoCvoPGpsrJtc/Cg02p3y6vwY=; b=EEFz6Bp/kqvl9+i+bP2gPF/q+R
-	gDWlQkLu8WHtVZs8BrOgi9eFZgywc47xE7ckuWBMH+feLV2ztJ42+97Es7URa+Uc7NFp9MQ9rIhCz
-	2iPzLz0R/kjaDqhfFvOG5Ljddc+YmcvjptO4N8tfGWFN/tJ1ZVniWY83M+mJMqacolu3l2F/p6qUD
-	T/luWZ7qHb3dUlA4e3WMBMfvSaBOl5ToX0VAJBLW7JpLbwyNekwaN3qSQdU9t/8M2LTHw8qwHLezp
-	Se4FRC5iN8Jy1KJfWGuQPDpc+8PMjgMi+42YhQ54GfGYu4AkG2pQWE7o1vav+FCBId+TsWhGtzoiA
-	AI+KJrPg==;
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk5NV-009zsl-1z
+	id 1pk7NG-005JcZ-0f
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 15:48:56 +0000
-Received: by mail-wr1-x431.google.com with SMTP id y14so36706074wrq.4
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Apr 2023 08:48:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680709729;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bEilYgmHZ7l/bQLzCewoCvoPGpsrJtc/Cg02p3y6vwY=;
-        b=Ii4Yh1EZdQ+aZCFlOdXALbTzJ1og9QLtlkYzPUC/jenIpbvCTAT0yz5svZia5Dsl1w
-         mGkKFXAUN0KzkkryuKYnwJ6p3L6Z+qsljm01JFxeE7zmIjwX5cLHYn8zBvpgLlFuMuav
-         8jxkSKuZH9BAdTMcA2X8UUu0G6oYMk6Lr12Ae6qn/IPyDpTnSfY2TxlOw/mYokArg6+w
-         dnZdHco7kHmKFs4gJLTE/AG1qnsUKkgXLocGdcrsfiP1S/xSx/bLc4Ymz6gVsdzsjpg+
-         eVaWKpeTl0R2tu3cAhkiEmGWlV62XMGm2jA++kxMNn/QtnvyzDPFk0IzPFn8j0T74gki
-         kTFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680709729;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bEilYgmHZ7l/bQLzCewoCvoPGpsrJtc/Cg02p3y6vwY=;
-        b=RKaRxI5MK59405JMNBELgOB3WTzsfYZBvPTKFDfKs3wfB4VStrlI86h3InkJ8zwmOr
-         tanzInrt/e2yV2KNNJ+M/eVQS0E2RAklXtCWG0mPq4o/20RoYsGKCTn04Tzk8leMAdxd
-         aIsfaLx1CKeSoFHuFW6HWoiTNZQ7wvldDDxsyQNw/jdQMtv1ux4i/GgIvnksRM/6pGQh
-         WgZSw98xxIsJBLq3Q7XoH+B9yaSPoDHkgvVSOlMYN76rtAS8PJSOKsEWxRNjK3HWRL2r
-         NmoOk3IUNEP3hFpoM2uYcm4UE63B2uRoyteLhzcGRub9WYa/WQ+q232f2TAtB3XI+O9f
-         rvXw==
-X-Gm-Message-State: AAQBX9dOCtATs01cOeRjHbACqDl7rlKgyHUGDZaM2oKub3skqHX3AffB
-	p8cRyrkK5harBahForLtazFesQ==
-X-Google-Smtp-Source: AKy350a/4RpDuNaKeLXizakCjVT0nJJ/3/P77NUAVFXOsWcY6UUfArIEbAgLCUIHrv9hqeDQ0bOQAw==
-X-Received: by 2002:adf:d0ce:0:b0:2ce:ab0a:81fe with SMTP id z14-20020adfd0ce000000b002ceab0a81femr3890449wrh.62.1680709728645;
-        Wed, 05 Apr 2023 08:48:48 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id y16-20020adfe6d0000000b002df7c38dc3esm15375973wrm.87.2023.04.05.08.48.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Apr 2023 08:48:48 -0700 (PDT)
-Date: Wed, 5 Apr 2023 17:48:47 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Weili Qian <qianweili@huawei.com>, Zhou Wang <wangzhou1@hisilicon.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Marc Zyngier <maz@kernel.org>, 
-	Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hdegoede@redhat.com>, 
-	Mark Gross <markgross@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, "David S . Miller" <davem@davemloft.net>, 
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH V4 15/23] irqchip/riscv-intc: Add ACPI support
-Message-ID: <qxftlofleo2bpyqa5lyshiluc5cd37u4hljn4bh7noxv7g5pno@ldvh6gkyrlzu>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-16-sunilvl@ventanamicro.com>
+	Wed, 05 Apr 2023 17:56:47 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 880C4627FF;
+	Wed,  5 Apr 2023 17:56:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E091C433D2;
+	Wed,  5 Apr 2023 17:56:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680717400;
+	bh=jVAC+4ymjcbvNsupEft+6hBzdRCfnsofg1xrrfqn2EE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VtGkj96fnXFRhZOFW35CsBKWfZ1/hZZH22iSRV99oWKoubYmnccIzXR0hKMt3LRNV
+	 YCF7wADFu0UjIdtw/et1GgDXbcfonja4xyX97aUkHEKffk/VbfeJrwEGwyflIiYqjP
+	 o4cYJ3hrSJp695Jkk7u6UuuKeZHM8oXWOP7v78C9PsmpY6/AC190FdW57Wk7WXAszk
+	 zgBUnuWdUR/s57car2zRtQIuxBJJvuCy4njGmveVwu/Yc/YLRDD3qG1gam/ol7JgTj
+	 xnMEaLC/V3zH1VtaAcytv1ZReq7Q5Du3WPmo9CHK5xcuBupoB3YC3KLYlv6RlOnQw2
+	 eTCAQCaIkYZBg==
+Date: Wed, 5 Apr 2023 18:56:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	ndesaulniers@google.com, trix@redhat.com,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	patches@lists.linux.dev
+Subject: Re: [PATCH] riscv: Adjust dependencies of HAVE_DYNAMIC_FTRACE
+ selection
+Message-ID: <20230405-dejected-unending-28e29d89f206@spud>
+References: <20230404-riscv-dynamic-ftrace-checks-clang-v1-1-0ce296b7d423@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230404182037.863533-16-sunilvl@ventanamicro.com>
+In-Reply-To: <20230404-riscv-dynamic-ftrace-checks-clang-v1-1-0ce296b7d423@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_164853_814794_6CFAA46F 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20230405_105646_324454_C26D9CAE 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,149 +71,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0998688316921192989=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 04, 2023 at 11:50:29PM +0530, Sunil V L wrote:
-> Add support for initializing the RISC-V INTC driver on ACPI
-> platforms.
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+--===============0998688316921192989==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Y/qRivkW8sHyiGgn"
+Content-Disposition: inline
+
+
+--Y/qRivkW8sHyiGgn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Apr 04, 2023 at 01:34:21PM -0700, Nathan Chancellor wrote:
+> When building allmodconfig with clang and its integrated assembler and
+> linking with a version of GNU ld prior to 2.36, the following link error
+> occurs:
+>=20
+>   riscv64-linux-gnu-ld: .init.data has both ordered [`__patchable_functio=
+n_entries' in init/main.o] and unordered [`.init_array.0' in kernel/trace/t=
+race_benchmark.o] sections
+>   riscv64-linux-gnu-ld: final link failed: bad value
+>=20
+> This is the same error addressed by commit 45bd8951806e ("arm64: Improve
+> HAVE_DYNAMIC_FTRACE_WITH_REGS selection for clang") for arm64. See that
+> changelog for a full description of why this error occurs with this
+> combination of tools.
+>=20
+> In a similar manner as that change, restrict the
+> CONFIG_HAVE_DYNAMIC_FTRACE selection to combinations of tools known to
+> work so that there are no errors.
+>=20
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1817
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/irqchip/irq-riscv-intc.c | 74 ++++++++++++++++++++++++++------
->  1 file changed, 61 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-> index f229e3e66387..6b476fa356c0 100644
-> --- a/drivers/irqchip/irq-riscv-intc.c
-> +++ b/drivers/irqchip/irq-riscv-intc.c
-> @@ -6,6 +6,7 @@
->   */
->  
->  #define pr_fmt(fmt) "riscv-intc: " fmt
-> +#include <linux/acpi.h>
->  #include <linux/atomic.h>
->  #include <linux/bits.h>
->  #include <linux/cpu.h>
-> @@ -112,6 +113,30 @@ static struct fwnode_handle *riscv_intc_hwnode(void)
->  	return intc_domain->fwnode;
->  }
->  
-> +static int __init riscv_intc_init_common(struct fwnode_handle *fn)
-> +{
-> +	int rc;
+>  arch/riscv/Kconfig | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index eb7f29a412f8..4b82838ac870 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -136,12 +136,23 @@ config RISCV
+>  	select TRACE_IRQFLAGS_SUPPORT
+>  	select UACCESS_MEMCPY if !MMU
+>  	select ZONE_DMA32 if 64BIT
+> -	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatch=
+able-function-entry=3D8)
+> +	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYN=
+AMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+>  	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_GRAPH_TRACER
+>  	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+> =20
+> +config CLANG_SUPPORTS_DYNAMIC_FTRACE
+> +	def_bool CC_IS_CLANG
+> +	# https://github.com/llvm/llvm-project/commit/6ab8927931851bb42b2c93a00=
+801dc499d7d9b1e
+> +	depends on CLANG_VERSION >=3D 130000
+> +	# https://github.com/ClangBuiltLinux/linux/issues/1817
+> +	depends on AS_IS_GNU || (AS_IS_LLVM && (LD_IS_LLD || LD_VERSION >=3D 23=
+600))
 > +
-> +	intc_domain = irq_domain_create_linear(fn, BITS_PER_LONG,
-> +					       &riscv_intc_domain_ops, NULL);
-> +	if (!intc_domain) {
-> +		pr_err("unable to add IRQ domain\n");
-> +		return -ENXIO;
-> +	}
-> +
-> +	rc = set_handle_irq(&riscv_intc_irq);
-> +	if (rc) {
-> +		pr_err("failed to set irq handler\n");
-> +		return rc;
-> +	}
-> +
-> +	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
-> +
-> +	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> +
-> +	return 0;
-> +}
-> +
->  static int __init riscv_intc_init(struct device_node *node,
->  				  struct device_node *parent)
->  {
-> @@ -133,24 +158,47 @@ static int __init riscv_intc_init(struct device_node *node,
->  	if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
->  		return 0;
->  
-> -	intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-> -					    &riscv_intc_domain_ops, NULL);
-> -	if (!intc_domain) {
-> -		pr_err("unable to add IRQ domain\n");
-> -		return -ENXIO;
-> -	}
-> -
-> -	rc = set_handle_irq(&riscv_intc_irq);
-> +	rc = riscv_intc_init_common(of_node_to_fwnode(node));
->  	if (rc) {
-> -		pr_err("failed to set irq handler\n");
-> +		pr_err("failed to initialize INTC\n");
+> +config GCC_SUPPORTS_DYNAMIC_FTRACE
+> +	def_bool CC_IS_GCC
+> +	depends on $(cc-option,-fpatchable-function-entry=3D8)
 
-The ACPI version doesn't output this error when riscv_intc_init_common()
-fails. It should probably be consistent. Either removing it here, if the
-errors output within riscv_intc_init_common() are sufficient, or adding
-it to the ACPI version.
+I thought about merging these, but I think you just end up with
+something that is difficult to grok. Explanation in the arm64 is pretty
+good & the change follows.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
->  		return rc;
->  	}
->  
-> -	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
-> -
-> -	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> -
->  	return 0;
->  }
->  
->  IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
-> +
-> +#ifdef CONFIG_ACPI
-> +
-> +static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
-> +				       const unsigned long end)
-> +{
-> +	int rc;
-> +	struct fwnode_handle *fn;
-> +	struct acpi_madt_rintc *rintc;
-> +
-> +	rintc = (struct acpi_madt_rintc *)header;
-> +
-> +	/*
-> +	 * The ACPI MADT will have one INTC for each CPU (or HART)
-> +	 * so riscv_intc_acpi_init() function will be called once
-> +	 * for each INTC. We only do INTC initialization
-> +	 * for the INTC belonging to the boot CPU (or boot HART).
-> +	 */
-> +	if (riscv_hartid_to_cpuid(rintc->hart_id) != smp_processor_id())
-> +		return 0;
-> +
-> +	fn = irq_domain_alloc_named_fwnode("RISCV-INTC");
-> +	if (!fn) {
-> +		pr_err("unable to allocate INTC FW node\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	rc = riscv_intc_init_common(fn);
-> +	return rc;
 
-nit: If we don't add the error message here, then rc can be removed and we
-can just do
+--Y/qRivkW8sHyiGgn
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  return riscv_intc_init_common(fn);
+-----BEGIN PGP SIGNATURE-----
 
-And, if we remove the error above, then we reduce the return there too.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC22VAAKCRB4tDGHoIJi
+0p76AP9x5WZy9i0kDAHbGvogZ6rJrVgolnqAW0uZIAwGqZdHPAD8Ds6dJzr3hChp
+JMo2BHpHOC9Dn+Zzu8NxlXecUBFqAgc=
+=4TDW
+-----END PGP SIGNATURE-----
 
-> +}
-> +
-> +IRQCHIP_ACPI_DECLARE(riscv_intc, ACPI_MADT_TYPE_RINTC, NULL,
-> +		     ACPI_MADT_RINTC_VERSION_V1, riscv_intc_acpi_init);
-> +#endif
-> -- 
-> 2.34.1
-> 
+--Y/qRivkW8sHyiGgn--
 
-Thanks,
-drew
+
+--===============0998688316921192989==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0998688316921192989==--
+
