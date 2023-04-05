@@ -4,100 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00663C76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 15:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B289C7619A
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 15:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i8Puye87mc1vj0/FSRfs0qzReEkkObEiGnuuW90wics=; b=AyQYZFdDJ4MN2j
-	uG47Dx4tDRnmhUopkP/4wNDkWnYbUQRWLd7GRMjLZVkGMchA0u9k62EjiVxRPtP9XKO9Diwi1YiWP
-	xWH4gSvDrkY50LGUiQRcNgjdthDm7V3TIQ9NOfL+tz0y0GCZfXDgNIIP8eYFzPbmvO3k2Bs7n1fRQ
-	eXsfzUTSaKjBrOLeuIv+8V6I2Y+fkuLq9z0vAqKq5wH+kyfljcORHuWEyy3gX6n2WHI7I/fZjN1GU
-	61o5mhVgiPM2amJ9JpDHKCbn/9xuxuRSugFTOkRd0lTD7OvKSlyAlue2C9ryn/LU1N/PZBIXb3Ccs
-	Hwz0dTOzgi8d8kIhSmag==;
+	List-Owner; bh=VZGwR5Dco4y5f7b1bYOvwAbVJRk+MgEshEwS5NB9gCU=; b=yoDWi84MzcLBwC
+	t5vfhHjl6MheEttbA7PwREeUlN8GMYC+J+uGvQa7vowlCmRT1GMSMVAO4ehQDeHCiOkonwiD7N2LK
+	+zLgGFa9HmDRPVGZsSfycN7WCCRIMkAZmn/BRt9+S5osQ/A8lTUKfUd7tUBi5iQDJVndmiHpNQVmG
+	wZRyeTo84RET7cVbQ7p9eKgEfH3fuW4RhjZIN5hW486/6IeSQPd1ZpoJF3z3LKWB/ZoMMuYEx90w1
+	tVLJvLKr4aJJU1VIAy4Lwm3X9F3N+3QbZaUqkfWEyRaRkg3s0ILmGGm7UBwWC61gbUn6RnknDEEI4
+	zcOvL14ItcwFJkkEhy8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk4oC-004p8P-0i;
-	Wed, 05 Apr 2023 15:12:24 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1pk4pM-004pNL-10;
+	Wed, 05 Apr 2023 15:13:36 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk4o7-004p4d-1Z
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 15:12:23 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id p13-20020a17090a284d00b0023d2e945aebso4255395pjf.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Apr 2023 08:12:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680707527;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uc9pS7LWOx9W2W+bVOlzBxwPbz5vuE1RzHaVZSPLmto=;
-        b=E1iN/rVli6IlEc+9dtSf766sTAMDsKoBOf9+0HqG/1UKxBY9CsRrocmEKMyToLlGz4
-         gMn6oqiNZ2oMqeY+GCNgDGhKqzkpTMAFFbowFGbmLQ9VD3ZuzCvBevmg56kH26n23Rmb
-         pbtQjZFZUMnZs1F+k9M/tQLTuSqOdPg7cHgV/Fn6G7azHT/tkIxNegBxHN0JT5DrumSE
-         3F/7mc2bp3puj/e/PI/bFn4DGw984aOT8BFORB2XD4EqHbdNt6OXltvazgvL0dausRra
-         E7UOXUBJs9OCJZQQVHxikMXd3WNStS19nw7frBf76aEmS5gjvAKrr4C3jKExIkVaX/r9
-         JBDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680707527;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uc9pS7LWOx9W2W+bVOlzBxwPbz5vuE1RzHaVZSPLmto=;
-        b=1sO660dNPCTAOwx1/9gR8wrPSQmltYqnMMIy1xFgjoqaalVC9YzWidDnehBPz51jf0
-         4V0qZwFgd8/z8PfkOMxR9phD5wKNxoJTfEfCuBemRu2Lfk0ZRiAt2yCDOcaNxxYuqmP/
-         29ZrKJtVVOR1tMlExpCTLJu36KtEXkHI86/uyMPaXuPxE2JUoqsqAZPHO8Dq4Ji00PPW
-         hOdh0x1lKBDYoNbWV0WJW/pAKIPSVUjCS7296556WM9VnHwtW7+HLEEi9Y3qU3CBu5s7
-         jA54bWPJlTePUAHq1nocdlo7I4+umBchdVmqv2q88jq2zEHr8HeA/QNHB8ILCg+L4xJL
-         otGQ==
-X-Gm-Message-State: AAQBX9f2Y6hl6ecnwadxM4zVzVVizQoMXjy7/fMY4ZbQJRnNr1iP0xuM
-	KLPActTm9iwPjWRb0Imsm9nmbg==
-X-Google-Smtp-Source: AKy350acIs5ZpayOCA2w9KEEQrlHejGlhpqGSCjTnMb7JdKR0jSYZZQPlwOcN3qK4L6jamW1VaYfVw==
-X-Received: by 2002:a05:6a20:6b98:b0:df:81de:93dc with SMTP id bu24-20020a056a206b9800b000df81de93dcmr6125484pzb.34.1680707527314;
-        Wed, 05 Apr 2023 08:12:07 -0700 (PDT)
-Received: from sunil-laptop ([106.51.184.50])
-        by smtp.gmail.com with ESMTPSA id x24-20020a62fb18000000b00582f222f088sm10810109pfm.47.2023.04.05.08.11.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Apr 2023 08:12:06 -0700 (PDT)
-Date: Wed, 5 Apr 2023 20:41:54 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, Tom Rix <trix@redhat.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Weili Qian <qianweili@huawei.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Mark Gross <markgross@kernel.org>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Len Brown <lenb@kernel.org>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH V4 19/23] RISC-V: Add ACPI initialization in setup_arch()
-Message-ID: <ZC2PuiY5Xscz305H@sunil-laptop>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-20-sunilvl@ventanamicro.com>
- <20230404-escalator-fridge-daf9aaffad12@spud>
+	id 1pk4pI-004pLs-1X;
+	Wed, 05 Apr 2023 15:13:34 +0000
+Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 335Ex0qK002073;
+	Wed, 5 Apr 2023 15:12:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=EP7H/BG3XCUIVobBKkorHkQj2TA2B5DpLLQdBFgYKS4=;
+ b=XbWxDBkfY2fo/oPyI6TrXqcU1euUz4IzeWoGlM8pMsRk498yO8yVE/7T1S6eJTb2S1UY
+ Ce4n6uRJXGbJACtJS5PEQm7yDaXiLZ77NckRKQQQ5DNapH75rb5fd/ItpAm5JdaIGkJB
+ EjYbhhlQ0ryc2KE5ooaYTcsk8RJlUZZfLediFtvaH7EkQ1SjyGt/Xzy43DdKyba2DK/C
+ mj3z1Ouz77q3PQdLEc8JzeNlXRNO2YNOk1g5JnRZp+nfYv7EYFBF1bpKeDuLr8vDL+6n
+ b4UH/HRs8HkTZNjSxDyvmPDruJP3v3TVMAV46NXQWSanaU69dM9Hykbwz50y1ICQraWy Mw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3ps9mdkkrq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Apr 2023 15:12:47 +0000
+Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 335Ena21018706;
+	Wed, 5 Apr 2023 15:12:46 GMT
+Received: from ppma04fra.de.ibm.com (6a.4a.5195.ip4.static.sl-reverse.com [149.81.74.106])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3ps9mdkkpp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Apr 2023 15:12:45 +0000
+Received: from pps.filterd (ppma04fra.de.ibm.com [127.0.0.1])
+	by ppma04fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 335DwTrM010607;
+	Wed, 5 Apr 2023 15:12:43 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma04fra.de.ibm.com (PPS) with ESMTPS id 3ppc86tktp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Apr 2023 15:12:43 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 335FCejC27853382
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Apr 2023 15:12:40 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7493520040;
+	Wed,  5 Apr 2023 15:12:40 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CE7A920043;
+	Wed,  5 Apr 2023 15:12:38 +0000 (GMT)
+Received: from [9.155.211.163] (unknown [9.155.211.163])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  5 Apr 2023 15:12:38 +0000 (GMT)
+Message-ID: <248a41a536d5a3c9e81e8e865b34c5bf74cd36d4.camel@linux.ibm.com>
+Subject: Re: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it
+ as necessary
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+        Richard Henderson
+ <richard.henderson@linaro.org>,
+        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+        Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Geert
+ Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley
+ <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+ <aou@eecs.berkeley.edu>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich
+ Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Bjorn Helgaas
+ <bhelgaas@google.com>,
+        Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+ <u.kleine-koenig@pengutronix.de>,
+        Mauro Carvalho Chehab
+ <mchehab@kernel.org>,
+        Alan Stern <stern@rowland.harvard.edu>,
+        "Rafael J.
+ Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
+        Arnd Bergmann
+ <arnd@kernel.org>,
+        Johannes Berg <johannes@sipsolutions.net>, linux-alpha@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+        loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+Date: Wed, 05 Apr 2023 17:12:38 +0200
+In-Reply-To: <20230323163354.1454196-1-schnelle@linux.ibm.com>
+References: <20230323163354.1454196-1-schnelle@linux.ibm.com>
+User-Agent: Evolution 3.46.4 (3.46.4-1.fc37) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: Chh8ozZVKyRilF6r1sDguQSl3KT7MF3_
+X-Proofpoint-GUID: RSLPMutPzrPKT5ywknWUr1qrnGdzz6Rn
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230404-escalator-fridge-daf9aaffad12@spud>
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-04-05_09,2023-04-05_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 phishscore=0 priorityscore=1501 mlxscore=0
+ lowpriorityscore=0 adultscore=0 clxscore=1011 bulkscore=0 spamscore=0
+ malwarescore=0 mlxlogscore=438 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2303200000 definitions=main-2304050136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_081219_524010_309BC949 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20230405_081332_658458_C5E05A63 
+X-CRM114-Status: GOOD (  32.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,54 +160,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 04, 2023 at 10:38:56PM +0100, Conor Dooley wrote:
-> On Tue, Apr 04, 2023 at 11:50:33PM +0530, Sunil V L wrote:
-> > Initialize the ACPI core for RISC-V during boot.
-> > 
-> > ACPI tables and interpreter are initialized based on
-> > the information passed from the firmware and the value of
-> > the kernel parameter 'acpi'.
-> > 
-> > With ACPI support added for RISC-V, the kernel parameter 'acpi'
-> > is also supported on RISC-V. Hence, update the documentation.
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+On Thu, 2023-03-23 at 17:33 +0100, Niklas Schnelle wrote:
+> We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
+> Port access. In a future patch HAS_IOPORT=n will disable compilation of
+> the I/O accessor functions inb()/outb() and friends on architectures
+> which can not meaningfully support legacy I/O spaces such as s390.
 > 
-> > +	/* Parse the ACPI tables for possible boot-time configuration */
-> > +	acpi_boot_table_init();
-> > +	if (acpi_disabled) {
-> > +		if (IS_ENABLED(CONFIG_BUILTIN_DTB)) {
-> > +			unflatten_and_copy_device_tree();
-> > +		} else {
-> > +			if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
-> > +				unflatten_device_tree();
-> > +			else
-> > +				pr_err("No DTB found in kernel mappings\n");
-> > +		}
-> > +	} else {
-> > +		early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa)));
+> The following architectures do not select HAS_IOPORT:
 > 
-> I'm probably forgetting something, but this seems very non-obvious to
-> me:
-> Why are you running early_init_dt_verify() when ACPI is enabled?
-> I think that one deserves a comment so that next time someone looks at
-> this (that doesn't live in ACPI land) they've know exactly why this is
-> like it is.
+> * ARC
+> * C-SKY
+> * Hexagon
+> * Nios II
+> * OpenRISC
+> * s390
+> * User-Mode Linux
+> * Xtensa
 > 
-> Doubly so since this is likely to change with some of Alex's bits moving
-> the dtb back into the fixmap.
+> All other architectures select HAS_IOPORT at least conditionally.
 > 
-Good question. The kernel creates a tiny DTB even when the FW didn't
-pass the FDT (ACPI systems). Please see update_fdt(). So, parse_dtb()
-would have set initial_boot_params to early VA and if we don't call
-early_init_dt_verify() again with __va, it panics since
-initial_boot_params can not be translated.
+> The "depends on" relations on HAS_IOPORT in drivers as well as ifdefs
+> for HAS_IOPORT specific sections will be added in subsequent patches on
+> a per subsystem basis.
+> 
+> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+> Acked-by: Johannes Berg <johannes@sipsolutions.net> # for ARCH=um
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+> ---
+> Note: This patch is the initial patch of a larger series[0]. This patch
+> introduces the HAS_IOPORT config option while the rest of the series adds
+> driver dependencies and the final patch removes inb() / outb() and friends on
+> platforms that don't support them. 
+> 
+> Thus each of the per-subsystem patches is independent from each other but
+> depends on this patch while the final patch depends on the whole series. Thus
+> splitting this initial patch off allows the per-subsytem HAS_IOPORT dependency
+> addition be merged separately via different trees without breaking the build.
+> 
+> [0] https://lore.kernel.org/lkml/20230314121216.413434-1-schnelle@linux.ibm.com/
+> 
+> Changes since v3:
+> - List archs without HAS_IOPORT in commit message (Arnd)
+> - Select HAS_IOPORT for LoongArch (Arnd)
+> - Use "select HAS_IOPORT if (E)ISA || .." instead of a "depends on" for (E)ISA
+>   for m68k and parisc
+> - Select HAS_IOPORT with config GSC on parisc (Arnd)
+> - Drop "depends on HAS_IOPORT" for um's config ISA (Johannes)
+> - Drop "depends on HAS_IOPORT" for config ISA on x86 and parisc where it is
+>   always selected (Arnd)
+> 
+
+Gentle ping. As far as I can tell this hasn't been picked to any tree
+sp far but also hasn't seen complains so I'm wondering if I should send
+a new version of the combined series of this patch plus the added
+HAS_IOPORT dependencies per subsystem or wait until this is picked up.
 
 Thanks,
-Sunil
+Niklas
+
 
 _______________________________________________
 linux-riscv mailing list
