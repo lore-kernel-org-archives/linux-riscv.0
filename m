@@ -4,138 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBE4C76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 06:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85FBC76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 06:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1m8l0Zy0zNnqubrsbhtDaTpFeQc3Bq38wSpuEkd/qOA=; b=3qPWVC/z4WtV5P
-	srJvXeABSOeo7+KsvhG42TB1mOXlsyqXbvhQZieF1uLbA43MIu5vXIk1VEx5Wl1AKE6kxmFTux9pJ
-	9fbk736waM47NfHSmCpcASLO9eIA3GqKA1IX/vMCZuW8K9OXDsRaIWpYj1DPynGM/C7b9tsPauW7h
-	cZr2kIbMU4rmgslZzLmHalszeEeza4rnJ2QT4u0k2y12F8ZUcoeuyM3rfQjFmmJDc2zwodYo9Yq3m
-	1ujsUMLDLvGL0sm2eDCnZLh2WARdYOa4fgo4QjOrzfmHkQ9qCr1Db2yOXyss4xdaQe4ezocZli6UE
-	mQxia1zKcYjmJl9KLBgQ==;
+	List-Owner; bh=dF9roVMAhvkwH/sI8dGQ7zlGzEYUx3kFWrctojhEfFk=; b=gJFExgLIF8KF3r
+	rat12NqnR0JYmyKdy1UWPCETAa1rGfIRy+sTYgoB/EluSdeqmU8eGZZyMSKMUm2ALdwr+a/eBN0gF
+	l/GfbEX9UuUGUDkKPRaok93ep8A2bO0b0PcBLAKaH+N8b2heGljFpYlnVja16/PhAuvuyD3/WfSOV
+	o6c3U8MuWXCqVmR6sZQrHLAz6Ne/vyNjHkx+xpk2Cle1xBVvZ2iMYEaodfHecm4ZxmEemmTXc+G50
+	T2fPf+pZ8tQrBeXPxBdhcTy2GE2TL/t/QOOM0RuMSFi7BbzpEES5R4ocDDNXQaehHHRyosisG9tUR
+	U8+Z1kFKlLbQt5/DQ+Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjwK5-003TAB-2u;
-	Wed, 05 Apr 2023 06:08:45 +0000
-Received: from mail-os0jpn01on20705.outbound.protection.outlook.com ([2a01:111:f403:700c::705] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1pjwip-003WT8-0P;
+	Wed, 05 Apr 2023 06:34:19 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjwJz-003T6t-0X
+	id 1pjwij-003WR6-2D
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 06:08:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mWCIqn9FAWvQyh2Xdsa7wPZyE3hzlRsT3Cmq71n2Foplnw3XU9/dgeVw6OMyJ0CRnaS0a8hGBphtglx9IbhBzDZvsN7+QO/ZeSPLpwrI6EePuLOSvnUZ7f/inojoefpIVdNF2gXw4EWH+YCKfqV72AFAiArO0e6FThw2J93/DTQIibQ9VWf8VAjyzKVUbgyHxOZOADD3MsJ2ILWv0YLyl0VERgQR2abVZVaEQiQdwh5Z3DWzToCm6Xb6fb7Jf+2rqwUj4Ks1y/zFzuEPv01Dw7Rj7uhp2qXcmGKS+3tXrXdfUaDHTLt7J8hZG8ckVAn7Jivn4Hs0hbu3GZwzQR15tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jn1R5+IUfWJh6oiwJsqZlehate+V2x6IliHUGAQrfdY=;
- b=k32MYBMCf9WgRtvu5IthYQg9pDKz9ZvgQ2cWN79Uz4kS+a0DZMfjfrDh3hrrG0eLgDLHCsun/DHY3LOkPJ/SpFCCVbCcNQZaeZyv5rC04+qU8VACgnmsn+ro4V2yR8coVivixiMPSyAghtS6geRe3Wo8F1FGax9jFwbRakoUnU5ULMpm8gHs0GsQBnsWQ8G/ZQZp5nD6HnHG2nIvd2OmG9pSKpIN9rs+N7zdTnFUxsmTqG22K2jsz6bfnlVCbV8QJbWnk6f3TiwSJnkgNbDlwDnJbW3oFnwgf9BPbDyebbJjlEQWaRfxfspy/HCjkrSA9QtL4PEUYeaULQ5vE98mEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jn1R5+IUfWJh6oiwJsqZlehate+V2x6IliHUGAQrfdY=;
- b=HW5OxP6pCbxNt4nJqxwXoqMljkdc/IUuK2Slr7d3zw0YeEutju6zIY2FhF5R8QQzC9YwVqKjnx56IFg0nSnL/rQarxWAKJTYt+j0urW1mVuDe961hUB7OYXxNEK7Vciwpw41PUM5dJ0D2ckzU8O7IAk/qBWq4MJ0R038FnJ2UCU=
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com (2603:1096:604:bb::5)
- by TYCPR01MB8173.jpnprd01.prod.outlook.com (2603:1096:400:102::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6254.34; Wed, 5 Apr
- 2023 06:08:27 +0000
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::e521:994c:bb0e:9bf6]) by OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::e521:994c:bb0e:9bf6%8]) with mapi id 15.20.6254.035; Wed, 5 Apr 2023
- 06:08:27 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Christoph Hellwig <hch@infradead.org>
-CC: Prabhakar <prabhakar.csengg@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Arnd
- Bergmann <arnd@arndb.de>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Samuel Holland <samuel@sholland.org>, Heiko Stuebner <heiko@sntech.de>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Prabhakar
- Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh+dt@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Andrew
- Jones <ajones@ventanamicro.com>
-Subject: RE: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
- pointers for cache management
-Thread-Topic: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
- pointers for cache management
-Thread-Index: AQHZY0gufzzLDccxyUW8wSwyIaAovK8apkQAgAAN0RCAAJ1igIAA8IhA
-Date: Wed, 5 Apr 2023 06:08:27 +0000
-Message-ID:  <OS0PR01MB592238D5F77EC74D1EBFB78E86909@OS0PR01MB5922.jpnprd01.prod.outlook.com>
-References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <ZCu1tFrQCVe2sgNz@infradead.org>
- <OS0PR01MB59224C99770F84D8CE2D0DBA86939@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <ZCxFUb8+eQPzqBmo@infradead.org>
-In-Reply-To: <ZCxFUb8+eQPzqBmo@infradead.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS0PR01MB5922:EE_|TYCPR01MB8173:EE_
-x-ms-office365-filtering-correlation-id: 9ca00b90-0560-4563-2f00-08db359c2c1f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  3m882kjNpMN8LrCs1leljyD7hYGfzOGoNCtZVUCx1QyLBQ+jWfj8p2drjUiTdT9hgHPWUxLerAOcbxWDhFBCKC9zFsVfuyiPFDd/BlEjjIVPp9oTRw+3KwDLI+JBggHwvEOR7xG0wSCp+pJ/GXSj7Q2aa58RlncruQ6vfUQwPhcUmvpgIRmNuJ9uBuWYaRyDavxpOjcL8IXneQVpO0K7wr46IpSYPQiAIxYI0HqD6l8xUTUVY4Lf8E5sUymhw7K2UkwqsrpqAVvGKjqizo312d1KcOsQyBPJMrD1JqmKrG0Z4zfGDUcbMiQHuxzsI8C+OcDxT7nL0Re1ABGZgqr3zGgVgAbsq9Vrs+u5/4gdTOU+hO5mntC1hoD+5xskZS1gQPlOdCP3KJpOcDroRbICdhHw7OfmYUYc3XL7ntRTqdh6xlm8S4izhwZpqdWVBh+KMC3OLW/P95doiTJac5oMf9eva1mE2zQC8XyiMBLg1S/gOugNGfglT7/WPfXPMdqX2l2MkDPpZ9UuBkPTYkQ+YvgFZLMu89mgW6cJewx4CAuoSqz56C+YeCRZ2tRuqyfArPQTCtToVTKM4KQ3umT3SdCx9VyTzB3XxWDAwDXWOqA=
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS0PR01MB5922.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(136003)(366004)(346002)(396003)(39860400002)(376002)(451199021)(66556008)(26005)(9686003)(6506007)(122000001)(38100700002)(41300700001)(7696005)(71200400001)(186003)(66476007)(66446008)(54906003)(316002)(66946007)(478600001)(7416002)(2906002)(4326008)(64756008)(4744005)(76116006)(6916009)(55016003)(86362001)(33656002)(8676002)(5660300002)(38070700005)(52536014)(8936002);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?us-ascii?Q?RX8GxbabGbg0SjuDlJclS/BRMmIakfG4MN540VnrJRIILfLZ33nbIfTCYVkS?=
- =?us-ascii?Q?3hN+8xjrP7MgoSoJ2ScRlDP41NDg799wI9vBsMyZ7NoT0BRsGoS2Z9oap7so?=
- =?us-ascii?Q?/TgMYZswzj/mvV3TCtorkg1+E83WHopZKIZLPTOZkMypamL9zE+g49XDQ05E?=
- =?us-ascii?Q?vPdZia7s42Rk3yNzAN1E9Slz5gC3eQ4x2X2Ym1ZjXP1B8g6WFuT0kk/OcN7P?=
- =?us-ascii?Q?t1fRABO8EFcThe3vgkmIwQYavniO6XWRn/JLQBVjLTimlI9qnomifUgcvh0j?=
- =?us-ascii?Q?GlPFVvk9ZazpQZD0oHWfGJTohpTGZn4d+z7ZQoXYeSThlJLNeemC27Jp6ZZO?=
- =?us-ascii?Q?VEs21o0M09JOd9Ua1xffLYVl3u2C7o/43E4R1LMk048JLQQ2e761JT/AaK0k?=
- =?us-ascii?Q?DzdegWE9A5XsXyi7ECBwrWL7W572O0+1+WLbKwqh+fL5dLNnPQocvVWz8j1U?=
- =?us-ascii?Q?mDhO1t0oDGB4hcthSOEgJRtdiSTGb8j4VpfwVu/cdFe0a71dCi3mWQOB3RCb?=
- =?us-ascii?Q?CNjq33+Uup4G8Zn8/7MqzNsXcmNXx2tp4V7ZkYeLh4THIxUxTgAKka7bpVIP?=
- =?us-ascii?Q?gpr/wR7Gt4kqNaT6loTTmi/WiOsXyNBJrP0rbXX+YQUYH0mBykPjyNUulGBv?=
- =?us-ascii?Q?Cwtkj36qLGSb7wFc9JG9jmzIiqkmzUv7k9RLlpVfUg5LS3Zp1eWqIOeqg3ii?=
- =?us-ascii?Q?fFyoPa3TCEPyuSebimeUbe5XmExhu88+D1FK9MYxGUiPMxsVYhB3JdNF0piZ?=
- =?us-ascii?Q?SXX9YAyeVSVyx1LWo0N6QhZcoak/zq7hmWpWtV4T1frtxA+reZrgZeMZ/dlc?=
- =?us-ascii?Q?SjJdsJuHoGCB4o85zSwaqBS2NhNhAERhL6jqyXkbLXmhG3fXUpHaXS88OXAp?=
- =?us-ascii?Q?GDwz8I9p3ox2c8e+StVz2+hFlvtAoaIijreOyLt9iEuNELobItKOzO7Yfb1a?=
- =?us-ascii?Q?+18v/Q0Kudwyv0QJcxG3nkGITukgwtFqs7D5ibLwHDPfYWWIQjSpDH+uZNOU?=
- =?us-ascii?Q?1uEoDF8f9hLI8HZEReGR67ne+ZhC2TNEDMX179Wtr7x+aBxASz4nB3oPaXTF?=
- =?us-ascii?Q?81ZrW7so08sZPc0A93RVlCRPIUi38aCt0FtHwrc46MGw43frXYAkvKnxefZZ?=
- =?us-ascii?Q?N+MIstmVYd7Fh4cCLnxiAMbImYio7xmxLSE7rqNrbGZCctomOrlPUEr1LIJy?=
- =?us-ascii?Q?W8PMnCWPj6pwRYS6YGZzjofdVUUrDiuJ8cP3aBKHULChRUfxIa7A3yuNAJUG?=
- =?us-ascii?Q?i+HwxKF1+VZipmS37dv6DTo5aD+bYs4mFFu4mQUwRJU1K6uUtIz69zmM8qbx?=
- =?us-ascii?Q?H8HbHMxx4GPhQfIMDlvvnxv2aWWoFzjuR5m0t/aPV1Ws9sLxP6HqO8V7JoiM?=
- =?us-ascii?Q?GPrsvIdxInnngmV+r9ndh0fFgdYEpZoDGgkSnq0dJ1bxGgH+mrQOFcF+jjHr?=
- =?us-ascii?Q?mZcHD7PQIWz1utowqD0jbDitTCZko6TSrwvpA/1kp2rF6cDmaC2+WfK6UJXv?=
- =?us-ascii?Q?XT0D63MR0MGoP3fMAO0CzoH6AK4UCap3NDrC84SJH2fkFtlHQyV3I99AliaW?=
- =?us-ascii?Q?qw8Oub4E9YF+lBZoYqUbl5O9N4QjM2EL67BTClqe?=
+	Wed, 05 Apr 2023 06:34:17 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id i5so138702797eda.0
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Apr 2023 23:34:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1680676450;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VX8BaURDAmMiXn1X2BAcvGxFigvEA3txrLdW+Fx+IZw=;
+        b=rIPpaehpS5oSvYCoz67/ZyQz6Xbcw80aD8pJkdxX7S9OyExVaWPgYW1gcHrc9Qql8x
+         7NwMpEsrh/wgRye2wvUKhikhv/9XlS2ZMG/5NDiGs0162GrMDG2/ztg/Uvgr746m82R7
+         BY75kP7HRUgH8QcPYB3QLrcE9AaT3F2ePLLEtIgvYG9UQKCztVEMiKo3+yWEjQU0oDAO
+         1oDDFFX02//OkSrSzTvUIohQsonuFPbJV3pVq652hJ7l7DrQhE6ViMOctlEZsdBso/8R
+         16uqGLf+oNf7TCU4a5Yo4nIar70+moeNI5PJAtgGyqez5HD4dzcyyxCotM9sqx5k1sas
+         5RUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680676450;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VX8BaURDAmMiXn1X2BAcvGxFigvEA3txrLdW+Fx+IZw=;
+        b=aL3wrjixjAiy1XY3LTVFisGD8eS/Al4JmfRTk0KCVdphU6yrz9jeM3K+sXHNTWmrfe
+         e9dZNxab5RhNnTUEGYGG0xPGMO8kDYUNyYkruLGtP7gZ9ouRwff4+yR3eppDFFj57FD1
+         HU3iCTVfnSqsNnQ8jXvn9Z+DbA/kKtqoHGjULCY0evLnieN4/ZerZ6pc6NB3Xu1NjRTb
+         bhxvyLQNnheVL2jsreLM3v5IJ1g+9FtvrpKsLe09UxU9Kn/fwDI0DVmvN+jPct71HZuh
+         29mvVBkVRVjltqY5GqlpsvwPs0BADGXVd/8if8Nc9D/9hWKTbV0xg5RSjzwLaWfKPMdw
+         7dlA==
+X-Gm-Message-State: AAQBX9eEiS/AfXtpOSAzHCe4RtDpykqi+2CZrcmYBMth5Cf/mYvV+nZ3
+	cIncKAbT+QXJaW6wGsccMld3hTD0sArbc3VPcAE=
+X-Google-Smtp-Source: AKy350a6HrlFnAMQgKd+vCIeoY1a0fFXtmjdYQgCre2Kq5RpcQRJhbuwBnu7NwqDheLpf2xZ72hpHg==
+X-Received: by 2002:a17:906:8602:b0:946:b942:ad6f with SMTP id o2-20020a170906860200b00946b942ad6fmr1441549ejx.8.1680676450041;
+        Tue, 04 Apr 2023 23:34:10 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:3f:6b2:54cd:498e? ([2a02:810d:15c0:828:3f:6b2:54cd:498e])
+        by smtp.gmail.com with ESMTPSA id a24-20020a509b58000000b005027d356613sm6430185edj.63.2023.04.04.23.34.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Apr 2023 23:34:09 -0700 (PDT)
+Message-ID: <42dea5c9-96a7-9ab7-21ec-b545059659a0@linaro.org>
+Date: Wed, 5 Apr 2023 08:34:08 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS0PR01MB5922.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ca00b90-0560-4563-2f00-08db359c2c1f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Apr 2023 06:08:27.4009
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cH/0lqbHunSKPfykJ12YsVSv/v7wqWevVC8ttxdFIQj+jdHxp2LQf+1cwj2hyAU5kG7UKP+I7yCDdL7xyn2srtdltbGC/yLzEMRC+cL0HmM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB8173
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [net-next v9 4/6] dt-bindings: net: Add support StarFive dwmac
+Content-Language: en-US
+To: Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Jose Abreu <joabreu@synopsys.com>,
+ Richard Cochran <richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Peter Geis <pgwipeout@gmail.com>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>,
+ Tommaso Merciai <tomm.merciai@gmail.com>
+References: <20230328062009.25454-1-samin.guo@starfivetech.com>
+ <20230328062009.25454-5-samin.guo@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230328062009.25454-5-samin.guo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230404_230839_775416_F4733D87 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20230404_233413_902567_E2F72858 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,32 +107,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph Hellwig,
-
-Thanks for the feedback.
-
-> Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using
-> function pointers for cache management
+On 28/03/2023 08:20, Samin Guo wrote:
+> From: Yanhong Wang <yanhong.wang@starfivetech.com>
 > 
-> On Tue, Apr 04, 2023 at 06:24:16AM +0000, Biju Das wrote:
-> > Just a question, how does function pointer makes a performance
-> > difference compared to
-> > ALTERNATIVE_X() macros?
-> >
-> > On both cases, we are pushing function parameters to stack, jumping to
-> > the actual routine And then on return pop the variables from stack. Am I
-> missing something here?
+> Add documentation to describe StarFive dwmac driver(GMAC).
 > 
-> Indirect calls have always been more expensive, and with the hard- and
-> software mitigations for spectre-like attacks they are becoming even more
-> expensive.
+> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+>  .../bindings/net/starfive,jh7110-dwmac.yaml   | 144 ++++++++++++++++++
+>  MAINTAINERS                                   |   6 +
+>  3 files changed, 151 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index e4519cf722ab..245f7d713261 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -91,6 +91,7 @@ properties:
+>          - snps,dwmac-5.20
+>          - snps,dwxgmac
+>          - snps,dwxgmac-2.10
+> +        - starfive,jh7110-dwmac
+>  
+>    reg:
+>      minItems: 1
+> diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> new file mode 100644
+> index 000000000000..5861426032bd
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> @@ -0,0 +1,144 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2022 StarFive Technology Co., Ltd.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/starfive,jh7110-dwmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 DWMAC glue layer
+> +
+> +maintainers:
+> +  - Emil Renner Berthing <kernel@esmil.dk>
+> +  - Samin Guo <samin.guo@starfivetech.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - starfive,jh7110-dwmac
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - starfive,jh7110-dwmac
+> +      - const: snps,dwmac-5.20
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: GMAC main clock
+> +      - description: GMAC AHB clock
+> +      - description: PTP clock
+> +      - description: TX clock
+> +      - description: GTX clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: stmmaceth
+> +      - const: pclk
+> +      - const: ptp_ref
+> +      - const: tx
+> +      - const: gtx
+> +
+> +  interrupts:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  interrupt-names:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  resets:
+> +    items:
+> +      - description: MAC Reset signal.
+> +      - description: AHB Reset signal.
+> +
+> +  reset-names:
+> +    items:
+> +      - const: stmmaceth
+> +      - const: ahb
+> +
+> +  starfive,tx-use-rgmii-clk:
+> +    description:
+> +      Tx clock is provided by external rgmii clock.
+> +    type: boolean
+> +
+> +  starfive,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to syscon that configures phy mode
+> +          - description: Offset of phy mode selection
+> +          - description: Shift of phy mode selection
+> +    description:
+> +      A phandle to syscon with two arguments that configure phy mode.
+> +      The argument one is the offset of phy mode selection, the
+> +      argument two is the shift of phy mode selection.
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - resets
+> +  - reset-names
 
-Thanks for the info. I agree, it will be more expensive with software mitigations
-for spectre-like attacks.
+This is a friendly reminder during the review process.
 
-Cheers,
-Biju
+It seems my previous comments were not fully addressed. Maybe my
+feedback got lost between the quotes, maybe you just forgot to apply it.
+Please go back to the previous discussion and either implement all
+requested changes or keep discussing them.
 
+Thank you.
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
