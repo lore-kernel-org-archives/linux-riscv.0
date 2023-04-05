@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377D9C77B60
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 14:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995F7C76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 14:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTaBvNyUxbiDv3j3uIz9eOUSC3EqqqrTuksteTsetlM=; b=b6YO9ZDtLevZ5+KxPSW1Swijfz
-	w7Vt/+9GHJmXI5deM2fDwjKWw39lpZpWX3rTtyB6ierTCyj980zgDnepfqcolXDhQ7WBwg+dlbLEs
-	NMEk+G3UNGvbcwduN73TCGoOnL7TU2LpnQ0fyuIp85nzZQTVgZ8NMGhPoM0BOJfIiBcsuw9nvHN2J
-	MuVClunwZo/ruhlVBnFzyjniVsGYWJSnjHGSUuYddy+k1T2lzuQWzSw8TvsgSi1X+6JWLEp5DKve6
-	YjsndW6nlUJ/sYN7VlJoE3nNpKx3VjxUfyO1VNe5Ce5B87FZroZTOnlbT6Prj7VGUj1D8EFE5Vd3/
-	9DtlK93w==;
+	bh=krxY/46qAFrxEmaFsQYOjdMhPD3j64fMox/hrVpy1iI=; b=MYOuqY8hbSnXSdiLVvBoZMRzmd
+	LBwsjcGUDESG4Oz9JkFNCLqZ/Iz3f4kOt9pXRhc3XzjeLpScb8sMKW64lIB4/hvVdjE6gw1kh/avI
+	qXV93UVHwvfkEh6bugoxiN01yX0jFzwgMGlrlwzMzeZuo5M9qKIHTfXKR9adFUL351CAU+Vnw3Rnz
+	2fWNwRd7vZkASamUvSwc/sb7r2kFjE+x7hRwiUDlEIjDryfnEjqUQIk2zI/zw40n2FdpL2axYw7QJ
+	uAV1el4gTkPJQgkXqAMoBml0enmevHs+WpT2l2aFIP7gVrtErXEprYAOLtE7KZvoexBZPR4tMCmto
+	iad8Hxow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk4Ai-004gdT-0w;
-	Wed, 05 Apr 2023 14:31:36 +0000
+	id 1pk4Cc-004h3b-1V;
+	Wed, 05 Apr 2023 14:33:34 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk4Af-004gcc-2O
+	id 1pk4CZ-004h30-23
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 14:31:35 +0000
+	Wed, 05 Apr 2023 14:33:33 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 32DD5627AD;
-	Wed,  5 Apr 2023 14:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ACCAC4339B;
-	Wed,  5 Apr 2023 14:31:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1515D622F9;
+	Wed,  5 Apr 2023 14:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C86BCC433D2;
+	Wed,  5 Apr 2023 14:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680705092;
-	bh=zSAJvHpnJ4t5+N5rlPStNtw8kt3Pvqahl38JBpYY8G0=;
+	s=k20201202; t=1680705210;
+	bh=c5aBY2DBhngN9K4Itw2DMcABZ4sGhUw7y0a1rjyGhCQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UA05BQCDFOlATRVQf6u1KpRp0bUorSfIjan7xcEWrovcLCtG6gNGf4096NaaFpr2s
-	 /NErwGnTgYtFy7ZdM1i3tquxq7hjpC7wmlV/TgnIJRKIV1zF9lu4CP5c8oe5KWAPHQ
-	 77r0V/i0nWcoazrEjCoyt7/BUVuUxRkvmgtkAr2FDL554YVLCeL8LL8MAUxVvd56xW
-	 HSEjZG/XTAXMZ8qANPYHf87Ju78DBpuPGv0tiGZtDTnsJuQVELo9YGtEi7XFG0cTuO
-	 7prRmTBPrYhuaCNo5CQeQaue1Clx1elgq7OvAyjF9XJ8U7qcdmsWp05Vs6w78hkng0
-	 eI+P4ShYUl+zQ==
-Date: Wed, 5 Apr 2023 15:31:24 +0100
+	b=g6nDCnoku17X5dklyNSz6xW16bkWkXmnbfpKD980MpDJ/g817cgLUNSgJZc+iANs0
+	 aK71hhEQCZwy5aus9xDA5W6Ytu5l7EA7knJTJxu+AfPFc3BCzyGljUyHYAk4vTMHHs
+	 eHZ16BNdGH9evLEYRQPhrAjA2eL9iAdGrxdoVolTnm7WMMyYFJ99ZJjPRAe78+HDGq
+	 yHYxqFLMcgnVqX8qZKMZ8HyiTChdbBfiUj9mlPyLXQLgafNzCFPBx9FMSwou8UCdjd
+	 TKnKqovUD0DWbgDIcMXlTJ2+3fMQeNI6mx5Ql0wH9UFnSzdA6whADbATKkJG3XKK1P
+	 5JM+QvUlbjOFg==
+Date: Wed, 5 Apr 2023 15:33:26 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, Tom Rix <trix@redhat.com>,
-	Weili Qian <qianweili@huawei.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Mark Gross <markgross@kernel.org>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Len Brown <lenb@kernel.org>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH V4 13/23] RISC-V: cpufeature: Add ACPI support in
- riscv_fill_hwcap()
-Message-ID: <20230405-compel-slinky-2fe11b4bf0b3@spud>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-14-sunilvl@ventanamicro.com>
- <20230404-promotion-scarce-7c69ff7e5f99@spud>
- <ZC15LqYqLzmiVdcr@sunil-laptop>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Bin Liu <b-liu@ti.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org,
+	kernel@pengutronix.de
+Subject: Re: [PATCH 04/10] usb: musb: mpfs: Convert to platform remove
+ callback returning void
+Message-ID: <20230405-brought-sibling-3b0b62f953cd@spud>
+References: <20230405141009.3400693-1-u.kleine-koenig@pengutronix.de>
+ <20230405141009.3400693-5-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <ZC15LqYqLzmiVdcr@sunil-laptop>
+In-Reply-To: <20230405141009.3400693-5-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_073133_854671_026987A8 
-X-CRM114-Status: GOOD (  29.26  )
+X-CRM114-CacheID: sfid-20230405_073331_754927_3014420C 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,130 +74,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1969896873303856785=="
+Content-Type: multipart/mixed; boundary="===============5877473900978460385=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1969896873303856785==
+--===============5877473900978460385==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="G5/7scijW3x9IuES"
+	protocol="application/pgp-signature"; boundary="wHA+4AMy4x1v1p8u"
 Content-Disposition: inline
 
 
---G5/7scijW3x9IuES
-Content-Type: text/plain; charset=us-ascii
+--wHA+4AMy4x1v1p8u
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Apr 05, 2023 at 07:05:42PM +0530, Sunil V L wrote:
-> On Tue, Apr 04, 2023 at 09:57:19PM +0100, Conor Dooley wrote:
-> > On Tue, Apr 04, 2023 at 11:50:27PM +0530, Sunil V L wrote:
-> > > On ACPI based systems, the information about the hart
-> > > like ISA is provided by the RISC-V Hart Capabilities Table (RHCT).
-> > > Enable filling up hwcap structure based on the information in RHCT.
-> > >=20
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > > ---
-> > >  arch/riscv/kernel/cpufeature.c | 39 ++++++++++++++++++++++++++++++--=
---
-> > >  1 file changed, 35 insertions(+), 4 deletions(-)
-> > >=20
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> > > index 63e56ce04162..5d2065b937e5 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -6,6 +6,7 @@
-> > >   * Copyright (C) 2017 SiFive
-> > >   */
-> > > =20
-> > > +#include <linux/acpi.h>
-> > >  #include <linux/bitmap.h>
-> > >  #include <linux/ctype.h>
-> > >  #include <linux/libfdt.h>
-> > > @@ -13,6 +14,8 @@
-> > >  #include <linux/memory.h>
-> > >  #include <linux/module.h>
-> > >  #include <linux/of.h>
-> > > +#include <linux/of_device.h>
-> > > +#include <asm/acpi.h>
-> > >  #include <asm/alternative.h>
-> > >  #include <asm/cacheflush.h>
-> > >  #include <asm/errata_list.h>
-> > > @@ -91,6 +94,9 @@ void __init riscv_fill_hwcap(void)
-> > >  	char print_str[NUM_ALPHA_EXTS + 1];
-> > >  	int i, j, rc;
-> > >  	unsigned long isa2hwcap[26] =3D {0};
-> > > +	struct acpi_table_header *rhct;
-> > > +	acpi_status status;
-> > > +	unsigned int cpu;
-> > > =20
-> > >  	isa2hwcap['i' - 'a'] =3D COMPAT_HWCAP_ISA_I;
-> > >  	isa2hwcap['m' - 'a'] =3D COMPAT_HWCAP_ISA_M;
-> > > @@ -103,14 +109,36 @@ void __init riscv_fill_hwcap(void)
-> > > =20
-> > >  	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
-> > > =20
-> > > -	for_each_of_cpu_node(node) {
-> > > +	if (!acpi_disabled) {
-> > > +		status =3D acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
-> > > +		if (ACPI_FAILURE(status))
-> > > +			return;
-> > > +	}
-> > > +
-> > > +	for_each_possible_cpu(cpu) {
-> > >  		unsigned long this_hwcap =3D 0;
-> > >  		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
-> > >  		const char *temp;
-> > > =20
-> > > -		if (of_property_read_string(node, "riscv,isa", &isa)) {
-> > > -			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
-> > > -			continue;
-> > > +		if (acpi_disabled) {
-> > > +			node =3D of_cpu_device_node_get(cpu);
-> > > +			if (node) {
-> > > +				rc =3D of_property_read_string(node, "riscv,isa", &isa);
-> >=20
-> > Hmm, after digging in the previous patch, I think this is actually not
-> > possible to fail? We already validated it when setting up the mask of
-> > possible cpus, but I think leaving the error handling here makes things
-> > a lot more obvious.
-> >=20
-> Yeah, do you prefer to merge these patches again since only in this
-> patch, we change the loop to for_each_possible_cpu() from
-> for_each_of_cpu_node() which actually makes riscv_of_processor_hartid()
-> not useful?
+On Wed, Apr 05, 2023 at 04:10:03PM +0200, Uwe Kleine-K=F6nig wrote:
+> The .remove() callback for a platform driver returns an int which makes
+> many driver authors wrongly assume it's possible to do error handling by
+> returning an error code. However the value returned is (mostly) ignored
+> and this typically results in resource leaks. To improve here there is a
+> quest to make the remove callback return void. In the first step of this
+> quest all drivers are converted to .remove_new() which already returns
+> void.
+>=20
+> Trivially convert this driver from always returning zero in the remove
+> callback to the void returning variant.
+>=20
+> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
 
-Yah, all 3 of us mistakenly thought that that was an unrelated cleanup
-on the last revision, but clearly it is not.
-Squash it back IMO, sorry for my part in the extra work generated.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Cheers,
+Thanks,
 Conor.
 
+> ---
+>  drivers/usb/musb/mpfs.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
 >=20
-> > I'd swear I gave you a (conditional) R-b on v3 though, no?
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
+> index cea2e8108867..24b98716f7fc 100644
+> --- a/drivers/usb/musb/mpfs.c
+> +++ b/drivers/usb/musb/mpfs.c
+> @@ -235,15 +235,13 @@ static int mpfs_probe(struct platform_device *pdev)
+>  	return ret;
+>  }
+> =20
+> -static int mpfs_remove(struct platform_device *pdev)
+> +static void mpfs_remove(struct platform_device *pdev)
+>  {
+>  	struct mpfs_glue *glue =3D platform_get_drvdata(pdev);
+> =20
+>  	clk_disable_unprepare(glue->clk);
+>  	platform_device_unregister(glue->musb);
+>  	usb_phy_generic_unregister(pdev);
+> -
+> -	return 0;
+>  }
+> =20
+>  #ifdef CONFIG_OF
+> @@ -256,7 +254,7 @@ MODULE_DEVICE_TABLE(of, mpfs_id_table);
+> =20
+>  static struct platform_driver mpfs_musb_driver =3D {
+>  	.probe =3D mpfs_probe,
+> -	.remove =3D mpfs_remove,
+> +	.remove_new =3D mpfs_remove,
+>  	.driver =3D {
+>  		.name =3D "mpfs-musb",
+>  		.of_match_table =3D of_match_ptr(mpfs_id_table)
+> --=20
+> 2.39.2
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-
---G5/7scijW3x9IuES
+--wHA+4AMy4x1v1p8u
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC2GOAAKCRB4tDGHoIJi
-0rnsAP0cgFLWkLbUrSntzAuLfoBAltCrodxxTLrayMe+WsSAOgEA0umoMwKzM2ox
-W+uIW/1axAfQExBp1IRIgO1BnHHRKAE=
-=CYcq
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC2GtgAKCRB4tDGHoIJi
+0qXoAP42sUj8oS+7QkVJ0H2M2QO5Qv1Ap8ibkzIMfqjUD+r4vQD/fs5ADkb3MBuJ
+hN5XmCJz0ovaCWKbBWeUiAc0qPV+rwY=
+=yTWQ
 -----END PGP SIGNATURE-----
 
---G5/7scijW3x9IuES--
+--wHA+4AMy4x1v1p8u--
 
 
---===============1969896873303856785==
+--===============5877473900978460385==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -226,5 +177,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1969896873303856785==--
+--===============5877473900978460385==--
 
