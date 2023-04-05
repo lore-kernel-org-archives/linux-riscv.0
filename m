@@ -4,47 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5357BC76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 11:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324A9C76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 11:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+i2oRd2GMVgjyvmKMVZqeUBxNWWVXiczKbKnjo38Z5A=; b=WSX1+4z4Y+2yzq
-	UJXV6ChSDS3UYZ4a5zWBTxjq8pKtq52L8WanuXB9QZCaYS+woCtWYuL5KlnsUYq6l+9/gHxfnAIRI
-	dadbfNwvmocxNqvBCo3ogZbJHziWdZBAKX6Y72AOxZEkvkSsgCAFv4OUSs3QJ09qvStl2nfdHA+m7
-	6S2JNKy7yVntdFt66l1s0mkyo1ygW32XgNzE018GJPowXwUgIrlfkwObsPtdtevvvPlKCpiE7vBBh
-	+snxWMUs4lB/hHnNlC1V/Q982ieNGGvi4Gzvqlpmg3JwanwiMdXeUcXBspnz67QFfdBHawLEUY9+o
-	xjjumNcPHf6hdyaLtrmQ==;
+	List-Owner; bh=N2JXP8kxtKcXyHzfQQ9r3jZc1pRiKk4+Yzm4Z3rX6bc=; b=iA9jFyJoy+Qm/b
+	nXGeIbZBdXLf7mz6myHgWAmlMYesr0bUytvsWmP+AoiEmnlYkg+n5kKPBEMB54AqiKOQ9fpggRPiW
+	+KmUZZ+lSTuh6F+s5TiTel2s7uxb1jRAFfq4/DCam1SKq4HU2OhjvZB1UORktmoM91LYLsTqR0rJx
+	LeFj7SjThrCTGNJAdtzADne3Wby3kVgGXrSwOOISKJ9Q93EfLR5Zbrcz/vm4TILjsV6VztQPQwiEt
+	WwanCxXXnP4Cu85qH3HYjUV8H7bAfUpx5AA6c1xMmMlsOMj2QLQgK3qXR9hyDHxLSKZdkK8FD1ADw
+	kVpFHurVW2PYuvAwsaqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk1ao-004Jao-0d;
-	Wed, 05 Apr 2023 11:46:22 +0000
+	id 1pk1d8-004Jzn-1o;
+	Wed, 05 Apr 2023 11:48:46 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk1al-004JYj-0o
+	id 1pk1d5-004Jyq-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 11:46:20 +0000
+	Wed, 05 Apr 2023 11:48:44 +0000
 Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pk1ag-0006de-Iz; Wed, 05 Apr 2023 13:46:14 +0200
+	id 1pk1d2-0006eI-Mo; Wed, 05 Apr 2023 13:48:40 +0200
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: palmer@dabbelt.com, linux-riscv@lists.infradead.org
-Cc: conor@kernel.org, conor.dooley@microchip.com,
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-Subject:  Re: [PATCH v2] RISC-V: align ISA extension Kconfig help text with each other
-Date: Wed, 05 Apr 2023 13:46:13 +0200
-Message-ID: <3921419.QJadu78ljV@diego>
-In-Reply-To: <20230405-pucker-cogwheel-3a999a94a2f2@wendy>
-References: <20230405-pucker-cogwheel-3a999a94a2f2@wendy>
+To: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+ Hal Feng <hal.feng@starfivetech.com>
+Subject:  Re: [PATCH v7 03/22] clk: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+Date: Wed, 05 Apr 2023 13:48:39 +0200
+Message-ID: <23535525.6Emhk5qWAg@diego>
+In-Reply-To: <20230401111934.130844-4-hal.feng@starfivetech.com>
+References:  <20230401111934.130844-1-hal.feng@starfivetech.com>
+ <20230401111934.130844-4-hal.feng@starfivetech.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_044619_288546_39F72708 
-X-CRM114-Status: GOOD (  27.47  )
+X-CRM114-CacheID: sfid-20230405_044843_536657_703BD86B 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,95 +72,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 5. April 2023, 12:21:10 CEST schrieb Conor Dooley:
-> Other extensions only capitalise the first letter in the text visible
-> in Kconfig menus, and provide a short comment about the extension's
-> meaning. Do the same for Svnapot & Svpbmt.
+Am Samstag, 1. April 2023, 13:19:15 CEST schrieb Hal Feng:
+> Using ARCH_FOO symbol is preferred than SOC_FOO.
+> Set obj-y for starfive/ in Makefile, so the StarFive drivers
+> can be compiled with COMPILE_TEST=y but ARCH_STARFIVE=n.
 > 
-> The precedent for capitalisation in the Kconfig text was set by Zicbom
-> & sorta followed for Zicboz. The RVI styling used for multi-letter
-> extensions only capitalises the first letter, so do the same here.
-> If nothing else, my OCD likes it when the extensions follow a consistent
-> pattern.
-> 
-> While editing one of the lines, reformat the "spelling" of 64-bit.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-I do believe it makes a lot of sense to follow the official spelling
-(first letter upper case). This will make it also easier for later additions
-to also not create own casing-forms :-) .
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
 > ---
-> Changes in v2:
-> - do the same for Svnapot too
-> - s/ZICBOZ/Zicboz
-> ---
->  arch/riscv/Kconfig | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
+>  drivers/clk/Makefile         | 2 +-
+>  drivers/clk/starfive/Kconfig | 6 +++---
+>  2 files changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index cc02eb9eee1f..92e8b4d908b6 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -400,31 +400,31 @@ config RISCV_ISA_C
->  	  If you don't know what to do here, say Y.
+> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> index e3ca0d058a25..3bed88d67a3a 100644
+> --- a/drivers/clk/Makefile
+> +++ b/drivers/clk/Makefile
+> @@ -117,7 +117,7 @@ obj-$(CONFIG_PLAT_SPEAR)		+= spear/
+>  obj-y					+= sprd/
+>  obj-$(CONFIG_ARCH_STI)			+= st/
+>  obj-$(CONFIG_ARCH_STM32)		+= stm32/
+> -obj-$(CONFIG_SOC_STARFIVE)		+= starfive/
+> +obj-y					+= starfive/
+>  obj-$(CONFIG_ARCH_SUNXI)		+= sunxi/
+>  obj-y					+= sunxi-ng/
+>  obj-$(CONFIG_ARCH_TEGRA)		+= tegra/
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index 003bd2d56ce7..ef3517f4a276 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -2,8 +2,8 @@
 >  
->  config RISCV_ISA_SVNAPOT
-> -	bool "SVNAPOT extension support"
-> +	bool "Svnapot extension support for supervisor mode NAPOT pages"
->  	depends on 64BIT && MMU
->  	depends on RISCV_ALTERNATIVE
->  	default y
+>  config CLK_STARFIVE_JH7100
+>  	bool "StarFive JH7100 clock support"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> -	default SOC_STARFIVE
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	default ARCH_STARFIVE
 >  	help
-> -	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
-> +	  Allow kernel to detect the Svnapot ISA-extension dynamically at boot
->  	  time and enable its usage.
->  
-> -	  The SVNAPOT extension is used to mark contiguous PTEs as a range
-> +	  The Svnapot extension is used to mark contiguous PTEs as a range
->  	  of contiguous virtual-to-physical translations for a naturally
->  	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
->  	  size. When HUGETLBFS is also selected this option unconditionally
->  	  allocates some memory for each NAPOT page size supported by the kernel.
->  	  When optimizing for low memory consumption and for platforms without
-> -	  the SVNAPOT extension, it may be better to say N here.
-> +	  the Svnapot extension, it may be better to say N here.
->  
->  	  If you don't know what to do here, say Y.
->  
->  config RISCV_ISA_SVPBMT
-> -	bool "SVPBMT extension support"
-> +	bool "Svpbmt extension support for supervisor mode page-based memory types"
->  	depends on 64BIT && MMU
->  	depends on RISCV_ALTERNATIVE
->  	default y
+>  	  Say yes here to support the clock controller on the StarFive JH7100
+>  	  SoC.
+> @@ -11,7 +11,7 @@ config CLK_STARFIVE_JH7100
+>  config CLK_STARFIVE_JH7100_AUDIO
+>  	tristate "StarFive JH7100 audio clock support"
+>  	depends on CLK_STARFIVE_JH7100
+> -	default m if SOC_STARFIVE
+> +	default m if ARCH_STARFIVE
 >  	help
-> -	   Adds support to dynamically detect the presence of the SVPBMT
-> +	   Adds support to dynamically detect the presence of the Svpbmt
->  	   ISA-extension (Supervisor-mode: page-based memory types) and
->  	   enable its usage.
->  
-> @@ -432,7 +432,7 @@ config RISCV_ISA_SVPBMT
->  	   that indicate the cacheability, idempotency, and ordering
->  	   properties for access to that page.
->  
-> -	   The SVPBMT extension is only available on 64Bit cpus.
-> +	   The Svpbmt extension is only available on 64-bit cpus.
->  
->  	   If you don't know what to do here, say Y.
->  
-> @@ -482,7 +482,7 @@ config RISCV_ISA_ZICBOZ
->  	depends on RISCV_ALTERNATIVE
->  	default y
->  	help
-> -	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
-> +	   Enable the use of the Zicboz extension (cbo.zero instruction)
->  	   when available.
->  
->  	   The Zicboz extension is used for faster zeroing of memory.
+>  	  Say Y or M here to support the audio clocks on the StarFive JH7100
+>  	  SoC.
 > 
 
 
