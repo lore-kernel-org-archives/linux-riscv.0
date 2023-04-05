@@ -4,98 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA155C7619A
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 10:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C0FC76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 10:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M2cqvrqrogq4B6qDgDTXGcUSBlocwjkKE3DCT3/+0Nk=; b=eKsV774IJIyUHi
-	n+y6nDbljtlmr25xZjZy3ZuKFXbsPvgUqianzn2Qk5r38l5gdwzcCHx+oz9sCVSWBGC5jvteGNqoZ
-	iiKxKsec16V7/4MoUxbTiCkduwJE2tqQ3H0DVBz0g+AH5jrRNjVzqMf5dO/SHkKCHCt71/u7cKbmV
-	bqXdhsFmsYE5JVvQMfEVlVY50xE035aHlI7TefA/7xYutodzLdxkaUvYshVbBmlHimdkDQx8qau88
-	WWw4wA2uC+17zVrUSlOc49g2UmFQl+EKL7kKh5unvcin1ojGe7J0ptnGdP2dVCG4zVwpujN7Pt4hA
-	Ht9VBUIAxl0as5K2qCgg==;
+	List-Owner; bh=yeW4hHJqkNaSFgulcSL4LYJ1/xIRFeLmWEdBkCfWJ7o=; b=1VGAdgSbSdePm7
+	GOtT11iMDx/hfrYOO9kXuPs6Ms961X+FE3nIN1a75mEFTL2KVeuSIG9XH27ywtmS1UR93NWv385zP
+	BoiZHii9YhJL2CGNRkQ7CBwMl7HqQt4mxLMJwCy0ZzaPBJCMDB5tmc30CIzUJdU6ihsuRHpr5Xsqq
+	fJbc+fYnjYDMvqi26W15m03cobzdCFNzossMzeJUnPoJt6hkVLEK3TAZy8QN4E3aJFQfRexZZyVTx
+	HsL9nkqWPl5y8ZgHR1xSXZEAlnA2uf4mNp2jk4UveM9K3W7HK4TmIWnRgYNFgx8gDu8N20VAWmtBB
+	o01DjvlJbIOwd29/lVLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk0f9-00487F-28;
-	Wed, 05 Apr 2023 10:46:47 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1pk0oE-004B9m-2n;
+	Wed, 05 Apr 2023 10:56:10 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk0f7-00486W-06
+	id 1pk0oC-004B87-2z
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 10:46:46 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id om3-20020a17090b3a8300b0023efab0e3bfso39080357pjb.3
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Apr 2023 03:46:42 -0700 (PDT)
+	Wed, 05 Apr 2023 10:56:10 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id lr16-20020a17090b4b9000b0023f187954acso36853777pjb.2
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Apr 2023 03:56:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1680691602;
+        d=ventanamicro.com; s=google; t=1680692164;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=otykqullkWmg0A8KD35JF+HvspAaLoRDA6Fr6QFOB1A=;
-        b=UQ0uumG4XH81lWfK6pVQa6G5b2bhg0H+jTMz7NTZVbIIyh41o0CBkytB6xZpFe/MDh
-         Yffh5qenGWrU9TxMdihhNju6UMyitiMEbH/S8wc2qQG1KulmNjPVmxbe+5lvAhEFomTo
-         UVZm4lhSh/J0/m6bMtf8ttgxYxkKl7fMCt60yIF06Ptxf/mvXyFUkNGGUYB2n0DaTbEg
-         azqFX9oSbODaFFg4PbBU08adA+7I25vr0zw2LIqhUF9vuMMdUc7mKurF6cxQ3IPMwZvq
-         T3aNBPO0bWfwSYeSYziw6ebXlP1MKTFYUr1w/FPVCAfBHvf9/tdCNmCXNug8DyFs3WjS
-         4MCA==
+        bh=qHjNmNubtW1m6x/ZHSROLzC6UE26oZx7ZrLiozJA6N0=;
+        b=cDCnQAlVg9wphWyj020XoXu348UrwEHznmRRm3HENM8CHxPrsB4ftiLhtCukY5QAS1
+         CwBBjAHsCSYAMx2GgBoncQw7+9YyR71AMr2GaaRR1lRn7sqbWtNwZfzyNbyrEJTIWSeP
+         lpvajki5RiSaNzESIU3JMJZqDQcCUfxS4Nw351KgGTvAex3xD9lBOO/ZlgPSdCLXZQWE
+         yt4H/DUHQl8arz3OuSIFiy9Y9v0m5Ve3DxDtYTut/wSWZ0NOL44uMcCpCzSgL/p5n0Ao
+         d+rZSPbZuqfD52fpeaM2haOafL/rVPiGAqsWfMj9b+EVyRJk7i0D2c2bvyVZAlW2jOEM
+         hjtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680691602;
+        d=1e100.net; s=20210112; t=1680692164;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=otykqullkWmg0A8KD35JF+HvspAaLoRDA6Fr6QFOB1A=;
-        b=CXmnpqRnOAEWrhDaUejyseHXF2uz0UMSioU4Ic033O4ZucxdMN6mRdAY4vP4SoXK65
-         EZpRGzHcX3p4Bu8q0rDRcNHVsx/e3BAhDFSF4xaQwA7l2cpMMSp/yHYzRBY/bflqVl15
-         iRePstOYQ+V9e9w3TzlwN43KiaNm62uL9mYPN2gJ5qKCMdceKIA9AYtTeB+qwV6ZtmKH
-         ENrmJ3Wy2jToV9+SzY5svy6D8tFzUE7RxetgvN8BDDwo+h5/+t9UGbVLdWCSGW5gyM4N
-         EEM5XILJIIXL2Zfcy9+Qycn6DI0w9DjKLbTNDCb5ck9q90x6U2AI3+I0i8qC5V035Tlz
-         8GCQ==
-X-Gm-Message-State: AAQBX9dypF3NoYtk1k4gyXyjuelE2ho/vJdip3SMawEc/PGVyEgcaFfh
-	1te3wGZd35ARmfOKKYsElpxKzg==
-X-Google-Smtp-Source: AKy350bK44iNVZ3LLDOTnB4w4y2fswThth90M15FEkZbqe29HOhrRwzj1s6JWfRQJI6BiNBgiUWAxA==
-X-Received: by 2002:a17:902:e294:b0:1a1:8edc:c5f8 with SMTP id o20-20020a170902e29400b001a18edcc5f8mr4558701plc.56.1680691601853;
-        Wed, 05 Apr 2023 03:46:41 -0700 (PDT)
+        bh=qHjNmNubtW1m6x/ZHSROLzC6UE26oZx7ZrLiozJA6N0=;
+        b=YtPTByWtwhELCEc09zXz0ee6lhCZT5Sxhb9J4Am34WGeV4Jw7gf1FrXM4MKMamFzWA
+         3J1Z+uRgYiC4PZwlGCuJeavBp+BlRnytruV3JhkkF75bFrtyjmCsk2K39xL5peVrr6KF
+         Mz52REAEHDgeQdfL+0akCZjeonoqv1gsVPWSJqvmnVO1MF/wDucUCE33uOZ/iWZo48Hm
+         iY2Jj/y+01spEikmAS7AID283o5fuhi8aqSYNCyTp9Sw73+bQQWkoFfACCjRJCYS25s+
+         kdelBuHSRLJjgZ1b/TruQrvFk4XJKblmSi1RYcQIN5h25dP5YP/agHfNV8MUk+xf3PZw
+         UVsQ==
+X-Gm-Message-State: AAQBX9efpimQVtYmnfSoqbwRLKpltkuzPSxUN9KOQvDChQCD/v6wLZRs
+	nrD/JpnqIiSu/4RSQ4tP+35Z5g==
+X-Google-Smtp-Source: AKy350brsIvQ17YKEK+9sMHxvtlGFWTIhRtaYlWAqmfzPxrLO54umhrjiJOK/GO6T6r+7/92elotug==
+X-Received: by 2002:a17:90b:4b46:b0:23b:4614:6f84 with SMTP id mi6-20020a17090b4b4600b0023b46146f84mr6472024pjb.28.1680692164415;
+        Wed, 05 Apr 2023 03:56:04 -0700 (PDT)
 Received: from sunil-laptop ([106.51.184.50])
-        by smtp.gmail.com with ESMTPSA id g20-20020a62e314000000b0062b5a55835dsm10319322pfh.213.2023.04.05.03.46.32
+        by smtp.gmail.com with ESMTPSA id d14-20020a17090a498e00b00234afca2498sm1077701pjh.28.2023.04.05.03.55.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Apr 2023 03:46:41 -0700 (PDT)
-Date: Wed, 5 Apr 2023 16:16:28 +0530
+        Wed, 05 Apr 2023 03:56:04 -0700 (PDT)
+Date: Wed, 5 Apr 2023 16:25:49 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Conor Dooley <conor@kernel.org>
 Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
 	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev, Weili Qian <qianweili@huawei.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Herbert Xu <herbert@gondor.apana.org.au>, Tom Rix <trix@redhat.com>,
+	llvm@lists.linux.dev,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>, Tom Rix <trix@redhat.com>,
+	Weili Qian <qianweili@huawei.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
+	Len Brown <lenb@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
 	Mark Gross <markgross@kernel.org>,
 	Hans de Goede <hdegoede@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
 	Zhou Wang <wangzhou1@hisilicon.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Maximilian Luz <luzmaximilian@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Len Brown <lenb@kernel.org>
-Subject: Re: [PATCH V4 23/23] crypto: hisilicon/qm: Workaround to enable
- build with RISC-V clang
-Message-ID: <ZC1RhA1Wi0B54sTO@sunil-laptop>
+	"David S . Miller" <davem@davemloft.net>
+Subject: Re: [PATCH V4 16/23] clocksource/timer-riscv: Refactor
+ riscv_timer_init_dt()
+Message-ID: <ZC1TtYAELzHtTJTu@sunil-laptop>
 References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-24-sunilvl@ventanamicro.com>
- <20230404-viewpoint-shank-674a8940809a@spud>
+ <20230404182037.863533-17-sunilvl@ventanamicro.com>
+ <20230404-flatware-ditto-e5c71d5a36c2@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230404-viewpoint-shank-674a8940809a@spud>
+In-Reply-To: <20230404-flatware-ditto-e5c71d5a36c2@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_034645_067593_32E88D27 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20230405_035608_959852_EBD689BE 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,59 +116,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Tue, Apr 04, 2023 at 10:25:38PM +0100, Conor Dooley wrote:
+> On Tue, Apr 04, 2023 at 11:50:30PM +0530, Sunil V L wrote:
+> > Refactor the timer init function such that few things can be
+> > shared by both DT and ACPI based platforms.
+> > 
+> > Co-developed-by: Anup Patel <apatel@ventanamicro.com>
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+> Forget an R-b or drop it intentionally from v3?
+> https://lore.kernel.org/linux-riscv/c2c1bdb5-aee6-4f4c-9f7d-073917e75b88@spud/
+> Please say why if you drop or ignore tags between versions.
+> 
+Sorry, missed those tags. Not intentional. Will update in next revision.
 
-On Tue, Apr 04, 2023 at 10:59:41PM +0100, Conor Dooley wrote:
-> Hey Sunil,
-> 
-> This one made me scratch my head for a bit..
-> 
-> On Tue, Apr 04, 2023 at 11:50:37PM +0530, Sunil V L wrote:
-> > With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
-> > allmodconfig build. The gcc tool chain builds this driver removing the
-> > inline arm64 assembly code. However, clang for RISC-V tries to build
-> > the arm64 assembly and below error is seen.
-> 
-> There's actually nothing RISC-V specific about that behaviour, that's
-> just how clang works. Quoting Nathan:
-> "Clang performs semantic analysis (i.e., validates assembly) before
-> dead code elimination, so IS_ENABLED() is not sufficient for avoiding
-> that error."
-> 
-Huh, It never occurred to me that this issue could be known already since I
-always thought we are hitting this first time since ACPI is enabled only
-now for RISC-V. Thank you very much!. 
-
-> > drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint '+Q' in asm
-> >                        "+Q" (*((char __iomem *)fun_base))
-> >                        ^
-> > It appears that RISC-V clang is not smart enough to detect
-> > IS_ENABLED(CONFIG_ARM64) and remove the dead code.
-> 
-> So I think this statement is just not true, it can remove dead code, but
-> only after it has done the semantic analysis.
->
-Yes, with more details now, let me update the commit message.
- 
-> The reason that this has not been seen before, again quoting Nathan, is:
-> "arm64 and x86_64 both support the Q constraint, we cannot build
-> LoongArch yet (although it does not have support for Q either so same
-> boat as RISC-V), and ia64 is dead/unsupported in LLVM. Those are the
-> only architectures that support ACPI, so I guess that explains why we
-> have seen no issues aside from RISC-V so far."
-> 
-> > As a workaround, move this check to preprocessing stage which works
-> > with the RISC-V clang tool chain.
-> 
-> I don't think there's much else you can do!
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Perhaps it is also worth adding:
-> Link: https://github.com/ClangBuiltLinux/linux/issues/999
-> 
-Sure, Thank you very much for digging this!
-
-Thanks,
+Thanks!
 Sunil
 
 _______________________________________________
