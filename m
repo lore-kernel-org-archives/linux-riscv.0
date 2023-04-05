@@ -4,79 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECA5C7619A
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 21:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A789C7619A
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 21:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m0aGwK3T7NzXaMRc56sNRuEBwoGyPIHMxhwXzGHq+cM=; b=4ePBeHiJt5vXwE
-	VcynrbCcLRAblQ1dopu/sBSqVMQBQ0+nYSzMW5kUMaM0FNa/t5Fvw7ejxvXt2/pR8HNxo9W8IP0fg
-	LUPue8BIBFMDLy52TlnF67riI7obWZcHo5e11zDrDbXkPcAD5AWMrXxvZlJNKLN8gz2aaFmOM9Dru
-	ey9nHUjTTeOo3F+OWThZN/dDRub+miUbxhsE9phNt7Frqor0h7oqjuQ4rk6We/ckzf7OQbBzf66jw
-	UVryEDN0jr4hnQqBJqYAOdPnTinHob6ypQ2hAN8X7A3yD3B50AukOKZ3GdsifO6/sbtYi1ouufqy3
-	N76kiHtze+uc9ooO1BmA==;
+	List-Owner; bh=Wuo2fsf/D5Khe1A69iuXm3uKVCLICJ6E4aFucsMgGX4=; b=WfZcE9+Dqsbg8k
+	AM68sq18oaEt/nWHXWUsaeakezCuQW0Q32BAwy4/9wuQ/S/9Mg3hvC5y/5RXxwWwWwPddxdi/zVLB
+	EkToxwSa3L6fs1aEYvJ+p/uk9vKxRd9U8EiBth/SFR59GYmdrF/hlinUyfKoHvlLO+lGArlUVNsUD
+	NAdLbDtcdwZVcBGXdXTP2V3jqjz3uX/7l33WGi3wEmKXJfEFUAv1+w2kuL9aWNq4otXFhUlMg/qml
+	6erbah+iuwp3egIXQZ2AelIr41dWRMKqmtz8aKwNLBaxqJMzw4vG/A0frRW0qlqmapPY5Uw1bPg10
+	P+pTyUsuQly1TkRjkk8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkAjp-005joL-0A;
-	Wed, 05 Apr 2023 21:32:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pkAoP-005kL4-31;
+	Wed, 05 Apr 2023 21:37:01 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkAjm-005jnv-18
+	id 1pkAoK-005kIJ-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 21:32:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E5EC164149;
-	Wed,  5 Apr 2023 21:32:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F616C4339E;
-	Wed,  5 Apr 2023 21:32:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680730333;
-	bh=ZYZdVwjMqTBVBqbOREzP3WGiwNtKl7X0AW2KpDiF5Ak=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qVFH337fZB65dZthbJjHQjCHT9K0MYnncK7lreCGZYiCg3v6yhy10TSuWvklUzlCe
-	 ac2QmZICG3nHF+5P8AE9UfUQNnsNMQdXF2Ih/Ymfy2Wwd9Q/KZPX1+W3pSTRJrCwyJ
-	 St0XMmFyV64kAhh1kYAjCG3nyB3Fe/cvozReILboJQ1BgTOlgnid3nS9TVrLpEG9iW
-	 z+wZnY8/7fjfp0ngFIEEDfdDAH8y7ed5zzsKUxamD5btKo0bwx7KiVQzg2hyBzKLzY
-	 Mmp10FVIjYFbDpubGwWFIJ1P6JzeCMNC2Pe8U2ENGqAH7HyIkr84DR3WdUzN4mCnaj
-	 II/nkpsPvWj9Q==
-From: Conor Dooley <conor@kernel.org>
-To: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Hal Feng <hal.feng@starfivetech.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 00/22] Basic clock, reset & device tree support for StarFive JH7110 RISC-V SoC
-Date: Wed,  5 Apr 2023 22:30:45 +0100
-Message-Id: <20230405-wharf-rejoin-5222e5958611@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230401111934.130844-1-hal.feng@starfivetech.com>
-References: <20230401111934.130844-1-hal.feng@starfivetech.com>
+	Wed, 05 Apr 2023 21:36:59 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-68-pbqxvDXyOE-yB95Y9KmqPw-1; Wed, 05 Apr 2023 22:36:46 +0100
+X-MC-Unique: pbqxvDXyOE-yB95Y9KmqPw-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 5 Apr
+ 2023 22:36:44 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Wed, 5 Apr 2023 22:36:44 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Arnd Bergmann' <arnd@arndb.de>, "H. Peter Anvin" <hpa@zytor.com>, "Niklas
+ Schnelle" <schnelle@linux.ibm.com>, Richard Henderson
+	<richard.henderson@linaro.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "Geert
+ Uytterhoeven" <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+	"Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, "James E . J . Bottomley"
+	<James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Yoshinori Sato <ysato@users.osdn.me>, Rich Felker
+	<dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S . Miller" <davem@davemloft.net>, Thomas Gleixner
+	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
+	<x86@kernel.org>
+CC: "linux-m68k@vger.kernel.org" <linux-m68k@vger.kernel.org>,
+	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, "Rafael J .
+ Wysocki" <rafael@kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "sparclinux@vger.kernel.org"
+	<sparclinux@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Linux-Arch <linux-arch@vger.kernel.org>,
+	"linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>, Alan Stern
+	<stern@rowland.harvard.edu>, =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?=
+	<u.kleine-koenig@pengutronix.de>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, Bjorn Helgaas <bhelgaas@google.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-alpha@vger.kernel.org"
+	<linux-alpha@vger.kernel.org>, Johannes Berg <johannes@sipsolutions.net>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Subject: RE: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it as
+ necessary
+Thread-Topic: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it as
+ necessary
+Thread-Index: AQHZZ/3AaiQodugroEmdF5H6jyGRq68dOQLw
+Date: Wed, 5 Apr 2023 21:36:44 +0000
+Message-ID: <ccff565cde1440b8bff92d96f94a32b5@AcuMS.aculab.com>
+References: <20230323163354.1454196-1-schnelle@linux.ibm.com>
+ <248a41a536d5a3c9e81e8e865b34c5bf74cd36d4.camel@linux.ibm.com>
+ <B1EC1AC7-6BB5-4B66-B171-24687C3CBFB3@zytor.com>
+ <d8686aaf-f12e-446b-9a80-335bb4266a4d@app.fastmail.com>
+In-Reply-To: <d8686aaf-f12e-446b-9a80-335bb4266a4d@app.fastmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1782; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=4xdzTSoq3uZ4FVpJV9Db9fLME5Mlhkbk3nlXZWw5e0A=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCm6L5o5ZL4EGarNDnjAsS2G/efL0C9fE1ZU3vmjmmf4c Efr5Hf/OkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCR5jyGf0ZuRvlXBA6/CdjM FaeX867RpMiBeeKtSw0Zgf6341e8dmf4zZqZ3G1mK/v6feLC+dvlOuO6pDwXmGxPTTZ9zl3zsnY WLwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_143214_466328_F04C80E9 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20230405_143657_226783_8BFBC6E6 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,55 +114,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Sat, 01 Apr 2023 19:19:12 +0800, Hal Feng wrote:
-> This patch series adds basic clock, reset & DT support for StarFive
-> JH7110 SoC.
+From: Linuxppc-dev Arnd Bergmann
+> Sent: 05 April 2023 21:32
 > 
-> @Stephen and @Conor, I have made this series start with the shared
-> dt-bindings, so it will be easier to merge.
+> On Wed, Apr 5, 2023, at 22:00, H. Peter Anvin wrote:
+> > On April 5, 2023 8:12:38 AM PDT, Niklas Schnelle <schnelle@linux.ibm.com> wrote:
+> >>On Thu, 2023-03-23 at 17:33 +0100, Niklas Schnelle wrote:
+> >>> We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
+> >>> Port access. In a future patch HAS_IOPORT=n will disable compilation of
+> >>> the I/O accessor functions inb()/outb() and friends on architectures
+> >>> which can not meaningfully support legacy I/O spaces such as s390.
+> >>> >>
+> >>Gentle ping. As far as I can tell this hasn't been picked to any tree
+> >>sp far but also hasn't seen complains so I'm wondering if I should send
+> >>a new version of the combined series of this patch plus the added
+> >>HAS_IOPORT dependencies per subsystem or wait until this is picked up.
+> >
+> > You need this on a system supporting not just ISA but also PCI.
+> >
+> > Typically on non-x86 architectures this is simply mapped into a memory window.
 > 
-> @Conor, patch 1, 2, 16~21 were already in your branch. Patch 22 is the
-> same with the patch [1] I submitted before, which you had accepted but
-> not merge it into your branch.
-> 
-> [...]
+> I'm pretty confident that the list is correct here, as the HAS_IOPORT
+> symbol is enabled exactly for the architectures that have a way to
+> map the I/O space. PCIe generally works fine without I/O space, the
+> only exception are drivers for devices that were around as early PCI.
 
-Applied to riscv-dt-for-next, thanks!
+Isn't there a difference between cpu that have inb()/outb() (probably
+only x86?) and architectures (well computer designs) that can generate
+PCI 'I/O' cycles by some means.
+It isn't even just PCI I/O cycles, I've used an ARM cpu (SA1100)
+that mapped a chuck of physical address space onto PCMCIA I/O cycles.
 
-[01/22] dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
-        https://git.kernel.org/conor/c/7fce1e39f019
-[02/22] dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
-        https://git.kernel.org/conor/c/3de0c9103258
+If the hardware can map a PCI 'IO' bar into normal kernel address
+space then the bar and accesses can be treated exactly like a memory bar.
+This probably leaves x86 as the outlier where you need (IIRC) io_readl()
+and friends that can generate in/out instructions for those accesses.
 
-These two are shared with clk.
+There are also all the x86 ISA devices which need in/out instructions.
+But (with the likely exception of the UART) they are pretty much
+platform specific.
 
-[16/22] dt-bindings: timer: Add StarFive JH7110 clint
-        https://git.kernel.org/conor/c/1ff5482ab9a5
-[17/22] dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-        https://git.kernel.org/conor/c/8406d19ca049
+So, to my mind at least, HAS_IOPORT is just the wrong question.
 
-I took these bindings too, as Palmer has done that in the past for new
-SoC support.
+	David
 
-[18/22] dt-bindings: riscv: Add SiFive S7 compatible
-        https://git.kernel.org/conor/c/8868caa2a073
-[19/22] riscv: dts: starfive: Add initial StarFive JH7110 device tree
-        https://git.kernel.org/conor/c/60bf0a39842e
-[20/22] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-        https://git.kernel.org/conor/c/e22f09e598d1
-[21/22] riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device tree
-        https://git.kernel.org/conor/c/54baba33392d
-[22/22] riscv: dts: starfive: jh7110: Correct the properties of S7 core
-        (squashed)
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
-Hal, can you get your folks to resend whatever dts bits that are now
-applicable? IOW, the dt-bindings for the entries are in a for-next
-branch for some subsystem.
-
-Thanks,
-Conor.
 
 _______________________________________________
 linux-riscv mailing list
