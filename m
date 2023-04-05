@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD63C7619A
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 16:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC2CC76188
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 16:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=7ooOu+zmuVwxB8HkYQFeOg003D//z3xxTvgy8MVl7Vk=; b=fYI
-	2CZtu7WUco12JK7EG34bxIoiCzluIadnXIwV2AbDlOaYQ30tTLlLGJG7/FoHQcCLmD4CFB7m0y3P+
-	e5+n1Meb/aFLHhrTihKvQaLvJ/TIN0U7V5gToORBYx94Gwkx3BfnBeTLYGshGmxMHFA+BQiGHUo70
-	W5FVU4FuO7q449LH0dP/i5H5/EMAYA8gXyeEA0Xvl54rwNUyffhd02sfivbW4cHdoWzN5b824m0Fa
-	sAGwW/ngjwF77u9lqbXqd1LcXmokXh3C733U3HAPiMrydz2GjQcZY4fgT8oNQOugrud+BUibdMQwV
-	4bQMULsfOTW5Y+5hNw+DyyYu7zaPI3w==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PRCJhTlENMRaOSgyczKshT+C/rOEH16wYO+Ro6i+zmo=; b=R9ujZV9b1F8u7qjTibKnE33HmP
+	fjEqhDzPuaNJ9+HapelCRcv3IWYcsPPAW5f90EW1bKXRO8W+3r4MFm+vc3r6BmSxtjhGScC2W3Gw6
+	rLke1jrcnFSjEJyXiMCiay+LeOxYaHj4WHBH0wqbOhM7aN1DTCwRz0SU6qZCozP8ejvt2kSs37VsE
+	fxJ/ooROT96Cy0+boFGKQuHKDXHTQw0p7jN6VsYpQRJPqzMVTAnLJEcdRj1dxf+Ss25xnqjHi9GH9
+	INnTcIN0VxGq6CjWWwORll0EYa4eMSuGKsSn5BUndm+/j6V7187eeQ2eZdyAKMR4MvnqoZLdvX381
+	gkZ8lDYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk5dG-0053sf-1c;
-	Wed, 05 Apr 2023 16:05:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pk69H-0058ZS-26;
+	Wed, 05 Apr 2023 16:38:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pk5dD-0053rp-03
+	id 1pk69F-0058Yt-0W
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 16:05:08 +0000
+	Wed, 05 Apr 2023 16:38:14 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7534062A38;
-	Wed,  5 Apr 2023 16:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 332BFC433EF;
-	Wed,  5 Apr 2023 16:05:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B6D94625BE;
+	Wed,  5 Apr 2023 16:38:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FCB3C43443;
+	Wed,  5 Apr 2023 16:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680710705;
-	bh=sNSqkINxFI7A8wFSv179kl/bjwEC7TLZju7EuQ1QQEI=;
-	h=Date:From:To:Cc:Subject:From;
-	b=jy/9OyLr7LVbwEuVaPmVcNXhOB5xrE4mgZlQlsgycdFg+AwwB5RR77CVqzemKaV88
-	 S/8tHF7OFIa8Q7RQ7kUeLU4Hg9k4pTFhXuztU5GU2mpuYUeBCx9P2lymWuW/4EzPyV
-	 bNn1aSE6soxFu3pqURKQPqYkv3QhEXDGlPQquqsQZE6uqgj5YlvgScY4vdxAsW5ld0
-	 mWWxZsNfETKPJqLTR+AS5ePHOIu0M9VcwNM8wuI/cpJB2isJEsFgTCe3o/NwGcqTZV
-	 X2OjjaPxfO/HBI0aL66sn4WRgWswVkPD1pkeDRlPoLu6FTbnw3gy0hGZ9DEA7V+29m
-	 G0UIiTakGVpOg==
-Date: Wed, 5 Apr 2023 17:05:01 +0100
+	s=k20201202; t=1680712692;
+	bh=syKhDH18sc1NcY1/ySSVPv2qM6XNI1spR3GACAOsNJ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eBNtu1Pr52mhp899qkiRAQ3jV6O5ZfF7agoRgDSfE2Kov/aUqK7ByJkK10TOdw+0X
+	 3WCXsxvRS43Z9Lyz2xY9BnQKKVTRIKzEr0FgrLu2MU8LYBrhazoPa55y5z8bI5WkR+
+	 YwSQAMOiAhxm282qCVUe1Y1cNJvZQhpBqkqcEYC/swER81ncPq3WNN1br3XCS9klTf
+	 T4F1g/Cab+mZbp1h5rPIys/HbGY0wqQ8feM7ryyu5WBcX0QZsD1r3NV6ay0UWmai08
+	 psHGP5jshPyXILDcFR39tHCWgW05oHtBCZvCvRF4cKAun42UDKb6omKeU7L/Mo6QwE
+	 IH0DbsmV6DXog==
+Date: Wed, 5 Apr 2023 17:38:07 +0100
 From: Conor Dooley <conor@kernel.org>
-To: sboyd@kernel.org, p.zabel@pengutronix.de
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	hal.feng@starfivetech.com, emil.renner.berthing@canonical.com,
-	conor@kernel.org, mturquette@baylibre.com
-Subject: [GIT PULL] Initial clk/reset support for JH7110 for v6.4
-Message-ID: <20230405-constant-dreamily-0128e071c665@spud>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>
+Subject: Re: [RESEND v6 1/2] dt-bindings: soc: starfive: Add StarFive syscon
+ doc
+Message-ID: <20230405-bullseye-handsaw-5c2e4dab772f@spud>
+References: <20230315055813.94740-1-william.qiu@starfivetech.com>
+ <20230315055813.94740-2-william.qiu@starfivetech.com>
+ <850bc37e-c6d1-2381-a851-965a4cbee8a0@linaro.org>
+ <e38efd81-9c79-553b-7556-7aff30f6ec50@starfivetech.com>
+ <f25cc55e-3405-4b17-fb45-5ae5eb36a404@linaro.org>
+ <d0b1d44e-6d6e-536c-046e-be6a53f1d240@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <d0b1d44e-6d6e-536c-046e-be6a53f1d240@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_090507_137313_AD3D77B4 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20230405_093813_238365_CF3C15A4 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,141 +77,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7847576280501362496=="
+Content-Type: multipart/mixed; boundary="===============0148835308402116058=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7847576280501362496==
+--===============0148835308402116058==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VxiQgXSLDZ82ap6c"
+	protocol="application/pgp-signature"; boundary="l1+mDrVx6go5Y/WQ"
 Content-Disposition: inline
 
 
---VxiQgXSLDZ82ap6c
+--l1+mDrVx6go5Y/WQ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Stephen, (and Philipp if you want I guess?),
+On Mon, Mar 20, 2023 at 03:32:14PM +0800, William Qiu wrote:
 
-Here's a PR for the StarFive JH7110 clk/reset bits since I'd like to
-take the DT this cycle & depend on the binding headers.
+> >>> Does not look like you tested the bindings. Please run `make
+> >>> dt_binding_check` (see
+> >>> Documentation/devicetree/bindings/writing-schema.rst for instructions=
+).
+> >>>
+> >>> ... or your PLL clock controller was not tested.
+> >>>
+> >>> Best regards,
+> >>> Krzysztof
+> >>>
+> >> Hi Krzysztof,
+> >>=20
+> >> I've already done`make dt_binding_check`, and get no error. So maybe P=
+LL clock controller
+> >> was not tested which I didn't add in this patch series. And PLL clock =
+controller belongs
+> >> to Xingyu Wu, I would tell him.
+> >=20
+> > What's confusing you do not allow here clock controller.
 
-I've picked up R-B tags from Emil on all that patches, despite him being
-listed as an author, as things have changed quite a lot since he was
-involved in writing things many months ago.
+> I'll add it then.
 
-The base here is -rc2 rather than -rc1 as -rc1 has issues booting on
-this platform. Please pull and all that lark..
+What's the plan here William?
+Can you sort something out with Xingyu Wu so that the dt-binding is
+added in a complete manner?
+In the meantime, gonna drop this series as "Changes Requested" from
+patchwork.
 
 Cheers,
 Conor.
 
-The following changes since commit eeac8ede17557680855031c6f305ece2378af326:
-
-  Linux 6.3-rc2 (2023-03-12 16:36:44 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-jh7110-clk-reset-for-6.4
-
-for you to fetch changes up to 63a30e1f44d5e3afbb47efe8a15fd86feeb62b4b:
-
-  MAINTAINERS: generalise StarFive clk/reset entries (2023-04-05 15:52:25 +0100)
-
-----------------------------------------------------------------
-Initial JH7110 clk/reset support
-
-A rake of patches, initially worked on by Emil & later picked up by Hal
-that add support for the sys/aon clock & reset controllers on StarFive's
-JH7110 SoC.
-This SoC is largely similar to the existing JH7100, so a bunch of
-refactoring is done to share as many bits as possible between the two.
-What's here (plus the already applied pinctrl bits) should be sufficient
-to boot a basic initramfs.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Emil Renner Berthing (13):
-      dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
-      dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
-      clk: starfive: Factor out common JH7100 and JH7110 code
-      clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
-      clk: starfive: Rename "jh7100" to "jh71x0" for the common code
-      reset: Create subdirectory for StarFive drivers
-      reset: starfive: Factor out common JH71X0 reset code
-      reset: starfive: Extract the common JH71X0 reset code
-      reset: starfive: Rename "jh7100" to "jh71x0" for the common code
-      reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
-      clk: starfive: Add StarFive JH7110 system clock driver
-      clk: starfive: Add StarFive JH7110 always-on clock driver
-      MAINTAINERS: generalise StarFive clk/reset entries
-
-Hal Feng (3):
-      clk: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-      reset: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-      reset: starfive: Add StarFive JH7110 reset driver
-
- .../bindings/clock/starfive,jh7110-aoncrg.yaml     | 107 +++
- .../bindings/clock/starfive,jh7110-syscrg.yaml     | 104 +++
- MAINTAINERS                                        |  22 +-
- drivers/clk/Makefile                               |   2 +-
- drivers/clk/starfive/Kconfig                       |  33 +-
- drivers/clk/starfive/Makefile                      |   6 +-
- drivers/clk/starfive/clk-starfive-jh7100-audio.c   |  74 +--
- drivers/clk/starfive/clk-starfive-jh7100.c         | 716 ++++++---------------
- drivers/clk/starfive/clk-starfive-jh7100.h         | 112 ----
- drivers/clk/starfive/clk-starfive-jh7110-aon.c     | 156 +++++
- drivers/clk/starfive/clk-starfive-jh7110-sys.c     | 490 ++++++++++++++
- drivers/clk/starfive/clk-starfive-jh7110.h         |  11 +
- drivers/clk/starfive/clk-starfive-jh71x0.c         | 333 ++++++++++
- drivers/clk/starfive/clk-starfive-jh71x0.h         | 123 ++++
- drivers/reset/Kconfig                              |   8 +-
- drivers/reset/Makefile                             |   2 +-
- drivers/reset/reset-starfive-jh7100.c              | 173 -----
- drivers/reset/starfive/Kconfig                     |  20 +
- drivers/reset/starfive/Makefile                    |   5 +
- drivers/reset/starfive/reset-starfive-jh7100.c     |  74 +++
- drivers/reset/starfive/reset-starfive-jh7110.c     |  70 ++
- drivers/reset/starfive/reset-starfive-jh71x0.c     | 131 ++++
- drivers/reset/starfive/reset-starfive-jh71x0.h     |  14 +
- include/dt-bindings/clock/starfive,jh7110-crg.h    | 221 +++++++
- include/dt-bindings/reset/starfive,jh7110-crg.h    | 154 +++++
- 25 files changed, 2297 insertions(+), 864 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
- delete mode 100644 drivers/clk/starfive/clk-starfive-jh7100.h
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-aon.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-sys.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110.h
- create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
- delete mode 100644 drivers/reset/reset-starfive-jh7100.c
- create mode 100644 drivers/reset/starfive/Kconfig
- create mode 100644 drivers/reset/starfive/Makefile
- create mode 100644 drivers/reset/starfive/reset-starfive-jh7100.c
- create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
- create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.c
- create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
- create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
- create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
-
---VxiQgXSLDZ82ap6c
+--l1+mDrVx6go5Y/WQ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC2cLQAKCRB4tDGHoIJi
-0lbzAQDfmv4s4TWUytYT+wpNfRfL91KsrUTqRM6RxNFhK728YgD9Ems0KgF/+RSI
-il/aq997LhB3O5joLUCnUUAkaHQy+ws=
-=rSdZ
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC2j7wAKCRB4tDGHoIJi
+0k+4AQCdBamxHmK76N715U1XwXpOgMU26jEqAcw7pKiI/4fH4gD9GXFxFJgrDOfu
+irkLH3kj2KloYVZ/9eNvQHp19BK9NQ4=
+=bLQ4
 -----END PGP SIGNATURE-----
 
---VxiQgXSLDZ82ap6c--
+--l1+mDrVx6go5Y/WQ--
 
 
---===============7847576280501362496==
+--===============0148835308402116058==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -212,5 +151,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7847576280501362496==--
+--===============0148835308402116058==--
 
