@@ -4,106 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2694BC76188
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 08:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F7EC7619A
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 09:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cSNtLPJi/VEYFqORzwOyMcnBDqRKpQYDKnbqxvvBrgk=; b=w2x/8cA63l0Td4
-	Yv8chp10xk8UMwLq13xMB2LfjTvkZd6rujtIPwqGlDhjKW6GfQ4Emjw0uFtyhD4e3uoDXfFB8zruu
-	/YXxNPkC30DHIJDZd916nk0SoZpivpSq6YqIXgh4FDH+VHqDxMBqp6P77wKL/3/ftgIutiRVwrU4d
-	2PNAp0UrgOGRdPfHK3mK7ghS4F3abuh/1j+GIwa311Ny16tYFH0+EIJCofnTdFQ4TVfAKTTcgrLPV
-	3viuFglkZdlxeG+/YUQiDvQeHrCxZnPp+7ffjGJT6V3tOyZAvsHyHiToCwdl5zdJS6rHs5J8doXbA
-	W7mjHFXNfZCf5qwLJBbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jhvkN7Fj4gM3qfKH7lb9iZpkx2f0SPEB/fGxt3UNLQI=; b=RhaN3FGNfxC6gqAODq24DjUjIW
+	3407Aqry1rY/lfh7s17zgwK4oFS/DJkh4qmeaglJv0VIrWSUnu3vJjrsNlI3XhhWpQoYdIV5ud4ie
+	JkRRETUTJeOjJpxQZgP1zbRy2g56EU/gHdrfv47DoJlyYplN3hLTzLj0+dyHyQAjglUPQMhQm7ALJ
+	QUyLGzoM4RaRLLld/zCY9XAIXu5qns2P73KJ0Ac8kyI7xwOHR8okM6kNMR2h4l7F0iZCp3z9HhOLu
+	VlyOczpZmB9o8TK5yJaHTs38dF3fKqd5vQcnTDG7Rn1H4MX6xgEq68wTM8L6s4ZrPAOrFdDA5XXrr
+	4lKG3spw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjyK2-003l0P-1V;
-	Wed, 05 Apr 2023 08:16:50 +0000
-Received: from wnew1-smtp.messagingengine.com ([64.147.123.26])
+	id 1pjzRK-003x5r-1e;
+	Wed, 05 Apr 2023 09:28:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pjyJy-003kyz-33
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 08:16:48 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.west.internal (Postfix) with ESMTP id D88F52B0670E;
-	Wed,  5 Apr 2023 04:16:39 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 05 Apr 2023 04:16:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1680682599; x=1680689799; bh=E4
-	FRrBsELPivENRQDY0P/B5Hrosa4b2SmzmKSYFWm74=; b=O/RfOi1e5gJBwc3CRO
-	6EWvOBPfA7kqdj7sZ1wQWWJRIVpKzE5AI1hqc9WANjEOPc0VlKVpBB4IA4gZh8jQ
-	7gQbGkU/Y7DjtFOLLPN2B+vqHOOIpYuv14gSHyL8hoTTLdHfdixPwXlAinewnJDy
-	pCU4zgyjDP5nazvefaHE4a+MCCjlehkk78cElYr1RQto9eQtQ66JYTUtMLTXLFyT
-	alXZtoTKYSuJlOQrx08qlQ0XnRUG+rrBgeadWFfm485RuHUuAtjGh84wQTvAYf1u
-	Z4J5r1RhIdDO0VDx3umJg901SgI7cGEjedjvsQUVn+HdOdl7WOHeLra+pJfCDene
-	/X1Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1680682599; x=1680689799; bh=E4FRrBsELPivE
-	NRQDY0P/B5Hrosa4b2SmzmKSYFWm74=; b=irXtbfnN+lz4Id+q0cchgDiq/0att
-	SZqF0jA+dW9eKrzI/Hdz0raj/1VcYz0S2gflBmiiqXTKBYnMjkxwwGXfOBUii5yE
-	UrocSTbwq7UP1YsQOV8mpGny+1J6D/q3YTuWIjpoWhsH+YM/IfYiygJCac3N83Rc
-	FJfmsJfFPEZjMUiI7b0DptN2qlYh2d+yzFiyZZCVdZw8M2Qder99fArmpHJjQqtb
-	qgM7HX6Vcg63d5aPXxLvB+iY6dIDVy5KgzAvwHDcIEJfNmboJODOxqD/5X2FpFq8
-	3vw1jmm7OATqI4D9ojOZsheWtwXNAsp0MSV7XYqVK+79+CiIBWKVP4crA==
-X-ME-Sender: <xms:ZS4tZMZI9AV0RkcBkz6u_qTZcu_jT_tJVGVzJyGanPX9Z0iZPDhS6Q>
-    <xme:ZS4tZHb84hRVmfo9CZeAclAfKYo1GAUMzA1q3vIakl9kqrd-rtexHH9Q_vpBMa_vo
-    DitDxNyuewPeT5a4og>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdejuddgtddvucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:ZS4tZG_an9tb6QDw-DeyRnF-MoiRX3UK2FT5yYldQhdyUCEPK3p6cw>
-    <xmx:ZS4tZGonhwZm-UauGA8CU4Sr3yRYaGJgKoEqtpioN0iBOguVj5kRVA>
-    <xmx:ZS4tZHrI8LJ6T2u70F_faSulNUPHdK-DiuwYUbgSpTxTR3iMl3AIXw>
-    <xmx:Zy4tZBagRz_7kfsOKTOayTV_ewyD5h_EN8mJJP8RTtf85jnMin17RvleoA4>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 3B97AB6008F; Wed,  5 Apr 2023 04:16:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-334-g8c072af647-fm-20230330.001-g8c072af6
-Mime-Version: 1.0
-Message-Id: <dcd04005-2dba-4ccc-a235-a809220f9dbd@app.fastmail.com>
-In-Reply-To: <20230404182037.863533-24-sunilvl@ventanamicro.com>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-24-sunilvl@ventanamicro.com>
-Date: Wed, 05 Apr 2023 10:16:00 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Sunil V L" <sunilvl@ventanamicro.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev
-Cc: "Jonathan Corbet" <corbet@lwn.net>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Len Brown" <lenb@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Weili Qian" <qianweili@huawei.com>,
- "Zhou Wang" <wangzhou1@hisilicon.com>,
- "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>,
- "Maximilian Luz" <luzmaximilian@gmail.com>,
- "Hans de Goede" <hdegoede@redhat.com>, "Mark Gross" <markgross@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>, "Tom Rix" <trix@redhat.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH V4 23/23] crypto: hisilicon/qm: Workaround to enable build with
- RISC-V clang
+	id 1pjzRI-003x4c-0F;
+	Wed, 05 Apr 2023 09:28:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1680686904; x=1712222904;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aLX6+vqdQNVvF14fetM/8YAe4WRk9gZuo75cuAymbAw=;
+  b=Cju6itZ1jp+y6+sa9qL3cL2YfA+iSXdHWYao+pCHENuhi111s/bpwCnG
+   nhhu80pbJfjZZQtX7HtK8DJ9BtaZgNrJssoCije7uu+g7571iemIRjaZ+
+   kH4MESHrPKmUi9jcAa8aZ2phf5LGCcNWqlQOZa+JoEyXmuYtOcqPxZ/7X
+   kPdWxR5SeKrJ1dNvB2Lvz45Z6TCFP4O2Jg/bYjOkNSsIrSedDSHZPWfXU
+   N+yc7dy7czlodbI9dKolcKQqLfU8di2grCZ3RsrzaidDWD8CUnW8aYZSZ
+   G7HfC/USOj6xT1vIY8bv5DZcLRy9t9UpBY8Q0xzuzG42wmt4rYgHDG7+w
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,319,1673938800"; 
+   d="asc'?scan'208";a="219516254"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Apr 2023 02:28:20 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 5 Apr 2023 02:28:19 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 5 Apr 2023 02:28:17 -0700
+Date: Wed, 5 Apr 2023 10:28:03 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: Anup Patel <anup@brainfault.org>, Anup Patel <apatel@ventanamicro.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, <kvm@vger.kernel.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <bjorn@kernel.org>
+Subject: Re: [PATCH v3 6/8] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+Message-ID: <20230405-icon-arrogance-62bf7d627a5d@wendy>
+References: <20230403093310.2271142-1-apatel@ventanamicro.com>
+ <20230403093310.2271142-7-apatel@ventanamicro.com>
+ <osrpjiywxtkgxb5i6mfvxzfrzrnjv75uqzvlu3fouo4mqsktgj@blcmyjt3twqg>
+ <CAAhSdy1JEQBiO55iCy97arO63VjGc+NicUvvwzTpK97W97LmJg@mail.gmail.com>
+ <ejt3x4p7xhxfvwiafnogfwdn5dzd4qyowlht22utnbvzefsbyh@7dch4mebwckm>
+ <uogikq56rf7jytuufhsutdedb73b3rh67biwpzsz6ngg5rudco@qcwt7plumwpb>
+ <20230404-5cfffb017198773dc3e81dab@wendy>
+MIME-Version: 1.0
+In-Reply-To: <20230404-5cfffb017198773dc3e81dab@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_011647_207032_AA30D1E2 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20230405_022824_180071_C6BC8B5E 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,67 +85,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7848492146937493420=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 4, 2023, at 20:20, Sunil V L wrote:
-> With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
-> allmodconfig build. The gcc tool chain builds this driver removing the
-> inline arm64 assembly code. However, clang for RISC-V tries to build
-> the arm64 assembly and below error is seen.
->
-> drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint 
-> '+Q' in asm
->                        "+Q" (*((char __iomem *)fun_base))
->                        ^
-> It appears that RISC-V clang is not smart enough to detect
-> IS_ENABLED(CONFIG_ARM64) and remove the dead code.
->
-> As a workaround, move this check to preprocessing stage which works
-> with the RISC-V clang tool chain.
->
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+--===============7848492146937493420==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6/ymYoyceqNd1+G4"
+Content-Disposition: inline
 
-Your patch looks correct for this particular problem, but I
-see that there are a couple of other issues in the same function:
+--6/ymYoyceqNd1+G4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> -	}
-> +#if IS_ENABLED(CONFIG_ARM64)
-> +	unsigned long tmp0 = 0, tmp1 = 0;
-> 
->  	asm volatile("ldp %0, %1, %3\n"
->  		     "stp %0, %1, %2\n"
-> @@ -627,6 +623,11 @@ static void qm_mb_write(struct hisi_qm *qm, const 
-> void *src)
->  		       "+Q" (*((char __iomem *)fun_base))
->  		     : "Q" (*((char *)src))
->  		     : "memory");
+On Tue, Apr 04, 2023 at 12:58:41PM +0100, Conor Dooley wrote:
+> On Tue, Apr 04, 2023 at 01:52:43PM +0200, Andrew Jones wrote:
+> > On Mon, Apr 03, 2023 at 02:23:01PM +0200, Andrew Jones wrote:
+>=20
+> > > It's probably best if neither depend on each other, since they're
+> > > independent, but otherwise the order doesn't matter. It'd be nice to =
+call
+> > > the order out in the cover letter to give patchwork a chance at autom=
+atic
+> > > build testing, though. To call it out, I believe adding
+> > >=20
+> > > Based-on: 20230401112730.2105240-1-apatel@ventanamicro.com
+> > >=20
+> > > to the cover letter should work.
+> >=20
+> > I also just noticed that this based on "RISC-V: KVM: Add ONE_REG
+> > interface to enable/disable SBI extensions"[1] and it needs to be
+> > in order to pick up the KVM_REG_RISCV_SUBTYPE_MASK and
+> > KVM_REG_RISCV_SUBTYPE_SHIFT defines. It'd be good to call that
+> > patch out with Based-on.
+> >=20
+> > [1]: 20230331174542.2067560-2-apatel@ventanamicro.com
+>=20
+> I've been waiting for a review on that for a while.. It's been 3
+> weeks, so just gonna merge it and see what breaks!
 
-For the arm64 version:
+I did in fact break some stuff, but the output was no worse than if the
+dependencies had not been specified...
+I've fixed it (I think!) and told it to ignore the old state, so it'll
+re-run against the stuff it missed.
 
-- the "dmb oshst" barrier needs to come before the stp, not after
-  it,  otherwise there is no guarantee that data written to memory
-  is visible by the device when the mailbox gets triggered
-- The input/output arguments need to be pointers to 128-bit types,
-  either a struct or a __uint128_t
-- this lacks a byteswap on big-endian kernels
+Cheers,
+Conor.
 
-> +#else
-> +	memcpy_toio(fun_base, src, 16);
-> +	dma_wmb();
-> +#endif
+--6/ymYoyceqNd1+G4
+Content-Type: application/pgp-signature; name="signature.asc"
 
-This version has the same problems, plus the write is not actually
-atomic. I wonder if a pair of writeq() calls would just do the
-right thing here for both arm64 and others, or possibly a
-writeq() followed by a writeq_relaxed() to avoid the extra dmb()
-in the middle.
+-----BEGIN PGP SIGNATURE-----
 
-     Arnd
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC0/IwAKCRB4tDGHoIJi
+0llzAQD7CVUsawsm7wpvaamyFV3X2C65V7xha05w4L4rhlmyWAEAr3QHqpnSd9Pd
+JL27yJCJfcvHvC6TY2wuWqeH5ArIAAk=
+=jbmg
+-----END PGP SIGNATURE-----
+
+--6/ymYoyceqNd1+G4--
+
+
+--===============7848492146937493420==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7848492146937493420==--
+
