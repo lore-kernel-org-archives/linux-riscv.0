@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F85C77B71
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 10:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB8AC7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 10:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0lzW/dZF32KDmFE1nRUsEtYLtUbJaOXxSblM5cqGZ8I=; b=ICdFAjMReYC1eC
-	OPi4RGuI0MZiasPk4buMQxduSTLzay8SXtbt1w4gzR/8zXXBcXwGaPkU02XYf1IifqVgEBNxsO6XQ
-	cuxOxzyW3SbTTu9PV2iEdQFJxp9d6bbbYZy7BfVA9E1IUIhxfyvrmMJ5ipEEuT8NGW4rz5kC6IPTF
-	HGIdxx3zbcrlb0tU0+4BXuh7O5mqljp+c2eFHWN39MgcrA1vkiNbFOwKE95HWmwa8zk7jmsEYyyOj
-	ovyHqoMGHQaav/Efp8kKr7ChQgzjVI4n1VOEjcwGUHp1TLJF30gTx0KY7pRinLvS4DfqO/JeT+cUx
-	UvYn1UdGNr5ZDTslva0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X83/HK8hxywD76W3yb9SDXgBYFisaAPlvsYP9PP5kt0=; b=BrrH8MExXnuV9q
+	JlOFTCFAn0i/Vm4VbM3J78SAH/aAIuyqfUH1rwVCaUjRY5ZHwLFbkU7Eld+hgrCYsrM5KvfO5FKqN
+	G96Dl3ZSfmIjaEHKbKdumeOtG8Po1Ne+B/LU+Ny9OfX2dFerEplSG1f+XdL171MoVZfLVGCFBvY5J
+	vWS2xFzx7N6I2rr0UPH4fktFawbatBjO3sLz0NP5IGKnkhzvVeQLqCt+61Mp5Y0b/NTENt9JxFKuu
+	P4O0RpLBzLi0I1v2CqxEGTR0kjvMJJbFFZrlzLKNrIFI4knlTm6uS9ql06bNeeZ6ED2KepfMd2Rig
+	zt29buas7pniTCyqYU0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMc2-006yep-2S;
-	Thu, 06 Apr 2023 10:13:02 +0000
-Received: from mo4-p00-ob.smtp.rzone.de ([81.169.146.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMbz-006yeG-2R
+	id 1pkMw8-0073VZ-0V;
+	Thu, 06 Apr 2023 10:33:48 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pkMw4-0073IW-0P
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 10:13:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1680775974; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=nBc+R0hdOQGq4o1N2EDXL8N32BDzEeIr1xELOp5sF9E04anXR/IKXr4FiQKX+xCzH1
-    +E5ku4okT75UTeswhJTOiYo3+GlG4kRZQtxPbRefZD8oeFWNJxHY5uOYwpz0MZ92aIUd
-    lCYXLbwsKg6G52+4I6y34ghzy6pggiP+2siscOt5oTr49215j7LjH4RRGV31dg61ZBwD
-    J7FkQtsKamIXd+2CXA7kix1WsWoEe1MubEeIDKg2R1dTg7NIXK9eEweddj6LUZRM8+04
-    Q6FzX9zlJ+OHyvLH4fCEchCgDlhN5x3aSNmrP5TRIKTyTQwhp9FHSD2+tDlGSfHnWoJu
-    IUog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1680775974;
-    s=strato-dkim-0002; d=strato.com;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=D/j+aw/W3shOmQv0C2duhOHmlQQqdbsfbNfrQfsXH5c=;
-    b=ndLpgkiJ3IC2ri4uZzB768ybvWedQ7eIAOQusf65q2sJRNIvGyr0ksnrSNIUKXc3ra
-    R88n+cMiiX8ATXfXTH6hvtOjX0r7DQznLK4X4P/tbO/0SYg4gCzgCh4icMYRKeAApd0s
-    yzWxjLxgXWsWlLxmGyI6vgNq/FaOzWvZe7sZdWnvph6z05lj9OFGAqYwzfwfhA/9sOZ7
-    ZiZSpkaMvqATeCspz8ZahcIjbVY99m2yt4hzT1VLmh3RZTfQYWZFW+uWxda5nNYLCi9B
-    V6Pm7chIJ5JMZ1qIQhLmkozDSoS7/U/aEx7xlMi7mGaftRW7wMKl26M0p0TJJApkjUhZ
-    NuSg==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo00
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1680775974;
-    s=strato-dkim-0002; d=matsal.de;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=D/j+aw/W3shOmQv0C2duhOHmlQQqdbsfbNfrQfsXH5c=;
-    b=Pqg7JqBh6tHK7OjLLXjG+AZPxHXuS7QdORyzBNBBahYdyQVm7dDuxqYfxCBT5Pgv/N
-    /bHL/hZ0P+bJyY/FUT38JcoFgYAiQFL4KX9TL2TRnx34R7B1DdjFhKWnq51gxTg05+0w
-    TPxktVRL1QGjB/GXwVmCQMMIcohnKWhTe7uM0oTfySXaotvNPk8IHiHyHLIGrMvBQOhw
-    Vv3EIahtLRFhOiUDO9SyoqbdRv86D70XpcLO7jYDPMtoTiybnPbNp97OKt6MM6KLV5Xd
-    7rS85oj4t1mpZnHsIz3vHfR+xr6hfJVOBrMMEXvOEazChbPM7l+IqwuoJp5G+LraVs4A
-    UAwA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1680775974;
-    s=strato-dkim-0003; d=matsal.de;
-    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=D/j+aw/W3shOmQv0C2duhOHmlQQqdbsfbNfrQfsXH5c=;
-    b=Mgj/tVr2ytJfwNr/SV8bqjj+Kv48u4EyBS3nf5QF7aXcYgwVSnogL2pmAMXe5CbE1K
-    Yru4oSTvRAsMSO1b4tBA==
-X-RZG-AUTH: ":IW0QfUm7NezzNQ5osAhLM1umwWvsEbiUz2EFIybcN0GbouAcRcs36+XQ+PXmbrHj0IHceHHJihaxy8GlOKeM+n1nTMe0OswSsTIcZomt"
-Received: from device2.fritz.box
-    by smtp.strato.de (RZmta 49.4.0 AUTH)
-    with ESMTPSA id 6644bcz36ACsCN7
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Thu, 6 Apr 2023 12:12:54 +0200 (CEST)
-From: Mathis Salmen <mathis.salmen@matsal.de>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: Mathis Salmen <mathis.salmen@matsal.de>
-Subject: [PATCH v2] riscv: add icache flush for nommu sigreturn trampoline
-Date: Thu,  6 Apr 2023 12:11:31 +0200
-Message-Id: <20230406101130.82304-1-mathis.salmen@matsal.de>
-X-Mailer: git-send-email 2.40.0
+	Thu, 06 Apr 2023 10:33:46 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C88AA24E31E;
+	Thu,  6 Apr 2023 18:33:15 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
+ 2023 18:33:15 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Thu, 6 Apr 2023 18:33:15 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Emil
+ Renner Berthing" <kernel@esmil.dk>, William Qiu
+	<william.qiu@starfivetech.com>
+Subject: [PATCH v7 2/2] riscv: dts: starfive: jh7110: Add syscon nodes
+Date: Thu, 6 Apr 2023 18:33:08 +0800
+Message-ID: <20230406103308.1280860-3-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230406103308.1280860-1-william.qiu@starfivetech.com>
+References: <20230406103308.1280860-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_031300_101782_4FC8F6AD 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20230406_033344_320672_14517F22 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +76,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In a NOMMU kernel, sigreturn trampolines are generated on the user
-stack by setup_rt_frame. Currently, these trampolines are not instruction
-fenced, thus their visibility to ifetch is not guaranteed.
+Add stg_syscon/sys_syscon/aon_syscon nodes for JH7110 Soc.
 
-This patch adds a flush_icache_range in setup_rt_frame to fix this
-problem.
-
-Signed-off-by: Mathis Salmen <mathis.salmen@matsal.de>
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 ---
-V1 -> V2: Added local variable for readability.
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
- arch/riscv/kernel/signal.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 4c5fdb905da8..f271c3184d3a 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -353,6 +353,11 @@ i2c2: i2c@10050000 {
+ 			status = "disabled";
+ 		};
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index bfb2afa41..dee66c929 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -19,6 +19,7 @@
- #include <asm/signal32.h>
- #include <asm/switch_to.h>
- #include <asm/csr.h>
-+#include <asm/cacheflush.h>
- 
- extern u32 __user_rt_sigreturn[2];
- 
-@@ -181,6 +182,7 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- {
- 	struct rt_sigframe __user *frame;
- 	long err = 0;
-+	unsigned long __maybe_unused addr;
- 
- 	frame = get_sigframe(ksig, regs, sizeof(*frame));
- 	if (!access_ok(frame, sizeof(*frame)))
-@@ -209,7 +211,12 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- 	if (copy_to_user(&frame->sigreturn_code, __user_rt_sigreturn,
- 			 sizeof(frame->sigreturn_code)))
- 		return -EFAULT;
--	regs->ra = (unsigned long)&frame->sigreturn_code;
++		stg_syscon: syscon@10240000 {
++			compatible = "starfive,jh7110-stg-syscon", "syscon";
++			reg = <0x0 0x10240000 0x0 0x1000>;
++		};
 +
-+	addr = (unsigned long)&frame->sigreturn_code;
-+	/* Make sure the two instructions are pushed to icache. */
-+	flush_icache_range(addr, addr + sizeof(frame->sigreturn_code));
+ 		uart3: serial@12000000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x0 0x12000000 0x0 0x10000>;
+@@ -457,6 +462,11 @@ syscrg: clock-controller@13020000 {
+ 			#reset-cells = <1>;
+ 		};
+
++		sys_syscon: syscon@13030000 {
++			compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
++			reg = <0x0 0x13030000 0x0 0x1000>;
++		};
 +
-+	regs->ra = addr;
- #endif /* CONFIG_MMU */
- 
- 	/*
--- 
-2.40.0
+ 		sysgpio: pinctrl@13040000 {
+ 			compatible = "starfive,jh7110-sys-pinctrl";
+ 			reg = <0x0 0x13040000 0x0 0x10000>;
+@@ -486,6 +496,11 @@ aoncrg: clock-controller@17000000 {
+ 			#reset-cells = <1>;
+ 		};
+
++		aon_syscon: syscon@17010000 {
++			compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
++			reg = <0x0 0x17010000 0x0 0x1000>;
++		};
++
+ 		aongpio: pinctrl@17020000 {
+ 			compatible = "starfive,jh7110-aon-pinctrl";
+ 			reg = <0x0 0x17020000 0x0 0x10000>;
+--
+2.34.1
 
 
 _______________________________________________
