@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAFAC7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 20:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907D6C7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 20:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=aZ4OZhSO/BY7Zcl7XHJ4R5jdv79rYcpwvaeftTRPcc0=; b=Aso
-	OdLHPL1qqH8s/eM/InnY34OWXC3AIkVY8xOZvQp9YCOod7+mofWG23xcaRpCgwn1fHINfNUId75dY
-	k+Grp1jBljyP/DJpxsYzVPiO6HgtdqAXaMunzdxpcW1m8b+Y84uUQJObfrKnq0wWPa6xevaoFMfUS
-	OssBt1u1h4wTlC7jYTtI7rJhUaYdEkvT2dOZ2FqU2EeD+kcFN44TBY2cx+IBUcpPC6SyBpSQHoCiV
-	lWttEFMBBxkybbOlaL0ZgnBN0CUNqu5PVcqBHPnmnAHJlyHJ552a+AO6ZXUEE+DrHoeVFtFs+5Tfu
-	jHl2SQZ++9Z1PS9FMusjxknrKJAGQVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ti4mqREXyq+RYm5xPNvZV6sURTEWp4+SDlPBldWAJTY=; b=rDagtDJT2+QMYX
+	AWwDovvjHxCXA/GRGkIL4FubjRHi0mjaC8YW7J4cBZ5LyZrXFIeNML/rgWmcHq6QIXRUmqHL9Hm3h
+	pigi3DTAfptPc4HA5ONPtZrCTJqiyCuMRnMnpq+8uG4JzteCRbmSEd9oft2cf9ViPEX+f9vvm9P96
+	Nc6YanD7ZoQt9j4yZmaKoDZc2SWXJx/QB+8ZiIq9VQiKBu4qkKKH48IFVAY5FMY9S/9wdq6EmBY9K
+	rtgApwa+qEyW4DymtmMdfFukfd6PWG4G3o6IWX9szNDLD9sUz3YKPL20WyagvvSajw5iLhqwq/zvl
+	S+xiSl4F/J4O5zOpP6Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWA4-008W6O-0G;
-	Thu, 06 Apr 2023 20:24:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pkWgd-008auE-29;
+	Thu, 06 Apr 2023 20:58:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWA1-008W62-0O
+	id 1pkWgb-008atp-0F
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 20:24:46 +0000
+	Thu, 06 Apr 2023 20:58:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 76FC464328;
-	Thu,  6 Apr 2023 20:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1186C433EF;
-	Thu,  6 Apr 2023 20:24:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9FD5D60FCC;
+	Thu,  6 Apr 2023 20:58:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9938C433D2;
+	Thu,  6 Apr 2023 20:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680812683;
-	bh=fNAH6oByliNVJGPsjQKf//hNT9wlLmgPCJOQ5f+y+q0=;
-	h=Date:From:To:List-Id:Cc:Subject:From;
-	b=apSwemx/cueu0FjJ5zqnNjvw9YjvErT73t5ryQoTnmW7N7wTp9BYb8UhUhRUTXFn+
-	 yKCzes0KWeWYTkL5Mj5WdhgrvJi2ezoulDcqv2X6PE1u3PK+knHSyjPase/LEg6nKr
-	 b9BPgOWT0LLjwB2wvc/I3SIIRGt74PzLiJMQkYEsN7XERgYyENSGsPkgCIvhZuGvBt
-	 hSFhoRPQIk4IBZS/P8udxFUnSXW+ITmLHUK1ugsbhNX8nJIfnRG/G+rhmrZ7x/7CpH
-	 Wxo23QdF7p2esUUUpyAnOsH6EojR4NVhaSKKIp9V6S5Bog5b5J+mEkTcOKCl3e4Orp
-	 9OlkghjswdSrA==
-Date: Thu, 6 Apr 2023 21:24:40 +0100
+	s=k20201202; t=1680814704;
+	bh=6HOP6IWi70A568L3rv60gr7BjPLNKufwgR4g363zP1s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Caj1g8/uojLuOyayGUhgyz1d1woHd8qEpIX8/Q4Yo7OJ1eQYccAXbUK93fHD+v1wN
+	 JUJeIq/gyULKxun358lE/eBExmJoLmnjpO+7ClH+PH3O32hDpb7JCmcTImc0DeB5py
+	 PHFQgkQ8A4ziM26UbBn8dc5gcRzzXGpLfg2bltB54DoCPNaR/1KKt/D0F+0ihsGxUn
+	 prqjqhJnYL6fOJEr2n20vq/nxR7gqGGyu3QaXbXXtTWiggGke4y+2ZJSqgd7ESilED
+	 kPiVdGaEq46SRubHXWGquQD8NTEmY77tvZWQFFZTsHuENGuUFptbkyHtupLZtwRt+/
+	 8hPGdf/w99RRw==
 From: Conor Dooley <conor@kernel.org>
-To: arnd@arndb.de
-Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
-	soc@kernel.org
-Subject: [GIT PULL] RISC-V Devicetrees for v6.4
-Message-ID: <20230406-shank-impromptu-3d483bbc249f@spud>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-serial@vger.kernel.org
+Subject: [PATCH v1 0/4] Convert SiFive drivers from SOC_FOO dependencies to ARCH_FOO
+Date: Thu,  6 Apr 2023 21:57:46 +0100
+Message-Id: <20230406-undertake-stowing-50f45b90413a@spud>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1691; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CGy9TNeI5BNViJ7q9RnyTEdvbyhTHwWrkTZBWg67ltk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCn6Rp7KTiwtnbOXabn3fZn7rJld5NGXqx5tDkaGToyX5 688GnKko5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABOZEMHwV+BQ7DO1leeZfU/x cvxjiQ4v3hV0tORVXMN1xY9bLtmfLmX4n392xQSJgq879c9dupRc8eb7Hb2fvx+ELGC+ffCIsqZ jGBcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_132445_239620_F4A3D82A 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20230406_135825_212885_6A99F013 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,156 +83,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1247232526916017552=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1247232526916017552==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0SfrAMaAlVV1aTTn"
-Content-Disposition: inline
-
-
---0SfrAMaAlVV1aTTn
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Arnd,
-
-Please pull some Devicetree updates for v6.4, mainly adding the base
-level of support for the StarFive VisionFive v2.
-I wanted to get an initial PR out before -rc6, but I may have another
-PR adding some of the peripherals (pmu, mmc) for the StarFive stuff
-that are already reviewed etc, but need a rebase on top of what
-actually got applied. Is that okay, or will the end of next week be
-too late for you?
-
-As a note, this is against -rc2, rather than -rc1, as I wanted to
-apply the StarFive stuff to a branch there'd be a chance of it booting
-on for the sake of testing.
-
-Cheers,
-Conor.
-
-git request-pull complained that the tag was not present, but I
-checked my repo and it is there. =C2=AF\_(=E3=83=84)_/=C2=AF
-
-The following changes since commit eeac8ede17557680855031c6f305ece2378af326:
-
-  Linux 6.3-rc2 (2023-03-12 16:36:44 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt=
--for-v6.4
-
-for you to fetch changes up to 4cd4beb98fe5ac2c4bcb995ba6e82322be174abb:
-
-  Merge branch 'riscv-jh7110_initial_dts' into riscv-dt-for-next (2023-04-0=
-5 22:23:17 +0100)
-
-----------------------------------------------------------------
-RISC-V Devicetrees for v6.4
-
-Microchip:
-A "fix" for the system controller's regs on PolarFire SoC, adding a
-missing reg property.
-The patch had been sitting there for months and I only re-found it
-recently, so you can guess how much of a "fix" it actually is. It'll
-become needed when the system controller's QSPI gets added in the future,
-but at present there's no urgency as the driver can handle both the
-current and "fixed" versions.
-
-StarFive:
-Basic support for the JH7110 & the associated first-party dev board, the
-VisionFive v2 (in two forms). There's a bunch of dt-bindings required
-for this too, all of which have had input from the DT folk. There's
-enough in this tag to boot to a console w/ an initramfs but little more.
-The SoC supports some of the "new" bit manipulation instructions, which
-is a good test for the recently added Zbb support in the kernel.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (3):
-      riscv: dts: microchip: add mpfs specific macb reset support
-      riscv: dts: microchip: fix the mpfs' mailbox regs
-      Merge branch 'riscv-jh7110_initial_dts' into riscv-dt-for-next
-
-Emil Renner Berthing (6):
-      dt-bindings: clock: Add StarFive JH7110 system clock and reset genera=
-tor
-      dt-bindings: clock: Add StarFive JH7110 always-on clock and reset gen=
-erator
-      dt-bindings: timer: Add StarFive JH7110 clint
-      dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-      riscv: dts: starfive: Add initial StarFive JH7110 device tree
-      riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device t=
-ree
-
-Hal Feng (1):
-      dt-bindings: riscv: Add SiFive S7 compatible
-
-Jianlong Huang (1):
-      riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-
- .../bindings/clock/starfive,jh7110-aoncrg.yaml     | 107 +++++
- .../bindings/clock/starfive,jh7110-syscrg.yaml     | 104 +++++
- .../interrupt-controller/sifive,plic-1.0.0.yaml    |   1 +
- Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
- .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi            |  10 +-
- arch/riscv/boot/dts/starfive/Makefile              |   6 +-
- arch/riscv/boot/dts/starfive/jh7110-pinfunc.h      | 308 +++++++++++++
- .../jh7110-starfive-visionfive-2-v1.2a.dts         |  13 +
- .../jh7110-starfive-visionfive-2-v1.3b.dts         |  13 +
- .../dts/starfive/jh7110-starfive-visionfive-2.dtsi | 215 +++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi           | 500 +++++++++++++++++=
-++++
- include/dt-bindings/clock/starfive,jh7110-crg.h    | 221 +++++++++
- include/dt-bindings/reset/starfive,jh7110-crg.h    | 154 +++++++
- 14 files changed, 1650 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110=
--aoncrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110=
--syscrg.yaml
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.2a.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.3b.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2.dtsi
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
- create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
- create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
-
---0SfrAMaAlVV1aTTn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC8qiAAKCRB4tDGHoIJi
-0qhcAQCM7InEIij/sPxm86jJxcCIC/GZwU78+cTUWy5qeRNq3AD+KL4NNY5BUpRD
-RxCDbFTkGVvy+EOe9zpEu48AGZaODQw=
-=pZyK
------END PGP SIGNATURE-----
-
---0SfrAMaAlVV1aTTn--
-
-
---===============1247232526916017552==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1247232526916017552==--
-
+RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClJJU0MtVidz
+IFNPQ19GT08gc3ltYm9scyBmb3IgbWljcm8tYXJjaHMgYXJlIGdvaW5nIGF3YXksIGFuZCBiZWlu
+ZwpyZXBsYWNlZCB3aXRoIHRoZSBtb3JlIGNvbW1vbiBBUkNIX0ZPTyBwYXR0ZXJuIHRoYXQgaXMg
+dXNlZCBieSBvdGhlcgphcmNocyAoYW5kIGJ5IHZlbmRvcnMgd2l0aCBhIGhpc3Rvcnkgb3V0c2lk
+ZSBvZiBSSVNDLVYpLgpJIGtpY2tlZCB0aGUgY29udmVyc2lvbiBvZmYgYnkgY29udmVydGluZyB0
+aGUgTWljcm9jaGlwIFJJU0MtViBiaXRzIHRvCnVzZSB0aGVpciByZXBsYWNlbWVudCBzeW1ib2ws
+IHNvIGhlcmUncyByb3VuZCB0d286IHRoZSB2YXJpb3VzIFNpRml2ZQpkcml2ZXJzLgoKVGhlcmUg
+YXJlIG5vIGRlcGVuZGVuY2llcyBoZXJlLCBldmVyeXRoaW5nIGNhbiBnbyB2aWEgc3Vic3lzdGVt
+IHRyZWVzLgpXZSd2ZSBhbHJlYWR5IGFkZGVkIHRoZSByZXBsYWNlbWVudCBzeW1ib2xzIHRvIFJJ
+U0MtVidzIEtjb25maWcgYml0cy4KCkNoZWVycywKQ29ub3IuCgpDQzogTWljaGFlbCBUdXJxdWV0
+dGUgPG10dXJxdWV0dGVAYmF5bGlicmUuY29tPgpDQzogU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJu
+ZWwub3JnPgpDQzogUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KQ0M6IFBhdWwg
+V2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbT4KQ0M6IExvcmVuem8gUGllcmFsaXNp
+IDxscGllcmFsaXNpQGtlcm5lbC5vcmc+CkNDOiBLcnp5c3p0b2YgV2lsY3p5xYRza2kgPGt3QGxp
+bnV4LmNvbT4KQ0M6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+CkNDOiBCam9ybiBIZWxn
+YWFzIDxiaGVsZ2Fhc0Bnb29nbGUuY29tPgpDQzogQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwu
+b3JnPgpDQzogR3JlZyBLcm9haC1IYXJ0bWFuIDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz4K
+Q0M6IEppcmkgU2xhYnkgPGppcmlzbGFieUBrZXJuZWwub3JnPgpDQzogbGludXgtY2xrQHZnZXIu
+a2VybmVsLm9yZwpDQzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpDQzogbGludXgt
+a2VybmVsQHZnZXIua2VybmVsLm9yZwpDQzogbGludXgtcGNpQHZnZXIua2VybmVsLm9yZwpDQzog
+bGludXgtc2VyaWFsQHZnZXIua2VybmVsLm9yZwoKQ29ub3IgRG9vbGV5ICg0KToKICBjbGs6IHNp
+Zml2ZTogbWFrZSBTaUZpdmUgY2xrIGRyaXZlcnMgZGVwZW5kIG9uIEFSQ0hfIHN5bWJvbHMKICBQ
+Q0k6IGR3YzogbWFrZSBTaUZpdmUncyBQQ0kgZHJpdmVyIGRlcGVuZCBvbiBBUkNIXyBzeW1ib2xz
+CiAgc29jOiBzaWZpdmU6IG1ha2UgU2lGaXZlJ3MgY2FjaGUgY29udHJvbGxlciBkcml2ZXIgZGVw
+ZW5kIG9uIEFSQ0hfCiAgICBzeW1ib2xzCiAgc2VyaWFsOiBtYWtlIFNpRml2ZSBzZXJpYWwgZHJp
+dmVycyBkZXBlbmQgb24gQVJDSF8gc3ltYm9scwoKIGRyaXZlcnMvY2xrL3NpZml2ZS9LY29uZmln
+ICAgICAgICAgfCA2ICsrKy0tLQogZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvS2NvbmZpZyB8
+IDIgKy0KIGRyaXZlcnMvc29jL3NpZml2ZS9LY29uZmlnICAgICAgICAgfCAyICstCiBkcml2ZXJz
+L3R0eS9zZXJpYWwvS2NvbmZpZyAgICAgICAgIHwgNCArKy0tCiA0IGZpbGVzIGNoYW5nZWQsIDcg
+aW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKCi0tIAoyLjM5LjIKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
