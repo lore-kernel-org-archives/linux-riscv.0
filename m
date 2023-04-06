@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DDEC76196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 18:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AD2C77B6C
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 18:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J6wtuCHAHICRTaT/qnqt9QVZGBJh+ibe587eZ2ZUKz4=; b=oFaBiA8A5HVk5b
-	9raafucBt1wY0MYJPQmnLfMU0if6yP0knvsVQPPSZ0yxbartVAIp4gVmEekaUDSQXD2Dg65G9521m
-	LpKYQNz8LY9dkne92PuNm5Irc09j+GJCpg5NO9iKb5D45Rj3JMV8vgcvcAZHWg66Njj5/0C6rI3Up
-	ZYPnGtl4Etd880sC57jghbp5LqkITHVf09vEUVbXcnjVEKdOWtmdkr52t9R7nad0ELd4unV+umzVZ
-	OhSkZE8uU4EUIIEVNdvzO/yll3LR+xey+W0zRrjknVNDlG87IXomMa1ZWJ65lxtSD9VvgWOYyhMPN
-	fR8HYosylh40wQgBdqzg==;
+	List-Owner; bh=54MAp3V2jd8NFgNI0ow5vb3nXMvPyZOoB265x6/HTwA=; b=3vhswDCXvaqT8b
+	w7GI0Oks4KiTlZwc/ZXSBMN6Lm4vkfZazInNNyzUt0skgkmLPK88xXNruVPphhEqerRDr52KbQkQi
+	SGk4XEwh0iuXoedfFbzHxETZB4KqokfeFHvRCM0KuLo0f5Cm8yii2vkSsq52mGfuf5xaObm3usg5V
+	JhwXUhv/UdlUA1O4eCCixeYMDNgilkjZ/1XB9/m7v8/QuIXRll23kR6FM6ncCYnd7WobrPiP8e426
+	KR/M3rnLOFG4U+I5BkqqPfpKzjUNbcWC55ezRkR2p0oWVS4mVT9vCgWMZZ75rtJvgO0QHTYYtYsC8
+	Mlht8yYPd9Bg0gYbKbeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkUJ8-008FZD-1d;
-	Thu, 06 Apr 2023 18:26:02 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1pkUN7-008GPv-0s;
+	Thu, 06 Apr 2023 18:30:09 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkUJ5-008FYO-33
+	id 1pkUN4-008GO2-1a
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 18:26:01 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-93071f06a95so159148466b.2
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 11:25:57 -0700 (PDT)
+	Thu, 06 Apr 2023 18:30:08 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id 18so3564929ejo.13
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 11:30:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1680805556;
+        d=linaro.org; s=google; t=1680805802;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=j7Q2Y5PSxjfNuuYETIJE0tc7Nl05PML4hPeE9FZ3t1U=;
-        b=LyZ0MroWIx7yQATTWi7dnR72e4lHzBaxVKcXKV8E0fOBtt5cs33Bxj0rkLYm1qvpjt
-         71iqLmw6M1SjavFuptr1hBspndmbtGClUbMoef355RRW6Kjj64Vfjzch8aDKLvoitFbU
-         2iacdF2BOo8dFbpfDl0fCQgD7CUTVlNKhJ0IGbFt6oeJ/i1t27Dw2UbjcONJ6coEyzYO
-         gDo7HDb1tVCN12jaKk6KhYoL0Jn8wtZsjFhCOh34qTKOwIGIzbHMgFLvenMjg/RvpxV4
-         X6ZxgN4fsN7VPwD5qbKOC47UKOeC4fGrgg+04Pkgm1xqJfUvV6SlB6vTN00qA+YH+n7d
-         3QJw==
+        bh=H8xOnV6tCyOvs2gyhgdBhfMQe4yUXu7o2kH7bC3OOGM=;
+        b=b5iOLOQnrmb7I5cMr9PLoh+DDsoWrJ+Ww372OHESD7omSrAJR3M++5RGQVCCpEMnqV
+         +ZPdYWfc0xJRascTYU+atPwFyQEhrdeBEsknBfAgsySMLj6L20we/1yAjDE/6rLxYHjy
+         yxaS6JvdEk90suKMGRKGt3PD4FqAGSu9UfmsZiI28Hx3I4nmZYoAqHNT8DiNjLh4gwDI
+         DTwKATnpSPviipdh3ORflYJW9yZh3A8emn00RrbRuNwrBCAfT7kk2ru1o5Ofzzy526W3
+         PpFKlhgOvB+XXmGcaOTYhvCtapYcaJae29qE4dUeYQc1+s4f5zfr2GdPetEtghIFTSEZ
+         pejg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680805556;
+        d=1e100.net; s=20210112; t=1680805802;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j7Q2Y5PSxjfNuuYETIJE0tc7Nl05PML4hPeE9FZ3t1U=;
-        b=tuM94tsIkh3MbC7bTtSo6p5BVVng/AWn8XP0unc/VwnOyhsKWKBSu5sYn27xsu0j1t
-         DpxVeGm9sQAEP9dQTBp9uXlWwRjodkK6WQ2w3iC++hdJBUhsghaaIyJZFj+YP69x4+Dc
-         e7qWYz/AQDxdbE0ZW5vq5CWaZ/0z3C+6MeGZcHc2KWBf8z8LcJ8VLtgA5rumf88KJppW
-         j8ltn1OmDVO+xKzgUUQA8gA4YLTnfdAkUeXS2SvCXvuPOQ91RIiHHwDN/L2N5XUnP4EO
-         XCjyQTM6u7X+qYu7zcXP084L+KYaKBI5Z6e8YLLVA5IzpZlACiZDSKaAMYoVjkJOXCka
-         7MVw==
-X-Gm-Message-State: AAQBX9fVvE+oazlEWP1HclEhBam14pku2jmMLdHWt+3ZkyduQgWzKe7k
-	rc07FckswRhJUF1Th7sEJD6mEA==
-X-Google-Smtp-Source: AKy350Z+LY2W1omro8GAJRTq6Ah27eM8V7j5+Ouj215Swxjc9vV2rpYK6UOXULEWcDwfHrTaFnUnhw==
-X-Received: by 2002:aa7:c647:0:b0:4fc:6475:d249 with SMTP id z7-20020aa7c647000000b004fc6475d249mr434834edr.3.1680805556612;
-        Thu, 06 Apr 2023 11:25:56 -0700 (PDT)
+        bh=H8xOnV6tCyOvs2gyhgdBhfMQe4yUXu7o2kH7bC3OOGM=;
+        b=frfLhWqmZCs+L0KMuUdktWHeoxn6Q0CrNDQlNP8tHuKAHJ5CW+OtjMRjCmrY4vxSly
+         3oqTkkczvtfNxz8Oi3Ph8NmRX6fRWNZ2fr+p2gdlfanCFo8nqQAFNsxiFHLZoGdYVoxS
+         J5J4KCwUR1rP8CGLE+k+wIydOePYigCbAsxJv2vG+VRoHsee6PBUFR4wNSiB2dd0hQsS
+         Pw+uIoixW6o6v/dmwe7ICbuER3l6vCYxjkY6rRV9ClLaFUoh8X+6qyqoayZN4nwoq99b
+         NSA/C5P6qRT4Bk1uucK7MVbUgZQrbsunr81N2juZRT662DLggAPQaOy04qgpxpak64Mi
+         GAUg==
+X-Gm-Message-State: AAQBX9dui5aSvXP2odXkZXaLsIfjYd1p6AQBVyW5x+xr29z3okpIi7tT
+	uxt3oXovZyuLSRf4ATC/F71hxQ==
+X-Google-Smtp-Source: AKy350bJ8pSDWF8uwl4GVm21uI5EfXApiU2Dd5qO+ZXzcTAbihmplWOrQLDopnmNmkwgaLMJ391tAA==
+X-Received: by 2002:a17:906:3b86:b0:8de:e66a:ece9 with SMTP id u6-20020a1709063b8600b008dee66aece9mr7792594ejf.24.1680805802128;
+        Thu, 06 Apr 2023 11:30:02 -0700 (PDT)
 Received: from ?IPV6:2a02:810d:15c0:828:49e6:bb8c:a05b:c4ed? ([2a02:810d:15c0:828:49e6:bb8c:a05b:c4ed])
-        by smtp.gmail.com with ESMTPSA id a29-20020a509b5d000000b004fd204d180dsm1029128edj.64.2023.04.06.11.25.55
+        by smtp.gmail.com with ESMTPSA id fy29-20020a1709069f1d00b0093313f4fc3csm1124541ejc.70.2023.04.06.11.30.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Apr 2023 11:25:56 -0700 (PDT)
-Message-ID: <56e47e45-b3c0-4d32-923c-88023faef827@linaro.org>
-Date: Thu, 6 Apr 2023 20:25:54 +0200
+        Thu, 06 Apr 2023 11:30:01 -0700 (PDT)
+Message-ID: <833b68a5-263d-d293-4910-2ca50b43e60d@linaro.org>
+Date: Thu, 6 Apr 2023 20:30:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: add PCIe dts configuration
- for JH7110
+Subject: Re: [PATCH v7 1/2] dt-bindings: soc: starfive: Add StarFive syscon
+ doc
 Content-Language: en-US
-To: Minda Chen <minda.chen@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Mason Huo <mason.huo@starfivetech.com>,
- Leyfoon Tan <leyfoon.tan@starfivetech.com>,
- Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230406111142.74410-1-minda.chen@starfivetech.com>
- <20230406111142.74410-4-minda.chen@starfivetech.com>
+ Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
+References: <20230406103308.1280860-1-william.qiu@starfivetech.com>
+ <20230406103308.1280860-2-william.qiu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230406111142.74410-4-minda.chen@starfivetech.com>
+In-Reply-To: <20230406103308.1280860-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_112559_986218_E7058812 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20230406_113006_529332_2E99461B 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,85 +98,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/04/2023 13:11, Minda Chen wrote:
-> The PCIe is a PCIe2, single lane PCIe compliant controller.
+On 06/04/2023 12:33, William Qiu wrote:
+> Add documentation to describe StarFive System Controller Registers.
+
+Subject: drop second/last, redundant "doc". The "dt-bindings" prefix is
+already stating that these are documentation files.
+
 > 
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 > ---
->  .../jh7110-starfive-visionfive-2.dtsi         | 58 ++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 88 +++++++++++++++++++
->  2 files changed, 146 insertions(+)
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 56 +++++++++++++++++++
+>  MAINTAINERS                                   |  5 ++
+>  2 files changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
 > 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index cf0a66faf5d3..4552919e69b0 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -191,6 +191,50 @@
->  		};
->  	};
->  
-> +	pcie0_wake_default: pcie0_wake_default {
-
-No underscores in node names. Test your patches against bindings before
-sending.
-
-
->  	uart0_pins: uart0-0 {
->  		tx-pins {
->  			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
-> @@ -228,3 +272,17 @@
->  	dr_mode = "peripheral";
->  	status = "okay";
->  };
+> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> new file mode 100644
+> index 000000000000..0d0319426b67
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> @@ -0,0 +1,56 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +&pcie0 {
-> +	pinctrl-names = "default";
-> +	reset-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
-> +	phys = <&pciephy0>;
-> +	status = "okay";
-> +};
+> +title: StarFive JH7110 SoC system controller
 > +
-> +&pcie1 {
-> +	pinctrl-names = "default";
-> +	reset-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
-> +	phys = <&pciephy1>;
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 2f67196ffac0..c309ec550ba7 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -642,5 +642,93 @@
->  			#reset-cells = <1>;
->  			power-domains = <&pwrc JH7110_PD_VOUT>;
->  		};
+> +maintainers:
+> +  - William Qiu <william.qiu@starfivetech.com>
 > +
-> +		pcie0: pcie@2B000000 {
+> +description: |
+> +  The StarFive JH7110 SoC system controller provides register information such
+> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - starfive,jh7110-aon-syscon
+> +              - starfive,jh7110-sys-syscon
+> +          - const: syscon
+> +          - const: simple-mfd
+> +      - items:
+> +          - const: starfive,jh7110-stg-syscon
+> +          - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    type: object
 
-Lower case hex.
+This should be rather specific schema, so $ref.
 
-> +			compatible = "starfive,jh7110-pcie";
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-> +			#interrupt-cells = <1>;
+> +
+> +  power-controller:
+> +    type: object
 
-Why reg is not second property?
+Same problem.
 
-> +			reg = <0x0 0x2B000000 0x0 0x1000000
-> +			       0x9 0x40000000 0x0 0x10000000>;
-> +			reg-names = "reg", "config";
-> +			device_type = "pci";
-> +			starfive,stg-syscon = <&stg_syscon 0xc0 0xc4 0x130 0x1b8>;
-> +			bus-range = <0x0 0xff>;
-> +			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-> +				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-> +			interrupts = <56>;
-
-Your binding requires cells, so I am pretty sure you did not test what
-you wrote.
-
-
-
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscon@10240000 {
+> +        compatible = "starfive,jh7110-stg-syscon", "syscon";
+> +        reg = <0x10240000 0x1000>;
+> +    };
+> +
+> +    syscon@13030000 {
+> +        compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
+> +        reg = <0x13030000 0x1000>;
+> +    };
 Best regards,
 Krzysztof
 
