@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD81C7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D16C76196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y1DZbeqWthp6bqFlR0mXZgxA2fshxaNg3ALRVuQeXJY=; b=a3TXIEa16iIhfu
-	HOLYEMEs7357CHrHmWg+4JvFcyETuPOSfbyf7t6VGiG7/+WjoxkRq+L6Q9AEg+LuLjUePnAsb77QA
-	qF7FHferUEZ33bJsIKpD+mQuGXCD6PBh3OqVdcDDVjcY6Hek+q9GdOk5XCx8kfsvN7DlcHIzFReYR
-	hdoKxe8s5VlFz71XSxQGSpRqY+YRveZUzVBdEJ5FjGJo2AXTwV4Sntmi2c+njpJ5TtIMcxXQKbhXl
-	+5YZX4a5zwvyygkVag7tVRFMA9EjXNPIjPsGdknb2mZ48T1gwiFY2bsfqkK+eczbY/2ggDPMm1Ykd
-	/zx5tgj5decY+P8Fq54w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RB2Yc0F2QtgB08tHxJDSpdk8F7uErdniGi5zjLR6LFY=; b=t41h0+E6NdRlbe
+	CC2qdb5SjXr7Ne7N2LslqmjJGAIrbsTGrPFfaPCGv3V5wyAgRLH+BH70+L2LEmkqK+I1rlDnIGhKK
+	DygYEOmaVdmefAj2U6p2paq/LwqbTRrs0thzpExFYupspFmu0xe2KdY0Cy2nVdog2wPfYbGN4vS7x
+	WUtnsU2vjzqMC43uiQ3Yx1mVB/Imq9asNNDJxx3AkQwAr8SjSvaKqnpfq2I4ulicrUBvAX64F4W/V
+	5afRX+zmvguWcPBne/pn7UULxxqmi63QOCcbRLCRigAmEptfKsc86uSTBNs/0dvWuLeZwuT+MJfIu
+	u0oaQhKiRfg5OAgMtF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNXA-007888-1o;
-	Thu, 06 Apr 2023 11:12:04 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pkNXI-0078B5-2n;
+	Thu, 06 Apr 2023 11:12:12 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNX3-00784r-2v
+	id 1pkNXG-00785h-0a
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 11:12:02 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Thu, 06 Apr 2023 11:12:12 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 781DB24E0AE;
-	Thu,  6 Apr 2023 19:11:45 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
- 2023 19:11:45 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C889D24E32E;
+	Thu,  6 Apr 2023 19:11:47 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
+ 2023 19:11:47 +0800
 Received: from ubuntu.localdomain (183.27.97.179) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
- 2023 19:11:44 +0800
+ 2023 19:11:46 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,18 +52,21 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v1 0/3] Add JH7110 PCIe driver support
-Date: Thu, 6 Apr 2023 19:11:39 +0800
-Message-ID: <20230406111142.74410-1-minda.chen@starfivetech.com>
+Subject: [PATCH v1 3/3] riscv: dts: starfive: add PCIe dts configuration for JH7110
+Date: Thu, 6 Apr 2023 19:11:42 +0800
+Message-ID: <20230406111142.74410-4-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230406111142.74410-1-minda.chen@starfivetech.com>
+References: <20230406111142.74410-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.97.179]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_041158_244182_D3C23AD2 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20230406_041210_551657_8AC4DDC3 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +83,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds PCIe driver for the StarFive JH7110 SoC.
-The patch has been tested on the VisionFive 2 board. The test
-devices include M.2 NVMe SSD and Realtek 8169 Ethernet adapter.
+The PCIe is a PCIe2, single lane PCIe compliant controller.
 
-This patchset should be applied after the patchset [1], [2], [3] and[4]:
-[1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
-[2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
-[3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
-[4] https://patchwork.kernel.org/project/linux-usb/cover/20230406015216.27034-1-minda.chen@starfivetech.com/
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+---
+ .../jh7110-starfive-visionfive-2.dtsi         | 58 ++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 88 +++++++++++++++++++
+ 2 files changed, 146 insertions(+)
 
-This patchset is base on v6.3-rc4
-
-patch 1 is PCIe dt-binding document.
-patch 2 is PCIe 2.0 driver codes.
-patch 3 is PCIe device tree configuration.
-
-
-Minda Chen (3):
-  dt-binding: pci: add JH7110 PCIe dt-binding documents.
-  pcie: starfive: add StarFive JH7110 PCIe driver.
-  riscv: dts: starfive: add PCIe dts configuration for JH7110
-
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 163 +++
- MAINTAINERS                                   |   6 +
- .../jh7110-starfive-visionfive-2.dtsi         |  58 ++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  88 ++
- drivers/pci/controller/Kconfig                |   8 +
- drivers/pci/controller/Makefile               |   1 +
- drivers/pci/controller/pcie-starfive.c        | 958 ++++++++++++++++++
- 7 files changed, 1282 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
- create mode 100644 drivers/pci/controller/pcie-starfive.c
-
-
-base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
-prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
-prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
-prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
-prerequisite-patch-id: c2366f993a9d85e28c06d8d09f064dd5e8b29a61
-prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
-prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
-prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
-prerequisite-patch-id: 551fae54377090044c3612fca9740a9b359abdd2
-prerequisite-patch-id: c7fdf904f398d478f0ed6d57eb878982bc73329d
-prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
-prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
-prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
-prerequisite-patch-id: 4637a8fa2334a45fa6b64351f4e9e28d3e2d60d3
-prerequisite-patch-id: 32647ec60a3b614e1c59ec8e54cb511ae832c22f
-prerequisite-patch-id: aa06658ecf89c92d0dfdd6a4ba6d9e6e67532971
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
-prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
-prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
-prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
-prerequisite-patch-id: 41eddeabff082d08a76d8da523f90da4b5218d28
-prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
-prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
-prerequisite-patch-id: 1a2c49c1cf81607f062f35898457037d86598cf9
-prerequisite-patch-id: f59269382164b5d642a5e10443ca447f5caa595c
-prerequisite-patch-id: 1babe83d6bf999bad17584dc595480f9070a5369
-prerequisite-patch-id: d95ea69f88a048ef702dceed0f2edee31e6fdfd2
-prerequisite-patch-id: 77be3d122d66df813f13088141ce27b21107a341
-prerequisite-patch-id: 9fbb7ad1dd258bb8ff5946c4a0e59de4bfd82a04
-prerequisite-patch-id: a02411a8fe009acc0888e4a7d60233c9ee5a1e71
-prerequisite-patch-id: 6f6984916dffd0cc66aa733c9b6bd3a55495a50c
-prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
-prerequisite-patch-id: b37ac15032973e1fcd918f157c82a0606775c9e9
-prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
-prerequisite-patch-id: ca653566085079839fb3dc1e722effafbc8109a4
-prerequisite-patch-id: 2fe72c216673efe690db54cbf500ba7f15e6247a
-prerequisite-patch-id: 776afb78743657e4a6bfebd2cd8a44c5c9017ee2
-prerequisite-patch-id: c9b92e6d1531d0a9fb122d9d038cc3d9df380e0f
-prerequisite-patch-id: c0fa5b1d697ab8434954a81a5992cf66d0cfafb8
-prerequisite-patch-id: 1cca26d07ec4bc7ea07b1c6815631c8bf8224366
-prerequisite-patch-id: 331bafaf79b4bb7c09152eb16598cdc9ba8096e9
-prerequisite-patch-id: 9f2286829c70b6940c83834b150df685ab02c591
-prerequisite-patch-id: b25b8295d7b8fdf1b45b634df5c2a7a7f9dfba76
-prerequisite-patch-id: 9d3aab2e4428be5b1235a57dad3bf14eae5275fd
-prerequisite-patch-id: 6090abbef6164dd0cc87d44c486a7eb1b5f64946
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index cf0a66faf5d3..4552919e69b0 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -191,6 +191,50 @@
+ 		};
+ 	};
+ 
++	pcie0_wake_default: pcie0_wake_default {
++		wake-pins {
++			pinmux = <GPIOMUX(32, GPOUT_HIGH, GPOEN_ENABLE, GPI_NONE)>;
++			bias-disable;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	pcie0_clkreq_default: pcie0_clkreq_default {
++		clkreq-pins {
++			bias-disable;
++			pinmux = <GPIOMUX(27, GPOUT_HIGH, GPOEN_ENABLE, GPI_NONE)>;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	pcie1_wake_default: pcie1_wake_default {
++		wake-pins {
++			bias-disable;
++			pinmux = <GPIOMUX(21, GPOUT_HIGH, GPOEN_ENABLE, GPI_NONE)>;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	pcie1_clkreq_default: pcie1_clkreq_default {
++		clkreq-pins {
++			bias-disable;
++			pinmux = <GPIOMUX(29, GPOUT_HIGH, GPOEN_ENABLE, GPI_NONE)>;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
+ 	uart0_pins: uart0-0 {
+ 		tx-pins {
+ 			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
+@@ -228,3 +272,17 @@
+ 	dr_mode = "peripheral";
+ 	status = "okay";
+ };
++
++&pcie0 {
++	pinctrl-names = "default";
++	reset-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy0>;
++	status = "okay";
++};
++
++&pcie1 {
++	pinctrl-names = "default";
++	reset-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy1>;
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 2f67196ffac0..c309ec550ba7 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -642,5 +642,93 @@
+ 			#reset-cells = <1>;
+ 			power-domains = <&pwrc JH7110_PD_VOUT>;
+ 		};
++
++		pcie0: pcie@2B000000 {
++			compatible = "starfive,jh7110-pcie";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			reg = <0x0 0x2B000000 0x0 0x1000000
++			       0x9 0x40000000 0x0 0x10000000>;
++			reg-names = "reg", "config";
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon 0xc0 0xc4 0x130 0x1b8>;
++			bus-range = <0x0 0xff>;
++			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++			interrupts = <56>;
++			interrupt-parent = <&plic>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++			msi-parent = <&pcie0>;
++			msi-controller;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc0: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		pcie1: pcie@2C000000 {
++			compatible = "starfive,jh7110-pcie";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			reg = <0x0 0x2C000000 0x0 0x1000000
++			       0x9 0xc0000000 0x0 0x10000000>;
++			reg-names = "reg", "config";
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon 0x270 0x274 0x2e0 0x368>;
++			bus-range = <0x0 0xff>;
++			ranges = <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
++			interrupts = <57>;
++			interrupt-parent = <&plic>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
++			msi-parent = <&pcie1>;
++			msi-controller;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc1: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
+ 	};
+ };
 -- 
 2.17.1
 
