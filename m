@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96E9C76196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BADEC77B6E
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fNRoSOlgRlx8I7uxKbDeL743W10kNbE+YPJpM6lXvtA=; b=dLwlGlcPqU7I1t
-	z1os/5vMCIcNMonqv5WAnw964Aw9y13qSPRLE1B1k2+GLDaCGocY/elARsJJ90uXGH2Xu14pko3Sa
-	m/dtzO2pEwz6xt2XSTUdj3FAyyIOmCnCSw2SXwb2tHFJFdSOchFQY2K90/1U2j/Fyb7zypWrvymxC
-	zAv7L58iTOVplJyl8WUwefh4d/Fbegr9SWTwjVn8lXIxTM/kIqyAhxw0KQ7Ns+YWfL0BcsEqgUUnC
-	vaWAGAuBaXR2TeHMAAGIP/3qsrnL0X4Wx0ajJP9MYj8uH0VB9tIjlzuN6bRoEPBFGRMiU8XYReM52
-	8xdcSADlurGJ35XIka7w==;
+	List-Owner; bh=eXe7t68twxAhovignHaEfJb76EkRDNTIL7TUUc2NIQA=; b=GO5FrXXx8ctjx8
+	TWhtzB9+T1NY7t3no1HxYefCuyi6Y63KbKhsn4qeXWKyARc5OTweHwSvUmSoKdyyqVEUtck9Ad81S
+	hK6TVoBbzBbIjjAiNchViTGJwCq8rMqTAhrPsbKbZK2EaWK0XUN5jS2bO8kPczUz/guM3FJe+x/7n
+	SfbiAr+t5EyCp4fjcXEs0WvjCrpb3amwG+ZQwNPupp781Md2FD+KMAQPfO6AkGkAgYPHIfeE0ZCP9
+	MUhwjGceA/2vyrh5gjwc16CjP5Eor3/uPBx3b0TXdBVfsYEjVIES6DkOfUKhO4dcJjMmo/l7boM/3
+	xjBpEXNQw7e5nfaagoeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNrY-007ARS-1i;
-	Thu, 06 Apr 2023 11:33:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pkNrx-007AcX-0o;
+	Thu, 06 Apr 2023 11:33:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNrV-007AQM-2o
+	id 1pkNrt-007AZw-1o
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 11:33:07 +0000
+	Thu, 06 Apr 2023 11:33:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 667546446D;
-	Thu,  6 Apr 2023 11:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16974C433D2;
-	Thu,  6 Apr 2023 11:33:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2E08B64598;
+	Thu,  6 Apr 2023 11:33:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBF5AC433EF;
+	Thu,  6 Apr 2023 11:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680780784;
-	bh=cfJ073jZWuUKyB8yTPziOXBTwqVge2u8UtgBTT4+M2w=;
+	s=k20201202; t=1680780808;
+	bh=3j6+VoxGChxs/a8JSRyVc96gPjF6/uzX1RsGIUklct0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BsxPvr8thUU0HWEXucT3udzv4SttaLkuNjFvLPHm5BzNJ9UsecLGqLQOJV9pAPEPY
-	 P2kJSJBrEWS2iOptxoxwbBsD7/17WE8u/IA6oDZ1V7RcBKIai96W6oS6p8R3cMPBBd
-	 3z1DwRzwBBBSRngKOQrQq2Ezjfl4+Mvkc4uwOzEmDkJHOXWXOK3OdQzFivqJCYxZI3
-	 y6MIxNmusWIDv4z+r1gmxn0ddjymQ+DJQnoA8LeemnyeLYVMQElmHx2rVqMwEniyXA
-	 8nQzwjJU2IuLfYkCXQlQmEsA5dmNix9q2eOJjt1qaNIIjA2lftgK/TFY9axRz97A8D
-	 je0OPnHIQSsag==
+	b=d2n/c/kNzyRy7VVpBWqBNVUvoVkZu+AyGIMyNGvW14gnSz6kjNZEGcAS4rZm2jn1f
+	 8av5yRJFmWU5oMdu3tgMwvSpEM1ubPWq46Fm75kYcD26v066vVOGE33amGUzU+LMjf
+	 g8t7DwlSoDOifte+BdSRSPNUWdZZLOsBJb7podVZalG8U9CU+PoU/615+MUQc+v9BH
+	 PmuoCBdbcOmwskNx0eOQT7HBdrDZgEWtXg2mzFn12boPFvK/nA/hLPOsDDwMD+5ydK
+	 VRmv2Fq13sgeY0McpW6JnWzGmu1Ai2gSOsSMf4vzQ2svFeJzSpp6ps6UvsIn4rEYA5
+	 VAeeUVmqTzd2w==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -63,18 +63,18 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-riscv@lists.infradead.org,
 	linux-csky@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 5.15 04/11] selftests: sigaltstack: fix -Wuninitialized
-Date: Thu,  6 Apr 2023 07:32:43 -0400
-Message-Id: <20230406113250.648634-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 3/9] selftests: sigaltstack: fix -Wuninitialized
+Date: Thu,  6 Apr 2023 07:33:09 -0400
+Message-Id: <20230406113315.648777-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230406113250.648634-1-sashal@kernel.org>
-References: <20230406113250.648634-1-sashal@kernel.org>
+In-Reply-To: <20230406113315.648777-1-sashal@kernel.org>
+References: <20230406113315.648777-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_043305_987727_9AD07AE5 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20230406_043329_677961_C388D918 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,18 +154,18 @@ index 0000000000000..ea9bdf3a90b16
 +#error "implement current_stack_pointer equivalent"
 +#endif
 diff --git a/tools/testing/selftests/sigaltstack/sas.c b/tools/testing/selftests/sigaltstack/sas.c
-index c53b070755b65..98d37cb744fb2 100644
+index 8934a3766d207..41646c22384a2 100644
 --- a/tools/testing/selftests/sigaltstack/sas.c
 +++ b/tools/testing/selftests/sigaltstack/sas.c
-@@ -20,6 +20,7 @@
- #include <sys/auxv.h>
+@@ -19,6 +19,7 @@
+ #include <errno.h>
  
  #include "../kselftest.h"
 +#include "current_stack_pointer.h"
  
  #ifndef SS_AUTODISARM
  #define SS_AUTODISARM  (1U << 31)
-@@ -46,12 +47,6 @@ void my_usr1(int sig, siginfo_t *si, void *u)
+@@ -40,12 +41,6 @@ void my_usr1(int sig, siginfo_t *si, void *u)
  	stack_t stk;
  	struct stk_data *p;
  
@@ -176,7 +176,7 @@ index c53b070755b65..98d37cb744fb2 100644
 -#endif
 -
  	if (sp < (unsigned long)sstack ||
- 			sp >= (unsigned long)sstack + stack_size) {
+ 			sp >= (unsigned long)sstack + SIGSTKSZ) {
  		ksft_exit_fail_msg("SP is not on sigaltstack\n");
 -- 
 2.39.2
