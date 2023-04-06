@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D45C76196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 17:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0FDC7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 17:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YUZEodmA/X10ANW8Aj2W+swzpgqzxau/L7sa1fRDBCE=; b=RCWijcK1bMmGxd
-	Al4pPDYOobn/IqqggW9nGCR+NZvYUpcMMGZrhUnN53TLcjjcV2BFYrHaZ4ssAVkKr6xBRIVfvH4pR
-	Oy2//6cWTc0jV7jr4JMitNXkddkkQV5BWTqk6xs18zJW/b41aWZHNodZ69O4YQaC5uvnLIztYPeig
-	FqfFc2mfz5oMaiEu3EtsvdLvr3GL4hlXdEIsm+/8czRBTg35cyy+xSEKrWVc1xGYoThyUMvMpFyiG
-	qSKW4UixeUkHcmoNM8UFC0CHAgjQZFlvFjgepfvQIUt0pvRa9hTGM0XbeK4J2K49gme+uxJQPvfeL
-	1v713nAMkXK1T3r0YZOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=F5Tb6ABHDwTNUXzyw2+nT5VuX2zSJq2GcjHMk+QTJL0=; b=Moa
+	i5A+MF66i5ubIABWE7zxb0l17ZnJy+Iz2GdI/jMFw2fS3xpwgrG56aTgCZXEuitZqUbrStZ67DFXd
+	X8HoLVavGWZ98+MG/gnKXprXmXuJwWfBLWFRIUlXIMrUIZDzPT5jOq+bvb32gmNq9drwOU1G0tZ6z
+	iGRiuHx9m/pANEzrOGRGkHxmlCGVTDfvxO7ssbauEmhB6hQcFbboN9TWeIoNT4pPDUUf8C1vAsitO
+	f0f2cK3mHbEsQrfuC4H2/fgGvaUbihbM0qiwiY6mpYiCagVAq/2eC7JjwH2Cu2k/Se+LSs46wyorj
+	2cmPo3BfeXwPXDd/7r8FQHD53WXkWyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkTHN-0086sA-1w;
-	Thu, 06 Apr 2023 17:20:09 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1pkTXk-008A5D-17;
+	Thu, 06 Apr 2023 17:37:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkTHL-0086pD-0W
+	id 1pkTXh-008A4i-09
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 17:20:08 +0000
-Received: by mail-ej1-x634.google.com with SMTP id cw23so3107829ejb.12
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 10:20:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1680801600; x=1683393600;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=M3uUKW6dzuBcxiv7wPFPlh8AowQu6NgUDOohsGPsRqc=;
-        b=ZNnjoRSA8C4ZUWBDwwSK4LmnYcrDpdogkx9nP+8KF6c320nxYGztaz6TDB6Dsjqkm4
-         ccgfzCvbaHMmAlRxMUCr3xuShpm9/QKykpwAE8ROW51UabKnTIILVt8qX6ZcJno0lxky
-         9xeVAP6ecNVK8VGVUTMQNedb3VD/43s+jiKnBRv6QWB8PlWCBxn2cfGCCCIb5KgvpuSp
-         6LBraGJa64PNgHiOZ9L34rxVwUklDh/2DRL9P0K0PEGLWRSSv26etIsV7SQYzAmESvDf
-         rZoemeliwLysUhEIt5RCsQd/m1XHZ4fAV6t9CDyKsuNJgpNpEYya0sfAMs6ASP1ItCZQ
-         H9Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680801600; x=1683393600;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M3uUKW6dzuBcxiv7wPFPlh8AowQu6NgUDOohsGPsRqc=;
-        b=I0qA/xWlSTCZJ2U86TREl+WEQnl5JIMipBkUNCJ/gtIBNJtG3AjUmBGprMcGvxgEli
-         axxY4/aNNue+EtUTStbqhIA+vRawbDULd1LuwVGQabiMYisuvQnh/T9ntSTtjLYoBrng
-         n1qOakHD0pAjh9JNNHvguUYADzIrYBpe2DB3pR34UNmFdbTPTnq3ebzl65uckbXu/NCD
-         akmw/eTRETRyZnYT5voTLtPxuM4p4ceRL8F+xn5rYmwyNLBgeommh792s6mfSTmkzi8w
-         SRyRJwVEVveUMMwkxnUb35IiqGX+na44YVit1w9GRjal5GlF9bmDtJvgOdNipWE0Af0u
-         B7qw==
-X-Gm-Message-State: AAQBX9cL2dyONixwjLQXNCGIQh7Lib1/XevGzlrH0gcjm7/7MI0JiYsu
-	SqoNTbB0AtRmMEg3CrO3hPs=
-X-Google-Smtp-Source: AKy350ZCfyM5SOtfesc+qhalcrjMtsxx6jFR13Rhm/qVNJRtMoNKH+wOa0M+HbZUj7qNsLdXb0nIHQ==
-X-Received: by 2002:a17:906:4555:b0:932:3d1b:b69d with SMTP id s21-20020a170906455500b009323d1bb69dmr6836311ejq.47.1680801600276;
-        Thu, 06 Apr 2023 10:20:00 -0700 (PDT)
-Received: from andrea (host-79-22-3-90.retail.telecomitalia.it. [79.22.3.90])
-        by smtp.gmail.com with ESMTPSA id mf21-20020a170906cb9500b009495cfe446esm1050570ejb.223.2023.04.06.10.19.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Apr 2023 10:19:59 -0700 (PDT)
-Date: Thu, 6 Apr 2023 19:19:43 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Leonardo Bras <leobras@redhat.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 0/2] Deduplicating RISCV cmpxchg.h macros
-Message-ID: <ZC7/LzV53KsZ/cSn@andrea>
-References: <20230406082018.70367-1-leobras@redhat.com>
+	Thu, 06 Apr 2023 17:37:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6D25E64A77;
+	Thu,  6 Apr 2023 17:37:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A387FC433A1;
+	Thu,  6 Apr 2023 17:36:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680802619;
+	bh=o0IjLSZZfFQ9RGYy0Tq46qzeu7Il62Mml5r+70PT5+s=;
+	h=Date:From:To:List-Id:Cc:Subject:From;
+	b=Vh+zdVchiBtW10KtTDERairK6oZvGKzvNBfkuYpeLtCvmxr2gajQPzRn0iUMUEZ4r
+	 mWq8g4YWHgOgs9ESG7JQgKTcJL0ilOBbhWDZFbDemYrq+W2Gu+MNurmANyzfG88FJx
+	 2JwcWGHDU1XAC6vhd2dYJoS9LNWvtW9OkOd1F/smLLwbTAD+Z5KvotKbSEa9ij7LKi
+	 L/j8cjOAl5gyv0i79OvlYXFIkAfm+UPm5ezW8dj9Y90BbeJTbCVLOVzlQdKaplWUK5
+	 IwEFuCLrP+MaUH7V9IExB+bS3gM8QVtpTL2238w21DeokabzFwRNZv+rQJ3n0cbFVX
+	 56rF0AoDMmayQ==
+Date: Thu, 6 Apr 2023 18:36:56 +0100
+From: Conor Dooley <conor@kernel.org>
+To: arnd@arndb.de
+Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
+	soc@kernel.org
+Subject: [GIT PULL] RISC-V Devicetree fixes for v6.3-final
+Message-ID: <20230406-negate-octagon-0fc2e47dbde5@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230406082018.70367-1-leobras@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_102007_207029_FC1D9F3E 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20230406_103701_156867_8A173AA1 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +66,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1371192995204712306=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 06, 2023 at 05:20:17AM -0300, Leonardo Bras wrote:
-> While studying riscv's cmpxchg.h file, I got really interested in
-> understanding how RISCV asm implemented the different versions of
-> {cmp,}xchg.
-> 
-> When I understood the pattern, it made sense for me to remove the
-> duplications and create macros to make it easier to understand what exactly
-> changes between the versions: Instruction sufixes & barriers.
-> 
-> Thanks!
-> Leo
-> 
-> Changes since RFCv3:
-> - Squashed the 6 original patches in 2: one for cmpxchg and one for xchg
-> https://lore.kernel.org/all/20230404163741.2762165-1-leobras@redhat.com/
-> 
-> Changes since RFCv2:
-> - Fixed  macros that depend on having a local variable with a magic name
-> - Previous cast to (long) is now only applied on 4-bytes cmpxchg
-> https://lore.kernel.org/all/20230321074249.2221674-1-leobras@redhat.com/
-> 
-> Changes since RFCv1:
-> - Fixed patch 4/6 suffix from 'w.aqrl' to '.w.aqrl', to avoid build error
-> https://lore.kernel.org/all/20230318080059.1109286-1-leobras@redhat.com/
-> 
-> Leonardo Bras (2):
->   riscv/cmpxchg: Deduplicate cmpxchg() asm and macros
->   riscv/cmpxchg: Deduplicate xchg() asm functions
-> 
->  arch/riscv/include/asm/cmpxchg.h | 319 +++++++------------------------
->  1 file changed, 67 insertions(+), 252 deletions(-)
 
-LGTM.  AFAICT, this would need to be rebased, cf. e.g.
+--===============1371192995204712306==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Qet3MONiiEbbE/SP"
+Content-Disposition: inline
 
-  a8596dda1fbf7e ("arch: rename all internal names __xchg to __arch_xchg")
 
-from the tip tree.
+--Qet3MONiiEbbE/SP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-  Andrea
+Hey Arnd,
+
+Please pull a single fix, it's been a quiet window on the fixes front!
+I don't have any urgent fixes on the soc side either, only fixes for
+behaviour that cannot be triggered with an upstream kernel that I've
+put in for-next.
+
+Thanks,
+Conor.
+
+The following changes since commit fe15c26ee26efa11741a7b632e9f23b01aca4cc6:
+
+  Linux 6.3-rc1 (2023-03-05 14:52:03 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-dt-fixes-for-v6.3-final
+
+for you to fetch changes up to 8056dc043d7f74d7675d413cb3dc4fa290609922:
+
+  riscv: dts: canaan: drop invalid spi-max-frequency (2023-03-26 23:58:27 +0100)
+
+----------------------------------------------------------------
+RISC-V Devicetree fixes for v6.3-final
+
+A solitary fix here from Krzysztof for an invalid property that
+should've probably been removed months ago, but was missed due to it
+being in a dtb that doesn't build w/ defconfig.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      riscv: dts: canaan: drop invalid spi-max-frequency
+
+ arch/riscv/boot/dts/canaan/k210.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
+
+--Qet3MONiiEbbE/SP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC8DOAAKCRB4tDGHoIJi
+0u3UAPwN7hF9kNXZBtGCINhx1e0Li3ok6JNeFQCv73oY1T3IAAEApFViwu9/4Jay
+LS0dKxYkk1FI6k7XEhNl9ozqycpIgwk=
+=h7tw
+-----END PGP SIGNATURE-----
+
+--Qet3MONiiEbbE/SP--
+
+
+--===============1371192995204712306==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1371192995204712306==--
+
