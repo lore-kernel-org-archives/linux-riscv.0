@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB8AC7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 10:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E612C76196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 10:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X83/HK8hxywD76W3yb9SDXgBYFisaAPlvsYP9PP5kt0=; b=BrrH8MExXnuV9q
-	JlOFTCFAn0i/Vm4VbM3J78SAH/aAIuyqfUH1rwVCaUjRY5ZHwLFbkU7Eld+hgrCYsrM5KvfO5FKqN
-	G96Dl3ZSfmIjaEHKbKdumeOtG8Po1Ne+B/LU+Ny9OfX2dFerEplSG1f+XdL171MoVZfLVGCFBvY5J
-	vWS2xFzx7N6I2rr0UPH4fktFawbatBjO3sLz0NP5IGKnkhzvVeQLqCt+61Mp5Y0b/NTENt9JxFKuu
-	P4O0RpLBzLi0I1v2CqxEGTR0kjvMJJbFFZrlzLKNrIFI4knlTm6uS9ql06bNeeZ6ED2KepfMd2Rig
-	zt29buas7pniTCyqYU0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uhYJgT8BDR1SJYQn7Pv9V9ljltEHdTGNskYiLFyivMI=; b=u2sfvWwd6q2sR3
+	IvuEIEiCefEHlG31FCsKtA9DKfljiNpG1+M2zZBJmoVL4O1qYBcz3dzBsQkM7A+/f2BWSJDkQR6+5
+	pSjz84YUEDuUToV3CuMN8NFihVn3oZY0m0UJgJ/6ESdfxvRH26lTwMoKcEwODttgG4/IgzK9Kx0lz
+	wKwTv51XN2icQT77AdLMZ6Kcj7oB4OsAroCzta/z74T4PEXNKEPInDF67fbWFZyvE55F5Ip2BQfVT
+	Pg0tIj1ALXJhzLavb+JYi1GjLFESkGEGN4o0SB/a7lC0G+jz7th1djpLsgNynwcYOuYW77kr0tnzY
+	C3uXTJWUm4cmVWcnJWOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMw8-0073VZ-0V;
-	Thu, 06 Apr 2023 10:33:48 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pkMw9-0073Wn-2F;
+	Thu, 06 Apr 2023 10:33:49 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMw4-0073IW-0P
+	id 1pkMw3-0073IH-2w
 	for linux-riscv@lists.infradead.org;
 	Thu, 06 Apr 2023 10:33:46 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C88AA24E31E;
-	Thu,  6 Apr 2023 18:33:15 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id A7D9224E27D;
+	Thu,  6 Apr 2023 18:33:14 +0800 (CST)
 Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
- 2023 18:33:15 +0800
+ 2023 18:33:14 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Thu, 6 Apr 2023 18:33:15 +0800
+ 15.0.1497.42; Thu, 6 Apr 2023 18:33:13 +0800
 From: William Qiu <william.qiu@starfivetech.com>
 To: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
@@ -45,21 +45,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Emil
  Renner Berthing" <kernel@esmil.dk>, William Qiu
 	<william.qiu@starfivetech.com>
-Subject: [PATCH v7 2/2] riscv: dts: starfive: jh7110: Add syscon nodes
-Date: Thu, 6 Apr 2023 18:33:08 +0800
-Message-ID: <20230406103308.1280860-3-william.qiu@starfivetech.com>
+Subject: [PATCH v7 0/2] StarFive's SYSCON support
+Date: Thu, 6 Apr 2023 18:33:06 +0800
+Message-ID: <20230406103308.1280860-1-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230406103308.1280860-1-william.qiu@starfivetech.com>
-References: <20230406103308.1280860-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [171.223.208.138]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_033344_320672_14517F22 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230406_033344_105058_84B5AC68 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +73,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add stg_syscon/sys_syscon/aon_syscon nodes for JH7110 Soc.
+Hi,
 
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+This patchset adds initial rudimentary support for the StarFive
+designware mobile storage host controller driver. And this driver will
+be used in StarFive's VisionFive 2 board. The main purpose of adding
+this driver is to accommodate the ultra-high speed mode of eMMC.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..f271c3184d3a 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -353,6 +353,11 @@ i2c2: i2c@10050000 {
- 			status = "disabled";
- 		};
+The last patch should be applied after the patchset [1]:
+[1] https://lore.kernel.org/all/20230401111934.130844-1-hal.feng@starfivetech.com/
 
-+		stg_syscon: syscon@10240000 {
-+			compatible = "starfive,jh7110-stg-syscon", "syscon";
-+			reg = <0x0 0x10240000 0x0 0x1000>;
-+		};
-+
- 		uart3: serial@12000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x12000000 0x0 0x10000>;
-@@ -457,6 +462,11 @@ syscrg: clock-controller@13020000 {
- 			#reset-cells = <1>;
- 		};
+Changes v5->v6:
+- Rebased to 6.3-rc3.
+- Modified compatible's property.
+- Added clock-controller and power-controller node.
 
-+		sys_syscon: syscon@13030000 {
-+			compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
-+			reg = <0x0 0x13030000 0x0 0x1000>;
-+		};
-+
- 		sysgpio: pinctrl@13040000 {
- 			compatible = "starfive,jh7110-sys-pinctrl";
- 			reg = <0x0 0x13040000 0x0 0x10000>;
-@@ -486,6 +496,11 @@ aoncrg: clock-controller@17000000 {
- 			#reset-cells = <1>;
- 		};
+Changes v5->v6:
+- Rebased to 6.3-rc1.
+- Changed file name to starfive,jh7110.yaml.
+- Modified commit description.
+- Added syscon node dts patch to other dependent modules.
 
-+		aon_syscon: syscon@17010000 {
-+			compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
-+			reg = <0x0 0x17010000 0x0 0x1000>;
-+		};
-+
- 		aongpio: pinctrl@17020000 {
- 			compatible = "starfive,jh7110-aon-pinctrl";
- 			reg = <0x0 0x17020000 0x0 0x10000>;
+Changes v4->v5:
+- Added a incremental updates to fix a bug that prev_err is uninitialized.
+- Dropped the merged patches.
+- Dropped the dts patch.
+- Sorted compatible alphabetically in yaml.
+
+Changes v3->v4:
+- Added documentation to describe StarFive System Controller Registers.
+- Added aon_syscon and stg_syscon node.
+- Fixed some checkpatch errors/warnings.
+
+Changes v2->v3:
+- Wraped commit message according to Linux coding style.
+- Rephrased the description of the patches.
+- Changed the description of syscon regsiter.
+- Dropped redundant properties.
+
+Changes v1->v2:
+- Renamed the dt-binding 'starfive,jh7110-sdio.yaml' to 'starfive,jh7110-mmc.yaml'.
+- Changed the type of 'starfive,syscon' and modify its description.
+- Deleted unused head files like '#include <linux/gpio.h>'.
+- Added comment for the 'rise_point' and 'fall_point'.
+- Changed the API 'num_caps' to 'common_caps'.
+- Changed the node name 'sys_syscon' to 'syscon'.
+- Changed the node name 'sdio' to 'mmc'.
+
+The patch series is based on v6.3.
+
+William Qiu (2):
+  dt-bindings: soc: starfive: Add StarFive syscon doc
+  riscv: dts: starfive: jh7110: Add syscon nodes
+
+ .../soc/starfive/starfive,jh7110-syscon.yaml  | 56 +++++++++++++++++++
+ MAINTAINERS                                   |  5 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 15 +++++
+ 3 files changed, 76 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+
 --
 2.34.1
 
