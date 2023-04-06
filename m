@@ -4,100 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A789C7619A
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Apr 2023 21:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD909C7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 00:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wuo2fsf/D5Khe1A69iuXm3uKVCLICJ6E4aFucsMgGX4=; b=WfZcE9+Dqsbg8k
-	AM68sq18oaEt/nWHXWUsaeakezCuQW0Q32BAwy4/9wuQ/S/9Mg3hvC5y/5RXxwWwWwPddxdi/zVLB
-	EkToxwSa3L6fs1aEYvJ+p/uk9vKxRd9U8EiBth/SFR59GYmdrF/hlinUyfKoHvlLO+lGArlUVNsUD
-	NAdLbDtcdwZVcBGXdXTP2V3jqjz3uX/7l33WGi3wEmKXJfEFUAv1+w2kuL9aWNq4otXFhUlMg/qml
-	6erbah+iuwp3egIXQZ2AelIr41dWRMKqmtz8aKwNLBaxqJMzw4vG/A0frRW0qlqmapPY5Uw1bPg10
-	P+pTyUsuQly1TkRjkk8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WhM7dE/8lucGisjalwjYNSARHmd7O8LRmXU+ssi0GrU=; b=JsjrWbKcZ0o9hg
+	4B5toQd9WpgG86lUurOVD4JIhW7OVc7Z9/FGntnIXD45TC7QaEs2bjT+Vuc+0ejb6lwaT1cIEOWj2
+	WRSmjSci811OL0L7QxCln2FZ0Ne/wNrsqmr21JuiO1/5aMITb9X2CXj64KFodsgjqVZVFxtt1Sbqd
+	+cUB3OF4jXkVfoxsrCLHIPix8gysoXLxNGWA9ev3sM0anTH/SVcoWFwZqipEqVcq0dAX/FoAgAAp0
+	m18VnrMuw7+vWQlkW/aM6/WQAzRjkDlW0nDlJI9SfRjHqDseh+NDolVO4A7kuUVH6N3bKz5I8IF/l
+	2vaGtUbQ35qmukK+9ruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkAoP-005kL4-31;
-	Wed, 05 Apr 2023 21:37:01 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1pkDDj-005xRj-2d;
+	Thu, 06 Apr 2023 00:11:19 +0000
+Received: from mo4-p00-ob.smtp.rzone.de ([85.215.255.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkAoK-005kIJ-2y
+	id 1pkDDg-005xR3-3B
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Apr 2023 21:36:59 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-68-pbqxvDXyOE-yB95Y9KmqPw-1; Wed, 05 Apr 2023 22:36:46 +0100
-X-MC-Unique: pbqxvDXyOE-yB95Y9KmqPw-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 5 Apr
- 2023 22:36:44 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Wed, 5 Apr 2023 22:36:44 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Arnd Bergmann' <arnd@arndb.de>, "H. Peter Anvin" <hpa@zytor.com>, "Niklas
- Schnelle" <schnelle@linux.ibm.com>, Richard Henderson
-	<richard.henderson@linaro.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "Geert
- Uytterhoeven" <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	"Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, "James E . J . Bottomley"
-	<James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Yoshinori Sato <ysato@users.osdn.me>, Rich Felker
-	<dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S . Miller" <davem@davemloft.net>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>
-CC: "linux-m68k@vger.kernel.org" <linux-m68k@vger.kernel.org>,
-	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, "Rafael J .
- Wysocki" <rafael@kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "sparclinux@vger.kernel.org"
-	<sparclinux@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Linux-Arch <linux-arch@vger.kernel.org>,
-	"linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>, Alan Stern
-	<stern@rowland.harvard.edu>, =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?=
-	<u.kleine-koenig@pengutronix.de>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, Bjorn Helgaas <bhelgaas@google.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-alpha@vger.kernel.org"
-	<linux-alpha@vger.kernel.org>, Johannes Berg <johannes@sipsolutions.net>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-Subject: RE: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it as
- necessary
-Thread-Topic: [PATCH v4] Kconfig: introduce HAS_IOPORT option and select it as
- necessary
-Thread-Index: AQHZZ/3AaiQodugroEmdF5H6jyGRq68dOQLw
-Date: Wed, 5 Apr 2023 21:36:44 +0000
-Message-ID: <ccff565cde1440b8bff92d96f94a32b5@AcuMS.aculab.com>
-References: <20230323163354.1454196-1-schnelle@linux.ibm.com>
- <248a41a536d5a3c9e81e8e865b34c5bf74cd36d4.camel@linux.ibm.com>
- <B1EC1AC7-6BB5-4B66-B171-24687C3CBFB3@zytor.com>
- <d8686aaf-f12e-446b-9a80-335bb4266a4d@app.fastmail.com>
-In-Reply-To: <d8686aaf-f12e-446b-9a80-335bb4266a4d@app.fastmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Thu, 06 Apr 2023 00:11:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1680739871; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=Uzcq4RicHDYCddFmkGyygmGsgCgpHUNZoIaU4YOtq/Vf937nJoLDB+Kh2Qa5Jecf5E
+    U7CxnZ3e9GGsx0HGufh0SbqUX3SwM76IelUkNNLlTaEMR9l9L0dlcEKPp6oSIbhMcSHB
+    1h/6uZa5JXXO0V+tZEpCy7DaNsjrZTyebnRg+Sj7+Nbtbmqo3xOBbCdRRyllp2QtewcI
+    aexTflceFKSfM6FV75a+srecsY8fnhG9Vx0RNOfxa4BV5uEib6PlSEDyANC5EADWKrA8
+    bwAhQNIHvLTWQphuTKpfE7xQJQbQkftzrqCLV7g1RDmiQgEBdqcfAyFIUJf/XUkIaOoU
+    DlHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1680739871;
+    s=strato-dkim-0002; d=strato.com;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=xQAqmH5j/wK2gNhh2P61TwPJkaIwOsShgtjUTTv9s2o=;
+    b=LV22J/Y5x95a5wUL2Iq2U1fhtHzmGIjkMZbfLXFcnpXUdc4MRDqw5bkha4uTjbAVk7
+    1dAwW8RtK66YKwCwZlCRbEKCgr31QP0IvBqQMzKbTN0bT/lUh59h45KzoqjQ2A8CcudV
+    EtWp/Waob1+pn8cHQDjjs1K1DfrIe/2idWq3coVyxKiWQTsGH5lIokclPtZyLtjuZfJk
+    Sy43xj9ubflqckQeL3YqlbXMW1jpH5COYYNLZ/eDJyLnjWqO5Op7u4zTUc8oSWh4glWO
+    1KjHeVetg1gFlYMGunCD2ONKVI7ZOPqlmzamKSg8kZyas6SD4f85vvcP12dGOj4CMo38
+    +3ow==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo00
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1680739871;
+    s=strato-dkim-0002; d=matsal.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=xQAqmH5j/wK2gNhh2P61TwPJkaIwOsShgtjUTTv9s2o=;
+    b=Vo0LMA3m3R8REEaRetDoP+tZjWnKMsD906PnQ0KeQHuJX0EgJr7RB+hC8GfOP2vXAk
+    K15209jsHwgQEJI1cmfday2ZNdUNGF53hq/PJp/lzBFZpwsaT39ROwq7rDM03oXQkcIw
+    0qxuZhDAyGEjVThK0jFPIf4O+1CNYznMgC/tR6kuvIhFLIIhR3NtSfrEu4GhAYzAwGT3
+    XY0OZsaagnFwqtwto5HfmJ9XDIZVbXfkP9SzSE8eB558QPU6dyM2BMKHRlG7Dwpk09u6
+    crjgqdUwJIluMY3+u0NmNxiZmGJE/4Fl4n3tCsCT1DLBcfcEaAnuEH/Imj2NL7sOc7r4
+    PQng==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1680739871;
+    s=strato-dkim-0003; d=matsal.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=xQAqmH5j/wK2gNhh2P61TwPJkaIwOsShgtjUTTv9s2o=;
+    b=moUu+dqJDSOXyqiVZMLEnGtcM/Y3BUYWRp0wMrhCpM7iFoG1lIJj0OxWwSam88pRHW
+    zIaoRxnFCExgCUOoJNAQ==
+X-RZG-AUTH: ":IW0QfUm7NezzNQ5osAhLM1umwWvsEbiUz2EFIybcN0GbouAcRcs36+XQ+PXmbrHj0IHceHHJihaxy8GlOKeM+n1nTMe0OswSsTIcZomt"
+Received: from device2.fritz.box
+    by smtp.strato.de (RZmta 49.4.0 AUTH)
+    with ESMTPSA id 6644bcz360BA9xw
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Thu, 6 Apr 2023 02:11:10 +0200 (CEST)
+From: Mathis Salmen <mathis.salmen@matsal.de>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: Mathis Salmen <mathis.salmen@matsal.de>
+Subject: [PATCH] riscv: add icache flush for nommu sigreturn trampoline
+Date: Thu,  6 Apr 2023 02:11:04 +0200
+Message-Id: <20230406001104.3361877-1-mathis.salmen@matsal.de>
+X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_143657_226783_8BFBC6E6 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20230405_171117_461644_802929E8 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +100,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Linuxppc-dev Arnd Bergmann
-> Sent: 05 April 2023 21:32
-> 
-> On Wed, Apr 5, 2023, at 22:00, H. Peter Anvin wrote:
-> > On April 5, 2023 8:12:38 AM PDT, Niklas Schnelle <schnelle@linux.ibm.com> wrote:
-> >>On Thu, 2023-03-23 at 17:33 +0100, Niklas Schnelle wrote:
-> >>> We introduce a new HAS_IOPORT Kconfig option to indicate support for I/O
-> >>> Port access. In a future patch HAS_IOPORT=n will disable compilation of
-> >>> the I/O accessor functions inb()/outb() and friends on architectures
-> >>> which can not meaningfully support legacy I/O spaces such as s390.
-> >>> >>
-> >>Gentle ping. As far as I can tell this hasn't been picked to any tree
-> >>sp far but also hasn't seen complains so I'm wondering if I should send
-> >>a new version of the combined series of this patch plus the added
-> >>HAS_IOPORT dependencies per subsystem or wait until this is picked up.
-> >
-> > You need this on a system supporting not just ISA but also PCI.
-> >
-> > Typically on non-x86 architectures this is simply mapped into a memory window.
-> 
-> I'm pretty confident that the list is correct here, as the HAS_IOPORT
-> symbol is enabled exactly for the architectures that have a way to
-> map the I/O space. PCIe generally works fine without I/O space, the
-> only exception are drivers for devices that were around as early PCI.
+In a NOMMU kernel, sigreturn trampolines are generated on the user
+stack by setup_rt_frame. Currently, these trampolines are not instruction
+fenced, thus their visibility to ifetch is not guaranteed.
 
-Isn't there a difference between cpu that have inb()/outb() (probably
-only x86?) and architectures (well computer designs) that can generate
-PCI 'I/O' cycles by some means.
-It isn't even just PCI I/O cycles, I've used an ARM cpu (SA1100)
-that mapped a chuck of physical address space onto PCMCIA I/O cycles.
+This patch adds a flush_icache_range in setup_rt_frame to fix this
+problem.
 
-If the hardware can map a PCI 'IO' bar into normal kernel address
-space then the bar and accesses can be treated exactly like a memory bar.
-This probably leaves x86 as the outlier where you need (IIRC) io_readl()
-and friends that can generate in/out instructions for those accesses.
+Signed-off-by: Mathis Salmen <mathis.salmen@matsal.de>
+---
+ arch/riscv/kernel/signal.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-There are also all the x86 ISA devices which need in/out instructions.
-But (with the likely exception of the UART) they are pretty much
-platform specific.
-
-So, to my mind at least, HAS_IOPORT is just the wrong question.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index bfb2afa41..548703230 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -19,6 +19,7 @@
+ #include <asm/signal32.h>
+ #include <asm/switch_to.h>
+ #include <asm/csr.h>
++#include <asm/cacheflush.h>
+ 
+ extern u32 __user_rt_sigreturn[2];
+ 
+@@ -209,6 +210,10 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 	if (copy_to_user(&frame->sigreturn_code, __user_rt_sigreturn,
+ 			 sizeof(frame->sigreturn_code)))
+ 		return -EFAULT;
++	/* Make sure the two instructions are pushed to icache. */
++	flush_icache_range((uintptr_t)&frame->sigreturn_code,
++			(uintptr_t)&frame->sigreturn_code + sizeof(frame->sigreturn_code));
++
+ 	regs->ra = (unsigned long)&frame->sigreturn_code;
+ #endif /* CONFIG_MMU */
+ 
+-- 
+2.40.0
 
 
 _______________________________________________
