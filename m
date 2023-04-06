@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C36C7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 10:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD81C7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wy/uws3rY3wXrx5jVeMDWIE5e69k0cdD2EWjjdGdQ3M=; b=M/5oKymELjF+0x
-	m6iA5T6S7UYzcDE4q7geDOcoIwnedZ0urWgv9N/K8ikURHKaBB9Tm2WNV/PS9scQncY1StAGEUqj+
-	oe9X3XSgRad0EoeO/9V6gdtNL32KkX/6re3Idb2MN53NtftGzigNe6u6QcuJ+EHFW85Xy3rQUY0IN
-	7U7UWynBMPZbcU3b7rGgbtB9OB9q4mikJvUbLQNYWY3ZHy7BG19FLzrtG51vxH1ByXxyRnwEdqaqR
-	0o5tnsuD99UM1K3oOjbQo2HZ+eA8uZbjaPmLYNQ2ZL1/0PkNgbeCDwuJDmI5hcXvyE+2CzDxcIPqa
-	saFfrPbtBzyPavhTY59w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y1DZbeqWthp6bqFlR0mXZgxA2fshxaNg3ALRVuQeXJY=; b=a3TXIEa16iIhfu
+	HOLYEMEs7357CHrHmWg+4JvFcyETuPOSfbyf7t6VGiG7/+WjoxkRq+L6Q9AEg+LuLjUePnAsb77QA
+	qF7FHferUEZ33bJsIKpD+mQuGXCD6PBh3OqVdcDDVjcY6Hek+q9GdOk5XCx8kfsvN7DlcHIzFReYR
+	hdoKxe8s5VlFz71XSxQGSpRqY+YRveZUzVBdEJ5FjGJo2AXTwV4Sntmi2c+njpJ5TtIMcxXQKbhXl
+	+5YZX4a5zwvyygkVag7tVRFMA9EjXNPIjPsGdknb2mZ48T1gwiFY2bsfqkK+eczbY/2ggDPMm1Ykd
+	/zx5tgj5decY+P8Fq54w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMyb-0074yw-2U;
-	Thu, 06 Apr 2023 10:36:21 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkMyU-0074vz-2s;
-	Thu, 06 Apr 2023 10:36:19 +0000
-Received: from [172.23.196.59] (unknown [121.32.254.147])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 38C2F58045F;
-	Thu,  6 Apr 2023 18:35:53 +0800 (CST)
-Message-ID: <1ee16ad1-925a-411d-c67e-5ddab2fb6074@sangfor.com.cn>
-Date: Thu, 6 Apr 2023 18:35:50 +0800
+	id 1pkNXA-007888-1o;
+	Thu, 06 Apr 2023 11:12:04 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pkNX3-00784r-2v
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Apr 2023 11:12:02 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 781DB24E0AE;
+	Thu,  6 Apr 2023 19:11:45 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
+ 2023 19:11:45 +0800
+Received: from ubuntu.localdomain (183.27.97.179) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
+ 2023 19:11:44 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v1 0/3] Add JH7110 PCIe driver support
+Date: Thu, 6 Apr 2023 19:11:39 +0800
+Message-ID: <20230406111142.74410-1-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v10 8/8] selftests/ftrace: Add funcgraph-retval test case
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: rostedt@goodmis.org, linux@armlinux.org.uk, mark.rutland@arm.com,
- will@kernel.org, catalin.marinas@arm.com, rmk+kernel@armlinux.org.uk,
- palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- tglx@linutronix.de, dave.hansen@linux.intel.com, x86@kernel.org,
- bp@alien8.de, hpa@zytor.com, chenhuacai@kernel.org, zhangqing@loongson.cn,
- kernel@xen0n.name, mingo@redhat.com, peterz@infradead.org,
- xiehuan09@gmail.com, dinghui@sangfor.com.cn, huangcun@sangfor.com.cn,
- dolinux.peng@gmail.com, linux-trace-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1680265828.git.pengdonglin@sangfor.com.cn>
- <ba23c2429f1ef798946ce65e21c7a7a2bff0019e.1680265828.git.pengdonglin@sangfor.com.cn>
- <20230402070406.177f09cc34f9860baf3e6ec2@kernel.org>
- <f4eabd56-2f91-05fc-b882-9dd8328f87ae@sangfor.com.cn>
- <7088643e-400b-4cd4-edd3-63b3baa36a7c@sangfor.com.cn>
-Content-Language: en-US
-In-Reply-To: <7088643e-400b-4cd4-edd3-63b3baa36a7c@sangfor.com.cn>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSxhIVktMQktLTUkeGRoaS1UTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpJSlVISVVJTk9VSk9MWVdZFhoPEhUdFFlBWU9LSFVKSktISkxVSktLVUtZBg++
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PBg6Gjo6Mj0WODNMMDA8CAgy
-	FitPFCpVSlVKTUNLTExMSE5PQ0pMVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSklKVUhJVUlOT1VKT0xZV1kIAVlBQ01IQzcG
-X-HM-Tid: 0a8756231c5c2eb7kusn38c2f58045f
-X-HM-MType: 1
+X-Originating-IP: [183.27.97.179]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_033615_224396_0C8A7F01 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20230406_041158_244182_D3C23AD2 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,107 +75,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMy80LzMgMTM6MDEsIERvbmdsaW4gUGVuZyB3cm90ZToKPiBPbiAyMDIzLzQvMyAxMDoz
-MywgRG9uZ2xpbiBQZW5nIHdyb3RlOgo+PiBPbiAyMDIzLzQvMiA2OjA0LCBNYXNhbWkgSGlyYW1h
-dHN1IChHb29nbGUpIHdyb3RlOgo+Pj4gT24gRnJpLCAzMSBNYXIgMjAyMyAwNTo0Nzo0NCAtMDcw
-MAo+Pj4gRG9uZ2xpbiBQZW5nIDxwZW5nZG9uZ2xpbkBzYW5nZm9yLmNvbS5jbj4gd3JvdGU6Cj4+
-Pgo+Pj4+IEFkZCBhIHRlc3QgY2FzZSBmb3IgdGhlIGZ1bmNncmFwaC1yZXR2YWwgYW5kIGZ1bmNn
-cmFwaC1yZXR2YWwtaGV4Cj4+Pj4gdHJhY2Ugb3B0aW9ucy4KPj4+Pgo+Pj4+IFNpZ25lZC1vZmYt
-Ynk6IERvbmdsaW4gUGVuZyA8cGVuZ2RvbmdsaW5Ac2FuZ2Zvci5jb20uY24+Cj4+Pj4gLS0tCj4+
-Pj4gdjEwOgo+Pj4+IMKgIC0gRml4IGlzc3VlcyBpbiBzZWxmdGVzdAo+Pj4+Cj4+Pj4gdjg6Cj4+
-Pj4gwqAgLSBGaXggaXNzdWVzIGluIHNlbGZ0ZXN0Cj4+Pj4gLS0tCj4+Pj4gwqAgLi4uL2Z0cmFj
-ZS90ZXN0LmQvZnRyYWNlL2ZncmFwaC1yZXR2YWwudGPCoMKgwqDCoCB8IDQzIAo+Pj4+ICsrKysr
-KysrKysrKysrKysrKysKPj4+PiDCoCAxIGZpbGUgY2hhbmdlZCwgNDMgaW5zZXJ0aW9ucygrKQo+
-Pj4+IMKgIGNyZWF0ZSBtb2RlIDEwMDY0NCAKPj4+PiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9m
-dHJhY2UvdGVzdC5kL2Z0cmFjZS9mZ3JhcGgtcmV0dmFsLnRjCj4+Pj4KPj4+PiBkaWZmIC0tZ2l0
-IAo+Pj4+IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvZnRyYWNlL3Rlc3QuZC9mdHJhY2UvZmdy
-YXBoLXJldHZhbC50YyAKPj4+PiBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2Z0cmFjZS90ZXN0
-LmQvZnRyYWNlL2ZncmFwaC1yZXR2YWwudGMKPj4+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+Pj4+
-IGluZGV4IDAwMDAwMDAwMDAwMC4uNTgxOWFhMmRkNmFkCj4+Pj4gLS0tIC9kZXYvbnVsbAo+Pj4+
-ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2Z0cmFjZS90ZXN0LmQvZnRyYWNlL2ZncmFw
-aC1yZXR2YWwudGMKPj4+PiBAQCAtMCwwICsxLDQzIEBACj4+Pj4gKyMhL2Jpbi9zaAo+Pj4+ICsj
-IFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4+Pj4gKyMgZGVzY3JpcHRpb246IGZ0
-cmFjZSAtIGZ1bmN0aW9uIGdyYXBoIHByaW50IGZ1bmN0aW9uIHJldHVybiB2YWx1ZQo+Pj4+ICsj
-IHJlcXVpcmVzOiBvcHRpb25zL2Z1bmNncmFwaC1yZXR2YWwgb3B0aW9ucy9mdW5jZ3JhcGgtcmV0
-dmFsLWhleCAKPj4+PiBmdW5jdGlvbl9ncmFwaDp0cmFjZXIKPj4+PiArCj4+Pj4gKyMgTWFrZSBz
-dXJlIHRoYXQgZnVuY2dyYXBoLXJldHZhbCB3b3Jrcwo+Pj4+ICsKPj4+PiArZmFpbCgpIHsgIyBt
-c2cKPj4+PiArwqDCoMKgIGVjaG8gJDEKPj4+PiArwqDCoMKgIGV4aXRfZmFpbAo+Pj4+ICt9Cj4+
-Pj4gKwo+Pj4+ICtkaXNhYmxlX3RyYWNpbmcKPj4+PiArY2xlYXJfdHJhY2UKPj4+PiArCj4+Pj4g
-K3JlYWQgUElEIF8gPCAvcHJvYy9zZWxmL3N0YXQKPj4+Cj4+PiBZb3UgY2FuIHVzZSAiJCQiIGZv
-ciBzZWxmIHBpZC4KPj4KPj4gWWVhaCwgSSB3aWxsIGZpeCBpdC4KPiAKPiBJIGZvdW5kIHRoYXQg
-ZnRyYWNldGVzdCB1c2VkICgpIHRvIGxhdW5jaCBhIG5ldyBjaGlsZCBwcm9jZXNzIGZvcgo+IGV4
-ZWN1dGluZyBhIC50YyBzY3JpcHQgZmlsZSwgaG93ZXZlciB0aGUgJCQgdmFsdWUgcmVtYWlucyB1
-bmNoYW5nZWQsCj4gc28gd2UgY2FuIG5vdCB1c2UgJCQgaGVyZSwgYmVjYXVzZSBpdCBpcyBQUElE
-LiBUaGVyZWZvcmUgSSB0aGluayB3ZQo+IGhhdmUgdG8gZ2V0IFBJRCBmcm9tIC9wcm9jL3NlbGYv
-c3RhdC4KPiAKPiBIZXJlIGlzIHRoZSBjb2RlIGZyb20gZnRyYWNldGVzdCB0aGF0IGxhdW5jaGVz
-IGEgY2hpbGQgc2hlbGwgZm9yIAo+IGV4ZWN1dGluZyB0aGUgLnRjIGZpbGUuCj4gCj4gX19ydW5f
-dGVzdCgpIHsgIyB0ZXN0ZmlsZQo+ICDCoCAjIHNldHVwIFBJRCBhbmQgUFBJRCwgJCQgaXMgKm5v
-dCogdXBkYXRlZC4KPiAgwqAgKGNkICRUUkFDSU5HX0RJUjsgcmVhZCBQSUQgXyA8IC9wcm9jL3Nl
-bGYvc3RhdDsgc2V0IC1lOyBzZXQgLXg7Cj4gIMKgwqAgY2hlY2tyZXEgJDE7IGluaXRpYWxpemVf
-ZnRyYWNlOyAuICQxKQo+ICDCoCBbICQ/IC1uZSAwIF0gJiYga2lsbCAtcyAkU0lHX0ZBSUwgJFNJ
-R19QSUQKPiB9Cj4gCj4+Cj4+Pgo+Pj4+ICtbIC1mIHNldF9mdHJhY2VfcGlkIF0gJiYgZWNobyAk
-e1BJRH0gPiBzZXRfZnRyYWNlX3BpZAo+Pj4+ICtbIC1mIHNldF9mdHJhY2VfZmlsdGVyIF0gJiYg
-ZWNobyBwcm9jX3JlZ193cml0ZSA+IHNldF9mdHJhY2VfZmlsdGVyCj4+Pj4gK1sgLWYgc2V0X2dy
-YXBoX2Z1bmN0aW9uIF0gJiYgZWNobyBwcm9jX3JlZ193cml0ZSA+IHNldF9ncmFwaF9mdW5jdGlv
-bgo+Pj4KPj4+IFlvdSBzaG91bGQgc2V0IHRoZSByZXF1aXJlZCBmaWxlcyBmb3IgdGhpcyB0ZXN0
-LCBzbyB0aGF0IHRoZSB0ZXN0IHJlc3VsdAo+Pj4gaXMgYWx3YXlzIHNhbWUuIEJUVywgeW91IG5l
-ZWQgdG8gc2V0IGVpdGhlciAnc2V0X2Z0cmFjZV9maWx0ZXInIG9yCj4+PiAnc2V0X2dyYXBoX2Z1
-bmN0aW9uJy4KPj4KPj4gWWVzLCBidXQgSSBkaXNjb3ZlcmVkIHRoYXQgc2V0X2Z0cmFjZV9maWx0
-ZXIgYW5kIHNldF9ncmFwaF9mdW5jdGlvbiAKPj4gcmVseSBvbiB0aGUgQ09ORklHX0RZTkFNSUNf
-RlRSQUNFIGNvbmZpZ3VyYXRpb24sIHdoaWNoIG1lYW5zIHRoYXQgCj4+IHRoZXNlIHR3byBmaWxl
-cyBhcmUgbm90IHByZXNlbnQgd2hlbiBDT05GSUdfRFlOQU1JQ19GVFJBQ0UgaXMgCj4+IGRpc2Fi
-bGVkLCBldmVuIGlmIENPTkZJR19GVU5DVElPTl9HUkFQSF9SRVRWQUwgaXMgZW5hYmxlZC4gVGhl
-cmVmb3JlLCAKPj4gSSB0aGluayB0aGF0IHRoZXNlIHR3byB0cmFjZSBmaWxlcyBhcmUgbm90IG5l
-Y2Vzc2FyeSBmb3IgdGhpcyB0ZXN0Lgo+Pgo+PiBJIHdpbGwgbW9kaWZ5IHRoZSBhYm92ZSBsaWtl
-IHRoaXM6Cj4+Cj4+IFsgLWYgc2V0X2Z0cmFjZV9waWQgXSAmJiBlY2hvICQkID4gc2V0X2Z0cmFj
-ZV9waWQKPj4gWyAtZiBzZXRfZnRyYWNlX2ZpbHRlciBdICYmIGVjaG8gcHJvY19yZWdfd3JpdGUg
-PiBzZXRfZnRyYWNlX2ZpbHRlcgo+Pgo+Pj4KPj4+PiArZWNobyBmdW5jdGlvbl9ncmFwaCA+IGN1
-cnJlbnRfdHJhY2VyCj4+Pj4gK2VjaG8gZnVuY2dyYXBoLXJldHZhbCA+IHRyYWNlX29wdGlvbnMK
-Pj4+PiArCj4+Pj4gK3NldCArZQo+Pj4+ICtlbmFibGVfdHJhY2luZwo+Pj4+ICtlY2hvID4gL3By
-b2MvaW50ZXJydXB0cwo+Pj4+ICtkaXNhYmxlX3RyYWNpbmcKPj4+PiArc2V0IC1lCj4+Pj4gKwo+
-Pj4+ICs6ICJUZXN0IHByaW50aW5nIHRoZSBlcnJvciBjb2RlIGluIHNpZ25lZCBkZWNpbWFsIGZv
-cm1hdCIKPj4+PiArZWNobyBub2Z1bmNncmFwaC1yZXR2YWwtaGV4ID4gdHJhY2Vfb3B0aW9ucwo+
-Pj4KPj4+IGVjaG8gMCA+IG9wdGlvbnMvZnVuY2dyYXBoLXJldHZhbC1oZXgKPj4+Cj4+PiBJZiB5
-b3UgcmVxdWlyZSAnb3B0aW9ucy9mdW5jZ3JhcGgtcmV0dmFsLWhleCcgZmlsZSwgeW91IGNhbiB1
-c2UgdGhlCj4+PiBmaWxlIHRvIHNldCBpdCBvciBjbGVhciBpdC4KPj4KPj4gWWVhaC4KPj4KPj4+
-Cj4+Pj4gK2NvdW50PWBjYXQgdHJhY2UgfCBncmVwICdwcm9jX3JlZ193cml0ZScgfCBncmVwICc9
-IC01JyB8IHdjIC1sYAo+Pj4+ICtpZiBbICRjb3VudCAtZXEgMCBdOyB0aGVuCj4+Pj4gK8KgwqDC
-oCBmYWlsICJSZXR1cm4gdmFsdWUgY2FuIG5vdCBiZSBwcmludGVkIGluIHNpZ25lZCBkZWNpbWFs
-IGZvcm1hdCIKPj4+PiArZmkKPj4+PiArCj4+Pj4gKzogIlRlc3QgcHJpbnRpbmcgdGhlIGVycm9y
-IGNvZGUgaW4gaGV4YWRlY2ltYWwgZm9ybWF0Igo+Pj4+ICtlY2hvIGZ1bmNncmFwaC1yZXR2YWwt
-aGV4ID4gdHJhY2Vfb3B0aW9ucwo+Pj4KPj4+IERpdHRvLgo+Pgo+PiBUaGFua3MuCj4+Cj4+Pgo+
-Pj4gVGhhbmtzLAo+Pj4KPj4+PiArY291bnQ9YGNhdCB0cmFjZSB8IGdyZXAgJ3Byb2NfcmVnX3dy
-aXRlJyB8IGdyZXAgJ2ZmZmZmZmZiJyB8IHdjIC1sYAo+Pj4+ICtpZiBbICRjb3VudCAtZXEgMCBd
-OyB0aGVuCj4+Pj4gK8KgwqDCoCBmYWlsICJSZXR1cm4gdmFsdWUgY2FuIG5vdCBiZSBwcmludGVk
-IGluIGhleGFkZWNpbWFsIGZvcm1hdCIKPj4+PiArZmkKPj4+PiArCj4+Pj4gK2V4aXQgMAo+Pj4+
-IC0tIAo+Pj4+IDIuMjUuMQo+Pj4+Cj4+Pgo+Pj4KPj4KPiAKCkhpIE1hc2FtaSwKCkkgd2lsbCB1
-cGRhdGUgdGhlIHNlbGZ0ZXN0IGFzIGZvbGxvd3MsIGFjY29yZGluZyB0byB0aGUgY29tbWVudHM6
-CgojIS9iaW4vc2gKIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAojIGRlc2NyaXB0
-aW9uOiBmdHJhY2UgLSBmdW5jdGlvbiBncmFwaCBwcmludCBmdW5jdGlvbiByZXR1cm4gdmFsdWUK
-IyByZXF1aXJlczogb3B0aW9ucy9mdW5jZ3JhcGgtcmV0dmFsIG9wdGlvbnMvZnVuY2dyYXBoLXJl
-dHZhbC1oZXggCmZ1bmN0aW9uX2dyYXBoOnRyYWNlcgoKIyBNYWtlIHN1cmUgdGhhdCBmdW5jZ3Jh
-cGgtcmV0dmFsIHdvcmtzCgpmYWlsKCkgeyAjIG1zZwogICAgIGVjaG8gJDEKICAgICBleGl0X2Zh
-aWwKfQoKZGlzYWJsZV90cmFjaW5nCmNsZWFyX3RyYWNlCgojIGdldCBzZWxmIFBJRCwgY2FuIG5v
-dCB1c2UgJCQsIGJlY2F1c2UgaXQgaXMgUFBJRApyZWFkIFBJRCBfIDwgL3Byb2Mvc2VsZi9zdGF0
-CgpbIC1mIHNldF9mdHJhY2VfZmlsdGVyIF0gJiYgZWNobyBwcm9jX3JlZ193cml0ZSA+IHNldF9m
-dHJhY2VfZmlsdGVyClsgLWYgc2V0X2Z0cmFjZV9waWQgXSAmJiBlY2hvICR7UElEfSA+IHNldF9m
-dHJhY2VfcGlkCmVjaG8gZnVuY3Rpb25fZ3JhcGggPiBjdXJyZW50X3RyYWNlcgplY2hvIDEgPiBv
-cHRpb25zL2Z1bmNncmFwaC1yZXR2YWwKCnNldCArZQplbmFibGVfdHJhY2luZwplY2hvID4gL3By
-b2MvaW50ZXJydXB0cwpkaXNhYmxlX3RyYWNpbmcKc2V0IC1lCgo6ICJUZXN0IHByaW50aW5nIHRo
-ZSBlcnJvciBjb2RlIGluIHNpZ25lZCBkZWNpbWFsIGZvcm1hdCIKZWNobyAwID4gb3B0aW9ucy9m
-dW5jZ3JhcGgtcmV0dmFsLWhleApjb3VudD1gY2F0IHRyYWNlIHwgZ3JlcCAncHJvY19yZWdfd3Jp
-dGUnIHwgZ3JlcCAnPSAtNScgfCB3YyAtbGAKaWYgWyAkY291bnQgLWVxIDAgXTsgdGhlbgogICAg
-IGZhaWwgIlJldHVybiB2YWx1ZSBjYW4gbm90IGJlIHByaW50ZWQgaW4gc2lnbmVkIGRlY2ltYWwg
-Zm9ybWF0IgpmaQoKOiAiVGVzdCBwcmludGluZyB0aGUgZXJyb3IgY29kZSBpbiBoZXhhZGVjaW1h
-bCBmb3JtYXQiCmVjaG8gMSA+IG9wdGlvbnMvZnVuY2dyYXBoLXJldHZhbC1oZXgKY291bnQ9YGNh
-dCB0cmFjZSB8IGdyZXAgJ3Byb2NfcmVnX3dyaXRlJyB8IGdyZXAgJ2ZmZmZmZmZiJyB8IHdjIC1s
-YAppZiBbICRjb3VudCAtZXEgMCBdOyB0aGVuCiAgICAgZmFpbCAiUmV0dXJuIHZhbHVlIGNhbiBu
-b3QgYmUgcHJpbnRlZCBpbiBoZXhhZGVjaW1hbCBmb3JtYXQiCmZpCgpleGl0IDAKCgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This patchset adds PCIe driver for the StarFive JH7110 SoC.
+The patch has been tested on the VisionFive 2 board. The test
+devices include M.2 NVMe SSD and Realtek 8169 Ethernet adapter.
+
+This patchset should be applied after the patchset [1], [2], [3] and[4]:
+[1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+[3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+[4] https://patchwork.kernel.org/project/linux-usb/cover/20230406015216.27034-1-minda.chen@starfivetech.com/
+
+This patchset is base on v6.3-rc4
+
+patch 1 is PCIe dt-binding document.
+patch 2 is PCIe 2.0 driver codes.
+patch 3 is PCIe device tree configuration.
+
+
+Minda Chen (3):
+  dt-binding: pci: add JH7110 PCIe dt-binding documents.
+  pcie: starfive: add StarFive JH7110 PCIe driver.
+  riscv: dts: starfive: add PCIe dts configuration for JH7110
+
+ .../bindings/pci/starfive,jh7110-pcie.yaml    | 163 +++
+ MAINTAINERS                                   |   6 +
+ .../jh7110-starfive-visionfive-2.dtsi         |  58 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  88 ++
+ drivers/pci/controller/Kconfig                |   8 +
+ drivers/pci/controller/Makefile               |   1 +
+ drivers/pci/controller/pcie-starfive.c        | 958 ++++++++++++++++++
+ 7 files changed, 1282 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+ create mode 100644 drivers/pci/controller/pcie-starfive.c
+
+
+base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
+prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
+prerequisite-patch-id: c2366f993a9d85e28c06d8d09f064dd5e8b29a61
+prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
+prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 551fae54377090044c3612fca9740a9b359abdd2
+prerequisite-patch-id: c7fdf904f398d478f0ed6d57eb878982bc73329d
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4637a8fa2334a45fa6b64351f4e9e28d3e2d60d3
+prerequisite-patch-id: 32647ec60a3b614e1c59ec8e54cb511ae832c22f
+prerequisite-patch-id: aa06658ecf89c92d0dfdd6a4ba6d9e6e67532971
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 41eddeabff082d08a76d8da523f90da4b5218d28
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
+prerequisite-patch-id: 1a2c49c1cf81607f062f35898457037d86598cf9
+prerequisite-patch-id: f59269382164b5d642a5e10443ca447f5caa595c
+prerequisite-patch-id: 1babe83d6bf999bad17584dc595480f9070a5369
+prerequisite-patch-id: d95ea69f88a048ef702dceed0f2edee31e6fdfd2
+prerequisite-patch-id: 77be3d122d66df813f13088141ce27b21107a341
+prerequisite-patch-id: 9fbb7ad1dd258bb8ff5946c4a0e59de4bfd82a04
+prerequisite-patch-id: a02411a8fe009acc0888e4a7d60233c9ee5a1e71
+prerequisite-patch-id: 6f6984916dffd0cc66aa733c9b6bd3a55495a50c
+prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
+prerequisite-patch-id: b37ac15032973e1fcd918f157c82a0606775c9e9
+prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
+prerequisite-patch-id: ca653566085079839fb3dc1e722effafbc8109a4
+prerequisite-patch-id: 2fe72c216673efe690db54cbf500ba7f15e6247a
+prerequisite-patch-id: 776afb78743657e4a6bfebd2cd8a44c5c9017ee2
+prerequisite-patch-id: c9b92e6d1531d0a9fb122d9d038cc3d9df380e0f
+prerequisite-patch-id: c0fa5b1d697ab8434954a81a5992cf66d0cfafb8
+prerequisite-patch-id: 1cca26d07ec4bc7ea07b1c6815631c8bf8224366
+prerequisite-patch-id: 331bafaf79b4bb7c09152eb16598cdc9ba8096e9
+prerequisite-patch-id: 9f2286829c70b6940c83834b150df685ab02c591
+prerequisite-patch-id: b25b8295d7b8fdf1b45b634df5c2a7a7f9dfba76
+prerequisite-patch-id: 9d3aab2e4428be5b1235a57dad3bf14eae5275fd
+prerequisite-patch-id: 6090abbef6164dd0cc87d44c486a7eb1b5f64946
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
