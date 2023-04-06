@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E03EC77B6C
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A53C77B71
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 11:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dQbtvuJM3S1epQFhm0UaN67N+BeVZS93hY1QpSzYkmE=; b=W6TCMc+qCn6Znf
-	7hhPCHGt4mMBBGMVmU3RCyJ+XfrNepafiCUJhxAgPB7IdOUEXPBzv9VCWnkcDxo2zzjWW8QSwmaPb
-	2tk93vUJWx3eIvkxVQENN5+cRpBKvTs1R26trniD2KUVddQkR3Wt0hhWiVGGp5KjQygPh2htFeoHq
-	OP3s50npe7bPdN7XRrzpdpeRU5nTLh1OPl0Ob3HyZKDljMw1WyQgfLXc/1jJ+6NmzqSMMbqadoyco
-	7PrJcPDDpGw3gTkpk9O3d2VGjuyH46Ngj4geYnyxq99azmeDdzT1iJF5yx8pREt9DPrCDQCjTHyFe
-	534r5Rum2QAaW9owSfOw==;
+	List-Owner; bh=OHtadRxlQic2+ql6DMk8EIzJGAFFvZ1RmEJkIxLUM0M=; b=r5+Vxk4iWrLLlf
+	4v0ZhIVWnh12q12Wn30ojP9BASUilVyT/7MjuHioHZCUUk3spV8JOGlwAzB9JLbNln7rkHl7Pq8VJ
+	T8Fx6r+aDZLDY4LTz/UnJZtrldosmq9DzqufCCqIkvfF9m1dPG+OQJ4MicPg8AkQfGC/X1BVna+Lp
+	2lBPTYHG4mek/sbWDD/XdkquZAgEd38HvRFCkoxdDjiacqruoYpkC5mdAh7xXetnRIourZ+Z67AR4
+	T+mVnreC478T/cQdcQtyMG9+/g0QF6Iu1+JCELUskMQARK60z6IVVBDMrD7nyzQdCs0j6z7lOqwjc
+	KB0KODVZRyZ3ue+oV83A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNsJ-007AmA-0I;
-	Thu, 06 Apr 2023 11:33:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pkNsf-007Auk-3C;
+	Thu, 06 Apr 2023 11:34:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkNsG-007AlA-0R
+	id 1pkNsc-007AtC-27
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 11:33:53 +0000
+	Thu, 06 Apr 2023 11:34:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B06DF6459D;
-	Thu,  6 Apr 2023 11:33:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC69C43443;
-	Thu,  6 Apr 2023 11:33:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3B36164676;
+	Thu,  6 Apr 2023 11:34:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF23BC433EF;
+	Thu,  6 Apr 2023 11:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680780831;
-	bh=ic5M+WBk/A6QoKKdXZiMgu7UjhhgBghwgfBK5+s0omQ=;
+	s=k20201202; t=1680780853;
+	bh=V5BQsr3kjpmrNU85YSATEXJCjRsQghWvapoHfDmbADI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jvWTpYKfPUoic92z430c0wnnrBJz9mV5mWkZ/nvYAaNHUO/zgjIfGAk5x9eCog0qb
-	 Pp1uCzWbc/wdrk3o8RcTHI5Dp79DB/X92gP1kU4TGkyD6yNtG+s/khQZyxsFH+8ueV
-	 cWOk2+G80cuRoBrvnAEjUpWbNlF31T8qcuUx8/RpaPH+a4yDsm2xv6ppzd0ZVc+s06
-	 NLJfRK9u87VvQjT/ncuW7pBYIEucCDwUxPV1DoElDemGlSztiWm1DxH/p1ujYakxCo
-	 NsUmAs5KQPwN1YBALIgE7cCOS0+AwrdG0LS4nTA+5aGAXmZeRvfxBuRW+mAOmRFzMd
-	 c60nZMPpjI7nA==
+	b=ETljuoIMJO+5J9GWkQBXBLc3BXggE8p1y9peyneQgjAL4lI/iyKhlWyLYMUySo7GB
+	 40Jq1hYnuGRdg9yey+ge6nQssnaof66TC6XeqhV1QuOuww94hgWfCKBbl3UHNV8D0R
+	 k+z9feaviBXSvx91O2ZzCZomc8kpRBtZWIblQjCBymkMUcyzO3/BbL93ZMISB5LsmZ
+	 gAZs68hlx9qYckbof1e+DFrVP6WnB1xf51QiipnFbcozaFpGwNgF9FAQlC/bokeBe+
+	 OglJQ569ouCqFuB/iWqQKQ2C1BOCamhgtI/oLM/kVHPOa4L7bWRnZp6EKGyhi338or
+	 vg3I7c2vQKmrg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -63,18 +63,18 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-riscv@lists.infradead.org,
 	linux-csky@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 5.4 3/9] selftests: sigaltstack: fix -Wuninitialized
-Date: Thu,  6 Apr 2023 07:33:31 -0400
-Message-Id: <20230406113337.648916-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 3/8] selftests: sigaltstack: fix -Wuninitialized
+Date: Thu,  6 Apr 2023 07:33:55 -0400
+Message-Id: <20230406113400.649038-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230406113337.648916-1-sashal@kernel.org>
-References: <20230406113337.648916-1-sashal@kernel.org>
+In-Reply-To: <20230406113400.649038-1-sashal@kernel.org>
+References: <20230406113400.649038-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_043352_246862_8829022A 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20230406_043414_767690_0C4FEEE3 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,7 +154,7 @@ index 0000000000000..ea9bdf3a90b16
 +#error "implement current_stack_pointer equivalent"
 +#endif
 diff --git a/tools/testing/selftests/sigaltstack/sas.c b/tools/testing/selftests/sigaltstack/sas.c
-index ad0f8df2ca0af..6e60545994916 100644
+index 228c2ae47687d..6069d97bf5063 100644
 --- a/tools/testing/selftests/sigaltstack/sas.c
 +++ b/tools/testing/selftests/sigaltstack/sas.c
 @@ -19,6 +19,7 @@
