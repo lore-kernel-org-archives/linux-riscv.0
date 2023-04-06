@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F0BC7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 01:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F34C7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 01:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h/Gw6z6LJAr7c1qjjm2Xct/g4i27AnpdkEDdV5cruZc=; b=jKkwwHfV1+BeHF
-	28lkCGKX4PBvi+Ug01PyYgFBR69jKotMSKlrqHydQ0XiAFPh6F+RTWeNA232qwholr2bgBev7ZEc6
-	zU8ygbyRf/eHF8z/STzOqtvfjE6e+rQ32kksApiAeTthNBU4HYxFtvNnz4CjruTiOcrCQ40Gw/siV
-	6aBWgT++p30hnWGtJKiQHMBrU6ZeSt0RDnUTxFuhRfrLJFVIBVBuCbHJhAETmOQ8ek8gkjQsCXya3
-	y3Z8OBANdRMN+6MDsbhXDNI8tQhxp9reV0+jPwe+AfDabw2izMW0a+opSRZ3jPATKjMroUt6xczbl
-	8lYXaTorkOUnkaSaRNDg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2sf8JAdqCw1dYwN9QgsDFHOMNqOCRgomiUtu/ChKIhw=; b=I75B25uJ0oYZ5j
+	tj0ExwWhHhLxFXoTHF89AnpXR5oloEsLmZuTC/gJLO5RscxFnGJ/O3aoUGRuabXF0kvu18L2yCgLq
+	3hByoT3JcPlx7q5Ca4UIvNQbuxWZouRBjvGQ9RWN6E3QEjesRk+gpRDpclAVQkrxClnKrNPgMDHMy
+	s84RE3tmf2fVhJ3Wp0Se/t9kWnr09X89cTmx4j6HSwpalXIhYwP6qo3oh3H4bnuzIki9Ml3nxkTFF
+	o4Lfyvzd4JuQtxaA3AXhwcoCtSH/blXBVLYqEUItO3WAOgYu0p7CQ1craMUSS3Wx7AfwhCeZ4XECp
+	FdG4Xebm3RMdncW/9Kag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkEoE-00656o-0L;
-	Thu, 06 Apr 2023 01:53:06 +0000
+	id 1pkEoG-00658Y-38;
+	Thu, 06 Apr 2023 01:53:08 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkEo8-0064uv-3C;
-	Thu, 06 Apr 2023 01:53:03 +0000
+	id 1pkEoC-0064us-1V;
+	Thu, 06 Apr 2023 01:53:06 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 709D324E211;
-	Thu,  6 Apr 2023 09:52:23 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id C424424E208;
+	Thu,  6 Apr 2023 09:52:19 +0800 (CST)
 Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
- 2023 09:52:23 +0800
+ 2023 09:52:19 +0800
 Received: from ubuntu.localdomain (183.27.97.179) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 6 Apr
- 2023 09:52:22 +0800
+ 2023 09:52:18 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
 	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
@@ -51,20 +51,18 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	"Minda Chen" <minda.chen@starfivetech.com>, Mason Huo
 	<mason.huo@starfivetech.com>
-Subject: [PATCH v4 4/7] phy: starfive: add JH7110 PCIE 2.0 PHY driver.
-Date: Thu, 6 Apr 2023 09:52:13 +0800
-Message-ID: <20230406015216.27034-5-minda.chen@starfivetech.com>
+Subject: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
+Date: Thu, 6 Apr 2023 09:52:09 +0800
+Message-ID: <20230406015216.27034-1-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230406015216.27034-1-minda.chen@starfivetech.com>
-References: <20230406015216.27034-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.97.179]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230405_185301_328911_26393D05 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20230405_185304_819579_43643809 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,272 +79,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Starfive JH7110 SoC PCIe 2.0 driver support.
-PCIe 2.0 PHY default connect to PCIe controller.
-But pcie0 PHY can connect to USB 3.0 controlller.
+This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+The patch has been tested on the VisionFive 2 board.
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+This patchset should be applied after the patchset [1], [2] and[3]:
+[1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+[3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+
+This patchset is base on v6.3-rc4
+
+patch 1 is usb phy dt-binding document.
+patch 2 is Pcie PHY dt-binding document.
+patch 3 is USB 2.0 PHY driver.
+patch 4 is PCIe PHY driver.
+patch 5 is usb dt-binding document.
+patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+patch 7 is USB device tree configuration.
+
+previous version
 ---
- MAINTAINERS                            |   4 +-
- drivers/phy/starfive/Kconfig           |  11 ++
- drivers/phy/starfive/Makefile          |   1 +
- drivers/phy/starfive/phy-jh7110-pcie.c | 197 +++++++++++++++++++++++++
- 4 files changed, 212 insertions(+), 1 deletion(-)
- create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9da352084403..d98b70d62fd4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19968,11 +19968,13 @@ M:	William Qiu <william.qiu@starfivetech.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
- 
--STARFIVE JH71X0 USB PHY DRIVER
-+STARFIVE JH71X0 PCIE AND USB PHY DRIVER
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Minda Chen <minda.chen@starfivetech.com>
- S:	Supported
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
- F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
-+F:	drivers/phy/starfive/phy-jh7110-pcie.c
- F:	drivers/phy/starfive/phy-jh7110-usb.c
- 
- STATIC BRANCH/CALL
-diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
-index 2c013c390dee..c21c21d284a6 100644
---- a/drivers/phy/starfive/Kconfig
-+++ b/drivers/phy/starfive/Kconfig
-@@ -12,6 +12,17 @@ config PHY_STARFIVE_DPHY_RX
- 	  system. If M is selected, the module will be called
- 	  phy-starfive-dphy-rx.
- 
-+config PHY_STARFIVE_JH7110_PCIE
-+	tristate "Starfive JH7110 PCIE 2.0/USB 3.0 PHY support"
-+	depends on USB_SUPPORT
-+	select GENERIC_PHY
-+	select USB_PHY
-+	help
-+	  Enable this to support the StarFive PCIe 2.0 PHY,
-+	  or used as USB 3.0 PHY.
-+	  If M is selected, the module will be called
-+	  phy-jh7110-pcie.ko.
-+
- config PHY_STARFIVE_JH7110_USB
- 	tristate "Starfive JH7110 USB 2.0 PHY support"
- 	depends on USB_SUPPORT
-diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
-index 176443852f4d..03a55aad53a2 100644
---- a/drivers/phy/starfive/Makefile
-+++ b/drivers/phy/starfive/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_PHY_STARFIVE_DPHY_RX)      += phy-starfive-dphy-rx.o
-+obj-$(CONFIG_PHY_STARFIVE_JH7110_PCIE)	+= phy-jh7110-pcie.o
- obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
-diff --git a/drivers/phy/starfive/phy-jh7110-pcie.c b/drivers/phy/starfive/phy-jh7110-pcie.c
-new file mode 100644
-index 000000000000..725815aabe74
---- /dev/null
-+++ b/drivers/phy/starfive/phy-jh7110-pcie.c
-@@ -0,0 +1,197 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * StarFive JH7110 PCIe 2.0 PHY driver
-+ *
-+ * Copyright (C) 2023 Minda Chen <minda.chen@starfivetech.com>
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define PCIE_KVCO_LEVEL_OFF		(0x28)
-+#define PCIE_USB3_PHY_PLL_CTL_OFF	(0x7c)
-+#define PCIE_KVCO_TUNE_SIGNAL_OFF	(0x80)
-+#define PCIE_USB3_PHY_ENABLE		BIT(4)
-+#define PHY_KVCO_FINE_TUNE_LEVEL	0x91
-+#define PHY_KVCO_FINE_TUNE_SIGNALS	0xc
-+
-+#define USB_PDRSTN_SPLIT		BIT(17)
-+
-+#define PCIE_CKREF_SRC_MASK		GENMASK(19, 18)
-+#define PCIE_CLK_SEL_MASK		GENMASK(21, 20)
-+#define PCIE_PHY_MODE			BIT(20)
-+#define PCIE_PHY_MODE_MASK		GENMASK(21, 20)
-+#define PCIE_USB3_BUS_WIDTH_MASK	GENMASK(3, 2)
-+#define PCIE_USB3_RATE_MASK		GENMASK(6, 5)
-+#define PCIE_USB3_RX_STANDBY_MASK	BIT(7)
-+#define PCIE_USB3_PHY_ENABLE		BIT(4)
-+
-+struct jh7110_pcie_phy {
-+	struct phy *phy;
-+	struct regmap *stg_syscon;
-+	struct regmap *sys_syscon;
-+	void __iomem *regs;
-+	u32 sys_phy_connect;
-+	u32 stg_pcie_mode;
-+	u32 stg_pcie_usb;
-+	enum phy_mode mode;
-+};
-+
-+static int jh7110_usb3_mode_set(struct jh7110_pcie_phy *data)
-+{
-+	if (!data->stg_syscon || !data->sys_syscon) {
-+		dev_info(&data->phy->dev, "don't support usb3 mode\n");
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_mode,
-+		PCIE_PHY_MODE_MASK, PCIE_PHY_MODE);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+		PCIE_USB3_BUS_WIDTH_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+		PCIE_USB3_RATE_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+		PCIE_USB3_RX_STANDBY_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+		PCIE_USB3_PHY_ENABLE, PCIE_USB3_PHY_ENABLE);
-+
-+	/* Connect usb 3.0 phy mode */
-+	regmap_update_bits(data->sys_syscon, data->sys_phy_connect,
-+		USB_PDRSTN_SPLIT, 0);
-+
-+	/* Configuare spread-spectrum mode: down-spread-spectrum */
-+	writel(PCIE_USB3_PHY_ENABLE, data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
-+
-+	return 0;
-+}
-+
-+static void jh7110_pcie_mode_set(struct jh7110_pcie_phy *phy)
-+{
-+	/* PCIe Multi-PHY PLL KVCO Gain fine tune settings: */
-+	writel(PHY_KVCO_FINE_TUNE_LEVEL, phy->regs + PCIE_KVCO_LEVEL_OFF);
-+	writel(PHY_KVCO_FINE_TUNE_SIGNALS, phy->regs + PCIE_KVCO_TUNE_SIGNAL_OFF);
-+}
-+
-+static int jh7110_pcie_phy_set_mode(struct phy *_phy,
-+				  enum phy_mode mode, int submode)
-+{
-+	struct jh7110_pcie_phy *phy = phy_get_drvdata(_phy);
-+	int ret;
-+
-+	if (mode != phy->mode) {
-+		switch (mode) {
-+		case PHY_MODE_USB_HOST:
-+		case PHY_MODE_USB_DEVICE:
-+		case PHY_MODE_USB_OTG:
-+			ret = jh7110_usb3_mode_set(phy);
-+			if (ret)
-+				return ret;
-+			break;
-+		case PHY_MODE_PCIE:
-+			jh7110_pcie_mode_set(phy);
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+
-+		dev_info(&_phy->dev, "Changing phy mode to %d\n", mode);
-+		phy->mode = mode;
-+	}
-+
-+	return 0;
-+}
-+
-+static int jh7110_pcie_phy_init(struct phy *_phy)
-+{
-+	return 0;
-+}
-+
-+static int jh7110_pcie_phy_exit(struct phy *_phy)
-+{
-+	return 0;
-+}
-+
-+static const struct phy_ops jh7110_pcie_phy_ops = {
-+	.init		= jh7110_pcie_phy_init,
-+	.exit		= jh7110_pcie_phy_exit,
-+	.set_mode	= jh7110_pcie_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int jh7110_pcie_phy_probe(struct platform_device *pdev)
-+{
-+	struct jh7110_pcie_phy *phy;
-+	struct device *dev = &pdev->dev;
-+	struct phy_provider *phy_provider;
-+	u32 args[3];
-+
-+	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
-+	if (!phy)
-+		return -ENOMEM;
-+
-+	phy->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(phy->regs))
-+		return PTR_ERR(phy->regs);
-+
-+	phy->phy = devm_phy_create(dev, NULL, &jh7110_pcie_phy_ops);
-+	if (IS_ERR(phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(phy->regs),
-+			"Failed to map phy base\n");
-+
-+	phy->sys_syscon = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+		"starfive,sys-syscon", 1, args);
-+
-+	if (!IS_ERR_OR_NULL(phy->sys_syscon))
-+		phy->sys_phy_connect = args[0];
-+	else
-+		phy->sys_syscon = NULL;
-+
-+	phy->stg_syscon = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+		"starfive,stg-syscon", 2, args);
-+
-+	if (!IS_ERR_OR_NULL(phy->stg_syscon)) {
-+		phy->stg_pcie_mode = args[0];
-+		phy->stg_pcie_usb = args[1];
-+	} else
-+		phy->stg_syscon = NULL;
-+
-+	platform_set_drvdata(pdev, phy);
-+	phy_set_drvdata(phy->phy, phy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static int jh7110_pcie_phy_remove(struct platform_device *pdev)
-+{
-+	platform_set_drvdata(pdev, NULL);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id jh7110_pcie_phy_of_match[] = {
-+	{ .compatible = "starfive,jh7110-pcie-phy" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_pcie_phy_of_match);
-+
-+static struct platform_driver jh7110_pcie_phy_driver = {
-+	.probe	= jh7110_pcie_phy_probe,
-+	.remove	= jh7110_pcie_phy_remove,
-+	.driver = {
-+		.of_match_table	= jh7110_pcie_phy_of_match,
-+		.name  = "jh7110-pcie-phy",
-+	}
-+};
-+module_platform_driver(jh7110_pcie_phy_driver);
-+
-+MODULE_DESCRIPTION("StarFive JH7110 PCIe 2.0 PHY driver");
-+MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
-+MODULE_LICENSE("GPL");
+changes
+v4:
+  1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
+  2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
+  3. (patch 3)
+     - split PCIe PHY driver to patch 4.
+     - replace dr_mode to phy mode in jh7110_usb2_phy.
+  4. (patch 4) 
+     - Makefile and Kconfig sorted by alphabet sequence.
+     - Add PCIe PHY stg and syscon PHY connection configuration
+       for USB 3.0.
+  5. (patch 5)
+     - commit message changed.
+     - merge wrapper dts node and cdns3 node in example.
+     - Add interrupts, reg, phy and dr_mode in property.
+     - Add reset-name in property example.
+  6. (patch 6)
+     - For dts node is merged, Using platform_device_alloc and
+       platform_device_add to generate cadence sub device.
+     - IOMEM and IRQ resource are passed to Cadence sub device.
+     - Add PHY ops process for PHY dts setting can not be passed to
+       Cadence USB driver.
+     - remove the stg and sys USB 3.0 PHY configuration.
+     - Change the suspend clock reset and clock enable sequence.
+     - Get all reset and clock resources before enable them in 
+       cdns_clk_rst_init.
+     - commit message changed.
+  7. (patch 7)
+     - merge wrapper dts node and cdns3 node in usb dts.
+     - move the stg and sys USB 3.0 PHY confiuration to
+       PCIe PHY dts node.
+     - commit message changed.
+     - Add reset-names dts.
+
+v3:
+  1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
+     USB PHY codes are moved to patch 3 and patch 4.
+  2. (patch 5)
+     - USB wrapper module dts document is moved to usb directory.
+     - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+     - Some dts format changes. dts binding check pass.
+  3. (patch 6)
+     - Remove the PHY codes. 
+     - Search 'dr_mode' and phy setting from Cadence subnode.
+  4. (patch 7)
+     - Add USB PHY dts configurion. 
+     - 'dr_mode' is moved to Cadence controller submode.
+
+v2:
+  1. (patch 5) dt-binding changes. The document example is the same as dts config.
+  2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+  3. (patch 7) dts nodes sorted by the address after @
+
+
+Minda Chen (7):
+  dt-bindings: phy: Add StarFive JH7110 USB document
+  dt-bindings: phy: Add StarFive JH7110 PCIe document
+  phy: starfive: add JH7110 USB 2.0 PHY driver.
+  phy: starfive: add JH7110 PCIE 2.0 PHY driver.
+  dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
+  usb: cdns3: add StarFive JH7110 USB driver.
+  riscv: dts: starfive: add USB dts configuration for JH7110
+
+ .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
+ .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
+ .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
+ MAINTAINERS                                   |  16 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
+ drivers/phy/starfive/Kconfig                  |  22 +
+ drivers/phy/starfive/Makefile                 |   2 +
+ drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
+ drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
+ drivers/usb/cdns3/Kconfig                     |  11 +
+ drivers/usb/cdns3/Makefile                    |   1 +
+ drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
+ drivers/usb/cdns3/core.h                      |   3 +
+ 14 files changed, 1086 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+ create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+ create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+ create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+
+
+base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
+prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
+prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
+prerequisite-patch-id: c2366f993a9d85e28c06d8d09f064dd5e8b29a61
+prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
+prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 551fae54377090044c3612fca9740a9b359abdd2
+prerequisite-patch-id: c7fdf904f398d478f0ed6d57eb878982bc73329d
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4637a8fa2334a45fa6b64351f4e9e28d3e2d60d3
+prerequisite-patch-id: 32647ec60a3b614e1c59ec8e54cb511ae832c22f
+prerequisite-patch-id: aa06658ecf89c92d0dfdd6a4ba6d9e6e67532971
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: e7773c977a7b37692e9792b21cc4f17fa58f9215
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 41eddeabff082d08a76d8da523f90da4b5218d28
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
+prerequisite-patch-id: 1a2c49c1cf81607f062f35898457037d86598cf9
+prerequisite-patch-id: f59269382164b5d642a5e10443ca447f5caa595c
+prerequisite-patch-id: 1babe83d6bf999bad17584dc595480f9070a5369
+prerequisite-patch-id: d95ea69f88a048ef702dceed0f2edee31e6fdfd2
+prerequisite-patch-id: 77be3d122d66df813f13088141ce27b21107a341
+prerequisite-patch-id: 9fbb7ad1dd258bb8ff5946c4a0e59de4bfd82a04
+prerequisite-patch-id: a02411a8fe009acc0888e4a7d60233c9ee5a1e71
+prerequisite-patch-id: 6f6984916dffd0cc66aa733c9b6bd3a55495a50c
+prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
+prerequisite-patch-id: b37ac15032973e1fcd918f157c82a0606775c9e9
+prerequisite-patch-id: 999c243dca89d56d452aa52ea3e181358b5c1d80
+prerequisite-patch-id: ca653566085079839fb3dc1e722effafbc8109a4
+prerequisite-patch-id: 2fe72c216673efe690db54cbf500ba7f15e6247a
+prerequisite-patch-id: 776afb78743657e4a6bfebd2cd8a44c5c9017ee2
+prerequisite-patch-id: c9b92e6d1531d0a9fb122d9d038cc3d9df380e0f
 -- 
 2.17.1
 
