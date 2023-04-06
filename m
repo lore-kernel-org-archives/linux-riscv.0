@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AD2C77B6C
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 18:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF740C7618D
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 18:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=54MAp3V2jd8NFgNI0ow5vb3nXMvPyZOoB265x6/HTwA=; b=3vhswDCXvaqT8b
-	w7GI0Oks4KiTlZwc/ZXSBMN6Lm4vkfZazInNNyzUt0skgkmLPK88xXNruVPphhEqerRDr52KbQkQi
-	SGk4XEwh0iuXoedfFbzHxETZB4KqokfeFHvRCM0KuLo0f5Cm8yii2vkSsq52mGfuf5xaObm3usg5V
-	JhwXUhv/UdlUA1O4eCCixeYMDNgilkjZ/1XB9/m7v8/QuIXRll23kR6FM6ncCYnd7WobrPiP8e426
-	KR/M3rnLOFG4U+I5BkqqPfpKzjUNbcWC55ezRkR2p0oWVS4mVT9vCgWMZZ75rtJvgO0QHTYYtYsC8
-	Mlht8yYPd9Bg0gYbKbeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pvlpl5aX8oq/juhgBf0ypiFYTSFIbOzjvIdlorFVg2c=; b=0y0HlUjl0yuXtVFIUP/wxHQ4xo
+	jN3/kE+qg//JTBhNfU2sWzX9UEb6IgEtLXr7Rtujx26QF1yJIB/GsbpE4KItQEv1zTf0Rq9UlGYNj
+	GwWRl1IfiXatCtFhF0F13sOUprZvXpVqscwPitPrjQdKrUzdNEKaB0GAWpm7mH3LclXVZfdF2L9Vq
+	X+jmPQ+U4P6s1e9OomPJC3X2b4Dpr0jJiBr/yuwg42E2V78WbVHwvyvIiGhQpqPBmcCSkwgT/d11J
+	l3bHKOivdfvtw4+fQjEU/ZDTuq8f17dn2Wqjb7vDGVQtcvInDRXavLJtM21MIt8bboMq90+YyXgAf
+	lY3i+Mzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkUN7-008GPv-0s;
-	Thu, 06 Apr 2023 18:30:09 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1pkUS2-008GzU-06;
+	Thu, 06 Apr 2023 18:35:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkUN4-008GO2-1a
+	id 1pkURz-008Gyo-0M
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 18:30:08 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id 18so3564929ejo.13
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 11:30:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1680805802;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=H8xOnV6tCyOvs2gyhgdBhfMQe4yUXu7o2kH7bC3OOGM=;
-        b=b5iOLOQnrmb7I5cMr9PLoh+DDsoWrJ+Ww372OHESD7omSrAJR3M++5RGQVCCpEMnqV
-         +ZPdYWfc0xJRascTYU+atPwFyQEhrdeBEsknBfAgsySMLj6L20we/1yAjDE/6rLxYHjy
-         yxaS6JvdEk90suKMGRKGt3PD4FqAGSu9UfmsZiI28Hx3I4nmZYoAqHNT8DiNjLh4gwDI
-         DTwKATnpSPviipdh3ORflYJW9yZh3A8emn00RrbRuNwrBCAfT7kk2ru1o5Ofzzy526W3
-         PpFKlhgOvB+XXmGcaOTYhvCtapYcaJae29qE4dUeYQc1+s4f5zfr2GdPetEtghIFTSEZ
-         pejg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680805802;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H8xOnV6tCyOvs2gyhgdBhfMQe4yUXu7o2kH7bC3OOGM=;
-        b=frfLhWqmZCs+L0KMuUdktWHeoxn6Q0CrNDQlNP8tHuKAHJ5CW+OtjMRjCmrY4vxSly
-         3oqTkkczvtfNxz8Oi3Ph8NmRX6fRWNZ2fr+p2gdlfanCFo8nqQAFNsxiFHLZoGdYVoxS
-         J5J4KCwUR1rP8CGLE+k+wIydOePYigCbAsxJv2vG+VRoHsee6PBUFR4wNSiB2dd0hQsS
-         Pw+uIoixW6o6v/dmwe7ICbuER3l6vCYxjkY6rRV9ClLaFUoh8X+6qyqoayZN4nwoq99b
-         NSA/C5P6qRT4Bk1uucK7MVbUgZQrbsunr81N2juZRT662DLggAPQaOy04qgpxpak64Mi
-         GAUg==
-X-Gm-Message-State: AAQBX9dui5aSvXP2odXkZXaLsIfjYd1p6AQBVyW5x+xr29z3okpIi7tT
-	uxt3oXovZyuLSRf4ATC/F71hxQ==
-X-Google-Smtp-Source: AKy350bJ8pSDWF8uwl4GVm21uI5EfXApiU2Dd5qO+ZXzcTAbihmplWOrQLDopnmNmkwgaLMJ391tAA==
-X-Received: by 2002:a17:906:3b86:b0:8de:e66a:ece9 with SMTP id u6-20020a1709063b8600b008dee66aece9mr7792594ejf.24.1680805802128;
-        Thu, 06 Apr 2023 11:30:02 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:49e6:bb8c:a05b:c4ed? ([2a02:810d:15c0:828:49e6:bb8c:a05b:c4ed])
-        by smtp.gmail.com with ESMTPSA id fy29-20020a1709069f1d00b0093313f4fc3csm1124541ejc.70.2023.04.06.11.30.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Apr 2023 11:30:01 -0700 (PDT)
-Message-ID: <833b68a5-263d-d293-4910-2ca50b43e60d@linaro.org>
-Date: Thu, 6 Apr 2023 20:30:00 +0200
+	Thu, 06 Apr 2023 18:35:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 453FD60F38;
+	Thu,  6 Apr 2023 18:35:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14497C433D2;
+	Thu,  6 Apr 2023 18:35:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680806109;
+	bh=IVpmg/9zjCkonOv9tBAoQgo1Lp6wBXA3GJcvRZ34LWw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EpHrTPTEWANN+WTgkrZU/vS8IG9oFKJ/VaNRJC1jqFweHi5tY9N0r8+/FxxNuwvPg
+	 x/eDNMHq3jZEq/5WHV/Fwh5AXtGO7dI53Q5oMY3t98DRFehD1ssJsdSvjGBf7bvUJv
+	 RaF/jTEjYybYb2TpRLVMXNWQxTsbi6ph7ArSaeWphRJPLJlw/vbAQeiNNdBHTTgJOc
+	 joF+9MSK+6S0vVSfiFoOhM6ouqOv1+UktHwja2TLkfIEwxGqabDIKDdlC1fEMJNff1
+	 IMBHbXa3ED/0khfcACoO5tXIu6NWO9KiZMkKuFBkPp1r1rIoMncz2QH5rNjIjeXZj7
+	 paFbim0CZlyog==
+Date: Thu, 6 Apr 2023 19:35:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v1 1/3] dt-binding: pci: add JH7110 PCIe dt-binding
+ documents.
+Message-ID: <20230406-revisit-patchy-a0063d964070@spud>
+References: <20230406111142.74410-1-minda.chen@starfivetech.com>
+ <20230406111142.74410-2-minda.chen@starfivetech.com>
+ <38bc48bf-7d8c-8ddd-861f-3b7f3d2edce6@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v7 1/2] dt-bindings: soc: starfive: Add StarFive syscon
- doc
-Content-Language: en-US
-To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-References: <20230406103308.1280860-1-william.qiu@starfivetech.com>
- <20230406103308.1280860-2-william.qiu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230406103308.1280860-2-william.qiu@starfivetech.com>
+In-Reply-To: <38bc48bf-7d8c-8ddd-861f-3b7f3d2edce6@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_113006_529332_2E99461B 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20230406_113511_229839_79343E4F 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,96 +85,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2557044359412236583=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/04/2023 12:33, William Qiu wrote:
-> Add documentation to describe StarFive System Controller Registers.
 
-Subject: drop second/last, redundant "doc". The "dt-bindings" prefix is
-already stating that these are documentation files.
+--===============2557044359412236583==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8c3Cr3rYhW4crgm2"
+Content-Disposition: inline
 
-> 
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  .../soc/starfive/starfive,jh7110-syscon.yaml  | 56 +++++++++++++++++++
->  MAINTAINERS                                   |  5 ++
->  2 files changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> new file mode 100644
-> index 000000000000..0d0319426b67
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> @@ -0,0 +1,56 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 SoC system controller
-> +
-> +maintainers:
-> +  - William Qiu <william.qiu@starfivetech.com>
-> +
-> +description: |
-> +  The StarFive JH7110 SoC system controller provides register information such
-> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - starfive,jh7110-aon-syscon
-> +              - starfive,jh7110-sys-syscon
-> +          - const: syscon
-> +          - const: simple-mfd
-> +      - items:
-> +          - const: starfive,jh7110-stg-syscon
-> +          - const: syscon
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clock-controller:
-> +    type: object
 
-This should be rather specific schema, so $ref.
+--8c3Cr3rYhW4crgm2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +
-> +  power-controller:
-> +    type: object
+On Thu, Apr 06, 2023 at 08:24:55PM +0200, Krzysztof Kozlowski wrote:
+> On 06/04/2023 13:11, Minda Chen wrote:
+> > +
+> > +  interrupt-controller:
+> > +    type: object
+> > +    properties:
+> > +      '#address-cells':
+> > +        const: 0
+> > +
+> > +      '#interrupt-cells':
+> > +        const: 1
+> > +
+> > +      interrupt-controller: true
+> > +
+> > +    required:
+> > +      - '#address-cells'
+> > +      - '#interrupt-cells'
+> > +      - interrupt-controller
+> > +
+> > +    additionalProperties: false
+> > +
+> > +required:
+> > +  - reg
+> > +  - reg-names
+> > +  - "#interrupt-cells"
+>=20
+> Keep consistent quotes - either ' or "
+>=20
+> Are you sure this is correct? You have interrupt controller as child node.
 
-Same problem.
+I know existing stuff in-tree is far from a guarantee that it'll be
+right, but this does at least follow what we've got for PolarFire SoC:
+Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon@10240000 {
-> +        compatible = "starfive,jh7110-stg-syscon", "syscon";
-> +        reg = <0x10240000 0x1000>;
-> +    };
-> +
-> +    syscon@13030000 {
-> +        compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
-> +        reg = <0x13030000 0x1000>;
-> +    };
-Best regards,
-Krzysztof
+Both PLDA and both RISC-V w/ a PLIC as the interrupt controller, so in
+similar waters.
+This note existed in the original text form binding of the Microchip
+PCI controller:
+| +NOTE:
+| +The core provides a single interrupt for both INTx/MSI messages. So,
+| +create an interrupt controller node to support 'interrupt-map' DT
+| +functionality.  The driver will create an IRQ domain for this map, decode
+| +the four INTx interrupts in ISR and route them to this domain.
 
+Given the similarities, I figure the same requirement applies here too.
+Minda?
+
+Cheers,
+Conor.
+
+--8c3Cr3rYhW4crgm2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC8Q1wAKCRB4tDGHoIJi
+0uVVAQDHgZupjjAEUR9lEnrmhcHf4bOLxjmLHOA7N0MNdc+M0gD+PTj3m9Z4X5bX
+gloCfnCtJczlVceBZUYlixYiqd/8pQA=
+=LjRe
+-----END PGP SIGNATURE-----
+
+--8c3Cr3rYhW4crgm2--
+
+
+--===============2557044359412236583==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2557044359412236583==--
+
