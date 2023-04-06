@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907D6C7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 20:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC6EC76196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 20:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ti4mqREXyq+RYm5xPNvZV6sURTEWp4+SDlPBldWAJTY=; b=rDagtDJT2+QMYX
-	AWwDovvjHxCXA/GRGkIL4FubjRHi0mjaC8YW7J4cBZ5LyZrXFIeNML/rgWmcHq6QIXRUmqHL9Hm3h
-	pigi3DTAfptPc4HA5ONPtZrCTJqiyCuMRnMnpq+8uG4JzteCRbmSEd9oft2cf9ViPEX+f9vvm9P96
-	Nc6YanD7ZoQt9j4yZmaKoDZc2SWXJx/QB+8ZiIq9VQiKBu4qkKKH48IFVAY5FMY9S/9wdq6EmBY9K
-	rtgApwa+qEyW4DymtmMdfFukfd6PWG4G3o6IWX9szNDLD9sUz3YKPL20WyagvvSajw5iLhqwq/zvl
-	S+xiSl4F/J4O5zOpP6Pg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DJxhOYpzYIlLo4q+HGFjjZgyiSUDF6dOeu634ub1rJw=; b=0kmTf037rnWpgg
+	FSc/e6RtptsIWuqukC1FekegD8Hv3AMRso+MeEoM4uOo1IXM3mjmtQC7PHcDf0+MFs3sA41sHRihH
+	VCKLRlhN1YmJm0ceUOJgUQfISR5aU0MQrqOxfwYVnYGdG3MPvN/HftT2/IIW6lbjtemWZTes6pll8
+	0g8dkMPzb5DdOG135WBqXq+N9eIf8zk0nRlenZUS2TyGS+TYUVfRSXdqndMSPLRiCuaaTCRNGUQDw
+	ZdLrUQVCIJ8sHNw3JGYMVviYxg7gveD5tVcoq77cppf52aTtieaRF4vNcvQeWVlzBk08tGdqzo1D8
+	8cRjFnCvvMX09OdeJsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWgd-008auE-29;
-	Thu, 06 Apr 2023 20:58:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pkWgi-008avg-17;
+	Thu, 06 Apr 2023 20:58:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWgb-008atp-0F
+	id 1pkWgf-008auT-0F
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 20:58:26 +0000
+	Thu, 06 Apr 2023 20:58:30 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9FD5D60FCC;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5205160FCC;
+	Thu,  6 Apr 2023 20:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC87C433A4;
 	Thu,  6 Apr 2023 20:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9938C433D2;
-	Thu,  6 Apr 2023 20:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680814704;
-	bh=6HOP6IWi70A568L3rv60gr7BjPLNKufwgR4g363zP1s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Caj1g8/uojLuOyayGUhgyz1d1woHd8qEpIX8/Q4Yo7OJ1eQYccAXbUK93fHD+v1wN
-	 JUJeIq/gyULKxun358lE/eBExmJoLmnjpO+7ClH+PH3O32hDpb7JCmcTImc0DeB5py
-	 PHFQgkQ8A4ziM26UbBn8dc5gcRzzXGpLfg2bltB54DoCPNaR/1KKt/D0F+0ihsGxUn
-	 prqjqhJnYL6fOJEr2n20vq/nxR7gqGGyu3QaXbXXtTWiggGke4y+2ZJSqgd7ESilED
-	 kPiVdGaEq46SRubHXWGquQD8NTEmY77tvZWQFFZTsHuENGuUFptbkyHtupLZtwRt+/
-	 8hPGdf/w99RRw==
+	s=k20201202; t=1680814707;
+	bh=IKUc7m06MHBX8fQN+6StDGew/WwB4gSFHqXLMoZdc6s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hE6EUmXBvB/oapBU6JQz1G86QwvtKJsyIQrGqZuTbbye8d/bew9rj99Axy3eaj7iB
+	 SzQrJC5gnG0eGKqFFYGvUw9lBGloxOhGIjRoG+PdGj9ewEMlLWnPQjDHBnjubZzlny
+	 6kNb9/XkK3FwgSLtf6Lm3MRiKlcr5YxTh00BdQqANtc4HSOYKZR6rxlrOOR5P93IdG
+	 viQVGlPFf3lzqodvII69nW/6WoWgOySNkHYpJps7JDUI7Fwh9Dax20lcCN/uF88oxb
+	 gVOyGDqMyjehnSKl8RueqNEuhQq/4t8UUY0Qix0MDdNGzjUAS1D4qEaJaWxKm4UG0H
+	 yvX9dvGxV6kpg==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -62,16 +62,18 @@ Cc: conor@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: [PATCH v1 0/4] Convert SiFive drivers from SOC_FOO dependencies to ARCH_FOO
-Date: Thu,  6 Apr 2023 21:57:46 +0100
-Message-Id: <20230406-undertake-stowing-50f45b90413a@spud>
+Subject: [PATCH v1 1/4] clk: sifive: make SiFive clk drivers depend on ARCH_ symbols
+Date: Thu,  6 Apr 2023 21:57:47 +0100
+Message-Id: <20230406-groovy-trustable-15853ac0a130@spud>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230406-undertake-stowing-50f45b90413a@spud>
+References: <20230406-undertake-stowing-50f45b90413a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1691; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CGy9TNeI5BNViJ7q9RnyTEdvbyhTHwWrkTZBWg67ltk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCn6Rp7KTiwtnbOXabn3fZn7rJld5NGXqx5tDkaGToyX5 688GnKko5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABOZEMHwV+BQ7DO1leeZfU/x cvxjiQ4v3hV0tORVXMN1xY9bLtmfLmX4n392xQSJgq879c9dupRc8eb7Hb2fvx+ELGC+ffCIsqZ jGBcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1021; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=sO1/UT/w7gYjWlZwOHP0tQk4JgO6l6TlBFVZlWRWj+w=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCn6Rl6X+g7uXuuY+r/Cd6Lg4qlBUjfuP9/Cbrv91v1vJ xZsa63x7ihlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBELi9iZFgSuGedsIZ+3E+B rPCSuVOVz8UluTYt+ntqsYrClc4zPEqMDH+nqlRInzv/e3HH0tPrDrFcCZrqMFE70UK6u+5h2vS C2+wA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_135825_212885_6A99F013 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20230406_135829_155204_1C65DC77 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +85,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClJJU0MtVidz
-IFNPQ19GT08gc3ltYm9scyBmb3IgbWljcm8tYXJjaHMgYXJlIGdvaW5nIGF3YXksIGFuZCBiZWlu
-ZwpyZXBsYWNlZCB3aXRoIHRoZSBtb3JlIGNvbW1vbiBBUkNIX0ZPTyBwYXR0ZXJuIHRoYXQgaXMg
-dXNlZCBieSBvdGhlcgphcmNocyAoYW5kIGJ5IHZlbmRvcnMgd2l0aCBhIGhpc3Rvcnkgb3V0c2lk
-ZSBvZiBSSVNDLVYpLgpJIGtpY2tlZCB0aGUgY29udmVyc2lvbiBvZmYgYnkgY29udmVydGluZyB0
-aGUgTWljcm9jaGlwIFJJU0MtViBiaXRzIHRvCnVzZSB0aGVpciByZXBsYWNlbWVudCBzeW1ib2ws
-IHNvIGhlcmUncyByb3VuZCB0d286IHRoZSB2YXJpb3VzIFNpRml2ZQpkcml2ZXJzLgoKVGhlcmUg
-YXJlIG5vIGRlcGVuZGVuY2llcyBoZXJlLCBldmVyeXRoaW5nIGNhbiBnbyB2aWEgc3Vic3lzdGVt
-IHRyZWVzLgpXZSd2ZSBhbHJlYWR5IGFkZGVkIHRoZSByZXBsYWNlbWVudCBzeW1ib2xzIHRvIFJJ
-U0MtVidzIEtjb25maWcgYml0cy4KCkNoZWVycywKQ29ub3IuCgpDQzogTWljaGFlbCBUdXJxdWV0
-dGUgPG10dXJxdWV0dGVAYmF5bGlicmUuY29tPgpDQzogU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJu
-ZWwub3JnPgpDQzogUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KQ0M6IFBhdWwg
-V2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbT4KQ0M6IExvcmVuem8gUGllcmFsaXNp
-IDxscGllcmFsaXNpQGtlcm5lbC5vcmc+CkNDOiBLcnp5c3p0b2YgV2lsY3p5xYRza2kgPGt3QGxp
-bnV4LmNvbT4KQ0M6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+CkNDOiBCam9ybiBIZWxn
-YWFzIDxiaGVsZ2Fhc0Bnb29nbGUuY29tPgpDQzogQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwu
-b3JnPgpDQzogR3JlZyBLcm9haC1IYXJ0bWFuIDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz4K
-Q0M6IEppcmkgU2xhYnkgPGppcmlzbGFieUBrZXJuZWwub3JnPgpDQzogbGludXgtY2xrQHZnZXIu
-a2VybmVsLm9yZwpDQzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpDQzogbGludXgt
-a2VybmVsQHZnZXIua2VybmVsLm9yZwpDQzogbGludXgtcGNpQHZnZXIua2VybmVsLm9yZwpDQzog
-bGludXgtc2VyaWFsQHZnZXIua2VybmVsLm9yZwoKQ29ub3IgRG9vbGV5ICg0KToKICBjbGs6IHNp
-Zml2ZTogbWFrZSBTaUZpdmUgY2xrIGRyaXZlcnMgZGVwZW5kIG9uIEFSQ0hfIHN5bWJvbHMKICBQ
-Q0k6IGR3YzogbWFrZSBTaUZpdmUncyBQQ0kgZHJpdmVyIGRlcGVuZCBvbiBBUkNIXyBzeW1ib2xz
-CiAgc29jOiBzaWZpdmU6IG1ha2UgU2lGaXZlJ3MgY2FjaGUgY29udHJvbGxlciBkcml2ZXIgZGVw
-ZW5kIG9uIEFSQ0hfCiAgICBzeW1ib2xzCiAgc2VyaWFsOiBtYWtlIFNpRml2ZSBzZXJpYWwgZHJp
-dmVycyBkZXBlbmQgb24gQVJDSF8gc3ltYm9scwoKIGRyaXZlcnMvY2xrL3NpZml2ZS9LY29uZmln
-ICAgICAgICAgfCA2ICsrKy0tLQogZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvS2NvbmZpZyB8
-IDIgKy0KIGRyaXZlcnMvc29jL3NpZml2ZS9LY29uZmlnICAgICAgICAgfCAyICstCiBkcml2ZXJz
-L3R0eS9zZXJpYWwvS2NvbmZpZyAgICAgICAgIHwgNCArKy0tCiA0IGZpbGVzIGNoYW5nZWQsIDcg
-aW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKCi0tIAoyLjM5LjIKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Conor Dooley <conor.dooley@microchip.com>
+
+As part of converting RISC-V SOC_FOO symbols to ARCH_FOO to match the
+use of such symbols on other architectures, convert the SiFive clk
+drivers to use the new symbol.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/clk/sifive/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
+index b7fde0aadfcb..2322f634a910 100644
+--- a/drivers/clk/sifive/Kconfig
++++ b/drivers/clk/sifive/Kconfig
+@@ -2,8 +2,8 @@
+ 
+ menuconfig CLK_SIFIVE
+ 	bool "SiFive SoC driver support"
+-	depends on SOC_SIFIVE || COMPILE_TEST
+-	default SOC_SIFIVE
++	depends on ARCH_SIFIVE || COMPILE_TEST
++	default ARCH_SIFIVE
+ 	help
+ 	  SoC drivers for SiFive Linux-capable SoCs.
+ 
+@@ -11,7 +11,7 @@ if CLK_SIFIVE
+ 
+ config CLK_SIFIVE_PRCI
+ 	bool "PRCI driver for SiFive SoCs"
+-	default SOC_SIFIVE
++	default ARCH_SIFIVE
+ 	select RESET_CONTROLLER
+ 	select RESET_SIMPLE
+ 	select CLK_ANALOGBITS_WRPLL_CLN28HPC
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
