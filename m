@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678E0C7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 13:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C61C77B71
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 14:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwRrtE+WwasFMp8TqcUxPkuvdva6OmTt/KCFEGaZiYI=; b=LS8LMfymt9gjEnfb07MqqTSPp4
-	tbik7J01iHor03u1ldPvtLUp1H0sSePoLyKv6P99eGTA/ZadkJvJelKygnjbUAaFb1VmeugOvmqK3
-	i9uXamV4k+S9ZYOb046xpNhn/OZBdSlB9DfMJEUDSp53DGwFM2jGNWvGbO64gLlGZu0Ff2bNfSiXK
-	FM174TA6dwj4RNycDm1BsRnIUSZfRd1yfdgd5L02ZPTxCHQU43MUaus2OJ5QnXYMadiTSYmUEVn0/
-	X/Z0NctSdHyiLo+JNTIWiTiLJCRZ+zunxJfq5OpULKaNwpBNkRluAJk+kTJuk0cN+1Ed2RONwJAPS
-	96a5Q3uw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+i/WGU9zUW8ST17kA0Ih145yVyrpmakS8l8Pjrfq3Gc=; b=DMxz2GA25tjrLo
+	ZsHlbz0w35Lvs0rq/8IBN7HUisZmKpl8lJ44mtcxliOAiGA/V0dmT8j8lIrAJke5pKxoyEPJTtK3r
+	GpLMGRlADsrehgvHw6u1v7Vip76yVT7zaQf+y49vRS1k4XLQ8aoVSArO3mLS9ILKQlUnLxVgC9D9C
+	3LpxVqAnWe0aoaHpygFwz1bK6RfGKnzPw9bZeMGZgIl9QBFu74RKG3W+B334jUjkQK3F34bPUjsvG
+	Gp3oZuFVcMnYPNlFTAnziBSjqJG7+Cf6CCLCpaVXroC0o5c/3EHixo6MMJJRVu55s5h1Qr20Za5K9
+	aYnVPcun7EHb/JgKJK4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkPvK-007Rck-26;
-	Thu, 06 Apr 2023 13:45:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pkQFS-007W35-2S;
+	Thu, 06 Apr 2023 14:05:58 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkPvG-007RaJ-1P
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 13:45:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1680788707; x=1712324707;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=66uzbHnTeg9KP22hFc1pTAbx1P429+J0tDm9ryOLR9k=;
-  b=SO1lC0k8d4sDTZFPqursaCLsfw7cybyjMcwQ83v7TbxlNL3cBtoZS+zl
-   WGjthwMENU4gkLice/eYqYSaMTDccyDvEAQHv2Xf7SU4Pl8d7vQVoqCJY
-   9hyxzw11XllBIEq4JNdoAOz9OOylhKTDKpWVekyrXvNsPJWa9rTtuRNMQ
-   5MyD93xWUGqbTTdHevKt3ptyXFdn+7fdVs9bTxXYkoh8udV50TY8GaSCK
-   rKiGnAKDyCe7u9uuYafLxT1vLODfZOT57u+kiuqPtcJBFq8zNhy8PaLGb
-   u2p1VJi/5Erx83hWn+TsM612vLQ7HVCTzomW9ljrro4cZWJFTZJUnW2uE
-   g==;
-X-IronPort-AV: E=Sophos;i="5.98,323,1673938800"; 
-   d="asc'?scan'208";a="208461384"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Apr 2023 06:45:02 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 6 Apr 2023 06:45:01 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 6 Apr 2023 06:44:59 -0700
-Date: Thu, 6 Apr 2023 14:44:45 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-CC: Conor Dooley <conor@kernel.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?=
-	<u.kleine-koenig@pengutronix.de>, Daire McNamara
-	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
-	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v15 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20230406-ducktail-reflex-4840315459f8@wendy>
-References: <20230330071203.286972-1-conor.dooley@microchip.com>
- <20230330071203.286972-2-conor.dooley@microchip.com>
- <0b91dee7-6c1d-4a33-8235-8fd5d58b200e@spud>
- <ZC7GeXJbB9PAF0lb@orome>
+	id 1pkQFO-007W1Z-31;
+	Thu, 06 Apr 2023 14:05:57 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.56])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Psjrj2NqnzKx1b;
+	Thu,  6 Apr 2023 22:03:17 +0800 (CST)
+Received: from huawei.com (10.67.174.205) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Thu, 6 Apr
+ 2023 22:05:47 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<horms@kernel.org>
+Subject: [PATCH -next v3 1/2] riscv: kdump: Implement crashkernel=X,[high,low]
+Date: Fri, 7 Apr 2023 06:02:05 +0800
+Message-ID: <20230406220206.3067006-2-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20230406220206.3067006-1-chenjiahao16@huawei.com>
+References: <20230406220206.3067006-1-chenjiahao16@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <ZC7GeXJbB9PAF0lb@orome>
+X-Originating-IP: [10.67.174.205]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_064506_526471_CC907754 
-X-CRM114-Status: GOOD (  27.87  )
+X-CRM114-CacheID: sfid-20230406_070555_338984_CA4A4C60 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,104 +66,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5728175229402836288=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5728175229402836288==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="P2ywBvzo9kT8+ANN"
-Content-Disposition: inline
+On riscv, the current crash kernel allocation logic is trying to
+allocate within 32bit addressible memory region by default, if
+failed, try to allocate without 4G restriction.
 
---P2ywBvzo9kT8+ANN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In need of saving DMA zone memory while allocating a relatively large
+crash kernel region, allocating the reserved memory top down in
+high memory, without overlapping the DMA zone, is a mature solution.
+Here introduce the parameter option crashkernel=X,[high,low].
 
-On Thu, Apr 06, 2023 at 03:17:45PM +0200, Thierry Reding wrote:
-> On Sat, Apr 01, 2023 at 09:50:47PM +0100, Conor Dooley wrote:
-> > On Thu, Mar 30, 2023 at 08:12:03AM +0100, Conor Dooley wrote:
-> >=20
-> > > +	/*
-> > > +	 * Because 0xff is not a permitted value some error will seep into =
-the
-> > > +	 * calculation of prescale as prescale grows. Specifically, this er=
-ror
-> > > +	 * occurs where the remainder of the prescale calculation is less t=
-han
-> > > +	 * prescale.
-> > > +	 * For small values of prescale, only a handful of values will need
-> > > +	 * correction, but overall this applies to almost half of the valid
-> > > +	 * values for tmp.
-> > > +	 *
-> > > +	 * To keep the algorithm's decision making consistent, this case is
-> > > +	 * checked for and the simple solution is to, in these cases,
-> > > +	 * decrement prescale and check that the resulting value of period_=
-steps
-> > > +	 * is valid.
-> > > +	 *
-> > > +	 * period_steps can be computed from prescale:
-> > > +	 *                      period * clk_rate
-> > > +	 * period_steps =3D ----------------------------- - 1
-> > > +	 *                NSEC_PER_SEC * (prescale + 1)
-> > > +	 *
-> > > +	 */
-> > > +	if (tmp % (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) < *prescale) {
-> >=20
-> > Hmm, looks like 32-bit doesn't like this modulus.
-> > I pushed things out for LKP to test before sending as I felt I'd not be
-> > allowed to do that operation, but got a build success email from it.
-> > I'm not sure why the mail wasn't sent as a reply to this, but
-> > <202304020410.A86IBNES-lkp@intel.com> complains:
-> > pwm-microchip-core.c:(.text+0x20a): undefined reference to `__aeabi_uld=
-ivmod'
-> >=20
-> > I know that tmp < 65536 at this point, so if the general approach is
-> > fine, I can always cast it to a non 64-bit type without losing any
-> > information.
->=20
-> Since you already use some of the helpers from linux/math64.h, perhaps
-> you can use something like div_u64_rem() here?
+One can reserve the crash kernel from high memory above DMA zone range
+by explicitly passing "crashkernel=X,high"; or reserve a memory range
+below 4G with "crashkernel=X,low".
 
-I had actually initially tried to do that, before I added changed the
-calculation of prescale to use DIV64_U64_ROUND_UP():
-| *prescale =3D DIV64_U64_ROUND_UP(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX + 1) -=
- 1;
+Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+---
+ arch/riscv/kernel/setup.c |  5 +++
+ arch/riscv/mm/init.c      | 74 ++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 74 insertions(+), 5 deletions(-)
 
-I could I suppose add an additional:
-| div_u64_rem(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX + 1, &remainder);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 5d3184cbf518..ea84e5047c23 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -176,6 +176,11 @@ static void __init init_resources(void)
+ 		if (ret < 0)
+ 			goto error;
+ 	}
++	if (crashk_low_res.start != crashk_low_res.end) {
++		ret = add_resource(&iomem_resource, &crashk_low_res);
++		if (ret < 0)
++			goto error;
++	}
+ #endif
+ 
+ #ifdef CONFIG_CRASH_DUMP
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 478d6763a01a..b5b457193423 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1152,6 +1152,28 @@ static inline void setup_vm_final(void)
+ }
+ #endif /* CONFIG_MMU */
+ 
++/* Reserve 128M low memory by default for swiotlb buffer */
++#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
++
++static int __init reserve_crashkernel_low(unsigned long long low_size)
++{
++	unsigned long long low_base;
++
++	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
++	if (!low_base) {
++		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
++		return -ENOMEM;
++	}
++
++	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
++		low_base, low_base + low_size, low_size >> 20);
++
++	crashk_low_res.start = low_base;
++	crashk_low_res.end = low_base + low_size - 1;
++
++	return 0;
++}
++
+ /*
+  * reserve_crashkernel() - reserves memory for crash kernel
+  *
+@@ -1163,8 +1185,12 @@ static void __init reserve_crashkernel(void)
+ {
+ 	unsigned long long crash_base = 0;
+ 	unsigned long long crash_size = 0;
++	unsigned long long crash_low_size = 0;
+ 	unsigned long search_start = memblock_start_of_DRAM();
+ 	unsigned long search_end = memblock_end_of_DRAM();
++	unsigned long search_low_max = (unsigned long)dma32_phys_limit;
++	char *cmdline = boot_command_line;
++	bool fixed_base = false;
+ 
+ 	int ret = 0;
+ 
+@@ -1180,14 +1206,37 @@ static void __init reserve_crashkernel(void)
+ 		return;
+ 	}
+ 
+-	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
++	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+ 				&crash_size, &crash_base);
+-	if (ret || !crash_size)
++	if (ret == -ENOENT) {
++		/*
++		 * crashkernel=X,[high,low] can be specified or not, but
++		 * invalid value is not allowed.
++		 */
++		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
++		if (ret || !crash_size)
++			return;
++
++		/*
++		 * crashkernel=Y,low is valid only when crashkernel=X,high
++		 * is passed and high memory is reserved successful.
++		 */
++		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
++		if (ret == -ENOENT)
++			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
++		else if (ret)
++			return;
++
++		search_start = search_low_max;
++	} else if (ret || !crash_size) {
++		/* Invalid argument value specified */
+ 		return;
++	}
+ 
+ 	crash_size = PAGE_ALIGN(crash_size);
+ 
+ 	if (crash_base) {
++		fixed_base = true;
+ 		search_start = crash_base;
+ 		search_end = crash_base + crash_size;
+ 	}
+@@ -1201,16 +1250,31 @@ static void __init reserve_crashkernel(void)
+ 	 */
+ 	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+ 					       search_start,
+-					       min(search_end, (unsigned long) SZ_4G));
++					       min(search_end, search_low_max));
+ 	if (crash_base == 0) {
+-		/* Try again without restricting region to 32bit addressible memory */
++		if (fixed_base) {
++			pr_warn("crashkernel: allocating failed with given size@offset\n");
++			return;
++		}
++
++		/* Try again above the region of 32bit addressible memory */
+ 		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+-						search_start, search_end);
++						       max(search_start, search_low_max),
++						       search_end);
+ 		if (crash_base == 0) {
+ 			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+ 				crash_size >> 10);
+ 			return;
+ 		}
++
++		if (!crash_low_size)
++			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
++	}
++
++	if ((crash_base > dma32_phys_limit - crash_low_size) &&
++	    crash_low_size && reserve_crashkernel_low(crash_low_size)) {
++		memblock_phys_free(crash_base, crash_size);
++		return;
+ 	}
+ 
+ 	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+-- 
+2.31.1
 
-and then just use the value of remainder in the if statement.
-Not the prettiest thing in the world I suppose, but should be 32-bit
-safe...
-
-Thanks for the suggestion, I'm just surprised that LKP didn't complain
-when it built my tree...
-
---P2ywBvzo9kT8+ANN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZC7MzAAKCRB4tDGHoIJi
-0jooAP4mP43vuXbOMOXs2Y2/DPqSEe5azoc/PfplOVKQMqj2mgD/f19yx3/S/PIL
-eL2ROUgUxGJ7Zm+dMCmMXk23o3v8RwA=
-=MkqJ
------END PGP SIGNATURE-----
-
---P2ywBvzo9kT8+ANN--
-
-
---===============5728175229402836288==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5728175229402836288==--
-
