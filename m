@@ -4,92 +4,262 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480ADC7618D
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 08:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28378C77B72
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 09:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ApkI0yv9y+m+/eOrXAQzUxvP8hMmumS9CWvwBeq2fCo=; b=g7xCc/F3o8tWpD
-	hXrz+rj0iA6VuY5TA2LPZpRiQcvoCdoMStqP2ayP1hEDH0UJVmzVD+SJSR41qTwcnOoVTCMFrLaoK
-	+g1AUyYqWYvmitWpEbTOGAhy3DiR7i9hkYJwGkt2PthKBxpQQQ+VBre20WFmPL2ydkMEebBELiIPh
-	Usx9CXnvJwgdX7ikMCv6k7uzPJfJrZjxbDSH34eZbm1mTv/v4tbwjrYaowK08qIYAS98UVqtOcldZ
-	qK4UQRIDrP3ZOuM9lyjhlehi5kaRJOk1t7WMi20Zh47V9nywfYXllUsWCdvQmUkyJBJ9mR10nfI0C
-	AbVd9PFO9ETS21nvnIsw==;
+	List-Owner; bh=cPT3gqEiXSFeujAd1xP4x8cbDhmqtDn/iJk5Ox6OAfU=; b=JVl3Wrv3XHjEdC
+	bDlaIALzdYVzDMdvBXBGxb5Z6virTu53Bq9dZlo9Mh1yQEFDVBHSkYHvAlduDV7pXBxIms6wEmzN0
+	pmKrvk8e/7iV6tQX8dwO+kxtjsI6nuw/OyhI+9KwdildA2+YqoaSsvnwyn4w79s4L3qqmQTLmwl6q
+	mFPGsi0W8JDS3tVKpWJVfp7Hg3/0+EUbF7RKlkEsKeTrKphq2CRcURTkm0xXOADj+K4AU1fsMjW1R
+	WBIDMqShmUZsHYL4z8R/V5ntstTqdueToC+tVrTsXYmb+C46IOP14hyYdcuZF4rjHvXTtuMiq4VmB
+	Uwx5B6KS0woOOJisjCuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkKrO-006jVS-2r;
-	Thu, 06 Apr 2023 08:20:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1pkLby-006pX3-1m;
+	Thu, 06 Apr 2023 09:08:54 +0000
+Received: from mx0a-00230701.pphosted.com ([148.163.156.19])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkKrM-006jUr-12
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 08:20:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1680769243;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CoyMTJO6DibrNwU14h2hkb03rb0JfdK/yYjXx3MC5eY=;
-	b=ZKZ5FnKdCUez2cjmyfgOuXb0mdP5ir+jq3udc+WWa3nmHq5C6H8rOUMGQJfpsEl7dvrN1m
-	ormoVfcTMmQ/v7UwAxgXvwMsvIRgAuAcmf9argJgcQzLrH7+nh9T3fe26H+2bxNYTh4WCA
-	lN2aC8rXF3JibkEkiaam0OpjVHOLYxA=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-278-f7iK2TKJMHCj79hZD0JsNw-1; Thu, 06 Apr 2023 04:20:37 -0400
-X-MC-Unique: f7iK2TKJMHCj79hZD0JsNw-1
-Received: by mail-qt1-f200.google.com with SMTP id s23-20020a05622a1a9700b003e6578904c3so7745248qtc.17
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 01:20:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680769234;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CoyMTJO6DibrNwU14h2hkb03rb0JfdK/yYjXx3MC5eY=;
-        b=bej1Vl3DyOr2Qo7f6zP55T6RG7OrMhUqidFfSYn6sV/hbRXinnYDf4p+7Ls1CGAH1T
-         JYJ9xKSsNJrKhA8MwLF8vWYUBuMvbpes8Db3AHTbbH2KAu53JWBaphlN3zi7f6/07AOz
-         HqlKvyra2R8Snu+mBklwsQ+P+/DQyB18aEYEi/xelGWMa6UgJQ/nW/4x0fQhIeBKajqI
-         owBznY8OZElLEmj9OR7rvBtvlVLs0BiZSo/lSWmQc0LSOa4lyP4hDcldY6j6/S6ukfMo
-         FOvpW/nm9L2LIPg72CPR4OJzQzsBafQo/xP2zOcd7GPZCoAnnzM7HBaMNzAGkaPQQ7tc
-         MYpQ==
-X-Gm-Message-State: AAQBX9eFlFxB5z5s9f/bEAxHEWxDSdXQHGK9yO+9Z79QWR9AP0XyYvwg
-	qQ6sMMNXdTRPsgt8mAwTV2LB4qe7pyCGA7qhwv7NmSul9Qk1wM/m2/w71I7InNO9g0jEMsTONhm
-	yFoRVbcS3XsGmxGsJAIpUQ+vt7287
-X-Received: by 2002:a05:6214:29e6:b0:5ae:371a:ab36 with SMTP id jv6-20020a05621429e600b005ae371aab36mr2372274qvb.50.1680769233837;
-        Thu, 06 Apr 2023 01:20:33 -0700 (PDT)
-X-Google-Smtp-Source: AKy350ZDLzHDCbbMyfa7uPeUNuYQZYyhIzZMJbvYLJSHvP9wXWHqlB+q31xX1s1L42cW6BzFDDJvWA==
-X-Received: by 2002:a05:6214:29e6:b0:5ae:371a:ab36 with SMTP id jv6-20020a05621429e600b005ae371aab36mr2372254qvb.50.1680769233458;
-        Thu, 06 Apr 2023 01:20:33 -0700 (PDT)
-Received: from LeoBras.redhat.com ([2804:1b3:a802:2599:3b52:5a:179c:6ae7])
-        by smtp.gmail.com with ESMTPSA id 186-20020a3705c3000000b007456c75edbbsm292776qkf.129.2023.04.06.01.20.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Apr 2023 01:20:32 -0700 (PDT)
-From: Leonardo Bras <leobras@redhat.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v1 1/2] riscv/cmpxchg: Deduplicate cmpxchg() asm and macros
-Date: Thu,  6 Apr 2023 05:20:18 -0300
-Message-Id: <20230406082018.70367-2-leobras@redhat.com>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230406082018.70367-1-leobras@redhat.com>
-References: <20230406082018.70367-1-leobras@redhat.com>
+	id 1pkLbu-006pV4-2V;
+	Thu, 06 Apr 2023 09:08:52 +0000
+Received: from pps.filterd (m0098571.ppops.net [127.0.0.1])
+	by mx0a-00230701.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 3368p3YE011109;
+	Thu, 6 Apr 2023 02:08:33 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=from : to : cc :
+ subject : date : message-id : references : in-reply-to : content-type :
+ content-id : content-transfer-encoding : mime-version; s=pfptdkimsnps;
+ bh=Gd2cDNip62Ji14ds4OdoQBlo1z5VlqewCRbyiVCpDNg=;
+ b=eB2MReypWcK1+ctba7WH3lOxUPpqvfrfHamccSASd4XErbB5iGRd+mCZeIW7eqYUwTXv
+ 4gkbHSZk1JwKaHXtKdrxAXuF1o3jtUX63zTMtLC/mf2G3OrVZUREqw1UWpb8RxeixvFt
+ rlg6BTSn2NrDE86yDl9Bx2d1gY8wcbQ2uTe4oOKSstatNtE/3WJLS2MdCibENX4XjZhA
+ xzWcq1a/3NOR1EN9KH4SYydh4Ljo2d1QsyhR0yaznuHLbqd580lb32GcZ7xEx0J2Qm2e
+ vMCNX1Ow/wczPRhT4Ha7v4E151adLpU5Hig4VltsHRzwqzOdak3bl97vzOqiG2aq62BN Vg== 
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
+	by mx0a-00230701.pphosted.com (PPS) with ESMTPS id 3ppkmrs22g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 06 Apr 2023 02:08:33 -0700
+Received: from mailhost.synopsys.com (sv1-mailhost2.synopsys.com [10.205.2.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 17B01C05B1;
+	Thu,  6 Apr 2023 09:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1680772112; bh=Gd2cDNip62Ji14ds4OdoQBlo1z5VlqewCRbyiVCpDNg=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=hHCQe9EE5vPCy+QfIbZeNMC0iUCPD50BX3tmngIRaZ2h6EZgOSjVHBNYMs8eLDwrP
+	 vzfCRrn8noIOky8f1NOykeh1pnqe1iwE9kDJUBeDjopvTh+uvS4EgIcy/Ui/3LTUWl
+	 gZOxWs/ZlTGq6hR3WjjzLemSA9QiicFaAexf7qirZ5EcpVgLFaiNsotrx0dDwoXvGJ
+	 q7Prxa9NJ6sZqayHMY68QypkTIBFC1bK8Y3b0yHEcErVqhBzNKwJxDSOIdKioRhjsH
+	 YltW5v5RzR5esMFJFTFR4psSsoAPxZUtlJ5PdfB3pvMMNxSO01hg983Vikbni6ehyR
+	 LCSdp0USajVzg==
+Received: from o365relay-in.synopsys.com (us03-o365relay7.synopsys.com [10.4.161.143])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Entrust Certification Authority - L1K" (verified OK))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id 94EDDA0073;
+	Thu,  6 Apr 2023 09:07:27 +0000 (UTC)
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (mail-bn8nam12lp2176.outbound.protection.outlook.com [104.47.55.176])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 76E58A10A5;
+	Thu,  6 Apr 2023 09:01:19 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=shahab@synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.b="ldIZkLcx";
+	dkim-atps=neutral
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZJ1eFJHMY/DH4aKXA/08jlkSGg780mSUuRCUjwRkNBzQLysC6+9Yvpf8PhxJl0JhGwXLfBo1Pd2bwk7DdGuaD4Gjrwho7xk3o31N1ZO0vstO3EeMiwzM2c8GPMQayv0/GN0RzCCZCkRlo26kRbfEJTWMnCdzLBADcyBE6F5K3/UJ/OB/zzq/pZhc2YrLWJW0Vvfe3Ytvg0QqbdgQntSRRsNJoZ7OWcgJXCk7V0KyAWBq35dTiYSQs4R0xytF9Ks1Rt0WHfwOei+bpUWnVaf4Wo2e4t63sQa6nsV2oP+AgmcelYDSReSiJs1qNC+P9qFTq7yDfbydhh06LYkspZ87MQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gd2cDNip62Ji14ds4OdoQBlo1z5VlqewCRbyiVCpDNg=;
+ b=k+Va1emzHPh4RvJhUHpbBVvOeWw+Bn56luo8qOhg9FxzFPdmtIVuISBIOlaGWsV8HVogV9TWEwQt0WjXU9bZaaVBq84WajXzIVD8LZ7L28xdjzVq0rkOXs15BDRIJdxDafVKM96V8jHn+Q4m7+RK72bzYELaq6ERjXAbxgTY4fhvyp/nFlOfkk22aZS1UGjs7xFPlD356QtimL0rI7E5ekykmbxWP8V+wXIJ1DDRQjdUN/FmS81EAytoemILEl0EMOGbyHdXG4Um166q1ly3BuTpFNJdLuKro2zau/hHqm+Y5wHU+dmPshsfyRDj/HulaXNXw5X0mWUtFi7QyhEOtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gd2cDNip62Ji14ds4OdoQBlo1z5VlqewCRbyiVCpDNg=;
+ b=ldIZkLcxPRkjGLN/+/2pAhw1+InAMKNlkCA8Y6E5BfxxY2WBYXLjS8860mR5z4I8cJHX//SVIMLPc7zEnamTHxUZyNvwyiXhEvqUGBpk/N+pBWMPJmedl98rnrfol2tHqTK9ELN+mMDdUeNcfK9asfKwEM2OYkxrnYBkeUh9fI8=
+Received: from SN6PR12MB2782.namprd12.prod.outlook.com (2603:10b6:805:73::19)
+ by IA0PR12MB7578.namprd12.prod.outlook.com (2603:10b6:208:43d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6254.35; Thu, 6 Apr
+ 2023 09:01:16 +0000
+Received: from SN6PR12MB2782.namprd12.prod.outlook.com
+ ([fe80::16ef:a4:a1eb:6c6]) by SN6PR12MB2782.namprd12.prod.outlook.com
+ ([fe80::16ef:a4:a1eb:6c6%4]) with mapi id 15.20.6254.035; Thu, 6 Apr 2023
+ 09:01:16 +0000
+X-SNPS-Relay: synopsys.com
+From: Shahab Vahedi <Shahab.Vahedi@synopsys.com>
+To: Vineet Gupta <vgupta@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+        Brian Cain <bcain@quicinc.com>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+        "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
+        "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+        "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
+        "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+        "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+        "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+        "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+        "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
+        "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+        "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
+        Shahab Vahedi <Shahab.Vahedi@synopsys.com>
+Subject: Re: [PATCH 13/21] arc: dma-mapping: skip invalidating before
+ bidirectional DMA
+Thread-Topic: [PATCH 13/21] arc: dma-mapping: skip invalidating before
+ bidirectional DMA
+Thread-Index: AQHZZS+qm3aBT5RvZkOaPbJNwNvoFq8eAmCA
+Date: Thu, 6 Apr 2023 09:01:15 +0000
+Message-ID: <ba0c6b04-cb7d-87ba-a435-919a910282dd@synopsys.com>
+References: <20230327121317.4081816-1-arnd@kernel.org>
+ <20230327121317.4081816-14-arnd@kernel.org>
+ <2b298e8c-e6fc-a973-9f42-b6a88e92838a@kernel.org>
+In-Reply-To: <2b298e8c-e6fc-a973-9f42-b6a88e92838a@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR12MB2782:EE_|IA0PR12MB7578:EE_
+x-ms-office365-filtering-correlation-id: 22efacb0-170a-4f0f-093c-08db367d7a70
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  NnmimPU9GZ6EYXyazcy8nOgwG+Vt2m+dhgjF0hK6aCH3uNjqXMu/ReiRzsweamhLzfUWH9VPlDsFdp45Y9w48YXJzM05XWRdPz+PS1qARAIuVP1qymKSvvjGX8y8l1xE9jWVr+0By4ym804SNpPv8+QyDUSNkRrs+TgtpwdN9sNXFALWpF3NBdF5HT6SUEAGqanoywKUiHcec/13nLjpZyDzNot4niWW5UxaANoPJS6XeX8CFuYZqYAlHS8co/JM1KjteBxFlbBBiE59arZb94dM+NESal+WihK1DCcxNW2DR5qFabboSSVG7EOY6aIRDvrT8TaC+SvcURLWrPd9Jq4Qo+Nt/y2bhQgdGc7ZQoVGqJR9jHkd9z3ANS9doutBUC9mnEIY5RTh8LxSRux/h+s3FlRrz54d/Vkpjc4oqqbLv5ua3xVk69cIJvAX787zX7ArPoLgh9wzZELYPoQ2id9OaBSjoYlagZoyi/BbpwgzSGvV+KHzu9Z11vLZAVKj5SUb+WY1Fu9J4wAqHNYidciinHRk9PoMGQ65RGNSRxrlsON8ULy6k8h3XOsuVIGHIF/sq4eozfe9Lz5TF9eNmIvYy0MA7PRlRT/04/KSdzylqgqtPYaZmhhcwyClfhCdCXeRSdYbIlB0IucJDW4KuA==
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR12MB2782.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(376002)(396003)(136003)(39860400002)(346002)(366004)(451199021)(55236004)(66446008)(53546011)(6512007)(26005)(6486002)(966005)(31686004)(6506007)(122000001)(38100700002)(66556008)(91956017)(41300700001)(2616005)(83380400001)(186003)(107886003)(64756008)(66476007)(71200400001)(54906003)(478600001)(110136005)(316002)(86362001)(7406005)(7416002)(31696002)(2906002)(76116006)(66946007)(8676002)(4326008)(8936002)(38070700005)(36756003)(5660300002)(45980500001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?RUFJRUxRMlE3NkcraFZVbXRvdjd2MWs1U2orZlg2Z1o0dFlrZmtrNlh2aW9L?=
+ =?utf-8?B?dW1TWlZyV3hSNDlIekFlUnRGRDZzK092NmlySUphM2VsTVNhZDZHWjd3OXho?=
+ =?utf-8?B?ZDRsZ2JHV0lQdUVOYW14THpGZnoyYy9adTRyYkZ4cWVoNzZaMmZaVk9Xc3BI?=
+ =?utf-8?B?YjAxRnRrcW5jWjk4NEhBS0M5RmJac3dUT3E0TFczaHRpSFlzM1l5cHpyU2xp?=
+ =?utf-8?B?Y09seEk0VHNOb3pMbkxEbFRTczd6aU40ZWpXWVJmeEN0ZS9FY1I3RkgxLzJr?=
+ =?utf-8?B?UWZNOEpRN0FyNWRBVUc1eTVYa1ptd3VKNTNMS3VtajVXbXpncGgwUXRWN0hu?=
+ =?utf-8?B?S2k5MlNLZGpnTThLUUY4dDZZdHJrelRsOU1TbUN0V2NUMVlpU1VINUhKY1VR?=
+ =?utf-8?B?RFcyVlpYdVBnbUJ5Y1g5YTNYbk1YQThWeTVLem5QUUxmWEIya2c2RmdnK0Rj?=
+ =?utf-8?B?T1ZqQSsvaGwyMmlkYVVTQ2FFbXZFbTRESEszSDB3QS9mY1BjMmpnMkpsTVla?=
+ =?utf-8?B?STd3MzhWbkNJc3V5Y3ZjbU1KeldrZmRIRzRtUnVNdTJEREVHb1Z4NCtQVEs0?=
+ =?utf-8?B?dUdOcDBrM1VOd2dSb0VDWE1pS1pRUmgvSlowSEhycFJZMW5HRml5Y2pJNVNU?=
+ =?utf-8?B?bVJTY1kraFl6Mm9SeGhEaWErYWVidTFLbjJ3L2htbEtUZlJFWkdlQVZNRTRH?=
+ =?utf-8?B?UlR3Qlc0R0paNnYxamNPMWJweFBoWTVKYk9HNDk2VVJUK1FzMzN0Mkpra0lP?=
+ =?utf-8?B?b1RvdzdXUDQrQkxYKzlKcTdrOW13SWFlMXZhSjg2eGt3VjUzUXU4N3czZlBz?=
+ =?utf-8?B?YlZ4Zk9WYTIyZ0JES2Y1K0hzR0tVVTQ2TnMxWmIvakZEbHpoTGpVL2FHYkd5?=
+ =?utf-8?B?N1ovdDZYTklwOTJUeU9Bck81MDJWSUVKdS8xL1pWTnV5aHNMcWQ1dXFja0Zm?=
+ =?utf-8?B?eDE3S085M2RYbEZsSkVuRS9ZMlFMWjA4N3FEeUEvWHhhSzZTd1hqWGt4TWU0?=
+ =?utf-8?B?cXRDOUk5MkRwYkUzU2tjL1dVenR6Z0k4MGpYSDJHMUNsOExEamdGZEZMUklB?=
+ =?utf-8?B?TmRFMEdWNG1CLzczdkd5aUxQaTcza2VodTBlUmFNMnlhWWhBRysvemR4MTJX?=
+ =?utf-8?B?am1Pc2VpMEh1ajE0ei9mYUpubDd4a1k4ZW5sOG9kNlA3KzM4Y25KKzZmTktZ?=
+ =?utf-8?B?RlBsK2JVc2VUNWhSekYyclNzYTVlYzVlV0lSSVR0WU8wcHlsVUd3ZW91ZnpM?=
+ =?utf-8?B?UFVINHNJTFVWMG12YmRjTDdBRTZmM3pEZmlMWnZsTlJaTFhJUFdXZHYrZXpv?=
+ =?utf-8?B?T3hUR0o2R09vNkRDTGUyeDJKSGhReUl5WlhKdHJCOU1ka3p4Z05rVVFxeGZY?=
+ =?utf-8?B?VHhHdEtiQTVCRFR5Z21jQXNDRlh2T1ZRWjcxdXlUK21GbHplTnhUME5DRE53?=
+ =?utf-8?B?ZjExekY5a1BvdU1mTHpzSWhpbitzQk9vSm1Lc1dOdGZlUEpqczB0YTFzQWhx?=
+ =?utf-8?B?c05Dck4wQS9RM0pHRUNNejJvUndhWkt5NnhoeFVOUmFzK3lOK3dQdHB0VnM5?=
+ =?utf-8?B?am9jcWxJSDFUY2ZVMWpSSEJyZ0xGV01jK3o1cXV6UjZNNFAwckdGamhwTG5E?=
+ =?utf-8?B?YndET0svVFgxRnZ2UWJkait0cjQ1dkZNcHdoWmM4NzBDOWlmRVovcTB0Vy9K?=
+ =?utf-8?B?aE0wUFNWOVdYWUFWc01TWE50VmxsRTFWRThnVWM2T0lDcWdPSXBTTEVxbjhP?=
+ =?utf-8?B?Y1JhMkxTRE1rZ1hiM3U1M3hKeG5PYktmTWFURzM4Y3VvUXkrQjZKQTF4U3BI?=
+ =?utf-8?B?MXZtaExFUUJwWTdlYW5OeUxsNXRrVFdaby9Lb290U1VaZ2IvaE03YkJCSXk5?=
+ =?utf-8?B?bHREZFYxRlNpMlU0OTN0Y1VqR08rM3dNaDRSbXZvY0M1Y1Z0cFRKNURmOWZo?=
+ =?utf-8?B?V29YbjJaYUVxaGlFL2FxTDhPVS9SMVc4aFp0RHFrbFZodmJCd2NIM1poNEpZ?=
+ =?utf-8?B?VHhhUUdQQ2VPbEgzZWttaFVObjc5cGtrU2ZvWGhoTkdkREY4eDBvdlAveVVP?=
+ =?utf-8?B?WHRvZDN5SFVMUk9BK0kxMUxOYXRQQ0hwUndEOWhkMG52OWxSV1JScVBoTEk1?=
+ =?utf-8?Q?fWBk=3D?=
+Content-ID: <449DE09BAE01DB419F0D7A0AFD51E943@namprd12.prod.outlook.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	=?utf-8?B?NWJEbmpDR3pwQTRTb3RQYWM1S2Z2YnJ1L3pLeFUzVzRJQmFBUHRyd0JZMmhX?=
+ =?utf-8?B?d1ZlaTkyaGpIMytxVXAxK090N1VVU2dBQ0VOTVlkbUtlb0dYQ3lGUlVZdVFx?=
+ =?utf-8?B?NFdMWDZnazJNcHk0TENIL0dGYk90eWRucU1Yem9wdldlWHZ2L1ZxMW5XNUow?=
+ =?utf-8?B?TUlxNlNHaXJKdnJVMUgwaEpaRlVSV3YwYnRlejJjVVova2RCejNJQXZxNTBo?=
+ =?utf-8?B?aU84VldxRWZaYSsvYUNLL3IxQ2gydHV1QzdWYno5UExQRWY3UUdTcmt4YVlL?=
+ =?utf-8?B?MTV3MW43cWpTVHIxbllRdXFRRTluODBwMEhCUzIvLzdaMzR1cDYvd29icU5w?=
+ =?utf-8?B?RitvOWMrR2FHZGFya2xCanMweEVTdFU4WElpT1hzZVkwVjNBakk0dnN4SnVW?=
+ =?utf-8?B?WU9JTU5FSHhMZ0FTUlZreDZPbUJhNno1VTZBNmtiYmZRWUx6eXcyQ2c5Zy9I?=
+ =?utf-8?B?T0tMSHFjVUZpcU41Q0RyUUtIK1JaYzg0NTJMMHdYUkxpV21VQmxzUklmdUVp?=
+ =?utf-8?B?MndRT2pIaTY2bEkxT0RsYTZiQTRaOVVjZkdhcnk3Q2c0SGRFeG9FeVJ1TUJZ?=
+ =?utf-8?B?Q3FwUUNFM1BWTkdjSWoxaTducEhaNGw1NTdEOHc2NWFGZVVTcms3YU5xVks4?=
+ =?utf-8?B?RGdRZlNUK1ZleEhlWnUwU2tZdFZjNVFic2pPK09wYTRxRGVOWjdZd1VsQ0tk?=
+ =?utf-8?B?KzBrNTAreTlRVUVUWTl5dHhMTGxtQkxTOEdPenowelN0YUxmWkxWRFJDaTRT?=
+ =?utf-8?B?dWpkbW9tTE45ZjM3WStQSDhjQ1FGMzJaYzNKQ2s5d3BDaHhUbi9FTCtNUXBx?=
+ =?utf-8?B?alB6K1lSNGN1eVM3NU9VSUhjYkcrc1lmV2pIWnpUU1VoaVN0M3RHdkJSbjdG?=
+ =?utf-8?B?bzZPbjJxQ3ZZc25WMFFmUjA3WVRQV1k4RjlOUEZDcDBIRGVVYXZsOGxiY3dz?=
+ =?utf-8?B?YmNobXhhRzF6VG90cEZLSmZ4YitMNUtaMkwwaTFKbkdvTEVFK1gvY1FqRCt6?=
+ =?utf-8?B?NVVDMlYrTkFHVFB4T0w2UmdhUHJqZU11OXhEWW9zT3M1K0J0Mi9BMTB3ZTR4?=
+ =?utf-8?B?dWtCYy9FcUtkcDloQkRMR0FmT0VvZG1HYnhFdTZRenl4M1RiZlJvbXFFZ0ZX?=
+ =?utf-8?B?WHJrYnlSaHZsVGYyQ2x5WmYyWU01b1RuVHNKUkdJSndGcVlVNjkwQUdsQTNM?=
+ =?utf-8?B?ZTR2MDdITm5TSGs4MkpmdDVodWFPZmVsdmJZQzdmWGxvYStjM1dtdThTNTE5?=
+ =?utf-8?B?b3BGK3k4Wjk2M1F1M1RvS0ppS2k5bm4vZC9XVTJIU0lyZlJVZjZ2VE03eHlE?=
+ =?utf-8?B?bEd5cGFPUG9reEZKN3F6UVdaeWQvSmxUQzd1NkxtSHdJNXJxaVFMM3Bzelhp?=
+ =?utf-8?B?Sk1IaEM1LytkczRhK0lNUktNblFvUXF4TjJaOW5qb2VMZndFdTFVN2FodGxy?=
+ =?utf-8?B?M002L01YcGFBc3FDVTA1ZFI0WENZNHdNL1RxaFFGaUc0cVczT0hzRVFMbmJK?=
+ =?utf-8?B?UmRqb2xHWmdYUnFBMzdqYW5JbmttNEFTUmZDWjN6QVJnTVU1OVBwd3pqdUla?=
+ =?utf-8?B?dHBKNGVFUnBLUnFHazBPZU5ObEd0ZFpLS3F2N0EvTE91QUdzRXlwaXpybFJZ?=
+ =?utf-8?B?SlQxUk9qK0RacUZqQXpVSkZwMCt0TVEvK1lMdGNSbWZZRTJ6blJkMDZtUVlE?=
+ =?utf-8?B?THBDZXRIR0RKWWVSdFRLMG5aMHZwMnFESXk0d2RiSHdMZFROclFCT1dEcjd4?=
+ =?utf-8?B?eFBjeERNdVEwVG1rVk1TazRPdjlBbEJyK1V5NEVRQnlQZUJ2MUN1cUFLbUNC?=
+ =?utf-8?B?NExzT1pkYnhNei8vYzl2dDhPRHlJQituY2E5NUhPMEhScVJUUXE2enhkMjdV?=
+ =?utf-8?B?eWZHZlluS2FCRnVvd2M2MU5xT25KeEZnbldKZXROK3c1dHVzUVcxK202VVNL?=
+ =?utf-8?B?cFBFK0J0cHhCSDU0WjVGSjd1T2J2dmk4aUIvMW0zaDdVYm9XaGRJTGdPd3Ew?=
+ =?utf-8?B?ZWR6eVc5MHNsMzVwTkg5dVMwM1dVWDdPV3VzSHVocDNOSDkydFY1V0UxWWlk?=
+ =?utf-8?B?ZXJyYTRQZElSSm9Kd3NoMUp4djZkVUl5dmo3Q29MaCtVUk1JekFLUkEzby9m?=
+ =?utf-8?B?Z05wRGtUMGpXYTB5U2tHZkpXaUdEeFFvLzNueXBiNUdLTFZkdU81Y0hudDlu?=
+ =?utf-8?B?RE9zR0xNMzlkT2dqME1mTENWcm5DYk82Z1lRTmlUYWYrUkFNY2FGc1JiUkI4?=
+ =?utf-8?B?NGxUOGFhQmd5QU0yV0Q5SUkvSWk5anAzNWtQYU5pSS9Ud0VQV3A1NWZmYVps?=
+ =?utf-8?Q?eiAcpfecQDkpH8VFwz?=
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR12MB2782.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22efacb0-170a-4f0f-093c-08db367d7a70
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Apr 2023 09:01:15.5598
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qHTvlNEEQL68pnEq0PaEV19eWv1GbacwWhZLqWw6OJiotK+v/9rDYy7w+gfmgaDZwx2+YikJH1KY4EVsExIU5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7578
+X-Proofpoint-ORIG-GUID: 2W3pxX1hc2aTZnk8HHvUlrZnKw0I8D-N
+X-Proofpoint-GUID: 2W3pxX1hc2aTZnk8HHvUlrZnKw0I8D-N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-04-06_04,2023-04-05_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam policy=outbound_active_cloned score=0
+ malwarescore=0 clxscore=1015 bulkscore=0 priorityscore=1501 adultscore=0
+ spamscore=0 lowpriorityscore=0 mlxlogscore=890 impostorscore=0
+ phishscore=0 suspectscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2303200000 definitions=main-2304060079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_012044_437042_96FFBB3B 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20230406_020851_082785_22FF9821 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,256 +276,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In this header every cmpxchg define (_relaxed, _acquire, _release,
-vanilla) contain it's own asm file, both for 4-byte variables an 8-byte
-variables, on a total of 8 versions of mostly the same asm.
+On 4/2/23 08:52, Vineet Gupta wrote:
+> CC Shahab
+> 
+> On 3/27/23 17:43, Arnd Bergmann wrote:
+>> From: Arnd Bergmann<arnd@arndb.de>
+>>
+>> Some architectures that need to invalidate buffers after bidirectional
+>> DMA because of speculative prefetching only do a simpler writeback
+>> before that DMA, while architectures that don't need to do the second
+>> invalidate tend to have a combined writeback+invalidate before the
+>> DMA.
+>>
+>> arc is one of the architectures that does both, which seems unnecessary.
+>>
+>> Change it to behave like arm/arm64/xtensa instead, and use just a
+>> writeback before the DMA when we do the invalidate afterwards.
+>>
+>> Signed-off-by: Arnd Bergmann<arnd@arndb.de>
+> 
+> Reviewed-by: Vineet Gupta <vgupta@kernel.org>
+> 
+> Shahab can you give this a spin on hsdk - run glibc testsuite over ssh
+> and make sure nothing strange happens.
+> 
+> Thx,
+> -Vineet
 
-This is usually bad, as it means any change may be done in up to 8
-different places.
+Tested-by: Shahab Vahedi <shahab@synopsys.com>
 
-Unify those versions by creating a new define with enough parameters to
-generate any version of the previous 8.
+No regression was observed for the ARC target before and after applying
+these 21 patches. The test environment and its summary follow.
 
-Then unify the result under a more general define, and simplify
-arch_cmpxchg* generation
+board:  ARC HSDK
+base:   repo:   linux-next
+        tag:    next-20230403
+        commit: 31bd35b66249 Add linux-next specific files for 20230403
+hotfix: net: stmmac: check fwnode for phy device before scanning for phy [1]
+glibc:  2.37
 
-(This did not cause any change in generated asm)
+Summary of test results:
+     20 FAIL
+   4227 PASS
+     38 UNSUPPORTED
+     16 XFAIL
+      2 XPASS
 
-Signed-off-by: Leonardo Bras <leobras@redhat.com>
----
- arch/riscv/include/asm/cmpxchg.h | 184 ++++++-------------------------
- 1 file changed, 36 insertions(+), 148 deletions(-)
+[1]
+https://lore.kernel.org/lkml/20230405093945.3549491-1-michael.wei.hong.sit@intel.com/#r
 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 12debce235e52..f88fae357071c 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -163,51 +163,23 @@
-  * store NEW in MEM.  Return the initial value in MEM.  Success is
-  * indicated by comparing RETURN with OLD.
-  */
--#define __cmpxchg_relaxed(ptr, old, new, size)				\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
- 
--#define arch_cmpxchg_relaxed(ptr, o, n)					\
-+#define ____cmpxchg(lr_sfx, sc_sfx, prepend, append, r, rc, p, co, o, n)\
- ({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg_relaxed((ptr),			\
--					_o_, _n_, sizeof(*(ptr)));	\
-+	__asm__ __volatile__ (						\
-+		prepend							\
-+		"0:	lr" lr_sfx " %0, %2\n"				\
-+		"	bne  %0, %z3, 1f\n"				\
-+		"	sc" sc_sfx " %1, %z4, %2\n"			\
-+		"	bnez %1, 0b\n"					\
-+		append							\
-+		"1:\n"							\
-+		: "=&r" (r), "=&r" (rc), "+A" (*(p))			\
-+		: "rJ" (co o), "rJ" (n)					\
-+		: "memory");						\
- })
- 
--#define __cmpxchg_acquire(ptr, old, new, size)				\
-+#define ___cmpxchg(ptr, old, new, size, sc_sfx, prepend, append)	\
- ({									\
- 	__typeof__(ptr) __ptr = (ptr);					\
- 	__typeof__(*(ptr)) __old = (old);				\
-@@ -216,28 +188,12 @@
- 	register unsigned int __rc;					\
- 	switch (size) {							\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
-+		____cmpxchg(".w", ".w" sc_sfx, prepend, append,		\
-+			    __ret, __rc, __ptr, (long), __old, __new);	\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
-+		____cmpxchg(".d", ".d" sc_sfx, prepend, append,		\
-+			    __ret, __rc, __ptr, /**/, __old, __new);	\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-@@ -245,105 +201,37 @@
- 	__ret;								\
- })
- 
--#define arch_cmpxchg_acquire(ptr, o, n)					\
-+#define __cmpxchg_relaxed(ptr, old, new, size)				\
-+	___cmpxchg(ptr, old, new, size, "", "", "")
-+
-+#define _arch_cmpxchg(order, ptr, o, n)					\
- ({									\
- 	__typeof__(*(ptr)) _o_ = (o);					\
- 	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg_acquire((ptr),			\
--					_o_, _n_, sizeof(*(ptr)));	\
-+	(__typeof__(*(ptr))) __cmpxchg ## order((ptr), _o_, _n_,	\
-+						sizeof(*(ptr)));	\
- })
- 
-+#define arch_cmpxchg_relaxed(ptr, o, n)					\
-+	_arch_cmpxchg(_relaxed, ptr, o, n)
-+
-+#define __cmpxchg_acquire(ptr, old, new, size)				\
-+	___cmpxchg(ptr, old, new, size, "", "", RISCV_ACQUIRE_BARRIER)
-+
-+#define arch_cmpxchg_acquire(ptr, o, n)					\
-+	_arch_cmpxchg(_acquire, ptr, o, n)
-+
- #define __cmpxchg_release(ptr, old, new, size)				\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
-+	___cmpxchg(ptr, old, new, size, "", RISCV_RELEASE_BARRIER, "")
- 
- #define arch_cmpxchg_release(ptr, o, n)					\
--({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg_release((ptr),			\
--					_o_, _n_, sizeof(*(ptr)));	\
--})
-+	_arch_cmpxchg(_release, ptr, o, n)
- 
- #define __cmpxchg(ptr, old, new, size)					\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
-+	___cmpxchg(ptr, old, new, size, ".rl", "", "	fence rw, rw\n")
- 
- #define arch_cmpxchg(ptr, o, n)						\
--({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg((ptr),				\
--				       _o_, _n_, sizeof(*(ptr)));	\
--})
-+	_arch_cmpxchg(, ptr, o, n)
- 
- #define arch_cmpxchg_local(ptr, o, n)					\
- 	(__cmpxchg_relaxed((ptr), (o), (n), sizeof(*(ptr))))
 -- 
-2.40.0
-
+Shahab
 
 _______________________________________________
 linux-riscv mailing list
