@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86338C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 11:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1539C76196
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 11:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5b39tUupcPhZjkjLozCMdn1Lk2jwoVr37LWWOLBPZTk=; b=Nl4MpxIMqjUxps
-	wNiv4y8qMa2ajkYFn8/3usNkwAoWzq980FMaDl4MZirOqmrYF70KYbG1Cpux8u8itmFtWjAybJHUI
-	b0cPS5fn+YdIajaXkTLnbhIgnhHN8TkCduHQKee3APGhl4bF3/F3FYDO0plbpQSaP4XgLZTExBT4f
-	Ur36A4Ea0ga98Mo9rNoxCa4Vm3J0RZLZ2bc2eRYqRI0d6KJdnkzOE09f+erh/hvhFVG9vCNbKrTrj
-	F6FxQZn6HcHCzE/EnBDnRkiIOpz6YTkPNVgm18QLPSpOMtSyG5evEQqjEV3Pb3YPyPWeyixiYtMGA
-	t5dUX/zVnaX33gZZ4Z3Q==;
+	List-Owner; bh=fNWwb1/pljlal/OOBs29AYVXyByTgRj8Hf23RQKcaCU=; b=ToEPgMgPqW4997
+	TUEUX3eHMCXRp/1LUO8bqfb09a9UlbFy1R3KI7y80Q7ZGBJcuhZXvblxzowMQhYvZFmbhX+OdsGor
+	tsRmWc8ZAE95Eb8H66QZEKTC/CIm5TuCW8NVswGkelWOU+I5dTQCaUBCo26Rf9pHeA1yRQ52fRX0W
+	YApe/PyuV6j9gXCvzE4AB65QZ3ltSRNWwR4/kDmaO4pSgHCfuVb6qZNEpmkhvs9qaquy7ZYboVM8f
+	XRCFutKZcIpP7vE9gCj8/POWHSD1s089q4dXvNbw7PwnXhS0G8Jcg+l3SvcB+loQAeNCjQEIC2vIJ
+	0narMDtLy7rqZAmaWxLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkjtf-00A2DN-21;
-	Fri, 07 Apr 2023 11:04:47 +0000
+	id 1pkk6H-00A4oo-3C;
+	Fri, 07 Apr 2023 11:17:50 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkjtM-00A1jO-0E
+	id 1pkk6E-00A4nW-1I
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Apr 2023 11:04:42 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Fri, 07 Apr 2023 11:17:48 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 390DB24E3C1;
-	Fri,  7 Apr 2023 19:04:03 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
- 2023 19:04:03 +0800
-Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
- EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 7 Apr 2023 19:04:02 +0800
-From: Samin Guo <samin.guo@starfivetech.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran
-	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
-	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
-	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [-net-next v11 4/6] dt-bindings: net: Add support StarFive dwmac
-Date: Fri, 7 Apr 2023 19:03:54 +0800
-Message-ID: <20230407110356.8449-5-samin.guo@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230407110356.8449-1-samin.guo@starfivetech.com>
-References: <20230407110356.8449-1-samin.guo@starfivetech.com>
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id F085124E36E;
+	Fri,  7 Apr 2023 19:17:22 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
+ 2023 19:17:22 +0800
+Received: from [192.168.120.57] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
+ 2023 19:17:22 +0800
+Message-ID: <f56fc309-0397-96ad-7df4-8bc3d9a914cb@starfivetech.com>
+Date: Fri, 7 Apr 2023 19:17:16 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v7 1/2] dt-bindings: soc: starfive: Add StarFive syscon
+ doc
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
+References: <20230406103308.1280860-1-william.qiu@starfivetech.com>
+ <20230406103308.1280860-2-william.qiu@starfivetech.com>
+ <833b68a5-263d-d293-4910-2ca50b43e60d@linaro.org>
+ <2ce35d68-ae6c-129f-588e-9b292de3a654@starfivetech.com>
+ <20230407-stand-reversion-1db211c03ff4@wendy>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <20230407-stand-reversion-1db211c03ff4@wendy>
 X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
- (172.16.6.72)
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230407_040428_430350_1FBA0E62 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20230407_041746_622687_25A7258B 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,202 +82,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yanhong Wang <yanhong.wang@starfivetech.com>
 
-Add documentation to describe StarFive dwmac driver(GMAC).
 
-Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
- .../bindings/net/starfive,jh7110-dwmac.yaml   | 144 ++++++++++++++++++
- MAINTAINERS                                   |   6 +
- 3 files changed, 151 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+On 2023/4/7 18:11, Conor Dooley wrote:
+> On Fri, Apr 07, 2023 at 05:30:31PM +0800, William Qiu wrote:
+>> 
+>> This would be $ref: /schemas/clock/starfive,jh7110-pll.yaml#, but this file is not
+>> available at present,  so I would like to ask if I should submit the documents
+>> instead of Xingyu
+> 
+> Or just send the whole lot as one series, and I'll ack the soc bits for
+> Stephen to take the whole lot via clk? I think Xingyu owes a respin
+> anyway cos of the changes to this binding file that Krzysztof requested
+> there.
+> 
+> Plus, the base clock support is now in clk-next, so their stuff is now
+> applicable to the clk tree.
+> 
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index e4519cf722ab..245f7d713261 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -91,6 +91,7 @@ properties:
-         - snps,dwmac-5.20
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-+        - starfive,jh7110-dwmac
- 
-   reg:
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-new file mode 100644
-index 000000000000..5e7cfbbebce6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -0,0 +1,144 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2022 StarFive Technology Co., Ltd.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/starfive,jh7110-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 DWMAC glue layer
-+
-+maintainers:
-+  - Emil Renner Berthing <kernel@esmil.dk>
-+  - Samin Guo <samin.guo@starfivetech.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - starfive,jh7110-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - starfive,jh7110-dwmac
-+      - const: snps,dwmac-5.20
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: GMAC AHB clock
-+      - description: PTP clock
-+      - description: TX clock
-+      - description: GTX clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: pclk
-+      - const: ptp_ref
-+      - const: tx
-+      - const: gtx
-+
-+  interrupts:
-+    minItems: 3
-+    maxItems: 3
-+
-+  interrupt-names:
-+    minItems: 3
-+    maxItems: 3
-+
-+  resets:
-+    items:
-+      - description: MAC Reset signal.
-+      - description: AHB Reset signal.
-+
-+  reset-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ahb
-+
-+  starfive,tx-use-rgmii-clk:
-+    description:
-+      Tx clock is provided by external rgmii clock.
-+    type: boolean
-+
-+  starfive,syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to syscon that configures phy mode
-+          - description: Offset of phy mode selection
-+          - description: Shift of phy mode selection
-+    description:
-+      A phandle to syscon with two arguments that configure phy mode.
-+      The argument one is the offset of phy mode selection, the
-+      argument two is the shift of phy mode selection.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    ethernet@16030000 {
-+        compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
-+        reg = <0x16030000 0x10000>;
-+        clocks = <&clk 3>, <&clk 2>, <&clk 109>,
-+                 <&clk 6>, <&clk 111>;
-+        clock-names = "stmmaceth", "pclk", "ptp_ref",
-+                      "tx", "gtx";
-+        resets = <&rst 1>, <&rst 2>;
-+        reset-names = "stmmaceth", "ahb";
-+        interrupts = <7>, <6>, <5>;
-+        interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
-+        phy-mode = "rgmii-id";
-+        snps,multicast-filter-bins = <64>;
-+        snps,perfect-filter-entries = <8>;
-+        rx-fifo-depth = <2048>;
-+        tx-fifo-depth = <2048>;
-+        snps,fixed-burst;
-+        snps,no-pbl-x8;
-+        snps,tso;
-+        snps,force_thresh_dma_mode;
-+        snps,axi-config = <&stmmac_axi_setup>;
-+        snps,en-tx-lpi-clockgating;
-+        snps,txpbl = <16>;
-+        snps,rxpbl = <16>;
-+        starfive,syscon = <&aon_syscon 0xc 0x12>;
-+        phy-handle = <&phy0>;
-+
-+        mdio {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            compatible = "snps,dwmac-mdio";
-+
-+            phy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+        };
-+
-+        stmmac_axi_setup: stmmac-axi-config {
-+            snps,lpi_en;
-+            snps,wr_osr_lmt = <4>;
-+            snps,rd_osr_lmt = <4>;
-+            snps,blen = <256 128 64 32 0 0 0>;
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1dc8bd26b6cf..6b6b67468b8f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19905,6 +19905,12 @@ M:	Emil Renner Berthing <kernel@esmil.dk>
- S:	Maintained
- F:	arch/riscv/boot/dts/starfive/
- 
-+STARFIVE DWMAC GLUE LAYER
-+M:	Emil Renner Berthing <kernel@esmil.dk>
-+M:	Samin Guo <samin.guo@starfivetech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+
- STARFIVE JH7100 CLOCK DRIVERS
- M:	Emil Renner Berthing <kernel@esmil.dk>
- S:	Maintained
--- 
-2.17.1
+So it is the best choice to give the whole series to Xingyu?
 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 4c0b39c44957..0b2170e1e4ff 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -19911,6 +19911,11 @@ S:	Supported
+>>  F:	Documentation/devicetree/bindings/mmc/starfive*
+>>  F:	drivers/mmc/host/dw_mmc-starfive.c
+>>  
+>> +STARFIVE JH7110 SYSCON
+>> +M:	William Qiu <william.qiu@starfivetech.com>
+>> +S:	Supported
+>> +F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> 
+> Can you squash this in please (whitespace damaged):
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 90abe83c02f3..6fbb486f59ab 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19943,6 +19943,7 @@ STARFIVE SOC DRIVERS
+>  M:     Conor Dooley <conor@kernel.org>
+>  S:     Maintained
+>  T:     git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+> +F:     Documentation/devicetree/bindings/soc/starfive/
+>  F:     drivers/soc/starfive/
+> 
+
+I would tell Xingyu to do so.
+
+Best regards,
+William
+> Cheers,
+> Conor.
 
 _______________________________________________
 linux-riscv mailing list
