@@ -4,76 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B2CC76196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Apr 2023 20:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34745C761A6
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 00:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TviLHQobkITiy9nczQcOz4Mph/1mCEfKd6WYLGPI/sY=; b=K5kYmxpBR404Qq
-	6w1GpCCp8k25Ker3efz1oGvlpkebB11f1UjY1CyF5wCv3RUJlfxU52TsosifdxGNnpkH1GG7oi77q
-	sFzi77dvKlR6XaIvXYBzk48vo0hvvw7B2tfW1vii6IbGE4AurZCcI49cyYS9EACR/GR/o1ZgB0Qr5
-	ulaUY23bseWrHrRuDAn2i2yBJ2OrI922lxxgdPyhy8T0022Mt1boO1KxeijNvkvxudK5rs925KoC4
-	TExnTG+p9Y4pRJtNv88V1BWX+MCwEIXBQ5BLpLw/+XS+MDTWerVvbuHjXqd8h+QKpxr+KfpAtc5Us
-	EQE1waIcnqX4vNDr0OWQ==;
+	List-Owner; bh=d9mmAmhGzYKglAt0rEWXIhFa2bMA9buFg0bNMWERpgo=; b=zuBKSfCzFh7I/m
+	q/kEhmB3Az6wSoJid7OYxRK899j+RusJxEz8JjArbIZuB/7BzFIfjGA0R9EyQoWOaXuIf2wjzhzFK
+	qaqjNZRx7SfSho6LLfxrZ+Jf8XOIui4xHtL+GFW1YmJknYK8Q1mmEaqaG7YwmSJBbKEoktcRVi5w3
+	LtTJcVGpUFzoA/wdDqTomu4+9bEW8P485gKYtVB4i9ovsgZr9gmKv53RCj/x4sOkF75vo7HzFaYji
+	etSXUpcZ31AEn1NscVgabQCEFTn4nG8OF92AMONDSfjLH7XZudILXfUrRLLcKWd/zL/yzY/o3yyaV
+	OV/RPk+S1JDbZX3YXCRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWgr-008ayv-37;
-	Thu, 06 Apr 2023 20:58:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pkZa2-008rYU-1k;
+	Fri, 07 Apr 2023 00:03:50 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkWgp-008axx-2P
+	id 1pkZZx-008rXa-2H
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Apr 2023 20:58:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5083764BD9;
-	Thu,  6 Apr 2023 20:58:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FAEBC4339C;
-	Thu,  6 Apr 2023 20:58:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680814718;
-	bh=hPhh8oTx1kYLc913G4HIdxuV/0cdfFWp2HgdjSh+vKE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uExbzvaTeBK8FlkbTfXpl+myDNnYUfc3M+u9y5qwGUKWlFphYo/+osPoZLU/y+oMl
-	 muWRLkrK2GuHVwNFIul5kMhjhgkkEoHmutbFJb1n5Ga/MgeVhFG4IpbrQcfXL4li7l
-	 kRpeUyrWe2U1g9ehZ3RDwmSzdMy70t1MZCMXsuSufSJjtAY6VQdfSupVK06PkLLn+u
-	 POzOU6xTsqPl1C0fARDoPfY8MproJ8TT6C4+mT0hH+2Nppwjm3RLqtJUaKGMXIQpoD
-	 3LRmwrvFcLyJ5p9wdRwpfY34JaAu7c43C5E2vpJ1LU5kweXBPdCK6JRYGtZYzK3DCk
-	 MDUccGPJH+FmQ==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
+	Fri, 07 Apr 2023 00:03:49 +0000
+Received: by mail-ej1-x630.google.com with SMTP id lj25so5086705ejb.11
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Apr 2023 17:03:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1680825823; x=1683417823;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f+8kfy3tjKLPe3TifJTVuacG8Zo955zar201sEBpYQI=;
+        b=MNxZauynb0gVNoahtsqVvCiD8C2zrTbmZyxhykOshWSl4e4x5UNTGqTuT7/wA3I7k8
+         isZu/+ogsApfCs7W/ZB5fS6cxwdrbU9TU7BY1fI0qASwr6BjQJLXCeNFv+s+Xh83T/xY
+         ll8AO3x+gov4OAc2i56yvml4nCb4zNkFKJ5u74M0JI4ko9UKgzW6TnWtMQRvEHud/aEw
+         lomkn4kZSlpECT9vUFQuUsSM478UXOnO04ZA+Z6NzoehD+9jPv9f2qOB+4HKsfrWSX3v
+         vE03MFZzWVxQUnH/d6yU0N3M5EsXJIX4L+16l1ynHUGQ6r7rbi5f6lCkt63a4xE6+x4b
+         yzFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680825823; x=1683417823;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f+8kfy3tjKLPe3TifJTVuacG8Zo955zar201sEBpYQI=;
+        b=Y5xYDcbr97/DepLQoKPtsvLrL4wAPU88FkBaFzzeh4zj1J8tm6K9I5Y/k0asv3HiZ2
+         RQeUnL0tM/57+ifEXmbHlqXPMZwj0Mfvx27PEVPmJjF0S5aBYvQ+Qz9VwkHWP3YmyNLG
+         il/HfXfZprst1tmMg/sbWJ8CTZV/6+8Sx6B20qQE38NoIkOexNcDv4XwmY/NRoRUYFpH
+         h9BYz8QBiGpgl3gqQz189xl8ud6Z3PbISAY0gmaiA5fbqowshy/F6qXjr2pYozLLxUqC
+         Wvzyr4HaUy0C/d5LTw3lWw74wNQNmxeKsl2gP+DwPBtR71ktJukRZtYtAlj0hplePSPE
+         Em3Q==
+X-Gm-Message-State: AAQBX9duscEsWgKREEcI6KOBV6wRpaQ5El8A2u04nw+YpvCKubmE0M10
+	QHvH1F23FI8w4ZMp/6uBusE=
+X-Google-Smtp-Source: AKy350bZf3Pgmi2zLBkprnBI1EXh9QEM6UWQo+KFZnv2Ap/aVssuKQNynTVN5Pac7j4VHVTr9tnMlw==
+X-Received: by 2002:a17:906:a18b:b0:933:44ef:851e with SMTP id s11-20020a170906a18b00b0093344ef851emr558038ejy.55.1680825823181;
+        Thu, 06 Apr 2023 17:03:43 -0700 (PDT)
+Received: from andrea (host-79-35-32-179.retail.telecomitalia.it. [79.35.32.179])
+        by smtp.gmail.com with ESMTPSA id x5-20020a170906804500b008def483cf79sm1373504ejw.168.2023.04.06.17.03.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Apr 2023 17:03:42 -0700 (PDT)
+Date: Fri, 7 Apr 2023 02:03:36 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Samuel Holland <samuel@sholland.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: [PATCH v1 4/4] serial: make SiFive serial drivers depend on ARCH_ symbols
-Date: Thu,  6 Apr 2023 21:57:50 +0100
-Message-Id: <20230406-carnival-aspirate-fcf69a30078c@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230406-undertake-stowing-50f45b90413a@spud>
-References: <20230406-undertake-stowing-50f45b90413a@spud>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
+ pointers for cache management
+Message-ID: <ZC9d2DIOMy27AAT9@andrea>
+References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <ZCu1tFrQCVe2sgNz@infradead.org>
+ <OS0PR01MB59224C99770F84D8CE2D0DBA86939@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+ <ZCxFUb8+eQPzqBmo@infradead.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1169; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=/uqEAT4mwA891sbEf4x2pVtUF/+D0Dq2ST7GwztNFHQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCn6Rl5R2spbv9u90F5UuaaO5erlaZvmnu/cxvSQ9Wjqm wslG1cadpSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiB6sZGW4uq/Y16WEukDZk rKlvKHrFfXKHYWP422dLndbMbSgRmM7wV3K/9/yq1/9j5l+vnZulbCLz9NVmu7Mmq9/7K7892BT MxQwA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Disposition: inline
+In-Reply-To: <ZCxFUb8+eQPzqBmo@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_135839_826438_BD2AB5FE 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20230406_170345_743675_0ABD81B9 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +111,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+> But other other point is adding more cache flushing variants should not
+> be easy.  Everyone should be using the standardize version.  If it's not
+> implemented in hardware despite having ratified extensions you can fake
+> it up in SBI.  Yes, that's way more expensive than indirect calls, but
+> that's what you get for taping out new hardware that ignores the actual
+> architecture specification and just does their own made up shit.
 
-As part of converting RISC-V SOC_FOO symbols to ARCH_FOO to match the
-use of such symbols on other architectures, convert the SiFive serial
-driver Kconfig entries from the SOC_ symbols to ARCH_ instead.
+FWIW, ALTERNATIVE_X() for "three instructions with (what should be a)
+crystal-clear semantics" already smells like "we're doing it wrong" to
+me, function pointers would be closer to "we're looking for trouble".
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-I hope you like the message-id Greg ;)
----
- drivers/tty/serial/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index 39a0078f54f6..398e5aac2e77 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -951,7 +951,7 @@ config SERIAL_OMAP_CONSOLE
- config SERIAL_SIFIVE
- 	tristate "SiFive UART support"
- 	depends on OF
--	default SOC_SIFIVE || SOC_CANAAN
-+	default ARCH_SIFIVE || ARCH_CANAAN
- 	select SERIAL_CORE
- 	help
- 	  Select this option if you are building a kernel for a device that
-@@ -961,7 +961,7 @@ config SERIAL_SIFIVE
- config SERIAL_SIFIVE_CONSOLE
- 	bool "Console on SiFive UART"
- 	depends on SERIAL_SIFIVE=y
--	default SOC_SIFIVE || SOC_CANAAN
-+	default ARCH_SIFIVE || ARCH_CANAAN
- 	select SERIAL_CORE_CONSOLE
- 	select SERIAL_EARLYCON
- 	help
--- 
-2.39.2
-
+Thanks,
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
