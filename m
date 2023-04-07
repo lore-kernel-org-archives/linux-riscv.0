@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AD7C77B61
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 12:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACB0C76196
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 12:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ijPF06UZ9aOX/jcmBk65h3ieBOsOOthdMx528ryWPiw=; b=CI31+sHEReZptP
-	2hP/G1GjeichRahk5bw/N0qwWjLCdGjRHbOM9i0uOIEc9wtnqeBtYB/or1ChXqQGoDxDHYVsMrS6Q
-	9ibmqlETn0lxZ1cNSIHr0FJy2hCvPhvM+ql0AU5AvtbXcOINza4EtCCa/hWv/WONi5y7iS4DGFC7j
-	hvsJDn8JcpKEiETqwmU1CzCAJFzKP1strjkuqTV8lldtQKjZuwu/fd9wU71zdmAqy4JhMmgFkqU6h
-	mTTn7Wy0E9cE82DPWILQa4q3YNC9+Y0ZXGTdi6bEkO4O3xg5dq/WwjXyXlCTNBDNNWGy8XD4Jd3r0
-	LqCc7PnFUBSxUvkTSaAw==;
+	List-Owner; bh=JuPj7x7e5Z+e5fnA2olc3vVDRjup4o6+otAYv0ncxgA=; b=46VMxNQu+ETiVF
+	XTGJrvYYbpTajnq68IiwkqN0zUlPZ+4CM8+M3xrAB4b33NpsN0G4YY7kJgUi0J28wimsAMa6Gw9Bg
+	oacQrIGRJ/5ktMHuLMNGONy9ZfIc7Cr/YeaMPsMO7K8TN8Q2iKh510/5JP4bRSbCmxvIMjtiOxMLp
+	s/WcCVSdUUm7llIIi3k/2+++slwnRVuSmOn0E+6r0cuo1Qb2xJ6zuYwg4Ot/SaayPnVCtFnbhq6FN
+	qvpffUCGpNXxhwHZkTIgLSEd+vdf2dB6lL8EVB8950EsChenC/Y7wiQXE7cdCRaNIAqPtfnL69EvF
+	XC+lnvXRKUUDpZgepZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkkob-00A8bn-1B;
-	Fri, 07 Apr 2023 12:03:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pkkp2-00A8fM-1o;
+	Fri, 07 Apr 2023 12:04:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkkoU-00A8ab-1I;
-	Fri, 07 Apr 2023 12:03:31 +0000
+	id 1pkkox-00A8dy-1Z;
+	Fri, 07 Apr 2023 12:04:03 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8931260F87;
-	Fri,  7 Apr 2023 12:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D7BDC4339B;
-	Fri,  7 Apr 2023 12:03:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B67756100F;
+	Fri,  7 Apr 2023 12:03:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36B44C4339B;
+	Fri,  7 Apr 2023 12:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680869009;
-	bh=MDs+MtGIXGFtAsm2rEE3JPZAgrsutam8x/+OyQ6U/5Q=;
+	s=k20201202; t=1680869038;
+	bh=hj8WZn4fsaNVXzouph4VuJoSDtm/pAjQ+hGj5NXmwD0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CdUYTX/0/+T9+z9T0OX02fulTzrK0zyn+hY+KU0Ur572LTK2I7rQcUfOgGaBnhPRo
-	 ambh4jV0pVIr3U4pU0iogCbVobAeEL28y+0+soqZjQmEOPVMv4bKzjW8TnJbNu6QeG
-	 NgTY3NkpLzztvLl5tfUsyR4E6nzurftFip1H4rEaJco8ZhdFUpmEWUK2UmnFg93Z2/
-	 TFvhvuZh/EwITPZfg8gYG/JDXQAAbMeABH072LcXVYuv6CfiYDeJr+mJx0BTxcbKOQ
-	 yGI7VxGsk78TZkWIkVuFCW40AaU5CLA9eRCADsYEiijPIEQGePzGSqqiv/dksnm2vT
-	 BdkpJiCa/Fzpg==
-Date: Fri, 7 Apr 2023 14:03:23 +0200
+	b=cBXLq4fagWKRTewxo4p5y+yltMfue1gHv9h6Rhkf+kT90l5ObTPyf5Q+HxCMGQAsM
+	 1WP18Sp/Ya3w+QiZ4Uku4/jcrSyIhhTDl6GoeWbpZfrxfYH144zC7BdFXcOmN3Bs8l
+	 ixgsTZd59XKKamoXJiCD5OBzTnOMIL4T96AiI38v7Ttj3fY3eZPYH/jj8zcKKxqUjw
+	 yZoR54HGahnG32BUoRdGl3XUEBDexCXzAufgslwOsGCS+z+ydlK/+dWroXXTzS6rYo
+	 BzhTRRDstfoWaFx2kUjdCg3egxn1cf8mY8FaYa/WqcsUV2RCUa8bxxeEYIVS0jpejz
+	 CO8A+lDkofXZw==
+Date: Fri, 7 Apr 2023 14:03:52 +0200
 From: Simon Horman <horms@kernel.org>
-To: Chen Jiahao <chenjiahao16@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com,
-	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
+To: Guo Ren <guoren@kernel.org>
+Cc: Chen Jiahao <chenjiahao16@huawei.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+	linux-doc@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, conor.dooley@microchip.com, heiko@sntech.de,
 	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
 	atishp@rivosinc.com, bhe@redhat.com, thunder.leizhen@huawei.com
 Subject: Re: [PATCH -next v3 1/2] riscv: kdump: Implement
  crashkernel=X,[high,low]
-Message-ID: <ZDAGi2/+1q0oEUZ5@kernel.org>
+Message-ID: <ZDAGqL6CZGrL499u@kernel.org>
 References: <20230406220206.3067006-1-chenjiahao16@huawei.com>
  <20230406220206.3067006-2-chenjiahao16@huawei.com>
+ <CAJF2gTRtj=-XONv3cMZFd+qCtqUQqYZo5Lv7cgQbkGKTB0j7yg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230406220206.3067006-2-chenjiahao16@huawei.com>
+In-Reply-To: <CAJF2gTRtj=-XONv3cMZFd+qCtqUQqYZo5Lv7cgQbkGKTB0j7yg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230407_050330_496637_1F188C9A 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20230407_050359_581758_AFF5ACBD 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,75 +75,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 07, 2023 at 06:02:05AM +0800, Chen Jiahao wrote:
-> On riscv, the current crash kernel allocation logic is trying to
-> allocate within 32bit addressible memory region by default, if
-> failed, try to allocate without 4G restriction.
-> 
-> In need of saving DMA zone memory while allocating a relatively large
-> crash kernel region, allocating the reserved memory top down in
-> high memory, without overlapping the DMA zone, is a mature solution.
-> Here introduce the parameter option crashkernel=X,[high,low].
-> 
-> One can reserve the crash kernel from high memory above DMA zone range
-> by explicitly passing "crashkernel=X,high"; or reserve a memory range
-> below 4G with "crashkernel=X,low".
-> 
-> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
-
-...
-
-> @@ -1180,14 +1206,37 @@ static void __init reserve_crashkernel(void)
->  		return;
->  	}
->  
-> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
-> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
->  				&crash_size, &crash_base);
-> -	if (ret || !crash_size)
-> +	if (ret == -ENOENT) {
-> +		/*
-> +		 * crashkernel=X,[high,low] can be specified or not, but
-> +		 * invalid value is not allowed.
-
-nit: Perhaps something like this would be easier to correlate with the
-     code that follows:
-
-		/* Fallback to crashkernel=X,[high,low] */
-
-
-> +		 */
-> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
-> +		if (ret || !crash_size)
-> +			return;
-> +
-> +		/*
-> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
-> +		 * is passed and high memory is reserved successful.
-
-nit: s/successful/successfully/
-
-> +		 */
-> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
-> +		if (ret == -ENOENT)
-> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-> +		else if (ret)
-> +			return;
-> +
-> +		search_start = search_low_max;
-> +	} else if (ret || !crash_size) {
-> +		/* Invalid argument value specified */
->  		return;
-> +	}
-
-...
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBcHIgMDcsIDIwMjMgYXQgMDU6MDY6MjRQTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
+PiBPbiBUaHUsIEFwciA2LCAyMDIzIGF0IDEwOjA24oCvUE0gQ2hlbiBKaWFoYW8gPGNoZW5qaWFo
+YW8xNkBodWF3ZWkuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiByaXNjdiwgdGhlIGN1cnJlbnQgY3Jh
+c2gga2VybmVsIGFsbG9jYXRpb24gbG9naWMgaXMgdHJ5aW5nIHRvCj4gPiBhbGxvY2F0ZSB3aXRo
+aW4gMzJiaXQgYWRkcmVzc2libGUgbWVtb3J5IHJlZ2lvbiBieSBkZWZhdWx0LCBpZgo+ID4gZmFp
+bGVkLCB0cnkgdG8gYWxsb2NhdGUgd2l0aG91dCA0RyByZXN0cmljdGlvbi4KPiA+Cj4gPiBJbiBu
+ZWVkIG9mIHNhdmluZyBETUEgem9uZSBtZW1vcnkgd2hpbGUgYWxsb2NhdGluZyBhIHJlbGF0aXZl
+bHkgbGFyZ2UKPiA+IGNyYXNoIGtlcm5lbCByZWdpb24sIGFsbG9jYXRpbmcgdGhlIHJlc2VydmVk
+IG1lbW9yeSB0b3AgZG93biBpbgo+ID4gaGlnaCBtZW1vcnksIHdpdGhvdXQgb3ZlcmxhcHBpbmcg
+dGhlIERNQSB6b25lLCBpcyBhIG1hdHVyZSBzb2x1dGlvbi4KPiA+IEhlcmUgaW50cm9kdWNlIHRo
+ZSBwYXJhbWV0ZXIgb3B0aW9uIGNyYXNoa2VybmVsPVgsW2hpZ2gsbG93XS4KPiA+Cj4gPiBPbmUg
+Y2FuIHJlc2VydmUgdGhlIGNyYXNoIGtlcm5lbCBmcm9tIGhpZ2ggbWVtb3J5IGFib3ZlIERNQSB6
+b25lIHJhbmdlCj4gPiBieSBleHBsaWNpdGx5IHBhc3NpbmcgImNyYXNoa2VybmVsPVgsaGlnaCI7
+IG9yIHJlc2VydmUgYSBtZW1vcnkgcmFuZ2UKPiA+IGJlbG93IDRHIHdpdGggImNyYXNoa2VybmVs
+PVgsbG93Ii4KPiBBc2tlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+CgpQZXJoYXBz
+ICdBY2tlZC1ieScgOikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
