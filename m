@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6889C761A6
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 02:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB530C6FD1D
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 03:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txtY3HXVufvbYZvtfwVtkZZV76WCaJsTfldK9nE52vM=; b=ZJPjyyGcTqFJEY
-	MLDRimfoH1fMuu4Pm3YVf2dg/h2o6pn3HY5BL4c/9vvMnfh0+/BFFWrudd6rgQly9ntEG80BhjMuN
-	6rQ8yVpaloI+FQ2UkCYDX096x90RCaBcM3z1OtXd53veErAgw23J0KoA5WGy/OV3D7Mn8f8yU0Ej/
-	py7gCKwK7/UiUn4pUiG5a9nLINPSFsB/uX33ewQqbwzwPsTxqW1TllLlTrSnczy2aufWRhrSiJgLi
-	Ut2VTW6g3K9sz4JC9qr87zWrR4hQq8Pf5OvT4U7DXA42pUZFCwDNcnz2EttG8v+YcwTfeauEFTbtz
-	es9SgwvA5YwYmZ2eH8wQ==;
+	List-Owner; bh=8YUrJN/BnChfFTiZzZuhlioaLCELhNh3FIi1J5R+oCw=; b=j4A8fWXlc8k9CO
+	353OgDIXEOeGLmxRQkwhixnjbWFP7U10GQd8LQkFpVRKJg0B4npPdrguXJelP4Pesa4qL0pW10hef
+	CpprkZZ5I5hzhF7nrAnhK/GPkAkA2Az0xvUBQjuJ7jdVRS5lDsggPC7LUaZB/S03OHmcKosaTrRWE
+	0SY3R1BrdNtNPly9vQ0QgIcGB1kNRCbQDaZJTW8dwWr/hM8lV4lqWnfOWIoFaqsIiTEKNLUKzYra2
+	cFDE8H4swdAZdMkxG2+mhSPNjtYtMJJyja1D/145mlFBnvVNkJod5xlVC8wQSZp59cyl8lTAL3VG0
+	wNW6+eLCV+KjQqlYjwbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkbvF-0091gL-0U;
-	Fri, 07 Apr 2023 02:33:53 +0000
+	id 1pkd3I-0096GG-2y;
+	Fri, 07 Apr 2023 03:46:16 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkbvB-0091bP-2v
+	id 1pkd3E-0096EY-15
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Apr 2023 02:33:52 +0000
+	Fri, 07 Apr 2023 03:46:15 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 145AA24E342;
-	Fri,  7 Apr 2023 10:32:58 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 761F524E1B6;
+	Fri,  7 Apr 2023 11:45:39 +0800 (CST)
 Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
- 2023 10:32:57 +0800
+ 2023 11:45:39 +0800
 Received: from [192.168.125.108] (183.27.97.179) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
- 2023 10:32:56 +0800
-Message-ID: <d9dde509-8923-a930-4c82-4bc8bd78ed0d@starfivetech.com>
-Date: Fri, 7 Apr 2023 10:32:51 +0800
+ 2023 11:45:38 +0800
+Message-ID: <548b4d0f-447a-23a9-0e58-3d6c80cb8e3b@starfivetech.com>
+Date: Fri, 7 Apr 2023 11:45:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.1
-Subject: Re: [PATCH v1 0/3] Add JH7110 PCIe driver support
+Subject: Re: [PATCH v1 1/3] dt-binding: pci: add JH7110 PCIe dt-binding
+ documents.
 Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Lorenzo Pieralisi
+To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Rob Herring
+	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Lorenzo Pieralisi
 	<lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?=
 	<kw@linux.com>, <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, <daire.mcnamara@microchip.com>
+	Kevin Xie <kevin.xie@starfivetech.com>
 References: <20230406111142.74410-1-minda.chen@starfivetech.com>
- <20230406-quench-unharmed-2c11b2617e9f@wendy>
- <20230406-coming-stuffed-26f89610959c@wendy>
+ <20230406111142.74410-2-minda.chen@starfivetech.com>
+ <38bc48bf-7d8c-8ddd-861f-3b7f3d2edce6@linaro.org>
+ <20230406-revisit-patchy-a0063d964070@spud>
 From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230406-coming-stuffed-26f89610959c@wendy>
+In-Reply-To: <20230406-revisit-patchy-a0063d964070@spud>
 X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_193350_276450_0B2451DF 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20230406_204612_535736_13D9E0EC 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +89,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/6 19:54, Conor Dooley wrote:
-> Gah, I never actually CCed Daire. Apologies for the additional email.
+On 2023/4/7 2:35, Conor Dooley wrote:
+> On Thu, Apr 06, 2023 at 08:24:55PM +0200, Krzysztof Kozlowski wrote:
+>> On 06/04/2023 13:11, Minda Chen wrote:
+>> > +
+>> > +  interrupt-controller:
+>> > +    type: object
+>> > +    properties:
+>> > +      '#address-cells':
+>> > +        const: 0
+>> > +
+>> > +      '#interrupt-cells':
+>> > +        const: 1
+>> > +
+>> > +      interrupt-controller: true
+>> > +
+>> > +    required:
+>> > +      - '#address-cells'
+>> > +      - '#interrupt-cells'
+>> > +      - interrupt-controller
+>> > +
+>> > +    additionalProperties: false
+>> > +
+>> > +required:
+>> > +  - reg
+>> > +  - reg-names
+>> > +  - "#interrupt-cells"
+>> 
+>> Keep consistent quotes - either ' or "
+>> 
+>> Are you sure this is correct? You have interrupt controller as child node.
 > 
-> On Thu, Apr 06, 2023 at 12:47:41PM +0100, Conor Dooley wrote:
->> +CC Daire
->> 
->> Hey Minda,
->> 
->> On Thu, Apr 06, 2023 at 07:11:39PM +0800, Minda Chen wrote:
->> > This patchset adds PCIe driver for the StarFive JH7110 SoC.
->> > The patch has been tested on the VisionFive 2 board. The test
->> > devices include M.2 NVMe SSD and Realtek 8169 Ethernet adapter.
->> 
->> I was talking with Daire last week about some changes he's working on
->> for the microchip driver, and we seemed to recall an off-list email
->> sent to Daire & Bjorn about extracting the common PLDA bits from the
->> pcie-microchip-host driver to be used with an (at that point)
->> unreleased SoC. Perhaps Bjorn has this in his mailbox somewhere still,
->> our corporate mail policy scrubs things from over a year ago & I could
->> not find it.
->>
->> I realised that that may actually have been StarFive, and the driver on
->> your GitHub [1] certainly felt very familiar to Daire (he said it was
->> very similar to his earlier revisions of his driver).
->> 
->> I've not looked at a diff between this and the version you ship on
->> GitHub, but first a quick inspection it mostly just looks like you
->> did s/plda/sifive/ on the file.
->> 
->> I'm obviously not a PCI maintainer, but if there are common bits between
->> the two drivers, extracting common bits seems like a good idea to me...
->Thanks. It is pleasure to using same common codes. Does common bits changes
-will upstream soon?
-And I see there are many difference between pcie-microchip-host and our codes.
->> https://github.com/starfive-tech/linux/blob/JH7110_VisionFive2_devel/drivers/pci/controller/pcie-plda.c
->> > 
->> > This patchset should be applied after the patchset [1], [2], [3] and[4]:
->> > [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
->> > [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
->> > [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
->> > [4] https://patchwork.kernel.org/project/linux-usb/cover/20230406015216.27034-1-minda.chen@starfivetech.com/
->> 
->> How many of the dependencies here are compiletime for the driver & how
->> many of them are just for the dts patch?
->> 
-PCIe rely on stg clock in [1], rely on stg syscon in [2].
-Patch [2] is accepted now. Maybe I will delete this.
-both [3] and [4] is PHY dependency. 
->> Cheers,
->> Conor.
+> I know existing stuff in-tree is far from a guarantee that it'll be
+> right, but this does at least follow what we've got for PolarFire SoC:
+> Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
 > 
+> Both PLDA and both RISC-V w/ a PLIC as the interrupt controller, so in
+> similar waters.
+> This note existed in the original text form binding of the Microchip
+> PCI controller:
+> | +NOTE:
+> | +The core provides a single interrupt for both INTx/MSI messages. So,
+> | +create an interrupt controller node to support 'interrupt-map' DT
+> | +functionality.  The driver will create an IRQ domain for this map, decode
+> | +the four INTx interrupts in ISR and route them to this domain.
 > 
+> Given the similarities, I figure the same requirement applies here too.
+> Minda?
+> 
+> Cheers,
+> Conor.
+
+Yes, Thanks very much.
 
 _______________________________________________
 linux-riscv mailing list
