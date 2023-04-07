@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ED6C77B6C
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 23:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C00C77B6C
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 23:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WOPNDYJ6Ojtg52bQNCaPCWgwI9bCNXmarhdolsoHnNc=; b=Oq/ihD66nmTvwv
-	cu092Zc+qZAqo7Vmqc3XpIGSBHFkjVRldPkOO3E9cAak3Ei8pIEAfDSyT3ilpcwil2ODWf2R1J4tt
-	X7gOMHZpxm9XHImHq64vEgbyhOK5GrBt7NMmnyi7KwLD36YvVxoB/kbvNc3VOg779AF90e8cBS56Y
-	yKGSr2BpXUJtJq03JQZ+JJ/nOq52/DOBYM1THOEXz79srvcU0R8lrILphU7VjX0GfrGRGDe6EVrkT
-	qkFoBhTkFFhOlDdSe80QrqAoRW/tbilG+UNVE8eirN46TQii6pi7wTXi15VhFEZjg9QCCbVbXbChy
-	7vwkGQRiM3DMWOF5ZLiA==;
+	List-Owner; bh=NEhTHFQp1aI33d4DJPPUTa0aC5Lov+0CxhZYSCr1wDw=; b=q5IZtCEe7M3U3K
+	Tk2VnaF22e5XIopYr9ApSiWOq0pRZubBpWfSz88bum/yG1pb/L32YIURspXc9L3JevPIF2yb15mo7
+	a5OP3ccJguVEV61tBw1VcJfSH0j1PtdR9F/1tAy87EsqmZc3ghpV1CBBpsEqsYTvsZuSDvSz7S/Mb
+	IemYl0HfQXTe6ctrnDmLuj4OdTXqTZc9ZAqKnQKJ9/ezhFomWZhnPj/ogEnBljHskDDikTh3Jw7fr
+	p2Cvb4+cfPOAvNft9MZB1RI+Ia+tjBSzvMl8KwqfsW+RRos3/JqvYm5iRpsSGYKsk7pwv34ibvqjq
+	jNO7PQwlg6MN8U/wHlsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkvEl-00BJWC-0a;
-	Fri, 07 Apr 2023 23:11:19 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1pkvEt-00BJkw-1f;
+	Fri, 07 Apr 2023 23:11:27 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkvEh-00BJR8-1J
+	id 1pkvEq-00BJe8-1R
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Apr 2023 23:11:17 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id r21-20020a17090aa09500b0024663a79050so1558219pjp.4
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Apr 2023 16:11:15 -0700 (PDT)
+	Fri, 07 Apr 2023 23:11:25 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id fy10-20020a17090b020a00b0023b4bcf0727so44461357pjb.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Apr 2023 16:11:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680909075; x=1683501075;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680909083; x=1683501083;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1qJSx8+ImAcMnjiqAry1hxSsn47JERJ47bfiyaja2dk=;
-        b=FUJf4sHnWDSsfV8R5zEgAN5n2hSjTFeHRqKnxfMgpyHCH9bhi4rbwdc8iI/XpYGzEF
-         tQ3bajD+Pt9tAK7Zs2c4YPLcKFkEOGPFZ6apeZX4HbpJ3eDwTQtJ4l9c+DtfDVcGeM9w
-         LuMBubC2CD2p0879xsgii38Vc9YI5NJ6Yg53cHCQ3zI4GUJoFHP4+yEOnYLO4shEsKnm
-         2DGZwNKITPMIcOeZAgMSxoorbTNWbrUUl7bgWGWiPZDqBtIEN7SszCDcOgQIOhuHAziL
-         fF61wSaI/n2G1wrytVbuHdVWXSaabxJ1vjx5n1AStmUoOvFqqj2zfbTY7GlD4nCO78ie
-         73jg==
+        bh=kDOPItMBcGDGaCyHwWBFXtRG6cRjR6r59AeA2F6gyE8=;
+        b=2Ks4nw+MRX/xp8YSNC3vpM/HBh/Y6nlfkySNQnCASuSKBGME8sLEdkjroFi0vQgplk
+         0CRBSKjMH/xFGPxRrx3x1TIH4WXe4aY9dGLXMOwc/5JdJ0WKxNb6UDpZmvLXp2WmjQJw
+         pCoPBgCl/UHZznbKT1SbvPvF94QMbpqDutjwB5ES5U3rfaKooCC1lI492jT3TVYQtOPs
+         +Uj2CQGNttb44t+cWGGvH1T6L+Gw0Y89ghV0LM2H2H/bbKMb8THIGvBHyR6fMnOAgLxj
+         hBargAVuyOyrg41tKR7ltfPGKTpVcKYGemDm6erfCqNfnXCuftd2cgLvbQmTGwmJXnLx
+         tkNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680909075; x=1683501075;
+        d=1e100.net; s=20210112; t=1680909083; x=1683501083;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1qJSx8+ImAcMnjiqAry1hxSsn47JERJ47bfiyaja2dk=;
-        b=P8feITc2cETyyXSFIVdPj+cd1943sscyMLaQBphJbl8YkCj0f8P/Vc/PZGRRkOEzez
-         rnyatVxKy0XjOxZO2mYZi94vG8wFx2eiHFLD1hNxv/uuTHFrL9oocVQuahWhJ7U0hfeg
-         Pj1DHk5W2M8l+HlO1jzxEDbM41Xl0YbtKgDV8K+SGtuKvVJmZo2UXNLQnEGmYrlRN+8/
-         ez4u9Fp1Q4UGAN0H33xBVBtJjnn2IYpemY9QgyGuioeJjga7uxodG6ug0yjgvy+SF3cH
-         1RJzQebHez18eAGrCLJ3ZlX4tva7IyAdldf2lGrC3NJMNwhlmENz2WwAn5p2YKl+WzVx
-         drjw==
-X-Gm-Message-State: AAQBX9fkfopRIoIbjj39T9X1rF1AiXXP9pH2IWMzheuHNDqsm478eSOW
-	454bLHLP7Ihim2s3JjbJH4ipnw==
-X-Google-Smtp-Source: AKy350YOI1JvTjyJnVhuHF0/GZe506qbmhTfWethAuEj8TDysJJtkcdLAPJ8nISY8Nvsa/qV1un2tA==
-X-Received: by 2002:a17:90b:38c5:b0:23d:5196:eca8 with SMTP id nn5-20020a17090b38c500b0023d5196eca8mr4260918pjb.20.1680909074953;
-        Fri, 07 Apr 2023 16:11:14 -0700 (PDT)
+        bh=kDOPItMBcGDGaCyHwWBFXtRG6cRjR6r59AeA2F6gyE8=;
+        b=dOy4ZtHm9Lp7PFRYFkvK2LyIuRtwgI2qN+8eYrIddr82IOGxStNQEtY3dWzFQ3vmu3
+         X/38Aqw25H2SKi82Grfd7/8C7696foFmmKKmrT53CkQlZ6fBwlfqjtURYyuZuWrpUxee
+         mAj/OiDevnapf9musVqQaF7tjviotSWIjQVIf4X5Ams+ngw8Z6wn1HCcdk4UFoDc8O+p
+         XOVYEQGrpiO9h5i50d/XQT6wZyjFiAqsQxGalVc81TC24XuBhN59BEftCb6ct/izuP/D
+         wlMdgPBdGKZt1Fy/oJtAe9d/CUIBqZ68UZxy5zTN3/Lnr4MaX0duBeyPS+sfj5wpxEaz
+         eAgw==
+X-Gm-Message-State: AAQBX9cCzOljhjMHqr15CG6yQXrFyXwP1EHRl8FpTz4G1oHqCXvPs8vi
+	6+dLX9XPtU24HoRo0MaeQxnNtg==
+X-Google-Smtp-Source: AKy350baMH2Uf4j5jY2xKKPbUiOb+o5CU818Fvc5qPHDFQj1Gw3vvDZIk+bPqRnQ+p/7T+JqQRm0Kg==
+X-Received: by 2002:a17:903:2452:b0:19e:748c:ee29 with SMTP id l18-20020a170903245200b0019e748cee29mr4773667pls.55.1680909082768;
+        Fri, 07 Apr 2023 16:11:22 -0700 (PDT)
 Received: from evan.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id r5-20020a170902be0500b001a076568da9sm3361526pls.216.2023.04.07.16.11.13
+        by smtp.gmail.com with ESMTPSA id r5-20020a170902be0500b001a076568da9sm3361526pls.216.2023.04.07.16.11.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Apr 2023 16:11:14 -0700 (PDT)
+        Fri, 07 Apr 2023 16:11:22 -0700 (PDT)
 From: Evan Green <evan@rivosinc.com>
 To: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v6 1/6] RISC-V: Move struct riscv_cpuinfo to new header
-Date: Fri,  7 Apr 2023 16:10:58 -0700
-Message-Id: <20230407231103.2622178-2-evan@rivosinc.com>
+Cc: slewis@rivosinc.com,
+	heiko@sntech.de,
+	Conor Dooley <conor@kernel.org>,
+	vineetg@rivosinc.com,
+	Evan Green <evan@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Bresticker <abrestic@rivosinc.com>,
+	Celeste Liu <coelacanthus@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v6 3/6] RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+Date: Fri,  7 Apr 2023 16:11:00 -0700
+Message-Id: <20230407231103.2622178-4-evan@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230407231103.2622178-1-evan@rivosinc.com>
 References: <20230407231103.2622178-1-evan@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230407_161115_442015_BAC7A422 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20230407_161124_483915_44D5280B 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +102,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, heiko@sntech.de, Atish Patra <atishp@rivosinc.com>, vineetg@rivosinc.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, slewis@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation for tracking and exposing microarchitectural details to
-userspace (like whether or not unaligned accesses are fast), move the
-riscv_cpuinfo struct out to its own new cpufeatures.h header. It will
-need to be used by more than just cpu.c.
+We have an implicit set of base behaviors that userspace depends on,
+which are mostly defined in various ISA specifications.
 
+Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Evan Green <evan@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
 ---
 
 (no changes since v5)
 
 Changes in v5:
- - Added tags
+ - Fixed misuse of ISA_EXT_c as bitmap, changed to use
+   riscv_isa_extension_available() (Heiko, Conor)
+
+Changes in v4:
+ - More newlines in BASE_BEHAVIOR_IMA documentation (Conor)
 
 Changes in v3:
- - Updated copyright date in cpufeature.h
- - Fixed typo in cpufeature.h comment (Conor)
+ - Refactored base ISA behavior probe to allow kernel probing as well,
+   in prep for vDSO data initialization.
+ - Fixed doc warnings in IMA text list, use :c:macro:.
 
-Changes in v2:
- - Factored the move of struct riscv_cpuinfo to its own header
+ Documentation/riscv/hwprobe.rst       | 24 ++++++++++++++++++++++++
+ arch/riscv/include/asm/hwprobe.h      |  2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h |  5 +++++
+ arch/riscv/kernel/sys_riscv.c         | 20 ++++++++++++++++++++
+ 4 files changed, 50 insertions(+), 1 deletion(-)
 
- arch/riscv/include/asm/cpufeature.h | 21 +++++++++++++++++++++
- arch/riscv/kernel/cpu.c             |  8 ++------
- 2 files changed, 23 insertions(+), 6 deletions(-)
- create mode 100644 arch/riscv/include/asm/cpufeature.h
-
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-new file mode 100644
-index 000000000000..66ebaae449c8
---- /dev/null
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright 2022-2023 Rivos, Inc
-+ */
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 211828f706e3..945d44683c40 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -39,3 +39,27 @@ The following keys are defined:
+ 
+ * :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
+   defined by the RISC-V privileged architecture specification.
 +
-+#ifndef _ASM_CPUFEATURE_H
-+#define _ASM_CPUFEATURE_H
++* :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the base
++  user-visible behavior that this kernel supports.  The following base user ABIs
++  are defined:
 +
-+/*
-+ * These are probed via a device_initcall(), via either the SBI or directly
-+ * from the corresponding CSRs.
-+ */
-+struct riscv_cpuinfo {
-+	unsigned long mvendorid;
-+	unsigned long marchid;
-+	unsigned long mimpid;
-+};
++  * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: Support for rv32ima or
++    rv64ima, as defined by version 2.2 of the user ISA and version 1.10 of the
++    privileged ISA, with the following known exceptions (more exceptions may be
++    added, but only if it can be demonstrated that the user ABI is not broken):
 +
-+DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++    * The :fence.i: instruction cannot be directly executed by userspace
++      programs (it may still be executed in userspace via a
++      kernel-controlled mechanism such as the vDSO).
 +
-+#endif
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 8400f0cc9704..dafd0caa4f1d 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -7,6 +7,7 @@
- #include <linux/init.h>
- #include <linux/seq_file.h>
- #include <linux/of.h>
-+#include <asm/cpufeature.h>
- #include <asm/csr.h>
- #include <asm/hwcap.h>
++* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing the extensions
++  that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`:
++  base system behavior.
++
++  * :c:macro:`RISCV_HWPROBE_IMA_FD`: The F and D extensions are supported, as
++    defined by commit cd20cee ("FMIN/FMAX now implement
++    minimumNumber/maximumNumber, not minNum/maxNum") of the RISC-V ISA manual.
++
++  * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
++    by version 2.2 of the RISC-V ISA manual.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 6184bbc77256..d717c80a64ff 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,6 +8,6 @@
+ 
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 2
++#define RISCV_HWPROBE_MAX_KEY 4
+ 
+ #endif
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index b79be00920db..398e08f7e083 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -20,6 +20,11 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_MVENDORID	0
+ #define RISCV_HWPROBE_KEY_MARCHID	1
+ #define RISCV_HWPROBE_KEY_MIMPID	2
++#define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
++#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
++#define RISCV_HWPROBE_KEY_IMA_EXT_0	4
++#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
++#define		RISCV_HWPROBE_IMA_C		(1 << 1)
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ #endif
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index fe8e833ecb2e..5ca567cef142 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -9,6 +9,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/hwprobe.h>
  #include <asm/sbi.h>
-@@ -70,12 +71,7 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
- 	return -1;
- }
++#include <asm/switch_to.h>
+ #include <asm/uaccess.h>
+ #include <asm/unistd.h>
+ #include <asm-generic/mman-common.h>
+@@ -125,6 +126,25 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 	case RISCV_HWPROBE_KEY_MIMPID:
+ 		hwprobe_arch_id(pair, cpus);
+ 		break;
++	/*
++	 * The kernel already assumes that the base single-letter ISA
++	 * extensions are supported on all harts, and only supports the
++	 * IMA base, so just cheat a bit here and tell that to
++	 * userspace.
++	 */
++	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
++		pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
++		break;
++
++	case RISCV_HWPROBE_KEY_IMA_EXT_0:
++		pair->value = 0;
++		if (has_fpu())
++			pair->value |= RISCV_HWPROBE_IMA_FD;
++
++		if (riscv_isa_extension_available(NULL, c))
++			pair->value |= RISCV_HWPROBE_IMA_C;
++
++		break;
  
--struct riscv_cpuinfo {
--	unsigned long mvendorid;
--	unsigned long marchid;
--	unsigned long mimpid;
--};
--static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-+DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
- 
- unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
- {
+ 	/*
+ 	 * For forward compatibility, unknown keys don't fail the whole
 -- 
 2.25.1
 
