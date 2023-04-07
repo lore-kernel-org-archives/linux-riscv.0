@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937A5C76196
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 19:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ED6C77B6C
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 23:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rD5CRmq6+JyiSn4BZcF1dEOVfBm9ZSgIjbmsk1lTags=; b=FphFRUpJ3nB70m
-	0mmN5Cm+e5N0ttDtkXKyamwx2HsE1PskzjHAda1PZ8uSKKG6pnIYOQyGeu3R7jVGEORsYICJzXZgk
-	hj/V+2Kw5EBzwRdkVA18VltFSXDrckoETqmnVgRj8Ns0+aaFI7X60ZMhD6v+5tUiSpVcYnEoZu5eP
-	7jQGggd1CSfE22cS1Ihb7XCuQzIuqXTMYB2tY7Wo2M+uzEuB2r5faClL5kZTtPaj5NZEr6/OOPtHi
-	x8FKgIqfyPiFM3LHin9OjiXkBby0X6tHyVKN2M9ykaOERGbOFI3VPmSGwozZ0mwD0FsDWOCtgqzWN
-	RbmUAOO50EQ7n6xocz9g==;
+	List-Owner; bh=WOPNDYJ6Ojtg52bQNCaPCWgwI9bCNXmarhdolsoHnNc=; b=Oq/ihD66nmTvwv
+	cu092Zc+qZAqo7Vmqc3XpIGSBHFkjVRldPkOO3E9cAak3Ei8pIEAfDSyT3ilpcwil2ODWf2R1J4tt
+	X7gOMHZpxm9XHImHq64vEgbyhOK5GrBt7NMmnyi7KwLD36YvVxoB/kbvNc3VOg779AF90e8cBS56Y
+	yKGSr2BpXUJtJq03JQZ+JJ/nOq52/DOBYM1THOEXz79srvcU0R8lrILphU7VjX0GfrGRGDe6EVrkT
+	qkFoBhTkFFhOlDdSe80QrqAoRW/tbilG+UNVE8eirN46TQii6pi7wTXi15VhFEZjg9QCCbVbXbChy
+	7vwkGQRiM3DMWOF5ZLiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkrZm-00AxH0-2b;
-	Fri, 07 Apr 2023 19:16:46 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1pkvEl-00BJWC-0a;
+	Fri, 07 Apr 2023 23:11:19 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkrZi-00AxGV-3A
+	id 1pkvEh-00BJR8-1J
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Apr 2023 19:16:44 +0000
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 08EE33F230
-	for <linux-riscv@lists.infradead.org>; Fri,  7 Apr 2023 19:16:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1680895000;
-	bh=6sYEIBV5kXMam6UqwH6oM6O2pVhy0udkwjOT9QqT4is=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=fhiy6iZH0KuXk0Xa0W+FN2+H1k8UGgOWYfoVufbuHsEDU3fMB78MuKQ8ecB4PR9rj
-	 GLyU19+Z5TgVUsmW1s5Y2zCbwgWVprFMq9bb8URGO9MCPNGrA4uNgRXY/UQD8RZY/e
-	 ClMhg1dI0IBrm5IdXvSNkmknWQaj8EY8whEF6xWVT7KMWcJ5cCF+7ILivI8GcdVrwr
-	 SWIAXbQigDBdPwAPp6B3JtHUze71pUdYC4UHtvtEOFw6KCMaKzjfUOLjXkpsnKlhV3
-	 sBb8Q5BLSXDAcZkYd+jJSce+0n7By5Z0HRXYOVgVWW+ubVYSdoFTJpBk81F6UbQuIN
-	 +bbH1kMwWi7Jw==
-Received: by mail-qv1-f72.google.com with SMTP id oo15-20020a056214450f00b005a228adfcefso19892744qvb.2
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Apr 2023 12:16:39 -0700 (PDT)
+	Fri, 07 Apr 2023 23:11:17 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id r21-20020a17090aa09500b0024663a79050so1558219pjp.4
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Apr 2023 16:11:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1680909075; x=1683501075;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1qJSx8+ImAcMnjiqAry1hxSsn47JERJ47bfiyaja2dk=;
+        b=FUJf4sHnWDSsfV8R5zEgAN5n2hSjTFeHRqKnxfMgpyHCH9bhi4rbwdc8iI/XpYGzEF
+         tQ3bajD+Pt9tAK7Zs2c4YPLcKFkEOGPFZ6apeZX4HbpJ3eDwTQtJ4l9c+DtfDVcGeM9w
+         LuMBubC2CD2p0879xsgii38Vc9YI5NJ6Yg53cHCQ3zI4GUJoFHP4+yEOnYLO4shEsKnm
+         2DGZwNKITPMIcOeZAgMSxoorbTNWbrUUl7bgWGWiPZDqBtIEN7SszCDcOgQIOhuHAziL
+         fF61wSaI/n2G1wrytVbuHdVWXSaabxJ1vjx5n1AStmUoOvFqqj2zfbTY7GlD4nCO78ie
+         73jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680894999;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6sYEIBV5kXMam6UqwH6oM6O2pVhy0udkwjOT9QqT4is=;
-        b=p5tcFNzfiOZXjwiElhnbZeRJzyomhZDyNve5AOAGyajda/F1MARJiX+jodzKZZg/LO
-         3A6oX8DQtkIavernht7SxNNras/PnNui/X7xcbJ2RLCUp6eBBQYpc+QKyU6m7u7BcWDF
-         Q0TImXQhXDXbD/SUDxCMj2GAae7HYeYPSl4W/jiKp4sXgf/MeO2usU5TOjSdNI0QIc2+
-         EFsfxY23CYPVf85SktpyhXgaR9nICeUAg0w8F0XJ5T7ssVqMhOGGqvxU85J66KzJFsVg
-         27yU3oqXP/cEnZeiW8VcLd+LgzH+YzvCNY5l9oF44oekUAk01XS1fSVnYlnDvzFjr9Lz
-         M8JA==
-X-Gm-Message-State: AAQBX9c23W4W13WDub0mKsjOObGAMaeOcHaJZ1ApS+mqku3zj5coMAyC
-	cIl3+5DqSPKH1fhTx3DwmU2PxDAtIgBG8y/KyTxC9MxwZySDlNL8hx+auAr0A0THaepv1Ph9sn8
-	a1PUsYFqhHne6oavaWy8bARPIwn6+njzacGtZFbMbYiJAdv80v7CtR1hn/4M/Yw==
-X-Received: by 2002:ac8:59cf:0:b0:3bf:e265:9bf with SMTP id f15-20020ac859cf000000b003bfe26509bfmr1125161qtf.5.1680894999095;
-        Fri, 07 Apr 2023 12:16:39 -0700 (PDT)
-X-Google-Smtp-Source: AKy350azJsoHtLW5iJVxAs7mqBBFmK9URhRqiPq9rW03ZcwqNgq7AmVUNj2Sw8I4d2ImHV3rL/4EjmZmsUuSs4OrUPc=
-X-Received: by 2002:ac8:59cf:0:b0:3bf:e265:9bf with SMTP id
- f15-20020ac859cf000000b003bfe26509bfmr1125140qtf.5.1680894998772; Fri, 07 Apr
- 2023 12:16:38 -0700 (PDT)
+        d=1e100.net; s=20210112; t=1680909075; x=1683501075;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1qJSx8+ImAcMnjiqAry1hxSsn47JERJ47bfiyaja2dk=;
+        b=P8feITc2cETyyXSFIVdPj+cd1943sscyMLaQBphJbl8YkCj0f8P/Vc/PZGRRkOEzez
+         rnyatVxKy0XjOxZO2mYZi94vG8wFx2eiHFLD1hNxv/uuTHFrL9oocVQuahWhJ7U0hfeg
+         Pj1DHk5W2M8l+HlO1jzxEDbM41Xl0YbtKgDV8K+SGtuKvVJmZo2UXNLQnEGmYrlRN+8/
+         ez4u9Fp1Q4UGAN0H33xBVBtJjnn2IYpemY9QgyGuioeJjga7uxodG6ug0yjgvy+SF3cH
+         1RJzQebHez18eAGrCLJ3ZlX4tva7IyAdldf2lGrC3NJMNwhlmENz2WwAn5p2YKl+WzVx
+         drjw==
+X-Gm-Message-State: AAQBX9fkfopRIoIbjj39T9X1rF1AiXXP9pH2IWMzheuHNDqsm478eSOW
+	454bLHLP7Ihim2s3JjbJH4ipnw==
+X-Google-Smtp-Source: AKy350YOI1JvTjyJnVhuHF0/GZe506qbmhTfWethAuEj8TDysJJtkcdLAPJ8nISY8Nvsa/qV1un2tA==
+X-Received: by 2002:a17:90b:38c5:b0:23d:5196:eca8 with SMTP id nn5-20020a17090b38c500b0023d5196eca8mr4260918pjb.20.1680909074953;
+        Fri, 07 Apr 2023 16:11:14 -0700 (PDT)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id r5-20020a170902be0500b001a076568da9sm3361526pls.216.2023.04.07.16.11.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Apr 2023 16:11:14 -0700 (PDT)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v6 1/6] RISC-V: Move struct riscv_cpuinfo to new header
+Date: Fri,  7 Apr 2023 16:10:58 -0700
+Message-Id: <20230407231103.2622178-2-evan@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230407231103.2622178-1-evan@rivosinc.com>
+References: <20230407231103.2622178-1-evan@rivosinc.com>
 MIME-Version: 1.0
-References: <20230407110356.8449-1-samin.guo@starfivetech.com> <20230407110356.8449-7-samin.guo@starfivetech.com>
-In-Reply-To: <20230407110356.8449-7-samin.guo@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 7 Apr 2023 21:16:22 +0200
-Message-ID: <CAJM55Z9LF+p-jWQkPzK=0ovfrXN0b-E5Ed49sbC9xOdrH5SuKA@mail.gmail.com>
-Subject: Re: [-net-next v11 6/6] net: stmmac: starfive-dmac: Add phy interface settings
-To: Samin Guo <samin.guo@starfivetech.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, netdev@vger.kernel.org, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, 
-	Yanhong Wang <yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230407_121643_168343_223521FF 
-X-CRM114-Status: GOOD (  25.86  )
+X-CRM114-CacheID: sfid-20230407_161115_442015_BAC7A422 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,117 +85,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, heiko@sntech.de, Atish Patra <atishp@rivosinc.com>, vineetg@rivosinc.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, slewis@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samin,
+In preparation for tracking and exposing microarchitectural details to
+userspace (like whether or not unaligned accesses are fast), move the
+riscv_cpuinfo struct out to its own new cpufeatures.h header. It will
+need to be used by more than just cpu.c.
 
-If you're respinning this series anyway, please use "net: stmmac:
-dwmac-starfive:" to match the filename.
+Signed-off-by: Evan Green <evan@rivosinc.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
+---
 
-On Fri, 7 Apr 2023 at 13:05, Samin Guo <samin.guo@starfivetech.com> wrote:
->
-> dwmac supports multiple modess. When working under rmii and rgmii,
-> you need to set different phy interfaces.
->
-> According to the dwmac document, when working in rmii, it needs to be
-> set to 0x4, and rgmii needs to be set to 0x1.
->
-> The phy interface needs to be set in syscon, the format is as follows:
-> starfive,syscon: <&syscon, offset, shift>
->
-> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
-> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 48 +++++++++++++++++++
->  1 file changed, 48 insertions(+)
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> index 4963d4008485..d6a1eddb51e8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> @@ -13,6 +13,10 @@
->
->  #include "stmmac_platform.h"
->
-> +#define STARFIVE_DWMAC_PHY_INFT_RGMII  0x1
-> +#define STARFIVE_DWMAC_PHY_INFT_RMII   0x4
-> +#define STARFIVE_DWMAC_PHY_INFT_FIELD  0x7U
-> +
->  struct starfive_dwmac {
->         struct device *dev;
->         struct clk *clk_tx;
-> @@ -46,6 +50,46 @@ static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
->                 dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
->  }
->
-> +static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
-> +{
-> +       struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
-> +       struct regmap *regmap;
-> +       unsigned int args[2];
-> +       unsigned int mode;
-> +       int err;
-> +
-> +       switch (plat_dat->interface) {
-> +       case PHY_INTERFACE_MODE_RMII:
-> +               mode = STARFIVE_DWMAC_PHY_INFT_RMII;
-> +               break;
-> +
-> +       case PHY_INTERFACE_MODE_RGMII:
-> +       case PHY_INTERFACE_MODE_RGMII_ID:
-> +               mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
-> +               break;
-> +
-> +       default:
-> +               dev_err(dwmac->dev, "unsupported interface %d\n",
-> +                       plat_dat->interface);
-> +               return -EINVAL;
-> +       }
-> +
-> +       regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
-> +                                                     "starfive,syscon",
-> +                                                     2, args);
-> +       if (IS_ERR(regmap))
-> +               return dev_err_probe(dwmac->dev, PTR_ERR(regmap), "syscon regmap failed\n");
+(no changes since v5)
 
-This message is a bit misleading. It's not actually that the regmap
-failed, but getting/looking up the regmap failed.
+Changes in v5:
+ - Added tags
 
-> +       /* args[0]:offset  args[1]: shift */
-> +       err = regmap_update_bits(regmap, args[0],
-> +                                STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
-> +                                mode << args[1]);
-> +       if (err)
-> +               return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
-> +
-> +       return 0;
-> +}
-> +
->  static int starfive_dwmac_probe(struct platform_device *pdev)
->  {
->         struct plat_stmmacenet_data *plat_dat;
-> @@ -91,6 +135,10 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
->         plat_dat->bsp_priv = dwmac;
->         plat_dat->dma_cfg->dche = true;
->
-> +       err = starfive_dwmac_set_mode(plat_dat);
-> +       if (err)
-> +               return err;
-> +
->         err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
->         if (err) {
->                 stmmac_remove_config_dt(pdev, plat_dat);
-> --
-> 2.17.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Changes in v3:
+ - Updated copyright date in cpufeature.h
+ - Fixed typo in cpufeature.h comment (Conor)
+
+Changes in v2:
+ - Factored the move of struct riscv_cpuinfo to its own header
+
+ arch/riscv/include/asm/cpufeature.h | 21 +++++++++++++++++++++
+ arch/riscv/kernel/cpu.c             |  8 ++------
+ 2 files changed, 23 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/include/asm/cpufeature.h
+
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+new file mode 100644
+index 000000000000..66ebaae449c8
+--- /dev/null
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2022-2023 Rivos, Inc
++ */
++
++#ifndef _ASM_CPUFEATURE_H
++#define _ASM_CPUFEATURE_H
++
++/*
++ * These are probed via a device_initcall(), via either the SBI or directly
++ * from the corresponding CSRs.
++ */
++struct riscv_cpuinfo {
++	unsigned long mvendorid;
++	unsigned long marchid;
++	unsigned long mimpid;
++};
++
++DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++#endif
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 8400f0cc9704..dafd0caa4f1d 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -7,6 +7,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/cpufeature.h>
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+ #include <asm/sbi.h>
+@@ -70,12 +71,7 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+ 	return -1;
+ }
+ 
+-struct riscv_cpuinfo {
+-	unsigned long mvendorid;
+-	unsigned long marchid;
+-	unsigned long mimpid;
+-};
+-static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ 
+ unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
+ {
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
