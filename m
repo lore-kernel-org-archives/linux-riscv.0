@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB530C6FD1D
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 03:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402F4C77B6C
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Apr 2023 05:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8YUrJN/BnChfFTiZzZuhlioaLCELhNh3FIi1J5R+oCw=; b=j4A8fWXlc8k9CO
-	353OgDIXEOeGLmxRQkwhixnjbWFP7U10GQd8LQkFpVRKJg0B4npPdrguXJelP4Pesa4qL0pW10hef
-	CpprkZZ5I5hzhF7nrAnhK/GPkAkA2Az0xvUBQjuJ7jdVRS5lDsggPC7LUaZB/S03OHmcKosaTrRWE
-	0SY3R1BrdNtNPly9vQ0QgIcGB1kNRCbQDaZJTW8dwWr/hM8lV4lqWnfOWIoFaqsIiTEKNLUKzYra2
-	cFDE8H4swdAZdMkxG2+mhSPNjtYtMJJyja1D/145mlFBnvVNkJod5xlVC8wQSZp59cyl8lTAL3VG0
-	wNW6+eLCV+KjQqlYjwbg==;
+	List-Owner; bh=zyqpz1n7a2IUW3auyPQ2M3dCVKVOdWHpyNF0VjzJNBM=; b=nhJMSkN5s/NvJQ
+	B7Uw0aaf26Co3PE5F97tZHTeitqZqPNE2ID9OLHrIqb1WBjK+6YTuwNeHK6XZyNBj03RWu6nRAqbi
+	vB3I6jJDufzXD1jpZeSeKsUArI4SYagiYkAietCCcfpM2EzoHpbLaIqXiYz7j7XapL8MXaoNZz8wt
+	fFyBCCOKEW2+yrvPdqjA6I9b2SxL+YVxVe1LXil45NPzBOidbvq6Y8U5vC7j3/rWyvRsUKiA8aJm3
+	YeGE+SE65bXCLRYGXm+dCaD0OzjlUErVey2zThF0v+LCO/8hYVxP0LtWbDY8WMP+YYaHJrenrqK8J
+	MOVB5CM8rTeS2K6MTYDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkd3I-0096GG-2y;
-	Fri, 07 Apr 2023 03:46:16 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkd3E-0096EY-15
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Apr 2023 03:46:15 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 761F524E1B6;
-	Fri,  7 Apr 2023 11:45:39 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
- 2023 11:45:39 +0800
-Received: from [192.168.125.108] (183.27.97.179) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 7 Apr
- 2023 11:45:38 +0800
-Message-ID: <548b4d0f-447a-23a9-0e58-3d6c80cb8e3b@starfivetech.com>
-Date: Fri, 7 Apr 2023 11:45:37 +0800
+	id 1pkej9-009Ch9-1M;
+	Fri, 07 Apr 2023 05:33:35 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.96 #2 (Red Hat Linux))
+	id 1pkej6-009Cga-1f;
+	Fri, 07 Apr 2023 05:33:32 +0000
+Date: Thu, 6 Apr 2023 22:33:32 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: Christoph Hellwig <hch@infradead.org>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Samuel Holland <samuel@sholland.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v7 1/6] riscv: mm: dma-noncoherent: Switch using function
+ pointers for cache management
+Message-ID: <ZC+rLBDkdXWgj7YX@infradead.org>
+References: <20230330204217.47666-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230330204217.47666-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <ZCu1tFrQCVe2sgNz@infradead.org>
+ <OS0PR01MB59224C99770F84D8CE2D0DBA86939@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+ <ZCxFUb8+eQPzqBmo@infradead.org>
+ <ZC9d2DIOMy27AAT9@andrea>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v1 1/3] dt-binding: pci: add JH7110 PCIe dt-binding
- documents.
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Rob Herring
-	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?=
-	<kw@linux.com>, <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230406111142.74410-1-minda.chen@starfivetech.com>
- <20230406111142.74410-2-minda.chen@starfivetech.com>
- <38bc48bf-7d8c-8ddd-861f-3b7f3d2edce6@linaro.org>
- <20230406-revisit-patchy-a0063d964070@spud>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230406-revisit-patchy-a0063d964070@spud>
-X-Originating-IP: [183.27.97.179]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230406_204612_535736_13D9E0EC 
-X-CRM114-Status: GOOD (  13.15  )
+Content-Disposition: inline
+In-Reply-To: <ZC9d2DIOMy27AAT9@andrea>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +74,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 07, 2023 at 02:03:36AM +0200, Andrea Parri wrote:
+> > But other other point is adding more cache flushing variants should not
+> > be easy.  Everyone should be using the standardize version.  If it's not
+> > implemented in hardware despite having ratified extensions you can fake
+> > it up in SBI.  Yes, that's way more expensive than indirect calls, but
+> > that's what you get for taping out new hardware that ignores the actual
+> > architecture specification and just does their own made up shit.
+> 
+> FWIW, ALTERNATIVE_X() for "three instructions with (what should be a)
+> crystal-clear semantics" already smells like "we're doing it wrong" to
+> me, function pointers would be closer to "we're looking for trouble".
 
-
-On 2023/4/7 2:35, Conor Dooley wrote:
-> On Thu, Apr 06, 2023 at 08:24:55PM +0200, Krzysztof Kozlowski wrote:
->> On 06/04/2023 13:11, Minda Chen wrote:
->> > +
->> > +  interrupt-controller:
->> > +    type: object
->> > +    properties:
->> > +      '#address-cells':
->> > +        const: 0
->> > +
->> > +      '#interrupt-cells':
->> > +        const: 1
->> > +
->> > +      interrupt-controller: true
->> > +
->> > +    required:
->> > +      - '#address-cells'
->> > +      - '#interrupt-cells'
->> > +      - interrupt-controller
->> > +
->> > +    additionalProperties: false
->> > +
->> > +required:
->> > +  - reg
->> > +  - reg-names
->> > +  - "#interrupt-cells"
->> 
->> Keep consistent quotes - either ' or "
->> 
->> Are you sure this is correct? You have interrupt controller as child node.
-> 
-> I know existing stuff in-tree is far from a guarantee that it'll be
-> right, but this does at least follow what we've got for PolarFire SoC:
-> Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-> 
-> Both PLDA and both RISC-V w/ a PLIC as the interrupt controller, so in
-> similar waters.
-> This note existed in the original text form binding of the Microchip
-> PCI controller:
-> | +NOTE:
-> | +The core provides a single interrupt for both INTx/MSI messages. So,
-> | +create an interrupt controller node to support 'interrupt-map' DT
-> | +functionality.  The driver will create an IRQ domain for this map, decode
-> | +the four INTx interrupts in ISR and route them to this domain.
-> 
-> Given the similarities, I figure the same requirement applies here too.
-> Minda?
-> 
-> Cheers,
-> Conor.
-
-Yes, Thanks very much.
+Thanks for putting my feelings into such concise words.
 
 _______________________________________________
 linux-riscv mailing list
