@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74B6C7619A
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 12:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64EADC77B61
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 12:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AHI1XxaFXEwNK/oCZv0a71OOfi1yZJBPBdYuxL8pt9A=; b=GyqBexeyh8AL7p
-	aSKJ9R7D4O/WwIsYkXSAOIgMPwdcBpLcyz88cqU0NcSanrJTRfPvBNjEcOSJDslu9QhgglrytzncU
-	eU3fhFFZzCpbf1rhdWZ5sNmwjqtEJ5TED0HISfmtjtJ6arjQ9+j0gp9OlYuWLT7jFgeR8PlNJffGh
-	pMQVABNYx4VrjXiiMn7XjOQj9+d55tXYtoHzwsuyLI8NANmTU1fJkF/Tw6gHkB/T6hYu6OSG7Q4uF
-	XgFVV45IGIuYRn1z/jmzLUa5gDUcq5toc3fomxF+7gLsrbe9c5EXHqqeFA8WbvI/fEaQFi5n3w8q9
-	e9OveBWHINOY6BCqvtOw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ixdAnYNtL6i96qs3xJ2vA6SbBTEAYcOm/EU//mc4rzM=; b=maddNWTZJpmid9
+	b/fpmmD65sux98fwFeRNee8NbVFze9Fh8gfKAzBPba7nqp+3xLvcglvOs30dTzTGFxkLaGKzChfeT
+	iiIiYS6DUzQ7JGWkZ7q75aOcMJKMMAQDKmJ/XMIMk6A9iZ4Ca3NSKFUeDHKtpPfXm4DdEhkk0OTqp
+	D1TCa6c21/dW8e+KnN/omKQheF4LX/PW16aMtzK06L8EwmImkwdZhyGXgrZEcnsbaTvf86qDjvZLL
+	lVhm6bUB7VI4xuiYfuWAqSEBWr6gO/EABUOLRAVFWgUioZ2QEFoeyxHjE/UbIa8O+yUx4Kt81YBn9
+	0SryckOHXyrElKntRvbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7nh-00CIpA-30;
-	Sat, 08 Apr 2023 12:36:13 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1pl7uM-00CJbj-1w;
+	Sat, 08 Apr 2023 12:43:06 +0000
+Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7nc-00CIoP-2q;
-	Sat, 08 Apr 2023 12:36:10 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-94a34a14a54so27951966b.1;
-        Sat, 08 Apr 2023 05:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1680957363;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BOWahdTnRG3Wj8yi+V6U+R9QIgRUu+TUuu4yKrmq1Po=;
-        b=HZ6hA51qYqRkCOfrq5rl07wWJs6ZXodOnniOCbtg/CbbYj7+Cvt0H/2M7mWU6STdP6
-         YOCr/NpmbIHfxI8gLFijenNJ04LxQ730dvOfjolF7mWWPKQXUTIfOcMcQ8Djt9ZaNlCK
-         3q7IN9EcIndh/yIHLuDs4+yc5QTbEwwipGOCD/1O49JHGcjZDx1hiRG8lyW61fC0imq9
-         HAfOFK9k3mx2rVUGqodOLjVeclsDfg2D7xqcLRNbvJDv3humib9EhZuqgkVPXTnqKT9H
-         2thBmOmXK9xUVo2lVb+zmIWvxFP45GPo5CTKAeIY7J7yaNWWC7foDjqVPTsmipJ+Pn+s
-         jrWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680957363;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BOWahdTnRG3Wj8yi+V6U+R9QIgRUu+TUuu4yKrmq1Po=;
-        b=zZSBAbPyAHvEof7WvQNW90xXo0KCakM6RG7WA86Z8yXRhOdLh2KLNJYXMwVydkdoKP
-         8c32Pz5xEEKRXjj8bDFz1zUjWqNzzDEyE5mwODXBPF1/7PfTPSOdbV1km4Uy3e/c2WcM
-         bKjOaaWZ1EYk2mqDiVuUwFoZsMX4kIKCJIO0P1k1x/pHntLoiJcKpWySOnTW+xpeeQ5w
-         utU6kDRhAH/+kVRd/e7roA7zFrIOrku/a34xEBmBsPlXG7YHJJpQ8zsAjMizo1RvF03p
-         D9MGBpW+u637x6bwtDkFx7tiQIPyQlYXh9i1K2fwjIXGH6M/WJTE2o6+gb6SZ0oXUoks
-         3QkQ==
-X-Gm-Message-State: AAQBX9cl8sKyAGT9s56lMN45OpKAbN0i279+y1q/EFB+h6n4jebPaOxD
-	H8A1iov3QJW87JaiJp5B57k=
-X-Google-Smtp-Source: AKy350Y1drrvxW3UM2vKy8JNJ5ywWt6Gxl4RwyNbLie7SrkT0Gou8ZfxNt9jwSJcq2xa5fyzHkUS/g==
-X-Received: by 2002:a50:ee06:0:b0:502:2a76:5781 with SMTP id g6-20020a50ee06000000b005022a765781mr4928298eds.5.1680957362692;
-        Sat, 08 Apr 2023 05:36:02 -0700 (PDT)
-Received: from jernej-laptop.localnet (89-212-118-115.static.t-2.net. [89.212.118.115])
-        by smtp.gmail.com with ESMTPSA id h2-20020a50c382000000b004ad601533a3sm2898806edf.55.2023.04.08.05.36.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Apr 2023 05:36:02 -0700 (PDT)
-From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, kernel@collabora.com
-Subject:  Re: [PATCH v2 06/10] riscv: dts: allwinner: d1: Switch dma-names order for
- snps,dw-apb-uart nodes
-Date: Sat, 08 Apr 2023 14:36:00 +0200
-Message-ID: <1945003.usQuhbGJ8B@jernej-laptop>
-In-Reply-To: <20230321215624.78383-7-cristian.ciocaltea@collabora.com>
-References:  <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
- <20230321215624.78383-7-cristian.ciocaltea@collabora.com>
+	id 1pl7u8-00CJQM-0L;
+	Sat, 08 Apr 2023 12:42:56 +0000
+Received: from ubuntu.localdomain (unknown [121.32.254.147])
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 7AD2E580211;
+	Sat,  8 Apr 2023 20:42:26 +0800 (CST)
+From: Donglin Peng <pengdonglin@sangfor.com.cn>
+To: mhiramat@kernel.org,
+	rostedt@goodmis.org,
+	linux@armlinux.org.uk,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	rmk+kernel@armlinux.org.uk,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	bp@alien8.de,
+	hpa@zytor.com,
+	chenhuacai@kernel.org,
+	zhangqing@loongson.cn,
+	kernel@xen0n.name,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	xiehuan09@gmail.com,
+	dinghui@sangfor.com.cn,
+	huangcun@sangfor.com.cn,
+	dolinux.peng@gmail.com
+Cc: linux-trace-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Donglin Peng <pengdonglin@sangfor.com.cn>
+Subject: [PATCH v11 0/8] function_graph: Support recording and printing the return value of function
+Date: Sat,  8 Apr 2023 05:42:14 -0700
+Message-Id: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSRgeVkJKGB0dGR0YH05JSFUTARMWGhIXJBQOD1
+	lXWRgSC1lBWUpJSlVISVVJTk9VSk9MWVdZFhoPEhUdFFlBWU9LSFVKSEpCSE9VSktLVUtZBg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OBg6CSo6Lz0TEjcwMxMIVghI
+	DysKC1FVSlVKTUNLQk5MTE9DSkhNVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSklKVUhJVUlOT1VKT0xZV1kIAVlBQk1KTjcG
+X-HM-Tid: 0a8760e3b1ae2eb7kusn7ad2e580211
+X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230408_053608_979655_20413DEA 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20230408_054252_601632_9A80385F 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +92,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 21. marec 2023 ob 22:56:20 CEST je Cristian Ciocaltea napisal(a):
-> Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
-> dma-names properties") documented dma-names property to handle Allwinner
-> D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
-> reverse of what a bunch of different boards expect.
-> 
-> The initial proposed solution was to allow a flexible dma-names order in
-> the binding, due to potential ABI breakage concerns after fixing the DTS
-> files. But luckily the Allwinner boards are not affected, since they are
-> using a shared DMA channel for rx and tx.
-> 
-> Hence, the first step in fixing the inconsistency was to change
-> dma-names order in the binding to tx->rx.
-> 
-> Do the same for the snps,dw-apb-uart nodes in the DTS file.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+When using the function_graph tracer to analyze system call failures,
+it can be time-consuming to analyze the trace logs and locate the kernel
+function that first returns an error. This change aims to simplify the
+process by recording the function return value to the 'retval' member of
+'ftrace_graph_ent' and printing it when outputing the trace log.
 
-Applied patches 2-6, thanks!
+Note that even if a function's return type is void, a return value will
+still be printed, so it should be ignored. If you care about this, the
+BTF file can be used to obtain the details of function return type. We
+can implement a tool to process the trace log and display the return
+value based on its actual type.
 
-Best regards,
-Jernej
+Here is an example:
 
+...
+
+ 1)               |  cgroup_attach_task() {
+ 1)               |    cgroup_migrate_add_src() {
+ 1)   1.403 us    |      cset_cgroup_from_root(); /* = 0xffff93fc86f58010 */
+ 1)   2.154 us    |    } /* cgroup_migrate_add_src = 0xffffb286c1297d00 */
+ 1) ! 386.538 us  |    cgroup_migrate_prepare_dst(); /* = 0x0 */
+ 1)               |    cgroup_migrate() {
+ 1)   0.651 us    |      cgroup_migrate_add_task(); /* = 0xffff93fcfd346c00 */
+ 1)               |      cgroup_migrate_execute() {
+ 1)               |        cpu_cgroup_can_attach() {
+ 1)               |          cgroup_taskset_first() {
+ 1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
+ 1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
+ 1)   0.380 us    |          sched_rt_can_attach(); /* = 0x0 */
+ 1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
+ 1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
+ 1)   7.143 us    |    } /* cgroup_migrate = -22 */
+ 1)               |    cgroup_migrate_finish() {
+ 1)   0.411 us    |      put_css_set_locked(); /* = 0x8 */
+ 1) + 62.397 us   |      put_css_set_locked(); /* = 0x80000001 */
+ 1) + 64.742 us   |    } /* cgroup_migrate_finish = 0x80000000 */
+ 1) ! 465.605 us  |  } /* cgroup_attach_task = -22 */
+
+...
+
+After processing the above trace logs using BTF information:
+
+...
+
+ 1)               |  cgroup_attach_task() {
+ 1)               |    cgroup_migrate_add_src() {
+ 1)   1.403 us    |      cset_cgroup_from_root(); /* = 0xffff93fc86f58010 */
+ 1)   2.154 us    |    } /* cgroup_migrate_add_src */
+ 1) ! 386.538 us  |    cgroup_migrate_prepare_dst(); /* = 0 */
+ 1)               |    cgroup_migrate() {
+ 1)   0.651 us    |      cgroup_migrate_add_task();
+ 1)               |      cgroup_migrate_execute() {
+ 1)               |        cpu_cgroup_can_attach() {
+ 1)               |          cgroup_taskset_first() {
+ 1)   0.732 us    |            cgroup_taskset_next(); /* = 0xffff93fc8fb20000 */
+ 1)   1.232 us    |          } /* cgroup_taskset_first = 0xffff93fc8fb20000 */
+ 1)   0.380 us    |          sched_rt_can_attach(); /* = 0 */
+ 1)   2.335 us    |        } /* cpu_cgroup_can_attach = -22 */
+ 1)   4.369 us    |      } /* cgroup_migrate_execute = -22 */
+ 1)   7.143 us    |    } /* cgroup_migrate = -22 */
+ 1)               |    cgroup_migrate_finish() {
+ 1)   0.411 us    |      put_css_set_locked();
+ 1) + 62.397 us   |      put_css_set_locked();
+ 1) + 64.742 us   |    } /* cgroup_migrate_finish */
+ 1) ! 465.605 us  |  } /* cgroup_attach_task = -22 */
+
+...
+
+---
+v11:
+ - Add a limitation discovered by Mark.
+ - Fix selftest issues.
+
+v10:
+ - Fix code style issues for LoongArch
+ - Fix selftest issues
+ - Use CONFIG_FUNCTION_GRAPH_TRACER to control fgraph_ret_regs definition
+
+v9:
+ - Fix align issues in ARM asm code
+ - Fix align issues in LoongArch asm code
+ - Update commit messages
+ - Update comments for ftrace_return_to_handler
+
+v8:
+ - Fix issues in ARM64 asm code
+ - Fix issues in selftest
+ - Add some comments on CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+ - Make CONFIG_FUNCTION_GRAPH_RETVAL switable
+ - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+
+v7:
+ - Rename trace option 'graph_retval_hex' to 'funcgraph-retval-hex'
+ - Introduce a new structure fgraph_ret_regs for each architecture to
+   hold return registers
+ - Separate each architecture modification info individual patches
+ - Add a test case for funcgraph-retval
+ - Update documentation description
+ - Support LoongArch
+
+v6:
+ - Remove the conversion code for short and char types, because these
+   two types are rarely used to store an error code.
+ - Modify the limitations for funcgraph-retval
+ - Optimize the English expression
+
+v5:
+ - Pass both the return values to ftrace_return_to_handler
+ - Modify the parameter sequence of ftrace_return_to_handler to
+   decrease the modification of assembly code, thanks to Russell King
+ - Wrap __ftrace_return_to_handler with ftrace_return_to_handler
+   for compatible
+ - Describe the limitations of funcgraph-retval
+
+v4:
+ - Modify commit message
+ - Introduce new option graph_retval_hex to control display format
+ - Introduce macro CONFIG_FUNCTION_GRAPH_RETVAL and
+   CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+ - Add related arch maintainers to review
+
+v3:
+ - Modify the commit message: add trace logs processed with the btf tool
+
+v2:
+ - Modify the commit message: use BTF to get the return type of function
+
+Donglin Peng (8):
+  function_graph: Support recording and printing the return value of
+    function
+  tracing: Add documentation for funcgraph-retval and
+    funcgraph-retval-hex
+  ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+  arm64: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+  riscv: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+  x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+  LoongArch: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+  selftests/ftrace: Add funcgraph-retval test case
+
+ Documentation/trace/ftrace.rst                | 126 ++++++++++++++++++
+ arch/arm/Kconfig                              |   1 +
+ arch/arm/include/asm/ftrace.h                 |  22 +++
+ arch/arm/kernel/asm-offsets.c                 |   8 +-
+ arch/arm/kernel/entry-ftrace.S                |  10 +-
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/include/asm/ftrace.h               |  22 +++
+ arch/arm64/kernel/asm-offsets.c               |  13 ++
+ arch/arm64/kernel/entry-ftrace.S              |  27 ++--
+ arch/loongarch/Kconfig                        |   1 +
+ arch/loongarch/include/asm/ftrace.h           |  22 +++
+ arch/loongarch/kernel/asm-offsets.c           |  15 ++-
+ arch/loongarch/kernel/mcount.S                |  14 +-
+ arch/loongarch/kernel/mcount_dyn.S            |  15 ++-
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/include/asm/ftrace.h               |  21 +++
+ arch/riscv/kernel/mcount.S                    |   7 +-
+ arch/x86/Kconfig                              |   1 +
+ arch/x86/include/asm/ftrace.h                 |  20 +++
+ arch/x86/kernel/ftrace_32.S                   |   8 +-
+ arch/x86/kernel/ftrace_64.S                   |   7 +-
+ include/linux/ftrace.h                        |   3 +
+ kernel/trace/Kconfig                          |  15 +++
+ kernel/trace/fgraph.c                         |  23 +++-
+ kernel/trace/trace.h                          |   2 +
+ kernel/trace/trace_entries.h                  |  26 ++++
+ kernel/trace/trace_functions_graph.c          |  93 +++++++++++--
+ .../ftrace/test.d/ftrace/fgraph-retval.tc     |  44 ++++++
+ 28 files changed, 513 insertions(+), 55 deletions(-)
+ create mode 100644 tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
+
+-- 
+2.25.1
 
 
 _______________________________________________
