@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38634C77B6C
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 13:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE18C7619A
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 15:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QgMkQeSHfxhl37Vmvq+zwCranlRlG/5wDyZr6uYs6JU=; b=c8AW4KU/DS+IYL
-	aROi4Cu66halY6vHnimESMVzr+UbHHLYE3nDqDHiEuBLvNkvpkckZppBx3SEaJs9u/4p/gg6RbWE8
-	797SgdJ6LcOA5QSQbbYpQRPbwlWnNtI/0L+zMn4eSBJaVf7Ps2YpGcX/rYlfEn2ueC9MlO52b61Kq
-	wdFfVF0eFuFEtGV1KnmWYDioDQX8tvE3dD2sAYz3lvvnjzu0dGsUj71OS7zJABnrZDsOqiBuk/yvz
-	u4O0HN+QJ1HMdOPT6CnUXkhKNcPGTl3pqBmebnFDDP0oBOYnQgc6Y0P5HBYZs72WSIxH/bsBA9fi0
-	/eYDZjNskPxdcOW03/EQ==;
+	List-Owner; bh=WhrbSJwmD5k5yP7I6Ni0KUQ0s7bNzsQzCBbdm6zl5YQ=; b=tV2xCiBrkROKpk
+	cvyH4a6ydo5oD8YJv1ATiAo6p9N1PppAo/huJAlsgVqsXokpitE3FdolJxAEeG5DLLUp6mMC2TvFo
+	9P4nIRmm50YKuz6KcA1q8k0smfZxWipCM3GFcXw7y0SM4BVeb0fwvkjyyoQ05dn+Kd7cgo9nAinRd
+	5ysUVmQIr20TX1t3BId22zX3VaviIC+961bHNVSgodPZ7zoboA2q3JyFDamLCKJ5Iq4BVWmm0S5Ep
+	Oroa02hznCw92NcSoWR/nz5ss+EolBJxH4uhMSFoA4dfCHF3xWyVrZePQC42ew0kUQabLuKnD81Jl
+	yEuT2BgTLk0Zotf2LO4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl8vO-00COK2-0O;
-	Sat, 08 Apr 2023 13:48:14 +0000
-Received: from mail-m118111.qiye.163.com ([115.236.118.111])
+	id 1plAV1-00CVbp-0t;
+	Sat, 08 Apr 2023 15:29:07 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7u8-00CJQE-0L;
-	Sat, 08 Apr 2023 12:42:54 +0000
-Received: from ubuntu.localdomain (unknown [121.32.254.147])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id CDEFD5802E7;
-	Sat,  8 Apr 2023 20:42:36 +0800 (CST)
-From: Donglin Peng <pengdonglin@sangfor.com.cn>
-To: mhiramat@kernel.org,
-	rostedt@goodmis.org,
-	linux@armlinux.org.uk,
-	mark.rutland@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	rmk+kernel@armlinux.org.uk,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	tglx@linutronix.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	bp@alien8.de,
-	hpa@zytor.com,
-	chenhuacai@kernel.org,
-	zhangqing@loongson.cn,
-	kernel@xen0n.name,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	xiehuan09@gmail.com,
-	dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn,
-	dolinux.peng@gmail.com
-Cc: linux-trace-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v11 6/8] x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Date: Sat,  8 Apr 2023 05:42:20 -0700
-Message-Id: <53a506f0f18ff4b7aeb0feb762f1c9a5e9b83ee9.1680954589.git.pengdonglin@sangfor.com.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
-References: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
+	id 1plAUy-00CVbF-23
+	for linux-riscv@lists.infradead.org;
+	Sat, 08 Apr 2023 15:29:06 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id go23so3882707pjb.4
+        for <linux-riscv@lists.infradead.org>; Sat, 08 Apr 2023 08:29:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1680967743; x=1683559743;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L/CqlFLSqTlHbIyKxwvXGQ5ogjJykzkwTVvFA5reLrY=;
+        b=MRHkIlNVuAzdfLMyOf1KU3dKEl6JGIYPOpOLaz/HH3DtmrUctyXQ6l5ZQJqZgDVhII
+         0uMYKnIRjhgXPogcW5LMZ/J4g5sETfrVvjSbPfNusD7z7mi7xhSjgX31uqk8sKhTxbKQ
+         bzGsMMYzPZhWqqxuL4p5QStegnHRzjYalYEE21AwRlXaGNiLjGwBvf8hAi7fUdKjTr2W
+         XlnaE7GsJKO9h1P8HKm4NmjGXjtFWiAIOdOI7UzPOcJ3CIypeiC8wdx2mxm12KaxB3qm
+         OwHYIkTnDjO9VtZjmUrWxupB0IP5+qHJJXQwge+J3xlSUgQeN3H3DXKLZM79LZFqsYli
+         A/Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680967743; x=1683559743;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L/CqlFLSqTlHbIyKxwvXGQ5ogjJykzkwTVvFA5reLrY=;
+        b=rcbE2VgsiVauGxU3O7nkSjl+yvHUI4dO5gKFqKtencFrnfAAicmbxbZhLq05BItyW5
+         tzpIAO9eU523GMh7jpnvyimdE5q8KzwTXLtIy1K+7mAwcpaJ5ZANfX2uaZSciXgEVW72
+         X/vkhGYP7abDedTHY+ZB3NoUSWtb/DKjUSI7hO0dTJBrUZL/BqyjiOaS/nTZcsNep8ro
+         Uaftk9HNu1biuJrIqYf4y+zF6I/oKOglTR3bVlSYwCuP3Y7v/IBch026emmOnQuoR2aa
+         seUk5T4sMRdKsLgOMFbV7BNzHLeoXCHMC3tAuKXeF35AkLyuJDXxH+RCbHNs2H/rPUg9
+         bhvQ==
+X-Gm-Message-State: AAQBX9c8iqhzVbSq9mSWmoAvuIG6Ox6pZcC4A6f28f2yzyLi7xFOX8HJ
+	uGMQog1YLlaVWt9a3LqQnGo=
+X-Google-Smtp-Source: AKy350Y+M27wSUr2e2KA/3Osm5k6tDYPZAW3F7SZ5WX9U9qR8HLOaf0b2Pwx1PQHytYXXR2m/tR1vg==
+X-Received: by 2002:a17:902:e550:b0:19c:da7f:a234 with SMTP id n16-20020a170902e55000b0019cda7fa234mr7765282plf.67.1680967742844;
+        Sat, 08 Apr 2023 08:29:02 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id ju18-20020a170903429200b00199023c688esm4688711plb.26.2023.04.08.08.29.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Apr 2023 08:29:02 -0700 (PDT)
+Date: Sat, 8 Apr 2023 08:29:01 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Jean Delvare <jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Samin Guo <samin.guo@starfivetech.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] dt-bindings: hwmon: Add starfive,jh71x0-temp
+Message-ID: <746ae322-f661-4713-8152-1f7b33b1a988@roeck-us.net>
+References: <20230321022644.107027-1-hal.feng@starfivetech.com>
+ <20230321022644.107027-2-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCQ0oaVkNDSEhLTEMdGRpDTVUTARMWGhIXJBQOD1
-	lXWRgSC1lBWUpJSlVISVVJTk9VSk9MWVdZFhoPEhUdFFlBWU9LSFVKSktPSEhVSktLVUtZBg++
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6KxQ6Ehw4OD0KDjdNFRxKVhAO
-	CD4KCzZVSlVKTUNLQk5MTE5DSE1KVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSklKVUhJVUlOT1VKT0xZV1kIAVlBTUtITzcG
-X-HM-Tid: 0a8760e3d9dc2eb7kusncdefd5802e7
-X-HM-MType: 1
+Content-Disposition: inline
+In-Reply-To: <20230321022644.107027-2-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230408_054252_372540_8D23E6DC 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20230408_082904_697781_F6089CFF 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,129 +103,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The previous patch ("function_graph: Support recording and printing
-the return value of function") has laid the groundwork for the for
-the funcgraph-retval, and this modification makes it available on
-the x86 platform.
+On Tue, Mar 21, 2023 at 10:26:43AM +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
+> 
+> Add bindings for the temperature sensor on the StarFive JH7100 and
+> JH7110 SoCs.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
-We introduce a new structure called fgraph_ret_regs for the x86
-platform to hold return registers and the frame pointer. We then
-fill its content in the return_to_handler and pass its address
-to the function ftrace_return_to_handler to record the return
-value.
+Applied.
 
-Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
----
-v10:
- - Use CONFIG_FUNCTION_GRAPH_TRACER to control fgraph_ret_regs definition
+Thanks,
+Guenter
 
-v9:
- - Update the commit message
-
-v8:
- - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
----
- arch/x86/Kconfig              |  1 +
- arch/x86/include/asm/ftrace.h | 20 ++++++++++++++++++++
- arch/x86/kernel/ftrace_32.S   |  8 +++++---
- arch/x86/kernel/ftrace_64.S   |  7 ++++---
- 4 files changed, 30 insertions(+), 6 deletions(-)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a825bf031f49..956cc988bdf9 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -214,6 +214,7 @@ config X86
- 	select HAVE_FAST_GUP
- 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD
-+	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_GCC_PLUGINS
-diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
-index 5061ac98ffa1..38d1df9aed37 100644
---- a/arch/x86/include/asm/ftrace.h
-+++ b/arch/x86/include/asm/ftrace.h
-@@ -147,4 +147,24 @@ static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
- #endif /* !COMPILE_OFFSETS */
- #endif /* !__ASSEMBLY__ */
- 
-+#ifndef __ASSEMBLY__
-+#ifdef CONFIG_FUNCTION_GRAPH_TRACER
-+struct fgraph_ret_regs {
-+	unsigned long ax;
-+	unsigned long dx;
-+	unsigned long bp;
-+};
-+
-+static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
-+{
-+	return ret_regs->ax;
-+}
-+
-+static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
-+{
-+	return ret_regs->bp;
-+}
-+#endif /* ifdef CONFIG_FUNCTION_GRAPH_TRACER */
-+#endif
-+
- #endif /* _ASM_X86_FTRACE_H */
-diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
-index a0ed0e4a2c0c..5a9cc723f81f 100644
---- a/arch/x86/kernel/ftrace_32.S
-+++ b/arch/x86/kernel/ftrace_32.S
-@@ -182,12 +182,14 @@ SYM_CODE_END(ftrace_graph_caller)
- 
- .globl return_to_handler
- return_to_handler:
--	pushl	%eax
-+	pushl	$0
- 	pushl	%edx
--	movl	$0, %eax
-+	pushl	%eax
-+	movl	%esp, %eax
- 	call	ftrace_return_to_handler
- 	movl	%eax, %ecx
--	popl	%edx
- 	popl	%eax
-+	popl	%edx
-+	addl	$4, %esp		# skip ebp
- 	JMP_NOSPEC ecx
- #endif
-diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
-index fb4f1e01b64a..ef78c0bbae62 100644
---- a/arch/x86/kernel/ftrace_64.S
-+++ b/arch/x86/kernel/ftrace_64.S
-@@ -344,12 +344,13 @@ STACK_FRAME_NON_STANDARD_FP(__fentry__)
- SYM_CODE_START(return_to_handler)
- 	UNWIND_HINT_EMPTY
- 	ANNOTATE_NOENDBR
--	subq  $16, %rsp
-+	subq  $24, %rsp
- 
- 	/* Save the return values */
- 	movq %rax, (%rsp)
- 	movq %rdx, 8(%rsp)
--	movq %rbp, %rdi
-+	movq %rbp, 16(%rsp)
-+	movq %rsp, %rdi
- 
- 	call ftrace_return_to_handler
- 
-@@ -357,7 +358,7 @@ SYM_CODE_START(return_to_handler)
- 	movq 8(%rsp), %rdx
- 	movq (%rsp), %rax
- 
--	addq $16, %rsp
-+	addq $24, %rsp
- 	/*
- 	 * Jump back to the old return address. This cannot be JMP_NOSPEC rdi
- 	 * since IBT would demand that contain ENDBR, which simply isn't so for
--- 
-2.25.1
-
+> ---
+>  .../bindings/hwmon/starfive,jh71x0-temp.yaml  | 70 +++++++++++++++++++
+>  1 file changed, 70 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml b/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+> new file mode 100644
+> index 000000000000..f5b34528928d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+> @@ -0,0 +1,70 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/hwmon/starfive,jh71x0-temp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH71x0 Temperature Sensor
+> +
+> +maintainers:
+> +  - Emil Renner Berthing <kernel@esmil.dk>
+> +
+> +description: |
+> +  StarFive Technology Co. JH71x0 embedded temperature sensor
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - starfive,jh7100-temp
+> +      - starfive,jh7110-temp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: "sense"
+> +      - const: "bus"
+> +
+> +  '#thermal-sensor-cells':
+> +    const: 0
+> +
+> +  resets:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  reset-names:
+> +    items:
+> +      - const: "sense"
+> +      - const: "bus"
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/starfive-jh7100.h>
+> +    #include <dt-bindings/reset/starfive-jh7100.h>
+> +
+> +    temperature-sensor@124a0000 {
+> +        compatible = "starfive,jh7100-temp";
+> +        reg = <0x124a0000 0x10000>;
+> +        clocks = <&clkgen JH7100_CLK_TEMP_SENSE>,
+> +                 <&clkgen JH7100_CLK_TEMP_APB>;
+> +        clock-names = "sense", "bus";
+> +        #thermal-sensor-cells = <0>;
+> +        resets = <&rstgen JH7100_RSTN_TEMP_SENSE>,
+> +                 <&rstgen JH7100_RSTN_TEMP_APB>;
+> +        reset-names = "sense", "bus";
+> +    };
 
 _______________________________________________
 linux-riscv mailing list
