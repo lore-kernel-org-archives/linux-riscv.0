@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22521C7619A
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 13:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38634C77B6C
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 13:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9NP3EXnsi3Mjqw73suhTDQhGWw23bEy0EbZMrahJWaE=; b=UcOMut5NY84xnO
-	MF0Q9p1d+sztbiKVTepFygHCEs6OxSow1Tb6y7iF0kB8gatU1HBWUnYBwbAevdg2Ydp69mjOhUoU9
-	8JuzRzErPy+lZw5hqY9csjl8z8ECO8NcK3iDWS5nFF8w9JK2V4OSU+WsNHuL3KCec75RL0itsaZ1p
-	pIr0ylsAkvpZ9Fqt9QjXDQQoR6HjWA3K9Jewd54RSK4Bod69qmK60zHLkNsHbFoCz01UcHNKZqQeM
-	jt2JflGRX24YzSg+RqnhCyiS3ljQ8Kt8uUs5rVy0bxyZ9jcltL7rmWNiq6lSXyPPsGWmYa3RPdtaK
-	ppigP44JHvNuoZCIh1Ig==;
+	List-Owner; bh=QgMkQeSHfxhl37Vmvq+zwCranlRlG/5wDyZr6uYs6JU=; b=c8AW4KU/DS+IYL
+	aROi4Cu66halY6vHnimESMVzr+UbHHLYE3nDqDHiEuBLvNkvpkckZppBx3SEaJs9u/4p/gg6RbWE8
+	797SgdJ6LcOA5QSQbbYpQRPbwlWnNtI/0L+zMn4eSBJaVf7Ps2YpGcX/rYlfEn2ueC9MlO52b61Kq
+	wdFfVF0eFuFEtGV1KnmWYDioDQX8tvE3dD2sAYz3lvvnjzu0dGsUj71OS7zJABnrZDsOqiBuk/yvz
+	u4O0HN+QJ1HMdOPT6CnUXkhKNcPGTl3pqBmebnFDDP0oBOYnQgc6Y0P5HBYZs72WSIxH/bsBA9fi0
+	/eYDZjNskPxdcOW03/EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl8vN-00COJx-27;
-	Sat, 08 Apr 2023 13:48:13 +0000
+	id 1pl8vO-00COK2-0O;
+	Sat, 08 Apr 2023 13:48:14 +0000
 Received: from mail-m118111.qiye.163.com ([115.236.118.111])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7u8-00CJQP-0L;
+	id 1pl7u8-00CJQE-0L;
 	Sat, 08 Apr 2023 12:42:54 +0000
 Received: from ubuntu.localdomain (unknown [121.32.254.147])
-	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id 0EC145801A9;
-	Sat,  8 Apr 2023 20:42:40 +0800 (CST)
+	by mail-m118111.qiye.163.com (Hmail) with ESMTPA id CDEFD5802E7;
+	Sat,  8 Apr 2023 20:42:36 +0800 (CST)
 From: Donglin Peng <pengdonglin@sangfor.com.cn>
 To: mhiramat@kernel.org,
 	rostedt@goodmis.org,
@@ -60,24 +60,24 @@ Cc: linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Donglin Peng <pengdonglin@sangfor.com.cn>
-Subject: [PATCH v11 8/8] selftests/ftrace: Add funcgraph-retval test case
-Date: Sat,  8 Apr 2023 05:42:22 -0700
-Message-Id: <9fedbd25e63f012cade5dad13be21225fec2fb5d.1680954589.git.pengdonglin@sangfor.com.cn>
+Subject: [PATCH v11 6/8] x86/ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
+Date: Sat,  8 Apr 2023 05:42:20 -0700
+Message-Id: <53a506f0f18ff4b7aeb0feb762f1c9a5e9b83ee9.1680954589.git.pengdonglin@sangfor.com.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
 References: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
 MIME-Version: 1.0
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSB1LVk4fSR9NSB4dQ0lJTVUTARMWGhIXJBQOD1
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCQ0oaVkNDSEhLTEMdGRpDTVUTARMWGhIXJBQOD1
 	lXWRgSC1lBWUpJSlVISVVJTk9VSk9MWVdZFhoPEhUdFFlBWU9LSFVKSktPSEhVSktLVUtZBg++
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Myo6Egw6OD0cSzcWFRwsVgtP
-	VjcaFBVVSlVKTUNLQk5MTE1KTkJPVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
-	WRILWUFZSklKVUhJVUlOT1VKT0xZV1kIAVlBT0hNSzcG
-X-HM-Tid: 0a8760e3e6582eb7kusn0ec145801a9
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6KxQ6Ehw4OD0KDjdNFRxKVhAO
+	CD4KCzZVSlVKTUNLQk5MTE5DSE1KVTMWGhIXVQseFRwfFBUcFxIVOwgaFRwdFAlVGBQWVRgVRVlX
+	WRILWUFZSklKVUhJVUlOT1VKT0xZV1kIAVlBTUtITzcG
+X-HM-Tid: 0a8760e3d9dc2eb7kusncdefd5802e7
 X-HM-MType: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230408_054252_404362_24EDD2E6 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20230408_054252_372540_8D23E6DC 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +94,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test case for the funcgraph-retval and funcgraph-retval-hex
-trace options.
+The previous patch ("function_graph: Support recording and printing
+the return value of function") has laid the groundwork for the for
+the funcgraph-retval, and this modification makes it available on
+the x86 platform.
+
+We introduce a new structure called fgraph_ret_regs for the x86
+platform to hold return registers and the frame pointer. We then
+fill its content in the return_to_handler and pass its address
+to the function ftrace_return_to_handler to record the return
+value.
 
 Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
 ---
-v11:
- - Fix selftest issues
-
 v10:
- - Fix issues in selftest
+ - Use CONFIG_FUNCTION_GRAPH_TRACER to control fgraph_ret_regs definition
+
+v9:
+ - Update the commit message
 
 v8:
- - Fix issues in selftest
+ - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
 ---
- .../ftrace/test.d/ftrace/fgraph-retval.tc     | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
- create mode 100644 tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
+ arch/x86/Kconfig              |  1 +
+ arch/x86/include/asm/ftrace.h | 20 ++++++++++++++++++++
+ arch/x86/kernel/ftrace_32.S   |  8 +++++---
+ arch/x86/kernel/ftrace_64.S   |  7 ++++---
+ 4 files changed, 30 insertions(+), 6 deletions(-)
 
-diff --git a/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
-new file mode 100644
-index 000000000000..e34c0bdef3ed
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/ftrace/fgraph-retval.tc
-@@ -0,0 +1,44 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: ftrace - function graph print function return value
-+# requires: options/funcgraph-retval options/funcgraph-retval-hex function_graph:tracer
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index a825bf031f49..956cc988bdf9 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -214,6 +214,7 @@ config X86
+ 	select HAVE_FAST_GUP
+ 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD
++	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_GRAPH_TRACER	if X86_32 || (X86_64 && DYNAMIC_FTRACE)
+ 	select HAVE_FUNCTION_TRACER
+ 	select HAVE_GCC_PLUGINS
+diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
+index 5061ac98ffa1..38d1df9aed37 100644
+--- a/arch/x86/include/asm/ftrace.h
++++ b/arch/x86/include/asm/ftrace.h
+@@ -147,4 +147,24 @@ static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
+ #endif /* !COMPILE_OFFSETS */
+ #endif /* !__ASSEMBLY__ */
+ 
++#ifndef __ASSEMBLY__
++#ifdef CONFIG_FUNCTION_GRAPH_TRACER
++struct fgraph_ret_regs {
++	unsigned long ax;
++	unsigned long dx;
++	unsigned long bp;
++};
 +
-+# Make sure that funcgraph-retval works
-+
-+fail() { # msg
-+    echo $1
-+    exit_fail
++static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->ax;
 +}
 +
-+disable_tracing
-+clear_trace
++static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
++{
++	return ret_regs->bp;
++}
++#endif /* ifdef CONFIG_FUNCTION_GRAPH_TRACER */
++#endif
 +
-+# get self PID, can not use $$, because it is PPID
-+read PID _ < /proc/self/stat
-+
-+[ -f set_ftrace_filter ] && echo proc_reg_write > set_ftrace_filter
-+[ -f set_ftrace_pid ] && echo ${PID} > set_ftrace_pid
-+echo function_graph > current_tracer
-+echo 1 > options/funcgraph-retval
-+
-+set +e
-+enable_tracing
-+echo > /proc/interrupts
-+disable_tracing
-+set -e
-+
-+: "Test printing the error code in signed decimal format"
-+echo 0 > options/funcgraph-retval-hex
-+count=`cat trace | grep 'proc_reg_write' | grep '= -5' | wc -l`
-+if [ $count -eq 0 ]; then
-+    fail "Return value can not be printed in signed decimal format"
-+fi
-+
-+: "Test printing the error code in hexadecimal format"
-+echo 1 > options/funcgraph-retval-hex
-+count=`cat trace | grep 'proc_reg_write' | grep 'fffffffb' | wc -l`
-+if [ $count -eq 0 ]; then
-+    fail "Return value can not be printed in hexadecimal format"
-+fi
-+
-+exit 0
+ #endif /* _ASM_X86_FTRACE_H */
+diff --git a/arch/x86/kernel/ftrace_32.S b/arch/x86/kernel/ftrace_32.S
+index a0ed0e4a2c0c..5a9cc723f81f 100644
+--- a/arch/x86/kernel/ftrace_32.S
++++ b/arch/x86/kernel/ftrace_32.S
+@@ -182,12 +182,14 @@ SYM_CODE_END(ftrace_graph_caller)
+ 
+ .globl return_to_handler
+ return_to_handler:
+-	pushl	%eax
++	pushl	$0
+ 	pushl	%edx
+-	movl	$0, %eax
++	pushl	%eax
++	movl	%esp, %eax
+ 	call	ftrace_return_to_handler
+ 	movl	%eax, %ecx
+-	popl	%edx
+ 	popl	%eax
++	popl	%edx
++	addl	$4, %esp		# skip ebp
+ 	JMP_NOSPEC ecx
+ #endif
+diff --git a/arch/x86/kernel/ftrace_64.S b/arch/x86/kernel/ftrace_64.S
+index fb4f1e01b64a..ef78c0bbae62 100644
+--- a/arch/x86/kernel/ftrace_64.S
++++ b/arch/x86/kernel/ftrace_64.S
+@@ -344,12 +344,13 @@ STACK_FRAME_NON_STANDARD_FP(__fentry__)
+ SYM_CODE_START(return_to_handler)
+ 	UNWIND_HINT_EMPTY
+ 	ANNOTATE_NOENDBR
+-	subq  $16, %rsp
++	subq  $24, %rsp
+ 
+ 	/* Save the return values */
+ 	movq %rax, (%rsp)
+ 	movq %rdx, 8(%rsp)
+-	movq %rbp, %rdi
++	movq %rbp, 16(%rsp)
++	movq %rsp, %rdi
+ 
+ 	call ftrace_return_to_handler
+ 
+@@ -357,7 +358,7 @@ SYM_CODE_START(return_to_handler)
+ 	movq 8(%rsp), %rdx
+ 	movq (%rsp), %rax
+ 
+-	addq $16, %rsp
++	addq $24, %rsp
+ 	/*
+ 	 * Jump back to the old return address. This cannot be JMP_NOSPEC rdi
+ 	 * since IBT would demand that contain ENDBR, which simply isn't so for
 -- 
 2.25.1
 
