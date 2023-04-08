@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99167C77B6C
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 12:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC709C77B61
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 12:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/fDs5hcQJJO74ai6mDm/JYefXO6g+oHmrx5abME7xI=; b=Sq5iO9N2mIVPSx
-	iZT/KMnXAj9aNJUVqWlCIbR3y40ogtzJAiagE0GrQ9FI/2k2+v+2nfuUftzxRmkRYppDIre/REib4
-	baT8XLL2DP8Gtgw+kICzMl18+wR6zAWcFynKxuExP+C1loFNMPumNrrSbFbnxGbfMfAyj4SY0HEmL
-	12bVlzRSZQWmTWPDYsiKfv/l07+SNJVM/Mw/ge/2sZ7sHdwch2Ax3PX06PG8s3Bu70esLoOO3rtDK
-	jtOkKFz5xyfHkc85oHOzcVXVXtOLuHZjSuEIA7YMokqgVoZmDLlqhINOjt+/7wEVqcx3fj2e71e/v
-	Z37pR+84VVhM57UMAi+A==;
+	List-Owner; bh=o2gOjqCeK6HDjx/WY0wcPbgwgjaFvE9gT3LThLu0l3g=; b=mcemC1DCFdQK49
+	W6FwbU93LcdOIlQrYTALdUthoZCeFue+O1FP43nlCkzORuGhCInX1dGrvhabjh0/wtr3pbvLRz39W
+	CyGUMJ3CKUaOR+GX8pmdNowlQ1RlQLqa0pnbvYXY8UgLvCXwCxOMMJSca6eiJNfeuTsUMcx/YmQRd
+	HTknsWZeDLH5rzZABJ7Xti/QSqjdJM1ETgiaajlN678KEk9mNni4x+gWy/XnZTqMRFUkiSGGavXJo
+	ZGnTGGFv4wkWwRop5VD/+Rr/9WhhSVqOdW92lutXAX0Bjiny4Jg0SxIPtboNAb1DUOOt0X6idm4ZK
+	YN29MlVEBdzHxZhR+WGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7RJ-00CGrk-29;
-	Sat, 08 Apr 2023 12:13:05 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1pl7Rb-00CGzg-10;
+	Sat, 08 Apr 2023 12:13:23 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pl7RF-00CGpT-1V;
-	Sat, 08 Apr 2023 12:13:02 +0000
-Received: by mail-ej1-x629.google.com with SMTP id qb20so1995433ejc.6;
-        Sat, 08 Apr 2023 05:13:00 -0700 (PDT)
+	id 1pl7RX-00CGwt-14;
+	Sat, 08 Apr 2023 12:13:20 +0000
+Received: by mail-ej1-x636.google.com with SMTP id gb34so2597049ejc.12;
+        Sat, 08 Apr 2023 05:13:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1680955979;
+        d=gmail.com; s=20210112; t=1680955997;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fh1w6MZVvyVEsvytmtNdPF4PmTaTKXUM9E0VL+nzXOQ=;
-        b=JU4P2piMvKh/GIkpuzP/xIQOOpn2ZnltJSPsX6ToqWYejNfSEHUMEQKkk2vxWQGqxu
-         tkgCRmUgCOeXfcH4BM5JwHRqumBt3d0pmiOf2KtqOMYDBR9yE2jaAPWaetwNmD99cx22
-         EX0jtsIAWeRKOnyFG4RMK7FsKSAq93I3V3U6vOrMoB/RDutlkjHOn6c4pL6tsUON8Nbj
-         ier5+/rfjnH6s0UR7/G3T8RDb+Zrp0Ok1/bPgFik9dBl/OPTg8KVfrj1DXP4oE6TJrrH
-         IzlKLM0oix3dFcesvzN8ljeA/JYXYEluRi9cIfdVcvZJN2yz7HpQiUu7wqtTQDozctY7
-         soDA==
+        bh=xJmx+f31axUvoi/dHkgurPuWKlYeJjKe0B/02y5c1hI=;
+        b=a+IjEn62kIWwcZ1L/0L2xqhD74h6hRmUfo3qpuksXoLGNeOb3o0LNm5Rkuhy1ceoZj
+         G2FqB3KjrcvLilfhlREqtlyPFpLTyIcWqGv3DbCi7nMiZzC0yAyQvD4eFDsMp2pGJCDd
+         Iw3QZkste1SEC1xUqFgC+mySd6T8WPFhNtNzcqOKWigvWcWPFju0Rs+rnn1Ij3oP70v+
+         UC5hlnB3eI+HSAYZYtkG2LFxQnrUbMox7Q4THkgLdbqrIVYTgbW7nzskqqQA0HQH7OOr
+         fXmaenBIXmo4jZke7XPI9VH2iY63pKwDMnufg4g8yUbERhcUXDNbmnbzI8IApZ0NxGw6
+         LYOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1680955979;
+        d=1e100.net; s=20210112; t=1680955997;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fh1w6MZVvyVEsvytmtNdPF4PmTaTKXUM9E0VL+nzXOQ=;
-        b=Q0RYc8YEN3BG8llT21qUvUtasYmt1Q5UGZrY+DCQ8nuaOrdVNTfMW9LjJv8ARUXnsg
-         2djkuqwXZmKzvzGrBopQpsWDtttzjMf/BjIddTKcDGrEjak/psSntVTVGJm6t04cOgYK
-         /dFKi0GtrtKzZXgV8McvH+r12+aVPOYDhaEJfvB1aAlFPn0eZSXlK+5pJUAK7Lz4rtF7
-         bW8qk7KbLweO0Qaal1y32ma86hKO5gVXU74nyv0MK9uyb0k1T2yumqKmkVYiK/vkONlF
-         IeDEZ2t25qMlI6FwNLulXTTLev9Q6x9uYeJ4cCDjquzVY1Ele5aT4J+pJ0iGdMXb9Zo6
-         nKIQ==
-X-Gm-Message-State: AAQBX9cID1YbQMam1vB62J2WbUN3gaXpkVNIYcZcxr3904ClG1RHWURb
-	o5QkjnqmSv2w9KwzKpwGLtk=
-X-Google-Smtp-Source: AKy350aE3T02AUVNWDyuHg0EPy6lYfeZjBOoMhh6F5J6LzBKmjJy7eJPSVbbRfKO/iq7X1XGLm39Tg==
-X-Received: by 2002:a17:906:9484:b0:884:3174:119d with SMTP id t4-20020a170906948400b008843174119dmr2429409ejx.14.1680955979016;
-        Sat, 08 Apr 2023 05:12:59 -0700 (PDT)
+        bh=xJmx+f31axUvoi/dHkgurPuWKlYeJjKe0B/02y5c1hI=;
+        b=imcNUBREJMdTWTtKz88CP/v8uOQMuULyxtr1rjGz2nOhPpxD4t7cryI0xCGmQ8820Y
+         3+2RljAh2yFfIETRCKBh2EqWKoMF19o4D8UAAVkAC8ehi41LQZXfCNExo9Oe8gT/pBCI
+         Z5pvyN1DxHJYZqjhO6MoST+LVkV74XIdi+M+Dh7YCyIiv7dXoxVzeUvwtLvRXNHwqX9m
+         xWTh1dCll1HMQ8TFk9iGqGAVyyKMaVOpBdvYGdH30tYSOM7znVBzhS9ZHBocBHQmZe0n
+         NUTkg1D1mH46Jw27OVsq0u3E9Mm4cRZpXjgMQ/sbrjADO2GjsIPlDGFSkuqbTyrxYxEM
+         62/Q==
+X-Gm-Message-State: AAQBX9eoJd4nV2Xquv9I6u819kdi1zdes+zC11LKQyWdo1gzzV6oL0Ug
+	Sl161+UdFTV6HuV+cPFTd7Y=
+X-Google-Smtp-Source: AKy350b94j/ZxQUi+lYQF+Fq1CVL4fCn0M+Vx7zcnJOgNusGmaSl0GNLXQqXyciV5Dpd1F/TZOyYoA==
+X-Received: by 2002:a17:907:6d90:b0:8aa:c090:a9ef with SMTP id sb16-20020a1709076d9000b008aac090a9efmr2550022ejc.55.1680955996826;
+        Sat, 08 Apr 2023 05:13:16 -0700 (PDT)
 Received: from jernej-laptop.localnet (89-212-118-115.static.t-2.net. [89.212.118.115])
-        by smtp.gmail.com with ESMTPSA id qk6-20020a1709077f8600b00948fd62a53asm3078363ejc.71.2023.04.08.05.12.57
+        by smtp.gmail.com with ESMTPSA id u1-20020a17090617c100b00930b13f6abdsm3108700eje.98.2023.04.08.05.13.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Apr 2023 05:12:58 -0700 (PDT)
+        Sat, 08 Apr 2023 05:13:16 -0700 (PDT)
 From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh+dt@kernel.org>,
@@ -75,17 +75,17 @@ Cc: linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org, kernel@collabora.com
-Subject:  Re: [PATCH v2 04/10] ARM: dts: sun8i: v3s: Switch dma-names order for
+Subject:  Re: [PATCH v2 05/10] ARM: dts: sunxi: h3/h5: Switch dma-names order for
  snps,dw-apb-uart nodes
-Date: Sat, 08 Apr 2023 14:12:57 +0200
-Message-ID: <3155463.5fSG56mABF@jernej-laptop>
-In-Reply-To: <20230321215624.78383-5-cristian.ciocaltea@collabora.com>
+Date: Sat, 08 Apr 2023 14:13:14 +0200
+Message-ID: <1754521.VLH7GnMWUR@jernej-laptop>
+In-Reply-To: <20230321215624.78383-6-cristian.ciocaltea@collabora.com>
 References:  <20230321215624.78383-1-cristian.ciocaltea@collabora.com>
- <20230321215624.78383-5-cristian.ciocaltea@collabora.com>
+ <20230321215624.78383-6-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230408_051301_507638_874C4A11 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20230408_051319_376969_5B4D05F8 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,7 +102,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 21. marec 2023 ob 22:56:18 CEST je Cristian Ciocaltea napisal(a):
+Dne torek, 21. marec 2023 ob 22:56:19 CEST je Cristian Ciocaltea napisal(a):
 > Commit 370f696e4474 ("dt-bindings: serial: snps-dw-apb-uart: add dma &
 > dma-names properties") documented dma-names property to handle Allwinner
 > D1 dtbs_check warnings, but relies on the rx->tx ordering, which is the
@@ -119,47 +119,56 @@ Dne torek, 21. marec 2023 ob 22:56:18 CEST je Cristian Ciocaltea napisal(a):
 > Do the same for the snps,dw-apb-uart nodes in the DTS file.
 > 
 > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
 
 Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
 
->  arch/arm/boot/dts/sun8i-v3s.dtsi | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> ---
+>  arch/arm/boot/dts/sunxi-h3-h5.dtsi | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/arch/arm/boot/dts/sun8i-v3s.dtsi
-> b/arch/arm/boot/dts/sun8i-v3s.dtsi index db194c606fdc..b001251644f7 100644
-> --- a/arch/arm/boot/dts/sun8i-v3s.dtsi
-> +++ b/arch/arm/boot/dts/sun8i-v3s.dtsi
-> @@ -479,7 +479,7 @@ uart0: serial@1c28000 {
->  			reg-io-width = <4>;
+> diff --git a/arch/arm/boot/dts/sunxi-h3-h5.dtsi
+> b/arch/arm/boot/dts/sunxi-h3-h5.dtsi index 686193bd6bd9..ade1cd50e445
+> 100644
+> --- a/arch/arm/boot/dts/sunxi-h3-h5.dtsi
+> +++ b/arch/arm/boot/dts/sunxi-h3-h5.dtsi
+> @@ -710,7 +710,7 @@ uart0: serial@1c28000 {
 >  			clocks = <&ccu CLK_BUS_UART0>;
+>  			resets = <&ccu RST_BUS_UART0>;
 >  			dmas = <&dma 6>, <&dma 6>;
 > -			dma-names = "rx", "tx";
 > +			dma-names = "tx", "rx";
->  			resets = <&ccu RST_BUS_UART0>;
 >  			status = "disabled";
 >  		};
-> @@ -492,7 +492,7 @@ uart1: serial@1c28400 {
->  			reg-io-width = <4>;
+> 
+> @@ -723,7 +723,7 @@ uart1: serial@1c28400 {
 >  			clocks = <&ccu CLK_BUS_UART1>;
+>  			resets = <&ccu RST_BUS_UART1>;
 >  			dmas = <&dma 7>, <&dma 7>;
 > -			dma-names = "rx", "tx";
 > +			dma-names = "tx", "rx";
->  			resets = <&ccu RST_BUS_UART1>;
 >  			status = "disabled";
 >  		};
-> @@ -505,7 +505,7 @@ uart2: serial@1c28800 {
->  			reg-io-width = <4>;
+> 
+> @@ -736,7 +736,7 @@ uart2: serial@1c28800 {
 >  			clocks = <&ccu CLK_BUS_UART2>;
+>  			resets = <&ccu RST_BUS_UART2>;
 >  			dmas = <&dma 8>, <&dma 8>;
 > -			dma-names = "rx", "tx";
 > +			dma-names = "tx", "rx";
->  			resets = <&ccu RST_BUS_UART2>;
->  			pinctrl-0 = <&uart2_pins>;
->  			pinctrl-names = "default";
+>  			status = "disabled";
+>  		};
+> 
+> @@ -749,7 +749,7 @@ uart3: serial@1c28c00 {
+>  			clocks = <&ccu CLK_BUS_UART3>;
+>  			resets = <&ccu RST_BUS_UART3>;
+>  			dmas = <&dma 9>, <&dma 9>;
+> -			dma-names = "rx", "tx";
+> +			dma-names = "tx", "rx";
+>  			status = "disabled";
+>  		};
 
 
 
