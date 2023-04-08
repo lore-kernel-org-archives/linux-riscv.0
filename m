@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABF4C77B6F
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 02:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3FCC77B61
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 04:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=jSyVNr5i3MFDra4l7MT89Mari1JZ4ydUxB67SnknKYM=; b=vy5FcwTCvSD4reZtArnWAS/Epj
-	ktXmG/8obDywzmPeOuQcoToE2x1WByeATTRIBRKw5cMJxHJo1/7vQEYRCfRZx22u0UfO4Q3ElsN29
-	m0j0uSDhmzuYnC/8dwexYL6QYbafQtiBF8K96TwJY0Bvuh92S2pqwWJbZ28GwL6mBZCzXEYWYNlz8
-	hR8vUIX8Gooxg+BlAyigz9UWc5jYZa0icuREF+JVAp/HkCirYsI7UlW76yYO7HBcM3SDKRB+AZK+L
-	SE9et2vjnPszykLmNH8cxK2WUcDMXlYTcD/SDz6CmVUXIZPEPD8q/o9grtnLvqXeo2WdQbAKDAfCx
-	1mcipwlw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4P2Y3rlzUfivVwEIAeWPTcQRAExKtulY1E1SWj7IQck=; b=zfhPGmiNiZom0y
+	3ltqF9XtDcBSYRZF5Dc3iHGso0otU+wAY6oyn+LmU33EPwUleFyrHqV8QlPjse051dnYo0e3JA/Vg
+	6zuAcAxsfhqOwRSTOEDH1ASDfViqeVCoKAd2UnEDk7itBqR6wuNVCCyBMHjDZSij0Njq7osyd+GhP
+	qr+3MVbpp8j3AKyAnILXah1KPVhpxTnKrLCDzcwNyC//Q9aEVeAyHti7uFhIG6SANynKLkMa3yTAn
+	Yhlw7ZDHh54TkOk3ZXdk0yW6aj2QHbOVk6FD4eT9mHqt2u7essagvgVo6JJCaCai9vgq9DZIbHskn
+	YvSSOf677mv1vRw/HDfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkxtY-00BYRs-04;
-	Sat, 08 Apr 2023 02:01:36 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1pl0fc-00BjvN-22;
+	Sat, 08 Apr 2023 04:59:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pkxtU-00BYQu-0k;
-	Sat, 08 Apr 2023 02:01:33 +0000
-Received: from dggpemm500006.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Ptdfw3sYTznYd8;
-	Sat,  8 Apr 2023 09:58:00 +0800 (CST)
-Received: from [10.174.178.55] (10.174.178.55) by
- dggpemm500006.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23; Sat, 8 Apr 2023 10:01:28 +0800
-Subject: Re: [PATCH -next v3 2/2] docs: kdump: Update the crashkernel
- description for riscv
-To: Chen Jiahao <chenjiahao16@huawei.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <bhe@redhat.com>, <horms@kernel.org>
-References: <20230406220206.3067006-1-chenjiahao16@huawei.com>
- <20230406220206.3067006-3-chenjiahao16@huawei.com>
-From: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>
-Message-ID: <ca1b1ca8-96eb-cdef-5526-6edeaf3ca343@huawei.com>
-Date: Sat, 8 Apr 2023 10:01:28 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+	id 1pl0fZ-00Bjuy-0I
+	for linux-riscv@lists.infradead.org;
+	Sat, 08 Apr 2023 04:59:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7295E61642
+	for <linux-riscv@lists.infradead.org>; Sat,  8 Apr 2023 04:59:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F61C433A0
+	for <linux-riscv@lists.infradead.org>; Sat,  8 Apr 2023 04:59:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1680929959;
+	bh=AlwkfAgnvwz9uzFPB7ksufol3k1SPjuw/DEy9f4kJPU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kJ7a55yd5fQFqoKocMPnw6K+HHIVqnOHay8j2SfUTUa5Qxfy2dzTw3bSIWLgu98fc
+	 zxtvzTPb9BnE7jwL4rYPTgYyi7kELFsvMIbxR/GS6be6rON+Q9xJnvaeGo10in2zH5
+	 ztHERD287ZdNHbv9i+pEpSe81nV7AyTfiJesznilW6qpeKelSOSVOSZMz4yohm+VLO
+	 YWS0FNZo7tegVynUtC/DX5/qe8kMGi3TBs5IFCwAfBXJDShim/qtZbGVlpPKux1vCQ
+	 2lMhlmO4ar9myyKDEN9DD0cHEQvltnRIRyRW3ijNg6zxNIxQk56e5fMUIArBaz63ME
+	 tRqhV9rqJgNzw==
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-50489ad8a62so132071a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Apr 2023 21:59:19 -0700 (PDT)
+X-Gm-Message-State: AAQBX9dt9igQHxIEAQmkIPgrRWtvNPHz6KxbQs4fQeHy+IRr5le0wNZ6
+	tKFpAaLQ5uQCntDkggzoLSsV+YcPE8KhwmOF4z4=
+X-Google-Smtp-Source: AKy350bzbSMsSo+21DJsxdtIscMCCxM/YBwWqx18n2qCLGhOkuAIkX/ygV0fvOnnMrBXGwl6EEfOwd3wgJFxpNdXmXc=
+X-Received: by 2002:aa7:c787:0:b0:500:5627:a20b with SMTP id
+ n7-20020aa7c787000000b005005627a20bmr4219801eds.1.1680929958020; Fri, 07 Apr
+ 2023 21:59:18 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230406220206.3067006-3-chenjiahao16@huawei.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.178.55]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500006.china.huawei.com (7.185.36.236)
-X-CFilter-Loop: Reflected
+References: <20230222033021.983168-1-guoren@kernel.org> <87edp3loai.fsf@all.your.base.are.belong.to.us>
+ <878rfblkee.fsf@all.your.base.are.belong.to.us> <2173635.1BCLMh4Saa@diego>
+ <874jpzla20.fsf@all.your.base.are.belong.to.us> <CAJF2gTRuqtxiNMwH9T3gvHMSJ1EBAEtOXNvFoCufjJrQgqk6Dw@mail.gmail.com>
+ <e9f4594e-78a0-fd1c-c0ad-845bf78fda48@microchip.com>
+In-Reply-To: <e9f4594e-78a0-fd1c-c0ad-845bf78fda48@microchip.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 8 Apr 2023 00:59:06 -0400
+X-Gmail-Original-Message-ID: <CAJF2gTQx-X_n=3q9F-+gFT6qOEAkMXXMwk=+OyDKMBMyLxxOvQ@mail.gmail.com>
+Message-ID: <CAJF2gTQx-X_n=3q9F-+gFT6qOEAkMXXMwk=+OyDKMBMyLxxOvQ@mail.gmail.com>
+Subject: Re: [PATCH -next V17 4/7] riscv: entry: Convert to generic entry
+To: Conor.Dooley@microchip.com
+Cc: bjorn@kernel.org, heiko@sntech.de, conor@kernel.org, palmer@rivosinc.com, 
+	linux-riscv@lists.infradead.org, guoren@linux.alibaba.com, bjorn@rivosinc.com, 
+	zouyipeng@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230407_190132_597306_67FBA5F7 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20230407_215921_168311_9BE5B559 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +81,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/4/7 6:02, Chen Jiahao wrote:
-> Now "crashkernel=" parameter on riscv has been updated to support
-> crashkernel=X,[high,low]. Through which we can reserve memory region
-> above/within 32bit addressible DMA zone.
-> 
-> Here update the parameter description accordingly.
-
-Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
-
-> 
-> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.txt | 15 ++++++++-------
->  1 file changed, 8 insertions(+), 7 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 54702bd488eb..41865aae9eaa 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -866,7 +866,7 @@
->  			memory region [offset, offset + size] for that kernel
->  			image. If '@offset' is omitted, then a suitable offset
->  			is selected automatically.
-> -			[KNL, X86-64, ARM64] Select a region under 4G first, and
-> +			[KNL, X86-64, ARM64, RISCV] Select a region under 4G first, and
->  			fall back to reserve region above 4G when '@offset'
->  			hasn't been specified.
->  			See Documentation/admin-guide/kdump/kdump.rst for further details.
-> @@ -879,14 +879,14 @@
->  			Documentation/admin-guide/kdump/kdump.rst for an example.
->  
->  	crashkernel=size[KMG],high
-> -			[KNL, X86-64, ARM64] range could be above 4G. Allow kernel
-> -			to allocate physical memory region from top, so could
-> -			be above 4G if system have more than 4G ram installed.
-> -			Otherwise memory region will be allocated below 4G, if
-> -			available.
-> +			[KNL, X86-64, ARM64, RISCV] range could be above 4G.
-> +			Allow kernel to allocate physical memory region from top,
-> +			so could be above 4G if system have more than 4G ram
-> +			installed. Otherwise memory region will be allocated
-> +			below 4G, if available.
->  			It will be ignored if crashkernel=X is specified.
->  	crashkernel=size[KMG],low
-> -			[KNL, X86-64, ARM64] range under 4G. When crashkernel=X,high
-> +			[KNL, X86-64, ARM64, RISCV] range under 4G. When crashkernel=X,high
->  			is passed, kernel could allocate physical memory region
->  			above 4G, that cause second kernel crash on system
->  			that require some amount of low memory, e.g. swiotlb
-> @@ -897,6 +897,7 @@
->  			size is	platform dependent.
->  			  --> x86: max(swiotlb_size_or_default() + 8MiB, 256MiB)
->  			  --> arm64: 128MiB
-> +			  --> riscv: 128MiB
->  			This one lets the user specify own low range under 4G
->  			for second kernel instead.
->  			0: to disable low allocation.
-> 
-
--- 
-Regards,
-  Zhen Lei
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBcHIgNywgMjAyMyBhdCA1OjE44oCvQU0gPENvbm9yLkRvb2xleUBtaWNyb2NoaXAu
+Y29tPiB3cm90ZToKPgo+IE9uIDA3LzA0LzIwMjMgMTA6MTMsIEd1byBSZW4gd3JvdGU6Cj4gPj4g
+T24gU3VuLCBBcHIgMiwgMjAyMyBhdCAyOjQx4oCvQU0gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiA+PiBDb29sLCBhbmQgdGhhbmtzIGZvciB0ZXN0aW5nL3Zlcmlm
+eWluZyEgSSdsbCBjb29rIGEgcHJvcGVyIHBhdGNoIG9uCj4gPj4gTW9uZGF5Lgo+Cj4gPiBKdXN0
+IHBpbmcgZ2VudGx5IDopIEhhdmUgeW91IGRvbmUgaXQ/Cj4KPiBZdXAsIGhlIGRpZCEKPgo+IGh0
+dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9wYXRjaC8yMDIz
+MDQwMzA2NTIwNy4xMDcwOTc0LTEtYmpvcm5Aa2VybmVsLm9yZy8KPgpHcmVhdCwgdGh4LgoKCi0t
+IApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
