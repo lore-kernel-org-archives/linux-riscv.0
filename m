@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B10C7619A
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Apr 2023 19:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D21BDC77B61
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Apr 2023 08:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhJzKhoIBkLPlIGmB9MzGxoKzgunmRSeCvUidU3lLIk=; b=Yr5Nwcs4LEoKMpGV/2DBdsgx8o
-	ZgdQfe47dy2/CGGmy9x2PmAZb4ycnBl74SZWFCHPDrUQqCH7SpUsI5NnRTr4yi9W6zNyA68TZo/NJ
-	+UGGPCT5k9liCbZEp1H7CAnD3orA2so0lwcXpqARoUb0vEQkgD6n8iCfClMntA4x7aVa+jiDUIDKT
-	dAoHPvZV+GjQ+GZnsupKfVYxGGtmTW6RPhvlwII+JEKIr/YndzIelBds+FDCuDT08PxmGKE1Dz490
-	/vqGCYe1k6knRI1dJk0s+lHq/E+yW5g//eLf9x08Zq3dtQoI5ISTmJH0syUygOAo96vmDlC5ITzUO
-	WrQ5WTxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bFNIJYUcj1nFNFjyS/U0x/7n7U0G44vzTBWW7gEulz0=; b=nCPLaOsQKBdAro
+	0Hc3UjsGCbMedln8qMSiZ6FTOr8e9IfjWzJXKguVyS0p5fFT5iMFcDus2Mq5pRLzH7CItbZMg6jUK
+	im41ByPR1TfS0i0XO2gp94svxg2B3/ahjHMUbxXbugYpAFsBMbg0lIsBaZirQgEarpo1KeZNhvEb/
+	saU/QexsLRZj243CkIMl2jvplYTwBJk9qESev/yceOkw/TY2h4Rdy5VCH+ea+KD8+vNt5L/CoDXYO
+	ECcjuHhIGq3F/kfYk61QNd3Iovj02YSgrYik5YTpYs4mPQ2CgnRhFcEUryFKWcGPHjbeG8DW4qtfZ
+	3nrpEjRH9Q3eSHxEjmRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1plEb2-00CkJ7-20;
-	Sat, 08 Apr 2023 19:51:36 +0000
+	id 1plQss-00DLUn-0S;
+	Sun, 09 Apr 2023 08:58:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1plEaz-00CkIj-2y
+	id 1plQsp-00DLU2-2O
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Apr 2023 19:51:35 +0000
+	Sun, 09 Apr 2023 08:58:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EFEB560C11;
-	Sat,  8 Apr 2023 19:51:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84CF8C433D2;
-	Sat,  8 Apr 2023 19:51:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 054AB60B38;
+	Sun,  9 Apr 2023 08:58:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D88C433EF;
+	Sun,  9 Apr 2023 08:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1680983491;
-	bh=Bv7RVz7LueImtQc92/Ups6SR1reILOhldXUlCRu0Dl8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MvseAwnXclykcbInWdK5TyXUTfnsHYNqbL8LKkoRuUna5/9br02U6AD+vbQeC0MNZ
-	 +7DCO9voBewtLEtGi6wYG/u4LJfRnfjBoQG7YlVwZwatz0RQeGtF5YrWvoa5WuqFF+
-	 NmWhlsYTUCi0wQQqQt9yseXN+r7ZdOWslTl64mg63P1fekgsIG+Z92KQ5tibXYr6ww
-	 8SfYXXMerajNeJ96pGywnpM/dXkM9vWfQeVGk4khfaJirO0V8fCU9sFBkcSWrTMFC8
-	 Wj9QbOlAvNJiMd3YiNuR0mCPLALWuQg0OKvwY9CUKaOv+3J3MjCPeEkafqtOPpGl5k
-	 AmgG2LmVGFmUQ==
-Date: Sat, 8 Apr 2023 20:51:28 +0100
+	s=k20201202; t=1681030726;
+	bh=ZBQa6HSvHmlOsAAI9bKj5LL7zo5aODnHk6E1IvSRNP8=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=K0psEaAlENTLBDgQSrdsQr1gG0H6zeYuLmcSeimr+6nsHBZe+CVwKbnn/xw9RUzYI
+	 YBe20g2aysR7jNr7GHyNpFjPW8F790RovaiMfUMXNkpvaLG7GU3behFGsUzgW3XFRC
+	 28yV0WWfBnTjkAM+crF3WkQwjmkfNQpwwnb3+vtbenDIEfq/eL5qy6TaaqiK4qgykc
+	 0/Qcm1ZontBvazim7p6UQKJKabt+2F+7ro7JxRyOY2sFJ11ReERoZ7qqNpyJ4xDPha
+	 cHZK6M1kP90XxDoLPSCvJ+BUVR9xs3Wn0wPnYfN1beensl/9gu//hUSb3lB0cixcd3
+	 lFsbzS/8iYPcA==
+Date: Sun, 09 Apr 2023 09:58:42 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Mathis Salmen <mathis.salmen@matsal.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com
-Subject: Re: [PATCH v2] riscv: add icache flush for nommu sigreturn trampoline
-Message-ID: <20230408-deluxe-dwelled-1054d2764ae8@spud>
-References: <20230406101130.82304-1-mathis.salmen@matsal.de>
+To: linux-riscv@lists.infradead.org, Christoph Hellwig <hch@infradead.org>
+CC: Conor Dooley <conor.dooley@microchip.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-serial@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_0/4=5D_Convert_SiFive_drive?= =?US-ASCII?Q?rs_from_SOC=5FFOO_dependencies_to_ARCH=5FFOO?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <ZDEAD5aWhvMxAj8F@infradead.org>
+References: <20230406-undertake-stowing-50f45b90413a@spud> <ZDEAD5aWhvMxAj8F@infradead.org>
+Message-ID: <834F56B9-E394-4F7C-97D8-BAA97F03362E@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230406101130.82304-1-mathis.salmen@matsal.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230408_125134_059812_A5CED83D 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20230409_015847_843798_3C1B092C 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,116 +78,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1467856024394942534=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1467856024394942534==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zS1oIQ0IauSarjPf"
-Content-Disposition: inline
+
+On 8 April 2023 06:47:59 IST, Christoph Hellwig <hch@infradead.org> wrote:
+>On Thu, Apr 06, 2023 at 09:57:46PM +0100, Conor Dooley wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
+>> 
+>> RISC-V's SOC_FOO symbols for micro-archs are going away, and being
+>> replaced with the more common ARCH_FOO pattern that is used by other
+>> archs (and by vendors with a history outside of RISC-V).
+>
+>And this is still the wrong way around.  This ARCH_ madness must not
+>spread.  NAK.
+
+As I said when you complained last, we asked the arm lads and there was no interest there in doing things differently & that's just one architecture.
+Nor was there in adding a SOC_ symbol from some of the people who do more than one ISA.
+
+You're welcome to send reverts for my first round of conversions and patches converting all the ARCH_ stuff RISC-V has to SOC_.
+I'll happily ack a complete conversion to SOC_.
+I don't care if it is arch or soc, I just want things to be used consistently.
 
 
---zS1oIQ0IauSarjPf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Mathis,
-
-On Thu, Apr 06, 2023 at 12:11:31PM +0200, Mathis Salmen wrote:
-> In a NOMMU kernel, sigreturn trampolines are generated on the user
-> stack by setup_rt_frame. Currently, these trampolines are not instruction
-> fenced, thus their visibility to ifetch is not guaranteed.
->=20
-> This patch adds a flush_icache_range in setup_rt_frame to fix this
-> problem.
->=20
-
-I assume that this is then
-Fixes: 6bd33e1ece52 ("riscv: add nommu support")
-yeah?
-
-Cheers,
-Conor.
-
-> Signed-off-by: Mathis Salmen <mathis.salmen@matsal.de>
-> ---
-> V1 -> V2: Added local variable for readability.
->=20
->  arch/riscv/kernel/signal.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> index bfb2afa41..dee66c929 100644
-> --- a/arch/riscv/kernel/signal.c
-> +++ b/arch/riscv/kernel/signal.c
-> @@ -19,6 +19,7 @@
->  #include <asm/signal32.h>
->  #include <asm/switch_to.h>
->  #include <asm/csr.h>
-> +#include <asm/cacheflush.h>
-> =20
->  extern u32 __user_rt_sigreturn[2];
-> =20
-> @@ -181,6 +182,7 @@ static int setup_rt_frame(struct ksignal *ksig, sigse=
-t_t *set,
->  {
->  	struct rt_sigframe __user *frame;
->  	long err =3D 0;
-> +	unsigned long __maybe_unused addr;
-> =20
->  	frame =3D get_sigframe(ksig, regs, sizeof(*frame));
->  	if (!access_ok(frame, sizeof(*frame)))
-> @@ -209,7 +211,12 @@ static int setup_rt_frame(struct ksignal *ksig, sigs=
-et_t *set,
->  	if (copy_to_user(&frame->sigreturn_code, __user_rt_sigreturn,
->  			 sizeof(frame->sigreturn_code)))
->  		return -EFAULT;
-> -	regs->ra =3D (unsigned long)&frame->sigreturn_code;
-> +
-> +	addr =3D (unsigned long)&frame->sigreturn_code;
-> +	/* Make sure the two instructions are pushed to icache. */
-> +	flush_icache_range(addr, addr + sizeof(frame->sigreturn_code));
-> +
-> +	regs->ra =3D addr;
->  #endif /* CONFIG_MMU */
-> =20
->  	/*
-> --=20
-> 2.40.0
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---zS1oIQ0IauSarjPf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDHFoQAKCRB4tDGHoIJi
-0upPAQC9MSvkOrrS1Gw5Jxgo1jpp2diu0ugW1fEK3irCR6jemAD/f8K5OvNtFKne
-RwjjI+i++8OS4gUWzfewdUHkch97TQk=
-=Guw3
------END PGP SIGNATURE-----
-
---zS1oIQ0IauSarjPf--
-
-
---===============1467856024394942534==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1467856024394942534==--
-
