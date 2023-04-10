@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77403C77B61
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 13:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E5DC77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 13:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ATVaosuyIXc/YqwPYQJYVLR/EYq+dE/EPd8Y7hEZkAA=; b=ioyv6D/vaZPmX5
-	rqk6DHQrNSOXmTTiNsnPAtUMh3IxeRP9yBLzvTiC8JR3wks+snOC3oO4PLpQb+t0A5kkN0j+yk4wv
-	L9S2W0luTnsHE2Mxe9+YUV9v+mHPsIUzEXvnJ0rhgI3vk9Suwgh80E8MMxN29RyDSs+i5yrpoYG0J
-	HmF0LKxdes1z9Tjh5vUvlkyz2zEd5khG84+VkRzJez24WTXHkIKl2FGn8aSfFFA2E9zVH0QM7MExF
-	wuGmh51eQLvFOaeEGovG7qcQC6Wt7eCGoM6qP7sADEmpdWt1RQvYuA9Jvy581sqT1hONzCAMGcTMA
-	Cfs6EY316ATscBJCynig==;
+	List-Owner; bh=vr5oK9MY5YGo8fbEwg+Jad7uBCtZx+HnMHBn8JUzvDM=; b=KXfvpCR3Wyc3/c
+	J5U/m14cMHJaC7qaULZ1e7K8ksrFVizF+F48T2G3DstgSfPOHAbAgDvSiXnctYgXYgAn1aogNkFc/
+	8N6PKf7ifGtJc6RtW+bEqtZz18hftTuEymSm1tpYYm2oQrafHLt/DDZ/I2TQnNFNDMgXNmA/3Mpsz
+	JT32MVLDvDWWhJ9ktHMnORrz4hzIRsAzxUYtY/21Q8THWxRRaTI7NKaQYTwIt89bK2COYUEMWJq7B
+	bGf2KB+3oy/sovcsczC7cW3K9NCJlpnQ+jYpqWeKm6FaJrTikKM2cTydl+MlJ/H6vUZgDRm3ndlZS
+	gR+/8kY486zJ5kLbsofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1plrDs-00FGI3-22;
-	Mon, 10 Apr 2023 13:06:16 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1plrDn-00FGEt-2C;
-	Mon, 10 Apr 2023 13:06:13 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Pw8Jl2BrNz17RwY;
-	Mon, 10 Apr 2023 21:02:31 +0800 (CST)
-Received: from huawei.com (10.67.174.205) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Mon, 10 Apr
- 2023 21:06:02 +0800
-From: Chen Jiahao <chenjiahao16@huawei.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
-	<horms@kernel.org>
-Subject: [PATCH -next v4 2/2] docs: kdump: Update the crashkernel description for riscv
-Date: Mon, 10 Apr 2023 21:05:53 +0800
-Message-ID: <20230410130553.3226347-3-chenjiahao16@huawei.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20230410130553.3226347-1-chenjiahao16@huawei.com>
-References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+	id 1plrIW-00FGwv-2W;
+	Mon, 10 Apr 2023 13:11:04 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1plrIS-00FGvs-0R
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Apr 2023 13:11:03 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 2ADE524E20A;
+	Mon, 10 Apr 2023 21:10:30 +0800 (CST)
+Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
+ 2023 21:10:30 +0800
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX167.cuchost.com
+ (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
+ 2023 21:10:29 +0800
+Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
+ EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
+ 15.00.1497.044; Mon, 10 Apr 2023 21:10:29 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: "David S . Miller" <davem@davemloft.net>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley
+	<conor.dooley@microchip.com>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
+Thread-Topic: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
+Thread-Index: AQHZa3+jdYvISdTjqUmPzN0mADxyja8jpS2AgACU6YD//5HogIAAsqtQ
+Date: Mon, 10 Apr 2023 13:10:29 +0000
+Message-ID: <c1925af208b540c2bd78a16bc593ecae@EXMBX168.cuchost.com>
+References: <20230410073752.39506-1-jiajie.ho@starfivetech.com>
+ <20230410073752.39506-5-jiajie.ho@starfivetech.com>
+ <ZDO/z++4/TE6AiIz@gondor.apana.org.au>
+ <6df549e9-d0f6-23ca-882f-527c4e40b553@starfivetech.com>
+ <ZDPgXyGZtMZw5G4q@gondor.apana.org.au>
+In-Reply-To: <ZDPgXyGZtMZw5G4q@gondor.apana.org.au>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [161.142.156.149]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.205]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230410_060612_072524_70D1A675 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20230410_061100_630008_9D146D1D 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +90,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now "crashkernel=" parameter on riscv has been updated to support
-crashkernel=X,[high,low]. Through which we can reserve memory region
-above/within 32bit addressible DMA zone.
+> Subject: Re: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
+> 
+> On Mon, Apr 10, 2023 at 04:43:37PM +0800, Jia Jie Ho wrote:
+> >
+> > The hardware requires user to set a 'final' bit after data transfer completed.
+> > This completion is to wait for the interrupt signal from device that
+> > the final digest has been populated to the read registers.
+> >
+> > I'll do the finalize_request call directly in the next version.
+> 
+> Instead of the IRQ performing a completion, it could instead schedule a tasklet
+> and do the callback directly from the tasklet.
+> 
+> Actually, the ordering between the IRQ and DMA callback is a bit confusing.
+> Which one is supposed to occur first and how does it interact with the other
+> event?
+> 
 
-Here update the parameter description accordingly.
+The sequence of event would be:
+1. Wait for DMA transfer to complete.
+2. Set bit in device CSR to indicate final block has been transferred.
+3. Device will send IRQ once result is ready.
+4. Read out final digest value from device.
 
-Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 54702bd488eb..41865aae9eaa 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -866,7 +866,7 @@
- 			memory region [offset, offset + size] for that kernel
- 			image. If '@offset' is omitted, then a suitable offset
- 			is selected automatically.
--			[KNL, X86-64, ARM64] Select a region under 4G first, and
-+			[KNL, X86-64, ARM64, RISCV] Select a region under 4G first, and
- 			fall back to reserve region above 4G when '@offset'
- 			hasn't been specified.
- 			See Documentation/admin-guide/kdump/kdump.rst for further details.
-@@ -879,14 +879,14 @@
- 			Documentation/admin-guide/kdump/kdump.rst for an example.
- 
- 	crashkernel=size[KMG],high
--			[KNL, X86-64, ARM64] range could be above 4G. Allow kernel
--			to allocate physical memory region from top, so could
--			be above 4G if system have more than 4G ram installed.
--			Otherwise memory region will be allocated below 4G, if
--			available.
-+			[KNL, X86-64, ARM64, RISCV] range could be above 4G.
-+			Allow kernel to allocate physical memory region from top,
-+			so could be above 4G if system have more than 4G ram
-+			installed. Otherwise memory region will be allocated
-+			below 4G, if available.
- 			It will be ignored if crashkernel=X is specified.
- 	crashkernel=size[KMG],low
--			[KNL, X86-64, ARM64] range under 4G. When crashkernel=X,high
-+			[KNL, X86-64, ARM64, RISCV] range under 4G. When crashkernel=X,high
- 			is passed, kernel could allocate physical memory region
- 			above 4G, that cause second kernel crash on system
- 			that require some amount of low memory, e.g. swiotlb
-@@ -897,6 +897,7 @@
- 			size is	platform dependent.
- 			  --> x86: max(swiotlb_size_or_default() + 8MiB, 256MiB)
- 			  --> arm64: 128MiB
-+			  --> riscv: 128MiB
- 			This one lets the user specify own low range under 4G
- 			for second kernel instead.
- 			0: to disable low allocation.
--- 
-2.31.1
-
+Thanks,
+Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
