@@ -4,54 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4CCC77B61
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 07:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3753C76196
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 08:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kry2I7bHwxlVFQwtjhwg0qy7A9k/nVJw/qq7l+DveJ8=; b=AgH5DHvLqgVPno
-	N1A5lkRvxHbjMzlYmdu4oqMn8XCN+3PeVC/mvIvclUOjcp7xzdKVdcGZUdez1r0DMgQjORkFE7hrZ
-	MzT/hltCC6SFZElhBoKdNWNRFHbpNcBIfz1EvhpYQvu8mtcrPKa4Y/b7Ds/kQ5jKgH2U/hsLuZjKM
-	adM2SablijFJZfEV2s0h2aPHR5+KBqgffuy5/ETClSjYLH1vdOHUkSrbT8BnVvBnb2/UDEdQd7rxB
-	To7yPcJ0ymor9PCp3LgJkCBrfKuYJoX7Ptgq25JcVGwTTnD3++bKqPjNUvkyc7fnX4d4GT8cfWEGe
-	yPUF+H0GTaHP9cnQXYzw==;
+	List-Owner; bh=90xhzDxZ6I5C7DA+i1FWo9SBLv3fKB9Ayq9QCrvLURo=; b=fqFYMGz24zvvJn
+	GPswY3WLxdHikMIV3F8vmE+K3+fKnpnXQiqhHaPDI/8jodorIs4ZIDKk+FfJmHQJLDAbjvGziU0vi
+	xzAn2Isuxiw10X8oaNKZWGn78J0+mTn2x9Q/kaGZ7vUJUiaYouIx+5/Ku0jU9Xj3AlbA2xRK+LuDr
+	jgehZHt5bGMZBqP6MfaeS81Co/QORbFgzIXD6rI+tBbWU1MsmOugJFVKTHtgThUX9x5NWtzvpfSbT
+	dr9CNGUj8xdmn/8t1aUE7El5UnWFCaT+lIk0PmD3Wq9lBN0nEyZrAZxBFboaVwsj+9sgsw4u2TSbw
+	qqvgaCKt2oGnyTZtcwcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1plmJT-00EkvW-1H;
-	Mon, 10 Apr 2023 07:51:43 +0000
-Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1plmJP-00EktZ-2Z
+	id 1plmuM-00Enzb-2r;
+	Mon, 10 Apr 2023 08:29:50 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1plmuE-00Enxc-0e
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Apr 2023 07:51:42 +0000
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
-	id 1plmIR-00EEnN-4P; Mon, 10 Apr 2023 15:50:40 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 10 Apr 2023 15:50:39 +0800
-Date: Mon, 10 Apr 2023 15:50:39 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
-Message-ID: <ZDO/z++4/TE6AiIz@gondor.apana.org.au>
-References: <20230410073752.39506-1-jiajie.ho@starfivetech.com>
- <20230410073752.39506-5-jiajie.ho@starfivetech.com>
+	Mon, 10 Apr 2023 08:29:49 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0C68124E02F;
+	Mon, 10 Apr 2023 16:29:14 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
+ 2023 16:29:14 +0800
+Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
+ 2023 16:29:12 +0800
+Message-ID: <62fc36bc-7e43-0214-85d7-be66748a901b@starfivetech.com>
+Date: Mon, 10 Apr 2023 16:29:10 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230410073752.39506-5-jiajie.ho@starfivetech.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive
+ JH7110 SoC
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<Arun.Ramadoss@microchip.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran
+	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
+References: <20230407110356.8449-1-samin.guo@starfivetech.com>
+ <20230407110356.8449-6-samin.guo@starfivetech.com>
+ <CAJM55Z9jCdPASsk+fw_j+9QH3+Kj28tpCA4PgW_nB_ce7qWL8w@mail.gmail.com>
+ <b8764e20-f983-177c-63c5-36bb3b57ba9e@starfivetech.com>
+ <CAJM55Z8jSPz70ri_sFnKMjZDoNvoA=K-o7VCeAMmXztzOKRxaA@mail.gmail.com>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <CAJM55Z8jSPz70ri_sFnKMjZDoNvoA=K-o7VCeAMmXztzOKRxaA@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230410_005139_835341_977EBD98 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20230410_012942_744480_DFFADE60 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,77 +90,292 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 10, 2023 at 03:37:52PM +0800, Jia Jie Ho wrote:
->
-> +static void starfive_hash_start(void *param)
-> +{
-> +	struct starfive_cryp_ctx *ctx = param;
-> +	struct starfive_cryp_request_ctx *rctx = ctx->rctx;
-> +	struct starfive_cryp_dev *cryp = ctx->cryp;
-> +	union starfive_alg_cr alg_cr;
-> +	union starfive_hash_csr csr;
-> +
-> +	dma_unmap_sg(cryp->dev, rctx->in_sg, rctx->in_sg_len, DMA_TO_DEVICE);
-> +
-> +	alg_cr.v = 0;
-> +	alg_cr.clear = 1;
-> +
-> +	writel(alg_cr.v, cryp->base + STARFIVE_ALG_CR_OFFSET);
-> +
-> +	csr.v = readl(cryp->base + STARFIVE_HASH_SHACSR);
-> +	csr.firstb = 0;
-> +	csr.final = 1;
-> +
-> +	reinit_completion(&cryp->hash_done);
-> +	writel(~STARFIVE_IE_MASK_HASH_DONE, cryp->base + STARFIVE_IE_MASK_OFFSET);
-> +	writel(csr.v, cryp->base + STARFIVE_HASH_SHACSR);
-> +}
 
-Why are you still using a completion? The callback function should
-invoke the crypto_engine finalize_request call directly.
+Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+to: Guo Samin <samin.guo@starfivetech.com>
+data: 2023/4/9
 
-> +static int starfive_hash_xmit(struct starfive_cryp_ctx *ctx)
-> +{
-> +	struct starfive_cryp_request_ctx *rctx = ctx->rctx;
-> +	struct starfive_cryp_dev *cryp = ctx->cryp;
-> +	int ret;
-> +
-> +	rctx->csr.hash.v = 0;
-> +	rctx->csr.hash.reset = 1;
-> +	writel(rctx->csr.hash.v, cryp->base + STARFIVE_HASH_SHACSR);
-> +
-> +	if (starfive_hash_wait_busy(ctx))
-> +		return dev_err_probe(cryp->dev, -ETIMEDOUT, "Error resetting engine.\n");
-> +
-> +	rctx->csr.hash.v = 0;
-> +	rctx->csr.hash.mode = ctx->hash_mode & STARFIVE_HASH_MODE_MASK;
-> +	rctx->csr.hash.ie = 1;
-> +
-> +	if (ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS) {
-> +		ret = starfive_hash_hmac_key(ctx);
-> +		if (ret)
-> +			return ret;
-> +	} else {
-> +		rctx->csr.hash.start = 1;
-> +		rctx->csr.hash.firstb = 1;
-> +		writel(rctx->csr.hash.v, cryp->base + STARFIVE_HASH_SHACSR);
-> +	}
-> +
-> +	ret = starfive_hash_xmit_dma(ctx);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!wait_for_completion_timeout(&cryp->hash_done, msecs_to_jiffies(10000)))
-> +		return dev_err_probe(cryp->dev, -ETIMEDOUT, "Timeout waiting for hash done\n");
+> On Sat, 8 Apr 2023 at 03:16, Guo Samin <samin.guo@starfivetech.com> wrote:
+>>
+>>  Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
+>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>> to: Samin Guo <samin.guo@starfivetech.com>
+>> data: 2023/4/8
+>>
+>>> On Fri, 7 Apr 2023 at 13:05, Samin Guo <samin.guo@starfivetech.com> wrote:
+>>>>
+>>>> This adds StarFive dwmac driver support on the StarFive JH7110 SoC.
+>>>>
+>>>> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+>>>> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+>>>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>>>> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+>>>> ---
+>>>>  MAINTAINERS                                   |   1 +
+>>>>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+>>>>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>>>>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 123 ++++++++++++++++++
+>>>>  4 files changed, 137 insertions(+)
+>>>>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>
+>>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>>> index 6b6b67468b8f..46b366456cee 100644
+>>>> --- a/MAINTAINERS
+>>>> +++ b/MAINTAINERS
+>>>> @@ -19910,6 +19910,7 @@ M:      Emil Renner Berthing <kernel@esmil.dk>
+>>>>  M:     Samin Guo <samin.guo@starfivetech.com>
+>>>>  S:     Maintained
+>>>>  F:     Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>>>> +F:     drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>
+>>>>  STARFIVE JH7100 CLOCK DRIVERS
+>>>>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>> index f77511fe4e87..5f5a997f21f3 100644
+>>>> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>> @@ -165,6 +165,18 @@ config DWMAC_SOCFPGA
+>>>>           for the stmmac device driver. This driver is used for
+>>>>           arria5 and cyclone5 FPGA SoCs.
+>>>>
+>>>> +config DWMAC_STARFIVE
+>>>> +       tristate "StarFive dwmac support"
+>>>> +       depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
+>>>> +       select MFD_SYSCON
+>>>> +       default m if ARCH_STARFIVE
+>>>> +       help
+>>>> +         Support for ethernet controllers on StarFive RISC-V SoCs
+>>>> +
+>>>> +         This selects the StarFive platform specific glue layer support for
+>>>> +         the stmmac device driver. This driver is used for StarFive JH7110
+>>>> +         ethernet controller.
+>>>> +
+>>>>  config DWMAC_STI
+>>>>         tristate "STi GMAC support"
+>>>>         default ARCH_STI
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>> index 057e4bab5c08..8738fdbb4b2d 100644
+>>>> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>> @@ -23,6 +23,7 @@ obj-$(CONFIG_DWMAC_OXNAS)     += dwmac-oxnas.o
+>>>>  obj-$(CONFIG_DWMAC_QCOM_ETHQOS)        += dwmac-qcom-ethqos.o
+>>>>  obj-$(CONFIG_DWMAC_ROCKCHIP)   += dwmac-rk.o
+>>>>  obj-$(CONFIG_DWMAC_SOCFPGA)    += dwmac-altr-socfpga.o
+>>>> +obj-$(CONFIG_DWMAC_STARFIVE)   += dwmac-starfive.o
+>>>>  obj-$(CONFIG_DWMAC_STI)                += dwmac-sti.o
+>>>>  obj-$(CONFIG_DWMAC_STM32)      += dwmac-stm32.o
+>>>>  obj-$(CONFIG_DWMAC_SUNXI)      += dwmac-sunxi.o
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>> new file mode 100644
+>>>> index 000000000000..4963d4008485
+>>>> --- /dev/null
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>> @@ -0,0 +1,123 @@
+>>>> +// SPDX-License-Identifier: GPL-2.0+
+>>>> +/*
+>>>> + * StarFive DWMAC platform driver
+>>>> + *
+>>>> + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+>>>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>>>> + *
+>>>> + */
+>>>> +
+>>>> +#include <linux/mfd/syscon.h>
+>>>> +#include <linux/of_device.h>
+>>>> +#include <linux/regmap.h>
+>>>> +
+>>>> +#include "stmmac_platform.h"
+>>>> +
+>>>> +struct starfive_dwmac {
+>>>> +       struct device *dev;
+>>>> +       struct clk *clk_tx;
+>>>> +};
+>>>> +
+>>>> +static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
+>>>> +{
+>>>> +       struct starfive_dwmac *dwmac = priv;
+>>>> +       unsigned long rate;
+>>>> +       int err;
+>>>> +
+>>>> +       rate = clk_get_rate(dwmac->clk_tx);
+>>>
+>>> Hi Samin,
+>>>
+>>> I'm not sure why you added this line in this revision. If it's just to
+>>> not call clk_set_rate on the uninitialized rate, I'd much rather you
+>>> just returned early and don't call clk_set_rate at all in case of
+>>> errors.
+>>>
+>>>> +
+>>>> +       switch (speed) {
+>>>> +       case SPEED_1000:
+>>>> +               rate = 125000000;
+>>>> +               break;
+>>>> +       case SPEED_100:
+>>>> +               rate = 25000000;
+>>>> +               break;
+>>>> +       case SPEED_10:
+>>>> +               rate = 2500000;
+>>>> +               break;
+>>>> +       default:
+>>>> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>>>> +               break;
+>>>
+>>> That is skip the clk_get_rate above and just change this break to a return.
+>>>
+>>
+>> Hi Emil,
+>>
+>> We used the solution you mentioned before V3, but Arun Ramadoss doesn't think that's great.
+>> (https://patchwork.kernel.org/project/linux-riscv/patch/20230106030001.1952-6-yanhong.wang@starfivetech.com)
+>>
+>>
+>>> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int
+>>> speed)
+>>> +{
+>>> +     struct starfive_dwmac *dwmac = priv;
+>>> +     unsigned long rate;
+>>> +     int err;
+>>> +
+>>> +     switch (speed) {
+>>> +     case SPEED_1000:
+>>> +             rate = 125000000;
+>>> +             break;
+>>> +     case SPEED_100:
+>>> +             rate = 25000000;
+>>> +             break;
+>>> +     case SPEED_10:
+>>> +             rate = 2500000;
+>>> +             break;
+>>> +     default:
+>>> +             dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>>> +             return;
+>>
+>> Do we need to return value, since it is invalid speed. But the return
+>> value of function is void.(Arun Ramadoss)
+>>
+>>
+>> So in v9, after discussing with Jakub Kicinski, the clk_set_rate was used to initialize the rate.
+>> (It is a reference to Intel's scheme:    dwmac-intel-plat.c: kmb_eth_fix_mac_speed)
+>> (https://patchwork.kernel.org/project/linux-riscv/patch/20230328062009.25454-6-samin.guo@starfivetech.com)
+>>
+> 
+> Yeah, I think this is a misunderstanding and Arun is considering if we
+> ought to return the error which we can't without changing generic
+> dwmac code, and Jakub is rightly concerned about using a local
+> variable uninitialized. I don't think anyone is suggesting that
+> getting the rate just to set it to the exact same value is better than
+> just leaving the clock alone.
+> 
+HI Emil,
 
-There is no point in waiting for completion.  Just return 0 and
-you're done.
+Yeah, return early saves time and code complexity, and seems like a good solution so Yanhong did the same before v3. (Jakub has suggested it before),
+I wonder if Arun or other maintainers accept this solution or if there are other solutions?
 
-Cheers,
+Best regards,
+Samin
+
+>> Best regards,
+>> Samin
+>>>> +       }
+>>>> +
+>>>> +       err = clk_set_rate(dwmac->clk_tx, rate);
+>>>> +       if (err)
+>>>> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+>>>> +}
+>>>> +
+>>>> +static int starfive_dwmac_probe(struct platform_device *pdev)
+>>>> +{
+>>>> +       struct plat_stmmacenet_data *plat_dat;
+>>  cons>> +       struct stmmac_resources stmmac_res;
+>>>> +       struct starfive_dwmac *dwmac;
+>>>> +       struct clk *clk_gtx;
+>>>> +       int err;
+>>>> +
+>>>> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
+>>>> +       if (err)
+>>>> +               return dev_err_probe(&pdev->dev, err,
+>>>> +                                    "failed to get resources\n");
+>>>> +
+>>>> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
+>>>> +       if (IS_ERR(plat_dat))
+>>>> +               return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
+>>>> +                                    "dt configuration failed\n");
+>>>> +
+>>>> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+>>>> +       if (!dwmac)
+>>>> +               return -ENOMEM;
+>>>> +
+>>>> +       dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
+>>>> +       if (IS_ERR(dwmac->clk_tx))
+>>>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+>>>> +                                    "error getting tx clock\n");
+>>>> +
+>>>> +       clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
+>>>> +       if (IS_ERR(clk_gtx))
+>>>> +               return dev_err_probe(&pdev->dev, PTR_ERR(clk_gtx),
+>>>> +                                    "error getting gtx clock\n");
+>>>> +
+>>>> +       /* Generally, the rgmii_tx clock is provided by the internal clock,
+>>>> +        * which needs to match the corresponding clock frequency according
+>>>> +        * to different speeds. If the rgmii_tx clock is provided by the
+>>>> +        * external rgmii_rxin, there is no need to configure the clock
+>>>> +        * internally, because rgmii_rxin will be adaptively adjusted.
+>>>> +        */
+>>>> +       if (!device_property_read_bool(&pdev->dev, "starfive,tx-use-rgmii-clk"))
+>>>> +               plat_dat->fix_mac_speed = starfive_dwmac_fix_mac_speed;
+>>>> +
+>>>> +       dwmac->dev = &pdev->dev;
+>>>> +       plat_dat->bsp_priv = dwmac;
+>>>> +       plat_dat->dma_cfg->dche = true;
+>>>> +
+>>>> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>>>> +       if (err) {
+>>>> +               stmmac_remove_config_dt(pdev, plat_dat);
+>>>> +               return err;
+>>>> +       }
+>>>> +
+>>>> +       return 0;
+>>>> +}
+>>>> +
+>>>> +static const struct of_device_id starfive_dwmac_match[] = {
+>>>> +       { .compatible = "starfive,jh7110-dwmac" },
+>>>> +       { /* sentinel */ }
+>>>> +};
+>>>> +MODULE_DEVICE_TABLE(of, starfive_dwmac_match);
+>>>> +
+>>>> +static struct platform_driver starfive_dwmac_driver = {
+>>>> +       .probe  = starfive_dwmac_probe,
+>>>> +       .remove = stmmac_pltfr_remove,
+>>>> +       .driver = {
+>>>> +               .name = "starfive-dwmac",
+>>>> +               .pm = &stmmac_pltfr_pm_ops,
+>>>> +               .of_match_table = starfive_dwmac_match,
+>>>> +       },
+>>>> +};
+>>>> +module_platform_driver(starfive_dwmac_driver);
+>>>> +
+>>>> +MODULE_LICENSE("GPL");
+>>>> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
+>>>> +MODULE_AUTHOR("Emil Renner Berthing <kernel@esmil.dk>");
+>>>> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
+>>>> --
+>>>> 2.17.1
+>>>>
+>>>>
+>>>> _______________________________________________
+>>>> linux-riscv mailing list
+>>>> linux-riscv@lists.infradead.org
+>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
+>> --
+>> Best regards,
+>> Samin
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Best regards,
+Samin
 
 _______________________________________________
 linux-riscv mailing list
