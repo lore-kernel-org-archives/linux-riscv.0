@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB417C76196
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 10:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56F5C76196
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 10:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q4wZ0OB8P52pIoGK2F/ajxYw7o9ADYRpwvXL2q36aG8=; b=cu2hWV/o7N26Mw
-	jcyqtFz/opvyWliN2Llw19h4y1UqgIy/022pEBH9uLsyDSkinJToqNrEhuIM3zeWtSq5D2GtcYrPM
-	i4tvl/Pl5lVwpWu2bKV/VrPh2AWGFKGWeD3tzzoldJf3MZejmKxnbtdVHBD1InIz5Bpp9P/ZMFJPX
-	agJyyljnhKpbSYdcnJP2qQEyV/V0F2UKOy4swyo0dc3xW4STLdkeV9nLA8ImXWqtKhr8tYLFndPrp
-	DTlw1eudlHxBCX0NhAF4uI8fDEmbQxKIFHIEk87iXFU3bSRY83L+vBnkXbRLstbv7E6iBrhwI4qdo
-	n/9zLKcAwmbehQ67Puyw==;
+	List-Owner; bh=dqTSgJwsGJa0mAjeiAylsanwJabSXjqtKa+g4Fk5qJk=; b=gz4fqTU61Xx/i0
+	qxnIrR1gM/M11Wl9Le0tUIqV5SYa7JdU3XMQkWocQD09H+orcW/4VG6/mGCXPFGxOLKiUEOZmXy+2
+	38KW1MKcZrPIGhc+1ofpWIb93BuxJHs0RYq835F1mzrG8/6xd3mYIoXqVIz3kmuK0sZpmU2VnjuLT
+	CnlNWnPC7GCkvR9hQSkXGKJNZSYK1ZzTWefRv+8QqIIdfIeyLsPtQEylxoSB+DGr+N5KMcVE7bb1k
+	qw5D2pi9+AT4dIBC2j7G+InPI/kDyHF4bwmTyWi9rPJKe5qpGrZhU7tykJHWrqReeseZrVZQqhvmz
+	b7Cd+K7E7AeXS9kQUwQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ploOO-00EvZD-0H;
-	Mon, 10 Apr 2023 10:04:56 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1ploTn-00EwII-2B;
+	Mon, 10 Apr 2023 10:10:31 +0000
+Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ploOJ-00EvXS-2G;
-	Mon, 10 Apr 2023 10:04:53 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Pw4HZ1ymSz17Rtt;
-	Mon, 10 Apr 2023 18:01:14 +0800 (CST)
-Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Mon, 10 Apr
- 2023 17:52:37 +0800
-Message-ID: <20dd1890-273b-3a5b-7a4e-6feaf722cf8a@huawei.com>
-Date: Mon, 10 Apr 2023 17:52:37 +0800
+	id 1ploTj-00EwG1-21
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Apr 2023 10:10:30 +0000
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
+	id 1ploSt-00EGwm-Fy; Mon, 10 Apr 2023 18:09:36 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 10 Apr 2023 18:09:35 +0800
+Date: Mon, 10 Apr 2023 18:09:35 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
+Message-ID: <ZDPgXyGZtMZw5G4q@gondor.apana.org.au>
+References: <20230410073752.39506-1-jiajie.ho@starfivetech.com>
+ <20230410073752.39506-5-jiajie.ho@starfivetech.com>
+ <ZDO/z++4/TE6AiIz@gondor.apana.org.au>
+ <6df549e9-d0f6-23ca-882f-527c4e40b553@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH -next v3 1/2] riscv: kdump: Implement
- crashkernel=X,[high,low]
-Content-Language: en-US
-To: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>, Simon Horman
-	<horms@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <bhe@redhat.com>
-References: <20230406220206.3067006-1-chenjiahao16@huawei.com>
- <20230406220206.3067006-2-chenjiahao16@huawei.com>
- <ZDAGi2/+1q0oEUZ5@kernel.org>
- <ee6434f7-8e94-bae5-7d63-4b9bce3aec24@huawei.com>
- <f87d33e7-3a30-35b1-8612-0ff1eae63807@huawei.com>
-From: "chenjiahao (C)" <chenjiahao16@huawei.com>
-In-Reply-To: <f87d33e7-3a30-35b1-8612-0ff1eae63807@huawei.com>
-X-Originating-IP: [10.67.108.26]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <6df549e9-d0f6-23ca-882f-527c4e40b553@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230410_030452_071030_F4E87A4A 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20230410_031027_665999_68804104 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,103 +65,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2023/4/8 10:00, Leizhen (ThunderTown) wrote:
+On Mon, Apr 10, 2023 at 04:43:37PM +0800, Jia Jie Ho wrote:
 >
-> On 2023/4/7 20:58, Leizhen (ThunderTown) wrote:
->>
->> On 2023/4/7 20:03, Simon Horman wrote:
->>> On Fri, Apr 07, 2023 at 06:02:05AM +0800, Chen Jiahao wrote:
->>>> On riscv, the current crash kernel allocation logic is trying to
->>>> allocate within 32bit addressible memory region by default, if
->>>> failed, try to allocate without 4G restriction.
->>>>
->>>> In need of saving DMA zone memory while allocating a relatively large
->>>> crash kernel region, allocating the reserved memory top down in
->>>> high memory, without overlapping the DMA zone, is a mature solution.
->>>> Here introduce the parameter option crashkernel=X,[high,low].
->>>>
->>>> One can reserve the crash kernel from high memory above DMA zone range
->>>> by explicitly passing "crashkernel=X,high"; or reserve a memory range
->>>> below 4G with "crashkernel=X,low".
->>>>
->>>> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
->>> ...
->>>
->>>> @@ -1180,14 +1206,37 @@ static void __init reserve_crashkernel(void)
->>>>   		return;
->>>>   	}
->>>>   
->>>> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
->>>> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
->>>>   				&crash_size, &crash_base);
->>>> -	if (ret || !crash_size)
->>>> +	if (ret == -ENOENT) {
->>>> +		/*
->>>> +		 * crashkernel=X,[high,low] can be specified or not, but
->>>> +		 * invalid value is not allowed.
->>> nit: Perhaps something like this would be easier to correlate with the
->>>       code that follows:
->>>
->>> 		/* Fallback to crashkernel=X,[high,low] */
->> The description "crashkernel=X,[high,low] can be specified or not" is not
->> correct, because crashkernel=X,high must be specified when walking into this
->> branch. So use Simon's comments or copy arm64's comments(it's written for
->> parse_crashkernel_low()).
-> I rethink it a little bit, if it's relative to crashkernel=X[@offset],
-> that's also true.
->
-> Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
+> The hardware requires user to set a 'final' bit after data transfer completed.
+> This completion is to wait for the interrupt signal from device that the final digest 
+> has been populated to the read registers.
+> 
+> I'll do the finalize_request call directly in the next version.
 
-Sure, The commit should not be ambiguous like this, Simon's comment above is
+Instead of the IRQ performing a completion, it could instead schedule
+a tasklet and do the callback directly from the tasklet.
 
-a better option.
+Actually, the ordering between the IRQ and DMA callback is a bit
+confusing.  Which one is supposed to occur first and how does it
+interact with the other event?
 
-
->>>
->>>> +		 */
->>>> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
->>>> +		if (ret || !crash_size)
->>>> +			return;
->>>> +
->>>> +		/*
->>>> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
->>>> +		 * is passed and high memory is reserved successful.
->>> nit: s/successful/successfully/
->> Seems like the whole "and high memory is reserved successful" needs to be deleted.
->> Only the dependency between the two boot options should be described here,
->> regardless of whether their memory is successfully allocated.
-
-The comment here is imprecise, since there is absolutely no check whether
-
-the allocation is successful before "parse_crashkernel_low"
-
-
->>
->>>> +		 */
->>>> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
->>>> +		if (ret == -ENOENT)
->>>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
->>>> +		else if (ret)
->>>> +			return;
->>>> +
->>>> +		search_start = search_low_max;
->>>> +	} else if (ret || !crash_size) {
->>>> +		/* Invalid argument value specified */
->>>>   		return;
->>>> +	}
->>> ...
->>> .
->>>
-BR,
-
-Jiahao
-
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
