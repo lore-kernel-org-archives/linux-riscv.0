@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6051C76196
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 07:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4CCC77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Apr 2023 07:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RqHDjwFDpF1i49t0pxeqj6znygcT+h5eu6gKLmT8N6U=; b=DZrTBM+3xZUCKw
-	5or2GDygRI2byYIDL78Vr9bQXO0UcLYeO8nUp3/ghW1h5Vg4lxoXSKRxCRfwLhOqwQlNcjuANLlZi
-	/9NTYaKdPzMD/xEAVLQbDtI3vLZahTT/KVHs6wYCfz10OQpdiscFuTdw76H9dmS4bFh1dCXKc0rmI
-	qGGQ47YoNlnPCJgHQUj6JaYWJ6Zbh96hlwdO3iGpiPiSGD8xuxCTJTPaUJKQ66j+gzC48Id/T1f9v
-	kzqH/qW+TbUZNiZL7qElPZfJ3uJ3BAd1p0hJMrHcLPbI1j379jqrjLPk5MMzITu5A/3AAd0F2ibkZ
-	W/2yhIZqW4s99nB2YaBA==;
+	List-Owner; bh=Kry2I7bHwxlVFQwtjhwg0qy7A9k/nVJw/qq7l+DveJ8=; b=AgH5DHvLqgVPno
+	N1A5lkRvxHbjMzlYmdu4oqMn8XCN+3PeVC/mvIvclUOjcp7xzdKVdcGZUdez1r0DMgQjORkFE7hrZ
+	MzT/hltCC6SFZElhBoKdNWNRFHbpNcBIfz1EvhpYQvu8mtcrPKa4Y/b7Ds/kQ5jKgH2U/hsLuZjKM
+	adM2SablijFJZfEV2s0h2aPHR5+KBqgffuy5/ETClSjYLH1vdOHUkSrbT8BnVvBnb2/UDEdQd7rxB
+	To7yPcJ0ymor9PCp3LgJkCBrfKuYJoX7Ptgq25JcVGwTTnD3++bKqPjNUvkyc7fnX4d4GT8cfWEGe
+	yPUF+H0GTaHP9cnQXYzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1plm7K-00Ejlh-1c;
-	Mon, 10 Apr 2023 07:39:10 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1plm7H-00EjeG-31
+	id 1plmJT-00EkvW-1H;
+	Mon, 10 Apr 2023 07:51:43 +0000
+Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1plmJP-00EktZ-2Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Apr 2023 07:39:09 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BD05A24E02F;
-	Mon, 10 Apr 2023 15:38:02 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
- 2023 15:38:02 +0800
-Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 10 Apr
- 2023 15:37:58 +0800
-From: Jia Jie Ho <jiajie.ho@starfivetech.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
-	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley
-	<conor.dooley@microchip.com>
-CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v4 1/4] dt-bindings: crypto: Add StarFive crypto module
-Date: Mon, 10 Apr 2023 15:37:49 +0800
-Message-ID: <20230410073752.39506-2-jiajie.ho@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230410073752.39506-1-jiajie.ho@starfivetech.com>
+	Mon, 10 Apr 2023 07:51:42 +0000
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
+	id 1plmIR-00EEnN-4P; Mon, 10 Apr 2023 15:50:40 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 10 Apr 2023 15:50:39 +0800
+Date: Mon, 10 Apr 2023 15:50:39 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/4] crypto: starfive - Add hash and HMAC support
+Message-ID: <ZDO/z++4/TE6AiIz@gondor.apana.org.au>
 References: <20230410073752.39506-1-jiajie.ho@starfivetech.com>
+ <20230410073752.39506-5-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
-X-Originating-IP: [202.188.176.82]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230410073752.39506-5-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230410_003908_154749_A64BF2E7 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230410_005139_835341_977EBD98 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,96 +68,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add documentation to describe StarFive cryptographic engine.
+On Mon, Apr 10, 2023 at 03:37:52PM +0800, Jia Jie Ho wrote:
+>
+> +static void starfive_hash_start(void *param)
+> +{
+> +	struct starfive_cryp_ctx *ctx = param;
+> +	struct starfive_cryp_request_ctx *rctx = ctx->rctx;
+> +	struct starfive_cryp_dev *cryp = ctx->cryp;
+> +	union starfive_alg_cr alg_cr;
+> +	union starfive_hash_csr csr;
+> +
+> +	dma_unmap_sg(cryp->dev, rctx->in_sg, rctx->in_sg_len, DMA_TO_DEVICE);
+> +
+> +	alg_cr.v = 0;
+> +	alg_cr.clear = 1;
+> +
+> +	writel(alg_cr.v, cryp->base + STARFIVE_ALG_CR_OFFSET);
+> +
+> +	csr.v = readl(cryp->base + STARFIVE_HASH_SHACSR);
+> +	csr.firstb = 0;
+> +	csr.final = 1;
+> +
+> +	reinit_completion(&cryp->hash_done);
+> +	writel(~STARFIVE_IE_MASK_HASH_DONE, cryp->base + STARFIVE_IE_MASK_OFFSET);
+> +	writel(csr.v, cryp->base + STARFIVE_HASH_SHACSR);
+> +}
 
-Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
-Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
-Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
----
- .../crypto/starfive,jh7110-crypto.yaml        | 70 +++++++++++++++++++
- 1 file changed, 70 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+Why are you still using a completion? The callback function should
+invoke the crypto_engine finalize_request call directly.
 
-diff --git a/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml b/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
-new file mode 100644
-index 000000000000..71a2876bd6e4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/crypto/starfive,jh7110-crypto.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive Cryptographic Module
-+
-+maintainers:
-+  - Jia Jie Ho <jiajie.ho@starfivetech.com>
-+  - William Qiu <william.qiu@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-crypto
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Hardware reference clock
-+      - description: AHB reference clock
-+
-+  clock-names:
-+    items:
-+      - const: hclk
-+      - const: ahb
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  dmas:
-+    items:
-+      - description: TX DMA channel
-+      - description: RX DMA channel
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+      - const: rx
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - dmas
-+  - dma-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    crypto: crypto@16000000 {
-+        compatible = "starfive,jh7110-crypto";
-+        reg = <0x16000000 0x4000>;
-+        clocks = <&clk 15>, <&clk 16>;
-+        clock-names = "hclk", "ahb";
-+        interrupts = <28>;
-+        resets = <&reset 3>;
-+        dmas = <&dma 1 2>,
-+               <&dma 0 2>;
-+        dma-names = "tx", "rx";
-+    };
-+...
+> +static int starfive_hash_xmit(struct starfive_cryp_ctx *ctx)
+> +{
+> +	struct starfive_cryp_request_ctx *rctx = ctx->rctx;
+> +	struct starfive_cryp_dev *cryp = ctx->cryp;
+> +	int ret;
+> +
+> +	rctx->csr.hash.v = 0;
+> +	rctx->csr.hash.reset = 1;
+> +	writel(rctx->csr.hash.v, cryp->base + STARFIVE_HASH_SHACSR);
+> +
+> +	if (starfive_hash_wait_busy(ctx))
+> +		return dev_err_probe(cryp->dev, -ETIMEDOUT, "Error resetting engine.\n");
+> +
+> +	rctx->csr.hash.v = 0;
+> +	rctx->csr.hash.mode = ctx->hash_mode & STARFIVE_HASH_MODE_MASK;
+> +	rctx->csr.hash.ie = 1;
+> +
+> +	if (ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS) {
+> +		ret = starfive_hash_hmac_key(ctx);
+> +		if (ret)
+> +			return ret;
+> +	} else {
+> +		rctx->csr.hash.start = 1;
+> +		rctx->csr.hash.firstb = 1;
+> +		writel(rctx->csr.hash.v, cryp->base + STARFIVE_HASH_SHACSR);
+> +	}
+> +
+> +	ret = starfive_hash_xmit_dma(ctx);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!wait_for_completion_timeout(&cryp->hash_done, msecs_to_jiffies(10000)))
+> +		return dev_err_probe(cryp->dev, -ETIMEDOUT, "Timeout waiting for hash done\n");
+
+There is no point in waiting for completion.  Just return 0 and
+you're done.
+
+Cheers,
 -- 
-2.25.1
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
