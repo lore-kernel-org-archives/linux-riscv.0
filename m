@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169D0C7619A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 20:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18CE0C7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 21:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nP1xl0ixTUdbtmZbXHxQnKAXAJ1V2fMcRgjlayuDjrU=; b=Cc8eqzwmF+hSkQgKbP0dQyNAit
-	lEUBMvbf6fU3RN0ml4SIcKwBehowgOoSJoROarXPJlgJdvuXvcUJQGWT1lEFiLD8ACnhbdfYyFz3y
-	rAAL4+YXbpDydcNJBf95SiqHp1IFYhrQIrndIKohmYhei10ZSaSmy/+d//+3CKVekh4d+WM4CAYdo
-	AQOkzqY6a2blDxoIgghkix3aNdJs9wlfvIivCt2ck4eNm0F58Es1gwwflcZgp/rr0BLMnHmocMDVF
-	FNCB8xBAfi5s8WArtf+0fvNKkS/FMNcE4MUrbmAsjcY442Yo7gLMczQDYzinCZbQYLdXe55Is2us3
-	GekwqxIA==;
+	bh=YW6otizbrANTu6rDiLv5UhlKohIXsiKD06nf0kcXxk4=; b=me37fwkPOs0W5tyR8VUmVAyb79
+	0K7YayKSLT3Zi7A3KUzIfuRxtluIdLhDoBMjhqcDmhRGx2oYlb88CXux2WfiZQ00X8qLBm2FHxB73
+	6IVP6bulVT/QWHxEbXed0a+S+1hyTLC4FiccrhbzNFSpb+5kOD/0E9PtK5AuH7UpXd3Uhp/y7dKb8
+	/U5oJYd5UqgK8h1PwMdhXYzCE5KhMHzISSyIyl0SAcI5JkDMukOd/qpwji6bV94DSURO2ycNfvnHD
+	kzk2AK3oVM/TgH3IwrawpGEtHaNIkXqOmUu2IMMCZxntcZH5tXHlS4RDgSIQ1doZT7U5CTPmyfDhD
+	qIXJxLrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmKyo-0017Wk-2m;
-	Tue, 11 Apr 2023 20:52:42 +0000
+	id 1pmLCc-0018rJ-0z;
+	Tue, 11 Apr 2023 21:06:58 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmKyl-0017W8-2X
+	id 1pmLCa-0018qW-22
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 20:52:41 +0000
+	Tue, 11 Apr 2023 21:06:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 27B2D60E9D;
-	Tue, 11 Apr 2023 20:52:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C453C433D2;
-	Tue, 11 Apr 2023 20:52:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 06DF460FA0;
+	Tue, 11 Apr 2023 21:06:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3585AC433D2;
+	Tue, 11 Apr 2023 21:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681246358;
-	bh=Uw2/Byf4kuU8+07mE//heEnMrZgOuJnGJy2pZr8fhEM=;
+	s=k20201202; t=1681247215;
+	bh=P5kk+3HVor0otYo94Y9G9N4eNK+mWyQxWEUIOko/rMY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Kr7O+0tZrPjEw0m/XXSwGiAmEd0MbZYqCzhbwtcx7NCA01FSSC9pitekLgnICQxbi
-	 syANdkMkdw1wXFuiLU96iyGAW7TceQUdlVMG+sd7JcKbBTNlzFL6qMHoFB7n57Htw4
-	 wo6n0LaAmGEh5FlbS8RBYEvlsa2iSUFr7THTM1mlNZdKnJKHStKO5tfowCNPf7Y4ug
-	 vl7TQstNxxUicCr9x2A7brZKNb+yKoIsxG4G/j+pVNvDnEQAJXLF7S2eKthRjnDNxV
-	 BicfhtBoLVOViQnorBBk7E5ByCJGD3PqOLQId1Ti6sSAHfvPEo1gg8xhllRLM0SpuH
-	 Py55B92WHjoNg==
-Date: Tue, 11 Apr 2023 21:52:33 +0100
+	b=PbIKZGOCX/7fiRt1GpDSR+rtak3ggv7H77B2RxD/Hc77w1JmFPLR1dnH1REUEzfSQ
+	 DN0CCuxfM4QR88K9qVp3NoXzkSupq9iGFP3Fu6K3DNBxGB9ACEN4n6orD+FJ26IuEG
+	 oi2rdpOCAVYKY0n7TT4Yq9lTLW4F9anemxOGpe4/2cKSJXNV5gMPUs96t2v3y7Ebnb
+	 V/64xUxcPEfnuwKOZMo0ntcSqZlQAJWcLXAdHRE7TYxqNZ48q0f1j95flV/dmAE0B0
+	 0HuDa55MzfNfqHNSM9NCfu5ml/xYvLPFi1S3thPEfiy5O2VdqkLL5evp3Ma1938+S6
+	 9i+u/0/r8KceQ==
+Date: Tue, 11 Apr 2023 22:06:50 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Rob Herring <robh+dt@kernel.org>,
@@ -56,15 +56,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Walker Chen <walker.chen@starfivetech.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 4/7] soc: starfive: Add pmu type operation
-Message-ID: <20230411-flavoring-sternness-a3b6cdee9fcb@spud>
+Subject: Re: [PATCH v1 5/7] soc: starfive: Use call back to parse device tree
+ resources
+Message-ID: <20230411-stimuli-reapprove-4659d50e5d2e@spud>
 References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-5-changhuang.liang@starfivetech.com>
+ <20230411064743.273388-6-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230411064743.273388-5-changhuang.liang@starfivetech.com>
+In-Reply-To: <20230411064743.273388-6-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_135239_862899_761FA109 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20230411_140656_712400_146A8C10 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,87 +77,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0521284440306735862=="
+Content-Type: multipart/mixed; boundary="===============4435593716108048142=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0521284440306735862==
+--===============4435593716108048142==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9jTLzkgimlFJEOUu"
+	protocol="application/pgp-signature"; boundary="bDUiOgF7hkvaIlrf"
 Content-Disposition: inline
 
 
---9jTLzkgimlFJEOUu
+--bDUiOgF7hkvaIlrf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Changhuang Liang,
+On Mon, Apr 10, 2023 at 11:47:41PM -0700, Changhuang Liang wrote:
+> Different compatible parse device tree resources work in different ways.
 
-On Mon, Apr 10, 2023 at 11:47:40PM -0700, Changhuang Liang wrote:
-> Add pmu type, make a distinction between different PMU.
+Right now there is only one compatible, so this commit message needs to
+be expanded on to provide more information on your motivation.
 
-Please write more detailed commit messages, thanks.
-
->=20
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  drivers/soc/starfive/jh71xx_pmu.c | 55 ++++++++++++++++++++++---------
->  1 file changed, 39 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh7=
-1xx_pmu.c
-> index 306218c83691..98f6849d61de 100644
-> --- a/drivers/soc/starfive/jh71xx_pmu.c
-> +++ b/drivers/soc/starfive/jh71xx_pmu.c
-> @@ -45,6 +45,12 @@
->   */
->  #define JH71XX_PMU_TIMEOUT_US		100
+
+>  static int jh71xx_pmu_init_domain(struct jh71xx_pmu *pmu, int index)
+>  {
+>  	struct jh71xx_pmu_dev *pmd;
+> @@ -296,23 +325,20 @@ static int jh71xx_pmu_probe(struct platform_device =
+*pdev)
+>  	if (!pmu)
+>  		return -ENOMEM;
 > =20
-> +/* pmu type */
+> -	pmu->base =3D device_node_to_regmap(np);
+> -	if (IS_ERR(pmu->base))
+> -		return PTR_ERR(pmu->base);
+> -
+> -	pmu->irq =3D platform_get_irq(pdev, 0);
+> -	if (pmu->irq < 0)
+> -		return pmu->irq;
+> -
+> -	ret =3D devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+> -			       0, pdev->name, pmu);
+> -	if (ret)
+> -		dev_err(dev, "failed to request irq\n");
+> +	spin_lock_init(&pmu->lock);
+> =20
+>  	match_data =3D of_device_get_match_data(dev);
+>  	if (!match_data)
+>  		return -EINVAL;
+> =20
+> +	if (match_data->pmu_parse_dt) {
 
-Delete this comment, it's obvious.
+How can this be false?
 
-> +enum pmu_type {
-> +	JH71XX_PMU_GENERAL,
-
-I'm really not sold on GENERAL as a name.
-Why not name these after the compatibles?
-
-> +	JH71XX_PMU_DPHY,
-> +};
-> +
->  struct jh71xx_domain_info {
->  	const char * const name;
->  	unsigned int flags;
-> @@ -54,6 +60,7 @@ struct jh71xx_domain_info {
->  struct jh71xx_pmu_match_data {
->  	const struct jh71xx_domain_info *domain_info;
->  	int num_domains;
-> +	u8 pmu_type;
-
-This is an enum, not a u8?
-
-Thanks,
+Cheers,
 Conor.
 
-
---9jTLzkgimlFJEOUu
+--bDUiOgF7hkvaIlrf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDXIkQAKCRB4tDGHoIJi
-0kByAP97IOiAFgI8nObj/x4ZMdTZk7xSaKs/qUUM2jPffnTMYQD+KVvBSO9lhyL7
-NFR2FZ7jNsQX8DC9ZEqOFcs91Gip5A4=
-=lb9a
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDXL6gAKCRB4tDGHoIJi
+0hKsAQDfXKLTbzKOVFnOKyo4Q8rhO79dEC4uKOIjSEkTkNr0sAEAmTPcrqwT9S1J
+id3pUSxlo+QqgTZJtIAEFaPBifiRGg8=
+=MAxW
 -----END PGP SIGNATURE-----
 
---9jTLzkgimlFJEOUu--
+--bDUiOgF7hkvaIlrf--
 
 
---===============0521284440306735862==
+--===============4435593716108048142==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +159,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0521284440306735862==--
+--===============4435593716108048142==--
 
