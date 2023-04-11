@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9213C7619A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 07:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54650C76196
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 08:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s10gsHbUzF66E9sAg0WySIOWWbuA4tfWEWTKoLZZC9A=; b=dvnh7y43RGcicx
-	kZUzmUFH1pnVad917wqX+bzrLuMTdVZqnPq3j7R12Kh86sh+9QtigLyu76P1/p52EJHkIN1d3m9cl
-	J4/gS45B4Fx9PHB/PxFSe7dSunPf+HWyR71LKGGMuo5vBiB1vPSpl6eq736naOJyRdEIj6LnXiFpq
-	ZStfOEcHvot7vkMVyY3OXBzMUgzhkr+XUA+BEn50p7ncmwSKTMoP0xykzUQXYIhi/lVmMHHQEnVk+
-	GpYeDVEbIbwcOquRXFC3K2HnnRZZLGHp8dPqhL3R0IRKVilV8/mgZmdwMPo63mpEy31PKqg/rMvbF
-	EjiSG1uC5gJRf0DKYoNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=a5nFNb48nlmkwPD0RPT+UZuKuQya4+w5KRVU7Tfs9k4=; b=Q9XSHDdMnANp/I
+	Y4N1gMkmKWpb/9d4E3mXRNRAJ9Bpkr/X/BoLLisjm4TZd92k0vXkQRA4EKVoOUwdWPc9RsU3KgInC
+	IONEZX1JrML+RmipA23B+efac6Xnn2SN1nft9Xcji1KouC5R3am90zzQmyU9xXX9l6/7Ey+ttsblT
+	7tm9Ya/04CfWtJy75raJR0oqACAWX0NgRWq5q3XR1KKiyPxmkRRpLjG8xCor5a58P2wl2uXEF/YFi
+	FgbCHwYEPcZPr9fh0ilkKujhpxgc8dk5NoBIJfu99RAeX1XPv95Uh9IRhe8L50fKycAeLGoXSDYk+
+	/mcnpy+H1HwdLaG/X9BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm8h5-00Glkw-35;
-	Tue, 11 Apr 2023 07:45:35 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pm9A1-00GnlQ-05;
+	Tue, 11 Apr 2023 08:15:29 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm8h2-00GliC-2b
+	id 1pm99x-00Gnfc-0U
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 07:45:35 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Tue, 11 Apr 2023 08:15:26 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 31E2B24E2E3;
-	Tue, 11 Apr 2023 15:45:09 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 15:45:09 +0800
-Received: from [192.168.125.108] (113.72.145.176) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 15:45:08 +0800
-Message-ID: <a37bcd12-73b7-0503-e82b-ab880bd43f16@starfivetech.com>
-Date: Tue, 11 Apr 2023 15:45:07 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 89EA824E22E;
+	Tue, 11 Apr 2023 16:14:31 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 16:14:30 +0800
+Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 16:14:26 +0800
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>
+CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v5 0/4] crypto: starfive - Add drivers for crypto engine
+Date: Tue, 11 Apr 2023 16:14:20 +0800
+Message-ID: <20230411081424.131912-1-jiajie.ho@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v1 1/3] dt-binding: pci: add JH7110 PCIe dt-binding
- documents.
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230406111142.74410-1-minda.chen@starfivetech.com>
- <20230406111142.74410-2-minda.chen@starfivetech.com>
- <38bc48bf-7d8c-8ddd-861f-3b7f3d2edce6@linaro.org>
- <430f1eb0-e348-8a4e-b501-16b8c3b2494f@starfivetech.com>
- <f37964c6-0a75-2900-e6a7-282f5366696c@linaro.org>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <f37964c6-0a75-2900-e6a7-282f5366696c@linaro.org>
-X-Originating-IP: [113.72.145.176]
-X-ClientProxiedBy: EXCAS065.cuchost.com (172.16.6.25) To EXMBX171.cuchost.com
- (172.16.6.91)
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_004533_155300_A939C002 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230411_011525_492029_4CCB5921 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +73,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series adds kernel driver support for StarFive JH7110 crypto
+engine. The first patch adds Documentations for the device and Patch 2
+adds device probe and DMA init for the module. Patch 3 adds crypto and
+DMA dts node for VisionFive 2 board. Patch 4 adds hash/hmac support to
+the module.
 
+Patch 3 needs to be applied on top of:
+https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
 
-On 2023/4/10 23:21, Krzysztof Kozlowski wrote:
-> On 10/04/2023 11:05, Minda Chen wrote:
->>>> +
->>>> +  starfive,stg-syscon:
->>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->>>> +    items:
->>>> +      items:
->>>> +        - description: phandle to System Register Controller stg_syscon node.
->>>> +        - description: register0 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
->>>> +        - description: register1 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
->>>> +        - description: register2 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
->>>> +        - description: register3 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
->>>> +    description:
->>>> +      The phandle to System Register Controller syscon node and the offset
->>>> +      of STG_SYSCONSAIF__SYSCFG register for PCIe. Total 4 regsisters offset
->>>> +      for PCIe.
->>>> +
->>>> +  pwren-gpios:
->>>> +    description: Should specify the GPIO for controlling the PCI bus device power on.
->>>
->>> What are these? Different than defined in gpio-consumer-common?
->>>
->> power gpio board level configuration. It it not a requried property
-> 
-> What is "board level configuration"? Again - is it different than
-> powerdown-gpios from gpio-consumer-common.yaml?
-> 
-> 
-I am sorry. I will change to powerdown-gpios follow gpio-consumer-common.yaml
-> 
-> Best regards,
-> Krzysztof
-> 
+Changes v4->v5
+- Schedule tasklet from IRQ handler instead of using completion to sync
+  events (Herbert)
+
+Changes v3->v4:
+- Use fallback for non-aligned cases as hardware doesn't support
+  hashing piece-meal (Herbert)
+- Use ahash_request_set_* helpers to update members of ahash_request
+  (Herbert)
+- Set callbacks for async fallback (Herbert)
+- Remove completion variable and use dma_callback to do the rest of
+  processing instead. (Herbert)
+
+Changes v2->v3:
+- Only implement digest and use fallback for other ops (Herbert)
+- Use interrupt instead of polling for hash complete (Herbert)
+- Remove manual data copy from out-of-bound memory location as it will
+  be handled by DMA API. (Christoph & Herbert)
+
+Changes v1->v2:
+- Fixed yaml filename and format (Krzysztof)
+- Removed unnecessary property names in yaml (Krzysztof)
+- Moved of_device_id table close to usage (Krzysztof)
+- Use dev_err_probe for error returns (Krzysztof)
+- Dropped redundant readl and writel wrappers (Krzysztof)
+- Updated commit signed offs (Conor)
+- Dropped redundant node in dts, module set to on in dtsi (Conor)
+
+Jia Jie Ho (4):
+  dt-bindings: crypto: Add StarFive crypto module
+  crypto: starfive - Add crypto engine support
+  riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+  crypto: starfive - Add hash and HMAC support
+
+ .../crypto/starfive,jh7110-crypto.yaml        |  70 ++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  28 +
+ drivers/crypto/Kconfig                        |   1 +
+ drivers/crypto/Makefile                       |   1 +
+ drivers/crypto/starfive/Kconfig               |  21 +
+ drivers/crypto/starfive/Makefile              |   4 +
+ drivers/crypto/starfive/jh7110-cryp.c         | 237 +++++
+ drivers/crypto/starfive/jh7110-cryp.h         | 126 +++
+ drivers/crypto/starfive/jh7110-hash.c         | 975 ++++++++++++++++++
+ 10 files changed, 1470 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+ create mode 100644 drivers/crypto/starfive/Kconfig
+ create mode 100644 drivers/crypto/starfive/Makefile
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.c
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.h
+ create mode 100644 drivers/crypto/starfive/jh7110-hash.c
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
