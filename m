@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFFAC77B6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 11:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CF5C76196
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 12:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ypf4uZAwGyz56Bzt3GSNnrL0+SIteh+fpCa+7MODEj0=; b=i3/8KuCICf6zNdO03zFXiUuCA3
-	uPF3n/V38kUSqu8SXh7Mxtaxmxp7JXqZODcVCLKFJyU/EGUoy6IOnXBxf61mFa1tmmE0rqdfki5jj
-	uZmdWfKL6L66C20ZLDGOpjmEL2jfj7VygLa2eUvP+giF5ALTyvFzgV1sntvGW7AOPtlePAVN+I5LO
-	EN9qurkDkTBoDGb75TlPbBLWcL/EgB9renNvxmziHGUPaF0gXUxcjJ9Wutq0edO02ID2onPtCYrV1
-	O0+iU0xzA3Nc1g8ZEKCVmC7mNkNFtW/6h1nMRPU8RCAPK4MKQafmdRX7TOxGzowzFl9yCdt4Evraw
-	AWLHwJiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=9TSgMf1amyq6awCag2MWcyM65vdWmhaOe/1INeuJkTI=; b=C1K244GoXq5ARVEKU4ng94A6AW
+	HgCGkdwmTnNDwa+rAK6WSDqShNHMe0RbbwG4WOHCHkkoxWS9dJeEduoRYf41xre+6MombgxNlkdHE
+	xEvzQlP0K0IXIPuDSjX/+AUwP3MIC5VdfOLZVmO1MpfbFQHB9XUa1OwRL+H+3KHlN2Jk6j68VT5nO
+	uAVv+57GCSWMH0as21sPwc6xzs5mxzCxL0KqgwNL5p9cNBWwfD0ytKjnH/Q8VyQbeRkhAdx7vTz/V
+	w3G5fTa9Y97ZVnLRkPrQRcO9tA/51orDCiu4fcoBaB7FzVoi4f/H7UF4t4uURMTOad0vzHglPLVZ8
+	UXGKbfvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmCXf-00HTsp-2c;
-	Tue, 11 Apr 2023 11:52:07 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pmD9u-00HYUS-1M;
+	Tue, 11 Apr 2023 12:31:38 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmCXb-00HTqv-0p
+	id 1pmD9r-00HYS0-0T
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 11:52:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1681213924; x=1712749924;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IDNwN+L7zB55OJP9jBjVVnbHvsXbaSOmUpcPGO60Xi0=;
-  b=q2bBj2e+uWNRUDvDmrcNkQuxPWUX3vSH9N4cjxTJj2BFHHhxD2V1mZxj
-   5bGRXk2QQ5j4SV1euZ25alv2E4mbcYjWkwiJsZY5ZvYlkWOInzwO9UNbU
-   NIy+LbVay8S8lUxjOG7U+176cjRCZQnIwPgZdT+gvfl43hj+WK4MPwk4u
-   SZw111VWeXsnnHZsYWvTVy+MKkK7+5H0mmepWFzjzCCyHywGFAi2EevLi
-   RYDEQBX2srlYF357VvzNecPJ9SF1I/BOkkgvcIBVNqOLHQ7Oi7rfvT1DK
-   rRy/m1XDVSHz9bU+0czJDVLxW1AsmbZpIl6mpdcwMkBY9KNTAV5yZRl+a
-   A==;
-X-IronPort-AV: E=Sophos;i="5.98,336,1673938800"; 
-   d="asc'?scan'208";a="205928204"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 04:51:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 11 Apr 2023 04:51:51 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 11 Apr 2023 04:51:49 -0700
-Date: Tue, 11 Apr 2023 12:51:34 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xu Yilun <yilun.xu@intel.com>
-CC: <linux-fpga@vger.kernel.org>, <conor@kernel.org>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Moritz Fischer
-	<mdf@kernel.org>, Wu Hao <hao.wu@intel.com>, Tom Rix <trix@redhat.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 6/7] fpga: add PolarFire SoC Auto Update support
-Message-ID: <20230411-tinsmith-matchless-af5c7c41d23b@wendy>
-References: <20230331071823.956087-1-conor.dooley@microchip.com>
- <20230331071823.956087-7-conor.dooley@microchip.com>
- <ZClfjuLa/pRATwCp@yilunxu-OptiPlex-7050>
+	Tue, 11 Apr 2023 12:31:36 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id v14-20020a05600c470e00b003f06520825fso9484199wmo.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Apr 2023 05:31:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1681216287; x=1683808287;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qsdJg6MZvLyW6lyiDQpN3lhmgzc4LeAZsE9rDHV+Jr8=;
+        b=gik7YFy29rFOY8/ULA7RG1tlEApOn1I1BhHWSq0CeLDZpAQjbKnGrnZpCaMFbjkGr/
+         Mb7BiyfdL3fyxV/v+fxU8dStBUcPzh9mHpb5ZzbACaLg4sEFF5YSOUu/dTp90nx8j+wU
+         Fgfla62Kt+GiUM6LgIaXxuzqrIle3fiR2tV9Zx00NRZufT7qZ6tr2gymEJooY2oazGEV
+         eVVHRWh2MbrN7UiycEa0yoqumWR9lqg6dUOtWhJztQDIQ8Ozsqrx+/JStTkpxaUQrSkR
+         5PVQiS8p287IOdqvUw+ACt6umZheyrTvNMI/mQ58HlEElU53W9qguwwRVRHdWs4Iynko
+         qlZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1681216287; x=1683808287;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qsdJg6MZvLyW6lyiDQpN3lhmgzc4LeAZsE9rDHV+Jr8=;
+        b=gx8kruja/noDCCyfxhzoA45lyPNkabOGO8wJVQB7FUoTQz1GZ76YTpMemDW/zgFlP2
+         lfkMGajbV2PUSTN8VBcqmOM2CVqzgcBGREqMqbcuZa2xRp23EVsVK0tTUvGhOJoIKB+k
+         DmMcflAWF0ipOY0LI4ie+QX1ivlG8JeS70tYBfuRuc5H8JZ0SYnN6oMoFe9NhStzCUlZ
+         EwDB7mo4fLxPEAZOHhNSHTyfdBvzEcQZvq7dD1FCkLHPnMMftIaKUja/CvYgXDAbLfIx
+         iVVZuOU4OD4as04fKRGJbLXe1kIBepvpX8DgU98wz0LjqJxSFvH6kKu3lLc0KMR5H8Et
+         4A9Q==
+X-Gm-Message-State: AAQBX9ccN3Nst8Ekm7fY/psVjQszh4r0LonIKsFAciAGw+UjLMoCOupF
+	R/mVNENMGONdXrEA/jHmjbmxVbQhkRxC7YjPrw459Q==
+X-Google-Smtp-Source: AKy350aaxiNbNBEuf22Wx7XVDPR+xAL3ayHy6cBRDSBbd98zpwLA07+fLQAy8RT/FUUA9LkhcQ/xUDUsdwCdCs74LiI=
+X-Received: by 2002:a05:600c:218c:b0:3ee:282d:1031 with SMTP id
+ e12-20020a05600c218c00b003ee282d1031mr2918698wme.7.1681216286906; Tue, 11 Apr
+ 2023 05:31:26 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <ZClfjuLa/pRATwCp@yilunxu-OptiPlex-7050>
+References: <20230329082950.726-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20230329082950.726-1-cuiyunhui@bytedance.com>
+From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
+Date: Tue, 11 Apr 2023 20:31:16 +0800
+Message-ID: <CAEEQ3wn6Gu_L37PEnQc-bBJC+OAnQWH1gDSOwKYPSTNzy1tCzg@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: Dump user opcode bytes on fatal faults
+To: conor.dooley@microchip.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, peterz@infradead.org, mpe@ellerman.id.au, 
+	jpoimboe@kernel.org, mark.rutland@arm.com, svens@linux.ibm.com, 
+	cuiyunhui@bytedance.com, guoren@kernel.org, jszhang@kernel.org, 
+	ebiederm@xmission.com, bjorn@rivosinc.com, heiko@sntech.de, 
+	xianting.tian@linux.alibaba.com, mnissler@rivosinc.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_045203_358978_C71ED5E5 
-X-CRM114-Status: GOOD (  27.83  )
+X-CRM114-CacheID: sfid-20230411_053135_186869_0AB41B2E 
+X-CRM114-Status: UNSURE (   4.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,114 +87,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8780220917748202738=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8780220917748202738==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dLzJ91lPjUUfUd6j"
-Content-Disposition: inline
+Dear All,
 
---dLzJ91lPjUUfUd6j
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Any comments on this patch?
 
-On Sun, Apr 02, 2023 at 06:57:18PM +0800, Xu Yilun wrote:
-> On 2023-03-31 at 08:18:22 +0100, Conor Dooley wrote:
-> > Add support for Auto Update reprogramming of the FPGA fabric on
-> > PolarFire SoC, using the fw_upload mechanism a la the
-> > intel-m10-bmc-sec-update driver.
->=20
-> I'm not an expert of MTD and have several concerns about the mtd
-> writing part:
->=20
-> - This seems a generic case that writing a file content into the
->   driver restricted offset on mtd.
-
-Right, writing at an offset is pretty generic.
-
-> - Seems the firmware update interface could be created for mtd device,
->   like the nvmem interface?
-
-I'm not entirely sure what you mean by this one.
-Are you saying that there should be a generic way to do "firmware"
-uploads to mtd devices, based on some sort of structure defined in
-devicetree etc?
-And perhaps then, this driver would register as a consumer of that
-interface, pushing all of the direct mtd stuff out to that interface?
-
-> - I assume the purpose of the fw upload interface is to protect
->   unexpected writing from user. So how to protect the mtd be
->   written by other user interfaces like mtdchar/block or nvmem?
-
-I'm not very good with the security knobs so I don't have an answer for
-you here (yet). But your assumption about the rationale here is correct
-and I would like to block access.
-
-> For other parts:
->=20
-> - directory block check, fw upload don't touch this block, so why check
->   it in fw upload process.
-
-I don't know what you mean. The mtd device could be empty and the
-directory would need to be populated with the image address etc.
-Or, it could previously have been used for something else, and then it
-would be required to reconfigure it correctly for Auto Upgrade.
-
-Maybe I am misunderstanding you?
-
->=20
-> - image verification, no matter pass or fail, fw upload is actually done,
->   the flash is written and no way to rollback. So may remove from fw
->   upload process.
-
-The FPGA is flash based, so writing to the mtd device is not going to
-actually program the FPGA with this content. The original image/bitstream
-in the mtd device is either going to be a) equivalent to what is already
-programmed in the FPGA, b) not an upgrade over what is current in the
-FPGA, c) something that was uploaded since the last time the device was
-restarted.
-I don't think that overwriting any of those is problematic, as if the
-verification fails, the original bitstream will continue being used
-until an image that does actually pass is provided.
-
-Without doing the verification though, there's no way to tell for certain
-if the FPGA is actually going to perform an upgrade to this new bitstream
-once it is restarted, so I think there is value in keeping this.
-
-If you're still very sceptical about whether this belongs in
-drivers/fpga, I can always dump it in drivers/soc instead I guess.
-
-Cheers,
-Conor.
-
-
---dLzJ91lPjUUfUd6j
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDVJxgAKCRB4tDGHoIJi
-0pQSAP97BT4XTrsoYV/lQtiljkj5kbrxBzArbNkTmg8edtrX3AD/YwdgiW+cA4vP
-ZYY9qhOwvbAJtvjq6hlGsI6hYBRkIg4=
-=9y6K
------END PGP SIGNATURE-----
-
---dLzJ91lPjUUfUd6j--
-
-
---===============8780220917748202738==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Yunhui
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8780220917748202738==--
-
