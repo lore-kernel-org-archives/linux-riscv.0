@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E27C77B76
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 13:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B7C77B73
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 13:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=c7RSF1d/Yepy/oWWhi5XHTQ60OPz1dlHwS2VbJlm4DA=; b=23j0zJDVkT1M4k
-	QQXC3ougxyeIjimM9m4jy35h1VlNFRk/o5LM7mwq+mqaGgdHbOfv5Cnpeo8GmZfm618lVhgSDbdOJ
-	mTyoI8FE8pQC49clW/BPirbUGruoky9ygUJl9U857ae6CciEvkRZYT1FF1jIxkRrrpEQM+VE/fpiX
-	GsI+PgAy4qYWyMCqiF2iO+IT01vLLuDLBpOjxg3JpXZ01UNy3QZkSbnUt3vI4lUATKwVA7vXhLHW2
-	PGyIPdBYv+abYKqhJWxWMgxigicXz7ZZ/YTEZ9Y0JG1Os6tzFddgXC50QtOfq2R7Qw7VA0AewF84+
-	LApym9LmB9t2OcZsO/Gg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=czxsuKEqjM9Xg6Oa/fC2rbiQKDZckKD7ZB2Ewt/fDtc=; b=ISTiFpB3P+E0PM
+	LQPhSilo1z+V39C+bOuQ7vzlEzs4SXY1B3fxy8EXOYisZtJthNzkMp2Zp/6azrjiu+6S+//tXPRxw
+	uoGKzoIxezp49R8tz3UoytHnfCZzzejo+fx+oIviZLf4zZGbcaWBIZBi7bkZMnFOr1TPc0DQ/at5w
+	rB2h4fWqs4GaEPHO0YTHIGS9+OxAYY9OreXb9em63nfEQLvWRpuymdS44mc5+3hT1laz/3bPBLA+A
+	TY38kyAqXYRQ/86Hre6SHRcgOY0AZ4VUUC78iaZuMo/YaezxZpg/Rzl3BsR4m85dGxFJj4qrSyLCu
+	cWFmUaHixjewN6WJYYvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEUE-000Ar3-1N;
-	Tue, 11 Apr 2023 13:56:42 +0000
+	id 1pmEUE-000ArL-3D;
+	Tue, 11 Apr 2023 13:56:43 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEU6-000AjZ-2K
+	id 1pmEU6-000AjH-2L
 	for linux-riscv@lists.infradead.org;
 	Tue, 11 Apr 2023 13:56:39 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C9FA924E02F;
-	Tue, 11 Apr 2023 21:56:04 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 21:56:04 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2500424E32C;
+	Tue, 11 Apr 2023 21:56:07 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 21:56:07 +0800
 Received: from localhost.localdomain (113.72.145.176) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 21:56:03 +0800
+ 2023 21:56:05 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,18 +49,20 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v4 00/10] Add new partial clock and reset drivers for StarFive JH7110
-Date: Tue, 11 Apr 2023 21:55:48 +0800
-Message-ID: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
+Subject: [PATCH v4 03/10] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+Date: Tue, 11 Apr 2023 21:55:51 +0800
+Message-ID: <20230411135558.44282-4-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
+References: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.145.176]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_065635_265677_B79E6A6A 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20230411_065635_285713_5B02D396 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,159 +79,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch serises are base on the basic JH7110 SYSCRG/AONCRG
-drivers and add new partial clock drivers and reset supports
-about System-Top-Group(STG), Image-Signal-Process(ISP)
-and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
-clocks and resets could be used by DMA, VIN and Display modules.
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Patch 1 adds struct members to support STG/ISP/VOUT resets.
+Add driver for the StarFive JH7110 System-Top-Group clock controller.
 
-Patches 2 and 3 are about the System-Top-Group clock and reset
-generator(STGCRG) part. The first patch adds docunmentation to
-describe STG bindings, and the second patch adds clock driver to
-support STG clocks and resets as auxiliary device for JH7110.
-
-Patches 4 and 5 are about the Image-Signal-Process clock and reset
-gennerator(ISPCRG) part. The first patch adds docunmentation to
-describe ISP bindings, and the second patch adds clock driver to
-support ISP clocks and resets as auxiliary device for JH7110.
-And ISP clocks should power on and enable the SYSCRG clocks first
-before registering.
-
-Patches 6 and 7 are about the Video-Output clock and reset
-generator(VOUTCRG) part. The first patch adds docunmentation to
-describe VOUT bindings, and the second patch adds clock driver to
-support VOUT clocks and resets as auxiliary device for JH7110.
-And VOUT clocks also should power on and enable the SYSCRG clocks
-first before registering.
-
-Patch 8 adds the maintainer who take charge of the STGCRG/ISPCRG/VOUTCRG
-for JH7110.
-Patch 9 adds external clocks which ISP and VOUT clock driver need.
-Patch 10 adds device node about STGCRG, ISPCRG and VOUTCRG to JH7110 dts.
-
-Patches 1, 3, 5, 7 and 8 are dependent on the patchset [1] which
-is about JH71x0 clock and reset driver (Accepted and will merge).
-Patchdes 9 and 10 are dependent on the patchset [1] and [2] which is
-about JH7110 device tree and PMU node.
-This patchset should be applied after the patchset [1], [2]:
-[1] https://lore.kernel.org/all/20230401111934.130844-1-hal.feng@starfivetech.com/
-[2] https://lore.kernel.org/all/20230116074259.22874-4-walker.chen@starfivetech.com/
-
-Changes since v3:
-- Rebased on the lastest JH71X0 clock and reset driver of patchset[1]
-  and modified the parameters of the register reset functions.
-- The patch 1 combined three commits on STG/ISP/VOUT resets into one.
-  And Changed the auxiliary_device_id name from
-  "clk_starfive_jh71x0.reset-*" to "clk_starfive_jh7110_sys.rst-*".
-- Added a maintainer in STARFIVE JH71X0 CLOCK DRIVERS.
-
-v3: https://lore.kernel.org/all/20230314124404.117592-1-xingyu.wu@starfivetech.com/
-
-Changes since v2: 
-Patch 1:
-- Dropped the modification of maintainers.
-- Modified clock and reset names in the dt-bindings header files.
-Patch 3:
-- Added 'Emil Renner Berthing' as the author.
-- Used 'default m' in Kconfig file.
-- Changed the flags of 'CLK_IGNORE_UNUSED' to 0 or 'CLK_IS_CRITICAL'.
-Patch 4:
-- Dropped the 'reset-names' property.
-- Shortened the clock and reset names in the dt-bindings header files.
-Pacth 6:
-- Used 'default m' in Kconfig file.
-- Changed the flags of 'CLK_IGNORE_UNUSED' to 0.
-- Set reset_control struct to a local variable because it just is used
-  one time in probe.
-Pacth 7:
-- Dropped the 'reset-names' property.
-Patch 9:
-- Used 'default m' in Kconfig file.
-- Set reset_control struct to a local variable because it just is used
-  one time in probe.
-Patch 10:
-- Changed the order of externel clock in alphanumerical order.
-Patch 11:
-- Dropped the 'reset-names' property in ispcrg and voutcrg node.
-
-v2: https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
-
-Changes since v1:
-- Modified the binding and dropped the indentation.
-- Removed the useless header files in the drivers.
-- Used an array lookup instead of a pile of conditions about parent
-  clocks' name.
-- Added clocks operation on driver remove.
-
-v1: https://lore.kernel.org/all/20230120024445.244345-1-xingyu.wu@starfivetech.com/
-
-Emil Renner Berthing (1):
-  clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
-
-Xingyu Wu (9):
-  reset: starfive: jh7110: Add StarFive STG/ISP/VOUT resets support
-  dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and
-    reset generator
-  dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and
-    reset generator
-  clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
-  dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset
-    generator
-  clk: starfive: Add StarFive JH7110 Video-Output clock driver
-  MAINTAINERS: Update maintainer of JH71x0 clock drivers
-  riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external
-    clocks
-  riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
-
- .../clock/starfive,jh7110-ispcrg.yaml         |  87 +++++++
- .../clock/starfive,jh7110-stgcrg.yaml         |  82 ++++++
- .../clock/starfive,jh7110-voutcrg.yaml        |  90 +++++++
- MAINTAINERS                                   |   1 +
- .../jh7110-starfive-visionfive-2.dtsi         |   8 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  67 +++++
- drivers/clk/starfive/Kconfig                  |  33 +++
- drivers/clk/starfive/Makefile                 |   3 +
- .../clk/starfive/clk-starfive-jh7110-isp.c    | 232 +++++++++++++++++
- .../clk/starfive/clk-starfive-jh7110-stg.c    | 175 +++++++++++++
- .../clk/starfive/clk-starfive-jh7110-vout.c   | 239 ++++++++++++++++++
- .../reset/starfive/reset-starfive-jh7110.c    |  30 +++
- .../dt-bindings/clock/starfive,jh7110-crg.h   |  74 ++++++
- .../dt-bindings/reset/starfive,jh7110-crg.h   |  60 +++++
- 14 files changed, 1181 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ drivers/clk/starfive/Kconfig                  |  11 ++
+ drivers/clk/starfive/Makefile                 |   1 +
+ .../clk/starfive/clk-starfive-jh7110-stg.c    | 175 ++++++++++++++++++
+ 3 files changed, 187 insertions(+)
  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
 
-
-base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
-prerequisite-patch-id: 388b8adbb0fe2daf4d07a21eafd4f1bd50ce2403
-prerequisite-patch-id: 1117ecaa40a353c667b71802ab34ecf9568d8bb2
-prerequisite-patch-id: b00c6b21fbd0353d88b7c9b09093ba30b765f45b
-prerequisite-patch-id: 08ec9027e8a5c6fdf201726833168c7464a9b94d
-prerequisite-patch-id: fb5120248e48fe1faf053ae0b490c92507ec2b44
-prerequisite-patch-id: 4b93d8d590b0a2abe7b4be5287232c494c35be4a
-prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
-prerequisite-patch-id: c09c4c68af017b8e5c97b515cb50b70c18a2e705
-prerequisite-patch-id: 0df8ccb0e848c2df4c2da95026494bebecede92d
-prerequisite-patch-id: 315303931e4b6499de7127a88113763f86e97e16
-prerequisite-patch-id: 40cb8212ddb024c20593f73d8b87d9894877e172
-prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
-prerequisite-patch-id: d57cc467fb036241b9276320ff076c4a30d376d6
-prerequisite-patch-id: 6e563d68bc5dbf951d4ced17897f9cc4d56169fe
-prerequisite-patch-id: 61ec2caa21fd0fc60e57977f7d16d3f72b135745
-prerequisite-patch-id: 1387a7e87b446329dfc21f3e575ceae7ebcf954c
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
-prerequisite-patch-id: 9007c8610fdcd387592475949864edde874c20a2
-prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
-prerequisite-patch-id: 0a0ac5a8a90655b415f6b62e324f3db083cdaaee
-prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index 71c1148ee5f6..a60abed21650 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -42,3 +42,14 @@ config CLK_STARFIVE_JH7110_AON
+ 	help
+ 	  Say yes here to support the always-on clock controller on the
+ 	  StarFive JH7110 SoC.
++
++config CLK_STARFIVE_JH7110_STG
++	tristate "StarFive JH7110 System-Top-Group clock support"
++	depends on CLK_STARFIVE_JH7110_SYS
++	select AUXILIARY_BUS
++	select CLK_STARFIVE_JH71X0
++	select RESET_STARFIVE_JH7110
++	default m if ARCH_STARFIVE
++	help
++	  Say yes here to support the System-Top-Group clock controller
++	  on the StarFive JH7110 SoC.
+diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+index f3df7d957b1e..b81e97ee2659 100644
+--- a/drivers/clk/starfive/Makefile
++++ b/drivers/clk/starfive/Makefile
+@@ -6,3 +6,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
+ 
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)	+= clk-starfive-jh7110-sys.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
++obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+new file mode 100644
+index 000000000000..a0cf6450874f
+--- /dev/null
++++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+@@ -0,0 +1,175 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * StarFive JH7110 System-Top-Group Clock Driver
++ *
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++
++#include <dt-bindings/clock/starfive,jh7110-crg.h>
++
++#include "clk-starfive-jh7110.h"
++
++/* external clocks */
++#define JH7110_STGCLK_OSC			(JH7110_STGCLK_END + 0)
++#define JH7110_STGCLK_HIFI4_CORE		(JH7110_STGCLK_END + 1)
++#define JH7110_STGCLK_STG_AXIAHB		(JH7110_STGCLK_END + 2)
++#define JH7110_STGCLK_USB_125M			(JH7110_STGCLK_END + 3)
++#define JH7110_STGCLK_CPU_BUS			(JH7110_STGCLK_END + 4)
++#define JH7110_STGCLK_HIFI4_AXI			(JH7110_STGCLK_END + 5)
++#define JH7110_STGCLK_NOCSTG_BUS		(JH7110_STGCLK_END + 6)
++#define JH7110_STGCLK_APB_BUS			(JH7110_STGCLK_END + 7)
++#define JH7110_STGCLK_EXT_END			(JH7110_STGCLK_END + 8)
++
++static const struct jh71x0_clk_data jh7110_stgclk_data[] = {
++	/* hifi4 */
++	JH71X0_GATE(JH7110_STGCLK_HIFI4_CLK_CORE, "hifi4_clk_core", 0,
++		    JH7110_STGCLK_HIFI4_CORE),
++	/* usb */
++	JH71X0_GATE(JH7110_STGCLK_USB0_APB, "usb0_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_USB0_UTMI_APB, "usb0_utmi_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_USB0_AXI, "usb0_axi", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GDIV(JH7110_STGCLK_USB0_LPM, "usb0_lpm", 0, 2, JH7110_STGCLK_OSC),
++	JH71X0_GDIV(JH7110_STGCLK_USB0_STB, "usb0_stb", 0, 4, JH7110_STGCLK_OSC),
++	JH71X0_GATE(JH7110_STGCLK_USB0_APP_125, "usb0_app_125", 0, JH7110_STGCLK_USB_125M),
++	JH71X0__DIV(JH7110_STGCLK_USB0_REFCLK, "usb0_refclk", 2, JH7110_STGCLK_OSC),
++	/* pci-e */
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_AXI_MST0, "pcie0_axi_mst0", 0,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_APB, "pcie0_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_TL, "pcie0_tl", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_AXI_MST0, "pcie1_axi_mst0", 0,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_APB, "pcie1_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_TL, "pcie1_tl", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE_SLV_MAIN, "pcie_slv_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	/* security */
++	JH71X0_GATE(JH7110_STGCLK_SEC_AHB, "sec_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_SEC_MISC_AHB, "sec_misc_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++	/* stg mtrx */
++	JH71X0_GATE(JH7110_STGCLK_GRP0_MAIN, "mtrx_grp0_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_CPU_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP0_BUS, "mtrx_grp0_bus", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_NOCSTG_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP0_STG, "mtrx_grp0_stg", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_MAIN, "mtrx_grp1_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_CPU_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_BUS, "mtrx_grp1_bus", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_NOCSTG_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_STG, "mtrx_grp1_stg", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_HIFI, "mtrx_grp1_hifi", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_HIFI4_AXI),
++	/* e24_rvpi */
++	JH71X0_GDIV(JH7110_STGCLK_E2_RTC, "e2_rtc", 0, 24, JH7110_STGCLK_OSC),
++	JH71X0_GATE(JH7110_STGCLK_E2_CORE, "e2_core", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_E2_DBG, "e2_dbg", 0, JH7110_STGCLK_STG_AXIAHB),
++	/* dw_sgdma1p */
++	JH71X0_GATE(JH7110_STGCLK_DMA1P_AXI, "dma1p_axi", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++};
++
++static struct clk_hw *jh7110_stgclk_get(struct of_phandle_args *clkspec, void *data)
++{
++	struct jh71x0_clk_priv *priv = data;
++	unsigned int idx = clkspec->args[0];
++
++	if (idx < JH7110_STGCLK_END)
++		return &priv->reg[idx].hw;
++
++	return ERR_PTR(-EINVAL);
++}
++
++static int jh7110_stgcrg_probe(struct platform_device *pdev)
++{
++	struct jh71x0_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, JH7110_STGCLK_END),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	dev_set_drvdata(priv->dev, (void *)(&priv->base));
++
++	for (idx = 0; idx < JH7110_STGCLK_END; idx++) {
++		u32 max = jh7110_stgclk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = jh7110_stgclk_data[idx].name,
++			.ops = starfive_jh71x0_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
++			.flags = jh7110_stgclk_data[idx].flags,
++		};
++		struct jh71x0_clk *clk = &priv->reg[idx];
++		const char *fw_name[JH7110_STGCLK_EXT_END - JH7110_STGCLK_END] = {
++			"osc",
++			"hifi4_core",
++			"stg_axiahb",
++			"usb_125m",
++			"cpu_bus",
++			"hifi4_axi",
++			"nocstg_bus",
++			"apb_bus"
++		};
++		unsigned int i;
++
++		for (i = 0; i < init.num_parents; i++) {
++			unsigned int pidx = jh7110_stgclk_data[idx].parents[i];
++
++			if (pidx < JH7110_STGCLK_END)
++				parents[i].hw = &priv->reg[pidx].hw;
++			else if (pidx < JH7110_STGCLK_EXT_END)
++				parents[i].fw_name = fw_name[pidx - JH7110_STGCLK_END];
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & JH71X0_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return ret;
++	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh7110_reset_controller_register(priv, "rst-stg", 2);
++}
++
++static const struct of_device_id jh7110_stgcrg_match[] = {
++	{ .compatible = "starfive,jh7110-stgcrg" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, jh7110_stgcrg_match);
++
++static struct platform_driver jh7110_stgcrg_driver = {
++	.probe = jh7110_stgcrg_probe,
++	.driver = {
++		.name = "clk-starfive-jh7110-stg",
++		.of_match_table = jh7110_stgcrg_match,
++	},
++};
++module_platform_driver(jh7110_stgcrg_driver);
++
++MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
++MODULE_AUTHOR("Emil Renner Berthing <kernel@esmil.dk>");
++MODULE_DESCRIPTION("StarFive JH7110 System-Top-Group clock driver");
++MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
