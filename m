@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3920C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 11:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFFAC77B6F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 11:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:CC:References:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=AB4/rnXYF+iEbI93VIkaFY9Gsc3nJKaMJ0aNB+oHdGw=; b=puRUqDUrevlTEEjBrlxxzHWP9g
-	gUX2keRuqSxiitjvd5WTz5UuUN4PIL94Q5RW99cNOnYhKC6G1v8jE5X5FTKkSMHnH4gZ8qjlEcxY0
-	3tawp0aBmJyV2jNSxA3dbvSJdnOobTib8I2cuRWnDR0tQ4iLfyACPLC+A2N001iVZxq1qYEiW8lpM
-	aqq34CAJHFUCIU8g/GyIj/TmPB8mCGUEWlf34C5yxsXSFr348Td0bgwgg5NmEz8acOFtnsU5GExsa
-	srIDZqZDTSO5PWmJyAdcEXyKO53EnNCkSa3Lkp9o5fpXKftXSDNSh7dtNca/ftzOaJddieEup7tOL
-	MsU8dY+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ypf4uZAwGyz56Bzt3GSNnrL0+SIteh+fpCa+7MODEj0=; b=i3/8KuCICf6zNdO03zFXiUuCA3
+	uPF3n/V38kUSqu8SXh7Mxtaxmxp7JXqZODcVCLKFJyU/EGUoy6IOnXBxf61mFa1tmmE0rqdfki5jj
+	uZmdWfKL6L66C20ZLDGOpjmEL2jfj7VygLa2eUvP+giF5ALTyvFzgV1sntvGW7AOPtlePAVN+I5LO
+	EN9qurkDkTBoDGb75TlPbBLWcL/EgB9renNvxmziHGUPaF0gXUxcjJ9Wutq0edO02ID2onPtCYrV1
+	O0+iU0xzA3Nc1g8ZEKCVmC7mNkNFtW/6h1nMRPU8RCAPK4MKQafmdRX7TOxGzowzFl9yCdt4Evraw
+	AWLHwJiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmCOg-00HSoq-0R;
-	Tue, 11 Apr 2023 11:42:50 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1pmCXf-00HTsp-2c;
+	Tue, 11 Apr 2023 11:52:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmCOc-00HSnL-2Q
+	id 1pmCXb-00HTqv-0p
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 11:42:49 +0000
-Received: from kwepemm600009.china.huawei.com (unknown [172.30.72.57])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4PwkTD51jGzDsW6;
-	Tue, 11 Apr 2023 19:41:52 +0800 (CST)
-Received: from [10.67.101.184] (10.67.101.184) by
- kwepemm600009.china.huawei.com (7.193.23.164) with Microsoft SMTP Server
+	Tue, 11 Apr 2023 11:52:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1681213924; x=1712749924;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IDNwN+L7zB55OJP9jBjVVnbHvsXbaSOmUpcPGO60Xi0=;
+  b=q2bBj2e+uWNRUDvDmrcNkQuxPWUX3vSH9N4cjxTJj2BFHHhxD2V1mZxj
+   5bGRXk2QQ5j4SV1euZ25alv2E4mbcYjWkwiJsZY5ZvYlkWOInzwO9UNbU
+   NIy+LbVay8S8lUxjOG7U+176cjRCZQnIwPgZdT+gvfl43hj+WK4MPwk4u
+   SZw111VWeXsnnHZsYWvTVy+MKkK7+5H0mmepWFzjzCCyHywGFAi2EevLi
+   RYDEQBX2srlYF357VvzNecPJ9SF1I/BOkkgvcIBVNqOLHQ7Oi7rfvT1DK
+   rRy/m1XDVSHz9bU+0czJDVLxW1AsmbZpIl6mpdcwMkBY9KNTAV5yZRl+a
+   A==;
+X-IronPort-AV: E=Sophos;i="5.98,336,1673938800"; 
+   d="asc'?scan'208";a="205928204"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 04:51:56 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23; Tue, 11 Apr 2023 19:42:34 +0800
-Subject: Re: [PATCH V4 23/23] crypto: hisilicon/qm: Workaround to enable build
- with RISC-V clang
-To: Arnd Bergmann <arnd@arndb.de>, Sunil V L <sunilvl@ventanamicro.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-acpi@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
-	<llvm@lists.linux.dev>
-References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
- <20230404182037.863533-24-sunilvl@ventanamicro.com>
- <dcd04005-2dba-4ccc-a235-a809220f9dbd@app.fastmail.com>
-CC: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Zhou Wang
-	<wangzhou1@hisilicon.com>, Herbert Xu <herbert@gondor.apana.org.au>, Marc
- Zyngier <maz@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>, Hans de
- Goede <hdegoede@redhat.com>, Mark Gross <markgross@kernel.org>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "David S
- . Miller" <davem@davemloft.net>
-From: Weili Qian <qianweili@huawei.com>
-Message-ID: <487a20e7-2894-218a-47e9-b222aef4ec6e@huawei.com>
-Date: Tue, 11 Apr 2023 19:42:29 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ 15.1.2507.21; Tue, 11 Apr 2023 04:51:51 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 11 Apr 2023 04:51:49 -0700
+Date: Tue, 11 Apr 2023 12:51:34 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Xu Yilun <yilun.xu@intel.com>
+CC: <linux-fpga@vger.kernel.org>, <conor@kernel.org>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Moritz Fischer
+	<mdf@kernel.org>, Wu Hao <hao.wu@intel.com>, Tom Rix <trix@redhat.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 6/7] fpga: add PolarFire SoC Auto Update support
+Message-ID: <20230411-tinsmith-matchless-af5c7c41d23b@wendy>
+References: <20230331071823.956087-1-conor.dooley@microchip.com>
+ <20230331071823.956087-7-conor.dooley@microchip.com>
+ <ZClfjuLa/pRATwCp@yilunxu-OptiPlex-7050>
 MIME-Version: 1.0
-In-Reply-To: <dcd04005-2dba-4ccc-a235-a809220f9dbd@app.fastmail.com>
-X-Originating-IP: [10.67.101.184]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemm600009.china.huawei.com (7.193.23.164)
-X-CFilter-Loop: Reflected
+In-Reply-To: <ZClfjuLa/pRATwCp@yilunxu-OptiPlex-7050>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_044247_114959_873ECCC9 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20230411_045203_358978_C71ED5E5 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,100 +82,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8780220917748202738=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============8780220917748202738==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dLzJ91lPjUUfUd6j"
+Content-Disposition: inline
+
+--dLzJ91lPjUUfUd6j
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Apr 02, 2023 at 06:57:18PM +0800, Xu Yilun wrote:
+> On 2023-03-31 at 08:18:22 +0100, Conor Dooley wrote:
+> > Add support for Auto Update reprogramming of the FPGA fabric on
+> > PolarFire SoC, using the fw_upload mechanism a la the
+> > intel-m10-bmc-sec-update driver.
+>=20
+> I'm not an expert of MTD and have several concerns about the mtd
+> writing part:
+>=20
+> - This seems a generic case that writing a file content into the
+>   driver restricted offset on mtd.
+
+Right, writing at an offset is pretty generic.
+
+> - Seems the firmware update interface could be created for mtd device,
+>   like the nvmem interface?
+
+I'm not entirely sure what you mean by this one.
+Are you saying that there should be a generic way to do "firmware"
+uploads to mtd devices, based on some sort of structure defined in
+devicetree etc?
+And perhaps then, this driver would register as a consumer of that
+interface, pushing all of the direct mtd stuff out to that interface?
+
+> - I assume the purpose of the fw upload interface is to protect
+>   unexpected writing from user. So how to protect the mtd be
+>   written by other user interfaces like mtdchar/block or nvmem?
+
+I'm not very good with the security knobs so I don't have an answer for
+you here (yet). But your assumption about the rationale here is correct
+and I would like to block access.
+
+> For other parts:
+>=20
+> - directory block check, fw upload don't touch this block, so why check
+>   it in fw upload process.
+
+I don't know what you mean. The mtd device could be empty and the
+directory would need to be populated with the image address etc.
+Or, it could previously have been used for something else, and then it
+would be required to reconfigure it correctly for Auto Upgrade.
+
+Maybe I am misunderstanding you?
+
+>=20
+> - image verification, no matter pass or fail, fw upload is actually done,
+>   the flash is written and no way to rollback. So may remove from fw
+>   upload process.
+
+The FPGA is flash based, so writing to the mtd device is not going to
+actually program the FPGA with this content. The original image/bitstream
+in the mtd device is either going to be a) equivalent to what is already
+programmed in the FPGA, b) not an upgrade over what is current in the
+FPGA, c) something that was uploaded since the last time the device was
+restarted.
+I don't think that overwriting any of those is problematic, as if the
+verification fails, the original bitstream will continue being used
+until an image that does actually pass is provided.
+
+Without doing the verification though, there's no way to tell for certain
+if the FPGA is actually going to perform an upgrade to this new bitstream
+once it is restarted, so I think there is value in keeping this.
+
+If you're still very sceptical about whether this belongs in
+drivers/fpga, I can always dump it in drivers/soc instead I guess.
+
+Cheers,
+Conor.
 
 
-On 2023/4/5 16:16, Arnd Bergmann wrote:
-> On Tue, Apr 4, 2023, at 20:20, Sunil V L wrote:
->> With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
->> allmodconfig build. The gcc tool chain builds this driver removing the
->> inline arm64 assembly code. However, clang for RISC-V tries to build
->> the arm64 assembly and below error is seen.
->>
->> drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint 
->> '+Q' in asm
->>                        "+Q" (*((char __iomem *)fun_base))
->>                        ^
->> It appears that RISC-V clang is not smart enough to detect
->> IS_ENABLED(CONFIG_ARM64) and remove the dead code.
->>
->> As a workaround, move this check to preprocessing stage which works
->> with the RISC-V clang tool chain.
->>
->> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> 
-> Your patch looks correct for this particular problem, but I
-> see that there are a couple of other issues in the same function:
-> 
->> -	}
->> +#if IS_ENABLED(CONFIG_ARM64)
->> +	unsigned long tmp0 = 0, tmp1 = 0;
->>
->>  	asm volatile("ldp %0, %1, %3\n"
->>  		     "stp %0, %1, %2\n"
->> @@ -627,6 +623,11 @@ static void qm_mb_write(struct hisi_qm *qm, const 
->> void *src)
->>  		       "+Q" (*((char __iomem *)fun_base))
->>  		     : "Q" (*((char *)src))
->>  		     : "memory");
-> 
-> For the arm64 version:
-> 
-> - the "dmb oshst" barrier needs to come before the stp, not after
->   it,  otherwise there is no guarantee that data written to memory
->   is visible by the device when the mailbox gets triggered
-> - The input/output arguments need to be pointers to 128-bit types,
->   either a struct or a __uint128_t
-> - this lacks a byteswap on big-endian kernels
-Sorry for the late reply.
+--dLzJ91lPjUUfUd6j
+Content-Type: application/pgp-signature; name="signature.asc"
 
-- the execution order relies on the data dependency between ldp and stp:
-  load "src" to "tmp0" and "tmp1", then
-  store "tmp0" and "tmp1" to "fun_base";
-  The "dmb oshst" is used to ensure that the stp instruction has been executed
-  before CPU checking mailbox status. Whether the execution order
-  cannot be guaranteed via data dependency?
+-----BEGIN PGP SIGNATURE-----
 
-- The input argument "src" is struct "struct qm_mailbox".
-- Before call this funcion, the data has been byteswapped.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDVJxgAKCRB4tDGHoIJi
+0pQSAP97BT4XTrsoYV/lQtiljkj5kbrxBzArbNkTmg8edtrX3AD/YwdgiW+cA4vP
+ZYY9qhOwvbAJtvjq6hlGsI6hYBRkIg4=
+=9y6K
+-----END PGP SIGNATURE-----
 
-	mailbox->w0 = cpu_to_le16((cmd) |
-		((op) ? 0x1 << QM_MB_OP_SHIFT : 0) |
-		(0x1 << QM_MB_BUSY_SHIFT));
-	mailbox->queue_num = cpu_to_le16(queue);
-	mailbox->base_l = cpu_to_le32(lower_32_bits(base));
-	mailbox->base_h = cpu_to_le32(upper_32_bits(base));
-	mailbox->rsvd = 0;
+--dLzJ91lPjUUfUd6j--
 
-> 
->> +#else
->> +	memcpy_toio(fun_base, src, 16);
->> +	dma_wmb();
->> +#endif
-> 
-> This version has the same problems, plus the write is not actually
-> atomic. I wonder if a pair of writeq() calls would just do the
-> right thing here for both arm64 and others, or possibly a
-> writeq() followed by a writeq_relaxed() to avoid the extra dmb()
-> in the middle.
-> 
->      Arnd
-> .
-> 
-We have to do a 128bit atomic write here to trigger a mailbox. The reason
-is that the PF and related VFs of a hardware cannot write mailbox MMIO at the
-same time.
-For this SoC(Kunpeng) which has QM, if the address is 128bit aligned, stp will
-be atomic. The offset of QM mailbox is 128bit aligned, so it is safe here.
 
-Best regards,
-Weili
+--===============8780220917748202738==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8780220917748202738==--
+
