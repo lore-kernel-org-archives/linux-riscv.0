@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B7C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 13:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32920C77B6F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 13:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=czxsuKEqjM9Xg6Oa/fC2rbiQKDZckKD7ZB2Ewt/fDtc=; b=ISTiFpB3P+E0PM
-	LQPhSilo1z+V39C+bOuQ7vzlEzs4SXY1B3fxy8EXOYisZtJthNzkMp2Zp/6azrjiu+6S+//tXPRxw
-	uoGKzoIxezp49R8tz3UoytHnfCZzzejo+fx+oIviZLf4zZGbcaWBIZBi7bkZMnFOr1TPc0DQ/at5w
-	rB2h4fWqs4GaEPHO0YTHIGS9+OxAYY9OreXb9em63nfEQLvWRpuymdS44mc5+3hT1laz/3bPBLA+A
-	TY38kyAqXYRQ/86Hre6SHRcgOY0AZ4VUUC78iaZuMo/YaezxZpg/Rzl3BsR4m85dGxFJj4qrSyLCu
-	cWFmUaHixjewN6WJYYvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LJDN8xZT/WTiTFavG1gPBmaT3sOFt4GBTPejN2IvquE=; b=0oD917masbpqcvtc/DV2pn1Y9j
+	rbk11OVYJaNswbZ8m66bEVrrQfyZ8H8ivQik1mn9Xqh2Ia6jyoV6tVE9XcWjZr8QBVxb9EZc53jwx
+	Knob2amFuAB964vWsKnbcT4EXLpxBAx3waatQebm6ZE8jCa588MW+q9CekGh/DR19qKWdend5IG6x
+	ZFGm2pl7dAIbbkanrW0Rj2OuBKJjfVcwePqs4CQFjsX9Ipvi5bFln2l9YySAILaDpiXnB9fXrA2xO
+	vTe6KsnoDYyx/SETtRPk4o/9L3ZY5QzZKzbM52NN3rM7DCagLG3y4ME7SmXV0VmwW0R+NsDSz7Z6f
+	EIyL7MMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEUE-000ArL-3D;
-	Tue, 11 Apr 2023 13:56:43 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEU6-000AjH-2L
+	id 1pmEUG-000As5-1q;
+	Tue, 11 Apr 2023 13:56:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pmEU6-000Am8-32
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 13:56:39 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2500424E32C;
-	Tue, 11 Apr 2023 21:56:07 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 21:56:07 +0800
-Received: from localhost.localdomain (113.72.145.176) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
- 2023 21:56:05 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
- Berthing" <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v4 03/10] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
-Date: Tue, 11 Apr 2023 21:55:51 +0800
-Message-ID: <20230411135558.44282-4-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
-References: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
+	Tue, 11 Apr 2023 13:56:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1681221394; x=1712757394;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zVHxEPoTlOu2ZeEhIlwU729M1yFF4Fc4PIgiXba8dj4=;
+  b=LkKJvzwQCBHA3v8QmYrO6xu0DiTTD4CT06agsoHlISyu6X1E2nHHSo7g
+   BIoivJyih+lKuD02ZwkjbpsFV6iicpArRhgqjUpaqECAzbR3AC6G+KcUk
+   Bv76G+I4BGt9jh4GEYYuF7/friyyAneg7r5qp4Rj/yfNfh+NBYsxT0d8x
+   18YKbDgoXRamd+CZHXNPPrLdywDMrUeQdbxktb4N3oKQkJZx0LyFaoOgQ
+   i7Xg87m2WnUT5oeLOImm0gkg3xT/rzlY2TCpgQP6hxc8i4eCZ2WWOJcOG
+   TnNxvVSc3+mBThSkMehRTeQvyp8OZqJRElKbEbUZn3tdYlQuS56z9NXJf
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,336,1673938800"; 
+   d="asc'?scan'208";a="220366966"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 06:56:31 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 11 Apr 2023 06:56:31 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 11 Apr 2023 06:56:30 -0700
+Date: Tue, 11 Apr 2023 14:56:15 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Thierry Reding <thierry.reding@gmail.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
+	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v16 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20230411-ligament-wagon-6c8cacb966e8@wendy>
+References: <20230411-wizard-cautious-3c048db6b4d2@wendy>
+ <20230411-bronzing-crust-d302408a1259@wendy>
+ <20230411105547.ypkktubgfx4jfen3@pengutronix.de>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.145.176]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230411105547.ypkktubgfx4jfen3@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_065635_285713_5B02D396 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20230411_065635_036993_E2F35392 
+X-CRM114-Status: GOOD (  69.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,239 +79,469 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2126129315804653121=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+--===============2126129315804653121==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HE15B+KGsyyRolbk"
+Content-Disposition: inline
 
-Add driver for the StarFive JH7110 System-Top-Group clock controller.
+--HE15B+KGsyyRolbk
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/clk/starfive/Kconfig                  |  11 ++
- drivers/clk/starfive/Makefile                 |   1 +
- .../clk/starfive/clk-starfive-jh7110-stg.c    | 175 ++++++++++++++++++
- 3 files changed, 187 insertions(+)
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+Hey Uwe,
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index 71c1148ee5f6..a60abed21650 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -42,3 +42,14 @@ config CLK_STARFIVE_JH7110_AON
- 	help
- 	  Say yes here to support the always-on clock controller on the
- 	  StarFive JH7110 SoC.
-+
-+config CLK_STARFIVE_JH7110_STG
-+	tristate "StarFive JH7110 System-Top-Group clock support"
-+	depends on CLK_STARFIVE_JH7110_SYS
-+	select AUXILIARY_BUS
-+	select CLK_STARFIVE_JH71X0
-+	select RESET_STARFIVE_JH7110
-+	default m if ARCH_STARFIVE
-+	help
-+	  Say yes here to support the System-Top-Group clock controller
-+	  on the StarFive JH7110 SoC.
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index f3df7d957b1e..b81e97ee2659 100644
---- a/drivers/clk/starfive/Makefile
-+++ b/drivers/clk/starfive/Makefile
-@@ -6,3 +6,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
- 
- obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)	+= clk-starfive-jh7110-sys.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
-+obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-new file mode 100644
-index 000000000000..a0cf6450874f
---- /dev/null
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-@@ -0,0 +1,175 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive JH7110 System-Top-Group Clock Driver
-+ *
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/io.h>
-+#include <linux/platform_device.h>
-+
-+#include <dt-bindings/clock/starfive,jh7110-crg.h>
-+
-+#include "clk-starfive-jh7110.h"
-+
-+/* external clocks */
-+#define JH7110_STGCLK_OSC			(JH7110_STGCLK_END + 0)
-+#define JH7110_STGCLK_HIFI4_CORE		(JH7110_STGCLK_END + 1)
-+#define JH7110_STGCLK_STG_AXIAHB		(JH7110_STGCLK_END + 2)
-+#define JH7110_STGCLK_USB_125M			(JH7110_STGCLK_END + 3)
-+#define JH7110_STGCLK_CPU_BUS			(JH7110_STGCLK_END + 4)
-+#define JH7110_STGCLK_HIFI4_AXI			(JH7110_STGCLK_END + 5)
-+#define JH7110_STGCLK_NOCSTG_BUS		(JH7110_STGCLK_END + 6)
-+#define JH7110_STGCLK_APB_BUS			(JH7110_STGCLK_END + 7)
-+#define JH7110_STGCLK_EXT_END			(JH7110_STGCLK_END + 8)
-+
-+static const struct jh71x0_clk_data jh7110_stgclk_data[] = {
-+	/* hifi4 */
-+	JH71X0_GATE(JH7110_STGCLK_HIFI4_CLK_CORE, "hifi4_clk_core", 0,
-+		    JH7110_STGCLK_HIFI4_CORE),
-+	/* usb */
-+	JH71X0_GATE(JH7110_STGCLK_USB0_APB, "usb0_apb", 0, JH7110_STGCLK_APB_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_USB0_UTMI_APB, "usb0_utmi_apb", 0, JH7110_STGCLK_APB_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_USB0_AXI, "usb0_axi", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GDIV(JH7110_STGCLK_USB0_LPM, "usb0_lpm", 0, 2, JH7110_STGCLK_OSC),
-+	JH71X0_GDIV(JH7110_STGCLK_USB0_STB, "usb0_stb", 0, 4, JH7110_STGCLK_OSC),
-+	JH71X0_GATE(JH7110_STGCLK_USB0_APP_125, "usb0_app_125", 0, JH7110_STGCLK_USB_125M),
-+	JH71X0__DIV(JH7110_STGCLK_USB0_REFCLK, "usb0_refclk", 2, JH7110_STGCLK_OSC),
-+	/* pci-e */
-+	JH71X0_GATE(JH7110_STGCLK_PCIE0_AXI_MST0, "pcie0_axi_mst0", 0,
-+		    JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE0_APB, "pcie0_apb", 0, JH7110_STGCLK_APB_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE0_TL, "pcie0_tl", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE1_AXI_MST0, "pcie1_axi_mst0", 0,
-+		    JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE1_APB, "pcie1_apb", 0, JH7110_STGCLK_APB_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE1_TL, "pcie1_tl", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_PCIE_SLV_MAIN, "pcie_slv_main", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_STG_AXIAHB),
-+	/* security */
-+	JH71X0_GATE(JH7110_STGCLK_SEC_AHB, "sec_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_SEC_MISC_AHB, "sec_misc_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+	/* stg mtrx */
-+	JH71X0_GATE(JH7110_STGCLK_GRP0_MAIN, "mtrx_grp0_main", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_CPU_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_GRP0_BUS, "mtrx_grp0_bus", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_NOCSTG_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_GRP0_STG, "mtrx_grp0_stg", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_GRP1_MAIN, "mtrx_grp1_main", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_CPU_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_GRP1_BUS, "mtrx_grp1_bus", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_NOCSTG_BUS),
-+	JH71X0_GATE(JH7110_STGCLK_GRP1_STG, "mtrx_grp1_stg", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_GRP1_HIFI, "mtrx_grp1_hifi", CLK_IS_CRITICAL,
-+		    JH7110_STGCLK_HIFI4_AXI),
-+	/* e24_rvpi */
-+	JH71X0_GDIV(JH7110_STGCLK_E2_RTC, "e2_rtc", 0, 24, JH7110_STGCLK_OSC),
-+	JH71X0_GATE(JH7110_STGCLK_E2_CORE, "e2_core", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_E2_DBG, "e2_dbg", 0, JH7110_STGCLK_STG_AXIAHB),
-+	/* dw_sgdma1p */
-+	JH71X0_GATE(JH7110_STGCLK_DMA1P_AXI, "dma1p_axi", 0, JH7110_STGCLK_STG_AXIAHB),
-+	JH71X0_GATE(JH7110_STGCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+};
-+
-+static struct clk_hw *jh7110_stgclk_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct jh71x0_clk_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < JH7110_STGCLK_END)
-+		return &priv->reg[idx].hw;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int jh7110_stgcrg_probe(struct platform_device *pdev)
-+{
-+	struct jh71x0_clk_priv *priv;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, JH7110_STGCLK_END),
-+			    GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	dev_set_drvdata(priv->dev, (void *)(&priv->base));
-+
-+	for (idx = 0; idx < JH7110_STGCLK_END; idx++) {
-+		u32 max = jh7110_stgclk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh7110_stgclk_data[idx].name,
-+			.ops = starfive_jh71x0_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents =
-+				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+			.flags = jh7110_stgclk_data[idx].flags,
-+		};
-+		struct jh71x0_clk *clk = &priv->reg[idx];
-+		const char *fw_name[JH7110_STGCLK_EXT_END - JH7110_STGCLK_END] = {
-+			"osc",
-+			"hifi4_core",
-+			"stg_axiahb",
-+			"usb_125m",
-+			"cpu_bus",
-+			"hifi4_axi",
-+			"nocstg_bus",
-+			"apb_bus"
-+		};
-+		unsigned int i;
-+
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh7110_stgclk_data[idx].parents[i];
-+
-+			if (pidx < JH7110_STGCLK_END)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx < JH7110_STGCLK_EXT_END)
-+				parents[i].fw_name = fw_name[pidx - JH7110_STGCLK_END];
-+		}
-+
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+
-+		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
-+	if (ret)
-+		return ret;
-+
-+	return jh7110_reset_controller_register(priv, "rst-stg", 2);
-+}
-+
-+static const struct of_device_id jh7110_stgcrg_match[] = {
-+	{ .compatible = "starfive,jh7110-stgcrg" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_stgcrg_match);
-+
-+static struct platform_driver jh7110_stgcrg_driver = {
-+	.probe = jh7110_stgcrg_probe,
-+	.driver = {
-+		.name = "clk-starfive-jh7110-stg",
-+		.of_match_table = jh7110_stgcrg_match,
-+	},
-+};
-+module_platform_driver(jh7110_stgcrg_driver);
-+
-+MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-+MODULE_AUTHOR("Emil Renner Berthing <kernel@esmil.dk>");
-+MODULE_DESCRIPTION("StarFive JH7110 System-Top-Group clock driver");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
+On Tue, Apr 11, 2023 at 12:55:47PM +0200, Uwe Kleine-K=F6nig wrote:
+> On Tue, Apr 11, 2023 at 09:56:34AM +0100, Conor Dooley wrote:
+> > Add a driver that supports the Microchip FPGA "soft" PWM IP core.
+> >=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  drivers/pwm/Kconfig              |  10 +
+> >  drivers/pwm/Makefile             |   1 +
+> >  drivers/pwm/pwm-microchip-core.c | 509 +++++++++++++++++++++++++++++++
+> >  3 files changed, 520 insertions(+)
+> >  create mode 100644 drivers/pwm/pwm-microchip-core.c
+> >=20
+> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> > index dae023d783a2..f42756a014ed 100644
+> > --- a/drivers/pwm/Kconfig
+> > +++ b/drivers/pwm/Kconfig
+> > @@ -393,6 +393,16 @@ config PWM_MEDIATEK
+> >  	  To compile this driver as a module, choose M here: the module
+> >  	  will be called pwm-mediatek.
+> > =20
+> > +config PWM_MICROCHIP_CORE
+> > +	tristate "Microchip corePWM PWM support"
+> > +	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
+> > +	depends on HAS_IOMEM && OF
+> > +	help
+> > +	  PWM driver for Microchip FPGA soft IP core.
+> > +
+> > +	  To compile this driver as a module, choose M here: the module
+> > +	  will be called pwm-microchip-core.
+> > +
+> >  config PWM_MXS
+> >  	tristate "Freescale MXS PWM support"
+> >  	depends on ARCH_MXS || COMPILE_TEST
+> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> > index 7bf1a29f02b8..a65625359ece 100644
+> > --- a/drivers/pwm/Makefile
+> > +++ b/drivers/pwm/Makefile
+> > @@ -34,6 +34,7 @@ obj-$(CONFIG_PWM_LPSS_PCI)	+=3D pwm-lpss-pci.o
+> >  obj-$(CONFIG_PWM_LPSS_PLATFORM)	+=3D pwm-lpss-platform.o
+> >  obj-$(CONFIG_PWM_MESON)		+=3D pwm-meson.o
+> >  obj-$(CONFIG_PWM_MEDIATEK)	+=3D pwm-mediatek.o
+> > +obj-$(CONFIG_PWM_MICROCHIP_CORE)	+=3D pwm-microchip-core.o
+> >  obj-$(CONFIG_PWM_MTK_DISP)	+=3D pwm-mtk-disp.o
+> >  obj-$(CONFIG_PWM_MXS)		+=3D pwm-mxs.o
+> >  obj-$(CONFIG_PWM_NTXEC)		+=3D pwm-ntxec.o
+> > diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microch=
+ip-core.c
+> > new file mode 100644
+> > index 000000000000..0a69ec376c51
+> > --- /dev/null
+> > +++ b/drivers/pwm/pwm-microchip-core.c
+> > @@ -0,0 +1,509 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * corePWM driver for Microchip "soft" FPGA IP cores.
+> > + *
+> > + * Copyright (c) 2021-2023 Microchip Corporation. All rights reserved.
+> > + * Author: Conor Dooley <conor.dooley@microchip.com>
+> > + * Documentation:
+> > + * https://www.microsemi.com/document-portal/doc_download/1245275-core=
+pwm-hb
+> > + *
+> > + * Limitations:
+> > + * - If the IP block is configured without "shadow registers", all reg=
+ister
+> > + *   writes will take effect immediately, causing glitches on the outp=
+ut.
+> > + *   If shadow registers *are* enabled, a write to the "SYNC_UPDATE" r=
+egister
+> > + *   notifies the core that it needs to update the registers defining =
+the
+> > + *   waveform from the contents of the "shadow registers".
+>=20
+> You only write once to the sync update register (i.e. during probe). So
+> that register specifies that a period should be completed before a new
+> setting becomes active, right?
 
+Correct.
+
+> Even with sync update this is still racy, right?
+
+I assume the period ticking over as we are updating the values is your
+concern here. I'm not sure that there's all that much we can do about
+that, so I guess I shall update the comment.
+Perhaps writing out period_steps and prescale should be done after
+computing the new duty cycle to reduce the possible window since that
+may require an expensive division on a 32-bit arch?
+
+> > + * - The IP block has no concept of a duty cycle, only rising/falling =
+edges of
+> > + *   the waveform. Unfortunately, if the rising & falling edges regist=
+ers have
+> > + *   the same value written to them the IP block will do whichever of =
+a rising
+> > + *   or a falling edge is possible. I.E. a 50% waveform at twice the r=
+equested
+> > + *   period. Therefore to get a 0% waveform, the output is set the max=
+ high/low
+> > + *   time depending on polarity.
+> > + *   If the duty cycle is 0%, and the requested period is less than the
+> > + *   available period resolution, this will manifest as a ~100% wavefo=
+rm (with
+> > + *   some output glitches) rather than 50%.
+>=20
+> The last paragraph refers to negedge =3D 0, posedge =3D 0 and period_step=
+s =3D
+> 0?
+
+Yes. Although, I did some poking around with it just now & that actually
+only happens if prescale is also 0.
+If it is non-zero, get to see some other "interesting behaviour" where
+the period becomes gigantic - for example @ prescale =3D 0x3, the period
+becomes about a quarter of a second w/ a 50% duty cycle. clk_rate is
+62.5 MHz. I'd need to dig out the RTL to justify that one!
+
+I've just gone and made apply() return -EINVAL for this, which the
+subsystem does for requests of zero periods.
+
+> > + * - The PWM period is set for the whole IP block not per channel. The=
+ driver
+> > + *   will only change the period if no other PWM output is enabled.
+> > + */
+>=20
+> > +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct pwm_dev=
+ice *pwm,
+> > +				 bool enable, u64 period)
+> > +{
+> > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> > +	u8 channel_enable, reg_offset, shift;
+> > +
+> > +	/*
+> > +	 * There are two adjacent 8 bit control regs, the lower reg controls
+> > +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper reg
+> > +	 * and if so, offset by the bus width.
+> > +	 */
+> > +	reg_offset =3D MCHPCOREPWM_EN(pwm->hwpwm >> 3);
+> > +	shift =3D pwm->hwpwm & 7;
+> > +
+> > +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offset);
+> > +	channel_enable &=3D ~(1 << shift);
+> > +	channel_enable |=3D (enable << shift);
+> > +
+> > +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset);
+> > +	mchp_core_pwm->channel_enabled &=3D ~BIT(pwm->hwpwm);
+> > +	mchp_core_pwm->channel_enabled |=3D enable << pwm->hwpwm;
+> > +
+> > +	/*
+> > +	 * Notify the block to update the waveform from the shadow registers.
+> > +	 * The updated values will not appear on the bus until they have been
+> > +	 * applied to the waveform at the beginning of the next period.
+> > +	 * This is a NO-OP if the channel does not have shadow registers.
+> > +	 */
+>=20
+> The code doesn't match the comment. I think that is a relict from the
+> times when we thought that a trigger was necessary to update the
+> operating settings from the shadow registers?
+
+Yeah, I read this back to myself before sending v15 & thought that it
+didn't need to be changed. I think removing the first line should go.
+
+>=20
+> > +	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm))
+> > +		mchp_core_pwm->update_timestamp =3D ktime_add_ns(ktime_get(), period=
+);
+> > +}
+> > +
+> > +static void mchp_core_pwm_wait_for_sync_update(struct mchp_core_pwm_ch=
+ip *mchp_core_pwm,
+> > +					       unsigned int channel)
+> > +{
+> > +	/*
+> > +	 * If a shadow register is used for this PWM channel, and iff there is
+> > +	 * a pending update to the waveform, we must wait for it to be applied
+> > +	 * before attempting to read its state. Reading the registers yields
+> > +	 * the currently implemented settings & the new ones are only readable
+> > +	 * once the current period has ended.
+> > +	 */
+> > +
+> > +	if (mchp_core_pwm->sync_update_mask & (1 << channel)) {
+> > +		ktime_t current_time =3D ktime_get();
+> > +		s64 remaining_ns;
+> > +		u32 delay_us;
+> > +
+> > +		remaining_ns =3D ktime_to_ns(ktime_sub(mchp_core_pwm->update_timesta=
+mp,
+> > +						     current_time));
+> > +
+> > +		/*
+> > +		 * If the update has gone through, don't bother waiting for
+> > +		 * obvious reasons. Otherwise wait around for an appropriate
+> > +		 * amount of time for the update to go through.
+> > +		 */
+> > +		if (remaining_ns <=3D 0)
+> > +			return;
+> > +
+> > +		delay_us =3D DIV_ROUND_UP_ULL(remaining_ns, NSEC_PER_USEC);
+> > +		fsleep(delay_us);
+> > +	}
+>=20
+> There is no way to query the hardware if there is still an update
+> pending, right?
+
+Hah, no. This IP is about as old as I am & appears to have been written
+with keeping the FPGA utilisation % to a minimum. No such luxuries!
+
+> Maybe that's possible implicitly by memoizing the
+> expected read value? For me the current approach is fine enough though.
+> This can be addressed in the future if needed.
+>=20
+> > +static u64 mchp_core_pwm_calc_duty(const struct pwm_state *state, u64 =
+clk_rate,
+> > +				   u8 prescale, u8 period_steps)
+> > +{
+> > +	u64 duty_steps, tmp;
+> > +
+> > +	/*
+> > +	 * Calculate the duty cycle in multiples of the prescaled period:
+> > +	 * duty_steps =3D duty_in_ns / step_in_ns
+> > +	 * step_in_ns =3D (prescale * NSEC_PER_SEC) / clk_rate
+> > +	 * The code below is rearranged slightly to only divide once.
+> > +	 */
+> > +	tmp =3D (prescale + 1) * NSEC_PER_SEC;
+> > +	duty_steps =3D mul_u64_u64_div_u64(state->duty_cycle, clk_rate, tmp);
+> > +
+> > +	return duty_steps;
+> > +}
+> > +
+> > +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip, struct pwm=
+_device *pwm,
+> > +				     const struct pwm_state *state, u64 duty_steps,
+> > +				     u16 period_steps)
+> > +{
+> > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> > +	u8 posedge, negedge;
+> > +	u8 first_edge =3D 0, second_edge =3D duty_steps;
+> > +
+> > +	/*
+> > +	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
+> > +	 * so that's an unsuitable setting to model duty_steps =3D 0.
+> > +	 * In that case set the unwanted edge to a value that never
+> > +	 * triggers.
+> > +	 */
+> > +	if (duty_steps =3D=3D 0)
+> > +		first_edge =3D period_steps + 1;
+> > +
+> > +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
+> > +		negedge =3D first_edge;
+> > +		posedge =3D second_edge;
+> > +	} else {
+> > +		posedge =3D first_edge;
+> > +		negedge =3D second_edge;
+> > +	}
+> > +
+> > +	writel_relaxed(posedge, mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(pwm=
+->hwpwm));
+> > +	writel_relaxed(negedge, mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(pwm=
+->hwpwm));
+>=20
+> Is this racy with sync update implemented in the firmware? A comment
+> about how the sync update is implemented would be good.
+
+Unless this is a different fear of racing, see above.
+
+> > +}
+> > +
+> > +static int mchp_core_pwm_calc_period(const struct pwm_state *state, un=
+signed long clk_rate,
+> > +				     u16 *prescale, u16 *period_steps)
+> > +{
+> > +	u64 tmp;
+> > +	u32 remainder;
+> > +
+> > +	/*
+> > +	 * Calculate the period cycles and prescale values.
+> > +	 * The registers are each 8 bits wide & multiplied to compute the per=
+iod
+> > +	 * using the formula:
+> > +	 *           (prescale + 1) * (period_steps + 1)
+> > +	 * period =3D -------------------------------------
+> > +	 *                      clk_rate
+> > +	 * so the maximum period that can be generated is 0x10000 times the
+> > +	 * period of the input clock.
+> > +	 * However, due to the design of the "hardware", it is not possible to
+> > +	 * attain a 100% duty cycle if the full range of period_steps is used.
+> > +	 * Therefore period_steps is restricted to 0xfe and the maximum multi=
+ple
+> > +	 * of the clock period attainable is (0xff + 1) * (0xfe + 1) =3D 0xff=
+00
+> > +	 *
+> > +	 * The prescale and period_steps registers operate similarly to
+> > +	 * CLK_DIVIDER_ONE_BASED, where the value used by the hardware is that
+> > +	 * in the register plus one.
+> > +	 * It's therefore not possible to set a period lower than 1/clk_rate,=
+ so
+> > +	 * if tmp is 0, abort. Without aborting, we will set a period that is
+> > +	 * greater than that requested and, more importantly, will trigger the
+> > +	 * neg-/pos-edge issue described in the limitations.
+> > +	 */
+> > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
+> > +	if (!tmp)
+> > +		return -EINVAL;
+> > +
+> > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
+> > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX;
+> > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX;
+> > +
+> > +		return 0;
+> > +	}
+> > +
+> > +	/*
+> > +	 * There are multiple strategies that could be used to choose the
+> > +	 * prescale & period_steps values.
+> > +	 * Here the idea is to pick values so that the selection of duty cycl=
+es
+> > +	 * is as finegrain as possible.
+> > +	 * This "optimal" value for prescale can be calculated using the maxi=
+mum
+> > +	 * permitted value of period_steps, 0xfe.
+> > +	 *
+> > +	 *                period * clk_rate
+> > +	 * prescale =3D ------------------------- - 1
+> > +	 *            NSEC_PER_SEC * (0xfe + 1)
+> > +	 *
+> > +	 * However, we are purely interested in the integer upper bound of th=
+is
+> > +	 * calculation, so this division should be rounded up before subtract=
+ing
+> > +	 * 1
+> > +	 *
+> > +	 *  period * clk_rate
+> > +	 * ------------------- was precomputed as `tmp`
+> > +	 *    NSEC_PER_SEC
+> > +	 */
+> > +	*prescale =3D DIV64_U64_ROUND_UP(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX + =
+1) - 1;
+>=20
+> If state->period * clk_rate is 765000000001 you get tmp =3D 765 and then
+> *prescale =3D 2. However roundup(765000000001 / (1000000000 * 255)) - 1 is
+> 3. The problem here is that you're rounding down in the calculation of
+> tmp. Of course this is constructed because 765000000001 is prime, but
+> I'm sure you get the point :-)
+
+Hold that thought for a moment..
+
+> Also we know that tmp is < 0xff00, so we don't need a 64 bit division
+> here.
+
+Neither here nor below, true.
+
+> > +	/*
+> > +	 * Because 0xff is not a permitted value some error will seep into the
+> > +	 * calculation of prescale as prescale grows. Specifically, this error
+> > +	 * occurs where the remainder of the prescale calculation is less than
+> > +	 * prescale.
+> > +	 * For small values of prescale, only a handful of values will need
+> > +	 * correction, but overall this applies to almost half of the valid
+> > +	 * values for tmp.
+> > +	 *
+> > +	 * To keep the algorithm's decision making consistent, this case is
+> > +	 * checked for and the simple solution is to, in these cases,
+> > +	 * decrement prescale and check that the resulting value of period_st=
+eps
+> > +	 * is valid.
+> > +	 *
+> > +	 * period_steps can be computed from prescale:
+> > +	 *                      period * clk_rate
+> > +	 * period_steps =3D ----------------------------- - 1
+> > +	 *                NSEC_PER_SEC * (prescale + 1)
+> > +	 *
+> > +	 */
+> > +	div_u64_rem(tmp, (MCHPCOREPWM_PERIOD_STEPS_MAX + 1), &remainder);
+> > +	if (remainder < *prescale) {
+> > +		u16 smaller_prescale =3D *prescale - 1;
+> > +
+> > +		*period_steps =3D div_u64(tmp, smaller_prescale + 1) - 1;
+> > +		if (*period_steps < 255) {
+> > +			*prescale =3D smaller_prescale;
+> > +
+> > +			return 0;
+> > +		}
+> > +	}
+
+=2E..so in your prime case above, we would initially compute a prescale
+value that is too large, and then wind up hitting the test of the
+remainder here, thereby realising that the smaller prescale value is a
+better fit?
+Perhaps that's not an acceptable way to handle the issue though.
+
+> I don't understand that part. It triggers for tmp =3D 511. So you prefer
+>=20
+> 	prescale =3D 1
+> 	period_steps =3D 254
+>=20
+> yielding period =3D 510 / clkrate over
+>=20
+> 	prescale =3D 2
+> 	period_steps =3D 170
+>=20
+> yielding 513 / clkrate. I wonder why.
+
+Because 513 > 511 & 254 > 170!
+Is the aim not to produce a period that is less than or equal to that
+requested? The aim of this driver is to pick a prescale/period_steps
+combo that satisfies that constraint, while also trying to maximise the
+"finegrainness" of the duty cycle.
+The latter should be stated in a comment above.
+
+
+> Alsot tmp =3D 511 is the only value
+> where this triggers. There is a mistake somewhere (maybe on my side).
+
+It should trigger for any value 255 * n < x < 256 * n, no?
+Say for tmp of 767:
+*prescale =3D DIV64_U64_ROUND_UP(767, 254 + 1) - 1 =3D DIV64_U64_ROUND_UP(3=
+=2E00784...) - 1 =3D 3
+remainder =3D 0.00784.. * (254 + 1) =3D 2
+
+Am I going nuts? Wouldn't be the first time that I've made a hames of
+things here, there are 16 versions for a reason after all.
+
+Cheers,
+Conor.
+
+--HE15B+KGsyyRolbk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDVm/gAKCRB4tDGHoIJi
+0rnXAP432Ilc1lEPuAtQvIcjFRrQHek4R/bTEnYbc9wwAWMFWAD/TFTgMEAbXsk6
+p/Mc9BkOy98FrJzQdU5MeLp7H/Dt/gc=
+=QtNW
+-----END PGP SIGNATURE-----
+
+--HE15B+KGsyyRolbk--
+
+
+--===============2126129315804653121==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2126129315804653121==--
+
