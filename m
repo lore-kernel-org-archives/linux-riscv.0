@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D96C76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 07:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455EDC7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 07:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BwiWubbqD1aKqdLSgiddglEFfkdVNIIFarpukpY1Tt0=; b=bPQfwA095K0bvN
-	+VvEX//HJYmpMbF5Mq2m+Fg9tdNZE5ob3jhXYVMmeTk6/mIxBbsxVK4vgeQ2S647ehC2tNlzOxTMn
-	av1Jid8chN9gnEdSbZhUIlwJPDR/AffOsgBn5UWivnKFC7ZlLDtG/Nat9P24+jivAgzfQffyP0+E0
-	JfDWlXq3Oqez86Q/bqO0NX2mls8y7bZuLWcwvnwJU/MoTpFaFCs1ddFi/6C+LgWmHKX/imoA9ULCW
-	rQXm/aeofvQaO4bV/8dQlHWR3FVdM7xA4VHCQcyLFAQfBX5PiM8J17Jbi8/XFKQ/91q9z6m1oE2xh
-	Wqg5hzfNV8QAR4iW5C1Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oPgKr8Mwd3POUV9pjiBF2So9UBr0pai5G04sCA4j98o=; b=pP+JXu9AxPpXz0
+	YrSEbmP7EjhgYlBtPK0zzzAhFQIK4Ev1+TX3cBFYXnQUznyH8MD4kLIR+EHmp4Hb8N9njk4hSiVCk
+	JXtSaMM/Ktt99t6JQ9pYZTddt0jO5yjeW8edaCSJxsNOMoJHvO5pjep7JTq9pieKRkWXA7JlPkPdU
+	h05uzTKpH+U9G9c54QqxCtuDkwiYzoQIukOMwreoUPRt3o/Rob8uASv/Y5UXCTDvmw/VF01WPGBso
+	WX/lCJoGWnPtT4gQ3aQoxn8+VYtRY2Pm1Jk5sCi0A+xgtSNo12B6T1q0O7YPYQjb8x7dFc1CuDBQT
+	o/Mv2++bmICqmXazI2WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm8Xt-00GkE6-2H;
-	Tue, 11 Apr 2023 07:36:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pm8dx-00Gl81-32;
+	Tue, 11 Apr 2023 07:42:21 +0000
+Received: from mail.lokoho.com ([217.61.105.98])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm8Xq-00GkD7-1t;
-	Tue, 11 Apr 2023 07:36:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 881336224B;
-	Tue, 11 Apr 2023 07:36:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE4DC433EF;
-	Tue, 11 Apr 2023 07:35:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681198561;
-	bh=9ighdUcP/UTYLMiyXaga2dDu7U1Ozp7TXI7PHr3dDYU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pc3B3hgSIKCjI2c/0a4HjZdd2ehgt6z2AB/2lkt3ZD6vimWx/pG5aGfdOrQOKPqBx
-	 gjPeI3PzxplsapH8uFKl4f+UNMeQlirH6NJ6KQEL4JYpMdrlAhgc1e/+qQSLPnJ6Jt
-	 Z1r3Ty3+mnw9Oj7MUoOrTlHiUY2ndF8deB2I3KnvL3FWE7fXSuDRq+RSoWwlPp3c6D
-	 qv/asV3Ccah13L3j+wQu/EayolE5EbXi4uitIEu42TucY1rgfDOee6evA4HatXTpwF
-	 6dJhup7XFRTiwuy8FxHXbRACloOKnZ5kfXVq4yfp6LSnzMlnfs/3XmYg/cP3gsVGh1
-	 8lMMn383lj2Lw==
-Date: Tue, 11 Apr 2023 09:35:55 +0200
-From: Simon Horman <horms@kernel.org>
-To: Chen Jiahao <chenjiahao16@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com,
-	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
-	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
-	atishp@rivosinc.com, bhe@redhat.com, thunder.leizhen@huawei.com
-Subject: Re: [PATCH -next v4 1/2] riscv: kdump: Implement
- crashkernel=X,[high,low]
-Message-ID: <ZDUN2+WG3OKGN/oq@kernel.org>
-References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
- <20230410130553.3226347-2-chenjiahao16@huawei.com>
+	id 1pm8dv-00Gl6I-0I
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Apr 2023 07:42:20 +0000
+Received: by mail.lokoho.com (Postfix, from userid 1001)
+	id 9E9EC836B8; Tue, 11 Apr 2023 08:41:09 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lokoho.com; s=mail;
+	t=1681198909; bh=Z0N5VlX9/JlryGOL5I747Le9USomZJCRNNGRT3LbbKc=;
+	h=Date:From:To:Subject:From;
+	b=n2wBzl4V0ULsRQYwIXbAW77zW2klsb/hHlkNfHFdmX12QnN2KPcCh8FDioLDBvz7U
+	 UEWrKSOPAmAwaSH1OlW+JcOCWrdD/rm+Ua39nh++G/a/6Fxv4jSrtN4Lapd9woC2oy
+	 6ef+0EPaAYVkzeDXUVPqREkhnLl8LzC+TxCTIUQKzi7K+KoXG1VZQ6lpaGStDSMJre
+	 DP1/0itSBuyKbAiXLonHou9c0oAdBaZSJ6toP5ogWgpYZJX3OFx++h1eSg2fd6fSrV
+	 4P3g+1erkK/azVsC8yp81Xj4EHovYSoF9Ih2Imp+mScvq8wA1LmLbah8klaFT4o6+x
+	 LcJ7XIZE0NHqA==
+Received: by mail.lokoho.com for <linux-riscv@lists.infradead.org>; Tue, 11 Apr 2023 07:40:45 GMT
+Message-ID: <20230411074501-0.1.58.1tiuy.0.9gfrpmojw4@lokoho.com>
+Date: Tue, 11 Apr 2023 07:40:45 GMT
+From: "Adam Charachuta" <adam.charachuta@lokoho.com>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?S=C5=82owa_kluczowe_do_wypozycjonowania?=
+X-Mailer: mail.lokoho.com
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230410130553.3226347-2-chenjiahao16@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_003602_682644_C98308FE 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20230411_004219_268281_0CD894D3 
+X-CRM114-Status: UNSURE (   1.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +61,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 10, 2023 at 09:05:52PM +0800, Chen Jiahao wrote:
-> On riscv, the current crash kernel allocation logic is trying to
-> allocate within 32bit addressible memory region by default, if
-> failed, try to allocate without 4G restriction.
-> 
-> In need of saving DMA zone memory while allocating a relatively large
-> crash kernel region, allocating the reserved memory top down in
-> high memory, without overlapping the DMA zone, is a mature solution.
-> Here introduce the parameter option crashkernel=X,[high,low].
-> 
-> One can reserve the crash kernel from high memory above DMA zone range
-> by explicitly passing "crashkernel=X,high"; or reserve a memory range
-> below 4G with "crashkernel=X,low".
-> 
-> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
-> Acked-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
-
-Reviewed-by: Simon Horman <horms@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKemFwb3puYcWCZW0gc2nEmSB6IFBhxYRzdHdhIG9mZXJ0xIUgaSB6IHBy
+enlqZW1ub8WbY2nEhSBwcnp5em5hasSZLCDFvGUgcHJ6eWNpxIVnYSB1d2FnxJkgaSB6YWNoxJlj
+YSBkbyBkYWxzenljaCByb3ptw7N3LiAKClBvbXnFm2xhxYJlbSwgxbxlIG1vxbxlIG3Ds2fFgmJ5
+bSBtaWXEhyBzd8OzaiB3a8WCYWQgdyBQYcWEc3R3YSByb3p3w7NqIGkgcG9tw7NjIGRvdHJ6ZcSH
+IHogdMSFIG9mZXJ0xIUgZG8gd2nEmWtzemVnbyBncm9uYSBvZGJpb3Jjw7N3LiBQb3p5Y2pvbnVq
+xJkgc3Ryb255IHd3dywgZHppxJlraSBjemVtdSBnZW5lcnVqxIUgxZt3aWV0bnkgcnVjaCB3IHNp
+ZWNpLgoKTW/FvGVteSBwb3Jvem1hd2lhxIcgdyBuYWpibGnFvHN6eW0gY3phc2llPwoKClBvemRy
+YXdpYW0KQWRhbSBDaGFyYWNodXRhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
