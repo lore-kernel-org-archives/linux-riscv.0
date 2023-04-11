@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED58C7619A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 21:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB80C76196
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 21:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYRtfdoVIXqxYCExXhdZoHLL+n94CmP4tciFwCZ6b+c=; b=X1l3MZba2D/3h7GBhQ7TJkHHNW
-	C7xBnQTS65jED5iR4R10FEnk/OHNoh/tcFSDJKcUcE07i4NT4+o2gJC9tLgqEIm509akDs9lBQplW
-	SmhaSw4UXgGVoWqiowwNpXZYEtBmqzWc1PtJ0dJlPK9CJgqcUL8VizMfUnhTcHrFLfHbGf7D3dPtp
-	1S7RB6C0qGANfvhKscPVsY7b+F1fktTbPgl9RwsZ74tDXGJfZud5GfES5lMDd79k6S4Or39lv7mrz
-	KRnfkYoK9XzjM6plNkQdnuQS97+xgbgOYiYiMmBUMSKzl+Sz+kbHecKvZmschJwUe6SO9O5/4dETq
-	XNVi2Rsg==;
+	bh=+xPRhXGIy6yIEFSO5gpfzV//7umRleEEkEgoCBmqFRA=; b=idfNbPCj8PIujPTYKa7vgVOt1Z
+	RJ0Z3lDlhPCVnDUNDHGBGNVlu6Jc8CjGtGpIdsZgXhlUXKq+BdGKxVEnbQ7R+njB1eak3N6pRIf+t
+	HBob+2N9jh5os2mpPLGL3tgxpxz2eRGxHwO32A3JQgfGuG++XgaYmhFYte9jH6Rw2GoUaN/NBk/W+
+	TNBBI8mrb7E5cu3/zJOxANenP5NzidTQ68VLvYNVXgd2zUEMbiO7euMDFkL5kfDPrKqzedKtp1XKe
+	9p9muKkzHOgg4rv2Wyv0igNNLl4BRcQPI/SMKYBIP8rGN+cEMl47SbQ3Aj6Brs26dI3TFtb45XHjg
+	rXkeGmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmLc4-001CJ7-1r;
-	Tue, 11 Apr 2023 21:33:16 +0000
+	id 1pmLdz-001Cav-0J;
+	Tue, 11 Apr 2023 21:35:15 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmLc2-001CIi-2e
+	id 1pmLdw-001CZu-0C
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 21:33:15 +0000
+	Tue, 11 Apr 2023 21:35:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 33BD260F4E;
-	Tue, 11 Apr 2023 21:33:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96B08C433EF;
-	Tue, 11 Apr 2023 21:33:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9EF2E60F4D;
+	Tue, 11 Apr 2023 21:35:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ADD6C433D2;
+	Tue, 11 Apr 2023 21:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681248793;
-	bh=a/Ibkn+oiRDOCtEQMuKBzxAMKNVKsFoB2724VcRyOPk=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=lc9Vd94rlQfsOHp2xlvfcUz3DAiSrthDRZM4fIjiS3zdT/11OiT1I+nh7ry1nrQ6d
-	 TPb/MwV8H1juQ00+xmqWedqWgnX5roaFJqglBvHzArn1TK1R7ksWT42HvWx5Ym0+lI
-	 ti5wFHmDMoF0OSiX0shrJt+3IHn1lWmejV1+gWDlYfRV8ajCgLGEAFTEi2MUjSRp4A
-	 ryM8wa5ucv2ZywyuE2QzWhwuERv8t2LcYbn1horMhDmN1IztrEb/aVKhfOQYvIQYog
-	 hvMykkUaOboUA/mlte6MINTIY9ooT2cg0txz7arO5Wbju6wUNl3rixsdF5VfmTWaBz
-	 yanOWloU1vPNg==
-Date: Tue, 11 Apr 2023 22:33:10 +0100
+	s=k20201202; t=1681248911;
+	bh=EdaTBmGx5ipL6ZGZ09wYqo4JAou9hrLMcyRMGOrp9DQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uhUFqokuwM/PyAhB7StoT6t2VzBtM7UGp+T7j4inc9RuXXVwW/5E2V+fqSftbitNw
+	 E3thFeDNKDeNS20UZTghwRH+tmRCrWsH8X1f9kOn1+uGEXTFXfOwaMQX25IqoHHFhS
+	 vf/pxUp8kjgqzQUYbyDfuhXWTz7Hvv1euQ7mp1HFYs8/ui43r/IiG8pjy3pYhJgP34
+	 wLgmuk1aJ09RsqsSwQhaaQJYnmCpPLdjyli+UZkiJg3VffSny90DRwnkJuS8FJo/wM
+	 UQq/lWZnxtz9xnoEmEZ27TbK/ghWyFzvYDUVqjZgYSeg2smR3zOkFDJyZp2R+p1swE
+	 lR0OvIJSlBIRg==
+Date: Tue, 11 Apr 2023 22:35:04 +0100
 From: Conor Dooley <conor@kernel.org>
-To: arnd@arndb.de
-Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, soc@kernel.org
-Subject: Re: [GIT PULL] RISC-V Devicetrees for v6.4
-Message-ID: <20230411-sacrifice-liable-524c033b70a8@spud>
-References: <20230406-shank-impromptu-3d483bbc249f@spud>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 00/22] Basic clock, reset & device tree support for
+ StarFive JH7110 RISC-V SoC
+Message-ID: <20230411-gleaming-parasail-34e2b7c3de2e@spud>
+References: <20230401111934.130844-1-hal.feng@starfivetech.com>
+ <20230405-wharf-rejoin-5222e5958611@spud>
+ <ce311dcf-67a5-bf15-d0da-88967baf4ee9@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230406-shank-impromptu-3d483bbc249f@spud>
+In-Reply-To: <ce311dcf-67a5-bf15-d0da-88967baf4ee9@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_143314_900116_5BB22BCA 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20230411_143512_139150_693ED138 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,46 +84,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9056202897473384820=="
+Content-Type: multipart/mixed; boundary="===============1612043276504297171=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9056202897473384820==
+--===============1612043276504297171==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Aal+fc4OVB1GV+w9"
+	protocol="application/pgp-signature"; boundary="YCHkUOSmswIkgJOR"
 Content-Disposition: inline
 
 
---Aal+fc4OVB1GV+w9
+--YCHkUOSmswIkgJOR
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Apr 06, 2023 at 09:24:40PM +0100, Conor Dooley wrote:
+On Thu, Apr 06, 2023 at 03:03:14PM +0800, Hal Feng wrote:
+> On Wed,  5 Apr 2023 22:30:45 +0100, Conor Dooley wrote:
 
-> I may have another
-> PR adding some of the peripherals (pmu, mmc) for the StarFive stuff
-> that are already reviewed etc, but need a rebase on top of what
-> actually got applied. Is that okay, or will the end of next week be
-> too late for you?
+> > Hal, can you get your folks to resend whatever dts bits that are now
+> > applicable? IOW, the dt-bindings for the entries are in a for-next
+> > branch for some subsystem.
+>=20
+> Of course. As far as I know, these nodes include trng / pmu / mmc / qspi.
 
-FWIW, the patches didn't show up yet, and now it is too late for me :)
+Just FYI, you can get the lads to resend them whenever, but it's too
+late for v6.4 now.
 
---Aal+fc4OVB1GV+w9
+Cheers,
+Conor.
+
+
+--YCHkUOSmswIkgJOR
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDXSFgAKCRB4tDGHoIJi
-0nGOAQDvZS6TFvs0s6z5xx7uf6KIc6DCnrfDdn1ZEaKSpOnHHAEAzyzP+fPmqrkn
-Ao9sgz676dQL5BwAaXTTXJ4CVZ9H+wo=
-=/3f6
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDXSiAAKCRB4tDGHoIJi
+0n8bAP46Wjui6uRCpo1EmY/80+MrDWfxuiE6As1sjptafoKLNQEAltQ+fCrJjdwm
+DA8tnYqSuOh1dsY1ECOqI2M2mTb6EwU=
+=8yVv
 -----END PGP SIGNATURE-----
 
---Aal+fc4OVB1GV+w9--
+--YCHkUOSmswIkgJOR--
 
 
---===============9056202897473384820==
+--===============1612043276504297171==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -117,5 +141,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9056202897473384820==--
+--===============1612043276504297171==--
 
