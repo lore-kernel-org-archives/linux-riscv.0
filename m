@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E244AC76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 14:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB41C77B6F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 14:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFdfoIjtgyl8Z1yevVpknKOI3dtCkYdXCcyVCioLI6w=; b=C1shUVYLvC3aND7B842W5mQ+GE
-	5Hn6gpJ3u6bJZXkAOFdjiVKN26fyevzlYbnVkShSVlYFQnPOWNkPy4SdCRjhKx4VVDlkPYtXvzkdE
-	YY8z3pW4LeyemyhISwed/4lK7Pw1ZHhqUIQd9MfIgEIQHWU0akc+XmLeEW1gNSIYa+KpeYv95YJyQ
-	hez+DrVF8+YEId1RYY/tRea9ktgMHwntMhuKyWzhZNyrur9FqAiGxEiWtdg8EMbvSbVHo/KmxtC9V
-	a4K6NPGxupMl3Xj1UpNuiWDnxuN7ZIpS15TUovyKi9FfHxI6j5DcB0qIQOByriG/04Hj8W8xrwzpN
-	dciCEy6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y0ixJeEq3NHEQLHxMRr5NI6yLnHhpFrTsnt1G00kOas=; b=o+6Org5OLStpSs
+	sInqPZE7KaYLMV0RpFbhEnpQbg67+BXFP+OgVIR0fcjNAFYmzEvvJB4nFj/oJOSIRtq3icWLqs/d5
+	XizPy6mVUbxzMKvZNws4LG2hPB7P0biTL65VU1IcXWDh0u/ZBwgtXg/fSi1w49vFnvTK3mUnIWulc
+	QWB1I9IY+6PsItrdycY/ykV3aoWxR0cnXMBVkuEPrkxoAdHxI7LXj7YmiH6At3Gff9AJZqwiC9OQQ
+	ml8wczSu+jHmGB8l7nClkcNyqc1/1sGUgRbcIb4Ylqc3HnfCTTYkiQ2MgqmwFHYzamSCcXDjw9fiZ
+	Zf5j4llEguvwTvuVaCvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEoL-000EDq-0f;
-	Tue, 11 Apr 2023 14:17:29 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmEoG-000EBc-2S
+	id 1pmF8i-000HsO-28;
+	Tue, 11 Apr 2023 14:38:32 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pmF8d-000Hp2-2W
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 14:17:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1681222645; x=1712758645;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=l+JgXouqrG+N1yi4JFy3ghvDTExLHywE71wQs1yugEQ=;
-  b=dBtxZTbBUIalfTMFw/+z0387kizNDE9gNdwu+S9gOjj88TlxGzbmVpL+
-   dSne8RnUpzzsR+qAzauqDCEC7q/fw/p1RyFKHUKKdVrtn4X2I4OaKgv6o
-   mT85GtuRIbtVl0XxCkLyfLI0xmIYQFhsjQZKjs10AVZgf3yQnyemd+Vp0
-   YR/b4SoCUqwQer725x8QZFNG3uPUfIAD/14yHFwoA494+KGjH5+wjW38D
-   i6OPvBCErKGRJHwSgSTRUyEgANWm4bMopX5cEEQjw+QoyE8cW8rKDi4vq
-   d1fSobnAoW0W6ptcjATV5mZRCdUGw1YNj4p/tt/8vDKtGEyehvjG0pxL8
-   w==;
-X-IronPort-AV: E=Sophos;i="5.98,336,1673938800"; 
-   d="asc'?scan'208";a="205964165"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 07:17:20 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 11 Apr 2023 07:17:19 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 11 Apr 2023 07:17:14 -0700
-Date: Tue, 11 Apr 2023 15:16:58 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v6 0/6] RISC-V Hardware Probing User Interface
-Message-ID: <20230411-primate-rice-a5c102f90c6c@wendy>
-References: <20230407231103.2622178-1-evan@rivosinc.com>
+	Tue, 11 Apr 2023 14:38:31 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7E6A424E263;
+	Tue, 11 Apr 2023 22:37:42 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 22:37:42 +0800
+Received: from [192.168.120.42] (171.223.208.138) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 22:37:40 +0800
+Message-ID: <8e106170-404f-4a5d-0795-b36c18e5d9fc@starfivetech.com>
+Date: Tue, 11 Apr 2023 22:37:38 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230407231103.2622178-1-evan@rivosinc.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive
+ JH7110 SoC
+Content-Language: en-US
+To: Paolo Abeni <pabeni@redhat.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <Arun.Ramadoss@microchip.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran
+	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
+References: <20230407110356.8449-1-samin.guo@starfivetech.com>
+ <20230407110356.8449-6-samin.guo@starfivetech.com>
+ <CAJM55Z9jCdPASsk+fw_j+9QH3+Kj28tpCA4PgW_nB_ce7qWL8w@mail.gmail.com>
+ <b8764e20-f983-177c-63c5-36bb3b57ba9e@starfivetech.com>
+ <CAJM55Z8jSPz70ri_sFnKMjZDoNvoA=K-o7VCeAMmXztzOKRxaA@mail.gmail.com>
+ <62fc36bc-7e43-0214-85d7-be66748a901b@starfivetech.com>
+ <cda1f9a630516ab8d02454cd052cb03b35d1b279.camel@redhat.com>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <cda1f9a630516ab8d02454cd052cb03b35d1b279.camel@redhat.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_071724_863958_32AEC224 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20230411_073828_330526_1A8A4FAD 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,119 +86,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: heiko@sntech.de, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, Celeste Liu <coelacanthus@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Jann Horn <jannh@google.com>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Heiko Carstens <hca@linux.ibm.com>, vineetg@rivosinc.com, "Liam R.
- Howlett" <Liam.Howlett@oracle.com>, Nathan Chancellor <nathan@kernel.org>, Mark Brown <broonie@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>, linux-kselftest@vger.kernel.org, slewis@rivosinc.com, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Mike Kravetz <mike.kravetz@oracle.com>
-Content-Type: multipart/mixed; boundary="===============4763124927143414028=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4763124927143414028==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AMh/Lwu23Kj/r0q5"
-Content-Disposition: inline
+Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
+From: Paolo Abeni <pabeni@redhat.com>
+to: Guo Samin <samin.guo@starfivetech.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Arun.Ramadoss@microchip.com
+data: 2023/4/11
 
---AMh/Lwu23Kj/r0q5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Mon, 2023-04-10 at 16:29 +0800, Guo Samin wrote:
+>> Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
+>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>> to: Guo Samin <samin.guo@starfivetech.com>
+>> data: 2023/4/9
+>>
+>>> On Sat, 8 Apr 2023 at 03:16, Guo Samin <samin.guo@starfivetech.com> wrote:
+>>>>
+>>>>  Re: [-net-next v11 5/6] net: stmmac: Add glue layer for StarFive JH7110 SoC
+>>>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>>> to: Samin Guo <samin.guo@starfivetech.com>
+>>>> data: 2023/4/8
+>>>>
+>>>>> On Fri, 7 Apr 2023 at 13:05, Samin Guo <samin.guo@starfivetech.com> wrote:
+>>>>>>
+>>>>>> This adds StarFive dwmac driver support on the StarFive JH7110 SoC.
+>>>>>>
+>>>>>> Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+>>>>>> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+>>>>>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>>>>>> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+>>>>>> ---
+>>>>>>  MAINTAINERS                                   |   1 +
+>>>>>>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+>>>>>>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>>>>>>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 123 ++++++++++++++++++
+>>>>>>  4 files changed, 137 insertions(+)
+>>>>>>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>>>
+>>>>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>>>>> index 6b6b67468b8f..46b366456cee 100644
+>>>>>> --- a/MAINTAINERS
+>>>>>> +++ b/MAINTAINERS
+>>>>>> @@ -19910,6 +19910,7 @@ M:      Emil Renner Berthing <kernel@esmil.dk>
+>>>>>>  M:     Samin Guo <samin.guo@starfivetech.com>
+>>>>>>  S:     Maintained
+>>>>>>  F:     Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>>>>>> +F:     drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>>>
+>>>>>>  STARFIVE JH7100 CLOCK DRIVERS
+>>>>>>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>>>> index f77511fe4e87..5f5a997f21f3 100644
+>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>>>>>> @@ -165,6 +165,18 @@ config DWMAC_SOCFPGA
+>>>>>>           for the stmmac device driver. This driver is used for
+>>>>>>           arria5 and cyclone5 FPGA SoCs.
+>>>>>>
+>>>>>> +config DWMAC_STARFIVE
+>>>>>> +       tristate "StarFive dwmac support"
+>>>>>> +       depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
+>>>>>> +       select MFD_SYSCON
+>>>>>> +       default m if ARCH_STARFIVE
+>>>>>> +       help
+>>>>>> +         Support for ethernet controllers on StarFive RISC-V SoCs
+>>>>>> +
+>>>>>> +         This selects the StarFive platform specific glue layer support for
+>>>>>> +         the stmmac device driver. This driver is used for StarFive JH7110
+>>>>>> +         ethernet controller.
+>>>>>> +
+>>>>>>  config DWMAC_STI
+>>>>>>         tristate "STi GMAC support"
+>>>>>>         default ARCH_STI
+>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>>>> index 057e4bab5c08..8738fdbb4b2d 100644
+>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>>>>>> @@ -23,6 +23,7 @@ obj-$(CONFIG_DWMAC_OXNAS)     += dwmac-oxnas.o
+>>>>>>  obj-$(CONFIG_DWMAC_QCOM_ETHQOS)        += dwmac-qcom-ethqos.o
+>>>>>>  obj-$(CONFIG_DWMAC_ROCKCHIP)   += dwmac-rk.o
+>>>>>>  obj-$(CONFIG_DWMAC_SOCFPGA)    += dwmac-altr-socfpga.o
+>>>>>> +obj-$(CONFIG_DWMAC_STARFIVE)   += dwmac-starfive.o
+>>>>>>  obj-$(CONFIG_DWMAC_STI)                += dwmac-sti.o
+>>>>>>  obj-$(CONFIG_DWMAC_STM32)      += dwmac-stm32.o
+>>>>>>  obj-$(CONFIG_DWMAC_SUNXI)      += dwmac-sunxi.o
+>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>>> new file mode 100644
+>>>>>> index 000000000000..4963d4008485
+>>>>>> --- /dev/null
+>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>>>>>> @@ -0,0 +1,123 @@
+>>>>>> +// SPDX-License-Identifier: GPL-2.0+
+>>>>>> +/*
+>>>>>> + * StarFive DWMAC platform driver
+>>>>>> + *
+>>>>>> + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+>>>>>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>>>>>> + *
+>>>>>> + */
+>>>>>> +
+>>>>>> +#include <linux/mfd/syscon.h>
+>>>>>> +#include <linux/of_device.h>
+>>>>>> +#include <linux/regmap.h>
+>>>>>> +
+>>>>>> +#include "stmmac_platform.h"
+>>>>>> +
+>>>>>> +struct starfive_dwmac {
+>>>>>> +       struct device *dev;
+>>>>>> +       struct clk *clk_tx;
+>>>>>> +};
+>>>>>> +
+>>>>>> +static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed)
+>>>>>> +{
+>>>>>> +       struct starfive_dwmac *dwmac = priv;
+>>>>>> +       unsigned long rate;
+>>>>>> +       int err;
+>>>>>> +
+>>>>>> +       rate = clk_get_rate(dwmac->clk_tx);
+>>>>>
+>>>>> Hi Samin,
+>>>>>
+>>>>> I'm not sure why you added this line in this revision. If it's just to
+>>>>> not call clk_set_rate on the uninitialized rate, I'd much rather you
+>>>>> just returned early and don't call clk_set_rate at all in case of
+>>>>> errors.
+>>>>>
+>>>>>> +
+>>>>>> +       switch (speed) {
+>>>>>> +       case SPEED_1000:
+>>>>>> +               rate = 125000000;
+>>>>>> +               break;
+>>>>>> +       case SPEED_100:
+>>>>>> +               rate = 25000000;
+>>>>>> +               break;
+>>>>>> +       case SPEED_10:
+>>>>>> +               rate = 2500000;
+>>>>>> +               break;
+>>>>>> +       default:
+>>>>>> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>>>>>> +               break;
+>>>>>
+>>>>> That is skip the clk_get_rate above and just change this break to a return.
+>>>>>
+>>>>
+>>>> Hi Emil,
+>>>>
+>>>> We used the solution you mentioned before V3, but Arun Ramadoss doesn't think that's great.
+>>>> (https://patchwork.kernel.org/project/linux-riscv/patch/20230106030001.1952-6-yanhong.wang@starfivetech.com)
+>>>>
+>>>>
+>>>>> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int
+>>>>> speed)
+>>>>> +{
+>>>>> +     struct starfive_dwmac *dwmac = priv;
+>>>>> +     unsigned long rate;
+>>>>> +     int err;
+>>>>> +
+>>>>> +     switch (speed) {
+>>>>> +     case SPEED_1000:
+>>>>> +             rate = 125000000;
+>>>>> +             break;
+>>>>> +     case SPEED_100:
+>>>>> +             rate = 25000000;
+>>>>> +             break;
+>>>>> +     case SPEED_10:
+>>>>> +             rate = 2500000;
+>>>>> +             break;
+>>>>> +     default:
+>>>>> +             dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>>>>> +             return;
+>>>>
+>>>> Do we need to return value, since it is invalid speed. But the return
+>>>> value of function is void.(Arun Ramadoss)
+>>>>
+>>>>
+>>>> So in v9, after discussing with Jakub Kicinski, the clk_set_rate was used to initialize the rate.
+>>>> (It is a reference to Intel's scheme:    dwmac-intel-plat.c: kmb_eth_fix_mac_speed)
+>>>> (https://patchwork.kernel.org/project/linux-riscv/patch/20230328062009.25454-6-samin.guo@starfivetech.com)
+>>>>
+>>>
+>>> Yeah, I think this is a misunderstanding and Arun is considering if we
+>>> ought to return the error which we can't without changing generic
+>>> dwmac code, and Jakub is rightly concerned about using a local
+>>> variable uninitialized. I don't think anyone is suggesting that
+>>> getting the rate just to set it to the exact same value is better than
+>>> just leaving the clock alone.
+>>>
+>> HI Emil,
+>>
+>> Yeah, return early saves time and code complexity, and seems like a good solution so Yanhong did the same before v3. (Jakub has suggested it before),
+>> I wonder if Arun or other maintainers accept this solution or if there are other solutions?
+> 
+> I think is not a big deal either way.
+> 
+> To avoid too much back and forth I'll stick to the current code.
+> 
+> Please address Emil comment on patch 6/6
+> 
+> Thanks!
+> 
+> Paolo
+> 
+Hi Paolo,
 
-Hey Evan,
+Thanks! I'll fix it on patch 6/6 as suggested by Emil.
 
-On Fri, Apr 07, 2023 at 04:10:57PM -0700, Evan Green wrote:
->=20
-> There's been a bunch of off-list discussions about this, including at
-> Plumbers.  The original plan was to do something involving providing an
-> ISA string to userspace, but ISA strings just aren't sufficient for a
-> stable ABI any more: in order to parse an ISA string users need the
-> version of the specifications that the string is written to, the version
-> of each extension (sometimes at a finer granularity than the RISC-V
-> releases/versions encode), and the expected use case for the ISA string
-> (ie, is it a U-mode or M-mode string).  That's a lot of complexity to
-> try and keep ABI compatible and it's probably going to continue to grow,
-> as even if there's no more complexity in the specifications we'll have
-> to deal with the various ISA string parsing oddities that end up all
-> over userspace.
->=20
-> Instead this patch set takes a very different approach and provides a set
-> of key/value pairs that encode various bits about the system.  The big
-> advantage here is that we can clearly define what these mean so we can
-> ensure ABI stability, but it also allows us to encode information that's
-> unlikely to ever appear in an ISA string (see the misaligned access
-> performance, for example).  The resulting interface looks a lot like
-> what arm64 and x86 do, and will hopefully fit well into something like
-> ACPI in the future.
->=20
-> The actual user interface is a syscall, with a vDSO function in front of
-> it. The vDSO function can answer some queries without a syscall at all,
-> and falls back to the syscall for cases it doesn't have answers to.
-> Currently we prepopulate it with an array of answers for all keys and
-> a CPU set of "all CPUs". This can be adjusted as necessary to provide
-> fast answers to the most common queries.
->=20
-> An example series in glibc exposing this syscall and using it in an
-> ifunc selector for memcpy can be found at [1].
->=20
-> I was asked about the performance delta between this and something like
-> sysfs. I created a small test program [2] and ran it on a Nezha D1
-> Allwinner board. Doing each operation 100000 times and dividing, these
-> operations take the following amount of time:
->  - open()+read()+close() of /sys/kernel/cpu_byteorder: 3.8us
->  - access("/sys/kernel/cpu_byteorder", R_OK): 1.3us
->  - riscv_hwprobe() vDSO and syscall: .0094us
->  - riscv_hwprobe() vDSO with no syscall: 0.0091us
->=20
-> These numbers get farther apart if we query multiple keys, as sysfs will
-> scale linearly with the number of keys, where the dedicated syscall
-> stays the same. To frame these numbers, I also did a tight
-> fork/exec/wait loop, which I measured as 4.8ms. So doing 4
-> open/read/close operations is a delta of about 0.3%, versus a single vDSO
-> call is a delta of essentially zero.
-
-Two nits w.r.t. build bot complaints...
-
-On patch 2:
-arch/riscv/include/uapi/asm/unistd.h:54:1: warning: initializer overrides p=
-rior initialization of this subobject [-Winitializer-overrides]
-I think this one is kinda spurious, all of the syscalls complain like
-this (and do on arm64 too IIRC). There was a patch from Guo somewhere to
-disable -Winitializer-overrides in this case, I should go find out what
-happened to it.
-
-On patch 4:
-arch/riscv/kernel/cpufeature.c:29:1: warning: symbol '__pcpu_scope_misalign=
-ed_access_speed' was not declared. Should it be static?
-
-Probably because cos cpufeature.c doesn't include the header of the same
-name... Perhaps Palmer could fix that one up on application?
-
-Cheers,
-Conor.
-
-
---AMh/Lwu23Kj/r0q5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDVr2gAKCRB4tDGHoIJi
-0ohDAP4vO99mP1Aar7XOlBB+xPLraW90a9bDAoMU0IbNlORQPAD/dsc19K8yMIXX
-s/fnS3/GuvOs4S1Ty6FJFopQ+2J+HA8=
-=0uEU
------END PGP SIGNATURE-----
-
---AMh/Lwu23Kj/r0q5--
-
-
---===============4763124927143414028==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Samin
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4763124927143414028==--
-
