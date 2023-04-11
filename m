@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55220C7619A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 18:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30232C7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 19:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
-	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
+	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xANNE5ULs3PSE6ro5Rj1sBXvibc6sUigRSjFquZCSpU=; b=lSQ7J4drBjesbF
-	VYtjm7XjmB1s9FceskUZajGGSac5c2l6v5etEJ7xgpOxeBjuD8xVFAOmWciIiw05bOmGDtHOw5rEq
-	kdaecTdep2VgC1g1+yNFzDpa3ep/g+SeBsl3fIoVBBQShNS6+fjqPg4hVIgES5ARJLav0BB7jNeHo
-	x3MyFyzXvmObuTopQSXZgxTX4QKdREZBTujogFf0In32hCEg9+ORYD73WX2phiWPkTsL5uJeSJt7M
-	vvB7z7WabcjXcTxYf5t/ccgKmNTzBCWpN4zGD7rae8FEvSgFvCmNlBwAQ27XcPcJYIXm3PqnmTlEC
-	iDfZqOYVJDxS5jaLGAwg==;
+	List-Owner; bh=zF+ZG+CQTtAw3ETy6YMSLltRrH+wWK9zWwdPikVaBts=; b=rflCgyKNUJYJ00
+	IG0GdnE5NJpsV2RGNblcck+QkK2EAofvMjZf34d30xgaooVXkardtBm8y4gTck/GKIqt6dpGZ37Lw
+	pMvOO6ghC/4mtiKTrzjfPdsMrJWENM+tqIIy3bDhKTUBKuH9R2vCPKdAEEYTxoqiBBR63nVM1EV9f
+	OXaUxo1/fBZcuNH4TFa1RPFn5Yt7Ln+sB9awH9LWHZZbNwlX88t1DTgaDdx9mX5ymAJwMAUqdSx/F
+	Lw2WiWGn7W0xyB7Ymhs9DHS+d0ze4e1tpqtGy1/MsEhK3YK9j+35+pvxUnhrv0YaGE180z1lHc/M0
+	LfgCYYrmFu5Tf43V/ViQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmIoO-000oGS-0t;
-	Tue, 11 Apr 2023 18:33:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pmK3k-001067-3D;
+	Tue, 11 Apr 2023 19:53:45 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmIoK-000oFj-26
+	id 1pmK3h-00105R-1j
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 18:33:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DC01460F7A;
-	Tue, 11 Apr 2023 18:33:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440C5C433D2;
-	Tue, 11 Apr 2023 18:33:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681238023;
-	bh=FgzA+wAQOhvwLPFEU0HXw3rNNZIT+sR+BkcnhuK0cso=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=M6b/gJ2gWuWAdiFoUnfld6Y/G5/BDCSCbnak0Pe+uP5BYjHpWF1iWwB9AxFmDXRce
-	 kGFg5pOmvTzaOl2xDoXcb/LtV340BO9NXypXG00cOy4szlFYBVZifM7257F7CDYoMJ
-	 bgZ2lYhwZr6wP0E3PKUo6EefvNV3zCPo+bo9XW7NlY7rK/SPR1cnkYjntmeSR2IHl0
-	 HHjiZBdvZJxF7A7SowyfjaJyiHse7cpaSBZmFEd7MNjInr93CNlhclydTQaD2WbZiE
-	 U5Niv8wxCQ7qscG5QTNWUngsBg21He/2V+jeuqZ8zhNUQ4x/2VmdBg401XIbg+dSKN
-	 ioBbW6nJACBMQ==
-Message-ID: <683cbe934d1df9436e003466d2a419ef.sboyd@kernel.org>
+	Tue, 11 Apr 2023 19:53:43 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-635df3bd6e9so3689120b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Apr 2023 12:53:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1681242820;
+        h=to:from:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iQOstvP26Jw/xEzfU6weu3xhIxuQrtvrz5zj8kLH950=;
+        b=WzysdZ64VnnjDZYtSxpKNptHU2kQbF7iWacu9kmJuWnfJM4V0EtQ74qHpt0bqbf7dr
+         SNuMB+8uq5cLi1lAEleRA7Q7S0Dt5gJM/CP6vqYu7roIjjp6ZLU/MOSWtQKhwUWsFkdk
+         e3QbMGYmv2/TAjwgmRTimPcNxDn0YhYDxakCiYNmpA+uCl6ZsSXI8ZJsQwdu421v3imP
+         eEfLpfHmYA3ELyYK1fqj0KfTekYYhj89Lidnd1SntlSLzlsjC4O7FxPSYYMWqqQRJ+dW
+         FyZjFkYCYD2uG/7XZHv7X/KR8j+AtYdWBqMWEl1ojdi6L/kIzMy7Frd+kwPzn9VmoGiv
+         bXnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1681242820;
+        h=to:from:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iQOstvP26Jw/xEzfU6weu3xhIxuQrtvrz5zj8kLH950=;
+        b=2W7cEvbeN1F6sBJYEZ+mAf1ej1H9O8/uU0fCvyqdJ3xMONpUs4k0ONMOn5PmpXt7pf
+         IPWz5yT2uMEQdY84mwzsQnJASaYm/32Nxif+Ink9imKA6FNlYh7XrXvo0ZomgC3YdynD
+         UxZGbzNJw7bS/y+jlFIycjKfknkmNdjG9ECn2BqLoUVHboQLIHW8OgYaGGKID5ez5P7c
+         u/EhjvZ8jL6/hhtRrFxCgT+uyd2vEbyQZJED3cWabFrG7KBn9TTq0xTI4/SrMa6L90pa
+         OqEHMoQDgI/nK2N/RLG6/BJ7YP+PetUEJxihLmANKQouLfrMJy3GcXWtiryGH7lyVV+b
+         jlVg==
+X-Gm-Message-State: AAQBX9cBjjReOdyPfOwQ8PcieMgZ/4RljFCPKLycsTTaaZbynhKefibq
+	dvCXkfxzA7+eNoKAxIdH008gWebD8VRjBkTljU0=
+X-Google-Smtp-Source: AKy350ZeRr3Md+KZ1Tq5IdbQ1kge8uUg998P85hA5s5eSk6qCP+Ea7AEYyMdS1sJ9jlDLAg9+p6nfg==
+X-Received: by 2002:a62:8448:0:b0:636:8e5:397e with SMTP id k69-20020a628448000000b0063608e5397emr350485pfd.12.1681242820004;
+        Tue, 11 Apr 2023 12:53:40 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id e22-20020aa78c56000000b0063a1e7d7439sm3126160pfd.69.2023.04.11.12.53.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Apr 2023 12:53:39 -0700 (PDT)
+In-Reply-To: <20230406101130.82304-1-mathis.salmen@matsal.de>
+References: <20230406101130.82304-1-mathis.salmen@matsal.de>
+Subject: Re: [PATCH v2] riscv: add icache flush for nommu sigreturn
+ trampoline
+Message-Id: <168124272891.19605.13444107238273618155.b4-ty@rivosinc.com>
+Date: Tue, 11 Apr 2023 12:52:08 -0700
 MIME-Version: 1.0
-In-Reply-To: <20230411135558.44282-8-xingyu.wu@starfivetech.com>
-References: <20230411135558.44282-1-xingyu.wu@starfivetech.com> <20230411135558.44282-8-xingyu.wu@starfivetech.com>
-Subject: Re: [PATCH v4 07/10] clk: starfive: Add StarFive JH7110 Video-Output clock driver
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu <xingyu.wu@starfivetech.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Date: Tue, 11 Apr 2023 11:33:41 -0700
-User-Agent: alot/0.10
+X-Mailer: b4 0.13-dev-901c5
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+  Mathis Salmen <mathis.salmen@matsal.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_113344_788462_E5A9390D 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20230411_125341_578517_4466BAD9 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,270 +93,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Xingyu Wu (2023-04-11 06:55:55)
-> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-> new file mode 100644
-> index 000000000000..4c6f5ae198cf
-> --- /dev/null
-> +++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-> @@ -0,0 +1,239 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * StarFive JH7110 Video-Output Clock Driver
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/io.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/reset.h>
 
-Include module.h, device.h, and kernel.h for things like ERR_PTR().
-Probably need to include a reset header as well for reset APIs.
+On Thu, 06 Apr 2023 12:11:31 +0200, Mathis Salmen wrote:
+> In a NOMMU kernel, sigreturn trampolines are generated on the user
+> stack by setup_rt_frame. Currently, these trampolines are not instruction
+> fenced, thus their visibility to ifetch is not guaranteed.
+> 
+> This patch adds a flush_icache_range in setup_rt_frame to fix this
+> problem.
+> 
+> [...]
 
-> +
-> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
-> +
-> +#include "clk-starfive-jh7110.h"
-> +
-> +/* external clocks */
-> +#define JH7110_VOUTCLK_VOUT_SRC                        (JH7110_VOUTCLK_END + 0)
-> +#define JH7110_VOUTCLK_VOUT_TOP_AHB            (JH7110_VOUTCLK_END + 1)
-> +#define JH7110_VOUTCLK_VOUT_TOP_AXI            (JH7110_VOUTCLK_END + 2)
-> +#define JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK   (JH7110_VOUTCLK_END + 3)
-> +#define JH7110_VOUTCLK_I2STX0_BCLK             (JH7110_VOUTCLK_END + 4)
-> +#define JH7110_VOUTCLK_HDMITX0_PIXELCLK                (JH7110_VOUTCLK_END + 5)
-> +#define JH7110_VOUTCLK_EXT_END                 (JH7110_VOUTCLK_END + 6)
-> +
-> +/* VOUT domian clocks */
-> +struct vout_top_crg {
-> +       struct clk_bulk_data *top_clks;
-> +       int top_clks_num;
+Applied, thanks!
 
-size_t?
+[1/1] riscv: add icache flush for nommu sigreturn trampoline
+      https://git.kernel.org/palmer/c/8d736482749f
 
-> +       void __iomem *base;
-> +};
-> +
-> +static struct clk_bulk_data jh7110_vout_top_clks[] = {
-> +       { .id = "vout_src" },
-> +       { .id = "vout_top_ahb" }
-> +};
-> +
-> +static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
-> +       /* divider */
-> +       JH71X0__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> +       JH71X0__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
-> +       JH71X0__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
-> +       JH71X0__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> +       /* dc8200 */
-> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
-> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
-> +                   JH7110_VOUTCLK_DC8200_PIX,
-> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
-> +                   JH7110_VOUTCLK_DC8200_PIX,
-> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> +       /* LCD */
-> +       JH71X0_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
-> +                   JH7110_VOUTCLK_DC8200_PIX0,
-> +                   JH7110_VOUTCLK_DC8200_PIX1),
-> +       /* dsiTx */
-> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
-> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
-> +       JH71X0_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
-> +                   JH7110_VOUTCLK_DC8200_PIX,
-> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
-> +       /* mipitx DPHY */
-> +       JH71X0_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
-> +                   JH7110_VOUTCLK_TX_ESC),
-> +       /* hdmi */
-> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
-> +                   JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
-> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
-> +                   JH7110_VOUTCLK_I2STX0_BCLK),
-> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
-> +};
-> +
-> +static struct vout_top_crg *top_crg_from(void __iomem **base)
-> +{
-> +       return container_of(base, struct vout_top_crg, base);
-> +}
-> +
-> +static int jh7110_vout_top_crg_init(struct jh71x0_clk_priv *priv, struct vout_top_crg *top)
-> +{
-> +       struct reset_control *top_rst;
-> +       int ret;
-> +
-> +       top->top_clks = jh7110_vout_top_clks;
-> +       top->top_clks_num = ARRAY_SIZE(jh7110_vout_top_clks);
-> +       ret = devm_clk_bulk_get(priv->dev, top->top_clks_num, top->top_clks);
-> +       if (ret)
-> +               return dev_err_probe(priv->dev, ret, "failed to get top clocks\n");
-> +
-> +       /* The reset should be shared and other Vout modules will use its. */
-> +       top_rst = devm_reset_control_get_shared(priv->dev, NULL);
-> +       if (IS_ERR(top_rst))
-> +               return dev_err_probe(priv->dev, PTR_ERR(top_rst), "failed to get top reset\n");
-> +
-> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
-> +       if (ret)
-> +               return dev_err_probe(priv->dev, ret, "failed to enable top clocks\n");
-> +
-> +       return reset_control_deassert(top_rst);
-> +}
-> +
-> +static struct clk_hw *jh7110_voutclk_get(struct of_phandle_args *clkspec, void *data)
-> +{
-> +       struct jh71x0_clk_priv *priv = data;
-> +       unsigned int idx = clkspec->args[0];
-> +
-> +       if (idx < JH7110_VOUTCLK_END)
-> +               return &priv->reg[idx].hw;
-> +
-> +       return ERR_PTR(-EINVAL);
-> +}
-> +
-> +static int jh7110_voutcrg_probe(struct platform_device *pdev)
-> +{
-> +       struct jh71x0_clk_priv *priv;
-> +       struct vout_top_crg *top;
-> +       unsigned int idx;
-> +       int ret;
-> +
-> +       priv = devm_kzalloc(&pdev->dev,
-> +                           struct_size(priv, reg, JH7110_VOUTCLK_END),
-> +                           GFP_KERNEL);
-> +       if (!priv)
-> +               return -ENOMEM;
-> +
-> +       top = devm_kzalloc(&pdev->dev, sizeof(*top), GFP_KERNEL);
-> +       if (!top)
-> +               return -ENOMEM;
-> +
-> +       spin_lock_init(&priv->rmw_lock);
-> +       priv->dev = &pdev->dev;
-> +       priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +       if (IS_ERR(priv->base))
-> +               return PTR_ERR(priv->base);
-> +
-> +       pm_runtime_enable(priv->dev);
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
 
-Use devm_pm_runtime_enable()?
-
-> +       ret = pm_runtime_get_sync(priv->dev);
-
-And use pm_runtime_resume_and_get() here?
-
-> +       if (ret < 0)
-> +               return dev_err_probe(priv->dev, ret, "failed to turn on power\n");
-> +
-> +       ret = jh7110_vout_top_crg_init(priv, top);
-> +       if (ret)
-> +               goto err_clk;
-> +
-> +       top->base = priv->base;
-> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
-
-See comment later about setting this to 'top' instead. Casting away
-iomem markings is not good hygiene.
-
-> +
-> +       for (idx = 0; idx < JH7110_VOUTCLK_END; idx++) {
-> +               u32 max = jh7110_voutclk_data[idx].max;
-> +               struct clk_parent_data parents[4] = {};
-> +               struct clk_init_data init = {
-> +                       .name = jh7110_voutclk_data[idx].name,
-> +                       .ops = starfive_jh71x0_clk_ops(max),
-> +                       .parent_data = parents,
-> +                       .num_parents =
-> +                               ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-> +                       .flags = jh7110_voutclk_data[idx].flags,
-> +               };
-> +               struct jh71x0_clk *clk = &priv->reg[idx];
-> +               unsigned int i;
-> +               const char *fw_name[JH7110_VOUTCLK_EXT_END - JH7110_VOUTCLK_END] = {
-> +                       "vout_src",
-> +                       "vout_top_ahb",
-> +                       "vout_top_axi",
-> +                       "vout_top_hdmitx0_mclk",
-> +                       "i2stx0_bclk",
-> +                       "hdmitx0_pixelclk"
-> +               };
-> +
-> +               for (i = 0; i < init.num_parents; i++) {
-> +                       unsigned int pidx = jh7110_voutclk_data[idx].parents[i];
-> +
-> +                       if (pidx < JH7110_VOUTCLK_END)
-> +                               parents[i].hw = &priv->reg[pidx].hw;
-> +                       else if (pidx < JH7110_VOUTCLK_EXT_END)
-> +                               parents[i].fw_name = fw_name[pidx - JH7110_VOUTCLK_END];
-
-Can you use .index instead?
-
-> +               }
-> +
-> +               clk->hw.init = &init;
-> +               clk->idx = idx;
-> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
-> +
-> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-> +               if (ret)
-> +                       goto err_exit;
-> +       }
-> +
-> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_voutclk_get, priv);
-> +       if (ret)
-> +               goto err_exit;
-> +
-> +       ret = jh7110_reset_controller_register(priv, "rst-vout", 4);
-> +       if (ret)
-> +               goto err_exit;
-> +
-> +       return 0;
-> +
-> +err_exit:
-> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
-> +err_clk:
-> +       pm_runtime_put_sync(priv->dev);
-> +       pm_runtime_disable(priv->dev);
-> +       return ret;
-> +}
-> +
-> +static int jh7110_voutcrg_remove(struct platform_device *pdev)
-> +{
-> +       void __iomem **base = dev_get_drvdata(&pdev->dev);
-
-Why not set the driver data to be vout_top_crg?
-
-> +       struct vout_top_crg *top = top_crg_from(base);
-
-And get rid of this top_crg_from() API?
-
-> +
-> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
-> +       pm_runtime_disable(&pdev->dev);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct of_device_id jh7110_voutcrg_match[] = {
-> +       { .compatible = "starfive,jh7110-voutcrg" },
-> +       { /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, jh7110_voutcrg_match);
-> +
-> +static struct platform_driver jh7110_voutcrg_driver = {
-> +       .probe = jh7110_voutcrg_probe,
-> +       .remove = jh7110_voutcrg_remove,
-
-Use remove_new please.
 
 _______________________________________________
 linux-riscv mailing list
