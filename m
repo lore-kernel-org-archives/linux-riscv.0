@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B796C77B70
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 17:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55220C7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 18:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0UXED45GFQTI5jCvVY6uczFFj4SPrMhEB57glcxD+IU=; b=PZSpj5EVEma9TY
-	0RRuexIrYapa9IkGtUsfKOR8ZCe2opMxnrRYI6E8lydh74ZncstPkPdodduD6UrPgPvKP+h/BSUxE
-	PBScn3pt0Q+5cO/1ObdDLIkfeQzxEj1/LIXCU7jxtFSNSh/g4ncTZ7za9lfCz2Tk+QT4rKOwt2v6O
-	AvwtI0xCrv97O1aKXE87BdmRRjUno5QL2IJO38JG9HnjK763GVgB64teYcxPLo+I4EJKocSXRkltS
-	CaEeZOCjhDb07r8Q2Qo9denkjwxynCKnY0KD9ZYp1/Gx+M7M25+pVS8M6LlOGEgA/T7d3BHl8Uk6U
-	xaYcZDRszKgE3yq6jUuA==;
+	List-Owner; bh=xANNE5ULs3PSE6ro5Rj1sBXvibc6sUigRSjFquZCSpU=; b=lSQ7J4drBjesbF
+	VYtjm7XjmB1s9FceskUZajGGSac5c2l6v5etEJ7xgpOxeBjuD8xVFAOmWciIiw05bOmGDtHOw5rEq
+	kdaecTdep2VgC1g1+yNFzDpa3ep/g+SeBsl3fIoVBBQShNS6+fjqPg4hVIgES5ARJLav0BB7jNeHo
+	x3MyFyzXvmObuTopQSXZgxTX4QKdREZBTujogFf0In32hCEg9+ORYD73WX2phiWPkTsL5uJeSJt7M
+	vvB7z7WabcjXcTxYf5t/ccgKmNTzBCWpN4zGD7rae8FEvSgFvCmNlBwAQ27XcPcJYIXm3PqnmTlEC
+	iDfZqOYVJDxS5jaLGAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmHyh-000jYR-2i;
-	Tue, 11 Apr 2023 17:40:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pmIoO-000oGS-0t;
+	Tue, 11 Apr 2023 18:33:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmHyf-000jXg-0y
+	id 1pmIoK-000oFj-26
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 17:40:22 +0000
+	Tue, 11 Apr 2023 18:33:46 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 68EF66274F;
-	Tue, 11 Apr 2023 17:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BF445C433EF;
-	Tue, 11 Apr 2023 17:40:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DC01460F7A;
+	Tue, 11 Apr 2023 18:33:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440C5C433D2;
+	Tue, 11 Apr 2023 18:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681234819;
-	bh=GZtan0aDYvfz7S+nGDKHusjvrOkU9PdTjM5nSWbDxz8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=JtrAAs0lnFbUIMDj3IZUpBkAkbkQyNgDo8Rp209XcouyE0H5f5LLUzhgos5gWBsvg
-	 H43PILTKuVw4X7L5jvBv/TD8hb7sFnSo/kIpMnbW/ZV1TctjFf7LAIwRP0x5Fv7ABl
-	 mp0FsGPyiIKdtXMqJLkJ9KxoxOgsKl5rP6zSY4MDyPUALweuJpChJHhG331nTj0ZXn
-	 JP4NVF2FtvgroP65nmUgTiLEf2wOqs1uluSvl0gMftLOq1iYqR3x/IVU7Y70RaffBS
-	 CWvgyMmMDQXS2+8/5OEpwVoqs1FmTjq/j0dezJOCtpwZ0J9lNVoDe1MZvFy/I3zJn5
-	 kP1VvvYp5nrTg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 98D70E52443;
-	Tue, 11 Apr 2023 17:40:19 +0000 (UTC)
+	s=k20201202; t=1681238023;
+	bh=FgzA+wAQOhvwLPFEU0HXw3rNNZIT+sR+BkcnhuK0cso=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=M6b/gJ2gWuWAdiFoUnfld6Y/G5/BDCSCbnak0Pe+uP5BYjHpWF1iWwB9AxFmDXRce
+	 kGFg5pOmvTzaOl2xDoXcb/LtV340BO9NXypXG00cOy4szlFYBVZifM7257F7CDYoMJ
+	 bgZ2lYhwZr6wP0E3PKUo6EefvNV3zCPo+bo9XW7NlY7rK/SPR1cnkYjntmeSR2IHl0
+	 HHjiZBdvZJxF7A7SowyfjaJyiHse7cpaSBZmFEd7MNjInr93CNlhclydTQaD2WbZiE
+	 U5Niv8wxCQ7qscG5QTNWUngsBg21He/2V+jeuqZ8zhNUQ4x/2VmdBg401XIbg+dSKN
+	 ioBbW6nJACBMQ==
+Message-ID: <683cbe934d1df9436e003466d2a419ef.sboyd@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: entry: Save a0 prior syscall_enter_from_user_mode()
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <168123481962.28886.3531781273059476912.git-patchwork-notify@kernel.org>
-Date: Tue, 11 Apr 2023 17:40:19 +0000
-References: <20230403065207.1070974-1-bjorn@kernel.org>
-In-Reply-To: <20230403065207.1070974-1-bjorn@kernel.org>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- paul.walmsley@sifive.com, palmer@dabbelt.com, guoren@linux.alibaba.com,
- bjorn@rivosinc.com, heiko@sntech.de, conor@kernel.org, zouyipeng@huawei.com,
- linux-kernel@vger.kernel.org, palmer@rivosinc.com, heiko.stuebner@vrull.eu
+In-Reply-To: <20230411135558.44282-8-xingyu.wu@starfivetech.com>
+References: <20230411135558.44282-1-xingyu.wu@starfivetech.com> <20230411135558.44282-8-xingyu.wu@starfivetech.com>
+Subject: Re: [PATCH v4 07/10] clk: starfive: Add StarFive JH7110 Video-Output clock driver
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu <xingyu.wu@starfivetech.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Tue, 11 Apr 2023 11:33:41 -0700
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_104021_395879_955CD5EE 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230411_113344_788462_E5A9390D 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,25 +68,277 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5l
-eHQpCmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIE1vbiwgIDMg
-QXByIDIwMjMgMDg6NTI6MDcgKzAyMDAgeW91IHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwg
-PGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBUaGUgUklTQy1WIGNhbGxpbmcgY29udmVudGlvbiBw
-YXNzZXMgdGhlIGZpcnN0IGFyZ3VtZW50LCBhbmQgdGhlCj4gcmV0dXJuIHZhbHVlIGluIHRoZSBh
-MCByZWdpc3Rlci4gRm9yIHRoaXMgcmVhc29uLCB0aGUgYTAgcmVnaXN0ZXIKPiBuZWVkcyBzb21l
-IGV4dHJhIGNhcmU7IFdoZW4gaGFuZGxpbmcgc3lzY2FsbHMsIHRoZSBhMCByZWdpc3RlciBpcwo+
-IHNhdmVkIGludG8gcmVncy0+b3JpZ19hMCwgc28gYTAgY2FuIGJlIHByb3Blcmx5IHJlc3RvcmVk
-IGZvciwKPiBlLmcuIGludGVycnVwdGVkIHN5c2NhbGxzLgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRo
-ZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSByaXNjdjogZW50cnk6IFNhdmUgYTAgcHJpb3Igc3lz
-Y2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZSgpCiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jp
-c2N2L2MvOWMyNTk4ZDQzNTEwCgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRlZXQt
-ZG9vdC1kb3QsIEkgYW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0Y2h3
-b3JrL3B3Ym90Lmh0bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+Quoting Xingyu Wu (2023-04-11 06:55:55)
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
+> new file mode 100644
+> index 000000000000..4c6f5ae198cf
+> --- /dev/null
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
+> @@ -0,0 +1,239 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * StarFive JH7110 Video-Output Clock Driver
+> + *
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/io.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+
+Include module.h, device.h, and kernel.h for things like ERR_PTR().
+Probably need to include a reset header as well for reset APIs.
+
+> +
+> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
+> +
+> +#include "clk-starfive-jh7110.h"
+> +
+> +/* external clocks */
+> +#define JH7110_VOUTCLK_VOUT_SRC                        (JH7110_VOUTCLK_END + 0)
+> +#define JH7110_VOUTCLK_VOUT_TOP_AHB            (JH7110_VOUTCLK_END + 1)
+> +#define JH7110_VOUTCLK_VOUT_TOP_AXI            (JH7110_VOUTCLK_END + 2)
+> +#define JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK   (JH7110_VOUTCLK_END + 3)
+> +#define JH7110_VOUTCLK_I2STX0_BCLK             (JH7110_VOUTCLK_END + 4)
+> +#define JH7110_VOUTCLK_HDMITX0_PIXELCLK                (JH7110_VOUTCLK_END + 5)
+> +#define JH7110_VOUTCLK_EXT_END                 (JH7110_VOUTCLK_END + 6)
+> +
+> +/* VOUT domian clocks */
+> +struct vout_top_crg {
+> +       struct clk_bulk_data *top_clks;
+> +       int top_clks_num;
+
+size_t?
+
+> +       void __iomem *base;
+> +};
+> +
+> +static struct clk_bulk_data jh7110_vout_top_clks[] = {
+> +       { .id = "vout_src" },
+> +       { .id = "vout_top_ahb" }
+> +};
+> +
+> +static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
+> +       /* divider */
+> +       JH71X0__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
+> +       JH71X0__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
+> +       JH71X0__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
+> +       JH71X0__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
+> +       /* dc8200 */
+> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
+> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
+> +       JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
+> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
+> +                   JH7110_VOUTCLK_DC8200_PIX,
+> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
+> +       JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
+> +                   JH7110_VOUTCLK_DC8200_PIX,
+> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
+> +       /* LCD */
+> +       JH71X0_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
+> +                   JH7110_VOUTCLK_DC8200_PIX0,
+> +                   JH7110_VOUTCLK_DC8200_PIX1),
+> +       /* dsiTx */
+> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
+> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
+> +       JH71X0_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
+> +                   JH7110_VOUTCLK_DC8200_PIX,
+> +                   JH7110_VOUTCLK_HDMITX0_PIXELCLK),
+> +       JH71X0_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
+> +       /* mipitx DPHY */
+> +       JH71X0_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
+> +                   JH7110_VOUTCLK_TX_ESC),
+> +       /* hdmi */
+> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
+> +                   JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
+> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
+> +                   JH7110_VOUTCLK_I2STX0_BCLK),
+> +       JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
+> +};
+> +
+> +static struct vout_top_crg *top_crg_from(void __iomem **base)
+> +{
+> +       return container_of(base, struct vout_top_crg, base);
+> +}
+> +
+> +static int jh7110_vout_top_crg_init(struct jh71x0_clk_priv *priv, struct vout_top_crg *top)
+> +{
+> +       struct reset_control *top_rst;
+> +       int ret;
+> +
+> +       top->top_clks = jh7110_vout_top_clks;
+> +       top->top_clks_num = ARRAY_SIZE(jh7110_vout_top_clks);
+> +       ret = devm_clk_bulk_get(priv->dev, top->top_clks_num, top->top_clks);
+> +       if (ret)
+> +               return dev_err_probe(priv->dev, ret, "failed to get top clocks\n");
+> +
+> +       /* The reset should be shared and other Vout modules will use its. */
+> +       top_rst = devm_reset_control_get_shared(priv->dev, NULL);
+> +       if (IS_ERR(top_rst))
+> +               return dev_err_probe(priv->dev, PTR_ERR(top_rst), "failed to get top reset\n");
+> +
+> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
+> +       if (ret)
+> +               return dev_err_probe(priv->dev, ret, "failed to enable top clocks\n");
+> +
+> +       return reset_control_deassert(top_rst);
+> +}
+> +
+> +static struct clk_hw *jh7110_voutclk_get(struct of_phandle_args *clkspec, void *data)
+> +{
+> +       struct jh71x0_clk_priv *priv = data;
+> +       unsigned int idx = clkspec->args[0];
+> +
+> +       if (idx < JH7110_VOUTCLK_END)
+> +               return &priv->reg[idx].hw;
+> +
+> +       return ERR_PTR(-EINVAL);
+> +}
+> +
+> +static int jh7110_voutcrg_probe(struct platform_device *pdev)
+> +{
+> +       struct jh71x0_clk_priv *priv;
+> +       struct vout_top_crg *top;
+> +       unsigned int idx;
+> +       int ret;
+> +
+> +       priv = devm_kzalloc(&pdev->dev,
+> +                           struct_size(priv, reg, JH7110_VOUTCLK_END),
+> +                           GFP_KERNEL);
+> +       if (!priv)
+> +               return -ENOMEM;
+> +
+> +       top = devm_kzalloc(&pdev->dev, sizeof(*top), GFP_KERNEL);
+> +       if (!top)
+> +               return -ENOMEM;
+> +
+> +       spin_lock_init(&priv->rmw_lock);
+> +       priv->dev = &pdev->dev;
+> +       priv->base = devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(priv->base))
+> +               return PTR_ERR(priv->base);
+> +
+> +       pm_runtime_enable(priv->dev);
+
+Use devm_pm_runtime_enable()?
+
+> +       ret = pm_runtime_get_sync(priv->dev);
+
+And use pm_runtime_resume_and_get() here?
+
+> +       if (ret < 0)
+> +               return dev_err_probe(priv->dev, ret, "failed to turn on power\n");
+> +
+> +       ret = jh7110_vout_top_crg_init(priv, top);
+> +       if (ret)
+> +               goto err_clk;
+> +
+> +       top->base = priv->base;
+> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
+
+See comment later about setting this to 'top' instead. Casting away
+iomem markings is not good hygiene.
+
+> +
+> +       for (idx = 0; idx < JH7110_VOUTCLK_END; idx++) {
+> +               u32 max = jh7110_voutclk_data[idx].max;
+> +               struct clk_parent_data parents[4] = {};
+> +               struct clk_init_data init = {
+> +                       .name = jh7110_voutclk_data[idx].name,
+> +                       .ops = starfive_jh71x0_clk_ops(max),
+> +                       .parent_data = parents,
+> +                       .num_parents =
+> +                               ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
+> +                       .flags = jh7110_voutclk_data[idx].flags,
+> +               };
+> +               struct jh71x0_clk *clk = &priv->reg[idx];
+> +               unsigned int i;
+> +               const char *fw_name[JH7110_VOUTCLK_EXT_END - JH7110_VOUTCLK_END] = {
+> +                       "vout_src",
+> +                       "vout_top_ahb",
+> +                       "vout_top_axi",
+> +                       "vout_top_hdmitx0_mclk",
+> +                       "i2stx0_bclk",
+> +                       "hdmitx0_pixelclk"
+> +               };
+> +
+> +               for (i = 0; i < init.num_parents; i++) {
+> +                       unsigned int pidx = jh7110_voutclk_data[idx].parents[i];
+> +
+> +                       if (pidx < JH7110_VOUTCLK_END)
+> +                               parents[i].hw = &priv->reg[pidx].hw;
+> +                       else if (pidx < JH7110_VOUTCLK_EXT_END)
+> +                               parents[i].fw_name = fw_name[pidx - JH7110_VOUTCLK_END];
+
+Can you use .index instead?
+
+> +               }
+> +
+> +               clk->hw.init = &init;
+> +               clk->idx = idx;
+> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
+> +
+> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
+> +               if (ret)
+> +                       goto err_exit;
+> +       }
+> +
+> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_voutclk_get, priv);
+> +       if (ret)
+> +               goto err_exit;
+> +
+> +       ret = jh7110_reset_controller_register(priv, "rst-vout", 4);
+> +       if (ret)
+> +               goto err_exit;
+> +
+> +       return 0;
+> +
+> +err_exit:
+> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
+> +err_clk:
+> +       pm_runtime_put_sync(priv->dev);
+> +       pm_runtime_disable(priv->dev);
+> +       return ret;
+> +}
+> +
+> +static int jh7110_voutcrg_remove(struct platform_device *pdev)
+> +{
+> +       void __iomem **base = dev_get_drvdata(&pdev->dev);
+
+Why not set the driver data to be vout_top_crg?
+
+> +       struct vout_top_crg *top = top_crg_from(base);
+
+And get rid of this top_crg_from() API?
+
+> +
+> +       clk_bulk_disable_unprepare(top->top_clks_num, top->top_clks);
+> +       pm_runtime_disable(&pdev->dev);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct of_device_id jh7110_voutcrg_match[] = {
+> +       { .compatible = "starfive,jh7110-voutcrg" },
+> +       { /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, jh7110_voutcrg_match);
+> +
+> +static struct platform_driver jh7110_voutcrg_driver = {
+> +       .probe = jh7110_voutcrg_probe,
+> +       .remove = jh7110_voutcrg_remove,
+
+Use remove_new please.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
