@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14629C76196
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 20:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F179C7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 20:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=weM2VaNAq3ptFYRYzystQwa/YebjmRIrBp4MrgsJMjY=; b=Pa0cargGINQ5KmM3t5GILkYbC2
-	Kuv3+2Z4Q+B4CvZiDQ3hLd0ltwVLgZcgGfx1rcVuQ4+V3MmiHuGylbDiGu8iYf9zz4MR/+q2N0Kjl
-	YjPT5rGp3LOVFuLXdCEJiYJB+bQGRjolP9oG45FY2FLLItW+9vxTVttfPK5xugLUALIMASHIJARaV
-	8ynXaY3m2ThVSrwGgNlosM/v/WEKNAO2MfsrUnHlIwQRUpE4Gsgzb+9h+x+kf8sl47DdQPPhKyCvy
-	DRZocsrogm8aEjID2WvT1F2aax2PyCHlgYeHRRmTATaG6kyQ8+obT9MvE2SM75YZB/RM289i3lRGe
-	lyPNyU7w==;
+	bh=YKgoKmqMO9B7/8BhEi3eXAG+L1HU5D/oSVldAmXnFq4=; b=FbEfFkjMyHwRFQX193CCeBgj+Y
+	dRzoea3qU/M9WjfhIDBVzxLKXNXMJyFD6MJ3AQh5qk1KjLrYTbfjGBgYbuNpGc2KFxcuzmPrYZQSe
+	ifBmpNvTD21EuaEF6al8Z9EmwdZ1STEW7Wnd9HqhxV9VHspSeCQLzzT1ijWEMlREs88TKBPz8ucTA
+	5MFEE3+aWp/LSmLEfVzGTWpdoTa15YW8p/Uf0gJP96OZiqISn7h1uiBSklRWg3PUKp0chztaboth+
+	TlCNWMj1dbZIVk01ppd9eIIGm/5gIlkxD4Vex1GsbBt4h9ndFrpKs1RnfmrdAjJFnFCb8I6Df9UHz
+	smaCdsdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmKMq-0014Oa-2L;
-	Tue, 11 Apr 2023 20:13:28 +0000
+	id 1pmKNO-0014V9-0B;
+	Tue, 11 Apr 2023 20:14:02 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmKMn-0014Nx-36
+	id 1pmKNK-0014Ug-38
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 20:13:27 +0000
+	Tue, 11 Apr 2023 20:14:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 514A762605;
-	Tue, 11 Apr 2023 20:13:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72034C433D2;
-	Tue, 11 Apr 2023 20:13:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 874986277E;
+	Tue, 11 Apr 2023 20:13:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFE61C433D2;
+	Tue, 11 Apr 2023 20:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681244004;
-	bh=ZviwcxpDXgrZT/ibODx/e4RR16fW2UhiiAY8a0mCX/k=;
+	s=k20201202; t=1681244038;
+	bh=Go38pLLq5GEQ4fnek+7AtmPJ9Vnzlf80dUigltv0auc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fb7j/HV3N5lz+blyj9ONW8umWsdCHpIahlIQEArhLEBw5NK/DabCD+fnxocqJOXgg
-	 WlF4oK6xnC/Pt4aDGT8exjZNlW1D3R3CNww08QYeNJDM8VxYgw45ZrG1wYs9s2knE+
-	 ckfSl4N8DlzeD48puuYhvDlRAkxcXCjkOA+WPIsYhPgwL/bVo3RlCrhlvsGR1702LA
-	 hCOiNg/5ySIz+mZGIN6g2T6F/o/usbTYxcj3+y/7KoMdx83GIW/v8Ms7TxWtOpKqNa
-	 oyTLGY2xcVxdZY+oTx1QR03sWQ1q2BuDjtwoeeice8B6cNSOC5VEpbuNuURtdM0kE/
-	 TU/yC9tbRBElw==
-Date: Tue, 11 Apr 2023 21:13:19 +0100
+	b=MOeV7199OPPV636mEmFgB8EpXl9tgfXARIWX7dTH4zKfpK/FObQ4b764/okxsDPp9
+	 dIPC6tumBvsqsXqMVvlWuer/PA2b+7cIsZpGVSIAN8XPgkxqA9OD1vvOVPROzG7eAX
+	 S9hxeQL9qMg4odmAfTEQ5vnaj9YrG8sY84IIHtBgG/LH4uFh8zSHZNFnixijNVjdbv
+	 tJGw415Ioa6DA8sIOMvMyZ8p1uJ25sAJyQh90jF3YA+yYDMGhEZG5RdTmJ6xDZUmLF
+	 BKHX3dZzUqoT7KDY8pmoJGiYrQ0cam1lP6F34rNuTD5zIl/lnq5TSDGu3peG6urMFu
+	 3gzIpqASn6QWQ==
+Date: Tue, 11 Apr 2023 21:13:53 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Rob Herring <robh+dt@kernel.org>,
@@ -56,16 +56,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Walker Chen <walker.chen@starfivetech.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 1/7] dt-bindings: power: Constrain properties for
- JH7110 PMU
-Message-ID: <20230411-vitality-exodus-f7e5d2e8576c@spud>
+Subject: Re: [PATCH v1 2/7] soc: starfive: Replace SOC_STARFIVE with
+ ARCH_SATRFIVE
+Message-ID: <20230411-battered-detract-8fb2ae64448b@spud>
 References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-2-changhuang.liang@starfivetech.com>
+ <20230411064743.273388-3-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230411064743.273388-2-changhuang.liang@starfivetech.com>
+In-Reply-To: <20230411064743.273388-3-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_131326_075767_F3A3FCFB 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20230411_131359_050728_949B4FD5 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +77,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0174453935630950397=="
+Content-Type: multipart/mixed; boundary="===============1835603575136002871=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0174453935630950397==
+--===============1835603575136002871==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="woEVfFYCRgC7kFh0"
+	protocol="application/pgp-signature"; boundary="6b218k5iSPj9BmNv"
 Content-Disposition: inline
 
 
---woEVfFYCRgC7kFh0
+--6b218k5iSPj9BmNv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 10, 2023 at 11:47:37PM -0700, Changhuang Liang wrote:
-> When use "starfive,jh7110-pmu-dphy" compatible, do not need the reg and
-> interrupts properties.
-
-Please write a commit message explaining why this is needed.
-The commit message as-is is insufficient, but also IMO wrong incorrect.
-I think it would more accurately be "...: add jh7110 dphy pmu support" or
-similar & the body should explain why this particular PMU has no
-reg/interrupts.
-
-Cheers,
-Conor.
-
+On Mon, Apr 10, 2023 at 11:47:38PM -0700, Changhuang Liang wrote:
+> Using ARCH_FOO symbol is preferred than SOC_FOO.
 >=20
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  .../bindings/power/starfive,jh7110-pmu.yaml        | 14 ++++++++++++--
->  include/dt-bindings/power/starfive,jh7110-pmu.h    |  3 +++
->  2 files changed, 15 insertions(+), 2 deletions(-)
+>  drivers/soc/starfive/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >=20
-> diff --git a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.=
-yaml b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> index 98eb8b4110e7..ffb4406c2e56 100644
-> --- a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> +++ b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> @@ -8,6 +8,7 @@ title: StarFive JH7110 Power Management Unit
-> =20
->  maintainers:
->    - Walker Chen <walker.chen@starfivetech.com>
-> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
-> =20
->  description: |
->    StarFive JH7110 SoC includes support for multiple power domains which =
-can be
-> @@ -17,6 +18,7 @@ properties:
->    compatible:
->      enum:
->        - starfive,jh7110-pmu
-> +      - starfive,jh7110-pmu-dphy
-> =20
->    reg:
->      maxItems: 1
-> @@ -29,10 +31,18 @@ properties:
-> =20
->  required:
->    - compatible
-> -  - reg
-> -  - interrupts
->    - "#power-domain-cells"
-> =20
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: starfive,jh7110-pmu
-> +then:
-> +  required:
-> +    - reg
-> +    - interrupts
-> +
->  additionalProperties: false
-> =20
->  examples:
-> diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt=
--bindings/power/starfive,jh7110-pmu.h
-> index 132bfe401fc8..0bfd6700c144 100644
-> --- a/include/dt-bindings/power/starfive,jh7110-pmu.h
-> +++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-> @@ -14,4 +14,7 @@
->  #define JH7110_PD_ISP		5
->  #define JH7110_PD_VENC		6
-> =20
-> +#define JH7110_PD_DPHY_TX	0
-> +#define JH7110_PD_DPHY_RX	1
-> +
->  #endif
+> diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
+> index bdb96dc4c989..1e9b0c414fec 100644
+> --- a/drivers/soc/starfive/Kconfig
+> +++ b/drivers/soc/starfive/Kconfig
+> @@ -3,8 +3,8 @@
+>  config JH71XX_PMU
+>  	bool "Support PMU for StarFive JH71XX Soc"
+>  	depends on PM
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> -	default SOC_STARFIVE
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	default ARCH_STARFIVE
+>  	select PM_GENERIC_DOMAINS
+>  	help
+>  	  Say 'y' here to enable support power domain support.
 > --=20
 > 2.25.1
 >=20
 
---woEVfFYCRgC7kFh0
+--6b218k5iSPj9BmNv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDW/XwAKCRB4tDGHoIJi
-0rfMAQCEY1sOSuX+9PUExrhZ16C87WAg2z6vDj6OdcqFSKbWtQEAhVtayEho0Gc3
-dyCQ/hZf9AkaJDiBG33vffX1VnYxaQk=
-=/A68
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDW/gQAKCRB4tDGHoIJi
+0te2AP4kM5Y/0lvQ10q82NEuhilKvUKcJD03pAWm+EeYpLCfpgEAnNbKqhYX2alb
+2+ea64ItRx5J8x5vhzbVf3VjndzWegU=
+=OCBn
 -----END PGP SIGNATURE-----
 
---woEVfFYCRgC7kFh0--
+--6b218k5iSPj9BmNv--
 
 
---===============0174453935630950397==
+--===============1835603575136002871==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -198,5 +148,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0174453935630950397==--
+--===============1835603575136002871==--
 
