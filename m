@@ -4,136 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1BBC7619A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 04:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6BBC7619A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 06:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KdNmLP+6kv+tq/AuW7afC366HklNC8bahmZ9Nhjx9ug=; b=rkGLE3xkzA3aUG
-	F5XXgLM9O0M1NztYhWh2F4YuN+nTb1ssU5QLmUTOsKQUZDji7KUKs1E0O09jp/MbRq5WtBuz+Z+bF
-	DzkbRYRASmfzVDxu0ipZdpXwoBHaEcBQiOrnMOTaULgH7MhG4Qwp4LaYZCrFv+W6Cfr6LPz5j4qjn
-	DGby/yM1sqKkA/XzSKD2n1Ul1aR12d+85PrvAiF8bJj0B4RryyUdJRN5TuIwowd7XcEy0XVUFT+Be
-	F73ls9OF+0ureYhEYd8okPM9JmtplQ8Y+ya0FU76xrAW27KpMKrh7q7QS3MNjU1bJjhcN0vTfYSdG
-	f4VBjKNRZ4qdVBV/aTug==;
+	List-Owner; bh=w86jatbMGA5wMtYxkzr++gnQNO7vz00pgL6+8MTeKK0=; b=QsYA48V46y06WV
+	zjOSxHKx/98u4eqe7OVjCWU3I47oMkPOyh9dnuRQ/NaWj6UwTq6uUzmTJVRZ0Fm/I6yYu1ekISv13
+	P6020FPYcpQgqC/VWIwA/OxVpnzwYcMyDbvh+P8d5wLzinC6Wtls+8IM1/ebhq5VU0dg+UivCUX22
+	H8ILbf/N8zEitc9oVthLtLc5rLGrcn6VYeFyowfjz+wZPvty8F/x400EcqSgkEI+Y5N5mJLFYX0yU
+	n6CPHFOOGUms5xSUELbyqQO3GrvB5Vw3Zj3b8F7uZ8i+KVvhCFJ4HRm80QE7sbz2iAEoaTUqQNKm3
+	IhZzty4GeAT7d7BgHcJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm5CS-00GMuI-1I;
-	Tue, 11 Apr 2023 04:01:44 +0000
-Received: from mail-dm6nam04on20624.outbound.protection.outlook.com ([2a01:111:f400:7e8b::624] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm5CO-00GMtr-1Z
+	id 1pm7nr-00GcaA-1n;
+	Tue, 11 Apr 2023 06:48:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pm7nn-00GcQA-20
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 04:01:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fyhA2fIt0n7JWDQOabrx7vBf0FbbHkofb46PMpCk407gEorRee3dtuAaTy5OvgGnDVV79aqx2EGAnq0eNyrPqH/kbWuZDSifOloqE7htTld9QaQyXt3he9sUQxdI0r1mFufKjTkPzGY9i4o5f8nE6+IqLKQtnN+EF/fEkgMv5Mj+q51jb3dqJP/rSb9m8uNE3R9EVx43pMeriG5he/9f/0MEBSI65/ls9XdXC8kS5C7VfF5SZ0Dg8pPvu/rVtuwCoj0+Yj0KC7n7IJSoAVJvti9MGF4bqZPOs96pfmZ6t4GDTe4crKrerAY2nqQFyRiuiQUVIqaRxlm3NuTxWPQtug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4PL+bxqYzRYumwJt3l8C2DejrLZPs9sRY1qIZOntIqc=;
- b=E0ZxwYnQgsLUhFO2MfWWJd+buPnFSuVn6wWjqHJ4LIOtMQeHJp+fs7+7KGRIE4ZX/DAzzIataO83lkDGrx7SfusIVmaatdDUWg6kjeyjLWwh0Jlfgnqk4MHfYE3GGs+5OnZrpo2T5Soq8e4H1mqyPZqqcy0yOaoWB8k1ayxMRbDmlXaTEPZZHTsWlAEA9pbxIo9RGYSQnvhq4dkPssCx19XduWJ94EsUi+WH+HHIbafn5rR1mc8JYhXvWAjel2cUXWvM3h9sJ+tmag7Mrpd/ycWL+DIut/SQh6FS1L0mIwt7NxzZudN5JwWFPmLZt+eBmdVETie8EG5f3XqJsMFZzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4PL+bxqYzRYumwJt3l8C2DejrLZPs9sRY1qIZOntIqc=;
- b=sMUoyi7gDtFHpVn5tpFElMrQ8LHf6+z/6yI93cbOza704XLAdKIRON7IzE6Iz/ioxTF3S58+GtlBpWkqnnb6XF9j6f67N9oTuaYcmKH9eZZkqG2OmlegNNHZCqWhOi9PTiOHMcTVG2orA4XAHOEnitUx0sGyoplvGVQQVMNzzQobyrTFsyxKnYD0qdeqLdSgk+Zbh9uNUbqtT/wvOhTn/cveH7/1IcGxyu9M6seaWbrO1gH6Aoa7KCOeuExKV+0mshJ8vVQQn9QkJimmabHol3zAgU62H/IndDy1yjd2BkCoZofrVW7jqnQ+rcaVtRzpNLLGkfhuJIOxHaQzuu65uA==
-Received: from MW2PR12MB4667.namprd12.prod.outlook.com (2603:10b6:302:12::28)
- by BY5PR12MB4145.namprd12.prod.outlook.com (2603:10b6:a03:212::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6277.36; Tue, 11 Apr
- 2023 04:01:36 +0000
-Received: from MW2PR12MB4667.namprd12.prod.outlook.com
- ([fe80::6b01:9498:e881:8fb3]) by MW2PR12MB4667.namprd12.prod.outlook.com
- ([fe80::6b01:9498:e881:8fb3%4]) with mapi id 15.20.6277.036; Tue, 11 Apr 2023
- 04:01:35 +0000
-From: Chaitanya Kulkarni <chaitanyak@nvidia.com>
-To: "dlemoal@kernel.org" <dlemoal@kernel.org>, "linux-ide@vger.kernel.org"
-	<linux-ide@vger.kernel.org>
-CC: "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] ata: Change email addresses in MAINTAINERS
-Thread-Topic: [PATCH] ata: Change email addresses in MAINTAINERS
-Thread-Index: AQHZa2Sx8oWSvBScpk65Uk84Bo/CSa8lfdSA
-Date: Tue, 11 Apr 2023 04:01:35 +0000
-Message-ID: <691c8c83-0fb8-369b-254c-68f107d1dd86@nvidia.com>
-References: <20230410042646.124962-1-dlemoal@kernel.org>
-In-Reply-To: <20230410042646.124962-1-dlemoal@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MW2PR12MB4667:EE_|BY5PR12MB4145:EE_
-x-ms-office365-filtering-correlation-id: 5683547c-b5bf-4535-4a21-08db3a41719f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  D6n5DHAlbyrBJu72XysdDiPX9AQlOgzaQtO0xdgmNIfoCHEaETRVgBkdLaMVATb+VXZV7rMMG3IF6pYUA1z0YP2iVJK9KOFeGVrXPAxMxsGQeutKmYY2VROHM3by0Lvrks88dY7mSq5TkXCBQvpxO3vExwypQEzYVCE84cOSH339u9GJdJNiwmFw2XmlnezACWv4zGBiMf2s2XF84x7QACD7dgB9lX1cQVa6O3wJ5OZh6J9av8HJNIzmpLmJ72gsmB1IZA9l/cRals/7tcON8BBSfm56DKs8/BS4zNdS+jouSajV1IJtNnN74g+BSGTZ3he7w2oWZIv4Ez0nuuv6YSz3xb7O/CFX7kOkO2xbgrLtwSQAAEOLdU+hO1QVLVzgjGoGFHz2OlrdhZQyltccbE+QFqD9UOH4spXod28zHQ60RfhNxvxOxPa49N7dM9Xp/rpbzVC66SeOF2u0cvECL/n3mHv8hD3IpFQcTFntJKus/bqdpnPVEAF+BmzJsALSw+4y2kOQrKGkKF0OOfyww+M5D355E4Xgg3gllHJuNQqjH1AALivqcaiAhYgC5I1qaIXhj+SDGgtunsK4yaTx7sjQOrmNqUCTxuGuOppQr8ipgoyj47w5nRmFgazD6bS1PCrIXvasKD63wxld63n1fVitEVuhUqNH8DY1lI0wfrrUgJWAfGkF1xr1w5E3sY0HmnL3M6xfc0kc/Z6fUjbExg==
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW2PR12MB4667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(39860400002)(346002)(376002)(136003)(396003)(366004)(451199021)(31686004)(71200400001)(478600001)(86362001)(31696002)(38070700005)(36756003)(38100700002)(122000001)(2616005)(6486002)(2906002)(91956017)(4744005)(316002)(110136005)(6506007)(53546011)(186003)(54906003)(6512007)(66476007)(8676002)(66556008)(8936002)(5660300002)(41300700001)(66446008)(64756008)(4326008)(66946007)(76116006)(199583001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?TVdlTWcveUtRRWJQU0hRdzdaWUVUaXhvY0ViZTZMTnJpWHRnYTlETEx5d0kv?=
- =?utf-8?B?ck5PT0QwdWQycFMrMGI4MlZpU2l3QmRZRlZVRmhOQW56MEVlKzlCc0pyS1Nj?=
- =?utf-8?B?cmZOaXV6NEJBb1MybEJKWVZyaC9MQWN6Ykt0d0ptZjBTbU9NeXNYb094Z0hC?=
- =?utf-8?B?RGdlMDFmTDJ3N2xtVS9iRE1YcjB0SHNGY2J3U3k5eVZpNXlma1VlcEg4ZnUx?=
- =?utf-8?B?RWFtZ3VobjE0RGZNMHZzNUJiVmswaEdmenk4UUpPWUZDWHZFLzJDUzFVZ3BY?=
- =?utf-8?B?dFl4SXZhbjBzZ3podVBlcSt0c2Y0amxyV0FUdEJJWW9aQXE1WXl4Q0g1V0hJ?=
- =?utf-8?B?eVA3OUxsaHlkS2lPaTk0MFlnTVlqSVpGRXEzNDJMaG15am5yaUdWaktDU2JD?=
- =?utf-8?B?eWxZZG9HNGxtUGU4c2xtUGpFOEFxUUR1TmFhS2JFN0ZaYm9OVlo3RnI2eFdF?=
- =?utf-8?B?NzVDWkRxR1dDbk16RWNlQnIzak1UYnVrUGgxV2NwMWxnTjB4YUVjVXIzVzlk?=
- =?utf-8?B?R3ZRZzBORTlYZU9keXArNm9zVldVQXhPM3ZhZm00cEMyNUpzVFQySkdXOW8w?=
- =?utf-8?B?cER4UkZiWWsyYjZnVUxWWEs2VXR4VUhpTGtZeUR2OGFZc0syRm95M1g5UmVl?=
- =?utf-8?B?cURlSnVqMjBTZXpGMnV1YzFQcE1xMzRpQnVOOUZGQXcvMmRUZnVUc3pkelE1?=
- =?utf-8?B?VUczcU5NQnpua3JUVFJ4cVFuUWZyTnFJaVh2RXZ4QVZiRVc5d1pYUzBaSzkw?=
- =?utf-8?B?RzJSVVAxdENCQ3k0T05LWHhsM2t5bmhGbm54aWQ2bVVzVlYzeXlQMHBSTnBI?=
- =?utf-8?B?RlYrcDI5TmZldEJmMXg0YXZWNnFob3NodHVpcTZvdUF3ZjdLMVd2YlVwREV5?=
- =?utf-8?B?cG44czZXejBjakJNQTdvTGN3QWQ5WmlrV2xwd3VCblBVTE9xQjRDaGh3TlZa?=
- =?utf-8?B?OWpHU2tRWDJwczVnZ3hwTEJvNFdtSUVsZkphbEU3TXpLclZCbW4yOUhQclds?=
- =?utf-8?B?WHZRVzVyanBDZjFNTjZhNk5ZNklQWmt2M2xMQVVabytVcEg3WElNZVBOWmMv?=
- =?utf-8?B?RUNVUmtkOEtZcmpLUzVEQzc4M2RxV3NWRUIxVkJJZFBLRXhlUldyZ2pyaXBW?=
- =?utf-8?B?aU9YM0FUMkdWWGJxVU9yR2ZxZ0lwVWpwY1JqcmFNdlNiZDlFd2NpNmNDczlw?=
- =?utf-8?B?OE9nU2E2SzNtb29YVS9QdEFCY0paM0ZBbVZveHZaZEdhc0t5dVAxMkJXRk9z?=
- =?utf-8?B?aXVHVjZkeGQxZk5Yb0tGZ3I5S2FFem9pSFNxVTN4K1NxOW44R3NUQnE2WGUz?=
- =?utf-8?B?NXFyTTM2WmtNQmZ1UjRwREdUWUZEb3FFb3EzdElhQld1MDAza2gzM3FTMDVG?=
- =?utf-8?B?K0N3TzB0cDlGWUJJNmcrT3BFaEVQWExtbk5zRlFCN2svK3JjQm8wdk5ZMGs0?=
- =?utf-8?B?WUg2bE54NUZhZTFhU2NKdmJ4djBDSnpoVTduZ09keGZUenFhQmpOVHNhcnBh?=
- =?utf-8?B?Y2F0a3pVQ3JrN2ZTVE54OWJBamF6eGtuMUw5a3RrY0RKT3hnS0RBTmM5c2JN?=
- =?utf-8?B?eDFMU0k1YUpHWWxzUlZ2c3RmR21WS2c1WUEwc1lrRkl0b1AvK0dmSFhFbmFt?=
- =?utf-8?B?T2Rhbi93WjcvQ05Ia1Y5NVo3bUF5TWR1VzhNWXZYc2t3U0hNeVM5Rms0OFBv?=
- =?utf-8?B?UHVTdWdxSEE1dWdUTXpMRWFlblNZNTZkSW1PVTN3Ri9wRGQ0VHdGdEpWdGJJ?=
- =?utf-8?B?UFN5ZWxMZktqZTNTVDFXTDNtcDRGVUI4YXgxazNoQ3ZYb05laWFpdDM5Mmcr?=
- =?utf-8?B?R255NGwvT3FGYzlsQUloMzc2R2srUHlVUXZJaklJSUpYdm9FQlVQdWdOY0hC?=
- =?utf-8?B?dDZPdFQvTmsvNFNlU2V5QnFKKzBEMzRpdlN6cmJXamkwdlVXOEdZc0gvY29M?=
- =?utf-8?B?S3pJR2I5YVViOHl6bkx0Y2NMMmkxbTBXZjVPUllYRUhFdXM2aTJ6dUlEb2Fp?=
- =?utf-8?B?L0FxdlFtREtzTGJTRzQvZE5KSjhrbm0zY093V2hnZ2ZFU3doV0JLKzNBclcz?=
- =?utf-8?B?bnVDbXVaejV6WWxRTGNub1RSQTd2U1FmMVA0bkJ1T2VGSjJOaGZOVHhvcysx?=
- =?utf-8?B?M3hDVy9IUENqOXNhOUp4K3pHdlBCc0VzZm91clY1OFhLS0NlOHlJZGN0L21C?=
- =?utf-8?Q?WzsJrkGxLnkVZGhUaT55CU95ucaz7IEpbuVhdpQN1hR9?=
-Content-ID: <6FB416EFE774504CB395AB660DA457E8@namprd12.prod.outlook.com>
+	Tue, 11 Apr 2023 06:48:29 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id A84DE24E226;
+	Tue, 11 Apr 2023 14:47:48 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 14:47:48 +0800
+Received: from ubuntu.localdomain (113.72.145.176) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 11 Apr
+ 2023 14:47:47 +0800
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: Walker Chen <walker.chen@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v1 5/7] soc: starfive: Use call back to parse device tree resources
+Date: Mon, 10 Apr 2023 23:47:41 -0700
+Message-ID: <20230411064743.273388-6-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
+References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MW2PR12MB4667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5683547c-b5bf-4535-4a21-08db3a41719f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Apr 2023 04:01:35.6428
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2l5hD7jeTt7WdKLRHTL28xJ1f8wSTgQTw95GoURmHgkGFGhFNKlwcsY74TeKqoyFBFRUtDUuz/UJWxcBeiszjA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4145
+X-Originating-IP: [113.72.145.176]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230410_210140_672746_D9F76A45 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230410_234827_989457_622B6C2F 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,22 +76,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/9/23 21:26, dlemoal@kernel.org wrote:
-> From: Damien Le Moal <dlemoal@kernel.org>
->
-> Change my email addresses referenced in the MAINTAINERS file for the ata
-> subsystem to dlemoal@kernel.org. While at it, also change other
-> references (zonefs and k210 drivers) to the same address.
->
-> Signed-off-by: Damien Le Moal <dlemoal@kernel.org>
->
+Different compatible parse device tree resources work in different ways.
 
-Looks good.
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ drivers/soc/starfive/jh71xx_pmu.c | 54 ++++++++++++++++++++++---------
+ 1 file changed, 39 insertions(+), 15 deletions(-)
 
-Reviewed-by: Chaitanya Kulkarni <kch@nvidia.com>
-
--ck
-
+diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+index 98f6849d61de..990db6735c48 100644
+--- a/drivers/soc/starfive/jh71xx_pmu.c
++++ b/drivers/soc/starfive/jh71xx_pmu.c
+@@ -57,10 +57,14 @@ struct jh71xx_domain_info {
+ 	u8 bit;
+ };
+ 
++struct jh71xx_pmu;
++
+ struct jh71xx_pmu_match_data {
+ 	const struct jh71xx_domain_info *domain_info;
+ 	int num_domains;
+ 	u8 pmu_type;
++	int (*pmu_parse_dt)(struct platform_device *pdev,
++			    struct jh71xx_pmu *pmu);
+ };
+ 
+ struct jh71xx_pmu {
+@@ -251,6 +255,31 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++static int jh7110_pmu_general_parse_dt(struct platform_device *pdev,
++				       struct jh71xx_pmu *pmu)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	int ret;
++
++	pmu->base = device_node_to_regmap(np);
++	if (IS_ERR(pmu->base))
++		return PTR_ERR(pmu->base);
++
++	pmu->irq = platform_get_irq(pdev, 0);
++	if (pmu->irq < 0)
++		return pmu->irq;
++
++	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
++			       0, pdev->name, pmu);
++	if (ret)
++		dev_err(dev, "failed to request irq\n");
++
++	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
++
++	return 0;
++}
++
+ static int jh71xx_pmu_init_domain(struct jh71xx_pmu *pmu, int index)
+ {
+ 	struct jh71xx_pmu_dev *pmd;
+@@ -296,23 +325,20 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+ 	if (!pmu)
+ 		return -ENOMEM;
+ 
+-	pmu->base = device_node_to_regmap(np);
+-	if (IS_ERR(pmu->base))
+-		return PTR_ERR(pmu->base);
+-
+-	pmu->irq = platform_get_irq(pdev, 0);
+-	if (pmu->irq < 0)
+-		return pmu->irq;
+-
+-	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+-			       0, pdev->name, pmu);
+-	if (ret)
+-		dev_err(dev, "failed to request irq\n");
++	spin_lock_init(&pmu->lock);
+ 
+ 	match_data = of_device_get_match_data(dev);
+ 	if (!match_data)
+ 		return -EINVAL;
+ 
++	if (match_data->pmu_parse_dt) {
++		ret = match_data->pmu_parse_dt(pdev, pmu);
++		if (ret) {
++			dev_err(dev, "failed to parse dt\n");
++			return ret;
++		}
++	}
++
+ 	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
+ 				  sizeof(struct generic_pm_domain *),
+ 				  GFP_KERNEL);
+@@ -332,9 +358,6 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	spin_lock_init(&pmu->lock);
+-	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
+-
+ 	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+ 	if (ret) {
+ 		dev_err(dev, "failed to register genpd driver: %d\n", ret);
+@@ -383,6 +406,7 @@ static const struct jh71xx_pmu_match_data jh7110_pmu = {
+ 	.num_domains = ARRAY_SIZE(jh7110_power_domains),
+ 	.domain_info = jh7110_power_domains,
+ 	.pmu_type = JH71XX_PMU_GENERAL,
++	.pmu_parse_dt = jh7110_pmu_general_parse_dt,
+ };
+ 
+ static const struct of_device_id jh71xx_pmu_of_match[] = {
+-- 
+2.25.1
 
 
 _______________________________________________
