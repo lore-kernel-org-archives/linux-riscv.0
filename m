@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31013C77B6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 08:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B142BC76196
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Apr 2023 09:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zMs54uzWmxfu+9ohxGOYaBNREN/lbqG0LevVG/iJFts=; b=dhlvLypUUAOHn0
-	63WltVFs6FK31w7i1oAFy2xnmpp/Lqb17wq9JJzauVXYXQc7hMe+drovY18S8VyPDRlIW/APMmIVf
-	cWErqT7GJIZqoO6vJDyjFD1u54UkkuXVfk7kmZo7UCzaBk/iHPkliWAv6JqiuKPi9aLDdm78dhaaN
-	A3lBt3BIICmkud9d9G63KoYX1wva6t6Pz1ocbdlmI2uPlU2hhg+/iyvrnxHvLUfHkG0R1nUof0k3V
-	K6EirdbujtgKoBnVBQHMAlDvVzViMYG6l4DGELyQS6SDOLs5er0vjjT/NvR+qBDQtbOgBG/NGKiYq
-	jsK0ADymMgCtPxypf/aA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qoihqxNNxGcgkU8+btYySlKZm9km1o+04JIXQivexYg=; b=fDUrCB5l+zUdMM3Mjsh8z32u1O
+	GMP7RYwWHZ2RwRfRbAajaIsHCmJhk69zQjhGhfgUuY+bJZkTYS0hUPrpyo1nQZjtrheC31T1BP9Wv
+	nUnr9sp90xl+UPvFmNO+L5xTpKCb3yG3OA3lRSmYRyR/OKSYy4BamfF7lxc71DC9fZEDrKuqKoA3Q
+	WaJjWLhxGvr1KjTkQVaqOF/nZXY96nRIFf0KR50XDgU5fq1z78zAVV1PjZq5PwIrP8UbuKho7z1it
+	gHHRcHaMhoP5wOE8hXjrkX2m7jSwWRQFTw3sry3QAlhyxh4bfzpl2tEyf0q7qNQlc1nOGOz9kRw6D
+	1bKmp9Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm9og-00GyHl-0h;
-	Tue, 11 Apr 2023 08:57:30 +0000
+	id 1pm9xT-00Gz5t-2W;
+	Tue, 11 Apr 2023 09:06:35 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pm9oc-00GyFg-2R
+	id 1pm9xR-00Gz5Y-0Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Apr 2023 08:57:28 +0000
+	Tue, 11 Apr 2023 09:06:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1681203446; x=1712739446;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=gVYx9+DVF2GF+A4bANXLI3OWUXhLfRnRmzz023oqQG4=;
-  b=hSA5Gdv0Lk6DJDDXlUEE1To7i6KrE80hUAXowa7yZjCVvTpRuzJlh0B6
-   6wzM8FvRKzqgg4ekUbdlFaq161gpEPQ3J4IyAGp3xd64+Q68ZRXmUPjO7
-   sPk43XdoelklHb9KTM9Vq8cxA6jVca2k1K9zbrinYP3vBlWOBfrOhfClB
-   BeEfKaOAPCUn67rMDRzteLhnpgXjtJpLEHx7MO1C4Rz4Fo2n0UyR7W97H
-   dQeO5tU4uvM5bHn6FJ2NL30aIrnUyxXtBYAwzDcDY5nav7POC78V6XAPo
-   dV/q3hRPBl4Hoo8/DOCWGSRJ9pW15oNa9SNwFvEL8Ka4KyFNRAmuzm6QG
-   g==;
+  t=1681203992; x=1712739992;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vEZy6BehLxjne3ptGrDQ5tuFpZWO8/3pHXdX7Cm/X0w=;
+  b=S55NNKPpyYS/0SVDJd224n0Eu5HoXNywaFCUfDdTgtGQfn9MD53ZFm0l
+   PBzo/a+XQQ+tjtUQwMuDDocj8dCvX+MaA7DZEnVB2F76a2s4yIhPd8vK2
+   U7oRt3fcpSWO1j3Y2M98xgWVGQnO8Ci2mZZdWvsVSqwaLQXVocRJlcsQ2
+   Y0o+kaxdITy9j+APOaxzVmNzwD6Z2ErDmnNL5qnD8sPRq5IqZgiGZhH3i
+   N7ezvajCKHaHiBECF2+XPMcbitlukCr1p/RD6fP6JWqFeCvADWNO8v/fh
+   6aruuHhh3ylS2gKr9SoCKL5tW1xuf22YGwOzXQjufIcs8DCpbEsbKU/Oj
+   A==;
 X-IronPort-AV: E=Sophos;i="5.98,336,1673938800"; 
-   d="scan'208";a="146437125"
+   d="asc'?scan'208";a="146439286"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 01:57:11 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Apr 2023 02:06:31 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 11 Apr 2023 01:57:10 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Tue, 11 Apr 2023 01:57:08 -0700
+ 15.1.2507.21; Tue, 11 Apr 2023 02:06:24 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 11 Apr 2023 02:06:22 -0700
+Date: Tue, 11 Apr 2023 10:06:06 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-CC: Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v16 2/2] MAINTAINERS: add pwm to PolarFire SoC entry
-Date: Tue, 11 Apr 2023 09:56:35 +0100
-Message-ID: <20230411-dastardly-payable-a74538861513@wendy>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230411-wizard-cautious-3c048db6b4d2@wendy>
-References: <20230411-wizard-cautious-3c048db6b4d2@wendy>
+To: Mason Huo <mason.huo@starfivetech.com>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
+	<viresh.kumar@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Shengyu Qu <wiagn233@outlook.com>,
+	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: Add cpu scaling for JH7110
+ SoC
+Message-ID: <20230411-darling-chump-faaf8dec29ef@wendy>
+References: <20230411083257.16155-1-mason.huo@starfivetech.com>
+ <20230411083257.16155-4-mason.huo@starfivetech.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=668; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=gVYx9+DVF2GF+A4bANXLI3OWUXhLfRnRmzz023oqQG4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmmCgfntPLVZTkVX2iuvv7xcvgSjYtbAye9ZTnN7SESeLh4 8ZHAjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkSg8jw3KX/WsDjyzNTn69+5HK3a Va1jfKFa08XxbMLeneu2bDm7MM/wMnMzzY4lW0X3xPcxrf367vpytvvpXptZi37hRTpeqBd2wA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20230411083257.16155-4-mason.huo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_015727_176855_2278130B 
-X-CRM114-Status: UNSURE (   6.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230411_020633_248631_D8B3C038 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +84,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5270017568605061388=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the newly introduced pwm driver to the existing PolarFire SoC entry.
+--===============5270017568605061388==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="9RmMYoUwAG4qQ11d"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+--9RmMYoUwAG4qQ11d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8d5bc223f305..128cc89a47d8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17993,6 +17993,7 @@ F:	drivers/clk/microchip/clk-mpfs.c
- F:	drivers/i2c/busses/i2c-microchip-corei2c.c
- F:	drivers/mailbox/mailbox-mpfs.c
- F:	drivers/pci/controller/pcie-microchip-host.c
-+F:	drivers/pwm/pwm-microchip-core.c
- F:	drivers/reset/reset-mpfs.c
- F:	drivers/rtc/rtc-mpfs.c
- F:	drivers/soc/microchip/mpfs-sys-controller.c
--- 
-2.39.2
+Hey Mason,
 
+On Tue, Apr 11, 2023 at 04:32:57PM +0800, Mason Huo wrote:
+> Add the operating-points-v2 to support cpu scaling
+> on StarFive JH7110 SoC.
+
+(btw, there's no need to wrap commit messages at 52 columns, you have
+72 to work with)
+
+> It supports up to 4 cpu frequency loads.
+>=20
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> ---
+>  .../jh7110-starfive-visionfive-2.dtsi         | 25 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 25 +++++++++++++++++++
+>  2 files changed, 50 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dt=
+si b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index df582bddae4b..ae446b268e78 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -228,3 +228,28 @@ &uart0 {
+>  	pinctrl-0 =3D <&uart0_pins>;
+>  	status =3D "okay";
+>  };
+> +
+> +&U74_1 {
+> +	clocks =3D  <&syscrg JH7110_SYSCLK_CPU_CORE>;
+> +	clock-names =3D "cpu";
+> +	cpu-supply =3D <&reg_dcdc2>;
+> +};
+> +
+> +&U74_2 {
+> +	clocks =3D  <&syscrg JH7110_SYSCLK_CPU_CORE>;
+> +	clock-names =3D "cpu";
+> +	cpu-supply =3D <&reg_dcdc2>;
+> +};
+> +
+> +&U74_3 {
+> +	clocks =3D  <&syscrg JH7110_SYSCLK_CPU_CORE>;
+> +	clock-names =3D "cpu";
+> +	cpu-supply =3D <&reg_dcdc2>;
+> +};
+> +
+> +&U74_4 {
+> +	clocks =3D  <&syscrg JH7110_SYSCLK_CPU_CORE>;
+                ^^
+There's a double space in each of these.
+
+> +	clock-names =3D "cpu";
+> +	cpu-supply =3D <&reg_dcdc2>;
+> +};
+
+How come these two clock properties are being added in <board>.dtsi?
+Should they not be in <soc>.dtsi?
+
+Thanks,
+Conor.
+
+--9RmMYoUwAG4qQ11d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDUi/gAKCRB4tDGHoIJi
+0nEZAP9rj/CuBXvNfE91n2hagQY3313ZTlg0J0xHWjSonAhoBwD/cwrCXvzzmaqL
+aVdM9JA8ul3lc3HBxlANw2iL7G3eWAI=
+=Ix5Y
+-----END PGP SIGNATURE-----
+
+--9RmMYoUwAG4qQ11d--
+
+
+--===============5270017568605061388==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5270017568605061388==--
+
