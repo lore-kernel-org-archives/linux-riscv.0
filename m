@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3303EC77B6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 06:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E17CC77B6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 07:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xO7yIUUYVVzGkq3lr3YzNhO/Jkl2G+0gGKxJg03wImE=; b=TlIJb+8pQw6UUh
-	IEtVoFT2dzoLRzFkISu2xjX+oib17ylUQ+/uzl9DsYb9yLLOV8r2Fma0bTg2TzjkBWQyFfJ+ApQoI
-	D0hAC9znRSOYOuhqSwWam4gv5cpmhSYgIUDcUiequtsQ5hkyKi72xIH2OMgGexJR19G2P3tqPWIqw
-	iRVkpSOJSIL11Mqqb2dFICSrAnvHJ8s/PtywPQiBlF4xHGwfzCnXeE0VyG3Je5vJR288UysWYqGAB
-	Py4UFXsHgp6TovU2FGgaOS8yLf024uhzbM7/vMfOtkiqyhCsuR0+uX0gUMyGweAxMJSDBNF7E8QGj
-	m3ck+a3ZSOcJes4jjccQ==;
+	List-Owner; bh=Bj31Vfe6UqomC2p3LoU0/oCANjGDSxUIvXGIQ+jUc78=; b=JlzBO18e6/K5r7
+	HaBZutvKc4GJXwwc7ho3iaBwgJBwjtP06Xx+vACMACuImtwVWT2i4pgHW+VAKBS8+CydtRRotbzgi
+	NpLfMH7fbzTXwjvWhcLyGQaw+SCuS1EJ41u9slvojBxEYp7y/fSEFFQ1HdPXUFO8yusgb/fupVjup
+	GKAAVH6zaR40MZ5r13P0/5npSlDXIyjqjym0LTTsHSX3xyonkxacjR9GzFkn6RV/d6Mv3h4cz8tTw
+	rISRqmWntgw9cY0NOWGpKOn8R8Gn/cDoozRlIYIWfVdXviPvHoN5z5Pq5eD01hqx1Ur3TNnEFac0J
+	Hes50tJvva4WVmF/9y5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmUCP-002000-1P;
-	Wed, 12 Apr 2023 06:43:21 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pmUye-0026T3-1H;
+	Wed, 12 Apr 2023 07:33:12 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmUCL-001zw6-0n
+	id 1pmUyZ-0026OA-2s
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 06:43:19 +0000
+	Wed, 12 Apr 2023 07:33:11 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CE4CB7F98;
-	Wed, 12 Apr 2023 14:42:43 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 0157A24E1BE;
+	Wed, 12 Apr 2023 15:31:43 +0800 (CST)
 Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 14:42:43 +0800
+ 2023 15:31:43 +0800
 Received: from [192.168.125.82] (113.72.145.176) by EXMBX162.cuchost.com
  (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 14:42:42 +0800
-Message-ID: <1e3e917a-17ff-2a06-e127-e0d43b731301@starfivetech.com>
-Date: Wed, 12 Apr 2023 14:42:40 +0800
+ 2023 15:31:42 +0800
+Message-ID: <1d085fe3-39f8-232a-e628-1eb138b899b7@starfivetech.com>
+Date: Wed, 12 Apr 2023 15:31:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [PATCH v1 4/7] soc: starfive: Add pmu type operation
+Subject: Re: [PATCH v1 6/7] soc: starfive: Add dphy pmu support
 Content-Language: en-US
 To: Conor Dooley <conor@kernel.org>
 CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -53,17 +53,17 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
 References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-5-changhuang.liang@starfivetech.com>
- <20230411-flavoring-sternness-a3b6cdee9fcb@spud>
+ <20230411064743.273388-7-changhuang.liang@starfivetech.com>
+ <20230411-iron-everybody-70b78e94aee5@spud>
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230411-flavoring-sternness-a3b6cdee9fcb@spud>
+In-Reply-To: <20230411-iron-everybody-70b78e94aee5@spud>
 X-Originating-IP: [113.72.145.176]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_234317_594117_21E76E77 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20230412_003308_259559_244AA582 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,67 +82,80 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/12 4:52, Conor Dooley wrote:
-> Hey Changhuang Liang,
-> 
-> On Mon, Apr 10, 2023 at 11:47:40PM -0700, Changhuang Liang wrote:
->> Add pmu type, make a distinction between different PMU.
-> 
-> Please write more detailed commit messages, thanks.
-> 
-
-OK, will write more detail for it.
-
->>
->> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
->> ---
->>  drivers/soc/starfive/jh71xx_pmu.c | 55 ++++++++++++++++++++++---------
->>  1 file changed, 39 insertions(+), 16 deletions(-)
->>
->> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
->> index 306218c83691..98f6849d61de 100644
->> --- a/drivers/soc/starfive/jh71xx_pmu.c
->> +++ b/drivers/soc/starfive/jh71xx_pmu.c
->> @@ -45,6 +45,12 @@
->>   */
->>  #define JH71XX_PMU_TIMEOUT_US		100
+On 2023/4/12 5:15, Conor Dooley wrote:
+> On Mon, Apr 10, 2023 at 11:47:42PM -0700, Changhuang Liang wrote:
+[...]
+>> +++ b/MAINTAINERS
+>> @@ -19944,6 +19944,7 @@ F:	include/dt-bindings/reset/starfive?jh71*.h
 >>  
->> +/* pmu type */
+>>  STARFIVE JH71XX PMU CONTROLLER DRIVER
+>>  M:	Walker Chen <walker.chen@starfivetech.com>
+>> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
 > 
-> Delete this comment, it's obvious.
-> 
-
-OK, will delete this line.
-
->> +enum pmu_type {
->> +	JH71XX_PMU_GENERAL,
-> 
-> I'm really not sold on GENERAL as a name.
-> Why not name these after the compatibles?
->
-
-OK, will change to "JH71XX_PMU".
- 
->> +	JH71XX_PMU_DPHY,
->> +};
->> +
->>  struct jh71xx_domain_info {
->>  	const char * const name;
->>  	unsigned int flags;
->> @@ -54,6 +60,7 @@ struct jh71xx_domain_info {
->>  struct jh71xx_pmu_match_data {
->>  	const struct jh71xx_domain_info *domain_info;
->>  	int num_domains;
->> +	u8 pmu_type;
-> 
-> This is an enum, not a u8?
+> Unmentioned in the commit message, plus I would like an R-b or an Ack
+> from Walker.
 > 
 
-OK, will fix it.
+OK, I will make a discuss with Walker.
 
-> Thanks,
+>>  S:	Supported
+>>  F:	Documentation/devicetree/bindings/power/starfive*
+>>  F:	drivers/soc/starfive/jh71xx_pmu.c
+>> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+>> index 990db6735c48..d4092ca4dccf 100644
+[...]
+>> @@ -94,6 +97,8 @@ static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_o
+>>  
+>>  	if (pmu->match_data->pmu_type == JH71XX_PMU_GENERAL)
+>>  		offset = JH71XX_PMU_CURR_POWER_MODE;
+>> +	else if (pmu->match_data->pmu_type == JH71XX_PMU_DPHY)
+> 
+> There are only two options for this "enum", so why `else if`?
+> 
+
+OK, will change to else.
+
+>> +		offset = JH71XX_PMU_DPHY_SWITCH;
+>>  
+>>  	regmap_read(pmu->base, offset, &val);
+>>  
+>> @@ -170,6 +175,23 @@ static int jh71xx_pmu_general_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bo
+>>  	return 0;
+>>  }
+>>  
+[...]
+>>  static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>>  {
+>>  	struct jh71xx_pmu *pmu = pmd->pmu;
+>> @@ -191,6 +213,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>>  
+>>  	if (pmu->match_data->pmu_type == JH71XX_PMU_GENERAL)
+>>  		ret = jh71xx_pmu_general_set_state(pmd, mask, on);
+>> +	else if (pmu->match_data->pmu_type == JH71XX_PMU_DPHY)
+>> +		ret = jh71xx_pmu_dphy_set_state(pmd, mask, on);
+> 
+> Perhaps I am verging on over-complication, but I dislike this carry on.
+> Is this the only time we'll see a power domain provider coming out of
+> a syscon, or are there likely to be more?
+> Either way, I think having an ops struct w/ both parse_dt() and the
+> set_state() implementations would be neater than what you have here.
+> 
+> Very much open to dissenting opinions there though. Emil? Walker?
+> 
+> Cheers,
 > Conor.
 > 
+
+"else if" will change to "else"
+As far as I know, there are only two types power domain on the JH7110 SoC.
+One is the original, another one is coming out of a syscon.
+
+>>  
+>>  	return ret;
+>>  }
+[...]
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
