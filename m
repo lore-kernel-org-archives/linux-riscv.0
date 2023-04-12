@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80889C77B70
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 02:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E46C77B70
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 02:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uzdV4doyKCDZrAjMp+EbwOKw2d9CfX5sXrTtW4n56Ew=; b=sp8DsvS2HL6PMf
-	bE8tc9KsV4I/j7ImO3ghVViw1luUWGeqY0iXib2xSQ1SwUj0dXpbJe5p6LfFpft6wFU/T0xooxFaP
-	64r682DFvniMrM6egiVWIp4rz4isbPGVjK+iheQM8HrrpzizqXUO0UU1jfGjzcIaY51CzMNsCMoOr
-	O7Uno+fJX/mDc5/02+Meky7gLZI7lT6t3IGY9wBYv3zUKtORssG/7avql7bktd46ggSvJ9OjFfaMu
-	rQKwiPClhjO7hzlYMOCkhbKBDAHlTSBfEF69EBcn+QFys6f7GLis/OuL0ZrPUihhBMQhZYDE8GuEB
-	gHx1WA8hG0jfC1PQlEuA==;
+	List-Owner; bh=6KBqXc0GAEiBq3yrfSEmqcgKy6ohI5ZBxuqU0iPq6xE=; b=SXVE1xujTXMoJT
+	/9rlNIi1PRHZbbu5ZYyqeWwS7eRybijvF43KU+/NDgRtaV0mJ7QjhuklDln/X6bu/NGyAVO2u5pFi
+	7tRIv19f130dz9/l9Z2ZFZpMxAsQI7zr/HVRGU7V5+HlT7rysq7svoYEI4ZTqxvbPRHZI1/irAgcQ
+	QnIaBW6cc9Dg9s64LsrPg8tjf6IdYW6a8AjPzxi70/l/HYuk+AW0tGWh7+P26D7QmY0/swyD7//vl
+	+8KJuX1/ZAETqbvudsWSO+zDUrcAjcRUAKocAZA19jSF+DIM670iGKtocWlYcfoV6FYwW6jy8TwEO
+	VYKO6qyK0B2IyhpcgfFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmQaB-001eD6-1l;
-	Wed, 12 Apr 2023 02:51:39 +0000
+	id 1pmQbA-001eJL-2O;
+	Wed, 12 Apr 2023 02:52:40 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmQa8-001eCA-0E
+	id 1pmQb7-001eHv-0Y
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 02:51:38 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 12 Apr 2023 02:52:38 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A679724E00A;
-	Wed, 12 Apr 2023 10:51:12 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 10:51:12 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 88A2680ED;
+	Wed, 12 Apr 2023 10:52:14 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
+ 2023 10:52:14 +0800
 Received: from [192.168.125.82] (113.72.145.176) by EXMBX162.cuchost.com
  (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 10:51:11 +0800
-Message-ID: <a2a90bfc-4dff-faaf-8b07-537bedbfb97f@starfivetech.com>
-Date: Wed, 12 Apr 2023 10:51:10 +0800
+ 2023 10:52:13 +0800
+Message-ID: <7a8aac88-91e1-3c54-efa6-e71ddd0951b4@starfivetech.com>
+Date: Wed, 12 Apr 2023 10:52:13 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
-Subject: Re: [PATCH v1 1/7] dt-bindings: power: Constrain properties for
- JH7110 PMU
+Subject: Re: [PATCH v1 2/7] soc: starfive: Replace SOC_STARFIVE with
+ ARCH_SATRFIVE
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+To: Walker Chen <walker.chen@starfivetech.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
 References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-2-changhuang.liang@starfivetech.com>
- <20230411-vitality-exodus-f7e5d2e8576c@spud>
+ <20230411064743.273388-3-changhuang.liang@starfivetech.com>
+ <a3d5c666-c7c1-7a77-31ac-d3e686bdef59@starfivetech.com>
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230411-vitality-exodus-f7e5d2e8576c@spud>
+In-Reply-To: <a3d5c666-c7c1-7a77-31ac-d3e686bdef59@starfivetech.com>
 X-Originating-IP: [113.72.145.176]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_195136_287604_906472E8 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20230411_195237_365321_4617DA05 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +83,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/12 4:13, Conor Dooley wrote:
-> On Mon, Apr 10, 2023 at 11:47:37PM -0700, Changhuang Liang wrote:
->> When use "starfive,jh7110-pmu-dphy" compatible, do not need the reg and
->> interrupts properties.
+On 2023/4/12 10:11, Walker Chen wrote:
 > 
-> Please write a commit message explaining why this is needed.
-> The commit message as-is is insufficient, but also IMO wrong incorrect.
-> I think it would more accurately be "...: add jh7110 dphy pmu support" or
-> similar & the body should explain why this particular PMU has no
-> reg/interrupts.
 > 
-> Cheers,
-> Conor.
-> 
-
-OK, Thanks for your comments, I will reorganize the commit message more clarity.
-
+> On 2023/4/11 14:47, Changhuang Liang wrote:
+>> Using ARCH_FOO symbol is preferred than SOC_FOO.
 >>
 >> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 >> ---
->>  .../bindings/power/starfive,jh7110-pmu.yaml        | 14 ++++++++++++--
->>  include/dt-bindings/power/starfive,jh7110-pmu.h    |  3 +++
-[...]
+>>  drivers/soc/starfive/Kconfig | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
 >>
+>> diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
+>> index bdb96dc4c989..1e9b0c414fec 100644
+>> --- a/drivers/soc/starfive/Kconfig
+>> +++ b/drivers/soc/starfive/Kconfig
+>> @@ -3,8 +3,8 @@
+>>  config JH71XX_PMU
+>>  	bool "Support PMU for StarFive JH71XX Soc"
+>>  	depends on PM
+>> -	depends on SOC_STARFIVE || COMPILE_TEST
+>> -	default SOC_STARFIVE
+>> +	depends on ARCH_STARFIVE || COMPILE_TEST
+>> +	default ARCH_STARFIVE
+>>  	select PM_GENERIC_DOMAINS
+>>  	help
+>>  	  Say 'y' here to enable support power domain support.
+> 
+> The subject 'ARCH_SATRFIVE' spelling error.
+> 
+
+OK, will fix it.
+
+> Best regards,
+> Walker
 
 _______________________________________________
 linux-riscv mailing list
