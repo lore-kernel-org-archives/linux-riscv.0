@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D38DC77B72
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD34EC77B78
 	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 11:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c8hvZiH4D7/ZZ9XYJnQ/G6uNwzkuzFu8k+YM8mqfGq0=; b=TTNABe2wVkQ/Gm
-	aOqDwy4oPlTvn6sxa0266frT4ETmR0d4ZdUsmDFA0zSCM1E3eKjPOJtKCNUHCWv7GWcSAWqeSBedL
-	Kthm8I7o9OgDqiADSnRJH0sCuc+WQh0m2ZwzJ12SbIgy1BUzbzC7VLHTqLZ8iBDg0tmUknYIst6ov
-	a2Tv4pNh9o8A7bAJJm3EOOVW+uaMLnGPdPSqqVMoOUTvxOXyyEbRWEVbBHqu6G48f7UjhT50gqFYB
-	HVF3U0L/8UWdkt1lJ4iTRzJ459aZ1c0IPunPDPhr2XCSMPC+/SFYVog1MSUTJ//ofM8zL7OjuDReU
-	7oI1vVKIkFnWRvj0eFlw==;
+	List-Owner; bh=1virwxPfdmopr5H11vgPayvc6rSUIVasnSlygkCrkQo=; b=s9t7nTJLjptXb9
+	/vt+AaHPnGTnMeFfrmUMnrp1tnRoO8RnyJQsyIVtdSXZW0caHm8y8HHDqQke1GYGfw2pO6fOEVcRx
+	J6ZQyBEvP4+cneKFE93+p07SS7ODxiQGLux1a/Gxt37FcELSILoj9eysBF7r/zPZRibsEAdyQxMMQ
+	N141SgV94xX3eIb3Zc4MscF1XiTy/TX1N43AYnyR1T3vzOigtZW284VR5AQh0g5iU11sHBJKBvIh8
+	LMlPl6+Jr8INMnlj66xYFzffmfXDhOYo4aiot8PNW5xoXdcdYo22QtTwO7nUy7+jTcTQTwP8OPy/T
+	B/Ej1fEx+vWuLoXMSUcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmYM1-002kSi-0q;
-	Wed, 12 Apr 2023 11:09:33 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1pmYM2-002kTv-17;
+	Wed, 12 Apr 2023 11:09:34 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmYLw-002kPg-0Y
+	id 1pmYLz-002kQw-0D
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 11:09:29 +0000
-Received: by mail-wr1-x433.google.com with SMTP id s12so2008235wrb.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Apr 2023 04:09:27 -0700 (PDT)
+	Wed, 12 Apr 2023 11:09:32 +0000
+Received: by mail-wr1-x432.google.com with SMTP id e7so397671wrc.12
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Apr 2023 04:09:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681297766; x=1683889766;
+        d=gmail.com; s=20221208; t=1681297769; x=1683889769;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pD04tvq+M9m50iyP6xVhtqLbPbgsKDIvDjFswr8cjxc=;
-        b=mmmmbdiYt67XYwHB4JJGDHgGj/0WqOUnZKlnLbxhhm9g922yNLznh/ubB9I6GbwgJP
-         ssMgUgKNOUSdjFM71EEAotwNazn9gsaAxYt6KahL8nUFsm21Oujq029r2WVYk/BFEyb5
-         usQAUlQ6F9/JhCZ0gVGlMEEs8MPP6OrkI8GwgqtgEAEf/Csy9vtVyoVZ8/35NbwxGakr
-         +Dh2X3DhyKHR+KzuHOB//COuoDGVKLxUHac7yNsRJkGTZDov5CZA63VPgsN3IB2mdwZa
-         MSZNpNNqfColZwj1k1nvyU+dq+kuZrc/YSY7ZM3XlZNHAUg4wG4WQhBPKxb3jiVSjZuF
-         WEdQ==
+        bh=+bRdsTU6BJd6u4Cr67nZtCHBEKYkozHH6oRZI2e8v+k=;
+        b=ljl56RjrqxRIgJ+tom3ANal5bwEiem+otTOgWZcdoHW0EadLASoYsBiowJyKTzCiUa
+         PqkKwhxJNkzuKpqUoKGlqP4W80MjrMIJSwDN7Lve7wSQ89dg/mUF/UAN9CPFFA9uCGyM
+         06T5BlZ8gB2qMU8OIjWY68QGUL+Q5z/CTAiqFtqw8nlE1qSLJjN5MR3Q26KXDArpCMLC
+         w5dCS2w+IkSjMLgbGv376io7z8GyB+g4rHqFJnW54BxHVniiiRUaQPa8ILCK6Zor7kjn
+         iStUvMvU6ha5wpwjidF5cd87KWl2FvuDs3VptFLhB1qFs8G90mlUrSz+MIU8C4eIN7oe
+         W+YQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1681297766; x=1683889766;
+        d=1e100.net; s=20210112; t=1681297769; x=1683889769;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pD04tvq+M9m50iyP6xVhtqLbPbgsKDIvDjFswr8cjxc=;
-        b=RV0ShjNZQLAphVjIvLrhSIuN9IkHFZKa9Fd74sMuzHPTuVuHH+AA8MI4YpRoE7bGIG
-         gIR8T/wy4UHLeh0YjTcWbQcjLErfsziR6k/spdU7iNXnLGYaTphLJzzG0ArQL0HTUPHm
-         Orljmhup8sVXLUBUWwoO2awbbJhRGY1qXV11jwCiqgIhyg7IqP2GzR9I8ExzVmGuxe/W
-         BOpjRJIY94E7KNk+BBh/fYhuIPQYDESAvzsbtv77+sOrg++JHI9i0gzDCZgLjoSnPyfD
-         FBxMTl+SuTwZ/IccryfJTKxkwEhSIKSNDTS7F5dOo/K4crM1pT1x1gUUNvB/ZiCsSXfX
-         DNYQ==
-X-Gm-Message-State: AAQBX9cejne6oGcoLBuH+cviDXNjwkmOiYh50XePdbAaPbUo+p2EOPAe
-	f9TOHSsPd0dQ8bUlr+h7kkQ=
-X-Google-Smtp-Source: AKy350ZG+ziQg2f5yeP8bvPDaskt2sxwWBoOSz80nvmpvV5ou9fl8wAEhJk9S4Fpi5rT8+zmvU8WAA==
-X-Received: by 2002:adf:cd05:0:b0:2f0:c90:b720 with SMTP id w5-20020adfcd05000000b002f00c90b720mr3459066wrm.61.1681297766125;
-        Wed, 12 Apr 2023 04:09:26 -0700 (PDT)
+        bh=+bRdsTU6BJd6u4Cr67nZtCHBEKYkozHH6oRZI2e8v+k=;
+        b=wkzOrKUYIiKnfR7f/3IAtSSl7OXQfxOIyZgswAaj75N+BeeUr3IUmV7zhhjtzWjsGB
+         LvBK97asihSKdUJYKqw2yy0IYOl/M+gCO91NcPf03mvbjnYqzGCpBq5bbdsxI2Vysu4d
+         s6BnytvW9lOao+vexNBo1lFAc3mCydZHOTGeM6bm7Kbv8LSFcXLs1BzpTM8TyZt4Wxdb
+         x7Z4vHbqZbTug8uLMufxenBbypwPvqeE0Qh06+dNrQP6Cjr2zvrU+/iBg2UvHDs0j9ZJ
+         vWf9t3PsP9yTV8dGNwv9nvdT0iWJB5UZIMldzLh0ALoB8GGK2OC9BYbtdznRpsAT4K/H
+         nxEQ==
+X-Gm-Message-State: AAQBX9c879e+sIRcHGHJRfHNk8QC+gynBinRRtHZ/N97r4+5FgFQBzR2
+	S37LI3eIQrieWpdPFhmD+28=
+X-Google-Smtp-Source: AKy350Zq8HVQv1W7wQ54wDuK9CkSxTlZLIPO1kIIjVThIRim9qk7jf4hDUJbL1CCqa0+Yf5jVPwpFQ==
+X-Received: by 2002:a05:6000:11d1:b0:2f4:e8e3:ef62 with SMTP id i17-20020a05600011d100b002f4e8e3ef62mr780392wrx.65.1681297768888;
+        Wed, 12 Apr 2023 04:09:28 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:783d:9280:20c4:db22])
-        by smtp.gmail.com with ESMTPSA id l13-20020a5d668d000000b002e61e002943sm16863582wru.116.2023.04.12.04.09.24
+        by smtp.gmail.com with ESMTPSA id l13-20020a5d668d000000b002e61e002943sm16863582wru.116.2023.04.12.04.09.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Apr 2023 04:09:25 -0700 (PDT)
+        Wed, 12 Apr 2023 04:09:28 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Arnd Bergmann <arnd@arndb.de>,
@@ -82,18 +82,18 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v8 2/7] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
-Date: Wed, 12 Apr 2023 12:08:55 +0100
-Message-Id: <20230412110900.69738-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v8 4/7] dt-bindings: cache: andestech,ax45mp-cache: Add DT binding documentation for L2 cache controller
+Date: Wed, 12 Apr 2023 12:08:57 +0100
+Message-Id: <20230412110900.69738-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230412110900.69738-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230412110900.69738-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230412_040928_211358_E7F973D5 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230412_040931_106966_F2B564DB 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +112,126 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add Andes Technology to the vendors list.
+Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+describes the L2 cache block.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 v7 -> v8
-* No change
+* Updated commit header message
 
 v6 -> v7
-* No change
+* No Change
 
 v5 -> v6
-* No change
+* Included RB tag from Rob
 
 v4 -> v5
-* Included RB tags
+* Dropped L2 cache configuration properties
+* Dropped PMA configuration properties
+* Ordered the required list to match the properties list
 
 RFC v3 -> v4
-* New patch
+* Dropped l2 cache configuration parameters
+* s/larger/large
+* Added minItems/maxItems for andestech,pma-regions
 ---
- arch/riscv/include/asm/vendorid_list.h | 1 +
- 1 file changed, 1 insertion(+)
+ .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
 
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index cb89af3f0704..e55407ace0c3 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -5,6 +5,7 @@
- #ifndef ASM_VENDOR_LIST_H
- #define ASM_VENDOR_LIST_H
- 
-+#define ANDESTECH_VENDOR_ID	0x31e
- #define SIFIVE_VENDOR_ID	0x489
- #define THEAD_VENDOR_ID		0x5b7
- 
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+new file mode 100644
+index 000000000000..9ab5f0c435d4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2023 Renesas Electronics Corp.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andestech AX45MP L2 Cache Controller
++
++maintainers:
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++
++description:
++  A level-2 cache (L2C) is used to improve the system performance by providing
++  a large amount of cache line entries and reasonable access delays. The L2C
++  is shared between cores, and a non-inclusive non-exclusive policy is used.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - andestech,ax45mp-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: andestech,ax45mp-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  cache-line-size:
++    const: 64
++
++  cache-level:
++    const: 2
++
++  cache-sets:
++    const: 1024
++
++  cache-size:
++    enum: [131072, 262144, 524288, 1048576, 2097152]
++
++  cache-unified: true
++
++  next-level-cache: true
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - cache-line-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    cache-controller@2010000 {
++        compatible = "andestech,ax45mp-cache", "cache";
++        reg = <0x13400000 0x100000>;
++        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
++        cache-line-size = <64>;
++        cache-level = <2>;
++        cache-sets = <1024>;
++        cache-size = <262144>;
++        cache-unified;
++    };
 -- 
 2.25.1
 
