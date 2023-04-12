@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF2DC77B76
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 11:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F631C77B79
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 11:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qoUD4ihuG/88FQYCYYEi1gpkmLGhYOXOrSIUWxgIjU=; b=N8432Y62kpu869
-	0HidYEuSEHKgZCaNJ3gesB7vs1LJMQgZSMonf2E85Tc6++yd6naGbgBc7/CqmpLWfTdwEm9ScsgtF
-	nnzUcB0be9F7VFRTLOPJVPKoS6v4ssZar4Db5iuGUtbNHtnqjuMoyxZmKcUsmY0MjXOnrGkkpea7v
-	v3S/7YlU5KTSkdBoSMZ0r3PAXJui9hx5yfi8rcAENlHbJOalSxDO0yr0u+nmAsH4xYeGqR1ACwN+d
-	3EgwuaJWV407UE32xZLqNnsI1xcVWPk0ssQu6X99BvEc8fgGJCuqL/zZIaEliFi5FC4vTZ2pqk+vd
-	c/eQJI1j4GfomI/s1Peg==;
+	List-Owner; bh=vgl34ywRFtQ28/H8qcHwy6OV862lDYJrHBwUTFXCIgQ=; b=psB6XjDrFSVTF2
+	7z6x9TOyFDG0WGVxZvBwiuL2D++DOYjvO5eG+PMXa7q1tYtW+D/f1v9n6vNiTpUv4wh0LGzokots7
+	GDxv5mrgV9GNIymcI71jTCxuFo2BNLw8417BMUJs2OlOK3bqJuBn1ghhM5+4qjrc0OOX6cAiM6h37
+	k6tApcF98x+0m3Q4g4NfwnzewQwO2cY/Dj7keQcUEF6eMbQr1naZLe614ZbKrR/8OIMyxsa0v7e3/
+	rYB/S1uFErdNwCRrp0ewX/2t9pTk7mkMVUhkEZOPsdnhoQ6CCkHRSDruDE45rWmaMHS7fjktWKCDl
+	p2/Qq/tz42kxJ73650uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmYM5-002kVO-1h;
-	Wed, 12 Apr 2023 11:09:37 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pmYM1-002kTU-2a;
+	Wed, 12 Apr 2023 11:09:33 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmYM1-002kRs-1s
+	id 1pmYLw-002kQB-2R
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 11:09:34 +0000
-Received: by mail-wr1-x434.google.com with SMTP id j1so14482766wrb.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Apr 2023 04:09:32 -0700 (PDT)
+	Wed, 12 Apr 2023 11:09:30 +0000
+Received: by mail-wr1-x433.google.com with SMTP id j11so14123730wrd.2
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Apr 2023 04:09:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681297771; x=1683889771;
+        d=gmail.com; s=20221208; t=1681297767; x=1683889767;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nB3sPVEcrgu6W+ilG7iG45RRlHi0fVznqs8qRjeeZzA=;
-        b=nG67AZDgYKdJnkqDzdBqL7IETA6Nq75bT/jKzTrBr0Rp8gJDxALJsSSAbhwkH/+mr9
-         C/UfJ9aEvNz4Bic4fi+Xz/nZH+6/rajKZuQEo+934ySYt/Hp/pM01sfrd/ejBeb2Zaej
-         efWKvkx2OjdciaTTIaH+ZZ3bXbg1tZXeFUHsjjzxl+xkbVLf50bDYx6BVlj+qQTuFoeW
-         lnG20h5N1VxrmIWlhuMB3EWvjzlhsEd4SrQp9fqEW5Dx4JIShONrkjvt+HsnXu3zMRZJ
-         KoLA912TXPOJL/D5SB/8G6IZcLcRC8q4KH+W9Jl845Hwba5FVro/vgPciPrNMkXfCfYb
-         6B0w==
+        bh=v7nHC1ZoyGnBMkj9VoSQB3G3dDc74yMKyzp+x8lL8uQ=;
+        b=YbqshfwsKjNyErx/MS3m0/eEGOfQUxhVFBfHqvf2NAUHqxyH9lx0G6hYDJaO2jmzWn
+         +ha9/F71KHtdK1e23eCBBYfJp54/9DD9MLEpCsxedkqOADDFp/Z8rKyiAH/hj49CAB1G
+         r/qFsgiM0hR1mdUharwka2IImp54uPgni9YmC767fwk6SSvxzYmuNBKN36ZX/zey+UhK
+         GXxeYS8sUt1B42trqIjDatzDxbmqOfMCk8Mv2hXTaKoDfb/zA2PvMZjF2qSjUZcMcQhL
+         w5bbR3kgb18fgvHmnfsZDNS7yVipf+IVD/WtyYP2wblUvWLzIODcube+JOOHwAITiJ/x
+         ecvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1681297771; x=1683889771;
+        d=1e100.net; s=20210112; t=1681297767; x=1683889767;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nB3sPVEcrgu6W+ilG7iG45RRlHi0fVznqs8qRjeeZzA=;
-        b=2lRl6iZjxdoPMuGnW7E8FxRdqyqOHG3ZfCCcwCWUGDkx8Ds2vLud9sSPuHWrcOjC9o
-         O36X/v7pnbIoE/Ibb3L9mQVo+QUm/4deen+nHEXz+vNpX5IcGueIjgihQ6FOdg/9U65f
-         cPhqYs3heK1LjeyeIZ5sjXjBvrXEfWQsho5Xtpv4qOrNTgSOWBDCtGFouu7Twq8E0CYa
-         TOz3TRRizG37NpZ9diztR1gQhZkIvRXQ1X46detxp56mvSxugqQdK6a+jcAgECd/vRRH
-         f0H6xVxqy1fgOxg5YcASfxB0/CmH+LT55wmrC8+ITKgywNQM9fAVbIILNYToadVwc8Ib
-         cX7A==
-X-Gm-Message-State: AAQBX9djqzTS9RyR4AGGKKFlS9QpvlDjdi5Ua5W4pgZOCSIYbhYPTcWb
-	zZAsDUs54zwN5FNrswpIlNz/o0HM2Gqu1vrQ
-X-Google-Smtp-Source: AKy350baFT53FrVZDDIYkVxi/WMtlVuaA05Nl+WNWc4qmRoasQeQvrWT71zHJavpnqvcSwx3li5Y1w==
-X-Received: by 2002:a5d:6189:0:b0:2ce:9d06:58c6 with SMTP id j9-20020a5d6189000000b002ce9d0658c6mr1637641wru.53.1681297771385;
-        Wed, 12 Apr 2023 04:09:31 -0700 (PDT)
+        bh=v7nHC1ZoyGnBMkj9VoSQB3G3dDc74yMKyzp+x8lL8uQ=;
+        b=zK1Y90HdU2ubAejZyJhM9OVuv3mYxh8PJaUBe6QICrhW92JFfmrA2TBq1YfACPkcAb
+         UdpFDXiF2HQCc6cB/xqfhmFD5N/4AFhZ86on3SCBLHVR++fO9Wh9PUqoXbwl8hk2h+Bt
+         NRMYt91u0329im1OE7O9N1qK7Eflps+xnb2zn0SDAQXYGu5veqqjC7NyBVS2njnuCVlO
+         A6F4r5yHzyhaGyOSfc4mgdkGgZ+y91/4yqD6IT6e5Np9CEAj2gQ4YPX+83+AiYC6jOha
+         JfHapVee/P1snGp4s0Hc3thCiphcpIoq6rTGyfy6HVVtgPudtV1PYJqEWK8hyLIYLu8z
+         vjtQ==
+X-Gm-Message-State: AAQBX9cfujdOosM7B88n9bpjWD/NwNhOCCi9TwPZJLLlx5WKd4tzjV0+
+	J5hs/8PZQxBZyrvRCqCZbf8=
+X-Google-Smtp-Source: AKy350aoGXknWeyuPSXbyZQdthar+ZVQIT0TUZxcsTGaG9Btecmwvc5yAyNXr6WU5czPvUKoGQ4Zzw==
+X-Received: by 2002:adf:de05:0:b0:2f0:595:679b with SMTP id b5-20020adfde05000000b002f00595679bmr1798349wrm.66.1681297767343;
+        Wed, 12 Apr 2023 04:09:27 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:783d:9280:20c4:db22])
-        by smtp.gmail.com with ESMTPSA id l13-20020a5d668d000000b002e61e002943sm16863582wru.116.2023.04.12.04.09.30
+        by smtp.gmail.com with ESMTPSA id l13-20020a5d668d000000b002e61e002943sm16863582wru.116.2023.04.12.04.09.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Apr 2023 04:09:30 -0700 (PDT)
+        Wed, 12 Apr 2023 04:09:26 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Arnd Bergmann <arnd@arndb.de>,
@@ -83,16 +83,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v8 6/7] riscv: errata: Hookup the Andes AX45MP non-coherent handling
-Date: Wed, 12 Apr 2023 12:08:59 +0100
-Message-Id: <20230412110900.69738-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v8 3/7] riscv: errata: Add Andes alternative ports
+Date: Wed, 12 Apr 2023 12:08:56 +0100
+Message-Id: <20230412110900.69738-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230412110900.69738-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230412110900.69738-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230412_040933_616144_5F714351 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20230412_040928_816154_B3867D45 
+X-CRM114-Status: GOOD (  27.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,100 +111,249 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hookup the Andes AX45MP non-coherent handling by updating the
-ALT_CMO_OP() macro which will be used by dma-noncoherent.c for
-non-coherent platforms.
+Add required ports of the Alternative scheme for Andes CPU cores.
+
+I/O Coherence Port (IOCP) provides an AXI interface for connecting external
+non-caching masters, such as DMA controllers. IOCP is a specification
+option and is disabled on the Renesas RZ/Five SoC due to this reason cache
+management needs a software workaround.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v7->v8
+v7 -> v8
+* Now patching the code using patch_text_nosync() and riscv_alternative_fix_offsets()
+
+v6 -> v7
+* Renamed RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND -> ANDES_SBI_EXT_IOCP_SW_WORKAROUND
+* Dropped "depends on !XIP_KERNEL" for ERRATA_ANDES config
+
+v5 -> v6
+* Dropped patching alternative and now just probing IOCP
+
+v4 -> v5
+* Sorted the Kconfig/Makefile/Switch based on Core name
+* Added a comments
+* Introduced RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT ID to check if
+  CMO needs to be applied. Is there a way we can access the DTB while patching
+  as we can drop this SBI EXT ID and add a DT property instead for cmo?
+
+RFC v3 -> v4
 * New patch
 ---
- arch/riscv/include/asm/cacheflush.h  |  9 ++++++++
- arch/riscv/include/asm/errata_list.h | 33 ++++++++++++++++++++++------
- 2 files changed, 35 insertions(+), 7 deletions(-)
+ arch/riscv/Kconfig.errata            |  21 ++++++
+ arch/riscv/errata/Makefile           |   1 +
+ arch/riscv/errata/andes/Makefile     |   1 +
+ arch/riscv/errata/andes/errata.c     | 104 +++++++++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h |   3 +
+ arch/riscv/include/asm/errata_list.h |   5 ++
+ arch/riscv/kernel/alternative.c      |   5 ++
+ 7 files changed, 140 insertions(+)
+ create mode 100644 arch/riscv/errata/andes/Makefile
+ create mode 100644 arch/riscv/errata/andes/errata.c
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 8091b8bf4883..a8503cc04fdb 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -59,6 +59,15 @@ void riscv_noncoherent_supported(void);
- static inline void riscv_noncoherent_supported(void) {}
- #endif
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 0c8f4652cd82..92c779764b27 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -1,5 +1,26 @@
+ menu "CPU errata selection"
  
-+#ifdef CONFIG_AX45MP_L2_CACHE
-+extern asmlinkage void ax45mp_dma_cache_wback_inv(void *vaddr, unsigned long size);
-+extern asmlinkage void ax45mp_dma_cache_wback(void *vaddr, unsigned long size);
-+extern asmlinkage void ax45mp_dma_cache_inv(void *vaddr, unsigned long size);
-+#else
-+static inline void ax45mp_dma_cache_wback_inv(void *vaddr, unsigned long size) {}
-+static inline void ax45mp_dma_cache_wback(void *vaddr, unsigned long size) {}
-+static inline void ax45mp_dma_cache_inv(void *vaddr, unsigned long size) {}
-+#endif
- /*
-  * Bits in sys_riscv_flush_icache()'s flags argument.
-  */
++config ERRATA_ANDES
++	bool "Andes AX45MP errata"
++	depends on RISCV_ALTERNATIVE
++	help
++	  All Andes errata Kconfig depend on this Kconfig. Disabling
++	  this Kconfig will disable all Andes errata. Please say "Y"
++	  here if your platform uses Andes CPU cores.
++
++	  Otherwise, please say "N" here to avoid unnecessary overhead.
++
++config ERRATA_ANDES_CMO
++	bool "Apply Andes cache management errata"
++	depends on ERRATA_ANDES && MMU && ARCH_R9A07G043
++	select RISCV_DMA_NONCOHERENT
++	default y
++	help
++	  This will apply the cache management errata to handle the
++	  non-standard handling on non-coherent operations on Andes cores.
++
++	  If you don't know what to do here, say "Y".
++
+ config ERRATA_SIFIVE
+ 	bool "SiFive errata"
+ 	depends on RISCV_ALTERNATIVE
+diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+index a1055965fbee..6f1c693af92d 100644
+--- a/arch/riscv/errata/Makefile
++++ b/arch/riscv/errata/Makefile
+@@ -1,2 +1,3 @@
++obj-$(CONFIG_ERRATA_ANDES) += andes/
+ obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
+ obj-$(CONFIG_ERRATA_THEAD) += thead/
+diff --git a/arch/riscv/errata/andes/Makefile b/arch/riscv/errata/andes/Makefile
+new file mode 100644
+index 000000000000..2d644e19caef
+--- /dev/null
++++ b/arch/riscv/errata/andes/Makefile
+@@ -0,0 +1 @@
++obj-y += errata.o
+diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
+new file mode 100644
+index 000000000000..49315f36022e
+--- /dev/null
++++ b/arch/riscv/errata/andes/errata.c
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Erratas to be applied for Andes CPU cores
++ *
++ *  Copyright (C) 2023 Renesas Electronics Corporation.
++ *
++ * Author: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++ */
++
++#include <linux/memory.h>
++#include <linux/module.h>
++
++#include <asm/alternative.h>
++#include <asm/cacheflush.h>
++#include <asm/errata_list.h>
++#include <asm/patch.h>
++#include <asm/processor.h>
++#include <asm/sbi.h>
++#include <asm/vendorid_list.h>
++
++#define ANDESTECH_AX45MP_MARCHID	0x8000000000008a45UL
++#define ANDESTECH_AX45MP_MIMPID		0x500UL
++#define ANDESTECH_SBI_EXT_ANDES		0x0900031E
++
++#define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
++
++static long ax45mp_iocp_sw_workaround(void)
++{
++	struct sbiret ret;
++
++	/*
++	 * ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT checks if the IOCP is missing and
++	 * cache is controllable only then CMO will be applied to the platform.
++	 */
++	ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
++			0, 0, 0, 0, 0, 0);
++
++	return ret.error ? 0 : ret.value;
++}
++
++static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_CMO))
++		return false;
++
++	if (arch_id != ANDESTECH_AX45MP_MARCHID || impid != ANDESTECH_AX45MP_MIMPID)
++		return false;
++
++	if (!ax45mp_iocp_sw_workaround())
++		return false;
++
++	/* Set this just to make core cbo code happy */
++	riscv_cbom_block_size = 1;
++	riscv_noncoherent_supported();
++
++	return true;
++}
++
++static u32 andes_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
++{
++	u32 cpu_req_errata = 0;
++
++	/*
++	 * In the absence of the I/O Coherency Port, access to certain peripherals
++	 * requires vendor specific DMA handling.
++	 */
++	if (errata_probe_iocp(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_ANDESTECH_NO_IOCP);
++
++	return cpu_req_errata;
++}
++
++void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++					      unsigned long archid, unsigned long impid,
++					      unsigned int stage)
++{
++	u32 cpu_req_errata = andes_errata_probe(stage, archid, impid);
++	void *oldptr, *altptr;
++	struct alt_entry *alt;
++	u32 tmp;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return;
++
++	for (alt = begin; alt < end; alt++) {
++		if (alt->vendor_id != ANDESTECH_VENDOR_ID)
++			continue;
++		if (alt->patch_id >= ERRATA_ANDESTECH_NUMBER)
++			continue;
++
++		tmp = BIT(alt->patch_id);
++		if (cpu_req_errata & tmp) {
++			oldptr = ALT_OLD_PTR(alt);
++			altptr = ALT_ALT_PTR(alt);
++
++			mutex_lock(&text_mutex);
++			patch_text_nosync(oldptr, altptr, alt->alt_len);
++
++			riscv_alternative_fix_offsets(oldptr, alt->alt_len,
++						      oldptr - altptr);
++			mutex_unlock(&text_mutex);
++		}
++	}
++}
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 58ccd2f8cab7..3c2b59b25017 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -45,6 +45,9 @@ struct alt_entry {
+ 	u32 patch_id;		/* The patch ID (erratum ID or cpufeature ID) */
+ };
+ 
++void andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++			     unsigned long archid, unsigned long impid,
++			     unsigned int stage);
+ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			      unsigned long archid, unsigned long impid,
+ 			      unsigned int stage);
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index e2ecd01bfac7..8e9811c14ba3 100644
+index fb1a810f3d8c..e2ecd01bfac7 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
-@@ -122,9 +122,13 @@ asm volatile(ALTERNATIVE(						\
- #define THEAD_flush_A0	".long 0x0275000b"
- #define THEAD_SYNC_S	".long 0x0190000b"
+@@ -11,6 +11,11 @@
+ #include <asm/hwcap.h>
+ #include <asm/vendorid_list.h>
  
-+#define ANDESTECH_AX45MP_clean	"call ax45mp_dma_cache_wback"
-+#define ANDESTECH_AX45MP_inval	"call ax45mp_dma_cache_inv"
-+#define ANDESTECH_AX45MP_flush	"call ax45mp_dma_cache_wback_inv"
++#ifdef CONFIG_ERRATA_ANDES
++#define ERRATA_ANDESTECH_NO_IOCP	0
++#define ERRATA_ANDESTECH_NUMBER		1
++#endif
 +
- #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
--asm volatile(ALTERNATIVE_2(						\
--	__nops(6),							\
-+asm volatile(ALTERNATIVE_3(						\
-+	__nops(11),							\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
-@@ -132,7 +136,7 @@ asm volatile(ALTERNATIVE_2(						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
--	"nop", 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
-+	__nops(6), 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
-@@ -140,12 +144,27 @@ asm volatile(ALTERNATIVE_2(						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
--	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
--			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
-+	THEAD_SYNC_S "\n\t"						\
-+	__nops(5), THEAD_VENDOR_ID,					\
-+			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO,	\
-+	"addi sp,sp,-16\n\t"						\
-+	"sd s0,0(sp)\n\t"						\
-+	"sd ra,8(sp)\n\t"						\
-+	"addi s0,sp,16\n\t"						\
-+	"mv a1,%4\n\t"							\
-+	"mv a0,%3\n\t"							\
-+	ANDESTECH_AX45MP_##_op "\n\t"					\
-+	"ld ra,8(sp)\n\t"						\
-+	"ld s0,0(sp)\n\t"						\
-+	"addi sp,sp,16\n\t",						\
-+	ANDESTECH_VENDOR_ID, ERRATA_ANDESTECH_NO_IOCP,			\
-+		CONFIG_ERRATA_ANDES)					\
- 	: : "r"(_cachesize),						\
- 	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
--	    "r"((unsigned long)(_start) + (_size))			\
--	: "a0")
-+	    "r"((unsigned long)(_start) + (_size)),			\
-+	    "r"((void *)(_start)),					\
-+	    "r"((unsigned long)(_size))					\
-+	: "a0", "a1")
+ #ifdef CONFIG_ERRATA_SIFIVE
+ #define	ERRATA_SIFIVE_CIP_453 0
+ #define	ERRATA_SIFIVE_CIP_1200 1
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 2354c69dc7d1..8a34e72c2b5e 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -42,6 +42,11 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
+ #endif
  
- #define THEAD_C9XX_RV_IRQ_PMU			17
- #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
+ 	switch (cpu_mfr_info->vendor_id) {
++#ifdef CONFIG_ERRATA_ANDES
++	case ANDESTECH_VENDOR_ID:
++		cpu_mfr_info->patch_func = andes_errata_patch_func;
++		break;
++#endif
+ #ifdef CONFIG_ERRATA_SIFIVE
+ 	case SIFIVE_VENDOR_ID:
+ 		cpu_mfr_info->patch_func = sifive_errata_patch_func;
 -- 
 2.25.1
 
