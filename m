@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B545CC7619A
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 08:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1B7C77B71
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 08:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LU3GjAwITrXKsmTYTtqs6M3CfxbawYcnlwiqOmfykvY=; b=t8NtiKCEWjUaQV
-	DOs09JJUFlSfBCpSzH7xcdp4XnBL1f66JSIPt7HPt/D7KnPovlIptIB64Ta7EeSNb4KBdXF3I8eiz
-	jKrhqJUVP3PZg1vbIFgmO7wnzx1LGV/gdU3K9Uu3YMr96S9q1Kp8dMuPBGHrWzFV3Wnsyc/iqO4/k
-	fPX72tUtV+DzOr9E4bfAnw7JpSn4eeA4bymGLWFYccVKTc7xeBG66C9YILVWgKpI3OLUulEe9FPDX
-	eToi0Ovy+pA5Lzi0NfYMyXmw4Z9vQg+eLRpRg2BmlnbE5CoSTwFR/Koqx1btql9N1yexUBQB5+cjb
-	M4Ddb4hVdEExqRJ1siWw==;
+	List-Owner; bh=5G0zo5Gv8W7m6H+i5hFR+jbk/DXKt/VzRQWr7gwLOhg=; b=hzVwWzcOMzGkA5
+	aYifz0pl5WcL+Iywhzg5ehJ+qMmmUHO5UmwqYZgsx4RusNA/8set7gdQUxv7uBhawLaWdku7268Wz
+	XmkDz3nBcDDCkrQ+pxjov986FWiG3j9k4Ng5pkgEIL29DVsWYtM5uxvvX2qQoWHOTDqGIJB7Awcl9
+	9Gzeaihehd+6LE1a9OG6yBOhR0XdKdlMkddtzyoEMKE5qsGW9EdC6/SNhcX5d+U52dDDjK4o0ykix
+	2Kh7Guhi28FDT2/bqLqwG+8ug6K6Wfcjg05hiLNX+EovvFgDRa9Z80GoYRGYuV/3son593Vs8H6yP
+	Ea7Gnlrq94GrzQvqgJYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmVhg-002ESZ-0E;
-	Wed, 12 Apr 2023 08:19:44 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmVhd-002ERJ-29
+	id 1pmVoE-002Fcz-2v;
+	Wed, 12 Apr 2023 08:26:30 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pmVoC-002Fbl-0J
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 08:19:43 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 3BBD824E1BE;
-	Wed, 12 Apr 2023 16:19:29 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 16:19:29 +0800
-Received: from [192.168.125.82] (113.72.145.176) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 16:19:28 +0800
-Message-ID: <68839732-2d3f-aafc-8744-550f4bfa27f0@starfivetech.com>
-Date: Wed, 12 Apr 2023 16:19:27 +0800
+	Wed, 12 Apr 2023 08:26:29 +0000
+Received: by mail-ej1-x636.google.com with SMTP id xi5so26781357ejb.13
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Apr 2023 01:26:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1681287984;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=j2PxCMT017KlB0q2xlNRaCGejb/YR8xF1pSERbKtDdk=;
+        b=ut5iKziJbkhCRP2QUkIsIJ3zForqv1B4G84k9L8PMEQPpjP9OOKF3K5C+Ph++Q6KNC
+         HKnux+4fYx2cgFWxsBYbCa8pRkXzb+3re1ycRPZer16yI6pB/myfNsYVEoOHY9qS4xcN
+         ivX/NPbZT2tWzX2DL7oVASp3eXzF6Rs4ptJP7t9ePPcco5og9bqwREp8AaXY+6HIidNR
+         FMWhXmKXYP7+Lu5YmOy9F719/t5D2W9A2sE3OOUShJpXiNxbrfnne3gYPRzCGp2dy2e2
+         IPrMycolgbQqm65pcwD2pmRKxybkm+Uiv2HgJUT/Vr9YZk4S2wnyDUAxyFIraFwdjEhC
+         0vFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1681287984;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=j2PxCMT017KlB0q2xlNRaCGejb/YR8xF1pSERbKtDdk=;
+        b=3XEh1SAQUHP475UU/uPshtUuJ/nXfhwgAjgGwuW8yBx+m4R6xJI9Ka0cFx7kYKEaD+
+         uGwKaaZ2jovJMrPmbHkbU3pTxVNloj2nv1h6DY7+ULXyfuU5FNDq4SOsG6o12lFoh2Bf
+         imQg+BUtcr0SI6xZ2bbHoRObxweBCky44nwkoYHYeUHlD9wr5OPP6lB3GadTJEOXT17E
+         gBAX2ZV3K5cQ54I+lqojkUy6H6yOqBuDx5IPfYvNJ02p56CmHffhmGsmOgCaHZ6lzKBJ
+         5O1t6QHn5n+020B1cEXPMxE7M67nghsw/uIej9SuFSZwfe+TJADU3fxWxRBjH5GZgbkv
+         DEIA==
+X-Gm-Message-State: AAQBX9eo/vjAAhF924EFtYmqeYZ2s5ff/a4Gz9xvAIZgdyIzfK+JL3ai
+	HlNNOHi/obFsnoT9saXvM25aHQ==
+X-Google-Smtp-Source: AKy350Zr+e/Sw+RDS0dZq1qjB9lNG0/WPzuMdlGLrj16g35xPrnosRO3RyM+ukd++hO58/GtPz1KnQ==
+X-Received: by 2002:a17:906:bcf0:b0:87b:e105:5d9a with SMTP id op16-20020a170906bcf000b0087be1055d9amr10810505ejb.67.1681287984101;
+        Wed, 12 Apr 2023 01:26:24 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:8fa0:9989:3f72:b14f? ([2a02:810d:15c0:828:8fa0:9989:3f72:b14f])
+        by smtp.gmail.com with ESMTPSA id tx6-20020a1709078e8600b0094a70a89bffsm3327733ejc.205.2023.04.12.01.26.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Apr 2023 01:26:23 -0700 (PDT)
+Message-ID: <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
+Date: Wed, 12 Apr 2023 10:26:22 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v1 6/7] soc: starfive: Add dphy pmu support
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-7-changhuang.liang@starfivetech.com>
- <20230411-iron-everybody-70b78e94aee5@spud>
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230411-iron-everybody-70b78e94aee5@spud>
-X-Originating-IP: [113.72.145.176]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
- (172.16.6.72)
-X-YovoleRuleAgent: yovoleflag
+To: Minda Chen <minda.chen@starfivetech.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Mason Huo <mason.huo@starfivetech.com>
+References: <20230406015216.27034-1-minda.chen@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230406015216.27034-1-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230412_011942_007430_8C3173D0 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20230412_012628_133836_147685D4 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +105,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 06/04/2023 03:52, Minda Chen wrote:
+> This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+> The patch has been tested on the VisionFive 2 board.
+> 
+> This patchset should be applied after the patchset [1], [2] and[3]:
+> [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+> [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+> [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+> 
+> This patchset is base on v6.3-rc4
+> 
+> patch 1 is usb phy dt-binding document.
+> patch 2 is Pcie PHY dt-binding document.
+> patch 3 is USB 2.0 PHY driver.
+> patch 4 is PCIe PHY driver.
+> patch 5 is usb dt-binding document.
+> patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+> patch 7 is USB device tree configuration.
+> 
+> previous version
+> ---
+> v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+> v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+
+This is v2.
+
+> v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
+> 
+> changes
+> v4:
+>   1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
+>   2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
+>   3. (patch 3)
+>      - split PCIe PHY driver to patch 4.
+>      - replace dr_mode to phy mode in jh7110_usb2_phy.
+>   4. (patch 4) 
+>      - Makefile and Kconfig sorted by alphabet sequence.
+>      - Add PCIe PHY stg and syscon PHY connection configuration
+>        for USB 3.0.
+>   5. (patch 5)
+>      - commit message changed.
+>      - merge wrapper dts node and cdns3 node in example.
+>      - Add interrupts, reg, phy and dr_mode in property.
+>      - Add reset-name in property example.
+>   6. (patch 6)
+>      - For dts node is merged, Using platform_device_alloc and
+>        platform_device_add to generate cadence sub device.
+>      - IOMEM and IRQ resource are passed to Cadence sub device.
+>      - Add PHY ops process for PHY dts setting can not be passed to
+>        Cadence USB driver.
+>      - remove the stg and sys USB 3.0 PHY configuration.
+>      - Change the suspend clock reset and clock enable sequence.
+>      - Get all reset and clock resources before enable them in 
+>        cdns_clk_rst_init.
+>      - commit message changed.
+>   7. (patch 7)
+>      - merge wrapper dts node and cdns3 node in usb dts.
+>      - move the stg and sys USB 3.0 PHY confiuration to
+>        PCIe PHY dts node.
+>      - commit message changed.
+>      - Add reset-names dts.
+> 
+> v3:
+>   1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
+>      USB PHY codes are moved to patch 3 and patch 4.
+>   2. (patch 5)
+>      - USB wrapper module dts document is moved to usb directory.
+>      - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+>      - Some dts format changes. dts binding check pass.
+>   3. (patch 6)
+>      - Remove the PHY codes. 
+>      - Search 'dr_mode' and phy setting from Cadence subnode.
+>   4. (patch 7)
+>      - Add USB PHY dts configurion. 
+>      - 'dr_mode' is moved to Cadence controller submode.
+> 
+> v2:
+>   1. (patch 5) dt-binding changes. The document example is the same as dts config.
+>   2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+>   3. (patch 7) dts nodes sorted by the address after @
+> 
+> 
+> Minda Chen (7):
+>   dt-bindings: phy: Add StarFive JH7110 USB document
+>   dt-bindings: phy: Add StarFive JH7110 PCIe document
+>   phy: starfive: add JH7110 USB 2.0 PHY driver.
+>   phy: starfive: add JH7110 PCIE 2.0 PHY driver.
+>   dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
+>   usb: cdns3: add StarFive JH7110 USB driver.
+>   riscv: dts: starfive: add USB dts configuration for JH7110
+> 
+>  .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
+>  .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
+>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
+>  MAINTAINERS                                   |  16 +
+>  .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
+>  drivers/phy/starfive/Kconfig                  |  22 +
+>  drivers/phy/starfive/Makefile                 |   2 +
+>  drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
+>  drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
+>  drivers/usb/cdns3/Kconfig                     |  11 +
+>  drivers/usb/cdns3/Makefile                    |   1 +
+>  drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
+>  drivers/usb/cdns3/core.h                      |   3 +
+>  14 files changed, 1086 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+>  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+>  create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+> 
+> 
+> base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
+> prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
+> prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
+
+fatal: bad object 55390537360f25c8b9cbfdc30b73ade004f436f7
+
+What commits do you reference? How are they helpful?
 
 
-On 2023/4/12 5:15, Conor Dooley wrote:
-> On Mon, Apr 10, 2023 at 11:47:42PM -0700, Changhuang Liang wrote:
->> Add dphy pmu to turn on/off the dphy power switch.
-[...]
->> +
->>  static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->>  {
->>  	struct jh71xx_pmu *pmu = pmd->pmu;
->> @@ -191,6 +213,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->>  
->>  	if (pmu->match_data->pmu_type == JH71XX_PMU_GENERAL)
->>  		ret = jh71xx_pmu_general_set_state(pmd, mask, on);
->> +	else if (pmu->match_data->pmu_type == JH71XX_PMU_DPHY)
->> +		ret = jh71xx_pmu_dphy_set_state(pmd, mask, on);
-> 
-> Perhaps I am verging on over-complication, but I dislike this carry on.
-> Is this the only time we'll see a power domain provider coming out of
-> a syscon, or are there likely to be more?
-> Either way, I think having an ops struct w/ both parse_dt() and the
-> set_state() implementations would be neater than what you have here.
-> 
+Best regards,
+Krzysztof
 
-OK, I will use call back make here neater.
-
-> Very much open to dissenting opinions there though. Emil? Walker?
-> 
-> Cheers,
-> Conor.
-> 
->>  
->>  	return ret;
->>  }
-[...]
->> -- 
->> 2.25.1
->>
 
 _______________________________________________
 linux-riscv mailing list
