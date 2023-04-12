@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BCCC77B70
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 03:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF0BC77B6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Apr 2023 06:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LPJF/uT1G0cYAEXjO0m/JH8ADlI5/Yj8qMX5g25i77U=; b=L0o7r3ydZ9Y5hF
-	mRcYdP7HWPzdHTmcRfnZNgIH/Jn8xms1DVtBmoKb/EQY63SrpVucF2K4V0faacOdupvN9Y89iJWWw
-	5UfcMVjaEIYqkFUN/fIBGkQT8DekkiP8+iQyowmR8mju2cijssXvNXzR8Y3zIH/hk/wQjPQIZ2sDt
-	/vf0QywZSzXY+At5aa1L0/4y87nwNKcSBfHn0syUc/sfP4LU9AreuPUitqG5IA4YbCyglyxxBZeTK
-	OPE2ZwyX+zcF8a2BMF0IeFDhYjz1s0JzEijPiBNZjoKbIc9xZ8Ohgo9oU6ilWCTft3y5Knl7+9MIC
-	q2HiuFMDAPJSAYU8iDWQ==;
+	List-Owner; bh=d5QXg8biANB670qbp4aBS3SjbSmubzu55FVzA9TZh/M=; b=4erScKd1Ut9FWu
+	qVvAuM+vCL5Zb8PxaLJqgF3cIZsF+AMAVkqbYdJhg17AmRvdu+nUv5sFW5cdtc86WLuk3QfcP7u/v
+	pYdz6KP6dX0RiSWceqKbb93wzXSNyBmwxOCqdkaQDSSn9Q3Ab4sNzufT8AhDw4LQQhfUDfYO7j6Qk
+	Gn/YfjsKXth3IxbTZ92GYhklTcjbV+7YGU7j5jr07bjzDYJLtiYC6tVTovEpOWg2bpWZUFozHV77G
+	Uw5kaJupOAYos53vyQY+GwTNQ2yBZZ8Udel/4RjoH8W1+ryeDR8IpWoIAj9yNep/V2f/RynTU8Oyp
+	e2YtrumzIcEbBPE3gK+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmQlq-001frg-1P;
-	Wed, 12 Apr 2023 03:03:42 +0000
+	id 1pmTep-001uCS-1U;
+	Wed, 12 Apr 2023 06:08:39 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmQlk-001fqq-25
+	id 1pmTel-001uB5-0m
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Apr 2023 03:03:40 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 12 Apr 2023 06:08:38 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E1E1724E207;
-	Wed, 12 Apr 2023 11:03:23 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 11:03:24 +0800
-Received: from [192.168.125.82] (113.72.145.176) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
- 2023 11:03:22 +0800
-Message-ID: <5f9ee37a-cd22-16cf-4083-a102902ba5ea@starfivetech.com>
-Date: Wed, 12 Apr 2023 11:03:21 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 703CC24E196;
+	Wed, 12 Apr 2023 14:07:54 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
+ 2023 14:07:54 +0800
+Received: from [192.168.125.109] (113.72.145.176) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Apr
+ 2023 14:07:53 +0800
+Message-ID: <eeb7dadb-1cfd-d270-158b-5dd2e5f2bd1a@starfivetech.com>
+Date: Wed, 12 Apr 2023 14:07:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v1 3/7] soc: starfive: Modify ioremap to regmap
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v1 5/7] soc: starfive: Use call back to parse device tree
+ resources
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
 References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
- <20230411064743.273388-4-changhuang.liang@starfivetech.com>
- <20230411-sanctuary-impotent-92964df67a26@spud>
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230411-sanctuary-impotent-92964df67a26@spud>
+ <20230411064743.273388-6-changhuang.liang@starfivetech.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230411064743.273388-6-changhuang.liang@starfivetech.com>
 X-Originating-IP: [113.72.145.176]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX162.cuchost.com
- (172.16.6.72)
+X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX168.cuchost.com
+ (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230411_200337_027107_9C5F79F6 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20230411_230835_599022_E7747634 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,165 +82,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/12 4:26, Conor Dooley wrote:
-> On Mon, Apr 10, 2023 at 11:47:39PM -0700, Changhuang Liang wrote:
->> Modify ioremap to regmap, easy to simplify code.
+On 2023/4/11 14:47, Changhuang Liang wrote:
+> Different compatible parse device tree resources work in different ways.
 > 
-> This doesn't simplify anything, adding regmap to the mix actually makes
-> it less obvious what is going on here & it's not even fewer LoC:
-> 1 file changed, 23 insertions(+), 20 deletions(-)
-> 
-> Please write a commit message that explains the real motivation for
-> this change.
-> 
-> Thanks,
-> Conor.
-> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 
-When a new pmu is introduced later, they can use the same member 
-"struct regmap *base" in "struct jh71xx_pmu". I will add more
-commit message later.
+I don't think it's necessary to submit multiple patches separately for the same .c file
+unless it is very necessary. Because the disadvantage of separating multiple patches 
+is that some information lacks completeness and coherence.
 
->>
->> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
->> ---
->>  drivers/soc/starfive/jh71xx_pmu.c | 43 +++++++++++++++++--------------
->>  1 file changed, 23 insertions(+), 20 deletions(-)
->>
->> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
->> index 7d5f50d71c0d..306218c83691 100644
->> --- a/drivers/soc/starfive/jh71xx_pmu.c
->> +++ b/drivers/soc/starfive/jh71xx_pmu.c
->> @@ -6,13 +6,13 @@
->>   */
->>  
->>  #include <linux/interrupt.h>
->> -#include <linux/io.h>
->> -#include <linux/iopoll.h>
->> +#include <linux/mfd/syscon.h>
->>  #include <linux/module.h>
->>  #include <linux/of.h>
->>  #include <linux/of_device.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/pm_domain.h>
->> +#include <linux/regmap.h>
->>  #include <dt-bindings/power/starfive,jh7110-pmu.h>
->>  
->>  /* register offset */
->> @@ -59,7 +59,7 @@ struct jh71xx_pmu_match_data {
->>  struct jh71xx_pmu {
->>  	struct device *dev;
->>  	const struct jh71xx_pmu_match_data *match_data;
->> -	void __iomem *base;
->> +	struct regmap *base;
->>  	struct generic_pm_domain **genpd;
->>  	struct genpd_onecell_data genpd_data;
->>  	int irq;
->> @@ -75,11 +75,14 @@ struct jh71xx_pmu_dev {
->>  static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_on)
->>  {
->>  	struct jh71xx_pmu *pmu = pmd->pmu;
->> +	unsigned int val;
->>  
->>  	if (!mask)
->>  		return -EINVAL;
->>  
->> -	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
->> +	regmap_read(pmu->base, JH71XX_PMU_CURR_POWER_MODE, &val);
->> +
->> +	*is_on = val & mask;
->>  
->>  	return 0;
->>  }
->> @@ -130,7 +133,7 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->>  		encourage_hi = JH71XX_PMU_SW_ENCOURAGE_DIS_HI;
->>  	}
->>  
->> -	writel(mask, pmu->base + mode);
->> +	regmap_write(pmu->base, mode, mask);
->>  
->>  	/*
->>  	 * 2.Write SW encourage command sequence to the Software Encourage Reg (offset 0x44)
->> @@ -140,21 +143,21 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->>  	 *   Then write the lower bits of the command sequence, followed by the upper
->>  	 *   bits. The sequence differs between powering on & off a domain.
->>  	 */
->> -	writel(JH71XX_PMU_SW_ENCOURAGE_ON, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
->> -	writel(encourage_lo, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
->> -	writel(encourage_hi, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
->> +	regmap_write(pmu->base, JH71XX_PMU_SW_ENCOURAGE, JH71XX_PMU_SW_ENCOURAGE_ON);
->> +	regmap_write(pmu->base, JH71XX_PMU_SW_ENCOURAGE, encourage_lo);
->> +	regmap_write(pmu->base, JH71XX_PMU_SW_ENCOURAGE, encourage_hi);
->>  
->>  	spin_unlock_irqrestore(&pmu->lock, flags);
->>  
->>  	/* Wait for the power domain bit to be enabled / disabled */
->>  	if (on) {
->> -		ret = readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MODE,
->> -						val, val & mask,
->> -						1, JH71XX_PMU_TIMEOUT_US);
->> +		ret = regmap_read_poll_timeout_atomic(pmu->base, JH71XX_PMU_CURR_POWER_MODE,
->> +						      val, val & mask,
->> +						      1, JH71XX_PMU_TIMEOUT_US);
->>  	} else {
->> -		ret = readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MODE,
->> -						val, !(val & mask),
->> -						1, JH71XX_PMU_TIMEOUT_US);
->> +		ret = regmap_read_poll_timeout_atomic(pmu->base, JH71XX_PMU_CURR_POWER_MODE,
->> +						      val, !(val & mask),
->> +						      1, JH71XX_PMU_TIMEOUT_US);
->>  	}
->>  
->>  	if (ret) {
->> @@ -190,14 +193,14 @@ static void jh71xx_pmu_int_enable(struct jh71xx_pmu *pmu, u32 mask, bool enable)
->>  	unsigned long flags;
->>  
->>  	spin_lock_irqsave(&pmu->lock, flags);
->> -	val = readl(pmu->base + JH71XX_PMU_TIMER_INT_MASK);
->> +	regmap_read(pmu->base, JH71XX_PMU_TIMER_INT_MASK, &val);
->>  
->>  	if (enable)
->>  		val &= ~mask;
->>  	else
->>  		val |= mask;
->>  
->> -	writel(val, pmu->base + JH71XX_PMU_TIMER_INT_MASK);
->> +	regmap_write(pmu->base, JH71XX_PMU_TIMER_INT_MASK, val);
->>  	spin_unlock_irqrestore(&pmu->lock, flags);
->>  }
->>  
->> @@ -206,7 +209,7 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
->>  	struct jh71xx_pmu *pmu = data;
->>  	u32 val;
->>  
->> -	val = readl(pmu->base + JH71XX_PMU_INT_STATUS);
->> +	regmap_read(pmu->base, JH71XX_PMU_INT_STATUS, &val);
->>  
->>  	if (val & JH71XX_PMU_INT_SEQ_DONE)
->>  		dev_dbg(pmu->dev, "sequence done.\n");
->> @@ -220,8 +223,8 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
->>  		dev_err(pmu->dev, "p-channel fail event.\n");
->>  
->>  	/* clear interrupts */
->> -	writel(val, pmu->base + JH71XX_PMU_INT_STATUS);
->> -	writel(val, pmu->base + JH71XX_PMU_EVENT_STATUS);
->> +	regmap_write(pmu->base, JH71XX_PMU_INT_STATUS, val);
->> +	regmap_write(pmu->base, JH71XX_PMU_EVENT_STATUS, val);
->>  
->>  	return IRQ_HANDLED;
->>  }
->> @@ -271,7 +274,7 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
->>  	if (!pmu)
->>  		return -ENOMEM;
->>  
->> -	pmu->base = devm_platform_ioremap_resource(pdev, 0);
->> +	pmu->base = device_node_to_regmap(np);
->>  	if (IS_ERR(pmu->base))
->>  		return PTR_ERR(pmu->base);
->>  
->> -- 
->> 2.25.1
->>
+> ---
+>  drivers/soc/starfive/jh71xx_pmu.c | 54 ++++++++++++++++++++++---------
+>  1 file changed, 39 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+> index 98f6849d61de..990db6735c48 100644
+> --- a/drivers/soc/starfive/jh71xx_pmu.c
+> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+> @@ -57,10 +57,14 @@ struct jh71xx_domain_info {
+>  	u8 bit;
+>  };
+>  
+> +struct jh71xx_pmu;
+> +
+>  struct jh71xx_pmu_match_data {
+>  	const struct jh71xx_domain_info *domain_info;
+>  	int num_domains;
+>  	u8 pmu_type;
+> +	int (*pmu_parse_dt)(struct platform_device *pdev,
+> +			    struct jh71xx_pmu *pmu);
+>  };
+>  
+>  struct jh71xx_pmu {
+> @@ -251,6 +255,31 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +static int jh7110_pmu_general_parse_dt(struct platform_device *pdev,
+> +				       struct jh71xx_pmu *pmu)
+> +{
+
+
 
 _______________________________________________
 linux-riscv mailing list
