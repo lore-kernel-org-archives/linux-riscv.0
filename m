@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76470C77B6E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 16:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F141FC77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 16:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rSqYUWPmni54J6PPwrDNyRKRAC1v6nBuSSZJttuSYrI=; b=O7sL7L3snH5XU2
-	uF+0ytssVxSHyQHj/F2fwj33nOLATBIluwAaJ1uzZldHSzlpmC0nBVlCo7udQTn9HMEPHG1ZUyLcP
-	ZZENc7To1+lwe0GTOufY7Y7lBCSZGDW9OxwvnQJH2B5fu5LcrGGW0m4z4iyhY+BKhNfu1fsn6xQVK
-	X0rjW8UNUYExCmU5Ku9jKLDR10SjiaCr7QsQ4ONsuxauJmGPv1ItFNBPqJgm6MsZnVsXL132vuXID
-	+mLs1VQxvo/0Oe0Pc+yBwze5rhRGVpHGwuboMRkV1WL+SYFKPf7eMsLBUf/IhUGrn+KCN2sLHyq+5
-	b6ASkMdHqOCQTi9TKJcw==;
+	List-Owner; bh=Fx5PcLeC0+h+RRa9833afpv2TQNwIZgF9dHKuZGndAM=; b=fUJMa7p6qzgkXB
+	SvCl4rC/9Lql/dK5WY3U1sia9mpWrthiRXUe7SdbzZl8JNdlC75yyBnzMKO2GcXgdbvv/F+9yqpVy
+	h7rXFhFXW/ZjZChll5tL5vy6W8WonQd90m2Fcx9zB6JNbVDiXVTVzNYJv1pa3WTtD3NTErRVWL/0U
+	gDxw25RrHiQE+k690poptquVJ7KAQgSVyRxoJ3D45Nz1qXNaBZSdHc7mcv7vNpJVkbeSkSnQsHyKl
+	EXC/i1TffycIKfjRSGQ59JwOdOG98mux7FBZHOZUrWrKNBleJ/IeiEJE29hOLwnPNhuQncRrdUBkF
+	rKGeCYzEgAQyIFcPr6UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmzfe-006eAb-0F;
-	Thu, 13 Apr 2023 16:19:38 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pmzge-006ect-1I;
+	Thu, 13 Apr 2023 16:20:40 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmzfa-006e7t-2n
+	id 1pmzgZ-006eZg-2e
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Apr 2023 16:19:37 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id v14-20020a05600c470e00b003f06520825fso13983395wmo.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Apr 2023 09:19:33 -0700 (PDT)
+	Thu, 13 Apr 2023 16:20:38 +0000
+Received: by mail-wm1-x330.google.com with SMTP id q5so8896030wmo.4
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Apr 2023 09:20:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681402772; x=1683994772;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681402833; x=1683994833;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7K1lqgu2UMJSXGJkQ/CNFe9i2Bxz4FKmXNvI/1jCqDo=;
-        b=15siB7iyaLI7ctUMscCZfFX7080U7A2snA5d/ylfDn2u0Pb2PAujpho+y2aaI8sDES
-         L9dYvDnEKV28S0BEUMUYMff3pHCziTgOwLvMBYdNsHgsE8onnhngFHIWkp5qQQO5NnA6
-         HDYnzLU3zZPRt1RMj1UYXdjtAX/E5HB9ziYTRiqybX3T5i4kqboxQTZPLFIprCtCV73A
-         9GV4d8UEvAJ1foOmAeHQQEhFUH6dhZ9W9TJRDXGt9YiynihCT59rnmSu6FrNGrgf2+BQ
-         gu/1A9UIhojnFwn5Bjj/eN+sgmpT8UeQR4Nt78j6/1Qvs0RG4TE2rOrliYct6yfHNMxO
-         y5rA==
+        bh=hbhrF1vaRRoJzYyea1JBFcTA2VAH3WkbBcvliTXkyWM=;
+        b=xVRpVSn8CzSugrtbdPwe0szyiwDqMkR+UEllz4W7naM2gmqv/Mjyn0tKhvPZYVFy5B
+         qr7sBJ8yOjlJ7nfDYo+ia+PpSt/Cr4cMPH2Otf/r4hvuEXhldV8NkSKpARdKTc9lj0q8
+         UyeAxkjzT9B3qvstiOW4L4Iu/x4tV+F3KeldSXVb+gMF5feNEXAVY/IiZUN0E06bBf6E
+         MTOzvMFWYX11zNGN7XMXfnV9f5u6Sdp8SmuzAJAkd80wMkQwfswo2ikmUIHm4fLfLcb+
+         OwbsxPWDKcdl/YA0HMvx62LAYuGXYdbz6xIExRTw8/ntNeRjdkzZfbQzrpdFj2AyhHtW
+         QEMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681402772; x=1683994772;
+        d=1e100.net; s=20221208; t=1681402833; x=1683994833;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7K1lqgu2UMJSXGJkQ/CNFe9i2Bxz4FKmXNvI/1jCqDo=;
-        b=C4kj1XrkS8q45P/jTLsEne+FJ/CVT8tg4hKBy3ohlisXnGg24ymxwLipZDCqok8NGP
-         PaE/1oxdLQ6NvRl72QMiWgOPzq9bkO36LXNtCEI2ikfMshDPiVGQ/piv6b7q3faEUX15
-         0mHEjk9NT3kqAFDiYDoQJT8pYOQz/u6Y28f5xEw9esNOw556OsQdp0BHk3Ax8aB32Zdk
-         xePdTHCB9cWpgiwjdCTKlRRfMg5Hw5Q4sI7QL677fGSFtF4eGASFjl1jpCyaZkBRwOjg
-         7VBacz6nAKB076kGySCfcsM08ESRukTQZ3tKDD+hnxlVXYE9y2tLEwQJul4dqWgKacdH
-         9v3Q==
-X-Gm-Message-State: AAQBX9fk1DnztCoqiCLkck/RbYDeUD2buTAOPsppjhqYMARw18deT/ET
-	aqr7sNyGljRRlk3cc7Y5g+2naA==
-X-Google-Smtp-Source: AKy350bbu+EgoDrMFvfMpZKlXMYBBCuVXkA66tWJ2iTh3msfJsJnFkge5XkpmCS78VFL7H6Vq98hpQ==
-X-Received: by 2002:a05:600c:201:b0:3ef:76dc:4b80 with SMTP id 1-20020a05600c020100b003ef76dc4b80mr1984394wmi.9.1681402772524;
-        Thu, 13 Apr 2023 09:19:32 -0700 (PDT)
+        bh=hbhrF1vaRRoJzYyea1JBFcTA2VAH3WkbBcvliTXkyWM=;
+        b=kBqq1POgbZeYRRpW010/lMkI3oOYL3BeS5NMxjcG13O2QVB1vk1964uBYPlCfwrpC0
+         Tq4mYJQ+bdZo2+v12GqK5HaeYxWB269VbQQP1+0CQs7xv9QU1hl0Mepy4RQzK+N6Hoiq
+         2ZPrd2jR5X4CQcgyrutmzQzFDrXTkmsWNU85Cqv1+rBpWNp7J1Ry7553i2OP0SyBjpXs
+         4PjrKrb8BxbiWzg2R5zrUE+n92tpzsFKCj5uHTPCQoWXffB+x+RgzncvJvlZmCYLgcQd
+         pDSWRzXxg2JrxXm5o/oRMO/02vhqMhmBF45JLM7e0owrRavuXUTA5Pfez0fM8H7i7lKd
+         ghFQ==
+X-Gm-Message-State: AAQBX9f5/i2BwjfCouP1CcsJSp6k2mz86TF6gpnliViTKc3N7Rs0YlQO
+	J1MNzemFZr4GbP6Ki4JnOKzfqQ==
+X-Google-Smtp-Source: AKy350Zp5PeohDBdd7Xv3HthFjOkMMVG4oUVL5Rpyjw5IcUHxehnqFrVF/5LhGA4zzMyI3xHwOYFNg==
+X-Received: by 2002:a05:600c:2244:b0:3f0:7e63:e034 with SMTP id a4-20020a05600c224400b003f07e63e034mr2268188wmm.29.1681402833535;
+        Thu, 13 Apr 2023 09:20:33 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id bl18-20020adfe252000000b002d7a75a2c20sm1573011wrb.80.2023.04.13.09.19.31
+        by smtp.gmail.com with ESMTPSA id p5-20020a05600c358500b003f09fd301ddsm5004185wmq.1.2023.04.13.09.20.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Apr 2023 09:19:32 -0700 (PDT)
+        Thu, 13 Apr 2023 09:20:33 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -85,16 +85,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 2/4] include: riscv: Fix wrong include guard in riscv_pmu.h
-Date: Thu, 13 Apr 2023 18:17:23 +0200
-Message-Id: <20230413161725.195417-3-alexghiti@rivosinc.com>
+Subject: [PATCH 3/4] riscv: Make legacy counter enum match the HW numbering
+Date: Thu, 13 Apr 2023 18:17:24 +0200
+Message-Id: <20230413161725.195417-4-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230413161725.195417-1-alexghiti@rivosinc.com>
 References: <20230413161725.195417-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_091934_907531_E71186C4 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20230413_092035_905034_D2F89B1D 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +111,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current include guard prevents the inclusion of asm/perf_event.h
-which uses the same include guard: fix the one in riscv_pmu.h so that it
-matches the file name.
+RISCV_PMU_LEGACY_INSTRET used to be set to 1 whereas the offset of this
+hardware counter from CSR_CYCLE is actually 2: make this offset match the
+real hw offset so that we can directly expose those values to userspace.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- include/linux/perf/riscv_pmu.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/perf/riscv_pmu_legacy.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 43fc892aa7d9..9f70d94942e0 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -6,8 +6,8 @@
-  *
-  */
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index ca9e20bfc7ac..0d8c9d8849ee 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -12,8 +12,11 @@
+ #include <linux/perf/riscv_pmu.h>
+ #include <linux/platform_device.h>
  
--#ifndef _ASM_RISCV_PERF_EVENT_H
--#define _ASM_RISCV_PERF_EVENT_H
-+#ifndef _RISCV_PMU_H
-+#define _RISCV_PMU_H
+-#define RISCV_PMU_LEGACY_CYCLE		0
+-#define RISCV_PMU_LEGACY_INSTRET	1
++enum {
++	RISCV_PMU_LEGACY_CYCLE,
++	RISCV_PMU_LEGACY_TIME,
++	RISCV_PMU_LEGACY_INSTRET
++};
  
- #include <linux/perf_event.h>
- #include <linux/ptrace.h>
-@@ -81,4 +81,4 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr);
+ static bool pmu_init_done;
  
- #endif /* CONFIG_RISCV_PMU */
- 
--#endif /* _ASM_RISCV_PERF_EVENT_H */
-+#endif /* _RISCV_PMU_H */
 -- 
 2.37.2
 
