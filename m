@@ -4,93 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A449C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 14:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2FAC77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 14:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2MbRjFoxK2TQ1Zx0jbatASJODeFaupRdSuZwm1pAmaw=; b=plOjJRsEFiO2af
-	GixBCJ3VZugbcqjuOclHiN6BKw9OgLYFi3y6mmhcln36EckKf2GbeDOZIshZbWCk9tyk5fgqfy/Lk
-	uiaGIQ3DIuzQad8SJSm0ccvZ8sLxx1bh6p+JIqZikitH3zhJtjmB9CG+zG2zSRbBJRQjuNflIJQv2
-	tDnx+8AMLwTcLLYcxwGd2Qp/ZUe1TfxAIIHT7NdEdu/zhvzor91a3MlB0gyP4s53FuytyVusuqN7e
-	O+TLn7zHqgFivf0hkDZTOa7BCKh+Uco7cohCNP7levs9vnyd/Kq08bCpHYDWFe/wTKZBJzVywz6K8
-	WniSsPLB42pQIvtuz6Jw==;
+	List-Owner; bh=qPL0a3pl3p9bvO9bH1zIbzeC3emhYpzTUytG5/sf82A=; b=EJwq7I+VS5cfH+
+	BA/4IrDCjvpqBQaV+A2UkLMUFoEb09lTc/NT7TFWpuf46ujNB+0eYA3aZMLWltDuql4x0fC61V8jn
+	wUlCq1c18x/WaJWEv5458AIYNmQrzNs6YWr8sOdA//lZd5Hm5YFIQEk/d/Wiboo+htHa9vs+2Gs8D
+	nd2JCWuKw1sQ/4qPvWUDU4G6PYx1U/ThhdCP2VAw2ho3z5I2kcRAIxkEIUHW80+Y/wdVd+oKSuhze
+	IHcdoXuO/9cxUM+w4i4HFxA1NLoHGdsFFTxG0BRkK7jMwfNzSmnxbiDZhDp9hDnPNhFF/gWPQzGvL
+	Zg7HvAfNcqngK4SODPBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmxhU-006NC1-2e;
-	Thu, 13 Apr 2023 14:13:24 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1pmy0x-006PJp-1k;
+	Thu, 13 Apr 2023 14:33:31 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmxhR-006NAt-2a
+	id 1pmy0u-006PIv-1y
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Apr 2023 14:13:23 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id ga37so38138385ejc.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Apr 2023 07:13:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1681395197; x=1683987197;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XUg/Vhl4ma9csERVssXScNUtMrmvSNZoznhCnpPJffE=;
-        b=o3pqnoQR4q+ECIpxDAjZaH/4ZWbbQfmxWI6mJm3FRP3DH1F5T10tUc8vA+LQkAPG4U
-         IvrPmcpwx1owZ8nbuwzp309bofZsDRqgVggAMO3fC8hOfX0Rkj9v31IOD83GO/yNikat
-         n7X4vEP4prszZMluVSt81aL4wqkHgbJUq/eNKBqB59fmqjxEJwnChR7FfFvURf+nzBMH
-         TUXCZfE/EU9F4C52w5qHtJCetUCRleFf+IMG+aZIlkM2DmXtGdpNKnjqMR8xR/hVgb1C
-         9Z2iYsiutkweUPzWyxpxe3Ob9tyL5vmr+ffXHYpu8ZWbZWf9JrO4kd1I/xOXvgNLTGns
-         4hMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681395197; x=1683987197;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XUg/Vhl4ma9csERVssXScNUtMrmvSNZoznhCnpPJffE=;
-        b=iZyn23xdbJ6/EO40UOAHiVL6rWTRmChj4WCb96NqpQT6v+D9itDc+JN339XmDOiz0y
-         nsGHQ0iwaEzVCDgceNu53merNwqD/YfHt0ZhVjUDBvtKlDnntx8YTk2eool0OfWKnQbv
-         8qpaEBXBEYYKffT+IvtPOAICHmBc6CO0SUhcmqkU9X1aceryz+erOwjzmDAvaLVZ4mby
-         /oqGHHDWvn7LY2l2fZWYvWInElo9HLYDvlBvSNbMLD7TYQKjKGvy/umINj0xVXrb7eL3
-         yJSdHTFEE/1d3+y/M8K7XEFxYKjf50U3o7y5M98BH7FLvS3FOeL9RqAYovX2uPDdrWBD
-         xHLA==
-X-Gm-Message-State: AAQBX9dO5/x574xkVvofZzaGg1nWqSueRYfI3F8LWgEUpWLsiKT8cdb3
-	hJHJt0taqILmsFxoAjG53wXUXw==
-X-Google-Smtp-Source: AKy350bqaGf9G9UynCwnECkBk51iC6Y9ZmFekAq/MvRpTO/3kxt99/nMVf+P8TxZ4KgLopGpGReGLQ==
-X-Received: by 2002:a17:906:e25a:b0:94a:96c4:2361 with SMTP id gq26-20020a170906e25a00b0094a96c42361mr2684805ejb.73.1681395197078;
-        Thu, 13 Apr 2023 07:13:17 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:5032:d2d4:ece5:b035? ([2a02:810d:15c0:828:5032:d2d4:ece5:b035])
-        by smtp.gmail.com with ESMTPSA id bi24-20020a170906a25800b0092f38a6d082sm999572ejb.209.2023.04.13.07.13.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Apr 2023 07:13:16 -0700 (PDT)
-Message-ID: <5953bc83-9609-6d12-7e9b-ca5202151fb3@linaro.org>
-Date: Thu, 13 Apr 2023 16:13:15 +0200
+	Thu, 13 Apr 2023 14:33:30 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 48B22C0002;
+	Thu, 13 Apr 2023 14:33:20 +0000 (UTC)
+Message-ID: <61e57410-c856-78e8-c18d-2c8ff054f334@ghiti.fr>
+Date: Thu, 13 Apr 2023 16:33:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
+ Thunderbird/102.9.0
+Subject: Re: [PATCH] riscv: mm: execute local TLB flush after populating
+ vmemmap
+To: Vincent Chen <vincent.chen@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org
+References: <20230320065324.1045276-1-vincent.chen@sifive.com>
+ <2408b5b7-821c-2461-a227-f364bce0f5e9@ghiti.fr>
+ <CABvJ_xi_oYMk30A7-aR2v_ULbH0x=E1Hwq0pGf-5sBmKGxjXMg@mail.gmail.com>
 Content-Language: en-US
-To: Minda Chen <minda.chen@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Peter Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Mason Huo <mason.huo@starfivetech.com>
-References: <20230406015216.27034-1-minda.chen@starfivetech.com>
- <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
- <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CABvJ_xi_oYMk30A7-aR2v_ULbH0x=E1Hwq0pGf-5sBmKGxjXMg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_071321_856489_DDFBB0E5 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20230413_073328_957572_9FDF1B40 
+X-CRM114-Status: GOOD (  32.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,148 +60,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/04/2023 12:44, Minda Chen wrote:
-> 
-> 
-> On 2023/4/12 16:26, Krzysztof Kozlowski wrote:
->> On 06/04/2023 03:52, Minda Chen wrote:
->>> This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
->>> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
->>> The patch has been tested on the VisionFive 2 board.
->>>
->>> This patchset should be applied after the patchset [1], [2] and[3]:
->>> [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
->>> [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
->>> [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
->>>
->>> This patchset is base on v6.3-rc4
->>>
->>> patch 1 is usb phy dt-binding document.
->>> patch 2 is Pcie PHY dt-binding document.
->>> patch 3 is USB 2.0 PHY driver.
->>> patch 4 is PCIe PHY driver.
->>> patch 5 is usb dt-binding document.
->>> patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
->>> patch 7 is USB device tree configuration.
->>>
->>> previous version
->>> ---
->>> v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
->>> v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
->>
->> This is v2.
->>
->>> v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
->>>
->>> changes
->>> v4:
->>>   1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
->>>   2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
->>>   3. (patch 3)
->>>      - split PCIe PHY driver to patch 4.
->>>      - replace dr_mode to phy mode in jh7110_usb2_phy.
->>>   4. (patch 4) 
->>>      - Makefile and Kconfig sorted by alphabet sequence.
->>>      - Add PCIe PHY stg and syscon PHY connection configuration
->>>        for USB 3.0.
->>>   5. (patch 5)
->>>      - commit message changed.
->>>      - merge wrapper dts node and cdns3 node in example.
->>>      - Add interrupts, reg, phy and dr_mode in property.
->>>      - Add reset-name in property example.
->>>   6. (patch 6)
->>>      - For dts node is merged, Using platform_device_alloc and
->>>        platform_device_add to generate cadence sub device.
->>>      - IOMEM and IRQ resource are passed to Cadence sub device.
->>>      - Add PHY ops process for PHY dts setting can not be passed to
->>>        Cadence USB driver.
->>>      - remove the stg and sys USB 3.0 PHY configuration.
->>>      - Change the suspend clock reset and clock enable sequence.
->>>      - Get all reset and clock resources before enable them in 
->>>        cdns_clk_rst_init.
->>>      - commit message changed.
->>>   7. (patch 7)
->>>      - merge wrapper dts node and cdns3 node in usb dts.
->>>      - move the stg and sys USB 3.0 PHY confiuration to
->>>        PCIe PHY dts node.
->>>      - commit message changed.
->>>      - Add reset-names dts.
->>>
->>> v3:
->>>   1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
->>>      USB PHY codes are moved to patch 3 and patch 4.
->>>   2. (patch 5)
->>>      - USB wrapper module dts document is moved to usb directory.
->>>      - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
->>>      - Some dts format changes. dts binding check pass.
->>>   3. (patch 6)
->>>      - Remove the PHY codes. 
->>>      - Search 'dr_mode' and phy setting from Cadence subnode.
->>>   4. (patch 7)
->>>      - Add USB PHY dts configurion. 
->>>      - 'dr_mode' is moved to Cadence controller submode.
->>>
->>> v2:
->>>   1. (patch 5) dt-binding changes. The document example is the same as dts config.
->>>   2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
->>>   3. (patch 7) dts nodes sorted by the address after @
->>>
->>>
->>> Minda Chen (7):
->>>   dt-bindings: phy: Add StarFive JH7110 USB document
->>>   dt-bindings: phy: Add StarFive JH7110 PCIe document
->>>   phy: starfive: add JH7110 USB 2.0 PHY driver.
->>>   phy: starfive: add JH7110 PCIE 2.0 PHY driver.
->>>   dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
->>>   usb: cdns3: add StarFive JH7110 USB driver.
->>>   riscv: dts: starfive: add USB dts configuration for JH7110
->>>
->>>  .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
->>>  .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
->>>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
->>>  MAINTAINERS                                   |  16 +
->>>  .../jh7110-starfive-visionfive-2.dtsi         |   7 +
->>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
->>>  drivers/phy/starfive/Kconfig                  |  22 +
->>>  drivers/phy/starfive/Makefile                 |   2 +
->>>  drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
->>>  drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
->>>  drivers/usb/cdns3/Kconfig                     |  11 +
->>>  drivers/usb/cdns3/Makefile                    |   1 +
->>>  drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
->>>  drivers/usb/cdns3/core.h                      |   3 +
->>>  14 files changed, 1086 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
->>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
->>>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
->>>  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
->>>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
->>>  create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
->>>
->>>
->>> base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
->>> prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
->>> prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
->>
->> fatal: bad object 55390537360f25c8b9cbfdc30b73ade004f436f7
->>
->> What commits do you reference? How are they helpful?
->>
-> I use "git format-patch --base=(commit) to generate patchset.
-> Maybe I set the wrong base commit.
-
-How are they helpful if these are private commits?
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVmluY2VudCwKCk9uIDQvMTMvMjMgMDI6NDgsIFZpbmNlbnQgQ2hlbiB3cm90ZToKPgo+Cj4g
+T24gV2VkLCBNYXIgMjIsIDIwMjMgYXQgMTI6MTHigK9BTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
+Z2hpdGkuZnI+IHdyb3RlOgo+Cj4gICAgIEhpIFZpbmNlbnQsCj4KPiAgICAgT24gMy8yMC8yMyAw
+Nzo1MywgVmluY2VudCBDaGVuIHdyb3RlOgo+ICAgICA+IFRoZSB2bWVtbWFwX3BvcHVsYXRlKCkg
+Y3JlYXRlcyBWQSB0byBQQSBtYXBwaW5nIGZvciB0aGUgVk1FTU1BUAo+ICAgICBhcmVhLCB3aGVy
+ZQo+ICAgICA+IGFsbCAic3RyY3V0IHBhZ2UiIGFyZSBsb2NhdGVkIG9uY2UgQ09ORklHX1NQQVJT
+RU1FTV9WTUVNTUFQIGlzCj4gICAgIGRlZmluZWQuCj4gICAgID4gVGhlc2UgInN0cnVjdCBwYWdl
+IiBhcmUgbGF0ZXIgaW5pdGlhbGl6ZWQgaW4gdGhlIHpvbmVfc2l6ZXNfaW5pdCgpCj4gICAgID4g
+ZnVuY3Rpb24uIEhvd2V2ZXIsIGR1cmluZyB0aGlzIHByb2Nlc3MsIG5vIHNmZW5jZS52bWEgaW5z
+dHJ1Y3Rpb24gaXMKPiAgICAgPiBleGVjdXRlZCBmb3IgdGhpcyBWTUVNTUFQIGFyZWEuIFRoaXMg
+b21pc3Npb24gbWF5IGNhdXNlIHRoZSBjb3JlCj4gICAgIHRvIGZhaWwgdG8KPiAgICAgPiBwZXJm
+b3JtIHBhZ2UgdGFibGUgd29yayBiZWNhdXNlIHNvbWUgZGF0YSByZWxhdGVkIHRvIHRoZSBhZGRy
+ZXNzCj4gICAgID4gdHJhbnNsYXRpb24gaXMgaW52aXNpYmxlIHRvIHRoZSBjb3JlLiBUbyBzb2x2
+ZSB0aGlzIGlzc3VlLCBoZXJlIGxldAo+ICAgICA+IHpvbmVfc2l6ZXNfaW5pdCgpIGNhbGwgbG9j
+YWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSgpIHRvIGV4ZWN1dGUgYQo+ICAgICA+IHNmZW5jZS52
+bWEgaW5zdHJ1Y3Rpb24gZm9yIHRoZSBWTUVNTUFQIGFyZWEsIGVuc3VyaW5nIHRoYXQgYWxsCj4g
+ICAgIGRhdGEgcmVsYXRlZAo+ICAgICA+IHRvIHRoZSBhZGRyZXNzIHRyYW5zbGF0aW9uIGlzIHZp
+c2libGUgdG8gdGhlIGNvcmUuCj4gICAgID4KPiAgICAgPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50
+IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+ICAgICA+IC0tLQo+ICAgICA+wqAgwqBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmggfCA3ICsrKysrKysKPiAgICAgPsKgIMKg
+YXJjaC9yaXNjdi9tbS9pbml0LmPCoCDCoCDCoCDCoCDCoCDCoCDCoCB8IDMgKysrCj4gICAgID7C
+oCDCoDIgZmlsZXMgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKQo+ICAgICA+Cj4gICAgID4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ICAgICBiL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ICAgICA+IGluZGV4IDgwMTAxOTM4MWRlYS4u
+Yjc2OTY5NzRlM2M2IDEwMDY0NAo+ICAgICA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+dGxiZmx1c2guaAo+ICAgICA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2gu
+aAo+ICAgICA+IEBAIC01OSw0ICs1OSwxMSBAQCBzdGF0aWMgaW5saW5lIHZvaWQKPiAgICAgZmx1
+c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ICAgICA+wqAgwqAgwqAg
+wqBmbHVzaF90bGJfYWxsKCk7Cj4gICAgID7CoCDCoH0KPiAgICAgPgo+ICAgICA+ICsvKiBGbHVz
+aCBhIHJhbmdlIG9mIGtlcm5lbCBwYWdlcyB3aXRob3V0IGJyb2FkY2FzdGluZyAqLwo+ICAgICA+
+ICtzdGF0aWMgaW5saW5lIHZvaWQgbG9jYWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25l
+ZCBsb25nCj4gICAgIHN0YXJ0LAo+ICAgICA+ICvCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHVuc2lnbmVkIGxvbmcgZW5k
+KQo+ICAgICA+ICt7Cj4gICAgID4gK8KgIMKgIMKgbG9jYWxfZmx1c2hfdGxiX2FsbCgpOwo+ICAg
+ICA+ICt9Cj4gICAgID4gKwo+ICAgICA+wqAgwqAjZW5kaWYgLyogX0FTTV9SSVNDVl9UTEJGTFVT
+SF9IICovCj4gICAgID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9y
+aXNjdi9tbS9pbml0LmMKPiAgICAgPiBpbmRleCAyYzRhNjRlOTdhZWMuLjYyZWVhNjU2ZTM0MSAx
+MDA2NDQKPiAgICAgPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ICAgICA+ICsrKyBiL2Fy
+Y2gvcmlzY3YvbW0vaW5pdC5jCj4gICAgID4gQEAgLTcyLDYgKzcyLDkgQEAgc3RhdGljIHZvaWQg
+X19pbml0IHpvbmVfc2l6ZXNfaW5pdCh2b2lkKQo+ICAgICA+wqAgwqAjZW5kaWYKPiAgICAgPsKg
+IMKgIMKgIMKgbWF4X3pvbmVfcGZuc1taT05FX05PUk1BTF0gPSBtYXhfbG93X3BmbjsKPiAgICAg
+Pgo+ICAgICA+ICsjaWZkZWYgQ09ORklHX1NQQVJTRU1FTV9WTUVNTUFQCj4gICAgID4gK8KgIMKg
+IMKgbG9jYWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZShWTUVNTUFQX1NUQVJULCBWTUVNTUFQX0VO
+RCk7Cj4gICAgID4gKyNlbmRpZgo+ICAgICA+wqAgwqAgwqAgwqBmcmVlX2FyZWFfaW5pdChtYXhf
+em9uZV9wZm5zKTsKPiAgICAgPsKgIMKgfQo+ICAgICA+Cj4KPiAgICAgSnVzdCBvbmUgbml0OiBJ
+IHdvdWxkIGhhdmUgYWRkZWQgdGhlIGZsdXNoIHRvIHRoZSB2bWVtbWFwX3BvcHVsYXRlCj4gICAg
+IGZ1bmN0aW9uIGluc3RlYWQsIHNvIHRoYXQgd2UgZG9uJ3QgZmx1c2ggdXNlbGVzc2x5IHdoZW4K
+PiAgICAgIVNQQVJTRV9WTUVNTUFQCj4gICAgIGFuZCB3ZSBrbm93IGV4YWN0bHkgd2h5IHdlIGZs
+dXNoLgo+Cj4KPiBTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHkuCj4KPiBUbyBiZSBob25lc3QsIGlu
+aXRpYWxseSwgSSBwbGFjZWQgdGhlIFRMQiBmbHVzaCBpbiB0aGUgCj4gdm1lbW1hcF9wb3B1bGF0
+ZSBmdW5jdGlvbiBsaWtlIHlvdSBzdWdnZXN0ZWQuIEhvd2V2ZXIsIEkgbGF0ZXIgCj4gZGlzY292
+ZXJlZCB0aGF0IHRoaXMgZnVuY3Rpb24gY291bGQgYmUgY2FsbGVkIG11bHRpcGxlIHRpbWVzIGR1
+cmluZyAKPiB0aGUgYm9vdGluZyBwcm9jZXNzLCBjYXVzaW5nIHRoZSBUTEIgZmx1c2ggdG8gYmUg
+ZXhlY3V0ZWQgbXVsdGlwbGUgCj4gdGltZXMuIFRvIGltcHJvdmUgcGVyZm9ybWFuY2UsIEkgZGVj
+aWRlZCB0byBtb3ZlIHRoZSBUTEIgZmx1c2ggdG8gdGhlIAo+IHpvbmVfc2l6ZXNfaW5pdCBmdW5j
+dGlvbiBpbnN0ZWFkLCBhcyB0aGlzIGlzIHdoZXJlIHRoZSBrZXJuZWwgZmlyc3QgCj4gYWNjZXNz
+ZXMgdGhlIFZNRU1NQVAgcmVnaW9uIGFmdGVyIHZtZW1tYXBfcG9wdWxhdGUuIFRoaXMgYWxsb3dz
+IHRoZSAKPiBrZXJuZWwgdG8gcGVyZm9ybSBvbmx5IG9uZSBUTEIgZmx1c2ggZm9yIHRoZSByZWdp
+b24sIGJ1dCB0aGUgdHJhZGVvZmYgCj4gaXMgdGhhdCB0aGUgY29kZSByZWFkYWJpbGl0eSBpcyBy
+ZWR1Y2VkLiBEbyB5b3UgdGhpbmsgdGhpcyB0cmFkZW9mZiBpcyAKPiB3b3J0aCBpdD8gb3IgTWF5
+YmUgSSBjYW4gYWRkIHNvbWUgY29tbWVudHMgaW4gdGhlIHZtZW1tYXBfcG9wdWxhdGUgCj4gZnVu
+Y3Rpb24gdG8gZGVzY3JpYmUgdGhlIHB1cnBvc2Ugb2YgdGhpcyBUTEIgZmx1c2guIElzIGl0IE9L
+IHdpdGggeW91PwoKCkkgc2VlLCBJIGRpZCBub3Qga25vdyBidXQgaXQgaXMgaW5kZWVkIGNhbGxl
+ZCBtYW55IHRpbWVzLiBUbyBtZSAKem9uZV9zaXplc19pbml0KCkgaXMgbm90IHRoZSByaWdodCBw
+bGFjZSwgd2hhdCBhYm91dCBhZGRpbmcgdGhpcyBmbHVzaCAKKHdpdGggYSBjb21tZW50KSByaWdo
+dCBhZnRlciBzcGFyc2VfaW5pdCgpIGluIG1pc2NfbWVtX2luaXQoKT8gU28gdGhhdCAKaWYgc29t
+ZWRheSB3ZSBtb3ZlIHpvbmVfc2l6ZXNfaW5pdCgpLCB3ZSBkb24ndCBsb3NlIHRoZSBmbHVzaCEK
+ClRoYW5rcywKCkFsZXgKCgo+Cj4KPiAgICAgT3RoZXJ3aXNlLCB5b3UgY2FuIGFkZDoKPgo+ICAg
+ICBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+
+Cj4gICAgIFRoYW5rcywKPgo+ICAgICBBbGV4Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
