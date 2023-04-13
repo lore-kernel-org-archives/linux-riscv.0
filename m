@@ -4,51 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2FAC77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 14:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A71DC77B6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 16:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qPL0a3pl3p9bvO9bH1zIbzeC3emhYpzTUytG5/sf82A=; b=EJwq7I+VS5cfH+
-	BA/4IrDCjvpqBQaV+A2UkLMUFoEb09lTc/NT7TFWpuf46ujNB+0eYA3aZMLWltDuql4x0fC61V8jn
-	wUlCq1c18x/WaJWEv5458AIYNmQrzNs6YWr8sOdA//lZd5Hm5YFIQEk/d/Wiboo+htHa9vs+2Gs8D
-	nd2JCWuKw1sQ/4qPvWUDU4G6PYx1U/ThhdCP2VAw2ho3z5I2kcRAIxkEIUHW80+Y/wdVd+oKSuhze
-	IHcdoXuO/9cxUM+w4i4HFxA1NLoHGdsFFTxG0BRkK7jMwfNzSmnxbiDZhDp9hDnPNhFF/gWPQzGvL
-	Zg7HvAfNcqngK4SODPBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hY0Z3YzxSqtQ49Ur3u4ZjmDLTaydohi8Sg1ejZQI1A0=; b=WNW8CSwNH0xgQH
+	9bl/usne4KliiAEhEEId5u+7dV4JJ+EMDlDdi99SmT123Uw6TNrecGUp9yfBKVWoOo2h/NOmRVNiY
+	ym5jV/KbNet+etZ4QPwAfIPKn4R7ZnZBxiEisS2/D/dzNfPB2OeKgkNL0+EXj01cd/85dG2RYA4AB
+	YkGUtfAuqqQs24jEqTEg13k6ZYg/iJk+Y8k2DM7Cx+KAhH7ZkZ6lBcdZUxnhA/9fUdjcLVVaVbayE
+	YTM4cUjWKHSbk6oQ30u1F5Qd9BDRBp23M0TKQITKZTSlZ7mKvprHeVbvYEFsuDXM9JmQVhEKbzBMo
+	EyOEUuL/CjUSxi8RCIsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmy0x-006PJp-1k;
-	Thu, 13 Apr 2023 14:33:31 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1pmzdh-006dE6-1K;
+	Thu, 13 Apr 2023 16:17:37 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmy0u-006PIv-1y
+	id 1pmzdc-006dBC-2c
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Apr 2023 14:33:30 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 48B22C0002;
-	Thu, 13 Apr 2023 14:33:20 +0000 (UTC)
-Message-ID: <61e57410-c856-78e8-c18d-2c8ff054f334@ghiti.fr>
-Date: Thu, 13 Apr 2023 16:33:20 +0200
+	Thu, 13 Apr 2023 16:17:34 +0000
+Received: by mail-wm1-x332.google.com with SMTP id bi22-20020a05600c3d9600b003f0ad935166so927038wmb.4
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Apr 2023 09:17:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681402650; x=1683994650;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=38Yb3K2X39JYdroVCYnZn1iH0zsgOPm1opWg6u9OrnA=;
+        b=FYMc15O2+ikuHwDZXewujBymuKjb0wLG3G9POi/bxOvkCAVqfUklYRLX0godmEWGyl
+         Mb0djbmpWZ0hLSRiWdLcrBCLV45eQOqDXCa0Nc2vK5NzWC60U92C3lcWGqlYAXV/KtCQ
+         rCqtnkk3YhyRaaoUwTApDJTHO7XmmgvmhppYk+Dlp8WGbqjPYJPws+iIgqZTOLr5qqxA
+         ICXBCUnEN9BY+gBFYb06nnH6hPPOnmzEqivs0CbguiSY4J1A6j5dGec27xGTfZ2nKqbp
+         76aOt1t7EtPrYCm14ndD5tk1sxdtnsLnaaLtQ2NHqC8XWn1I6tX1sRe0BuacrDD9WZRx
+         hJ2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681402650; x=1683994650;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=38Yb3K2X39JYdroVCYnZn1iH0zsgOPm1opWg6u9OrnA=;
+        b=TXqdME0+HIatJbw5m+BEEeWWGcRn19AuG+du/R5zuPhNe4FG8fjDqwVwNkwAdhtzPU
+         RxJsoUKBAo3Cl5e1tQw8wGUR5T7aIQx1TL8jHRB9RDanMgsZiyS/nvVYsoD3kykFiqoL
+         lPq/XQzh25aoNYg7CjVQ5Ux7Skhlzb9RO+7S5hHUaw1yIyHIqUm1LRqI33+M8LrGMIqn
+         quqKRYZUM+6Nf0QJC3HjW0rplgBUcUQviNR0RPGJBfIlygsRP2hj78oqiZENRr7UgXG6
+         L+/X/ofMzUwvl0rUsru2gXLzwY6B1RSTTByyir3wYUkMWTfYy5nT5Pir1LqiKve6j7X5
+         KCfQ==
+X-Gm-Message-State: AAQBX9c2IgDOQJrJIf/srBvdQoERHFO86ZvjymxfL5G/6/HVK5hjzaMu
+	oLsu8r43lUGxYWrChxNRnz2VAA==
+X-Google-Smtp-Source: AKy350bmCsEok/fFa5YgX7ncV0/zToqAzAd+sbPw5hmVDKRgBIpNP0624v+FkMa0rAlXJlrVKb571A==
+X-Received: by 2002:a1c:6a14:0:b0:3f0:7db5:607a with SMTP id f20-20020a1c6a14000000b003f07db5607amr2179470wmc.33.1681402650384;
+        Thu, 13 Apr 2023 09:17:30 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id w16-20020a05600c475000b003f092f0e0a0sm9350624wmo.3.2023.04.13.09.17.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Apr 2023 09:17:30 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/4] riscv: Allow userspace to directly access perf counters
+Date: Thu, 13 Apr 2023 18:17:21 +0200
+Message-Id: <20230413161725.195417-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH] riscv: mm: execute local TLB flush after populating
- vmemmap
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-References: <20230320065324.1045276-1-vincent.chen@sifive.com>
- <2408b5b7-821c-2461-a227-f364bce0f5e9@ghiti.fr>
- <CABvJ_xi_oYMk30A7-aR2v_ULbH0x=E1Hwq0pGf-5sBmKGxjXMg@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CABvJ_xi_oYMk30A7-aR2v_ULbH0x=E1Hwq0pGf-5sBmKGxjXMg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_073328_957572_9FDF1B40 
-X-CRM114-Status: GOOD (  32.08  )
+X-CRM114-CacheID: sfid-20230413_091733_038743_D4ECB736 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,81 +104,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmluY2VudCwKCk9uIDQvMTMvMjMgMDI6NDgsIFZpbmNlbnQgQ2hlbiB3cm90ZToKPgo+Cj4g
-T24gV2VkLCBNYXIgMjIsIDIwMjMgYXQgMTI6MTHigK9BTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
-Z2hpdGkuZnI+IHdyb3RlOgo+Cj4gICAgIEhpIFZpbmNlbnQsCj4KPiAgICAgT24gMy8yMC8yMyAw
-Nzo1MywgVmluY2VudCBDaGVuIHdyb3RlOgo+ICAgICA+IFRoZSB2bWVtbWFwX3BvcHVsYXRlKCkg
-Y3JlYXRlcyBWQSB0byBQQSBtYXBwaW5nIGZvciB0aGUgVk1FTU1BUAo+ICAgICBhcmVhLCB3aGVy
-ZQo+ICAgICA+IGFsbCAic3RyY3V0IHBhZ2UiIGFyZSBsb2NhdGVkIG9uY2UgQ09ORklHX1NQQVJT
-RU1FTV9WTUVNTUFQIGlzCj4gICAgIGRlZmluZWQuCj4gICAgID4gVGhlc2UgInN0cnVjdCBwYWdl
-IiBhcmUgbGF0ZXIgaW5pdGlhbGl6ZWQgaW4gdGhlIHpvbmVfc2l6ZXNfaW5pdCgpCj4gICAgID4g
-ZnVuY3Rpb24uIEhvd2V2ZXIsIGR1cmluZyB0aGlzIHByb2Nlc3MsIG5vIHNmZW5jZS52bWEgaW5z
-dHJ1Y3Rpb24gaXMKPiAgICAgPiBleGVjdXRlZCBmb3IgdGhpcyBWTUVNTUFQIGFyZWEuIFRoaXMg
-b21pc3Npb24gbWF5IGNhdXNlIHRoZSBjb3JlCj4gICAgIHRvIGZhaWwgdG8KPiAgICAgPiBwZXJm
-b3JtIHBhZ2UgdGFibGUgd29yayBiZWNhdXNlIHNvbWUgZGF0YSByZWxhdGVkIHRvIHRoZSBhZGRy
-ZXNzCj4gICAgID4gdHJhbnNsYXRpb24gaXMgaW52aXNpYmxlIHRvIHRoZSBjb3JlLiBUbyBzb2x2
-ZSB0aGlzIGlzc3VlLCBoZXJlIGxldAo+ICAgICA+IHpvbmVfc2l6ZXNfaW5pdCgpIGNhbGwgbG9j
-YWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSgpIHRvIGV4ZWN1dGUgYQo+ICAgICA+IHNmZW5jZS52
-bWEgaW5zdHJ1Y3Rpb24gZm9yIHRoZSBWTUVNTUFQIGFyZWEsIGVuc3VyaW5nIHRoYXQgYWxsCj4g
-ICAgIGRhdGEgcmVsYXRlZAo+ICAgICA+IHRvIHRoZSBhZGRyZXNzIHRyYW5zbGF0aW9uIGlzIHZp
-c2libGUgdG8gdGhlIGNvcmUuCj4gICAgID4KPiAgICAgPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50
-IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+ICAgICA+IC0tLQo+ICAgICA+wqAgwqBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmggfCA3ICsrKysrKysKPiAgICAgPsKgIMKg
-YXJjaC9yaXNjdi9tbS9pbml0LmPCoCDCoCDCoCDCoCDCoCDCoCDCoCB8IDMgKysrCj4gICAgID7C
-oCDCoDIgZmlsZXMgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKQo+ICAgICA+Cj4gICAgID4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ICAgICBiL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ICAgICA+IGluZGV4IDgwMTAxOTM4MWRlYS4u
-Yjc2OTY5NzRlM2M2IDEwMDY0NAo+ICAgICA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-dGxiZmx1c2guaAo+ICAgICA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2gu
-aAo+ICAgICA+IEBAIC01OSw0ICs1OSwxMSBAQCBzdGF0aWMgaW5saW5lIHZvaWQKPiAgICAgZmx1
-c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ICAgICA+wqAgwqAgwqAg
-wqBmbHVzaF90bGJfYWxsKCk7Cj4gICAgID7CoCDCoH0KPiAgICAgPgo+ICAgICA+ICsvKiBGbHVz
-aCBhIHJhbmdlIG9mIGtlcm5lbCBwYWdlcyB3aXRob3V0IGJyb2FkY2FzdGluZyAqLwo+ICAgICA+
-ICtzdGF0aWMgaW5saW5lIHZvaWQgbG9jYWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25l
-ZCBsb25nCj4gICAgIHN0YXJ0LAo+ICAgICA+ICvCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
-oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHVuc2lnbmVkIGxvbmcgZW5k
-KQo+ICAgICA+ICt7Cj4gICAgID4gK8KgIMKgIMKgbG9jYWxfZmx1c2hfdGxiX2FsbCgpOwo+ICAg
-ICA+ICt9Cj4gICAgID4gKwo+ICAgICA+wqAgwqAjZW5kaWYgLyogX0FTTV9SSVNDVl9UTEJGTFVT
-SF9IICovCj4gICAgID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9y
-aXNjdi9tbS9pbml0LmMKPiAgICAgPiBpbmRleCAyYzRhNjRlOTdhZWMuLjYyZWVhNjU2ZTM0MSAx
-MDA2NDQKPiAgICAgPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ICAgICA+ICsrKyBiL2Fy
-Y2gvcmlzY3YvbW0vaW5pdC5jCj4gICAgID4gQEAgLTcyLDYgKzcyLDkgQEAgc3RhdGljIHZvaWQg
-X19pbml0IHpvbmVfc2l6ZXNfaW5pdCh2b2lkKQo+ICAgICA+wqAgwqAjZW5kaWYKPiAgICAgPsKg
-IMKgIMKgIMKgbWF4X3pvbmVfcGZuc1taT05FX05PUk1BTF0gPSBtYXhfbG93X3BmbjsKPiAgICAg
-Pgo+ICAgICA+ICsjaWZkZWYgQ09ORklHX1NQQVJTRU1FTV9WTUVNTUFQCj4gICAgID4gK8KgIMKg
-IMKgbG9jYWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZShWTUVNTUFQX1NUQVJULCBWTUVNTUFQX0VO
-RCk7Cj4gICAgID4gKyNlbmRpZgo+ICAgICA+wqAgwqAgwqAgwqBmcmVlX2FyZWFfaW5pdChtYXhf
-em9uZV9wZm5zKTsKPiAgICAgPsKgIMKgfQo+ICAgICA+Cj4KPiAgICAgSnVzdCBvbmUgbml0OiBJ
-IHdvdWxkIGhhdmUgYWRkZWQgdGhlIGZsdXNoIHRvIHRoZSB2bWVtbWFwX3BvcHVsYXRlCj4gICAg
-IGZ1bmN0aW9uIGluc3RlYWQsIHNvIHRoYXQgd2UgZG9uJ3QgZmx1c2ggdXNlbGVzc2x5IHdoZW4K
-PiAgICAgIVNQQVJTRV9WTUVNTUFQCj4gICAgIGFuZCB3ZSBrbm93IGV4YWN0bHkgd2h5IHdlIGZs
-dXNoLgo+Cj4KPiBTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHkuCj4KPiBUbyBiZSBob25lc3QsIGlu
-aXRpYWxseSwgSSBwbGFjZWQgdGhlIFRMQiBmbHVzaCBpbiB0aGUgCj4gdm1lbW1hcF9wb3B1bGF0
-ZSBmdW5jdGlvbiBsaWtlIHlvdSBzdWdnZXN0ZWQuIEhvd2V2ZXIsIEkgbGF0ZXIgCj4gZGlzY292
-ZXJlZCB0aGF0IHRoaXMgZnVuY3Rpb24gY291bGQgYmUgY2FsbGVkIG11bHRpcGxlIHRpbWVzIGR1
-cmluZyAKPiB0aGUgYm9vdGluZyBwcm9jZXNzLCBjYXVzaW5nIHRoZSBUTEIgZmx1c2ggdG8gYmUg
-ZXhlY3V0ZWQgbXVsdGlwbGUgCj4gdGltZXMuIFRvIGltcHJvdmUgcGVyZm9ybWFuY2UsIEkgZGVj
-aWRlZCB0byBtb3ZlIHRoZSBUTEIgZmx1c2ggdG8gdGhlIAo+IHpvbmVfc2l6ZXNfaW5pdCBmdW5j
-dGlvbiBpbnN0ZWFkLCBhcyB0aGlzIGlzIHdoZXJlIHRoZSBrZXJuZWwgZmlyc3QgCj4gYWNjZXNz
-ZXMgdGhlIFZNRU1NQVAgcmVnaW9uIGFmdGVyIHZtZW1tYXBfcG9wdWxhdGUuIFRoaXMgYWxsb3dz
-IHRoZSAKPiBrZXJuZWwgdG8gcGVyZm9ybSBvbmx5IG9uZSBUTEIgZmx1c2ggZm9yIHRoZSByZWdp
-b24sIGJ1dCB0aGUgdHJhZGVvZmYgCj4gaXMgdGhhdCB0aGUgY29kZSByZWFkYWJpbGl0eSBpcyBy
-ZWR1Y2VkLiBEbyB5b3UgdGhpbmsgdGhpcyB0cmFkZW9mZiBpcyAKPiB3b3J0aCBpdD8gb3IgTWF5
-YmUgSSBjYW4gYWRkIHNvbWUgY29tbWVudHMgaW4gdGhlIHZtZW1tYXBfcG9wdWxhdGUgCj4gZnVu
-Y3Rpb24gdG8gZGVzY3JpYmUgdGhlIHB1cnBvc2Ugb2YgdGhpcyBUTEIgZmx1c2guIElzIGl0IE9L
-IHdpdGggeW91PwoKCkkgc2VlLCBJIGRpZCBub3Qga25vdyBidXQgaXQgaXMgaW5kZWVkIGNhbGxl
-ZCBtYW55IHRpbWVzLiBUbyBtZSAKem9uZV9zaXplc19pbml0KCkgaXMgbm90IHRoZSByaWdodCBw
-bGFjZSwgd2hhdCBhYm91dCBhZGRpbmcgdGhpcyBmbHVzaCAKKHdpdGggYSBjb21tZW50KSByaWdo
-dCBhZnRlciBzcGFyc2VfaW5pdCgpIGluIG1pc2NfbWVtX2luaXQoKT8gU28gdGhhdCAKaWYgc29t
-ZWRheSB3ZSBtb3ZlIHpvbmVfc2l6ZXNfaW5pdCgpLCB3ZSBkb24ndCBsb3NlIHRoZSBmbHVzaCEK
-ClRoYW5rcywKCkFsZXgKCgo+Cj4KPiAgICAgT3RoZXJ3aXNlLCB5b3UgY2FuIGFkZDoKPgo+ICAg
-ICBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+
-Cj4gICAgIFRoYW5rcywKPgo+ICAgICBBbGV4Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+riscv used to allow direct access to cycle/time/instret counters,
+bypassing the perf framework, this patchset intends to allow the user to
+mmap any counter when accessed through perf. But we can't break the
+existing behaviour so we introduce a sysctl perf_user_access like arm64
+does, which defaults to the legacy mode described above.
+
+The core of this patchset lies in patch 4, the first 3 patches are
+simple fixes.
+
+base-commit-tag: v6.3-rc1
+
+Alexandre Ghiti (4):
+  perf: Fix wrong comment about default event_idx
+  include: riscv: Fix wrong include guard in riscv_pmu.h
+  riscv: Make legacy counter enum match the HW numbering
+  riscv: Enable perf counters user access only through perf
+
+ Documentation/admin-guide/sysctl/kernel.rst |  23 +++-
+ arch/riscv/include/asm/perf_event.h         |   3 +
+ arch/riscv/kernel/Makefile                  |   2 +-
+ arch/riscv/kernel/perf_event.c              |  65 +++++++++++
+ drivers/perf/riscv_pmu.c                    |  42 ++++++++
+ drivers/perf/riscv_pmu_legacy.c             |  24 ++++-
+ drivers/perf/riscv_pmu_sbi.c                | 113 ++++++++++++++++++--
+ include/linux/perf/riscv_pmu.h              |   9 +-
+ include/linux/perf_event.h                  |   3 +-
+ tools/lib/perf/mmap.c                       |  65 +++++++++++
+ 10 files changed, 332 insertions(+), 17 deletions(-)
+ create mode 100644 arch/riscv/kernel/perf_event.c
+
+-- 
+2.37.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
