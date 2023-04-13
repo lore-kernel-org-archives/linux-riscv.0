@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7B5C77B6E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 13:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A449C77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 14:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hzJvmBgBa3lmjcQQ6AOAcfUkJQ7rHWGkJqhv0gSoVn8=; b=Qt4PaqLoeEk7qpWePnJ3C9sZgU
-	rPLT2pWJbtWq0Fn71FPgezBTQqwi5GqEk1LL/9YPZ3js8VhCEjMSOZY0h5ukJJYcDEsC0yWlAUynB
-	2YmOM6MFfZ3VMLcsWDkUVU/mp6amtD//nwga1yHWF1gi5VkZ9XqhIzuo7RUjGARV+28mb04J9p8LR
-	he9ig0fEQaeJjbOpYtz+Jsp6h22mJ8+MsFRPLrK53g82Ese+2c2WGVxH42LtD+2/8gxf6lOQMKcjG
-	1rWbHdz7KzP4ZOyZHW0amnGIqysx+33nmJ/yS+33195bnDW7G/KZ/cncPJ3FNcrKJG50IVzyNriRo
-	GP6o1NBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2MbRjFoxK2TQ1Zx0jbatASJODeFaupRdSuZwm1pAmaw=; b=plOjJRsEFiO2af
+	GixBCJ3VZugbcqjuOclHiN6BKw9OgLYFi3y6mmhcln36EckKf2GbeDOZIshZbWCk9tyk5fgqfy/Lk
+	uiaGIQ3DIuzQad8SJSm0ccvZ8sLxx1bh6p+JIqZikitH3zhJtjmB9CG+zG2zSRbBJRQjuNflIJQv2
+	tDnx+8AMLwTcLLYcxwGd2Qp/ZUe1TfxAIIHT7NdEdu/zhvzor91a3MlB0gyP4s53FuytyVusuqN7e
+	O+TLn7zHqgFivf0hkDZTOa7BCKh+Uco7cohCNP7levs9vnyd/Kq08bCpHYDWFe/wTKZBJzVywz6K8
+	WniSsPLB42pQIvtuz6Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmxNw-006Jh6-1p;
-	Thu, 13 Apr 2023 13:53:12 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pmxhU-006NC1-2e;
+	Thu, 13 Apr 2023 14:13:24 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmxNs-006Jfy-0s
+	id 1pmxhR-006NAt-2a
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Apr 2023 13:53:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1681393988; x=1712929988;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RI5dxyny4pd6aZFj4Z1YM4GJ/8KIefexr1VJF7/pVbY=;
-  b=Rrm4O644QZX58Tj2rthwEmD0dDatnn4pjRKUCNgW+eSTJUBHhbJxXHRx
-   CuMsQgXWri1YGwChJyByovDhUloOvO2dhTL2daCLtppIM0xHJYIYriALX
-   wD5eJg6ZjY1aZxCKfBTu8lQhmS5eO0tdSMM1kk7J2eIq51nmZBnVf+Av4
-   kjmIijMcvjulJVNRdgL7ue78ubNH4PrkUib2JrHvaecQsk0Y56tVw4B3e
-   /3vpbgyrLbSOCfN/JjQqkUlSwyl7VHqSH2cn/1r8jW2yzz/jQiyLt2kop
-   KlFR+BXdUud5yF5zHJWCEdVOnYeflEBZDoSbfNWpIKup2qmgy94LAew/C
-   w==;
-X-IronPort-AV: E=Sophos;i="5.99,193,1677567600"; 
-   d="asc'?scan'208";a="208958686"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Apr 2023 06:53:03 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 13 Apr 2023 06:53:02 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 13 Apr 2023 06:53:00 -0700
-Date: Thu, 13 Apr 2023 14:52:44 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Stephen Boyd <sboyd@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
-	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Rob Herring <robh+dt@kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v4 07/10] clk: starfive: Add StarFive JH7110 Video-Output
- clock driver
-Message-ID: <20230413-hardcover-ground-efbd862c5ec3@wendy>
-References: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
- <20230411135558.44282-8-xingyu.wu@starfivetech.com>
- <683cbe934d1df9436e003466d2a419ef.sboyd@kernel.org>
- <463ee23c-f617-bed0-27a8-56c6fb40d092@starfivetech.com>
- <cd4a11ae65e186799145410969d40421.sboyd@kernel.org>
+	Thu, 13 Apr 2023 14:13:23 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id ga37so38138385ejc.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Apr 2023 07:13:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1681395197; x=1683987197;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XUg/Vhl4ma9csERVssXScNUtMrmvSNZoznhCnpPJffE=;
+        b=o3pqnoQR4q+ECIpxDAjZaH/4ZWbbQfmxWI6mJm3FRP3DH1F5T10tUc8vA+LQkAPG4U
+         IvrPmcpwx1owZ8nbuwzp309bofZsDRqgVggAMO3fC8hOfX0Rkj9v31IOD83GO/yNikat
+         n7X4vEP4prszZMluVSt81aL4wqkHgbJUq/eNKBqB59fmqjxEJwnChR7FfFvURf+nzBMH
+         TUXCZfE/EU9F4C52w5qHtJCetUCRleFf+IMG+aZIlkM2DmXtGdpNKnjqMR8xR/hVgb1C
+         9Z2iYsiutkweUPzWyxpxe3Ob9tyL5vmr+ffXHYpu8ZWbZWf9JrO4kd1I/xOXvgNLTGns
+         4hMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681395197; x=1683987197;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XUg/Vhl4ma9csERVssXScNUtMrmvSNZoznhCnpPJffE=;
+        b=iZyn23xdbJ6/EO40UOAHiVL6rWTRmChj4WCb96NqpQT6v+D9itDc+JN339XmDOiz0y
+         nsGHQ0iwaEzVCDgceNu53merNwqD/YfHt0ZhVjUDBvtKlDnntx8YTk2eool0OfWKnQbv
+         8qpaEBXBEYYKffT+IvtPOAICHmBc6CO0SUhcmqkU9X1aceryz+erOwjzmDAvaLVZ4mby
+         /oqGHHDWvn7LY2l2fZWYvWInElo9HLYDvlBvSNbMLD7TYQKjKGvy/umINj0xVXrb7eL3
+         yJSdHTFEE/1d3+y/M8K7XEFxYKjf50U3o7y5M98BH7FLvS3FOeL9RqAYovX2uPDdrWBD
+         xHLA==
+X-Gm-Message-State: AAQBX9dO5/x574xkVvofZzaGg1nWqSueRYfI3F8LWgEUpWLsiKT8cdb3
+	hJHJt0taqILmsFxoAjG53wXUXw==
+X-Google-Smtp-Source: AKy350bqaGf9G9UynCwnECkBk51iC6Y9ZmFekAq/MvRpTO/3kxt99/nMVf+P8TxZ4KgLopGpGReGLQ==
+X-Received: by 2002:a17:906:e25a:b0:94a:96c4:2361 with SMTP id gq26-20020a170906e25a00b0094a96c42361mr2684805ejb.73.1681395197078;
+        Thu, 13 Apr 2023 07:13:17 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:5032:d2d4:ece5:b035? ([2a02:810d:15c0:828:5032:d2d4:ece5:b035])
+        by smtp.gmail.com with ESMTPSA id bi24-20020a170906a25800b0092f38a6d082sm999572ejb.209.2023.04.13.07.13.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Apr 2023 07:13:16 -0700 (PDT)
+Message-ID: <5953bc83-9609-6d12-7e9b-ca5202151fb3@linaro.org>
+Date: Thu, 13 Apr 2023 16:13:15 +0200
 MIME-Version: 1.0
-In-Reply-To: <cd4a11ae65e186799145410969d40421.sboyd@kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
+Content-Language: en-US
+To: Minda Chen <minda.chen@starfivetech.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Mason Huo <mason.huo@starfivetech.com>
+References: <20230406015216.27034-1-minda.chen@starfivetech.com>
+ <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
+ <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_065308_360286_C73C9528 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20230413_071321_856489_DDFBB0E5 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +102,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9205812296213423031=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============9205812296213423031==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="v0ip4bKAlPiDmbMW"
-Content-Disposition: inline
+On 13/04/2023 12:44, Minda Chen wrote:
+> 
+> 
+> On 2023/4/12 16:26, Krzysztof Kozlowski wrote:
+>> On 06/04/2023 03:52, Minda Chen wrote:
+>>> This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+>>> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+>>> The patch has been tested on the VisionFive 2 board.
+>>>
+>>> This patchset should be applied after the patchset [1], [2] and[3]:
+>>> [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+>>> [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+>>> [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+>>>
+>>> This patchset is base on v6.3-rc4
+>>>
+>>> patch 1 is usb phy dt-binding document.
+>>> patch 2 is Pcie PHY dt-binding document.
+>>> patch 3 is USB 2.0 PHY driver.
+>>> patch 4 is PCIe PHY driver.
+>>> patch 5 is usb dt-binding document.
+>>> patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+>>> patch 7 is USB device tree configuration.
+>>>
+>>> previous version
+>>> ---
+>>> v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+>>> v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+>>
+>> This is v2.
+>>
+>>> v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
+>>>
+>>> changes
+>>> v4:
+>>>   1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
+>>>   2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
+>>>   3. (patch 3)
+>>>      - split PCIe PHY driver to patch 4.
+>>>      - replace dr_mode to phy mode in jh7110_usb2_phy.
+>>>   4. (patch 4) 
+>>>      - Makefile and Kconfig sorted by alphabet sequence.
+>>>      - Add PCIe PHY stg and syscon PHY connection configuration
+>>>        for USB 3.0.
+>>>   5. (patch 5)
+>>>      - commit message changed.
+>>>      - merge wrapper dts node and cdns3 node in example.
+>>>      - Add interrupts, reg, phy and dr_mode in property.
+>>>      - Add reset-name in property example.
+>>>   6. (patch 6)
+>>>      - For dts node is merged, Using platform_device_alloc and
+>>>        platform_device_add to generate cadence sub device.
+>>>      - IOMEM and IRQ resource are passed to Cadence sub device.
+>>>      - Add PHY ops process for PHY dts setting can not be passed to
+>>>        Cadence USB driver.
+>>>      - remove the stg and sys USB 3.0 PHY configuration.
+>>>      - Change the suspend clock reset and clock enable sequence.
+>>>      - Get all reset and clock resources before enable them in 
+>>>        cdns_clk_rst_init.
+>>>      - commit message changed.
+>>>   7. (patch 7)
+>>>      - merge wrapper dts node and cdns3 node in usb dts.
+>>>      - move the stg and sys USB 3.0 PHY confiuration to
+>>>        PCIe PHY dts node.
+>>>      - commit message changed.
+>>>      - Add reset-names dts.
+>>>
+>>> v3:
+>>>   1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
+>>>      USB PHY codes are moved to patch 3 and patch 4.
+>>>   2. (patch 5)
+>>>      - USB wrapper module dts document is moved to usb directory.
+>>>      - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+>>>      - Some dts format changes. dts binding check pass.
+>>>   3. (patch 6)
+>>>      - Remove the PHY codes. 
+>>>      - Search 'dr_mode' and phy setting from Cadence subnode.
+>>>   4. (patch 7)
+>>>      - Add USB PHY dts configurion. 
+>>>      - 'dr_mode' is moved to Cadence controller submode.
+>>>
+>>> v2:
+>>>   1. (patch 5) dt-binding changes. The document example is the same as dts config.
+>>>   2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+>>>   3. (patch 7) dts nodes sorted by the address after @
+>>>
+>>>
+>>> Minda Chen (7):
+>>>   dt-bindings: phy: Add StarFive JH7110 USB document
+>>>   dt-bindings: phy: Add StarFive JH7110 PCIe document
+>>>   phy: starfive: add JH7110 USB 2.0 PHY driver.
+>>>   phy: starfive: add JH7110 PCIE 2.0 PHY driver.
+>>>   dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
+>>>   usb: cdns3: add StarFive JH7110 USB driver.
+>>>   riscv: dts: starfive: add USB dts configuration for JH7110
+>>>
+>>>  .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
+>>>  .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
+>>>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
+>>>  MAINTAINERS                                   |  16 +
+>>>  .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+>>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
+>>>  drivers/phy/starfive/Kconfig                  |  22 +
+>>>  drivers/phy/starfive/Makefile                 |   2 +
+>>>  drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
+>>>  drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
+>>>  drivers/usb/cdns3/Kconfig                     |  11 +
+>>>  drivers/usb/cdns3/Makefile                    |   1 +
+>>>  drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
+>>>  drivers/usb/cdns3/core.h                      |   3 +
+>>>  14 files changed, 1086 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+>>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>>>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+>>>  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+>>>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+>>>  create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+>>>
+>>>
+>>> base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
+>>> prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
+>>> prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
+>>
+>> fatal: bad object 55390537360f25c8b9cbfdc30b73ade004f436f7
+>>
+>> What commits do you reference? How are they helpful?
+>>
+> I use "git format-patch --base=(commit) to generate patchset.
+> Maybe I set the wrong base commit.
 
---v0ip4bKAlPiDmbMW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+How are they helpful if these are private commits?
 
-On Wed, Apr 12, 2023 at 09:04:08PM -0700, Stephen Boyd wrote:
-> Quoting Xingyu Wu (2023-04-11 23:15:26)
-> > On 2023/4/12 2:33, Stephen Boyd wrote:
-> > > Quoting Xingyu Wu (2023-04-11 06:55:55)
+Best regards,
+Krzysztof
 
-> > >> +       if (ret < 0)
-> > >> +               return dev_err_probe(priv->dev, ret, "failed to turn=
- on power\n");
-> > >> +
-> > >> +       ret =3D jh7110_vout_top_crg_init(priv, top);
-> > >> +       if (ret)
-> > >> +               goto err_clk;
-> > >> +
-> > >> +       top->base =3D priv->base;
-> > >> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
-> > >=20
-> > > See comment later about setting this to 'top' instead. Casting away
-> > > iomem markings is not good hygiene.
-> >=20
-> > JH7110 resets as the auxiliary device of clocks use the same iomem as t=
-he clocks
-> > and the iomem will be got by dev_get_drvdata() in the 7110 reset driver=
-s when registering reset.
-> > So I follow the basic 7110 reset driver and also set the iomem not top_=
-crg struct.
->=20
-> Oh I totally missed that this is how it's been done for the other
-> starfive driver. It's still not good hygiene to stash the iomem pointer
-> that way because the iomem marking is lost and has to be recovered. Can
-> you make a wrapper struct, either for the adev or to pass in struct
-> device::platform_data?
-
-FWIW, this did come up on an earlier version of the other starfive
-driver:
-https://lore.kernel.org/linux-clk/e0d8f9ba-5bf4-d7dd-5110-20d4196556f9@star=
-fivetech.com/
-
-I probably should've pushed Hal to use a struct, but evidently I didn't
-reply to his final message there, so apologies for that!
-
-
---v0ip4bKAlPiDmbMW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDgJLAAKCRB4tDGHoIJi
-0grQAQD5cpctgc5Bq3S7CyFGTLA6byxDhiBh5Iyvw4xFI+lLdAD/SOinBHpjM3Vf
-npC+7trX9b+0Hc7eNQTp7L341SH1nAw=
-=b8hm
------END PGP SIGNATURE-----
-
---v0ip4bKAlPiDmbMW--
-
-
---===============9205812296213423031==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9205812296213423031==--
-
