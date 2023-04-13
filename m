@@ -4,129 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB833C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 12:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80AF7C77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 13:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y3s8akKncgwF/z6MqQZMpk7H+DPXKqISrAUXsC6+kWk=; b=xCyuGSWkzyBQu4
-	e861l8IcQhIL9M1mYRzAYkAONlUgiJGeylwwja8w3O3GKLkMkzb62LNZ416wzxgQj0wBXFXTXmKBF
-	XVG6IpfwwmIVvbQYvMSGseXIgoJ/XGd9fy24Jk+BwnwskFtRz2sZ0gF+0AfiPL8mmddoOf7Mkmf/y
-	rdBoqfL0WfQD/exLonGOP8dtUveBajfsHtt1ZNY3KlFIjPzm6kKa5H8ioyX1KXUOE/VUEiP7Y01vW
-	saPEvpO3QBe9aVUlTNaM+xqUeoT1v3VnE8pu7cidOmpw5ynTUiEUzbpqSjYuXxC/hBeTKripqJRpf
-	nzGHcdw0fdOsf9kZj2/Q==;
+	List-Owner; bh=s+25GYQzWCQ74u3m82of3RPhjicQXoWR3y3MqvFS/GY=; b=iyn/XG+Af/U4pZ
+	2ktdMKox8l2BloF7KQOzpHb4XCPXXG6/vsDqL4QaFJ6eP2lmawJYjfHEJ9TgM1MP8RfVXxsfzw9dm
+	Q54fBo6VCkLwdNizsOG1CGyh45/iXNMZLdMJgCfQd+o9RWoM9bdndkTod/Ry/pzcVbmT7k35gGaWv
+	jLcP3iHRZTMuBwqvmtPAZlIB74+CeR5FojkFlW0Ii41B81ZRSuZQSvZHwfdIRvHwb80nXXxzXlEUG
+	tWA5u4pbeGMzSfog93e3CBxNJpY7s2wmZXnFuNHqteoLRTRojfPP3NrYyBsoc4O2YpUEW7ddAmrKR
+	crusp/LXPhzvvuDiX54g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmwQy-006ArU-07;
-	Thu, 13 Apr 2023 12:52:16 +0000
-Received: from wnew4-smtp.messagingengine.com ([64.147.123.18])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmwQu-006AoO-15;
-	Thu, 13 Apr 2023 12:52:13 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.west.internal (Postfix) with ESMTP id 5A7EC2B066F8;
-	Thu, 13 Apr 2023 08:52:03 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Thu, 13 Apr 2023 08:52:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1681390322; x=1681397522; bh=NR
-	7qDHxvmrn4O6C7ghCGmkwcCMB9CqvbPSwmBqWhNIE=; b=ZXclSBnVVRa8vpoYG+
-	Nh7NGI1Sfo/+IhOueSX6qtWqFgLpX1O7kGpe874+9lPVAkHB/MzUC6Ip3Qt5J4S1
-	bo+Igz4vPJgrOb5hGwvGzYSyD9RAM686r7y8aQw66DlT4Mt340zXnCYSOX2rluiN
-	l6kWpyNhBIXZQ/WjHlR82CZljPrL2zeVzs/VKz/0NnIUPr0YWmnDYjaoDj48NIs+
-	UFfZMJaZFIZIs03gVqCq4iH3pg/lZtVMlR8XIkQ70K5m2tAxwHrPsotuz4IugI93
-	6XX70k3nZhX+AhqXZznQyr38x7nSAEkpDTOnIVRV2ikChkz1k3AGDfv3Jf0wEK6q
-	B4Qw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1681390322; x=1681397522; bh=NR7qDHxvmrn4O
-	6C7ghCGmkwcCMB9CqvbPSwmBqWhNIE=; b=gqOA+P8sXOuT1JOfKkqGPELz//AFF
-	f2eiDN24y3pX47Aau9zsWL6E8P7Knx1xYRVsUHNfPuY3xLBDKbzMqkoi7VrJfZ+o
-	W2mfsUlFecf2kgDULdtR2hU7Te44ccwG0sZJJ62Vj9KlDW/g2YbNj73dSar7sZor
-	Lalym6dR+k04Z8y/YiYW1TKtaKYCSHw8QkHRYjo8Tdd4ZZV+YIE/S2VHOdNo6IMp
-	Z1kBRS94su8sb72OzoxxZQuCPo8irGFKsthakuC3qSU4fnAaIq/6lBOlIe4lj5le
-	uqmU2YzZXlg34GD8AxHkIBUzub0qWgTia98RBKzwE2Iz+p4RVnYEoo8Ig==
-X-ME-Sender: <xms:8fo3ZIGGcweoBIf29WNloFKKsICMp7uD7W3WGDtwvAzEbureoRK3kQ>
-    <xme:8fo3ZBVH6htlD2rv7m0KIlRDqt5H_xpJqhWk8H5XXhJ6hTi8Y46KqzYekT6ZEcvP-
-    iySV_XAsUXsef2fpLI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvdekkedgheekucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:8fo3ZCJ6WRNY0qBjN-s19TED1hDYTi9JrZ1EWdX72x5Uz5tiomDupw>
-    <xmx:8fo3ZKH4DvlQ_zzGPiQu2mlSLPVJsJocFs7o5u97ykj5S3RFQKqVIQ>
-    <xmx:8fo3ZOVGcI2r7KyDnkTbNlptbOhRxQn3piCwIrpYa2EmmVt1L7apJg>
-    <xmx:8vo3ZLLx-tSRguyqR96OdIBkL35NPK3OPhvrjBvWAq6rBkTuILKinq3Ygk0>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 3A89EB60086; Thu, 13 Apr 2023 08:52:01 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-334-g8c072af647-fm-20230330.001-g8c072af6
-Mime-Version: 1.0
-Message-Id: <66899d69-1339-4a61-8612-6f8e452b0b26@app.fastmail.com>
-In-Reply-To:  <OS0PR01MB5922EDAFCD6DA0313DB99C5E86989@OS0PR01MB5922.jpnprd01.prod.outlook.com>
-References: <20230327121317.4081816-1-arnd@kernel.org>
- <20230327121317.4081816-22-arnd@kernel.org>
- <OS0PR01MB5922EDAFCD6DA0313DB99C5E86989@OS0PR01MB5922.jpnprd01.prod.outlook.com>
-Date: Thu, 13 Apr 2023 14:51:40 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Arnd Bergmann" <arnd@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "Vineet Gupta" <vgupta@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
- "Brian Cain" <bcain@quicinc.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Dinh Nguyen" <dinguyen@kernel.org>, "Stafford Horne" <shorne@gmail.com>,
- "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- "Max Filippov" <jcmvbkbc@gmail.com>, "Christoph Hellwig" <hch@lst.de>,
- "Robin Murphy" <robin.murphy@arm.com>, "Lad,
- Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-oxnas@groups.io" <linux-oxnas@groups.io>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>
-Subject: Re: [PATCH 21/21] dma-mapping: replace custom code with generic implementation
+	id 1pmx4a-006HUP-2Q;
+	Thu, 13 Apr 2023 13:33:12 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pmx4V-006HOm-15
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Apr 2023 13:33:11 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7C5D124E1CE;
+	Thu, 13 Apr 2023 21:32:11 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 13 Apr
+ 2023 21:32:11 +0800
+Received: from [192.168.125.131] (183.27.97.249) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 13 Apr
+ 2023 21:32:10 +0800
+Message-ID: <4ed4d0e6-8da5-7eef-8713-44854b8d4a9b@starfivetech.com>
+Date: Thu, 13 Apr 2023 21:31:12 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v4 07/10] clk: starfive: Add StarFive JH7110 Video-Output
+ clock driver
+Content-Language: en-US
+To: Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor@kernel.org>, "Emil
+ Renner Berthing" <kernel@esmil.dk>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
+	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
+References: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
+ <20230411135558.44282-8-xingyu.wu@starfivetech.com>
+ <683cbe934d1df9436e003466d2a419ef.sboyd@kernel.org>
+ <463ee23c-f617-bed0-27a8-56c6fb40d092@starfivetech.com>
+ <cd4a11ae65e186799145410969d40421.sboyd@kernel.org>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <cd4a11ae65e186799145410969d40421.sboyd@kernel.org>
+X-Originating-IP: [183.27.97.249]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_055212_682367_9A472630 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230413_063307_906071_32E6F9BA 
+X-CRM114-Status: GOOD (  34.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,19 +85,226 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 13, 2023, at 14:13, Biju Das wrote:
-> Hi all,
->
-> FYI, this patch breaks on RZ/G2L SMARC EVK board and Arnd will send V2 
-> for fixing this issue.
->
-> [10:53] <biju> [    3.384408] Unable to handle kernel paging request at 
-> virtual address 000000004afb0080
+On 2023/4/13 12:04, Stephen Boyd wrote:
+> Quoting Xingyu Wu (2023-04-11 23:15:26)
+>> On 2023/4/12 2:33, Stephen Boyd wrote:
+>> > Quoting Xingyu Wu (2023-04-11 06:55:55)
+>> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
+>> >> new file mode 100644
+>> >> index 000000000000..4c6f5ae198cf
+>> >> --- /dev/null
+>> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
+>> >> @@ -0,0 +1,239 @@
+>> >> +// SPDX-License-Identifier: GPL-2.0
+>> >> +/*
+>> >> + * StarFive JH7110 Video-Output Clock Driver
+>> >> + *
+>> >> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>> >> + */
+>> >> +
+>> >> +#include <linux/clk.h>
+>> >> +#include <linux/clk-provider.h>
+>> >> +#include <linux/io.h>
+>> >> +#include <linux/platform_device.h>
+>> >> +#include <linux/pm_runtime.h>
+>> >> +#include <linux/reset.h>
+>> > 
+>> > Include module.h, device.h, and kernel.h for things like ERR_PTR().
+>> 
+>> The local headfile 'clk-starfive-jh71x0.h' from the basic JH71x0 clock driver
+>> already includes the device.h. 
+>> And I found the module.h is included in device/driver.h file and then it is included
+>> in the device.h file.
+>> The kernel.h is included in the clk.h file.
+>> So do I still need to list them?
+> 
+> Yes.
 
-Right, sorry about this, I accidentally removed the 'phys_to_virt()'
-conversion on arm64.
+OK, will fix.
 
-     Arnd
+> 
+>> 
+>> > Probably need to include a reset header as well for reset APIs.
+>> 
+>> The reset APIs like devm_reset_control_get_shared() and reset_control_deassert()
+>> come from the reset.h file and I have included it.
+> 
+> Cool, I missed it.
+> 
+>> 
+>> > 
+>> >> +
+>> >> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
+>> >> +
+>> >> +#include "clk-starfive-jh7110.h"
+>> >> +
+>> >> +/* external clocks */
+>> >> +#define JH7110_VOUTCLK_VOUT_SRC                        (JH7110_VOUTCLK_END + 0)
+>> >> +#define JH7110_VOUTCLK_VOUT_TOP_AHB            (JH7110_VOUTCLK_END + 1)
+>> >> +#define JH7110_VOUTCLK_VOUT_TOP_AXI            (JH7110_VOUTCLK_END + 2)
+>> >> +#define JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK   (JH7110_VOUTCLK_END + 3)
+>> >> +#define JH7110_VOUTCLK_I2STX0_BCLK             (JH7110_VOUTCLK_END + 4)
+>> >> +#define JH7110_VOUTCLK_HDMITX0_PIXELCLK                (JH7110_VOUTCLK_END + 5)
+>> >> +#define JH7110_VOUTCLK_EXT_END                 (JH7110_VOUTCLK_END + 6)
+>> >> +
+>> >> +/* VOUT domian clocks */
+>> >> +struct vout_top_crg {
+>> >> +       struct clk_bulk_data *top_clks;
+>> >> +       int top_clks_num;
+>> > 
+>> > size_t?
+>> 
+>> Will modify to 'unsigned int'.
+> 
+> Why not size_t?
+
+OK,I will use size_t. 
+
+> 
+>> 
+>> > 
+>> >> +       if (ret < 0)
+>> >> +               return dev_err_probe(priv->dev, ret, "failed to turn on power\n");
+>> >> +
+>> >> +       ret = jh7110_vout_top_crg_init(priv, top);
+>> >> +       if (ret)
+>> >> +               goto err_clk;
+>> >> +
+>> >> +       top->base = priv->base;
+>> >> +       dev_set_drvdata(priv->dev, (void *)(&top->base));
+>> > 
+>> > See comment later about setting this to 'top' instead. Casting away
+>> > iomem markings is not good hygiene.
+>> 
+>> JH7110 resets as the auxiliary device of clocks use the same iomem as the clocks
+>> and the iomem will be got by dev_get_drvdata() in the 7110 reset drivers when registering reset.
+>> So I follow the basic 7110 reset driver and also set the iomem not top_crg struct.
+> 
+> Oh I totally missed that this is how it's been done for the other
+> starfive driver. It's still not good hygiene to stash the iomem pointer
+> that way because the iomem marking is lost and has to be recovered. Can
+> you make a wrapper struct, either for the adev or to pass in struct
+> device::platform_data?
+> 
+> ---8<---
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> index 5ec210644e1d..851b93d0f371 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> @@ -11,6 +11,9 @@
+>  #include <linux/init.h>
+>  #include <linux/io.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +
+> +#include <soc/starfive/reset-starfive-jh71x0.h>
+>  
+>  #include <dt-bindings/clock/starfive,jh7110-crg.h>
+>  
+> @@ -335,26 +338,32 @@ static void jh7110_reset_unregister_adev(void *_adev)
+>  	struct auxiliary_device *adev = _adev;
+>  
+>  	auxiliary_device_delete(adev);
+> +	auxiliary_device_uninit(adev);
+>  }
+>  
+>  static void jh7110_reset_adev_release(struct device *dev)
+>  {
+>  	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+> +	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
+>  
+> -	auxiliary_device_uninit(adev);
+> +	kfree(rdev);
+>  }
+>  
+>  int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
+>  				     const char *adev_name,
+>  				     u32 adev_id)
+>  {
+> +	struct jh71x0_reset_adev *rdev;
+>  	struct auxiliary_device *adev;
+>  	int ret;
+>  
+> -	adev = devm_kzalloc(priv->dev, sizeof(*adev), GFP_KERNEL);
+> -	if (!adev)
+> +	rdev = kzalloc(sizeof(*rdev), GFP_KERNEL);
+
+Can there use 'devm_kzalloc'? Are you not using this because the struct is public and clock driver
+and reset driver both use it. But I think the both clock driver and reset driver are the same
+device and can use 'devm_kzalloc'.
+
+> +	if (!rdev)
+>  		return -ENOMEM;
+>  
+> +	rdev->base = priv->base;
+> +
+> +	adev = &rdev->adev;
+>  	adev->name = adev_name;
+>  	adev->dev.parent = priv->dev;
+>  	adev->dev.release = jh7110_reset_adev_release;
+> diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
+> index c1b3a490d951..2d26ae95c8cc 100644
+> --- a/drivers/reset/starfive/reset-starfive-jh7110.c
+> +++ b/drivers/reset/starfive/reset-starfive-jh7110.c
+> @@ -7,6 +7,8 @@
+>  
+>  #include <linux/auxiliary_bus.h>
+>  
+> +#include <soc/starfive/reset-starfive-jh71x0.h>
+> +
+>  #include "reset-starfive-jh71x0.h"
+>  
+>  #include <dt-bindings/reset/starfive,jh7110-crg.h>
+> @@ -33,14 +35,15 @@ static int jh7110_reset_probe(struct auxiliary_device *adev,
+>  			      const struct auxiliary_device_id *id)
+>  {
+>  	struct jh7110_reset_info *info = (struct jh7110_reset_info *)(id->driver_data);
+> -	void __iomem **base = (void __iomem **)dev_get_drvdata(adev->dev.parent);
+> +	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
+> +	void __iomem *base = rdev->base;
+>  
+>  	if (!info || !base)
+>  		return -ENODEV;
+>  
+>  	return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
+> -					      *base + info->assert_offset,
+> -					      *base + info->status_offset,
+> +					      base + info->assert_offset,
+> +					      base + info->status_offset,
+>  					      NULL,
+>  					      info->nr_resets,
+>  					      NULL);
+> diff --git a/include/soc/starfive/reset-starfive-jh71x0.h b/include/soc/starfive/reset-starfive-jh71x0.h
+> new file mode 100644
+> index 000000000000..47b486ececc5
+> --- /dev/null
+> +++ b/include/soc/starfive/reset-starfive-jh71x0.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __SOC_STARFIVE_RESET_JH71X0_H
+> +#define __SOC_STARFIVE_RESET_JH71X0_H
+> +
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/compiler_types.h>
+> +#include <linux/container_of.h>
+> +
+> +struct jh71x0_reset_adev {
+> +	void __iomem *base;
+> +	struct auxiliary_device adev;
+> +};
+> +
+> +#define to_jh71x0_reset_adev(_adev) \
+> +	container_of((_adev), struct jh71x0_reset_adev, adev)
+> +
+> +#endif
+
+That's great. It don't need to set iomem to driver_data and I can set the struct data like 'top_crg'
+to driver_data in VOUTCRG and ISPCRG driver. I try to modify it in next patchset.
+Thanks for your suggestion.
+
+Best regards,
+Xingyu Wu
+
 
 _______________________________________________
 linux-riscv mailing list
