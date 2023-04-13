@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB66AC77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 10:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAEBC77B6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Apr 2023 10:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0MgZ/x+WT3VUnkE6t0Eyl26gPt99yr5cDgohQHENjMI=; b=tUya25Vb3N1Huu
-	ld4dD+1S3nONkNdtdZTxDCqWqtOMDKv7fw+g4CtxQULA3bzGnc/4ZYn/Wo3m2ihtI455yZAMkkwDD
-	W0v1LSWuMmdZxqRSG1Z/SheUOFe1S/Jp9SpABkXs2ROdTVeURGmZYGr0YnvAPWFUPrZJ7vwUbLAfa
-	RFGznhnS6+rs6C9OBiva7yJn7eQlZFaC69z/cw/2Cgnu/pguPdPGwWj50B4RswYVvKhp7+1JCEM/o
-	pirA6hkqa2DZ7yua5aPsP7oQ24M7E8CJCulC1jYfNMAhipWg1GIbhdVcp4prY0KtnaJJ4msbGckgh
-	EHOrBqA30k6qGbbh1+sg==;
+	List-Owner; bh=0dbRqeKctMVcWrHZlNvlF9YWV/kS7tIy/x6WxBLsRRw=; b=JyBXhNb/wNyfQo
+	ugjLVCtJQkNlUuUB/0/0mkGGGfT+y2DVfZAfJQt8/m4jSTZFHo86t4xlVgEFjDpOD2qeHBrH5zh2J
+	eP9Iq/vWZVROeASL1lhCt2kB0zR+yEm8E7W1Djorg5fdzgg8uZhNUNJx5qqTokCH0pepsb7IUhsTt
+	+0Ycip4ihD8FnMVXJMaAMWJcSz3wlqsZWksMibqIM2QkdOlKruhZvf3S7MBvTQRLMms4EgXV+PMEs
+	4JolHjZF0EXT4QQKVAEdQLmOBhf8WMwZ6IUjVTvAMCjzG6jHkQAEHkADRIx+DuCkzlLtSkRD7m4mi
+	GVwkAFL8DgV5yEhAkMgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmuQE-005uCs-2j;
-	Thu, 13 Apr 2023 10:43:22 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pmuRz-005uQh-1P;
+	Thu, 13 Apr 2023 10:45:11 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pmuQ8-005trP-2z;
-	Thu, 13 Apr 2023 10:43:20 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pmuRs-005uOi-25;
+	Thu, 13 Apr 2023 10:45:09 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6A80224E2AE;
-	Thu, 13 Apr 2023 18:42:30 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 13 Apr
- 2023 18:42:30 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id CC2F024E2AC;
+	Thu, 13 Apr 2023 18:44:32 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 13 Apr
+ 2023 18:44:32 +0800
 Received: from [192.168.125.108] (183.27.97.249) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 13 Apr
- 2023 18:42:29 +0800
-Message-ID: <fc30ac6c-7103-f601-429f-c9a180869284@starfivetech.com>
-Date: Thu, 13 Apr 2023 18:42:28 +0800
+ 2023 18:44:31 +0800
+Message-ID: <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
+Date: Thu, 13 Apr 2023 18:44:31 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.1
-Subject: Re: [PATCH v4 5/7] dt-bindings: usb: Add StarFive JH7110 USB Bindings
- YAML schemas
+Subject: Re: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
 Content-Language: en-US
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, "Vinod
@@ -59,17 +58,16 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	"Mason Huo" <mason.huo@starfivetech.com>
 References: <20230406015216.27034-1-minda.chen@starfivetech.com>
- <20230406015216.27034-6-minda.chen@starfivetech.com>
- <a22dff0a-56e6-be1b-10b2-ce3b31f420c5@linaro.org>
+ <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
 From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <a22dff0a-56e6-be1b-10b2-ce3b31f420c5@linaro.org>
+In-Reply-To: <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
 X-Originating-IP: [183.27.97.249]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_034317_302475_2B190016 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20230413_034505_034881_C74CD92E 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,127 +86,132 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/12 16:32, Krzysztof Kozlowski wrote:
+On 2023/4/12 16:26, Krzysztof Kozlowski wrote:
 > On 06/04/2023 03:52, Minda Chen wrote:
->> StarFive JH7110 platforms USB have a wrapper module around
->> the Cadence USBSS-DRD controller. Add binding information doc
->> for that.
-> 
-> That's one of the most redundant subjects I saw. You basically used four
-> words for one meaning. These are not exactly synonyms, but they all are
-> either imprecise or meaning the same.
-> 
-> Subject: drop second/last, redundant "Bindings YAML schemas". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> 
-> 
-ok
-> 
+>> This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+>> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+>> The patch has been tested on the VisionFive 2 board.
 >> 
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> Reviewed-by: Peter Chen <peter.chen@kernel.org>
+>> This patchset should be applied after the patchset [1], [2] and[3]:
+>> [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+>> [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+>> [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+>> 
+>> This patchset is base on v6.3-rc4
+>> 
+>> patch 1 is usb phy dt-binding document.
+>> patch 2 is Pcie PHY dt-binding document.
+>> patch 3 is USB 2.0 PHY driver.
+>> patch 4 is PCIe PHY driver.
+>> patch 5 is usb dt-binding document.
+>> patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+>> patch 7 is USB device tree configuration.
+>> 
+>> previous version
 >> ---
->>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 ++++++++++++++++++
->>  1 file changed, 136 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+>> v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+>> v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+> 
+> This is v2.
+> 
+>> v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
 >> 
->> diff --git a/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml b/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
->> new file mode 100644
->> index 000000000000..c8b30b583854
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
->> @@ -0,0 +1,136 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/usb/starfive,jh7110-usb.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 wrapper module for the Cadence USBSS-DRD controller
+>> changes
+>> v4:
+>>   1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
+>>   2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
+>>   3. (patch 3)
+>>      - split PCIe PHY driver to patch 4.
+>>      - replace dr_mode to phy mode in jh7110_usb2_phy.
+>>   4. (patch 4) 
+>>      - Makefile and Kconfig sorted by alphabet sequence.
+>>      - Add PCIe PHY stg and syscon PHY connection configuration
+>>        for USB 3.0.
+>>   5. (patch 5)
+>>      - commit message changed.
+>>      - merge wrapper dts node and cdns3 node in example.
+>>      - Add interrupts, reg, phy and dr_mode in property.
+>>      - Add reset-name in property example.
+>>   6. (patch 6)
+>>      - For dts node is merged, Using platform_device_alloc and
+>>        platform_device_add to generate cadence sub device.
+>>      - IOMEM and IRQ resource are passed to Cadence sub device.
+>>      - Add PHY ops process for PHY dts setting can not be passed to
+>>        Cadence USB driver.
+>>      - remove the stg and sys USB 3.0 PHY configuration.
+>>      - Change the suspend clock reset and clock enable sequence.
+>>      - Get all reset and clock resources before enable them in 
+>>        cdns_clk_rst_init.
+>>      - commit message changed.
+>>   7. (patch 7)
+>>      - merge wrapper dts node and cdns3 node in usb dts.
+>>      - move the stg and sys USB 3.0 PHY confiuration to
+>>        PCIe PHY dts node.
+>>      - commit message changed.
+>>      - Add reset-names dts.
+>> 
+>> v3:
+>>   1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
+>>      USB PHY codes are moved to patch 3 and patch 4.
+>>   2. (patch 5)
+>>      - USB wrapper module dts document is moved to usb directory.
+>>      - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+>>      - Some dts format changes. dts binding check pass.
+>>   3. (patch 6)
+>>      - Remove the PHY codes. 
+>>      - Search 'dr_mode' and phy setting from Cadence subnode.
+>>   4. (patch 7)
+>>      - Add USB PHY dts configurion. 
+>>      - 'dr_mode' is moved to Cadence controller submode.
+>> 
+>> v2:
+>>   1. (patch 5) dt-binding changes. The document example is the same as dts config.
+>>   2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+>>   3. (patch 7) dts nodes sorted by the address after @
+>> 
+>> 
+>> Minda Chen (7):
+>>   dt-bindings: phy: Add StarFive JH7110 USB document
+>>   dt-bindings: phy: Add StarFive JH7110 PCIe document
+>>   phy: starfive: add JH7110 USB 2.0 PHY driver.
+>>   phy: starfive: add JH7110 PCIE 2.0 PHY driver.
+>>   dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
+>>   usb: cdns3: add StarFive JH7110 USB driver.
+>>   riscv: dts: starfive: add USB dts configuration for JH7110
+>> 
+>>  .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
+>>  .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
+>>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
+>>  MAINTAINERS                                   |  16 +
+>>  .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
+>>  drivers/phy/starfive/Kconfig                  |  22 +
+>>  drivers/phy/starfive/Makefile                 |   2 +
+>>  drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
+>>  drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
+>>  drivers/usb/cdns3/Kconfig                     |  11 +
+>>  drivers/usb/cdns3/Makefile                    |   1 +
+>>  drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
+>>  drivers/usb/cdns3/core.h                      |   3 +
+>>  14 files changed, 1086 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+>>  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+>>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+>>  create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+>> 
+>> 
+>> base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
+>> prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
+>> prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
 > 
-> What do you wrap here? Are you sure this is a wrapper? I think this is
-> just USB controller?
+> fatal: bad object 55390537360f25c8b9cbfdc30b73ade004f436f7
 > 
-Since the previous version is wrapper module. I forgot change this.
-I will change to "StarFive JH7110 Cadence USBSS-DRD SoC controller"
->> +
->> +maintainers:
->> +  - Minda Chen <minda.chen@starfivetech.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-usb
->> +
->> +  reg:
->> +    items:
->> +      - description: OTG controller registers
->> +      - description: XHCI Host controller registers
->> +      - description: DEVICE controller registers
->> +
->> +  reg-names:
->> +    items:
->> +      - const: otg
->> +      - const: xhci
->> +      - const: dev
->> +
->> +  interrupts:
->> +    items:
->> +      - description: XHCI host controller interrupt
->> +      - description: Device controller interrupt
->> +      - description: OTG/DRD controller interrupt
->> +
->> +  interrupt-names:
->> +    items:
->> +      - const: host
->> +      - const: peripheral
->> +      - const: otg
->> +
->> +  clocks:
->> +    items:
->> +      - description: lpm clock
->> +      - description: stb clock
->> +      - description: apb clock
->> +      - description: axi clock
->> +      - description: utmi apb clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: lpm
->> +      - const: stb
->> +      - const: apb
->> +      - const: axi
->> +      - const: utmi_apb
->> +
->> +  resets:
->> +    items:
->> +      - description: PWRUP reset
->> +      - description: APB clock reset
->> +      - description: AXI clock reset
->> +      - description: UTMI_APB clock reset
->> +
->> +  reset-names:
->> +    items:
->> +      - const: pwrup
->> +      - const: apb
->> +      - const: axi
->> +      - const: utmi
->> +
->> +  starfive,stg-syscon:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    items:
->> +      items:
+> What commits do you reference? How are they helpful?
 > 
-> Same problem as for other patches.
-> 
-I am sorry about this. I should change this in this version.
-PCIe PHY dt-binding doc will be also changed. 
->> +        - description: phandle to System Register Controller stg_syscon node.
->> +        - description: register offset of STG_SYSCONSAIF__SYSCFG register for USB.
->> +    description:
->> +      The phandle to System Register Controller syscon node and the offset
->> +      of STG_SYSCONSAIF__SYSCFG register for USB.
->> +
-> 
+I use "git format-patch --base=(commit) to generate patchset.
+Maybe I set the wrong base commit.
 > 
 > Best regards,
 > Krzysztof
