@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF8BC77B72
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 14:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA3EC77B71
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 15:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+BIHhGU0THgYPLrFJm+lE/0l/wOTn40SzCcZikLL/Ok=; b=r8Tr+Wlr5Xato9
-	nZHpRAXArRWb4U0YeDOAVcPoEpWazonWyNVchH8Wslrdd+ObcoK8c1pIKzo/TXV4jRyWcva/w4cR0
-	pB2DOy/eyOqQjNpwS5hvZl/Umqd0QzblF1D965gEENGUPzcWBLvz7lbk/VGpm4KOVOpvWGi++4giW
-	gnFxghadwcFfm+TnjSGDma3iHuMD/YmCYdJRoS3bU1D2jeYoVshXWjVoGarkZyqksj6RLzibRtGGM
-	V3/KTQJfHhpACfuQw+Vbq3iK378e7fmp8Y640XhOYFUnU4nma7/R5BA+PUGHHnFiUDjfCXBPG13Me
-	P9y48N0ZO6s35ePuqcFg==;
+	List-Owner; bh=4ZXS9uvcpY1q7KRyO73Yogn5yL2xxkeXDL0Xqcae/gY=; b=fLM5qTdzN3sXWU
+	nnX0cqb/5x2h8eiYYLfM55nBx1I5gEjgWJNfvNnZWh/hKd4zuLIGTFwIzbWXqJLmys63lcZu+Jymq
+	V4sgnJXLnrCP8E7jwCyotG9u41fJz6pH3eGPLu3jIgUn9QJfYaUuUmLlhqt/9AqsEtkLQKhtoFKhY
+	DVzAdtn3mcO/rGn33hO0qEGPUdJJ+zRWzqAFO5nXAn/3qY4416y7NKejdzoTlcV+WFFzXfWTi8VwW
+	JIWJCa0MYQQwvcH/uZUBrQkjKR6zFd7SYAX8h8flglQvHviL9L4KR3s5Y3gOls1i3Qls3BsP5n9P4
+	o6OyJgdkNNDo7R/C8Gaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnKi7-009roQ-00;
-	Fri, 14 Apr 2023 14:47:35 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1pnLpF-00A1SR-1N;
+	Fri, 14 Apr 2023 15:59:01 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnKi1-009rnj-1e
+	id 1pnLpB-00A1Ql-0w
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 14:47:33 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id c3so19462780pjg.1
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 07:47:28 -0700 (PDT)
+	Fri, 14 Apr 2023 15:58:59 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id kh6so17135866plb.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 08:58:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681483648; x=1684075648;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pZbO6NJvOaVKStbJdlSYehHBXU3D/5oXOhDJfErNUXU=;
-        b=B2OR8p6sMCHYYYNwmlX2klbKphFqo/sC0AVIJ8XuBRD7NXow4x7Pa6OoQaWnDubodt
-         aKFeUXCKIXaWRFDkkz8ccltI1xXH0EwRonQ3sBao8ytBQ8QYwnVvOPwYSJIy1D2xf6S/
-         7lOIIEVtHPKu1K920NXEmXQMzUkXdvIvMbEv+DVsG4Ix8UOww65npZVdjfqP70qHHAae
-         JOzAK8/AVBT5l1QgtCYPU1wf8AqCc0P57bmF7Cjp3DonXZGPRAVc3aFM9P8FOkiFIAiB
-         wzUeAOUnD8QEYtzoP0wyX/QL11RXxSQkpbb5f+AJ98elhvMVgNYZvXM6BbkGqXBL+S97
-         xR2w==
+        d=sifive.com; s=google; t=1681487934; x=1684079934;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kQTN5TDDgYmrDFBT5h4Y0JZJSw6ynT1QEMNwRDNozwA=;
+        b=QsRX2N0BEBnStGPpZ2E55kHq0mp8KwWRq4lVSCdeegl04fhbKnC+6/jv3qn8eynBBI
+         kZfiyYdmS6HPY/l71MvtyU8h+dviNlcSvTAbITK6yYcTKDCMAgQ8F71wkIN9DyY4WbQA
+         etmEnhMAQYKLIccQPDE5SH9pqY/eyouo1NNexDcKjlz8bZUqEoXmwH9HC9ZRliWtJRkN
+         GvxyE7pC/sqqwUgKrSW7IVET7Va2nNOjjs9X75xMA9jIlty9YJqK7/Ejij/pru3j9ZdR
+         wId+c+TuDT0e5VDvY2z5BJ/GHB/GkufBzoVnHZGhMvhqn8s0r8Eo5VHhjozxYg7QYUGl
+         jlAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681483648; x=1684075648;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pZbO6NJvOaVKStbJdlSYehHBXU3D/5oXOhDJfErNUXU=;
-        b=HN9UYS+O2BFDgsNBCMsflnvqtWLG6CK4cWqWQ+8ZFR9hw/z+sGdOiJErA00C5fco7s
-         P94eUko8JzF/iL+LTqP2yP0K0jkPMh6fVHMlNTYiOHnCfDxNf+p0fEQaNTgJOE5E4K2m
-         WawaCAjWwj1Gb3ccPg/gCSwylFmEh3GBC8AefpT4vaF+nWsTJoz5a1rsRaub79CL1myP
-         pRWj8OHHgevrOmOjXzHLQO2XVaJ/XV448HcVayRvz488U/J0gVa67yJHOR4DdBoVqmTJ
-         +1VmbGOAOiyVzQoJN3KO6Aj9+JBHBxcFe5FKMlaRICreKJJ9iP27A69tIEOBA9sirG5X
-         rAnQ==
-X-Gm-Message-State: AAQBX9c1PMcrKzYj7sUnWuQ/lConoShp1dO5Ubaw0kCgPi+Bp6pQIOWZ
-	4/r7UWI49OhdlamrrS9eYUEq58HODJvlQ0FOIE0=
-X-Google-Smtp-Source: AKy350YmRtd9NZMIKh9Bj3HvlXdM2jGfwYuKLX51qEHSQC0AHcCDL/gTNhbRnWCQZnk7w1S/VOOgLA==
-X-Received: by 2002:a05:6a20:748b:b0:ee:a720:c721 with SMTP id p11-20020a056a20748b00b000eea720c721mr153368pzd.16.1681483647731;
-        Fri, 14 Apr 2023 07:47:27 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id u13-20020aa7848d000000b0063b212638bdsm3111076pfn.220.2023.04.14.07.47.26
+        d=1e100.net; s=20221208; t=1681487934; x=1684079934;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kQTN5TDDgYmrDFBT5h4Y0JZJSw6ynT1QEMNwRDNozwA=;
+        b=TarJYg2F09i5QSLqA/aOvPE1pS9cIJdV2ihTflcNLK2C8n0ZDg+ArBYVgSpY3di/N8
+         o0G0LyfEIHqXP2WeFNdiD/x1syo98MWiGJRlncsW/f2Yqj/ARv/Onjkm/Fh5Zezb4g+I
+         7+zowkrYRPY5WRw6rP9F2R3+evNI0LF32eLUuusGshoJOEqFQ65N7cUzmA4ALWMjojlJ
+         2htNB6TUKhYxS/W6CknYs5T9bMMCj6wSgANU33t6OPzEuPEbA56Sw5+TXJDQ4qlxGlZ+
+         p3A76ueNf5Kocht1qvv86su/lfFc5Tz4eVAc5pGBhLavdbl7lGiMbGI1MT+GRdpFHxy3
+         rtbw==
+X-Gm-Message-State: AAQBX9dvs26nkknjoy5ELipJ/Q3ZXXRgI9+v+/mN0xQxn2Gk1g4v+LsE
+	GDmJvW5DXzHOZzbJBz+vSg0iA7boZ1XLsqR4CXx/9WUGjcRjMsQGB3WGR6qdrS1AebmSxsRji+u
+	epPg7zxNy31ehEPFlkiw6p1L30FmI4F8xcRdY+qy0atEnMNdOP+x+nYcY2um3yjMDnCG3UjIZ3t
+	74MfN1DD6hZRPX
+X-Google-Smtp-Source: AKy350ZdaYpNHVboRqmZmL1t3PFvtI5TcfdiEqKoDxd+QcyqGhrpOx+e7yHhVUnnjZKJtxH3h/xaaA==
+X-Received: by 2002:a17:902:d40c:b0:1a6:712c:24c5 with SMTP id b12-20020a170902d40c00b001a6712c24c5mr2753876ple.69.1681487934269;
+        Fri, 14 Apr 2023 08:58:54 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.08.58.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Apr 2023 07:47:26 -0700 (PDT)
-Date: Fri, 14 Apr 2023 07:47:26 -0700 (PDT)
-X-Google-Original-Date: Fri, 14 Apr 2023 07:45:54 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.3-rc7
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-f47ee915-bbee-4c49-92ea-1d598355a0f3@palmer-ri-x1c9>
+        Fri, 14 Apr 2023 08:58:53 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>
+Subject: [PATCH -next v18 00/20] riscv: Add vector ISA support
+Date: Fri, 14 Apr 2023 15:58:23 +0000
+Message-Id: <20230414155843.12963-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_074729_767506_195401C6 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230414_085857_329860_BF115833 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +98,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 4622f159098e098611f393cccf73d52b007e70bc:
+This patchset is implemented based on vector 1.0 spec to add vector support
+in riscv Linux kernel. There are some assumptions for this implementations.
 
-  Merge patch series "RISC-V: Fixes for riscv_has_extension[un]likely()'s alternative dependency" (2023-03-29 12:23:00 -0700)
+1. We assume all harts has the same ISA in the system.
+2. We disable vector in both kernel and user space [1] by default. Only
+   enable an user's vector after an illegal instruction trap where it
+   actually starts executing vector (the first-use trap [2]).
+3. We detect "riscv,isa" to determine whether vector is support or not.
 
-are available in the Git repository at:
+We defined a new structure __riscv_v_ext_state in struct thread_struct to
+save/restore the vector related registers. It is used for both kernel space
+and user space.
+ - In kernel space, the datap pointer in __riscv_v_ext_state will be
+   allocated to save vector registers.
+ - In user space,
+	- In signal handler of user space, the structure is placed
+	  right after __riscv_ctx_hdr, which is embedded in fp reserved
+	  aera. This is required to avoid ABI break [2]. And datap points
+	  to the end of __riscv_v_ext_state.
+	- In ptrace, the data will be put in ubuf in which we use
+	  riscv_vr_get()/riscv_vr_set() to get or set the
+	  __riscv_v_ext_state data structure from/to it, datap pointer
+	  would be zeroed and vector registers will be copied to the
+	  address right after the __riscv_v_ext_state structure in ubuf.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.3-rc7
+This patchset is rebased to v6.3-rc1 and it is tested by running several
+vector programs simultaneously. It delivers signals correctly in a test
+where we can see a valid ucontext_t in a signal handler, and a correct V
+context returing back from it. And the ptrace interface is tested by
+PTRACE_{GET,SET}REGSET. Lastly, KVM is tested by running above tests in
+a guest using the same kernel image. All tests are done on an rv64gcv
+virt QEMU.
 
-for you to fetch changes up to 1b50f956c8fe9082bdee4a9cfd798149c52f7043:
+Note: please apply the patch at [4] due to a regression introduced by
+commit 596ff4a09b89 ("cpumask: re-introduce constant-sized cpumask
+optimizations") before testing the series.
 
-  riscv: No need to relocate the dtb as it lies in the fixmap region (2023-04-13 18:14:40 -0700)
+Source tree:
+https://github.com/sifive/riscv-linux/tree/riscv/for-next/vector-v18
 
-----------------------------------------------------------------
-RISC-V Fixes for 6.3-rc7
+Updated patches: 7, 10, 11
+New patches: (none)
+Unchanged patches: 1, 2, 3, 4, 5, 6, 8, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20
 
-* A fix for a missing fence when generating the NOMMU sigreturn
-  trampoline.
-* A set of fixes for early DTB handling of reserved memory nodes.
+Thanks in advance for your kind feedback!
+Regards,
+Andy Chiu
 
-----------------------------------------------------------------
-Alexandre Ghiti (3):
-      riscv: Move early dtb mapping into the fixmap region
-      riscv: Do not set initial_boot_params to the linear address of the dtb
-      riscv: No need to relocate the dtb as it lies in the fixmap region
+Links:
+ - [1] https://lore.kernel.org/all/20220921214439.1491510-17-stillson@rivosinc.com/
+ - [2] https://lore.kernel.org/all/73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com/T/#u
+ - [3] https://lore.kernel.org/all/20230128082847.3055316-1-apatel@ventanamicro.com/
+ - [4] https://lore.kernel.org/all/CAHk-=wiAxtKyxs6BPEzirrXw1kXJ-7ZyGpgOrbzhmC=ud-6jBA@mail.gmail.com/
 
-Mathis Salmen (1):
-      riscv: add icache flush for nommu sigreturn trampoline
+---
+Changelog V18
+ - Rebase to the latest -next branch (at 9c2598d)
+ - patch 7: Detect inconsistent VLEN setup on an SMP system (Heiko).
+ - patch 10: Add blank lines (Heiko)
+ - patch 10: Return immediately in insn_is_vector() if an insn matches (Heiko)
+ - patch 11: Use sizeof(vstate->datap) instead of sizeof(void*) (Eike)
 
- Documentation/riscv/vm-layout.rst |  6 +--
- arch/riscv/include/asm/fixmap.h   |  8 ++++
- arch/riscv/include/asm/pgtable.h  |  8 +++-
- arch/riscv/kernel/setup.c         |  6 +--
- arch/riscv/kernel/signal.c        |  9 ++++-
- arch/riscv/mm/init.c              | 82 +++++++++++++++++----------------------
- 6 files changed, 62 insertions(+), 57 deletions(-)
+Changelog V17
+ - Rebase to the latest -next branch (at e45d6a5):
+   - Solve conflicts at 9 and 13 due to generic entry
+   - Use generic entry in do_trap_insn_illegal() trap handler
+
+Changelog V16
+ - Rebase to the latest for-next (at 4b74077):
+ - Solve conflicts at 7, and 17
+ - Use as-instr to detect if assembler supports .option arch directive
+   and remove dependency from GAS, for both ZBB and V.
+ - Cleanup code in KVM vector
+ - Address issue reported by sparse
+ - Refine code:
+   - Fix a mixed-use of space/tab
+   - Remove new lines at the end of file
+
+Changelog V15
+ - Rebase to risc-v -next (v6.3-rc1)
+ - Make V depend on FD in Kconfig according to the spec and shut off v
+   properly.
+ - Fix a syntax error for clang build. But mark RISCV_ISA_V GAS only due
+   to https://reviews.llvm.org/D123515
+ - Use scratch reg in inline asm instead of t4.
+ - Refine code.
+ - Cleanup per-patch changelogs.
+
+Changelog V14
+ - Rebase to risc-v -next (v6.2-rc7)
+ - Use TOOLCHAIN_HAS_V to detect if we can enable Vector. And refine
+   KBUILD_CFLAGS to remove v from default compile option.
+ - Drop illegal instruction handling patch in kvm and leave it to a
+   independent series[3]. The series has merged into 6.3-rc1
+ - Move KVM_RISCV_ISA_EXT_V to the end of enum to prevent potential ABI
+   breaks.
+ - Use PT_SIZE_ON_STACK instead of PT_SIZE to fit alignment. Also,
+   remove panic log from v13 (15/19) because it is no longer relevant.
+ - Rewrite insn_is_vector for better structuring (change if-else chain to
+   a switch)
+ - Fix compilation error in the middle of the series
+ - Validate size of the alternative signal frame if V is enabled
+   whenever:
+     - The user call sigaltstack to update altstack
+     - A signal is being delivered
+ - Rename __riscv_v_state to __riscv_v_ext_state.
+ - Add riscv_v_ prefix and rename rvv appropriately
+ - Organize riscv_v_vsize setup code into vector.c
+ - Address the issue mentioned by Heiko on !FPU case
+ - Honor orignal authors that got changed accidentally in v13 4,5,6
+
+Changelog V13
+ - Rebase to latest risc-v next (v6.2-rc1)
+ - vineetg: Re-organize the series to comply with bisect-ability
+ - andy.chiu: Improve task switch with inline assembly
+ - Re-structure the signal frame to avoid user ABI break.
+ - Implemnt first-use trap and drop prctl for per-task V state
+   enablement. Also, redirect this trap from hs to vs for kvm setup.
+ - Do not expose V context in ptrace/sigframe until the task start using
+   V. But still reserve V context for size ofsigframe reported by auxv.
+ - Drop the kernel mode vector and leave it to another (future) series.
+
+Changelog V12 (Chris)
+ - rebases to some point after v5.18-rc6
+ - add prctl to control per-process V state
+
+Chnagelog V10
+ - Rebase to v5.18-rc6
+ - Merge several patches
+ - Refine codes
+ - Fix bugs
+ - Add kvm vector support
+
+Changelog V9
+ - Rebase to v5.15
+ - Merge several patches
+ - Refine codes
+ - Fix a kernel panic issue
+
+Changelog V8
+ - Rebase to v5.14
+ - Refine struct __riscv_v_ext_state with struct __riscv_ctx_hdr
+ - Refine has_vector into a static key
+ - Defined __reserved space in struct sigcontext for vector and future extensions
+
+Changelog V7
+ - Add support for kernel mode vector
+ - Add vector extension XOR implementation
+ - Optimize task switch codes of vector
+ - Allocate space for vector registers in start_thread()
+ - Fix an illegal instruction exception when accessing vlenb
+ - Optimize vector registers initialization
+ - Initialize vector registers with proper vsetvli then it can work normally
+ - Refine ptrace porting due to generic API changed
+ - Code clean up
+
+Changelog V6
+ - Replace vle.v/vse.v instructions with vle8.v/vse8.v based on 0.9 spec
+ - Add comments based on mailinglist feedback
+ - Fix rv32 build error
+
+Changelog V5
+ - Using regset_size() correctly in generic ptrace
+ - Fix the ptrace porting
+ - Fix compile warning
+
+Changelog V4
+ - Support dynamic vlen
+ - Fix bugs: lazy save/resotre, not saving vtype
+ - Update VS bit offset based on latest vector spec
+ - Add new vector csr based on latest vector spec
+ - Code refine and removed unused macros
+
+Changelog V3
+ - Rebase linux-5.6-rc3 and tested with qemu
+ - Seperate patches with Anup's advice
+ - Give out a ABI puzzle with unlimited vlen
+
+Changelog V2
+ - Fixup typo "vecotr, fstate_save->vstate_save".
+ - Fixup wrong saved registers' length in vector.S.
+ - Seperate unrelated patches from this one.
+
+
+*** BLURB HERE ***
+
+Andy Chiu (4):
+  riscv: Allocate user's vector context in the first-use trap
+  riscv: signal: check fp-reserved words unconditionally
+  riscv: signal: validate altstack to reflect Vector
+  riscv: detect assembler support for .option arch
+
+Greentime Hu (9):
+  riscv: Add new csr defines related to vector extension
+  riscv: Clear vector regfile on bootup
+  riscv: Introduce Vector enable/disable helpers
+  riscv: Introduce riscv_v_vsize to record size of Vector context
+  riscv: Introduce struct/helpers to save/restore per-task Vector state
+  riscv: Add task switch support for vector
+  riscv: Add ptrace vector support
+  riscv: signal: Add sigcontext save/restore for vector
+  riscv: prevent stack corruption by reserving task_pt_regs(p) early
+
+Guo Ren (4):
+  riscv: Rename __switch_to_aux() -> fpu
+  riscv: Extending cpufeature.c to detect V-extension
+  riscv: Disable Vector Instructions for kernel itself
+  riscv: Enable Vector code to be built
+
+Vincent Chen (3):
+  riscv: signal: Report signal frame size to userspace via auxv
+  riscv: kvm: Add V extension to KVM ISA
+  riscv: KVM: Add vector lazy save/restore support
+
+ arch/riscv/Kconfig                       |  28 ++-
+ arch/riscv/Makefile                      |   6 +-
+ arch/riscv/include/asm/csr.h             |  18 +-
+ arch/riscv/include/asm/elf.h             |   9 +
+ arch/riscv/include/asm/hwcap.h           |   1 +
+ arch/riscv/include/asm/insn.h            |  29 +++
+ arch/riscv/include/asm/kvm_host.h        |   2 +
+ arch/riscv/include/asm/kvm_vcpu_vector.h |  82 +++++++++
+ arch/riscv/include/asm/processor.h       |   3 +
+ arch/riscv/include/asm/switch_to.h       |   9 +-
+ arch/riscv/include/asm/thread_info.h     |   3 +
+ arch/riscv/include/asm/vector.h          | 180 +++++++++++++++++++
+ arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+ arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+ arch/riscv/include/uapi/asm/kvm.h        |   8 +
+ arch/riscv/include/uapi/asm/ptrace.h     |  39 ++++
+ arch/riscv/include/uapi/asm/sigcontext.h |  16 +-
+ arch/riscv/kernel/Makefile               |   1 +
+ arch/riscv/kernel/cpufeature.c           |  13 ++
+ arch/riscv/kernel/entry.S                |   6 +-
+ arch/riscv/kernel/head.S                 |  41 ++++-
+ arch/riscv/kernel/process.c              |  18 ++
+ arch/riscv/kernel/ptrace.c               |  70 ++++++++
+ arch/riscv/kernel/setup.c                |   3 +
+ arch/riscv/kernel/signal.c               | 220 ++++++++++++++++++++---
+ arch/riscv/kernel/smpboot.c              |   7 +
+ arch/riscv/kernel/traps.c                |  26 ++-
+ arch/riscv/kernel/vector.c               | 127 +++++++++++++
+ arch/riscv/kvm/Makefile                  |   1 +
+ arch/riscv/kvm/vcpu.c                    |  23 +++
+ arch/riscv/kvm/vcpu_vector.c             | 186 +++++++++++++++++++
+ include/uapi/linux/elf.h                 |   1 +
+ 32 files changed, 1129 insertions(+), 49 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
+ create mode 100644 arch/riscv/include/asm/vector.h
+ create mode 100644 arch/riscv/kernel/vector.c
+ create mode 100644 arch/riscv/kvm/vcpu_vector.c
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
