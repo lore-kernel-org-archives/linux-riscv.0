@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A45C77B76
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2584C77B79
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=LLaYDEeoOvSGmLI6mQGLYjTrMATRTM3G/ErW0lcwemo=; b=xxrsu3F9zsbotO
-	RHY/nwJzefDGMVs/RHhb7MHGPDBrqJfrQrPmZHNRRQeWRlmxvjuawNxFsvkxDzuxqF/wwAdTzkIaC
-	xQdH7zNPzKwiZv6fdktV8WnpDBLDjT2pJTLIuv5NXlGpnoj+zm5ROckZJiycY7i6CLScTdtE9S3qC
-	CrDghS6TgOUgaZCUxNaTuD0ECJsCGjmh9B4Sx2EVKpV9VW4uGDgUs8Ptlm0xXPr+kDhKnm9IRIt/m
-	rHp8I2Rjt4kMellgfw0eusHqQ8NHFTN7TW4v1L8k3oADpu5z03MdpPuaoPYkrSAczMgpYHHtKoLMq
-	Hv1ahFfY1OwdsMpU7lUg==;
+	List-Owner; bh=KhoN2TuyJG/L4rB+RrEvurVlxxoy9VHk9M5tvn+70no=; b=sG0V2nA0U0U8vG
+	anzAWoB5nhVxhzNjeaR6wrq+XWr8j1PBjNPX4NGFde4ZAyqtH097NOmSr5tKMOeQK++E6ROtng+Ta
+	oGMopK3bewOlryl2OaiOLBLE9quxM7Sp99iZDBL1ovI3lLj4+EJy7KCXqnHtyafb/CZ/X1eg7E+yM
+	fNq457NeCQcyEIRbJIfbMTio9vHNuzSxvHToCF7SSddj1ANMy6fkw4RFxIXMNMPYOiIPsRLU5z2pd
+	tlhR96GJTfjk9bXzxpiGJHUWwy5vo5U3LzhxwUODXz49Oxsd8g2ox9DoGwtBQjQ9fzokz+yqPz+52
+	gWD5EPaTGyGEocpSHY1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT87-00AmE7-0V;
-	Fri, 14 Apr 2023 23:46:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pnT8U-00AmWZ-0R;
+	Fri, 14 Apr 2023 23:47:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT5t-00AkFp-1C;
-	Fri, 14 Apr 2023 23:44:42 +0000
-Message-ID: <20230414232310.194293270@linutronix.de>
+	id 1pnT5u-00AkHp-3A;
+	Fri, 14 Apr 2023 23:44:44 +0000
+Message-ID: <20230414232310.256412375@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515880;
+	s=2020; t=1681515881;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=U86WQCD4/7f+Xqtkcp8tab/f3Qs5fwP9mDOYJzY6GfM=;
-	b=jVIvfWfMQ/Mv7TLWicCCZIBuoCNHTQbWP9agDzTG7YCSq254hUFkclQNrmhW3hMxwO6BPK
-	vpCyMRIt4O1v+XPm4hgw1E/lo8bQ+TLMoWfNV6id2wkbLsusQC6+QgLxHkmM7jqI5M1i8u
-	WMWTwhPBiMRMlROawAHv6lnZ2lJwgt69Ha2d7Hel7C6kpu8UPNf7d9bEsHq2W4HMj8o6m6
-	dmaviMmKfYNuICvE6NIhMG4fkMK+1VZcm9tvKGIXKcaFCzlTUjXnuorDCoZhFXx/Hy5zi8
-	WucVMkf4GaCQOYOvuAmNqRgA5o2nLyY6ILSN9/5KO2/baOF9ZKuCj7IpPwPGyQ==
+	 references:references; bh=e1FMo66EmKhD6c9vNMbCMEr10b7nb30z1HTBJhSwsws=;
+	b=gZ0HEhv3acCl5QBYyuBxsWswUfiT2pTSEiPx8KAuYf607AwMRXvsLBlYW5dljp8oWs/ntm
+	Rl62blc06B+wdYag6mxiaHF4d6UazbaaiGafHMeetJ/A7Hs5RVhUzMngs/dEe59idC0O2F
+	aA4jOVKszqOh4s2mn+PKplYpnPle5vYAOnMKw27lKXhJvIh/kbhLy4lRj7cXXA/G581Bej
+	PsarGBYF6AEmBjKJMVj8L9q7SGw5rle2qMtTuVh6V6kezaC/bwaovVLX9d1Zsm+GX8ANmu
+	PhMCi/IYxY/Oqm30JTDcZDBgs/Y7EGdHwcz8miDR/Arr0Wrr//IGKwmjd5YAMQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515880;
+	s=2020e; t=1681515881;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=U86WQCD4/7f+Xqtkcp8tab/f3Qs5fwP9mDOYJzY6GfM=;
-	b=bwxgSYDBNDOQrQ9qYJjd5x62eInfveDh14CbqLzga+9pzOoPfQod/ugWmc+ORstEOs2az4
-	q8XHnTNdR1jM1HBA==
+	 references:references; bh=e1FMo66EmKhD6c9vNMbCMEr10b7nb30z1HTBJhSwsws=;
+	b=4fNwIQeLJaYUXs5/LQAEGEGLbWkObI//eYOHt1swXrTx799wwKeZFlTzry5MJCiAr70s7q
+	ypFOiCNeSLElyzBg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,13 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject: [patch 16/37] x86/xen/smp_pv: Remove wait for CPU online
+Subject: [patch 17/37] x86/xen/hvm: Get rid of DEAD_FROZEN handling
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:44:39 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:44:41 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_164441_568795_9723E77E 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20230414_164443_187285_FE296C3E 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +104,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the core code drops sparse_irq_lock after the idle thread
-synchronized, it's pointless to wait for the AP to mark itself online.
+No point in this conditional voodoo. Un-initializing the lock mechanism is
+safe to be called unconditionally even if it was already invoked when the
+CPU died.
 
-Whether the control CPU runs in a wait loop or sleeps in the core code
-waiting for the online operation to complete makes no difference.
+Remove the invocation of xen_smp_intr_free() as that has been already
+cleaned up in xen_cpu_dead_hvm().
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Cc: Juergen Gross <jgross@suse.com>
 Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
 Cc: xen-devel@lists.xenproject.org
 ---
- arch/x86/xen/smp_pv.c |   10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/x86/xen/enlighten_hvm.c |   11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
---- a/arch/x86/xen/smp_pv.c
-+++ b/arch/x86/xen/smp_pv.c
-@@ -340,11 +340,11 @@ static int xen_pv_cpu_up(unsigned int cp
+--- a/arch/x86/xen/enlighten_hvm.c
++++ b/arch/x86/xen/enlighten_hvm.c
+@@ -161,13 +161,12 @@ static int xen_cpu_up_prepare_hvm(unsign
+ 	int rc = 0;
  
- 	xen_pmu_init(cpu);
+ 	/*
+-	 * This can happen if CPU was offlined earlier and
+-	 * offlining timed out in common_cpu_die().
++	 * If a CPU was offlined earlier and offlining timed out then the
++	 * lock mechanism is still initialized. Uninit it unconditionally
++	 * as it's safe to call even if already uninited. Interrupts and
++	 * timer have already been handled in xen_cpu_dead_hvm().
+ 	 */
+-	if (cpu_report_state(cpu) == CPU_DEAD_FROZEN) {
+-		xen_smp_intr_free(cpu);
+-		xen_uninit_lock_cpu(cpu);
+-	}
++	xen_uninit_lock_cpu(cpu);
  
--	rc = HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL);
--	BUG_ON(rc);
--
--	while (cpu_report_state(cpu) != CPU_ONLINE)
--		HYPERVISOR_sched_op(SCHEDOP_yield, NULL);
-+	/*
-+	 * Why is this a BUG? If the hypercall fails then everything can be
-+	 * rolled back, no?
-+	 */
-+	BUG_ON(HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL));
- 
- 	return 0;
- }
+ 	if (cpu_acpi_id(cpu) != U32_MAX)
+ 		per_cpu(xen_vcpu_id, cpu) = cpu_acpi_id(cpu);
 
 
 _______________________________________________
