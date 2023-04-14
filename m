@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8029C77B76
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E54DC7EE26
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=04QpFmPsyeQt/AX2PwRE+tZdJ4Y7Xw/DS2pdSah38UQ=; b=LZzqW2UmI1Qyw/
-	fbVw3wgITyORAj7+fpRUifsxLVCdeYf7b3+9TvcSSVguWWCF38q5MOvBIDD1JViSqeV9VsnD0kesr
-	EZhST8DeVvbjXarPRFHCLajNMd+9wqY5Upegbta3rN55i7I01GTlqlqUdkkFfSmd/Bp4iS9NN1HXG
-	apongeblDeFTJHj/GRHk3Xr4ZmAWza60/6bFer4hRjVq1/4xguofnDuiEQofYGjk4xQIu2kB9KHEt
-	lliMHGA8mHG1+KmusURaYvFXsyl6amJbcYOchXxj3FvS2Rnp3nhHLiAkyiqvXdLMl4MZMFWemfnd6
-	QP+E8QVqZLoBTD9gB4pA==;
+	List-Owner; bh=G92jUpMPU78J2OZ0cpSsLuzWj/oPiD4sGUrK3vVw3t8=; b=vHQYz9VCVHU+ty
+	FpfJ+dPCcMVwfJ8ydVcOr6fhkyukGaUkZA4Ahh+X0LhgTbVvKR3T25u+RppcMC3HNYCpyGqTZU7N+
+	IHeOGuDKdZB3Hrnra+DY9CuwH0qxPUsq7yBq4xpFAFm2AHehh4n5veKFOXq0Qgv8cz3g5FKGHzrOc
+	NuFEsIz6klSFIq8LxsCo+w82zWa3569ZU+GVesIujF3rwDzrnhtwmk70yTP6WXPMLrzOTdSRpocjF
+	wkXeYyjqhrWvUH+K5V8eZTd3iVKrW49kR1iChqmoZOsXVnkw7GjfbxDCfkweJcjzHc98/MxqHQrmk
+	bim/6lZYeNA2HhXvbQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT5l-00Ak9D-0C;
-	Fri, 14 Apr 2023 23:44:33 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pnT5i-00Ak7B-1q;
+	Fri, 14 Apr 2023 23:44:30 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT5Y-00Ajyj-1H;
-	Fri, 14 Apr 2023 23:44:22 +0000
-Message-ID: <20230414232309.261127575@linutronix.de>
+	id 1pnT5X-00AjzN-2d;
+	Fri, 14 Apr 2023 23:44:21 +0000
+Message-ID: <20230414232309.385574446@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515855;
+	s=2020; t=1681515858;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IlHV62TWgKh1cdgK7stl2AzD5yScRMLzrcA90zGNlOQ=;
-	b=ZSJ2jYDTvrOcSfB+q9NW+WGp94J7gVM5nWU/8DuwnoZDMu+XBZCbSUvTxL+DR4BvKxavFN
-	jhuRONKx7L6r94CMMXtiIONzHNo1K+Igs8Z0LLNxD99J31QKLzvq4MDfPqPJUdJy0who+d
-	mKrkRcfXkOBt5Idh86wWBXAvBPESGtEj994l0Sk8+em2iAJUZAhObLDXX+j3oXrngnpCuw
-	zyRT6xozBWS7ZDWw8BWKkQqW6Qlj1eCTnFv9dCNIQazSMGDnTo3mcHwD/wv9ccqLmI3o2G
-	GJGLBHoc9N7XmTNB1GAm0gwQkaNsttkeRSqEESmeoHEEgOdQdWWA8b6V/dbDuQ==
+	 references:references; bh=IHNUiYT/aa+9U/QrFpO4u8KQro95rDNTw6iEEK5ze9o=;
+	b=1GGWgmKl+Z16YESLBwfkaJ8pYvl0ibRrRLZ//qbrV6Rn4ejq8Bvi6vo9cC/d06/jSPEXR4
+	hvZPrEqwgB1nXc44jqzGpA3g8UhwvIHA09SMd8L91BmwlYgaP2m77BjOpifPA2Jp8FR9F+
+	c0G0jy+fXRMuNBDQtZn5Uv5VCIUDjwdIxXIzMKcFSmEiflIS9qbg0CEGaA9Azgv3qTSjMh
+	2Q6Nmfsfu+SPkBhJwKselmJZVd9FCtpTg9fyXFZ6j2n8kUoisHbXRgCmcH48m/s4qcThpJ
+	o2FriQZJckk/vdgmu5g5vmRYvkI+K74QUFnLD6JN3zpP58uh1nfGpXn5o7XkuA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515855;
+	s=2020e; t=1681515858;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IlHV62TWgKh1cdgK7stl2AzD5yScRMLzrcA90zGNlOQ=;
-	b=5y7iOO6UN0/F9Na7fC7zsih/Bs+dHvWN4EhYECYw/BugXKR0lZggZtmRr+wdRcc8V09+nR
-	evNcawtvhTVqcwDg==
+	 references:references; bh=IHNUiYT/aa+9U/QrFpO4u8KQro95rDNTw6iEEK5ze9o=;
+	b=cHgI8T+6dl0c5QvmY+jPTGI3Fml5ooLABkADGz2XWt8RyEwXHfElCQYbWkrIndZHTvvRK5
+	Onzbq0bjdDoTP8Dg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,14 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject:  [patch 01/37] x86/smpboot: Cleanup topology_phys_to_logical_pkg()/die()
+Subject: [patch 03/37] x86/smpboot: Avoid pointless delay calibration is TSC
+ is synchronized
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:44:14 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:44:18 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_164420_593013_FD008A28 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20230414_164420_141187_BD2161A4 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +105,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make topology_phys_to_logical_pkg_die() static as it's only used in
-smpboot.c and fixup the kernel-doc warnings for both functions.
+When TSC is synchronized across sockets then there is no reason in
+calibrating the delay for the first CPU which comes up on a socket.
+
+Just reuse the existing calibration value.
+
+This removes 100ms pointlessly wasted time from CPU hotplug.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/x86/include/asm/topology.h |    3 ---
- arch/x86/kernel/smpboot.c       |   10 ++++++----
- 2 files changed, 6 insertions(+), 7 deletions(-)
+ arch/x86/kernel/smpboot.c |   38 ++++++++++++++++++++++++--------------
+ arch/x86/kernel/tsc.c     |   20 ++++++++++++++++----
+ 2 files changed, 40 insertions(+), 18 deletions(-)
 
---- a/arch/x86/include/asm/topology.h
-+++ b/arch/x86/include/asm/topology.h
-@@ -139,7 +139,6 @@ static inline int topology_max_smt_threa
- int topology_update_package_map(unsigned int apicid, unsigned int cpu);
- int topology_update_die_map(unsigned int dieid, unsigned int cpu);
- int topology_phys_to_logical_pkg(unsigned int pkg);
--int topology_phys_to_logical_die(unsigned int die, unsigned int cpu);
- bool topology_is_primary_thread(unsigned int cpu);
- bool topology_smt_supported(void);
- #else
-@@ -149,8 +148,6 @@ topology_update_package_map(unsigned int
- static inline int
- topology_update_die_map(unsigned int dieid, unsigned int cpu) { return 0; }
- static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
--static inline int topology_phys_to_logical_die(unsigned int die,
--		unsigned int cpu) { return 0; }
- static inline int topology_max_die_per_package(void) { return 1; }
- static inline int topology_max_smt_threads(void) { return 1; }
- static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
-@@ -288,6 +288,7 @@ bool topology_smt_supported(void)
+@@ -178,10 +178,7 @@ static void smp_callin(void)
+ 	 */
+ 	apic_ap_setup();
  
- /**
-  * topology_phys_to_logical_pkg - Map a physical package id to a logical
-+ * @phys_pkg:	The physical package id to map
-  *
-  * Returns logical package id or -1 if not found
-  */
-@@ -304,15 +305,17 @@ int topology_phys_to_logical_pkg(unsigne
- 	return -1;
+-	/*
+-	 * Save our processor parameters. Note: this information
+-	 * is needed for clock calibration.
+-	 */
++	/* Save our processor parameters. */
+ 	smp_store_cpu_info(cpuid);
+ 
+ 	/*
+@@ -192,14 +189,6 @@ static void smp_callin(void)
+ 
+ 	ap_init_aperfmperf();
+ 
+-	/*
+-	 * Get our bogomips.
+-	 * Update loops_per_jiffy in cpu_data. Previous call to
+-	 * smp_store_cpu_info() stored a value that is close but not as
+-	 * accurate as the value just calculated.
+-	 */
+-	calibrate_delay();
+-	cpu_data(cpuid).loops_per_jiffy = loops_per_jiffy;
+ 	pr_debug("Stack at about %p\n", &cpuid);
+ 
+ 	wmb();
+@@ -212,8 +201,24 @@ static void smp_callin(void)
+ 	cpumask_set_cpu(cpuid, cpu_callin_mask);
  }
- EXPORT_SYMBOL(topology_phys_to_logical_pkg);
+ 
++static void ap_calibrate_delay(void)
++{
++	/*
++	 * Calibrate the delay loop and update loops_per_jiffy in cpu_data.
++	 * smp_store_cpu_info() stored a value that is close but not as
++	 * accurate as the value just calculated.
++	 *
++	 * As this is invoked after the TSC synchronization check,
++	 * calibrate_delay_is_known() will skip the calibration routine
++	 * when TSC is synchronized across sockets.
++	 */
++	calibrate_delay();
++	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
++}
 +
- /**
-  * topology_phys_to_logical_die - Map a physical die id to logical
-+ * @die_id:	The physical die id to map
-+ * @cur_cpu:	The CPU for which the mapping is done
-  *
-  * Returns logical die id or -1 if not found
+ static int cpu0_logical_apicid;
+ static int enable_start_cpu0;
++
+ /*
+  * Activate a secondary processor.
   */
--int topology_phys_to_logical_die(unsigned int die_id, unsigned int cur_cpu)
-+static int topology_phys_to_logical_die(unsigned int die_id, unsigned int cur_cpu)
+@@ -240,10 +245,15 @@ static void notrace start_secondary(void
+ 
+ 	/* otherwise gcc will move up smp_processor_id before the cpu_init */
+ 	barrier();
++	/* Check TSC synchronization with the control CPU: */
++	check_tsc_sync_target();
++
+ 	/*
+-	 * Check TSC synchronization with the boot CPU:
++	 * Calibrate the delay loop after the TSC synchronization check.
++	 * This allows to skip the calibration when TSC is synchronized
++	 * across sockets.
+ 	 */
+-	check_tsc_sync_target();
++	ap_calibrate_delay();
+ 
+ 	speculative_store_bypass_ht_init();
+ 
+--- a/arch/x86/kernel/tsc.c
++++ b/arch/x86/kernel/tsc.c
+@@ -1598,10 +1598,7 @@ void __init tsc_init(void)
+ 
+ #ifdef CONFIG_SMP
+ /*
+- * If we have a constant TSC and are using the TSC for the delay loop,
+- * we can skip clock calibration if another cpu in the same socket has already
+- * been calibrated. This assumes that CONSTANT_TSC applies to all
+- * cpus in the socket - this should be a safe assumption.
++ * Check whether existing calibration data can be reused.
+  */
+ unsigned long calibrate_delay_is_known(void)
  {
--	int cpu;
--	int proc_id = cpu_data(cur_cpu).phys_proc_id;
-+	int cpu, proc_id = cpu_data(cur_cpu).phys_proc_id;
+@@ -1609,6 +1606,21 @@ unsigned long calibrate_delay_is_known(v
+ 	int constant_tsc = cpu_has(&cpu_data(cpu), X86_FEATURE_CONSTANT_TSC);
+ 	const struct cpumask *mask = topology_core_cpumask(cpu);
  
- 	for_each_possible_cpu(cpu) {
- 		struct cpuinfo_x86 *c = &cpu_data(cpu);
-@@ -323,7 +326,6 @@ int topology_phys_to_logical_die(unsigne
- 	}
- 	return -1;
- }
--EXPORT_SYMBOL(topology_phys_to_logical_die);
++	/*
++	 * If TSC has constant frequency and TSC is synchronized across
++	 * sockets then reuse CPU0 calibration.
++	 */
++	if (constant_tsc && !tsc_unstable)
++		return cpu_data(0).loops_per_jiffy;
++
++	/*
++	 * If TSC has constant frequency and TSC is not synchronized across
++	 * sockets and this is not the first CPU in the socket, then reuse
++	 * the calibration value of an already online CPU on that socket.
++	 *
++	 * This assumes that CONSTANT_TSC is consistent for all CPUs in a
++	 * socket.
++	 */
+ 	if (!constant_tsc || !mask)
+ 		return 0;
  
- /**
-  * topology_update_package_map - Update the physical to logical package map
 
 
 _______________________________________________
