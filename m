@@ -4,60 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC3CC77B71
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Apr 2023 00:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C094BC77B71
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Apr 2023 00:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=SML1i83iak3dwnwjXCoKOm5tk5cE9Jrrx+GgO+MKCSo=; b=QFeCMDFHRE09Kd
-	kc4fUko0JqEreu2zpvOFM97P3YqGfGW2DjvKIt8MQZMKsZERWggdLd+x3ESpd6u6xUF6EAnTM/TDb
-	rCcHvpx02LXQkZVmwjQujsAdZ0oCFg/r3k+wfUQXySi2yZK38nku+UhsfwBOwgIJ9TD2tk62zA3Jy
-	vWBAS4BBDKMJml30Escvvo0DBKc0yahf1diyC12IJphmLvz5pTTI0yMtakmLHhdrHIvvOEE1+PrXK
-	iXTXsEjc8uWFA9DzF9yUjDgkcqu6Ber032C9lUcDmxVUiEogzrn78ltvnCAj6z1Uep5sHFVZm4RSl
-	1qdlzJvucBve5kYz4uHw==;
+	List-Owner; bh=kIX0Oq0lGM9ndazCJc4c1/1Tc00+wBvGbhDCn9zgzeM=; b=21IuP1nehVFdPi
+	ez+2Pq1k69vOxl9RPhIudOetQ3D083ghCsVoaKTKO1HFmxNXLD6ouwOwxXJkeXgCD9LIoYow1/BX5
+	ryhbt/1BphLKASe8tsQYodkh7wQXZ7Hhuwj8rYMVP3tjBAPHwmFQLjwuizImscnbIIrmJnq+zh0/z
+	kkwgNtlJBUo/BE/9FvJ9rIWAFVEPECQ33hmujRpu40VjN4hf0yxumdqQhiAWToSbiRCeZu+4XF0gr
+	4K3U+F4yWlWciKtjusxjSJiB0R4wixPAGFpIfGm8s2F8OQh2JVq8V5FyqHOV/6Ci6Lq3cDroNx6Zc
+	wCvO6JvajirfIUHop2IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnU2t-00AvJh-2Y;
-	Sat, 15 Apr 2023 00:45:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pnU3S-00AvUT-04;
+	Sat, 15 Apr 2023 00:46:14 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnU2k-00AvGs-1e;
-	Sat, 15 Apr 2023 00:45:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=OOycMYPFVi5YhixhBoVMbIx7KiHrtAXAV72ZpNnWZL8=; b=UNTa/iQzkAuLC1oyYMlUuvNAwr
-	Wky4xUCLCzNZ01KlMnTxz81oTmIcP7Wo/dO3PPLQwaFXGnZWHrZ8Hy2pH9fcBATfzVKvErMm9ZezH
-	+istI4rrUHViJgYPTQidiN1IOFZUYDPoXf3gvM8n/2RH0JPo6Hin6V8P5x3kyildpZFLW1DmKncCE
-	zfUGfkK5YkgSR/r/yCZJGVyu/GTW4YSR6uXq8TD7uxBljgRPfgAQQ5yFrU3F2UyK82JRlY3kWFkFk
-	rDjYVwP6UaXYUIcPt/fpsXw8RqyUbh53rpoS++ofc1/N7VAoxVJYNfCQcalTLwUyAXsdvs0zzRDv7
-	p8tJ5kLw==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT6Y-00FjKa-0e;
-	Fri, 14 Apr 2023 23:45:26 +0000
-Message-ID: <20230414232311.192114505@linutronix.de>
+	id 1pnT5i-00Ak61-0G;
+	Fri, 14 Apr 2023 23:44:32 +0000
+Message-ID: <20230414232309.760351424@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515906;
+	s=2020; t=1681515868;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=OOycMYPFVi5YhixhBoVMbIx7KiHrtAXAV72ZpNnWZL8=;
-	b=hJ/cJ/LsDaASOUqASLPPkSC6Ps6RxfdsA7gQYRBMpPaZEuge6FBpr2f6vVc+8HZFkB/rmb
-	RJy5f49D9C3GZ5iAOC7Zko7KcGkJJr2aVQq4d0I8MHxwSrgTL3A0ePu6a/KfQsXuVA4Xbu
-	ajazkAeZDlEyf5WTyO4+9yNz86aTWvAhKkL+wFnm59Pu29bb/grFar2EnhIA3IYkZTtEDm
-	0zbDi0Vg6WqjBsnDoMhcNfUK9CtbuR2h5QYljCFrrrsyKUW96SL8J44WHxTF6P75LRzQZI
-	y5u0fp80f4IGejFZO38GlIfCPV4fIBaOEn1NXHQkG/2n87JafGV7laJAQBArhQ==
+	 references:references; bh=38vdbwHqBLIqPwRw5MqT+R7Ll28v39Ia/30h9IRZRBU=;
+	b=yar8EeigYdFMdQYEGUNE3USYwkYHZzKxUot+Z73dH900LQv7+iVPCq5P8CJivgiAUZW2OK
+	5b+Jgl5VWXA9zRjgQQpg9e2anhCtGANLrAGNoR9f6XmdTQzBRqsWpTTXFoZzvs8Un4b+Cd
+	xQVtcABhcUTk8fKAr801BiQCOwMb7/BograiZPjfOPVUBCanspJXyCAKU5TMrWkY70q3Vf
+	aRByfCqKTLqDcO3ENb28nyzgihvUsSGw62p4CXRy+qfa3By2TlFWN34HGdXMCTwJbS74gF
+	n5JJnrI5zbLFVOG1tHdxNahBhTnqNGAQsLPfDS+q8FOpyMYAyy0JyNMiAMEw8w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515906;
+	s=2020e; t=1681515868;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=OOycMYPFVi5YhixhBoVMbIx7KiHrtAXAV72ZpNnWZL8=;
-	b=3elqLNqpb58Nl0QV7Y5mpEmw+yXYy7Jx8aSLhWQ4/jwrJTvN020KSkN4jR6yL3KGS/kbNN
-	oIimmB7TZWnYdBDQ==
+	 references:references; bh=38vdbwHqBLIqPwRw5MqT+R7Ll28v39Ia/30h9IRZRBU=;
+	b=MftkEADdginftZmZ+/cCkpBXX8KUjRl1mx3aoGgqqGTOVFHczgdVkY20eVN/Z+ePOHG5TU
+	YFmw4iY8ytDodjDg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -95,14 +81,13 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject: [patch 32/37] cpu/hotplug: Allow "parallel" bringup up to
- CPUHP_BP_KICK_AP_STATE
+Subject: [patch 09/37] x86/smpboot: Get rid of cpu_init_secondary()
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:45:05 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:44:28 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230415_004522_782012_08659A7B 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20230414_164430_406243_3D9D8C6C 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,203 +104,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is often significant latency in the early stages of CPU bringup, and
-time is wasted by waking each CPU (e.g. with SIPI/INIT/INIT on x86) and
-then waiting for it to respond before moving on to the next.
+The synchronization of the AP with the control CPU is a SMP boot problem
+and has nothing to do with cpu_init().
 
-Allow a platform to enable parallel setup which brings all to be onlined
-CPUs up to the CPUHP_BP_KICK_AP state. While this state advancement on the
-control CPU (BP) is single-threaded the important part is the last state
-CPUHP_BP_KICK_AP which wakes the to be onlined CPUs up.
+Open code cpu_init_secondary() in start_secondary() and move
+wait_for_master_cpu() into the SMP boot code.
 
-This allows the CPUs to run up to the first sychronization point
-cpuhp_ap_sync_alive() where they wait for the control CPU to release them
-one by one for the full onlining procedure.
+No functional change.
 
-This parallelism depends on the CPU hotplug core sync mechanism which
-ensures that the parallel brought up CPUs wait for release before touching
-any state which would make the CPU visible to anything outside the hotplug
-control mechanism.
-
-To handle the SMT constraints of X86 correctly the bringup happens in two
-iterations when CONFIG_HOTPLUG_SMT is enabled. The control CPU brings up
-the primary SMT threads of each core first, which can load the microcode
-without the need to rendevouz with the thread siblings. Once that's
-completed it brings up the secondary SMT threads.
-
-Co-developed-by: David Woodhouse <dwmw@amazon.co.uk>
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- Documentation/admin-guide/kernel-parameters.txt |    6 +
- arch/Kconfig                                    |    4 
- include/linux/cpuhotplug.h                      |    1 
- kernel/cpu.c                                    |  103 ++++++++++++++++++++++--
- 4 files changed, 109 insertions(+), 5 deletions(-)
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -815,6 +815,12 @@
- 			on every CPU online, such as boot, and resume from suspend.
- 			Default: 10000
+ arch/x86/include/asm/processor.h |    1 -
+ arch/x86/kernel/cpu/common.c     |   27 ---------------------------
+ arch/x86/kernel/smpboot.c        |   24 +++++++++++++++++++-----
+ 3 files changed, 19 insertions(+), 33 deletions(-)
+
+--- a/arch/x86/include/asm/processor.h
++++ b/arch/x86/include/asm/processor.h
+@@ -551,7 +551,6 @@ extern void switch_gdt_and_percpu_base(i
+ extern void load_direct_gdt(int);
+ extern void load_fixmap_gdt(int);
+ extern void cpu_init(void);
+-extern void cpu_init_secondary(void);
+ extern void cpu_init_exception_handling(void);
+ extern void cr4_init(void);
  
-+	cpuhp.parallel=
-+			[SMP] Enable/disable parallel bringup of secondary CPUs
-+			Format: <bool>
-+			Default is enabled if CONFIG_HOTPLUG_PARALLEL=y. Otherwise
-+			the parameter has no effect.
-+
- 	crash_kexec_post_notifiers
- 			Run kdump after running panic-notifiers and dumping
- 			kmsg. This only for the users who doubt kdump always
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -53,6 +53,10 @@ config HOTPLUG_SPLIT_STARTUP
- 	bool
- 	select HOTPLUG_CORE_SYNC_FULL
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -2122,19 +2122,6 @@ static void dbg_restore_debug_regs(void)
+ #define dbg_restore_debug_regs()
+ #endif /* ! CONFIG_KGDB */
  
-+config HOTPLUG_PARALLEL
-+	bool
-+	select HOTPLUG_SPLIT_STARTUP
-+
- config GENERIC_ENTRY
- 	bool
- 
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -526,6 +526,7 @@ void cpuhp_ap_sync_alive(void);
- void arch_cpuhp_sync_state_poll(void);
- void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
- int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
-+bool arch_cpuhp_init_parallel_bringup(void);
- 
- #ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
- void cpuhp_ap_report_dead(void);
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -649,8 +649,23 @@ bool cpu_smt_possible(void)
- 		cpu_smt_control != CPU_SMT_NOT_SUPPORTED;
- }
- EXPORT_SYMBOL_GPL(cpu_smt_possible);
-+
-+static inline bool cpuhp_smt_aware(void)
-+{
-+	return topology_smt_supported();
-+}
-+
-+static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
-+{
-+	return cpu_primary_thread_mask;
-+}
- #else
- static inline bool cpu_smt_allowed(unsigned int cpu) { return true; }
-+static inline bool cpuhp_smt_aware(void) { return false; }
-+static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
-+{
-+	return cpu_present_mask;
-+}
- #endif
- 
- static inline enum cpuhp_state
-@@ -1743,16 +1758,94 @@ int bringup_hibernate_cpu(unsigned int s
- 	return 0;
- }
- 
--void __init bringup_nonboot_cpus(unsigned int setup_max_cpus)
-+static void __init cpuhp_bringup_mask(const struct cpumask *mask, unsigned int ncpus,
-+				      enum cpuhp_state target)
+-static void wait_for_master_cpu(int cpu)
+-{
+-#ifdef CONFIG_SMP
+-	/*
+-	 * wait for ACK from master CPU before continuing
+-	 * with AP initialization
+-	 */
+-	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
+-	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
+-		cpu_relax();
+-#endif
+-}
+-
+ static inline void setup_getcpu(int cpu)
  {
- 	unsigned int cpu;
+ 	unsigned long cpudata = vdso_encode_cpunode(cpu, early_cpu_to_node(cpu));
+@@ -2238,8 +2225,6 @@ void cpu_init(void)
+ 	struct task_struct *cur = current;
+ 	int cpu = raw_smp_processor_id();
  
--	for_each_present_cpu(cpu) {
--		if (num_online_cpus() >= setup_max_cpus)
-+	for_each_cpu(cpu, mask) {
-+		struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-+
-+		if (!--ncpus)
- 			break;
--		if (!cpu_online(cpu))
--			cpu_up(cpu, CPUHP_ONLINE);
-+
-+		if (cpu_up(cpu, target) && can_rollback_cpu(st)) {
-+			/*
-+			 * If this failed then cpu_up() might have only
-+			 * rolled back to CPUHP_BP_KICK_AP for the final
-+			 * online. Clean it up. NOOP if already rolled back.
-+			 */
-+			WARN_ON(cpuhp_invoke_callback_range(false, cpu, st, CPUHP_OFFLINE));
-+		}
-+	}
-+}
-+
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+static bool __cpuhp_parallel_bringup __ro_after_init = true;
-+
-+static int __init parallel_bringup_parse_param(char *arg)
-+{
-+	return kstrtobool(arg, &__cpuhp_parallel_bringup);
-+}
-+early_param("cpuhp.parallel", parallel_bringup_parse_param);
-+
-+/*
-+ * On architectures which have enabled parallel bringup this invokes all BP
-+ * prepare states for each of the to be onlined APs first. The last state
-+ * sends the startup IPI to the APs. The APs proceed through the low level
-+ * bringup code in parallel and then wait for the control CPU to release
-+ * them one by one for the final onlining procedure.
-+ *
-+ * This avoids waiting for each AP to respond to the startup IPI in
-+ * CPUHP_BRINGUP_CPU.
-+ */
-+static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
-+{
-+	const struct cpumask *mask = cpu_present_mask;
-+
-+	if (__cpuhp_parallel_bringup)
-+		__cpuhp_parallel_bringup = arch_cpuhp_init_parallel_bringup();
-+	if (!__cpuhp_parallel_bringup)
-+		return false;
-+
-+	if (cpuhp_smt_aware()) {
-+		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
-+		static struct cpumask tmp_mask __initdata;
-+
-+		/*
-+		 * X86 requires to prevent that SMT siblings stopped while
-+		 * the primary thread does a microcode update for various
-+		 * reasons. Bring the primary threads up first.
-+		 */
-+		cpumask_and(&tmp_mask, mask, pmask);
-+		cpuhp_bringup_mask(&tmp_mask, ncpus, CPUHP_BP_KICK_AP);
-+		cpuhp_bringup_mask(&tmp_mask, ncpus, CPUHP_ONLINE);
-+		/* Account for the online CPUs */
-+		ncpus -= num_online_cpus();
-+		if (!ncpus)
-+			return true;
-+		/* Create the mask for secondary CPUs */
-+		cpumask_andnot(&tmp_mask, mask, pmask);
-+		mask = &tmp_mask;
- 	}
-+
-+	/* Bring the not-yet started CPUs up */
-+	cpuhp_bringup_mask(mask, ncpus, CPUHP_BP_KICK_AP);
-+	cpuhp_bringup_mask(mask, ncpus, CPUHP_ONLINE);
-+	return true;
-+}
-+#else
-+static inline bool cpuhp_bringup_cpus_parallel(unsigned int ncpus) { return false; }
-+#endif /* CONFIG_HOTPLUG_PARALLEL */
-+
-+void __init bringup_nonboot_cpus(unsigned int setup_max_cpus)
-+{
-+	/* Try parallel bringup optimization if enabled */
-+	if (cpuhp_bringup_cpus_parallel(setup_max_cpus))
-+		return;
-+
-+	/* Full per CPU serialized bringup */
-+	cpuhp_bringup_mask(cpu_present_mask, setup_max_cpus, CPUHP_ONLINE);
+-	wait_for_master_cpu(cpu);
+-
+ 	ucode_cpu_init(cpu);
+ 
+ #ifdef CONFIG_NUMA
+@@ -2292,18 +2277,6 @@ void cpu_init(void)
+ 	load_fixmap_gdt(cpu);
  }
  
- #ifdef CONFIG_PM_SLEEP_SMP
+-#ifdef CONFIG_SMP
+-void cpu_init_secondary(void)
+-{
+-	/*
+-	 * Relies on the BP having set-up the IDT tables, which are loaded
+-	 * on this CPU in cpu_init_exception_handling().
+-	 */
+-	cpu_init_exception_handling();
+-	cpu_init();
+-}
+-#endif
+-
+ #ifdef CONFIG_MICROCODE_LATE_LOADING
+ /**
+  * store_cpu_caps() - Store a snapshot of CPU capabilities
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -220,6 +220,17 @@ static void ap_calibrate_delay(void)
+ 	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
+ }
+ 
++static void wait_for_master_cpu(int cpu)
++{
++	/*
++	 * Wait for release by control CPU before continuing with AP
++	 * initialization.
++	 */
++	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
++	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
++		cpu_relax();
++}
++
+ /*
+  * Activate a secondary processor.
+  */
+@@ -237,13 +248,16 @@ static void notrace start_secondary(void
+ 	load_cr3(swapper_pg_dir);
+ 	__flush_tlb_all();
+ #endif
++	cpu_init_exception_handling();
++
+ 	/*
+-	 * Sync point with wait_cpu_initialized(). Before proceeding through
+-	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
+-	 * own bit in cpu_initialized_mask and then waits for the BSP to set
+-	 * its bit in cpu_callout_mask to release it.
++	 * Sync point with wait_cpu_initialized(). Sets AP in
++	 * cpu_initialized_mask and then waits for the control CPU
++	 * to release it.
+ 	 */
+-	cpu_init_secondary();
++	wait_for_master_cpu(raw_smp_processor_id());
++
++	cpu_init();
+ 	rcu_cpu_starting(raw_smp_processor_id());
+ 	x86_cpuinit.early_percpu_clock_init();
+ 
 
 
 _______________________________________________
