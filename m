@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376B1C77B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 16:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D84C77B6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 16:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CwPSrtVrBk14F3qx7Jc27OgGdUuv6k4O4XIdgZV2BfY=; b=imcpw0QoNeL4DB
-	oMXk/9e1VZGf4Najs6tw+8suPZlzPDeEDZjHu8dCOUUJ59ZG/o9q0/AQF8PhTlZw/FuFQCY8k+EgQ
-	cPBrwkG8CslGM89yQSDnhOKahm63NNscqRHs6i35MuUrUQQOv69/Di63ma7m6cVL0IhlvUw+TVzjy
-	Epu3B7fBHQfXRUpokz02UvPqX7Kd65OfBMmrGedGYqKnivV9QEBTFGlS36OwHQ2nvgF4XyaW6goVP
-	3CywiutOms73UP5OsjMBRbNZ4CQR1osy12cgKnfbzB3ipzwcImTP029L15CoRaqHMm23ByDeoDf0E
-	xuXHVPyvOwdY1hGRz2RQ==;
+	List-Owner; bh=86FLENfWeyJPrp3kkcepUazJ3qZKWtCn3qbm9L76eu8=; b=ElJt/kkQ4jWTvj
+	q0f0imEc6oNy8McfdRqEL4XLv8rqGIF4qsn0aG2NYC03hrb5/Gd+dr6nic47UIR/pee/MtY83hWWo
+	cFHFgUywjKrtsOOndPj5Mk65GxU/3eKJZ1NSzZDs1d7TgN/3hcAY5oH5aptSxdix0jbUWM56XvYiW
+	mU3QOcFoHuarLR/zH0+3TJIuocXnTbf7iZvv/8NZd4DyYCshmq0MdQ33E+4n/4tK6Vsv9fBabDUwC
+	gwJHr4Wa4fwa3s1s6ZUlozK3MzFVAeRk0oFO6koEDH36q3pwrw+bmOCZc38JHAbQHJT49HTtEkqNb
+	CzgHMPz2bkZCGB2VJgmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnLqL-00A1yN-1S;
-	Fri, 14 Apr 2023 16:00:09 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1pnLqb-00A25v-2n;
+	Fri, 14 Apr 2023 16:00:25 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnLqI-00A1wb-0B
+	id 1pnLqY-00A22j-1d
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 16:00:07 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id mq14-20020a17090b380e00b002472a2d9d6aso4422930pjb.5
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 09:00:05 -0700 (PDT)
+	Fri, 14 Apr 2023 16:00:24 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id l9-20020a17090a3f0900b0023d32684e7fso8809781pjc.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 09:00:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1681488005; x=1684080005;
+        d=sifive.com; s=google; t=1681488017; x=1684080017;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=a65b+du8aFNXXTEZ/EQ3wHPYPcrhTwtdey3aCUIWsNk=;
-        b=XbvmyhijWNX+1F3ln8VlPekaqrwI4WWnOocEcmV4hs9e3sS0d1+GTH/js7q92+zeQG
-         U+SDDtlxV18U9F4FtYcZA8LdpOUdM16K1joqjz/O3G4QNIlmJ7bzbWseTJtkxWTwopvT
-         CvX6HM4r1ZQ2JSxoMdkSxr1U1ERS6ANfwvxRL7W2X9BDy57pDx5juUHDJZRmpzDvLsCF
-         C/6aACkNzVJRha1t/uSoLGPuhUPC3nRJe5iZHXXV1NGQm2TEsJXT1dtz6TBiizVG3XWY
-         2qA1y4YaBXtLYezq/hnSAp++CnLluylrEYuj+T6fiFpPh2onjEc82K7DxJuEbniRXUX6
-         LuGQ==
+        bh=XuQhFMdbEw+nE3leuYHXuNAFKhD6k2VUJmGCQCGQmR4=;
+        b=Tj/gtRricGTjGUQHQDmfO7RWGoXiHNZXQBxvg1WePcES1CZtaiBAJJSUOkl0OkcGxJ
+         CkFJ7D/gZLBQkA0LqCedQurMJkTsyBL8gCpo2rztc4nJOaZ3wf1F/b/vmDd7rzNe7NCr
+         mY38axFCQBe94NCwCxbM7IFfHj+GOBp6VX726fD4dwgachkmkkfxkSXoZjt9KIMoSJYE
+         cCpQ90Zt4/RxTdoyML1qbcQdrwwBW/cj2S8HKsrGfk9rH33fTBdc+XqL9TKixOndFb0E
+         1H9Zs24IY6bfjuSS4tf08Wzrb/6z833U53//Tj+SJZMFCe+bX4BPRUewV49PZwctcDD8
+         GwPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681488005; x=1684080005;
+        d=1e100.net; s=20221208; t=1681488017; x=1684080017;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a65b+du8aFNXXTEZ/EQ3wHPYPcrhTwtdey3aCUIWsNk=;
-        b=SdNqHGllKMTJLy0vczecKD2kpD4RS76TM7w3Yco4sg6xvLYsNVVRhlWU6y98oYq6BK
-         8Rolx9l3OFmeHwIln/u+u1YjVq2pSMnt1JjQEuXfEZoShpiVh4Lk15zFzpYhslgUuzja
-         L0Q4fghf30SNwV0LUZd3UsBIg72o31OOZrpvXNl1mesdzfkqTVfs5tGjse6qZywH32zK
-         RQuZGz9ginCYufdAx+tga2SrUEqZfznOVimQEaj9baZljZAEUfhMw5i9ITdipM1L5vk7
-         8ucofboitNn4LmDYKHVrtpN4tCsEbObQKiCQ1E+1ytGEAnBnodqLzcv+J4+9Kd16W/Zf
-         kqag==
-X-Gm-Message-State: AAQBX9c8tivkuQ7cGqxU113D1Syy8zg5wkKHveRz7K1qwJc2DtVuRnq/
-	M4sJn8Qjb+OuOuXTHBwmL5U1/JRi7A8eV1LuPhPhR4dMnaBl98B6akw4p9L+vP6womMPrA1FX1C
-	oJc4JFK9Vxeq/WmdjiARa0s0y54nXA+mZhmR1rb6z4W9fLSq9mwYSENlyP1Zy3FBvsK45uZMq0C
-	xNco5tWkTOdNNw
-X-Google-Smtp-Source: AKy350ZmWNEcmvKYQR8MAIFVjXFcQNcRkmcFcA0dLctILDIf6HCnMnKxM+m7tf8yQbqu2zMwWbUfeA==
-X-Received: by 2002:a17:90a:b783:b0:23d:3fbe:2f7 with SMTP id m3-20020a17090ab78300b0023d3fbe02f7mr6167161pjr.20.1681488004860;
-        Fri, 14 Apr 2023 09:00:04 -0700 (PDT)
+        bh=XuQhFMdbEw+nE3leuYHXuNAFKhD6k2VUJmGCQCGQmR4=;
+        b=WqetY4cQQbE8Ydk3CHlJm9IWZao1pu1N2pJwCl2KlJAy1GCMXV+JFKIleTYfazwK2G
+         hlRol5xU5S6cYf88pr8mHeFE7qEqrQS1tdx8ulHFy3MjFNkV4vpJDYGFGz8Adv9c9frj
+         sZSH+BQDn1N4IlxinrmdJs2odsLJkZWXy5DwCx8l9aobTAFnEfDxvWTviBvVdQ93gS2L
+         X3fyNbILRNThlk5XtFQC+RzVSrYtVymYKC0r3OG0mO8+lIDiv+IOtVTj5F4mPn0EiUPF
+         eFLYnzRn2OypWyyHPMRJpTF5qBbUqWPkNa/+YHgT4fOyIya6JaJUc6NUHwANOU16XlGT
+         InzQ==
+X-Gm-Message-State: AAQBX9fFURRvnot9tK5ZYCDnRLeB9YteBijPxFAOWvz7m2jZ0aXtrkb8
+	lD4zC9MD1Nd4hKx5E53eyE+zebH8kycobjb+upm2pV4FWJ3+p/4rXR3Q70T3q98tfqNXIwqmVA3
+	uNrHD9wEWhcCliwU3pTek9jVR1i1t5Kgtd5h/Ch+7GVsSEb+BsBrf1q04WLMqTuengwcIenRPHu
+	gp88rwlVDbQliT
+X-Google-Smtp-Source: AKy350YzAYFjdqcT4DvjVf4FFnoZ8IPzKDa8Z6No6egMTXy7UsMpiDftnUWaEqRYHgdde9b4dbzogA==
+X-Received: by 2002:a17:90b:4b48:b0:237:40a5:7acf with SMTP id mi8-20020a17090b4b4800b0023740a57acfmr5926908pjb.33.1681488016912;
+        Fri, 14 Apr 2023 09:00:16 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.09.00.00
+        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.09.00.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Apr 2023 09:00:04 -0700 (PDT)
+        Fri, 14 Apr 2023 09:00:16 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -76,26 +76,26 @@ Cc: vineetg@rivosinc.com,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Qing Zhang <zhangqing@loongson.cn>,
-	Alexey Dobriyan <adobriyan@gmail.com>,
-	Rolf Eike Beer <eb@emlix.com>
-Subject: [PATCH -next v18 11/20] riscv: Add ptrace vector support
-Date: Fri, 14 Apr 2023 15:58:34 +0000
-Message-Id: <20230414155843.12963-12-andy.chiu@sifive.com>
+	Richard Henderson <richard.henderson@linaro.org>,
+	Guo Ren <guoren@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Wenting Zhang <zephray@outlook.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Andrew Bresticker <abrestic@rivosinc.com>
+Subject: [PATCH -next v18 13/20] riscv: signal: Add sigcontext save/restore for vector
+Date: Fri, 14 Apr 2023 15:58:36 +0000
+Message-Id: <20230414155843.12963-14-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230414155843.12963-1-andy.chiu@sifive.com>
 References: <20230414155843.12963-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_090006_092899_128953C6 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20230414_090022_548510_9F3E46D9 
+X-CRM114-Status: GOOD (  31.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,160 +115,395 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Greentime Hu <greentime.hu@sifive.com>
 
-This patch adds ptrace support for riscv vector. The vector registers will
-be saved in datap pointer of __riscv_v_ext_state. This pointer will be set
-right after the __riscv_v_ext_state data structure then it will be put in
-ubuf for ptrace system call to get or set. It will check if the datap got
-from ubuf is set to the correct address or not when the ptrace system call
-is trying to set the vector registers.
+This patch facilitates the existing fp-reserved words for placement of
+the first extension's context header on the user's sigframe. A context
+header consists of a distinct magic word and the size, including the
+header itself, of an extension on the stack. Then, the frame is followed
+by the context of that extension, and then a header + context body for
+another extension if exists. If there is no more extension to come, then
+the frame must be ended with a null context header. A special case is
+rv64gc, where the kernel support no extensions requiring to expose
+additional regfile to the user. In such case the kernel would place the
+null context header right after the first reserved word of
+__riscv_q_ext_state when saving sigframe. And the kernel would check if
+all reserved words are zeros when a signal handler returns.
+
+__riscv_q_ext_state---->|	|<-__riscv_extra_ext_header
+			~	~
+	.reserved[0]--->|0	|<-	.reserved
+		<-------|magic	|<-	.hdr
+		|	|size	|_______ end of sc_fpregs
+		|	|ext-bdy|
+		|	~	~
+	+)size	------->|magic	|<- another context header
+			|size	|
+			|ext-bdy|
+			~	~
+			|magic:0|<- null context header
+			|size:0	|
+
+The vector registers will be saved in datap pointer. The datap pointer
+will be allocated dynamically when the task needs in kernel space. On
+the other hand, datap pointer on the sigframe will be set right after
+the __riscv_v_ext_state data structure.
 
 Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+Suggested-by: Richard Henderson <richard.henderson@linaro.org>
+Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
-
-Changes in v18:
- - Use sizeof(vstate->datap) instead of sizeof(void*) (Eike)
-
- arch/riscv/include/uapi/asm/ptrace.h |  7 +++
- arch/riscv/kernel/ptrace.c           | 70 ++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 78 insertions(+)
+ arch/riscv/include/uapi/asm/ptrace.h     |  15 ++
+ arch/riscv/include/uapi/asm/sigcontext.h |  16 ++-
+ arch/riscv/kernel/setup.c                |   3 +
+ arch/riscv/kernel/signal.c               | 174 +++++++++++++++++++++--
+ 4 files changed, 193 insertions(+), 15 deletions(-)
 
 diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index 586786d023c4..e8d127ec5cf7 100644
+index e8d127ec5cf7..e17c550986a6 100644
 --- a/arch/riscv/include/uapi/asm/ptrace.h
 +++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -94,6 +94,13 @@ struct __riscv_v_ext_state {
- 	 */
+@@ -71,6 +71,21 @@ struct __riscv_q_ext_state {
+ 	__u32 reserved[3];
  };
  
-+/*
-+ * According to spec: The number of bits in a single vector register,
-+ * VLEN >= ELEN, which must be a power of 2, and must be no greater than
-+ * 2^16 = 65536bits = 8192bytes
-+ */
-+#define RISCV_MAX_VLENB (8192)
++struct __riscv_ctx_hdr {
++	__u32 magic;
++	__u32 size;
++};
 +
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 23c48b14a0e7..1d572cf3140f 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -7,6 +7,7 @@
-  * Copied from arch/tile/kernel/ptrace.c
-  */
- 
-+#include <asm/vector.h>
- #include <asm/ptrace.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
-@@ -24,6 +25,9 @@ enum riscv_regset {
- #ifdef CONFIG_FPU
- 	REGSET_F,
- #endif
-+#ifdef CONFIG_RISCV_ISA_V
-+	REGSET_V,
-+#endif
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -80,6 +84,61 @@ static int riscv_fpr_set(struct task_struct *target,
- }
- #endif
- 
-+#ifdef CONFIG_RISCV_ISA_V
-+static int riscv_vr_get(struct task_struct *target,
-+			const struct user_regset *regset,
-+			struct membuf to)
-+{
-+	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
-+
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -EINVAL;
-+
++struct __riscv_extra_ext_header {
++	__u32 __padding[129] __attribute__((aligned(16)));
 +	/*
-+	 * Ensure the vector registers have been saved to the memory before
-+	 * copying them to membuf.
++	 * Reserved for expansion of sigcontext structure.  Currently zeroed
++	 * upon signal, and must be zero upon sigreturn.
 +	 */
-+	if (target == current)
-+		riscv_v_vstate_save(current, task_pt_regs(current));
++	__u32 reserved;
++	struct __riscv_ctx_hdr hdr;
++};
 +
-+	/* Copy vector header from vstate. */
-+	membuf_write(&to, vstate, offsetof(struct __riscv_v_ext_state, datap));
-+	membuf_zero(&to, sizeof(vstate->datap));
+ union __riscv_fp_state {
+ 	struct __riscv_f_ext_state f;
+ 	struct __riscv_d_ext_state d;
+diff --git a/arch/riscv/include/uapi/asm/sigcontext.h b/arch/riscv/include/uapi/asm/sigcontext.h
+index 84f2dfcfdbce..8b8a8541673a 100644
+--- a/arch/riscv/include/uapi/asm/sigcontext.h
++++ b/arch/riscv/include/uapi/asm/sigcontext.h
+@@ -8,6 +8,17 @@
+ 
+ #include <asm/ptrace.h>
+ 
++/* The Magic number for signal context frame header. */
++#define RISCV_V_MAGIC	0x53465457
++#define END_MAGIC	0x0
 +
-+	/* Copy all the vector registers from vstate. */
-+	return membuf_write(&to, vstate->datap, riscv_v_vsize);
-+}
++/* The size of END signal context header. */
++#define END_HDR_SIZE	0x0
 +
-+static int riscv_vr_set(struct task_struct *target,
-+			const struct user_regset *regset,
-+			unsigned int pos, unsigned int count,
-+			const void *kbuf, const void __user *ubuf)
-+{
-+	int ret, size;
-+	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
++struct __sc_riscv_v_state {
++	struct __riscv_v_ext_state v_state;
++} __attribute__((aligned(16)));
 +
-+	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+		return -EINVAL;
-+
-+	/* Copy rest of the vstate except datap */
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate, 0,
-+				 offsetof(struct __riscv_v_ext_state, datap));
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Skip copy datap. */
-+	size = sizeof(vstate->datap);
-+	count -= size;
-+	ubuf += size;
-+
-+	/* Copy all the vector registers. */
-+	pos = 0;
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate->datap,
-+				 0, riscv_v_vsize);
-+	return ret;
-+}
-+#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -99,6 +158,17 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = riscv_fpr_set,
- 	},
- #endif
-+#ifdef CONFIG_RISCV_ISA_V
-+	[REGSET_V] = {
-+		.core_note_type = NT_RISCV_VECTOR,
-+		.align = 16,
-+		.n = ((32 * RISCV_MAX_VLENB) +
-+		      sizeof(struct __riscv_v_ext_state)) / sizeof(__u32),
-+		.size = sizeof(__u32),
-+		.regset_get = riscv_vr_get,
-+		.set = riscv_vr_set,
-+	},
-+#endif
+ /*
+  * Signal context structure
+  *
+@@ -16,7 +27,10 @@
+  */
+ struct sigcontext {
+ 	struct user_regs_struct sc_regs;
+-	union __riscv_fp_state sc_fpregs;
++	union {
++		union __riscv_fp_state sc_fpregs;
++		struct __riscv_extra_ext_header sc_extdesc;
++	};
  };
  
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index ac3da855fb19..7d8d9ae36615 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -440,6 +440,7 @@ typedef struct elf64_shdr {
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
- #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
- #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
-+#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
- #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
+ #endif /* _UAPI_ASM_RISCV_SIGCONTEXT_H */
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 5d3184cbf518..bb53b2e22386 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -262,6 +262,8 @@ static void __init parse_dtb(void)
+ #endif
+ }
+ 
++extern void __init init_rt_signal_env(void);
++
+ void __init setup_arch(char **cmdline_p)
+ {
+ 	parse_dtb();
+@@ -299,6 +301,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	riscv_init_cbo_blocksizes();
+ 	riscv_fill_hwcap();
++	init_rt_signal_env();
+ 	apply_boot_alternatives();
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+ 	    riscv_isa_extension_available(NULL, ZICBOM))
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 4d2f41078f46..5222ed4eb677 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -19,9 +19,11 @@
+ #include <asm/signal.h>
+ #include <asm/signal32.h>
+ #include <asm/switch_to.h>
++#include <asm/vector.h>
+ #include <asm/csr.h>
+ 
+ extern u32 __user_rt_sigreturn[2];
++static size_t riscv_v_sc_size __ro_after_init;
+ 
+ #define DEBUG_SIG 0
+ 
+@@ -63,12 +65,87 @@ static long save_fp_state(struct pt_regs *regs,
+ #define restore_fp_state(task, regs) (0)
+ #endif
+ 
++#ifdef CONFIG_RISCV_ISA_V
++
++static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
++{
++	struct __riscv_ctx_hdr __user *hdr;
++	struct __sc_riscv_v_state __user *state;
++	void __user *datap;
++	long err;
++
++	hdr = *sc_vec;
++	/* Place state to the user's signal context space after the hdr */
++	state = (struct __sc_riscv_v_state __user *)(hdr + 1);
++	/* Point datap right after the end of __sc_riscv_v_state */
++	datap = state + 1;
++
++	/* datap is designed to be 16 byte aligned for better performance */
++	WARN_ON(unlikely(!IS_ALIGNED((unsigned long)datap, 16)));
++
++	riscv_v_vstate_save(current, regs);
++	/* Copy everything of vstate but datap. */
++	err = __copy_to_user(&state->v_state, &current->thread.vstate,
++			     offsetof(struct __riscv_v_ext_state, datap));
++	/* Copy the pointer datap itself. */
++	err |= __put_user(datap, &state->v_state.datap);
++	/* Copy the whole vector content to user space datap. */
++	err |= __copy_to_user(datap, current->thread.vstate.datap, riscv_v_vsize);
++	/* Copy magic to the user space after saving  all vector conetext */
++	err |= __put_user(RISCV_V_MAGIC, &hdr->magic);
++	err |= __put_user(riscv_v_sc_size, &hdr->size);
++	if (unlikely(err))
++		return err;
++
++	/* Only progress the sv_vec if everything has done successfully  */
++	*sc_vec += riscv_v_sc_size;
++	return 0;
++}
++
++/*
++ * Restore Vector extension context from the user's signal frame. This function
++ * assumes a valid extension header. So magic and size checking must be done by
++ * the caller.
++ */
++static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
++{
++	long err;
++	struct __sc_riscv_v_state __user *state = sc_vec;
++	void __user *datap;
++
++	/* Copy everything of __sc_riscv_v_state except datap. */
++	err = __copy_from_user(&current->thread.vstate, &state->v_state,
++			       offsetof(struct __riscv_v_ext_state, datap));
++	if (unlikely(err))
++		return err;
++
++	/* Copy the pointer datap itself. */
++	err = __get_user(datap, &state->v_state.datap);
++	if (unlikely(err))
++		return err;
++	/*
++	 * Copy the whole vector content from user space datap. Use
++	 * copy_from_user to prevent information leak.
++	 */
++	err = copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
++	if (unlikely(err))
++		return err;
++
++	riscv_v_vstate_restore(current, regs);
++
++	return err;
++}
++#else
++#define save_v_state(task, regs) (0)
++#define __restore_v_state(task, regs) (0)
++#endif
++
+ static long restore_sigcontext(struct pt_regs *regs,
+ 	struct sigcontext __user *sc)
+ {
++	void __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
++	__u32 rsvd;
+ 	long err;
+-	size_t i;
+-
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
+ 	if (unlikely(err))
+@@ -81,32 +158,81 @@ static long restore_sigcontext(struct pt_regs *regs,
+ 			return err;
+ 	}
+ 
+-	/* We support no other extension state at this time. */
+-	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++) {
+-		u32 value;
++	/* Check the reserved word before extensions parsing */
++	err = __get_user(rsvd, &sc->sc_extdesc.reserved);
++	if (unlikely(err))
++		return err;
++	if (unlikely(rsvd))
++		return -EINVAL;
++
++	while (!err) {
++		__u32 magic, size;
++		struct __riscv_ctx_hdr __user *head = sc_ext_ptr;
+ 
+-		err = __get_user(value, &sc->sc_fpregs.q.reserved[i]);
++		err |= __get_user(magic, &head->magic);
++		err |= __get_user(size, &head->size);
+ 		if (unlikely(err))
++			return err;
++
++		sc_ext_ptr += sizeof(*head);
++		switch (magic) {
++		case END_MAGIC:
++			if (size != END_HDR_SIZE)
++				return -EINVAL;
++
++			return 0;
++		case RISCV_V_MAGIC:
++			if (!has_vector() || !riscv_v_vstate_query(regs) ||
++			    size != riscv_v_sc_size)
++				return -EINVAL;
++
++			err = __restore_v_state(regs, sc_ext_ptr);
+ 			break;
+-		if (value != 0)
++		default:
+ 			return -EINVAL;
++		}
++		sc_ext_ptr = (void __user *)head + size;
+ 	}
+ 	return err;
+ }
+ 
++static size_t get_rt_frame_size(void)
++{
++	struct rt_sigframe __user *frame;
++	size_t frame_size;
++	size_t total_context_size = 0;
++
++	frame_size = sizeof(*frame);
++
++	if (has_vector() && riscv_v_vstate_query(task_pt_regs(current)))
++		total_context_size += riscv_v_sc_size;
++	/*
++	 * Preserved a __riscv_ctx_hdr for END signal context header if an
++	 * extension uses __riscv_extra_ext_header
++	 */
++	if (total_context_size)
++		total_context_size += sizeof(struct __riscv_ctx_hdr);
++
++	frame_size += total_context_size;
++
++	frame_size = round_up(frame_size, 16);
++	return frame_size;
++}
++
+ SYSCALL_DEFINE0(rt_sigreturn)
+ {
+ 	struct pt_regs *regs = current_pt_regs();
+ 	struct rt_sigframe __user *frame;
+ 	struct task_struct *task;
+ 	sigset_t set;
++	size_t frame_size = get_rt_frame_size();
+ 
+ 	/* Always make any pending restarted system calls return -EINTR */
+ 	current->restart_block.fn = do_no_restart_syscall;
+ 
+ 	frame = (struct rt_sigframe __user *)regs->sp;
+ 
+-	if (!access_ok(frame, sizeof(*frame)))
++	if (!access_ok(frame, frame_size))
+ 		goto badframe;
+ 
+ 	if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
+@@ -140,17 +266,22 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+ 	struct pt_regs *regs)
+ {
+ 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
++	struct __riscv_ctx_hdr __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
+ 	long err;
+-	size_t i;
+ 
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
+ 	/* Save the floating-point state. */
+ 	if (has_fpu())
+ 		err |= save_fp_state(regs, &sc->sc_fpregs);
+-	/* We support no other extension state at this time. */
+-	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
+-		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
++	/* Save the vector state. */
++	if (has_vector() && riscv_v_vstate_query(regs))
++		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
++	/* Write zero to fp-reserved space and check it on restore_sigcontext */
++	err |= __put_user(0, &sc->sc_extdesc.reserved);
++	/* And put END __riscv_ctx_hdr at the end. */
++	err |= __put_user(END_MAGIC, &sc_ext_ptr->magic);
++	err |= __put_user(END_HDR_SIZE, &sc_ext_ptr->size);
+ 
+ 	return err;
+ }
+@@ -175,6 +306,13 @@ static inline void __user *get_sigframe(struct ksignal *ksig,
+ 	/* Align the stack frame. */
+ 	sp &= ~0xfUL;
+ 
++	/*
++	 * Fail if the size of the altstack is not large enough for the
++	 * sigframe construction.
++	 */
++	if (current->sas_ss_size && sp < current->sas_ss_sp)
++		return (void __user __force *)-1UL;
++
+ 	return (void __user *)sp;
+ }
+ 
+@@ -183,9 +321,10 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ {
+ 	struct rt_sigframe __user *frame;
+ 	long err = 0;
++	size_t frame_size = get_rt_frame_size();
+ 
+-	frame = get_sigframe(ksig, regs, sizeof(*frame));
+-	if (!access_ok(frame, sizeof(*frame)))
++	frame = get_sigframe(ksig, regs, frame_size);
++	if (!access_ok(frame, frame_size))
+ 		return -EFAULT;
+ 
+ 	err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+@@ -313,3 +452,10 @@ void arch_do_signal_or_restart(struct pt_regs *regs)
+ 	 */
+ 	restore_saved_sigmask();
+ }
++
++void init_rt_signal_env(void);
++void __init init_rt_signal_env(void)
++{
++	riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
++			  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
++}
 -- 
 2.17.1
 
