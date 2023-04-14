@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABE5C77B77
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159B2C77B71
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=q2GZ/0xazS6uDmVC4AdZ7uDIo609mLEIpiV71km0nhc=; b=vxNAa2zK1IXRkJ
-	aINj2FAgtfKnGQwPt5QEP/1aTkPvFmGtb0iuPXda/jcqYSVfVa+VYAix/BPcVjirAB+66VJGQWTja
-	8sV2t8ykRl39OyAYUGHEwYGrGxmXb7nyaCK9tyJdO0qk1DEWx4442jMoA9LNCf+ZvWvQrZYS2BD8v
-	YEHuS6xj0LgjXHH85/5oIs+9cMTEZ0j7Tk5IbygcUApxj1tvV39m0ZkTn0qN7m+P6vznL0MnOHx2S
-	3RQxalCbZ7UQRkUOKuGFUU2gFu8JncQFinrE/JWPETe83oAnzZ0Mv8/YNhzhwMKwrOuPv6P9GpLX9
-	vdfXK6TZ0mn0mXdnUIDQ==;
+	List-Owner; bh=fX50gkaKfQ1sOq0hxLcVKmcFsIBcT6lgv7UEle7TW30=; b=bbQVX/Z/BtbPMb
+	+CYIMHUfYr81sl0nCeGGxbbnfm64YBHPpTlp64jLD3G+53O5+RQIrYFvjWgvHDs+hh23WKo8pvnxy
+	5bJdrsqe4kWM1fyeW8U4Oxj1vTJi2Wl2xWxjzWqveDUfhs6fd+R3N9V9pvI68x6B9akEiSPipHMST
+	AWIkrz2hlxfLD6ecH6eOsgQs0lwFmTuVPFHjyMaDLAWhuq4iztavXllhNAnRPFP6ErVssMxa3FaTY
+	lHQbZpCG16vHd9i64fwNsAWlngfl7+UUzlTHud0NnnZVSXeFuzEtNdeQoV4vK2vHYKnP0iBU/E+25
+	O/xxiT1a5vmAATymQw5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT6p-00Al94-0r;
-	Fri, 14 Apr 2023 23:45:39 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pnT6x-00AlEz-0C;
+	Fri, 14 Apr 2023 23:45:47 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT5j-00Ak7J-1o;
-	Fri, 14 Apr 2023 23:44:33 +0000
-Message-ID: <20230414232309.823800249@linutronix.de>
+	id 1pnT5l-00Ak8y-1E;
+	Fri, 14 Apr 2023 23:44:35 +0000
+Message-ID: <20230414232309.886802016@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515870;
+	s=2020; t=1681515871;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=u2pIwytrv1vZgLx+4s6Zqq6fs8EHbK9BS70kDc1o//Q=;
-	b=tj9xEvgya1srEI62cuunab7v24wBazw6wpcxMtpv79720yev1kGcsEOxNFRId8qJ8lqNgr
-	q1f11vM+Nc4aB4NgnBxR6tIQfQU2iMcMUeRzBxRZmT8RWJKM3p19eh3Ukgff4IpPXHAAmQ
-	OLzNAKEJS2vpJEbsoOLlJHaRdWtjNT4f1mD1+bDAcp/oan26jOAxfnbm6Tpuvt1St80R8P
-	dPrGNEb4Zg6w49Q/eELNuFnnuSnEIQhX8h7OuWa4y9Uk6de034h6Q46GBDo6gmOK33DmEP
-	YQXfDKPvV28Xy5XOo7nZYu9OBqWv20e7LFSwhwcY173bD1coDcsMG/2Q9JSTZg==
+	 references:references; bh=/ZK0+aYTDprGh+TLZnlXwtj4Vfn8D4d3BT+xMJ2O4BY=;
+	b=vjkoNmrHuvgLnadmWDBQsaj4074jsURhSMcG/y+SAv5U7Hjl873Sfi0Y38vZ0CiBW30lkc
+	YSRug6WOf+XkPtW/Ok7DfLfUey146jL84NdowhhogdHAP/UKxbH2eo4JQjN009SbEVnvNW
+	1zv9NUb4vEW1lio3uk0/iDb4xih4TRxA+1g65l9y4CxPj9/vIKfhtqspZBp17LHEOMwTUs
+	uqFNHzjdehaY7LPLRMdLZxqYkTGv4zrW/lRcOci3KT4V49tXaioV61gsRoQXocuqUqCvtS
+	KqU2xIzYJQYvtQyq2IG1EFa3XvWD9GUEZsifVyZD2YZ/wz91ynh5mZJDMN6fTQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515870;
+	s=2020e; t=1681515871;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=u2pIwytrv1vZgLx+4s6Zqq6fs8EHbK9BS70kDc1o//Q=;
-	b=YNu0rancrP7gWuufcUKxrEH7bo8bWOmpZPxm7N3EMgjD1anaBUmHq23Qv/x7FzdBfUPs2b
-	nJi2pgQCB1pCr2DA==
+	 references:references; bh=/ZK0+aYTDprGh+TLZnlXwtj4Vfn8D4d3BT+xMJ2O4BY=;
+	b=5l86SHxSNU5XjxfrY2KYmiaNiv7XnFBAOMn0HfeVzwcXghypKkHnPtf+Boxw8mjzqZQmUJ
+	Sn14SMUAF/D/3pAQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,13 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject: [patch 10/37] x86/cpu/cacheinfo: Remove cpu_callout_mask dependency
+Subject:  [patch 11/37] x86/smpboot: Move synchronization masks to SMP boot code
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:44:29 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:44:31 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_164431_770668_5F7A7A0C 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20230414_164433_726013_14D5C797 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,74 +104,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cpu_callout_mask is used for the stop machine based MTRR/PAT init.
+The usage is in smpboot.c and not in the CPU initialization code.
 
-In preparation of moving the BP/AP synchronization to the core hotplug
-code, use a private CPU mask for cacheinfo and manage it in the
-starting/dying hotplug state.
+The XEN_PV usage of cpu_callout_mask is obsolete as cpu_init() not longer
+waits and cacheinfo has its own CPU mask now, so cpu_callout_mask can be
+made static too.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/x86/kernel/cpu/cacheinfo.c |   21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ arch/x86/include/asm/cpumask.h |    5 -----
+ arch/x86/kernel/cpu/common.c   |   17 -----------------
+ arch/x86/kernel/smpboot.c      |   16 ++++++++++++++++
+ arch/x86/xen/smp_pv.c          |    3 ---
+ 4 files changed, 16 insertions(+), 25 deletions(-)
 
---- a/arch/x86/kernel/cpu/cacheinfo.c
-+++ b/arch/x86/kernel/cpu/cacheinfo.c
-@@ -39,6 +39,8 @@ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t
- /* Shared L2 cache maps */
- DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t, cpu_l2c_shared_map);
+--- a/arch/x86/include/asm/cpumask.h
++++ b/arch/x86/include/asm/cpumask.h
+@@ -4,11 +4,6 @@
+ #ifndef __ASSEMBLY__
+ #include <linux/cpumask.h>
  
-+static cpumask_var_t cpu_cacheinfo_mask;
-+
- /* Kernel controls MTRR and/or PAT MSRs. */
- unsigned int memory_caching_control __ro_after_init;
+-extern cpumask_var_t cpu_callin_mask;
+-extern cpumask_var_t cpu_callout_mask;
+-extern cpumask_var_t cpu_initialized_mask;
+-extern cpumask_var_t cpu_sibling_setup_mask;
+-
+ extern void setup_cpu_local_masks(void);
  
-@@ -1172,8 +1174,10 @@ void cache_bp_restore(void)
- 		cache_cpu_init();
+ /*
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -67,14 +67,6 @@
+ 
+ u32 elf_hwcap2 __read_mostly;
+ 
+-/* all of these masks are initialized in setup_cpu_local_masks() */
+-cpumask_var_t cpu_initialized_mask;
+-cpumask_var_t cpu_callout_mask;
+-cpumask_var_t cpu_callin_mask;
+-
+-/* representing cpus for which sibling maps can be computed */
+-cpumask_var_t cpu_sibling_setup_mask;
+-
+ /* Number of siblings per CPU package */
+ int smp_num_siblings = 1;
+ EXPORT_SYMBOL(smp_num_siblings);
+@@ -168,15 +160,6 @@ static void ppin_init(struct cpuinfo_x86
+ 	clear_cpu_cap(c, info->feature);
  }
  
--static int cache_ap_init(unsigned int cpu)
-+static int cache_ap_online(unsigned int cpu)
+-/* correctly size the local cpu masks */
+-void __init setup_cpu_local_masks(void)
+-{
+-	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
+-	alloc_bootmem_cpumask_var(&cpu_callin_mask);
+-	alloc_bootmem_cpumask_var(&cpu_callout_mask);
+-	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
+-}
+-
+ static void default_init(struct cpuinfo_x86 *c)
  {
-+	cpumask_set_cpu(cpu, cpu_cacheinfo_mask);
+ #ifdef CONFIG_X86_64
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -101,6 +101,13 @@ EXPORT_PER_CPU_SYMBOL(cpu_die_map);
+ DEFINE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
+ EXPORT_PER_CPU_SYMBOL(cpu_info);
+ 
++/* All of these masks are initialized in setup_cpu_local_masks() */
++static cpumask_var_t cpu_initialized_mask;
++static cpumask_var_t cpu_callout_mask;
++static cpumask_var_t cpu_callin_mask;
++/* Representing CPUs for which sibling maps can be computed */
++static cpumask_var_t cpu_sibling_setup_mask;
 +
- 	if (!memory_caching_control || get_cache_aps_delayed_init())
- 		return 0;
- 
-@@ -1191,11 +1195,17 @@ static int cache_ap_init(unsigned int cp
- 	 *      lock to prevent MTRR entry changes
- 	 */
- 	stop_machine_from_inactive_cpu(cache_rendezvous_handler, NULL,
--				       cpu_callout_mask);
-+				       cpu_cacheinfo_mask);
- 
- 	return 0;
+ /* Logical package management. We might want to allocate that dynamically */
+ unsigned int __max_logical_packages __read_mostly;
+ EXPORT_SYMBOL(__max_logical_packages);
+@@ -1548,6 +1555,15 @@ early_param("possible_cpus", _setup_poss
+ 		set_cpu_possible(i, true);
  }
  
-+static int cache_ap_offline(unsigned int cpu)
++/* correctly size the local cpu masks */
++void __init setup_cpu_local_masks(void)
 +{
-+	cpumask_clear_cpu(cpu, cpu_cacheinfo_mask);
-+	return 0;
++	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
++	alloc_bootmem_cpumask_var(&cpu_callin_mask);
++	alloc_bootmem_cpumask_var(&cpu_callout_mask);
++	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
 +}
 +
- /*
-  * Delayed cache initialization for all AP's
-  */
-@@ -1210,9 +1220,12 @@ void cache_aps_init(void)
+ #ifdef CONFIG_HOTPLUG_CPU
  
- static int __init cache_ap_register(void)
- {
-+	zalloc_cpumask_var(&cpu_cacheinfo_mask, GFP_KERNEL);
-+	cpumask_set_cpu(smp_processor_id(), cpu_cacheinfo_mask);
-+
- 	cpuhp_setup_state_nocalls(CPUHP_AP_CACHECTRL_STARTING,
- 				  "x86/cachectrl:starting",
--				  cache_ap_init, NULL);
-+				  cache_ap_online, cache_ap_offline);
- 	return 0;
- }
--core_initcall(cache_ap_register);
-+early_initcall(cache_ap_register);
+ /* Recompute SMT state for all CPUs on offline */
+--- a/arch/x86/xen/smp_pv.c
++++ b/arch/x86/xen/smp_pv.c
+@@ -254,15 +254,12 @@ cpu_initialize_context(unsigned int cpu,
+ 	struct desc_struct *gdt;
+ 	unsigned long gdt_mfn;
+ 
+-	/* used to tell cpu_init() that it can proceed with initialization */
+-	cpumask_set_cpu(cpu, cpu_callout_mask);
+ 	if (cpumask_test_and_set_cpu(cpu, xen_cpu_initialized_map))
+ 		return 0;
+ 
+ 	ctxt = kzalloc(sizeof(*ctxt), GFP_KERNEL);
+ 	if (ctxt == NULL) {
+ 		cpumask_clear_cpu(cpu, xen_cpu_initialized_map);
+-		cpumask_clear_cpu(cpu, cpu_callout_mask);
+ 		return -ENOMEM;
+ 	}
+ 
 
 
 _______________________________________________
