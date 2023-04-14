@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43570C77B73
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF2EBC77B61
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DdWW5sWnWydtOIltLHnDzrVdC33Hp7mGGs8VUjDYEu4=; b=2Cvs+EwTQwaP6h
-	Wtfr+QOHWG1W9quuYFeLV8fvWztA1SzIBUBFbic2MjRlesgk+L8cDMfB5Mo22rVbfDPSFUPKC5Wyq
-	xlx1i78SqqH94qaSsEtRzNfWt3dMagHMU/7fYN/FK9FmJu7cqi1OC/GvhvyupxDQJ5Pthref+ggxQ
-	0gEz4esOtMI6kTXPN64O77OdZ1g9/+BTtIi47+LSNeUClDjfKoICcxkqrNUdb78pSoRq44tXYHFY5
-	/S+dFE5Te+HB/ZfunfqQYaif8uXs8f2UMWi8XPotIEDlZfHWnXj3LyeUuy/S+6VzOEphM4lpYoasD
-	BvnuYjRfklTL9934vhjw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Qps6pvWu7w9ajhto82hZtqb/gAaBCIne5lSFK1WvAP8=; b=mfLZl5PELTRYxL
+	Hnwqe83nCkCFRED6SOLpai2h/UjO4BPTZe0BodnVYc0blLVyhHglNQ5XlRpjyh+QRbgc600VWnE1w
+	zWXsjtnDKta2mh809d1kpFIedVD9ZfWvk7YVnVA58DYTyTdHzZhPMAVIbkuSKXJCFUKXCx8lJsPu3
+	ROU/BMJKr+oPPpBply8A06dDWaozPKXaTGa9EvcqANQKNW68t+wF7VcZtFFeXyk1CMMFKeq477HD2
+	XNrybZ8hfPbBtR/lYEvqgGlRlUBk2XbI5dt21wj69Ni5mPEnL+7Ea5voselTUyEEnMqoNwEMpsD4d
+	FyHp6CQ/NnrEP7TBICbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn9PT-008ADf-3A;
-	Fri, 14 Apr 2023 02:43:35 +0000
+	id 1pn9PW-008AEs-0G;
+	Fri, 14 Apr 2023 02:43:38 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn9PN-008A73-1z
+	id 1pn9PN-008A8j-1z
 	for linux-riscv@lists.infradead.org;
 	Fri, 14 Apr 2023 02:43:33 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id D4F4124E27E;
-	Fri, 14 Apr 2023 10:42:59 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 3FA5A24E235;
+	Fri, 14 Apr 2023 10:42:56 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 10:42:59 +0800
+ 2023 10:42:56 +0800
 Received: from localhost.localdomain (183.27.97.249) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 10:42:58 +0800
+ 2023 10:42:54 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,20 +49,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-Subject: [PATCH v3 4/7] clk: starfive: jh7110-sys: Modify PLL clocks source
-Date: Fri, 14 Apr 2023 10:41:54 +0800
-Message-ID: <20230414024157.53203-5-xingyu.wu@starfivetech.com>
+Subject: [PATCH v3 0/7] Add PLL clocks driver for StarFive JH7110 SoC
+Date: Fri, 14 Apr 2023 10:41:50 +0800
+Message-ID: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
-References: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.97.249]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_194329_977179_032A91E8 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20230413_194329_994021_BD2196F2 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,76 +77,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Modify PLL clocks source to be got from dts instead of
-the fixed factor clocks.
+This patch serises are to add PLL clocks driver and providers by writing
+and reading syscon registers for the StarFive JH7110 RISC-V SoC. And add
+documentation to describe StarFive System Controller(syscon) Registers.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/clk/starfive/Kconfig                  |  1 +
- .../clk/starfive/clk-starfive-jh7110-sys.c    | 31 ++++---------------
- 2 files changed, 7 insertions(+), 25 deletions(-)
+PLL are high speed, low jitter frequency synthesizers in JH7110.
+Each PLL clocks work in integer mode or fraction mode by some dividers,
+and the dividers are set in several syscon registers.
+The formula for calculating frequency is: 
+Fvco = Fref * (NI + NF) / M / Q1
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index e306edf4defa..903a5097c642 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
- 	select AUXILIARY_BUS
- 	select CLK_STARFIVE_JH71X0
- 	select RESET_STARFIVE_JH7110
-+	select CLK_STARFIVE_JH7110_PLL
- 	default ARCH_STARFIVE
- 	help
- 	  Say yes here to support the system clock controller on the
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 5ec210644e1d..439999dc2191 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -395,29 +395,6 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(priv->dev, (void *)(&priv->base));
- 
--	/*
--	 * These PLL clocks are not actually fixed factor clocks and can be
--	 * controlled by the syscon registers of JH7110. They will be dropped
--	 * and registered in the PLL clock driver instead.
--	 */
--	/* 24MHz -> 1000.0MHz */
--	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
--							 "osc", 0, 125, 3);
--	if (IS_ERR(priv->pll[0]))
--		return PTR_ERR(priv->pll[0]);
--
--	/* 24MHz -> 1066.0MHz */
--	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
--							 "osc", 0, 533, 12);
--	if (IS_ERR(priv->pll[1]))
--		return PTR_ERR(priv->pll[1]);
--
--	/* 24MHz -> 1188.0MHz */
--	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
--							 "osc", 0, 99, 2);
--	if (IS_ERR(priv->pll[2]))
--		return PTR_ERR(priv->pll[2]);
--
- 	for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
- 		u32 max = jh7110_sysclk_data[idx].max;
- 		struct clk_parent_data parents[4] = {};
-@@ -455,8 +432,12 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 				parents[i].fw_name = "tdm_ext";
- 			else if (pidx == JH7110_SYSCLK_MCLK_EXT)
- 				parents[i].fw_name = "mclk_ext";
--			else
--				parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
-+			else if (pidx == JH7110_SYSCLK_PLL0_OUT)
-+				parents[i].fw_name = "pll0_out";
-+			else if (pidx == JH7110_SYSCLK_PLL1_OUT)
-+				parents[i].fw_name = "pll1_out";
-+			else if (pidx == JH7110_SYSCLK_PLL2_OUT)
-+				parents[i].fw_name = "pll2_out";
- 		}
- 
- 		clk->hw.init = &init;
+The first patch adds docunmentation to describe PLL clock bindings,
+and the second patch adds driver to support PLL clocks for JH7110.
+The patch 3 modifies the SYSCRG dibindings and adds PLL clock inputs.
+The patch 4 modifies the system clock driver and changes PLL clock source
+from PLL clock controller instead of the fixed factor clocks. The patch 5
+adds documentation to decribe syscon registers. And the patch 6 adds the
+stg/sys/aon syscon nodes for JH7110 SoC. The last patch adds PLL 
+clock node and modifies the syscrg node in JH7110 dts file.
+
+This patchset should be applied after these patchset about JH7110 basic
+clock drivers(Accepted and will merged in v6.4)[1].
+[1] https://lore.kernel.org/all/20230401111934.130844-1-hal.feng@starfivetech.com/
+
+Changes since v2:
+- Rebased on latest JH7110 basic clock drivers.
+- Added the complete documentation to describe syscon register.
+- Added syscon node in JH7110 dts file.
+- Modified the clock rate selection to match the closest rate in
+  PLL driver when setting rate.
+
+v2: https://lore.kernel.org/all/20230316030514.137427-1-xingyu.wu@starfivetech.com/
+
+Changes since v1: 
+- Changed PLL clock node to be child of syscon node in dts.
+- Modifed the definitions and names of function in PLL clock driver.
+- Added commit to update syscon and syscrg dt-bindings.
+
+v1: https://lore.kernel.org/all/20230221141147.303642-1-xingyu.wu@starfivetech.com/
+
+William Qiu (2):
+  dt-bindings: soc: starfive: Add StarFive syscon module
+  riscv: dts: starfive: jh7110: Add syscon nodes
+
+Xingyu Wu (5):
+  dt-bindings: clock: Add StarFive JH7110 PLL clock generator
+  clk: starfive: Add StarFive JH7110 PLL clock driver
+  dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
+  clk: starfive: jh7110-sys: Modify PLL clocks source
+  riscv: dts: starfive: jh7110: Add PLL clock node and modify syscrg
+    node
+
+ .../bindings/clock/starfive,jh7110-pll.yaml   |  46 ++
+ .../clock/starfive,jh7110-syscrg.yaml         |  20 +-
+ .../soc/starfive/starfive,jh7110-syscon.yaml  |  58 +++
+ MAINTAINERS                                   |  12 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  29 +-
+ drivers/clk/starfive/Kconfig                  |   9 +
+ drivers/clk/starfive/Makefile                 |   1 +
+ .../clk/starfive/clk-starfive-jh7110-pll.c    | 427 ++++++++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-pll.h    | 293 ++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-sys.c    |  31 +-
+ .../dt-bindings/clock/starfive,jh7110-crg.h   |   6 +
+ 11 files changed, 903 insertions(+), 29 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.h
+
+
+base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
+prerequisite-patch-id: 388b8adbb0fe2daf4d07a21eafd4f1bd50ce2403
+prerequisite-patch-id: 1117ecaa40a353c667b71802ab34ecf9568d8bb2
+prerequisite-patch-id: b00c6b21fbd0353d88b7c9b09093ba30b765f45b
+prerequisite-patch-id: 08ec9027e8a5c6fdf201726833168c7464a9b94d
+prerequisite-patch-id: fb5120248e48fe1faf053ae0b490c92507ec2b44
+prerequisite-patch-id: 4b93d8d590b0a2abe7b4be5287232c494c35be4a
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: c09c4c68af017b8e5c97b515cb50b70c18a2e705
+prerequisite-patch-id: 0df8ccb0e848c2df4c2da95026494bebecede92d
+prerequisite-patch-id: 315303931e4b6499de7127a88113763f86e97e16
+prerequisite-patch-id: 40cb8212ddb024c20593f73d8b87d9894877e172
+prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
+prerequisite-patch-id: d57cc467fb036241b9276320ff076c4a30d376d6
+prerequisite-patch-id: 6e563d68bc5dbf951d4ced17897f9cc4d56169fe
+prerequisite-patch-id: 61ec2caa21fd0fc60e57977f7d16d3f72b135745
+prerequisite-patch-id: 1387a7e87b446329dfc21f3e575ceae7ebcf954c
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: 9007c8610fdcd387592475949864edde874c20a2
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 0a0ac5a8a90655b415f6b62e324f3db083cdaaee
 -- 
 2.25.1
 
