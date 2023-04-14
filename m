@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98819C77B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 16:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19D2C77B71
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 17:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbmK3jV1aar5T+TWe9DdLMSKOYDIBsgLmr6eGga9+30=; b=Lie6mipO+vKFwn54aSeRJhfRwc
-	tDt3EuuB5YjBl2HRqtBp5Qp5O2WIJ6ohUWXWuZ4n/cdEAfaYuwWpne9DBZ8O+p8ntCkdUdGstn3im
-	DK/B4bCYRQcqrz7BLtIbc16OR0pj6n0NPf6KGRsEr6hwpKElbRhR6qVJbCPvBXsii2WXGjw/yjkgb
-	nFE2z35714GD3uGYBRP73c0Sd99VIBTj8Kdj9GzSfu45EPQbEoZ3q3+z/en21eMpbZ0Cv1UI6Muhv
-	8n1vGbKUH927xdC/95NKLAJcehKwESlxKaOhxJQm0Z/X77x3wQ2Qqj8SyD45Rh4eA5Elv44HAgiRp
-	t3illJDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rr6x26OTrEap8vNG0D8sKWUDN83KecXm+X4b5z/5kfM=; b=LH2C+dCpx2GX/A
+	/BJCdSRzHkAJzlJbInYygDwxrtosMfsl/O4K6DIOY0PfkEQoWLsR9eNoyg+n/jSryjvfu4IGf6+NY
+	7dySD6kcdav6EJoUbx6v0pwdyblHnW3/17v22nuorLXveVQYZhW4FXh5HhhXkNrKuKs4Bn2LA0i5n
+	otMbR6FDFzm3Bfsu/qQQTdjWjQ8IBtIJAdJMWBb5iJpTZko/V/ZzoAzLu+CtHXkASYTujkVtI0GOm
+	mmcoybjVwU/tqXXdoTlycw3ZX0fxiuwCb3ue8JUolTaA4QNOoZ2ZzyP+z/IeqKPzLBJt3zJ6QDzox
+	rN/D8I+AXiROqGx5zm8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnMZu-00A9Gb-2A;
-	Fri, 14 Apr 2023 16:47:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pnMnP-00ABLP-2k;
+	Fri, 14 Apr 2023 17:01:11 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnMZr-00A9Fx-2g;
-	Fri, 14 Apr 2023 16:47:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 658C7647D2;
-	Fri, 14 Apr 2023 16:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23059C4339C;
-	Fri, 14 Apr 2023 16:47:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681490830;
-	bh=V+3AlzUEvU220Qfu5FQzGqeb/Diu4gbuqSKPjUsqsC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oOgMDPAuldNfaIluMPFZGKLBLlA8L0JYUjPEKzkuwUExITKMCZXQigT3XcKoJcymx
-	 aPog8vXXskrALKG8LD4AOafSP0IL+QJHfMFbRks2OGwMLl7dFqMXpne/FpvWkTY+Kc
-	 oKL7JmMX+lPQmny9Z69KIYPOTSo2Emz2uhzHGLI1WLNjL65j0WBtwjQqUSkoLHEZ6J
-	 IaT/k2SF3VG+AsF+EbT8/JtXHtQDhrDR+UUTuhayv38FNdHSoFoOs7GA21xKPfJGJD
-	 azmz2xKzRdTChQtfHUNRlSIW2Hk/9Hi429oxUjKCyWRxwifNBTxQ0gcZqfkd+mxOG1
-	 NTngOnQlC86eg==
-Date: Fri, 14 Apr 2023 17:47:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Subject: Re: [PATCH -next v18 07/20] riscv: Introduce riscv_v_vsize to record
- size of Vector context
-Message-ID: <20230414-kerosene-jackknife-2bf17e228b1d@spud>
+	id 1pnLpg-00A1dv-23
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Apr 2023 15:59:29 +0000
+Received: by mail-pl1-x635.google.com with SMTP id lh8so5739139plb.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 08:59:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1681487966; x=1684079966;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6nGKmDwG9+jNVeR75v05JMRVwMFJUAElECktRxuQgsc=;
+        b=mM2vdqpkz2PBDDMrZvLiutf/ppjF1tCkaGP/crzjPrGQC7zlwYPJBix5iA6jmNH8fR
+         LYABnDcmXEMK5KGZbECXDl4ndHVN2C0fLoIlOLGPm7BDAxe7VsWXcTPlVE3ojjKfwS/+
+         dp7odakVnTOC3JBLRQ1xgAhaDy8CeITNr4D+Hs3XGChG32aocBrilAGAw+HV+is8Kf5G
+         gZTZehgkU4QgO+G8kPL0RzpDo6rLzM7MbfDySeGYYAbt/ory/u5oC+bMs+WdMbPAQBZ0
+         va77J9q6zwz0bzp9Wb1xVOGjsWQfClGhNn0HMmGLhFJJC5DNWPeu7sFGIyuUs/omzpyB
+         cY7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681487966; x=1684079966;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6nGKmDwG9+jNVeR75v05JMRVwMFJUAElECktRxuQgsc=;
+        b=HspapT6C/dSn4XalplzYUkm+uAhqXJAyctPzfZswExiZm5Lw185227IGC+ksa7tXVJ
+         FmAing2Jp6S+wZCmh7JNSHGm7ut24Tkmej22tAQwnSkdh6hvjWHNTq9ZV8HWOQMjoDO/
+         vhJ1rm47WfineTIoZzplOVt8Im2aYdPhBJPT5Gyvqd5+9S4WRnfMiMvq1Z0VIOJ2+IFj
+         Tou44T/HAIDxWFStsqeaFM6wv1HSjVU1Q9i1O5GHfMR4OJa7vEgd8el+71B0pYZ94RyO
+         A753UoH/EL6KX6KMkiw1OqweLN5zzcGqp7bI2pqaAlDRbI1B5BL9OrRa0zboUDOVauk6
+         W7zw==
+X-Gm-Message-State: AAQBX9fYuN15YZkr1gmUTqoQL9ycrZWClOKUHn9x59NGaHLcSpecyNgA
+	e+Nm9jgi5zzPAyaCRzYWuyHftfEX6mPCm6Lmi2McRku0EttyxpWPPr4zJS87I2SYeNyu/pDpGs4
+	wR5Ym+hxxV4xc5o1nNNtWjEYHfCxQV7qh1qi5jKq6+1GUiEiw1Q7QLGsKnmNyBZrh/WmQ7hIkTL
+	TeCmlbqHFEQWsC
+X-Google-Smtp-Source: AKy350bcQ+ZmyMAff8Obq6yV3BPKqrDn2XpjHAqeL+rg6LKB5pICPuePzioMZgZyYVR/Af5fsEAdrg==
+X-Received: by 2002:a17:902:e54a:b0:1a2:3b6:8319 with SMTP id n10-20020a170902e54a00b001a203b68319mr3730449plf.54.1681487966260;
+        Fri, 14 Apr 2023 08:59:26 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.08.59.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Apr 2023 08:59:25 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH -next v18 06/20] riscv: Introduce Vector enable/disable helpers
+Date: Fri, 14 Apr 2023 15:58:29 +0000
+Message-Id: <20230414155843.12963-7-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230414155843.12963-1-andy.chiu@sifive.com>
 References: <20230414155843.12963-1-andy.chiu@sifive.com>
- <20230414155843.12963-8-andy.chiu@sifive.com>
-MIME-Version: 1.0
-In-Reply-To: <20230414155843.12963-8-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_094711_903292_77C5024C 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20230414_085928_676446_F049615E 
+X-CRM114-Status: UNSURE (   6.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,60 +99,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@linux.alibaba.com, kvm@vger.kernel.org, atishp@atishpatra.org, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Xianting Tian <xianting.tian@linux.alibaba.com>, anup@brainfault.org, Masahiro Yamada <masahiroy@kernel.org>, greentime.hu@sifive.com, Li Zhengyu <lizhengyu3@huawei.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Liao Chang <liaochang1@huawei.com>, vineetg@rivosinc.com, Philipp Tomsich <philipp.tomsich@vrull.eu>, Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Vincent Chen <vincent.chen@sifive.com>, palmer@dabbelt.com, kvm-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============5031725077475095056=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Greentime Hu <greentime.hu@sifive.com>
 
---===============5031725077475095056==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mODSqKfubxZdcXl/"
-Content-Disposition: inline
+These are small and likely to be frequently called so implement as
+inline routines (vs. function call).
 
-
---mODSqKfubxZdcXl/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Fri, Apr 14, 2023 at 03:58:30PM +0000, Andy Chiu wrote:
-
-> +	if (riscv_v_vsize != this_vsize) {
-> +		WARN(1, "RISCV_ISA_V only supports one vlenb on SMP system");
-
-nit: systems
-Clearly I don't expect a resubmission to change that!
-
-You can re-add:
+Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/include/asm/vector.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Thanks,
-Conor.
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 427a3b51df72..dfe5a321b2b4 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -11,12 +11,23 @@
+ #ifdef CONFIG_RISCV_ISA_V
+ 
+ #include <asm/hwcap.h>
++#include <asm/csr.h>
+ 
+ static __always_inline bool has_vector(void)
+ {
+ 	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
+ }
+ 
++static __always_inline void riscv_v_enable(void)
++{
++	csr_set(CSR_SSTATUS, SR_VS);
++}
++
++static __always_inline void riscv_v_disable(void)
++{
++	csr_clear(CSR_SSTATUS, SR_VS);
++}
++
+ #else /* ! CONFIG_RISCV_ISA_V  */
+ 
+ static __always_inline bool has_vector(void) { return false; }
+-- 
+2.17.1
 
---mODSqKfubxZdcXl/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDmDhwAKCRB4tDGHoIJi
-0rSyAP9qZMzkst1MmzvhXVxyB6lP1VuWBHZln/+8EWDjVy1dawEAyvgTJdrucXuR
-hwzRuGZuH4b2+10D2XhKW5cQ5K9ckgI=
-=wnXU
------END PGP SIGNATURE-----
-
---mODSqKfubxZdcXl/--
-
-
---===============5031725077475095056==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5031725077475095056==--
-
