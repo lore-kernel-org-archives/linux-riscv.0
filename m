@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B2DC77B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0424C77B6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HPvejEklgYiXIGo+v4QZfsnI7nvZn7sfu9ZbBDewbvE=; b=AO3LSOstuop4NP
-	YyFhjmLtV2AXdbiev3/i3nCWjOKnD4PD9Sx+0XN3qyCYaO4ODQfpik2bwR/pTKBCvpXXYkE/rhBNh
-	zShArJxC9xqGD21MbgXXXMMGJc2sqDPwoiJbM3KQBspfOdRT5mXP2OE15H9qkQluXCbEHqDpSa0JK
-	2oWiS0+Cwu3Sllgb6fydpawYJkyOrRewzy7kcmXOayNVn3qPtRBRpG6YQ8BMVfuqW28i+Fq+N6OWb
-	Ges28Tq51xQ/NTO1QxHmluzs1OJI+6zfLYyCnba9r4mVSOm15xK941Vk7alnZdp1FaqTCybThVAWX
-	dxseCMY4zgyw8lkEHRoQ==;
+	List-Owner; bh=TO69nIsxwSxo7Xf+J896/8DpZMzTWSG1KquFdAn3uGM=; b=D0IFzIJrNyKVVz
+	6aaCOW7dNRY4+VGcKyhWJs45mtKIcQQsfSmfE74ElCh3wM7B2jL+K8wuaF1OxMkxtcW813MSNcK7p
+	JXVoyoH9WbzWtKxt6se9jhA00JLTtpTwexoo6vDmCSONAY2Q/60Utn48LIiuufgeAy+TlKFwO4GDB
+	cIN2nMN6pZstT0rAgcXMykR2EyMEPCumpiRJIDuYAK0JkRK54uL7aQo+w/lD59g5ezgZ5QVlDD1MD
+	JHOc+qG6KC931mLXAQlN7fNG4bAxDzjbKKmbJsnq0XUWRqiaYtoqzT/ZHFcVIRNvMbXMVnMUVjABL
+	7HpNDq0W6+DQ+KEU3PTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn8tM-0085Fq-2A;
-	Fri, 14 Apr 2023 02:10:24 +0000
-Received: from mga01.intel.com ([192.55.52.88])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn8tK-0085Ew-08;
-	Fri, 14 Apr 2023 02:10:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1681438221; x=1712974221;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IeRnQ+CQcJwGbjz4GOR0Cyk0yJ9hc73wDuZH6+tv/hs=;
-  b=nONnpkkPCs3xdaqnOKU9Cf4ije6ogioOx37Rkgka6COgkAUZXq34xg1L
-   4XUnB0sq5cIGV0hhJU4Lcp4n7FZ8WcT/KDG1/jJLGzlHKOVb4s9qn/Ge7
-   neyvxpDzUXY74fxgaHP3ft5nsBqVZbpnpu5mPg/4lrX4LthLZZmFyjt2d
-   KYN+EIsAwkcRJt6sYPpLID4p6qNOWKQDXRYIewUT60eMWMBwyiN+/ZWhu
-   hxmoGm9WVoAUk+fya0Cjwa9cg5hN5DNACnZwL+gpitBQRCQH5GWwpPvT2
-   EeGvtzdg25e4qthSlKkcYj9o23XcpERh1DDi3XBhPrJwHDhn86GtvcXgN
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="372222362"
-X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
-   d="scan'208";a="372222362"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2023 19:10:18 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="720102853"
-X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
-   d="scan'208";a="720102853"
-Received: from lkp-server01.sh.intel.com (HELO b613635ddfff) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 13 Apr 2023 19:10:11 -0700
-Received: from kbuild by b613635ddfff with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pn8t8-000Z8D-0o;
-	Fri, 14 Apr 2023 02:10:10 +0000
-Date: Fri, 14 Apr 2023 10:09:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 4/4] riscv: Enable perf counters user access only through
- perf
-Message-ID: <202304140904.9oAVhFHu-lkp@intel.com>
-References: <20230413161725.195417-5-alexghiti@rivosinc.com>
+	id 1pn93e-0086SI-34;
+	Fri, 14 Apr 2023 02:21:02 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pn93b-0086Re-18
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Apr 2023 02:21:01 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 91F6624E1C6;
+	Fri, 14 Apr 2023 10:20:33 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
+ 2023 10:20:33 +0800
+Received: from [192.168.125.82] (183.27.97.249) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
+ 2023 10:20:32 +0800
+Message-ID: <84300997-31f8-b36e-e54e-876c266fc953@starfivetech.com>
+Date: Fri, 14 Apr 2023 10:20:31 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230413161725.195417-5-alexghiti@rivosinc.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v1 1/7] dt-bindings: power: Constrain properties for
+ JH7110 PMU
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Walker Chen <walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
+ <20230411064743.273388-2-changhuang.liang@starfivetech.com>
+ <cb97cf01-2dfd-7f93-2048-e05a806d468f@linaro.org>
+ <ee406b3d-0719-9332-cab5-62fe7537bcf1@starfivetech.com>
+ <20230412-trifle-outplayed-8a1c795fab8b@wendy>
+ <d59439c1-bce1-b4a1-0e05-77afc4fc2ebb@linaro.org>
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+In-Reply-To: <d59439c1-bce1-b4a1-0e05-77afc4fc2ebb@linaro.org>
+X-Originating-IP: [183.27.97.249]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_191022_093382_125EE873 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20230413_192059_705831_9CD5D1B7 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,84 +85,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on tip/perf/core]
-[also build test ERROR on acme/perf/core tip/master tip/auto-latest linus/master v6.3-rc6]
-[cannot apply to next-20230413]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/perf-Fix-wrong-comment-about-default-event_idx/20230414-002232
-patch link:    https://lore.kernel.org/r/20230413161725.195417-5-alexghiti%40rivosinc.com
-patch subject: [PATCH 4/4] riscv: Enable perf counters user access only through perf
-config: riscv-randconfig-r036-20230412 (https://download.01.org/0day-ci/archive/20230414/202304140904.9oAVhFHu-lkp@intel.com/config)
-compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project 9638da200e00bd069e6dd63604e14cbafede9324)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install riscv cross compiling tool for clang build
-        # apt-get install binutils-riscv64-linux-gnu
-        # https://github.com/intel-lab-lkp/linux/commit/8ca9b21cbf2c0b91ee35356c01aef9da7d874e55
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Alexandre-Ghiti/perf-Fix-wrong-comment-about-default-event_idx/20230414-002232
-        git checkout 8ca9b21cbf2c0b91ee35356c01aef9da7d874e55
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Link: https://lore.kernel.org/oe-kbuild-all/202304140904.9oAVhFHu-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> arch/riscv/kernel/perf_event.c:8:28: error: call to undeclared function 'to_riscv_pmu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-                                     ^
->> arch/riscv/kernel/perf_event.c:8:20: error: incompatible integer to pointer conversion initializing 'struct riscv_pmu *' with an expression of type 'int' [-Wint-conversion]
-           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-                             ^       ~~~~~~~~~~~~~~~~~~~~~~~~
->> arch/riscv/kernel/perf_event.c:24:27: error: incomplete definition of type 'struct riscv_pmu'
-           userpg->pmc_width = rvpmu->ctr_get_width(event->hw.idx) + 1;
-                               ~~~~~^
-   arch/riscv/kernel/perf_event.c:8:9: note: forward declaration of 'struct riscv_pmu'
-           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-                  ^
-   3 errors generated.
 
 
-vim +/to_riscv_pmu +8 arch/riscv/kernel/perf_event.c
+On 2023/4/12 19:29, Krzysztof Kozlowski wrote:
+> On 12/04/2023 11:42, Conor Dooley wrote:
+>> On Wed, Apr 12, 2023 at 04:51:16PM +0800, Changhuang Liang wrote:
+>>>
+>>>
+>>> On 2023/4/12 16:35, Krzysztof Kozlowski wrote:
+>>>> On 11/04/2023 08:47, Changhuang Liang wrote:
+>>>>> When use "starfive,jh7110-pmu-dphy" compatible, do not need the reg and
+>>>>> interrupts properties.
+>>> [...]
+>>>>>  
+>>>>>  description: |
+>>>>>    StarFive JH7110 SoC includes support for multiple power domains which can be
+>>>>> @@ -17,6 +18,7 @@ properties:
+>>>>>    compatible:
+>>>>>      enum:
+>>>>>        - starfive,jh7110-pmu
+>>>>> +      - starfive,jh7110-pmu-dphy
+>>>>
+>>>> You do here much more than commit msg says.
+>>>>
+>>>> Isn'y DPHY a phy? Why is it in power?
+>>>>
+>>>
+>>> OK, I will add more description. This is a power framework used to turn on/off 
+>>> DPHY. So it in power, not a phy.
 
-     4	
-     5	void arch_perf_update_userpage(struct perf_event *event,
-     6				       struct perf_event_mmap_page *userpg, u64 now)
-     7	{
-   > 8		struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-     9		struct clock_read_data *rd;
-    10		unsigned int seq;
-    11		u64 ns;
-    12	
-    13		userpg->cap_user_time = 0;
-    14		userpg->cap_user_time_zero = 0;
-    15		userpg->cap_user_time_short = 0;
-    16		userpg->cap_user_rdpmc =
-    17			!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT);
-    18	
-    19		/*
-    20		 * The counters are 64-bit but the priv spec doesn't mandate all the
-    21		 * bits to be implemented: that's why, counter width can vary based on
-    22		 * the cpu vendor.
-    23		 */
-  > 24		userpg->pmc_width = rvpmu->ctr_get_width(event->hw.idx) + 1;
+I found something wrong with my description here, not turn on/off DPHY,
+is turn on/off DPHY power switch. 
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+>>
+>> Perhaps tie it less to its role w/ the phy, and more to do with its
+>> location, say "jh7110-aon-pmu"?
+>> There's already "aon"/"sys"/"stg" stuff used in clock-controller and
+>> syscon compatibles etc.
+>>
+>> Krzysztof, what do you think of that? (if you remember the whole
+>> discussion we previously had about using those identifiers a few weeks
+>> ago).
+> 
+> Depends whether this is the same case or not. AFAIR, for AON/SYS/STG
+> these were blocks with few features, not only clock controller.
+> 
+> This sounds like just phy. Powering on/off phy is still a job of phy
+> controller... unless it is a power domain controller.
+> Best regards,
+> Krzysztof
+> 
+
+So, next version the compatible can be changed to "jh7110-aon-pmu"?
+
 
 _______________________________________________
 linux-riscv mailing list
