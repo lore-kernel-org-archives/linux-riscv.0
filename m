@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023F7C77B6F
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 09:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5A9C77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 12:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T2GYbE+nXE9sL0JhbIKlmOdNUrWO20253HTI+77Z5jw=; b=PXQUsH2cVnn9k1
-	VCNm3p0mJTt04+Jjf54vouEUJ9rZZrd5jboczBtsGGUcH6JdrnJZg/R+3exF5VPpJKdTLT79nHzs+
-	UHMNIbzCR75314H6jgZDfzrqxUWzchrLTkjpU1gWLvIuJBVDr/rtkYSJ2A3n192DbR2DXp3e8GHFS
-	XMeCpOkT1XELMMS0ZWy9RDBngoAzrVxm/rRn0FaOmx/J9OucE3MquF/sKceN+N0hF0akcZ23paTjX
-	MkoXq7lbtDZpmjXggTlS/WL4d4Gh7P+Glk9RV+k5dQ/LRMB/jas3lLwoC7HnBB+Yb6Yuh4YRVJ3c7
-	cgKjgzlsldw+N+Y8B9pw==;
+	List-Owner; bh=f5zrR5a9alNcsL481C9fG31Dq1w4MKKlfRrvD4vaDC0=; b=tAi208jkedyNvV
+	CMViJ+8O991F/wxDdhDCJt6VIQBEXAtVAihlBuUmtmiQeLxquYRGX8beYhaZCtl40je6yVekEC0C5
+	UOw5NK1qeeOfHoAmbZP5ShYKJBJPDOvyw5OLdH5b4ECoqPFs4UJdl782vDlJxVdVd1pYSWbJFfrGH
+	EdqkzLt6xVK1tCO3/7Bula9anENGsFUty47prZRDAabqQHUBhdtLbNtzeHGdKol2dM9UN2z17c+JV
+	SjxEmo4VLpJO95CrVvByEji4NNzhCYiyfxWPpDu2+ccvo54jTvOI7FAyTFdHX1Yp/QOcAMPoCFGIA
+	PDFOv5Fmh1OpdzVgSxQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnFWH-008piS-1U;
-	Fri, 14 Apr 2023 09:15:01 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1pnIfy-009XZj-2r;
+	Fri, 14 Apr 2023 12:37:15 +0000
+Received: from mail-oa1-f53.google.com ([209.85.160.53])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnFWE-008phJ-2z
+	id 1pnIfu-009XYJ-2j
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 09:15:00 +0000
-Received: by mail-ej1-x631.google.com with SMTP id c9so5138446ejz.1
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 02:14:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1681463696; x=1684055696;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KpMQhDzzgrlExHJBn7HrlDTYoVOY3vvei/11EajpUF8=;
-        b=ZPCUL0+bK332HE9gtGAnLR3ZQAv2LTjnnH2Cv/URQiNJBJMNFpkDwjQ5qw1Ghfe2iw
-         V96UEiUvuv4vul/5g2k3VubDkTEjfbfEl5Ui66w7gX8OrDO+NCQSuhXIzVPXpjgtYO1P
-         9dU8KMC4+6Yj/Duzo8VudXyKF8hWqA0Omo0HcvgYmNfuY38ekBU67cGwj0UwQWWK0bLT
-         3JWFGPVHcSbuxogsHRvr8R/ZLDgstq3uCkmbnkbBsbdAlgnd42KkEInOGM2ew7WXb+GZ
-         XOkKLPIkD/phbA+Ubj4CvXNpaUx0RbGJc3onhW5+QsDMIPoUL9uBmeqGo3DmiFXTATbH
-         1PJQ==
+	Fri, 14 Apr 2023 12:37:13 +0000
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-1842cddca49so21928148fac.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 05:37:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681463696; x=1684055696;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KpMQhDzzgrlExHJBn7HrlDTYoVOY3vvei/11EajpUF8=;
-        b=cyfztqBHrPc64AGC3levkJTE6kO5836Emze9EYcBK/n9z9OZOOBZR1PkP+dlQ4Fn1Y
-         aRIENj75PjIo18JPDOh0Dqjb3fKryTWpInI7x+d2IUfGESn9mDRTPw+A7yy8jV/44VyY
-         8HMR6YgzS80gMd1kDJSUhD8Y1H7AcXdmB70H/zKFoijLQxMhmJODCYK30vPiANMs67zK
-         zXu6kdRkwK4w81OLmqFx6PatgY94kwzaZcn011gTrOXAyNeLnAw3UCvcVaVxr9p38WGC
-         pbfDQ4jJUZLa16yFFIDCzxBmRhufuM2whP4HhN5zlxRyGKfxMvbAyPgHBD8EuqMJoPjl
-         x2yw==
-X-Gm-Message-State: AAQBX9diQbfXFk76BTVc5s1StTSE/KzoV3n0QwrgYm6+RFl0Jcx6Bk+6
-	5xM6aza2b/ebyLMtX9Kvibj1pA==
-X-Google-Smtp-Source: AKy350Z2g5HU4veXBC7Toq8RA9rtH8Q1iR5eYOw+R7glcJ7QcsbUpI4ltAdprqNvOZ0Fubk0bmrqFw==
-X-Received: by 2002:a17:907:d68e:b0:94c:dcac:4b24 with SMTP id wf14-20020a170907d68e00b0094cdcac4b24mr5527109ejc.49.1681463696130;
-        Fri, 14 Apr 2023 02:14:56 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id hq22-20020a1709073f1600b009486efb9192sm2221592ejc.11.2023.04.14.02.14.55
+        d=1e100.net; s=20221208; t=1681475828; x=1684067828;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZwurFSObnee2kpIi6/Arxgkud3I9gBHLAMsi3ZlNypU=;
+        b=FIA/j6ts64Ur9qwdLAAA7mYKKhmwUqmlmApvD9bhfov1C2rcJYPIg74bSGR7XC0byX
+         aYbzYfSnVR2ZmJ89V+zad1fobfeWrUupCKymqGXJzkDDJiTcTNjW4Jw3tF+1WFAMTQDK
+         h0qnuOtm7SClTEer6+ALLy633oxCubcUHGYley7rVYryHpcqk9bxkShnFaNNHlqFIYJr
+         hgV8FQC5FNaAQhrYaingYpYdFrnq2xD8a1ddbmuwdd8+xRVNfhct/PZNGFwKiEfT5UM1
+         bRS7NFuFGLfX4XbhJJ0tL9QtXb//yzK3wL2ttvIpPJDIpZ58z/wbNAwp2FrLmirlr87p
+         yRVQ==
+X-Gm-Message-State: AAQBX9ehRDUOwxSs7U/cjuYM34LMOv1E9ZcFHfntNwAgkwoSypFbU+Mp
+	GZuSIqy9zfuDnIFIBVQhDg==
+X-Google-Smtp-Source: AKy350bVVmrhvY61XM75nFRu62Wrf4ZG7s1mswZusecno/1qzJvuME7mfnOdLBD20yqZBjNKf+Kakw==
+X-Received: by 2002:a05:6870:b253:b0:187:8f41:9971 with SMTP id b19-20020a056870b25300b001878f419971mr3824889oam.34.1681475827712;
+        Fri, 14 Apr 2023 05:37:07 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id w18-20020a056870431200b0018045663fc5sm1712632oah.48.2023.04.14.05.37.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Apr 2023 02:14:55 -0700 (PDT)
-Date: Fri, 14 Apr 2023 11:14:54 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH] riscv: mm: execute local TLB flush after populating
- vmemmap
-Message-ID: <p6zxwbthpyepr4tlheifd5s5rwqe2kpc7mmgjtz5ffzftc7bmt@ku57j4x7kcyr>
-References: <20230414081605.471375-1-vincent.chen@sifive.com>
+        Fri, 14 Apr 2023 05:37:06 -0700 (PDT)
+Received: (nullmailer pid 3600809 invoked by uid 1000);
+	Fri, 14 Apr 2023 12:37:05 -0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230414081605.471375-1-vincent.chen@sifive.com>
+From: Rob Herring <robh@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Philipp Zabel <p.zabel@pengutronix.de>, Hal Feng <hal.feng@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, William Qiu <william.qiu@starfivetech.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>
+In-Reply-To: <20230414024157.53203-6-xingyu.wu@starfivetech.com>
+References: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
+ <20230414024157.53203-6-xingyu.wu@starfivetech.com>
+Message-Id: <168147484896.3576391.17289619505417988717.robh@kernel.org>
+Subject: Re: [PATCH v3 5/7] dt-bindings: soc: starfive: Add StarFive syscon
+ module
+Date: Fri, 14 Apr 2023 07:37:05 -0500
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_021458_970652_25790C7B 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20230414_053710_908978_032F382F 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +82,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 14, 2023 at 04:16:05PM +0800, Vincent Chen wrote:
-> The spare_init() calls memmap_populate() many times to create VA to PA
-> mapping for the VMEMMAP area, where all "strcut page" are located once
 
-struct
-
-> CONFIG_SPARSEMEM_VMEMMAP is defined. These "struct page" are later
-> initialized in the zone_sizes_init() function. However, during this
-> process, no sfence.vma instruction is executed for this VMEMMAP area.
-> This omission may cause the hart to fail to perform page table work
-
-s/work/walk/ ?
-
-> because some data related to the address translation is invisible to the
-> hart. To solve this issue, the local_flush_tlb_kernel_range() is called
-> right after the spare_init() to execute a sfence.vma instruction for the
-> VMEMMAP area, ensuring that all data related to the address translation
-> is visible to the hart.
+On Fri, 14 Apr 2023 10:41:55 +0800, Xingyu Wu wrote:
+> From: William Qiu <william.qiu@starfivetech.com>
 > 
-> Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Add documentation to describe StarFive System Controller Registers.
+> 
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 > ---
->  arch/riscv/include/asm/tlbflush.h | 7 +++++++
->  arch/riscv/mm/init.c              | 5 +++++
->  2 files changed, 12 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index a09196f8de68..f9d3712bd93b 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -61,4 +61,11 @@ static inline void flush_tlb_kernel_range(unsigned long start,
->  	flush_tlb_all();
->  }
->  
-> +/* Flush a range of kernel pages without broadcasting */
-> +static inline void local_flush_tlb_kernel_range(unsigned long start,
-> +						unsigned long end)
-> +{
-> +	local_flush_tlb_all();
-> +}
-> +
->  #endif /* _ASM_RISCV_TLBFLUSH_H */
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 478d6763a01a..5bd96f6c8f19 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -1231,6 +1231,10 @@ void __init misc_mem_init(void)
->  	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
->  	arch_numa_init();
->  	sparse_init();
-> +#ifdef CONFIG_SPARSEMEM_VMEMMAP
-> +	/* The entire VMEMMAP region has been propulated. Flush TLB for this region */
-
-populated
-
-> +	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
-> +#endif
->  	zone_sizes_init();
->  	reserve_crashkernel();
->  	memblock_dump_all();
-> @@ -1240,6 +1244,7 @@ void __init misc_mem_init(void)
->  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  			       struct vmem_altmap *altmap)
->  {
-> +	/* Defer the required TLB flush until the entire VMEMMAP region has been populated */
->  	return vmemmap_populate_basepages(start, end, node, NULL);
->  }
->  #endif
-> -- 
-> 2.25.1
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 58 +++++++++++++++++++
+>  MAINTAINERS                                   |  6 ++
+>  2 files changed, 64 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
 > 
 
-Besides the typos,
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+yamllint warnings/errors:
 
-Thanks,
-drew
+dtschema/dtc warnings/errors:
+./Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml: Unable to find schema file matching $id: http://devicetree.org/schemas/clock/starfive,jh7110-pll.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230414024157.53203-6-xingyu.wu@starfivetech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
