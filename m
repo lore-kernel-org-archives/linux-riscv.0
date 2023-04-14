@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42536C77B71
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D27C77B71
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=LUIxirqFCFAMYp02Voklp23yzv8v2wEERv9CG+fvbyw=; b=xr9d19j+bnParX
-	lgo9VRoe3n+/5kQWs3Hyax1cq+7b1dLn5El/Xlvq2US8Bbw/POY78WGsbmKyKnDoJu03bN4/YTMu0
-	KYxX/uFu5OaolCsRcO8N+xYgbvqAURCL2zz7amwM/nHknlE1fJeMUt+e5iDengBdw0qwUyelDAf0B
-	AWEFCD2W0mkCRs0UNBmccXZo+DWekAnDvIzijS70NOrmbIIKAwTqx7s4YWm3zl8Gl8MkfmUH1ZQ+l
-	GzMAD+boQtc3ctwvuvpgG62pnNwDVolySoCaY81uSmHXqfpKCrw5LDsis/1jHCbD+kO/EWy0DRZj3
-	ntDYYoOiovT42op4MWpA==;
+	List-Owner; bh=yJw9Rw0sftolosroci/ylXZfpxv5UZZ7PWM/1wrsGI8=; b=VFjngilaj0Y+td
+	Wp0pusZM3qcqCAsX5pw4H5B79BJv/4ndq7aCb3em0i8EwdbixPbObjk/29A1wQyNJ9VwpY1Ms82kY
+	moQwWa6thnGTHQcJDuDSj/jPii2WCGnfliQz2iFyk78FSnJDiGVch8av4EbAZFFXoEhfshCDe+LQM
+	/yaZuOz27nXJBNbCOrgx8LjyjiRjPFHktlf1SF0VYjAP3fQPpEpLzEjs3kqvy/L0mpSx4epgIklst
+	reXNlbY5yHd5HXR2saN3qQPX0nL2YTSKfOxSG9tkUpHeKxcGzAWzFIYIxZvxxaJVlNaQRCV4GHP0X
+	YRuoa8dvx2f9nReLnQeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnTAZ-00AoWn-0R;
-	Fri, 14 Apr 2023 23:49:31 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pnTAp-00Aonh-1W;
+	Fri, 14 Apr 2023 23:49:47 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT6E-00AkcU-2s;
-	Fri, 14 Apr 2023 23:45:14 +0000
-Message-ID: <20230414232311.004104404@linutronix.de>
+	id 1pnT6L-00AkjV-2n;
+	Fri, 14 Apr 2023 23:45:18 +0000
+Message-ID: <20230414232311.254849089@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515901;
+	s=2020; t=1681515907;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=ocDa9/b5b649kz9ODCiS7Obhl2xff0PGySrVJUnu/1Q=;
-	b=Md1KUi0t4p5246hEM+Qbsg81XiYR2jMjuw8Cw1D96u97R/Z2vnRzvzyGsvg5/thdzlhagw
-	VxVAyRxzHuR0yoObilNCNxEii10xKHOuzvMmMpympXYYlB2U8gUH+sjsIvQSBudSOTSmdM
-	UnCqcdLP+SdXgts22XiNkil1Ao3IAY8flV5MA9J+wt6a2jzpqf6qFRYX/asyt9IKYGJESJ
-	xr1bFKQEJqtc2y44yr2+c326EAG2BPB0FHdGHcRgBqiJBXhDU2UyMAE2uzcyA4utOsub3q
-	p754cUuO5uG6++I5nPeZhand8mstexdu0PM3TYbIMB2kMernSkCdSX7RIPkZfA==
+	 references:references; bh=qlj4H3ejL+vBUDG3NY1lMMcGFIiTzrSNA2aqLKlihDE=;
+	b=1GQ0vgasLWqRcJWgIXPbXDmKUvXohkJnXHYow4+Gk18ZVkMCsGTyrDjPv1CmK6RbyQU3xy
+	sZOnCBi1gUZHMhyRrfBhTMtqyNFDPJ6vIKz6V9GUUqs40cNvVEv7vD+CBHvRT0wd1gUl1d
+	6b2tSiphU+RGH9LMrzC1SBAlXe4ncrHHHmvCSojPNfdfYrCZOS3cqdN5dvg1mrwkF+zHKS
+	ZggDxsStwqH0PgeAnVkNUSmrn0NxE/MFHr8xTSF8rH/8cE10sWA0KKqw6/zjLrvWcuBEms
+	WRc4LjINHUoNtUJjSQE1O0a6vHatkwkifR+Lal+9Qf7z5SXlNpUbZu7h4WPnRg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515901;
+	s=2020e; t=1681515907;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=ocDa9/b5b649kz9ODCiS7Obhl2xff0PGySrVJUnu/1Q=;
-	b=BXd39doKKTpBx8WPmaV0PtWPunRukkpmlrtLhowy8wImwT3Zn16BG6OqXrJtidsxX/8Ej+
-	driBsAHHd5CWSWBA==
+	 references:references; bh=qlj4H3ejL+vBUDG3NY1lMMcGFIiTzrSNA2aqLKlihDE=;
+	b=QX/aw2ZRTXXvpaXqpLyn2DL7d4KHZGqZGPQ3AUK084YoY4i+oS2d15EjnpvV8yHLp9Q5Sc
+	902bNwcd/YuBSyBA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,14 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject: [patch 29/37] cpu/hotplug: Provide a split up CPUHP_BRINGUP mechanism
+Subject: [patch 33/37] x86/topology: Store extended topology leaf information
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:45:00 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:45:07 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_164503_235605_EA1BAC9B 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20230414_164510_119613_C9915695 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,202 +105,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The bring up logic of a to be onlined CPU consists of several parts, which
-are considered to be a single hotplug state:
-
-  1) Control CPU issues the wake-up
-
-  2) To be onlined CPU starts up, does the minimal initialization,
-     reports to be alive and waits for release into the complete bring-up.
-
-  3) Control CPU waits for the alive report and releases the upcoming CPU
-     for the complete bring-up.
-
-Allow to split this into two states:
-
-  1) Control CPU issues the wake-up
-
-     After that the to be onlined CPU starts up, does the minimal
-     initialization, reports to be alive and waits for release into the
-     full bring-up. As this can run after the control CPU dropped the
-     hotplug locks the code which is executed on the AP before it reports
-     alive has to be carefully audited to not violate any of the hotplug
-     constraints, especially not modifying any of the various cpumasks.
-
-     This is really only meant to avoid waiting for the AP to react on the
-     wake-up. Of course an architecture can move strict CPU related setup
-     functionality, e.g. microcode loading, with care before the
-     synchronization point to save further pointless waiting time.
-
-  2) Control CPU waits for the alive report and releases the upcoming CPU
-     for the complete bring-up.
-
-This allows that the two states can be split up to run all to be onlined
-CPUs up to state #1 on the control CPU and then at a later point run state
-#2. This spares some of the latencies of the full serialized per CPU
-bringup by avoiding the per CPU wakeup/wait serialization. The assumption
-is that the first AP already waits when the last AP has been woken up. This
-obvioulsy depends on the hardware latencies and depending on the timings
-this might still not completely eliminate all wait scenarios.
-
-This split is just a preparatory step for enabling the parallel bringup
-later. The boot time bringup is still fully serialized. It has a separate
-config switch so that architectures which want to support parallel bringup
-can test the split of the CPUHP_BRINGUG step separately.
-
-To enable this the architecture must support the CPU hotplug core sync
-mechanism and has to be audited that there are no implicit hotplug state
-dependencies which require a fully serialized bringup.
+Save the extended topology leaf number if it exists and is valid in
+preparation of parallel CPU bringup.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/Kconfig               |    4 ++
- include/linux/cpuhotplug.h |    4 ++
- kernel/cpu.c               |   70 +++++++++++++++++++++++++++++++++++++++++++--
- 3 files changed, 76 insertions(+), 2 deletions(-)
+ arch/x86/include/asm/topology.h |    1 +
+ arch/x86/kernel/cpu/topology.c  |    3 +++
+ 2 files changed, 4 insertions(+)
 
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -49,6 +49,10 @@ config HOTPLUG_CORE_SYNC_FULL
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select HOTPLUG_CORE_SYNC
+--- a/arch/x86/include/asm/topology.h
++++ b/arch/x86/include/asm/topology.h
+@@ -121,6 +121,7 @@ extern unsigned int __max_die_per_packag
+ #define topology_core_cpumask(cpu)		(per_cpu(cpu_core_map, cpu))
+ #define topology_sibling_cpumask(cpu)		(per_cpu(cpu_sibling_map, cpu))
  
-+config HOTPLUG_SPLIT_STARTUP
-+	bool
-+	select HOTPLUG_CORE_SYNC_FULL
-+
- config GENERIC_ENTRY
- 	bool
++extern unsigned int topology_extended_leaf;
+ extern unsigned int __max_logical_packages;
+ #define topology_max_packages()			(__max_logical_packages)
  
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -133,6 +133,7 @@ enum cpuhp_state {
- 	CPUHP_MIPS_SOC_PREPARE,
- 	CPUHP_BP_PREPARE_DYN,
- 	CPUHP_BP_PREPARE_DYN_END		= CPUHP_BP_PREPARE_DYN + 20,
-+	CPUHP_BP_KICK_AP,
- 	CPUHP_BRINGUP_CPU,
+--- a/arch/x86/kernel/cpu/topology.c
++++ b/arch/x86/kernel/cpu/topology.c
+@@ -29,6 +29,8 @@ unsigned int __max_die_per_package __rea
+ EXPORT_SYMBOL(__max_die_per_package);
  
- 	/*
-@@ -519,9 +520,12 @@ void cpuhp_online_idle(enum cpuhp_state
- static inline void cpuhp_online_idle(enum cpuhp_state state) { }
- #endif
+ #ifdef CONFIG_SMP
++unsigned int topology_extended_leaf __read_mostly;
++
+ /*
+  * Check if given CPUID extended topology "leaf" is implemented
+  */
+@@ -72,6 +74,7 @@ int detect_extended_topology_early(struc
+ 	if (leaf < 0)
+ 		return -1;
  
-+struct task_struct;
-+
- void cpuhp_ap_sync_alive(void);
- void arch_cpuhp_sync_state_poll(void);
- void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
-+int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
++	topology_extended_leaf = leaf;
+ 	set_cpu_cap(c, X86_FEATURE_XTOPOLOGY);
  
- #ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
- void cpuhp_ap_report_dead(void);
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -759,6 +759,47 @@ static int bringup_wait_for_ap_online(un
- 	return 0;
- }
- 
-+#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
-+static int cpuhp_kick_ap_alive(unsigned int cpu)
-+{
-+	if (!cpuhp_can_boot_ap(cpu))
-+		return -EAGAIN;
-+
-+	return arch_cpuhp_kick_ap_alive(cpu, idle_thread_get(cpu));
-+}
-+
-+static int cpuhp_bringup_ap(unsigned int cpu)
-+{
-+	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-+	int ret;
-+
-+	/*
-+	 * Some architectures have to walk the irq descriptors to
-+	 * setup the vector space for the cpu which comes online.
-+	 * Prevent irq alloc/free across the bringup.
-+	 */
-+	irq_lock_sparse();
-+
-+	ret = cpuhp_bp_sync_alive(cpu);
-+	if (ret)
-+		goto out_unlock;
-+
-+	ret = bringup_wait_for_ap_online(cpu);
-+	if (ret)
-+		goto out_unlock;
-+
-+	irq_unlock_sparse();
-+
-+	if (st->target <= CPUHP_AP_ONLINE_IDLE)
-+		return 0;
-+
-+	return cpuhp_kick_ap(cpu, st, st->target);
-+
-+out_unlock:
-+	irq_unlock_sparse();
-+	return ret;
-+}
-+#else
- static int bringup_cpu(unsigned int cpu)
- {
- 	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-@@ -775,7 +816,6 @@ static int bringup_cpu(unsigned int cpu)
- 	 */
- 	irq_lock_sparse();
- 
--	/* Arch-specific enabling code. */
- 	ret = __cpu_up(cpu, idle);
- 	if (ret)
- 		goto out_unlock;
-@@ -799,6 +839,7 @@ static int bringup_cpu(unsigned int cpu)
- 	irq_unlock_sparse();
- 	return ret;
- }
-+#endif
- 
- static int finish_cpu(unsigned int cpu)
- {
-@@ -1938,13 +1979,38 @@ static struct cpuhp_step cpuhp_hp_states
- 		.startup.single		= timers_prepare_cpu,
- 		.teardown.single	= timers_dead_cpu,
- 	},
--	/* Kicks the plugged cpu into life */
-+
-+#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
-+	/*
-+	 * Kicks the AP alive. AP will wait in cpuhp_ap_sync_alive() until
-+	 * the next step will release it.
-+	 */
-+	[CPUHP_BP_KICK_AP] = {
-+		.name			= "cpu:kick_ap",
-+		.startup.single		= cpuhp_kick_ap_alive,
-+	},
-+
-+	/*
-+	 * Waits for the AP to reach cpuhp_ap_sync_alive() and then
-+	 * releases it for the complete bringup.
-+	 */
-+	[CPUHP_BRINGUP_CPU] = {
-+		.name			= "cpu:bringup",
-+		.startup.single		= cpuhp_bringup_ap,
-+		.teardown.single	= finish_cpu,
-+		.cant_stop		= true,
-+	},
-+#else
-+	/*
-+	 * All-in-one CPU bringup state which includes the kick alive.
-+	 */
- 	[CPUHP_BRINGUP_CPU] = {
- 		.name			= "cpu:bringup",
- 		.startup.single		= bringup_cpu,
- 		.teardown.single	= finish_cpu,
- 		.cant_stop		= true,
- 	},
-+#endif
- 	/* Final state before CPU kills itself */
- 	[CPUHP_AP_IDLE_DEAD] = {
- 		.name			= "idle:dead",
+ 	cpuid_count(leaf, SMT_LEVEL, &eax, &ebx, &ecx, &edx);
 
 
 _______________________________________________
