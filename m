@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1254DC77B70
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 04:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4025BC77B6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 06:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YNVvzo7iNGcNrMrQKrwcNNSrZJMJrbyuK7XqUpbIfcw=; b=UWgqzMoYrmf5YF
-	YPwmCinilT6aZIbis9M4LLNt5e1Emvn6tjcc6DkpXeTNrRQRVtlAaCpXQpC1AdTayDUUzUwET713W
-	/uzl3jQIPvKxEJHVHfxWs/jS05YLKDBaguJI9A0ZG7jZXj4ZsHAr//to6+Xbl75C4Wo69w5uUbRzJ
-	W/s8rVYxDuZiQjren9lkM3uctErkFSgbEkce+wQT2U+yPYJST/Pi3j+fTLPfiZagBBUFY6+Cjszx5
-	2rUEPZgdL9TTtOlso0WBSsbK6g11tdWcJNvVa/PK89yF3xPOFonWXPOewUif3QrO4yFTnhBwTY9S3
-	QpI0GNSeFCME6AgNa88Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j6vnmJym8RiiZy7jiOZi8YjWcW3YU7tdTwxvkP5jYJc=; b=eJzoajuEPGVTTPqOq+TqUb54sk
+	WKdodqCxuBn5htQKHdulHPoy77eUZQcg6zlB3YxB6ggdZjB4pFg36E86cGy+UChjp5RJ/ij0Dvq3N
+	n2Tq0+Jft4Y1krKkwas9u0yLwJxO3FJ/vUXpV+gnMpCjocBV5/Yc/ey3qKAUNwsUu1bm8dM5fhzJ0
+	UVsF1u3nI5nmd26zwljw/pG7fwVnqcRgeF6tdt5ThrJoQkoHj3AYqXgGBGp0BGd0OeSPl1rRRMVQl
+	QLkEevmhSVS/pxvIGJAst8o9RdL/F9UeMR3pve9p4kNDIQnPqZT75g+nl4x77X+o0L6IVHFYHOTt6
+	ocTkupjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnBEM-008HWo-1l;
-	Fri, 14 Apr 2023 04:40:14 +0000
-Received: from mga07.intel.com ([134.134.136.100])
+	id 1pnCup-008Sxo-2c;
+	Fri, 14 Apr 2023 06:28:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnBEI-008HWI-1D
+	id 1pnCum-008Sx6-0b
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 04:40:12 +0000
+	Fri, 14 Apr 2023 06:28:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1681447210; x=1712983210;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1681453688; x=1712989688;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=J0V3d0FklsfCJi+UN9UxEYZSMux7pKCvze06tCtbiuU=;
-  b=OSftNfHvR9pBv/SjydX5LKtB0wTQTNGgG3Y7FfBNjZ6iwna2rmVB60Sw
-   zEdFmAfOFHM3Z0VS6oDUulyX/830wleZb4MJjS0j2ZsqWtR7Fo+bxPc43
-   Ieynv0ijqHyAODKsHc3j0ComV5NrD5zXlHH8G8ahprzXWhmffG3z+HPfG
-   4Gy00fcACkSpnu47X1MiINIxmfDT1RuAkvSIM3rdxINx7ewh33kJdf7eh
-   klXjcHCcRtAJG7Lm4AHgAhkoj8tmRMj4DcJhmQTOb705XrAir9CuNgP9J
-   VbUm9GHtbGi00diV4ujLEwH/rlIeCd8gbrPdfyPC8EFKIFdMkUe/ypZAi
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="409579932"
-X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
-   d="scan'208";a="409579932"
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2023 21:40:03 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="639952323"
-X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
-   d="scan'208";a="639952323"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by orsmga003.jf.intel.com with ESMTP; 13 Apr 2023 21:39:59 -0700
-Date: Fri, 14 Apr 2023 12:40:38 +0000
-From: Xu Yilun <yilun.xu@intel.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-fpga@vger.kernel.org, conor@kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>,
-	Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/7] fpga: add PolarFire SoC Auto Update support
-Message-ID: <ZDlJxrybiWy3Mk4Y@yilunxu-OptiPlex-7050>
-References: <20230331071823.956087-1-conor.dooley@microchip.com>
- <20230331071823.956087-7-conor.dooley@microchip.com>
- <ZClfjuLa/pRATwCp@yilunxu-OptiPlex-7050>
- <20230411-tinsmith-matchless-af5c7c41d23b@wendy>
+  bh=yUbogp083vNz/Diay1DDnDrLQxV7cDnHSWDCATBAGPg=;
+  b=uS+Bb8j/ZEX1fmbi+9SiBP8srxC5OnMTVJkMIrWLTxZCF9ms+9RwK9T6
+   JozeCsZuhBSH40Vp1JuI1HE2+eO/vlpWrr0NTZXlmzvx9DMNZhAjVRTgS
+   lBFYXlRqccodKHn0AXlB38aFCZi5zTJFfILmZifi3vBqwcv/5CbGZf5ez
+   v+lRnKeQ46O5gbGIym9rd3Vpb/KbUUn/qdCgdpHVCYk69GWQKLhrh2v/S
+   uvw7PQp9B9NED8Z7f4hZ0tJi3ianS9DL8YeOQ7TLmjE/6UErIRGp5qUQe
+   8H7ax5jsvfc+qygdQW0hf1NX2CydjBdjHvMWg/k8e5/R6HxNLu0GUnuqR
+   w==;
+X-IronPort-AV: E=Sophos;i="5.99,195,1677567600"; 
+   d="asc'?scan'208";a="210414801"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Apr 2023 23:28:02 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 13 Apr 2023 23:28:02 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 13 Apr 2023 23:28:00 -0700
+Date: Fri, 14 Apr 2023 07:27:44 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Walker Chen <walker.chen@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v1 1/7] dt-bindings: power: Constrain properties for
+ JH7110 PMU
+Message-ID: <20230414-wildfowl-unbeaten-fbdf895d1b5c@wendy>
+References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
+ <20230411064743.273388-2-changhuang.liang@starfivetech.com>
+ <cb97cf01-2dfd-7f93-2048-e05a806d468f@linaro.org>
+ <ee406b3d-0719-9332-cab5-62fe7537bcf1@starfivetech.com>
+ <20230412-trifle-outplayed-8a1c795fab8b@wendy>
+ <d59439c1-bce1-b4a1-0e05-77afc4fc2ebb@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230411-tinsmith-matchless-af5c7c41d23b@wendy>
+In-Reply-To: <d59439c1-bce1-b4a1-0e05-77afc4fc2ebb@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_214010_943215_632FA762 
-X-CRM114-Status: GOOD (  45.97  )
+X-CRM114-CacheID: sfid-20230413_232808_308739_AF25E786 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,118 +87,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8769907973215783791=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-04-11 at 12:51:34 +0100, Conor Dooley wrote:
-> On Sun, Apr 02, 2023 at 06:57:18PM +0800, Xu Yilun wrote:
-> > On 2023-03-31 at 08:18:22 +0100, Conor Dooley wrote:
-> > > Add support for Auto Update reprogramming of the FPGA fabric on
-> > > PolarFire SoC, using the fw_upload mechanism a la the
-> > > intel-m10-bmc-sec-update driver.
-> > 
-> > I'm not an expert of MTD and have several concerns about the mtd
-> > writing part:
-> > 
-> > - This seems a generic case that writing a file content into the
-> >   driver restricted offset on mtd.
-> 
-> Right, writing at an offset is pretty generic.
-> 
-> > - Seems the firmware update interface could be created for mtd device,
-> >   like the nvmem interface?
-> 
-> I'm not entirely sure what you mean by this one.
-> Are you saying that there should be a generic way to do "firmware"
-> uploads to mtd devices, based on some sort of structure defined in
+--===============8769907973215783791==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="4uTpX9GTsiQTdpIq"
+Content-Disposition: inline
 
-Yes, I think if the firmware upload interface could be generic, then add
-it to the mtd devices, rather than creating a "virtual mtd management"
-device as this patch does.
+--4uTpX9GTsiQTdpIq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> devicetree etc?
-> And perhaps then, this driver would register as a consumer of that
-> interface, pushing all of the direct mtd stuff out to that interface?
-> 
-> > - I assume the purpose of the fw upload interface is to protect
-> >   unexpected writing from user. So how to protect the mtd be
-> >   written by other user interfaces like mtdchar/block or nvmem?
-> 
-> I'm not very good with the security knobs so I don't have an answer for
-> you here (yet). But your assumption about the rationale here is correct
-> and I would like to block access.
-> 
-> > For other parts:
-> > 
-> > - directory block check, fw upload don't touch this block, so why check
-> >   it in fw upload process.
-> 
-> I don't know what you mean. The mtd device could be empty and the
-> directory would need to be populated with the image address etc.
-> Or, it could previously have been used for something else, and then it
-> would be required to reconfigure it correctly for Auto Upgrade.
-> 
-> Maybe I am misunderstanding you?
+On Wed, Apr 12, 2023 at 01:29:57PM +0200, Krzysztof Kozlowski wrote:
+> On 12/04/2023 11:42, Conor Dooley wrote:
+> > On Wed, Apr 12, 2023 at 04:51:16PM +0800, Changhuang Liang wrote:
+> >>
+> >>
+> >> On 2023/4/12 16:35, Krzysztof Kozlowski wrote:
+> >>> On 11/04/2023 08:47, Changhuang Liang wrote:
+> >>>> When use "starfive,jh7110-pmu-dphy" compatible, do not need the reg =
+and
+> >>>> interrupts properties.
+> >> [...]
+> >>>> =20
+> >>>>  description: |
+> >>>>    StarFive JH7110 SoC includes support for multiple power domains w=
+hich can be
+> >>>> @@ -17,6 +18,7 @@ properties:
+> >>>>    compatible:
+> >>>>      enum:
+> >>>>        - starfive,jh7110-pmu
+> >>>> +      - starfive,jh7110-pmu-dphy
+> >>>
+> >>> You do here much more than commit msg says.
+> >>>
+> >>> Isn'y DPHY a phy? Why is it in power?
+> >>>
+> >>
+> >> OK, I will add more description. This is a power framework used to tur=
+n on/off=20
+> >> DPHY. So it in power, not a phy.
+> >=20
+> > Perhaps tie it less to its role w/ the phy, and more to do with its
+> > location, say "jh7110-aon-pmu"?
+> > There's already "aon"/"sys"/"stg" stuff used in clock-controller and
+> > syscon compatibles etc.
+> >=20
+> > Krzysztof, what do you think of that? (if you remember the whole
+> > discussion we previously had about using those identifiers a few weeks
+> > ago).
+>=20
+> Depends whether this is the same case or not.
 
-This directory block content is unrelated to the firmware image, so
-could be written before firmware upload interface is created. The
-firmware image uploading could be done without touching directory
-blocks. That means directory blocks could be set by driver as
-no-touch area for firmware uploading interface.
+> AFAIR, for AON/SYS/STG
+> these were blocks with few features, not only clock controller.
 
-> 
-> > 
-> > - image verification, no matter pass or fail, fw upload is actually done,
-> >   the flash is written and no way to rollback. So may remove from fw
-> >   upload process.
-> 
-> The FPGA is flash based, so writing to the mtd device is not going to
-> actually program the FPGA with this content. The original image/bitstream
-> in the mtd device is either going to be a) equivalent to what is already
-> programmed in the FPGA, b) not an upgrade over what is current in the
-> FPGA, c) something that was uploaded since the last time the device was
-> restarted.
-> I don't think that overwriting any of those is problematic, as if the
-> verification fails, the original bitstream will continue being used
-> until an image that does actually pass is provided.
-> 
-> Without doing the verification though, there's no way to tell for certain
-> if the FPGA is actually going to perform an upgrade to this new bitstream
-> once it is restarted, so I think there is value in keeping this.
-
-I don't mean to remove the support of verification from driver. I say
-remove the verification from MTD firmware upload process. You can
-use another interface in your driver to verify if FPGA could load the
-content in user block at any time.
-
-In my opinion, generic firmware upload interface for MTD could be used
-out of FPGA cases, it just deals with writing the image file to the MTD.
-Once you have nothing more to write for the image file, the job for the
-interface could be successfully done.
-
-> 
-> If you're still very sceptical about whether this belongs in
-> drivers/fpga, I can always dump it in drivers/soc instead I guess.
-
-I actually don't think this belongs to FPGA domain. My pereference is a
-generic MTD firmware upload interface for MTD domain.
-
-But this is just my opinion. You may talk to MTD or SoC maintainers for
-final solution.
-
-Thanks,
-Yilun
-
-> 
-> Cheers,
-> Conor.
-> 
+Correct, yes. In the dts, this "pmu-dphy" node is a child node of the
+aon syscon, so this pmu stuff would be one of the several features.
 
 
+--4uTpX9GTsiQTdpIq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZDjyYAAKCRB4tDGHoIJi
+0rayAQDQvEYTN5qEh/woJsy4Uu6mKHynU+GBtUcFZPreUm/W8wEAz0rvwm2qU8Q1
+MVnWhTO6aCd4Z1GqB1375PAmNv2lIwQ=
+=Iewl
+-----END PGP SIGNATURE-----
+
+--4uTpX9GTsiQTdpIq--
+
+
+--===============8769907973215783791==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8769907973215783791==--
+
