@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE275C77B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 16:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C2EC77B73
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 16:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9W40tXwBb/IHTOhUfEvR1aMXU7QRaUyhQIV3Viue5JM=; b=iL0owV4dUTbNGz
-	RCPzg2gAFxTUOKndA7V7PJCIW6rY55yl9Vlxmdynb5o9pdcEsqSuk5v5eOxtjLtr84vxRHMqu+ZXV
-	8/eh3pGxYNSxTrC+oJ3+5b1vyHk7dUQMWGGY95657tagAnXNcCGxnIsyn9ZFaapWvupuaI1b/NUzM
-	i94sO8N1DB3EIv3Pqg8BHkEFnDEqK0nUZsz30aDE7c6qOVrnJgMeanOageA3kYQWJhe6x5oP7E3Fo
-	HZOPHenuj58a4r5aeP6UdD53o3K8qlxKto7Vh9eNveGl7fT5kActmUdxIhIIBtqidJ0TJMxsuBJIX
-	DT7TkgEhExI4ykwmH/TQ==;
+	List-Owner; bh=HPvM0mcFH1GAyzL6R3mrnTrArM/xlT+p//HV49+9KGY=; b=ycLRatV1btH0C+
+	Scfma/q3JmpvZxR8NfHQLxOTzq0GB3PdmZ132dJ+XyUyaxfSVKWE1kBnnDLVFEH+edPzokaveyMX5
+	VY5DVw/UlCh2NotUSd3bh+rHlbSVETNwskt0ajbik6qFRJkJMkrrv0+Fu7Afcw7q0soQr2f7XdYcn
+	obzc49+UMfSdd3wvoN45arhZAQFj4rJFzO9TaZXGwu4byuMONAdhfZwtgDvh/z6Eg0wzHqGroO38u
+	zWl0meuI35jN8ylOW99z/DWaYxUh40mszp7JyWmmxY8uy/2EyecP6F5Qis5aagD5htyQNPTl+B9hv
+	nQevz7a1Z5c2DyGo2eSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnLqp-00A2EE-17;
-	Fri, 14 Apr 2023 16:00:39 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1pnLqq-00A2Ev-0t;
+	Fri, 14 Apr 2023 16:00:40 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnLqm-00A2BH-34
+	id 1pnLqn-00A25F-2d
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 16:00:38 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id la3so18553661plb.11
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 09:00:34 -0700 (PDT)
+	Fri, 14 Apr 2023 16:00:39 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id cm18-20020a17090afa1200b0024713adf69dso6565766pjb.3
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Apr 2023 09:00:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1681488034; x=1684080034;
+        d=sifive.com; s=google; t=1681488037; x=1684080037;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=hWB54ZotS7Y2ZgKJV1SIpYTu+cs8XvC1qHz0MxJpXfU=;
-        b=KmNeQFGssjzK0xQ018T4SlGSmqFwJkBPec76ZOBY4rleHRUhzy2MMot645T/KeOxTy
-         oCUzwlMXTlgUhoQ2v/rnI/1nwPbARVDCBxETuqvmwYWIRGAEKZrfCo/iztYx6JyMhV5g
-         O+uRyS2XqxLUA9A2EqVkmDcKftggvVg/dsNE+MsWdowrLBiDFI9/WYMvk5bD4fSOT/xC
-         FXhbKspwDSOieEFexzugK5oDC5yGNjFwNTmfgG/PP2YFGoMJGq3iCMX/8OPkOd/KD9h8
-         85Ymzshlsn6z0qRvDtlK0U7vbXaDnK3OjPzWfGqXH1wh0EWCZW+8yhpIAOLa670BS84k
-         KT1A==
+        bh=Odmz0JG+bEL0mEy4+sqiyjpf0XMQ6vVYrEOWb5kBhbI=;
+        b=FOctlegUDtDv3ZHjXnrQJCTB/Q6yyurIgcxUtsUoFzS7dn8jftYmLbD+75EhDZA2Cr
+         zRVATn8/u7h4RXGHOq10e69KRyHc/0+D/hBly1p5VO/Y1tdMTqJaNtb7RYGA/nhmWAf3
+         08pNFxl+FwPz9dxOalOIoXewTsF8wfk9yyojXsNQOUEFPUe2AB/bSHL2WyxhicJcsa5i
+         0nU6KQQTrq7QW8967WdAfAJ6sVx/21Z1pTNb/OINlieAIVJVwXtmwsASd+1L+42QsLIg
+         fCWGcV29bYX2+zTqwJe446i9FzP9Dm83skLE4j0C2s1H+FWSddrMeia1ROtHi4sZWwCw
+         3h4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681488034; x=1684080034;
+        d=1e100.net; s=20221208; t=1681488037; x=1684080037;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hWB54ZotS7Y2ZgKJV1SIpYTu+cs8XvC1qHz0MxJpXfU=;
-        b=aRvOqvihwNfcM5SgzWa3xeuJN9H6vS5QAcl3a15XvXxQ3xZQOtjwfXMwI0DTcm/P6c
-         /+OtwQ/kLdZ34rFf9vIlKDrzzjLalMk2y7R4b32Y0aJM+jcMz26D6uSLh+Wl5nLSb+B/
-         3xeJ61KX6HbJp+4WSYSzSOIdZYuAxtqXApJV8wxSpYofH8wjj74tdkm9dyVCibOhWsbW
-         jMHLcYHjmlb15WHgpPt9LyTJ+MXGF2hHOIWdSY4+1Mg/23jfnLhADGtwPR12Lax6c0kT
-         koPmApdt6Z4g9PC0bHB2v+coVBc8UqUwSVILdhbbcrCoHbZnQB7jupnyrbSc6Hk1MF4W
-         OZew==
-X-Gm-Message-State: AAQBX9fihNtEdiHHT47zvPX4Foc/om7c4bMjCrDzhoWVNMQINgq/B2a9
-	kE6NmFn54wO/TMXLNNr4DlwuaK9s3rAmMgs7t3t0SpQJUO6MnzXynnxvU2OZc934tnwJbF/i1ii
-	cz2YWN4EAO+XzrdOzzxWv3Dcj2DNcCVDIVjxZRC3uSZJBB6G4Wr3pVV/B0VKZGVx+2Ef61w1Qga
-	QLDHvKsLYEYhOw
-X-Google-Smtp-Source: AKy350bLWel/6yEV1JmbLZwHUbnX6eF24BdOzl+/i67z9xt7yAYwzmd+UIUx2N8+rcDKw8RpGj4wSg==
-X-Received: by 2002:a17:90a:be08:b0:233:f786:35ca with SMTP id a8-20020a17090abe0800b00233f78635camr5818524pjs.35.1681488033705;
-        Fri, 14 Apr 2023 09:00:33 -0700 (PDT)
+        bh=Odmz0JG+bEL0mEy4+sqiyjpf0XMQ6vVYrEOWb5kBhbI=;
+        b=b4NWqSUeab+vnVmLES2zj/sUXGkVB569z0IqlNFZhKup2macB//gPweM3aFt9WpqwE
+         0qM1EzBuLcBT6rHeRARw8SE/p/Rms8QP8rxY6ZoFySmNSDy51B6FBGkshcYogD+Wgakc
+         nOULv8rXI2UgJdwmPl/YwX7EeWYmSW28i2zKEbGAmWr1dGrHdRSW0AcTp74NxhAA2b1E
+         7/RJP68P2gOMepM5Yshh13wXTpF7+QzeGiYyLHe0FV+xB8/XJ1TmckXmktkAPmDIApIF
+         UKNLaJgOVIUONDU1stEOKSTcD6YRJyG4AOCuIUYZ1RO0Z1nBa3mTp+JyvZf8dUSssyDd
+         FmlQ==
+X-Gm-Message-State: AAQBX9eAx01PRDFSQzMjx881FCMPO542S20Cvm+qQJO6t6m3uTsdCdL4
+	0skO/p54egysbv9tbHr+3lcZ6rQK06rUM4ayq6KL3XeWkKqGi2RH1tWrz6BB/16UdY0uXVDTVfu
+	l1ApwocZX850PjDYf3CYW/8bgl6HrHZdloizppeHftVnQe8bCQ7CRsps2A8udUdCISHPd/yriJF
+	0e2XLFC0V2Wohj
+X-Google-Smtp-Source: AKy350bD7mze/O0+fYsB9lpeXlbduhlDKv44rIlF3vXS+82oFbA62wV5LVEzKRe2kkBUE5wMisk7Nw==
+X-Received: by 2002:a17:90a:a091:b0:247:4538:a62e with SMTP id r17-20020a17090aa09100b002474538a62emr1878454pjp.27.1681488036960;
+        Fri, 14 Apr 2023 09:00:36 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.09.00.30
+        by smtp.gmail.com with ESMTPSA id br8-20020a17090b0f0800b00240d4521958sm3083584pjb.18.2023.04.14.09.00.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Apr 2023 09:00:32 -0700 (PDT)
+        Fri, 14 Apr 2023 09:00:36 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -72,25 +72,19 @@ To: linux-riscv@lists.infradead.org,
 Cc: vineetg@rivosinc.com,
 	greentime.hu@sifive.com,
 	guoren@linux.alibaba.com,
-	ShihPo Hung <shihpo.hung@sifive.com>,
 	Vincent Chen <vincent.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next v18 16/20] riscv: prevent stack corruption by reserving task_pt_regs(p) early
-Date: Fri, 14 Apr 2023 15:58:39 +0000
-Message-Id: <20230414155843.12963-17-andy.chiu@sifive.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH -next v18 17/20] riscv: kvm: Add V extension to KVM ISA
+Date: Fri, 14 Apr 2023 15:58:40 +0000
+Message-Id: <20230414155843.12963-18-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230414155843.12963-1-andy.chiu@sifive.com>
 References: <20230414155843.12963-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_090036_988694_4F4EC1B0 
-X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-CacheID: sfid-20230414_090037_862909_DE685893 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,53 +103,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
+From: Vincent Chen <vincent.chen@sifive.com>
 
-Early function calls, such as setup_vm(), relocate_enable_mmu(),
-soc_early_init() etc, are free to operate on stack. However,
-PT_SIZE_ON_STACK bytes at the head of the kernel stack are purposedly
-reserved for the placement of per-task register context pointed by
-task_pt_regs(p). Those functions may corrupt task_pt_regs if we overlap
-the $sp with it. In fact, we had accidentally corrupted sstatus.VS in some
-tests, treating the kernel to save V context before V was actually
-allocated, resulting in a kernel panic.
+Add V extension to KVM isa extension list to enable supporting of V
+extension on VCPUs.
 
-Thus, we should skip PT_SIZE_ON_STACK for $sp before making C function
-calls from the top-level assembly.
-
-Co-developed-by: ShihPo Hung <shihpo.hung@sifive.com>
-Signed-off-by: ShihPo Hung <shihpo.hung@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Acked-by: Anup Patel <anup@brainfault.org>
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/kernel/head.S | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu.c             | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index e16bb2185d55..11c3b94c4534 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -301,6 +301,7 @@ clear_bss_done:
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
-+	addi sp, sp, -PT_SIZE_ON_STACK
- #ifdef CONFIG_BUILTIN_DTB
- 	la a0, __dtb_start
- 	XIP_FIXUP_OFFSET a0
-@@ -318,6 +319,7 @@ clear_bss_done:
- 	/* Restore C environment */
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
-+	addi sp, sp, -PT_SIZE_ON_STACK
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index e44c1e90eaa7..d562dcb929ea 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -107,6 +107,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
+ 	KVM_RISCV_ISA_EXT_ZICBOM,
+ 	KVM_RISCV_ISA_EXT_ZICBOZ,
++	KVM_RISCV_ISA_EXT_V,
+ 	KVM_RISCV_ISA_EXT_MAX,
+ };
  
- #ifdef CONFIG_KASAN
- 	call kasan_early_init
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 6adb1b6112a1..bfdd5b73d462 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -57,6 +57,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	[KVM_RISCV_ISA_EXT_H] = RISCV_ISA_EXT_h,
+ 	[KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
+ 	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
++	[KVM_RISCV_ISA_EXT_V] = RISCV_ISA_EXT_v,
+ 
+ 	KVM_ISA_EXT_ARR(SSTC),
+ 	KVM_ISA_EXT_ARR(SVINVAL),
 -- 
 2.17.1
 
