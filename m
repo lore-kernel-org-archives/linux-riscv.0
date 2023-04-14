@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5D0C77B72
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABE5C77B77
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 23:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=SgWAUGeqebhU6WdXB/8YPkRs7iS2/moVNQhfwZSrIlI=; b=KwM0Rsc3e0nlTH
-	Bxr5XDKcKJXDhAeD6uxjjs0TWOnH0At9ZLp7i4LdbHtF46D0UzJ9ybxsxU6UGRI19InodcmBQgzMU
-	PR/dkQdm7g5cuhTsAY1pzLZ0cgKocElny/FbdKYA/MXBQ0X+yqI6Nv4ZQtKrhbvzsGuTwQxeu2oxO
-	g0BmscTkYB6/D8b0MxuaKAZRolvyUrMaxW8ejnFxoOShyu6kCBOohKvTSe2a6wMoXbNqA2vrUuASq
-	+3J1YSS0+C1Bnl78cLvh+9jjTTHeCuqFISpur0IBfFtWaBxFIMFv00GQuSxHUDyXiaLuasnp4F1aG
-	SFGt0n8MjIEY0xb8RePw==;
+	List-Owner; bh=q2GZ/0xazS6uDmVC4AdZ7uDIo609mLEIpiV71km0nhc=; b=vxNAa2zK1IXRkJ
+	aINj2FAgtfKnGQwPt5QEP/1aTkPvFmGtb0iuPXda/jcqYSVfVa+VYAix/BPcVjirAB+66VJGQWTja
+	8sV2t8ykRl39OyAYUGHEwYGrGxmXb7nyaCK9tyJdO0qk1DEWx4442jMoA9LNCf+ZvWvQrZYS2BD8v
+	YEHuS6xj0LgjXHH85/5oIs+9cMTEZ0j7Tk5IbygcUApxj1tvV39m0ZkTn0qN7m+P6vznL0MnOHx2S
+	3RQxalCbZ7UQRkUOKuGFUU2gFu8JncQFinrE/JWPETe83oAnzZ0Mv8/YNhzhwMKwrOuPv6P9GpLX9
+	vdfXK6TZ0mn0mXdnUIDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT66-00AkTp-0o;
-	Fri, 14 Apr 2023 23:44:54 +0000
+	id 1pnT6p-00Al94-0r;
+	Fri, 14 Apr 2023 23:45:39 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pnT5g-00Ak4f-1I;
-	Fri, 14 Apr 2023 23:44:30 +0000
-Message-ID: <20230414232309.697634212@linutronix.de>
+	id 1pnT5j-00Ak7J-1o;
+	Fri, 14 Apr 2023 23:44:33 +0000
+Message-ID: <20230414232309.823800249@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681515867;
+	s=2020; t=1681515870;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=1Wi+qwoi+evP9/DCOV2cSOOVm8Cmr+iaowZLI6jmphg=;
-	b=AtRfJAw/8dYgxzfcjPmLpOmGdUx0vCx8DqJiiMUmA3Cx+ZLSfVD8knv2kLNlnnW0M6wLbC
-	T2QMHllGrZw7clK5/9Izh2AsnDdOvwLy0I4V80idxIhDm2+ZbZDLAikAULtI4e2AXQKPJr
-	hBN5Y+KDw8n4D6Q1OvfiiBRG0iaAfEdsTfZ4cQweomKAopqUvixONL5zoVls1tMNAxyOEc
-	sq7MkdcHTAZO6XblFcZcs66KyhWSvsJm9iqyZTxzUjsNnLQXic0xapY2RzQ/O/jDEPsPId
-	R7R0FelILdrBFPupQz1xDszAcoMcHcibu8KNFeW7JRloBkiOApBN6zt3RCxP6g==
+	 references:references; bh=u2pIwytrv1vZgLx+4s6Zqq6fs8EHbK9BS70kDc1o//Q=;
+	b=tj9xEvgya1srEI62cuunab7v24wBazw6wpcxMtpv79720yev1kGcsEOxNFRId8qJ8lqNgr
+	q1f11vM+Nc4aB4NgnBxR6tIQfQU2iMcMUeRzBxRZmT8RWJKM3p19eh3Ukgff4IpPXHAAmQ
+	OLzNAKEJS2vpJEbsoOLlJHaRdWtjNT4f1mD1+bDAcp/oan26jOAxfnbm6Tpuvt1St80R8P
+	dPrGNEb4Zg6w49Q/eELNuFnnuSnEIQhX8h7OuWa4y9Uk6de034h6Q46GBDo6gmOK33DmEP
+	YQXfDKPvV28Xy5XOo7nZYu9OBqWv20e7LFSwhwcY173bD1coDcsMG/2Q9JSTZg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681515867;
+	s=2020e; t=1681515870;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=1Wi+qwoi+evP9/DCOV2cSOOVm8Cmr+iaowZLI6jmphg=;
-	b=erfBajWkK4A2wOU949cIjl3VUhIAl2v89iiOuXqsNlKDnlt3hip7OcUwwjvwGRE24kiwsr
-	gNkbbyv7cvDgLNDA==
+	 references:references; bh=u2pIwytrv1vZgLx+4s6Zqq6fs8EHbK9BS70kDc1o//Q=;
+	b=YNu0rancrP7gWuufcUKxrEH7bo8bWOmpZPxm7N3EMgjD1anaBUmHq23Qv/x7FzdBfUPs2b
+	nJi2pgQCB1pCr2DA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,14 +81,13 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>
-Subject: [patch 08/37] x86/smpboot: Split up native_cpu_up() into separate
- phases and document them
+Subject: [patch 10/37] x86/cpu/cacheinfo: Remove cpu_callout_mask dependency
 References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-Date: Sat, 15 Apr 2023 01:44:26 +0200 (CEST)
+Date: Sat, 15 Apr 2023 01:44:29 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230414_164428_727093_2B81A0DE 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20230414_164431_770668_5F7A7A0C 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,293 +104,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+cpu_callout_mask is used for the stop machine based MTRR/PAT init.
 
-There are four logical parts to what native_cpu_up() does on the BSP (or
-on the controlling CPU for a later hotplug):
+In preparation of moving the BP/AP synchronization to the core hotplug
+code, use a private CPU mask for cacheinfo and manage it in the
+starting/dying hotplug state.
 
- 1) Wake the AP by sending the INIT/SIPI/SIPI sequence.
-
- 2) Wait for the AP to make it as far as wait_for_master_cpu() which
-    sets that CPU's bit in cpu_initialized_mask, then sets the bit in
-    cpu_callout_mask to let the AP proceed through cpu_init().
-
- 3) Wait for the AP to finish cpu_init() and get as far as the
-    smp_callin() call, which sets that CPU's bit in cpu_callin_mask.
-
- 4) Perform the TSC synchronization and wait for the AP to actually
-    mark itself online in cpu_online_mask.
-
-In preparation to allow these phases to operate in parallel on multiple
-APs, split them out into separate functions and document the interactions
-a little more clearly in both the BP and AP code paths.
-
-No functional change intended.
-
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-Signed-off-by: Usama Arif <usama.arif@bytedance.com>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/x86/kernel/smpboot.c |  187 +++++++++++++++++++++++++++++-----------------
- 1 file changed, 121 insertions(+), 66 deletions(-)
+ arch/x86/kernel/cpu/cacheinfo.c |   21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
 
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -193,6 +193,10 @@ static void smp_callin(void)
+--- a/arch/x86/kernel/cpu/cacheinfo.c
++++ b/arch/x86/kernel/cpu/cacheinfo.c
+@@ -39,6 +39,8 @@ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t
+ /* Shared L2 cache maps */
+ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t, cpu_l2c_shared_map);
  
- 	wmb();
- 
-+	/*
-+	 * This runs the AP through all the cpuhp states to its target
-+	 * state (CPUHP_ONLINE in the case of serial bringup).
-+	 */
- 	notify_cpu_starting(cpuid);
- 
- 	/*
-@@ -233,14 +237,31 @@ static void notrace start_secondary(void
- 	load_cr3(swapper_pg_dir);
- 	__flush_tlb_all();
- #endif
-+	/*
-+	 * Sync point with wait_cpu_initialized(). Before proceeding through
-+	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
-+	 * own bit in cpu_initialized_mask and then waits for the BSP to set
-+	 * its bit in cpu_callout_mask to release it.
-+	 */
- 	cpu_init_secondary();
- 	rcu_cpu_starting(raw_smp_processor_id());
- 	x86_cpuinit.early_percpu_clock_init();
++static cpumask_var_t cpu_cacheinfo_mask;
 +
-+	/*
-+	 * Sync point with wait_cpu_callin(). The AP doesn't wait here
-+	 * but just sets the bit to let the controlling CPU (BSP) know that
-+	 * it's got this far.
-+	 */
- 	smp_callin();
+ /* Kernel controls MTRR and/or PAT MSRs. */
+ unsigned int memory_caching_control __ro_after_init;
  
--	/* otherwise gcc will move up smp_processor_id before the cpu_init */
-+	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
- 	barrier();
--	/* Check TSC synchronization with the control CPU: */
-+
-+	/*
-+	 * Check TSC synchronization with the control CPU, which will do
-+	 * its part of this from wait_cpu_online(), making it an implicit
-+	 * synchronization point.
-+	 */
- 	check_tsc_sync_target();
+@@ -1172,8 +1174,10 @@ void cache_bp_restore(void)
+ 		cache_cpu_init();
+ }
  
- 	/*
-@@ -259,6 +280,7 @@ static void notrace start_secondary(void
- 	 * half valid vector space.
- 	 */
- 	lock_vector_lock();
-+	/* Sync point with do_wait_cpu_online() */
- 	set_cpu_online(smp_processor_id(), true);
- 	lapic_online();
- 	unlock_vector_lock();
-@@ -981,17 +1003,13 @@ int common_cpu_up(unsigned int cpu, stru
- /*
-  * NOTE - on most systems this is a PHYSICAL apic ID, but on multiquad
-  * (ie clustered apic addressing mode), this is a LOGICAL apic ID.
-- * Returns zero if CPU booted OK, else error code from
-+ * Returns zero if startup was successfully sent, else error code from
-  * ->wakeup_secondary_cpu.
-  */
- static int do_boot_cpu(int apicid, int cpu, struct task_struct *idle)
+-static int cache_ap_init(unsigned int cpu)
++static int cache_ap_online(unsigned int cpu)
  {
--	/* start_ip had better be page-aligned! */
- 	unsigned long start_ip = real_mode_header->trampoline_start;
++	cpumask_set_cpu(cpu, cpu_cacheinfo_mask);
++
+ 	if (!memory_caching_control || get_cache_aps_delayed_init())
+ 		return 0;
  
--	unsigned long boot_error = 0;
--	unsigned long timeout;
--
- #ifdef CONFIG_X86_64
- 	/* If 64-bit wakeup method exists, use the 64-bit mode trampoline IP */
- 	if (apic->wakeup_secondary_cpu_64)
-@@ -1048,60 +1066,89 @@ static int do_boot_cpu(int apicid, int c
- 	 * - Use an INIT boot APIC message
+@@ -1191,11 +1195,17 @@ static int cache_ap_init(unsigned int cp
+ 	 *      lock to prevent MTRR entry changes
  	 */
- 	if (apic->wakeup_secondary_cpu_64)
--		boot_error = apic->wakeup_secondary_cpu_64(apicid, start_ip);
-+		return apic->wakeup_secondary_cpu_64(apicid, start_ip);
- 	else if (apic->wakeup_secondary_cpu)
--		boot_error = apic->wakeup_secondary_cpu(apicid, start_ip);
--	else
--		boot_error = wakeup_secondary_cpu_via_init(apicid, start_ip);
-+		return apic->wakeup_secondary_cpu(apicid, start_ip);
+ 	stop_machine_from_inactive_cpu(cache_rendezvous_handler, NULL,
+-				       cpu_callout_mask);
++				       cpu_cacheinfo_mask);
  
--	if (!boot_error) {
--		/*
--		 * Wait 10s total for first sign of life from AP
--		 */
--		boot_error = -1;
--		timeout = jiffies + 10*HZ;
--		while (time_before(jiffies, timeout)) {
--			if (cpumask_test_cpu(cpu, cpu_initialized_mask)) {
--				/*
--				 * Tell AP to proceed with initialization
--				 */
--				cpumask_set_cpu(cpu, cpu_callout_mask);
--				boot_error = 0;
--				break;
--			}
--			schedule();
--		}
--	}
-+	return wakeup_secondary_cpu_via_init(apicid, start_ip);
-+}
+ 	return 0;
+ }
  
--	if (!boot_error) {
--		/*
--		 * Wait till AP completes initial initialization
--		 */
--		while (!cpumask_test_cpu(cpu, cpu_callin_mask)) {
--			/*
--			 * Allow other tasks to run while we wait for the
--			 * AP to come online. This also gives a chance
--			 * for the MTRR work(triggered by the AP coming online)
--			 * to be completed in the stop machine context.
--			 */
--			schedule();
--		}
--	}
-+static int wait_cpu_cpumask(unsigned int cpu, const struct cpumask *mask)
++static int cache_ap_offline(unsigned int cpu)
 +{
-+	unsigned long timeout;
- 
--	if (x86_platform.legacy.warm_reset) {
--		/*
--		 * Cleanup possible dangling ends...
--		 */
--		smpboot_restore_warm_reset_vector();
-+	/*
-+	 * Wait up to 10s for the CPU to report in.
-+	 */
-+	timeout = jiffies + 10*HZ;
-+	while (time_before(jiffies, timeout)) {
-+		if (cpumask_test_cpu(cpu, mask))
-+			return 0;
-+
-+		schedule();
- 	}
-+	return -1;
-+}
- 
--	return boot_error;
-+/*
-+ * Bringup step two: Wait for the target AP to reach cpu_init_secondary()
-+ * and thus wait_for_master_cpu(), then set cpu_callout_mask to allow it
-+ * to proceed.  The AP will then proceed past setting its 'callin' bit
-+ * and end up waiting in check_tsc_sync_target() until we reach
-+ * do_wait_cpu_online() to tend to it.
-+ */
-+static int wait_cpu_initialized(unsigned int cpu)
-+{
-+	/*
-+	 * Wait for first sign of life from AP.
-+	 */
-+	if (wait_cpu_cpumask(cpu, cpu_initialized_mask))
-+		return -1;
-+
-+	cpumask_set_cpu(cpu, cpu_callout_mask);
++	cpumask_clear_cpu(cpu, cpu_cacheinfo_mask);
 +	return 0;
- }
- 
--int native_cpu_up(unsigned int cpu, struct task_struct *tidle)
-+/*
-+ * Bringup step three: Wait for the target AP to reach smp_callin().
-+ * The AP is not waiting for us here so we don't need to parallelise
-+ * this step. Not entirely clear why we care about this, since we just
-+ * proceed directly to TSC synchronization which is the next sync
-+ * point with the AP anyway.
-+ */
-+static void wait_cpu_callin(unsigned int cpu)
-+{
-+	while (!cpumask_test_cpu(cpu, cpu_callin_mask))
-+		schedule();
 +}
 +
-+/*
-+ * Bringup step four: Synchronize the TSC and wait for the target AP
-+ * to reach set_cpu_online() in start_secondary().
-+ */
-+static void wait_cpu_online(unsigned int cpu)
+ /*
+  * Delayed cache initialization for all AP's
+  */
+@@ -1210,9 +1220,12 @@ void cache_aps_init(void)
+ 
+ static int __init cache_ap_register(void)
  {
--	int apicid = apic->cpu_present_to_apicid(cpu);
- 	unsigned long flags;
++	zalloc_cpumask_var(&cpu_cacheinfo_mask, GFP_KERNEL);
++	cpumask_set_cpu(smp_processor_id(), cpu_cacheinfo_mask);
 +
-+	/*
-+	 * Check TSC synchronization with the AP (keep irqs disabled
-+	 * while doing so):
-+	 */
-+	local_irq_save(flags);
-+	check_tsc_sync_source(cpu);
-+	local_irq_restore(flags);
-+
-+	/*
-+	 * Wait for the AP to mark itself online, so the core caller
-+	 * can drop sparse_irq_lock.
-+	 */
-+	while (!cpu_online(cpu))
-+		schedule();
-+}
-+
-+static int native_kick_ap(unsigned int cpu, struct task_struct *tidle)
-+{
-+	int apicid = apic->cpu_present_to_apicid(cpu);
- 	int err;
- 
- 	lockdep_assert_irqs_enabled();
-@@ -1142,25 +1189,33 @@ int native_cpu_up(unsigned int cpu, stru
- 		return err;
- 
- 	err = do_boot_cpu(apicid, cpu, tidle);
--	if (err) {
-+	if (err)
- 		pr_err("do_boot_cpu failed(%d) to wakeup CPU#%u\n", err, cpu);
--		return err;
--	}
- 
--	/*
--	 * Check TSC synchronization with the AP (keep irqs disabled
--	 * while doing so):
--	 */
--	local_irq_save(flags);
--	check_tsc_sync_source(cpu);
--	local_irq_restore(flags);
-+	return err;
-+}
- 
--	while (!cpu_online(cpu)) {
--		cpu_relax();
--		touch_nmi_watchdog();
--	}
-+int native_cpu_up(unsigned int cpu, struct task_struct *tidle)
-+{
-+	int ret;
- 
--	return 0;
-+	ret = native_kick_ap(cpu, tidle);
-+	if (ret)
-+		goto out;
-+
-+	ret = wait_cpu_initialized(cpu);
-+	if (ret)
-+		goto out;
-+
-+	wait_cpu_callin(cpu);
-+	wait_cpu_online(cpu);
-+
-+out:
-+	/* Cleanup possible dangling ends... */
-+	if (x86_platform.legacy.warm_reset)
-+		smpboot_restore_warm_reset_vector();
-+
-+	return ret;
+ 	cpuhp_setup_state_nocalls(CPUHP_AP_CACHECTRL_STARTING,
+ 				  "x86/cachectrl:starting",
+-				  cache_ap_init, NULL);
++				  cache_ap_online, cache_ap_offline);
+ 	return 0;
  }
- 
- /**
+-core_initcall(cache_ap_register);
++early_initcall(cache_ap_register);
 
 
 _______________________________________________
