@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B841C77B77
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3FFC77B78
 	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JvnffkgDn2uw9fIvTzdelJSCwpfutwGh2WEmUSeq208=; b=CUUh2FfWy4MASa
-	k9yd5pe9jwgkVW5773nfX+l7zSA8NLRQtp+2tuZe/Xg+yAGo0biYtirLO5RLDwd7LXLIFpkuGtsLJ
-	OTaH40JbRvoWlTWpv+BrWOU05sKSfAohP7Y3frTnXoK1flRC9Znwn1qvOntqUf2J1JS5OnPqAA6MY
-	Dqeb65H+3ryb2DV6AGso53yT6d2YfAnYov9PsokX/XZdl03NrezlXdg/CvxJK1hquX473qfzOg2ik
-	aQLMVFdi3NCISP0UmqSMBmqRMcsUxBPt5zOQi8mfkQqsNzbnD26vZ1huldolOPoKgCjNFvefaBd2r
-	nFpfJ4SupmxAG389O0kg==;
+	List-Owner; bh=M3cdd4OsiY+WwbDjoxW4j7eIP+oDLS7xbho+Sm6IOiY=; b=T1jVAxMPJTyvAO
+	uh9B3+OgYgNIGJlpfwHC4Np5a53DPGRZD+oXlK+7y0ZXbK6o/PzDknw43I2zAv2o9H5bBcuoN6rpu
+	fZ0GnOU7JINPH/qq+TtPDl1qo00SY2pLOuC3a+ED2fTj/R1QrsLE1Vpxck39i9Y25uX/ZcF9rPs3I
+	EGt1oikx0nS53+JO0kjTS4Ho+I4XGRnFCJKHgzxNJJULp//SF77gnbK82DQVpMyRZlpXR/JpNW642
+	sZjjmB/CXffbifaQMiW1IQnY1qOCuqo466K/jAx/9VY22pBuQWYrDzVvGIQmmmhLBznVHgFMd0kBS
+	haWj22RpWCu1Hc/0vHeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn9PV-008AEJ-09;
+	id 1pn9PV-008AEY-1q;
 	Fri, 14 Apr 2023 02:43:37 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn9PN-008A7N-2V
+	id 1pn9PN-008A71-1z
 	for linux-riscv@lists.infradead.org;
 	Fri, 14 Apr 2023 02:43:33 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C011024E0F6;
-	Fri, 14 Apr 2023 10:43:00 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 2BBC924E207;
+	Fri, 14 Apr 2023 10:42:57 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 10:43:00 +0800
+ 2023 10:42:57 +0800
 Received: from localhost.localdomain (183.27.97.249) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 10:42:59 +0800
+ 2023 10:42:55 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-Subject: [PATCH v3 5/7] dt-bindings: soc: starfive: Add StarFive syscon module
-Date: Fri, 14 Apr 2023 10:41:55 +0800
-Message-ID: <20230414024157.53203-6-xingyu.wu@starfivetech.com>
+Subject: [PATCH v3 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock generator
+Date: Fri, 14 Apr 2023 10:41:51 +0800
+Message-ID: <20230414024157.53203-2-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
 References: <20230414024157.53203-1-xingyu.wu@starfivetech.com>
@@ -61,8 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_194330_144887_BA2F2856 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20230413_194329_983181_FAAB8332 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +79,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: William Qiu <william.qiu@starfivetech.com>
+Add bindings for the PLL clock generator on the JH7110 RISC-V SoC.
 
-Add documentation to describe StarFive System Controller Registers.
-
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- .../soc/starfive/starfive,jh7110-syscon.yaml  | 58 +++++++++++++++++++
- MAINTAINERS                                   |  6 ++
- 2 files changed, 64 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+ .../bindings/clock/starfive,jh7110-pll.yaml   | 46 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   |  6 +++
+ 2 files changed, 52 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
 
-diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
 new file mode 100644
-index 000000000000..de086e74a229
+index 000000000000..8aa8c7b8e42f
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-@@ -0,0 +1,58 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
++$id: http://devicetree.org/schemas/clock/starfive,jh7110-pll.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: StarFive JH7110 SoC system controller
++title: StarFive JH7110 PLL Clock Generator
++
++description:
++  This PLL are high speed, low jitter frequency synthesizers in JH7110.
++  Each PLL clocks work in integer mode or fraction mode by some dividers,
++  and the configuration registers and dividers are set in several syscon
++  registers. So pll node should be a child of SYS-SYSCON node.
++  The formula for calculating frequency is that,
++  Fvco = Fref * (NI + NF) / M / Q1
 +
 +maintainers:
-+  - William Qiu <william.qiu@starfivetech.com>
-+
-+description: |
-+  The StarFive JH7110 SoC system controller provides register information such
-+  as offset, mask and shift to configure related modules such as MMC and PCIe.
++  - Xingyu Wu <xingyu.wu@starfivetech.com>
 +
 +properties:
 +  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - starfive,jh7110-aon-syscon
-+              - starfive,jh7110-sys-syscon
-+          - const: syscon
-+          - const: simple-mfd
-+      - items:
-+          - const: starfive,jh7110-stg-syscon
-+          - const: syscon
++    const: starfive,jh7110-pll
 +
-+  reg:
++  clocks:
 +    maxItems: 1
++    description: Main Oscillator (24 MHz)
 +
-+  clock-controller:
-+    $ref: /schemas/clock/starfive,jh7110-pll.yaml#
-+    type: object
-+
-+  power-controller:
-+    $ref: /schemas/power/starfive,jh7110-pmu.yaml#
-+    type: object
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
 +
 +required:
 +  - compatible
-+  - reg
++  - clocks
++  - '#clock-cells'
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    syscon@10240000 {
-+        compatible = "starfive,jh7110-stg-syscon", "syscon";
-+        reg = <0x10240000 0x1000>;
++    pll-clock-controller {
++      compatible = "starfive,jh7110-pll";
++      clocks = <&osc>;
++      #clock-cells = <1>;
 +    };
-+
-+    syscon@13030000 {
-+        compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
-+        reg = <0x13030000 0x1000>;
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 03051ae2e9e5..0fafeea8ebdb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19917,6 +19917,11 @@ S:	Supported
- F:	Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
- F:	drivers/clk/starfive/clk-starfive-jh7110-pll.*
+diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+index 06257bfd9ac1..086a6ddcf380 100644
+--- a/include/dt-bindings/clock/starfive,jh7110-crg.h
++++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+@@ -6,6 +6,12 @@
+ #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+ #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
  
-+STARFIVE JH7110 SYSCON
-+M:	William Qiu <william.qiu@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
++/* PLL clocks */
++#define JH7110_CLK_PLL0_OUT			0
++#define JH7110_CLK_PLL1_OUT			1
++#define JH7110_CLK_PLL2_OUT			2
++#define JH7110_PLLCLK_END			3
 +
- STARFIVE JH71X0 CLOCK DRIVERS
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Hal Feng <hal.feng@starfivetech.com>
-@@ -19954,6 +19959,7 @@ STARFIVE SOC DRIVERS
- M:	Conor Dooley <conor@kernel.org>
- S:	Maintained
- T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-+F:	Documentation/devicetree/bindings/soc/starfive/
- F:	drivers/soc/starfive/
- 
- STARFIVE TRNG DRIVER
+ /* SYSCRG clocks */
+ #define JH7110_SYSCLK_CPU_ROOT			0
+ #define JH7110_SYSCLK_CPU_CORE			1
 -- 
 2.25.1
 
