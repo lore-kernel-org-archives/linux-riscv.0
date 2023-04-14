@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6F8C77B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 01:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B2DC77B6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Apr 2023 02:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UXRBeMpw0YAn2v06TQvZ4LghA+SFlCYU+TmY2KUcXw4=; b=NrHr9CRXEFNbJS
-	xMUmXk/ThUXkqREIXFzTLGcV845lSRWLJdygXYU5B4K0/xXRjVCPeVVCcOPAbGyQZq9myqbYSF3bp
-	DYBAiT7ojWsQEluM694kbf2VKwsuAedJ1ZT3T40QFH2hHPA8s3LZk2F7S5EVd+GTz0DKZ4ARu0NpP
-	QuYA1AnTduv38usAfDGIi43QLUPEB78SwD+Ko+sBL7gxECH7bC58INqs8Kr/vCYprOj8ipkUGxwOR
-	X4kaO8tFvHRPWznz+hpGa+b9hnnE6qEYDOC5YbcxW9w7213wU8ho6bozsnCWsGHxF0xoxNE1kjjFt
-	3H5xq+QZ4HJWrvgd6NqQ==;
+	List-Owner; bh=HPvejEklgYiXIGo+v4QZfsnI7nvZn7sfu9ZbBDewbvE=; b=AO3LSOstuop4NP
+	YyFhjmLtV2AXdbiev3/i3nCWjOKnD4PD9Sx+0XN3qyCYaO4ODQfpik2bwR/pTKBCvpXXYkE/rhBNh
+	zShArJxC9xqGD21MbgXXXMMGJc2sqDPwoiJbM3KQBspfOdRT5mXP2OE15H9qkQluXCbEHqDpSa0JK
+	2oWiS0+Cwu3Sllgb6fydpawYJkyOrRewzy7kcmXOayNVn3qPtRBRpG6YQ8BMVfuqW28i+Fq+N6OWb
+	Ges28Tq51xQ/NTO1QxHmluzs1OJI+6zfLYyCnba9r4mVSOm15xK941Vk7alnZdp1FaqTCybThVAWX
+	dxseCMY4zgyw8lkEHRoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn8Ov-0083M2-2k;
-	Fri, 14 Apr 2023 01:38:57 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pn8Or-0083L0-1D
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Apr 2023 01:38:56 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1D2778086;
-	Fri, 14 Apr 2023 09:38:27 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 09:38:26 +0800
-Received: from [192.168.125.131] (183.27.97.249) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Apr
- 2023 09:38:25 +0800
-Message-ID: <f020e55c-d4e4-dbb9-d658-7bef2b8bd94b@starfivetech.com>
-Date: Fri, 14 Apr 2023 09:37:29 +0800
+	id 1pn8tM-0085Fq-2A;
+	Fri, 14 Apr 2023 02:10:24 +0000
+Received: from mga01.intel.com ([192.55.52.88])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pn8tK-0085Ew-08;
+	Fri, 14 Apr 2023 02:10:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1681438221; x=1712974221;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IeRnQ+CQcJwGbjz4GOR0Cyk0yJ9hc73wDuZH6+tv/hs=;
+  b=nONnpkkPCs3xdaqnOKU9Cf4ije6ogioOx37Rkgka6COgkAUZXq34xg1L
+   4XUnB0sq5cIGV0hhJU4Lcp4n7FZ8WcT/KDG1/jJLGzlHKOVb4s9qn/Ge7
+   neyvxpDzUXY74fxgaHP3ft5nsBqVZbpnpu5mPg/4lrX4LthLZZmFyjt2d
+   KYN+EIsAwkcRJt6sYPpLID4p6qNOWKQDXRYIewUT60eMWMBwyiN+/ZWhu
+   hxmoGm9WVoAUk+fya0Cjwa9cg5hN5DNACnZwL+gpitBQRCQH5GWwpPvT2
+   EeGvtzdg25e4qthSlKkcYj9o23XcpERh1DDi3XBhPrJwHDhn86GtvcXgN
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="372222362"
+X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
+   d="scan'208";a="372222362"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2023 19:10:18 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10679"; a="720102853"
+X-IronPort-AV: E=Sophos;i="5.99,195,1677571200"; 
+   d="scan'208";a="720102853"
+Received: from lkp-server01.sh.intel.com (HELO b613635ddfff) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 13 Apr 2023 19:10:11 -0700
+Received: from kbuild by b613635ddfff with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pn8t8-000Z8D-0o;
+	Fri, 14 Apr 2023 02:10:10 +0000
+Date: Fri, 14 Apr 2023 10:09:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH 4/4] riscv: Enable perf counters user access only through
+ perf
+Message-ID: <202304140904.9oAVhFHu-lkp@intel.com>
+References: <20230413161725.195417-5-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-Subject: Re: [PATCH v4 07/10] clk: starfive: Add StarFive JH7110 Video-Output
- clock driver
-Content-Language: en-US
-To: Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor@kernel.org>, "Emil
- Renner Berthing" <kernel@esmil.dk>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
-	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-References: <20230411135558.44282-1-xingyu.wu@starfivetech.com>
- <20230411135558.44282-8-xingyu.wu@starfivetech.com>
- <683cbe934d1df9436e003466d2a419ef.sboyd@kernel.org>
- <463ee23c-f617-bed0-27a8-56c6fb40d092@starfivetech.com>
- <cd4a11ae65e186799145410969d40421.sboyd@kernel.org>
- <4ed4d0e6-8da5-7eef-8713-44854b8d4a9b@starfivetech.com>
- <d70886f6ee13e70845a72354fe9a2b7d.sboyd@kernel.org>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <d70886f6ee13e70845a72354fe9a2b7d.sboyd@kernel.org>
-X-Originating-IP: [183.27.97.249]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230413161725.195417-5-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230413_183853_734502_77FCE0D7 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20230413_191022_093382_125EE873 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +102,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/4/14 2:38, Stephen Boyd wrote:
-> Quoting Xingyu Wu (2023-04-13 06:31:12)
->> On 2023/4/13 12:04, Stephen Boyd wrote:
->> > diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
->> > index 5ec210644e1d..851b93d0f371 100644
->> > --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
->> > +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
->> > @@ -11,6 +11,9 @@
->> >  #include <linux/init.h>
->> >  #include <linux/io.h>
->> >  #include <linux/platform_device.h>
->> > +#include <linux/slab.h>
->> > +
->> > +#include <soc/starfive/reset-starfive-jh71x0.h>
->> >  
->> >  #include <dt-bindings/clock/starfive,jh7110-crg.h>
->> >  
->> > @@ -335,26 +338,32 @@ static void jh7110_reset_unregister_adev(void *_adev)
->> >       struct auxiliary_device *adev = _adev;
->> >  
->> >       auxiliary_device_delete(adev);
->> > +     auxiliary_device_uninit(adev);
->> >  }
->> >  
->> >  static void jh7110_reset_adev_release(struct device *dev)
->> >  {
->> >       struct auxiliary_device *adev = to_auxiliary_dev(dev);
->> > +     struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
->> >  
->> > -     auxiliary_device_uninit(adev);
->> > +     kfree(rdev);
->> >  }
->> >  
->> >  int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
->> >                                    const char *adev_name,
->> >                                    u32 adev_id)
->> >  {
->> > +     struct jh71x0_reset_adev *rdev;
->> >       struct auxiliary_device *adev;
->> >       int ret;
->> >  
->> > -     adev = devm_kzalloc(priv->dev, sizeof(*adev), GFP_KERNEL);
->> > -     if (!adev)
->> > +     rdev = kzalloc(sizeof(*rdev), GFP_KERNEL);
->> 
->> Can there use 'devm_kzalloc'? Are you not using this because the struct is public and clock driver
->> and reset driver both use it. But I think the both clock driver and reset driver are the same
->> device and can use 'devm_kzalloc'.
-> 
-> No. The release function for the auxiliary_device is supposed to free
-> the memory. It shouldn't be tied to the lifetime of anything like the
-> lifetime of the clk driver being bound.
+Hi Alexandre,
 
-Get it. Thanks.
+kernel test robot noticed the following build errors:
 
-Best regards,
-Xingyu Wu
+[auto build test ERROR on tip/perf/core]
+[also build test ERROR on acme/perf/core tip/master tip/auto-latest linus/master v6.3-rc6]
+[cannot apply to next-20230413]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/perf-Fix-wrong-comment-about-default-event_idx/20230414-002232
+patch link:    https://lore.kernel.org/r/20230413161725.195417-5-alexghiti%40rivosinc.com
+patch subject: [PATCH 4/4] riscv: Enable perf counters user access only through perf
+config: riscv-randconfig-r036-20230412 (https://download.01.org/0day-ci/archive/20230414/202304140904.9oAVhFHu-lkp@intel.com/config)
+compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project 9638da200e00bd069e6dd63604e14cbafede9324)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
+        # https://github.com/intel-lab-lkp/linux/commit/8ca9b21cbf2c0b91ee35356c01aef9da7d874e55
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Alexandre-Ghiti/perf-Fix-wrong-comment-about-default-event_idx/20230414-002232
+        git checkout 8ca9b21cbf2c0b91ee35356c01aef9da7d874e55
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202304140904.9oAVhFHu-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/riscv/kernel/perf_event.c:8:28: error: call to undeclared function 'to_riscv_pmu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+                                     ^
+>> arch/riscv/kernel/perf_event.c:8:20: error: incompatible integer to pointer conversion initializing 'struct riscv_pmu *' with an expression of type 'int' [-Wint-conversion]
+           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+                             ^       ~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kernel/perf_event.c:24:27: error: incomplete definition of type 'struct riscv_pmu'
+           userpg->pmc_width = rvpmu->ctr_get_width(event->hw.idx) + 1;
+                               ~~~~~^
+   arch/riscv/kernel/perf_event.c:8:9: note: forward declaration of 'struct riscv_pmu'
+           struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+                  ^
+   3 errors generated.
+
+
+vim +/to_riscv_pmu +8 arch/riscv/kernel/perf_event.c
+
+     4	
+     5	void arch_perf_update_userpage(struct perf_event *event,
+     6				       struct perf_event_mmap_page *userpg, u64 now)
+     7	{
+   > 8		struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+     9		struct clock_read_data *rd;
+    10		unsigned int seq;
+    11		u64 ns;
+    12	
+    13		userpg->cap_user_time = 0;
+    14		userpg->cap_user_time_zero = 0;
+    15		userpg->cap_user_time_short = 0;
+    16		userpg->cap_user_rdpmc =
+    17			!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT);
+    18	
+    19		/*
+    20		 * The counters are 64-bit but the priv spec doesn't mandate all the
+    21		 * bits to be implemented: that's why, counter width can vary based on
+    22		 * the cpu vendor.
+    23		 */
+  > 24		userpg->pmc_width = rvpmu->ctr_get_width(event->hw.idx) + 1;
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
