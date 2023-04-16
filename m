@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B90C77B61
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Apr 2023 15:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E590CC77B61
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Apr 2023 17:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=usn+JIIt7BWIqK756rFJv2wjyBbmqgOPHfr/4YF8LfE=; b=DD92zW34jfpI9/
-	QyWThn7gEjJc7oIBhdfwI23gdkpMQ6YwAgKkLJdGl61u6QHPwi6G6qBep3X0OqRoITpNC4uAfeZGc
-	75BaTc0uqa3uRqojKVXRmpQLbuHOKbVSzTqreJgXkqdACvOd5GXgW+AbCg6JDlpy6x9M3mD8rNxXb
-	sIJ5N9lLT3V2oMqhWAcN8gz4WqUDAACQsOx3DBWtcM74FcbGZfL1DfX1wLcrehzbAASrdTdsIV5Gs
-	So1D62jzhBrkGP3t5tsUTCcM29KStYXiCMx9NA9aBqo/xQlGK+S8nR1Z7P8N+Q253gtZ1y6PhTAC3
-	1JlBtfUcMCmp8yWL5prg==;
+	List-Owner; bh=Q/UV1IBd2DsNMz7GUXgTTN4Mw4xg1dbiEecD0Xg+Vq0=; b=CszIYFGrFdbc7y
+	fYbJ4QYvL62SJaFFT2Defil6AhvLV5kLqZojQhp1LE74Tlu/YL+nkuzf4MBb5EG8Ivb2jxecJ/Pd0
+	p0hEUOXwRSVjHnKhw+HThqMtbU225heeBQf2G0QzJwUHCWpYW/OwXN3P9NbD+Lomgpyh9i3qHT+PY
+	A8FcvJvakigxnQc6aaLNkhKJKpUNgxJM7b8T3xCRWkHA2pzGrWkyJlMpwfIEHIipmoCe1+hamzLj8
+	xz81wc1X6Pwng23BmlSnuxxpHkzwIIaYi5CP4S8bim/j92PKUQR+3+udAsqTdWeZnKkARKEyy45z3
+	eLO7n/PMKuDTXPAqnIrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1po4iM-00E3Yq-1E;
-	Sun, 16 Apr 2023 15:54:54 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1po6C2-00EBiC-0w;
+	Sun, 16 Apr 2023 17:29:38 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1po4iI-00E3Y4-1F
+	id 1po6Bz-00EBh8-1P
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Apr 2023 15:54:53 +0000
-Received: by mail-io1-xd31.google.com with SMTP id b18so134805iof.0
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Apr 2023 08:54:49 -0700 (PDT)
+	Sun, 16 Apr 2023 17:29:36 +0000
+Received: by mail-ej1-x631.google.com with SMTP id u3so6386034ejj.12
+        for <linux-riscv@lists.infradead.org>; Sun, 16 Apr 2023 10:29:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681660489; x=1684252489;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mkAzVaT9arYdLNu/QHRL1wibJk7u+etgqOaPUdNedNo=;
-        b=Es5XB4qq37mVWhcPeJUYYcuPM79oOTxdAAa+uvpmw9lfriuSM2s/wq+e7dgbCQ/6v8
-         /j3cRvl6Ynz/1SFvH4hx4qzM37Q82q3vnBEeR9aVHuehCAl7bx9hgY0az/RYhZmGsI+z
-         mLbwj/Mqn8qHSPdlbyY07s1pape6lGsdiooGFBBV1nc9iEZB/oG1wnFN3e6JbQjRyH6R
-         zK0t0jMvQZe3aAZZctmo+UDnMbs4LcqRZjHfgmHPefiMXtjl67JmyvCR29gj8fjd5Vcq
-         7Of0VKg6jMcXvq9iGXkS2AqmV00mPjNLczzb3utxe0bap+8QxyCm6AOw+Ap3G9Kb2c0I
-         COyQ==
+        d=linaro.org; s=google; t=1681666174; x=1684258174;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ALGubGI9vcPFVNhBw3xYsBRMIAknnF9aicGsi1XUPLk=;
+        b=sMuKVfCxr89Rs5nPX29H3CNTFQvBvR/XM4KqkDBiCu3zHbHhec+m6gNXeH8Zro6/hP
+         AihhHjRPgDkJMjkI9u+4MLflks+a3mpVBvuGtxpTgNNGVTSObVXzkGGaz7a2JUv7qXlL
+         ck4H9Pehfnd6zoAs7HLhocAskPw2zuiFDODfK63C8a+ttTQd2kG9jUvcK8TuiQfejL12
+         Iyi6hcI7sHL7i7GHwwqVBigCeaPwPbl2UAZscjInSEvlGpRjCKkNjXCYYVhBTHAUrtwY
+         up30+jmftwHc5xx/Vx/sX4QcSUcACPcmCemhZyfGVGReFJiD62AG5oi5XkFEDBOmFG0F
+         Mr7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681660489; x=1684252489;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mkAzVaT9arYdLNu/QHRL1wibJk7u+etgqOaPUdNedNo=;
-        b=Qbj+lpFrrqAr3af/Da3pihuJk6q2e+Y3Nb98Teqapv3xA5wdz6pOksY4xXn59IwJBp
-         fXjLkBwf1bxJn7y0VxFJbTC+lzbJrqkhWPmFyP4w56MpSsnXQb5GjW+wi51RY2kq1bfh
-         cfbsDOqsFIeNgOiDYiMMYJvidi0pV1n+TbiXcf1sv9MohSAxMTymYc5jxOjquG2fGkOm
-         bYfjUwf+STJveCBgEnHGZRJOC+HPUW5NmHE2D/0dB7nToi/q8DHvYG/p9tHk4ddGJPnY
-         U8fqJDizg0cry2xCvcKBLaPTMnrwK+XXlftz8DSj7bt1fwcSaCsi0cR2QfiF6n0xUfPA
-         AUHg==
-X-Gm-Message-State: AAQBX9d/2BZ1j7b6WX4FdozJkSEEjoJUwSFCYxAXoJ1P2J9z/bF/3Y/C
-	ZY2NPpgBi4v8q/OuHxBvUpM=
-X-Google-Smtp-Source: AKy350ZgVsAxZEThR7jQitoKUT9vhhOX4aSi7FkGuWzSXzR4RUz8iDhxVmVos2rha7OUvyKYj+n/Qw==
-X-Received: by 2002:a5d:94d4:0:b0:74c:8c3c:b71 with SMTP id y20-20020a5d94d4000000b0074c8c3c0b71mr9269986ior.12.1681660488945;
-        Sun, 16 Apr 2023 08:54:48 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id k21-20020a5d9d55000000b0074555814e73sm2620580iok.32.2023.04.16.08.54.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Apr 2023 08:54:48 -0700 (PDT)
-Date: Sun, 16 Apr 2023 08:54:47 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Samin Guo <samin.guo@starfivetech.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] drivers: watchdog: Add StarFive Watchdog driver
-Message-ID: <12194568-e17b-447e-8717-2dde2683440f@roeck-us.net>
-References: <20230314132437.121534-1-xingyu.wu@starfivetech.com>
- <20230314132437.121534-3-xingyu.wu@starfivetech.com>
+        d=1e100.net; s=20221208; t=1681666174; x=1684258174;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ALGubGI9vcPFVNhBw3xYsBRMIAknnF9aicGsi1XUPLk=;
+        b=h3vQoQZBYZRxAqdpOcpaKjiKeznwJVC8Dxx/D1oY22YhTVQjxcaxYNZz5Lusa/v+O6
+         BCTuwzGtzcEsrFxAwFiAPpDJExuj5FYV4NNtJOGztjbhbQZUQNz45PE1gfXw0onBl6O1
+         wEwa8cX58xhTPnyIhFg1krlmRladZJWI8rYt0C798B8XJi9ZGdF6eT13knG8j0YhUuzN
+         zfSgdfK5PyOmv0J7K5+UAaWvihd9NJeXJunBhz/VEokFYc2qZaNktB+cE0Z6wvMILKuP
+         BboNbK7DWRe3PifKFBAI9PwMtJFMdSPPVJUk/zj54bPI1Szkf2rY9oZR3AMie1ZA9VrL
+         Tf9g==
+X-Gm-Message-State: AAQBX9c/fc7M6kgVLeG66+Z53JBjxWVVrCzb/JQgPV/E560GS8rsNBt5
+	7wr2QHUPLzTqgAD7wgTNB2zF3g==
+X-Google-Smtp-Source: AKy350YFnbIUE8o83ZkVTdY4/9rW/e7dq7GqM6STdl/F8jdbMAVS3RxyoIDP9UaCahROrbK+1R6w/Q==
+X-Received: by 2002:a17:907:2089:b0:947:a6d7:e2b4 with SMTP id pv9-20020a170907208900b00947a6d7e2b4mr4755130ejb.8.1681666173907;
+        Sun, 16 Apr 2023 10:29:33 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:f9e3:1d38:66a7:ae92? ([2a02:810d:15c0:828:f9e3:1d38:66a7:ae92])
+        by smtp.gmail.com with ESMTPSA id h20-20020a1709067cd400b0094a86ccb634sm5278610ejp.210.2023.04.16.10.29.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 16 Apr 2023 10:29:33 -0700 (PDT)
+Message-ID: <31c582a7-682a-330e-51d4-53b4a0c5f3a2@linaro.org>
+Date: Sun, 16 Apr 2023 19:29:32 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230314132437.121534-3-xingyu.wu@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v4 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Content-Language: en-US
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20230412084540.295411-1-changhuang.liang@starfivetech.com>
+ <20230412084540.295411-2-changhuang.liang@starfivetech.com>
+ <8dd0dc63-e0df-8764-f756-da032d9d671c@linaro.org>
+ <eb47b7c7-bdbb-92d9-ba39-604ce487f297@starfivetech.com>
+ <f6a4fb28-d635-4d99-44bb-d929cb41eef2@linaro.org>
+ <b34a8d59-34e4-8358-9d2b-367f4707ca7c@starfivetech.com>
+ <f0d82428-aaa5-3dd4-bc29-f1057fe749bc@linaro.org>
+ <0c94aadf-fac3-d05c-1c54-ae8337526849@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <0c94aadf-fac3-d05c-1c54-ae8337526849@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230416_085450_425512_036D2DC8 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20230416_102935_478548_C0EF4222 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,688 +109,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 14, 2023 at 09:24:36PM +0800, Xingyu Wu wrote:
-> Add watchdog driver for the StarFive JH7100 and JH7110 SoC.
+On 13/04/2023 11:02, Changhuang Liang wrote:
 > 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-
-> ---
->  MAINTAINERS                     |   7 +
->  drivers/watchdog/Kconfig        |  11 +
->  drivers/watchdog/Makefile       |   3 +
->  drivers/watchdog/starfive-wdt.c | 606 ++++++++++++++++++++++++++++++++
->  4 files changed, 627 insertions(+)
->  create mode 100644 drivers/watchdog/starfive-wdt.c
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8d5bc223f305..721d0e4e8a0d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19962,6 +19962,13 @@ S:	Supported
->  F:	Documentation/devicetree/bindings/rng/starfive*
->  F:	drivers/char/hw_random/jh7110-trng.c
->  
-> +STARFIVE WATCHDOG DRIVER
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-> +M:	Samin Guo <samin.guo@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/watchdog/starfive*
-> +F:	drivers/watchdog/starfive-wdt.c
-> +
->  STATIC BRANCH/CALL
->  M:	Peter Zijlstra <peterz@infradead.org>
->  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-> index f0872970daf9..f22138709bf5 100644
-> --- a/drivers/watchdog/Kconfig
-> +++ b/drivers/watchdog/Kconfig
-> @@ -1999,6 +1999,17 @@ config WATCHDOG_RTAS
->  	  To compile this driver as a module, choose M here. The module
->  	  will be called wdrtas.
->  
-> +# RISC-V Architecture
-> +
-> +config STARFIVE_WATCHDOG
-> +	tristate "StarFive Watchdog support"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select WATCHDOG_CORE
-> +	default ARCH_STARFIVE
-> +	help
-> +	  Say Y here to support the watchdog of StarFive JH7100 and JH7110
-> +	  SoC. This driver can also be built as a module if choose M.
-> +
->  # S390 Architecture
->  
->  config DIAG288_WATCHDOG
-> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-> index 9cbf6580f16c..b4c4ccf2d703 100644
-> --- a/drivers/watchdog/Makefile
-> +++ b/drivers/watchdog/Makefile
-> @@ -192,6 +192,9 @@ obj-$(CONFIG_MEN_A21_WDT) += mena21_wdt.o
->  obj-$(CONFIG_PSERIES_WDT) += pseries-wdt.o
->  obj-$(CONFIG_WATCHDOG_RTAS) += wdrtas.o
->  
-> +# RISC-V Architecture
-> +obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
-> +
->  # S390 Architecture
->  obj-$(CONFIG_DIAG288_WATCHDOG) += diag288_wdt.o
->  
-> diff --git a/drivers/watchdog/starfive-wdt.c b/drivers/watchdog/starfive-wdt.c
-> new file mode 100644
-> index 000000000000..1995cceca51e
-> --- /dev/null
-> +++ b/drivers/watchdog/starfive-wdt.c
-> @@ -0,0 +1,606 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Starfive Watchdog driver
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/reset.h>
-> +#include <linux/watchdog.h>
-> +
-> +/* JH7100 Watchdog register define */
-> +#define STARFIVE_WDT_JH7100_INTSTAUS	0x000
-> +#define STARFIVE_WDT_JH7100_CONTROL	0x104
-> +#define STARFIVE_WDT_JH7100_LOAD	0x108
-> +#define STARFIVE_WDT_JH7100_EN		0x110
-> +#define STARFIVE_WDT_JH7100_RELOAD	0x114	/* Write 0 or 1 to reload preset value */
-> +#define STARFIVE_WDT_JH7100_VALUE	0x118
-> +#define STARFIVE_WDT_JH7100_INTCLR	0x120	/*
-> +						 * [0]: Write 1 to clear interrupt
-> +						 * [1]: 1 mean clearing and 0 mean complete
-> +						 * [31:2]: reserved.
-> +						 */
-> +#define STARFIVE_WDT_JH7100_LOCK	0x13c	/* write 0x378f0765 to unlock */
-> +
-> +/* JH7110 Watchdog register define */
-> +#define STARFIVE_WDT_JH7110_LOAD	0x000
-> +#define STARFIVE_WDT_JH7110_VALUE	0x004
-> +#define STARFIVE_WDT_JH7110_CONTROL	0x008	/*
-> +						 * [0]: reset enable;
-> +						 * [1]: interrupt enable && watchdog enable
-> +						 * [31:2]: reserved.
-> +						 */
-> +#define STARFIVE_WDT_JH7110_INTCLR	0x00c	/* clear intterupt and reload the counter */
-> +#define STARFIVE_WDT_JH7110_IMS		0x014
-> +#define STARFIVE_WDT_JH7110_LOCK	0xc00	/* write 0x1ACCE551 to unlock */
-> +
-> +/* WDOGCONTROL */
-> +#define STARFIVE_WDT_ENABLE			0x1
-> +#define STARFIVE_WDT_EN_SHIFT			0
-> +#define STARFIVE_WDT_RESET_EN			0x1
-> +#define STARFIVE_WDT_JH7100_RST_EN_SHIFT	0
-> +#define STARFIVE_WDT_JH7110_RST_EN_SHIFT	1
-> +
-> +/* WDOGLOCK */
-> +#define STARFIVE_WDT_JH7100_UNLOCK_KEY		0x378f0765
-> +#define STARFIVE_WDT_JH7110_UNLOCK_KEY		0x1acce551
-> +
-> +/* WDOGINTCLR */
-> +#define STARFIVE_WDT_INTCLR			0x1
-> +#define STARFIVE_WDT_JH7100_INTCLR_AVA_SHIFT	1	/* Watchdog can clear interrupt when 0 */
-> +
-> +#define STARFIVE_WDT_MAXCNT			0xffffffff
-> +#define STARFIVE_WDT_DEFAULT_TIME		(15)
-> +#define STARFIVE_WDT_DELAY_US			0
-> +#define STARFIVE_WDT_TIMEOUT_US			10000
-> +
-> +/* module parameter */
-> +#define STARFIVE_WDT_EARLY_ENA			0
-> +
-> +static bool nowayout = WATCHDOG_NOWAYOUT;
-> +static int heartbeat;
-> +static bool early_enable = STARFIVE_WDT_EARLY_ENA;
-> +
-> +module_param(heartbeat, int, 0);
-> +module_param(early_enable, bool, 0);
-> +module_param(nowayout, bool, 0);
-> +
-> +MODULE_PARM_DESC(heartbeat, "Watchdog heartbeat in seconds. (default="
-> +		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
-> +MODULE_PARM_DESC(early_enable,
-> +		 "Watchdog is started at boot time if set to 1, default="
-> +		 __MODULE_STRING(STARFIVE_WDT_EARLY_ENA));
-> +MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
-> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
-> +
-> +struct starfive_wdt_variant {
-> +	unsigned int control;		/* Watchdog Control Resgister for reset enable */
-> +	unsigned int load;		/* Watchdog Load register */
-> +	unsigned int reload;		/* Watchdog Reload Control register */
-> +	unsigned int enable;		/* Watchdog Enable Register */
-> +	unsigned int value;		/* Watchdog Counter Value Register */
-> +	unsigned int int_clr;		/* Watchdog Interrupt Clear Register */
-> +	unsigned int unlock;		/* Watchdog Lock Register */
-> +	unsigned int int_status;	/* Watchdog Interrupt Status Register */
-> +
-> +	u32 unlock_key;
-> +	char enrst_shift;
-> +	char en_shift;
-> +	bool intclr_check;		/*  whether need to check it before clearing interrupt */
-> +	char intclr_ava_shift;
-> +	bool double_timeout;		/* The watchdog need twice timeout to reboot */
-> +};
-> +
-> +struct starfive_wdt {
-> +	struct watchdog_device wdd;
-> +	spinlock_t lock;		/* spinlock for register handling */
-> +	void __iomem *base;
-> +	struct clk *core_clk;
-> +	struct clk *apb_clk;
-> +	const struct starfive_wdt_variant *variant;
-> +	unsigned long freq;
-> +	u32 count;			/* count of timeout */
-> +	u32 reload;			/* restore the count */
-> +};
-> +
-> +/* Register layout and configuration for the JH7100 */
-> +static const struct starfive_wdt_variant starfive_wdt_jh7100_variant = {
-> +	.control = STARFIVE_WDT_JH7100_CONTROL,
-> +	.load = STARFIVE_WDT_JH7100_LOAD,
-> +	.reload = STARFIVE_WDT_JH7100_RELOAD,
-> +	.enable = STARFIVE_WDT_JH7100_EN,
-> +	.value = STARFIVE_WDT_JH7100_VALUE,
-> +	.int_clr = STARFIVE_WDT_JH7100_INTCLR,
-> +	.unlock = STARFIVE_WDT_JH7100_LOCK,
-> +	.unlock_key = STARFIVE_WDT_JH7100_UNLOCK_KEY,
-> +	.int_status = STARFIVE_WDT_JH7100_INTSTAUS,
-> +	.enrst_shift = STARFIVE_WDT_JH7100_RST_EN_SHIFT,
-> +	.en_shift = STARFIVE_WDT_EN_SHIFT,
-> +	.intclr_check = true,
-> +	.intclr_ava_shift = STARFIVE_WDT_JH7100_INTCLR_AVA_SHIFT,
-> +	.double_timeout = false,
-> +};
-> +
-> +/* Register layout and configuration for the JH7110 */
-> +static const struct starfive_wdt_variant starfive_wdt_jh7110_variant = {
-> +	.control = STARFIVE_WDT_JH7110_CONTROL,
-> +	.load = STARFIVE_WDT_JH7110_LOAD,
-> +	.enable = STARFIVE_WDT_JH7110_CONTROL,
-> +	.value = STARFIVE_WDT_JH7110_VALUE,
-> +	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
-> +	.unlock = STARFIVE_WDT_JH7110_LOCK,
-> +	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
-> +	.int_status = STARFIVE_WDT_JH7110_IMS,
-> +	.enrst_shift = STARFIVE_WDT_JH7110_RST_EN_SHIFT,
-> +	.en_shift = STARFIVE_WDT_EN_SHIFT,
-> +	.intclr_check = false,
-> +	.double_timeout = true,
-> +};
-> +
-> +static int starfive_wdt_enable_clock(struct starfive_wdt *wdt)
-> +{
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(wdt->apb_clk);
-> +	if (ret)
-> +		return dev_err_probe(wdt->wdd.parent, ret, "failed to enable apb clock\n");
-> +
-> +	ret = clk_prepare_enable(wdt->core_clk);
-> +	if (ret)
-> +		return dev_err_probe(wdt->wdd.parent, ret, "failed to enable core clock\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static void starfive_wdt_disable_clock(struct starfive_wdt *wdt)
-> +{
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +}
-> +
-> +static inline int starfive_wdt_get_clock(struct starfive_wdt *wdt)
-> +{
-> +	struct device *dev = wdt->wdd.parent;
-> +
-> +	wdt->apb_clk = devm_clk_get(dev, "apb");
-> +	if (IS_ERR(wdt->apb_clk))
-> +		return dev_err_probe(dev, PTR_ERR(wdt->apb_clk), "failed to get apb clock\n");
-> +
-> +	wdt->core_clk = devm_clk_get(dev, "core");
-> +	if (IS_ERR(wdt->core_clk))
-> +		return dev_err_probe(dev, PTR_ERR(wdt->core_clk), "failed to get core clock\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static inline int starfive_wdt_reset_init(struct device *dev)
-> +{
-> +	struct reset_control *rsts;
-> +	int ret;
-> +
-> +	rsts = devm_reset_control_array_get_exclusive(dev);
-> +	if (IS_ERR(rsts))
-> +		return dev_err_probe(dev, PTR_ERR(rsts), "failed to get resets\n");
-> +
-> +	ret = reset_control_deassert(rsts);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to deassert resets\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static u32 starfive_wdt_ticks_to_sec(struct starfive_wdt *wdt, u32 ticks)
-> +{
-> +	return DIV_ROUND_CLOSEST(ticks, wdt->freq);
-> +}
-> +
-> +/* Write unlock-key to unlock. Write other value to lock. */
-> +static void starfive_wdt_unlock(struct starfive_wdt *wdt)
-> +{
-> +	spin_lock(&wdt->lock);
-> +	writel(wdt->variant->unlock_key, wdt->base + wdt->variant->unlock);
-> +}
-> +
-> +static void starfive_wdt_lock(struct starfive_wdt *wdt)
-> +{
-> +	writel(~wdt->variant->unlock_key, wdt->base + wdt->variant->unlock);
-> +	spin_unlock(&wdt->lock);
-> +}
-> +
-> +/* enable watchdog interrupt to reset/reboot */
-> +static void starfive_wdt_enable_reset(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->variant->control);
-> +	val |= STARFIVE_WDT_RESET_EN << wdt->variant->enrst_shift;
-> +	writel(val, wdt->base + wdt->variant->control);
-> +}
-> +
-> +/* interrupt status whether has been raised from the counter */
-> +static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
-> +{
-> +	return !!readl(wdt->base + wdt->variant->int_status);
-> +}
-> +
-> +/* waiting interrupt can be free to clear */
-> +static int starfive_wdt_wait_int_free(struct starfive_wdt *wdt)
-> +{
-> +	u32 value;
-> +
-> +	return readl_poll_timeout_atomic(wdt->base + wdt->variant->int_clr, value,
-> +					 !(value & BIT(wdt->variant->intclr_ava_shift)),
-> +					 STARFIVE_WDT_DELAY_US, STARFIVE_WDT_TIMEOUT_US);
-> +}
-> +
-> +/* clear interrupt signal before initialization or reload */
-> +static int starfive_wdt_int_clr(struct starfive_wdt *wdt)
-> +{
-> +	int ret;
-> +
-> +	if (wdt->variant->intclr_check) {
-> +		ret = starfive_wdt_wait_int_free(wdt);
-> +		if (ret)
-> +			return dev_err_probe(wdt->wdd.parent, ret,
-> +					     "watchdog is not ready to clear interrupt.\n");
-> +	}
-> +	writel(STARFIVE_WDT_INTCLR, wdt->base + wdt->variant->int_clr);
-> +
-> +	return 0;
-> +}
-> +
-> +static inline void starfive_wdt_set_count(struct starfive_wdt *wdt, u32 val)
-> +{
-> +	writel(val, wdt->base + wdt->variant->load);
-> +}
-> +
-> +static inline u32 starfive_wdt_get_count(struct starfive_wdt *wdt)
-> +{
-> +	return readl(wdt->base + wdt->variant->value);
-> +}
-> +
-> +/* enable watchdog */
-> +static inline void starfive_wdt_enable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->variant->enable);
-> +	val |= STARFIVE_WDT_ENABLE << wdt->variant->en_shift;
-> +	writel(val, wdt->base + wdt->variant->enable);
-> +}
-> +
-> +/* disable watchdog */
-> +static inline void starfive_wdt_disable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->variant->enable);
-> +	val &= ~(STARFIVE_WDT_ENABLE << wdt->variant->en_shift);
-> +	writel(val, wdt->base + wdt->variant->enable);
-> +}
-> +
-> +static inline void starfive_wdt_set_reload_count(struct starfive_wdt *wdt, u32 count)
-> +{
-> +	starfive_wdt_set_count(wdt, count);
-> +
-> +	/* 7100 need set any value to reload register and could reload value to counter */
-> +	if (wdt->variant->reload)
-> +		writel(0x1, wdt->base + wdt->variant->reload);
-> +}
-> +
-> +static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
-> +{
-> +	if (wdt->variant->double_timeout)
-> +		return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, (wdt->freq / 2)) - 1;
-> +
-> +	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, wdt->freq) - 1;
-> +}
-> +
-> +static unsigned int starfive_wdt_get_timeleft(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	u32 count;
-> +
-> +	/*
-> +	 * If the watchdog takes twice timeout and set half count value,
-> +	 * timeleft value should add the count value before first timeout.
-> +	 */
-> +	count = starfive_wdt_get_count(wdt);
-> +	if (wdt->variant->double_timeout && !starfive_wdt_raise_irq_status(wdt))
-> +		count += wdt->count;
-> +
-> +	return starfive_wdt_ticks_to_sec(wdt, count);
-> +}
-> +
-> +static int starfive_wdt_keepalive(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	int ret;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	ret = starfive_wdt_int_clr(wdt);
-> +	if (ret)
-> +		goto exit;
-> +
-> +	starfive_wdt_set_reload_count(wdt, wdt->count);
-> +
-> +exit:
-> +	/* exit with releasing spinlock and locking registers */
-> +	starfive_wdt_lock(wdt);
-> +	return ret;
-> +}
-> +
-> +static int starfive_wdt_start(struct starfive_wdt *wdt)
-> +{
-> +	int ret;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	/* disable watchdog, to be safe */
-> +	starfive_wdt_disable(wdt);
-> +
-> +	starfive_wdt_enable_reset(wdt);
-> +	ret = starfive_wdt_int_clr(wdt);
-> +	if (ret)
-> +		goto exit;
-> +
-> +	starfive_wdt_set_count(wdt, wdt->count);
-> +	starfive_wdt_enable(wdt);
-> +
-> +exit:
-> +	starfive_wdt_lock(wdt);
-> +	return ret;
-> +}
-> +
-> +static void starfive_wdt_stop(struct starfive_wdt *wdt)
-> +{
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +}
-> +
-> +static int starfive_wdt_pm_start(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	int ret = pm_runtime_get_sync(wdd->parent);
-> +
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return starfive_wdt_start(wdt);
-> +}
-> +
-> +static int starfive_wdt_pm_stop(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	starfive_wdt_stop(wdt);
-> +	return pm_runtime_put_sync(wdd->parent);
-> +}
-> +
-> +static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
-> +				    unsigned int timeout)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	unsigned long count = timeout * wdt->freq;
-> +
-> +	/* some watchdogs take two timeouts to reset */
-> +	if (wdt->variant->double_timeout)
-> +		count /= 2;
-> +
-> +	wdt->count = count;
-> +	wdd->timeout = timeout;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_set_reload_count(wdt, wdt->count);
-> +	starfive_wdt_enable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return 0;
-> +}
-> +
-> +#define STARFIVE_WDT_OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
-> +
-> +static const struct watchdog_info starfive_wdt_info = {
-> +	.options = STARFIVE_WDT_OPTIONS,
-> +	.identity = "StarFive Watchdog",
-> +};
-> +
-> +static const struct watchdog_ops starfive_wdt_ops = {
-> +	.owner = THIS_MODULE,
-> +	.start = starfive_wdt_pm_start,
-> +	.stop = starfive_wdt_pm_stop,
-> +	.ping = starfive_wdt_keepalive,
-> +	.set_timeout = starfive_wdt_set_timeout,
-> +	.get_timeleft = starfive_wdt_get_timeleft,
-> +};
-> +
-> +static int starfive_wdt_probe(struct platform_device *pdev)
-> +{
-> +	struct starfive_wdt *wdt;
-> +	int ret;
-> +
-> +	wdt = devm_kzalloc(&pdev->dev, sizeof(*wdt), GFP_KERNEL);
-> +	if (!wdt)
-> +		return -ENOMEM;
-> +
-> +	wdt->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(wdt->base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(wdt->base), "error mapping registers\n");
-> +
-> +	wdt->wdd.parent = &pdev->dev;
-> +	ret = starfive_wdt_get_clock(wdt);
-> +	if (ret)
-> +		return ret;
-> +
-> +	platform_set_drvdata(pdev, wdt);
-> +	pm_runtime_enable(&pdev->dev);
-> +	if (pm_runtime_enabled(&pdev->dev)) {
-> +		ret = pm_runtime_get_sync(&pdev->dev);
-> +		if (ret < 0)
-> +			return ret;
-> +	} else {
-> +		/* runtime PM is disabled but clocks need to be enabled */
-> +		ret = starfive_wdt_enable_clock(wdt);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	ret = starfive_wdt_reset_init(&pdev->dev);
-> +	if (ret)
-> +		goto err_exit;
-> +
-> +	watchdog_set_drvdata(&wdt->wdd, wdt);
-> +	wdt->wdd.info = &starfive_wdt_info;
-> +	wdt->wdd.ops = &starfive_wdt_ops;
-> +	wdt->variant = of_device_get_match_data(&pdev->dev);
-> +	spin_lock_init(&wdt->lock);
-> +
-> +	wdt->freq = clk_get_rate(wdt->core_clk);
-> +	if (!wdt->freq) {
-> +		dev_err(&pdev->dev, "get clock rate failed.\n");
-> +		ret = -EINVAL;
-> +		goto err_exit;
-> +	}
-> +
-> +	wdt->wdd.min_timeout = 1;
-> +	wdt->wdd.max_timeout = starfive_wdt_max_timeout(wdt);
-> +	wdt->wdd.timeout = STARFIVE_WDT_DEFAULT_TIME;
-> +	watchdog_init_timeout(&wdt->wdd, heartbeat, &pdev->dev);
-> +	starfive_wdt_set_timeout(&wdt->wdd, wdt->wdd.timeout);
-> +
-> +	watchdog_set_nowayout(&wdt->wdd, nowayout);
-> +	watchdog_stop_on_reboot(&wdt->wdd);
-> +	watchdog_stop_on_unregister(&wdt->wdd);
-> +
-> +	if (early_enable) {
-> +		ret = starfive_wdt_start(wdt);
-> +		if (ret)
-> +			goto err_exit;
-> +		set_bit(WDOG_HW_RUNNING, &wdt->wdd.status);
-> +	} else {
-> +		starfive_wdt_stop(wdt);
-> +	}
-> +
-> +	ret = watchdog_register_device(&wdt->wdd);
-> +	if (ret)
-> +		goto err_exit;
-> +
-> +	if (!early_enable)
-> +		return pm_runtime_put_sync(&pdev->dev);
-> +
-> +	return 0;
-> +
-> +err_exit:
-> +	starfive_wdt_disable_clock(wdt);
-> +	pm_runtime_disable(&pdev->dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int starfive_wdt_remove(struct platform_device *pdev)
-> +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(pdev);
-> +
-> +	starfive_wdt_stop(wdt);
-> +	watchdog_unregister_device(&wdt->wdd);
-> +
-> +	if (pm_runtime_enabled(&pdev->dev))
-> +		pm_runtime_disable(&pdev->dev);
-> +	else
-> +		/* disable clock without PM */
-> +		starfive_wdt_disable_clock(wdt);
-> +
-> +	return 0;
-> +}
-> +
-> +static void starfive_wdt_shutdown(struct platform_device *pdev)
-> +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(pdev);
-> +
-> +	starfive_wdt_pm_stop(&wdt->wdd);
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP
-> +static int starfive_wdt_suspend(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	/* Save watchdog state, and turn it off. */
-> +	wdt->reload = starfive_wdt_get_count(wdt);
-> +
-> +	/* Note that WTCNT doesn't need to be saved. */
-> +	starfive_wdt_stop(wdt);
-> +
-> +	return pm_runtime_force_suspend(dev);
-> +}
-> +
-> +static int starfive_wdt_resume(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	/* Restore watchdog state. */
-> +	starfive_wdt_set_reload_count(wdt, wdt->reload);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return starfive_wdt_start(wdt);
-> +}
-> +#endif /* CONFIG_PM_SLEEP */
-> +
-> +#ifdef CONFIG_PM
-> +static int starfive_wdt_runtime_suspend(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	starfive_wdt_disable_clock(wdt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_runtime_resume(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	return starfive_wdt_enable_clock(wdt);
-> +}
-> +#endif /* CONFIG_PM */
-> +
-> +static const struct dev_pm_ops starfive_wdt_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
-> +};
-> +
-> +static const struct of_device_id starfive_wdt_match[] = {
-> +	{ .compatible = "starfive,jh7100-wdt", .data = &starfive_wdt_jh7100_variant },
-> +	{ .compatible = "starfive,jh7110-wdt", .data = &starfive_wdt_jh7110_variant },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_wdt_match);
-> +
-> +static struct platform_driver starfive_wdt_driver = {
-> +	.probe = starfive_wdt_probe,
-> +	.remove = starfive_wdt_remove,
-> +	.shutdown = starfive_wdt_shutdown,
-> +	.driver = {
-> +		.name = "starfive-wdt",
-> +		.pm = &starfive_wdt_pm_ops,
-> +		.of_match_table = of_match_ptr(starfive_wdt_match),
-> +	},
-> +};
-> +module_platform_driver(starfive_wdt_driver);
-> +
-> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
-> +MODULE_LICENSE("GPL");
+> On 2023/4/13 16:41, Krzysztof Kozlowski wrote:
+>> On 13/04/2023 04:34, Changhuang Liang wrote:
+>>>>>>> +  lane_maps:
+>>>>>>
+>>>>>> Why did this appear? Underscores are not allowed. It looks like you
+>>>>>> re-implement some standard property.
+>>>>>>
+>>>>>
+>>>>> Will change to lane-maps.
+>>>>> Yes, according to Vinod advice, lane mapping table use device tree
+>>>>> to parse makes sense.
+>>>>
+>>>> Hm, I have a feeling that I saw such property, so you should dig into
+>>>> existing and in-flight bindings.
+>>>>
+>>>> Best regards,
+>>>> Krzysztof
+>>>>
+>>>
+>>> A standard property? Like "clocks" or "resets"?
+>>
+>> Like lane-polarities now submitted to one MIPI.
+>>
+>> Anyway it does not look like a property of a board. You said it is fixed
+>> per SoC, so it should be implied from the compatible. Otherwise please
+>> explain in description and provide some rationale.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> 
+> This property is the only one used for this IP, I have compared this IP with
+> other DPHY rx module, DPHY modules form the other manufacturers not have this
+> configure.
+> And we also have a SoC called JH7100. It DPHY rx module is the same as JH7110.
+> But we don't do the upstream work on it. If it use this lane-maps will be 
+> configure as "lane_maps = /bits/ 8 <0 1 2 3 4 5>;".
+
+And JH7100 is different SoC, so you have different compatible. Again -
+is this board specific? If not, looks like SoC specific, thus imply it
+from compatible.
+
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
