@@ -4,50 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3A7C77B76
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 18:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBD4C77B7A
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 18:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ibp2JFkxFV17S2kDiGha9R93HaQ89r8T2PGsXhxJx5A=; b=rEbuDqWgVeXDtw
-	ialg8fWBxX3GGgrXyS0maCkuIsXBXOE6m/mut6CgCWAR614d3+N1GB0uKGo6JIuZLwmQ+5x61CgJw
-	IQS2/D110274yia5bRRIv8DKnPmOYmCvTH4nQzVI8OfkYFE6J5Lbp+vYVXfawzJJPtbheLkVbcZsu
-	SpUnpWKDDaKGax1WLXc43oQ7c/8GP8Ye1gElvQFv/wPM4yVhjvCrLayM1gaUvvFkW9d2hqiiLv1JE
-	WW+vdJCsQ6BNLUv9zlsqdUd0eSl+MGNVOEWdA1zNmIy7V+hUImVnZb7hU4EQB38CmxRvh5O2HHGLm
-	TyTEGJwdEPBMpudaRgZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pkA1MFJN0klj26Iq0WU5ytibH/Sdsa5MXIuoO2K+tk=; b=cbgeo3PnRsEib2RMiE6ogKHme1
+	plG/67QAppfb/gRX3LtwzMU/R2X16UoaZnTEzckzd4Mc59XF5LuPBuhZBhnec6U1LQNKHs9/e8vn4
+	4oZovq2omcK/6Q4VCwEriN2EMv09SaY/sSko3NwjBltcI8sHYqdnqa5+stIpWwpKBaCqTbqueAycq
+	RrZ8PVJ17av3LJtpoone6BOwE+FBkuDoAuY7at6ErPH0ZQ886WmA6CE1MFhmbo2d7JFwZakA/HtpB
+	DSC3fkoTL8k26vXM2U206IqrH9OGVLgC+ksPDhGfwo0ihUL9CAQ/U9S1P0RaYuisUzePAsKQysquc
+	pJyNdl8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poTOU-00HIds-0E;
-	Mon, 17 Apr 2023 18:16:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poTOQ-00HIcA-19;
-	Mon, 17 Apr 2023 18:16:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8083F4B3;
-	Mon, 17 Apr 2023 11:16:35 -0700 (PDT)
-Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CD3BA3F5A1;
-	Mon, 17 Apr 2023 11:15:50 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	ALKML <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv@lists.infradead.org,
-	Radu Rendec <rrendec@redhat.com>
-Subject: [GIT PULL] cacheinfo/arch_topology: Updates for v6.4
-Date: Mon, 17 Apr 2023 19:15:40 +0100
-Message-Id: <20230417181540.1926349-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.40.0
+	id 1poU0N-00HMvT-1w;
+	Mon, 17 Apr 2023 18:55:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1poU0K-00HMus-0i
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Apr 2023 18:55:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DB8E2622D1;
+	Mon, 17 Apr 2023 18:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7015FC433EF;
+	Mon, 17 Apr 2023 18:55:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1681757706;
+	bh=a67vqx0zLJeULnY4ySGNK+OdFOK9hdjKSEI9T8MMhD8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cKtSFaY8Budl3dBXR0jj1QEKyCa3jwo4l1PHQ0jWx0Zh/xJk37SDdUpUiODwm6lfI
+	 aQ77Z5m5MQUOZZ7XKrrFQjPwvS0/Lsflg0kHWHJj+U0j86zv8F1KdzXGTDh3bQvt5A
+	 YHXU+u99d0p0d0nn3ehMgKxUXRGEAgUSAUhPNAKW/JiiTog6RSSxEX+tGKNMV7OOmS
+	 d1Tg1ZMcEXtCPLQHfagd7uzcGx3jENaUOSYu+B7g70iiRjr3pCEbkoeS3aKzIpQN+R
+	 SFtmag72/Zq5WwmCeuZFszj09rNAO627PodFSNpO6uIUXCSAd7ChGMR4E52OdyLct8
+	 5VRGo+w+TBgoQ==
+Date: Mon, 17 Apr 2023 19:55:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 1/7] dt-bindings: power: Constrain properties for
+ JH7110 PMU
+Message-ID: <20230417-ramrod-carpool-cd05b0def1a2@spud>
+References: <20230411064743.273388-1-changhuang.liang@starfivetech.com>
+ <20230411064743.273388-2-changhuang.liang@starfivetech.com>
+ <cb97cf01-2dfd-7f93-2048-e05a806d468f@linaro.org>
+ <ee406b3d-0719-9332-cab5-62fe7537bcf1@starfivetech.com>
+ <20230412-trifle-outplayed-8a1c795fab8b@wendy>
+ <d59439c1-bce1-b4a1-0e05-77afc4fc2ebb@linaro.org>
+ <84300997-31f8-b36e-e54e-876c266fc953@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <84300997-31f8-b36e-e54e-876c266fc953@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_111558_446766_F692141B 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20230417_115508_362877_FA36FC64 
+X-CRM114-Status: GOOD (  26.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,77 +84,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4551972801487795586=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
 
-Couple of the patches are fixes but I wanted them to be in the next for some
-time to get better testing. Few others are addressing issues in RT kernel.
+--===============4551972801487795586==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="m9nc9K7NjCFO2sFe"
+Content-Disposition: inline
 
-Please pull !
 
-Regards,
-Sudeep
+--m9nc9K7NjCFO2sFe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--->8
+On Fri, Apr 14, 2023 at 10:20:31AM +0800, Changhuang Liang wrote:
+>=20
+>=20
+> On 2023/4/12 19:29, Krzysztof Kozlowski wrote:
+> > On 12/04/2023 11:42, Conor Dooley wrote:
+> >> On Wed, Apr 12, 2023 at 04:51:16PM +0800, Changhuang Liang wrote:
+> >>>
+> >>>
+> >>> On 2023/4/12 16:35, Krzysztof Kozlowski wrote:
+> >>>> On 11/04/2023 08:47, Changhuang Liang wrote:
+> >>>>> When use "starfive,jh7110-pmu-dphy" compatible, do not need the reg=
+ and
+> >>>>> interrupts properties.
+> >>> [...]
+> >>>>> =20
+> >>>>>  description: |
+> >>>>>    StarFive JH7110 SoC includes support for multiple power domains =
+which can be
+> >>>>> @@ -17,6 +18,7 @@ properties:
+> >>>>>    compatible:
+> >>>>>      enum:
+> >>>>>        - starfive,jh7110-pmu
+> >>>>> +      - starfive,jh7110-pmu-dphy
+> >>>>
+> >>>> You do here much more than commit msg says.
+> >>>>
+> >>>> Isn'y DPHY a phy? Why is it in power?
+> >>>>
+> >>>
+> >>> OK, I will add more description. This is a power framework used to tu=
+rn on/off=20
+> >>> DPHY. So it in power, not a phy.
+>=20
+> I found something wrong with my description here, not turn on/off DPHY,
+> is turn on/off DPHY power switch.=20
+>=20
+> >>
+> >> Perhaps tie it less to its role w/ the phy, and more to do with its
+> >> location, say "jh7110-aon-pmu"?
+> >> There's already "aon"/"sys"/"stg" stuff used in clock-controller and
+> >> syscon compatibles etc.
+> >>
+> >> Krzysztof, what do you think of that? (if you remember the whole
+> >> discussion we previously had about using those identifiers a few weeks
+> >> ago).
+> >=20
+> > Depends whether this is the same case or not. AFAIR, for AON/SYS/STG
+> > these were blocks with few features, not only clock controller.
+> >=20
+> > This sounds like just phy. Powering on/off phy is still a job of phy
+> > controller... unless it is a power domain controller.
+> > Best regards,
+> > Krzysztof
+> >=20
+>=20
+> So, next version the compatible can be changed to "jh7110-aon-pmu"?
 
-The following changes since commit fe15c26ee26efa11741a7b632e9f23b01aca4cc6:
+Hmm, is the dphy the only thing that's power is controlled by registers
+in the aon syscon? I tried looking in the "preliminary" TRM that I have,
+but it's not really got a proper register map so I could not tell.
 
-  Linux 6.3-rc1 (2023-03-05 14:52:03 -0800)
+If there are, it'd help your case I think Changhuang Liang.
 
-are available in the Git repository at:
+--m9nc9K7NjCFO2sFe
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/cacheinfo-updates-6.4
+-----BEGIN PGP SIGNATURE-----
 
-for you to fetch changes up to ef9f643a9f8b62bcbcc51f0e0af8599adc2e17ed:
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZD2WBAAKCRB4tDGHoIJi
+0vyrAP40p9+eWy0HrXzGbRGnh12ucDUKDIndOUg1jtl07fmWDAEAlx5fHF/hyhd+
+cM0x7QGv6LiQILIX9j6p+Ha/5wFgKAM=
+=A2lK
+-----END PGP SIGNATURE-----
 
-  cacheinfo: Add use_arch[|_cache]_info field/function (2023-04-14 10:13:39 +0100)
+--m9nc9K7NjCFO2sFe--
 
-----------------------------------------------------------------
-cacheinfo and arch_topology updates for v6.4
 
-The cache information can be extracted from either a Device Tree(DT),
-the PPTT ACPI table, or arch registers (clidr_el1 for arm64).
-
-When the DT is used but no cache properties are advertised, the current
-code doesn't correctly fallback to using arch information. The changes
-fixes the same and also assuse the that L1 data/instruction caches
-are private and L2/higher caches are shared when the cache information
-is missing in DT/ACPI and is derived form clidr_el1/arch registers.
-
-Currently the cacheinfo is built from the primary CPU prior to secondary
-CPUs boot, if the DT/ACPI description contains cache information.
-However, if not present, it still reverts to the old behavior, which
-allocates the cacheinfo memory on each secondary CPUs which causes
-RT kernels to triggers a "BUG: sleeping function called from invalid
-context".
-
-The changes here attempts to enable automatic detection for RT kernels
-when no DT/ACPI cache information is available, by pre-allocating
-cacheinfo memory on the primary CPU.
-
-----------------------------------------------------------------
-Pierre Gondois (4):
-      cacheinfo: Check sib_leaf in cache_leaves_are_shared()
-      cacheinfo: Check cache properties are present in DT
-      arch_topology: Remove early cacheinfo error message if -ENOENT
-      cacheinfo: Add use_arch[|_cache]_info field/function
-
-Radu Rendec (3):
-      cacheinfo: Add arch specific early level initializer
-      cacheinfo: Add arm64 early level initializer implementation
-      cacheinfo: Allow early level detection when DT/ACPI info is missing/broken
-
- arch/arm64/kernel/cacheinfo.c |  25 ++++++++-
- drivers/base/arch_topology.c  |  11 ++--
- drivers/base/cacheinfo.c      | 124 +++++++++++++++++++++++++++++++++---------
- include/linux/cacheinfo.h     |   8 +++
- 4 files changed, 133 insertions(+), 35 deletions(-)
+--===============4551972801487795586==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4551972801487795586==--
+
