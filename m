@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C62C77B76
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 22:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B53C77B72
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 22:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l5UTrLTkIxex73AXNI3R+67kLMYFoKk3rNP2BJnOhpM=; b=qZV3fSYfBHlUUE
-	BXjjYmU445jkcExHpRUlEEvqwKgSr8AWBs9VJkO00AcYsZEPZAsUhO9FSM7kFLpnjl82ewGRZQjns
-	heOHegq/aNCL9TdyZ2FiKsNVyMe3PITA0TMkyrv0Mn0QGqVBwFs6MHwtPFMlBahdt/g2a46xMfVgq
-	afynEVnM5PqRWQY/ufnE3HBwGtdg0ve1Yrlh1HURRz1FAwDM1U8uNe1iR1Jno+sIcsWe/WsIZlbGT
-	qRidoX6eRU/D/Qd4MuCV9+0+I+Cd9CH8xo+GEOPuDXURA/qxZ6rvaHim02xOUPfYlNAG7SBfNZrTE
-	7kiYtfrhhwCu7+Q6ihfA==;
+	List-Owner; bh=I7VPY0pHYX3S9LFhXzw6IxB1rpC+wzjIitxFayLoepM=; b=AXMRdLQVSsPUAc
+	sSiBwGP40YSkX6DdH1o0c/pN22d/fuyYgAnEJLr+tUoTJmRscTRVNZniWtbXPFsmr1k8XJkufV/NW
+	dZOsB6Kgohady7Y244z055Imshs0wnoz8nSFm+x8XgVTDnaOSibTkk6IzFGcNgW1G2Y28uSG0gvnj
+	LTNGooCrQS8wBBXyBoal1Jq3ChiEW0M1WelxjdLvCoIT24QG3Wxp4LzA92FxUFyRzr229Q+3ZMJ6v
+	DRF94Xr4HJXicyJDdP/AoDt6pbSXUwBD/he5AzLAbrJg9lzs3+6Zgg3oLrxQ1U505c4b4s0cE4L+H
+	eqOuD+T9bizzMpXg+Ctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poX88-000FNr-1N;
-	Mon, 17 Apr 2023 22:15:24 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1poXCB-000G5H-01;
+	Mon, 17 Apr 2023 22:19:35 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poVyJ-0000P4-1P;
-	Mon, 17 Apr 2023 21:01:12 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id fv6so13262420qtb.9;
-        Mon, 17 Apr 2023 14:01:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681765269; x=1684357269;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WInZHFLF0E37CPvH/fyQuQmpONrFi7mPGahLu3Z9gNY=;
-        b=rz8nUHeoHENh+Oxb/dP+2Xs0GB1ndrTEGV/Kpzs6qYqKCASiyVRVormYiKrXMNCdQq
-         hnLLPYCLCCiPAy0G1PPyb3sPc+JZXH3REkTt58jOxtxIVILAjhPyF+htkLpX6yRFjgnW
-         rkWBSZKfT9sHFMg7i0zJaRi4AHyV+5ed6k6RukI1HVQbBnLlCVu8K+DpjMqHZe30ab3r
-         GX0gYaHSNqQKs6qzTg0FHq20dbGG5U9Ib5dS7HtnjObhQA12Xubyv1c1Y4oa6fUqP4nx
-         cXML3cenr0TVuLrQqdmICoawChTOkCuYU3jZ07xrVHVmfXynD9/NZ1iNL+Je7SSUGsfQ
-         7YMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681765269; x=1684357269;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WInZHFLF0E37CPvH/fyQuQmpONrFi7mPGahLu3Z9gNY=;
-        b=kcZQfQm0jmDtdvBzcQPJvFU8PIGRvR6IWdJ76Z8MTMQXJPQWg8fjRT43hrBdDF57H3
-         BfmoUQR7ROtrbW00qnS3Esy8B4zwFQLi3TyCeg2r2Wnd/4LCtycbYZi0daS34JwSkyps
-         ZOjkkmgOGTIPX7Nn8MCNHlXrG0pp5y6AU14P+HRt5XS2BwdfQVsCVoxxZp6iVG5C+k4p
-         T5vXr4b1DN+WMU4s8tE7nEkDvKPVUi2heVx4xqkpkW8kuPjnDx5RDR8QIAuHo7MVCfpO
-         y2RGs+axPsd7AH1l8Tw6C+EU6EJAf2v/wPIQYGhiLaRCBAciCuMdcGoN5IxukPw06x05
-         cimg==
-X-Gm-Message-State: AAQBX9d3MpC5Ekl79sWBR21hVB2bQjEWXWiMDot9ocONxWSu2RDGJgQO
-	ui3qbFwUFXDRLRUPqhAg6mkXalSVFzn5Xw==
-X-Google-Smtp-Source: AKy350Ym3GSROxWd30N3vnOcQ+scJJk4j2bn57g6f2y/wdjBz5ko3J6EyTomKSlBO1Xk2XiBoSAe7w==
-X-Received: by 2002:a17:90a:5315:b0:23f:81c0:eadd with SMTP id x21-20020a17090a531500b0023f81c0eaddmr15717621pjh.47.1681764794292;
-        Mon, 17 Apr 2023 13:53:14 -0700 (PDT)
-Received: from fedora.hsd1.ca.comcast.net ([2601:644:937f:7f20::c139])
-        by smtp.googlemail.com with ESMTPSA id h7-20020a17090ac38700b0022335f1dae2sm7609707pjt.22.2023.04.17.13.53.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Apr 2023 13:53:14 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
+	id 1poXC6-000G2T-24;
+	Mon, 17 Apr 2023 22:19:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1681769970; x=1713305970;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yMAw32GB6bnYHTIaJx+3YJu4UkN11Fi/gjV1eDLzAFs=;
+  b=LLNk1cWea2ZMo9NtdFncJAazMGi2/7/bD/86pslxXY2rGYkOXPPvdjHA
+   P9lf2fuEhQDEnVLODUAB+qgq/3/wbZjsv78X71rHQ536cH6EraxlR3h4O
+   enlmAwdvObR6AcfG4ZEIcO8hPTkas7Xr7HUSEGyZVdA41egb4WNJwt2gX
+   /JdV5djlR7rX5uk/Choaz9hXPhB4nplEi6+A+KCWwKTGTnYeLNwzjDQbR
+   IRV0SY37mfzaaDayDWOWJ2VR6qZFM1xLCnmOe+jbHl8zflOEz5VeqqHsh
+   7TrIs6Ju3HDRNyka+Fduv1nowt055ULfT0wIlkrSMH+fh/sielyfwWgxz
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10683"; a="347767945"
+X-IronPort-AV: E=Sophos;i="5.99,205,1677571200"; 
+   d="scan'208";a="347767945"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2023 15:19:11 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10683"; a="684313012"
+X-IronPort-AV: E=Sophos;i="5.99,205,1677571200"; 
+   d="scan'208";a="684313012"
+Received: from lkp-server01.sh.intel.com (HELO b613635ddfff) ([10.239.97.150])
+  by orsmga007.jf.intel.com with ESMTP; 17 Apr 2023 15:19:05 -0700
+Received: from kbuild by b613635ddfff with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1poXBh-000chh-0f;
+	Mon, 17 Apr 2023 22:19:05 +0000
+Date: Tue, 18 Apr 2023 06:18:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	Matthew Wilcox <willy@infradead.org>
-Cc: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
+Cc: oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Subject: [PATCH 21/33] csky: Convert __pte_free_tlb() to use ptdescs
-Date: Mon, 17 Apr 2023 13:50:36 -0700
-Message-Id: <20230417205048.15870-22-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230417205048.15870-1-vishal.moola@gmail.com>
-References: <20230417205048.15870-1-vishal.moola@gmail.com>
+Subject: Re: [PATCH 24/33] m68k: Convert various functions to use ptdescs
+Message-ID: <202304180652.LeoLmaNQ-lkp@intel.com>
+References: <20230417205048.15870-25-vishal.moola@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230417205048.15870-25-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_140111_481674_35537B64 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20230417_151930_724783_E9F938E9 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +95,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Part of the conversions to replace pgtable constructor/destructors with
-ptdesc equivalents.
+Hi Vishal,
 
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
----
- arch/csky/include/asm/pgalloc.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/csky/include/asm/pgalloc.h b/arch/csky/include/asm/pgalloc.h
-index 7d57e5da0914..af26f1191b43 100644
---- a/arch/csky/include/asm/pgalloc.h
-+++ b/arch/csky/include/asm/pgalloc.h
-@@ -63,8 +63,8 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- 
- #define __pte_free_tlb(tlb, pte, address)		\
- do {							\
--	pgtable_pte_page_dtor(pte);			\
--	tlb_remove_page(tlb, pte);			\
-+	ptdesc_pte_dtor(page_ptdesc(pte));		\
-+	tlb_remove_page_ptdesc(tlb, page_ptdesc(pte));	\
- } while (0)
- 
- extern void pagetable_init(void);
+[auto build test WARNING on akpm-mm/mm-everything]
+[also build test WARNING on next-20230417]
+[cannot apply to s390/features powerpc/next powerpc/fixes geert-m68k/for-next geert-m68k/for-linus linus/master v6.3-rc7]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Vishal-Moola-Oracle/s390-Use-_pt_s390_gaddr-for-gmap-address-tracking/20230418-045832
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20230417205048.15870-25-vishal.moola%40gmail.com
+patch subject: [PATCH 24/33] m68k: Convert various functions to use ptdescs
+config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20230418/202304180652.LeoLmaNQ-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/630b38053b213e6138d3deb3e4325b24ad6dcb1f
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Vishal-Moola-Oracle/s390-Use-_pt_s390_gaddr-for-gmap-address-tracking/20230418-045832
+        git checkout 630b38053b213e6138d3deb3e4325b24ad6dcb1f
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=m68k olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=m68k SHELL=/bin/bash arch/m68k/mm/
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202304180652.LeoLmaNQ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/m68k/mm/motorola.c: In function 'free_pointer_table':
+>> arch/m68k/mm/motorola.c:204:56: warning: passing argument 1 of 'virt_to_ptdesc' makes pointer from integer without a cast [-Wint-conversion]
+     204 |                         ptdesc_pte_dtor(virt_to_ptdesc(page));
+         |                                                        ^~~~
+         |                                                        |
+         |                                                        long unsigned int
+   In file included from arch/m68k/mm/motorola.c:15:
+   include/linux/mm.h:2721:57: note: expected 'const void *' but argument is of type 'long unsigned int'
+    2721 | static inline struct ptdesc *virt_to_ptdesc(const void *x)
+         |                                             ~~~~~~~~~~~~^
+   arch/m68k/mm/motorola.c: At top level:
+   arch/m68k/mm/motorola.c:418:13: warning: no previous prototype for 'paging_init' [-Wmissing-prototypes]
+     418 | void __init paging_init(void)
+         |             ^~~~~~~~~~~
+
+
+vim +/virt_to_ptdesc +204 arch/m68k/mm/motorola.c
+
+   185	
+   186	int free_pointer_table(void *table, int type)
+   187	{
+   188		ptable_desc *dp;
+   189		unsigned long ptable = (unsigned long)table;
+   190		unsigned long page = ptable & PAGE_MASK;
+   191		unsigned int mask = 1U << ((ptable - page)/ptable_size(type));
+   192	
+   193		dp = PD_PTABLE(page);
+   194		if (PD_MARKBITS (dp) & mask)
+   195			panic ("table already free!");
+   196	
+   197		PD_MARKBITS (dp) |= mask;
+   198	
+   199		if (PD_MARKBITS(dp) == ptable_mask(type)) {
+   200			/* all tables in page are free, free page */
+   201			list_del(dp);
+   202			mmu_page_dtor((void *)page);
+   203			if (type == TABLE_PTE)
+ > 204				ptdesc_pte_dtor(virt_to_ptdesc(page));
+   205			free_page (page);
+   206			return 1;
+   207		} else if (ptable_list[type].next != dp) {
+   208			/*
+   209			 * move this descriptor to the front of the list, since
+   210			 * it has one or more free tables.
+   211			 */
+   212			list_move(dp, &ptable_list[type]);
+   213		}
+   214		return 0;
+   215	}
+   216	
+
 -- 
-2.39.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
