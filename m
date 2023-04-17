@@ -4,94 +4,226 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C4DC77B76
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 22:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C063C77B72
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 22:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MfPGJE52DMFMIrIOGQFiBmCBJ8k4I87t6dCigJYJ/Rs=; b=oT7bx2kVu+yXtb
-	WxoQOfh0VRB2Tn8aUO6FHdd9yi0JwSSA+8zROxRndEVnu3A5fLMrUCi+2M5NR1RTA1Sk80/XDTU5p
-	oazod+FjYkeh1Op1ZYG+Qfo6Zb6lEhBph2HtbT6FjGzToqIj2gPwidgRNTWRDf+CMe9ujKGnPxTQP
-	Z5R2F/l7ZaeXduW+xoxd9Epbn44+7+YNcNISXz2j3Demeqe7yPqlelKSecqnZ2LriQzTQj7gjwHoB
-	/eBanmxky//Vz55hXNl3GOXZAwHv8lA1QQaixOUOCYTu7HuXl5zuWnsfwFbqYScn8DVB5pcvEy9fj
-	Wlc6mNjsv2Qlu/4VF4KQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Subject:From:References:Cc:
+	To:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QCf4PZJ7/hsjFclrzW9HYs93QCbhLjPJGlQZMQVyFrc=; b=VJ5HanN6kUcMj63zymnH6xJgTT
+	IEfyeTQ7L3K+uWXeg817NAB/S+AsvbgAouX03RW5DzNRh7kKOEMx2iYkr64JOA4pOhsvZjVG8e20y
+	bc/PR+B+3tpYzLeq2tpz7Xy6DKLKPuiHRa6SdwOHUkgkqgk6O5IalgwsnH4dl6cjt1v0GW0vZeXHO
+	4/8xkf7SiSRERL2dVj1Ox7caVdqzkRvqjD4wo/BWFZ/VLyCEXvjAwYpeKma+Z2dFBhufuZ0qoAK5n
+	QlXiUmiXsYtFAlOpGKbmqUOWrtOnR29wUinqg7xUNrsZmg9FQHep3fo/9hXPOwD42aJ8CoZqxUx+e
+	m/EuPO3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poWth-000CIw-17;
-	Mon, 17 Apr 2023 22:00:29 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1poWtd-000CFF-0I;
+	Mon, 17 Apr 2023 22:00:25 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poVqj-00Ha5r-2D;
-	Mon, 17 Apr 2023 20:53:23 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id w1so4515085plg.6;
-        Mon, 17 Apr 2023 13:53:19 -0700 (PDT)
+	id 1poVlO-00HZPf-0D;
+	Mon, 17 Apr 2023 20:47:51 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 33HJ0eMf024457;
+	Mon, 17 Apr 2023 20:46:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=message-id : date :
+ to : cc : references : from : subject : in-reply-to : content-type :
+ content-transfer-encoding : mime-version; s=corp-2023-03-30;
+ bh=Dik3CTs5kluBXXW+c9tt0GXpgHx50LBCrVssZ6qybKQ=;
+ b=pe8762NDrY1nqd9QBmeYSOJh5lX/B1dyiwIg1X1QGfSaKOTZJhO32r6uNW/uJZIWKmZo
+ lhrsBVolwdorsGwTRJY7qIWC8HtYpLzSDWB1/La6CGBGb5lH0o8IL6jelPuwwUTmETBD
+ kUPSwQkCpqfRTl5XsVfK0N/FBGq8sO/XXeopE9HWaflUV02EunjUafWYToq0SBX8G3LQ
+ sBhQlGBTp5vBIua+nUCKZl7HBVEfQzCBD2lSjXp47Q7TXddfytiM0LucLFE2XXdawqTT
+ zAJ2qYih4Wm8OKV3Pr1DhY8Jn01mdiAMqLAMP3YZbMvK/rsPg11SosgmfzuBlvQEIakV zw== 
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3pyjuc46nr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 17 Apr 2023 20:46:36 +0000
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.19/8.17.1.19) with ESMTP id 33HJZjLu031978;
+	Mon, 17 Apr 2023 20:46:34 GMT
+Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2105.outbound.protection.outlook.com [104.47.55.105])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3pyjcanu0c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 17 Apr 2023 20:46:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Nn9CnRSrGrUV0+/hmoiicoEn4H/hle7r15VGUKaRpXRn4RccPgNw8qZfgpm8DZvUlzS0tgWgRyJHnqt2TjhlDx1hrmAaDHbIIAxAlmLWvGJTkXbOyvUPg5Kxq5a6rdXpUiOUL5qRjHca9KUEzV7DvxWXvRQEr84YeQnJsCheKQq2TLJ+37wCzee5/zQmMSQXI7/KY2gaJY9MidlgSvGzA5GpPIPen4+M4mj0sOB+wTW5mmwToEhvnz0KWwZDoCAiQXPO+QoSUQc+Tte1fhTBODcTBZ8CZjhGoK+F73TwUH7MM07C9C92a9GmA9xlA5zla202MaZXRGuGZiSxgwIC6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dik3CTs5kluBXXW+c9tt0GXpgHx50LBCrVssZ6qybKQ=;
+ b=ZT4DpdDDcvU4A9+glvi+/tu6b3tKMFV58LPM01tqFW4Y6RNhBAR1437BmYwdhcDXuVbl9WYatHPzeufFfwl6Joq0bGuZJgvNXY4EnM8QysE0O/XtYKS+V0zt4ss+S9waIDzG4zwB8PKn2koXIvTUH1OUdzIExv0ltXCmWaA5fAjFc84qN+iM5yO5gmJtYYHuypOJ00V6bIlHZiFWOJ/OBmBPJAJSoHxi+mFhnA5ZjdajSOEcctaoF99XJ+sUMk/EWJ6xvatYiqywg5vgR00MCqjThKMX/n4GI2JVWWfa9dCqY1jT8PK2WI/UUGnOyZYEhkCAd8YcjFupKgVEs+0FzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681764798; x=1684356798;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nlmIG8UgshEYTOBASKXa1dMTltHF5q5LujwV+qMeaTE=;
-        b=MO1PC1xt/KvuZ3BR0uFzYFvll2jFuloCAIP6GEEELaZGVsUuayg4+lNKAol0RlX2+3
-         Iz38d0dC9QwTB6d/mc2DYTZXN+iAw+HkmmeqA37ilN3ijvqPuJYcJPAfuZ5NSiq7Oy0y
-         5tk6CT5Flw0tO/XZTIWPNors/JAYwfVMvyqbu0GP1qyv9cYfy3iQHS4IKEIm4tGX0nuK
-         r/0iigtw61JwQ8Pxh0uDlXeUn+URgKqdZ4DDg0uzUbspXwSfQOQ/MuFlx/Zb5Bn9cIh/
-         DsllyX0j/egvd/MrVX7PxBJ0K/+L/v/BhuCd1hvi1MmWpxA5K0b5kps6s+vigGrLYnHf
-         Yhaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681764798; x=1684356798;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nlmIG8UgshEYTOBASKXa1dMTltHF5q5LujwV+qMeaTE=;
-        b=Bcf11JSgOzZj0hWSu36ls+N9i2yAghHozZ4Wv1CvBve5G7eAnjLQdaQ7Cxlx+rT3iR
-         OgGYLJgSJlYziXZzMaNR2lP8uEwGjfOdYuCeoPf08g3x+c5iXO3Qo+i/zInbopQBIE1a
-         pCLOfHYlIhgTzbNgK22qRS3tI8/G1pDA49ve88HbDjEtvM+MxAfbSTefoaWRTrcMasTO
-         PNjblYE1XvkEkT+iimXzMgVDTuFG0F1fqiVosDDFKc3a7euFHunfmzWIMvkXN+LUZEUR
-         5zZjIOCtZ2rEgviRK56M6dx4BJjFf1HUljIMlbsYxnNDnEpAMmFH+5sa7pVsXtJbSM69
-         FMtQ==
-X-Gm-Message-State: AAQBX9fNMm8nUpN42QuuWT5S7XbfJY8SpIp7jFx/TVuF/QCOXtM96m8O
-	JAWI+tWs4ftWLLZb7QqxR9Q=
-X-Google-Smtp-Source: AKy350aJaFntHhHbUG9MI8ooj+3D57RkURLGHHynthItQ5IDNnotpeWzZJLOOPG0rt2wtYTic7ZhtQ==
-X-Received: by 2002:a17:90a:7086:b0:247:83ed:7e5d with SMTP id g6-20020a17090a708600b0024783ed7e5dmr6464463pjk.18.1681764798565;
-        Mon, 17 Apr 2023 13:53:18 -0700 (PDT)
-Received: from fedora.hsd1.ca.comcast.net ([2601:644:937f:7f20::c139])
-        by smtp.googlemail.com with ESMTPSA id h7-20020a17090ac38700b0022335f1dae2sm7609707pjt.22.2023.04.17.13.53.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Apr 2023 13:53:18 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>
-Cc: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Subject: [PATCH 24/33] m68k: Convert various functions to use ptdescs
-Date: Mon, 17 Apr 2023 13:50:39 -0700
-Message-Id: <20230417205048.15870-25-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230417205048.15870-1-vishal.moola@gmail.com>
-References: <20230417205048.15870-1-vishal.moola@gmail.com>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dik3CTs5kluBXXW+c9tt0GXpgHx50LBCrVssZ6qybKQ=;
+ b=MOdN8AzLNIqVngZFV8fsxRYyftGAS9xS5AjTIJ0mdPvCYqKW4KR0vjOUiPMARKIfssSBP74g1it8yrIjASzSpTkUl0qWrWSv1BQyAXJlv67Y1pPx2ZrEeFCmrU8kcL5d+xJ3AcvbWHCbjBgT0ovRcriywBuJ/CPun11nDrjN1T8=
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com (2603:10b6:208:321::10)
+ by SJ0PR10MB6423.namprd10.prod.outlook.com (2603:10b6:a03:44d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6298.45; Mon, 17 Apr
+ 2023 20:46:31 +0000
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::70ac:313b:544d:4f45]) by BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::70ac:313b:544d:4f45%4]) with mapi id 15.20.6298.045; Mon, 17 Apr 2023
+ 20:46:31 +0000
+Message-ID: <9914d517-cf10-a06b-c782-c74d2f24ad46@oracle.com>
+Date: Mon, 17 Apr 2023 16:46:17 -0400
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.10.0
+Content-Language: en-US
+To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Cc: x86@kernel.org, David Woodhouse <dwmw@infradead.org>,
+        Andrew Cooper <andrew.cooper3@citrix.com>,
+        Brian Gerst <brgerst@gmail.com>,
+        Arjan van de Veen <arjan@linux.intel.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Paul McKenney <paulmck@kernel.org>,
+        Tom Lendacky <thomas.lendacky@amd.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Oleksandr Natalenko <oleksandr@natalenko.name>,
+        Paul Menzel <pmenzel@molgen.mpg.de>,
+        "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+        Piotr Gorski <lucjan.lucjanov@gmail.com>,
+        Juergen Gross <jgross@suse.com>, xen-devel@lists.xenproject.org,
+        David Woodhouse <dwmw@amazon.co.uk>,
+        Usama Arif <usama.arif@bytedance.com>,
+        Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+        linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+        linux-csky@vger.kernel.org,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        linux-mips@vger.kernel.org,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+        Mark Rutland <mark.rutland@arm.com>, Sabin Rapan <sabrapan@amazon.com>
+References: <20230414225551.858160935@linutronix.de>
+ <20230414232310.194293270@linutronix.de>
+From: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Subject: Re: [patch 16/37] x86/xen/smp_pv: Remove wait for CPU online
+In-Reply-To: <20230414232310.194293270@linutronix.de>
+X-ClientProxiedBy: LO4P265CA0255.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:37c::20) To BLAPR10MB5009.namprd10.prod.outlook.com
+ (2603:10b6:208:321::10)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BLAPR10MB5009:EE_|SJ0PR10MB6423:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b7e9894-5935-424c-27d6-08db3f84d314
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	Hp78QesZsk+ufzGrNhzZAke4U6ifyKKuUkHUNPc4Acr6oW/0KXdGfLJM+phFO/7LaVhHeAnYs2ih/L2Wj0eeI2JYJpKleeudxdxaGXkUHOo77A6ioXvzq+vhvZwEeVZ8gwxUtf2Mj5J6L9Z4j2YLN4vJwzYnOtkOp2k7Thjx/674eZr4njHRofPwCfr2VO2Vn+zPuyIGpoY3//eKc2jAKbnr0HAMJiG1OyVC0itF8YsQJ033x3HSfoh1YZmBSekdhAbB4+Cw62ey+W2Vkp2rMRxlm0ZEc/n//WmBEp0CZcz3nrYTu72wsxbabrZ0VvvlJtFS5LwXfI8RvpdahP/TrXj6E4jnrAeQqofp/vrMnXnFSpNIW/yTmXFPycF6MltSMhFVrZo2mOqLWG3MmpMRkdbpYZ3RhsCC19G+6FVkDzCNBkz55AnMsW6nJq/nTTIujgIDGjlPJBzCnk1zHzHALzFWlVSBa8GeXeIrYpjKGNB7i4ejcP6N3qyJK7TCMP2u5KnmbEo/EQQ0ugKk1dDE9Y1vAyGj7KAekpJthswoX7WSVvgMMDiOPldEgHx+6eP0jwX7C39eOO2z/BusV26CCIcLh7BToFVWIp9wtrtJddCOY8wXKE8x6xwt2ZYs24Oi4ln1MpOF3UdJyhbmrZAvHg==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BLAPR10MB5009.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(136003)(366004)(396003)(346002)(376002)(39860400002)(451199021)(86362001)(31696002)(83380400001)(36756003)(53546011)(6506007)(6512007)(26005)(186003)(2906002)(44832011)(7406005)(7416002)(2616005)(6486002)(31686004)(5660300002)(38100700002)(6666004)(8936002)(8676002)(478600001)(54906003)(110136005)(41300700001)(316002)(66946007)(66556008)(4326008)(66476007)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?utf-8?B?QS9rMnNESnl1NVZkVGFxNkdPU3ZDUlZETGtzT3NhVll0UmxqeWNIb3AyalNx?=
+ =?utf-8?B?SGU3K05kR05jVEVLOFlDeUdxNFNuMXNIWHd1c2laWml6OEszZ1kzRFkyMUhp?=
+ =?utf-8?B?R3ZaMDZibURuY2JYbXRUMGd0RDUvVnJlQmN0QkgxdWlxMkl5OUN6RkJyTytt?=
+ =?utf-8?B?T1c4TXJJUkJ3YWRTa0ErZ1NYa09TbmE4SXErSUYrTU1lTXlJNG03TzJPUURQ?=
+ =?utf-8?B?T2w3a29JdUlSMHJWU0ZHb3psYUNUaVpUa0hkZzdMa0NCUzBQMDV2Z09qVHM0?=
+ =?utf-8?B?b0lkd1p0YUhkdXhuMmFrN042ek1QU1dsbk02cFc3WWljSG5nVWUwbzRIOVNu?=
+ =?utf-8?B?ZXgyVkcrREgrb1NUdmJQUzJVdkRNUHlmN2FhSUgyTlVvbk1QVFYzTCtOZFNt?=
+ =?utf-8?B?bHVlenNvU2ZnVDkzMDFtSzB6U2QyT2k3bXFFdS9kMWUwdFRCOHI4MU9wUEYx?=
+ =?utf-8?B?WmMyQnlmYzEvYXNEVFA1S3VYVHRBdjVKK1VYV2ZHUWtoa3NydWVaYUxOSXFO?=
+ =?utf-8?B?NUFvaUpCTnhxM1R6KzRySFpHcm5FcENnU2JhTmJYVzBEem5rK04yZFdNQXh3?=
+ =?utf-8?B?MVllZXNsSnp2VEhRYk9vUVo3YlJmZ1MwN01zNyt3SVpESUk4aTRrZzNxcFZT?=
+ =?utf-8?B?WWtuRUE4b2lVRXVPczZPOWFGK3MzS1J0eENlekJkdUtRckNUS2lDWTYrV1VL?=
+ =?utf-8?B?OVdLSlpjTEkxZnZkL1V3TE5JRGZaVnYwemYrbzZMck5nNStVd0NVbzgrZGxv?=
+ =?utf-8?B?OE9CNXNUblNKbDVVUnBKUDR3ckRSOENFWW1BQ0U0clVtUFhOWFlSY0dmUDQr?=
+ =?utf-8?B?MFB5eG8wY1pleDhNZlRkZXJrbXE1VFM1cFNyUXhJZnNXR3JCMFpzNmlSTnN2?=
+ =?utf-8?B?Sk43d29YMnM4UVg0UFNSemFJQ0R3MGhqYkhzWjY5WithTGVtVnowL0ZNR0pz?=
+ =?utf-8?B?SWdVQ3ZMbyt0TW1BSmRMenY2R1hERWRzcjVwYStnWXQ4L0wwM3lXWUFia2I1?=
+ =?utf-8?B?SU4vanlTK2t5VlV3UC9KMFNzVzZDd1phV0t1UTVadTN0eWFMYmNDdlNKR2li?=
+ =?utf-8?B?NTJoaFU0TDB3emdGTjZwVmxzdVU3NGxNbVBDMGJaek5QMEUyK25vNHdJOENE?=
+ =?utf-8?B?d3Vxb1hvUnZyQXAwVzBWV0RHQ0JxdDYxa2syQWl6UXo3N2xpbndRNm5tQU1P?=
+ =?utf-8?B?WG15NUI2K2NyRFhUK2lxQWFMWWxZZGxrcXplalpGZTFQdFRYWUkvZFFyelhj?=
+ =?utf-8?B?enUzTVYxR01WZUoyaHNVQ2ZCMWtmeW1yZG1ZckNvS0oxUDI1WjhqWEtYcE5U?=
+ =?utf-8?B?ZEpEVzBSeFBBcDNtek1TeTFCQmxnVGtWRlhwemNyM2hyMUo0aTFwSG5EbEkw?=
+ =?utf-8?B?TGc5NlpqL0Q5bnU1SW1hUkdoNFZabkNqU2lnZ3FDdHN1MmNsQjNCV3B5K2FY?=
+ =?utf-8?B?dE1PNmdlbE02Q29IVW9QKzFucC9lUld5dGdvYk90ZlgwK3ZRYVJDWFhvUzc0?=
+ =?utf-8?B?L1JUdE51alhsL3hZb2o5N3dvNGhLbXVPOUJTOFhTNUxaSGZiOWdVRnM2Y3dn?=
+ =?utf-8?B?Y29CeDNCQmZ5Ums3MFA1bXNxV1VRWDhzQ0EyYnovK0EvS1hIa3dTVit5ZDZG?=
+ =?utf-8?B?WFkzT0xtTjIzTUZVSXlScDZGaENnYlZNTlRGRVd6d3E4S3lMMklYRDlTcmhv?=
+ =?utf-8?B?Z1JyUS83VmRJcGhwdmRTdE9nNmVHNldPc0g5VVF2UUZqa3ZxcEl3YU12L29J?=
+ =?utf-8?B?Q0pLcXpiWmpBeTNaSzZvRGhFbTlUOU1vRGtEblJXRXhIMTA1dytjS0hZcEgx?=
+ =?utf-8?B?QW9JZ0lRdU56NjZ0OXJwZUhBTWhDM0xQSjVJWEFiaHJDVDA5dDZER25uVThR?=
+ =?utf-8?B?WFEzRFh4MXJYODY3eFYyTTF3OSsxUWoyNjlYOUkzVXFrWE5tRzRHdnZ4NFZw?=
+ =?utf-8?B?a01EQ1llbmo0TU9Dd0hhQ3YyTUZWUHo2UmF2VXoxSFlzMndiRGJRaEdaSDBl?=
+ =?utf-8?B?L3FMN2hrTlBoVTZqOU13YVhpOUhWT2lSRkhZRW9rb1RyWFR3ZW9uZi9LR3pQ?=
+ =?utf-8?B?Zk1FRUZUSzc2eXhpREtVOXhQcFNWenhUN0ZGa3pzK1VGMGNWWXhsdzcvbWlm?=
+ =?utf-8?B?NGlvWjI5TlFQNGdZS0E2ZkJyMUFLOHI2M1ExMjk0YmRhZ0MrS28zMUJMRDZH?=
+ =?utf-8?B?MEE9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	=?utf-8?B?ZkF6bWp3L0EyalFoSVgrMERuOWRLUGFScXp5UE0zQkJTVklHSFRqY1N2MkRu?=
+ =?utf-8?B?NGRMVGhTUlZoQzlFTmt1UFM1RS9INlRJbFhQOFZ2L3pGYVNxcmltMm0vcEZU?=
+ =?utf-8?B?Mmg0ajMwYkczTDBCcmlBSU5nY25ReUVvWSt4blI4aklUY2xBVWMwT01nOHlt?=
+ =?utf-8?B?NzZ1b2srNFppeTV2S1czNWFOR0htOG1hcHJEY050ZjRZYitkMWQ1RGtjYjNz?=
+ =?utf-8?B?MjB3TjJWaURraXdwdmVabFRUUFArd1A4OUI3aUNGY2RackpQWWRCM3FzQU5Z?=
+ =?utf-8?B?Qnh5cy9QL3U4RCtiSGtzdTZDdHZnTnRWNFRUcHRLYU40aHJqMUFsajlqNXBi?=
+ =?utf-8?B?cGNmVlVVTVlSblJQL015UFh5UlZXd0t5V0VjSkZFbFdjZVFXVXJRRmxPZHZE?=
+ =?utf-8?B?WEZuVVhJTTBxaE1QQy9SNytKZURZdjBsVzBiQkdlK2hNRHBQbFhMdHNRQjk3?=
+ =?utf-8?B?OWh0WnVUZVdQV3YwTGw4U25TSTFSbXlRL1VkYW93aWNpWlN5Nnd0L3NNWnlZ?=
+ =?utf-8?B?RXBoT2FlRUxqUFRDWC9VWnllekZabk4vMjdCUXlBdTBSWXJSRWs3RGdTeFZV?=
+ =?utf-8?B?bVNHcjdnQnhyYlNHdlRTVjFDQmsvU1ZpdzBRcnA4MFJVUFlPOFFrc2dDUEMx?=
+ =?utf-8?B?c01hTWdoT0Q5ODFVcDZKTGZibkZralhFSU0wRHUxZ3hzRkg5alZBcm9tckV0?=
+ =?utf-8?B?OC9kQ3NJWVM3Yi9CZzRIQnM1RFZ0TllFc205eG1xanorNUU5Nm1PQlBKNzZX?=
+ =?utf-8?B?cUJWeG9iWnZ1QitJSVNJTXVqbS94N2pNZTgydkphTTNSQTA5M1JMV0djMVA2?=
+ =?utf-8?B?RzJLMHdXMzh6RDVuS2VQd00vV2p5Rk5kK2YxTXRjZWtoVVkyeGs1MGtOaVpt?=
+ =?utf-8?B?TmR3Z2RJS3YwVDhIZzRjSndpSEMvUFlMMWJEaDVuSVROcTV5MkEwUWdkbzlr?=
+ =?utf-8?B?U2RnbVpTb0loYXBHKzlIaGpaYlpUY2UxQnpDWG9uMEtpY25JR2xNNnAxS0pP?=
+ =?utf-8?B?L1FmVTJ2MWo3MlRJL0NTMVI4WWVqNElYcW5ic3dudnR2RVJLTnV0M1NMQ3Vw?=
+ =?utf-8?B?enpjRFQwQSt1RzZhZXRSQ003MzlDdVdoRmMwY2t0a2hoaEdSQzRmKzRYOTk0?=
+ =?utf-8?B?KzNqOFpYSUxrb00rNVNPVS9uRW9zS2FXQU5ZZnIrcm5MUmJIeStrZWVLZ05E?=
+ =?utf-8?B?bFl6c0U5bmNKdThWOEpKV2J0dTVXUE1ZeDZpNTZ0SmlPZjM2S2FxNy9ndnRz?=
+ =?utf-8?B?RnkrZGcrYk1oM2pIM2E5bWxXb2l6WWxtaFpVWjIyblMxWExBS3BYWG9BdFVp?=
+ =?utf-8?B?R0k5TldSS05LYUJpd2hxVVUvVWVKKzNGS3lSLzBudTVJWXUrWDZWeVRlOUVP?=
+ =?utf-8?B?TFQwek9qTCtXNC93MEhXdDJmSG9FbzRIY2F5bUxXQU9TVVdmUlFFN0tYZzZY?=
+ =?utf-8?B?VlFaTHZqYkhTdHJqSE9VNFZBTlFlSmgzSE9IMVRDbWNzaVBxTm5KaWZxRXNt?=
+ =?utf-8?B?ZmlqdzZpenNQLzVxbFA5MzlxSnFreDRyS1lod2tiM0tIakVUamI0azFLM2Za?=
+ =?utf-8?B?bEcxMFFMcENvMDYrQ1VDYWtwb24wU0h0ZHpMdzk2NWtoVGQxVFJLMVI2U2RP?=
+ =?utf-8?B?ODFZVkY1bGczUENoNzhsajJ5ZXVNZlk1V3N2MXFWbEg1Nm9FTjBCWEJRekRz?=
+ =?utf-8?B?d2R6YmJNSXFPS0M3ZU55VEZaWmxVbWxpL01pWm11NFpiYTJJRjBrWGsrOGVy?=
+ =?utf-8?B?NHRlcWFTa01jRk5EMEwzL3JrdVlDQmhsdzE0cExvV2R3czIzNzBGSmZkQmll?=
+ =?utf-8?B?L2lvWis2THN5VUFDaXhyL0JET3dSOGcxclRYcWFodENlVE1kVDVMQUFaYnlN?=
+ =?utf-8?B?Z1h1ak45T09CeVJWaXZCRlllUy9mS1pGaGh4VWhZdlNiWHA2eXpFRWw3OEYw?=
+ =?utf-8?B?c0JtZFEvelp2UzRzQnJqWm1aMWlOYituT0VlSDkxVzEzdUJvenRsZGRlOENn?=
+ =?utf-8?B?U2l5NzFFcVRqY01BM210UTlFZWNmeWQrS1JGMGpHK0NOT2srNjFPTmphL1JV?=
+ =?utf-8?B?SjZuWEQvUndsMEZaR0xSWmRncDI3QlpxeUNlSCtvSm84OHZ4VU1oMDVlT01n?=
+ =?utf-8?B?TGw5ajdlajlBNkV4akwwbFVmK3l0UWxSZnBlVXk1ZXBma0NIOFNLODBIREZu?=
+ =?utf-8?B?aDlNSkVrSUpBamdqN1pHdXJOSS93ODBFRS9OdGFTT0o0UUVmZStJOFBhVXZT?=
+ =?utf-8?B?cFZQYnE0dkhFUm52ZHJVK05ZRkFRPT0=?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b7e9894-5935-424c-27d6-08db3f84d314
+X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5009.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2023 20:46:31.5113
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y4xClfSDkM2poLEaUQXiLHA5qZIpYq/FGfjTvTEdKFD8DcSQn7SG2UmbwTGULCnlU8GWneUTA4M6YoAcSGDFJFxYakWP8xUMhL3fYbVGGZQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB6423
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.942,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-04-17_14,2023-04-17_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 suspectscore=0 bulkscore=0
+ mlxscore=0 mlxlogscore=999 adultscore=0 phishscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2303200000
+ definitions=main-2304170183
+X-Proofpoint-GUID: QmFEh5ZhXzphhqQeiblSz4L24eGPHOo4
+X-Proofpoint-ORIG-GUID: QmFEh5ZhXzphhqQeiblSz4L24eGPHOo4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_135321_726968_06498FA8 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20230417_134750_112312_9FA6DA9F 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,169 +235,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As part of the conversions to replace pgtable constructor/destructors with
-ptdesc equivalents, convert various page table functions to use ptdescs.
 
-Some of the functions use the *get*page*() helper functions. Convert
-these to use ptdesc_alloc() and ptdesc_address() instead to help
-standardize page tables further.
 
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
----
- arch/m68k/include/asm/mcf_pgalloc.h  | 41 ++++++++++++++--------------
- arch/m68k/include/asm/sun3_pgalloc.h |  8 +++---
- arch/m68k/mm/motorola.c              |  4 +--
- 3 files changed, 27 insertions(+), 26 deletions(-)
+On 4/14/23 7:44 PM, Thomas Gleixner wrote:
+> Now that the core code drops sparse_irq_lock after the idle thread
+> synchronized, it's pointless to wait for the AP to mark itself online.
+> 
+> Whether the control CPU runs in a wait loop or sleeps in the core code
+> waiting for the online operation to complete makes no difference.
+> 
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Juergen Gross <jgross@suse.com>
+> Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+> Cc: xen-devel@lists.xenproject.org
+> ---
+>   arch/x86/xen/smp_pv.c |   10 +++++-----
+>   1 file changed, 5 insertions(+), 5 deletions(-)
+> 
+> --- a/arch/x86/xen/smp_pv.c
+> +++ b/arch/x86/xen/smp_pv.c
+> @@ -340,11 +340,11 @@ static int xen_pv_cpu_up(unsigned int cp
+>   
+>   	xen_pmu_init(cpu);
+>   
+> -	rc = HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL);
+> -	BUG_ON(rc);
+> -
+> -	while (cpu_report_state(cpu) != CPU_ONLINE)
+> -		HYPERVISOR_sched_op(SCHEDOP_yield, NULL);
+> +	/*
+> +	 * Why is this a BUG? If the hypercall fails then everything can be
+> +	 * rolled back, no?
+> +	 */
 
-diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
-index 5c2c0a864524..b0e909e23e14 100644
---- a/arch/m68k/include/asm/mcf_pgalloc.h
-+++ b/arch/m68k/include/asm/mcf_pgalloc.h
-@@ -7,20 +7,19 @@
- 
- extern inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
- {
--	free_page((unsigned long) pte);
-+	ptdesc_free(virt_to_ptdesc(pte));
- }
- 
- extern const char bad_pmd_string[];
- 
- extern inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
- {
--	unsigned long page = __get_free_page(GFP_DMA);
-+	struct ptdesc *ptdesc = ptdesc_alloc(GFP_DMA | __GFP_ZERO, 0);
- 
--	if (!page)
-+	if (!ptdesc)
- 		return NULL;
- 
--	memset((void *)page, 0, PAGE_SIZE);
--	return (pte_t *) (page);
-+	return (pte_t *) (ptdesc_address(ptdesc));
- }
- 
- extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
-@@ -35,36 +34,36 @@ extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
- static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pgtable,
- 				  unsigned long address)
- {
--	struct page *page = virt_to_page(pgtable);
-+	struct ptdesc *ptdesc = virt_to_ptdesc(pgtable);
- 
--	pgtable_pte_page_dtor(page);
--	__free_page(page);
-+	ptdesc_pte_dtor(ptdesc);
-+	ptdesc_free(ptdesc);
- }
- 
- static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
- {
--	struct page *page = alloc_pages(GFP_DMA, 0);
-+	struct ptdesc *ptdesc = ptdesc_alloc(GFP_DMA, 0);
- 	pte_t *pte;
- 
--	if (!page)
-+	if (!ptdesc)
- 		return NULL;
--	if (!pgtable_pte_page_ctor(page)) {
--		__free_page(page);
-+	if (!ptdesc_pte_ctor(ptdesc)) {
-+		ptdesc_free(ptdesc);
- 		return NULL;
- 	}
- 
--	pte = page_address(page);
--	clear_page(pte);
-+	pte = ptdesc_address(ptdesc);
-+	ptdesc_clear(pte);
- 
- 	return pte;
- }
- 
- static inline void pte_free(struct mm_struct *mm, pgtable_t pgtable)
- {
--	struct page *page = virt_to_page(pgtable);
-+	struct ptdesc *ptdesc = virt_to_ptdesc(ptdesc);
- 
--	pgtable_pte_page_dtor(page);
--	__free_page(page);
-+	ptdesc_pte_dtor(ptdesc);
-+	ptdesc_free(ptdesc);
- }
- 
- /*
-@@ -75,16 +74,18 @@ static inline void pte_free(struct mm_struct *mm, pgtable_t pgtable)
- 
- static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
--	free_page((unsigned long) pgd);
-+	ptdesc_free(virt_to_ptdesc(pgd));
- }
- 
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *new_pgd;
-+	struct ptdesc *ptdesc = ptdesc_alloc(GFP_DMA | GFP_NOWARN, 0);
- 
--	new_pgd = (pgd_t *)__get_free_page(GFP_DMA | __GFP_NOWARN);
--	if (!new_pgd)
-+	if (!ptdesc)
- 		return NULL;
-+	new_pgd = (pgd_t *) ptdesc_address(ptdesc);
-+
- 	memcpy(new_pgd, swapper_pg_dir, PTRS_PER_PGD * sizeof(pgd_t));
- 	memset(new_pgd, 0, PAGE_OFFSET >> PGDIR_SHIFT);
- 	return new_pgd;
-diff --git a/arch/m68k/include/asm/sun3_pgalloc.h b/arch/m68k/include/asm/sun3_pgalloc.h
-index 198036aff519..013d375fc239 100644
---- a/arch/m68k/include/asm/sun3_pgalloc.h
-+++ b/arch/m68k/include/asm/sun3_pgalloc.h
-@@ -17,10 +17,10 @@
- 
- extern const char bad_pmd_string[];
- 
--#define __pte_free_tlb(tlb,pte,addr)			\
--do {							\
--	pgtable_pte_page_dtor(pte);			\
--	tlb_remove_page((tlb), pte);			\
-+#define __pte_free_tlb(tlb, pte, addr)				\
-+do {								\
-+	ptdesc_pte_dtor(page_ptdesc(pte));			\
-+	tlb_remove_page_ptdesc((tlb), page_ptdesc(pte));	\
- } while (0)
- 
- static inline void pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmd, pte_t *pte)
-diff --git a/arch/m68k/mm/motorola.c b/arch/m68k/mm/motorola.c
-index 911301224078..1e47b977bcf1 100644
---- a/arch/m68k/mm/motorola.c
-+++ b/arch/m68k/mm/motorola.c
-@@ -161,7 +161,7 @@ void *get_pointer_table(int type)
- 			 * m68k doesn't have SPLIT_PTE_PTLOCKS for not having
- 			 * SMP.
- 			 */
--			pgtable_pte_page_ctor(virt_to_page(page));
-+			ptdesc_pte_ctor(virt_to_ptdesc(page));
- 		}
- 
- 		mmu_page_ctor(page);
-@@ -201,7 +201,7 @@ int free_pointer_table(void *table, int type)
- 		list_del(dp);
- 		mmu_page_dtor((void *)page);
- 		if (type == TABLE_PTE)
--			pgtable_pte_page_dtor(virt_to_page(page));
-+			ptdesc_pte_dtor(virt_to_ptdesc(page));
- 		free_page (page);
- 		return 1;
- 	} else if (ptable_list[type].next != dp) {
--- 
-2.39.2
 
+In many cases this indicates either some sort of hypervisor internal error or broken logic in the guest, so it is, well, a bug. But I suppose it may also be some transient condition in the hypervisor (I don't see it now but it can happen in the future) so perhaps we should indeed try not to die on the spot.
+
+
+
+-boris
+
+
+> +	BUG_ON(HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL));
+>   
+>   	return 0;
+>   }
+> 
 
 _______________________________________________
 linux-riscv mailing list
