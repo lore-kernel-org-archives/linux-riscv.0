@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0549AC77B70
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AD2C77B70
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YVQFNfuOTD/nez7/XJ/J8CjSaFX+by68uY6LPJ51nY8=; b=itPmfQ+fbqv+Bw
-	TwL/gY+T+t8jXB6ZXX3X+gWPHVd+GKodwA74kgw5pJVOvXSomMLJ59IQ374F9n6RjHwxOpQVXsVhK
-	Ft1mnD/hQr3yQlmJIWJXBKowJF/9mnnIq8xMF8fl6Qm0XJJaME8+65UOyQ6ZFx/mPzsPVMRBAHpiz
-	Z7GrjSET6Pm4XAvDdU+nrukdx1q1zfqo7avnzQlQ8xp4EE5zWOCqlqoPb9pRM6iYFH2vSQMiRIu71
-	8x91qVPnnX+QIFb+SP4t+39WmP/5undrgd0KNMfIPxUVv2G7lNflEmaCoUpWzjgABvln4EtX7Xi1W
-	/MOrg5NkzNAvwB/uuXAw==;
+	List-Owner; bh=ptiTGS+D7FLnEr83mWv/8vEN2in6avfi6sml8nFKIJI=; b=FwSmuHcRyPFNDf
+	UVT+S3uZNBAAzFtxRUxKoCzjCpmExkdpy1oh8DR9GoncF+YMYo7dBoGaa5FlbG8n3zhEYJeU8cgyY
+	QV3w9f3qrPHEmdN2EKin/JceXCA0I4EfCh6sxnqJ5pRWj50wRvhuu3CO+tAGO1BeV9Bw8UNimW0Bm
+	SAZpUQxZ75YO6qyyhH9f1xqdf4HWoRzc8FnM7+oUHm+SeMwgu9eZAYEI308IoDT70laXur0ndSerF
+	7nN60t+LUuK98DqAQJoAm45JwMXoitTjEB84Jdr1IOfoJIBYr9pg0m1VGbxbKDF/wt+IwosJbXMHI
+	c29nKjgqTZDKcyRpNS1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poM8b-00Fjot-0K;
-	Mon, 17 Apr 2023 10:31:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1poMBe-00FkmJ-38;
+	Mon, 17 Apr 2023 10:34:18 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poM8X-00FjoO-23;
-	Mon, 17 Apr 2023 10:31:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Cn+6pHKXj0VgnZYFnmy9b6moWoCaDLSiP4wWF3jJhpk=; b=eFjpJ43H0H0+AtZ/3zOGdj6Vd6
-	OueCbYqge93774y/hDVMyg9JOeSPYaoz588QMxpqE7X2BrsdzYXm1eiqUkP7r5hy1uMf6j5nNTJjv
-	A9RRC/WSRjF825s0T8GA0lQebZ3dp9M9IyU3teuq/dI8X2XZaUTdNuoTFxBGKCMOZfl0s4hJ10bJE
-	wildSkhs3WJwK8286wr1oqCiRM+g4dc162upctej4aFx3Lq869pJvyLudFHd9czfvyLxuQYKNwfz9
-	DnxilytX62HF8vLXmxZCch6S6pEDTaIL2gQ1g0bQsLMq4QE1xuAYGgNXpzurzPjqHGFuZgvEc/Dhj
-	UcZ+ecNg==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1poM8N-00BF8h-AH; Mon, 17 Apr 2023 10:30:55 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id E90B63002A3;
-	Mon, 17 Apr 2023 12:30:50 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id B6C8B24209FD2; Mon, 17 Apr 2023 12:30:50 +0200 (CEST)
-Date: Mon, 17 Apr 2023 12:30:50 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
-	David Woodhouse <dwmw@infradead.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Brian Gerst <brgerst@gmail.com>,
-	Arjan van de Veen <arjan@linux.intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul McKenney <paulmck@kernel.org>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Oleksandr Natalenko <oleksandr@natalenko.name>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Piotr Gorski <lucjan.lucjanov@gmail.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Juergen Gross <jgross@suse.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	xen-devel@lists.xenproject.org,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	linux-csky@vger.kernel.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1poMBY-00Fkgk-1q
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Apr 2023 10:34:17 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5058181d58dso3936292a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 03:34:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1681727650; x=1684319650;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hi7zVi9lK/bBFWLrZg+2Agn2/ih+VDE8hXeZEKu0bkc=;
+        b=K9/BI3a8HAl22oqizTJQV61ps5PZ/9a/Rj1rXn04bxtTuSq69auUk5ouSwhZqH2NQO
+         euQEi5yPb70E8q7Qxbz8NzAEosgh3ABzQL2Sc5eQWi7ZL83UqDEDdQbelm1b4FYM7vs0
+         s/k27jQmeQekGUxqyn/wVJXQp3SdOYP/2qUoLOpYSsqPs/NzD/qo7xw8E94aVZjVoxxi
+         NZPXX0iExjF27F1bghk4RMjW5Bo5VqR08SvOveiKoMRUEWcFC6frVtti7Anelvhlj3gD
+         mPkrnG0wxnvtu0MPiw/efhSZDktbt/nG3gqTpux93FF4gPrpnTsLYFsoAIX4RJ9pD3nG
+         NSxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681727650; x=1684319650;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hi7zVi9lK/bBFWLrZg+2Agn2/ih+VDE8hXeZEKu0bkc=;
+        b=Ivrnipphwo4/haqDDlU1wbvnke3IdWF9gx4GXrFsT8/tx+qRYGxf8MkSerNytZGRDZ
+         i0zsD3hrn6ujdkEIQAqcpBaA0REQPIvWwcsz6SiChVy3MD0O63PA99Ksso2TLJ4JG9G5
+         /vHKCZxuniSdcN4Yqkgr5YXYQzmme7y7IptSfPd8t4SKRjb9W6nXbTVJWFGSnWVlHg5K
+         zn7YSqrNIEB6Lts8iIWQqrH08nzS01/WPExpNcoCCAOgsdwSRLI7ZclwlnjWyDJmLmCt
+         Iw8DNceWWXuJB5SPXv89EJqSPhFcJg4zwgL1BQMwc+PVh5ksVne1GvXaebjuyd45rU8J
+         pHiw==
+X-Gm-Message-State: AAQBX9ffrrdyE36etJ3UrXzgivw62kM2aVCNN9BiL7JLIdo0lPupLjjd
+	SKmQa1cRFqnYdJziGIAp5bDvSg==
+X-Google-Smtp-Source: AKy350YoNnPppOJ3fUKFsikkTpX+KWZP8+lofD6VBesjx2H649137gfL1ExOw3KIJgmA8ROvQQ8uUw==
+X-Received: by 2002:a50:ed90:0:b0:506:98cf:f89b with SMTP id h16-20020a50ed90000000b0050698cff89bmr4414375edr.25.1681727650083;
+        Mon, 17 Apr 2023 03:34:10 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id s4-20020a056402014400b00501dd53dbfbsm5645154edu.75.2023.04.17.03.34.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Apr 2023 03:34:09 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sabin Rapan <sabrapan@amazon.com>
-Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
-Message-ID: <20230417103050.GF83892@hirez.programming.kicks-ass.net>
-References: <20230414225551.858160935@linutronix.de>
+	virtualization@lists.linux-foundation.org
+Cc: 'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paolo Bonzini ' <pbonzini@redhat.com>,
+	'Juergen Gross ' <jgross@suse.com>,
+	"'Srivatsa S . Bhat '" <srivatsa@csail.mit.edu>,
+	'Anup Patel ' <anup@brainfault.org>,
+	'Atish Patra ' <atishp@atishpatra.org>
+Subject: [RFC PATCH 01/14] RISC-V: paravirt: Add skeleton for pv-time support
+Date: Mon, 17 Apr 2023 12:33:49 +0200
+Message-Id: <20230417103402.798596-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230417103402.798596-1-ajones@ventanamicro.com>
+References: <20230417103402.798596-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230414225551.858160935@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230417_033412_611865_1C1894B6 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +100,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 15, 2023 at 01:44:13AM +0200, Thomas Gleixner wrote:
+Add the files and functions needed to support paravirt time on
+RISC-V. Also include the common code needed for the first
+application of pv-time, which is steal-time. In the next
+patches we'll complete the functions to fully enable steal-time
+support.
 
-> Background
-> ----------
-> 
-> The reason why people are interested in parallel bringup is to shorten
-> the (kexec) reboot time of cloud servers to reduce the downtime of the
-> VM tenants. There are obviously other interesting use cases for this
-> like VM startup time, embedded devices...
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ .../admin-guide/kernel-parameters.txt         |  6 +-
+ arch/riscv/include/asm/paravirt.h             | 29 +++++++
+ arch/riscv/include/asm/paravirt_api_clock.h   |  1 +
+ arch/riscv/kernel/Makefile                    |  1 +
+ arch/riscv/kernel/paravirt.c                  | 77 +++++++++++++++++++
+ arch/riscv/kernel/time.c                      |  3 +
+ 6 files changed, 114 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/include/asm/paravirt.h
+ create mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+ create mode 100644 arch/riscv/kernel/paravirt.c
 
-...
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 6221a1d057dd..e06f028b7acc 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3791,9 +3791,9 @@
+ 			[X86,PV_OPS] Disable paravirtualized VMware scheduler
+ 			clock and use the default one.
+ 
+-	no-steal-acc	[X86,PV_OPS,ARM64,PPC/PSERIES] Disable paravirtualized
+-			steal time accounting. steal time is computed, but
+-			won't influence scheduler behaviour
++	no-steal-acc	[X86,PV_OPS,ARM64,PPC/PSERIES,RISCV] Disable
++			paravirtualized steal time accounting. steal time is
++			computed, but won't influence scheduler behaviour
+ 
+ 	nolapic		[X86-32,APIC] Do not enable or use the local APIC.
+ 
+diff --git a/arch/riscv/include/asm/paravirt.h b/arch/riscv/include/asm/paravirt.h
+new file mode 100644
+index 000000000000..10ba3d6bae4f
+--- /dev/null
++++ b/arch/riscv/include/asm/paravirt.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_PARAVIRT_H
++#define _ASM_RISCV_PARAVIRT_H
++
++#ifdef CONFIG_PARAVIRT
++#include <linux/static_call_types.h>
++
++struct static_key;
++extern struct static_key paravirt_steal_enabled;
++extern struct static_key paravirt_steal_rq_enabled;
++
++u64 dummy_steal_clock(int cpu);
++
++DECLARE_STATIC_CALL(pv_steal_clock, dummy_steal_clock);
++
++static inline u64 paravirt_steal_clock(int cpu)
++{
++	return static_call(pv_steal_clock)(cpu);
++}
++
++int __init pv_time_init(void);
++
++#else
++
++#define pv_time_init() do {} while (0)
++
++#endif // CONFIG_PARAVIRT
++
++#endif
+diff --git a/arch/riscv/include/asm/paravirt_api_clock.h b/arch/riscv/include/asm/paravirt_api_clock.h
+new file mode 100644
+index 000000000000..65ac7cee0dad
+--- /dev/null
++++ b/arch/riscv/include/asm/paravirt_api_clock.h
+@@ -0,0 +1 @@
++#include <asm/paravirt.h>
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 4cf303a779ab..3186f2b3b3a4 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -77,6 +77,7 @@ ifeq ($(CONFIG_RISCV_SBI), y)
+ obj-$(CONFIG_SMP) += cpu_ops_sbi.o
+ endif
+ obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
++obj-$(CONFIG_PARAVIRT)		+= paravirt.o
+ obj-$(CONFIG_KGDB)		+= kgdb.o
+ obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
+ obj-$(CONFIG_KEXEC_FILE)	+= elf_kexec.o machine_kexec_file.o
+diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
+new file mode 100644
+index 000000000000..141dbcc36fa2
+--- /dev/null
++++ b/arch/riscv/kernel/paravirt.c
+@@ -0,0 +1,77 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2023 Ventana Micro Systems Inc.
++ */
++
++#define pr_fmt(fmt) "riscv-pv: " fmt
++
++#include <linux/cpuhotplug.h>
++#include <linux/init.h>
++#include <linux/jump_label.h>
++#include <linux/printk.h>
++#include <linux/static_call.h>
++#include <linux/types.h>
++
++struct static_key paravirt_steal_enabled;
++struct static_key paravirt_steal_rq_enabled;
++
++static u64 native_steal_clock(int cpu)
++{
++	return 0;
++}
++
++DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
++
++static bool steal_acc = true;
++static int __init parse_no_stealacc(char *arg)
++{
++	steal_acc = false;
++	return 0;
++}
++
++early_param("no-steal-acc", parse_no_stealacc);
++
++static bool __init has_pv_steal_clock(void)
++{
++	return false;
++}
++
++static int pv_time_cpu_online(unsigned int cpu)
++{
++	return 0;
++}
++
++static int pv_time_cpu_down_prepare(unsigned int cpu)
++{
++	return 0;
++}
++
++static u64 pv_time_steal_clock(int cpu)
++{
++	return 0;
++}
++
++int __init pv_time_init(void)
++{
++	int ret;
++
++	if (!has_pv_steal_clock())
++		return 0;
++
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
++				"riscv/pv_time:online",
++				pv_time_cpu_online,
++				pv_time_cpu_down_prepare);
++	if (ret < 0)
++		return ret;
++
++	static_call_update(pv_steal_clock, pv_time_steal_clock);
++
++	static_key_slow_inc(&paravirt_steal_enabled);
++	if (steal_acc)
++		static_key_slow_inc(&paravirt_steal_rq_enabled);
++
++	pr_info("using paravirt steal-time\n");
++
++	return 0;
++}
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index babaf3b48ba8..f09dd3265261 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -11,6 +11,7 @@
+ #include <asm/sbi.h>
+ #include <asm/processor.h>
+ #include <asm/timex.h>
++#include <asm/paravirt.h>
+ 
+ unsigned long riscv_timebase __ro_after_init;
+ EXPORT_SYMBOL_GPL(riscv_timebase);
+@@ -32,4 +33,6 @@ void __init time_init(void)
+ 	timer_probe();
+ 
+ 	tick_setup_hrtimer_broadcast();
++
++	pv_time_init();
+ }
+-- 
+2.39.2
 
->   There are two issue there:
-> 
->     a) The death by MCE broadcast problem
-> 
->        Quite some (contemporary) x86 CPU generations are affected by
->        this:
-> 
->          - MCE can be broadcasted to all CPUs and not only issued locally
->            to the CPU which triggered it.
-> 
->          - Any CPU which has CR4.MCE == 0, even if it sits in a wait
->            for INIT/SIPI state, will cause an immediate shutdown of the
->            machine if a broadcasted MCE is delivered.
-
-When doing kexec, CR4.MCE should already have been set to 1 by the prior
-kernel, no?
 
 _______________________________________________
 linux-riscv mailing list
