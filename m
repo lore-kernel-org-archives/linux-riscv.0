@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C192DC77B76
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A70DC77B77
 	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mje7CUT8vJv2BjfIzs+uhoCJ63rRYZCbaNV85J5y0fw=; b=3N5rhJYs4ZKfhX
-	+70vqGwGuet9krz4MYLWMmhaxrrhFW/A2GGAN0hfDp56KPMgfEw6RiVtEbqSMdwyDVwikEaysgu2Y
-	irVTKLMbxLCqKHsehMSj42eRWAsDJ85+XT0u9b1/1ukPFL7fUD1t15YdpPEkvDNNSus60PUKPJgeD
-	M0JPHevL4t9D2FYwQrD41KhcAfSMpz9K36pX6/LWvazNcjMsQMCxNKX+Cf8IKbzJKExHgGueq5TLf
-	RFQEPoMxv4Svvqywg0hVmSjMfPRHv1EC5aeFcWLtGFhSTNmL4PZSaBd6jX9ciwXcj70zJzaGWY+Ov
-	ezB3tA+xMCNeW0fnuSOQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=syRjG7ppSGolX8KM9iX39ghIg8w9yVOxVfEXjS11rZU=; b=EelRu1aYVHNNU0
+	N7eVHdpbq1TccRzbMEmMyH+QWYjt7RhBYwis6H+mgUDL4NRu5zjuKVnfvLxIBueC3pK9ZjW/qIjEO
+	+9032yU8FASTSRtL51mOlNObbs6CYhLfyoUXjeauMOBJBmTiE0xp3kkRUa5Qp3IB/hBIuxzqi48Mv
+	sCx0sFmFJC1rxFnOx6+dQvcudVbcdG2BDb9wA1uXAvLdTMqn061wxSmBIyaw17SExYVdty0LIDUzs
+	vupizkW3qvWmyWreJKNopq9j/Lynpe/Lg2yBkUm3h1Udi/g69uzMxWHfTxHqsqdjh/XQEvUxTwD+T
+	Arq/dovqS4PZZD11J/nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poMBh-00Fkp2-0D;
-	Mon, 17 Apr 2023 10:34:21 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1poMBg-00FkoG-0X;
+	Mon, 17 Apr 2023 10:34:20 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poMBZ-00FkhU-1z
+	id 1poMBY-00Fkgb-1K
 	for linux-riscv@lists.infradead.org;
 	Mon, 17 Apr 2023 10:34:17 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-504eac2f0b2so4536700a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 03:34:13 -0700 (PDT)
+Received: by mail-ej1-x635.google.com with SMTP id u3so10805113ejj.12
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 03:34:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1681727652; x=1684319652;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pc+gzPz7d3OgysNEaF2tqRu5pz5HUBdz+KJkxVP4YTc=;
-        b=Bq2UMDrpx1NHajQq/PDfZO0xZn0fq+4G7dETLNW6QFXS9pq5oYuEXG3YHHIKP/hM2I
-         yKDRJo3mtrBrZn08HccWMkvzLzuWqztw4qXtoze/V0kbFr0D5Q+wg0KOCJkSPUH01RN5
-         3p2juZOu6jsZ5afCJ8xtt8DmNii0rlH0LoJPPCsD7e85v/E9DGQyMYf1gBndLrrRd1MD
-         5pQXT2kg1X4NNmNwvY0pfXXcuOFh8KR7UKSkrLZICqbqqwKLb6prHXfd6EteajwI+XOK
-         ZFSVkpDFaykYR2G2m5pnL0BEuTKgWRbwHvZIj6YD2eu0MFA7SwU7nQLAKZSGd9AYWOtX
-         OdCQ==
+        d=ventanamicro.com; s=google; t=1681727649; x=1684319649;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7B3MyM7qnunFnJDTwr8w5KFAJCcqJ6aWw8zTZMscgCI=;
+        b=GLZ6krR67MORwa4reJrGjRJEwnFl/x/M+iNtYATTSsfFQjGDo5VFR+q3U9XaQ6KKlh
+         aHIKMWUBMkTmzvMHcprLqVWNb2MfrLhtYNcqd4+lGqcSEUw0iBMUvS+0j2LccLHFMX50
+         fv9sRWvGNyPBrqly6lBe2ZKcJmQK+4wnMPify+h/cB177A3btohBBKdPPXxGy/Wqu+dP
+         QeCqg12vcT5Z8O7rojqsbMxtiAq0p04CnoDJwLPUg6Tuodd6kL4SZ1sZ6zT2oqeAB1Jq
+         80/2yjOn+kwklimxWy97zYrm4MMYOMEygjGxswBiS36OsetvMZiV0bSA5SGNUwmoT+qW
+         kpWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681727652; x=1684319652;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pc+gzPz7d3OgysNEaF2tqRu5pz5HUBdz+KJkxVP4YTc=;
-        b=JeDbDhNjAAJPK2vykkWo5g+5QaKIfsj+bNW+6M6lW/p8WNMXwIjRI+2FTreOryGCc3
-         /NBqKnkVcsBfqi2mW08Czqux+/yHwP3QZqc8Aii3Nm2FtXH+JOLQ0KfP64aU7NZ34RpI
-         G85kdp6AtbS5QXAaNMi489feePVrLGuX+9IShdCNOh3omAcyRbkMhURdpSQDLAAFLQ03
-         a0YC2BxVJAtLJ3Nf4SBYve5R4szeQ750WU3Dcfs4vmjudBzMTTpEWFVJ5muspp/bXE8X
-         CVYAzdpjC9mnKsBCGHaGjN1ltNfz24nHNHPhspIwt6xdjUXGyghj9XstqIHdqXwQ4E0L
-         sUdA==
-X-Gm-Message-State: AAQBX9eBH2NE1eYpJG3wl2OO6Y1oXeGHYj8WBmjMErbR1mnOlcPJuuIj
-	QageKH8qk6DScJxBmkLr9FZPWg==
-X-Google-Smtp-Source: AKy350ZOLJ17sudnmshnx4tDR/+j7QQ4eBKvsM6on76waoml6SRjFZnbAeUpOABwachFHa1BQYBaTQ==
-X-Received: by 2002:aa7:c512:0:b0:4fc:709f:7abd with SMTP id o18-20020aa7c512000000b004fc709f7abdmr13725960edq.2.1681727651626;
-        Mon, 17 Apr 2023 03:34:11 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1681727649; x=1684319649;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7B3MyM7qnunFnJDTwr8w5KFAJCcqJ6aWw8zTZMscgCI=;
+        b=aaUo86yp9EguG3Whh7tNwDFC9Ujs/X1b8qBJ6+aIrrYw1lw/hm5rpa0F07y2TGG3tT
+         0tIRVd13GR+EpbLzbfTAx8jki3RTaXC8M5RyxmzKE7mOFJ5IKIUC9YR8vPHGnWHqp9uN
+         /oSCl1k29/e8IG9t7PtFmlSMs8ugds8jKx4AbnNpcYL/hlUTkzvJ4FvtRSJrNjUtg+rg
+         /IdWwpT0qHjc3Ayc9yE3C+56hBHDHNfKjd9XYx2TDWvbPy9nzmrR9vvTA8A6h+KJU9qc
+         DD4cUSkc9T3Sls/o7FC7AC0/i+hRRELy4DHDgQQKEXhQPGl4PVwxntaGNVECZF/Z+9bz
+         z2wQ==
+X-Gm-Message-State: AAQBX9dVOw7Zn1MtUHVLVjuH8xrMsN/98q9OS/0ITKTJAsqK7ZoqDj0u
+	I4dVwOMMyxXw/XTCJdY5kXIVsw==
+X-Google-Smtp-Source: AKy350aMrP99/hW7C40VRCLlAh+dhfBLiu4X20c6nxQzIR+/qYuQw5xgb9FKamPcFcvr9ajnIZknRQ==
+X-Received: by 2002:a17:906:c355:b0:94f:b5c:a254 with SMTP id ci21-20020a170906c35500b0094f0b5ca254mr6153197ejb.49.1681727648853;
+        Mon, 17 Apr 2023 03:34:08 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id s11-20020a056402164b00b00504adfd77f6sm5589213edx.29.2023.04.17.03.34.11
+        by smtp.gmail.com with ESMTPSA id e5-20020a17090681c500b0094f7092c231sm1568352ejx.6.2023.04.17.03.34.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Apr 2023 03:34:11 -0700 (PDT)
+        Mon, 17 Apr 2023 03:34:08 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -74,17 +73,14 @@ Cc: 'Paul Walmsley ' <paul.walmsley@sifive.com>,
 	"'Srivatsa S . Bhat '" <srivatsa@csail.mit.edu>,
 	'Anup Patel ' <anup@brainfault.org>,
 	'Atish Patra ' <atishp@atishpatra.org>
-Subject: [RFC PATCH 02/14] RISC-V: Add SBI STA extension definitions
-Date: Mon, 17 Apr 2023 12:33:50 +0200
-Message-Id: <20230417103402.798596-3-ajones@ventanamicro.com>
+Subject: [RFC PATCH 00/14] RISC-V: Add steal-time support
+Date: Mon, 17 Apr 2023 12:33:48 +0200
+Message-Id: <20230417103402.798596-1-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230417103402.798596-1-ajones@ventanamicro.com>
-References: <20230417103402.798596-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_033413_677681_126CC66A 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230417_033412_476566_B44224D2 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +97,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI STA extension enables steal-time accounting. Add the
-definitions it specifies.
+One frequently touted benefit of virtualization is the ability to
+consolidate machines, increasing resource utilization.  It may even be
+desirable to overcommit, at the risk of one or more VCPUs having to wait.
+Hypervisors which have interfaces for guests to retrieve the amount of
+time each VCPU had to wait give observers within the guests ways to
+account for less progress than would otherwise be expected. The SBI STA
+extension proposal[1] provides a standard interface for guest VCPUs to
+retrieve the amount of time "stolen".
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/sbi.h | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+This series has three parts:
+ 1) Patches 01-04 - Add paravirt support to RISC-V and implement
+                    steal-time accounting support using the SBI STA
+                    extension.
+ 2) Patches 05-10 - Implement SBI STA in KVM so KVM guests, such as
+                    Linux guests which enable the paravirt steal-time
+                    support, can be enlightened about stolen time.
+ 3) Patches 11-12 - Add support to the KVM selftests steal_time test
+                    for RISC-V.
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 945b7be249c1..485b9ec20399 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -30,6 +30,7 @@ enum sbi_ext_id {
- 	SBI_EXT_HSM = 0x48534D,
- 	SBI_EXT_SRST = 0x53525354,
- 	SBI_EXT_PMU = 0x504D55,
-+	SBI_EXT_STA = 0x535441,
- 
- 	/* Experimentals extensions must lie within this range */
- 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
-@@ -236,6 +237,20 @@ enum sbi_pmu_ctr_type {
- /* Flags defined for counter stop function */
- #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
- 
-+/* SBI STA (steal-time accounting) extension */
-+enum sbi_ext_sta_fid {
-+	SBI_EXT_STA_SET_STEAL_TIME_SHMEM = 0,
-+};
-+
-+struct sbi_sta_struct {
-+	__le32 sequence;
-+	__le32 flags;
-+	__le64 steal;
-+	u8 preempted;
-+	u8 pad[47];
-+} __packed;
-+
-+/* SBI spec version fields */
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
+Note, while we can review and revise this series now, we'll keep the
+RFC tag and refrain from merging it until the proposed SBI extension
+has been ratified.
+
+[1] https://lists.riscv.org/g/tech-prs/message/401
+
+This patches are also available here
+https://github.com/jones-drew/linux/commits/kvm/steal-time-rfc-v1
+
+Thanks,
+drew
+
+Andrew Jones (14):
+  RISC-V: paravirt: Add skeleton for pv-time support
+  RISC-V: Add SBI STA extension definitions
+  RISC-V: paravirt: Implement steal-time support
+  RISC-V: paravirt: Add kconfigs
+  RISC-V: KVM: Add SBI STA extension skeleton
+  RISC-V: KVM: Add steal-update vcpu request
+  RISC-V: KVM: Add SBI STA info to vcpu_arch
+  RISC-V: KVM: Implement SBI STA extension
+  RISC-V: KVM: Add support for SBI extension registers
+  RISC-V: KVM: Add support for SBI STA registers
+  KVM: selftests: riscv: Move sbi_ecall to processor.c
+  KVM: selftests: riscv: Add guest_sbi_probe_extension
+  KVM: selftests: riscv: Add RISCV_SBI_EXT_REG
+  KVM: selftests: riscv: Add steal_time test support
+
+ .../admin-guide/kernel-parameters.txt         |   6 +-
+ arch/riscv/Kconfig                            |  19 ++
+ arch/riscv/include/asm/kvm_host.h             |   9 +
+ arch/riscv/include/asm/kvm_vcpu_sbi.h         |   5 +
+ arch/riscv/include/asm/paravirt.h             |  29 +++
+ arch/riscv/include/asm/paravirt_api_clock.h   |   1 +
+ arch/riscv/include/asm/sbi.h                  |  15 ++
+ arch/riscv/include/uapi/asm/kvm.h             |  14 ++
+ arch/riscv/kernel/Makefile                    |   1 +
+ arch/riscv/kernel/paravirt.c                  | 127 +++++++++++
+ arch/riscv/kernel/time.c                      |   3 +
+ arch/riscv/kvm/Kconfig                        |   1 +
+ arch/riscv/kvm/Makefile                       |   1 +
+ arch/riscv/kvm/vcpu.c                         |  74 +++++++
+ arch/riscv/kvm/vcpu_sbi.c                     |   4 +
+ arch/riscv/kvm/vcpu_sbi_sta.c                 | 199 ++++++++++++++++++
+ tools/testing/selftests/kvm/Makefile          |   3 +-
+ .../selftests/kvm/include/riscv/processor.h   |  40 +++-
+ .../selftests/kvm/lib/riscv/processor.c       |  45 ++++
+ tools/testing/selftests/kvm/lib/riscv/ucall.c |  26 ---
+ tools/testing/selftests/kvm/steal_time.c      | 100 +++++++++
+ 21 files changed, 685 insertions(+), 37 deletions(-)
+ create mode 100644 arch/riscv/include/asm/paravirt.h
+ create mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+ create mode 100644 arch/riscv/kernel/paravirt.c
+ create mode 100644 arch/riscv/kvm/vcpu_sbi_sta.c
+
 -- 
 2.39.2
 
