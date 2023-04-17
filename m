@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5910C77B70
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0549AC77B70
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bg4ZQat/ruvKhcye6CcOEi5jGIQKDib5pvX0Yo3G++g=; b=2FHmpuRnC1FmAs
-	a7xp0j9bEw/VboZoMdUxRovEPnLXitb+MzXA48wfY6QJ3VhZm62DmxCRIDWnP4VwvoPprguuE5YkM
-	ghdL25NxEqUs4NEFZv4PxokmaxMI0eUw+82A6n3UgO0oRIzenkTmCwITB1NPIy4w0wlebZefzQM0a
-	o5QPEJtmM65BUhgr4n169vKf5E3zA1spgHD17q6VVVfTGENkM3gDh/5UteGBFfzYk7TZwmmv2Cc3F
-	u8fxMT9hWk2X1WOAoPCTnG1lbUuClTsw5ma31Pf3ixyDFigPAUHKOS2ztR6CR5pmqDTJxks2eLwTp
-	Itq5EmyBIbCWEVyqMB/A==;
+	List-Owner; bh=YVQFNfuOTD/nez7/XJ/J8CjSaFX+by68uY6LPJ51nY8=; b=itPmfQ+fbqv+Bw
+	TwL/gY+T+t8jXB6ZXX3X+gWPHVd+GKodwA74kgw5pJVOvXSomMLJ59IQ374F9n6RjHwxOpQVXsVhK
+	Ft1mnD/hQr3yQlmJIWJXBKowJF/9mnnIq8xMF8fl6Qm0XJJaME8+65UOyQ6ZFx/mPzsPVMRBAHpiz
+	Z7GrjSET6Pm4XAvDdU+nrukdx1q1zfqo7avnzQlQ8xp4EE5zWOCqlqoPb9pRM6iYFH2vSQMiRIu71
+	8x91qVPnnX+QIFb+SP4t+39WmP/5undrgd0KNMfIPxUVv2G7lNflEmaCoUpWzjgABvln4EtX7Xi1W
+	/MOrg5NkzNAvwB/uuXAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poLiZ-00FfPZ-2f;
-	Mon, 17 Apr 2023 10:04:15 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poLiX-00Ff0X-1E
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Apr 2023 10:04:14 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id D75C624E197;
-	Mon, 17 Apr 2023 18:02:54 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Apr
- 2023 18:02:54 +0800
-Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
- EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Mon, 17 Apr 2023 18:02:53 +0800
-From: Samin Guo <samin.guo@starfivetech.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran
-	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
-	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
-	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [-net-next v12 1/6] dt-bindings: net: snps,dwmac: Add dwmac-5.20 version
-Date: Mon, 17 Apr 2023 18:02:46 +0800
-Message-ID: <20230417100251.11871-2-samin.guo@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230417100251.11871-1-samin.guo@starfivetech.com>
-References: <20230417100251.11871-1-samin.guo@starfivetech.com>
+	id 1poM8b-00Fjot-0K;
+	Mon, 17 Apr 2023 10:31:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1poM8X-00FjoO-23;
+	Mon, 17 Apr 2023 10:31:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Cn+6pHKXj0VgnZYFnmy9b6moWoCaDLSiP4wWF3jJhpk=; b=eFjpJ43H0H0+AtZ/3zOGdj6Vd6
+	OueCbYqge93774y/hDVMyg9JOeSPYaoz588QMxpqE7X2BrsdzYXm1eiqUkP7r5hy1uMf6j5nNTJjv
+	A9RRC/WSRjF825s0T8GA0lQebZ3dp9M9IyU3teuq/dI8X2XZaUTdNuoTFxBGKCMOZfl0s4hJ10bJE
+	wildSkhs3WJwK8286wr1oqCiRM+g4dc162upctej4aFx3Lq869pJvyLudFHd9czfvyLxuQYKNwfz9
+	DnxilytX62HF8vLXmxZCch6S6pEDTaIL2gQ1g0bQsLMq4QE1xuAYGgNXpzurzPjqHGFuZgvEc/Dhj
+	UcZ+ecNg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1poM8N-00BF8h-AH; Mon, 17 Apr 2023 10:30:55 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id E90B63002A3;
+	Mon, 17 Apr 2023 12:30:50 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id B6C8B24209FD2; Mon, 17 Apr 2023 12:30:50 +0200 (CEST)
+Date: Mon, 17 Apr 2023 12:30:50 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
+Message-ID: <20230417103050.GF83892@hirez.programming.kicks-ass.net>
+References: <20230414225551.858160935@linutronix.de>
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
- (172.16.6.72)
-X-YovoleRuleAgent: yovoleflag
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_030413_569795_C1F47C14 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20230414225551.858160935@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +104,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+On Sat, Apr 15, 2023 at 01:44:13AM +0200, Thomas Gleixner wrote:
 
-Add dwmac-5.20 IP version to snps.dwmac.yaml
+> Background
+> ----------
+> 
+> The reason why people are interested in parallel bringup is to shorten
+> the (kexec) reboot time of cloud servers to reduce the downtime of the
+> VM tenants. There are obviously other interesting use cases for this
+> like VM startup time, embedded devices...
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
----
- Documentation/devicetree/bindings/net/snps,dwmac.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+...
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 16b7d2904696..01b056ab71f7 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -30,6 +30,7 @@ select:
-           - snps,dwmac-4.10a
-           - snps,dwmac-4.20a
-           - snps,dwmac-5.10a
-+          - snps,dwmac-5.20
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
- 
-@@ -87,6 +88,7 @@ properties:
-         - snps,dwmac-4.10a
-         - snps,dwmac-4.20a
-         - snps,dwmac-5.10a
-+        - snps,dwmac-5.20
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
- 
-@@ -575,6 +577,7 @@ allOf:
-               - snps,dwmac-3.50a
-               - snps,dwmac-4.10a
-               - snps,dwmac-4.20a
-+              - snps,dwmac-5.20
-               - snps,dwxgmac
-               - snps,dwxgmac-2.10
-               - st,spear600-gmac
-@@ -629,6 +632,7 @@ allOf:
-               - snps,dwmac-4.10a
-               - snps,dwmac-4.20a
-               - snps,dwmac-5.10a
-+              - snps,dwmac-5.20
-               - snps,dwxgmac
-               - snps,dwxgmac-2.10
-               - st,spear600-gmac
--- 
-2.17.1
+>   There are two issue there:
+> 
+>     a) The death by MCE broadcast problem
+> 
+>        Quite some (contemporary) x86 CPU generations are affected by
+>        this:
+> 
+>          - MCE can be broadcasted to all CPUs and not only issued locally
+>            to the CPU which triggered it.
+> 
+>          - Any CPU which has CR4.MCE == 0, even if it sits in a wait
+>            for INIT/SIPI state, will cause an immediate shutdown of the
+>            machine if a broadcasted MCE is delivered.
 
+When doing kexec, CR4.MCE should already have been set to 1 by the prior
+kernel, no?
 
 _______________________________________________
 linux-riscv mailing list
