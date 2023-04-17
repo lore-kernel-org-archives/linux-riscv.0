@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2E9C77B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 11:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE4FC77B72
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 11:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UylisV/Td2yWmVgFu9HRGO063FZ07JlLGLxX/Vd5prs=; b=v/6a7bud6uWsHp
-	wjfxP8ZISYZk09VI66+dJ6Od0t64sfy+tdLYL0Y0qgUc4DRTtc7LuVa4oE0zh7Hy18Dex1QVsbWVh
-	eZ/MEmWGc72y8Xa4w6pIuOFGD2/hh4CYklBVldQ3xHo/qw29C5maZHlzCOG/vJ/tx8QN8naPNdnJa
-	ivIak0M/e25uk8a51aAtmEWiBHg2R7Q747e1UXi7yw3XTD6kr5l3/7snBmYPMW0S5syGqDa4o6Ci/
-	n3GiFTe0R5UwFOtbjqhFMCIJdo24XRX6pGsb+N0fxTtK0tX2tVJtzkDzkdKcCjSMR1D1R0a10lzHF
-	Z8AuACwN5buJjfmjpnGQ==;
+	List-Owner; bh=JujyVHkHgvg0zVuXeQTOHXRC/t/ZpbuqVO8hoCR/ElA=; b=wlbX44BdSp+w5a
+	Yv+1YtHWDWzNhut/NTcUFgM/16/X+al+bVy/SOOvstgW4tbX6bqCHnqO1qQEGBfSUKl3MGeTJaPwH
+	ivWZIEmhN21OSnD0w/EXiUWvmDLMUK8mA51DC9JqtYCVdgOXS00NubY9gmKyRuJ2N7yD4K9EGvUpx
+	EkTfdnElEyvdLRPqQys/EP81mnJkylKM33ZsTQZ0GrooPxLUr7Zy0iod0nCQJqq9+cqCtXNXjTPxJ
+	VWCxJVIeeVtQkwrh61lnlAvelhoj8Vs07SJfo1nc4chJGV76iKPXwSgBaucLtmb9DEV9m2OvWxlsX
+	QjJIwHgpAwfMvWMS2YIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poNIQ-00G1Mt-0j;
-	Mon, 17 Apr 2023 11:45:22 +0000
-Received: from mail-ej1-f42.google.com ([209.85.218.42])
+	id 1poNIM-00G1Je-0x;
+	Mon, 17 Apr 2023 11:45:18 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poMBk-00Fkqx-2G
+	id 1poMBb-00FkjU-2E
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Apr 2023 10:34:28 +0000
-Received: by mail-ej1-f42.google.com with SMTP id c9so23954962ejz.1
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 03:34:23 -0700 (PDT)
+	Mon, 17 Apr 2023 10:34:21 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-50506ac462bso3189518a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 03:34:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1681727662; x=1684319662;
+        d=ventanamicro.com; s=google; t=1681727654; x=1684319654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iVt0lw69EHvz4t9Bycq9Ts+axEONPkDMjQoH6kPFB7Y=;
-        b=Ym20gcbHJIamOwuKHfEacNpgCqFfTgNCuNEVpIfyTEDtp6fGXJ9YowWLvvGijE/W9B
-         UpWxfZ2sTJRFRe1KG1XVrH1qY9tSzrStHosxYCupga/q/iZfAX2Ja5gq/65VeTNbZ4Ex
-         cMReS5lxwfyrNWPl/oNckO4HZfvTFYn1FDd64vbGw3Q966o9S7JVRr9NcZenyGXgUtmP
-         3YqjNDHwLpRDi4LLd9YLd6yWKaA17pOazQ7c3a5J9L/GCPCXd3QkV0/zd6i2DktR1imo
-         HwvpyP7L4eyO00u/7ZivAQ460pOtfCY2Dh7QAYcGYmb5RstTGQC2vx5HvFBMBhOImQ+c
-         XXLw==
+        bh=9OjRYTSNkHEyY186mhAXDBY6d07pgIeGaMetjd7Mr60=;
+        b=G9qENwuXdGA03tkgc+oMPLCXGnAgOsNokz5+/rbKGX7LLeWTv5MAUKYevmVUOBljht
+         NmiD8Iz4vJBV+bqw6jgjJHma3PLtzZF7FBqizc12FxpudHy85BLj3hqxMjthgPSJ0mqR
+         mCPAHvcnj6oTBnC6aV9F6RV9vVvk7IHw8RMVPhubyWNLmZxT4GrfVhAgHu7wWvc4N3sO
+         Jkh/Md5o7u2QR3ht9zCEtAeohoyNoSKmC4Wd0Ku0daggEUBB3vAxXYNx14G/0Wb5vgJ2
+         ktLuHQ4yzKtnMj+0gpyfMH04Vb+2YcmqxTrYo7lb5jZTj9tq9nmvYb3MeEVgRbxARqsp
+         9tUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681727662; x=1684319662;
+        d=1e100.net; s=20221208; t=1681727654; x=1684319654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iVt0lw69EHvz4t9Bycq9Ts+axEONPkDMjQoH6kPFB7Y=;
-        b=BWGpIVsuOD5EQJMjrA/uNihOwcMJuRVbqGcbXBzJQSPnDt1UCPq/pHoCYyyiWvA9Ub
-         HcQRz4gM9TNWSlhpnEINdE3Lfss0cqHLgnZoNnPEmgEbvnUygNCsFpl7KSg9WsvuB8uR
-         uIiRRdVfSkVQ4pJes6p2RRjn8doKmZ/YTU4dsyU1IfGb2OdIUGgn+KinirliayyilvVe
-         3WoR5SMBtaKt1HjZrStr1Ac0VKTi0VTqHwsCqUiD6/Yi5eBcRXpHTe0y4N5Ybcxes5bc
-         dNlXNapeTDeSObnVwAi5Jy/3RSRPW25Itff3NEU0JK2PYFwkA8NOt/9n4YJQqC1wodFW
-         xA4Q==
-X-Gm-Message-State: AAQBX9e6GIooo2Det66faYQz2F+PQIsSTkMUJ+lAKJFQTVOwWD/yPz/7
-	Wqj9zrvgaBOk8iD51nqkVM9Bog==
-X-Google-Smtp-Source: AKy350a8Lj7EgkeS1iRJ7k5BaKeuNiPpWnB/KLG809ED2EzJAgHR9+HESvMYHMWLt9Kr0+L4xJqKyQ==
-X-Received: by 2002:a17:906:a93:b0:94f:9cd:464b with SMTP id y19-20020a1709060a9300b0094f09cd464bmr6794895ejf.15.1681727662324;
-        Mon, 17 Apr 2023 03:34:22 -0700 (PDT)
+        bh=9OjRYTSNkHEyY186mhAXDBY6d07pgIeGaMetjd7Mr60=;
+        b=EGctxYCP+TrKy2N1niHjnPc/TYwd8QvBtSOjW/8ZpM8mEf6nN9qpD53WPhDnCqWR/b
+         epyh9QmDDBcv0lXWbv6cAkwCSqoxOH9LOEgTf6Htq22cd520vB6VJ5/XfxXTtrKOqpuU
+         JNHMefay2JfUI2qSk4T1O2R+lLyWdckwwhjLwVUBufrqARQH1FY9qWx4WHFy2iyYh5o/
+         LwEJeIYik/h2mK3eiLO03Fpku7kbfQ2ESZfZGPz5nZP80qkw1v/VJKyHpX+rhVOlOEhb
+         eQbI2kgZ983oL/eoeTACTXwDfvXrXeXhuCaY8bvW6xwKfnkq+vT/ZBdTWvoVOgQCmnWJ
+         tthg==
+X-Gm-Message-State: AAQBX9dVDZXBnWLh13pxpULVQSNfPDkOu31CrxUvJfbS75RK+It5e8gk
+	YNVrXx+Kf1qo+KBwZpdIp+bYMw==
+X-Google-Smtp-Source: AKy350bchrDyJZ1OFaeWOUccf7HUDHGV/vcTeb0Fz7iiWPlc3mEGShh2rzs8R5sNWXxb8WSFlzumyA==
+X-Received: by 2002:a50:ed0f:0:b0:504:aeb5:89c3 with SMTP id j15-20020a50ed0f000000b00504aeb589c3mr15779213eds.5.1681727654510;
+        Mon, 17 Apr 2023 03:34:14 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id ld4-20020a1709079c0400b0094eaa31aa63sm6209061ejc.77.2023.04.17.03.34.21
+        by smtp.gmail.com with ESMTPSA id j19-20020a508a93000000b00501c2a9e16dsm5835394edj.74.2023.04.17.03.34.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Apr 2023 03:34:22 -0700 (PDT)
+        Mon, 17 Apr 2023 03:34:14 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -74,16 +74,17 @@ Cc: 'Paul Walmsley ' <paul.walmsley@sifive.com>,
 	"'Srivatsa S . Bhat '" <srivatsa@csail.mit.edu>,
 	'Anup Patel ' <anup@brainfault.org>,
 	'Atish Patra ' <atishp@atishpatra.org>
-Subject: [RFC PATCH 10/14] RISC-V: KVM: Add support for SBI STA registers
-Date: Mon, 17 Apr 2023 12:33:58 +0200
-Message-Id: <20230417103402.798596-11-ajones@ventanamicro.com>
+Subject: [RFC PATCH 04/14] RISC-V: paravirt: Add kconfigs
+Date: Mon, 17 Apr 2023 12:33:52 +0200
+Message-Id: <20230417103402.798596-5-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230417103402.798596-1-ajones@ventanamicro.com>
 References: <20230417103402.798596-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_033424_749335_877D58E9 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20230417_033415_739121_23CB11C9 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,152 +101,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM userspace needs to be able to save and restore the steal-time
-shared memory address. Provide the address through the get/set-one-reg
-interface with two ulong-sized SBI STA extension registers (lo and hi).
-64-bit KVM will always save/restore zero for the hi register.
+Now that we can support steal-time accounting, add the kconfig
+knobs allowing it to be enabled.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 +++
- arch/riscv/include/uapi/asm/kvm.h     | 10 ++++++
- arch/riscv/kvm/vcpu.c                 |  5 +++
- arch/riscv/kvm/vcpu_sbi_sta.c         | 52 +++++++++++++++++++++++++++
- 4 files changed, 71 insertions(+)
+ arch/riscv/Kconfig | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-index c63c6bbc2f74..ed5a294c479a 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -52,6 +52,10 @@ int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
- 				   const struct kvm_one_reg *reg);
- const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
- 				struct kvm_vcpu *vcpu, unsigned long extid);
-+int kvm_riscv_vcpu_get_reg_sbi_sta(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				   unsigned long *reg_val);
-+int kvm_riscv_vcpu_set_reg_sbi_sta(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				   unsigned long reg_val);
- int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index eb7f29a412f8..76dc5821e470 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -583,6 +583,25 @@ config COMPAT
  
- #ifdef CONFIG_RISCV_SBI_V01
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 172dc565e01a..17b109a9ba7b 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -128,6 +128,12 @@ enum KVM_RISCV_SBI_EXT_ID {
- 	KVM_RISCV_SBI_EXT_MAX,
- };
+ 	  If you want to execute 32-bit userspace applications, say Y.
  
-+/* SBI STA extension registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-+struct kvm_riscv_sbi_sta {
-+	unsigned long shmem_lo;
-+	unsigned long shmem_hi;
-+};
++config PARAVIRT
++	bool "Enable paravirtualization code"
++	depends on RISCV_SBI
++	help
++	  This changes the kernel so it can modify itself when it is run
++	  under a hypervisor, potentially improving performance significantly
++	  over full virtualization.
 +
- /* Possible states for kvm_riscv_timer */
- #define KVM_RISCV_TIMER_STATE_OFF	0
- #define KVM_RISCV_TIMER_STATE_ON	1
-@@ -189,6 +195,10 @@ enum KVM_RISCV_SBI_EXT_ID {
- /* Registers for specific SBI extensions are mapped as type 9 */
- #define KVM_REG_RISCV_SBI		(0x09 << KVM_REG_RISCV_TYPE_SHIFT)
++config PARAVIRT_TIME_ACCOUNTING
++	bool "Paravirtual steal time accounting"
++	depends on PARAVIRT
++	help
++	  Select this option to enable fine granularity task steal time
++	  accounting. Time spent executing other tasks in parallel with
++	  the current vCPU is discounted from the vCPU power. To account for
++	  that, there can be a small performance impact.
++
++	  If in doubt, say N here.
++
+ endmenu # "Kernel features"
  
-+#define KVM_REG_RISCV_SBI_STA		(0x1 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+#define KVM_REG_RISCV_SBI_STA_REG(name)	\
-+	(offsetof(struct kvm_riscv_sbi_sta, name) / sizeof(unsigned long))
-+
- #endif
- 
- #endif /* __LINUX_KVM_RISCV_H */
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 56aec4c2521e..bdc14ebf50a3 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -603,6 +603,9 @@ static int kvm_riscv_vcpu_get_reg_sbi(struct kvm_vcpu *vcpu,
- 	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
- 
- 	switch (reg_subtype) {
-+	case KVM_REG_RISCV_SBI_STA:
-+		ret = kvm_riscv_vcpu_get_reg_sbi_sta(vcpu, reg_num, &reg_val);
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -636,6 +639,8 @@ static int kvm_riscv_vcpu_set_reg_sbi(struct kvm_vcpu *vcpu,
- 	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
- 
- 	switch (reg_subtype) {
-+	case KVM_REG_RISCV_SBI_STA:
-+		return kvm_riscv_vcpu_set_reg_sbi_sta(vcpu, reg_num, reg_val);
- 	default:
- 		return -EINVAL;
- 	}
-diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-index bc4f7390a9a8..3d98f140bd06 100644
---- a/arch/riscv/kvm/vcpu_sbi_sta.c
-+++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-@@ -3,6 +3,7 @@
-  * Copyright (c) 2023 Ventana Micro Systems Inc.
-  */
- 
-+#include <linux/kconfig.h>
- #include <linux/kernel.h>
- #include <linux/kvm_host.h>
- #include <linux/mm.h>
-@@ -145,3 +146,54 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_sta = {
- 	.handler = kvm_sbi_ext_sta_handler,
- 	.probe = kvm_sbi_ext_sta_probe,
- };
-+
-+int kvm_riscv_vcpu_get_reg_sbi_sta(struct kvm_vcpu *vcpu,
-+				   unsigned long reg_num,
-+				   unsigned long *reg_val)
-+{
-+	switch (reg_num) {
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_lo):
-+		*reg_val = (unsigned long)vcpu->arch.sta.shmem;
-+		break;
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			*reg_val = upper_32_bits(vcpu->arch.sta.shmem);
-+		else
-+			*reg_val = 0;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+int kvm_riscv_vcpu_set_reg_sbi_sta(struct kvm_vcpu *vcpu,
-+				   unsigned long reg_num,
-+				   unsigned long reg_val)
-+{
-+	switch (reg_num) {
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_lo):
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
-+
-+			vcpu->arch.sta.shmem = reg_val;
-+			vcpu->arch.sta.shmem |= hi << 32;
-+		} else
-+			vcpu->arch.sta.shmem = reg_val;
-+		break;
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
-+
-+			vcpu->arch.sta.shmem = ((gpa_t)reg_val << 32);
-+			vcpu->arch.sta.shmem |= lo;
-+		} else if (reg_val != 0)
-+			return -EINVAL;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
+ menu "Boot options"
 -- 
 2.39.2
 
