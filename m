@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66D5C77B70
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 08:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C61BC77B72
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 10:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t18XBVRJMxRGrzcc3yD6R7jptgwZq56MDCCQ1N4AXVU=; b=qeoUl3OI80be8X
-	81KBCMLl0oApiSM0ZhBPcc4zH/CNfrIxPuTTlDKbrG4VI1uyc4SdWfoVtvHDoa7NhVQyuo9ZZngMX
-	wHIioMH3/Ahk0neTh46IZCtnoUmS8psgSrmG7XCR0rueXpNp/ndizkeThtAExZUZh5wQJHkPqNE9V
-	q9sPDzhLZSD8Mxs3MDPseslI7W3cn1KwAxQ/LtN0E68tawUX53Jfb/tthFKtKs+jjFG+uB+cPSp8t
-	Z17pQtaNYrBV1BnuLytl932EGj8oiPLpgUTaOyiIXMNUKhGBWaT8JtFL5TAq1aK+P9LaOwE+drTQG
-	HXvW3Ya3fwGqYq8cOEbw==;
+	List-Owner; bh=XtVLt5O/7gCnreOXRQ3WSH+lPRFXlxrh6pkEH5O/pNo=; b=THfGGu5DSsxEuc
+	yQgz62zWasnitV47WsNUtnXq2NbXR949KDhowljcGjhcu9ijdXivcuCQAe476GE1OoUFpAhWlBfwF
+	hl/2PflO0cFn01TojXNK7g5EuDOMbjdP3eQIdmkPdH57bhh4+08XQbz06/R6ZQ2aTk+Ma6S8I78IF
+	aP9z1GaA3JZrjlWUAkdxeGwVESVPgu/tF8HfXEUXizuynYCQT1A0YWhtV8gcaVVSNPbquEO6eJdi/
+	yREEHFWWKZj8FXo5m8nlp7fm7AHxNbls4lUOa12KOeIHhXnhM6J08IQ/KRVm39cfPHkozsMuKnuyX
+	2M05L7K/k4ZmwaC4xApg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poKbo-00FQqH-09;
-	Mon, 17 Apr 2023 08:53:12 +0000
-Received: from mail-yw1-f175.google.com ([209.85.128.175])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poKbm-00FQpM-0D
+	id 1poLhn-00Ff4l-0t;
+	Mon, 17 Apr 2023 10:03:27 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1poLhj-00Ff0W-0n
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Apr 2023 08:53:11 +0000
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-54c0c86a436so529317317b3.6
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 01:53:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681721587; x=1684313587;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Mu7Hch1DiBF07SUCPix+0KBbOFjQRP+x98Um6bdp30s=;
-        b=Vfn+nf/RNYZ0JR3tI3J+XnkJNtNgZCUADapQ9VA7UJ0PVlkWpn569UuAzphVlmtXdy
-         mnUkoWo3rycOMz20kC/teQfcOQMvtPeLv47yzcxxu7Gc76RbOe/MHEGRwQPT3+ZfGHM3
-         wGXbbX+DZsSJojh2R2l+OUyLg3wDW5NZ+KkzG011sGzRqiISHf0ASD1w2Ao5QuuuV8bO
-         wimOr7on/nez5z840f5IrPYfsF1JM6n0sHwOOxVR7o1VrLsOkCAQgMohm7L7eudf+WK+
-         V6RCos2MOHopmrathOphXIBuK8a/H+e14WOqohnxUmeG7oqeOqk1cvIcusCX5mgqEi/a
-         eH9A==
-X-Gm-Message-State: AAQBX9dAqfRaXOYXYzdcWNXy2v+TguKC5bRsrKkuJloNgOgYceqNaT4O
-	QqPxHdPPjWk7vY8fxvuLyRz5w2/oQDqiXw==
-X-Google-Smtp-Source: AKy350agyjk9Dym5K4UpPC4nk0JgDHle1hChT2VEaUkgGzRaIpUfD8nqhqq7ZRk+NZ31KIW09/YNIg==
-X-Received: by 2002:a81:4fd6:0:b0:54f:1185:b591 with SMTP id d205-20020a814fd6000000b0054f1185b591mr15635173ywb.44.1681721586911;
-        Mon, 17 Apr 2023 01:53:06 -0700 (PDT)
-Received: from mail-yb1-f178.google.com (mail-yb1-f178.google.com. [209.85.219.178])
-        by smtp.gmail.com with ESMTPSA id bg27-20020a05690c031b00b0054fb9f870b6sm3009333ywb.113.2023.04.17.01.53.06
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Apr 2023 01:53:06 -0700 (PDT)
-Received: by mail-yb1-f178.google.com with SMTP id t16so12090955ybi.13
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 01:53:06 -0700 (PDT)
-X-Received: by 2002:a25:68cc:0:b0:a27:3ecc:ffe7 with SMTP id
- d195-20020a2568cc000000b00a273eccffe7mr11775312ybc.3.1681721586452; Mon, 17
- Apr 2023 01:53:06 -0700 (PDT)
+	Mon, 17 Apr 2023 10:03:25 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id EF9FA24E1BE;
+	Mon, 17 Apr 2023 18:02:55 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Apr
+ 2023 18:02:56 +0800
+Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
+ EXMBX162.cuchost.com (172.16.6.72) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Mon, 17 Apr 2023 18:02:54 +0800
+From: Samin Guo <samin.guo@starfivetech.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Pedro Moreira <pmmoreir@synopsys.com>, Richard Cochran
+	<richardcochran@gmail.com>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: [-net-next v12 2/6] net: stmmac: platform: Add snps,dwmac-5.20 IP compatible string
+Date: Mon, 17 Apr 2023 18:02:47 +0800
+Message-ID: <20230417100251.11871-3-samin.guo@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230417100251.11871-1-samin.guo@starfivetech.com>
+References: <20230417100251.11871-1-samin.guo@starfivetech.com>
 MIME-Version: 1.0
-References: <20230412110900.69738-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20230412110900.69738-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20230412110900.69738-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 17 Apr 2023 10:52:55 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVe6DXpM5zQk-zitNTk17QiStusOTQcjTMVy6HnhXyq1w@mail.gmail.com>
-Message-ID: <CAMuHMdVe6DXpM5zQk-zitNTk17QiStusOTQcjTMVy6HnhXyq1w@mail.gmail.com>
-Subject: Re: [PATCH v8 2/7] riscv: asm: vendorid_list: Add Andes Technology to
- the vendors list
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Samuel Holland <samuel@sholland.org>, linux-riscv@lists.infradead.org, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_015310_100540_36E0975F 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20230417_030323_606258_2DA50A4A 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +77,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBcHIgMTIsIDIwMjMgYXQgMTowOeKAr1BNIFByYWJoYWthciA8cHJhYmhha2FyLmNz
-ZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5t
-YWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPgo+IEFkZCBBbmRlcyBUZWNobm9sb2d5IHRv
-IHRoZSB2ZW5kb3JzIGxpc3QuCj4KPiBTaWduZWQtb2ZmLWJ5OiBMYWQgUHJhYmhha2FyIDxwcmFi
-aGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+Cj4gUmV2aWV3ZWQtYnk6IEhlaWtv
-IFN0dWVibmVyIDxoZWlrb0BzbnRlY2guZGU+Cj4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8
-Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+CgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVyaG9l
-dmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT4KCkdye29ldGplLGVldGluZ31zLAoKICAgICAg
-ICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUn
-cyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBw
-ZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2Vs
-ZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNh
-eSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Emil Renner Berthing <kernel@esmil.dk>
+
+Add "snps,dwmac-5.20" compatible string for 5.20 version that can avoid
+to define some platform data in the glue layer.
+
+Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 067a40fe0a23..eb0b2898daa3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -519,7 +519,8 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 	if (of_device_is_compatible(np, "snps,dwmac-4.00") ||
+ 	    of_device_is_compatible(np, "snps,dwmac-4.10a") ||
+ 	    of_device_is_compatible(np, "snps,dwmac-4.20a") ||
+-	    of_device_is_compatible(np, "snps,dwmac-5.10a")) {
++	    of_device_is_compatible(np, "snps,dwmac-5.10a") ||
++	    of_device_is_compatible(np, "snps,dwmac-5.20")) {
+ 		plat->has_gmac4 = 1;
+ 		plat->has_gmac = 0;
+ 		plat->pmt = 1;
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
