@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A62C77B76
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 19:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22AD5C77B72
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 19:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YuhdN7sjE9cSYmpWAoFcet4xYElp2rhqUmIGB60bkk0=; b=Hf/ZgN1iEBfapEgD0AGjR8GWxT
-	e9dUNgfJNbu1fqMkXCMQE1pW2LG79RIYZKEMfYz8mgQLFr2Z7IdNFtRmUweLS2FkceMhjEDgSevBL
-	fg3uqHZN4q3gWOBSE7TrL13oIA4wt8cM5kMg9z1HSSg/58WU6nfVgs90P1JiaK7hLMVU368Ezq6GI
-	m/bCkPDAiO0jqFusaZ4LR6A4T98fpX1UlpiAIn9ZuiLHg7kO7J5Rl6GBrTQn9/CnbLlMu5a0mXh4B
-	B4l0IkSwcKc6P7zcyihTjmz2g7ieqfJsOsxA6ZCXWNj+0fc3ROdxjuyiWXop+VMEc7gXcgWJfNcxD
-	pR3QFrdQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=f8EPSgEBjBrB0Hz4J37rvTV/11gV7/6tIQpuEXj3o7U=; b=271JnEPR5bj/agia0G6hqHraJQ
+	vxCy1zyET/magiqhzT/bYJJaJyMEvPQq/TKVW49dGs6VLBh2Z9lTHHNuERyziJUoyAQ0Pm62uCliH
+	zhtuyJ04P6FCkTzR05EHplrct3ArMFtC981RtDJUDPnArQZfGk7yTneM4HaUfDiulDYrK6TbRSG2h
+	iZzkSrxQ0XJU7WICyHOFf8WMyyzLiqWQcE1Aq8abWhLaME2idJo5/R6rhONr80Oqf2IGYUpi8pVaW
+	jF80GwzOJdGNKqEH3P9EBTTO0iRE4jB/CcZtepb2XWFKwuQig+cR80u/1kACVBKKrM7bbf48R1Z1V
+	Jwsc/h9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poUFB-00HOUM-2o;
-	Mon, 17 Apr 2023 19:10:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1poUd7-00HRWO-21;
+	Mon, 17 Apr 2023 19:35:13 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poUF8-00HOTl-2w
+	id 1poUd5-00HRVq-0V
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Apr 2023 19:10:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 664DB6208F;
-	Mon, 17 Apr 2023 19:10:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F632C4339B;
-	Mon, 17 Apr 2023 19:10:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681758625;
-	bh=yCXjwKoRnqaD54nqpiHI7E6bMmJjLV9DRWQe3iPXcU0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L1jYU5nwi8VcN7iCsX4LB+6L2iZDQarFJEQPAFbOJkpD63dvSLOJS6E81JEFEGr+U
-	 hpEQyltNaE+ntyGtulDZati5Z7mjnW6HUYLloRWb30M8fBXkCWcm8GCJR5XfvaS1iS
-	 CPVLGhYmHOr/gcbfIuDGgKCDjhqOLn/fUWGx1yYKlro3/kSQYeBI2eIyON9vEikFAS
-	 AMPkq13IaRFmQokfF+erhO30b2kPhyjwxZ+dnS8FqpJ5d3XMW//0ekNv9k89cBwnX4
-	 V4VpNIaeBKaEInXdXuDYDWNY0L5NF7GfKVAoWKoMXswmZp6KjWjeehV1+PrPBbsxRn
-	 ep1i4V2diKGsQ==
-Date: Mon, 17 Apr 2023 20:10:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>
-Subject: Re: [RFC PATCH 2/2] RISC-V: Add support for sqoscfg CSR
-Message-ID: <20230417-culinary-capillary-4f1efd496691@spud>
-References: <20230410043646.3138446-1-dfustini@baylibre.com>
- <20230410043646.3138446-3-dfustini@baylibre.com>
-MIME-Version: 1.0
-In-Reply-To: <20230410043646.3138446-3-dfustini@baylibre.com>
+	Mon, 17 Apr 2023 19:35:12 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id o2so26943598plg.4
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Apr 2023 12:35:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1681760109; x=1684352109;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UXrDQCneSb8jgaB5WOV1RqaoODncwrujP+Iw89BILhs=;
+        b=O5dg6sOfwLf72QhLfcA5JPZKGpC9v3EPOX2y0AYcP7Il8gcym2sV8o5lhXHrPSGiGW
+         DPGhkhxCJAOGPQHDgIJQWDZgMpZ18zws9m2PU3filA4f04zZ/ATq8zPp2oc0CvIEZOx4
+         aS6Dmvqfg1ZBUBAHKCZGkO1qU4Za622yPoSyVVfHHKSW/NNIp8JEewzQlEvRUxd26zgx
+         c3D57alEVgMwcn82DCHEwvxiO+Gj6jb3vWycOEc2eSWxLW3VrVDVPARr/jOUFRnCXL2R
+         HCsjeToQ1OnDlO+wynHZo/8xZeVoZoCrR1W37oblagNvZ1Qy78o/cJdejEHoycqWtbfQ
+         venQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681760109; x=1684352109;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UXrDQCneSb8jgaB5WOV1RqaoODncwrujP+Iw89BILhs=;
+        b=MBnBvTJL8jjnXK7o0VrkZPNEWMDzjrV74XoGQ4SfxZXhYEW2ICIPsey+CnTtR2NyNQ
+         J5IeozLEvb0F5gR/wvHMOSaArgoSqy589nRWYR6oexIgc9uIwmVI9IxxAv2vXMyG7XVb
+         HFBkaboXWNCnaIy0o9CmVkg37BD9wOWuqPF/eIhOQV0lVzTErfQ+xGhP4sA/gbexZAIv
+         osa8NZbKPzoRVrFh551D3d+LdT/o6J1/oA0h3V3R1bFTaegfmoOrp76VtEx4cT5lMeq2
+         evpfkRdGB6/vy91p3zd13QVtqcWcwMozqdDidkRZSrC09a4U/DzjsTRqukxZ9/mxKNdM
+         MbbA==
+X-Gm-Message-State: AAQBX9dF+CBaXC1/kMKF/z4As5CxwjeAXUSUdhDJbvh3bifzijGyMuCP
+	/mWK8nMU6mtJZI2LBd9g0aC/Gw==
+X-Google-Smtp-Source: AKy350ZgkvMBwxuvsB2Nzf72S0ZpG/7AYjuh89fy8y1Y+VJOMWc5KS3m/VSnzQO/xLsTnbpfVXYkiA==
+X-Received: by 2002:a17:90a:2a41:b0:247:c0bd:b99a with SMTP id d1-20020a17090a2a4100b00247c0bdb99amr597549pjg.31.1681760109163;
+        Mon, 17 Apr 2023 12:35:09 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id b10-20020a17090a800a00b002479c36b10esm1828978pjn.23.2023.04.17.12.35.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Apr 2023 12:35:08 -0700 (PDT)
+Date: Mon, 17 Apr 2023 12:35:08 -0700 (PDT)
+X-Google-Original-Date: Mon, 17 Apr 2023 12:34:57 PDT (-0700)
+Subject: Re: [PATCH 2/6] tools/nolibc: riscv: add stackprotector support
+In-Reply-To: <20230408-nolibc-stackprotector-archs-v1-2-271f5c859c71@weissschuh.net>
+CC: w@1wt.eu, shuah@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux@weissschuh.net
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: linux@weissschuh.net
+Message-ID: <mhng-1ec176a9-ec5d-470b-a278-a4e9cec728a8@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_121027_031579_2E645204 
-X-CRM114-Status: GOOD (  41.76  )
+X-CRM114-CacheID: sfid-20230417_123511_373478_8E3AC2D5 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,268 +87,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5356758871368437540=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5356758871368437540==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Tw0z1flI5Ff7cn7l"
-Content-Disposition: inline
-
-
---Tw0z1flI5Ff7cn7l
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Drew,
-
-(Don't get your hopes up, I don't have anything really meaningful to
-contribute, sorry.)
-
-On Sun, Apr 09, 2023 at 09:36:46PM -0700, Drew Fustini wrote:
-> Add support for the sqoscfg CSR defined in the Ssqosid ISA extension
-> (Supervisor-mode Quality of Service ID). The CSR contains two fields:
->=20
->   - Resource Control ID (RCID) used determine resource allocation
->   - Monitoring Counter ID (MCID) used to track resource usage
->=20
-> Requests from a hart to shared resources like cache will be tagged with
-> these IDs. This allows the usage of shared resources to be associated
-> with the task currently running on the hart.
->=20
-> A sqoscfg field is added to thread_struct and has the same format as the
-> sqoscfg CSR. This allows the scheduler to set the hart's sqoscfg CSR to
-> contain the RCID and MCID for the task that is being scheduled in. The
-> sqoscfg CSR is only written to if the thread_struct.sqoscfg is different
-> from the current value of the CSR.
->=20
-> A per-cpu variable cpu_sqoscfg is used to mirror that state of the CSR.
-> This is because access to L1D hot memory should be several times faster
-> than a CSR read. Also, in the case of virtualization, accesses to this
-> CSR are trapped in the hypervisor.
->=20
-> Link: https://github.com/riscv-non-isa/riscv-cmqri/blob/main/riscv-cbqri.=
-pdf
-> Co-developed-by: Kornel Dul=C4=99ba <mindal@semihalf.com>
-> Signed-off-by: Kornel Dul=C4=99ba <mindal@semihalf.com>
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> ---
-> Note: the Ssqosid extension and CBQRI spec are still in a draft state.
-> The CSR address of sqoscfg is not final.
->=20
-> Changes from the original patch [1]:
-> - Rebase from 6.0 to 6.3
-> - Simplify per-cpu variable from struct to u32 with just sqoscfg
-> - Move qoscfg to thread_struct in arch/riscv/include/asm/processor.h
->   This avoids changing task_struct in /include/linux/sched.h
-> - Reword commit description
-> - Reword Kconfig description
->=20
-> [1] https://github.com/rivosinc/linux/commit/8454b793a62be21d39e5826ef524=
-1dfa06198ba9
->=20
->  arch/riscv/Kconfig                 | 19 ++++++++++++++
->  arch/riscv/include/asm/csr.h       |  8 ++++++
->  arch/riscv/include/asm/processor.h |  3 +++
->  arch/riscv/include/asm/qos.h       | 40 ++++++++++++++++++++++++++++++
->  arch/riscv/include/asm/switch_to.h |  2 ++
->  5 files changed, 72 insertions(+)
->  create mode 100644 arch/riscv/include/asm/qos.h
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index cc02eb9eee1f..03f22b7fe34b 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -418,6 +418,25 @@ config RISCV_ISA_SVNAPOT
-> =20
->  	  If you don't know what to do here, say Y.
-> =20
-> +config RISCV_ISA_SSQOSID
-> +	bool "Ssqosid extension support"
-> +	default y
-> +	help
-> +	  Adds support for the Ssqosid ISA extension (Supervisor-mode
-> +	  Quality of Service ID).
-
-Could you add "long form" text in brackets here to the bool line, a la:
-https://patchwork.kernel.org/project/linux-riscv/patch/20230405-pucker-cogw=
-heel-3a999a94a2f2@wendy/
-
-> +
-> +	  Ssqosid defines the sqoscfg CSR which allows the system to tag
-> +	  the running process with RCID (Resource Control ID) and MCID
-> +	  (Monitoring Counter ID). The RCID is used determine resource
-> +	  allocation. The MCID is used to track resource usage in event
-> +	  counters.
-> +
-> +	  For example, a cache controller may use the RCID to apply a
-> +	  cache partitioning scheme and use the MCID to track how much
-> +	  cache a process, or a group of processes, is using.
-> +
-> +	  If you don't know what to do here, say Y.
-> +
->  config RISCV_ISA_SVPBMT
->  	bool "SVPBMT extension support"
->  	depends on 64BIT && MMU
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index 7c2b8cdb7b77..17d04a0cacd6 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -59,6 +59,13 @@
->  #define SATP_ASID_MASK	_AC(0xFFFF, UL)
->  #endif
-> =20
-> +/* SQOSCFG fields */
-> +#define SQOSCFG_RCID_MASK	_AC(0x00000FFF, UL)
-> +#define SQOSCFG_MCID_MASK	SQOSCFG_RCID_MASK
-> +#define SQOSCFG_MCID_SHIFT	16
-> +#define SQOSCFG_MASK		((SQOSCFG_MCID_MASK << SQOSCFG_MCID_SHIFT) | \
-> +				  SQOSCFG_RCID_MASK)
-> +
->  /* Exception cause high bit - is an interrupt if set */
->  #define CAUSE_IRQ_FLAG		(_AC(1, UL) << (__riscv_xlen - 1))
-> =20
-> @@ -245,6 +252,7 @@
->  #define CSR_STVAL		0x143
->  #define CSR_SIP			0x144
->  #define CSR_SATP		0x180
-> +#define CSR_SQOSCFG		0x181
-> =20
->  #define CSR_STIMECMP		0x14D
->  #define CSR_STIMECMPH		0x15D
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
-processor.h
-> index 94a0590c6971..724b2aa2732d 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -39,6 +39,9 @@ struct thread_struct {
->  	unsigned long s[12];	/* s[0]: frame pointer */
->  	struct __riscv_d_ext_state fstate;
->  	unsigned long bad_cause;
-> +#ifdef CONFIG_RISCV_ISA_SSQOSID
-> +	u32 sqoscfg;
-> +#endif
->  };
-> =20
->  /* Whitelist the fstate from the task_struct for hardened usercopy */
-> diff --git a/arch/riscv/include/asm/qos.h b/arch/riscv/include/asm/qos.h
-> new file mode 100644
-> index 000000000000..297e7fb64d80
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/qos.h
-> @@ -0,0 +1,40 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_QOS_H
-> +#define _ASM_RISCV_QOS_H
-> +
-> +#ifdef CONFIG_RISCV_ISA_SSQOSID
-> +
-> +#include <linux/sched.h>
-> +#include <linux/jump_label.h>
-> +
-> +#include <asm/barrier.h>
-> +#include <asm/csr.h>
-> +#include <asm/hwcap.h>
-> +
-> +/* cached value of sqoscfg csr for each cpu */
-> +static DEFINE_PER_CPU(u32, cpu_sqoscfg);
-> +
-> +static void __qos_sched_in(struct task_struct *task)
-> +{
-> +	u32 *cpu_sqoscfg_ptr =3D this_cpu_ptr(&cpu_sqoscfg);
-> +	u32 thread_sqoscfg;
-> +
-> +	thread_sqoscfg =3D READ_ONCE(task->thread.sqoscfg);
-> +
-> +	if (thread_sqoscfg !=3D *cpu_sqoscfg_ptr) {
-> +		*cpu_sqoscfg_ptr =3D thread_sqoscfg;
-> +		csr_write(CSR_SQOSCFG, thread_sqoscfg);
-> +	}
-> +}
-> +
-> +static inline void qos_sched_in(struct task_struct *task)
-
-"qos" is a pretty generic prefix, no? Do you think we'd be better off
-prefixing this (and every other extension related thing) with `riscv_`?
-
-> +{
-> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSQOSID))
-> +		__qos_sched_in(task);
-> +}
-> +#else
-> +
-> +static inline void qos_sched_in(struct task_struct *task) {}
-> +
-> +#endif /* CONFIG_RISCV_ISA_SSQOSID */
-> +#endif /* _ASM_RISCV_QOS_H */
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/=
-switch_to.h
-> index 60f8ca01d36e..75d9bfd766af 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -12,6 +12,7 @@
->  #include <asm/processor.h>
->  #include <asm/ptrace.h>
->  #include <asm/csr.h>
-> +#include <asm/qos.h>
-> =20
->  #ifdef CONFIG_FPU
->  extern void __fstate_save(struct task_struct *save_to);
-> @@ -79,6 +80,7 @@ do {							\
->  	if (has_fpu())					\
->  		__switch_to_aux(__prev, __next);	\
->  	((last) =3D __switch_to(__prev, __next));		\
-> +	qos_sched_in(__next);				\
-
-Both FPU and vector do:
-|	if (has_fpu())					\
-|		__switch_to_fpu(__prev, __next);	\
-|	if (has_vector())				\
-|		__switch_to_vector(__prev, __next);	\
-
-Is it just my OCD that wants ssqosid to be the same?
-It'd also do away with that seems a bit weird to me: having
-qos_sched_in() and __qos_sched_in().
-Even if you don't make them similar, what's the rationale behind not
-inverting the extension check & returning early from a single function.
-
-This is kinda above my pay grade, so let me know what I've inevitably
-missed,
-Conor.
-
-> =20
->  #endif /* _ASM_RISCV_SWITCH_TO_H */
-> --=20
-> 2.34.1
->=20
-
---Tw0z1flI5Ff7cn7l
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZD2ZnAAKCRB4tDGHoIJi
-0vLTAQDGkLnWsmQt646uefVhaTXvfTn0++As1HwREmulLGS+rgEA7r/IXR2OECZO
-KbR7orDq25nByBfalRIlUutraceTjgk=
-=IClB
------END PGP SIGNATURE-----
-
---Tw0z1flI5Ff7cn7l--
-
-
---===============5356758871368437540==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5356758871368437540==--
-
+T24gTW9uLCAxNyBBcHIgMjAyMyAwOTowMTozMiBQRFQgKC0wNzAwKSwgbGludXhAd2Vpc3NzY2h1
+aC5uZXQgd3JvdGU6Cj4gU2lnbmVkLW9mZi1ieTogVGhvbWFzIFdlacOfc2NodWggPGxpbnV4QHdl
+aXNzc2NodWgubmV0Pgo+IC0tLQo+ICB0b29scy9pbmNsdWRlL25vbGliYy9hcmNoLXJpc2N2Lmgg
+ICAgICAgfCA3ICsrKysrKy0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL01ha2Vm
+aWxlIHwgMSArCj4gIDIgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9u
+KC0pCj4KPiBkaWZmIC0tZ2l0IGEvdG9vbHMvaW5jbHVkZS9ub2xpYmMvYXJjaC1yaXNjdi5oIGIv
+dG9vbHMvaW5jbHVkZS9ub2xpYmMvYXJjaC1yaXNjdi5oCj4gaW5kZXggMGQ1ZjE1ZmRlZGM0Li5i
+MmNjZmZjYzA3OWYgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvaW5jbHVkZS9ub2xpYmMvYXJjaC1yaXNj
+di5oCj4gKysrIGIvdG9vbHMvaW5jbHVkZS9ub2xpYmMvYXJjaC1yaXNjdi5oCj4gQEAgLTE3Mywx
+NCArMTczLDE5IEBAIHN0cnVjdCBzeXNfc3RhdF9zdHJ1Y3Qgewo+ICBjaGFyICoqZW52aXJvbiBf
+X2F0dHJpYnV0ZV9fKCh3ZWFrKSk7Cj4gIGNvbnN0IHVuc2lnbmVkIGxvbmcgKl9hdXh2IF9fYXR0
+cmlidXRlX18oKHdlYWspKTsKPgo+ICsjZGVmaW5lIF9fQVJDSF9TVVBQT1JUU19TVEFDS19QUk9U
+RUNUT1IKPiArCj4gIC8qIHN0YXJ0dXAgY29kZSAqLwo+IC12b2lkIF9fYXR0cmlidXRlX18oKHdl
+YWssbm9yZXR1cm4sb3B0aW1pemUoIm9taXQtZnJhbWUtcG9pbnRlciIpKSkgX3N0YXJ0KHZvaWQp
+Cj4gK3ZvaWQgX19hdHRyaWJ1dGVfXygod2Vhayxub3JldHVybixvcHRpbWl6ZSgib21pdC1mcmFt
+ZS1wb2ludGVyIiksbm9fc3RhY2tfcHJvdGVjdG9yKSkgX3N0YXJ0KHZvaWQpCj4gIHsKPiAgCV9f
+YXNtX18gdm9sYXRpbGUgKAo+ICAJCSIub3B0aW9uIHB1c2hcbiIKPiAgCQkiLm9wdGlvbiBub3Jl
+bGF4XG4iCj4gIAkJImxsYSAgIGdwLCBfX2dsb2JhbF9wb2ludGVyJFxuIgo+ICAJCSIub3B0aW9u
+IHBvcFxuIgo+ICsjaWZkZWYgTk9MSUJDX1NUQUNLUFJPVEVDVE9SCj4gKwkJImNhbGwgX19zdGFj
+a19jaGtfaW5pdFxuIiAgICAvKiBpbml0aWFsaXplIHN0YWNrIHByb3RlY3RvciAgICAgICAgICAg
+ICAgICAgICAgICAgICAgKi8KPiArI2VuZGlmCj4gIAkJImx3ICAgIGEwLCAwKHNwKVxuIiAgICAg
+ICAgICAvKiBhcmdjIChhMCkgd2FzIGluIHRoZSBzdGFjayAgICAgICAgICAgICAgICAgICAgICAg
+ICAgKi8KPiAgCQkiYWRkICAgYTEsIHNwLCAiU1pSRUciXG4iICAgIC8qIGFyZ3YgKGExKSA9IHNw
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAqLwo+ICAJCSJzbGxpICBhMiwg
+YTAsICJQVFJMT0ciXG4iICAgLyogZW52cCAoYTIpID0gU1pSRUcqYXJnYyAuLi4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICovCj4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3Rz
+L25vbGliYy9NYWtlZmlsZSBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9NYWtlZmls
+ZQo+IGluZGV4IDNjOGUzYTZmODk4NS4uMGE4M2FkMzg4YTE2IDEwMDY0NAo+IC0tLSBhL3Rvb2xz
+L3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9NYWtlZmlsZQo+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcv
+c2VsZnRlc3RzL25vbGliYy9NYWtlZmlsZQo+IEBAIC04Miw2ICs4Miw3IEBAIENGTEFHU19TVEFD
+S1BST1RFQ1RPUiA9IC1ETk9MSUJDX1NUQUNLUFJPVEVDVE9SIFwKPiAgQ0ZMQUdTX1NUS1BfaTM4
+NiA9ICQoQ0ZMQUdTX1NUQUNLUFJPVEVDVE9SKQo+ICBDRkxBR1NfU1RLUF94ODZfNjQgPSAkKENG
+TEFHU19TVEFDS1BST1RFQ1RPUikKPiAgQ0ZMQUdTX1NUS1BfeDg2ID0gJChDRkxBR1NfU1RBQ0tQ
+Uk9URUNUT1IpCj4gK0NGTEFHU19TVEtQX3Jpc2N2ID0gJChDRkxBR1NfU1RBQ0tQUk9URUNUT1Ip
+Cj4gIENGTEFHU19zMzkwID0gLW02NAo+ICBDRkxBR1MgID89IC1PcyAtZm5vLWlkZW50IC1mbm8t
+YXN5bmNocm9ub3VzLXVud2luZC10YWJsZXMgLXN0ZD1jODkgXAo+ICAJCSQoY2FsbCBjYy1vcHRp
+b24sLWZuby1zdGFjay1wcm90ZWN0b3IpIFwKCkFja2VkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFs
+bWVyQHJpdm9zaW5jLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
