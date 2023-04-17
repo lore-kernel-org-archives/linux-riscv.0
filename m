@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8C5C77B76
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 15:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0693C77B7E
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 15:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xftNCJvSboGEL+XjUPdH+Tkju0JAm9g3au376aMTa94=; b=lUb2fYkaCwIj9g
-	sfwjaszvRpGuuFgNSBb8faaltRCOSGj72CLMi+PaZMm+QEcp+ji0BmvLWuBE8Ko1l0m77bebvNr1l
-	oDufDxO4ag/OPbS0FBUliYfaXV3Xf2tQrNS7mjcoUgXK9dt11R5GS7hfRp1L0EqfVVHHrc5AuPPma
-	KzjU1wN3DROavglosXtHM0XyjS+UPXYBedAV+puP8j7SlxDQNyymramY/nko0z2ZGuUJeo+gvB402
-	eAKR7sQH2t/iDD3frFy8pjqBiO+epC3GgSjzHLB68pTZskizGxnJu2ag2yektPIntIL/XHVeRGP9Q
-	FNB0WiaQHQIH2VSPe2jw==;
+	List-Owner; bh=Zp+HZRBURVqCnswnOCufarUStWeYdcRGxcNHtsZSx3A=; b=VReYqGrHk29kWY
+	JFI4GqkvJHplGSuLiYJPw8VZsmSMa24DDzam1YQZ4kk5jg0a+uo0SXHLkR3DOr48RPukT5RhxNQ8J
+	MPUXWT0DiDdRw/mWG39d3OhnTNc/19jXA16Cj72oRcDdgTZXXLIPOjhKmfyQgQt3h/3GR2I9jO/rD
+	Tol7BlLr+wDI7agCkCzpMzDE09EhQrq3nYwBEyf7XnlIkRSpEzDhZqp0iOCuctCJCqZqVCSDjZcWd
+	U+NvFkyqo0KeviJcHZ7FS6SgDPbm8qmejT7ZafX0fKsPeelnTwUvY5UiOCZ/MJM1OYOIJ8k5WJ2bu
+	LmAy2e3jOyOk59Ni77YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poR9H-00GxQJ-2R;
-	Mon, 17 Apr 2023 15:52:11 +0000
+	id 1poRCM-00Gy0G-2A;
+	Mon, 17 Apr 2023 15:55:22 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poR9F-00GxPD-1D;
-	Mon, 17 Apr 2023 15:52:10 +0000
+	id 1poRCK-00Gxz9-1g;
+	Mon, 17 Apr 2023 15:55:22 +0000
 Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1poR98-0004wv-Ls; Mon, 17 Apr 2023 17:52:02 +0200
+	id 1poRC4-0004yF-Lf; Mon, 17 Apr 2023 17:55:04 +0200
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org,
  atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
+Cc: guoren@linux.alibaba.com, Jisheng Zhang <jszhang@kernel.org>,
+ Xianting Tian <xianting.tian@linux.alibaba.com>,
+ Liao Chang <liaochang1@huawei.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ vineetg@rivosinc.com, Philipp Tomsich <philipp.tomsich@vrull.eu>,
  Vincent Chen <vincent.chen@sifive.com>,
- Han-Kuan Chen <hankuan.chen@sifive.com>, Andy Chiu <andy.chiu@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Nicolas Saenz Julienne <nsaenzju@redhat.com>,
- =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
- Frederic Weisbecker <frederic@kernel.org>,
- Andrew Bresticker <abrestic@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Andy Chiu <andy.chiu@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Ley Foon Tan <leyfoon.tan@starfivetech.com>, greentime.hu@sifive.com,
+ Li Zhengyu <lizhengyu3@huawei.com>, Andrew Jones <ajones@ventanamicro.com>,
  Andy Chiu <andy.chiu@sifive.com>
-Subject:  Re: [PATCH -next v18 05/20] riscv: Disable Vector Instructions for kernel
- itself
-Date: Mon, 17 Apr 2023 17:52:01 +0200
-Message-ID: <3758917.VqM8IeB0Os@diego>
-In-Reply-To: <20230414155843.12963-6-andy.chiu@sifive.com>
+Subject:  Re: [PATCH -next v18 07/20] riscv: Introduce riscv_v_vsize to record size of
+ Vector context
+Date: Mon, 17 Apr 2023 17:55:03 +0200
+Message-ID: <2456518.jZfb76A358@diego>
+In-Reply-To: <20230414155843.12963-8-andy.chiu@sifive.com>
 References:  <20230414155843.12963-1-andy.chiu@sifive.com>
- <20230414155843.12963-6-andy.chiu@sifive.com>
+ <20230414155843.12963-8-andy.chiu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230417_085209_410829_CDC58E7C 
-X-CRM114-Status: UNSURE (   7.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230417_085520_553896_2648E07E 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +72,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 14. April 2023, 17:58:28 CEST schrieb Andy Chiu:
-> From: Guo Ren <guoren@linux.alibaba.com>
+Am Freitag, 14. April 2023, 17:58:30 CEST schrieb Andy Chiu:
+> From: Greentime Hu <greentime.hu@sifive.com>
 > 
-> Disable vector instructions execution for kernel mode at its entrances.
+> This patch is used to detect the size of CPU vector registers and use
+> riscv_v_vsize to save the size of all the vector registers. It assumes all
+> harts has the same capabilities in a SMP system. If a core detects VLENB
+> that is different from the boot core, then it warns and turns off V
+> support for user space.
 > 
+> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-> Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
 > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
