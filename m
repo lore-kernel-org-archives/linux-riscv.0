@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53BAC77B70
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 06:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E8AC77B70
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Apr 2023 06:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bCP7NAgAMtAo57oer+C37XK2pGOqEbrWsL4dyaVtH+w=; b=UJHTm/wUoY0z5Y
-	DXNxqXscIvhSEvnlLVpJMkjL3FteUnmNpoFjhvjXXkcKx52GqytwX1sNszIxmosvLmlASnVGKeoxD
-	NfGdDTerc6jeeEP/wJLOVqVq3bTKNwNb3N16niGHDCScvzJ7eXQxN0g4l5ay5LKAaa7wAabD43Qzw
-	TscCPQV9MdLafLt5zA5G2dNWwTeul7bTJIh6V+bhpFP97FlQ9d86aFAIj3ed8O5Fg8HZI7WO/LgaR
-	Tj51kPeDvHD78E+0wSt48fgxnFrdNNHVe7ylOYgwnPMYodDoxSVLYvPEKmqJIfSJ3xiR5thswwgni
-	GJ6xLIr0pe1GxFgnLERA==;
+	List-Owner; bh=dKwWuRbYEjJeZBJdJMGcyoYXlg+sYIEutwmV00CfcbE=; b=qM7+Wc2DiP6ZE9
+	jQBwsszrQ0PXbL0Oyia75TiAjzRDjlnJvBJa1AIBY95+MXJdPNeK/B6Q9dUPQjWG2vgBsD1kwwCnq
+	qSCzauQDpigZDO1s7IjcdAVgw5gGk59js//zAS7MMN7GCIRiwUic7JiOwjvUBklr6Ivu5KOhu94Vq
+	mDz0bxSeNEa9Pr+PukyFRLfPAgowtsNi2eyIzbOU44RgipZn1V5ijul2bHi5zywUhpkI78852PlZi
+	DpU9CNDnSmlXVU3yOageary6jS9tqZ0G1jfFzrFoBSp8FBiHIU+1cmHQIdiX6blnPiK4bDVY2mbrE
+	sCyPhJFtMPpPvpWpRgPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poIXI-00F4Is-2z;
+	id 1poIXI-00F4Ik-1U;
 	Mon, 17 Apr 2023 06:40:24 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poIXE-00F4G5-18
+	id 1poIXE-00F4G4-1h
 	for linux-riscv@lists.infradead.org;
 	Mon, 17 Apr 2023 06:40:22 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id C29A224E217;
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0762F24E214;
 	Mon, 17 Apr 2023 14:39:46 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Apr
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Apr
  2023 14:39:46 +0800
 Received: from localhost.localdomain (183.27.97.249) by EXMBX067.cuchost.com
  (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Apr
@@ -48,9 +48,9 @@ To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
 CC: Shengyu Qu <wiagn233@outlook.com>, <linux-pm@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, Mason Huo <mason.huo@starfivetech.com>
-Subject: [PATCH v2 3/3] riscv: dts: starfive: Add cpu scaling for JH7110 SoC
-Date: Mon, 17 Apr 2023 14:39:42 +0800
-Message-ID: <20230417063942.3141-4-mason.huo@starfivetech.com>
+Subject: [PATCH v2 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the allowlist
+Date: Mon, 17 Apr 2023 14:39:41 +0800
+Message-ID: <20230417063942.3141-3-mason.huo@starfivetech.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230417063942.3141-1-mason.huo@starfivetech.com>
 References: <20230417063942.3141-1-mason.huo@starfivetech.com>
@@ -60,9 +60,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX067.cuchost.com
  (172.16.6.67)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230416_234020_709061_C47513EE 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230416_234020_731936_81605AA0 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,112 +78,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the operating-points-v2 to support cpu scaling on StarFive JH7110 SoC.
-It supports up to 4 cpu frequency loads.
+Add the compatible strings for supporting the generic
+cpufreq driver on the StarFive JH7110 SoC.
 
 Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 17 ++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 33 +++++++++++++++++++
- 2 files changed, 50 insertions(+)
+ drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index cca1c8040801..b25e6d68ce53 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -227,3 +227,20 @@ &uart0 {
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-+
-+&U74_1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_4 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..7eef88d2cedb 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -53,6 +53,9 @@ U74_1: cpu@1 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
+diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+index e85703651098..79537d0ed7cf 100644
+--- a/drivers/cpufreq/cpufreq-dt-platdev.c
++++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+@@ -86,6 +86,8 @@ static const struct of_device_id allowlist[] __initconst = {
+ 	{ .compatible = "st-ericsson,u9500", },
+ 	{ .compatible = "st-ericsson,u9540", },
  
- 			cpu1_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -79,6 +82,9 @@ U74_2: cpu@2 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu2_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -105,6 +111,9 @@ U74_3: cpu@3 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu3_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -131,6 +140,9 @@ U74_4: cpu@4 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu4_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -164,6 +176,27 @@ core4 {
- 		};
- 	};
- 
-+	cpu_opp: opp-table-0 {
-+			compatible = "operating-points-v2";
-+			opp-shared;
-+			opp-375000000 {
-+					opp-hz = /bits/ 64 <375000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-500000000 {
-+					opp-hz = /bits/ 64 <500000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-750000000 {
-+					opp-hz = /bits/ 64 <750000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-1500000000 {
-+					opp-hz = /bits/ 64 <1500000000>;
-+					opp-microvolt = <1040000>;
-+			};
-+	};
++	{ .compatible = "starfive,jh7110", },
 +
- 	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
- 		compatible = "fixed-clock";
- 		clock-output-names = "gmac0_rgmii_rxin";
+ 	{ .compatible = "ti,omap2", },
+ 	{ .compatible = "ti,omap4", },
+ 	{ .compatible = "ti,omap5", },
 -- 
 2.39.2
 
