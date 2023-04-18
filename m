@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12E8C6FD18
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 13:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9F1C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 13:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKekXHZcBzAL5UzjHtU9BMsu2QcQm/FKVOAvK4jwTAg=; b=tbZTJbUMpmSp8AVvDr6ht1eCTe
-	r16vwX6qRI31d2tM8zP7iDJV5NeZ/7LeVxMP9oUOsFD9Tid5avVm9hbq6NdxVR+5BCTGjhjljsWYS
-	8qYFfMBpGbzyoLwdmIKQ47TMTNANO72cEp3EOb3SCRRwnQrdruOuEthpFbfTR53Nzit1wSiUEFdet
-	R/JSuajz1/zbJhMEYLvXrB84PrxWLCZNqHgEbEHF+4PotoLV6c7a+OtsA8BJxaRUQVXG4KXdJBSqq
-	x8x31S1mQ/P5uySqSv4zCR74LtHQQAzjGKSV2Xq+DYu8Lb0PIArppTuczwnQpWNtLYi4SNm+Wq+es
-	vwEr5/gA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:In-Reply-To:
+	Date:MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=fW4xV0M7SR+5S1x6ieYKGpA5RlZoN5AidNwi282vOkk=; b=IegalmcIM2ZGd4
+	zGk3g3rb2MOA/ogf7nVkSLGvfUXWwp6ack/tdvni0HaNpD6Lykt0VBr7Q/2g0B4MPcHGH+c5eRErY
+	/XPS6m7whMYkWbihihHjuEzEyvIYaJyfcNvLZMt586WvNCgMbA8yHH82x+FAVinXQacc/bdZ3Nx7/
+	tLTWsxxPcaOZ/BUYfeOnw5jNdKeBek9+0NQMnCG1xYdHXJ3B4u4XTCvixcAgDXB1FDu/e7Y7bk9vA
+	plTNfdRGloROjJiMQugp6yAyiZQgvu5pO/3I+6nMf1e6EVvmmN4z0cKRa/50GTUvtA8fkxS/kRRbl
+	wDjJjEwDz/DojgRcGHxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pol5J-002Ep2-1v;
-	Tue, 18 Apr 2023 13:09:25 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1polBT-002FWh-0N;
+	Tue, 18 Apr 2023 13:15:47 +0000
+Received: from mail-io1-f69.google.com ([209.85.166.69])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pol5G-002EnG-12
+	id 1polBQ-002FWC-1p
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Apr 2023 13:09:24 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pol4Z-00064i-5n; Tue, 18 Apr 2023 15:08:39 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pol4Y-00C6xv-AH; Tue, 18 Apr 2023 15:08:38 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pol4X-00EDgz-Fr; Tue, 18 Apr 2023 15:08:37 +0200
-Date: Tue, 18 Apr 2023 15:08:37 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v16 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20230418130837.zfueixeuxrallhtc@pengutronix.de>
-References: <20230411-wizard-cautious-3c048db6b4d2@wendy>
- <20230411-bronzing-crust-d302408a1259@wendy>
- <20230411105547.ypkktubgfx4jfen3@pengutronix.de>
- <20230411-ligament-wagon-6c8cacb966e8@wendy>
- <20230411162554.4tl2z2tcbfg5hb7e@pengutronix.de>
- <20230418-armhole-cartwheel-cee37778a840@wendy>
+	Tue, 18 Apr 2023 13:15:45 +0000
+Received: by mail-io1-f69.google.com with SMTP id ca18e2360f4ac-7606d6b2fddso503484339f.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Apr 2023 06:15:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681823742; x=1684415742;
+        h=to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=d1E/CPVb6H8VyxRsyGiJWxP2UWi3TCzv8QPJdKDcVdk=;
+        b=Ic9NcynU2+d3FOT9CmD/QptcMcbCI4rsCBLJLJsOjIfDwwdJjQpRZit0nsaralyf3+
+         YkRIFA7f4oWNQLsypSLrNv+ySKiIAs8VzBKcBNQR3Yap8KimV2HFVB3q1mkI5BuKjT6i
+         f+F7oJB/YRBhoIBIRh53HrOdKge8R6Rhg1Ram4fmQn+ExeBhwACbdF7fAXiOTZlwHY3I
+         7ermReqwK7jp7HTF9ZytcDs+h8F3L18M8F08l5dVWwVPaAI2mF7mXv6DPUeghhrT8BcF
+         7tAku8J82P7TOjPlLDF+IA5C1iFEI9Sq+yfhfZ6NDP1sCdfsXYpYX5z9RDEoCEYF5gZS
+         ACWg==
+X-Gm-Message-State: AAQBX9cGAdYwgWFhdtV0utV6iKpfmcHDYvkTavekbfKdxAElT1xn5LCC
+	Jsq0QFI0EyVGO6OSd375em2P/NSoobFofCTLwp8t5l8r7b+T
+X-Google-Smtp-Source: AKy350bK6tUhkGWRadBcmLmWjSYESdTvhu9DQiBCzqdhfvo2xBb+dNdo/jaDbYIhm0DIoA9zM8Nu0yWO3Dtt07JP+fFHyoJAXZqA
 MIME-Version: 1.0
-In-Reply-To: <20230418-armhole-cartwheel-cee37778a840@wendy>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-Received: by 2002:a02:29c9:0:b0:40f:9ac9:50f2 with SMTP id
+ p192-20020a0229c9000000b0040f9ac950f2mr1559935jap.3.1681823742813; Tue, 18
+ Apr 2023 06:15:42 -0700 (PDT)
+Date: Tue, 18 Apr 2023 06:15:42 -0700
+In-Reply-To: <000000000000ea7a5c05f051fd00@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <000000000000c3f07505f99c1a97@google.com>
+Subject: Re: [syzbot] riscv/fixes boot error: WARNING in __apply_to_page_range (2)
+From: syzbot <syzbot+5702f46b5b22bdb38b7e@syzkaller.appspotmail.com>
+To: alex@ghiti.fr, andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, 
+	bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net, 
+	dvyukov@google.com, haoluo@google.com, john.fastabend@gmail.com, 
+	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, luke.r.nels@gmail.com, martin.lau@linux.dev, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, sdf@google.com, song@kernel.org, 
+	syzkaller-bugs@googlegroups.com, xi.wang@gmail.com, yhs@fb.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_060922_516280_70C6DB7B 
-X-CRM114-Status: GOOD (  54.81  )
+X-CRM114-CacheID: sfid-20230418_061544_599737_F59AF1E9 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,312 +76,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5865559306291409346=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This bug is marked as fixed by commit:
+riscv: Rework kasan population functions
 
---===============5865559306291409346==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4p2zd3wi3otb6xo7"
-Content-Disposition: inline
+But I can't find it in the tested trees[1] for more than 90 days.
+Is it a correct commit? Please update it by replying:
 
+#syz fix: exact-commit-title
 
---4p2zd3wi3otb6xo7
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Until then the bug is still considered open and new crashes with
+the same signature are ignored.
 
-On Tue, Apr 18, 2023 at 12:27:33PM +0100, Conor Dooley wrote:
-> Hey Uwe,
->=20
-> On Tue, Apr 11, 2023 at 06:25:54PM +0200, Uwe Kleine-K=C3=B6nig wrote:
-> > On Tue, Apr 11, 2023 at 02:56:15PM +0100, Conor Dooley wrote:
-> > > On Tue, Apr 11, 2023 at 12:55:47PM +0200, Uwe Kleine-K=C3=B6nig wrote:
-> > > > On Tue, Apr 11, 2023 at 09:56:34AM +0100, Conor Dooley wrote:
-> > > > > Add a driver that supports the Microchip FPGA "soft" PWM IP core.
->=20
-> > > > > +static int mchp_core_pwm_calc_period(const struct pwm_state *sta=
-te, unsigned long clk_rate,
-> > > > > +				     u16 *prescale, u16 *period_steps)
-> > > > > +{
-> > > > > +	u64 tmp;
-> > > > > +	u32 remainder;
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * Calculate the period cycles and prescale values.
-> > > > > +	 * The registers are each 8 bits wide & multiplied to compute t=
-he period
-> > > > > +	 * using the formula:
-> > > > > +	 *           (prescale + 1) * (period_steps + 1)
-> > > > > +	 * period =3D -------------------------------------
-> > > > > +	 *                      clk_rate
-> > > > > +	 * so the maximum period that can be generated is 0x10000 times=
- the
-> > > > > +	 * period of the input clock.
-> > > > > +	 * However, due to the design of the "hardware", it is not poss=
-ible to
-> > > > > +	 * attain a 100% duty cycle if the full range of period_steps i=
-s used.
-> > > > > +	 * Therefore period_steps is restricted to 0xfe and the maximum=
- multiple
-> > > > > +	 * of the clock period attainable is (0xff + 1) * (0xfe + 1) =
-=3D 0xff00
-> > > > > +	 *
-> > > > > +	 * The prescale and period_steps registers operate similarly to
-> > > > > +	 * CLK_DIVIDER_ONE_BASED, where the value used by the hardware =
-is that
-> > > > > +	 * in the register plus one.
-> > > > > +	 * It's therefore not possible to set a period lower than 1/clk=
-_rate, so
-> > > > > +	 * if tmp is 0, abort. Without aborting, we will set a period t=
-hat is
-> > > > > +	 * greater than that requested and, more importantly, will trig=
-ger the
-> > > > > +	 * neg-/pos-edge issue described in the limitations.
-> > > > > +	 */
-> > > > > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_S=
-EC);
-> > > > > +	if (!tmp)
-> > > > > +		return -EINVAL;
-> > > > > +
-> > > > > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
-> > > > > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX;
-> > > > > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX;
-> > > > > +
-> > > > > +		return 0;
-> > > > > +	}
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * There are multiple strategies that could be used to choose t=
-he
-> > > > > +	 * prescale & period_steps values.
-> > > > > +	 * Here the idea is to pick values so that the selection of dut=
-y cycles
-> > > > > +	 * is as finegrain as possible.
-> > > > > +	 * This "optimal" value for prescale can be calculated using th=
-e maximum
-> > > > > +	 * permitted value of period_steps, 0xfe.
-> > > > > +	 *
-> > > > > +	 *                period * clk_rate
-> > > > > +	 * prescale =3D ------------------------- - 1
-> > > > > +	 *            NSEC_PER_SEC * (0xfe + 1)
-> > > > > +	 *
-> > > > > +	 * However, we are purely interested in the integer upper bound=
- of this
-> > > > > +	 * calculation, so this division should be rounded up before su=
-btracting
-> > > > > +	 * 1
-> > > > > +	 *
-> > > > > +	 *  period * clk_rate
-> > > > > +	 * ------------------- was precomputed as `tmp`
-> > > > > +	 *    NSEC_PER_SEC
-> > > > > +	 */
-> > > > > +	*prescale =3D DIV64_U64_ROUND_UP(tmp, MCHPCOREPWM_PERIOD_STEPS_=
-MAX + 1) - 1;
-> > > >=20
-> > > > If state->period * clk_rate is 765000000001 you get tmp =3D 765 and=
- then
-> > > > *prescale =3D 2. However roundup(765000000001 / (1000000000 * 255))=
- - 1 is
-> > > > 3. The problem here is that you're rounding down in the calculation=
- of
-> > > > tmp. Of course this is constructed because 765000000001 is prime, b=
-ut
-> > > > I'm sure you get the point :-)
-> > >=20
-> > > Hold that thought for a moment..
-> >=20
-> > OK, so the correction below is to make up for the wrong rounding here.
-> > I'd like to have that in a comment. Otherwise it wasn't clear to me.
->=20
-> Sure, no problem.
->=20
-> > > > Also we know that tmp is < 0xff00, so we don't need a 64 bit divisi=
-on
-> > > > here.
-> > >=20
-> > > Neither here nor below, true.
-> > >=20
-> > > > > +	/*
-> > > > > +	 * Because 0xff is not a permitted value some error will seep i=
-nto the
-> > > > > +	 * calculation of prescale as prescale grows. Specifically, thi=
-s error
-> > > > > +	 * occurs where the remainder of the prescale calculation is le=
-ss than
-> > > > > +	 * prescale.
-> > > > > +	 * For small values of prescale, only a handful of values will =
-need
-> > > > > +	 * correction, but overall this applies to almost half of the v=
-alid
-> > > > > +	 * values for tmp.
-> > > > > +	 *
-> > > > > +	 * To keep the algorithm's decision making consistent, this cas=
-e is
-> > > > > +	 * checked for and the simple solution is to, in these cases,
-> > > > > +	 * decrement prescale and check that the resulting value of per=
-iod_steps
-> > > > > +	 * is valid.
-> > > > > +	 *
-> > > > > +	 * period_steps can be computed from prescale:
-> > > > > +	 *                      period * clk_rate
-> > > > > +	 * period_steps =3D ----------------------------- - 1
-> > > > > +	 *                NSEC_PER_SEC * (prescale + 1)
-> > > > > +	 *
-> > > > > +	 */
-> > > > > +	div_u64_rem(tmp, (MCHPCOREPWM_PERIOD_STEPS_MAX + 1), &remainder=
-);
-> > > > > +	if (remainder < *prescale) {
-> > > > > +		u16 smaller_prescale =3D *prescale - 1;
-> > > > > +
-> > > > > +		*period_steps =3D div_u64(tmp, smaller_prescale + 1) - 1;
-> > > > > +		if (*period_steps < 255) {
-> > > > > +			*prescale =3D smaller_prescale;
-> > > > > +
-> > > > > +			return 0;
-> > > > > +		}
-> > > > > +	}
-> > >=20
-> > > ...so in your prime case above, we would initially compute a prescale
-> > > value that is too large, and then wind up hitting the test of the
-> > > remainder here, thereby realising that the smaller prescale value is a
-> > > better fit?
-> > > Perhaps that's not an acceptable way to handle the issue though.
-> >=20
-> > IMHO it is, but the comment explaining needs some improvement. It should
-> > also make clear why rounding cannot lead to prescale - 2 being a
-> > good/better candidate. (I haven't thought it through, maybe needs some
-> > improvement?) I wonder if the computation can find all improvements
-> > given that it only used tmp, but not ->period and clk_rate?!
->=20
-> For tmp > 0xff00 it may be off by more than 255, but that isn't possible
-> at this stage as we've already eliminated the possibility above.
->=20
-> > > > I don't understand that part. It triggers for tmp =3D 511. So you p=
-refer
-> > > >=20
-> > > > 	prescale =3D 1
-> > > > 	period_steps =3D 254
-> > > >=20
-> > > > yielding period =3D 510 / clkrate over
-> > > >=20
-> > > > 	prescale =3D 2
-> > > > 	period_steps =3D 170
-> > > >=20
-> > > > yielding 513 / clkrate. I wonder why.
-> >=20
-> > I missed the -=3D 1 in my example. So it's:
-> >=20
-> > 	It triggers for tmp =3D 511. So you prefer
-> >=20
-> > 		prescale =3D 1
-> > 		period_steps =3D 254
-> >=20
-> > 	yielding period =3D 510 / clkrate over
-> >=20
-> > 		prescale =3D 2
-> > 		period_steps =3D 169
-> >=20
-> > 	yielding 510 / clkrate.
-> >=20
-> > Here it's obvious that the former is the better one. But I wonder why
-> > the former isn't found instantly. Wouldn't
-> >=20
-> > 	*prescale =3D tmp / (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) - 1
-> >=20
-> > give a better approximation in general? (Of course with an additional
-> > check that *prescale >=3D 0 then.)=20
-> >=20
-> > ... thinking a bit ... yes, I think that's true:
-> >=20
-> > If you pick *prescale =3D tmp / (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) - 1,
-> > then for each period_steps value =E2=89=A4 254 we have:
-> >=20
-> > 	  (*prescale + 1) * (period_steps + 1)
-> > 	=E2=89=A4 (*prescale + 1) * 255
-> > 	=E2=89=A4 (tmp // (MCHPCOREPWM_PERIOD_STEPS_MAX + 1)) * 255
-> > 	=E2=89=A4 (tmp // 255) * 255
-> > 	=E2=89=A4 (tmp / 255) * 255
-> > 	=3D tmp
->=20
-> tmp =3D 256
->=20
-> *prescale =3D 256 // (254 + 1) - 1
->           =E2=89=88 0
->=20
-> *prescale =3D 256 // (prescale + 1) - 1
->           =3D 256 / (0 + 1) - 1
-> 	  =3D 255
+Kernel: Linux
+Dashboard link: https://syzkaller.appspot.com/bug?extid=5702f46b5b22bdb38b7e
 
-I don't understand what you wanna say here. If tmp =3D 256 my suggestion
-is to pick prescale =3D 0 and period_steps =3D 254. Then
+---
+[1] I expect the commit to be present in:
 
-	 (prescale + 1) * (period_steps + 1) =E2=89=A4 tmp
+1. for-kernelci branch of
+git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
 
-and period_steps is big enough to ensure a a finegrained choice for the
-duty_cycle.
+2. master branch of
+git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
 
-> That's then gonna give us one of the broken configurations from the
-> limitations.
->=20
-> tmp =3D 257
->=20
-> *prescale =3D 257 // (254 + 1) - 1
->           =E2=89=88 0
->=20
-> *prescale =3D 257 // (prescale + 1) - 1
->           =3D 257 / (0 + 1) - 1
-> 	  =3D 256
-> 	  =3D 0 (registers are 8-bit)
+3. master branch of
+git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
 
-I think you mean s/prescale/period_steps/ in the second part, but that's
-not what I meant. I meant to suggest:
+4. main branch of
+git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git
 
-	*prescale =3D tmp / (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) - 1
-	period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX =3D 254
-
-> I'm quite obviously missing something that you may think is obvious
-> here, but is not immediately clear to me.
-
-That would be an explanation, yes. :-)
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
-   |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---4p2zd3wi3otb6xo7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmQ+llQACgkQj4D7WH0S
-/k7saAf+Pi0/CwMKKblfq3A+hKJD7MXAoWMkEywj9+FUgBsAi3jR2ss4YF1PSb6V
-x6bU/APWpb+tuwF9kVtNfTz4HIqlMjnucHJO0jUUrOgFPI4OFxyuDqNDn9sB8Lin
-+qFAaLulJLS++ZuxtFWipBTcR48+PInMc09BERWaemXS5ySvNpgD5TqG0YiWvC6z
-EwmAA7RyvBD1+KiHRWGUIflwXg110QbQfMpATH3BWCF7nnsB5WcFLkVYkaVwuY3v
-pu2PS0c01Vgm9KHNMEYCNk5EmPZQTbt3l8de/GPgxNaVxE6FtJnYw+V3iafCV2W1
-JvXXRo/CtPKrCA3NCPpGG86yc3O0xA==
-=nt+3
------END PGP SIGNATURE-----
-
---4p2zd3wi3otb6xo7--
-
-
---===============5865559306291409346==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+The full list of 10 trees can be found at
+https://syzkaller.appspot.com/upstream/repos
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5865559306291409346==--
-
