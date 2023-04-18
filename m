@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166DFC6FD18
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 15:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15FDAC6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 15:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g3zICihvDsddJNzmMnzaTc/sf56U+jma7oJShN1jKSw=; b=iGfJCCEO1ZeffS
-	7tx5cFOGMd2/t9r/jbBYuF/RvspmbhN68kJMQ/xPJN2y4Tx5YWpxSA/I1sTSdQAm2uVOZnP6ZZ3Nq
-	/+C1opSCNZpAB+4iUmvMPoYlfqR8DCSty6liRP4CXN9SU1sR8iklURO3gozDLRyj7En7QGA+CzMTz
-	S5vbALBbgCXV16sY15tqk+LPdqXcCkklR9uTKUeA2BPGwUr42/frj0y+ZXMg30NFL3O7ByetCtLy3
-	UxeQ5Q0LUt1tmj1kFkFE8iKQbmOkE8OgNJ05vlBigOX9VovDEAU+UMjAF7lvy4+cjPdFYUowKQe+D
-	xwpWyUOgNoygrpgDAK+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/tFwNVNdBXHhzCPmQRoUa2U2TZTzYN7nnQfS2qJFowY=; b=mcwAMHhqTvy2F8lRTNA2gaT+Jc
+	a/rVvXSsDhuGuvRsNiHHbJWCsmu9J3x0IQ7F/9rMuTy+CRqFpO3fAwusmaU9Wsz4M5VkJJ+rguCWR
+	HHjHrk78APg0GSddTAwWproSD5EN8nXubr7tQP3CNRL4Bj8MsNdZZOHEH3kxXJ6p+agCgJKTgMwXh
+	R+7e60au12nOjEiFE7tiCvY3WDWbR7jVlk7oRA/92XeJpFxcfu4NlSaqyTIHHio4RsNQIea59a8W9
+	yR24zNvBq2I4ZFbdChMkew+8uDaG0zaSVTnj4Ah9cA9wRgwSLq3LndSrx6lQEG1qEvRekilEERRxe
+	ZaQ67nhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pomrL-002WSr-09;
-	Tue, 18 Apr 2023 15:03:07 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1pon6K-002YKa-11;
+	Tue, 18 Apr 2023 15:18:36 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pomrH-002WQe-1M
+	id 1pon6G-002YJO-2E
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Apr 2023 15:03:04 +0000
-Received: by mail-ej1-x634.google.com with SMTP id xi5so73982659ejb.13
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Apr 2023 08:02:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1681830179; x=1684422179;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eGjicJYh31cK/BzEcNTDnxEWlOaJ3534uI99hwaIMVo=;
-        b=dskV/5fmTBnuPXg8dBbwRM2jLIuB5HSspB+M35Au08MsAjD1QDLO4dePsRtCagOSkp
-         j0AVSz8ihvO5jlimsrNfECSWNP+sy0kyTKWXXZu+xYbVQgpEQ+J/JnFakqLvWa10+LKt
-         5LGVmjFMDGwVXn9KxcYPk10J1QmOolsKq+Y9W51VZoCfbOULOmXjQVh6GLNMF2isypVB
-         d5yF0l6+xoKeXEh95053nEbKb9qHOyY+2v4H43S0uO8nAwjwngOFWD0NIx+apXbklBmP
-         +/dDfNRRTxlzD1XwfIRzo6BJgRNuEULW0ucxXH76xXJMHCfYGI4bVmZ6j8db0dKtKDyE
-         Rn+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681830179; x=1684422179;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eGjicJYh31cK/BzEcNTDnxEWlOaJ3534uI99hwaIMVo=;
-        b=gTH7y8zFZbVW5nj77axQL/mPTCb9W11rbs4df961plKoHoVf8dgLPE/48YRqru+qky
-         z7hq/KZf8nkLCYgjyR500jDzBkC4cRZP5OcwH4I+rVTsvDJwfzAmiUOxyQQpMkjI8rCJ
-         0cG3KzEb97XMrLENKf6k9/jQfUxIwkSCnEJkFM0Uk792iUVXOtk6Wc7ir9+sOMniBiwx
-         m8BDolWb2NB4uRIKZqFnAsFQQSrLTmp/WHr6o9ShEqHjcgcBlgYVUWu0HLIZUrTUHJSN
-         HIV7k2SnFIC0Gcnjv/X/cebO9E5pYCVSzImfGx9/xn0Z+OiJR2QTfK72yzH28JPTIkGQ
-         3EYQ==
-X-Gm-Message-State: AAQBX9cnDdPF4qaa4MgI6UBy3X0MSjPyCuMpvOU3dyBXvl0Wcl5hE45B
-	E/0Co+KTVzAQ75qLwpx2W/ba3Q==
-X-Google-Smtp-Source: AKy350aArc0ZHsPFZsb2XaItpfCxJdWy6iOn8pitaahBEwUw0ddE2TaksuGLfOLXkECUqylpgzKCYw==
-X-Received: by 2002:a17:907:6d24:b0:94f:3980:bf87 with SMTP id sa36-20020a1709076d2400b0094f3980bf87mr10489381ejc.43.1681830178676;
-        Tue, 18 Apr 2023 08:02:58 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id i7-20020a170906698700b0094a9eb7598esm8050623ejr.120.2023.04.18.08.02.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Apr 2023 08:02:58 -0700 (PDT)
-Date: Tue, 18 Apr 2023 17:02:57 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: kvm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH kvmtool 1/2] riscv: add mvendorid/marchid/mimpid to sync
- kvm_riscv_config
-Message-ID: <vnnhy5z6bvqxf7q4njqturux3bsqwjrrxgzbv5fklf5swg5ws7@rkvh6ds7qzef>
-References: <20230418142241.1456070-1-ben.dooks@codethink.co.uk>
- <20230418142241.1456070-2-ben.dooks@codethink.co.uk>
+	Tue, 18 Apr 2023 15:18:34 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pon61-0006Ax-VV; Tue, 18 Apr 2023 17:18:18 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pon5z-00C8YW-SZ; Tue, 18 Apr 2023 17:18:15 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pon5y-00EGkp-PW; Tue, 18 Apr 2023 17:18:14 +0200
+Date: Tue, 18 Apr 2023 17:18:14 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v16 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20230418151814.xawtejnsoguelrwq@pengutronix.de>
+References: <20230411-wizard-cautious-3c048db6b4d2@wendy>
+ <20230411-bronzing-crust-d302408a1259@wendy>
+ <20230411105547.ypkktubgfx4jfen3@pengutronix.de>
+ <20230411-ligament-wagon-6c8cacb966e8@wendy>
+ <20230411162554.4tl2z2tcbfg5hb7e@pengutronix.de>
+ <20230418-armhole-cartwheel-cee37778a840@wendy>
+ <20230418130837.zfueixeuxrallhtc@pengutronix.de>
+ <20230418-octagon-epilepsy-4d8516f91145@wendy>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230418142241.1456070-2-ben.dooks@codethink.co.uk>
+In-Reply-To: <20230418-octagon-epilepsy-4d8516f91145@wendy>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_080303_462178_DE09E8A3 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20230418_081832_729583_55F70E82 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +76,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6410143709055410724=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 18, 2023 at 03:22:40PM +0100, Ben Dooks wrote:
-> Add the ONE_REG for the mvendorid/marchid/mimpid from the kernel
-> commit 6ebbdecff6ae00557a52539287b681641f4f0d33, to ensure the
-> struct is in sync with newer kernels for adding zicboz.
-> 
-> Ref: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/id=6ebbdecff6ae00557a52539287b681641f4f0d33
-> 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> ---
->  riscv/include/asm/kvm.h | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/riscv/include/asm/kvm.h b/riscv/include/asm/kvm.h
-> index 8985ff2..92af6f3 100644
-> --- a/riscv/include/asm/kvm.h
-> +++ b/riscv/include/asm/kvm.h
-> @@ -49,6 +49,9 @@ struct kvm_sregs {
->  struct kvm_riscv_config {
->  	unsigned long isa;
->  	unsigned long zicbom_block_size;
-> +	unsigned long mvendorid;
-> +	unsigned long marchid;
-> +	unsigned long mimpid;
->  };
->  
->  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> -- 
-> 2.39.2
->
 
-These should get updated with a proper header update using
-util/update_headers.sh
+--===============6410143709055410724==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eqzeemqexvwxupmj"
+Content-Disposition: inline
 
-Thanks,
-drew
+
+--eqzeemqexvwxupmj
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Conor,
+
+On Tue, Apr 18, 2023 at 02:27:09PM +0100, Conor Dooley wrote:
+> On Tue, Apr 18, 2023 at 03:08:37PM +0200, Uwe Kleine-K=F6nig wrote:
+> > On Tue, Apr 18, 2023 at 12:27:33PM +0100, Conor Dooley wrote:
+> > > I'm quite obviously missing something that you may think is obvious
+> > > here, but is not immediately clear to me.
+> >=20
+> > That would be an explanation, yes. :-)
+>=20
+> Right, it makes a lot more sense now. Definitely was not clear to me
+> that that was what you were suggesting.
+
+I reread what I wrote and maybe I wouldn't have understood it either :-)
+
+> I'm not sure that disallowing tmp < 255 is something I want to do
+> though, as this is mainly used as a "soft" IP core in the FPGA fabric,
+> the clock provided to it may not be particularly high.
+> Probably not the end of the world though, once added to the limitations.
+>=20
+> The implemented period is also going to be quite a ways off with this
+> method (compared to the method I have been using until now) - although
+> it is of course far simpler.
+
+"simpler" is in my eyes a good approach until someone comes who has
+stronger needs than can be done with a simple approach. Until this
+happens a simple approach is good for everyone.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--eqzeemqexvwxupmj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmQ+tLUACgkQj4D7WH0S
+/k63jAgAk7+euErd/rScGYReNxFE09ohTUb0Enh+ADA//kK8jamTQNA7NL2yyIbr
+eb2DkTerLJuu+v0Vn6k6QdDRCNqSonxldm3rXpkZ1+9ybODgByztA34nr/aS5VHA
+yNqwvDPh0aa0cr/2PKfJ7WpnT6UcplUw8zifqRLDUpwyprlc2Q94bYDb7MfZza0J
+H2OHNKmx3ZN/bZSgmG6liYnl07tnv9ZVJ+KE1C1LwNpx1Ds9uFx0PpWYamPCFviP
+iGcMLTu815AeXTN+jIKU+v8kx5Da0IpImDwBltP0rEKLIReJNIZpDvPGBQzqqvuE
+eGK2DXGsDAN0PQcFNAr4NZVcMJP8Kg==
+=5Bvy
+-----END PGP SIGNATURE-----
+
+--eqzeemqexvwxupmj--
+
+
+--===============6410143709055410724==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6410143709055410724==--
+
