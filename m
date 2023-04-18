@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9F1C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 13:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69103C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 13:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:In-Reply-To:
-	Date:MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=fW4xV0M7SR+5S1x6ieYKGpA5RlZoN5AidNwi282vOkk=; b=IegalmcIM2ZGd4
-	zGk3g3rb2MOA/ogf7nVkSLGvfUXWwp6ack/tdvni0HaNpD6Lykt0VBr7Q/2g0B4MPcHGH+c5eRErY
-	/XPS6m7whMYkWbihihHjuEzEyvIYaJyfcNvLZMt586WvNCgMbA8yHH82x+FAVinXQacc/bdZ3Nx7/
-	tLTWsxxPcaOZ/BUYfeOnw5jNdKeBek9+0NQMnCG1xYdHXJ3B4u4XTCvixcAgDXB1FDu/e7Y7bk9vA
-	plTNfdRGloROjJiMQugp6yAyiZQgvu5pO/3I+6nMf1e6EVvmmN4z0cKRa/50GTUvtA8fkxS/kRRbl
-	wDjJjEwDz/DojgRcGHxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=odSpytDaO2v4ziSN2unZxZVPhySy4oEgy3NaQ4SHYz4=; b=Djlw2LN61x5sbpit7L58H20Ri0
+	qsCyn6YgE5kVvm0NlavRjpLtSxHHO7aNFFRLkOdpDCo9ZI95XM5hj4S9PIhHpbqx6On+d74pViEUs
+	1RTAwEm/Ne0HjeWnAE4hgaUChKCzw143eCsjb1YEBpZSJWtjjNHPwrZmAcDlubzMtuIzpcxF8IPPu
+	sVeDo7t89uzHahhNL2Kqtt+7HQmZOcluS9wVKzBINVMiKFQBPChkPEFWGcILdG9e9QYEaUe4kZ10o
+	jvFgWhWKQ40/i0S6WG5+qb18d38HTJXpUeoRQE/gHw4FUy3ViGNTAzKEmwjsOyGujyI90cQQiSugR
+	oC0/90jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1polBT-002FWh-0N;
-	Tue, 18 Apr 2023 13:15:47 +0000
-Received: from mail-io1-f69.google.com ([209.85.166.69])
+	id 1polMw-002HI3-2W;
+	Tue, 18 Apr 2023 13:27:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1polBQ-002FWC-1p
+	id 1polMu-002HGr-0E
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Apr 2023 13:15:45 +0000
-Received: by mail-io1-f69.google.com with SMTP id ca18e2360f4ac-7606d6b2fddso503484339f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Apr 2023 06:15:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681823742; x=1684415742;
-        h=to:from:subject:message-id:in-reply-to:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d1E/CPVb6H8VyxRsyGiJWxP2UWi3TCzv8QPJdKDcVdk=;
-        b=Ic9NcynU2+d3FOT9CmD/QptcMcbCI4rsCBLJLJsOjIfDwwdJjQpRZit0nsaralyf3+
-         YkRIFA7f4oWNQLsypSLrNv+ySKiIAs8VzBKcBNQR3Yap8KimV2HFVB3q1mkI5BuKjT6i
-         f+F7oJB/YRBhoIBIRh53HrOdKge8R6Rhg1Ram4fmQn+ExeBhwACbdF7fAXiOTZlwHY3I
-         7ermReqwK7jp7HTF9ZytcDs+h8F3L18M8F08l5dVWwVPaAI2mF7mXv6DPUeghhrT8BcF
-         7tAku8J82P7TOjPlLDF+IA5C1iFEI9Sq+yfhfZ6NDP1sCdfsXYpYX5z9RDEoCEYF5gZS
-         ACWg==
-X-Gm-Message-State: AAQBX9cGAdYwgWFhdtV0utV6iKpfmcHDYvkTavekbfKdxAElT1xn5LCC
-	Jsq0QFI0EyVGO6OSd375em2P/NSoobFofCTLwp8t5l8r7b+T
-X-Google-Smtp-Source: AKy350bK6tUhkGWRadBcmLmWjSYESdTvhu9DQiBCzqdhfvo2xBb+dNdo/jaDbYIhm0DIoA9zM8Nu0yWO3Dtt07JP+fFHyoJAXZqA
+	Tue, 18 Apr 2023 13:27:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1681824456; x=1713360456;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=h3pmULgxsGgcQmyEbQYZ4K3bPzzzsFUw346+3srF8A0=;
+  b=bIeGINUQF3q79rP3IoEDyQAafupkoOsfVagRSv3bVTd5vBLhZESjZwdG
+   UZTa2Y7A/jlJ1uI0cAdFZI8HOglq4N8Uwt7ekoWbvMvfLddyaZ06BAOs2
+   AUUSMXeYYfIYKsP+rFwnnETF1ViCVvyzRaKy/8WnLfsqq5Pl0f7RHJvPZ
+   UbtTz0EnrArkz8yZRcFjDR1BjEc/ucXv8GS5pTUOpwaVUdgikOk8gTDmC
+   Qm+O08aESPQV0ZZ6Cmy2QzhOZBIMTlEJ/bdDjI9btGYBUaPqeQzTqJgjG
+   ThixC93tFbBw6GeXGWOlPPDVoloBWBKLHIB44TzVea+reW9Ev1kwItF+l
+   w==;
+X-IronPort-AV: E=Sophos;i="5.99,207,1677567600"; 
+   d="asc'?scan'208";a="207069346"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 18 Apr 2023 06:27:31 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 18 Apr 2023 06:27:27 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 18 Apr 2023 06:27:25 -0700
+Date: Tue, 18 Apr 2023 14:27:09 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Thierry Reding <thierry.reding@gmail.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
+	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v16 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20230418-octagon-epilepsy-4d8516f91145@wendy>
+References: <20230411-wizard-cautious-3c048db6b4d2@wendy>
+ <20230411-bronzing-crust-d302408a1259@wendy>
+ <20230411105547.ypkktubgfx4jfen3@pengutronix.de>
+ <20230411-ligament-wagon-6c8cacb966e8@wendy>
+ <20230411162554.4tl2z2tcbfg5hb7e@pengutronix.de>
+ <20230418-armhole-cartwheel-cee37778a840@wendy>
+ <20230418130837.zfueixeuxrallhtc@pengutronix.de>
 MIME-Version: 1.0
-X-Received: by 2002:a02:29c9:0:b0:40f:9ac9:50f2 with SMTP id
- p192-20020a0229c9000000b0040f9ac950f2mr1559935jap.3.1681823742813; Tue, 18
- Apr 2023 06:15:42 -0700 (PDT)
-Date: Tue, 18 Apr 2023 06:15:42 -0700
-In-Reply-To: <000000000000ea7a5c05f051fd00@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000c3f07505f99c1a97@google.com>
-Subject: Re: [syzbot] riscv/fixes boot error: WARNING in __apply_to_page_range (2)
-From: syzbot <syzbot+5702f46b5b22bdb38b7e@syzkaller.appspotmail.com>
-To: alex@ghiti.fr, andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, 
-	bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net, 
-	dvyukov@google.com, haoluo@google.com, john.fastabend@gmail.com, 
-	jolsa@kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, luke.r.nels@gmail.com, martin.lau@linux.dev, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, sdf@google.com, song@kernel.org, 
-	syzkaller-bugs@googlegroups.com, xi.wang@gmail.com, yhs@fb.com
+In-Reply-To: <20230418130837.zfueixeuxrallhtc@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_061544_599737_F59AF1E9 
-X-CRM114-Status: UNSURE (   5.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230418_062736_170823_20666786 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +83,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8163787751785386813=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This bug is marked as fixed by commit:
-riscv: Rework kasan population functions
+--===============8163787751785386813==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FFx3KsBRxu5dYLgW"
+Content-Disposition: inline
 
-But I can't find it in the tested trees[1] for more than 90 days.
-Is it a correct commit? Please update it by replying:
+--FFx3KsBRxu5dYLgW
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-#syz fix: exact-commit-title
+On Tue, Apr 18, 2023 at 03:08:37PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> On Tue, Apr 18, 2023 at 12:27:33PM +0100, Conor Dooley wrote:
+> > On Tue, Apr 11, 2023 at 06:25:54PM +0200, Uwe Kleine-K=C3=B6nig wrote:
 
-Until then the bug is still considered open and new crashes with
-the same signature are ignored.
 
-Kernel: Linux
-Dashboard link: https://syzkaller.appspot.com/bug?extid=5702f46b5b22bdb38b7e
+> I don't understand what you wanna say here. If tmp =3D 256 my suggestion
+> is to pick prescale =3D 0 and period_steps =3D 254. Then
+>=20
+> 	 (prescale + 1) * (period_steps + 1) =E2=89=A4 tmp
+>=20
+> and period_steps is big enough to ensure a a finegrained choice for the
+> duty_cycle.
+>=20
+> > That's then gonna give us one of the broken configurations from the
+> > limitations.
+> >=20
+> > tmp =3D 257
+> >=20
+> > *prescale =3D 257 // (254 + 1) - 1
+> >           =E2=89=88 0
+> >=20
+> > *prescale =3D 257 // (prescale + 1) - 1
+> >           =3D 257 / (0 + 1) - 1
+> > 	  =3D 256
+> > 	  =3D 0 (registers are 8-bit)
+>=20
+> I think you mean s/prescale/period_steps/ in the second part, but that's
+> not what I meant. I meant to suggest:
 
----
-[1] I expect the commit to be present in:
+I did, yeah!
 
-1. for-kernelci branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+> 	*prescale =3D tmp / (MCHPCOREPWM_PERIOD_STEPS_MAX + 1) - 1
+> 	period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX =3D 254
+>=20
+> > I'm quite obviously missing something that you may think is obvious
+> > here, but is not immediately clear to me.
+>=20
+> That would be an explanation, yes. :-)
 
-2. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
+Right, it makes a lot more sense now. Definitely was not clear to me
+that that was what you were suggesting.
+I'm not sure that disallowing tmp < 255 is something I want to do
+though, as this is mainly used as a "soft" IP core in the FPGA fabric,
+the clock provided to it may not be particularly high.
+Probably not the end of the world though, once added to the limitations.
 
-3. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
+The implemented period is also going to be quite a ways off with this
+method (compared to the method I have been using until now) - although
+it is of course far simpler.
+You're the PWM expert and are suggesting it, so maybe I should just shut
+up and go do it...
 
-4. main branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git
+--FFx3KsBRxu5dYLgW
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The full list of 10 trees can be found at
-https://syzkaller.appspot.com/upstream/repos
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZD6arQAKCRB4tDGHoIJi
+0jl7AP9Ls13dfGN0ABcy+W/U0p3z6cT9QynfIh7jhcaBycLNvwEAsdfE/cj9Szpd
+Tt229kUYqmnCZQVkwDtsIEp56dGU6g4=
+=olu/
+-----END PGP SIGNATURE-----
+
+--FFx3KsBRxu5dYLgW--
+
+
+--===============8163787751785386813==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8163787751785386813==--
+
