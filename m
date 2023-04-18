@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78BEC77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 18:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10069C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 18:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wUWzEAuyHoAHpvS1yz81NFqQnu9JuZjsH8oCvspqmZM=; b=Ox+/lkSBzAxSE+q75L/dpMAT3P
-	+2ggSD4p8w+xhdqoy+JtNe7/F/Qtri1QTYEy1N0TbZpdg2XtJ7KLTpcTbHIpkGHk+NeuruFzRLVEl
-	S3SUsDFTkUSWD5CN59wy8MHoek1xdaJhShfl92nvVpxLJB2dGHc4DMMAphTWXT8mvYZRG7tXrNM3J
-	Im51iKD4s/i0hffmxRfaz1SapH5whPXGwmXHVU3z8do/Js7zZbNShbHqb9J9/w4410PfUyrQK5ag1
-	n0LfHgT9ijaKCExNkhKfPxMbj21RUfNjDZ3Ej2mIgYxRudqPT/ouZ4QzlH8y62UH41Wz5883d9brz
-	/PBq+sEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f0+KlEO3zoKcokVZ3KZ9PrGinGA7K3jNWkrIJr3ZSCQ=; b=tssBp8E1hFtnKC
+	LJlLzPwt9TtcMIVESElcKvO7ovG17QN2Gt9HtB3wW81H40TeunkBJjjJXEios3Yit8gAUQJdF/FFX
+	Mnteb4th71TTCRd/rFOj/j90IObOG7nan0I9IcUh0n8dYAjYMNr1G2VxSsjAdBEUC8iqiMydZWWnn
+	atz8z2eMgUvSAlb0mOwprG6vMKZaeZsIYIAGQYimKcjnmRXB7ed0V93Ysa1EZI2QDcv5NO1jiu075
+	Kua2KMc3lS/kD/0XH3x+yxlTp+9dp5iEPfJAONXk8NEWkah4OxzDS36SNmTL5PqYg3SRZDkCt3CMw
+	TQS3P6DhJEWnwOk/Ja1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poq2U-0033uY-21;
-	Tue, 18 Apr 2023 18:26:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1poqI0-0036O6-1p;
+	Tue, 18 Apr 2023 18:42:52 +0000
+Received: from mail-ot1-f41.google.com ([209.85.210.41])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poq2Q-0033tm-36;
-	Tue, 18 Apr 2023 18:26:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 794AF637E7;
-	Tue, 18 Apr 2023 18:26:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A526FC433D2;
-	Tue, 18 Apr 2023 18:26:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681842405;
-	bh=vJJj0y3XGqN3FnldN+DWHS7oHWE51OlzKOTvzTeN+sY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V813bxnQdAqOxELFWCvHHkT+e9xS3PzlryIybW+HOzc+1162cuN/466cAwFQY1vUQ
-	 Vh6Xmh3sE8ZnRn8EePc2HuMIvCjemC5AW1tZ0P+zF/Gkhk/lKyOdeq6qPLVmqetD2N
-	 fW37+TEAdeaCCvxpPf8wjZ3F+W3zMNsBZB+ftyg2u/9qySrEe3Vep+CFLIC/PqSPSX
-	 3fwvNWt8l9Sr5moQNZppGbXUHXAKPJaaUl0AS5PR8C79vYNHQlZxWxjrzni6EfVYbl
-	 pCcJMXW/9q3LaLzENfGiBynslTJ8egn/EvLZAFo+TLVGyLIBOLxoDI2iwZlGJGgi/p
-	 Uc6D0OTQKpGlw==
-Date: Tue, 18 Apr 2023 19:26:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] include: riscv: Fix wrong include guard in
- riscv_pmu.h
-Message-ID: <20230418-shredder-veggie-6b995f75e1da@spud>
-References: <20230413161725.195417-1-alexghiti@rivosinc.com>
- <20230413161725.195417-3-alexghiti@rivosinc.com>
+	id 1poqHx-0036N7-22;
+	Tue, 18 Apr 2023 18:42:50 +0000
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-6a5f765d5b8so501045a34.3;
+        Tue, 18 Apr 2023 11:42:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681843367; x=1684435367;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eX9q8gX+UiR7CnmbV0JhOILFmnfK5QRyHCsxTtqP7h8=;
+        b=QcwoGXi9ll4wD3U8iEnhSFiAC8ho+sL8AiUiWlMmQDNKLLapBP8aBVS1dn7DVX+2CD
+         K9IlE4i/0ID6oV0q4kjxda433NOwYrlOrBkS40tA55rM8lArAnTi7JJJJQPbzbHUCo5U
+         6Av5CVsYnA3ZYj7Klmxvn+tuDWtX5vhbZpbrcn2k80nU8UGhNcTAf6F1vVBOFIC/errz
+         hh245a/sR1uTiMcVGMXQKn0sy1RP4exVV6PkQX7M0UhdSj7yL0XH/8fAfTW/lRbOE+Wx
+         jBOmbWxb7yCIX58VgC6cXYYxMYzJK6shCPnJ28Qlb4Utqthr+kdN+sezU21oGRn6Pfkx
+         6/Lw==
+X-Gm-Message-State: AAQBX9cLN0AFsWynKACnDTyLXhHkO6WwVx7GAYypaDj+128x4KysxveW
+	oDD+vjJpz/6tP0nlwfSJBA==
+X-Google-Smtp-Source: AKy350YkFGdSrcH78VWgdiZeex/IhpEM1/tIWlB0tUde/R1j0VFPBv9n0B3D5YWlYqCkIfq6XkKf9A==
+X-Received: by 2002:a9d:7454:0:b0:6a3:2513:c452 with SMTP id p20-20020a9d7454000000b006a32513c452mr1455755otk.23.1681843367361;
+        Tue, 18 Apr 2023 11:42:47 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id c7-20020a9d6847000000b0069f0794861asm5786365oto.63.2023.04.18.11.42.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Apr 2023 11:42:46 -0700 (PDT)
+Received: (nullmailer pid 2105101 invoked by uid 1000);
+	Tue, 18 Apr 2023 18:42:46 -0000
+Date: Tue, 18 Apr 2023 13:42:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Changhuang Liang <changhuang.liang@starfivetech.com>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Message-ID: <20230418184246.GA2103246-robh@kernel.org>
+References: <20230412084540.295411-1-changhuang.liang@starfivetech.com>
+ <20230412084540.295411-2-changhuang.liang@starfivetech.com>
+ <8dd0dc63-e0df-8764-f756-da032d9d671c@linaro.org>
+ <eb47b7c7-bdbb-92d9-ba39-604ce487f297@starfivetech.com>
+ <f6a4fb28-d635-4d99-44bb-d929cb41eef2@linaro.org>
+ <b34a8d59-34e4-8358-9d2b-367f4707ca7c@starfivetech.com>
+ <f0d82428-aaa5-3dd4-bc29-f1057fe749bc@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <20230413161725.195417-3-alexghiti@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <f0d82428-aaa5-3dd4-bc29-f1057fe749bc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_112647_038648_5263905B 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20230418_114249_671722_0C107CEC 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +81,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3886902880714310998=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 13, 2023 at 10:41:23AM +0200, Krzysztof Kozlowski wrote:
+> On 13/04/2023 04:34, Changhuang Liang wrote:
+> >>>>> +  lane_maps:
+> >>>>
+> >>>> Why did this appear? Underscores are not allowed. It looks like you
+> >>>> re-implement some standard property.
+> >>>>
+> >>>
+> >>> Will change to lane-maps.
+> >>> Yes, according to Vinod advice, lane mapping table use device tree
+> >>> to parse makes sense.
+> >>
+> >> Hm, I have a feeling that I saw such property, so you should dig into
+> >> existing and in-flight bindings.
+> >>
+> >> Best regards,
+> >> Krzysztof
+> >>
+> > 
+> > A standard property? Like "clocks" or "resets"?
+> 
+> Like lane-polarities now submitted to one MIPI.
+> 
 
---===============3886902880714310998==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GY50yUownOliVfyu"
-Content-Disposition: inline
+data-lanes perhaps?
 
-
---GY50yUownOliVfyu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 13, 2023 at 06:17:23PM +0200, Alexandre Ghiti wrote:
-> The current include guard prevents the inclusion of asm/perf_event.h
-> which uses the same include guard: fix the one in riscv_pmu.h so that it
-> matches the file name.
->=20
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-lol, good one.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
---GY50yUownOliVfyu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZD7g3gAKCRB4tDGHoIJi
-0niAAP9R259eWe2kmODzm2En3NOxwxP9CGs4KgroP/D3sYF+zQD8ClzxXEWszAAT
-RGbXZu9khMsxSJk412e+72gB5A7KfQc=
-=Py0L
------END PGP SIGNATURE-----
-
---GY50yUownOliVfyu--
-
-
---===============3886902880714310998==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3886902880714310998==--
-
