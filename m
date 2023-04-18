@@ -4,49 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E8CC6FD18
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 14:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C00C6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 15:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bEA0wDGb95W7mnCBfweENhYaBdwPhP3kkAUUsIukvNU=; b=oBmLsQOHF0pzJf
-	R+Uyw2lBGibcniBcpfmGVARmgRr9vLOpolvIVa9kp/4SyDAMB3y3//jB4Ihj5QpNT+e7J4pJBAZ/A
-	cm5u+V7uQU0VK7idAaWCbbXgMaQQrArnNgRZqFL7pbkwTXkRg9kz9C1Pn0NnvWo2Ff1cz+yjT0LL6
-	OYI3R1kXrgyAG9/21Ak/hGZP1+EPrsoC4f4f39zr99IzgYbtvnoPbi0Az8V4bga9V6zSwD19K9oE9
-	JUlg5DIgAJPgy6hBlIEcRYyW+REudPVCtqlr4CzF0r8p1s4rAYj94YjTLl6ukFykwSfOwWpobD6hI
-	Vz88wjoT08ySJGol6N0A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8Pf7iLFqC2fPdEaMnRNU2HLiQWNVrESlJ2u536vEvqk=; b=XSTXbjMbVIoXj+
+	8sGsBGEzIsgm8WAEe/z01sRrvByiqgQ7Kz9pGwKCy48upZcdIkrIuDj7q0C5+VkAij0eQlPiQ27y8
+	8JVJhzz6Eh9om6bxOmF9hqTWm1zhfwZs3NpnkNSJz/vBjwxy7PzcO5lo0CCQk6jARYLoXU1J+2YvB
+	cKB2e5a3rAZDpeutXCmmS/8bvHN29xlNoldDOPDgPbBDuuF3lIIih/moaRf95t7kV4bwuzTkWKF1Z
+	Hc4UnyhG95ONwQ+u73k0HIiJZNptXpJ1qjE+g9wCbPCt3FWZXU9fLseEwlf0Yl+3ykLYYEVUuTzjc
+	EpWd3BOBjPxBIywQK1cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pomET-002Q8D-0M;
-	Tue, 18 Apr 2023 14:22:57 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1pomp9-002W1E-2n;
+	Tue, 18 Apr 2023 15:00:51 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pomEP-002Q5P-2m
+	id 1pomp6-002W09-2J
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Apr 2023 14:22:55 +0000
-Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1pomEF-003hrL-CT; Tue, 18 Apr 2023 15:22:43 +0100
-Received: from ben by rainbowdash with local (Exim 4.96)
-	(envelope-from <ben@rainbowdash>)
-	id 1pomEF-0066nR-0M;
-	Tue, 18 Apr 2023 15:22:43 +0100
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: kvm@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	ajones@ventanamicro.com
-Subject: Add zicboz support for riscv kvmtool
-Date: Tue, 18 Apr 2023 15:22:39 +0100
-Message-Id: <20230418142241.1456070-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.39.2
+	Tue, 18 Apr 2023 15:00:50 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-94a39f6e8caso688408866b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Apr 2023 08:00:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1681830044; x=1684422044;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gso+9cGhKjaR7/vNs46c4snLBCtF6RkjI43Ml0RKEu8=;
+        b=ix3MftKjRLsRMW8FRYc8xMWEXJ97hEtZS3GHbInGLhgNclB2P/PQJSb6fc4QD+AYeo
+         VuzPArbmrfBHdFNrZxchbFwnCkT9PGWSgCPL9V8F9XsqeVD3aDqha1klwLnzd11KT7lY
+         2zm6sjRkvve5Nq9ksySXTP2plvGq2o50E5Mb7MY/FtdCQUmK5mQx2+VrSxTi0IPuGXQq
+         bQTAmRBGxkmj1+s5qWf9glwbgsCm00s5dehNztPMaGzYxBA59Q6jSNqpzIBVCRYuEqfC
+         H//vm1/KUjNDLfOR7ns0cNzTxHgFN1nmWFNviF8pJRsqy+cINyVI1S0x098NdGU8oeNg
+         cCxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681830044; x=1684422044;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Gso+9cGhKjaR7/vNs46c4snLBCtF6RkjI43Ml0RKEu8=;
+        b=aTawk/PsVp4n40/Nftapzc6HATEo0yV4HyvRNunLWZ+eRrbW6UMHZgeXBypMlPumIY
+         n1eFcmvRKta/aAx55DCDa5FcjCP9DavacYNzR8JfNB+DRuL6UB+DF120YPyOG3BIBZAa
+         Qe4pXVp8f0QnGDuRCc2luj5Nng/XHurgXTzNW9fVNJQj3mEOJuWP6ZaQp3lYAe2Zk3QE
+         +ov9dglCfzpy8qTLTCLwYW3fGAUJiJKannqpu45zjsVBsZ2KYz4YRrIJDyjtcfZpF9hw
+         b1UJFrRbEmPagidSG4fv1Dq0UZSp9aTIJl6L9FuwtbZPz0NCTAdMZ63VoisvPZP0H+QH
+         F0cg==
+X-Gm-Message-State: AAQBX9flgFVsHcjT8kr5WttZUNwjwRRxCVUN1mUkbnUWLW9QX6AvpIin
+	ginOEjq4GvJNKwzhRclnP3D6wA==
+X-Google-Smtp-Source: AKy350bTbjE+6vKylwK6xDVZLQXU7KC4bYc2Kp5maLKIT2fow3sBjEVc9p5Et6xJhdOiblJBi5XcVg==
+X-Received: by 2002:aa7:cfd3:0:b0:504:ae7d:9e50 with SMTP id r19-20020aa7cfd3000000b00504ae7d9e50mr2569859edy.36.1681830044273;
+        Tue, 18 Apr 2023 08:00:44 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id bo25-20020a0564020b3900b005067d129267sm6171195edb.39.2023.04.18.08.00.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Apr 2023 08:00:43 -0700 (PDT)
+Date: Tue, 18 Apr 2023 17:00:42 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: kvm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH kvmtool 2/2] riscv: add zicboz support
+Message-ID: <ub3varg6spvwh5ihma4ossabuvbuvyxst63pra7rm2lfrkychf@4olgfsvgnij2>
+References: <20230418142241.1456070-1-ben.dooks@codethink.co.uk>
+ <20230418142241.1456070-3-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230418142241.1456070-3-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_072253_896187_544658FC 
-X-CRM114-Status: UNSURE (   5.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230418_080048_770590_DB67CB5D 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,13 +91,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is two simple patches, the first to sync the defines to ensure
-that the struct kvm_riscv_config is sync with upstream and the second
-to allow zicboz support into the guest.
+On Tue, Apr 18, 2023 at 03:22:41PM +0100, Ben Dooks wrote:
+> Like ZICBOM, the ZICBOZ extension requires passing extra information to
+> the guest. Add the control to pass the information to the guest, get it
+> from the kvm ioctl and pass into the guest via the device-tree info.
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> ---
+>  riscv/fdt.c                         | 11 +++++++++++
+>  riscv/include/asm/kvm.h             |  2 ++
+>  riscv/include/kvm/kvm-config-arch.h |  3 +++
+>  3 files changed, 16 insertions(+)
 
-[PATCH kvmtool 1/2] riscv: add mvendorid/marchid/mimpid to sync
-[PATCH kvmtool 2/2] riscv: add zicboz support
+Hi Ben,
 
+I have a patch almost identical to this one here
+
+https://github.com/jones-drew/kvmtool/commit/f44010451e023b204bb1ef9767de20e0f20aca1c
+
+The differences are that I don't add the header changes in this patch
+(as they'll come with a proper header update after Linux patches get
+merged), and I forgot to add the disable-zicboz, which you have.
+
+I was planning on posting after the Linux patches get merged so
+I could do the proper header update first.
+
+Thanks,
+drew
+
+
+> 
+> diff --git a/riscv/fdt.c b/riscv/fdt.c
+> index 3cdb95c..fa6d153 100644
+> --- a/riscv/fdt.c
+> +++ b/riscv/fdt.c
+> @@ -20,6 +20,7 @@ struct isa_ext_info isa_info_arr[] = {
+>  	{"svinval", KVM_RISCV_ISA_EXT_SVINVAL},
+>  	{"zihintpause", KVM_RISCV_ISA_EXT_ZIHINTPAUSE},
+>  	{"zicbom", KVM_RISCV_ISA_EXT_ZICBOM},
+> +	{"zicboz", KVM_RISCV_ISA_EXT_ZICBOZ},
+>  };
+>  
+>  static void dump_fdt(const char *dtb_file, void *fdt)
+> @@ -46,6 +47,7 @@ static void generate_cpu_nodes(void *fdt, struct kvm *kvm)
+>  	const char *valid_isa_order = "IEMAFDQCLBJTPVNSUHKORWXYZG";
+>  	int arr_sz = ARRAY_SIZE(isa_info_arr);
+>  	unsigned long cbom_blksz = 0;
+> +	unsigned long cboz_blksz = 0;
+>  
+>  	_FDT(fdt_begin_node(fdt, "cpus"));
+>  	_FDT(fdt_property_cell(fdt, "#address-cells", 0x1));
+> @@ -95,6 +97,13 @@ static void generate_cpu_nodes(void *fdt, struct kvm *kvm)
+>  					die("KVM_GET_ONE_REG failed (config.zicbom_block_size)");
+>  			}
+>  
+> +			if (isa_info_arr[i].ext_id == KVM_RISCV_ISA_EXT_ZICBOZ && !cboz_blksz) {
+> +				reg.id = RISCV_CONFIG_REG(zicboz_block_size);
+> +				reg.addr = (unsigned long)&cboz_blksz;
+> +				if (ioctl(vcpu->vcpu_fd, KVM_GET_ONE_REG, &reg) < 0)
+> +					die("KVM_GET_ONE_REG failed (config.zicboz_block_size)");
+> +			}
+> +
+>  			if ((strlen(isa_info_arr[i].name) + pos + 1) >= CPU_ISA_MAX_LEN) {
+>  				pr_warning("Insufficient space to append ISA exension\n");
+>  				break;
+> @@ -116,6 +125,8 @@ static void generate_cpu_nodes(void *fdt, struct kvm *kvm)
+>  		_FDT(fdt_property_string(fdt, "riscv,isa", cpu_isa));
+>  		if (cbom_blksz)
+>  			_FDT(fdt_property_cell(fdt, "riscv,cbom-block-size", cbom_blksz));
+> +		if (cboz_blksz)
+> +			_FDT(fdt_property_cell(fdt, "riscv,cboz-block-size", cboz_blksz));
+>  		_FDT(fdt_property_cell(fdt, "reg", cpu));
+>  		_FDT(fdt_property_string(fdt, "status", "okay"));
+>  
+> diff --git a/riscv/include/asm/kvm.h b/riscv/include/asm/kvm.h
+> index 92af6f3..e44c1e9 100644
+> --- a/riscv/include/asm/kvm.h
+> +++ b/riscv/include/asm/kvm.h
+> @@ -52,6 +52,7 @@ struct kvm_riscv_config {
+>  	unsigned long mvendorid;
+>  	unsigned long marchid;
+>  	unsigned long mimpid;
+> +	unsigned long zicboz_block_size;
+>  };
+>  
+>  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> @@ -105,6 +106,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+>  	KVM_RISCV_ISA_EXT_SVINVAL,
+>  	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
+>  	KVM_RISCV_ISA_EXT_ZICBOM,
+> +	KVM_RISCV_ISA_EXT_ZICBOZ,
+>  	KVM_RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/riscv/include/kvm/kvm-config-arch.h b/riscv/include/kvm/kvm-config-arch.h
+> index 188125c..46a774e 100644
+> --- a/riscv/include/kvm/kvm-config-arch.h
+> +++ b/riscv/include/kvm/kvm-config-arch.h
+> @@ -24,6 +24,9 @@ struct kvm_config_arch {
+>  	OPT_BOOLEAN('\0', "disable-zicbom",				\
+>  		    &(cfg)->ext_disabled[KVM_RISCV_ISA_EXT_ZICBOM],	\
+>  		    "Disable Zicbom Extension"),			\
+> +	OPT_BOOLEAN('\0', "disable-zicboz",				\
+> +		    &(cfg)->ext_disabled[KVM_RISCV_ISA_EXT_ZICBOZ],	\
+> +		    "Disable Zicboz Extension"),			\
+>  	OPT_BOOLEAN('\0', "disable-zihintpause",			\
+>  		    &(cfg)->ext_disabled[KVM_RISCV_ISA_EXT_ZIHINTPAUSE],\
+>  		    "Disable Zihintpause Extension"),
+> -- 
+> 2.39.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
