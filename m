@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D69EC77B71
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 10:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8CCC6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Apr 2023 11:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GIeWUu7J6qAPtORZKJQVh+mBdrhv6elvHDc/gvIjJxk=; b=sg5OkEO4B5s+ID
-	MD4UkCt2N0oAnndg+3PsHawQfbGivVqHZojflTC3Tx11nYOwNeHEK+XU9tYmg1Qm7cDc7pj8NPPyp
-	EM6d7XyCyNeIO1/4AWQt7aeiU5Y7nxKdj14FnuKuJwzcj+SXpfRQzTVJafthMW4a7eTp+5HJDdOzV
-	YJ2j8hGxEahnZcbmblvreEgAxkqkBqtDYkFX1DHIzL7ZWQ+Q9wiyZeTfrKNkNHIqQ9xQrSfVBZwRM
-	H9NOXsKlJcF2KSFc067cv0oddo+oz7E5JmYJl100fvuih7WxYOn3bsJ0IrMQ4QpoyOOKL+5nsxPl8
-	q6Jisu1onYiKXFGJhWvA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f9M+Q+lKMIWg+Wyk5u+HkE77c5JQPYZdB+di0pX0uMs=; b=T7rHjkvzkx0D/o
+	/eHpsJFqljp8nAiEXbagi/QtUEikwqXCMyTszMqTiHgs1h8AZYzvK8O4FdNERgBOkRc60tJnJpZOF
+	ZB6fOQu4Fg7yQdq3rJ3ziS59+YpgPQi5v6WrLid6JlLAHhHtHd9IzR3aH97KOzzPBku3ylK7KINNG
+	ajrJFjplu7JnmW96oRxKLtWoZAQ336xEU8Kcd9Tec3cOolV0nOhYgx6b4aLkCH5/7RUhCDZhkhtzf
+	9XEWlkjgiw1BVdscbsYiqbXN+U3t2sbIzGcTkBe1lA555sJtzSAcDSmSIEleGowg7ynZFqMUe5dd0
+	E34ST9cuwmQT2iLvY0vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1poiPX-001cC9-07;
-	Tue, 18 Apr 2023 10:18:07 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1poiPT-001c9e-2H
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Apr 2023 10:18:05 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3ee6c339cceso35625e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Apr 2023 03:17:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1681813076; x=1684405076;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=DYl/Oz3UxWL8YEPjdztiHxLe2qdPPPEyqdO/kFl/aj8=;
-        b=a678TKWgqb1Pt1vIE8NEsK8HmAbDdG3KAKO8UAIjB+tZ6nJM2CI61vM+iQj0hlVyT5
-         2VPJuSwOc8igGipc+cjuik2EES+biE0lrguoi4/WYdM4boJ86unD4lxMNHiOc9FL/Nhh
-         H+Sn/yMFfu7pFZ2RElVV9mJu1iw2AMlfy81Tax76E8KRcXyifWjKyuWiMs9T3n7Hx26j
-         sHgX+XvMQaz46D/E/hyShD71+SUZsWfbAKR2eNw2loKGIdOfR/RlwHq7HQjpGivWCZUg
-         oNVBjppShCRDUyrBRQn8zei2/Bo8ZVetuKLMP/JRKThpUbpzt85fuxd/8tUiDW6sFrnU
-         na4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681813076; x=1684405076;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DYl/Oz3UxWL8YEPjdztiHxLe2qdPPPEyqdO/kFl/aj8=;
-        b=TZRKxdbUFteRaIlCFLa3u4eVVlydU5fNJsoEyUypQe/5IWYnnwSsgLBZRa1RtrmXCN
-         A7QQrvxLNSo6gM2nttjzcaiJ7Tho/YjqW0YLCikQLutA50zgf7YzoYc2bx6j3sN/SWaD
-         xAilz8odxNrVmlEzkhkzSgp/aXRIII+eC4Q5fg5WRVtoOsleb2FQb7HqNSeq1v/vC0yF
-         LI+Kd2+8c/ehFO7VdDY6MDlCL3cO2bWDGgtvHvGyoRtNjRMK0kpGwy05a4D4t5gxxpgu
-         UBXLHG1fqkr2u82uUMMwJ5ksPTtcLojK/iw6x7drcVxcQ5oBsBLlZbbnHRf7d3IS3LCB
-         ipLQ==
-X-Gm-Message-State: AAQBX9dWMxdEOZxHIxTB5oC4FWQI+SFpZYI8ywa3HoOiXE7wzco1+C4X
-	lC0zwVJCy8aw1FC39ZlIHmeLiP+VN91rr8SYWxJVZw==
-X-Google-Smtp-Source: AKy350aOiDKrTU1YE/OnYRqS8F5jNyelOkGz358yc/LZOs1Ra+0Gr3iD1GHqLIhP7dApHsUrOZGTHLukukOhTTHcQBI=
-X-Received: by 2002:a05:600c:3b8c:b0:3f1:7490:e5a4 with SMTP id
- n12-20020a05600c3b8c00b003f17490e5a4mr155593wms.6.1681813076345; Tue, 18 Apr
- 2023 03:17:56 -0700 (PDT)
+	id 1pojHV-001tdw-2O;
+	Tue, 18 Apr 2023 11:13:53 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pojHQ-001tbx-0V;
+	Tue, 18 Apr 2023 11:13:51 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E191B24E0AE;
+	Tue, 18 Apr 2023 19:12:51 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Apr
+ 2023 19:12:51 +0800
+Received: from [192.168.125.108] (113.72.144.253) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Apr
+ 2023 19:12:50 +0800
+Message-ID: <a75ed45c-55c4-ff94-86f9-313ec79720ac@starfivetech.com>
+Date: Tue, 18 Apr 2023 19:12:50 +0800
 MIME-Version: 1.0
-From: Aleksandr Nogikh <nogikh@google.com>
-Date: Tue, 18 Apr 2023 12:17:44 +0200
-Message-ID: <CANp29Y6YqPbE9Y3iQEaTwD_YAQBvsxxRE=0COVYy=gBP-USvkg@mail.gmail.com>
-Subject: arch/riscv/net/bpf_jit_comp64.c build error
-To: pulehui@huawei.com
-Cc: linux-riscv@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
-	syzkaller <syzkaller@googlegroups.com>, Dmitry Vyukov <dvyukov@google.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH v4 0/7] Add JH7110 USB and USB PHY driver support
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, "Vinod
+ Koul" <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Chen
+	<peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Mason Huo" <mason.huo@starfivetech.com>
+References: <20230406015216.27034-1-minda.chen@starfivetech.com>
+ <517670ca-ba2e-811e-3eb2-7f38011c9690@linaro.org>
+ <985d0a57-1fc8-5725-4d3a-33dcc5d49d67@starfivetech.com>
+ <5953bc83-9609-6d12-7e9b-ca5202151fb3@linaro.org>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <5953bc83-9609-6d12-7e9b-ca5202151fb3@linaro.org>
+X-Originating-IP: [113.72.144.253]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230418_031803_745190_AEB03167 
-X-CRM114-Status: UNSURE (   5.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230418_041348_615796_68D5B7F6 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +86,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pu Lehui,
 
-I'm writing to you regarding your following patch.
 
-Author: Pu Lehui <pulehui@huawei.com>
-Date:   Wed Feb 15 21:52:04 2023 +0800
-
-    riscv, bpf: Add bpf_arch_text_poke support for RV64
-
-When trying to compile the "fixes" branch of the
-"git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git" tree,
-syzbot gets the following error:
-
-arch/riscv/net/bpf_jit_comp64.c: In function 'bpf_arch_text_poke':
-arch/riscv/net/bpf_jit_comp64.c:691:9: error: implicit declaration of
-function 'patch_text'; did you mean 'path_get'?
-[-Werror=implicit-function-declaration]
-  691 |   ret = patch_text(ip, new_insns, ninsns);
-      |         ^~~~~~~~~~
-      |         path_get
-
-FWIW the compiler is riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1
-20210110, GNU ld (GNU Binutils for Debian) 2.35.2.
-
-Could you please take a look?
-
-Best Regards,
-Aleksandr
+On 2023/4/13 22:13, Krzysztof Kozlowski wrote:
+> On 13/04/2023 12:44, Minda Chen wrote:
+>> 
+>> 
+>> On 2023/4/12 16:26, Krzysztof Kozlowski wrote:
+>>> On 06/04/2023 03:52, Minda Chen wrote:
+>>>> This patchset adds USB driver and USB PHY for the StarFive JH7110 SoC.
+>>>> USB work mode is peripheral and using USB 2.0 PHY in VisionFive 2 board.
+>>>> The patch has been tested on the VisionFive 2 board.
+>>>>
+>>>> This patchset should be applied after the patchset [1], [2] and[3]:
+>>>> [1] https://patchwork.kernel.org/project/linux-riscv/cover/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+>>>> [2] https://lore.kernel.org/all/20230315055813.94740-1-william.qiu@starfivetech.com/
+>>>> [3] https://patchwork.kernel.org/project/linux-phy/cover/20230315100421.133428-1-changhuang.liang@starfivetech.com/
+>>>>
+>>>> This patchset is base on v6.3-rc4
+>>>>
+>>>> patch 1 is usb phy dt-binding document.
+>>>> patch 2 is Pcie PHY dt-binding document.
+>>>> patch 3 is USB 2.0 PHY driver.
+>>>> patch 4 is PCIe PHY driver.
+>>>> patch 5 is usb dt-binding document.
+>>>> patch 6 is the wrapper module driver of Cadence USB3. USB controller IP is Cadence USB3.
+>>>> patch 7 is USB device tree configuration.
+>>>>
+>>>> previous version
+>>>> ---
+>>>> v1: https://patchwork.kernel.org/project/linux-usb/cover/20230306095212.25840-1-minda.chen@starfivetech.com/
+>>>> v2: https://patchwork.kernel.org/project/linux-usb/cover/20230308082800.3008-1-minda.chen@starfivetech.com/
+>>>
+>>> This is v2.
+>>>
+>>>> v3: https://patchwork.kernel.org/project/linux-usb/cover/20230315104411.73614-1-minda.chen@starfivetech.com/
+>>>>
+>>>> changes
+>>>> v4:
+>>>>   1. (patch 1) split PCIe PHY dt-binding doc to patch 2.
+>>>>   2. (patch 2) PCIe PHY add stg and sys con configuration to dt-binding doc.
+>>>>   3. (patch 3)
+>>>>      - split PCIe PHY driver to patch 4.
+>>>>      - replace dr_mode to phy mode in jh7110_usb2_phy.
+>>>>   4. (patch 4) 
+>>>>      - Makefile and Kconfig sorted by alphabet sequence.
+>>>>      - Add PCIe PHY stg and syscon PHY connection configuration
+>>>>        for USB 3.0.
+>>>>   5. (patch 5)
+>>>>      - commit message changed.
+>>>>      - merge wrapper dts node and cdns3 node in example.
+>>>>      - Add interrupts, reg, phy and dr_mode in property.
+>>>>      - Add reset-name in property example.
+>>>>   6. (patch 6)
+>>>>      - For dts node is merged, Using platform_device_alloc and
+>>>>        platform_device_add to generate cadence sub device.
+>>>>      - IOMEM and IRQ resource are passed to Cadence sub device.
+>>>>      - Add PHY ops process for PHY dts setting can not be passed to
+>>>>        Cadence USB driver.
+>>>>      - remove the stg and sys USB 3.0 PHY configuration.
+>>>>      - Change the suspend clock reset and clock enable sequence.
+>>>>      - Get all reset and clock resources before enable them in 
+>>>>        cdns_clk_rst_init.
+>>>>      - commit message changed.
+>>>>   7. (patch 7)
+>>>>      - merge wrapper dts node and cdns3 node in usb dts.
+>>>>      - move the stg and sys USB 3.0 PHY confiuration to
+>>>>        PCIe PHY dts node.
+>>>>      - commit message changed.
+>>>>      - Add reset-names dts.
+>>>>
+>>>> v3:
+>>>>   1. Add patch 1 - 4. Add USB PHY driver and dt-binding doc. 
+>>>>      USB PHY codes are moved to patch 3 and patch 4.
+>>>>   2. (patch 5)
+>>>>      - USB wrapper module dts document is moved to usb directory.
+>>>>      - Remove the 'dr_mode' and 'starfive,usb2-only' setting.
+>>>>      - Some dts format changes. dts binding check pass.
+>>>>   3. (patch 6)
+>>>>      - Remove the PHY codes. 
+>>>>      - Search 'dr_mode' and phy setting from Cadence subnode.
+>>>>   4. (patch 7)
+>>>>      - Add USB PHY dts configurion. 
+>>>>      - 'dr_mode' is moved to Cadence controller submode.
+>>>>
+>>>> v2:
+>>>>   1. (patch 5) dt-binding changes. The document example is the same as dts config.
+>>>>   2. (patch 6) using dev_err_probe and syscon_regmap_lookup_by_phandle_args function. Some formats changes
+>>>>   3. (patch 7) dts nodes sorted by the address after @
+>>>>
+>>>>
+>>>> Minda Chen (7):
+>>>>   dt-bindings: phy: Add StarFive JH7110 USB document
+>>>>   dt-bindings: phy: Add StarFive JH7110 PCIe document
+>>>>   phy: starfive: add JH7110 USB 2.0 PHY driver.
+>>>>   phy: starfive: add JH7110 PCIE 2.0 PHY driver.
+>>>>   dt-bindings: usb: Add StarFive JH7110 USB Bindings YAML schemas
+>>>>   usb: cdns3: add StarFive JH7110 USB driver.
+>>>>   riscv: dts: starfive: add USB dts configuration for JH7110
+>>>>
+>>>>  .../phy/starfive,jh7110-pcie-phy.yaml         |  58 +++
+>>>>  .../bindings/phy/starfive,jh7110-usb-phy.yaml |  50 +++
+>>>>  .../bindings/usb/starfive,jh7110-usb.yaml     | 136 +++++++
+>>>>  MAINTAINERS                                   |  16 +
+>>>>  .../jh7110-starfive-visionfive-2.dtsi         |   7 +
+>>>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  44 ++
+>>>>  drivers/phy/starfive/Kconfig                  |  22 +
+>>>>  drivers/phy/starfive/Makefile                 |   2 +
+>>>>  drivers/phy/starfive/phy-jh7110-pcie.c        | 197 +++++++++
+>>>>  drivers/phy/starfive/phy-jh7110-usb.c         | 161 ++++++++
+>>>>  drivers/usb/cdns3/Kconfig                     |  11 +
+>>>>  drivers/usb/cdns3/Makefile                    |   1 +
+>>>>  drivers/usb/cdns3/cdns3-starfive.c            | 378 ++++++++++++++++++
+>>>>  drivers/usb/cdns3/core.h                      |   3 +
+>>>>  14 files changed, 1086 insertions(+)
+>>>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+>>>>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>>>>  create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+>>>>  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
+>>>>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+>>>>  create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+>>>>
+>>>>
+>>>> base-commit: 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35
+>>>> prerequisite-patch-id: 24a6e3442ed1f5454ffb4a514cfd768436a87090
+>>>> prerequisite-patch-id: 55390537360f25c8b9cbfdc30b73ade004f436f7
+>>>
+>>> fatal: bad object 55390537360f25c8b9cbfdc30b73ade004f436f7
+>>>
+>>> What commits do you reference? How are they helpful?
+>>>
+>> I use "git format-patch --base=(commit) to generate patchset.
+>> Maybe I set the wrong base commit.
+> 
+> How are they helpful if these are private commits?
+>> Best regards,
+> Krzysztof
+> 
+base-commit is not private commits. 
+I should set base commit 197b6b60ae7bc51dd0814953c562833143b292aa. This is 6.3-rc4 commit.
+But I set 0ec57cfa721fbd36b4c4c0d9ccc5d78a78f7fa35. This is 6.3-rc4's previous commit.
 
 _______________________________________________
 linux-riscv mailing list
