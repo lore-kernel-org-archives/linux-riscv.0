@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67711C7EE20
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D80BC77B7E
 	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 11:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mQi6bs1ZZsGr2pYeMxARhsqmJl/cl8Y6iGRvf7Y3geg=; b=IRVDasuaWOcSFy
-	k9xFRzvU6VjLGE9tqHafjcJQ1oQI2SgAXOEmqh/AqOSF/hM4ncJSh11frE+IYlpl3UIuhWDhGD/Eu
-	cqPfwlTBzM/RkXr4+l/jDEwmcnfJDQfQ0FVqAw1DWY5lZ3pYCabUdSDgto5p2Ga9XE+F846EqYI5R
-	RrRdqAMMuy6SMaMLu8NB8WzFtg1Bmi77yAs5jJVMPCwb6CeDDxeQ8iod5iplpfu5doaV7+4Kmk1jF
-	aJeoJfzgKuGk+opajrKHXMuE7kmb+kj2O9/SkDXyK0sXbqrlTPOekc8Xg4UVDXFt6zVWOq0dmxgrL
-	0FejUuinH3ZhFh7jw+6g==;
+	List-Owner; bh=ZprFIVTFx7vo5oQnU8sGej6WL9Xgkaz2/FCM47Lv3pY=; b=aMXlwnFNFFBZLi
+	HgUwxSaBcMRhM7kjgcdlP59RJi0TZ2x40vdpFPS9k/m98X3eBNspAtz6wOeY20IVeek+v9QUN/w65
+	POGEKOsr/rQLskbsVP7RNtfcUq+0Pl1qH/q0ItVmDDcEs9yqCEdzDwu6u7W89aS8USZguFazcKkF3
+	WXLrf8b1V8efcqfKCiHMB/0XaVW5exiZ9akT3HEMWiBRlaAE710r4+8tRVi8kXUXwQiqRNobxzM9H
+	ND7zpF1unKAnV03RfIC/8lG2MhmbAhq3t0GR6XI4vldLgfTSTXHoWer5daoae+aW7qE/tV2rPGVTq
+	AeFNNpDgEsBAtq57nh8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp5hf-0058Ab-06;
-	Wed, 19 Apr 2023 11:10:23 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1pp5he-0058A3-1P;
+	Wed, 19 Apr 2023 11:10:22 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp5hb-005882-1W
+	id 1pp5ha-00586k-2f
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 11:10:21 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1a52667955dso35500515ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 04:10:19 -0700 (PDT)
+	Wed, 19 Apr 2023 11:10:20 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-63b50a02bffso2732397b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 04:10:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1681902618; x=1684494618;
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1681902617; x=1684494617;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=erF7h0FFrrflFOP1De39iTiQwqZxcNsKEc8OIQm5UJM=;
-        b=wz3bVzECh81V9P/8eSWWBlXF/ppb7Eo6YzU8zyukUtrt3VzZ0IEpHBtlfje9DVEk8A
-         WgQ43IxHuPg5JxpS+AeX0+JDT9BXNewP9GBxLEbdYftK7bLLCUGMUBxE7QFEhweo+hXs
-         ikPvUAgfl+FTTZIHdjmvg1mvLBoejr44HJSj8MVhg6jkkNQb0V/xq7HvECgQM+xvxg07
-         /rhj2VeNHkSdv02dw84Cnm0BPWlGc4/tYeOszJHSqvjMvIJoOYvVzIpUznLiSKPl9ow8
-         IW5VIWbPwZJgWUbhYU2YozHm+nuM/R3jyKv8aDekyuNVAe3ivBaYboWEbeNyyV528ZgP
-         kQ1A==
+        bh=XmVkd/UrXriHJHxvxxsPlqAajEG3FYZbywzFeJQXIHk=;
+        b=zPbQZG9UKwm7GRyIqZChI5pPpnjrvhb8Q5Cx0LVS9GCn0om8iAHe+VSMXHgYhN4iIE
+         8hHCqRn6dwTm2nsiT9GilKXMZ1FCN5xuGY6ikI9a3/jb7VDcGrJSy6OtfIdK3QlW6N6+
+         RxvuxkbB2fpmlt3qaEEq/XF6YsyaBgL3a3uLDu9C3fO+5Ry3wbbsbycb9tLDG71pLFqj
+         6Ph52NPqQie9WLd/4O6LUZjHBRNlMGRcO41aMzbPqSyM/UYae08hx6DIu6+5KiIvg/BL
+         iP1p9QGFXCiDa/ohQY7K8Ow0ju7miafcpNFTqcaScbcUWUl3Y1ontHOlSlMSlZHcrBr2
+         V3aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681902618; x=1684494618;
+        d=1e100.net; s=20221208; t=1681902617; x=1684494617;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=erF7h0FFrrflFOP1De39iTiQwqZxcNsKEc8OIQm5UJM=;
-        b=IoO86J57w7i+PHVqDNagA9+Kp2ZKyZiSD0ezcwcZXa8VsyEvv1sUSyLT0+QHenO83p
-         ulEAF+DeSy/EV/TuXd5LOH8TX6PRmKKPxYatFN5QNmdGHWTtlnkHQostG+a4/2BNxJXP
-         0iLu+D9r/GRaEhJmLq0YGheneIZIybsraMhwoZEXuWPdGDdXo8q8nwbY9pPUDz07Vhv/
-         crlzt/pzoXu3sX2zQJYz4kOv+v7A0DRkFLkTt2g1p81CWQGMQCNsZRbjk0hmFL6sg1nb
-         5q1U/vecJt1avFk9VnFsFJVGBgm6ganSrlrSNzu0qtmQyIpISrOzTvIbTyT/tOZimILv
-         hG2g==
-X-Gm-Message-State: AAQBX9fNp6NeUx27igZ4fWjYuxZDuphYH14I0B948AtrFYzttRVri2MH
-	aPXgxhKqfFXEOgSBnZS0nLFEOxhvre0DEjRDiJw=
-X-Google-Smtp-Source: AKy350ZRSZ8md3xymsWabEgKJyV9SXGwr0uyWNsabbIVXDib5OEDsFleXNsdFcITKR6mAw9AfBngJw==
-X-Received: by 2002:a17:903:41c2:b0:1a8:106c:4a1a with SMTP id u2-20020a17090341c200b001a8106c4a1amr3748412ple.1.1681902618470;
-        Wed, 19 Apr 2023 04:10:18 -0700 (PDT)
+        bh=XmVkd/UrXriHJHxvxxsPlqAajEG3FYZbywzFeJQXIHk=;
+        b=QmnwxGEPriPfX9uzodCzLqpw9twWREfX4QqFzZbUM5W+FxMVdOWPOzuSibBL/HY2z8
+         CGXDeoMZY77E5ZzLuXYuF8ZL2XJMBwjCKnZfE5dqMe71CI1JhsXIbQGX3XY0dbiGpcmN
+         3jyCCwIDW99pqr725wiCE/Ya89Q7dmGROEdnHZIy/SAlvQVbRpMM08GWTzexHYxqx1M4
+         9fcXZuiRwJBY0SjTvizrV4VV1k0tdLHysocPSMupLr3VeSJvFLChI5LeTLOy0QiwxHHf
+         GKNDNndQ12YRoVDKNV9YsX6J4lok/fwhGMdT9RIkAb5nMSw2f/PceqR9BC4AexjJSf36
+         q6pA==
+X-Gm-Message-State: AAQBX9fDpRw0WeEJFOJFlOoOvpFWQUsiDIw5aTkvYODWKw+nQk+nyQin
+	a4KTUo0cHMAJMa4aBLiDUN9Pvol2pG5aC/xBcMo=
+X-Google-Smtp-Source: AKy350Zyw3Ulaxp08aBwcGKciKhzrEtrdld4xIv32oyd3Jnf/nHEuPYG4H87WQ56JWkt1m7BYEv28Q==
+X-Received: by 2002:a17:902:c941:b0:1a6:387a:6572 with SMTP id i1-20020a170902c94100b001a6387a6572mr6089976pla.13.1681902616795;
+        Wed, 19 Apr 2023 04:10:16 -0700 (PDT)
 Received: from x1.hsd1.or.comcast.net ([2601:1c2:1800:f680:eaf2:1d7a:7338:16cb])
-        by smtp.gmail.com with ESMTPSA id g12-20020a1709026b4c00b001a24cded097sm11180774plt.236.2023.04.19.04.10.17
+        by smtp.gmail.com with ESMTPSA id g12-20020a1709026b4c00b001a24cded097sm11180774plt.236.2023.04.19.04.10.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 04:10:17 -0700 (PDT)
+        Wed, 19 Apr 2023 04:10:16 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -80,16 +80,16 @@ To: linux-riscv@lists.infradead.org,
 	Rob Herring <robh+dt@kernel.org>,
 	James Morse <james.morse@arm.com>
 Cc: Drew Fustini <dfustini@baylibre.com>
-Subject: [RFC PATCH 06/21] RISC-V: QoS: define CBQRI resctrl resources and domains
-Date: Wed, 19 Apr 2023 04:10:56 -0700
-Message-Id: <20230419111111.477118-7-dfustini@baylibre.com>
+Subject: [RFC PATCH 05/21] RISC-V: QoS: define prototypes for resctrl interface
+Date: Wed, 19 Apr 2023 04:10:55 -0700
+Message-Id: <20230419111111.477118-6-dfustini@baylibre.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230419111111.477118-1-dfustini@baylibre.com>
 References: <20230419111111.477118-1-dfustini@baylibre.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_041019_520130_78E1A741 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20230419_041018_877100_48466ED6 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,59 +106,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define data structures to encapsulate the resctrl resource
-and domain structures.
+Define the prototypes for the resctrl interface functions that are
+implemented on RISC-V.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- arch/riscv/kernel/qos/internal.h | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ include/linux/riscv_qos.h | 58 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
-index e07d7f92e206..a3ed98ce5dd6 100644
---- a/arch/riscv/kernel/qos/internal.h
-+++ b/arch/riscv/kernel/qos/internal.h
-@@ -65,6 +65,11 @@
- #define CBQRI_BC_ALLOC_CTL_OP_READ_LIMIT   2
- #define CBQRI_BC_ALLOC_CTL_STATUS_SUCCESS  1
+diff --git a/include/linux/riscv_qos.h b/include/linux/riscv_qos.h
+index 95016810b575..537e503a8e99 100644
+--- a/include/linux/riscv_qos.h
++++ b/include/linux/riscv_qos.h
+@@ -3,6 +3,7 @@
+ #ifndef __LINUX_RISCV_QOS_H
+ #define __LINUX_RISCV_QOS_H
  
-+int qos_resctrl_setup(void);
-+void qos_resctrl_exit(void);
-+int qos_resctrl_online_cpu(unsigned int cpu);
-+int qos_resctrl_offline_cpu(unsigned int cpu);
-+
- /* Capacity Controller hardware capabilities */
- /* from qemu/include/hw/riscv/cbqri.h */
- struct riscv_cbqri_capacity_caps {
-@@ -127,4 +132,26 @@ struct cbqri_controller {
- 	bool mon_capable;
- };
++#include <linux/resctrl_types.h>
+ #include <linux/iommu.h>
+ #include <linux/types.h>
  
-+struct cbqri_resctrl_res {
-+	struct rdt_resource     resctrl_res;
-+	struct cbqri_controller controller;
-+	u32 max_rcid;
-+	u32 max_mcid;
-+};
+@@ -31,4 +32,61 @@ struct cbqri_controller_info {
+ 
+ extern struct list_head cbqri_controllers;
+ 
++bool resctrl_arch_alloc_capable(void);
++bool resctrl_arch_mon_capable(void);
++bool resctrl_arch_is_llc_occupancy_enabled(void);
++bool resctrl_arch_is_mbm_local_enabled(void);
++bool resctrl_arch_is_mbm_total_enabled(void);
 +
-+struct cbqri_resctrl_dom {
-+	struct rdt_domain       resctrl_dom;
-+	// NCBLKS is 16 bit which is 2^16 = 65536
-+	// If each bit is a block, then cc_block_mask could 1024 times 64 byte
-+	u64 cbm;
-+	u64 rbwb;
-+	u64 *ctrl_val;
-+	struct cbqri_controller *hw_ctrl;
-+};
++struct rdt_resource;
++/*
++ * Note about terminology between x86 (Intel RDT/AMD QoS) and RISC-V:
++ *   CLOSID on x86 is RCID on RISC-V
++ *     RMID on x86 is MCID on RISC-V
++ *      CDP on x86 is AT (access type) on RISC-V
++ */
++bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level ignored);
++bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
++bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++int  resctrl_arch_mon_ctx_alloc_no_wait(struct rdt_resource *r, int evtid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, int evtid, int ctx);
++void resctrl_arch_reset_resources(void);
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
++u32  resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
++int  resctrl_arch_set_cdp_enabled(enum resctrl_res_level ignored, bool enable);
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 pmg);
++u32  resctrl_arch_system_num_rmid_idx(void);
++void resctrl_sched_in(void);
 +
-+struct cbqri_config {
-+	u64 cbm; /* capacity block mask */
-+	u64 rbwb; /* reserved bandwidth blocks */
-+};
++static inline bool resctrl_arch_event_is_free_running(enum resctrl_event_id evt)
++{
++	/* must be true for resctrl L3 monitoring files to be created */
++	return true;
++}
 +
- #endif /* _ASM_RISCV_QOS_INTERNAL_H */
++static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
++{
++	return val;
++}
++
++/* Pseudo lock is not supported on RISC-V */
++static inline int resctrl_arch_pseudo_lock_fn(void *_plr) { return 0; }
++static inline int resctrl_arch_measure_l2_residency(void *_plr) { return 0; }
++static inline int resctrl_arch_measure_l3_residency(void *_plr) { return 0; }
++static inline int resctrl_arch_measure_cycles_lat_fn(void *_plr) { return 0; }
++static inline u64 resctrl_arch_get_prefetch_disable_bits(void) { return 0; }
++
++/* Not needed for RISC-V */
++bool resctrl_arch_match_iommu_closid(struct iommu_group *group, u32 closid);
++bool resctrl_arch_match_iommu_closid_rmid(struct iommu_group *group, u32 closid, u32 rmid);
++int  resctrl_arch_set_iommu_closid_rmid(struct iommu_group *group, u32 closid, u32 rmid);
++
++/* Not needed for RISC-V */
++static inline void resctrl_arch_enable_mon(void) { }
++static inline void resctrl_arch_disable_mon(void) { }
++static inline void resctrl_arch_enable_alloc(void) { }
++static inline void resctrl_arch_disable_alloc(void) { }
++
+ #endif /* __LINUX_RISCV_QOS_H */
 -- 
 2.34.1
 
