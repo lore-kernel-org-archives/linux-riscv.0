@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EA9C77B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AAAFC7EE20
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YEjE6taHPy8Wr14O02gnbjXmv0/QA7rEP2pBVZlpOIw=; b=wZU2hwWFcn3V9Q
-	I4y/t0zv9F2Htp9h+Dks+M48PULRv+4Vl3v1RX5wAESaolbzdexVwvn/J5NW7ScmGcbUIZp/M+JPw
-	Y5kCMSzpV2sahUmdn41ivLrzKXOVH0hpufX7VGkOp2UmWjifDzDENptOymB8wxSvGSG6J7GGmP3vD
-	t/lhPWKdN0sHtRCrpeys7zkgINHXvwNsbpUZS6UtUxNnfR2I598cE/D8hjYre6mfNqIOfKZRriGmW
-	YtiIXOy9shNi+ZVLuVLjEslDOSVUE3NeBbUkLa/lQawd/eR96r+KehrmYZJzLoY63IpYO0uTvKFBV
-	l4yXCO04wFld6bRy2xLQ==;
+	List-Owner; bh=LRfTCshYF1QnxYh8pwVT712wM1N7DvOuCmFBsnKWh1k=; b=sW9E9PKV65pplM
+	DvEb/6AVnDExlEC9bQYom3O3pf9BjZL+4PGrjmH3ws4Uy89nPkb5zpH+wlbGmKsx0I+mc3rM8Pm3c
+	aNjGIYlP1Oy5A6fMtjplYgAZ6H9rWgNmxld/uarIDe9wAoN3P4YSDeEo1ga/Inl7r9fUHRoW3zLaX
+	h1x+QKkJvgBjK2L+gv+n5qzR983XYFQE7IwMH7xzCc5uVT6X5IcvmPqVaBJqR92lStzx2DauVIL4p
+	BBBsuMxqlaEs4idJh9PqYXQp5Mo3j2AxJcBY7kAzl7V61u2hvqNZ7xJ16PNNDY1MZCyk15kH0DaxW
+	M0dCaihC5bdN4UhnVIbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppHG9-006eYo-1I;
-	Wed, 19 Apr 2023 23:30:45 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1ppHGG-006ejN-1x;
+	Wed, 19 Apr 2023 23:30:52 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8R-006TQD-1G
+	id 1ppGDi-006Ufw-2C
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:18:44 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1a920d4842bso4244125ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:43 -0700 (PDT)
+	Wed, 19 Apr 2023 22:24:12 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-63b64a32fd2so482785b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:24:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942723; x=1684534723;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681943050; x=1684535050;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CQCEa95xde61G0+g1spWAS5gSK9slN4MB0K1b9QrdE8=;
-        b=Ynw03ruOG3PNfgG00HUUd7HJCh15VY3aEZKHBX+JvWIZqAaPdtZJFMNC9sQ+7tdyNf
-         gQij1krIXgqHn6c3FKneR90d+ObOiz01SLEvx89Co8mtqMDidl42AKlK9b8IeRrjhkVj
-         wFMRWmBw0WyiUKSEW2tAX/U5AjDnycCzdvc7/5XQe2CDXdqSpATkNcRDmxBB2iAZSbfO
-         Qe8Etb6nnDF5lWA9UfVwL0EYoHqQHL5jKdNdyJEbe8jXSsaw1PcWzy6qONpwtJLTmV1a
-         iWDDSsLQLNxRbxPSgzzxgbkJX9sxpOs3jDYDbGE18ziPonHZ9Lw5ZRGoMLwBsGOpngcC
-         aTQQ==
+        bh=DqxJzuQg4YHoKMLWmjQ5z9IqDd25T8M3gtHVASWlMsA=;
+        b=CdFLGUbJVpNnlbN6H0RysN3QwK8Q22dGILzUyKn1eed3BCAW6+MEMsBRDq2/F3MfEN
+         8F/42PROs9h1k2Q7VrH4EPO6wp5xxtsziRkW162nuTlbeuaKnWv/CAiPccnTCWWIYPQk
+         oJLjTPMoTHn4eG+8ibMKGv7GyStv5zxs81LmeyyaemazO9r8w0RuVqYmdLVQ/35zsHF4
+         Epuj0d4WbFCdWHPxERyyC/wFKBbzXDxx2K1QzNu3em+Y/D7eT+3ZwnJpBriORGuqa1bG
+         mG11CSzZymcMK9J81Dm4lnZ1qJfC6fNYaISOIHAhx4fE/+Qh3aPrGDxSYFrQFc63TMHE
+         cEug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942723; x=1684534723;
+        d=1e100.net; s=20221208; t=1681943050; x=1684535050;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CQCEa95xde61G0+g1spWAS5gSK9slN4MB0K1b9QrdE8=;
-        b=Vi9xwkYG2MjT+IOoZGiaFqeHtFzX7trcImTle00uaCgbHlFHndp1XiAUM5hq14KLWT
-         e30kg//iQkqyOg5WxqKADSt+ROsCGOc2IauySuyQVtEiwaNzMJs/XMc+ZOPrcasFt3BH
-         5Zo312kqOzUrr/9x14PkyrmdbILeDhvVZ+tUWrlu9DYeeN4AnBy8HRjHfMTz/mjeNi3z
-         g9y8Nx9b7ZdiNahKyeke7FJMaACO9b3r4FLx5cI4PLlg8Pjs007hLIgIpzrO0luiOgyh
-         CRVo3kchVFebPj81S3m6Q2OwcE9rKiA7zeTgPhh75w2yLMhn60d+A8cMUPO6R0DSKIu9
-         Y1pg==
-X-Gm-Message-State: AAQBX9cHkGmqWpcE5YadB7xB3Jm3C2RqwZGRM2JH9864LTodT0MvY900
-	zlGXvLRJ07LO9eCLuwgrjczOmg==
-X-Google-Smtp-Source: AKy350a8Ym8XHInuF0mFeXBc2+oA8kajjJCNeYyHi0F4HD8cqx1mngs6rpkeTwZ7fiAYwBWCbSvEDg==
-X-Received: by 2002:a17:902:ba89:b0:1a9:2693:2e29 with SMTP id k9-20020a170902ba8900b001a926932e29mr1536823pls.42.1681942722916;
-        Wed, 19 Apr 2023 15:18:42 -0700 (PDT)
+        bh=DqxJzuQg4YHoKMLWmjQ5z9IqDd25T8M3gtHVASWlMsA=;
+        b=CKAkC+v35jT9NJG/EuxU0yWcc46wUpTHOV8sOXX19SL1aX3PHTRbeRR5W2oFNWEZpn
+         6OzbpBcqt4XAsFYmOymx9rujQeUxS/MmrwWwddKrZjpPdTCBWVCsIhVh6+qNtybXOBOg
+         IU4Mo6/OZYiQQvhgt0hntlvhBcCenWXyD4EX/3OnE5vzCa4+l0lYVwiHSHxMe0RSOC1p
+         AR23WmLg7qwssULX7XapAc2u+ftgk52W0lgk6+XVAMLSbAxkM9v3XYHz/kEJL2RR1Tkd
+         lvw7vQE2/UbOJdbuubnWKphxL4QQ1xBGJslvcp+KcF2qBEM99BkNirXmpFF4xdbrHRUg
+         /a6A==
+X-Gm-Message-State: AAQBX9f3xmJ741RJu376InbaAB1SoUpg//KI13LiQ8bxEzQThJ+GpkNi
+	8xccIGsai3iXDOP0rxORhH+1RQ==
+X-Google-Smtp-Source: AKy350Y1oJzpFyEWrofUoiBPrqInLwUP0IdbCjWNBlR0+a+fpEuwpi5wATQkdQOE2P7s+B2OF642XA==
+X-Received: by 2002:a17:902:db08:b0:1a6:8405:f709 with SMTP id m8-20020a170902db0800b001a68405f709mr8145477plx.20.1681943049834;
+        Wed, 19 Apr 2023 15:24:09 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.41
+        by smtp.gmail.com with ESMTPSA id e4-20020a170902744400b001a681fb3e77sm11867810plt.44.2023.04.19.15.24.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:18:42 -0700 (PDT)
+        Wed, 19 Apr 2023 15:24:09 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -70,7 +70,6 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Marc Zyngier <maz@kernel.org>,
@@ -79,32 +78,25 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Dylan Reid <dylan@rivosinc.com>,
 	abrestic@rivosinc.com,
 	Samuel Ortiz <sameo@rivosinc.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
 	Jiri Slaby <jirislaby@kernel.org>,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
 	linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 33/48] RISC-V: KVM: Hookup TVM VCPU init/destroy
-Date: Wed, 19 Apr 2023 15:17:01 -0700
-Message-Id: <20230419221716.3603068-34-atishp@rivosinc.com>
+Subject: [RFC kvmtool 04/10] riscv: Invoke measure region for VM images
+Date: Wed, 19 Apr 2023 15:23:44 -0700
+Message-Id: <20230419222350.3604274-5-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
-References: <20230419221716.3603068-1-atishp@rivosinc.com>
+In-Reply-To: <20230419222350.3604274-1-atishp@rivosinc.com>
+References: <20230419222350.3604274-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151843_426885_DB904D03 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20230419_152410_722072_558F8F05 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,49 +113,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The TVM VCPU create function requires the vcpu id which is generated
-after the arch_create_vcpu returns. Thus, TVM vcpu init can not be
-invoked from the arch_create_vcpu. Invoke it in post create for now.
-However, post create doesn't return any error which is problematic
-as vcpu creation can fail from TSM side.
+The DT, initrd and kernel images needs to be measured before a CoVE VM
+can be started to validate its authenticity.
+
+Hookup the measure region API for these three components.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ riscv/fdt.c | 3 +++
+ riscv/kvm.c | 4 ++++
+ 2 files changed, 7 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 65f87e1..005c7c9 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -218,6 +218,17 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+diff --git a/riscv/fdt.c b/riscv/fdt.c
+index 61a28bb..07ec336 100644
+--- a/riscv/fdt.c
++++ b/riscv/fdt.c
+@@ -254,6 +254,9 @@ static int setup_fdt(struct kvm *kvm)
  
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- {
-+	int rc;
-+	/*
-+	 * TODO: Ideally it should be invoked in vcpu_create. but vcpu_idx
-+	 * is allocated after returning create_vcpu. Find a better place to do it
-+	 */
-+	if (unlikely(is_cove_vcpu(vcpu))) {
-+		rc = kvm_riscv_cove_vcpu_init(vcpu);
-+		if (rc)
-+			pr_err("%s: cove vcpu init failed %d\n", __func__, rc);
-+	}
+ 	if (kvm->cfg.arch.dump_dtb_filename)
+ 		dump_fdt(kvm->cfg.arch.dump_dtb_filename, fdt_dest);
 +
- 	/**
- 	 * vcpu with id 0 is the designated boot cpu.
- 	 * Keep all vcpus with non-zero id in power-off state so that
-@@ -237,6 +248,9 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
- 
- 	kvm_riscv_vcpu_pmu_deinit(vcpu);
- 
-+	if (unlikely(is_cove_vcpu(vcpu)))
-+		kvm_riscv_cove_vcpu_destroy(vcpu);
-+
- 	/* Free unused pages pre-allocated for G-stage page table mappings */
- 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
++	kvm_cove_measure_region(kvm, (unsigned long)fdt_dest,
++				kvm->arch.dtb_guest_start, FDT_MAX_SIZE);
+ 	return 0;
  }
+ late_init(setup_fdt);
+diff --git a/riscv/kvm.c b/riscv/kvm.c
+index 99b253e..d59e8bc 100644
+--- a/riscv/kvm.c
++++ b/riscv/kvm.c
+@@ -148,6 +148,8 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+ 	pr_debug("Loaded kernel to 0x%llx (%zd bytes)",
+ 		 kvm->arch.kern_guest_start, file_size);
+ 
++	kvm_cove_measure_region(kvm, (unsigned long)pos, kvm->arch.kern_guest_start,
++			       file_size);
+ 	/* Place FDT just after kernel at FDT_ALIGN address */
+ 	pos = kernel_end + FDT_ALIGN;
+ 	guest_addr = ALIGN(host_to_guest_flat(kvm, pos), FDT_ALIGN);
+@@ -188,6 +190,8 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+ 		pr_debug("Loaded initrd to 0x%llx (%llu bytes)",
+ 			 kvm->arch.initrd_guest_start,
+ 			 kvm->arch.initrd_size);
++		kvm_cove_measure_region(kvm, (unsigned long)pos, initrd_start,
++				       file_size);
+ 	} else {
+ 		kvm->arch.initrd_size = 0;
+ 	}
 -- 
 2.25.1
 
