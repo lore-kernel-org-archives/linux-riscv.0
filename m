@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A65C77B73
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537ECC77B7E
 	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,60 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4t6s5+2nLulK3myzQiOYwYeLvgDD5kxi+t+Zn4oCKzE=; b=LlPXVbseTOEAcz
-	xRmzELiUt6BIuLTobgSULAIi6c27G4v8OfsNDJC/Pzao7gKgIcVC/xYkvedqTakJQ2P2G3jufnFCO
-	DUaDGJ4JSM9FAzpdBIh7ZkotNFJH7IPOTu0wx0OZzh2nH+ZSi5UrIGbj2c4qldax6Z+nmg3KusfA0
-	j8rlcfnoVC0EAnVGWnQQ4ybemSUy/TVEgsbtPKbQRYqjv+gcefrw+zqKi6e/mIR2JzyIgXan0MO33
-	+3lQp/5g8UsgFEJfl5Re3qdsvHxQ8zBdR9Qwrw3KJq2XYQ0H/PZmR4A0MftB94eEJ+TLlUJKbjg7L
-	0DsVo7r6zCyFuGijmPAw==;
+	List-Owner; bh=0VbwfL4JXDrp5CHlkZTSfcysNU/Q8iMSIju7eW3gTeI=; b=YOzpDlB4XFnUAP
+	IfRF7td/zuPGYt532lwu9i0VhmNyYumgJC0vVhMkBtm6EIFvHG03D0UDz9sfBs7RPkq25ptZypiL+
+	wBua5uI2q8Gu0Fi4P7OjGA7+owGn9EapvXvyy9IoudWvS+LGIv+61LzcVT6S61dWyTA6w5Z9nfik5
+	Y21lbQZG+RYZoZDkJBdVrVavCUKqBk3JvD0t0hDOEi7kAOxnL7WSFNUODNmF7z3oWYiXgBQauDKc3
+	UGPooHk01xbB9KtFG3VvyR693ZvO991JbR9V5yxfa1URm5KY9kIwGhTzYbcJkHfwB7JkSkJqK3h0N
+	rQnuiFbQApdtxIAtgmnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppHG8-006eXP-1Q;
-	Wed, 19 Apr 2023 23:30:44 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1ppHG3-006eTF-2f;
+	Wed, 19 Apr 2023 23:30:39 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8D-006TAN-1p
+	id 1ppG7M-006Sp1-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:18:32 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-63b5c48ea09so374046b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:29 -0700 (PDT)
+	Wed, 19 Apr 2023 22:17:40 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1a6862e47b1so5504105ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:17:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942709; x=1684534709;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942656; x=1684534656;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=e0F6tHm2quQwLEvcCl5FI5ypn8ePvTg03kiPuCNoeNw=;
-        b=B0z1LKxRqo0N/+B1Zq8uNd+jORsnBmdASeazIE6ba9jOD7NNAm6Y6Ydluna+vSisdS
-         Ns9+QkyzZkHLKpqekwlR8LOXx0SmdbLDH70zYIU2tu7Ppm7uTfxUiNTzbORQk6jDkpwT
-         wou9JJMc8eyykdjw9eDblXGrXRv3fHzY2QDwRPmwO1RqTVCF9ZjGycORqBMV7BBhXY2c
-         4MNxDLzeWD+U/vLAXIW8MKmvELAjO/f9B7KULqHL5O/X2CES/rwKUq+7tYosSOcZcHDe
-         RrEGZ8I2t0oPTTiBYWoZFiRl6ej+YFgKxG/VdR1RjRUQssQeFPlAP7g8lmfAqRhNq39Y
-         qB8A==
+        bh=QQ+Q1EB8U9VN9DkQE/7ZRwGYKH2CHxTB2A2ZNISqIdY=;
+        b=M7pMYKMh2fzPlQxiN+Er+1mRXb5xsvVBR/kCf0Xc6I4eRmeu17ZWxN3F+8Uh4bOfYt
+         pLsryNkeitFt3/g2LwdIO4gRgf1eK0d0zd3qJJmJH0/Ytd9PXb2f4ZIv2vw9qF7rcmT+
+         +/5fNVmr7py0CepFxvid91vQee8LTDJ1trxwVh1r+SZa6D1ybCiNK5WtQpwcXBYzwzon
+         14Dk5NjS3zvhDHWUiYkgfDVG/0CawxYwCekaOcRjbz+KKATicit8f2wKNBE+FUv2M2pL
+         VFRS7BwOkXZ7Z6aFPV2U5r0uWlcE+ptOAW8XtsMKVeJj+vK+/KtMoB1U0hUKE2I995ZX
+         1ZPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942709; x=1684534709;
+        d=1e100.net; s=20221208; t=1681942656; x=1684534656;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=e0F6tHm2quQwLEvcCl5FI5ypn8ePvTg03kiPuCNoeNw=;
-        b=DF85g2WvwJHTSQPBSbo9XayzHmKgewIdzlIXWUvpTMBcYgVDjDhXLTZ7ylpUZH8dyH
-         GeKHBc9KZn29SCl7CfuLWG+3zzVRASIjN0odP5uYfujNyUC6GVTWmHJLsP7muTYlRfxO
-         hVWQ8zQmR4veGMqQiJRbfNJMDzcw5q3hb2l8dFPb0OJoDN3HZalPE89R6giWRnziiIc1
-         3Am4Yf+fngR1iwhYn6Es2azbJhE5QXIsvRzZBWyIiklWD4mQ8BrjqmZSyo6BERJPHgaN
-         P9h3hIZ0eDT+v4n/yOQ+3ssj4Lt4mEv8UdD8VTDVwJWRcRF4yeqSqsOsZXMdGp6pTZmz
-         7M2g==
-X-Gm-Message-State: AAQBX9e80pH/7GyIR4H8ekRBHH8P8BaHOXGuzE3MrhYHcGh80/Jg0EQm
-	lMMfWKVsReqlrmXlt9eyayrvVg==
-X-Google-Smtp-Source: AKy350aSSLZmcJ6EGd9ViVcCgExeh8NfbY776YNFamx7qI4QWXSDqSo7VY1vzDz6CmaJhnexr4tP0w==
-X-Received: by 2002:a17:902:be02:b0:1a3:c8c2:c322 with SMTP id r2-20020a170902be0200b001a3c8c2c322mr6340185pls.29.1681942709189;
-        Wed, 19 Apr 2023 15:18:29 -0700 (PDT)
+        bh=QQ+Q1EB8U9VN9DkQE/7ZRwGYKH2CHxTB2A2ZNISqIdY=;
+        b=Og8s4o7DjQIySgTmzS7bF7gtj751ZxnETypH6OtWbDxKpFUaexSUK8zQXx9cOahnSO
+         aR6uJzA0iu4JH3hGwTqoxws60X8sPcURep3pj08Du/fnldi2jMU2IRxpdzWL0N36RxNv
+         bTcuUDoc/dt2kWGn/B/B/9XRGnzAZ3Tpi/zASB/HJbA/CmYTmMcGdu3OcWNaVFsXVCtu
+         AnlilCuaxUju4g57a/W2ugWK2xq925g5U6pOITwWPar1j0srgh835viLw6VCwMpBcywA
+         s+ymbL4v8Y77Ku8sPtuumw9om/FJH/VMHTCWsOq8iQXQpB6cKKYh/8KMlhKBhXflwskd
+         TwDQ==
+X-Gm-Message-State: AAQBX9c7r7WkSThZcbHDTk9m96MjO+QHe630eSfWp8yPVpy+L7lUtB78
+	T3av84p41P6wlrxA5v8Y6Itimg==
+X-Google-Smtp-Source: AKy350ZJUiSSYrDjl7yi3RGe7KkMi+TjKSL1H9rjEJIsWoSyzpH0Qljb3g4DlHLMrKbT1BFQ8UiTyA==
+X-Received: by 2002:a17:902:6bc1:b0:1a6:81fc:b585 with SMTP id m1-20020a1709026bc100b001a681fcb585mr6201339plt.41.1681942656169;
+        Wed, 19 Apr 2023 15:17:36 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.27
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.17.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:18:28 -0700 (PDT)
+        Wed, 19 Apr 2023 15:17:35 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
@@ -94,17 +93,18 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 27/48] RISC-V: KVM: Implement COVI SBI extension
-Date: Wed, 19 Apr 2023 15:16:55 -0700
-Message-Id: <20230419221716.3603068-28-atishp@rivosinc.com>
+Subject: [RFC 03/48] RISC-V: KVM: Invoke aia_update with preempt disabled/irq enabled
+Date: Wed, 19 Apr 2023 15:16:31 -0700
+Message-Id: <20230419221716.3603068-4-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151829_640385_3A5EDC7C 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20230419_151736_682795_C017E692 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,231 +121,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CoVE specification defines a separate SBI extension to manage interrupts
-in TVM. This extension is known as COVI as both host & guest
-interface access these functions.
+Some of the aia_update operations required to invoke IPIs that
+needs interrupts to be enabled. Currently, entire aia_update
+is being called from irqs disabled context while only preemption
+disable is necessary.
 
-This patch implements the functions defined by COVI.
-
-Co-developed-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
-Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/kvm_cove_sbi.h |  20 ++++
- arch/riscv/kvm/cove_sbi.c             | 164 ++++++++++++++++++++++++++
- 2 files changed, 184 insertions(+)
+ arch/riscv/kvm/vcpu.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_cove_sbi.h b/arch/riscv/include/asm/kvm_cove_sbi.h
-index df7d88c..0759f70 100644
---- a/arch/riscv/include/asm/kvm_cove_sbi.h
-+++ b/arch/riscv/include/asm/kvm_cove_sbi.h
-@@ -32,6 +32,7 @@
- #define nacl_shmem_gpr_read_cove(__s, __g) \
- 	nacl_shmem_scratch_read_long(__s, get_scratch_gpr_offset(__g))
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index e65852d..c53bf98 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -1247,15 +1247,16 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
  
-+/* Functions related to CoVE Host Interface (COVH) Extension */
- int sbi_covh_tsm_get_info(struct sbi_cove_tsm_info *tinfo_addr);
- int sbi_covh_tvm_initiate_fence(unsigned long tvmid);
- int sbi_covh_tsm_initiate_fence(void);
-@@ -58,4 +59,23 @@ int sbi_covh_create_tvm_vcpu(unsigned long tvmid, unsigned long tvm_vcpuid,
+ 		kvm_riscv_check_vcpu_requests(vcpu);
  
- int sbi_covh_run_tvm_vcpu(unsigned long tvmid, unsigned long tvm_vcpuid);
+-		local_irq_disable();
+-
+ 		/* Update AIA HW state before entering guest */
++		preempt_disable();
+ 		ret = kvm_riscv_vcpu_aia_update(vcpu);
+ 		if (ret <= 0) {
+-			local_irq_enable();
++			preempt_enable();
+ 			continue;
+ 		}
++		preempt_enable();
  
-+/* Functions related to CoVE Interrupt Management(COVI) Extension */
-+int sbi_covi_tvm_aia_init(unsigned long tvm_gid, struct sbi_cove_tvm_aia_params *tvm_aia_params);
-+int sbi_covi_set_vcpu_imsic_addr(unsigned long tvm_gid, unsigned long vcpu_id,
-+				 unsigned long imsic_addr);
-+int sbi_covi_convert_imsic(unsigned long imsic_addr);
-+int sbi_covi_reclaim_imsic(unsigned long imsic_addr);
-+int sbi_covi_bind_vcpu_imsic(unsigned long tvm_gid, unsigned long vcpu_id,
-+			     unsigned long imsic_mask);
-+int sbi_covi_unbind_vcpu_imsic_begin(unsigned long tvm_gid, unsigned long vcpu_id);
-+int sbi_covi_unbind_vcpu_imsic_end(unsigned long tvm_gid, unsigned long vcpu_id);
-+int sbi_covi_inject_external_interrupt(unsigned long tvm_gid, unsigned long vcpu_id,
-+					unsigned long interrupt_id);
-+int sbi_covi_rebind_vcpu_imsic_begin(unsigned long tvm_gid, unsigned long vcpu_id,
-+				      unsigned long imsic_mask);
-+int sbi_covi_rebind_vcpu_imsic_clone(unsigned long tvm_gid, unsigned long vcpu_id);
-+int sbi_covi_rebind_vcpu_imsic_end(unsigned long tvm_gid, unsigned long vcpu_id);
-+
-+
-+
- #endif
-diff --git a/arch/riscv/kvm/cove_sbi.c b/arch/riscv/kvm/cove_sbi.c
-index bf037f6..a8901ac 100644
---- a/arch/riscv/kvm/cove_sbi.c
-+++ b/arch/riscv/kvm/cove_sbi.c
-@@ -18,6 +18,170 @@
- 
- #define RISCV_COVE_ALIGN_4KB (1UL << 12)
- 
-+int sbi_covi_tvm_aia_init(unsigned long tvm_gid,
-+			  struct sbi_cove_tvm_aia_params *tvm_aia_params)
-+{
-+	struct sbiret ret;
-+
-+	unsigned long pa = __pa(tvm_aia_params);
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_AIA_INIT, tvm_gid, pa,
-+			sizeof(*tvm_aia_params), 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+int sbi_covi_set_vcpu_imsic_addr(unsigned long tvm_gid, unsigned long vcpu_id,
-+				 unsigned long imsic_addr)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CPU_SET_IMSIC_ADDR,
-+			tvm_gid, vcpu_id, imsic_addr, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Converts the guest interrupt file at `imsic_addr` for use with a TVM.
-+ * The guest interrupt file must not be used by the caller until reclaim.
-+ */
-+int sbi_covi_convert_imsic(unsigned long imsic_addr)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CONVERT_IMSIC,
-+			imsic_addr, 0, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+int sbi_covi_reclaim_imsic(unsigned long imsic_addr)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_RECLAIM_IMSIC,
-+			imsic_addr, 0, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Binds a vCPU to this physical CPU and the specified set of confidential guest
-+ * interrupt files.
-+ */
-+int sbi_covi_bind_vcpu_imsic(unsigned long tvm_gid, unsigned long vcpu_id,
-+			     unsigned long imsic_mask)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CPU_BIND_IMSIC, tvm_gid,
-+			vcpu_id, imsic_mask, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Begins the unbind process for the specified vCPU from this physical CPU and its guest
-+ * interrupt files. The host must complete a TLB invalidation sequence for the TVM before
-+ * completing the unbind with `unbind_vcpu_imsic_end()`.
-+ */
-+int sbi_covi_unbind_vcpu_imsic_begin(unsigned long tvm_gid,
-+				     unsigned long vcpu_id)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CPU_UNBIND_IMSIC_BEGIN,
-+			tvm_gid, vcpu_id, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Completes the unbind process for the specified vCPU from this physical CPU and its guest
-+ * interrupt files.
-+ */
-+int sbi_covi_unbind_vcpu_imsic_end(unsigned long tvm_gid, unsigned long vcpu_id)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CPU_UNBIND_IMSIC_END,
-+			tvm_gid, vcpu_id, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Injects an external interrupt into the specified vCPU. The interrupt ID must
-+ * have been allowed with `allow_external_interrupt()` by the guest.
-+ */
-+int sbi_covi_inject_external_interrupt(unsigned long tvm_gid,
-+				       unsigned long vcpu_id,
-+				       unsigned long interrupt_id)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_CPU_INJECT_EXT_INTERRUPT,
-+			tvm_gid, vcpu_id, interrupt_id, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+int sbi_covi_rebind_vcpu_imsic_begin(unsigned long tvm_gid,
-+				     unsigned long vcpu_id,
-+				     unsigned long imsic_mask)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_REBIND_IMSIC_BEGIN,
-+			tvm_gid, vcpu_id, imsic_mask, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+int sbi_covi_rebind_vcpu_imsic_clone(unsigned long tvm_gid,
-+				     unsigned long vcpu_id)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_REBIND_IMSIC_CLONE,
-+			tvm_gid, vcpu_id, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
-+int sbi_covi_rebind_vcpu_imsic_end(unsigned long tvm_gid, unsigned long vcpu_id)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_COVI, SBI_EXT_COVI_TVM_REBIND_IMSIC_END,
-+			tvm_gid, vcpu_id, 0, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return 0;
-+}
-+
- int sbi_covh_tsm_get_info(struct sbi_cove_tsm_info *tinfo_addr)
- {
- 	struct sbiret ret;
++		local_irq_disable();
+ 		/*
+ 		 * Ensure we set mode to IN_GUEST_MODE after we disable
+ 		 * interrupts and before the final VCPU requests check.
 -- 
 2.25.1
 
