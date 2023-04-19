@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD47BC6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 11:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A498FC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 11:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PRA+6qbbVCv989P5SA30LJgF498TMc929egRzQStjCk=; b=FFKGnyjDddd/6/
-	JrIixAdMZcLzQjA0jdgxRHLj0AMA1qxF5t4l0dTJdcxaYBhUO1CEiKyjx73SzEclHDNLFh8JGdVsY
-	3El2ARjHfZRnEZsay4A9wM/qWvaI6fclhiOnp0wysB2y7dVYfnQfYMHO2YNF+JyabctXLS4lmviO0
-	LIj6TnSYjTo7xr5Jctr2lVDsioVdiT8X5hwbb0wqdn+od4UX1fnQBOPCI+MsBoIF4xfGXOq1hRUtN
-	y2ZjQpzRVwOHeW5xF4fCZRsMMTnE3kab3to5K1iojkzzZgL/saePJlglzdEI6KFJdpPHPVvCATcEi
-	7QMSA4AGpYw8YPPSRmrw==;
+	List-Owner; bh=e82mDZj7DKhgXX0zHdPGrdtfMkKEIWQvpikR5UyOU2c=; b=3IIRKHbIxjiUJn
+	ojiHsTWsCKmu5W+qtFaRieyyV1KatfBcaBP9U4mkZgAq0odrdV/KDA9zSftrx5NIGK/Hl70Cnb4U0
+	XCkCheFbyoifVQXrFCDBtOfdR684i7ILtovpZAkjW1mkdWmsr8KtcPst2o6KvvP+RZU1ldUT959BD
+	gIYEkhBAVzj3ps8mpc0ho8LyeUAGwT3cGwR1e/xMDmdc4l5iNYRzl3bgN/Cp2GcNFb3dOwsXAhqZZ
+	4KgD/VN/C+42uhNHicktzh11HqRgjv1y7KzS/eNTMVipyFEbZ2IPnsSkzXlgKdc5hz5nJuhjuGdbE
+	HtYvfUI7aUEpXVeaAEBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp6Fc-005E3Y-0D;
-	Wed, 19 Apr 2023 11:45:28 +0000
+	id 1pp6Fe-005E4G-28;
+	Wed, 19 Apr 2023 11:45:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp6Fa-005E3F-0L
+	id 1pp6Fd-005E3o-2C
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Apr 2023 11:45:26 +0000
+	Wed, 19 Apr 2023 11:45:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=8VRpPNkDuAyz+Ft5imrcs9KDU5p5mtKUYR9cIj3QRd4=; b=iPOHcttdQWpR7jE3yI55MPOIec
-	8Pgjr0hX2Fe9eSKxN5fc1wB/OyIPPFwk7Sd+iLfBGRKlATFEJHczQ41s+SB/jkUlbGCobVYeJqf5Z
-	5cErZXfuDqGApPqILrJJWbMZrtQNeBCOVT3cYz+Y2CnPX2/3ZWOPDXR1wPAa+6kjDmGAxB+1d+5rp
-	uSYlszp1kBLAwxjqd2gmOaiYlRPgT7nRckzv2gimd213azj2d37vwHdsZbpXynALuD4x7utdqiXQB
-	KTdNV/PwIexK0EY+4rSbql0Wdt18GDnpMDgRNJBBwrLKVbzBM0d/gWRN81NdbEO2BSKzKbw2o3+4y
-	tzk5XeXA==;
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	bh=H7zDmqn6U8Eyb17uAoVJJPhK0/Ifl27eJMXTrX2OOHM=; b=db7QIzGBqFtMSlc0T1yJvT0bzf
+	hVZc/Mt6lIh6YqakyBRRa9P7jP3/KEgdggRbA7VFxgpDoyFUT3U2Z20jlyS7LEpxTFWqS4Nr+nNm5
+	UD8JlA2keSY5iYIGW6hEVb3XDPqQPXcSfJA0FcxuNya1Jip7wE8WCmqIB18aE11BXJdNOE12ZHQWf
+	h/YaOCzvIXJ8qGjc/kMIVHNroeLbOVFnS7ef6RpODcp8mVPZ52FXVTdzxaqfY+cRfyX4uO2Ou+We4
+	GKvSKLsmFKIZB+Y1BafY0A1aRPDllPySwAHsMOUuj9V6kUegpHB0po/ucAie+9mtndD/Al6yxdx1O
+	P2D7JC1Q==;
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp5hs-001sOg-38
+	id 1pp5hx-001sQH-3C
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 11:10:39 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1a645fd0c6dso24014545ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 04:10:36 -0700 (PDT)
+	Wed, 19 Apr 2023 11:10:46 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1a68d61579bso18252755ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 04:10:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1681902634; x=1684494634;
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1681902639; x=1684494639;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8VRpPNkDuAyz+Ft5imrcs9KDU5p5mtKUYR9cIj3QRd4=;
-        b=x/8pGfsLNTo4M60IL76aQ5x040uI2InLj1/EScIFp6VYlhbjP5l3eNVgN+y4avjRTt
-         H5fzYWvVhJT2Rq7bzjd2zo6SGa9b70+iPd7q+BYZOfnbxUKSB2gBI+v9EID/w220Xv6A
-         ogg1jlEVmqJYIyFKd2qTHBIQq91+m87zuaTfEpDGjS4JjD5plCp7XDP57KjGuKZ+kOiN
-         SVYdRu2DZSdcypVQLwcCpNb8l4lKH0jilJ++oP1hk4KiAaDnMtqJcq8eN39x6hZzCeaP
-         j6FiQUn7+p1qacItyHJxcwZOT4dU4m7qvkAF3FVlQoqYsjD4V5HP3V7p3ikdeOowNAkl
-         8kWg==
+        bh=H7zDmqn6U8Eyb17uAoVJJPhK0/Ifl27eJMXTrX2OOHM=;
+        b=rzuEY2qOeKpq90xSbNAhUvw+t3I72kxsPlvEC7slbJx9oZ6mmu89DjDgnsFLhq7KuO
+         Wt57Eklvz6MGerBhZn+zO7UFpZ15XNmpuuwUhsEG37gK93liaWtJlKCwrt2a/FnzUTe+
+         z5HCg6VZUjUOIo9F8rfd8VaOHjPNwVA+1x+kc2wTDwm7qonkWTsRz8jC1Itvm7NSNSAY
+         a5X1WkIgUhDoNCGAK2F6F/Mxe4xIl1aVgypMSHghWGGh6VIPhepcxxkeK6szAoLR/YUN
+         CS3WZYDAECq7UnQZ5nHRW9sRRpHAl9XVfxsKrrcgn0szOs0qnXHXC7l5tQ1KG31eQtEE
+         cRUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681902634; x=1684494634;
+        d=1e100.net; s=20221208; t=1681902639; x=1684494639;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8VRpPNkDuAyz+Ft5imrcs9KDU5p5mtKUYR9cIj3QRd4=;
-        b=c99Y2snmy76vrNTnUBXwQ2apjODyFPGE7m2cDSY9AIXUgNb4v22MwBcgIUig2nc7hI
-         /RvOa6n3c7I0L7FVcAMVOMbqjyHWccF8ONQNcVTD0xbkQtsx1B2kd/wOun6meYRL8lBL
-         0zPXVfeQ5kA4yN9QtwgMEwXlfEgpIajuH/XJYYXuEOlyQBD+48QL0R509rasQD+V2+fz
-         LuHTtPsam550bgOmqb6p9VyvaLfOq8G3PEpiqOZj5lT2svM7pil1xhtpz6XVbbayRX6C
-         WhjL0CAXaYQ1yXprZJZDvNYVGuPXOlu0YSv1Fo9EFN5G8PX4C3wiu2NrzEICqkEolF9r
-         Qh3g==
-X-Gm-Message-State: AAQBX9eKdp9Wn9MdOIRaNW6sT6NOPfe/di4U1yroNoquOK/RmfYR6Man
-	Q1E8zyBhL/rFxTt19ZPr1sI0+U0ZP3b6PSCPbQs=
-X-Google-Smtp-Source: AKy350boG05NBC+OyMdfVB4g1lkdqwK+pdBb8M8du2YV2tJ6Pxg4DvMv0hsz2y7ET8IQwFhAUURrrw==
-X-Received: by 2002:a17:902:db0f:b0:1a1:a9a4:ba26 with SMTP id m15-20020a170902db0f00b001a1a9a4ba26mr5908976plx.8.1681902634412;
-        Wed, 19 Apr 2023 04:10:34 -0700 (PDT)
+        bh=H7zDmqn6U8Eyb17uAoVJJPhK0/Ifl27eJMXTrX2OOHM=;
+        b=D6B+KL2pCrBskHQlXVF4Dmhog85rE4tJLvgDcWwxpzBnOzdjq2ULFixmP/fI9rojU9
+         NPVDsD1gt6CoqNauxR9edzokVPQdh+zZgYzr3lsLdxQ8Z2naQ73eo1uTltBuWO4NtLC8
+         +bgY4h+ALAqnWs3VVBKa4rCKD0eWn/Uro7XjtZvAQeZqQa89vwXuT1IknmWVan+pq5Ug
+         b7LerNEo51VHmno2y24zMfVHdHfyCXxgA+wvaMYc4+Hj4eRRCDftgiiahKCVz0spAXcz
+         k8KowSxeO5+kd4wOxaz37KcXLz5iLVPcQTTMnzZuU9BQ93hW3mU5IdHEExXAIPq1VAbZ
+         LgQQ==
+X-Gm-Message-State: AAQBX9dQy9jJZtkiaX4jJmLX+AHUypw67NskS14qYPT35wFEbme37KMm
+	NXmDtMuMclGwi3lOIFaYIq0YlKBAsKuMXU8PyvI=
+X-Google-Smtp-Source: AKy350bRyAzNw2aBgYQca4A9Dl58PbRRLG96ePo7DalZ4z4sxpKHS+SDAbx+Cwj9P+bi7KJe2/jZ7A==
+X-Received: by 2002:a17:902:daca:b0:1a2:19c1:a974 with SMTP id q10-20020a170902daca00b001a219c1a974mr5715862plx.68.1681902639573;
+        Wed, 19 Apr 2023 04:10:39 -0700 (PDT)
 Received: from x1.hsd1.or.comcast.net ([2601:1c2:1800:f680:eaf2:1d7a:7338:16cb])
-        by smtp.gmail.com with ESMTPSA id g12-20020a1709026b4c00b001a24cded097sm11180774plt.236.2023.04.19.04.10.33
+        by smtp.gmail.com with ESMTPSA id g12-20020a1709026b4c00b001a24cded097sm11180774plt.236.2023.04.19.04.10.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 04:10:33 -0700 (PDT)
+        Wed, 19 Apr 2023 04:10:38 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -95,16 +95,16 @@ To: linux-riscv@lists.infradead.org,
 	Rob Herring <robh+dt@kernel.org>,
 	James Morse <james.morse@arm.com>
 Cc: Drew Fustini <dfustini@baylibre.com>
-Subject: [RFC PATCH 17/21] DO_NOT_MERGE soc: add Foobar SoC memory controller driver
-Date: Wed, 19 Apr 2023 04:11:07 -0700
-Message-Id: <20230419111111.477118-18-dfustini@baylibre.com>
+Subject: [RFC PATCH 21/21] DO_NOT_MERGE riscv: dts: build qemu virt device tree
+Date: Wed, 19 Apr 2023 04:11:11 -0700
+Message-Id: <20230419111111.477118-22-dfustini@baylibre.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230419111111.477118-1-dfustini@baylibre.com>
 References: <20230419111111.477118-1-dfustini@baylibre.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_121037_186078_5F6BB143 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20230419_121044_920122_E2F2D7F9 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,105 +121,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add example driver for a SoC memory controller that implements CBQRI.
+Add the device tree for the qemu virt machine to the build. The
+resulting dtb will be consumed by qemu-system-riscv64.
 
 Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- drivers/soc/foobar/foobar_cbqri_memory.c | 83 ++++++++++++++++++++++++
- 1 file changed, 83 insertions(+)
- create mode 100644 drivers/soc/foobar/foobar_cbqri_memory.c
+ arch/riscv/boot/dts/Makefile      | 1 +
+ arch/riscv/boot/dts/qemu/Makefile | 3 +++
+ 2 files changed, 4 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/qemu/Makefile
 
-diff --git a/drivers/soc/foobar/foobar_cbqri_memory.c b/drivers/soc/foobar/foobar_cbqri_memory.c
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index f0d9f89054f8..74d99d28522f 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -5,5 +5,6 @@ subdir-y += starfive
+ subdir-y += canaan
+ subdir-y += microchip
+ subdir-y += renesas
++subdir-y += qemu
+ 
+ obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+diff --git a/arch/riscv/boot/dts/qemu/Makefile b/arch/riscv/boot/dts/qemu/Makefile
 new file mode 100644
-index 000000000000..0a0c542a25e1
+index 000000000000..07252b4ff455
 --- /dev/null
-+++ b/drivers/soc/foobar/foobar_cbqri_memory.c
-@@ -0,0 +1,83 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Foobar Systems CBQRI memory controller
-+ */
-+
-+#define pr_fmt(fmt) "foobar-mem: " fmt
-+
-+#include <linux/device.h>
-+#include <linux/of.h>
-+#include <linux/riscv_qos.h>
-+
-+static const struct of_device_id foobar_cbqri_memory_ids[] = {
-+	{ .compatible = "foobar,memory-controller" },
-+	{ }
-+};
-+
-+static int __init foobar_cbqri_memory_init(void)
-+{
-+	struct device_node *np;
-+	int err;
-+	u32 value;
-+	struct cbqri_controller_info *ctrl_info;
-+
-+	for_each_matching_node(np, foobar_cbqri_memory_ids) {
-+		if (!of_device_is_available(np)) {
-+			of_node_put(np);
-+			continue;
-+		}
-+
-+		ctrl_info = kzalloc(sizeof(*ctrl_info), GFP_KERNEL);
-+		if (!ctrl_info)
-+			goto err_node_put;
-+		ctrl_info->type = CBQRI_CONTROLLER_TYPE_BANDWIDTH;
-+
-+		err = of_property_read_u32_index(np, "reg", 1, &value);
-+		if (err) {
-+			pr_err("Failed to read reg base address (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->addr = value;
-+
-+		err = of_property_read_u32_index(np, "reg", 3, &value);
-+		if (err) {
-+			pr_err("Failed to read reg size (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->size = value;
-+
-+		err = of_property_read_u32(np, "riscv,cbqri-rcid", &value);
-+		if (err) {
-+			pr_err("Failed to read RCID count (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->rcid_count = value;
-+
-+		err = of_property_read_u32(np, "riscv,cbqri-mcid", &value);
-+		if (err) {
-+			pr_err("Failed to read MCID count (%d)", err);
-+			goto err_kfree_ctrl_info;
-+		}
-+		ctrl_info->mcid_count = value;
-+
-+		of_node_put(np);
-+
-+		pr_debug("addr=0x%lx max-rcid=%u max-mcid=%u", ctrl_info->addr,
-+			 ctrl_info->rcid_count, ctrl_info->mcid_count);
-+
-+		/* Fill the list shared with RISC-V QoS resctrl */
-+		INIT_LIST_HEAD(&ctrl_info->list);
-+		list_add_tail(&ctrl_info->list, &cbqri_controllers);
-+	}
-+
-+	return 0;
-+
-+err_kfree_ctrl_info:
-+	kfree(ctrl_info);
-+
-+err_node_put:
-+	of_node_put(np);
-+
-+	return err;
-+}
-+device_initcall(foobar_cbqri_memory_init);
++++ b/arch/riscv/boot/dts/qemu/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_VIRT) += qemu-virt-cbqri.dtb
++obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
 -- 
 2.34.1
 
