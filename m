@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4E1C6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06645C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7BUXLoYOITUMK3beG2D1QImyFYrvHJp+OBVe1KCmsA=; b=twqg52XClfi8lc
-	hYgA5J+RGTyXgiyLeCy0PCnhOOXoOe0y6yoyql/+ULrDjW+EzjX+clGgxkD0Kat5fo3Ussv10x7TS
-	NKCdzYkgpNI7LNrJDeHmkIFS03UKOkpx2tlfyJYNtbbsiEM/QIKzSqb+KHalCv4WSWu/YVSR4PVUb
-	3Am9xm039aeZNncKgp2PjhYZD/ee3hRdVDW/UkqJh+nBpszNuAiAPzduD54gAbT/qXIJnPTzSX0K/
-	hWUsgx51s9JdJah9QSMRGoXEpnewRONpQjQtDEYOD5Z0XPOz6ctGdGe8yPjAHKcXnPnbBSjrx270/
-	tZ2Vj16r16SnnZAbECAw==;
+	List-Owner; bh=fkqc50KTMOKsKBZFu+bvlqGVWqFEICqNJSr5Cpzj9wQ=; b=ZZsSLDGbngaF2c
+	ulMpf2ZSkU/ly5q1nGTOBFHN+N3Lrwi97qpSToA/imVOqMraWgBk4SqeKn4LVUUB4vpdDFmhVAgkD
+	1CRaOKzLUE6IEjfsVwUaOkBoyXO1VUbsoDvj6WddFwgBcM+hXX+P/MrIRAuEutK2TzOHRNJw05Ldq
+	qMcyGfdX1ZODYYJbrOWCsqlsYlwyLpeS/+ilXaDz2mPBntIQKXvnuznB6ksabhtFKOvM0LpQmCY4+
+	rYs9PU7pOrXYHSsQWxQNepfEVooHPW8s6l/mcij8/L9M1V/+eJYxoXhSxwoVs9dU/2Zbqko6rH3KB
+	yoAzFu8dUxTCrorCfkuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppHGD-006ee2-0r;
-	Wed, 19 Apr 2023 23:30:49 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1ppHG4-006eTe-1w;
+	Wed, 19 Apr 2023 23:30:40 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8l-006Tb8-0s
+	id 1ppG7M-006So6-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:19:04 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1a69f686345so4530415ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:19:03 -0700 (PDT)
+	Wed, 19 Apr 2023 22:17:41 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1a516fb6523so5305055ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:17:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942743; x=1684534743;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942654; x=1684534654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=a40XLfKnT38y+rtkL3pdG8Ux1IFfCO6rS0FTBqpEPf0=;
-        b=3qxwZ1AI4VGDwq0mJs81MteY/7NGEkj+18YI44D7IRwVFmeOk/RDHZQGN6wE3U+Fah
-         h7gisXIiukRhgYPfWkwf74DwoXRlOc0S4t3u5KNMCW0DvYSt6D9lgBm8X1/OboQx9bjc
-         IzBdkE1rsZq0oHGxqiSUWhGy7JzHKWqkxpvHKq8QGhfZMNoiHDUHp+knL2W2J0PauRX8
-         Z60xK4xlPZJK9w4CVaJLh1I3bqfv7kssfB1lBki6XAPwuKeXcckA/zvCt73aqzG97NxY
-         H3VYn/a0FuKbmIi+8CNiszb6pRZFNUdKkES3iAmBw3QloUaHccRpDErn+0099zd/wFiN
-         sTyg==
+        bh=TviUiXCC6v39lMS4rfPLGE9Pfx0aaxYAF0PLkJZJ+44=;
+        b=fw3FXTdDZVAQaqNcpqxhJ5jCbeJxZbbRCeUP7dUA0xboMzGhByaEInJPZwYw9bXQXk
+         ARHWS0qP1pZrTXclentFqb6h5U2ua9sUZm6vZcXmwvDFczjrVihV2Nra1Jc2/WF5XyU2
+         0JadbkEFEI0//guHLR6qxF3JNYLlwaQIZD991cfubV5PenBiFCNtb6hgKaPgRSq66vCg
+         e+VFqjLE6civs190GuIRI3K+ZsW+0KEkHzSOhGggkx8qfJ2wZO5KlkmScX+zwalNjqk6
+         RuMOo25mdsFietap8z25HKARP1geAiwoigenSaj60oBOp8w+6PxBWZ/NPdxHu1rx5LuB
+         U5bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942743; x=1684534743;
+        d=1e100.net; s=20221208; t=1681942654; x=1684534654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=a40XLfKnT38y+rtkL3pdG8Ux1IFfCO6rS0FTBqpEPf0=;
-        b=Wvb32a2leW2xcCa5c3SbwhsjZl7BywaHsTroWQB5suDgycHWFTpEX1T3ENB3aCVKX+
-         dIDBlFt2xDxAhQWXcMkH9kRcC/nkLoMfZpnCDWzFyx/pa/X/kZ0P7HUgZFLsrAo0Lh6f
-         7//MW+Zxo8Jas/hLhrvAr8U2xiuxLipubc8Gt5XsHICOoS2O1oejNBSqlTJdbl5/a4rm
-         pIuZwwz2mVTDiRtiBbwfC7TGlkMZtjXNT6kO3WcSpWD8kRSbQxWdB7RRv7CY4WDY/Lqj
-         1Evn/NwU55W8gzwVi120F3IjwST0SDNwvF+h78fuQEBkEKEuXu3WvrPICE2JYMu9mtHB
-         0arA==
-X-Gm-Message-State: AAQBX9cb1Cueh3dluABc4uPuf/yjoHoxzZro4o/UnsM/zgL0dBh5S8Yx
-	pfbL8Q3ZGIMh6L31KQcwVUrJIQ==
-X-Google-Smtp-Source: AKy350YLjqHMzW16SB61ZrKO34D3/TlmDW2rBvoLEyn4qa6+KyWVGCYv7MHLqblqPruYYQP5o2V7iQ==
-X-Received: by 2002:a17:902:ea0e:b0:1a1:ee8c:eef5 with SMTP id s14-20020a170902ea0e00b001a1ee8ceef5mr7846112plg.7.1681942742761;
-        Wed, 19 Apr 2023 15:19:02 -0700 (PDT)
+        bh=TviUiXCC6v39lMS4rfPLGE9Pfx0aaxYAF0PLkJZJ+44=;
+        b=leBLlvvX3eXBJF2wl5SPtWuNz1yghx4kW+klsQQKKLylK3JEklkURBj215pNaX/hMD
+         8fFCQA+NgxNyU3/y4rIuYB6iVWCFmW5c7VZHadIaXKI5WhpewuZ6/5npUa1zEfrPZDqL
+         tKa0+oslR35X38j2JFJX31eEF9sJD8uo9ObT/9k/2zi0APzeOdN/bQTGyQUseVXtIMsi
+         yljU9L5RwWOF6DVUmMmbLo+vJOfbI/jbwXw8W0kU0j7EYaZnCECcFqOuyospFjU60GWM
+         6jZAx3eZOu3tULTei4p2l4VFFg2pTQSItUFskH4v5gSJXGQo4MJsbT5u1XGPsfoqAF6m
+         xpJQ==
+X-Gm-Message-State: AAQBX9ddBNuoeewE4PEq/loc1+6fM32p7ZxTeDxtLiCw2nUFCP6XOkz4
+	Dpr+SscS2tn3ry/9bNjd4rhTzw==
+X-Google-Smtp-Source: AKy350bx72vsD2gx/qhvw+4gm1lk9ECFZlAAwd4+tDv5bxVSjJh5w7Co6h0FkmAoPJamfBpYhAs0yQ==
+X-Received: by 2002:a17:902:e80a:b0:1a1:cc5a:b04 with SMTP id u10-20020a170902e80a00b001a1cc5a0b04mr8122719plg.3.1681942654045;
+        Wed, 19 Apr 2023 15:17:34 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.19.00
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.17.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:19:02 -0700 (PDT)
+        Wed, 19 Apr 2023 15:17:33 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>,
+Cc: Atish Patra <atishp@rivosinc.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
@@ -94,17 +93,18 @@ Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 42/48] RISC-V: Allow host to inject any ext interrupt id to a CoVE guest.
-Date: Wed, 19 Apr 2023 15:17:10 -0700
-Message-Id: <20230419221716.3603068-43-atishp@rivosinc.com>
+Subject: [RFC 02/48] RISC-V: KVM: Improve KVM error reporting to the user space
+Date: Wed, 19 Apr 2023 15:16:30 -0700
+Message-Id: <20230419221716.3603068-3-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151903_307033_611D2625 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20230419_151737_035707_B1B3E0D3 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,51 +121,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rajnesh Kanwal <rkanwal@rivosinc.com>
+This patch adds RISC-V specific cause for ioctl run failure.
+For now, it will be used for the below two cases:
 
-Ideally, host must not inject any external interrupt until explicitly
-allowed by the guest. This should be done per interrupt id but currently
-adding allow-all call in init_IRQ. In future, it will be modified
-to allow specific interrupts only.
+1. Insufficient IMSIC files if VM is configured to run in HWACCEL mode
+2. TSM is unable to run run_vcpu SBI call for TVMs
 
-Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+KVM also uses a custom scause bit(48) to distinguish this case
+from regular vcpu exit causes.
+
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kernel/irq.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/riscv/include/asm/csr.h      | 2 ++
+ arch/riscv/include/uapi/asm/kvm.h | 4 ++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index eb9a68a..b5e0fd8 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -11,6 +11,8 @@
- #include <linux/module.h>
- #include <linux/seq_file.h>
- #include <asm/sbi.h>
-+#include <asm/covg_sbi.h>
-+#include <asm/cove.h>
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 3176355..e78503a 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -96,6 +96,8 @@
+ #define EXC_VIRTUAL_INST_FAULT		22
+ #define EXC_STORE_GUEST_PAGE_FAULT	23
  
- static struct fwnode_handle *(*__get_intc_node)(void);
++#define EXC_CUSTOM_KVM_COVE_RUN_FAIL	48
++
+ /* PMP configuration */
+ #define PMP_R			0x01
+ #define PMP_W			0x02
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index b41d0e7..11440df 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -245,6 +245,10 @@ enum KVM_RISCV_SBI_EXT_ID {
+ /* One single KVM irqchip, ie. the AIA */
+ #define KVM_NR_IRQCHIPS			1
  
-@@ -36,8 +38,18 @@ int arch_show_interrupts(struct seq_file *p, int prec)
++/* run->fail_entry.hardware_entry_failure_reason codes. */
++#define KVM_EXIT_FAIL_ENTRY_IMSIC_FILE_UNAVAILABLE (1ULL << 0)
++#define KVM_EXIT_FAIL_ENTRY_COVE_RUN_VCPU          (1ULL << 1)
++
+ #endif
  
- void __init init_IRQ(void)
- {
-+	int ret;
-+
- 	irqchip_init();
- 	if (!handle_arch_irq)
- 		panic("No interrupt controller found.");
- 	sbi_ipi_init();
-+
-+	if (is_cove_guest()) {
-+		/* FIXME: For now just allow all interrupts. */
-+		ret = sbi_covg_allow_all_external_interrupt();
-+
-+		if (ret)
-+			pr_err("Failed to allow external interrupts.\n");
-+	}
- }
+ #endif /* __LINUX_KVM_RISCV_H */
 -- 
 2.25.1
 
