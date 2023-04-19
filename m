@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A08C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2A2C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L2jp4KSFziBvU1AqUFdtYEZSJLG3iZgiVOOIM5Pvms8=; b=wCHGVUclkF/QfT
-	Itu/E7CBeTiEpf2+NRysoY3dMmgoPlnmdak23bcBQTsdDUDUStxMw2MKhMNFaDryzNjPNi7FJdjcz
-	K9XqZhmYXYptShOmgNLgy2hZ2HqodzrsXUZVRhWkYkK4h2C87cJlj9kgBXEpT0oz2kqQ0jtJIDjGb
-	hymuQBFCfPAH1jFe+0ZESKKzoTmcTqUOVHC/Au/tNR9zZPsEf/+Pmz6CsSMD1weyx1ZRNSbU9TjtI
-	KAklbGRx/W2FUAeN8lk9n+GQWehdY/BOoQzvUnPajlrvLdzHYDufXq8zu7qXxs1T/tCzRxnm2SJlk
-	h27ztSN0AvLLzMG6L6Sw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=MUSjTlH259eL/MXcjOW5jyIacESSHgnNU108jNWCL6w=; b=qoy+opnw6vIDjHF0R/h7wA07iG
+	u4V91C9O4W+NYaUsBrbII+4ixQuZN2eO6SWLv/EawO6MHMkZ5ZYxzQjY6dw0KgkxbqIA5AFudztkY
+	T+PrOBnNQ8l8pSWadZQXi8edyKv2UBLTdkK1tfz+wrUtNA/Wakl96zBtLquo/fZ6ncaRB2n2oF3oB
+	ZeIDcFcJUlUqaU4RK7X+oXOfJ2nEZ3IOgRTkromKgyN+ALA1z5UUDDS6t1nrncBj+ih4hpAjmRy4j
+	psV1AP37n5MDS2LgSLw0VGAcJFOpGGZ4/24vv4/IXqegEosD3G+ZXMuuy4HFM0Z8ZVQPZurC06c/q
+	+p2VzpLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8hv-005dzA-2W;
-	Wed, 19 Apr 2023 14:22:51 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1pp8hz-005e3M-2a;
+	Wed, 19 Apr 2023 14:22:55 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8hp-005duc-2J
+	id 1pp8hw-005dza-3A
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 14:22:47 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-63b73203e0aso16455073b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 07:22:43 -0700 (PDT)
+	Wed, 19 Apr 2023 14:22:54 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-63d2ba63dddso1793933b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 07:22:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681914162; x=1684506162;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1681914172; x=1684506172;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4QMI2Yn+3Tt8Q1/CbQZqi01Ckjh+S0S8nE0G1uS1/Is=;
-        b=T1EEo/1lNhWtIaj43BCGws+YmfqMTA6iMuWVagfEnT1xJA8qVwOPm1UGiTLe2NOFuM
-         xMk7buI+T1c0Hf3+C2uqsQgEJHHaSuEgENbG5BOdgXzQw6qmKvjFm/lHzItwlc4j30pI
-         v5SNg4zDHJJ59SreaJer2v7hZf5LQBP2OmSziT6uC7+pvGZBrGJz+CCb8kKTTjdQju9a
-         kku5NeVrvk8S8WAibKcjPeWqbCmN/DAxVz0JiSKkYT179rZ/V1dOmkVPAKGqsIK5NZaW
-         QXp9BfFBDt3hvjxhkTunOLMevN/GsODpZQqgxG1z5sdsJdhqmd9J2xXVcjSyZmaKNRaM
-         NxGQ==
+        bh=IvT99d3vu2s9u2HdXHuOsCskK0/5VChFq+aBcaoQwKM=;
+        b=eJ51Lyhme8n3XB+0k6fcBFov9PY8/EUmTR8+nuSaGr7xBsijqIoLjwhsLzVxYH/nx0
+         wauVowtfzqnaLMg0Md06tjLXI3lWkSGzsXedNOsMpQwkDCNvEtBTyQ19M/Yyo6D06BSV
+         XNjXn0CGdLZl3nFWqDjNax+yB6CXLq01SwKNwyDS36uGnLYxQFXzNQuK/+7hScqPlZwX
+         z+agJw/VCIGMUixwVDzm2XMnLSn8GR3DsnMXY+jrQCfbr9O1Le1uXDKTi2rYkt7oJ2Ce
+         tyNNGrxSj0L54sdbIeiSTDtndMc3YiWnjyxMJLeRw/TsNRHsyFeDM9KNzzDNKUVPs4Et
+         pKOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681914162; x=1684506162;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4QMI2Yn+3Tt8Q1/CbQZqi01Ckjh+S0S8nE0G1uS1/Is=;
-        b=fRfaWYxOj/UfXMeLcpjGzwHFJvPsYDxpvAKcEnFbDSvum5BA6ntE7vtx/soxjjQTzy
-         f5k59ebXkk+reZQWrLKDPLwTnYEj22CLkglSEKjmO7S9tyS08S5+EGINO6qIfespzmwA
-         fB/nN28HyoZHXcDlXldfBY8+Owfb6CD6WHfHY1O2uo8pr83oRKCrnTsdFofanuOH6mce
-         MIwBOwg0kB6YJFh6z0Z0Z2jdVlRTdxSZXmDu8hSYrleB3MER+7ZZ7z9U63axQIktUeWB
-         2u+F6sJZLFilkBpXrJfkrwiZSR/l2G7/UiMUjI+OQLiechLFfgd+XV7C+hChecWXqbBz
-         simA==
-X-Gm-Message-State: AAQBX9e4hwBhvR7YKyBlULDrwud+bgVa4kkAqWUk8+cHFkA1iV2E3C19
-	FTA33I3cMiGKftzShF+m8twFeA==
-X-Google-Smtp-Source: AKy350bsDoupaU7w23Gv+/Ur91Sz+5sUWiyttfG5xjuFIADCUHqGvSKNWHn052OZEniozc8lOEgaOQ==
-X-Received: by 2002:a17:90a:9285:b0:246:5787:6f5d with SMTP id n5-20020a17090a928500b0024657876f5dmr3052189pjo.10.1681914162496;
-        Wed, 19 Apr 2023 07:22:42 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1681914172; x=1684506172;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IvT99d3vu2s9u2HdXHuOsCskK0/5VChFq+aBcaoQwKM=;
+        b=MPoLtoSwJqfDPtQnp8gy6av23hj9Zui1UIiabbtp1Gofkhr+X5fINaXlkSexBlGnG7
+         +QWDJ1BPNe64UNXDIEDcrTvky67cps1eVZmWtrq6EhxR7bigj4eLolGlaM0YrWULVmgt
+         QJgWAF3jREIC0QXP+zDpRs92hDd/g/l2z/CYAnPl5Cnr9SuH4uAtW7ZMt2EwClgw283J
+         Gpci3B4eJy1+XvEeTcUJzfpJR/tcUDp7iZIpFIFnzG0ofaUygHIiCI7MRnH3zblFk+YW
+         H8jjWGUwe28GvprT2Hmz2nNZ87cce9T/ikUJr/qkRpBrQSH5bXRA3uFcCNIN+ze6EpEJ
+         yzDQ==
+X-Gm-Message-State: AAQBX9fSBM+YVHl75iLYrWeGPjWQ+apa8bUI83SAtGNdhrvOR39Gjjhi
+	r7cih+Cnh1DfSque6S0pMNOvPA==
+X-Google-Smtp-Source: AKy350YgrN7zbaEKFT5DU1qrct74Wsi9a0WokbCy4dVCW0VXg9H7v3lPwT87yJxbljWHRWpRpF5B0Q==
+X-Received: by 2002:a05:6a00:130a:b0:63b:859f:f094 with SMTP id j10-20020a056a00130a00b0063b859ff094mr4002975pfu.20.1681914171995;
+        Wed, 19 Apr 2023 07:22:51 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id q12-20020a631f4c000000b0051b8172fa68sm7616348pgm.38.2023.04.19.07.22.41
+        by smtp.gmail.com with ESMTPSA id d2-20020a63d642000000b005140ce70582sm10431557pgj.44.2023.04.19.07.22.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 07:22:42 -0700 (PDT)
-In-Reply-To: <20230324155421.271544-1-alexghiti@rivosinc.com>
-References: <20230324155421.271544-1-alexghiti@rivosinc.com>
-Subject: Re: [PATCH v9 0/3] riscv: Use PUD/P4D/PGD pages for the linear
- mapping
-Message-Id: <168191414582.1929.5343150179757042159.b4-ty@rivosinc.com>
-Date: Wed, 19 Apr 2023 07:22:25 -0700
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
-  Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>
+        Wed, 19 Apr 2023 07:22:51 -0700 (PDT)
+Date: Wed, 19 Apr 2023 07:22:51 -0700 (PDT)
+X-Google-Original-Date: Wed, 19 Apr 2023 07:22:44 PDT (-0700)
+Subject: Re: [PATCH 09/21] riscv: dma-mapping: skip invalidation before bidirectional DMA
+In-Reply-To: <20230327121317.4081816-10-arnd@kernel.org>
+CC: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, vgupta@kernel.org,
+  linux@armlinux.org.uk, neil.armstrong@linaro.org, linus.walleij@linaro.org,
+  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, guoren@kernel.org, bcain@quicinc.com,
+  geert@linux-m68k.org, monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
+  shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au, christophe.leroy@csgroup.eu,
+  Paul Walmsley <paul.walmsley@sifive.com>, dalias@libc.org, glaubitz@physik.fu-berlin.de, davem@davemloft.net,
+  jcmvbkbc@gmail.com, Christoph Hellwig <hch@lst.de>, robin.murphy@arm.com,
+  prabhakar.mahadev-lad.rj@bp.renesas.com, Conor Dooley <conor.dooley@microchip.com>, linux-snps-arc@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io, linux-csky@vger.kernel.org,
+  linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+  linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+  linux-xtensa@linux-xtensa.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: arnd@kernel.org
+Message-ID: <mhng-7529cf5a-4397-456f-b610-faa619d4faca@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_072245_750312_5A9C0FA9 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20230419_072253_020109_46E2AFBA 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +97,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 27 Mar 2023 05:13:05 PDT (-0700), arnd@kernel.org wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> For a DMA_BIDIRECTIONAL transfer, the caches have to be cleaned
+> first to let the device see data written by the CPU, and invalidated
+> after the transfer to let the CPU see data written by the device.
+>
+> riscv also invalidates the caches before the transfer, which does
+> not appear to serve any purpose.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/riscv/mm/dma-noncoherent.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index 640f4c496d26..69c80b2155a1 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -25,7 +25,7 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>  		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+>  		break;
+>  	case DMA_BIDIRECTIONAL:
+> -		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
+> +		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+>  		break;
+>  	default:
+>  		break;
 
-On Fri, 24 Mar 2023 16:54:18 +0100, Alexandre Ghiti wrote:
-> This patchset intends to improve tlb utilization by using hugepages for
-> the linear mapping.
-> 
-> As reported by Anup in v6, when STRICT_KERNEL_RWX is enabled, we must
-> take care of isolating the kernel text and rodata so that they are not
-> mapped with a PUD mapping which would then assign wrong permissions to
-> the whole region: it is achieved the same way as arm64 by using the
-> memblock nomap API which isolates those regions and re-merge them afterwards
-> thus avoiding any issue with the system resources tree creation.
-> 
-> [...]
-
-Applied, thanks!
-
-[1/3] riscv: Get rid of riscv_pfn_base variable
-      https://git.kernel.org/palmer/c/a7407a1318a9
-[2/3] riscv: Move the linear mapping creation in its own function
-      https://git.kernel.org/palmer/c/8589e346bbb6
-[3/3] riscv: Use PUD/P4D/PGD pages for the linear mapping
-      https://git.kernel.org/palmer/c/3335068f8721
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
