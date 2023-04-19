@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1E6C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7A7C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b1eephXtMiVQPa1r6Fo6bSc/CAJhpP8sJG2/T3zZVVs=; b=ULoN4zvdNQRq+w
-	bBIkspl/cxCgwkpV11xmSf+WjE6y4VcYTLivGOehChW0jegaFLlDDN72JgSz7iY95sjkC818yAixq
-	mZg04hn73EKE2rMqcXn+HXEdJLxTzPRst+GQiBItjto567Qsf/tJ5yeimMuzQLQlzDAJlQm4xNFcH
-	mlt1Hynf4UXfv70txAhiiCB87gkjSx4yrd1loU57XUncWS+uA2uiew7F8FpZ+7Fm98dxeEJvbCble
-	Svz/V1AnzbDcYQHKVDcO93M7zLUBjoKi5MTdIayuJz3OqBVNQmxrWVahcjAXKz0k8QqJq3/V+Z5yd
-	0AHyNgjcrUU5QNAjRCVA==;
+	List-Owner; bh=QAxDHh/6yF+jQHRAEUu11YNdXXyW0DjhlbKMWkN7af8=; b=oOEfMNI4U7vqkw
+	1oPqlo4wyeGoUSO0ruht5Sr3cjqcHOnzgOEKhp+TteSfhlNR6gLrBjrT73v0NELt6G3kNbsUq118Q
+	JjWNPgV0EcTMMhSP9gTfX7HJ/vBA2NETBrTFWBJ9JHdwKIackXyqbIUzdLEUFdp/oWql6Wn7bxM7K
+	It6707unp6LOdkhSD98jlE+iSPUrbHoAZ7wVqYldVHa4HhrYEHRqtes1TQvTxd48NQcM4Vxa4gvHh
+	2eiRUHKUoPmEWC/JpRCDDjG2NtgWzNkAAzjliX4LGF34f/M64m2f53BgC7G1RwYsR+usBXMmLWcjP
+	H2AsBDBX15+TVdcd8SNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppHGB-006ebV-1S;
-	Wed, 19 Apr 2023 23:30:47 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1ppHG2-006eSi-2Z;
+	Wed, 19 Apr 2023 23:30:38 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8X-006TQC-2i
+	id 1ppG7K-006SnQ-2M
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:18:51 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1a645fd0c6dso4319835ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:49 -0700 (PDT)
+	Wed, 19 Apr 2023 22:17:38 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1a5197f00e9so4654945ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:17:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942729; x=1684534729;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942652; x=1684534652;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XK5xUw/rzaPgA4jO4a/YwH8Byrp1ajuQRNW8VnU2lnI=;
-        b=QfXuULt6GKdZ0yIYOBu58cROq1xtd+AwU5tA9tWSYcP8puXwvEN9RX3lXVuV60tyoW
-         4Q0CSfUoxv6NDjypNOuOT4ywNhU7IYB+qeWNkXwN91wiD9TQD3HOmit1hlHNqFbWVtNJ
-         ziwh+QBq1N6MeIyCvSv5s6RR13cXyHzSqXBQKCnCZR2rrQanp3QhB3VbRYZ2jQSTPE6d
-         Vpg87adIN6SFou4dfOJ3ZLRcLAQq2ZlEUcDyGi0vckdKvSSc1nPlKdGfKGwb9h5rUo3e
-         rLKhVd1kgYj7FOEo7g+ojtFs7lAxzBaXut+YFsbxt/trii3p8w9AEE1pM3je3JF/e5ut
-         1yXA==
+        bh=mljZsiO5QRb1GQDkLUDPFjVfkuRVaSDyhp9y+byMdss=;
+        b=rSiuLSw6DyvgYFbph9bmFmqDG3DBHXwiC4IjLHTdoeoNqI3Zj5mvjcgftruD3sRQcL
+         WxDYcG6ScHPYH/tsYrRzbCoTKzHkW8KNXh7K15sX/3vd0JxNdmgwDLmJ5Gbl1ptnc8kV
+         B413qUWKvROFulz1VG3quMom7gr4KDz5SG6hA7i1NB7suVliV8jg80Ei4eKibGK25dVw
+         IUKYu3sVmnUrAoFcDhoqyEJFPDZqPR+RsU7ZbMNTfRONc8CY2sotnhibyQDIiJL6WP4d
+         uPsZMJmzwj1MOrHzXnjW7uCJa6/KKt6iVnYO2QkJX8Ox8I1aJyUyI4qshbT0yxib1Rsh
+         ovBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942729; x=1684534729;
+        d=1e100.net; s=20221208; t=1681942652; x=1684534652;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XK5xUw/rzaPgA4jO4a/YwH8Byrp1ajuQRNW8VnU2lnI=;
-        b=ka7r5aAOjm0MmXaxH5BTTfJr9/Sj6TzYoy+rc7tKsgRVkDk9QnAGZEPQGTmT/J0H5I
-         UwSFS6ZVVORZdLNtD28jkNYLEIZzXWuoGzSNVjD8+KwxW88bLfWtRhTm0Qa4q2DxslJD
-         +t0jmHkvILhZkqAJNxsGlKwNLjA6/6XcJGyHGMrB8PYnaIV7DSuBWt2UaV+Gs7ixUpQA
-         z15RlIXIQPNf5g1yNzjdyGCL5SFDBVwZ+zhbtXrM8vpnm2lTjcXMGuWML6NFzOS1z9nr
-         Ev7q5/SeKXoS3R1snl+3LOadryPWp4LvZGL7UyMfeEy/BDpDRI6VR26hOCU4IoJFTN4q
-         Hc7Q==
-X-Gm-Message-State: AAQBX9eUCwuM6j+bu6aAdZhGTSbkACMeM0wB8CYc2jfXomPZoMNf8z8p
-	HJ/v3pQzcWFlkjKhQGXGVIQTBA==
-X-Google-Smtp-Source: AKy350baQTNt4Vs4HHjBbXvyObvJ3IXFGZptf7h2H+OASSZVy5+7QV7+crZBWOtRSKw2ldJwBUdMWw==
-X-Received: by 2002:a17:903:784:b0:1a2:9183:a499 with SMTP id kn4-20020a170903078400b001a29183a499mr5853196plb.34.1681942729515;
-        Wed, 19 Apr 2023 15:18:49 -0700 (PDT)
+        bh=mljZsiO5QRb1GQDkLUDPFjVfkuRVaSDyhp9y+byMdss=;
+        b=clwRyi2lSO34ErpWNwgeKM71+rgmwdlFcBivWCC3WaEv3aNIFcQvs+uxR6i7oOxwTB
+         PfaOD4kiKs4Or9yhm5VAGqjvFQu5eXTyHeP67o+a6dGFPwbkupj1ZUhhSktcvYfJx7dh
+         Ln3lUEKVAd3K972h7zOeGEJIakfP3/NdoRLE1QGIvuFBU0uCbqxDY7U+udp0bg7IXgRJ
+         tHTQxqrUtbaPuNiI8vhX0sSEeR6FWzBTp23mUd5STwd2lx5Z5UyITSkTw7uilNg56lf4
+         9IGs9mL+uliGMg7OE5Lnc1plknULnh5RAg9CTmJjQNN2sOswHtzyqnt5DHF12gtk7r1W
+         UdQA==
+X-Gm-Message-State: AAQBX9dxr7RM3eXJaGpza8Q/bax7dsC9HfycZjh34GchuAxWAxurLtOT
+	ZhL+xXVC5uMav5RskUbnvy+t4Q==
+X-Google-Smtp-Source: AKy350YAUHKVoqLB+lNg1GyvGR/YhY1dexLjtDy2z84R1FBjB72vycA1EeypPas5l/++BhN5lcYzyg==
+X-Received: by 2002:a17:902:e74c:b0:1a6:4200:bef4 with SMTP id p12-20020a170902e74c00b001a64200bef4mr7961111plf.56.1681942651818;
+        Wed, 19 Apr 2023 15:17:31 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.47
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.17.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:18:49 -0700 (PDT)
+        Wed, 19 Apr 2023 15:17:31 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
@@ -95,16 +95,16 @@ Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 36/48] RISC-V: KVM: Read/write gprs from/to shmem in case of TVM VCPU.
-Date: Wed, 19 Apr 2023 15:17:04 -0700
-Message-Id: <20230419221716.3603068-37-atishp@rivosinc.com>
+Subject: [RFC 01/48] mm/vmalloc: Introduce arch hooks to notify ioremap/unmap changes
+Date: Wed, 19 Apr 2023 15:16:29 -0700
+Message-Id: <20230419221716.3603068-2-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151849_892766_AACE03B9 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20230419_151734_779482_E9A120ED 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,188 +123,65 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-For TVM vcpus, TSM uses shared memory to exposes gprs for the trusted
-VCPU. This change makes sure we use shmem when doing mmio emulation
-for trusted VMs.
+In virtualization, the guest may need notify the host about the ioremap
+regions. This is a common usecase in confidential computing where the
+host only provides MMIO emulation for the regions specified by the guest.
+
+Add a pair if arch specific callbacks to track the ioremapped regions.
+
+This patch is based on pkvm patches. A generic arch config can be added
+similar to pkvm if this is going to be the final solution. The device
+authorization/filtering approach is very different from this and we
+may prefer that one as it provides more flexibility in terms of which
+devices are allowed for the confidential guests.
 
 Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu_insn.c | 98 +++++++++++++++++++++++++++++++++-----
- 1 file changed, 85 insertions(+), 13 deletions(-)
+ mm/vmalloc.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-index 331489f..56eeb86 100644
---- a/arch/riscv/kvm/vcpu_insn.c
-+++ b/arch/riscv/kvm/vcpu_insn.c
-@@ -7,6 +7,9 @@
- #include <linux/bitops.h>
- #include <linux/kvm_host.h>
- #include <asm/kvm_cove.h>
-+#include <asm/kvm_nacl.h>
-+#include <asm/kvm_cove_sbi.h>
-+#include <asm/asm-offsets.h>
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index bef6cf2..023630e 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -304,6 +304,14 @@ static int vmap_range_noflush(unsigned long addr, unsigned long end,
+ 	return err;
+ }
  
- #define INSN_OPCODE_MASK	0x007c
- #define INSN_OPCODE_SHIFT	2
-@@ -116,6 +119,10 @@
- #define REG_OFFSET(insn, pos)		\
- 	(SHIFT_RIGHT((insn), (pos) - LOG_REGBYTES) & REG_MASK)
- 
-+#define REG_INDEX(insn, pos)                                    \
-+	((SHIFT_RIGHT((insn), (pos)-LOG_REGBYTES) & REG_MASK) / \
-+	 (__riscv_xlen / 8))
++__weak void ioremap_phys_range_hook(phys_addr_t phys_addr, size_t size, pgprot_t prot)
++{
++}
 +
- #define REG_PTR(insn, pos, regs)	\
- 	((ulong *)((ulong)(regs) + REG_OFFSET(insn, pos)))
++__weak void iounmap_phys_range_hook(phys_addr_t phys_addr, size_t size)
++{
++}
++
+ int ioremap_page_range(unsigned long addr, unsigned long end,
+ 		phys_addr_t phys_addr, pgprot_t prot)
+ {
+@@ -315,6 +323,10 @@ int ioremap_page_range(unsigned long addr, unsigned long end,
+ 	if (!err)
+ 		kmsan_ioremap_page_range(addr, end, phys_addr, prot,
+ 					 ioremap_max_page_shift);
++
++	if (!err)
++		ioremap_phys_range_hook(phys_addr, end - addr, prot);
++
+ 	return err;
+ }
  
-@@ -600,6 +607,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	int len = 0, insn_len = 0;
- 	struct kvm_cpu_trap utrap = { 0 };
- 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
-+	void *nshmem;
- 
- 	/* Determine trapped instruction */
- 	if (htinst & 0x1) {
-@@ -627,7 +635,15 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		insn_len = INSN_LEN(insn);
+@@ -2772,6 +2784,10 @@ void vunmap(const void *addr)
+ 				addr);
+ 		return;
  	}
- 
--	data = GET_RS2(insn, &vcpu->arch.guest_context);
-+	if (is_cove_vcpu(vcpu)) {
-+		nshmem = nacl_shmem();
-+		data = nacl_shmem_gpr_read_cove(nshmem,
-+					       REG_INDEX(insn, SH_RS2) * 8 +
-+						       KVM_ARCH_GUEST_ZERO);
-+	} else {
-+		data = GET_RS2(insn, &vcpu->arch.guest_context);
-+	}
 +
- 	data8 = data16 = data32 = data64 = data;
- 
- 	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
-@@ -643,19 +659,43 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- #ifdef CONFIG_64BIT
- 	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
- 		len = 8;
--		data64 = GET_RS2S(insn, &vcpu->arch.guest_context);
-+		if (is_cove_vcpu(vcpu)) {
-+			data64 = nacl_shmem_gpr_read_cove(
-+				nshmem,
-+				RVC_RS2S(insn) * 8 + KVM_ARCH_GUEST_ZERO);
-+		} else {
-+			data64 = GET_RS2S(insn, &vcpu->arch.guest_context);
-+		}
- 	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP &&
- 		   ((insn >> SH_RD) & 0x1f)) {
- 		len = 8;
--		data64 = GET_RS2C(insn, &vcpu->arch.guest_context);
-+		if (is_cove_vcpu(vcpu)) {
-+			data64 = nacl_shmem_gpr_read_cove(
-+				nshmem, REG_INDEX(insn, SH_RS2C) * 8 +
-+						KVM_ARCH_GUEST_ZERO);
-+		} else {
-+			data64 = GET_RS2C(insn, &vcpu->arch.guest_context);
-+		}
- #endif
- 	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
- 		len = 4;
--		data32 = GET_RS2S(insn, &vcpu->arch.guest_context);
-+		if (is_cove_vcpu(vcpu)) {
-+			data32 = nacl_shmem_gpr_read_cove(
-+				nshmem,
-+				RVC_RS2S(insn) * 8 + KVM_ARCH_GUEST_ZERO);
-+		} else {
-+			data32 = GET_RS2S(insn, &vcpu->arch.guest_context);
-+		}
- 	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP &&
- 		   ((insn >> SH_RD) & 0x1f)) {
- 		len = 4;
--		data32 = GET_RS2C(insn, &vcpu->arch.guest_context);
-+		if (is_cove_vcpu(vcpu)) {
-+			data32 = nacl_shmem_gpr_read_cove(
-+				nshmem, REG_INDEX(insn, SH_RS2C) * 8 +
-+						KVM_ARCH_GUEST_ZERO);
-+		} else {
-+			data32 = GET_RS2C(insn, &vcpu->arch.guest_context);
-+		}
- 	} else {
- 		return -EOPNOTSUPP;
- 	}
-@@ -725,6 +765,7 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 	u64 data64;
- 	ulong insn;
- 	int len, shift;
-+	void *nshmem;
- 
- 	if (vcpu->arch.mmio_decode.return_handled)
- 		return 0;
-@@ -738,26 +779,57 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 	len = vcpu->arch.mmio_decode.len;
- 	shift = vcpu->arch.mmio_decode.shift;
- 
-+	if (is_cove_vcpu(vcpu))
-+		nshmem = nacl_shmem();
++	if (vm->flags & VM_IOREMAP)
++		iounmap_phys_range_hook(vm->phys_addr, get_vm_area_size(vm));
 +
- 	switch (len) {
- 	case 1:
- 		data8 = *((u8 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(ulong)data8 << shift >> shift);
-+		if (is_cove_vcpu(vcpu)) {
-+			nacl_shmem_gpr_write_cove(nshmem,
-+						 REG_INDEX(insn, SH_RD) * 8 +
-+							 KVM_ARCH_GUEST_ZERO,
-+						 (unsigned long)data8);
-+		} else {
-+			SET_RD(insn, &vcpu->arch.guest_context,
-+			       (ulong)data8 << shift >> shift);
-+		}
- 		break;
- 	case 2:
- 		data16 = *((u16 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(ulong)data16 << shift >> shift);
-+		if (is_cove_vcpu(vcpu)) {
-+			nacl_shmem_gpr_write_cove(nshmem,
-+						 REG_INDEX(insn, SH_RD) * 8 +
-+							 KVM_ARCH_GUEST_ZERO,
-+						 (unsigned long)data16);
-+		} else {
-+			SET_RD(insn, &vcpu->arch.guest_context,
-+			       (ulong)data16 << shift >> shift);
-+		}
- 		break;
- 	case 4:
- 		data32 = *((u32 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(ulong)data32 << shift >> shift);
-+		if (is_cove_vcpu(vcpu)) {
-+			nacl_shmem_gpr_write_cove(nshmem,
-+						 REG_INDEX(insn, SH_RD) * 8 +
-+							 KVM_ARCH_GUEST_ZERO,
-+						 (unsigned long)data32);
-+		} else {
-+			SET_RD(insn, &vcpu->arch.guest_context,
-+			       (ulong)data32 << shift >> shift);
-+		}
- 		break;
- 	case 8:
- 		data64 = *((u64 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(ulong)data64 << shift >> shift);
-+		if (is_cove_vcpu(vcpu)) {
-+			nacl_shmem_gpr_write_cove(nshmem,
-+						 REG_INDEX(insn, SH_RD) * 8 +
-+							 KVM_ARCH_GUEST_ZERO,
-+						 (unsigned long)data64);
-+		} else {
-+			SET_RD(insn, &vcpu->arch.guest_context,
-+			       (ulong)data64 << shift >> shift);
-+		}
- 		break;
- 	default:
- 		return -EOPNOTSUPP;
+ 	kfree(vm);
+ }
+ EXPORT_SYMBOL(vunmap);
 -- 
 2.25.1
 
