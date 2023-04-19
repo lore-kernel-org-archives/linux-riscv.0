@@ -4,83 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1BDC77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 12:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9129C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 13:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=am3d9bQLqy/F1o+adeV9lZ5s5FDPlfr28xOjYcw+oPQ=; b=flOPP7FNi5oxvz
-	ZVsB0X5u+2xTfPoEJf2SvyoQBTJxCIpx1a21FVaO/3xYPmqd9/gpOAKKHkj+h3DE6baISS/hw1yl+
-	bFCyMax4bF+zHnMb44+AkKatbVEW96Q9kOS7NGZ/SVi8uW4dQIz70/TWus0uXmbPIUBzQFp9iaGSn
-	bLRN+3zzFueBbPoMZhjLj3Lp+OuCUJwteI/0lHqqhZP5yYd+LDB1mtOmoUXUCZ/KTejK3F3v3WrKi
-	r0VD0WoyW9xpTfkiRNoDJYOIpSIvTikHCVFcbAJZAbyQ0s/eWO0NsAxK6OXRyBVhnX9Wq/pqNd3aA
-	id6juFkUW2Oas9Y5BUsQ==;
+	List-Owner; bh=AV1JSS8mMdKHtcQhYuDh1mE6N49Ts+/BGZ76vENlM/M=; b=sKjxz1L+AZnlHd
+	kCcaZ0m42MS1JPTcSE7ArpdbuOpbNHhocrmjSlC02xqCYK80nxEjCrVM8xZ10zd0KkvruwbAJNiRA
+	EGT12+3Fcw2hET488SYoARCXJX0o69fPbIQO0vE8NTqKFTJtrDj04zrrUSBF+WORiw1K5yqqznWj5
+	FjrPGLns+R3DXksU53DroVG5JPFQw0rN4XpLtm6h6glBas1L+A8mdDNCW5NBsyjpagSWrTeYZLdbI
+	TCqTXq4ILyie8CVsAEXbn2uufCMQTwnEamJeOy0UlwEnKqAFCj7PsFKu7smrNiBN+3q/lcdIrj31W
+	ZTf93ub034PJJHgNiqNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp74t-005PZc-0R;
-	Wed, 19 Apr 2023 12:38:27 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pp7aF-005U5G-16;
+	Wed, 19 Apr 2023 13:10:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp74p-005PYJ-19;
-	Wed, 19 Apr 2023 12:38:24 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1681907899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TzrbFJX0mLRnVyg6gK50wjW8gAdRTyt3eKsS6bO2Ho8=;
-	b=UQOJzBaZIKBAqIIp2iqE9MqaQt4o5jf4X54iENF8PIgb3XVSKHeAToYhSAetn/VDc3XDSc
-	vbXK6VM/E7725N29s2FSKaatj7nI1wyCTjA86cgr2JkrX8DxeEun3hjlUqogLtb5s5zfSa
-	SywUUUueeIYsZNv4w36kFnEjVOxY/DSPPwkyq+kebzFI7z2gYg0r9CnlmtgFv9TqDyfAlD
-	YKid0ziPPcge9cOBT8GWWTc95C+prcMhIbymQfHwn03mi0EsBFOddKVOKY2XMi3tesk7+V
-	TiCAx54bzs6ELiLXkmKcxWv4fFnjWSoKaHB0PW1kBv0yCnbUWTFXcy/RdtQ2bA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1681907899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TzrbFJX0mLRnVyg6gK50wjW8gAdRTyt3eKsS6bO2Ho8=;
-	b=G/PDlG02+awXAj/Znv2ir94TrCNuE4soVJYG72z/i6F9KUyMxTR0qJUk/z9cfxNZH98BUp
-	FAdnV9eglXscn1DA==
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org, David Woodhouse
- <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
- Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>, Paolo
- Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>, Tom
- Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
- <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
- <lucjan.lucjanov@gmail.com>, David Woodhouse <dwmw@amazon.co.uk>, Usama
- Arif <usama.arif@bytedance.com>, =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?=
- <jgross@suse.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E. J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
- <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>
-Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
-In-Reply-To: <87a5z443g2.ffs@tglx>
-References: <20230414225551.858160935@linutronix.de>
- <8247ce4d-15b7-03b2-0c9b-74f8cd6cad50@molgen.mpg.de> <87wn2a4la5.ffs@tglx>
- <bd5a6a93-def1-9248-2258-c3d3b40071ef@molgen.mpg.de> <87ttxd4qxz.ffs@tglx>
- <87r0sh4m7a.ffs@tglx> <8592a301-9933-1cad-bd61-8d97e7c7493b@molgen.mpg.de>
- <87a5z443g2.ffs@tglx>
-Date: Wed, 19 Apr 2023 14:38:18 +0200
-Message-ID: <877cu83v45.ffs@tglx>
+	id 1pp7aB-005U3J-1I;
+	Wed, 19 Apr 2023 13:10:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4BDC2613E9;
+	Wed, 19 Apr 2023 13:10:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6A4C433D2;
+	Wed, 19 Apr 2023 13:10:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1681909845;
+	bh=k4YCObGJ+C+Vyl3QuUc3sk/QjpCB5IvZqqIEZKCTk50=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NBSZOADtYp9S+zb5r0V8tgRyWQWdNAEGnt3eGx5es+PWCZRcEH9RKNt4C+CjmW4Mi
+	 b69ixsv6Hyp7CibfrWdxo/pw7lcO4pxbqAXqC15B0aE8XPegB11eNIAXLyaFqUa0+f
+	 gs/rr8qZuhK3E++mSDjxjVp60HG/QiWT2ykV29Ww=
+Date: Wed, 19 Apr 2023 15:10:43 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-kernel@vger.kernel.org, Pierre Gondois <pierre.gondois@arm.com>,
+	ALKML <linux-arm-kernel@lists.infradead.org>,
+	linux-riscv@lists.infradead.org, Radu Rendec <rrendec@redhat.com>
+Subject: Re: [GIT PULL] cacheinfo/arch_topology: Updates for v6.4
+Message-ID: <2023041935-undrilled-french-b251@gregkh>
+References: <20230417181540.1926349-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230417181540.1926349-1-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_053823_542982_837E547E 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20230419_061047_474772_913C82E4 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +71,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 19 2023 at 11:38, Thomas Gleixner wrote:
-> On Tue, Apr 18 2023 at 22:10, Paul Menzel wrote:
->> Am 18.04.23 um 10:40 schrieb Thomas Gleixner:
->>> Can you please provide the output of cpuid?
->>
->> Of course. Here the top, and the whole output is attached.
->
-> Thanks for the data. Can you please apply the debug patch below and
-> provide the dmesg output? Just the line which is added by the patch is
-> enough. You can boot with cpuhp.parallel=off so you don't have wait for
-> 10 seconds.
+On Mon, Apr 17, 2023 at 07:15:40PM +0100, Sudeep Holla wrote:
+> Hi Greg,
+> 
+> Couple of the patches are fixes but I wanted them to be in the next for some
+> time to get better testing. Few others are addressing issues in RT kernel.
+> 
+> Please pull !
+> 
+> Regards,
+> Sudeep
+> 
+> -->8
+> 
+> The following changes since commit fe15c26ee26efa11741a7b632e9f23b01aca4cc6:
+> 
+>   Linux 6.3-rc1 (2023-03-05 14:52:03 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/cacheinfo-updates-6.4
 
-Borislav found some a machine which also refuses to boot. It turns of
-the debug patch was spot on:
+Pulled and pushed out, thanks.
 
-[    0.462724] .... node  #0, CPUs:      #1
-[    0.462731] smpboot: Kicking AP alive: 17
-[    0.465723]  #2
-[    0.465732] smpboot: Kicking AP alive: 18
-[    0.467641]  #3
-[    0.467641] smpboot: Kicking AP alive: 19
-
-So the kernel gets APICID 17, 18, 19 from ACPI but CPUID leaf 0x1
-ebx[31:24], which is the initial APICID has:
-
-CPU1		0x01
-CPU2		0x02
-CPU3		0x03
-
-Which means the APICID to Linux CPU number lookup based on CPUID 0x01
-fails for all of them and stops them dead in the low level startup code.
-
-IOW, the BIOS assignes random numbers to the AP APICs for whatever
-raisins, which leaves the parallel startup low level code up a creek
-without a paddle, except for actually reading the APICID back from the
-APIC. *SHUDDER*
-
-I'm leaning towards disabling the CPUID lead 0x01 based discovery and be
-done with it.
-
-Thanks,
-
-        tglx
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
