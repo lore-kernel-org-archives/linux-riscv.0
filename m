@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935E2C6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E4BC77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=/kYc250qLnQt1wa0gxhwh67+7WhXtagMmIi/aH0E638=; b=PVDyx0NV6BrDLxJOwY4aGqV30r
-	o3FvvXC0EYXFU1TiDX/lhIfXVGZ15fVTxMplkVLrs5S2tUOtS9en3zCTWRngvgzolISIjSJtijYZh
-	YGLiYrG4S9X5qcrRi3X2XBFlFb2onn8hEZbTm0KLRqcAMrChNvlub6RnZfS6EQdSSwATUGfMI7pEW
-	qlI+nnsDZ/VsBElUuFnXV/AcdghKdFrAdcqfsPege9Dl+oR5lf73XTbSYKRbA0pYmgYEFZ0/K/6FU
-	Kna5Kq7dCo4wkJXmG0nowPI8m16lyn7kLxwL0lKshjU3weEJFC/V2ZJhgTWvRXdnpTNAVOZHEcx18
-	DDwFYgIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jdBJkDgX3YuS3WZ/7IBWaVIZwp9wvHI3sH2Dv3vHMcs=; b=VDMN/FuFQD0ItF
+	LiyMe6LXuQ7YZRtMMN2O7t9IVZSWEIgvYKG5NV9NIyfAm7CFm3oe5AWBcKhxbWndP4Odp9jdyXQSm
+	FwrnGCAlyRwrgZcCti8J05uxitESwISrqgLxqJ3kcQFnsZy5I9xRfN7py+x/taEXWjvPmWUsIun1n
+	VHw15Gn6HxVP9rP2sL0mfoQBmO+ImSiwrTPV8339FUze2WWG84ecRemiILRY68rn9OM7lECWtovkI
+	w618MAXrJ7w7wHoiaqgi+pBeKaU01+j7WVsOBbuA6GuCDmPU1EGgvogD6WMD6YwG/gt/vcN7pMcct
+	kaBGAXgnq4+TOdiJoraA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8hn-005dux-1r;
-	Wed, 19 Apr 2023 14:22:43 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1pp8hq-005dw9-0Y;
+	Wed, 19 Apr 2023 14:22:46 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8hk-005drE-2W
+	id 1pp8hl-005diL-0y
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 14:22:42 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-247048f86c7so1893015a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 07:22:38 -0700 (PDT)
+	Wed, 19 Apr 2023 14:22:43 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-246eebbde1cso3329808a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 07:22:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1681914157; x=1684506157;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681914160; x=1684506160;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9yB70xeJV1N0ZlteQUIRM4Nk0DPs/RCkhgDAa0rx6NU=;
-        b=FGr5Z0zW4TGX3/eVr4y3eJPb2jFX9DbliZVi7umZ2GZlwZ+2GsTc/Xh2fkFs9PUu+F
-         WAt3LkmHaWOmFIYENjePl8OoWg21kk335vx0Ap0xvGiTHgo2NMY39AeP3YfuDdK+dnCF
-         gkGN+ntnQkXyV8zhwtreIXNDsm6tMkcMYpCRyEllxz1jzmoPguDZBEARb27KEbOyLr+6
-         sRYhlmkSp1nDK6KovQcJ60RG4sT4q3IJxazWV5Vk9t1H+vaHdeRXnfIe5fAUS3i5Z4Y+
-         LZzpCNezRR/YdHW14aU5gzBuMCvvX23ts/K/yIVQikCFrQKpNDo721r/VZg8F6FCWLjb
-         6eug==
+        bh=aMJ/Ks8F05/giS2sBv9GPELVvdqCwDwD9O0hhEBT8Xc=;
+        b=UoocXWjwl9V3/hx6ZI4+IjcvhlWT0acnKID1oyI8wcavFlhZyOXd7O9Os7Cgxkmh6z
+         TdwJKMilnVzlPZAmQNIj3OYbc31I194tIdCA2s2aNo6sppTQ9L+QiWmkqbM5e5mZ2fsj
+         gu8iv5kgqEMhUx5GEB+4NU1Kn7nBtlXDD5HzsixU7CHgNHVR6Ks3oxZ0Rv5c5WwM8ed2
+         pFlQyTWZHpt3WsjG9bzXh8E3PjPBAaxSoP+pqAk+eTquK+fqheyAg0EohC6XGjcOKV4c
+         WKr2SVuiUKFHsXeWURUEkNkjPLmjbXUmTw3KmLSSPuiP1jwM/QFJhwmcSeR3TIpBI+uH
+         LxkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681914157; x=1684506157;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9yB70xeJV1N0ZlteQUIRM4Nk0DPs/RCkhgDAa0rx6NU=;
-        b=OmiP0VYMOiU3MGIOJmV5qjn5eSFs9etaZA8lenNEIHFZ0X6bB0Bk21CgmeCNed6E1O
-         nbYPNpEtGLMbJFN6WNcALWk1aFi99fqVE34ky3755gkpIYuzPCFpggu4ZmXoTbL3fnG2
-         Gw92AxzBK+MhdUHVKmbpZJxMwl0Nix1591NE7uNRuCSD3+yQHU0dVP5k30eduIXLu857
-         H1m5KuDPWV2Hno/Z+KHo9qUVrBTeH5IWoWVRwSymAnOe5iy6glA3+MTfHRhlEPq2+7H1
-         3hB5o9TlYcpRKnPAWJ3tE4aNSOTbz5ykkZHIlGFe8aLA51UOzHRTi0K/8z+DHpU7Zuer
-         rKFQ==
-X-Gm-Message-State: AAQBX9dbRdXGlAD8ucluy0aE26qQ8re07J9SlysrE0BpzjzocaZqPqge
-	LHu7NDHYB3BEwc3YKw382I4Gdw==
-X-Google-Smtp-Source: AKy350aHkXwf30YbPEbBzVJv8xaBmpUhBvlebeT1NzRnd6NI8H7duPFB3Lfsb9xeVpykk8F3OPFYiQ==
-X-Received: by 2002:a17:90a:b28b:b0:23f:29a:5554 with SMTP id c11-20020a17090ab28b00b0023f029a5554mr2484436pjr.48.1681914157446;
-        Wed, 19 Apr 2023 07:22:37 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1681914160; x=1684506160;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aMJ/Ks8F05/giS2sBv9GPELVvdqCwDwD9O0hhEBT8Xc=;
+        b=jUJRsnvUsVU/94B532ufxuV5ql7eUqc0+XzE31SEeC0XQR7rLIqNNbuQm1p55TGSlm
+         HY2uUE98m9pCCPBq+G2Vue9bYFM2VrUQMefPLhBzmKXzpbxhstfI/O9kW/yeZz6UIwao
+         IqK1S33A4nRRZ8wmI2yTenEUAE387UR3HwwjORLRNKGWrQCL2ASo4pqCmO9tjieXp4fj
+         sg1XDLaXZCgsDP9CFV9Vd5gldThVbUpcl5d853X7rCzDJX+bQ/8Eq+q1PbQfOZMsox3p
+         5TPOUvgUpiqtik6CjS9rL2G2SVQO2InnKThCY8pf5BUkjAqbjkNs2E2vJqAW05R+OCxx
+         xA3Q==
+X-Gm-Message-State: AAQBX9cuO0g8M8WFAVGlEO/+aErfG6ST2bQXTCehfDitCNvRkQBer+2G
+	K1yHzRkbcuf2tnPdfWOvOur2gx9/7396IJNYpLY=
+X-Google-Smtp-Source: AKy350ZymVA5je/JcZjLGXcT5bH394U6gvSQpMLr27jaRm4O7bjq/74s/E3gO89lzpSu3uJBBBoyiQ==
+X-Received: by 2002:a17:90a:f415:b0:247:6be7:8cc0 with SMTP id ch21-20020a17090af41500b002476be78cc0mr2863499pjb.35.1681914160200;
+        Wed, 19 Apr 2023 07:22:40 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id jl12-20020a170903134c00b0019fea4d61c9sm11512208plb.198.2023.04.19.07.22.36
+        by smtp.gmail.com with ESMTPSA id fv23-20020a17090b0e9700b0023d0290afbdsm1509639pjb.4.2023.04.19.07.22.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 07:22:37 -0700 (PDT)
-Date: Wed, 19 Apr 2023 07:22:37 -0700 (PDT)
-X-Google-Original-Date: Tue, 18 Apr 2023 20:30:26 PDT (-0700)
-Subject: Re: [PATCH V2] riscv: export cpu/freq invariant to scheduler
-In-Reply-To: <20230323172403.nfrtgm5vea4qvinu@orel>
-CC: suagrfillet@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ajones@ventanamicro.com
-Message-ID: <mhng-d4a888a4-a2c5-4520-82d1-b8eb66a7f3d1@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Wed, 19 Apr 2023 07:22:39 -0700 (PDT)
+In-Reply-To: <20230310110336.970985-1-suagrfillet@gmail.com>
+References: <20230310110336.970985-1-suagrfillet@gmail.com>
+Subject: Re: [PATCH] riscv: Kconfig: enable SCHED_MC kconfig
+Message-Id: <168191414578.1929.148048847590891306.b4-ty@rivosinc.com>
+Date: Wed, 19 Apr 2023 07:22:25 -0700
+MIME-Version: 1.0
+X-Mailer: b4 0.13-dev-901c5
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+  aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>, Song Shuai <suagrfillet@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_072240_819205_6E47BBD4 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20230419_072241_568647_AA81B8FF 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +88,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Mar 2023 10:24:03 PDT (-0700), ajones@ventanamicro.com wrote:
-> On Thu, Mar 23, 2023 at 08:39:24PM +0800, Song Shuai wrote:
->> RISC-V now manages CPU topology using arch_topology which provides
->> CPU capacity and frequency related interfaces to access the cpu/freq
->> invariant in possible heterogeneous or DVFS-enabled platforms.
->>
->> Here adds topology.h file to export the arch_topology interfaces for
->> replacing the scheduler's constant-based cpu/freq invariant accounting.
->>
->> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
->> ---
->> changes from V1:
->>   - fix the leading underscore and tidy the patch up
->> ---
->>  arch/riscv/include/asm/topology.h | 20 ++++++++++++++++++++
->>  1 file changed, 20 insertions(+)
->>  create mode 100644 arch/riscv/include/asm/topology.h
->>
->> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
->> new file mode 100644
->> index 000000000000..727e8d163a3b
->> --- /dev/null
->> +++ b/arch/riscv/include/asm/topology.h
->> @@ -0,0 +1,20 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +#ifndef _ASM_RISCV_TOPOLOGY_H
->> +#define _ASM_RISCV_TOPOLOGY_H
->> +
->> +#include <linux/arch_topology.h>
->> +
->> +/* Replace task scheduler's default frequency-invariant accounting */
->> +#define arch_scale_freq_tick	topology_scale_freq_tick
->> +#define arch_set_freq_scale	topology_set_freq_scale
->
-> I was thinking all the right hand side would line up, which means
-> the above two need additional tabs and so does topology_get_cpu_scale.
 
-I don't see a respin, but given that the feedback in just whitespace 
-changes I've got and picked this up while fixing the whitespace.
+On Fri, 10 Mar 2023 19:03:36 +0800, Song Shuai wrote:
+> RISC-V now builds the sched domain based on the simple possible map.
+> 
+> Enable SCHED_MC to make the building based on cpu_coregroup_mask()
+> which also takes care of the NUMA and cores with LLC.
+> 
+> 
 
->
->> +#define arch_scale_freq_capacity	topology_get_freq_scale
->> +#define arch_scale_freq_invariant	topology_scale_freq_invariant
->> +
->> +/* Replace task scheduler's default cpu-invariant accounting */
->> +#define arch_scale_cpu_capacity	topology_get_cpu_scale
->> +
->> +/* Enable topology flag updates */
->> +#define arch_update_cpu_topology	topology_update_cpu_topology
->> +
->> +#include <asm-generic/topology.h>
->
-> I'd also prefer a blank line here.
->
->> +#endif /* _ASM_RISCV_TOPOLOGY_H */
->> --
->> 2.20.1
->>
->
-> Otherwise,
->
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->
-> Thanks,
-> drew
+Applied, thanks!
+
+[1/1] riscv: Kconfig: enable SCHED_MC kconfig
+      https://git.kernel.org/palmer/c/8bf7b3b66762
+
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
+
 
 _______________________________________________
 linux-riscv mailing list
