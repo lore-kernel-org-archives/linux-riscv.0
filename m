@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAC8C7EE24
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 12:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1BDC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 12:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E4yKfgTW/UsTZW0j32mHdyMkf30eKw3Bu2zbEemd7js=; b=XszjLtm36w0EVe
-	9+W3GTTv3qcRcT51LWZWfToY3yv0N5TQ6BgeKEb4+3reQZNP9AvHQvDxcid2/wIsNSXdTbHulImHp
-	qnLSkRgYc2knIov8OAWz7QgZWbHRJ2Yyt/8XZiHCWWg/28nZWmBgySWEOmEGS7xN2C4cDTLCvB2lu
-	0XuI5dwayl7wL193T6jPkfHAhXBklahD1hX8x0ujcu2f4WnyTA3B1/ryOTj6l7bey9xqS/4mZgSjl
-	MnRaLlHClaL8H2xuSxs0Pgd6dsA8oNnCNpoWdqXFkG+5sHIxg4YGqWvvQiGw4U45tuTnXOAMGxfSW
-	hrBtZRNf2Kpsa0caf52Q==;
+	List-Owner; bh=am3d9bQLqy/F1o+adeV9lZ5s5FDPlfr28xOjYcw+oPQ=; b=flOPP7FNi5oxvz
+	ZVsB0X5u+2xTfPoEJf2SvyoQBTJxCIpx1a21FVaO/3xYPmqd9/gpOAKKHkj+h3DE6baISS/hw1yl+
+	bFCyMax4bF+zHnMb44+AkKatbVEW96Q9kOS7NGZ/SVi8uW4dQIz70/TWus0uXmbPIUBzQFp9iaGSn
+	bLRN+3zzFueBbPoMZhjLj3Lp+OuCUJwteI/0lHqqhZP5yYd+LDB1mtOmoUXUCZ/KTejK3F3v3WrKi
+	r0VD0WoyW9xpTfkiRNoDJYOIpSIvTikHCVFcbAJZAbyQ0s/eWO0NsAxK6OXRyBVhnX9Wq/pqNd3aA
+	id6juFkUW2Oas9Y5BUsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp6ip-005JGn-2B;
-	Wed, 19 Apr 2023 12:15:39 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1pp74t-005PZc-0R;
+	Wed, 19 Apr 2023 12:38:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp5hv-0058ML-1J
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 11:10:41 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-63b5c48ea09so2658992b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 04:10:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1681902637; x=1684494637;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c7Svk0AxAB3qoYix/qOEG4Vz2rPPucsqQxdMzpYchZI=;
-        b=XmTXt7ZqxWddAV0JDjC4c6Eovx0mOpcDKBV+L7pg9kHRvcw0NrF6W5p8otcbboa+62
-         0Yk50tsyKQO7E16Y/ShbQGi0tV2oXZlaNnHeVE6My6EBSsLfSGdR1+H6hWc/4acwEQ7I
-         sWiwrUzhpp1UOdQZv3Ffz/odeJ0xUcVsv6OZr4R81gtBHSsPz8N3GNMSFdOKlQ1aHAs8
-         /spzVKy5R+TMO/mlwy+UzyNZCIWi2iWBDIZpNtT4Ax7/9NE7gFAnx/7iTw594j+hUdmv
-         76inOtM+g2caKo9rqPK7MQtjifRFGMhyGybonQmyu8ffgr+glE+3PiwJvmG3YUL2vKP6
-         mFvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681902637; x=1684494637;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c7Svk0AxAB3qoYix/qOEG4Vz2rPPucsqQxdMzpYchZI=;
-        b=PmrabT15wTRL55jwNXvdIowu2I8iZ+Y+xYvil+3xDDBc2F/8iCqMAxRpFVq/8CVBls
-         0ALNUTo6o38dxMVz0zvpYaVzR8wDrDRtdLCrlCy/oblE/QIGK7ladgwlILA0diDsTEQi
-         rQ1GFOxNEKvnIgTsg/9r9oG1teRa7nstaM6vIS+diNQp7xteGVZtjjSZQFrfT1L+t1tn
-         aEvUZ6Avx/2bdpz9PoRzvARaCPswz1AWHpKxY0GT+OGrTmlx6holpvxqh/Afv0nQqc4F
-         LewkfPndbWTHIGRYbxj17rce9iWVXH1/kcCsLXLGcinXeDQnwnMI+DpFP7tuUCEzn5Hl
-         1/dw==
-X-Gm-Message-State: AAQBX9dAM2Lg9z80yBrwmwQUnxqoLmtWQ0iAZRueYywz7RM9kaE8EcT5
-	FfM1+vxLsN19PPgpHV+iHyLpMD3z2PRtRHgiXJE=
-X-Google-Smtp-Source: AKy350Y+nSBqUtz+XvYHUUrNKxlm15TSYw6mypxGarQ1iC83U3uspOXzd41NldV5dyN0PmskVrA9XA==
-X-Received: by 2002:a17:903:294c:b0:1a6:ebc1:c54d with SMTP id li12-20020a170903294c00b001a6ebc1c54dmr4710186plb.30.1681902636996;
-        Wed, 19 Apr 2023 04:10:36 -0700 (PDT)
-Received: from x1.hsd1.or.comcast.net ([2601:1c2:1800:f680:eaf2:1d7a:7338:16cb])
-        by smtp.gmail.com with ESMTPSA id g12-20020a1709026b4c00b001a24cded097sm11180774plt.236.2023.04.19.04.10.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 04:10:36 -0700 (PDT)
-From: Drew Fustini <dfustini@baylibre.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Ved Shanbhogue <ved@rivosinc.com>,
-	=?UTF-8?q?Kornel=20Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	Nicolas Pitre <npitre@baylibre.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Babu Moger <babu.moger@amd.com>,
-	Peter Newman <peternewman@google.com>,
-	x86@kernel.org,
-	Rob Herring <robh+dt@kernel.org>,
-	James Morse <james.morse@arm.com>
-Cc: Drew Fustini <dfustini@baylibre.com>
-Subject: [RFC PATCH 19/21] DO_NOT_MERGE riscv: dts: qemu: add dump from riscv-cbqri-rfc
-Date: Wed, 19 Apr 2023 04:11:09 -0700
-Message-Id: <20230419111111.477118-20-dfustini@baylibre.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230419111111.477118-1-dfustini@baylibre.com>
-References: <20230419111111.477118-1-dfustini@baylibre.com>
+	id 1pp74p-005PYJ-19;
+	Wed, 19 Apr 2023 12:38:24 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1681907899;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TzrbFJX0mLRnVyg6gK50wjW8gAdRTyt3eKsS6bO2Ho8=;
+	b=UQOJzBaZIKBAqIIp2iqE9MqaQt4o5jf4X54iENF8PIgb3XVSKHeAToYhSAetn/VDc3XDSc
+	vbXK6VM/E7725N29s2FSKaatj7nI1wyCTjA86cgr2JkrX8DxeEun3hjlUqogLtb5s5zfSa
+	SywUUUueeIYsZNv4w36kFnEjVOxY/DSPPwkyq+kebzFI7z2gYg0r9CnlmtgFv9TqDyfAlD
+	YKid0ziPPcge9cOBT8GWWTc95C+prcMhIbymQfHwn03mi0EsBFOddKVOKY2XMi3tesk7+V
+	TiCAx54bzs6ELiLXkmKcxWv4fFnjWSoKaHB0PW1kBv0yCnbUWTFXcy/RdtQ2bA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1681907899;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TzrbFJX0mLRnVyg6gK50wjW8gAdRTyt3eKsS6bO2Ho8=;
+	b=G/PDlG02+awXAj/Znv2ir94TrCNuE4soVJYG72z/i6F9KUyMxTR0qJUk/z9cfxNZH98BUp
+	FAdnV9eglXscn1DA==
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>, Paolo
+ Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>, Tom
+ Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
+ <lucjan.lucjanov@gmail.com>, David Woodhouse <dwmw@amazon.co.uk>, Usama
+ Arif <usama.arif@bytedance.com>, =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?=
+ <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E. J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
+In-Reply-To: <87a5z443g2.ffs@tglx>
+References: <20230414225551.858160935@linutronix.de>
+ <8247ce4d-15b7-03b2-0c9b-74f8cd6cad50@molgen.mpg.de> <87wn2a4la5.ffs@tglx>
+ <bd5a6a93-def1-9248-2258-c3d3b40071ef@molgen.mpg.de> <87ttxd4qxz.ffs@tglx>
+ <87r0sh4m7a.ffs@tglx> <8592a301-9933-1cad-bd61-8d97e7c7493b@molgen.mpg.de>
+ <87a5z443g2.ffs@tglx>
+Date: Wed, 19 Apr 2023 14:38:18 +0200
+Message-ID: <877cu83v45.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_041039_447614_7A91899F 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20230419_053823_542982_837E547E 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,415 +97,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dumped dtb from qemu branch riscv-cbqri-rfc which is on top of qemu
-master (tag: v8.0.0-rc4) with qemu/VERSION of 7.2.94 invoked with:
+On Wed, Apr 19 2023 at 11:38, Thomas Gleixner wrote:
+> On Tue, Apr 18 2023 at 22:10, Paul Menzel wrote:
+>> Am 18.04.23 um 10:40 schrieb Thomas Gleixner:
+>>> Can you please provide the output of cpuid?
+>>
+>> Of course. Here the top, and the whole output is attached.
+>
+> Thanks for the data. Can you please apply the debug patch below and
+> provide the dmesg output? Just the line which is added by the patch is
+> enough. You can boot with cpuhp.parallel=off so you don't have wait for
+> 10 seconds.
 
-  qemu-system-riscv64 \
-      -M virt \
-      -nographic \
-      -smp 8 \
-      -bios output/images/fw_jump.elf \
-      -kernel $HOME/kernel/cbqri-linux/arch/riscv/boot/Image \
-      -append "root=/dev/vda ro" \
-      -drive file=output/images/rootfs.ext2,format=raw,id=hd0 \
-      -device virtio-blk-device,drive=hd0 \
-      -machine dumpdtb=qemu.dtb
+Borislav found some a machine which also refuses to boot. It turns of
+the debug patch was spot on:
 
-Link: https://gitlab.baylibre.com/baylibre/qemu/-/tree/riscv-cbqri-rfc
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
----
-Note: this is necessary as Qemu branch riscv-cbqri-rfc does not yet
-support generating a dtb with the nodes and properties needed for CBQRI
-controllers. Thus, those lines must be added in the next patch and an
-external dtb (qemu-virt-cbqri.dtb) built by Linux is used when
-invoking qemu-system-riscv64
+[    0.462724] .... node  #0, CPUs:      #1
+[    0.462731] smpboot: Kicking AP alive: 17
+[    0.465723]  #2
+[    0.465732] smpboot: Kicking AP alive: 18
+[    0.467641]  #3
+[    0.467641] smpboot: Kicking AP alive: 19
 
- arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts | 371 +++++++++++++++++++
- 1 file changed, 371 insertions(+)
- create mode 100644 arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
+So the kernel gets APICID 17, 18, 19 from ACPI but CPUID leaf 0x1
+ebx[31:24], which is the initial APICID has:
 
-diff --git a/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
-new file mode 100644
-index 000000000000..400ed48a06af
---- /dev/null
-+++ b/arch/riscv/boot/dts/qemu/qemu-virt-cbqri.dts
-@@ -0,0 +1,371 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/dts-v1/;
-+
-+/ {
-+	#address-cells = <0x02>;
-+	#size-cells = <0x02>;
-+	compatible = "riscv-virtio";
-+	model = "riscv-virtio,qemu";
-+
-+	fw-cfg@10100000 {
-+		dma-coherent;
-+		reg = <0x00 0x10100000 0x00 0x18>;
-+		compatible = "qemu,fw-cfg-mmio";
-+	};
-+
-+	flash@20000000 {
-+		bank-width = <0x04>;
-+		reg = <0x00 0x20000000 0x00 0x2000000 0x00 0x22000000 0x00 0x2000000>;
-+		compatible = "cfi-flash";
-+	};
-+
-+	chosen {
-+		bootargs = "root=/dev/vda ro ftrace=function_graph ftrace_filter=\"*resctrl*,*qos*\"";
-+		rng-seed = <0xb87c09c5 0xc8f0c713 0x9c217b2a 0xa6f44e14 0xb6e99df6 0x205d482b 0x6d4c34f4 0x6466fc08>;
-+		stdout-path = "/soc/serial@10000000";
-+	};
-+
-+	poweroff {
-+		value = <0x5555>;
-+		offset = <0x00>;
-+		regmap = <0x12>;
-+		compatible = "syscon-poweroff";
-+	};
-+
-+	reboot {
-+		value = <0x7777>;
-+		offset = <0x00>;
-+		regmap = <0x12>;
-+		compatible = "syscon-reboot";
-+	};
-+
-+	platform-bus@4000000 {
-+		interrupt-parent = <0x11>;
-+		ranges = <0x00 0x00 0x4000000 0x2000000>;
-+		#address-cells = <0x01>;
-+		#size-cells = <0x01>;
-+		compatible = "qemu,platform\0simple-bus";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x00 0x80000000 0x00 0x8000000>;
-+	};
-+
-+	cpus {
-+		#address-cells = <0x01>;
-+		#size-cells = <0x00>;
-+		timebase-frequency = <0x989680>;
-+
-+		cpu@0 {
-+			phandle = <0x0f>;
-+			device_type = "cpu";
-+			reg = <0x00>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x10>;
-+			};
-+		};
-+
-+		cpu@1 {
-+			phandle = <0x0d>;
-+			device_type = "cpu";
-+			reg = <0x01>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x0e>;
-+			};
-+		};
-+
-+		cpu@2 {
-+			phandle = <0x0b>;
-+			device_type = "cpu";
-+			reg = <0x02>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x0c>;
-+			};
-+		};
-+
-+		cpu@3 {
-+			phandle = <0x09>;
-+			device_type = "cpu";
-+			reg = <0x03>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x0a>;
-+			};
-+		};
-+
-+		cpu@4 {
-+			phandle = <0x07>;
-+			device_type = "cpu";
-+			reg = <0x04>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x08>;
-+			};
-+		};
-+
-+		cpu@5 {
-+			phandle = <0x05>;
-+			device_type = "cpu";
-+			reg = <0x05>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x06>;
-+			};
-+		};
-+
-+		cpu@6 {
-+			phandle = <0x03>;
-+			device_type = "cpu";
-+			reg = <0x06>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x04>;
-+			};
-+		};
-+
-+		cpu@7 {
-+			phandle = <0x01>;
-+			device_type = "cpu";
-+			reg = <0x07>;
-+			status = "okay";
-+			compatible = "riscv";
-+			riscv,cboz-block-size = <0x40>;
-+			riscv,cbom-block-size = <0x40>;
-+			riscv,isa = "rv64imafdch_zicbom_zicboz_zicsr_zifencei_zihintpause_zawrs_zba_zbb_zbc_zbs_ssqosid_sstc_svadu";
-+			mmu-type = "riscv,sv57";
-+
-+			interrupt-controller {
-+				#interrupt-cells = <0x01>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+				phandle = <0x02>;
-+			};
-+		};
-+
-+		cpu-map {
-+
-+			cluster0 {
-+
-+				core0 {
-+					cpu = <0x0f>;
-+				};
-+
-+				core1 {
-+					cpu = <0x0d>;
-+				};
-+
-+				core2 {
-+					cpu = <0x0b>;
-+				};
-+
-+				core3 {
-+					cpu = <0x09>;
-+				};
-+
-+				core4 {
-+					cpu = <0x07>;
-+				};
-+
-+				core5 {
-+					cpu = <0x05>;
-+				};
-+
-+				core6 {
-+					cpu = <0x03>;
-+				};
-+
-+				core7 {
-+					cpu = <0x01>;
-+				};
-+			};
-+		};
-+	};
-+
-+	soc {
-+		#address-cells = <0x02>;
-+		#size-cells = <0x02>;
-+		compatible = "simple-bus";
-+		ranges;
-+
-+		pmu {
-+			riscv,event-to-mhpmcounters = <0x01 0x01 0x7fff9 0x02 0x02 0x7fffc 0x10019 0x10019 0x7fff8 0x1001b 0x1001b 0x7fff8 0x10021 0x10021 0x7fff8 0x00 0x00 0x00 0x00 0x00>;
-+			compatible = "riscv,pmu";
-+		};
-+
-+		rtc@101000 {
-+			interrupts = <0x0b>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x101000 0x00 0x1000>;
-+			compatible = "google,goldfish-rtc";
-+		};
-+
-+		serial@10000000 {
-+			interrupts = <0x0a>;
-+			interrupt-parent = <0x11>;
-+			clock-frequency = "\08@";
-+			reg = <0x00 0x10000000 0x00 0x100>;
-+			compatible = "ns16550a";
-+		};
-+
-+		test@100000 {
-+			phandle = <0x12>;
-+			reg = <0x00 0x100000 0x00 0x1000>;
-+			compatible = "sifive,test1\0sifive,test0\0syscon";
-+		};
-+
-+		pci@30000000 {
-+			interrupt-map-mask = <0x1800 0x00 0x00 0x07>;
-+			interrupt-map = <0x00 0x00 0x00 0x01 0x11 0x20 0x00 0x00 0x00 0x02 0x11 0x21 0x00 0x00 0x00 0x03 0x11 0x22 0x00 0x00 0x00 0x04 0x11 0x23 0x800 0x00 0x00 0x01 0x11 0x21 0x800 0x00 0x00 0x02 0x11 0x22 0x800 0x00 0x00 0x03 0x11 0x23 0x800 0x00 0x00 0x04 0x11 0x20 0x1000 0x00 0x00 0x01 0x11 0x22 0x1000 0x00 0x00 0x02 0x11 0x23 0x1000 0x00 0x00 0x03 0x11 0x20 0x1000 0x00 0x00 0x04 0x11 0x21 0x1800 0x00 0x00 0x01 0x11 0x23 0x1800 0x00 0x00 0x02 0x11 0x20 0x1800 0x00 0x00 0x03 0x11 0x21 0x1800 0x00 0x00 0x04 0x11 0x22>;
-+			ranges = <0x1000000 0x00 0x00 0x00 0x3000000 0x00 0x10000 0x2000000 0x00 0x40000000 0x00 0x40000000 0x00 0x40000000 0x3000000 0x04 0x00 0x04 0x00 0x04 0x00>;
-+			reg = <0x00 0x30000000 0x00 0x10000000>;
-+			dma-coherent;
-+			bus-range = <0x00 0xff>;
-+			linux,pci-domain = <0x00>;
-+			device_type = "pci";
-+			compatible = "pci-host-ecam-generic";
-+			#size-cells = <0x02>;
-+			#interrupt-cells = <0x01>;
-+			#address-cells = <0x03>;
-+		};
-+
-+		virtio_mmio@10008000 {
-+			interrupts = <0x08>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10008000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10007000 {
-+			interrupts = <0x07>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10007000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10006000 {
-+			interrupts = <0x06>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10006000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10005000 {
-+			interrupts = <0x05>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10005000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10004000 {
-+			interrupts = <0x04>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10004000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10003000 {
-+			interrupts = <0x03>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10003000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10002000 {
-+			interrupts = <0x02>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10002000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		virtio_mmio@10001000 {
-+			interrupts = <0x01>;
-+			interrupt-parent = <0x11>;
-+			reg = <0x00 0x10001000 0x00 0x1000>;
-+			compatible = "virtio,mmio";
-+		};
-+
-+		plic@c000000 {
-+			phandle = <0x11>;
-+			riscv,ndev = <0x5f>;
-+			reg = <0x00 0xc000000 0x00 0x600000>;
-+			interrupts-extended = <0x10 0x0b 0x10 0x09 0x0e 0x0b 0x0e 0x09 0x0c 0x0b 0x0c 0x09 0x0a 0x0b 0x0a 0x09 0x08 0x0b 0x08 0x09 0x06 0x0b 0x06 0x09 0x04 0x0b 0x04 0x09 0x02 0x0b 0x02 0x09>;
-+			interrupt-controller;
-+			compatible = "sifive,plic-1.0.0\0riscv,plic0";
-+			#address-cells = <0x00>;
-+			#interrupt-cells = <0x01>;
-+		};
-+
-+		clint@2000000 {
-+			interrupts-extended = <0x10 0x03 0x10 0x07 0x0e 0x03 0x0e 0x07 0x0c 0x03 0x0c 0x07 0x0a 0x03 0x0a 0x07 0x08 0x03 0x08 0x07 0x06 0x03 0x06 0x07 0x04 0x03 0x04 0x07 0x02 0x03 0x02 0x07>;
-+			reg = <0x00 0x2000000 0x00 0x10000>;
-+			compatible = "sifive,clint0\0riscv,clint0";
-+		};
-+	};
-+};
--- 
-2.34.1
+CPU1		0x01
+CPU2		0x02
+CPU3		0x03
 
+Which means the APICID to Linux CPU number lookup based on CPUID 0x01
+fails for all of them and stops them dead in the low level startup code.
+
+IOW, the BIOS assignes random numbers to the AP APICs for whatever
+raisins, which leaves the parallel startup low level code up a creek
+without a paddle, except for actually reading the APICID back from the
+APIC. *SHUDDER*
+
+I'm leaning towards disabling the CPUID lead 0x01 based discovery and be
+done with it.
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
