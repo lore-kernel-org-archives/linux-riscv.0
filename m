@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E208C77B7E
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA19C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OAICPAbWJIaCediYLz9gNl/5qWFEyzDYawF/SPkycBg=; b=tQHoLOJUUXET1F
-	Y6kuGLpcK5PKcl38GqZa2hMiZWfGZG+rbAUQKTGegX9MU1ivZ7R7Lkrzan0z3miY1MKfmhWO658bS
-	pDpi4l5nbsyahqrF+059MiNRQxzeI3yVCPfDQgtec6j6nNj+rY6zm1wUp3s61ItyiAzA98om+RVaG
-	HwIUWtHlYDhygag+uakXkN4mxlj0ekSb0VBXcH+l4FDbAhpHmZ/ZyNxkIA5j6tot607a8S1IFNJAW
-	W9i9dSXYKn3ByihxYeIoIJt2WJAH0j3tmHeKCaZe4umKPsftSo7xNoKi0lUHFwIN9JkTe98M1mJpP
-	/EEWxUY4PA+pAZS6yNRQ==;
+	List-Owner; bh=6zI1FKlzHnMp/zIiCadgYTexIe6tmr9IjZSjvHFo1vc=; b=ZL37FI8UWIz6j5
+	zLinFbHLoq16y1QQVxjOulBceL8ltSu7+ucOBp8x5O4FmsCkbopdy0tPUBaiTm8Ric0HBVzTQR9wI
+	xgHBlJR4Atve5sLhw9xSjkNCKzXDzOxLxSugeutiHunYBvxZ+BbpDb8ghomkMqb+YzGLbQdJa8hlO
+	hysjT2Q3moD2OP6377G6pU+Wf8afItvmAcNRuwdhca7F5dIW3k9n2qRsLW/qosQUBvfcEnnUD6k5j
+	pyTzaqpLfxIRYxoUVhsoajabsZ2EWTiUMUzu0x85j8f5b/kFUOoAgNOjHF8vyYjbdWjZ1qrkOhgQ1
+	X9PKwyj2BHQChZbigGnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8H-006TJO-1c;
-	Wed, 19 Apr 2023 22:18:33 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1ppG93-006Tjj-1F;
+	Wed, 19 Apr 2023 22:19:21 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8B-006TCR-0t
+	id 1ppG90-006ThT-1v
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:18:31 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2466f65d7e0so177972a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:25 -0700 (PDT)
+	Wed, 19 Apr 2023 22:19:19 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1a9253d4551so4770525ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942705; x=1684534705;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942756; x=1684534756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UJcz91lEoSJqtalpSfBSHZNF30nj7YibjBRer+eosEg=;
-        b=qMbw2bfkgktxDwIJo8enIEL5pLtnbolY3+JaaISTkIKsa3/Pbsco4zcJlI15aLKelR
-         WFKrKF2Hz7v5krpEvYpYwDTqJPbGu3BuJcQtCe9xizDdAggE5jW1G4X8qqMenNOBqXz9
-         5gqd6GiYE1ZkgW2qNIjSboTRdUgFAKPx3ibrEbYtA8McCRZRHbdZdMvH67xn6xctz3io
-         Yx4YAKRBSdhdHTVV7HAXUHddiREJjeIsjlNB/MFPQtt0zqpmQorHvJ8xpPjM9lkMYa3A
-         PJWfAzX50ZJIGmvwtxGZ3PpJ/kZeMQBLQ0BYf7N4KMtYq6ZlC++uPwgnbCGRBd8idM/u
-         /cyA==
+        bh=P8D5qQaAsWRyihppL8lxgNE7a17gNAwjOwZEXYQRMgE=;
+        b=KY3qeDkuqx7ojUE9edJo91m4yJkLaFWv5WBr0z1XBW37m3Ugju5gvpwIFDQff0jKms
+         +hgKcILxSjrfAbaSn/gsJas5jFwQYwJwvq++pUZKG2L4GsKhyqTPcUu6xp5ypSE2166a
+         M9MbN1bFoVVAdPgWpFhugIMpkrykve+HvKmx+0rzvYuv5b7fjLguHE92nxuCMfaazyT0
+         EjqjUkf7F7QIDOnYykXPXccd7CL3t2WBS+Rd2ML5ADa2yHIE2iBIctAwVUyHJ5XwQDtq
+         3t1dyXic09IH7MeVfo82H9l2jXFUHVEBVSeBHFYy8QxMmo1hXkdwnKJUN8t2qaLHF1ux
+         +z5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942705; x=1684534705;
+        d=1e100.net; s=20221208; t=1681942756; x=1684534756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UJcz91lEoSJqtalpSfBSHZNF30nj7YibjBRer+eosEg=;
-        b=Sq4ZYLcllf4b8jQxUdiQVKxZKjXjjK7ceFdYxOaY9/fsnZnPlrazsYAXzwUWeZnniB
-         UFXxTFV4qjk9olnbQgvVTpEgmXqei+osekKGmLm4MpGNOURKHRrnj2nKJb/i/87yzhHd
-         Yif79bQ3eQzTekV1Pmode+SJKenHoJ9LNZ33Hwi62Ul5NJc3L7LWek1n4wMaXE4zU3AA
-         1C2T87L7XBv4xGIeAgi6stfkT45HeP0scuHYtdkeUojdiMl1R0BHdSKbRwqPpzRhHnXO
-         CZdSRla+eLoZep6rtG9VuRUebGA0Azd/fEhBXVBZyuZ9ShxXhB88aHCY8uWQAXE8fRZT
-         Psdg==
-X-Gm-Message-State: AAQBX9cb86gGJh+aA8Sq7m/Ay8t3h+/AxqYpAn9ZQD7dtNcXQCzFom3D
-	XQZAnkD3H/i1cDXUtYCo7bgSVg==
-X-Google-Smtp-Source: AKy350Z8cKy3RK/3X5ej3IZFoGxmT2xiFm/BExphbF3ahTLRykDnPstTsJrfduCst6vY0llDQCAqqw==
-X-Received: by 2002:a17:90b:890:b0:23a:333c:6bab with SMTP id bj16-20020a17090b089000b0023a333c6babmr4018734pjb.23.1681942704931;
-        Wed, 19 Apr 2023 15:18:24 -0700 (PDT)
+        bh=P8D5qQaAsWRyihppL8lxgNE7a17gNAwjOwZEXYQRMgE=;
+        b=JE52ZKvI10MSfOKvZTew1es2NLploNrboFmJZZao7MfcmKPQLBsC0OOUbR5SObFwxE
+         sElBkF+S5SyGQJNFEfrsUdtxq3GMr1CmjH+Zz7qcoBID0mgjtGVdNOEJtaOiApirIEdn
+         1msVg6hLjYPPyF/8qFxFhlVgNsw9leE1hQjDordyE8SB9lO/MoaDA+K7T7UUR9RDF8sR
+         TYSVjqu3Yv0WX3h+j+97Lb3Tx8vGTVKEQS/hTTjraL0HikDOX5VotaFcjx/EvlWpNyv3
+         kVkTODTaNr3O7K1tdegfN6CTaEaI+wehoBCrKGTjDKeM2NKLGaex6H7PHBjSyhK5gts/
+         fFlw==
+X-Gm-Message-State: AAQBX9eu8sM+qpYw/nrneWiioRa6xhVL0OxYtMlbQvHjp7FB9o5+ncQE
+	FbrI8LuerT4iwtm1/RcUo0kjLQ==
+X-Google-Smtp-Source: AKy350ZigrT04ztZNfYo7vxPOIAk65YMZhdMrGeFS26zGyCIXgxICUZh5tguDmZpxCxB9++y2y9iww==
+X-Received: by 2002:a17:903:2288:b0:1a5:2db2:2bb with SMTP id b8-20020a170903228800b001a52db202bbmr8899588plh.15.1681942756356;
+        Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.23
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.19.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:18:24 -0700 (PDT)
+        Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -95,16 +95,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 25/48] RISC-V: KVM: Skip HVIP update for TVMs
-Date: Wed, 19 Apr 2023 15:16:53 -0700
-Message-Id: <20230419221716.3603068-26-atishp@rivosinc.com>
+Subject: [RFC 48/48] drivers/hvc: sbi: Disable HVC console for TVMs
+Date: Wed, 19 Apr 2023 15:17:16 -0700
+Message-Id: <20230419221716.3603068-49-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151827_320183_24EA0BAF 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20230419_151918_632767_15E2D8C6 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,42 +121,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Skip HVIP update as the Host shouldn't be able to inject
-interrupt directly to a TVM.
+If two same type of console is used in command line, kernel
+picks up the first registered one instead of the preferred one.
+The fix was proposed and NACK'ed due to a possible regression
+for other users.
+
+https://lore.kernel.org/all/Y+tziG0Uo5ey+Ocy@alley/
+
+HVC sbi console makes it impossible to use virtio console
+which is preferred anyways. We could have disabled HVC console
+for TVMs but same kernel image must work on both host and the
+the guest. There are genuine reasons for requiring the hvc sbi
+cosnole for the host.
+
+Do not initialize the hvc console for the TVMs so that virtio
+console can be used.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/tty/hvc/hvc_riscv_sbi.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 43a0b8c..20d4800 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -822,7 +822,10 @@ void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
- 	/* Read current HVIP and VSIE CSRs */
- 	csr->vsie = nacl_csr_read(CSR_VSIE);
+diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
+index 83cfe00..dee96c5 100644
+--- a/drivers/tty/hvc/hvc_riscv_sbi.c
++++ b/drivers/tty/hvc/hvc_riscv_sbi.c
+@@ -11,6 +11,7 @@
+ #include <linux/moduleparam.h>
+ #include <linux/types.h>
  
--	/* Sync-up HVIP.VSSIP bit changes does by Guest */
-+	/*
-+	 * Sync-up HVIP.VSSIP bit changes does by Guest. For TVMs,
-+	 * the HVIP is not updated by the TSM. Expect it to be zero.
-+	 */
- 	hvip = nacl_csr_read(CSR_HVIP);
- 	if ((csr->hvip ^ hvip) & (1UL << IRQ_VS_SOFT)) {
- 		if (hvip & (1UL << IRQ_VS_SOFT)) {
-@@ -1305,8 +1308,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 */
- 		kvm_riscv_vcpu_flush_interrupts(vcpu);
++#include <asm/cove.h>
+ #include <asm/sbi.h>
  
--		/* Update HVIP CSR for current CPU */
--		kvm_riscv_update_hvip(vcpu);
-+		/* Update HVIP CSR for current CPU only for non TVMs */
-+		if (!is_cove_vcpu(vcpu))
-+			kvm_riscv_update_hvip(vcpu);
+ #include "hvc_console.h"
+@@ -103,6 +104,10 @@ static int __init hvc_sbi_init(void)
+ {
+ 	int err;
  
- 		if (ret <= 0 ||
- 		    kvm_riscv_gstage_vmid_ver_changed(vcpu->kvm) ||
++	/* Prefer virtio console as hvc console for guests */
++	if (is_cove_guest())
++		return 0;
++
+ 	if ((sbi_spec_version >= sbi_mk_version(1, 0)) &&
+ 	    (sbi_probe_extension(SBI_EXT_DBCN) > 0)) {
+ 		err = PTR_ERR_OR_ZERO(hvc_alloc(0, 0, &hvc_sbi_dbcn_ops, 16));
 -- 
 2.25.1
 
