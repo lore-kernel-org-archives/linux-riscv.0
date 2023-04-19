@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66814C6FD18
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD73C77B75
 	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,70 +12,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6F7J2jQuklGt6pf5S8H/BCFvjGpGiv0A+Z3RVTIxnP0=; b=07XboFwxTVA22R
-	lFpyHbTnErOljx/Z04Q7UEEg3g02Fn0WoLbZPc0qbgDtlavRAgx+NHtuSCrz/OvuUSZwLJFd8j8SY
-	xuXEIRi4Yr+wmPmVKqzgD6WGScM2V+I0z5FOgs6ajmExOAKzCwGl2rvWPVnOp2rHYmuBzjlDOLsaG
-	ubCgpeYOK/uQqP0R9EfmCAuqx7H1X7dogF9RATRjvSjgRywU+qcc86wYD0T5Or0jLL2c00bqlqiMU
-	MA+bo1qEkbI7EZN4bsY8XunY85VvzHCN2gPxEuHUi8Eult+o5szDBBM7ymcBFxpAKvJgEzQ8xAVr1
-	ZWUvDiyl5bBHe5bdE3og==;
+	List-Owner; bh=Ug8mUdNFHlvl32MBqviGEAxIIcxYqG/mNFLsAR4uTZY=; b=Lt9xe3/annbOuw
+	oGjMv+SaPaK/1nBcz6FlZXggBLDocDIB8fFAlaLS8U8KO3rBNIUlNtcdlLMJtzGKZDhSDGJJCs4r8
+	rp+rCCU60vPQ6K+2Baw55vIgspG+SVf/3X05H3IcRXFyLHqqJNPa+XY3FQ6m5YsUelB1muqh9UcJW
+	5zyl0FRshulseltyL+9h1ryCkUIR8AeCEB5nbiBaPDEr84XwcrwvHpJV5Hb1jVxsVQg0dUtXUVnTC
+	7ySrGtD6JLHFQzZJc65ROfxHili88MEAQW4G+2tz5FvivV+r5sZGCEeZOUKoe6nZynTBx+loWCjvS
+	gJn4DU+zvFGMMOBIUG0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGQw-006Wzh-00;
+	id 1ppGQw-006X0Q-29;
 	Wed, 19 Apr 2023 22:37:50 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGQo-006WXV-0W
+	id 1ppGQn-006WXV-0B
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Apr 2023 22:37:42 +0000
+	Wed, 19 Apr 2023 22:37:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=qOzd/WhvlpjJ956p72hZNImrff40bav5pGpgVf1jDCE=; b=QeyTykNf4sc+5fpBcoYaTa6P+R
-	y6MlgO3KH/Qhb5EXhYArTT6lOV2f3e8VrIU1u81L4XTDygBMaZwOgDZeQC53GpxfUqGMZVyEkpOKX
-	OEOsyD1Wq8JReNbr3HpM628s1M3GhuJhPm1qD5LxBQRgtbcZtDY/PJIZ0xdaR/ns99r78QPcN5uQQ
-	3FMqpAnBXiMHo/MXuvTKFij7jDkDu+VTThHfKfUaXigGHQvJKshxjn2t9jcNoPnHwKRY1e/yur18H
-	GLWLcktfmLz2gPUwl2cKCb6/nI2N6RZIGhkflXQFFy3i15UWg0cJMo/j/rpMdR/wRGLA+gDTGno49
-	+gjTxAbQ==;
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	bh=LUld/G/1WeH25lUdXRYxnjPYZXeYYgEcmI7A3/bRIcw=; b=eJXo7HjH5vYPqWNF4d729XqpRB
+	UCZbYawxPRX+ceQ0V9OlXPpPeOOhKV2ELt8nL0q3PZyKVZEC9ZLEXIoN1RgDaBwBedWniXqydIeMs
+	71YSpYfOFZQ/nO0qO/gwA7eEVaIIosL26RenbXL/reVe0aXlwOX6MudiFfpdjLuFZGuEYgq+UL6DY
+	OQZHjTsR84uzSckPQzJBDCIdwazHb/SqBqZuoFE32AtlwAmSCNOueBmLTZ3cBdhbZ1N5HqDj8em7j
+	3cCpGnGP853xpCboE7ZLwD4kjSEShg6ZfbTKPZmBDo7mPTkUDB3FVSN+Y1mg7bm0M+HaN11zTiTjv
+	VkygLfoA==;
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ppG7e-00De7n-Mv
-	for linux-riscv@lists.infradead.org; Wed, 19 Apr 2023 22:18:05 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1a682eee3baso4401165ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:17:54 -0700 (PDT)
+	id 1ppG7l-00De9m-2M
+	for linux-riscv@lists.infradead.org; Wed, 19 Apr 2023 22:18:07 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-63b4dfead1bso375904b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942672; x=1684534672;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942678; x=1684534678;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qOzd/WhvlpjJ956p72hZNImrff40bav5pGpgVf1jDCE=;
-        b=nK5/1WGSlykOrMrz6zLE7ByOwHsNX7ku+LU2VBvTADuPSy3LTEvEYN/5idyeMAH9v6
-         lDrCh9vx2uQPGrR2xDDmRNujTPNDyyzCxzk4mY1KxzUuZQGhhSyvWuaw1bMwsQMloPyl
-         7AP1+xv6gUZEztUQTM1GZJONZkurrJQmSw8oo0Vlacs0NCnY8W0HIEeaXUNTT9FXPkDs
-         BnQUvSJIxGIi32I9gl3+IkxfURT26aMcR2YDE4SZvKgasSWBzWeQlJS8HIQa8AHGBoBy
-         oAuh9qhu2Ya7h80HYOyhHTVyAo19NM+J4mD7HNvy+vl3b7n5pBV/07agfGWnPCRxQI9a
-         znow==
+        bh=LUld/G/1WeH25lUdXRYxnjPYZXeYYgEcmI7A3/bRIcw=;
+        b=3BXkkvcr1OqHpZ/1lavYXP7tve2GxDnWf4O2fWPOiSdbOWRF8chSO/YIyqpEuxWDXh
+         BJ7QFDeoj+Jn0Arzj7+Z5YjQU574gbvT6cAETsRRSqDeVkx/Ylx7RmGaHK6RFXNh6Eit
+         fV0M97Hugr5QTbW1u6+18YRRaKIRIagsziaBLExN4bCT6bnocXCkvHc2Ew+80dXvoOZo
+         BF8+iOJKnVBNIx5dtVYx6vnMu5+ZMBbkouCan/31RqRplh6dabd1rARUBLlSsQGaKiSb
+         4trlbYIIc+EnwzxQuThX6PKBOpT5C2rO+n2a+7R9hS1L0V6qAuL49rS0jBoNV5zJv4h3
+         Joww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942672; x=1684534672;
+        d=1e100.net; s=20221208; t=1681942678; x=1684534678;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qOzd/WhvlpjJ956p72hZNImrff40bav5pGpgVf1jDCE=;
-        b=hktU/E1u9Gki/thp+uyp+s7z6ZwnHfL3TxzEOX2kZhLjqflq5KGda+Afo34NuWZsdm
-         e09A6/uDFf08Dgy6UATSKsz886o/UTQnnFiVsAkVXmA4sK0MkirtQNy6VYs5sIDJUrD1
-         ozkEYpZDY2BqNsoVSk5Zw+hDwPGE4EPMTChFUQJ/UOtrFPRXjFjCN9vr69AYCvG9LhSY
-         mlta2bzIk2xT0LqgqGV/jnt86vRNANsBFq2A+KHqjgwNGNBdhZPqahtmYa+Vpj9TRXOO
-         Bgg9yTFUdazhS4eukiywsC/FtcIpISGATq1v10/Z0Z/ozsDqYzUInjma05ufU/kkDf6v
-         T/5A==
-X-Gm-Message-State: AAQBX9ddJkgI3kYFP4pJH2BieKVRe6rf1/zxDez1/bFp28w3tacb7Zh0
-	2ZT6AUhv/h+4Lh4bvRkSty5Bew==
-X-Google-Smtp-Source: AKy350YH91pAUPM41j7LqluKiXzQ7Ynx9OMjbtDndSOQdeDLatwEyjhoPFWqpUQdaJ4OsOf4sEQSuA==
-X-Received: by 2002:a17:902:9004:b0:1a5:2621:34cd with SMTP id a4-20020a170902900400b001a5262134cdmr5755075plp.39.1681942671881;
-        Wed, 19 Apr 2023 15:17:51 -0700 (PDT)
+        bh=LUld/G/1WeH25lUdXRYxnjPYZXeYYgEcmI7A3/bRIcw=;
+        b=if/i+A2iH3bnzB2FQB/aB20QMEIZa1ZQSw6FCPL1VVwDEoqcJppwTiWkikmiD55oM6
+         vvGpOkUCzeviTr9eK3KEN7T/82pmtFKhfRtx8fbvpECKn9DmSqMS+xREF195ox/GyVUW
+         RGOOuVg4GcASwABol4t15e0UwFthVfehUNRf1vbQC6Jc0GZiVDi5VthgL0CJcYDgULHB
+         tws07RoDHaj/4hG7TeUkYpMrdcvUdyWZ5MdxdNkgLxxSCHx1BToeWwJr4eUD80HjkjgR
+         qxrMvO8DJftONFmju8DyL11lxPN5LU79Lrvc+3O59JikMUzUSW8lwvKwgHEG/TCOJ7Fc
+         xbFw==
+X-Gm-Message-State: AAQBX9dQacdaxAo4NzGwiUaWLtCLg3+fX7XaxZ/bhchfd5j+kC+Bz2Zy
+	kN1oxsABmXjR650mzP0QZMA50w==
+X-Google-Smtp-Source: AKy350bb7O7vRNJqV0slEkpJiEEitj66qfL0H4rvbzo6EDHZOM2g1chblrb/iCkgTowCPCRsrQSCkw==
+X-Received: by 2002:a17:902:eb8d:b0:19c:f476:4793 with SMTP id q13-20020a170902eb8d00b0019cf4764793mr5940941plg.51.1681942678346;
+        Wed, 19 Apr 2023 15:17:58 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.17.49
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.17.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:17:51 -0700 (PDT)
+        Wed, 19 Apr 2023 15:17:58 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -109,16 +109,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 10/48] RISC-V: KVM: Implement static memory region measurement
-Date: Wed, 19 Apr 2023 15:16:38 -0700
-Message-Id: <20230419221716.3603068-11-atishp@rivosinc.com>
+Subject: [RFC 13/48] RISC-V: KVM: Return early for gstage modifications
+Date: Wed, 19 Apr 2023 15:16:41 -0700
+Message-Id: <20230419221716.3603068-14-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_231754_899004_F1B8F4B6 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20230419_231801_165286_F66EB8BB 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,175 +135,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To support attestation of any images loaded by the VMM, the COVH allows
-measuring these memory regions. Currently, it will be used for the
-kernel image, device tree and initrd images.
+The gstage entries for CoVE VM is managed by the TSM. Return
+early for any gstage pte modification operations.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/kvm_cove.h |   6 ++
- arch/riscv/kvm/cove.c             | 110 ++++++++++++++++++++++++++++++
- 2 files changed, 116 insertions(+)
+ arch/riscv/kvm/mmu.c | 28 ++++++++++++++++++++++++----
+ 1 file changed, 24 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_cove.h b/arch/riscv/include/asm/kvm_cove.h
-index 3bf1bcd..4ea1df1 100644
---- a/arch/riscv/include/asm/kvm_cove.h
-+++ b/arch/riscv/include/asm/kvm_cove.h
-@@ -127,6 +127,7 @@ void kvm_riscv_cove_vcpu_load(struct kvm_vcpu *vcpu);
- void kvm_riscv_cove_vcpu_put(struct kvm_vcpu *vcpu);
- void kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_trap *trap);
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 6b037f7..9693897 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -16,6 +16,9 @@
+ #include <linux/kvm_host.h>
+ #include <linux/sched/signal.h>
+ #include <asm/kvm_nacl.h>
++#include <asm/csr.h>
++#include <asm/kvm_host.h>
++#include <asm/kvm_cove.h>
+ #include <asm/page.h>
+ #include <asm/pgtable.h>
  
-+int kvm_riscv_cove_vm_measure_pages(struct kvm *kvm, struct kvm_riscv_cove_measure_region *mr);
- int kvm_riscv_cove_vm_add_memreg(struct kvm *kvm, unsigned long gpa, unsigned long size);
- int kvm_riscv_cove_gstage_map(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long hva);
- #else
-@@ -147,6 +148,11 @@ static inline void kvm_riscv_cove_vcpu_put(struct kvm_vcpu *vcpu) {}
- static inline void kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_trap *trap) {}
- static inline int kvm_riscv_cove_vm_add_memreg(struct kvm *kvm, unsigned long gpa,
- 					       unsigned long size) {return -1; }
-+static inline int kvm_riscv_cove_vm_measure_pages(struct kvm *kvm,
-+						  struct kvm_riscv_cove_measure_region *mr)
-+{
-+	return -1;
-+}
- static inline int kvm_riscv_cove_gstage_map(struct kvm_vcpu *vcpu,
- 					    gpa_t gpa, unsigned long hva) {return -1; }
- #endif /* CONFIG_RISCV_COVE_HOST */
-diff --git a/arch/riscv/kvm/cove.c b/arch/riscv/kvm/cove.c
-index d001e36..5b4d9ba 100644
---- a/arch/riscv/kvm/cove.c
-+++ b/arch/riscv/kvm/cove.c
-@@ -27,6 +27,12 @@ static DEFINE_SPINLOCK(cove_fence_lock);
+@@ -356,6 +359,11 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
+ 		.gfp_zero = __GFP_ZERO,
+ 	};
  
- static bool riscv_cove_enabled;
- 
-+static inline bool cove_is_within_region(unsigned long addr1, unsigned long size1,
-+				       unsigned long addr2, unsigned long size2)
-+{
-+	return ((addr1 <= addr2) && ((addr1 + size1) >= (addr2 + size2)));
-+}
++	if (is_cove_vm(kvm)) {
++		kvm_debug("%s: KVM doesn't support ioremap for TVM io regions\n", __func__);
++		return -EPERM;
++	}
 +
- static void kvm_cove_local_fence(void *info)
+ 	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
+ 	pfn = __phys_to_pfn(hpa);
+ 
+@@ -385,6 +393,10 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
+ 
+ void kvm_riscv_gstage_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
  {
- 	int rc;
-@@ -192,6 +198,109 @@ int kvm_riscv_cove_vcpu_init(struct kvm_vcpu *vcpu)
- 	return rc;
- }
++	/* KVM doesn't map any IO region in gstage for TVM */
++	if (is_cove_vm(kvm))
++		return;
++
+ 	spin_lock(&kvm->mmu_lock);
+ 	gstage_unmap_range(kvm, gpa, size, false);
+ 	spin_unlock(&kvm->mmu_lock);
+@@ -431,6 +443,10 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+ 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t size = slot->npages << PAGE_SHIFT;
  
-+int kvm_riscv_cove_vm_measure_pages(struct kvm *kvm, struct kvm_riscv_cove_measure_region *mr)
-+{
-+	struct kvm_cove_tvm_context *tvmc = kvm->arch.tvmc;
-+	int rc = 0, idx, num_pages;
-+	struct kvm_riscv_cove_mem_region *conf;
-+	struct page *pinned_page, *conf_page;
-+	struct kvm_riscv_cove_page *cpage;
++	/* No need to unmap gstage as it is managed by TSM */
++	if (is_cove_vm(kvm))
++		return;
 +
-+	if (!tvmc)
-+		return -EFAULT;
-+
-+	if (tvmc->finalized_done) {
-+		kvm_err("measured_mr pages can not be added after finalize\n");
-+		return -EINVAL;
-+	}
-+
-+	num_pages = bytes_to_pages(mr->size);
-+	conf = &tvmc->confidential_region;
-+
-+	if (!IS_ALIGNED(mr->userspace_addr, PAGE_SIZE) ||
-+	    !IS_ALIGNED(mr->gpa, PAGE_SIZE) || !mr->size ||
-+	    !cove_is_within_region(conf->gpa, conf->npages << PAGE_SHIFT, mr->gpa, mr->size))
-+		return -EINVAL;
-+
-+	idx = srcu_read_lock(&kvm->srcu);
-+
-+	/*TODO: Iterate one page at a time as pinning multiple pages fail with unmapped panic
-+	 * with a virtual address range belonging to vmalloc region for some reason.
-+	 */
-+	while (num_pages) {
-+		if (signal_pending(current)) {
-+			rc = -ERESTARTSYS;
-+			break;
-+		}
-+
-+		if (need_resched())
-+			cond_resched();
-+
-+		rc = get_user_pages_fast(mr->userspace_addr, 1, 0, &pinned_page);
-+		if (rc < 0) {
-+			kvm_err("Pinning the userpsace addr %lx failed\n", mr->userspace_addr);
-+			break;
-+		}
-+
-+		/* Enough pages are not available to be pinned */
-+		if (rc != 1) {
-+			rc = -ENOMEM;
-+			break;
-+		}
-+		conf_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
-+		if (!conf_page) {
-+			rc = -ENOMEM;
-+			break;
-+		}
-+
-+		rc = cove_convert_pages(page_to_phys(conf_page), 1, true);
-+		if (rc)
-+			break;
-+
-+		/*TODO: Support other pages sizes */
-+		rc = sbi_covh_add_measured_pages(tvmc->tvm_guest_id, page_to_phys(pinned_page),
-+						 page_to_phys(conf_page), SBI_COVE_PAGE_4K,
-+						 1, mr->gpa);
-+		if (rc)
-+			break;
-+
-+		/* Unpin the page now */
-+		put_page(pinned_page);
-+
-+		cpage = kmalloc(sizeof(*cpage), GFP_KERNEL_ACCOUNT);
-+		if (!cpage) {
-+			rc = -ENOMEM;
-+			break;
-+		}
-+
-+		cpage->page = conf_page;
-+		cpage->npages = 1;
-+		cpage->gpa = mr->gpa;
-+		cpage->hva = mr->userspace_addr;
-+		cpage->is_mapped = true;
-+		INIT_LIST_HEAD(&cpage->link);
-+		list_add(&cpage->link, &tvmc->measured_pages);
-+
-+		mr->userspace_addr += PAGE_SIZE;
-+		mr->gpa += PAGE_SIZE;
-+		num_pages--;
-+		conf_page = NULL;
-+
-+		continue;
-+	}
-+	srcu_read_unlock(&kvm->srcu, idx);
-+
-+	if (rc < 0) {
-+		/* We don't to need unpin pages as it is allocated by the hypervisor itself */
-+		cove_delete_page_list(kvm, &tvmc->measured_pages, false);
-+		/* Free the last allocated page for which conversion/measurement failed */
-+		kfree(conf_page);
-+		kvm_err("Adding/Converting measured pages failed %d\n", num_pages);
-+	}
-+
-+	return rc;
-+}
-+
- int kvm_riscv_cove_vm_add_memreg(struct kvm *kvm, unsigned long gpa, unsigned long size)
+ 	spin_lock(&kvm->mmu_lock);
+ 	gstage_unmap_range(kvm, gpa, size, false);
+ 	spin_unlock(&kvm->mmu_lock);
+@@ -547,7 +563,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
  {
- 	int rc;
-@@ -244,6 +353,7 @@ void kvm_riscv_cove_vm_destroy(struct kvm *kvm)
- 	}
+-	if (!kvm->arch.pgd)
++	if (!kvm->arch.pgd || is_cove_vm(kvm))
+ 		return false;
  
- 	cove_delete_page_list(kvm, &tvmc->reclaim_pending_pages, false);
-+	cove_delete_page_list(kvm, &tvmc->measured_pages, false);
+ 	gstage_unmap_range(kvm, range->start << PAGE_SHIFT,
+@@ -561,7 +577,7 @@ bool kvm_set_spte_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	int ret;
+ 	kvm_pfn_t pfn = pte_pfn(range->pte);
  
- 	/* Reclaim and Free the pages for tvm state management */
- 	rc = sbi_covh_tsm_reclaim_pages(page_to_phys(tvmc->tvm_state.page), tvmc->tvm_state.npages);
+-	if (!kvm->arch.pgd)
++	if (!kvm->arch.pgd || is_cove_vm(kvm))
+ 		return false;
+ 
+ 	WARN_ON(range->end - range->start != 1);
+@@ -582,7 +598,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	u32 ptep_level = 0;
+ 	u64 size = (range->end - range->start) << PAGE_SHIFT;
+ 
+-	if (!kvm->arch.pgd)
++	if (!kvm->arch.pgd || is_cove_vm(kvm))
+ 		return false;
+ 
+ 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+@@ -600,7 +616,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	u32 ptep_level = 0;
+ 	u64 size = (range->end - range->start) << PAGE_SHIFT;
+ 
+-	if (!kvm->arch.pgd)
++	if (!kvm->arch.pgd || is_cove_vm(kvm))
+ 		return false;
+ 
+ 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+@@ -737,6 +753,10 @@ void kvm_riscv_gstage_free_pgd(struct kvm *kvm)
+ {
+ 	void *pgd = NULL;
+ 
++	/* PGD is mapped in TSM */
++	if (is_cove_vm(kvm))
++		return;
++
+ 	spin_lock(&kvm->mmu_lock);
+ 	if (kvm->arch.pgd) {
+ 		gstage_unmap_range(kvm, 0UL, gstage_gpa_size, false);
 -- 
 2.25.1
 
