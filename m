@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA19C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC67C6FD18
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6zI1FKlzHnMp/zIiCadgYTexIe6tmr9IjZSjvHFo1vc=; b=ZL37FI8UWIz6j5
-	zLinFbHLoq16y1QQVxjOulBceL8ltSu7+ucOBp8x5O4FmsCkbopdy0tPUBaiTm8Ric0HBVzTQR9wI
-	xgHBlJR4Atve5sLhw9xSjkNCKzXDzOxLxSugeutiHunYBvxZ+BbpDb8ghomkMqb+YzGLbQdJa8hlO
-	hysjT2Q3moD2OP6377G6pU+Wf8afItvmAcNRuwdhca7F5dIW3k9n2qRsLW/qosQUBvfcEnnUD6k5j
-	pyTzaqpLfxIRYxoUVhsoajabsZ2EWTiUMUzu0x85j8f5b/kFUOoAgNOjHF8vyYjbdWjZ1qrkOhgQ1
-	X9PKwyj2BHQChZbigGnw==;
+	List-Owner; bh=LJgtHAulwFn7C0M3Pmpxc1aGCmYOmYezhYWmS0A5lYo=; b=XAUoNDNxjOuEjV
+	YeKDHERUdOeDyZ1dYWhU3CheB8bdKvw+BtCuuNOc2yzL2OvEQRBhQ2rrA51IrIVRHzvgEacA0BSm+
+	dDgbJbOA5aExeJLsUIeDIo/6qDM0djnqWrgKE2OyMiipl+PslZADwfaoIauo5cN83msvSD7PTMON4
+	NE+CVU1a8kHix5HPaUNNqcdx9dQRu7pMfVojMViM51a4WM6kIrfzg+PVTERxzASb1nA0clMIzb/PK
+	35E3+W7/z3LZT1nJgfIqhga6Rt9fSiStqBocE4fBtQRdR6okU4Ob9YpHH2l2QAOp9bj19DCC0zh7b
+	f37Jw6K9jr+n0cgmqigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG93-006Tjj-1F;
-	Wed, 19 Apr 2023 22:19:21 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1ppGDE-006UUj-02;
+	Wed, 19 Apr 2023 22:23:40 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG90-006ThT-1v
+	id 1ppGDC-006UT7-0V
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Apr 2023 22:19:19 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1a9253d4551so4770525ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
+	Wed, 19 Apr 2023 22:23:39 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-32942f4b670so2114025ab.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:23:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942756; x=1684534756;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681943015; x=1684535015;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=P8D5qQaAsWRyihppL8lxgNE7a17gNAwjOwZEXYQRMgE=;
-        b=KY3qeDkuqx7ojUE9edJo91m4yJkLaFWv5WBr0z1XBW37m3Ugju5gvpwIFDQff0jKms
-         +hgKcILxSjrfAbaSn/gsJas5jFwQYwJwvq++pUZKG2L4GsKhyqTPcUu6xp5ypSE2166a
-         M9MbN1bFoVVAdPgWpFhugIMpkrykve+HvKmx+0rzvYuv5b7fjLguHE92nxuCMfaazyT0
-         EjqjUkf7F7QIDOnYykXPXccd7CL3t2WBS+Rd2ML5ADa2yHIE2iBIctAwVUyHJ5XwQDtq
-         3t1dyXic09IH7MeVfo82H9l2jXFUHVEBVSeBHFYy8QxMmo1hXkdwnKJUN8t2qaLHF1ux
-         +z5w==
+        bh=Nt9qr+Ng8JBl/RErKCxn2q3deom0MBnPuCU/gT00P20=;
+        b=ot9ZGgjcXMaxAV0r1VOO+BvehMSySZNIsVcDPBEFwlJAhM2M5m+gwfrB780olzD6hR
+         Hdrq9yXgl+sn4/wrpA4PaTrrtnnFy9Say+EnWPhRztcDse00ZGPmHquLuK3Ybnm7wJWA
+         ynzhzpWOzs18V7RsuuGPFfvie8ep260dMB4F3F4+em6ryITqN7ugXLqLmHk+GAoN7Fmf
+         OQtf58b1FXhM9LfuvN4kb6ax1lLXAD0ES3eChU4pExsoMv+YvW59AxrBX1OEBU8pI/52
+         BPBRljloH/NRMWTqp6Eb9GcWkOIf5Jl1lSkwFq1AdstC6QGzsUCBs48503R1c8/SLqih
+         fkIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942756; x=1684534756;
+        d=1e100.net; s=20221208; t=1681943015; x=1684535015;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=P8D5qQaAsWRyihppL8lxgNE7a17gNAwjOwZEXYQRMgE=;
-        b=JE52ZKvI10MSfOKvZTew1es2NLploNrboFmJZZao7MfcmKPQLBsC0OOUbR5SObFwxE
-         sElBkF+S5SyGQJNFEfrsUdtxq3GMr1CmjH+Zz7qcoBID0mgjtGVdNOEJtaOiApirIEdn
-         1msVg6hLjYPPyF/8qFxFhlVgNsw9leE1hQjDordyE8SB9lO/MoaDA+K7T7UUR9RDF8sR
-         TYSVjqu3Yv0WX3h+j+97Lb3Tx8vGTVKEQS/hTTjraL0HikDOX5VotaFcjx/EvlWpNyv3
-         kVkTODTaNr3O7K1tdegfN6CTaEaI+wehoBCrKGTjDKeM2NKLGaex6H7PHBjSyhK5gts/
-         fFlw==
-X-Gm-Message-State: AAQBX9eu8sM+qpYw/nrneWiioRa6xhVL0OxYtMlbQvHjp7FB9o5+ncQE
-	FbrI8LuerT4iwtm1/RcUo0kjLQ==
-X-Google-Smtp-Source: AKy350ZigrT04ztZNfYo7vxPOIAk65YMZhdMrGeFS26zGyCIXgxICUZh5tguDmZpxCxB9++y2y9iww==
-X-Received: by 2002:a17:903:2288:b0:1a5:2db2:2bb with SMTP id b8-20020a170903228800b001a52db202bbmr8899588plh.15.1681942756356;
-        Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
+        bh=Nt9qr+Ng8JBl/RErKCxn2q3deom0MBnPuCU/gT00P20=;
+        b=U2E9vA8a+J14v3eStdCXgh1wzpGwYQzMv7BSteKA4aEQRgK7fb0Cm9e2nllu1IJlLd
+         3lXzc92VWgy4oepkGAoE9lz7ysh+5EKrJDjd7DSQKm+wiX8r0CJaJY2HWnUCAyycK9k4
+         9HYMEdEf4CNsg7R7eNHwedIsXgPAw2W5q4wBqRUp+9d96sr2HbOqSB4Ten/hZcOCwPhK
+         gRmorz6/+8zpOtonQy4N0LTWW6k+rivFllTbXThwulmh0xrQfwTDziOmEDTEKjy6LnO5
+         MmdxevyT/+H74b/YHzQxKm+wCcDiju0zxF/RF7mprmZHIPUTAYvMflFeyFVBBihbPOFf
+         WIBQ==
+X-Gm-Message-State: AAQBX9flhJqSWXrs88HuBjN4ZJ3m/v20tGzkd4RCReD8/V34UX0D+PBh
+	skupx8vJ6pjU/efh43rbTirVIBnGhh3OQdbKgRY=
+X-Google-Smtp-Source: AKy350bclXeDaJm5NGd+baLQjNm1etLX+lLDzeTXzfOcBiZB99+UVCqjhPXny+Rg6qaFMwVObWbhvw==
+X-Received: by 2002:a17:903:110e:b0:1a6:6fe3:df91 with SMTP id n14-20020a170903110e00b001a66fe3df91mr7814057plh.50.1681942700098;
+        Wed, 19 Apr 2023 15:18:20 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.19.14
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:19:16 -0700 (PDT)
+        Wed, 19 Apr 2023 15:18:19 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -95,16 +95,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 48/48] drivers/hvc: sbi: Disable HVC console for TVMs
-Date: Wed, 19 Apr 2023 15:17:16 -0700
-Message-Id: <20230419221716.3603068-49-atishp@rivosinc.com>
+Subject: [RFC 23/48] RISC-V: KVM: Wireup TVM world switch
+Date: Wed, 19 Apr 2023 15:16:51 -0700
+Message-Id: <20230419221716.3603068-24-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151918_632767_15E2D8C6 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20230419_152338_198348_935D45A6 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,50 +121,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If two same type of console is used in command line, kernel
-picks up the first registered one instead of the preferred one.
-The fix was proposed and NACK'ed due to a possible regression
-for other users.
-
-https://lore.kernel.org/all/Y+tziG0Uo5ey+Ocy@alley/
-
-HVC sbi console makes it impossible to use virtio console
-which is preferred anyways. We could have disabled HVC console
-for TVMs but same kernel image must work on both host and the
-the guest. There are genuine reasons for requiring the hvc sbi
-cosnole for the host.
-
-Do not initialize the hvc console for the TVMs so that virtio
-console can be used.
+TVM worlds switch takes a different path from regular VM world switch as
+it needs to make an ecall to TSM and TSM actually does the world switch.
+The host doesn't need to save/restore any context as TSM is expected
+to do that on behalf of the host. The TSM updatess the trap
+information in the shared memory which host uses to figure out the
+cause of the guest exit.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/tty/hvc/hvc_riscv_sbi.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/kvm/cove.c      | 31 +++++++++++++++++++++++++++++--
+ arch/riscv/kvm/vcpu.c      | 11 +++++++++++
+ arch/riscv/kvm/vcpu_exit.c | 10 ++++++++++
+ 3 files changed, 50 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-index 83cfe00..dee96c5 100644
---- a/drivers/tty/hvc/hvc_riscv_sbi.c
-+++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-@@ -11,6 +11,7 @@
- #include <linux/moduleparam.h>
- #include <linux/types.h>
+diff --git a/arch/riscv/kvm/cove.c b/arch/riscv/kvm/cove.c
+index c93de9b..c11db7a 100644
+--- a/arch/riscv/kvm/cove.c
++++ b/arch/riscv/kvm/cove.c
+@@ -275,9 +275,36 @@ int kvm_riscv_cove_gstage_map(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long hv
+ 	return rc;
+ }
  
-+#include <asm/cove.h>
- #include <asm/sbi.h>
- 
- #include "hvc_console.h"
-@@ -103,6 +104,10 @@ static int __init hvc_sbi_init(void)
+-void kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_trap *trap)
++void noinstr kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_trap *trap)
  {
- 	int err;
- 
-+	/* Prefer virtio console as hvc console for guests */
-+	if (is_cove_guest())
-+		return 0;
+-	/* TODO */
++	int rc;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_cove_tvm_context *tvmc;
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	void *nshmem;
 +
- 	if ((sbi_spec_version >= sbi_mk_version(1, 0)) &&
- 	    (sbi_probe_extension(SBI_EXT_DBCN) > 0)) {
- 		err = PTR_ERR_OR_ZERO(hvc_alloc(0, 0, &hvc_sbi_dbcn_ops, 16));
++	if (!kvm->arch.tvmc)
++		return;
++
++	tvmc = kvm->arch.tvmc;
++
++	nshmem = nacl_shmem();
++	/* Invoke finalize to mark TVM is ready run for the first time */
++	if (unlikely(!tvmc->finalized_done)) {
++
++		rc = sbi_covh_tsm_finalize_tvm(tvmc->tvm_guest_id, cntx->sepc, cntx->a1);
++		if (rc) {
++			kvm_err("TVM Finalized failed with %d\n", rc);
++			return;
++		}
++		tvmc->finalized_done = true;
++	}
++
++	rc = sbi_covh_run_tvm_vcpu(tvmc->tvm_guest_id, vcpu->vcpu_idx);
++	if (rc) {
++		trap->scause = EXC_CUSTOM_KVM_COVE_RUN_FAIL;
++		return;
++	}
+ }
+ 
+ void kvm_riscv_cove_vcpu_destroy(struct kvm_vcpu *vcpu)
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 3e04b78..43a0b8c 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -1042,6 +1042,11 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_riscv_vcpu_timer_save(vcpu);
+ 
+ 	if (kvm_riscv_nacl_available()) {
++		/**
++		 * For TVMs, we don't need a separate case as TSM only updates
++		 * the required CSRs during the world switch. All other CSR
++		 * value should be zeroed out by TSM anyways.
++		 */
+ 		nshmem = nacl_shmem();
+ 		csr->vsstatus = nacl_shmem_csr_read(nshmem, CSR_VSSTATUS);
+ 		csr->vsie = nacl_shmem_csr_read(nshmem, CSR_VSIE);
+@@ -1191,6 +1196,12 @@ static void noinstr kvm_riscv_vcpu_enter_exit(struct kvm_vcpu *vcpu,
+ 			gcntx->hstatus = csr_swap(CSR_HSTATUS, hcntx->hstatus);
+ 		}
+ 
++		trap->htval = nacl_shmem_csr_read(nshmem, CSR_HTVAL);
++		trap->htinst = nacl_shmem_csr_read(nshmem, CSR_HTINST);
++	} else if (is_cove_vcpu(vcpu)) {
++		nshmem = nacl_shmem();
++		kvm_riscv_cove_vcpu_switchto(vcpu, trap);
++
+ 		trap->htval = nacl_shmem_csr_read(nshmem, CSR_HTVAL);
+ 		trap->htinst = nacl_shmem_csr_read(nshmem, CSR_HTINST);
+ 	} else {
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 8944e29..c46e7f2 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -218,6 +218,15 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		else if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
+ 			ret = kvm_riscv_vcpu_sbi_ecall(vcpu, run);
+ 		break;
++	case EXC_CUSTOM_KVM_COVE_RUN_FAIL:
++		if (likely(is_cove_vcpu(vcpu))) {
++			ret = -EACCES;
++			run->fail_entry.hardware_entry_failure_reason =
++				KVM_EXIT_FAIL_ENTRY_COVE_RUN_VCPU;
++			run->fail_entry.cpu = vcpu->cpu;
++			run->exit_reason = KVM_EXIT_FAIL_ENTRY;
++		}
++		break;
+ 	default:
+ 		break;
+ 	}
+@@ -225,6 +234,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	/* Print details in-case of error */
+ 	if (ret < 0) {
+ 		kvm_err("VCPU exit error %d\n", ret);
++		//TODO: These values are bogus/stale for a TVM. Improve it
+ 		kvm_err("SEPC=0x%lx SSTATUS=0x%lx HSTATUS=0x%lx\n",
+ 			vcpu->arch.guest_context.sepc,
+ 			vcpu->arch.guest_context.sstatus,
 -- 
 2.25.1
 
