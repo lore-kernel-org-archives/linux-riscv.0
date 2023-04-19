@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4E1C6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E854EC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 14:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7SCXq49Pb/WNUNwRJYkdHu6yyNoSbRzWIeD2UBSzqg0=; b=5B16e8wBH/pi5d
-	66RG3qkQmkA/J+UlUSyY1+vQMXMt3Y9D5zUrmRHiq5j1fCKsj6d+svil1oK5yGPLJxsqA+7UKRCQT
-	nP0qsrYeu8iXek39AouJ0UV5m2/1OlLVcLKjUeTXCRvCwwTTTpLu6Quqpb6KmeRi1RkyDl/AR0aOJ
-	hMUk/9GDqA3v+I2f5ZPdvN2xkUD5r5IwXo+iuA+f0loc3pNQv7csMz2VxrXa1DP8NlLxcQMIVvTUT
-	iqIIa/Rzr+cDxxgdmpxgW4iZs/00Q3+suWVhDayTm1fySIWpE04FgHBSA9/R5psgtG02gy5uuNjWJ
-	8BQJeq+Ql1gBuU/RizvA==;
+	List-Owner; bh=UOT71AWBp/5XF8NPAW5ZhCJdH2rnQRLBK3/CK2AzpvY=; b=Ro+WJc7eqB7AYR
+	6B6FMJW+9hrU0QrluI6ps3txWnI3jKWXGsgtJTLs3nJUIHb2oB0dYZG5vTJeGVUbnBQBdbpdX5l+p
+	9vBVIutrhVjX6eUWQfVyU5/cwsjpvqQPdV8X1v/PJ416Nt92eRhXSquTRL+u+DKwRx89QQFw2Tw3r
+	ichaMm6jvK3E6a03r9AS9V23ppIRrWwyUwG6AQpvLHVDGPdmCuieOOEeueRoqHBUxCnZRQ3FWEPd4
+	0OV70YzSJ6i4xhPpOoIPVAEOzZVARP3AreksxxRVfysz0LASKyL0dO70yDurR8GJrdEtWUcOTHXd+
+	wYO7OIu4MYo7SS/RK+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8pH-005fvx-2K;
-	Wed, 19 Apr 2023 14:30:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pp8pI-005fwE-0l;
+	Wed, 19 Apr 2023 14:30:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pp8pD-005ftL-2l
+	id 1pp8pD-005ftM-2p
 	for linux-riscv@lists.infradead.org;
 	Wed, 19 Apr 2023 14:30:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 755D063846;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7980260B90;
 	Wed, 19 Apr 2023 14:30:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6CF4FC433A1;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 74AB7C433A0;
 	Wed, 19 Apr 2023 14:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1681914622;
-	bh=/WREqY3wIE/Cwcop8rOx7h8eVLYcI+oeYzjU0KDvjMY=;
+	bh=gIxW+MEugk1r2bu7B+v6wT9H95oTjY8qtJvWNnzi1/0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=kfyEyDqGSGWDILwqsq2ctLK3EZM2bZ4vZFeMgVRkuLOP6MPZW4UEnnomPqxGgzizX
-	 WEPGPPdfxhQr43w4QFfI1aditmhq0pJM2KBo9QA3hFKu+MKh+4nz1JKOEQSfv3RQbV
-	 7X8tAgKs/CaCVhNVJS5ol3beEGqPZ/wVy9CF1fGZlIEv6pbrWEUOKnUEcBO52+lTFB
-	 oYdinORWPGtUVeKhUhs9hTtulZ+qgc6qI3UGFV82j/ZTXFremSHNYvhv8ERlMEtFp3
-	 fE4VakNx61y24mXN7s9vheifazf39brUGSlgXwuGC7jLz0tSZnMyNtxOQ1pq1HdEa3
-	 2iBBFfPL2oDfw==
+	b=F3PkFBxK1TgJnn0moVqKOXPdGtkj4PYdLrTSSdncNbvSuZNi/nS2227FUZjwWh9yh
+	 8u9MAk+8MRBEK52p7z2AH64IT01BMKkcXeDaOnMeztwA4cuCDqWa9doZJtKENDRQl7
+	 XcF2FTAouaia+N4ykD15CQcbIyv4x3ItItxeM9ltsQtvDJTY8rJJVG1Q59Ek5f2COJ
+	 esOYsElJIiDE2cLPxRobloDrcVcRDTJE0jqSFzHEngaJm4OgvuQUyDZggqnHNp98NQ
+	 0iiKnfVtl3I8zgOiVz4h01VCkkDGhrxtCpujsvTgz2UNLC0v1cjzjZN5z1m5kfFIOF
+	 MqhopSnLOW2VQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 53D20E270E5;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5D2D4E52469;
 	Wed, 19 Apr 2023 14:30:22 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v9 0/3] riscv: Use PUD/P4D/PGD pages for the linear mapping
+Subject: Re: [PATCH v2] RISC-V: align ISA extension Kconfig help text with each
+ other
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <168191462233.22791.1513309055394935140.git-patchwork-notify@kernel.org>
+Message-Id:  <168191462237.22791.10991310571560333121.git-patchwork-notify@kernel.org>
 Date: Wed, 19 Apr 2023 14:30:22 +0000
-References: <20230324155421.271544-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230324155421.271544-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, robh+dt@kernel.org,
- frowand.list@gmail.com, ajones@ventanamicro.com, anup@brainfault.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20230405-pucker-cogwheel-3a999a94a2f2@wendy>
+In-Reply-To: <20230405-pucker-cogwheel-3a999a94a2f2@wendy>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, conor@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_073023_931944_9A4ADE2E 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20230419_073023_950249_7279FC42 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +78,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri, 24 Mar 2023 16:54:18 +0100 you wrote:
-> This patchset intends to improve tlb utilization by using hugepages for
-> the linear mapping.
+On Wed, 5 Apr 2023 11:21:10 +0100 you wrote:
+> Other extensions only capitalise the first letter in the text visible
+> in Kconfig menus, and provide a short comment about the extension's
+> meaning. Do the same for Svnapot & Svpbmt.
 > 
-> As reported by Anup in v6, when STRICT_KERNEL_RWX is enabled, we must
-> take care of isolating the kernel text and rodata so that they are not
-> mapped with a PUD mapping which would then assign wrong permissions to
-> the whole region: it is achieved the same way as arm64 by using the
-> memblock nomap API which isolates those regions and re-merge them afterwards
-> thus avoiding any issue with the system resources tree creation.
+> The precedent for capitalisation in the Kconfig text was set by Zicbom
+> & sorta followed for Zicboz. The RVI styling used for multi-letter
+> extensions only capitalises the first letter, so do the same here.
+> If nothing else, my OCD likes it when the extensions follow a consistent
+> pattern.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v9,1/3] riscv: Get rid of riscv_pfn_base variable
-    https://git.kernel.org/riscv/c/a7407a1318a9
-  - [v9,2/3] riscv: Move the linear mapping creation in its own function
-    https://git.kernel.org/riscv/c/8589e346bbb6
-  - [v9,3/3] riscv: Use PUD/P4D/PGD pages for the linear mapping
-    https://git.kernel.org/riscv/c/3335068f8721
+  - [v2] RISC-V: align ISA extension Kconfig help text with each other
+    https://git.kernel.org/riscv/c/5464912cfae7
 
 You are awesome, thank you!
 -- 
