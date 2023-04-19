@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7797AC6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 18:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4771BC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 19:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJkbF6TAIjAx8mMW04V4LXSaWBJyK0YL09Bk050p7p4=; b=hMRXSybDDYKDX8JX4BD/MlQHvl
-	gt/FAxH9gXjJQjJCZkHbixVBOM8OeNQBMxdp+ymXICUKhIQfx0L3RFoV9x0G7uXQ5IlpLRXeQrLbc
-	YnrrBB7xwtGf/8SnCYr/lKHCXHoCqWCt5VKczpccrcaKE14xvKhNcueJh1IcMknbCDSWAuxSz5M4z
-	ujUZ2m/PVQUfpBt9nNLu6Abe/GQEjqwB87U/K3xPBeqfwthJ5GHduVc0/lgiO+PJKdtsh6USduMUC
-	joxR5T+p+/NQdeQotYW81Ug6CQ2PfCQUu85KmadMp2bZ8nXVig/6U7TmBM/RqsamlN3QXse/xveos
-	zpY6Ozxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CnyRkitw7v0KCn3Vb5Xqlrjl6dspg40egeI0Gr6FiTA=; b=3YTu0gr7ODoYcY
+	FymPGa9Qdpu1H6FdLDpoFG8LTyJF4uXjvR58zTIgDCPIXyrSthIksv59rLn9TIaBoklJpIp/WlApi
+	omHd6xaoyRXsFXeGK9sK3SK+xCvC68oUgP6y369rgPIIgI6e2mROEcrNdXQ99CIJdYQp6/Vvqj3Ye
+	74DqvF7rte0qEr1LMj/kDB+KiPNnsJEXmCTWNgsPXoaNqoWw0xNblltXBahZ8VHAtgUEaAnww/C9F
+	2eMnZzHoCobHA9aKRkIRBVuLLiCKaMIt4czNs0kKjw9Nv1w1LvlIvSUiqRQH403XV1alur7FE96Zv
+	YD6eRPGXD5azPzMKLIIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppCZ5-006A2o-2g;
-	Wed, 19 Apr 2023 18:29:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ppDku-006HQy-2D;
+	Wed, 19 Apr 2023 19:46:16 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppCZ2-006A1r-2x;
-	Wed, 19 Apr 2023 18:29:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A5F8F62937;
-	Wed, 19 Apr 2023 18:29:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 526D2C433D2;
-	Wed, 19 Apr 2023 18:29:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1681928994;
-	bh=vMXfRaz6Lvtcg+eyS+REMKN/wpTcy7NYyfkAUOR0zJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MjGLzzXjq3WtVQOhNBbkXl6tYCYtPzO7X4nxU4kRLw1P2i7DNLZMHGATgULoqm3nh
-	 w39+dRh5X6znik+W2DQw3jNpX9NOmBuh2kcSemVX0FQgnpmtDPVuLBRrVuUMr1L2rp
-	 rVz9e09h+sUvI8vvmV31wNWfqW7ZhNW8ruqcw9VqsjB8s9x2+tq7qWqNxcfXgo2D6e
-	 RRQ3yOAnfaoMuIKJ1CvsjXCZ1Oq6i50w2SC1KazzvkRHIEG9QXLP/guBTV56kmY1m+
-	 IPktL+tnHi8Q3VgoSq5K8yId0fDO/QIJ8EmFHNc+YKV5kcd4ieOj7xvv8bY7Ei4ri8
-	 PYOONAfsqpnbg==
-Date: Wed, 19 Apr 2023 19:29:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Walker Chen <walker.chen@starfivetech.com>,
-	Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	vkoul@kernel.org, linux-phy@lists.infradead.org
+	id 1ppDks-006HQG-0K
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Apr 2023 19:46:15 +0000
+Received: by mail-ej1-x632.google.com with SMTP id c9so1225805ejz.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 12:46:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1681933567; x=1684525567;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xnojFPy5RTEqRDct+HdyhHqsL+VmjmztLl0PLEw/hhE=;
+        b=G4zRGoAv5Q40HURFW1PVwlBZ9n4aW/FztTLI1kq2TGWD8hxZfrOWbxWWdGVK/M43P8
+         thq3OUWBRBj96Lr3teS+Ff5xZyY1Upc6N3MZyR1pS/b55gPjOTpzakRwYlsNC3/yq5EA
+         RHo/wLpe4p3E9hnHIrrZJ4aRvFGhR5cgf5YQE0CpeMYCXkOuQr1I6cHAHt4JiKxOaK0R
+         R10vbzugJdEKL2z+VRQizWV+1wvzOVAn4iNB775qbJ8nthn+Y3q573B4hYsk4mugUdYi
+         ZkEBAymhzRybR+EZQwBQ1WCXGtAEB3maTu2+mJ/HP3KmXpk+UmnjzfschH8xAYRfyaCa
+         CkiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1681933567; x=1684525567;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xnojFPy5RTEqRDct+HdyhHqsL+VmjmztLl0PLEw/hhE=;
+        b=URgRS7V6BgQiemXJKxO6sSI2SidKFD8ow4vsQjdxKdJezcV+k0nbcY0mCk1rH3w0Jj
+         kE4s+MD7WbxTlUu4Eed/Tp+3OCCnVPpvF1krYstRTssv5tvQT0P5b8uTZR+N6RyyBR38
+         u6TF4iN3ubw22AAMo+AmyjbaQZ2sKkYDbNzpkIHtTKEhiXus1OKf7TuCkln6GmnSG2gL
+         oQ2MTDkrNnq0J2FWUjtwMWVTNVYTqYAlwVEFXE9zGX9gVJg8O0lO5yW9q0o0X26XQ2yB
+         LbriNwJkQM8WpziF46jybVCBatBTNd7ueE+9bnwT5kszfpxxOphivcf98nMKrrf/D1XM
+         CShQ==
+X-Gm-Message-State: AAQBX9fRsgPVIjIOuryIvgMU5hecFEgn5qtgAJkCIfPKi/MiAYacVbFc
+	Ey8J9vM1AzO3J57I5NMKNsFOfY3xZ5DO46dzCiGnMQ==
+X-Google-Smtp-Source: AKy350a48tYBtw6AgdUuQuyA2+jKVWfuCW1oUOTTZQ6v9GJcRr/W2CyIfEVv6HZSYkFNR7wDckiLUg==
+X-Received: by 2002:a17:906:71c5:b0:94e:e5fe:b54f with SMTP id i5-20020a17090671c500b0094ee5feb54fmr18322784ejk.23.1681933567148;
+        Wed, 19 Apr 2023 12:46:07 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:976c:1d6c:6ed0:8935? ([2a02:810d:15c0:828:976c:1d6c:6ed0:8935])
+        by smtp.gmail.com with ESMTPSA id s24-20020a170906779800b0094edbe5c7ddsm8366821ejm.38.2023.04.19.12.46.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Apr 2023 12:46:06 -0700 (PDT)
+Message-ID: <689e05e5-5c1f-9417-b2be-988c6a6d4c5a@linaro.org>
+Date: Wed, 19 Apr 2023 21:46:05 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
 Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
-Message-ID: <20230419-labored-camper-644d51a7ca96@spud>
+Content-Language: en-US
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Walker Chen <walker.chen@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20230419035646.43702-1-changhuang.liang@starfivetech.com>
  <20230419035646.43702-2-changhuang.liang@starfivetech.com>
-MIME-Version: 1.0
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 In-Reply-To: <20230419035646.43702-2-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_112957_028061_894944A3 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20230419_124614_157212_83EA04F6 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,151 +97,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6309203586966378823=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6309203586966378823==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WQONS9/NxbuziPoO"
-Content-Disposition: inline
-
-
---WQONS9/NxbuziPoO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Changhuang, DT/PHY folks,
-
-On Tue, Apr 18, 2023 at 08:56:41PM -0700, Changhuang Liang wrote:
+On 19/04/2023 05:56, Changhuang Liang wrote:
 > Add AON PMU for StarFive JH7110 SoC, it can be used to turn on/off DPHY
 > rx/tx power switch, and it don't need the properties of reg and
 > interrupts.
-
-Putting this here since the DT guys are more likely to see it this way..
-Given how the implementation of the code driving this new
-power-controller and the code driving the existing one are rather
-different (you've basically re-written the entire driver in this series),
-should the dphy driver implement its own power-controller?
-
-I know originally Changuang had tried something along those lines:
-https://lore.kernel.org/linux-riscv/5dc4ddc2-9d15-ebb2-38bc-8a544ca67e0d@st=
-arfivetech.com/
-
-I see that that was shut down pretty much, partly due to the
-non-standard property, hence this series adding the dphy power domain to
-the existing driver.
-
-If it was done by looking up the pmu with a
-of_find_compatible_node(NULL, "power-controller", "starfive,jh7110-aon-pmu")
-type thing, would that make sense? Although, maybe that is not a
-question for you, and this series may actually have been better entirely
-bundled with the dphy series so the whole thing can be reviewed as a
-unit. I've added=20
-
-IOW, don't change this patch, or the dts patch, but move all of the
-code back into the phy driver..
-
-Sorry for not asking this sooner Changhuang,
-Conor.
-
-(hopefully this didn't get sent twice, mutt complained of a bad email
-addr during sending the first time)
-
->=20
+> 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
 >  .../bindings/power/starfive,jh7110-pmu.yaml       | 15 +++++++++++++--
 >  include/dt-bindings/power/starfive,jh7110-pmu.h   |  3 +++
->  2 files changed, 16 insertions(+), 2 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.=
-yaml b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> index 98eb8b4110e7..c50507c38e14 100644
-> --- a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> +++ b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-> @@ -8,6 +8,7 @@ title: StarFive JH7110 Power Management Unit
-> =20
->  maintainers:
->    - Walker Chen <walker.chen@starfivetech.com>
-> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
-> =20
->  description: |
->    StarFive JH7110 SoC includes support for multiple power domains which =
-can be
-> @@ -17,6 +18,7 @@ properties:
->    compatible:
->      enum:
->        - starfive,jh7110-pmu
-> +      - starfive,jh7110-aon-pmu
-> =20
->    reg:
->      maxItems: 1
-> @@ -29,10 +31,19 @@ properties:
-> =20
->  required:
->    - compatible
-> -  - reg
-> -  - interrupts
->    - "#power-domain-cells"
-> =20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: starfive,jh7110-pmu
-> +    then:
-> +      required:
-> +        - reg
-> +        - interrupts
-> +
->  additionalProperties: false
-> =20
->  examples:
-> diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt=
--bindings/power/starfive,jh7110-pmu.h
-> index 132bfe401fc8..0bfd6700c144 100644
-> --- a/include/dt-bindings/power/starfive,jh7110-pmu.h
-> +++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-> @@ -14,4 +14,7 @@
->  #define JH7110_PD_ISP		5
->  #define JH7110_PD_VENC		6
-> =20
-> +#define JH7110_PD_DPHY_TX	0
-> +#define JH7110_PD_DPHY_RX	1
-> +
->  #endif
-> --=20
-> 2.25.1
->=20
 
---WQONS9/NxbuziPoO
-Content-Type: application/pgp-signature; name="signature.asc"
+I have impression I just reviewed your v2... Apply the comments,
+reviews/acks etc from that email.
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+Krzysztof
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEAzHAAKCRB4tDGHoIJi
-0u+LAQDoC/J42sKvykFP5qu+R/A4l+E/risoiAZPqG87amq8hAEAu8g9zCq2G8zr
-mxK73nG/PSMv3yXlgoY53l0N+kWSgw8=
-=pKPl
------END PGP SIGNATURE-----
-
---WQONS9/NxbuziPoO--
-
-
---===============6309203586966378823==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6309203586966378823==--
-
