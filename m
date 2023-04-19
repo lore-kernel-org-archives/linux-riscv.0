@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2591C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76150C6FD18
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 23:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=168o51THYW3bEtvqjsr8ApLNm9UI5TIS1Mr6/r1fTm0=; b=NB6aRboFvDp4ft
-	hZleL5heWvHp11uwdyUATRQPYMQTSev/uY9nYtOYJ7fvDIAaNQb/M6iZePbk4I+ZiHDa5N4fYAPh8
-	sJRR+rIi5iHosWCZ72hcAn5WlXSIykPUjF28WJ/GhFtgYGTjNFmv2OkCdpB947a40xYEwrOQLyQNs
-	6zbVxo2/qwXSqft4tL39SaxyCA1cZ59nkv0WkyHL+lUPQ52c0YPI+A7rhs0DuxO1PpD82ezD1YeY5
-	cCFP408m4vLVL+l1f3FDDqdvCgkCY2g2gAzwc9s3lmyzck4JqYF5NklbdQczgkcKbBLxXCtr4RQHI
-	MgexzHig3jhJWzQgrBKg==;
+	List-Owner; bh=ZklIoBE+g1DOzmpDd4VP+5VmBEsfbMY7o8lPh7gYoUU=; b=GpVJjAi/KrCh+k
+	jBMvVTC2ZXr4EOmqmoPKs2L5QBz/LAgHfRF9aZOsKX1VpbIRYIt5fBpeoyNMP4qImvjp13/GoDCD2
+	6z6lg4/cEzwb3iPQpTCRCYU6yhUilqjfoXpNGZztDHuyayjdXzOvETVrdwbF3kSf1QadNU07BtIFP
+	9++n3OYbBKzjJsQt2N+6OGI/dgXAMTIK1WvvuEW8Vsn7hGn0Z+dc/H3g7zIj8tY+z7Sy8Jkyi+clw
+	PDEIvG7ABydqFRu/AwFSLVmpT+FG49YkkAO7RxHCZHpr4lhYTw/K26a2EbX/n6E8y6Fg5KZEVw9Ur
+	h7ls1AqDMx7M+XywSlQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGmf-006a8K-1G;
-	Wed, 19 Apr 2023 23:00:17 +0000
+	id 1ppGrh-006bp2-1C;
+	Wed, 19 Apr 2023 23:05:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGlz-006Zbz-38
+	id 1ppGrg-006boS-0P
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Apr 2023 22:59:36 +0000
+	Wed, 19 Apr 2023 23:05:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=joeGaZNojBtAEH48oFyXyXsTdXyxZ+syATM0NtCwkJg=; b=RuMtDFX8GnL6K6Zpet1XjkQo7h
-	1wSk6DGXh9ShDL7SSDdt13hHW/8KhsJqurHYotnYgrW6ECkU3SbXxEjlDuoe+W3dmf0hp/M3pc+bs
-	sQXAFi+doc8v/qZZvqPBROIrA7GHZbBNk0kjhB1bZ6ttHi3AQdr53P2NuRFa4Z6/gw51mnxG7H728
-	WPTs7FfuUw0SAk4BGnvXQmfsXa+wxRE7Wf+s/+tKEUgRFRNqj1Et4zwhxOwa34i2PiCC9xXhVWxCr
-	1UvRdxZVuZ6jp0M4GdRny3uDCFh/c+EWcHQvzzdWqIlmUBSARTaqsTcIypQErz5MiXFr+mzcnRwk5
-	gEfgSTVg==;
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	bh=iv3jO/UplLaGK+gTx4v9j9xexh60oYjru3uhX3LfGtA=; b=dIdaC7GG/0BZjgqx7ZDjq1teF0
+	TnAvA8zD57TnoDj0deXjCbJUhCFPO//2HIZ7DQ+Wl4VbBI7P9UiUQMpQrNlytI++2d9gxZv8DlJqb
+	hhvYxMrBuarNvK9knSPRlFOhiCVe35MJRuc3H3OwgVd5L+GIKIoJPACPSRnlQOndPddGWA0bBB7hv
+	51KvkbkDh06mXas3siZvifQcJMbB0ZR8glMRfRn7ct9vlkS1tSauM4saAXgYpTak6ikmyXijMkxFU
+	UxVuWxcMUEgUMfoy7+qNU7yQxP1woanqyFEl+93mspiVR0gCk9W/cUuaTp9OAZLXKymbOrqBzVIM5
+	LS7ekTxQ==;
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGDv-0021gV-18
+	id 1ppGDr-0021gN-1L
 	for linux-riscv@lists.infradead.org;
 	Wed, 19 Apr 2023 22:26:30 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1a6817adde4so5472365ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:24:22 -0700 (PDT)
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1a920d4842bso4275955ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:24:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681943061; x=1684535061;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681943057; x=1684535057;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=joeGaZNojBtAEH48oFyXyXsTdXyxZ+syATM0NtCwkJg=;
-        b=Hy5Vjaj1GFlfqXFgFU4Wk7wYhL+AdW+GISShF7pbpQzBCAzoyX06mKj9riDONUvoTu
-         KJygh5nscsoyPvItPChqrHSXQPxDp5bYRAnKsEvFqcmijRhCw38xeSwetTsF9AvkbUYf
-         hVmE7FSAH4Q4wrzRD6pw23VK9AaSnKgovUSlZ9QXs++6xGQZcPVEtNzbYKNpDmb7ydxL
-         pihm7AbjTblUz+nkMI32xYxKW27gseqDrV0RGKN4T43bczPSmCXLp3fRh/utmO9YHtoB
-         Sey/VFplr9PE2lySTaLRpT3t0lbZnm/yfBcOsJhGI8vtN1zAVWuoZu9OzywwnPC3RL4n
-         V1wg==
+        bh=iv3jO/UplLaGK+gTx4v9j9xexh60oYjru3uhX3LfGtA=;
+        b=KlF0beSBSA6VLstvFDlAYMs9lpg8gvRR8zucHEopsyriEw6o1h2sLsqbVwcFiW8cZ2
+         ykz4DGeTyhjIF7TUhCvkjoQIqDlNYfhLHbuIW6A6Nze2qZg8Mjs4XhacrR2YEsP5YvVC
+         RlKM3D/qrtizTZ3hrz+4hH+4HBcHwt4wDVgzIrtDMMjRIhDdPS70B4ffIp/QcNwVpgLh
+         l3tvN+FDLmm6WxBLSXFEB5UUmHWn5q2p7Y1BPq6qQBjKBoxl/p2sw2H5TvKzZwP4jWXj
+         /BG7zkngU3fOCCHkdBXlJJfXlhrBn1uWDICB+9I2KRJvOa60PVK4lOGzawO9HJcdv8/2
+         2Ciw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681943061; x=1684535061;
+        d=1e100.net; s=20221208; t=1681943057; x=1684535057;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=joeGaZNojBtAEH48oFyXyXsTdXyxZ+syATM0NtCwkJg=;
-        b=gBjkH+A8yVRujOu9uVH3EEyQE8omoHfXUjHcBG+xnR0Z3iUYK9No36DvEff+t0W06x
-         cFeTwHqTvZDWB1+rF+2JtR2WdVx3R+wA1+TdgPRJNWzhTtAOhRXU1gwUILLZTryA80yl
-         xV4PUu50AuLyo4s7BlH4UZzOzA8adGIKWfFC9Ne3zq3b8QGMQpkBRkOG6XWvlvTaAXqo
-         zFZcGf8Z2mhq0DZKdwPD4Yk9ZqzF/Z3nUH0jwe4KMXIRiJ4rCToCCWv0Ic0ADcVUk43P
-         6gznSTGZ2X34x7w4HIIG7MTCbFCq84wgd/axdIFYiz6ED3KsT49uHHX08OqkzMznf7Zg
-         E3tw==
-X-Gm-Message-State: AAQBX9f/2rkhyjchGXG6vLLLKqqX6F+nK/mui9NYNpkXMSSCCW0F5+PN
-	80TBXn2oCpImDc2ItRLBqUGWaQ==
-X-Google-Smtp-Source: AKy350bpDV/yb/MMXonhLvjhCzwnd1ozKuOFojavKdcbbpka5zKY4L/5Rw/zrIiOtje9GuJuXPaRMw==
-X-Received: by 2002:a17:902:7891:b0:1a1:bf22:2b6e with SMTP id q17-20020a170902789100b001a1bf222b6emr6634040pll.43.1681943060762;
-        Wed, 19 Apr 2023 15:24:20 -0700 (PDT)
+        bh=iv3jO/UplLaGK+gTx4v9j9xexh60oYjru3uhX3LfGtA=;
+        b=HnG69vtJJaxG204uQJ34qy1xxYKgzWQfTwEgrC4dyjqGPULd13WvvxmWeWnuXVOx/s
+         nSNdXAh530pPlVkqRG/dLsz+kSfsfJplht+nKSI3mpejpI7yHCRN49tW7A+51EprROU7
+         rRDpDkOxYKo7VqLZ/To2PGHIn22ydjoifgqLK0vs0jAkBrs866amDmRL4oA/LMkPJ0Ny
+         vhINHLvA5JUO9/6ya8JAtxGGkUA/4SM12sFXcPO459hpO7AMX0Wn8yp8gNld+L8nCIRD
+         /6gq4I/DnuN9V+OQ2ZmdGjpJ4Kw8asPIpTn4IPfMp0rJB+Akc2dz8q/WooAazJdMyGKy
+         fzKg==
+X-Gm-Message-State: AAQBX9djzJKtN6hNzoY0+U9KpGwCEnOV8A2NEpBFLovGtNG7YWNfuzbM
+	ZbWCBvWmfZ8GjMBRViGCiJIBRQ==
+X-Google-Smtp-Source: AKy350YmjLuFNHpdbGKVUxtLnNGDTOqZujizSNNxdVNVjL7P36ZiZ6Z6Phv1PaiPaoxLg0i7OBeTQw==
+X-Received: by 2002:a17:902:d505:b0:19d:778:ff5 with SMTP id b5-20020a170902d50500b0019d07780ff5mr7467330plg.15.1681943057246;
+        Wed, 19 Apr 2023 15:24:17 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e4-20020a170902744400b001a681fb3e77sm11867810plt.44.2023.04.19.15.24.19
+        by smtp.gmail.com with ESMTPSA id e4-20020a170902744400b001a681fb3e77sm11867810plt.44.2023.04.19.15.24.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:24:20 -0700 (PDT)
+        Wed, 19 Apr 2023 15:24:17 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
@@ -101,16 +101,16 @@ Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC kvmtool 10/10] riscv: cove: Don't emit interrupt_map for pci devices in fdt.
-Date: Wed, 19 Apr 2023 15:23:50 -0700
-Message-Id: <20230419222350.3604274-11-atishp@rivosinc.com>
+Subject: [RFC kvmtool 08/10] riscv: virtio: Enforce VIRTIO_F_ACCESS_PLATFORM feature flag.
+Date: Wed, 19 Apr 2023 15:23:48 -0700
+Message-Id: <20230419222350.3604274-9-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419222350.3604274-1-atishp@rivosinc.com>
 References: <20230419222350.3604274-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_232623_921438_4073E012 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20230419_232622_234917_B8E700BC 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,150 +129,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-CoVE VMs don't support pin based interrupts yet as APLIC isn't
-supported.
+VIRTIO_F_ACCESS_PLATFORM feature tells the guest that device will
+be using DMA for transfers. This forces the guest to use DMA API
+to allow the host to successfully access guest memory as needed.
+
+This is needed for CoVE VMs.
 
 Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 ---
- riscv/fdt.c                  |  2 +-
- riscv/include/kvm/kvm-arch.h |  2 +-
- riscv/pci.c                  | 83 +++++++++++++++++++-----------------
- 3 files changed, 46 insertions(+), 41 deletions(-)
+ riscv/kvm.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/riscv/fdt.c b/riscv/fdt.c
-index a7d32b3..115ae17 100644
---- a/riscv/fdt.c
-+++ b/riscv/fdt.c
-@@ -232,7 +232,7 @@ static int setup_fdt(struct kvm *kvm)
- 	}
+diff --git a/riscv/kvm.c b/riscv/kvm.c
+index e728790..aebb6bd 100644
+--- a/riscv/kvm.c
++++ b/riscv/kvm.c
+@@ -7,6 +7,7 @@
+ #include <linux/kernel.h>
+ #include <linux/kvm.h>
+ #include <linux/sizes.h>
++#include <linux/virtio_config.h>
  
- 	/* PCI host controller */
--	pci__generate_fdt_nodes(fdt);
-+	pci__generate_fdt_nodes(fdt, kvm);
+ struct kvm_ext kvm_req_ext[] = {
+ 	{ DEFINE_KVM_EXT(KVM_CAP_ONE_REG) },
+@@ -224,5 +225,14 @@ int kvm__arch_setup_firmware(struct kvm *kvm)
  
- 	_FDT(fdt_end_node(fdt));
- 
-diff --git a/riscv/include/kvm/kvm-arch.h b/riscv/include/kvm/kvm-arch.h
-index 08ac54a..9f6967f 100644
---- a/riscv/include/kvm/kvm-arch.h
-+++ b/riscv/include/kvm/kvm-arch.h
-@@ -104,7 +104,7 @@ void aia__create(struct kvm *kvm);
- 
- void plic__create(struct kvm *kvm);
- 
--void pci__generate_fdt_nodes(void *fdt);
-+void pci__generate_fdt_nodes(void *fdt, struct kvm *kvm);
- 
- int riscv__add_irqfd(struct kvm *kvm, unsigned int gsi, int trigger_fd,
- 		     int resample_fd);
-diff --git a/riscv/pci.c b/riscv/pci.c
-index 9760ca3..31ea286 100644
---- a/riscv/pci.c
-+++ b/riscv/pci.c
-@@ -17,7 +17,7 @@ struct of_interrupt_map_entry {
- 	u32				irqchip_sense;
- } __attribute__((packed));
- 
--void pci__generate_fdt_nodes(void *fdt)
-+void pci__generate_fdt_nodes(void *fdt, struct kvm *kvm)
+ u64 kvm__arch_get_virtio_host_features(struct kvm *kvm)
  {
- 	struct device_header *dev_hdr;
- 	struct of_interrupt_map_entry irq_map[OF_PCI_IRQ_MAP_MAX];
-@@ -67,51 +67,56 @@ void pci__generate_fdt_nodes(void *fdt)
- 	_FDT(fdt_property(fdt, "reg", &cfg_reg_prop, sizeof(cfg_reg_prop)));
- 	_FDT(fdt_property(fdt, "ranges", ranges, sizeof(ranges)));
- 
--	/* Generate the interrupt map ... */
--	dev_hdr = device__first_dev(DEVICE_BUS_PCI);
--	while (dev_hdr && nentries < ARRAY_SIZE(irq_map)) {
--		struct of_interrupt_map_entry *entry;
--		struct pci_device_header *pci_hdr = dev_hdr->data;
--		u8 dev_num = dev_hdr->dev_num;
--		u8 pin = pci_hdr->irq_pin;
--		u8 irq = pci_hdr->irq_line;
-+	/* CoVE VMs do not support pin based interrupts yet as APLIC isn't
-+	 * supported.
+-	return 0;
++	u64 features = 0;
++
++	/* CoVE VMs mandate VIRTIO_F_ACCESS_PLATFORM feature to force use of
++	 * SWIOTLB bounce buffers through DMA API. Without this device probe
++	 * will fail for CoVE VMs.
 +	 */
-+	if (!kvm->cfg.arch.cove_vm) {
-+		/* Generate the interrupt map ... */
-+		dev_hdr = device__first_dev(DEVICE_BUS_PCI);
-+		while (dev_hdr && nentries < ARRAY_SIZE(irq_map)) {
-+			struct of_interrupt_map_entry *entry;
-+			struct pci_device_header *pci_hdr = dev_hdr->data;
-+			u8 dev_num = dev_hdr->dev_num;
-+			u8 pin = pci_hdr->irq_pin;
-+			u8 irq = pci_hdr->irq_line;
- 
--		entry = ((void *)irq_map) + (nsize * nentries);
--		*entry = (struct of_interrupt_map_entry) {
--			.pci_irq_mask = {
--				.pci_addr = {
--					.hi	= cpu_to_fdt32(of_pci_b_ddddd(dev_num)),
--					.mid	= 0,
--					.lo	= 0,
-+			entry = ((void *)irq_map) + (nsize * nentries);
-+			*entry = (struct of_interrupt_map_entry) {
-+				.pci_irq_mask = {
-+					.pci_addr = {
-+						.hi	= cpu_to_fdt32(of_pci_b_ddddd(dev_num)),
-+						.mid	= 0,
-+						.lo	= 0,
-+					},
-+					.pci_pin	= cpu_to_fdt32(pin),
- 				},
--				.pci_pin	= cpu_to_fdt32(pin),
--			},
--			.irqchip_phandle	= cpu_to_fdt32(riscv_irqchip_phandle),
--			.irqchip_line		= cpu_to_fdt32(irq),
--		};
-+				.irqchip_phandle	= cpu_to_fdt32(riscv_irqchip_phandle),
-+				.irqchip_line		= cpu_to_fdt32(irq),
-+			};
- 
--		if (riscv_irqchip_line_sensing)
--			entry->irqchip_sense = cpu_to_fdt32(IRQ_TYPE_LEVEL_HIGH);
-+			if (riscv_irqchip_line_sensing)
-+				entry->irqchip_sense = cpu_to_fdt32(IRQ_TYPE_LEVEL_HIGH);
- 
--		nentries++;
--		dev_hdr = device__next_dev(dev_hdr);
--	}
-+			nentries++;
-+			dev_hdr = device__next_dev(dev_hdr);
-+		}
- 
--	_FDT(fdt_property(fdt, "interrupt-map", irq_map, nsize * nentries));
-+		_FDT(fdt_property(fdt, "interrupt-map", irq_map, nsize * nentries));
- 
--	/* ... and the corresponding mask. */
--	if (nentries) {
--		struct of_pci_irq_mask irq_mask = {
--			.pci_addr = {
--				.hi	= cpu_to_fdt32(of_pci_b_ddddd(-1)),
--				.mid	= 0,
--				.lo	= 0,
--			},
--			.pci_pin	= cpu_to_fdt32(7),
--		};
-+		/* ... and the corresponding mask. */
-+		if (nentries) {
-+			struct of_pci_irq_mask irq_mask = {
-+				.pci_addr = {
-+					.hi	= cpu_to_fdt32(of_pci_b_ddddd(-1)),
-+					.mid	= 0,
-+					.lo	= 0,
-+				},
-+				.pci_pin	= cpu_to_fdt32(7),
-+			};
- 
--		_FDT(fdt_property(fdt, "interrupt-map-mask", &irq_mask,
--				  sizeof(irq_mask)));
-+			_FDT(fdt_property(fdt, "interrupt-map-mask", &irq_mask,
-+					  sizeof(irq_mask)));
-+		}
- 	}
- 
- 	/* Set MSI parent if available */
++	if (kvm->cfg.arch.cove_vm)
++		features |= (1ULL << VIRTIO_F_ACCESS_PLATFORM);
++
++	return features;
+ }
 -- 
 2.25.1
 
