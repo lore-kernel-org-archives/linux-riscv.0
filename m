@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05BAC6FD18
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A949BC77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y+sZdryphwz+qAWHq/kPD+mgA9sK0pEILUNEhk7rFvg=; b=LlgNuP2HS74T6/
-	tDxJmMG9I9Jn23Y6E/vgXO114+a1xGbVWlA+5ZseWdU8Nruohb8T6coEuow6A0pg1QVJT8NdaWj2I
-	KI5/g813sQ46eHEhtOGiQGQ/TWI37/n8NItG8ucis2LZayxHeTre2q2PBSburDHPr0frV3ogn6Ivz
-	dkqGTToIyxbEVUBtRT9Q8prmfkxMj22mpfG5gWSONq0sGKPspTF3MVi+A15DMtUwVxBoj2ESxcjVX
-	Co9YPbwSrPs+uH2SXiYPaLx8JCtAVK8qHgEErOdApO07rFJgC9qBR8yGL2AyYFwwFMlOMwjpMPMLS
-	WNULITZjsGSa0qli5TLg==;
+	List-Owner; bh=3lQ79q1AxbHSZF+8VQReUJvGjz8GC0p/DzzCOQqDgCY=; b=CDdC9LA5YMtV4O
+	vlYZL0ifFcjFO/KzICK4GZlpmbtMPpYntQOliKNGCdbeW6YgMHVyU0i7F031SOdOvq08plQlLm8Ve
+	d8q38J+WkWzzm72u4G3/r+IYIxTS04j3iG8w8BkJeTcIkT+WmjHImBpUcQO8vT1rBg/kOWDapejX6
+	qNGC3tw8KENrQvB/mHvNGySieYa9AbAdfwoSBTvMhi8HFOaJdaC+7QVb98kAH/+RAVtymhQuycYRj
+	UE+UG2HQeR7hIeRbvCT0umvNHrOmbB3bDQHOBccVkryes3dxX1KfWJFR+atUKD9+VdJjscLYAV8xt
+	tJJuW6f+KVEm9j2fOEgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGQY-006WZf-1K;
-	Wed, 19 Apr 2023 22:37:26 +0000
+	id 1ppGQZ-006Wan-23;
+	Wed, 19 Apr 2023 22:37:27 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppGQW-006WXV-07
+	id 1ppGQX-006WXV-0P
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Apr 2023 22:37:24 +0000
+	Wed, 19 Apr 2023 22:37:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ecSGlantlLzvA0G9VPQY9TXgG8EZEn7xksLEzRIVmIY=; b=f/mLc5TvFRoVXRHYGVG+fr1fX6
-	AtnhydbomwHzBevDQGFtszsn4ZAy2yzwIWn05UNXQNUDgKeJ+TtbRzfASEYHbVSafbA/PFW84aCVm
-	RR0lzEoICIzJ7IeB8n1ubGj+v3n1Z1tZNwKhRSOLtidaE+x9Kwij/oi+yua1742P4Dnfeln6uTeyW
-	8kA3hEFnKRFy4GolLYqI+xJMJSWyQ7djXXY3/uWzdHgXT9MCl1PFPvBqIOYGcrJP7zb+ju8ZkZjgt
-	Ypg51wN4aQO+Q8mnlnH64hw5QPgGBUOOZDg+4Kqh2e9rSfUiwQEye3Ir2FlvW4F4xuFZFMCDbiyk5
-	5fGpqFlg==;
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	bh=+bezt4nspa35ZRqzRaZmY422b4QR0Mn7woQKzr9+0N8=; b=gmS+YEvO4UVOxrahcs5hMdHrAM
+	629b5mpjOyIoh0jUFs7Feu8FB9I8elgIcl3nYixu/mKyKFlLchXNxcWMewjY//rXY2Rm5BghA/d+H
+	dCcwGoUiEmKeKm8/pbadicWmmt6P0b6Nw4caluYJ3kU2ulYz9SFF5wdxD+KfBSis74qEpVwAYfhmn
+	owZTVdtw/SrKVmsBimwIasx7Fx/yhYOD5KD9ROstEfEjFVvqsdvYxjY36oVEpj865trIGHlHH5Mxy
+	x4ViShTfNFM8vwMmdQjYxbx1bzus+MaWXSZ/02nTRT4uY9umYPRrHYsvB5EDhM1OX5Aw1jqL+yeIh
+	tamTuPVg==;
+Received: from mail-pg1-f173.google.com ([209.85.215.173])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ppG8u-00DeGj-HS
-	for linux-riscv@lists.infradead.org; Wed, 19 Apr 2023 22:19:15 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-63b73203e0aso2788962b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:19:12 -0700 (PDT)
+	id 1ppG8s-00DeOW-Jq
+	for linux-riscv@lists.infradead.org; Wed, 19 Apr 2023 22:19:12 +0000
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-5144a9c11c7so274470a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:19:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942752; x=1684534752;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942747; x=1684534747;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ecSGlantlLzvA0G9VPQY9TXgG8EZEn7xksLEzRIVmIY=;
-        b=c21zAYv4W/8efVpj9s/CrAgsnyC7GRoXBj+SQ9uvGvmMRjbXi9C/l4ApXeL/28qOSL
-         J5ZZ+TVmCUP3cqWaEnHlrNG9d5s4uDtI+r8DS5GpmAI6Te5+PPhg0JPesMsJ6QkBBUKM
-         i2T5E7+u0KUNpPzwSPIgIDhWBA0x55J8INy/+9T5mEzV2Ub7rIt7zSh4bB9QChjdbp48
-         Ndc6bow+xP/wEEVhqSShIWQJsWlE7p19+1r0llK0omkaJDYaHRCgD+bcV/3pj1FMTVTV
-         cqaMAtAzWTd3lG4iAZAgavUNbrYuLSPh85yDNfwJPgtXxhKdv5Whjg+e3B66BtLz82q2
-         i0eg==
+        bh=+bezt4nspa35ZRqzRaZmY422b4QR0Mn7woQKzr9+0N8=;
+        b=cFqy/7hM+Ny4fP4WIxs4wAIEAjRhQmifvh65+m0WDOJ/jYCumQJdB1BJZNu5ucVQLt
+         vHeOX9JqsZJsPoOkvbrleSPo5GRulHiShRoX7tLw/Bo3NH2vnqKu9FAh7Id3Frv2QuNE
+         +weDjwOUG7PuVaf0Q8I8065eawPZBUZF/IBP3CPxafiXKLMpIPqIxJCnZC8Rka6I13Pf
+         MlvlahxQGVeNZnlElGB4Hwi7P8WFIaVtZscNXzvS3DDLN30pdgEiwWgQCtnYC84qh4Gj
+         EUi0u8wk2hWEG92QVESAvb05CMVa66rE4mAeYWrE7046KCBAGXIObMS7PVHwhD5fW9N7
+         Ltcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942752; x=1684534752;
+        d=1e100.net; s=20221208; t=1681942747; x=1684534747;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ecSGlantlLzvA0G9VPQY9TXgG8EZEn7xksLEzRIVmIY=;
-        b=Fz/dPnM7+ojgw7wc3dkL+Mxu0mKEwdIfxqv1VGaiilCENR3E5DaelYE49aQ8CMTnHE
-         pm3MpkepXcODCqUJV7RA2qlt48pSIKqDsQdbbHDbUOPBO+wqLd+C/8bB/YwcEa62gjrF
-         32/9OHNGBg283ABNxMpEGp1yIR3LNvJ+nCMjxMV165na5coHGOk0Y37beRhLNr4+Oy6p
-         hvlo+m0/0N3j5Pc5e+kQszGdoyTBWqUCdjBo6ccSIzj+Vg1qiyUY5XOiV2WCIaPfRH3Y
-         SOFQQagS9dRPkdvcc/B5ueWb9c+2aGOJr94Lo0cVXPcagn78Fu62fG7HGrDMCADeMH9e
-         D7Rw==
-X-Gm-Message-State: AAQBX9erNf0tz6YnMjhaqWqVOnKrICh0TfT4w1AoIQshCzq+/ir0mcbE
-	pmDMZqEipGxUEVehBk1ZL82jsA==
-X-Google-Smtp-Source: AKy350YKfPHbIymM6qmHQFNTIkUnRhQSV2hEDBlfRu6z0TKA3ibQ947LdlZE55huq5S43nAipp/NMA==
-X-Received: by 2002:a17:903:22c7:b0:1a6:3737:750c with SMTP id y7-20020a17090322c700b001a63737750cmr4095049plg.21.1681942751934;
-        Wed, 19 Apr 2023 15:19:11 -0700 (PDT)
+        bh=+bezt4nspa35ZRqzRaZmY422b4QR0Mn7woQKzr9+0N8=;
+        b=I9dseFWM2zbgJAb0mEg6G733W1Cy8kiLJdwSMhWuSFBk4oq9lNTglY+Pg/+YTmcrVY
+         X1ZVkHsNliaHWZYPUbGWKyVqPO7B0eSQdctxov+meLQKAgF39UJBjWHGdykhKQ1+W0HY
+         P3Q2GONdjkG3EZ30X+jfjQ2FlC1MPF/fbEM9STT5GAKO4K0Kwn928svo/KQoN/pD2qbs
+         McFNYInuAjcU6qVRvQVReHrLUTmF5to091L50YAaBZYiQWfwLSxY6ErkmzRwpUYhIzCj
+         pOrTcleXSOzjWHa2WPUQ7ivH8zu4iPyBfNbjy/tls6h5yz5IZLAEhgw89NysGKFC4Rh9
+         945Q==
+X-Gm-Message-State: AAQBX9ca7H1VcVwsgpg0AE2VxPCmJUu2MAfyfrJL2dSKm7TrmDewt3/w
+	kRV45TOs9osiSnsqIDpQFGlfaQ==
+X-Google-Smtp-Source: AKy350bB8ZklTkd1MwNIad8/q9PvIlAh0JulWMyK+P713MLjTnxYs1KPIh7Umu4fPlJwkV2KzfaSZw==
+X-Received: by 2002:a17:902:e5c7:b0:1a8:1436:c892 with SMTP id u7-20020a170902e5c700b001a81436c892mr5030556plf.14.1681942747426;
+        Wed, 19 Apr 2023 15:19:07 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.19.09
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.19.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:19:11 -0700 (PDT)
+        Wed, 19 Apr 2023 15:19:07 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
@@ -108,16 +109,16 @@ Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 46/48] riscv/virtio: Have CoVE guests enforce restricted virtio memory access.
-Date: Wed, 19 Apr 2023 15:17:14 -0700
-Message-Id: <20230419221716.3603068-47-atishp@rivosinc.com>
+Subject: [RFC 44/48] RISC-V: Add cc_platform_has() for RISC-V for CoVE
+Date: Wed, 19 Apr 2023 15:17:12 -0700
+Message-Id: <20230419221716.3603068-45-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_231912_636221_A404B1C4 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20230419_231910_864025_5C27DDFD 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,38 +137,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-CoVE guest requires that virtio devices use the DMA API to allow the
-hypervisor to successfully access guest memory as needed.
-
-The VIRTIO_F_VERSION_1 and VIRTIO_F_ACCESS_PLATFORM features tell virtio
-to use the DMA API. Force to check for these features to fail the device
-probe if these features have not been set when running as an TEE guest.
+All the confidential computing solutions uses the arch specific
+cc_platform_has function to enable memory encryption/decryption.
+Implement the same for RISC-V to support that as well.
 
 Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/mm/mem_encrypt.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/Kconfig     |  1 +
+ arch/riscv/cove/core.c | 12 ++++++++++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/arch/riscv/mm/mem_encrypt.c b/arch/riscv/mm/mem_encrypt.c
-index 8207a5c..8523c50 100644
---- a/arch/riscv/mm/mem_encrypt.c
-+++ b/arch/riscv/mm/mem_encrypt.c
-@@ -10,6 +10,7 @@
- #include <linux/swiotlb.h>
- #include <linux/cc_platform.h>
- #include <linux/mem_encrypt.h>
-+#include <linux/virtio_anchor.h>
- #include <asm/covg_sbi.h>
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 414cee1..2ca9e01 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -522,6 +522,7 @@ config RISCV_COVE_GUEST
+ 	default n
+ 	select SWIOTLB
+ 	select RISCV_MEM_ENCRYPT
++	select ARCH_HAS_CC_PLATFORM
+ 	help
+ 	  Enables support for running TVMs on platforms supporting CoVE.
  
- /* Override for DMA direct allocation check - ARCH_HAS_FORCE_DMA_UNENCRYPTED */
-@@ -54,4 +55,7 @@ void __init mem_encrypt_init(void)
- 
- 	/* Call into SWIOTLB to update the SWIOTLB DMA buffers */
- 	swiotlb_update_mem_attributes();
-+
-+	/* Set restricted memory access for virtio. */
-+	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+diff --git a/arch/riscv/cove/core.c b/arch/riscv/cove/core.c
+index 7218fe7..582feb1c 100644
+--- a/arch/riscv/cove/core.c
++++ b/arch/riscv/cove/core.c
+@@ -21,6 +21,18 @@ bool is_cove_guest(void)
  }
+ EXPORT_SYMBOL_GPL(is_cove_guest);
+ 
++bool cc_platform_has(enum cc_attr attr)
++{
++	switch (attr) {
++	case CC_ATTR_GUEST_MEM_ENCRYPT:
++	case CC_ATTR_MEM_ENCRYPT:
++		return is_cove_guest();
++	default:
++		return false;
++	}
++}
++EXPORT_SYMBOL_GPL(cc_platform_has);
++
+ void riscv_cove_sbi_init(void)
+ {
+ 	if (sbi_probe_extension(SBI_EXT_COVG) > 0)
 -- 
 2.25.1
 
