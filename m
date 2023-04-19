@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52143C77B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F3AC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Apr 2023 22:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r6dlfil32VVoYTnbRXip6TNGVQ7DV3Ou9DRWySFkuqI=; b=eQY25eu9pT8++5
-	rvdC63OkNFvypi5Bo5zXuytDp8Uv1p1DBwC1vXbGtDd0GgxBYiF0ryKkfayDwAMYLYhWkAEkXsIp2
-	ZFstEjPFecxh30CjKIswSb3Bq4t6WowIqRzutL/0TEg0in4NjKjAaystK0m10dAQdYoq3m6kmvxXQ
-	iObx39Ti/yz387L14KgF5bErKSNu79UsXBTHWyNzDQU17J0PR8xD3f1ucqTzYFi08X+WsLvElbDGk
-	TtzhH3Xj6h1t1NlUGk1mcwQhs/BHepD9EJgxVwOjibaFXjscPcGUUGvnkqYDVwAqhG3dyi1HioR0x
-	ZPzBVio3pWcdItaiCeDw==;
+	List-Owner; bh=XVoBp1b2d4zb1rP/iVL4MBdSmEZROZZ1oRjWMNJs/gg=; b=Qowne3Rnbr82ec
+	9wGYALjbOvdd4RnURxGC0mdcl5W1StP2YQLIYDDaXVXMSH8qHkjbkmfDH7t9D3gcU8m1MVuWS//KN
+	aDTU/dDBXMo+n+sWX9hQDbDmT+YtyTcn6qYROPfIYP/vcKt3YStFLSwDZuFaY0Hzmcj0SS4MhbxUI
+	xPwwfF3M9WHIoM1+DSCu08SKGm4U8tKQCCkpgVgoL+n+77mYy32TWkMfASzjSFjrqRDDgaL5fgnfO
+	Wugj5Yf/psOQm5dWyZI3PWKdBoLH/aobgbD/JaXrfEDn3SSyO6FoBbBgYZog/UBeBIxyUQXqWT8IL
+	UrVGA2OU5LaXYRSaTx8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG8D-006TFj-23;
-	Wed, 19 Apr 2023 22:18:29 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1ppG8F-006THq-1o;
+	Wed, 19 Apr 2023 22:18:31 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppG87-006TAN-16
+	id 1ppG8B-006T2c-1T
 	for linux-riscv@lists.infradead.org;
 	Wed, 19 Apr 2023 22:18:28 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-63b5c48ea09so373981b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:23 -0700 (PDT)
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1a686260adcso5385745ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Apr 2023 15:18:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942703; x=1684534703;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1681942707; x=1684534707;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vFCr/CCby/ixIZR1vcNNYtJI+Hn/JpPKkTFrcmf/240=;
-        b=o8cl3vLFW0T/UgdJpNmsgqy/trLWjUKDtYhD18vtn6zFmKJnhCVb3UEfS7g11Yxo6v
-         70pgYAJ/oiEoiEaIzaXTTARUDuEe0wemxcSCjeDS0me1n4QkzpJpeXfeqrgbXd5cjW+8
-         mPLL2Zixb1wKKpwdABmEKJb6AdfFo9aF/CARiWba1a9ZO3iyrr6WtwnggyEbtMKiFH3H
-         d5ALpqRY6NcLK/kvZ5gIdFQLtEIiUaW/W6h18t9SJVK+nkmzEtEqwMweSnvDyUAtFakX
-         ItHgUeBEX6SFRd5as2TzksX5YG1nm8yDIWTd3Rsk2EmExawcoSXVI008NBflAu//NIVj
-         OPxA==
+        bh=WztMTyUU5RnTeRMzQjXOG7tTAHmGJecGpWKfqq8b0LY=;
+        b=JM/4VdTUHWchd0agtBcZMVxlzWz+xlNHvW3+YRV1BgFp8SzvOalMG8gKSVRQwN23lF
+         /HaZUXiHN5WGp4Li2ns1uHUPekHEfh3C+xw1tqVd+IJGR2EtpE3yOA/YQtJ1ZYeUVJ/l
+         7gjUeS7TILHwQHaL9l5Fnqsci5dyPD6ZQhESjL0jYTR+yEk6eIszpIH5SlasnHwxJ7Ky
+         wlJDpXRoqS0jyG2/jEwfH6PNHHxv4wzD8drzVC/Q8h9ghskwb1QRJA40nqZUrBtk1qK0
+         ooViUN4xyDeEoBWE1iz1aXlci22pk9Oc7YzeXphdmUjkGiDah9tsQrhCdZR8NGP6os1O
+         4yYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681942703; x=1684534703;
+        d=1e100.net; s=20221208; t=1681942707; x=1684534707;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vFCr/CCby/ixIZR1vcNNYtJI+Hn/JpPKkTFrcmf/240=;
-        b=PLitYa/Y5kyJWEgUcIDj4TfKEsoOz/NaXvEEbBsAYZ0caTXPYtgMgqoKM0V34yaIWn
-         Q/sF08/sdg4b6NszKc3xaCDSQNJ8e+dtFvn26EnFPgHkQCViGRutlH7s6u45nM7tG/Jt
-         FKiEiE13rj5YM2kQ+qM1HzRMUavU9eZm6/4HQBQC8bUMNGlGtusUdUHFzOspArQzJx4+
-         QzOdMo2OvL1o7f3RJZgA+mpxlhG6CdxfuTNhct1ht5GPpQZrqv4GZSzEwuP5SsyxMfBT
-         eaNi+iuWYxCMBs/udMFtLyWqZubcQY3o0y3JatYyq9OIvj1CWVDv95apUrvuV6RoKHHd
-         O+fw==
-X-Gm-Message-State: AAQBX9f4Nn5pMEbuzNiZ18vQKJuCq1LMgBJdHnQ7T77YhpcQBNku9Pkl
-	4jlJm2AaFx7AH+WwZgQpndBwEA==
-X-Google-Smtp-Source: AKy350YqF/4+akV7tQXSVqBJeeYYqMrxklqGFMYEM4KYqKrP5PB2sjQSY1CZVqN7qH3odtWcRYYeog==
-X-Received: by 2002:a17:903:290:b0:19d:b02:cca5 with SMTP id j16-20020a170903029000b0019d0b02cca5mr6589575plr.12.1681942702695;
-        Wed, 19 Apr 2023 15:18:22 -0700 (PDT)
+        bh=WztMTyUU5RnTeRMzQjXOG7tTAHmGJecGpWKfqq8b0LY=;
+        b=lu0kzxhD+/y7ykLSdjddFaLRaIg4x4t2frn+vbor/2JYZwJ7lxJsmoUlvtEmSF0D2C
+         BAz1zYLoZq1lRn7mAQC+WuhCjuTVlZQqjq7ETqy5cj46kq0hjijTP+0f4KVwO2vS9h69
+         dQVvAEULZ32Edg7C/+V5v+5dd/U7XCAox5S2Q9JW1hqzoSJEEB3lmA+f7TOo9/LA+z+u
+         9S9ObIghifEQDVKvALGxES/KoJyOWs/nYDzxspoYnbC0LgmBr60e5OEddloOTyCCnpGC
+         lmSS1dSMzSXvOU/b8Z0nXkQiANG+s6pCb4p8LKSQWQ/YaDzNPj4k0v62HgWFcDkStdiO
+         CU/w==
+X-Gm-Message-State: AAQBX9d+VuchfL2nZWXIPjcwGinple28a8Jm+YK2iYpZK5PHFrExchXL
+	pm2kYLDr83RHB8pVS6geIHBGpg==
+X-Google-Smtp-Source: AKy350am1y3CAd0kzsPnqccpnVuquygqNjOFE27i75PzlAcwaRULYItnkTY6+2qQuafZtBMoWXv5YA==
+X-Received: by 2002:a17:902:b087:b0:1a6:9363:1632 with SMTP id p7-20020a170902b08700b001a693631632mr6436484plr.25.1681942707075;
+        Wed, 19 Apr 2023 15:18:27 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.20
+        by smtp.gmail.com with ESMTPSA id jn11-20020a170903050b00b00196807b5189sm11619190plb.292.2023.04.19.15.18.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Apr 2023 15:18:22 -0700 (PDT)
+        Wed, 19 Apr 2023 15:18:26 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
@@ -95,16 +95,16 @@ Cc: Rajnesh Kanwal <rkanwal@rivosinc.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Uladzislau Rezki <urezki@gmail.com>
-Subject: [RFC 24/48] RISC-V: KVM: Update timer functionality for TVMs.
-Date: Wed, 19 Apr 2023 15:16:52 -0700
-Message-Id: <20230419221716.3603068-25-atishp@rivosinc.com>
+Subject: [RFC 26/48] RISC-V: Add COVI extension definitions
+Date: Wed, 19 Apr 2023 15:16:54 -0700
+Message-Id: <20230419221716.3603068-27-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
 References: <20230419221716.3603068-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230419_151823_393149_7675ABD2 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20230419_151827_514530_03C4802B 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,122 +123,70 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-TSM manages the htimedelta/vstimecmp for the TVM and shares it
-with the host to properly schedule hrtimer to keep timer interrupt ticking.
-TSM only sets htimedetla when first VCPU is run to make sure host
-is not able to control the start time of the VM. TSM updates vstimemcp
-at every vmexit and ignores any write to vstimecmp from the host.
+This patch adds the CoVE interrupt management extension(COVI) details
+to the sbi header file.
 
-Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 ---
- arch/riscv/kvm/cove.c       |  8 ++++++++
- arch/riscv/kvm/vcpu_timer.c | 26 +++++++++++++++++++++++++-
- 2 files changed, 33 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/sbi.h | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/riscv/kvm/cove.c b/arch/riscv/kvm/cove.c
-index c11db7a..4a8a8db 100644
---- a/arch/riscv/kvm/cove.c
-+++ b/arch/riscv/kvm/cove.c
-@@ -282,6 +282,7 @@ void noinstr kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_
- 	struct kvm_cove_tvm_context *tvmc;
- 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
- 	void *nshmem;
-+	struct kvm_guest_timer *gt = &kvm->arch.timer;
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index c5a5526..bbea922 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -33,6 +33,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_DBCN = 0x4442434E,
+ 	SBI_EXT_NACL = 0x4E41434C,
+ 	SBI_EXT_COVH = 0x434F5648,
++	SBI_EXT_COVI = 0x434F5649,
  
- 	if (!kvm->arch.tvmc)
- 		return;
-@@ -305,6 +306,13 @@ void noinstr kvm_riscv_cove_vcpu_switchto(struct kvm_vcpu *vcpu, struct kvm_cpu_
- 		trap->scause = EXC_CUSTOM_KVM_COVE_RUN_FAIL;
- 		return;
- 	}
+ 	/* Experimentals extensions must lie within this range */
+ 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+@@ -369,6 +370,20 @@ enum sbi_ext_covh_fid {
+ 	SBI_EXT_COVH_TVM_INITIATE_FENCE,
+ };
+ 
++enum sbi_ext_covi_fid {
++	SBI_EXT_COVI_TVM_AIA_INIT,
++	SBI_EXT_COVI_TVM_CPU_SET_IMSIC_ADDR,
++	SBI_EXT_COVI_TVM_CONVERT_IMSIC,
++	SBI_EXT_COVI_TVM_RECLAIM_IMSIC,
++	SBI_EXT_COVI_TVM_CPU_BIND_IMSIC,
++	SBI_EXT_COVI_TVM_CPU_UNBIND_IMSIC_BEGIN,
++	SBI_EXT_COVI_TVM_CPU_UNBIND_IMSIC_END,
++	SBI_EXT_COVI_TVM_CPU_INJECT_EXT_INTERRUPT,
++	SBI_EXT_COVI_TVM_REBIND_IMSIC_BEGIN,
++	SBI_EXT_COVI_TVM_REBIND_IMSIC_CLONE,
++	SBI_EXT_COVI_TVM_REBIND_IMSIC_END,
++};
 +
-+	/* Read htimedelta from shmem. Given it's written by TSM only when we
-+	 * run first VCPU, we need to update this here rather than in timer
-+	 * init.
-+	 */
-+	if (unlikely(!gt->time_delta))
-+		gt->time_delta = nacl_shmem_csr_read(nshmem, CSR_HTIMEDELTA);
- }
+ enum sbi_cove_page_type {
+ 	SBI_COVE_PAGE_4K,
+ 	SBI_COVE_PAGE_2MB,
+@@ -409,6 +424,21 @@ struct sbi_cove_tvm_create_params {
+ 	unsigned long tvm_state_addr;
+ };
  
- void kvm_riscv_cove_vcpu_destroy(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index 71a4560..f059e14 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -14,6 +14,7 @@
- #include <asm/delay.h>
- #include <asm/kvm_nacl.h>
- #include <asm/kvm_vcpu_timer.h>
-+#include <asm/kvm_cove.h>
- 
- static u64 kvm_riscv_current_cycles(struct kvm_guest_timer *gt)
- {
-@@ -71,6 +72,10 @@ static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
- 
- static int kvm_riscv_vcpu_update_vstimecmp(struct kvm_vcpu *vcpu, u64 ncycles)
- {
-+	/* Host is not allowed to update the vstimecmp for the TVM */
-+	if (is_cove_vcpu(vcpu))
-+		return 0;
++struct sbi_cove_tvm_aia_params {
++	/* The base address is the address of the IMSIC with group ID, hart ID, and guest ID of 0 */
++	uint64_t imsic_base_addr;
++	/* The number of group index bits in an IMSIC address */
++	uint32_t group_index_bits;
++	/* The location of the group index in an IMSIC address. Must be >= 24i. */
++	uint32_t group_index_shift;
++	/* The number of hart index bits in an IMSIC address */
++	uint32_t hart_index_bits;
++	/* The number of guest index bits in an IMSIC address. Must be >= log2(guests/hart + 1) */
++	uint32_t guest_index_bits;
++	/* The number of guest interrupt files to be implemented per vCPU */
++	uint32_t guests_per_hart;
++};
 +
- #if defined(CONFIG_32BIT)
- 	nacl_csr_write(CSR_VSTIMECMP, ncycles & 0xFFFFFFFF);
- 	nacl_csr_write(CSR_VSTIMECMPH, ncycles >> 32);
-@@ -221,6 +226,11 @@ int kvm_riscv_vcpu_set_reg_timer(struct kvm_vcpu *vcpu,
- 		ret = -EOPNOTSUPP;
- 		break;
- 	case KVM_REG_RISCV_TIMER_REG(time):
-+		/* For trusted VMs we can not update htimedelta. We can just
-+		 * read it from shared memory.
-+		 */
-+		if (is_cove_vcpu(vcpu))
-+			return -EOPNOTSUPP;
- 		gt->time_delta = reg_val - get_cycles64();
- 		break;
- 	case KVM_REG_RISCV_TIMER_REG(compare):
-@@ -287,6 +297,7 @@ static void kvm_riscv_vcpu_update_timedelta(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
- 
-+
- #if defined(CONFIG_32BIT)
- 	nacl_csr_write(CSR_HTIMEDELTA, (u32)(gt->time_delta));
- 	nacl_csr_write(CSR_HTIMEDELTAH, (u32)(gt->time_delta >> 32));
-@@ -299,6 +310,10 @@ void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
- 
-+	/* While in CoVE, HOST must not manage HTIMEDELTA or VSTIMECMP for TVM */
-+	if (is_cove_vcpu(vcpu))
-+		goto skip_hcsr_update;
-+
- 	kvm_riscv_vcpu_update_timedelta(vcpu);
- 
- 	if (!t->sstc_enabled)
-@@ -311,6 +326,7 @@ void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
- 	nacl_csr_write(CSR_VSTIMECMP, t->next_cycles);
- #endif
- 
-+skip_hcsr_update:
- 	/* timer should be enabled for the remaining operations */
- 	if (unlikely(!t->init_done))
- 		return;
-@@ -358,5 +374,13 @@ void kvm_riscv_guest_timer_init(struct kvm *kvm)
- 	struct kvm_guest_timer *gt = &kvm->arch.timer;
- 
- 	riscv_cs_get_mult_shift(&gt->nsec_mult, &gt->nsec_shift);
--	gt->time_delta = -get_cycles64();
-+	if (is_cove_vm(kvm)) {
-+		/* For TVMs htimedelta is managed by TSM and it's communicated using
-+		 * NACL shmem interface when first time VCPU is run. so we read it in
-+		 * kvm_riscv_cove_vcpu_switchto() where we enter VCPUs.
-+		 */
-+		gt->time_delta = 0;
-+	} else {
-+		gt->time_delta = -get_cycles64();
-+	}
- }
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+ #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
 -- 
 2.25.1
 
