@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5B7C77B73
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 15:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB468C77B72
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 15:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QNGlne53aLWsG9bdXGCbd8Q/NwJWBtr3hiTJJr2DVNU=; b=4jgaXud27Xyl6Yxz9yhC6mzLGL
-	Gmd39VQOW15dtufXE0O2gPfatK99nfMyJJmEP161JrYueV7VxPM7g8f6HmECxUZOHASUK7pUebgs6
-	wTOsCzwM0xURsRVOoZdmo5f0Rdfy/8Me+PKfoFOjEboQiSfyJAioxA8Q1POxrvc83vl7Gr/9lMQW8
-	mrT1OlUKtEalblCWvxoHllo0xXyjvrsf6A2GV8wfpisTTwTbIsEMZQRGEmjjiEeMNq6XMTI4k8TMw
-	Ra4Kt0Wj0cTZJS2PYwWqM7SYdXfZnWUSiY7/tdGzQDFmijelSwmNxV+VVK4Q7mbnKVF2hG7WP0s5a
-	VsV/LTcw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uHxHE7edRyHLL7U3a+dLa8AyI7wgVY9R0eaSszWSfdg=; b=ZolKOK9azCQRpT
+	0Y29V/6BTlo86HNk+d7qyamwnf/OEG4JqQHQvQcCthO1Mc+p3x0QGxNjj8D8dvlrUe6K/tQ6//JlF
+	zrsoyT+Ri7n/6DSrYAC7SJx5WlD338Bg/iydlMdOs+zNGyw5We95NURhUKY6ti6aC+Pr1qvIRFe1S
+	zuMOLRgkoYOmhkG0JAFhW3p6fUhLlENRKUv23N4ozaVduWx6q2xEqZPwRR5uawbxD/u/EluxlhJP9
+	uZZCPiOVr8pggzGPqEivd9dcmpXtqW+NG28SFGXhRCTK7gxxN/ltpFWCUKy8iDLBZUItCtHisySIY
+	gbzy/xpaZEXyP+G8JzRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppW2R-008OQ8-2q;
-	Thu, 20 Apr 2023 15:17:35 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1ppWfF-008TmY-2j;
+	Thu, 20 Apr 2023 15:57:41 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppW2P-008OP0-0T
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Apr 2023 15:17:34 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1a4f798cfb9so7692075ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Apr 2023 08:17:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1682003851; x=1684595851;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Fvh5Bs16xnW1weT2SPid3PSg+u8/Q14PbTNxokyuWo=;
-        b=0Lwk6zvT1sdE3h8JzGU30U5B2GAF3IGSbkbBGobwWjNzCZvLtIOzkNc+aveiepxTAs
-         WaAK/i7YbEhDG2NDLUpNX6THYw8haqXyojuWZ4wmeO7iGc3cq8HwF3oUxq8Ol92O1z2T
-         hi4MCRBBTGq2u6EMEsQiLxQDCm+QEsU263UVSRUL2PE43LmOVPxu0eFMHRPbEkDg4TfT
-         uobdLbwf2YItMZtIgpTxQ2rIfnYXNx+lpmvnNGMtHXSo0bDbtU6H888CU9MzugYu3YZg
-         DWMBre8DaUAzW3gfyRElbNJemM8dx6YakEoK9mD3yLdn1MRKe/fRStX26QgHS1FoeyUV
-         uNxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682003851; x=1684595851;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Fvh5Bs16xnW1weT2SPid3PSg+u8/Q14PbTNxokyuWo=;
-        b=hCkhSvlId87gy/di1YBmH9QFxDZg+cDwb66Wcu/bCbk8wXJDkvrdbJGKGJV4zL1o+q
-         eK5sDMOSr9HPK7/F4MYNtpwkUGGI/TJqIh1BnIn+CXcsvRGMHb8KT9vDrp461XChlE2A
-         RJj3JFwm9uEQTySy9y7tUtJAtaTiOeldoZAj9PFoWREDfwisXgyDGHheOd5hnr4F0Uhc
-         zIVkcZpJXos9QBJOD/aYe1D7qWjHgdw4dhcOsHqn+Dh1MTEyB16ZA+nsmohaYDbXUZzq
-         rnbdV2Ds6Su7D3KnecG62ZLE/ERMETglf0DG1VaEXotVOzE68UIB5UoU2BAq5f+zBH8/
-         cNPg==
-X-Gm-Message-State: AAQBX9fTKhTN3wF5T/sOKVg6K6Rf27vSEPW2XUkPgXe9ql0ueqIpjg7f
-	AHWg/nfYvjfZakjlgPv2VKK21kdpOp0=
-X-Google-Smtp-Source: AKy350ZBzilYp4PKzE37W4X5nKyyeFADvasG2SeZc5SDTlWjPiAdZDU+NJV1a/nzmUjYdsysw7dwNLoKUeU=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:903:50d:b0:1a6:3fb2:f52d with SMTP id
- jn13-20020a170903050d00b001a63fb2f52dmr618731plb.3.1682003850946; Thu, 20 Apr
- 2023 08:17:30 -0700 (PDT)
-Date: Thu, 20 Apr 2023 08:17:29 -0700
-In-Reply-To: <20230419221716.3603068-11-atishp@rivosinc.com>
-Mime-Version: 1.0
-References: <20230419221716.3603068-1-atishp@rivosinc.com> <20230419221716.3603068-11-atishp@rivosinc.com>
-Message-ID: <ZEFXiXu+0XLSdRkQ@google.com>
-Subject: Re: [RFC 10/48] RISC-V: KVM: Implement static memory region measurement
-From: Sean Christopherson <seanjc@google.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <ajones@ventanamicro.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	"=?iso-8859-1?Q?Bj=F6rn_T=F6pel?=" <bjorn@rivosinc.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, linux-coco@lists.linux.dev, 
-	Dylan Reid <dylan@rivosinc.com>, abrestic@rivosinc.com, 
-	Samuel Ortiz <sameo@rivosinc.com>, Christoph Hellwig <hch@infradead.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Jiri Slaby <jirislaby@kernel.org>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Rajnesh Kanwal <rkanwal@rivosinc.com>, Uladzislau Rezki <urezki@gmail.com>
+	id 1ppWfB-008Tkv-0t;
+	Thu, 20 Apr 2023 15:57:39 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1682006253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vp8ju/GGiywRxL7MXypBTDLjpcNajsRiFLiJwpmF6ko=;
+	b=vo3gBr3jR8zdhKk/BuxN9j1GS6zLedRSUgNo4oBDDdFKd4/mRt+nx3JD2K3clcn/BgIaB5
+	tscLZZLjA+6B52jr2RLzgOWJG/k7AGus37e3Ph2Y6fR1tbNSsZOQMZch+7rI5i6ViChQ8h
+	gMou9zesernS1zW3B6NxuE83RX7Oh0u7Oil+zXe4hsW7X7GW3E+CbBzOa2F6arYbDZ5cj9
+	lXO3K4RpZ22XO5V8RkycQZxDW917EnVPPdDR/zEw9iS+7JTZjat3sbrsHzVs96q7iM+rI3
+	vYyKeXNjfLkyPEjNB4pTt4b2s2ZZh8TVnwmM8p25xqjzl/ftgBMUCxvVL2f/5Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1682006253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vp8ju/GGiywRxL7MXypBTDLjpcNajsRiFLiJwpmF6ko=;
+	b=paJdIvPumFOspQVO4jY9SRLTjODXaUUemmcFlu8EiYU/m3yQ/cAvZPtcC+mBk2UuqHrs0b
+	wp5ZrEmqeJc+8MAw==
+To: Sean Christopherson <seanjc@google.com>
+Cc: Andrew Cooper <andrew.cooper3@citrix.com>, Paul Menzel
+ <pmenzel@molgen.mpg.de>, linux-kernel@vger.kernel.org, x86@kernel.org,
+ David Woodhouse <dwmw2@infradead.org>, Brian Gerst <brgerst@gmail.com>,
+ Arjan van de Veen <arjan@linux.intel.com>, Paolo Bonzini
+ <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>, Tom Lendacky
+ <thomas.lendacky@amd.com>, Oleksandr Natalenko <oleksandr@natalenko.name>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
+ <lucjan.lucjanov@gmail.com>, David Woodhouse <dwmw@amazon.co.uk>, Usama
+ Arif <usama.arif@bytedance.com>, =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?=
+ <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E. J.
+ Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
+In-Reply-To: <ZEFRhXua6Jxvit1R@google.com>
+References: <87r0sh4m7a.ffs@tglx>
+ <8592a301-9933-1cad-bd61-8d97e7c7493b@molgen.mpg.de> <87a5z443g2.ffs@tglx>
+ <877cu83v45.ffs@tglx> <874jpc3s3r.ffs@tglx>
+ <0f5463fd-9c4a-6361-adbb-dd89dbb9138d@citrix.com>
+ <c2aaa4fb-a5ba-d5bf-634a-dcf4fd8ad246@citrix.com> <871qkf3qek.ffs@tglx>
+ <26d385da-2ede-5d73-2959-84c8f7d89e03@citrix.com> <87y1mm3iqz.ffs@tglx>
+ <ZEFRhXua6Jxvit1R@google.com>
+Date: Thu, 20 Apr 2023 17:57:31 +0200
+Message-ID: <87v8hq35sk.ffs@tglx>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_081733_184583_67D73523 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20230420_085737_601950_096CFBCC 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,127 +99,260 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 19, 2023, Atish Patra wrote:
-> +int kvm_riscv_cove_vm_measure_pages(struct kvm *kvm, struct kvm_riscv_cove_measure_region *mr)
-> +{
-> +	struct kvm_cove_tvm_context *tvmc = kvm->arch.tvmc;
-> +	int rc = 0, idx, num_pages;
-> +	struct kvm_riscv_cove_mem_region *conf;
-> +	struct page *pinned_page, *conf_page;
-> +	struct kvm_riscv_cove_page *cpage;
-> +
-> +	if (!tvmc)
-> +		return -EFAULT;
-> +
-> +	if (tvmc->finalized_done) {
-> +		kvm_err("measured_mr pages can not be added after finalize\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	num_pages = bytes_to_pages(mr->size);
-> +	conf = &tvmc->confidential_region;
-> +
-> +	if (!IS_ALIGNED(mr->userspace_addr, PAGE_SIZE) ||
-> +	    !IS_ALIGNED(mr->gpa, PAGE_SIZE) || !mr->size ||
-> +	    !cove_is_within_region(conf->gpa, conf->npages << PAGE_SHIFT, mr->gpa, mr->size))
-> +		return -EINVAL;
-> +
-> +	idx = srcu_read_lock(&kvm->srcu);
-> +
-> +	/*TODO: Iterate one page at a time as pinning multiple pages fail with unmapped panic
-> +	 * with a virtual address range belonging to vmalloc region for some reason.
+On Thu, Apr 20 2023 at 07:51, Sean Christopherson wrote:
+> On Thu, Apr 20, 2023, Thomas Gleixner wrote:
+>> On Thu, Apr 20 2023 at 10:23, Andrew Cooper wrote:
+>> > On 20/04/2023 9:32 am, Thomas Gleixner wrote:
+>> > > On Wed, Apr 19, 2023, Andrew Cooper wrote:
+>> > > > This was changed in x2APIC, which made the x2APIC_ID immutable.
+>>
+>> >> I'm pondering to simply deny parallel mode if x2APIC is not there.
+>> >
+>> > I'm not sure if that will help much.
+>> 
+>> Spoilsport.
+>
+> LOL, well let me pile on then.  x2APIC IDs aren't immutable on AMD hardware.  The
+> ID is read-only when the CPU is in x2APIC mode, but any changes made to the ID
+> while the CPU is in xAPIC mode survive the transition to x2APIC.  From the APM:
+>
+>   A value previously written by software to the 8-bit APIC_ID register (MMIO offset
+>   30h) is converted by hardware into the appropriate format and reflected into the
+>   32-bit x2APIC_ID register (MSR 802h).
+>
+> FWIW, my observations from testing on bare metal are that the xAPIC ID is effectively
+> read-only (writes are dropped) on Intel CPUs as far back as Haswell, while the above
+> behavior described in the APM holds true on at least Rome and Milan.
+>
+> My guess is that Intel's uArch specific behavior of the xAPIC ID being read-only
+> was introduced when x2APIC came along, but I didn't test farther back than Haswell.
 
-I've no idea what code you had, but I suspect the fact that vmalloc'd memory isn't
-guaranteed to be physically contiguous is relevant to the panic.
+I'm not so worried about modern hardware. The horrorshow is the old muck
+as demonstrated and of course there is virt :)
 
-> +	 */
-> +	while (num_pages) {
-> +		if (signal_pending(current)) {
-> +			rc = -ERESTARTSYS;
-> +			break;
-> +		}
-> +
-> +		if (need_resched())
-> +			cond_resched();
-> +
-> +		rc = get_user_pages_fast(mr->userspace_addr, 1, 0, &pinned_page);
-> +		if (rc < 0) {
-> +			kvm_err("Pinning the userpsace addr %lx failed\n", mr->userspace_addr);
-> +			break;
-> +		}
-> +
-> +		/* Enough pages are not available to be pinned */
-> +		if (rc != 1) {
-> +			rc = -ENOMEM;
-> +			break;
-> +		}
-> +		conf_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
-> +		if (!conf_page) {
-> +			rc = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		rc = cove_convert_pages(page_to_phys(conf_page), 1, true);
-> +		if (rc)
-> +			break;
-> +
-> +		/*TODO: Support other pages sizes */
-> +		rc = sbi_covh_add_measured_pages(tvmc->tvm_guest_id, page_to_phys(pinned_page),
-> +						 page_to_phys(conf_page), SBI_COVE_PAGE_4K,
-> +						 1, mr->gpa);
-> +		if (rc)
-> +			break;
-> +
-> +		/* Unpin the page now */
-> +		put_page(pinned_page);
-> +
-> +		cpage = kmalloc(sizeof(*cpage), GFP_KERNEL_ACCOUNT);
-> +		if (!cpage) {
-> +			rc = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		cpage->page = conf_page;
-> +		cpage->npages = 1;
-> +		cpage->gpa = mr->gpa;
-> +		cpage->hva = mr->userspace_addr;
+Something like the completely untested below should just work whatever
+APIC ID the BIOS decided to dice.
 
-Snapshotting the userspace address for the _source_ page can't possibly be useful.
+That might just work on SEV too without that GHCB muck, but what do I
+know.
 
-> +		cpage->is_mapped = true;
-> +		INIT_LIST_HEAD(&cpage->link);
-> +		list_add(&cpage->link, &tvmc->measured_pages);
-> +
-> +		mr->userspace_addr += PAGE_SIZE;
-> +		mr->gpa += PAGE_SIZE;
-> +		num_pages--;
-> +		conf_page = NULL;
-> +
-> +		continue;
-> +	}
-> +	srcu_read_unlock(&kvm->srcu, idx);
-> +
-> +	if (rc < 0) {
-> +		/* We don't to need unpin pages as it is allocated by the hypervisor itself */
+Thanks,
 
-This comment makes no sense.  The above code is doing all of the allocation and
-pinning, which strongly suggests that KVM is the hypervisor.  But this comment
-implies that KVM is not the hypervisor.
-
-And "pinned_page" is cleared unpinned in the loop after the page is added+measured,
-which looks to be the same model as TDX where "pinned_page" is the source and
-"conf_page" is gifted to the hypervisor.  But on failure, e.g. when allocating
-"conf_page", that reference is not put.
-
-> +		cove_delete_page_list(kvm, &tvmc->measured_pages, false);
-> +		/* Free the last allocated page for which conversion/measurement failed */
-> +		kfree(conf_page);
-
-Assuming my guesses about how the architecture works are correct, this is broken
-if sbi_covh_add_measured_pages() fails.  The page has already been gifted to the
-TSM by cove_convert_pages(), but there is no call to sbi_covh_tsm_reclaim_pages(),
-which I'm guessing is necesary to transition the page back to a state where it can
-be safely used by the host.
+        tglx
+---
+--- a/arch/x86/include/asm/apicdef.h
++++ b/arch/x86/include/asm/apicdef.h
+@@ -138,7 +138,8 @@
+ #define		APIC_EILVT_MASKED	(1 << 16)
+ 
+ #define APIC_BASE (fix_to_virt(FIX_APIC_BASE))
+-#define APIC_BASE_MSR	0x800
++#define APIC_BASE_MSR		0x800
++#define APIC_X2APIC_ID_MSR	0x802
+ #define XAPIC_ENABLE	(1UL << 11)
+ #define X2APIC_ENABLE	(1UL << 10)
+ 
+@@ -162,6 +163,7 @@
+ #define APIC_CPUID(apicid)	((apicid) & XAPIC_DEST_CPUS_MASK)
+ #define NUM_APIC_CLUSTERS	((BAD_APICID + 1) >> XAPIC_DEST_CPUS_SHIFT)
+ 
++#ifndef __ASSEMBLY__
+ /*
+  * the local APIC register structure, memory mapped. Not terribly well
+  * tested, but we might eventually use this one in the future - the
+@@ -435,4 +437,5 @@ enum apic_delivery_modes {
+ 	APIC_DELIVERY_MODE_EXTINT	= 7,
+ };
+ 
++#endif /* !__ASSEMBLY__ */
+ #endif /* _ASM_X86_APICDEF_H */
+--- a/arch/x86/include/asm/smp.h
++++ b/arch/x86/include/asm/smp.h
+@@ -195,14 +195,13 @@ extern void nmi_selftest(void);
+ #endif
+ 
+ extern unsigned int smpboot_control;
++extern unsigned long apic_mmio_base;
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
+ /* Control bits for startup_64 */
+-#define STARTUP_APICID_CPUID_1F 0x80000000
+-#define STARTUP_APICID_CPUID_0B 0x40000000
+-#define STARTUP_APICID_CPUID_01 0x20000000
+-#define STARTUP_APICID_SEV_ES	0x10000000
++#define STARTUP_READ_APICID	0x80000000
++#define STARTUP_APICID_SEV_ES	0x40000000
+ 
+ /* Top 8 bits are reserved for control */
+ #define STARTUP_PARALLEL_MASK	0xFF000000
+--- a/arch/x86/kernel/apic/apic.c
++++ b/arch/x86/kernel/apic/apic.c
+@@ -101,6 +101,8 @@ static int apic_extnmi __ro_after_init =
+  */
+ static bool virt_ext_dest_id __ro_after_init;
+ 
++unsigned long apic_mmio_base __ro_after_init;
++
+ /*
+  * Map cpu index to physical APIC ID
+  */
+@@ -2164,6 +2166,7 @@ void __init register_lapic_address(unsig
+ 
+ 	if (!x2apic_mode) {
+ 		set_fixmap_nocache(FIX_APIC_BASE, address);
++		apic_mmio_base = APIC_BASE;
+ 		apic_printk(APIC_VERBOSE, "mapped APIC to %16lx (%16lx)\n",
+ 			    APIC_BASE, address);
+ 	}
+--- a/arch/x86/kernel/head_64.S
++++ b/arch/x86/kernel/head_64.S
+@@ -24,8 +24,10 @@
+ #include "../entry/calling.h"
+ #include <asm/export.h>
+ #include <asm/nospec-branch.h>
++#include <asm/apicdef.h>
+ #include <asm/fixmap.h>
+ #include <asm/smp.h>
++
+ #include <asm/sev-common.h>
+ 
+ /*
+@@ -237,37 +239,24 @@ SYM_INNER_LABEL(secondary_startup_64_no_
+ 
+ #ifdef CONFIG_SMP
+ 	/*
+-	 * For parallel boot, the APIC ID is retrieved from CPUID, and then
+-	 * used to look up the CPU number.  For booting a single CPU, the
+-	 * CPU number is encoded in smpboot_control.
++	 * For parallel boot, the APIC ID is either retrieved the APIC or
++	 * from CPUID, and then used to look up the CPU number.
++	 * For booting a single CPU, the CPU number is encoded in
++	 * smpboot_control.
+ 	 *
+-	 * Bit 31	STARTUP_APICID_CPUID_1F flag (use CPUID 0x1f)
+-	 * Bit 30	STARTUP_APICID_CPUID_0B flag (use CPUID 0x0b)
+-	 * Bit 29	STARTUP_APICID_CPUID_01 flag (use CPUID 0x01)
+-	 * Bit 28	STARTUP_APICID_SEV_ES flag (CPUID 0x0b via GHCB MSR)
++	 * Bit 31	STARTUP_APICID_READ (Read APICID from APIC)
++	 * Bit 30	STARTUP_APICID_SEV_ES flag (CPUID 0x0b via GHCB MSR)
+ 	 * Bit 0-23	CPU# if STARTUP_APICID_CPUID_xx flags are not set
+ 	 */
+ 	movl	smpboot_control(%rip), %ecx
++	testl	$STARTUP_READ_APICID, %ecx
+ #ifdef CONFIG_AMD_MEM_ENCRYPT
+ 	testl	$STARTUP_APICID_SEV_ES, %ecx
+ 	jnz	.Luse_sev_cpuid_0b
+ #endif
+-	testl	$STARTUP_APICID_CPUID_1F, %ecx
+-	jnz	.Luse_cpuid_1f
+-	testl	$STARTUP_APICID_CPUID_0B, %ecx
+-	jnz	.Luse_cpuid_0b
+-	testl	$STARTUP_APICID_CPUID_01, %ecx
+-	jnz	.Luse_cpuid_01
+ 	andl	$(~STARTUP_PARALLEL_MASK), %ecx
+ 	jmp	.Lsetup_cpu
+ 
+-.Luse_cpuid_01:
+-	mov	$0x01, %eax
+-	cpuid
+-	mov	%ebx, %edx
+-	shr	$24, %edx
+-	jmp	.Lsetup_AP
+-
+ #ifdef CONFIG_AMD_MEM_ENCRYPT
+ .Luse_sev_cpuid_0b:
+ 	/* Set the GHCB MSR to request CPUID 0x0B_EDX */
+@@ -292,24 +281,30 @@ SYM_INNER_LABEL(secondary_startup_64_no_
+ 	jmp	.Lsetup_AP
+ #endif
+ 
+-.Luse_cpuid_0b:
+-	mov	$0x0B, %eax
+-	xorl	%ecx, %ecx
+-	cpuid
+-	jmp	.Lsetup_AP
++.Lread_apicid:
++	mov	$MSR_IA32_APICBASE, %ecx
++	rdmsr
++	testl	$X2APIC_ENABLE, %eax
++	jnz	read_apicid_msr
++
++	/* Read the APIC ID from the fix-mapped MMIO space. */
++	movq	apic_mmio_base(%rip), %rcx
++	addq	$APIC_ID, %rcx
++	movl	(%rcx), %eax
++	shr	$24, %eax
++	jnz	.Lread_apicid
+ 
+-.Luse_cpuid_1f:
+-	mov	$0x1f, %eax
+-	xorl	%ecx, %ecx
+-	cpuid
++.Lread_apicid_msr:
++	mov	$APIC_X2APIC_ID_MSR, %ecx
++	rdmsr
+ 
+ .Lsetup_AP:
+-	/* EDX contains the APIC ID of the current CPU */
++	/* EAX contains the APIC ID of the current CPU */
+ 	xorq	%rcx, %rcx
+ 	leaq	cpuid_to_apicid(%rip), %rbx
+ 
+ .Lfind_cpunr:
+-	cmpl	(%rbx,%rcx,4), %edx
++	cmpl	(%rbx,%rcx,4), %eax
+ 	jz	.Lsetup_cpu
+ 	inc	%ecx
+ #ifdef CONFIG_FORCE_NR_CPUS
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -1253,41 +1253,22 @@ bool __init arch_cpuhp_init_parallel_bri
+ 		return false;
+ 	}
+ 
+-	/* Encrypted guests require special CPUID handling. */
++	/* Encrypted guests require special handling. */
+ 	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
+ 		switch (cc_get_vendor()) {
+ 		case CC_VENDOR_AMD:
+ 			ctrl = STARTUP_APICID_SEV_ES;
+ 			if (topology_extended_leaf == 0x0b)
+-				goto setup;
++				break;
+ 			fallthrough;
+ 		default:
+ 			pr_info("Parallel CPU startup disabled due to guest state encryption\n");
+ 			return false;
+ 		}
++	} else {
++		ctrl = STARTUP_READ_APICID;
+ 	}
+ 
+-	switch (topology_extended_leaf) {
+-	case 0x0b:
+-		ctrl = STARTUP_APICID_CPUID_0B;
+-		break;
+-	case 0x1f:
+-		ctrl = STARTUP_APICID_CPUID_1F;
+-		break;
+-	case 0x00:
+-		/* For !x2APIC mode 8 bits from leaf 0x01 are sufficient. */
+-		if (!x2apic_mode) {
+-			ctrl = STARTUP_APICID_CPUID_01;
+-			break;
+-		}
+-		fallthrough;
+-	default:
+-		pr_info("Parallel CPU startup disabled. Unsupported topology leaf %u\n",
+-			topology_extended_leaf);
+-		return false;
+-	}
+-
+-setup:
+ 	pr_debug("Parallel CPU startup enabled: 0x%08x\n", ctrl);
+ 	smpboot_control = ctrl;
+ 	return true;
 
 _______________________________________________
 linux-riscv mailing list
