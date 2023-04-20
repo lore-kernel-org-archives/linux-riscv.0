@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB468C77B72
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 15:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E944EC77B72
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 16:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uHxHE7edRyHLL7U3a+dLa8AyI7wgVY9R0eaSszWSfdg=; b=ZolKOK9azCQRpT
-	0Y29V/6BTlo86HNk+d7qyamwnf/OEG4JqQHQvQcCthO1Mc+p3x0QGxNjj8D8dvlrUe6K/tQ6//JlF
-	zrsoyT+Ri7n/6DSrYAC7SJx5WlD338Bg/iydlMdOs+zNGyw5We95NURhUKY6ti6aC+Pr1qvIRFe1S
-	zuMOLRgkoYOmhkG0JAFhW3p6fUhLlENRKUv23N4ozaVduWx6q2xEqZPwRR5uawbxD/u/EluxlhJP9
-	uZZCPiOVr8pggzGPqEivd9dcmpXtqW+NG28SFGXhRCTK7gxxN/ltpFWCUKy8iDLBZUItCtHisySIY
-	gbzy/xpaZEXyP+G8JzRg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=erWR4ZfOOJyb33sYzinjYHwZEiSRqJqB6xjiS+BGVwI=; b=t1fBrncSmzlNhhmXT32VvJ1QhJ
+	OCis78KuJUynaKYSpdEBUGNeTCrwonpK28MK0yH3gAwhNQguxX02xUcN8Rj54U52fNxXuvop/xQb7
+	yuYaVxc1xzo05KQGvsFkCDQ3U0QzO7b15zUtCUHhpZIqq6lGudMzg7obe9T5XHDaM/UMjAWZ0u7ck
+	kL0JwACW3uQdOnpR/10BQzOGa2HmRfA6Qtctsla29D1QlTqxOX1VeEyKb0iCPhvcfifGWrCpmsrbI
+	k6Qj4NuoLn44LGr0rJcdXOMYfpAK+LTz8zyqojiQEQDWI/Ncoes+VJOT6H32bWvABizpvDAZ3J8v1
+	KkhBvpHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppWfF-008TmY-2j;
-	Thu, 20 Apr 2023 15:57:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1ppXB7-008Y04-11;
+	Thu, 20 Apr 2023 16:30:37 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppWfB-008Tkv-0t;
-	Thu, 20 Apr 2023 15:57:39 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1682006253;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vp8ju/GGiywRxL7MXypBTDLjpcNajsRiFLiJwpmF6ko=;
-	b=vo3gBr3jR8zdhKk/BuxN9j1GS6zLedRSUgNo4oBDDdFKd4/mRt+nx3JD2K3clcn/BgIaB5
-	tscLZZLjA+6B52jr2RLzgOWJG/k7AGus37e3Ph2Y6fR1tbNSsZOQMZch+7rI5i6ViChQ8h
-	gMou9zesernS1zW3B6NxuE83RX7Oh0u7Oil+zXe4hsW7X7GW3E+CbBzOa2F6arYbDZ5cj9
-	lXO3K4RpZ22XO5V8RkycQZxDW917EnVPPdDR/zEw9iS+7JTZjat3sbrsHzVs96q7iM+rI3
-	vYyKeXNjfLkyPEjNB4pTt4b2s2ZZh8TVnwmM8p25xqjzl/ftgBMUCxvVL2f/5Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1682006253;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vp8ju/GGiywRxL7MXypBTDLjpcNajsRiFLiJwpmF6ko=;
-	b=paJdIvPumFOspQVO4jY9SRLTjODXaUUemmcFlu8EiYU/m3yQ/cAvZPtcC+mBk2UuqHrs0b
-	wp5ZrEmqeJc+8MAw==
-To: Sean Christopherson <seanjc@google.com>
-Cc: Andrew Cooper <andrew.cooper3@citrix.com>, Paul Menzel
- <pmenzel@molgen.mpg.de>, linux-kernel@vger.kernel.org, x86@kernel.org,
- David Woodhouse <dwmw2@infradead.org>, Brian Gerst <brgerst@gmail.com>,
- Arjan van de Veen <arjan@linux.intel.com>, Paolo Bonzini
- <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>, Tom Lendacky
- <thomas.lendacky@amd.com>, Oleksandr Natalenko <oleksandr@natalenko.name>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
- <lucjan.lucjanov@gmail.com>, David Woodhouse <dwmw@amazon.co.uk>, Usama
- Arif <usama.arif@bytedance.com>, =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?=
- <jgross@suse.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E. J.
- Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
- <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>
-Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
-In-Reply-To: <ZEFRhXua6Jxvit1R@google.com>
-References: <87r0sh4m7a.ffs@tglx>
- <8592a301-9933-1cad-bd61-8d97e7c7493b@molgen.mpg.de> <87a5z443g2.ffs@tglx>
- <877cu83v45.ffs@tglx> <874jpc3s3r.ffs@tglx>
- <0f5463fd-9c4a-6361-adbb-dd89dbb9138d@citrix.com>
- <c2aaa4fb-a5ba-d5bf-634a-dcf4fd8ad246@citrix.com> <871qkf3qek.ffs@tglx>
- <26d385da-2ede-5d73-2959-84c8f7d89e03@citrix.com> <87y1mm3iqz.ffs@tglx>
- <ZEFRhXua6Jxvit1R@google.com>
-Date: Thu, 20 Apr 2023 17:57:31 +0200
-Message-ID: <87v8hq35sk.ffs@tglx>
-MIME-Version: 1.0
+	id 1ppXB2-008XxD-1M
+	for linux-riscv@lists.infradead.org;
+	Thu, 20 Apr 2023 16:30:35 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1a52649285bso8930025ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Apr 2023 09:30:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1682008231; x=1684600231;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iuRee1QypTQZKXl0Ba92BIJVB1syFZT2hDTjYd+QOu0=;
+        b=xsdAX4QP18io7Q14j+sXDfKxXWzCBe26O67EEA66IxfIS/8q2flLf9bLpR4Ty2pCSg
+         SWEzc7bfmxxWoDPY3ZAeQnylHRhvU2dunlBCLpk5wasFsFVxROxVvFn1UYeuv+w3AyPw
+         geWJT6S9CU69DZyFzIkS6eaz87U/r9Arw28+RfRnOiwVk8SCG0YVWtXIF6+DGOUwwmBO
+         i3ysWcWrHB2oO0Y99eIgGUqJZVy/+1bYFJTczZfYFaafqiXAjoX+0D9ml3VR9KqkR3vB
+         Zj0m/1JdP41uNpNyDFv6R0a5aVt539CPhUroGtVNGUjeGi2UCaxG8H1u85tL6+EDZhgC
+         xhgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682008231; x=1684600231;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iuRee1QypTQZKXl0Ba92BIJVB1syFZT2hDTjYd+QOu0=;
+        b=XBJn29LgSj46+KkskTHrsihYrj1xpwxtMlUx2qRzCb8+n6Is2hc7bAQJkCDKalCDyL
+         U/6X01NDalJ9zfZGOb6VHx/w7nmsGkAyr932wf53l2n6lpiNha+qFTTGqgWdJSWd+pWO
+         CTf7t/WjE8TVMAuw9yJ2gWVjssiF1XnMLPvdm9yRUAg/n3BagHUw8hyPG8+J39ON/ZfF
+         /kcbjvi2cPnqJg78sNDIz/Upa2nfcITVEUbObq716Z9QXbcsMUVRih4tDOc4ilXjsJ2v
+         OqffgSPWMrx4J5izqMEft8d7ZuBYid57wc94aS0zMx+BLLYh4j93kDMN2q2Vp+xdyE06
+         UTCg==
+X-Gm-Message-State: AAQBX9fnVPa0JYJtYUGf/i0wqYkd4VwzpVALT+N7xNWUi/sGl16jelO1
+	P9Gd5rSqX3gu4mYemB1xan+R4inZdn8=
+X-Google-Smtp-Source: AKy350bG5XxutuL1YWXYB6O6lYpygFxMjScQrACRWWOAwwrWocyrTBgqNbf4ffJRIfKXzMJNG2svVwTCXq0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:ab89:b0:1a6:8d3b:85e7 with SMTP id
+ f9-20020a170902ab8900b001a68d3b85e7mr779019plr.3.1682008230658; Thu, 20 Apr
+ 2023 09:30:30 -0700 (PDT)
+Date: Thu, 20 Apr 2023 09:30:29 -0700
+In-Reply-To: <20230419221716.3603068-1-atishp@rivosinc.com>
+Mime-Version: 1.0
+References: <20230419221716.3603068-1-atishp@rivosinc.com>
+Message-ID: <ZEFopfs5Ij/AIkee@google.com>
+Subject: Re: [RFC 00/48] RISC-V CoVE support
+From: Sean Christopherson <seanjc@google.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrew Jones <ajones@ventanamicro.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	"=?iso-8859-1?Q?Bj=F6rn_T=F6pel?=" <bjorn@rivosinc.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, linux-coco@lists.linux.dev, 
+	Dylan Reid <dylan@rivosinc.com>, abrestic@rivosinc.com, 
+	Samuel Ortiz <sameo@rivosinc.com>, Christoph Hellwig <hch@infradead.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Jiri Slaby <jirislaby@kernel.org>, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	Mayuresh Chitale <mchitale@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rajnesh Kanwal <rkanwal@rivosinc.com>, Uladzislau Rezki <urezki@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_085737_601950_096CFBCC 
-X-CRM114-Status: GOOD (  30.59  )
+X-CRM114-CacheID: sfid-20230420_093032_459624_E4AB1A0D 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,260 +100,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 20 2023 at 07:51, Sean Christopherson wrote:
-> On Thu, Apr 20, 2023, Thomas Gleixner wrote:
->> On Thu, Apr 20 2023 at 10:23, Andrew Cooper wrote:
->> > On 20/04/2023 9:32 am, Thomas Gleixner wrote:
->> > > On Wed, Apr 19, 2023, Andrew Cooper wrote:
->> > > > This was changed in x2APIC, which made the x2APIC_ID immutable.
->>
->> >> I'm pondering to simply deny parallel mode if x2APIC is not there.
->> >
->> > I'm not sure if that will help much.
->> 
->> Spoilsport.
->
-> LOL, well let me pile on then.  x2APIC IDs aren't immutable on AMD hardware.  The
-> ID is read-only when the CPU is in x2APIC mode, but any changes made to the ID
-> while the CPU is in xAPIC mode survive the transition to x2APIC.  From the APM:
->
->   A value previously written by software to the 8-bit APIC_ID register (MMIO offset
->   30h) is converted by hardware into the appropriate format and reflected into the
->   32-bit x2APIC_ID register (MSR 802h).
->
-> FWIW, my observations from testing on bare metal are that the xAPIC ID is effectively
-> read-only (writes are dropped) on Intel CPUs as far back as Haswell, while the above
-> behavior described in the APM holds true on at least Rome and Milan.
->
-> My guess is that Intel's uArch specific behavior of the xAPIC ID being read-only
-> was introduced when x2APIC came along, but I didn't test farther back than Haswell.
+On Wed, Apr 19, 2023, Atish Patra wrote:
+> 2. Lazy gstage page allocation vs upfront allocation with page pool.
+> Currently, all gstage mappings happen at runtime during the fault. This is expensive
+> as we need to convert that page to confidential memory as well. A page pool framework
+> may be a better choice which can hold all the confidential pages which can be
+> pre-allocated upfront. A generic page pool infrastructure may benefit other CC solutions ?
 
-I'm not so worried about modern hardware. The horrorshow is the old muck
-as demonstrated and of course there is virt :)
+I'm sorry, what?  Do y'all really not pay any attention to what is happening
+outside of the RISC-V world?
 
-Something like the completely untested below should just work whatever
-APIC ID the BIOS decided to dice.
+We, where "we" is KVM x86 and ARM, with folks contributing from 5+ companines,
+have been working on this problem for going on three *years*.  And that's just
+from the first public posting[1], there have been discussions about how to approach
+this for even longer.  There have been multiple related presentations at KVM Forum,
+something like 4 or 5 just at KVM Forum 2022 alone.
 
-That might just work on SEV too without that GHCB muck, but what do I
-know.
+Patch 1 says "This patch is based on pkvm patches", so clearly you are at least
+aware that there is other work going on in this space.
 
-Thanks,
+At a very quick glance, this series is suffers from all of the same flaws that SNP,
+TDX, and pKVM have encountered.  E.g. assuming guest memory is backed by struct page
+memory, relying on pinning to solve all problems (hint, it doesn't), and so on and
+so forth.
 
-        tglx
----
---- a/arch/x86/include/asm/apicdef.h
-+++ b/arch/x86/include/asm/apicdef.h
-@@ -138,7 +138,8 @@
- #define		APIC_EILVT_MASKED	(1 << 16)
- 
- #define APIC_BASE (fix_to_virt(FIX_APIC_BASE))
--#define APIC_BASE_MSR	0x800
-+#define APIC_BASE_MSR		0x800
-+#define APIC_X2APIC_ID_MSR	0x802
- #define XAPIC_ENABLE	(1UL << 11)
- #define X2APIC_ENABLE	(1UL << 10)
- 
-@@ -162,6 +163,7 @@
- #define APIC_CPUID(apicid)	((apicid) & XAPIC_DEST_CPUS_MASK)
- #define NUM_APIC_CLUSTERS	((BAD_APICID + 1) >> XAPIC_DEST_CPUS_SHIFT)
- 
-+#ifndef __ASSEMBLY__
- /*
-  * the local APIC register structure, memory mapped. Not terribly well
-  * tested, but we might eventually use this one in the future - the
-@@ -435,4 +437,5 @@ enum apic_delivery_modes {
- 	APIC_DELIVERY_MODE_EXTINT	= 7,
- };
- 
-+#endif /* !__ASSEMBLY__ */
- #endif /* _ASM_X86_APICDEF_H */
---- a/arch/x86/include/asm/smp.h
-+++ b/arch/x86/include/asm/smp.h
-@@ -195,14 +195,13 @@ extern void nmi_selftest(void);
- #endif
- 
- extern unsigned int smpboot_control;
-+extern unsigned long apic_mmio_base;
- 
- #endif /* !__ASSEMBLY__ */
- 
- /* Control bits for startup_64 */
--#define STARTUP_APICID_CPUID_1F 0x80000000
--#define STARTUP_APICID_CPUID_0B 0x40000000
--#define STARTUP_APICID_CPUID_01 0x20000000
--#define STARTUP_APICID_SEV_ES	0x10000000
-+#define STARTUP_READ_APICID	0x80000000
-+#define STARTUP_APICID_SEV_ES	0x40000000
- 
- /* Top 8 bits are reserved for control */
- #define STARTUP_PARALLEL_MASK	0xFF000000
---- a/arch/x86/kernel/apic/apic.c
-+++ b/arch/x86/kernel/apic/apic.c
-@@ -101,6 +101,8 @@ static int apic_extnmi __ro_after_init =
-  */
- static bool virt_ext_dest_id __ro_after_init;
- 
-+unsigned long apic_mmio_base __ro_after_init;
-+
- /*
-  * Map cpu index to physical APIC ID
-  */
-@@ -2164,6 +2166,7 @@ void __init register_lapic_address(unsig
- 
- 	if (!x2apic_mode) {
- 		set_fixmap_nocache(FIX_APIC_BASE, address);
-+		apic_mmio_base = APIC_BASE;
- 		apic_printk(APIC_VERBOSE, "mapped APIC to %16lx (%16lx)\n",
- 			    APIC_BASE, address);
- 	}
---- a/arch/x86/kernel/head_64.S
-+++ b/arch/x86/kernel/head_64.S
-@@ -24,8 +24,10 @@
- #include "../entry/calling.h"
- #include <asm/export.h>
- #include <asm/nospec-branch.h>
-+#include <asm/apicdef.h>
- #include <asm/fixmap.h>
- #include <asm/smp.h>
-+
- #include <asm/sev-common.h>
- 
- /*
-@@ -237,37 +239,24 @@ SYM_INNER_LABEL(secondary_startup_64_no_
- 
- #ifdef CONFIG_SMP
- 	/*
--	 * For parallel boot, the APIC ID is retrieved from CPUID, and then
--	 * used to look up the CPU number.  For booting a single CPU, the
--	 * CPU number is encoded in smpboot_control.
-+	 * For parallel boot, the APIC ID is either retrieved the APIC or
-+	 * from CPUID, and then used to look up the CPU number.
-+	 * For booting a single CPU, the CPU number is encoded in
-+	 * smpboot_control.
- 	 *
--	 * Bit 31	STARTUP_APICID_CPUID_1F flag (use CPUID 0x1f)
--	 * Bit 30	STARTUP_APICID_CPUID_0B flag (use CPUID 0x0b)
--	 * Bit 29	STARTUP_APICID_CPUID_01 flag (use CPUID 0x01)
--	 * Bit 28	STARTUP_APICID_SEV_ES flag (CPUID 0x0b via GHCB MSR)
-+	 * Bit 31	STARTUP_APICID_READ (Read APICID from APIC)
-+	 * Bit 30	STARTUP_APICID_SEV_ES flag (CPUID 0x0b via GHCB MSR)
- 	 * Bit 0-23	CPU# if STARTUP_APICID_CPUID_xx flags are not set
- 	 */
- 	movl	smpboot_control(%rip), %ecx
-+	testl	$STARTUP_READ_APICID, %ecx
- #ifdef CONFIG_AMD_MEM_ENCRYPT
- 	testl	$STARTUP_APICID_SEV_ES, %ecx
- 	jnz	.Luse_sev_cpuid_0b
- #endif
--	testl	$STARTUP_APICID_CPUID_1F, %ecx
--	jnz	.Luse_cpuid_1f
--	testl	$STARTUP_APICID_CPUID_0B, %ecx
--	jnz	.Luse_cpuid_0b
--	testl	$STARTUP_APICID_CPUID_01, %ecx
--	jnz	.Luse_cpuid_01
- 	andl	$(~STARTUP_PARALLEL_MASK), %ecx
- 	jmp	.Lsetup_cpu
- 
--.Luse_cpuid_01:
--	mov	$0x01, %eax
--	cpuid
--	mov	%ebx, %edx
--	shr	$24, %edx
--	jmp	.Lsetup_AP
--
- #ifdef CONFIG_AMD_MEM_ENCRYPT
- .Luse_sev_cpuid_0b:
- 	/* Set the GHCB MSR to request CPUID 0x0B_EDX */
-@@ -292,24 +281,30 @@ SYM_INNER_LABEL(secondary_startup_64_no_
- 	jmp	.Lsetup_AP
- #endif
- 
--.Luse_cpuid_0b:
--	mov	$0x0B, %eax
--	xorl	%ecx, %ecx
--	cpuid
--	jmp	.Lsetup_AP
-+.Lread_apicid:
-+	mov	$MSR_IA32_APICBASE, %ecx
-+	rdmsr
-+	testl	$X2APIC_ENABLE, %eax
-+	jnz	read_apicid_msr
-+
-+	/* Read the APIC ID from the fix-mapped MMIO space. */
-+	movq	apic_mmio_base(%rip), %rcx
-+	addq	$APIC_ID, %rcx
-+	movl	(%rcx), %eax
-+	shr	$24, %eax
-+	jnz	.Lread_apicid
- 
--.Luse_cpuid_1f:
--	mov	$0x1f, %eax
--	xorl	%ecx, %ecx
--	cpuid
-+.Lread_apicid_msr:
-+	mov	$APIC_X2APIC_ID_MSR, %ecx
-+	rdmsr
- 
- .Lsetup_AP:
--	/* EDX contains the APIC ID of the current CPU */
-+	/* EAX contains the APIC ID of the current CPU */
- 	xorq	%rcx, %rcx
- 	leaq	cpuid_to_apicid(%rip), %rbx
- 
- .Lfind_cpunr:
--	cmpl	(%rbx,%rcx,4), %edx
-+	cmpl	(%rbx,%rcx,4), %eax
- 	jz	.Lsetup_cpu
- 	inc	%ecx
- #ifdef CONFIG_FORCE_NR_CPUS
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -1253,41 +1253,22 @@ bool __init arch_cpuhp_init_parallel_bri
- 		return false;
- 	}
- 
--	/* Encrypted guests require special CPUID handling. */
-+	/* Encrypted guests require special handling. */
- 	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
- 		switch (cc_get_vendor()) {
- 		case CC_VENDOR_AMD:
- 			ctrl = STARTUP_APICID_SEV_ES;
- 			if (topology_extended_leaf == 0x0b)
--				goto setup;
-+				break;
- 			fallthrough;
- 		default:
- 			pr_info("Parallel CPU startup disabled due to guest state encryption\n");
- 			return false;
- 		}
-+	} else {
-+		ctrl = STARTUP_READ_APICID;
- 	}
- 
--	switch (topology_extended_leaf) {
--	case 0x0b:
--		ctrl = STARTUP_APICID_CPUID_0B;
--		break;
--	case 0x1f:
--		ctrl = STARTUP_APICID_CPUID_1F;
--		break;
--	case 0x00:
--		/* For !x2APIC mode 8 bits from leaf 0x01 are sufficient. */
--		if (!x2apic_mode) {
--			ctrl = STARTUP_APICID_CPUID_01;
--			break;
--		}
--		fallthrough;
--	default:
--		pr_info("Parallel CPU startup disabled. Unsupported topology leaf %u\n",
--			topology_extended_leaf);
--		return false;
--	}
--
--setup:
- 	pr_debug("Parallel CPU startup enabled: 0x%08x\n", ctrl);
- 	smpboot_control = ctrl;
- 	return true;
+And to make things worse, this series is riddled with bugs.  E.g. patch 19 alone
+manages to squeeze in multiple fatal bugs in five new lines of code: deadlock due
+to not releasing mmap_lock on failure, failure to correcty handle MOVE, failure to
+handle DELETE at all, failure to honor (or reject) READONLY, and probably several
+others.
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 4b0f09e..63889d9 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -499,6 +499,11 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+
+        mmap_read_lock(current->mm);
+
++       if (is_cove_vm(kvm)) {
++               ret = kvm_riscv_cove_vm_add_memreg(kvm, base_gpa, size);
++               if (ret)
++                       return ret;
++       }
+        /*
+         * A memory region could potentially cover multiple VMAs, and
+         * any holes between them, so iterate over all of them to find
+
+I get that this is an RFC, but for a series of this size, operating in an area that
+is under heavy development by multiple other architectures, to have a diffstat that
+shows _zero_ changes to common KVM is simply unacceptable.
+
+Please, go look at restrictedmem[2] and work on building CoVE support on top of
+that.  If the current proposal doesn't fit CoVE's needs, then we need to know _before_
+all of that code gets merged.
+
+[1] https://lore.kernel.org/linux-mm/20200522125214.31348-1-kirill.shutemov@linux.intel.com
+[2] https://lkml.kernel.org/r/20221202061347.1070246-1-chao.p.peng%40linux.intel.com
+
+> arch/riscv/Kbuild                       |    2 +
+> arch/riscv/Kconfig                      |   27 +
+> arch/riscv/cove/Makefile                |    2 +
+> arch/riscv/cove/core.c                  |   40 +
+> arch/riscv/cove/cove_guest_sbi.c        |  109 +++
+> arch/riscv/include/asm/cove.h           |   27 +
+> arch/riscv/include/asm/covg_sbi.h       |   38 +
+> arch/riscv/include/asm/csr.h            |    2 +
+> arch/riscv/include/asm/kvm_cove.h       |  206 +++++
+> arch/riscv/include/asm/kvm_cove_sbi.h   |  101 +++
+> arch/riscv/include/asm/kvm_host.h       |   10 +-
+> arch/riscv/include/asm/kvm_vcpu_sbi.h   |    3 +
+> arch/riscv/include/asm/mem_encrypt.h    |   26 +
+> arch/riscv/include/asm/sbi.h            |  107 +++
+> arch/riscv/include/uapi/asm/kvm.h       |   17 +
+> arch/riscv/kernel/irq.c                 |   12 +
+> arch/riscv/kernel/setup.c               |    2 +
+> arch/riscv/kvm/Makefile                 |    1 +
+> arch/riscv/kvm/aia.c                    |  101 ++-
+> arch/riscv/kvm/aia_device.c             |   41 +-
+> arch/riscv/kvm/aia_imsic.c              |  127 ++-
+> arch/riscv/kvm/cove.c                   | 1005 +++++++++++++++++++++++
+> arch/riscv/kvm/cove_sbi.c               |  490 +++++++++++
+> arch/riscv/kvm/main.c                   |   30 +-
+> arch/riscv/kvm/mmu.c                    |   45 +-
+> arch/riscv/kvm/tlb.c                    |   11 +-
+> arch/riscv/kvm/vcpu.c                   |   69 +-
+> arch/riscv/kvm/vcpu_exit.c              |   34 +-
+> arch/riscv/kvm/vcpu_insn.c              |  115 ++-
+> arch/riscv/kvm/vcpu_sbi.c               |   16 +
+> arch/riscv/kvm/vcpu_sbi_covg.c          |  232 ++++++
+> arch/riscv/kvm/vcpu_timer.c             |   26 +-
+> arch/riscv/kvm/vm.c                     |   34 +-
+> arch/riscv/kvm/vmid.c                   |   17 +-
+> arch/riscv/mm/Makefile                  |    3 +
+> arch/riscv/mm/init.c                    |   17 +-
+> arch/riscv/mm/ioremap.c                 |   45 +
+> arch/riscv/mm/mem_encrypt.c             |   61 ++
+> drivers/tty/hvc/hvc_riscv_sbi.c         |    5 +
+> drivers/tty/serial/earlycon-riscv-sbi.c |   51 +-
+> include/uapi/linux/kvm.h                |    8 +
+> mm/vmalloc.c                            |   16 +
+> 42 files changed, 3222 insertions(+), 109 deletions(-)
+> create mode 100644 arch/riscv/cove/Makefile
+> create mode 100644 arch/riscv/cove/core.c
+> create mode 100644 arch/riscv/cove/cove_guest_sbi.c
+> create mode 100644 arch/riscv/include/asm/cove.h
+> create mode 100644 arch/riscv/include/asm/covg_sbi.h
+> create mode 100644 arch/riscv/include/asm/kvm_cove.h
+> create mode 100644 arch/riscv/include/asm/kvm_cove_sbi.h
+> create mode 100644 arch/riscv/include/asm/mem_encrypt.h
+> create mode 100644 arch/riscv/kvm/cove.c
+> create mode 100644 arch/riscv/kvm/cove_sbi.c
+> create mode 100644 arch/riscv/kvm/vcpu_sbi_covg.c
+> create mode 100644 arch/riscv/mm/ioremap.c
+> create mode 100644 arch/riscv/mm/mem_encrypt.c
+> 
+> --
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
