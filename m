@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37AC1C77B72
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 11:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A99C77B72
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 11:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wZe6e0NDYbUQC29sxdlHDoWTZYC19eS8MdLmai4cA5I=; b=N/SDQrJXYTpx5W
-	wWMlqpB+Mc3cA/E9XNe6wSDbDtuUB8njNc1IIqyR1WgQ8/Kd4N1rVVh3WdsmOW5Zna92x3QEa6JoN
-	vkx9+OJsJhAiRNIrrFS4cZM3oUhCIcHq2EKw9gN2rQW5gjrPnzOJVYl4Gq+Pb+p10HY5lJwlc1q2b
-	gTWUYfH+zY2GFk/u1M2u+sjCzA6E03gl4gfVTp+heMYM6kfn/caYsoIQdxCQsiNWyvT6hT24GPr3Y
-	i0n/rhXe9evSLZGWvCwLTfFSEfsKGifzCJlAgueSJ6MG085cG+52mwYx0mgAqLNqJv5tO0INilJyL
-	XVcR6qwB6uT1b27WRwjQ==;
+	List-Owner; bh=xvMGnAZJ1NAj0elp/jafDt48Zu9iQXtcnqEpI6UkBCw=; b=e/HPwujnifd8LI
+	e2xqzB3EMZy5CFyYPaTZ+YrJ53bHWbxffMBHmJN84QdQI50LWMePJg7nFKFMrBZDCbbRrbM5g2acI
+	3aUnCyK7XQv21TerI7VkRVObPddcOw6EKNz9ecGUVoLHuolQaMtpnDIwL1LWrStvjzO1bYP3/j0bj
+	HLPCyoE6O+QDVsoa/a4xaZwMcuJvq0zhgeGEABHl0D7gJ61f1bV30s7WevnkX/BVc56if1v1mugJL
+	B01orDAOGLJOWUEFSVydhENo+n+blf8Dq047tTW4tObWeItCJ20k9h/2oNJvUT/+y7KLDJP8RCfmt
+	+6ptAguxVMNyPd/8eeYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppS2y-007sB0-0g;
-	Thu, 20 Apr 2023 11:01:52 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppS2s-007rvo-0i;
-	Thu, 20 Apr 2023 11:01:48 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 04B3F24E2A7;
-	Thu, 20 Apr 2023 19:00:58 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Apr
- 2023 19:00:58 +0800
-Received: from ubuntu.localdomain (113.72.144.253) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Apr
- 2023 19:00:56 +0800
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
-	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
-	<kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Chen
-	<peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Minda Chen" <minda.chen@starfivetech.com>, Mason Huo
-	<mason.huo@starfivetech.com>
-Subject: [PATCH v5 4/7] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
-Date: Thu, 20 Apr 2023 19:00:49 +0800
-Message-ID: <20230420110052.3182-5-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230420110052.3182-1-minda.chen@starfivetech.com>
-References: <20230420110052.3182-1-minda.chen@starfivetech.com>
+	id 1ppSIU-007uoD-1F;
+	Thu, 20 Apr 2023 11:17:54 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1ppSIQ-007umF-1R;
+	Thu, 20 Apr 2023 11:17:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1681989462;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t5XqcHn966UpzdXXi00/lSAzdYJUEVQOjSwT6u3WS8Y=;
+	b=pAb6n5DzMyj9cPuaDVh1nEa4eMPTGWjlabRanF0gKYgC9Dt16bSxIF65k8A6Phxdd7b+m1
+	8rtjGcomkGZGHPfqi5gCMDsNgIxkIz7fE3iWI1yVPEr7CzAxuLO52VMUjueL9yA1cignQ0
+	2aZBXvrGK95/A3SZLIzR4CO2Gt6BjAJeGZFwZ0r5DeQJZY9f+42NHleeHSDTjxF+sNMncp
+	Pj8zsu3xSjO1U4uiCaq79l7sMSO/XzBLws+gTsKxCyOwMVcTz52DRxt/Fl9qBPDScBZpAE
+	EzRwxWNG9FQP9wQGTFVsN5ZBm94BxGBjsCTcRwuXnpgNipezItO8FzlRvwCjfQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1681989462;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t5XqcHn966UpzdXXi00/lSAzdYJUEVQOjSwT6u3WS8Y=;
+	b=K7n7gkxobQSbdvGZErkz25VRgfZFGdff1cfdZxrOPRjWpL/QdasoOCujc47S1yFH9hOfDu
+	jdhNH58O+gxzlPDw==
+To: Andrew Cooper <andrew.cooper3@citrix.com>, Paul Menzel
+ <pmenzel@molgen.mpg.de>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Brian Gerst <brgerst@gmail.com>, Arjan van de Veen
+ <arjan@linux.intel.com>, Paolo Bonzini <pbonzini@redhat.com>, Paul
+ McKenney <paulmck@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>,
+ Sean Christopherson <seanjc@google.com>, Oleksandr Natalenko
+ <oleksandr@natalenko.name>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Piotr Gorski <lucjan.lucjanov@gmail.com>, David Woodhouse
+ <dwmw@amazon.co.uk>, Usama Arif <usama.arif@bytedance.com>,
+ =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?=
+ <jgross@suse.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ xen-devel@lists.xenproject.org, Russell King <linux@armlinux.org.uk>, Arnd
+ Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E. J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
+In-Reply-To: <26d385da-2ede-5d73-2959-84c8f7d89e03@citrix.com>
+References: <20230414225551.858160935@linutronix.de>
+ <8247ce4d-15b7-03b2-0c9b-74f8cd6cad50@molgen.mpg.de> <87wn2a4la5.ffs@tglx>
+ <bd5a6a93-def1-9248-2258-c3d3b40071ef@molgen.mpg.de> <87ttxd4qxz.ffs@tglx>
+ <87r0sh4m7a.ffs@tglx> <8592a301-9933-1cad-bd61-8d97e7c7493b@molgen.mpg.de>
+ <87a5z443g2.ffs@tglx> <877cu83v45.ffs@tglx> <874jpc3s3r.ffs@tglx>
+ <0f5463fd-9c4a-6361-adbb-dd89dbb9138d@citrix.com>
+ <c2aaa4fb-a5ba-d5bf-634a-dcf4fd8ad246@citrix.com> <871qkf3qek.ffs@tglx>
+ <26d385da-2ede-5d73-2959-84c8f7d89e03@citrix.com>
+Date: Thu, 20 Apr 2023 13:17:40 +0200
+Message-ID: <87y1mm3iqz.ffs@tglx>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.144.253]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_040146_579094_CD902795 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20230420_041750_648114_B722A9A1 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,286 +97,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Starfive JH7110 SoC PCIe 2.0 PHY driver support.
-PCIe 2.0 PHY default connect to PCIe controller.
-But pcie0 PHY can connect to USB 3.0 controlller.
-
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
----
- MAINTAINERS                            |   4 +-
- drivers/phy/starfive/Kconfig           |  11 ++
- drivers/phy/starfive/Makefile          |   1 +
- drivers/phy/starfive/phy-jh7110-pcie.c | 202 +++++++++++++++++++++++++
- 4 files changed, 217 insertions(+), 1 deletion(-)
- create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c09ea66dcd5a..8e0f755ba91b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19968,10 +19968,12 @@ M:	William Qiu <william.qiu@starfivetech.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
- 
--STARFIVE JH71X0 USB PHY DRIVER
-+STARFIVE JH71X0 PCIE AND USB PHY DRIVER
- M:	Minda Chen <minda.chen@starfivetech.com>
- S:	Supported
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
- F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
-+F:	drivers/phy/starfive/phy-jh7110-pcie.c
- F:	drivers/phy/starfive/phy-jh7110-usb.c
- 
- STATIC BRANCH/CALL
-diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
-index 2c013c390dee..c21c21d284a6 100644
---- a/drivers/phy/starfive/Kconfig
-+++ b/drivers/phy/starfive/Kconfig
-@@ -12,6 +12,17 @@ config PHY_STARFIVE_DPHY_RX
- 	  system. If M is selected, the module will be called
- 	  phy-starfive-dphy-rx.
- 
-+config PHY_STARFIVE_JH7110_PCIE
-+	tristate "Starfive JH7110 PCIE 2.0/USB 3.0 PHY support"
-+	depends on USB_SUPPORT
-+	select GENERIC_PHY
-+	select USB_PHY
-+	help
-+	  Enable this to support the StarFive PCIe 2.0 PHY,
-+	  or used as USB 3.0 PHY.
-+	  If M is selected, the module will be called
-+	  phy-jh7110-pcie.ko.
-+
- config PHY_STARFIVE_JH7110_USB
- 	tristate "Starfive JH7110 USB 2.0 PHY support"
- 	depends on USB_SUPPORT
-diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
-index 176443852f4d..03a55aad53a2 100644
---- a/drivers/phy/starfive/Makefile
-+++ b/drivers/phy/starfive/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_PHY_STARFIVE_DPHY_RX)      += phy-starfive-dphy-rx.o
-+obj-$(CONFIG_PHY_STARFIVE_JH7110_PCIE)	+= phy-jh7110-pcie.o
- obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
-diff --git a/drivers/phy/starfive/phy-jh7110-pcie.c b/drivers/phy/starfive/phy-jh7110-pcie.c
-new file mode 100644
-index 000000000000..fe029daef62e
---- /dev/null
-+++ b/drivers/phy/starfive/phy-jh7110-pcie.c
-@@ -0,0 +1,202 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * StarFive JH7110 PCIe 2.0 PHY driver
-+ *
-+ * Copyright (C) 2023 StarFive Technology Co., Ltd.
-+ * Author: Minda Chen <minda.chen@starfivetech.com>
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define PCIE_KVCO_LEVEL_OFF		(0x28)
-+#define PCIE_USB3_PHY_PLL_CTL_OFF	(0x7c)
-+#define PCIE_KVCO_TUNE_SIGNAL_OFF	(0x80)
-+#define PCIE_USB3_PHY_ENABLE		BIT(4)
-+#define PHY_KVCO_FINE_TUNE_LEVEL	0x91
-+#define PHY_KVCO_FINE_TUNE_SIGNALS	0xc
-+
-+#define USB_PDRSTN_SPLIT		BIT(17)
-+
-+#define PCIE_PHY_MODE			BIT(20)
-+#define PCIE_PHY_MODE_MASK		GENMASK(21, 20)
-+#define PCIE_USB3_BUS_WIDTH_MASK	GENMASK(3, 2)
-+#define PCIE_USB3_RATE_MASK		GENMASK(6, 5)
-+#define PCIE_USB3_RX_STANDBY_MASK	BIT(7)
-+#define PCIE_USB3_PHY_ENABLE		BIT(4)
-+
-+struct jh7110_pcie_phy {
-+	struct phy *phy;
-+	struct regmap *stg_syscon;
-+	struct regmap *sys_syscon;
-+	void __iomem *regs;
-+	u32 sys_phy_connect;
-+	u32 stg_pcie_mode;
-+	u32 stg_pcie_usb;
-+	enum phy_mode mode;
-+};
-+
-+static int jh7110_usb3_mode_set(struct jh7110_pcie_phy *data)
-+{
-+	if (!data->stg_syscon || !data->sys_syscon) {
-+		dev_info(&data->phy->dev, "don't support usb3 mode\n");
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_mode,
-+			   PCIE_PHY_MODE_MASK, PCIE_PHY_MODE);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+			   PCIE_USB3_BUS_WIDTH_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+			   PCIE_USB3_RATE_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+			   PCIE_USB3_RX_STANDBY_MASK, 0);
-+	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-+			   PCIE_USB3_PHY_ENABLE, PCIE_USB3_PHY_ENABLE);
-+
-+	/* Connect usb 3.0 phy mode */
-+	regmap_update_bits(data->sys_syscon, data->sys_phy_connect,
-+			   USB_PDRSTN_SPLIT, 0);
-+
-+	/* Configuare spread-spectrum mode: down-spread-spectrum */
-+	writel(PCIE_USB3_PHY_ENABLE, data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
-+
-+	return 0;
-+}
-+
-+static void jh7110_pcie_mode_set(struct jh7110_pcie_phy *phy)
-+{
-+	/* PCIe Multi-PHY PLL KVCO Gain fine tune settings: */
-+	writel(PHY_KVCO_FINE_TUNE_LEVEL, phy->regs + PCIE_KVCO_LEVEL_OFF);
-+	writel(PHY_KVCO_FINE_TUNE_SIGNALS, phy->regs + PCIE_KVCO_TUNE_SIGNAL_OFF);
-+}
-+
-+static int jh7110_pcie_phy_set_mode(struct phy *_phy,
-+				    enum phy_mode mode, int submode)
-+{
-+	struct jh7110_pcie_phy *phy = phy_get_drvdata(_phy);
-+	int ret;
-+
-+	if (mode == phy->mode)
-+		return 0;
-+
-+	switch (mode) {
-+	case PHY_MODE_USB_HOST:
-+	case PHY_MODE_USB_DEVICE:
-+	case PHY_MODE_USB_OTG:
-+		ret = jh7110_usb3_mode_set(phy);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PHY_MODE_PCIE:
-+		jh7110_pcie_mode_set(phy);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	dev_info(&_phy->dev, "Changing phy mode to %d\n", mode);
-+	phy->mode = mode;
-+
-+	return 0;
-+}
-+
-+static int jh7110_pcie_phy_init(struct phy *_phy)
-+{
-+	return 0;
-+}
-+
-+static int jh7110_pcie_phy_exit(struct phy *_phy)
-+{
-+	return 0;
-+}
-+
-+static const struct phy_ops jh7110_pcie_phy_ops = {
-+	.init		= jh7110_pcie_phy_init,
-+	.exit		= jh7110_pcie_phy_exit,
-+	.set_mode	= jh7110_pcie_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int jh7110_pcie_phy_probe(struct platform_device *pdev)
-+{
-+	struct jh7110_pcie_phy *phy;
-+	struct device *dev = &pdev->dev;
-+	struct phy_provider *phy_provider;
-+	u32 args[2];
-+
-+	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
-+	if (!phy)
-+		return -ENOMEM;
-+
-+	phy->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(phy->regs))
-+		return PTR_ERR(phy->regs);
-+
-+	phy->phy = devm_phy_create(dev, NULL, &jh7110_pcie_phy_ops);
-+	if (IS_ERR(phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(phy->regs),
-+			"Failed to map phy base\n");
-+
-+	phy->sys_syscon =
-+		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+						     "starfive,sys-syscon",
-+						     1, args);
-+
-+	if (!IS_ERR_OR_NULL(phy->sys_syscon))
-+		phy->sys_phy_connect = args[0];
-+	else
-+		phy->sys_syscon = NULL;
-+
-+	phy->stg_syscon =
-+		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+						     "starfive,stg-syscon",
-+						     2, args);
-+
-+	if (!IS_ERR_OR_NULL(phy->stg_syscon)) {
-+		phy->stg_pcie_mode = args[0];
-+		phy->stg_pcie_usb = args[1];
-+	} else {
-+		phy->stg_syscon = NULL;
-+	}
-+
-+	platform_set_drvdata(pdev, phy);
-+	phy_set_drvdata(phy->phy, phy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static int jh7110_pcie_phy_remove(struct platform_device *pdev)
-+{
-+	platform_set_drvdata(pdev, NULL);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id jh7110_pcie_phy_of_match[] = {
-+	{ .compatible = "starfive,jh7110-pcie-phy" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_pcie_phy_of_match);
-+
-+static struct platform_driver jh7110_pcie_phy_driver = {
-+	.probe	= jh7110_pcie_phy_probe,
-+	.remove	= jh7110_pcie_phy_remove,
-+	.driver = {
-+		.of_match_table	= jh7110_pcie_phy_of_match,
-+		.name  = "jh7110-pcie-phy",
-+	}
-+};
-+module_platform_driver(jh7110_pcie_phy_driver);
-+
-+MODULE_DESCRIPTION("StarFive JH7110 PCIe 2.0 PHY driver");
-+MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMjAgMjAyMyBhdCAxMDoyMywgQW5kcmV3IENvb3BlciB3cm90ZToKPiBPbiAy
+MC8wNC8yMDIzIDk6MzIgYW0sIFRob21hcyBHbGVpeG5lciB3cm90ZToKPj4gSSdtIHBvbmRlcmlu
+ZyB0byBzaW1wbHkgZGVueSBwYXJhbGxlbCBtb2RlIGlmIHgyQVBJQyBpcyBub3QgdGhlcmUuCj4K
+PiBJJ20gbm90IHN1cmUgaWYgdGhhdCB3aWxsIGhlbHAgbXVjaC4KClNwb2lsc3BvcnQuCgo+IEp1
+c3QgYmVjYXVzZSB4MkFQSUMgaXMgdGhlcmUgZG9lc24ndCBtZWFuIGl0J3MgaW4gdXNlLsKgIFRo
+ZXJlIGFyZQo+IHNldmVyYWwgZ2VuZXJhdGlvbnMgb2YgSW50ZWwgc3lzdGVtIHdoaWNoIGhhdmUg
+eDJBUElDIGJ1dCBhbHNvIHVzZSB0aGUKPiBvcHQtb3V0IGJpdCBpbiBBQ1BJIHRhYmxlcy7CoCBU
+aGVyZSBhcmUgc29tZSBtYWNoaW5lcyB3aGljaCBoYXZlCj4gbWlzbWF0Y2hlZCBBUElDLW5lc3Mg
+c2V0dGluZ3MgaW4gdGhlIEJJT1MtPk9TIGhhbmRvdmVyLgo+Cj4gVGhlcmUncyB2ZXJ5IGxpdHRs
+ZSB5b3UgY2FuIGRvIG9uIHRoZSBCU1AgYWxvbmUgdG8ga25vdyBmb3IgY2VydGFpbiB0aGF0Cj4g
+dGhlIEFQcyBjb21lIG91dCBvZiB3YWl0LWZvci1TSVBJIGFscmVhZHkgaW4geDJBUElDIG1vZGUu
+CgpZZWFoLiBSZWFkaW5nIHRoZSBBUElDIHRoYXQgZWFybHkgaXMgZ29pbmcgdG8gYmUgZW50ZXJ0
+YWluaW5nIHRvbyA6KQoKPiBPbmUgd2F5IGlzIHRoZSDDhlBJQyBMZWFrICJsb2NrZWQgaW50byB4
+MkFQSUMgbW9kZSIgZ2lhbnQgc2VjdXJpdHkKPiBib2RnZS7CoAoKQmFoLgoKPiBJZiB0aGUgc3lz
+dGVtIHJlYWxseSBkb2VzIGhhdmUgYSBDUFUgd2l0aCBhbiBBUElDIElEIGFib3ZlIDB4ZmUsIHRo
+ZW4KPiBjaGFuY2VzIGFyZSBnb29kIHRoYXQgdGhlIEFQcyBjb21lIG91dCBjb25zaXN0ZW50bHku
+Li4KCkFueXRoaW5nIGVsc2Ugd291bGQgYmUgcmVhbGx5IG1hZ2ljIDopCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
