@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0660C77B73
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 17:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E20C77B72
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 18:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MpalCqKLeI5j8qjy79NrtUwPHAAG2w6/EJtYgxGnQmA=; b=fxfWQirNaIV9AN
-	LcOMXRqJexPfWSMvoaayQ/HfsvHqwZFPOzFT/HcA8T7SKbMM1ac4l/e0j6RnCPBFh+tn4ySyEYMe7
-	MzFCMmkSNRkPUq/8UrERcGcR3D1ugW3EbKRSZm3cPX+YZmL9szV1RVGqInG1HCY8QXcS5JiCHu45g
-	PZgAccckYuz4MwTjbkyDcuNVmyVlQJ/qqR+0kEmZk5qA2mP1lbf3JTdSRUPcVsnAUS0rZxsackxl/
-	Xi+gV+OgnmbyWtuN8lVIETGNJ6yp617ZmeXNreTMPd/Pls1lCofKzbB35clPejp//UxiEXfg6poF8
-	ZlNeWdxAtft3zCIgc86Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F25lXPqP5gZIQPuePUiXnLb3lAyM1SQ6C4LyR4LBsNs=; b=d1nc70LctD8nc+
+	y6V+Yfcl0io/6z57VxKdPJt3Nv7rIpkr+cGok/P7tdxXPkNLyLwOauE3XXqJB6oKvLGTUjICdPZ8j
+	ptJ2XWCS3KN2atYpeVot+lj/WVewP5+OVdaqQkpa+V/2CL7tPjYc0QncxxADnvQe+fvs/p2LXeFQl
+	o1B3+hj9wXD+DhIevjA9gNCJ+TSW02P79d4KfGJMlqJJjD7y6k2O4j6cLCGX+OsrQzpW4DHreyORT
+	JP9MHHEVyQzu7wCgbymtwCSUXOYY3zJmi+P7LTCPOjwR8fWAwSJvDf5tRsIvIJGddu39uGqFP8qiJ
+	dt7FJIhZNLUuRsKM8xSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppYGh-008fA8-2T;
-	Thu, 20 Apr 2023 17:40:27 +0000
+	id 1ppZ3M-008jgd-1z;
+	Thu, 20 Apr 2023 18:30:44 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppYGe-008f8R-33
+	id 1ppZ3J-008jgC-38
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Apr 2023 17:40:26 +0000
+	Thu, 20 Apr 2023 18:30:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 97FC464A38;
-	Thu, 20 Apr 2023 17:40:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0229BC4339C;
-	Thu, 20 Apr 2023 17:40:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E117364856;
+	Thu, 20 Apr 2023 18:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD81DC433D2;
+	Thu, 20 Apr 2023 18:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682012422;
-	bh=g0ksG6nfP361Le8p/mc0obDjhA3uxSOnBqsqKl8TFic=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=H+O4QULsjgMwJYS6AYt1YJg55l10HlZgTvndw5KVKTuHyJgzu/k33R4yXrFpPO5B9
-	 GxOXfy/0sGByAnoopEwTaHdyugG7tdLJMiI64YuL7/C/AcStOmZOLGEBwcwQbgC9BV
-	 WY9lGxTse50ZgmDnlyef44MrIqjCSNmDbbdusf88T5rRUGATui1MKMc4xgYOIxFTP3
-	 g57+yZiDB6UNrjaNfMs9PR9RpM66Fl6Ijx0pOKQQNFkM5HrCn7xqDZ3i1GspQUkMhz
-	 qpYUrNgVFdbMyKUWVpQjfBYys27G1Y0KPgww9V6AaUOueLFmgChE7RYkqF8nwYECZd
-	 I6BH3IxR3oTSw==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id DD154C395C8;
-	Thu, 20 Apr 2023 17:40:21 +0000 (UTC)
+	s=k20201202; t=1682015440;
+	bh=HO4Zl8j62lMdr5HPcHD4MUspdzCrF3HR0sO76PtJlis=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HqFucfiB+V+/k0m6GN9TSu/c8P+RTooSLbS80r7mgtUD9tri7Lu7BF5WW8QOCvOmC
+	 TYzU+JIML6FHQmeHQ5WPu1cU9k1lUBLguDc5xeW7XHxHfav5wpS/p7DkZrW1yjTkrV
+	 LWY3IsFhQZDtP1RyDwvrbnFUbCCkvf7ipG38V5x6gjAXciJIwOreU0kNWgrbcduNkw
+	 q9vyCkU8wi5XCXpYhNPLtPWXolxhF2SfRjv0xJsyvY01C+3Z3VQgDFBu/5kCH1J2Lz
+	 /QKdtivyX1i8ADL0dm0ivG0v6jiq6qWGDUwHEAZ2RxGQnLIqP0Y3C54hSyGc9iRFyE
+	 UPTD7ighzpBZQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH v1] RISC-V: include cpufeature.h in cpufeature.c
+Date: Thu, 20 Apr 2023 19:30:16 +0100
+Message-Id: <20230420-wound-gizzard-2b2b589d9bea@spud>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Subject: Re: [PATCH v9 0/1] riscv: Allow to downgrade paging mode from the command
- line
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <168201242189.9373.3633169603042394509.git-patchwork-notify@kernel.org>
-Date: Thu, 20 Apr 2023 17:40:21 +0000
-References: <20230329050951.66085-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230329050951.66085-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org, ardb@kernel.org,
- bjorn@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1136; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Bh0Xzm3DmDh1pSFXOkDywHZt14tDUNFaKMKI/7tIwGo=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmOLYvX/T5ubll7suX7r1WW5s0ekZMy/sk6T/zsumPa8 p2m/y5FdpSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiHFsZ/pds735W3CfnkHMi gG+K0L3QSczqjpbitibmGux7s4vPf2RkuGBvejhXNke8U7hIcKbbzqpP1921et5ONc+1uvfnybw 8PgA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_104025_020441_952A7791 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20230420_113042_073806_FD87E765 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +77,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: Conor Dooley <conor.dooley@microchip.com>
 
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+Automation complains:
+warning: symbol '__pcpu_scope_misaligned_access_speed' was not declared. Should it be static?
 
-On Wed, 29 Mar 2023 07:09:50 +0200 you wrote:
-> This new version gets rid of the limitation that prevented KASAN kernels
-> to use the newly introduced parameters.
-> 
-> While looking into KASLR, I fell onto commit aacd149b6238 ("arm64: head:
-> avoid relocating the kernel twice for KASLR"): it allows to use the fdt
-> functions very early in the boot process with KASAN enabled by simply
-> compiling a new version of those functions without instrumentation.
-> 
-> [...]
+cpufeature.c doesn't actually include the header of the same name, as it
+had not previously used anything from it.
+The per-cpu variable is declared there, so include it to silence the
+complaints.
 
-Here is the summary with links:
-  - [v9,1/1] riscv: Allow to downgrade paging mode from the command line
-    https://git.kernel.org/riscv/c/c070bcfdb2fa
+Fixes: 62a31d6e38bd ("RISC-V: hwprobe: Support probing of misaligned access performance")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Evan Green <evan@rivosinc.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: linux-riscv@lists.infradead.org
+---
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-You are awesome, thank you!
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 52585e088873..00f9f57a8566 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -14,6 +14,7 @@
+ #include <linux/of.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
++#include <asm/cpufeature.h>
+ #include <asm/hwcap.h>
+ #include <asm/patch.h>
+ #include <asm/processor.h>
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.39.2
 
 
 _______________________________________________
