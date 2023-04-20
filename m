@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D78C77B72
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 09:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D71C77B73
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Apr 2023 09:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zEURv3PfBqm0T0grI2axm7x0I09lGmniqRa4dJVx5S4=; b=3G1MsNQ4f/qQXD
-	C1mSelEId9mR5JyOhD+eu2/fwo/QDSus4jCfELBvW0T/WcntQuolRzmv1Wsrqak7IjXslA90I6KER
-	Bu+i/gNi03OcxqdAffrUEpkcs2UMtH5vg9k4Kz9/9XmTQ86ag6JZNVmT1SUAB5tSe3ICV0S782DQR
-	Z9ZyWjCJd9+aSNgmDzmfpgU2cocWEwjKeosRUdydt0xvPNyQbT8DsSpwtxi4j8TEftdy2Fx+TtkHe
-	Mxjv2ccxuQ6DJgHgmF8/NklfeMlefrVOAEWFb6RxxHl9kSd6NHLi+HzazVIFKl12IFEGGbd/7spzO
-	wIox1rr8/fX2Hhs2sJOA==;
+	List-Owner; bh=7epVNFHhl9O86TnhNPCMECj7T7W/KQzuuQ0maWLhPIM=; b=elRrQA0YY6xzhJ
+	S5So4ki4t5GKhEEXcyFm8NGrT+BD40iE+UUYIoirkaEFe/LHP9XWppwWt1lOHdUORIxsaUZMnphfe
+	QS61tAYzNOwO3Pjmt7afZPgA85DiW4so8UO/8ur5xWBcrIIErCkislfTEPaNWWtSPQmjtcAiHy2WR
+	JQglJW8g2o01QWkmNKh2kjXdSBuPffT2DwepR3202U9zwbNd2y0z6/erSwRZdEnTZFIb4Hll1o5W/
+	msUeeIjjuXgZQ9DyWhi00dBX5/soe3SlCs6d5ESum03HyPvU7tDzd0zV5ro4A6mjc8Ob2ExMTgrk2
+	I0aU2Ubxa4J59S1JPwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppQh6-007Y1m-0r;
-	Thu, 20 Apr 2023 09:35:12 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1ppQhE-007Y3M-0B;
+	Thu, 20 Apr 2023 09:35:20 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppQh3-007Y0u-1D
+	id 1ppQhA-007Y2C-2i
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Apr 2023 09:35:10 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-63b52ad6311so1038548b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Apr 2023 02:35:09 -0700 (PDT)
+	Thu, 20 Apr 2023 09:35:18 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-517bdd9957dso588669a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Apr 2023 02:35:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1681983309; x=1684575309;
+        d=sifive.com; s=google; t=1681983314; x=1684575314;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IHPuRLA5WWcEQWx1cI3sgBTHdUDt8lS20i2hj6DWJQM=;
-        b=I0GuHV+xeH4hhf9jmjGqJqjMpaB3h4iLZtZOerQDLrCVSiopbDOjRVrVZZ5dsbzGmN
-         sLotILAXSjHXXK3WU9LkaXmo8tzCu6nBCZDoDoQlmWh4adXl0ZgSaPoW07ydRmJyTk36
-         VtGBYQDDtrg0iO8/PeRl1i5eT8yknBGSmWcpX+mcYa0y78oQIKV2R4pVlHqI2nMd82zH
-         BzVGp3v3p3ZviovrlTw1GMuT3PSZNishGIDWkXXmXMEowKlTothFnR7Qf8nO+WcHGcoX
-         WGaDp7SwmktKS614Oz10TiFpoVJ3VTfiH5rK0/QOGs/BZshnFPYsWY6AJf6Db+o6mkaQ
-         0Yhg==
+        bh=Ryva+FQmb09SgOiCE7P4pQBiT6BdeSdh3y4Qn91oZ9M=;
+        b=d4ER6huQjMtUV4wHdMb9ME9KpU3d2FGtvqsgiDTUlUyLvDePcXJ0PKh98S6NEnsa2G
+         XpQA1rCPbkz2/bCmmRIw/iKSY7Jc/iG598aSV3OIGqyeUx4IBcGUZKtO4vIBwSqT9r0P
+         p5FSKMM0VYyfyGjMat2EmIyNNAimvy6yE8WNCYrKGxEhDc/YAWf+Pc70ybdNvL8zO+JA
+         QpNju3Pf0hJEFC4gFdxrSa9X6mz6r/WWX5OMVqulCgrYK2qAWDlWa525eBQUcoKAVN9a
+         K70k1rCm/C/aU30qmXDSBl7EG/LeuOhixKwJILpFQprjgRGLNArBduUmQD/Zx6K1YSUy
+         l2Eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681983309; x=1684575309;
+        d=1e100.net; s=20221208; t=1681983314; x=1684575314;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IHPuRLA5WWcEQWx1cI3sgBTHdUDt8lS20i2hj6DWJQM=;
-        b=LX14wrqgfmgwa2sV2ThdVKJwymLw95ZWYVmmnvTUPhZx4lO6wcZ1HtPR92YFdlQ+0Y
-         e3Sskn9GU9r7vMDpQiEx9LHEetPCLE/7QJLvvGfGEEQJHj1dqhc8IMQ0gYsZZGjB27U2
-         O0wVmZT6a6MK7i9oiaEQH27rGpv5toOEidBMLLxYq0K5cpH9lOFKUpZb6ESLXtbLtKxu
-         7K+iJnZ+z9WYRdMApGpWCU4ig2lznOusosHjpoZdTfj5Lvh5igSKigM8jH1waWY3M8wh
-         ASsAwtU5EYsVxZ2NAQmwJl0jcRiDednmFcX/yAUaskJHFk5c0+PPa+vHItpMxPE34xPh
-         GymQ==
-X-Gm-Message-State: AAQBX9ddPFlitPetiofhCKF8bY4dVeKaDrTcw7cfi10Qcr14RvhLr9cJ
-	YRz0wb42HnXLCLb9MgtQscoBlw==
-X-Google-Smtp-Source: AKy350abeBDWDHJdXZTQE7s0QOikL+2ciqc/t7yvCQxyX1OhaD11p0xvKBUUC0LwfASK7s01JPRGQA==
-X-Received: by 2002:a05:6a20:a59a:b0:f0:1255:781b with SMTP id bc26-20020a056a20a59a00b000f01255781bmr1511257pzb.29.1681983308729;
-        Thu, 20 Apr 2023 02:35:08 -0700 (PDT)
+        bh=Ryva+FQmb09SgOiCE7P4pQBiT6BdeSdh3y4Qn91oZ9M=;
+        b=gPdvYiyJpbJXovgtXzRNLK6qsRTSInt9KDY/IajlJBVEMaVlfm/QzoM3gOELXvayX5
+         fqKynwcL4GxzqX/32PkbZAEGhm9f3yYpwA9+2WCtEcm7K5zhIlb6vcaYHOx7heQT1Hn8
+         3wqmBV51skGAcgbsT07B/7LDAPPlNk52PJ1ZVTJfojRHlaVDQvRBMjrK/f50ONIMfhmG
+         4mEfeDiolwn65Vudw0ST5M03QvKkax5GZxplFojzBh+s7goyhcZWg/ZiVN8oCHHFliRy
+         fcXTkHlCOOyJNbyv/tPFKL1BplaIf1Por2+yxLYSbsuJqAr98i3hOkWA9lowkdCpxNRC
+         lX/w==
+X-Gm-Message-State: AAQBX9ec8i6f61HoL9qWC4XS350xKjeDg2NT5a0dZRaw7RAq+amxUuKq
+	HoF//ndU5/POvAcF4z2NhPEUwQ==
+X-Google-Smtp-Source: AKy350br6fKdRCr0Nj4YKMv9Nvtjoq+VqjzrOMC15lETcCmUtAqFU5evu54VS9v+FLXPiour7tCHKQ==
+X-Received: by 2002:a17:90b:10c:b0:23f:9fac:6b35 with SMTP id p12-20020a17090b010c00b0023f9fac6b35mr1017558pjz.39.1681983313820;
+        Thu, 20 Apr 2023 02:35:13 -0700 (PDT)
 Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id p5-20020a63c145000000b0051ba9d772f9sm781551pgi.59.2023.04.20.02.35.05
+        by smtp.gmail.com with ESMTPSA id p5-20020a63c145000000b0051ba9d772f9sm781551pgi.59.2023.04.20.02.35.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Apr 2023 02:35:08 -0700 (PDT)
+        Thu, 20 Apr 2023 02:35:13 -0700 (PDT)
 From: Nylon Chen <nylon.chen@sifive.com>
 To: aou@eecs.berkeley.edu,
 	conor@kernel.org,
@@ -84,17 +84,16 @@ Cc: nylon.chen@sifive.com,
 	greentime.hu@sifive.com,
 	vincent.chen@sifive.com,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 1/2] riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's active-low properties
-Date: Thu, 20 Apr 2023 17:34:56 +0800
-Message-Id: <20230420093457.18936-2-nylon.chen@sifive.com>
+Subject: [PATCH v3 2/2] pwm: sifive: change the PWM controlled LED algorithm
+Date: Thu, 20 Apr 2023 17:34:57 +0800
+Message-Id: <20230420093457.18936-3-nylon.chen@sifive.com>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230420093457.18936-1-nylon.chen@sifive.com>
 References: <20230420093457.18936-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_023509_416020_49A3ECF5 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230420_023516_883700_029503F9 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,91 +110,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This removes the active-low properties of the PWM-controlled LEDs in
-the HiFive Unmatched device tree.
+The `frac` variable represents the pulse inactive time, and the result of
+this algorithm is the pulse active time. Therefore, we must reverse the
+result.
 
-The reference is hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
+The reference is SiFive FU740-C000 Manual[0]
 
-Link: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf [0]
-Link: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf [1]
+Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf [0]
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 4 ----
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 4 ----
- 2 files changed, 8 deletions(-)
+ drivers/pwm/pwm-sifive.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-index 900a50526d77..7a9f336a391c 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-@@ -50,7 +50,6 @@ led-controller {
+diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+index 393a4b97fc19..d5d5f36da297 100644
+--- a/drivers/pwm/pwm-sifive.c
++++ b/drivers/pwm/pwm-sifive.c
+@@ -132,13 +132,13 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ {
+ 	struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
+ 	struct pwm_state cur_state;
+-	unsigned int duty_cycle;
++	unsigned int duty_cycle, period;
+ 	unsigned long long num;
+ 	bool enabled;
+ 	int ret = 0;
+ 	u32 frac;
  
- 		led-d1 {
- 			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d1";
-@@ -58,7 +57,6 @@ led-d1 {
+-	if (state->polarity != PWM_POLARITY_INVERSED)
++	if (state->polarity != PWM_POLARITY_NORMAL && state->polarity != PWM_POLARITY_INVERSED)
+ 		return -EINVAL;
  
- 		led-d2 {
- 			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d2";
-@@ -66,7 +64,6 @@ led-d2 {
+ 	cur_state = pwm->state;
+@@ -154,10 +154,13 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	 * calculating the register values first and then writing them
+ 	 * consecutively
+ 	 */
++	period = max(state->period, ddata->approx_period);
+ 	num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
+ 	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
+-	/* The hardware cannot generate a 100% duty cycle */
+ 	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
++	/* The hardware cannot generate a 100% duty cycle */
++	frac = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
++
  
- 		led-d3 {
- 			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d3";
-@@ -74,7 +71,6 @@ led-d3 {
- 
- 		led-d4 {
- 			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d4";
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 07387f9c135c..11f08a545ee6 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -52,7 +52,6 @@ led-controller-1 {
- 
- 		led-d12 {
- 			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d12";
-@@ -69,19 +68,16 @@ multi-led {
- 
- 			led-red {
- 				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_RED>;
- 			};
- 
- 			led-green {
- 				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_GREEN>;
- 			};
- 
- 			led-blue {
- 				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_BLUE>;
- 			};
- 		};
+ 	mutex_lock(&ddata->lock);
+ 	if (state->period != ddata->approx_period) {
 -- 
 2.40.0
 
