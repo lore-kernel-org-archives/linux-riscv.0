@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD1EC77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 06:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2102C7618E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 07:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTuKy3VFCX6/bdykCaj2k2Zxq2dY5NRMhx2Oy8R7Ccg=; b=H9rDNdiJEQyHdVdHYhrKIpdx43
-	voxiZuBIXCLhvacibIIctMTPUHYPEnaZafelwp6nfkNQhba6BUZIiNuseDKBLi31OSrpxjAjP5eFX
-	0UQYxXjQRFlC0K3Mc8GVyPLEijGYwYCdHbauaG27uc4gYArdOhpfyr+NmVpEBj5iR9/vbqDViMhmd
-	EKCbB3znpaT7JEUolU4QSoPTHDFLMGpxnROZ5a8V9dTgdezaSotCmrObEeTkiINSwBUb1o2nihggR
-	af9v5kgr7Ri6E6dhwbTnW5atGIYjzr+SWDxeTBMMQYcYcRnl8TiC+YtKJ1ImuhWyoaZIontWrCesW
-	x5hvBtdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4LJvnzI6WY3CEDIV1AWMkCMKu6qHghNc35ze18lOFss=; b=Qy06Iep6tB5SLr
+	SKudtZGDMieAXF9o+8Ho4PPE989+raeSa3gms+Xj2d+PTVmu4QkimuFlk7SV3I1Jo2l471AlqqJAL
+	Sh9tedd0/A7kxW9Bn77+2VNo3Tm2ZWHxTXXxpkToeAO1jYk1262Rs1ayqYzpWs2aVdCEp2fWk3iUL
+	YDKXYEfOjB8HbgYQ303A0Xy+0GjByl+yYkkFJ818RJk2jLgGaTcXI1cg91/mKrT3ba9sebXQJ9ax8
+	hMMnxxDJMLdONhhmnfOVayAuQpY+CbG7URMe6uIGmO7DHZBEM+Tyu/2mZIOdqCqr8I8ks082TUSOO
+	CQUb6QQny/s4OOPOpTsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppkiB-009tYG-1A;
-	Fri, 21 Apr 2023 06:57:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pplKU-009zDG-2B;
+	Fri, 21 Apr 2023 07:37:14 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppki7-009tWO-1m
+	id 1pplKR-009zBH-2F
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 06:57:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1682060255; x=1713596255;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RR/GwxIPJp1LvH/O5qzkk2jIkKJgEACvWvFh5xZ2Irs=;
-  b=gMMVGeFuK3gqUrVjSE98QjJPcmlVudTEgTCo/2GdYsRjldHtxVSOFQ5n
-   ceIFpqQQXZFJIds3mXtuSJf70ld0UowmsTCK9CYJePJ0CBBm3RjF4dHAW
-   BP3P1DWufEn/WRrf/OuUbQmeMKWS9wkC3hTLCNHkRT6+lurIC3pcp5Byn
-   pbvCqVtrZcPo3QIUfYAtGy0aLR2lW1ZcJyBdRlY4ZoXTjgJDaiYaIK8Qp
-   0hMCHVEdvLIeoH8CnvNljRm1MmEkNgcVMlcnWY9QeZ5zFcyThdhSqF9rd
-   O0NfAafZNkxZ3TQYl73a2sEf6+iTUCFz7Qr+HUkaTex/gJscocn189Dx/
-   w==;
-X-IronPort-AV: E=Sophos;i="5.99,214,1677567600"; 
-   d="asc'?scan'208";a="211606888"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Apr 2023 23:57:29 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 20 Apr 2023 23:57:29 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 20 Apr 2023 23:57:27 -0700
-Date: Fri, 21 Apr 2023 07:57:10 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
-	<kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [RESEND v2 4/6] soc: starfive: Extract JH7110 pmu private
- operations
-Message-ID: <20230421-fringe-demise-606ff852ed25@wendy>
-References: <20230419035646.43702-1-changhuang.liang@starfivetech.com>
- <20230419035646.43702-5-changhuang.liang@starfivetech.com>
- <20230419-atypical-unbounded-99cbbff3091a@spud>
- <8ce740ac-54e9-bf31-1e03-2f3e0e9ef63c@starfivetech.com>
+	Fri, 21 Apr 2023 07:37:12 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-247399d518dso1208826a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 00:37:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1682062629; x=1684654629;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ws1r1MXeCEvX69yEkTPurpwAbmpa457Fai+VNzf4DEY=;
+        b=ZQI2rEXhdANrf45MNGJf9HILUhJ4Bw6VisyeMQEy8EQAbpmBylMsOd6Cq20ZKh5/LX
+         AY134L7OpDWpunRaNAWDWg95F+DV7LAYpzTQz8ELy8TTCeLGqGNK+PhP25hmbTgb0nb0
+         jY9hez/PA31l7xfEFsSuLEyYQthFkKph53ing2++kv/VNi+D+ljKu800/rTZXgUEBh+1
+         oR729FDKLksqtHXQlpzRn6fHM5atkCIh9xVISU8aopS9HUr4aO/+VHNC6/HRhp34BIbO
+         chH3mUJfv8/RMtoDdht5rmhRJXgLWFHqoFzdY4ZUYbWN48ktBXdhz4fO5Ea8FmGx1E/A
+         Og5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682062629; x=1684654629;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ws1r1MXeCEvX69yEkTPurpwAbmpa457Fai+VNzf4DEY=;
+        b=EHMPSzIRPABWaVaoyDQ42gEa9Y/fwK7Bd5TN4lpGkQCSGjerkeHHv6FEuhu7adye85
+         d0oiW8kHl7VffPghd4i0aBfJY4F+bcvVUcWGD7lawwTzw0VWia9+qbv4ILJYys2Mde9w
+         DmFJ/OcNrUKjX84BZug8Log0opAQU8qlU6NMwjG5Dor1T3bTvWCDfptz03OFaB3qdOhK
+         ZXLylxiuiFc/7ScSqB2djwmK025JYiFF9XmsaQDb+haxqgpKr/60sP/LiHFmg55fgdju
+         SnM/l5HViwP81iJ2PkD3A2acm6DCqTHtTLZt5Q0sQ6DiU6RbKh0R8hdLsC0YVuz7CbFF
+         rS0Q==
+X-Gm-Message-State: AAQBX9frxo/2odYG6lKT7eTW1KDjxl4rpvu1+xiLSmwztmGTTNz9AcK/
+	65TehDqnXhqWxjz3rXF534ozBw==
+X-Google-Smtp-Source: AKy350Y3tjzqUpc2PpA1KHTguoo9hq4vYUDrqdHuUj/CrJexpNdOvtSR6Ua8+SfReOPpPBSjBZl3tg==
+X-Received: by 2002:a17:90a:b38c:b0:247:af63:483 with SMTP id e12-20020a17090ab38c00b00247af630483mr4017603pjr.46.1682062629025;
+        Fri, 21 Apr 2023 00:37:09 -0700 (PDT)
+Received: from localhost ([122.172.85.8])
+        by smtp.gmail.com with ESMTPSA id c19-20020a170902c1d300b001a50ede5086sm2200481plc.51.2023.04.21.00.37.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Apr 2023 00:37:08 -0700 (PDT)
+Date: Fri, 21 Apr 2023 13:07:06 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Mason Huo <mason.huo@starfivetech.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shengyu Qu <wiagn233@outlook.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the
+ allowlist
+Message-ID: <20230421073706.oi65cbuhljcu4upi@vireshk-i7>
+References: <20230421031431.23010-1-mason.huo@starfivetech.com>
+ <20230421031431.23010-3-mason.huo@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <8ce740ac-54e9-bf31-1e03-2f3e0e9ef63c@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230421031431.23010-3-mason.huo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230420_235735_655388_0820DEE0 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20230421_003711_741362_8333C8BB 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +97,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5962464125489055810=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5962464125489055810==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="whpq0z6G+BY+y9JJ"
-Content-Disposition: inline
+On 21-04-23, 11:14, Mason Huo wrote:
+> Add the compatible strings for supporting the generic
+> cpufreq driver on the StarFive JH7110 SoC.
+> 
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> ---
+>  drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> index e85703651098..79537d0ed7cf 100644
+> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> @@ -86,6 +86,8 @@ static const struct of_device_id allowlist[] __initconst = {
+>  	{ .compatible = "st-ericsson,u9500", },
+>  	{ .compatible = "st-ericsson,u9540", },
+>  
+> +	{ .compatible = "starfive,jh7110", },
+> +
+>  	{ .compatible = "ti,omap2", },
+>  	{ .compatible = "ti,omap4", },
+>  	{ .compatible = "ti,omap5", },
 
---whpq0z6G+BY+y9JJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied. Thanks.
 
-On Fri, Apr 21, 2023 at 11:27:52AM +0800, Changhuang Liang wrote:
-> On 2023/4/20 1:47, Conor Dooley wrote:
-> > On Tue, Apr 18, 2023 at 08:56:44PM -0700, Changhuang Liang wrote:
-> >> Move JH7110 private operation into private data of compatible.
-> >> Convenient to expand different compatible.
-> >=20
-> > I prefer how the code looks in v2, thanks.
-> > However, just as in the prior patch, "Convenient to expand different
-> > compatible" isn't really a justification - specifically, supporting the
-> > power domain controller serving the dphy is your motivation here. The
-> > important difference being that it uses a regmap from a syscon and has
-> > no interrupts nor the encourage features.
-> >=20
->=20
-> So should I expand the commit message which called "in order to add the=
-=20
-> aon power domain" although the patch is applied behind current patch.
-
-Only if you have to resend for some other reason. If there is no other
-reason to resend then I will do this when I apply the patch.
-
-Thanks,
-Conor.
-
---whpq0z6G+BY+y9JJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEIzxQAKCRB4tDGHoIJi
-0uQaAP0VHFstQ10nEETQ5/V1KFvj6xugGX2GI78pPNHSxwuyBwD+J5xDyy2MKyk7
-xmvBUp4E1A/MKZoezNX4Yh9wHKabpwQ=
-=DdnF
------END PGP SIGNATURE-----
-
---whpq0z6G+BY+y9JJ--
-
-
---===============5962464125489055810==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+viresh
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5962464125489055810==--
-
