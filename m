@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638E3C77B76
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEC5C7618E
 	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 18:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=msd+iTOikmsrkLVq5LbiiGSTspaDaQril60xULcJtxg=; b=D+i8K1jnpwbRah
-	QD7H26OU6b0w0E2g8WXMF4GvjI+cmeQ8OnUKAnFwl1uxwFkyoQM+hiZTFAnqgUPFfZHp6+6dxkeJ9
-	YBcbCK5F3MN3CmYxbz5E1mlqX1Qm7pzDTOr7yhShgXGtq0Op5y0a9J0L7Nk0VTIZk9q/clBCv4/bm
-	SpLqUtYivlSlROAX1NX4kn+ZMmk57Vtj+ZoR5VPwngxLPD/ts7a2x8qshR7zMw2la0c5XH3Q8MMnw
-	JxjOeJGmZFbqs08IPv1ov+XurJqCEtKYmZoBPd6W05SN8mbdyIlmKHjdVnXDPGeMLJPhx79XGsiLY
-	XBcqZkYUy54Tw/eAuF/A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=jeSANfyfMH2csJwH1B/uFJpAHJ3W5K7Cs5bGfXSU3ks=; b=fyQjL53xW72zjre047WX6gaNkD
+	N2McBIeo1rPoO85cM/UZ677IXim8Sawilvo7RCT7dH6dcWnD855gSLgIGrIvRKiIVOx4or4w5Dfbq
+	d5Ta9D/ptaagtYwJDaMuudIuQYzmc5zXpvd/lW3hcMKkgZd5I+ep4UJbG7Uh1pMFbBo8gjkqAJxVF
+	x/ojDKCDTUYUWyP+khLADWSbxAInjOirXmIE+Sm7in8cpIHfsUWl1tG+eGurTd75JzStEr0o4vXGt
+	nu/lD7UjgncXvd3aTWBIuVv7hZ/0FYoNf+5/IWhnPlqBPaToqc+DJc3bFlP4Woy8QrQWfQctkTCC1
+	YfcRW+qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppvyk-00Bftj-2D;
+	id 1ppvyk-00BftT-0Z;
 	Fri, 21 Apr 2023 18:59:30 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppvyg-00Bfrp-1b
+	id 1ppvye-00Bfr3-1h
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 18:59:28 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-63b5c4c76aaso1922413b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 11:59:25 -0700 (PDT)
+	Fri, 21 Apr 2023 18:59:26 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1a66888cb89so21648185ad.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 11:59:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682103565; x=1684695565;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682103562; x=1684695562;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2+EQ/x793Jnsa/kqgXiOJb3p0eah7oFJhucKW106Kl8=;
-        b=bQyblJRyAvGuTLy7qPVklUSkkntz5faFsanTHGL8+W8tK7sfMyp8tTFo7QvA60d/UW
-         JEVIbrj/vr3OdOv4W9eGM7+H99bBq3vk1HvaueHNN8TyjPI4bOlC4yFpFniBEltfCK9S
-         a6SfS4IlzcbdMqiaWhNrZLZmlaZqp4ZX/MOCweDAHIH82q5DvegmFZF/rOG4iBUrgJsE
-         /l8K3CJ6JeYhfbZwImHI9bK8nzBZfU1X6YjlosZiMF9YRwLusS1aYk1zweTU7guN0tR9
-         KqgXJegycYDF46jiq+R0uNxxQcgUvLwrsKvS97bTmxb6phciqD3Mj/Su/ExzkZSsuk7e
-         5pVA==
+        bh=FS3xd+GxAsAM22DtQ8EZILFt6ljQaMvOWy1hQtNJeRI=;
+        b=npcCe58zYvv1Q6YVOAIpfMxs/qcn/n3bq+Y2B/kyhgrQ2IwgNZsxdK9FrRF3J4dTgx
+         YPGdpqPIpEye6AlFSBOpIxJlceRyot6Lcc0IRC3dj1G7B6gr3MrPA/A1NElUGrVoY53Z
+         rnCogjjVEwKQgiuL7DG0+0Nqiz8lvWlf1/Y2Re++oGfgI6xYE8O0YibIDswxz1LljMWF
+         4pB7LSAEZDN/niJMqEiXAS+y/uGoEayNq18mhRc2gGbryI7zhJ/2vGks7sCE4FWq4h9R
+         dH7rr4jcpK2pwlb9XffOkm3s1hMe1cpIOFpPU5spiIgfag/16tCoJG3CXz3k5vOh+WFb
+         kX7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682103565; x=1684695565;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2+EQ/x793Jnsa/kqgXiOJb3p0eah7oFJhucKW106Kl8=;
-        b=hsHU3fiyj9ZI9138WIWq3lVU1fY+SWo+om38yE2udxyBMf8SBE/Ytw0/rMGkIohA36
-         jO2Bal2P2ywkpRQUnwQvTt5TzpPMBT/E5eb9rC41ZRiH1WTSilqzLC5IwllkzGt+nEKW
-         Ozzy/wiEuaBxEKldsB9II1nVMhCMSCXrbtb3DpW4axcmo+2E+Puwq+c9HFkkNZih95mr
-         038spt43gdBnNfQ1urYSt0VD1RJ0tpwUYP8rV9pvDxOMeriCd833X8sDNTYnjkUV23ua
-         vs9tSyLlA16Qa5K7J7DlvC97EiFf2c98HSJx2+vU2TFeUq/Iqmih8wV8bFRY+ZKREYFL
-         hhcw==
-X-Gm-Message-State: AAQBX9c9GOES5WCuDeme2FoYKBetM9wqsqBgmK5jzwZPHviQfLEPNyVE
-	dMq7LKxpDZ9lS4P7z8MwJEeBQw==
-X-Google-Smtp-Source: AKy350aPgF7/ICzgPm9D1rqVxYtdqSsows6+k23WW1suuTm43XEGetau1y5211vGXw0C4sHlJCV6lg==
-X-Received: by 2002:a05:6a00:13a6:b0:63f:ec9:bc9a with SMTP id t38-20020a056a0013a600b0063f0ec9bc9amr7724187pfg.20.1682103564695;
-        Fri, 21 Apr 2023 11:59:24 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1682103562; x=1684695562;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FS3xd+GxAsAM22DtQ8EZILFt6ljQaMvOWy1hQtNJeRI=;
+        b=TsKDnaPCKQEeaoIfFZLrWEW26dMQLaazQUqp30i4c7ezZlLnh0wGlOT+FYjPtbDai6
+         Jislujx8/PtZ9RvgWJJDSzNk3genKbyRsCFuylI2ol4ILI41tW/87WcNt0cdR3cpcZ7t
+         Q7BcmA2TWdH7In6wz3bd+QDS++4G+UKsivz1zZdwb+W8AjUHldEYQvxFwPMwXbZtBLE7
+         uah0j6iJI/rTb6SNTLroEXFR7r+viW19LdGPXXybYPebEY85qY2ec79/rSgK960bTvgJ
+         0v4CkxKQKcHYnpTBAwE2FZIyEZafCutm/oOTZ2cfjiYByMNyx2VWmUmiSU0imcUQdJLT
+         Q3Qw==
+X-Gm-Message-State: AAQBX9fnQ7mKkkLiw4EtxlhvhVwajZQ7V0zijRWSXXZIvXMDxnc6D2R0
+	0oODWVL+8b1bLFVDsyVut1hF9g==
+X-Google-Smtp-Source: AKy350Zk9u1sIOJGf2PvJ1wX8lSj0Nf1O/kXAYgAfDfeDXmtve5mj6ldwrjQYrqdOoqd6Tcu0TGTlw==
+X-Received: by 2002:a17:903:188:b0:1a8:ce:afd1 with SMTP id z8-20020a170903018800b001a800ceafd1mr7743984plg.20.1682103562246;
+        Fri, 21 Apr 2023 11:59:22 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id h69-20020a628348000000b0063db25e140bsm3299248pfe.32.2023.04.21.11.59.24
+        by smtp.gmail.com with ESMTPSA id bh7-20020a170902a98700b001a19cf1b37esm3057504plb.40.2023.04.21.11.59.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Apr 2023 11:59:24 -0700 (PDT)
-In-Reply-To: <20230329045329.64565-1-alexghiti@rivosinc.com>
-References: <20230329045329.64565-1-alexghiti@rivosinc.com>
+        Fri, 21 Apr 2023 11:59:21 -0700 (PDT)
+Date: Fri, 21 Apr 2023 11:59:21 -0700 (PDT)
+X-Google-Original-Date: Wed, 19 Apr 2023 07:55:56 PDT (-0700)
 Subject: Re: [PATCH v9 0/6] Introduce 64b relocatable kernel
-Message-Id: <168191616325.7488.14079862095622576679.b4-ty@rivosinc.com>
-Date: Wed, 19 Apr 2023 07:56:03 -0700
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Nick Desaulniers <ndesaulniers@google.com>,
-  =C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-  Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>
+In-Reply-To: <20230329045329.64565-1-alexghiti@rivosinc.com>
+CC: ndesaulniers@google.com, bjorn@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+  christophe.leroy@csgroup.eu, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+  linux-kbuild@vger.kernel.org, alexghiti@rivosinc.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: alexghiti@rivosinc.com
+Message-ID: <mhng-bb70f74f-2b5b-4880-b7bf-975e67dc554e@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_115926_534359_89D885FF 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230421_115924_753106_B0734B0D 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +88,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 29 Mar 2023 06:53:23 +0200, Alexandre Ghiti wrote:
+On Tue, 28 Mar 2023 21:53:23 PDT (-0700), alexghiti@rivosinc.com wrote:
 > After multiple attempts, this patchset is now based on the fact that the
 > 64b kernel mapping was moved outside the linear mapping.
-> 
+>
 > The first patch allows to build relocatable kernels but is not selected
 > by default. That patch is a requirement for KASLR.
 > The second and third patches take advantage of an already existing powerpc
 > script that checks relocations at compile-time, and uses it for riscv.
-> 
-> [...]
+>
+> This patchset is rebased on top of:
+>
+> riscv: Use PUD/P4D/PGD pages for the linear mapping
+> (https://patchwork.kernel.org/project/linux-riscv/list/?series=733603)
+> base-commit-tag: v6.3-rc1
 
-Applied, thanks!
+The QEMU CI has some way to say "this depends on an un-merged patch set 
+sent as $MESSAGE_ID", not sure if that's a b4-ism but it's a bit less 
+confusing.
 
-[1/6] riscv: Prepare EFI header for relocatable kernels
-      https://git.kernel.org/palmer/c/55de1e4ad43b
-[2/6] riscv: Move .rela.dyn outside of init to avoid empty relocations
-      https://git.kernel.org/palmer/c/69a90d2fe107
-[3/6] riscv: Introduce CONFIG_RELOCATABLE
-      https://git.kernel.org/palmer/c/39b33072941f
-[4/6] powerpc: Move script to check relocations at compile time in scripts/
-      https://git.kernel.org/palmer/c/47981b5cc687
-[5/6] riscv: Check relocations at compile time
-      https://git.kernel.org/palmer/c/c2dea0bc5339
-[6/6] riscv: Use --emit-relocs in order to move .rela.dyn in init
-      https://git.kernel.org/palmer/c/559d1e45a16d
+I merged this on top of the pre-merge hugepage linear mapping changes, 
+it's on for-next.
 
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+> Changes in v9:
+>   * Fix gcc/llvm compilation errors by adding patch 1, thanks to Bjorn
+>   * Move a patch to move rela.dyn outside of init (patch 2): it is a
+>     separate patch to clearly explain why
+>   * To effectively move rela.dyn to init, we need to add patch 6: separate patch since we may be
+>     able at some point to revert (along with patch 2).
+>   * Add a lot of orphan sections to the linker script
+>
+> Changes in v8:
+>   * Fix UEFI boot by moving rela.dyn section into the data so that PE/COFF
+>     loader actually copies the relocations too
+>   * Fix check that used PGDIR instead of PUD which was not correct
+>     for sv48 and sv57
+>   * Fix PE/COFF header data size definition as it led to size of 0
+>
+> Changes in v7:
+>   * Rebase on top of v5.15
+>   * Fix LDFLAGS_vmlinux which was overriden when CONFIG_DYNAMIC_FTRACE was
+>     set
+>   * Make relocate_kernel static
+>   * Add Ack from Michael
+>
+> Changes in v6:
+>   * Remove the kernel move to vmalloc zone
+>   * Rebased on top of for-next
+>   * Remove relocatable property from 32b kernel as the kernel is mapped in
+>     the linear mapping and would then need to be copied physically too
+>   * CONFIG_RELOCATABLE depends on !XIP_KERNEL
+>   * Remove Reviewed-by from first patch as it changed a bit
+>
+> Changes in v5:
+>   * Add "static __init" to create_kernel_page_table function as reported by
+>     Kbuild test robot
+>   * Add reviewed-by from Zong
+>   * Rebase onto v5.7
+>
+> Changes in v4:
+>   * Fix BPF region that overlapped with kernel's as suggested by Zong
+>   * Fix end of module region that could be larger than 2GB as suggested by Zong
+>   * Fix the size of the vm area reserved for the kernel as we could lose
+>     PMD_SIZE if the size was already aligned on PMD_SIZE
+>   * Split compile time relocations check patch into 2 patches as suggested by Anup
+>   * Applied Reviewed-by from Zong and Anup
+>
+> Changes in v3:
+>   * Move kernel mapping to vmalloc
+>
+> Changes in v2:
+>   * Make RELOCATABLE depend on MMU as suggested by Anup
+>   * Rename kernel_load_addr into kernel_virt_addr as suggested by Anup
+>   * Use __pa_symbol instead of __pa, as suggested by Zong
+>   * Rebased on top of v5.6-rc3
+>   * Tested with sv48 patchset
+>   * Add Reviewed/Tested-by from Zong and Anup
+>
+> Alexandre Ghiti (6):
+>   riscv: Prepare EFI header for relocatable kernels
+>   riscv: Move .rela.dyn outside of init to avoid empty relocations
+>   riscv: Introduce CONFIG_RELOCATABLE
+>   powerpc: Move script to check relocations at compile time in scripts/
+>   riscv: Check relocations at compile time
+>   riscv: Use --emit-relocs in order to move .rela.dyn in init
+>
+>  arch/powerpc/tools/relocs_check.sh  | 18 ++--------
+>  arch/riscv/Kconfig                  | 14 ++++++++
+>  arch/riscv/Makefile                 |  7 ++--
+>  arch/riscv/Makefile.postlink        | 49 ++++++++++++++++++++++++++
+>  arch/riscv/boot/Makefile            |  7 ++++
+>  arch/riscv/include/asm/set_memory.h |  3 ++
+>  arch/riscv/kernel/efi-header.S      | 19 ++++++++--
+>  arch/riscv/kernel/vmlinux.lds.S     | 26 ++++++++++----
+>  arch/riscv/mm/Makefile              |  4 +++
+>  arch/riscv/mm/init.c                | 54 ++++++++++++++++++++++++++++-
+>  arch/riscv/tools/relocs_check.sh    | 26 ++++++++++++++
+>  scripts/relocs_check.sh             | 20 +++++++++++
+>  12 files changed, 218 insertions(+), 29 deletions(-)
+>  create mode 100644 arch/riscv/Makefile.postlink
+>  create mode 100755 arch/riscv/tools/relocs_check.sh
+>  create mode 100755 scripts/relocs_check.sh
 
 _______________________________________________
 linux-riscv mailing list
