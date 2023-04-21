@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5603C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 07:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B3DC7618E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 09:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=td0QqofdDgt97z7KXNvI1ie8/A8s7Dq3Snq2pzdUT3k=; b=i9LrN0zLa7XK9v
-	o0oA0HJZrq2jUuFXJx/kypIezVENXA8BY0TfFxoE3fU438oynOYwp/bBFV7CISCh9p1AQQuEk6Esp
-	aCttPQzC+48m1iw8cg2Ud6EkMaJBxllxB4134vz3QinAIErCzZ2fU1We9YUxwsDkTxenr5iF+sn6w
-	VuBdMgof+lLBf1AbxJUaIjSxRedutmHFss0YbuQBn30wN+YxJETuabdNWES0ZmiIEqSfFFhF8ViDR
-	WO39+xPZLFrtPhukV7IGcwMrigwFlOzkDB9aSqfkDPB67VZlVtUALOfqIG3RW9W96IqAvMPnGDI3K
-	2vpBqt/aLvG9uI+UXvag==;
+	List-Owner; bh=BBR+3ZniLqfdBehNwMZfkY9Al72DmwqgDtLlmOSlF1E=; b=tPACoK/mP7uBKe
+	aogfQHRmNxoMSOpOfDkLNNJlZIjfZmGqdE0iS7NU8LWHVailKdRy8+y18YWXCsjNEi9OdUlJJaFrg
+	HhGJvyc4S5bbNiCQwtSpQBllRlWfY76arckcGAokloiLwco4Y6Xu7cPFgr7duCZRhjmBqFhVtygRH
+	tDbwOVY5P4nwjAo/f9H19UfsixdCJiQsP9tmxwteZ5gTj3Vssladlq5bh+EtdGVgq2Q2rcAu+Ktum
+	YOzU00mVHLcx5mEF2oK5guu+yM9sLgBbCvmsmegkJIOuMzzfjQh6FsRVuGavARvgNuLfaZyVN8lIe
+	ztjY/3DpKQ1Je0Iq+iTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pplY9-00A1PM-1U;
-	Fri, 21 Apr 2023 07:51:21 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1ppn3i-00AFVy-2n;
+	Fri, 21 Apr 2023 09:28:02 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pplY6-00A1OB-1B
+	id 1ppn3e-00AFRV-1v
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 07:51:19 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-63b35789313so1487843b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 00:51:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1682063476; x=1684655476;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UdqGzzha/G/+P83vZf+W6YQcFNyRp4ZBrv0bjj7acfU=;
-        b=AGPDqm63rl+TAUkGfZAQ9S0pDf2o9/UKVE87j/XRd9Q0FzIEenR8lpcvmjNNQvtamn
-         TwTKRlE4XonvzyqbLIGZMGURp/4kiOh/yXB1K02XVEev0QUKB/ZhoRVKZldz2Cs45p+V
-         wXAunDHvJ6YWRciDmqXanDd7khYJWAnAwXGtZgf9ODvNXCntSJZuarADeFhLbsYd40vr
-         JRiSki5Pnyq/s+FcH69u/IDVfjKJjHi6HHIT+i4G4jNzB/2mAKS/LZorkZGLgTpW2ibG
-         PWjbkkYf6nGlrJJEeZItEvDCIuTZrKPNQdLm7BB9eqz+rjwFfPWZGB3rCGWGovNryAxu
-         kseg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682063476; x=1684655476;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UdqGzzha/G/+P83vZf+W6YQcFNyRp4ZBrv0bjj7acfU=;
-        b=dWqEU3v/088b2nGGsUpdJPBIaGpSB4h8Xan757GKnMP6rIghjMTvPaLi3jlDEWEBMJ
-         wIqUiq3rz+2/ZNUTc3Yl7Z/aazmVAHfWkowqsYyio8IxmMZJpJW79Oo10cKSGPbvCRHV
-         h/1PV2W3xlPNcP967ZFFZV2j2XI9oPcQ+e0IFGs3xb5zlqzW+naDX9Gzb5XK04y+kbe2
-         TpdbQHpi7IJDt1uDaNGdYfmhVdK8vOMW96Cjx/VkHis8PiUk9q5Rkkz43IyJIJDPzqXr
-         hddvBOD0pgnpTdxFPn3xmw5vfe7v63z5cEIk2yUNtZBaRgr48cq5TBNu1ZFja4NwqQYQ
-         S9Wg==
-X-Gm-Message-State: AAQBX9ejD7FaMWWmT9IOC53XFJDKxRkGpaZsF+xMaaJlwfP2UmXENad+
-	QKmN9A7du1OnfXcEEG4UUTvq
-X-Google-Smtp-Source: AKy350bo+x+yovC1FYUOJu3XmmXwt77///5Mccw7olM4tHuUPGxXcM1ryphF8zkfTOiBIgKjXGIW3A==
-X-Received: by 2002:a17:90b:344:b0:246:c097:6a17 with SMTP id fh4-20020a17090b034400b00246c0976a17mr4398929pjb.24.1682063476395;
-        Fri, 21 Apr 2023 00:51:16 -0700 (PDT)
-Received: from u-NUC7i5BNH.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id md17-20020a17090b23d100b0024744818bc5sm4131803pjb.9.2023.04.21.00.51.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Apr 2023 00:51:15 -0700 (PDT)
-From: Woodrow Shen <woodrow.shen@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com
-Cc: linux-riscv@lists.infradead.org,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	greentime.hu@sifive.com,
-	Hsieh-Tseng Shen <woodrow.shen@sifive.com>
-Subject: [RFC PATCH] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be readable
-Date: Fri, 21 Apr 2023 15:51:11 +0800
-Message-Id: <20230421075111.1391952-1-woodrow.shen@sifive.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 21 Apr 2023 09:28:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1682069278; x=1713605278;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Ao9DNoDXEZU9B9r5013QJQUmEhf7Q2RgVEcltIpBH2I=;
+  b=cX703r8w2B1C2JvEp6pzv16OJdSskSot72oP7vsOP44IRNB6BeM0hhgG
+   C4KIbnEubxorEMiTLfTR9VMkijKYHOuIzoAptAISpwhrllH5eVpk2xh86
+   gYHAl1Xo7z6ZFhXEEPvqhTLWkvWceIRl6UJpoxMC4Z7xkjYzX3UEmYy9k
+   bldnfGVCTHka3aRZbrM7X/EHG/IFMM2NK8kN0tM7rE9oWfn+r+Sz0lWj/
+   I/j27GZs97TrWX3X9jQPDAtGhQtr8TLOI/FNg4XYWGdVZibge7YBEFMYU
+   Sd7Wjaxh+A7yYcVd2OS77vQNpeazlSHcqNMv1izaG3WOC77GVIjBNEkzT
+   A==;
+X-IronPort-AV: E=Sophos;i="5.99,214,1677567600"; 
+   d="scan'208";a="211626776"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Apr 2023 02:27:53 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 21 Apr 2023 02:27:52 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Fri, 21 Apr 2023 02:27:51 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Daire McNamara <daire.mcnamara@microchip.com>,
+	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v17 0/2] Microchip Soft IP corePWM driver
+Date: Fri, 21 Apr 2023 10:27:08 +0100
+Message-ID: <20230421-neurology-trapezoid-b4fa29923a23@wendy>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5638; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Ao9DNoDXEZU9B9r5013QJQUmEhf7Q2RgVEcltIpBH2I=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClOYa+LPOYxboywLVDqCOU5mDs5UfryFR4vt6C4igOLfp7u ZHTvKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwEROJDAyPF51TEDy5pQ6dv0cw62x6h OzfkzyFZD9pll9YFLmofDV9Qx/xd6krWZyaX0br89YdJCzIeH1u+t3F7ULcmz6Ism61tOQHwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_005118_420973_4ACA0810 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20230421_022758_833165_DE2E6896 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,51 +83,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
+Hello,
 
-The commit 8aeb7b17f04e ("RISC-V: Make mmap() with PROT_WRITE imply PROT_READ")
-allows riscv to use mmap with PROT_WRITE only, and meanwhile mmap with w+x is
-also permitted. However, when userspace tries to access this page with
-PROT_WRITE|PROT_EXEC, which causes infinite loop at load page fault as well as
-it triggers soft lockup. According to riscv privileged spec, 
-"Writable pages must also be marked readable". The fix to drop the
-`PAGE_COPY_EXEC` and then `PAGE_COPY_READ_EXEC` should be just used instead.
-This aligns the other arches (i.e arm64) for protection_map.
+Yet another version of this driver :)
 
-Fixes: 8aeb7b17f04e ("RISC-V: Make mmap() with PROT_WRITE imply PROT_READ")
-Signed-off-by: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
----
- arch/riscv/include/asm/pgtable.h | 1 -
- arch/riscv/mm/init.c             | 2 +-
- 2 files changed, 1 insertion(+), 2 deletions(-)
+This time around I've implemented Uwe's simplified method for
+calculating the prescale & period_steps. For low values of prescale it
+makes for much worse approximations of the period, but as the period
+increases with respect to the that of the pwm's underlying clock there
+is mostly no different in the approximations.
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index f641837ccf31..bb1e05367739 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -165,7 +165,6 @@ extern struct pt_alloc_ops pt_ops __initdata;
- 					 _PAGE_EXEC | _PAGE_WRITE)
- 
- #define PAGE_COPY		PAGE_READ
--#define PAGE_COPY_EXEC		PAGE_EXEC
- #define PAGE_COPY_READ_EXEC	PAGE_READ_EXEC
- #define PAGE_SHARED		PAGE_WRITE
- #define PAGE_SHARED_EXEC	PAGE_WRITE_EXEC
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0f14f4a8d179..8b8c6ad85fdb 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -285,7 +285,7 @@ static const pgprot_t protection_map[16] = {
- 	[VM_WRITE | VM_READ]				= PAGE_COPY,
- 	[VM_EXEC]					= PAGE_EXEC,
- 	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
--	[VM_EXEC | VM_WRITE]				= PAGE_COPY_EXEC,
-+	[VM_EXEC | VM_WRITE]				= PAGE_COPY_READ_EXEC,
- 	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY_READ_EXEC,
- 	[VM_SHARED]					= PAGE_NONE,
- 	[VM_SHARED | VM_READ]				= PAGE_READ,
+For this (and the last revision) I mostly did my testing using a script,
+rather than in hardware, but the pwm debug stuff didn't have any
+complaints, and the values I did check by hand all looked fine.
+
+Didn't work for me last time I tried it, but I did push it out for the
+LKP bot again this time and it was happy. Hopefully no repeat of it
+finding some division it doesn't like after telling me it was fine on
+my branch!
+
+Thanks,
+Conor.
+
+Changes since v16:
+- only write out the period immediately before the duty cycle to avoid
+  potentially racing against the period counter resetting
+- update some comments that had bitrotted
+- use Uwe's simple method for calculating period/duty & reject any
+  period for which tmp < 255
+
+Changes since v15:
+- calculate prescale modulus without using %
+
+Changes since v14:
+- change period_steps calculation logic to correctly handle the cases
+  where tmp % (254 + 1) == 0, by swapping implicit truncation for
+  explicit rounding upwards and subtracting zero
+- special case periods < 1/clk_rate & add a note in limitations about
+  this, although I think this issue wasn't present prior to v15's
+  changes
+- check for smaller suitable values of prescale, which picks the "more
+  correct" value in about half of all cases, particularly those where
+  tmp is large.
+- explain what I mean by the "optimal" values for prescale/period steps
+  re-fix use of defines
+- add a comment about how sync_upd mode works
+- make the use of period_steps and prescale consistently refer to the
+  register values rather than, in comments, using these to mean the
+  resulting values after 1 has been added
+- drop the PREG_TO_VAL() macro, as most of its users are now gone & it
+  only added to the register value versus "real" value problem
+- report pwmchip_add() failures
+
+Changes since v13:
+- couple bits of cleanup to apply_locked(), suggested by Uwe
+- move the overhead waiting for a change to be applied, for channels
+  with shadow registers, to subsequent calls to apply(). This has the
+  benefit of only waiting when two calls to apply() are close in time
+  rather than eating the delay in every call.
+
+Changes since v11:
+- swap a "bare" multiply & divide for the corresponding helper to
+  prevent overflow
+- factor out duplicate clk rate acquisition & period calculation
+- make the period calculation return void by checking the validity of
+  the clock rate in the caller
+- drop the binding & dt patch, they're on-track for v6.2 via my tree
+
+Changes since v10:
+- reword some comments
+- try to assign the period if a disable is requested
+- drop a cast around a u8 -> u16 conversion
+- fix a check on period_steps that should be on the hw_ variant
+- split up the period calculation in get_state() to fix the result on
+  32 bit
+- add a rate variable in get_state() to only call get_rate() once
+- redo the locking as suggested to make it more straightforward.
+- stop checking for enablement in get_state() that was working around
+ intended behaviour of the sysfs interface
+
+Changes since v9:
+- fixed the missing unlock that Dan reported
+
+Changes since v8:
+- fixed a(nother) raw 64 bit division (& built it for riscv32!)
+- added a check to make sure we don't try to sleep for 0 us
+
+Changes since v7:
+- rebased on 6.0-rc1
+- reworded comments you highlighted in v7
+- fixed the overkill sleeping
+- removed the unused variables in calc_duty
+- added some extra comments to explain behaviours you questioned in v7
+- make the mutexes un-interruptible
+- fixed added the 1s you suggested for the if(period_locked) logic
+- added setup of the channel_enabled shadowing
+- fixed the period reporting for the negedge == posedge case in
+  get_state() I had to add the enabled check, as otherwise it broke
+  setting the period for the first time out of reset.
+- added a test for invalid PERIOD_STEPS values, in which case we abort
+  if we cannot fix the period
+
+Changes from v6:
+- Dropped an unused variable that I'd missed
+- Actually check the return values of the mutex lock()s
+- Re-rebased on -next for the MAINTAINERS patch (again...)
+
+Changes from v5:
+- switched to a mutex b/c we must sleep with the lock taken
+- simplified the locking in apply() and added locking to get_state()
+- reworked apply() as requested
+- removed the loop in the period calculation (thanks Uwe!)
+- add a copy of the enable registers in the driver to save on reads.
+- remove the second (useless) write to sync_update
+- added some missing rounding in get_state()
+- couple other minor cleanups as requested in:
+https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
+
+Changes from v4:
+- dropped some accidentally added files
+
+Changes before v4:
+https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
+
+Conor Dooley (2):
+  pwm: add microchip soft ip corePWM driver
+  MAINTAINERS: add pwm to PolarFire SoC entry
+
+ MAINTAINERS                      |   1 +
+ drivers/pwm/Kconfig              |  10 +
+ drivers/pwm/Makefile             |   1 +
+ drivers/pwm/pwm-microchip-core.c | 507 +++++++++++++++++++++++++++++++
+ 4 files changed, 519 insertions(+)
+ create mode 100644 drivers/pwm/pwm-microchip-core.c
+
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
