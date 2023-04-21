@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B3DC7618E
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 09:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA26C77B78
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 09:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BBR+3ZniLqfdBehNwMZfkY9Al72DmwqgDtLlmOSlF1E=; b=tPACoK/mP7uBKe
-	aogfQHRmNxoMSOpOfDkLNNJlZIjfZmGqdE0iS7NU8LWHVailKdRy8+y18YWXCsjNEi9OdUlJJaFrg
-	HhGJvyc4S5bbNiCQwtSpQBllRlWfY76arckcGAokloiLwco4Y6Xu7cPFgr7duCZRhjmBqFhVtygRH
-	tDbwOVY5P4nwjAo/f9H19UfsixdCJiQsP9tmxwteZ5gTj3Vssladlq5bh+EtdGVgq2Q2rcAu+Ktum
-	YOzU00mVHLcx5mEF2oK5guu+yM9sLgBbCvmsmegkJIOuMzzfjQh6FsRVuGavARvgNuLfaZyVN8lIe
-	ztjY/3DpKQ1Je0Iq+iTg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zMs54uzWmxfu+9ohxGOYaBNREN/lbqG0LevVG/iJFts=; b=29QVSFlqGlyTsQ
+	TwzxULUVA7U9Fbaoied4UEnx7cTzA+T1GiFlIG31F22jCd0pOu4CVPIxHLTRpKvNg4JbwX0r3U8Up
+	OkT4XQGXxREWV6REWRAiBrWV/En2omSrkpVfVYNlLtDavCWxYd6TMOCCyi/oNCrfSsUxPLyt69XE4
+	49ULrexXz22IEYnS218tUmKaTa8bHIaKWzj7rucmOBiH0+bXBpYjV/AxnI9VxaQnQB27mtGi97NF0
+	IaD7ZfZaDWhW8tZkRQ477ew9vQOMA/8UpemyfyfJnKHShy2KUWYKKV/zPQ3w7KSK9HqfRInz/lmAH
+	KFIoj9MhXFl8eDAbSaVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppn3i-00AFVy-2n;
-	Fri, 21 Apr 2023 09:28:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1ppn3m-00AFXr-08;
+	Fri, 21 Apr 2023 09:28:06 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppn3e-00AFRV-1v
+	id 1ppn3j-00AFSK-0H
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 09:28:01 +0000
+	Fri, 21 Apr 2023 09:28:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1682069278; x=1713605278;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Ao9DNoDXEZU9B9r5013QJQUmEhf7Q2RgVEcltIpBH2I=;
-  b=cX703r8w2B1C2JvEp6pzv16OJdSskSot72oP7vsOP44IRNB6BeM0hhgG
-   C4KIbnEubxorEMiTLfTR9VMkijKYHOuIzoAptAISpwhrllH5eVpk2xh86
-   gYHAl1Xo7z6ZFhXEEPvqhTLWkvWceIRl6UJpoxMC4Z7xkjYzX3UEmYy9k
-   bldnfGVCTHka3aRZbrM7X/EHG/IFMM2NK8kN0tM7rE9oWfn+r+Sz0lWj/
-   I/j27GZs97TrWX3X9jQPDAtGhQtr8TLOI/FNg4XYWGdVZibge7YBEFMYU
-   Sd7Wjaxh+A7yYcVd2OS77vQNpeazlSHcqNMv1izaG3WOC77GVIjBNEkzT
-   A==;
+  t=1682069283; x=1713605283;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=gVYx9+DVF2GF+A4bANXLI3OWUXhLfRnRmzz023oqQG4=;
+  b=qUu72ReGPf4GNZuaCVD9D9t4ktS2IZC7bjf6s8JO+s9WjtP7HC/R4kkh
+   F8U82jFHFU8+NE8kEGFxXaZ+CuZQU0gxTa5YSs3WGkD5a+UrJvwxwXCkP
+   FwitjnQBkaG0l4EscACiPMmGo2y5SJvit3a2EllYYK/n6BGFRAKFXSF+7
+   pXwhjo9ADdYOcHZyosNwR/LFxq176W7oQ95yRsjaypmM7rJODkBveuAkG
+   /ZXvYrteyLP8GZYo3J0eDrlLUOioS1Yx++0VkgHU+eVGd5IPN5RRPoLFS
+   LyufR6HI1PQtH9Zm6yt94U15EInpk3Y/zNWj1Whbma4ud9ZCmf5ruI4WV
+   g==;
 X-IronPort-AV: E=Sophos;i="5.99,214,1677567600"; 
-   d="scan'208";a="211626776"
+   d="scan'208";a="221946996"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Apr 2023 02:27:53 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Apr 2023 02:27:56 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 21 Apr 2023 02:27:52 -0700
+ 15.1.2507.21; Fri, 21 Apr 2023 02:27:56 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Fri, 21 Apr 2023 02:27:51 -0700
+ Transport; Fri, 21 Apr 2023 02:27:54 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 CC: Daire McNamara <daire.mcnamara@microchip.com>,
 	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v17 0/2] Microchip Soft IP corePWM driver
-Date: Fri, 21 Apr 2023 10:27:08 +0100
-Message-ID: <20230421-neurology-trapezoid-b4fa29923a23@wendy>
+Subject: [PATCH v17 2/2] MAINTAINERS: add pwm to PolarFire SoC entry
+Date: Fri, 21 Apr 2023 10:27:10 +0100
+Message-ID: <20230421-affix-atlas-156f7a5ab395@wendy>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230421-neurology-trapezoid-b4fa29923a23@wendy>
+References: <20230421-neurology-trapezoid-b4fa29923a23@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5638; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Ao9DNoDXEZU9B9r5013QJQUmEhf7Q2RgVEcltIpBH2I=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClOYa+LPOYxboywLVDqCOU5mDs5UfryFR4vt6C4igOLfp7u ZHTvKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwEROJDAyPF51TEDy5pQ6dv0cw62x6h OzfkzyFZD9pll9YFLmofDV9Qx/xd6krWZyaX0br89YdJCzIeH1u+t3F7ULcmz6Ism61tOQHwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=668; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=gVYx9+DVF2GF+A4bANXLI3OWUXhLfRnRmzz023oqQG4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClOYW9+xi7/GLr6i4O79S45L9FEq8u7Jn0NK0iQ+MaU9O+I 77z/HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZiI0HRGhm8Zs6eUTn87/XXNZ5ENFk 4Rq3K3L1Td32Fs2DDZ10nm3GFGhhspbbq11Sb+K+f8KvzDplm5wjxD3mpxjn/xlLjy15dW8wEA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_022758_833165_DE2E6896 
-X-CRM114-Status: GOOD (  29.18  )
+X-CRM114-CacheID: sfid-20230421_022803_145793_7B82ABFD 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,140 +86,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Add the newly introduced pwm driver to the existing PolarFire SoC entry.
 
-Yet another version of this driver :)
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-This time around I've implemented Uwe's simplified method for
-calculating the prescale & period_steps. For low values of prescale it
-makes for much worse approximations of the period, but as the period
-increases with respect to the that of the pwm's underlying clock there
-is mostly no different in the approximations.
-
-For this (and the last revision) I mostly did my testing using a script,
-rather than in hardware, but the pwm debug stuff didn't have any
-complaints, and the values I did check by hand all looked fine.
-
-Didn't work for me last time I tried it, but I did push it out for the
-LKP bot again this time and it was happy. Hopefully no repeat of it
-finding some division it doesn't like after telling me it was fine on
-my branch!
-
-Thanks,
-Conor.
-
-Changes since v16:
-- only write out the period immediately before the duty cycle to avoid
-  potentially racing against the period counter resetting
-- update some comments that had bitrotted
-- use Uwe's simple method for calculating period/duty & reject any
-  period for which tmp < 255
-
-Changes since v15:
-- calculate prescale modulus without using %
-
-Changes since v14:
-- change period_steps calculation logic to correctly handle the cases
-  where tmp % (254 + 1) == 0, by swapping implicit truncation for
-  explicit rounding upwards and subtracting zero
-- special case periods < 1/clk_rate & add a note in limitations about
-  this, although I think this issue wasn't present prior to v15's
-  changes
-- check for smaller suitable values of prescale, which picks the "more
-  correct" value in about half of all cases, particularly those where
-  tmp is large.
-- explain what I mean by the "optimal" values for prescale/period steps
-  re-fix use of defines
-- add a comment about how sync_upd mode works
-- make the use of period_steps and prescale consistently refer to the
-  register values rather than, in comments, using these to mean the
-  resulting values after 1 has been added
-- drop the PREG_TO_VAL() macro, as most of its users are now gone & it
-  only added to the register value versus "real" value problem
-- report pwmchip_add() failures
-
-Changes since v13:
-- couple bits of cleanup to apply_locked(), suggested by Uwe
-- move the overhead waiting for a change to be applied, for channels
-  with shadow registers, to subsequent calls to apply(). This has the
-  benefit of only waiting when two calls to apply() are close in time
-  rather than eating the delay in every call.
-
-Changes since v11:
-- swap a "bare" multiply & divide for the corresponding helper to
-  prevent overflow
-- factor out duplicate clk rate acquisition & period calculation
-- make the period calculation return void by checking the validity of
-  the clock rate in the caller
-- drop the binding & dt patch, they're on-track for v6.2 via my tree
-
-Changes since v10:
-- reword some comments
-- try to assign the period if a disable is requested
-- drop a cast around a u8 -> u16 conversion
-- fix a check on period_steps that should be on the hw_ variant
-- split up the period calculation in get_state() to fix the result on
-  32 bit
-- add a rate variable in get_state() to only call get_rate() once
-- redo the locking as suggested to make it more straightforward.
-- stop checking for enablement in get_state() that was working around
- intended behaviour of the sysfs interface
-
-Changes since v9:
-- fixed the missing unlock that Dan reported
-
-Changes since v8:
-- fixed a(nother) raw 64 bit division (& built it for riscv32!)
-- added a check to make sure we don't try to sleep for 0 us
-
-Changes since v7:
-- rebased on 6.0-rc1
-- reworded comments you highlighted in v7
-- fixed the overkill sleeping
-- removed the unused variables in calc_duty
-- added some extra comments to explain behaviours you questioned in v7
-- make the mutexes un-interruptible
-- fixed added the 1s you suggested for the if(period_locked) logic
-- added setup of the channel_enabled shadowing
-- fixed the period reporting for the negedge == posedge case in
-  get_state() I had to add the enabled check, as otherwise it broke
-  setting the period for the first time out of reset.
-- added a test for invalid PERIOD_STEPS values, in which case we abort
-  if we cannot fix the period
-
-Changes from v6:
-- Dropped an unused variable that I'd missed
-- Actually check the return values of the mutex lock()s
-- Re-rebased on -next for the MAINTAINERS patch (again...)
-
-Changes from v5:
-- switched to a mutex b/c we must sleep with the lock taken
-- simplified the locking in apply() and added locking to get_state()
-- reworked apply() as requested
-- removed the loop in the period calculation (thanks Uwe!)
-- add a copy of the enable registers in the driver to save on reads.
-- remove the second (useless) write to sync_update
-- added some missing rounding in get_state()
-- couple other minor cleanups as requested in:
-https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
-
-Changes from v4:
-- dropped some accidentally added files
-
-Changes before v4:
-https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
-
-Conor Dooley (2):
-  pwm: add microchip soft ip corePWM driver
-  MAINTAINERS: add pwm to PolarFire SoC entry
-
- MAINTAINERS                      |   1 +
- drivers/pwm/Kconfig              |  10 +
- drivers/pwm/Makefile             |   1 +
- drivers/pwm/pwm-microchip-core.c | 507 +++++++++++++++++++++++++++++++
- 4 files changed, 519 insertions(+)
- create mode 100644 drivers/pwm/pwm-microchip-core.c
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8d5bc223f305..128cc89a47d8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17993,6 +17993,7 @@ F:	drivers/clk/microchip/clk-mpfs.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+ F:	drivers/pci/controller/pcie-microchip-host.c
++F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
+ F:	drivers/soc/microchip/mpfs-sys-controller.c
 -- 
 2.39.2
 
