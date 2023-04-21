@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB8DC7618E
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 17:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60C4C77B76
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 17:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,75 +13,74 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=YANyb7eE0+Nhia0moYnspiJGtJcnnPukkO2b3fPW98M=; b=bAkwzWnr1jFrvz4nlTXbOZXnfW
-	KxESGH8J8sjrV9zpPXQODujGmFlPxW8JAfSY2wGDxdoGk4GrpcY7tNA3qWFEqORIqWguwqrmBOY6P
-	lGHwBFOwgvJ1SWj9vu2iDrD0h5mj7VNr5M3RdzeNnyRWSXTh3VeWgfO+RISIn03p8aGibUJvSlvFh
-	yy+rVhn+3eMv42X/ZWmAV4o2tzTA0+T9tLK2L5ZdhZAT4cX1NmBcOEfQQ6G4p3SlQVo7sc9kLxeXd
-	7C10PsXo4b34WslKeKRk6YDjai27nfvku+xvQGp879lqBO/LpS+WBh/t+gILuC0ggx7MTL5CENbQs
-	tCFeSuBQ==;
+	bh=PK5U9E9wW96HptyeTjt5C9Vv3kdj2i0Sf1DxYGDcGJI=; b=lNjLz7FGvMul5iuiYfNyaK1ppo
+	5mGq/ukuayCyhaZFh0He79O7pWC5SVDrAbTb8HoC7qSrfGKtPIdvZA99KP7bX8ELti9rmO5PrBb7u
+	zA1PPBB49VHMmYSb6HD0/9tDUJ/x3KnOFP2k2ah4bFOTTdmXfzm5CEHIREP04xacUgp8gh9M5ncNs
+	FGsPIhbqh74TUyoMAnWYTvA1j+1HboOvjGWMLwwPcbv00LLOFuMQKqbJfi8yXRS5R3Ysiwrng30Gc
+	1VkjRgPd0kqGtsCBS3U9xRxcbKWilxMgi7cKTld+vAOo/ly59tfvQ0DqtxgM39XCtIpGoW8ClIi9+
+	jecDctRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppuiQ-00BW2b-0H;
-	Fri, 21 Apr 2023 17:38:34 +0000
+	id 1ppuiT-00BW40-10;
+	Fri, 21 Apr 2023 17:38:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppuiO-00BW2B-1p
+	id 1ppuiR-00BW2d-1V
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 21 Apr 2023 17:38:32 +0000
+	Fri, 21 Apr 2023 17:38:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=; b=JpBP8FqWcIGIXnDSATQEiFeIj6
-	3czfVjlccOpwA0rHGU4xFyUlsVXDYbOEqoFUWEoIvfGH4qQU47zw16EDsMh28uVWx/zeIzxNrY5jz
-	cYh7+kgf+rf5GNPHGa1AmuSaPB6FmCCzzvQM2Go6QEfoz3aR1UMhNn2iAVTP0GPl/Pv3ubg2qaUUv
-	Obk2LV4MwF0agIYmdIz0qIqoHuYmhturt0i/GKMIZKj10WW/rDGYiXTROiFGZL6P6R5BFuGoZxMq4
-	5qJq7KFZMieG2rWWLN6ZlBwS8OA5Sv4Fa15TA76WtjKufECNDFcezx2cmNk5jdobnPmILbptB8U6T
-	+LjV52UA==;
+	bh=aDUI7xCr7dWf/FkK1CK1yXAqGXh9n1NZNFj54qb+KHU=; b=mrqz3BuEA8tWjSYdJf5xdDz3Yx
+	wqsMAecT8wMECpGd5m+luAxBa413frPXTxDJENiNANcWRFmv3I4dlZ3Ew2wMMvsYtAI7GNXSEd6hq
+	VDAAbll3EPNxZJXDiRoipvu3eK7J/Dr5wkhEs8gh3wJKjpzn4oCOq+JcuZFMDHEtW8jqOhLIDsH1O
+	kt56OvWsini4TfH/Pw7mrUuzKe1AV06GMKqWF69MWXuWKsUX2qTNPcg152H+xUhQYVh0O2CePnHF2
+	UUmzXNuhlcS8I3sl8YeYjexUn87rUhUy9SKPwXQn8HYljoicOerT1/6Mpj6Pu2URvPKBBEcDVVeUc
+	K8rZkdKQ==;
 Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppu0l-005NCn-2e
+	id 1ppu0h-005NC2-0s
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 16:53:30 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-63b79d8043eso13016896b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 09:53:24 -0700 (PDT)
+	Fri, 21 Apr 2023 16:53:27 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-63b656aacc6so2758012b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 09:53:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1682096003; x=1684688003;
+        d=google.com; s=20221208; t=1682095999; x=1684687999;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=;
-        b=GOG4w3Pi6Eguql63DqPQoIqooDk2CqgiNgSILELR6uyDzdTl7Vzyy+xaIluVcSjhyC
-         RvCjMUQV09KGtSZBzaSFu2ULcU3Y3JJpf5vC4vVKPaROFTvqMFHnKW7ByaMxXfk+EzAG
-         99Opx1mgfDUi8BUkLeU+cbao2T7UFu79PD2joe0F54/b7N6UHkeWd9KQWvVxtVFSqqBN
-         4IaiBkj2jyw7kaprKEY+F3kKrY4x7q4duJcpFclPPBqAR7WayXdFPSvh7rZW6yMWTzoe
-         DS8bOW/ilapcUDSa/xMSHG8hRonLGXyfdOJIEtji0VIqlLUQKZGmAZZyv+1a4rxUZ26s
-         iMZQ==
+        bh=aDUI7xCr7dWf/FkK1CK1yXAqGXh9n1NZNFj54qb+KHU=;
+        b=xTDct9zxZ9N8ALbPUp/viW7lM9BRRuwGhBUMNIpBcky3DENAIpUsYaKC4hxy6ElANa
+         XJM0ALn9fzQGXWa5TwxvUayRtY+2kF+0hSFrS4Z13rLNDvpjdJ1bTkvnlg/aszqM3kw6
+         JwtYRMMCwqvts/H9WPbPOWtINNCHPcx52iHlR+Mni7gOLO5npE1/M3beOvxeJdJAoVtK
+         oYpcB0E2UWuNNPfDE3N6K7L1PsDilnRRB45iG1BH2Hs9bkLyvvb6zqJnC7OL6glGnKD+
+         tqNazVeTkEV+I2VUzEqOogcJ5o+xCg88TmCeF1jcEtkdTpDT5v8zElAEZqy2mA1rdmJ4
+         ZLUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682096003; x=1684688003;
+        d=1e100.net; s=20221208; t=1682095999; x=1684687999;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=;
-        b=YmoqAoS9ePScpQbx3mkn+OQrXaAUg3XKpz/ZhfQKrpAAw75VvNq4kPkfzlxxOppJW+
-         mQbki/sfXHx+YFrICp+4gMNJ7GD3qcJtGqtlS0qEVPck/YqL3oEIe9vSz8gKJ2yzydRb
-         SNP/38OoHBq27CpaENQo+Wl2HjUl4Qa0HXd5K0UOJ77KDPPn9P6DUM2RP0qbAeJWYgtB
-         W4U2n0IekQAm7M+M5Q8PFd4wBlqFvDFjWbFHcNnbyQ5ELwenJgLqTCu0wJdxBzGUp3Be
-         vdugCWlf+8Ac0K4KOO8u80S7ImsOU0kB+C01HG/kkEx6miY+/uY0ZHS0HUIAZc+10Y52
-         /EPA==
-X-Gm-Message-State: AAQBX9eTNHYq14q99dyvlY4QkmwQ+UWBG28PN1xGmwrHzqvl23lKdDI6
-	Fy/4DoUtf49uSYcMx77yUnWEe52H2mWo
-X-Google-Smtp-Source: AKy350YK5qI2wTpVn2+n76a4c4LFk6EXRJamXsvoVbLWqldR9ZGNS6cWNNDnQcdFV3v/V2rDAy2uQXHrhTp1
+        bh=aDUI7xCr7dWf/FkK1CK1yXAqGXh9n1NZNFj54qb+KHU=;
+        b=TrNWQSWVBVkZnvMrvToyH0q3+LbKn9HU/aHsSmaz75DyLlizdGR0P6LdF48qHGe4w+
+         OYXTPjrey2a5Gdvp1XkL9a9SMR+NufWH1pXJx/vKLzAUugbwRHvdAjl8L+G429njEJjL
+         tcn3NHnIXm5entsSra+iMpmypO5J9zmiyvpcUAu90w1VlK8wsOlDW6th287yaLyeu1/Z
+         EPgDwzJ+kiV3SvIPf0pLZX/YaoA1G3wzd+RW589IH/OnXuG6sOjgOpab6WEB5rAaQgDL
+         7V4QA4VyItiLIygVactJoEe2EFcp08WL4E7vKer/HbH+eK+crHrJqRe3UfjGToNK6Gkp
+         phqg==
+X-Gm-Message-State: AAQBX9eoGHylXcxKz7KjdhoKeF4IpJGqDOhh+YW2tZtvnV8+QEuoudPa
+	8Fr9NXaTCAnlBiXljC3VHFA0husyzA5T
+X-Google-Smtp-Source: AKy350Y++Ixj3yZzgu1Tm9pviEO/066Z0jMSz5NI0cEsiZPMFyAUWWqVudz+4dZEwY3ZReh5ODp8Q4bxx5mF
 X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a17:90a:a6a:b0:244:9909:6e60 with SMTP id
- o97-20020a17090a0a6a00b0024499096e60mr1346561pjo.3.1682096003103; Fri, 21 Apr
- 2023 09:53:23 -0700 (PDT)
-Date: Fri, 21 Apr 2023 09:53:04 -0700
+ (user=vipinsh job=sendgmr) by 2002:a05:6a00:134b:b0:63d:5dcd:bc06 with SMTP
+ id k11-20020a056a00134b00b0063d5dcdbc06mr2146455pfu.5.1682095999596; Fri, 21
+ Apr 2023 09:53:19 -0700 (PDT)
+Date: Fri, 21 Apr 2023 09:53:02 -0700
 In-Reply-To: <20230421165305.804301-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20230421165305.804301-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.40.0.634.g4ca3ef3211-goog
-Message-ID: <20230421165305.804301-9-vipinsh@google.com>
-Subject: [PATCH 8/9] KMV: arm64: Allow stage2_apply_range_sched() to pass page
- table walker flags
+Message-ID: <20230421165305.804301-7-vipinsh@google.com>
+Subject: [PATCH 6/9] KVM: arm64: Correct the kvm_pgtable_stage2_flush() documentation
 From: Vipin Sharma <vipinsh@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -96,8 +95,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_175328_899073_E2DE4951 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20230421_175323_433720_B0962074 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,242 +114,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow stage2_apply_range_sched() to pass enum kvm_pgtable_walk_flags{}
-to stage 2 walkers. Pass 0 as the flag to make this change no-op
+Remove _range suffix from kvm_pgtable_stage2_flush_range which is used
+in documentation of kvm_pgtable_stage2_flush(). There is no function
+named kvm_pgtable_stage2_flush_range().
 
-This capability will be used in future commits to enable clear-dirty-log
-operation under MMU read lock.
-
-Current users of stage2_apply_range_*() API run under assumption of
-holding MMU write lock. Stage2 page table walkers then run under the
-same assumption. In future commits when clear-dirty-log operation under
-MMU read lock is added then there needs to be a way to pass this shared
-intent to page table walkers.
-
-No functional changes intended.
-
+Fixes: 93c66b40d728 ("KVM: arm64: Add support for stage-2 cache flushing in generic page-table")
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h  | 12 +++++++++---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c |  4 ++--
- arch/arm64/kvm/hyp/pgtable.c          | 16 ++++++++++------
- arch/arm64/kvm/mmu.c                  | 26 ++++++++++++++++----------
- 4 files changed, 37 insertions(+), 21 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 4cd62506c198..79a452d78e08 100644
+index 4cd6762bda80..4cd62506c198 100644
 --- a/arch/arm64/include/asm/kvm_pgtable.h
 +++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -508,6 +508,7 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-  * @addr:	Intermediate physical address from which to remove the mapping.
-  * @size:	Size of the mapping.
-+ * @flags:	Page-table walker flags.
-  *
-  * The offset of @addr within a page is ignored and @size is rounded-up to
-  * the next page boundary.
-@@ -520,7 +521,8 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  *
-  * Return: 0 on success, negative error code on failure.
-  */
--int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-+int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+			     enum kvm_pgtable_walk_flags flags);
+@@ -605,9 +605,8 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+ bool kvm_pgtable_stage2_is_young(struct kvm_pgtable *pgt, u64 addr);
  
  /**
-  * kvm_pgtable_stage2_wrprotect() - Write-protect guest stage-2 address range
-@@ -528,6 +530,7 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-  * @addr:	Intermediate physical address from which to write-protect,
-  * @size:	Size of the range.
-+ * @flags:	Page-table walker flags.
-  *
-  * The offset of @addr within a page is ignored and @size is rounded-up to
-  * the next page boundary.
-@@ -538,7 +541,8 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  *
-  * Return: 0 on success, negative error code on failure.
-  */
--int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
-+int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+				 enum kvm_pgtable_walk_flags flags);
- 
- /**
-  * kvm_pgtable_stage2_mkyoung() - Set the access flag in a page-table entry.
-@@ -610,13 +614,15 @@ bool kvm_pgtable_stage2_is_young(struct kvm_pgtable *pgt, u64 addr);
+- * kvm_pgtable_stage2_flush_range() - Clean and invalidate data cache to Point
+- * 				      of Coherency for guest stage-2 address
+- *				      range.
++ * kvm_pgtable_stage2_flush() - Clean and invalidate data cache to Point of
++ *				Coherency for guest stage-2 address range.
   * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
   * @addr:	Intermediate physical address from which to flush.
   * @size:	Size of the range.
-+ * @flags:	Page-table walker flags.
-  *
-  * The offset of @addr within a page is ignored and @size is rounded-up to
-  * the next page boundary.
-  *
-  * Return: 0 on success, negative error code on failure.
-  */
--int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
-+int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+			     enum kvm_pgtable_walk_flags flags);
- 
- /**
-  * kvm_pgtable_walk() - Walk a page-table.
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 552653fa18be..bac3c2c31cbe 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -326,11 +326,11 @@ static int host_stage2_unmap_dev_all(void)
- 	/* Unmap all non-memory regions to recycle the pages */
- 	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
- 		reg = &hyp_memory[i];
--		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
-+		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr, 0);
- 		if (ret)
- 			return ret;
- 	}
--	return kvm_pgtable_stage2_unmap(pgt, addr, BIT(pgt->ia_bits) - addr);
-+	return kvm_pgtable_stage2_unmap(pgt, addr, BIT(pgt->ia_bits) - addr, 0);
- }
- 
- struct kvm_mem_range {
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 3d61bd3e591d..3a585e1fba11 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1024,12 +1024,14 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	return 0;
- }
- 
--int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+			     enum kvm_pgtable_walk_flags flags)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_unmap_walker,
- 		.arg	= pgt,
--		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
-+		.flags	= flags | KVM_PGTABLE_WALK_LEAF |
-+				KVM_PGTABLE_WALK_TABLE_POST,
- 	};
- 
- 	return kvm_pgtable_walk(pgt, addr, size, &walker);
-@@ -1108,11 +1110,12 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
- 	return 0;
- }
- 
--int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+				 enum kvm_pgtable_walk_flags flags)
- {
- 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
- 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
--					NULL, NULL, 0);
-+					NULL, NULL, flags);
- }
- 
- kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr)
-@@ -1193,11 +1196,12 @@ static int stage2_flush_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	return 0;
- }
- 
--int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+			     enum kvm_pgtable_walk_flags flags)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_flush_walker,
--		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.flags	= flags | KVM_PGTABLE_WALK_LEAF,
- 		.arg	= pgt,
- 	};
- 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index dc1c9059604e..e0189cdda43d 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -48,7 +48,9 @@ static phys_addr_t stage2_range_addr_end(phys_addr_t addr, phys_addr_t end)
-  */
- static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
- 			      phys_addr_t end,
--			      int (*fn)(struct kvm_pgtable *, u64, u64),
-+			      enum kvm_pgtable_walk_flags flags,
-+			      int (*fn)(struct kvm_pgtable *, u64, u64,
-+					enum kvm_pgtable_walk_flags),
- 			      bool resched)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-@@ -61,7 +63,7 @@ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
- 			return -EINVAL;
- 
- 		next = stage2_range_addr_end(addr, end);
--		ret = fn(pgt, addr, next - addr);
-+		ret = fn(pgt, addr, next - addr, flags);
- 		if (ret)
- 			break;
- 
-@@ -72,8 +74,8 @@ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
- 	return ret;
- }
- 
--#define stage2_apply_range_resched(mmu, addr, end, fn)			\
--	stage2_apply_range(mmu, addr, end, fn, true)
-+#define stage2_apply_range_resched(mmu, addr, end, flags, fn)		\
-+	stage2_apply_range(mmu, addr, end, flags, fn, true)
- 
- static bool memslot_is_logging(struct kvm_memory_slot *memslot)
- {
-@@ -236,7 +238,7 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 	WARN_ON(size & ~PAGE_MASK);
--	WARN_ON(stage2_apply_range(mmu, start, end, kvm_pgtable_stage2_unmap,
-+	WARN_ON(stage2_apply_range(mmu, start, end, 0, kvm_pgtable_stage2_unmap,
- 				   may_block));
- }
- 
-@@ -251,7 +253,8 @@ static void stage2_flush_memslot(struct kvm *kvm,
- 	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
- 
--	stage2_apply_range_resched(&kvm->arch.mmu, addr, end, kvm_pgtable_stage2_flush);
-+	stage2_apply_range_resched(&kvm->arch.mmu, addr, end, 0,
-+				   kvm_pgtable_stage2_flush);
- }
- 
- /**
-@@ -932,10 +935,13 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
-  * @mmu:        The KVM stage-2 MMU pointer
-  * @addr:	Start address of range
-  * @end:	End address of range
-+ * @flags:	Page-table walker flags.
-  */
--static void stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
-+static void stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end,
-+			    enum kvm_pgtable_walk_flags flags)
- {
--	stage2_apply_range_resched(mmu, addr, end, kvm_pgtable_stage2_wrprotect);
-+	stage2_apply_range_resched(mmu, addr, end, flags,
-+				   kvm_pgtable_stage2_wrprotect);
- }
- 
- /**
-@@ -964,7 +970,7 @@ static void kvm_mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 
- 	write_lock(&kvm->mmu_lock);
--	stage2_wp_range(&kvm->arch.mmu, start, end);
-+	stage2_wp_range(&kvm->arch.mmu, start, end, 0);
- 	write_unlock(&kvm->mmu_lock);
- 	kvm_flush_remote_tlbs(kvm);
- }
-@@ -988,7 +994,7 @@ static void kvm_mmu_write_protect_pt_masked(struct kvm *kvm,
- 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 
--	stage2_wp_range(&kvm->arch.mmu, start, end);
-+	stage2_wp_range(&kvm->arch.mmu, start, end, 0);
- }
- 
- /*
 -- 
 2.40.0.634.g4ca3ef3211-goog
 
