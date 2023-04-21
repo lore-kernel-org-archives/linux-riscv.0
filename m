@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C143C7618E
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 17:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB8DC7618E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 17:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cqPPi2mH6zAWTevuWB8MKYRBPVVfjCKldj/cifNHwxQ=; b=fV297NwbYfrMha
-	wshhfkfqYyVberksZ2rsxECoJi1E3Ca0hRvOATgtKjBq6Q6dBsNge0a2diONu3Tynk5dtul19M7f8
-	0XNut5N94BFbZt+Pv1mkjdUSfyQ80ETWBaTYL/CtQDPJGrVqKvzYiM+XRpxi87mjVJlwoytrxC9fY
-	7GnYuCn9StuelAMvteYMo1Nrwk27GzKIYrGfiulk5nQHJZzCLwCUIfh6bTwSNwZFPTAlaXJCrDrIC
-	qb+kZqccE2fjKajrjSG364RPpNRQmdIHk3JQ6cgbrxicRS7c5JVwiRXuvmIlXQHSxaOpgGQ9cPAZr
-	C94xhmgKzRZW765D5fKw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=YANyb7eE0+Nhia0moYnspiJGtJcnnPukkO2b3fPW98M=; b=bAkwzWnr1jFrvz4nlTXbOZXnfW
+	KxESGH8J8sjrV9zpPXQODujGmFlPxW8JAfSY2wGDxdoGk4GrpcY7tNA3qWFEqORIqWguwqrmBOY6P
+	lGHwBFOwgvJ1SWj9vu2iDrD0h5mj7VNr5M3RdzeNnyRWSXTh3VeWgfO+RISIn03p8aGibUJvSlvFh
+	yy+rVhn+3eMv42X/ZWmAV4o2tzTA0+T9tLK2L5ZdhZAT4cX1NmBcOEfQQ6G4p3SlQVo7sc9kLxeXd
+	7C10PsXo4b34WslKeKRk6YDjai27nfvku+xvQGp879lqBO/LpS+WBh/t+gILuC0ggx7MTL5CENbQs
+	tCFeSuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppueH-00BVYz-14;
-	Fri, 21 Apr 2023 17:34:17 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1ppuiQ-00BW2b-0H;
+	Fri, 21 Apr 2023 17:38:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppueE-00BVYK-1C
+	id 1ppuiO-00BW2B-1p
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 21 Apr 2023 17:38:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=; b=JpBP8FqWcIGIXnDSATQEiFeIj6
+	3czfVjlccOpwA0rHGU4xFyUlsVXDYbOEqoFUWEoIvfGH4qQU47zw16EDsMh28uVWx/zeIzxNrY5jz
+	cYh7+kgf+rf5GNPHGa1AmuSaPB6FmCCzzvQM2Go6QEfoz3aR1UMhNn2iAVTP0GPl/Pv3ubg2qaUUv
+	Obk2LV4MwF0agIYmdIz0qIqoHuYmhturt0i/GKMIZKj10WW/rDGYiXTROiFGZL6P6R5BFuGoZxMq4
+	5qJq7KFZMieG2rWWLN6ZlBwS8OA5Sv4Fa15TA76WtjKufECNDFcezx2cmNk5jdobnPmILbptB8U6T
+	+LjV52UA==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1ppu0l-005NCn-2e
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 17:34:16 +0000
-Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5051abd03a7so2808418a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 10:34:13 -0700 (PDT)
+	Fri, 21 Apr 2023 16:53:30 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-63b79d8043eso13016896b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 09:53:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1682098452; x=1684690452;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=gmbHaAEPuU4oEmlAG224eV0NF90p/lDU8WXg7UgBfxs=;
-        b=0Yf4QFtDYxApW8e+Npa8eclnh1VPHECPdGgPfNTV+QtqQajhKU+b5z/94b/0kjjMLO
-         9jNHHye49I5lSjPgdZmti3vLwUqQcMJnmyh/k7xXfuVJE10F2oGKWSHY2vIV+kwa8+t7
-         fAML1NpJB08gTXg/dasdPltO/cgah/Ls7Z5pUVlUFcVxGQkjmTyIr1nNUgLZZc3okHyY
-         QXECeu32BbNB0dcFw81iIE0FZynz/mP4m1+JRBODA+gM7xc7GOzGrO4ONwx0ZbG/DmM4
-         8DhlSRRP5Wfd0gAb2llDQJ61n6Bcb6dtzWtEzY/ZU5YWucTfG3tX0eGFlVl7S5AImlQn
-         aY1w==
+        d=google.com; s=20221208; t=1682096003; x=1684688003;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=;
+        b=GOG4w3Pi6Eguql63DqPQoIqooDk2CqgiNgSILELR6uyDzdTl7Vzyy+xaIluVcSjhyC
+         RvCjMUQV09KGtSZBzaSFu2ULcU3Y3JJpf5vC4vVKPaROFTvqMFHnKW7ByaMxXfk+EzAG
+         99Opx1mgfDUi8BUkLeU+cbao2T7UFu79PD2joe0F54/b7N6UHkeWd9KQWvVxtVFSqqBN
+         4IaiBkj2jyw7kaprKEY+F3kKrY4x7q4duJcpFclPPBqAR7WayXdFPSvh7rZW6yMWTzoe
+         DS8bOW/ilapcUDSa/xMSHG8hRonLGXyfdOJIEtji0VIqlLUQKZGmAZZyv+1a4rxUZ26s
+         iMZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682098452; x=1684690452;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gmbHaAEPuU4oEmlAG224eV0NF90p/lDU8WXg7UgBfxs=;
-        b=PLmMeSUTaDbLdStn+UemaVbIV2rSFZsIux2TLQl6Xyp0gsDm5vuSmauxMx7g5z1LLs
-         aBPgLuBWe/mwBMfx4ypznMfVcueGJFJXPmqXKbepS7XGP+Llar57VYL6fr7NchP+5dM8
-         MeKyKgvEo4rB6xSwcoWj+uoOrZIyzwMhV92NIXd5h2nNDtNYT09XVqXuFQGXPSrBbHze
-         OvyBF3FhHqixl5Ffe5ls2o/CDI7w7QL5oK1jPffrgTxyIwrH49DXWW1yQJITvsC6ZEF5
-         Iate8ndNUSdXDUDyC8j775jqx0S1KCIbvTef/Ld4xSFKxvBVrUAd98zRb7W2/PzWvvn0
-         rsNg==
-X-Gm-Message-State: AAQBX9eFFgM0OtZZ6WgA9J59GKp17zKjC0Ji9u1iwjKPqN+0jnL7303N
-	lQFt0pHwma53qdLNbG9v05Iyaifn7UOKN9dBR5Q4nQ==
-X-Google-Smtp-Source: AKy350ZyHJzBdNd9Rl58RWyYWoyAjvKclDuYlwqb0MZh+iKf0jW1tajFN5kR9NWZ4LTB8iD0kOx3hQ7QlL/dJY8wNHM=
-X-Received: by 2002:a17:906:58c:b0:953:429e:fff6 with SMTP id
- 12-20020a170906058c00b00953429efff6mr3148032ejn.51.1682098451946; Fri, 21 Apr
- 2023 10:34:11 -0700 (PDT)
-MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 21 Apr 2023 23:04:00 +0530
-Message-ID: <CAAhSdy2RLinG5Gx-sfOqrYDAT=xDa3WAk8r1jTu8ReO5Jo0LVA@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.4
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+        d=1e100.net; s=20221208; t=1682096003; x=1684688003;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qC7e8besLo1ag72RTnGUdqUNToUJA9of6W+yz9oDvfY=;
+        b=YmoqAoS9ePScpQbx3mkn+OQrXaAUg3XKpz/ZhfQKrpAAw75VvNq4kPkfzlxxOppJW+
+         mQbki/sfXHx+YFrICp+4gMNJ7GD3qcJtGqtlS0qEVPck/YqL3oEIe9vSz8gKJ2yzydRb
+         SNP/38OoHBq27CpaENQo+Wl2HjUl4Qa0HXd5K0UOJ77KDPPn9P6DUM2RP0qbAeJWYgtB
+         W4U2n0IekQAm7M+M5Q8PFd4wBlqFvDFjWbFHcNnbyQ5ELwenJgLqTCu0wJdxBzGUp3Be
+         vdugCWlf+8Ac0K4KOO8u80S7ImsOU0kB+C01HG/kkEx6miY+/uY0ZHS0HUIAZc+10Y52
+         /EPA==
+X-Gm-Message-State: AAQBX9eTNHYq14q99dyvlY4QkmwQ+UWBG28PN1xGmwrHzqvl23lKdDI6
+	Fy/4DoUtf49uSYcMx77yUnWEe52H2mWo
+X-Google-Smtp-Source: AKy350YK5qI2wTpVn2+n76a4c4LFk6EXRJamXsvoVbLWqldR9ZGNS6cWNNDnQcdFV3v/V2rDAy2uQXHrhTp1
+X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
+ (user=vipinsh job=sendgmr) by 2002:a17:90a:a6a:b0:244:9909:6e60 with SMTP id
+ o97-20020a17090a0a6a00b0024499096e60mr1346561pjo.3.1682096003103; Fri, 21 Apr
+ 2023 09:53:23 -0700 (PDT)
+Date: Fri, 21 Apr 2023 09:53:04 -0700
+In-Reply-To: <20230421165305.804301-1-vipinsh@google.com>
+Mime-Version: 1.0
+References: <20230421165305.804301-1-vipinsh@google.com>
+X-Mailer: git-send-email 2.40.0.634.g4ca3ef3211-goog
+Message-ID: <20230421165305.804301-9-vipinsh@google.com>
+Subject: [PATCH 8/9] KMV: arm64: Allow stage2_apply_range_sched() to pass page
+ table walker flags
+From: Vipin Sharma <vipinsh@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, 
+	tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com, 
+	ricarkol@google.com
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_103414_672204_971E3248 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230421_175328_899073_E2DE4951 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +114,245 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+Allow stage2_apply_range_sched() to pass enum kvm_pgtable_walk_flags{}
+to stage 2 walkers. Pass 0 as the flag to make this change no-op
 
-We have the following KVM RISC-V changes for 6.4:
-1) ONE_REG interface to enable/disable SBI extensions
-2) Zbb extension for Guest/VM
-3) AIA CSR virtualization
-4) Few minor cleanups and fixes
+This capability will be used in future commits to enable clear-dirty-log
+operation under MMU read lock.
 
-Please pull.
+Current users of stage2_apply_range_*() API run under assumption of
+holding MMU write lock. Stage2 page table walkers then run under the
+same assumption. In future commits when clear-dirty-log operation under
+MMU read lock is added then there needs to be a way to pass this shared
+intent to page table walkers.
 
-Please note that the Zicboz series has been taken by
-Palmer through the RISC-V tree which results in few
-minor conflicts in the following files:
-arch/riscv/include/asm/hwcap.h
-arch/riscv/include/uapi/asm/kvm.h
-arch/riscv/kernel/cpu.c
-arch/riscv/kernel/cpufeature.c
-arch/riscv/kvm/vcpu.c
+No functional changes intended.
 
-I am not sure if a shared tag can make things easy
-for you or Palmer.
+Signed-off-by: Vipin Sharma <vipinsh@google.com>
+---
+ arch/arm64/include/asm/kvm_pgtable.h  | 12 +++++++++---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c |  4 ++--
+ arch/arm64/kvm/hyp/pgtable.c          | 16 ++++++++++------
+ arch/arm64/kvm/mmu.c                  | 26 ++++++++++++++++----------
+ 4 files changed, 37 insertions(+), 21 deletions(-)
 
-Regards,
-Anup
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 4cd62506c198..79a452d78e08 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -508,6 +508,7 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+  * @addr:	Intermediate physical address from which to remove the mapping.
+  * @size:	Size of the mapping.
++ * @flags:	Page-table walker flags.
+  *
+  * The offset of @addr within a page is ignored and @size is rounded-up to
+  * the next page boundary.
+@@ -520,7 +521,8 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  *
+  * Return: 0 on success, negative error code on failure.
+  */
+-int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
++int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size,
++			     enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+  * kvm_pgtable_stage2_wrprotect() - Write-protect guest stage-2 address range
+@@ -528,6 +530,7 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+  * @addr:	Intermediate physical address from which to write-protect,
+  * @size:	Size of the range.
++ * @flags:	Page-table walker flags.
+  *
+  * The offset of @addr within a page is ignored and @size is rounded-up to
+  * the next page boundary.
+@@ -538,7 +541,8 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+  *
+  * Return: 0 on success, negative error code on failure.
+  */
+-int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
++int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size,
++				 enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+  * kvm_pgtable_stage2_mkyoung() - Set the access flag in a page-table entry.
+@@ -610,13 +614,15 @@ bool kvm_pgtable_stage2_is_young(struct kvm_pgtable *pgt, u64 addr);
+  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+  * @addr:	Intermediate physical address from which to flush.
+  * @size:	Size of the range.
++ * @flags:	Page-table walker flags.
+  *
+  * The offset of @addr within a page is ignored and @size is rounded-up to
+  * the next page boundary.
+  *
+  * Return: 0 on success, negative error code on failure.
+  */
+-int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
++int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
++			     enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+  * kvm_pgtable_walk() - Walk a page-table.
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 552653fa18be..bac3c2c31cbe 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -326,11 +326,11 @@ static int host_stage2_unmap_dev_all(void)
+ 	/* Unmap all non-memory regions to recycle the pages */
+ 	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
+ 		reg = &hyp_memory[i];
+-		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
++		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr, 0);
+ 		if (ret)
+ 			return ret;
+ 	}
+-	return kvm_pgtable_stage2_unmap(pgt, addr, BIT(pgt->ia_bits) - addr);
++	return kvm_pgtable_stage2_unmap(pgt, addr, BIT(pgt->ia_bits) - addr, 0);
+ }
+ 
+ struct kvm_mem_range {
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 3d61bd3e591d..3a585e1fba11 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1024,12 +1024,14 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	return 0;
+ }
+ 
+-int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
++int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size,
++			     enum kvm_pgtable_walk_flags flags)
+ {
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= stage2_unmap_walker,
+ 		.arg	= pgt,
+-		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
++		.flags	= flags | KVM_PGTABLE_WALK_LEAF |
++				KVM_PGTABLE_WALK_TABLE_POST,
+ 	};
+ 
+ 	return kvm_pgtable_walk(pgt, addr, size, &walker);
+@@ -1108,11 +1110,12 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+ 	return 0;
+ }
+ 
+-int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
++int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size,
++				 enum kvm_pgtable_walk_flags flags)
+ {
+ 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
+ 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+-					NULL, NULL, 0);
++					NULL, NULL, flags);
+ }
+ 
+ kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr)
+@@ -1193,11 +1196,12 @@ static int stage2_flush_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	return 0;
+ }
+ 
+-int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
++int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
++			     enum kvm_pgtable_walk_flags flags)
+ {
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= stage2_flush_walker,
+-		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.flags	= flags | KVM_PGTABLE_WALK_LEAF,
+ 		.arg	= pgt,
+ 	};
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index dc1c9059604e..e0189cdda43d 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -48,7 +48,9 @@ static phys_addr_t stage2_range_addr_end(phys_addr_t addr, phys_addr_t end)
+  */
+ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
+ 			      phys_addr_t end,
+-			      int (*fn)(struct kvm_pgtable *, u64, u64),
++			      enum kvm_pgtable_walk_flags flags,
++			      int (*fn)(struct kvm_pgtable *, u64, u64,
++					enum kvm_pgtable_walk_flags),
+ 			      bool resched)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+@@ -61,7 +63,7 @@ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
+ 			return -EINVAL;
+ 
+ 		next = stage2_range_addr_end(addr, end);
+-		ret = fn(pgt, addr, next - addr);
++		ret = fn(pgt, addr, next - addr, flags);
+ 		if (ret)
+ 			break;
+ 
+@@ -72,8 +74,8 @@ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
+ 	return ret;
+ }
+ 
+-#define stage2_apply_range_resched(mmu, addr, end, fn)			\
+-	stage2_apply_range(mmu, addr, end, fn, true)
++#define stage2_apply_range_resched(mmu, addr, end, flags, fn)		\
++	stage2_apply_range(mmu, addr, end, flags, fn, true)
+ 
+ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+ {
+@@ -236,7 +238,7 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 	WARN_ON(size & ~PAGE_MASK);
+-	WARN_ON(stage2_apply_range(mmu, start, end, kvm_pgtable_stage2_unmap,
++	WARN_ON(stage2_apply_range(mmu, start, end, 0, kvm_pgtable_stage2_unmap,
+ 				   may_block));
+ }
+ 
+@@ -251,7 +253,8 @@ static void stage2_flush_memslot(struct kvm *kvm,
+ 	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
+ 
+-	stage2_apply_range_resched(&kvm->arch.mmu, addr, end, kvm_pgtable_stage2_flush);
++	stage2_apply_range_resched(&kvm->arch.mmu, addr, end, 0,
++				   kvm_pgtable_stage2_flush);
+ }
+ 
+ /**
+@@ -932,10 +935,13 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+  * @mmu:        The KVM stage-2 MMU pointer
+  * @addr:	Start address of range
+  * @end:	End address of range
++ * @flags:	Page-table walker flags.
+  */
+-static void stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
++static void stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end,
++			    enum kvm_pgtable_walk_flags flags)
+ {
+-	stage2_apply_range_resched(mmu, addr, end, kvm_pgtable_stage2_wrprotect);
++	stage2_apply_range_resched(mmu, addr, end, flags,
++				   kvm_pgtable_stage2_wrprotect);
+ }
+ 
+ /**
+@@ -964,7 +970,7 @@ static void kvm_mmu_wp_memory_region(struct kvm *kvm, int slot)
+ 	end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	stage2_wp_range(&kvm->arch.mmu, start, end);
++	stage2_wp_range(&kvm->arch.mmu, start, end, 0);
+ 	write_unlock(&kvm->mmu_lock);
+ 	kvm_flush_remote_tlbs(kvm);
+ }
+@@ -988,7 +994,7 @@ static void kvm_mmu_write_protect_pt_masked(struct kvm *kvm,
+ 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+ 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+ 
+-	stage2_wp_range(&kvm->arch.mmu, start, end);
++	stage2_wp_range(&kvm->arch.mmu, start, end, 0);
+ }
+ 
+ /*
+-- 
+2.40.0.634.g4ca3ef3211-goog
 
-The following changes since commit 6a8f57ae2eb07ab39a6f0ccad60c760743051026:
-
-  Linux 6.3-rc7 (2023-04-16 15:23:53 -0700)
-
-are available in the Git repository at:
-
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.4-1
-
-for you to fetch changes up to 2f4d58f7635aec014428e73ef6120c4d0377c430:
-
-  RISC-V: KVM: Virtualize per-HART AIA CSRs (2023-04-21 18:10:27 +0530)
-
-----------------------------------------------------------------
-KVM/riscv changes for 6.4
-
-- ONE_REG interface to enable/disable SBI extensions
-- Zbb extension for Guest/VM
-- AIA CSR virtualization
-
-----------------------------------------------------------------
-Andrew Jones (1):
-      RISC-V: KVM: Alphabetize selects
-
-Anup Patel (10):
-      RISC-V: KVM: Add ONE_REG interface to enable/disable SBI extensions
-      RISC-V: KVM: Allow Zbb extension for Guest/VM
-      RISC-V: Add AIA related CSR defines
-      RISC-V: Detect AIA CSRs from ISA string
-      RISC-V: KVM: Drop the _MASK suffix from hgatp.VMID mask defines
-      RISC-V: KVM: Initial skeletal support for AIA
-      RISC-V: KVM: Implement subtype for CSR ONE_REG interface
-      RISC-V: KVM: Add ONE_REG interface for AIA CSRs
-      RISC-V: KVM: Use bitmap for irqs_pending and irqs_pending_mask
-      RISC-V: KVM: Virtualize per-HART AIA CSRs
-
-David Matlack (1):
-      KVM: RISC-V: Retry fault if vma_lookup() results become invalid
-
- arch/riscv/include/asm/csr.h          | 107 +++++++++-
- arch/riscv/include/asm/hwcap.h        |   8 +
- arch/riscv/include/asm/kvm_aia.h      | 127 +++++++++++
- arch/riscv/include/asm/kvm_host.h     |  14 +-
- arch/riscv/include/asm/kvm_vcpu_sbi.h |   8 +-
- arch/riscv/include/uapi/asm/kvm.h     |  51 ++++-
- arch/riscv/kernel/cpu.c               |   2 +
- arch/riscv/kernel/cpufeature.c        |   2 +
- arch/riscv/kvm/Kconfig                |  10 +-
- arch/riscv/kvm/Makefile               |   1 +
- arch/riscv/kvm/aia.c                  | 388 ++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/main.c                 |  22 +-
- arch/riscv/kvm/mmu.c                  |  28 ++-
- arch/riscv/kvm/vcpu.c                 | 194 +++++++++++++----
- arch/riscv/kvm/vcpu_insn.c            |   1 +
- arch/riscv/kvm/vcpu_sbi.c             | 247 ++++++++++++++++++++--
- arch/riscv/kvm/vcpu_sbi_base.c        |   2 +-
- arch/riscv/kvm/vm.c                   |   4 +
- arch/riscv/kvm/vmid.c                 |   4 +-
- 19 files changed, 1129 insertions(+), 91 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_aia.h
- create mode 100644 arch/riscv/kvm/aia.c
 
 _______________________________________________
 linux-riscv mailing list
