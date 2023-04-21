@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63FAC7618E
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 18:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F813C77B78
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Apr 2023 18:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=KvWbSbQQDXmmtMSAR6zmttymFQHZVVGMmP25qu/dQd8=; b=saD3xY9YUd9lMOD1j/aASc9QXc
-	mVSqrgM7sebXH3u13qCTVH4hr2rQ+xfYZTTcGuU+++2QGeIm2KlJkTB1+pwYGFdpsQmO5dVTkLBfP
-	5P3ZnaBVAejKRUnOGM28bBJAjoCvvWThOKL6N1YLEwxsVAXKSCFzHpCjVMpRSVsYgd/vlHrzDDpEy
-	P//cwNZDiILD4zlHlTShQGPbcQmI9ZBeW0KuSNHaSKZJltKhFNG+PI3V7ozLKqVd0lo1UE9bs7xgG
-	EoD9sar2g6l3kHuwy0ScyuTIoFz/LjsfSxRVUozTIEQT3qLh2GZpoPJVidiH+YOsnrax4ExzxD5DZ
-	s6gVxxkw==;
+	bh=MxLJiGFE1veCXy9S6DMBp+rmZvNRdVo//fGohZ89vUU=; b=IKb7Y5wCwv8suzRPz5O4kWTnJ7
+	XJHdQljAVm+ef6xBZaO6MsFe/jPWQ9YSI9yPlJsalk5h09NMq/6YXM+hXgHxyoNss5Qn+X23ktNar
+	nODdhQV2INSHtQ9VDUIT4hf8i5h9thO5LKgWVaCwQSzKy6Fb7deDxy+seuob0cYoqi3X3Azgsdt+m
+	r4WPc7dPw0tMXIArjHOlkHUG+sDK9iV/3IDeCq+U9ssOct/nWxozWL5OyEhLjk5IfhhhifKXVsXsV
+	8dMg24rebZwHPIyjPdlo5xLlP59RY8rKA9+wV166s8OEv6Y2Rj6uMeFEyZjVPS5d84z13oZ+82sxj
+	DkEhku3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppv4F-00BYxM-2o;
-	Fri, 21 Apr 2023 18:01:07 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1ppv4E-00BYwI-1K;
+	Fri, 21 Apr 2023 18:01:06 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ppu0b-00BR7W-0U
+	id 1ppu0b-00BR6B-0P
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Apr 2023 16:53:20 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-51b121871ecso1487746a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 09:53:16 -0700 (PDT)
+	Fri, 21 Apr 2023 16:53:18 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1a66bd44f6dso15805945ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Apr 2023 09:53:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1682095996; x=1684687996;
+        d=google.com; s=20221208; t=1682095994; x=1684687994;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QAMadok09XxgFvaDO3J6Lgqv+ZDwnOLb2IYSq9G7u+A=;
-        b=5l1CzLumfw4VvnGKs1LekidIOHm6RR2ZhVTA1I+whH2HeXgm2o8PhxoPUQLTHfydb9
-         MbBxamdeRZWqIzwIX6cPpq9NGQ3282H+LGUyBZpLlO6iAgfWncKkZnXQevgjEqCzsFvI
-         /ie9WS7cdYCl1aCB7+4MGfZNo6IMNnRdfZplWSdxceYc0BIUM6d0gO/blOvoZokSUVGw
-         Y1vWnwlcSKtpR4AbEKzTUp+leY3IooaW0MIg6qShyiSd1O990V5j6KZFgnSxmwclrSfF
-         iRRS2VvoFH4pfGHIeK5C/wh3ElWiAy4UgpcFTrfc4JtiPWNVC38kZkoYq7eJ04Cn12As
-         uI2A==
+        bh=2PAF8eecHjdHkncCHVDxnuwZD238/O/D5uX087DV6gk=;
+        b=PTkyUTn2160dQG/w0LBEubHoXT6/kolM07eAXpOkI5VQKBjVge2/G3D9DJWv4EmluF
+         jwrYT87c/pr1Xst3R4sPDfwUW1QW6N7gw0yt507TfR8+t+X9AZokv5qPyHgjsmekGrNG
+         N5lb8NDbmayYdr4sbEsTRxgCzT7JDO2aRCdXd3ULGGsFS/IzMoTjppouMIJbEHzjtzJn
+         0UQdx9F3D1PLMFaK3GeO580/u61tzYb2QXdQjUSDj2cShYPf8ASAPVv3u7/P4wOk+ciC
+         66tN/SEGEQMjy6UGRqCfjY+yHppjjUO6tyxdYKf7p4Z/hg9iu3GtO1l0LIPj0nE4z4c0
+         zDPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682095996; x=1684687996;
+        d=1e100.net; s=20221208; t=1682095994; x=1684687994;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QAMadok09XxgFvaDO3J6Lgqv+ZDwnOLb2IYSq9G7u+A=;
-        b=blRAdShwzQO7bjx05f8tbpM2b1Qs3CG5du833ILkS61F+tThQiiikF2OTJ3sAbfdG8
-         6JusoikrbSISnGej97Jp3Vll49Cf9fv4IghBCNio+2O4W+JCnkg9DYprR9CmqeahsyU2
-         3/q+tg4Smqn6KhxnOIbnE2LP6M5zMZM4Un/4zkVsNKeuLldZ21j85Feh5sqgiRKSg3oF
-         kmEB7lWdDRJ2qmI6udh8RP14Lh0nM4bCeo6iGOi0C2i3q/bjBEuf96NTVZQo7vDMudpi
-         e3Op0ufxmfdcTWhm+q36LMFOoHSKHzV/BBxcFADZlTW39SsJEuyeDWg7Q3rI8oKza07c
-         NTvw==
-X-Gm-Message-State: AAQBX9c6QC4avbl6dcH4mzMCkMAqRopjjkbK4qqCXq7GwyULDWkIJqnA
-	fmnnM44VMSQf7s4CX6tKWOYUFEDvpZdS
-X-Google-Smtp-Source: AKy350ZjCHa4QHnHiWhcJq+auFhrVPVMASZyckOmf5zCb6ojNKQ4+uKrop3naLHjd6GRNHOZE2DYdu7UHwlH
+        bh=2PAF8eecHjdHkncCHVDxnuwZD238/O/D5uX087DV6gk=;
+        b=Qs/keRm0CDeDYTJGbRCSC+6wfYZ/UG9RCRfOF+9HBkLT7SFvcrBSUK84ri1+XYDpxs
+         dRqIcm8ABM0uJAnlLTL52VwcuqIEySde7f+v7JwZjbmGjV4+nTpKtu4jWocjOMFtCXVx
+         PFvJzWq7S+VlDOcMyhMpeCRCrRl1klIrJs7SZwT/slOMqxr71ZmBEeJJ+/QqMsqphReh
+         rgXum0+DtrTTOWkGpf2TDJmTZMmmj8RC72vnuiVDryme0uwUc1EN6IsQakI71xHTMXzA
+         Y16ZZwdX3VFCPeNwNocb7qDsb9/O1lsqPyutGYdUyfZ+wueWIIk0qO1SjAPaExUWjb6W
+         QxoQ==
+X-Gm-Message-State: AAQBX9fyDtAPT45gh35nMgWQUm3ruA4bC/b6W0GOns58qBxUHXAf3LUv
+	X+a3jTR2FFLOgqvXNMw+yAbOvhQDQdWY
+X-Google-Smtp-Source: AKy350ZhDTjaiDsWlopRxc48Dw1pNwwJqPHfzna6+NHQQh4Cp6jlmLNI1MOs2L3SqIF7smNjuMPM7IP//W/I
 X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a63:105e:0:b0:520:53fa:9878 with SMTP id
- 30-20020a63105e000000b0052053fa9878mr1424111pgq.6.1682095996166; Fri, 21 Apr
- 2023 09:53:16 -0700 (PDT)
-Date: Fri, 21 Apr 2023 09:53:00 -0700
+ (user=vipinsh job=sendgmr) by 2002:a17:902:7b85:b0:1a0:4321:920e with SMTP id
+ w5-20020a1709027b8500b001a04321920emr1816879pll.12.1682095994335; Fri, 21 Apr
+ 2023 09:53:14 -0700 (PDT)
+Date: Fri, 21 Apr 2023 09:52:59 -0700
 In-Reply-To: <20230421165305.804301-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20230421165305.804301-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.40.0.634.g4ca3ef3211-goog
-Message-ID: <20230421165305.804301-5-vipinsh@google.com>
-Subject: [PATCH 4/9] KVM: selftests: Print read and write accesses of pages by
- vCPUs in dirty_log_perf_test
+Message-ID: <20230421165305.804301-4-vipinsh@google.com>
+Subject: [PATCH 3/9] KVM: selftests: Pass count of read and write accesses
+ from guest to host
 From: Vipin Sharma <vipinsh@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230421_095317_202465_C56C2A52 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20230421_095317_176444_695740D9 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,103 +99,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fetch read and write accesses of pages from guest code and print count
-across all vCPUs in dirty_log_perf_test.
+Pass number of read and write accesses done in the memstress' guest code
+to userspace.
 
-This data provides progress made by vCPUs during dirty logging
-operations. Since, vCPUs execute in lockstep with userspace dirty log
-iterations, this metric is not very interesting. However, in future
-commits when dirty_log_perf_test can execute vCPUs independently from
-dirty log iterations then this metric can give good measure of vCPUs
-performance during dirty logging.
+These counts will be one way to measure vCPU performances during
+memstress and dirty logging related tests. For example, in
+dirty_log_perf_test this can be used to measure impact of dirty and
+clear log APIs on vCPUs performances.
+
+In current dirty_log_perf_test, each vCPU executes in lockstep to the
+current iteration in userspace, therefore, these access counts will not
+provide much useful information except for observing individual vCPUs
+read vs write accesses.
+
+However, in future commits, dirty_log_perf_test behavior will be changed
+to allow vCPUs to execute independent of userspace iterations. This will
+mimic real world workload where guest keeps on executing while VMM is
+collecting and clearing dirty logs separately. With read and write
+accesses known for each vCPU, impact of get and clear dirty log APIs can
+be quantified. Note that these access counts will not be 100% reliable
+in knowing vCPUs performances since vCPUs scheduling can impact
+the progress.
 
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- .../selftests/kvm/dirty_log_perf_test.c        | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/lib/memstress.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/dirty_log_perf_test.c b/tools/testing/selftests/kvm/dirty_log_perf_test.c
-index 338f03a4a550..0a08a3d21123 100644
---- a/tools/testing/selftests/kvm/dirty_log_perf_test.c
-+++ b/tools/testing/selftests/kvm/dirty_log_perf_test.c
-@@ -12,6 +12,7 @@
- #include <stdlib.h>
- #include <time.h>
- #include <pthread.h>
-+#include <stdatomic.h>
- #include <linux/bitmap.h>
+diff --git a/tools/testing/selftests/kvm/lib/memstress.c b/tools/testing/selftests/kvm/lib/memstress.c
+index 483ecbc53a5b..9c2e360e610f 100644
+--- a/tools/testing/selftests/kvm/lib/memstress.c
++++ b/tools/testing/selftests/kvm/lib/memstress.c
+@@ -50,6 +50,8 @@ void memstress_guest_code(uint32_t vcpu_idx)
+ 	struct memstress_args *args = &memstress_args;
+ 	struct memstress_vcpu_args *vcpu_args = &args->vcpu_args[vcpu_idx];
+ 	struct guest_random_state rand_state;
++	uint64_t write_access;
++	uint64_t read_access;
+ 	uint64_t gva;
+ 	uint64_t pages;
+ 	uint64_t addr;
+@@ -65,6 +67,8 @@ void memstress_guest_code(uint32_t vcpu_idx)
+ 	GUEST_ASSERT(vcpu_args->vcpu_idx == vcpu_idx);
  
- #include "kvm_util.h"
-@@ -66,17 +67,22 @@ static u64 dirty_log_manual_caps;
- static bool host_quit;
- static int iteration;
- static int vcpu_last_completed_iteration[KVM_MAX_VCPUS];
-+static atomic_ullong total_reads;
-+static atomic_ullong total_writes;
+ 	while (true) {
++		write_access = 0;
++		read_access = 0;
+ 		for (i = 0; i < pages; i++) {
+ 			if (args->random_access)
+ 				page = guest_random_u32(&rand_state) % pages;
+@@ -73,13 +77,16 @@ void memstress_guest_code(uint32_t vcpu_idx)
  
- static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
- {
- 	struct kvm_vcpu *vcpu = vcpu_args->vcpu;
- 	int vcpu_idx = vcpu_args->vcpu_idx;
- 	uint64_t pages_count = 0;
-+	uint64_t reads = 0;
-+	uint64_t writes = 0;
- 	struct kvm_run *run;
- 	struct timespec start;
- 	struct timespec ts_diff;
- 	struct timespec total = (struct timespec){0};
- 	struct timespec avg;
-+	struct ucall uc = {};
- 	int ret;
+ 			addr = gva + (page * args->guest_page_size);
  
- 	run = vcpu->run;
-@@ -89,7 +95,7 @@ static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
- 		ts_diff = timespec_elapsed(start);
+-			if (guest_random_u32(&rand_state) % 100 < args->write_percent)
++			if (guest_random_u32(&rand_state) % 100 < args->write_percent) {
+ 				*(uint64_t *)addr = 0x0123456789ABCDEF;
+-			else
++				write_access++;
++			} else {
+ 				READ_ONCE(*(uint64_t *)addr);
++				read_access++;
++			}
+ 		}
  
- 		TEST_ASSERT(ret == 0, "vcpu_run failed: %d\n", ret);
--		TEST_ASSERT(get_ucall(vcpu, NULL) == UCALL_SYNC,
-+		TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_SYNC,
- 			    "Invalid guest sync status: exit_reason=%s\n",
- 			    exit_reason_str(run->exit_reason));
- 
-@@ -101,6 +107,8 @@ static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
- 		if (current_iteration) {
- 			pages_count += vcpu_args->pages;
- 			total = timespec_add(total, ts_diff);
-+			reads += uc.args[2];
-+			writes += uc.args[3];
- 			pr_debug("vCPU %d iteration %d dirty memory time: %ld.%.9lds\n",
- 				vcpu_idx, current_iteration, ts_diff.tv_sec,
- 				ts_diff.tv_nsec);
-@@ -123,6 +131,8 @@ static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
- 	pr_debug("\nvCPU %d dirtied 0x%lx pages over %d iterations in %ld.%.9lds. (Avg %ld.%.9lds/iteration)\n",
- 		vcpu_idx, pages_count, vcpu_last_completed_iteration[vcpu_idx],
- 		total.tv_sec, total.tv_nsec, avg.tv_sec, avg.tv_nsec);
-+	atomic_fetch_add(&total_reads, reads);
-+	atomic_fetch_add(&total_writes, writes);
+-		GUEST_SYNC(1);
++		GUEST_SYNC_ARGS(1, read_access, write_access, 0, 0);
+ 	}
  }
  
- struct test_params {
-@@ -176,6 +186,8 @@ static void run_test(enum vm_guest_mode mode, void *arg)
- 			      dirty_log_manual_caps);
- 
- 	arch_setup_vm(vm, nr_vcpus);
-+	atomic_store(&total_reads, 0);
-+	atomic_store(&total_writes, 0);
- 
- 	/* Start the iterations */
- 	iteration = 0;
-@@ -295,6 +307,10 @@ static void run_test(enum vm_guest_mode mode, void *arg)
- 			clear_dirty_log_total.tv_nsec, avg.tv_sec, avg.tv_nsec);
- 	}
- 
-+	pr_info("Total pages touched: %llu (Reads: %llu, Writes: %llu)\n",
-+		atomic_load(&total_reads) + atomic_load(&total_writes),
-+		atomic_load(&total_reads), atomic_load(&total_writes));
-+
- 	memstress_free_bitmaps(bitmaps, p->slots);
- 	arch_cleanup_vm(vm);
- 	memstress_destroy_vm(vm);
 -- 
 2.40.0.634.g4ca3ef3211-goog
 
