@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B828BC7618E
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Apr 2023 01:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A59C7618E
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Apr 2023 01:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TifxM3CReJRRrJZKN+gVAgjDuqvXmvDuEhbXjsVY8QQ=; b=u+ICReQo1Jh+b/
-	wcSx3pgGWcipTBhhfg0DWMNXrR2ezRrNLrQUnbcvn+4tN0h4srpXoj5ACIpee8aaX8K7EIlDilFfU
-	28LOm7itoyFxt5IkH8riA5q+wx/Hb7sJJucLDcZcKaM3Ot0JbSkfoVa+/z5OPkcwyXQfCAreKQSfC
-	Z+eiJpMtlsBg1wstdMk9TIGfw1EKtCrK/tWGsPA5DQrFDwmxa8BzJZhYmFBF6/OVXendZn01XvAOv
-	X+gfJVzY0k9AMnHXcypVi6ZceuT3LX1241auYO/g2uJlNXVE3YS9qR/smWyoN6hxtmLztJEYrdWfr
-	KX91qg/SwyqSbyP1djBg==;
+	List-Owner; bh=TifxM3CReJRRrJZKN+gVAgjDuqvXmvDuEhbXjsVY8QQ=; b=1tG7jKAtgX6z0o
+	5cE3f/922qnVl6hXB+GP9jtpg3T+/ofIzowuZOpWb453pgDzsFF0Ndk83SMrTSbTkn70C6RQA7RmW
+	DgBy3rSPcGp0eY3hi9gc4LyIesiM5JeQ2sVIdklKimy30mqbj7E1eGYZFLADwR3Rb+vfHM7IQkSFk
+	Xsl3R+0k4bZnUsq/PPcaAPfQ8UDGBIzymjwZqn/LwGo5l7w+ITnhdZ/3L8QOI3s5cekNn9Uzilu07
+	5qsfOSkKbXm+/J/sIRH5f8zTb7RfQnamWQRr4otJAT6jMPStZXrMXrFTgELOHADe0dsOwPjQlTPHy
+	zwy3NlAl7jaFCKG97x/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqORZ-00Dd5C-03;
-	Sun, 23 Apr 2023 01:23:09 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1pqOZC-00DdPR-0y;
+	Sun, 23 Apr 2023 01:31:02 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqORV-00Dd4B-3B
+	id 1pqOZ8-00DdO7-1E
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Apr 2023 01:23:08 +0000
+	Sun, 23 Apr 2023 01:31:00 +0000
 Received: from kwepemi500008.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Q3r51163BznbqP;
-	Sun, 23 Apr 2023 09:19:01 +0800 (CST)
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Q3rKY2rXbzKtCK;
+	Sun, 23 Apr 2023 09:29:53 +0800 (CST)
 Received: from huawei.com (10.67.175.83) by kwepemi500008.china.huawei.com
  (7.221.188.139) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Sun, 23 Apr
- 2023 09:22:49 +0800
+ 2023 09:30:48 +0800
 From: ruanjinjie <ruanjinjie@huawei.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.ed>,
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH] riscv: fix kprobe __user string arg print fault issue
-Date: Sun, 23 Apr 2023 09:21:14 +0800
-Message-ID: <20230423012114.889546-1-ruanjinjie@huawei.com>
+Subject: [PATCH RESEND] riscv: fix kprobe __user string arg print fault issue
+Date: Sun, 23 Apr 2023 09:29:12 +0800
+Message-ID: <20230423012912.890965-1-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-Originating-IP: [10.67.175.83]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemi500008.china.huawei.com (7.221.188.139)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230422_182306_249665_C68E06C5 
-X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-CacheID: sfid-20230422_183059_061431_3409285F 
+X-CRM114-Status: UNSURE (   6.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
