@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3A6C77B61
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 09:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D194DC77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 09:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=laVz46hmepjzaQGVntGB/6crt5s/Xh91Eq5GD2i22A4=; b=tZDNm+PRDn7EnJ
-	dY/P2vG40wSov9fWGmM0UU8SJlvmunwWUPV9xJ+ajkLtNi2PTKx4iNJH2CDE4TkryY+sw8fKU0OSP
-	sLJrU3wgbYMo21M3IejW9OvZdA/WvkgITDgioe9JSRrBRGiA5LoZIDupASlv5Kh/qbgso9pVZfzRm
-	sYTzA8MLhZ3J9BgqicoEhSBJk+ljsYS2gMI4xUQJNqd9859Gn17+WuF5ckmayTJl/vvkS5ekUhU1Q
-	ayl19Zkb2MB0izlqNPf874VyzdyJ63CtblhghxJ3XIiXT7ftPf5L6q3MVX/Zr2k0cHpQ87pg8R++D
-	X4S0bjtVDTEfpxaikADg==;
+	List-Owner; bh=f/H9Bz3nLRZ6oeP4Z79YkwNosLLfJMKX+OGQQzviH2M=; b=DfmMyyzVswI7CQ
+	WaAM0+o6fzw+mT/qLEtdxyKSWeaNFXKfBLn+EXoMu98aoXId94f629EJN0S33V0mhBU+Z06TXlUYy
+	vuL6rM9Zd+Gg2Tj+I2qM+UgascMz/TYx6DwOKUlL2yQfyHQ8JN/29nGBVBw/y6F7VHnQ6cFk+k8jh
+	tM170k3/uapMrcIMW/Gs+Piz3yePKWTTIYuoI2SgJENki3rXDkh9cJ7ncL/8MN9FZblFwn/wSFY2B
+	bgCNuE1Z+YOhghpez3G6iHD3yL6KC1CLVfqKbkcKNxlxK+V7EOM4SHSqV2tPFYKx7Tt8FBXUKFQX1
+	j+KZ1oqY9Q6ml12FjTBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqsPq-00FmOT-0q;
-	Mon, 24 Apr 2023 09:23:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pqsQq-00FmaD-1A;
+	Mon, 24 Apr 2023 09:24:24 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqsPm-00FmNE-10;
-	Mon, 24 Apr 2023 09:23:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9B8B361199;
-	Mon, 24 Apr 2023 09:23:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84A5EC4339B;
-	Mon, 24 Apr 2023 09:23:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682328197;
-	bh=9QxxTDqEZuUcu1SqncS6XYTCwXdPgOsgYu/94XoFcg0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IBLR6BB6XL4iRo6H7lF+e/UgspEmTu/rlUW82ZicKtXhIgTqBG4RVgLufemlS+CiQ
-	 PSxobCDeJ2hu7pHPGfbVYXbw4ImEV6G2M/kGjCAqTqEDW2XT1w5DEoZG2HwWii0/DO
-	 VVYzhEC5LKw/CA5m+Y15dBHbBrbg+VVzmxXBX1wnx6w+k7RVgRnO/2Gk9RyjcMABPl
-	 JA4ow51fYKniHAivznokOokZhLkKgSOar4Yq/EnM1Deuug7bjQrXerKHvaRraMAJRW
-	 VFhsnETNKCh5jZlaItq+B/MS1BMnkXnE3/naYMjbognybDZdLg00hKx0sWDVajEVt+
-	 LN7GAmGyGWhXw==
-Message-ID: <44e5ba0a-7a76-caa8-349d-ced41aaa8836@kernel.org>
-Date: Mon, 24 Apr 2023 12:23:09 +0300
+	id 1pqsQm-00FmYr-2F
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Apr 2023 09:24:22 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-3f1957e80a2so69645385e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Apr 2023 02:24:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682328257; x=1684920257;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FKHDf/OuI0joUYiyFgsR6uDWAhEBCTmUNYp/uICOgcM=;
+        b=k7kOLa6IR5EJwGmnBOhOxTID2K+mwgYgRL3NB8AamFmIiUlSfNm1gfl9p5OuZRbgC3
+         omwDtbRZrgIY8P55Uir2PlFUHe4hdtS6IiyHEydYocqSIxTHrVzb02kUQKUUqxT8ZVob
+         PEdRAeduI8Q5inx8fwCJZpKxZe3O8S1VvGr0hv+hXwQq3oQ9Hsqw4gW9MQOm9QmqIlRH
+         js3Sq8arhBmLjIU4jHCH82jVRQxZQZzMPu+IFtW5/hUYpkMjGf8vZZ8SrVmkzaZDroSs
+         TsmJ2QoCKbQwXNNKA3TVrhoZlhIgcuxLKLb6D+sHp0KWEB6zhJGjg6rv/Z4nWIjvrhML
+         puIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682328257; x=1684920257;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FKHDf/OuI0joUYiyFgsR6uDWAhEBCTmUNYp/uICOgcM=;
+        b=EtBtd3SXj8amf5/hK592r3LV2ACjjyVqr+LrJ1wrC0l0oZK7A1BOE8kmweYv74YPdz
+         /ms/OfvBukMuIzQGt66hix67IJ+OhtD/48/kum6FByOFVIpsdtbKetPNHQWmtN5zx8rM
+         OapMaRGmYpx1bUuYi5FnngzPIgpjdTphC9woeOth27SKZ9j0Z+eke9WOJryVhXe6ejyD
+         M98f7TZXk1PCZuooYpQJLbEMCYhiYsyDUYGNKT+LLbI5+u1tNBSOyqxlmwjwdmnKo/p8
+         V7cVBhEeVU01Vx4ELMrfltSbZXV11DW4z+cAUx7WMkCyu5Vt29iXfXZ77oh3ID3p27AD
+         WySQ==
+X-Gm-Message-State: AAQBX9ez681H5tLqor5T2KFRpPlCQcFONKVjRRQP26iISqVPGb38BH8n
+	YVv9lwLPLTO9rqNuCmD1qoANDsxntKO5i2UFwkg=
+X-Google-Smtp-Source: AKy350YTPxe2yl9aXhmt0aTaxnKjxu6ut+FOguHCXTw5DwDIVqjr6GDK0T0E3IEGtebA9aqRKY98Pw==
+X-Received: by 2002:a05:600c:5012:b0:3f0:a095:7b9 with SMTP id n18-20020a05600c501200b003f0a09507b9mr7347857wmr.5.1682328256950;
+        Mon, 24 Apr 2023 02:24:16 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id u19-20020a05600c00d300b003f17eaae2c9sm11723172wmm.1.2023.04.24.02.24.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Apr 2023 02:24:16 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
+Subject: [PATCH v10 1/1] riscv: Allow to downgrade paging mode from the command line
+Date: Mon, 24 Apr 2023 11:23:13 +0200
+Message-Id: <20230424092313.178699-2-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230424092313.178699-1-alexghiti@rivosinc.com>
+References: <20230424092313.178699-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v5 4/7] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
-Content-Language: en-US
-To: Minda Chen <minda.chen@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Mason Huo <mason.huo@starfivetech.com>
-References: <20230420110052.3182-1-minda.chen@starfivetech.com>
- <20230420110052.3182-5-minda.chen@starfivetech.com>
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20230420110052.3182-5-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_022318_423975_3068E98E 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20230424_022420_737806_FAB6A717 
+X-CRM114-Status: GOOD (  30.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,315 +96,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 20/04/2023 14:00, Minda Chen wrote:
-> Add Starfive JH7110 SoC PCIe 2.0 PHY driver support.
-> PCIe 2.0 PHY default connect to PCIe controller.
-> But pcie0 PHY can connect to USB 3.0 controlller.
-
-s/controlller/controller
-
-> 
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> ---
->  MAINTAINERS                            |   4 +-
->  drivers/phy/starfive/Kconfig           |  11 ++
->  drivers/phy/starfive/Makefile          |   1 +
->  drivers/phy/starfive/phy-jh7110-pcie.c | 202 +++++++++++++++++++++++++
->  4 files changed, 217 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index c09ea66dcd5a..8e0f755ba91b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19968,10 +19968,12 @@ M:	William Qiu <william.qiu@starfivetech.com>
->  S:	Supported
->  F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
->  
-> -STARFIVE JH71X0 USB PHY DRIVER
-> +STARFIVE JH71X0 PCIE AND USB PHY DRIVER
->  M:	Minda Chen <minda.chen@starfivetech.com>
->  S:	Supported
-> +F:	Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
->  F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
-> +F:	drivers/phy/starfive/phy-jh7110-pcie.c
->  F:	drivers/phy/starfive/phy-jh7110-usb.c
->  
->  STATIC BRANCH/CALL
-> diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
-> index 2c013c390dee..c21c21d284a6 100644
-> --- a/drivers/phy/starfive/Kconfig
-> +++ b/drivers/phy/starfive/Kconfig
-> @@ -12,6 +12,17 @@ config PHY_STARFIVE_DPHY_RX
->  	  system. If M is selected, the module will be called
->  	  phy-starfive-dphy-rx.
->  
-> +config PHY_STARFIVE_JH7110_PCIE
-> +	tristate "Starfive JH7110 PCIE 2.0/USB 3.0 PHY support"
-> +	depends on USB_SUPPORT
-
-What if system has PCIE and no USB. Then they can't use this PHY
-as it cannot be built?
-
-> +	select GENERIC_PHY
-> +	select USB_PHY
-> +	help
-> +	  Enable this to support the StarFive PCIe 2.0 PHY,
-> +	  or used as USB 3.0 PHY.
-> +	  If M is selected, the module will be called
-> +	  phy-jh7110-pcie.ko.
-> +
->  config PHY_STARFIVE_JH7110_USB
->  	tristate "Starfive JH7110 USB 2.0 PHY support"
->  	depends on USB_SUPPORT
-> diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
-> index 176443852f4d..03a55aad53a2 100644
-> --- a/drivers/phy/starfive/Makefile
-> +++ b/drivers/phy/starfive/Makefile
-> @@ -1,3 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_PHY_STARFIVE_DPHY_RX)      += phy-starfive-dphy-rx.o
-> +obj-$(CONFIG_PHY_STARFIVE_JH7110_PCIE)	+= phy-jh7110-pcie.o
->  obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
-> diff --git a/drivers/phy/starfive/phy-jh7110-pcie.c b/drivers/phy/starfive/phy-jh7110-pcie.c
-> new file mode 100644
-> index 000000000000..fe029daef62e
-> --- /dev/null
-> +++ b/drivers/phy/starfive/phy-jh7110-pcie.c
-> @@ -0,0 +1,202 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * StarFive JH7110 PCIe 2.0 PHY driver
-> + *
-> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> + * Author: Minda Chen <minda.chen@starfivetech.com>
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +
-> +#define PCIE_KVCO_LEVEL_OFF		(0x28)
-> +#define PCIE_USB3_PHY_PLL_CTL_OFF	(0x7c)
-> +#define PCIE_KVCO_TUNE_SIGNAL_OFF	(0x80)
-
-Brackets not required.
-
-> +#define PCIE_USB3_PHY_ENABLE		BIT(4)
-> +#define PHY_KVCO_FINE_TUNE_LEVEL	0x91
-> +#define PHY_KVCO_FINE_TUNE_SIGNALS	0xc
-> +
-> +#define USB_PDRSTN_SPLIT		BIT(17)
-> +
-> +#define PCIE_PHY_MODE			BIT(20)
-> +#define PCIE_PHY_MODE_MASK		GENMASK(21, 20)
-> +#define PCIE_USB3_BUS_WIDTH_MASK	GENMASK(3, 2)
-> +#define PCIE_USB3_RATE_MASK		GENMASK(6, 5)
-> +#define PCIE_USB3_RX_STANDBY_MASK	BIT(7)
-> +#define PCIE_USB3_PHY_ENABLE		BIT(4)
-> +
-> +struct jh7110_pcie_phy {
-> +	struct phy *phy;
-> +	struct regmap *stg_syscon;
-> +	struct regmap *sys_syscon;
-> +	void __iomem *regs;
-> +	u32 sys_phy_connect;
-> +	u32 stg_pcie_mode;
-> +	u32 stg_pcie_usb;
-> +	enum phy_mode mode;
-> +};
-> +
-> +static int jh7110_usb3_mode_set(struct jh7110_pcie_phy *data)
-> +{
-> +	if (!data->stg_syscon || !data->sys_syscon) {
-> +		dev_info(&data->phy->dev, "don't support usb3 mode\n");
-
-s/don't/doesn't
-
-dev_err()
-
-> +		return -EINVAL;
-> +	}
-> +
-> +	regmap_update_bits(data->stg_syscon, data->stg_pcie_mode,
-> +			   PCIE_PHY_MODE_MASK, PCIE_PHY_MODE);
-> +	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-> +			   PCIE_USB3_BUS_WIDTH_MASK, 0);
-> +	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-> +			   PCIE_USB3_RATE_MASK, 0);
-> +	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-> +			   PCIE_USB3_RX_STANDBY_MASK, 0);
-> +	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
-> +			   PCIE_USB3_PHY_ENABLE, PCIE_USB3_PHY_ENABLE);
-> +
-> +	/* Connect usb 3.0 phy mode */
-> +	regmap_update_bits(data->sys_syscon, data->sys_phy_connect,
-> +			   USB_PDRSTN_SPLIT, 0);
-> +
-> +	/* Configuare spread-spectrum mode: down-spread-spectrum */
-> +	writel(PCIE_USB3_PHY_ENABLE, data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
-> +
-> +	return 0;
-> +}
-> +
-> +static void jh7110_pcie_mode_set(struct jh7110_pcie_phy *phy)
-> +{
-> +	/* PCIe Multi-PHY PLL KVCO Gain fine tune settings: */
-> +	writel(PHY_KVCO_FINE_TUNE_LEVEL, phy->regs + PCIE_KVCO_LEVEL_OFF);
-> +	writel(PHY_KVCO_FINE_TUNE_SIGNALS, phy->regs + PCIE_KVCO_TUNE_SIGNAL_OFF);
-
-In cases where PHY can be connected to both USB and PCIe don't you have to
-make sure PHY is connected to PCIe controller by setting data->sys_syscon
-and data->stg_syscon appropriately?
-
-> +}
-> +
-> +static int jh7110_pcie_phy_set_mode(struct phy *_phy,
-> +				    enum phy_mode mode, int submode)
-> +{
-> +	struct jh7110_pcie_phy *phy = phy_get_drvdata(_phy);
-> +	int ret;
-> +
-> +	if (mode == phy->mode)
-> +		return 0;
-> +
-> +	switch (mode) {
-> +	case PHY_MODE_USB_HOST:
-> +	case PHY_MODE_USB_DEVICE:
-> +	case PHY_MODE_USB_OTG:
-> +		ret = jh7110_usb3_mode_set(phy);
-> +		if (ret)
-> +			return ret;
-> +		break;
-> +	case PHY_MODE_PCIE:
-> +		jh7110_pcie_mode_set(phy);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	dev_info(&_phy->dev, "Changing phy mode to %d\n", mode);
-
-dev_dbg()?
-
-> +	phy->mode = mode;
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pcie_phy_init(struct phy *_phy)
-> +{
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pcie_phy_exit(struct phy *_phy)
-> +{
-> +	return 0;
-> +}
-> +
-> +static const struct phy_ops jh7110_pcie_phy_ops = {
-> +	.init		= jh7110_pcie_phy_init,
-> +	.exit		= jh7110_pcie_phy_exit,
-
-As you are not doing anything in init/exit, you don't have to set them.
-
-> +	.set_mode	= jh7110_pcie_phy_set_mode,
-> +	.owner		= THIS_MODULE,
-> +};
-> +
-> +static int jh7110_pcie_phy_probe(struct platform_device *pdev)
-> +{
-> +	struct jh7110_pcie_phy *phy;
-> +	struct device *dev = &pdev->dev;
-> +	struct phy_provider *phy_provider;
-> +	u32 args[2];
-> +
-> +	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
-> +	if (!phy)
-> +		return -ENOMEM;
-> +
-> +	phy->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(phy->regs))
-> +		return PTR_ERR(phy->regs);
-> +
-> +	phy->phy = devm_phy_create(dev, NULL, &jh7110_pcie_phy_ops);
-> +	if (IS_ERR(phy->phy))
-> +		return dev_err_probe(dev, PTR_ERR(phy->regs),
-> +			"Failed to map phy base\n");
-> +
-> +	phy->sys_syscon =
-> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> +						     "starfive,sys-syscon",
-> +						     1, args);
-> +
-> +	if (!IS_ERR_OR_NULL(phy->sys_syscon))
-> +		phy->sys_phy_connect = args[0];
-> +	else
-> +		phy->sys_syscon = NULL;
-> +
-> +	phy->stg_syscon =
-> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> +						     "starfive,stg-syscon",
-> +						     2, args);
-> +
-> +	if (!IS_ERR_OR_NULL(phy->stg_syscon)) {
-> +		phy->stg_pcie_mode = args[0];
-> +		phy->stg_pcie_usb = args[1];
-> +	} else {
-> +		phy->stg_syscon = NULL;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, phy);
-> +	phy_set_drvdata(phy->phy, phy);
-> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-> +
-> +	return PTR_ERR_OR_ZERO(phy_provider);
-> +}
-> +
-> +static int jh7110_pcie_phy_remove(struct platform_device *pdev)
-> +{
-> +	platform_set_drvdata(pdev, NULL);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id jh7110_pcie_phy_of_match[] = {
-> +	{ .compatible = "starfive,jh7110-pcie-phy" },
-> +	{ /* sentinel */ },
-> +};
-> +MODULE_DEVICE_TABLE(of, jh7110_pcie_phy_of_match);
-> +
-> +static struct platform_driver jh7110_pcie_phy_driver = {
-> +	.probe	= jh7110_pcie_phy_probe,
-> +	.remove	= jh7110_pcie_phy_remove,
-> +	.driver = {
-> +		.of_match_table	= jh7110_pcie_phy_of_match,
-> +		.name  = "jh7110-pcie-phy",
-> +	}
-> +};
-> +module_platform_driver(jh7110_pcie_phy_driver);
-> +
-> +MODULE_DESCRIPTION("StarFive JH7110 PCIe 2.0 PHY driver");
-> +MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
-> +MODULE_LICENSE("GPL");
-
-cheers,
--roger
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIDIgZWFybHkgY29tbWFuZCBsaW5lIHBhcmFtZXRlcnMgdGhhdCBhbGxvdyB0byBkb3duZ3Jh
+ZGUgc2F0cCBtb2RlCih1c2luZyB0aGUgc2FtZSBuYW1pbmcgYXMgeDg2KToKLSAibm81bHZsIjog
+dXNlIGEgNC1sZXZlbCBwYWdlIHRhYmxlIChkb3duIGZyb20gc3Y1NyB0byBzdjQ4KQotICJubzRs
+dmwiOiB1c2UgYSAzLWxldmVsIHBhZ2UgdGFibGUgKGRvd24gZnJvbSBzdjU3L3N2NDggdG8gc3Yz
+OSkKCk5vdGUgdGhhdCBnb2luZyB0aHJvdWdoIHRoZSBkZXZpY2UgdHJlZSB0byBnZXQgdGhlIGtl
+cm5lbCBjb21tYW5kIGxpbmUKd29ya3Mgd2l0aCBBQ1BJIHRvbyBzaW5jZSB0aGUgZWZpIHN0dWIg
+Y3JlYXRlcyBhIGRldmljZSB0cmVlIGFueXdheSB3aXRoCnRoZSBjb21tYW5kIGxpbmUuCgpJbiBL
+QVNBTiBrZXJuZWxzLCB3ZSBjYW4ndCB1c2UgdGhlIGxpYmZkdCB0aGF0IGVhcmx5IGluIHRoZSBi
+b290IHByb2Nlc3MKc2luY2Ugd2UgYXJlIG5vdCByZWFkeSB0byBleGVjdXRlIGluc3RydW1lbnRl
+ZCBmdW5jdGlvbnMuIFNvIGluc3RlYWQgb2YKdXNpbmcgdGhlICJnZW5lcmljIiBsaWJmZHQsIHdl
+IGNvbXBpbGUgb3VyIG93biB2ZXJzaW9ucyBvZiB0aG9zZSBmdW5jdGlvbnMKdGhhdCBhcmUgbm90
+IGluc3RydW1lbnRlZCBhbmQgdGhhdCBhcmUgcHJlZml4ZWQgc28gdGhhdCB0aGV5IGRvIG5vdApj
+b25mbGljdCB3aXRoIHRoZSBnZW5lcmljIG9uZXMuIFdlIGFsc28gbmVlZCB0aGUgbm9uLWluc3Ry
+dW1lbnRlZCB2ZXJzaW9ucwpvZiB0aGUgc3RyaW5nIGZ1bmN0aW9ucyBhbmQgdGhlIHByZWZpeGVk
+IHZlcnNpb25zIG9mIG1lbWNweS9tZW1tb3ZlLgoKVGhpcyBpcyBsYXJnZWx5IGluc3BpcmVkIGJ5
+IGNvbW1pdCBhYWNkMTQ5YjYyMzggKCJhcm02NDogaGVhZDogYXZvaWQKcmVsb2NhdGluZyB0aGUg
+a2VybmVsIHR3aWNlIGZvciBLQVNMUiIpIGZyb20gd2hpY2ggSSByZW1vdmVkIGNvbXBpbGF0aW9u
+CmZsYWdzIHRoYXQgd2VyZSBub3QgcmVsZXZhbnQgdG8gUklTQy1WIGF0IHRoZSBtb21lbnQgKExU
+TywgU0NTKS4gQWxzbwpub3RlIHRoYXQgd2UgaGF2ZSB0byBsaW5rIHdpdGggLXogbm9yZWxybyB0
+byBhdm9pZCBsZC5sbGQgdG8gdGhyb3cgYQp3YXJuaW5nIHdpdGggdGhlIG5ldyAuZ290IHNlY3Rp
+b25zLCBsaWtlIGluIGNvbW1pdCAzMTFiZWEzY2I5ZWUgKCJhcm02NDoKbGluayB3aXRoIC16IG5v
+cmVscm8gZm9yIExMRCBvciBhYXJjaDY0LWVsZiIpLgoKU2lnbmVkLW9mZi1ieTogQWxleGFuZHJl
+IEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgpUZXN0ZWQtYnk6IEJqw7ZybiBUw7ZwZWwg
+PGJqb3JuQHJpdm9zaW5jLmNvbT4KUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJp
+dm9zaW5jLmNvbT4KLS0tCiAuLi4vYWRtaW4tZ3VpZGUva2VybmVsLXBhcmFtZXRlcnMudHh0ICAg
+ICAgICAgfCAgNSArLQogYXJjaC9yaXNjdi9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgIDMgKy0KIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlICAgICAgICAgICAgICAgICAg
+ICB8ICAyICsKIGFyY2gvcmlzY3Yva2VybmVsL3BpL01ha2VmaWxlICAgICAgICAgICAgICAgICB8
+IDM5ICsrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvcGkvY21kbGluZV9lYXJseS5jICAg
+ICAgICAgIHwgNjIgKysrKysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51
+eC5sZHMuUyAgICAgICAgICAgICAgIHwgMTEgKysrLQogYXJjaC9yaXNjdi9saWIvbWVtY3B5LlMg
+ICAgICAgICAgICAgICAgICAgICAgIHwgIDIgKwogYXJjaC9yaXNjdi9saWIvbWVtbW92ZS5TICAg
+ICAgICAgICAgICAgICAgICAgIHwgIDIgKwogYXJjaC9yaXNjdi9saWIvc3RybGVuLlMgICAgICAg
+ICAgICAgICAgICAgICAgIHwgIDEgKwogYXJjaC9yaXNjdi9tbS9pbml0LmMgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgMzYgKysrKysrKysrLS0KIDEwIGZpbGVzIGNoYW5nZWQsIDE1NCBpbnNl
+cnRpb25zKCspLCA5IGRlbGV0aW9ucygtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yv
+a2VybmVsL3BpL01ha2VmaWxlCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwv
+cGkvY21kbGluZV9lYXJseS5jCgpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlk
+ZS9rZXJuZWwtcGFyYW1ldGVycy50eHQgYi9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tlcm5l
+bC1wYXJhbWV0ZXJzLnR4dAppbmRleCA2MjIxYTFkMDU3ZGQuLmFjY2M0MDBiNDNmMSAxMDA2NDQK
+LS0tIGEvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQKKysr
+IGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQKQEAgLTM1
+NzYsNyArMzU3NiwxMCBAQAogCQkJZW11bGF0aW9uIGxpYnJhcnkgZXZlbiBpZiBhIDM4NyBtYXRo
+cyBjb3Byb2Nlc3NvcgogCQkJaXMgcHJlc2VudC4KIAotCW5vNWx2bAkJW1g4Ni02NF0gRGlzYWJs
+ZSA1LWxldmVsIHBhZ2luZyBtb2RlLiBGb3JjZXMKKwlubzRsdmwJCVtSSVNDVl0gRGlzYWJsZSA0
+LWxldmVsIGFuZCA1LWxldmVsIHBhZ2luZyBtb2Rlcy4gRm9yY2VzCisJCQlrZXJuZWwgdG8gdXNl
+IDMtbGV2ZWwgcGFnaW5nIGluc3RlYWQuCisKKwlubzVsdmwJCVtYODYtNjQsUklTQ1ZdIERpc2Fi
+bGUgNS1sZXZlbCBwYWdpbmcgbW9kZS4gRm9yY2VzCiAJCQlrZXJuZWwgdG8gdXNlIDQtbGV2ZWwg
+cGFnaW5nIGluc3RlYWQuCiAKIAlub2ZzZ3NiYXNlCVtYODZdIERpc2FibGVzIEZTR1NCQVNFIGlu
+c3RydWN0aW9ucy4KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2
+L01ha2VmaWxlCmluZGV4IDdkYzY5MDRhNjgzNi4uNmVlZjZiMzM3OTVkIDEwMDY0NAotLS0gYS9h
+cmNoL3Jpc2N2L01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKQEAgLTcsOCArNyw5
+IEBACiAjCiAKIE9CSkNPUFlGTEFHUyAgICA6PSAtTyBiaW5hcnkKK0xERkxBR1Nfdm1saW51eCA6
+PSAteiBub3JlbHJvCiBpZmVxICgkKENPTkZJR19SRUxPQ0FUQUJMRSkseSkKLQlMREZMQUdTX3Zt
+bGludXggKz0gLXNoYXJlZCAtQnN5bWJvbGljIC16IG5vdGV4dCAteiBub3JlbHJvIC0tZW1pdC1y
+ZWxvY3MKKwlMREZMQUdTX3ZtbGludXggKz0gLXNoYXJlZCAtQnN5bWJvbGljIC16IG5vdGV4dCAt
+LWVtaXQtcmVsb2NzCiAJS0JVSUxEX0NGTEFHUyArPSAtZlBJRQogZW5kaWYKIGlmZXEgKCQoQ09O
+RklHX0RZTkFNSUNfRlRSQUNFKSx5KQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFr
+ZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQppbmRleCA0Y2YzMDNhNzc5YWIuLmFh
+MjJmODdmYWVhZSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKKysrIGIv
+YXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKQEAgLTg5LDMgKzg5LDUgQEAgb2JqLSQoQ09ORklH
+X0VGSSkJCSs9IGVmaS5vCiBvYmotJChDT05GSUdfQ09NUEFUKQkJKz0gY29tcGF0X3N5c2NhbGxf
+dGFibGUubwogb2JqLSQoQ09ORklHX0NPTVBBVCkJCSs9IGNvbXBhdF9zaWduYWwubwogb2JqLSQo
+Q09ORklHX0NPTVBBVCkJCSs9IGNvbXBhdF92ZHNvLworCitvYmotJChDT05GSUdfNjRCSVQpCQkr
+PSBwaS8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BpL01ha2VmaWxlIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvcGkvTWFrZWZpbGUKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAw
+MDAwMDAwLi41ZDdjYjk5MWYyYjgKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9waS9NYWtlZmlsZQpAQCAtMCwwICsxLDM5IEBACisjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
+OiBHUEwtMi4wCisjIFRoaXMgZmlsZSB3YXMgY29waWVkIGZyb20gYXJtNjQva2VybmVsL3BpL01h
+a2VmaWxlLgorCitLQlVJTERfQ0ZMQUdTCTo9ICQoc3Vic3QgJChDQ19GTEFHU19GVFJBQ0UpLCwk
+KEtCVUlMRF9DRkxBR1MpKSAtZnBpZSBcCisJCSAgIC1PcyAtRERJU0FCTEVfQlJBTkNIX1BST0ZJ
+TElORyAkKERJU0FCTEVfU1RBQ0tMRUFLX1BMVUdJTikgXAorCQkgICAkKGNhbGwgY2Mtb3B0aW9u
+LC1tYnJhbmNoLXByb3RlY3Rpb249bm9uZSkgXAorCQkgICAtSSQoc3JjdHJlZSkvc2NyaXB0cy9k
+dGMvbGliZmR0IC1mbm8tc3RhY2stcHJvdGVjdG9yIFwKKwkJICAgLURfX0RJU0FCTEVfRVhQT1JU
+UyAtZmZyZWVzdGFuZGluZyBcCisJCSAgIC1mbm8tYXN5bmNocm9ub3VzLXVud2luZC10YWJsZXMg
+LWZuby11bndpbmQtdGFibGVzIFwKKwkJICAgJChjYWxsIGNjLW9wdGlvbiwtZm5vLWFkZHJzaWcp
+CisKK0tCVUlMRF9DRkxBR1MJKz0gLW1jbW9kZWw9bWVkYW55CisKK0NGTEFHU19jbWRsaW5lX2Vh
+cmx5Lm8gKz0gLURfX05PX0ZPUlRJRlkKK0NGTEFHU19saWItZmR0X3JvLm8gKz0gLURfX05PX0ZP
+UlRJRlkKKworR0NPVl9QUk9GSUxFCTo9IG4KK0tBU0FOX1NBTklUSVpFCTo9IG4KK0tDU0FOX1NB
+TklUSVpFCTo9IG4KK1VCU0FOX1NBTklUSVpFCTo9IG4KK0tDT1ZfSU5TVFJVTUVOVAk6PSBuCisK
+KyQob2JqKS8lLnBpLm86IE9CSkNPUFlGTEFHUyA6PSAtLXByZWZpeC1zeW1ib2xzPV9fcGlfIFwK
+KwkJCSAgICAgICAtLXJlbW92ZS1zZWN0aW9uPS5ub3RlLmdudS5wcm9wZXJ0eSBcCisJCQkgICAg
+ICAgLS1wcmVmaXgtYWxsb2Mtc2VjdGlvbnM9LmluaXQKKyQob2JqKS8lLnBpLm86ICQob2JqKS8l
+Lm8gRk9SQ0UKKwkkKGNhbGwgaWZfY2hhbmdlZCxvYmpjb3B5KQorCiskKG9iaikvbGliLSUubzog
+JChzcmN0cmVlKS9saWIvJS5jIEZPUkNFCisJJChjYWxsIGlmX2NoYW5nZWRfcnVsZSxjY19vX2Mp
+CisKKyQob2JqKS9zdHJpbmcubzogJChzcmN0cmVlKS9saWIvc3RyaW5nLmMgRk9SQ0UKKwkkKGNh
+bGwgaWZfY2hhbmdlZF9ydWxlLGNjX29fYykKKworJChvYmopL2N0eXBlLm86ICQoc3JjdHJlZSkv
+bGliL2N0eXBlLmMgRk9SQ0UKKwkkKGNhbGwgaWZfY2hhbmdlZF9ydWxlLGNjX29fYykKKworb2Jq
+LXkJCTo9IGNtZGxpbmVfZWFybHkucGkubyBzdHJpbmcucGkubyBjdHlwZS5waS5vIGxpYi1mZHQu
+cGkubyBsaWItZmR0X3JvLnBpLm8KK2V4dHJhLXkJCTo9ICQocGF0c3Vic3QgJS5waS5vLCUubywk
+KG9iai15KSkKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BpL2NtZGxpbmVfZWFybHku
+YyBiL2FyY2gvcmlzY3Yva2VybmVsL3BpL2NtZGxpbmVfZWFybHkuYwpuZXcgZmlsZSBtb2RlIDEw
+MDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLjA1NjUyZDEzYzc0NgotLS0gL2Rldi9udWxsCisrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL3BpL2NtZGxpbmVfZWFybHkuYwpAQCAtMCwwICsxLDYyIEBACisv
+LyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5CisjaW5jbHVkZSA8bGludXgv
+dHlwZXMuaD4KKyNpbmNsdWRlIDxsaW51eC9pbml0Lmg+CisjaW5jbHVkZSA8bGludXgvbGliZmR0
+Lmg+CisjaW5jbHVkZSA8bGludXgvc3RyaW5nLmg+CisjaW5jbHVkZSA8YXNtL3BndGFibGUuaD4K
+KyNpbmNsdWRlIDxhc20vc2V0dXAuaD4KKworc3RhdGljIGNoYXIgZWFybHlfY21kbGluZVtDT01N
+QU5EX0xJTkVfU0laRV07CisKKy8qCisgKiBEZWNsYXJlIHRoZSBmdW5jdGlvbnMgdGhhdCBhcmUg
+ZXhwb3J0ZWQgKGJ1dCBwcmVmaXhlZCkgaGVyZSBzbyB0aGF0IExMVk0KKyAqIGRvZXMgbm90IGNv
+bXBsYWluIGl0IGxhY2tzIHRoZSAnc3RhdGljJyBrZXl3b3JkICh3aGljaCwgaWYgYWRkZWQsIG1h
+a2VzCisgKiBMTFZNIGNvbXBsYWluIGJlY2F1c2UgdGhlIGZ1bmN0aW9uIGlzIGFjdHVhbGx5IHVu
+dXNlZCBpbiB0aGlzIGZpbGUpLgorICovCit1NjQgc2V0X3NhdHBfbW9kZV9mcm9tX2NtZGxpbmUo
+dWludHB0cl90IGR0Yl9wYSk7CisKK3N0YXRpYyBjaGFyICpnZXRfZWFybHlfY21kbGluZSh1aW50
+cHRyX3QgZHRiX3BhKQoreworCWNvbnN0IGNoYXIgKmZkdF9jbWRsaW5lID0gTlVMTDsKKwl1bnNp
+Z25lZCBpbnQgZmR0X2NtZGxpbmVfc2l6ZSA9IDA7CisJaW50IGNob3Nlbl9ub2RlOworCisJaWYg
+KCFJU19FTkFCTEVEKENPTkZJR19DTURMSU5FX0ZPUkNFKSkgeworCQljaG9zZW5fbm9kZSA9IGZk
+dF9wYXRoX29mZnNldCgodm9pZCAqKWR0Yl9wYSwgIi9jaG9zZW4iKTsKKwkJaWYgKGNob3Nlbl9u
+b2RlID49IDApIHsKKwkJCWZkdF9jbWRsaW5lID0gZmR0X2dldHByb3AoKHZvaWQgKilkdGJfcGEs
+IGNob3Nlbl9ub2RlLAorCQkJCQkJICAiYm9vdGFyZ3MiLCBOVUxMKTsKKwkJCWlmIChmZHRfY21k
+bGluZSkgeworCQkJCWZkdF9jbWRsaW5lX3NpemUgPSBzdHJsZW4oZmR0X2NtZGxpbmUpOworCQkJ
+CXN0cnNjcHkoZWFybHlfY21kbGluZSwgZmR0X2NtZGxpbmUsCisJCQkJCUNPTU1BTkRfTElORV9T
+SVpFKTsKKwkJCX0KKwkJfQorCX0KKworCWlmIChJU19FTkFCTEVEKENPTkZJR19DTURMSU5FX0VY
+VEVORCkgfHwKKwkgICAgSVNfRU5BQkxFRChDT05GSUdfQ01ETElORV9GT1JDRSkgfHwKKwkgICAg
+ZmR0X2NtZGxpbmVfc2l6ZSA9PSAwIC8qIENPTkZJR19DTURMSU5FX0ZBTExCQUNLICovKSB7CisJ
+CXN0cm5jYXQoZWFybHlfY21kbGluZSwgQ09ORklHX0NNRExJTkUsCisJCQlDT01NQU5EX0xJTkVf
+U0laRSAtIGZkdF9jbWRsaW5lX3NpemUpOworCX0KKworCXJldHVybiBlYXJseV9jbWRsaW5lOwor
+fQorCitzdGF0aWMgdTY0IG1hdGNoX25vWGx2bChjaGFyICpjbWRsaW5lKQoreworCWlmIChzdHJz
+dHIoY21kbGluZSwgIm5vNGx2bCIpKQorCQlyZXR1cm4gU0FUUF9NT0RFXzQ4OworCWVsc2UgaWYg
+KHN0cnN0cihjbWRsaW5lLCAibm81bHZsIikpCisJCXJldHVybiBTQVRQX01PREVfNTc7CisKKwly
+ZXR1cm4gMDsKK30KKwordTY0IHNldF9zYXRwX21vZGVfZnJvbV9jbWRsaW5lKHVpbnRwdHJfdCBk
+dGJfcGEpCit7CisJY2hhciAqY21kbGluZSA9IGdldF9lYXJseV9jbWRsaW5lKGR0Yl9wYSk7CisK
+KwlyZXR1cm4gbWF0Y2hfbm9YbHZsKGNtZGxpbmUpOworfQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rZXJuZWwvdm1saW51eC5sZHMuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMK
+aW5kZXggNjE1ZmY1ODQyNjkwLi4zMDU4NzdkODVlOTYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3ZtbGludXgubGRzLlMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMu
+UwpAQCAtODMsNiArODMsMTQgQEAgU0VDVElPTlMKIAkvKiBTdGFydCBvZiBpbml0IGRhdGEgc2Vj
+dGlvbiAqLwogCV9faW5pdF9kYXRhX2JlZ2luID0gLjsKIAlJTklUX0RBVEFfU0VDVElPTigxNikK
+KworCS8qIFRob3NlIHNlY3Rpb25zIHJlc3VsdCBmcm9tIHRoZSBjb21waWxhdGlvbiBvZiBrZXJu
+ZWwvcGkvc3RyaW5nLmMgKi8KKwkuaW5pdC5waWRhdGEgOiB7CisJCSooLmluaXQuc3JvZGF0YS5j
+c3Q4KikKKwkJKiguaW5pdF9fYnVnX3RhYmxlKikKKwkJKiguaW5pdC5zZGF0YSopCisJfQorCiAJ
+LmluaXQuYnNzIDogewogCQkqKC5pbml0LmJzcykJLyogZnJvbSB0aGUgRUZJIHN0dWIgKi8KIAl9
+CkBAIC0xMjgsOSArMTM2LDEwIEBAIFNFQ1RJT05TCiAJCV9fcmVsYV9keW5fZW5kID0gLjsKIAl9
+CiAKKwkuZ290IDogeyAqKC5nb3QqKSB9CisKICNpZmRlZiBDT05GSUdfUkVMT0NBVEFCTEUKIAku
+ZGF0YS5yZWwgOiB7ICooLmRhdGEucmVsKikgfQotCS5nb3QgOiB7ICooLmdvdCopIH0KIAkucGx0
+IDogeyAqKC5wbHQpIH0KIAkuZHluYW1pYyA6IHsgKiguZHluYW1pYykgfQogCS5keW5zeW0gOiB7
+ICooLmR5bnN5bSkgfQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9saWIvbWVtY3B5LlMgYi9hcmNo
+L3Jpc2N2L2xpYi9tZW1jcHkuUwppbmRleCA1MWFiNzE2MjUzZmEuLjFhNDBkMDFhOTU0MyAxMDA2
+NDQKLS0tIGEvYXJjaC9yaXNjdi9saWIvbWVtY3B5LlMKKysrIGIvYXJjaC9yaXNjdi9saWIvbWVt
+Y3B5LlMKQEAgLTEwNiwzICsxMDYsNSBAQCBXRUFLKG1lbWNweSkKIDY6CiAJcmV0CiBFTkQoX19t
+ZW1jcHkpCitTWU1fRlVOQ19BTElBUyhfX3BpX21lbWNweSwgX19tZW1jcHkpCitTWU1fRlVOQ19B
+TElBUyhfX3BpX19fbWVtY3B5LCBfX21lbWNweSkKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbGli
+L21lbW1vdmUuUyBiL2FyY2gvcmlzY3YvbGliL21lbW1vdmUuUwppbmRleCBlMDYwOWUxZjA4NjQu
+LjgzOGZmMjAyMmZlMyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9saWIvbWVtbW92ZS5TCisrKyBi
+L2FyY2gvcmlzY3YvbGliL21lbW1vdmUuUwpAQCAtMzE0LDMgKzMxNCw1IEBAIHJldHVybl9mcm9t
+X21lbW1vdmU6CiAKIFNZTV9GVU5DX0VORChtZW1tb3ZlKQogU1lNX0ZVTkNfRU5EKF9fbWVtbW92
+ZSkKK1NZTV9GVU5DX0FMSUFTKF9fcGlfbWVtbW92ZSwgX19tZW1tb3ZlKQorU1lNX0ZVTkNfQUxJ
+QVMoX19waV9fX21lbW1vdmUsIF9fbWVtbW92ZSkKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbGli
+L3N0cmxlbi5TIGIvYXJjaC9yaXNjdi9saWIvc3RybGVuLlMKaW5kZXggMTViYjhmM2FhOTU5Li45
+ZDAwNTU2MTZmN2IgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbGliL3N0cmxlbi5TCisrKyBiL2Fy
+Y2gvcmlzY3YvbGliL3N0cmxlbi5TCkBAIC0xMzEsMyArMTMxLDQgQEAgc3RybGVuX3piYjoKIC5v
+cHRpb24gcG9wCiAjZW5kaWYKIFNZTV9GVU5DX0VORChzdHJsZW4pCitTWU1fRlVOQ19BTElBUyhf
+X3BpX3N0cmxlbiwgc3RybGVuKQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9h
+cmNoL3Jpc2N2L21tL2luaXQuYwppbmRleCBiY2U4OTliMTgwY2QuLjNhZDc3MTU3MWMyZCAxMDA2
+NDQKLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMKKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMK
+QEAgLTc0Niw2ICs3NDYsOCBAQCBzdGF0aWMgX19pbml0IHBncHJvdF90IHBncHJvdF9mcm9tX3Zh
+KHVpbnRwdHJfdCB2YSkKICNlbmRpZiAvKiBDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1ggKi8KIAog
+I2lmIGRlZmluZWQoQ09ORklHXzY0QklUKSAmJiAhZGVmaW5lZChDT05GSUdfWElQX0tFUk5FTCkK
+K3U2NCBfX3BpX3NldF9zYXRwX21vZGVfZnJvbV9jbWRsaW5lKHVpbnRwdHJfdCBkdGJfcGEpOwor
+CiBzdGF0aWMgdm9pZCBfX2luaXQgZGlzYWJsZV9wZ3RhYmxlX2w1KHZvaWQpCiB7CiAJcGd0YWJs
+ZV9sNV9lbmFibGVkID0gZmFsc2U7CkBAIC03NjAsMTcgKzc2MiwzOSBAQCBzdGF0aWMgdm9pZCBf
+X2luaXQgZGlzYWJsZV9wZ3RhYmxlX2w0KHZvaWQpCiAJc2F0cF9tb2RlID0gU0FUUF9NT0RFXzM5
+OwogfQogCitzdGF0aWMgaW50IF9faW5pdCBwcmludF9ubzRsdmwoY2hhciAqcCkKK3sKKwlwcl9p
+bmZvKCJEaXNhYmxlZCA0LWxldmVsIGFuZCA1LWxldmVsIHBhZ2luZyIpOworCXJldHVybiAwOwor
+fQorZWFybHlfcGFyYW0oIm5vNGx2bCIsIHByaW50X25vNGx2bCk7CisKK3N0YXRpYyBpbnQgX19p
+bml0IHByaW50X25vNWx2bChjaGFyICpwKQoreworCXByX2luZm8oIkRpc2FibGVkIDUtbGV2ZWwg
+cGFnaW5nIik7CisJcmV0dXJuIDA7Cit9CitlYXJseV9wYXJhbSgibm81bHZsIiwgcHJpbnRfbm81
+bHZsKTsKKwogLyoKICAqIFRoZXJlIGlzIGEgc2ltcGxlIHdheSB0byBkZXRlcm1pbmUgaWYgNC1s
+ZXZlbCBpcyBzdXBwb3J0ZWQgYnkgdGhlCiAgKiB1bmRlcmx5aW5nIGhhcmR3YXJlOiBlc3RhYmxp
+c2ggMToxIG1hcHBpbmcgaW4gNC1sZXZlbCBwYWdlIHRhYmxlIG1vZGUKICAqIHRoZW4gcmVhZCBT
+QVRQIHRvIHNlZSBpZiB0aGUgY29uZmlndXJhdGlvbiB3YXMgdGFrZW4gaW50byBhY2NvdW50CiAg
+KiBtZWFuaW5nIHN2NDggaXMgc3VwcG9ydGVkLgogICovCi1zdGF0aWMgX19pbml0IHZvaWQgc2V0
+X3NhdHBfbW9kZSh2b2lkKQorc3RhdGljIF9faW5pdCB2b2lkIHNldF9zYXRwX21vZGUodWludHB0
+cl90IGR0Yl9wYSkKIHsKIAl1NjQgaWRlbnRpdHlfc2F0cCwgaHdfc2F0cDsKIAl1aW50cHRyX3Qg
+c2V0X3NhdHBfbW9kZV9wbWQgPSAoKHVuc2lnbmVkIGxvbmcpc2V0X3NhdHBfbW9kZSkgJiBQTURf
+TUFTSzsKLQlib29sIGNoZWNrX2w0ID0gZmFsc2U7CisJdTY0IHNhdHBfbW9kZV9jbWRsaW5lID0g
+X19waV9zZXRfc2F0cF9tb2RlX2Zyb21fY21kbGluZShkdGJfcGEpOworCisJaWYgKHNhdHBfbW9k
+ZV9jbWRsaW5lID09IFNBVFBfTU9ERV81NykgeworCQlkaXNhYmxlX3BndGFibGVfbDUoKTsKKwl9
+IGVsc2UgaWYgKHNhdHBfbW9kZV9jbWRsaW5lID09IFNBVFBfTU9ERV80OCkgeworCQlkaXNhYmxl
+X3BndGFibGVfbDUoKTsKKwkJZGlzYWJsZV9wZ3RhYmxlX2w0KCk7CisJCXJldHVybjsKKwl9CiAK
+IAljcmVhdGVfcDRkX21hcHBpbmcoZWFybHlfcDRkLAogCQkJc2V0X3NhdHBfbW9kZV9wbWQsICh1
+aW50cHRyX3QpZWFybHlfcHVkLApAQCAtNzg5LDcgKzgxMyw4IEBAIHN0YXRpYyBfX2luaXQgdm9p
+ZCBzZXRfc2F0cF9tb2RlKHZvaWQpCiByZXRyeToKIAljcmVhdGVfcGdkX21hcHBpbmcoZWFybHlf
+cGdfZGlyLAogCQkJICAgc2V0X3NhdHBfbW9kZV9wbWQsCi0JCQkgICBjaGVja19sNCA/ICh1aW50
+cHRyX3QpZWFybHlfcHVkIDogKHVpbnRwdHJfdCllYXJseV9wNGQsCisJCQkgICBwZ3RhYmxlX2w1
+X2VuYWJsZWQgPworCQkJCSh1aW50cHRyX3QpZWFybHlfcDRkIDogKHVpbnRwdHJfdCllYXJseV9w
+dWQsCiAJCQkgICBQR0RJUl9TSVpFLCBQQUdFX1RBQkxFKTsKIAogCWlkZW50aXR5X3NhdHAgPSBQ
+Rk5fRE9XTigodWludHB0cl90KSZlYXJseV9wZ19kaXIpIHwgc2F0cF9tb2RlOwpAQCAtODAwLDkg
+KzgyNSw4IEBAIHN0YXRpYyBfX2luaXQgdm9pZCBzZXRfc2F0cF9tb2RlKHZvaWQpCiAJbG9jYWxf
+Zmx1c2hfdGxiX2FsbCgpOwogCiAJaWYgKGh3X3NhdHAgIT0gaWRlbnRpdHlfc2F0cCkgewotCQlp
+ZiAoIWNoZWNrX2w0KSB7CisJCWlmIChwZ3RhYmxlX2w1X2VuYWJsZWQpIHsKIAkJCWRpc2FibGVf
+cGd0YWJsZV9sNSgpOwotCQkJY2hlY2tfbDQgPSB0cnVlOwogCQkJbWVtc2V0KGVhcmx5X3BnX2Rp
+ciwgMCwgUEFHRV9TSVpFKTsKIAkJCWdvdG8gcmV0cnk7CiAJCX0KQEAgLTEwMzEsNyArMTA1NSw3
+IEBAIGFzbWxpbmthZ2Ugdm9pZCBfX2luaXQgc2V0dXBfdm0odWludHB0cl90IGR0Yl9wYSkKICNl
+bmRpZgogCiAjaWYgZGVmaW5lZChDT05GSUdfNjRCSVQpICYmICFkZWZpbmVkKENPTkZJR19YSVBf
+S0VSTkVMKQotCXNldF9zYXRwX21vZGUoKTsKKwlzZXRfc2F0cF9tb2RlKGR0Yl9wYSk7CiAjZW5k
+aWYKIAogCS8qCi0tIAoyLjM3LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
