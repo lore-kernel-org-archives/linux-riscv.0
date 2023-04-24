@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2A4C77B78
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BD6C77B7F
 	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 13:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=94ZkwAKIXMJZncvsHZs8P1sOvs/ZIfgEPAmDC+TK0W8=; b=PfTfYbad4kpShW
-	NsfcdiFZRugZjeMVBkO8Cyg5UEmreJOMIRwak95Z5i7yWTiN5+09E41r2AoSf3+joA2GHWraSp6qr
-	sWKTd02hGvgxnCsIOl3yPG2Gh2rVX7V+OFcgD4IuLf2u6AK5wUEcSx2RfGHcLey2+SJfGH+UC1icX
-	uYwYXDzYspINQvykpqwsp2Fc9EaBC1ybgogrDQwuYFu0mg5fdaZpaWQsRZXiMeL9/SaGTnA2nrE5Q
-	ryGbEo8FFI5dOHYpPo9LS+c71xiFIA+n+8VZapLwdRrMAZdtWvLoLZbnUx5b7V3rFJNHdhJpxBejk
-	E3yOli10oPbP1oCvrGVA==;
+	List-Owner; bh=yUxh1VEfrESEkKuMN0EoOLlFo5+a8PdoBHgk54CNjL0=; b=C02eV2cYtzi617
+	UZDlAJnjdf/wqK5we80nRbSoxOHusYmR//ZN1pGv/uZp6GQ1AbAC7QO+vkgTyplgtHmVk8vY6Y8WC
+	ulZr04cq56IjMBw4/iBfIKxyS75a0hNgGdQClg24Ia56I/0vqQ5Pa8bxEzMbqLALiq2ix3/H/901V
+	egfwTkXIoTATn70ectACNs/BlI26WdyHUnxh2eH2Ybm0uh88LapFx/CXWTULSxmswnxMsbQXEpPV+
+	PJoa+dniCdvv04ZbdfzTTtu/gPw2FmhJEQdCTW8UScsBeQgwQsNgY30QYaAuDtF5wSyY+NGogdK2I
+	u+3mJ1VfzeuMUyD9NZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqweq-00GUy3-1G;
-	Mon, 24 Apr 2023 13:55:08 +0000
+	id 1pqwep-00GUxJ-1v;
+	Mon, 24 Apr 2023 13:55:07 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqwem-00GUkn-0t
+	id 1pqwej-00GUkp-2B
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Apr 2023 13:55:05 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Mon, 24 Apr 2023 13:55:03 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9839824E22F;
-	Mon, 24 Apr 2023 21:54:21 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
- 2023 21:54:21 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E3ECF24E289;
+	Mon, 24 Apr 2023 21:54:23 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
+ 2023 21:54:23 +0800
 Received: from localhost.localdomain (113.72.145.137) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
- 2023 21:54:20 +0800
+ 2023 21:54:22 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v5 07/10] MAINTAINERS: Update maintainer of JH71x0 clock drivers
-Date: Mon, 24 Apr 2023 21:54:06 +0800
-Message-ID: <20230424135409.6648-8-xingyu.wu@starfivetech.com>
+Subject: [PATCH v5 10/10] riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
+Date: Mon, 24 Apr 2023 21:54:09 +0800
+Message-ID: <20230424135409.6648-11-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
 References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
@@ -61,9 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_065504_521217_A62F01BD 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230424_065502_102803_05D88BBE 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +79,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new maintainer which is in charge of StarFive JH7110
-STG/ISP/VOUT clock drivers.
+Add STGCRG/ISPCRG/VOUTCRG new node to support JH7110
+System-Top-Group, Image-Signal-Process and Video-Output
+clock and reset drivers for the JH7110 RISC-V SoC.
 
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 55 ++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4c0b39c44957..5f9c544bc189 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19914,6 +19914,7 @@ F:	drivers/mmc/host/dw_mmc-starfive.c
- STARFIVE JH71X0 CLOCK DRIVERS
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Hal Feng <hal.feng@starfivetech.com>
-+M:	Xingyu Wu <xingyu.wu@starfivetech.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
- F:	drivers/clk/starfive/clk-starfive-jh71*
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 336ee2b0ffb5..9acb5fb1716d 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -6,6 +6,7 @@
+ 
+ /dts-v1/;
+ #include <dt-bindings/clock/starfive,jh7110-crg.h>
++#include <dt-bindings/power/starfive,jh7110-pmu.h>
+ #include <dt-bindings/reset/starfive,jh7110-crg.h>
+ 
+ / {
+@@ -365,6 +366,25 @@ i2c2: i2c@10050000 {
+ 			status = "disabled";
+ 		};
+ 
++		stgcrg: clock-controller@10230000 {
++			compatible = "starfive,jh7110-stgcrg";
++			reg = <0x0 0x10230000 0x0 0x10000>;
++			clocks = <&osc>,
++				 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
++				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
++				 <&syscrg JH7110_SYSCLK_USB_125M>,
++				 <&syscrg JH7110_SYSCLK_CPU_BUS>,
++				 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
++				 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
++				 <&syscrg JH7110_SYSCLK_APB_BUS>;
++			clock-names = "osc", "hifi4_core",
++				      "stg_axiahb", "usb_125m",
++				      "cpu_bus", "hifi4_axi",
++				      "nocstg_bus", "apb_bus";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
+ 		uart3: serial@12000000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x0 0x12000000 0x0 0x10000>;
+@@ -515,5 +535,40 @@ pwrc: power-controller@17030000 {
+ 			interrupts = <111>;
+ 			#power-domain-cells = <1>;
+ 		};
++
++		ispcrg: clock-controller@19810000 {
++			compatible = "starfive,jh7110-ispcrg";
++			reg = <0x0 0x19810000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
++				 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
++				 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
++				 <&dvp_clk>;
++			clock-names = "isp_top_core", "isp_top_axi",
++				      "noc_bus_isp_axi", "dvp_clk";
++			resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
++				 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
++				 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++			power-domains = <&pwrc JH7110_PD_ISP>;
++		};
++
++		voutcrg: clock-controller@295c0000 {
++			compatible = "starfive,jh7110-voutcrg";
++			reg = <0x0 0x295c0000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
++				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
++				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
++				 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
++				 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
++				 <&hdmitx0_pixelclk>;
++			clock-names = "vout_src", "vout_top_ahb",
++				      "vout_top_axi", "vout_top_hdmitx0_mclk",
++				      "i2stx0_bclk", "hdmitx0_pixelclk";
++			resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++			power-domains = <&pwrc JH7110_PD_VOUT>;
++		};
+ 	};
+ };
 -- 
 2.25.1
 
