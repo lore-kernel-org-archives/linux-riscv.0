@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEEBC7618E
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 07:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845DBC77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 08:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CMw8LlkTcDuMZaIApySD/G1fYrpx48p9A4e21kSl9XU=; b=SpsSiupAaD4Zz3
-	A8VpWDeiwv+eTafozuZzOX0MsryEEERP8JkLM3l+4gqel4HzTJmQC7D5WCts2Vb/zOwL6f9s/1Ip2
-	sFA5qEtsTwIFQlfTKPLgNRONg2wPA84aWtuSrQqBQrPs1cJs9V3RoBe3R01kFnIyU5YlHXBiJUmMe
-	Kjwx0UEptOBUk7OYLUab86nTBhVLg8rFutJILJAWwR7tyPIG2NxSo/FlGXvMgqfRt2011sP2JALom
-	ExhULxDIm4TD5tgwtL5STbC2CnG40qxu42dpoaGXnt478cVqnm6XdsktlsdKGHoOCXz6w9u3t71Sm
-	qdy62HEBLLn0O0/lSVxw==;
+	List-Owner; bh=fX4l5AygsbaWijSitDaLcHx240uPraRbQbchPgHct6c=; b=1BHyi8TN2qRwiw
+	sS6cTavAFH+PkTXyUdTt7vlZoNgoRc67nwz8xzrhj/J3KGS+49N0m/u0FABMAPGAU10MkPQhLmNQY
+	C4nHXJKOZ/tbhlpVMeq1gA1kTIMf8UKi4KCksJpWoNiiGhcUfV9XxtWDn62W6sF9VFwlaQ0unjUFO
+	rERN/nKWfGClJrWcRT4MWHiXJNdXENDnfeoEuZ6DlNn04XsvrfRZfXWIGlYBQix0hBjRVTcyKtZ69
+	T8xBh4YQNiVf8hUEFpEq+JMfakhOqnHlW9DQ3No6N7HxVYQeSM8A1a2sOWYbQaw17668Q9znydNgt
+	CsaPuORdcBiTmsold50A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqqus-00Fc7n-0t;
-	Mon, 24 Apr 2023 07:47:18 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1pqrqg-00FiV6-37;
+	Mon, 24 Apr 2023 08:47:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqquo-00Fc6r-2D
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Apr 2023 07:47:16 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-3f178da21b2so42369035e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Apr 2023 00:47:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682322428; x=1684914428;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZFc9V6ChrklJHgrfyw7Iu80wOWV8HBfJGpTj61yU1FY=;
-        b=nXXNhuqcy8wNeIM18uPs0B0j3nMkFTs6j0ITLW3/DrngLFRKPseDY9aB/wIt7KCfCG
-         Bq61pvwHWmsVIP10vl4c++zxZTiL75+qke/NfYGg0dQ8nYeLT7OAUQp0BOOhDYH4UyKi
-         o2uNt2GhWTOHKfzl8emrWg+KsMo8sGYOxRC8gY8zyGN1GXOqGEf9ARZ/b3U6JOBrZ9S7
-         mdDEUj3sW90qKWy1np+JaxTkeEFK5zrSKLF+MeofG8DhT4Pc8TJxHC5h6w/o96YmlQDX
-         9mcTJGRvJP++gWB091DpJOJYE3Hd2MBe9x+/JD8KDjJR7Hrpdyo02i8knQvh/zN47GRS
-         6LFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682322428; x=1684914428;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZFc9V6ChrklJHgrfyw7Iu80wOWV8HBfJGpTj61yU1FY=;
-        b=LKQYVWX2/HvKWYiwHGIJcfigTOcA4C8K+qer+agW8iHE0eVRR14snwJeQqOxqyMagN
-         sEJpfMsrOFRG0bElOsyGEyaWbIfmI1i7wBVfleHLCWfWLhxRq33B6l2lHgRmd847PUcA
-         0qGq0BBZHhQVTHaf+q+2XVQJVYIDD1KEknUROGE0Vq/oQUKff1UU0Wg1r1C9HJADnFrw
-         1f7t5oSXzaptIiwIs1gjoiSkoAaUsfNDku37Yir/MaZKvW6QLD52yqCcLWQMwk34wszw
-         0IQeFHu+jNvRugrfmadXMYh0QcHJ7iTDHdeA9LkTiuYdITHYaLrSmweO28pCC26bGxFn
-         /9YA==
-X-Gm-Message-State: AAQBX9e951+GSL4XfR0zfAomnBRjWZV+D7hqk07yh1XjCkldd99odLfq
-	rdm0rkmbkNhe8fzoMQY9x9GinYACiWJ3hB7IhcylPw==
-X-Google-Smtp-Source: AKy350aqLi2DNcNqSKzDP7Khh2JHIXHfZ+sCVeCLhmPn82am4Znl9RTPkz+v7qvV8oQ3ya4JNwcZpl3tihJWv4fgc+8=
-X-Received: by 2002:adf:db4e:0:b0:2f2:3dbf:6922 with SMTP id
- f14-20020adfdb4e000000b002f23dbf6922mr7791264wrj.22.1682322428617; Mon, 24
- Apr 2023 00:47:08 -0700 (PDT)
+	id 1pqrqd-00FiTg-0w;
+	Mon, 24 Apr 2023 08:47:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 808A761F19;
+	Mon, 24 Apr 2023 08:46:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6286C433D2;
+	Mon, 24 Apr 2023 08:46:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1682326014;
+	bh=BxzHUQB3Z0bZMqtecVzotggbecUSmBmH1hXxG3knd7g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jdIvp0lahDwhD5Of5iNaBzJV93J9CmLiSKsfK1wx/EDaULMmI0evPDb9JQTkiL1XP
+	 5jKKP4/Y2ucVSWsWg++viia79FEnxT553ndleAu9A1vuaz/a3zdIVk/gE7V0fLHIDh
+	 4QX6Komzpjypwyt6yjSDtiHh5biBVitIbcP9muVRxCl/M/+7+Bq2gRVCq00GmwAVUM
+	 RUWT7VCJkA1H9gt4I1sPvYBFI+2YQhN8VS/iHBYVmYX7RRkcpvWyj83CTagRAHyv6u
+	 03EsgB/Z3j3cPPy2b089AdlQ1B0t0GArQ22uIg47zwYiKSrpnp6K6ssjUUrMlJlhRf
+	 s170M+b+8IO5g==
+Message-ID: <f9666a06-8087-f804-202a-dbb744011d3a@kernel.org>
+Date: Mon, 24 Apr 2023 11:46:47 +0300
 MIME-Version: 1.0
-References: <20230421075111.1391952-1-woodrow.shen@sifive.com>
-In-Reply-To: <20230421075111.1391952-1-woodrow.shen@sifive.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 24 Apr 2023 09:46:57 +0200
-Message-ID: <CAHVXubhW2=TQKYgaBFWeLKPcG4mgk08zk3kceK-53BdobE=Eeg@mail.gmail.com>
-Subject: Re: [RFC PATCH] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must
- be readable
-To: Woodrow Shen <woodrow.shen@sifive.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, 
-	greentime.hu@sifive.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v5 3/7] phy: starfive: Add JH7110 USB 2.0 PHY driver
+Content-Language: en-US
+To: Minda Chen <minda.chen@starfivetech.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Mason Huo <mason.huo@starfivetech.com>
+References: <20230420110052.3182-1-minda.chen@starfivetech.com>
+ <20230420110052.3182-4-minda.chen@starfivetech.com>
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <20230420110052.3182-4-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_004714_961699_E9F9294F 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20230424_014659_433068_0776DA34 
+X-CRM114-Status: GOOD (  30.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +81,249 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgV29vZHJvdywKCk9uIEZyaSwgQXByIDIxLCAyMDIzIGF0IDk6NTHigK9BTSBXb29kcm93IFNo
-ZW4gPHdvb2Ryb3cuc2hlbkBzaWZpdmUuY29tPiB3cm90ZToKPgo+IEZyb206IEhzaWVoLVRzZW5n
-IFNoZW4gPHdvb2Ryb3cuc2hlbkBzaWZpdmUuY29tPgo+Cj4gVGhlIGNvbW1pdCA4YWViN2IxN2Yw
-NGUgKCJSSVNDLVY6IE1ha2UgbW1hcCgpIHdpdGggUFJPVF9XUklURSBpbXBseSBQUk9UX1JFQUQi
-KQo+IGFsbG93cyByaXNjdiB0byB1c2UgbW1hcCB3aXRoIFBST1RfV1JJVEUgb25seSwgYW5kIG1l
-YW53aGlsZSBtbWFwIHdpdGggdyt4IGlzCj4gYWxzbyBwZXJtaXR0ZWQuIEhvd2V2ZXIsIHdoZW4g
-dXNlcnNwYWNlIHRyaWVzIHRvIGFjY2VzcyB0aGlzIHBhZ2Ugd2l0aAo+IFBST1RfV1JJVEV8UFJP
-VF9FWEVDLCB3aGljaCBjYXVzZXMgaW5maW5pdGUgbG9vcCBhdCBsb2FkIHBhZ2UgZmF1bHQgYXMg
-d2VsbCBhcwo+IGl0IHRyaWdnZXJzIHNvZnQgbG9ja3VwLiBBY2NvcmRpbmcgdG8gcmlzY3YgcHJp
-dmlsZWdlZCBzcGVjLAo+ICJXcml0YWJsZSBwYWdlcyBtdXN0IGFsc28gYmUgbWFya2VkIHJlYWRh
-YmxlIi4gVGhlIGZpeCB0byBkcm9wIHRoZQo+IGBQQUdFX0NPUFlfRVhFQ2AgYW5kIHRoZW4gYFBB
-R0VfQ09QWV9SRUFEX0VYRUNgIHNob3VsZCBiZSBqdXN0IHVzZWQgaW5zdGVhZC4KPiBUaGlzIGFs
-aWducyB0aGUgb3RoZXIgYXJjaGVzIChpLmUgYXJtNjQpIGZvciBwcm90ZWN0aW9uX21hcC4KPgo+
-IEZpeGVzOiA4YWViN2IxN2YwNGUgKCJSSVNDLVY6IE1ha2UgbW1hcCgpIHdpdGggUFJPVF9XUklU
-RSBpbXBseSBQUk9UX1JFQUQiKQo+IFNpZ25lZC1vZmYtYnk6IEhzaWVoLVRzZW5nIFNoZW4gPHdv
-b2Ryb3cuc2hlbkBzaWZpdmUuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bn
-dGFibGUuaCB8IDEgLQo+ICBhcmNoL3Jpc2N2L21tL2luaXQuYyAgICAgICAgICAgICB8IDIgKy0K
-PiAgMiBmaWxlcyBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gaW5kZXggZjY0MTgzN2NjZjMxLi5iYjFlMDUzNjc3Mzkg
-MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiArKysgYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+IEBAIC0xNjUsNyArMTY1LDYgQEAgZXh0
-ZXJuIHN0cnVjdCBwdF9hbGxvY19vcHMgcHRfb3BzIF9faW5pdGRhdGE7Cj4gICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfUEFHRV9FWEVDIHwgX1BBR0VfV1JJVEUpCj4K
-PiAgI2RlZmluZSBQQUdFX0NPUFkgICAgICAgICAgICAgIFBBR0VfUkVBRAo+IC0jZGVmaW5lIFBB
-R0VfQ09QWV9FWEVDICAgICAgICAgUEFHRV9FWEVDCj4gICNkZWZpbmUgUEFHRV9DT1BZX1JFQURf
-RVhFQyAgICBQQUdFX1JFQURfRVhFQwo+ICAjZGVmaW5lIFBBR0VfU0hBUkVEICAgICAgICAgICAg
-UEFHRV9XUklURQo+ICAjZGVmaW5lIFBBR0VfU0hBUkVEX0VYRUMgICAgICAgUEFHRV9XUklURV9F
-WEVDCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9p
-bml0LmMKPiBpbmRleCAwZjE0ZjRhOGQxNzkuLjhiOGM2YWQ4NWZkYiAxMDA2NDQKPiAtLS0gYS9h
-cmNoL3Jpc2N2L21tL2luaXQuYwo+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gQEAgLTI4
-NSw3ICsyODUsNyBAQCBzdGF0aWMgY29uc3QgcGdwcm90X3QgcHJvdGVjdGlvbl9tYXBbMTZdID0g
-ewo+ICAgICAgICAgW1ZNX1dSSVRFIHwgVk1fUkVBRF0gICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgPSBQQUdFX0NPUFksCj4gICAgICAgICBbVk1fRVhFQ10gICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICA9IFBBR0VfRVhFQywKPiAgICAgICAgIFtWTV9FWEVDIHwgVk1fUkVB
-RF0gICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gUEFHRV9SRUFEX0VYRUMsCj4gLSAgICAg
-ICBbVk1fRVhFQyB8IFZNX1dSSVRFXSAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IFBBR0Vf
-Q09QWV9FWEVDLAo+ICsgICAgICAgW1ZNX0VYRUMgfCBWTV9XUklURV0gICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgPSBQQUdFX0NPUFlfUkVBRF9FWEVDLAo+ICAgICAgICAgW1ZNX0VYRUMgfCBW
-TV9XUklURSB8IFZNX1JFQURdICAgICAgICAgICAgICAgICAgPSBQQUdFX0NPUFlfUkVBRF9FWEVD
-LAo+ICAgICAgICAgW1ZNX1NIQVJFRF0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgPSBQQUdFX05PTkUsCj4gICAgICAgICBbVk1fU0hBUkVEIHwgVk1fUkVBRF0gICAgICAgICAg
-ICAgICAgICAgICAgICAgICA9IFBBR0VfUkVBRCwKPiAtLQo+IDIuMzQuMQo+CgpUaGlzIGxvb2tz
-IHNhbmUsIGFuZCBpdCBhbGlnbnMgdGhlIGJlaGF2aW91ciB3aXRoIFZNX1NIQVJFRCB8IFZNX0VY
-RUMKfCBWTV9XUklURSB3aGljaCBpbXBsaWVzIHJlYWQuIE9uZSBuaXQgdGhvdWdoOiBzaW5jZSBQ
-QUdFX0NPUFlfRVhFQyBpcwpub3QgdXNlZCBhbnltb3JlLCBJIHdvdWxkIHJlbmFtZSBQQUdFX0NP
-UFlfUkVBRF9FWEVDIGludG8KUEFHRV9DT1BZX0VYRUMgYW5kIHJlbW92ZSBQQUdFX0NPUFlfUkVB
-RF9FWEVDIChzbyB0aGF0IFBBR0VfQ09QWV9FWEVDCmlzIHRoZSBlcXVpdmFsZW50IG9mIFBBR0Vf
-U0hBUkVEX0VYRUMpLgoKU28geW91IGNhbiBhZGQgaW4geW91ciBuZXh0IHZlcnNpb246CgpSZXZp
-ZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoKVGhhbmtz
-IQoKQWxleAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Minda,
+
+On 20/04/2023 14:00, Minda Chen wrote:
+> Add Starfive JH7110 SoC USB 2.0 PHY driver support.
+> USB 2.0 PHY default connect to Cadence USB controller.
+> 
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> ---
+>  MAINTAINERS                           |   6 +
+>  drivers/phy/starfive/Kconfig          |  11 ++
+>  drivers/phy/starfive/Makefile         |   1 +
+>  drivers/phy/starfive/phy-jh7110-usb.c | 162 ++++++++++++++++++++++++++
+>  4 files changed, 180 insertions(+)
+>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 1aef5ba46d71..c09ea66dcd5a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19968,6 +19968,12 @@ M:	William Qiu <william.qiu@starfivetech.com>
+>  S:	Supported
+>  F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+>  
+> +STARFIVE JH71X0 USB PHY DRIVER
+> +M:	Minda Chen <minda.chen@starfivetech.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> +F:	drivers/phy/starfive/phy-jh7110-usb.c
+> +
+>  STATIC BRANCH/CALL
+>  M:	Peter Zijlstra <peterz@infradead.org>
+>  M:	Josh Poimboeuf <jpoimboe@kernel.org>
+> diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
+> index f989b8ff8bcb..2c013c390dee 100644
+> --- a/drivers/phy/starfive/Kconfig
+> +++ b/drivers/phy/starfive/Kconfig
+> @@ -11,3 +11,14 @@ config PHY_STARFIVE_DPHY_RX
+>  	  Choose this option if you have a StarFive D-PHY in your
+>  	  system. If M is selected, the module will be called
+>  	  phy-starfive-dphy-rx.
+> +
+> +config PHY_STARFIVE_JH7110_USB
+> +	tristate "Starfive JH7110 USB 2.0 PHY support"
+> +	depends on USB_SUPPORT
+> +	select GENERIC_PHY
+> +	select USB_PHY
+> +	help
+> +	  Enable this to support the StarFive USB 2.0 PHY,
+> +	  used with the Cadence USB controller.
+> +	  If M is selected, the module will be called
+> +	  phy-jh7110-usb.ko.
+> diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
+> index 7ec576cb30ae..176443852f4d 100644
+> --- a/drivers/phy/starfive/Makefile
+> +++ b/drivers/phy/starfive/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_PHY_STARFIVE_DPHY_RX)      += phy-starfive-dphy-rx.o
+> +obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
+> diff --git a/drivers/phy/starfive/phy-jh7110-usb.c b/drivers/phy/starfive/phy-jh7110-usb.c
+> new file mode 100644
+> index 000000000000..4a12df0692cd
+> --- /dev/null
+> +++ b/drivers/phy/starfive/phy-jh7110-usb.c
+> @@ -0,0 +1,162 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * StarFive JH7110 USB 2.0 PHY driver
+> + *
+> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> + * Author: Minda Chen <minda.chen@starfivetech.com>
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/usb/of.h>
+> +
+> +#define USB_125M_CLK_RATE		125000000
+> +#define USB_LS_KEEPALIVE_OFF		0x4
+> +#define USB_LS_KEEPALIVE_ENABLE		BIT(4)
+> +
+> +struct jh7110_usb2_phy {
+> +	struct phy *phy;
+> +	void __iomem *regs;
+> +	struct clk *usb_125m_clk;
+> +	struct clk *app_125m;
+> +	enum phy_mode mode;
+> +};
+> +
+> +static void jh7110_usb2_mode_set(struct jh7110_usb2_phy *phy)
+> +{
+> +	unsigned int val;
+> +
+> +	if (phy->mode != PHY_MODE_USB_HOST) {
+> +		/* Enable the LS speed keep-alive signal */
+> +		val = readl(phy->regs + USB_LS_KEEPALIVE_OFF);
+> +		val |= USB_LS_KEEPALIVE_ENABLE;
+> +		writel(val, phy->regs + USB_LS_KEEPALIVE_OFF);
+> +	}
+> +}
+> +
+> +static int jh7110_usb2_phy_set_mode(struct phy *_phy,
+> +				    enum phy_mode mode, int submode)
+> +{
+> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+> +
+> +	switch (mode) {
+> +	case PHY_MODE_USB_HOST:
+> +	case PHY_MODE_USB_DEVICE:
+> +	case PHY_MODE_USB_OTG:
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (mode != phy->mode) {
+> +		dev_info(&_phy->dev, "Changing phy to %d\n", mode);
+
+dev_dbg() please?
+
+> +		phy->mode = mode;
+> +		jh7110_usb2_mode_set(phy);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_usb2_phy_init(struct phy *_phy)
+> +{
+> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+> +	int ret;
+> +
+> +	ret = clk_set_rate(phy->usb_125m_clk, USB_125M_CLK_RATE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = clk_prepare_enable(phy->app_125m);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_usb2_phy_exit(struct phy *_phy)
+> +{
+> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+> +
+> +	clk_disable_unprepare(phy->app_125m);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct phy_ops jh7110_usb2_phy_ops = {
+> +	.init		= jh7110_usb2_phy_init,
+> +	.exit		= jh7110_usb2_phy_exit,
+> +	.set_mode	= jh7110_usb2_phy_set_mode,
+> +	.owner		= THIS_MODULE,
+> +};
+> +
+> +static int jh7110_usb_phy_probe(struct platform_device *pdev)
+> +{
+> +	struct jh7110_usb2_phy *phy;
+> +	struct device *dev = &pdev->dev;
+> +	struct phy_provider *phy_provider;
+> +
+> +	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
+> +	if (!phy)
+> +		return -ENOMEM;
+> +
+> +	phy->usb_125m_clk = devm_clk_get(dev, "125m");
+> +	if (IS_ERR(phy->usb_125m_clk))
+> +		return dev_err_probe(dev, PTR_ERR(phy->usb_125m_clk),
+> +			"Failed to get 125m clock\n");
+> +
+> +	phy->app_125m = devm_clk_get(dev, "app_125m");
+> +	if (IS_ERR(phy->app_125m))
+> +		return dev_err_probe(dev, PTR_ERR(phy->app_125m),
+> +			"Failed to get app 125m clock\n");
+> +
+> +	phy->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(phy->regs))
+> +		return dev_err_probe(dev, PTR_ERR(phy->regs),
+> +			"Failed to map phy base\n");
+> +
+> +	phy->phy = devm_phy_create(dev, NULL, &jh7110_usb2_phy_ops);
+> +	if (IS_ERR(phy->phy))
+> +		return dev_err_probe(dev, PTR_ERR(phy->phy),
+> +			"Failed to create phy\n");
+> +
+> +	platform_set_drvdata(pdev, phy);
+> +	phy_set_drvdata(phy->phy, phy);
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static int jh7110_usb_phy_remove(struct platform_device *pdev)
+> +{
+> +	struct jh7110_usb2_phy *phy = platform_get_drvdata(pdev);
+> +
+> +	clk_disable_unprepare(phy->app_125m);
+
+Why do you need to do clk_disable here? You didn't enable it in probe.
+
+> +	platform_set_drvdata(pdev, NULL);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id jh7110_usb_phy_of_match[] = {
+> +	{ .compatible = "starfive,jh7110-usb-phy" },
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(of, jh7110_usb_phy_of_match);
+> +
+> +static struct platform_driver jh7110_usb_phy_driver = {
+> +	.probe	= jh7110_usb_phy_probe,
+> +	.remove	= jh7110_usb_phy_remove,
+> +	.driver = {
+> +		.of_match_table	= jh7110_usb_phy_of_match,
+> +		.name  = "jh7110-usb-phy",
+> +	}
+> +};
+> +module_platform_driver(jh7110_usb_phy_driver);
+> +
+> +MODULE_DESCRIPTION("StarFive JH7110 USB 2.0 PHY driver");
+> +MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
+> +MODULE_LICENSE("GPL");
+
+cheers,
+-roger
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
