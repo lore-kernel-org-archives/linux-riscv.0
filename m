@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECA0C77B61
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 16:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79552C77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 16:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=py/ldo2CyY/XhfoLHVeS5Y/X6a4KE4uW1Ot9SLaevl8=; b=w65pfaya1X9oF886FUtSmCUUCL
-	2v5xt+pJy84QAJToN2XzosDydjTRac6T192CVOFPdeOdM8+6ByoKCYO5m0fHECr0LX9OOfGVcgzxS
-	+FVw7oXsW1717Dq/97Vdpe09F0Yse725UgQPaAcoK4mR15rmsR4niXGYoayxf7l7QXGpa55FHkwi8
-	yRA1ahEiiwdZ1859MuwVoIaKacypxqDfVr3Lv4MIn14+6NncM5k5lc/rFozAsUMaWE7EMamA37Kgm
-	HgLvvBl7DiaBHipB9de4kCVyV34JAlgp4TRt6HK4Jb3n8bFaKRVOKzYTbKuq128ZAwqEkZ0YM4PqT
-	WfPshM9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bpLHCIJS6t5hDqxuw7bnSqgH9SckK3ZjapS+zzQYCBk=; b=Et/7T/79cyXQFh
+	bENREtt0nz6Xn6UlCx9QkAWIYIjhn1Gm0v1qpIk9ssWWoiI3LPOeyolAnHh0Xm+ebFCOqmA2ZSmVP
+	z3bfYVHrUYUuMV9YNuhiVtH8PrGICceK4Bif7z9J5vj3y+GVWy9/agfCo8xxiHk7ssxzQm/h/27oY
+	IIiCY3zarrKFiY2XH2rvdCdk3x9PqB2cSibCa7vmUXrSBYcymK035/ynfWXHtsW/WAyItgX5P87bo
+	Bz2ECVGV64NoAQMx4Pbzm3EWEmGvFdMw46HqVDAb90HePo24uBMl0kZM0fbPC+MHKUPngEyY1tRCZ
+	/sSjkAe8GypzaFdIGqRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqz2D-00Gnly-1n;
-	Mon, 24 Apr 2023 16:27:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pqzKE-00Gq0f-0Q;
+	Mon, 24 Apr 2023 16:46:02 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqz2B-00GnlU-1U
+	id 1pqzKC-00GpyF-0i
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Apr 2023 16:27:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5421B6267F;
-	Mon, 24 Apr 2023 16:27:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3476BC433EF;
-	Mon, 24 Apr 2023 16:27:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682353639;
-	bh=fvEq0mh5AUQNzwqp8tKYBSzSOfpXgtSJnYThK3jJ/co=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HrxTNc0mPXjGr5XtVHzM1S9zf0iUmFMuPC17ws2mi1Bs4gFpZ/hC27u7b+1L7fnbf
-	 Kv1hjkP+zLnF1sfHw0dMhTqZxRjEz0xHmHDJtjIZN8M5cAjZsPhvo0E3OJpnIznBf/
-	 FfNUHkJf0ELeugXGpgUF88t6uH5a6VaoTZdzdA8/t/5M582yND5AHlrAJYd8WiRcHx
-	 Syn1VTKBB21LIO2oRwBlhPLysGKZFWQhihSiHNRO+mxuEF3sggJQAmof9X3kmG221U
-	 Z2r+WEFJU1R/vAZQIGxFt5UAJ0r/8qtTTUiu31IZwZwgIJT1qCtn9u7Zp1YLGAZAAr
-	 ON2KjfHmn87gA==
-Date: Mon, 24 Apr 2023 17:27:14 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, alsa-devel@alsa-project.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] riscv: dts: starfive: add tdm node and sound card
-Message-ID: <20230424-roundness-everybody-659599d44963@spud>
-References: <20230420024118.22677-1-walker.chen@starfivetech.com>
- <20230420024118.22677-5-walker.chen@starfivetech.com>
- <20230421-dropper-upstage-200ae7e47092@spud>
- <607f3604-056c-6f3a-b154-0f298b870811@starfivetech.com>
+	Mon, 24 Apr 2023 16:46:01 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-54f9d6eccf3so54919587b3.2
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Apr 2023 09:45:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1682354755; x=1684946755;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cogHEMsVVgTDAgj3gPVUEVuPljtJmFM5khAyIfbROPI=;
+        b=IBOU6rK79gND4DciwLkfyHJXLICK+nm1hfqmlYcnXaImIV8xf915qrkhfvrtFQ1bD9
+         8Z+ZDwfy6VoKjQweFXwu2Ekk2xB4sANXClY8YQV834aQDs+/FEV0pbYJdQjAAZN9rs34
+         f57BlCx+WuwQCSpj22oE82Xg3qgAyLXwOjmFBUce3BRWppaPMfsXHqc33YIYcz+3VNi4
+         XAZAp7pRNW06LclNSKJAgnoHgP+fH1wRI4+4eovVUts+kprnZi5lybCwL9Zgev3v81H7
+         MVICvn7IiG51PLSmT4j4PcXlaBgIbQc7j8zZ0ZG9H7yZWRSpCFId5KXjqGEfZQLGW0Na
+         Tk1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682354755; x=1684946755;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cogHEMsVVgTDAgj3gPVUEVuPljtJmFM5khAyIfbROPI=;
+        b=NWKmPen7IcSS/+8bP7GdD/scs5TnUV62mqsYDA1U6QAW9Puwe9lXL/mTjcsmelKPm2
+         jHfPuCPnFhmv/5PkPuGMwnlg3hZoSo389rcBRLTyXhIV355XRoMdSRCWAycUX3mDe8Pj
+         jLf5XaaSrrOO99seEy3yzNtvyrzWmoBFvbmO2CwcfOAsRQtHWVyo2b8kPURkzruj+hz0
+         wksXd/ewqA5jxHz/ViCUuQsBAPdkyLIcOPWo1aWO0x/EMJ1Jd/j0/WCc9XMTeG86rBxr
+         HlnKSL1WCb3NyGrFsLLT3JhGImhV8TwTs58yYlOQ9YCsoWF//rF7cjLdBFOv9l2PoDVk
+         xucg==
+X-Gm-Message-State: AAQBX9dqnkD6tqy84n/SWV3DzvOP8DBugaUFg34vCelEiN1yCs8uXcv9
+	2VeDx9SHPbe+vbJC9Z7TJn3DACtsImMR17Rbaz8QQg==
+X-Google-Smtp-Source: AKy350bUMi1vCT3z4Q+q+kn/632Ww3gn+vAsPs+FHaqynFi9cqF64KYbnuQ/xodFFgeBsnoDvd5keBpYNYydhUX/nUI=
+X-Received: by 2002:a0d:ccd0:0:b0:541:8735:171e with SMTP id
+ o199-20020a0dccd0000000b005418735171emr9340453ywd.11.1682354754795; Mon, 24
+ Apr 2023 09:45:54 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <607f3604-056c-6f3a-b154-0f298b870811@starfivetech.com>
+References: <20230421165305.804301-8-vipinsh@google.com> <202304220315.bpwbgH5n-lkp@intel.com>
+In-Reply-To: <202304220315.bpwbgH5n-lkp@intel.com>
+From: Vipin Sharma <vipinsh@google.com>
+Date: Mon, 24 Apr 2023 09:45:18 -0700
+Message-ID: <CAHVum0cp=wfDmuK87jq7+2t5FnK09v1LownwqgS41EisT4Gc1g@mail.gmail.com>
+Subject: Re: [PATCH 7/9] KVM: mmu: Move mmu lock/unlock to arch code for clear
+ dirty log
+To: kernel test robot <lkp@intel.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, 
+	tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com, 
+	ricarkol@google.com, oe-kbuild-all@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_092723_598287_A26466D3 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20230424_094600_259623_2D42CF84 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +94,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6815710351837995306=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6815710351837995306==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="j+Ycr2hphDkEqIhB"
-Content-Disposition: inline
-
-
---j+Ycr2hphDkEqIhB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Apr 24, 2023 at 11:21:11AM +0800, Walker Chen wrote:
->=20
->=20
-> On 2023/4/22 0:50, Conor Dooley wrote:
-> > Hey Walker,
-> >=20
-> > On Thu, Apr 20, 2023 at 10:41:18AM +0800, Walker Chen wrote:
-> >> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
-> >=20
-> > Is this one of these waveshare things + a visionfive 2?
-> > https://www.waveshare.com/wm8960-audio-hat.htm
->=20
-> Hey Conor,
-> I'm glad to receive your comments.
->=20
-> Now we are using this board + VisionFive2 :
-> https://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/
->=20
-> >=20
-> > I'm a bit lost as to why this needs a whole new board, should it not
-> > just be an overlay that you can apply to the existing dts?
-> >=20
-> > Taking this to an extreme, should I expect to see a new devicetree for
-> > everything RPi hat that you decide to use with a VisionFive 2?
->=20
-> For your response, I did some thinking. Because wm8960 codec is not integ=
-rated
->  on the VisionFive2 board, perhaps using overlay is a better way.
-
-Aye. I think so too. From my PoV, if this particular seeed audio board
-is something you're bundling with VisionFive 2 boards on your storefront
-etc, then I'm fine with taking it as an in-tree overlay.
-If it is just a "random" RPi hat (that happens to be exactly what you
-need for testing the audio drivers), then I don't know where to draw a
-line for what is & what is not acceptable for inclusion.
-
-In both cases, it's Emil's call.
-
-Cheers,
-Conor.
-
-> > Also, it'd be nice to provide a Link: to where someone can find more
-> > info on this combination of items. Google for "wm8960 visionfive 2"
-> > gives me nothing, nor does "starfive audio card" etc.
-
-
---j+Ycr2hphDkEqIhB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEat3wAKCRB4tDGHoIJi
-0jkcAP9PVqqvxUun7YG2AskDTqNN3Vw6Lcltm7vAqHee10z2JQEArKIyMolTkXjQ
-rNlamogL71o+AG5sxWxXqc/9qYTm3wU=
-=z1wj
------END PGP SIGNATURE-----
-
---j+Ycr2hphDkEqIhB--
-
-
---===============6815710351837995306==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6815710351837995306==--
-
+T24gRnJpLCBBcHIgMjEsIDIwMjMgYXQgMTI6NDPigK9QTSBrZXJuZWwgdGVzdCByb2JvdCA8bGtw
+QGludGVsLmNvbT4gd3JvdGU6Cj4KPiBIaSBWaXBpbiwKPgo+IEFsbCB3YXJuaW5ncyAobmV3IG9u
+ZXMgcHJlZml4ZWQgYnkgPj4pOgo+Cj4gICAgYXJjaC9yaXNjdi9rdm0vbW11LmM6IEluIGZ1bmN0
+aW9uICdrdm1fYXJjaF9tbXVfZW5hYmxlX2xvZ19kaXJ0eV9wdF9tYXNrZWQnOgo+ID4+IGFyY2gv
+cmlzY3Yva3ZtL21tdS5jOjM5OTo5OiB3YXJuaW5nOiBJU08gQzkwIGZvcmJpZHMgbWl4ZWQgZGVj
+bGFyYXRpb25zIGFuZCBjb2RlIFstV2RlY2xhcmF0aW9uLWFmdGVyLXN0YXRlbWVudF0KPiAgICAg
+IDM5OSB8ICAgICAgICAgcGh5c19hZGRyX3QgYmFzZV9nZm4gPSBzbG90LT5iYXNlX2dmbiArIGdm
+bl9vZmZzZXQ7Cj4gICAgICAgICAgfCAgICAgICAgIF5+fn5+fn5+fn5+Cj4KPgoKSSB3aWxsIGZp
+eCBpdCBpbiB2Mi4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
