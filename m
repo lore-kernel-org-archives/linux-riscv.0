@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8256C77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 19:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3452FC77B7E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 19:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vlCNAtH59nwZMHj5Iao8P7KUhMbcQi6xaCoUQkrMZ2Q=; b=JyHN0FCjYEgddF
-	OCgexdtKIOz15J/8Gpdy0w627IP3U/W+OwQ4BLZUmGLXpAA3YUvSavTpthw3Bq0gnsv3nre+Hw8je
-	Z5t/xRjaTEgoVz3EOzlzqJJOOlD59Q3LG90JB24Qw3lXIalx65gYUSg9ttN81dzYAubOoHdwvLyaA
-	IyaXGZEjXjU/itXNJCSkKvp/fp4XSMNCUGyZ158E9jQFlqBb2aFLy+Vod7lah1HVbxSHYMBpzyxNx
-	1q+7utSSiwa/SOf7DEdNmHAuycarYeYjrrYfH02GY5igAgmLUMitHa33T92X2nfQO5XP4rTlQV4DS
-	eqlbq7s3LjEentXpfMgQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hXfFNSWcN5scaJOLoUDqHzh3QKEZ118bV1mvmNHI57Q=; b=PaOtnvwH6X98Ol
+	ZcXaru+Us4KQ/WxYcxfmp30dIc1D8anZ3bK5ogqlzgoawsxZdJj97lJlIwG7Wvhc1yVgf9aKk1iN7
+	4Qu5euHTKjM7yQwSTyGMi/0D5Ij7vpJyusSKJWdkly0Q/p42drcKhXEP2DXfrOlGhaWlG4lt5Sqt1
+	vCjHIDxNk4IoegaraBKEkJ90QJThf5tzaM17H06d46KbsrPvoN5pS5z7MgpXZyINbM5OkjWmtg6Ao
+	kLqgO7nzgBKZPNQoWy3ebBr1JuvmEqIHvcB/4gQeh51UEjqN6FCeEuBNA0ymsL3EE3u+XvTdxMOIZ
+	zunCBBJoYWq8AjhbJ64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pr2Bv-00H4jZ-2c;
-	Mon, 24 Apr 2023 19:49:39 +0000
+	id 1pr2Bw-00H4jh-0x;
+	Mon, 24 Apr 2023 19:49:40 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pr2Bn-00H4gn-2t
+	id 1pr2Bn-00H4gv-2d
 	for linux-riscv@lists.infradead.org;
 	Mon, 24 Apr 2023 19:49:34 +0000
 Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pr2Bh-0006Mz-Nq; Mon, 24 Apr 2023 21:49:25 +0200
+	id 1pr2Bj-0006Mz-Qx; Mon, 24 Apr 2023 21:49:27 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	linux-riscv@lists.infradead.org,
@@ -50,14 +50,16 @@ Cc: heiko@sntech.de,
 	arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH 0/4] Expose the isa-string via the AT_BASE_PLATFORM aux vector
-Date: Mon, 24 Apr 2023 21:49:07 +0200
-Message-Id: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
+Subject: [PATCH 4/4] RISC-V: add support for vendor-extensions via AT_BASE_PLATFORM and xthead
+Date: Mon, 24 Apr 2023 21:49:11 +0200
+Message-Id: <20230424194911.264850-5-heiko.stuebner@vrull.eu>
 X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
+References: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_124931_931794_72BEE656 
-X-CRM114-Status: GOOD (  28.20  )
+X-CRM114-CacheID: sfid-20230424_124932_008478_CAFA8ACE 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,132 +71,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1PgoKVGhlIGh3cHJv
-YmluZyBpbmZyYXN0cnVjdHVyZSB3YXMgbWVyZ2VkIHJlY2VudGx5IFswXSBhbmQgY29udGFpbnMg
-YQptZWNoYW5pc20gdG8gcHJvYmUgYm90aCBleHRlbnNpb25zIGJ1dCBhbHNvIG1pY3JvYXJjaGl0
-ZWN1cmFsIGZlYXR1cmVzCm9uIGEgcGVyLWNvcmUgbGV2ZWwgb2YgZGV0YWlsLgoKV2hpbGUgZGlz
-Y3Vzc2luZyB0aGUgc29sdXRpb24gaW50ZXJuYWxseSB3ZSBpZGVudGlmaWVkIHNvbWUgcG9zc2li
-bGUgaXNzdWVzLAp0cmllZCB0byB1bmRlcnN0YW5kIHRoZSB1bmRlcmx5aW5nIGlzc3VlIGFuZCBj
-b21lIHVwIHdpdGggYSBzb2x1dGlvbiBmb3IgaXQuCkFsbCB0aGVzZSBkZWxpYmVyYXRpb25zIG92
-ZXJsYXBwZWQgd2l0aCBod3Byb2JpbmcgYmVpbmcgbWVyZ2VkLCBidXQgdGhhdApzaG91bGRuJ3Qg
-cmVhbGx5IGJlIGFuIGlzc3VlLCBhcyBib3RoIGhhdmUgdGhlaXIgdXNhYmlsaXR5IC0gc2VlIGJl
-bG93LgoKQWxzbyBwbGVhc2Ugc2VlIHRoZSAiVGhpbmdzIHRvIGNvbnNpZGVyIiBhdCB0aGUgYm90
-dG9tIQoKClBvc3NpYmxlIGlzc3VlczoKLSB2ZXJ5IG11Y2ggbGltaXRlZCB0byBMaW51eAotIHNj
-aGVkdWxlcnMgcnVuIHByb2Nlc3NlcyBvbiBhbGwgY29yZXMgYnkgZGVmYXVsdCwgc28gd2lsbCBu
-ZWVkCiAgdGhlIGNvbW1vbiBzZXQgb2YgZXh0ZW5zaW9ucyBpbiBtb3N0IGNhc2VzCi0gZWFjaCBu
-ZXcgZXh0ZW5zaW9ucyByZXF1aXJlcyBhbiB1YXBpIGNoYW5nZSwgcmVxdWlyaW5nIGF0IGxlYXN0
-CiAgdHdvIHBpZWNlcyBvZiBzb2Z0d2FyZSB0byBiZSBjaGFuZ2VkCi0gYWRkaW5nIGFub3RoZXIg
-ZXh0ZW5zaW9uIHJlcXVpcmVzIGEgcmV2aWV3IHByb2Nlc3MgKG9ubHkga25vd24KICBleHRlbnNp
-b25zIGNhbiBiZSBleHBvc2VkIHRvIHVzZXItc3BhY2UpCi0gdmVuZG9yIGV4dGVuc2lvbnMgaGF2
-ZSBzcGVjaWFsIG5lZWRzIGFuZCB0aGVyZWZvcmUgcG9zc2libHkKICBkb27igJl0IGZpdCB3ZWxs
-CgoKTGltaXRlZCB0byBMaW51eDoKLS0tLS0tLS0tLS0tLS0tLS0KClRoZSBzeXNjYWxsIGFuZCBp
-dHMgdWFwaSBpcyBMaW51eC1zcGVjaWZpYyBhbmQgb3RoZXIgT1NlcyBwcm9iYWJseQp3aWxsIG5v
-dCBkZWZlciB0byBvdXIgcmV2aWV3IHByb2Nlc3MgYW5kIHJlcXVpcmVtZW50cyBqdXN0IHRvIGdl
-dApuZXcgYml0cyBpbi4gSW5zdGVhZCBtb3N0IGxpa2VseSB0aGV5J2xsIGJ1aWxkIHRoZWlyIG93
-biBzeXN0ZW1zLApsZWFkaW5nIHRvIGZyYWdtZW50YXRpb24uCgoKRmVhdHVyZSBvbiBhbGwgY29y
-ZXM6Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKQXJuZCBwcmV2aW91c2x5IChbMV0pIGNvbW1lbnRl
-ZCBpbiB0aGUgZGlzY3Vzc2lvbiwgdGhhdCB0aGVyZQpzaG91bGQgbm90IGJlIGEgbmVlZCBmb3Ig
-b3B0aW1pemF0aW9uIHRvd2FyZHMgaGFyZHdhcmUgd2l0aCBhbgphc3ltbWV0cmljIHNldCBvZiBm
-ZWF0dXJlcy4gV2UgYmVsaWV2ZSBzbyBhcyB3ZWxsLCBlc3BlY2lhbGx5CndoZW4gdGFsa2luZyBh
-Ym91dCBhbiBpbnRlcmZhY2UgdGhhdCBoZWxwcyBwcm9jZXNzZXMgdG8gaWRlbnRpZnkKdGhlIG9w
-dGltaXplZCByb3V0aW5lcyB0aGV5IGNhbiBleGVjdXRlLgoKT2YgY291cnNlIHNlZWluZyBpdCB3
-aXRoIHRoaXMgZmluYWxpdHkgbWlnaHQgbm90IHRha2UgaW50byBhY2NvdW50CnRoZSBzb21ld2hh
-dCBzcGVjaWFsIG5hdHVyZSBvZiBSSVNDLVYsIGJ1dCBuZXZlcnRoZWxlc3MgaXQgZGVzY3JpYmVz
-CnRoZSBjb21tb24gY2FzZSBmb3IgcHJvZ3JhbXMgdmVyeSB3ZWxsLgoKRm9yIHN0YXJ0ZXJzIHRo
-ZSBzY2hlZHVsZXIgaW4gaXRzIGRlZmF1bHQgYmVoYXZpb3VyLCB3aWxsIHRyeSB0byB1c2UgYW55
-CmF2YWlsYWJsZSBjb3JlLCBzbyB0aGUgc3RhbmRhcmQgcHJvZ3JhbSBiZWhhdmlvdXIgd2lsbCBh
-bHdheXMgbmVlZCB0aGUKaW50ZXJzZWN0aW9uIG9mIGF2YWlsYWJsZSBleHRlbnNpb25zIG92ZXIg
-YWxsIGNvcmVzLgoKCkxpbWl0aW5nIHByb2dyYW0gZXhlY3V0aW9uIHRvIHNwZWNpZmljIGNvcmVz
-IHdpbGwgbGlrZWx5IGFsd2F5cyBiZSBhCnNwZWNpYWwgdXNlIGNhc2UgYW5kIGFscmVhZHkgcmVx
-dWlyZXMgTGludXgtc3BlY2lmaWMgc3lzY2FsbHMgdG8Kc2VsZWN0IHRoZSBzZXQgb2YgY29yZXMu
-CgpTbyB3aGlsZSBpdCBjYW4gY29tZSBpbiBoYW5keSB0byBnZXQgcGVyLWNvcmUgaW5mb3JtYXRp
-b24gZG93biB0aGUgcm9hZAp2aWEgdGhlIGh3cHJvYmluZyBpbnRlcmZhY2UsIG1vc3QgcHJvZ3Jh
-bXMgd2lsbCBqdXN0IHdhbnQgdG8ga25vdyBpZgp0aGV5IGNhbiB1c2UgYSBleHRlbnNpb24gb24g
-anVzdCBhbnkgY29yZS4KCgpSZXZpZXcgcHJvY2VzczoKLS0tLS0tLS0tLS0tLS0tCgpUaGVyZSBh
-cmUgc28gbWFueSAobXVsdGktbGV0dGVyLSlleHRlbnNpb25zIGFscmVhZHkgd2l0aCBldmVuIG1v
-cmUgaW4KdGhlIHBpcGVsaW5lLiBUbyBleHBvc2UgYWxsIG9mIHRoZW0sIGVhY2ggd2lsbCByZXF1
-aXJlIGEgcmV2aWV3IHByb2Nlc3MKYW5kIHVhcGkgY2hhbmdlIHRoYXQgd2lsbCBtYWtlIGRlZmlu
-aW5nIGFsbCBvZiB0aGVtIHNsb3cgYXMgdGhlCmtlcm5lbCBuZWVkcyBwYXRjaGluZyBhZnRlciB3
-aGljaCB1c2Vyc3BhY2UgbmVlZHMgdG8gc3luYyBpbiB0aGUgbmV3CmFwaSBoZWFkZXIuCgoKVmVu
-ZG9yLWV4dGVuc2lvbnM6Ci0tLS0tLS0tLS0tLS0tLS0tLQoKVmVuZG9yIGV4dGVuc2lvbnMgYXJl
-IHNwZWNpYWwgaW4gdGhlaXIgb3duIHJpZ2h0LgpVc2Vyc3BhY2UgcHJvYmFibHkgd2lsbCB3YW50
-IHRvIGtub3cgYWJvdXQgdGhlbSwgYnV0IHdlIGFzIHRoZSBrZXJuZWwKZG9uJ3Qgd2FudCB0byBj
-YXJlIGFib3V0IHRoZW0gdG9vIG11Y2ggKGV4Y2VwdCBhcyBlcnJhdGEpLCBhcyB0aGV5J3JlCm5v
-dCBwYXJ0IG9mIHRoZSBvZmZpY2lhbCBSSVNDLVYgSVNBIHNwZWMuCgpHZXR0aW5nIHZlbmRvciBl
-eHRlbnNpb25zIGZyb20gdGhlIGR0IHRvIHVzZXJzcGFjZSB2aWEgaHdwcm9iZSB3b3VsZApyZXF1
-aXJlIGNvb3JkaW5hdGlvbiBlZmZvcnRzIGFuZCBhcyB2ZW5kb3JzIGhhdmUgdGhlIHRlbmRlbmN5
-IHRvIGludmVudAp0aGluZ3MgZHVyaW5nIHRoZWlyIGRldmVsb3BtZW50IHByb2Nlc3MgYmVmb3Jl
-IHRyeWluZyB0byBzdWJtaXQgY2hhbmdlcwp1cHN0cmVhbSB0aGlzIGxpa2VseSB3b3VsZCByZXN1
-bHQgaW4gY29uZmxpY3RzIHdpdGggYXNzaWduZWQgaWRzIGRvd24KdGhlIHJvYWQuIFdoaWNoIGlu
-IHR1cm4gdGhlbiBtYXkgY3JlYXRlIGNvbXBhdGliaWxpdHktaXNzdWVzIHdpdGgKdXNlcnNwYWNl
-IGJ1aWxkcyBidWlsdCBvbiB0b3Agb2YgdGhlIG1haW5saW5lIGtlcm5lbCBvciBhIHByZS0KZXhp
-c3RpbmcgdmVuZG9yIGtlcm5lbC4KClRoZSBzcGVjaWFsIGNhc2UgYWxzbyBpcyB0aGF0IHZlbmRv
-ciBBIGNvdWxkIGluIHRoZW9yeSBpbXBsZW1lbnQgYW4KZXh0ZW5zaW9uIGZyb20gdmVuZG9yIEIu
-IFNvIHRoaXMgd291bGQgcmVxdWlyZSB0byBhY3R1YWxseSBhc3NpZ24Kc2VwYXJhdGUgaHdwcm9i
-ZSBrZXlzIHRvIHZlbmRvcnMgKGtleSBmb3IgeHRoZWFkIGV4dGVuc2lvbnMsIGtleSBmb3IKeHZl
-bnRhbmEgZXh0ZW5zaW9ucywgZXRjKS4gVGhpcyBpbiB0dXJuIHdvdWxkIHJlcXVpcmUgdmVuZG9y
-cyB0bwpjb21lIHRvIHRoZSBtYWlubGluZSBrZXJuZWwgdG8gZ2V0IGFzc2lnbmVkIGEga2V5ICh3
-aGljaCBpbiByZWFsaXR5CnByb2JhYmx5IHdvbid0IGhhcHBlbiksIHdoaWNoIHdvdWxkIHRoZW4g
-bWFrZSB0aGUga2VybmVsIGNvbW11bml0eQpzb3J0IG9mIGFuIGlkIGF1dGhvcml0eS4KCgoKClRv
-IGFkZHJlc3MgdGhlc2UsIHRoZSBhdHRhY2hlZCBwYXRjaCBzZXJpZXMgYWRkcyBhIHNlY29uZCBp
-bnRlcmZhY2UKZm9yIHRoZSBjb21tb24gY2FzZSBhbmQgImp1c3QiIGV4cG9zZXMgdGhlIGlzYS1z
-dHJpbmcgdmlhIHRoZQpBVF9CQVNFX1BMQVRGT1JNIGF1eCB2ZWN0b3IuCgpJbiB0aGUgdG90YWwg
-Y29zdCBvZiBwcm9ncmFtIHN0YXJ0LCBwYXJzaW5nIHRoZSBzdHJpbmcgZG9lcyBub3QgY3JlYXRl
-CnRvbyBtdWNoIG92ZXJoZWFkLiBUaGUgZXh0ZW5zaW9uIGxpc3QgaW4gdGhlIGtlcm5lbCBhbHJl
-YWR5IGNvbnRhaW5zCnRoZSBleHRlbnNpb25zIGxpc3QgbGltaXRlZCB0byB0aGUgb25lcyBhdmFp
-bGFibGUgb24gYWxsIGhhcnRzIGFuZAp0aGUgc3RyaW5nIGZvcm0gYWxsb3dzIHVzIHRvIGp1c3Qg
-cGlwZSB0aHJvdWdoIGFkZGl0aW9uYWwgc3R1ZmYgdG9vLCBhcwpjYW4gYmUgc2VlbiBpbiB0aGUg
-ZXhhbXBsZSBmb3IgVC1IZWFkIGV4dGVuc2lvbnMgWzJdIC4KClRoaXMgb2YgY291cnNlIGRvZXMg
-bm90IGhhbmRsZSB0aGUgbWljcm9hcmNoaXRlY3R1cmUgdGhpbmdzIHRoYXQKdGhlIGh3cHJvYmUg
-c3lzY2FsbCBwcm92aWRlcyBidXQgYWxsb3dzIGEgbW9yZSBnZW5lcmFsaXplZCB2aWV3Cm9udG8g
-dGhlIGF2YWlsYWJsZSBJU0EgZXh0ZW5zaW9ucywgc28gaXMgbm90IGludGVuZGVkIHRvIHJlcGxh
-Y2UKaHdwcm9iZSwgYnV0IHRvIHN1cHBsZW1lbnQgaXQuCgpBVF9CQVNFX1BMQVRGT1JNIGl0c2Vs
-ZiBpcyBzb21ld2hhdCB3ZWxsIGVzdGFibGlzaGVkLCB3aXRoIFBQQyBhbHJlYWR5CnVzaW5nIGl0
-IHRvIGFsc28gZXhwb3NlIGEgcGxhdGZvcm0tc3BlY2lmaWMgc3RyaW5nIHRoYXQgaWRlbnRpZmll
-cwp0aGUgcGxhdGZvcm0gaW4gZmluZXIgZ3JhaW4gc28gdGhpcyBhdXgtdmVjdG9yIGZpZWxkIGNv
-dWxkIGluIHRoZW9yeQpiZSB1c2VkIGJ5IG90aGVyIE9TZXMgYXMgd2VsbC4KCgpBIHJhbmRvbSBy
-aXNjdjY0LXFlbXUgY291bGQgZm9yIGV4YW1wbGUgcHJvdmlkZToKICAgIHJ2NjRpbWFmZGN2aF96
-aWNib21femloaW50cGF1c2VfemJiX3NzY29mcG1mX3NzdGNfc3ZwYm10Cgp3aGVyZSBhIGQxLW5l
-emhhIHByb3ZpZGVzOgogICAgcnY2NGltYWZkY194dGhlYWRiYV94dGhlYWRiYl94dGhlYWRic194
-dGhlYWRjbW9feHRoZWFkY29uZG1vdl94dGhlYWRmbWVtaWR4X3h0aGVhZGludF94dGhlYWRtYWNf
-eHRoZWFkbWVtaWR4X3h0aGVhZG1lbXBhaXJfeHRoZWFkc3luYwoKClRoaW5ncyB0byBzdGlsbCBj
-b25zaWRlcjoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKUmlnaHQgbm93IGJvdGggaHdwcm9i
-ZSBhbmQgdGhpcyBhcHByb2FjaCB3aWxsIG9ubHkgcGFzcyB0aHJvdWdoCmV4dGVuc2lvbnMgdGhl
-IGtlcm5lbCBhY3R1YWxseSBrbm93cyBhYm91dCBpdHNlbGYuIFRoaXMgc2hvdWxkIG5vdApuZWNl
-c3NhcmlseSBiZSBuZWVkZWQgKGJ1dCBjb3VsZCBiZSBhbiBvcHRpb25hbCBmZWF0dXJlIGZvciBl
-LmcuIHZpcnR1YWxpemF0aW9uKS4KCk1vc3QgZXh0ZW5zaW9ucyBkb27igJl0IGludHJvZHVjZSBu
-ZXcgdXNlci1tb2RlIHN0YXRlIHRoYXQgdGhlIGtlcm5lbCBuZWVkcyB0byBtYW5hZ2UgKGUuZy4g
-bmV3IHJlZ2lzdGVycykuIEV4dGVuc2lvbiB0aGF0IGRvIGludHJvZHVjZSBuZXcgdXNlci1tb2Rl
-IHN0YXRlIGFyZSB1c3VhbGx5IGRpc2FibGVkIGJ5IGRlZmF1bHQgYW5kIGhhdmUgdG8gYmUgZW5h
-YmxlZCBieSBTIG1vZGUgb3IgTSBtb2RlIChlLmcuIEZTWzE6MF0gZm9yIHRoZSBmbG9hdGluZy1w
-b2ludCBleHRlbnNpb24pLiBTbyB0aGVyZSBzaG91bGQgbm90IGJlIGEgcmVhc29uIHRvIGZpbHRl
-ciBhbnkgZXh0ZW5zaW9ucyB0aGF0IGFyZSB1bmtub3duLgoKU28gaXQgbWlnaHQgbWFrZSBtb3Jl
-IHNlbnNlIHRvIGp1c3QgcGFzcyB0aHJvdWdoIGEgY3VyYXRlZCBsaXN0IChjb21tb24Kc2V0KSBj
-cmVhdGVkIGZyb20gdGhlIGNvcmUncyBpc2Egc3RyaW5ncyBhbmQgcmVtb3ZlIHN0YXRlLWhhbmRs
-aW5nCmV4dGVuc2lvbnMgd2hlbiB0aGV5IGFyZSBub3QgZW5hYmxlZCBpbiB0aGUga2VybmVsLXNp
-ZGUgKHNvcnQgb2YKYmxhY2tsaXN0aW5nIGV4dGVuc2lvbnMgdGhhdCBuZWVkIGFjdHVhbCBrZXJu
-ZWwgc3VwcG9ydCkuCgpIb3dldmVyLCB0aGlzIGlzIGEgdmVyeSByZWxhdGVkLCBidXQgc3RpbGwg
-aW5kZXBlbmRlbnQgZGlzY3Vzc2lvbi4KCgpbMF0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGtt
-bC8xNjgxOTE0NjIyMjQuMjI3OTEuMjI4MTQ1MDU2MjY5MTM4MTE0NS5naXQtcGF0Y2h3b3JrLW5v
-dGlmeUBrZXJuZWwub3JnLwpbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzYwNWZiMmZk
-LWJkYTItNDkyMi05MmJmLWUzZTQxNmQ1NDM5OEBhcHAuZmFzdG1haWwuY29tLwpbMl0gVGhlc2Ug
-YXJlIHRoZSBULUhlYWQgZXh0ZW5zaW9ucyBhdmFpbGFibGUgaW4gX3Vwc3RyZWFtXyB0b29sY2hh
-aW5zCgpIZWlrbyBTdHVlYm5lciAoNCk6CiAgUklTQy1WOiBjcmVhdGUgSVNBIHN0cmluZyBzZXBh
-cmF0ZWx5IC0gbm90IGFzIHBhcnQgb2YgY3B1aW5mbwogIFJJU0MtVjogZG9uJ3QgcGFyc2UgZHQg
-aXNhIHN0cmluZyB0byBnZXQgcnYzMi9ydjY0CiAgUklTQy1WOiBleHBvcnQgdGhlIElTQSBzdHJp
-bmcgb2YgdGhlIHJ1bm5pbmcgbWFjaGluZSBpbiB0aGUgYXV4IHZlY3RvcgogIFJJU0MtVjogYWRk
-IHN1cHBvcnQgZm9yIHZlbmRvci1leHRlbnNpb25zIHZpYSBBVF9CQVNFX1BMQVRGT1JNIGFuZAog
-ICAgeHRoZWFkCgogYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRhLmMgICAgIHwgNDMgKysr
-KysrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLmggfCAgNCArKwog
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lbGYuaCAgICAgICAgIHwgMTAgKysrCiBhcmNoL3Jpc2N2
-L2tlcm5lbC9hbHRlcm5hdGl2ZS5jICAgICAgfCAyMSArKysrKysKIGFyY2gvcmlzY3Yva2VybmVs
-L2NwdS5jICAgICAgICAgICAgICB8IDk4ICsrKysrKysrKysrKysrKysrKysrKysrKystLS0KIDUg
-ZmlsZXMgY2hhbmdlZCwgMTY4IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCgotLSAKMi4z
-OS4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+T-Head cores support a number of own ISA extensions that also include
+optimized instructions which could benefit userspace to improve
+performance.
+
+Extensions supported by current T-Head cores are:
+* XTheadBa - bitmanipulation instructions for address calculation
+* XTheadBb - conditional basic bit-manipulation instructions
+* XTheadBs - instructions to access a single bit in a register
+* XTheadCmo - cache management operations
+* XTheadCondMov - conditional move instructions
+* XTheadFMemIdx - indexed memory operations for floating-point registers
+* XTheadFmv - double-precision floating-point high-bit data transmission
+              intructions for RV32
+* XTheadInt - instructions to reduce the code size of ISRs and/or the
+              interrupt latencies that are caused by ISR entry/exit code
+* XTheadMac - multiply-accumulate instructions
+* XTheadMemIdx - indexed memory operations for GP registers
+* XTheadMemPair - two-GPR memory operations
+* XTheadSync - multi-core synchronization instructions
+
+In-depth descriptions of these extensions can be found on
+    https://github.com/T-head-Semi/thead-extension-spec
+
+Support for those extensions was merged into the relevant toolchains
+so userspace programs can select necessary optimizations when needed.
+
+So a mechanism to the isa-string generation to export vendor-extension
+lists via the errata mechanism and implement it for T-Head C9xx cores.
+
+This exposes these vendor extensions then both in AT_BASE_PLATFORM
+and /proc/cpuinfo.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/errata/thead/errata.c     | 43 ++++++++++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h |  4 +++
+ arch/riscv/kernel/alternative.c      | 21 ++++++++++++++
+ arch/riscv/kernel/cpu.c              | 12 ++++++++
+ 4 files changed, 80 insertions(+)
+
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 1036b8f933ec..eb635bf80737 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -15,6 +15,7 @@
+ #include <asm/errata_list.h>
+ #include <asm/hwprobe.h>
+ #include <asm/patch.h>
++#include <asm/switch_to.h>
+ #include <asm/vendorid_list.h>
+ 
+ static bool errata_probe_pbmt(unsigned int stage,
+@@ -125,3 +126,45 @@ void __init_or_module thead_feature_probe_func(unsigned int cpu,
+ 	if ((archid == 0) && (impid == 0))
+ 		per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
+ }
++
++
++char *thead_extension_list_func(unsigned long archid,
++				unsigned long impid)
++{
++	if ((archid == 0) && (impid == 0)) {
++		const char *xbase1 = "xtheadba_xtheadbb_xtheadbs_xtheadcmo_xtheadcondmov";
++		const char *xbase2 = "_xtheadint_xtheadmac_xtheadmemidx_xtheadmempair_xtheadsync";
++		const char *xfpu = "_xtheadfmemIdx";
++#ifdef CONFIG_32BIT
++		const char *xfpu32 = "_xtheadfmv";
++#endif
++		int len = strlen(xbase1) + strlen(xbase2);
++		char *str;
++
++		if (has_fpu()) {
++			len += strlen(xfpu);
++#ifdef CONFIG_32BIT
++			len+= strlen(xfpu32);
++#endif
++		}
++
++		str = kzalloc(len, GFP_KERNEL);
++		if (!str)
++			return str;
++
++		strcpy(str, xbase1);
++
++		if (has_fpu()) {
++			strcat(str, xfpu);
++#ifdef CONFIG_32BIT
++			strcat(str, xfpu32);
++#endif
++		}
++
++		strcat(str, xbase2);
++
++		return str;
++	}
++
++	return NULL;
++}
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index a8f5cf6694a1..8c9aec196649 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -31,6 +31,7 @@
+ #define ALT_ALT_PTR(a)			__ALT_PTR(a, alt_offset)
+ 
+ void __init probe_vendor_features(unsigned int cpu);
++char *list_vendor_extensions(void);
+ void __init apply_boot_alternatives(void);
+ void __init apply_early_boot_alternatives(void);
+ void apply_module_alternatives(void *start, size_t length);
+@@ -55,6 +56,8 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 
+ void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
+ 			      unsigned long impid);
++char *thead_extension_list_func(unsigned long archid,
++				unsigned long impid);
+ 
+ void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 				 unsigned int stage);
+@@ -62,6 +65,7 @@ void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ #else /* CONFIG_RISCV_ALTERNATIVE */
+ 
+ static inline void probe_vendor_features(unsigned int cpu) { }
++static inline char *list_vendor_extensions(void) { return NULL; }
+ static inline void apply_boot_alternatives(void) { }
+ static inline void apply_early_boot_alternatives(void) { }
+ static inline void apply_module_alternatives(void *start, size_t length) { }
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index fc65c9293ac5..18913fd1809f 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -29,6 +29,8 @@ struct cpu_manufacturer_info_t {
+ 				  unsigned int stage);
+ 	void (*feature_probe_func)(unsigned int cpu, unsigned long archid,
+ 				   unsigned long impid);
++	char *(*extension_list_func)(unsigned long archid,
++				    unsigned long impid);
+ };
+ 
+ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info)
+@@ -54,6 +56,7 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
+ 	case THEAD_VENDOR_ID:
+ 		cpu_mfr_info->patch_func = thead_errata_patch_func;
+ 		cpu_mfr_info->feature_probe_func = thead_feature_probe_func;
++		cpu_mfr_info->extension_list_func = thead_extension_list_func;
+ 		break;
+ #endif
+ 	default:
+@@ -157,6 +160,24 @@ void __init_or_module probe_vendor_features(unsigned int cpu)
+ 					cpu_mfr_info.imp_id);
+ }
+ 
++/*
++ * Lists the vendor-specific extensions common to all cores.
++ * Returns a new underscore "_" concatenated string that the
++ * caller is supposed to free after use.
++ */
++char *list_vendor_extensions(void)
++{
++	struct cpu_manufacturer_info_t cpu_mfr_info;
++
++	riscv_fill_cpu_mfr_info(&cpu_mfr_info);
++	if (!cpu_mfr_info.extension_list_func)
++		return NULL;
++
++	return cpu_mfr_info.extension_list_func(cpu_mfr_info.arch_id,
++						cpu_mfr_info.imp_id);
++
++}
++
+ /*
+  * This is called very early in the boot process (directly after we run
+  * a feature detect on the boot CPU). No need to worry about other CPUs
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 71770563199f..6a0a45b2eb20 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -7,6 +7,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/alternative.h>
+ #include <asm/cpufeature.h>
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+@@ -260,6 +261,7 @@ static char *riscv_create_isa_string(void)
+ {
+ 	int maxlen = 4;
+ 	char *isa_str;
++	char *vendor_isa;
+ 	int i;
+ 
+ 	/* calculate the needed string length */
+@@ -268,6 +270,10 @@ static char *riscv_create_isa_string(void)
+ 			maxlen++;
+ 	maxlen += strlen_isa_ext();
+ 
++	vendor_isa = list_vendor_extensions();
++	if (vendor_isa)
++		maxlen += strlen(vendor_isa) + 1;
++
+ 	isa_str = kzalloc(maxlen, GFP_KERNEL);
+ 	if (!isa_str)
+ 		return ERR_PTR(-ENOMEM);
+@@ -287,6 +293,12 @@ static char *riscv_create_isa_string(void)
+ 
+ 	strcat_isa_ext(isa_str);
+ 
++	if(vendor_isa) {
++		strcat(isa_str, "_");
++		strcat(isa_str, vendor_isa);
++		kfree(vendor_isa);
++	}
++
+ 	return isa_str;
+ }
+ 
+-- 
+2.39.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
