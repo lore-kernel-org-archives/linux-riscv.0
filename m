@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28837C77B78
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 13:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8320DC77B73
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 13:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mY8YlPFppxSE47t/oDAdqdEeA1qNLuAxyy5pk1/d1Cc=; b=qq2xYLwh9sFw73
-	/FGnxW7OZiZPfq0rXeDvgF2eTFgIeTqMfYk+Ahl3U2jrwa9ibj4bA0xdl2+/6S392tfRfWp2CPAUY
-	G0LPu8DJDV28WGErDIM+ISFTB1NesM1ziyS/+5Tw0qyc1YYFuMWi6QyWMySssHN+divk+c1IIC9lA
-	N30ZGhugAp6XOGqLJsSjjZRQxEKCocrw9fPWBW1VehpA0q/3UziYCjHzpC3Cg8D6gc5MgMIcX985j
-	KY25jasZDaNR6V0uVbRtGkMD7FcwNE1gSvvEfreQnTSeIrIN0w6eh8TPlxHwHusunqXfAKjYSKILH
-	yAXrFlyf+2NjBWOuR76Q==;
+	List-Owner; bh=nr7Xu/PzVmO1eBOMdEiLGX1PsKiTEINwRMLDvjt6Qqg=; b=LW8UpXRM16zbn4
+	zC3osy4/MSXLkrnKhw8yQvUWXFtYKI/SyM4FLGRdknUVLm+75cPXsfnmVNTXdgTa9YMAwoOFGHcPi
+	IbRNHEBhkAqs819Kxj8Tmvmat/DJlctfvPZ4Rf0F0GO+KbOhrbuJZ8KeO74ifiAeEhz9nP0UyLjGQ
+	gfE1WmnM5JwKxGNXPdE0QMDwHQVdQot4aadozY1iqYsIdPpFuYOEgBwRTng9WjP/lKENrf0CBaOj/
+	ydk4YM6yh0s0s4s3JcbMNLNFJnC7FhCu2P9n88yQLjncKas12OtbWILbwr93EYECgoZ+GBg4wdexT
+	y2pUPHfM9c9EwPHvv7iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqweu-00GV0p-2Q;
-	Mon, 24 Apr 2023 13:55:12 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pqwf8-00GV9B-2Y;
+	Mon, 24 Apr 2023 13:55:26 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqwep-00GUks-1C
+	id 1pqwf5-00GV06-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Apr 2023 13:55:09 +0000
+	Mon, 24 Apr 2023 13:55:25 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 95A7424E1B6;
-	Mon, 24 Apr 2023 21:54:18 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 204C124E201;
+	Mon, 24 Apr 2023 21:54:23 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
- 2023 21:54:18 +0800
+ 2023 21:54:23 +0800
 Received: from localhost.localdomain (113.72.145.137) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
- 2023 21:54:17 +0800
+ 2023 21:54:21 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v5 03/10] dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
-Date: Mon, 24 Apr 2023 21:54:02 +0800
-Message-ID: <20230424135409.6648-4-xingyu.wu@starfivetech.com>
+Subject: [PATCH v5 09/10] riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external clocks
+Date: Mon, 24 Apr 2023 21:54:08 +0800
+Message-ID: <20230424135409.6648-10-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
 References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
@@ -61,8 +61,9 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_065507_748508_D97B7526 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20230424_065524_093132_9D3FBC43 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,163 +80,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Image-Signal-Process clock and reset
-generator (ISPCRG) on the JH7110 RISC-V SoC by StarFive Ltd.
+Add DVP and HDMI TX pixel external fixed clocks and the rates are
+74.25MHz and 297MHz.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- .../clock/starfive,jh7110-ispcrg.yaml         | 87 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 ++++
- .../dt-bindings/reset/starfive,jh7110-crg.h   | 16 ++++
- 3 files changed, 121 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi   |  8 ++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi             | 12 ++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
-new file mode 100644
-index 000000000000..3b8b85be5cd0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
-@@ -0,0 +1,87 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jh7110-ispcrg.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 Image-Signal-Process Clock and Reset Generator
-+
-+maintainers:
-+  - Xingyu Wu <xingyu.wu@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-ispcrg
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: ISP Top core
-+      - description: ISP Top Axi
-+      - description: NOC ISP Bus
-+      - description: external DVP
-+
-+  clock-names:
-+    items:
-+      - const: isp_top_core
-+      - const: isp_top_axi
-+      - const: noc_bus_isp_axi
-+      - const: dvp_clk
-+
-+  resets:
-+    items:
-+      - description: ISP Top core
-+      - description: ISP Top Axi
-+      - description: NOC ISP Bus
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
-+
-+  power-domains:
-+    maxItems: 1
-+    description:
-+      ISP domain power
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - '#clock-cells'
-+  - '#reset-cells'
-+  - power-domains
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+    #include <dt-bindings/power/starfive,jh7110-pmu.h>
-+    #include <dt-bindings/reset/starfive,jh7110-crg.h>
-+
-+    ispcrg: clock-controller@19810000 {
-+        compatible = "starfive,jh7110-ispcrg";
-+        reg = <0x19810000 0x10000>;
-+        clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
-+                 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
-+                 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
-+                 <&dvp_clk>;
-+        clock-names = "isp_top_core", "isp_top_axi",
-+                      "noc_bus_isp_axi", "dvp_clk";
-+        resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
-+                 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
-+                 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+        power-domains = <&pwrc JH7110_PD_ISP>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
-index 6c8e8b4cf1f6..39acf30db491 100644
---- a/include/dt-bindings/clock/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-@@ -252,4 +252,22 @@
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index 2a6d81609284..1155b97b593d 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -38,6 +38,10 @@ gpio-restart {
+ 	};
+ };
  
- #define JH7110_STGCLK_END			29
++&dvp_clk {
++	clock-frequency = <74250000>;
++};
++
+ &gmac0_rgmii_rxin {
+ 	clock-frequency = <125000000>;
+ };
+@@ -54,6 +58,10 @@ &gmac1_rmii_refin {
+ 	clock-frequency = <50000000>;
+ };
  
-+/* ISPCRG clocks */
-+#define JH7110_ISPCLK_DOM4_APB_FUNC		0
-+#define JH7110_ISPCLK_MIPI_RX0_PXL		1
-+#define JH7110_ISPCLK_DVP_INV			2
-+#define JH7110_ISPCLK_M31DPHY_CFG_IN		3
-+#define JH7110_ISPCLK_M31DPHY_REF_IN		4
-+#define JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0	5
-+#define JH7110_ISPCLK_VIN_APB			6
-+#define JH7110_ISPCLK_VIN_SYS			7
-+#define JH7110_ISPCLK_VIN_PIXEL_IF0		8
-+#define JH7110_ISPCLK_VIN_PIXEL_IF1		9
-+#define JH7110_ISPCLK_VIN_PIXEL_IF2		10
-+#define JH7110_ISPCLK_VIN_PIXEL_IF3		11
-+#define JH7110_ISPCLK_VIN_P_AXI_WR		12
-+#define JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C	13
++&hdmitx0_pixelclk {
++	clock-frequency = <297000000>;
++};
 +
-+#define JH7110_ISPCLK_END			14
-+
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
-index 4e96ab81dd8e..2c5d9dcefffa 100644
---- a/include/dt-bindings/reset/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-@@ -179,4 +179,20 @@
+ &i2srx_bclk_ext {
+ 	clock-frequency = <12288000>;
+ };
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 30e1f34d5cf8..336ee2b0ffb5 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -164,6 +164,12 @@ core4 {
+ 		};
+ 	};
  
- #define JH7110_STGRST_END			23
++	dvp_clk: dvp-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "dvp_clk";
++		#clock-cells = <0>;
++	};
++
+ 	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "gmac0_rgmii_rxin";
+@@ -188,6 +194,12 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
+ 		#clock-cells = <0>;
+ 	};
  
-+/* ISPCRG resets */
-+#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_P	0
-+#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_C	1
-+#define JH7110_ISPRST_M31DPHY_HW		2
-+#define JH7110_ISPRST_M31DPHY_B09_AON		3
-+#define JH7110_ISPRST_VIN_APB			4
-+#define JH7110_ISPRST_VIN_PIXEL_IF0		5
-+#define JH7110_ISPRST_VIN_PIXEL_IF1		6
-+#define JH7110_ISPRST_VIN_PIXEL_IF2		7
-+#define JH7110_ISPRST_VIN_PIXEL_IF3		8
-+#define JH7110_ISPRST_VIN_SYS			9
-+#define JH7110_ISPRST_VIN_P_AXI_RD		10
-+#define JH7110_ISPRST_VIN_P_AXI_WR		11
++	hdmitx0_pixelclk: hdmitx0-pixel-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "hdmitx0_pixelclk";
++		#clock-cells = <0>;
++	};
 +
-+#define JH7110_ISPRST_END			12
-+
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
+ 	i2srx_bclk_ext: i2srx-bclk-ext-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "i2srx_bclk_ext";
 -- 
 2.25.1
 
