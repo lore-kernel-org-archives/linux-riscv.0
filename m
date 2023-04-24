@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB87EC77B61
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 13:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE150C77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 13:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5jEiFbwL9WN0rbpN9BndIpJpnanTwgSfWQDOL1tZAgA=; b=NlCxWy0CADyDqw
-	d5JL+2NloQRy3KY20pbOKxTMha/KbFTkZcdKLCXXIbzZLOBfjd8oS2JpSncgkyha8yTHUuzdd05O5
-	aEVtFzo/POl2z3Ujy/hw700R6Jhk0QY5LPYwQj5vTJBP+XhLYpm88Fa5xtDbpI33bGGQwFD1g1X58
-	IPZIODllMyf40tt0QMmo/F2HUbU/q3+OR57pKVaXOArOZEQMRSda8uuZJoJXL8ju/bMLmRuKo1Tkg
-	EL7tn1qU/VVIVmxuCJohVsLvNYyXzL2xRqhx0BEA7dQaeg7h4ehbLE0uUIGXWAmKSnz/KBRJ6Zs1M
-	54gJ0s8audK/fo4TWcJg==;
+	List-Owner; bh=7Lew3Ckagj57+cx2jCG2y0TtCvaVvb1F9fo6sTXPLHQ=; b=NUwm/KY84DdU4k
+	Kid+n9eSrfkcoh0ZyFzTsIX3gxaV8keGYLJ51FC+/LNQM3/u+v1gPs653m5grZ53O03GX0rZlSUTY
+	SNxX4WHucUkbT2msyM2peqIr1YyoafKo6Mdho+dhdw5GO1O5FaRYfg/uCFpFYwdrvRxkSbDdGgHIH
+	ZKtGrSzQ95vYEWG3vnXGt50Rt+EM1yfWXa+ex7AwqdaXFyGsTqKmpExmjq1k6Wa/RaJs51muddIpT
+	94NN4asb+b0pVa13Xwu6m42WsGkeLAGNb2KVx+RXAf3PgGvBSd/K++eDRsD52xmewwKb0YLPEEnL8
+	kUFJnXNdGlFroqrJtIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqwYU-00GT2j-1L;
-	Mon, 24 Apr 2023 13:48:34 +0000
-Received: from mga14.intel.com ([192.55.52.115])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqwYK-00GSwc-0r;
-	Mon, 24 Apr 2023 13:48:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1682344104; x=1713880104;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=oPqlnm5FAEkzjCzsM5wwOi+X/O97WzQZ5VPCNK7UoWo=;
-  b=BSlADEd7/kIe/sZ0Rqu/+ceaXxHopDQlqj4L8L3b1fx1CLJ69t6C8F2f
-   9UWAxbFOE17aKW7uhHNtmCPcRczn47PjhV3oO+orC5oToJinZtba78T9d
-   gRH/r+dgOytrFrgArMKZEB10FJSDaL61t3lktL19/mz0WkcI2mrr3+hT7
-   /6RtTCSj1nLWbP/8pmC0hK8bow+szUFT/Xvdwu8OHI7PEBSPz4vE10+qP
-   mazCBP2rUxsgfQbSL1UQXfM4JVr1SYNZ+s+xEIZw+AlfAdfbpg+AdCyW9
-   SDi3mXGaGeNfbJW62mkMNyv21wisVEQ7m4Sk7J107fUC+8HB2ZttFoJjQ
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10690"; a="346479870"
-X-IronPort-AV: E=Sophos;i="5.99,222,1677571200"; 
-   d="scan'208";a="346479870"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Apr 2023 06:48:15 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10690"; a="693087845"
-X-IronPort-AV: E=Sophos;i="5.99,222,1677571200"; 
-   d="scan'208";a="693087845"
-Received: from mkavai-mobl2.amr.corp.intel.com (HELO [10.212.196.194]) ([10.212.196.194])
-  by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Apr 2023 06:48:09 -0700
-Message-ID: <81c476f4-ef62-e4a6-0033-8a46a15379fd@intel.com>
-Date: Mon, 24 Apr 2023 06:48:09 -0700
+	id 1pqwed-00GUpG-0G;
+	Mon, 24 Apr 2023 13:54:55 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pqweX-00GUkr-0x
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Apr 2023 13:54:53 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C520D24E167;
+	Mon, 24 Apr 2023 21:54:17 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
+ 2023 21:54:17 +0800
+Received: from localhost.localdomain (113.72.145.137) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Apr
+ 2023 21:54:16 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>
+CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
+	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: [PATCH v5 02/10] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+Date: Mon, 24 Apr 2023 21:54:01 +0800
+Message-ID: <20230424135409.6648-3-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
+References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [RFC 45/48] RISC-V: ioremap: Implement for arch specific ioremap
- hooks
-Content-Language: en-US
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Rajnesh Kanwal <rkanwal@rivosinc.com>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>,
- Andrew Morton <akpm@linux-foundation.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Sean Christopherson <seanjc@google.com>, linux-coco@lists.linux.dev,
- Dylan Reid <dylan@rivosinc.com>, abrestic@rivosinc.com,
- Samuel Ortiz <sameo@rivosinc.com>, Christoph Hellwig <hch@infradead.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Guo Ren
- <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jiri Slaby <jirislaby@kernel.org>, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Uladzislau Rezki <urezki@gmail.com>
-References: <20230419221716.3603068-1-atishp@rivosinc.com>
- <20230419221716.3603068-46-atishp@rivosinc.com>
- <69ba1760-a079-fd8f-b079-fcb01e3eedec@intel.com>
- <CAHBxVyFhDapAeMQ8quBqWZ10jWSHw1CdE227ciyKQpULHYzffA@mail.gmail.com>
-From: Dave Hansen <dave.hansen@intel.com>
-In-Reply-To: <CAHBxVyFhDapAeMQ8quBqWZ10jWSHw1CdE227ciyKQpULHYzffA@mail.gmail.com>
+X-Originating-IP: [113.72.145.137]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_064824_353055_D5235345 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20230424_065449_701918_46AC9B36 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,55 +74,237 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC8yMS8yMyAxMjoyNCwgQXRpc2ggS3VtYXIgUGF0cmEgd3JvdGU6Cj4gT24gRnJpLCBBcHIg
-MjEsIDIwMjMgYXQgMzo0NuKAr0FNIERhdmUgSGFuc2VuIDxkYXZlLmhhbnNlbkBpbnRlbC5jb20+
-IHdyb3RlOj4+IFRoaXMgY2FsbGJhY2sgYXBwZWFycyB0byBzYXkgdG8gdGhlIGhvc3Q6Cj4+Cj4+
-ICAgICAgICAgSGV5LCBJICh0aGUgZ3Vlc3QpIGFtIHRyZWF0aW5nIHRoaXMgZ3Vlc3QgcGh5c2lj
-YWwgYXJlYSBhcyBNTUlPLgo+Pgo+PiBCdXQgdGhlIGhvc3QgYW5kIGd1ZXN0IGhhdmUgdG8gYWdy
-ZWUgX3NvbWV3aGVyZV8gd2hhdCB0aGUgTU1JTyBpcyB1c2VkCj4+IGZvciwgbm90IGp1c3QgdGhh
-dCBpdCBpcyBiZWluZyB1c2VkIGFzIE1NSU8uCj4gCj4gWWVzLiBUaGUgVFNNIChURUUgU2VjdXJp
-dHkgTWFuYWdlcikgd2hpY2ggaXMgZXF1aXZhbGVudCB0byBURFggYWxzbyAKPiBuZWVkcyB0byBi
-ZSBhd2FyZSBvZiB0aGUgTU1JTyByZWdpb25zIHNvIHRoYXQgaXQgY2FuIGZvcndhcmQgdGhlCj4g
-ZmF1bHRzIGFjY29yZGluZ2x5LiBNb3N0IG9mIHRoZSBNTUlPIGlzIGVtdWxhdGVkIGluIHRoZSBo
-b3N0Cj4gKHVzZXJzcGFjZSBvciBrZXJuZWwgZW11bGF0aW9uIGlmIHByZXNlbnQpLiBUaGUgaG9z
-dCBpcyBvdXRzaWRlIHRoZQo+IHRydXN0IGJvdW5kYXJ5IG9mIHRoZSBndWVzdC4gVGh1cywgZ3Vl
-c3QgbmVlZHMgdG8gbWFrZSBzdXJlIHRoZSBob3N0IAo+IG9ubHkgZW11bGF0ZXMgdGhlIGRlc2ln
-bmF0ZWQgTU1JTyByZWdpb24uIE90aGVyd2lzZSwgaXQgb3BlbnMgYW4gCj4gYXR0YWNrIHN1cmZh
-Y2UgZnJvbSBhIG1hbGljaW91cyBob3N0LgpIb3cgZG9lcyB0aGlzIG1lY2hhbmlzbSBzdG9wIHRo
-ZSBob3N0IGZyb20gZW11bGF0aW5nIHNvbWV0aGluZyBvdXRzaWRlCnRoZSBkZXNpZ25hdGVkIHJl
-Z2lvbj8KCk9uIFREWCwgZm9yIGluc3RhbmNlLCB0aGUgZ3Vlc3QgcGFnZSB0YWJsZSBoYXZlIGEg
-c2hhcmVkL3ByaXZhdGUgYml0LgpQcml2YXRlIHBhZ2VzIGdldCBURFggcHJvdGVjdGlvbnMgdG8g
-KGFtb25nIG90aGVyIHRoaW5ncykga2VlcCB0aGUgcGFnZQpjb250ZW50cyBjb25maWRlbnRpYWwg
-ZnJvbSB0aGUgaG9zdC4gIFNoYXJlZCBwYWdlcyBjYW4gYmUgdXNlZCBmb3IgTU1JTwphbmQgZG9u
-J3QgaGF2ZSB0aG9zZSBwcm90ZWN0aW9ucy4KCklmIHRoZSBob3N0IGdvZXMgYW5kIHRyaWVzIHRv
-IGZsaXAgYSBwYWdlIGZyb20gcHJpdmF0ZS0+c2hhcmVkLCBURFgKcHJvdGVjdGlvbnMgd2lsbCBr
-aWNrIGluIGFuZCBwcmV2ZW50IGl0LgoKTm9uZSBvZiB0aGlzIHJlcXVpcmVzIHRoZSBndWVzdCB0
-byB0ZWxsIHRoZSBob3N0IHdoZXJlIGl0IGV4cGVjdHMgTU1JTwp0byBiZSBsb2NhdGVkLgoKPiBB
-bGwgb3RoZXIgY29uZmlkZW50aWFsIGNvbXB1dGluZyBzb2x1dGlvbnMgYWxzbyBkZXBlbmQgb24g
-Z3Vlc3QgCj4gaW5pdGlhdGVkIE1NSU8gYXMgd2VsbC4gQUZBSUssIHRoZSBURFggJiBTRVYgcmVs
-aWVzIG9uICNWRSBsaWtlCj4gZXhjZXB0aW9ucyB0byBpbnZva2UgdGhhdCB3aGlsZSB0aGlzIHBh
-dGNoIGlzIHNpbWlsYXIgdG8gd2hhdCBwa3ZtCj4gZG9lcy4gVGhpcyBhcHByb2FjaCBsZXRzIHRo
-ZSBlbmxpZ2h0ZW5lZCBndWVzdCBjb250cm9sIHdoaWNoIE1NSU8KPiByZWdpb25zIGl0IHdhbnRz
-IHRoZSBob3N0IHRvIGVtdWxhdGUuCgpJJ20gbm90IF9xdWl0ZV8gc3VyZSB3aGF0ICJndWVzdCBp
-bml0aWF0ZWQiIG1lYW5zLiAgQnV0IFNFViBhbmQgVERYCmRvbid0IHJlcXVpcmUgYW4gaW9yZW1h
-cCBob29rIGxpa2UgdGhpcy4gIFNvLCBldmVuIGlmIHRoZXkgKmFyZSogImd1ZXN0CmluaXRpYXRl
-ZCIsIHRoZSBxdWVzdGlvbiBzdGlsbCByZW1haW5zIGhvdyB0aGV5IHdvcmsgd2l0aG91dCB0aGlz
-IHBhdGNoLApvciB3aGF0IHRoZXkgYXJlIG1pc3Npbmcgd2l0aG91dCBpdC4KCj4gSXQgY2FuIGJl
-IGEgc3Vic2V0IG9mIHRoZSByZWdpb24ncyBob3N0IHByb3ZpZGVkIHRoZSBsYXlvdXQuIFRoZQo+
-IGd1ZXN0IGRldmljZSBmaWx0ZXJpbmcgc29sdXRpb24gaXMgYmFzZWQgb24gdGhpcyBpZGVhIGFz
-IHdlbGwgWzFdLgo+IAo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMTA5MzAw
-MTA1MTEuMzM4Nzk2Ny0xLXNhdGh5YW5hcmF5YW5hbi5rdXBwdXN3YW15QGxpbnV4LmludGVsLmNv
-bS8KCkkgZG9uJ3QgcmVhbGx5IHNlZSB0aGUgY29ubmVjdGlvbi4gIEV2ZW4gaWYgdGhhdCBzZXJp
-ZXMgd2FzIGdvaW5nCmZvcndhcmQgKEknbSBub3Qgc3VyZSBpdCBpcykgdGhlcmUgaXMgbm8gaW9y
-ZW1hcCBob29rIHRoZXJlLiAgVGhlcmUncwphbHNvIG5vIGd1ZXN0LT5ob3N0IGNvbW11bmljYXRp
-b24gaW4gdGhhdCBzZXJpZXMuICBUaGUgZ3Vlc3QgZG9lc24ndApfdGVsbF8gdGhlIGhvc3Qgd2hl
-cmUgdGhlIE1NSU8gaXMsIGl0IGp1c3QgZGVjbGluZXMgdG8gcnVuIGNvZGUgZm9yCmRldmljZXMg
-dGhhdCBpdCBkaWRuJ3QgZXhwZWN0IHRvIHNlZS4KCkknbSBzdGlsbCByYXRoZXIgY29uZnVzZWQg
-aGVyZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+Add driver for the StarFive JH7110 System-Top-Group clock controller.
+
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
+ drivers/clk/starfive/Kconfig                  |  11 ++
+ drivers/clk/starfive/Makefile                 |   1 +
+ .../clk/starfive/clk-starfive-jh7110-stg.c    | 173 ++++++++++++++++++
+ 3 files changed, 185 insertions(+)
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index 5d2333106f13..d252c03bfb81 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -39,3 +39,14 @@ config CLK_STARFIVE_JH7110_AON
+ 	help
+ 	  Say yes here to support the always-on clock controller on the
+ 	  StarFive JH7110 SoC.
++
++config CLK_STARFIVE_JH7110_STG
++	tristate "StarFive JH7110 System-Top-Group clock support"
++	depends on CLK_STARFIVE_JH7110_SYS
++	select AUXILIARY_BUS
++	select CLK_STARFIVE_JH71X0
++	select RESET_STARFIVE_JH7110
++	default m if ARCH_STARFIVE
++	help
++	  Say yes here to support the System-Top-Group clock controller
++	  on the StarFive JH7110 SoC.
+diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+index f3df7d957b1e..b81e97ee2659 100644
+--- a/drivers/clk/starfive/Makefile
++++ b/drivers/clk/starfive/Makefile
+@@ -6,3 +6,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
+ 
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)	+= clk-starfive-jh7110-sys.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
++obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+new file mode 100644
+index 000000000000..dafcb7190592
+--- /dev/null
++++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+@@ -0,0 +1,173 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * StarFive JH7110 System-Top-Group Clock Driver
++ *
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++
++#include <dt-bindings/clock/starfive,jh7110-crg.h>
++
++#include "clk-starfive-jh7110.h"
++
++/* external clocks */
++#define JH7110_STGCLK_OSC			(JH7110_STGCLK_END + 0)
++#define JH7110_STGCLK_HIFI4_CORE		(JH7110_STGCLK_END + 1)
++#define JH7110_STGCLK_STG_AXIAHB		(JH7110_STGCLK_END + 2)
++#define JH7110_STGCLK_USB_125M			(JH7110_STGCLK_END + 3)
++#define JH7110_STGCLK_CPU_BUS			(JH7110_STGCLK_END + 4)
++#define JH7110_STGCLK_HIFI4_AXI			(JH7110_STGCLK_END + 5)
++#define JH7110_STGCLK_NOCSTG_BUS		(JH7110_STGCLK_END + 6)
++#define JH7110_STGCLK_APB_BUS			(JH7110_STGCLK_END + 7)
++#define JH7110_STGCLK_EXT_END			(JH7110_STGCLK_END + 8)
++
++static const struct jh71x0_clk_data jh7110_stgclk_data[] = {
++	/* hifi4 */
++	JH71X0_GATE(JH7110_STGCLK_HIFI4_CLK_CORE, "hifi4_clk_core", 0,
++		    JH7110_STGCLK_HIFI4_CORE),
++	/* usb */
++	JH71X0_GATE(JH7110_STGCLK_USB0_APB, "usb0_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_USB0_UTMI_APB, "usb0_utmi_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_USB0_AXI, "usb0_axi", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GDIV(JH7110_STGCLK_USB0_LPM, "usb0_lpm", 0, 2, JH7110_STGCLK_OSC),
++	JH71X0_GDIV(JH7110_STGCLK_USB0_STB, "usb0_stb", 0, 4, JH7110_STGCLK_OSC),
++	JH71X0_GATE(JH7110_STGCLK_USB0_APP_125, "usb0_app_125", 0, JH7110_STGCLK_USB_125M),
++	JH71X0__DIV(JH7110_STGCLK_USB0_REFCLK, "usb0_refclk", 2, JH7110_STGCLK_OSC),
++	/* pci-e */
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_AXI_MST0, "pcie0_axi_mst0", 0,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_APB, "pcie0_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_PCIE0_TL, "pcie0_tl", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_AXI_MST0, "pcie1_axi_mst0", 0,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_APB, "pcie1_apb", 0, JH7110_STGCLK_APB_BUS),
++	JH71X0_GATE(JH7110_STGCLK_PCIE1_TL, "pcie1_tl", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_PCIE_SLV_MAIN, "pcie_slv_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	/* security */
++	JH71X0_GATE(JH7110_STGCLK_SEC_AHB, "sec_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_SEC_MISC_AHB, "sec_misc_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++	/* stg mtrx */
++	JH71X0_GATE(JH7110_STGCLK_GRP0_MAIN, "mtrx_grp0_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_CPU_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP0_BUS, "mtrx_grp0_bus", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_NOCSTG_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP0_STG, "mtrx_grp0_stg", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_MAIN, "mtrx_grp1_main", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_CPU_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_BUS, "mtrx_grp1_bus", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_NOCSTG_BUS),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_STG, "mtrx_grp1_stg", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_GRP1_HIFI, "mtrx_grp1_hifi", CLK_IS_CRITICAL,
++		    JH7110_STGCLK_HIFI4_AXI),
++	/* e24_rvpi */
++	JH71X0_GDIV(JH7110_STGCLK_E2_RTC, "e2_rtc", 0, 24, JH7110_STGCLK_OSC),
++	JH71X0_GATE(JH7110_STGCLK_E2_CORE, "e2_core", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_E2_DBG, "e2_dbg", 0, JH7110_STGCLK_STG_AXIAHB),
++	/* dw_sgdma1p */
++	JH71X0_GATE(JH7110_STGCLK_DMA1P_AXI, "dma1p_axi", 0, JH7110_STGCLK_STG_AXIAHB),
++	JH71X0_GATE(JH7110_STGCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
++};
++
++static struct clk_hw *jh7110_stgclk_get(struct of_phandle_args *clkspec, void *data)
++{
++	struct jh71x0_clk_priv *priv = data;
++	unsigned int idx = clkspec->args[0];
++
++	if (idx < JH7110_STGCLK_END)
++		return &priv->reg[idx].hw;
++
++	return ERR_PTR(-EINVAL);
++}
++
++static int jh7110_stgcrg_probe(struct platform_device *pdev)
++{
++	struct jh71x0_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, JH7110_STGCLK_END),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	for (idx = 0; idx < JH7110_STGCLK_END; idx++) {
++		u32 max = jh7110_stgclk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = jh7110_stgclk_data[idx].name,
++			.ops = starfive_jh71x0_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
++			.flags = jh7110_stgclk_data[idx].flags,
++		};
++		struct jh71x0_clk *clk = &priv->reg[idx];
++		const char *fw_name[JH7110_STGCLK_EXT_END - JH7110_STGCLK_END] = {
++			"osc",
++			"hifi4_core",
++			"stg_axiahb",
++			"usb_125m",
++			"cpu_bus",
++			"hifi4_axi",
++			"nocstg_bus",
++			"apb_bus"
++		};
++		unsigned int i;
++
++		for (i = 0; i < init.num_parents; i++) {
++			unsigned int pidx = jh7110_stgclk_data[idx].parents[i];
++
++			if (pidx < JH7110_STGCLK_END)
++				parents[i].hw = &priv->reg[pidx].hw;
++			else if (pidx < JH7110_STGCLK_EXT_END)
++				parents[i].fw_name = fw_name[pidx - JH7110_STGCLK_END];
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & JH71X0_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return ret;
++	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh7110_reset_controller_register(priv, "rst-stg", 2);
++}
++
++static const struct of_device_id jh7110_stgcrg_match[] = {
++	{ .compatible = "starfive,jh7110-stgcrg" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, jh7110_stgcrg_match);
++
++static struct platform_driver jh7110_stgcrg_driver = {
++	.probe = jh7110_stgcrg_probe,
++	.driver = {
++		.name = "clk-starfive-jh7110-stg",
++		.of_match_table = jh7110_stgcrg_match,
++	},
++};
++module_platform_driver(jh7110_stgcrg_driver);
++
++MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
++MODULE_AUTHOR("Emil Renner Berthing <kernel@esmil.dk>");
++MODULE_DESCRIPTION("StarFive JH7110 System-Top-Group clock driver");
++MODULE_LICENSE("GPL");
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
