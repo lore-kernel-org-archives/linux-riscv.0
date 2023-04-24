@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA66C7618E
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 14:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6599C77B61
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Apr 2023 15:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4wDIc2twxMYsXsmENXSnZ+oltYxyoEioYPeOJNUUoUI=; b=l9WFJgVmA4Lnmo
-	x69r/ynlBVksxEBo9x4whBtOP4Ibfgp0O6rkwnB51AwmIEVUwruYajHZQODe6iZX5YBseMW+FKgTZ
-	KlDOxDVK9cP2Kmtrua5vj+CxutvSztAaIEpslnjsyYCRF64Qo03xNMr4mnnYn64wAZwX2J4Xp6HIy
-	x/9ZFR5KULxYL1UQ3f+lwgiHhoHgd2F9pC7VkZi2+D38KlYDdyq6IjKyZoL+cl2NvN4FyTkZbQeLl
-	X6dyCEtera3o/3TCzO6t1oA53Y2rfuW5iokzko63rH8t5Ct8NW8IH/uXvgTENIoJlbveLLyQaPPTI
-	DGV8Z7HZNfkpcg6ReHnQ==;
+	List-Owner; bh=gPF8+OVJvLwVTK/C1ITQgjqVieHvm/dgk/bD0sWascw=; b=DgLwDgJNpec2Ng
+	afw+IDsUHZCwFri4XimyVIfKckBMfSWnsB0dfaIqAKX/j01fZWR/pDDsc9YI6Bde+pVlnNvNIXiiL
+	gT9W59I/PORG4nxE97TDwGzMMUToO6WFpB5sxPlTRHhufwQxWKfOEzVakS7GuBWHfvC6qUJKs4VSn
+	Qj6xyxWubarNlUhQvf+1tuu79cJb8HlSmbbr8YfCUDZxGSsBNl8O76h/8BeF5TxhDq+uIrjbzcIl8
+	ibDj0ekeACmaChv9T7iC7fubjBdkh2Aox07tsEAot8YC5i7TPlJBM8Vcn0R5u2qs2YgoztVMkO5Gz
+	xdHZkOyuP1aIzjqGoJJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqxZM-00GdyY-0S;
-	Mon, 24 Apr 2023 14:53:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pqy7m-00GhVp-3D;
+	Mon, 24 Apr 2023 15:29:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pqxZI-00GdxL-1G;
-	Mon, 24 Apr 2023 14:53:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1pqy7j-00GhUP-39
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Apr 2023 15:29:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1682350139;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E3Xi1SdkhmIfRjRu7FuyqmHC/va+/w7r2t9GfgfXyFY=;
+	b=Jj8lqqmE+0NBB/0NO0Q6MJKyVA7LlxK45seFUsbrBcHSW/YjdAr1a7mbxXLjvQkO+nBHe/
+	bU9h1N0qDTGogdPvV+ET6vicdy05mh6B3sNRBKTJgV4pnbMfApiwFjeFkTkH9tfLedhuCt
+	/S7TWs1A444128dj1SKeZQWt5Ei7ErU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-361-zSF27hSuNk2LL6ngf1XAMA-1; Mon, 24 Apr 2023 11:28:55 -0400
+X-MC-Unique: zSF27hSuNk2LL6ngf1XAMA-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EC04860B88;
-	Mon, 24 Apr 2023 14:53:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B466DC433EF;
-	Mon, 24 Apr 2023 14:53:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682348007;
-	bh=9CwJJUrhNP6wOsORyqwvzaE9qMKm02sq+6yuG+Ev91U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TBFPs1eWvgDreKyP2z4H6q2ZZgTj7aEde/gln69W0CfM1jNYwm2ZOwXv2yaa6XSZL
-	 ztShbHl41Mc4mpHTmfQu2bddwtSgvi5v4WdqtnWbnTo0ps12xIf1Xcdpe4Yq6mxI2U
-	 Yn+El8B1UF43LNtRukJgvLHEi9vqyaGHCHbS9mR2UbwCoT9TBC50+0et1CttRAW/3V
-	 xeYYEAoBZd3upWJ/U4xW5tiDzxA18r2RFlLxw1yew0gVPMBJ/LwAGhU2ZQcRQWCG1k
-	 hb2WvoqBSq/pfAfIRHr5Fb9NdhMvH/52K3owwrVA78IjFCjAnpzm3H02CBPH5duf2c
-	 L+osQEwIwu17Q==
-Message-ID: <3f2baded-c5d6-7d94-00f3-6d8fb24262c4@kernel.org>
-Date: Mon, 24 Apr 2023 17:53:19 +0300
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B378D85A5B1;
+	Mon, 24 Apr 2023 15:28:54 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.226.225])
+	by smtp.corp.redhat.com (Postfix) with SMTP id 728CE492B03;
+	Mon, 24 Apr 2023 15:28:52 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Mon, 24 Apr 2023 17:28:44 +0200 (CEST)
+Date: Mon, 24 Apr 2023 17:28:41 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongson-kernel@lists.loongnix.cn,
+	Srikar Dronamraju <srikar@linux.vnet.ibm.com>
+Subject: Re: [PATCH] riscv: uprobes: Restore thread.bad_cause
+Message-ID: <20230424152841.GB32615@redhat.com>
+References: <1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn>
+ <f60e6e0f-a520-2e8d-0b81-6b15498cb300@loongson.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v5 7/7] riscv: dts: starfive: Add USB dts configuration
- for JH7110
-Content-Language: en-US
-To: Minda Chen <minda.chen@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak <pawell@cadence.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Mason Huo <mason.huo@starfivetech.com>
-References: <20230420110052.3182-1-minda.chen@starfivetech.com>
- <20230420110052.3182-8-minda.chen@starfivetech.com>
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20230420110052.3182-8-minda.chen@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <f60e6e0f-a520-2e8d-0b81-6b15498cb300@loongson.cn>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_075328_505264_F6E45567 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20230424_082904_241014_BC479590 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,136 +89,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 04/24, Tiezhu Yang wrote:
+>
+> >diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+> >index c976a21..194f166 100644
+> >--- a/arch/riscv/kernel/probes/uprobes.c
+> >+++ b/arch/riscv/kernel/probes/uprobes.c
+> >@@ -67,6 +67,7 @@ int arch_uprobe_post_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
+> > 	struct uprobe_task *utask = current->utask;
+> >
+> > 	WARN_ON_ONCE(current->thread.bad_cause != UPROBE_TRAP_NR);
+> >+	current->thread.bad_cause = utask->autask.saved_cause;
+> >
+> > 	instruction_pointer_set(regs, utask->vaddr + auprobe->insn_size);
+> >
+> >@@ -102,6 +103,7 @@ void arch_uprobe_abort_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
+> > {
+> > 	struct uprobe_task *utask = current->utask;
+> >
+> >+	current->thread.bad_cause = utask->autask.saved_cause;
+> > 	/*
+> > 	 * Task has received a fatal signal, so reset back to probbed
+> > 	 * address.
+> >
 
+Acked-by: Oleg Nesterov <oleg@redhat.com>
 
-On 20/04/2023 14:00, Minda Chen wrote:
-> Add USB wrapper layer and Cadence USB3 controller dts
-> configuration for StarFive JH7110 SoC and VisionFive2
-> Board.
-> USB controller connect to PHY, The PHY dts configuration
-> are also added.
-> 
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> ---
->  .../jh7110-starfive-visionfive-2.dtsi         |  7 +++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 44 +++++++++++++++++++
->  2 files changed, 51 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 1155b97b593d..fa97ebfd93ad 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -221,3 +221,10 @@
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&usb0 {
-> +	phys = <&usbphy0>;
-> +	phy-names = "usb2";
-> +	dr_mode = "peripheral";
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 29cd798b6732..eee395e19cdb 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -366,6 +366,50 @@
->  			status = "disabled";
->  		};
->  
-> +		usb0: usb@10100000 {
-> +			compatible = "starfive,jh7110-usb";
-> +			reg = <0x0 0x10100000 0x0 0x10000>,
-> +			      <0x0 0x10110000 0x0 0x10000>,
-> +			      <0x0 0x10120000 0x0 0x10000>;
-> +			reg-names = "otg", "xhci", "dev";
-> +			interrupts = <100>, <108>, <110>;
-> +			interrupt-names = "host", "peripheral", "otg";
-> +			clocks = <&stgcrg JH7110_STGCLK_USB0_LPM>,
-> +				 <&stgcrg JH7110_STGCLK_USB0_STB>,
-> +				 <&stgcrg JH7110_STGCLK_USB0_APB>,
-> +				 <&stgcrg JH7110_STGCLK_USB0_AXI>,
-> +				 <&stgcrg JH7110_STGCLK_USB0_UTMI_APB>;
-> +			clock-names = "lpm", "stb", "apb", "axi", "utmi_apb";
-> +			resets = <&stgcrg JH7110_STGRST_USB0_PWRUP>,
-> +				 <&stgcrg JH7110_STGRST_USB0_APB>,
-> +				 <&stgcrg JH7110_STGRST_USB0_AXI>,
-> +				 <&stgcrg JH7110_STGRST_USB0_UTMI_APB>;
-> +			reset-names = "pwrup", "apb", "axi", "utmi_apb";
-
-All this can really be "cdns,usb3" node. The cdns,usb3 driver should
-do reset and clocks init as it is generic.
-
-> +			starfive,stg-syscon = <&stg_syscon 0x4>;
-> +			status = "disabled";
-
-Only the syscon handling looks starfive specific so only that handling
-should be done in starfive USB driver.
-
-This node should look like this
-
- 
-	starfive-usb@4 {
-		compatible = "starfive,jh7110-usb";
-		starfive,stg-syscon = <&stg_syscon 0x4>;
-
-		usb0: usb@10100000 {
-			compatible = "cdns,usb3";
-			reg = <0x0 0x10100000 0x0 0x10000>,
-			      <0x0 0x10110000 0x0 0x10000>,
-			      <0x0 0x10120000 0x0 0x10000>;
-			reg-names = "otg", "xhci", "dev";
-			interrupts = <100>, <108>, <110>;
-			interrupt-names = "host", "peripheral", "otg";
-			clocks = <&stgcrg JH7110_STGCLK_USB0_LPM>,
-				 <&stgcrg JH7110_STGCLK_USB0_STB>,
-				 <&stgcrg JH7110_STGCLK_USB0_APB>,
-				 <&stgcrg JH7110_STGCLK_USB0_AXI>,
-				 <&stgcrg JH7110_STGCLK_USB0_UTMI_APB>;
-			clock-names = "lpm", "stb", "apb", "axi", "utmi_apb";
-			resets = <&stgcrg JH7110_STGRST_USB0_PWRUP>,
-				 <&stgcrg JH7110_STGRST_USB0_APB>,
-				 <&stgcrg JH7110_STGRST_USB0_AXI>,
-				 <&stgcrg JH7110_STGRST_USB0_UTMI_APB>;
-			reset-names = "pwrup", "apb", "axi", "utmi_apb";
-			starfive,stg-syscon = <&stg_syscon 0x4>;
-			status = "disabled";
-		};
-	}
-
-In starfife-usb driver you can use of_platform_default_populate()
-to create the cdns,usb3 child for you.
-
-> +		};
-> +
-> +		usbphy0: phy@10200000 {
-> +			compatible = "starfive,jh7110-usb-phy";
-> +			reg = <0x0 0x10200000 0x0 0x10000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_USB_125M>,
-> +				 <&stgcrg JH7110_STGCLK_USB0_APP_125>;
-> +			clock-names = "125m", "app_125m";
-> +			#phy-cells = <0>;
-> +		};
-> +
-> +		pciephy0: phy@10210000 {
-> +			compatible = "starfive,jh7110-pcie-phy";
-> +			reg = <0x0 0x10210000 0x0 0x10000>;
-> +			#phy-cells = <0>;
-> +		};
-> +
-> +		pciephy1: phy@10220000 {
-> +			compatible = "starfive,jh7110-pcie-phy";
-> +			reg = <0x0 0x10220000 0x0 0x10000>;
-> +			#phy-cells = <0>;
-> +		};
-> +
->  		stgcrg: clock-controller@10230000 {
->  			compatible = "starfive,jh7110-stgcrg";
->  			reg = <0x0 0x10230000 0x0 0x10000>;
-
-cheers,
--roger
 
 _______________________________________________
 linux-riscv mailing list
