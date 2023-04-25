@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9846BC77B61
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 03:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE748C77B61
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 03:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pRjqDdQx5vdZXeXF8t82GVYeYjzXYzl1H+cSlaCbYAc=; b=RL31PS8pGdYe9j
-	JfSFdagUBZ8lHFH1dw44LPE8DWt5WmY4mI6n7Bg/Tcx4l97tMOGuH6z/XHHAAu86xQ2ocZk+Yc4nu
-	wfV8x6RkzAIUyEgTotUcjWDpxCtjffqEg+c6WwpIpeX3ZoLKHAWaAuhkLzZgFYyZIjh2sgTlPzG8W
-	BD3F6HbmgmYEzaNkIGySAPspiJrfHqFmb74eqZmFxRDZdi1SKYbG7ZJh5Ea2BNsCTd8TT2dxpiDtK
-	jM/YYtg/GPAvmvJx5zXlJAX0nkm0MZ8jor3Dhb7RUT5MaTJyxbSs8d1cgEKMK8fXaOs8w68KgGsH3
-	nIMzOq2Bxp+/ayBxDyTg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oiNxAbEDAGnMUFvphkEmNQH53W2fQRi8GPCrwAEjyOw=; b=ocrRk2Xvzll/0s
+	K+l3wnifoS0PDn/KRtBDfHWPdn5aeOpiLRQFmxuaLTfi15C0KwmI8CqhJ1tMv/Dm6LSY0KKAch++n
+	i86dNDaCAS/18cAfvPMY7/iCOR6yGZkmowTGhyIddgwUMJ6Di1kuNaRmLj6jCoyXePu5wVhGi4O+o
+	vsd6FedbIRqX4k/M8pteXN+aSc3xhkc7Zli913e0PKa6Vb92ZcHGceqfVUIoqCedMWX80e34/LxeU
+	zTq83sTG1AI9ydIH7VcCHq3xgo4JqBzUJmuIINm0FZZvNwgdb+Ms+5nc8jc8OQBDYRLsaFdUyVv+v
+	lkYtxrKa2gUGJ9CYGENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pr9ZE-0006vo-0k;
-	Tue, 25 Apr 2023 03:42:12 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pr9ZA-0006uy-0c;
-	Tue, 25 Apr 2023 03:42:11 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 00C7C7FFD;
-	Tue, 25 Apr 2023 11:41:40 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Apr
- 2023 11:41:40 +0800
-Received: from [192.168.125.106] (113.72.145.137) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Apr
- 2023 11:41:39 +0800
-Message-ID: <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
-Date: Tue, 25 Apr 2023 11:41:38 +0800
+	id 1pr9bN-00075V-0M;
+	Tue, 25 Apr 2023 03:44:25 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pr9bK-00074U-0D
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Apr 2023 03:44:23 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-63b4960b015so4259114b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Apr 2023 20:44:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1682394255; x=1684986255;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2FDl29IJnMyKk0HAOJUhT84um1D206mTAna0zXUTVh4=;
+        b=AQ76KH3Hg0JgeTd4CCxOysPi1nty5DZCbeO8eAVwqGf12h2QQos/X3jF5KlWS0eKlN
+         rATRGJvx5e4DxweWAnz4JnyzU0MNKVkjavVT1Ql6fXiTVKPYYPqlEy/iS2r837WDlK4M
+         0ICUAEcqzefrUxxn2NOMuDSRpecy4F89KPU/PQbdTL2ayQ2wsO1hm/gOacMrmty/xni+
+         lU+c87ci9FeGNRXt1Hn1rsOq14MiuLRu3JXNPmFMnKmVrFLcvDdCVpP7eqeDQiPnsNN4
+         oiXP7zBIZFDl4p1q6j0lSzKEuhRMFWq28deFIs1RSq3dgicg5BuQ8CStmX4bSUjvik90
+         WNPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682394255; x=1684986255;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2FDl29IJnMyKk0HAOJUhT84um1D206mTAna0zXUTVh4=;
+        b=lnRCkZrbbui63bBx5eNhJ+ibdEGgX7D8Qe3L7u+B3mT5t61pP1htDmzGER7WpBvYzQ
+         Nb/cUVKJysa+zQOctd2ZKraXsxB8mdbxoysEoJPvknmua4md28yAH0G6O0MQo90876KE
+         Lhq2TMkziCERUMIJHM+QHfaCL8/13uvhrCsMxF7g0pvHfxpAN7rDgs9DKrDp0ZxoNcsd
+         deQ9xoUzw1t3tSg553p7lbXmu5g+9qi8zajLyGvbpQp3b2mXl3HLSxu9N4QjMkDPp/y8
+         5Zw59xzd5YiGMhGb8FW2DfRRe44dgaVhrN1rgHUN7hyqiOxVj7wk6yM4HR8ChFp8K4Mt
+         5uqQ==
+X-Gm-Message-State: AAQBX9fFyVzW68TZBSyVpJ8pIfVdDE7AlEAMvtW94vLVYOsThGRrTJVn
+	uU4AyWvLgeg86UMeFdXVbtCz
+X-Google-Smtp-Source: AKy350a7wV8JRhw1mdvqUV9NXUDpy9YRow1c0MVzgOflH8MfguPvo+fSW3CQbKF+2eCcq2xmH1mSvQ==
+X-Received: by 2002:a05:6a20:4410:b0:f3:4da0:a25d with SMTP id ce16-20020a056a20441000b000f34da0a25dmr10985884pzb.13.1682394255331;
+        Mon, 24 Apr 2023 20:44:15 -0700 (PDT)
+Received: from u-NUC7i5BNH.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id y21-20020aa78555000000b006242f4a8945sm8117805pfn.182.2023.04.24.20.44.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Apr 2023 20:44:14 -0700 (PDT)
+From: Woodrow Shen <woodrow.shen@sifive.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: linux-riscv@lists.infradead.org,
+	aou@eecs.berkeley.edu,
+	alexghiti@rivosinc.com,
+	greentime.hu@sifive.com,
+	Hsieh-Tseng Shen <woodrow.shen@sifive.com>
+Subject: [RFC PATCH v1] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be readable
+Date: Tue, 25 Apr 2023 11:44:07 +0800
+Message-Id: <20230425034407.1601585-1-woodrow.shen@sifive.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
-To: Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
-	<linux-phy@lists.infradead.org>
-References: <20230419035646.43702-1-changhuang.liang@starfivetech.com>
- <20230419035646.43702-2-changhuang.liang@starfivetech.com>
- <20230419-labored-camper-644d51a7ca96@spud>
- <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
- <20230424-baffle-punch-ec73098f2b6a@spud>
-Content-Language: en-US
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230424-baffle-punch-ec73098f2b6a@spud>
-X-Originating-IP: [113.72.145.137]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX162.cuchost.com
- (172.16.6.72)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230424_204208_598929_58120AE0 
-X-CRM114-Status: GOOD (  36.57  )
+X-CRM114-CacheID: sfid-20230424_204422_111179_AAC7D6C5 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,142 +93,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
 
+The commit 8aeb7b1 allows riscv to use mmap with PROT_WRITE only,
+and meanwhile mmap with w+x is also permitted. However, when userspace
+tries to access this page with PROT_WRITE|PROT_EXEC, which causes
+infinite loop at load page fault as well as it triggers soft lockup.
+According to riscv privileged spec, "Writable pages must also be marked
+readable". The fix to drop the `PAGE_COPY_READ_EXEC` and `PAGE_READ_EXEC`
+should be just used instead. This aligns the other arches (i.e arm64)
+for protection_map.
 
-On 2023/4/25 0:52, Conor Dooley wrote:
-> Hey Changhuang,
-> 
-> On Thu, Apr 20, 2023 at 03:00:10PM +0800, Changhuang Liang wrote:
->> On 2023/4/20 2:29, Conor Dooley wrote:
->>> On Tue, Apr 18, 2023 at 08:56:41PM -0700, Changhuang Liang wrote:
->>>> Add AON PMU for StarFive JH7110 SoC, it can be used to turn on/off DPHY
->>>> rx/tx power switch, and it don't need the properties of reg and
->>>> interrupts.
->>>
->>> Putting this here since the DT guys are more likely to see it this way..
->>> Given how the implementation of the code driving this new
->>> power-controller and the code driving the existing one are rather
->>> different (you've basically re-written the entire driver in this series),
->>> should the dphy driver implement its own power-controller?
->>>
->>> I know originally Changuang had tried something along those lines:
->>> https://lore.kernel.org/linux-riscv/5dc4ddc2-9d15-ebb2-38bc-8a544ca67e0d@starfivetech.com/
->>>
->>> I see that that was shut down pretty much, partly due to the
->>> non-standard property, hence this series adding the dphy power domain to
->>> the existing driver.
->>>
->>> If it was done by looking up the pmu with a
->>> of_find_compatible_node(NULL, "power-controller", "starfive,jh7110-aon-pmu")
->>> type thing, would that make sense? Although, maybe that is not a
->>> question for you, and this series may actually have been better entirely
->>> bundled with the dphy series so the whole thing can be reviewed as a
->>> unit. I've added 
->>>
->>> IOW, don't change this patch, or the dts patch, but move all of the
->>> code back into the phy driver..
->>>
->>
->> Maybe this way can not do that? power domain is binding before driver probe,
->> if I use "of_find_compatible_node" it phy(DPHY rx) probe. Maybe I can only operate 
->> this power switch in my phy(DPHY rx) driver, so the all patch of this series isn't 
->> make sense.
-> 
-> I'm a wee bit lost here, as I unfortunately know little about how Linux
-> handles this power-domain stuff. If the DPHY tries to probe and some
-> pre-requisite does not yet exist, you can return -EPROBE_DEFER right?
-> 
-> But I don't think that's what you are asking, as using
-> of_find_compatible_node() doesn't depend on there being a driver AFAIU.
-> 
->> In my opinion, We will also submit DPHY TX module later which use this series.
->> Maybe this series should independent?
-> 
-> Is the DPHY tx module a different driver to the rx one?> If yes, does it have a different bit you must set in the syscon?
-> 
+Fixes: 8aeb7b1 ("RISC-V: Make mmap() with PROT_WRITE imply PROT_READ")
+Signed-off-by: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/include/asm/pgtable.h | 3 +--
+ arch/riscv/mm/init.c             | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
 
-Yes, DPHY tx module is a different driver to the DPHY rx. And I have do a
-different bit in PATCH 1:
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index f641837ccf31..05eda3281ba9 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -165,8 +165,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
+ 					 _PAGE_EXEC | _PAGE_WRITE)
+ 
+ #define PAGE_COPY		PAGE_READ
+-#define PAGE_COPY_EXEC		PAGE_EXEC
+-#define PAGE_COPY_READ_EXEC	PAGE_READ_EXEC
++#define PAGE_COPY_EXEC		PAGE_READ_EXEC
+ #define PAGE_SHARED		PAGE_WRITE
+ #define PAGE_SHARED_EXEC	PAGE_WRITE_EXEC
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0f14f4a8d179..cc48b0d93a98 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -286,7 +286,7 @@ static const pgprot_t protection_map[16] = {
+ 	[VM_EXEC]					= PAGE_EXEC,
+ 	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+ 	[VM_EXEC | VM_WRITE]				= PAGE_COPY_EXEC,
+-	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY_READ_EXEC,
++	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY_EXEC,
+ 	[VM_SHARED]					= PAGE_NONE,
+ 	[VM_SHARED | VM_READ]				= PAGE_READ,
+ 	[VM_SHARED | VM_WRITE]				= PAGE_SHARED,
+-- 
+2.34.1
 
-#define JH7110_PD_DPHY_TX	0
-#define JH7110_PD_DPHY_RX	1
-
-also in PATCH 5:
-
-static const struct jh71xx_domain_info jh7110_aon_power_domains[] = {
-	[JH7110_PD_DPHY_TX] = {
-		.name = "DPHY-TX",
-		.bit = 30,
-	},
-	[JH7110_PD_DPHY_RX] = {
-		.name = "DPHY-RX",
-		.bit = 31,
-	},
-};
-
-> +CC Walker, do you have a register map for the jh7110? My TRM only says
-> what the registers are, but not the bits in them. Would make life easier
-> if I had that info.
-> 
-> I'm fine with taking this code, I just want to make sure that the soc
-> driver doing this is the right thing to do.
-> I was kinda hoping that combining with the DPHY-rx series might allow
-> the PHY folk to spot if you are doing something here with the power
-> domains that doesn't make sense.
-> 
-
-I asked about our soc colleagues. This syscon register,
-offset 0x00:
-bit[31] ---> dphy rx power switch
-bit[30] ---> dphy tx power switch 
-other bits ---> Reserved
-
->>> Sorry for not asking this sooner Changhuang,
->>> Conor.
->>>
->>> (hopefully this didn't get sent twice, mutt complained of a bad email
->>> addr during sending the first time)
->>>
->>
->> I'm sorry for that, I will notice later.
-> 
-> No, this was my mail client doing things that I was unsure of. You
-> didn't do anything wrong.
-> 
-[...]
->>>>    - Walker Chen <walker.chen@starfivetech.com>
->>>> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
->>>>  
->>>>  description: |
->>>>    StarFive JH7110 SoC includes support for multiple power domains which can be
->>>> @@ -17,6 +18,7 @@ properties:
->>>>    compatible:
->>>>      enum:
->>>>        - starfive,jh7110-pmu
->>>> +      - starfive,jh7110-aon-pmu
-> 
-> I was speaking to Rob about this over the weekend, he asked:
-> 'Why isn't "starfive,jh7110-aon-syscon" just the power-domain provider
-> itself?'
-
-Maybe not, this syscon only offset "0x00" configure power switch.
-other offset configure other functions, maybe not power, so this
-"starfive,jh7110-aon-syscon" not the power-domain itself.
-
-> Do we actually need to add a new binding for this at all?
-> 
-> Cheers,
-> Conor.
-> 
-
-Maybe this patch do that.
-https://lore.kernel.org/all/20230414024157.53203-6-xingyu.wu@starfivetech.com/
-
->>>>  
->>>>    reg:
->>>>      maxItems: 1
->>>> @@ -29,10 +31,19 @@ properties:
->>>>  
 
 _______________________________________________
 linux-riscv mailing list
