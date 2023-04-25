@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34259C77B61
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 13:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEBFC6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 13:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C53ZOvEK19dQcgVSF73OodDn8oNrbD03Jl27QPRpXXA=; b=qMpSMGB0TL1Own+6DoHrhMq2ET
-	UcPPT7ewBrvVUi5xB+hXxeQ5SsLowneYA6ODOhGYFRTgsGs0rtbRp9WvF0C4mnSE2J0f4BoSqYz6c
-	G82/DvesgpusmqMb0zvqBrInbRyfVBEq0bhfWbjfRz7FegEmWuU/5RqZQ7MEyFBUeryE4Dnxu89yJ
-	2fZuO02kUwb3ndEADLwn0R4pi8c2EFA4RqapJAnxrJd961m0EMDMUCruNDpAuG9nm8bmRQ7t2HLLL
-	HAz7FzCLOljy2WCDsFbm5EnvSv2GzXLLJedOnNmqknOy3wufHcvX6BdtTyWCwMelDyXxxnIAQsMgi
-	ezMOTI2g==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+gbroPTRWqJ9n5FmdWc7L4ykDe0K6HSQjCxMqUjbB2w=; b=shAKoGWPv0elZH
+	/q1o0XXHgnX7WWYbz+FIIrVxyCuuE3Uj71c190c2zNDeDK7mOA0GjfReICpSduj1Lh1wPP1OrPVBL
+	31RoU2Qrqf8epuNyORxEDg7gGAtIPAhYAOHTqoh0Tvj8aaCpJT2hu9WM5z5o9CstxhXTr7spIca1E
+	ro+CHYlaLIrEw1QZ84q+zct6w95Ys+e7yd9KQX+SzPG3PlO1ftkY8iKM8oqapJX7fK2NQ+PM0ptqp
+	EabXEgB+J6MgSmi/asQ+6J68GwCaP/tz2YZpNP7n6+fLBYPe7Z+tdrBMv3eVYvGOQ+RK0LFcutvrw
+	XIxdxIv0Ic+GHEQTqazw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prIVc-001AbC-1a;
-	Tue, 25 Apr 2023 13:15:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1prIbc-001CW8-03;
+	Tue, 25 Apr 2023 13:21:16 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prIVY-001AYc-2n
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Apr 2023 13:15:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1682428500; x=1713964500;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=EliR2mT5GHfq/CKDHDhaxmjdPcWX1dx8dle38J9zdZo=;
-  b=C20pWfgmNtazH70U408fzPBLBU5TIS4tGGr5G0cruPOCJ7IKlLeKHk9Q
-   imyvsQ2tyN2R+en5f2rqlX6Qv8fYT+VSdM7ydjhfrl0wHNTX4Ad8eTTTa
-   arI2e3/+EgB2GhQxGXcEqjA+rxDFwhk7aGaIl7Xmj3Xk3Z+OXn4X4lkrk
-   a4gYIQsLD+t26xJPzJQxfh/1yDPP/oNesbU2IlYOaj8wv/4UX4gzHg2Cv
-   becx+4JH0GvPzhFc14Wk++Tlc/6LWpHVTkPg3vr3fcJHTdL+n5vUux2Ay
-   4n+CKkuMrkpgO09dTb1N+Wnxs7LI6kRUtP1r0FnPxarRYHVP0+IapFr6N
-   A==;
-X-IronPort-AV: E=Sophos;i="5.99,225,1677567600"; 
-   d="asc'?scan'208";a="222476364"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Apr 2023 06:14:55 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 25 Apr 2023 06:14:54 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 25 Apr 2023 06:14:53 -0700
-Date: Tue, 25 Apr 2023 14:14:36 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Yangyu Chen <cyy@cyyself.name>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Wende Tan
-	<twd2.me@gmail.com>, Soha Jin <soha@lohu.info>, Hongren Zheng <i@zenithal.me>
-Subject: Re: [PATCH 0/2] Allow case-insensitive RISC-V ISA string
-Message-ID: <20230425-flyable-prompter-5b1e4cebf9db@wendy>
-References: <tencent_1647475C9618C390BEC601BE2CC1206D0C07@qq.com>
+	id 1prIbX-001COm-3D;
+	Tue, 25 Apr 2023 13:21:14 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.53])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Q5MwY6SF8zpT8Q;
+	Tue, 25 Apr 2023 21:17:01 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Tue, 25 Apr
+ 2023 21:20:53 +0800
+Message-ID: <db4ba964-1c09-1d8a-bfc4-8fe50debfc6c@huawei.com>
+Date: Tue, 25 Apr 2023 21:20:53 +0800
 MIME-Version: 1.0
-In-Reply-To: <tencent_1647475C9618C390BEC601BE2CC1206D0C07@qq.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next v4 0/2] support allocating crashkernel above 4G
+ explicitly on riscv
+Content-Language: en-US
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<horms@kernel.org>
+References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+In-Reply-To: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230425_061501_046755_8D40B317 
-X-CRM114-Status: GOOD (  31.59  )
+X-CRM114-CacheID: sfid-20230425_062112_442597_6298EDD6 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +69,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2918166398830785161=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2918166398830785161==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7A3Ma5DfJIchBKeX"
-Content-Disposition: inline
 
---7A3Ma5DfJIchBKeX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 2023/4/10 21:05, Chen Jiahao wrote:
+> On riscv, the current crash kernel allocation logic is trying to
+> allocate within 32bit addressible memory region by default, if
+> failed, try to allocate without 4G restriction.
+>
+> In need of saving DMA zone memory while allocating a relatively large
+> crash kernel region, allocating the reserved memory top down in
+> high memory, without overlapping the DMA zone, is a mature solution.
+> Hence this patchset introduces the parameter option crashkernel=X,[high,low].
+>
+> One can reserve the crash kernel from high memory above DMA zone range
+> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+> below 4G with "crashkernel=X,low". Besides, there are few rules need
+> to take notice:
+> 1. "crashkernel=X,[high,low]" will be ignored if "crashkernel=size"
+>     is specified.
+> 2. "crashkernel=X,low" is valid only when "crashkernel=X,high" is passed
+>     and there is enough memory to be allocated under 4G.
+> 3. When allocating crashkernel above 4G and no "crashkernel=X,low" is
+>     specified, a 128M low memory will be allocated automatically for
+>     swiotlb bounce buffer.
+> See Documentation/admin-guide/kernel-parameters.txt for more information.
+>
+> To verify loading the crashkernel, adapted kexec-tools is attached below:
+> https://github.com/chenjh005/kexec-tools/tree/build-test-riscv-v2
+>
+> Following test cases have been performed as expected:
+> 1) crashkernel=256M                          //low=256M
+> 2) crashkernel=1G                            //low=1G
+> 3) crashkernel=4G                            //high=4G, low=128M(default)
+> 4) crashkernel=4G crashkernel=256M,high      //high=4G, low=128M(default), high is ignored
+> 5) crashkernel=4G crashkernel=256M,low       //high=4G, low=128M(default), low is ignored
+> 6) crashkernel=4G,high                       //high=4G, low=128M(default)
+> 7) crashkernel=256M,low                      //low=0M, invalid
+> 8) crashkernel=4G,high crashkernel=256M,low  //high=4G, low=256M
+> 9) crashkernel=4G,high crashkernel=4G,low    //high=0M, low=0M, invalid
+> 10) crashkernel=512M@0xd0000000              //low=512M
+> 11) crashkernel=1G@0xe0000000                //high=0M, low=0M, no enough low memory, failed
+>
+> Changes since [v4]:
+> 1. Update some imprecise code comments for cmdline parsing.
+>
+> Changes since [v3]:
+> 1. Update to print warning and return explicitly on failure when
+>     crashkernel=size@offset is specified. Not changing the result
+>     in this case but making the logic more straightforward.
+> 2. Some minor cleanup.
+>
+> Changes since [v2]:
+> 1. Update the allocation logic to ensure the high crashkernel
+>     region is reserved strictly above dma32_phys_limit.
+> 2. Clean up some minor format problems.
+>
+> Chen Jiahao (2):
+>    riscv: kdump: Implement crashkernel=X,[high,low]
+>    docs: kdump: Update the crashkernel description for riscv
+>
+>   .../admin-guide/kernel-parameters.txt         | 15 ++--
+>   arch/riscv/kernel/setup.c                     |  5 ++
+>   arch/riscv/mm/init.c                          | 71 +++++++++++++++++--
+>   3 files changed, 79 insertions(+), 12 deletions(-)
 
-Hey!
+Hi folks,
 
-For some reason this cover letter has been detached from the series
-itself. I think that might be a bug with git send-email.
+The current version has fix all problems up-to-date, please let me know
+if there is any other bug, or somewhere not quiet correct. Thanks for
+looking into this.
 
-The rest of the series is:
-<tencent_63090269FF399AE30AC774848C344EF2F10A@qq.com>
-<tencent_221A82C2DAF38E66B85B313221958DDD7C08@qq.com>
+Best Regards,
+Jiahao
 
-On Tue, Apr 25, 2023 at 08:00:14PM +0800, Yangyu Chen wrote:
-> According to RISC-V ISA specification, the ISA naming strings are
-> case insensitive. The kernel docs require the riscv,isa string must
-> be all lowercase to simplify parsing currently. However, this=20
-> limitation is not consistent with RISC-V ISA Spec.
-
-Correct. riscv,isa allows only subset of what the ISA spec does.
-
-> The motivation for this patch series is that some SoC generators
-> will provide ISA strings with uppercase letters in the device tree.
-
-If these generators are emitting devicetrees, why not fix the code in
-these generators so that they produce something that is aligned with the
-dt-binding?
-
-> For example, the rocket-chip will have "Zicsr_Zifencei_Zihpm_Xrocket"
-> in the ISA string.
-
-https://github.com/chipsalliance/rocket-chip/pull/3232
-
-It looks like when this was added to rocket-chip it was not actually
-tested properly? The output would not pass dt-validate. The author is on
-CC I assume, so maybe they can fix rocket-chip? You can CC @conchuod on
-that PR if you like.
-
-Do any other core generators emit capitals here, or have you only
-noticed it with rocket-chip?
-
-> If we did not modify the ISA string manually, the
-> parser in the current kernel will have errors when the pointer meets
-> uppercase letters because it assumes the string only has digits,=20
-> lowercase letters, and underscores. Then, the parser will fail and
-> the pointer of the parser will continue at the next position, which
-> will confuse the parser and cause the kernel to misbehave.
->=20
-> For example, "Zifencei" will be parsed as "ifc" since the parser will
-> fail at 'Z' and then continue at 'i'. Then, if we disable the FPU in
-> the CPU hardware and remove the "fd" from the device tree but leave
-> the CONFIG_FPU=3Dy in the kernel, the kernel will panic at=20
-> `__fstate_restore` function since the "Zifencei" (parsed as "ifc")
-> will confuse the current kernel that the CPU has "f", and the kernel
-> will save and restore the FPU registers during the context switch,
-> leading to illegal instruction exceptions.
-
-Here's an idea, run dtbs_check to validate your devicetree is correct?
-If you mess up your devicetree in other ways, then your system is going
-to have issues, so why would riscv,isa be any different?
-
-> However, it is not necessary to require the ISA string must be all
-> lowercase. The case-insensitive parser can be easily implemented
-> using `strncasecmp` and `tolower` functions. Moreover, the kernel
-> parser implementation should match the ISA specification rather than
-> using a more strict rule.
-
-On the contrary, we actually *cannot* match the ISA specification at
-this point.
-For example, the ISA spec currently says that zicsr and zifencei are
-not part of `i`, but riscv,isa was defined prior to the extraction of
-those extensions from `i` and so `i` in riscv,isa means the same
-`i_zicsr_zifencei` in the RISC-V ISA specification.
-
-> This patch series allows case-insensitive RISC-V ISA string:
-> * Patch 1 modifies the ISA string parser in the kernel to support
->   case-insensitive ISA string parsing. It replaces `strncmp` with
->   `strncasecmp`, replaces `islower` with `isalpha`, and wraps the
->   dereferenced char in the parser with `tolower`.
-> * Patch 2 modifies the docs to no longer require the riscv,isa
->   string to be all lowercase.
-
-So what happens if you boot an old kernel with a devicetree whose
-riscv,isa string has been validated by this modified dt-binding, but
-contains capital letters?
-That kernel + dtb will have issues in the manner you describe above but
-dtbs_check etc will have passed.
-If anything, the kernel should abort parsing the ISA string if it sees
-a capital letter to avoid scenarios like the above.
-
-=46rom me this is a NAK on that basis, sorry. Please try and fix the
-generators to emit devicetrees that pass dt-validate.
-
-Thanks,
-Conor.
-
---7A3Ma5DfJIchBKeX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEfSOwAKCRB4tDGHoIJi
-0l40AQDJ8WcQgKPnZcx88tEI56RsG3jcYPmB1VBc6634Q9JTGgD+P2Y3Te+9OhAW
-Xlsmfixe/JLU2F//Pjh+0MvISv6tpgg=
-=6dOF
------END PGP SIGNATURE-----
-
---7A3Ma5DfJIchBKeX--
-
-
---===============2918166398830785161==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2918166398830785161==--
-
