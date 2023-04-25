@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2AAC77B61
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 18:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C242C6FD18
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 19:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xoP7ImFOJLLf0/i4f3t8b9/xIdgSQvx/bUsRmm9jdJA=; b=G+xJBjfdbzPGFl
-	SgviRN5g55+fADsJxyqTDphIFQ1rXc4SxxosYVWRF6a4I61mbFCejv0f4Gak6PJxRIcBNelkntOOs
-	5fXwzZHJoUmlNKbi4LSrA1qcIccZEOmdshYtEnwRiVcEHKbbi0QhopsyB/zqHm0wTDvsm3DlVNu9y
-	4BQe+v+6Ol9TfiWAh2aioVBsjGIlEgjykLiLnHDmIPH9A55KvK4qHWJRpiRpm9BfkbVuVLL8lhUWb
-	NpI3EB8V0jbiq0UaUG6VomBQ0k10ZhOWP7jviwC4gfURmR79OEITtvYu8Qle8E+b58I1kcC7yoPU+
-	DSNlZ7bYo3StKXe1AuBg==;
+	List-Owner; bh=atEkkMUkH6RWYQF6nYqCF2D9Bl3dgIx7S6iC3hukX7w=; b=tx7SJinKjWrTJ8
+	KGKFtuxKx+yMAtKfyEVsVksnoReztELT5Ui9xHRsMY9N0tgU3WIy3cbsI8SlL8ytQ0cV8ZibTlEnj
+	SJCtnld9gNuJxANnqL8TQTd079O+RSZfpVR9Ot59ogrTvHs0La19B11KYt6bAlE/EBkONLUzc5J6a
+	MmuzBd700PV/HZbBQQTlMUv/tr0WACt9IXwf4Ix2ykTXO4OdUVeUpBkZIRaL15v7M0gOu6cA1NH3z
+	gUxNsCf1JYTCSf6Wmoy4NfT0SWDM6LQrwRYMdCgUQpkQt42y3C67B6ws032zzQAH0yKMv5tf8mkVC
+	/ZUkH2UnNMx+sIsPzhVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prNpl-001zkq-0U;
-	Tue, 25 Apr 2023 18:56:13 +0000
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
+	id 1prOhC-0026b0-1B;
+	Tue, 25 Apr 2023 19:51:26 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prNpi-001ziu-0a
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Apr 2023 18:56:11 +0000
-Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-6a438f0d9c9so4741120a34.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Apr 2023 11:56:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682448968; x=1685040968;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E2Pm94d+ETtvQvtSiYGYJJyGRbZetTQzfPQibc7M6Yc=;
-        b=A/1BzzgPCHquwzzub4fYSkBDM6XPPA2wvYoeLYloJ5yFvbsR3lfTJtCdpik9H3ebfL
-         5HlnjvK0W8RVgay6Kq1v3AMhQ3uwLkm5HidbyrnIxT6/UAW7pilD6LHqy1OLtHZUnZbr
-         cGd/9F8Uu6hLtVWvbcEt6T467OqAhIzrewCA22d/8vWoBrLTL2WG8F4zgz2yevK036ES
-         2oEeMvjn3ovkWnl3nitvrOSpzE1RH9GAPccMsJv9wCkgO3cYWN31wvVuC4JJjzLP/oq5
-         TUCqEiqp3F/N5aVOi14evzoWzVKAxfyKD7ctY/vuVpLF4AN8TJkghqxbfa06jFb1E+XB
-         YDHw==
-X-Gm-Message-State: AAQBX9e4RhBuZ/73v/0yROqFyp1b7l1Mk/0URurv9bPCK2HQTQgQaNXB
-	b3YgG43JIA7ztMj9KILIRg==
-X-Google-Smtp-Source: AKy350aq3VPWA15tx1n6E49zmy3RkR1NktVBHF5gEUF8eyy7/Xi1FV1SIuOuPtHLw9y69YkT7Ji2hQ==
-X-Received: by 2002:a9d:7a96:0:b0:6a6:4538:dde7 with SMTP id l22-20020a9d7a96000000b006a64538dde7mr6955629otn.28.1682448967987;
-        Tue, 25 Apr 2023 11:56:07 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id bt8-20020a05683039c800b0069f951899e1sm6071450otb.24.2023.04.25.11.56.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Apr 2023 11:56:07 -0700 (PDT)
-Received: (nullmailer pid 2081284 invoked by uid 1000);
-	Tue, 25 Apr 2023 18:56:06 -0000
-Date: Tue, 25 Apr 2023 13:56:06 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: devicetree@vger.kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH RESEND] dt-bindings: riscv: add sv57 mmu-type
-Message-ID: <168244896648.2081233.16478595076932550051.robh@kernel.org>
-References: <20230424-rival-habitual-478567c516f0@spud>
+	id 1prOh7-0026Yw-2D;
+	Tue, 25 Apr 2023 19:51:23 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1682452273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=epqrrIP9XVMR1rQYOgUv6OMHFSXsoKyAhdvov9JTG3c=;
+	b=hcfCyrdfQ/+yHnKF3T+I49mLvnN7Y7S69gBRQL7PhhKJcZIQM6dUY5pvAbw4x5UtKBksj5
+	+gNdAWyqbtppxTS6xk/OOGkQEgCKZ50daZMUpYiSsjHUolnRQ63od8fRIwCIy22iqsL7Jz
+	ptuYgLF2Vyi6TxSoYJlRddHoLRBh0aBb/2ut263viqoCn4L8IM34OuGeUFz0vHjf3uDsn9
+	kzIwMYp79iEd+cDm0M3l/TvJoQ8Ebljb98ttQPEip+uioS6jdgokPZm34PxDLgh8kTLkX7
+	Tk0Brm7tWOMbl31MYKpF+X1fNVmxtHUKna8IUJdeJdt+TiqryaL2tjxt/WxUaA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1682452273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=epqrrIP9XVMR1rQYOgUv6OMHFSXsoKyAhdvov9JTG3c=;
+	b=mlbSRhNUu/9kpluKPqwDbDiOM+hdImwLPmR+/CiZOtx2CU7HgipiQ7bg9V2pgBimVEqMmi
+	qqHiWR0zzWYsg/Bg==
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
+ Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, David Woodhouse <dwmw@amazon.co.uk>,
+ Usama Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ xen-devel@lists.xenproject.org, Russell King <linux@armlinux.org.uk>, Arnd
+ Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
+ linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 22/37] arm64: smp: Switch to hotplug core state
+ synchronization
+In-Reply-To: <ZD1q3TF2ixVD1f2M@FVFF77S0Q05N>
+References: <20230414225551.858160935@linutronix.de>
+ <20230414232310.569498144@linutronix.de> <ZD1q3TF2ixVD1f2M@FVFF77S0Q05N>
+Date: Tue, 25 Apr 2023 21:51:12 +0200
+Message-ID: <87ttx3zqof.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230424-rival-habitual-478567c516f0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230425_115610_219052_6C7C92F9 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20230425_125121_863542_4926A57A 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +94,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 17 2023 at 16:50, Mark Rutland wrote:
+> On Sat, Apr 15, 2023 at 01:44:49AM +0200, Thomas Gleixner wrote:
+> I gave this a spin on arm64 (in a 64-vCPU VM on an M1 host), and it seems to
+> work fine with a bunch of vCPUs being hotplugged off and on again randomly.
+>
+> FWIW:
+>
+> Tested-by: Mark Rutland <mark.rutland@arm.com>
+>
+> I also hacked the code to have the dying CPU spin forever before the call to
+> cpuhp_ap_report_dead(). In that case I see a warning, and that we don't call
+> arch_cpuhp_cleanup_dead_cpu(), and that the CPU is marked as offline (per
+> /sys/devices/system/cpu/$N/online).
 
-On Mon, 24 Apr 2023 18:05:43 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Dumping the dtb from new versions of QEMU warns that sv57 is an
-> undocumented mmu-type. The kernel has supported sv57 for about a year,
-> so bring it into the fold.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Resending with the missing CCs.
-> Palmer, you can take this for 6.4 if you want, otherwise I'll grab it
-> after the merge window. I doubt there's a rush when it's been missing
-> for a year or so.
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+Nice!
 
-Acked-by: Rob Herring <robh@kernel.org>
+> As a tangent/aside, we might need to improve that for confidential compute
+> architectures, and we might want to generically track cpus which might still be
+> using kernel text/data. On arm64 we ensure that via our cpu_kill() callback
+> (which'll use PSCI CPU_AFFINITY_INFO), but I'm not sure if TDX and/or SEV-SNP
+> have a similar mechanism.
+>
+> Otherwise, a malicious hypervisor can pause a vCPU just before it leaves the
+> kernel (e.g. immediately after the arch_cpuhp_cleanup_dead_cpu() call), wait
+> for a kexec (or resuse of stack memroy), and unpause the vCPU to cause things
+> to blow up.
 
+There are a gazillion ways for a malicious hypervisor to blow up a
+'squint enough to be confident' guest.
+
+The real question is whether it can utilize such a blow up to extract
+confidential information from the guest.
+
+If not then it's just yet another way of DoS which is an "acceptable"
+attack as it only affects availability but not confidentiality.
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
