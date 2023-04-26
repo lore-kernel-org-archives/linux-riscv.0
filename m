@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCAEC77B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 14:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B140C7618E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 14:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=uUnt51TrcRbLNi+6YZR4PLNblJrD6Bjp8fgusNCaBlM=; b=01iawVYqSTAK2DsbOc10BiKLh2
-	eaeEz/aF820DgtPZ2VqcYXTXd4S+FAo/Z8Fl5cJ8QtPdAKKZivWj1S9/yXe2azVh7HvCupja4NBsy
-	17Up8e7wC1uPCezVc0utcUYvK7hD17tpwD2I780/O2FGeystWe23UCXrgVJP+qX8Mw/0DsZUA9WyY
-	nAPuqoIfaF+nRxNAOAuCY+ksMoV2wwQH6xKspmjSA6IBD/V6mE7CoUBZmkGXllwGbKU3jo6YLbIr/
-	cul7fEXtZnLd5T3SDUNOALGsNXqVzsKZtrgqfW87jeFwd+DmFTw/oDxuvdmg1thvGyzLRey4VspxS
-	0xu6Dcyg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sQwKcIvCz4/SY/npFGVexA/89jZkOpTu7zbA6klsRyA=; b=PlijtTetRxWsJKrM9XiRipeKSN
+	5PXBVqjHBwUKHjTTfH4MpaqpPRotQuflBCbsOPZMq4VBBDs8abmJpK2Eu5Ukhy1u+WePtRsCQNYSJ
+	iaXIT2U0La/oKanRtfcv2c/G9daCAwPCu2ZqUwCubUPqqhut+mzMbKAfA0XEEHIrOsptoF53sq3Wq
+	kwDsqP6zQv68MOwtTHlGKMG8Co56xuMKZ2k/ikR/pI9r+pCjljtc54HA/yTAnvBY8UnRrF2Txesl4
+	ytQMybkkQP2zdJauPrIfbfyzs36MOt/bzEUifdzbD08sK5JdlLvDnnUc/8qy9llj0lyYGsiX+x0fW
+	qyVGln+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prgA2-004Cz5-2y;
-	Wed, 26 Apr 2023 14:30:22 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1prgHW-004DmB-37;
+	Wed, 26 Apr 2023 14:38:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prg9z-004Cwv-3C
+	id 1prgHU-004Dlf-0v
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 14:30:21 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1a69f686345so56725255ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 07:30:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682519417; x=1685111417;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6wSK8TbXG/D57t5FR6NzDPZIasD2O4lYbvKihJBPvU8=;
-        b=s9Teh+sZjLWfqdiD6ZTZnd6LVSgj88Y9ZrC0GvXtRUCi2L4nGDIW23V1ooSbAOZdqB
-         Q78YwKP314TOWyV7pYcgpVNwSqnF3siF7d0dKNqVdZ/AbpBfSyLUUhSAZnTjWxZ9MtqM
-         srbn9oKNlVlzYcYfN4KaG2e1GKRCBpmcm6cQ2Bu/kgNTPHXTUIcgXAVAePXZFJgjRQbG
-         doo9L7jSBcZHPVHj5ffGCyrlnzehe6LoqjvpohcQ5BZSpitr029CQ/J2Zvs5Q2+DEu/I
-         Qa8B9ySo6Azzbpgmgt4Eq2mgJFz3cZJG6jOjmMI5w9C7eroorBW83Xpcti8uRmjje3/N
-         9bgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682519417; x=1685111417;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6wSK8TbXG/D57t5FR6NzDPZIasD2O4lYbvKihJBPvU8=;
-        b=bwtcZ/p0G/CMOGHec78u0PJJOWP2m6C0lo4RhdLfPHr8t97dCXSnNfYie4fX+G10M8
-         jl9ygKTY7yZ0r0PHA+DwjHRpe8PJ4jrjTxJgERUyNNbNVqJr20jvDUT8jUvhKhde9D/D
-         JDiyr76WssWc5BSh9cW6D/R1cGtoB1RUkEjTBsd+MTxVzhECNXgJD+ax3OsVlXD9kjsk
-         jUvNKdjRnlkBP7QhCIQGy5HqU+XSzRweMST2eHvEQq0Ts2QzmNQVbdQ+qmHtvVQ5pxNQ
-         ihWHUkUQOCs+Zp+Cxhls+bvOdRU/oFUO5mMzXluMpV+y7Keg7Tgln0Ne92isDJfPVrl7
-         5rvw==
-X-Gm-Message-State: AAQBX9fZr+HPRLla60twL0ZaX1NttJstJ/c+2z/ohBeIwuxalz6a+4Ao
-	J9fM9OHIgNLWarmcfcyvI/cb00/nsVv3gOJh2oU=
-X-Google-Smtp-Source: AKy350ZudvAt+f2Ag8RAzsSUTJHDK0TPS7JYyzwc1yLSgSG+PezWLhWivD1IQ5LUF5DC4t3a2LLa/w==
-X-Received: by 2002:a17:902:e80a:b0:1a8:32e:3256 with SMTP id u10-20020a170902e80a00b001a8032e3256mr26229422plg.35.1682519416796;
-        Wed, 26 Apr 2023 07:30:16 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id 5-20020a170902c24500b001a92aa516basm10075468plg.210.2023.04.26.07.30.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 07:30:16 -0700 (PDT)
-Date: Wed, 26 Apr 2023 07:30:16 -0700 (PDT)
-X-Google-Original-Date: Wed, 26 Apr 2023 07:30:09 PDT (-0700)
-Subject: Re: [PATCH RESEND] dt-bindings: riscv: add sv57 mmu-type
-In-Reply-To: <168244896648.2081233.16478595076932550051.robh@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, robh+dt@kernel.org,
-  krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: robh@kernel.org
-Message-ID: <mhng-3f7fe3ac-fda9-4adb-bf63-7f6fb1715a60@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Wed, 26 Apr 2023 14:38:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A24806113E;
+	Wed, 26 Apr 2023 14:38:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA709C433D2;
+	Wed, 26 Apr 2023 14:38:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1682519883;
+	bh=dr0cteJtfRf944fSh9DIHS+31fvUAvv7+UGLnnA5V7Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dgQokHmmQ0CtrnRZKCnswWsOXGxUJtp46PY1mb6jUc1ZaYuv7vZYdbNFYUabDaW+b
+	 2hE1KDBHNxzQNiHb+pXQVN6ylNr75F27HH7T3sqpK8GcwOw1KeoEAxtBTfQnfPPazl
+	 849rV3yU7cNU6Mv3eQqhVBopcOQnTwdcz2UY1Fpk73Lidn/Haqc6GeAEyoBU8ZlaZD
+	 lrwIPOqMtz+gu0SgdaC5JAPFaHZdRx9xmUzVRFmBKUAfeKusQWzJLJghlW9FDdhxfw
+	 0DelwlQ/SQlOIr1LrVzXMdpFy/Y5S3M5s1iwft8+C/6mc9pPOZ+1wPAQ+nZq2WAiSF
+	 gu0kE7ELvFZRA==
+Date: Wed, 26 Apr 2023 15:37:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Wende Tan <twd2.me@gmail.com>, Soha Jin <soha@lohu.info>,
+	Hongren Zheng <i@zenithal.me>, Yangyu Chen <cyy@cyyself.name>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 1/2] RISC-V: skip parsing multi-letter extensions
+ starting with caps
+Message-ID: <20230426-getting-tactile-e6cee2cdf870@spud>
+References: <20230426-satin-avenging-086d4e79a8dd@wendy>
+ <20230426-devalue-enlarging-afb4fa1bb247@wendy>
+ <zzxnphgq34d7pbbvjaoxal4i3mtn57x7avujr2brb3ddxorzno@3fsb57layf7m>
+ <20230426-slinky-preface-0f40f3fefb0f@wendy>
+ <d7t6nxmblmyqriogs4bxakpse3qc7pc6cczjnhmkpk4kjwvgcb@3aihh3erdn6p>
+ <2pqjxrn7cj6lvlw5ulzgewvnswwocibufkzrh43jftsrboeuxp@efiwrvukn33v>
+MIME-Version: 1.0
+In-Reply-To: <2pqjxrn7cj6lvlw5ulzgewvnswwocibufkzrh43jftsrboeuxp@efiwrvukn33v>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_073020_028380_7383527C 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20230426_073804_418217_F2CB8FBC 
+X-CRM114-Status: GOOD (  50.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +79,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1410130258658612876=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Apr 2023 11:56:06 PDT (-0700), robh@kernel.org wrote:
->
-> On Mon, 24 Apr 2023 18:05:43 +0100, Conor Dooley wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> Dumping the dtb from new versions of QEMU warns that sv57 is an
->> undocumented mmu-type. The kernel has supported sv57 for about a year,
->> so bring it into the fold.
->>
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->> Resending with the missing CCs.
->> Palmer, you can take this for 6.4 if you want, otherwise I'll grab it
->> after the merge window. I doubt there's a rush when it's been missing
->> for a year or so.
->> ---
->>  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
->>  1 file changed, 1 insertion(+)
->>
->
-> Acked-by: Rob Herring <robh@kernel.org>
 
-Sorry for missing thist the first time around, I just picked it up.  
-It's in staging, barring any breakages it'll end up on for-next soon.
+--===============1410130258658612876==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Ord/D1S6y8Zth5Bw"
+Content-Disposition: inline
+
+
+--Ord/D1S6y8Zth5Bw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 26, 2023 at 03:54:55PM +0200, Andrew Jones wrote:
+> On Wed, Apr 26, 2023 at 03:08:25PM +0200, Andrew Jones wrote:
+> > On Wed, Apr 26, 2023 at 01:47:39PM +0100, Conor Dooley wrote:
+> > > On Wed, Apr 26, 2023 at 02:18:52PM +0200, Andrew Jones wrote:
+> > > > On Wed, Apr 26, 2023 at 11:43:24AM +0100, Conor Dooley wrote:
+> > > > > Yangyu Chen reported that if an multi-letter extension begins wit=
+h a
+> > > > > capital letter the parser will treat the remainder of that multi-=
+letter
+> > > > > extension as single-letter extensions.
+> > > >=20
+> > > > I think the problem is that the parser doesn't completely abort when
+> > > > it sees something it doesn't understand. Continuing is risky since
+> > > > it may be possible to compose an invalid string that gets the parser
+> > > > to run off the rails.
+> > >=20
+> > > Usually I am of the opinion that we should not seek the validate the =
+dt
+> > > in the kernel, since there are tools for doing so *cough* dt-validate
+> > > *cough*. This one seemed like low hanging fruit though, since the par=
+ser
+> > > handles having capital letters in any of the other places after the
+> > > rv##, but falls over pretty badly for this particular issue.
+> > >=20
+> > > In general, I don't think we need to be concerned about anything that
+> > > fails dt-validate though, you kinda need to trust that that is correc=
+t.
+> > > I'd argue that we might even do too much validation in the parser at
+> > > present.
+> > > Is there some attack vector, or ACPI related consideration, that I am
+> > > unaware of that makes this risky?
+>=20
+> A bit unrelated to this, but your mention of ACPI made me go look at the
+> approved ECR[1] again for the ISA string. It says "Null-terminated ASCII
+> Instruction Set Architecture (ISA) string for this hart. The format of the
+> ISA string is defined in the RISC-V unprivileged specification." I suppose
+> we can still add additional requirements to an ACPI ISA string which the
+> Linux kernel will parse, but it'll be odd to point people at the DT
+> binding to do that. Maybe we should consider making the parser more
+> complete, possibly by importing it from some reference implementation or
+> something.
+
+Heh, I wonder are we heading for some divergence here then. riscv,isa in
+a DT is explicitly *not* a match for that due to the
+backwards-incompatible changes made by RVI to extension definitions
+since riscv,isa was added to the dt-binding. Clarifying that one is the
+next patch in my todo list..
+
+ACPI naively saying "it matches the spec" is asking for trouble, since
+there does not actually appear to be any sort of clarification about
+which *version* of the spec that may be. At least in the dt-binding, we
+have a format there, what happens to the ACPI spec if RVI decides that -
+is a suitable alternative to _ in some future edition? I don't think
+such a thing is all that likely, but surely you'd like to insulate the
+ABI from that sort of eventuality?
+
+Perhaps the thing to do is to actually take Yangyu's first patch and my
+second one, since the problem with backwards compatibility doesn't stop
+the kernel from being more permissive?
+
+Cheers,
+Conor.
+
+>=20
+> [1] https://drive.google.com/file/d/1nP3nFiH4jkPMp6COOxP6123DCZKR-tia/view
+>=20
+> Thanks,
+> drew
+>=20
+> >=20
+> > C language + string processing =3D=3D potential attack vector
+> >=20
+> > >=20
+> > > > How about completely aborting, noisily, when the string doesn't mat=
+ch
+> > > > expectations, falling back to a default string such as rv64ima inst=
+ead.
+> > > > That also ought to get faster corrections of device trees.
+> > >=20
+> > > I did this first actually, but I was afraid that it would cause
+> > > regressions?
+> > >=20
+> > > If you have riscv,isa =3D "rv64imafdc_Zifencei_zicbom", yes that is
+> > > invalid and dt-validate would have told you so, but at present that
+> > > would be parsed as "rv64imafdc_zicbom" which is a perfect description=
+ of
+> > > the hardware in question (since the meaning of i was set before RVI m=
+ade
+> > > a hames of things).
+> > >=20
+> > > So that's why I opted to not do some sort of pr_err/BUG()/WARN() and
+> > > try to keep processing the string. I'm happy to abort entirely on
+> > > reaching a capital if people feel there's unlikely to be a fallout fr=
+om
+> > > that.
+> >=20
+> > There might be fallout, but the kernel needs to defend itself. IMO, if
+> > the kernel doesn't know how to parse something, then it should stop
+> > trying to immediately, either with a BUG(), refusing to accept any
+> > part of it, by fallbacking back to a default, or by only accepting what
+> > it believes it parsed correctly.
+> >=20
+> > The third option is probably a reasonable choice in this case.
+> >=20
+> > Thanks,
+> > drew
+
+--Ord/D1S6y8Zth5Bw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEk3RgAKCRB4tDGHoIJi
+0uM8AQCibCv7WrTPZ1J0u+thunBCTol3UzmrJkAjCwdOi2qSxQD/ed3gnl6zmwFO
+BZbYYXJmaxipAZgFkr+5I177BHgoowE=
+=eqgS
+-----END PGP SIGNATURE-----
+
+--Ord/D1S6y8Zth5Bw--
+
+
+--===============1410130258658612876==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1410130258658612876==--
+
