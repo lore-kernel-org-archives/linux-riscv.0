@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F351EC7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 07:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C64C7618E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 07:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KzHP2tJ9S7efxq4bA4O1fqPfXgiw9QJ6FqzS521tAmM=; b=CDraDQQSaCArNx
-	Fp99CfOjORPb3jJqwSvYmZfeF3hh7kwr9d9SelaRGLVf8XKZIINVaRqTvQyJCXm6Nhjb9RHD6EPH8
-	dd+Kmnom8IETNrpWw9l8DuFTRkXuTb944l37TQYN7S+c5upPbwMRETiilYd3kIVc2pu3tINL+Cjg6
-	CHtyPqmA68foyxnDP6zWstWpp8+ssqz2iZmXy8oXxmRDdOlGgA03fIHxVBYMuEpBZriz68/2YhG2h
-	mohvy9vSabHDbyujCg+E9lB7B27BqN+Q/sjBFzkfXDftNyuyllkdD6Q/V6jAi0pQPME+vPQRRbrfn
-	AucB0FbRJmr3EDff7wmQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jQsWYsfwd31VwH0EjkkaibxlzkqPCTwA/cgo29hkvQo=; b=QkxTolXSJCUiKa
+	zewdYLdbwPi8WrNo1UFnkwV0ifsq4kC/vQhAeX9D7DtniKgE7e37yFAn67JJbjpEsC5y2iSkI4Zr/
+	ybS8Rw75tGRsco8QBDEv6KK/js9NJYFpfo9XtF2dWn+cguNzh972v/a2xrZkes5TVM41Bc8IWXeg1
+	esEz9CvsUC32ul7/OVabODZQtJ+hIAcgCzf9VJmPPb0x1JLbcLWbNeCWVt/Kiz/ElMQkgfqRbMlhU
+	qy2GdIG3hfsvYrCwhdxBprQa2KwlrxvVPrfKqQdhP2PL1eeEr2R/zKxSUndR2xRLGjk4xBDR5ptkw
+	OsJDaNRRhsi9pFjzX9Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prZnn-0034sf-0I;
-	Wed, 26 Apr 2023 07:42:59 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prZnj-0034p0-1w
+	id 1pra0l-0036eH-2Z;
+	Wed, 26 Apr 2023 07:56:23 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pra0h-0036ck-2H
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 07:42:58 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-63b620188aeso8068247b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 00:42:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1682494972; x=1685086972;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C36X7PBYU803ZQK1FU7eiGRzdw+WQCze/9eRJF/8+00=;
-        b=IC6fDc25yro72PytcOu2G5j5Th/XQhlmGVC7qt0vdjRonXlE2ITrOMTDVanbbihTUw
-         QiF5Ga3RYOoEUcJKU0w4zcYFbeichVNo4BQm8/h6ReDxlBLuSV2dG4LcoOI/Xcc6tB9A
-         K6L54zLAUkOEOpxAg9rKLi6Iul/xc2jxU2KAl7NZUNvhG4/sFPnjBQE7aiNr5tZ8qTve
-         43NafeZIVgk9i+kKCHiH6MlfKeeHpMd5u2Mg1z6DSzVM0vhwcdqbwff5N+RwRv+5o/cs
-         +/pL2IU4IO2mKZTpwdqiO3M/zMUDqRiZMGcJCHqJC9WSWWQ6F77n541PSrg4yElaoJe6
-         +O4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682494972; x=1685086972;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=C36X7PBYU803ZQK1FU7eiGRzdw+WQCze/9eRJF/8+00=;
-        b=Gay9ijYCjzpW4UXR8ZerHKpfMfIo8Zsl1ELr5UcEi9b5enk7hW9uiarR7kJH4Hc7b8
-         rBeoPOivNysDCLLFpBCQbibkI4f5nInS1fZVt+2HPad8Zkk7zSX7Wj94l51CCSDaEdlX
-         WQRR9bviMmS6s7ps5im7XW74Mgi+JaYhdMetI8lxIL6CXK+1m/L4OXVkGEyLnM9mIO2v
-         drz5MnLACNAj9VGkSeewj4sf1xtH39qQvBIanKFRz/PM+DioriZyqyvl49cSE73xT1Yx
-         MeRoPj7gTlxJjznGYm/LxzX4U5shtoVh78y7F0y0HbzfZ/RbJqKT5m7fTS0jW1b/7g4R
-         aLoA==
-X-Gm-Message-State: AC+VfDysE2ojzRlp/jJMbPXbVCyZqIOMGMlSYcRUrvNpZExSFVANuf49
-	+fEaDfJAB8bCygZRRcQWrFq5SQ==
-X-Google-Smtp-Source: ACHHUZ4D2vDCrmJ2H7aGL62FLepGOi1jInGTMSrOY+khvgUtHZ9aO+t5I6MNSceK+7VemRURbUxpBQ==
-X-Received: by 2002:a05:6a00:10d4:b0:640:f519:e1cc with SMTP id d20-20020a056a0010d400b00640f519e1ccmr3521646pfu.34.1682494971956;
-        Wed, 26 Apr 2023 00:42:51 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id 123-20020a621881000000b00627df85cd72sm10384179pfy.199.2023.04.26.00.42.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 00:42:51 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: vkoul@kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH] dmaengine: xilinx: enable on RISC-V platform
-Date: Wed, 26 Apr 2023 07:42:48 +0000
-Message-Id: <20230426074248.19336-1-zong.li@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	Wed, 26 Apr 2023 07:56:22 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 29180809C;
+	Wed, 26 Apr 2023 15:55:43 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 15:55:43 +0800
+Received: from [192.168.125.124] (113.72.145.137) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 15:55:42 +0800
+Message-ID: <a55a9491-20a8-1f4a-200a-a0f1d7ae03bf@starfivetech.com>
+Date: Wed, 26 Apr 2023 15:55:41 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v2 4/4] riscv: dts: starfive: add tdm node and sound card
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>
+CC: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+	<broonie@kernel.org>, <alsa-devel@alsa-project.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20230420024118.22677-1-walker.chen@starfivetech.com>
+ <20230420024118.22677-5-walker.chen@starfivetech.com>
+ <20230421-dropper-upstage-200ae7e47092@spud>
+ <607f3604-056c-6f3a-b154-0f298b870811@starfivetech.com>
+ <20230424-roundness-everybody-659599d44963@spud>
+ <CAJM55Z9a9N8Zm2cuh8gzZNcYBENO5WE6GmRXOsaYbOcv0srz-Q@mail.gmail.com>
+Content-Language: en-US
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <CAJM55Z9a9N8Zm2cuh8gzZNcYBENO5WE6GmRXOsaYbOcv0srz-Q@mail.gmail.com>
+X-Originating-IP: [113.72.145.137]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_004255_779005_A6A8062F 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230426_005620_055921_88E82E23 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +80,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the xilinx dmaengine driver on RISC-V platform. We have verified
-the CDMA on RISC-V platform, enable this configuration to allow build on
-RISC-V.
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- drivers/dma/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index fb7073fc034f..816f619804b9 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -695,7 +695,7 @@ config XGENE_DMA
- 
- config XILINX_DMA
- 	tristate "Xilinx AXI DMAS Engine"
--	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64)
-+	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64 || RISCV)
- 	select DMA_ENGINE
- 	help
- 	  Enable support for Xilinx AXI VDMA Soft IP.
--- 
-2.17.1
+On 2023/4/26 4:57, Emil Renner Berthing wrote:
+> On Mon, 24 Apr 2023 at 18:27, Conor Dooley <conor@kernel.org> wrote:
+>> On Mon, Apr 24, 2023 at 11:21:11AM +0800, Walker Chen wrote:
+>> >
+>> >
+>> > On 2023/4/22 0:50, Conor Dooley wrote:
+>> > > Hey Walker,
+>> > >
+>> > > On Thu, Apr 20, 2023 at 10:41:18AM +0800, Walker Chen wrote:
+>> > >> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
+>> > >
+>> > > Is this one of these waveshare things + a visionfive 2?
+>> > > https://www.waveshare.com/wm8960-audio-hat.htm
+>> >
+>> > Hey Conor,
+>> > I'm glad to receive your comments.
+>> >
+>> > Now we are using this board + VisionFive2 :
+>> > https://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/
+>> >
+>> > >
+>> > > I'm a bit lost as to why this needs a whole new board, should it not
+>> > > just be an overlay that you can apply to the existing dts?
+>> > >
+>> > > Taking this to an extreme, should I expect to see a new devicetree for
+>> > > everything RPi hat that you decide to use with a VisionFive 2?
+>> >
+>> > For your response, I did some thinking. Because wm8960 codec is not integrated
+>> >  on the VisionFive2 board, perhaps using overlay is a better way.
+>>
+>> Aye. I think so too. From my PoV, if this particular seeed audio board
+>> is something you're bundling with VisionFive 2 boards on your storefront
+>> etc, then I'm fine with taking it as an in-tree overlay.
+>> If it is just a "random" RPi hat (that happens to be exactly what you
+>> need for testing the audio drivers), then I don't know where to draw a
+>> line for what is & what is not acceptable for inclusion.
+>>
+>> In both cases, it's Emil's call.
+> 
+> I'm not aware of any shop bundling the VF2 with an audio board. I
+> agree: please don't add device trees for combinations of VF2s and
+> hats. That should be an overlay.
+> 
+> /Emil
 
+Since you guys agree, so let's do it this way.
+Thanks.
+
+Best regards,
+Walker
 
 _______________________________________________
 linux-riscv mailing list
