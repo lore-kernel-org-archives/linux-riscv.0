@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C96C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 02:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D68C77B60
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 06:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pX9zBJYoQYXBkVNZ0neMIinP8SuRejix5d3pEJVnypA=; b=xce1lfMO02xWSm
-	1C1jthN2YsWrJ1OnqvK13spgQoOiG5DTalXunHOc0I+rjCfe1684dfyXcTA7hjyQ4ys+K/ckoJtB9
-	bwxJV3eu6kVe4wonjolVPCb+/9eEmJR6iOcpp9gzQd4t/gcQceqTdohDs17EwmqNPCDYXNFZadfOL
-	fBvavfkSppCA2bDmnGa7OnbG2uzwa4PlhjlTBVj9T5k6jzuds4sshkdGu83fH+39jFUaSf9p3Yuna
-	R2QE5SsIGfjdHmfmgV0VMhcxokJQWLYqtmrahUL+DqcMYsVhj2PqtUgWU3kbeB1bMaPHDWcSurNyl
-	saUHgcmyyfxV2tiGmgNQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4vyrgfrCGRwWtrLSTLUvHhXh/7+zmI8jpENNUrblNE4=; b=jJ1NdhBHAKFY+8
+	K56Yb1CSRqYEzeDaxZb82XSKKb7VH5OZmihYyklC5Ig8POrAGZI+qWVQQUosUav5ScHSoF/4R9sEH
+	3tCmaOPVM0JR+W0XG1bLcZKm9azM4Zb67XuqOWx1L0VUZzxHOBU01LV1H/gVPeBUt6tZUBKWWe8qe
+	A+ydlTyuQqOWPXITWe3Rpe4JPdfQkVH8614o3sOK+lj2LUwllR6afLXwt8W0V5+tfiYZfMOhF7Pgp
+	u4ynxZ6k/qiQiI/PIfJ3TWlTY9kGgWv74VaNjaGcNVlmzYs4vsM0N3Hk5Gnmr6Afn9btY1nZNqd+h
+	Ps++bZEkZ7r+17iv6l4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prUdy-002dVA-1L;
-	Wed, 26 Apr 2023 02:12:30 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1prZ7g-002zLK-0Z;
+	Wed, 26 Apr 2023 06:59:28 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prUdu-002dTv-1O;
-	Wed, 26 Apr 2023 02:12:29 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1prZ7c-002zH9-0h
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Apr 2023 06:59:27 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B16BC24DF03;
-	Wed, 26 Apr 2023 10:11:50 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
- 2023 10:11:50 +0800
-Received: from [192.168.125.106] (113.72.145.137) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
- 2023 10:11:49 +0800
-Message-ID: <f082999f-e870-9685-98c8-e43bdda67744@starfivetech.com>
-Date: Wed, 26 Apr 2023 10:11:48 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5D68E7FD6;
+	Wed, 26 Apr 2023 14:58:54 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 14:58:54 +0800
+Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 14:58:51 +0800
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>
+CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v6 0/4] crypto: starfive - Add drivers for crypto engine
+Date: Wed, 26 Apr 2023 14:58:44 +0800
+Message-ID: <20230426065848.842221-1-jiajie.ho@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Rob Herring <robh+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
-	<linux-phy@lists.infradead.org>
-References: <20230419-labored-camper-644d51a7ca96@spud>
- <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
- <20230424-baffle-punch-ec73098f2b6a@spud>
- <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
- <20230425-unquote-eligible-09f743d81981@wendy>
- <a7cdfabf-2312-eaf3-f462-5bda7f0a120d@starfivetech.com>
- <68cb565d-bf39-10b0-9e3e-35ba7f54b90b@linaro.org>
- <0988495f-b87a-7f69-f222-37c67d6eae23@starfivetech.com>
- <20230425-resale-footrest-de667778c4fe@wendy>
- <663e9933-b9b3-a48f-98b6-2207215a8ed7@starfivetech.com>
- <20230425-commotion-prewashed-876247bed4ab@spud>
-Content-Language: en-US
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230425-commotion-prewashed-876247bed4ab@spud>
-X-Originating-IP: [113.72.145.137]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
- (172.16.6.72)
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230425_191226_804613_23C5D9C5 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20230425_235924_559766_71480FF1 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +73,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series adds kernel driver support for StarFive JH7110 crypto
+engine. The first patch adds Documentations for the device and Patch 2
+adds device probe and DMA init for the module. Patch 3 adds crypto and
+DMA dts node for VisionFive 2 board. Patch 4 adds hash/hmac support to
+the module.
 
+Patch 3 needs to be applied on top of:
+https://lore.kernel.org/lkml/20230424135409.6648-3-xingyu.wu@starfivetech.com/
 
-On 2023/4/26 0:56, Conor Dooley wrote:
-> On Tue, Apr 25, 2023 at 08:26:35PM +0800, Changhuang Liang wrote:
->> On 2023/4/25 17:35, Conor Dooley wrote:
->>> On Tue, Apr 25, 2023 at 05:18:10PM +0800, Changhuang Liang wrote:
->>>> On 2023/4/25 16:19, Krzysztof Kozlowski wrote:
->>>>> On 25/04/2023 09:57, Changhuang Liang wrote:
->>>>>> Yes, "starfive,jh7110-aon-pmu" is a child-node of "starfive,jh7110-aon-syscon".
->>>>>> In my opinion, "0x17010000" is "aon-syscon" on JH7110 SoC, and this "aon-pmu" is just 
->>>>>> a part of "aon-syscon" function, so I think it is inappropriate to make "aon-syscon"
->>>>>> to a power domain controller. I think using the child-node description is closer to
->>>>>> JH7110 SoC. 
->>>>>
->>>>> Unfortunately, I do not see the correlation between these, any
->>>>> connection. Why being a child of syscon block would mean that this
->>>>> should no be power domain controller? Really, why? These are two
->>>>> unrelated things.
->>>>
->>>> Let me summarize what has been discussed above. 
->>>>
->>>> There has two ways to describe this "starfive,jh7110-aon-syscon"(0x17010000).
->>>> 1. (0x17010000) is power-controller node:
->>>>
->>>> 	aon_pwrc: power-controller@17010000 {
->>>> 		compatible = "starfive,jh7110-aon-pmu", "syscon";
->>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>>> 		#power-domain-cells = <1>;
->>>> 	};
->>>>
->>>>
->>>> 2. (0x17010000) is syscon node, power-controller is child-node of syscon:
->>>>
->>>> 	aon_syscon: syscon@17010000 {
->>>> 		compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
->>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>>>
->>>> 		aon_pwrc: power-controller {
->>>> 			compatible = "starfive,jh7110-aon-pmu";
->>>> 			#power-domain-cells = <1>;
->>>> 		};
->>>> 	};
->>>
->>> I thought that Rob was suggesting something like this:
->>> 	aon_syscon: syscon@17010000 {
->>> 		compatible = "starfive,jh7110-aon-syscon", ...
->>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>> 		#power-domain-cells = <1>;
->>> 	};
-> 
->> I see the kernel:
->> https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8167.dtsi
->> this file line 42:
->> it's power-controller also has no meaningful properties.
->> What do you think?
-> 
-> I'm not sure that I follow. It has a bunch of child-nodes does it not,
-> each of which is a domain?
-> 
-> I didn't see such domains in your dts patch, they're defined directly in
-> the driver instead AFAIU. Assuming I have understood that correctly,
-> your situation is different to that mediatek one?
-> 
-> Cheers,
-> Conor.
+Patch 4 needs to be applied on top of:
+https://lore.kernel.org/linux-crypto/ZEEOXIHwqKblKfBJ@gondor.apana.org.au/T/#u
 
-I think there child-nodes just need to operate some clock signals. Maybe
-we don't need to discuss other platforms.
+Changes v5->v6
+- Remove set_crypt in export as request will have been created by
+  init/updated calls (Herbert)
+- Use new helper to set statesize of crypto_ahash (Herbert)
+- Use crypto_ahash_blocksize instead of crypto_ahash_tfm (Herbert)
+- Switch to init_tfm/exit_tfm instead of cra_init/cra_exit (Herbert)
 
-If Rob's method is confirmed. I will try it next version.
+Changes v4->v5
+- Schedule tasklet from IRQ handler instead of using completion to sync
+  events (Herbert)
 
-Maybe like this:
-aon_syscon: syscon@17010000 {
-	compatible = "starfive,jh7110-aon-syscon", "syscon", "starfive,jh7110-aon-pmu";
-	reg = <0x0 0x17010000 0x0 0x1000>;
-	#power-domain-cells = <1>;
-};
+Changes v3->v4:
+- Use fallback for non-aligned cases as hardware doesn't support
+  hashing piece-meal (Herbert)
+- Use ahash_request_set_* helpers to update members of ahash_request
+  (Herbert)
+- Set callbacks for async fallback (Herbert)
+- Remove completion variable and use dma_callback to do the rest of
+  processing instead. (Herbert)
 
-Rob and krzystof:
+Changes v2->v3:
+- Only implement digest and use fallback for other ops (Herbert)
+- Use interrupt instead of polling for hash complete (Herbert)
+- Remove manual data copy from out-of-bound memory location as it will
+  be handled by DMA API. (Christoph & Herbert)
 
-And I think patch[1][2] need to change. Right? 
+Changes v1->v2:
+- Fixed yaml filename and format (Krzysztof)
+- Removed unnecessary property names in yaml (Krzysztof)
+- Moved of_device_id table close to usage (Krzysztof)
+- Use dev_err_probe for error returns (Krzysztof)
+- Dropped redundant readl and writel wrappers (Krzysztof)
+- Updated commit signed offs (Conor)
+- Dropped redundant node in dts, module set to on in dtsi (Conor)
 
-[1] https://lore.kernel.org/all/20230414024157.53203-6-xingyu.wu@starfivetech.com/
-[2] https://lore.kernel.org/all/20230414024157.53203-7-xingyu.wu@starfivetech.com/
+Jia Jie Ho (4):
+  dt-bindings: crypto: Add StarFive crypto module
+  crypto: starfive - Add crypto engine support
+  riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+  crypto: starfive - Add hash and HMAC support
+
+ .../crypto/starfive,jh7110-crypto.yaml        |  70 ++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  28 +
+ drivers/crypto/Kconfig                        |   1 +
+ drivers/crypto/Makefile                       |   1 +
+ drivers/crypto/starfive/Kconfig               |  21 +
+ drivers/crypto/starfive/Makefile              |   4 +
+ drivers/crypto/starfive/jh7110-cryp.c         | 237 +++++
+ drivers/crypto/starfive/jh7110-cryp.h         | 127 +++
+ drivers/crypto/starfive/jh7110-hash.c         | 896 ++++++++++++++++++
+ 10 files changed, 1392 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+ create mode 100644 drivers/crypto/starfive/Kconfig
+ create mode 100644 drivers/crypto/starfive/Makefile
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.c
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.h
+ create mode 100644 drivers/crypto/starfive/jh7110-hash.c
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
