@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D743C77B60
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 06:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F351EC7618E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 07:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V0TeBk/lEzlxZU98rQGMQYbO2mIa64fE2x/lUTi4DEM=; b=nTXnVxyaSZZeQp
-	vawFzsXsKn0q70tSisT+ewqlDZX8BNmhohJcTVq+A4aPwKa0XpKaoCBMjPArjFKGPkE5GhFMzdkJk
-	ya3hhq5HwgCrM6qRF1pyijahmpEpTWoLZhWhIVqQ/k7RA5HrLTLCtf+V+Ox/QMpsuBdS2VS2O3aSq
-	ZGKEfUQecGC2B7MB/aLUDJkU4uKlCvDpG/PA7YS7jJyY0SJtk+KqHoeGmKi5cfoC2m8f+gleTRCED
-	XMk4ASK3UCS/XDd3vXS1oQTiwPDBr0uo3FXlpwdQF5DwwMRgofJ8j5S8ni6zcbHRel7kXbDS1OEMw
-	DXfczycu+L3EREk5uugQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KzHP2tJ9S7efxq4bA4O1fqPfXgiw9QJ6FqzS521tAmM=; b=CDraDQQSaCArNx
+	Fp99CfOjORPb3jJqwSvYmZfeF3hh7kwr9d9SelaRGLVf8XKZIINVaRqTvQyJCXm6Nhjb9RHD6EPH8
+	dd+Kmnom8IETNrpWw9l8DuFTRkXuTb944l37TQYN7S+c5upPbwMRETiilYd3kIVc2pu3tINL+Cjg6
+	CHtyPqmA68foyxnDP6zWstWpp8+ssqz2iZmXy8oXxmRDdOlGgA03fIHxVBYMuEpBZriz68/2YhG2h
+	mohvy9vSabHDbyujCg+E9lB7B27BqN+Q/sjBFzkfXDftNyuyllkdD6Q/V6jAi0pQPME+vPQRRbrfn
+	AucB0FbRJmr3EDff7wmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prZ7y-002zQ0-28;
-	Wed, 26 Apr 2023 06:59:46 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prZ7w-002zHB-19
+	id 1prZnn-0034sf-0I;
+	Wed, 26 Apr 2023 07:42:59 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1prZnj-0034p0-1w
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 06:59:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6460724E00A;
-	Wed, 26 Apr 2023 14:59:04 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
- 2023 14:59:04 +0800
-Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
- 2023 14:59:01 +0800
-From: Jia Jie Ho <jiajie.ho@starfivetech.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
-	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <kernel@esmil.dk>
-CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v6 3/4] riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
-Date: Wed, 26 Apr 2023 14:58:47 +0800
-Message-ID: <20230426065848.842221-4-jiajie.ho@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230426065848.842221-1-jiajie.ho@starfivetech.com>
-References: <20230426065848.842221-1-jiajie.ho@starfivetech.com>
-MIME-Version: 1.0
-X-Originating-IP: [202.188.176.82]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+	Wed, 26 Apr 2023 07:42:58 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-63b620188aeso8068247b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 00:42:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1682494972; x=1685086972;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C36X7PBYU803ZQK1FU7eiGRzdw+WQCze/9eRJF/8+00=;
+        b=IC6fDc25yro72PytcOu2G5j5Th/XQhlmGVC7qt0vdjRonXlE2ITrOMTDVanbbihTUw
+         QiF5Ga3RYOoEUcJKU0w4zcYFbeichVNo4BQm8/h6ReDxlBLuSV2dG4LcoOI/Xcc6tB9A
+         K6L54zLAUkOEOpxAg9rKLi6Iul/xc2jxU2KAl7NZUNvhG4/sFPnjBQE7aiNr5tZ8qTve
+         43NafeZIVgk9i+kKCHiH6MlfKeeHpMd5u2Mg1z6DSzVM0vhwcdqbwff5N+RwRv+5o/cs
+         +/pL2IU4IO2mKZTpwdqiO3M/zMUDqRiZMGcJCHqJC9WSWWQ6F77n541PSrg4yElaoJe6
+         +O4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682494972; x=1685086972;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=C36X7PBYU803ZQK1FU7eiGRzdw+WQCze/9eRJF/8+00=;
+        b=Gay9ijYCjzpW4UXR8ZerHKpfMfIo8Zsl1ELr5UcEi9b5enk7hW9uiarR7kJH4Hc7b8
+         rBeoPOivNysDCLLFpBCQbibkI4f5nInS1fZVt+2HPad8Zkk7zSX7Wj94l51CCSDaEdlX
+         WQRR9bviMmS6s7ps5im7XW74Mgi+JaYhdMetI8lxIL6CXK+1m/L4OXVkGEyLnM9mIO2v
+         drz5MnLACNAj9VGkSeewj4sf1xtH39qQvBIanKFRz/PM+DioriZyqyvl49cSE73xT1Yx
+         MeRoPj7gTlxJjznGYm/LxzX4U5shtoVh78y7F0y0HbzfZ/RbJqKT5m7fTS0jW1b/7g4R
+         aLoA==
+X-Gm-Message-State: AC+VfDysE2ojzRlp/jJMbPXbVCyZqIOMGMlSYcRUrvNpZExSFVANuf49
+	+fEaDfJAB8bCygZRRcQWrFq5SQ==
+X-Google-Smtp-Source: ACHHUZ4D2vDCrmJ2H7aGL62FLepGOi1jInGTMSrOY+khvgUtHZ9aO+t5I6MNSceK+7VemRURbUxpBQ==
+X-Received: by 2002:a05:6a00:10d4:b0:640:f519:e1cc with SMTP id d20-20020a056a0010d400b00640f519e1ccmr3521646pfu.34.1682494971956;
+        Wed, 26 Apr 2023 00:42:51 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id 123-20020a621881000000b00627df85cd72sm10384179pfy.199.2023.04.26.00.42.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Apr 2023 00:42:51 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: vkoul@kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH] dmaengine: xilinx: enable on RISC-V platform
+Date: Wed, 26 Apr 2023 07:42:48 +0000
+Message-Id: <20230426074248.19336-1-zong.li@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230425_235944_560932_70529EC7 
-X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-CacheID: sfid-20230426_004255_779005_A6A8062F 
+X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,62 +85,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive cryptographic module and dedicated DMA controller node to
-VisionFive 2 SoCs.
+Enable the xilinx dmaengine driver on RISC-V platform. We have verified
+the CDMA on RISC-V platform, enable this configuration to allow build on
+RISC-V.
 
-Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
-Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
-Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 28 ++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ drivers/dma/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4ac159d79d66..591abe57ec31 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -455,5 +455,33 @@ uart5: serial@12020000 {
- 			reg-shift = <2>;
- 			status = "disabled";
- 		};
-+
-+		sdma: dma@16008000 {
-+			compatible = "arm,pl080", "arm,primecell";
-+			arm,primecell-periphid = <0x00041080>;
-+			reg = <0x0 0x16008000 0x0 0x4000>;
-+			interrupts = <29>;
-+			clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
-+				 <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
-+			clock-names = "hclk", "apb_pclk";
-+			resets = <&stgcrg JH7110_STGRST_SEC_TOP_HRESETN>;
-+			lli-bus-interface-ahb1;
-+			mem-bus-interface-ahb1;
-+			memcpy-burst-size = <256>;
-+			memcpy-bus-width = <32>;
-+			#dma-cells = <2>;
-+		};
-+
-+		crypto: crypto@16000000 {
-+			compatible = "starfive,jh7110-crypto";
-+			reg = <0x0 0x16000000 0x0 0x4000>;
-+			clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
-+				 <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
-+			clock-names = "hclk", "ahb";
-+			interrupts = <28>;
-+			resets = <&stgcrg JH7110_STGRST_SEC_TOP_HRESETN>;
-+			dmas = <&sdma 1 2>, <&sdma 0 2>;
-+			dma-names = "tx", "rx";
-+		};
- 	};
- };
+diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
+index fb7073fc034f..816f619804b9 100644
+--- a/drivers/dma/Kconfig
++++ b/drivers/dma/Kconfig
+@@ -695,7 +695,7 @@ config XGENE_DMA
+ 
+ config XILINX_DMA
+ 	tristate "Xilinx AXI DMAS Engine"
+-	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64)
++	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64 || RISCV)
+ 	select DMA_ENGINE
+ 	help
+ 	  Enable support for Xilinx AXI VDMA Soft IP.
 -- 
-2.25.1
+2.17.1
 
 
 _______________________________________________
