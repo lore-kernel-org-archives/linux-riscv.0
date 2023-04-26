@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C080EC77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 17:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A3FC7618E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 17:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VV29TnzOzAZzOBdEqNdmZtbCS8lcmzHUbJYHJyL7xP0=; b=wx274CjyMtZEYn
-	pdXYHDcozD9ks2/gr3/iVWsdm66NW9Pogp40fctP45FYnRcl44O8UYvmFGXZcZEoNJhne+LHMuxGI
-	OLhSbwmEUGMnDUF+66Bf6V1UibBDpu57W1WUmIt1vTqPVak/lu4gv4Jeuv5HrW18PnetdiqKmECB8
-	U4TXcoWhIKf/dYuN1Ak08e90KS32c4r07DItSYGo0GtXZRHziGWI4iKr3eOAZQQ2BHjVfD36Bvj7J
-	795ngsJSbcgExIuBoaMS8fJGamkOLQ4N31tNvtJGKUD9i2ETMV8DOHGr/HpsdBnCHB5Pf/Rda1efl
-	f69MqmqZy25dF6jVAjjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ewvNfVsoeB/hzgtK8tIyj9SP/6Y/+IrXDIisiirFm8k=; b=p4W8nSdbjeyuL73cZ9uKOFZN3N
+	3Q9ciGaVXHdfGLdvAel9l7wcevQ5VPjUcdXW6u39LTo3USjuzLUlr3S3OAvFgOdLdmVekipAp2dQp
+	LC1oxf0E6p6cBfm1ulKPRt4isW1ZxPTIUu6L3qTPeS6vl0+KEYrimeK/UXbrz/BvTyvCCOAVBaMPI
+	0+L1HsfzEZGVvnHNHA3jKERHQWHu9T4OqvHQubYYYuFq1rBM/seNYKb3b+U+3k9p6tgDjntPGZrxq
+	4lkyW5H5SR1awC4Xy1J6g1sMF+diWmlxVV+QBWGDM5HRG1cFCBGaRJSvALSWQTzMSKVB6ZW49Wb4C
+	k1XsX0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prir9-004Vi4-0b;
-	Wed, 26 Apr 2023 17:23:03 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1prjFP-004ZCl-0j;
+	Wed, 26 Apr 2023 17:48:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prir6-004VgC-0N
+	id 1prjFM-004ZBd-2K
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 17:23:01 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-3f1958d3a53so59280185e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 10:22:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682529776; x=1685121776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ao9SULoqOYHe1wb+WsMxHa64A3jFl7Peh/VgaYWCFAg=;
-        b=DY+TC1OCVCIeEXaZllSL/ncia5yNDWJGP/aTOVDKSL0tq6+ubwMc0sCq5FuD/jKtCz
-         fwf5cjrdRcAoOwZQUOiKkDY3XaWDu8iH5fmw2zPoTBz9pAkDbvY9XmbqZlG+O0PmUqWc
-         BST2tAJzl+kEVCqIc72W9YDjuTmEgPy/aaM0pJdCPaoq8AeWzOKfQwC8/cfH9/BdSzJq
-         EibxWzIKO3P2nov+P5jYIEGj0vLX1KLYAouQ/+bCBncbs6u6IdK1M6fX6gbXvjoKaQPD
-         /gMVh4tj6i7mAEL2mRB0fG6UNC+nW/9tYvWW4PJ1lEfTaOsAKpTloZa38KhsfX/kmD/B
-         FNMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682529776; x=1685121776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ao9SULoqOYHe1wb+WsMxHa64A3jFl7Peh/VgaYWCFAg=;
-        b=TkI3GefrtFtPZJEhINde+617IsaYEIeGrtmWBfQEnRtB21hMDDYpb+zfUm6OihLT8+
-         rnrrNtcs93kWlMwAePcUyb/TgqYhgD+SiKPDfXNt8GtcKGVfXJPDH0Txv/llVlJC3NNE
-         MJHMNv2IW3Ybd67bL9ddYwdZhD76PiGLqthOedOAB3903F6d1vEjdIPYS7iORMrQ/xpz
-         5lXEmC7lwC3RWvIywa8X4XrqD2kRULH4RGOVsCxAw6ZhNsOVC9B0/8kiFuiFe9Uailzg
-         2yAJ/P3Qp16ULYQHpKB1xWufeMHTB807ZMV4NyaYeviAlk3bvE1xJe5KJcotfmjg0uXw
-         7LeA==
-X-Gm-Message-State: AAQBX9ejEsT8KRG8Unt/gpGHjHcnm5qujZGQhUz+bF5vruhvwFbaX7b9
-	oykf5RQAHZUxzGHsUos/mM8pig==
-X-Google-Smtp-Source: AKy350YDguXXIY1HG6VKKrSfWSlOGC4ugYT/K42/tDcm149Ha/AaZft7swDj2jvD5mvKlMDbOzXqZA==
-X-Received: by 2002:a05:600c:d1:b0:3f1:6ec5:bc6f with SMTP id u17-20020a05600c00d100b003f16ec5bc6fmr13327077wmm.24.1682529776352;
-        Wed, 26 Apr 2023 10:22:56 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id t16-20020a5d6910000000b002efdf3e5be0sm16435557wru.44.2023.04.26.10.22.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 10:22:55 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Cc: "'Rafael J . Wysocki '" <rafael@kernel.org>,
-	'Will Deacon ' <will@kernel.org>,
-	'Daniel Lezcano ' <daniel.lezcano@linaro.org>,
-	'Mark Rutland ' <mark.rutland@arm.com>,
-	'Atish Patra ' <atishp@atishpatra.org>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Anup Patel ' <anup@brainfault.org>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>
-Subject: [PATCH] RISC-V: Align SBI probe implementation with spec
-Date: Wed, 26 Apr 2023 19:22:54 +0200
-Message-Id: <20230426172254.70342-1-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.39.2
+	Wed, 26 Apr 2023 17:48:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7ED1A60C58;
+	Wed, 26 Apr 2023 17:48:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF50C433EF;
+	Wed, 26 Apr 2023 17:48:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1682531282;
+	bh=fk7z84ZDRTuxrtV5T6AKTWprEt9DRG4mR488JPr6Ydk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s8AmMuAYDyATeiqXa2lVp6as8/aNi+HfVnfO1sVd3UF4wIKSU8vS6ahW+SzfOigm6
+	 jfVpVyI2HKrQ4CMi4gnEahhEhZMV4+ZctNypnUPEVY9U2Qr1TRr5hgPUyR6mwvtoIw
+	 k5Jf2uAddbyXaKIOYTGoa2zq+mnQjsrmYViD9Jggi38/VZGsdNx7LRJ2sxys+VIE9T
+	 JDUP0dE7NlbVvcEKHy5YgozJj3krbGhJi0J07ASM+LLvoxy5iMS+dFNdw+TjWeWRVS
+	 Qzf6XAFvsmopqUt7ZakYgz8FylKMG/LdOXlbzJXbsHfrOaPPAmKhDdOyl5fr8z4Xi/
+	 Wzk2qWzbmDhVw==
+Date: Wed, 26 Apr 2023 18:47:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: ajones@ventanamicro.com, conor.dooley@microchip.com,
+	devicetree@vger.kernel.org, i@zenithal.me, krzk+dt@kernel.org,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, robh+dt@kernel.org, soha@lohu.info,
+	twd2.me@gmail.com
+Subject: Re: [PATCH v1 1/2] RISC-V: skip parsing multi-letter extensions
+ starting with caps
+Message-ID: <20230426-candy-deceiver-b3ff230bf7f6@spud>
+References: <20230426-getting-tactile-e6cee2cdf870@spud>
+ <tencent_0F23181FB02085B690E30BEE4BCC49087506@qq.com>
 MIME-Version: 1.0
+In-Reply-To: <tencent_0F23181FB02085B690E30BEE4BCC49087506@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_102300_155758_CCB90181 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20230426_104804_866389_FDEBBDF6 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,157 +73,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1126048646879817164=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-sbi_probe_extension() is specified with "Returns 0 if the given SBI
-extension ID (EID) is not available, or 1 if it is available unless
-defined as any other non-zero value by the implementation."
-Additionally, sbiret.value is a long. Fix the implementation to
-ensure any nonzero long value is considered a success, rather
-than only positive int values.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/sbi.h        |  2 +-
- arch/riscv/kernel/cpu_ops.c         |  2 +-
- arch/riscv/kernel/sbi.c             | 17 ++++++++---------
- arch/riscv/kvm/main.c               |  2 +-
- drivers/cpuidle/cpuidle-riscv-sbi.c |  2 +-
- drivers/perf/riscv_pmu_sbi.c        |  2 +-
- 6 files changed, 13 insertions(+), 14 deletions(-)
+--===============1126048646879817164==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="m4pwzNwa0/gzzfck"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 945b7be249c1..119355485703 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -296,7 +296,7 @@ int sbi_remote_hfence_vvma_asid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long asid);
--int sbi_probe_extension(int ext);
-+long sbi_probe_extension(int ext);
- 
- /* Check if current SBI specification version is 0.1 or not */
- static inline int sbi_spec_is_0_1(void)
-diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
-index 8275f237a59d..eb479a88a954 100644
---- a/arch/riscv/kernel/cpu_ops.c
-+++ b/arch/riscv/kernel/cpu_ops.c
-@@ -27,7 +27,7 @@ const struct cpu_operations cpu_ops_spinwait = {
- void __init cpu_set_ops(int cpuid)
- {
- #if IS_ENABLED(CONFIG_RISCV_SBI)
--	if (sbi_probe_extension(SBI_EXT_HSM) > 0) {
-+	if (sbi_probe_extension(SBI_EXT_HSM)) {
- 		if (!cpuid)
- 			pr_info("SBI HSM extension detected\n");
- 		cpu_ops[cpuid] = &cpu_ops_sbi;
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 5c87db8fdff2..015ce8eef2de 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -581,19 +581,18 @@ static void sbi_srst_power_off(void)
-  * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-  * @extid: The extension ID to be probed.
-  *
-- * Return: Extension specific nonzero value f yes, -ENOTSUPP otherwise.
-+ * Return: 1 or an extension specific nonzero value if yes, 0 otherwise.
-  */
--int sbi_probe_extension(int extid)
-+long sbi_probe_extension(int extid)
- {
- 	struct sbiret ret;
- 
- 	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, extid,
- 			0, 0, 0, 0, 0);
- 	if (!ret.error)
--		if (ret.value)
--			return ret.value;
-+		return ret.value;
- 
--	return -ENOTSUPP;
-+	return 0;
- }
- EXPORT_SYMBOL(sbi_probe_extension);
- 
-@@ -665,26 +664,26 @@ void __init sbi_init(void)
- 	if (!sbi_spec_is_0_1()) {
- 		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
- 			sbi_get_firmware_id(), sbi_get_firmware_version());
--		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
-+		if (sbi_probe_extension(SBI_EXT_TIME)) {
- 			__sbi_set_timer = __sbi_set_timer_v02;
- 			pr_info("SBI TIME extension detected\n");
- 		} else {
- 			__sbi_set_timer = __sbi_set_timer_v01;
- 		}
--		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
-+		if (sbi_probe_extension(SBI_EXT_IPI)) {
- 			__sbi_send_ipi	= __sbi_send_ipi_v02;
- 			pr_info("SBI IPI extension detected\n");
- 		} else {
- 			__sbi_send_ipi	= __sbi_send_ipi_v01;
- 		}
--		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
-+		if (sbi_probe_extension(SBI_EXT_RFENCE)) {
- 			__sbi_rfence	= __sbi_rfence_v02;
- 			pr_info("SBI RFENCE extension detected\n");
- 		} else {
- 			__sbi_rfence	= __sbi_rfence_v01;
- 		}
- 		if ((sbi_spec_version >= sbi_mk_version(0, 3)) &&
--		    (sbi_probe_extension(SBI_EXT_SRST) > 0)) {
-+		    sbi_probe_extension(SBI_EXT_SRST)) {
- 			pr_info("SBI SRST extension detected\n");
- 			pm_power_off = sbi_srst_power_off;
- 			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 41ad7639a17b..c923c113a129 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -75,7 +75,7 @@ static int __init riscv_kvm_init(void)
- 		return -ENODEV;
- 	}
- 
--	if (sbi_probe_extension(SBI_EXT_RFENCE) <= 0) {
-+	if (!sbi_probe_extension(SBI_EXT_RFENCE)) {
- 		kvm_info("require SBI RFENCE extension\n");
- 		return -ENODEV;
- 	}
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index be383f4b6855..c6b599167036 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -613,7 +613,7 @@ static int __init sbi_cpuidle_init(void)
- 	 * 2) SBI HSM extension is available
- 	 */
- 	if ((sbi_spec_version < sbi_mk_version(0, 3)) ||
--	    sbi_probe_extension(SBI_EXT_HSM) <= 0) {
-+	    !sbi_probe_extension(SBI_EXT_HSM)) {
- 		pr_info("HSM suspend not available\n");
- 		return 0;
- 	}
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 70cb50fd41c2..4f3ac296b3e2 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -924,7 +924,7 @@ static int __init pmu_sbi_devinit(void)
- 	struct platform_device *pdev;
- 
- 	if (sbi_spec_version < sbi_mk_version(0, 3) ||
--	    sbi_probe_extension(SBI_EXT_PMU) <= 0) {
-+	    !sbi_probe_extension(SBI_EXT_PMU)) {
- 		return 0;
- 	}
- 
--- 
-2.39.2
 
+--m4pwzNwa0/gzzfck
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Apr 27, 2023 at 01:11:00AM +0800, Yangyu Chen wrote:
+> Hi,
+>=20
+> On Wed, 26 Apr 2023 15:37:58 +0100, Conor Dooley wrote:
+> > Perhaps the thing to do is to actually take Yangyu's first patch and my
+> > second one, since the problem with backwards compatibility doesn't stop
+> > the kernel from being more permissive?
+>=20
+> How about taking my first patch[1] since the ECR[2] mentioned that
+> the format of the ISA string is defined in the RISC-V unprivileged
+> specification?
+
+That is what I suggested, no? Your 1/2 with a revised subject noting
+that ACPI may need it, rather than talking about DT. See also my
+comments to Drew about the "perils" of letting undefined spec versions
+have control over your ABI.
+
+> However, I think we still need to stop the parser if
+> some characters that the parser is not able to handle as Andrew Jones
+> mentioned in the previous mail[3]. In this case, we still need to add
+> some code to stop parsing if any error happens.
+
+Currently it skips extensions that are not valid, but keeps parsing.
+Apart from the case where SZX are capital letters it "should" either
+parse into something resembling correct or skip. If we start parsing
+in a case-invariant manner, I don't see any immediately problem with
+what we currently have.
+
+I just don't really get what we need to "protect" the kernel from.
+If someone controls the dtb, I think what they do to the isa string is
+probably the least of our worries.
+
+> In my humble opinion, backward compatibility can be solved by backports
+> to LTS kernels.
+
+The binding might lie in Linux, but that does not mean we can fix the
+problem by backporting parser changes to stable. There are other users
+and Linux kernels that would pre-date the change that we would be
+inflicting this relaxation on for no benefit at all. U-Boot for example
+does a case-sensitive comparison.
+
+> I think the better option is to allow using uppercase
+> letters in the device-tree document to make the parser coherent with
+> RISC-V ISA specification but recommend using all lowercase letters for
+> better backward compatibility.
+
+Any addition of uppercase to that binding will get my NAK.
+There is no realistic benefit to doing so, only potential for disruption.
+DT generators should emit DT that complies with bindings =C2=AF\_(=E3=83=84=
+)_/=C2=AF.
+
+I'll go take a proper look at your 1/2 from the other day. I had a
+comment about it that I didn't leave, but will do so now.
+
+Thanks,
+Conor.
+
+--m4pwzNwa0/gzzfck
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEljzQAKCRB4tDGHoIJi
+0j/CAP4vB9GEt6wXZV3/y2wpDsh9PNz9EeiYIB6lwkaSkRslHQD/QQmAtpRfHYqm
+sF6OK6sgzCdm//x1EQj6N52QcKJ67Qo=
+=S3XN
+-----END PGP SIGNATURE-----
+
+--m4pwzNwa0/gzzfck--
+
+
+--===============1126048646879817164==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1126048646879817164==--
+
