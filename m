@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A3FC7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 17:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F9DC7618E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 18:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewvNfVsoeB/hzgtK8tIyj9SP/6Y/+IrXDIisiirFm8k=; b=p4W8nSdbjeyuL73cZ9uKOFZN3N
-	3Q9ciGaVXHdfGLdvAel9l7wcevQ5VPjUcdXW6u39LTo3USjuzLUlr3S3OAvFgOdLdmVekipAp2dQp
-	LC1oxf0E6p6cBfm1ulKPRt4isW1ZxPTIUu6L3qTPeS6vl0+KEYrimeK/UXbrz/BvTyvCCOAVBaMPI
-	0+L1HsfzEZGVvnHNHA3jKERHQWHu9T4OqvHQubYYYuFq1rBM/seNYKb3b+U+3k9p6tgDjntPGZrxq
-	4lkyW5H5SR1awC4Xy1J6g1sMF+diWmlxVV+QBWGDM5HRG1cFCBGaRJSvALSWQTzMSKVB6ZW49Wb4C
-	k1XsX0kg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=GJ9aBgv4iMC52PkNf+idwC+qpQWCMTimrJ3T0ONXcAA=; b=NwW5YhMexXjKTpXJjt6aLk8dWd
+	fz/c6Kwd1IO9tgBRlAfP7+hk92yzGgzb9YJg9uWv1m3fDjD2NaMut911IQ8hg9dI6qn2bL4KMDITB
+	9xANuLb6AtADjp3cArwDEM8WbWXjEe+CmR4h+gB4wWG/2/KFlLAHnRQHSehVAFwzUG1klr89rapSU
+	0zuHSztyGJVLG8gzo7+0RwMan3nJ5am+/xJCBevP3oB3y3XEzfXpVIcmFzGttD79RywgpNYC2fZHs
+	Qr5+g34Z8jftIHmD7kcTg/TGj+U4jBsaylQh2/b9fQTY/Z+rSiGH8KzOVPIOxxqzX984wuBY96naZ
+	5OB6LedQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prjFP-004ZCl-0j;
-	Wed, 26 Apr 2023 17:48:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1prjSC-004aiI-34;
+	Wed, 26 Apr 2023 18:01:20 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prjFM-004ZBd-2K
+	id 1prjS9-004ahH-24
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 17:48:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7ED1A60C58;
-	Wed, 26 Apr 2023 17:48:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF50C433EF;
-	Wed, 26 Apr 2023 17:48:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682531282;
-	bh=fk7z84ZDRTuxrtV5T6AKTWprEt9DRG4mR488JPr6Ydk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s8AmMuAYDyATeiqXa2lVp6as8/aNi+HfVnfO1sVd3UF4wIKSU8vS6ahW+SzfOigm6
-	 jfVpVyI2HKrQ4CMi4gnEahhEhZMV4+ZctNypnUPEVY9U2Qr1TRr5hgPUyR6mwvtoIw
-	 k5Jf2uAddbyXaKIOYTGoa2zq+mnQjsrmYViD9Jggi38/VZGsdNx7LRJ2sxys+VIE9T
-	 JDUP0dE7NlbVvcEKHy5YgozJj3krbGhJi0J07ASM+LLvoxy5iMS+dFNdw+TjWeWRVS
-	 Qzf6XAFvsmopqUt7ZakYgz8FylKMG/LdOXlbzJXbsHfrOaPPAmKhDdOyl5fr8z4Xi/
-	 Wzk2qWzbmDhVw==
-Date: Wed, 26 Apr 2023 18:47:58 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: ajones@ventanamicro.com, conor.dooley@microchip.com,
-	devicetree@vger.kernel.org, i@zenithal.me, krzk+dt@kernel.org,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org, soha@lohu.info,
-	twd2.me@gmail.com
-Subject: Re: [PATCH v1 1/2] RISC-V: skip parsing multi-letter extensions
- starting with caps
-Message-ID: <20230426-candy-deceiver-b3ff230bf7f6@spud>
-References: <20230426-getting-tactile-e6cee2cdf870@spud>
- <tencent_0F23181FB02085B690E30BEE4BCC49087506@qq.com>
-MIME-Version: 1.0
-In-Reply-To: <tencent_0F23181FB02085B690E30BEE4BCC49087506@qq.com>
+	Wed, 26 Apr 2023 18:01:19 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-63d2ba63dddso5901850b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 11:01:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682532074; x=1685124074;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c/AvOGvFjJZtRiTzQkto3Esn+bIc3Zq2R6q57+PVw+Q=;
+        b=zQKXmf3WReCtx/hQXD1AMP3N0rPn0mT3owkWbY1kgGkCFXWeiVEBq415SA37Onj3nm
+         G3ilcE3q3WzCzPQ4Y5P9Phqb412l44WqRjAAJXRzS8zkdjubFdPVHdIFIABzQ3UYWumG
+         JBNwAKQlOMMxB+0W+MnluCQUT4vL/MoTIEsyd+JsYKIt+//ruimak0HJ1yFb+R1V6Jhg
+         TxMLTYghRexf19s+RtMbDj+wMXRg28m8VZroqKGJiB/jHVTpOVmBCNLKozi2rcjhucN2
+         de8MGHC6SvOLPiOMilXBWztHQ/TwB5gPoeMuoGvIDFTPHdEvfip6+GWk7yQVkr4Kcw/r
+         Yt8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682532074; x=1685124074;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c/AvOGvFjJZtRiTzQkto3Esn+bIc3Zq2R6q57+PVw+Q=;
+        b=T0Zdcc1OEolkJA5V+ziPldUZNE+lZYgFTfCCsA3BBz76zBG4culjoQKN74Vln6Oe8w
+         vzv09aCAyA2oG+DjhzVQDV3FGKMBmWuTJXOPekyh71brQkV2NOSzZ8L3KYpe4GTLqs4X
+         xFhgjcMMyrTCKRtkFS6gTYRNF8DhV0AknoTpCY5bN2RHI1B0vF2BNACNx2E3DdExBwgq
+         U6eoZUs+4eb4OqUc+q1R3+N5caec9uP++cIxrsiavlgDgP7Q6U1c4dbAvZkHwsMvu7Rp
+         Pi8nSZJtmE5s/v2HyBGqKGXc4+06UKJqQs23bQrvsdCL71XcCrMbbEN24ct7Sbld/AWA
+         4NBg==
+X-Gm-Message-State: AAQBX9fWJaqBSYTEfp/Nd1ZSDm03wFY25CQGUVjyRYslEcJbz12zUKBt
+	m2B3rFls1wn7hBzR2nJg3C6p7w==
+X-Google-Smtp-Source: AKy350bmGfldtggaIFTdKiYkcB67Uuzs3JkDTN59pFUhhlPkYTX7BmvCymTKn87B2FoTzvQen+MlUA==
+X-Received: by 2002:a05:6a00:2e0d:b0:63b:1708:10aa with SMTP id fc13-20020a056a002e0d00b0063b170810aamr30661317pfb.34.1682532074471;
+        Wed, 26 Apr 2023 11:01:14 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id t3-20020a056a00138300b006338e0a9728sm11583929pfg.109.2023.04.26.11.01.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Apr 2023 11:01:13 -0700 (PDT)
+Date: Wed, 26 Apr 2023 11:01:13 -0700 (PDT)
+X-Google-Original-Date: Wed, 26 Apr 2023 11:00:59 PDT (-0700)
+Subject: Re: [PATCH v6 00/13] Add OPTPROBES feature on RISCV
+In-Reply-To: <14608847-C2F3-4C5A-9801-34DAC933E895@mails.ucas.ac.cn>
+CC: bjorn@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, rostedt@goodmis.org, mingo@redhat.com, Stephen Rothwell <sfr@canb.auug.org.au>,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, liaochang1@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: chenguokai17@mails.ucas.ac.cn
+Message-ID: <mhng-00aab15d-560a-4d46-b6c7-ab11eb52a7a7@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_104804_866389_FDEBBDF6 
-X-CRM114-Status: GOOD (  27.71  )
+X-CRM114-CacheID: sfid-20230426_110117_899370_F0C5EDF5 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,103 +87,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1126048646879817164=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1126048646879817164==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="m4pwzNwa0/gzzfck"
-Content-Disposition: inline
-
-
---m4pwzNwa0/gzzfck
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 27, 2023 at 01:11:00AM +0800, Yangyu Chen wrote:
-> Hi,
->=20
-> On Wed, 26 Apr 2023 15:37:58 +0100, Conor Dooley wrote:
-> > Perhaps the thing to do is to actually take Yangyu's first patch and my
-> > second one, since the problem with backwards compatibility doesn't stop
-> > the kernel from being more permissive?
->=20
-> How about taking my first patch[1] since the ECR[2] mentioned that
-> the format of the ISA string is defined in the RISC-V unprivileged
-> specification?
-
-That is what I suggested, no? Your 1/2 with a revised subject noting
-that ACPI may need it, rather than talking about DT. See also my
-comments to Drew about the "perils" of letting undefined spec versions
-have control over your ABI.
-
-> However, I think we still need to stop the parser if
-> some characters that the parser is not able to handle as Andrew Jones
-> mentioned in the previous mail[3]. In this case, we still need to add
-> some code to stop parsing if any error happens.
-
-Currently it skips extensions that are not valid, but keeps parsing.
-Apart from the case where SZX are capital letters it "should" either
-parse into something resembling correct or skip. If we start parsing
-in a case-invariant manner, I don't see any immediately problem with
-what we currently have.
-
-I just don't really get what we need to "protect" the kernel from.
-If someone controls the dtb, I think what they do to the isa string is
-probably the least of our worries.
-
-> In my humble opinion, backward compatibility can be solved by backports
-> to LTS kernels.
-
-The binding might lie in Linux, but that does not mean we can fix the
-problem by backporting parser changes to stable. There are other users
-and Linux kernels that would pre-date the change that we would be
-inflicting this relaxation on for no benefit at all. U-Boot for example
-does a case-sensitive comparison.
-
-> I think the better option is to allow using uppercase
-> letters in the device-tree document to make the parser coherent with
-> RISC-V ISA specification but recommend using all lowercase letters for
-> better backward compatibility.
-
-Any addition of uppercase to that binding will get my NAK.
-There is no realistic benefit to doing so, only potential for disruption.
-DT generators should emit DT that complies with bindings =C2=AF\_(=E3=83=84=
-)_/=C2=AF.
-
-I'll go take a proper look at your 1/2 from the other day. I had a
-comment about it that I didn't leave, but will do so now.
-
-Thanks,
-Conor.
-
---m4pwzNwa0/gzzfck
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEljzQAKCRB4tDGHoIJi
-0j/CAP4vB9GEt6wXZV3/y2wpDsh9PNz9EeiYIB6lwkaSkRslHQD/QQmAtpRfHYqm
-sF6OK6sgzCdm//x1EQj6N52QcKJ67Qo=
-=S3XN
------END PGP SIGNATURE-----
-
---m4pwzNwa0/gzzfck--
-
-
---===============1126048646879817164==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1126048646879817164==--
-
+T24gTW9uLCAzMCBKYW4gMjAyMyAwNjozODo0MiBQU1QgKC0wODAwKSwgY2hlbmd1b2thaTE3QG1h
+aWxzLnVjYXMuYWMuY24gd3JvdGU6Cj4gSGkgQmrDtnJuLAo+Cj4KPgo+PiAyMDIz5bm0MeaciDMw
+5pelIDIwOjMx77yMQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4g5YaZ6YGT77yaCj4+
+Cj4+IENoZW4gR3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFpbHMudWNhcy5hYy5jbj4gd3JpdGVzOgo+
+Pgo+Pj4gQWRkIGp1bXAgb3B0aW1pemF0aW9uIHN1cHBvcnQgZm9yIFJJU0MtVi4KPj4KPj4gSSdk
+IGxpa2UgdG8gdGFrZSB0aGUgc2VyaWVzIGZvciBhIHNwaW4sIGJ1dCBJJ20gaGF2aW5nIHRyb3Vi
+bGUgYXBwbHlpbmcKPj4gdGhlIHRoZSBwYXRjaGVzOyBXaGF0IGJhc2UgY29tbWl0IGRpZCB5b3Ug
+dXNlPyBPciBwb2ludCBtZSB0byBhIGdpdAo+PiByZXBvLgo+Cj4gSSBnZW5lcmF0ZWQgdGhpcyBw
+YXRjaCBzZXJpZXMgYmFzZWQgb24gbmV4dC0yMDIzMDEyNyB0YWcKPgo+Pgo+PiAoSXQncyBuaWNl
+IHRvIHVzZSAiLS1iYXNlIiB0byBnaXQtZm9ybWF0LXBhdGNoLikKPgo+IEkgd2lsbCB0YWtlIHRo
+aXMgcGFyYW1ldGVyIGluIGFueSBmb2xsb3dpbmcgcmV2aXNpb25zLCB0aGFua3MhCgpKdXN0IGNo
+ZWNraW5nIHVwIG9uIHRoaXMgb25lLCBpdCdzIGdvdCBzb21lIGZlZWRiYWNrIHRoYXQgc2VlbXMg
+CnJlYXNvbmFibGUuICBTb3JyeSBpZiBJIG1pc3NlZCB0aGUgdjcsIGJ1dCBJJ20gZHJvcHBpbmcg
+dGhlIHY2IGZyb20gCnBhdGNod29yay4KCklmIHRoZXJlJ3Mgbm8gdjcgb24gdGhlIGxpc3RzIGl0
+J3MgcHJvYmFibHkgdG9vIGxhdGUgZm9yIDYuNCwgc28gbm8gCnJ1c2ggb24gbXkgZW5kLgoKVGhh
+bmtzIQoKPgo+Pgo+Pgo+PiBUaGFua3MhCj4+IEJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
