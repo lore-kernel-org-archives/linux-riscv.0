@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B360C7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 18:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2745AC77B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 18:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=FmWVPm5Phu0+PKnwKcB5TXO8qw3Ah3gFakg3iXQ+L/U=; b=ulTcXeSA9TqA1s03KIDZo04aug
-	QtcLiHjLcC3T3BjqjMEPBcHYc4WUQ3hawspFOm7WAWqPBgqD+GWPWXwS0S6yoYmfIDwooWB9fMxPr
-	y/u+JvIJ3AiOwESMC8MJ5mGasWKgWAPkOows8eYx+8NMgIpIoTgJvCQ3G57Ds8EVxUcoaAI8lq/1y
-	PrSkMUD/VAU4EiJ0X4ZbaGqdL3eGFPYt6+2NANUtbW/qQp2BvVIanw0OLd/MvXgLasc4D40PbllkZ
-	GaozzZyocDXPB2AYrdA6bZNWBRkc7FsrYre+fVrLIKsdZhZVUgO3NEiVooGpnmrnFM5jtGKSR8mJ4
-	URUZjabQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ukqIDP0MtKqb8+3134+qgVdYx3OjycAROLhl/zpAUQk=; b=tSZWSv+9XIUUGP0IqdvTlh4Nm9
+	eef+o2aywJdMLl/HDgWgb5d2QyuVQXNc1FQ3fnzsZAKgHErHwMMk61DRNQ0o9o0v1ppuVGS8DcMLQ
+	1vuhB0BkgM79Goy2/KVNvrzBzwsucJNA49uy6LSxxHGeHs3tbo7mkc8N2jBXL4ei99HSLC7k8qAIb
+	k3nn6MUanJrVEkyofUY5gVTWlNZC5xMEcxEA3XeNijn23fzo4GRhO3Ybi536RwPkKMZVJPqXBzGDU
+	mv/xqF84WstWlZxg90GKp1F3fgXdfDwDB415t3oBa/9ZQ9sV2KPFzj2ct51aBtdufoiGY5xELdX7A
+	ccpd91kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prk8b-004e1Q-0h;
-	Wed, 26 Apr 2023 18:45:09 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1prkHw-004efX-0U;
+	Wed, 26 Apr 2023 18:54:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prk8X-004dzz-1U
+	id 1prkHt-004ef0-0D
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 18:45:06 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-52867360efcso2166327a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 11:45:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682534703; x=1685126703;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=W8X9QIdG4Ip5y9y13sVSAOZfIX4bMSFLSP6fvMFKbKI=;
-        b=pudR6w2sMYaPRbOA7YCNd1nXsK3n1NGjv1R7Q9HFR2gTFGztwnNIB5tTbbTV5SdJ3q
-         Lrm9H0UtTXrx20/sfZM9daDQutjpUALtt2UBHlXi09a7x5xweFuc6YjmpDwnAcy79qhT
-         oS9vAYCHEzf7XWsXJXMMuaVDO0NaE/Wxjs56ryvH5Oxt8Xla7Lg3U/ngtGmQj38Uvp1k
-         8ctb/S35RfnY+L9kHpDrkI9C8UV2KQVcary3H1xQfWY5wSrJMZ+02s5cRAv52Ef9BKXF
-         q/gz+oIP5uOPRMD5iNhwygrma7IyAM4k0uNnzj72xYnpgvAxxJ/7e3eB4F3gW+Xlie3D
-         Rlgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682534703; x=1685126703;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W8X9QIdG4Ip5y9y13sVSAOZfIX4bMSFLSP6fvMFKbKI=;
-        b=Mcd3QOjtaj1jRrcbLgbr4FTQfPv33qvjLhLQshRvrX5PaSMlxMDbaOh7hJjhFgbZ04
-         8vKRTIwkBVrchrwjg17KH0elFaxJrPL/NuWwPeSHv9eyMsZqfu4Uxc4eBhgiIQmTVwRs
-         6tB2h12Jr+Fws/ZNnnA6T73/YkSmatboXC8/FlXLCRivFgSp+WV6LQM4YcESGQ28GgAp
-         f0Ff+YT/3vVjex7v4F5vnA4rf7RUSGEEAipmvdfSwIAKTqRY2ExyLKpU/vKmzmvEPd8r
-         XrFQhVb23KVML1X8wy6qqx6gJa+13SUSOICz0INTYb9Jm8j5ox3Ke8hOYd+/HXUqIHnH
-         yyDA==
-X-Gm-Message-State: AAQBX9ezyZbKq0MXRtrQgNa3UmCL6TbH7VM9rKF+GfsYoGZ/JQ/rH89V
-	OvecbuBAbUz1dq2yAulPF34k1A==
-X-Google-Smtp-Source: AKy350Zxbo8zr4FSe2VzWFsKoxcfkfCx7R5z9jnLJN8dWKNQN0YLmoodj0Tq/TNnwolsDiM3siDcVw==
-X-Received: by 2002:a05:6a20:2443:b0:f0:3e57:f42a with SMTP id t3-20020a056a20244300b000f03e57f42amr29047614pzc.44.1682534703116;
-        Wed, 26 Apr 2023 11:45:03 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id b6-20020a63d806000000b005143d3fa0e0sm10115035pgh.2.2023.04.26.11.45.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 11:45:02 -0700 (PDT)
-Date: Wed, 26 Apr 2023 11:45:02 -0700 (PDT)
-X-Google-Original-Date: Wed, 26 Apr 2023 11:44:12 PDT (-0700)
-Subject: Re: [PATCH V4 09/23] drivers/acpi: RISC-V: Add RHCT related code
-In-Reply-To: <20230404182037.863533-10-sunilvl@ventanamicro.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: sunilvl@ventanamicro.com
-Message-ID: <mhng-c1242642-931b-4585-8c65-02a0ec5e6a84@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Wed, 26 Apr 2023 18:54:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 37B06617DA;
+	Wed, 26 Apr 2023 18:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910F8C433EF;
+	Wed, 26 Apr 2023 18:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1682535283;
+	bh=1244+LblrFizCZDlgmbjafyhpDTt7m0+WhrVmHZ7ZB0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C1x7p9cFrElu7gHJdkxP2gQg77whBQsmRYjRwXnWsXu1dFFJRYJF7hT+jkyL7+VCR
+	 5expmSLYcS2mbQuSVod/Cp6WfJl0Nmdk7Bl6jcewVVFYQK38WxNDcpNCX6ETwAuKgp
+	 V/kMx6QADJ5skoTK+eSKGKV2x4P0vvMv03GIUw/UY8N2SkosSVKitHfDUQDEmUFpYv
+	 OnuSlWcLysi0SgrWgQrRXw5ayB6VmiO3Lu8BAa81We6rzJac2AJIS59OPGnlyqZMbT
+	 KjM7yXiXDrp8m3y7tH3eEVnySWiHW5MHK9WNEpexXmFzL+HTbzUa3XXr9MKWsZB5nE
+	 JmRfTa5rMXnNQ==
+Date: Wed, 26 Apr 2023 19:54:39 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Wende Tan <twd2.me@gmail.com>,
+	Soha Jin <soha@lohu.info>, Hongren Zheng <i@zenithal.me>,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH 1/2] riscv: allow case-insensitive ISA string parsing
+Message-ID: <20230426-porthole-wronged-d5a6a3b89596@spud>
+References: <20230425120016.187010-1-cyy@cyyself.name>
+ <tencent_63090269FF399AE30AC774848C344EF2F10A@qq.com>
+MIME-Version: 1.0
+In-Reply-To: <tencent_63090269FF399AE30AC774848C344EF2F10A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_114505_499909_8C7AED9B 
-X-CRM114-Status: GOOD (  28.41  )
+X-CRM114-CacheID: sfid-20230426_115445_187622_90FE66C4 
+X-CRM114-Status: GOOD (  36.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,160 +73,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: rafael.j.wysocki@intel.com, linux-doc@vger.kernel.org, trix@redhat.com, llvm@lists.linux.dev, platform-driver-x86@vger.kernel.org, linux-riscv@lists.infradead.org, qianweili@huawei.com, herbert@gondor.apana.org.au, corbet@lwn.net, Marc Zyngier <maz@kernel.org>, daniel.lezcano@linaro.org, linux-acpi@vger.kernel.org, lenb@kernel.org, aou@eecs.berkeley.edu, markgross@kernel.org, hdegoede@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, nathan@kernel.org, ndesaulniers@google.com, linux-kernel@vger.kernel.org, wangzhou1@hisilicon.com, linux-crypto@vger.kernel.org, rafael@kernel.org, ajones@ventanamicro.com, luzmaximilian@gmail.com, davem@davemloft.net
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6264851238866710268=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Apr 2023 11:20:23 PDT (-0700), sunilvl@ventanamicro.com wrote:
-> RHCT is a new table defined for RISC-V to communicate the
-> features of the CPU to the OS. Create a new architecture folder
-> in drivers/acpi and add RHCT parsing code.
->
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/acpi.h |  9 ++++
->  drivers/acpi/Makefile         |  2 +
->  drivers/acpi/riscv/Makefile   |  2 +
->  drivers/acpi/riscv/rhct.c     | 83 +++++++++++++++++++++++++++++++++++
->  4 files changed, 96 insertions(+)
->  create mode 100644 drivers/acpi/riscv/Makefile
->  create mode 100644 drivers/acpi/riscv/rhct.c
->
-> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> index 1606dce8992e..2b3e78d5a13b 100644
-> --- a/arch/riscv/include/asm/acpi.h
-> +++ b/arch/riscv/include/asm/acpi.h
-> @@ -61,6 +61,15 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
->
->  struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
->  u32 get_acpi_id_for_cpu(int cpu);
-> +int acpi_get_riscv_isa(struct acpi_table_header *table,
-> +		       unsigned int cpu, const char **isa);
-> +#else
-> +static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
-> +				     unsigned int cpu, const char **isa)
-> +{
-> +	return -EINVAL;
-> +}
-> +
->  #endif /* CONFIG_ACPI */
->
->  #endif /*_ASM_ACPI_H*/
-> diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
-> index feb36c0b9446..3fc5a0d54f6e 100644
-> --- a/drivers/acpi/Makefile
-> +++ b/drivers/acpi/Makefile
-> @@ -131,3 +131,5 @@ obj-y				+= dptf/
->  obj-$(CONFIG_ARM64)		+= arm64/
->
->  obj-$(CONFIG_ACPI_VIOT)		+= viot.o
-> +
-> +obj-$(CONFIG_RISCV)		+= riscv/
-> diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-> new file mode 100644
-> index 000000000000..8b3b126e0b94
-> --- /dev/null
-> +++ b/drivers/acpi/riscv/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-y 	+= rhct.o
-> diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-> new file mode 100644
-> index 000000000000..ea78d906a0fe
-> --- /dev/null
-> +++ b/drivers/acpi/riscv/rhct.c
-> @@ -0,0 +1,83 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2022-2023, Ventana Micro Systems Inc
-> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
-> + *
-> + */
-> +
-> +#define pr_fmt(fmt)	"ACPI: RHCT: " fmt
-> +
-> +#include <linux/acpi.h>
-> +
-> +static struct acpi_table_header *acpi_get_rhct(void)
-> +{
-> +	static struct acpi_table_header *rhct;
-> +	acpi_status status;
-> +
-> +	/*
-> +	 * RHCT will be used at runtime on every CPU, so we
-> +	 * don't need to call acpi_put_table() to release the table mapping.
-> +	 */
-> +	if (!rhct) {
-> +		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
-> +		if (ACPI_FAILURE(status)) {
-> +			pr_warn_once("No RHCT table found\n");
-> +			return NULL;
-> +		}
-> +	}
-> +
-> +	return rhct;
-> +}
-> +
-> +/*
-> + * During early boot, the caller should call acpi_get_table() and pass its pointer to
-> + * these functions(and free up later). At run time, since this table can be used
-> + * multiple times, NULL may be passed in order to use the cached table.
-> + */
-> +int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa)
-> +{
-> +	struct acpi_rhct_node_header *node, *ref_node, *end;
-> +	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
-> +	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
-> +	struct acpi_rhct_hart_info *hart_info;
-> +	struct acpi_rhct_isa_string *isa_node;
-> +	struct acpi_table_rhct *rhct;
-> +	u32 *hart_info_node_offset;
-> +	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> +
-> +	BUG_ON(acpi_disabled);
-> +
-> +	if (!table) {
-> +		rhct = (struct acpi_table_rhct *)acpi_get_rhct();
-> +		if (!rhct)
-> +			return -ENOENT;
-> +	} else {
-> +		rhct = (struct acpi_table_rhct *)table;
-> +	}
-> +
-> +	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->header.length);
-> +
-> +	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
-> +	     node < end;
-> +	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
-> +		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
-> +			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
-> +			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
-> +			if (acpi_cpu_id != hart_info->uid)
-> +				continue;
-> +
-> +			for (int i = 0; i < hart_info->num_offsets; i++) {
-> +				ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
-> +							rhct, hart_info_node_offset[i]);
-> +				if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
-> +					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
-> +								ref_node, size_hdr);
-> +					*isa = isa_node->isa;
-> +					return 0;
-> +				}
-> +			}
-> +		}
-> +	}
-> +
-> +	return -1;
-> +}
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+--===============6264851238866710268==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="o5UhWic4q0tLxtVM"
+Content-Disposition: inline
+
+
+--o5UhWic4q0tLxtVM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+(+CC Drew)
+
+Hey Yangyu,
+
+One meta-level comment - can you submit this patch + my dt-bindings
+patch as a v2?
+Some comments below.
+
+On Tue, Apr 25, 2023 at 08:00:15PM +0800, Yangyu Chen wrote:
+> According to RISC-V ISA specification, the ISA naming strings are case
+> insensitive. The kernel docs require the riscv,isa string must be all
+> lowercase to simplify parsing currently. However, this limitation is not
+> consistent with RISC-V ISA Spec.
+
+Please remove the above and cite ACPI's case-insensitivity as the
+rationale for this change.
+
+> This patch modifies the ISA string parser in the kernel to support
+> case-insensitive ISA string parsing. It replaces `strncmp` with
+> `strncasecmp`, replaces `islower` with `isalpha`, and wraps the
+> dereferenced char in the parser with `tolower`.
+>=20
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  arch/riscv/kernel/cpu.c        |  6 ++++--
+>  arch/riscv/kernel/cpufeature.c | 20 ++++++++++----------
+>  2 files changed, 14 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 8400f0cc9704..531c76079b73 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -4,6 +4,7 @@
+>   */
+> =20
+>  #include <linux/cpu.h>
+> +#include <linux/ctype.h>
+>  #include <linux/init.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/of.h>
+> @@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *node,=
+ unsigned long *hart)
+>  		pr_warn("CPU with hartid=3D%lu has no \"riscv,isa\" property\n", *hart=
+);
+>  		return -ENODEV;
+>  	}
+> -	if (isa[0] !=3D 'r' || isa[1] !=3D 'v') {
+> +	if (tolower(isa[0]) !=3D 'r' || tolower(isa[1]) !=3D 'v') {
+>  		pr_warn("CPU with hartid=3D%lu has an invalid ISA of \"%s\"\n", *hart,=
+ isa);
+>  		return -ENODEV;
+
+I don't understand why this is even here in the first place. I'd be
+inclined to advocate for it's entire removal. Checking *only* that there
+is an "rv" in that string seems pointless to me. If you're on a 64-bit
+kernel and the node has riscv,isa =3D "rv32ima" it's gonna say it is okay?
+Drew what do you think?
+
+>  	}
+> @@ -228,7 +229,8 @@ static void print_isa(struct seq_file *f, const char =
+*isa)
+> =20
+>  	seq_puts(f, "isa\t\t: ");
+>  	/* Print the rv[64/32] part */
+> -	seq_write(f, isa, 4);
+> +	for (i =3D 0; i < 4; i++)
+> +		seq_putc(f, tolower(isa[i]));
+
+As was pointed out elsewhere, we shouldn't parse the dt to construct
+this in the first place. We know what kernel we are running on, so we
+should instead do write "rv" into the string & do:
+	string =3D "rv"
+	if IS_ENABLED(32-bit):
+		isa.append("32")
+	else
+		isa.append("64")
+
+See the link below, and Drew's comment on that:
+https://lore.kernel.org/all/20230424194911.264850-3-heiko.stuebner@vrull.eu/
+I'm fine with this change for now in isolation, but it ideally will be
+replaced with something that doesn't touch the DT/ACPI for this
+information.
+
+>  	for (i =3D 0; i < sizeof(base_riscv_exts); i++) {
+>  		if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
+>  			/* Print only enabled the base ISA extensions */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 59d58ee0f68d..c01dd144addc 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -120,10 +120,10 @@ void __init riscv_fill_hwcap(void)
+> =20
+>  		temp =3D isa;
+>  #if IS_ENABLED(CONFIG_32BIT)
+> -		if (!strncmp(isa, "rv32", 4))
+> +		if (!strncasecmp(isa, "rv32", 4))
+>  			isa +=3D 4;
+>  #elif IS_ENABLED(CONFIG_64BIT)
+> -		if (!strncmp(isa, "rv64", 4))
+> +		if (!strncasecmp(isa, "rv64", 4))
+>  			isa +=3D 4;
+>  #endif
+
+If you're already modifying these lines, why not convert the ifdeffery
+into something like
+		if (IS_ENABLED(CONFIG_32BIT) && !strncasecmp(isa, "rv32", 4))
+				isa +=3D 4;
+		else if (!strncasecmp(isa, "rv64", 4))
+				isa +=3D 4;
+
+>  		/* The riscv,isa DT property must start with rv64 or rv32 */
+> @@ -135,7 +135,7 @@ void __init riscv_fill_hwcap(void)
+>  			const char *ext_end =3D isa;
+>  			bool ext_long =3D false, ext_err =3D false;
+> =20
+> -			switch (*ext) {
+> +			switch (tolower(*ext)) {
+
+Is there merit in just converting the entire string to lower-case in the
+first place rather than having to fiddle with every single time we want
+to do a comparison here?
+
+>  			case 's':
+>  				/**
+>  				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
+> @@ -143,7 +143,7 @@ void __init riscv_fill_hwcap(void)
+>  				 * not valid ISA extensions. It works until multi-letter
+>  				 * extension starting with "Su" appears.
+>  				 */
+> -				if (ext[-1] !=3D '_' && ext[1] =3D=3D 'u') {
+> +				if (ext[-1] !=3D '_' && tolower(ext[1]) =3D=3D 'u') {
+>  					++isa;
+>  					ext_err =3D true;
+>  					break;
+> @@ -154,7 +154,7 @@ void __init riscv_fill_hwcap(void)
+>  				ext_long =3D true;
+>  				/* Multi-letter extension must be delimited */
+>  				for (; *isa && *isa !=3D '_'; ++isa)
+> -					if (unlikely(!islower(*isa)
+> +					if (unlikely(!isalpha(*isa)
+>  						     && !isdigit(*isa)))
+
+This collapses to isalnum() I think, no?
+
+Cheers,
+Conor.
+
+>  						ext_err =3D true;
+>  				/* Parse backwards */
+> @@ -166,7 +166,7 @@ void __init riscv_fill_hwcap(void)
+>  				/* Skip the minor version */
+>  				while (isdigit(*--ext_end))
+>  					;
+> -				if (ext_end[0] !=3D 'p'
+> +				if (tolower(ext_end[0]) !=3D 'p'
+>  				    || !isdigit(ext_end[-1])) {
+>  					/* Advance it to offset the pre-decrement */
+>  					++ext_end;
+> @@ -178,7 +178,7 @@ void __init riscv_fill_hwcap(void)
+>  				++ext_end;
+>  				break;
+>  			default:
+> -				if (unlikely(!islower(*ext))) {
+> +				if (unlikely(!isalpha(*ext))) {
+>  					ext_err =3D true;
+>  					break;
+>  				}
+> @@ -188,7 +188,7 @@ void __init riscv_fill_hwcap(void)
+>  				/* Skip the minor version */
+>  				while (isdigit(*++isa))
+>  					;
+> -				if (*isa !=3D 'p')
+> +				if (tolower(*isa) !=3D 'p')
+>  					break;
+>  				if (!isdigit(*++isa)) {
+>  					--isa;
+> @@ -205,7 +205,7 @@ void __init riscv_fill_hwcap(void)
+>  #define SET_ISA_EXT_MAP(name, bit)						\
+>  			do {							\
+>  				if ((ext_end - ext =3D=3D sizeof(name) - 1) &&	\
+> -				     !memcmp(ext, name, sizeof(name) - 1) &&	\
+> +				     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
+>  				     riscv_isa_extension_check(bit))		\
+>  					set_bit(bit, this_isa);			\
+>  			} while (false)						\
+> @@ -213,7 +213,7 @@ void __init riscv_fill_hwcap(void)
+>  			if (unlikely(ext_err))
+>  				continue;
+>  			if (!ext_long) {
+> -				int nr =3D *ext - 'a';
+> +				int nr =3D tolower(*ext) - 'a';
+> =20
+>  				if (riscv_isa_extension_check(nr)) {
+>  					this_hwcap |=3D isa2hwcap[nr];
+> --=20
+> 2.40.0
+>=20
+
+--o5UhWic4q0tLxtVM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZElzbwAKCRB4tDGHoIJi
+0nzaAQDEva9BVfC2SzKp3X/RtwCVr6+CG0NopyF1TtzCC7L5BgEAqpd9cX3Mn8Jt
+lbHPdu/0Z1TmUtmoLrUTKLy9Wcuj4Qg=
+=socc
+-----END PGP SIGNATURE-----
+
+--o5UhWic4q0tLxtVM--
+
+
+--===============6264851238866710268==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6264851238866710268==--
+
