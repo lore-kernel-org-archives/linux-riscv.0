@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 890F6C7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 14:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328B3C77B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 14:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RIFc4kplh3GmE+2RBLajm08vVUWn4uTOeYQdwlN8MO4=; b=2nx1iU9MeB0Bo4
-	3No7ia6e8uUxAUl3Lj9Ux001Jig8cjBnMC6RRoKsxSkq1BbIfdYvDc3I+gPGIYySUOSuXetHydYIT
-	6xrVgq3m9QXjqa6W4QZvc5Nuysh87klBKkRFU7eqwEVC9LZ7ZSziuwp1hOXO1tlFnG4G3rI/5zqoi
-	v36++shahLxEK2ec8oBigIwQDSgxgXVaGgnhiJEs0sN3rW9jeH/kie+7w8aL6FoRdiBalHGcs50Oh
-	9Cu7zm7BQ/H7kH+O9d3GP9femunU9GhqqkahTGldId48AVsBGgkbNSGi32m4QJCnWFY2sxwb5l720
-	jXXrWx+WFEaC9l/l6V3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xgg4fmxj+YbmAWnpk/Mygf+5FVFZ/EjbRiZ3u2HNe28=; b=CGIRW7zCOOdiLe
+	e45/STfrnz+OCN69SpKdEQIePxJY/ursNzeSXHyN/Ye+uSynp3K/a+ZwAPjN1Fqos6j5f3M/Sysy2
+	4hmWuadrMOE2MEyVI86JQvG+h4fAuJwYqTiIswdbV73ez4pg5LCcSJ3ejobFapz86z1SPRGIo41mh
+	Hq59+Fer6Ggl1ceesmBQ507+tieAyc8urdKMZGPg/v4pvLOwGQcYYAfWA5MApQfWj33/zy2mt/s3I
+	OYFnk0bUIGSuZ4KTVUj6jnycU8h9pCBETaOVW03p03j2vgvWq/FZiq0OI/YtHNcFZU++RegFUWa92
+	fKSnmRRCMcPbGljq/0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prftv-004AJ3-0r;
-	Wed, 26 Apr 2023 14:13:43 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1prftx-004AK9-3D;
+	Wed, 26 Apr 2023 14:13:46 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prftt-004AHu-0u
+	id 1prftu-004AIR-1s
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 14:13:42 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f1957e80a2so154392605e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 07:13:40 -0700 (PDT)
+	Wed, 26 Apr 2023 14:13:43 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-3f19afc4f60so31147235e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 07:13:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682518419; x=1685110419;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LHVKBtQv48LRoqvVXa8YO7czF2Cs1L7zHECgcSFHKRY=;
-        b=ltZSFhAkgQSswzIz9rXwXkJqu+Rovdtkw726j0f/GekGpV9KvaBN75KrfaEIlyJqsi
-         xL3R1deWmlh+JBNhbzH7a6RWM4ua/LGoC6DtIBE0bE9yGDftUl87yIDIffu7m94PQt3a
-         rCoCcqqnA8LHYVmK6UhS2nGofVIm180PPDC2eJb0R3tG/OVqjl157lZkRZRRv9ouEX8l
-         B0ueZ1BSJcgn2KsBIPmgJQpXPswGNMVE84FJvrkk8LnsCI4J8w5SUi4eqTz+ii+MDAV/
-         WZQbyW03bnydf0gHdEGGxgDKoguPKROHctMXyEnKdh28JCskHmxyAAM5Z4OhHSeHLWkl
-         3IOw==
+        d=ventanamicro.com; s=google; t=1682518421; x=1685110421;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UKs+1+YzKKzaO+Ak2Le+2SErMtpQd5D7VYynK/VQE1E=;
+        b=AJfHzqMLDvovgvispv3ljdofQNHXMVHb85c3oOYjjLUmiyMytOcA3TOiVESioqYpal
+         4IOeXYZTOt28UYKfPnzfhkppD89NA/tcimqcN4g0icZDBzhtRu4PHJcwe0FrCFQuavy3
+         5ryi9pC0TZaMw+Ym2Su2MZqpRStuhQAlQyI+kvaiVbVzMKnhVH6pzQm7fl3lT84q0ShP
+         U7s0Ag8Jo8S91OyuKa+UM+nsgpGdKVfRyBx4bPnhFi/NAFxnBljIfffjZcklPhPEyKxY
+         Zu5UzszueJf6xWa3MuDKQ2eirxBw11tBIqclARtfY4kxZBlMCJOTUiPVLGK88+Y2xcrE
+         sfgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682518419; x=1685110419;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LHVKBtQv48LRoqvVXa8YO7czF2Cs1L7zHECgcSFHKRY=;
-        b=INpd4oi/voxRqWl5Eq595mXuWlJXcjV+P02k+GhCAge7cWDhT7sljLUpbvM1sV3rCA
-         qO7YZSfkvsK/2fCFvkDCxAg7TCbVsHci8VfQivO23sUOCNC+weWsKKDCll/T8tdNAdlI
-         hNS+JRKY6LtTtCnI4uah02tb3tMdSLFokBaFVxPfqwD6/8+n0E0pHIkPS2ZGYycdjJNP
-         Zm1L0P2jK7h6zDnYHlc6MJzVZZiTr+3iEj/S14HcdvkyCsAy4fMikn9hTUNHRQSmrxFg
-         fqX8hBlp7qARG+eEvQefZeIL6JG6NkBXmW14sVsfXeSYyB9CtNjZdgl8Hk4fZWZsMEeT
-         LBDQ==
-X-Gm-Message-State: AC+VfDz+Cj04uI1RrNsAQHK2m0rshUKeZALOjeWAXk4MUll4FQMsvYjM
-	F+2oNerWWqwFn5hUh1E4VUtP6T5DfExejIPhZZ8=
-X-Google-Smtp-Source: ACHHUZ6m/gNpldsqNDINTcD+jLIee7DOTV1Apz3wVgMG/thtxanWKYtygyhc4K0zTW79DcZ4oIPoDA==
-X-Received: by 2002:a05:600c:190e:b0:3f1:96a8:3560 with SMTP id j14-20020a05600c190e00b003f196a83560mr1913184wmq.10.1682518419565;
-        Wed, 26 Apr 2023 07:13:39 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1682518421; x=1685110421;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UKs+1+YzKKzaO+Ak2Le+2SErMtpQd5D7VYynK/VQE1E=;
+        b=N6Tr6KHBsfIJKOI4PFYwh0XsGZP2lEhJ95plDu3oD9GT/kaJZLXOi0sqyYzVOITX59
+         nsCaxwLqNTCMYgY1R/qFIICOytUoPsNQmqxclD0fSB+Npe6ulEGShZYOTnb5KeWkg7fc
+         jLp/+5IlDnOUa2IIrBTVlj5bHkhOCxOSa/6Ev6zq043t7N98wBGXhDU1fInfcMwhjSEo
+         ApLhBeore1OxZbuGlSBhQMWPiYV/R9s8VH2fgSulI7mwSWhBeOCfsz72zDZOyYJQSgE6
+         4X/hrfUmTCEKu96gcOrDeHn22CToDz9DjUVVLLQ0zn2wnZYKlRzsoldF/eaC7fXbATMd
+         Liig==
+X-Gm-Message-State: AAQBX9cpYe5puB7q0vONMXU4GGWnECaOxE6lI6UzNsMBGGo2jNHkGex3
+	6aaxWDueICsSfktGYDsWShLd/b4/T9Yvhdrr768=
+X-Google-Smtp-Source: AKy350YWPWPpjwpSWJdht7J7CYVx2s5G679X+i75OzFaecfK+LRfrqQy5d6H84pdNArI/M8gkFGcBA==
+X-Received: by 2002:a7b:cb50:0:b0:3f0:683d:224d with SMTP id v16-20020a7bcb50000000b003f0683d224dmr12924312wmj.9.1682518420818;
+        Wed, 26 Apr 2023 07:13:40 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id hg7-20020a05600c538700b003f1940fe278sm14728499wmb.7.2023.04.26.07.13.38
+        by smtp.gmail.com with ESMTPSA id n16-20020a05600c181000b003f046ad52efsm21498928wmp.31.2023.04.26.07.13.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 07:13:39 -0700 (PDT)
+        Wed, 26 Apr 2023 07:13:40 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Evan Green <evan@rivosinc.com>
-Subject: [PATCH 0/2] RISC-V: hwprobe: Couple fixes found on late review
-Date: Wed, 26 Apr 2023 16:13:31 +0200
-Message-Id: <20230426141333.10063-1-ajones@ventanamicro.com>
+Subject: [PATCH 1/2] RISC-V: hwprobe: There can only be one first
+Date: Wed, 26 Apr 2023 16:13:32 +0200
+Message-Id: <20230426141333.10063-2-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230426141333.10063-1-ajones@ventanamicro.com>
+References: <20230426141333.10063-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_071341_316707_63FA77F9 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230426_071342_617060_E0A15EBF 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,17 +94,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I didn't get a chance to take a close look at "[PATCH v6 0/6] RISC-V
-Hardware Probing User Interface" until now. I spotted a couple issues
-while looking and this series collects the fixes.
+Only capture the first cpu_id in order for the comparison
+below to be of any use.
 
-Andrew Jones (2):
-  RISC-V: hwprobe: There can only be one first
-  RISC-V: hwprobe: Explicity check for -1 in vdso init
+Fixes: ea3de9ce8aa2 ("RISC-V: Add a syscall for HW probing")
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kernel/sys_riscv.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
- arch/riscv/kernel/sys_riscv.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 849b4170629d..c569dac7452e 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -103,8 +103,10 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
+ 			break;
+ 		}
+ 
+-		if (first)
++		if (first) {
+ 			id = cpu_id;
++			first = false;
++		}
+ 
+ 		/*
+ 		 * If there's a mismatch for the given set, return -1 in the
 -- 
 2.39.2
 
