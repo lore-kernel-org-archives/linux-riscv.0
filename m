@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3C5C77B60
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 09:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A47AC77B60
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 09:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5RucIt2H9/WwcBp898LCWy0Kg2t0CaDVAsInAgUUd0s=; b=BYBRD/cQq0Jc70
-	Unxpzps9tMEZIQQnd5Ad67agxT8fxBGrlIrlkZ2oEXhtV0PZtlftaVk+G+T4385Mnc+iJ/EB531Jg
-	W8oKBfRnn9EiiFqoCqtWt2xxgkWEBREBwj0HuBe8TRrcS0X+dtwUKfW1JDdS269IkQ7hfCLbuwn3R
-	XLvVmXcrlHxbQQfAJaOwzi4fNYx8EWY5YSy7OT3P4vE0bajqrz7HIulG/zLAmHAmZ8rS2W4DPo/tI
-	roeoC8wehX1kZrbTzkIjVp1E+qO09XCg6zv3TfWGhQz/tAmMXYnP81tPWw6fwYq8EA8NIC1zmCtqc
-	CIS1hIH4Cnvflpeb1+PQ==;
+	List-Owner; bh=zTU6KOj8LGauhzFsq8MXcdrOd3dnJpZ1WqeQPwozl8M=; b=V0EidlEmmQNuVO
+	HGPy23c5IAYEE+SJgJfpWOQBA98T1AU/+L645ydAqF7lIQv6kC8dp4Mw5O3aGFto+WAoKCQwwW0GE
+	EzQ94c1yin7B4aYe/hLnDDVoBavmJc8hSHZ03yCapuaItz2/OWXgp0o97FSvtdlHCpecXOaTLVrup
+	MXdySdSLvHNW7t6AJq7ji98NehLUZ7I9RDcTMIXD6UhEQrUNg80avJIx6/fDi/VeBAhfFPl8cm0s5
+	TAYKa80A1QQ4c31dwpstENVZdN6BRpUGmIPDrXmy9dMqUZrd+OfkLAK+c/ZWyaHUCHLoYmmWSAwCL
+	DtJHfrOuTP+FX8JoN19A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prbdD-003LGI-0k;
-	Wed, 26 Apr 2023 09:40:11 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1prbfj-003LYi-2N;
+	Wed, 26 Apr 2023 09:42:47 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prbd9-003LFs-2z
+	id 1prbfg-003LXb-2d
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 09:40:09 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-2fa0ce30ac2so6209642f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 02:40:07 -0700 (PDT)
+	Wed, 26 Apr 2023 09:42:46 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3f19afc4fbfso47053415e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Apr 2023 02:42:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682502006; x=1685094006;
+        d=ventanamicro.com; s=google; t=1682502162; x=1685094162;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MCMZ2IMJd2Mg7ngIyTYsjSve7eNLUi3UfEwOsJMdk1o=;
-        b=GzOISrM2ope9QrnhxkRH/bKx1q9TCuQyewhfJeCjh5rHwXtt8kn8I99JXMFpnXY2cx
-         UeA6ZgsIuRt499NoBAO8+Mr1fA1w8FtMSbRGLiYGp9oanczxuQCg6s92Kzzp82UyZ6JJ
-         TZyUB1a9sn0Ude8kNNB13sjRSft4PTMPN9RTY08X7QwfIHNkutTYwl7bGfMzxeXF6shR
-         ZcRw/WciBGFTSqYlnjUWfWbULosdWZe0RndS2szzyzVq6xqcoZBBdxjDMMBrHQgqFAhy
-         KRS7LDvLjnZ/Gb/oleR19m9gQSwYI/UfPIFPlyw6VA4kb6+nneCG+e7TF90bnKRO+xW9
-         et5Q==
+        bh=4o+QkHa4ZECUXWnFhhjNfhfQoxMTPZcY0/807WGTYFA=;
+        b=Yf42k4aYvPgdO7ano1B0wsGgQaPFP+4Q44bhZ6N/MLjE930tWoQZAIEv+WLmmpkWST
+         Jc6GaqWgs9EThj0aouyaL2wvfbe0qt6s+jdnJ8qmoDRQT9afhTkYCg9tduzrQLKhdpg1
+         AHnB4nvwUnf6jo7ADmGK30tuhTXLcAzrL3tFQleYos71D9eFAXcTRlhDt/11PceK56lw
+         8WSM33VN8MiOc9PvZlHo+zkfg//nlyPL2fMbWtwwm9e14/rzh+aenrN4yrbPqSz8eKAY
+         FOaft5zu4WV7EOjLuvFFLlOc5Xa1YcdMa6f4oiGaI2V456Jw1fI7Gnj4g7cUUj5y/Juz
+         d4rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682502006; x=1685094006;
+        d=1e100.net; s=20221208; t=1682502162; x=1685094162;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MCMZ2IMJd2Mg7ngIyTYsjSve7eNLUi3UfEwOsJMdk1o=;
-        b=gxO0S3PSvLhhKfa96zscP2Hoe1YwF3Tge138177mM2h24pHw8DIXfRlQoMgL3bjPcO
-         /pfRmrTBVyBWAVpGbmCKCtYnHOexhvcfGQlgVl6/Y/5wZih6Rk0YDJZ5MXsNIK60CBq7
-         LweiYndxjcZpgvOVS34NCUauGkYHpaVtcTbwlWSPxJhZhFvubmkODVcZHhNYgfilrrBe
-         xgdzLfNHQ+mNfAcfPO6lTrytBbKJzOmTjjDrtL+V6zeOxKE8LRgTa6J/FrCmldHuOPMV
-         OkmFm9lL/sLBRutHmoavxTqHNkikDTgquM67B/Vj8mGSJYEpF5MY5xRbr6qbKCrweauC
-         BbVQ==
-X-Gm-Message-State: AAQBX9dUDima0wOIDWpkTpAjlUKnhA4G7+vLUgt7Z3k/Oje+cLlFk5HP
-	IjiWTkArm9tr7PZyBduzo6hRmw==
-X-Google-Smtp-Source: AKy350ZYnYCrMmjZAf8jC517i9hI+fORK7KGyz/IvtmdvWW9MwPZRaq1gyBB7pPl9gyVg2VV2T0qaQ==
-X-Received: by 2002:adf:dc89:0:b0:2c9:e585:84b0 with SMTP id r9-20020adfdc89000000b002c9e58584b0mr13150565wrj.1.1682502006068;
-        Wed, 26 Apr 2023 02:40:06 -0700 (PDT)
+        bh=4o+QkHa4ZECUXWnFhhjNfhfQoxMTPZcY0/807WGTYFA=;
+        b=YdXq7ItSZWS967BhHmVo+ZzMirkV9BDZZ6TpOIXt+XcOhEKtuyn/x3GrVORzDscC88
+         IsmD6PAfvrtIqQKxkUzD3wU3rEmQFlNFBAO0DAC7tOahp3yczH8nibNu4ldBzEgqUfHt
+         VpEtWKeH0XPt+w3atgL3hykXNAn05z3h7YiFm4Lu/EWPMQ6In1ywIZyBm0FDkwj7pnPK
+         Y6powvecfkVFFUvJUZwgEuqzXbS+Hyw8dhJdHdOm1WOf7+Ms4nyGC6uQoGup/Y2DF1t3
+         e+IBmn2gYTldWURn4n4hSefdxAUjZ2qWaVIrQWuT6FVAua0p/ULep7Jd16cfli46hRn6
+         LoFg==
+X-Gm-Message-State: AAQBX9eSaK1RlaJpBdwUxPizwCv2KujQr1aVULfH0zFxsP3sATT1o2cH
+	gdelEeu4VEzwH/+4enIQwhMNRQ==
+X-Google-Smtp-Source: AKy350Ykpo8jydu6WVPx1Al9dnpOQlSH2mS53lJsjcB4yqG8X1CM51CVf/4DqXJMUCm0ARefvJ7NBA==
+X-Received: by 2002:a5d:51d1:0:b0:2f8:ba03:6dec with SMTP id n17-20020a5d51d1000000b002f8ba036decmr14218865wrv.20.1682502162519;
+        Wed, 26 Apr 2023 02:42:42 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id l11-20020a5d674b000000b0030276f42f08sm14021845wrw.88.2023.04.26.02.40.05
+        by smtp.gmail.com with ESMTPSA id m6-20020a5d6246000000b002feea065cc9sm15212318wrv.111.2023.04.26.02.42.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Apr 2023 02:40:05 -0700 (PDT)
-Date: Wed, 26 Apr 2023 11:40:04 +0200
+        Wed, 26 Apr 2023 02:42:42 -0700 (PDT)
+Date: Wed, 26 Apr 2023 11:42:41 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
@@ -70,17 +70,17 @@ Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org,
 	greentime.hu@sifive.com, nick.knight@sifive.com, christoph.muellner@vrull.eu, 
 	philipp.tomsich@vrull.eu, richard.henderson@linaro.org, arnd@arndb.de, 
 	linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH 3/4] RISC-V: export the ISA string of the running machine
- in the aux vector
-Message-ID: <tef7bmjygjiafy3cykdj6uqlkovej5om2xm5rcnbjcqp34e574@hxlta64oagat>
+Subject: Re: [PATCH 4/4] RISC-V: add support for vendor-extensions via
+ AT_BASE_PLATFORM and xthead
+Message-ID: <qvy76yoovf2ug24ckxevweq4lwcxsr6poss3s3qs254mnatue4@cw2arygz7n24>
 References: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
- <20230424194911.264850-4-heiko.stuebner@vrull.eu>
+ <20230424194911.264850-5-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230424194911.264850-4-heiko.stuebner@vrull.eu>
+In-Reply-To: <20230424194911.264850-5-heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_024007_987471_7013A75B 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20230426_024244_873894_B117FF7D 
+X-CRM114-Status: GOOD (  36.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,87 +97,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 24, 2023 at 09:49:10PM +0200, Heiko Stuebner wrote:
+On Mon, Apr 24, 2023 at 09:49:11PM +0200, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > 
-> Already defined aux-vectors regarding the machine type are AT_PLATFORM
-> and AT_BASE_PLATFORM. PPC already uses AT_BASE_PLATFORM to identify the
-> real platform the system is running on, so do a similar thing on RISC-V
-> and export the ISA string of the running machine via this aux-vector
-> element.
+> T-Head cores support a number of own ISA extensions that also include
+> optimized instructions which could benefit userspace to improve
+> performance.
 > 
-> This way userspace can possibly adapt to extensions that allow it to
-> run certain loads more performantly.
+> Extensions supported by current T-Head cores are:
+> * XTheadBa - bitmanipulation instructions for address calculation
+> * XTheadBb - conditional basic bit-manipulation instructions
+> * XTheadBs - instructions to access a single bit in a register
+> * XTheadCmo - cache management operations
+> * XTheadCondMov - conditional move instructions
+> * XTheadFMemIdx - indexed memory operations for floating-point registers
+> * XTheadFmv - double-precision floating-point high-bit data transmission
+>               intructions for RV32
+> * XTheadInt - instructions to reduce the code size of ISRs and/or the
+>               interrupt latencies that are caused by ISR entry/exit code
+> * XTheadMac - multiply-accumulate instructions
+> * XTheadMemIdx - indexed memory operations for GP registers
+> * XTheadMemPair - two-GPR memory operations
+> * XTheadSync - multi-core synchronization instructions
+> 
+> In-depth descriptions of these extensions can be found on
+>     https://github.com/T-head-Semi/thead-extension-spec
+> 
+> Support for those extensions was merged into the relevant toolchains
+> so userspace programs can select necessary optimizations when needed.
+> 
+> So a mechanism to the isa-string generation to export vendor-extension
+> lists via the errata mechanism and implement it for T-Head C9xx cores.
+> 
+> This exposes these vendor extensions then both in AT_BASE_PLATFORM
+> and /proc/cpuinfo.
 > 
 > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
->  arch/riscv/include/asm/elf.h | 10 ++++++++++
->  arch/riscv/kernel/cpu.c      | 12 ++++++++++++
->  2 files changed, 22 insertions(+)
+>  arch/riscv/errata/thead/errata.c     | 43 ++++++++++++++++++++++++++++
+>  arch/riscv/include/asm/alternative.h |  4 +++
+>  arch/riscv/kernel/alternative.c      | 21 ++++++++++++++
+>  arch/riscv/kernel/cpu.c              | 12 ++++++++
+>  4 files changed, 80 insertions(+)
 > 
-> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> index 30e7d2455960..820ef627e83d 100644
-> --- a/arch/riscv/include/asm/elf.h
-> +++ b/arch/riscv/include/asm/elf.h
-> @@ -78,6 +78,16 @@ extern unsigned long elf_hwcap;
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 1036b8f933ec..eb635bf80737 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -15,6 +15,7 @@
+>  #include <asm/errata_list.h>
+>  #include <asm/hwprobe.h>
+>  #include <asm/patch.h>
+> +#include <asm/switch_to.h>
+>  #include <asm/vendorid_list.h>
 >  
->  #define COMPAT_ELF_PLATFORM	(NULL)
+>  static bool errata_probe_pbmt(unsigned int stage,
+> @@ -125,3 +126,45 @@ void __init_or_module thead_feature_probe_func(unsigned int cpu,
+>  	if ((archid == 0) && (impid == 0))
+>  		per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
+>  }
+> +
+> +
+> +char *thead_extension_list_func(unsigned long archid,
+> +				unsigned long impid)
+> +{
+> +	if ((archid == 0) && (impid == 0)) {
+> +		const char *xbase1 = "xtheadba_xtheadbb_xtheadbs_xtheadcmo_xtheadcondmov";
+> +		const char *xbase2 = "_xtheadint_xtheadmac_xtheadmemidx_xtheadmempair_xtheadsync";
+> +		const char *xfpu = "_xtheadfmemIdx";
+> +#ifdef CONFIG_32BIT
+> +		const char *xfpu32 = "_xtheadfmv";
+> +#endif
+> +		int len = strlen(xbase1) + strlen(xbase2);
+> +		char *str;
+> +
+> +		if (has_fpu()) {
+> +			len += strlen(xfpu);
+> +#ifdef CONFIG_32BIT
+> +			len+= strlen(xfpu32);
+> +#endif
+> +		}
+> +
+> +		str = kzalloc(len, GFP_KERNEL);
+> +		if (!str)
+> +			return str;
+> +
+> +		strcpy(str, xbase1);
+> +
+> +		if (has_fpu()) {
+> +			strcat(str, xfpu);
+> +#ifdef CONFIG_32BIT
+> +			strcat(str, xfpu32);
+> +#endif
+> +		}
+> +
+> +		strcat(str, xbase2);
+> +
+> +		return str;
+> +	}
+> +
+> +	return NULL;
+> +}
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> index a8f5cf6694a1..8c9aec196649 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -31,6 +31,7 @@
+>  #define ALT_ALT_PTR(a)			__ALT_PTR(a, alt_offset)
+>  
+>  void __init probe_vendor_features(unsigned int cpu);
+> +char *list_vendor_extensions(void);
+>  void __init apply_boot_alternatives(void);
+>  void __init apply_early_boot_alternatives(void);
+>  void apply_module_alternatives(void *start, size_t length);
+> @@ -55,6 +56,8 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  
+>  void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
+>  			      unsigned long impid);
+> +char *thead_extension_list_func(unsigned long archid,
+> +				unsigned long impid);
+>  
+>  void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  				 unsigned int stage);
+> @@ -62,6 +65,7 @@ void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  #else /* CONFIG_RISCV_ALTERNATIVE */
+>  
+>  static inline void probe_vendor_features(unsigned int cpu) { }
+> +static inline char *list_vendor_extensions(void) { return NULL; }
+>  static inline void apply_boot_alternatives(void) { }
+>  static inline void apply_early_boot_alternatives(void) { }
+>  static inline void apply_module_alternatives(void *start, size_t length) { }
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> index fc65c9293ac5..18913fd1809f 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -29,6 +29,8 @@ struct cpu_manufacturer_info_t {
+>  				  unsigned int stage);
+>  	void (*feature_probe_func)(unsigned int cpu, unsigned long archid,
+>  				   unsigned long impid);
+> +	char *(*extension_list_func)(unsigned long archid,
+> +				    unsigned long impid);
+>  };
+>  
+>  static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info)
+> @@ -54,6 +56,7 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
+>  	case THEAD_VENDOR_ID:
+>  		cpu_mfr_info->patch_func = thead_errata_patch_func;
+>  		cpu_mfr_info->feature_probe_func = thead_feature_probe_func;
+> +		cpu_mfr_info->extension_list_func = thead_extension_list_func;
+>  		break;
+>  #endif
+>  	default:
+> @@ -157,6 +160,24 @@ void __init_or_module probe_vendor_features(unsigned int cpu)
+>  					cpu_mfr_info.imp_id);
+>  }
 >  
 > +/*
-> + * ELF_PLATFORM indicates the ISA supported by the platform, but has
-> + * special meaning to ld.so .
-                              ^ stray space
-
-> + * Expose the ISA string including all usable extensions via
-> + * ELF_BASE_PLATFORM instead and allow userspace to adapt to them
-> + * if needed.
+> + * Lists the vendor-specific extensions common to all cores.
+> + * Returns a new underscore "_" concatenated string that the
+> + * caller is supposed to free after use.
 > + */
-> +#define ELF_BASE_PLATFORM (riscv_base_platform)
-> +extern const char *riscv_base_platform;
+> +char *list_vendor_extensions(void)
+> +{
+> +	struct cpu_manufacturer_info_t cpu_mfr_info;
 > +
->  #ifdef CONFIG_MMU
->  #define ARCH_DLINFO						\
->  do {								\
+> +	riscv_fill_cpu_mfr_info(&cpu_mfr_info);
+> +	if (!cpu_mfr_info.extension_list_func)
+> +		return NULL;
+> +
+> +	return cpu_mfr_info.extension_list_func(cpu_mfr_info.arch_id,
+> +						cpu_mfr_info.imp_id);
+> +
+> +}
+> +
+>  /*
+>   * This is called very early in the boot process (directly after we run
+>   * a feature detect on the boot CPU). No need to worry about other CPUs
 > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 06c2f587a176..71770563199f 100644
+> index 71770563199f..6a0a45b2eb20 100644
 > --- a/arch/riscv/kernel/cpu.c
 > +++ b/arch/riscv/kernel/cpu.c
-> @@ -118,8 +118,12 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
->  	return 0;
->  }
->  
-> +const char *riscv_base_platform = NULL;
-
-No need for the '= NULL'
-
-> +static char *riscv_create_isa_string(void);
-> +
->  static int __init riscv_cpuinfo_init(void)
+> @@ -7,6 +7,7 @@
+>  #include <linux/init.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/of.h>
+> +#include <asm/alternative.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/csr.h>
+>  #include <asm/hwcap.h>
+> @@ -260,6 +261,7 @@ static char *riscv_create_isa_string(void)
 >  {
-> +	char *isa_str;
->  	int ret;
+>  	int maxlen = 4;
+>  	char *isa_str;
+> +	char *vendor_isa;
+>  	int i;
 >  
->  	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
-> @@ -129,6 +133,14 @@ static int __init riscv_cpuinfo_init(void)
->  		return ret;
->  	}
+>  	/* calculate the needed string length */
+> @@ -268,6 +270,10 @@ static char *riscv_create_isa_string(void)
+>  			maxlen++;
+>  	maxlen += strlen_isa_ext();
 >  
-> +	/*
-> +	 * Create the isa-string with the common set of extensions over
-> +	 * all harts, to expose as AT_BASE_PLATFORM in the aux vector.
-> +	 */
-> +	isa_str = riscv_create_isa_string();
-> +	if (!IS_ERR(isa_str))
-> +		riscv_base_platform = isa_str;
+> +	vendor_isa = list_vendor_extensions();
+> +	if (vendor_isa)
+> +		maxlen += strlen(vendor_isa) + 1;
 > +
->  	return 0;
+>  	isa_str = kzalloc(maxlen, GFP_KERNEL);
+>  	if (!isa_str)
+>  		return ERR_PTR(-ENOMEM);
+> @@ -287,6 +293,12 @@ static char *riscv_create_isa_string(void)
+>  
+>  	strcat_isa_ext(isa_str);
+>  
+> +	if(vendor_isa) {
+          ^ need a space
+
+> +		strcat(isa_str, "_");
+> +		strcat(isa_str, vendor_isa);
+> +		kfree(vendor_isa);
+> +	}
+> +
+>  	return isa_str;
 >  }
->  arch_initcall(riscv_cpuinfo_init);
+>  
 > -- 
 > 2.39.0
 >
 
-Otherwise,
+For the extension of riscv_create_isa_string to support vendor lists,
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
