@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191E7C6FD18
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Apr 2023 20:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C96C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 02:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GD45pgEUcTzyHyMIcmZn/ozFYLcEoVJBqg2cqZ1OuCk=; b=WszWvHRSE/HEw/
-	sNaICJbpWgn7QE638UQL1E9PEDA4vZF0pw1g9L242Fe7Q89ScY3A5z0kw7fYNKfuRbxuZx76zU62H
-	r0piRMgWp2Hqc64aZsGwiNKmToOkhkSMSHhJ2y3Kwsc6qcDkwQXZ4wQ5WdI8oWOCvjLDkZOCIteMD
-	Sc/njqoxyqs9kvtq+2mQoptLAjUPBnnWSnzZPiGlXpvGwpqU0WU8l0/CnJ8w7htAfnHcH0XMJQWSr
-	P68MksM6VgJsHP0StwAahon/Ch0ebzlornJlRaU33GDDt4yqwkT/Pl6lacEL3GUCJh9B05MN8XEYr
-	xk3g6O91YVxSdOuStx8g==;
+	List-Owner; bh=pX9zBJYoQYXBkVNZ0neMIinP8SuRejix5d3pEJVnypA=; b=xce1lfMO02xWSm
+	1C1jthN2YsWrJ1OnqvK13spgQoOiG5DTalXunHOc0I+rjCfe1684dfyXcTA7hjyQ4ys+K/ckoJtB9
+	bwxJV3eu6kVe4wonjolVPCb+/9eEmJR6iOcpp9gzQd4t/gcQceqTdohDs17EwmqNPCDYXNFZadfOL
+	fBvavfkSppCA2bDmnGa7OnbG2uzwa4PlhjlTBVj9T5k6jzuds4sshkdGu83fH+39jFUaSf9p3Yuna
+	R2QE5SsIGfjdHmfmgV0VMhcxokJQWLYqtmrahUL+DqcMYsVhj2PqtUgWU3kbeB1bMaPHDWcSurNyl
+	saUHgcmyyfxV2tiGmgNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prPjU-002Ccs-08;
-	Tue, 25 Apr 2023 20:57:52 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prPjR-002Cc5-0n
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Apr 2023 20:57:51 +0000
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 91DCE44284
-	for <linux-riscv@lists.infradead.org>; Tue, 25 Apr 2023 20:57:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1682456263;
-	bh=vgRVIXe+P2Wjfmla/rXAZJKk1sI+D1ImKYegwRHDTks=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=lF5Sautdzi4aTmZZEhABZ735HAgqL37lbgXolZA8GPq0kjci769oTPQjT5IOK8kqJ
-	 rwBqA9hN8WpsRyD/X20FwvrLjG6kZdWG/fRKMy1/uQwfP9qK+pz/xq4Fx0zPJKt4hG
-	 0KA/5Yj1hsFdYEFmRrfBEFe5MeWzYQSjnx3CyyvK/EQ2c5FGauQEFVHTRM2mhjfd53
-	 M6BNujQ8VUOKBkLudPk2sOJZJT1yw2Q79NgYDbsxAgLuS/G91BVSDGcMF3JtBMD0kg
-	 dUVll7Oe0hOfQj2sHmOfax0xBwSEFPXUn6/wVcusQh3SDqkiVG98hkcGPv4eEgDClv
-	 B4DpxU3PocUrQ==
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-74deaece753so1002751085a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Apr 2023 13:57:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682456260; x=1685048260;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vgRVIXe+P2Wjfmla/rXAZJKk1sI+D1ImKYegwRHDTks=;
-        b=d2UsL8M3ss7sPUGo1xWymd6CtlSMz4onL9P5Bt2tMn0Qb1vt5frEc8w3uvjvSCp0AR
-         v9FzFwmeL+sfD4Rnl5RmGC700HUvSeeicINtdvMRimiEDBGL/LQade2xEjtJUtNxDKjH
-         OExvZJRZ69kzA8ZDcNfNsu+xENL1Io50Jy0kjgAuWgOdgpCeh96HqzdqlQen0oMCpfgB
-         bB6eBHAwGXcpcc8LROL8l3sFTueR91NVt91F2vESGld/swTNair4/mdrv1dqOvzdRJGS
-         XPo1cdz+/k/eTznwflkriY0Wu1FYXSKA0gVDaIkumfU8UxfITJ32pPfMcUnEvaUG6PWK
-         A8OQ==
-X-Gm-Message-State: AAQBX9eFp1XpH2uE6TDi2w8aKxTEmC7wF1renxAfHadVc9wdgiQj1bpk
-	lLlWt8LT0pMqKZRF3InRdiE8vPfG60Tkhkm0CFPwf4U4Zhs3LHVMUR8qchNZsLwlTRG+QjkUwmU
-	UUhlyNWvTIDAQBWcO6uRbY0glIEsIB7etjcwx6mW9CaFRneyPVOMf/9csrYzHUAXyZ3J0xw==
-X-Received: by 2002:ac8:5d8d:0:b0:3ef:46b0:80e8 with SMTP id d13-20020ac85d8d000000b003ef46b080e8mr30845701qtx.19.1682456260309;
-        Tue, 25 Apr 2023 13:57:40 -0700 (PDT)
-X-Google-Smtp-Source: AKy350YgJcj8NBwRby79492evbEUfuqxK9Zf4fKQdwy3HHL1ByJh+2fexc3h8J5/zzoJIvi71pUHyKLn9qmewz+xjS8=
-X-Received: by 2002:ac8:5d8d:0:b0:3ef:46b0:80e8 with SMTP id
- d13-20020ac85d8d000000b003ef46b080e8mr30845680qtx.19.1682456260117; Tue, 25
- Apr 2023 13:57:40 -0700 (PDT)
+	id 1prUdy-002dVA-1L;
+	Wed, 26 Apr 2023 02:12:30 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1prUdu-002dTv-1O;
+	Wed, 26 Apr 2023 02:12:29 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id B16BC24DF03;
+	Wed, 26 Apr 2023 10:11:50 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 10:11:50 +0800
+Received: from [192.168.125.106] (113.72.145.137) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 26 Apr
+ 2023 10:11:49 +0800
+Message-ID: <f082999f-e870-9685-98c8-e43bdda67744@starfivetech.com>
+Date: Wed, 26 Apr 2023 10:11:48 +0800
 MIME-Version: 1.0
-References: <20230420024118.22677-1-walker.chen@starfivetech.com>
- <20230420024118.22677-5-walker.chen@starfivetech.com> <20230421-dropper-upstage-200ae7e47092@spud>
- <607f3604-056c-6f3a-b154-0f298b870811@starfivetech.com> <20230424-roundness-everybody-659599d44963@spud>
-In-Reply-To: <20230424-roundness-everybody-659599d44963@spud>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Tue, 25 Apr 2023 22:57:23 +0200
-Message-ID: <CAJM55Z9a9N8Zm2cuh8gzZNcYBENO5WE6GmRXOsaYbOcv0srz-Q@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] riscv: dts: starfive: add tdm node and sound card
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
 To: Conor Dooley <conor@kernel.org>
-Cc: Walker Chen <walker.chen@starfivetech.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, alsa-devel@alsa-project.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+CC: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
+	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
+	<linux-phy@lists.infradead.org>
+References: <20230419-labored-camper-644d51a7ca96@spud>
+ <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
+ <20230424-baffle-punch-ec73098f2b6a@spud>
+ <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
+ <20230425-unquote-eligible-09f743d81981@wendy>
+ <a7cdfabf-2312-eaf3-f462-5bda7f0a120d@starfivetech.com>
+ <68cb565d-bf39-10b0-9e3e-35ba7f54b90b@linaro.org>
+ <0988495f-b87a-7f69-f222-37c67d6eae23@starfivetech.com>
+ <20230425-resale-footrest-de667778c4fe@wendy>
+ <663e9933-b9b3-a48f-98b6-2207215a8ed7@starfivetech.com>
+ <20230425-commotion-prewashed-876247bed4ab@spud>
+Content-Language: en-US
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+In-Reply-To: <20230425-commotion-prewashed-876247bed4ab@spud>
+X-Originating-IP: [113.72.145.137]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230425_135749_445952_48D8CF7C 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20230425_191226_804613_23C5D9C5 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +90,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Apr 2023 at 18:27, Conor Dooley <conor@kernel.org> wrote:
-> On Mon, Apr 24, 2023 at 11:21:11AM +0800, Walker Chen wrote:
-> >
-> >
-> > On 2023/4/22 0:50, Conor Dooley wrote:
-> > > Hey Walker,
-> > >
-> > > On Thu, Apr 20, 2023 at 10:41:18AM +0800, Walker Chen wrote:
-> > >> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
-> > >
-> > > Is this one of these waveshare things + a visionfive 2?
-> > > https://www.waveshare.com/wm8960-audio-hat.htm
-> >
-> > Hey Conor,
-> > I'm glad to receive your comments.
-> >
-> > Now we are using this board + VisionFive2 :
-> > https://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/
-> >
-> > >
-> > > I'm a bit lost as to why this needs a whole new board, should it not
-> > > just be an overlay that you can apply to the existing dts?
-> > >
-> > > Taking this to an extreme, should I expect to see a new devicetree for
-> > > everything RPi hat that you decide to use with a VisionFive 2?
-> >
-> > For your response, I did some thinking. Because wm8960 codec is not integrated
-> >  on the VisionFive2 board, perhaps using overlay is a better way.
->
-> Aye. I think so too. From my PoV, if this particular seeed audio board
-> is something you're bundling with VisionFive 2 boards on your storefront
-> etc, then I'm fine with taking it as an in-tree overlay.
-> If it is just a "random" RPi hat (that happens to be exactly what you
-> need for testing the audio drivers), then I don't know where to draw a
-> line for what is & what is not acceptable for inclusion.
->
-> In both cases, it's Emil's call.
 
-I'm not aware of any shop bundling the VF2 with an audio board. I
-agree: please don't add device trees for combinations of VF2s and
-hats. That should be an overlay.
 
-/Emil
+On 2023/4/26 0:56, Conor Dooley wrote:
+> On Tue, Apr 25, 2023 at 08:26:35PM +0800, Changhuang Liang wrote:
+>> On 2023/4/25 17:35, Conor Dooley wrote:
+>>> On Tue, Apr 25, 2023 at 05:18:10PM +0800, Changhuang Liang wrote:
+>>>> On 2023/4/25 16:19, Krzysztof Kozlowski wrote:
+>>>>> On 25/04/2023 09:57, Changhuang Liang wrote:
+>>>>>> Yes, "starfive,jh7110-aon-pmu" is a child-node of "starfive,jh7110-aon-syscon".
+>>>>>> In my opinion, "0x17010000" is "aon-syscon" on JH7110 SoC, and this "aon-pmu" is just 
+>>>>>> a part of "aon-syscon" function, so I think it is inappropriate to make "aon-syscon"
+>>>>>> to a power domain controller. I think using the child-node description is closer to
+>>>>>> JH7110 SoC. 
+>>>>>
+>>>>> Unfortunately, I do not see the correlation between these, any
+>>>>> connection. Why being a child of syscon block would mean that this
+>>>>> should no be power domain controller? Really, why? These are two
+>>>>> unrelated things.
+>>>>
+>>>> Let me summarize what has been discussed above. 
+>>>>
+>>>> There has two ways to describe this "starfive,jh7110-aon-syscon"(0x17010000).
+>>>> 1. (0x17010000) is power-controller node:
+>>>>
+>>>> 	aon_pwrc: power-controller@17010000 {
+>>>> 		compatible = "starfive,jh7110-aon-pmu", "syscon";
+>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>> 		#power-domain-cells = <1>;
+>>>> 	};
+>>>>
+>>>>
+>>>> 2. (0x17010000) is syscon node, power-controller is child-node of syscon:
+>>>>
+>>>> 	aon_syscon: syscon@17010000 {
+>>>> 		compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
+>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>>
+>>>> 		aon_pwrc: power-controller {
+>>>> 			compatible = "starfive,jh7110-aon-pmu";
+>>>> 			#power-domain-cells = <1>;
+>>>> 		};
+>>>> 	};
+>>>
+>>> I thought that Rob was suggesting something like this:
+>>> 	aon_syscon: syscon@17010000 {
+>>> 		compatible = "starfive,jh7110-aon-syscon", ...
+>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>> 		#power-domain-cells = <1>;
+>>> 	};
+> 
+>> I see the kernel:
+>> https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8167.dtsi
+>> this file line 42:
+>> it's power-controller also has no meaningful properties.
+>> What do you think?
+> 
+> I'm not sure that I follow. It has a bunch of child-nodes does it not,
+> each of which is a domain?
+> 
+> I didn't see such domains in your dts patch, they're defined directly in
+> the driver instead AFAIU. Assuming I have understood that correctly,
+> your situation is different to that mediatek one?
+> 
+> Cheers,
+> Conor.
 
-> > > Also, it'd be nice to provide a Link: to where someone can find more
-> > > info on this combination of items. Google for "wm8960 visionfive 2"
-> > > gives me nothing, nor does "starfive audio card" etc.
->
+I think there child-nodes just need to operate some clock signals. Maybe
+we don't need to discuss other platforms.
+
+If Rob's method is confirmed. I will try it next version.
+
+Maybe like this:
+aon_syscon: syscon@17010000 {
+	compatible = "starfive,jh7110-aon-syscon", "syscon", "starfive,jh7110-aon-pmu";
+	reg = <0x0 0x17010000 0x0 0x1000>;
+	#power-domain-cells = <1>;
+};
+
+Rob and krzystof:
+
+And I think patch[1][2] need to change. Right? 
+
+[1] https://lore.kernel.org/all/20230414024157.53203-6-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230414024157.53203-7-xingyu.wu@starfivetech.com/
 
 _______________________________________________
 linux-riscv mailing list
