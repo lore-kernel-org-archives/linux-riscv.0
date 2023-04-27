@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD4DC77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 10:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F6AC77B73
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 10:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2w9MJ6BbuV4ktRzqkbkZw0u20WfogwwgoePtGaOFHtk=; b=xb1EvsHR7T6WM+ilKxmRzhOMEW
-	ix2tOD+H6ERySN0XFabbs8c8WHFZL7BD3JcHrALcM0IPS9n/nThiK+VooBEb6DHFt7wdzpSJC3JPw
-	hHU3ofnxnA9vl7tqKO7sISbXYIQ1XrZLC0xxCD0AZhXQADSjbM+7BPy9N+d8g1x+LmTckusVuMHaV
-	3wLEps5WujpDEEWc0rIut+GMwUQnzFLGmHiVg4btubtUvQ3jKqcsqABxJxqW1rvjZPAU+dnZJU10H
-	64SeZ/qGc7CW4AOtsDAyhFpqnAG/pdzh8H3sexXpcUFyl7SNWOae0UMIxvhbct2tM/uj/1YPx3anv
-	HngvpZFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rh6EkW4gvnFkp1ApdrVpMxaxHiV9TCOuaASw1do6KIQ=; b=Oz71FySwZdDSye
+	R2Z5l0VegWZQWo3Eols+4Z9Wj0Z0xQaS6m8Hr4m3yJWcAPFdgFHTbKTx44OG7S4kRu6m2vYVSPXwY
+	+4/AXqsGwZhDp5m11QVnOXKRjsMO7v3DaS9G0zi3a8hvp0WMl5MyIIYkaPBVLH+4+4pEGCc3pXTGy
+	v4u2P6fxkyjBVI6hL33rw0svJdMkXeIJE82YZ3ZvjekVzHEPyMIUJxxhBn334JaEwpYrdPiamg7ZM
+	p9jMtzh8MdtD13uyB0BEsTOTCKhjouyWPgXzSGbXZ3nFTk/sdWBdTlwsrWJzF9oxDQDG476eIIDGN
+	NlOBAJPk+nGb+M95xI9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pryf9-0067qP-0C;
-	Thu, 27 Apr 2023 10:15:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1prygc-0068X6-1Q;
+	Thu, 27 Apr 2023 10:17:14 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pryf4-0067nn-2R
+	id 1prygZ-0068Rx-09
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 10:15:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1682590538; x=1714126538;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8b6fS4/PQOVDls/TVoFmw/XTHTAH6akEATEOCqffBgY=;
-  b=A00mtHlULcIn6vLXIH3qN6UCcmvnQUozGwzMWerVl4dsyehrSX5xOaRi
-   PyM7wqOIcgFekK+RYL2ilfg0OB9pnjMlLO91xXIzzkaeB4ZJAqjge/GvC
-   OByvrYInY3eoM+uxrPdubM5jdfy7rFzMsejntPwDlnyvfDCHELyg6Hez5
-   qq0payxJHg2FSUyjMczny9GFTfji1mDWwO9y08ddEGpUNCZwH2AyiIQP0
-   hVv2uLOHKo3A6klTV7jHWldBYTRxnbCLhaPkg6c5b3D3Z9zdc7q82yFZB
-   IJobgg2kT6jPnngDWUZ2b+Q/HVfO95DtvYkB/xwfSOLK48qhgpo+VRoRD
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.99,230,1677567600"; 
-   d="asc'?scan'208";a="149214604"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Apr 2023 03:15:37 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 27 Apr 2023 03:15:36 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 27 Apr 2023 03:15:34 -0700
-Date: Thu, 27 Apr 2023 11:15:16 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Song Shuai <suagrfillet@gmail.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alexghiti@rivosinc.com>, <heiko@sntech.de>, <guoren@kernel.org>,
-	<anshuman.khandual@arm.com>, <mick@ics.forth.gr>, <samuel@sholland.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH -fixes V2] riscv: mm: remove redundant parameter of
- create_fdt_early_page_table
-Message-ID: <20230427-prevail-upload-033ca439a54c@wendy>
-References: <20230426100009.685435-1-suagrfillet@gmail.com>
+	Thu, 27 Apr 2023 10:17:13 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-3f1950f569eso46685355e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 03:17:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1682590624; x=1685182624;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fCr7nxgZdtNgoZF3nwDaoR8EhaDUD1018YOuyMDPn0M=;
+        b=nb8Q8tD1nIJFKBRaeqZgFGy1lZJlY0qdoheP8R6kS3cggDhpwtqqOCEa9kF2ESL6Mm
+         CMOPLp3YmsrbjTTWQCmqEkBqnE0Cko+vanfvRsU1GpABlmltLHLdY3hg3hx1QLDePeeY
+         CIOM0vNHV2JoK9c/jw7vJ/6H6xF+mOYTy+D0vHFRCzd94eWHFd/gL/0sb57vdAciXnjx
+         0fkpjXbK5QhRiryMydeIJBDvqmIa5leb1kF7ZN5cbh4wk4NDuGnx+N6Y7VyL0i324kWJ
+         6y8hg50AOLykRR5OmMCfxDmzN+Tp+Pkjfm/uPbfH0R6vV1LlRgFXA4jxrQkQCOkj3tSG
+         ULiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682590624; x=1685182624;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fCr7nxgZdtNgoZF3nwDaoR8EhaDUD1018YOuyMDPn0M=;
+        b=Ma41k3Zgqn9HYdbaCZVbburvt+buL7J0UD+CIImCbCW96bdf6AY6loEuD7WG3j00D3
+         k0Ob0KKQTXf+942GKt9SpyoYuVH54OAC5DJBz6EnWpJ44rS7jEUlVfceRSTYJH6nkhQM
+         rb9lQ7VRqSTpQzi7ejyCUoi9IGAq2JAmYtFuv94C9P6TZe8veR+ZAQpsy+aMaegsGjVp
+         s6u8MMSDqQNXwFRRbOUHinEh1GaE3gKcDls7uM3trchHr9sgxxQZ/AxVLgR96/SqNKOt
+         GmCP7lPoH16F0teVCu5TtEV8blYhxUY+3GyaMQEt8B+1QrbLn6gjzDdn0AMSLTwBdaJ8
+         /GVA==
+X-Gm-Message-State: AC+VfDx1Y7bOVquRCcbrDBoImH4ks5L5isQkjujEoU9zshVBEYE62ft3
+	QNaHQpBbqlBtWxAb2AqO8+lfQg==
+X-Google-Smtp-Source: ACHHUZ6rCA7RMC27lWLkLmHmUzbmL++yuI4efJgiJ/la+yAMoCft0kvm8nOs+UwFRahE78kBJ3vEdA==
+X-Received: by 2002:a05:600c:2285:b0:3f1:7123:5f82 with SMTP id 5-20020a05600c228500b003f171235f82mr1021868wmf.12.1682590623728;
+        Thu, 27 Apr 2023 03:17:03 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id ip29-20020a05600ca69d00b003f1712b1402sm24107405wmb.30.2023.04.27.03.17.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Apr 2023 03:17:03 -0700 (PDT)
+Date: Thu, 27 Apr 2023 12:17:02 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	kvm-riscv@lists.infradead.org, "'Rafael J . Wysocki '" <rafael@kernel.org>, 
+	'Will Deacon ' <will@kernel.org>, 'Daniel Lezcano ' <daniel.lezcano@linaro.org>, 
+	'Mark Rutland ' <mark.rutland@arm.com>, 'Atish Patra ' <atishp@atishpatra.org>, 
+	'Palmer Dabbelt ' <palmer@dabbelt.com>, 'Anup Patel ' <anup@brainfault.org>, 
+	'Albert Ou ' <aou@eecs.berkeley.edu>, 'Paul Walmsley ' <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] RISC-V: Align SBI probe implementation with spec
+Message-ID: <ryknbllu75eliur7v6tzei6jvqgwayuhej5icobxxrqwabymhz@lnnqmlrqxvex>
+References: <20230426172254.70342-1-ajones@ventanamicro.com>
+ <20230427-property-barracuda-631a14371df0@wendy>
 MIME-Version: 1.0
-In-Reply-To: <20230426100009.685435-1-suagrfillet@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20230427-property-barracuda-631a14371df0@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_031539_003115_846E5BB4 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20230427_031711_096399_E521F1BC 
+X-CRM114-Status: GOOD (  33.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +91,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0629086282845513115=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0629086282845513115==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2zFe0gN+LmyYDnho"
-Content-Disposition: inline
+On Thu, Apr 27, 2023 at 10:42:11AM +0100, Conor Dooley wrote:
+> On Wed, Apr 26, 2023 at 07:22:54PM +0200, Andrew Jones wrote:
+> > sbi_probe_extension() is specified with "Returns 0 if the given SBI
+> > extension ID (EID) is not available, or 1 if it is available unless
+> > defined as any other non-zero value by the implementation."
+> > Additionally, sbiret.value is a long. Fix the implementation to
+> > ensure any nonzero long value is considered a success, rather
+> > than only positive int values.
+> 
+> Does this need a fixes tag (or tags) then, since we could easily return
+> a negative value as things stand if the SBI implementation decides to
+> return 0b1...1 for success?
 
---2zFe0gN+LmyYDnho
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Nothing is getting fixed when only considering the current generic opensbi
+platform, but there could be other SBI implementations Linux isn't
+handling correctly by only considering success to be greater than zero
+or by truncating the return value from long to int. I suppose that
+possibility does warrant a fix tag, which would be
 
-On Wed, Apr 26, 2023 at 06:00:09PM +0800, Song Shuai wrote:
-> create_fdt_early_page_table() explicitly uses early_pg_dir for
-> 32-bit fdt mapping and the pgdir parameter is redundant here.
-> So remove it and its caller.
->=20
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Fixes: b9dcd9e41587 ("RISC-V: Add basic support for SBI v0.2")
 
-Whoops, I missed the v2, so copy-pasting:
+> 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/sbi.h        |  2 +-
+> >  arch/riscv/kernel/cpu_ops.c         |  2 +-
+> >  arch/riscv/kernel/sbi.c             | 17 ++++++++---------
+> >  arch/riscv/kvm/main.c               |  2 +-
+> >  drivers/cpuidle/cpuidle-riscv-sbi.c |  2 +-
+> >  drivers/perf/riscv_pmu_sbi.c        |  2 +-
+> >  6 files changed, 13 insertions(+), 14 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> > index 945b7be249c1..119355485703 100644
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@ -296,7 +296,7 @@ int sbi_remote_hfence_vvma_asid(const struct cpumask *cpu_mask,
+> >  				unsigned long start,
+> >  				unsigned long size,
+> >  				unsigned long asid);
+> > -int sbi_probe_extension(int ext);
+> > +long sbi_probe_extension(int ext);
+> >  
+> >  /* Check if current SBI specification version is 0.1 or not */
+> >  static inline int sbi_spec_is_0_1(void)
+> > diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
+> > index 8275f237a59d..eb479a88a954 100644
+> > --- a/arch/riscv/kernel/cpu_ops.c
+> > +++ b/arch/riscv/kernel/cpu_ops.c
+> > @@ -27,7 +27,7 @@ const struct cpu_operations cpu_ops_spinwait = {
+> >  void __init cpu_set_ops(int cpuid)
+> >  {
+> >  #if IS_ENABLED(CONFIG_RISCV_SBI)
+> > -	if (sbi_probe_extension(SBI_EXT_HSM) > 0) {
+> > +	if (sbi_probe_extension(SBI_EXT_HSM)) {
+> >  		if (!cpuid)
+> >  			pr_info("SBI HSM extension detected\n");
+> >  		cpu_ops[cpuid] = &cpu_ops_sbi;
+> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > index 5c87db8fdff2..015ce8eef2de 100644
+> > --- a/arch/riscv/kernel/sbi.c
+> > +++ b/arch/riscv/kernel/sbi.c
+> > @@ -581,19 +581,18 @@ static void sbi_srst_power_off(void)
+> >   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
+> >   * @extid: The extension ID to be probed.
+> >   *
+> > - * Return: Extension specific nonzero value f yes, -ENOTSUPP otherwise.
+> > + * Return: 1 or an extension specific nonzero value if yes, 0 otherwise.
+> >   */
+> > -int sbi_probe_extension(int extid)
+> > +long sbi_probe_extension(int extid)
+> >  {
+> >  	struct sbiret ret;
+> >  
+> >  	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, extid,
+> >  			0, 0, 0, 0, 0);
+> >  	if (!ret.error)
+> > -		if (ret.value)
+> > -			return ret.value;
+> > +		return ret.value;
+> >  
+> > -	return -ENOTSUPP;
+> > +	return 0;
+> 
+> Why not make it return -ENOTSUPP for failures and 0 for success instead,
+> as it does not appear that any users actually care what the return value
+> is, once it is not an error?
 
-"and its caller" sounds like you're removing the caller itself when
-that's not what you're doing!
-I am certainly not suggesting that you resubmit because of that though.
+Just to prepare for theoretical new uses.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Concerned that it'll look weird to have
+> 	if(!sbi_probe_extension(foo))
+> 		print(foo is available!)
+> since it looks a bit weird that the !case is success?
 
-Automation failed to apply this which is a bit weird. What was the
-base-commit?
+No, that's pretty par for the course in the kernel. I'd just prefer
+that sbi_probe_extension() be a simple wrapper around the SBI call,
+one that doesn't change the SBI call's return value semantics.
 
-Cheers,
-Conor.
+> 
+> If so, perhaps it could just return a bool instead, unless of course I
+> am missing some pending user that make some decision on the actual value
+> returned here is.
 
-> ---
-> Changes in V1:
-> https://lore.kernel.org/linux-riscv/83540cb1-0c9b-f572-849a-cb100437d049@=
-ghiti.fr/T/#t
-> - fix the typo
-> ---
->  arch/riscv/mm/init.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 0f14f4a8d179..6ebb75a9a6b9 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -843,8 +843,7 @@ static void __init create_kernel_page_table(pgd_t *pg=
-dir, bool early)
->   * this means 2 PMD entries whereas for 32-bit kernel, this is only 1 PG=
-DIR
->   * entry.
->   */
-> -static void __init create_fdt_early_page_table(pgd_t *pgdir,
-> -					       uintptr_t fix_fdt_va,
-> +static void __init create_fdt_early_page_table(uintptr_t fix_fdt_va,
->  					       uintptr_t dtb_pa)
->  {
->  	uintptr_t pa =3D dtb_pa & ~(PMD_SIZE - 1);
-> @@ -1034,8 +1033,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->  	create_kernel_page_table(early_pg_dir, true);
-> =20
->  	/* Setup early mapping for FDT early scan */
-> -	create_fdt_early_page_table(early_pg_dir,
-> -				    __fix_to_virt(FIX_FDT), dtb_pa);
-> +	create_fdt_early_page_table(__fix_to_virt(FIX_FDT), dtb_pa);
-> =20
->  	/*
->  	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
-> --=20
-> 2.20.1
->=20
+No pending user that I'm aware of, but it's not too awkward, IMO, to
+implement this as the spec says, so any pending user that comes along
+will be happy from the start. If a boolean function seems better for
+everyone, then I'd probably extend this patch to also rename this
+sbi_probe_extension to __sbi_probe_extension, make it static, and
+then add
 
---2zFe0gN+LmyYDnho
-Content-Type: application/pgp-signature; name="signature.asc"
+ bool sbi_probe_extension(int extid)
+ {
+   return __sbi_probe_extension(extid);
+ }
 
------BEGIN PGP SIGNATURE-----
+just to feel good about the wrapper!
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEpLNAAKCRB4tDGHoIJi
-0pEgAQD3m31cs3VtahRPXPTCH4i1LIzufQcpRdG6aAOc1Juk7wD5AR62nuAwA3MQ
-MSz1apHcc5OiNw5Q8BSkobIIDdksPQs=
-=PAQy
------END PGP SIGNATURE-----
-
---2zFe0gN+LmyYDnho--
-
-
---===============0629086282845513115==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0629086282845513115==--
-
