@@ -4,83 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B48C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 09:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9C1C77B73
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 09:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qk79H1chF8kvEePXpzqtPYCTDry97ITySh2v7/t69d4=; b=ASCYlDZ7VR3uNJ
-	PQzpRL3cUFPpGc7OXXeOnDzzOaq93F0qai6Q1M3NyvLuZuzgBgoPTB40Mnk5OFcsW/Fj/rj/3nA93
-	omHT2COv9KzSSi4lgKMVCI+wk3DdRXuchgTBUiqtsSC8hb65OFOjz/Ttf8wbKCsBGlc0qf1obnTXi
-	PUpDkHnqEStf9Azz+XEFkSFLdJfyhn4M0EHDa4kXPzQXoceR14OUu+dzt1A71yxo0vORrhIQJpn+O
-	SXPuv8sZKY2dNQM1p65oOCjoYBwqmvJsoTAGHgtGep2eFGxKBbws4SHuF+PFqZVXXUbK+BdBEN2XQ
-	LAvRKKKddjom5QNNzifw==;
+	List-Owner; bh=7kSfg73qT0DEwOA83Mox+fN4ed6k4+YEyROXqewKwJs=; b=qj96kWYcptu2/E
+	VHe6ydBbRKDAAr9+QhQDKYRKTskIhsMC+uGh2KmsegXoGaseiEGfAvQGk9wxyiepyZXgrsx3Fo3EX
+	9kvnex5/mvyZGSVykfJndx+psQjP9+gu25Tx1/dpaJbT6+1ftMR0JtOOs9zgXgj7T//qD/6jSA3ow
+	EfK9LRYCBrPyxmfOyM7LdhRhJtnQRhES+EI8yqdv1bfg6+OmaoTzlwlMPnkmCus//k14qQa7thx1s
+	+To1eCe9bK2CY1qliSRHv3hiNi08msCEX0gzVANvb27sPB3QUl2VBpb/UXmkvLl2WgSOPVmEiduLv
+	sYeWjCHKbz++G015ssSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prxsl-005zFZ-0R;
-	Thu, 27 Apr 2023 09:25:43 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1prxvE-005ztT-0C;
+	Thu, 27 Apr 2023 09:28:16 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prxsi-005zCe-1T
+	id 1prxvA-005zsP-1p
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 09:25:41 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3f09b4a1527so84155675e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 02:25:37 -0700 (PDT)
+	Thu, 27 Apr 2023 09:28:13 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-63b4960b015so6503946b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 02:28:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682587536; x=1685179536;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I3/RzN4AJvDC7+eEY0sM4oqgUL0myB76IKp72IpocdI=;
-        b=OFcU+uH+KWdowI5w4os4wF83X/B9/7D1hDT8AJCUPL6N7G8igyd25cS8mEZRGYLb0C
-         N3tlt3PUyUzD8S6CTPNuVYh2rNsgRdc1iNLN2Tn9VLnoA5/9DTvsmUYSce7yEddZcXGY
-         O5UZUz1+pu7z882rbwAY9Hoj+1FwSS7cH6Sg4YnrW++VwQLIz9XUF1YTPA5EY2qeY4A+
-         VAsGcrvL4w++3E1DMNY3gqpRZ0N4/AXojkOSmkriUPPtq/6M6Y8ryVkzs1q10lv8OCf7
-         FX9NfrytxicAOmEShI7FzTqbm/JaCnUB1os/KFdnDX7pWFjYH0Yn+y6vFvaMONzcOiRG
-         WfyA==
+        d=ventanamicro.com; s=google; t=1682587689; x=1685179689;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oSffrdiQPNNJd53oPjULTxIDSQd1IqHIbkRxrZQ6UwM=;
+        b=F/zn3ER6A0Q+l5tyEH+ooDZjeuYDIzMGhQDb6TqHt3Pb0O13tyjs1VtHpjpkprGKJC
+         /mPpOvw/3pTNKBWqGKjLEVbRI8RPP/Nj4drvC53IPKkG8ev41zKBirpKVNnXLxoMRB9x
+         N4I9/LmdwNqmjEa/08JGK62+GkonSU/kkzu5F27X4ZH/dgGROBpCwQoovtDi+cmjaLnV
+         0O/ST5MVcjhE++RIXI7y4d72DSrmQ4rmb5Ov98XBD3CXVd3UeFqtsk9EM2XuwNkG4PIv
+         PSU/aDUj4zfNd4+hekg0hoGs4VGEhyFLpSNCfFtMQ79ep9TBZYA2xxQFsfX7PCOlSdyn
+         O8aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682587537; x=1685179537;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I3/RzN4AJvDC7+eEY0sM4oqgUL0myB76IKp72IpocdI=;
-        b=kjb90qMmu8Q4NnaTms6agcKa2f/QtgEz67W48iT6scbcBvqncHxOXz6617oGPqS7MW
-         gAYZEDTtQIMKwpwfTGbFKR/Da0JI8M5zjQEZhzmzoS/KOFWNMC/N3djYEbqPIaqXQb4n
-         qGFEnjxWCpG2rH6TXJLMnAmeotBdxtHCBQQcx9pGR8vqyoowIO8HHnL5bq/jlioOrtWb
-         uhEom+xwZA9h4mP0PKXL24/0SRqHaJU4P7J8VKEwKdVk7duuKFeAVjhEkfYpQW/E8vEA
-         oeRgRgtMvGAOe7enbLlAVWaXmM6IJd8PBxZVqRfRplgfIUhtW06U7++ApI8DbLfgqcS6
-         dEew==
-X-Gm-Message-State: AC+VfDyLBTWLrU37J2TmGrOtMf2HZMdx3s2wlaLSCi1By6Qj9Etk+klH
-	R8NopxJAHwcF5LQMSoZ97YBO/g==
-X-Google-Smtp-Source: ACHHUZ75rGDonY81KfyHjidrZgSBeiUycDijDGIT5u1Snn62AK+MB0zlt5smJtkHgxXHeG5k2c1Iig==
-X-Received: by 2002:a05:600c:210b:b0:3f1:8b0f:96ea with SMTP id u11-20020a05600c210b00b003f18b0f96eamr840997wml.37.1682587536678;
-        Thu, 27 Apr 2023 02:25:36 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id e26-20020a05600c219a00b003f180d5b145sm20573730wme.40.2023.04.27.02.25.35
+        d=1e100.net; s=20221208; t=1682587689; x=1685179689;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oSffrdiQPNNJd53oPjULTxIDSQd1IqHIbkRxrZQ6UwM=;
+        b=lR27NHLBJJywuZiXfSUqmxsP76V6NavrJVmMBKxBoRfeLUZAX8x1jL8TLMXIPiV7Pq
+         S0UGf4kp5D1fkJ1dkYIY3lhIyKVNl8B2UpjumlzCc6ypPW8uYRK+qLzeiUsOvwZaCAma
+         UZQbvRp8wSumQHz/5mLGC40GpJMTJs1eF0GoUBeSwapDoUiFv4CL5bnV02h86gD2to3D
+         EGuTfDDpmXGtXuRwUpkA8TabyX95u1//OEYyB1pZ9uGOo/Seiz2WtTlDLK3PHBxOxSQf
+         7bHLorEgFMyf5oTZcouLXzmzECcn3dUFt+m5GvUoaX/3X7pZDoJdRVKP2o67pSOd7Vy1
+         gVLA==
+X-Gm-Message-State: AC+VfDySdeyCUfXpu6OV1/pHmpBSAK266aMGFgQuRjWEF4pd2kcAv+HW
+	TR3PYnRDahrJjkjjcBOB926qNQ==
+X-Google-Smtp-Source: ACHHUZ4lU97uublnhxGqgaRZ1mTY/dMxrK9u9MjTcCIsw/70eIIiihIHGNCIkmhyS4LK+caoU6p1+w==
+X-Received: by 2002:a05:6a00:1515:b0:640:e12a:3a20 with SMTP id q21-20020a056a00151500b00640e12a3a20mr1786945pfu.1.1682587689567;
+        Thu, 27 Apr 2023 02:28:09 -0700 (PDT)
+Received: from sunil-laptop ([2409:4071:6e90:4e5:b276:2557:8da6:6c7e])
+        by smtp.gmail.com with ESMTPSA id u10-20020a62d44a000000b00637ca3eada8sm12756319pfl.6.2023.04.27.02.28.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Apr 2023 02:25:36 -0700 (PDT)
-Date: Thu, 27 Apr 2023 11:25:34 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Wende Tan <twd2.me@gmail.com>, Soha Jin <soha@lohu.info>, Hongren Zheng <i@zenithal.me>
-Subject: Re: [PATCH 1/2] riscv: allow case-insensitive ISA string parsing
-Message-ID: <xvdswl3iyikwvamny7ikrxo2ncuixshtg3f6uucjahpe3xpc5c@ud4cz4fkg5dj>
-References: <20230425120016.187010-1-cyy@cyyself.name>
- <tencent_63090269FF399AE30AC774848C344EF2F10A@qq.com>
- <20230426-porthole-wronged-d5a6a3b89596@spud>
- <6kjgearxffbnnq4bsqs7e3jz6efz436m6gb3zjh7cfi357oxlv@krxto6orxwwn>
- <20230427-unveiling-kiwi-631e966f77cc@wendy>
+        Thu, 27 Apr 2023 02:28:09 -0700 (PDT)
+Date: Thu, 27 Apr 2023 14:57:57 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	llvm@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Weili Qian <qianweili@huawei.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>,
+	Maximilian Luz <luzmaximilian@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Mark Gross <markgross@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V4 05/23] ACPI: OSL: Make should_use_kmap() 0 for RISC-V
+Message-ID: <ZEpAHfccImGsJGjk@sunil-laptop>
+References: <20230404182037.863533-1-sunilvl@ventanamicro.com>
+ <20230404182037.863533-6-sunilvl@ventanamicro.com>
+ <87a5yua8vb.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230427-unveiling-kiwi-631e966f77cc@wendy>
+In-Reply-To: <87a5yua8vb.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_022540_498877_63090A3B 
-X-CRM114-Status: GOOD (  44.54  )
+X-CRM114-CacheID: sfid-20230427_022812_602685_F455E4F1 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,104 +108,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 27, 2023 at 10:04:34AM +0100, Conor Dooley wrote:
-> On Thu, Apr 27, 2023 at 09:53:19AM +0200, Andrew Jones wrote:
-> > On Wed, Apr 26, 2023 at 07:54:39PM +0100, Conor Dooley wrote:
-> > > (+CC Drew)
-> > > 
-> > > Hey Yangyu,
-> > > 
-> > > One meta-level comment - can you submit this patch + my dt-bindings
-> > > patch as a v2?
-> > > Some comments below.
-> > > 
-> > > On Tue, Apr 25, 2023 at 08:00:15PM +0800, Yangyu Chen wrote:
-> > > > According to RISC-V ISA specification, the ISA naming strings are case
-> > > > insensitive. The kernel docs require the riscv,isa string must be all
-> > > > lowercase to simplify parsing currently. However, this limitation is not
-> > > > consistent with RISC-V ISA Spec.
-> > > 
-> > > Please remove the above and cite ACPI's case-insensitivity as the
-> > > rationale for this change.
-> > > 
-> > > > This patch modifies the ISA string parser in the kernel to support
-> > > > case-insensitive ISA string parsing. It replaces `strncmp` with
-> > > > `strncasecmp`, replaces `islower` with `isalpha`, and wraps the
-> > > > dereferenced char in the parser with `tolower`.
-> > > > 
-> > > > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> > > > ---
-> > > >  arch/riscv/kernel/cpu.c        |  6 ++++--
-> > > >  arch/riscv/kernel/cpufeature.c | 20 ++++++++++----------
-> > > >  2 files changed, 14 insertions(+), 12 deletions(-)
-> > > > 
-> > > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > > > index 8400f0cc9704..531c76079b73 100644
-> > > > --- a/arch/riscv/kernel/cpu.c
-> > > > +++ b/arch/riscv/kernel/cpu.c
-> > > > @@ -4,6 +4,7 @@
-> > > >   */
-> > > >  
-> > > >  #include <linux/cpu.h>
-> > > > +#include <linux/ctype.h>
-> > > >  #include <linux/init.h>
-> > > >  #include <linux/seq_file.h>
-> > > >  #include <linux/of.h>
-> > > > @@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
-> > > >  		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
-> > > >  		return -ENODEV;
-> > > >  	}
-> > > > -	if (isa[0] != 'r' || isa[1] != 'v') {
-> > > > +	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
-> > > >  		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
-> > > >  		return -ENODEV;
-> > > 
-> > > I don't understand why this is even here in the first place. I'd be
-> > > inclined to advocate for it's entire removal. Checking *only* that there
-> > > is an "rv" in that string seems pointless to me. If you're on a 64-bit
-> > > kernel and the node has riscv,isa = "rv32ima" it's gonna say it is okay?
-> > > Drew what do you think?
-> > 
-> > It makes some sense to me as a garbage detector. It's unlikely the first
-> > two bytes will be "rv" if the string is random junk.
-> 
-> Preventing the input of absolute rubbish is dt-validate's job & if the dtb
-> itself has been corrupted somehow I suspect that we have bigger problems
-> than checking for "rv" will solve.
-
-We would, but would they be as easy to debug as this very early sanity
-check? I agree, though, that doing the sanity checking in
-riscv_of_processor_hartid(), which gets called from several different
-places, seems a bit much. It'd be better to do that once, early, and
-never again.
-
-> 
-> > also do a strlen(isa) >= 4 check first, though. of_property_read_string()
-> > will succeed even when the string is "".
-> 
-> I don't think that checking that there are at least 4 characters isn't
-> even sufficient. Either we should confirm that this is a valid riscv,isa
-> to run on (so rv##ima w/ ## matching the kernel) or not bother at all.
-
-Extending the check makes sense, but even more reason to do it outside
-riscv_of_processor_hartid().
-
-> 
-> It's a different issue though, and I'd be inclined to revisit it in the
-> future when the ACPI stuff is in, along with perhaps the cleanup parts
-> of Heiko's series too.
-
-Agreed.
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmpvcm4sCgpPbiBXZWQsIEFwciAyNiwgMjAyMyBhdCAwNjo0NzoyMFBNICswMjAwLCBCasO2
+cm4gVMO2cGVsIHdyb3RlOgo+IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8uY29tPiB3
+cml0ZXM6Cj4gCj4gPiBXaXRob3V0IHRoaXMsIGlmIHRoZSB0YWJsZXMgYXJlIGxhcmdlciB0aGFu
+IDRLLAo+ID4gYWNwaV9tYXAoKSB3aWxsIGZhaWwuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogU3Vu
+aWwgViBMIDxzdW5pbHZsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiBBY2tlZC1ieTogUmFmYWVsIEou
+IFd5c29ja2kgPHJhZmFlbC5qLnd5c29ja2lAaW50ZWwuY29tPgo+ID4gLS0tCj4gPiAgZHJpdmVy
+cy9hY3BpL29zbC5jIHwgMiArLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwg
+MSBkZWxldGlvbigtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2FjcGkvb3NsLmMgYi9k
+cml2ZXJzL2FjcGkvb3NsLmMKPiA+IGluZGV4IDMyNjlhODg4ZmI3YS4uZjcyNTgxM2QwY2NlIDEw
+MDY0NAo+ID4gLS0tIGEvZHJpdmVycy9hY3BpL29zbC5jCj4gPiArKysgYi9kcml2ZXJzL2FjcGkv
+b3NsLmMKPiA+IEBAIC0yNzYsNyArMjc2LDcgQEAgYWNwaV9tYXBfbG9va3VwX3ZpcnQodm9pZCBf
+X2lvbWVtICp2aXJ0LCBhY3BpX3NpemUgc2l6ZSkKPiA+ICAJcmV0dXJuIE5VTEw7Cj4gPiAgfQo+
+ID4gIAo+ID4gLSNpZiBkZWZpbmVkKENPTkZJR19JQTY0KSB8fCBkZWZpbmVkKENPTkZJR19BUk02
+NCkKPiA+ICsjaWYgZGVmaW5lZChDT05GSUdfSUE2NCkgfHwgZGVmaW5lZChDT05GSUdfQVJNNjQp
+IHx8IGRlZmluZWQoQ09ORklHX1JJU0NWKQo+ID4gIC8qIGlvcmVtYXAgd2lsbCB0YWtlIGNhcmUg
+b2YgY2FjaGUgYXR0cmlidXRlcyAqLwo+ID4gICNkZWZpbmUgc2hvdWxkX3VzZV9rbWFwKHBmbikg
+ICAwCj4gCj4gQW4gb2JzZXJ2YXRpb24sIHdoaWNoIGNhbiBiZSBhZGRyZXNzZWQgbGF0ZXI7IFRo
+ZSBhY3BpX29zX2lvcmVtYXAoKQo+IChjYWxsZWQgd2hlbiB0aGUgY29uZmlnIGFib3ZlIGlzIGVu
+YWJsZWQgZm9yIFJWKSwgZG9lcyBub3QgaGF2ZSBhbiBhcmNoCj4gc3BlY2lmaWMgaW1wbGVtZW50
+YXRpb24gZm9yIFJJU0MtVi4gVGhlIGdlbmVyaWMgb25lIGNhbGxzCj4gaW9yZW1hcF9jYWNoZWQo
+KSwgd2hpY2ggb24gUklTQy1WIGRlZmF1bHRzIHRvIGlvcmVtYXAoKSAtLSBjYWNoaW5nCj4gZGlz
+YWJsZWQvX1BBR0VfSU8uCj4gCj4gVGhhdCBpcyBwcm9iYWJseSBub3Qgd2hhdCB3ZSB3YW50LCBi
+dXQgcmF0aGVyIHNvbWV0aGluZyBzaW1pbGFyIHRoYXQKPiBhcm02NCBkb2VzLgo+IApBY3R1YWxs
+eSwgZm9yIFJJU0MtViBhY3BpX29zX2lvcmVtYXAoKSBpcyBjdXJyZW50bHkgYSB3cmFwcGVyIGFy
+b3VuZAptZW1yZW1hcCgpLiBTdXJlLCB0aGlzIGNhbiBiZSBlbmhhbmNlZCBpbiBmdXR1cmUgaWYg
+cmVxdWlyZWQuCgpUaGFua3MsClN1bmlsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
