@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D8AC77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 17:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409CC77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 18:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yCbr/syuBpSvSiBRSBO76zFDN7x34T8uEDirOwZNhJE=; b=sk3Gb9QU+bX7HV
-	pABD+sWdWIw4HCCB7o8yLNOyRckycKUVE7qqYZETOU4OBfSuPYhU2yZIbrjN4CWJK+iaqsYOKdp3A
-	I+AIhVF2SvBdq7PcmBLToxQhlPdiNVjrjcof3HxknSD/a0Tf+KZTS0IQibYsYhTSuJ8R2WjOIyryl
-	PFV9qAXA2AY5jdwE+gtDgZLFNsUiqgvNcGnjwHkzzCks99ZWCW1zO5g5YYabGSt/JdysuJLGKIFIR
-	gJJsTMQCfB7lBRLujoQvSf4h+YLSYJIsjnKj5bnZHMWYrL695LwTogLzL5mF+HhFt/NUiIPop1r33
-	8oYrnGfFPgEok75Km0JA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QI0SWCBUmisB5Hu5nclUaqaVf8fk/PgBG0bUILzTRws=; b=u/XlAdb5Ip67jG+LfF8tvD4zGS
+	LQCNfA4+iKjd78phgT9qzmm29mDfe3OImcUaIy/GNInNLlXe7KZFcPFQpgR9aS8Fy5XceUcfnc3TQ
+	+pFUhxIFUbmbGm1lfy2fPh1AoXOK2ZdSjUrO1RMN5AHZsPdvlyYi9sntzSskWt0vNqVkLlVV/W1hq
+	4viUpIbKhNK/g3UGYibKpf799NcWghsKigmI6BPHTeswlC8ZripI5tbMF7sEi5XetF/EOeJRm4UyE
+	JS0B1wqFFT804YcMwE8cEXWNFj4ilVH9X+VRwq3pLd34NDPc5cGSE4SOq6fAgkJZLOb1MfCBanQSs
+	ReBidsgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ps5aY-0078SN-1x;
-	Thu, 27 Apr 2023 17:39:26 +0000
-Received: from mail-oo1-f54.google.com ([209.85.161.54])
+	id 1ps6MW-007DW6-0F;
+	Thu, 27 Apr 2023 18:29:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ps5aV-0078RT-2Q
+	id 1ps6MT-007DVf-01
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 17:39:24 +0000
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-549d9c2935fso2405658eaf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 10:39:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682617161; x=1685209161;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AD3fQdKaQFdku2aIFjpNovuQ9wn6Q2sNynbCaMLgODE=;
-        b=XBbinxdrQXQq0daHO57U/FRzgcjQ/qc0f+zovR9aK3ZOzAVr6COoYAI/tQJP8kf1vB
-         1/PGMoT48JNjtj4seLKfJ6YDvJ7DVD380rIZg47ta2YmrMztLxW65y5Kv1fkmNUT/YgQ
-         O8qraE6h3KHIbgodvp6aigP6NL/xCtFveFe5ETXdM/BHURd0sx2EIIPWR6sRxc4VZcBy
-         QHBObROI8ptzMyxSni/95dunpMlghbL+eyScHBStbooOrxU/ZVl32md6peiGI7LwWSci
-         qebbN2pNHUw4f1dg7qa8YPzpDjJHyWSz/M1GX8l+PoSWMv2QNir+QQxn+ouu7wrt4E44
-         XHVQ==
-X-Gm-Message-State: AC+VfDxm3HulI+gr7HDWMzsE4G4Zi6jarmEuv91UWrm1DE75+ZiOCBO6
-	NZsLEvUAHuG/peVkbqEUOg==
-X-Google-Smtp-Source: ACHHUZ4503HyHI7UJ3zKQxVNIZ7VAtQFhpl7W6Stdj0s/zR4e0u8lGqIZxNeWBv5Zi0MxXJgKlORiQ==
-X-Received: by 2002:a4a:d896:0:b0:547:5725:7711 with SMTP id b22-20020a4ad896000000b0054757257711mr1407382oov.6.1682617161624;
-        Thu, 27 Apr 2023 10:39:21 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id 27-20020a4ae1bb000000b00541fbbbcd31sm6196058ooy.5.2023.04.27.10.39.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Apr 2023 10:39:21 -0700 (PDT)
-Received: (nullmailer pid 3209698 invoked by uid 1000);
-	Thu, 27 Apr 2023 17:39:20 -0000
-Date: Thu, 27 Apr 2023 12:39:20 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: conor@kernel.org, devicetree@vger.kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v1] dt-bindings: riscv: explicitly mention assumption of
- Zicsr & Zifencei support
-Message-ID: <168261716012.3209643.3723944369525088026.robh@kernel.org>
-References: <20230427-fence-blurred-c92fb69d4137@wendy>
+	Thu, 27 Apr 2023 18:28:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F224061495;
+	Thu, 27 Apr 2023 18:28:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390A7C433D2;
+	Thu, 27 Apr 2023 18:28:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1682620135;
+	bh=z2nSyuDXMz7IhBSy11hDGq7ssnsSbj8LVzsiNsuuVWQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JWwECdAolWxzsp6/Qp0gBIQofkMqEsK+Bf2CrluUCI3PfDtiuGYjXrl99HZXrs7qR
+	 hjPY9zPSmIbXyq+Sfqc34AYsuAk5MXPHbSeWlk88pS/cVTAacTics4JAmNK8nNKPNd
+	 3p9G1wGqGRI7ClZ++xmmY2pwScCbbhTptA7YCGLW5Z7epOmb/oKyYxDfO+ioGxGMWx
+	 77yLlLPAM0MkMp3ixKndl2hTzdSXJlhLmXERw6b0TNgKyWcDgOXP2wKZ/crE9OSiVA
+	 nMLVdPxfL41wMtwh8YWfCVH4KPf+AzkY5srr9iiz7X5onbXq5X7/dkkKhhUj1zc811
+	 VguEnlSgMoArg==
+Date: Thu, 27 Apr 2023 19:28:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+Cc: Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+	kito.cheng@sifive.com, jrtc27@jrtc27.com, matthias.bgg@gmail.com,
+	heinrich.schuchardt@canonical.com, greentime.hu@sifive.com,
+	nick.knight@sifive.com, christoph.muellner@vrull.eu,
+	philipp.tomsich@vrull.eu, richard.henderson@linaro.org,
+	arnd@arndb.de, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] RISC-V: add support for vendor-extensions via
+ AT_BASE_PLATFORM and xthead
+Message-ID: <20230427-maybe-skier-51e7cf09795c@spud>
+References: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
+ <20230424194911.264850-5-heiko.stuebner@vrull.eu>
+ <20230426-spirits-ludicrous-a5d8275686e6@wendy>
+ <5016896.Mh6RI2rZIc@diego>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230427-fence-blurred-c92fb69d4137@wendy>
+In-Reply-To: <5016896.Mh6RI2rZIc@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_103923_784526_FB06B505 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20230427_112857_146225_E6B80098 
+X-CRM114-Status: GOOD (  55.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +77,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4108364218171923567=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 27 Apr 2023 11:43:42 +0100, Conor Dooley wrote:
-> The dt-binding was defined before the extraction of csr access and
-> fence.i into their own extensions, and thus the presence of the I
-> base extension implies Zicsr and Zifencei.
-> There's no harm in adding them obviously, but for backwards
-> compatibility with DTs that existed prior to that extraction, software
-> is unable to differentiate between "i" and "i_zicsr_zifencei" without
-> any further information.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Conor Dooley <conor@kernel.org>
-> CC: Rob Herring <robh+dt@kernel.org>
-> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
+--===============4108364218171923567==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="nWo5qTPtEHBQI77d"
+Content-Disposition: inline
 
-Acked-by: Rob Herring <robh@kernel.org>
 
+--nWo5qTPtEHBQI77d
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Heiko,
+
+On Thu, Apr 27, 2023 at 07:15:58PM +0200, Heiko St=C3=BCbner wrote:
+> Am Mittwoch, 26. April 2023, 14:29:16 CEST schrieb Conor Dooley:
+> > On Mon, Apr 24, 2023 at 09:49:11PM +0200, Heiko Stuebner wrote:
+> > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+> > I'm not entirely sure if this patch is meant to be a demo, but I don't
+> > like the idea of using these registers to determine what extensions are
+> > reported.
+>=20
+> It took me a while to grasp the above, but I think you mean determining
+> extensions based on mvendor etc, right?
+
+Yes, sorry. Apologies if that was not clear. I suppose the SBI
+implementation could (as ours does!) could report something different to
+the registers themselves, so using that word is probably not a good idea
+anyway.
+
+> > riscv,isa in a devicetree (for as much as I might dislike it at this
+> > point in time), or the ACPI equivalent, should be the mechanism for
+> > enabling/disabling these kinds of things.
+>=20
+> > Otherwise, we are just going to end up causing problems for ourselves
+> > with various lists of this that and the other extension for different
+> > combinations of hardware.
+> > The open source c906 has the same archid/impid too right? Assuming this=
+ is
+> > a serious proposal, how would you intend dealing with modified versions
+> > of those cores?
+> >=20
+> > I am pretty sure that you intended this to be a demo though, particular=
+ly
+> > given the wording of the below quote from your cover,
+>=20
+> yeah, this one was more following a train of thought. Thinking about the
+> issues, this was more of an addon thought, as I wasn't really sure which
+> way to go.
+>=20
+> So you're right, vendor isa-extensions should also come from the ISA
+> string from firmware, similar to the base extensions. Not based on the
+> mvendor-id and friends.
+
+:)
+
+> > > Things to still consider:
+> > > -------------------------
+> > > Right now both hwprobe and this approach will only pass through
+> > > extensions the kernel actually knows about itself. This should not
+> > > necessarily be needed (but could be an optional feature for e.g. virt=
+ualization).
+> >=20
+> > What do you mean by virtualisation here? It's the job of the hypervisor
+> > etc to make sure that what it passes to its guest contains only what it
+> > wants the guest to see, right?
+> > IIUC, that's another point against doing what this patch does.
+>=20
+> I guess I'm still seeing Zbb and friends - with just computational
+> instructions as always good to have. But I guess you're right that the
+> hypervisor should be able to control itself which extensions.
+
+Yah, there may not be any obvious downsides to something like Zbb, but I
+think that taking control away from the hypervisors etc isn't a good
+idea.
+Having a simple policy of blocking things that are known to misbehave
+would require less maint. than a list of things that are okay to pass
+through, but both are probably cans-of-worms.
+I think we need to think carefully about what policy is chosen here.
+Allowlist will be slower, but at least we'll not tell userspace
+something that is not usable. Blocklist will be easier to manage, but
+can only be reactive.
+
+> > > Most extensions don=E2=80=99t introduce new user-mode state that the =
+kernel needs to
+> > > manage (e.g. new registers). Extension that do introduce new user-mod=
+e state
+> > > are usually disabled by default and have to be enabled by S mode or M=
+ mode
+> > > (e.g. FS[1:0] for the +floating-point extension). So there should not=
+ be a
+> > > reason to filter any extensions that are unknown.
+> >=20
+> > I think in general this can be safely assumed, but I don't think it is
+> > unreasonable to expect someone may make, for example, XConorGigaVector
+> > that gets turned on by the same bits as regular old vector but has some
+> > extra registers.
+> > Not saying that I think that that is a good idea, but it is a distinct
+> > possibility that this will happen, and I don't think forwarding it to
+> > userspace is a good idea.
+>=20
+> The thead-vector (0.7.1) would probably fit this description. Though in
+> that case, userspace definitly needs to know about it, to use it :-) .
+>=20
+> But of course this should only be forwarded when relevant support
+> is available in the kernel.
+
+Right. IIRC, the plan for that is to add `v` to riscv,isa & alternatives
+will do the rest as opposed to doing an `_xtheadvector` type thing.
+
+Assuming the latter for a moment, we'd have to blacklist `_xheadvector`
+for kernels compiled without vector support even if the relevant support
+is added to the kernel. Similarly, we'd have to blacklist it for kernels
+with vector support, but without the erratum enabled.
+
+I think the plan was the former though, so you'd have to block passing
+`v` to userspace if vector is enabled and the erratum is not supported.
+Should ERRATA_THEAD_VECTOR be mandatory then for RISCV_ISA_VECTOR &&
+ERRATA_THEAD kernels? What am I missing?
+
+Also, in a world where we do do some sort of passing, should we only
+forward the vendor extensions, or should we forward the standard ones
+too?
+What about supervisor mode only stuff? There's a bunch of questions to
+consider here, even if for some of them the answer may be obvious.
+
+As I said, not really bothered about hwprobe, aux vector etc, but this
+side of things is particularly interesting to me.
+
+Cheers,
+Conor.
+
+--nWo5qTPtEHBQI77d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEq+4QAKCRB4tDGHoIJi
+0mtbAQDGhCUIHj+CrP2sJWJZgnpydP4QmYuQFMWLAspoXNz/XwEAwEcvetTlShFu
+S4ux+lKP/3+iQ8Hwj7Jhn2axR7sRFws=
+=cxr9
+-----END PGP SIGNATURE-----
+
+--nWo5qTPtEHBQI77d--
+
+
+--===============4108364218171923567==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4108364218171923567==--
+
