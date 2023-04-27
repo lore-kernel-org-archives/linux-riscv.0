@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF41C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 09:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B48C77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 09:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ce7MGMaJBJNp15oLM661rohs0forY1dMZAuKqxzmQaw=; b=lUeBWz2nVcpvq8
-	H9Aops3CXJdMYdIdLuwb7EUG9XP5c1JReXjHARNxRGitjTZzB7AOCPv+LdPPl4WArKYCG94agqL6u
-	eG1qPjNsQosUsTVFByLG6H51chcauOhbhL/c2dWyis3wwMqcQX4C1L7Vp0GMExbWV3A9P8D+9Hcl2
-	/p1H5KG166BaIn59Z6IXK4XHYLmgxFCIai0V3SMMtfKERV+f3P+fnTzdxa/+CGE2zvURELPg4tJev
-	0At5vKLtiTK/F2S5YciTfz8vl6aKdSLKeaC17ov3R3WsXak3Jh18IbRqqYxVkwYY5GyuOO614N48i
-	J1LnHzbSP+qQxsh/B+fw==;
+	List-Owner; bh=Qk79H1chF8kvEePXpzqtPYCTDry97ITySh2v7/t69d4=; b=ASCYlDZ7VR3uNJ
+	PQzpRL3cUFPpGc7OXXeOnDzzOaq93F0qai6Q1M3NyvLuZuzgBgoPTB40Mnk5OFcsW/Fj/rj/3nA93
+	omHT2COv9KzSSi4lgKMVCI+wk3DdRXuchgTBUiqtsSC8hb65OFOjz/Ttf8wbKCsBGlc0qf1obnTXi
+	PUpDkHnqEStf9Azz+XEFkSFLdJfyhn4M0EHDa4kXPzQXoceR14OUu+dzt1A71yxo0vORrhIQJpn+O
+	SXPuv8sZKY2dNQM1p65oOCjoYBwqmvJsoTAGHgtGep2eFGxKBbws4SHuF+PFqZVXXUbK+BdBEN2XQ
+	LAvRKKKddjom5QNNzifw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1prxqG-005ycU-20;
-	Thu, 27 Apr 2023 09:23:08 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1prxsl-005zFZ-0R;
+	Thu, 27 Apr 2023 09:25:43 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1prxqE-005yan-0B
+	id 1prxsi-005zCe-1T
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 09:23:07 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-63f273b219eso4207167b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 02:23:03 -0700 (PDT)
+	Thu, 27 Apr 2023 09:25:41 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3f09b4a1527so84155675e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 02:25:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682587383; x=1685179383;
+        d=ventanamicro.com; s=google; t=1682587536; x=1685179536;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=b4tmAtbJaHWfTAbFkdGyP1UUwCahMULqyPQK3zTjGzc=;
-        b=K5jLEqhDbTkTtYuPE6+Ra/lfEGtBsFz6bD+QwskySxg855wiFn0qDjLEfswlGFfhfi
-         tOdnFRv/n7SuEaT5szOXglGImaRKUHKwKldEAxzxH8OTFpP2ASczXusutBgYCAJ/IM9T
-         qo/cclpS2UtxF+D7UaTNfNS7UgHAlWLwobc28ylRvM2rShK2glsBS8xQIVZbUdIkEdf3
-         ZAokL+mH+OIn/pqvNLquuERSdwdpP2zLejahscptpuC6+PX+rVTUqyzeT4HuLEKlWgVz
-         xzCrcMujA0CBmsmbswdLf0XRvh1srcH3cIpJyWqm2bh3PmIcbbDULRMbPmHyZGvksUDj
-         UbjA==
+        bh=I3/RzN4AJvDC7+eEY0sM4oqgUL0myB76IKp72IpocdI=;
+        b=OFcU+uH+KWdowI5w4os4wF83X/B9/7D1hDT8AJCUPL6N7G8igyd25cS8mEZRGYLb0C
+         N3tlt3PUyUzD8S6CTPNuVYh2rNsgRdc1iNLN2Tn9VLnoA5/9DTvsmUYSce7yEddZcXGY
+         O5UZUz1+pu7z882rbwAY9Hoj+1FwSS7cH6Sg4YnrW++VwQLIz9XUF1YTPA5EY2qeY4A+
+         VAsGcrvL4w++3E1DMNY3gqpRZ0N4/AXojkOSmkriUPPtq/6M6Y8ryVkzs1q10lv8OCf7
+         FX9NfrytxicAOmEShI7FzTqbm/JaCnUB1os/KFdnDX7pWFjYH0Yn+y6vFvaMONzcOiRG
+         WfyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682587383; x=1685179383;
+        d=1e100.net; s=20221208; t=1682587537; x=1685179537;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b4tmAtbJaHWfTAbFkdGyP1UUwCahMULqyPQK3zTjGzc=;
-        b=PLJmtSEKcR45a3Q9oo+B2g7T7YzB3cBiShOTCMl9lBURXKxF/OsIeHRfFAjWtj2hYW
-         iR4Ks0l3MENxyRSnT8lu3CY9KSIYlzLh3SE/PWDVknT1JChSNppGDSMoGN7KT21RUguC
-         LXi84PXjzl/L9Ja8buKPvmRfqjlrDGH0KIt9gcgMu3dpYTbIUNE9OM0Tc/kHwYI0TgRX
-         33xkY2CCKKsVyCOrVX2uPPi8FDnoORoChlnNDPdDo1DDONCwdXgdiUARw9FUP6pEcT8r
-         1jxu5vqtPP+mSwQRKSef/3POrAApf5AIu/obRYCszz17XCF5d8tnvmiq7D4UxTrfEpjY
-         hfgQ==
-X-Gm-Message-State: AC+VfDygneuWNYa3ms7PSfb/JNFI34seXLZNgtaWZqWHqz6mhSvwcib0
-	tKNimFlCmlZfjHRmD4zC5KYPRQ==
-X-Google-Smtp-Source: ACHHUZ7RWci9fHcfj1Kz5md3jazQZh7oA/8a9iSA8EEYdE24w8faCyvnC3O4ecPFfRxC69G0cl789g==
-X-Received: by 2002:a05:6a00:22ca:b0:63b:5c82:e21a with SMTP id f10-20020a056a0022ca00b0063b5c82e21amr1814185pfj.1.1682587382560;
-        Thu, 27 Apr 2023 02:23:02 -0700 (PDT)
-Received: from sunil-laptop ([2409:4071:6e90:4e5:b276:2557:8da6:6c7e])
-        by smtp.gmail.com with ESMTPSA id i66-20020a62c145000000b0063d318699f9sm12712205pfg.48.2023.04.27.02.22.54
+        bh=I3/RzN4AJvDC7+eEY0sM4oqgUL0myB76IKp72IpocdI=;
+        b=kjb90qMmu8Q4NnaTms6agcKa2f/QtgEz67W48iT6scbcBvqncHxOXz6617oGPqS7MW
+         gAYZEDTtQIMKwpwfTGbFKR/Da0JI8M5zjQEZhzmzoS/KOFWNMC/N3djYEbqPIaqXQb4n
+         qGFEnjxWCpG2rH6TXJLMnAmeotBdxtHCBQQcx9pGR8vqyoowIO8HHnL5bq/jlioOrtWb
+         uhEom+xwZA9h4mP0PKXL24/0SRqHaJU4P7J8VKEwKdVk7duuKFeAVjhEkfYpQW/E8vEA
+         oeRgRgtMvGAOe7enbLlAVWaXmM6IJd8PBxZVqRfRplgfIUhtW06U7++ApI8DbLfgqcS6
+         dEew==
+X-Gm-Message-State: AC+VfDyLBTWLrU37J2TmGrOtMf2HZMdx3s2wlaLSCi1By6Qj9Etk+klH
+	R8NopxJAHwcF5LQMSoZ97YBO/g==
+X-Google-Smtp-Source: ACHHUZ75rGDonY81KfyHjidrZgSBeiUycDijDGIT5u1Snn62AK+MB0zlt5smJtkHgxXHeG5k2c1Iig==
+X-Received: by 2002:a05:600c:210b:b0:3f1:8b0f:96ea with SMTP id u11-20020a05600c210b00b003f18b0f96eamr840997wml.37.1682587536678;
+        Thu, 27 Apr 2023 02:25:36 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id e26-20020a05600c219a00b003f180d5b145sm20573730wme.40.2023.04.27.02.25.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Apr 2023 02:23:02 -0700 (PDT)
-Date: Thu, 27 Apr 2023 14:52:50 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev, corbet@lwn.net,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	lenb@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
-	qianweili@huawei.com, wangzhou1@hisilicon.com,
-	herbert@gondor.apana.org.au, Marc Zyngier <maz@kernel.org>,
-	luzmaximilian@gmail.com, hdegoede@redhat.com, markgross@kernel.org,
-	nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
-	rafael@kernel.org, davem@davemloft.net, rafael.j.wysocki@intel.com
-Subject: Re: [PATCH V4 08/23] RISC-V: ACPI: Cache and retrieve the RINTC
- structure
-Message-ID: <ZEo+6rwM+c6DvlMM@sunil-laptop>
-References: <20230404182037.863533-9-sunilvl@ventanamicro.com>
- <mhng-fd6c3622-ce6c-4895-8dc9-7dbaa2ab14f4@palmer-ri-x1c9a>
+        Thu, 27 Apr 2023 02:25:36 -0700 (PDT)
+Date: Thu, 27 Apr 2023 11:25:34 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Wende Tan <twd2.me@gmail.com>, Soha Jin <soha@lohu.info>, Hongren Zheng <i@zenithal.me>
+Subject: Re: [PATCH 1/2] riscv: allow case-insensitive ISA string parsing
+Message-ID: <xvdswl3iyikwvamny7ikrxo2ncuixshtg3f6uucjahpe3xpc5c@ud4cz4fkg5dj>
+References: <20230425120016.187010-1-cyy@cyyself.name>
+ <tencent_63090269FF399AE30AC774848C344EF2F10A@qq.com>
+ <20230426-porthole-wronged-d5a6a3b89596@spud>
+ <6kjgearxffbnnq4bsqs7e3jz6efz436m6gb3zjh7cfi357oxlv@krxto6orxwwn>
+ <20230427-unveiling-kiwi-631e966f77cc@wendy>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-fd6c3622-ce6c-4895-8dc9-7dbaa2ab14f4@palmer-ri-x1c9a>
+In-Reply-To: <20230427-unveiling-kiwi-631e966f77cc@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_022306_097979_533FCE91 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20230427_022540_498877_63090A3B 
+X-CRM114-Status: GOOD (  44.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,146 +97,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
-
-On Wed, Apr 26, 2023 at 11:45:00AM -0700, Palmer Dabbelt wrote:
-> On Tue, 04 Apr 2023 11:20:22 PDT (-0700), sunilvl@ventanamicro.com wrote:
-> > RINTC structures in the MADT provide mapping between the hartid
-> > and the CPU. This is required many times even at run time like
-> > cpuinfo. So, instead of parsing the ACPI table every time, cache
-> > the RINTC structures and provide a function to get the correct
-> > RINTC structure for a given cpu.
+On Thu, Apr 27, 2023 at 10:04:34AM +0100, Conor Dooley wrote:
+> On Thu, Apr 27, 2023 at 09:53:19AM +0200, Andrew Jones wrote:
+> > On Wed, Apr 26, 2023 at 07:54:39PM +0100, Conor Dooley wrote:
+> > > (+CC Drew)
+> > > 
+> > > Hey Yangyu,
+> > > 
+> > > One meta-level comment - can you submit this patch + my dt-bindings
+> > > patch as a v2?
+> > > Some comments below.
+> > > 
+> > > On Tue, Apr 25, 2023 at 08:00:15PM +0800, Yangyu Chen wrote:
+> > > > According to RISC-V ISA specification, the ISA naming strings are case
+> > > > insensitive. The kernel docs require the riscv,isa string must be all
+> > > > lowercase to simplify parsing currently. However, this limitation is not
+> > > > consistent with RISC-V ISA Spec.
+> > > 
+> > > Please remove the above and cite ACPI's case-insensitivity as the
+> > > rationale for this change.
+> > > 
+> > > > This patch modifies the ISA string parser in the kernel to support
+> > > > case-insensitive ISA string parsing. It replaces `strncmp` with
+> > > > `strncasecmp`, replaces `islower` with `isalpha`, and wraps the
+> > > > dereferenced char in the parser with `tolower`.
+> > > > 
+> > > > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> > > > ---
+> > > >  arch/riscv/kernel/cpu.c        |  6 ++++--
+> > > >  arch/riscv/kernel/cpufeature.c | 20 ++++++++++----------
+> > > >  2 files changed, 14 insertions(+), 12 deletions(-)
+> > > > 
+> > > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > > > index 8400f0cc9704..531c76079b73 100644
+> > > > --- a/arch/riscv/kernel/cpu.c
+> > > > +++ b/arch/riscv/kernel/cpu.c
+> > > > @@ -4,6 +4,7 @@
+> > > >   */
+> > > >  
+> > > >  #include <linux/cpu.h>
+> > > > +#include <linux/ctype.h>
+> > > >  #include <linux/init.h>
+> > > >  #include <linux/seq_file.h>
+> > > >  #include <linux/of.h>
+> > > > @@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
+> > > >  		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
+> > > >  		return -ENODEV;
+> > > >  	}
+> > > > -	if (isa[0] != 'r' || isa[1] != 'v') {
+> > > > +	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
+> > > >  		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
+> > > >  		return -ENODEV;
+> > > 
+> > > I don't understand why this is even here in the first place. I'd be
+> > > inclined to advocate for it's entire removal. Checking *only* that there
+> > > is an "rv" in that string seems pointless to me. If you're on a 64-bit
+> > > kernel and the node has riscv,isa = "rv32ima" it's gonna say it is okay?
+> > > Drew what do you think?
 > > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> > ---
-> >  arch/riscv/include/asm/acpi.h |  2 ++
-> >  arch/riscv/kernel/acpi.c      | 60 +++++++++++++++++++++++++++++++++++
-> >  2 files changed, 62 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> > index 9be52b6ffae1..1606dce8992e 100644
-> > --- a/arch/riscv/include/asm/acpi.h
-> > +++ b/arch/riscv/include/asm/acpi.h
-> > @@ -59,6 +59,8 @@ static inline bool acpi_has_cpu_in_madt(void)
-> > 
-> >  static inline void arch_fix_phys_package_id(int num, u32 slot) { }
-> > 
-> > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
-> > +u32 get_acpi_id_for_cpu(int cpu);
-> >  #endif /* CONFIG_ACPI */
-> > 
-> >  #endif /*_ASM_ACPI_H*/
-> > diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> > index 81d448c41714..40ab55309c70 100644
-> > --- a/arch/riscv/kernel/acpi.c
-> > +++ b/arch/riscv/kernel/acpi.c
-> > @@ -24,6 +24,66 @@ EXPORT_SYMBOL(acpi_disabled);
-> >  int acpi_pci_disabled = 1;	/* skip ACPI PCI scan and IRQ initialization */
-> >  EXPORT_SYMBOL(acpi_pci_disabled);
-> > 
-> > +static struct acpi_madt_rintc cpu_madt_rintc[NR_CPUS];
-> > +
-> > +static int acpi_parse_madt_rintc(union acpi_subtable_headers *header, const unsigned long end)
-> > +{
-> > +	struct acpi_madt_rintc *rintc = (struct acpi_madt_rintc *)header;
-> > +	int cpuid;
-> > +
-> > +	if (!(rintc->flags & ACPI_MADT_ENABLED))
-> > +		return 0;
-> > +
-> > +	cpuid = riscv_hartid_to_cpuid(rintc->hart_id);
+> > It makes some sense to me as a garbage detector. It's unlikely the first
+> > two bytes will be "rv" if the string is random junk.
 > 
-> Unless I'm missing something, this races with CPUs coming online.  Maybe
-> that's a rare enough case we don't care, but I think we'd also just have
-> simpler logic if we fixed it...
-> 
-This depend only on cpuid_to_hartid_map filled up. I wish I could
-initialize this RINTC mapping in setup_smp() itself like ARM64. But in
-RISC-V, this file smpboot.c gets built only when CONFIG_SMP is enabled.
-Hence, we need to initialize this array outside of setup_smp().
+> Preventing the input of absolute rubbish is dt-validate's job & if the dtb
+> itself has been corrupted somehow I suspect that we have bigger problems
+> than checking for "rv" will solve.
 
-I can update the code to initialize this from setup_arch() immediately
-after setup_smp() if ACPI is enabled. That should avoid the global
-variable check also. Let me know if you prefer this.
+We would, but would they be as easy to debug as this very early sanity
+check? I agree, though, that doing the sanity checking in
+riscv_of_processor_hartid(), which gets called from several different
+places, seems a bit much. It'd be better to do that once, early, and
+never again.
 
-> > +	/*
-> > +	 * When CONFIG_SMP is disabled, mapping won't be created for
-> > +	 * all cpus.
-> > +	 * CPUs more than NR_CPUS, will be ignored.
-> > +	 */
-> > +	if (cpuid >= 0 && cpuid < NR_CPUS)
-> > +		cpu_madt_rintc[cpuid] = *rintc;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int acpi_init_rintc_array(void)
-> > +{
-> > +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_RINTC, acpi_parse_madt_rintc, 0) > 0)
-> > +		return 0;
-> > +
-> > +	return -ENODEV;
-> > +}
-> > +
-> > +/*
-> > + * Instead of parsing (and freeing) the ACPI table, cache
-> > + * the RINTC structures since they are frequently used
-> > + * like in  cpuinfo.
-> > + */
-> > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-> > +{
-> > +	static bool rintc_init_done;
 > 
-> ... basically just get rid of this global variable, and instead have a
+> > also do a strlen(isa) >= 4 check first, though. of_property_read_string()
+> > will succeed even when the string is "".
 > 
->    if (!&cpu_madt_rintc[cpu])
->        ... parse ...
->    return &cpu_madt_rintc[cpu];
-> 
-> that'd probably let us get rid of a handful of these helpers too, as now
-> it's just a call to the parsing bits.
-> 
-I am afraid this (!&cpu_madt_rintc[cpu]) check won't work since we are
-not caching the RINTC pointers but actual contents itself. So, the
-address is always valid. However, as per Drew's earlier feedback I am
-going to reduce one helper. I am planning to send the next version of
-this patch once 6.4 rc1 is available since the ACPICA patches are merged
-now.
+> I don't think that checking that there are at least 4 characters isn't
+> even sufficient. Either we should confirm that this is a valid riscv,isa
+> to run on (so rv##ima w/ ## matching the kernel) or not bother at all.
 
-> > +
-> > +	if (!rintc_init_done) {
-> > +		if (acpi_init_rintc_array()) {
-> > +			pr_err("No valid RINTC entries exist\n");
-> > +			return NULL;
-> > +		}
-> > +
-> > +		rintc_init_done = true;
-> > +	}
-> > +
-> > +	return &cpu_madt_rintc[cpu];
-> > +}
-> > +
-> > +u32 get_acpi_id_for_cpu(int cpu)
-> > +{
-> > +	struct acpi_madt_rintc *rintc = acpi_cpu_get_madt_rintc(cpu);
-> > +
-> > +	BUG_ON(!rintc);
+Extending the check makes sense, but even more reason to do it outside
+riscv_of_processor_hartid().
+
 > 
-> We should have some better error reporting here.  It looks like all the
-> callerss of get_acpi_id_for_cpu() are tolerant of a nonsense ID being
-> returned, so maybe we just pr_warn() something users can understand and then
-> return -1 or something?
-> 
+> It's a different issue though, and I'd be inclined to revisit it in the
+> future when the ACPI stuff is in, along with perhaps the cleanup parts
+> of Heiko's series too.
 
-RINTC is mandatory for ACPI systems. Also, all 32bit values are valid
-for UID. So, there is no bogus value we can return. 
+Agreed.
 
-Actually, I just realized this check is redundant. It will never be NULL
-since it is a static array. So, we can just get rid of the BUG.
-
-Thanks!
-Sunil
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
