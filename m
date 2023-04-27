@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B908C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 17:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D8AC77B61
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 17:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UO1CAjUrnmfXACTzP82TaeTQLzMdBfbcZUNLT2jkIs=; b=wqcvnwGzmpEEj/C4zH7v1k1VnL
-	+UNJOovhtzWb3CzJMW+15aVeh1AntToCOKeeGqKPnNIlzsnmq/kg2zQ6OKvx3JNndIgW65O1crdD4
-	QFG4QrAiQrDW5W6xT5Jsf5RtthMjTjJTG8YNueRQpAq7GQTtz0PtuFU0QYkfuzFseso9E58al0t06
-	9tx6WxzLg58yv8mMXad9OVUZTwYGz04T+OUO4xE+5t8LFhOeT/HlJGuCEJvjMHQCb25EplZ1AmFTx
-	8VBh83rGld2z/igCskL1Xwx+AR3OxaJo9uVv4wcT3ehQa84oKjWqjfksA69M7QS8tfZ/0yVFFhXMp
-	0PtHczkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yCbr/syuBpSvSiBRSBO76zFDN7x34T8uEDirOwZNhJE=; b=sk3Gb9QU+bX7HV
+	pABD+sWdWIw4HCCB7o8yLNOyRckycKUVE7qqYZETOU4OBfSuPYhU2yZIbrjN4CWJK+iaqsYOKdp3A
+	I+AIhVF2SvBdq7PcmBLToxQhlPdiNVjrjcof3HxknSD/a0Tf+KZTS0IQibYsYhTSuJ8R2WjOIyryl
+	PFV9qAXA2AY5jdwE+gtDgZLFNsUiqgvNcGnjwHkzzCks99ZWCW1zO5g5YYabGSt/JdysuJLGKIFIR
+	gJJsTMQCfB7lBRLujoQvSf4h+YLSYJIsjnKj5bnZHMWYrL695LwTogLzL5mF+HhFt/NUiIPop1r33
+	8oYrnGfFPgEok75Km0JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ps5Pk-0077F1-0v;
-	Thu, 27 Apr 2023 17:28:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ps5aY-0078SN-1x;
+	Thu, 27 Apr 2023 17:39:26 +0000
+Received: from mail-oo1-f54.google.com ([209.85.161.54])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ps5Pg-0077EY-1T
+	id 1ps5aV-0078RT-2Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 17:28:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 084FC614C0;
-	Thu, 27 Apr 2023 17:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643E7C433D2;
-	Thu, 27 Apr 2023 17:28:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682616491;
-	bh=fTIHyMELB7P4mMmUO7vjz/67287/XF7r/7KUpvHIaGY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=raRn+1kXDTM/GzlCJKA+5Te3YPVHdgoUeMtH/pxSm2YmAMNMNlSwpODOL46OGiLdc
-	 vdLk8IiO24cJnOHdxQwQeHZbmoJHDSTMcfoc2jSFOD/lUI0HtOQMf6tj5TFDfJRddI
-	 Jx1o81RQ4CeTKj7FCVOpLNChhVWB0Xg303ciZpt3oMbofaMZbv1AFgovB/fnzA4CzX
-	 XJvtNSwNAxQny7MrssylghZSmifwucnOsPWfuEknqaTquot/qLNwRReWFOK39rJ8G9
-	 28KvMNuih5oMwx4bzMsc4ex9SaZC348yndTciFdIDEs5wJ6xDXfBK/vPo5OHxwxUzq
-	 ENv5cOEu9qVvA==
-Date: Thu, 27 Apr 2023 18:28:06 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: ajones@ventanamicro.com, aou@eecs.berkeley.edu, i@zenithal.me,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, soha@lohu.info,
-	twd2.me@gmail.com
-Subject: Re: [PATCH 1/2] riscv: allow case-insensitive ISA string parsing
-Message-ID: <20230427-duplicate-procedure-2eec53856977@spud>
-References: <20230426-porthole-wronged-d5a6a3b89596@spud>
- <tencent_BC64BBD18CAF41904B9BD1510B1739062805@qq.com>
+	Thu, 27 Apr 2023 17:39:24 +0000
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-549d9c2935fso2405658eaf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 10:39:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682617161; x=1685209161;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AD3fQdKaQFdku2aIFjpNovuQ9wn6Q2sNynbCaMLgODE=;
+        b=XBbinxdrQXQq0daHO57U/FRzgcjQ/qc0f+zovR9aK3ZOzAVr6COoYAI/tQJP8kf1vB
+         1/PGMoT48JNjtj4seLKfJ6YDvJ7DVD380rIZg47ta2YmrMztLxW65y5Kv1fkmNUT/YgQ
+         O8qraE6h3KHIbgodvp6aigP6NL/xCtFveFe5ETXdM/BHURd0sx2EIIPWR6sRxc4VZcBy
+         QHBObROI8ptzMyxSni/95dunpMlghbL+eyScHBStbooOrxU/ZVl32md6peiGI7LwWSci
+         qebbN2pNHUw4f1dg7qa8YPzpDjJHyWSz/M1GX8l+PoSWMv2QNir+QQxn+ouu7wrt4E44
+         XHVQ==
+X-Gm-Message-State: AC+VfDxm3HulI+gr7HDWMzsE4G4Zi6jarmEuv91UWrm1DE75+ZiOCBO6
+	NZsLEvUAHuG/peVkbqEUOg==
+X-Google-Smtp-Source: ACHHUZ4503HyHI7UJ3zKQxVNIZ7VAtQFhpl7W6Stdj0s/zR4e0u8lGqIZxNeWBv5Zi0MxXJgKlORiQ==
+X-Received: by 2002:a4a:d896:0:b0:547:5725:7711 with SMTP id b22-20020a4ad896000000b0054757257711mr1407382oov.6.1682617161624;
+        Thu, 27 Apr 2023 10:39:21 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id 27-20020a4ae1bb000000b00541fbbbcd31sm6196058ooy.5.2023.04.27.10.39.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Apr 2023 10:39:21 -0700 (PDT)
+Received: (nullmailer pid 3209698 invoked by uid 1000);
+	Thu, 27 Apr 2023 17:39:20 -0000
+Date: Thu, 27 Apr 2023 12:39:20 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: conor@kernel.org, devicetree@vger.kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v1] dt-bindings: riscv: explicitly mention assumption of
+ Zicsr & Zifencei support
+Message-ID: <168261716012.3209643.3723944369525088026.robh@kernel.org>
+References: <20230427-fence-blurred-c92fb69d4137@wendy>
 MIME-Version: 1.0
-In-Reply-To: <tencent_BC64BBD18CAF41904B9BD1510B1739062805@qq.com>
+Content-Disposition: inline
+In-Reply-To: <20230427-fence-blurred-c92fb69d4137@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_102812_572189_6120717E 
-X-CRM114-Status: GOOD (  39.85  )
+X-CRM114-CacheID: sfid-20230427_103923_784526_FB06B505 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,114 +77,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7334651649156480887=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7334651649156480887==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VTpKZ7gKyqWX7CfH"
-Content-Disposition: inline
+On Thu, 27 Apr 2023 11:43:42 +0100, Conor Dooley wrote:
+> The dt-binding was defined before the extraction of csr access and
+> fence.i into their own extensions, and thus the presence of the I
+> base extension implies Zicsr and Zifencei.
+> There's no harm in adding them obviously, but for backwards
+> compatibility with DTs that existed prior to that extraction, software
+> is unable to differentiate between "i" and "i_zicsr_zifencei" without
+> any further information.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Conor Dooley <conor@kernel.org>
+> CC: Rob Herring <robh+dt@kernel.org>
+> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
+Acked-by: Rob Herring <robh@kernel.org>
 
---VTpKZ7gKyqWX7CfH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 27, 2023 at 08:47:18PM +0800, Yangyu Chen wrote:
-> Hi, Conor
->=20
-> Thanks for your meaningful reviews. I agree with most of your advice but
-> have a question about the code about checking the first 2 characters are
-> "rv" in `arch/riscv/kernel/cpu.c`.
->=20
-> On Wed, 26 Apr 2023 19:54:39 +0100, Conor Dooley wrote:
-> > > @@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *n=
-ode, unsigned long *hart)
-> > >  		pr_warn("CPU with hartid=3D%lu has no \"riscv,isa\" property\n", *=
-hart);
-> > >  		return -ENODEV;
-> > >  	}
-> > > -	if (isa[0] !=3D 'r' || isa[1] !=3D 'v') {
-> > > +	if (tolower(isa[0]) !=3D 'r' || tolower(isa[1]) !=3D 'v') {
-> > >  		pr_warn("CPU with hartid=3D%lu has an invalid ISA of \"%s\"\n", *h=
-art, isa);
-> > >  		return -ENODEV;
-> >=20
-> > I don't understand why this is even here in the first place. I'd be
-> > inclined to advocate for it's entire removal. Checking *only* that there
-> > is an "rv" in that string seems pointless to me. If you're on a 64-bit
-> > kernel and the node has riscv,isa =3D "rv32ima" it's gonna say it is ok=
-ay?
-> > Drew what do you think?
->=20
-> I think this code could be a workaround for running rv32 S-Mode on rv64
-> CPU without changing the DT, although the proper way should be to change
-> this field in DT by bootloader or any other software.
->=20
-> I have tested a simple rv64imac CPU core and left the `riscv,isa` string
-> empty in the DT and removed the above 3 lines check from the kernel, and
-> the kernel boots successfully, and using busybox as init is also ok.=20
-> However, if this check exists, the kernel will panic at `setup_smp` due to
-> `BUG_ON(!found_boot_cpu)` in `setup_smp`.
-
-The initramfs I have fails to boot because it is build with FP support.
-Out of curiosity, what shows up in /proc/cpuinfo in that case?
-
-> I am wondering whether this should remove or add a more sufficient
-> validation. Although this function will not be called in ACPI as I
-> reviewed the recent ACPI patches[1], it will not be a problem if I submit
-> this patch for better ACPI support. However, If I just simply remove it
-> from my patch and submit patch v2 directly, the ISA string in ACPI mode
-> with all uppercase letters will be OK. But in DT mode, the kernel behavior
-> will accept the ISA string with all uppercase letters except the first two
-> "rv". Do you think this behavior is different between DT and ACPI can be
-> OK?
-
-A difference would be fine, if it was that ACPI allowed caps and DT
-didn't. But allowing caps everywhere other than the RV just seems a bit
-silly to me, so I would rather allow the capitalisation of RV.
-
-> After some investigation, I suggest removing this validation since the
-> validation is useless for a proper DT and the recent ACPI patches[1] do
-> not validate the ISA strings, so we will have the same behavior between
-> DT and ACPI.
-
-I dunno. I'd like to split that function in 2 actually, but I would
-like the ACPI stuff to land before doing so. I think for now, what might
-be best is checking that it has a sufficient strlen in a separate patch,
-earlier in your series, and making the check case-insensitive as you have
-done already here.
-
-Cheers,
-Conor.
-
---VTpKZ7gKyqWX7CfH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEqwpgAKCRB4tDGHoIJi
-0kWfAP9e4VArAxe0AaDHBJoslthiQDLrOA4hOUoJTcqOEXJG/QD+KtBWf2LGLbZs
-LZMF2RrjfiA1vdsCUAO1mBtQvGEE/w4=
-=/PYG
------END PGP SIGNATURE-----
-
---VTpKZ7gKyqWX7CfH--
-
-
---===============7334651649156480887==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7334651649156480887==--
-
