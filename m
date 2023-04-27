@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A9C77B61
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 10:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AD7C77B73
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 10:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nvhu5JQstlm0ST+ht7LcOAQ79Mk0dLcrJTtNOuxtDLU=; b=L4BS9xxlPNhdhl
-	kOiplKNAEqCJQupZZUQzTmGOor4KOIZotjsFi5WHGSVCjX6pknxU+Q+hGFaYoSeRw9IFPtmGzIJY5
-	03xqM5sZOeFr34Q9aSnz5sn2k0drq/Phx7+YjDhgZHKVg7Q7ZvPiqmW25vEYKFWoNWs6mgwr51XHs
-	HljdQanem6F2BtK6ZX2mO9Ih32zQF113thDxnMOt5gydEgzTCUqCWvl2Ev+HzEmNFC/VJPEpibRXW
-	i9loyVeMd13L9nkLEDtlqitYMTTm/wJaZ5ms8ScWXe+/QgMogX4Frdar+cbPimcnIHDJDokbM4Zrs
-	VzgWXhxSYRwlpxIJQowA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SoeoL0UnhPdl9ImqvS8GTIiDT+C16C7x3sHQf4FuJBg=; b=ZZgIY4+iVJCmYaDRsokwHQnAfc
+	oJ/sM+4lr7VfNyHvq4ecx2G+KCKmRdLaahLkvHdXfGw2qyW0ba3aQLr0HEWKxJERz9vuaVVzWbmIY
+	IZJvpjDEhValMI/0NTZ9N1UD56bTqFY9mty4CoOqzTBXegdEPMWsONUL8IYyHWDExt9ZLqXVffKmT
+	9EtmkWMlUxeotS+2zKnieu5ZK6VMGqL42+7Fg8cb09D7f5VGcEnRLOmkcj8gnKwJkCutMZVR8i7OY
+	G9TlV8216LoOVhld68fobe7YFza8Lj7rOxT7g3ED5u+LjL5K4I6ckuKhr0tUOG+LdWAY9No7tTVrX
+	rJZmBVlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pryp1-006EaV-2k;
-	Thu, 27 Apr 2023 10:25:55 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1prz0K-006KC4-1C;
+	Thu, 27 Apr 2023 10:37:36 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pryox-006EWS-3C
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Apr 2023 10:25:54 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3f195b164c4so45244035e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Apr 2023 03:25:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682591149; x=1685183149;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q9YirskzzfAT9ZG78j4XI4f+XaKvOs4fPB8pgDEIFrg=;
-        b=dH+YgQI6dQjl1A5Sw11f3xx1ffIcrI4l/QBtnOO+H7Sqe5wuP+Es2b93LL4lwlO6IJ
-         S9U//eRjfTQ5JhXMNJ9VFTRn4S6ziXjfRlALf3KG9SiWq33hh5pjwTda2tGZ5VjEVKuS
-         /RRo8QBGK5SAxVNgR4pWs3MMek91fhyMNEXRq/MI1/EBrCbfzP/n/n13/VRQnRE/kvcR
-         66tMMLGpNxK6QtSqZ/lJNKKtdDvJXVcBK6OspBszFNKXW5pkF+BJcMFd4odAfwzLu26M
-         1PBxkeNIQzUnxSPkxWz1kR6xZxFbt9P6sZAq9fH5yN64HMIL+Lt/SsiFZud6kTiMI1Ls
-         yvZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682591149; x=1685183149;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q9YirskzzfAT9ZG78j4XI4f+XaKvOs4fPB8pgDEIFrg=;
-        b=c2AFbnL9Voppw7tGNn1UVIaRNCG4jd+TYKZr+t4UyigCQPIIFM8qbCYUgZqXj2e8nR
-         6Olg6e0NZv8Peq9tGytd6wCYgEnEifBtKfnZAcuNxWiq3o95qaZOCJQzlTHfSJ7yXFI9
-         ojLb/SwjeN4uySru9AotEQm3y7fpmr4J4k0XY+5SJXqxvlZjv80BcQg70FGfaNTK6fcR
-         xnqgSYpNmEY48YyIrIm4gBa51xhgEIcs/No5FPQUyI6L/z2Mi3KgAbPEVvM2c85G8dx+
-         NSSinFxA3gOj5dUJtzISBSzjTqkORnwl7wWlECmTJLshtBglnPRivvqxcDnvG57rRrYB
-         X1Pw==
-X-Gm-Message-State: AC+VfDzqRbokxqTlEQs00C1nHjPwerCiLpV325dMk7JXG+qvH+aikXW6
-	ZrSmzPdW/M5ZxdmtPskz670X9g==
-X-Google-Smtp-Source: ACHHUZ6x1wuM4Jn0UPIukgsBYJpg+fMhoKy3/rvqcQ+kvfhVsS//cfS47JS5pbSjqqs83b2EuvSkvQ==
-X-Received: by 2002:adf:f0ce:0:b0:2f0:69c4:3900 with SMTP id x14-20020adff0ce000000b002f069c43900mr927802wro.54.1682591149513;
-        Thu, 27 Apr 2023 03:25:49 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id h3-20020a5d5043000000b002c70ce264bfsm18081249wrt.76.2023.04.27.03.25.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Apr 2023 03:25:48 -0700 (PDT)
-Date: Thu, 27 Apr 2023 12:25:42 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, 
-	corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, 
-	lenb@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, 
-	qianweili@huawei.com, wangzhou1@hisilicon.com, herbert@gondor.apana.org.au, 
-	Marc Zyngier <maz@kernel.org>, luzmaximilian@gmail.com, hdegoede@redhat.com, 
-	markgross@kernel.org, nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com, 
-	rafael@kernel.org, davem@davemloft.net, rafael.j.wysocki@intel.com
-Subject: Re: [PATCH V4 08/23] RISC-V: ACPI: Cache and retrieve the RINTC
- structure
-Message-ID: <qqukqrc45zqyjh5bwpjpuiweogwtapuw7qqjjpubjwvteum6ig@esjfwqdivhpa>
-References: <20230404182037.863533-9-sunilvl@ventanamicro.com>
- <mhng-fd6c3622-ce6c-4895-8dc9-7dbaa2ab14f4@palmer-ri-x1c9a>
- <ZEo+6rwM+c6DvlMM@sunil-laptop>
+	id 1prz0H-006KB4-1W;
+	Thu, 27 Apr 2023 10:37:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1682591853; x=1714127853;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=q22iismVzrorof4SSh18jebbXjbzWKSjUqul9A49BgI=;
+  b=XaUZivXG8NNe49bwJ1df/xj2W16ff4AW0XgkT2xjVpMjeYfpxQM2zz+J
+   k2DdgPqWfioeRasMR/wvCwnJOqMPirXlJ5NNsyPUNHSrY4eIXG2fjz+F2
+   eCtXQjulUY+/ggb0Gp+ab0Xa8XfeBDiliimvgpj0fxYR15aGxxOCRoRlt
+   7TDEo5sYeETCEKSGqwZxdYNf7D1MjC/L03JsN/KMzzmBd+DB/NCHQHpne
+   QhB/lPpMVkawayEGc2b+o+/O8gTfZ0ZVUh6eBkzTnAKXwF7k9qZC7Ekb1
+   fYqyt9MuzQGfjofdwOuIzNZ+aV3kAHXbpObYnqb4H6nFNmCnVvyRrZ7WL
+   g==;
+X-IronPort-AV: E=Sophos;i="5.99,230,1677567600"; 
+   d="asc'?scan'208";a="212561833"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Apr 2023 03:37:31 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 27 Apr 2023 03:37:29 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 27 Apr 2023 03:37:27 -0700
+Date: Thu, 27 Apr 2023 11:37:10 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: <linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kvm-riscv@lists.infradead.org>, "'Rafael J . Wysocki '" <rafael@kernel.org>,
+	'Will Deacon ' <will@kernel.org>, 'Daniel Lezcano '
+	<daniel.lezcano@linaro.org>, 'Mark Rutland ' <mark.rutland@arm.com>, 'Atish
+ Patra ' <atishp@atishpatra.org>, 'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Anup Patel ' <anup@brainfault.org>, 'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] RISC-V: Align SBI probe implementation with spec
+Message-ID: <20230427-aflutter-emboss-6892d7097915@wendy>
+References: <20230426172254.70342-1-ajones@ventanamicro.com>
+ <20230427-property-barracuda-631a14371df0@wendy>
+ <ryknbllu75eliur7v6tzei6jvqgwayuhej5icobxxrqwabymhz@lnnqmlrqxvex>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZEo+6rwM+c6DvlMM@sunil-laptop>
+In-Reply-To: <ryknbllu75eliur7v6tzei6jvqgwayuhej5icobxxrqwabymhz@lnnqmlrqxvex>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230427_032552_033845_58804225 
-X-CRM114-Status: GOOD (  46.37  )
+X-CRM114-CacheID: sfid-20230427_033733_572463_F0F18FF7 
+X-CRM114-Status: GOOD (  41.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,157 +84,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0394622321375447699=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 27, 2023 at 02:52:50PM +0530, Sunil V L wrote:
-> Hi Palmer,
-> 
-> On Wed, Apr 26, 2023 at 11:45:00AM -0700, Palmer Dabbelt wrote:
-> > On Tue, 04 Apr 2023 11:20:22 PDT (-0700), sunilvl@ventanamicro.com wrote:
-> > > RINTC structures in the MADT provide mapping between the hartid
-> > > and the CPU. This is required many times even at run time like
-> > > cpuinfo. So, instead of parsing the ACPI table every time, cache
-> > > the RINTC structures and provide a function to get the correct
-> > > RINTC structure for a given cpu.
-> > > 
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+--===============0394622321375447699==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qg7yZ7Ul34x+puxW"
+Content-Disposition: inline
+
+--qg7yZ7Ul34x+puxW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Apr 27, 2023 at 12:17:02PM +0200, Andrew Jones wrote:
+> On Thu, Apr 27, 2023 at 10:42:11AM +0100, Conor Dooley wrote:
+> > On Wed, Apr 26, 2023 at 07:22:54PM +0200, Andrew Jones wrote:
+> > > sbi_probe_extension() is specified with "Returns 0 if the given SBI
+> > > extension ID (EID) is not available, or 1 if it is available unless
+> > > defined as any other non-zero value by the implementation."
+> > > Additionally, sbiret.value is a long. Fix the implementation to
+> > > ensure any nonzero long value is considered a success, rather
+> > > than only positive int values.
+> >=20
+> > Does this need a fixes tag (or tags) then, since we could easily return
+> > a negative value as things stand if the SBI implementation decides to
+> > return 0b1...1 for success?
+>=20
+> Nothing is getting fixed when only considering the current generic opensbi
+> platform, but there could be other SBI implementations Linux isn't
+> handling correctly by only considering success to be greater than zero
+> or by truncating the return value from long to int. I suppose that
+> possibility does warrant a fix tag, which would be
+
+Yah, I figured that something like opensbi would do the "sane" thing
+here, but there's no accounting for taste and all that.
+
+> Fixes: b9dcd9e41587 ("RISC-V: Add basic support for SBI v0.2")
+>=20
+> >=20
+> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > > > ---
-> > >  arch/riscv/include/asm/acpi.h |  2 ++
-> > >  arch/riscv/kernel/acpi.c      | 60 +++++++++++++++++++++++++++++++++++
-> > >  2 files changed, 62 insertions(+)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> > > index 9be52b6ffae1..1606dce8992e 100644
-> > > --- a/arch/riscv/include/asm/acpi.h
-> > > +++ b/arch/riscv/include/asm/acpi.h
-> > > @@ -59,6 +59,8 @@ static inline bool acpi_has_cpu_in_madt(void)
-> > > 
-> > >  static inline void arch_fix_phys_package_id(int num, u32 slot) { }
-> > > 
-> > > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
-> > > +u32 get_acpi_id_for_cpu(int cpu);
-> > >  #endif /* CONFIG_ACPI */
-> > > 
-> > >  #endif /*_ASM_ACPI_H*/
-> > > diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> > > index 81d448c41714..40ab55309c70 100644
-> > > --- a/arch/riscv/kernel/acpi.c
-> > > +++ b/arch/riscv/kernel/acpi.c
-> > > @@ -24,6 +24,66 @@ EXPORT_SYMBOL(acpi_disabled);
-> > >  int acpi_pci_disabled = 1;	/* skip ACPI PCI scan and IRQ initialization */
-> > >  EXPORT_SYMBOL(acpi_pci_disabled);
-> > > 
-> > > +static struct acpi_madt_rintc cpu_madt_rintc[NR_CPUS];
-> > > +
-> > > +static int acpi_parse_madt_rintc(union acpi_subtable_headers *header, const unsigned long end)
-> > > +{
-> > > +	struct acpi_madt_rintc *rintc = (struct acpi_madt_rintc *)header;
-> > > +	int cpuid;
-> > > +
-> > > +	if (!(rintc->flags & ACPI_MADT_ENABLED))
-> > > +		return 0;
-> > > +
-> > > +	cpuid = riscv_hartid_to_cpuid(rintc->hart_id);
-> > 
-> > Unless I'm missing something, this races with CPUs coming online.  Maybe
-> > that's a rare enough case we don't care, but I think we'd also just have
-> > simpler logic if we fixed it...
-> > 
-> This depend only on cpuid_to_hartid_map filled up. I wish I could
-> initialize this RINTC mapping in setup_smp() itself like ARM64. But in
-> RISC-V, this file smpboot.c gets built only when CONFIG_SMP is enabled.
-> Hence, we need to initialize this array outside of setup_smp().
-> 
-> I can update the code to initialize this from setup_arch() immediately
-> after setup_smp() if ACPI is enabled. That should avoid the global
-> variable check also. Let me know if you prefer this.
-> 
-> > > +	/*
-> > > +	 * When CONFIG_SMP is disabled, mapping won't be created for
-> > > +	 * all cpus.
-> > > +	 * CPUs more than NR_CPUS, will be ignored.
-> > > +	 */
-> > > +	if (cpuid >= 0 && cpuid < NR_CPUS)
-> > > +		cpu_madt_rintc[cpuid] = *rintc;
-> > > +
+> > >  arch/riscv/include/asm/sbi.h        |  2 +-
+> > >  arch/riscv/kernel/cpu_ops.c         |  2 +-
+> > >  arch/riscv/kernel/sbi.c             | 17 ++++++++---------
+> > >  arch/riscv/kvm/main.c               |  2 +-
+> > >  drivers/cpuidle/cpuidle-riscv-sbi.c |  2 +-
+> > >  drivers/perf/riscv_pmu_sbi.c        |  2 +-
+> > >  6 files changed, 13 insertions(+), 14 deletions(-)
+> > >=20
+> > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sb=
+i.h
+> > > index 945b7be249c1..119355485703 100644
+> > > --- a/arch/riscv/include/asm/sbi.h
+> > > +++ b/arch/riscv/include/asm/sbi.h
+> > > @@ -296,7 +296,7 @@ int sbi_remote_hfence_vvma_asid(const struct cpum=
+ask *cpu_mask,
+> > >  				unsigned long start,
+> > >  				unsigned long size,
+> > >  				unsigned long asid);
+> > > -int sbi_probe_extension(int ext);
+> > > +long sbi_probe_extension(int ext);
+> > > =20
+> > >  /* Check if current SBI specification version is 0.1 or not */
+> > >  static inline int sbi_spec_is_0_1(void)
+> > > diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
+> > > index 8275f237a59d..eb479a88a954 100644
+> > > --- a/arch/riscv/kernel/cpu_ops.c
+> > > +++ b/arch/riscv/kernel/cpu_ops.c
+> > > @@ -27,7 +27,7 @@ const struct cpu_operations cpu_ops_spinwait =3D {
+> > >  void __init cpu_set_ops(int cpuid)
+> > >  {
+> > >  #if IS_ENABLED(CONFIG_RISCV_SBI)
+> > > -	if (sbi_probe_extension(SBI_EXT_HSM) > 0) {
+> > > +	if (sbi_probe_extension(SBI_EXT_HSM)) {
+> > >  		if (!cpuid)
+> > >  			pr_info("SBI HSM extension detected\n");
+> > >  		cpu_ops[cpuid] =3D &cpu_ops_sbi;
+> > > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > > index 5c87db8fdff2..015ce8eef2de 100644
+> > > --- a/arch/riscv/kernel/sbi.c
+> > > +++ b/arch/riscv/kernel/sbi.c
+> > > @@ -581,19 +581,18 @@ static void sbi_srst_power_off(void)
+> > >   * sbi_probe_extension() - Check if an SBI extension ID is supported=
+ or not.
+> > >   * @extid: The extension ID to be probed.
+> > >   *
+> > > - * Return: Extension specific nonzero value f yes, -ENOTSUPP otherwi=
+se.
+> > > + * Return: 1 or an extension specific nonzero value if yes, 0 otherw=
+ise.
+> > >   */
+> > > -int sbi_probe_extension(int extid)
+> > > +long sbi_probe_extension(int extid)
+> > >  {
+> > >  	struct sbiret ret;
+> > > =20
+> > >  	ret =3D sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, extid,
+> > >  			0, 0, 0, 0, 0);
+> > >  	if (!ret.error)
+> > > -		if (ret.value)
+> > > -			return ret.value;
+> > > +		return ret.value;
+> > > =20
+> > > -	return -ENOTSUPP;
 > > > +	return 0;
-> > > +}
-> > > +
-> > > +static int acpi_init_rintc_array(void)
-> > > +{
-> > > +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_RINTC, acpi_parse_madt_rintc, 0) > 0)
-> > > +		return 0;
-> > > +
-> > > +	return -ENODEV;
-> > > +}
-> > > +
-> > > +/*
-> > > + * Instead of parsing (and freeing) the ACPI table, cache
-> > > + * the RINTC structures since they are frequently used
-> > > + * like in  cpuinfo.
-> > > + */
-> > > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-> > > +{
-> > > +	static bool rintc_init_done;
-> > 
-> > ... basically just get rid of this global variable, and instead have a
-> > 
-> >    if (!&cpu_madt_rintc[cpu])
-> >        ... parse ...
-> >    return &cpu_madt_rintc[cpu];
-> > 
-> > that'd probably let us get rid of a handful of these helpers too, as now
-> > it's just a call to the parsing bits.
-> > 
-> I am afraid this (!&cpu_madt_rintc[cpu]) check won't work since we are
-> not caching the RINTC pointers but actual contents itself. So, the
-> address is always valid. However, as per Drew's earlier feedback I am
-> going to reduce one helper. I am planning to send the next version of
-> this patch once 6.4 rc1 is available since the ACPICA patches are merged
-> now.
-> 
-> > > +
-> > > +	if (!rintc_init_done) {
-> > > +		if (acpi_init_rintc_array()) {
-> > > +			pr_err("No valid RINTC entries exist\n");
-> > > +			return NULL;
-> > > +		}
-> > > +
-> > > +		rintc_init_done = true;
-> > > +	}
-> > > +
-> > > +	return &cpu_madt_rintc[cpu];
-> > > +}
-> > > +
-> > > +u32 get_acpi_id_for_cpu(int cpu)
-> > > +{
-> > > +	struct acpi_madt_rintc *rintc = acpi_cpu_get_madt_rintc(cpu);
-> > > +
-> > > +	BUG_ON(!rintc);
-> > 
-> > We should have some better error reporting here.  It looks like all the
-> > callerss of get_acpi_id_for_cpu() are tolerant of a nonsense ID being
-> > returned, so maybe we just pr_warn() something users can understand and then
-> > return -1 or something?
-> > 
-> 
-> RINTC is mandatory for ACPI systems. Also, all 32bit values are valid
-> for UID. So, there is no bogus value we can return. 
-> 
-> Actually, I just realized this check is redundant. It will never be NULL
-> since it is a static array. So, we can just get rid of the BUG.
+> >=20
+> > Why not make it return -ENOTSUPP for failures and 0 for success instead,
+> > as it does not appear that any users actually care what the return value
+> > is, once it is not an error?
+>=20
+> Just to prepare for theoretical new uses.
+>=20
+> > Concerned that it'll look weird to have
+> > 	if(!sbi_probe_extension(foo))
+> > 		print(foo is available!)
+> > since it looks a bit weird that the !case is success?
+>=20
+> No, that's pretty par for the course in the kernel. I'd just prefer
+> that sbi_probe_extension() be a simple wrapper around the SBI call,
+> one that doesn't change the SBI call's return value semantics.
+>=20
+> >=20
+> > If so, perhaps it could just return a bool instead, unless of course I
+> > am missing some pending user that make some decision on the actual value
+> > returned here is.
+>=20
+> No pending user that I'm aware of, but it's not too awkward, IMO, to
+> implement this as the spec says, so any pending user that comes along
+> will be happy from the start. If a boolean function seems better for
+> everyone,
 
-It can be NULL on the first call of acpi_cpu_get_madt_rintc(), which is
-a good time to BUG if there's isn't an RINTC.
+I don't really mind which way you do it to be honest.
+I see reasons for both wanting alignment with what the SBI spec has &
+for returning the simplest type that fits the usage.
+Both are better than the current, potentially buggy, implementation.
 
-Thanks,
-drew
+Can put a
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+on it either way.
+
+--qg7yZ7Ul34x+puxW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEpQVgAKCRB4tDGHoIJi
+0iW5AQDA6w/HwQfBlJ8IYgZ6pRa8AtyEEGnChoPyFmJIuxy/vgD+PACW8U70qITR
+biI8X+NAOZhU1cXwFj+2ckS05sIJhgY=
+=QJlL
+-----END PGP SIGNATURE-----
+
+--qg7yZ7Ul34x+puxW--
+
+
+--===============0394622321375447699==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0394622321375447699==--
+
