@@ -4,50 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C434C7618E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Apr 2023 23:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127BCC77B7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Apr 2023 02:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvSazfZeVig8kUV8l2Z4+Mc4nzZ9uV03M5ccISlrIYk=; b=PUjGpPanT+s4z3
-	nVl8+vBgzKZJ9xnZ8xoV+hPjYCo1UdaI1hQPY6srIVGqjHSTy0BgqCZgKp2xNBog7ZT9yGoeAgUkC
-	duHx/9liSg6sHwk+E7ANK1mUv2AN879GHs73kbnMeoQiqfkCR36f6pmZtiApeKP1j8jrd9ExFrskk
-	S+Rs3xDFouWELvqaiGlonANVrgNqOaeSWIz6QA/phPpLU1RW5tNrTYPPQyQ3NnelzlLgy8GT9zYLc
-	xozMS5DQ/VIKig7kVsVPh21CLOxKmWG4ioHIu+VEF4HoFSswnuNpIKX6LOiqR78gvxBwvh4rS0CJ7
-	WhekIoWWsrcOmIECHI2g==;
+	List-Owner; bh=LrwFv1X00vMdyBbYzkv+JMDwuNWwtlH8vqz9r0TiFok=; b=r+o3VlY47eC7ty
+	X6HRW4SEDiIwkyc+9lLFiBDHw6sWqwn4+8wHbD3BRa+RkHrI/BtuwReY4/9lF0a81+dbdU3LFl9j4
+	sWZDxLMbqUndFhlwDCxh0qknplb+FtXw2/1UR87YBsPR52FD9NXlLAwh7Vd3+e0ld6tGMTcBI0C1o
+	q1p+3j/q4K79q9xjY4pU9y0OmftE/Clr1Ungrd7u+qryJ7IqhQOjdn24W24crxRtiN5+vYcAL1cLX
+	giSGrtRY7gs/XnQPkfzXlubc+voisLUXGOKrzEZUNtpWFcHgjWhcsproJQp1wCFDMq+aT53B4jvQZ
+	EiC9vnDjVK7xPTc9jxGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1proZK-0052QP-0s;
-	Wed, 26 Apr 2023 23:29:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1prr8k-005GLG-1I;
+	Thu, 27 Apr 2023 02:13:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1proZH-0052Py-14
+	id 1prr8f-005GIw-2p
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Apr 2023 23:29:00 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1proZ6-0000GR-FU; Thu, 27 Apr 2023 01:28:48 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu
-Subject: Re: [PATCH v4 0/4] Implement GCM ghash using Zbc and Zbkb extensions
-Date: Thu, 27 Apr 2023 01:28:47 +0200
-Message-ID: <5008634.irdbgypaU6@diego>
-In-Reply-To: <20230426232331.GB65659@sol.localdomain>
-References:  <20230329140642.2186644-1-heiko.stuebner@vrull.eu> <7664296.GXAFRqVoOG@diego>
- <20230426232331.GB65659@sol.localdomain>
+	Thu, 27 Apr 2023 02:13:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1682561610;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QDBq73uOalrM4tKroB29WOkkL6N6HI1enBv2lSURmmI=;
+	b=SQgd0/BaV5Rv4/sRU3ftFerSFW1B/46dVUY25MNXlFSS8oMVxz7NDAuudP1BaLGglNwQP9
+	BiqZoi2kL1yr2ip20yxChCEAlpQWgFoc0tcP2Ijnxro6sxsAqXQcncJyupch24j6cS2xAL
+	JOdSx9J5JybGRzP48MqOMASsTDVy2Vs=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-610-8zon_suPN4Oswz06NwHtTA-1; Wed, 26 Apr 2023 22:13:25 -0400
+X-MC-Unique: 8zon_suPN4Oswz06NwHtTA-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A27FD8828C2;
+	Thu, 27 Apr 2023 02:13:24 +0000 (UTC)
+Received: from localhost (ovpn-12-30.pek2.redhat.com [10.72.12.30])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 59462492B03;
+	Thu, 27 Apr 2023 02:13:22 +0000 (UTC)
+Date: Thu, 27 Apr 2023 10:13:19 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Chen Jiahao <chenjiahao16@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
+	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
+	atishp@rivosinc.com, thunder.leizhen@huawei.com, horms@kernel.org
+Subject: Re: [PATCH -next v4 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+Message-ID: <ZEnaPzx3O9NWixIR@MiWiFi-R3L-srv>
+References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+ <20230410130553.3226347-2-chenjiahao16@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230410130553.3226347-2-chenjiahao16@huawei.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230426_162859_368384_0F544728 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20230426_191341_985647_6DDCD5DD 
+X-CRM114-Status: GOOD (  33.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,45 +81,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 04/10/23 at 09:05pm, Chen Jiahao wrote:
+> On riscv, the current crash kernel allocation logic is trying to
+> allocate within 32bit addressible memory region by default, if
+> failed, try to allocate without 4G restriction.
+> 
+> In need of saving DMA zone memory while allocating a relatively large
+> crash kernel region, allocating the reserved memory top down in
+> high memory, without overlapping the DMA zone, is a mature solution.
+> Here introduce the parameter option crashkernel=X,[high,low].
+> 
+> One can reserve the crash kernel from high memory above DMA zone range
+> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+> below 4G with "crashkernel=X,low".
+> 
+> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+> Acked-by: Guo Ren <guoren@kernel.org>
+> Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
+> ---
+>  arch/riscv/kernel/setup.c |  5 +++
+>  arch/riscv/mm/init.c      | 71 ++++++++++++++++++++++++++++++++++++---
+>  2 files changed, 71 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 5d3184cbf518..ea84e5047c23 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -176,6 +176,11 @@ static void __init init_resources(void)
+>  		if (ret < 0)
+>  			goto error;
+>  	}
+> +	if (crashk_low_res.start != crashk_low_res.end) {
+> +		ret = add_resource(&iomem_resource, &crashk_low_res);
+> +		if (ret < 0)
+> +			goto error;
+> +	}
+>  #endif
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 478d6763a01a..70f6cb281ed1 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1152,6 +1152,28 @@ static inline void setup_vm_final(void)
+>  }
+>  #endif /* CONFIG_MMU */
+>  
+> +/* Reserve 128M low memory by default for swiotlb buffer */
+> +#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
+> +
+> +static int __init reserve_crashkernel_low(unsigned long long low_size)
+> +{
+> +	unsigned long long low_base;
+> +
+> +	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
+> +	if (!low_base) {
+> +		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
+> +		low_base, low_base + low_size, low_size >> 20);
+> +
+> +	crashk_low_res.start = low_base;
+> +	crashk_low_res.end = low_base + low_size - 1;
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * reserve_crashkernel() - reserves memory for crash kernel
+>   *
+> @@ -1163,8 +1185,12 @@ static void __init reserve_crashkernel(void)
+>  {
+>  	unsigned long long crash_base = 0;
+>  	unsigned long long crash_size = 0;
+> +	unsigned long long crash_low_size = 0;
+>  	unsigned long search_start = memblock_start_of_DRAM();
+>  	unsigned long search_end = memblock_end_of_DRAM();
+> +	unsigned long search_low_max = (unsigned long)dma32_phys_limit;
+> +	char *cmdline = boot_command_line;
+> +	bool fixed_base = false;
+>  
+>  	int ret = 0;
+>  
+> @@ -1180,14 +1206,34 @@ static void __init reserve_crashkernel(void)
+>  		return;
+>  	}
+>  
+> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+>  				&crash_size, &crash_base);
+> -	if (ret || !crash_size)
+> +	if (ret == -ENOENT) {
+> +		/* Fallback to crashkernel=X,[high,low] */
+> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
+> +		if (ret || !crash_size)
+> +			return;
+> +
+> +		/*
+> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
+> +		 * is passed.
+> +		 */
+> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
+> +		if (ret == -ENOENT)
+> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> +		else if (ret)
+> +			return;
+> +
+> +		search_start = search_low_max;
+> +	} else if (ret || !crash_size) {
+> +		/* Invalid argument value specified */
+>  		return;
+> +	}
+>  
+>  	crash_size = PAGE_ALIGN(crash_size);
+>  
+>  	if (crash_base) {
+> +		fixed_base = true;
+>  		search_start = crash_base;
+>  		search_end = crash_base + crash_size;
+>  	}
+> @@ -1201,16 +1247,31 @@ static void __init reserve_crashkernel(void)
+>  	 */
+>  	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>  					       search_start,
+> -					       min(search_end, (unsigned long) SZ_4G));
+> +					       min(search_end, search_low_max));
 
-Am Donnerstag, 27. April 2023, 01:23:31 CEST schrieb Eric Biggers:
-> On Thu, Apr 27, 2023 at 01:20:31AM +0200, Heiko St=FCbner wrote:
-> > But for me, this small bit of scalar crypto is also sort of a stepping
-> > stone :-). Previous versions [0] already included patches using the
-> > vector crypto extensions too, I just split that into a separate thing,
-> > as _this_ series actually uses ratified extensions :-)
-> > =
+Here, it seems not right in case crashkernel=,high is specified. In that
+case, search_start == search_low_max, then the min(search_end,
+search_low_max) will get search_low_max too. Then you make the fallback
+in below code block to try to get crashkernel reservation above 4G. This
+doesn't comply with the crashkernel=,high grammer which has been
+implemented in other architectures.
 
-> > =
+For crashkernel=,high, user explicitly require memory reservation above
+4G. Why does crashkernel=,high is needed? E.g on big end server with
+huge memory, while the low memory under 4G is limited and precious.
+Hence, user want to put the main crashkernel reservation above 4G to
+contain kdump kernel/initrd and run user space program, while with few
+low memory for pci device driver. E.g crashkernel=2G,high, it won't
+impact much if there's huge memory above 4G and get crashkernel
+reservation there. However, it impacts a lot if it reserves memory
+below 4G.
 
-> > Heiko
-> > =
+I would strongly suggest that risc-v also reserve memory from above 4G
+for crashkernel=,high, then fallback to below 4G. That's consistent with
+crashkernel=,high grammer.
 
-> > =
-
-> > =
-
-> > [0] https://lore.kernel.org/lkml/20230313191302.580787-12-heiko.stuebne=
-r@vrull.eu/T/
-> =
-
-> That patchset wasn't sent to linux-crypto.  Can you make sure to include
-> linux-crypto@vger.kernel.org on any subsequent patchsets?  Thanks!
-
-yeah, that was a fault on my part, which I managed to rectify with v4 here
-[haven't had time to send the vector part as separate v4 yet]
-
-Will include linux-crypto in further submissions.
-
-
-Heiko
-
+>  	if (crash_base == 0) {
+> -		/* Try again without restricting region to 32bit addressible memory */
+> +		if (fixed_base) {
+> +			pr_warn("crashkernel: allocating failed with given size@offset\n");
+> +			return;
+> +		}
+> +
+> +		/* Try again above the region of 32bit addressible memory */
+>  		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> -						search_start, search_end);
+> +						       max(search_start, search_low_max),
+> +						       search_end);
+>  		if (crash_base == 0) {
+>  			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+>  				crash_size >> 10);
+>  			return;
+>  		}
+> +
+> +		if (!crash_low_size)
+> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> +	}
+> +
+> +	if ((crash_base > dma32_phys_limit - crash_low_size) &&
+> +	    crash_low_size && reserve_crashkernel_low(crash_low_size)) {
+> +		memblock_phys_free(crash_base, crash_size);
+> +		return;
+>  	}
+>  
+>  	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+> -- 
+> 2.31.1
+> 
 
 
 _______________________________________________
