@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB60C77B61
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 14:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1F5C7EE22
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 16:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0kGOd8MspTuzBUug8qizsmzYIcL8uwWaJZKwARl1doM=; b=j3HnJK37PpGul3nQL65rjhKrqD
-	WLBIKBQ9JFEjoGpZBYLzASgiUvWirDSkx2k6pWaSPRkMFVCe7WI7pqMwBjAINcYUKbhyhH4svsK6T
-	vMyI7lFpuO8QnrbaZgNq8Z34bb7uhsTT/p2NVTQzKcTkINDBx6VCsx2xUugRWJXf7fxlSTiCbJ89/
-	4QgnX58KgT2LlTtpHqJ5xB39YARqHXcseK3oIvBcEmLz6wcjj+q/ojAkslqVcfeMTwax3XGpam7pi
-	y1uMUTXYIaOAh5mV0byFkWIbxrev2G1u53jZw7M4QrGErayNOY9z/6eoo6VLp92AB9qr4UIOeE0tL
-	0W928PDw==;
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=es1L9wyuiHkoX5ajh7iZC9tkLvsLxK8+qcLnvMJc4QY=; b=RgD
+	I4+koESDJEiDkBEftpemb1icHq0Aw6NlbN3J4vFVgmYXczUJ1AnERmqjEmrt4PBNEOwweuf7iVXHB
+	fZkVpVXvWsQG4MDjkdkio4QQoMct/wYzqd9loX4wj2I5a4Mt89hqhVYNecX/TPDLgO+/J9l2dWRXb
+	zDc+2mJdlJj2Nszz/7/RjOxfUb4t9XfogE7Sv/2eoSKHKn9j8J16i/F4arhsLGTPgVEQioAr48HxW
+	j6SCMy3i9ZxHwwmss8wc9qKv7Di7eDXqyY2Ja8Xtp/aBU0w0h9w2HQtX5uaohn64CQG5pFsmWZTn6
+	FpyNPMjxLl8R7MHP4cFULyXuiQ7ysow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psPXS-00B2u4-25;
-	Fri, 28 Apr 2023 14:57:34 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1psQf8-00BBVR-1S;
+	Fri, 28 Apr 2023 16:09:34 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psPXO-00B2sR-0n
+	id 1psQf5-00BBUD-0k
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Apr 2023 14:57:32 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-63b5c830d5eso55981b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Apr 2023 07:57:26 -0700 (PDT)
+	Fri, 28 Apr 2023 16:09:33 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-63b5ce4f069so216497b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Apr 2023 09:09:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682693846; x=1685285846;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yFDQCFyXA+k+c8Gn9qzR9lLCIqZgemO1CqJ4E7mFh7w=;
-        b=W+rOfp6EuIHcbIESxSPM6bkKWaRSLxE5DeLwpWop5woNlgZ7IBEcStVlNWbcKela5L
-         4NOXjrwPaYf1Z2H5RrBgPqor7UttkCuHxJ6E1/9+N0mOjVYeGE7ngPm2tR4792BXSXol
-         O2ytwpGQyUj1th98Ua7au5/+SFBOdPO8QqFXTQrpLUj6DYHa0+hP4i1+84L2R1W4uCXp
-         wvZ588eR2zS/kJ7SVIJxeI2FFPwvj8BKA7Ney7xJkf/uDfKgOHYCw56zPwyiWmE4rLP2
-         Y1qaIXXSfvJJmVU3Q246ajEOLNx/qs5Tz3NzLvWmAQ0PS78Wh8604JE4Bh42+59FMPRw
-         tmSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682693846; x=1685285846;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682698162; x=1685290162;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yFDQCFyXA+k+c8Gn9qzR9lLCIqZgemO1CqJ4E7mFh7w=;
-        b=JoOquGMPEKHc1mVquMhzx6I/47NWCTvgYUdxW0gkgCgT3Jggg25RZ40q4EeshIO9P6
-         0sXtQ+4Lo9bV4bCYSgMLx1XDuq/M7dyFf5+C7QsgZ/w+p2KJUDF9RAPn1aBo/gW9Kzym
-         XzyCYEvN0bflm3Dycmy1obkpXU/G4Cb3U9J7f2Twq7L4XA6r3+YjRUW97w0D2GGsn3x+
-         KDyN6+UTQDXjSw/70gIwNgGV6bOosMijOq8a6nzy6mj5VFYBABp00USIQBGrG1mWxrtx
-         O6xEKH5x43dlDMK9Lj7lmwIl/7/56b+vhbPHWr6UOKOCLUmRlF1vLb0XajdeHrodEg4R
-         RTWw==
-X-Gm-Message-State: AC+VfDwln5OwFCAy4FRF2PgJR6HWb7yAbi/1Ut3JEPGpoESaFR/zJW1J
-	DDDN76Cj++bf33AiFXT34o7wjNJKp8msEM4yBgQ=
-X-Google-Smtp-Source: ACHHUZ6A+HWr1Mi1wqQYt2gI1/Q7U4c4t3SZvF42yxu8YHpnN2TJ31mkxvlWrwV7DptdCoMugOVeTw==
-X-Received: by 2002:a05:6a20:9596:b0:f3:1c8b:ce62 with SMTP id iu22-20020a056a20959600b000f31c8bce62mr5679111pzb.47.1682693845535;
-        Fri, 28 Apr 2023 07:57:25 -0700 (PDT)
+        bh=XcwITyl7B7aWtvTq9Hih72gCunbXi/igXG+go8uAIWM=;
+        b=clUvxnnz45DJ5mgyZGkwZS5xwHT8p+S/sGv1oayYvXCftLvLijJV5iQFS+UgEvM3vZ
+         YWjhSB6GjHorIFW0eXSUITEofCe3wbx2P0AnMtOOEQ5e5I/enD+0q4XUZK50YUCpAN5C
+         iOOok9mC+VcsgEh6EVwFMFdC4COmIcsve1HeL1UUSbGxPki38k7NU6B6cRjS+GXdEMTQ
+         Ppp75qP3R7vmiMNcxV1jpwBdWlAQZZdu2koCrU0OabTrqDNhM1aUHnaBkdL4FteMJgvL
+         7Yz18w4B4/pfrnPxqSwC+dM0cHQh3jg8Kw8mgGXbFJoynQihWpKuYZc7m+eGtHTB+nKI
+         Ps9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682698162; x=1685290162;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XcwITyl7B7aWtvTq9Hih72gCunbXi/igXG+go8uAIWM=;
+        b=gEcrWzAGobjoqbjftt4irZW0VdC6rao134/9gMVFIWYEKVT9bzjthLImH6ivHWcmrL
+         VdES/g2JH5d1YQgJVg9OOZGp2y4naSqcG38oDCjCC9v6CM1w8xiiABagixEL5ujo5jvA
+         gp8MSRQaWgl4yZsgC3plgPV5cmVaCw1IuIrsQzvQOOj8bHtkCa4ssaISKYAi/BZvJ9W6
+         OgTYJEhqaULToOc0jYrg3BhAdhRYTl42euq3Yb7vZsErDcjtKmuVV0RWy/h/GK2O6fwu
+         2GO+YJprCgUg9jI/mXZo/kIwto8DXxhjMXFgGRvhzqrAU8UhzzjUyElsRXDB3BNqTiE/
+         +yGw==
+X-Gm-Message-State: AC+VfDxDZuhhjY+ngnwRJx6bC9JMD9e5HfrGW7QHkaYdYBd/Qh+3Wf5k
+	520s4HAG2MLS77ZCskzghdmZ2hRGsTsZ72dCf5k=
+X-Google-Smtp-Source: ACHHUZ6y+Wgr5nXQFsXkg8FHV7SvHI8noRtp4AISyA3kcAM85Yi+Qyc09GrqjzLm5YEvSJlgnvFAhQ==
+X-Received: by 2002:a05:6a00:1a92:b0:635:6603:2534 with SMTP id e18-20020a056a001a9200b0063566032534mr7312869pfv.14.1682698162187;
+        Fri, 28 Apr 2023 09:09:22 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id n47-20020a056a000d6f00b0063f18ae1d84sm13537799pfv.202.2023.04.28.07.57.24
+        by smtp.gmail.com with ESMTPSA id n41-20020a056a000d6900b005e0699464e3sm15343235pfv.206.2023.04.28.09.09.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Apr 2023 07:57:25 -0700 (PDT)
-Date: Fri, 28 Apr 2023 07:57:25 -0700 (PDT)
-X-Google-Original-Date: Fri, 28 Apr 2023 07:57:23 PDT (-0700)
-Subject: Re: [PATCH 0/4] Expose the isa-string via the AT_BASE_PLATFORM aux vector
-In-Reply-To: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  heiko@sntech.de, kito.cheng@sifive.com, jrtc27@jrtc27.com,
-  Conor Dooley <conor.dooley@microchip.com>, matthias.bgg@gmail.com, heinrich.schuchardt@canonical.com,
-  greentime.hu@sifive.com, nick.knight@sifive.com, christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu,
-  Richard Henderson <richard.henderson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-  heiko.stuebner@vrull.eu
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: heiko@sntech.de
-Message-ID: <mhng-51ee6a97-de3e-4b25-a506-5ffe245cde99@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Fri, 28 Apr 2023 09:09:21 -0700 (PDT)
+Date: Fri, 28 Apr 2023 09:09:21 -0700 (PDT)
+X-Google-Original-Date: Fri, 28 Apr 2023 09:08:32 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 6.4 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-57198db1-de34-4dca-be9f-989b1137503e@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230428_075730_495254_D19605DC 
-X-CRM114-Status: GOOD (  51.34  )
+X-CRM114-CacheID: sfid-20230428_090931_275697_78E06C0B 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,141 +81,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============4138876023189215799=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyNCBBcHIgMjAyMyAxMjo0OTowNyBQRFQgKC0wNzAwKSwgaGVpa29Ac250ZWNoLmRl
-IHdyb3RlOgo+IEZyb206IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVlYm5lckB2cnVsbC5ldT4K
-Pgo+IFRoZSBod3Byb2JpbmcgaW5mcmFzdHJ1Y3R1cmUgd2FzIG1lcmdlZCByZWNlbnRseSBbMF0g
-YW5kIGNvbnRhaW5zIGEKPiBtZWNoYW5pc20gdG8gcHJvYmUgYm90aCBleHRlbnNpb25zIGJ1dCBh
-bHNvIG1pY3JvYXJjaGl0ZWN1cmFsIGZlYXR1cmVzCj4gb24gYSBwZXItY29yZSBsZXZlbCBvZiBk
-ZXRhaWwuCj4KPiBXaGlsZSBkaXNjdXNzaW5nIHRoZSBzb2x1dGlvbiBpbnRlcm5hbGx5IHdlIGlk
-ZW50aWZpZWQgc29tZSBwb3NzaWJsZSBpc3N1ZXMsCj4gdHJpZWQgdG8gdW5kZXJzdGFuZCB0aGUg
-dW5kZXJseWluZyBpc3N1ZSBhbmQgY29tZSB1cCB3aXRoIGEgc29sdXRpb24gZm9yIGl0Lgo+IEFs
-bCB0aGVzZSBkZWxpYmVyYXRpb25zIG92ZXJsYXBwZWQgd2l0aCBod3Byb2JpbmcgYmVpbmcgbWVy
-Z2VkLCBidXQgdGhhdAo+IHNob3VsZG4ndCByZWFsbHkgYmUgYW4gaXNzdWUsIGFzIGJvdGggaGF2
-ZSB0aGVpciB1c2FiaWxpdHkgLSBzZWUgYmVsb3cuCj4KPiBBbHNvIHBsZWFzZSBzZWUgdGhlICJU
-aGluZ3MgdG8gY29uc2lkZXIiIGF0IHRoZSBib3R0b20hCj4KPgo+IFBvc3NpYmxlIGlzc3VlczoK
-PiAtIHZlcnkgbXVjaCBsaW1pdGVkIHRvIExpbnV4Cj4gLSBzY2hlZHVsZXJzIHJ1biBwcm9jZXNz
-ZXMgb24gYWxsIGNvcmVzIGJ5IGRlZmF1bHQsIHNvIHdpbGwgbmVlZAo+ICAgdGhlIGNvbW1vbiBz
-ZXQgb2YgZXh0ZW5zaW9ucyBpbiBtb3N0IGNhc2VzCj4gLSBlYWNoIG5ldyBleHRlbnNpb25zIHJl
-cXVpcmVzIGFuIHVhcGkgY2hhbmdlLCByZXF1aXJpbmcgYXQgbGVhc3QKPiAgIHR3byBwaWVjZXMg
-b2Ygc29mdHdhcmUgdG8gYmUgY2hhbmdlZAo+IC0gYWRkaW5nIGFub3RoZXIgZXh0ZW5zaW9uIHJl
-cXVpcmVzIGEgcmV2aWV3IHByb2Nlc3MgKG9ubHkga25vd24KPiAgIGV4dGVuc2lvbnMgY2FuIGJl
-IGV4cG9zZWQgdG8gdXNlci1zcGFjZSkKPiAtIHZlbmRvciBleHRlbnNpb25zIGhhdmUgc3BlY2lh
-bCBuZWVkcyBhbmQgdGhlcmVmb3JlIHBvc3NpYmx5Cj4gICBkb27igJl0IGZpdCB3ZWxsCj4KPgo+
-IExpbWl0ZWQgdG8gTGludXg6Cj4gLS0tLS0tLS0tLS0tLS0tLS0KPgo+IFRoZSBzeXNjYWxsIGFu
-ZCBpdHMgdWFwaSBpcyBMaW51eC1zcGVjaWZpYyBhbmQgb3RoZXIgT1NlcyBwcm9iYWJseQo+IHdp
-bGwgbm90IGRlZmVyIHRvIG91ciByZXZpZXcgcHJvY2VzcyBhbmQgcmVxdWlyZW1lbnRzIGp1c3Qg
-dG8gZ2V0Cj4gbmV3IGJpdHMgaW4uIEluc3RlYWQgbW9zdCBsaWtlbHkgdGhleSdsbCBidWlsZCB0
-aGVpciBvd24gc3lzdGVtcywKPiBsZWFkaW5nIHRvIGZyYWdtZW50YXRpb24uCj4KPgo+IEZlYXR1
-cmUgb24gYWxsIGNvcmVzOgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+Cj4gQXJuZCBwcmV2aW91
-c2x5IChbMV0pIGNvbW1lbnRlZCBpbiB0aGUgZGlzY3Vzc2lvbiwgdGhhdCB0aGVyZQo+IHNob3Vs
-ZCBub3QgYmUgYSBuZWVkIGZvciBvcHRpbWl6YXRpb24gdG93YXJkcyBoYXJkd2FyZSB3aXRoIGFu
-Cj4gYXN5bW1ldHJpYyBzZXQgb2YgZmVhdHVyZXMuIFdlIGJlbGlldmUgc28gYXMgd2VsbCwgZXNw
-ZWNpYWxseQo+IHdoZW4gdGFsa2luZyBhYm91dCBhbiBpbnRlcmZhY2UgdGhhdCBoZWxwcyBwcm9j
-ZXNzZXMgdG8gaWRlbnRpZnkKPiB0aGUgb3B0aW1pemVkIHJvdXRpbmVzIHRoZXkgY2FuIGV4ZWN1
-dGUuCj4KPiBPZiBjb3Vyc2Ugc2VlaW5nIGl0IHdpdGggdGhpcyBmaW5hbGl0eSBtaWdodCBub3Qg
-dGFrZSBpbnRvIGFjY291bnQKPiB0aGUgc29tZXdoYXQgc3BlY2lhbCBuYXR1cmUgb2YgUklTQy1W
-LCBidXQgbmV2ZXJ0aGVsZXNzIGl0IGRlc2NyaWJlcwo+IHRoZSBjb21tb24gY2FzZSBmb3IgcHJv
-Z3JhbXMgdmVyeSB3ZWxsLgo+Cj4gRm9yIHN0YXJ0ZXJzIHRoZSBzY2hlZHVsZXIgaW4gaXRzIGRl
-ZmF1bHQgYmVoYXZpb3VyLCB3aWxsIHRyeSB0byB1c2UgYW55Cj4gYXZhaWxhYmxlIGNvcmUsIHNv
-IHRoZSBzdGFuZGFyZCBwcm9ncmFtIGJlaGF2aW91ciB3aWxsIGFsd2F5cyBuZWVkIHRoZQo+IGlu
-dGVyc2VjdGlvbiBvZiBhdmFpbGFibGUgZXh0ZW5zaW9ucyBvdmVyIGFsbCBjb3Jlcy4KPgo+Cj4g
-TGltaXRpbmcgcHJvZ3JhbSBleGVjdXRpb24gdG8gc3BlY2lmaWMgY29yZXMgd2lsbCBsaWtlbHkg
-YWx3YXlzIGJlIGEKPiBzcGVjaWFsIHVzZSBjYXNlIGFuZCBhbHJlYWR5IHJlcXVpcmVzIExpbnV4
-LXNwZWNpZmljIHN5c2NhbGxzIHRvCj4gc2VsZWN0IHRoZSBzZXQgb2YgY29yZXMuCj4KPiBTbyB3
-aGlsZSBpdCBjYW4gY29tZSBpbiBoYW5keSB0byBnZXQgcGVyLWNvcmUgaW5mb3JtYXRpb24gZG93
-biB0aGUgcm9hZAo+IHZpYSB0aGUgaHdwcm9iaW5nIGludGVyZmFjZSwgbW9zdCBwcm9ncmFtcyB3
-aWxsIGp1c3Qgd2FudCB0byBrbm93IGlmCj4gdGhleSBjYW4gdXNlIGEgZXh0ZW5zaW9uIG9uIGp1
-c3QgYW55IGNvcmUuCj4KPgo+IFJldmlldyBwcm9jZXNzOgo+IC0tLS0tLS0tLS0tLS0tLQo+Cj4g
-VGhlcmUgYXJlIHNvIG1hbnkgKG11bHRpLWxldHRlci0pZXh0ZW5zaW9ucyBhbHJlYWR5IHdpdGgg
-ZXZlbiBtb3JlIGluCj4gdGhlIHBpcGVsaW5lLiBUbyBleHBvc2UgYWxsIG9mIHRoZW0sIGVhY2gg
-d2lsbCByZXF1aXJlIGEgcmV2aWV3IHByb2Nlc3MKPiBhbmQgdWFwaSBjaGFuZ2UgdGhhdCB3aWxs
-IG1ha2UgZGVmaW5pbmcgYWxsIG9mIHRoZW0gc2xvdyBhcyB0aGUKPiBrZXJuZWwgbmVlZHMgcGF0
-Y2hpbmcgYWZ0ZXIgd2hpY2ggdXNlcnNwYWNlIG5lZWRzIHRvIHN5bmMgaW4gdGhlIG5ldwo+IGFw
-aSBoZWFkZXIuCgpUaGUgd2hvbGUgcmVhc29uIHdlJ3JlIGRvaW5nIGh3cHJvYmUgd2l0aCBiaXRt
-YXBzIGlzIGJlYWN1c2UgdGhlIElTQSAKc3RyaW5ncyBhcmUgbm90IGEgc3RhYmxlIGludGVyZmFj
-ZSwgYW5kIHRodXMgYXJlIG5vdCBzdWl0YWJsZSBmb3IgCmJ1aWxkaW5nIHVBQkkgYXJvdW5kLgoK
-Pgo+Cj4gVmVuZG9yLWV4dGVuc2lvbnM6Cj4gLS0tLS0tLS0tLS0tLS0tLS0tCj4KPiBWZW5kb3Ig
-ZXh0ZW5zaW9ucyBhcmUgc3BlY2lhbCBpbiB0aGVpciBvd24gcmlnaHQuCj4gVXNlcnNwYWNlIHBy
-b2JhYmx5IHdpbGwgd2FudCB0byBrbm93IGFib3V0IHRoZW0sIGJ1dCB3ZSBhcyB0aGUga2VybmVs
-Cj4gZG9uJ3Qgd2FudCB0byBjYXJlIGFib3V0IHRoZW0gdG9vIG11Y2ggKGV4Y2VwdCBhcyBlcnJh
-dGEpLCBhcyB0aGV5J3JlCj4gbm90IHBhcnQgb2YgdGhlIG9mZmljaWFsIFJJU0MtViBJU0Egc3Bl
-Yy4KPgo+IEdldHRpbmcgdmVuZG9yIGV4dGVuc2lvbnMgZnJvbSB0aGUgZHQgdG8gdXNlcnNwYWNl
-IHZpYSBod3Byb2JlIHdvdWxkCj4gcmVxdWlyZSBjb29yZGluYXRpb24gZWZmb3J0cyBhbmQgYXMg
-dmVuZG9ycyBoYXZlIHRoZSB0ZW5kZW5jeSB0byBpbnZlbnQKPiB0aGluZ3MgZHVyaW5nIHRoZWly
-IGRldmVsb3BtZW50IHByb2Nlc3MgYmVmb3JlIHRyeWluZyB0byBzdWJtaXQgY2hhbmdlcwo+IHVw
-c3RyZWFtIHRoaXMgbGlrZWx5IHdvdWxkIHJlc3VsdCBpbiBjb25mbGljdHMgd2l0aCBhc3NpZ25l
-ZCBpZHMgZG93bgo+IHRoZSByb2FkLiBXaGljaCBpbiB0dXJuIHRoZW4gbWF5IGNyZWF0ZSBjb21w
-YXRpYmlsaXR5LWlzc3VlcyB3aXRoCj4gdXNlcnNwYWNlIGJ1aWxkcyBidWlsdCBvbiB0b3Agb2Yg
-dGhlIG1haW5saW5lIGtlcm5lbCBvciBhIHByZS0KPiBleGlzdGluZyB2ZW5kb3Iga2VybmVsLgo+
-Cj4gVGhlIHNwZWNpYWwgY2FzZSBhbHNvIGlzIHRoYXQgdmVuZG9yIEEgY291bGQgaW4gdGhlb3J5
-IGltcGxlbWVudCBhbgo+IGV4dGVuc2lvbiBmcm9tIHZlbmRvciBCLiBTbyB0aGlzIHdvdWxkIHJl
-cXVpcmUgdG8gYWN0dWFsbHkgYXNzaWduCj4gc2VwYXJhdGUgaHdwcm9iZSBrZXlzIHRvIHZlbmRv
-cnMgKGtleSBmb3IgeHRoZWFkIGV4dGVuc2lvbnMsIGtleSBmb3IKPiB4dmVudGFuYSBleHRlbnNp
-b25zLCBldGMpLiBUaGlzIGluIHR1cm4gd291bGQgcmVxdWlyZSB2ZW5kb3JzIHRvCj4gY29tZSB0
-byB0aGUgbWFpbmxpbmUga2VybmVsIHRvIGdldCBhc3NpZ25lZCBhIGtleSAod2hpY2ggaW4gcmVh
-bGl0eQo+IHByb2JhYmx5IHdvbid0IGhhcHBlbiksIHdoaWNoIHdvdWxkIHRoZW4gbWFrZSB0aGUg
-a2VybmVsIGNvbW11bml0eQo+IHNvcnQgb2YgYW4gaWQgYXV0aG9yaXR5Lgo+Cj4KPgo+Cj4gVG8g
-YWRkcmVzcyB0aGVzZSwgdGhlIGF0dGFjaGVkIHBhdGNoIHNlcmllcyBhZGRzIGEgc2Vjb25kIGlu
-dGVyZmFjZQo+IGZvciB0aGUgY29tbW9uIGNhc2UgYW5kICJqdXN0IiBleHBvc2VzIHRoZSBpc2Et
-c3RyaW5nIHZpYSB0aGUKPiBBVF9CQVNFX1BMQVRGT1JNIGF1eCB2ZWN0b3IuCj4KPiBJbiB0aGUg
-dG90YWwgY29zdCBvZiBwcm9ncmFtIHN0YXJ0LCBwYXJzaW5nIHRoZSBzdHJpbmcgZG9lcyBub3Qg
-Y3JlYXRlCj4gdG9vIG11Y2ggb3ZlcmhlYWQuIFRoZSBleHRlbnNpb24gbGlzdCBpbiB0aGUga2Vy
-bmVsIGFscmVhZHkgY29udGFpbnMKPiB0aGUgZXh0ZW5zaW9ucyBsaXN0IGxpbWl0ZWQgdG8gdGhl
-IG9uZXMgYXZhaWxhYmxlIG9uIGFsbCBoYXJ0cyBhbmQKPiB0aGUgc3RyaW5nIGZvcm0gYWxsb3dz
-IHVzIHRvIGp1c3QgcGlwZSB0aHJvdWdoIGFkZGl0aW9uYWwgc3R1ZmYgdG9vLCBhcwo+IGNhbiBi
-ZSBzZWVuIGluIHRoZSBleGFtcGxlIGZvciBULUhlYWQgZXh0ZW5zaW9ucyBbMl0gLgo+Cj4gVGhp
-cyBvZiBjb3Vyc2UgZG9lcyBub3QgaGFuZGxlIHRoZSBtaWNyb2FyY2hpdGVjdHVyZSB0aGluZ3Mg
-dGhhdAo+IHRoZSBod3Byb2JlIHN5c2NhbGwgcHJvdmlkZXMgYnV0IGFsbG93cyBhIG1vcmUgZ2Vu
-ZXJhbGl6ZWQgdmlldwo+IG9udG8gdGhlIGF2YWlsYWJsZSBJU0EgZXh0ZW5zaW9ucywgc28gaXMg
-bm90IGludGVuZGVkIHRvIHJlcGxhY2UKPiBod3Byb2JlLCBidXQgdG8gc3VwcGxlbWVudCBpdC4K
-Pgo+IEFUX0JBU0VfUExBVEZPUk0gaXRzZWxmIGlzIHNvbWV3aGF0IHdlbGwgZXN0YWJsaXNoZWQs
-IHdpdGggUFBDIGFscmVhZHkKPiB1c2luZyBpdCB0byBhbHNvIGV4cG9zZSBhIHBsYXRmb3JtLXNw
-ZWNpZmljIHN0cmluZyB0aGF0IGlkZW50aWZpZXMKPiB0aGUgcGxhdGZvcm0gaW4gZmluZXIgZ3Jh
-aW4gc28gdGhpcyBhdXgtdmVjdG9yIGZpZWxkIGNvdWxkIGluIHRoZW9yeQo+IGJlIHVzZWQgYnkg
-b3RoZXIgT1NlcyBhcyB3ZWxsLgo+Cj4KPiBBIHJhbmRvbSByaXNjdjY0LXFlbXUgY291bGQgZm9y
-IGV4YW1wbGUgcHJvdmlkZToKPiAgICAgcnY2NGltYWZkY3ZoX3ppY2JvbV96aWhpbnRwYXVzZV96
-YmJfc3Njb2ZwbWZfc3N0Y19zdnBibXQKPgo+IHdoZXJlIGEgZDEtbmV6aGEgcHJvdmlkZXM6Cj4g
-ICAgIHJ2NjRpbWFmZGNfeHRoZWFkYmFfeHRoZWFkYmJfeHRoZWFkYnNfeHRoZWFkY21vX3h0aGVh
-ZGNvbmRtb3ZfeHRoZWFkZm1lbWlkeF94dGhlYWRpbnRfeHRoZWFkbWFjX3h0aGVhZG1lbWlkeF94
-dGhlYWRtZW1wYWlyX3h0aGVhZHN5bmMKPgo+Cj4gVGhpbmdzIHRvIHN0aWxsIGNvbnNpZGVyOgo+
-IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPgo+IFJpZ2h0IG5vdyBib3RoIGh3cHJvYmUgYW5k
-IHRoaXMgYXBwcm9hY2ggd2lsbCBvbmx5IHBhc3MgdGhyb3VnaAo+IGV4dGVuc2lvbnMgdGhlIGtl
-cm5lbCBhY3R1YWxseSBrbm93cyBhYm91dCBpdHNlbGYuIFRoaXMgc2hvdWxkIG5vdAo+IG5lY2Vz
-c2FyaWx5IGJlIG5lZWRlZCAoYnV0IGNvdWxkIGJlIGFuIG9wdGlvbmFsIGZlYXR1cmUgZm9yIGUu
-Zy4gdmlydHVhbGl6YXRpb24pLgo+Cj4gTW9zdCBleHRlbnNpb25zIGRvbuKAmXQgaW50cm9kdWNl
-IG5ldyB1c2VyLW1vZGUgc3RhdGUgdGhhdCB0aGUga2VybmVsIG5lZWRzIHRvIG1hbmFnZSAoZS5n
-LiBuZXcgcmVnaXN0ZXJzKS4gRXh0ZW5zaW9uIHRoYXQgZG8gaW50cm9kdWNlIG5ldyB1c2VyLW1v
-ZGUgc3RhdGUgYXJlIHVzdWFsbHkgZGlzYWJsZWQgYnkgZGVmYXVsdCBhbmQgaGF2ZSB0byBiZSBl
-bmFibGVkIGJ5IFMgbW9kZSBvciBNIG1vZGUgKGUuZy4gRlNbMTowXSBmb3IgdGhlIGZsb2F0aW5n
-LXBvaW50IGV4dGVuc2lvbikuIFNvIHRoZXJlIHNob3VsZCBub3QgYmUgYSByZWFzb24gdG8gZmls
-dGVyIGFueSBleHRlbnNpb25zIHRoYXQgYXJlIHVua25vd24uCj4KPiBTbyBpdCBtaWdodCBtYWtl
-IG1vcmUgc2Vuc2UgdG8ganVzdCBwYXNzIHRocm91Z2ggYSBjdXJhdGVkIGxpc3QgKGNvbW1vbgo+
-IHNldCkgY3JlYXRlZCBmcm9tIHRoZSBjb3JlJ3MgaXNhIHN0cmluZ3MgYW5kIHJlbW92ZSBzdGF0
-ZS1oYW5kbGluZwo+IGV4dGVuc2lvbnMgd2hlbiB0aGV5IGFyZSBub3QgZW5hYmxlZCBpbiB0aGUg
-a2VybmVsLXNpZGUgKHNvcnQgb2YKPiBibGFja2xpc3RpbmcgZXh0ZW5zaW9ucyB0aGF0IG5lZWQg
-YWN0dWFsIGtlcm5lbCBzdXBwb3J0KS4KPgo+IEhvd2V2ZXIsIHRoaXMgaXMgYSB2ZXJ5IHJlbGF0
-ZWQsIGJ1dCBzdGlsbCBpbmRlcGVuZGVudCBkaXNjdXNzaW9uLgo+Cj4KPiBbMF0gaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGttbC8xNjgxOTE0NjIyMjQuMjI3OTEuMjI4MTQ1MDU2MjY5MTM4MTE0
-NS5naXQtcGF0Y2h3b3JrLW5vdGlmeUBrZXJuZWwub3JnLwo+IFsxXSBodHRwczovL2xvcmUua2Vy
-bmVsLm9yZy9hbGwvNjA1ZmIyZmQtYmRhMi00OTIyLTkyYmYtZTNlNDE2ZDU0Mzk4QGFwcC5mYXN0
-bWFpbC5jb20vCj4gWzJdIFRoZXNlIGFyZSB0aGUgVC1IZWFkIGV4dGVuc2lvbnMgYXZhaWxhYmxl
-IGluIF91cHN0cmVhbV8gdG9vbGNoYWlucwo+Cj4gSGVpa28gU3R1ZWJuZXIgKDQpOgo+ICAgUklT
-Qy1WOiBjcmVhdGUgSVNBIHN0cmluZyBzZXBhcmF0ZWx5IC0gbm90IGFzIHBhcnQgb2YgY3B1aW5m
-bwo+ICAgUklTQy1WOiBkb24ndCBwYXJzZSBkdCBpc2Egc3RyaW5nIHRvIGdldCBydjMyL3J2NjQK
-PiAgIFJJU0MtVjogZXhwb3J0IHRoZSBJU0Egc3RyaW5nIG9mIHRoZSBydW5uaW5nIG1hY2hpbmUg
-aW4gdGhlIGF1eCB2ZWN0b3IKPiAgIFJJU0MtVjogYWRkIHN1cHBvcnQgZm9yIHZlbmRvci1leHRl
-bnNpb25zIHZpYSBBVF9CQVNFX1BMQVRGT1JNIGFuZAo+ICAgICB4dGhlYWQKPgo+ICBhcmNoL3Jp
-c2N2L2VycmF0YS90aGVhZC9lcnJhdGEuYyAgICAgfCA0MyArKysrKysrKysrKysKPiAgYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9hbHRlcm5hdGl2ZS5oIHwgIDQgKysKPiAgYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9lbGYuaCAgICAgICAgIHwgMTAgKysrCj4gIGFyY2gvcmlzY3Yva2VybmVsL2FsdGVy
-bmF0aXZlLmMgICAgICB8IDIxICsrKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYyAgICAg
-ICAgICAgICAgfCA5OCArKysrKysrKysrKysrKysrKysrKysrKysrLS0tCj4gIDUgZmlsZXMgY2hh
-bmdlZCwgMTY4IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+--===============4138876023189215799==
+Content-Type: text/plain
+
+The following changes since commit 1ee7fc3f4d0a93831a20d5566f203d5ad6d44de8:
+
+  RISC-V: always select RISCV_ALTERNATIVE for non-xip kernels (2023-03-29 11:48:39 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-mw1
+
+for you to fetch changes up to b09313dd2e726fe5e1fa574cd73f5e326c6030a4:
+
+  RISC-V: hwprobe: Explicity check for -1 in vdso init (2023-04-26 08:58:34 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 6.4 Merge Window, Part 1
+
+* Support for runtime detection of the Svnapot extension.
+* Support for Zicboz when clearing pages.
+* We've moved to GENERIC_ENTRY.
+* Support for !MMU on rv32 systems.
+* The linear region is now mapped via huge pages.
+* Support for building relocatable kernels.
+* Support for the hwprobe interface.
+* Various fixes and cleanups throughout the tree.
+
+----------------------------------------------------------------
+I'm definately going to have a second PR for the merge window, there's already
+some fixes on the lists and there's some stragglers that I'm hoping can get
+cleaned up in time.
+
+I have two minor build issues, but otherwise this is clean.  The fixes are on
+the lists
+<https://lore.kernel.org/all/20230428152156.22840-1-palmer@rivosinc.com/>, but
+I don't think they're directly relevant to this (and they're only manifesting
+post-merge).
+
+----------------------------------------------------------------
+Alexandre Ghiti (16):
+      riscv: Get rid of riscv_pfn_base variable
+      riscv: Move the linear mapping creation in its own function
+      riscv: Use PUD/P4D/PGD pages for the linear mapping
+      riscv: Split early and final KASAN population functions
+      riscv: Rework kasan population functions
+      riscv: Move DTB_EARLY_BASE_VA to the kernel address space
+      riscv: Fix EFI stub usage of KASAN instrumented strcmp function
+      riscv: Fix ptdump when KASAN is enabled
+      riscv: Unconditionnally select KASAN_VMALLOC if KASAN
+      riscv: Prepare EFI header for relocatable kernels
+      riscv: Move .rela.dyn outside of init to avoid empty relocations
+      riscv: Introduce CONFIG_RELOCATABLE
+      powerpc: Move script to check relocations at compile time in scripts/
+      riscv: Check relocations at compile time
+      riscv: Use --emit-relocs in order to move .rela.dyn in init
+      riscv: Allow to downgrade paging mode from the command line
+
+Andrew Jones (16):
+      riscv: Clarify RISCV_ALTERNATIVE help text
+      riscv: Rename Kconfig.erratas to Kconfig.errata
+      riscv: alternatives: Remove unnecessary define and unused struct
+      riscv: alternatives: Rename errata_id to patch_id
+      riscv: lib: Include hwcap.h directly
+      riscv: cpufeature: Drop errata_list.h and other unused includes
+      RISC-V: alternatives: Support patching multiple insns in assembly
+      RISC-V: Factor out body of riscv_init_cbom_blocksize loop
+      dt-bindings: riscv: Document cboz-block-size
+      RISC-V: Add Zicboz detection and block size parsing
+      RISC-V: cpufeatures: Put the upper 16 bits of patch ID to work
+      RISC-V: Use Zicboz in clear_page when available
+      RISC-V: KVM: Provide UAPI for Zicboz block size
+      RISC-V: KVM: Expose Zicboz to the guest
+      RISC-V: hwprobe: There can only be one first
+      RISC-V: hwprobe: Explicity check for -1 in vdso init
+
+Björn Töpel (1):
+      riscv: entry: Save a0 prior syscall_enter_from_user_mode()
+
+Conor Dooley (3):
+      RISC-V: convert new selectors of RISCV_ALTERNATIVE to dependencies
+      RISC-V: align ISA extension Kconfig help text with each other
+      dt-bindings: riscv: add sv57 mmu-type
+
+Evan Green (7):
+      RISC-V: Move struct riscv_cpuinfo to new header
+      RISC-V: Add a syscall for HW probing
+      RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+      RISC-V: hwprobe: Support probing of misaligned access performance
+      selftests: Test the new RISC-V hwprobe interface
+      RISC-V: Add hwprobe vDSO function and data
+      RISC-V: hwprobe: Remove __init on probe_vendor_features()
+
+Guo Ren (3):
+      riscv: ptrace: Remove duplicate operation
+      riscv: entry: Add noinstr to prevent instrumentation inserted
+      riscv: entry: Convert to generic entry
+
+Jesse Taube (1):
+      riscv: configs: Add nommu PHONY defconfig for RV32
+
+Jisheng Zhang (3):
+      riscv: entry: Remove extra level wrappers of trace_hardirqs_{on,off}
+      riscv: entry: Consolidate ret_from_kernel_thread into ret_from_fork
+      riscv: entry: Consolidate general regs saving/restoring
+
+Palmer Dabbelt (10):
+      Merge patch series "riscv, mm: detect svnapot cpu support at runtime"
+      Merge patch series "riscv: alternative/cpufeature related cleanups"
+      Merge patch series "RISC-V: Apply Zicboz to clear_page"
+      Merge patch series "riscv: Add GENERIC_ENTRY support"
+      Merge patch series "Add RISC-V 32 NOMMU support"
+      Merge patch series "RISC-V: Fixes for riscv_has_extension[un]likely()'s alternative dependency"
+      Merge patch series "RISC-V Hardware Probing User Interface"
+      Merge patch series "riscv: Use PUD/P4D/PGD pages for the linear mapping"
+      Merge patch series "RISC-V kasan rework"
+      Merge patch series "Introduce 64b relocatable kernel"
+
+Qinglin Pan (3):
+      riscv: mm: modify pte format for Svnapot
+      riscv: mm: support Svnapot in hugetlb page
+      riscv: mm: support Svnapot in huge vmap
+
+Song Shuai (3):
+      Revert "riscv: Set more data to cacheinfo"
+      riscv: export cpu/freq invariant to scheduler
+      riscv: Kconfig: enable SCHED_MC kconfig
+
+Yimin Gu (1):
+      riscv: Kconfig: Allow RV32 to build with no MMU
+
+ Documentation/admin-guide/kernel-parameters.txt    |   5 +-
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   6 +
+ Documentation/riscv/hwprobe.rst                    |  86 ++++
+ Documentation/riscv/index.rst                      |   1 +
+ arch/powerpc/tools/relocs_check.sh                 |  18 +-
+ arch/riscv/Kconfig                                 |  78 +++-
+ arch/riscv/{Kconfig.erratas => Kconfig.errata}     |   0
+ arch/riscv/Makefile                                |  12 +-
+ arch/riscv/Makefile.postlink                       |  49 ++
+ arch/riscv/boot/Makefile                           |   7 +
+ arch/riscv/errata/sifive/errata.c                  |   8 +-
+ arch/riscv/errata/thead/errata.c                   |  14 +-
+ arch/riscv/include/asm/alternative-macros.h        |  72 +--
+ arch/riscv/include/asm/alternative.h               |  20 +-
+ arch/riscv/include/asm/asm-prototypes.h            |   2 +
+ arch/riscv/include/asm/asm.h                       |  61 +++
+ arch/riscv/include/asm/cacheflush.h                |   3 +-
+ arch/riscv/include/asm/cpufeature.h                |  23 +
+ arch/riscv/include/asm/csr.h                       |   1 -
+ arch/riscv/include/asm/entry-common.h              |  11 +
+ arch/riscv/include/asm/hugetlb.h                   |  34 +-
+ arch/riscv/include/asm/hwcap.h                     |   2 +
+ arch/riscv/include/asm/hwprobe.h                   |  13 +
+ arch/riscv/include/asm/insn-def.h                  |   4 +
+ arch/riscv/include/asm/page.h                      |  30 +-
+ arch/riscv/include/asm/pgtable-64.h                |  34 ++
+ arch/riscv/include/asm/pgtable.h                   |  39 +-
+ arch/riscv/include/asm/ptrace.h                    |  10 +-
+ arch/riscv/include/asm/set_memory.h                |   3 +
+ arch/riscv/include/asm/stacktrace.h                |   5 +
+ arch/riscv/include/asm/syscall.h                   |  25 +
+ arch/riscv/include/asm/thread_info.h               |  13 +-
+ arch/riscv/include/asm/topology.h                  |  21 +
+ arch/riscv/include/asm/vdso/data.h                 |  17 +
+ arch/riscv/include/asm/vdso/gettimeofday.h         |   8 +
+ arch/riscv/include/asm/vmalloc.h                   |  61 ++-
+ arch/riscv/include/uapi/asm/hwprobe.h              |  37 ++
+ arch/riscv/include/uapi/asm/kvm.h                  |   2 +
+ arch/riscv/include/uapi/asm/unistd.h               |   9 +
+ arch/riscv/kernel/Makefile                         |   4 +-
+ arch/riscv/kernel/alternative.c                    |  21 +-
+ arch/riscv/kernel/cacheinfo.c                      |  66 +--
+ arch/riscv/kernel/compat_vdso/Makefile             |   2 +-
+ arch/riscv/kernel/cpu.c                            |  10 +-
+ arch/riscv/kernel/cpufeature.c                     |  67 ++-
+ arch/riscv/kernel/efi-header.S                     |  19 +-
+ arch/riscv/kernel/entry.S                          | 321 ++-----------
+ arch/riscv/kernel/head.h                           |   1 -
+ arch/riscv/kernel/image-vars.h                     |   2 -
+ arch/riscv/kernel/mcount-dyn.S                     |  57 +--
+ arch/riscv/kernel/pi/Makefile                      |  39 ++
+ arch/riscv/kernel/pi/cmdline_early.c               |  62 +++
+ arch/riscv/kernel/process.c                        |   5 +-
+ arch/riscv/kernel/ptrace.c                         |  44 --
+ arch/riscv/kernel/setup.c                          |   2 +-
+ arch/riscv/kernel/signal.c                         |  29 +-
+ arch/riscv/kernel/smpboot.c                        |   1 +
+ arch/riscv/kernel/sys_riscv.c                      | 230 ++++++++-
+ arch/riscv/kernel/trace_irq.c                      |  27 --
+ arch/riscv/kernel/trace_irq.h                      |  11 -
+ arch/riscv/kernel/traps.c                          | 144 +++++-
+ arch/riscv/kernel/vdso.c                           |   6 -
+ arch/riscv/kernel/vdso/Makefile                    |   4 +
+ arch/riscv/kernel/vdso/hwprobe.c                   |  52 +++
+ arch/riscv/kernel/vdso/sys_hwprobe.S               |  15 +
+ arch/riscv/kernel/vdso/vdso.lds.S                  |   3 +
+ arch/riscv/kernel/vmlinux.lds.S                    |  35 +-
+ arch/riscv/kvm/vcpu.c                              |  11 +
+ arch/riscv/lib/Makefile                            |   1 +
+ arch/riscv/lib/clear_page.S                        |  74 +++
+ arch/riscv/lib/memcpy.S                            |   2 +
+ arch/riscv/lib/memmove.S                           |   2 +
+ arch/riscv/lib/strcmp.S                            |   3 +-
+ arch/riscv/lib/strlen.S                            |   4 +-
+ arch/riscv/lib/strncmp.S                           |   3 +-
+ arch/riscv/mm/Makefile                             |   4 +
+ arch/riscv/mm/cacheflush.c                         |  64 +--
+ arch/riscv/mm/fault.c                              |   6 +-
+ arch/riscv/mm/hugetlbpage.c                        | 301 ++++++++++++
+ arch/riscv/mm/init.c                               | 194 ++++++--
+ arch/riscv/mm/kasan_init.c                         | 516 ++++++++++++---------
+ arch/riscv/mm/physaddr.c                           |  16 +
+ arch/riscv/mm/ptdump.c                             |  24 +-
+ arch/riscv/tools/relocs_check.sh                   |  26 ++
+ drivers/of/fdt.c                                   |  11 +-
+ scripts/relocs_check.sh                            |  20 +
+ tools/testing/selftests/Makefile                   |   1 +
+ tools/testing/selftests/riscv/Makefile             |  58 +++
+ tools/testing/selftests/riscv/hwprobe/Makefile     |  10 +
+ tools/testing/selftests/riscv/hwprobe/hwprobe.c    |  90 ++++
+ .../testing/selftests/riscv/hwprobe/sys_hwprobe.S  |  12 +
+ 91 files changed, 2589 insertions(+), 987 deletions(-)
+ create mode 100644 Documentation/riscv/hwprobe.rst
+ rename arch/riscv/{Kconfig.erratas => Kconfig.errata} (100%)
+ create mode 100644 arch/riscv/Makefile.postlink
+ create mode 100644 arch/riscv/include/asm/cpufeature.h
+ create mode 100644 arch/riscv/include/asm/entry-common.h
+ create mode 100644 arch/riscv/include/asm/hwprobe.h
+ create mode 100644 arch/riscv/include/asm/topology.h
+ create mode 100644 arch/riscv/include/asm/vdso/data.h
+ create mode 100644 arch/riscv/include/uapi/asm/hwprobe.h
+ create mode 100644 arch/riscv/kernel/pi/Makefile
+ create mode 100644 arch/riscv/kernel/pi/cmdline_early.c
+ delete mode 100644 arch/riscv/kernel/trace_irq.c
+ delete mode 100644 arch/riscv/kernel/trace_irq.h
+ create mode 100644 arch/riscv/kernel/vdso/hwprobe.c
+ create mode 100644 arch/riscv/kernel/vdso/sys_hwprobe.S
+ create mode 100644 arch/riscv/lib/clear_page.S
+ create mode 100755 arch/riscv/tools/relocs_check.sh
+ create mode 100755 scripts/relocs_check.sh
+ create mode 100644 tools/testing/selftests/riscv/Makefile
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/Makefile
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.c
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S
+
+
+--===============4138876023189215799==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4138876023189215799==--
