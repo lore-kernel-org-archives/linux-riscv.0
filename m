@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23F5C77B61
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 12:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2C0C77B61
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 12:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cobBRV71fMPhUwPBN91/IXnVW1iOf1taRglut+gvUIY=; b=uFfrRLwRUIROB5
-	pqnEuRGnJWKgG3S4j96xpXi7IApMdxoLJCYboZ2tfJIMpFQc8fU8BXOezzlSNczXtbCE33clvInF1
-	8RU/sNqM+9kWqVuS0AcNlmhpMvIZiLAEAHbJ7+pnE4dFiw0bgbUslpgwHgPbiLYJrC1CG1jFe5Uti
-	p36W3SaYgRD18AvnOLmZYuedSERkNRUCTMVlBFH/H+KbOilpYBOYt614iXAedta34gK85CSQ5owMs
-	GsCSOeJzY9rPisA0ss1lTrQfbwVwD1UlRVf+GIqmmaegLoPeqT1wovGa6sZFkBiFDdVcyAkecRXSd
-	yFBcaXpBD6DaVH+WKsMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZUEMDzztvalwQQzkBMN/q2Evd01O5F41ZyL1SrLGp08=; b=u/BkSKCE7HMaUh
+	J1KPTpNTX4+3VGHxCsJYAtudhU81ftaqZTTfwZcHG3dPScme/fE3Y7jB6+tFVAGWjW7GXLy17ebul
+	7lSOb6st+bjpJVNC+RZ0al6yU7k6hxOQ8dJgIfQv7b48p8ROk2zRHkxfCfFSzYXc45rn/3KAvFvfy
+	2tfihuk4OpNGVlMAWIJnjn4OzR77meYcAEXekETtghDaMFR3lF126lOZ3UAVKEzR2hHJBmWNGV6tp
+	DVEy0riIrWBBjILn0PNIuulK9jXT1EFwoh7shD8plX70e7BdWV5HdWTpe/Ze4gJYgdcB+HooleuLk
+	y2PxppamSXhuYKfn/3WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psMo3-009X3W-0p;
-	Fri, 28 Apr 2023 12:02:31 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1psMuy-009bIk-1p;
+	Fri, 28 Apr 2023 12:09:40 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psMo0-009Wzz-2r
+	id 1psMuw-009bFT-0x
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Apr 2023 12:02:30 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-3f315712406so57950455e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Apr 2023 05:02:26 -0700 (PDT)
+	Fri, 28 Apr 2023 12:09:39 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3f199696149so50413805e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Apr 2023 05:09:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682683345; x=1685275345;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i+IhJdlbzPopAgcnIQcMyy0yuzqBnz1h8mDocxofWCY=;
-        b=aLYgN7VlR46N9WcDi53goFnZv+vG6n3pLEhhSP9AnlnYDiiuuH7hkDMkrbFyl/q8IU
-         QqyxBo3ttSlxPV99BPEA855FtbCjlLBq+2yUTvTQrQdE3zs6TkyppYM8+4iJm0cSlyTZ
-         4kJvdtC6YfTYisDIciOvBeSXMzj6JftKhpHLkM7+dbEncXDxKStkW/Yeosa1Ci8x2Xew
-         TRKfi2Xbgzs5uPExZM9N2S626aiDKkYDfPfeLt0iG40V81YMQo2BzohjA180oQd3gl9r
-         zn5JUkkEJIGXv7OzhafPO6q+n3QKY7b0LRP/qIzGwu7mBU9lh01fnfzJTPUA2ueO4c+s
-         Tysw==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682683774; x=1685275774;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8f00XptuJ3vBIkeMg3m5pPyF6yCS6hEBZQCfqkTlaCQ=;
+        b=vtRYYyBzLwgzPKD+/TAPmiPYgrpCQvFhoiH7TWKY2TH4KN6cSMUsAeD74S4EEKiBwY
+         M8OU9wAlBCjnPXl54GsBRAPBEaobk9PixBizafP5UJQ+lDRfc3sPjTnQcQ2ey8MWit3u
+         hQSSTKKYS91gZzC+bJMvnHxIyMiAwRYCzWLWrY/y173aTycm7S+ng3LB6uP705SYbx1E
+         yyoe3U1fRpuwy0ykEN3g7lTtMbVG/hlbI2s7g7zucTHQAvkt5wIKP9KxmNorx1N1FV25
+         y/RPDeUx/aCa8MU3/+IOGOGenhDHjFFJjDjIJGT0gMVqEnnzjiCYxr7ovwbAiJ+I1oUm
+         HwEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682683345; x=1685275345;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i+IhJdlbzPopAgcnIQcMyy0yuzqBnz1h8mDocxofWCY=;
-        b=hbdAZYhw3rjqudMe+CTieDjIbMiBxAgxCdGLdfRJTLdX6k4CPxnl5/WYZ/wpapPvG2
-         Kx3+kZ3jHSfmDGoudEjy5Xd24JPPJ/26TAyrw0GfNmoHSmpCzN+ClC0jeIiuAfls7uF6
-         RGvDfA1gF06akvVAkdFLqFgwPQQdKLFFvrXbpCCxwx4D2Kr2khGUJ5+OKYXVFvx0hd8T
-         gDV0ZEYQPmPC3cuPNJtaC69SbjG42xT4N1e5Fghy/E08YxbI2ftv2zMnvdvXIsUweZzt
-         bGQCmLHFKGfsA5GH3D2PCDHTF7eerLiVxMTCEDKlI5eba6/aZNWofINBlSyNVNMTl6pd
-         y2Sw==
-X-Gm-Message-State: AC+VfDxvWZ0uyZ18aoykIZnEX9z6YbXrg9TgPFzPeH+7VvN+AUozagrw
-	+3Pt+JDuyk3HnwC3e6lyQHOcXjnarrkHFKp3KH0=
-X-Google-Smtp-Source: ACHHUZ5VIm/9FvBnliMEeY0Op5aLkD+MKAJ4pG2os4QAW4erFcKj2zX2YCBI9BaqYR1JhwIUBX2zdw==
-X-Received: by 2002:a5d:68cb:0:b0:2f0:2c3c:b858 with SMTP id p11-20020a5d68cb000000b002f02c3cb858mr6046924wrw.31.1682683344886;
-        Fri, 28 Apr 2023 05:02:24 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1682683774; x=1685275774;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8f00XptuJ3vBIkeMg3m5pPyF6yCS6hEBZQCfqkTlaCQ=;
+        b=eNH6o682WWgdiil2JamgeUsCzf6G9fWM2aAaFcQdyZP6a2VNdtxKs/1cqpMtIMNcpD
+         xgZQoH5VM8iErvo78/UNcsHJd79rZ2j5jByxaS3ObMJ9MxIab9DIJrLE9fqr/AZIVioo
+         XwWT6nzJ3q586iH0LXmARC562p9zps7DqS3OVvUhsHVgjDGRz9ngOLhZHj8NaF2PtH00
+         EzYwFTTA9f/tCWsGnHam9WrR3zl2ODPp2zSd4/VBrSUsWHWzflNzESWhZdUKOWCp9BIZ
+         UgCEvGRAc5LZkg3zv1cmxPoVtugfsQ5CptIz+53egp/Cd1NdkRJVGwD2TTHSjFUIMdxT
+         SqWQ==
+X-Gm-Message-State: AC+VfDyE48pklP1I2qlZkednQGK8rD1fRXpPDwOzdrZ1qgL0UI58JpQA
+	aB8LBXHX+bF530YSwsFB+ffhboJCP7fN35D/a1A=
+X-Google-Smtp-Source: ACHHUZ5jIOJ0Vu7n+dpHeXbkHOwpf6iHzOnRRgEmQLZqEfJG857eUY1WUGCFqG84VuUcyF7T68x7Bw==
+X-Received: by 2002:a05:600c:2104:b0:3f1:6f44:ff3a with SMTP id u4-20020a05600c210400b003f16f44ff3amr3958884wml.13.1682683774216;
+        Fri, 28 Apr 2023 05:09:34 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id x8-20020a05600c21c800b003f2390bdd0csm15487607wmj.32.2023.04.28.05.02.24
+        by smtp.gmail.com with ESMTPSA id m18-20020a7bcb92000000b003f24f245f57sm15405684wmi.42.2023.04.28.05.09.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Apr 2023 05:02:24 -0700 (PDT)
+        Fri, 28 Apr 2023 05:09:33 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes 2/2] riscv: Implement missing huge_ptep_get
-Date: Fri, 28 Apr 2023 14:01:20 +0200
-Message-Id: <20230428120120.21620-2-alexghiti@rivosinc.com>
+Subject: [PATCH -fixes] riscv: Move .rela.dyn to the init sections
+Date: Fri, 28 Apr 2023 14:09:32 +0200
+Message-Id: <20230428120932.22735-1-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230428120120.21620-1-alexghiti@rivosinc.com>
-References: <20230428120120.21620-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230428_050228_946061_3144196B 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20230428_050938_342308_1F9B5111 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,66 +92,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-huge_ptep_get must be reimplemented in order to go through all the PTEs
-of a NAPOT region: this is needed because the HW can update the A/D bits
-of any of the PTE that constitutes the NAPOT region.
+The recent introduction of relocatable kernels prepared the move of
+.rela.dyn to the init section, but actually forgot to do so, so do it
+here.
 
-Fixes: f2aeb0118ddd ("riscv: mm: support Svnapot in hugetlb page")
+Before this patch: "Freeing unused kernel image (initmem) memory: 2592K"
+After this patch:  "Freeing unused kernel image (initmem) memory: 6288K"
+
+The difference corresponds to the size of the .rela.dyn section:
+"[42] .rela.dyn         RELA             ffffffff8197e798  0127f798
+       000000000039c660  0000000000000018   A      47     0     8"
+
+Fixes: 559d1e45a16d ("riscv: Use --emit-relocs in order to move .rela.dyn in init")
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/hugetlb.h |  3 +++
- arch/riscv/mm/hugetlbpage.c      | 24 ++++++++++++++++++++++++
- 2 files changed, 27 insertions(+)
+ arch/riscv/kernel/vmlinux.lds.S | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index fe6f23006641..ce1ebda1a49a 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -36,6 +36,9 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 			       unsigned long addr, pte_t *ptep,
- 			       pte_t pte, int dirty);
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 305877d85e96..f03b5697f8e0 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -104,6 +104,12 @@ SECTIONS
+ 		*(.rel.dyn*)
+ 	}
  
-+#define __HAVE_ARCH_HUGE_PTEP_GET
-+pte_t huge_ptep_get(pte_t *ptep);
-+
- pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- #define arch_make_huge_pte arch_make_huge_pte
- 
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index 238d00bdac14..e0ef56dc57b9 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -3,6 +3,30 @@
- #include <linux/err.h>
- 
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
-+pte_t huge_ptep_get(pte_t *ptep)
-+{
-+	unsigned long pte_num;
-+	int i;
-+	pte_t orig_pte = ptep_get(ptep);
-+
-+	if (!pte_present(orig_pte) || !pte_napot(orig_pte))
-+		return orig_pte;
-+
-+	pte_num = napot_pte_num(napot_cont_order(orig_pte));
-+
-+	for (i = 0; i < pte_num; i++, ptep++) {
-+		pte_t pte = ptep_get(ptep);
-+
-+		if (pte_dirty(pte))
-+			orig_pte = pte_mkdirty(orig_pte);
-+
-+		if (pte_young(pte))
-+			orig_pte = pte_mkyoung(orig_pte);
++	.rela.dyn : ALIGN(8) {
++		__rela_dyn_start = .;
++		*(.rela .rela*)
++		__rela_dyn_end = .;
 +	}
 +
-+	return orig_pte;
-+}
-+
- pte_t *huge_pte_alloc(struct mm_struct *mm,
- 		      struct vm_area_struct *vma,
- 		      unsigned long addr,
+ 	__init_data_end = .;
+ 
+ 	. = ALIGN(8);
+@@ -130,12 +136,6 @@ SECTIONS
+ 		*(.sdata*)
+ 	}
+ 
+-	.rela.dyn : ALIGN(8) {
+-		__rela_dyn_start = .;
+-		*(.rela .rela*)
+-		__rela_dyn_end = .;
+-	}
+-
+ 	.got : { *(.got*) }
+ 
+ #ifdef CONFIG_RELOCATABLE
 -- 
 2.37.2
 
