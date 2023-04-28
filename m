@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED2DC77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 14:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063A2C77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 14:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SZi4wT0nrX6TLQrJphUxvrDzwPW4Z8W7BLvrCAjZJoU=; b=Rl1uxTYx+u1kx6
-	YeR7YjcoTJsUGFx3TKGDCW9mV4S4zBmoA+6AhmNfi46Qug4FZiZ9X84SxZYNkU6GRHRTJc58xEvph
-	j9oEa5hq+sR9/MyCmK7QhUJabkJBGhT0X9JUKFO1OrPhtWNprTJ5AIw/UqOxdjINnWdylgtEdauEj
-	0Uz0kblB0vl47+cedAh3fuJENo4MrTnfyZn3mRmM3+M6qWqIVxh2KzMzU8Isx4CMAKmHspHn9AzbL
-	YpBd8G/9Q/NxGGABp+ko0Fv2QcRl/yiRDkqXZunHfpkHBprG6C6AKGaOcX6peQtjNZSKHVFiNLQ4d
-	Jcky5nPWL6s7I5MHnlEA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s7X/aXaAp5M6SAtl4ifXKFdkWa404yC/PKjAUuDqWCs=; b=Cd0WEKQSL3FESt
+	U3BIHzCU9D3dE6P8isSsXsxou8d2GO9S6y9hncMvDDp46Lm0aVs/7gANwNlkM+KoAF3FWPcZLSnvi
+	O+Ez/ErmxmCom9m254K2GuC3632dEZ+pOXhSA+7AvF2rCjbxnoi32RojDIn6m3Yj5qCLzxdT9MPjW
+	SD7ZK8lcn1YkGLyVLWV1gK3PUX3vSVOUVnElfTjHSIEe38CaTGI+uECAJY25gkiYz4580yQjTW1cZ
+	sYMPLUMDB4YxpX6/3WW/PyNV3jTbAXaOlTwzBZBYhfqOSh9aMvJp5mMHO9nBfi6aPTVG/INMCqV77
+	jN8IOBmSXMwXZQaGgrVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psOtl-00ArwS-1e;
-	Fri, 28 Apr 2023 14:16:33 +0000
-Received: from out203-205-221-236.mail.qq.com ([203.205.221.236])
+	id 1psOto-00Aryz-2J;
+	Fri, 28 Apr 2023 14:16:36 +0000
+Received: from out162-62-58-211.mail.qq.com ([162.62.58.211])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psOtf-00Arli-31
+	id 1psOtk-00ArsG-1U
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Apr 2023 14:16:29 +0000
+	Fri, 28 Apr 2023 14:16:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1682691368; bh=mcjmIcP4bVI9FN66WZIMySUFBD0zyZdU3Ivt3jTkYkc=;
-	h=From:To:Cc:Subject:Date;
-	b=DdkR2e4BdZiLdzOKssPWow0tDcs8fBbHunzRZd+oePgg+HUtDxsei5MKwYxe84SL+
-	 5kn+2O0QTds9GEA8leL2ur9lf6Av/zmXa3N45RMXnCpyCL/35DpDVEj2EQpVepyOwP
-	 Q5qBw3iwhj0jv6rz2pV53zM+uDs/tePRb/h3Af3E=
+	t=1682691382; bh=IzugUJb7/4phjX3Y0sEr22Y1Y7HtJJRn5Ka8RNsPSqE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=HvFVTjhgOA2jCesYNl8nXKUG759nQjeUyubHk8SCTMkGFzlR1qLSNagBbhSwrxvuf
+	 60AnCakn/SYVVAxNmRjuSs6zrCHkWncWavZ31e3Q18ReQK8Wb360HYxwfPUK4VF7Xw
+	 URp698ujHj3257XwgcFr8SQlebyTwipYw5QVnAGw=
 Received: from cyy-pc.lan ([2001:da8:c800:d084:c65a:644a:13d7:e72c])
 	by newxmesmtplogicsvrszb6-0.qq.com (NewEsmtp) with SMTP
 	id 4029CE99; Fri, 28 Apr 2023 22:16:02 +0800
-X-QQ-mid: xmsmtpt1682691362ty3q88u8s
-Message-ID: <tencent_8492B68063042E768C758871A3171FBD2006@qq.com>
-X-QQ-XMAILINFO: MFT3qY5n2tW2Le4qvbtdUtvjxXKtD/EfxOwCeWt0Y4ioMpxdN3zTfyj528QNtg
-	 R33Rr1FeVX9AB8yCXX49e01nl5uNTmunPoTCh0bhN48LOUJ+yTPux6XijQPQyIraYPHenLp/KE40
-	 dA0hJKOWkbfHoyLC24pFj5neSfhUXE5ToYe23cE0YhvNq0wc83WMVtnzY7Bqrm6PXQ//Fk02uDEV
-	 U7RX151K++YLd+sq2wHqmauSv8Wz77dL0zazdMVbR22qio3wqUi6N8JuZ4mZdm+HLV4MUIGPe1MD
-	 EHT7rlB9Xr9+SiQFb+QoFLBsPUUouK04QnHySj1DVZqD4wMo3MA24LxXQe0CDbnyDJ42SpMHT7JS
-	 qWvUlXdeJxZZtCzoyMQaVsWSovzNKcMZ5OEKj3BtCmSxsNS+vAklj5EHBI1DlOG/hP+UMlaGxhtI
-	 TYPyfhyxWyLrnjq7hsc5+09mkEOOvVSXYDn4vqT/xo9x7wRYCtnUNzArTkpB9708mLhXNlQ28UGB
-	 S9EKmn8cRXuhQcEKu5CP/YLDVM3bZuM9ULO7cR6AiEJ2GJ6JSmDM70vnobdshKVg5YpwaUbOP9Us
-	 UkHAwO17B7DaJLReDlG+xCMkF+tgvUSX4CNyajo3st954VlLOjQekaWU9k+pJsGpMKcMxXzORdvd
-	 9/chiWz9/0aGtwDY0v/78zgTKLkrVFgbLQUfh8m9JDurvIAUo1IQ5ZqNc4yd29hkusegJWwfh6oH
-	 wAHiMw6+B+Ni1UR09oWqDhBv2WymP3Mvi2/tjtz679g5vb4c9vxO2xdRFfh/I3Aa9wHnr3/brLBy
-	 wFGeoh0K+IPB7i6p5cgF+Tdq9NPYidL/haViIqytqFL0wH8HNnlzLv4sOm2s3bbJReejgtVfPqr/
-	 8F8MeNTe/wNAw85Y4MJnZqX2C6/TiESufCbq9c2FLDStho0IEe0yj2gFaTmNONLF1+4Jf1RK5/lm
-	 6yyFCiZGu5l7eicDnPxifvxHEFcOV1Hoc4VE/hrk3QTlBkLpbb9g==
+X-QQ-mid: xmsmtpt1682691367tols93pky
+Message-ID: <tencent_BC90DDC6093E3E41246D3EC73F5CAB189007@qq.com>
+X-QQ-XMAILINFO: OOWntbL6xj16iQ7PhPGnOnEfLWtZacxQviXVXFDf2ZiQ+X+Se+ma44Hrt0ch3D
+	 mXTjFs6dNjNSwD1D3DyEYb68Vkj/bU3cT/7B25W+8V8ZYEQEl1QPVzdfLzWjwEYiy0Yr0EXldbdR
+	 WgJRb+ln2Xs3Iwk6liVaj0bf+bcc3YSg5TBk47cFvHmw6GIJOl4w8LYFkmflbm7AGyO1c86NIhB0
+	 9AIr1eUJxAWFi+JKNgMpXP53P/FPrVZuLoSqgMLQBsUHTMMLWRyr+rIvAat7j2wVL+zxTLbkcBcx
+	 jCJBJzmahz9kBasaTrkVOcJ+lBk2FSZE2QSXUVoSqVvgjMuacNFX7ap8Ge/xlPpjtLCMXMVZMH7H
+	 3fBHWTpDowHtwOBRVx7oCPD1oSfM0SLVvRtDjakcxQe7uAytBdJbnUKz+vPzhw0ZXBdpAvY4I80u
+	 KystQ1rPCj891ikjuGlA2pN7fmaKsuULC8SxM1ksYa1WoxT3XnOSdAzeF3OnGwyCBwelHsBjRqj6
+	 TgIBzzoDwkoDfwq0LTMvyKIKcIFJ6IGA1AX7EqvISqplNzEs1aWAhMP/Lf+Q2RVMCYQWaXOMUcxU
+	 RKrwcVmBzqazWg9AfnNHCEM1bKXVyudwN/f1w67z0PlCFxARfz8/l9OIY/QLoly8kgyOihZaKPSN
+	 nX1221/ugcDUQkD6OahkNgWjtc/qROYDiq+bo2E9h86uKnKLVqqQjnL78Zla1v8feS7Om7yotv/5
+	 3gTRKLNxDvRNZwemwkiM2s+rnPnT8rM6xl5U6hRrlU+zxPadim5Qlqu+0l/LicRF909kZMa0IK/N
+	 TlAYzYjcyZ0AZ9gl2oE5z/HILUKm/M+DfORrXFlomMmISHETVaQ3GAbqV0RVGMfjGSvs/97wYvgY
+	 YtNbJR4T5W/96cESl3ZapV1LFHPEQ60oAe8pew0co3DleZZkMbE0OCLaetU44iuxijCjvp/QA2G0
+	 vKFJ2tkr+lsOnHbSJiyyeCl/4UY00h2A8A62qdRdoNWUlmgDPMgkRnGA2qafR2
 From: Yangyu Chen <cyy@cyyself.name>
 To: Conor Dooley <conor@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -66,14 +66,16 @@ Cc: linux-riscv@lists.infradead.org,
 	Soha Jin <soha@lohu.info>,
 	Hongren Zheng <i@zenithal.me>,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v2 0/2] riscv: allow case-insensitive ISA string parsing
-Date: Fri, 28 Apr 2023 22:15:59 +0800
-X-OQ-MSGID: <20230428141601.678489-1-cyy@cyyself.name>
+Subject: [PATCH v2 1/2] riscv: allow case-insensitive ISA string parsing
+Date: Fri, 28 Apr 2023 22:16:00 +0800
+X-OQ-MSGID: <20230428141601.678489-2-cyy@cyyself.name>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230428141601.678489-1-cyy@cyyself.name>
+References: <20230428141601.678489-1-cyy@cyyself.name>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230428_071628_278388_86321157 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20230428_071633_131122_EF824FDC 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +92,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset allows case-insensitive ISA string parsing, which is
-needed in the ACPI environment. As the RISC-V Hart Capabilities Table
-(RHCT) description in UEFI Forum ECR[1] shows the format of the ISA
-string is defined in the RISC-V unprivileged specification[2]. However,
-the RISC-V unprivileged specification defines the ISA naming strings are
-case-insensitive while the current ISA string parser in the kernel only
-accepts lowercase letters. In this case, the kernel should allow
-case-insensitive ISA string parsing. Moreover, this reason has been
-discussed in Conor's patch[3]. And I have also checked the current ISA
-string parsing in the recent ACPI support patch[4] will also call
-`riscv_fill_hwcap` function as DT we use now.
+According to RISC-V Hart Capabilities Table (RHCT) description in UEFI
+Forum ECR, the format of the ISA string is defined in the RISC-V
+unprivileged specification which is case-insensitive. However, the
+current ISA string parser in the kernel does not support ISA strings
+with uppercase letters.
 
-The original motivation for my patch v1[5] is that some SoC generators
-will provide generated DT with illegal ISA string in dt-binding such as
-rocket-chip, which will even cause kernel panic in some cases as I
-mentioned in v1[5]. Now, the rocket-chip has been fixed in PR #3333[6].
-However, when using some specific version of rocket-chip with
-illegal ISA string in DT, this patchset will also work for parsing
-uppercase letters correctly in DT, thus will have better compatibility.
+This patch modifies the ISA string parser in the kernel to support
+case-insensitive ISA string parsing.
 
-In summary, this patch not only works for case-insensitive ISA string
-parsing to meet the requirements in ECR[1] but also can be a workaround
-for some specific versions of rocket-chip.
+Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+---
+ arch/riscv/kernel/cpu.c        |  3 ++-
+ arch/riscv/kernel/cpufeature.c | 25 ++++++++++++-------------
+ 2 files changed, 14 insertions(+), 14 deletions(-)
 
-[1] https://drive.google.com/file/d/1nP3nFiH4jkPMp6COOxP6123DCZKR-tia/view
-[2] https://github.com/riscv/riscv-isa-manual/blob/main/src/naming.adoc
-[3] https://lore.kernel.org/all/20230426-getting-tactile-e6cee2cdf870@spud/
-[4] https://lore.kernel.org/linux-riscv/20230404182037.863533-14-sunilvl@ventanamicro.com/
-[5] https://lore.kernel.org/all/tencent_1647475C9618C390BEC601BE2CC1206D0C07@qq.com/
-[6] https://github.com/chipsalliance/rocket-chip/pull/3333
-
-Changes since v1:
-* Remove convert all isa string to lowercase letters in `print_isa`
-* Remove warp parser pointer dereference with tolower in switch, use
-    uppercase letter case instead in `riscv_fill_hwcap`
-* Remove allow uppercase letters in dt-bindings
-* Add Conor Dooley's patch which drops invalid comment about riscv,isa
-    lower-case reasoning
-
-Conor Dooley (1):
-  dt-bindings: riscv: drop invalid comment about riscv,isa lower-case
-    reasoning
-
-Yangyu Chen (1):
-  riscv: allow case-insensitive ISA string parsing
-
- .../devicetree/bindings/riscv/cpus.yaml       |  2 +-
- arch/riscv/kernel/cpu.c                       |  3 ++-
- arch/riscv/kernel/cpufeature.c                | 25 +++++++++----------
- 3 files changed, 15 insertions(+), 15 deletions(-)
-
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 8400f0cc9704..52b92a267121 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <linux/cpu.h>
++#include <linux/ctype.h>
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
+@@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
+ 		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
+ 		return -ENODEV;
+ 	}
+-	if (isa[0] != 'r' || isa[1] != 'v') {
++	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
+ 		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
+ 		return -ENODEV;
+ 	}
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 59d58ee0f68d..d1991c12e546 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -119,13 +119,10 @@ void __init riscv_fill_hwcap(void)
+ 		}
+ 
+ 		temp = isa;
+-#if IS_ENABLED(CONFIG_32BIT)
+-		if (!strncmp(isa, "rv32", 4))
++		if (IS_ENABLED(CONFIG_32BIT) && !strncasecmp(isa, "rv32", 4))
+ 			isa += 4;
+-#elif IS_ENABLED(CONFIG_64BIT)
+-		if (!strncmp(isa, "rv64", 4))
++		else if (IS_ENABLED(CONFIG_64BIT) && !strncasecmp(isa, "rv64", 4))
+ 			isa += 4;
+-#endif
+ 		/* The riscv,isa DT property must start with rv64 or rv32 */
+ 		if (temp == isa)
+ 			continue;
+@@ -136,6 +133,7 @@ void __init riscv_fill_hwcap(void)
+ 			bool ext_long = false, ext_err = false;
+ 
+ 			switch (*ext) {
++			case 'S':
+ 			case 's':
+ 				/**
+ 				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
+@@ -143,19 +141,20 @@ void __init riscv_fill_hwcap(void)
+ 				 * not valid ISA extensions. It works until multi-letter
+ 				 * extension starting with "Su" appears.
+ 				 */
+-				if (ext[-1] != '_' && ext[1] == 'u') {
++				if (ext[-1] != '_' && tolower(ext[1]) == 'u') {
+ 					++isa;
+ 					ext_err = true;
+ 					break;
+ 				}
+ 				fallthrough;
++			case 'X':
+ 			case 'x':
++			case 'Z':
+ 			case 'z':
+ 				ext_long = true;
+ 				/* Multi-letter extension must be delimited */
+ 				for (; *isa && *isa != '_'; ++isa)
+-					if (unlikely(!islower(*isa)
+-						     && !isdigit(*isa)))
++					if (unlikely(!isalnum(*isa)))
+ 						ext_err = true;
+ 				/* Parse backwards */
+ 				ext_end = isa;
+@@ -166,7 +165,7 @@ void __init riscv_fill_hwcap(void)
+ 				/* Skip the minor version */
+ 				while (isdigit(*--ext_end))
+ 					;
+-				if (ext_end[0] != 'p'
++				if (tolower(ext_end[0]) != 'p'
+ 				    || !isdigit(ext_end[-1])) {
+ 					/* Advance it to offset the pre-decrement */
+ 					++ext_end;
+@@ -178,7 +177,7 @@ void __init riscv_fill_hwcap(void)
+ 				++ext_end;
+ 				break;
+ 			default:
+-				if (unlikely(!islower(*ext))) {
++				if (unlikely(!isalpha(*ext))) {
+ 					ext_err = true;
+ 					break;
+ 				}
+@@ -188,7 +187,7 @@ void __init riscv_fill_hwcap(void)
+ 				/* Skip the minor version */
+ 				while (isdigit(*++isa))
+ 					;
+-				if (*isa != 'p')
++				if (tolower(*isa) != 'p')
+ 					break;
+ 				if (!isdigit(*++isa)) {
+ 					--isa;
+@@ -205,7 +204,7 @@ void __init riscv_fill_hwcap(void)
+ #define SET_ISA_EXT_MAP(name, bit)						\
+ 			do {							\
+ 				if ((ext_end - ext == sizeof(name) - 1) &&	\
+-				     !memcmp(ext, name, sizeof(name) - 1) &&	\
++				     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
+ 				     riscv_isa_extension_check(bit))		\
+ 					set_bit(bit, this_isa);			\
+ 			} while (false)						\
+@@ -213,7 +212,7 @@ void __init riscv_fill_hwcap(void)
+ 			if (unlikely(ext_err))
+ 				continue;
+ 			if (!ext_long) {
+-				int nr = *ext - 'a';
++				int nr = tolower(*ext) - 'a';
+ 
+ 				if (riscv_isa_extension_check(nr)) {
+ 					this_hwcap |= isa2hwcap[nr];
 -- 
 2.40.0
 
