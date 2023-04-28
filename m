@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7359EC77B60
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 10:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99FCC77B60
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Apr 2023 11:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gkJyHz8GYH1NtahxEe1z6KtRtAU+xRhy0/RlaGCljYU=; b=btNOqd/zi0+nw4
-	Pk5OO26s6hlbe6kPWSiQhW8rQNO6h7sRZkSVju/FZFHyLFsx7Db2nniL7pemnJOcVVL4Ten7cNXoB
-	nHmdWScCh3qS/OV9L/+LvrgZPWQNT1ZMvabYz5rA60U8DB1xqWTrfMFDOZQJTPUbjnc2dN3fl7nXk
-	BtQ4HBiM0KCVjbOiHhnxz46aoFDKlg5iSbM4qpMqYPtMhAeG4zTNJpiiotVLSjC3hi2zGK7play7r
-	JxkED7E0TcK+vXnZ4TP41hz0m7788JLdVB9QD3nq/8glK/QtubnnRt8sllsRb9b04oHHYRpaWeiTe
-	zlgyK8gq2CQ34sVQ85rQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MA4/VVzo2KzcyE+pxrUvweF4pH6uNVHokiSHHt9Hsf4=; b=uaJ93psLH4Gdus
+	64CnTOC2P2MV97DYKhLnGFDttzTTGRse+UmwlT1aTGqr23JoTv4hP6KWU2cPCSw+ppL5y+wU25BCE
+	rnRPHNus7BQlPeYdamV80r1iEJlBMTm4AfjygRwjWbb2uh59a4RBME6a7QAGU3RvIem/pITlfcYjm
+	5fQkcXF5FyRPvFUQYEzPf8+jJOFICXidqSlyV7atfqk0X/WOo7NgKYOFABaYeOo4GG4mcKqClWILV
+	R1SHs8DHDscYTOxFOccrGio6j8nrywx+tSnBWSVSr3fI+KnFKRNPIT/rOQYMW2LG3UbVn8BK0EwQ1
+	iyt2r0eVkRarI70q7mIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psLLH-008lUf-0g;
-	Fri, 28 Apr 2023 10:28:43 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1psLst-008zse-2b;
+	Fri, 28 Apr 2023 11:03:27 +0000
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psLL9-008lMs-1L
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Apr 2023 10:28:41 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f1763ee8f8so66677215e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Apr 2023 03:28:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1682677706; x=1685269706;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZfGMC/jhsgLfQzo0SHoljXr/2t2JYSln8rtomysk++I=;
-        b=hD7I0XgjY/BZDDPHQ+bgeA+CzkoJHzb94OGZh6JPpB6nTGgMf6Abo9pAWt5zAJQsKh
-         Uw/tqn9PDEPNuqMLk0xc+X5fxNeH8EnQdTGpKw4S7WqAMjj5jiRPUio15MtGFNgiUiWD
-         8ZAefvucanbeodh2jPn8dWJYIJBsjCLdbW1KBVO8jjmHhRONh6kJVNj+MfeLWvtAMw94
-         TVDxz1b6zM+IAX8DIbBjjBO8vmIrSevukwEvv/Vl3mM1LgzV5fwTq0keO1kKEuaARJmp
-         gXLIZCJaGXCRDNwEAqaGsFGATpr7G+6/lalolDT6hfYSTHSrJpPnQw1kYksm2pYXpVmp
-         hnWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682677706; x=1685269706;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZfGMC/jhsgLfQzo0SHoljXr/2t2JYSln8rtomysk++I=;
-        b=MIDEoeMdBp4UtP5Xpy8KAa2sT/Eb4n0RmBUOQNakkV9r5OnejWjOq4tBiFTJojWb0s
-         KOrFTmWzvXaA81Zd7k56GUjq1oTR7VcpW57PIS2LTJTZFLKpQbI0du2fwj7Mq9yRmm1g
-         sLip7wC9YYllRsDRK5vnxfTevqNo8veFesNW4fxuZMcNkCfoqOUEDgOoiWswbl4Kr0Iq
-         mSss3m/4xAeQB30ULqs6Ck0HhfITl5Bu4JRGt0SlWyHMMD4MFUHejpqvLAQtcfzXGNje
-         7eS8A/l5Fi+1q9pVGVGX0h9tfE/HyeLCPwT4ivV2ZsMZn0p/n8wz0yyMl7LM3I/xu1xJ
-         nK5A==
-X-Gm-Message-State: AC+VfDzn5ohCRrPyfSFUkrGp8KlfW+OiOdPWhl7a4DzGgrOgL2B/HDaD
-	p8Ier4f1dyMMyBbqsGZD5+3ljPdZIZV+Euz4M20=
-X-Google-Smtp-Source: ACHHUZ635hgVhCN8pnLlW+6Lu4Byx+Ptd0TOnsSoSl2JFuNMjarpMQdZkrvvjK/Qn/HAEKr8ROkJ9Q==
-X-Received: by 2002:a05:600c:2205:b0:3f1:6ead:34fe with SMTP id z5-20020a05600c220500b003f16ead34femr3747198wml.26.1682677705900;
-        Fri, 28 Apr 2023 03:28:25 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id v15-20020a05600c444f00b003f09cda253esm27676885wmn.34.2023.04.28.03.28.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Apr 2023 03:28:25 -0700 (PDT)
-Date: Fri, 28 Apr 2023 12:28:24 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
-	paul.walmsley@sifive.com, kito.cheng@sifive.com, jrtc27@jrtc27.com, matthias.bgg@gmail.com, 
-	heinrich.schuchardt@canonical.com, greentime.hu@sifive.com, nick.knight@sifive.com, 
-	christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu, richard.henderson@linaro.org, 
-	arnd@arndb.de, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] RISC-V: add support for vendor-extensions via
- AT_BASE_PLATFORM and xthead
-Message-ID: <d6lqggv2bbtmv7exalcqqwgbntibdxotsswataxqxhx6kmf4rg@5kgb3axdwgst>
-References: <20230424194911.264850-1-heiko.stuebner@vrull.eu>
- <20230424194911.264850-5-heiko.stuebner@vrull.eu>
- <20230426-spirits-ludicrous-a5d8275686e6@wendy>
- <5016896.Mh6RI2rZIc@diego>
- <20230427-maybe-skier-51e7cf09795c@spud>
+	id 1psLso-008znF-2y;
+	Fri, 28 Apr 2023 11:03:24 +0000
+Received: from mta-01.yadro.com (localhost.localdomain [127.0.0.1])
+	by mta-01.yadro.com (Proxmox) with ESMTP id 15F613421FC;
+	Fri, 28 Apr 2023 14:03:15 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mta-01; bh=4h2SwUmKqyEj//oKvHv7L86S6YYJSISewvHhvX30x80=; b=
+	I9YprWdnZflhKXzR9FlJNgaSoUNimkaPEqUmOCrInvjD2eqP3qQNzC1puhlTkUsv
+	bvrG98PaHXP8VDdYa4kWDJnMrv5EExu/T1kCseRSAaUb8WKgqXTAQMThOjNpacPp
+	4RSYJBm7UaxWASKu/gNBpLcNsJeE9J/xkwMDbpu+AXM=
+Received: from T-EXCH-08.corp.yadro.com (unknown [172.17.10.14])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mta-01.yadro.com (Proxmox) with ESMTPS id 0C101342196;
+	Fri, 28 Apr 2023 14:03:15 +0300 (MSK)
+Received: from T-Exch-05.corp.yadro.com (172.17.10.109) by
+ T-EXCH-08.corp.yadro.com (172.17.11.58) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.9; Fri, 28 Apr 2023 14:03:14 +0300
+Received: from rdma-x86-2.dev.yadro.com (172.17.27.123) by
+ T-Exch-05.corp.yadro.com (172.17.10.109) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ 15.2.1118.9; Fri, 28 Apr 2023 14:03:14 +0300
+From: Viacheslav Mitrofanov <v.v.mitrofanov@yadro.com>
+To: 
+CC: <linux@yadro.com>, Viacheslav Mitrofanov <v.v.mitrofanov@yadro.com>,
+	"Atish Patra" <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will
+ Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 0/1] Limit the number of counter returned from SBI. 
+Date: Fri, 28 Apr 2023 11:02:55 +0000
+Message-ID: <20230428110256.711352-1-v.v.mitrofanov@yadro.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230427-maybe-skier-51e7cf09795c@spud>
+X-Originating-IP: [172.17.27.123]
+X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
+ T-Exch-05.corp.yadro.com (172.17.10.109)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230428_032835_468632_09492CF9 
-X-CRM114-Status: GOOD (  32.27  )
+X-CRM114-CacheID: sfid-20230428_040323_496241_C1C97859 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,83 +80,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 27, 2023 at 07:28:49PM +0100, Conor Dooley wrote:
-> Hey Heiko,
-> =
+Perf relies on reliability of SBI. If sth goes wrong the code trusts it.
+It happened due to some debug process that I passed more than
+RISCV_MAX_COUNTERS to perf from SBI. At the first glance there were
+bloating of kalloced variable pmu_ctr_list and counter mask recycle write.
+May be there were some other effects. But anyway it is better to add
+extra check.
 
-> On Thu, Apr 27, 2023 at 07:15:58PM +0200, Heiko St=FCbner wrote:
-> > Am Mittwoch, 26. April 2023, 14:29:16 CEST schrieb Conor Dooley:
-> > > On Mon, Apr 24, 2023 at 09:49:11PM +0200, Heiko Stuebner wrote:
-> > > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-...
-> > > What do you mean by virtualisation here? It's the job of the hypervis=
-or
-> > > etc to make sure that what it passes to its guest contains only what =
-it
-> > > wants the guest to see, right?
-> > > IIUC, that's another point against doing what this patch does.
-> > =
+Viacheslav Mitrofanov (1):
+  perf: RISC-V: Limit the number of counters returned from SBI.
 
-> > I guess I'm still seeing Zbb and friends - with just computational
-> > instructions as always good to have. But I guess you're right that the
-> > hypervisor should be able to control itself which extensions.
-> =
+ drivers/perf/riscv_pmu_sbi.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> Yah, there may not be any obvious downsides to something like Zbb, but I
-> think that taking control away from the hypervisors etc isn't a good
-> idea.
+-- 
+2.37.2
 
-If there's any chance that a VM will need to migrate from a host with,
-e.g. Zbb, to one without it, then the VM will need Zbb disabled from the
-start.
 
-> Having a simple policy of blocking things that are known to misbehave
-> would require less maint. than a list of things that are okay to pass
-> through, but both are probably cans-of-worms.
-> I think we need to think carefully about what policy is chosen here.
-> Allowlist will be slower, but at least we'll not tell userspace
-> something that is not usable. Blocklist will be easier to manage, but
-> can only be reactive.
-
-I have experience [trying] to maintain deny-lists for CPU features,
-both for x86 Xen guests and Arm KVM guests. I don't recommend it. To
-do it right, you need to be proactive, tracking upcoming CPU features
-to add the ones that can't be supported by virt or aren't ready to
-be supported by virt to the deny-list before somebody trips over them.
-In practice, usually somebody trips over it first, causing fires which
-have to be put out. If an allow-list is used, then, when a new feature
-is missed, no fires are started. The worst that can happen is somebody
-expected the feature and didn't see it, so they complain, at which
-point you add it.
-
-...
-
-> Also, in a world where we do do some sort of passing, should we only
-> forward the vendor extensions, or should we forward the standard ones
-> too?
-
-I guess we need to forward anything userspace can and should use.
-
-> What about supervisor mode only stuff?
-
-That's not something userspace can use. If we want to expose which
-supervisor mode features the CPU has to userspace, for information
-purposes, then I think proc or sysfs would be sufficient for that.
-
-The downside of using an allow-list for what extensions get exposed
-to userspace is that even extensions the kernel can't/won't use
-will need a kernel patch before userspace can use them. But, as
-I stated above, that downside (people complaining a feature they
-expect is missing), is, IMO, better than the alternative of exposing
-things that shouldn't be.
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
