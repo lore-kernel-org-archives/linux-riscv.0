@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564CBC7EE23
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 20:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32BAC77B60
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 20:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=R1htZcWtNDk2ZKxP9+h/oX8fxyIoY2NKiRktViypoIQ=; b=NZ8czgJOnQbFDl2AGOMXxA9nCD
-	68R4Lo6uyNvF96nQ1etTeVzErnugbJGtc/hDN9YyA5Xvzv5ScDIPPeQ4GU0lunZ7r9EsrbwQtH3UJ
-	0A3xnRJUgyF9Tbp3hDLgTyRkuxHGvM/+Z5h9BOW0DjfmDtnu4QpIuDWeOnDCWVevGcrJTylHpwXaN
-	iDhWabb63rbrdTar8+/I0JyUd+RxIGJodvoVM9UlcZZDKBAeS5NdU0N3WF/yp/4Mn7qYzmF+jDJmC
-	dgeQIFZ4BmxE41p9ghYKofmQRn909xz56CTPiIcXqAoF0DM/MLRRE2q1xdGPWW7cVhJVxjdAIrcI/
-	oypJBUDg==;
+	bh=OnZdvMFi53Ou2ghWoSrFDIyQDRe04chep+Lu2dbF7B8=; b=wtm4v/FlrpMYtejC9ySRPOPKgH
+	kLLZhCUIO0yJqjc+aZEB43hFHrNRrJmgoac7HYFT4JkppbomALOrIUjgcxb5SZbpBeIJ2Tkotb56v
+	xLR/MBCqmuxYjnSNietBrZjDO+3mOqZY4LE6C3cBdpYqxY3u6ksgT8hHh2a8ri1CmScLjRIh2rtGh
+	hbyRWmcPMfS3DfkI6r9hDsm4LZ20rFFLSvSWQMzEKm5SNBUMlOGMkGAFxhWwO5KB6+emFbkYXOZoX
+	TfjQ7scqBN7RfYk7t0Hf2hx/PvGM/kGMg95fSJmFb7nAgomYSiGgt6Utry5IpgHk/2ruVlJJpIOB8
+	QumYwIeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psqxh-00D5uB-0D;
-	Sat, 29 Apr 2023 20:14:29 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1psr0t-00D65i-1V;
+	Sat, 29 Apr 2023 20:17:47 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psqxe-00D5t2-0p
+	id 1psr0r-00D64s-0L
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 20:14:28 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1a50cb65c92so9008185ad.0
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 13:14:25 -0700 (PDT)
+	Sat, 29 Apr 2023 20:17:46 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-517bb01bac9so737150a12.0
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 13:17:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682799264; x=1685391264;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682799460; x=1685391460;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EvNXrGU7f9AyBgQxPAxIH8w5LQ2sGDY5VhYCeQmIsvg=;
-        b=ztXNyujPGJ3TImj9rkWYO2n2FifWKitTQShNykqcCXMnlMDmDVUdGDZxkkAjoc2LxT
-         wjlkNuWu5MpGZ0hx2IY/BfGicm00cVl+x8sMPYhvJYOTMhGVFNRcq+t2+IhK1Zbg1HBm
-         TwPyb5IfXHXgdYm4kQQJO8mCutMWnoA0MAQG1HObQV2DkWdvKA82EPwFFy15NEoVvzDJ
-         YaFLlQv2/hnRBo+Kg2l+LFcBMREq5GVfs5levwZlW+i9w9qFVpvKUrXtIKJRJqUd1KUC
-         DRDHp5Z7Fs9kgbXLfeVSACxaLJ8vDKqbLXNf+pwsIg4BCZFLNo8FmqNy+hScbEds+O2l
-         SL9w==
+        bh=mFiB6ytrVKj/f6xCbTDWl4yWJ/Q1XjEK8T+2S6imf1E=;
+        b=ckhI7YSalDo0gVPkZX3y0qPl1uNA7CqFa8/4xrOteEHCuf72A+45+dISdfdHAgH8c9
+         Cbq3t/XsjCWSqvq+BtsjcNK4uftpXQuhhKN0dPy3ZX9fF3YEeX3iWRzpD0npnJBfk5bz
+         PsjLBnDcDY8E6q+14CLo0YpidmB++p2/IXze6+aao6dOYy6KeVn8b9u2fEu6lriZNest
+         PKcREt/kS+uzBkXRPehfASAD7lDgkT//MnOdn2lHVXy6D8QFm57lSMFLFsCk4/hmR3qP
+         g9nJb7ydjGYhip6eoC+pWvOy4tJm/p76YJY0OsmLe0DGpfWutGkk75eUfK479JUFE1Ej
+         hBQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682799264; x=1685391264;
+        d=1e100.net; s=20221208; t=1682799460; x=1685391460;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EvNXrGU7f9AyBgQxPAxIH8w5LQ2sGDY5VhYCeQmIsvg=;
-        b=d9bh0DkU40jne7x+khr4iwoHjseXWUkS83DJ2MGtJU0H21aIh8x8iyk9c0MYIFl0oU
-         pQgC42vlYikibiZ7cUG29cYL+ZmIEA4pB4qqdHHG4CMRu1+KxDtd+bly/xrloSfJy60N
-         e4FrarIuDL7aee/81EqO5dP+A7g/NJX21LAl9mNgCaUJLWiYC2adTym2ynRSyz4HU49H
-         E6EiPzc+wTGsX3YMz0rCBDyVHrnx2WOnVxAAGNzJIc8v6wof+2RrGi0FA5ED/J4K+g6h
-         pPD0zXRO62HvgI6fpHABk0nbF5E8SOJX6HTsccMewvOTjJ0pfeTIB8s3v7iuCRHwlVpL
-         1GSA==
-X-Gm-Message-State: AC+VfDz/OsXfXyjh2dSuagkR/OWHZ4HC0Ij91hfMHstvgVUHyPu2LeHf
-	bbzRZ4OIk7WG+fRYS35ByBFA9A==
-X-Google-Smtp-Source: ACHHUZ7pgoIToYashe1bFzQ1hUq7/0xuSIbhdV55MwhX+AUZI7FSn+oK96sUBgsJukxkcTmiriVdYg==
-X-Received: by 2002:a17:902:ef45:b0:1a6:dd9a:62c5 with SMTP id e5-20020a170902ef4500b001a6dd9a62c5mr8875345plx.10.1682799264493;
-        Sat, 29 Apr 2023 13:14:24 -0700 (PDT)
+        bh=mFiB6ytrVKj/f6xCbTDWl4yWJ/Q1XjEK8T+2S6imf1E=;
+        b=C9YvdIMjk8stux5ZP7jmG2rZ8uPl/25UgwUb54LEeX0YmvjzfbysL1W5UTg/ptUhzW
+         JCe+US+GR3s9HsqrX4+YQW1w/0Bx+QDbHO4ds+ABrAY7/4HcHzWTDAQnG1SOpDjk+HNJ
+         B6yiVGlIv8cxKTvrIFPVOLoGJWBJZ/NyE7nKDbD3DyFaF8tvx4TVzR4S2uH1qDc1wm/t
+         kSEhO9ObVs/oQBpkRlxCQxgS72dXrIbDpDD6mmoNbYX1ggExOsElPM8dD3/UgX+Qptb2
+         trxy67kmfTww9eAhWRWp4Q4UySgqTaUM3CoDzRk6fmh49bfOH8tXgFlYIVSANxWUn3WW
+         5+bg==
+X-Gm-Message-State: AC+VfDzUpnO3Of9MGdoLCYcvdkjxyNFqwkqiPP+vT/ZMVPWArtc8lnwe
+	GbyrCcBx/GtOQBjPbe0hJ3U3JazGVDDS0qxw1HTF4A==
+X-Google-Smtp-Source: ACHHUZ49aJWNY1E5qUu3lujxh4rbVwp8/wmyvBrQN0Vd47cPc3ONhq23W7fKGmFhRbb61OlkDqx+zQ==
+X-Received: by 2002:a17:902:ea07:b0:1a9:baa4:8681 with SMTP id s7-20020a170902ea0700b001a9baa48681mr9261344plg.24.1682799460249;
+        Sat, 29 Apr 2023 13:17:40 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id g2-20020a170902740200b001a4f7325466sm15179442pll.276.2023.04.29.13.14.23
+        by smtp.gmail.com with ESMTPSA id 9-20020a170902c14900b001a9a36c5216sm6303823plj.80.2023.04.29.13.17.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Apr 2023 13:14:23 -0700 (PDT)
-Date: Sat, 29 Apr 2023 13:14:23 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 Apr 2023 13:14:07 PDT (-0700)
-Subject: Re: [PATCH] Remove HAVE_VIRT_CPU_ACCOUNTING_GEN option
-In-Reply-To: <20230429063348.125544-1-npiggin@gmail.com>
-CC: Arnd Bergmann <arnd@arndb.de>, npiggin@gmail.com, linux-arch@vger.kernel.org,
-  linux-kernel@vger.kernel.org, vgupta@kernel.org, linux-snps-arc@lists.infradead.org, bcain@quicinc.com,
-  linux-hexagon@vger.kernel.org, chenhuacai@kernel.org, loongarch@lists.linux.dev, geert@linux-m68k.org,
-  linux-m68k@lists.linux-m68k.org, monstr@monstr.eu, tsbogend@alpha.franken.de, linux-mips@vger.kernel.org,
-  dinguyen@kernel.org, jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
-  linux-openrisc@vger.kernel.org, James.Bottomley@HansenPartnership.com, deller@gmx.de,
-  linux-parisc@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de,
-  linux-sh@vger.kernel.org, davem@davemloft.net, sparclinux@vger.kernel.org, richard@nod.at,
-  anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, linux-um@lists.infradead.org, tglx@linutronix.de,
-  mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-  khilman@baylibre.com, frederic@kernel.org
+        Sat, 29 Apr 2023 13:17:39 -0700 (PDT)
+Date: Sat, 29 Apr 2023 13:17:39 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 Apr 2023 13:17:16 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: fixup in-flight collision with ARCH_WANT_OPTIMIZE_VMEMMAP rename
+In-Reply-To: <20230429-neurology-sudoku-8d53b23d01b8@spud>
+CC: Conor Dooley <conor.dooley@microchip.com>,
+  Linus Torvalds <torvalds@linux-foundation.org>, akpm@linux-foundation.org, aneesh.kumar@linux.ibm.com,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, lukas.bulwahn@gmail.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: npiggin@gmail.com
-Message-ID: <mhng-7ec0443b-2201-41b7-996c-78c3a61f0230@palmer-ri-x1c9a>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-b5a20207-95a2-4607-9e6c-52396d569d91@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_131426_294681_A82BCACB 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20230429_131745_161368_F3AB67D5 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,96 +92,91 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Apr 2023 23:33:48 PDT (-0700), npiggin@gmail.com wrote:
-> This option was created in commit 554b0004d0ec4 ("vtime: Add
-> HAVE_VIRT_CPU_ACCOUNTING_GEN Kconfig") for architectures to indicate
-> they support the 64-bit cputime_t required for VIRT_CPU_ACCOUNTING_GEN.
+On Sat, 29 Apr 2023 02:32:33 PDT (-0700), Conor Dooley wrote:
+> On Sat, Apr 29, 2023 at 10:27:33AM +0100, Conor Dooley wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
+>> 
+>> Lukas warned that ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP had been
+>> renamed in the mm tree & that RISC-V would need a fixup as part of the
+>> merge. The warning was missed however, and RISC-V is selecting the
+>> orphaned Kconfig option.
+>> 
+>> Fixes: 89d77f71f493 ("Merge tag 'riscv-for-linus-6.4-mw1' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux")
+>> Reported-by: Lukas Bulwhan <lukas.bulwhan@gmail.com>
 >
-> The cputime_t type has since been removed, so this doesn't have any
-> meaning. Remove it.
+> That should have been Lukas Bulwahn <lukas.bulwahn@gmail.com>.
+> This is what I get for hand-typing an email address that I could have
+> copied from lore I suppose.
 >
-> Cc: linux-arch@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: Vineet Gupta <vgupta@kernel.org>
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: Brian Cain <bcain@quicinc.com>
-> Cc: linux-hexagon@vger.kernel.org
-> Cc: Huacai Chen <chenhuacai@kernel.org>
-> Cc: loongarch@lists.linux.dev
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: linux-mips@vger.kernel.org
-> Cc: Dinh Nguyen <dinguyen@kernel.org>
-> Cc: Jonas Bonn <jonas@southpole.se>
-> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-> Cc: Stafford Horne <shorne@gmail.com>
-> Cc: linux-openrisc@vger.kernel.org
-> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: linux-parisc@vger.kernel.org
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Cc: linux-sh@vger.kernel.org
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: sparclinux@vger.kernel.org
-> Cc: Richard Weinberger <richard@nod.at>
-> Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-> Cc: Johannes Berg <johannes@sipsolutions.net>
-> Cc: linux-um@lists.infradead.org
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: x86@kernel.org
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Kevin Hilman <khilman@baylibre.com>
-> Cc: Frederic Weisbecker <frederic@kernel.org>
-> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
-> ---
-> Hi,
->
-> Could we tidy this? I don't know what tree it can go in, timers,
-> sched, asm-generic, probably doesn't matter.
->
-> The only thing this actually does is gate VIRT_CPU_ACCOUNTING_GEN and
-> NO_HZ_FULL so if your arch has some other issue that requires this
-> then the documentation needs to change. Any concerns from the archs?
-> I.e., 32-bit that does *not* define HAVE_VIRT_CPU_ACCOUNTING_GEN
-> which looks to be:
->
-> arc
-> hexagon
-> loongarch 32-bit with SMP
-> m68k
-> microblaze
-> mips 32-bit with SMP
-> nios2
-> openrisc
-> parisc 32-bit
-> riscv 32-bit
+>> Link: https://lore.kernel.org/linux-riscv/CAKXUXMyVeg2kQK_edKHtMD3eADrDK_PKhCSVkMrLDdYgTQQ5rg@mail.gmail.com/
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>> I guess you picking this up for your second PR makes the most sense
+>> Palmer?
 
-Nothing's jumping out, though I haven't tested this yet so I'm not 100%.  
-I assume this isn't aimed for this merge window, given the timing?  
-Probably best to give this sort of thing time to bake in linux-next, but 
-I doubt anyone is even paying attention to rv32/NO_HZ_FULL so no big 
-deal either way on my end.
+Yep, except it crashes b4
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
+$ b4 shazam -lts https://lore.kernel.org/all/20230429-trilogy-jolly-12bf5c53d62d@spud/
+Grabbing thread from lore.kernel.org/all/20230429-trilogy-jolly-12bf5c53d62d%40spud/t.mbox.gz
+Analyzing 2 messages in the thread
+Checking attestation on all messages, may take a moment...
+Traceback (most recent call last):
+  File "/home/palmer/.local/src/b4/b4/command.py", line 383, in <module>
+    cmd()
+  File "/home/palmer/.local/src/b4/b4/command.py", line 366, in cmd
+    cmdargs.func(cmdargs)
+  File "/home/palmer/.local/src/b4/b4/command.py", line 100, in cmd_shazam
+    b4.mbox.main(cmdargs)
+  File "/home/palmer/.local/src/b4/b4/mbox.py", line 713, in main
+    make_am(msgs, cmdargs, msgid)
+  File "/home/palmer/.local/src/b4/b4/mbox.py", line 101, in make_am
+    am_msgs = lser.get_am_ready(noaddtrailers=cmdargs.noaddtrailers,
+  File "/home/palmer/.local/src/b4/b4/__init__.py", line 552, in get_am_ready
+    checkmark, trailers, attcrit = lmsg.get_attestation_trailers(attpolicy, maxdays)
+  File "/home/palmer/.local/src/b4/b4/__init__.py", line 1319, in get_attestation_trailers
+    for attestor in self.attestors:
+  File "/home/palmer/.local/src/b4/b4/__init__.py", line 1158, in attestors
+    self._load_patatt_attestors()
+  File "/home/palmer/.local/src/b4/b4/__init__.py", line 1261, in _load_patatt_attestors
+    patatt_config = patatt.get_config_from_git(r'patatt\..*', multivals=['keyringsrc'])
+AttributeError: module 'patatt' has no attribute 'get_config_from_git'
 
-> sh
-> sparc 32-bit
-> um 32-bit
-> x86 32-bit
->
-> Thanks,
-> Nick
+So I probably need to just go update my setup, I've got a bunch of wacky stuff.
+I'll try and remember to do so, but I'm going to scrub through other bits
+first...
+
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+>> 
+>> CC: Palmer Dabbelt <palmer@dabbelt.com>
+>> CC: Linus Torvalds <torvalds@linux-foundation.org>
+>> CC: Andrew Morton <akpm@linux-foundation.org>
+>> CC: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
+>> CC: Lukas Bulwhan <lukas.bulwhan@gmail.com>
+>> CC: linux-riscv@lists.infradead.org
+>> CC: linux-kernel@vger.kernel.org
+>> ---
+>>  arch/riscv/Kconfig | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 5c88ac4b52be..e1bdb3fb16cc 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -46,9 +46,9 @@ config RISCV
+>>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+>>  	select ARCH_WANT_FRAME_POINTERS
+>>  	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
+>> -	select ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+>>  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>>  	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
+>> +	select ARCH_WANT_OPTIMIZE_VMEMMAP
+>>  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>>  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+>>  	select BUILDTIME_TABLE_SORT if MMU
+>> -- 
+>> 2.39.2
+>> 
 
 _______________________________________________
 linux-riscv mailing list
