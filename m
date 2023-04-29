@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76BCC77B7C
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 18:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6ACC77B7C
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 18:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=LrT5XQJyOggpUahgbQiYSkuvKKWsK+KK1faWEPF4tyE=; b=pN8Xo8DhW0Iqnjyo6pi5E9H6MC
-	AxerrQFsAzgDg5yVMVxyVXQ6h8Kpa6lFZippt6LS9Eyq0RKMXSMUkmx8vUMDI0CO5FchgiPS5ntpn
-	ANE9+Ld3lijphZQAAoE00U4LtBb7QVA8A2+gelwwIrgih84066/fVDE9IiGwEDQRDkMMDlF6iaqO8
-	TYsGzB1VgK36kL8xmcFPyG+Nfcn0DywnNsnNKO7bjYEjP7mw+GVtjh9dYflYn82X4dcbQejI1ox+i
-	oKDFRHUVhGoGfv6+Z46oHRXhWtqaqGxqEz4oe0hB/01lWz/eiwnd2jqUnAFxOcZh5GGkRQuypxYoS
-	X52H5rxg==;
+	bh=ZjQZ5yuKPUowmZa3knQj+2BFBGVpHFT7e2MV/I21oWU=; b=F3zWg5SqbqqQ4DLzyvr84qsJn9
+	wMcwVzH0j2n+1A2PMvpJNrRrtum5NDUgbf1IGJgQD1QvcNcHbr3bhJ7lIqOZZaGTRtbUyPD371rRr
+	p3niR3NxhOyT6Wz51x+DrbYNtKulPSYne+Jqi8BFxS2yJWaITyoADYYyL98cfMSNhXVZoWGL3oSBy
+	cE8JcDTDIUPB245hHcfGc33SjyDvmMdilpRQXaygaPLG9mCo1QYIY9+bsipgCDitZ0uvn60qvQ8Es
+	QViJDQ4DGY6aPTTUb5nzDcOwatOnk2ebnJINXXtYRgV8maYOu+UMRuKL32XsZqTHeRIrUhdeox/NX
+	nvkZWaUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pspFg-00CzzH-0e;
-	Sat, 29 Apr 2023 18:24:56 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1psplp-00D28p-1N;
+	Sat, 29 Apr 2023 18:58:09 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pspFc-00Czwi-13
+	id 1psplm-00D28P-1S
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 18:24:54 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-64115eef620so19283529b3a.1
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 11:24:51 -0700 (PDT)
+	Sat, 29 Apr 2023 18:58:08 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1aaca0bb8c2so11604955ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 11:58:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682792690; x=1685384690;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682794685; x=1685386685;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HCZIXMPhuJUf80scSK3agzn9QDDKa0LblR7ePMqe91Q=;
-        b=osIreuhFqrOaZAAl/27+IK5Hi1AB1StDT3MQB4UJdmyvLv00XqfYnZDOR5DEup+Zbc
-         EMMhztAPOHm+IIUb2Jko/Ql1Qxequoi14q5q6ioXxwV6ONNbTHbCpppQsquBotBv7NZA
-         0xsoGYgWKOy6+E6yOM0QJd1lS7m7Gz/d+GxIdfE4O363XFxvr58OuzUA8yahfjRkgl76
-         daFFl6DyngHfFxsVeUlgdYpwovv5SK9w21aq217ZLhFo3Y8jm5Njv+T6oNvGK4lJj/ES
-         nDCkxSdKHcKkITKghp2NRdG/dKj2tCryrSlZDF5O3eK56lzP0kExP10+gizADZGE0dho
-         uu6w==
+        bh=tneK3rBistnd9Ha67Ea2Jz2s60WaNrk0c+1Wr5wtZd4=;
+        b=bNJ0a9PlEcdBF+D7KklysARre66PsS60KW+fqG+FgUkVbvZBScXzV/P/qemIinvqdA
+         RGjVj3zDl7+7EkuCjfrdbpQ0s4DPd3daiJj3DDYvtgjnilpb4n+rlVqYpNMi32EdVk9z
+         4ScOzIRJFMYTstYR5uFnSTj6AoU3o3Fa8ypRxptygBv2aX/e/Cnp8o8zOoMo+Kxir2hq
+         RCzHThJv5X7vqng0eMKkZNIKLFHcNPnebigPe3eMwzmTmqtKBftjHNNBbhckPj+b1Osf
+         FyHXLMIO6pisf5F61w+pkhU5ZQWdLtoDNoQVDMCa06KuRcFHigfnw38q9VLh0f894bO5
+         v+9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682792690; x=1685384690;
+        d=1e100.net; s=20221208; t=1682794685; x=1685386685;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HCZIXMPhuJUf80scSK3agzn9QDDKa0LblR7ePMqe91Q=;
-        b=PjbErRDzcFxL4PucCK66Q9fC0/Eyp+xBWTxd95o5AjVtMLIR4bJlPv0z1u+878SfZy
-         E4yluDSwZP6Z9oq3S14i5N8lRsDfeO4PJ9o40rZ3ZCTbbI+rPyrjNHetWknvNOxevEPB
-         vxtJufrl86UVdbD+mgGefw5J8P/fvqe7vQqlAFRd91/CsHUkXxkz87qgKsY2JJkGm6mn
-         RbAhfEVAtiyY9TwSPhPkRBvI6+U4vkRE0HMtArhgSHqYofSrZEsXrZabLw4YhEMnNISs
-         rzOgGZ0nbfSul8S7lTxLAb93WgRvLIsl8QV0JX0L0gTYR8An80CXYBjeJ8tahDUYyjHh
-         zqZw==
-X-Gm-Message-State: AC+VfDxWg70DHAPcHRe9uet88eSDKXf/MPI9BPY23pj0iddziWlVfoN4
-	QAloxPj1HLzJ7WffLMs6xAK8Gg==
-X-Google-Smtp-Source: ACHHUZ56+SNdXMph8Hdac6/dfoFg0Vhv/AYaUOOmwxyPYiHuY8kgDpOram8U+gPi6EA5PyHcO2u8+w==
-X-Received: by 2002:a17:903:41cf:b0:1a6:d0a8:c70f with SMTP id u15-20020a17090341cf00b001a6d0a8c70fmr11307108ple.5.1682792690325;
-        Sat, 29 Apr 2023 11:24:50 -0700 (PDT)
+        bh=tneK3rBistnd9Ha67Ea2Jz2s60WaNrk0c+1Wr5wtZd4=;
+        b=FbItxvnkL2qVGDX7+5zS+mI4aCyOsW98W1P61C6qsLcWwy7GcJUR18L9fGTPOPij2p
+         P5S2GRHicpc3+LP7d08TrSXvFqn28r7MHh3K7yXF02IU2I35lD4sAPOYDxiAPwXIKfn7
+         3ND4QSNbM8z5RuJeu26VYoEdRrJt94X2/1yqqIcdUvMI9hcyMf87CZ/1y0xx8CnrUQWd
+         5NzBg+LrFJ2isRDtH65QcX4WeYrbEzJyYMgmIZimXQhToYIzATiBY/WUVtUVu2/VIv6b
+         sEhv4jXnO1jmOEtjbRtiSoaHCG7Cm4d2gQ6M1qco5ihNhzHKxDX+E5lM27lzMbr40z3M
+         NrUw==
+X-Gm-Message-State: AC+VfDz7uNNhaeB9Si196F2e6rB/rFIHU8n3Ta/zHMn69NSJBvJWwlXb
+	kPUDDZALpvkRuYtzUoPJZto6mQ==
+X-Google-Smtp-Source: ACHHUZ5s+GEIwUVRzUqUdkcm4/YL6Qb5gwwrAB6zsCenMUYBzTYBLu4Hq1rlV4SjZnoSUrs2/azH/Q==
+X-Received: by 2002:a17:902:bd8d:b0:1a9:90bc:c3c5 with SMTP id q13-20020a170902bd8d00b001a990bcc3c5mr8643899pls.62.1682794685224;
+        Sat, 29 Apr 2023 11:58:05 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id l4-20020a170902eb0400b001960706141fsm15126026plb.149.2023.04.29.11.24.48
+        by smtp.gmail.com with ESMTPSA id l9-20020a170902f68900b001a1a82fc6d3sm774266plg.268.2023.04.29.11.58.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Apr 2023 11:24:49 -0700 (PDT)
-Date: Sat, 29 Apr 2023 11:24:49 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 Apr 2023 11:24:22 PDT (-0700)
-Subject: Re: [PATCH 08/19] riscv: Add explicit include for cpu.h
-In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-8-581e2605fe47@kernel.org>
-CC: davem@davemloft.net, robh+dt@kernel.org, frowand.list@gmail.com,
-  linux@armlinux.org.uk, wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Greg KH <gregkh@linuxfoundation.org>, rafael@kernel.org,
-  daniel.lezcano@linaro.org, tglx@linutronix.de, amit.kachhap@gmail.com, viresh.kumar@linaro.org,
-  lukasz.luba@arm.com, amitk@kernel.org, rui.zhang@intel.com, matthias.bgg@gmail.com,
-  angelogioacchino.delregno@collabora.com, mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
-  thierry.reding@gmail.com, jonathanh@nvidia.com, tiny.windzz@gmail.com, lpieralisi@kernel.org,
-  sudeep.holla@arm.com, agross@kernel.org, andersson@kernel.org, konrad.dybcio@linaro.org,
-  anup@brainfault.org, chenhuacai@kernel.org, jiaxun.yang@flygoat.com, Marc Zyngier <maz@kernel.org>,
-  vireshk@kernel.org, nm@ti.com, sboyd@kernel.org, sparclinux@vger.kernel.org,
-  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
-  linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org,
-  linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
+        Sat, 29 Apr 2023 11:58:04 -0700 (PDT)
+Date: Sat, 29 Apr 2023 11:58:04 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 Apr 2023 11:57:50 PDT (-0700)
+Subject: Re: [PATCH v7 0/2] StarFive's SYSCON support
+In-Reply-To: <20230406103308.1280860-1-william.qiu@starfivetech.com>
+CC: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  Conor Dooley <conor@kernel.org>, kernel@esmil.dk, william.qiu@starfivetech.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: robh@kernel.org
-Message-ID: <mhng-3fdcd7ba-9d00-4521-a55f-367cf53f5f12@palmer-ri-x1c9a>
+To: william.qiu@starfivetech.com
+Message-ID: <mhng-698f09f5-3840-4456-87c2-5c04742b42f4@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_112452_365082_31FEAFF7 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20230429_115806_494396_E0A45FAE 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +92,66 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Mar 2023 08:52:05 PDT (-0700), robh@kernel.org wrote:
-> Removing the include of cpu.h from of_device.h (included by
-> of_platform.h) causes an error in setup.c:
+On Thu, 06 Apr 2023 03:33:06 PDT (-0700), william.qiu@starfivetech.com wrote:
+> Hi,
 >
-> arch/riscv/kernel/setup.c:313:22: error: arithmetic on a pointer to an incomplete type 'typeof(struct cpu)' (aka 'struct cpu')
+> This patchset adds initial rudimentary support for the StarFive
+> designware mobile storage host controller driver. And this driver will
+> be used in StarFive's VisionFive 2 board. The main purpose of adding
+> this driver is to accommodate the ultra-high speed mode of eMMC.
 >
-> The of_platform.h header is not necessary either, so it can be dropped.
+> The last patch should be applied after the patchset [1]:
+> [1] https://lore.kernel.org/all/20230401111934.130844-1-hal.feng@starfivetech.com/
 >
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
-> Please ack and I will take the series via the DT tree.
-> ---
->  arch/riscv/kernel/setup.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Changes v5->v6:
+> - Rebased to 6.3-rc3.
+> - Modified compatible's property.
+> - Added clock-controller and power-controller node.
 >
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 376d2827e736..dcfa4b6fa4b1 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -8,6 +8,7 @@
->   *  Nick Kossifidis <mick@ics.forth.gr>
->   */
+> Changes v5->v6:
+> - Rebased to 6.3-rc1.
+> - Changed file name to starfive,jh7110.yaml.
+> - Modified commit description.
+> - Added syscon node dts patch to other dependent modules.
 >
-> +#include <linux/cpu.h>
->  #include <linux/init.h>
->  #include <linux/mm.h>
->  #include <linux/memblock.h>
-> @@ -15,7 +16,6 @@
->  #include <linux/console.h>
->  #include <linux/screen_info.h>
->  #include <linux/of_fdt.h>
-> -#include <linux/of_platform.h>
->  #include <linux/sched/task.h>
->  #include <linux/smp.h>
->  #include <linux/efi.h>
+> Changes v4->v5:
+> - Added a incremental updates to fix a bug that prev_err is uninitialized.
+> - Dropped the merged patches.
+> - Dropped the dts patch.
+> - Sorted compatible alphabetically in yaml.
+>
+> Changes v3->v4:
+> - Added documentation to describe StarFive System Controller Registers.
+> - Added aon_syscon and stg_syscon node.
+> - Fixed some checkpatch errors/warnings.
+>
+> Changes v2->v3:
+> - Wraped commit message according to Linux coding style.
+> - Rephrased the description of the patches.
+> - Changed the description of syscon regsiter.
+> - Dropped redundant properties.
+>
+> Changes v1->v2:
+> - Renamed the dt-binding 'starfive,jh7110-sdio.yaml' to 'starfive,jh7110-mmc.yaml'.
+> - Changed the type of 'starfive,syscon' and modify its description.
+> - Deleted unused head files like '#include <linux/gpio.h>'.
+> - Added comment for the 'rise_point' and 'fall_point'.
+> - Changed the API 'num_caps' to 'common_caps'.
+> - Changed the node name 'sys_syscon' to 'syscon'.
+> - Changed the node name 'sdio' to 'mmc'.
+>
+> The patch series is based on v6.3.
+>
+> William Qiu (2):
+>   dt-bindings: soc: starfive: Add StarFive syscon doc
+>   riscv: dts: starfive: jh7110: Add syscon nodes
+>
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 56 +++++++++++++++++++
+>  MAINTAINERS                                   |  5 ++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 15 +++++
+>  3 files changed, 76 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
