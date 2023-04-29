@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E19C7EE23
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 20:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564CBC7EE23
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 20:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=vFM2ANVA5l71rgxJ4uDhQ5WmcB7S0MSzoxA/i/Q5I+U=; b=nRztqhIqRrBGYbpSjtFRyDId8i
-	TGR+5hraxHqnmeRa0E3WKNXQSaq7mZlYwX5vhQNOO5NQJ1cL8cqONzrOSYNIw55cgd4POJE0Y3eC6
-	R7eeNxyh7GElw+CNnx58wE7eUKdjOjPY3/b5sROD06LHQ5IK8VUvPxX3smheawzjnfahTr/rVGnbD
-	uPouWruv2FNB+P4Vb1x6Uu1Q3lBVhixZqody1iohHzIGMMno/KIUskDK/oRA0y86CyDZDr16pNTEv
-	aY1m0MOdUTXQBNJFTWwWNg70tqMbVZs5Vz0NNppQmhE2xRzH6BONxOInKaK8YuLiTJ4olKlIX7uhP
-	K+1xehXA==;
+	bh=R1htZcWtNDk2ZKxP9+h/oX8fxyIoY2NKiRktViypoIQ=; b=NZ8czgJOnQbFDl2AGOMXxA9nCD
+	68R4Lo6uyNvF96nQ1etTeVzErnugbJGtc/hDN9YyA5Xvzv5ScDIPPeQ4GU0lunZ7r9EsrbwQtH3UJ
+	0A3xnRJUgyF9Tbp3hDLgTyRkuxHGvM/+Z5h9BOW0DjfmDtnu4QpIuDWeOnDCWVevGcrJTylHpwXaN
+	iDhWabb63rbrdTar8+/I0JyUd+RxIGJodvoVM9UlcZZDKBAeS5NdU0N3WF/yp/4Mn7qYzmF+jDJmC
+	dgeQIFZ4BmxE41p9ghYKofmQRn909xz56CTPiIcXqAoF0DM/MLRRE2q1xdGPWW7cVhJVxjdAIrcI/
+	oypJBUDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psqr2-00D5V2-2C;
-	Sat, 29 Apr 2023 20:07:36 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1psqxh-00D5uB-0D;
+	Sat, 29 Apr 2023 20:14:29 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psqqw-00D5SY-1e
+	id 1psqxe-00D5t2-0p
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 20:07:32 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-63b620188aeso1475958b3a.0
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 13:07:27 -0700 (PDT)
+	Sat, 29 Apr 2023 20:14:28 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1a50cb65c92so9008185ad.0
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 13:14:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682798847; x=1685390847;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682799264; x=1685391264;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gK6tDOdJW77UWu8ehgn7i7aWpumq/WKr2MIt910Bd7s=;
-        b=WUBihcm+a1wpS7sQ0pUFu/12EftxNcYgnMPnivlxueG/BXZLvLXm1D0m9x4TpwKfYM
-         WhjlyrxIzgdGQrOSerXLVb+DmP7Im/xmFKyyqN6874MSA0SBwFBwfF7EUBn3uELfAjbH
-         QwwAIq6evQjfUTzKJdF+k927U8Z04HG1gaodLLi10V7IR0kBJ3Tj3n+K/4hqysqMX8Qf
-         7FXWKtVSdNGRAyd3va/O/CHUiDQ1qbTsw30YAMjfrS6Ov1GmYbupDIMvEVN2Mm1JwCc9
-         4t1ZDnDjJVF4MUyJ/DIXUhzqvCfUnLmtrZT35u0xP0Xt0ZXfQh+wC5KSuvdDBa5lD0P4
-         /4eQ==
+        bh=EvNXrGU7f9AyBgQxPAxIH8w5LQ2sGDY5VhYCeQmIsvg=;
+        b=ztXNyujPGJ3TImj9rkWYO2n2FifWKitTQShNykqcCXMnlMDmDVUdGDZxkkAjoc2LxT
+         wjlkNuWu5MpGZ0hx2IY/BfGicm00cVl+x8sMPYhvJYOTMhGVFNRcq+t2+IhK1Zbg1HBm
+         TwPyb5IfXHXgdYm4kQQJO8mCutMWnoA0MAQG1HObQV2DkWdvKA82EPwFFy15NEoVvzDJ
+         YaFLlQv2/hnRBo+Kg2l+LFcBMREq5GVfs5levwZlW+i9w9qFVpvKUrXtIKJRJqUd1KUC
+         DRDHp5Z7Fs9kgbXLfeVSACxaLJ8vDKqbLXNf+pwsIg4BCZFLNo8FmqNy+hScbEds+O2l
+         SL9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682798847; x=1685390847;
+        d=1e100.net; s=20221208; t=1682799264; x=1685391264;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gK6tDOdJW77UWu8ehgn7i7aWpumq/WKr2MIt910Bd7s=;
-        b=OB2PnGi0dlpAbMKGtLa7Le7yRkc1rheCh9V/7kv1hoxyC77ZlNX9Ldvk9F88ZpScLd
-         zzGDGu/zEoHVB1Y8Iszx3XbovtkMZM8t6bIupQLPqMJppYPYJYcEMwJYJgQp9VJKwi5N
-         eqWe9qo1IG37J7XLC34r+B5j1FC3S4tFJAuFYxrQv09TwtlSsHBpejrL86AvBIGz30wj
-         tEd3rzsJGtog/VX5KpTcvOADhHqQD7GYpZWrowNHqwEQQXh0EmYOdKHiFrJkTq5BnUSt
-         Si9l30Vgwvj9mKOBsMlSlH0/sWLaoW8Ur+E1jD8embt1nkVpa4N3QTn3IUGoV7q+n1M9
-         X6bg==
-X-Gm-Message-State: AC+VfDx3Wwo8TMwjNIzacinG27JhGVj7ZtupvrygRfqQC7+fjYQ3xTLx
-	ZuLcpjv5ZB8mT+HnzrFX78V0eg==
-X-Google-Smtp-Source: ACHHUZ7o+RBEAbiPHAxuoL8dXfckLdszx41+o6T6toUCBCwkx5RKwC0roj436Q6sHQusz673YDwRsg==
-X-Received: by 2002:a17:902:cece:b0:1aa:e451:e22 with SMTP id d14-20020a170902cece00b001aae4510e22mr1548160plg.40.1682798846720;
-        Sat, 29 Apr 2023 13:07:26 -0700 (PDT)
+        bh=EvNXrGU7f9AyBgQxPAxIH8w5LQ2sGDY5VhYCeQmIsvg=;
+        b=d9bh0DkU40jne7x+khr4iwoHjseXWUkS83DJ2MGtJU0H21aIh8x8iyk9c0MYIFl0oU
+         pQgC42vlYikibiZ7cUG29cYL+ZmIEA4pB4qqdHHG4CMRu1+KxDtd+bly/xrloSfJy60N
+         e4FrarIuDL7aee/81EqO5dP+A7g/NJX21LAl9mNgCaUJLWiYC2adTym2ynRSyz4HU49H
+         E6EiPzc+wTGsX3YMz0rCBDyVHrnx2WOnVxAAGNzJIc8v6wof+2RrGi0FA5ED/J4K+g6h
+         pPD0zXRO62HvgI6fpHABk0nbF5E8SOJX6HTsccMewvOTjJ0pfeTIB8s3v7iuCRHwlVpL
+         1GSA==
+X-Gm-Message-State: AC+VfDz/OsXfXyjh2dSuagkR/OWHZ4HC0Ij91hfMHstvgVUHyPu2LeHf
+	bbzRZ4OIk7WG+fRYS35ByBFA9A==
+X-Google-Smtp-Source: ACHHUZ7pgoIToYashe1bFzQ1hUq7/0xuSIbhdV55MwhX+AUZI7FSn+oK96sUBgsJukxkcTmiriVdYg==
+X-Received: by 2002:a17:902:ef45:b0:1a6:dd9a:62c5 with SMTP id e5-20020a170902ef4500b001a6dd9a62c5mr8875345plx.10.1682799264493;
+        Sat, 29 Apr 2023 13:14:24 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id h11-20020a170902748b00b001a641e4738asm15212684pll.1.2023.04.29.13.07.26
+        by smtp.gmail.com with ESMTPSA id g2-20020a170902740200b001a4f7325466sm15179442pll.276.2023.04.29.13.14.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Apr 2023 13:07:26 -0700 (PDT)
-Date: Sat, 29 Apr 2023 13:07:26 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 Apr 2023 13:06:11 PDT (-0700)
-Subject: Re: [PATCH 2/3] RISC-V: Track ISA extensions per hart
-In-Reply-To: <20230428190609.3239486-3-evan@rivosinc.com>
-CC: Evan Green <evan@rivosinc.com>, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
-  Conor Dooley <conor.dooley@microchip.com>, heiko.stuebner@vrull.eu, jszhang@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Evan Green <evan@rivosinc.com>
-Message-ID: <mhng-a49186a7-69f7-4f8a-ba14-62277c0f7f59@palmer-ri-x1c9a>
+        Sat, 29 Apr 2023 13:14:23 -0700 (PDT)
+Date: Sat, 29 Apr 2023 13:14:23 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 Apr 2023 13:14:07 PDT (-0700)
+Subject: Re: [PATCH] Remove HAVE_VIRT_CPU_ACCOUNTING_GEN option
+In-Reply-To: <20230429063348.125544-1-npiggin@gmail.com>
+CC: Arnd Bergmann <arnd@arndb.de>, npiggin@gmail.com, linux-arch@vger.kernel.org,
+  linux-kernel@vger.kernel.org, vgupta@kernel.org, linux-snps-arc@lists.infradead.org, bcain@quicinc.com,
+  linux-hexagon@vger.kernel.org, chenhuacai@kernel.org, loongarch@lists.linux.dev, geert@linux-m68k.org,
+  linux-m68k@lists.linux-m68k.org, monstr@monstr.eu, tsbogend@alpha.franken.de, linux-mips@vger.kernel.org,
+  dinguyen@kernel.org, jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
+  linux-openrisc@vger.kernel.org, James.Bottomley@HansenPartnership.com, deller@gmx.de,
+  linux-parisc@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de,
+  linux-sh@vger.kernel.org, davem@davemloft.net, sparclinux@vger.kernel.org, richard@nod.at,
+  anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, linux-um@lists.infradead.org, tglx@linutronix.de,
+  mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+  khilman@baylibre.com, frederic@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: npiggin@gmail.com
+Message-ID: <mhng-7ec0443b-2201-41b7-996c-78c3a61f0230@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_130730_546842_DFCC5F22 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20230429_131426_294681_A82BCACB 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,134 +101,96 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Apr 2023 12:06:07 PDT (-0700), Evan Green wrote:
-> The kernel maintains a mask of ISA extensions ANDed together across all
-> harts. Let's also keep a bitmap of ISA extensions for each CPU. Although
-> the kernel is currently unlikely to enable a feature that exists only on
-> some CPUs, we want the ability to report asymmetric CPU extensions
-> accurately to usermode.
+On Fri, 28 Apr 2023 23:33:48 PDT (-0700), npiggin@gmail.com wrote:
+> This option was created in commit 554b0004d0ec4 ("vtime: Add
+> HAVE_VIRT_CPU_ACCOUNTING_GEN Kconfig") for architectures to indicate
+> they support the 64-bit cputime_t required for VIRT_CPU_ACCOUNTING_GEN.
 >
-> Note that riscv_fill_hwcaps() runs before the per_cpu_offsets are built,
-> which is why I've used a [NR_CPUS] array rather than per_cpu() data.
+> The cputime_t type has since been removed, so this doesn't have any
+> meaning. Remove it.
 >
-> Signed-off-by: Evan Green <evan@rivosinc.com>
+> Cc: linux-arch@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Vineet Gupta <vgupta@kernel.org>
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: Brian Cain <bcain@quicinc.com>
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: Huacai Chen <chenhuacai@kernel.org>
+> Cc: loongarch@lists.linux.dev
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: Michal Simek <monstr@monstr.eu>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: linux-mips@vger.kernel.org
+> Cc: Dinh Nguyen <dinguyen@kernel.org>
+> Cc: Jonas Bonn <jonas@southpole.se>
+> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> Cc: Stafford Horne <shorne@gmail.com>
+> Cc: linux-openrisc@vger.kernel.org
+> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: linux-parisc@vger.kernel.org
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> Cc: linux-sh@vger.kernel.org
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: sparclinux@vger.kernel.org
+> Cc: Richard Weinberger <richard@nod.at>
+> Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+> Cc: Johannes Berg <johannes@sipsolutions.net>
+> Cc: linux-um@lists.infradead.org
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: x86@kernel.org
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Kevin Hilman <khilman@baylibre.com>
+> Cc: Frederic Weisbecker <frederic@kernel.org>
+> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
 > ---
+> Hi,
 >
->  arch/riscv/include/asm/cpufeature.h | 10 ++++++++++
->  arch/riscv/kernel/cpufeature.c      | 18 ++++++++++++------
->  2 files changed, 22 insertions(+), 6 deletions(-)
+> Could we tidy this? I don't know what tree it can go in, timers,
+> sched, asm-generic, probably doesn't matter.
 >
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> index 808d5403f2ac..23fed53b8815 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -6,6 +6,9 @@
->  #ifndef _ASM_CPUFEATURE_H
->  #define _ASM_CPUFEATURE_H
+> The only thing this actually does is gate VIRT_CPU_ACCOUNTING_GEN and
+> NO_HZ_FULL so if your arch has some other issue that requires this
+> then the documentation needs to change. Any concerns from the archs?
+> I.e., 32-bit that does *not* define HAVE_VIRT_CPU_ACCOUNTING_GEN
+> which looks to be:
 >
-> +#include <linux/bitmap.h>
-> +#include <asm/hwcap.h>
-> +
->  /*
->   * These are probed via a device_initcall(), via either the SBI or directly
->   * from the corresponding CSRs.
-> @@ -16,8 +19,15 @@ struct riscv_cpuinfo {
->  	unsigned long mimpid;
->  };
->
-> +struct riscv_isainfo {
-> +	DECLARE_BITMAP(isa, RISCV_ISA_EXT_MAX);
-> +};
-> +
->  DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
->
->  DECLARE_PER_CPU(long, misaligned_access_speed);
->
-> +/* Per-cpu ISA extensions. */
-> +extern struct riscv_isainfo hart_isa[NR_CPUS];
-> +
->  #endif
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 1a80474e308e..0e9d66580478 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -14,6 +14,7 @@
->  #include <linux/of.h>
->  #include <asm/alternative.h>
->  #include <asm/cacheflush.h>
-> +#include <asm/cpufeature.h>
->  #include <asm/hwcap.h>
->  #include <asm/patch.h>
->  #include <asm/processor.h>
-> @@ -25,6 +26,9 @@ unsigned long elf_hwcap __read_mostly;
->  /* Host ISA bitmap */
->  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->
-> +/* Per-cpu ISA extensions. */
-> +struct riscv_isainfo hart_isa[NR_CPUS];
-> +
->  /* Performance information */
->  DEFINE_PER_CPU(long, misaligned_access_speed);
->
-> @@ -112,14 +116,17 @@ void __init riscv_fill_hwcap(void)
->  	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
->
->  	for_each_of_cpu_node(node) {
-> +		struct riscv_isainfo *isainfo;
->  		unsigned long this_hwcap = 0;
-> -		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
->  		const char *temp;
-> +		unsigned int cpu_id;
->
->  		rc = riscv_of_processor_hartid(node, &hartid);
->  		if (rc < 0)
->  			continue;
->
-> +		cpu_id = riscv_hartid_to_cpuid(hartid);
-> +		isainfo = &hart_isa[cpu_id];
->  		if (of_property_read_string(node, "riscv,isa", &isa)) {
->  			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->  			continue;
-> @@ -136,7 +143,6 @@ void __init riscv_fill_hwcap(void)
->  		/* The riscv,isa DT property must start with rv64 or rv32 */
->  		if (temp == isa)
->  			continue;
-> -		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
->  		for (; *isa; ++isa) {
->  			const char *ext = isa++;
->  			const char *ext_end = isa;
-> @@ -214,7 +220,7 @@ void __init riscv_fill_hwcap(void)
->  				if ((ext_end - ext == sizeof(name) - 1) &&	\
->  				     !memcmp(ext, name, sizeof(name) - 1) &&	\
->  				     riscv_isa_extension_check(bit))		\
-> -					set_bit(bit, this_isa);			\
-> +					set_bit(bit, isainfo->isa);		\
->  			} while (false)						\
->
->  			if (unlikely(ext_err))
-> @@ -224,7 +230,7 @@ void __init riscv_fill_hwcap(void)
->
->  				if (riscv_isa_extension_check(nr)) {
->  					this_hwcap |= isa2hwcap[nr];
-> -					set_bit(nr, this_isa);
-> +					set_bit(nr, isainfo->isa);
->  				}
->  			} else {
->  				/* sorted alphabetically */
-> @@ -253,9 +259,9 @@ void __init riscv_fill_hwcap(void)
->  			elf_hwcap = this_hwcap;
->
->  		if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
-> -			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
-> +			bitmap_copy(riscv_isa, isainfo->isa, RISCV_ISA_EXT_MAX);
->  		else
-> -			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
-> +			bitmap_and(riscv_isa, riscv_isa, isainfo->isa, RISCV_ISA_EXT_MAX);
->  	}
->
->  	/* We don't support systems with F but without D, so mask those out
+> arc
+> hexagon
+> loongarch 32-bit with SMP
+> m68k
+> microblaze
+> mips 32-bit with SMP
+> nios2
+> openrisc
+> parisc 32-bit
+> riscv 32-bit
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Nothing's jumping out, though I haven't tested this yet so I'm not 100%.  
+I assume this isn't aimed for this merge window, given the timing?  
+Probably best to give this sort of thing time to bake in linux-next, but 
+I doubt anyone is even paying attention to rv32/NO_HZ_FULL so no big 
+deal either way on my end.
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
+
+> sh
+> sparc 32-bit
+> um 32-bit
+> x86 32-bit
+>
+> Thanks,
+> Nick
 
 _______________________________________________
 linux-riscv mailing list
