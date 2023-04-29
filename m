@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C396FC77B60
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 22:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D05CCC77B7C
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 22:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=bDw8gcEPzI6dsRbXZdq7z2Y7DH3G8kr/ZjafMgx2iJ0=; b=Z1fPJ+lBIfNbWRD9K5+50y63/K
-	4c2wBSGn384VdKL1rIZm3GuQorAHs9E7+fUd4ceDyFZdJFSMfgHXxZOXEGA5+Hr7hrJ3ePUhfS490
-	Cz7oXxNJbgq7b8FsuYTrMNUxm/CJ4uieux1GoCRu4MOTCNSFa0+EkgAT2d3R3RPgptDUzohYaKdNu
-	KxtoYk5XMJK99slnJFzZDtDBVQx6YszP6wIPlEhNl1AA5JikE5njVoQeND9E4S4mX9AX1Cl4U9t7E
-	zOyPJRFWi1a/m+dSYWFoMhbLln1FPPRgIicauZcgKqiYpIQ2V+zIMgd9Bf3MhbsBEB8B2iPg9+AC5
-	de0qyqBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aZg8/ylwruQULQqe0yauLuE9D2A22q6y9tPhgytoMbk=; b=c83SVG8KxSSuyy
+	pJYyhxqV7NnzAMTTfs/C5Kx3bN6+9BGbXtpFVCd+DwOXvqPChlmKo8ybodV03WeblH9EbcG2LieVG
+	+Qo7Ess4SI5S/ZeoEopCSAP0dzpitPAn/EpQbwbUBcG4gDMCdn3d+LTND2esKkKuJdbXBtRNS7olJ
+	i/ZeRQJEaSaufhGZ611OAw5Ma0XK4qhJes3EMxuoo/tK/rsEdgLzuRf9S5hkxkLw54FehQOF6VFjk
+	zehIXzqkVLTR9GIUQ4lLfUWVbx/Wc0ya7bpSZCRLiU0RyB3Mb0TGUj3wxFlLvgZbe0uKzSpx3YC3B
+	qMFGmwfO2DA3dEo8iQng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pst6Z-00DGHz-1p;
-	Sat, 29 Apr 2023 22:31:47 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1pstKG-00DHdn-1J;
+	Sat, 29 Apr 2023 22:45:56 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pst6W-00DGHX-0B
+	id 1pstKD-00DHco-01
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 22:31:45 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1aad55244b7so5636835ad.2
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 15:31:42 -0700 (PDT)
+	Sat, 29 Apr 2023 22:45:55 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-517c840f181so577802a12.3
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 15:45:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682807502; x=1685399502;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VPHsDpkGlPsUeymJHmip8825ZqzKSXSliZm57TlwjvQ=;
-        b=OFkAUE/ZjnCUb9a0kpq5KQP//BxcdTW++AyWH6rq/D9WK9XtvkJ09tekM1DEkHWvry
-         OfKR/rKqvlIk1pIhGjRSmZypireApgMBf+lcB4VG7Ir3RvnIbmBSc7te7r63ZlHwqsfa
-         OUhLcxwKvCTxp7lix4KVWv9WccxiPRIjt1Ml/tEC3pyMpdTPdYAmeaCpbTvR+e1omwdw
-         MpJGE2mT+meXC911Neu67LeG0kvqL3XvmtLmkt1fHdBIsX+B9SpcaVYj/GVDvqnACe8e
-         KBOhnJyGkYbREmrVsPug31iPFvHJmpXwXzSYmVhh9fg6nv2YPPBB5qU8TOBqqNDxxjII
-         +Jeg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682808350; x=1685400350;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=eGCdcEw4y5HNnkhElsF0KTMoRMbJurRvg+ykIaF0fnM=;
+        b=z5L4bEHAGNgH118ITQtSKmlKGvPaxpoArwxZzsTi+6vozFKhBltOSkrtKNavulM3s4
+         FFwp7u/TiLcPp+8NPx1JKuey3EeNh2sB8iRu973EDEirpGzTWoF7eotxboovKQ2IuPhh
+         26/s4mmZX6xCahlQ/9oJbD9apM5Tq2foOw1MWkWeqtPoY9yZexXpQgJ3YlXL9pJXrAWp
+         ZeVJUuMI+ArGIVLT1Y8E68UEqX5Dz3WyUkW+HqMCleHqwwnKx6fpP1FMybGiDeTmebk3
+         qhmOGfg7KsROEThc/axQT+67ZrULBVTtLVvvep8LBNlzHBwcW4hPl0YS1S7W2Q97skB3
+         FgYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682807502; x=1685399502;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VPHsDpkGlPsUeymJHmip8825ZqzKSXSliZm57TlwjvQ=;
-        b=AfB1nyQfHfQNr1Hjv5t9fBpA0EopQtF3UfOuAy26T35fFP/2/SirM7c+LKsWq0CkBC
-         +DzcUCOYQ3cMzo1g4H+wDrTsW1maIF9lJx5bFe5dQEQtmE6dkpXeGmFo73ZJSQQrPm3w
-         u9NUQxm6zKsAZC/He9GmS+x/oAfSSaOAY7QJFX1HdMqnc7g5PkezdRUEpinSBgqCZs5I
-         pWZ5MoK1POMMNSd0mFT05NjZ4upluItuihR89adSQTbECb/89JuDiTKLZU06qcPkFuL0
-         I6hJXkHF9pCsQ22EeL6cE46KQmu2qIwULqrWB3imBjnvlwHt3SpxKZSpTs53Zi9R2+Wv
-         oBoA==
-X-Gm-Message-State: AC+VfDxK266xJG/bmxzARIp463io4IrBnlBBykQzGAM0T35HohZ9HUba
-	5xORI/7KH7SuumkGl3PKtr74pciwP9edLtJ3n+ncuw==
-X-Google-Smtp-Source: ACHHUZ6hqMeAHWypNk2/udmWcpEssqk/qIzLMjqRGYwvz2Y10ylroswUy4NiR+4Bcbs59WH1sk8GPg==
-X-Received: by 2002:a17:903:2312:b0:1a6:82a7:6e60 with SMTP id d18-20020a170903231200b001a682a76e60mr11048331plh.47.1682807502286;
-        Sat, 29 Apr 2023 15:31:42 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1682808350; x=1685400350;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eGCdcEw4y5HNnkhElsF0KTMoRMbJurRvg+ykIaF0fnM=;
+        b=dPaCcljQ+K8dItSD3fm7pIY4Idb1w19YJYmhfbaV82HuG1Ybj0SL25/zwzuDmzESVQ
+         QE21llWGV9Yn7VeZsSaf+IHac1MVs7aAULZEVi15PfnDDEXm1PSRk13c0QXaejzEEy6g
+         0Aad55wbpwrEX+5A2s8Y2X7a3Q4p1NIrVNsBYgx1mUqjf2F5HxI+JEl+irE+SvA0Ho9o
+         YqhnQ99YfiD3QxTQaNqPK4NJjdKY952fYP/93JzwTOwRExWCdcwRhK7BuGhMOF4L4MWd
+         r6RjSVLNJwCzcv2y3t+XV6ytnV6X569r66q/7Qh6XcGFwnayVFqxSvMPDzG6fesnr5TT
+         IAUw==
+X-Gm-Message-State: AC+VfDwj174wFgZVPn/5FsuBe3sRgLueUA++GA3tW01dUTYDaSZoiYi1
+	/tTBsAYU+KeMeoybtxIohNcDUw==
+X-Google-Smtp-Source: ACHHUZ60tTYPb8KYCToDDbrlNHJSlUBu3Y7sAxneHBQsOxvIRhiOi13UkEb+U0wzsaE9np4L9rZPcQ==
+X-Received: by 2002:a17:902:f649:b0:1a6:67e1:4d2c with SMTP id m9-20020a170902f64900b001a667e14d2cmr9185757plg.6.1682808350025;
+        Sat, 29 Apr 2023 15:45:50 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id bg12-20020a1709028e8c00b001a9567dc731sm12644148plb.24.2023.04.29.15.31.41
+        by smtp.gmail.com with ESMTPSA id q11-20020a170902788b00b001a943c41c37sm13899975pll.7.2023.04.29.15.45.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Apr 2023 15:31:41 -0700 (PDT)
-Date: Sat, 29 Apr 2023 15:31:41 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 Apr 2023 15:31:25 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: fixup in-flight collision with ARCH_WANT_OPTIMIZE_VMEMMAP rename
-In-Reply-To: <5fe1484b4f2b4ae960a9b599c4ab3ace@linux.dev>
-CC: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
-  Linus Torvalds <torvalds@linux-foundation.org>, akpm@linux-foundation.org, aneesh.kumar@linux.ibm.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, lukas.bulwahn@gmail.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: konstantin.ryabitsev@linux.dev
-Message-ID: <mhng-539ec982-8235-478e-b695-ee6253b5308c@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Sat, 29 Apr 2023 15:45:49 -0700 (PDT)
+Subject: [PATCH linux-5.15.y] RISC-V: Fix up a cherry-pick warning in setup_vm_final()
+Date: Sat, 29 Apr 2023 15:43:31 -0700
+Message-Id: <20230429224330.18699-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.0
+MIME-Version: 1.0
+Cc: stable@vger.kernel.org,         linux-riscv@lists.infradead.org,
+  Palmer Dabbelt <palmer@rivosinc.com>, kernel test robot <lkp@intel.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Greg KH <gregkh@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_153144_336277_54539B61 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20230429_154553_267995_717ADE73 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +84,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Apr 2023 14:48:18 PDT (-0700), konstantin.ryabitsev@linux.dev wrote:
->> April 29, 2023 4:17 PM, "Palmer Dabbelt" <palmer@dabbelt.com> wrote:
->>>> I guess you picking this up for your second PR makes the most sense
->>>> Palmer?
->> 
->> Yep, except it crashes b4
->> 
->> $ b4 shazam -lts https://lore.kernel.org/all/20230429-trilogy-jolly-12bf5c53d62d@spud
->> Grabbing thread from lore.kernel.org/all/20230429-trilogy-jolly-12bf5c53d62d%40spud/t.mbox.gz
->> Analyzing 2 messages in the thread
->> Checking attestation on all messages, may take a moment...
->> Traceback (most recent call last):
->> File "/home/palmer/.local/src/b4/b4/command.py", line 383, in <module>
->> cmd()
->> File "/home/palmer/.local/src/b4/b4/command.py", line 366, in cmd
->> cmdargs.func(cmdargs)
->> File "/home/palmer/.local/src/b4/b4/command.py", line 100, in cmd_shazam
->> b4.mbox.main(cmdargs)
->> File "/home/palmer/.local/src/b4/b4/mbox.py", line 713, in main
->> make_am(msgs, cmdargs, msgid)
->> File "/home/palmer/.local/src/b4/b4/mbox.py", line 101, in make_am
->> am_msgs = lser.get_am_ready(noaddtrailers=cmdargs.noaddtrailers,
->> File "/home/palmer/.local/src/b4/b4/__init__.py", line 552, in get_am_ready
->> checkmark, trailers, attcrit = lmsg.get_attestation_trailers(attpolicy, maxdays)
->> File "/home/palmer/.local/src/b4/b4/__init__.py", line 1319, in get_attestation_trailers
->> for attestor in self.attestors:
->> File "/home/palmer/.local/src/b4/b4/__init__.py", line 1158, in attestors
->> self._load_patatt_attestors()
->> File "/home/palmer/.local/src/b4/b4/__init__.py", line 1261, in _load_patatt_attestors
->> patatt_config = patatt.get_config_from_git(r'patatt\..*', multivals=['keyringsrc'])
->> AttributeError: module 'patatt' has no attribute 'get_config_from_git'
->> 
->> So I probably need to just go update my setup, I've got a bunch of wacky stuff.
->> I'll try and remember to do so, but I'm going to scrub through other bits
->> first...
->
-> Indeed, you have a newer version of b4 without also updating the 
-> patatt dependency. If you're using b4 from git, you need to "git 
-> submodule update".
+This triggers a -Wdeclaration-after-statement as the code has changed a
+bit since upstream.  It might be better to hoist the whole block up, but
+this is a smaller change so I went with it.
 
-Thanks, it's fixed.  This one's in the queue for testing, but it looks 
-generally fine.  Might be a bit slower than usual, as I'm also running 
-the glibc tests.
+arch/riscv/mm/init.c:755:16: warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+            unsigned long idx = pgd_index(__fix_to_virt(FIX_FDT));
+                          ^
+    1 warning generated.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Link: https://lore.kernel.org/oe-kbuild-all/202304300429.SXZOA5up-lkp@intel.com/
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+I haven't even build tested this one, but it looks simple enough that I figured
+I'd just send it.  Be warned, though: I broke glibc and missed a merged
+conflict yesterday...
+---
+ arch/riscv/mm/init.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index e800d7981e99..8d67f43f1865 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -717,6 +717,7 @@ static void __init setup_vm_final(void)
+ 	uintptr_t va, map_size;
+ 	phys_addr_t pa, start, end;
+ 	u64 i;
++	unsigned long idx;
+ 
+ 	/**
+ 	 * MMU is enabled at this point. But page table setup is not complete yet.
+@@ -735,7 +736,7 @@ static void __init setup_vm_final(void)
+ 	 * directly in swapper_pg_dir in addition to the pgd entry that points
+ 	 * to fixmap_pte.
+ 	 */
+-	unsigned long idx = pgd_index(__fix_to_virt(FIX_FDT));
++	idx = pgd_index(__fix_to_virt(FIX_FDT));
+ 
+ 	set_pgd(&swapper_pg_dir[idx], early_pg_dir[idx]);
+ #endif
+-- 
+2.40.0
+
 
 _______________________________________________
 linux-riscv mailing list
