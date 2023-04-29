@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBA5C77B7E
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 09:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD1AC77B7C
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 10:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzxVQpxo2BbpqalaIqriun9vOmfRv1PA75HW0PAegTk=; b=YLmi8CVafskgYgaWzKpIBfO865
-	+zU0FmZw6pAZv177lDufB7uU4qVA5LR0LTQ7ZxD9pPiEZQl8/JA/9rP/6p+A+sjEac5kCVXt7VU2v
-	h3Vq2TWAbdrw52d3u09wUSaswAuOswiYdMPd7T756tGqT8/r3gpXWgFEMNJKdf6Pj0lNtAJQ3cB1Z
-	/w2sXBNCjvT3gcw0+dR3ayvTZ5neYQCrJxQcpOXZ71UlihqoxbVurM/r22Bzbf2GXNsSGy+5AP7Dn
-	CIK/h68mXsK7NmVHeSSrooRA52sPidiwunRBJWa+zMf54iS6YHBWuOiKKYc/5+DUmvnsZ41ShI823
-	TCqCwCbw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SPts/GraqS4UPByVK8+EuvxQrcCKng+N0RfSiDvrl5w=; b=GIiNgWeSoJA3/8
+	Z4fe6IwtGu4aQXayO4aa2ahmZqzOvJmBN6uS5PSYMTlZeZr7gPE1pXgnvosZxgjCZgV4s0vch/oDC
+	+4APCUMTviESU0A1cQ+W2zzd1Tr2YR/gRtuT1scAR3enH+OLiiZzM0iihASDAz29W+LXMPprmGILt
+	a8G+66cQSxkXBCJ6hQf9rIK67PPKq+akqbEOyXpcoi9Cpxr+1jSkN8XkEaHcU14SE7nNHQQSoKQbu
+	n1Ga0RzjvEP2tWHbasDnV89+sg7+LkppFwlsuNy9YjxR3+n1FMuSiXuMEcubXKEY868smNAtTEYbe
+	asHiJHj3kv1sCGwzCs6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pshEI-00CVrQ-2O;
-	Sat, 29 Apr 2023 09:50:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pshXn-00CWgM-1v;
+	Sat, 29 Apr 2023 10:11:07 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pshEF-00CVqY-35
+	id 1pshXi-00CWfH-2c
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 09:50:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 55BA560A16;
-	Sat, 29 Apr 2023 09:50:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16431C4339B;
-	Sat, 29 Apr 2023 09:50:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682761854;
-	bh=3QV0GbV5gWzKWisLdYF7p6lD5dc3jxVmLZ6ZNkHJpNg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BY48QoO1Ihbm7bGmZS3hbsdkJjRZjgWnvGrNiYl9zoCgQJwU/TvJYsY3WBAOjr10Y
-	 S4+rkPcVQPnPhR4lEk1RsuLSWlsLYefVmIZUgQm1G5eDccohUZxcSZvomZ6GZpUsbV
-	 StzOt59ZP35I8z3cFFUeAWf4eA2fA6EnD8NMWLaLA+omDqVU7QqNrpwbMmzT2sWqva
-	 /8pqwmdm807CdeCKjeBRk3POGIE2NGB/ahJQ9GhBo6F7OHODhsqaZLVS/s68fgw/5+
-	 ZMJQtnL4HGV6ercpMToq1hfwf9o9DRUE8nTvoQc/Dr/06D1RMZ+xApuQcQq/8U4/u9
-	 gBBxYwS1d9ZnA==
-Date: Sat, 29 Apr 2023 10:50:50 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH] riscv: fix sifive and thead section mismatches in errata
-Message-ID: <20230429-exclusion-specimen-f47b03c6d859@spud>
-References: <20230429043530.20503-1-rdunlap@infradead.org>
+	Sat, 29 Apr 2023 10:11:05 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f1e2555b5aso3573735e9.0
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 03:10:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1682763057; x=1685355057;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xOoH+u4sWuKfNhD+pplTW3/yRTQkkBi07WX1BaYaefA=;
+        b=I9apvM5irx4dIyh27muv1VNP0nCVp2lMMmlZijTBu18GfVN3N/BX1rNrzb9GSRzGgb
+         ZKmuhtvVT+5jcJhlBAUZ4sRqftAvgXGWaRvNutYvqaeYxnTxPu338zyvbSUJRVFjEfuY
+         vo8TkQ2eey8+aTV0Qw+Qe3mr2NRZHZGYpBGpNaRbPpVPm9f/8zuvJq1OhGVkpZ8LMlqr
+         zhrgHD9mWzusdMw/TjDAqEPHZMJdNupfzMD0mtvmtaT0ZCxuEb6HaaGR+3IR5xSFE2KE
+         gw9MbLbU5hcWzPjUOmvwl7IsQv0x/IzL5hGOPYoIgMkVWxc+KZojvo3xRPrnkexlNG8D
+         hGmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682763057; x=1685355057;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xOoH+u4sWuKfNhD+pplTW3/yRTQkkBi07WX1BaYaefA=;
+        b=cNAcuDEnKKAPoTqDbFX1Vt1aJ+4LCqppaTkj6UHCQkfidEtNSM2s2X7RqDAC+q6h1H
+         P8uJ5ZugzwlClQAgsSaC4muYhZFRjdEVHkYQrr3aLVHx7WDpFBH1YicA/2CfeiX0+XYz
+         I1blScjeK1IvP6i790IvloL1pB5JualNqIkRwZvXccLHqtE/Al/YwCNYHhZVcRUT3aEP
+         zrbYjmTtBmHTzP2BmemVZTriffVieyphvl3iCLjCbgq3K3smjjZ6T2hvwxGIl/OgDo6l
+         zt1JdTw/ULOryjqm86Lv16tBhjpVflCFCMf5/Acv+xN6QTKWxJ5roVE0rGTjBGdVSWOf
+         ushg==
+X-Gm-Message-State: AC+VfDwvTdrU6bUMCJHC+3K3ztymtwWFEXmxvcFpQnU1Rp7wDvgYCF3g
+	UDSWErSjQzqoQdmZcjG8QeyaTw==
+X-Google-Smtp-Source: ACHHUZ57q1rR25Sq064Wnj4QKZbd7qnq+78FeEgQ8yPFE/Yl0dGyzJruj4yhR0U4Do2kNzDAwn+Kbg==
+X-Received: by 2002:a7b:c391:0:b0:3f1:9391:46c with SMTP id s17-20020a7bc391000000b003f19391046cmr6047537wmj.30.1682763057046;
+        Sat, 29 Apr 2023 03:10:57 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id f25-20020a7bc8d9000000b003f0b1b8cd9bsm26856002wml.4.2023.04.29.03.10.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Apr 2023 03:10:56 -0700 (PDT)
+Date: Sat, 29 Apr 2023 12:10:55 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: Conor Dooley <conor@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Wende Tan <twd2.me@gmail.com>, Soha Jin <soha@lohu.info>, Hongren Zheng <i@zenithal.me>
+Subject: Re: [PATCH v2 1/2] riscv: allow case-insensitive ISA string parsing
+Message-ID: <yz4emsezvf47vpyrevelope5d5jcul2dsibza3jb6yeqr3r6jg@rmrt5wv2mnbn>
+References: <20230428141601.678489-1-cyy@cyyself.name>
+ <tencent_BC90DDC6093E3E41246D3EC73F5CAB189007@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <20230429043530.20503-1-rdunlap@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <tencent_BC90DDC6093E3E41246D3EC73F5CAB189007@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_025056_068348_28FEE2D8 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20230429_031102_854131_1AFE98F6 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,122 +90,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5531984479187153477=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5531984479187153477==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="IcQ4eY/AV7BFjoO1"
-Content-Disposition: inline
-
-
---IcQ4eY/AV7BFjoO1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Apr 28, 2023 at 09:35:30PM -0700, Randy Dunlap wrote:
-> When CONFIG_MODULES is set, __init_or_module becomes <empty>, but when
-> CONFIG_MODULES is not set, __init_or_module becomes __init.
-> In the latter case, it causes section mismatch warnings:
->=20
-> WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_fill_cp=
-u_mfr_info (section: .text) -> sifive_errata_patch_func (section: .init.tex=
-t)
-> WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_fill_cp=
-u_mfr_info (section: .text) -> thead_errata_patch_func (section: .init.text)
->=20
-> It appears that CONFIG_MODULES not set is not tested very much.
-
-I dunno if it the testing is *that* rare, because I'm not sure that the
-fixes tags below are correct. I think that it is actually:
-Fixes: bb3f89487fd9 ("RISC-V: hwprobe: Remove __init on probe_vendor_featur=
-es()")
-That was only applied on 20/04.
-
-Cheers,
-Conor.
-
-> Fixes: a8e910168bba ("riscv: implement module alternatives")
-> Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> Cc: Heiko Stuebner <heiko@sntech.de>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
+On Fri, Apr 28, 2023 at 10:16:00PM +0800, Yangyu Chen wrote:
+> According to RISC-V Hart Capabilities Table (RHCT) description in UEFI
+> Forum ECR, the format of the ISA string is defined in the RISC-V
+> unprivileged specification which is case-insensitive. However, the
+> current ISA string parser in the kernel does not support ISA strings
+> with uppercase letters.
+> 
+> This patch modifies the ISA string parser in the kernel to support
+> case-insensitive ISA string parsing.
+> 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 > ---
->  arch/riscv/errata/sifive/errata.c |    8 +++-----
->  arch/riscv/errata/thead/errata.c  |    6 +++---
->  2 files changed, 6 insertions(+), 8 deletions(-)
->=20
-> diff -- a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/er=
-rata.c
-> --- a/arch/riscv/errata/sifive/errata.c
-> +++ b/arch/riscv/errata/sifive/errata.c
-> @@ -82,11 +82,9 @@ static void __init_or_module warn_miss_e
->  	pr_warn("--------------------------------------------------------------=
---\n");
->  }
-> =20
-> -void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
-> -					       struct alt_entry *end,
-> -					       unsigned long archid,
-> -					       unsigned long impid,
-> -					       unsigned int stage)
-> +void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry =
-*end,
-> +			      unsigned long archid, unsigned long impid,
-> +			      unsigned int stage)
->  {
->  	struct alt_entry *alt;
->  	u32 cpu_req_errata;
-> diff -- a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/erra=
-ta.c
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -83,9 +83,9 @@ static u32 thead_errata_probe(unsigned i
->  	return cpu_req_errata;
->  }
-> =20
-> -void __init_or_module thead_errata_patch_func(struct alt_entry *begin, s=
-truct alt_entry *end,
-> -					      unsigned long archid, unsigned long impid,
-> -					      unsigned int stage)
-> +void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *=
-end,
-> +			     unsigned long archid, unsigned long impid,
-> +			     unsigned int stage)
->  {
->  	struct alt_entry *alt;
->  	u32 cpu_req_errata =3D thead_errata_probe(stage, archid, impid);
+>  arch/riscv/kernel/cpu.c        |  3 ++-
+>  arch/riscv/kernel/cpufeature.c | 25 ++++++++++++-------------
+>  2 files changed, 14 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 8400f0cc9704..52b92a267121 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -4,6 +4,7 @@
+>   */
+>  
+>  #include <linux/cpu.h>
+> +#include <linux/ctype.h>
+>  #include <linux/init.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/of.h>
+> @@ -41,7 +42,7 @@ int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
+>  		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
+>  		return -ENODEV;
+>  	}
+> -	if (isa[0] != 'r' || isa[1] != 'v') {
+> +	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
+>  		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
+>  		return -ENODEV;
+>  	}
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 59d58ee0f68d..d1991c12e546 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -119,13 +119,10 @@ void __init riscv_fill_hwcap(void)
+>  		}
+>  
+>  		temp = isa;
+> -#if IS_ENABLED(CONFIG_32BIT)
+> -		if (!strncmp(isa, "rv32", 4))
+> +		if (IS_ENABLED(CONFIG_32BIT) && !strncasecmp(isa, "rv32", 4))
+>  			isa += 4;
+> -#elif IS_ENABLED(CONFIG_64BIT)
+> -		if (!strncmp(isa, "rv64", 4))
+> +		else if (IS_ENABLED(CONFIG_64BIT) && !strncasecmp(isa, "rv64", 4))
+>  			isa += 4;
+> -#endif
+>  		/* The riscv,isa DT property must start with rv64 or rv32 */
+>  		if (temp == isa)
+>  			continue;
+> @@ -136,6 +133,7 @@ void __init riscv_fill_hwcap(void)
+>  			bool ext_long = false, ext_err = false;
+>  
+>  			switch (*ext) {
+> +			case 'S':
+>  			case 's':
+>  				/**
+>  				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
+> @@ -143,19 +141,20 @@ void __init riscv_fill_hwcap(void)
+>  				 * not valid ISA extensions. It works until multi-letter
+>  				 * extension starting with "Su" appears.
+>  				 */
+> -				if (ext[-1] != '_' && ext[1] == 'u') {
+> +				if (ext[-1] != '_' && tolower(ext[1]) == 'u') {
+>  					++isa;
+>  					ext_err = true;
+>  					break;
+>  				}
+>  				fallthrough;
+> +			case 'X':
+>  			case 'x':
+> +			case 'Z':
+>  			case 'z':
+>  				ext_long = true;
+>  				/* Multi-letter extension must be delimited */
+>  				for (; *isa && *isa != '_'; ++isa)
+> -					if (unlikely(!islower(*isa)
+> -						     && !isdigit(*isa)))
+> +					if (unlikely(!isalnum(*isa)))
+>  						ext_err = true;
+>  				/* Parse backwards */
+>  				ext_end = isa;
+> @@ -166,7 +165,7 @@ void __init riscv_fill_hwcap(void)
+>  				/* Skip the minor version */
+>  				while (isdigit(*--ext_end))
+>  					;
+> -				if (ext_end[0] != 'p'
+> +				if (tolower(ext_end[0]) != 'p'
+>  				    || !isdigit(ext_end[-1])) {
+>  					/* Advance it to offset the pre-decrement */
+>  					++ext_end;
+> @@ -178,7 +177,7 @@ void __init riscv_fill_hwcap(void)
+>  				++ext_end;
+>  				break;
+>  			default:
+> -				if (unlikely(!islower(*ext))) {
+> +				if (unlikely(!isalpha(*ext))) {
+>  					ext_err = true;
+>  					break;
+>  				}
+> @@ -188,7 +187,7 @@ void __init riscv_fill_hwcap(void)
+>  				/* Skip the minor version */
+>  				while (isdigit(*++isa))
+>  					;
+> -				if (*isa != 'p')
+> +				if (tolower(*isa) != 'p')
+>  					break;
+>  				if (!isdigit(*++isa)) {
+>  					--isa;
+> @@ -205,7 +204,7 @@ void __init riscv_fill_hwcap(void)
+>  #define SET_ISA_EXT_MAP(name, bit)						\
+>  			do {							\
+>  				if ((ext_end - ext == sizeof(name) - 1) &&	\
+> -				     !memcmp(ext, name, sizeof(name) - 1) &&	\
+> +				     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
+>  				     riscv_isa_extension_check(bit))		\
+>  					set_bit(bit, this_isa);			\
+>  			} while (false)						\
+> @@ -213,7 +212,7 @@ void __init riscv_fill_hwcap(void)
+>  			if (unlikely(ext_err))
+>  				continue;
+>  			if (!ext_long) {
+> -				int nr = *ext - 'a';
+> +				int nr = tolower(*ext) - 'a';
+>  
+>  				if (riscv_isa_extension_check(nr)) {
+>  					this_hwcap |= isa2hwcap[nr];
+> -- 
+> 2.40.0
+>
 
---IcQ4eY/AV7BFjoO1
-Content-Type: application/pgp-signature; name="signature.asc"
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZEzoegAKCRB4tDGHoIJi
-0neEAQDt7ZWE+zuZ+C9BSkBU7Mx6/aHmGOU/uJDzIBTwvI1PpgD+P0ufRsHpQfWX
-jvvcKs6ip23Lvz6kqZ6YMmkMTSpDXAY=
-=tmZN
------END PGP SIGNATURE-----
-
---IcQ4eY/AV7BFjoO1--
-
-
---===============5531984479187153477==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5531984479187153477==--
-
