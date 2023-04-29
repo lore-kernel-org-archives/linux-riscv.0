@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E4CC77B60
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 19:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7B7C77B60
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 19:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwJguUTCyze9mUNnf2SMusv8yomsfGtQNF1w4+J2nfs=; b=u8dtZ5mN1Dt5SfmZ5ihlCgKpgL
-	ByhaPfthPjWclwIm5NuZ81FF4b+pbwNj/6rAdHflgmS/AVfBW0fuEnkuiUqaWaIX+pm0QxD23buL9
-	2RUSiUHV7N05viuqrSoZvBMbi2HwcJI89RD5u0iVUItYrzZHI+U0Ld5+cHo90sTxjUu9Yq/MOk3oW
-	EOqXmv5xyYplXG7Q5ZpxhLZP+yX75xUyaXsmsSNbtNJce+vTqiKAPt90K+EfjVbOEslZ2KQ8Krmv2
-	4RNzcnMpoNUxFE5h87ApFIG2V1F4Vyx1wJQ5hla1IWColSRJ5mR4K4vxRL9R9jONu+glIlAv6bKCr
-	hgxNlOlQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=KLyjAAmockN6mIYi4muruMie6e6nNDBI5CGhIL5W7uQ=; b=A3dQlakQ2+rm/SR+ZH+uhn94d2
+	WR9snVGBboCrmILksJtzbuQnvfQEI/sEdG3S7WI9nPBQqf/rko7YivPnSW2JCYYzohQfeTYQy4Ev/
+	I/EFlVEX4hd1dQ2dGSVL9zH/hC8k3/8tDOo+QPoJyTdxNgZs1DQdu3Mff+mLGDjZpqIcT+v2YTEj1
+	RFgT+RCjCtJNKc/W962PFXQocfFxs3a7sPKwYilErNtdgdRXzRHwNOhqJlZjmM3fdzb7ZYRsLLFXA
+	JyZgDH/f25ZE/+sQp5Fl+B3Qz5Zl9lUQJZ6Jp8hzNUYh3XHRfHNG38LUHBleTSB+enrJFu5PNkaYR
+	pr7sT+FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pspzI-00D33t-0D;
-	Sat, 29 Apr 2023 19:12:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1psqYp-00D4c8-0m;
+	Sat, 29 Apr 2023 19:48:47 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pspzF-00D33E-0X
+	id 1psqYn-00D4bm-0J
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 19:12:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0FEBE60A3B;
-	Sat, 29 Apr 2023 19:11:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5EEFC433EF;
-	Sat, 29 Apr 2023 19:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682795517;
-	bh=RvfSv2vXhrQXd/FezE4UM1R+ph+dMkTIsCqUvf6TQ98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jFtiN7tyRAJL1OqdrOMeX7uU3dLn0XbUColcbDm2uLnMYAa1bI5mBpQGC1I9fDcti
-	 MJqCKepChG+Su0LzxvKj3H2+SIZ0cV2YEXNrDoxG+K3XsLoRoBhjLG0UURF0jxPbiT
-	 1BkvAcqnJ5X7zqdpcRQDWtguJVHB0/vXpGgnbcWKbBOt1bA0mqYjxEDZbf5lp2TFbF
-	 UD2Wf80q/eWOshi2jcd6KDMK1CbLALFWxpXmEwgdUS9Hv91zoH1c66ZpaJAdrhw6WA
-	 pR0NEGqsJkNQP2c6zRxsDCz6e2tmIcDmKb/fFeoxMzhoj6d8jQSR10J+6VBr2Rvt/6
-	 cDoNlrLdKjpFA==
-Date: Sat, 29 Apr 2023 20:11:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] RISC-V: fix sifive and thead section mismatches in
- errata
-Message-ID: <20230429-dandy-gush-6f5da93055bc@spud>
-References: <20230429155247.12131-1-rdunlap@infradead.org>
- <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
- <20230429-outboard-hypocrite-983e977103d2@spud>
- <CALs-HstrR3Cm3jQKt6dmfYiRRVkAVibAZDtFo0wmXz4LEvRf_A@mail.gmail.com>
- <37e6b325-44e4-8e65-68e3-eab2943018ac@infradead.org>
- <CALs-Hss3b86zAqohK9NYEkzn+pnLeMB37qaj1EA6f6bRkFWwCg@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CALs-Hss3b86zAqohK9NYEkzn+pnLeMB37qaj1EA6f6bRkFWwCg@mail.gmail.com>
+	Sat, 29 Apr 2023 19:48:46 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-63b35789313so845870b3a.3
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 12:48:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682797720; x=1685389720;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y8xJIhfAmBebYnbahg0bpFD4DMd494RsecF0TgLD/p0=;
+        b=Doyc93mM3AnjFpPb7gpeQnhTZLSB8LYtEOTkT+8UvUCTXTpzdv72gJ8x/qntRWW9er
+         7qtRU3IPhr66KAGZEuGXxsL3Qbk2JB4BSVJ9Wh+Bl/Jd6TMiMNzLoVHO9pNN50b9oL2x
+         ZbBMEtjMHbTcKVuHE7ox8F3dh1QyXBmvf7hhIJxels3TAh+8/bWPKSes+pI7HoMHYxPm
+         ZM52kHnLWS+2s3ku+jbetBh0kVkG3WFO92Wst9khTKdve0/TZ1Ula1KqXQEtYmgQ6lB+
+         O/tUPqVkRPLdD0//bzGqIMjzmqwtJnHrqAttmGnw2TR9rtklD7ou1hRrrJh7PMrNPqFB
+         NBJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682797720; x=1685389720;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y8xJIhfAmBebYnbahg0bpFD4DMd494RsecF0TgLD/p0=;
+        b=mGFL7iWvl0vt09pnsFHCnDWtZAMo0pGaes0ktX6v6HeVvBocX1IIwSldrJz70LA1Jx
+         a68GUGywGdgH5xknlcmIs9p9frwqP4V2r6hm4VV/90qgIkZYMziajeCz8vKFeMPeSGZA
+         novyhS9+vxfhrXvjASctpb2lFbfSEzNlnTvTaMy0ZGO4VvpLcd8PLF5sgbcW+ips1c2k
+         EteSKbEuB12urJnGc3tg7DxeotaWgT8p6qHpPi3nG6j+wHd1RFLd21XFiTv4lt9AmxWW
+         RVXtYeVO89niVEjKDZUoIVq/RBrcN9is+TwlecT/Q9vy56tACOglEp4DtDMmvqMC35fi
+         HHHw==
+X-Gm-Message-State: AC+VfDxElsFD+5j5KnIzLMTfp3Y11310gwly0z16e6kJs1frMCK7IgQ5
+	38k6k8yRiCNn/VVQGnyuJie5mvaaPhEJGEV99G4=
+X-Google-Smtp-Source: ACHHUZ6rL9+YorT4U00gKrGITqTvNqPLHeZoI2n1PiWZBmsw87UJit7ourhmHGifgfBHTHVSWmkC8w==
+X-Received: by 2002:a05:6a00:2392:b0:641:4e80:a7c0 with SMTP id f18-20020a056a00239200b006414e80a7c0mr1003018pfc.22.1682797719812;
+        Sat, 29 Apr 2023 12:48:39 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id e6-20020a056a001a8600b0063b7a0b9cc5sm17265602pfv.186.2023.04.29.12.48.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Apr 2023 12:48:39 -0700 (PDT)
+Date: Sat, 29 Apr 2023 12:48:39 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 Apr 2023 12:48:22 PDT (-0700)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.4 Merge Window, Part 1
+In-Reply-To: <CAHk-=wivud6jefN+UKa4zkAf4dkapyh4iRazyUVgXTzqRntOMg@mail.gmail.com>
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-c9879e1f-4d38-41b9-8082-7c463fbed66c@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_121201_298771_2D636F9F 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20230429_124845_155284_4D293F96 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +85,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9005149150841005385=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============9005149150841005385==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qFdXsuwzHEGiYpiV"
-Content-Disposition: inline
-
-
---qFdXsuwzHEGiYpiV
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Apr 29, 2023 at 12:06:19PM -0700, Evan Green wrote:
-> On Sat, Apr 29, 2023 at 10:58=E2=80=AFAM Randy Dunlap <rdunlap@infradead.=
-org> wrote:
-> >
-> >
-> >
-> > On 4/29/23 10:48, Evan Green wrote:
-> > > On Sat, Apr 29, 2023 at 10:24=E2=80=AFAM Conor Dooley <conor@kernel.o=
-rg> wrote:
-> > >>
-> > >> On Sat, Apr 29, 2023 at 10:21:39AM -0700, Evan Green wrote:
-> > >>> On Sat, Apr 29, 2023 at 8:52=E2=80=AFAM Randy Dunlap <rdunlap@infra=
-dead.org> wrote:
-> > >>>>
-> > >>>> When CONFIG_MODULES is set, __init_or_module becomes <empty>, but =
-when
-> > >>>> CONFIG_MODULES is not set, __init_or_module becomes __init.
-> > >>>> In the latter case, it causes section mismatch warnings:
-> > >>>>
-> > >>>> WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_=
-fill_cpu_mfr_info (section: .text) -> sifive_errata_patch_func (section: .i=
-nit.text)
-> > >>>> WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_=
-fill_cpu_mfr_info (section: .text) -> thead_errata_patch_func (section: .in=
-it.text)
-> > >>>>
-> > >>>> Fixes: bb3f89487fd9 ("RISC-V: hwprobe: Remove __init on probe_vend=
-or_features()")
-> > >>>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> > >>>> Cc: Heiko Stuebner <heiko@sntech.de>
-> > >>>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> > >>>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > >>>> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> > >>>> Cc: linux-riscv@lists.infradead.org
-> > >>>> Cc: Conor Dooley <conor@kernel.org>
-> > >>>> Cc: Evan Green <evan@rivosinc.com>
-> > >>>> ---
-> > >>>
-> > >>> Thanks, Randy. I'm confused at how I didn't see that when I made the
-> > >>> original fix. I feel like repro of these section mismatch errors
-> > >>> depend on some other factor I'm not understanding. In any case:
-> > >>
-> > >> Perhaps you had a cut-down config that did not enable either of the
-> > >> relevant ARCH_ options to get those errata compiled?
-> > >
-> > > It was weird, my original "fix" (the one listed in this Fixes tag) was
-> > > needed because while the hwprobe series was clean on Palmer's branch,
-> > > it generated a "section mismatch" on linux-next. As noted here, it was
-> > > only with !CONFIG_MODULES, so I explicitly remember generating that
-> > > config and checking it on linux-next to generate this "fix", and it
-> > > came out clean. It's like the robots are getting smarter.
-> > > -Evan
-> >
-> > I observed the problem in 8 out of 20 randconfig builds,
-> > using linux-next 20230427.
->=20
-> Oh interesting, so not the stock k210_nommu defconfig. That makes me
-> feel a little better at least.
-
-Ohh man, that's a pretty bad config to try use (if that's your default)
-for build testing stuff. The k210_mmu defconfig doesn't enable anything
-other than SOC_CANAAN.
-I could reproduce Randy's issue on defconfig w/ CONFIG_MODULES disabled.
-
---qFdXsuwzHEGiYpiV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZE1r+QAKCRB4tDGHoIJi
-0lMAAP9Yzh1VwUUltw6hlBNuhfRgwEhTKtB7BRE3pAN2cJsS3gEAw/ruaaFT0dyk
-VjeOLC2Kb/tzs4sxNU8jzEiNHondEA4=
-=XMXc
------END PGP SIGNATURE-----
-
---qFdXsuwzHEGiYpiV--
-
-
---===============9005149150841005385==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9005149150841005385==--
-
+T24gRnJpLCAyOCBBcHIgMjAyMyAxNzowODo1MyBQRFQgKC0wNzAwKSwgTGludXMgVG9ydmFsZHMg
+d3JvdGU6Cj4gT24gRnJpLCBBcHIgMjgsIDIwMjMgYXQgOTowOeKAr0FNIFBhbG1lciBEYWJiZWx0
+IDxwYWxtZXJAcml2b3NpbmMuY29tPiB3cm90ZToKPj4KPj4gICBnaXQ6Ly9naXQua2VybmVsLm9y
+Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0IHRhZ3MvcmlzY3YtZm9y
+LWxpbnVzLTYuNC1tdzEKPgo+IFVnaCwgc28gdGhpcyBjb25mbGljdGVkIHByZXR0eSBuYXN0aWx5
+IGluIGFyY2gvcmlzY3YvbW0vaW5pdC5jIGJldHdlZW4gY29tbWl0cwo+Cj4gICBlZjY5ZDI1NTlm
+ZTkgKCJyaXNjdjogTW92ZSBlYXJseSBkdGIgbWFwcGluZyBpbnRvIHRoZSBmaXhtYXAgcmVnaW9u
+IikKPiAgIDg1ODllMzQ2YmJiNiAoInJpc2N2OiBNb3ZlIHRoZSBsaW5lYXIgbWFwcGluZyBjcmVh
+dGlvbiBpbiBpdHMgb3duIGZ1bmN0aW9uIikKPgo+IGFuZCB3aGlsZSBJIGRpZCB0cnkgdG8gbWFr
+ZSBzZW5zZSBvZiBpdCBhbGwsIGFuZCBnZW5lcmF0ZWQgd2hhdCBsb29rcwo+IGxpa2UgYSBzYW5l
+IHJlc29sdXRpb24gdG8gbWUsIEkgZGlkICpub3QqIGRvIHNvbWUga2luZCBvZiBidWlsZCBjaGVj
+aywKPiBtdWNoIGxlc3MgY2FuIEkgdGVzdCBhbnl0aGluZy4KPgo+IFNvLi4gQ2F2ZWF0IGVtcHRv
+ci4gSSBtYXkgb3IgbWF5IG5vdCBoYXZlIGdvdHRlbiB0aGF0IGNvbmZsaWN0IHJpZ2h0LAo+IGFu
+ZCB5b3Ugc2hvdWxkIG1vc3QgZGVmaW5pdGVseSBkb3VibGUtY2hlY2sgaXQgdmVyeSBjYXJlZnVs
+bHkuCgpUaGFua3MuICBJJ20gbm90IHN1cmUgd2h5IEkgZGlkbid0IHNlZSB0aGF0IGxvY2FsbHks
+IGl0J2QgaGFkIHNob3duIHVwIAppbiBsaW51eC1uZXh0IGJ1dCBJJ2QgZmlndXJlZCBzb21ldGhp
+bmcgZWxzZSB3YXMgZ29pbmcgb24uICBJJ2xsIGdvIHRha2UgCmEgbG9vaywgdGhlIHBvc3QtbWVy
+Z2Ugc3R1ZmYgaXMgdGVzdGluZyBhbHJlYWR5IG9uIG15IGVuZCBhbmQgbm90aGluZyAKaGFzIGZh
+aWxlZCB5ZXQuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
