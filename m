@@ -4,47 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD0DC77B60
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 17:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9F2C77B7C
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 18:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uu9gE7Jx/i58seYSuHv9K41WmilZDQ/GZzBaOruwk0c=; b=RLMnbGHJctOHY7
-	eove/9lbLJ38NNoAbldthWWZq+ENkHYIkllR+JbUZDipJwkuAlEbR8fOov7xV5/FwkeVwjdbiZZYu
-	p6DNqFU8NHfk8yKln6XSwv0X1L/eHn14UbEKgYPg5rMg5SLzqX2jLcF/IhIxFcTLglLgRhFqTP7Pw
-	4KKK7BsKxMT10EwNdqLJ2jTAQS4l0pI3uZrgQDo0IcQvOuYgIuMLp8tFu5Sn2L5G0WKx456zYgogy
-	ypnOR5jQBbzCklbE4lSmHgXKBoYEYHawWVhw+s/N2JtbFYqQRNGts7KCXiCotEgQRk90TwiSmd6mL
-	8kdtjIVHBnmKhLyZpahA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=P0ILZEGz0w2wU0YkhmSG1hpwMNifzKpo5bfvqsyNMfA=; b=YRO+tYBfMC7ILjXOaEWbKav+UO
+	Mle8uO0SS0CwdbpDoMS7c2QIioE6ytlN6ZRifQKef/D+6QRfw4BFVEIVF3LI02I/boCHRANncSyLX
+	r4mp+DM1+tPVAlVvQPfIscSP0eXhPp7Fvcz2yhoW/r0ENtqCAi9XO7STHn8lf4iTDIjpr/+kGXEbr
+	jyy6r3QO9jCQb/7MQViGMheWpIHQfyWdblmWY06yYnEyzH9hgAFANMFnoWcO49SfQGri2ZoQww+Mg
+	KB1g+tVwnRSDZZoaiXWVNfuBCqFKOJOnxhvKkxckiHRxWVEu1WkqDtkawDKXKTR6dE6drIo/Krdn5
+	C6NMCR1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psoqR-00CyK9-2t;
-	Sat, 29 Apr 2023 17:58:51 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1psoqP-00CyJM-1F;
-	Sat, 29 Apr 2023 17:58:49 +0000
-Message-ID: <37e6b325-44e4-8e65-68e3-eab2943018ac@infradead.org>
-Date: Sat, 29 Apr 2023 10:58:48 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v2] RISC-V: fix sifive and thead section mismatches in
- errata
-Content-Language: en-US
-To: Evan Green <evan@rivosinc.com>, Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org
-References: <20230429155247.12131-1-rdunlap@infradead.org>
- <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
- <20230429-outboard-hypocrite-983e977103d2@spud>
- <CALs-HstrR3Cm3jQKt6dmfYiRRVkAVibAZDtFo0wmXz4LEvRf_A@mail.gmail.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <CALs-HstrR3Cm3jQKt6dmfYiRRVkAVibAZDtFo0wmXz4LEvRf_A@mail.gmail.com>
+	id 1pspFk-00D00L-2h;
+	Sat, 29 Apr 2023 18:25:00 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pspFd-00CzxV-1i
+	for linux-riscv@lists.infradead.org;
+	Sat, 29 Apr 2023 18:24:55 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1a6670671e3so9276615ad.0
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 11:24:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682792692; x=1685384692;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KGl5HMSK57VmBSwKSnwgm3VXr902jH6XBJlNczgIzTY=;
+        b=l+H0JwRFKwAD4TzkKtg69sq/SE0iMjDe/NX6Txlv16Ba4kBdBRnOLJE9cuEp/EtowJ
+         pvTfeswVQQvBqhKyncNpPdAR29BMkNe6LB9ZMzoVyBV5Q9aGwXPM1Fc+6Qr50SDIiKsJ
+         q9xyHClsPNOcAaBRr9fQ8UfCjonz6jsBwXrYvJjTpLiOgKgKgvN8uwk1fTPbl8XK+035
+         m3QY80DvBeDJf799u5hnhHuLgfMpPNb4a9jtTjDBw2OzLziw75OHG2J322CH+dAw1HCw
+         HsmmVI7grjIDtuj7uBS5rk+EMADzgTEglzedbNWVOsorwBluoILEBWp5M0RLFiHKNfCf
+         2+Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682792692; x=1685384692;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KGl5HMSK57VmBSwKSnwgm3VXr902jH6XBJlNczgIzTY=;
+        b=SAoQ5XZso4bcIIYrpdnr16eb8e2/v30+AB5d0ipdLMZs5Y1LEGUmC84bQ/kwF8kubK
+         3hOcC7wXb+zqrPrRth4tKXEodZ2KGhTru3q4p9E5nSoNNws7JMHfWo3WF36ESwBmet/R
+         R7U/WzvRCdOFURn5zKPAuCbKoK84xtFSNUTu9Kypr9o7nYY/emENu1WbVqXL941JRgSR
+         vFDy3YBXjm1Cip2Yu/yqPthhtck4HP9kNfksvRLjtJ4XCyiBBh0NfgssP2yqwQfTSGmc
+         Z2nCi9FKjfAM9LR7sXqOeCl0rat0ptMOxkpzSPTFMgmrAQnyAdNKAGGrAAEqpML1W1bv
+         miSA==
+X-Gm-Message-State: AC+VfDxDvqmFhptTiwdCzkvvVepiioJkLcpgR3Cxm8Xo3UjTk2rkcmUo
+	R2vzwI0eHo05DzCdjmpdcr4ZMQ==
+X-Google-Smtp-Source: ACHHUZ6ZiLzN9eR+ckFMqg7tN3D4bPpq4geojnHO1Jqz7HXa46oxZHVvxREPvQQtQygRvSqX/lxFkg==
+X-Received: by 2002:a17:903:124b:b0:1a2:8c7e:f315 with SMTP id u11-20020a170903124b00b001a28c7ef315mr10630845plh.21.1682792692014;
+        Sat, 29 Apr 2023 11:24:52 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id z2-20020a170902708200b001a19196af48sm15137375plk.64.2023.04.29.11.24.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Apr 2023 11:24:51 -0700 (PDT)
+Date: Sat, 29 Apr 2023 11:24:51 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 Apr 2023 11:24:33 PDT (-0700)
+Subject: Re: [PATCH 09/19] riscv: cacheinfo: Adjust includes to remove of_device.h
+In-Reply-To: <20230329-dt-cpu-header-cleanups-v1-9-581e2605fe47@kernel.org>
+CC: davem@davemloft.net, robh+dt@kernel.org, frowand.list@gmail.com,
+  linux@armlinux.org.uk, wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Greg KH <gregkh@linuxfoundation.org>, rafael@kernel.org,
+  daniel.lezcano@linaro.org, tglx@linutronix.de, amit.kachhap@gmail.com, viresh.kumar@linaro.org,
+  lukasz.luba@arm.com, amitk@kernel.org, rui.zhang@intel.com, matthias.bgg@gmail.com,
+  angelogioacchino.delregno@collabora.com, mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
+  thierry.reding@gmail.com, jonathanh@nvidia.com, tiny.windzz@gmail.com, lpieralisi@kernel.org,
+  sudeep.holla@arm.com, agross@kernel.org, andersson@kernel.org, konrad.dybcio@linaro.org,
+  anup@brainfault.org, chenhuacai@kernel.org, jiaxun.yang@flygoat.com, Marc Zyngier <maz@kernel.org>,
+  vireshk@kernel.org, nm@ti.com, sboyd@kernel.org, sparclinux@vger.kernel.org,
+  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+  linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+  linux-mediatek@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org,
+  linux-arm-msm@vger.kernel.org, linux-mips@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: robh@kernel.org
+Message-ID: <mhng-8827afbb-9f5f-4a6d-b528-4b79b1a32f8a@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230429_112453_606988_259D7BFD 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,48 +98,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA0LzI5LzIzIDEwOjQ4LCBFdmFuIEdyZWVuIHdyb3RlOgo+IE9uIFNhdCwgQXByIDI5LCAy
-MDIzIGF0IDEwOjI04oCvQU0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToK
-Pj4KPj4gT24gU2F0LCBBcHIgMjksIDIwMjMgYXQgMTA6MjE6MzlBTSAtMDcwMCwgRXZhbiBHcmVl
-biB3cm90ZToKPj4+IE9uIFNhdCwgQXByIDI5LCAyMDIzIGF0IDg6NTLigK9BTSBSYW5keSBEdW5s
-YXAgPHJkdW5sYXBAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4+Pj4KPj4+PiBXaGVuIENPTkZJR19N
-T0RVTEVTIGlzIHNldCwgX19pbml0X29yX21vZHVsZSBiZWNvbWVzIDxlbXB0eT4sIGJ1dCB3aGVu
-Cj4+Pj4gQ09ORklHX01PRFVMRVMgaXMgbm90IHNldCwgX19pbml0X29yX21vZHVsZSBiZWNvbWVz
-IF9faW5pdC4KPj4+PiBJbiB0aGUgbGF0dGVyIGNhc2UsIGl0IGNhdXNlcyBzZWN0aW9uIG1pc21h
-dGNoIHdhcm5pbmdzOgo+Pj4+Cj4+Pj4gV0FSTklORzogbW9kcG9zdDogdm1saW51eC5vOiBzZWN0
-aW9uIG1pc21hdGNoIGluIHJlZmVyZW5jZTogcmlzY3ZfZmlsbF9jcHVfbWZyX2luZm8gKHNlY3Rp
-b246IC50ZXh0KSAtPiBzaWZpdmVfZXJyYXRhX3BhdGNoX2Z1bmMgKHNlY3Rpb246IC5pbml0LnRl
-eHQpCj4+Pj4gV0FSTklORzogbW9kcG9zdDogdm1saW51eC5vOiBzZWN0aW9uIG1pc21hdGNoIGlu
-IHJlZmVyZW5jZTogcmlzY3ZfZmlsbF9jcHVfbWZyX2luZm8gKHNlY3Rpb246IC50ZXh0KSAtPiB0
-aGVhZF9lcnJhdGFfcGF0Y2hfZnVuYyAoc2VjdGlvbjogLmluaXQudGV4dCkKPj4+Pgo+Pj4+IEZp
-eGVzOiBiYjNmODk0ODdmZDkgKCJSSVNDLVY6IGh3cHJvYmU6IFJlbW92ZSBfX2luaXQgb24gcHJv
-YmVfdmVuZG9yX2ZlYXR1cmVzKCkiKQo+Pj4+IFNpZ25lZC1vZmYtYnk6IFJhbmR5IER1bmxhcCA8
-cmR1bmxhcEBpbmZyYWRlYWQub3JnPgo+Pj4+IENjOiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250
-ZWNoLmRlPgo+Pj4+IENjOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNpZml2ZS5jb20+
-Cj4+Pj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+Cj4+Pj4gQ2M6IEFs
-YmVydCBPdSA8YW91QGVlY3MuYmVya2VsZXkuZWR1Pgo+Pj4+IENjOiBsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCj4+Pj4gQ2M6IENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4K
-Pj4+PiBDYzogRXZhbiBHcmVlbiA8ZXZhbkByaXZvc2luYy5jb20+Cj4+Pj4gLS0tCj4+Pgo+Pj4g
-VGhhbmtzLCBSYW5keS4gSSdtIGNvbmZ1c2VkIGF0IGhvdyBJIGRpZG4ndCBzZWUgdGhhdCB3aGVu
-IEkgbWFkZSB0aGUKPj4+IG9yaWdpbmFsIGZpeC4gSSBmZWVsIGxpa2UgcmVwcm8gb2YgdGhlc2Ug
-c2VjdGlvbiBtaXNtYXRjaCBlcnJvcnMKPj4+IGRlcGVuZCBvbiBzb21lIG90aGVyIGZhY3RvciBJ
-J20gbm90IHVuZGVyc3RhbmRpbmcuIEluIGFueSBjYXNlOgo+Pgo+PiBQZXJoYXBzIHlvdSBoYWQg
-YSBjdXQtZG93biBjb25maWcgdGhhdCBkaWQgbm90IGVuYWJsZSBlaXRoZXIgb2YgdGhlCj4+IHJl
-bGV2YW50IEFSQ0hfIG9wdGlvbnMgdG8gZ2V0IHRob3NlIGVycmF0YSBjb21waWxlZD8KPiAKPiBJ
-dCB3YXMgd2VpcmQsIG15IG9yaWdpbmFsICJmaXgiICh0aGUgb25lIGxpc3RlZCBpbiB0aGlzIEZp
-eGVzIHRhZykgd2FzCj4gbmVlZGVkIGJlY2F1c2Ugd2hpbGUgdGhlIGh3cHJvYmUgc2VyaWVzIHdh
-cyBjbGVhbiBvbiBQYWxtZXIncyBicmFuY2gsCj4gaXQgZ2VuZXJhdGVkIGEgInNlY3Rpb24gbWlz
-bWF0Y2giIG9uIGxpbnV4LW5leHQuIEFzIG5vdGVkIGhlcmUsIGl0IHdhcwo+IG9ubHkgd2l0aCAh
-Q09ORklHX01PRFVMRVMsIHNvIEkgZXhwbGljaXRseSByZW1lbWJlciBnZW5lcmF0aW5nIHRoYXQK
-PiBjb25maWcgYW5kIGNoZWNraW5nIGl0IG9uIGxpbnV4LW5leHQgdG8gZ2VuZXJhdGUgdGhpcyAi
-Zml4IiwgYW5kIGl0Cj4gY2FtZSBvdXQgY2xlYW4uIEl0J3MgbGlrZSB0aGUgcm9ib3RzIGFyZSBn
-ZXR0aW5nIHNtYXJ0ZXIuCj4gLUV2YW4KCkkgb2JzZXJ2ZWQgdGhlIHByb2JsZW0gaW4gOCBvdXQg
-b2YgMjAgcmFuZGNvbmZpZyBidWlsZHMsCnVzaW5nIGxpbnV4LW5leHQgMjAyMzA0MjcuCgotLSAK
-flJhbmR5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, 29 Mar 2023 08:52:06 PDT (-0700), robh@kernel.org wrote:
+> Now that of_cpu_device_node_get() is defined in of.h, of_device.h is just
+> implicitly including other includes, and is no longer needed. Adjust the
+> include files with what was implicitly included by of_device.h (cpu.h and
+> of.h) and drop including of_device.h.
+>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+> Please ack and I will take the series via the DT tree.
+> ---
+>  arch/riscv/kernel/cacheinfo.c | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> index 3a13113f1b29..e3829d2de5d9 100644
+> --- a/arch/riscv/kernel/cacheinfo.c
+> +++ b/arch/riscv/kernel/cacheinfo.c
+> @@ -5,7 +5,6 @@
+>
+>  #include <linux/cpu.h>
+>  #include <linux/of.h>
+> -#include <linux/of_device.h>
+>  #include <asm/cacheinfo.h>
+>
+>  static struct riscv_cacheinfo_ops *rv_cache_ops;
+
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
