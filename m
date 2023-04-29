@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A16C77B7C
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 17:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A4CC77B60
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Apr 2023 17:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fR/vdQBsQNZr7cXt7bz8B88e1qIx8i/YU8FLXGEufvE=; b=r+C3BA0ozuo0K/ei4gxHW25AIu
-	m/H6WjDFQJld5hb2ednYX8BMyAvU1IQ1GbJkCOSkj1vLzkXVu3KC6dbmNeGxbZs7uEnHmEHaGzKhc
-	oWXQK60pzhZgjoWPzuoHJGFk1jTPaJB5UKGqvtGJIhlspqa82mzP27+Unrs4gWQNG+qfBg5qK1MFT
-	+Jrw2UzsrRvPXavy/ShJ+0cglPL5NTxafgx7bopMeNaJ81gM7yZidUx5KN8RR9eeqxzbATYBL7HBI
-	83bP8PaUf91wL1O8xn+5CA0qgSYPrwJwlR1Jsxj63jDUxmlBaLzgFTsaCsowHOSxtstfpv6lezvvy
-	c5DpItGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1johGzqwbt+Ig/UvWfQ5rfuW/akAmBD3czB4XOmvrBU=; b=cFY3a21zOIj+xC
+	5CUu4ohP8Xcv0phzSj+1+WO7aO2xToMDrwT4xjAar4Xm9CcpixSWeXhgYoaJ2p/GLQ7idhkN5T6BP
+	n+F8KP8deTcxV6XxEv+ZtGEhNsYMUYZUZAcPYUawuOTac2G+g2tzpWPbOYMOhUE2LM7QdRbG5FXI0
+	q9My4eZuU8F7RL5wrdsiLBptUv1XLkZ4RP4PvJu8wl/hgaqdzt9n+WxgzedHTVILmPU4cNHHt9A2u
+	gvKIs/JtRIm6b6Gwfh/biO+bxOwCNdcorUtbNGCS8LRN3066jcKQfrX81noXZK1x8IXhCfeqiFZG8
+	R6/viX8ZmaMmCgMWkRqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1psoJQ-00CwBY-0Q;
-	Sat, 29 Apr 2023 17:24:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1psohB-00CxvL-2h;
+	Sat, 29 Apr 2023 17:49:17 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1psoJN-00CwAs-2Z
+	id 1psoh9-00Cxuc-0k
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Apr 2023 17:24:43 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2AC1060915;
-	Sat, 29 Apr 2023 17:24:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBD71C433D2;
-	Sat, 29 Apr 2023 17:24:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682789080;
-	bh=sq6usrIlQ/28LQDt+r0twkGl5RyrXFGOWOiorZPC7k8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nqLQ+5ECtDNIbOffcTdLxO2hn87/xtKq7hEpcucl2BmkeWJIrde0onY3If9Vb4Lsv
-	 eEJaEr5jXHxr4sw1e3V3HI5PhSqxf8ODwQSADc8eeILAeLxD4tluZwAUAY4SpfYGBx
-	 xaU5JgW9xVHgGnZvHmDHV4mDSCTZat8ba/bo0ParGMu1fvvsug9vZVmuVshME1IDBv
-	 hE1smY0M/85a3miNYbXMzhoVCI7MQ+FbpGTM+U7kgx8N7YOdaLUsTsEaerg93jzxa3
-	 RGUOFnzqYcL+rhmCVK4CjFhcr7t97m55uWjB5AIWpSwACxvTezRWzOyoRNQJ0gcGQk
-	 Wkwu4ow7NZOwA==
-Date: Sat, 29 Apr 2023 18:24:36 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] RISC-V: fix sifive and thead section mismatches in
- errata
-Message-ID: <20230429-outboard-hypocrite-983e977103d2@spud>
-References: <20230429155247.12131-1-rdunlap@infradead.org>
- <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
+	Sat, 29 Apr 2023 17:49:16 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2ab25e8a4a7so8879431fa.3
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Apr 2023 10:49:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682790553; x=1685382553;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PojX7n9y1aOGyHyL1VmBDz4x0J1ICc3U37mnhGQzRqw=;
+        b=AwozKjrJpvKPO20JkTdZKpX7tX9aSjJb+RjAdf9DpdhiejGiMjOtxO4g2VVLucmke/
+         imbfKbMa3zOgsL8SMg5k8bhbuiNJlCzh8i/Y/1V3Gosasoz81oK5F3LGlMfZouoMcVx3
+         kEeHH9dYfsW+kes2zyZImeZ/HU6ECCeRricaa3qoJExbX31DuuXOwZTCQQVnkIvRbWrw
+         RMIOy/kaztJxJ50Ky3zYcXCN0BCZxhsyULr8DVBTpoJh1Jt3xYEDEfbHgaz9U2+lIzPx
+         MSJv+jG1Ej2uQUhNsyXtE99ZgKiDwU/nvWvwhWXtFqBhHz6W22B9ayL+5fD8Ptk6xqHA
+         6F3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682790553; x=1685382553;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PojX7n9y1aOGyHyL1VmBDz4x0J1ICc3U37mnhGQzRqw=;
+        b=cP0sAs+v284iejD338TuNVng3fuB+AnqTFZEwovW045akVDSzW/ZPOdnpLxlxm03tx
+         N1xYWyuZvESCMKfd6xrTQQL1FgDnPt05DWOhvr68TxdOsht/InAxHWy/WQb8ogS2x+3b
+         ktDNw1sUo3BH67XE0WEcpUjB4O+LwQfZhuQiPWbYvEego7OWdpMc2c/FUWWdqF5MrbkH
+         fUDaEIAibiaybqVU0UH7FnIuc2Asu4/NmjzdaL7s3xAF9UIcs2S90bk0WY5qn8oahb7O
+         ZN3DngNag5T785G86M+mvDor79f7uu24ZznddwaO3ujR4SF77znktcJw5UuOcXe/citH
+         LPBA==
+X-Gm-Message-State: AC+VfDxkfKc3hf1l6rScyCv8EKRKClUcDVsjyQepCe8wRiD/H/1leOhn
+	5HQmOnE+ShPLWD6U25ixRRGdsOcTHVbbqIHg5PEHiw==
+X-Google-Smtp-Source: ACHHUZ6lrMlBks2CRDNnvyjN4qwXhBuTJUOiifSCIb9PA3+jMjw2vMD7tZeVz7LwgYa3vAcLAAUMpsmDCcs6DFU2rmg=
+X-Received: by 2002:a2e:9d13:0:b0:2a8:c45f:9fd8 with SMTP id
+ t19-20020a2e9d13000000b002a8c45f9fd8mr2078374lji.44.1682790553046; Sat, 29
+ Apr 2023 10:49:13 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
+References: <20230429155247.12131-1-rdunlap@infradead.org> <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
+ <20230429-outboard-hypocrite-983e977103d2@spud>
+In-Reply-To: <20230429-outboard-hypocrite-983e977103d2@spud>
+From: Evan Green <evan@rivosinc.com>
+Date: Sat, 29 Apr 2023 10:48:37 -0700
+Message-ID: <CALs-HstrR3Cm3jQKt6dmfYiRRVkAVibAZDtFo0wmXz4LEvRf_A@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: fix sifive and thead section mismatches in errata
+To: Conor Dooley <conor@kernel.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, 
+	Heiko Stuebner <heiko@sntech.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230429_102441_873220_54537C68 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20230429_104915_268353_6B25BC60 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,87 +86,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0743425352266142584=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0743425352266142584==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="y0dbtxqGgkaAbUFx"
-Content-Disposition: inline
-
-
---y0dbtxqGgkaAbUFx
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Apr 29, 2023 at 10:21:39AM -0700, Evan Green wrote:
-> On Sat, Apr 29, 2023 at 8:52=E2=80=AFAM Randy Dunlap <rdunlap@infradead.o=
-rg> wrote:
-> >
-> > When CONFIG_MODULES is set, __init_or_module becomes <empty>, but when
-> > CONFIG_MODULES is not set, __init_or_module becomes __init.
-> > In the latter case, it causes section mismatch warnings:
-> >
-> > WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_fill_=
-cpu_mfr_info (section: .text) -> sifive_errata_patch_func (section: .init.t=
-ext)
-> > WARNING: modpost: vmlinux.o: section mismatch in reference: riscv_fill_=
-cpu_mfr_info (section: .text) -> thead_errata_patch_func (section: .init.te=
-xt)
-> >
-> > Fixes: bb3f89487fd9 ("RISC-V: hwprobe: Remove __init on probe_vendor_fe=
-atures()")
-> > Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> > Cc: Heiko Stuebner <heiko@sntech.de>
-> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Albert Ou <aou@eecs.berkeley.edu>
-> > Cc: linux-riscv@lists.infradead.org
-> > Cc: Conor Dooley <conor@kernel.org>
-> > Cc: Evan Green <evan@rivosinc.com>
-> > ---
->=20
-> Thanks, Randy. I'm confused at how I didn't see that when I made the
-> original fix. I feel like repro of these section mismatch errors
-> depend on some other factor I'm not understanding. In any case:
-
-Perhaps you had a cut-down config that did not enable either of the
-relevant ARCH_ options to get those errata compiled?
-
-Thanks for changing the fixes tag Randy,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-
---y0dbtxqGgkaAbUFx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZE1S1AAKCRB4tDGHoIJi
-0gygAP49xJB5js4hmJBkRf6uchyUWmMJgValg/hKIRsFfeVQLgD/b15lZi/lR3Od
-Bau17tKRXdMw89zA5WCPAgb83tghyQY=
-=6g9o
------END PGP SIGNATURE-----
-
---y0dbtxqGgkaAbUFx--
-
-
---===============0743425352266142584==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0743425352266142584==--
-
+T24gU2F0LCBBcHIgMjksIDIwMjMgYXQgMTA6MjTigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gU2F0LCBBcHIgMjksIDIwMjMgYXQgMTA6MjE6MzlBTSAt
+MDcwMCwgRXZhbiBHcmVlbiB3cm90ZToKPiA+IE9uIFNhdCwgQXByIDI5LCAyMDIzIGF0IDg6NTLi
+gK9BTSBSYW5keSBEdW5sYXAgPHJkdW5sYXBAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPiA+Cj4g
+PiA+IFdoZW4gQ09ORklHX01PRFVMRVMgaXMgc2V0LCBfX2luaXRfb3JfbW9kdWxlIGJlY29tZXMg
+PGVtcHR5PiwgYnV0IHdoZW4KPiA+ID4gQ09ORklHX01PRFVMRVMgaXMgbm90IHNldCwgX19pbml0
+X29yX21vZHVsZSBiZWNvbWVzIF9faW5pdC4KPiA+ID4gSW4gdGhlIGxhdHRlciBjYXNlLCBpdCBj
+YXVzZXMgc2VjdGlvbiBtaXNtYXRjaCB3YXJuaW5nczoKPiA+ID4KPiA+ID4gV0FSTklORzogbW9k
+cG9zdDogdm1saW51eC5vOiBzZWN0aW9uIG1pc21hdGNoIGluIHJlZmVyZW5jZTogcmlzY3ZfZmls
+bF9jcHVfbWZyX2luZm8gKHNlY3Rpb246IC50ZXh0KSAtPiBzaWZpdmVfZXJyYXRhX3BhdGNoX2Z1
+bmMgKHNlY3Rpb246IC5pbml0LnRleHQpCj4gPiA+IFdBUk5JTkc6IG1vZHBvc3Q6IHZtbGludXgu
+bzogc2VjdGlvbiBtaXNtYXRjaCBpbiByZWZlcmVuY2U6IHJpc2N2X2ZpbGxfY3B1X21mcl9pbmZv
+IChzZWN0aW9uOiAudGV4dCkgLT4gdGhlYWRfZXJyYXRhX3BhdGNoX2Z1bmMgKHNlY3Rpb246IC5p
+bml0LnRleHQpCj4gPiA+Cj4gPiA+IEZpeGVzOiBiYjNmODk0ODdmZDkgKCJSSVNDLVY6IGh3cHJv
+YmU6IFJlbW92ZSBfX2luaXQgb24gcHJvYmVfdmVuZG9yX2ZlYXR1cmVzKCkiKQo+ID4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBSYW5keSBEdW5sYXAgPHJkdW5sYXBAaW5mcmFkZWFkLm9yZz4KPiA+ID4gQ2M6
+IEhlaWtvIFN0dWVibmVyIDxoZWlrb0BzbnRlY2guZGU+Cj4gPiA+IENjOiBQYXVsIFdhbG1zbGV5
+IDxwYXVsLndhbG1zbGV5QHNpZml2ZS5jb20+Cj4gPiA+IENjOiBQYWxtZXIgRGFiYmVsdCA8cGFs
+bWVyQGRhYmJlbHQuY29tPgo+ID4gPiBDYzogQWxiZXJ0IE91IDxhb3VAZWVjcy5iZXJrZWxleS5l
+ZHU+Cj4gPiA+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gPiA+IENjOiBD
+b25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+Cj4gPiA+IENjOiBFdmFuIEdyZWVuIDxldmFu
+QHJpdm9zaW5jLmNvbT4KPiA+ID4gLS0tCj4gPgo+ID4gVGhhbmtzLCBSYW5keS4gSSdtIGNvbmZ1
+c2VkIGF0IGhvdyBJIGRpZG4ndCBzZWUgdGhhdCB3aGVuIEkgbWFkZSB0aGUKPiA+IG9yaWdpbmFs
+IGZpeC4gSSBmZWVsIGxpa2UgcmVwcm8gb2YgdGhlc2Ugc2VjdGlvbiBtaXNtYXRjaCBlcnJvcnMK
+PiA+IGRlcGVuZCBvbiBzb21lIG90aGVyIGZhY3RvciBJJ20gbm90IHVuZGVyc3RhbmRpbmcuIElu
+IGFueSBjYXNlOgo+Cj4gUGVyaGFwcyB5b3UgaGFkIGEgY3V0LWRvd24gY29uZmlnIHRoYXQgZGlk
+IG5vdCBlbmFibGUgZWl0aGVyIG9mIHRoZQo+IHJlbGV2YW50IEFSQ0hfIG9wdGlvbnMgdG8gZ2V0
+IHRob3NlIGVycmF0YSBjb21waWxlZD8KCkl0IHdhcyB3ZWlyZCwgbXkgb3JpZ2luYWwgImZpeCIg
+KHRoZSBvbmUgbGlzdGVkIGluIHRoaXMgRml4ZXMgdGFnKSB3YXMKbmVlZGVkIGJlY2F1c2Ugd2hp
+bGUgdGhlIGh3cHJvYmUgc2VyaWVzIHdhcyBjbGVhbiBvbiBQYWxtZXIncyBicmFuY2gsCml0IGdl
+bmVyYXRlZCBhICJzZWN0aW9uIG1pc21hdGNoIiBvbiBsaW51eC1uZXh0LiBBcyBub3RlZCBoZXJl
+LCBpdCB3YXMKb25seSB3aXRoICFDT05GSUdfTU9EVUxFUywgc28gSSBleHBsaWNpdGx5IHJlbWVt
+YmVyIGdlbmVyYXRpbmcgdGhhdApjb25maWcgYW5kIGNoZWNraW5nIGl0IG9uIGxpbnV4LW5leHQg
+dG8gZ2VuZXJhdGUgdGhpcyAiZml4IiwgYW5kIGl0CmNhbWUgb3V0IGNsZWFuLiBJdCdzIGxpa2Ug
+dGhlIHJvYm90cyBhcmUgZ2V0dGluZyBzbWFydGVyLgotRXZhbgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
