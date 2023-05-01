@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701A3C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 03:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DDAC77B73
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 04:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wg8lsnUqi9GE4+lgSEYgrvgHhI9oeZiC7sO75fndMxs=; b=0wkBEUeagGk1Im
-	8PjhrwvSN3TiLvtErB8eHE0THv2Z9+f+RsYlhyhmYMWtTz1G71CdWSgSW45fMLB2nSXUTgTbst1+O
-	BHF7OF//mX2C8Mv98IiTlP6YizZWVxeQ0cheo6EgRKdsmq7a5leLYck3EpqwOM+0b6Gq/moB2FFr8
-	5QZeseV+oPcpIbMh9VrVA+ddwjHqZgcS4AjlpwmBktBwElvn6TukNQ4Wah+sgtmFT9YhXgm7ppaGy
-	raUssGrJhd8lPvzctQnGjdNIdWOWP/bKP02oNQWW51KPBQsaHUfaA1rS2QrgIQlOXpq1sV9VXKUVI
-	pYKIoKSS7aBgdqjf/i7g==;
+	List-Owner; bh=Fb4GnPOLZk4FAuJh1s9mZEBzQbbpNeUTEFGY73+Lmlw=; b=wc9CGwi0nLGCf4
+	RT4GGo6lV/jPmNWflOTzKa11hS4AWGtjITUsNlr9vPuTG/jUsB/PBvr/xzldYHlhtCIXT4tzIcFy1
+	ikQoMWBdSYaDVhtsieIrvk5QCEnMvC3ZhBKQ02UneiJqjAiC8Uki2oL6UlKzcKx1O+lypGqfYyaJE
+	29CveFQdcIA2W3L63CegE3jc0WdgCuENWdxJQBgTChDdm+janDEQpCv3YBuhYc2mazMd5aZDIgsIq
+	i/Dwch1EvjoUFHBjpN7yxGXr3si/caeurk5G/Mj9P0wxYrJm1PuUUT4N2RC6JVjzule6ZfkLn6mjS
+	KimiIxYRsFvh7o4RYnAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptgtH-0000MW-2e;
-	Tue, 02 May 2023 03:41:23 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1pthoY-0006l0-20;
+	Tue, 02 May 2023 04:40:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptgtF-0000Kx-1G;
-	Tue, 02 May 2023 03:41:21 +0000
+	id 1pthoX-0006kc-1E
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 02 May 2023 04:40:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Lk75ZjE2r9RBa6YqJgQtuPl1oEa00Vf2+DuensGVbTE=; b=qQ2uYSJQvRohLOGWSCln6IEO14
-	AWS5p2O5ZTd5ODiPI6F0vsohKqMjVkXkGAe4VlNE+2MQE2GP3Gw4uoe3qIqOHYPC7X0mxAhOhinfp
-	5/L1JXuFNUf+Lljoim297rJ6IwxywLWxnXzWcPAPYKLyjmOA+7NsyXaOFViw2j6vCDdb4Hu4YrEs1
-	CpIghGhmOqDjR2CaqPwAGpWEbyAFphEH2Y+Kf4iOiSko9ROTvRG9Nf3pzvEm0jewZz1VFDirplDxy
-	fXB0Gux1YpIAjfI46Ja2kzeNad2d6vpgCAlhCoaRKt4yhek8JULiYUND/IGbAUyW2zlXQNf6P5+NT
-	ojvWEO1w==;
-Received: from mga17.intel.com ([192.55.52.151])
+	d=infradead.org; s=desiato.20200630; h=To:From:Cc:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KMZkDj7VgOqodDQTf+RGZGFN4SlNg+bxklecIZiMapk=; b=GNo5RZPKCx5X+wucaKInsQNSNs
+	YgQtoxHy6fsxYgwuS/D3jNEtf7OBklKW05W/kfUvvpkP3Dhjv91WJZ6UbgmFM1YbG+EBsu5jdTvtC
+	SvYOa82UJtIMf3EOlGTlAfU8M3LtsUHKvXnniIyCLWXJQo3E3Q7bPppr1gRsmCMqJzvRiNEuO+evg
+	Hz7m4uTnMvP0SHFyyfS9KSyCVRyW259TFi0BykDTTz1lPBvLh8OM8P5FXUME9LPi+qeXtXN31HX5Z
+	vhXGqmo/r0TRvd5F+sb3dQ/XbTYKQ9wGlmYVZTvMPEMaq5EnsZPkcqEUgWCq+h9xSf303klEWisPm
+	N009wq8Q==;
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptf94-00F5xk-2m;
-	Tue, 02 May 2023 01:49:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1682992174; x=1714528174;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=atYvzhPCCZ/tytx2DE7s23i4jWidElWSRjsH6cc5aEY=;
-  b=kCFZGvegUtAtWwRrLAHMUj2nyW+KW5Ss5SyScvB5cwlyZ0tJfJoVvwmc
-   OF/0GmmevwLHpkVuNho4Zp4PGV012FRBO75wtAFdApMFYdjwzrN4A4tDV
-   8mNuEBEdN7fV7nQbvINirZkprqSpCTzqXWNyUPBjHMizt6KunR1X4dHa7
-   DDyyMUx1PQHBM24sBkvSivuAtcg3ykbmRdROhRAxETA7gC56ayPiCiSuQ
-   bPuahHfboOV4YTkge/T0SSCLLRZz6TOa6bl9v/ViZfep3/iqpwk6pdqHa
-   NUnqOThzoalrLEIiRORoosV4QG0z8mqrX3/z5s+J134OqaE6sAQNzwdPB
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10697"; a="328651232"
-X-IronPort-AV: E=Sophos;i="5.99,242,1677571200"; 
-   d="scan'208";a="328651232"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2023 18:49:25 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10697"; a="698763727"
-X-IronPort-AV: E=Sophos;i="5.99,242,1677571200"; 
-   d="scan'208";a="698763727"
-Received: from lkp-server01.sh.intel.com (HELO e3434d64424d) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 01 May 2023 18:49:20 -0700
-Received: from kbuild by e3434d64424d with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ptf8q-0000ke-0J;
-	Tue, 02 May 2023 01:49:20 +0000
-Date: Tue, 2 May 2023 09:48:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v2 21/34] arm64: Convert various functions to use ptdescs
-Message-ID: <202305020914.OGRWcEG1-lkp@intel.com>
-References: <20230501192829.17086-22-vishal.moola@gmail.com>
+	id 1ptcGT-00F2KL-2N
+	for linux-riscv@lists.infradead.org;
+	Mon, 01 May 2023 22:45:04 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-63d2ba63dddso2310147b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 15:44:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682981097; x=1685573097;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KMZkDj7VgOqodDQTf+RGZGFN4SlNg+bxklecIZiMapk=;
+        b=YVQSVHFU6drEqf6yR/m6JMlUICqGPz8mmUwFAW7FbfEsT+pckdZjnIMW+++g0P2j8R
+         n5Yj9CkUumkqJTaLJ5tiHVoc8iI9hdW5eYb8Ku0ptL81OrvNGX0bbPSvCoB7PADM9mrB
+         gPKhJYMq/6SHQj2OzLEa9XdWtDBFL+46S9VvC77QbLCrFHjh+VZkmE0SXcV09eKXiDRJ
+         LyaeeiqGcZ40LIDdsv+taJZGzTshwahmdUcuJRWh5e07qzMu4FCbfaTqaN2n6fDkhHYd
+         tQqEV4+HkkcJtnsZyGoIvbzxztoPOtI8LTX7JYgjexux+X8jgo/GI9v3Csqgs8GlT2NQ
+         NORg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682981097; x=1685573097;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KMZkDj7VgOqodDQTf+RGZGFN4SlNg+bxklecIZiMapk=;
+        b=OOJOr8jxODO5m1ZvQCWCp/W0soW5wQH1MccH5qDT2RL7s6qebWQgehyIUAixaGWghf
+         HFjTuxbi5dZeGWPT52LKHvm3QHDdZxaQEzFOn0iFWh8GGxi05NrRqUA6tGPgxkrZjA9x
+         J4hvTu0vktSSQ2ldVsFLR5f9kkXdQQOpi3H9kCQp76+OJIEJ0R9vlhBVbTm7EWzboH1o
+         9I7VFmVMxP/dh8ZLVJmZ+tkP1cZ+kneZ+b9fi1B5yT2jbdKtn7YJ/oCrTG1NgcLdUU0J
+         BV7YYtuDec69+kBJ3jyaNo3TkqcX/RB04LRnj21fHPOyO8Sn+y+bfalbRxtkjlD9brf2
+         fe9w==
+X-Gm-Message-State: AC+VfDzVqkmRXFDRYo5LPIsqhAh3TPKtFJzbGji903/lNvbgNPIXrG0+
+	s0rQAXxigGu4s4hEnwSOy3IANCF+dv/TQVog+Qc=
+X-Google-Smtp-Source: ACHHUZ4jrHnaq1MA5auC9NOYzdlhP/SacF2pM/8Y8Ooc2TkJgP5bZP9Y0KpXdSnHIjCvNRn2dfaARw==
+X-Received: by 2002:a05:6a00:1706:b0:63b:7bc7:8049 with SMTP id h6-20020a056a00170600b0063b7bc78049mr23109268pfc.2.1682981097274;
+        Mon, 01 May 2023 15:44:57 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id o8-20020a62f908000000b0063b5776b073sm20206232pfh.117.2023.05.01.15.44.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 May 2023 15:44:56 -0700 (PDT)
+In-Reply-To: <20230330064321.1008373-1-jeeheng.sia@starfivetech.com>
+References: <20230330064321.1008373-1-jeeheng.sia@starfivetech.com>
+Subject: Re: [PATCH v8 0/4] RISC-V Hibernation Support
+Message-Id: <168298107607.32296.5646151276592938501.b4-ty@rivosinc.com>
+Date: Mon, 01 May 2023 15:44:36 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230501192829.17086-22-vishal.moola@gmail.com>
+X-Mailer: b4 0.13-dev-901c5
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+  aou@eecs.berkeley.edu, Sia Jee Heng <jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230502_024937_634227_7FD88398 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20230501_234502_270051_52C43E41 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,96 +108,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vishal,
 
-kernel test robot noticed the following build errors:
+On Thu, 30 Mar 2023 14:43:17 +0800, Sia Jee Heng wrote:
+> This series adds RISC-V Hibernation/suspend to disk support.
+> Low level Arch functions were created to support hibernation.
+> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> cpu state onto the stack, then calling swsusp_save() to save the memory
+> image.
+> 
+> Arch specific hibernation header is implemented and is utilized by the
+> arch_hibernation_header_restore() and arch_hibernation_header_save()
+> functions. The arch specific hibernation header consists of satp, hartid,
+> and the cpu_resume address. The kernel built version is also need to be
+> saved into the hibernation image header to making sure only the same
+> kernel is restore when resume.
+> 
+> [...]
 
-[auto build test ERROR on akpm-mm/mm-everything]
-[also build test ERROR on linus/master next-20230428]
-[cannot apply to s390/features powerpc/next powerpc/fixes geert-m68k/for-next geert-m68k/for-linus v6.3]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Applied, thanks!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230502-033042
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/20230501192829.17086-22-vishal.moola%40gmail.com
-patch subject: [PATCH v2 21/34] arm64: Convert various functions to use ptdescs
-config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20230502/202305020914.OGRWcEG1-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.1.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/8e9481b63b5773d7c914836dcd7fbec2449902bc
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230502-033042
-        git checkout 8e9481b63b5773d7c914836dcd7fbec2449902bc
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=arm64 olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=arm64 SHELL=/bin/bash arch/arm64/
+[1/4] RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public function
+      https://git.kernel.org/palmer/c/0def12f32129
+[2/4] RISC-V: Factor out common code of __cpu_resume_enter()
+      https://git.kernel.org/palmer/c/fcb89863d1b7
+[3/4] RISC-V: mm: Enable huge page support to kernel_page_present() function
+      https://git.kernel.org/palmer/c/a15c90b67a66
+[4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+      https://git.kernel.org/palmer/c/c0317210012e
 
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Link: https://lore.kernel.org/oe-kbuild-all/202305020914.OGRWcEG1-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/build_bug.h:5,
-                    from include/linux/bits.h:21,
-                    from include/linux/bitops.h:6,
-                    from arch/arm64/include/asm/cache.h:39,
-                    from include/linux/cache.h:6,
-                    from arch/arm64/mm/mmu.c:9:
-   arch/arm64/mm/mmu.c: In function 'pgd_pgtable_alloc':
->> arch/arm64/mm/mmu.c:440:24: error: invalid use of void expression
-     440 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
-         |                        ^
-   include/linux/compiler.h:78:45: note: in definition of macro 'unlikely'
-      78 | # define unlikely(x)    __builtin_expect(!!(x), 0)
-         |                                             ^
-   arch/arm64/mm/mmu.c:440:17: note: in expansion of macro 'BUG_ON'
-     440 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
-         |                 ^~~~~~
-   arch/arm64/mm/mmu.c:442:24: error: invalid use of void expression
-     442 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
-         |                        ^
-   include/linux/compiler.h:78:45: note: in definition of macro 'unlikely'
-      78 | # define unlikely(x)    __builtin_expect(!!(x), 0)
-         |                                             ^
-   arch/arm64/mm/mmu.c:442:17: note: in expansion of macro 'BUG_ON'
-     442 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
-         |                 ^~~~~~
-
-
-vim +440 arch/arm64/mm/mmu.c
-
-   425	
-   426	static phys_addr_t pgd_pgtable_alloc(int shift)
-   427	{
-   428		phys_addr_t pa = __pgd_pgtable_alloc(shift);
-   429		struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
-   430	
-   431		/*
-   432		 * Call proper page table ctor in case later we need to
-   433		 * call core mm functions like apply_to_page_range() on
-   434		 * this pre-allocated page table.
-   435		 *
-   436		 * We don't select ARCH_ENABLE_SPLIT_PMD_PTLOCK if pmd is
-   437		 * folded, and if so ptdesc_pte_dtor() becomes nop.
-   438		 */
-   439		if (shift == PAGE_SHIFT)
- > 440			BUG_ON(!ptdesc_pte_dtor(ptdesc));
-   441		else if (shift == PMD_SHIFT)
-   442			BUG_ON(!ptdesc_pte_dtor(ptdesc));
-   443	
-   444		return pa;
-   445	}
-   446	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+Palmer Dabbelt <palmer@rivosinc.com>
+
 
 _______________________________________________
 linux-riscv mailing list
