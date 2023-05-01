@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE26FC77B61
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 May 2023 15:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B774BC77B61
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 May 2023 16:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cruib1vWm+NRwNANfCOpvQP0PQTju7X/uIjuYISbvKc=; b=RONP1+LSd3kUxnOneE9SMVCBHt
-	mHUxLCrt1jmp8cxbfWIyAs6hR8WFYvm2EBFV/YLgyesRdL6G3DWizw3eGVn5HOfTPj/1zw6tfmwJ+
-	Qa4olIDPbmF1uC2G3bMOS9yniq+DeUCc1XzErfOdoybphemDwohKjvxeTnFdxaptJxt5STYY60KfE
-	pVtLysabYg/WQdSjVEYyd0Ydg3Z7BJuifHVMpXmUF+k1ogRlgaDY9JlQHgyfCxT4jaIAXRa2Mwx/A
-	qg/IjnLtOhOl6hyhCSFzh2o1BLAqpTeXzvhHPaGNHpRGYqLHZtH8+hoQF+Ukk0bAZ9MZhrKkzwR1N
-	h1BFz5Tw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xUy7MJ5N7WNYcDdEfxRXLeVQMILcZUwXQcCEbBLNErw=; b=N2BYi7HmSk86j1
+	ySLcIO98yr1vLXmFRxn0ZRIqCFQUepx3y6odklHI7c/RfBPy9zIe0p0SaMjOHqOwX1FhBpLE58Npp
+	pJGibpbZlHmVl7Ke4JutNK8n2OM9U5cyzg9Xp41XbgfKPvNUvighn3a/7h35Y1ytVUwJa+gAFrUqE
+	7sEa8du05CHIHJpfH51Ah1iMpYIqcobB/vc6itvcaLsPqfXjJX1IBlO6PVo3o3Bbx1NuBd51gNoa+
+	wC/Rqs4EFWudOF3ljRSUTywpUi8NrgUJusn5pq0qqVGgyWlRhW2f1xnjrmj1Wtzr/6lY1cG9eyADd
+	+9G+Jfl3a5xunaR/ZC/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptVae-00GF4w-1v;
-	Mon, 01 May 2023 15:37:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ptWCV-00GIL9-1T;
+	Mon, 01 May 2023 16:16:31 +0000
+Received: from out203-205-221-239.mail.qq.com ([203.205.221.239])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptVab-00GF3j-0P
+	id 1ptWCQ-00GIKC-05
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 May 2023 15:37:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C76C260B01;
-	Mon,  1 May 2023 15:37:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D76C433EF;
-	Mon,  1 May 2023 15:37:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682955437;
-	bh=KHtzVvhao5lIdEbOTmMfnch0KO5Rs+DtKi0nE8rYGeQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=miwn0zUCFWgK5LmXTT10zLCI7/puvbBYADKXmbWJpJATU/wlQVpFAq2JWE/qFu6qD
-	 ocmZFNS1bbxkPv8cerrUBXkefJQ3MMUkogpaxI+NJeAEsVQkuTGjUsh4j1yzSLvrRv
-	 /ODZdGIr40qqZMAIOT4EbRuvF6VgdNeQgnQw5S1foFyRaTwODuF2SiPX8YjmsoPnLk
-	 tMVxN/BOUhBglPj0xwu+/myrs8eSGIYQ24JBB+UpIJLTCbSwSUj/gwkVmhbnDY+Dc7
-	 wwreeWlc5F0SNIQEvoP/JDFlm5RLytQP9M7/kMk2Ow2Oe4GylT19MaRYEtkSw71Tfo
-	 vyToH4ZDDMxxg==
-Date: Mon, 1 May 2023 16:37:13 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
+	Mon, 01 May 2023 16:16:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1682957470; bh=1i4fXVrCHwEHcOBQq4Knw1AJdDT/VSryujsH07IAoqQ=;
+	h=From:To:Cc:Subject:Date;
+	b=UKWQ+b24CF1iBZ3hJK3myiF0teCi6Jguw8dv3SscxNb1iFZOCJ9/rwZWV3MGL02bl
+	 fu0yKdL/jr6cDEThMX3f4KjNKx8QepT3R2yw5+JUr+7IxT0YFiuaXYAjW02MYcSnLg
+	 oGQem488C5exnnz9u6lzgr0Om/yMVjGFW51RcV50=
+Received: from cyy-pc.lan ([2001:da8:c800:d084:c65a:644a:13d7:e72c])
+	by newxmesmtplogicsvrsza10-0.qq.com (NewEsmtp) with SMTP
+	id 2C5BE6A6; Tue, 02 May 2023 00:11:05 +0800
+X-QQ-mid: xmsmtpt1682957465tbh88bn4e
+Message-ID: <tencent_E6911C8D71F5624E432A1AFDF86804C3B509@qq.com>
+X-QQ-XMAILINFO: MB5+LsFw85NoN+Knf0Ay9A4a08OjqZU83GADjlLKdSN2QEjLhjRhG9wBVAS++z
+	 C+5NxI/l8K4j+Gz5TyWv5BkO6CB0IZa4OJD5mwLzE3CxzDGWkb9ZYorgLjeoP7eM3f7B3BN2sk1H
+	 UMLr5AdjEZ/T4ao4ChX4o8MN7JPo6NIVgHr1d8u9HaSLc64yfYZzCb5dwvn9O1itdWiMbH/s36Pe
+	 6NKME10is6Z4mpZuAL+w8zmB26HlIS4p9+OBMHmY6FeA84B7v6Ez7TUi/XUYBjfioHcvJOYkO671
+	 uJPoE8QNzqPHJA+SG+6PdX4T8fpQlK8dMNifJASiL9Is0ZK3mo6OoR2vxoMWz8Tt1Cx8FfKx5Fff
+	 764EMdkhh5inrFGm/+zg7UpjADs+DAFxVV5U1IHrX9eDg8SumBMvj+q28xnnWUNDFwUHzymUb2sI
+	 bbNBawlLhh3ZkPbYbWr//rWZT4pjr0ohQzQUDhHt93xELgEY7S9kkx1G57USJQLGWHxcapR2Z5Yv
+	 rcBMJta5gbc07yYQ+2WRJUITbCjxtDz1FgyAK+EfvgpBYpSSOSZ/D9rdQT3MmKOeVH/Qpbk608zQ
+	 aYXHIrzqckeSCniOUhEOMLOJ3+9Bb816DoJQpgt0M/pO49CAxopXmoTNElss3INWSS1earQIF2qM
+	 G03ddTFSL/0RTZ7AGsygnrfj3aWJ4nCfg+7i/i2spyUq016gQysCWfSbsX12d6Ly6W6Yi49XyQEq
+	 BiGe2NWqv24foTI5T/NFQBYZQBl4uuRBSI0VedpO+7DAg73APEnqCXhmQu4fGp3fIQkfWEq1aK0K
+	 5FCMelPOb2GSIpaFbl/Ibcloic6AGZJ21QNGKgVVqWow719bDHd/7qveSmbFvqFvVwg/wMsExu8X
+	 54Xnp63uQ4lbsQfrgiKgPhb9ZwMXDpP1KA2hYCkQ+zFkkdG/+EHrzVhKcqPJQSMLQV6+AEE9Do/U
+	 W7Q52QzxAdTJYIPQ5on3+sBSwl1Z9lcEtW7WuCZFdpbkuLrTvQdymsFQH0p3KA
+From: Yangyu Chen <cyy@cyyself.name>
+To: Conor Dooley <conor@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] RISC-V: fix sifive and thead section mismatches in
- errata
-Message-ID: <20230501-slate-headlamp-453304e8864d@spud>
-References: <20230429155247.12131-1-rdunlap@infradead.org>
- <CALs-HsuG3EFBs60sgiMcPHoE1dF7mhi3GKt=AWvRPaUHAfA88Q@mail.gmail.com>
- <20230429-outboard-hypocrite-983e977103d2@spud>
- <CALs-HstrR3Cm3jQKt6dmfYiRRVkAVibAZDtFo0wmXz4LEvRf_A@mail.gmail.com>
- <37e6b325-44e4-8e65-68e3-eab2943018ac@infradead.org>
- <CALs-Hss3b86zAqohK9NYEkzn+pnLeMB37qaj1EA6f6bRkFWwCg@mail.gmail.com>
- <20230429-dandy-gush-6f5da93055bc@spud>
- <CALs-HsuP1moOdZQG_Ur3J3cQ1J+j9Zr-tiSgAkvmCsOXaca9ag@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Wende Tan <twd2.me@gmail.com>,
+	Soha Jin <soha@lohu.info>,
+	Hongren Zheng <i@zenithal.me>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v3 0/2] riscv: allow case-insensitive ISA string parsing
+Date: Tue,  2 May 2023 00:10:19 +0800
+X-OQ-MSGID: <20230501161019.150419-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-In-Reply-To: <CALs-HsuP1moOdZQG_Ur3J3cQ1J+j9Zr-tiSgAkvmCsOXaca9ag@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_083721_204281_05C42331 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20230501_091626_387657_E7F08E9D 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +85,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8495759614227373551=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patchset allows case-insensitive ISA string parsing, which is
+needed in the ACPI environment. As the RISC-V Hart Capabilities Table
+(RHCT) description in UEFI Forum ECR[1] shows the format of the ISA
+string is defined in the RISC-V unprivileged specification[2]. However,
+the RISC-V unprivileged specification defines the ISA naming strings are
+case-insensitive while the current ISA string parser in the kernel only
+accepts lowercase letters. In this case, the kernel should allow
+case-insensitive ISA string parsing. Moreover, this reason has been
+discussed in Conor's patch[3]. And I have also checked the current ISA
+string parsing in the recent ACPI support patch[4] will also call
+`riscv_fill_hwcap` function as DT we use now.
 
---===============8495759614227373551==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="QxAgSuPjgLnnYY2e"
-Content-Disposition: inline
+The original motivation for my patch v1[5] is that some SoC generators
+will provide generated DT with illegal ISA string in dt-binding such as
+rocket-chip, which will even cause kernel panic in some cases as I
+mentioned in v1[5]. Now, the rocket-chip has been fixed in PR #3333[6].
+However, when using some specific version of rocket-chip with
+illegal ISA string in DT, this patchset will also work for parsing
+uppercase letters correctly in DT, thus will have better compatibility.
 
+In summary, this patch not only works for case-insensitive ISA string
+parsing to meet the requirements in ECR[1] but also can be a workaround
+for some specific versions of rocket-chip.
 
---QxAgSuPjgLnnYY2e
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1] https://drive.google.com/file/d/1nP3nFiH4jkPMp6COOxP6123DCZKR-tia/view
+[2] https://github.com/riscv/riscv-isa-manual/blob/main/src/naming.adoc
+[3] https://lore.kernel.org/all/20230426-getting-tactile-e6cee2cdf870@spud/
+[4] https://lore.kernel.org/linux-riscv/20230404182037.863533-14-sunilvl@ventanamicro.com/
+[5] https://lore.kernel.org/all/tencent_1647475C9618C390BEC601BE2CC1206D0C07@qq.com/
+[6] https://github.com/chipsalliance/rocket-chip/pull/3333
 
-On Mon, May 01, 2023 at 08:26:19AM -0700, Evan Green wrote:
-> On Sat, Apr 29, 2023 at 12:11=E2=80=AFPM Conor Dooley <conor@kernel.org> =
-wrote:
+Changes since v2:
+* Fixed misaligned '\' in `riscv_fill_hwcap`
+* Move case 'S' after 's' to make the workaround only works for QEMU 
+    in `riscv_fill_hwcap`
 
-> > Ohh man, that's a pretty bad config to try use (if that's your default)
-> > for build testing stuff. The k210_mmu defconfig doesn't enable anything
-> > other than SOC_CANAAN.
-> > I could reproduce Randy's issue on defconfig w/ CONFIG_MODULES disabled.
->=20
-> That's the one that caught me before, so I remembered it as being
-> "different". I'll try what you describe above next time I'm hunting
-> for section mismatches.
+Changes since v1:
+* Remove convert all isa string to lowercase letters in `print_isa`
+* Remove warp parser pointer dereference with tolower in switch, use
+    uppercase letter case instead in `riscv_fill_hwcap`
+* Remove allow uppercase letters in dt-bindings
+* Add Conor Dooley's patch which drops invalid comment about riscv,isa
+    lower-case reasoning
 
-By nature of being nommu with lots of stuff disabled, it is a good niche
-config to test - the nommu stuff mostly gets forgotten about..
-On the other hand, it does skip the errata handling stuff which is what
-caught us out here.
+Conor Dooley (1):
+  dt-bindings: riscv: drop invalid comment about riscv,isa lower-case
+    reasoning
 
-Cheers,
-Conor.
+Yangyu Chen (1):
+  riscv: allow case-insensitive ISA string parsing
 
---QxAgSuPjgLnnYY2e
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../devicetree/bindings/riscv/cpus.yaml       |  2 +-
+ arch/riscv/kernel/cpu.c                       |  3 +-
+ arch/riscv/kernel/cpufeature.c                | 35 +++++++++----------
+ 3 files changed, 20 insertions(+), 20 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.40.1
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZE/cqAAKCRB4tDGHoIJi
-0gf8AQCJyVILPz8wxSdIrC7f2r/NhPPXJy2BPIJHHNte8eGICQD/Qw61dfip/QUD
-cSQ4ka2QSjgqad2+EwxS9Gp292pZtA4=
-=G+d+
------END PGP SIGNATURE-----
-
---QxAgSuPjgLnnYY2e--
-
-
---===============8495759614227373551==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8495759614227373551==--
-
