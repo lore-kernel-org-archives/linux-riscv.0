@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34C9C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 03:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9F7C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 03:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=1A6yDh9rLH6G+h4s4kJHzkFA1vTiQo+kKL2KH4KgVMU=; b=oVsDNBW5Ugdsphg5YkqCLcXGrw
-	w3ubrpSp5izO1YgLrj8b6yXABdCzx90RF+FKMUCrY+tjdLzFQn3McgdNvfSzUOU+g2CRIY2Kgnbu6
-	EYrTn6xX6H8hIjLdk9fmx1FlygaYj8hFSVjmm3WRpKMPXEWyLStg7q5+7zgs0wlBzZKLMXkepRB8f
-	eqdBNq+ICajXF9tvonDAOZ8UkFdmlz7KybsNwsqQW57kQRpK7H9tvT6sJrIFWZgzHFkjDel1+3Xl0
-	cGHiKqzrQ8oz8vKd3O+7LOt34+JgSgSysfG3UgKTTV7WD1cRJXSxw+QKCeF02PfxwaLoAFyPFUf33
-	MEnkO3XA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iBp0gDF3o+gL0+OpraFmwMHWW5Nz1pkXoQ86LOysIcs=; b=0CeyElPKTrg6gs
+	QRJ4Z4z57ibWNMLCu09wyEKHS6vg92alWwXd9FkN4rv0vYh2e0Xg5pxRXdB4Yc0m0MYibOZvs7fgj
+	pEHUp0IL+38pI9IFHeohOf7m9yJ4oiPWw1eLLb1Lc5fixUZt/bP2HkNmA7Zv+L9XlcoAZPS9my1ER
+	714eUnbN3mF6dhVQOe27HPMJDqnIu0KlI6/L4I2hEayQ2zo+pz8czUXgMn330rl+Cj5loXJvOirCd
+	KZ809F3CKpi7F664vChOVa9TKr0ezs9oqNoNYpMZMpY8ynjek5neHQ8ScrDrApB25JJWe4CEytmYT
+	tUKikpp1YHzZTGmYl+rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptgU9-00HXxG-1j;
-	Tue, 02 May 2023 03:15:25 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1ptgU8-00HXx9-2k;
+	Tue, 02 May 2023 03:15:24 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptdN8-00HEVT-2X
+	id 1ptc3B-00H60S-1w
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 May 2023 23:56:00 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-63b60365f53so3703399b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 16:55:55 -0700 (PDT)
+	Mon, 01 May 2023 22:31:20 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1aad55244b7so20903945ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 15:31:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682985354; x=1685577354;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QuwyJlMhOzHc7pD19rcBJm7YGGdkgt4st5TSnBpxtCA=;
-        b=u7Fbet5GsM/a+tKDG1jIQjylhg8yDIGsEfB3R3METzXxmxTlMfZIrKJcjG1Eg5BKJj
-         MlFOPCIdB1Kzok6k4VO3kofHLnjOICQw4gU2tuQOBg05zhDbFsggy6hJcjAmZMRGAXf0
-         rUtZb8K8J1C2NtGocYCnTuPL/7q8UuOvuWeleHqtXMOc3hyp4VTgoMKde+PprRxEq3U9
-         3NCfHp5mczh1hPm51YYXtT/w0nBzMFK+Xv4D4Xzjfds97FS7WzOT/O5styDeQpozCahx
-         aw/N9G2On9yOd5m0BdC1sLbhcBfoO3yIW/1WaAekonzfxEBWX3WbGIXs9NTSCve1lAj1
-         n8sA==
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1682980274; x=1685572274;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WXm/tgLzEaGj3Rix4J06OEcQf8M6HZHHr5wrveDhLac=;
+        b=uNXCtmG/W7IV7s7yocLEoqJ5vT3qk98iE/mn+Dk93JGanuKtaW0aod4T8YX31U4wNq
+         +Myrxt7knt7un883vWifP6rREGDFsgvqpffOIjB/AOEVOPmy5Zo13mNnjVAb9PyQATnU
+         nzrHAgLUZbzvqP+IdBy01oX9POttMlVo29Y27VpAosE8THHu/zh0OXJSPHHcjkBh68wV
+         T0i8P5TIj9lp3DUW4aOVVXU0IrAh6fL4/u8QHej/jS4MOkpDNlRnIv4Xglc8pnFNt78e
+         WNgJMtI7hFoLN7lYwSVGquexypVwcC09VWVwRL38ZV+zuQNsGzBRDoDyZX6MjR3alnwy
+         aYtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682985354; x=1685577354;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QuwyJlMhOzHc7pD19rcBJm7YGGdkgt4st5TSnBpxtCA=;
-        b=dYOi2v5AEWn9W7tfgW0V14W2L8aAp7nqgvOBfrL6YZEBVOICU7ltK60ud24k9qJmb7
-         yqZeog1Vwuxp/0sw3/zlS06ccoGsxZv5v6fijKjepj+HeY0hrq5J3BHnsqolGhhKwk4y
-         GIoMAiQS0QkdbLEpv5MN5zlXM1lefUWHQd8wsBvKtI5pg1Zkao7bDxs1zBpEyqnm2hQv
-         3K1MSId3awd72t8eRdoOF4P9C7R3okfZr8dAghChqNrUJa+1c3JHDADN9a0XCTIWx5nY
-         IK2lEk1B3RQLhR5eMwfWH5/zvrK1zym5cvDoNbNAw1syQ7fH92Y4bZ6wVifsxxeK7rIa
-         ZVig==
-X-Gm-Message-State: AC+VfDwoEbx9esb+LHYpeMIwBNdKTS8VUziGSA5B+c7uP+hM4ocbaY2g
-	YKiPx7ILwx1rqcazThXNdZu4Yw==
-X-Google-Smtp-Source: ACHHUZ4SgBzSoTxFJ9j/mzMx+FBKsdjE/IfAfq6NZWT2hwrYFJsUY4cczelg66bWFkmYBXKaJT4LqQ==
-X-Received: by 2002:a05:6a20:6f03:b0:f8:b39b:b24e with SMTP id gt3-20020a056a206f0300b000f8b39bb24emr16225285pzb.11.1682985354255;
-        Mon, 01 May 2023 16:55:54 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id t2-20020a628102000000b0063b1e7ffc5fsm20413877pfd.39.2023.05.01.16.55.53
+        d=1e100.net; s=20221208; t=1682980274; x=1685572274;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WXm/tgLzEaGj3Rix4J06OEcQf8M6HZHHr5wrveDhLac=;
+        b=H1T/YjwXWpGXYBeEO76bZBYVXAgmeV9YvJYnUB48oZb/eWfMt6Fdw+FJovSoJ3X0mW
+         9UZV6HZ573QgecGibbLd2N7MnqzIatdBsvOhBuEghcxMc1BaosKhi0u8nilsJm+CmGTT
+         zMmc94XZNDTVSOe3CaLa9dUmNNSdU8wp2iOmoTSQxekOO6pXrOof/mSX/mkBFCpIh9cM
+         rTtKz+tSJ9+/7VEriDKngUU1aaGc350bbadMKq8k1JGgY+hWQ5npv2FbyLKP/zOCcwqc
+         BLX6pwrLdqBSj+I4gxFmVCPPMZmeKs0ASV5h5PSPl+dJ8HukAjkMA8NYcRGi5I5WxIZJ
+         blzg==
+X-Gm-Message-State: AC+VfDxR61QOJDRCnfVbNobNSygwz0Qy/DRjvtHBFJVijrDxuv9wOnUs
+	CC5/tB0i9QBN8nzoIJSM5zBpcQ==
+X-Google-Smtp-Source: ACHHUZ6GKYuz2C56X0924d80f0Z5C9wNPfa99LOemIVyrLAlyLrwed+fO0GCuZjxamVBvL7g4ws92w==
+X-Received: by 2002:a17:902:7085:b0:19c:f476:4793 with SMTP id z5-20020a170902708500b0019cf4764793mr14157336plk.51.1682980274025;
+        Mon, 01 May 2023 15:31:14 -0700 (PDT)
+Received: from x1.hsd1.or.comcast.net ([2601:1c2:1800:f680:fbcf:c418:4edd:c5dd])
+        by smtp.gmail.com with ESMTPSA id y2-20020a17090322c200b001aad714400asm4563977plg.229.2023.05.01.15.31.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 May 2023 16:55:53 -0700 (PDT)
-Date: Mon, 01 May 2023 16:55:53 -0700 (PDT)
-X-Google-Original-Date: Mon, 01 May 2023 16:55:31 PDT (-0700)
-Subject: Re: [patch 26/37] riscv: Switch to hotplug core state synchronization
-In-Reply-To: <20230414232310.817955867@linutronix.de>
-CC: linux-kernel@vger.kernel.org, x86@kernel.org, dwmw@infradead.org,
-  andrew.cooper3@citrix.com, brgerst@gmail.com, arjan@linux.intel.com, pbonzini@redhat.com,
-  paulmck@kernel.org, thomas.lendacky@amd.com, seanjc@google.com, oleksandr@natalenko.name,
-  pmenzel@molgen.mpg.de, gpiccoli@igalia.com, lucjan.lucjanov@gmail.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, dwmw@amazon.co.uk, usama.arif@bytedance.com,
-  jgross@suse.com, boris.ostrovsky@oracle.com, xen-devel@lists.xenproject.org,
-  linux@armlinux.org.uk, Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
-  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, guoren@kernel.org, linux-csky@vger.kernel.org,
-  tsbogend@alpha.franken.de, linux-mips@vger.kernel.org, James.Bottomley@HansenPartnership.com,
-  deller@gmx.de, linux-parisc@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
-  sabrapan@amazon.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: tglx@linutronix.de
-Message-ID: <mhng-fd944caa-93db-40e0-8ea8-bc52772a261a@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Mon, 01 May 2023 15:31:13 -0700 (PDT)
+From: Drew Fustini <dfustini@baylibre.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	Li Zhengyu <lizhengyu3@huawei.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liao Chang <liaochang1@huawei.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Drew Fustini <dfustini@baylibre.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	kernel test robot <lkp@intel.com>,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH] riscv: compat_syscall_table: Fixup compile warning
+Date: Mon,  1 May 2023 15:33:54 -0700
+Message-Id: <20230501223353.2833899-1-dfustini@baylibre.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_165559_089795_59718D7A 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20230501_153117_882112_00039202 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,92 +99,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Apr 2023 16:44:55 PDT (-0700), tglx@linutronix.de wrote:
-> Switch to the CPU hotplug core state tracking and synchronization
-> mechanim. No functional change intended.
->
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: linux-riscv@lists.infradead.org
-> ---
->  arch/riscv/Kconfig              |    1 +
->  arch/riscv/include/asm/smp.h    |    2 +-
->  arch/riscv/kernel/cpu-hotplug.c |   14 +++++++-------
->  3 files changed, 9 insertions(+), 8 deletions(-)
->
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -116,6 +116,7 @@ config RISCV
->  	select HAVE_RSEQ
->  	select HAVE_STACKPROTECTOR
->  	select HAVE_SYSCALL_TRACEPOINTS
-> +	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
->  	select IRQ_DOMAIN
->  	select IRQ_FORCED_THREADING
->  	select MODULES_USE_ELF_RELA if MODULES
-> --- a/arch/riscv/include/asm/smp.h
-> +++ b/arch/riscv/include/asm/smp.h
-> @@ -64,7 +64,7 @@ asmlinkage void smp_callin(void);
->
->  #if defined CONFIG_HOTPLUG_CPU
->  int __cpu_disable(void);
-> -void __cpu_die(unsigned int cpu);
-> +static inline void __cpu_die(unsigned int cpu) { }
->  #endif /* CONFIG_HOTPLUG_CPU */
->
->  #else
-> --- a/arch/riscv/kernel/cpu-hotplug.c
-> +++ b/arch/riscv/kernel/cpu-hotplug.c
-> @@ -8,6 +8,7 @@
->  #include <linux/sched.h>
->  #include <linux/err.h>
->  #include <linux/irq.h>
-> +#include <linux/cpuhotplug.h>
->  #include <linux/cpu.h>
->  #include <linux/sched/hotplug.h>
->  #include <asm/irq.h>
-> @@ -48,17 +49,15 @@ int __cpu_disable(void)
->  	return ret;
->  }
->
-> +#ifdef CONFIG_HOTPLUG_CPU
->  /*
-> - * Called on the thread which is asking for a CPU to be shutdown.
-> + * Called on the thread which is asking for a CPU to be shutdown, if the
-> + * CPU reported dead to the hotplug core.
->   */
-> -void __cpu_die(unsigned int cpu)
-> +void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
->  {
->  	int ret = 0;
->
-> -	if (!cpu_wait_death(cpu, 5)) {
-> -		pr_err("CPU %u: didn't die\n", cpu);
-> -		return;
-> -	}
->  	pr_notice("CPU%u: off\n", cpu);
->
->  	/* Verify from the firmware if the cpu is really stopped*/
-> @@ -75,9 +74,10 @@ void arch_cpu_idle_dead(void)
->  {
->  	idle_task_exit();
->
-> -	(void)cpu_report_death();
-> +	cpuhp_ap_report_dead();
->
->  	cpu_ops[smp_processor_id()]->cpu_stop();
->  	/* It should never reach here */
->  	BUG();
->  }
-> +#endif
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+../arch/riscv/kernel/compat_syscall_table.c:12:41: warning: initialized
+field overwritten [-Woverride-init]
+   12 | #define __SYSCALL(nr, call)      [nr] = (call),
+      |                                         ^
+../include/uapi/asm-generic/unistd.h:567:1: note: in expansion of macro
+'__SYSCALL'
+  567 | __SYSCALL(__NR_semget, sys_semget)
+
+Fixes: 59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Tested-by: Jisheng Zhang <jszhang@kernel.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+This fix was in the v9 of "riscv: Add GENERIC_ENTRY support and related
+features" [1] but was dropped in v10 [2] with the prospect that it would
+be submitted separately. That seems to have not happened so I am
+submitting it now. I want to silence the riscv warnings when using W=1.
+With this patch applied to riscv/for-next, I no longer see any warnings
+for riscv.
+
+[1] https://lore.kernel.org/linux-riscv/20221130034059.826599-4-guoren@kernel.org/
+[2] https://lore.kernel.org/lkml/20230222033021.983168-1-guoren@kernel.org/
+
+ arch/riscv/kernel/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 0fee73a20c87..c2ff6440767c 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -9,6 +9,7 @@ CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
+ endif
+ CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
++CFLAGS_compat_syscall_table.o += $(call cc-option,-Wno-override-init,)
+ 
+ ifdef CONFIG_KEXEC
+ AFLAGS_kexec_relocate.o := -mcmodel=medany $(call cc-option,-mno-relax)
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
