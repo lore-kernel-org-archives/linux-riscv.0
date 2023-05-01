@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C26C77B7C
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 May 2023 17:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86103C7EE26
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 May 2023 19:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmiRHEbmN4bqtsZdfRdHnEyKCAvIipClraVVg092IYY=; b=TxlDCruHvstL+3SHHYmkt1a2A7
-	yk/6XYHwqSjj0alLmBChqViCByWuCxxGV87sRVspD2UcY21lzsGYp+saCn/M0VMbhbHsjXeljhT3k
-	rSe6lTcxQsxUs5myXFWKeocHfZGqxqbSsiJSu9p/Xo2pbEoocAFCo6W0lH4qj5Lt3hpP7GA1mCP/8
-	pMZRM//Y/sycJIdVxOBx40xWEJr2+cEaPEMzbNOwKwrM41Qsdi47el891jxNWGcIUff1PcKdDix8h
-	/n0PKrshhjsvxtm+DaQZqiJkXzvzeBEm7upcAFrRm0INnXJSIk8Vf78hUBXjQmC07ePvq3YcOqmF3
-	uuPVyBFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PeoiCRKXdLKelBb6f0ui8W0MkQjJTXDcYPfe532+1Mw=; b=H1M1XJtTicVq3z
+	gJiakE39ziYoKbnZD//tjrgKEohh29/VVbjB8AjrtZdXrN6LwdsYyeaaDPPoid09KNVl2399eye4X
+	CLnJ4D/Iz2r1wqrs3nuEzFvnme2NYTTEWOYG5B+PPqENTFAMLzUxY1ZgtcBLSp2JYp1Aq4Wk2XVdX
+	U4o2sXEL64PG6JY5D5ZBMIKRL4g8PcDwTRnDLCanIhIuGJfGOWrsTBlM10QapaDcuUQRS0cEIZH3B
+	n4atx+uuCE+Io1vqbTxslyS9bXBs2qYLoNOiJxflegwpqBJnQ3+wXiMVhHZrx79j0jL0W0lAF4aaf
+	vHAGYmDy8fcaDcss5EXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptXWQ-00GQH3-1D;
-	Mon, 01 May 2023 17:41:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ptZCR-00Gh33-2t;
+	Mon, 01 May 2023 19:28:39 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptXWN-00GQFS-0w;
-	Mon, 01 May 2023 17:41:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F01F561E6C;
-	Mon,  1 May 2023 17:41:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33E2EC433D2;
-	Mon,  1 May 2023 17:40:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1682962864;
-	bh=81z/8+VNCOs2KfOTGMvYGJr78DCfPa8M7ZOzDNUfnCY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ghv0PKPSEF/qiYfWNIgVqzcxiV94CKnm+WiWCSyBxEUEJUm8nsJSuKOqtmJA871/J
-	 ajyg3xFZJvtCjWeS5XL4b4A6p8W8Eh4h5g7M6hUgv55S5cuvquU2/FPaVa5zMKrCwl
-	 p80tb777MSmmUOy4bAcn4YGjMwqaK97HS/0AXg1GmQZpUeeLgggQKhUGaoUJaJStfa
-	 60Dn1OZ5gbzQA/kDtxoEWTYgtega7R78ZTGPMTGp8mczgGW/rre5vijVDFKcWvkkOr
-	 osLrwqrSAODauKYj4W7bSX2Zm4Wj/8RL9xM/EboyvOZepXnzmaugABHmtdX2GOg6Wj
-	 4b93L3bPQNt+Q==
-Date: Mon, 1 May 2023 18:40:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Ricardo Ribalda <ribalda@chromium.org>
-Cc: Eric Biederman <ebiederm@xmission.com>,
-	Philipp Rudo <prudo@linux.vnet.ibm.com>,
-	Dave Young <dyoung@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Baoquan He <bhe@redhat.com>,
-	Philipp Rudo <prudo@redhat.com>, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Ross Zwisler <zwisler@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Simon Horman <horms@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>, llvm@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v6 4/4] risc/purgatory: Add linker script
-Message-ID: <20230501-cottage-overjoyed-1aeb9d72d309@spud>
-References: <20230321-kexec_clang16-v6-0-a2255e81ab45@chromium.org>
- <20230321-kexec_clang16-v6-4-a2255e81ab45@chromium.org>
+	id 1ptZCO-00Gh0p-2K;
+	Mon, 01 May 2023 19:28:37 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-63b4a64c72bso2020254b3a.0;
+        Mon, 01 May 2023 12:28:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1682969316; x=1685561316;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9i6mX6BOTgb2TGO86QCloW3rCrq78sBOKu0dxXwRHVs=;
+        b=pYnEspIgQ/94L4B7QgE7HxUaLyMe6HQnu5gVv7XKe7wrHmtTwaLadWDte57s2SBwdQ
+         8bePLJ5Ai3/AmYhH4RiAfK8IjGb+8BxlohLn4+W6ycJ9Pg3WMvHLkkZOviW7YYTD/mmK
+         GtZnk734H4mZvUq9Iut38ZejJnfrw2oYgWeCZ6PRbVlgoGyBpRA67FKhICj+7yH7j8HF
+         a3LIP2IDGGOTftrbrsZRq8EQiQ5R1WymqweCw9yu0t92fclq88jf6kqwtf3FextynpJY
+         IncHO/7Qw6ErlKR7f7HeTzuXXgCmLczBJBgXHLIbesev1rm2mkGmxXqiRqgTqpx3oce1
+         ZBnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682969316; x=1685561316;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9i6mX6BOTgb2TGO86QCloW3rCrq78sBOKu0dxXwRHVs=;
+        b=kAiEqZqTmN2j4vmfXrp8RBaSnXDyK8zZfRzDfNcK/Re/vsceSVmfzVB9jSVfkuo0la
+         8MlVIDbbkjH7CINJQt8AGq6aMdmU9JXGKVAYlWQyhGbm4fbnB1C7jIeGyATjPciJ9SXb
+         cCVOrIDhF4CYo5Ar/eCr4bIpNBa4AT83TmE5jQwHmbIU3+X/AXBfskStXPntFIBl4smg
+         u8BWtf1e/kYHapHNx5lj2Zz3GxAGrESlMroy4ePuIn1N7lD0DeoPoXibJKrEyQ4lO4Sw
+         1gAc8Ju6XIaIBECs5E6j9rAibBXHErXDeCchTe6ABfmjrsa1gbUgDrfHmvx3nzCReghs
+         DsvA==
+X-Gm-Message-State: AC+VfDzKxlbiV86NeDY/T56abNNyj5fFSw50Y8zsrGm4cvwcVL2oCLuE
+	PZQIKzYZ+n1krw79un8sOsk=
+X-Google-Smtp-Source: ACHHUZ4H6i4St7ld1wD0WuHlGapRQhff/8tSAzzBd7XutE+/MiRiNA1zmkp/wHjGquMcgELZnMsxdQ==
+X-Received: by 2002:a17:903:1c3:b0:1a9:80a0:47dc with SMTP id e3-20020a17090301c300b001a980a047dcmr15039374plh.3.1682969315645;
+        Mon, 01 May 2023 12:28:35 -0700 (PDT)
+Received: from fedora.hsd1.ca.comcast.net ([2601:644:937f:7f20::9a2c])
+        by smtp.googlemail.com with ESMTPSA id u8-20020a170902bf4800b0019c13d032d8sm18175622pls.253.2023.05.01.12.28.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 May 2023 12:28:35 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: linux-mm@kvack.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org,
+	kvm@vger.kernel.org,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Subject: [PATCH v2 01/34] mm: Add PAGE_TYPE_OP folio functions
+Date: Mon,  1 May 2023 12:27:56 -0700
+Message-Id: <20230501192829.17086-2-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230501192829.17086-1-vishal.moola@gmail.com>
+References: <20230501192829.17086-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230321-kexec_clang16-v6-4-a2255e81ab45@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_104107_421076_FD5E47B1 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20230501_122836_764202_B26E5909 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +103,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8249546636943635008=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+No folio equivalents for page type operations have been defined, so
+define them for later folio conversions.
 
---===============8249546636943635008==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fl35W8zTCu+OA5lB"
-Content-Disposition: inline
+Also changes the Page##uname macros to take in const struct page* since
+we only read the memory here.
 
+Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+---
+ include/linux/page-flags.h | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
---fl35W8zTCu+OA5lB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index 1c68d67b832f..607b495d1b57 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -902,6 +902,8 @@ static inline bool is_page_hwpoison(struct page *page)
+ 
+ #define PageType(page, flag)						\
+ 	((page->page_type & (PAGE_TYPE_BASE | flag)) == PAGE_TYPE_BASE)
++#define folio_test_type(folio, flag)					\
++	((folio->page.page_type & (PAGE_TYPE_BASE | flag)) == PAGE_TYPE_BASE)
+ 
+ static inline int page_type_has_type(unsigned int page_type)
+ {
+@@ -914,20 +916,34 @@ static inline int page_has_type(struct page *page)
+ }
+ 
+ #define PAGE_TYPE_OPS(uname, lname)					\
+-static __always_inline int Page##uname(struct page *page)		\
++static __always_inline int Page##uname(const struct page *page)		\
+ {									\
+ 	return PageType(page, PG_##lname);				\
+ }									\
++static __always_inline int folio_test_##lname(const struct folio *folio)\
++{									\
++	return folio_test_type(folio, PG_##lname);			\
++}									\
+ static __always_inline void __SetPage##uname(struct page *page)		\
+ {									\
+ 	VM_BUG_ON_PAGE(!PageType(page, 0), page);			\
+ 	page->page_type &= ~PG_##lname;					\
+ }									\
++static __always_inline void __folio_set_##lname(struct folio *folio)	\
++{									\
++	VM_BUG_ON_FOLIO(!folio_test_type(folio, 0), folio);		\
++	folio->page.page_type &= ~PG_##lname;				\
++}									\
+ static __always_inline void __ClearPage##uname(struct page *page)	\
+ {									\
+ 	VM_BUG_ON_PAGE(!Page##uname(page), page);			\
+ 	page->page_type |= PG_##lname;					\
+-}
++}									\
++static __always_inline void __folio_clear_##lname(struct folio *folio)	\
++{									\
++	VM_BUG_ON_FOLIO(!folio_test_##lname(folio), folio);		\
++	folio->page.page_type |= PG_##lname;				\
++}									\
+ 
+ /*
+  * PageBuddy() indicates that the page is free and in the buddy system
+-- 
+2.39.2
 
-Hey Ricardo,
-
-On Mon, May 01, 2023 at 02:38:22PM +0200, Ricardo Ribalda wrote:
-> If PGO is enabled, the purgatory ends up with multiple .text sections.
-> This is not supported by kexec and crashes the system.
->=20
-> Cc: stable@vger.kernel.org
-> Fixes: 930457057abe ("kernel/kexec_file.c: split up __kexec_load_puragory=
-")
-> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
-> ---
->  arch/riscv/purgatory/Makefile | 5 +++++
->  1 file changed, 5 insertions(+)
->=20
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index 5730797a6b40..cf3a44121a90 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -35,6 +35,11 @@ CFLAGS_sha256.o :=3D -D__DISABLE_EXPORTS
->  CFLAGS_string.o :=3D -D__DISABLE_EXPORTS
->  CFLAGS_ctype.o :=3D -D__DISABLE_EXPORTS
-> =20
-> +# When profile optimization is enabled, llvm emits two different overlap=
-ping
-> +# text sections, which is not supported by kexec. Remove profile optimiz=
-ation
-> +# flags.
-> +KBUILD_CFLAGS :=3D $(filter-out -fprofile-sample-use=3D% -fprofile-use=
-=3D%,$(KBUILD_CFLAGS))
-
-With the caveat of not being au fait with the workings of either PGO or
-of purgatory, how come you modify KBUILD_CFLAGS here rather than the
-purgatory specific PURGATORY_CFLAGS that are used later in the file?
-
-Cheers,
-Conor.
-
-> +
->  # When linking purgatory.ro with -r unresolved symbols are not checked,
->  # also link a purgatory.chk binary without -r to check for unresolved sy=
-mbols.
->  PURGATORY_LDFLAGS :=3D -e purgatory_start -z nodefaultlib
->=20
-> --=20
-> 2.40.1.495.gc816e09b53d-goog
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---fl35W8zTCu+OA5lB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZE/5qAAKCRB4tDGHoIJi
-0tO7AQDCFxxBDCm6m1lRjliaYENcoYHVqFHrLwGzbHGrXVn/VQD/aKUuG6nnmBC9
-4JdlDj98flb/kiL3Z25m/1+UmBAjSAk=
-=uz5+
------END PGP SIGNATURE-----
-
---fl35W8zTCu+OA5lB--
-
-
---===============8249546636943635008==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8249546636943635008==--
-
