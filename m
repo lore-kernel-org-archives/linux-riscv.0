@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDAEC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 04:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1A3C77B73
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 05:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VzWOStSmAngiMrupoW+/nRbqiw1d5zflTWVDOGpxdFI=; b=CeIV6RfAlcS3RO
-	fJB0CxdgL/DkqJDiHYDMpgtnfuTUn8UkgYcIM6N23RX5hAG0cL00aAiBHAYUdon+7fXmzENueRfer
-	Hje5vEcsneWC6ZOzneRt6IcJJQldDmVOixd/zj6laIgoLzZ65gOsAd4vFG7PPU31vB2cRPQ60AUyE
-	u7/VxZ+aluGApRvb2Up3ECnPsP0krXPBWXdsQ50FydNDTQB8Lm+Zzkw7Z0510eEgYXSQqv3HJBI/+
-	f31IOw+l9aWV73UlzkN1iCoKe18aKX8DEdX96Kl/10Z3tb7t8weakeWuwyz5zKlU0kJtval79vscm
-	7aB09majs+GHKsrnKG5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=+6uT16bv8yn848JJUKYN45EpdnpPHUbWgRJDjrFXokk=; b=vYTEvgAo8hJuLi+kyQLqejegf0
+	pTt1svsHsVl/w0d0IV8mteZxbC5L93ObuTqHUYA/1HKfPQyPe9w6X0sw1EIdAv09zN8kkZ3rCKoVQ
+	bbI75KaNqlam8HCv7FWbDh3kj+rQzHpDIh/aMrpcOOIvYtT6T4SMk7UD4YnfYXzsUQpQhUxAlJ8kI
+	U5MHVl8mUnXgPNH0SK2fgvnqF7plklZg9+HrxrvO3iNCdTmOCiuBEHYkdv+FyNbXXGiT+rLpo0YRz
+	Dl2b44kBtk5LEL1PCKA2kZRWhlufRbMRMomPpj5t4qkfJdJymOt0bLHTuV9RJxCRcCUN3kob84BTX
+	9zpTASzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pthoY-0006kt-0L;
-	Tue, 02 May 2023 04:40:34 +0000
+	id 1ptikr-000Dnw-2f;
+	Tue, 02 May 2023 05:40:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pthoV-0006kL-2V
+	id 1ptikq-000Dnj-0J
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 02 May 2023 04:40:31 +0000
+	Tue, 02 May 2023 05:40:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:From:Cc:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=X1WHrGanmnNt8uASWew+y3h1eCxRyqChW0U1S7kwZ5s=; b=lbgv6P+ayn3bN0MVI25tIsx+lC
-	1Q6Jx4fWIhbm7qz0SSgkc8hTbc4wBlAwS6vv0Y0gUrx0UpAzpAW/sG9iFHRYdFqfEkusXP7OVRTAF
-	SxnQ4F7g7oNnz2v4DUF12LOLuabSPs+IkUwvazAkW9eqmwXsAtyHx7fsWvMdWB3FZM9Oq6ZdVv3E+
-	+kDyT/CL7JFJB/9JDCtOZFPpS63MxaTCOrKc+watCtYBugDL7mYpHMk9IDupXBg3/bZ6lGC5cW6gL
-	TQ3lizXvN6Pz5FrDszXNqm5rtSyFdsSSyPnolC21vAnhHWq3f1PGI359NGbiss5q2cYIYSyJgn29Q
-	NFbevr0Q==;
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
+	Content-ID:Content-Description:References;
+	bh=hVPD7LCIYEjnGcS4W60wPpbqQrrQeR8iu5kz2d7F+Uk=; b=CcBRSjLOCBsiDF8Ln+EJhU60e9
+	IAn1c2XlUDJF59E/kZwON3bpDIqB9WV54k1T2TXMAiV5DiZSLymHdtEWHtNYDe5n71vX5mY5N0S99
+	J2NLQZC5QaAl9+2EI+OZiAnHI8CYdk6gSHttaKPsB1j1DmtP7vVkJ7yNIlOSPGYTfDY6fCGSImEOs
+	AWDXPjtfxVOnS3n4SrIuuwm1UVx7CCgsvtlbgX4f7qtIKGVkvy9YP8uSeTY42Nf1Sj6R8HgsPCRB6
+	RLApLsGZtPXPRSTctx7/IhweQB7tb/ChmhuDoDxAv7RrX3Yu07D/RB/omeizNFUAE62MSvs9m8cC/
+	zFE60KsQ==;
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptcGT-00F2KM-2a
+	id 1ptdRK-00F3Ys-31
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 May 2023 22:45:06 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-51f1b6e8179so2004874a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 15:45:00 -0700 (PDT)
+	Tue, 02 May 2023 00:00:22 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-63f273b219eso2263252b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 17:00:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682981098; x=1685573098;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682985616; x=1685577616;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=X1WHrGanmnNt8uASWew+y3h1eCxRyqChW0U1S7kwZ5s=;
-        b=11detkrEfL5rr1ljYPAAdxq3BuYmAJjReWFXB17Iyeuzhsehxpr9j6ExMoEw6f6mGz
-         VnfYQcKNf05/7Zk+HZ+iKZiZS1aJWirivZ2nGhg7AcP7z9GAttcF8f0eb+YtpUusJUQc
-         c2Ez3hS9zZcufRdKKJWy0Q0yXIwhqZPiVW5/qXmBiYDFL7qvYGukmDBmthRY4bpJbFTD
-         2ZSRA4t/4vaLRO6RMehiAoUQ6BgOKgIfnAPoM5NTHszy2KbgXuLGXqUkJuNldz7w3ouc
-         22HEgPCYMVNKvkopEkXVXVhL6VhjO5eU3iI78v62nocZJhZBytcDUuic4Qan25ZITVYj
-         UqLg==
+        bh=hVPD7LCIYEjnGcS4W60wPpbqQrrQeR8iu5kz2d7F+Uk=;
+        b=USsZG1TBQuABriuIzboKRMi4j9Qabdy7EQK9cWxLH+f2LtYZitY5S8oGQQmcGAq91i
+         XEBdwCjnNVAgAEyNblON5OK2s0h3os8Ph18kGzoiMW7o+Dhm226fDs74UHKPY1+Xti0r
+         DpYHPyWWI55Xn7kfOvH/E1u04CwGffBgXdbbrnwIm6o5aXxN8NJSmy0NVOLcEW68nwb9
+         9mrK+BXDTF7H+d7Yu1JN+OKPvBGPeGyEkEGXMGAxpEkDv3rvPrYul84INOtt6cWZX00e
+         pxJHBEyfXb34Z4YpB2p0+OWN8yV4DVz/idzFaFv5/I+MkscMfJmGNjY+ypB5PqGMcyK6
+         aVaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682981098; x=1685573098;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X1WHrGanmnNt8uASWew+y3h1eCxRyqChW0U1S7kwZ5s=;
-        b=CqfNbNVJPCMkqDv7uMUlaPbBHzt0uq2TIgMCCcK1pTAByqgiPBpVwd9gYHBfo1kOCr
-         d2AmmxmfPbJQ4SkFOEQqIyUSNbZmeR8IkD6XJ+KdVE3Sfu3HYejTow33iVOSkWm6Tt2x
-         /eWNnxhH571+QL79hvvOKAnenrV5k87Pid+fSKIAiB12rJUB408h0CK6aCVfvennwej7
-         E05KVGt4/VQqiHo5YEGImfOlPNtRj1i6gMx17V96Zzw9Pm67zsnpSzz6yMlUG0uoZHbv
-         u/xkbXWtfCRohH7ZtwCewy1mkoVJZoONRlF3DUlGhQf1T8ht4uzyphbgY6nHHslyJqxG
-         U/1A==
-X-Gm-Message-State: AC+VfDwcKQP/9k9B8vgZoYRgcZXKp5T75xlA7G5MW6iRpIwcVzKUiYOj
-	R6prr0fIH7c+zRaAdnhHPrarPjubqNjj794E7WU=
-X-Google-Smtp-Source: ACHHUZ65+5jmJQGg62lzHtAux5EwaHGRV58fHKk5Z4NvG9vBphpWaVTHw+MJ1oesU3gmRXkqOxrFIQ==
-X-Received: by 2002:a17:902:db03:b0:1a6:e1ac:ecb8 with SMTP id m3-20020a170902db0300b001a6e1acecb8mr20638813plx.43.1682981098628;
-        Mon, 01 May 2023 15:44:58 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1682985616; x=1685577616;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hVPD7LCIYEjnGcS4W60wPpbqQrrQeR8iu5kz2d7F+Uk=;
+        b=D8PCs/etBLVQqoTU4DZ6n17rvGwW5vIOzGYPSuspwKK2CYN8F6phZHaVVA7KzDsP0P
+         CP7Xi7XCZfEHdE6Cve40TKAB9xrs65cVbkY8BH+X+JikVx+W2b8J2jO54qRBDxeFJfnG
+         PM8nRIpaE6fZUW7S3p+L5EJWwN5mbJ+1QUAhs0B3L9xfFp6tTq9sugaJWKvvu0e0ZZ8Q
+         NesWs9KjRD6DDVywp9s74Qlqr+pZ0UZXr8feI5vUKypHfAERUWaHmxccYMuoNDeM5dTX
+         fE2x24xwdgBSViMDJFm3jx8HhG2k+Iwi9YpKd7P3ua+x8eCLURJvzMg06m8wz9lmctW0
+         ZCuw==
+X-Gm-Message-State: AC+VfDwDcJ2PA5FiDO6rJawQhSQ7PgQ4TPvRxM/RptPmM+i9w6VUtYLn
+	v3gVoCga2y5CQuU5lQh4Oi3qcQ==
+X-Google-Smtp-Source: ACHHUZ4WXfPj9SWiDxU7NAUDEKWrYfXvWG9K+1cbxVQF6JOx6c+tN0HQ7ovKzZhJFq3mr4oKwAGNTQ==
+X-Received: by 2002:a05:6a00:181e:b0:624:7c9a:c832 with SMTP id y30-20020a056a00181e00b006247c9ac832mr22721656pfa.8.1682985615800;
+        Mon, 01 May 2023 17:00:15 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id y2-20020a17090322c200b001aad714400asm4573023plg.229.2023.05.01.15.44.57
+        by smtp.gmail.com with ESMTPSA id f14-20020a056a00238e00b00640f51801e6sm11176010pfc.159.2023.05.01.17.00.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 May 2023 15:44:58 -0700 (PDT)
-In-Reply-To: <20230426100009.685435-1-suagrfillet@gmail.com>
-References: <20230426100009.685435-1-suagrfillet@gmail.com>
-Subject: Re: [PATCH -fixes V2] riscv: mm: remove redundant parameter of
- create_fdt_early_page_table
-Message-Id: <168298107614.32296.13970329837227173007.b4-ty@rivosinc.com>
-Date: Mon, 01 May 2023 15:44:36 -0700
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  aou@eecs.berkeley.edu, alexghiti@rivosinc.com, heiko@sntech.de,
-  Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org, anshuman.khandual@arm.com, mick@ics.forth.gr,
-  samuel@sholland.org, Song Shuai <suagrfillet@gmail.com>
+        Mon, 01 May 2023 17:00:15 -0700 (PDT)
+Date: Mon, 01 May 2023 17:00:15 -0700 (PDT)
+X-Google-Original-Date: Mon, 01 May 2023 16:59:12 PDT (-0700)
+Subject: Re: [PATCH v1] dt-bindings: riscv: explicitly mention assumption of Zicsr & Zifencei support
+In-Reply-To: <20230427-fence-blurred-c92fb69d4137@wendy>
+CC: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+  robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Message-ID: <mhng-7defe716-2138-496e-908b-41e7c553da74@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_234502_351610_A020A27F 
-X-CRM114-Status: UNSURE (   6.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230502_010019_484175_63E901B0 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +102,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 27 Apr 2023 03:43:42 PDT (-0700), Conor Dooley wrote:
+> The dt-binding was defined before the extraction of csr access and
+> fence.i into their own extensions, and thus the presence of the I
+> base extension implies Zicsr and Zifencei.
+> There's no harm in adding them obviously, but for backwards
+> compatibility with DTs that existed prior to that extraction, software
+> is unable to differentiate between "i" and "i_zicsr_zifencei" without
+> any further information.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Conor Dooley <conor@kernel.org>
+> CC: Rob Herring <robh+dt@kernel.org>
+> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> index 4c7ce4a37052..a93bc7eae928 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -85,6 +85,12 @@ properties:
+>        User-Level ISA document, available from
+>        https://riscv.org/specifications/
+>
+> +      Due to revisions of the ISA specification, some deviations
+> +      have arisen over time.
+> +      Notably, riscv,isa was defined prior to the creation of the
+> +      Zicsr and Zifencei extensions and thus "i" implies
+> +      "zicsr_zifencei".
 
-On Wed, 26 Apr 2023 18:00:09 +0800, Song Shuai wrote:
-> create_fdt_early_page_table() explicitly uses early_pg_dir for
-> 32-bit fdt mapping and the pgdir parameter is redundant here.
-> So remove it and its caller.
-> 
-> 
+also Zihpm and Zicntr.  I'm going to put this one on for-next, though.
 
-Applied, thanks!
+Thanks!
 
-[1/1] riscv: mm: remove redundant parameter of create_fdt_early_page_table
-      https://git.kernel.org/palmer/c/e4ef93edd4e0
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+> +
+>        While the isa strings in ISA specification are case
+>        insensitive, letters in the riscv,isa string must be all
+>        lowercase to simplify parsing.
 
 _______________________________________________
 linux-riscv mailing list
