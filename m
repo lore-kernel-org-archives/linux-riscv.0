@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3619DC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 12:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9740C77B73
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 12:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6HLcHG2GjC07HUKnUsqbfiEC9dzlRziE8vXT3Rdf87M=; b=LQWL5CUTjRtciL
-	7trKYYPF4bisYJ5a4HIwNQQbDTh9pIFzx2+aDO1v/s1x9zYCqJJSAC16NlCy0eHQxymUy7D7DDFYN
-	ayXmuqZyXx4JxQRFhFI3BFHnGhfp81vrVuyUCx3IcVeECEfXCjY50Nxwa2FZUF5dNTXN0DgC3ALgG
-	F9lpBkZB5D0z/n/Ew+iLUk8EpF4tojBk4DkyZkBcvPpzto55tVgnzOVhl1rXOqweUaqPG4G+Dh8aY
-	PSd5930hvGoYw99yyTJJuvOG6597laGcRp+pfwpDP41PCvII8C+3KItht4bI9mtqsR9YjStYVY42u
-	ycXQf1AqIqepKI2YFBag==;
+	List-Owner; bh=QnEZnwMnSjbFM2QeUEu+/mYJ7Qvu3+lkXemByw2yYdc=; b=hR32iaXSc961k1
+	H/ViEYzsKpR09JJ0uznWal083krmRssPZ0SisijlC0eICCKpbu/1XFXhZFyY1mLlXmhLGgU2NNgPO
+	A8uSZviA21s7fq79yiAa/YVBJ+q4u6thCfWz8sa89U5Hojj1sEQt/vWSvqN9PrvWyb/sXRcduyXdJ
+	GElGPDXftN3zjYMHVxoaXlS4Zno7QUsYZfjfLXH4HnoDKihN/TwyjyN9FUtSxNylRDK3zzv9a+N+s
+	tvbOx8JejCICZdAYyCifJr8YRZzLb/TIO1LAhoWB9GlE0eHp5HHt5rJ15X+sI428B//pmt2byjwLn
+	rDanU8xR3KU4SpQtFLWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptovk-001LQv-2z;
-	Tue, 02 May 2023 12:16:28 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1ptpBe-001RsQ-2h;
+	Tue, 02 May 2023 12:32:54 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptovh-001LPD-24
+	id 1ptpBb-001Rpu-0C
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 May 2023 12:16:27 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-2fddb442d47so3454003f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 02 May 2023 05:16:22 -0700 (PDT)
+	Tue, 02 May 2023 12:32:53 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-4efea87c578so2260e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 02 May 2023 05:32:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683029781; x=1685621781;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a1A9x6G4yCMJnJYtqiLhRaKEdOc3L3bl8k6z5LnB/0A=;
-        b=iyesHo8Ln/M/BFahufADKt07MqPhk79OM17I50P3V7jzTE4t1W03sZao1mUPjb2uFx
-         EcpxTc0Xa9IGTT+L2R3IprZCjENyk67D/uIVEK04y1mT4cKOtpq7VIYwrsLl4DC0nJVT
-         wuRgCQ0W4dA3KRpu0DLm/VYm+VCRp1iSe+q+4MaPT63hFi/2lf31zkTGehPMjQOeBIrF
-         Ub1buzFCHsf+CneFAuZkXCDicWH+CqLWzrOr8flCJw3x+eXz7k7owJVMCm5TlVItM2qI
-         50a08KMz5BdG5yWghK0BfCrX0FGxmS5dvnwGlFSuYdkz31DTjnG/od5W5/tlKh9jE3Ub
-         lqwA==
+        d=google.com; s=20221208; t=1683030767; x=1685622767;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=b11YksFEu6PgjT+MJOW8bSJDjgzeS7/ur2nvzYYOxU4=;
+        b=2ibLB0dKSgfI+tsQ10RqeRBoPLEfmYVZHdYboemLTAqY2NxWjkOY9efjyu7eprry8x
+         wGaqyTcDuBELcazJAtsdsHLZlFpAMl6TMgGPCQN1g8B5ws4q5BkepUuKvfSkmS4M3SpH
+         4EMzwpoIUAlvs/gVjv4LyN3mkY067p1bX6zWOhRB+zib9OsRHNx21lFLpILegltNRrp9
+         2scxyeSc8xFWnPsBfhlyZP4XP3oo4tPfTq78eoqTLUrwvYh7HYUhzzn9l2Q1sS7Y4T0P
+         BfcNPt8dRqdPEIht78vUSIJRWQeUkSHfr1rz5nn5a6datnNtV8fktjwRNeLhdS5z6AXs
+         yRuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683029781; x=1685621781;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a1A9x6G4yCMJnJYtqiLhRaKEdOc3L3bl8k6z5LnB/0A=;
-        b=JSU+p4dN0vZRrOctTxj0y4E90FcSbchzyM3clzOLPQRo6e/BcPhBfEmb6CCTKubfH1
-         rSNBMRsFqSy52qopKNkeyW6U6T938+EuY4aBeC5W3hDx2AvbmabY78Am6j/y4/cNRyHJ
-         4KiL+dI3TdAgdkjhV8+DBsNd7Pw71ylMKqo22T2qy7ZYcoi2ErVFw7UxBuTi7ujBn5Uw
-         z6ohnFNKe31oFUbnk8/ri23qU1NBqcYYi3r8frOb++mG3JCFA8c2c/oZ8EgV3O2h9NW6
-         hcLLV4Mdk1sw7kFK7X/FoRBXECPR/vkudK10p5wygo08+Gl0rmh2OvF0rj9fvr7AlVA2
-         L1JQ==
-X-Gm-Message-State: AC+VfDwK1PSLM7RwugF/wXkXG3kUxsvnPi+E77bmrkJBdPI3n+awJYRX
-	i1S/q3tQH1PKeu8rgiwIBLRdor49e4axGp5IOMi+fw==
-X-Google-Smtp-Source: ACHHUZ4yBgorOMUwv0kwqlWkB93H5Z+AViWFG+ven8ML0/Vm3A222vDaNyeutEDaX87vH+H/zqnn8ZuL3s30AE8wU08=
-X-Received: by 2002:adf:f7d2:0:b0:2f8:b556:1fb with SMTP id
- a18-20020adff7d2000000b002f8b55601fbmr12248195wrq.28.1683029781511; Tue, 02
- May 2023 05:16:21 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1683030767; x=1685622767;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=b11YksFEu6PgjT+MJOW8bSJDjgzeS7/ur2nvzYYOxU4=;
+        b=Ro4OIlW3H6yu3cUFBb2xRX16SAeIZFILbJ+1I6bvZl84AJDiL3N8+blesr3XT29u0r
+         pwUR4pIIiDA0g+NcNBOc7JLOv22zhy0N0KCNaNfc30zyFM22InZs6AVIj6ybjDQoGV/M
+         nvAjArQl29YC+6sfzki9xsWyjqY91KHrBsE8l/jnWY3pNPqsQwS7L/ItcrpZy3E5lFS9
+         RD2DDdAUiU+Ilt3xA/0NP2e+qYuYKIPUn3N92saR/1JIoF4jpepHabf01L04EP2YBTEN
+         zs5Cj3CqdNgxOyvVqtAmZTgUmAkBHUuEyR7g2gdQOiL+hT1KJ68ALo1B7OcwfYkoHiTe
+         jM7g==
+X-Gm-Message-State: AC+VfDwFC69W3y1kKiQNuhkJ9NztF7jbCFlrh7aF1C/YZFlH+prfQ8mS
+	OOxP6Z/9TMJ1lR+di0Rh0smkkW9jONMQNKtfhJYhHQ==
+X-Google-Smtp-Source: ACHHUZ591xXYVU3XxtWqFZU44CMN4U4rLIcjTZ2qy+f7mo1oVyfdcvRbKsvqu5s/60aSJyOQ9942jTDDARN17pkuy6w=
+X-Received: by 2002:a05:6512:118d:b0:4e8:5117:71ae with SMTP id
+ g13-20020a056512118d00b004e8511771aemr110789lfr.3.1683030766952; Tue, 02 May
+ 2023 05:32:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20230417060618.639395-1-vincent.chen@sifive.com> <mhng-8488a1b0-fc27-4a74-b1d6-3b9975f8795f@palmer-ri-x1c9a>
-In-Reply-To: <mhng-8488a1b0-fc27-4a74-b1d6-3b9975f8795f@palmer-ri-x1c9a>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 2 May 2023 14:16:10 +0200
-Message-ID: <CAHVXubgNYEtTcjzdXaA2UhH3N7VfqyGWSRtoBfm1jJXK8vPk+Q@mail.gmail.com>
-Subject: Re: [PATCH v3] riscv: mm: execute local TLB flush after populating vmemmap
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: vincent.chen@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, 
-	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, 
-	ajones@ventanamicro.com
+References: <00000000000084706805fab08e27@google.com> <CACT4Y+aGfOE7R+LoocX7aW2XObY4aCAsAydwvL+Ni_NUt6JfJA@mail.gmail.com>
+ <83578cb3-2528-cfab-21bc-cfeccd8124dd@ghiti.fr>
+In-Reply-To: <83578cb3-2528-cfab-21bc-cfeccd8124dd@ghiti.fr>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Tue, 2 May 2023 14:32:33 +0200
+Message-ID: <CACT4Y+ZGsMCqsaV9DQDsTFWH7cCMY9GCtdZTGdVBPqOERPRQzw@mail.gmail.com>
+Subject: Re: [syzbot] [fs?] KASAN: stack-out-of-bounds Read in proc_pid_stack
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: syzbot <syzbot+01e9a564dc6b3289cea3@syzkaller.appspotmail.com>, 
+	brauner@kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
+	linux-riscv <linux-riscv@lists.infradead.org>, alexghiti@rivosinc.com, 
+	Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230502_051625_894957_4ECB1364 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20230502_053251_117918_16F6095E 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +86,182 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMiwgMjAyMyBhdCAyOjE44oCvQU0gUGFsbWVyIERhYmJlbHQgPHBhbG1lckBk
-YWJiZWx0LmNvbT4gd3JvdGU6Cj4KPiBPbiBTdW4sIDE2IEFwciAyMDIzIDIzOjA2OjE4IFBEVCAo
-LTA3MDApLCB2aW5jZW50LmNoZW5Ac2lmaXZlLmNvbSB3cm90ZToKPiA+IFRoZSBzcGFyZV9pbml0
-KCkgY2FsbHMgbWVtbWFwX3BvcHVsYXRlKCkgbWFueSB0aW1lcyB0byBjcmVhdGUgVkEgdG8gUEEK
-PiA+IG1hcHBpbmcgZm9yIHRoZSBWTUVNTUFQIGFyZWEsIHdoZXJlIGFsbCAic3RydWN0IHBhZ2Ui
-IGFyZSBsb2NhdGVkIG9uY2UKPiA+IENPTkZJR19TUEFSU0VNRU1fVk1FTU1BUCBpcyBkZWZpbmVk
-LiBUaGVzZSAic3RydWN0IHBhZ2UiIGFyZSBsYXRlcgo+ID4gaW5pdGlhbGl6ZWQgaW4gdGhlIHpv
-bmVfc2l6ZXNfaW5pdCgpIGZ1bmN0aW9uLiBIb3dldmVyLCBkdXJpbmcgdGhpcwo+ID4gcHJvY2Vz
-cywgbm8gc2ZlbmNlLnZtYSBpbnN0cnVjdGlvbiBpcyBleGVjdXRlZCBmb3IgdGhpcyBWTUVNTUFQ
-IGFyZWEuCj4gPiBUaGlzIG9taXNzaW9uIG1heSBjYXVzZSB0aGUgaGFydCB0byBmYWlsIHRvIHBl
-cmZvcm0gcGFnZSB0YWJsZSB3YWxrCj4gPiBiZWNhdXNlIHNvbWUgZGF0YSByZWxhdGVkIHRvIHRo
-ZSBhZGRyZXNzIHRyYW5zbGF0aW9uIGlzIGludmlzaWJsZSB0byB0aGUKPiA+IGhhcnQuIFRvIHNv
-bHZlIHRoaXMgaXNzdWUsIHRoZSBsb2NhbF9mbHVzaF90bGJfa2VybmVsX3JhbmdlKCkgaXMgY2Fs
-bGVkCj4gPiByaWdodCBhZnRlciB0aGUgc3BhcmVfaW5pdCgpIHRvIGV4ZWN1dGUgYSBzZmVuY2Uu
-dm1hIGluc3RydWN0aW9uIGZvciB0aGUKPiA+IFZNRU1NQVAgYXJlYSwgZW5zdXJpbmcgdGhhdCBh
-bGwgZGF0YSByZWxhdGVkIHRvIHRoZSBhZGRyZXNzIHRyYW5zbGF0aW9uCj4gPiBpcyB2aXNpYmxl
-IHRvIHRoZSBoYXJ0Lgo+ID4KPiA+IEZpeGVzOiBkOTVmMWE1NDJjM2QgKCJSSVNDLVY6IEltcGxl
-bWVudCBzcGFyc2VtZW0iKQo+ID4gU2lnbmVkLW9mZi1ieTogVmluY2VudCBDaGVuIDx2aW5jZW50
-LmNoZW5Ac2lmaXZlLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhn
-aGl0aUByaXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNA
-dmVudGFuYW1pY3JvLmNvbT4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxi
-Zmx1c2guaCB8IDcgKysrKysrKwo+ID4gIGFyY2gvcmlzY3YvbW0vaW5pdC5jICAgICAgICAgICAg
-ICB8IDUgKysrKysKPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDEyIGluc2VydGlvbnMoKykKPiA+Cj4g
-PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gPiBpbmRleCBhMDkxOTZmOGRlNjguLmY5ZDM3
-MTJiZDkzYiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2gu
-aAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gPiBAQCAtNjEs
-NCArNjEsMTEgQEAgc3RhdGljIGlubGluZSB2b2lkIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UodW5z
-aWduZWQgbG9uZyBzdGFydCwKPiA+ICAgICAgIGZsdXNoX3RsYl9hbGwoKTsKPiA+ICB9Cj4gPgo+
-ID4gKy8qIEZsdXNoIGEgcmFuZ2Ugb2Yga2VybmVsIHBhZ2VzIHdpdGhvdXQgYnJvYWRjYXN0aW5n
-ICovCj4gPiArc3RhdGljIGlubGluZSB2b2lkIGxvY2FsX2ZsdXNoX3RsYl9rZXJuZWxfcmFuZ2Uo
-dW5zaWduZWQgbG9uZyBzdGFydCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCkKPiA+ICt7Cj4gPiArICAgICBsb2NhbF9m
-bHVzaF90bGJfYWxsKCk7Cj4KPiBXaHkgaXMgdGhpcyBhIGdsb2JhbCBmbHVzaCwgaXN0ZWFkIG9m
-IGEgcmFuZ2UtYmFzZWQgb25lPyAgV2Ugc2hvdWxkCj4gcHJvYmFibHkgbWFrZSB0aGUgc2FtZSBj
-aGFuZ2UgZm9yIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UoKSwgdGhvdWdoCj4gdGhhdCdzIG5vdCBh
-IGZpeC4KCllvdSdyZSByaWdodCwgYnV0IHRoZSBjdXJyZW50IGltcGxlbWVudGF0aW9uIG9mIGZs
-dXNoX3RsYl9yYW5nZSB3aWxsCnVsdGltYXRlbHkgY2FsbCBmbHVzaF90bGJfYWxsIGlmIHRoZSBz
-aXplID4gUEFHRV9TSVpFLCB3aGljaCBpcyB2ZXJ5Cmxpa2VseSBpbiB0aGlzIGNhc2UuIEFueXdh
-eSwgSSBoYXZlIGEgcGF0Y2hzZXQgYWxtb3N0IHJlYWR5IHRoYXQKaW1wcm92ZXMgdGhlIHRsYiBm
-bHVzaCByb3V0aW5lcywgYW5kIEkgbm90ZWQgdGhhdCBJIGhhZCB0byBmaXggdGhpcwpmdW5jdGlv
-biBvbmNlIG1lcmdlZC4KCj4KPiA+ICt9Cj4gPiArCj4gPiAgI2VuZGlmIC8qIF9BU01fUklTQ1Zf
-VExCRkxVU0hfSCAqLwo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJj
-aC9yaXNjdi9tbS9pbml0LmMKPiA+IGluZGV4IDBmMTRmNGE4ZDE3OS4uYmNmMzY1Y2JiY2MxIDEw
-MDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yv
-bW0vaW5pdC5jCj4gPiBAQCAtMTIyMSw2ICsxMjIxLDEwIEBAIHZvaWQgX19pbml0IG1pc2NfbWVt
-X2luaXQodm9pZCkKPiA+ICAgICAgIGVhcmx5X21lbXRlc3QobWluX2xvd19wZm4gPDwgUEFHRV9T
-SElGVCwgbWF4X2xvd19wZm4gPDwgUEFHRV9TSElGVCk7Cj4gPiAgICAgICBhcmNoX251bWFfaW5p
-dCgpOwo+ID4gICAgICAgc3BhcnNlX2luaXQoKTsKPiA+ICsjaWZkZWYgQ09ORklHX1NQQVJTRU1F
-TV9WTUVNTUFQCj4gPiArICAgICAvKiBUaGUgZW50aXJlIFZNRU1NQVAgcmVnaW9uIGhhcyBiZWVu
-IHBvcHVsYXRlZC4gRmx1c2ggVExCIGZvciB0aGlzIHJlZ2lvbiAqLwo+ID4gKyAgICAgbG9jYWxf
-Zmx1c2hfdGxiX2tlcm5lbF9yYW5nZShWTUVNTUFQX1NUQVJULCBWTUVNTUFQX0VORCk7Cj4gPiAr
-I2VuZGlmCj4gPiAgICAgICB6b25lX3NpemVzX2luaXQoKTsKPiA+ICAgICAgIHJlc2VydmVfY3Jh
-c2hrZXJuZWwoKTsKPiA+ICAgICAgIG1lbWJsb2NrX2R1bXBfYWxsKCk7Cj4gPiBAQCAtMTIzMCw2
-ICsxMjM0LDcgQEAgdm9pZCBfX2luaXQgbWlzY19tZW1faW5pdCh2b2lkKQo+ID4gIGludCBfX21l
-bWluaXQgdm1lbW1hcF9wb3B1bGF0ZSh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25n
-IGVuZCwgaW50IG5vZGUsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCB2
-bWVtX2FsdG1hcCAqYWx0bWFwKQo+ID4gIHsKPiA+ICsgICAgIC8qIERlZmVyIHRoZSByZXF1aXJl
-ZCBUTEIgZmx1c2ggdW50aWwgdGhlIGVudGlyZSBWTUVNTUFQIHJlZ2lvbiBoYXMgYmVlbiBwb3B1
-bGF0ZWQgKi8KPiA+ICAgICAgIHJldHVybiB2bWVtbWFwX3BvcHVsYXRlX2Jhc2VwYWdlcyhzdGFy
-dCwgZW5kLCBub2RlLCBOVUxMKTsKPiA+ICB9Cj4gPiAgI2VuZGlmCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 2 May 2023 at 14:02, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> On 5/2/23 09:15, Dmitry Vyukov wrote:
+> > On Tue, 2 May 2023 at 09:05, syzbot
+> > <syzbot+01e9a564dc6b3289cea3@syzkaller.appspotmail.com> wrote:
+> >> Hello,
+> >>
+> >> syzbot found the following issue on:
+> >>
+> >> HEAD commit:    950b879b7f02 riscv: Fixup race condition on PG_dcache_clea..
+> >> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> >> console output: https://syzkaller.appspot.com/x/log.txt?x=10c4c1f7c80000
+> >> kernel config:  https://syzkaller.appspot.com/x/.config?x=ecebece1b90c0342
+> >> dashboard link: https://syzkaller.appspot.com/bug?extid=01e9a564dc6b3289cea3
+> >> compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
+> >> userspace arch: riscv64
+> >>
+> >> Unfortunately, I don't have any reproducer for this issue yet.
+> >>
+> >> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> >> Reported-by: syzbot+01e9a564dc6b3289cea3@syzkaller.appspotmail.com
+> >>
+> >> ==================================================================
+> >> BUG: KASAN: stack-out-of-bounds in walk_stackframe+0x128/0x2fe arch/riscv/kernel/stacktrace.c:58
+> >> Read of size 8 at addr ff200000030a79b0 by task syz-executor.1/7894
+> >>
+> >> CPU: 0 PID: 7894 Comm: syz-executor.1 Tainted: G        W          6.2.0-rc1-syzkaller #0
+> >> Hardware name: riscv-virtio,qemu (DT)
+> >> Call Trace:
+> >> [<ffffffff8000b9ea>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:121
+> >> [<ffffffff83402b96>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:127
+> >> [<ffffffff83442726>] __dump_stack lib/dump_stack.c:88 [inline]
+> >> [<ffffffff83442726>] dump_stack_lvl+0xe0/0x14c lib/dump_stack.c:106
+> >> [<ffffffff83409674>] print_address_description mm/kasan/report.c:306 [inline]
+> >> [<ffffffff83409674>] print_report+0x1e4/0x4c0 mm/kasan/report.c:417
+> >> [<ffffffff804ead14>] kasan_report+0xb8/0xe6 mm/kasan/report.c:517
+> >> [<ffffffff804ebea4>] check_region_inline mm/kasan/generic.c:183 [inline]
+> >> [<ffffffff804ebea4>] __asan_load8+0x7e/0xa6 mm/kasan/generic.c:256
+> >> [<ffffffff8000b782>] walk_stackframe+0x128/0x2fe arch/riscv/kernel/stacktrace.c:58
+> > +riscv maintainers
+> >
+> > I think this is an issue in riscv stack walking.
+> > If it's imprecise or walks stacks of running tasks, it needs to use
+> > READ_ONCE_NOCHECK.
+> >
+> > #syz set subsystems: riscv
+>
+>
+> This fix was merged in 6.3: commit 76950340cf03 ("riscv: Use
+> READ_ONCE_NOCHECK in imprecise unwinding stack mode").
+
+Oh, I see, syzbot riscv build is still broken due to:
+https://syzkaller.appspot.com/bug?id=502e4cca2c3c985c2125ffa945b8e636b7b100d7
+https://lore.kernel.org/all/00000000000049382505ebef4a0c@google.com/T/#md2075a04dd463fefe31f73e098672a69d948a1ce
+
+so it still tests an older build.
+
+#syz fix:
+riscv: Use READ_ONCE_NOCHECK in imprecise unwinding stack mode
+
+> >> [<ffffffff8000bc66>] arch_stack_walk+0x2c/0x3c arch/riscv/kernel/stacktrace.c:154
+> >> [<ffffffff80190822>] stack_trace_save_tsk+0x14a/0x1bc kernel/stacktrace.c:150
+> >> [<ffffffff80697822>] proc_pid_stack+0x146/0x1ee fs/proc/base.c:456
+> >> [<ffffffff80698bb0>] proc_single_show+0x9c/0x148 fs/proc/base.c:777
+> >> [<ffffffff805af580>] traverse.part.0+0x74/0x2ca fs/seq_file.c:111
+> >> [<ffffffff805aff02>] traverse fs/seq_file.c:101 [inline]
+> >> [<ffffffff805aff02>] seq_read_iter+0x72c/0x934 fs/seq_file.c:195
+> >> [<ffffffff805b0224>] seq_read+0x11a/0x16e fs/seq_file.c:162
+> >> [<ffffffff805453ea>] do_loop_readv_writev fs/read_write.c:756 [inline]
+> >> [<ffffffff805453ea>] do_loop_readv_writev fs/read_write.c:743 [inline]
+> >> [<ffffffff805453ea>] do_iter_read+0x324/0x3c2 fs/read_write.c:798
+> >> [<ffffffff805455f8>] vfs_readv+0xfe/0x166 fs/read_write.c:916
+> >> [<ffffffff80549c66>] do_preadv fs/read_write.c:1008 [inline]
+> >> [<ffffffff80549c66>] __do_sys_preadv fs/read_write.c:1058 [inline]
+> >> [<ffffffff80549c66>] sys_preadv+0x182/0x1fa fs/read_write.c:1053
+> >> [<ffffffff80005ff6>] ret_from_syscall+0x0/0x2
+> >>
+> >> The buggy address belongs to the virtual mapping at
+> >>   [ff200000030a0000, ff200000030a9000) created by:
+> >>   kernel_clone+0xee/0x914 kernel/fork.c:2681
+> >>
+> >> The buggy address belongs to the physical page:
+> >> page:ff1c0000024e5f00 refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x9397c
+> >> memcg:ff6000000ffd7202
+> >> flags: 0xffe000000000000(node=0|zone=0|lastcpupid=0x7ff)
+> >> raw: 0ffe000000000000 0000000000000000 0000000000000122 0000000000000000
+> >> raw: 0000000000000000 0000000000000000 00000001ffffffff ff6000000ffd7202
+> >> page dumped because: kasan: bad access detected
+> >> page_owner tracks the page as allocated
+> >> page last allocated via order 0, migratetype Unmovable, gfp_mask 0x102dc2(GFP_HIGHUSER|__GFP_NOWARN|__GFP_ZERO), pid 7873, tgid 7873 (syz-executor.1), ts 4012100669800, free_ts 4010400733200
+> >>   __set_page_owner+0x32/0x182 mm/page_owner.c:190
+> >>   set_page_owner include/linux/page_owner.h:31 [inline]
+> >>   post_alloc_hook+0xf8/0x11a mm/page_alloc.c:2524
+> >>   prep_new_page mm/page_alloc.c:2531 [inline]
+> >>   get_page_from_freelist+0xc0e/0x1118 mm/page_alloc.c:4283
+> >>   __alloc_pages+0x1b0/0x165a mm/page_alloc.c:5549
+> >>   alloc_pages+0x132/0x25e mm/mempolicy.c:2286
+> >>   vm_area_alloc_pages mm/vmalloc.c:2989 [inline]
+> >>   __vmalloc_area_node mm/vmalloc.c:3057 [inline]
+> >>   __vmalloc_node_range+0x81c/0xdb4 mm/vmalloc.c:3227
+> >>   alloc_thread_stack_node kernel/fork.c:311 [inline]
+> >>   dup_task_struct kernel/fork.c:987 [inline]
+> >>   copy_process+0x210e/0x4068 kernel/fork.c:2097
+> >>   kernel_clone+0xee/0x914 kernel/fork.c:2681
+> >>   __do_sys_clone+0xec/0x120 kernel/fork.c:2822
+> >>   sys_clone+0x32/0x44 kernel/fork.c:2790
+> >>   ret_from_syscall+0x0/0x2
+> >> page last free stack trace:
+> >>   __reset_page_owner+0x4a/0xf8 mm/page_owner.c:148
+> >>   reset_page_owner include/linux/page_owner.h:24 [inline]
+> >>   free_pages_prepare mm/page_alloc.c:1446 [inline]
+> >>   free_pcp_prepare+0x254/0x48e mm/page_alloc.c:1496
+> >>   free_unref_page_prepare mm/page_alloc.c:3369 [inline]
+> >>   free_unref_page_list+0x11e/0x736 mm/page_alloc.c:3510
+> >>   release_pages+0x85a/0xbb2 mm/swap.c:1076
+> >>   free_pages_and_swap_cache+0x76/0x88 mm/swap_state.c:311
+> >>   tlb_batch_pages_flush+0x86/0x10c mm/mmu_gather.c:97
+> >>   tlb_flush_mmu_free mm/mmu_gather.c:292 [inline]
+> >>   tlb_flush_mmu mm/mmu_gather.c:299 [inline]
+> >>   tlb_finish_mmu+0xcc/0x280 mm/mmu_gather.c:391
+> >>   exit_mmap+0x190/0x686 mm/mmap.c:3096
+> >>   __mmput+0x98/0x290 kernel/fork.c:1207
+> >>   mmput+0x74/0x88 kernel/fork.c:1229
+> >>   exit_mm kernel/exit.c:563 [inline]
+> >>   do_exit+0x602/0x17be kernel/exit.c:854
+> >>   do_group_exit+0x8e/0x15e kernel/exit.c:1012
+> >>   __do_sys_exit_group kernel/exit.c:1023 [inline]
+> >>   __wake_up_parent+0x0/0x4a kernel/exit.c:1021
+> >>   ret_from_syscall+0x0/0x2
+> >>
+> >> Memory state around the buggy address:
+> >>   ff200000030a7880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> >>   ff200000030a7900: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 f2 f2
+> >>> ff200000030a7980: 00 00 00 f3 f3 f3 f3 f3 00 00 00 00 00 00 00 00
+> >>                                       ^
+> >>   ff200000030a7a00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> >>   ff200000030a7a80: 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1 f1 f1
+> >> ==================================================================
+> >>
+> >>
+> >> ---
+> >> This report is generated by a bot. It may contain errors.
+> >> See https://goo.gl/tpsmEJ for more information about syzbot.
+> >> syzbot engineers can be reached at syzkaller@googlegroups.com.
+> >>
+> >> syzbot will keep track of this issue. See:
+> >> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+> >>
+> >> If the bug is already fixed, let syzbot know by replying with:
+> >> #syz fix: exact-commit-title
+> >>
+> >> If you want to change bug's subsystems, reply with:
+> >> #syz set subsystems: new-subsystem
+> >> (See the list of subsystem names on the web dashboard)
+> >>
+> >> If the bug is a duplicate of another bug, reply with:
+> >> #syz dup: exact-subject-of-another-report
+> >>
+> >> If you want to undo deduplication, reply with:
+> >> #syz undup
+> >>
+> >> --
+> >> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
+> >> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
+> >> To view this discussion on the web visit https://groups.google.com/d/msgid/syzkaller-bugs/00000000000084706805fab08e27%40google.com.
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
