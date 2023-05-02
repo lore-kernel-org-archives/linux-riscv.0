@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE24EC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 05:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A1DC77B7E
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 05:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=+GQdOGuw9FFyw4MjgddAGkvxi08fgHzlHMvcKM2Ds/M=; b=U0B828c/A13Ry3YH4BDtVRJ59D
-	+6bI7Af4Dyi/1YDVPD2hMTqcUc/+qMVtWe0U3zpkyA9calzHQa3gk2Akw9O086GQ/YYhmUKXHpHuT
-	J4CrBwuyL9Gf9eyYqCKpZdr9WifN4jNmLmBGHjp00O3/fxrtNsprahJJrKdEd8jsC+LgWblwkQjmR
-	S2TSBWQjx9mBMektCsv7pWvDgdqa+2RJBzVriWlvIvMo3pxVyGeh3EXj/VPYfNCpwIpjKsJYG5Hzv
-	UWnb4luEbOXH5SFB5AW+5HzHhW/BMcKqCYzNpl+kJe4MLsINzxDiXIFccV9Rcm5rEEtpYRRxBDI8H
-	xHKcf15w==;
+	bh=XpOwUIjG+EAOrjNi22YUYOnrpfEonvArMRDhG9Sb3eQ=; b=v24N2XaIKiiSu8mWSJdRwL/AZt
+	AK88XljjQZHW49v/+ucAGLzklCDOWRFR7AxCpWAFgudxOzEJeEuvEXSXwvHyCOMYidhtmEOM0lJFy
+	3sLAQMA8Y/V0TsAzOGxVODwoSluRpBWpDX3T740BbjvMthofmm9aPTiNYcW9D7Tmvar/75GoNjoHf
+	y20Hwe54LEOcCCfSQJCm8tO9Gmgg/1bcQaOUKtNkuwex34hKK7X30JetliXTE/q4IrOd9+WEzY4GP
+	2TyxWWgKwYxTO642HTpVrCCj9pfXF1X8qbfMnTNnJ1McerssW7z0o+UoRquhjuUFjxfb4PuFInjwn
+	20EKU5RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptimX-000E5s-2k;
-	Tue, 02 May 2023 05:42:33 +0000
+	id 1ptimx-000EEx-28;
+	Tue, 02 May 2023 05:42:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptimW-000E5U-1w
+	id 1ptimw-000EE5-0c
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 02 May 2023 05:42:32 +0000
+	Tue, 02 May 2023 05:42:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
 	Content-ID:Content-Description:References;
-	bh=rTv50nIrfCNQoHawn5oqdnZtRiKF6KBiXdv3yqP+nIQ=; b=HI2bOxjaJoVtpEIBPDewkozp6g
-	Gt72VqVvLC9hiBEGxgO7S4SCo0siLEBnHwT7ueWERLQvZg+WDfCkeBbe64He/M6hL8jEUmOqPoHkN
-	ksVn2dl5kcdYuAgPIy3AMYx67p+HfsaN4tZ5fophFfMyA3enGBlR7LkRCRiobQkYgz4xmf5aa+Oud
-	6ozG6A0gUsg7i5+eJ/pfd0lnGaZD23iP84l7g59cAK6hkpXEzE7vhpdVKBptoLUsEc2F5B5RSYZkx
-	HNp+5IwaCBO8TBphVuNGmloAiOCGFfIYK1IREwGrZ2gk8MXs9x7k6on285IaojPYd+V4eKVWtw4qm
-	ZaSW/Z6Q==;
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	bh=+bpzhEAd3sIcSUG6Bko9hFuyyeeC29520LX/NWwAxrs=; b=ml2kqqbq4ZX9yJjhYzHK5HG6bP
+	zihbjdfITr34jIP8g03Yh9efdpOuRurgs6DmkQcJRyULe/iyDnPxv78uJFvFAPn3/XLJU7P7MOv49
+	axsRCf+uR24TXlS+5zmjOeThvW3Fx3EbnnDMfL/FNfdFhtn8dMCMQ47eQ2yzPX2qPAgne6iVSKMnV
+	PGuFoKAWMRriiIXDN6oEBPXaXLbv6DLNeFUcXLzb5j6B9UKAXVcgNb8yPmy+AK9/EjelwRM9HJrA5
+	cpmILMYFvrgbQY1z3LRAM683WsP+QtT8qsn01rdFxGGBQOS7FB9OEzCXKmHxGs0UsPyrJt+cw45rj
+	xVC3ZSuQ==;
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptcOF-00F2Yy-03
+	id 1ptdj5-00F43s-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 May 2023 22:53:05 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-63b7b54642cso2241449b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 15:53:00 -0700 (PDT)
+	Tue, 02 May 2023 00:18:45 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-63b70ca0a84so3693099b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 17:18:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682981579; x=1685573579;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1682986717; x=1685578717;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rTv50nIrfCNQoHawn5oqdnZtRiKF6KBiXdv3yqP+nIQ=;
-        b=5TH88B+l/7j3ul1jwKaO8gqEIyO8rojGINeSxc/bgUfFZH6rQ2VQJceO7sXn/TesAe
-         Dse5qoBWDUWo+CCuFQUJycg4nuA6rH1yzXNsEoWs/kPtjbf9BDPzDPVOVQZQc7txtUrS
-         InabVGT7UQdNZ5sLtDPo64Hc5FHZ8bmxGpUWCoQ1BnGK+t0sXueblI7MOrAgrFW4LE4v
-         SBIYW6GovG/szVV9akB4v+u89SJ2w4T8q4nzMILasOH+58gqMPT8HseOtzO3GXrkyWX+
-         h9rwpQto2t5kXHJT3KZAWuQkM56eusondqvpKJlQLsNoJ+DwAoFE7ytDpOYC29BTi8JI
-         rTVA==
+        bh=+bpzhEAd3sIcSUG6Bko9hFuyyeeC29520LX/NWwAxrs=;
+        b=fokpsq4QP6LNVlndu8pmScu3CTVrenOc4/M9jhIEU6A3vEzWo/Ge1GoPVGieDKVS2q
+         +rV2B2eLTF3CA94iTghv9ZMiarJkjKgqMGtsDJv9d4qriagoWA1nlyXTpUq4TGF7V1Zg
+         DJv3LURlVwsA/yg99sUkn15e10A9TqYRSUSoG17ZzWuF224dqtaLIerP5pZVTdLRyDBr
+         s7KZ3x93DOY256ZDlqP896Kti6M9K5so1bCwsBmhY3A49k5zrsTOilX2GFpYKQU9qDIW
+         7OGd2LBvFdcpuc/8tzx0x3QE5oMlYKlAs8JTgnwDzLgF3NghGvdSnnBgsLjl0TDAa6yA
+         Yc8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682981579; x=1685573579;
+        d=1e100.net; s=20221208; t=1682986717; x=1685578717;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rTv50nIrfCNQoHawn5oqdnZtRiKF6KBiXdv3yqP+nIQ=;
-        b=gWF+Wqx60zmsgheTPXhJ93AeQLEhVRpAP3bPqJLxZiE9AzIbcst6+/T63v9awOwNS8
-         5JmRNmCP8Wh/298OWZNTaj8+06qLQtmvH6isPkGLn84ufEZcx+yxt+dVsLtgTPV2sdYW
-         2pNiKWu+c1DcqBlF1pitrZw8hwOC8H5u2t0k1QVPT0uFzTW08al2ClZQ+v443xKRD9Sk
-         vfD/XVo2GqLO5OpW1Oqh/c6nfngN7Yu1hlb9QzponsetIsuRZKeGV9ibajKmIyqRhvz9
-         lZb/ft6wDca4nrvA8uZh9Ajic0Ra5mO1YlLlcA0KnifClJ1Ekd3O4nx+T+yfSLGNFSjE
-         fsKQ==
-X-Gm-Message-State: AC+VfDyaiEUkWxKaN464eX0DujdthzpJz0MBAXGI/b+WFL+dUepo1ABn
-	oXYxVaFxgmkZFVAiAzFfihVPSQ==
-X-Google-Smtp-Source: ACHHUZ5nK2f1+8bX7jtr1uIhCEVldW9ZMDhDwM/VQw5iiDhuDlrHmavF3TrbDWZd82s5R2fExE/J4A==
-X-Received: by 2002:a05:6a20:9191:b0:f2:dc4d:935d with SMTP id v17-20020a056a20919100b000f2dc4d935dmr19737997pzd.18.1682981578961;
-        Mon, 01 May 2023 15:52:58 -0700 (PDT)
+        bh=+bpzhEAd3sIcSUG6Bko9hFuyyeeC29520LX/NWwAxrs=;
+        b=AbK/wxz4eeaUABnlT6w4NYAqM4k1EHKIy/dnW6P7Q4UQulmMn4Y65Hdy9m4pzcYITf
+         uMHToNxPAZqanukiUZAwFqIPOV1HVKyosuEr53ohwKoct79cKQxZFWr/arMpZ5gGlTGw
+         lCHJXmSM2LmvpjJRxH9Yc0kuBD5fEMZDzz+b4P8hATW3HtBxYlijEzQpKMG+c8NAYreI
+         39+mVcmFPvNriKlh7hElRZxBNv36fLVaJjOh2dvIhBj+XOqYIX/lts5tJMKJkW2ruN3o
+         Rqw+7WeBtIyvYbDjFxaUSQ2UBa054CrHeygxOVGYIHb8iF2Z2TkzMSNztoJRsSDTjxip
+         x79g==
+X-Gm-Message-State: AC+VfDzPVQl3sb0dqCLgXNyyh6p5UaW4PCZsASjMoPL0/uuy3V8h2V8l
+	bqnsAQA9EXwbhkR6hj/KIl/6JA==
+X-Google-Smtp-Source: ACHHUZ5DZfmkPpmD2UOszyKLyZ4QtDE+5TtD3j4JNOpqZz3UPgIQtFDU7GSVx3iOSuImOvqTO7gMcA==
+X-Received: by 2002:a05:6a00:1301:b0:63d:3a21:b774 with SMTP id j1-20020a056a00130100b0063d3a21b774mr20662990pfu.27.1682986716904;
+        Mon, 01 May 2023 17:18:36 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id m15-20020a056a00080f00b00627e87f51a5sm15911641pfk.161.2023.05.01.15.52.58
+        by smtp.gmail.com with ESMTPSA id x30-20020a056a000bde00b0063b806b111csm20319524pfu.169.2023.05.01.17.18.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 May 2023 15:52:58 -0700 (PDT)
-Date: Mon, 01 May 2023 15:52:58 -0700 (PDT)
-X-Google-Original-Date: Mon, 01 May 2023 15:52:33 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: fixup in-flight collision with ARCH_WANT_OPTIMIZE_VMEMMAP rename
-In-Reply-To: <20230429-neurology-sudoku-8d53b23d01b8@spud>
-CC: Conor Dooley <conor.dooley@microchip.com>,
-  Linus Torvalds <torvalds@linux-foundation.org>, akpm@linux-foundation.org, aneesh.kumar@linux.ibm.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, lukas.bulwahn@gmail.com
+        Mon, 01 May 2023 17:18:36 -0700 (PDT)
+Date: Mon, 01 May 2023 17:18:36 -0700 (PDT)
+X-Google-Original-Date: Mon, 01 May 2023 17:18:16 PDT (-0700)
+Subject: Re: [PATCH v3] riscv: mm: execute local TLB flush after populating vmemmap
+In-Reply-To: <20230417060618.639395-1-vincent.chen@sifive.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, vincent.chen@sifive.com, alexghiti@rivosinc.com, ajones@ventanamicro.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-e1596f31-67bc-4e2e-b86e-a32da907eecd@palmer-ri-x1c9a>
+To: vincent.chen@sifive.com
+Message-ID: <mhng-8488a1b0-fc27-4a74-b1d6-3b9975f8795f@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_235303_197758_59C2E89B 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20230502_011842_324642_4AF71F4C 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +106,72 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Apr 2023 02:32:33 PDT (-0700), Conor Dooley wrote:
-> On Sat, Apr 29, 2023 at 10:27:33AM +0100, Conor Dooley wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->> 
->> Lukas warned that ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP had been
->> renamed in the mm tree & that RISC-V would need a fixup as part of the
->> merge. The warning was missed however, and RISC-V is selecting the
->> orphaned Kconfig option.
->> 
->> Fixes: 89d77f71f493 ("Merge tag 'riscv-for-linus-6.4-mw1' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux")
->> Reported-by: Lukas Bulwhan <lukas.bulwhan@gmail.com>
+On Sun, 16 Apr 2023 23:06:18 PDT (-0700), vincent.chen@sifive.com wrote:
+> The spare_init() calls memmap_populate() many times to create VA to PA
+> mapping for the VMEMMAP area, where all "struct page" are located once
+> CONFIG_SPARSEMEM_VMEMMAP is defined. These "struct page" are later
+> initialized in the zone_sizes_init() function. However, during this
+> process, no sfence.vma instruction is executed for this VMEMMAP area.
+> This omission may cause the hart to fail to perform page table walk
+> because some data related to the address translation is invisible to the
+> hart. To solve this issue, the local_flush_tlb_kernel_range() is called
+> right after the spare_init() to execute a sfence.vma instruction for the
+> VMEMMAP area, ensuring that all data related to the address translation
+> is visible to the hart.
 >
-> That should have been Lukas Bulwahn <lukas.bulwahn@gmail.com>.
-
-I think I got that right, but the email bounced.  I'm not sure if it's 
-just the list issues, though.
-
-> This is what I get for hand-typing an email address that I could have
-> copied from lore I suppose.
+> Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/tlbflush.h | 7 +++++++
+>  arch/riscv/mm/init.c              | 5 +++++
+>  2 files changed, 12 insertions(+)
 >
->> Link: https://lore.kernel.org/linux-riscv/CAKXUXMyVeg2kQK_edKHtMD3eADrDK_PKhCSVkMrLDdYgTQQ5rg@mail.gmail.com/
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->> I guess you picking this up for your second PR makes the most sense
->> Palmer?
->> 
->> CC: Palmer Dabbelt <palmer@dabbelt.com>
->> CC: Linus Torvalds <torvalds@linux-foundation.org>
->> CC: Andrew Morton <akpm@linux-foundation.org>
->> CC: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
->> CC: Lukas Bulwhan <lukas.bulwhan@gmail.com>
->> CC: linux-riscv@lists.infradead.org
->> CC: linux-kernel@vger.kernel.org
->> ---
->>  arch/riscv/Kconfig | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->> 
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 5c88ac4b52be..e1bdb3fb16cc 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -46,9 +46,9 @@ config RISCV
->>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
->>  	select ARCH_WANT_FRAME_POINTERS
->>  	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
->> -	select ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
->>  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
->>  	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
->> +	select ARCH_WANT_OPTIMIZE_VMEMMAP
->>  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
->>  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
->>  	select BUILDTIME_TABLE_SORT if MMU
->> -- 
->> 2.39.2
->> 
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index a09196f8de68..f9d3712bd93b 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -61,4 +61,11 @@ static inline void flush_tlb_kernel_range(unsigned long start,
+>  	flush_tlb_all();
+>  }
+>
+> +/* Flush a range of kernel pages without broadcasting */
+> +static inline void local_flush_tlb_kernel_range(unsigned long start,
+> +						unsigned long end)
+> +{
+> +	local_flush_tlb_all();
+
+Why is this a global flush, istead of a range-based one?  We should 
+probably make the same change for flush_tlb_kernel_range(), though 
+that's not a fix.
+
+> +}
+> +
+>  #endif /* _ASM_RISCV_TLBFLUSH_H */
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 0f14f4a8d179..bcf365cbbcc1 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1221,6 +1221,10 @@ void __init misc_mem_init(void)
+>  	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
+>  	arch_numa_init();
+>  	sparse_init();
+> +#ifdef CONFIG_SPARSEMEM_VMEMMAP
+> +	/* The entire VMEMMAP region has been populated. Flush TLB for this region */
+> +	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
+> +#endif
+>  	zone_sizes_init();
+>  	reserve_crashkernel();
+>  	memblock_dump_all();
+> @@ -1230,6 +1234,7 @@ void __init misc_mem_init(void)
+>  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>  			       struct vmem_altmap *altmap)
+>  {
+> +	/* Defer the required TLB flush until the entire VMEMMAP region has been populated */
+>  	return vmemmap_populate_basepages(start, end, node, NULL);
+>  }
+>  #endif
 
 _______________________________________________
 linux-riscv mailing list
