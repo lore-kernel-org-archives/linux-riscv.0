@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF563C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 03:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701A3C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 May 2023 03:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kt21F+VOPY0Mf6Iay5rsr8axG5fkDBFgMD7tFNpIaNE=; b=lgq/2KNMUuGHlI
-	Gx3VZ27mbV5Ej2/uFSBhm4keJYnRPHXd6KOlyHXhZ/rKc9GvVBU7F9yp60r27/wng4OtIRj1TBnB/
-	LYVABNIVzPninJk1mATkPgDYB+fiy/EzW7Vw5tkqjOfDYILrRf88QsGiqZWguDC+LXInJjRMhwyB8
-	VDKOo1WJhe0h/FHNiO5Jx5ydhnDvdgQVZW84ZtRjZQ650o6YsbK/d8esKHWWd9OfdQpBONKQyBkNH
-	ujqsKR+aCJK0UMzXXtnR0lj7v+tA5KlD60NH75GLX9HbpwGpho3A0FrJSm9kypDI/qy2Rv/CR+5rm
-	9LQ+27pbDd551wrdgsCQ==;
+	List-Owner; bh=wg8lsnUqi9GE4+lgSEYgrvgHhI9oeZiC7sO75fndMxs=; b=0wkBEUeagGk1Im
+	8PjhrwvSN3TiLvtErB8eHE0THv2Z9+f+RsYlhyhmYMWtTz1G71CdWSgSW45fMLB2nSXUTgTbst1+O
+	BHF7OF//mX2C8Mv98IiTlP6YizZWVxeQ0cheo6EgRKdsmq7a5leLYck3EpqwOM+0b6Gq/moB2FFr8
+	5QZeseV+oPcpIbMh9VrVA+ddwjHqZgcS4AjlpwmBktBwElvn6TukNQ4Wah+sgtmFT9YhXgm7ppaGy
+	raUssGrJhd8lPvzctQnGjdNIdWOWP/bKP02oNQWW51KPBQsaHUfaA1rS2QrgIQlOXpq1sV9VXKUVI
+	pYKIoKSS7aBgdqjf/i7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptgsq-0000BD-1X;
-	Tue, 02 May 2023 03:40:56 +0000
+	id 1ptgtH-0000MW-2e;
+	Tue, 02 May 2023 03:41:23 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptgso-0000AN-2E
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 02 May 2023 03:40:54 +0000
+	id 1ptgtF-0000Kx-1G;
+	Tue, 02 May 2023 03:41:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:From:Cc:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2LZi0uFoSVBSgxnjAaZxQ81ReVJ0WeW+B2FFhNfROww=; b=eEw5JD5+9JhLNkg2/hcw/upbeL
-	/TmbISvCbRhfyttI9lXneRY6jmJDLfo7Y6ZFarPFp3Fi1jbf69Kqgy/xPmjOk8N14d82ahlO2JSg2
-	xFUZHDK1lZu8DJ+iiAx/lYanEZGheeXHyqz0i4LlHSCH//b1Xx/tqyNMHhbqsDmO1y5sWjCTb2gvx
-	GVuRn1MeWkApMFl5tZzitXcsfUHoQUX5sD4QAj9QvileowL5Flvzh05ty2dxKTJTc69hr78Zej3dY
-	zHzvmypZgdk/QEYxyC2DZi2ZYyunhlHKWiKtt84aLXKwL6dTW+v+8Mia19FsREx/4J1fSmWLH+kz7
-	q0IKj8fw==;
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Lk75ZjE2r9RBa6YqJgQtuPl1oEa00Vf2+DuensGVbTE=; b=qQ2uYSJQvRohLOGWSCln6IEO14
+	AWS5p2O5ZTd5ODiPI6F0vsohKqMjVkXkGAe4VlNE+2MQE2GP3Gw4uoe3qIqOHYPC7X0mxAhOhinfp
+	5/L1JXuFNUf+Lljoim297rJ6IwxywLWxnXzWcPAPYKLyjmOA+7NsyXaOFViw2j6vCDdb4Hu4YrEs1
+	CpIghGhmOqDjR2CaqPwAGpWEbyAFphEH2Y+Kf4iOiSko9ROTvRG9Nf3pzvEm0jewZz1VFDirplDxy
+	fXB0Gux1YpIAjfI46Ja2kzeNad2d6vpgCAlhCoaRKt4yhek8JULiYUND/IGbAUyW2zlXQNf6P5+NT
+	ojvWEO1w==;
+Received: from mga17.intel.com ([192.55.52.151])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ptcGW-00F2Lr-17
-	for linux-riscv@lists.infradead.org;
-	Mon, 01 May 2023 22:45:08 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-518d325b8a2so2632125a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 May 2023 15:45:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1682981102; x=1685573102;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2LZi0uFoSVBSgxnjAaZxQ81ReVJ0WeW+B2FFhNfROww=;
-        b=ahejidMZTueaiJMvaEq7zIo8KZo9LgVrR2se3EgkY2xdLWi0ff4/W/mIv99jbch/zj
-         EeSmY+8PkfMv2hP5iRkEcYcaktQOreBhcTpFE179BrMe42S5IFoertGSs/osFvwf/eTe
-         PhQ3mnCF+ZwIzlFuczKeK+QsTTd2c3Fyjo5qMt196Qn8LF0kx5Xi2ccF0JjgGFt/UZqx
-         7pqJLxR5bHSnkAf8934pj1cj07FDTnSTIZFzLZ3w91082zp1JG6ifY8ISta8wD0suIp4
-         q8y1BQXEW3+/ZXzmPg6m3/5FudLE144YnISLQh7ZbxF/0tLMU5mJLhwUk9Qfutkwy7QT
-         0jZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682981102; x=1685573102;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2LZi0uFoSVBSgxnjAaZxQ81ReVJ0WeW+B2FFhNfROww=;
-        b=Iri+5kdA5dl5GiFEps90PDCJIrHh+0s+QL2wZFx26ZAIOdMjmdKTjlrPNqrgNCyN/Z
-         B5hqnMEMn1Wczn8Gdo74rdYabm0NcHgzM7PnLJE+YQFiiZJIBS2ikbF+U+aIye3Pj2F0
-         tx3fHxOVtaNB3dXxbBb9lBF94dLrKuH86N12ibRSAj5wRNFQD78HGRtXvgxc8rlsc+sw
-         Qg75irY9Qn/yLshUZoaZarDsapJ1jg3D6pXuE5R7+nEhlzoNyAAC24n0AYEOtat2Y1li
-         3ogBgNPdmk4Rnkfp7h65ipMIntfv9c/4ZIZshUemxmUFe6bNcXvL7G20i+RXG+yux1TY
-         0W/g==
-X-Gm-Message-State: AC+VfDwrX9BYUz70ZjtHNAI9LQaJv0ryjF5eRMa2Qke+YgI+cGoqk3lZ
-	cL4J5jXztXSyqw0xGlaLG882Ig==
-X-Google-Smtp-Source: ACHHUZ5xmM0eXrwYAGux0Gd55M+QfxHl5MSIckzBt45AIO11o1GavlntEMZonuJdLzlh6wmdmSK7IQ==
-X-Received: by 2002:a17:902:f546:b0:1a9:9a18:346a with SMTP id h6-20020a170902f54600b001a99a18346amr19548933plf.5.1682981101945;
-        Mon, 01 May 2023 15:45:01 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d23-20020a170902aa9700b001a634e79af0sm1639156plr.283.2023.05.01.15.45.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 May 2023 15:45:01 -0700 (PDT)
-In-Reply-To: <20230429-trilogy-jolly-12bf5c53d62d@spud>
-References: <20230429-trilogy-jolly-12bf5c53d62d@spud>
-Subject: Re: [PATCH] RISC-V: fixup in-flight collision with
- ARCH_WANT_OPTIMIZE_VMEMMAP rename
-Message-Id: <168298107622.32296.5069114246670068360.b4-ty@rivosinc.com>
-Date: Mon, 01 May 2023 15:44:36 -0700
+	id 1ptf94-00F5xk-2m;
+	Tue, 02 May 2023 01:49:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1682992174; x=1714528174;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=atYvzhPCCZ/tytx2DE7s23i4jWidElWSRjsH6cc5aEY=;
+  b=kCFZGvegUtAtWwRrLAHMUj2nyW+KW5Ss5SyScvB5cwlyZ0tJfJoVvwmc
+   OF/0GmmevwLHpkVuNho4Zp4PGV012FRBO75wtAFdApMFYdjwzrN4A4tDV
+   8mNuEBEdN7fV7nQbvINirZkprqSpCTzqXWNyUPBjHMizt6KunR1X4dHa7
+   DDyyMUx1PQHBM24sBkvSivuAtcg3ykbmRdROhRAxETA7gC56ayPiCiSuQ
+   bPuahHfboOV4YTkge/T0SSCLLRZz6TOa6bl9v/ViZfep3/iqpwk6pdqHa
+   NUnqOThzoalrLEIiRORoosV4QG0z8mqrX3/z5s+J134OqaE6sAQNzwdPB
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10697"; a="328651232"
+X-IronPort-AV: E=Sophos;i="5.99,242,1677571200"; 
+   d="scan'208";a="328651232"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2023 18:49:25 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10697"; a="698763727"
+X-IronPort-AV: E=Sophos;i="5.99,242,1677571200"; 
+   d="scan'208";a="698763727"
+Received: from lkp-server01.sh.intel.com (HELO e3434d64424d) ([10.239.97.150])
+  by fmsmga007.fm.intel.com with ESMTP; 01 May 2023 18:49:20 -0700
+Received: from kbuild by e3434d64424d with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ptf8q-0000ke-0J;
+	Tue, 02 May 2023 01:49:20 +0000
+Date: Tue, 2 May 2023 09:48:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v2 21/34] arm64: Convert various functions to use ptdescs
+Message-ID: <202305020914.OGRWcEG1-lkp@intel.com>
+References: <20230501192829.17086-22-vishal.moola@gmail.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-  Lukas Bulwhan <lukas.bulwhan@gmail.com>, Linus Torvalds <torvalds@linux-foundation.org>,
-  Andrew Morton <akpm@linux-foundation.org>, "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20230501192829.17086-22-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230501_234504_516101_79C27A87 
-X-CRM114-Status: UNSURE (   6.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230502_024937_634227_7FD88398 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,24 +110,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vishal,
 
-On Sat, 29 Apr 2023 10:27:33 +0100, Conor Dooley wrote:
-> Lukas warned that ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP had been
-> renamed in the mm tree & that RISC-V would need a fixup as part of the
-> merge. The warning was missed however, and RISC-V is selecting the
-> orphaned Kconfig option.
-> 
-> 
+kernel test robot noticed the following build errors:
 
-Applied, thanks!
+[auto build test ERROR on akpm-mm/mm-everything]
+[also build test ERROR on linus/master next-20230428]
+[cannot apply to s390/features powerpc/next powerpc/fixes geert-m68k/for-next geert-m68k/for-linus v6.3]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[1/1] RISC-V: fixup in-flight collision with ARCH_WANT_OPTIMIZE_VMEMMAP rename
-      https://git.kernel.org/palmer/c/26b0812f4cf8
+url:    https://github.com/intel-lab-lkp/linux/commits/Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230502-033042
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20230501192829.17086-22-vishal.moola%40gmail.com
+patch subject: [PATCH v2 21/34] arm64: Convert various functions to use ptdescs
+config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20230502/202305020914.OGRWcEG1-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/8e9481b63b5773d7c914836dcd7fbec2449902bc
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230502-033042
+        git checkout 8e9481b63b5773d7c914836dcd7fbec2449902bc
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=arm64 olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=arm64 SHELL=/bin/bash arch/arm64/
 
-Best regards,
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202305020914.OGRWcEG1-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/build_bug.h:5,
+                    from include/linux/bits.h:21,
+                    from include/linux/bitops.h:6,
+                    from arch/arm64/include/asm/cache.h:39,
+                    from include/linux/cache.h:6,
+                    from arch/arm64/mm/mmu.c:9:
+   arch/arm64/mm/mmu.c: In function 'pgd_pgtable_alloc':
+>> arch/arm64/mm/mmu.c:440:24: error: invalid use of void expression
+     440 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
+         |                        ^
+   include/linux/compiler.h:78:45: note: in definition of macro 'unlikely'
+      78 | # define unlikely(x)    __builtin_expect(!!(x), 0)
+         |                                             ^
+   arch/arm64/mm/mmu.c:440:17: note: in expansion of macro 'BUG_ON'
+     440 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
+         |                 ^~~~~~
+   arch/arm64/mm/mmu.c:442:24: error: invalid use of void expression
+     442 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
+         |                        ^
+   include/linux/compiler.h:78:45: note: in definition of macro 'unlikely'
+      78 | # define unlikely(x)    __builtin_expect(!!(x), 0)
+         |                                             ^
+   arch/arm64/mm/mmu.c:442:17: note: in expansion of macro 'BUG_ON'
+     442 |                 BUG_ON(!ptdesc_pte_dtor(ptdesc));
+         |                 ^~~~~~
+
+
+vim +440 arch/arm64/mm/mmu.c
+
+   425	
+   426	static phys_addr_t pgd_pgtable_alloc(int shift)
+   427	{
+   428		phys_addr_t pa = __pgd_pgtable_alloc(shift);
+   429		struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
+   430	
+   431		/*
+   432		 * Call proper page table ctor in case later we need to
+   433		 * call core mm functions like apply_to_page_range() on
+   434		 * this pre-allocated page table.
+   435		 *
+   436		 * We don't select ARCH_ENABLE_SPLIT_PMD_PTLOCK if pmd is
+   437		 * folded, and if so ptdesc_pte_dtor() becomes nop.
+   438		 */
+   439		if (shift == PAGE_SHIFT)
+ > 440			BUG_ON(!ptdesc_pte_dtor(ptdesc));
+   441		else if (shift == PMD_SHIFT)
+   442			BUG_ON(!ptdesc_pte_dtor(ptdesc));
+   443	
+   444		return pa;
+   445	}
+   446	
+
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
