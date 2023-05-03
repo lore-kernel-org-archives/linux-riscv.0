@@ -4,52 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD252C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 May 2023 10:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B38DC77B78
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 May 2023 11:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yuasTcFlPxGLlUWKD2vuQxIzfD8V7giflOA0+LpTHAY=; b=YKGzWsQGHTvvxm
-	ov4ZvwQJFVmyMB6UVtpjEUGBALu5dmtIRrmSBV3vrwRjZQO/6+lkoxrSovNMA8KifcWzxe/vjom6E
-	3ao+oyMBazzOUsTRjLWxfzMQKBbwUTARMdOHG5n7y+8UqqDhfPvDvVj/a+Mq7JAmXvwE/VPr0udvS
-	F82deEdbbSzcYQSuvKom9r1k/yZfXtC0HXRhRkSA/ihMkbLqsQb5Eu6+uS05vl+ifVkvRcUFIxFwO
-	qA5zfQS077kRVkawuupZjVJW/ICmVZnwpwgR32eNjcpGvZquZCZq1Ha3D7+bxYonegiILwgHlDWI4
-	6NRnM+ksHi7U6pEQ+ptw==;
+	List-Owner; bh=RQccd4/YDxxQ+kiwaZ6UTkb/2ZD8UHgvgQmU2y9KNHg=; b=3ezz5CZHXCetvC
+	ex7ffPgRfJQjRwbqjDiFBFW/rr3IC+wMxs5WEcdtz6DlZEgrprMp5P8PgCnhHLeObap0wJIYwiz4F
+	Mg6OhPCfXh+S2yAg6RmfsVX0pQhzUbqQdymogD5hX/qiv+2+L8RAOU2K9ZHVOc+CcGKcClxQEMt3F
+	hyhrNrh9A7f+FDAkrB1ncUT4rJCC3/4Jv9qiwx9cHPCHuul7nF32XevCmw1fgrR5+3xbivjmeygUs
+	RKZq87wemBFsgAjefnNzVYfWWKnmdZldCBX9H9CmJNBrA+tczu+HYYk4X0jnovy2lLQLdSoSoIOP+
+	pJM1zpW+qsb814C3ixOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pu9l7-0048Tf-1L;
-	Wed, 03 May 2023 10:30:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1puAJw-004Lki-0S;
+	Wed, 03 May 2023 11:06:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pu9l4-0048SX-0v
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 May 2023 10:30:51 +0000
-Received: from ip4d1634d3.dynamic.kabel-deutschland.de ([77.22.52.211] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pu9kq-00078d-S7; Wed, 03 May 2023 12:30:36 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: philipp.tomsich@vrull.eu, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: bjorn@kernel.org, jrtc27@jrtc27.com, linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>, kito.cheng@sifive.com,
- Conor Dooley <conor.dooley@microchip.com>, matthias.bgg@gmail.com,
- heinrich.schuchardt@canonical.com, greentime.hu@sifive.com,
- nick.knight@sifive.com, christoph.muellner@vrull.eu,
- Richard Henderson <richard.henderson@linaro.org>,
- Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org
-Subject:  Re: [PATCH 0/4] Expose the isa-string via the AT_BASE_PLATFORM aux vector
-Date: Wed, 03 May 2023 12:30:36 +0200
-Message-ID: <4830085.8hb0ThOEGa@diego>
-In-Reply-To: <mhng-4b9e3d86-2f0b-47da-8a5d-bd383a0171d6@palmer-ri-x1c9>
-References: <mhng-4b9e3d86-2f0b-47da-8a5d-bd383a0171d6@palmer-ri-x1c9>
+	id 1puAJt-004Ljs-2I;
+	Wed, 03 May 2023 11:06:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 68C3562085;
+	Wed,  3 May 2023 11:06:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 319CAC433D2;
+	Wed,  3 May 2023 11:06:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1683112007;
+	bh=1Z/abXjYScbaeQJORhJfZ1yaBTS2vU/U1cufhR2GD0M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DYeRD57ViS93rxSgHpAWB7YMqFMUVx8+EiMfSRn6yQEG7G9RSDQSNSSe1sxzZ3BLo
+	 GvrB3gAjIST0ilFZUg8IMfwBDx8wfH+KA+j3pBm5lWI8UmkhRuaPcCrBRvajh/kKlf
+	 sc97elHz9FlAP3leMT4UaefDRJMGkLzMHZE6FdoaOvmUUjuDHCL58u0eFmESKWCS4j
+	 iTu0lEr+kmh/c3tzKSar0Ap1ePkXfG5K61exCSLbCF+9ApT/2au8DOYFlhGDOEhdXg
+	 2pQvwMWVokBgoPnt+ruSQN7Puaw5HnfRo4DOOVEE3FkCyWkRa5+PjlZzOTI1BYYKE3
+	 QatkVXcriRXBA==
+Date: Wed, 3 May 2023 13:06:44 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Nicholas Piggin <npiggin@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Vineet Gupta <vgupta@kernel.org>,
+	linux-snps-arc@lists.infradead.org, Brian Cain <bcain@quicinc.com>,
+	linux-hexagon@vger.kernel.org, Huacai Chen <chenhuacai@kernel.org>,
+	loongarch@lists.linux.dev,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org, Dinh Nguyen <dinguyen@kernel.org>,
+	Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>, linux-openrisc@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	linux-sh@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	sparclinux@vger.kernel.org, Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	linux-um@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH] Remove HAVE_VIRT_CPU_ACCOUNTING_GEN option
+Message-ID: <ZFJARBDqWPLSy7Ge@localhost.localdomain>
+References: <20230429063348.125544-1-npiggin@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230429063348.125544-1-npiggin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230503_033050_325195_2CA30E8F 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20230503_040649_812345_2C190D8B 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,87 +100,25 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Dienstag, 2. Mai 2023, 19:15:29 CEST schrieb Palmer Dabbelt:
-> On Tue, 02 May 2023 02:13:10 PDT (-0700), philipp.tomsich@vrull.eu wrote:
-> > On Tue, 2 May 2023 at 09:58, Bj=F6rn T=F6pel <bjorn@kernel.org> wrote:
-> >>
-> >> Philipp Tomsich <philipp.tomsich@vrull.eu> writes:
-> >>
-> >> > It is a pity that the current interface was designed without involvi=
-ng
-> >> > RVI (and that I had to ask my team to put together a patch set for
-> >> > further discussion, given that none of the other major vendors in RVI
-> >> > stepped forward).  I guarantee that plenty of reviewers would have
-> >> > highlighted that a central registry (even if it is just a kernel
-> >> > header) should be avoided.
-> >>
-> >> Are you claiming that the hwprobe work was not done in the open, but
-> >> secretly merged? That is not only incorrect, but rude to upstream RISC=
--V
-> >> Linux developers. I suggest you review how you interact with upstream
-> >> kernel work.
-> >
-> > Please don't put words into my mouth...
-> >
-> > I was merely pointing out that there was no engagement by the RVI
-> > member companies (in regard to this mechanism) within RVI, which would
-> > have prevented Jessica's issue.
-> > This would have also helped to address the concerns on vendor-defined
-> > extensions.
-> >
-> > Also who do you refer to when you say "how _you_ interact"?  If it is
-> > RVI that you refer to: it doesn't interact with upstream work
-> > directly, as it doesn't own any engineering resources.
-> > RVI provides a forum for member companies to come to an
-> > understanding/design and then have the member companies perform the
-> > work and take it upstream.
+Le Sat, Apr 29, 2023 at 04:33:48PM +1000, Nicholas Piggin a =E9crit :
+> This option was created in commit 554b0004d0ec4 ("vtime: Add
+> HAVE_VIRT_CPU_ACCOUNTING_GEN Kconfig") for architectures to indicate
+> they support the 64-bit cputime_t required for VIRT_CPU_ACCOUNTING_GEN.
 > =
 
-> I'm not even sure what you're looking for here: if RVI doesn't want to =
+> The cputime_t type has since been removed, so this doesn't have any
+> meaning. Remove it.
 
-> work upstream, then complaining that RVI isn't part of upstream =
+Well, cputime_t has disappeared but not the u64 type used
+for task/cpu time accounting.
 
-> discussions is pretty pointless.
-> =
+But now we have the vtime seqcount. Though we already had it
+when we introduced that Kconfig switch so I can't remember why
+this was necessary :-(
 
-> >> Why didn't RVI get involved in the review of the series? The expectati=
-on
-> >> cannot be that all open source projects go to RVI, but rather the other
-> >> way around.
-> >
-> > That is exactly the point I was making and which you seem to miss: RVI
-> > does not own any engineering resources and depends solely on its
-> > member companies to project into open source projects.
-> >
-> >> Take a look at commit ea3de9ce8aa2 ("RISC-V: Add a syscall for HW
-> >> probing"). Your team was very much involved in the review.
-> >
-> > I am aware, as I had reviewed and commented on these are well.
-> > And my only request (was and) is that we need to figure out a way to
-> > efficiently deal with vendor-defined extensions.
-> =
+It _looks_ OK but I might be missing something...
 
-> Maybe you should go talk to you team, then?  Handling vendor extensions =
-
-> via hwprobe has been discussed, sounds like you're confused again.
-
-I too have this vague memory of us talking about vendor extensions,
-but my memory is really bad for stuff like this, so I spent the morning
-combing through all the hwprobe iterations looking for it, but so far
-have only found
-
-https://lore.kernel.org/lkml/CALs-HstoeoTWjTEZrLWouCgwq0t3tDB6uL=3DtB68RJDs=
-1ub4Frw@mail.gmail.com/
-
-I'm most likely just blind, but does someone have another pointer?
-
-
-Thanks
-Heiko
-
-
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
