@@ -4,60 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD86AC7EE21
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 06:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B62C7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 06:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HH2VlKWExAfRpX3lrwezWz3ep0/lOSoTbuER0e01GOw=; b=GV4xgGXwmQrEzH
-	zTKS8yhY8UruFQJRapG2UydVX7eKgY2YqyTDi9m732gAlvpARmYTzpgMnCjrT3mqXzLsg7LdOVrIa
-	NJ4Fumo4srMvqjzqY+NgXhxTUc+abd85irY5t1T9HhbAZBfSzn5mBgmFDNUm3hZycSyDjosiK7maT
-	/hs4gi2jHLHamvKmNrkLptb4smyLy9HoYXp3jJBTfJCCTT9MzZne83z8bB46dW2SUdz1UgxRGWzIr
-	s48BkxWqJgT4psmgPIbZ1HTI7n3eZs9Of9gIoHWDdBfQZN2V6YxCb3bNiWlDs+rG9WXl8JLELdN6q
-	5E/2cz1FcQKqte0cC4BA==;
+	List-Owner; bh=YO46BGVxxQmwDX2fjLMAUYvFp1Oq8jWv4RR7/1CFod4=; b=rQoEG5fW14brWz
+	QGQ+Qbg7Xah0Vnr6CD3+MFSdYRCtAOP7/QeBEHxr8X3Mx2Tpp2r5iL/sk0DlKATMR84ZjbBki0bD4
+	txl4oRSRUIKXKRROAGRgGcQSMkR0/B4OZVJ+l1i8kk2LuQacfJPJCzolKSZl+hhI/lrzPw28FlWl2
+	dy9Tz/+hQsBRfgXwvAB9mxoXP8/Hsn/2FuoalDH93270oHAGq6WopVCWQIfJA0hZBAQivZF8TQVLr
+	Aj0dX5OaLzz93fC2n9g5iE9TwEam1Yp9nMR8SxmHhmKCxzA/1pSVpUmTZTMMgahrZCDhG1r3XzLU6
+	ndsXt0wgKWWu9Rw/XiYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puS9w-006iUO-28;
-	Thu, 04 May 2023 06:09:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1puSDp-006jK3-0F;
+	Thu, 04 May 2023 06:13:45 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puS9t-006iTA-35
+	id 1puSDl-006jJP-2H
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 May 2023 06:09:43 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DBD5561187;
-	Thu,  4 May 2023 06:09:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01CE7C433EF;
-	Thu,  4 May 2023 06:09:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683180580;
-	bh=UoN0G7xRgK8l3KWmK6d34C2kwfr+QWMw0vjw1R1S+g8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=WkNmkNHyBdD/lfnYPpRlf/EnuH4fJCQwyJfMktPPjjpKgV58Kq8Dny63w4j1be69C
-	 Y0/56/ojSQARUHNAK+YeZmq5QtzTuY6nUj0dbjslzaP3bBcHP9Oqm3lFpqjAwz21oj
-	 ZcJ7ji3L7GFPasea44QUUDWyrz8qGkdGAIRkjWxhFXAwr/vJz5NLnRbjs6h0U8bNpr
-	 w3uS83M6kpoupg24tFt9sAowm3rIsiT4nznB7QKLjx+I2AmpiYZglpPGRbaT3PI41O
-	 ZjiRE6u6BotmdwSE4c3YV0tp909MCnd6rSNEnfCiwMZ6Yn26U7sU9f62DmXnPTMVMg
-	 2mBmisAStMmuw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: ruanjinjie <ruanjinjie@huawei.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: ruanjinjie@huawei.com
-Subject: Re: [PATCH v2] riscv: fix kprobe __user string arg print fault issue
-In-Reply-To: <20230423091235.968980-1-ruanjinjie@huawei.com>
-References: <20230423091235.968980-1-ruanjinjie@huawei.com>
-Date: Thu, 04 May 2023 08:09:37 +0200
-Message-ID: <87cz3g39we.fsf@all.your.base.are.belong.to.us>
+	Thu, 04 May 2023 06:13:43 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-965ab8ed1c0so7846366b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 03 May 2023 23:13:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1683180820; x=1685772820;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LR67W3cu8TbdbHHvCQSzQmbTfNOrONMNhQlzXKF5QhY=;
+        b=C/inxBvjHBKX6ieqG1SKbI5iXHvEGIAYZJ81VWBub4NdV61svnrIu0nxr3RpLn0swe
+         rjArbctnnIy5zRRZt98Mr6T9r/Km0X8LgbmGISWJJWl7MgdobOkBLexzz7MZcggE57iw
+         kd8uRxX2gxAXP6u2fQtsg7eshSojRfGyIBYQXi6VQwf/ZHIh/5/BXAAm5eCZHmun+Ypc
+         K8glI3FPoZTp0lKA5KEB4j+Xu8WZp2EPfkNi3NAssh89TXL9u4olIzEZXpIuEbfKYN5c
+         aoHVqEA7Ju8fvu8c0WE0CnlkJ3RQbFKlov+yUuQGAHQBJBOfEU5Cm+3yRZf/FYqvP/Gp
+         LZdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683180820; x=1685772820;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LR67W3cu8TbdbHHvCQSzQmbTfNOrONMNhQlzXKF5QhY=;
+        b=XK/sf2xa/VGw8wVP9LBcVXLRLaVBFlpiQqnkktH60s4pqtv138GoGwueTKS3Sbw1iF
+         TKIirK0E4zizcq9BRr0O89FIKq5s9mZZ7dNiJ0xF4FG7WRYyE3Xd0+LhT68k/L36wKnY
+         vWlnoVMKFGAmFkPZchry+NFBpiQ1yVYwgF2Tst1NlO7x3GQPFNx9eN7Mu1Zpwt551RTr
+         rY5QgtRAKLNuvuEsoH7gckXdAUsjjBw27NBcY8Nl8z/4IbcAnOvXQyEBjcNJJRzKBj5A
+         spD23jaDqwaplRI7bul55pdA85qR19CWHasYGsDIA8hg0nu28fJtoM8dpbXwrZnZMfsu
+         52aw==
+X-Gm-Message-State: AC+VfDw2qOo16se/5F4Ei8wui+Lqq0/y2L/4MfcSwCySPVBW4Uj0EDI3
+	yHW+PkbjUEnuWN5KIERFnNvNGg==
+X-Google-Smtp-Source: ACHHUZ7wIe5zVEzox2wc5lT4hvgbIaXMMXZaqdRJTNEz0rZ6QHnHEVd2ucDuXrE6/fW5nkbcl0TBzQ==
+X-Received: by 2002:a17:907:60d6:b0:960:c5fe:a35a with SMTP id hv22-20020a17090760d600b00960c5fea35amr6542406ejc.64.1683180819754;
+        Wed, 03 May 2023 23:13:39 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:cbf1:e7ef:fb81:e912? ([2a02:810d:15c0:828:cbf1:e7ef:fb81:e912])
+        by smtp.gmail.com with ESMTPSA id o19-20020a1709062e9300b0094f281bd279sm18333085eji.198.2023.05.03.23.13.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 May 2023 23:13:38 -0700 (PDT)
+Message-ID: <3ed72340-accc-4ad1-098f-4a2eb6448828@linaro.org>
+Date: Thu, 4 May 2023 08:13:37 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
+Content-Language: en-US
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Walker Chen <walker.chen@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ vkoul@kernel.org, linux-phy@lists.infradead.org
+References: <20230419-labored-camper-644d51a7ca96@spud>
+ <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
+ <20230424-baffle-punch-ec73098f2b6a@spud>
+ <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
+ <20230425-unquote-eligible-09f743d81981@wendy>
+ <a7cdfabf-2312-eaf3-f462-5bda7f0a120d@starfivetech.com>
+ <68cb565d-bf39-10b0-9e3e-35ba7f54b90b@linaro.org>
+ <0988495f-b87a-7f69-f222-37c67d6eae23@starfivetech.com>
+ <20230425-resale-footrest-de667778c4fe@wendy>
+ <663e9933-b9b3-a48f-98b6-2207215a8ed7@starfivetech.com>
+ <20230425-commotion-prewashed-876247bed4ab@spud>
+ <0b0f9187-ad6b-a1d9-6ec4-beb8989ca731@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <0b0f9187-ad6b-a1d9-6ec4-beb8989ca731@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230503_230942_057258_14778B10 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20230503_231341_802532_EAFD810E 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +109,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cnVhbmppbmppZSA8cnVhbmppbmppZUBodWF3ZWkuY29tPiB3cml0ZXM6Cgo+IE9uIHJpc2N2IHFl
-bXUgcGxhdGZvcm0sIHdoZW4gYWRkIGtwcm9iZSBldmVudCBvbiBkb19zeXNfb3BlbigpIHRvIHNo
-b3cKPiBmaWxlbmFtZSBzdHJpbmcgYXJnLCBpdCBqdXN0IHByaW50IGZhdWx0IGFzIGZvbGxvdzoK
-Pgo+IGVjaG8gJ3A6bXlwcm9iZSBkb19zeXNfb3BlbiBkZmQ9JGFyZzEgZmlsZW5hbWU9KzAoJGFy
-ZzIpOnN0cmluZyBmbGFncz0kYXJnMwo+IG1vZGU9JGFyZzQnID4ga3Byb2JlX2V2ZW50cwo+Cj4g
-YmFzaC0xNjYgICAgIFswMDBdIC4uLjEuICAgMzYwLjE5NTM2NzogbXlwcm9iZTogKGRvX3N5c19v
-cGVuKzB4MC8weDg0KQo+IGRmZD0weGZmZmZmZmZmZmZmZmZmOWMgZmlsZW5hbWU9KGZhdWx0KSBm
-bGFncz0weDgyNDEgbW9kZT0weDFiNgo+Cj4gYmFzaC0xNjYgICAgIFswMDBdIC4uLjEuICAgMzYw
-LjIxOTM2OTogbXlwcm9iZTogKGRvX3N5c19vcGVuKzB4MC8weDg0KQo+IGRmZD0weGZmZmZmZmZm
-ZmZmZmZmOWMgZmlsZW5hbWU9KGZhdWx0KSBmbGFncz0weDgyNDEgbW9kZT0weDFiNgo+Cj4gYmFz
-aC0xOTEgICAgIFswMDBdIC4uLjEuICAgMzYwLjM3ODgyNzogbXlwcm9iZTogKGRvX3N5c19vcGVu
-KzB4MC8weDg0KQo+IGRmZD0weGZmZmZmZmZmZmZmZmZmOWMgZmlsZW5hbWU9KGZhdWx0KSBmbGFn
-cz0weDk4ODAwIG1vZGU9MHgwCj4KPiBBcyByaXNjdiBkbyBub3Qgc2VsZWN0IEFSQ0hfSEFTX05P
-Tl9PVkVSTEFQUElOR19BRERSRVNTX1NQQUNFLAo+IHRoZSArMCgkYXJnMikgYWRkciBpcyBwcm9j
-ZXNzZWQgYXMgYSBrZXJuZWwgYWRkcmVzcyB0aG91Z2ggaXQgaXMgYQo+IHVzZXJzcGFjZSBhZGRy
-ZXNzLCBjYXVzZSB0aGUgYWJvdmUgZmlsZW5hbWU9KGZhdWx0KSBwcmludC4gU28gc2VsZWN0Cj4g
-QVJDSF9IQVNfTk9OX09WRVJMQVBQSU5HX0FERFJFU1NfU1BBQ0UgdG8gYXZvaWQgdGhlIGlzc3Vl
-LCBhZnRlciB0aGF0IHRoZQo+IGtwcm9iZSB0cmFjZSBpcyBvayBhcyBiZWxvdzoKPgo+IGJhc2gt
-MTY2ICAgICBbMDAwXSAuLi4xLiAgICA5Ni43Njc2NDE6IG15cHJvYmU6IChkb19zeXNfb3Blbisw
-eDAvMHg4NCkKPiBkZmQ9MHhmZmZmZmZmZmZmZmZmZjljIGZpbGVuYW1lPSIvZGV2L251bGwiIGZs
-YWdzPTB4ODI0MSBtb2RlPTB4MWI2Cj4KPiBiYXNoLTE2NiAgICAgWzAwMF0gLi4uMS4gICAgOTYu
-NzkzNzUxOiBteXByb2JlOiAoZG9fc3lzX29wZW4rMHgwLzB4ODQpCj4gZGZkPTB4ZmZmZmZmZmZm
-ZmZmZmY5YyBmaWxlbmFtZT0iL2Rldi9udWxsIiBmbGFncz0weDgyNDEgbW9kZT0weDFiNgo+Cj4g
-YmFzaC0xNzcgICAgIFswMDBdIC4uLjEuICAgIDk2Ljk2MjM1NDogbXlwcm9iZTogKGRvX3N5c19v
-cGVuKzB4MC8weDg0KQo+IGRmZD0weGZmZmZmZmZmZmZmZmZmOWMgZmlsZW5hbWU9Ii9zeXMva2Vy
-bmVsL2RlYnVnL3RyYWNpbmcvZXZlbnRzL2twcm9iZXMvIgo+IGZsYWdzPTB4OTg4MDAgbW9kZT0w
-eDAKPgo+IFNpZ25lZC1vZmYtYnk6IHJ1YW5qaW5qaWUgPHJ1YW5qaW5qaWVAaHVhd2VpLmNvbT4K
-ClBsZWFzZSB1c2UgeW91ciBmdWxsIG5hbWUuCgo+IC0tLQo+IHYyOgo+IC0gYWRkIHRoZSBjb25m
-aWcgaW4gYWxwaGFiZXRpY2FsIG9yZGVyCj4gLS0tCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDEg
-Kwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCBlYjdmMjlhNDEyZjgu
-LmI0NjJlZDdkNDFmZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9h
-cmNoL3Jpc2N2L0tjb25maWcKPiBAQCAtMjUsNiArMjUsNyBAQCBjb25maWcgUklTQ1YKPiAgCXNl
-bGVjdCBBUkNIX0hBU19HSUdBTlRJQ19QQUdFCj4gIAlzZWxlY3QgQVJDSF9IQVNfS0NPVgo+ICAJ
-c2VsZWN0IEFSQ0hfSEFTX01NSU9XQgo+ICsJc2VsZWN0IEFSQ0hfSEFTX05PTl9PVkVSTEFQUElO
-R19BRERSRVNTX1NQQUNFCgpBZnRlciBhZGRpbmcgcHJvcGVyIG5hbWUgaW4gU29CLCBmZWVsIGZy
-ZWUgdG8gYWRkOgoKQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4K
-Cj4gIAlzZWxlY3QgQVJDSF9IQVNfUE1FTV9BUEkKPiAgCXNlbGVjdCBBUkNIX0hBU19QVEVfU1BF
-Q0lBTAo+ICAJc2VsZWN0IEFSQ0hfSEFTX1NFVF9ESVJFQ1RfTUFQIGlmIE1NVQo+IC0tIAo+IDIu
-MjUuMQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 04/05/2023 03:34, Changhuang Liang wrote:
+> 
+> 
+> On 2023/4/26 0:56, Conor Dooley wrote:
+>> On Tue, Apr 25, 2023 at 08:26:35PM +0800, Changhuang Liang wrote:
+>>> On 2023/4/25 17:35, Conor Dooley wrote:
+>>>> On Tue, Apr 25, 2023 at 05:18:10PM +0800, Changhuang Liang wrote:
+>>>>> On 2023/4/25 16:19, Krzysztof Kozlowski wrote:
+>>>>>> On 25/04/2023 09:57, Changhuang Liang wrote:
+>>>>>>> Yes, "starfive,jh7110-aon-pmu" is a child-node of "starfive,jh7110-aon-syscon".
+>>>>>>> In my opinion, "0x17010000" is "aon-syscon" on JH7110 SoC, and this "aon-pmu" is just 
+>>>>>>> a part of "aon-syscon" function, so I think it is inappropriate to make "aon-syscon"
+>>>>>>> to a power domain controller. I think using the child-node description is closer to
+>>>>>>> JH7110 SoC. 
+>>>>>>
+>>>>>> Unfortunately, I do not see the correlation between these, any
+>>>>>> connection. Why being a child of syscon block would mean that this
+>>>>>> should no be power domain controller? Really, why? These are two
+>>>>>> unrelated things.
+>>>>>
+>>>>> Let me summarize what has been discussed above. 
+>>>>>
+>>>>> There has two ways to describe this "starfive,jh7110-aon-syscon"(0x17010000).
+>>>>> 1. (0x17010000) is power-controller node:
+>>>>>
+>>>>> 	aon_pwrc: power-controller@17010000 {
+>>>>> 		compatible = "starfive,jh7110-aon-pmu", "syscon";
+>>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>>> 		#power-domain-cells = <1>;
+>>>>> 	};
+>>>>>
+>>>>>
+>>>>> 2. (0x17010000) is syscon node, power-controller is child-node of syscon:
+>>>>>
+>>>>> 	aon_syscon: syscon@17010000 {
+>>>>> 		compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
+>>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>>>
+>>>>> 		aon_pwrc: power-controller {
+>>>>> 			compatible = "starfive,jh7110-aon-pmu";
+>>>>> 			#power-domain-cells = <1>;
+>>>>> 		};
+>>>>> 	};
+>>>>
+>>>> I thought that Rob was suggesting something like this:
+>>>> 	aon_syscon: syscon@17010000 {
+>>>> 		compatible = "starfive,jh7110-aon-syscon", ...
+>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>> 		#power-domain-cells = <1>;
+>>>> 	};
+>>
+>>> I see the kernel:
+>>> https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8167.dtsi
+>>> this file line 42:
+>>> it's power-controller also has no meaningful properties.
+>>> What do you think?
+>>
+>> I'm not sure that I follow. It has a bunch of child-nodes does it not,
+>> each of which is a domain?
+>>
+>> I didn't see such domains in your dts patch, they're defined directly in
+>> the driver instead AFAIU. Assuming I have understood that correctly,
+>> your situation is different to that mediatek one?
+>>
+>> Cheers,
+>> Conor.
+> 
+> Conor and Rob, 
+> 
+> How about this way:
+> 
+> aon_syscon: syscon@17010000 {
+> 	compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
+> 	reg = <0x0 0x17010000 0x0 0x1000>;
+> 	
+> 	aon_pwrc: power-controller {
+> 		compatible = "starfive,jh7110-aon-pmu";
+> 		regmap = <&aon_syscon>;
+> 		#power-domain-cells = <1>;
+> 	};
+> };
+> 
+> Add a "regmap" property which is phandle. And it can keep the present child-node
+> structure. This is more consistent with our soc design.
+
+Adding property from child to parent does not make any sense. Didn't you
+already receive comment on this?
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
