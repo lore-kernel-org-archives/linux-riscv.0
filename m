@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A20C7EE22
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E31C7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=2tO8lLicATKVMWycRMmwu3OIrTGbpIfyi8tqBwTgqbc=; b=UgEDMTyN1yRi5H
-	J/GJn9eYTbQTmcTJryFXbXdX4yf5sUBR6WicuE0UCPeILj4fk6LKFCETUVzw4CJIJG18/RTKG05KV
-	89GwLOvyk7RiZLJPjngUuQ1apuI+vFmD7/6bWwr9R8fop+aHJr432N8q+0C98Zh73i1mvAETWJd5i
-	MB/YS4QFY7rNINimOEO2u+TzZyTV8P/g9g6W0LhSHFmnXSfVLRSzsYfvtUaO0Iiugyx6Q8eZewr+U
-	og5MZ+NrpuMXNF4GFCZHVrlkkgX7ZwXoxkqVWz17dmvV4yOL9fGA+1E33yCMzeiryhbxYmV94N/eR
-	x0jaPtBDN4ERHoMEch4Q==;
+	List-Owner; bh=h1/eOAZvnAL6W7eEdY1YAZ7IHu00OXzxSoVD14Cfh68=; b=17ypmvUqjaGvH/
+	9rgVQZNwvdGVLtitqX+FpaJkScy/lt7PbnJF8/njH/V2Bv1fhygnhEGQryXMtOiD6kTWQbr97+tW+
+	aSIUm0wEs9kjFSzd3moliK22riTDQtYbE1Qu3LNiwoCq+jZzwyHVpQ700hzlrUuOtEcv3hEp67rex
+	RK+iZooaLO64s5vplek6PVL1xowvBB0HEkYyyL5ALKRUytC/hur1HBuW/F7QmRrr0x1yFgsRblQJb
+	dcYBt0AcxL7SdYNPLKvnm+v4VZzmh89k2ZzF45E1HRCnGQy1NDapJM7ZVSCnPgdmy6BqexGJOsywY
+	WzdLIIjnNEHwJPi6qTgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueoz-008o9O-1O;
-	Thu, 04 May 2023 19:40:57 +0000
+	id 1puep4-008oE2-24;
+	Thu, 04 May 2023 19:41:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueov-008o5u-2V;
-	Thu, 04 May 2023 19:40:53 +0000
+	id 1pueoz-008o8l-1B;
+	Thu, 04 May 2023 19:40:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=wTNocxrIkrZERW1CgHrOxDfBd1NuTsgJS4AJ8mYPyyQ=; b=oweweaI7Iv5txdp2tuIC0PaZuX
-	+F5nAPUg81ppVLDtcQX4Iz0p76p/CFpZkDDOoBs51KUDXjDkGpgCm94y+Lp08o3zvXV0Xds5rNgWB
-	HWX/YDgfzoANHvGuvsh8NKjq/3GqrfmBy7QNCCa7vyEuMRrV+1iRgh5+uHwEuc9JpKuBgUXBxlL9B
-	gUzpHGATRcRZFjtmF/krJrqmznfxQJcyqugwSW6296Df7YgkSREDT8M+dezBZ2vQA1oH9P/MwiY6t
-	VxCLZk3h4iAsHE7v1+PkNcoAPDzNV9eGEwny06zaPmsh94AedQSCgKimM6GZAk4uK7Z7Zln7ALWcH
-	LrppRhEA==;
+	bh=o04fXgOhQs8+8CE7g0ZkhrpkLD4QHZg/LLM7Otp+9z8=; b=qDKfBeZ8ePzvF8S9g870ojoTPq
+	q0qLsUfpr6ijpMxJQFbPYME/FyYa7a+iwPOLgYaEbNzcj+qN1EgKlWFpwjDqM0pQEnr+ic5LkYvc4
+	TAAssdQltPYs52dX/TRllCaQtxSc2rz+bgJC1NSMjz+UImX3AvMpRpRgIMd7LO9Qf7qZVWRkJoh/r
+	v4cBHVW6EDNU8Q6yGsKxgRc85R4XvY0387ieuEIdbT4+yyLOoO1DCXZ5Jln9xFD7hX9GV098PVhRq
+	vf2R8vsuKOniPE7bjKiJ4mQnbf55vSMJtOCV+j3a4jfDzZE8KS4cIvQESDN3f92w5YWhwv15ump9U
+	jd2rCN3Q==;
 Received: from galois.linutronix.de ([193.142.43.55])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDt-001o01-1E;
-	Thu, 04 May 2023 19:02:52 +0000
-Message-ID: <20230504185937.584277566@linutronix.de>
+	id 1pueDw-001o08-1S;
+	Thu, 04 May 2023 19:03:00 +0000
+Message-ID: <20230504185937.700483457@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226956;
+	s=2020; t=1683226959;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=wTNocxrIkrZERW1CgHrOxDfBd1NuTsgJS4AJ8mYPyyQ=;
-	b=Mi46V8eHgoltNQxPJmnbu9i1N0WqNbjlBS5gXzUQdYuzDGSlRAwFIn42Fl4qTDQ9tpMOpi
-	9pMD9eqFIhnqecwmKQOcPdssVAfxr98Ufnj8kPfEnna6Jg1FJPiFDXjB5qyYPeKOEBzagH
-	d9bGKI26ZnIO1dmzo62pzKDwF621ZdxsTsNqH8faar1/6RQwLMfz9EzVFpDrERESz08UzT
-	RKiX6TWVgbEvDpDMLz5ptMwZldZAxWrvz613h9Whj+rnlmmRseJTa9scp2XVHyZRgXYYx9
-	W9B8x3jWUGKujnEYbsdrx7KzjQ+swT2YMyT9UZUBAmo9KzwEdkHLM2GZWs0XOQ==
+	 references:references; bh=o04fXgOhQs8+8CE7g0ZkhrpkLD4QHZg/LLM7Otp+9z8=;
+	b=p4kcKoUjBHHJo7zBT76SAr4kx217XWJeqQlJZM4VxHPykLQrWLTEC/uzx8rVhbv5iqkHWl
+	eKFtH9Dh+4qwsJ89ZP4rLm01HMJyfuh1U+U+HK5bkx7PCIfmaji3wiKDM0hoVurLEfzD81
+	Wt5Ubm2jEjitMnzdFcIqEG1m9GNIikM3c5w8xOJBg2D9IGfl3i1Bdd22uIIaFwPx6R+oIN
+	02fFHC7cYoeNHnd0KZn/7sG2vBaI1ZwTr6vd36gfFqo6mvp2OfPm/JhGUYVjsHiJsALYHO
+	f8H4F6s4Sw0iVizvLScdCi66AVg3wSgMwKU7em9hN7nVzpd/ip3L0uFyKgVW2A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226956;
+	s=2020e; t=1683226959;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=wTNocxrIkrZERW1CgHrOxDfBd1NuTsgJS4AJ8mYPyyQ=;
-	b=4wN87waBqOWq8wTSM62nHwIaB3nHKF5Odvy83jhqjVG4mxeKOSh6qxwJk2zaru4HlpMduu
-	ieIS3XjNdw5x/MBw==
+	 references:references; bh=o04fXgOhQs8+8CE7g0ZkhrpkLD4QHZg/LLM7Otp+9z8=;
+	b=ZnZlGAwTWV21lQJdfFlOE3KOrdxbCyckyIQwnUuLhsAipHYSOksGllyP3kynqMPIKSFyh4
+	3HRt8jQRFFxBADCA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -95,13 +95,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject:  [patch V2 23/38] csky/smp: Switch to hotplug core state synchronization
+Subject: [patch V2 25/38] parisc: Switch to hotplug core state synchronization
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:35 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:38 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_200249_042172_FD1B6B59 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20230504_200258_708856_F0DB4FC8 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,61 +124,56 @@ Switch to the CPU hotplug core state tracking and synchronization
 mechanim. No functional change intended.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Guo Ren <guoren@kernel.org>
-Cc: linux-csky@vger.kernel.org
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: linux-parisc@vger.kernel.org
 
 ---
- arch/csky/Kconfig           |    1 +
- arch/csky/include/asm/smp.h |    2 +-
- arch/csky/kernel/smp.c      |    8 ++------
- 3 files changed, 4 insertions(+), 7 deletions(-)
+ arch/parisc/Kconfig          |    1 +
+ arch/parisc/kernel/process.c |    4 ++--
+ arch/parisc/kernel/smp.c     |    7 +++----
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 ---
---- a/arch/csky/Kconfig
-+++ b/arch/csky/Kconfig
-@@ -96,6 +96,7 @@ config CSKY
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -57,6 +57,7 @@ config PARISC
+ 	select HAVE_ARCH_SECCOMP_FILTER
+ 	select HAVE_ARCH_TRACEHOOK
  	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
 +	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select MAY_HAVE_SPARSE_IRQ
- 	select MODULES_USE_ELF_RELA if MODULES
- 	select OF
---- a/arch/csky/include/asm/smp.h
-+++ b/arch/csky/include/asm/smp.h
-@@ -23,7 +23,7 @@ void __init set_send_ipi(void (*func)(co
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_IRQ_MIGRATION if SMP
+ 	select HAVE_UNSTABLE_SCHED_CLOCK if SMP
+--- a/arch/parisc/kernel/process.c
++++ b/arch/parisc/kernel/process.c
+@@ -166,8 +166,8 @@ void __noreturn arch_cpu_idle_dead(void)
  
- int __cpu_disable(void);
+ 	local_irq_disable();
  
--void __cpu_die(unsigned int cpu);
-+static inline void __cpu_die(unsigned int cpu) { }
- 
- #endif /* CONFIG_SMP */
- 
---- a/arch/csky/kernel/smp.c
-+++ b/arch/csky/kernel/smp.c
-@@ -291,12 +291,8 @@ int __cpu_disable(void)
- 	return 0;
- }
- 
--void __cpu_die(unsigned int cpu)
-+void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- {
--	if (!cpu_wait_death(cpu, 5)) {
--		pr_crit("CPU%u: shutdown failed\n", cpu);
--		return;
--	}
- 	pr_notice("CPU%u: shutdown\n", cpu);
- }
- 
-@@ -304,7 +300,7 @@ void __noreturn arch_cpu_idle_dead(void)
- {
- 	idle_task_exit();
- 
--	cpu_report_death();
+-	/* Tell __cpu_die() that this CPU is now safe to dispose of. */
+-	(void)cpu_report_death();
++	/* Tell the core that this CPU is now safe to dispose of. */
 +	cpuhp_ap_report_dead();
  
- 	while (!secondary_stack)
- 		arch_cpu_idle();
+ 	/* Ensure that the cache lines are written out. */
+ 	flush_cache_all_local();
+--- a/arch/parisc/kernel/smp.c
++++ b/arch/parisc/kernel/smp.c
+@@ -500,11 +500,10 @@ int __cpu_disable(void)
+ void __cpu_die(unsigned int cpu)
+ {
+ 	pdc_cpu_rendezvous_lock();
++}
+ 
+-	if (!cpu_wait_death(cpu, 5)) {
+-		pr_crit("CPU%u: cpu didn't die\n", cpu);
+-		return;
+-	}
++void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
++{
+ 	pr_info("CPU%u: is shutting down\n", cpu);
+ 
+ 	/* set task's state to interruptible sleep */
 
 
 _______________________________________________
