@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8ACC7EE21
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E79C77B78
 	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=UsMh46WTQ6bkyAQVf4i2A1ksJ8d6xWxku/0xelz3Wd4=; b=gRa+40wEQK+brL
-	juxiWjSYMbC/IsS+niORBWVFJG9E/fxpuiNBM2a9QnbTZhkLTFfeom3jiCWWL+fR3422Wc8Xs11hV
-	CE5YKtqiPtaL2Qxg5K8ytUXyIclLagOaEM04DcCUiB56ZP5ds2kZ/O3CPrByDo5Z5YrpSJxx/JiZR
-	nAThtr7phss9gESfoj/qq14eGXzflDqR4gKpyPjbacT5PDNmtyYeVxNVKiTW3ifqzAOBlavqtW0u1
-	magx2UCPQLWN+oSDBbmVnBXML76qqgmDQGkpyxHvmMz94JzPrzopRncDp69SxcQbXhON/luKRvaa2
-	j52bbrbfL8NqET1oa+Cg==;
+	List-Owner; bh=iGvG7zVqF43VSSanWM13kjZRAhbZYWRSIqk+kaDG0nM=; b=mGxQ2yaetmGUAX
+	78itm8RqGTVYZ6BVbKh5u2aA8rWCO7Ww1+47X8ffoMFcVn/VpouJRl4iEmpUxI3GpQ5hqmyFs+DSF
+	PZ6USu5V0ZfSBliqIWyMruIIKdhB3zRm/Cyx7WtGii3rd7yYgS9bXFZcJakuWAAwucbBZIk/FpPa8
+	b8RnFs8sSL9B6jG6Lcygx86C4aJbd7LIHiqeZb/ebIJKvP03W9W48SmFV/6pEkPNht9P76Fh1HrP2
+	Kn7UiyigjXPZbg2AWM35s+nvRTQ0dRus5NHLWpbd+mFBRagaD1rPy/Nrd0tDftDJhvQdRRs6yURNp
+	yPeiFRbZg0AGyQM1zcLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueoH-008nl4-1s;
-	Thu, 04 May 2023 19:40:13 +0000
+	id 1pueoM-008nmB-0r;
+	Thu, 04 May 2023 19:40:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueoE-008nkY-2q;
-	Thu, 04 May 2023 19:40:10 +0000
+	id 1pueoK-008nlh-25;
+	Thu, 04 May 2023 19:40:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=; b=oH+52N2rSQRR8rGatzAOErIjry
-	SHp91y+qBTJRYRB7ZouPbHf7bZfm81liqHsn5lt7LnHgjABUmTI/lpwb/Lhb2L9u+4c5/9k4tJ5Lr
-	3T/k9aicHnduixI9TSvuAJPmYpasZZj/373IvtsbOr4ZvduoZv7xRgJy3M4OzkJeSqWHDQs/q+eff
-	piZehaPxfBbosFVvlv44QBWOcQPtQB9wvIza0yc21L/CR6tKAYyZAYe/CmVm72QQD5OxHZSOySNuO
-	svCHYgXVYq8CG9DVaYq1ZrAcFzLJkmSbhGAKcrLkuLkDiuvxMdw1vY4a6NgO43xQUpWAQM/Xz/NIT
-	gAVn8wxA==;
-Received: from galois.linutronix.de ([193.142.43.55])
+	bh=PaGuo8GAZ65ZbtTn7wzwCB2xmjp/8CcdVtBqqK3zJyY=; b=grKV0r2Q7hD5rep2ubOwb2J0Wv
+	Qx9mZsYVm4UZLA+/WBpNu4QPG/YEupRz+eZiHXv/VUhM5uOL/g6swKkxxxrbCu+uYEfcscxTs5dvE
+	q/4cgHWtJfirec5x3W5K3gwF6/nSBesavPP5YWbdowZVjTXaTwy6c6Agnf8N4NcrI4Z8IGMDCSK8l
+	02MqHkipZ5H6OXSMSr0Aes2sj9U40ZTtgpkeCMOSWXTQCC/EgcJO327VYHG8IQ40yIbOlmkJ9lh1N
+	JgyLrcFWyQmWByp6OW1StBpWzgxBu6h2KxUx+fYk3VwkZMX4RqkEkEmpzeGDEFjrHcDuCOPATcmqi
+	0qPiPjGA==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueE1-001o1A-1t;
-	Thu, 04 May 2023 19:02:52 +0000
-Message-ID: <20230504185937.858955768@linutronix.de>
+	id 1pueEC-001o5Q-29;
+	Thu, 04 May 2023 19:02:59 +0000
+Message-ID: <20230504185938.232336513@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226964;
+	s=2020; t=1683226975;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=;
-	b=F9VwenKVSYd9QFli8bXNV/fz9qUSdzJcPELJ1ngRD9BxyzaHEgcu2cC0/b4kuprOfTMBsR
-	NCkyPWtTcKTi4mTU6aAeMY6PYflFdg/QnWMligdTnr5DQ53G/59w7N1RxTuaJMuxKaB+6k
-	fnxGx7t6MsQx4TP0A/Wv1B3YJqsjI01JirGXHQPo53zTdX5Z488sLyftTciloBgiN9k5k/
-	bzf3t4Qwlj6lxCy0qHukKPQMZGDuh3h1yP7MJWtYXWHVZt3htrK/Qtw9ul4ERCfXuX9Nze
-	it6Ui4ad23Dml/cuVbhr6i6cHXzKyVbR3juE2BxVW820qfkeEJiZvG833WVS3g==
+	 references:references; bh=PaGuo8GAZ65ZbtTn7wzwCB2xmjp/8CcdVtBqqK3zJyY=;
+	b=WBrmRYfVh8Hf7VAtaZM+773NG/l2NaZEQY2PbsMWpwgijTHlkaPZNZwTTqZqSePaJs28Tp
+	huH2qX95r4oDUOSFSd9zA+6+RZv5lgr0xa0QdgDkEncw9LVXBvKPVIlHpBCwardNQlPmIT
+	cajVqbzngFG+dnpn2I0UeA+RYWcEBwo1QkYYSYABAtHiWYiay4DXWTSDKMd3/FerfS7z8b
+	xwX6otdMILDZ1YbCULvPsUARGQzswNTUUkZzB3iKqcysyV9JxG2dUxCWqjPi7FUYFLn/3T
+	jkRxQ4LmxpZMkrdtxeZw1NAb25wiC+Tx1duuJ885D0xawxhq7zhP9DRXxAmkFA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226964;
+	s=2020e; t=1683226975;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=;
-	b=PK3VhwCrlpzYLlITMOVdXxhPHsDqoA73a6Tz+/QOqHPRfKtGaiwEqnA7EtTcL4VMvMoxp6
-	ebRWKW/d8KnEHmAA==
+	 references:references; bh=PaGuo8GAZ65ZbtTn7wzwCB2xmjp/8CcdVtBqqK3zJyY=;
+	b=G0tsDBn5b6jENP+Wz6pMSYtlj20+hRg4V3sQlU3KTcd+8sMa78JVCQNTfSLn2dU5TfjS5i
+	VD5uznhB/0z5zkAQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -94,15 +94,14 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- David Woodhouse <dwmw@amazon.co.uk>
-Subject: [patch V2 28/38] cpu/hotplug: Reset task stack state in _cpu_up()
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>
+Subject: [patch V2 35/38] x86/apic: Save the APIC virtual base address
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:43 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:55 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_200249_046096_DD43E3C4 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20230504_200257_367877_66962E51 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,59 +118,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+From: Thomas Gleixner <tglx@linutronix.de>
 
-Commit dce1ca0525bf ("sched/scs: Reset task stack state in bringup_cpu()")
-ensured that the shadow call stack and KASAN poisoning were removed from
-a CPU's stack each time that CPU is brought up, not just once.
+For parallel CPU brinugp it's required to read the APIC ID in the low level
+startup code. The virtual APIC base address is a constant because its a
+fix-mapped address. Exposing that constant which is composed via macros to
+assembly code is non-trivial dues to header inclusion hell.
 
-This is not incorrect. However, with parallel bringup the idle thread setup
-will happen at a different step. As a consequence the cleanup in
-bringup_cpu() would be too late.
+Aside of that it's constant only because of the vsyscall ABI
+requirement. Once vsyscall is out of the picture the fixmap can be placed
+at runtime.
 
-Move the SCS/KASAN cleanup to the generic _cpu_up() function instead,
-which already ensures that the new CPU's stack is available, purely to
-allow for early failure. This occurs when the CPU to be brought up is
-in the CPUHP_OFFLINE state, which should correctly do the cleanup any
-time the CPU has been taken down to the point where such is needed.
+Avoid header hell, stay flexible and store the address in a variable which
+can be exposed to the low level startup code.
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Tested-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 
 ---
- kernel/cpu.c |   12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/x86/include/asm/smp.h  |    1 +
+ arch/x86/kernel/apic/apic.c |    4 ++++
+ 2 files changed, 5 insertions(+)
 ---
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -771,12 +771,6 @@ static int bringup_cpu(unsigned int cpu)
- 		return -EAGAIN;
+--- a/arch/x86/include/asm/smp.h
++++ b/arch/x86/include/asm/smp.h
+@@ -196,6 +196,7 @@ extern void nmi_selftest(void);
+ #endif
  
- 	/*
--	 * Reset stale stack state from the last time this CPU was online.
--	 */
--	scs_task_reset(idle);
--	kasan_unpoison_task_stack(idle);
--
--	/*
- 	 * Some architectures have to walk the irq descriptors to
- 	 * setup the vector space for the cpu which comes online.
- 	 * Prevent irq alloc/free across the bringup.
-@@ -1583,6 +1577,12 @@ static int _cpu_up(unsigned int cpu, int
- 			ret = PTR_ERR(idle);
- 			goto out;
- 		}
+ extern unsigned int smpboot_control;
++extern unsigned long apic_mmio_base;
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
+--- a/arch/x86/kernel/apic/apic.c
++++ b/arch/x86/kernel/apic/apic.c
+@@ -101,6 +101,9 @@ static int apic_extnmi __ro_after_init =
+  */
+ static bool virt_ext_dest_id __ro_after_init;
+ 
++/* For parallel bootup. */
++unsigned long apic_mmio_base __ro_after_init;
 +
-+		/*
-+		 * Reset stale stack state from the last time this CPU was online.
-+		 */
-+		scs_task_reset(idle);
-+		kasan_unpoison_task_stack(idle);
- 	}
+ /*
+  * Map cpu index to physical APIC ID
+  */
+@@ -2163,6 +2166,7 @@ void __init register_lapic_address(unsig
  
- 	cpuhp_tasks_frozen = tasks_frozen;
+ 	if (!x2apic_mode) {
+ 		set_fixmap_nocache(FIX_APIC_BASE, address);
++		apic_mmio_base = APIC_BASE;
+ 		apic_printk(APIC_VERBOSE, "mapped APIC to %16lx (%16lx)\n",
+ 			    APIC_BASE, address);
+ 	}
 
 
 _______________________________________________
