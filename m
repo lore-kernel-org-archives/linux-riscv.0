@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB57C7EE31
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4BBC77B78
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=4vGaVyHcFlGgeazOStXJgjHTZw2OMlxZh1QhmetK/J8=; b=EMgcgLumg1ecmS
-	uUMsaS+ZXKymn75umkBI7qdYboo9NxhF28pEHFJhX6s0tS4N9/JLhNfQvM5G3gCiuEt3aLO7ap+nI
-	cQu8CivwqBz0i6qrBCeKLMw5ZzHmz/WewUORFVB59XnY14cc5F0jQkAj4zuzLupLzI7/+YNd+jfSn
-	hChqVf80ReBf84BftUjfcOu7pkCi3ykeaDXJECTNzsWr1oFr7mCiL12gNLv9xPbzz1hFb1y7hgfDU
-	qu6sgRRYyNg+CXAhKN73DZYkjOkss0QoIf4y/IiHjNAAtMwFU3pM1cLHcP3aWbPw9iz0lKhYNM3fF
-	e9vzNJsaOyWElucOocDw==;
+	List-Owner; bh=n8qiJLwH0Id5CSHHV9oR6ehw7jdOVAI/qJnryHJo/98=; b=UK5DkUu25nP3PW
+	1ZjtGjoZh96UXCCAZ9AsDUb6M+QUbK/XtE5oylkSytQ2gXeq9Gen0wGGwWu7n+irLanBMU2mB2H3C
+	EVUlYSG/7Pg9GU+cLqdcP2ErW95B+J/loeAdwtZEwbMQpLEJV101ki275gPlHnSX7QsWilpdxIPjV
+	pZM2hySHAPrClqR18xLF0X6w2MTSJhJKbbKC9QZHvs3vVdAhlIp2dAVq+x8BqH0Wf1vGH9Qh8mX0t
+	QPDQEapjsilc7Y4PRqOQxl/pk6Sgwa8hqwiaysJXnIsDgyHkfMh+Eg4sdDovDCwSHduCtAATGkw7d
+	1xTzBJElpbrYzjwHyWog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueEW-008eW7-2u;
-	Thu, 04 May 2023 19:03:16 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pueEc-008edn-39;
+	Thu, 04 May 2023 19:03:22 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDg-008dWO-1l;
-	Thu, 04 May 2023 19:02:26 +0000
-Message-ID: <20230504185937.145906075@linutronix.de>
+	id 1pueDi-008dYs-0o;
+	Thu, 04 May 2023 19:02:28 +0000
+Message-ID: <20230504185937.201611990@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226943;
+	s=2020; t=1683226944;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=lJLvACyWoTrqBZOps4v6XbP7wlJ3d4Q7defz4e+9Zb8=;
-	b=M3KgFVyzFkR4ccZ70dYavQ5/yqmJzYsNUe2w4AYa1zmqPGpOGfvnO2dLe+bqfdSYVxHNmg
-	UzxBYDkuh0vO9FnTUv0U0boU0E1jTAuFuEPxGvjM1vNFxZkY4+YKEIRoL7asL6MLh7WY2k
-	YHroxEZc/MyAi6EghJhWG+wOe//5AznxGGSpRWucK1h/BnTyT75KngcAYt8WZjiMtq166b
-	mZZvUfn/tKwnN+lYf/c6UiDK6atXikbDlaDBZ4sMT8u+PU/SPukxmYsr0YlXnC0aFBugr6
-	4bUgvijH50TXxyxKZ9qydiyNaQwVfzl3UXTSijqX2pY50ezKH3gbSbXO2Pf/Zg==
+	 references:references; bh=8IR2ZEar7xSTX3+WcC3NFIdAp4AUTKg+YP70lXONDYs=;
+	b=b5Dhpk7DXri1g+Jk4Fccefqph5HHh5m0O6WHx1dP1v8spz8TW/ZVEXRzP6Fu5Vyp4twGau
+	0WJ5VSOP7FkG0YM49DJA3ab9WsH+lMCnQQToJbW5YLIvGGqyCD5SuatG+70PddmmocvInY
+	sbywrL3O4QW1MGnAo6cSBXhCM/VRCDBpxMydY3h/7/ooJkjuTTpet2ZIX0gkrKNjXC4iyZ
+	NM25MYCPlURsUrvY1AdwvXfa3J2aswhoiO4UsIkjW2ZgbjIhOmU0uQ9SDbhRPFEyzNsNh0
+	mS7KdesNxpuJcwz0hAomc0k47L5YQTKWUQ3/pEIBgfRwzYecCD6MkvQPPrVSxw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226943;
+	s=2020e; t=1683226944;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=lJLvACyWoTrqBZOps4v6XbP7wlJ3d4Q7defz4e+9Zb8=;
-	b=YUlyUuTQQYH6MyD4cTuFQt3gYiD8H4Dxlm3l2cVGkFebVjVj9D7krF98nosGppSH1sXEJ5
-	189JeF0cp5TwVnAA==
+	 references:references; bh=8IR2ZEar7xSTX3+WcC3NFIdAp4AUTKg+YP70lXONDYs=;
+	b=dn+I2+Yxq6eST9WYLeBz7I//tSeh1zP1C4UnkiRYUPrB/Bi9OJVO0kV5NCl8mWHGp/F1Kx
+	csRGXLzl80A3yQBw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 15/38] x86/smpboot: Remove wait for cpu_online()
+Subject: [patch V2 16/38] x86/xen/smp_pv: Remove wait for CPU online
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:22 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:24 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120224_798412_0CB14064 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20230504_120226_477327_2CB69257 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,62 +109,37 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Now that the core code drops sparse_irq_lock after the idle thread
 synchronized, it's pointless to wait for the AP to mark itself online.
 
+Whether the control CPU runs in a wait loop or sleeps in the core code
+waiting for the online operation to complete makes no difference.
+
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Juergen Gross <jgross@suse.com>
+Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Cc: xen-devel@lists.xenproject.org
 
 ---
- arch/x86/kernel/smpboot.c |   26 ++------------------------
- 1 file changed, 2 insertions(+), 24 deletions(-)
+ arch/x86/xen/smp_pv.c |   10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 ---
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -281,7 +281,6 @@ static void notrace start_secondary(void
- 	 * half valid vector space.
- 	 */
- 	lock_vector_lock();
--	/* Sync point with do_wait_cpu_online() */
- 	set_cpu_online(smp_processor_id(), true);
- 	lapic_online();
- 	unlock_vector_lock();
-@@ -1110,20 +1109,6 @@ static int wait_cpu_initialized(unsigned
+--- a/arch/x86/xen/smp_pv.c
++++ b/arch/x86/xen/smp_pv.c
+@@ -340,11 +340,11 @@ static int xen_pv_cpu_up(unsigned int cp
+ 
+ 	xen_pmu_init(cpu);
+ 
+-	rc = HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL);
+-	BUG_ON(rc);
+-
+-	while (cpu_report_state(cpu) != CPU_ONLINE)
+-		HYPERVISOR_sched_op(SCHEDOP_yield, NULL);
++	/*
++	 * Why is this a BUG? If the hypercall fails then everything can be
++	 * rolled back, no?
++	 */
++	BUG_ON(HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL));
+ 
  	return 0;
  }
- 
--/*
-- * Bringup step three: Wait for the target AP to reach set_cpu_online() in
-- * start_secondary().
-- */
--static void wait_cpu_online(unsigned int cpu)
--{
--	/*
--	 * Wait for the AP to mark itself online, so the core caller
--	 * can drop sparse_irq_lock.
--	 */
--	while (!cpu_online(cpu))
--		schedule();
--}
--
- static int native_kick_ap(unsigned int cpu, struct task_struct *tidle)
- {
- 	int apicid = apic->cpu_present_to_apicid(cpu);
-@@ -1170,16 +1155,9 @@ int native_cpu_up(unsigned int cpu, stru
- 	int ret;
- 
- 	ret = native_kick_ap(cpu, tidle);
--	if (ret)
--		goto out;
--
--	ret = wait_cpu_initialized(cpu);
--	if (ret)
--		goto out;
--
--	wait_cpu_online(cpu);
-+	if (!ret)
-+		ret = wait_cpu_initialized(cpu);
- 
--out:
- 	/* Cleanup possible dangling ends... */
- 	if (x86_platform.legacy.warm_reset)
- 		smpboot_restore_warm_reset_vector();
 
 
 _______________________________________________
