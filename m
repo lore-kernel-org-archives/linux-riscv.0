@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEE3C7EE22
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDA4C77B78
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=gRbzfqS4PKs7ALg7AXAaVu7lVFl8iQh/bz8139Ymeyk=; b=Sqo0CXbN3btn12
-	crew73PmY82fQE2BWtYn7DbgXMvK5qnV8bLkZTO1IcGvj9tWSCD/EeE+SqhvEn8uYnFkylQaTaJpk
-	chvA8eKgNO/DJEFUp0bRERbbSotQnFyewWgJkpwm3OPA5Wld/L5FIDRHMxooqz4LkCgCZ7LTp0250
-	+aU2WkNu9jit1uVG3bwR/TaS7kJ7W2jk/tghIf2A5wrKthYwCtMm7+S6FqW8FYtNLo7wdbzxHll/O
-	Bs39dgWvVoaa8bbt7RKDCCYx4de0ZU0eDpjpVZmc7pwWV9FVVbp1/IRAMo7KxKlP1Nj12x9IUff+q
-	LOHGM01r4ZfShLZ492Tw==;
+	List-Owner; bh=B6CDw50rXFgZ0EJA6N8NNH2kIn9hCskKLD//Jlu/jnE=; b=WWQoGKCRVDpYQR
+	V0al3iVd2lejiGjpctYnYYA/wPXX+bGkZbaHX6yS+T2Ok2OTiK8JQxwpLUVgxlO62kp4XMpsn3oSE
+	b+H/IHZR+otMRKp0iULwO5d6d7hJOYJUFoP/pAzgTZO8NFuQVCipf0lKyrSBIyStDnbiLaTRMR7+A
+	rq3S94Q85CRWM1uqOz32ueKyOvM0q8iN1RsBwhvF5e83cwDD4a8Tj4o+UjRZAY7HKqugte8V1kiEM
+	bOPIqcrNaq6uuWlNrXkwcHFhebjQzuKauMV1x/wwUVc7UdeZ2HCu/M/aBIpU+VJnbfjynXhNaKKwH
+	3qWvkbqvAubZ6ELxGRVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueoJ-008nlV-0B;
-	Thu, 04 May 2023 19:40:15 +0000
+	id 1pueoV-008npA-0J;
+	Thu, 04 May 2023 19:40:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueoG-008nkj-21;
-	Thu, 04 May 2023 19:40:12 +0000
+	id 1pueoS-008nmw-13;
+	Thu, 04 May 2023 19:40:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=F8kXoaR1nBQ6o9VxPp8Uz6U2V5tkVIrZOYAD+Uqf6yU=; b=MniihvyKlFGv2LbSgc7EJmiA/v
-	HGkOOgylAwskv4RCuk2eJxtgzNH4IeIjcwLP4/0YMMXj57VScDqw8yGLcVnPKvh8f3M9RZxF4GIUH
-	449wQhwZJMByKS7c6KDlR6tTAp8lx9kFuSbZROYlZ+1o2JueFgcQjOU2wIhYYPXQ1rM3pO82xY8HX
-	QuWohy+BepPkCMsX8CxdvOdSc5bhkxJRpec8EynUA/hRzX16V9GuG20ekv+82bCraNhEFYXS4tgxM
-	0SANLbCHQjHpXyuBn8ebMuanppUXbanqfLEv1iV/gOZ7jXCy/v56kaTpRBaJRtHcrmKAvr0xpvnZI
-	naFO+Knw==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	bh=7w0pkJKfi5BfzTn7YraeCXszLQVgaQibx9fCVrsyYLw=; b=Sa74zuBylKQG9LSC7X7/ZE2Yq1
+	2qmADeI0tU8KvBtPsh1QGWU5YZ/5cKypthqQY/YOFYa6tQfJv6XgI9TWtdW2mkFOVoBFLobM9ptAK
+	yBeWIeQ3p9yBcqKlHztpClifqqiu7wy0AtbwKP8Vf/5JRJu8pUTXxf9g9hkhvnnVaZatnE+5h2+lp
+	mSkBUVMoT+s8TXU7f0cPqD48MR7T0fZAzdEq1QA0U5Kh1XA70TGSHuB+UvPeSFxSUhEAkJkxiEoMh
+	cvzHQkM3VYBX4nwtH4Mjm/2dL7ssEK8wIiWOQOzzEcLCCy+WdZifER/SliHQMGZ/vEUS3Y0XR/ESN
+	/T4P6wow==;
+Received: from galois.linutronix.de ([193.142.43.55])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueE3-001o1B-0Z;
-	Thu, 04 May 2023 19:02:56 +0000
-Message-ID: <20230504185937.912510359@linutronix.de>
+	id 1pueDe-001nyN-0R;
+	Thu, 04 May 2023 19:02:25 +0000
+Message-ID: <20230504185936.917560748@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226965;
+	s=2020; t=1683226936;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=F8kXoaR1nBQ6o9VxPp8Uz6U2V5tkVIrZOYAD+Uqf6yU=;
-	b=FHHwtM3MehcvxyTD3IIJz8sgSlPXUlchZh7xJFV6jf2jNACHHUSgTO098Ser6A+TKYqwby
-	MlO+QBW9B7CBztPuD5tg+w+tvkSrJZeyBsoOwfT3EBQQwdnjzUEH5V/q7RLkoQV5ifNNa+
-	at9KsHlVkTZ1F4ajKTdjiM9iHVozExltMcmveGrXQs/fOlHDH8HgFUnTWmeo5rouQexRZ4
-	Xry4XkxaL7TCkZzvLR+YbuqgPQqwNW1A3kMmXVynnWeMARwsSVesHKDo20gZt3Skv9srif
-	0A1QbnYXe4Tj6Hfs/b/c+uuWIPdrOvy2KufgGEj/6EkbPvsEiWUj1xzdM/2/FQ==
+	 references:references; bh=7w0pkJKfi5BfzTn7YraeCXszLQVgaQibx9fCVrsyYLw=;
+	b=KF4OYjBu/WAVy3JeYBlPGuO/psPpP6BNMkGwUP4hVxM+/D+l51OxcfTtr1678q7sAM86+l
+	pkSbimwtfW+4xdLulA4/Enq9nqbfEKxZaT/IcZ6t/X1KbwGa9K46/CqLa2h1H1kz8voODT
+	y4AmfcuAbs0leulnqDLnh1gIEYzNbs3Hpt0le/7AsOwR44b/CdgLPyNGYtpoteTh4TSBz6
+	xBxTc2mzXrBGxYo6rlw1ZlvxoGPyU9ZhtpO28GI1g1d9zu8k+2yJftFOirkgMuWcP7q1P8
+	AsSeoEHmtH0f/Ry8sbvPf/V1KSj5/DXRuhM2P4J01rZzTyifP9FYxFi1Q1uu8g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226965;
+	s=2020e; t=1683226936;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=F8kXoaR1nBQ6o9VxPp8Uz6U2V5tkVIrZOYAD+Uqf6yU=;
-	b=eKOKrA/+YsiD2CsaRIq67Pl+6fGbLOp23MnHr4M6jOIgCJwCHmPsKgxoXghxnT8I2GMUKL
-	U9rUX94YG+zIxfDw==
+	 references:references; bh=7w0pkJKfi5BfzTn7YraeCXszLQVgaQibx9fCVrsyYLw=;
+	b=AOLL7N8FlgTgX4Vpe4Ih6WqHRrBw5YfnEZjwda6Z8s/doyNG0e8UyHLJJ/7vaMaivGQ2TR
+	0D5J6mUQhC4iKrBA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -95,13 +95,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject:  [patch V2 29/38] cpu/hotplug: Provide a split up CPUHP_BRINGUP mechanism
+Subject:  [patch V2 11/38] x86/smpboot: Move synchronization masks to SMP boot code
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:45 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:16 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_200253_033463_49D073E6 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20230504_200222_616940_3E061F6F 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,203 +120,118 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-The bring up logic of a to be onlined CPU consists of several parts, which
-are considered to be a single hotplug state:
+The usage is in smpboot.c and not in the CPU initialization code.
 
-  1) Control CPU issues the wake-up
-
-  2) To be onlined CPU starts up, does the minimal initialization,
-     reports to be alive and waits for release into the complete bring-up.
-
-  3) Control CPU waits for the alive report and releases the upcoming CPU
-     for the complete bring-up.
-
-Allow to split this into two states:
-
-  1) Control CPU issues the wake-up
-
-     After that the to be onlined CPU starts up, does the minimal
-     initialization, reports to be alive and waits for release into the
-     full bring-up. As this can run after the control CPU dropped the
-     hotplug locks the code which is executed on the AP before it reports
-     alive has to be carefully audited to not violate any of the hotplug
-     constraints, especially not modifying any of the various cpumasks.
-
-     This is really only meant to avoid waiting for the AP to react on the
-     wake-up. Of course an architecture can move strict CPU related setup
-     functionality, e.g. microcode loading, with care before the
-     synchronization point to save further pointless waiting time.
-
-  2) Control CPU waits for the alive report and releases the upcoming CPU
-     for the complete bring-up.
-
-This allows that the two states can be split up to run all to be onlined
-CPUs up to state #1 on the control CPU and then at a later point run state
-#2. This spares some of the latencies of the full serialized per CPU
-bringup by avoiding the per CPU wakeup/wait serialization. The assumption
-is that the first AP already waits when the last AP has been woken up. This
-obvioulsy depends on the hardware latencies and depending on the timings
-this might still not completely eliminate all wait scenarios.
-
-This split is just a preparatory step for enabling the parallel bringup
-later. The boot time bringup is still fully serialized. It has a separate
-config switch so that architectures which want to support parallel bringup
-can test the split of the CPUHP_BRINGUG step separately.
-
-To enable this the architecture must support the CPU hotplug core sync
-mechanism and has to be audited that there are no implicit hotplug state
-dependencies which require a fully serialized bringup.
+The XEN_PV usage of cpu_callout_mask is obsolete as cpu_init() not longer
+waits and cacheinfo has its own CPU mask now, so cpu_callout_mask can be
+made static too.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 
 ---
- arch/Kconfig               |    4 ++
- include/linux/cpuhotplug.h |    4 ++
- kernel/cpu.c               |   70 +++++++++++++++++++++++++++++++++++++++++++--
- 3 files changed, 76 insertions(+), 2 deletions(-)
+ arch/x86/include/asm/cpumask.h |    5 -----
+ arch/x86/kernel/cpu/common.c   |   17 -----------------
+ arch/x86/kernel/smpboot.c      |   16 ++++++++++++++++
+ arch/x86/xen/smp_pv.c          |    3 ---
+ 4 files changed, 16 insertions(+), 25 deletions(-)
 ---
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -49,6 +49,10 @@ config HOTPLUG_CORE_SYNC_FULL
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select HOTPLUG_CORE_SYNC
+--- a/arch/x86/include/asm/cpumask.h
++++ b/arch/x86/include/asm/cpumask.h
+@@ -4,11 +4,6 @@
+ #ifndef __ASSEMBLY__
+ #include <linux/cpumask.h>
  
-+config HOTPLUG_SPLIT_STARTUP
-+	bool
-+	select HOTPLUG_CORE_SYNC_FULL
-+
- config GENERIC_ENTRY
- 	bool
+-extern cpumask_var_t cpu_callin_mask;
+-extern cpumask_var_t cpu_callout_mask;
+-extern cpumask_var_t cpu_initialized_mask;
+-extern cpumask_var_t cpu_sibling_setup_mask;
+-
+ extern void setup_cpu_local_masks(void);
  
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -133,6 +133,7 @@ enum cpuhp_state {
- 	CPUHP_MIPS_SOC_PREPARE,
- 	CPUHP_BP_PREPARE_DYN,
- 	CPUHP_BP_PREPARE_DYN_END		= CPUHP_BP_PREPARE_DYN + 20,
-+	CPUHP_BP_KICK_AP,
- 	CPUHP_BRINGUP_CPU,
+ /*
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -67,14 +67,6 @@
  
- 	/*
-@@ -517,9 +518,12 @@ void cpuhp_online_idle(enum cpuhp_state
- static inline void cpuhp_online_idle(enum cpuhp_state state) { }
- #endif
+ u32 elf_hwcap2 __read_mostly;
  
-+struct task_struct;
-+
- void cpuhp_ap_sync_alive(void);
- void arch_cpuhp_sync_state_poll(void);
- void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
-+int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
- 
- #ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
- void cpuhp_ap_report_dead(void);
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -761,6 +761,47 @@ static int bringup_wait_for_ap_online(un
- 	return 0;
+-/* all of these masks are initialized in setup_cpu_local_masks() */
+-cpumask_var_t cpu_initialized_mask;
+-cpumask_var_t cpu_callout_mask;
+-cpumask_var_t cpu_callin_mask;
+-
+-/* representing cpus for which sibling maps can be computed */
+-cpumask_var_t cpu_sibling_setup_mask;
+-
+ /* Number of siblings per CPU package */
+ int smp_num_siblings = 1;
+ EXPORT_SYMBOL(smp_num_siblings);
+@@ -169,15 +161,6 @@ static void ppin_init(struct cpuinfo_x86
+ 	clear_cpu_cap(c, info->feature);
  }
  
-+#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
-+static int cpuhp_kick_ap_alive(unsigned int cpu)
-+{
-+	if (!cpuhp_can_boot_ap(cpu))
-+		return -EAGAIN;
-+
-+	return arch_cpuhp_kick_ap_alive(cpu, idle_thread_get(cpu));
-+}
-+
-+static int cpuhp_bringup_ap(unsigned int cpu)
-+{
-+	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-+	int ret;
-+
-+	/*
-+	 * Some architectures have to walk the irq descriptors to
-+	 * setup the vector space for the cpu which comes online.
-+	 * Prevent irq alloc/free across the bringup.
-+	 */
-+	irq_lock_sparse();
-+
-+	ret = cpuhp_bp_sync_alive(cpu);
-+	if (ret)
-+		goto out_unlock;
-+
-+	ret = bringup_wait_for_ap_online(cpu);
-+	if (ret)
-+		goto out_unlock;
-+
-+	irq_unlock_sparse();
-+
-+	if (st->target <= CPUHP_AP_ONLINE_IDLE)
-+		return 0;
-+
-+	return cpuhp_kick_ap(cpu, st, st->target);
-+
-+out_unlock:
-+	irq_unlock_sparse();
-+	return ret;
-+}
-+#else
- static int bringup_cpu(unsigned int cpu)
+-/* correctly size the local cpu masks */
+-void __init setup_cpu_local_masks(void)
+-{
+-	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
+-	alloc_bootmem_cpumask_var(&cpu_callin_mask);
+-	alloc_bootmem_cpumask_var(&cpu_callout_mask);
+-	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
+-}
+-
+ static void default_init(struct cpuinfo_x86 *c)
  {
- 	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-@@ -777,7 +818,6 @@ static int bringup_cpu(unsigned int cpu)
- 	 */
- 	irq_lock_sparse();
+ #ifdef CONFIG_X86_64
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -101,6 +101,13 @@ EXPORT_PER_CPU_SYMBOL(cpu_die_map);
+ DEFINE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
+ EXPORT_PER_CPU_SYMBOL(cpu_info);
  
--	/* Arch-specific enabling code. */
- 	ret = __cpu_up(cpu, idle);
- 	if (ret)
- 		goto out_unlock;
-@@ -801,6 +841,7 @@ static int bringup_cpu(unsigned int cpu)
- 	irq_unlock_sparse();
- 	return ret;
++/* All of these masks are initialized in setup_cpu_local_masks() */
++static cpumask_var_t cpu_initialized_mask;
++static cpumask_var_t cpu_callout_mask;
++static cpumask_var_t cpu_callin_mask;
++/* Representing CPUs for which sibling maps can be computed */
++static cpumask_var_t cpu_sibling_setup_mask;
++
+ /* Logical package management. We might want to allocate that dynamically */
+ unsigned int __max_logical_packages __read_mostly;
+ EXPORT_SYMBOL(__max_logical_packages);
+@@ -1548,6 +1555,15 @@ early_param("possible_cpus", _setup_poss
+ 		set_cpu_possible(i, true);
  }
-+#endif
  
- static int finish_cpu(unsigned int cpu)
- {
-@@ -1940,13 +1981,38 @@ static struct cpuhp_step cpuhp_hp_states
- 		.startup.single		= timers_prepare_cpu,
- 		.teardown.single	= timers_dead_cpu,
- 	},
--	/* Kicks the plugged cpu into life */
++/* correctly size the local cpu masks */
++void __init setup_cpu_local_masks(void)
++{
++	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
++	alloc_bootmem_cpumask_var(&cpu_callin_mask);
++	alloc_bootmem_cpumask_var(&cpu_callout_mask);
++	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
++}
 +
-+#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
-+	/*
-+	 * Kicks the AP alive. AP will wait in cpuhp_ap_sync_alive() until
-+	 * the next step will release it.
-+	 */
-+	[CPUHP_BP_KICK_AP] = {
-+		.name			= "cpu:kick_ap",
-+		.startup.single		= cpuhp_kick_ap_alive,
-+	},
-+
-+	/*
-+	 * Waits for the AP to reach cpuhp_ap_sync_alive() and then
-+	 * releases it for the complete bringup.
-+	 */
-+	[CPUHP_BRINGUP_CPU] = {
-+		.name			= "cpu:bringup",
-+		.startup.single		= cpuhp_bringup_ap,
-+		.teardown.single	= finish_cpu,
-+		.cant_stop		= true,
-+	},
-+#else
-+	/*
-+	 * All-in-one CPU bringup state which includes the kick alive.
-+	 */
- 	[CPUHP_BRINGUP_CPU] = {
- 		.name			= "cpu:bringup",
- 		.startup.single		= bringup_cpu,
- 		.teardown.single	= finish_cpu,
- 		.cant_stop		= true,
- 	},
-+#endif
- 	/* Final state before CPU kills itself */
- 	[CPUHP_AP_IDLE_DEAD] = {
- 		.name			= "idle:dead",
+ #ifdef CONFIG_HOTPLUG_CPU
+ 
+ /* Recompute SMT state for all CPUs on offline */
+--- a/arch/x86/xen/smp_pv.c
++++ b/arch/x86/xen/smp_pv.c
+@@ -254,15 +254,12 @@ cpu_initialize_context(unsigned int cpu,
+ 	struct desc_struct *gdt;
+ 	unsigned long gdt_mfn;
+ 
+-	/* used to tell cpu_init() that it can proceed with initialization */
+-	cpumask_set_cpu(cpu, cpu_callout_mask);
+ 	if (cpumask_test_and_set_cpu(cpu, xen_cpu_initialized_map))
+ 		return 0;
+ 
+ 	ctxt = kzalloc(sizeof(*ctxt), GFP_KERNEL);
+ 	if (ctxt == NULL) {
+ 		cpumask_clear_cpu(cpu, xen_cpu_initialized_map);
+-		cpumask_clear_cpu(cpu, cpu_callout_mask);
+ 		return -ENOMEM;
+ 	}
+ 
 
 
 _______________________________________________
