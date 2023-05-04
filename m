@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083FEC77B73
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C5BC77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
-	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=nAE8c1hj/0LCnP41044qqmGr6U9dkMFE/Kt2m6wsAVA=; b=VFTKhtBt4JR1sh
-	JdIt2SsCcuf0nfjgKdrHzwuC5TN/mCZKLQ6zELrsJPR8r/6vBBIXXjQFOPVpVFNkxFDUlZfLFBphI
-	YmEM2klWzM7wVsnUejRUN2VhHF/SUHX3ewgpfEEQk3YtvweRBuIuKyxa83eHOAR0Mya+P9r5b3mt2
-	wtbHlfY7wuGX2eGf0oSRGbN7fKSngLCrJPUlkcg2yLzT0mrUXRTvNm3yiWcMV0t6IybajHDTaISix
-	pL+kARpV6IPHaeXeU1qQNZk5UP1yPfGjho85puLnAltM7gueOVuKV3KXY1qiiptS90pddvXvkVhu2
-	zWC8EofXsPiO2W7qyxqQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=B+4zW9ZS9GiI3L2rikIK5ZhKnIJhyQovfIP4bYSqUYo=; b=gp0OUNyPIEVV5a
+	FWE0lKhguxaBlcLPs/CoRKiRV3U7uxLfz88uuqpwz3IBnzg0d2hqBlUQeH7Bdrno/MmOtr673idBS
+	xMk5S/C0nlTScw/UrjiW3ujlDNdloWQior96hdLBsvjBDGBtBakIfdmcSvU8t7rvsij77k9iK8zoU
+	Sm8pDV70WsAUab9J7v95MDNd743rgxc5jZeoGrNOXQgnNaaq83aC5DDkgBV7udP3xorX42NETvvdv
+	aeNCmQeZJ/Xk+5hDMBS21SjmjG4+cqPMuT2VBJinR3+9CkloaqGVlOImRk8SmyiNiKU5XwdhKPB4z
+	iZ90iCu5AUNx6fQVcUyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pugIn-0090xA-0u;
-	Thu, 04 May 2023 21:15:49 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pugXI-0093tM-0d;
+	Thu, 04 May 2023 21:30:48 +0000
+Received: from mail-oo1-f51.google.com ([209.85.161.51])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDT-008dHM-33;
-	Thu, 04 May 2023 19:02:14 +0000
-Message-ID: <20230504185936.696863260@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=oNktQrwN+fatH513QPoGkxuTXmWxbBJSO1kVQSmt5aw=;
-	b=gBya4Wdiox20HXnYxId2o92/cZNTV4kT8ZfWJZEW8ITXjndCeX8dDH5GHwnbCKYq4N2LZ7
-	1Vliet33ezvFZfT7hZ49SRcTQY9GGkgXhlSt5j4FLFBbo8w2LMXaeiXjsd9i1J9IMUzHg1
-	sJN1go/y7aKDt6GemaqC60gjrJ2Y/O06s8spq6n5PMT68ouOvPdBNo/CzyJcNIvXElJXAl
-	XdjDvEAOi1DHoGQz2s+P9J0LaJZ0aZZ0+hC8ebSl7akG4yKA5FQhYbj1MWyqNbSv7kr//g
-	wKJSvQLOs5Ac6Rvs5KHpecAWJnrhruw0ihD4m2E9ZObgEFCoaikI3NMnkVCBlA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=oNktQrwN+fatH513QPoGkxuTXmWxbBJSO1kVQSmt5aw=;
-	b=ne/7c8UNDxt/B5By5H8OrJEC2F33AGALC1UJsqUQEjBRB84Yn90Pp71hqA5iKSc8E1YfLo
-	xVfQnGoIgwAl59BQ==
-From: Thomas Gleixner <tglx@linutronix.de>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: x86@kernel.org,
- David Woodhouse <dwmw2@infradead.org>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Brian Gerst <brgerst@gmail.com>,
- Arjan van de Veen <arjan@linux.intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Paul McKenney <paulmck@kernel.org>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Sean Christopherson <seanjc@google.com>,
- Oleksandr Natalenko <oleksandr@natalenko.name>,
- Paul Menzel <pmenzel@molgen.mpg.de>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Piotr Gorski <lucjan.lucjanov@gmail.com>,
- Usama Arif <usama.arif@bytedance.com>,
- Juergen Gross <jgross@suse.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>,
- Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- linux-csky@vger.kernel.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org,
- Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 07/38] x86/smpboot: Restrict soft_restart_cpu() to SEV
-References: <20230504185733.126511787@linutronix.de>
+	id 1pufSk-008unA-2G
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 May 2023 20:22:03 +0000
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-54cac3ba705so512448eaf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 May 2023 13:21:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683231718; x=1685823718;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gA20TOSek5QN06wRXiWT/dSTTLiibBANa8l3zZw/ZW0=;
+        b=KTU4N3FwDhbwTj5gLp29cmJL7ms4Dpy1/6usDjI8Br4Y5i5bTwutyqhFIoqI6onBeb
+         a+YjpSthPiAuQYXxc4YB+qN5AEcmB+sdzGCEpnLfuS9QvKK8e2RsHEE5zdynkzZv6IU8
+         2vxqT6c3EyCygO4J3uWFJa11z9NKBWGJA20+rS/5xoTqFSvywEARgo2R9sRk2YLqNTq1
+         AC9MMKRdPIjWnoCT5yuQXiP7ehXpmjKsW3A22hsxYpuXtGHHkEQnNV1Gm8uuItOo7npL
+         ca/vi9uSpn6LtcE76J0HTQEEvak21b2ma8sH3CWayc8ccduuPUR+hj0BpE+55e5AFjOH
+         MHRA==
+X-Gm-Message-State: AC+VfDzvNyKSeG2QmyB3tAbQ/aUCg0gZq+ZmylTF0tuS9z6eQwCmEnme
+	G1Q0SDETsLCioJzM3FV7mw==
+X-Google-Smtp-Source: ACHHUZ5CG9NqSZrBLZgYDI1UBcc0h1gHIMntqoA1SnNdYU8ayNb3BfWME5yS8u0iFY/rBBuEK8CKFw==
+X-Received: by 2002:a05:6808:2913:b0:389:21:9483 with SMTP id ev19-20020a056808291300b0038900219483mr2333168oib.59.1683231718082;
+        Thu, 04 May 2023 13:21:58 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id r2-20020acaf302000000b0038e086c764dsm2036478oih.43.2023.05.04.13.21.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 May 2023 13:21:57 -0700 (PDT)
+Received: (nullmailer pid 263633 invoked by uid 1000);
+	Thu, 04 May 2023 20:21:56 -0000
+Date: Thu, 4 May 2023 15:21:56 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] dt-bindings: perf: riscv,pmu: fix property
+ dependencies
+Message-ID: <20230504202156.GA260181-robh@kernel.org>
+References: <20230404-tractor-confusing-8852e552539a@spud>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:09 +0200 (CEST)
+Content-Disposition: inline
+In-Reply-To: <20230404-tractor-confusing-8852e552539a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120212_431843_8E03FF52 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20230504_132202_736942_9D799B8A 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,65 +82,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+On Tue, Apr 04, 2023 at 07:03:22PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Seemingly I mis-implemented the dependencies here. The OpenSBI docs only
+> point out that the "riscv,event-to-mhpmcounters property is mandatory if
+> riscv,event-to-mhpmevent is present". It never claims that
+> riscv,event-to-mhpmcounters requires riscv,event-to-mhpmevent.
+> 
+> Drop the dependency of riscv,event-to-mhpmcounters on
+> riscv,event-to-mhpmevent.
+> 
+> Fixes: 7e38085d9c59 ("dt-bindings: riscv: add SBI PMU event mappings")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> 
+> Atish, I'm not 100% on this one but I noticed it while doing dt-validate
+> on a dump of the qemu virt machine which doesn't use the
+> event-to-mhpmevent property.
 
-Now that the CPU0 hotplug cruft is gone, the only user is AMD SEV.
+Waiting for comments before I apply this...
 
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Tom Lendacky <thomas.lendacky@amd.com>
-
----
- arch/x86/kernel/callthunks.c |    2 +-
- arch/x86/kernel/head_32.S    |   14 --------------
- arch/x86/kernel/head_64.S    |    2 +-
- 3 files changed, 2 insertions(+), 16 deletions(-)
----
---- a/arch/x86/kernel/callthunks.c
-+++ b/arch/x86/kernel/callthunks.c
-@@ -133,7 +133,7 @@ static bool skip_addr(void *dest)
- 	/* Accounts directly */
- 	if (dest == ret_from_fork)
- 		return true;
--#ifdef CONFIG_HOTPLUG_CPU
-+#if defined(CONFIG_HOTPLUG_CPU) && defined(CONFIG_AMD_MEM_ENCRYPT)
- 	if (dest == soft_restart_cpu)
- 		return true;
- #endif
---- a/arch/x86/kernel/head_32.S
-+++ b/arch/x86/kernel/head_32.S
-@@ -138,20 +138,6 @@ SYM_CODE_START(startup_32)
- 	jmp .Ldefault_entry
- SYM_CODE_END(startup_32)
- 
--#ifdef CONFIG_HOTPLUG_CPU
--/*
-- * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
-- * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
-- * unplug. Everything is set up already except the stack.
-- */
--SYM_FUNC_START(soft_restart_cpu)
--	movl initial_stack, %ecx
--	movl %ecx, %esp
--	call *(initial_code)
--1:	jmp 1b
--SYM_FUNC_END(soft_restart_cpu)
--#endif
--
- /*
-  * Non-boot CPU entry point; entered from trampoline.S
-  * We can't lgdt here, because lgdt itself uses a data segment, but
---- a/arch/x86/kernel/head_64.S
-+++ b/arch/x86/kernel/head_64.S
-@@ -375,7 +375,7 @@ SYM_CODE_END(secondary_startup_64)
- #include "verify_cpu.S"
- #include "sev_verify_cbit.S"
- 
--#ifdef CONFIG_HOTPLUG_CPU
-+#if defined(CONFIG_HOTPLUG_CPU) && defined(CONFIG_AMD_MEM_ENCRYPT)
- /*
-  * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
-  * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
-
+> 
+> CC: Rob Herring <robh+dt@kernel.org>
+> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Atish Patra <atishp@rivosinc.com>
+> CC: Andrew Jones <ajones@ventanamicro.com>
+> CC: devicetree@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/perf/riscv,pmu.yaml | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> index a55a4d047d3f..c8448de2f2a0 100644
+> --- a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> +++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> @@ -91,7 +91,6 @@ properties:
+>  
+>  dependencies:
+>    "riscv,event-to-mhpmevent": [ "riscv,event-to-mhpmcounters" ]
+> -  "riscv,event-to-mhpmcounters": [ "riscv,event-to-mhpmevent" ]
+>  
+>  required:
+>    - compatible
+> -- 
+> 2.39.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
