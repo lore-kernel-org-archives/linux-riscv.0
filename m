@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0ADC7EE21
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 18:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D906C77B78
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LPhf+V3QAQojPQ6f1JPjdTxmbQKg70mMgTDxUobpGMw=; b=Rk1O4jvl78SEgF
-	lwvN30pvdGsow2IE6QsJc+YxVlps2xl8rvY9uiHPIW+CkGad96k95nDDOOEHP4OcXzx6gpTvhUX6E
-	PBUT3GAnz7h79Wvi0e+QIrCvZ02xBe6NHC6RS6v3Vc7ZmixiGlWgt7amO5PmUfZJX6h599fxcNzh9
-	qr7L5LiSj9J5+IhXQdqBNbsghJZR0BZsu5JU97i/IFoEjqrEC7q+8bW6q1Qmhx1qdehDnajo7llop
-	PDV03GvjR6GdRXGCXqR0Lrng/o4Ane1nq9/suzae5LNELCxPfUs8BEJ7thqhQI1FCmSSe8N5eKEB6
-	rf9UhEzEFqxSlLv0favw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=45lMObD+heyrT0WWAGS6P5jYufNLl44SPHZTIUoARoU=; b=WhYIIZAc7/1ijy
+	5xup3uWTU32ZDtG1GvL1p5cUHPV9YWfmOlZLXXkorEHzB1oKbID4fxd9ZzCPB5Oyz8lFZwcHwACXO
+	6thMS7IKfdWlawYbPYaqkOdZDaIEkWMCsxyV8C1Nan2NQNMLWana95rGSy+3k3VVElTVKyoSpr6lC
+	jCYDR4bHYnoRHuY8/gPTg0eEKaiOTOdfM40mqVRS3lHY/eQtk9SoCuePieVira7HTiSC8hQRMbl6O
+	ExeQpzklADc3AIqLbVBZvHDBFOEz8Cf/I2f36i+Ii7uIKRdEprcmJUbl/p14xswtshTbbLoWtTVjh
+	VZLae/bbWAS5WJuwgWuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pudyB-008aaQ-0C;
-	Thu, 04 May 2023 18:46:23 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pueDN-008dAB-0u;
+	Thu, 04 May 2023 19:02:05 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pudy7-008aYb-2D;
-	Thu, 04 May 2023 18:46:21 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
+	id 1pueDI-008d6m-2T;
+	Thu, 04 May 2023 19:02:02 +0000
+Message-ID: <20230504185733.126511787@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683225976;
+	s=2020; t=1683226919;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OIAcVs2YXBnNfaPvpuizW2PEW4lhJ1YnG6MUoZkO7aY=;
-	b=3+tD+LTP2nHbLKQ6ayQSSKK8VpBIuQK3gXforAfUYbXvx4vM+fYGuufKzSpG2saVKOpTsV
-	to0Q6mzIGbAQjDqsOQkje2Tja0U/TKz3F+TviP3kf+19hr3bEm6s4uGo2F+s+PdBgPIGkj
-	gHjK9Yi0pM4GUZc5ZpONvd31Hppwcu+Bcbd8TlaOcVKhOuZIjToIAW5YXeXW3Go5sZpcCh
-	htSi5EE8To3+PKCGlsNtyNrMRTsE8PlVdNzqWmd8pkRxZ1vMQC2VO2mXVu6cVctYauCbM0
-	4H8XFlx6BIILGrhdr/EBrOtC8Cm0866nFAfWkkLlHu0QtdUMHZ2jk6jWm8xf3Q==
+	 to:to:cc:cc; bh=Owpn3VAzXYYF5pE4nW59O5YtNe6oATS3CJHH6pOEc+Q=;
+	b=ydWEHvQKju6ua5QrgIvoNFizD1mp/ScmeGKoSzoDnG7Bbtt8/QnpnQ3+taJ6G0kL830h+i
+	7ID/utgQdKCvUYsl6w6CO2W2gJuO8HL9LCU4D0vVfB6YxemlrHUeCt4ToRjPCaRBB5yHoD
+	U1z1RXcQdP2U5KMvTNzHXSugPczS5MTUtGDtT8qHk2Yf+N4IEi6AoiUHeLjn63zurjgLOd
+	4VlOYXYRkaR1ek5ywemLfh9oakl4kmjQRYWBDRl/UvRYBt4y2JOaZBadJTEhsdykMmsR/p
+	RzfI1eYCgw7RPP+JveXpGF8/O3jsZY1WVFPEdOuBnlsQhWH5/KilpYnEwkhH7g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683225976;
+	s=2020e; t=1683226919;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OIAcVs2YXBnNfaPvpuizW2PEW4lhJ1YnG6MUoZkO7aY=;
-	b=pPb8Wqh2Bj6AkjBEVHoo9nA/DLOEH7EgQ6O+EgS1RtAjQlyepgF0Tr/3dF7rDdC5tR1PRC
-	DisRQOSHrsQxZlDw==
-To: "Michael Kelley (LINUX)" <mikelley@microsoft.com>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: "x86@kernel.org" <x86@kernel.org>, David Woodhouse <dwmw@infradead.org>,
- Andrew Cooper <andrew.cooper3@citrix.com>, Brian Gerst
- <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>, Paolo
- Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>, Tom
- Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
- <seanjc@google.com>, Oleksandr
- Natalenko <oleksandr@natalenko.name>, Paul Menzel <pmenzel@molgen.mpg.de>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
- <lucjan.lucjanov@gmail.com>, David Woodhouse <dwmw@amazon.co.uk>, Usama
- Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, "xen-devel@lists.xenproject.org"
- <xen-devel@lists.xenproject.org>, Russell King <linux@armlinux.org.uk>,
- Arnd
- Bergmann <arnd@arndb.de>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Mark
- Rutland <Mark.Rutland@arm.com>, Sabin Rapan <sabrapan@amazon.com>
-Subject: RE: [patch 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
-In-Reply-To: <BYAPR21MB168888DC5432883D8866BA40D76A9@BYAPR21MB1688.namprd21.prod.outlook.com>
-References: <20230414225551.858160935@linutronix.de>
- <BYAPR21MB168888DC5432883D8866BA40D76A9@BYAPR21MB1688.namprd21.prod.outlook.com>
-Date: Thu, 04 May 2023 20:46:15 +0200
-Message-ID: <878re43pfs.ffs@tglx>
-MIME-Version: 1.0
+	 to:to:cc:cc; bh=Owpn3VAzXYYF5pE4nW59O5YtNe6oATS3CJHH6pOEc+Q=;
+	b=t9YK5Y1XQbyMkzjkBl9J4dD0O18uiVWSVJxE2v987VhpllLfPD1+SKL0rJE7GDXI8icRF3
+	WCaTcXYHj80XrzAw==
+From: Thomas Gleixner <tglx@linutronix.de>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: x86@kernel.org,
+ David Woodhouse <dwmw2@infradead.org>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Brian Gerst <brgerst@gmail.com>,
+ Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>,
+ Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>,
+ Sean Christopherson <seanjc@google.com>,
+ Oleksandr Natalenko <oleksandr@natalenko.name>,
+ Paul Menzel <pmenzel@molgen.mpg.de>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Piotr Gorski <lucjan.lucjanov@gmail.com>,
+ Usama Arif <usama.arif@bytedance.com>,
+ Juergen Gross <jgross@suse.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>,
+ linux-csky@vger.kernel.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ linux-mips@vger.kernel.org,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>,
+ linux-parisc@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org,
+ Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>,
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>
+Subject: [patch V2 00/38] cpu/hotplug, x86: Reworked parallel CPU bringup
+Date: Thu,  4 May 2023 21:01:58 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_114619_870674_EF0EEB7A 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20230504_120201_089125_DEEA862C 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +95,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Michael!
+Hi!
 
-On Thu, Apr 27 2023 at 14:48, Michael Kelley wrote:
-> From: Thomas Gleixner <tglx@linutronix.de> Sent: Friday, April 14, 2023 4:44 PM
->
-> I smoke-tested several Linux guest configurations running on Hyper-V,
-> using the "kernel/git/tglx/devel.git hotplug" tree as updated on April 26th.
-> No functional issues, but encountered one cosmetic issue (details below).
->
-> Configurations tested:
-> *  16 vCPUs and 32 vCPUs
-> *  1 NUMA node and 2 NUMA nodes
-> *  Parallel bring-up enabled and disabled via kernel boot line
-> *  "Normal" VMs and SEV-SNP VMs running with a paravisor on Hyper-V.
->     This config can use parallel bring-up because most of the SNP-ness is
->     hidden in the paravisor.  I was glad to see this work properly.
->
-> There's not much difference in performance with and without parallel
-> bring-up on the 32 vCPU VM.   Without parallel, the time is about 26
-> milliseconds.  With parallel, it's about 24 ms.   So bring-up is already
-> fast in the virtual environment.
+This is version 2 of the reworked parallel bringup series. Version 1 can be
+found here:
 
-Depends on the environment :)
+   https://lore.kernel.org/lkml/20230414225551.858160935@linutronix.de
 
-> The cosmetic issue is in the dmesg log, and arises because Hyper-V
-> enumerates SMT CPUs differently from many other environments.  In
-> a Hyper-V guest, the SMT threads in a core are numbered as <even, odd>
-> pairs.  Guest CPUs #0 & #1 are SMT threads in core, as are #2 & #3, etc.  With
-> parallel bring-up, here's the dmesg output:
->
-> [    0.444345] smp: Bringing up secondary CPUs ...
-> [    0.445139] .... node  #0, CPUs:    #2  #4  #6  #8 #10 #12 #14 #16 #18 #20 #22 #24 #26 #28 #30
-> [    0.454112] x86: Booting SMP configuration:
-> [    0.456035]       #1  #3  #5  #7  #9 #11 #13 #15 #17 #19 #21 #23 #25 #27 #29 #31
-> [    0.466120] smp: Brought up 1 node, 32 CPUs
-> [    0.467036] smpboot: Max logical packages: 1
-> [    0.468035] smpboot: Total of 32 processors activated (153240.06 BogoMIPS)
->
-> The function announce_cpu() is specifically testing for CPU #1 to output the
-> "Booting SMP configuration" message.  In a Hyper-V guest, CPU #1 is the second
-> SMT thread in a core, so it isn't started until all the even-numbered CPUs are
-> started.
+Background
+----------
 
-Ah. Didn't notice that because SMT siblings are usually enumerated after
-all primary ones in ACPI.
+The reason why people are interested in parallel bringup is to shorten the
+(kexec) reboot time of cloud servers to reduce the downtime of the VM
+tenants.
 
-> I don't know if this cosmetic issue is worth fixing, but I thought I'd point it out.
+The current fully serialized bringup does the following per AP:
 
-That's trivial enough to fix. I'll amend the topmost patch before
-posting V2.
+    1) Prepare callbacks (allocate, intialize, create threads)
+    2) Kick the AP alive (e.g. INIT/SIPI on x86)
+    3) Wait for the AP to report alive state
+    4) Let the AP continue through the atomic bringup
+    5) Let the AP run the threaded bringup to full online state
 
-Thanks for giving it a ride!
+There are two significant delays:
 
-       tglx
+    #3 The time for an AP to report alive state in start_secondary() on x86
+       has been measured in the range between 350us and 3.5ms depending on
+       vendor and CPU type, BIOS microcode size etc.
+
+    #4 The atomic bringup does the microcode update. This has been measured
+       to take up to ~8ms on the primary threads depending on the microcode
+       patch size to apply.
+
+On a two socket SKL server with 56 cores (112 threads) the boot CPU spends
+on current mainline about 800ms busy waiting for the APs to come up and
+apply microcode. That's more than 80% of the actual onlining procedure.
+
+By splitting the actual bringup mechanism into two parts this can be
+reduced to waiting for the first AP to report alive or if the system is
+large enough the first AP is already waiting when the boot CPU finished the
+wake-up of the last AP. That reduces the AP bringup time on that SKL from
+~800ms to ~80ms.
+
+The actual gain varies wildly depending on the system, CPU, microcode patch
+size and other factors.
+
+The V1 cover letter has more details and a deep analysis.
+
+Changes vs. V1:
+
+  1) Switch APIC ID retrieval from CPUID to reading the APIC itself.
+
+     This is required because CPUID based APIC ID retrieval can only
+     provide the initial APIC ID, which might have been overruled by the
+     firmware. Some AMD APUs come up with APIC ID = initial APIC ID + 0x10,
+     so the APIC ID to CPU number lookup would fail miserably if based on
+     CPUID. The only requirement is that the actual APIC IDs are consistent
+     with the APCI/MADT table.
+
+  2) As a consequence of #1 parallel bootup support for SEV guest has been
+     dropped.
+
+     Reading the APIC ID in a SEV guest is done via RDMSR. That RDMSR is
+     intercepted and raises #VC which cannot be handled at that point as
+     there is no stack and no IDT. There is no GHCB protocol for RDMSR
+     like there is for CPUID. Left as an exercise for SEV wizards.
+
+  3) Address review comments from Brian and the fallout reported by the
+     kernel robot
+
+  4) Unbreak i386 which exploded when bringing up the secondary CPUs due to
+     the unconditinal load_ucode_ap() invocation in start_secondary(). That
+     happens because on 32-bit load_ucode_ap() is invoked on the secondary
+     CPUs from assembly code before paging is initialized and therefore
+     uses physical addresses which are obviously invalid after paging is
+     enabled.
+
+  5) Small enhancements and comment updates.
+
+  6) Rebased on Linux tree (1a5304fecee5)
+
+The series applies on Linus tree and is also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git hotplug
+
+Thanks,
+
+	tglx
+---
+ Documentation/admin-guide/kernel-parameters.txt |   20 
+ Documentation/core-api/cpu_hotplug.rst          |   13 
+ arch/Kconfig                                    |   23 +
+ arch/arm/Kconfig                                |    1 
+ arch/arm/include/asm/smp.h                      |    2 
+ arch/arm/kernel/smp.c                           |   18 
+ arch/arm64/Kconfig                              |    1 
+ arch/arm64/include/asm/smp.h                    |    2 
+ arch/arm64/kernel/smp.c                         |   14 
+ arch/csky/Kconfig                               |    1 
+ arch/csky/include/asm/smp.h                     |    2 
+ arch/csky/kernel/smp.c                          |    8 
+ arch/mips/Kconfig                               |    1 
+ arch/mips/cavium-octeon/smp.c                   |    1 
+ arch/mips/include/asm/smp-ops.h                 |    1 
+ arch/mips/kernel/smp-bmips.c                    |    1 
+ arch/mips/kernel/smp-cps.c                      |   14 
+ arch/mips/kernel/smp.c                          |    8 
+ arch/mips/loongson64/smp.c                      |    1 
+ arch/parisc/Kconfig                             |    1 
+ arch/parisc/kernel/process.c                    |    4 
+ arch/parisc/kernel/smp.c                        |    7 
+ arch/riscv/Kconfig                              |    1 
+ arch/riscv/include/asm/smp.h                    |    2 
+ arch/riscv/kernel/cpu-hotplug.c                 |   14 
+ arch/x86/Kconfig                                |   45 --
+ arch/x86/include/asm/apic.h                     |    5 
+ arch/x86/include/asm/apicdef.h                  |    5 
+ arch/x86/include/asm/cpu.h                      |    5 
+ arch/x86/include/asm/cpumask.h                  |    5 
+ arch/x86/include/asm/processor.h                |    1 
+ arch/x86/include/asm/realmode.h                 |    3 
+ arch/x86/include/asm/smp.h                      |   24 -
+ arch/x86/include/asm/topology.h                 |   23 -
+ arch/x86/include/asm/tsc.h                      |    2 
+ arch/x86/kernel/acpi/sleep.c                    |    9 
+ arch/x86/kernel/apic/apic.c                     |   26 -
+ arch/x86/kernel/callthunks.c                    |    4 
+ arch/x86/kernel/cpu/amd.c                       |    2 
+ arch/x86/kernel/cpu/cacheinfo.c                 |   21 
+ arch/x86/kernel/cpu/common.c                    |   50 --
+ arch/x86/kernel/cpu/topology.c                  |    3 
+ arch/x86/kernel/head_32.S                       |   14 
+ arch/x86/kernel/head_64.S                       |   87 +++
+ arch/x86/kernel/sev.c                           |    2 
+ arch/x86/kernel/smp.c                           |    3 
+ arch/x86/kernel/smpboot.c                       |  526 ++++++++----------------
+ arch/x86/kernel/topology.c                      |   98 ----
+ arch/x86/kernel/tsc.c                           |   20 
+ arch/x86/kernel/tsc_sync.c                      |   36 -
+ arch/x86/power/cpu.c                            |   37 -
+ arch/x86/realmode/init.c                        |    3 
+ arch/x86/realmode/rm/trampoline_64.S            |   27 +
+ arch/x86/xen/enlighten_hvm.c                    |   11 
+ arch/x86/xen/smp_hvm.c                          |   16 
+ arch/x86/xen/smp_pv.c                           |   56 +-
+ drivers/acpi/processor_idle.c                   |    4 
+ include/linux/cpu.h                             |    4 
+ include/linux/cpuhotplug.h                      |   17 
+ kernel/cpu.c                                    |  396 +++++++++++++++++-
+ kernel/smp.c                                    |    2 
+ kernel/smpboot.c                                |  163 -------
+ 62 files changed, 934 insertions(+), 982 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
