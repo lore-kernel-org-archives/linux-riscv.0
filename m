@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543B1C77B75
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 01:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AC2C77B75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 01:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jNsyb1dsuWh5pSmYjNRqJZUgyA3Fp+6Z9xw1yHKi4Jk=; b=3Bwehn/EaJGEFf
-	yx9567JOsg1oZiCmWyzMxa4LI2jUu9wfhFBJ42sZ8rXJAuavUb7nzWyt4plMsxaZxkMSSQTf8rD6b
-	AmOwTZU8gANLu+RcaoNCUAcF/vHVZ+P5J+t+V55scdmF51/7pPAmGwMhvJiYQCVzHg5BmoJ1SV+lQ
-	JpApj5/ZjvvzzWyTp/aQILap6y1bwgg1G0puY1GU/b+h3kdnFYb4NKGSslLFMW1w64adkQkOCdBf4
-	xDEzNRzszBkHQx10DCF7pRvYzcCrS9YxSMys5SX4WZTfUj+NDf2IbuN5gQULPR8y+YtBImGnn3Kwi
-	Wo8K/43u3pmNVIDiOkYw==;
+	List-Owner; bh=+w8E5RFdj+wx5FB2ZZj9SA3k0PoZzl8BGK4QZtmZgfg=; b=G6KEAIcdSdx2Re
+	fGQxGOyvYD+SHLLlT2oxn0OQe3MXKOS5oC517UeT191tZX7inb9HAYFA1kJSSw6zsbL0TP26ERhP3
+	kDEMF32gYCZc8+krTM1AJq1fT9W+8HcshF5+HytYJe8sZPp4i4Wf52C8fTF99rAV/MHL9khXRvy0y
+	GNF2mWedzBlUJNFCRzD6HPwoaHwHvAMjo4b4/0OJZANpLYYGJEyaYsMpsUFQxHiq37e6aS+L4h3NI
+	Uyvzpx6o8xsPxWd8Myq9UZ5h8GgsU3vOW7d4rykbmOGuBi896EA39Bzk3XMnA/iEg50UDbmLTwCC1
+	fFh2rUY1BPZF4Nb8A/jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puNfv-006HSG-2g;
-	Thu, 04 May 2023 01:22:27 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1puNsM-006Inw-0x;
+	Thu, 04 May 2023 01:35:18 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puNfr-006HNf-0P;
-	Thu, 04 May 2023 01:22:25 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1puNsG-006Iky-11;
+	Thu, 04 May 2023 01:35:16 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2A1117F8A;
-	Thu,  4 May 2023 09:21:37 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 4 May
- 2023 09:21:37 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9B0B224E09F;
+	Thu,  4 May 2023 09:34:33 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 4 May
+ 2023 09:34:33 +0800
 Received: from [192.168.125.107] (183.27.99.121) by EXMBX062.cuchost.com
  (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 4 May
- 2023 09:21:36 +0800
-Message-ID: <d2044dc1-ff5c-7398-5646-1bfdfb8ea935@starfivetech.com>
-Date: Thu, 4 May 2023 09:21:41 +0800
+ 2023 09:34:32 +0800
+Message-ID: <0b0f9187-ad6b-a1d9-6ec4-beb8989ca731@starfivetech.com>
+Date: Thu, 4 May 2023 09:34:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.10.0
-Subject: Re: [PATCH v4 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Vinod Koul
-	<vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-CC: Jack Zhu <jack.zhu@starfivetech.com>, <linux-phy@lists.infradead.org>,
+To: Conor Dooley <conor@kernel.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
+	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20230412084540.295411-1-changhuang.liang@starfivetech.com>
- <20230412084540.295411-2-changhuang.liang@starfivetech.com>
- <8dd0dc63-e0df-8764-f756-da032d9d671c@linaro.org>
- <eb47b7c7-bdbb-92d9-ba39-604ce487f297@starfivetech.com>
- <f6a4fb28-d635-4d99-44bb-d929cb41eef2@linaro.org>
- <b34a8d59-34e4-8358-9d2b-367f4707ca7c@starfivetech.com>
- <f0d82428-aaa5-3dd4-bc29-f1057fe749bc@linaro.org>
- <0c94aadf-fac3-d05c-1c54-ae8337526849@starfivetech.com>
- <31c582a7-682a-330e-51d4-53b4a0c5f3a2@linaro.org>
+	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
+	<linux-phy@lists.infradead.org>
+References: <20230419-labored-camper-644d51a7ca96@spud>
+ <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
+ <20230424-baffle-punch-ec73098f2b6a@spud>
+ <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
+ <20230425-unquote-eligible-09f743d81981@wendy>
+ <a7cdfabf-2312-eaf3-f462-5bda7f0a120d@starfivetech.com>
+ <68cb565d-bf39-10b0-9e3e-35ba7f54b90b@linaro.org>
+ <0988495f-b87a-7f69-f222-37c67d6eae23@starfivetech.com>
+ <20230425-resale-footrest-de667778c4fe@wendy>
+ <663e9933-b9b3-a48f-98b6-2207215a8ed7@starfivetech.com>
+ <20230425-commotion-prewashed-876247bed4ab@spud>
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <31c582a7-682a-330e-51d4-53b4a0c5f3a2@linaro.org>
+In-Reply-To: <20230425-commotion-prewashed-876247bed4ab@spud>
 X-Originating-IP: [183.27.99.121]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX062.cuchost.com
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX062.cuchost.com
  (172.16.6.62)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230503_182223_345898_8EFF5919 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20230503_183512_677069_3CBA7FB0 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +92,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/4/17 1:29, Krzysztof Kozlowski wrote:
->>>> A standard property? Like "clocks" or "resets"?
+On 2023/4/26 0:56, Conor Dooley wrote:
+> On Tue, Apr 25, 2023 at 08:26:35PM +0800, Changhuang Liang wrote:
+>> On 2023/4/25 17:35, Conor Dooley wrote:
+>>> On Tue, Apr 25, 2023 at 05:18:10PM +0800, Changhuang Liang wrote:
+>>>> On 2023/4/25 16:19, Krzysztof Kozlowski wrote:
+>>>>> On 25/04/2023 09:57, Changhuang Liang wrote:
+>>>>>> Yes, "starfive,jh7110-aon-pmu" is a child-node of "starfive,jh7110-aon-syscon".
+>>>>>> In my opinion, "0x17010000" is "aon-syscon" on JH7110 SoC, and this "aon-pmu" is just 
+>>>>>> a part of "aon-syscon" function, so I think it is inappropriate to make "aon-syscon"
+>>>>>> to a power domain controller. I think using the child-node description is closer to
+>>>>>> JH7110 SoC. 
+>>>>>
+>>>>> Unfortunately, I do not see the correlation between these, any
+>>>>> connection. Why being a child of syscon block would mean that this
+>>>>> should no be power domain controller? Really, why? These are two
+>>>>> unrelated things.
+>>>>
+>>>> Let me summarize what has been discussed above. 
+>>>>
+>>>> There has two ways to describe this "starfive,jh7110-aon-syscon"(0x17010000).
+>>>> 1. (0x17010000) is power-controller node:
+>>>>
+>>>> 	aon_pwrc: power-controller@17010000 {
+>>>> 		compatible = "starfive,jh7110-aon-pmu", "syscon";
+>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>> 		#power-domain-cells = <1>;
+>>>> 	};
+>>>>
+>>>>
+>>>> 2. (0x17010000) is syscon node, power-controller is child-node of syscon:
+>>>>
+>>>> 	aon_syscon: syscon@17010000 {
+>>>> 		compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
+>>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>>>
+>>>> 		aon_pwrc: power-controller {
+>>>> 			compatible = "starfive,jh7110-aon-pmu";
+>>>> 			#power-domain-cells = <1>;
+>>>> 		};
+>>>> 	};
 >>>
->>> Like lane-polarities now submitted to one MIPI.
->>>
->>> Anyway it does not look like a property of a board. You said it is fixed
->>> per SoC, so it should be implied from the compatible. Otherwise please
->>> explain in description and provide some rationale.
->>>
->>> Best regards,
->>> Krzysztof
->>>
->>
->> This property is the only one used for this IP, I have compared this IP with
->> other DPHY rx module, DPHY modules form the other manufacturers not have this
->> configure.
->> And we also have a SoC called JH7100. It DPHY rx module is the same as JH7110.
->> But we don't do the upstream work on it. If it use this lane-maps will be 
->> configure as "lane_maps = /bits/ 8 <0 1 2 3 4 5>;".
+>>> I thought that Rob was suggesting something like this:
+>>> 	aon_syscon: syscon@17010000 {
+>>> 		compatible = "starfive,jh7110-aon-syscon", ...
+>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
+>>> 		#power-domain-cells = <1>;
+>>> 	};
 > 
-> And JH7100 is different SoC, so you have different compatible. Again -
-> is this board specific? If not, looks like SoC specific, thus imply it
-> from compatible.
+>> I see the kernel:
+>> https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8167.dtsi
+>> this file line 42:
+>> it's power-controller also has no meaningful properties.
+>> What do you think?
 > 
+> I'm not sure that I follow. It has a bunch of child-nodes does it not,
+> each of which is a domain?
 > 
-> Best regards,
-> Krzysztof
+> I didn't see such domains in your dts patch, they're defined directly in
+> the driver instead AFAIU. Assuming I have understood that correctly,
+> your situation is different to that mediatek one?
 > 
+> Cheers,
+> Conor.
 
-Vinod,
+Conor and Rob, 
 
-Hi, could you give me some suggestions about Krzysztof's comment? Thanks for
-your time.
+How about this way:
+
+aon_syscon: syscon@17010000 {
+	compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
+	reg = <0x0 0x17010000 0x0 0x1000>;
+	
+	aon_pwrc: power-controller {
+		compatible = "starfive,jh7110-aon-pmu";
+		regmap = <&aon_syscon>;
+		#power-domain-cells = <1>;
+	};
+};
+
+Add a "regmap" property which is phandle. And it can keep the present child-node
+structure. This is more consistent with our soc design.
 
 Best regards,
 Changhuang
