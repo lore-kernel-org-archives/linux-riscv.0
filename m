@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE939C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B992C7EE29
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=4/9+CUJLGi0utvL/T1r8FUpPxDmfKC31+HK+oDjEjLs=; b=2MmUccaU7rCXPP
-	7jVy1yzYXKT9S1F5NLcAyJR9k4WnvovI0kNkTuFSn1XD2OgXAo9dupPGhzUqAuPZfD60Y9KFCHM+n
-	qUtr9ar1m3RaMTxrd8Vb8j8NGZU59W4+dDF9CfI8nm4hjO1BUmE+oPQgrxw5HpWCLzuAG7usKal+8
-	LWbMEGcgoAzHx/+sIoSaticlMFOs25X//PF7vtlhNV9PXzQW8auDfUQ+/KDUpneXgAozdfpFE/kGF
-	XsLTIbHOrckg5oqN1kXSrmyNVXBPHaHzZVFQ7TrJAB0R4f2wJxhOfpEvEW2b4PUYa5d2SQ4x2Yfcw
-	E83AhioJxN99UJefB89w==;
+	List-Owner; bh=RifLVuJ7mI/EeP9MWadKBV1dMVaAUrhl9FBsDuUTwng=; b=aEPWdH4iD95Vff
+	bFWJ4ZNW2drzOJNqaf146Xiqv3NbKQQcHoxooNLMsj1SwjilG6TJYSehFf+8fx2+Hk2HQccoAHeMZ
+	8VkUCxwauI2J9yNjR8OfLMooXXUl5sMg0/9yo2bTmrAw984QPD9T/AV88pVmPf6N6uTzUXInYnjIM
+	iYDUfdMBIWwKE1mRnDfi9F7yOyCIWd28nznzjcckMmo0NqRO2NPyTp3ifxSPlC7MSnWhHXAKiR7QN
+	o6gAgpl7aAY6uMyJXZy+4XOoDvrnMwbXDDCCGeMNi6OlVa7OsmgeKVyfksCgItmGDbZjsJiSlRDGl
+	aKmfdbxHxqWwdYKh3/fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pugIt-00910K-1c;
-	Thu, 04 May 2023 21:15:55 +0000
+	id 1pugIq-0090yB-0W;
+	Thu, 04 May 2023 21:15:52 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueEB-008e6m-2i;
-	Thu, 04 May 2023 19:03:01 +0000
-Message-ID: <20230504185938.179661118@linutronix.de>
+	id 1pueDX-008dLH-0d;
+	Thu, 04 May 2023 19:02:17 +0000
+Message-ID: <20230504185936.802783450@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226974;
+	s=2020; t=1683226933;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=dh/52GRhLbpp4gh50fAuvfQix7j7Ih1160L/CdLI8l0=;
-	b=O6cG1HBehiX74K9JFp369TIKx6mKBR2TPreNtZ0JIxAQi+1KIShpZOLr9yn98NyJ2DVeV2
-	KoRI+hkYEu5smHES9pGvnLyoWtwb4Bp/4BfVhvbHAfxZcdiWB7o0B0Ira+4IzxwLMlhRJ+
-	sMHMr6Be0jbWVJhRKWMRzaormlwxyZ+o2EofkewXORpIgLbjVpvUxjCQcSQl+YfTMlHZ9T
-	UE8rmtHne4Y5TmubM7NIWK98QCHj+0F+rqBtOZSFGM77VBpgrVetzsILoS9DByN2vrAczS
-	5+Uo3R/A6vnceg12D8eqIMTFGAGJV6sRpxtSZ3hp8//m2IPi36uIIWtNhU3PLg==
+	 references:references; bh=djhcX/6oz1v3ZZHjWNR6fK2ATXnp39FPHavEh8Z2jPk=;
+	b=ga7wmIakplENkJi6T5NoX0Dl4GKg+ap6nn7fRMuH4AJ0N/j8tLX4hOYKXxI82FfjNe6bvd
+	vJmMRr19EbOXhlvWVBPj00971oHJ7EVwTVpYtKkKm1bHOPAtWTEqef+PWJeugHX4N45lMG
+	uoAym6vetzrOuFxrlyf44EwZaO13wrZDfo/XkIGx0LvkxSOhnQMBCiqIzIQDgAgSp3wxnj
+	y26KQIzEJjp7eB7O+cYD+6cb4y96+ikG+vSFWeNtad9FTEpCRcUHe+gEoz7H09GJDNgB1J
+	AKbp/YjUjDEWvORBc7uiaoZEw4Hkz37CASo4CL84FTmpzcTx9pDR5194rYnnxw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226974;
+	s=2020e; t=1683226933;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=dh/52GRhLbpp4gh50fAuvfQix7j7Ih1160L/CdLI8l0=;
-	b=2Mr8xnCCJXQNYK40wYiyDitX1rtgKVSav9FlO5VPGJbI6wVmqI0M9y1M9rUGvQKL9tG1OS
-	lphjzmGYwmWjK5CQ==
+	 references:references; bh=djhcX/6oz1v3ZZHjWNR6fK2ATXnp39FPHavEh8Z2jPk=;
+	b=9d54JiewPSGmVQNrhzbBmbqIIQ6FHVsRs8p39dYcszm+2PpRs6UAq3uJ7Lp1hIlyibfgPq
+	eWLViIKxHt4DgPAQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,15 +81,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 34/38] x86/cpu/amd; Invoke detect_extended_topology_early()
- on boot CPU
+Subject: [patch V2 09/38] x86/smpboot: Get rid of cpu_init_secondary()
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:53 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:13 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120256_067793_8EAF043A 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230504_120215_547666_C6493B24 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +106,124 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-The early detection stores the extended topology leaf number which is
-required for parallel hotplug.
+The synchronization of the AP with the control CPU is a SMP boot problem
+and has nothing to do with cpu_init().
+
+Open code cpu_init_secondary() in start_secondary() and move
+wait_for_master_cpu() into the SMP boot code.
+
+No functional change.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 
 ---
- arch/x86/kernel/cpu/amd.c |    2 ++
- 1 file changed, 2 insertions(+)
+ arch/x86/include/asm/processor.h |    1 -
+ arch/x86/kernel/cpu/common.c     |   27 ---------------------------
+ arch/x86/kernel/smpboot.c        |   24 +++++++++++++++++++-----
+ 3 files changed, 19 insertions(+), 33 deletions(-)
 ---
---- a/arch/x86/kernel/cpu/amd.c
-+++ b/arch/x86/kernel/cpu/amd.c
-@@ -692,6 +692,8 @@ static void early_init_amd(struct cpuinf
- 		}
- 	}
+--- a/arch/x86/include/asm/processor.h
++++ b/arch/x86/include/asm/processor.h
+@@ -551,7 +551,6 @@ extern void switch_gdt_and_percpu_base(i
+ extern void load_direct_gdt(int);
+ extern void load_fixmap_gdt(int);
+ extern void cpu_init(void);
+-extern void cpu_init_secondary(void);
+ extern void cpu_init_exception_handling(void);
+ extern void cr4_init(void);
  
-+	detect_extended_topology_early(c);
-+
- 	if (cpu_has(c, X86_FEATURE_TOPOEXT))
- 		smp_num_siblings = ((cpuid_ebx(0x8000001e) >> 8) & 0xff) + 1;
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -2123,19 +2123,6 @@ static void dbg_restore_debug_regs(void)
+ #define dbg_restore_debug_regs()
+ #endif /* ! CONFIG_KGDB */
+ 
+-static void wait_for_master_cpu(int cpu)
+-{
+-#ifdef CONFIG_SMP
+-	/*
+-	 * wait for ACK from master CPU before continuing
+-	 * with AP initialization
+-	 */
+-	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
+-	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
+-		cpu_relax();
+-#endif
+-}
+-
+ static inline void setup_getcpu(int cpu)
+ {
+ 	unsigned long cpudata = vdso_encode_cpunode(cpu, early_cpu_to_node(cpu));
+@@ -2239,8 +2226,6 @@ void cpu_init(void)
+ 	struct task_struct *cur = current;
+ 	int cpu = raw_smp_processor_id();
+ 
+-	wait_for_master_cpu(cpu);
+-
+ 	ucode_cpu_init(cpu);
+ 
+ #ifdef CONFIG_NUMA
+@@ -2293,18 +2278,6 @@ void cpu_init(void)
+ 	load_fixmap_gdt(cpu);
  }
+ 
+-#ifdef CONFIG_SMP
+-void cpu_init_secondary(void)
+-{
+-	/*
+-	 * Relies on the BP having set-up the IDT tables, which are loaded
+-	 * on this CPU in cpu_init_exception_handling().
+-	 */
+-	cpu_init_exception_handling();
+-	cpu_init();
+-}
+-#endif
+-
+ #ifdef CONFIG_MICROCODE_LATE_LOADING
+ /**
+  * store_cpu_caps() - Store a snapshot of CPU capabilities
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -220,6 +220,17 @@ static void ap_calibrate_delay(void)
+ 	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
+ }
+ 
++static void wait_for_master_cpu(int cpu)
++{
++	/*
++	 * Wait for release by control CPU before continuing with AP
++	 * initialization.
++	 */
++	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
++	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
++		cpu_relax();
++}
++
+ /*
+  * Activate a secondary processor.
+  */
+@@ -237,13 +248,16 @@ static void notrace start_secondary(void
+ 	load_cr3(swapper_pg_dir);
+ 	__flush_tlb_all();
+ #endif
++	cpu_init_exception_handling();
++
+ 	/*
+-	 * Sync point with wait_cpu_initialized(). Before proceeding through
+-	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
+-	 * own bit in cpu_initialized_mask and then waits for the BSP to set
+-	 * its bit in cpu_callout_mask to release it.
++	 * Sync point with wait_cpu_initialized(). Sets AP in
++	 * cpu_initialized_mask and then waits for the control CPU
++	 * to release it.
+ 	 */
+-	cpu_init_secondary();
++	wait_for_master_cpu(raw_smp_processor_id());
++
++	cpu_init();
+ 	rcu_cpu_starting(raw_smp_processor_id());
+ 	x86_cpuinit.early_percpu_clock_init();
+ 
 
 
 _______________________________________________
