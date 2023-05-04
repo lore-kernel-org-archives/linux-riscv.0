@@ -4,80 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552D3C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 12:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC16DC7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 14:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3aejuJP8x/V9X3VVCQsRQuYcrwaVK6Nx0yR1fTycN58=; b=ipHGCkr6dJdU85
-	EwZEGIkeqr0ww3IpRqFiVaDASTnWzUTXt1hfrLl2Fw06FiUKb4HdIfTnFnSxNwCVvC7NXqUljDjzN
-	VJFSaO9L8qMs0A6RWJbzjxCgL80yI0OVO+uSEAXdbKIu8A1IP2N4gRqCjq6Cetrbd+KPhgokzPKoq
-	9uLlb3CHQV6S2SC133vBN38rUYQ1qhvw+wQpYe9/TTiKponneFfBEAfGbVE0rL1KjnjDKMxb9fz5t
-	5+lIMTJgEo6TfR8jYDijhGHz0e57ny/iMwrWBP9DCcOBkNys9KgxTHpjsfR1xxdCFUs5Nsd+Y8PYA
-	NGv7gtsoJl5hTpYMcRqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PbO67h5FVownNE6gBebhSDWaM7dlFbu586a0O3q/9bU=; b=4JaTCTQwMR/b2l
+	67rJWO2lR7uujmwBHniHMvAsVa1mzCwggVWUOfxWc4sdM/iAE2Wupinqs82J+k9g5qskd7QvRGzET
+	6zePcZDs9ks8JcSVu1YVckoARCYPj3r/n0FXxMWp4LPEcvDOfZr7oHs4TxphUD2L+FdwkivkwoHfz
+	yJUkjKsrOM6X0ZxxFgbmppg8QRiraC7esJxurPeUVaCq5PZkimYmyW3ydev3+abfu9PrZp5ucRFgb
+	eHc6VBW0lMn9a8sNStOcDsy81eky9oT7vNc1C5ctcgLXxibqH7ji95rIRdodM5vD1mOejxIY1Hpmm
+	hOo+JIUHvd6TZG+IJE3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puXkl-007mNd-11;
-	Thu, 04 May 2023 12:08:07 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1puZmN-0083rk-0N;
+	Thu, 04 May 2023 14:17:55 +0000
+Received: from mail-dm6nam11on20611.outbound.protection.outlook.com ([2a01:111:f400:7eaa::611] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puXkh-007mMo-2S
+	id 1puZmJ-0083qn-2O
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 May 2023 12:08:05 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-30644c18072so250699f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 May 2023 05:08:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683202081; x=1685794081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z/HOoqmO08h3u2Yvh7Ep4JiYOBfgZY0A+BuaNi4hKi8=;
-        b=rH4Kg6CiTjM7F3xylJNwT4SBXybDUmEgdrx/v5oelKsA9dtaYw5OM0PRHGaRRdn76d
-         7QF4Q7HdK7hJA9oB/cs8bi8MD8HT2QCBT6zwqo18Q0fI4fhkn+GUD4vS9fVqjRU0Nuku
-         r8QHfkcsEIXrFoOJypBRximVoOzEIX2cj/5i/PDWcmYHcqadbSYrg3NOqPhk3FjIiQCt
-         xpynI+Q5WAMJT0+PRB9aKDclfgUGfUWkFl+2kPG3Q+WiHxuqED2QCbdYGvY1ZpVOSNAP
-         2T3hFtieuW2ZI+6mbLAh5kqeYJqHLXsSnwnDWsD9kkSkPxipLWsy5mrz0b6RxmBWqLhB
-         SloQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683202081; x=1685794081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z/HOoqmO08h3u2Yvh7Ep4JiYOBfgZY0A+BuaNi4hKi8=;
-        b=SZbn3U38mtST4TmBaSFCUJo3Ew8hLFIJRHQO6XVhn7pAth7ARaWMSqerHp/ikAN1oE
-         njo3RcmckXQhn6k+47a2aqc7Tt9iOYy6Ihmj4a9ipkXLr3slM09iyDbwres5ga9S3zn3
-         jUcRdP9Bb2HQ/+I0Dnrnusv+j6TLf8LR+hBg59cZGVnbQoNm8hPXpU6j1rISoaEgADSn
-         9BBD7/nHlfTNTUdobGqqQQPzsLxaKO37ewSVqpv/nbswiLOqIJsxbfYKJNVqCnACKWG3
-         lN4QECvk68Y50hU7qkbtI+OOLjdwZ43kwNszLhDsnib7tgMQ8uQMX7jePHPkxeJ/fgxC
-         MxCQ==
-X-Gm-Message-State: AC+VfDyCZpG+8isJ/MtNUG6wjMgGAX+Xh4oz8ORn6dRs8b75vt4bLakz
-	5kEAtuwIw+tQC0YcB1nQ64X2ow==
-X-Google-Smtp-Source: ACHHUZ5hzqq3dnn/lEi88tYMgY4qut+pP1uM8kWq0ar6fkaOkqDMCTR5l2AkNdgegQ6EMAeNddu3NQ==
-X-Received: by 2002:a5d:6504:0:b0:306:4943:2e18 with SMTP id x4-20020a5d6504000000b0030649432e18mr2176434wru.58.1683202081312;
-        Thu, 04 May 2023 05:08:01 -0700 (PDT)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id s4-20020adfeb04000000b003047f7a7ad1sm27433451wrn.71.2023.05.04.05.08.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 May 2023 05:08:01 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: kernel test robot <lkp@intel.com>
-Subject: [PATCH -fixes] riscv: Fix orphan section warnings caused by kernel/pi
-Date: Thu,  4 May 2023 14:07:59 +0200
-Message-Id: <20230504120759.18730-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
+	Thu, 04 May 2023 14:17:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BQl5W5aEWohbDIrwk1SrK5JWirgLv+GMwu2Hvs6E3cpuSKLxKYvR/JYtqgVmqusrwUdu4mSzq41u5SmrV3IvlCjma60/cskLCG7zRd/tAvT/YaPRmJJJ7uTIDECEX5AXFQehnrgYtqAuICeJkh+tDBlM/4TlRR2LeWAxAGiYtT9Gq8E8hcliOwY1I46DTHd44eeLtdW1RjZoF0moPfcpQZcEXzfyHJGTSfWSQwTT69Yj/2teNQsqyKxoR7EWLkbjTgdmYhlqSU6ImgSfoCZkuKUkZeUTR2eDGEl+tmpzB0L8qy3nm1CTRdpI17cfH0yHlMThlMvkLQeKLTXxR5xuOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n1/ckkGwqYkDGXAjTDbpF/6Pgv+qdOrBIOvR1QO3vcU=;
+ b=cBsjY6N1luM4SgoIoGChBZe8i/ppP4KqlCqdPhkHrdzZLvJf9ZuwR6lL8cBQvtTKHleCzSrxXRSZUrnUr7NGBNWD0OAmsOKYJL6TMfNr/pWX96pGeyBjuLOttfByn/O5cn1VVa3jnlYGn8muAKY863OtTTxYiEUWQzjRm4oz9ANtQEDqmATr9VwaHoVGur4qUxEr5/KrRQFKGcSHIqDqFIaX0cg1CbwyoqfwvqhJk2cH0wtRDJsFcvgy+e4KLvlmT3Fa+HyleZCDzlD4WBaOg0mDiPwQmtUAGPNJmbr5MiKKK0KfNe7cf0l1dAZCk+zLnOJ7gb4aFMnTebrONV0/OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n1/ckkGwqYkDGXAjTDbpF/6Pgv+qdOrBIOvR1QO3vcU=;
+ b=t0r6aYWsCMUubO9PgxTbBAZR49kRyYXsaMJjG6bI/H23OXxCh1SC/bRnG5hIkIMqiS9TNJSC000YkGFQUobdHlJroK9fNeA6YpE0SZQCYUfHQ5g0HfHIcORkTDLteJEuwvi/j9YlAnJRDiMRN5mvdDiPjL1VTCeIcMolqfd7ILk=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by MN6PR12MB8490.namprd12.prod.outlook.com (2603:10b6:208:470::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6363.26; Thu, 4 May
+ 2023 14:17:45 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::723a:4152:5bb0:3763]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::723a:4152:5bb0:3763%2]) with mapi id 15.20.6340.030; Thu, 4 May 2023
+ 14:17:45 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Zong Li <zong.li@sifive.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH] dmaengine: xilinx: enable on RISC-V platform
+Thread-Topic: [PATCH] dmaengine: xilinx: enable on RISC-V platform
+Thread-Index: AQM0nkIBn2SIbKxZ1sPr4cLSUSuz66yT6OPQ
+Date: Thu, 4 May 2023 14:17:45 +0000
+Message-ID:  <MN0PR12MB59536CEE65DBB0EF343650F4B76D9@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20230426074248.19336-1-zong.li@sifive.com>
+In-Reply-To: <20230426074248.19336-1-zong.li@sifive.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|MN6PR12MB8490:EE_
+x-ms-office365-filtering-correlation-id: aa3776ca-368b-4f09-dbf4-08db4caa54db
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  NkTf7pLY1Ga05eeB+6yR6xn6vth+YCdfntoRkXuUNsqpjTf3Nz9VROMp+Sy6iclLZcgBj1PlfxLhLZ0feuJOFs8h/wQ36VrjrKz2LT6pOwnndhJzqWuKK5FpTknusku9oYke0dFJCMbRUzs3XEgPLxzaAxV+3yZLiBhM4P2NfKdHUlepzJz1CqOzFrRu7hQ3Lg6NV7xHDghxriAB9a3CgYi3xMnR8O5iMKQkyYByOVSjXfW5oyRP90aWSfW/DpxOxdfjHDFtgRoypOw+dAZpXx8f4IQr7NYY1GJ32ybF94pdLOQd7LNedETsJ+mjWEJrNifNIhYtEVcs4bjvmi/d8QZnPCmWw0asEXnlPZdtxAEHZRGtwFaB22PUPBy5BNJ3O9Q4i/2rbR1f7vyZ1sbLDCHy+kEWxyrGzrszfklKJ+TD7Abs46Pkv1HDTsJy6X8LaKUiMByRfufUuyWorxBwrg/Mr3LhbPk+1O3K3GuBEIBI2bBgc6MxMGJb0BpKc5XnfrBt71FXjoucKPmPMz1YPp9IbkKOYbebLvOeJgwLaRN1YdDNOCqPZEZEvx6Sp7XArCYptb3e8ilVncqX4LUuOEZTv805qPAaTZagOBorJVI=
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(346002)(366004)(396003)(136003)(39860400002)(376002)(451199021)(83380400001)(110136005)(2906002)(33656002)(478600001)(316002)(55016003)(5660300002)(8936002)(66446008)(41300700001)(8676002)(38070700005)(66946007)(66476007)(64756008)(66556008)(76116006)(52536014)(122000001)(38100700002)(86362001)(7696005)(71200400001)(186003)(9686003)(53546011)(6506007)(966005);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?us-ascii?Q?bCAk+6+o4/UzUsFmSFfpZ2LF9MfaEjcYFRZhAmBEJ1F6A/+yde2OHcqH0/Sx?=
+ =?us-ascii?Q?exrRhTf+S58z3noq1kjulE0CtSYkiCm6rRIFrNokMvEw+WdjnOpOhj7S/2BT?=
+ =?us-ascii?Q?YuE+mdrzmOW4Wg/OvlYs7+iCgeFnMQLyxLPfXrId4bM60p/RLuMwiRRDX3um?=
+ =?us-ascii?Q?EvstBw/LOrJDYCtuJsZQwZNXmPvvYw+Oai90BYTg11Ro0pTfHhnssxKw9Eid?=
+ =?us-ascii?Q?Rubu0oFaOrLMU0tK5vqnKNrueiOGohzbHcudJoEa7cMqSyd0Dmm9Iav+pMc/?=
+ =?us-ascii?Q?d2ciOuZ06KyxGQ3ZLfxv+aAwLGULKnnH3pzweAsm4mXirSHxnzIWriirx6F9?=
+ =?us-ascii?Q?TJ3qDtxXmZlT73AKANoEW3n2slbe+1hNQEubIGb0VzGhwo90qTsv7FDJuRHe?=
+ =?us-ascii?Q?ObMpb61oBWEs7HuqH8IUVjyfKEktuwt2G3CzqT2TW4dFoJmTbhxc66xVEVki?=
+ =?us-ascii?Q?Znm4UsimDHLmxOamGclFwSZ3Xn/40Mjzp+672qxXniwf6zYq6Tc0ZRkyO9u/?=
+ =?us-ascii?Q?A7iL9sZG0wD+RokNLb4wYDmBCDQ+rMhwMyqytpML9rW87d3uL5/Aq56QTl+k?=
+ =?us-ascii?Q?ZlMoLMK8Qz5OevX6VSO5CqkNRl26/luMsozMkeEU2sJ7ShjbFGnHzDRDk8Pn?=
+ =?us-ascii?Q?wcI/goKMcsUoHr9I/grzOW83CdLfVFP09hsABvwmyG/XfP7iSSFHGkViWJ5k?=
+ =?us-ascii?Q?Eysjek4pWE1/6H0uoYuUwcITN3rKZ0+9GB6tn3qWXWA0hcMnF8uTUpjdItud?=
+ =?us-ascii?Q?CojFLgc8YdF51ruxHLYbAXOKVYXDSMwGvUf6OnUmLSveZ3ZmGj1tvazs+C0b?=
+ =?us-ascii?Q?mp6dGF49yiB5YfryzqUqORXMznnD2DDFh593uE4hrg+JsOoR5LrXKZrZBBPY?=
+ =?us-ascii?Q?PKT2NSZw5OeitPTIXAPZVbR1IkTlw4lK2y7K3w3Wv3nc5iQbvbtZ0IaJNhZZ?=
+ =?us-ascii?Q?zUx7uHXEJ88R9juPqfbRRF1fahX3PzpW6hIIxdhyvPqP0akZrhM2zXpfKntx?=
+ =?us-ascii?Q?knTHo1ihx+MNrNr3xWAU6TVp7MJElsFdDGZhrMTfzyyxRsCg8IIn1Ygw2C9f?=
+ =?us-ascii?Q?pzHEvnCojCPndPMjtiitZ6GQXC8ZzFYTotMY/u/e1xE7WApRR58oaYRQ2/rp?=
+ =?us-ascii?Q?xxbD9LcF7wNbXE/dhrvjcfkLTFU800IP6QGCoYG7yKntrNsS1E0u6AbtnoIJ?=
+ =?us-ascii?Q?TNdeJI81tcEC0S6xQOj83ux/lexo8Byx0qpIeCJBFayZ0fBXK95xx45FmpRZ?=
+ =?us-ascii?Q?XyLgVkBXlFj4EEfO8fWuvSZ6LXT3bln+oG623YBRx+SVbKQG2bEo0YckFFHl?=
+ =?us-ascii?Q?+5sKNoZp+Jrv0KFmlNfcEgPcJJzlJg5gW5O/0ro93JAHxiCKsaPKQ/JPyUAs?=
+ =?us-ascii?Q?eo3+Ef5RnukLhYc5YFaAGs9a6YqvKIvA1qT9SlYs3Ql8GphwAcWkmyqfTEj0?=
+ =?us-ascii?Q?pFdu2YKveAt2W+ab4Km/LwyLEn3u+qk1ANnzPmbFYuhHZz/kMPiyDvmmidEN?=
+ =?us-ascii?Q?m6j3sgfZ466I7Tn0Xr6/jUVPbWoBHVU3kY+Ckb1dKsSjkchO6R9F7tIA8XFz?=
+ =?us-ascii?Q?eAsHwDP4BSn4EmhGk5sdAfrLgIn83VlhXaj+ITpR33EDtX8DO7TQMrIWGIi9?=
+ =?us-ascii?Q?igtTlIJ+aHdKXEWFhIEqSaU=3D?=
 MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa3776ca-368b-4f09-dbf4-08db4caa54db
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 May 2023 14:17:45.4902
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: MGN9KWUfSRCM9EGfjFvMgRbxg0HRFKZkFg4qeLj9xMhwFfEs8HC5hbYnBn9wemON
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8490
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_050804_017213_5D5794AA 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20230504_071751_801587_1AF19525 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +136,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kernel/pi gives rise to a lot of new sections that end up orphans: the
-first attempt to fix that tried to enumerate them all in the linker
-script, but kernel test robot with a random config keeps finding more of
-them.
+> -----Original Message-----
+> From: linux-riscv <linux-riscv-bounces@lists.infradead.org> On Behalf Of
+> Zong Li
+> Sent: Wednesday, April 26, 2023 1:13 PM
+> To: vkoul@kernel.org; dmaengine@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+> Cc: Zong Li <zong.li@sifive.com>
+> Subject: [PATCH] dmaengine: xilinx: enable on RISC-V platform
+> 
+> Enable the xilinx dmaengine driver on RISC-V platform. We have verified the
+> CDMA on RISC-V platform, enable this configuration to allow build on RISC-V.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  drivers/dma/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig index
+> fb7073fc034f..816f619804b9 100644
+> --- a/drivers/dma/Kconfig
+> +++ b/drivers/dma/Kconfig
+> @@ -695,7 +695,7 @@ config XGENE_DMA
+> 
+>  config XILINX_DMA
+>  	tristate "Xilinx AXI DMAS Engine"
+> -	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64)
+> +	depends on (ARCH_ZYNQ || MICROBLAZE || ARM64 || RISCV)
 
-So prefix all those sections with .init.pi instead of only .init in
-order to be able to easily catch them all in the linker script.
+Instead of adding one more dependency I think we can cleanup this 
+dependency list. Similar changes done in ethernet subsystem. Please 
+have a look at below commits:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Link: https://lore.kernel.org/oe-kbuild-all/202304301606.Cgp113Ha-lkp@intel.com/
-Fixes: 26e7aacb83df ("riscv: Allow to downgrade paging mode from the command line")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/kernel/pi/Makefile   | 2 +-
- arch/riscv/kernel/vmlinux.lds.S | 7 ++-----
- 2 files changed, 3 insertions(+), 6 deletions(-)
+e8b6c54f6d57 net: xilinx: temac: Relax Kconfig dependencies
+d7eaf962a90b net: axienet: In kconfig remove arch dependency for axi_emac
 
-diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-index 741b7bd3a84c..07915dc9279e 100644
---- a/arch/riscv/kernel/pi/Makefile
-+++ b/arch/riscv/kernel/pi/Makefile
-@@ -22,7 +22,7 @@ KCOV_INSTRUMENT	:= n
- 
- $(obj)/%.pi.o: OBJCOPYFLAGS := --prefix-symbols=__pi_ \
- 			       --remove-section=.note.gnu.property \
--			       --prefix-alloc-sections=.init
-+			       --prefix-alloc-sections=.init.pi
- $(obj)/%.pi.o: $(obj)/%.o FORCE
- 	$(call if_changed,objcopy)
- 
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 305877d85e96..e66e26640f63 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -84,11 +84,8 @@ SECTIONS
- 	__init_data_begin = .;
- 	INIT_DATA_SECTION(16)
- 
--	/* Those sections result from the compilation of kernel/pi/string.c */
--	.init.pidata : {
--		*(.init.srodata.cst8*)
--		*(.init__bug_table*)
--		*(.init.sdata*)
-+	.init.pi : {
-+		*(.init.pi*)
- 	}
- 
- 	.init.bss : {
--- 
-2.37.2
-
+>  	select DMA_ENGINE
+>  	help
+>  	  Enable support for Xilinx AXI VDMA Soft IP.
+> --
+> 2.17.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
