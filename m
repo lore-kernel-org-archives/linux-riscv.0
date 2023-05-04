@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584BBC7EE22
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE93C7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=1R/S0evXjRnSwu/jVHzpVC7Aq1KXApbUsuQR1xEaPC4=; b=DztVhH1wVwfFx/
-	u5donwSOxDzcSg7RLQ8tWjP1E3eAzLBZFgIg+PcSuY5T3o92N6XIpzdZvWPD9KKUZOSuAkym4+zGR
-	ZTjXlbYQ1+YdI5Nguk3UaDm1CiEdzUQSBFrabCLYawUciAQgExm6vznYBKQeh/S+pjC1yHNUnBgvb
-	Gq4ZIu4bD3TiZ9JrEl/APcB6sDd1pY/35A7uw+uCLCkdXseXPB6mrwTArUuU+pP8M1xIx8+gq4LXU
-	dURwPeAdF4hrbl3hZUsNWGVECFiqbzgIS3GuwNqjw5//lQnADWy9THSGuYrcy0yUHNyajROc7PuoW
-	+xoNKgGi3UMXnVyo/aAg==;
+	List-Owner; bh=tmvhEUEdtvzkdTwwvM7X4VkS0p+5RFNka42ni0SVG4w=; b=X+5rX5t8zyKyg5
+	o4c4HaBBKwQl5TXLC0cKLR5W89iB4LJJ5virNeUKsIcWdVjjlpeOCualFRByaWqYpe/xpD7bpXFSW
+	a1Jdtu179bqGVBbbgCbPRZ1Lo4NkoOfDbvAeAGr3B9UysJvt8s1a5hUD+48xeqLWRx1dyuGa64KEL
+	nqOEBEYE6mHihGDa72Awn6TVS+q90dD/R4nLKl3L5HicrQG4lS4L0KJypRc5mJJdCppJWJcygjaNi
+	+uZDzB/vfP6/0fXUw5IsmZSTGpp9AwuJRPUxHlrqq63QqAnLawJlbEGPDBXpBw1Q3Hj21tdxc6Hbs
+	Uu95viWtcK80MEckW3FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDV-008dJp-1W;
-	Thu, 04 May 2023 19:02:13 +0000
+	id 1pueDb-008dRZ-24;
+	Thu, 04 May 2023 19:02:19 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDN-008d9c-0R;
-	Thu, 04 May 2023 19:02:07 +0000
-Message-ID: <20230504185936.480193035@linutronix.de>
+	id 1pueDO-008dAz-2Y;
+	Thu, 04 May 2023 19:02:08 +0000
+Message-ID: <20230504185936.536756506@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226923;
+	s=2020; t=1683226925;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=Eo225NP0lj/KI2zgHR0OIjiIzH0Ctds/GymtbPvmwBU=;
-	b=LT/pOG5ZQQZ4Xkdn780R40Y7lueqSZR9oNFurLJq5jRV+Eu/Z/jjyhKXcNyYjcCaq3OxeZ
-	D2BFgv0ZO2Yf12YjG235klE3IV29/RVeRocRuGfGAjifygXZaaoDJGgVt3+VOUiu6ohxFY
-	p+SEyhTtLcmwBOdSZGNp6YT7r03nx+0ZjhTXH5U8LULRcg9p9u1Xn+PZrAfH0AGtejHGc2
-	1WhTgb8mnl3tB5GijGDHQHQsbB76zY/aLri5dB0ODauWKsUjq6zqrj/wdK3i0TilxS51J9
-	6cNAT2zbq0mtuwkLISVz29ZrTYOY6WH2fUJB84fiM72rjbd3hSxTAIA7/5hPnQ==
+	 references:references; bh=4k8WG2dAJ3uFYn2Qtg5bZA2RHhZEaXZ+bewsd+BJr/I=;
+	b=bBh0CVpZWL+6hsvPUZtXnSdOBPa/K5CfY4sntqqXgNMtxpi+d2yUs3ECpJ289P0ZQAUrXv
+	k7Gw7YnHFskIzQ/7fPEMWNfUyqW1tXD0Y5j9mjC9fHiZESm2nV58xOjcYTcUtICW4PGtib
+	L7qAfpVjhgaAOAD2zQ57omRWjLADm+xmVTWvdqyhIzFRzilnUByYjHcwGeBKFMcYVRiiaY
+	VaFLAq4WMscxLSALxvyX5KYN3LoP2rAtooUlf6qigkW3PSIl7OwVv0Em5tfeehe2sTShbV
+	Tm0yzzDkfXdyeVnTbNUMouES/vmiS2pcR636jskZtx14ouKlyWxaen2mjAF6Eg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226923;
+	s=2020e; t=1683226925;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=Eo225NP0lj/KI2zgHR0OIjiIzH0Ctds/GymtbPvmwBU=;
-	b=c5fBzhVL9IXHiAIx3H5VnWToAYIP+2Zl7riSaIQdNQo8s6Prq7ZCnHaTOt6HvVUYoRs7oU
-	ozupCaSo8Ov1mvAw==
+	 references:references; bh=4k8WG2dAJ3uFYn2Qtg5bZA2RHhZEaXZ+bewsd+BJr/I=;
+	b=zT9oEAybbsH/w7G2lAyNh7UEoHso+OvSBYaHY787eM4NlqSRBZnZMUdOCeyvsS0fDgQH3V
+	RekIpVEMD5NisxDQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,14 +81,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 03/38] x86/smpboot: Avoid pointless delay calibration if
- TSC is synchronized
+Subject:  [patch V2 04/38] x86/smpboot: Rename start_cpu0() to soft_restart_cpu()
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:03 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:04 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120205_470565_23EAF82E 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20230504_120207_133527_5D5E8156 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,128 +106,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-When TSC is synchronized across sockets then there is no reason to
-calibrate the delay for the first CPU which comes up on a socket.
-
-Just reuse the existing calibration value.
-
-This removes 100ms pointlessly wasted time from CPU hotplug per socket.
+This is used in the SEV play_dead() implementation to re-online CPUs. But
+that has nothing to do with CPU0.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Tom Lendacky <thomas.lendacky@amd.com>
 
 ---
- arch/x86/kernel/smpboot.c |   38 ++++++++++++++++++++++++--------------
- arch/x86/kernel/tsc.c     |   20 ++++++++++++++++----
- 2 files changed, 40 insertions(+), 18 deletions(-)
+ arch/x86/include/asm/cpu.h   |    2 +-
+ arch/x86/kernel/callthunks.c |    2 +-
+ arch/x86/kernel/head_32.S    |   10 +++++-----
+ arch/x86/kernel/head_64.S    |   10 +++++-----
+ arch/x86/kernel/sev.c        |    2 +-
+ 5 files changed, 13 insertions(+), 13 deletions(-)
 ---
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -178,10 +178,7 @@ static void smp_callin(void)
+--- a/arch/x86/include/asm/cpu.h
++++ b/arch/x86/include/asm/cpu.h
+@@ -30,7 +30,7 @@ struct x86_cpu {
+ #ifdef CONFIG_HOTPLUG_CPU
+ extern int arch_register_cpu(int num);
+ extern void arch_unregister_cpu(int);
+-extern void start_cpu0(void);
++extern void soft_restart_cpu(void);
+ #ifdef CONFIG_DEBUG_HOTPLUG_CPU0
+ extern int _debug_hotplug_cpu(int cpu, int action);
+ #endif
+--- a/arch/x86/kernel/callthunks.c
++++ b/arch/x86/kernel/callthunks.c
+@@ -134,7 +134,7 @@ static bool skip_addr(void *dest)
+ 	if (dest == ret_from_fork)
+ 		return true;
+ #ifdef CONFIG_HOTPLUG_CPU
+-	if (dest == start_cpu0)
++	if (dest == soft_restart_cpu)
+ 		return true;
+ #endif
+ #ifdef CONFIG_FUNCTION_TRACER
+--- a/arch/x86/kernel/head_32.S
++++ b/arch/x86/kernel/head_32.S
+@@ -140,16 +140,16 @@ SYM_CODE_END(startup_32)
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+ /*
+- * Boot CPU0 entry point. It's called from play_dead(). Everything has been set
+- * up already except stack. We just set up stack here. Then call
+- * start_secondary().
++ * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
++ * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
++ * unplug. Everything is set up already except the stack.
+  */
+-SYM_FUNC_START(start_cpu0)
++SYM_FUNC_START(soft_restart_cpu)
+ 	movl initial_stack, %ecx
+ 	movl %ecx, %esp
+ 	call *(initial_code)
+ 1:	jmp 1b
+-SYM_FUNC_END(start_cpu0)
++SYM_FUNC_END(soft_restart_cpu)
+ #endif
+ 
+ /*
+--- a/arch/x86/kernel/head_64.S
++++ b/arch/x86/kernel/head_64.S
+@@ -377,11 +377,11 @@ SYM_CODE_END(secondary_startup_64)
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+ /*
+- * Boot CPU0 entry point. It's called from play_dead(). Everything has been set
+- * up already except stack. We just set up stack here. Then call
+- * start_secondary() via .Ljump_to_C_code.
++ * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
++ * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
++ * unplug. Everything is set up already except the stack.
+  */
+-SYM_CODE_START(start_cpu0)
++SYM_CODE_START(soft_restart_cpu)
+ 	ANNOTATE_NOENDBR
+ 	UNWIND_HINT_END_OF_STACK
+ 
+@@ -390,7 +390,7 @@ SYM_CODE_START(start_cpu0)
+ 	movq	TASK_threadsp(%rcx), %rsp
+ 
+ 	jmp	.Ljump_to_C_code
+-SYM_CODE_END(start_cpu0)
++SYM_CODE_END(soft_restart_cpu)
+ #endif
+ 
+ #ifdef CONFIG_AMD_MEM_ENCRYPT
+--- a/arch/x86/kernel/sev.c
++++ b/arch/x86/kernel/sev.c
+@@ -1328,7 +1328,7 @@ static void sev_es_play_dead(void)
+ 	 * If we get here, the VCPU was woken up again. Jump to CPU
+ 	 * startup code to get it back online.
  	 */
- 	apic_ap_setup();
- 
--	/*
--	 * Save our processor parameters. Note: this information
--	 * is needed for clock calibration.
--	 */
-+	/* Save our processor parameters. */
- 	smp_store_cpu_info(cpuid);
- 
- 	/*
-@@ -192,14 +189,6 @@ static void smp_callin(void)
- 
- 	ap_init_aperfmperf();
- 
--	/*
--	 * Get our bogomips.
--	 * Update loops_per_jiffy in cpu_data. Previous call to
--	 * smp_store_cpu_info() stored a value that is close but not as
--	 * accurate as the value just calculated.
--	 */
--	calibrate_delay();
--	cpu_data(cpuid).loops_per_jiffy = loops_per_jiffy;
- 	pr_debug("Stack at about %p\n", &cpuid);
- 
- 	wmb();
-@@ -212,8 +201,24 @@ static void smp_callin(void)
- 	cpumask_set_cpu(cpuid, cpu_callin_mask);
+-	start_cpu0();
++	soft_restart_cpu();
  }
- 
-+static void ap_calibrate_delay(void)
-+{
-+	/*
-+	 * Calibrate the delay loop and update loops_per_jiffy in cpu_data.
-+	 * smp_store_cpu_info() stored a value that is close but not as
-+	 * accurate as the value just calculated.
-+	 *
-+	 * As this is invoked after the TSC synchronization check,
-+	 * calibrate_delay_is_known() will skip the calibration routine
-+	 * when TSC is synchronized across sockets.
-+	 */
-+	calibrate_delay();
-+	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
-+}
-+
- static int cpu0_logical_apicid;
- static int enable_start_cpu0;
-+
- /*
-  * Activate a secondary processor.
-  */
-@@ -240,10 +245,15 @@ static void notrace start_secondary(void
- 
- 	/* otherwise gcc will move up smp_processor_id before the cpu_init */
- 	barrier();
-+	/* Check TSC synchronization with the control CPU: */
-+	check_tsc_sync_target();
-+
- 	/*
--	 * Check TSC synchronization with the boot CPU:
-+	 * Calibrate the delay loop after the TSC synchronization check.
-+	 * This allows to skip the calibration when TSC is synchronized
-+	 * across sockets.
- 	 */
--	check_tsc_sync_target();
-+	ap_calibrate_delay();
- 
- 	speculative_store_bypass_ht_init();
- 
---- a/arch/x86/kernel/tsc.c
-+++ b/arch/x86/kernel/tsc.c
-@@ -1598,10 +1598,7 @@ void __init tsc_init(void)
- 
- #ifdef CONFIG_SMP
- /*
-- * If we have a constant TSC and are using the TSC for the delay loop,
-- * we can skip clock calibration if another cpu in the same socket has already
-- * been calibrated. This assumes that CONSTANT_TSC applies to all
-- * cpus in the socket - this should be a safe assumption.
-+ * Check whether existing calibration data can be reused.
-  */
- unsigned long calibrate_delay_is_known(void)
- {
-@@ -1609,6 +1606,21 @@ unsigned long calibrate_delay_is_known(v
- 	int constant_tsc = cpu_has(&cpu_data(cpu), X86_FEATURE_CONSTANT_TSC);
- 	const struct cpumask *mask = topology_core_cpumask(cpu);
- 
-+	/*
-+	 * If TSC has constant frequency and TSC is synchronized across
-+	 * sockets then reuse CPU0 calibration.
-+	 */
-+	if (constant_tsc && !tsc_unstable)
-+		return cpu_data(0).loops_per_jiffy;
-+
-+	/*
-+	 * If TSC has constant frequency and TSC is not synchronized across
-+	 * sockets and this is not the first CPU in the socket, then reuse
-+	 * the calibration value of an already online CPU on that socket.
-+	 *
-+	 * This assumes that CONSTANT_TSC is consistent for all CPUs in a
-+	 * socket.
-+	 */
- 	if (!constant_tsc || !mask)
- 		return 0;
- 
+ #else  /* CONFIG_HOTPLUG_CPU */
+ #define sev_es_play_dead	native_play_dead
 
 
 _______________________________________________
