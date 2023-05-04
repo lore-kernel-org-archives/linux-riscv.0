@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2799C7EE21
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EEA8C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=5VSFQ/YfWu5Ra3EKo7ORvIeepVc0G41tDK6RGwLB05U=; b=rRtyTtXsGNxgZz
-	z5x1ZhjzDRooJ9MwrkMz1TMIzISJwHR7WVGKvEY18ZBcHLC3jxXCYf6tiIzWFEINGKvl5aKih7lAb
-	iw2C3M1A48xqbVKvBBBc4RQrhuITXRhKSWXeV0upFRDZxJ9RXjFIbUizqxI59/8yLdAPPPf6pNMa1
-	cH04GVuW7rgFvzByx0ChSc/B1cr0z4m9X/gwllo0AmcnP5IG+4lMA4Vvx8OGdGRYNR9vgKY4tQoIz
-	NHdSQ+oBWARlmaFaxShZica/X8xbRRsTrVfBlCb4HQ4eFeYFEM5KrADkc0RtWJ49e65fVqkoyJjVX
-	AkuSrpz9EYcTgs63kTiA==;
+	List-Owner; bh=Rqe6MszYxWad3cEYxePKe6N6r5+JjRE8XoUmKfj/u10=; b=zSB313J+wtB5nf
+	bi7pxDLLRrJz7wzproh7cYggfs79oqdEpQFAe42HEnigKhn/i8+Qw7nRJdlCWAS7vkPgEyUOVHn8e
+	Xu8mD+T75Q5fMLgwse0MhG3qg33+/U6W0l/qHWUtf+FRLaJ3NPwJmgAKkDwkk0AZRjecS6QrnLWaU
+	EEXybr2vW7068QZ10AjNQCVwmkEdA0pg71Zafq/Qs1JKZ0ulJ1e40YgBAyT+/jQN3pcAt5HYleKcn
+	96cMZwAMQwyMQIFCPxGHYoFs0OFI6wj1E8J//hGpIr6fsqEJ4F5G8UNWqnL5b1DtRhA61HHFsVWcv
+	188PMEhUq/1PC/6walMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDg-008dXN-1M;
-	Thu, 04 May 2023 19:02:24 +0000
+	id 1pueDy-008dtR-2j;
+	Thu, 04 May 2023 19:02:42 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueDQ-008dCx-1C;
-	Thu, 04 May 2023 19:02:11 +0000
-Message-ID: <20230504185936.590281709@linutronix.de>
+	id 1pueDY-008dNA-31;
+	Thu, 04 May 2023 19:02:19 +0000
+Message-ID: <20230504185936.858063589@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226927;
+	s=2020; t=1683226935;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IjEqVwuDXy6l11CZOhb2Q9Y7uBHaszP86r8c69YcU4c=;
-	b=1TjCsPNIyVe0J97AnMZ9IZuq5klCTmb8uOqmiS6QP7ZxFmpOciabd4+mZXTpZt5PKaBC3+
-	tShhthEpUYU1PR0O6G3TAKNFHt5nf1NpPdvBpi/KOT/ebUi2EI8FLEgU6k80VCWhJI6XJu
-	rdlacFVoZAD33FbY1MiLPzbfOdt5caRuE6+hd9z2DCXlPIQ+LrOM0u1VlHpb9igmtMFSjX
-	biJHT/ieDdtdnU2SskStM2vMbaj83W3ZNAkvtv4DHH1Q8FTO6wyJZvCKM2vsuaZPc/wXqB
-	4zIAc45oyX3TzFS3xg5Y4mqLrWDKm1CH9YSWlqdnpwKJWQa8TDMH4rl3Gug5TQ==
+	 references:references; bh=Oe/ZjwkRBSSl6siLO6072dd5g+eXgR8KPUDyURiw97E=;
+	b=XFhnPlTMh9p61J4utErL2GrNxXeTPXLjb8cWdDUXCXr3KT5am1Ro8sgXd/oHEQe8xcfaKn
+	XvBjK3bjPW274k7B3BA8GTqBl9J8B4hcaJ6fhMce4VcINARE+ROIpWv777g9FEinlrf3KP
+	2BncinPttT1cKxKjc1GNl7EgBMoSP2hFeg6lIh3qLpAkyqMMGNy1faixInDunKcxvGKZ/2
+	OqP65vuMXtHJ1FRwPGXBbsUOQZ6+3Am+8zuc5DTudqWBQfvITGZKgf6z6Jn8Uqd9+HB+x9
+	+wGxFdwo/EPews1TdSiM3V3T23ps0A6doGUh4PAL3mLBHykinvz3pA2i2ONykA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226927;
+	s=2020e; t=1683226935;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IjEqVwuDXy6l11CZOhb2Q9Y7uBHaszP86r8c69YcU4c=;
-	b=9diOKqSJbLdnSrqHxlovDTLpCZmCgBMmL7vKik0+pcztGx/FVE2OzspIn02s8YsczZddy6
-	W6MOr2qwUqkfM0DA==
+	 references:references; bh=Oe/ZjwkRBSSl6siLO6072dd5g+eXgR8KPUDyURiw97E=;
+	b=2dY4x4BcncRyoBpkMaEwKJqbyCatsbUKyBYFOZIQcYW7WtnHHDD/v5wu7am6DZnlToQwCT
+	FkpvVldlmNw8qgCw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 05/38] x86/topology: Remove CPU0 hotplug option
+Subject:  [patch V2 10/38] x86/cpu/cacheinfo: Remove cpu_callout_mask dependency
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:02:06 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:14 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120208_719237_A8B5FB8A 
-X-CRM114-Status: GOOD (  38.42  )
+X-CRM114-CacheID: sfid-20230504_120217_124246_49DA0AD2 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,291 +106,75 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-This was introduced together with commit e1c467e69040 ("x86, hotplug: Wake
-up CPU0 via NMI instead of INIT, SIPI, SIPI") to eventually support
-physical hotplug of CPU0:
+cpu_callout_mask is used for the stop machine based MTRR/PAT init.
 
- "We'll change this code in the future to wake up hard offlined CPU0 if
-  real platform and request are available."
-
-11 years later this has not happened and physical hotplug is not officially
-supported. Remove the cruft.
+In preparation of moving the BP/AP synchronization to the core hotplug
+code, use a private CPU mask for cacheinfo and manage it in the
+starting/dying hotplug state.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 
 ---
- Documentation/admin-guide/kernel-parameters.txt |   14 ---
- Documentation/core-api/cpu_hotplug.rst          |   13 ---
- arch/x86/Kconfig                                |   43 ----------
- arch/x86/include/asm/cpu.h                      |    3 
- arch/x86/kernel/topology.c                      |   98 ------------------------
- arch/x86/power/cpu.c                            |   37 ---------
- 6 files changed, 6 insertions(+), 202 deletions(-)
+ arch/x86/kernel/cpu/cacheinfo.c |   21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
 ---
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -818,20 +818,6 @@
- 			Format:
- 			<first_slot>,<last_slot>,<port>,<enum_bit>[,<debug>]
+--- a/arch/x86/kernel/cpu/cacheinfo.c
++++ b/arch/x86/kernel/cpu/cacheinfo.c
+@@ -39,6 +39,8 @@ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t
+ /* Shared L2 cache maps */
+ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t, cpu_l2c_shared_map);
  
--	cpu0_hotplug	[X86] Turn on CPU0 hotplug feature when
--			CONFIG_BOOTPARAM_HOTPLUG_CPU0 is off.
--			Some features depend on CPU0. Known dependencies are:
--			1. Resume from suspend/hibernate depends on CPU0.
--			Suspend/hibernate will fail if CPU0 is offline and you
--			need to online CPU0 before suspend/hibernate.
--			2. PIC interrupts also depend on CPU0. CPU0 can't be
--			removed if a PIC interrupt is detected.
--			It's said poweroff/reboot may depend on CPU0 on some
--			machines although I haven't seen such issues so far
--			after CPU0 is offline on a few tested machines.
--			If the dependencies are under your control, you can
--			turn on cpu0_hotplug.
--
- 	cpuidle.off=1	[CPU_IDLE]
- 			disable the cpuidle sub-system
++static cpumask_var_t cpu_cacheinfo_mask;
++
+ /* Kernel controls MTRR and/or PAT MSRs. */
+ unsigned int memory_caching_control __ro_after_init;
  
---- a/Documentation/core-api/cpu_hotplug.rst
-+++ b/Documentation/core-api/cpu_hotplug.rst
-@@ -127,17 +127,8 @@ Once the CPU is shutdown, it will be rem
-  $ echo 1 > /sys/devices/system/cpu/cpu4/online
-  smpboot: Booting Node 0 Processor 4 APIC 0x1
- 
--The CPU is usable again. This should work on all CPUs. CPU0 is often special
--and excluded from CPU hotplug. On X86 the kernel option
--*CONFIG_BOOTPARAM_HOTPLUG_CPU0* has to be enabled in order to be able to
--shutdown CPU0. Alternatively the kernel command option *cpu0_hotplug* can be
--used. Some known dependencies of CPU0:
--
--* Resume from hibernate/suspend. Hibernate/suspend will fail if CPU0 is offline.
--* PIC interrupts. CPU0 can't be removed if a PIC interrupt is detected.
--
--Please let Fenghua Yu <fenghua.yu@intel.com> know if you find any dependencies
--on CPU0.
-+The CPU is usable again. This should work on all CPUs, but CPU0 is often special
-+and excluded from CPU hotplug.
- 
- The CPU hotplug coordination
- ============================
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2305,49 +2305,6 @@ config HOTPLUG_CPU
- 	def_bool y
- 	depends on SMP
- 
--config BOOTPARAM_HOTPLUG_CPU0
--	bool "Set default setting of cpu0_hotpluggable"
--	depends on HOTPLUG_CPU
--	help
--	  Set whether default state of cpu0_hotpluggable is on or off.
--
--	  Say Y here to enable CPU0 hotplug by default. If this switch
--	  is turned on, there is no need to give cpu0_hotplug kernel
--	  parameter and the CPU0 hotplug feature is enabled by default.
--
--	  Please note: there are two known CPU0 dependencies if you want
--	  to enable the CPU0 hotplug feature either by this switch or by
--	  cpu0_hotplug kernel parameter.
--
--	  First, resume from hibernate or suspend always starts from CPU0.
--	  So hibernate and suspend are prevented if CPU0 is offline.
--
--	  Second dependency is PIC interrupts always go to CPU0. CPU0 can not
--	  offline if any interrupt can not migrate out of CPU0. There may
--	  be other CPU0 dependencies.
--
--	  Please make sure the dependencies are under your control before
--	  you enable this feature.
--
--	  Say N if you don't want to enable CPU0 hotplug feature by default.
--	  You still can enable the CPU0 hotplug feature at boot by kernel
--	  parameter cpu0_hotplug.
--
--config DEBUG_HOTPLUG_CPU0
--	def_bool n
--	prompt "Debug CPU0 hotplug"
--	depends on HOTPLUG_CPU
--	help
--	  Enabling this option offlines CPU0 (if CPU0 can be offlined) as
--	  soon as possible and boots up userspace with CPU0 offlined. User
--	  can online CPU0 back after boot time.
--
--	  To debug CPU0 hotplug, you need to enable CPU0 offline/online
--	  feature by either turning on CONFIG_BOOTPARAM_HOTPLUG_CPU0 during
--	  compilation or giving cpu0_hotplug kernel parameter at boot.
--
--	  If unsure, say N.
--
- config COMPAT_VDSO
- 	def_bool n
- 	prompt "Disable the 32-bit vDSO (needed for glibc 2.3.3)"
---- a/arch/x86/include/asm/cpu.h
-+++ b/arch/x86/include/asm/cpu.h
-@@ -31,9 +31,6 @@ struct x86_cpu {
- extern int arch_register_cpu(int num);
- extern void arch_unregister_cpu(int);
- extern void soft_restart_cpu(void);
--#ifdef CONFIG_DEBUG_HOTPLUG_CPU0
--extern int _debug_hotplug_cpu(int cpu, int action);
--#endif
- #endif
- 
- extern void ap_init_aperfmperf(void);
---- a/arch/x86/kernel/topology.c
-+++ b/arch/x86/kernel/topology.c
-@@ -38,102 +38,12 @@
- static DEFINE_PER_CPU(struct x86_cpu, cpu_devices);
- 
- #ifdef CONFIG_HOTPLUG_CPU
--
--#ifdef CONFIG_BOOTPARAM_HOTPLUG_CPU0
--static int cpu0_hotpluggable = 1;
--#else
--static int cpu0_hotpluggable;
--static int __init enable_cpu0_hotplug(char *str)
--{
--	cpu0_hotpluggable = 1;
--	return 1;
--}
--
--__setup("cpu0_hotplug", enable_cpu0_hotplug);
--#endif
--
--#ifdef CONFIG_DEBUG_HOTPLUG_CPU0
--/*
-- * This function offlines a CPU as early as possible and allows userspace to
-- * boot up without the CPU. The CPU can be onlined back by user after boot.
-- *
-- * This is only called for debugging CPU offline/online feature.
-- */
--int _debug_hotplug_cpu(int cpu, int action)
--{
--	int ret;
--
--	if (!cpu_is_hotpluggable(cpu))
--		return -EINVAL;
--
--	switch (action) {
--	case 0:
--		ret = remove_cpu(cpu);
--		if (!ret)
--			pr_info("DEBUG_HOTPLUG_CPU0: CPU %u is now offline\n", cpu);
--		else
--			pr_debug("Can't offline CPU%d.\n", cpu);
--		break;
--	case 1:
--		ret = add_cpu(cpu);
--		if (ret)
--			pr_debug("Can't online CPU%d.\n", cpu);
--
--		break;
--	default:
--		ret = -EINVAL;
--	}
--
--	return ret;
--}
--
--static int __init debug_hotplug_cpu(void)
-+int arch_register_cpu(int cpu)
- {
--	_debug_hotplug_cpu(0, 0);
--	return 0;
--}
--
--late_initcall_sync(debug_hotplug_cpu);
--#endif /* CONFIG_DEBUG_HOTPLUG_CPU0 */
--
--int arch_register_cpu(int num)
--{
--	struct cpuinfo_x86 *c = &cpu_data(num);
--
--	/*
--	 * Currently CPU0 is only hotpluggable on Intel platforms. Other
--	 * vendors can add hotplug support later.
--	 * Xen PV guests don't support CPU0 hotplug at all.
--	 */
--	if (c->x86_vendor != X86_VENDOR_INTEL ||
--	    cpu_feature_enabled(X86_FEATURE_XENPV))
--		cpu0_hotpluggable = 0;
--
--	/*
--	 * Two known BSP/CPU0 dependencies: Resume from suspend/hibernate
--	 * depends on BSP. PIC interrupts depend on BSP.
--	 *
--	 * If the BSP dependencies are under control, one can tell kernel to
--	 * enable BSP hotplug. This basically adds a control file and
--	 * one can attempt to offline BSP.
--	 */
--	if (num == 0 && cpu0_hotpluggable) {
--		unsigned int irq;
--		/*
--		 * We won't take down the boot processor on i386 if some
--		 * interrupts only are able to be serviced by the BSP in PIC.
--		 */
--		for_each_active_irq(irq) {
--			if (!IO_APIC_IRQ(irq) && irq_has_action(irq)) {
--				cpu0_hotpluggable = 0;
--				break;
--			}
--		}
--	}
--	if (num || cpu0_hotpluggable)
--		per_cpu(cpu_devices, num).cpu.hotpluggable = 1;
-+	struct x86_cpu *xc = per_cpu_ptr(&cpu_devices, cpu);
- 
--	return register_cpu(&per_cpu(cpu_devices, num).cpu, num);
-+	xc->cpu.hotpluggable = cpu > 0;
-+	return register_cpu(&xc->cpu, cpu);
+@@ -1172,8 +1174,10 @@ void cache_bp_restore(void)
+ 		cache_cpu_init();
  }
- EXPORT_SYMBOL(arch_register_cpu);
  
---- a/arch/x86/power/cpu.c
-+++ b/arch/x86/power/cpu.c
-@@ -351,43 +351,6 @@ static int bsp_pm_callback(struct notifi
- 	case PM_HIBERNATION_PREPARE:
- 		ret = bsp_check();
- 		break;
--#ifdef CONFIG_DEBUG_HOTPLUG_CPU0
--	case PM_RESTORE_PREPARE:
--		/*
--		 * When system resumes from hibernation, online CPU0 because
--		 * 1. it's required for resume and
--		 * 2. the CPU was online before hibernation
--		 */
--		if (!cpu_online(0))
--			_debug_hotplug_cpu(0, 1);
--		break;
--	case PM_POST_RESTORE:
--		/*
--		 * When a resume really happens, this code won't be called.
--		 *
--		 * This code is called only when user space hibernation software
--		 * prepares for snapshot device during boot time. So we just
--		 * call _debug_hotplug_cpu() to restore to CPU0's state prior to
--		 * preparing the snapshot device.
--		 *
--		 * This works for normal boot case in our CPU0 hotplug debug
--		 * mode, i.e. CPU0 is offline and user mode hibernation
--		 * software initializes during boot time.
--		 *
--		 * If CPU0 is online and user application accesses snapshot
--		 * device after boot time, this will offline CPU0 and user may
--		 * see different CPU0 state before and after accessing
--		 * the snapshot device. But hopefully this is not a case when
--		 * user debugging CPU0 hotplug. Even if users hit this case,
--		 * they can easily online CPU0 back.
--		 *
--		 * To simplify this debug code, we only consider normal boot
--		 * case. Otherwise we need to remember CPU0's state and restore
--		 * to that state and resolve racy conditions etc.
--		 */
--		_debug_hotplug_cpu(0, 0);
--		break;
--#endif
- 	default:
- 		break;
- 	}
+-static int cache_ap_init(unsigned int cpu)
++static int cache_ap_online(unsigned int cpu)
+ {
++	cpumask_set_cpu(cpu, cpu_cacheinfo_mask);
++
+ 	if (!memory_caching_control || get_cache_aps_delayed_init())
+ 		return 0;
+ 
+@@ -1191,11 +1195,17 @@ static int cache_ap_init(unsigned int cp
+ 	 *      lock to prevent MTRR entry changes
+ 	 */
+ 	stop_machine_from_inactive_cpu(cache_rendezvous_handler, NULL,
+-				       cpu_callout_mask);
++				       cpu_cacheinfo_mask);
+ 
+ 	return 0;
+ }
+ 
++static int cache_ap_offline(unsigned int cpu)
++{
++	cpumask_clear_cpu(cpu, cpu_cacheinfo_mask);
++	return 0;
++}
++
+ /*
+  * Delayed cache initialization for all AP's
+  */
+@@ -1210,9 +1220,12 @@ void cache_aps_init(void)
+ 
+ static int __init cache_ap_register(void)
+ {
++	zalloc_cpumask_var(&cpu_cacheinfo_mask, GFP_KERNEL);
++	cpumask_set_cpu(smp_processor_id(), cpu_cacheinfo_mask);
++
+ 	cpuhp_setup_state_nocalls(CPUHP_AP_CACHECTRL_STARTING,
+ 				  "x86/cachectrl:starting",
+-				  cache_ap_init, NULL);
++				  cache_ap_online, cache_ap_offline);
+ 	return 0;
+ }
+-core_initcall(cache_ap_register);
++early_initcall(cache_ap_register);
 
 
 _______________________________________________
