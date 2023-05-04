@@ -4,46 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F95C77B78
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8ACC7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 19:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=BHNO/sScoVFhvtEmQZ2pvZN33wGiRScLy/MtV7dseZU=; b=fVgoveaeUnvHGz
-	0057OlkY1Tckrq4o+7q8VU+kEagzCc+2AUOGdQJY/LTMDuTHGM8D7wI5fme8oMldGdX+XoVEjfxG4
-	dKEDElwxHWWji6SNPv/fy5RmJ2TnJ0cydS0Y9RXUDYQMtExCROiI0YO2G2jDOD9tCPjb6YxveIEfh
-	TuH5/p12Ml3ZaENHDHaSZKHZoHHXzBhQN5pTDpxSDbpLwwXs28kawBC8QQEcjYL/p1Tggwlxo5ex2
-	yCkDmgtsh0Jr5T0C8X9t4tKHNQsP+j7/OPjTpMyXtFL8IyZwdPdSdG/l1RzaixU4dO2IyEm4KYgnC
-	4XAP3lL0Aka3ECmw9PRg==;
+	List-Owner; bh=UsMh46WTQ6bkyAQVf4i2A1ksJ8d6xWxku/0xelz3Wd4=; b=gRa+40wEQK+brL
+	juxiWjSYMbC/IsS+niORBWVFJG9E/fxpuiNBM2a9QnbTZhkLTFfeom3jiCWWL+fR3422Wc8Xs11hV
+	CE5YKtqiPtaL2Qxg5K8ytUXyIclLagOaEM04DcCUiB56ZP5ds2kZ/O3CPrByDo5Z5YrpSJxx/JiZR
+	nAThtr7phss9gESfoj/qq14eGXzflDqR4gKpyPjbacT5PDNmtyYeVxNVKiTW3ifqzAOBlavqtW0u1
+	magx2UCPQLWN+oSDBbmVnBXML76qqgmDQGkpyxHvmMz94JzPrzopRncDp69SxcQbXhON/luKRvaa2
+	j52bbrbfL8NqET1oa+Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueGv-008hCs-1l;
-	Thu, 04 May 2023 19:05:45 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pueoH-008nl4-1s;
+	Thu, 04 May 2023 19:40:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pueEH-008eEH-3C;
-	Thu, 04 May 2023 19:03:06 +0000
-Message-ID: <20230504185938.393373946@linutronix.de>
+	id 1pueoE-008nkY-2q;
+	Thu, 04 May 2023 19:40:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=; b=oH+52N2rSQRR8rGatzAOErIjry
+	SHp91y+qBTJRYRB7ZouPbHf7bZfm81liqHsn5lt7LnHgjABUmTI/lpwb/Lhb2L9u+4c5/9k4tJ5Lr
+	3T/k9aicHnduixI9TSvuAJPmYpasZZj/373IvtsbOr4ZvduoZv7xRgJy3M4OzkJeSqWHDQs/q+eff
+	piZehaPxfBbosFVvlv44QBWOcQPtQB9wvIza0yc21L/CR6tKAYyZAYe/CmVm72QQD5OxHZSOySNuO
+	svCHYgXVYq8CG9DVaYq1ZrAcFzLJkmSbhGAKcrLkuLkDiuvxMdw1vY4a6NgO43xQUpWAQM/Xz/NIT
+	gAVn8wxA==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pueE1-001o1A-1t;
+	Thu, 04 May 2023 19:02:52 +0000
+Message-ID: <20230504185937.858955768@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683226980;
+	s=2020; t=1683226964;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DnnEFfJ8qHS51cV93bPVxAhJn4egJudPWNxPdxHp+6I=;
-	b=3Ex1oay3deKBQTCKUX4Ih8IGgIbgjtd18ImqJ1vJckFzp4vqpeCRciYL26XaBXwtGetEt9
-	jQYdqvvfPpYi34oU2dU7fjuiZ3WyUQcsrd4BPREXrzjkH9groi0TU6YGHBW08cmpwip9QC
-	vnXlEPucLe8Pxu/DAQZhHSJgvAG1br+71W5AkzFErVTB5fdbrjcZJ7I/PMvvfD3nV+Fpt+
-	Y9+eS6OIW46jTxBhE1zoqPIcGpnWyrhDXCq+doarlLORorIO2HSYQo2DibMTzYhsGwQ8ko
-	wng2jKhRiMwK0oOD7H54yErcCMVtMuv2wW3qjiAj1OaBH6NB6N7JtXkq+JhyKQ==
+	 references:references; bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=;
+	b=F9VwenKVSYd9QFli8bXNV/fz9qUSdzJcPELJ1ngRD9BxyzaHEgcu2cC0/b4kuprOfTMBsR
+	NCkyPWtTcKTi4mTU6aAeMY6PYflFdg/QnWMligdTnr5DQ53G/59w7N1RxTuaJMuxKaB+6k
+	fnxGx7t6MsQx4TP0A/Wv1B3YJqsjI01JirGXHQPo53zTdX5Z488sLyftTciloBgiN9k5k/
+	bzf3t4Qwlj6lxCy0qHukKPQMZGDuh3h1yP7MJWtYXWHVZt3htrK/Qtw9ul4ERCfXuX9Nze
+	it6Ui4ad23Dml/cuVbhr6i6cHXzKyVbR3juE2BxVW820qfkeEJiZvG833WVS3g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683226980;
+	s=2020e; t=1683226964;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DnnEFfJ8qHS51cV93bPVxAhJn4egJudPWNxPdxHp+6I=;
-	b=6kDZyW5GTa+KS1pHyq0SY7syfYnd6TB6StPbtFwCKnOC1peAStPMetQpfCSqmue8lUL4Wc
-	NQ0I2S6hl8MhwzDA==
+	 references:references; bh=x1gYrMcqzm40p2bz6RsOmSrXlBcSvXXbnfB8HNeCbJU=;
+	b=PK3VhwCrlpzYLlITMOVdXxhPHsDqoA73a6Tz+/QOqHPRfKtGaiwEqnA7EtTcL4VMvMoxp6
+	ebRWKW/d8KnEHmAA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -80,15 +94,15 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch V2 38/38] x86/smpboot/64: Implement
- arch_cpuhp_init_parallel_bringup() and enable it
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+ David Woodhouse <dwmw@amazon.co.uk>
+Subject: [patch V2 28/38] cpu/hotplug: Reset task stack state in _cpu_up()
 References: <20230504185733.126511787@linutronix.de>
 MIME-Version: 1.0
-Date: Thu,  4 May 2023 21:03:00 +0200 (CEST)
+Date: Thu,  4 May 2023 21:02:43 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_120302_409891_1E4E0FA5 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20230504_200249_046096_DD43E3C4 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,209 +119,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-Implement the validation function which tells the core code whether
-parallel bringup is possible.
+Commit dce1ca0525bf ("sched/scs: Reset task stack state in bringup_cpu()")
+ensured that the shadow call stack and KASAN poisoning were removed from
+a CPU's stack each time that CPU is brought up, not just once.
 
-The only condition for now is that the kernel does not run in an encrypted
-guest as these will trap the RDMSR via #VC, which cannot be handled at that
-point in early startup.
+This is not incorrect. However, with parallel bringup the idle thread setup
+will happen at a different step. As a consequence the cleanup in
+bringup_cpu() would be too late.
 
-There was an earlier variant for AMD-SEV which used the GHBC protocol for
-retrieving the APIC ID via CPUID, but there is no guarantee that the
-initial APIC ID in CPUID is the same as the real APIC ID. There is no
-enforcement from the secure firmware and the hypervisor can assign APIC IDs
-as it sees fit as long as the ACPI/MADT table is consistent with that
-assignment.
+Move the SCS/KASAN cleanup to the generic _cpu_up() function instead,
+which already ensures that the new CPU's stack is available, purely to
+allow for early failure. This occurs when the CPU to be brought up is
+in the CPUHP_OFFLINE state, which should correctly do the cleanup any
+time the CPU has been taken down to the point where such is needed.
 
-Unfortunately there is no RDMSR GHCB protocol at the moment, so enabling
-AMD-SEV guests for parallel startup needs some more thought.
-
-Intel-TDX provides a secure RDMSR hypercall, but supporting that is outside
-the scope of this change.
-
-Fixup announce_cpu() as e.g. on Hyper-V CPU1 is the secondary sibling of
-CPU0, which makes the @cpu == 1 logic in announce_cpu() fall apart.
-
-[ mikelley: Reported the announce_cpu() fallout
-
-Originally-by: David Woodhouse <dwmw@amazon.co.uk>
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+
 ---
-V2: Fixup announce_cpu() - Michael Kelley
+ kernel/cpu.c |   12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 ---
- arch/x86/Kconfig             |    3 +
- arch/x86/kernel/cpu/common.c |    6 ---
- arch/x86/kernel/smpboot.c    |   83 ++++++++++++++++++++++++++++++++++++-------
- 3 files changed, 73 insertions(+), 19 deletions(-)
----
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -274,8 +274,9 @@ config X86
- 	select HAVE_UNSTABLE_SCHED_CLOCK
- 	select HAVE_USER_RETURN_NOTIFIER
- 	select HAVE_GENERIC_VDSO
-+	select HOTPLUG_PARALLEL			if SMP && X86_64
- 	select HOTPLUG_SMT			if SMP
--	select HOTPLUG_SPLIT_STARTUP		if SMP
-+	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
- 	select IRQ_FORCED_THREADING
- 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -2128,11 +2128,7 @@ static inline void setup_getcpu(int cpu)
- }
- 
- #ifdef CONFIG_X86_64
--static inline void ucode_cpu_init(int cpu)
--{
--	if (cpu)
--		load_ucode_ap();
--}
-+static inline void ucode_cpu_init(int cpu) { }
- 
- static inline void tss_setup_ist(struct tss_struct *tss)
- {
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -58,6 +58,7 @@
- #include <linux/overflow.h>
- #include <linux/stackprotector.h>
- #include <linux/cpuhotplug.h>
-+#include <linux/mc146818rtc.h>
- 
- #include <asm/acpi.h>
- #include <asm/cacheinfo.h>
-@@ -75,7 +76,7 @@
- #include <asm/fpu/api.h>
- #include <asm/setup.h>
- #include <asm/uv/uv.h>
--#include <linux/mc146818rtc.h>
-+#include <asm/microcode.h>
- #include <asm/i8259.h>
- #include <asm/misc.h>
- #include <asm/qspinlock.h>
-@@ -128,7 +129,6 @@ int arch_update_cpu_topology(void)
- 	return retval;
- }
- 
--
- static unsigned int smpboot_warm_reset_vector_count;
- 
- static inline void smpboot_setup_warm_reset_vector(unsigned long start_eip)
-@@ -229,16 +229,43 @@ static void notrace start_secondary(void
- 	 */
- 	cr4_init();
- 
--#ifdef CONFIG_X86_32
--	/* switch away from the initial page table */
--	load_cr3(swapper_pg_dir);
--	__flush_tlb_all();
--#endif
-+	/*
-+	 * 32-bit specific. 64-bit reaches this code with the correct page
-+	 * table established. Yet another historical divergence.
-+	 */
-+	if (IS_ENABLED(CONFIG_X86_32)) {
-+		/* switch away from the initial page table */
-+		load_cr3(swapper_pg_dir);
-+		__flush_tlb_all();
-+	}
-+
- 	cpu_init_exception_handling();
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -771,12 +771,6 @@ static int bringup_cpu(unsigned int cpu)
+ 		return -EAGAIN;
  
  	/*
--	 * Synchronization point with the hotplug core. Sets the
--	 * synchronization state to ALIVE and waits for the control CPU to
-+	 * 32-bit systems load the microcode from the ASM startup code for
-+	 * historical reasons.
-+	 *
-+	 * On 64-bit systems load it before reaching the AP alive
-+	 * synchronization point below so it is not part of the full per
-+	 * CPU serialized bringup part when "parallel" bringup is enabled.
-+	 *
-+	 * That's even safe when hyperthreading is enabled in the CPU as
-+	 * the core code starts the primary threads first and leaves the
-+	 * secondary threads waiting for SIPI. Loading microcode on
-+	 * physical cores concurrently is a safe operation.
-+	 *
-+	 * This covers both the Intel specific issue that concurrent
-+	 * microcode loading on SMT siblings must be prohibited and the
-+	 * vendor independent issue`that microcode loading which changes
-+	 * CPUID, MSRs etc. must be strictly serialized to maintain
-+	 * software state correctness.
-+	 */
-+	if (IS_ENABLED(CONFIG_X86_64))
-+		load_ucode_ap();
-+
-+	/*
-+	 * Synchronization point with the hotplug core. Sets this CPUs
-+	 * synchronization state to ALIVE and spin-waits for the control CPU to
- 	 * release this CPU for further bringup.
- 	 */
- 	cpuhp_ap_sync_alive();
-@@ -934,10 +961,10 @@ static void announce_cpu(int cpu, int ap
- 	if (!node_width)
- 		node_width = num_digits(num_possible_nodes()) + 1; /* + '#' */
- 
--	if (cpu == 1)
--		printk(KERN_INFO "x86: Booting SMP configuration:\n");
+-	 * Reset stale stack state from the last time this CPU was online.
+-	 */
+-	scs_task_reset(idle);
+-	kasan_unpoison_task_stack(idle);
 -
- 	if (system_state < SYSTEM_RUNNING) {
-+		if (num_online_cpus() == 1)
-+			pr_info("x86: Booting SMP configuration:\n");
-+
- 		if (node != current_node) {
- 			if (current_node > (-1))
- 				pr_cont("\n");
-@@ -948,7 +975,7 @@ static void announce_cpu(int cpu, int ap
+-	/*
+ 	 * Some architectures have to walk the irq descriptors to
+ 	 * setup the vector space for the cpu which comes online.
+ 	 * Prevent irq alloc/free across the bringup.
+@@ -1583,6 +1577,12 @@ static int _cpu_up(unsigned int cpu, int
+ 			ret = PTR_ERR(idle);
+ 			goto out;
  		}
- 
- 		/* Add padding for the BSP */
--		if (cpu == 1)
-+		if (num_online_cpus() == 1)
- 			pr_cont("%*s", width + 1, " ");
- 
- 		pr_cont("%*s#%d", width - num_digits(cpu), " ", cpu);
-@@ -1242,6 +1269,36 @@ void __init smp_prepare_cpus_common(void
- 	set_cpu_sibling_map(0);
- }
- 
-+#ifdef CONFIG_X86_64
-+/* Establish whether parallel bringup can be supported. */
-+bool __init arch_cpuhp_init_parallel_bringup(void)
-+{
-+	/*
-+	 * Encrypted guests require special handling. They enforce X2APIC
-+	 * mode but the RDMSR to read the APIC ID is intercepted and raises
-+	 * #VC or #VE which cannot be handled in the early startup code.
-+	 *
-+	 * AMD-SEV does not provide a RDMSR GHCB protocol so the early
-+	 * startup code cannot directly communicate with the secure
-+	 * firmware. The alternative solution to retrieve the APIC ID via
-+	 * CPUID(0xb), which is covered by the GHCB protocol, is not viable
-+	 * either because there is no enforcement of the CPUID(0xb)
-+	 * provided "initial" APIC ID to be the same as the real APIC ID.
-+	 *
-+	 * Intel-TDX has a secure RDMSR hypercall, but that needs to be
-+	 * implemented seperately in the low level startup ASM code.
-+	 */
-+	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
-+		pr_info("Parallel CPU startup disabled due to guest state encryption\n");
-+		return false;
-+	}
 +
-+	smpboot_control = STARTUP_READ_APICID;
-+	pr_debug("Parallel CPU startup enabled: 0x%08x\n", smpboot_control);
-+	return true;
-+}
-+#endif
-+
- /*
-  * Prepare for SMP bootup.
-  * @max_cpus: configured maximum number of CPUs, It is a legacy parameter
++		/*
++		 * Reset stale stack state from the last time this CPU was online.
++		 */
++		scs_task_reset(idle);
++		kasan_unpoison_task_stack(idle);
+ 	}
+ 
+ 	cpuhp_tasks_frozen = tasks_frozen;
 
 
 _______________________________________________
