@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AC2C77B75
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 01:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408E2C77B75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 02:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+w8E5RFdj+wx5FB2ZZj9SA3k0PoZzl8BGK4QZtmZgfg=; b=G6KEAIcdSdx2Re
-	fGQxGOyvYD+SHLLlT2oxn0OQe3MXKOS5oC517UeT191tZX7inb9HAYFA1kJSSw6zsbL0TP26ERhP3
-	kDEMF32gYCZc8+krTM1AJq1fT9W+8HcshF5+HytYJe8sZPp4i4Wf52C8fTF99rAV/MHL9khXRvy0y
-	GNF2mWedzBlUJNFCRzD6HPwoaHwHvAMjo4b4/0OJZANpLYYGJEyaYsMpsUFQxHiq37e6aS+L4h3NI
-	Uyvzpx6o8xsPxWd8Myq9UZ5h8GgsU3vOW7d4rykbmOGuBi896EA39Bzk3XMnA/iEg50UDbmLTwCC1
-	fFh2rUY1BPZF4Nb8A/jA==;
+	List-Owner; bh=d6RX5eP+P0BIwpjR2h5cKG7MAvWa8MiLIK2ohznLIDs=; b=TGcYXyK+z3LhGv
+	4ro+Usb17p96bcuUqsl/sGC+IitpQUnSJ9Ccaq1dZaJsWc++bO0BPmk7mymmUMqTF0IE6qx1iWI7c
+	tcyyk5mPb56FSnfNz3Eh/3zMYj7+D3iBLUXp4obIlkwTtS35P00LdPFEuZ18/NGgv8F313LN/VTvl
+	PsPzpCtGhB5MAU4Shn+9SPECN78RSlSm6jBO6IjAtpoH7bPxFRWwC8E+ymurJEv1cjqtCs//RPcmJ
+	YWa+zNzzsrxirIU6vDiHz6f/bBwqUDuZ1MIXmr7O74C/4whtDbVL2R6Srip+hBw63brKkP52IfqT6
+	Bec/zMyx2Da27fAquoVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puNsM-006Inw-0x;
-	Thu, 04 May 2023 01:35:18 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puNsG-006Iky-11;
-	Thu, 04 May 2023 01:35:16 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9B0B224E09F;
-	Thu,  4 May 2023 09:34:33 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 4 May
- 2023 09:34:33 +0800
-Received: from [192.168.125.107] (183.27.99.121) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 4 May
- 2023 09:34:32 +0800
-Message-ID: <0b0f9187-ad6b-a1d9-6ec4-beb8989ca731@starfivetech.com>
-Date: Thu, 4 May 2023 09:34:37 +0800
+	id 1puOVO-006MLa-2v;
+	Thu, 04 May 2023 02:15:38 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1puNLH-006FYX-19
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 May 2023 01:01:09 +0000
+Received: from kwepemi500008.china.huawei.com (unknown [172.30.72.57])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4QBb7j3gBJzkXtx;
+	Thu,  4 May 2023 08:59:45 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemi500008.china.huawei.com (7.221.188.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.23; Thu, 4 May 2023 09:00:51 +0800
+Message-ID: <071ab5f1-6d6a-ab1f-6bf1-f5a18c1307e0@huawei.com>
+Date: Thu, 4 May 2023 09:00:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v2] riscv: fix kprobe __user string arg print fault issue
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20230423091235.968980-1-ruanjinjie@huawei.com>
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Rob Herring <robh+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
-	<linux-phy@lists.infradead.org>
-References: <20230419-labored-camper-644d51a7ca96@spud>
- <1a5b15fa-4f20-51c2-2ba1-a04a2911a694@starfivetech.com>
- <20230424-baffle-punch-ec73098f2b6a@spud>
- <d685a1d4-c07d-7dfa-f1fb-b35ceb2aa0eb@starfivetech.com>
- <20230425-unquote-eligible-09f743d81981@wendy>
- <a7cdfabf-2312-eaf3-f462-5bda7f0a120d@starfivetech.com>
- <68cb565d-bf39-10b0-9e3e-35ba7f54b90b@linaro.org>
- <0988495f-b87a-7f69-f222-37c67d6eae23@starfivetech.com>
- <20230425-resale-footrest-de667778c4fe@wendy>
- <663e9933-b9b3-a48f-98b6-2207215a8ed7@starfivetech.com>
- <20230425-commotion-prewashed-876247bed4ab@spud>
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230425-commotion-prewashed-876247bed4ab@spud>
-X-Originating-IP: [183.27.99.121]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX062.cuchost.com
- (172.16.6.62)
-X-YovoleRuleAgent: yovoleflag
+From: Ruan Jinjie <ruanjinjie@huawei.com>
+In-Reply-To: <20230423091235.968980-1-ruanjinjie@huawei.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi500008.china.huawei.com (7.221.188.139)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230503_183512_677069_3CBA7FB0 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20230503_180107_580262_69CB8780 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +69,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Ping.
 
-
-On 2023/4/26 0:56, Conor Dooley wrote:
-> On Tue, Apr 25, 2023 at 08:26:35PM +0800, Changhuang Liang wrote:
->> On 2023/4/25 17:35, Conor Dooley wrote:
->>> On Tue, Apr 25, 2023 at 05:18:10PM +0800, Changhuang Liang wrote:
->>>> On 2023/4/25 16:19, Krzysztof Kozlowski wrote:
->>>>> On 25/04/2023 09:57, Changhuang Liang wrote:
->>>>>> Yes, "starfive,jh7110-aon-pmu" is a child-node of "starfive,jh7110-aon-syscon".
->>>>>> In my opinion, "0x17010000" is "aon-syscon" on JH7110 SoC, and this "aon-pmu" is just 
->>>>>> a part of "aon-syscon" function, so I think it is inappropriate to make "aon-syscon"
->>>>>> to a power domain controller. I think using the child-node description is closer to
->>>>>> JH7110 SoC. 
->>>>>
->>>>> Unfortunately, I do not see the correlation between these, any
->>>>> connection. Why being a child of syscon block would mean that this
->>>>> should no be power domain controller? Really, why? These are two
->>>>> unrelated things.
->>>>
->>>> Let me summarize what has been discussed above. 
->>>>
->>>> There has two ways to describe this "starfive,jh7110-aon-syscon"(0x17010000).
->>>> 1. (0x17010000) is power-controller node:
->>>>
->>>> 	aon_pwrc: power-controller@17010000 {
->>>> 		compatible = "starfive,jh7110-aon-pmu", "syscon";
->>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>>> 		#power-domain-cells = <1>;
->>>> 	};
->>>>
->>>>
->>>> 2. (0x17010000) is syscon node, power-controller is child-node of syscon:
->>>>
->>>> 	aon_syscon: syscon@17010000 {
->>>> 		compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
->>>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>>>
->>>> 		aon_pwrc: power-controller {
->>>> 			compatible = "starfive,jh7110-aon-pmu";
->>>> 			#power-domain-cells = <1>;
->>>> 		};
->>>> 	};
->>>
->>> I thought that Rob was suggesting something like this:
->>> 	aon_syscon: syscon@17010000 {
->>> 		compatible = "starfive,jh7110-aon-syscon", ...
->>> 		reg = <0x0 0x17010000 0x0 0x1000>;
->>> 		#power-domain-cells = <1>;
->>> 	};
+On 2023/4/23 17:12, ruanjinjie wrote:
+> On riscv qemu platform, when add kprobe event on do_sys_open() to show
+> filename string arg, it just print fault as follow:
 > 
->> I see the kernel:
->> https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8167.dtsi
->> this file line 42:
->> it's power-controller also has no meaningful properties.
->> What do you think?
+> echo 'p:myprobe do_sys_open dfd=$arg1 filename=+0($arg2):string flags=$arg3
+> mode=$arg4' > kprobe_events
 > 
-> I'm not sure that I follow. It has a bunch of child-nodes does it not,
-> each of which is a domain?
+> bash-166     [000] ...1.   360.195367: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename=(fault) flags=0x8241 mode=0x1b6
 > 
-> I didn't see such domains in your dts patch, they're defined directly in
-> the driver instead AFAIU. Assuming I have understood that correctly,
-> your situation is different to that mediatek one?
+> bash-166     [000] ...1.   360.219369: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename=(fault) flags=0x8241 mode=0x1b6
 > 
-> Cheers,
-> Conor.
-
-Conor and Rob, 
-
-How about this way:
-
-aon_syscon: syscon@17010000 {
-	compatible = "starfive,jh7110-aon-syscon", "syscon", "simple-mfd";
-	reg = <0x0 0x17010000 0x0 0x1000>;
-	
-	aon_pwrc: power-controller {
-		compatible = "starfive,jh7110-aon-pmu";
-		regmap = <&aon_syscon>;
-		#power-domain-cells = <1>;
-	};
-};
-
-Add a "regmap" property which is phandle. And it can keep the present child-node
-structure. This is more consistent with our soc design.
-
-Best regards,
-Changhuang
+> bash-191     [000] ...1.   360.378827: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename=(fault) flags=0x98800 mode=0x0
+> 
+> As riscv do not select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE,
+> the +0($arg2) addr is processed as a kernel address though it is a
+> userspace address, cause the above filename=(fault) print. So select
+> ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE to avoid the issue, after that the
+> kprobe trace is ok as below:
+> 
+> bash-166     [000] ...1.    96.767641: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename="/dev/null" flags=0x8241 mode=0x1b6
+> 
+> bash-166     [000] ...1.    96.793751: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename="/dev/null" flags=0x8241 mode=0x1b6
+> 
+> bash-177     [000] ...1.    96.962354: myprobe: (do_sys_open+0x0/0x84)
+> dfd=0xffffffffffffff9c filename="/sys/kernel/debug/tracing/events/kprobes/"
+> flags=0x98800 mode=0x0
+> 
+> Signed-off-by: ruanjinjie <ruanjinjie@huawei.com>
+> ---
+> v2:
+> - add the config in alphabetical order
+> ---
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index eb7f29a412f8..b462ed7d41fe 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -25,6 +25,7 @@ config RISCV
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select ARCH_HAS_KCOV
+>  	select ARCH_HAS_MMIOWB
+> +	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>  	select ARCH_HAS_PMEM_API
+>  	select ARCH_HAS_PTE_SPECIAL
+>  	select ARCH_HAS_SET_DIRECT_MAP if MMU
 
 _______________________________________________
 linux-riscv mailing list
