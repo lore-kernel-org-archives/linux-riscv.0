@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235CDC7EE21
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D68DC7EE21
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 May 2023 21:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTkYqb/fwChXxttswpOdV3FEX/LNfqXhDUZgch/WYV0=; b=PyOd9BRr/v0Q7LGtLHLbPJzJlC
-	ZwUHV9eDEDxsRsjtdlUbZC2MsQbYWt7KGv2uH8p36dyliRcFBnPyTMKBTxL/MmD3QGlk57Cp/fuOI
-	aDnuorPdOY6jgC147IL+qvAeqbQqKG7I7aqnm8AW5YLaLtGnzJ6IaEiF0rg476LoL87UwPkZtmjla
-	Z827DnfIdaJ4nz0Y2J1AfKlDWsYkitwK8bCYX6rwWz4Sz9q6t5+JQHy22rZ5EoUl+08HZRNG8uPDc
-	DWWufT6PccStG1cboglQO2Ve6u9GlwXMlnZQWu+eg+ERRua78ABQXCy8gOxN6sM1Liwa3p3rZuAF/
-	HO8QRNeA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=be66NfGJQfxxMKFtbS6BtSqgbHlryktRmv2f6nG1CvU=; b=KcithZ4Jcc9z2x
+	3Et0rXtXTcTlETSMigU1fge1WbmMbXQmja3E2ROHdfLBXd0KSIvxK3N3zuk85tNVYKT0YkNMC/ZcB
+	wFTO4iCzjCujfyiBrhWvKDiuDjQtVrxy2sQncy6fT3SR3DcKxejQgyjYDgUYzGiAXwoW3UL8QXC9M
+	Y/OemxfcOCdBX5/+NwC5CdiC2wjEZaoZ0te80uijoIGTtsawY7KYuq2yJM8M042Fm8+jrl08GZ+/I
+	xNMIKk3ZdPGt+672VGO0EZ+nkXwq18knWYPP4Hrc4BmVnUKCR9ocSqgnnQ4z5BP6mmFkJ6bMSlZBO
+	xanSOsEaSftCJxZPNX0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puggj-0094pc-28;
-	Thu, 04 May 2023 21:40:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1puguf-0098gZ-2s;
+	Thu, 04 May 2023 21:54:57 +0000
+Received: from mail-oa1-f48.google.com ([209.85.160.48])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puggi-0094p0-0E
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 04 May 2023 21:40:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Wgmw0UiPdLT49plAQ6Jm46kk1o/I8c/g+D28h3aU8Nc=; b=hemkPDMkMjYNWx3oHLdYbEolgn
-	q+SvlTg8QZhZ8yE5IHD9z7dEgeDY8eUVKXj/d/rXuZuXkjWW9R+jAnBEKPseCJYrn/18FYSAh8a+c
-	Xq5c4NGf82hoIVSJGNRwxLqttzj4mzvoRuSExYBOL8+WLnZLP1GloaKXQiFweCwYHHQ4Q6caLAYou
-	h94hob/8tXfczNL+s8lvV7oXhEe7tGHscOUUrN/P9JBsvq79WHAabuza76i+SBJEsMWc2QzhfD9gZ
-	GX5pmK3znbvvl14y/aYvo8nxb0zMcpTjYIyhCnuAsBKzkA7f/4bCDBkPrt1EE66Gjw3DyjlYUirDz
-	0xjBUZIA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pufj9-001qaB-2C
+	id 1pugud-0098fu-0U
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 May 2023 20:39:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 97CBA60FD2;
-	Thu,  4 May 2023 20:38:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 802DBC433D2;
-	Thu,  4 May 2023 20:38:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683232733;
-	bh=y9pqVY1l+nMNAXUsrIixLuTEZJIPejtoYxtJzGFAtNU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oELnxc2xWZS75QYFOaQ2DVGYsD9AKD+8gnIciQNEFuKrv29lfJ0jPDO/aJPwUlmlM
-	 79lyajFTCO2m4MJrU0yk2uwLtRrnu3Ovh+vd69V1K2BdImr8ffHWUu2IrmmEfIIguN
-	 oOlnoTXmNKc6tqsVakwJRaLpPNck0cYDiZgb9ImwPcs8+tGn0wHBeI3Rgf7ap1YA3I
-	 x5MlZWO0U76vHkZGr8CLiueWZ33amAH9ulm31H2s+NtGpBIQX4miFTPW+r5LJHWlvd
-	 rRoq6zx/AI2qYR9d8gwyIalPvIaMVEfsGAdJ448T0WyT8wBiXyV7DjDSHo4yAvPor0
-	 m3RJodBNSIX1g==
-Date: Thu, 4 May 2023 21:38:49 +0100
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Subject: Re: [PATCH v1 7/7] RISC-V: always report presence of Zicsr/Zifencei
-Message-ID: <20230504-chemist-charter-f572af461fcf@spud>
-References: <20230504-divisive-unsavory-5a2ff0c3c2d1@spud>
- <20230504-oncoming-antihero-1ed69bb8f57d@spud>
+	Thu, 04 May 2023 21:54:56 +0000
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-1929d8c009cso893006fac.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 May 2023 14:54:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683237292; x=1685829292;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ybSwMPkAzIFkTGDcSk41rri9acnk9seXpVIY7hgiv10=;
+        b=JZ0wZPopGUYoQb54KIR5BgQxLYDkIUGioL78MX/SLUaxyC4RXEo0eVRMCkv0J97kNa
+         uiusaAUYpCekN0YyvyG4HuVVvMIUbCC98dZR9ScVQBVPVhyDUclQkMDNWqn5dzfRKPFG
+         s37fwuFV+tgakgRUvgRP7z1byqZgRkacgVaqy0I72eIJuEH6aSkAoqWiSZ5BPX8T90WR
+         zjZoGQbZbd1ObT4JmRaijZ8k39fHQhzBpUufVjIzE/H2ZaFcZr47niE03nC/TgHQjOAU
+         5fF0+GguHhCezaY4uumUreltvPp0/fCRgU4jrSlAyvpCHG7lfOhxQLgkjUatiWYTtgl5
+         AzcA==
+X-Gm-Message-State: AC+VfDxgxoWaXKE5pgUJSHyMkZ30yEhWTRlMYGK6H9K3N+XyxkSXnnj8
+	AmJnIQjzTuaIbQi92zWFj9t7T/I89g==
+X-Google-Smtp-Source: ACHHUZ4ZaTUowtigLlqEuT3bSo9DQHKVU+1iTaCKLpma/RA/6Q9tiQgg+V7ZpKqj5zZs8Hz0Vu+3Kg==
+X-Received: by 2002:a05:6870:32c1:b0:17e:d34c:8c24 with SMTP id r1-20020a05687032c100b0017ed34c8c24mr1494984oac.47.1683237292595;
+        Thu, 04 May 2023 14:54:52 -0700 (PDT)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id y17-20020a056870381100b00187d06465edsm1090897oal.43.2023.05.04.14.54.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 May 2023 14:54:51 -0700 (PDT)
+Received: (nullmailer pid 444306 invoked by uid 1000);
+	Thu, 04 May 2023 21:54:50 -0000
+Date: Thu, 4 May 2023 16:54:50 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v1] dt-bindings: perf: riscv,pmu: fix property
+ dependencies
+Message-ID: <168323728954.444248.7169255540576935609.robh@kernel.org>
+References: <20230404-tractor-confusing-8852e552539a@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230504-oncoming-antihero-1ed69bb8f57d@spud>
+Content-Disposition: inline
+In-Reply-To: <20230404-tractor-confusing-8852e552539a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230504_213902_111756_B8851A43 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20230504_145455_188750_3007D575 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +77,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============8643171934368069618=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8643171934368069618==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zsSNrn9WyuRUvTKy"
-Content-Disposition: inline
+On Tue, 04 Apr 2023 19:03:22 +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Seemingly I mis-implemented the dependencies here. The OpenSBI docs only
+> point out that the "riscv,event-to-mhpmcounters property is mandatory if
+> riscv,event-to-mhpmevent is present". It never claims that
+> riscv,event-to-mhpmcounters requires riscv,event-to-mhpmevent.
+> 
+> Drop the dependency of riscv,event-to-mhpmcounters on
+> riscv,event-to-mhpmevent.
+> 
+> Fixes: 7e38085d9c59 ("dt-bindings: riscv: add SBI PMU event mappings")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> 
+> Atish, I'm not 100% on this one but I noticed it while doing dt-validate
+> on a dump of the qemu virt machine which doesn't use the
+> event-to-mhpmevent property.
+> 
+> CC: Rob Herring <robh+dt@kernel.org>
+> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Atish Patra <atishp@rivosinc.com>
+> CC: Andrew Jones <ajones@ventanamicro.com>
+> CC: devicetree@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/perf/riscv,pmu.yaml | 1 -
+>  1 file changed, 1 deletion(-)
+> 
 
+Applied, thanks!
 
---zsSNrn9WyuRUvTKy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, May 04, 2023 at 07:14:26PM +0100, Conor Dooley wrote:
-
-> @@ -204,8 +204,10 @@ arch_initcall(riscv_cpuinfo_init);
->   * New entries to this struct should follow the ordering rules described above.
->   */
->  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> +	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-
-Heh, well that is not the right order, per the rules I wrote in the
-comment above. Whoops...
-
->  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
->  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-> +	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
->  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-
-
---zsSNrn9WyuRUvTKy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFQX2AAKCRB4tDGHoIJi
-0lIVAQCG8yzNEX5ynMXcqatNT7O8pP+YTukZwLyA54HLnWFMRgD/bWR9zRlrxB8m
-ffPdvHqQW3mS7uJOEe/UnTFldYehUwE=
-=oxR5
------END PGP SIGNATURE-----
-
---zsSNrn9WyuRUvTKy--
-
-
---===============8643171934368069618==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8643171934368069618==--
-
