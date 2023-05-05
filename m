@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82528C77B7D
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 07:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B0FC77B75
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 07:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Opl9RxsGD/UZcUcEcaYmPy6LVSimYo9w0UL1i0gM0D4=; b=ItMsHArWshGM+3
-	Qiifgx+TnEOI/pjGwhJWmBi08tNxdiQ0+l0vBNf43Sk8qJUIh6a6+KHcjDYZeZzhHuRLLGx08DbZX
-	bAtKMZrRY6N8qbfZAkXhAc7eOpSKKK/P/8/N05RMaYRNMoOeX30NmpknDX+aIYMYU3Ol1qke86Dzb
-	YVuQtAmfohY9ON5GLHMuTwvZr9BI8itCXQs5EoBtdJXDE6ZD+QY7o6NQORqnhm4j6jQcaPUgZoJVr
-	nWuqgBmYyf0Uq1ji13/CXqUKnpyAeLRX1sceepW3M8EjedhVoze6z0j2Aqx2jkU6k64Y1bee7Ev+J
-	N9NjvHYhUFJbuCWb9pIg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7YN5bhzLcQKhIp79TORDskrQL4zz4qAQRp0F51rktuk=; b=gyzoBgKD7fkzbQ
+	h+BjmeRVj79wXC6U/PxpDHe09xilcvQzY2jRlB/OWaOYtQlhu5Z7kRZX3JWp+JAHeKE4SwIYDE28s
+	3F6S8c1tGxn4kfQrpe//CDAZvf03c021VxGm2OgbegS0pZqXPSXTFHJJUzIVDecrui7+Az/NflIEk
+	rEFQgI1KoCH3PV8H/DYHHxnKVN+m8Dx7uIPL8UkUA+ia/GB0bRKK3aTtYTMM3Hxju/6nrgdqbsEuA
+	lWAeRd8YivOQf3cUlUpyTeFRqBBHV8h72sC+FmVDOG40xRT3Y8flks1LZj9g+Ynpdr8LdA5CDPZUm
+	pu+yrcpt163U3gHSSzOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pupXw-009tSi-0f;
-	Fri, 05 May 2023 07:08:04 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1puplT-009v3G-1l;
+	Fri, 05 May 2023 07:22:03 +0000
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pupXt-009tQp-0b
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 May 2023 07:08:02 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-94a342f7c4cso247314966b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 00:07:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683270473; x=1685862473;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=acZih3Z5P1GvMk6rxHa2TGlvoAbE/u1yGsETutBmjyM=;
-        b=nmgm9mWZMxRm3wN8THICSLuinBrnv0NZNia/fMrmDJrVvpRfgABbzxaT6RzgXQ0DI6
-         4Y25PcXuuXudYhf94zzBP3TuyMkRx+B8ZPqwavwmtTSrBwmMBOeIOqsvg7/rsbNiqcW1
-         e8lPH4tc7dDS8LQ2CxXr03OmV8CCAcEOrVjLbbDthcv4aBDLUNPd2dHTWFtMFC1+pHD8
-         vxkMK5CqRL7zkzuFjW/DUp3ZX4A5Mh9KtBXHPXuSuyf09SPmBDYq1CF9Dkl7vnfXtWAl
-         dZ7ZsGYak02l0yuiNRLxx0nBqr++5sLm0DOtb/Kmph4+qxCXF+DK2e6O32eBGvYyiZTU
-         5DIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683270473; x=1685862473;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=acZih3Z5P1GvMk6rxHa2TGlvoAbE/u1yGsETutBmjyM=;
-        b=hzWp5ppQZCgBRtpBnPja6HK5oFgnmEmwO6S+Rb6aX2Xi+b91F9pcSaFdeMZjYUD5Mn
-         xRlb3pNm20qSIps9ExDn7FGmHZS3mdCTXzmX708dd3xFuvGpIFOlKeF8+pLDXRRwhL5M
-         Ee81Jc+yF/xLBkCmxdjUAUJcNzyaLNse9R2u2PP2RinOM0PXD3/YBv39fMKlmZmjXa0a
-         HQccKNElJQULz9LJsy9OAzYDceWnYSdiU0GsTxSBIdbc915+zPEzIpYATgJt50dyTv5l
-         60fiDN4a/9e7cXIyEKfmYVua8Qh9Jt4hrYywr8ttClT5VlDyecpMZLsLqj2piTctLk+b
-         qbhg==
-X-Gm-Message-State: AC+VfDw6ePslvt+qN0thATSWl8992MfdWccLrIFF1fDol9A5e2sje7po
-	OlkvI1/aC0py4KxR0K9Tz97qkg==
-X-Google-Smtp-Source: ACHHUZ7vDUBzh5vengeEQ4dMb5tOl+lmF0yP4I5ysdYkOinYexZd6uL/cCabfXjU9Q0fTepFg/425Q==
-X-Received: by 2002:a17:907:3e8a:b0:94e:c142:df98 with SMTP id hs10-20020a1709073e8a00b0094ec142df98mr344863ejc.60.1683270472944;
-        Fri, 05 May 2023 00:07:52 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id gx28-20020a1709068a5c00b009534211cc97sm548707ejc.159.2023.05.05.00.07.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 May 2023 00:07:52 -0700 (PDT)
-Date: Fri, 5 May 2023 09:07:51 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v1 2/7] RISC-V: only iterate over possible CPUs in ISA
- string parser
-Message-ID: <20230505-ecf405ab513637ed8e3a7435@orel>
-References: <20230504-divisive-unsavory-5a2ff0c3c2d1@spud>
- <20230504-simple-chant-c33c14cc9e4e@spud>
+	id 1puplP-009v1o-26;
+	Fri, 05 May 2023 07:22:01 +0000
+Received: from mta-01.yadro.com (localhost.localdomain [127.0.0.1])
+	by mta-01.yadro.com (Proxmox) with ESMTP id 9EF1634220B;
+	Fri,  5 May 2023 10:21:52 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mta-01; bh=CxiB1kjw5kU527NG2fqzlCiDKoGw1uQzH5E0sL5Rt2M=; b=
+	OYz6hOQjtkQz6iZFWA6d4HFQpo01RJjB/VF6Vil5bwUYf2amSg9a7bNO/kd/j8Bx
+	DvjPF+RgJ1Ve9EqXHH+i/57Ybrn0aJ5V5mUZMiaX0WLQWG5PtifyIo3HLc2dYcZJ
+	cBdXxOuqIRA9xIqjAQJiEYK6ihVvlxff8eJCsrJcvQY=
+Received: from T-EXCH-08.corp.yadro.com (unknown [172.17.10.14])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mta-01.yadro.com (Proxmox) with ESMTPS id 94D7A341E6B;
+	Fri,  5 May 2023 10:21:52 +0300 (MSK)
+Received: from T-Exch-05.corp.yadro.com (172.17.10.109) by
+ T-EXCH-08.corp.yadro.com (172.17.11.58) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.9; Fri, 5 May 2023 10:21:52 +0300
+Received: from rdma-x86-2.dev.yadro.com (172.17.27.123) by
+ T-Exch-05.corp.yadro.com (172.17.10.109) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ 15.2.1118.9; Fri, 5 May 2023 10:21:51 +0300
+From: Viacheslav Mitrofanov <v.v.mitrofanov@yadro.com>
+To: 
+CC: <linux@yadro.com>, Viacheslav Mitrofanov <v.v.mitrofanov@yadro.com>,
+	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>,
+	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, "Will
+ Deacon" <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 1/1] perf: RISC-V: Limit the number of counters returned from SBI
+Date: Fri, 5 May 2023 07:20:57 +0000
+Message-ID: <20230505072058.1049732-1-v.v.mitrofanov@yadro.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230504-simple-chant-c33c14cc9e4e@spud>
+X-Originating-IP: [172.17.27.123]
+X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
+ T-Exch-05.corp.yadro.com (172.17.10.109)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_000801_223546_E224F0C4 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20230505_002200_199729_E003011A 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +80,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 04, 2023 at 07:14:21PM +0100, Conor Dooley wrote:
-> From: Sunil V L <sunilvl@ventanamicro.com>
-> 
-> During boot we call riscv_of_processor_hartid() for each hart that we
-> add to the possible cpus list. Repeating the call again here is not
-> required, if we iterate over the list of possible CPUs, rather than the
-> list of all CPUs.
-> 
-> The call to of_property_read_string() for "riscv,isa" cannot fail
-> either, as it has previously succeeded in riscv_of_processor_hartid(),
-> but leaving in the error checking makes the operation of the loop more
-> obvious & provides leeway for future refactoring of
-> riscv_of_processor_hartid().
-> 
-> Partially ripped from Sunil's ACPI support series, with the logic
-> inverted to continue early on failure.
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/kernel/cpufeature.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
->
+Perf gets the number of supported counters from SBI. If it happens that
+the number of returned counters more than RISCV_MAX_COUNTERS the code
+trusts it. It does not lead to an immediate problem but can potentially
+lead to it. Prevent getting more than RISCV_MAX_COUNTERS from SBI.
 
+Signed-off-by: Viacheslav Mitrofanov <v.v.mitrofanov@yadro.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+---
+Chnages in v3:
+- Detail the output
+
+Changes in v2:
+- Add new line
+- Substitute pr_warn for pr_info
+
+ drivers/perf/riscv_pmu_sbi.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 70cb50fd41c2..7bf494930e92 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -868,6 +868,12 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 		goto out_free;
+ 	}
+ 
++	/* It is possible to get from SBI more than max number of counters */
++	if (num_counters > RISCV_MAX_COUNTERS) {
++		num_counters = RISCV_MAX_COUNTERS;
++		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
++	}
++
+ 	/* cache all the information about counters now */
+ 	if (pmu_sbi_get_ctrinfo(num_counters, &cmask))
+ 		goto out_free;
+-- 
+2.37.2
+
+
 
 _______________________________________________
 linux-riscv mailing list
