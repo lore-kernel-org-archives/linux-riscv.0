@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B837C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 15:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB50C77B75
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 16:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4HE/8QD1lK7dmqrPMcQVhPFTP9v3jr1e9B4QK6sv+LY=; b=2UP+BDz7cKOG8g
-	YyDbvuf6OuXutrXC20OKYlSbJ8f5N3LfAs+ZDLBPagcY/kZB+U0x/GgbHp5QAFviwEtmoc7N7GDyl
-	RhGNeU4piW2CCK3MNg45Cn5lF8ghLkiRG2Ln8aDVPybTV+gQ97OEXyK6jJt29/WjBrBVLG09V3wse
-	2909MoYt+Q86dXFlLYQOXbgbsKGFAo5vEOSC3H8yAAcmKBxg6V/59AUlCTyPZssJMMqm1mBsuO9ph
-	bz9kBRzaUtyQbepb5As1iWs0je3/U+i6HQf5Iug+PklKUikfnHF9Oc7JxExunOhlPpe/jvLte5NzX
-	2W2JOAtWXGvNVlQMhh/A==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UmWjJYk8NRwqSzcujmDdpG4sZ26+7M4XHrQYFzHL3Q8=; b=EINPKXvpcusE+P
+	wxSmdOuX5ai3wGBkyo1lCu5ZVoSzRPrQK5FvaTX9UIxHszLBIyWUbn8PvOJo7D6e87RIHVOsO7bsK
+	nd3hxRvaY1mXuhFXq/Bneb27fH2Oi24ZPOcCLoCoenIaWPT6py7fpX7MIVGO6vUI8LXBxIiG6Z2SD
+	EBvCExee5FKkCgiqnponA/FL0+YAbw6Doee+42yXydqZ3cn0X7ah9tOBlPTTM4DtEH0cZ7qUajvr4
+	yD7gxCka7yxaM/n7J4plghetLR0HP2qckZJUquUcm/h8H7IHhOCHgiBq1bwRGZlZeFBnbsdtoTY+8
+	UhsN18cxGYpDY7DSquUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puxBX-00BAaP-1I;
-	Fri, 05 May 2023 15:17:27 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puxBU-00BAXS-0C
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 May 2023 15:17:25 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1ab14cb3aaeso13533385ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 08:16:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683299818; x=1685891818;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qi8+DAICG+vLed8EX1L1dnfC/iwc4xCORjv2QSx+NJA=;
-        b=kO1JPibf9QW516FD2BzxOrngO/w7aYSfXQt7QmWzO2apTEQFSz+MhWyeVOl0qbLlfa
-         9p5jKCNOx4amvNI97/HGFQWuM6iiINeEKVg2Micw3fd/Hs5aXiHBCCnsJuyvYt70CNxa
-         jgsGmPGt4SFbpeBQWXeCq9X2l55T+Vx+/PXbUdayC4OQPeS49xJjtE3s56QMjb3umRCc
-         d1wSsLqIc8DZFgmS4ptdiB+ShTF9RgjvfnrwBCLLhaV6x9GCzO8KjoV2HE4QteY4BaHY
-         OkXYnZQb8c0QRoFFHOEoaAAQ2OW0Pve8u69/ROTsyNnsC1qMKVMly+yfW9YegKa1T19g
-         vANA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683299818; x=1685891818;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qi8+DAICG+vLed8EX1L1dnfC/iwc4xCORjv2QSx+NJA=;
-        b=CHaib9HA171RQFl9UE/sAeZf+pxuSLgksnWIUz0vNunt7Xtd8sH3z8GZCVeXU3Jm+E
-         edbm5rKTMW7uHoQG5xF/rymuup4vpA1jBIfTidC7Nq382U8N7ClvFGxXR67ggKZvkX+h
-         +donV30W10rthfW9xZ9FtlYYzmmjbqx2jsBRMGpU/jjIdscCd86ha63/MLQNmYlOfp6o
-         jkfHzZoB+PKxiXNkKZBS/yvL7piaWK+190k2VgGsEhiaOAA4RJyzZ3ek3+Kigdmskfgf
-         iP3liBCwmk+NysXO9p8cG7qyfeFDL5Kkpt1qrq2WKaeG3A8C80v1hqwj4HLW94TydL+d
-         6g5Q==
-X-Gm-Message-State: AC+VfDybeBZJ4O2vxJYy3TAZ64aicNgcPu2Cry1Kgra95MJkARjEJx/8
-	UoCNWULn9cIl0Cjmm6nBODwGcYdJetPUumj9xWg=
-X-Google-Smtp-Source: ACHHUZ4OI5DVZy+77TbEw9EWcc14OKqfvOF/eStREFMp4pPfbvAZTIU+QvE9KAYe7uHT7Re3OVPLOQ==
-X-Received: by 2002:a17:903:1c8:b0:1a6:f5d5:b809 with SMTP id e8-20020a17090301c800b001a6f5d5b809mr2314752plh.1.1683299818395;
-        Fri, 05 May 2023 08:16:58 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id f2-20020a17090a8e8200b0025043a8185dsm27pjo.23.2023.05.05.08.16.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 May 2023 08:16:58 -0700 (PDT)
-Date: Fri, 05 May 2023 08:16:58 -0700 (PDT)
-X-Google-Original-Date: Fri, 05 May 2023 08:15:15 PDT (-0700)
-Subject: [GIT PULL] RISC-V Patches for the 6.4 Merge Window, Part 2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-b783c0bb-3d23-4767-9c69-a39f805a8544@palmer-ri-x1c9>
+	id 1puxrC-00BGBT-1t;
+	Fri, 05 May 2023 16:00:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1puxr8-00BG9p-1G;
+	Fri, 05 May 2023 16:00:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B3E61FB;
+	Fri,  5 May 2023 09:01:04 -0700 (PDT)
+Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFA093F5A1;
+	Fri,  5 May 2023 09:00:17 -0700 (PDT)
+Date: Fri, 5 May 2023 17:00:15 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Maxim Kiselev <bigunclemax@gmail.com>
+Cc: robh+dt@kernel.org, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Add SPI0 controller node
+Message-ID: <20230505170015.664c18bc@donnerap.cambridge.arm.com>
+In-Reply-To: <CALHCpMi8=t1bMceTOfZjh7aKEQcEEpfeG4wi9pB=5o34Ca+N3w@mail.gmail.com>
+References: <20230505074701.1030980-1-bigunclemax@gmail.com>
+	<20230505105805.548d1a1b@donnerap.cambridge.arm.com>
+	<CALHCpMi8=t1bMceTOfZjh7aKEQcEEpfeG4wi9pB=5o34Ca+N3w@mail.gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_081724_096277_E924C439 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20230505_090026_480251_1955D729 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,98 +67,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-merged tag 'riscv-for-linus-6.4-mw1'
-The following changes since commit 89d77f71f493a3663b10fa812d17f472935d24be:
+On Fri, 5 May 2023 17:27:07 +0400
+Maxim Kiselev <bigunclemax@gmail.com> wrote:
 
-  Merge tag 'riscv-for-linus-6.4-mw1' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2023-04-28 16:55:39 -0700)
+Hi Maxim,
 
-are available in the Git repository at:
+> > From a quick glance at the manuals, it
+> > looks like there are not quite the same, though: the D1/R528/T113s
+> > mentions a SPI_SAMP_DL register @0x28, whereas the older IP has a SPI_CCR
+> > register @0x24 - which is not mentioned in the newer manuals. The driver
+> > relies on that clock control register, so it wouldn't really work
+> > reliably, if that register is not there.  
+> 
+> Thank you for pointing this out. I missed this difference.
+> I actually have a board with T113 SoC, and it looks like writing to
+> SPI_CCR@0x24 does nothing.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-mw2
+According to the manual, the register doesn't exist, so this would support
+this theory. Most Allwinner IP just implements non-existing registers as
+RAZ/WI.
 
-for you to fetch changes up to c2d3c8441e3ddbfe41fea9282ddc6ee372e154cd:
+> And it doesn't affect access to connected SPI NOR flash (read\write
+> operations are fine).
 
-  RISC-V: include cpufeature.h in cpufeature.c (2023-05-01 17:19:27 -0700)
+I guess it just works with *some* (default?) clock settings then. Might be
+faster than configured, but the SPI flash chip might be fine with that.
 
-----------------------------------------------------------------
-RISC-V Patches for the 6.4 Merge Window, Part 2
+> But I completely agree with you that this difference should be handled
+> by the spi driver.
 
-* Support for hibernation.
-* .rela.dyn has been moved to init.
-* A fix for the SBI probing to allow for implementation-defined
-  behavior.
-* Various other fixes and cleanups throughout the tree.
+As Samuel pointed out on IRC, there are patches, for the R329, using the
+same IP:
+https://lore.kernel.org/lkml/BYAPR20MB2472E8B10BFEF75E7950BBC0BCF79@BYAPR20MB2472.namprd20.prod.outlook.com/
+And he also seemed to have issues, at least with SPI-NAND on one board:
+https://lore.kernel.org/lkml/0b5b586a-3bc7-384e-103c-e40d0b2fac23@sholland.org/
 
-----------------------------------------------------------------
-There are still a few minor build issues with drivers, but patches are on the
-lists.  Aside from that things look good with a merge from Linus' master as of
-last night, I've got another test running now but I don't see anything scary.
+Can you please try these patches, and use:
+compatible = "allwinner,sun20i-d1-spi", "allwinner,sun50i-r329-spi";
+for the compatible string?
+If possible, you could revive this series, and add the D1/T113s support on
+top: just add the compatible string combo to the binding document.
 
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: Move .rela.dyn to the init sections
-
-Andrew Jones (1):
-      RISC-V: Align SBI probe implementation with spec
-
-Conor Dooley (3):
-      RISC-V: fixup in-flight collision with ARCH_WANT_OPTIMIZE_VMEMMAP rename
-      dt-bindings: riscv: explicitly mention assumption of Zicsr & Zifencei support
-      RISC-V: include cpufeature.h in cpufeature.c
-
-Guo Ren (1):
-      riscv: compat_syscall_table: Fixup compile warning
-
-Nathan Chancellor (1):
-      riscv: Adjust dependencies of HAVE_DYNAMIC_FTRACE selection
-
-Palmer Dabbelt (1):
-      Merge patch series "RISC-V Hibernation Support"
-
-Randy Dunlap (1):
-      RISC-V: fix sifive and thead section mismatches in errata
-
-Sia Jee Heng (4):
-      RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public function
-      RISC-V: Factor out common code of __cpu_resume_enter()
-      RISC-V: mm: Enable huge page support to kernel_page_present() function
-      RISC-V: Add arch functions to support hibernation/suspend-to-disk
-
-Song Shuai (1):
-      riscv: mm: remove redundant parameter of create_fdt_early_page_table
-
- Documentation/devicetree/bindings/riscv/cpus.yaml |   6 +
- arch/riscv/Kconfig                                |  23 +-
- arch/riscv/errata/sifive/errata.c                 |   8 +-
- arch/riscv/errata/thead/errata.c                  |   6 +-
- arch/riscv/include/asm/assembler.h                |  82 +++++
- arch/riscv/include/asm/sbi.h                      |   2 +-
- arch/riscv/include/asm/suspend.h                  |  22 ++
- arch/riscv/kernel/Makefile                        |   2 +
- arch/riscv/kernel/asm-offsets.c                   |   5 +
- arch/riscv/kernel/cpu_ops.c                       |   2 +-
- arch/riscv/kernel/cpufeature.c                    |   1 +
- arch/riscv/kernel/hibernate-asm.S                 |  77 ++++
- arch/riscv/kernel/hibernate.c                     | 427 ++++++++++++++++++++++
- arch/riscv/kernel/sbi.c                           |  17 +-
- arch/riscv/kernel/suspend.c                       |   4 +-
- arch/riscv/kernel/suspend_entry.S                 |  34 +-
- arch/riscv/kernel/vmlinux.lds.S                   |  12 +-
- arch/riscv/kvm/main.c                             |   2 +-
- arch/riscv/mm/init.c                              |   6 +-
- arch/riscv/mm/pageattr.c                          |   8 +
- drivers/cpuidle/cpuidle-riscv-sbi.c               |   2 +-
- drivers/perf/riscv_pmu_sbi.c                      |   2 +-
- 22 files changed, 682 insertions(+), 68 deletions(-)
- create mode 100644 arch/riscv/include/asm/assembler.h
- create mode 100644 arch/riscv/kernel/hibernate-asm.S
- create mode 100644 arch/riscv/kernel/hibernate.c
+Cheers,
+Andre
 
 _______________________________________________
 linux-riscv mailing list
