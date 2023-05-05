@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9E8C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 13:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA44AC77B75
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 13:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l80i5sFHRgdZua/96WKuMARism2uO8YfXLv9cdxYNQc=; b=Gw1eDFGYpQVJ4oXGgA9ByHXtN8
-	R+IYeONk9K27r8fqCAfQk3R1WONE7hLZXi5lLrzLoMnsshBeGgzUEYPmOZPhs/EaL3JPZ58arqbT6
-	VUJ2apGvT7633nVsHHkYNBIrOdoI2GH6PRITpYMqq0ug6U2CJGpRpeyYz+3tlTaCZeexEf9+iS3Vh
-	1pj8X8YG0Bo2kmi4e2QOf0duwOfeBA/1yTZ9HZzqKNfa7B/g6ANtg05YxACGGal5VAlFF/ePyQgoZ
-	9wKUoabtRoNm+zmirBuGcqjdUuVkEAdiT7r2jnzNTuKMYdvwimf+WUmBkvL7Dx+6r0Fk1L40U/LM1
-	nmNcL+4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UAjj6rR1FRHdVW7MCHEukN+iKIbpXrdV7o60IaaHkcw=; b=Bs0zcHhU6v12YI
+	YXn2D9k8oXTfZxj1yxWSfD/5A44UfBz1lQdj9CVKkS2uT/SiWN+GSuCXtzlGi+daowYmeT8KASkmy
+	/Ue5oJXnBZH3V91Y3AIDPfEbHpUIMJ9b3v0XYk97z4Tt0H8tOcvgnNq2xSfusEuzMcQpaVJXDbLyH
+	CU039VKYREMgSGfwrBm3d91O/H2w20GaTgUJdS9DjknKqGWgXtYZ4cvoz/vyPLvC0nFeJZwTiRwGW
+	6o+y7BpsmlaH5b0OmvtxD733uZCnNEDw0VnYhJMECehv+VQ/Mga+IOfWXAHzvcFRZPgdKHwDTGM49
+	272CgR1HBKzSHb83ioyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puvfi-00B0hy-2O;
-	Fri, 05 May 2023 13:40:30 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1puvgB-00B0rp-2A;
+	Fri, 05 May 2023 13:40:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puvfX-00B0fi-1L
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 05 May 2023 13:40:19 +0000
+	id 1puvg9-00B0qq-19;
+	Fri, 05 May 2023 13:40:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4A8qfmfgHkV4HpBaPUQw2Th7wm6xDdN6ZmbR60capD8=; b=cQQIGWHlDtl9vRpr54El3sqlmo
-	ksI1IomA3kzQtSWniahEBCQstqcoE0ImwID9a57lYdPXbGmyWBrNR5/7e4DWBRxABWNht/81cW/0f
-	12hNFJX+dBMZov4abO1zsw7dJZ8WP9UGz8bQQ/i0rhzgAwPgeCJNDv1sGIi4dUnZFXhK8MxjbR91b
-	C0B8Uu4Lwkd45jFNXx2c2aJveLtT18/zuPkauVtKhdTMjrQtB9bEbnHUx25/QkCe31IEba6BJCN1H
-	d66/mCCpDkpDgHLGnZIbU9xA43p1PG+Ls8dzMgrV07ds2Y8igR0MagZ6brhEsmM0c+49/jIDFf09T
-	zd7cakRg==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	bh=pJVTeItn3/q+rs4Fp3PPs4uhLe3EOiwtZ3p5vx2OZsc=; b=W0pAE2fmWnMDf6ldl7oxkXrQ4N
+	jZvedsxSqWV6bOY9OYQhFO4hNe5zQskalRNk7spT3vK5kV/oD/xVwRAfQskwdxzbWTnJbB6Ie0j0R
+	G2VKtRCcDc0dkqDBPYtFanfK/5Poi+oEHUlRoxQid7CKFulpDvZE25ofUNSrmU2H3ei7KJ05QN2My
+	EJAduXGJzbq5bFscPB3H2x7PSrsqThuJ1wZRcwog27qi04ZzrgsxRTd4GMoJPaZ9+jyxylSUv2h3B
+	wrtQLfEb45AO6zrUtX/uUAjDj5QtPWxFircodL/LTozeI4akCm/tXTr/yvFv0Elm0leNhbvr/BnDV
+	CcF3srQg==;
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puv7X-003Fnm-2m
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 May 2023 13:05:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683291911; x=1714827911;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=T/9gFDeWQ47Y6P/kadtWn2nJ14pxD7djZ+yJ5JOrPgg=;
-  b=Ath/+aqPw4qKSRJU1Wm2MN3h9Qdie4RXqeZ8CejJ4ibl2KucuXLLGpT8
-   LNunml12rfT6OIJ14/lqJ6m+1NdmqMJhl+I0ImoELf8FaWpsTtSs9r5xk
-   A+mcRnzFSd5ySb+jnrFIbwuVKivNd5w3lMwdMpBJ+G7rLLxq4s9+MzcQO
-   T/m43zqz3GfjMUq/RPO0gYr5OEUx3Nc610dkCoQ3IHtey3NJ0V8bJiDAF
-   Ps6j9ZAjFjclbR/xj2P+Fjlb6VVzcnIzOdlDnaXuH0rVR8zmefrG7oIYf
-   Paxb8LqaE5spsVroNJpbfn5hNn7wRq0PYT038FbjRke1YGJ89xCcMamxr
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.99,252,1677567600"; 
-   d="asc'?scan'208";a="213886724"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 May 2023 06:04:45 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 5 May 2023 06:04:45 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 5 May 2023 06:04:44 -0700
-Date: Fri, 5 May 2023 14:04:25 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Yangyu Chen <cyy@cyyself.name>
-CC: <conor@kernel.org>, <ajones@ventanamicro.com>,
-	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>
-Subject: Re: [PATCH v1 4/7] RISC-V: validate riscv,isa at boot, not during
- ISA string parsing
-Message-ID: <20230505-rural-polymer-b3db3f951aa8@wendy>
-References: <20230504-sultry-frostlike-9dbf19333725@spud>
- <tencent_3385F6B8E304EE4B8C4BC858E3369F97A006@qq.com>
+	id 1puvSz-003GDU-38;
+	Fri, 05 May 2023 13:27:23 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-50bc075d6b2so3403178a12.0;
+        Fri, 05 May 2023 06:27:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683293239; x=1685885239;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pJVTeItn3/q+rs4Fp3PPs4uhLe3EOiwtZ3p5vx2OZsc=;
+        b=pW1eSFQtUOf4qd5Tqc4nNA0Lxc0orupxla+piV27edUUubj0zCl0YBkqsHBTbF1tz/
+         shZdBzRzJe/A/ESNBMVAqzGsJu/AzM2GR7Vme5pGfkRQ33GFyXbqkfr05hDtF3lluygb
+         ob7DwNWNnLG1srjhhp2cOse/kn/5/0QBVA/eFLxiMKNFwzbiJYDT+3WpcqvXcBxuTODL
+         m01ijHjxSezLk8GFHifw9arl0IJDzEWpb1C+SCMXboqI3V4VctTKfd4WAkkgPn+4ipKV
+         FHoUO3GseDFID+qZdDBuoxD78K+IAzlmeAvEnGsCIzaBUyzFyLSG884H+VKhqF8UIylS
+         LQNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683293239; x=1685885239;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pJVTeItn3/q+rs4Fp3PPs4uhLe3EOiwtZ3p5vx2OZsc=;
+        b=DgVHIhvuVZqQi6sMt36xBQUHxAPTn1TUCCiyjr22w6Pldj0WKHR1Mw25wVKRwqRdv6
+         orquB3iNzQtHYH1y+o5G+aCY2zU1daP1BmNR8/6KrBhIX+0U9exovMQwY7Ac3lQD7zB6
+         vK16IxV8pZ/S60i/zmwQfvQ5RZb61p1Pcp792h/gcKhdtjvpJ+2+PekTka8YpkoKa03v
+         y40TjF3aJiFboY5UziKRt/BVNTYkitIRVGVoM8yGl9UtROB3cxn3bOpMKbxfzNZQFHNH
+         5a0AD8n2yF2/XTyl9U58nvus0f2lrU4SPQpdnW6r5mihAGyPLFR1ew9QYV3V/odxb8kH
+         8kcw==
+X-Gm-Message-State: AC+VfDxIZBGH3Y9XJh8iFWOlLLMHkiwLOFhuQJ+yr8Z3HLj3W9aR8KqY
+	dngw+0b8i5/6GpRoiFKVTH74EiSyYG0mxq1XpZexy1KRvZl61g==
+X-Google-Smtp-Source: ACHHUZ4j4o+3ks7gqO0Cc3az7qvWANuOL9pmgjp9OgEvccsoElcFtMR8UppD8ccMx0iGR4Z540YQjU8jVHujZAMcF4c=
+X-Received: by 2002:a17:907:3e05:b0:94e:988d:acc5 with SMTP id
+ hp5-20020a1709073e0500b0094e988dacc5mr1256436ejc.46.1683293238964; Fri, 05
+ May 2023 06:27:18 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <tencent_3385F6B8E304EE4B8C4BC858E3369F97A006@qq.com>
+References: <20230505074701.1030980-1-bigunclemax@gmail.com> <20230505105805.548d1a1b@donnerap.cambridge.arm.com>
+In-Reply-To: <20230505105805.548d1a1b@donnerap.cambridge.arm.com>
+From: Maxim Kiselev <bigunclemax@gmail.com>
+Date: Fri, 5 May 2023 17:27:07 +0400
+Message-ID: <CALHCpMi8=t1bMceTOfZjh7aKEQcEEpfeG4wi9pB=5o34Ca+N3w@mail.gmail.com>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Add SPI0 controller node
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: robh+dt@kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_140512_326089_52B94E64 
-X-CRM114-Status: GOOD (  25.54  )
+X-CRM114-CacheID: sfid-20230505_142722_060574_68396174 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,112 +101,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0789410045104608007=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0789410045104608007==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SY5PJMplTQujjuD8"
-Content-Disposition: inline
+Hi Andre,
 
---SY5PJMplTQujjuD8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> From a quick glance at the manuals, it
+> looks like there are not quite the same, though: the D1/R528/T113s
+> mentions a SPI_SAMP_DL register @0x28, whereas the older IP has a SPI_CCR
+> register @0x24 - which is not mentioned in the newer manuals. The driver
+> relies on that clock control register, so it wouldn't really work
+> reliably, if that register is not there.
 
-On Fri, May 05, 2023 at 08:40:22PM +0800, Yangyu Chen wrote:
-> On 5/5/23 2:14 AM, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > Since riscv_fill_hwcap() now only iterates over possible cpus, the
-> > basic validation of whether riscv,isa contains "rv<width>" can be moved
-> > to riscv_early_of_processor_hartid().
-> >
-> > Further, "ima" support is required by the kernel, so reject any CPU not
-> > fitting the bill.
-> >
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  arch/riscv/kernel/cpu.c        |  8 +++++---
-> >  arch/riscv/kernel/cpufeature.c | 12 ++++++------
-> >  2 files changed, 11 insertions(+), 9 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index 7030a5004f8e..b0c3ec0f2f5b 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -63,10 +63,12 @@ int riscv_early_of_processor_hartid(struct device_n=
-ode *node, unsigned long *har
-> >  		pr_warn("CPU with hartid=3D%lu has no \"riscv,isa\" property\n", *ha=
-rt);
-> >  		return -ENODEV;
-> >  	}
-> > -	if (tolower(isa[0]) !=3D 'r' || tolower(isa[1]) !=3D 'v') {
-> > -		pr_warn("CPU with hartid=3D%lu has an invalid ISA of \"%s\"\n", *har=
-t, isa);
-> > +
-> > +	if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32ima", 7))
-> > +		return -ENODEV;
-> > +
-> > +	if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64ima", 7))
-> >  		return -ENODEV;
-> > -	}
-> > =20
-> >  	return 0;
-> >  }
->=20
-> What about reducing the compare string to "rv32" and "rv64" only?
-
-I explicitly wanted the "ima" to rule out harts that might've been
-left enabled but we cannot run on.
-
-> Linux kernel is able to run on RV32IA or RV64IA CPUs theoretically as
-> someone did before[1]. In this case, M extension is not required here.
-> Although it's an invalid DT for now, reducing the compare string will
-> make the porting easier. And M extension does not provide additional
-> ISA-level registers that need the kernel to care about during context
-> switch.
->=20
-> In my opinion, we should concern about if someday linux will support
-> RV32E or RV64E. It's not necessary to validate if "ima" presents here
-> for better forward compatibility.
->=20
-> [1] https://www.facebook.com/groups/riscv.tw/posts/1611033709104137/
-
-I had a look, and as expected, this requires a makefile change to remove
-the M extension from -march.
-If that change ever lands in mainline the check here could be modified
-too, but otherwise I don't think we need to be concerned about what some
-out of tree code is doing.
-
-Cheers,
-Conor.
-
---SY5PJMplTQujjuD8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFT+2QAKCRB4tDGHoIJi
-0umHAQDN1yH4QMEypKxDG9yaBoRlfabHrE44IalKVufo+YBjDgD+ItV07+li+xbV
-OviU0HsXs7LES9xGhEJJXEmOE5UOFAA=
-=PQ9J
------END PGP SIGNATURE-----
-
---SY5PJMplTQujjuD8--
-
-
---===============0789410045104608007==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thank you for pointing this out. I missed this difference.
+I actually have a board with T113 SoC, and it looks like writing to
+SPI_CCR@0x24 does nothing.
+And it doesn't affect access to connected SPI NOR flash (read\write
+operations are fine).
+But I completely agree with you that this difference should be handled
+by the spi driver.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0789410045104608007==--
-
