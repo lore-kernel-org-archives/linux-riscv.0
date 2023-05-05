@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37334C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 11:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBB9C77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 11:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BvWRPwbjhiyc6qnsh+URpdUqUunoosGjbvw+ZfJQVZU=; b=jLDS3cy6S2v5Uk
-	XDuETrBGmiAxEXJqM97To9zcIRjUJroZiNn8RuXyb6KtBbgcRCoM2iqNqo9fCQVzNz8lvBAXEuV7P
-	DcgyN6PjRm3eFejVFDCCUwxz/dqmm5NPfiAPxULDabGlaVKaEZSaTkRjNVAzrAkKAhEJb3GlQUli9
-	yss27My9SAGEXD8fUeqVIR1X70v/XEe4fEpfwl4JlKO5Kyb8HMKV9i/9TGDC4u2AN4IBOr2pL3lVV
-	NrCzkVbdFqVpyIqjvL68r59TNAnVROkdaUOIoH6+k+UTIh8eRabe9t6qINa9eYqhl2ebYXTQc4HFV
-	MHbVX6uwPf93G5ioKP2g==;
+	List-Owner; bh=BHYp+ewrWWgGDoLPL4UYLlIbgjJesyoz/GXCoYDNIys=; b=C/QoFoKlMOB13y
+	SSsZjYcfiKcdMhSX1XYkf8eewso4zTV3l8gwZEF5cpAsKFD0atsGgAfSuexS8vqA9nyHsRQlcYvDM
+	I+qGdzDVv9ZjT6dWAtktWZslzvr6InVKjY/r2BbVOzS9a5BNQJpzRPYLmkbDDdJMO6bp9dXQDmcEr
+	xfqrO4nyZqD1nqMoJ4XXUYjBUgga2f5tiBV5JtU4IKEiyzvWnjNtWo2qK4ZYlwLnqXoZN07XGLdLp
+	Vd+gJ43bYhTzWS3RV3s/bShTHAxqHkyicbarE6Z5mT5NbqE1yuynLgXVSHgOIlaoibVvDXF+y91Ft
+	lfN9qfG5gPGwbtAdgtFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1putBm-00Aaze-1b;
-	Fri, 05 May 2023 11:01:26 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1putLp-00Ad2b-1R;
+	Fri, 05 May 2023 11:11:49 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1putBk-00Aawv-0H
+	id 1putLm-00Ad1z-2L
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 May 2023 11:01:25 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-50bd2d7ba74so25747496a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 04:01:23 -0700 (PDT)
+	Fri, 05 May 2023 11:11:48 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-50bc5197d33so3098787a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 04:11:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683284482; x=1685876482;
+        d=ventanamicro.com; s=google; t=1683285103; x=1685877103;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZCkAxCuMCPY8W83j46gVbVQ+tbACBh0KvMJD9eEfQ/c=;
-        b=SLjkjXfz2dJopPBa6gCHMwCLE9X+GihIRLWd5RJ3XDsFuoZKml+vlRFRd+ABLzSzqM
-         fjmDAisGDpNaxgqcySD/gafu6BW5zdYj5xBCFMyZ6P5iU6JcO0sp2/BLXnB5yH8Xllex
-         jGjdSVw/PUj3jYxOgXcaZm5QXKY2pA98VMnjM2Yj8n9oCsTr1PP/e0YMgYoEWZSE6BbI
-         32v7g2gDfjvNFVS0Dmvx873PPmeW+RPiY4ThBsL7iPLPFKsm5O6EPGSmMid/zgsuHn9x
-         BjFucfzCB9kG7Zf9xtvA1cTOf/gkMkwvJk1BOtwJvEtIqKLvpkL0VALQ+HOTiRu0lxKq
-         44vw==
+        bh=821Az3AivGuT6dtPPas/uoHO8Iz2n1fCbNOlcQweC8g=;
+        b=iJQAaROji6BPzSHNs676Wj2UD/iAHkOkYb3gkG9vHZmlhLs87O9ISnweOAZFAZLYNc
+         2FGswL+DEn31J2KJUlsXGXO9UIzm1MG/fViYgrMaEnCPjJ+ckcq4AMgiE2Rmtwao2sQe
+         Jsv7kMTEjnbFhpfYN5uQEUH6Ma/A1uB2zl4C6p9Qw8MJkb95b6vAHdDdRomy4s0m0NbI
+         uzoVUAXdMbBe+ZVDOaaMbnZoRBLTc4oEKQGtYhXzySFQF+GXgyPB1Yiqc4BV6t88R5b8
+         U07PQkwTqlQaocXoIMBnc7iV8c9WLqO6LEuXSY+1RM6on3JG9ZUzxyt5n3wfp00n4EZA
+         +iVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683284482; x=1685876482;
+        d=1e100.net; s=20221208; t=1683285103; x=1685877103;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZCkAxCuMCPY8W83j46gVbVQ+tbACBh0KvMJD9eEfQ/c=;
-        b=e5CSYiCpX44L8pJ+48Zt9zA6ETVy1hUxsD0p2InwZi8YYtX5vI9AxAtRA8/Tt7iPd7
-         2Hrxo+wtujxOVqXg8+oBKuzS3fsYuGJL43yQRJaowihMTefXfGh4O6eMtyJ0FlBXzPW3
-         WBRIFgo3QK9I/20cJYeAgD6t+UBV3U4fxanmgdqLnpGytY6UE34HpfL7D2jVhATAHpZF
-         KJeRfaJvzfPVBswRLykpMw9wQTOwt2ZJWdjwlfE6friBnxD3n4dlFp8voGBNhLbb6ry1
-         YT7qnJNfzmUL8MRxdycFQ0YJ8kVdTcqmXxAPt29ub6RIkm2AYsqojuaTHC+w3fcIkLmN
-         9b+g==
-X-Gm-Message-State: AC+VfDwXUj6ikATgaXs630qG7+uhjAxbWhWGP+YqnCgwqiZ/Cec4leJW
-	sJ/qY70sDkvn+wCKy/uDi0r2Dg==
-X-Google-Smtp-Source: ACHHUZ5YCxiCnRjRCkNRUiPQkbYKUvkj3/qi8ItnbIpxxLu0wxqRis5SooFpTd5P1bCFEvYbBoCaEA==
-X-Received: by 2002:a17:907:1690:b0:94f:6316:ce8d with SMTP id hc16-20020a170907169000b0094f6316ce8dmr1378551ejc.34.1683284481742;
-        Fri, 05 May 2023 04:01:21 -0700 (PDT)
+        bh=821Az3AivGuT6dtPPas/uoHO8Iz2n1fCbNOlcQweC8g=;
+        b=LfDpv8ueNwYjLTBkaJnDpfHw4ZHvfWbJRZ32Zfcqh6V3nsTfrmGqgHNHlb+Efu6Rf1
+         ux37M2B3ekCSpmB/Rar7QXQbQhaulIj/+qfevyg9bgXXSKl32WhLL0l+JHTxtigKrp01
+         vu3loQVc2PWU38jxZ4/BjszFOtPa3evb7L2v4fR36CYm8TkGSOo5bk8x5qJ4V9cQb4n3
+         YnO4UjwYklB9j8cCQ2RQUFyO7V7fqgbYnQYsXDirww/Ou8gYL2qbbF1yHCbxVOc0/ND4
+         OmnXy4NnMTJc9DI2BsgmZL+4tu4Fr+dfjSsUcNQLBc+9gi1Ag8RRqHEv4niGpOBymwm8
+         sahQ==
+X-Gm-Message-State: AC+VfDzhju0a4MX9z26iI0Yc4IiJ6++hKMbLSrYxcGtydDPdtAKAqqKs
+	WLfA926qlUaBnu5g80sxuCPXK4Pqor21dZ/ILcU=
+X-Google-Smtp-Source: ACHHUZ6WPGKvDQiUPfgBJ6fgJihpYrDmpDBbHwhr34HZF1kBNrdeLhzn8zz4eckPPzBmovuwsMuM/A==
+X-Received: by 2002:a17:907:9345:b0:958:4870:8d09 with SMTP id bv5-20020a170907934500b0095848708d09mr735326ejc.37.1683285103520;
+        Fri, 05 May 2023 04:11:43 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id hz17-20020a1709072cf100b0094e96e46cc0sm796408ejc.69.2023.05.05.04.01.21
+        by smtp.gmail.com with ESMTPSA id md8-20020a170906ae8800b0095390b1dd39sm809334ejb.115.2023.05.05.04.11.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 May 2023 04:01:21 -0700 (PDT)
-Date: Fri, 5 May 2023 13:01:20 +0200
+        Fri, 05 May 2023 04:11:43 -0700 (PDT)
+Date: Fri, 5 May 2023 13:11:42 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v1 6/7] RISC-V: remove decrement/increment dance in ISA
- string parser
-Message-ID: <20230505-af9eb91da13e4bb611cc75aa@orel>
+Subject: Re: [PATCH v1 7/7] RISC-V: always report presence of Zicsr/Zifencei
+Message-ID: <20230505-bfc5ac83cc446364b06cceeb@orel>
 References: <20230504-divisive-unsavory-5a2ff0c3c2d1@spud>
- <20230504-barrette-engraver-df0392651854@spud>
+ <20230504-oncoming-antihero-1ed69bb8f57d@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230504-barrette-engraver-df0392651854@spud>
+In-Reply-To: <20230504-oncoming-antihero-1ed69bb8f57d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_040124_132721_4131913C 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20230505_041146_784302_BAF129B5 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +91,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 04, 2023 at 07:14:25PM +0100, Conor Dooley wrote:
+On Thu, May 04, 2023 at 07:14:26PM +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> While expanding on the comments in the ISA string parsing code, I
-> noticed that the conditional decrement of `isa` at the end of the loop
-> was a bit odd.
-> The parsing code expects that at the start of the for loop, `isa` will
-> point to the first character of the next unparsed extension.
-> However, depending on what the next extension is, this may not be true.
-> Unless the next extension is a multi-letter extension preceded by an
-> underscore, `isa` will either point to the string's null-terminator or
-> to the first character of the next extension, once the switch statement
-> has been evaluated.
-> Obviously incrementing `isa` at the end of the loop could cause it to
-> increment past the null terminator or miss a single letter extension, so
-> `isa` is conditionally decremented, just so that the loop can increment
-> it again.
-> 
-> It's easier to understand the code if, instead of this decrement +
-> increment dance, we instead use a while loop & rely on the handling of
-> individual extension types to leave `isa` pointing to the first
-> character of the next extension.
-> As already mentioned, this won't be the case where the following
-> extension is multi-letter & preceded by an underscore. To handle that,
-> invert the check and increment rather than decrement.
-> Hopefully this eliminates a "huh?!?" moment the next time somebody tries
-> to understand this code.
+> Zicsr/Zifencei were part of i when the port was written and are required
+> by the kernel. There's not much that userspace can do with this extra
+> information, but there is no harm in reporting an ISA string that closer
+> resembles the current versions of the ISA specifications either.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/kernel/cpufeature.c | 14 ++++++--------
->  1 file changed, 6 insertions(+), 8 deletions(-)
+>  arch/riscv/include/asm/hwcap.h | 2 ++
+>  arch/riscv/kernel/cpu.c        | 2 ++
+>  arch/riscv/kernel/cpufeature.c | 7 +++++++
+>  3 files changed, 11 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 9af793970855..aa61031f7923 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -44,6 +44,8 @@
+>  #define RISCV_ISA_EXT_ZIHINTPAUSE	32
+>  #define RISCV_ISA_EXT_SVNAPOT		33
+>  #define RISCV_ISA_EXT_ZICBOZ		34
+> +#define RISCV_ISA_EXT_ZICSR		35
+> +#define RISCV_ISA_EXT_ZIFENCEI		36
+>  
+>  #define RISCV_ISA_EXT_MAX		64
+>  #define RISCV_ISA_EXT_NAME_LEN_MAX	32
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index b0c3ec0f2f5b..0d5d580dca61 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -204,8 +204,10 @@ arch_initcall(riscv_cpuinfo_init);
+>   * New entries to this struct should follow the ordering rules described above.
+>   */
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+> +	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+>  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+> +	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
+>  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index b425658bbf08..92f0e7b78eef 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -292,6 +292,13 @@ void __init riscv_fill_hwcap(void)
+>  #undef SET_ISA_EXT_MAP
+>  		}
+>  
+> +		/*
+> +		 * Linux requires Zicsr & Zifencei, so we may as well always
+> +		 * set them.
+> +		 */
+> +		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
+> +		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
+> +
+>  		/*
+>  		 * All "okay" hart should have same isa. Set HWCAP based on
+>  		 * common capabilities of every "okay" hart, in case they don't
+> -- 
+> 2.39.2
 >
+
+Besides the ordering you pointed out,
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
