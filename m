@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9468C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 12:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6FBC77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 12:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIg0QwVe+AtDn1iFIt5WYTqFe9CZITQ26J5R/phHAEc=; b=KINm0oFl2fifNwa1BWSc3ss7WT
-	5rR2nga6Hu7VE0WBEKC9pWcOx5z9CGXxjgKaEYf3+lbMbFCAtVC7IKhypOG8cnwkN7z+NJKqeJlVn
-	Ttjv2s5ihXNuY5nq1ePi4a6P4NuyarDEtKWbSHFgEQM/REO2FqVf+Ejhgn0MRPdMV8xGHlvOFxNe3
-	Do6FQiqNGQWZsxn0YWIchHLMLvdZC0DjolBu9rPdjLMuOOue3S6+iYZcM+ptYzyuzkr6W6KYGIthF
-	KFy2Hq/x+0nT2gv7RwQBoK95H7HIcGHJj9Jm/xk0+rC+N+bt+tgVXSovY5SZf0Mhf6PrytaNDODS0
-	EG944VJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aW8OlyglBTAxsiEvWLWF+rnZ/hTt7Z+8u4II8eCAHuQ=; b=vfJBkC6TTnzq+6
+	0GpDch4u7jwYjTDWKvFmWonI3xRGyIYQfe6MJxjcdll9dWYmE3JLz8UDrvcCuAKPVZHBW6iO9L3+f
+	OBum0TSTM0SF1sA2QsnkDRUa/JS7n9taK1kEF85F2PL5iyATO+BKC8ivjbY5sc7MzV+J1SkdouXeW
+	BcMb5gfnDOaYGPdwrgNsX8ecwHmSOCqYzbawNjI4BUBzoF+exMOa1eqK51dHwlNY0yWWJyjvm+EJb
+	9emzHRVFGEvxVegSPtwHNjfy3xqHYogRG1sAoRAMBT1GSEv6M2jxSXdAXA4wk3dV7SOccYHWM1j4R
+	xZeeCXp93I0Wdn3QPRzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1puuiG-00AtyU-2s;
-	Fri, 05 May 2023 12:39:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1puukb-00AuL0-0N;
+	Fri, 05 May 2023 12:41:29 +0000
+Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1puuiD-00AtxI-1y;
-	Fri, 05 May 2023 12:39:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683290341; x=1714826341;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8xaX52aaPvTWMjYeqa0TqYNGO9iqMeWfTGMQ8/3Jsag=;
-  b=t5zl1IeCZnBeIrWwIfrPEcrtFDTLkHa9wKAgupiytoJYXiByuPHKl1gJ
-   QVRKLw1snRH8CnI6R4LM4orhd2eWarfrR6vlWNj9n4vyHgak3WO8Heiym
-   pqcKCyX/5cShH2wG6t2hBpEqHiKx2CQr0cDcw0c9LX2t6BvlFJgEvu90a
-   fvdal8iLYKD8DdT5h6n+5kXOZIBXfG3Ov5Lrg83Q3AZK/DQwM8I8KGc3S
-   gpx5mkIfDXarwBxX+krLfOwugnoU1fLE+OB7IH807py6rqGL0OkhdKWOk
-   sp53O3W2jFRPqrYTq0ZkE0B4a26QEK/Blru9mTUFeqa5xdIV9i3IVmRPq
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.99,252,1677567600"; 
-   d="asc'?scan'208";a="223989201"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 May 2023 05:38:57 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 5 May 2023 05:38:57 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 5 May 2023 05:38:55 -0700
-Date: Fri, 5 May 2023 13:38:36 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
-	<linux-phy@lists.infradead.org>
-Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
-Message-ID: <20230505-magician-poet-724c96020c2f@wendy>
-References: <3ed72340-accc-4ad1-098f-4a2eb6448828@linaro.org>
- <482e812a-05dd-105c-189c-e926b4be9d28@starfivetech.com>
- <089e24d1-588a-4a56-f00b-0b35d1d99295@linaro.org>
- <ea5b5534-8fc2-7c84-a011-c1b42c6ed7a0@starfivetech.com>
- <1ac26c1a-1726-515d-6598-849a07ed0b86@linaro.org>
- <5adda0ad-965c-fbf0-878c-9d41d28b5c39@starfivetech.com>
- <86693969-59bf-5bcc-42a3-b6e94a0d6f3e@linaro.org>
- <fcfc8ba4-40a7-da43-3375-712bd7e7f4d5@starfivetech.com>
- <20230504-worshiper-ongoing-5581e1f2c2c4@wendy>
- <2f473307-2219-61a4-fa66-5848fe566cf0@starfivetech.com>
+	id 1puukW-00AuJW-36
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 May 2023 12:41:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1683290472; bh=DbkOPfphAhGuRUJgM5kNf6oSs45zQG6Gyzk9us65Xa4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=gHZj4PEscNOw1qxy7+LwNQr64CGkO3XzHf1sXPvi8M82n7BitBiORCW59KHibhQ3G
+	 GXC1bzhZnaaDqYhFGLinGb28Gevi6LHE01zCUnRyBKf1QW/mBo4ng+oObJXHzDdLtv
+	 12kIVmwD3nvhZP6LrM2RsHkc2UBXKcHIhKG2nASs=
+Received: from localhost.localdomain ([2001:da8:c800:4::9b62])
+	by newxmesmtplogicsvrszb1-0.qq.com (NewEsmtp) with SMTP
+	id A1785A16; Fri, 05 May 2023 20:40:23 +0800
+X-QQ-mid: xmsmtpt1683290423tz9nh68kz
+Message-ID: <tencent_3385F6B8E304EE4B8C4BC858E3369F97A006@qq.com>
+X-QQ-XMAILINFO: OZZSS56D9fAjhxYV/uk0Bx3naOaHXyJi/suLIRsIHeCtyLODEupRL+ESZmutxH
+	 KdIVK2Z4AzJniDcftF5gFDVcxilFn26qSgat3ieLpwxTQF6Y93znvsCZq3iVsAzNcpcwkytjpIIP
+	 hK2Kne7wL81ku/rbY0BhbQz2/dbqmsiD0CesKY6FPSWkir6SJFcQ4bH+R+j7UhGAnGDOJ77ZzBjz
+	 C6un/DSti+VEpIAouurIVzB4MKE6lr75sEf3kJS9Vjv6sesXwUMI9nlkzot9gwz1eRhmsatctZ30
+	 ScKQ3QOOYGevILXskqp6ErnCtpy1IivcqMJFai4UEUSzSKgoxwTjSUSTHJA2OzGGIFBRQVGyndn3
+	 jaLdKkskmEy1tyU6uhQxmmf2lh76/W3zfHHe3+vUiV+yNe3cDq+H5ertiTPYFl1qE1tbpDV1O+/b
+	 oI1xWEnKTV06LNgs6aavZQ4TsHDkX0Xw0xGBXU74AwERj6kRwqlI0HXEc61WGMfc64RFYgveWR+3
+	 806cZDgwf9QsZbTd0Hdd29TCmgUotb/f0H1rMDRek60hR2X+8PghXnomPFwK6Qklcc6G8NL37QDx
+	 s8f8Ro/NtiqBZLRRvWIBx5AzEem3aymbMN4OJKVoklILde2NTzFutvQsaTdhZcm8RiYYfhH9DoI8
+	 OcQsFp6llh9KqwWNr+AdCgP4lhpN0QYVKEg+fOBS1JUrYHsvJu/6KRgzPEzbHiFU5JX+IFxzf+Ti
+	 G0+h2pGfVmIXIINwydd2/f2+hgQKT4qZpwrumctG5KPdF4WfXr2p17lXWdgph13hq8g6hTaQ4u6G
+	 +K7a7oTanPSwskK5l7M7eaK24gHydPMoQtGccIKEf/lLVrmt2YAZ92UGyzJq6OOP13+FXKQdMMQ6
+	 KVHk2SCWDRbGW5mRi6dshrYIbcMaRdOptVdnUasMWHrZIzaBtXOxLd2slyLKAkHTJOdBlkNaB21c
+	 O7myazCyDHjAy5n3U2Gj0lV7bbzixyLyTBo0SL0j4Yp/PXz3o+XU0om+CvgBYc
+From: Yangyu Chen <cyy@cyyself.name>
+To: conor@kernel.org
+Cc: ajones@ventanamicro.com,
+	conor.dooley@microchip.com,
+	cyy@cyyself.name,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH v1 4/7] RISC-V: validate riscv,isa at boot, not during ISA string parsing
+Date: Fri,  5 May 2023 20:40:22 +0800
+X-OQ-MSGID: <20230505124022.14532-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.30.1 (Apple Git-130)
+In-Reply-To: <20230504-sultry-frostlike-9dbf19333725@spud>
+References: <20230504-sultry-frostlike-9dbf19333725@spud>
 MIME-Version: 1.0
-In-Reply-To: <2f473307-2219-61a4-fa66-5848fe566cf0@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_053901_659177_4C9AC540 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230505_054125_362474_2AD84919 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +81,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7505997991315246510=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7505997991315246510==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="joHxcNEPtN2DDJ9p"
-Content-Disposition: inline
+Hi,
 
---joHxcNEPtN2DDJ9p
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 5/5/23 2:14 AM, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Since riscv_fill_hwcap() now only iterates over possible cpus, the
+> basic validation of whether riscv,isa contains "rv<width>" can be moved
+> to riscv_early_of_processor_hartid().
+>
+> Further, "ima" support is required by the kernel, so reject any CPU not
+> fitting the bill.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  arch/riscv/kernel/cpu.c        |  8 +++++---
+>  arch/riscv/kernel/cpufeature.c | 12 ++++++------
+>  2 files changed, 11 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 7030a5004f8e..b0c3ec0f2f5b 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -63,10 +63,12 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
+>  		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
+>  		return -ENODEV;
+>  	}
+> -	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
+> -		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
+> +
+> +	if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32ima", 7))
+> +		return -ENODEV;
+> +
+> +	if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64ima", 7))
+>  		return -ENODEV;
+> -	}
+>  
+>  	return 0;
+>  }
 
-On Fri, May 05, 2023 at 09:29:15AM +0800, Changhuang Liang wrote:
+What about reducing the compare string to "rv32" and "rv64" only?
 
-> But if keep this "starfive,jh7110-aon-syscon" compatible. Which .yaml match to
-> it? Use this series dt-bindings or syscon series dt-bindings.
+Linux kernel is able to run on RV32IA or RV64IA CPUs theoretically as
+someone did before[1]. In this case, M extension is not required here.
+Although it's an invalid DT for now, reducing the compare string will
+make the porting easier. And M extension does not provide additional
+ISA-level registers that need the kernel to care about during context
+switch.
 
-There is no syscon series anymore, it's part of the PLL series now:
-https://lore.kernel.org/linux-clk/20230414024157.53203-1-xingyu.wu@starfivetech.com/
+In my opinion, we should concern about if someday linux will support
+RV32E or RV64E. It's not necessary to validate if "ima" presents here
+for better forward compatibility.
 
-I don't really care what you, Walker & Xingyu decide to do, but add the
-binding in one series in a complete form. It's far less confusing to
-have only have one version of the binding on the go at once.
+[1] https://www.facebook.com/groups/riscv.tw/posts/1611033709104137/
+
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 3ae456413f79..a79c5c52a174 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -130,12 +130,12 @@ void __init riscv_fill_hwcap(void)
+>  			continue;
+>  		}
+>  
+> -		if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32", 4))
+> -			continue;
+> -
+> -		if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64", 4))
+> -			continue;
+> -
+> +		/*
+> +		 * For all possible cpus, we have already validated in
+> +		 * the boot process that they at least contain "rv" and
+> +		 * whichever of "32"/"64" this kernel supports, and so this
+> +		 * section can be skipped.
+> +		 */
+>  		isa += 4;
+>  
+>  		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
+
+Looks good to me.
 
 Thanks,
-Conor.
+Yangyu Chen
 
-
---joHxcNEPtN2DDJ9p
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFT4zAAKCRB4tDGHoIJi
-0j7sAQC3yBu80qw2HVfxwCss7YeMwglVk3XoMJwU5Edb0+UMYwD/TodA8cpmhYbt
-lWKK0yqBI6MEjCP3wB/OBKkdc3DOeQI=
-=SIb4
------END PGP SIGNATURE-----
-
---joHxcNEPtN2DDJ9p--
-
-
---===============7505997991315246510==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7505997991315246510==--
-
