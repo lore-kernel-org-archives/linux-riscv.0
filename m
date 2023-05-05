@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4466EC77B7D
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 09:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEDBC77B7D
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 May 2023 10:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wVRpIZZ0ZOLDWiNqxE7A5cOE+wu3OWpnZGRm2NtSmy4=; b=dktTbPtHBw5CZ0
-	DtXjNHpddUnIvsKtu1Gv9nvfR8tsKP7fjPVvTSKCNeq1Qo3EhEPLPXQf/Rl0z50x9ybxox3cOzpwx
-	Qyj1mYkySqtgAQf7snlyjDC1kPanU6z4TMYn9oPLgJBQNTPmg0ZnI3PTAHyLsujhABr5SQ9zq/Vx0
-	Dj598rvDCPtQ2ElUKSf9HxJAdI53FNeRfre7W19NdVc45h+wNb8DQOatvfiel3meGFjXu2tspJkLk
-	qzqeTJz/rhachmIw89JyZPcjTYHY8O5nqiI7Nibo2ZsGJ2InFpT1uoyN8IBiNZlyfZxmEwyexUeoh
-	g4le/0CnCK/rxiTWWQoA==;
+	List-Owner; bh=ZUo+9VzSm+/Q3eu5kahSHrRo5eNBn2tQ6I+N3I6gDrw=; b=MrCqvBCLbPNteJ
+	ZvTghzPYE89JOx2h941IFVTGTmmgEankXU1+BrQ917jRd1WNW/qsvApzGAnpGV5X/7A88NcvUrIa9
+	mMr0XRMHHmABablhUzDl/SJ+oNkt7omt0JaNBTE2q/GpeuDfARFKLG7O5BV8AYo8WxIAFhDVqMWFU
+	Ymq/0glob2hbLHGd80MVRnTnROMcyI6lWPdSwm8QIc1tiDakuD8W2Npz95pDlNQ1z8MosKg+g88nc
+	Sp5a6qWjW/943plQ3G7I6pIondZOA+swdeCruz0cLwEMtPjEeaLIAaiqA8/frBBthKAU0LND2v5SG
+	WEpJGWjWUoIOGAQ0XZyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pusCk-00ADpG-1A;
-	Fri, 05 May 2023 09:58:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pusCg-00ADnd-0f;
-	Fri, 05 May 2023 09:58:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A0051FB;
-	Fri,  5 May 2023 02:58:57 -0700 (PDT)
-Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BCAE3F64C;
-	Fri,  5 May 2023 02:58:11 -0700 (PDT)
-Date: Fri, 5 May 2023 10:58:05 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Maksim Kiselev <bigunclemax@gmail.com>
-Cc: robh+dt@kernel.org, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: allwinner: d1: Add SPI0 controller node
-Message-ID: <20230505105805.548d1a1b@donnerap.cambridge.arm.com>
-In-Reply-To: <20230505074701.1030980-1-bigunclemax@gmail.com>
-References: <20230505074701.1030980-1-bigunclemax@gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1pusFy-00AEFf-0C;
+	Fri, 05 May 2023 10:01:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pusFw-00AEF9-0Y
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 May 2023 10:01:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8A4E463CF9
+	for <linux-riscv@lists.infradead.org>; Fri,  5 May 2023 10:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED839C433D2
+	for <linux-riscv@lists.infradead.org>; Fri,  5 May 2023 10:01:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1683280899;
+	bh=Ec2ll/P9tx8U/dBQxy3ZG+nUnHx39GhJcsKwfUcl+ek=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=FJV0yXgxVbxDUT5oHwfpctONYlQwh1inVw1hkoxqIIo7Xh7XU5qLGV96M88uSYps+
+	 80ePmkd9mKM0Ta/x82WIzmee0PJRCyknqJh9pvhhuX3AqENGJmm6gqOJpp7lpu9IrQ
+	 vX39SaZEKkZVfvL2UlYoUS7lLaxnA8G5TAIdNFWvy0Zln0jvRXeVf4MeGZ2AniAZFu
+	 XrN89rpEZ97kXZYAENJvyqcDkjq9NVrNmnBiDnhmExLluGn6BjmPp8qchvt9PM8FQt
+	 bRDRT0T9y79aB2p/sPFLSXGAnY5XaPKAsLWsX6Fc96a/76QWHKSKic8/DH39VCXcqO
+	 aR+f2BdJwb6uA==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-956ff2399b1so287790966b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 03:01:38 -0700 (PDT)
+X-Gm-Message-State: AC+VfDxRffzDPkcw+DEbbbQViLkDZ6mQ5JcBuvyBp8oXCSCIbZFY9ici
+	D7a2cusR5WR9tfAUahWMzayHecXjeue5VVjQSdE=
+X-Google-Smtp-Source: ACHHUZ6cv5uf8DA2g1qYJdz+yn4p/ZuvFXjDqZGWthSuaLRL+DOJ0hmeFjGg+R/3lP7VI9aiX9CexZ4uVLWUqCuC9dg=
+X-Received: by 2002:a17:907:2687:b0:961:a67:29c with SMTP id
+ bn7-20020a170907268700b009610a67029cmr616582ejc.70.1683280897147; Fri, 05 May
+ 2023 03:01:37 -0700 (PDT)
 MIME-Version: 1.0
+References: <1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn>
+In-Reply-To: <1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 5 May 2023 18:01:25 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRqdP-RVSMshwzJuAcm1bBeg1-wZU_k_Oo409=O4QZR-w@mail.gmail.com>
+Message-ID: <CAJF2gTRqdP-RVSMshwzJuAcm1bBeg1-wZU_k_Oo409=O4QZR-w@mail.gmail.com>
+Subject: Re: [PATCH] riscv: uprobes: Restore thread.bad_cause
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongson-kernel@lists.loongnix.cn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_025818_362511_B88ED9FF 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20230505_030140_246514_8E921674 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,98 +78,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri,  5 May 2023 10:46:51 +0300
-Maksim Kiselev <bigunclemax@gmail.com> wrote:
-
-Hi Maksim,
-
-thanks for sending a patch!
-
-> Some boards form the MangoPi family (MQ\MQ-Dual\MQ-R) may have
-> an optional SPI flash that connects to the SPI0 controller.
-> This controller is already supported by sun8i-h3-spi driver.
-> So let's add its DT node.
-
-Interesting, I see SPI mentioned in the D1 platform support cover letter,
-but indeed there is no DT node. From a quick glance at the manuals, it
-looks like there are not quite the same, though: the D1/R528/T113s
-mentions a SPI_SAMP_DL register @0x28, whereas the older IP has a SPI_CCR
-register @0x24 - which is not mentioned in the newer manuals. The driver
-relies on that clock control register, so it wouldn't really work
-reliably, if that register is not there. It *might* work by pure chance
-because of a particular setup or clock rate, though.
-
-Samuel, did you investigate SPI support on the D1/T113s? I see it marked
-as "WIP" in the Wiki status page, so where there any patches floating
-around?
-
-
-Regardless of that, one comment that would apply anyway:
-
-> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
-> ---
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 20 +++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> index 922e8e0e2c09..d2de211d67d7 100644
-> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> @@ -108,6 +108,12 @@ rmii_pe_pins: rmii-pe-pins {
->  				function = "emac";
->  			};
->  
-> +			/omit-if-no-ref/
-> +			spi0_pins: spi0-pins {
-> +				pins = "PC2", "PC3", "PC4", "PC5";
-> +				function = "spi0";
-> +			};
-> +
->  			/omit-if-no-ref/
->  			uart1_pg6_pins: uart1-pg6-pins {
->  				pins = "PG6", "PG7";
-> @@ -447,6 +453,20 @@ mmc2: mmc@4022000 {
->  			#size-cells = <0>;
->  		};
->  
-> +		spi0: spi@4025000 {
-> +			compatible = "allwinner,sun8i-h3-spi";
-
-Even if it would be compatible, we need to use a more specific compatible
-first, with the H3 one as a fallback:
-
-			compatible = "allwinner,sun20i-d1-spi",
-				     "allwinner,sun8i-h3-spi";
-
-But that would require that the H3 is a strict subset of the D1 SPI IP.
-
-Cheers,
-Andre
-
-
-> +			reg = <0x04025000 0x300>;
-> +			interrupts = <SOC_PERIPHERAL_IRQ(15) IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
-> +			clock-names = "ahb", "mod";
-> +			dmas = <&dma 22>, <&dma 22>;
-> +			dma-names = "rx", "tx";
-> +			resets = <&ccu RST_BUS_SPI0>;
-> +			status = "disabled";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
->  		usb_otg: usb@4100000 {
->  			compatible = "allwinner,sun20i-d1-musb",
->  				     "allwinner,sun8i-a33-musb";
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGh4IGZvciBmaXh1cC4KClJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4K
+Ck9uIFN1biwgQXByIDIzLCAyMDIzIGF0IDk6NDLigK9BTSBUaWV6aHUgWWFuZyA8eWFuZ3RpZXpo
+dUBsb29uZ3Nvbi5jbj4gd3JvdGU6Cj4KPiB0aHJlYWQuYmFkX2NhdXNlIGlzIHNhdmVkIGluIGFy
+Y2hfdXByb2JlX3ByZV94b2woKSwgaXQgc2hvdWxkIGJlIHJlc3RvcmVkCj4gaW4gYXJjaF91cHJv
+YmVfe3Bvc3QsYWJvcnR9X3hvbCgpIGFjY29yZGluZ2x5LCBvdGhlcndpc2UgdGhlIHNhdmUgb3Bl
+cmF0aW9uCj4gaXMgbWVhbmluZ2xlc3MsIHRoaXMgY2hhbmdlIGlzIHNpbWlsYXIgd2l0aCB4ODYg
+YW5kIHBvd2VycGMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBUaWV6aHUgWWFuZyA8eWFuZ3RpZXpodUBs
+b29uZ3Nvbi5jbj4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3Vwcm9iZXMuYyB8
+IDIgKysKPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy91cHJvYmVzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9w
+cm9iZXMvdXByb2Jlcy5jCj4gaW5kZXggYzk3NmEyMS4uMTk0ZjE2NiAxMDA2NDQKPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvdXByb2Jlcy5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvcHJvYmVzL3Vwcm9iZXMuYwo+IEBAIC02Nyw2ICs2Nyw3IEBAIGludCBhcmNoX3Vwcm9iZV9w
+b3N0X3hvbChzdHJ1Y3QgYXJjaF91cHJvYmUgKmF1cHJvYmUsIHN0cnVjdCBwdF9yZWdzICpyZWdz
+KQo+ICAgICAgICAgc3RydWN0IHVwcm9iZV90YXNrICp1dGFzayA9IGN1cnJlbnQtPnV0YXNrOwo+
+Cj4gICAgICAgICBXQVJOX09OX09OQ0UoY3VycmVudC0+dGhyZWFkLmJhZF9jYXVzZSAhPSBVUFJP
+QkVfVFJBUF9OUik7Cj4gKyAgICAgICBjdXJyZW50LT50aHJlYWQuYmFkX2NhdXNlID0gdXRhc2st
+PmF1dGFzay5zYXZlZF9jYXVzZTsKPgo+ICAgICAgICAgaW5zdHJ1Y3Rpb25fcG9pbnRlcl9zZXQo
+cmVncywgdXRhc2stPnZhZGRyICsgYXVwcm9iZS0+aW5zbl9zaXplKTsKPgo+IEBAIC0xMDIsNiAr
+MTAzLDcgQEAgdm9pZCBhcmNoX3Vwcm9iZV9hYm9ydF94b2woc3RydWN0IGFyY2hfdXByb2JlICph
+dXByb2JlLCBzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiAgewo+ICAgICAgICAgc3RydWN0IHVwcm9i
+ZV90YXNrICp1dGFzayA9IGN1cnJlbnQtPnV0YXNrOwo+Cj4gKyAgICAgICBjdXJyZW50LT50aHJl
+YWQuYmFkX2NhdXNlID0gdXRhc2stPmF1dGFzay5zYXZlZF9jYXVzZTsKPiAgICAgICAgIC8qCj4g
+ICAgICAgICAgKiBUYXNrIGhhcyByZWNlaXZlZCBhIGZhdGFsIHNpZ25hbCwgc28gcmVzZXQgYmFj
+ayB0byBwcm9iYmVkCj4gICAgICAgICAgKiBhZGRyZXNzLgo+IC0tCj4gMi4xLjAKPgoKCi0tIApC
+ZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
