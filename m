@@ -4,59 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EDCC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 05:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA1BC77B75
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 06:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pjfook8B91OU3kV1JViIWiBZBqFArou9k1RAAEKpkk0=; b=ORjMD8Ua9mxAet
-	H0gUd6qgp0u3GFQa7L9cX+4AeSXDXxedgM6pXyChzPFmJ2LyVZ0F8HOse/ZiTu4wpMnXOJlnxe3Ev
-	/LQf47QmN56Eb//Y+62FfQKduMXolf29Hw7BFAXNohjM/bIaRyMQwXQnqwEcoNdf9PWKMGT+f5fen
-	AHsPdYDWG1VJnULbHQvTFfMe369QuVmBatuoueia5P6LGiC7PkWqHlvO6994jEtjCCUeTOs139kdm
-	GS9kiT0KLl1eV3bPhDolpQYW/k/KsJGcKjsghY6CWLLgaFjXe2fvo2rhSP6v9VJ1sZEVLioUCzROI
-	d1FVf+7Yx/JCvZ+FnFGQ==;
+	List-Owner; bh=eh7G5GGf7KrUc4E8AKHpKh+l54FDxo6tEaa2u0Ybtck=; b=c9N0z4K6z2QnSp
+	t1Ot+nKafVXLRTN+9ZyP5Qdv8XSXlV7MWRVNQnpAnDoL+zl4LvqXvQ+yEiGfCVclShD8RYXl1WapE
+	/QYtdxfPKO5MHOuhMz+lfoYtMpMMOxTb42/9pMyhJbVkgj8bMoguEWy9470chJP4CRFFtyiTUMPfJ
+	YGW3O1/EIQ8/kZBhz/yWKA26aBNV3x3CviKU3T5JgoiW/VKB8cZdyRlNHIEztdofkUxH6yK2RiUm7
+	tSUzfg3B2/1G6kAHyP91p6a0lpC2OGQggtPLUSmsq2er1bRfPfSGrRCJSowT4E3TIW5oKYe7vypTI
+	D7XzVOY2yguJEc2B6Hog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvApa-00Cc6a-1W;
-	Sat, 06 May 2023 05:51:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pvBS6-00CgP4-0b;
+	Sat, 06 May 2023 06:31:30 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvApX-00Cc5c-14
+	id 1pvBS3-00CgNs-0f
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 May 2023 05:51:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 534F161371;
-	Sat,  6 May 2023 05:51:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D3DC433D2;
-	Sat,  6 May 2023 05:51:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1683352292;
-	bh=Rk8NCPME9XF2pz/U0ElsAeB7PwFCQM4oV/d+9gKgK50=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dlXqFmGvkuhMTaePBFpOVDGzRGX97j0CcjsYaPU59lGW3B5hoc5DJszahlgW0s3Yx
-	 9cMPJ02Dt45YZjRZDkkFIJWs1cPy7bfYrqPnBRvbIFp4NT8+OFZTl3Gw7PASGGa/qv
-	 sah5KtIzj1EcTKFDmPIjIEBPczMfF/okBQUuE+90=
-Date: Sat, 6 May 2023 09:56:30 +0900
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, stable@vger.kernel.org,
-	linux-riscv@lists.infradead.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH linux-5.15.y] RISC-V: Fix up a cherry-pick warning in
- setup_vm_final()
-Message-ID: <2023050606-emote-motion-38b3@gregkh>
-References: <20230429224330.18699-1-palmer@rivosinc.com>
- <dc9c1ba9-a6b5-67f0-4499-f044fbca92f1@ghiti.fr>
+	Sat, 06 May 2023 06:31:28 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-50bd2d7ba74so33419234a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 May 2023 23:31:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1683354683; x=1685946683;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LAtZBzGq/K371lgu2uGriXQv86Ola8BpEn4aIcDi9OQ=;
+        b=m9MzzgGRrTGwMDNjRn1SfcbtC0bE+JN12uUt+jLjTrZ5ZuHakyZdEdbV94qNFvLFuq
+         RimCyEsemP3RchBaz3DsuHMr3+ZTrJgSHMFUSKsWV4Ys2bqrTW8S/K0m0u0N5W3MG7p3
+         mKIoXzBNZ0e6fAww/isJIycI4nDbmKgRkBGukwyu5lFGyTCDIQByg/yFU0uVeD4lJZ40
+         gvvj3v/qs3HZw7bMnIs7o+YE0HAuENH8DdwaAPBTgvYyOAFopBidrA8NTrVz1tyiUp/J
+         WiLabHKJYfOHPTpzMWZACHM83Qe38692dzkEjQMPEbmmGJqEp69MwDOfyICxCCR6PA8A
+         rkxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683354683; x=1685946683;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LAtZBzGq/K371lgu2uGriXQv86Ola8BpEn4aIcDi9OQ=;
+        b=QLZVx4ZicK0oMvC3bMdIikd33BTpqDh+csUUn4KEEGpUemcOZLwdta+v1cdpwEwBz/
+         4v5xP9JJiyG8Vxx8cu57L+i2+cbpNDLeECcACQwrA1oxAJLDaJYIi+TGA7zfVE+35Mu5
+         YXw/2aCO5pFhxu+m/TD3Nz6OqDDQLh0jFHf4y8tjQ/45t0JvSfF4sg72oZMX6A9h9MzZ
+         /M1sSGOehVpuTa/6JtpVmUE5nldRjIWqg82xJQE5S3MjK7o0vZxClJ6xgpg3LjaTr2Cx
+         4GJ4Wlzz0gqEykmZObflluXuLRaCQmzSczs0W9I1gixcB1eJ7FD2OGWkJjxApEMP2syP
+         B4sw==
+X-Gm-Message-State: AC+VfDyZ8BKP1nhJvku6ilO/GnMNKHi/EUOrquY7RJgYyWZv/x/G2+3z
+	C/S6TAfk2qei6dClw+qMQEHGTw==
+X-Google-Smtp-Source: ACHHUZ6pZsEivEFSme4odojv7RRMViKRqgoDTFoMhFVUH8QIGY17Kx6qZrjLonbVuVyerntCZm25VQ==
+X-Received: by 2002:a05:6402:4405:b0:50b:2088:3533 with SMTP id y5-20020a056402440500b0050b20883533mr4681883eda.1.1683354683120;
+        Fri, 05 May 2023 23:31:23 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:efe5:7c03:a10a:7a40? ([2a02:810d:15c0:828:efe5:7c03:a10a:7a40])
+        by smtp.gmail.com with ESMTPSA id r12-20020a056402018c00b0050bcaedc299sm3664387edv.33.2023.05.05.23.31.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 May 2023 23:31:22 -0700 (PDT)
+Message-ID: <9e7b265d-bfe5-f583-2357-d8e342bcf982@linaro.org>
+Date: Sat, 6 May 2023 08:31:19 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <dc9c1ba9-a6b5-67f0-4499-f044fbca92f1@ghiti.fr>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Walker Chen <walker.chen@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ vkoul@kernel.org, linux-phy@lists.infradead.org
+References: <3ed72340-accc-4ad1-098f-4a2eb6448828@linaro.org>
+ <482e812a-05dd-105c-189c-e926b4be9d28@starfivetech.com>
+ <089e24d1-588a-4a56-f00b-0b35d1d99295@linaro.org>
+ <ea5b5534-8fc2-7c84-a011-c1b42c6ed7a0@starfivetech.com>
+ <1ac26c1a-1726-515d-6598-849a07ed0b86@linaro.org>
+ <5adda0ad-965c-fbf0-878c-9d41d28b5c39@starfivetech.com>
+ <86693969-59bf-5bcc-42a3-b6e94a0d6f3e@linaro.org>
+ <fcfc8ba4-40a7-da43-3375-712bd7e7f4d5@starfivetech.com>
+ <20230504-worshiper-ongoing-5581e1f2c2c4@wendy>
+ <2f473307-2219-61a4-fa66-5848fe566cf0@starfivetech.com>
+ <20230505-magician-poet-724c96020c2f@wendy>
+ <ba6a1a47-d3b1-ee16-4785-f5c61d593127@starfivetech.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <ba6a1a47-d3b1-ee16-4785-f5c61d593127@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230505_225139_473559_82CA7CCC 
-X-CRM114-Status: GOOD (  28.45  )
+X-CRM114-CacheID: sfid-20230505_233127_283688_5F17BE2A 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,61 +108,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMDEsIDIwMjMgYXQgMDk6MzM6MjVBTSArMDIwMCwgQWxleGFuZHJlIEdoaXRp
-IHdyb3RlOgo+IEhpIFBhbG1lciwKPiAKPiBPbiA0LzMwLzIzIDAwOjQzLCBQYWxtZXIgRGFiYmVs
-dCB3cm90ZToKPiA+IFRoaXMgdHJpZ2dlcnMgYSAtV2RlY2xhcmF0aW9uLWFmdGVyLXN0YXRlbWVu
-dCBhcyB0aGUgY29kZSBoYXMgY2hhbmdlZCBhCj4gPiBiaXQgc2luY2UgdXBzdHJlYW0uICBJdCBt
-aWdodCBiZSBiZXR0ZXIgdG8gaG9pc3QgdGhlIHdob2xlIGJsb2NrIHVwLCBidXQKPiA+IHRoaXMg
-aXMgYSBzbWFsbGVyIGNoYW5nZSBzbyBJIHdlbnQgd2l0aCBpdC4KPiA+IAo+ID4gYXJjaC9yaXNj
-di9tbS9pbml0LmM6NzU1OjE2OiB3YXJuaW5nOiBtaXhpbmcgZGVjbGFyYXRpb25zIGFuZCBjb2Rl
-IGlzIGEgQzk5IGV4dGVuc2lvbiBbLVdkZWNsYXJhdGlvbi1hZnRlci1zdGF0ZW1lbnRdCj4gPiAg
-ICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBpZHggPSBwZ2RfaW5kZXgoX19maXhfdG9fdmlydChG
-SVhfRkRUKSk7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICBeCj4gPiAgICAgIDEgd2Fy
-bmluZyBnZW5lcmF0ZWQuCj4gPiAKPiA+IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8
-bGtwQGludGVsLmNvbT4KPiA+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL29lLWtidWls
-ZC1hbGwvMjAyMzA0MzAwNDI5LlNYWk9BNXVwLWxrcEBpbnRlbC5jb20vCj4gPiBTaWduZWQtb2Zm
-LWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPiA+IC0tLQo+ID4gSSBo
-YXZlbid0IGV2ZW4gYnVpbGQgdGVzdGVkIHRoaXMgb25lLCBidXQgaXQgbG9va3Mgc2ltcGxlIGVu
-b3VnaCB0aGF0IEkgZmlndXJlZAo+ID4gSSdkIGp1c3Qgc2VuZCBpdC4gIEJlIHdhcm5lZCwgdGhv
-dWdoOiBJIGJyb2tlIGdsaWJjIGFuZCBtaXNzZWQgYSBtZXJnZWQKPiA+IGNvbmZsaWN0IHllc3Rl
-cmRheS4uLgo+ID4gLS0tCj4gPiAgIGFyY2gvcmlzY3YvbW0vaW5pdC5jIHwgMyArKy0KPiA+ICAg
-MSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4gCj4gPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+
-ID4gaW5kZXggZTgwMGQ3OTgxZTk5Li44ZDY3ZjQzZjE4NjUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
-L3Jpc2N2L21tL2luaXQuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiA+IEBAIC03
-MTcsNiArNzE3LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX3ZtX2ZpbmFsKHZvaWQpCj4g
-PiAgIAl1aW50cHRyX3QgdmEsIG1hcF9zaXplOwo+ID4gICAJcGh5c19hZGRyX3QgcGEsIHN0YXJ0
-LCBlbmQ7Cj4gPiAgIAl1NjQgaTsKPiA+ICsJdW5zaWduZWQgbG9uZyBpZHg7Cj4gPiAgIAkvKioK
-PiA+ICAgCSAqIE1NVSBpcyBlbmFibGVkIGF0IHRoaXMgcG9pbnQuIEJ1dCBwYWdlIHRhYmxlIHNl
-dHVwIGlzIG5vdCBjb21wbGV0ZSB5ZXQuCj4gPiBAQCAtNzM1LDcgKzczNiw3IEBAIHN0YXRpYyB2
-b2lkIF9faW5pdCBzZXR1cF92bV9maW5hbCh2b2lkKQo+ID4gICAJICogZGlyZWN0bHkgaW4gc3dh
-cHBlcl9wZ19kaXIgaW4gYWRkaXRpb24gdG8gdGhlIHBnZCBlbnRyeSB0aGF0IHBvaW50cwo+ID4g
-ICAJICogdG8gZml4bWFwX3B0ZS4KPiA+ICAgCSAqLwo+ID4gLQl1bnNpZ25lZCBsb25nIGlkeCA9
-IHBnZF9pbmRleChfX2ZpeF90b192aXJ0KEZJWF9GRFQpKTsKPiA+ICsJaWR4ID0gcGdkX2luZGV4
-KF9fZml4X3RvX3ZpcnQoRklYX0ZEVCkpOwo+ID4gICAJc2V0X3BnZCgmc3dhcHBlcl9wZ19kaXJb
-aWR4XSwgZWFybHlfcGdfZGlyW2lkeF0pOwo+ID4gICAjZW5kaWYKPiAKPiBUaGUgYWJvdmUgcmVz
-dWx0cyB0byBpbiBydjY0Ogo+IAo+IC4uL2FyY2gvcmlzY3YvbW0vaW5pdC5jOiBJbiBmdW5jdGlv
-biDigJhzZXR1cF92bV9maW5hbOKAmToKPiAuLi9hcmNoL3Jpc2N2L21tL2luaXQuYzo3MjA6MTY6
-IHdhcm5pbmc6IHVudXNlZCB2YXJpYWJsZSDigJhpZHjigJkKPiBbLVd1bnVzZWQtdmFyaWFibGVd
-Cj4gwqAgNzIwIHzCoCB1bnNpZ25lZCBsb25nIGlkeDsKPiAKPiAKPiBUaGUgZm9sbG93aW5nIGZp
-eGVzIHRoaXMgd2FybmluZzoKPiAKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0
-LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+IGluZGV4IDhkNjdmNDNmMTg2NS4uZTY5ZDgyZDU3
-M2YxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gKysrIGIvYXJjaC9yaXNj
-di9tbS9pbml0LmMKPiBAQCAtNzE3LDcgKzcxNyw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBzZXR1
-cF92bV9maW5hbCh2b2lkKQo+IMKgwqDCoMKgwqDCoMKgIHVpbnRwdHJfdCB2YSwgbWFwX3NpemU7
-Cj4gwqDCoMKgwqDCoMKgwqAgcGh5c19hZGRyX3QgcGEsIHN0YXJ0LCBlbmQ7Cj4gwqDCoMKgwqDC
-oMKgwqAgdTY0IGk7Cj4gLcKgwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIGlkeDsKPiArwqDCoMKg
-wqDCoMKgIHVuc2lnbmVkIGxvbmcgaWR4IF9fbWF5YmVfdW51c2VkOwo+IAo+IMKgwqDCoMKgwqDC
-oMKgIC8qKgo+IMKgwqDCoMKgwqDCoMKgwqAgKiBNTVUgaXMgZW5hYmxlZCBhdCB0aGlzIHBvaW50
-LiBCdXQgcGFnZSB0YWJsZSBzZXR1cCBpcyBub3QKPiBjb21wbGV0ZSB5ZXQuCj4gCj4gCj4gTGV0
-IG1lIGtub3cgaWYgeW91IHdhbnQgbWUgdG8gc2VuZCBhIHByb3BlciBwYXRjaCBhcyBJJ20gdGhl
-IG9uZSB0byBibGFtZQo+IGhlcmUuCgpBcyB0aGUgb3JpZ2luYWwgZml4IGhlcmUgd2lsbCBub3Qg
-d29yaywgYSAiY29ycmVjdCIgb25lIG1pZ2h0IGJlIGJlc3QgdG8KaGF2ZSA6KQoKdGhhbmtzLAoK
-Z3JlZyBrLWgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 06/05/2023 03:45, Changhuang Liang wrote:
+> 
+> 
+> On 2023/5/5 20:38, Conor Dooley wrote:
+>> On Fri, May 05, 2023 at 09:29:15AM +0800, Changhuang Liang wrote:
+>>
+>>> But if keep this "starfive,jh7110-aon-syscon" compatible. Which .yaml match to
+>>> it? Use this series dt-bindings or syscon series dt-bindings.
+>>
+>> There is no syscon series anymore, it's part of the PLL series now:
+>> https://lore.kernel.org/linux-clk/20230414024157.53203-1-xingyu.wu@starfivetech.com/
+>>
+>> I don't really care what you, Walker & Xingyu decide to do, but add the
+>> binding in one series in a complete form. It's far less confusing to
+>> have only have one version of the binding on the go at once.
+>>
+> 
+> Hi, Krzysztof and Conor
+> 
+> Due to the current aon pmu needs to be adjusted, it affects the syscon in PLL series.
+> So It's inevitable to change syscon in PLL series.
+> 
+> My current idea is PLL series don't add the aon_syscon node. I will add it in my
+> aon pmu series in next version like this:
+> 
+> aon_syscon: syscon@17010000 {
+> 	compatible = "starfive,jh7110-aon-pmu", "syscon";
+> 	reg = <0x0 0x17010000 0x0 0x1000>;
+> 	#power-domain-cells = <1>;
+> };
+> 
+> In my opinion, the first we add "starfive,jh7110-aon-syscon" because "syscon" can 
+> not appear alone in the compatible. If we have "starfive,jh7110-aon-pmu", this
+> "starfive,jh7110-aon-syscon" is not a must-be need.
+> 
+> Do you agree with doing so.
+
+Sorry guys, I don't know what you talk about. I have no clue what are
+PLL and aon series. More over I don't understand what is complicated
+here... all SoCs follow the same rules and similar way of development.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
