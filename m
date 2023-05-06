@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E20C77B73
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 09:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85F1C77B73
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 10:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=T2epb3i4407BRcOaPWH54IiDiYNJQjMIz6to3cU3RY0=; b=DqV
-	Ej6B1YQS8UVTpEkNiIVod4pKIlEk7kLl6mWODI1CGzR/ayir+0dxwy6c5uMVPOAoTUTgF2WiBUUCI
-	VYNW5x1kr+JLJm2viFDWqoKCoLkdiVEVPdCJtOkb6Nca8BZYZJ4YoRnm7V2//m04CChOThUB4PPje
-	+xbiVMCTJXiMBIUSwl0lycZ6RmNxOQRPk3HmkstWWk23vk08WzN8U9XGT5NTPtN3qVnJUcolbWPFD
-	hjwST5g191QEXGsavZe2AqGdVuTbDKq+2x0zeoiNiDaMQt6V0xbmEcbSup0n3mUl0EBkfUrMI2eJh
-	eao7sd9zZyQZ7/715eRo3711Tqbu5iw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6C+k+hv/Odij8fLuY0WpP3UUOZFyiYl+K+tA+ptmQ5c=; b=OdnCqnYpBXyDpPSHamITJi2EKD
+	ui/MgBCytjWt3Quak+rkC5NsJBW25eeKiPbsjFPEATKIiWiA4OhDTLjT4RNZbju0x7sICt8BXuQq/
+	BZ1afr74LA7h71rLSfqw1+DOWF0u6O6/DS/iXa8XORSWRj4uul9mfxcSNuXx4ZwdkqDXWVEjfVx1Q
+	b/XPObGWY0uwPsgHt8YkYoPbMrb7+aLRJfULYBuPdGNBHXtpnEWXpXrWRMAKL287/m4UXCqg74ziV
+	xnsqrxx1aKmGejZ2fpiuoEaIMAtXURkHB3yEocYXSE+vnr3vSyoaohYPh+Gkj1QpH+FhNLe8VGNlO
+	+sVkGX9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvDxO-00Cxe2-2I;
-	Sat, 06 May 2023 09:11:58 +0000
-Received: from mxhk.zte.com.cn ([63.216.63.40])
+	id 1pvEyY-00D3s0-1Y;
+	Sat, 06 May 2023 10:17:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvDxL-00CxdG-2f
-	for linux-riscv@lists.infradead.org;
-	Sat, 06 May 2023 09:11:57 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	id 1pvEyU-00D3rL-2R;
+	Sat, 06 May 2023 10:17:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4QD1yf11sMz8RTWg;
-	Sat,  6 May 2023 17:11:54 +0800 (CST)
-Received: from xaxapp03.zte.com.cn ([10.88.97.17])
-	by mse-fl1.zte.com.cn with SMTP id 3469BcJB042686;
-	Sat, 6 May 2023 17:11:39 +0800 (+08)
-	(envelope-from ye.xingchen@zte.com.cn)
-Received: from mapi (xaxapp02[null])
-	by mapi (Zmail) with MAPI id mid31;
-	Sat, 6 May 2023 17:11:41 +0800 (CST)
-Date: Sat, 6 May 2023 17:11:41 +0800 (CST)
-X-Zmail-TransId: 2afa645619cdfffffffff19-ec7f7
-X-Mailer: Zmail v1.0
-Message-ID: <202305061711417142802@zte.com.cn>
-Mime-Version: 1.0
-From: <ye.xingchen@zte.com.cn>
-To: <paul.walmsley@sifive.com>
-Cc: <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <guoren@kernel.org>,
-        <sergey.matyukevich@syntacore.com>, <dylan@andestech.com>,
-        <ajones@ventanamicro.com>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogbW06IHVzZSBiaXRtYXBfemVybygpIEFQSQ==?=
-X-MAIL: mse-fl1.zte.com.cn 3469BcJB042686
-X-Fangmail-Gw-Spam-Type: 0
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 645619DA.000/4QD1yf11sMz8RTWg
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6CF6561A09;
+	Sat,  6 May 2023 10:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B11C433EF;
+	Sat,  6 May 2023 10:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1683368228;
+	bh=2BKyMfWbuzam8pPIQKLxv0HwFgMr99AvmaRkf2dAMAo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eIlKEx96qJxg5USu2rhGUPWJhb9u/8flrMmDA0LQgtPSgW5Tf0Pv/FJFVLoUijcDt
+	 pu4/D0odINeiCivQMNpjTt7hM/yIbbAt5q1YAMW37qWmOvMV8fIodOm9kUQh8xxF+e
+	 TERZyFDzjLbo5PEZRrfR2C4oqJSMs0/juZm/XhYx2z3UCWrXnTjhwf3u7nqz13//sM
+	 Be9XcwPCT3fwubVr9HcokKmXGetwyx/nQR1I7i+/DbtyRyj+pH4DuwlUbcOUethHbB
+	 kM06XhXg+iXLKvzBPchI19Qr76NsBiITQ1Ug1MO9Wf8QFX2Eqe9A/xrixtKD7rpUO7
+	 WMff7sfQQysgw==
+Date: Sat, 6 May 2023 11:17:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	vkoul@kernel.org, linux-phy@lists.infradead.org
+Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
+Message-ID: <20230506-dating-twiddling-b364de21ed2b@spud>
+References: <089e24d1-588a-4a56-f00b-0b35d1d99295@linaro.org>
+ <ea5b5534-8fc2-7c84-a011-c1b42c6ed7a0@starfivetech.com>
+ <1ac26c1a-1726-515d-6598-849a07ed0b86@linaro.org>
+ <5adda0ad-965c-fbf0-878c-9d41d28b5c39@starfivetech.com>
+ <86693969-59bf-5bcc-42a3-b6e94a0d6f3e@linaro.org>
+ <fcfc8ba4-40a7-da43-3375-712bd7e7f4d5@starfivetech.com>
+ <20230504-worshiper-ongoing-5581e1f2c2c4@wendy>
+ <2f473307-2219-61a4-fa66-5848fe566cf0@starfivetech.com>
+ <20230505-magician-poet-724c96020c2f@wendy>
+ <ba6a1a47-d3b1-ee16-4785-f5c61d593127@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <ba6a1a47-d3b1-ee16-4785-f5c61d593127@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230506_021156_017356_7205543C 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230506_031710_896193_F35CE5F2 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,38 +86,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5526440190272542384=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ye Xingchen <ye.xingchen@zte.com.cn>
 
-bitmap_zero() is faster than bitmap_clear(), so use bitmap_zero()
-instead of bitmap_clear().
+--===============5526440190272542384==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="olYpGZlk/8KzYW4Y"
+Content-Disposition: inline
 
-Signed-off-by: Ye Xingchen <ye.xingchen@zte.com.cn>
----
- arch/riscv/mm/context.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 12e22e7330e7..217fd4de6134 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -67,7 +67,7 @@ static void __flush_context(void)
- 	lockdep_assert_held(&context_lock);
+--olYpGZlk/8KzYW4Y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- 	/* Update the list of reserved ASIDs and the ASID bitmap. */
--	bitmap_clear(context_asid_map, 0, num_asids);
-+	bitmap_zero(context_asid_map, num_asids);
+On Sat, May 06, 2023 at 09:45:07AM +0800, Changhuang Liang wrote:
+>=20
+>=20
+> On 2023/5/5 20:38, Conor Dooley wrote:
+> > On Fri, May 05, 2023 at 09:29:15AM +0800, Changhuang Liang wrote:
+> >=20
+> >> But if keep this "starfive,jh7110-aon-syscon" compatible. Which .yaml =
+match to
+> >> it? Use this series dt-bindings or syscon series dt-bindings.
+> >=20
+> > There is no syscon series anymore, it's part of the PLL series now:
+> > https://lore.kernel.org/linux-clk/20230414024157.53203-1-xingyu.wu@star=
+fivetech.com/
+> >=20
+> > I don't really care what you, Walker & Xingyu decide to do, but add the
+> > binding in one series in a complete form. It's far less confusing to
+> > have only have one version of the binding on the go at once.
+> >=20
+>=20
+> Due to the current aon pmu needs to be adjusted, it affects the syscon in=
+ PLL series.
+> So It's inevitable to change syscon in PLL series.
+>=20
+> My current idea is PLL series don't add the aon_syscon node. I will add i=
+t in my
+> aon pmu series in next version
 
- 	/* Mark already active ASIDs as used */
- 	for_each_possible_cpu(i) {
--- 
-2.25.1
+That's fine. Rob was happy with the clock related parts, which was the
+original source of confusion there.
+
+> like this:
+>=20
+> aon_syscon: syscon@17010000 {
+> 	compatible =3D "starfive,jh7110-aon-pmu", "syscon";
+
+The syscon does a bunch of things of which one is a pmu. I don't see a
+reason to name this other than "starfive,jh100-aon-syscon".
+
+> 	reg =3D <0x0 0x17010000 0x0 0x1000>;
+> 	#power-domain-cells =3D <1>;
+> };
+>=20
+> In my opinion, the first we add "starfive,jh7110-aon-syscon" because "sys=
+con" can=20
+> not appear alone in the compatible. If we have "starfive,jh7110-aon-pmu",=
+ this
+> "starfive,jh7110-aon-syscon" is not a must-be need.
+>=20
+> Do you agree with doing so.
+>=20
+> Thanks,
+> Changhuang
+
+--olYpGZlk/8KzYW4Y
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFYpHwAKCRB4tDGHoIJi
+0kWCAQCtW6PQ5IpHye69XI8USA4fSTwZKDy0/Fm4JQDlGIHRMgD+K+m3qWCEW3WU
+3xk9P7m7lDqQ3ymNIrglttPFeuusjAs=
+=098q
+-----END PGP SIGNATURE-----
+
+--olYpGZlk/8KzYW4Y--
+
+
+--===============5526440190272542384==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5526440190272542384==--
+
