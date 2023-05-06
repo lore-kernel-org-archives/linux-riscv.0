@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE34C77B73
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 21:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95372C77B7F
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 May 2023 21:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NgRO9Wg3DSHflXwynVDE3Os+4hkzEwdLWRktDvQE/uU=; b=l9kdgenv3ChRYK
-	4SfiRO7qEvBN3r+U7lnmlorsmzDyjd5/1fvavDF+ep7uHP0CFS9DNeHiwFq+OHNEOlLm4wPjqY11M
-	ddGI9tdyjN+bUtjt4AyLHKo39AKvLu7XFr/eEPY0krjB7aRK4hSNIipjx1v32IafK0R3ahgCH1MpZ
-	Y6v62PHprzseOIZPamrH5juT2kvpVdN9YSqjlQuB2bvhqGC75el/jP7fzT7rxNNuidLEKDuVPU0Vn
-	zaYP46WhINCeNOx4Vs4DvCaBXDbj+trk+2RUAWeBGm+sIg5of0GuFzf1yfvNZlgGzdspFKV4ANs0e
-	BRqoweRAdY6XdVlUSpLg==;
+	List-Owner; bh=Dc410VuysMxJmIXDpt+tXSneTFY4LwRiusdYo0DgSm0=; b=3a1EmobjRCzExt
+	k1ZMuSsX6q65q+rUBqGmnHmsybvr5leiw8/pcoAv9lBnB+rolyw9GWYDR+AQADkf6pBuiWNfo69Rz
+	m0GB9H2IArLF2Kd3WIm4kKzMnAdyRzLYh9rj+vLDSDMkZL8Ny/ovE+2OBPOyD3bkT9nQS3LxkwnbV
+	a/L2modxqXb0gJbyccPvqxGxpNwk3JxQJ55OSiFWa1T7Fl1Z/Ax99Il6IzNssK5RltmNRD8cnhyGf
+	WSUSfmkKnDp3xsJNBY0fyPk+3kU/sNv5XCio6ZoXeZ4QDeCHY1nBRqhISogY3N6uK7jQ3ycz4FevS
+	yeP6P49IVNF3njABeukA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvPvY-00ERAv-2M;
-	Sat, 06 May 2023 21:58:52 +0000
+	id 1pvPvu-00ERFU-2d;
+	Sat, 06 May 2023 21:59:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvPvT-00ER9o-2y;
-	Sat, 06 May 2023 21:58:49 +0000
+	id 1pvPvp-00ERE2-2Z;
+	Sat, 06 May 2023 21:59:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBAE81FB;
-	Sat,  6 May 2023 14:59:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35B8E1FB;
+	Sat,  6 May 2023 14:59:50 -0700 (PDT)
 Received: from slackpad.lan (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7CF0A3F5A1;
-	Sat,  6 May 2023 14:58:42 -0700 (PDT)
-Date: Sat, 6 May 2023 22:58:28 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 990333F5A1;
+	Sat,  6 May 2023 14:59:02 -0700 (PDT)
+Date: Sat, 6 May 2023 22:58:48 +0100
 From: Andre Przywara <andre.przywara@arm.com>
 To: Maksim Kiselev <bigunclemax@gmail.com>
 Cc: Icenowy Zheng <icenowy@aosc.io>, Mark Brown <broonie@kernel.org>, Rob
@@ -42,21 +42,23 @@ Cc: Icenowy Zheng <icenowy@aosc.io>, Mark Brown <broonie@kernel.org>, Rob
  Samuel Holland <samuel@sholland.org>, Paul Walmsley
  <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
  <aou@eecs.berkeley.edu>, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>, Maxime Ripard <mripard@kernel.org>,
+ <cristian.ciocaltea@collabora.com>, Heiko Stuebner
+ <heiko.stuebner@vrull.eu>, Maxime Ripard <mripard@kernel.org>,
  linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/6] spi: sun6i: change OF match data to a struct
-Message-ID: <20230506225828.3a2d1ef0@slackpad.lan>
-In-Reply-To: <20230506073018.1411583-3-bigunclemax@gmail.com>
+Subject: Re: [PATCH v2 3/6] spi: sun6i: add quirk for in-controller clock
+ divider
+Message-ID: <20230506225848.3278d7ab@slackpad.lan>
+In-Reply-To: <20230506073018.1411583-4-bigunclemax@gmail.com>
 References: <20230506073018.1411583-1-bigunclemax@gmail.com>
-	<20230506073018.1411583-3-bigunclemax@gmail.com>
+	<20230506073018.1411583-4-bigunclemax@gmail.com>
 Organization: Arm Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230506_145848_055288_E3C10FA6 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20230506_145909_934750_6691FE3F 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,131 +75,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat,  6 May 2023 10:30:10 +0300
+On Sat,  6 May 2023 10:30:11 +0300
 Maksim Kiselev <bigunclemax@gmail.com> wrote:
 
 > From: Icenowy Zheng <icenowy@aosc.io>
 > 
-> As we're adding more properties to the OF match data, convert it to a
-> struct now.
-
-Confirmed to be just a refactor of the existing code.
-
+> Previously SPI controllers in Allwinner SoCs has a clock divider inside.
+> However now the clock divider is removed and to set the transfer clock
+> rate it's only needed to set the SPI module clock to the target value.
+> 
+> Add a quirk for this kind of SPI controllers.
+> 
 > Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+> ---
+>  drivers/spi/spi-sun6i.c | 68 +++++++++++++++++++++++------------------
+>  1 file changed, 38 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
+> index 01a01cd86db5..82523011a3a5 100644
+> --- a/drivers/spi/spi-sun6i.c
+> +++ b/drivers/spi/spi-sun6i.c
+> @@ -87,6 +87,7 @@
+>  
+>  struct sun6i_spi_cfg {
+>  	unsigned long		fifo_depth;
+> +	bool			has_clk_ctl;
+>  };
+>  
+>  struct sun6i_spi {
+> @@ -260,7 +261,7 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
+>  				  struct spi_transfer *tfr)
+>  {
+>  	struct sun6i_spi *sspi = spi_master_get_devdata(master);
+> -	unsigned int mclk_rate, div, div_cdr1, div_cdr2, timeout;
+> +	unsigned int div, div_cdr1, div_cdr2, timeout;
+>  	unsigned int start, end, tx_time;
+>  	unsigned int trig_level;
+>  	unsigned int tx_len = 0, rx_len = 0;
+> @@ -350,39 +351,44 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
+>  
+>  	sun6i_spi_write(sspi, SUN6I_TFR_CTL_REG, reg);
+>  
+> -	/* Ensure that we have a parent clock fast enough */
+> -	mclk_rate = clk_get_rate(sspi->mclk);
+> -	if (mclk_rate < (2 * tfr->speed_hz)) {
+> -		clk_set_rate(sspi->mclk, 2 * tfr->speed_hz);
+> -		mclk_rate = clk_get_rate(sspi->mclk);
+> -	}
+> +	if (sspi->cfg->has_clk_ctl) {
+> +		unsigned int mclk_rate = clk_get_rate(sspi->mclk);
 
-Even if you don't change anything, and just send a patch on her behalf,
-you need to add you own Signed-off-by: (applies to the other patches as
-well). With that fixed:
+New line here please, to separate variable declaration from code.
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> +		/* Ensure that we have a parent clock fast enough */
+> +		if (mclk_rate < (2 * tfr->speed_hz)) {
+> +			clk_set_rate(sspi->mclk, 2 * tfr->speed_hz);
+> +			mclk_rate = clk_get_rate(sspi->mclk);
+> +		}
+>  
+> -	/*
+> -	 * Setup clock divider.
+> -	 *
+> -	 * We have two choices there. Either we can use the clock
+> -	 * divide rate 1, which is calculated thanks to this formula:
+> -	 * SPI_CLK = MOD_CLK / (2 ^ cdr)
+> -	 * Or we can use CDR2, which is calculated with the formula:
+> -	 * SPI_CLK = MOD_CLK / (2 * (cdr + 1))
+> -	 * Wether we use the former or the latter is set through the
+> -	 * DRS bit.
+> -	 *
+> -	 * First try CDR2, and if we can't reach the expected
+> -	 * frequency, fall back to CDR1.
+> -	 */
+> -	div_cdr1 = DIV_ROUND_UP(mclk_rate, tfr->speed_hz);
+> -	div_cdr2 = DIV_ROUND_UP(div_cdr1, 2);
+> -	if (div_cdr2 <= (SUN6I_CLK_CTL_CDR2_MASK + 1)) {
+> -		reg = SUN6I_CLK_CTL_CDR2(div_cdr2 - 1) | SUN6I_CLK_CTL_DRS;
+> -		tfr->effective_speed_hz = mclk_rate / (2 * div_cdr2);
+> +		/*
+> +		 * Setup clock divider.
+> +		 *
+> +		 * We have two choices there. Either we can use the clock
+> +		 * divide rate 1, which is calculated thanks to this formula:
+> +		 * SPI_CLK = MOD_CLK / (2 ^ cdr)
+> +		 * Or we can use CDR2, which is calculated with the formula:
+> +		 * SPI_CLK = MOD_CLK / (2 * (cdr + 1))
+> +		 * Wether we use the former or the latter is set through the
+> +		 * DRS bit.
+> +		 *
+> +		 * First try CDR2, and if we can't reach the expected
+> +		 * frequency, fall back to CDR1.
+> +		 */
+> +		div_cdr1 = DIV_ROUND_UP(mclk_rate, tfr->speed_hz);
+> +		div_cdr2 = DIV_ROUND_UP(div_cdr1, 2);
+> +		if (div_cdr2 <= (SUN6I_CLK_CTL_CDR2_MASK + 1)) {
+> +			reg = SUN6I_CLK_CTL_CDR2(div_cdr2 - 1) | SUN6I_CLK_CTL_DRS;
+> +			tfr->effective_speed_hz = mclk_rate / (2 * div_cdr2);
+> +		} else {
+> +			div = min(SUN6I_CLK_CTL_CDR1_MASK, order_base_2(div_cdr1));
+> +			reg = SUN6I_CLK_CTL_CDR1(div);
+> +			tfr->effective_speed_hz = mclk_rate / (1 << div);
+> +		}
+> +
+> +		sun6i_spi_write(sspi, SUN6I_CLK_CTL_REG, reg);
+>  	} else {
+> -		div = min(SUN6I_CLK_CTL_CDR1_MASK, order_base_2(div_cdr1));
+> -		reg = SUN6I_CLK_CTL_CDR1(div);
+> -		tfr->effective_speed_hz = mclk_rate / (1 << div);
+> +		clk_set_rate(sspi->mclk, tfr->speed_hz);
+
+Don't we need to set tfr->effective_speed_hz to the actually programmed
+clock rate here?
+
+The rest looks fine, it's really mostly that old block indented.
 
 Cheers,
 Andre
 
-> ---
->  drivers/spi/spi-sun6i.c | 32 ++++++++++++++++++++++----------
->  1 file changed, 22 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
-> index 7532c85a352c..01a01cd86db5 100644
-> --- a/drivers/spi/spi-sun6i.c
-> +++ b/drivers/spi/spi-sun6i.c
-> @@ -85,6 +85,10 @@
->  #define SUN6I_TXDATA_REG		0x200
->  #define SUN6I_RXDATA_REG		0x300
+>  	}
 >  
-> +struct sun6i_spi_cfg {
-> +	unsigned long		fifo_depth;
-> +};
-> +
->  struct sun6i_spi {
->  	struct spi_master	*master;
->  	void __iomem		*base_addr;
-> @@ -99,7 +103,7 @@ struct sun6i_spi {
->  	const u8		*tx_buf;
->  	u8			*rx_buf;
->  	int			len;
-> -	unsigned long		fifo_depth;
-> +	const struct sun6i_spi_cfg *cfg;
+> -	sun6i_spi_write(sspi, SUN6I_CLK_CTL_REG, reg);
+>  	/* Finally enable the bus - doing so before might raise SCK to HIGH */
+>  	reg = sun6i_spi_read(sspi, SUN6I_GBL_CTL_REG);
+>  	reg |= SUN6I_GBL_CTL_BUS_ENABLE;
+> @@ -701,10 +707,12 @@ static void sun6i_spi_remove(struct platform_device *pdev)
+>  
+>  static const struct sun6i_spi_cfg sun6i_a31_spi_cfg = {
+>  	.fifo_depth	= SUN6I_FIFO_DEPTH,
+> +	.has_clk_ctl	= true,
 >  };
 >  
->  static inline u32 sun6i_spi_read(struct sun6i_spi *sspi, u32 reg)
-> @@ -156,7 +160,7 @@ static inline void sun6i_spi_fill_fifo(struct sun6i_spi *sspi)
->  	u8 byte;
+>  static const struct sun6i_spi_cfg sun8i_h3_spi_cfg = {
+>  	.fifo_depth	= SUN8I_FIFO_DEPTH,
+> +	.has_clk_ctl	= true,
+>  };
 >  
->  	/* See how much data we can fit */
-> -	cnt = sspi->fifo_depth - sun6i_spi_get_tx_fifo_count(sspi);
-> +	cnt = sspi->cfg->fifo_depth - sun6i_spi_get_tx_fifo_count(sspi);
->  
->  	len = min((int)cnt, sspi->len);
->  
-> @@ -289,14 +293,14 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
->  		 * the hardcoded value used in old generation of Allwinner
->  		 * SPI controller. (See spi-sun4i.c)
->  		 */
-> -		trig_level = sspi->fifo_depth / 4 * 3;
-> +		trig_level = sspi->cfg->fifo_depth / 4 * 3;
->  	} else {
->  		/*
->  		 * Setup FIFO DMA request trigger level
->  		 * We choose 1/2 of the full fifo depth, that value will
->  		 * be used as DMA burst length.
->  		 */
-> -		trig_level = sspi->fifo_depth / 2;
-> +		trig_level = sspi->cfg->fifo_depth / 2;
->  
->  		if (tfr->tx_buf)
->  			reg |= SUN6I_FIFO_CTL_TF_DRQ_EN;
-> @@ -410,9 +414,9 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
->  	reg = SUN6I_INT_CTL_TC;
->  
->  	if (!use_dma) {
-> -		if (rx_len > sspi->fifo_depth)
-> +		if (rx_len > sspi->cfg->fifo_depth)
->  			reg |= SUN6I_INT_CTL_RF_RDY;
-> -		if (tx_len > sspi->fifo_depth)
-> +		if (tx_len > sspi->cfg->fifo_depth)
->  			reg |= SUN6I_INT_CTL_TF_ERQ;
->  	}
->  
-> @@ -543,7 +547,7 @@ static bool sun6i_spi_can_dma(struct spi_master *master,
->  	 * the fifo length we can just fill the fifo and wait for a single
->  	 * irq, so don't bother setting up dma
->  	 */
-> -	return xfer->len > sspi->fifo_depth;
-> +	return xfer->len > sspi->cfg->fifo_depth;
->  }
->  
->  static int sun6i_spi_probe(struct platform_device *pdev)
-> @@ -582,7 +586,7 @@ static int sun6i_spi_probe(struct platform_device *pdev)
->  	}
->  
->  	sspi->master = master;
-> -	sspi->fifo_depth = (unsigned long)of_device_get_match_data(&pdev->dev);
-> +	sspi->cfg = of_device_get_match_data(&pdev->dev);
->  
->  	master->max_speed_hz = 100 * 1000 * 1000;
->  	master->min_speed_hz = 3 * 1000;
-> @@ -695,9 +699,17 @@ static void sun6i_spi_remove(struct platform_device *pdev)
->  		dma_release_channel(master->dma_rx);
->  }
->  
-> +static const struct sun6i_spi_cfg sun6i_a31_spi_cfg = {
-> +	.fifo_depth	= SUN6I_FIFO_DEPTH,
-> +};
-> +
-> +static const struct sun6i_spi_cfg sun8i_h3_spi_cfg = {
-> +	.fifo_depth	= SUN8I_FIFO_DEPTH,
-> +};
-> +
 >  static const struct of_device_id sun6i_spi_match[] = {
-> -	{ .compatible = "allwinner,sun6i-a31-spi", .data = (void *)SUN6I_FIFO_DEPTH },
-> -	{ .compatible = "allwinner,sun8i-h3-spi",  .data = (void *)SUN8I_FIFO_DEPTH },
-> +	{ .compatible = "allwinner,sun6i-a31-spi", .data = &sun6i_a31_spi_cfg },
-> +	{ .compatible = "allwinner,sun8i-h3-spi",  .data = &sun8i_h3_spi_cfg },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, sun6i_spi_match);
 
 
 _______________________________________________
