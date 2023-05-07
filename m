@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15881C77B7D
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 May 2023 04:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD8AC77B7C
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 May 2023 04:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t4Z96yyCk+z4LCJ46Vsi3/kuBuEVb7RAoZ8Hnf3Nu1s=; b=QiI67ocpQivCXV
-	ftYM+CxFoUQi4R8epfCBjxLV1ovMdq981xpArtExWGHsvMeWWZCtzq9T3ma8iDfv0hTN+u+kNeYeC
-	MvHrud0GTVPEN9i2iBcsankoZc4EPmjK+hdbM4iqloahOfT76wupWP0/BDzak5eRwj8V/AxArbN09
-	zTjBWfud7EN/B1N+aYKnmoDGxHSk/gGh3osXLvK7LVk7EHDa0YtCakkLkAB+4KupLJxY31dQx4vgb
-	0ZdJQcV3caEP3WKKzFj/vpZ2Jh48fo757Q+GPK1DyJojet5qtYfJRRyy0ASkrtoxQqXI64i+PvyBG
-	qpxkX57ot4Q4zt7Lph4Q==;
+	List-Owner; bh=qTXbGNTxanU3LYzChlGcyq16YHTmt6dbP/xfB4wKNWg=; b=xOvsI1Ykzo1vW8
+	qVQ9Zv/m3hbqRkPl1uoIALqTJpQLTOLAakITX5wc0W5yuzgoxTVD7MlQVQlLWaGxczEDPYq+qHEPv
+	Sy4htBvFIyjPNdAyN8mIRd6PkAmpOKe/AzoYpSeOcU+caQqtutJwI5iJlheB3BzBcwqRaBANEkEOH
+	F5Xwh3528PbDPd33P5ZibuxudgX7yhwcYovE2FyXOjpzlRldR+5MCJLiIhbEDyKPooGtqdq9IELxA
+	lxjgWOZIp0xqeVvCtDupJiWCIFW83ANRE9/ltnC90XR7NGnOSf6QpN9xFOpwyckn8urEbu5+eTwni
+	yzaGDxFS36cMOVzeYGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvVav-00F6sY-1i;
-	Sun, 07 May 2023 04:01:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pvVgJ-00F7OU-1u;
+	Sun, 07 May 2023 04:07:31 +0000
+Received: from relay1.mymailcheap.com ([149.56.97.132])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvVat-00F6rI-1P;
-	Sun, 07 May 2023 04:01:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Tm3SRrA4SJDcdCywgZMwcG/iIZMVXNj+W18OTc7O+Q4=; b=cOWUxR7XfCMM226oph7WJsRYmm
-	MEcpMGs3cE58Wf2K5AahnFEmM+SlDt6DmjF6f/Bizh+hK/7PGGHPTKdlnrHqHbAJ+D0gbNxjc3/sv
-	GmRDP9ES89i5otsZ03hpHlzXKV7p9LsTIV49wvmDEvsD16KWFp1g7PcCVCb26fWnVimUuKvRpcxIO
-	7WQUcdwbboaEzH6g4nLBJNVsuQsuPLYUUzJ4j8nkngzOfF43UCYETBemfM87r/rlRFbIt5QEeZflY
-	4doKj0PfvhPying2ITEtMqVSBUVRG+n1WorhoyPxFDOgWef+i78XepLF20uSxFdj4GdgcPDwTeyyg
-	86W886zQ==;
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvVal-004K6c-1r;
-	Sun, 07 May 2023 04:01:53 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5BE7E24DFDC;
-	Sun,  7 May 2023 12:00:45 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 7 May
- 2023 12:00:45 +0800
-Received: from [192.168.125.107] (183.27.98.219) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 7 May
- 2023 12:00:44 +0800
-Message-ID: <976dbe61-9edd-6003-1d32-888a90c1157f@starfivetech.com>
-Date: Sun, 7 May 2023 12:00:44 +0800
+	id 1pvVgD-00F7Mi-1x;
+	Sun, 07 May 2023 04:07:28 +0000
+Received: from nf2.mymailcheap.com (nf2.mymailcheap.com [54.39.180.165])
+	by relay1.mymailcheap.com (Postfix) with ESMTPS id 078F03E893;
+	Sun,  7 May 2023 04:07:15 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf2.mymailcheap.com (Postfix) with ESMTPSA id B373E400B2;
+	Sun,  7 May 2023 04:07:14 +0000 (UTC)
+Received: from edelgard.fodlan.icenowy.me (unknown [120.85.98.36])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id 42790404FD;
+	Sun,  7 May 2023 04:07:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1683432433; bh=VKhyQVHv7gLapC8uuccb7Z7+xww5vCN2987TJ7u6i2M=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=bDEMDKQWkklC2mLfOlH6wt5yA/OwFxxAPr6suM+OhmkaRKcJXXjY0JFFdRNYCw5+g
+	 3+185DLOhLfF1TE2xLNtbFCiIGFyy8pgpyTGQwMqZV48I3k1oPYnEP/bfSz0S/tyyR
+	 sRAb0aI//lfxoZmTIDzvwcgTiin8RN3WAWzyjiiY=
+Message-ID: <835082fe07b77db8598aebabe98a74c2c5ac47d1.camel@aosc.io>
+Subject: Re: [PATCH v3 1/5] dt-bindings: spi: sun6i: add DT bindings for
+ Allwinner R329/D1/R528/T113s SPI
+From: Icenowy Zheng <icenowy@aosc.io>
+To: Maksim Kiselev <bigunclemax@gmail.com>, Andre Przywara
+	 <andre.przywara@arm.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>,  Maxime Ripard <mripard@kernel.org>,
+ linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Sun, 07 May 2023 12:06:58 +0800
+In-Reply-To: <20230506232616.1792109-2-bigunclemax@gmail.com>
+References: <20230506232616.1792109-1-bigunclemax@gmail.com>
+	 <20230506232616.1792109-2-bigunclemax@gmail.com>
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [RESEND v2 1/6] dt-bindings: power: Add JH7110 AON PMU support
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Rob Herring <robh+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Walker Chen
-	<walker.chen@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <vkoul@kernel.org>,
-	<linux-phy@lists.infradead.org>
-References: <1ac26c1a-1726-515d-6598-849a07ed0b86@linaro.org>
- <5adda0ad-965c-fbf0-878c-9d41d28b5c39@starfivetech.com>
- <86693969-59bf-5bcc-42a3-b6e94a0d6f3e@linaro.org>
- <fcfc8ba4-40a7-da43-3375-712bd7e7f4d5@starfivetech.com>
- <20230504-worshiper-ongoing-5581e1f2c2c4@wendy>
- <2f473307-2219-61a4-fa66-5848fe566cf0@starfivetech.com>
- <20230505-magician-poet-724c96020c2f@wendy>
- <ba6a1a47-d3b1-ee16-4785-f5c61d593127@starfivetech.com>
- <20230506-dating-twiddling-b364de21ed2b@spud>
- <b1965ae2-af2d-b11c-3e34-8129c29333b8@starfivetech.com>
- <20230506-foil-basis-31724c50b30b@spud>
-Content-Language: en-US
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230506-foil-basis-31724c50b30b@spud>
-X-Originating-IP: [183.27.98.219]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX062.cuchost.com
- (172.16.6.62)
-X-YovoleRuleAgent: yovoleflag
+X-Rspamd-Server: nf2.mymailcheap.com
+X-Rspamd-Queue-Id: B373E400B2
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [1.50 / 10.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MIME_BASE64_TEXT(0.10)[];
+	MIME_GOOD(-0.10)[text/plain];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com,arm.com];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	FREEMAIL_CC(0.00)[kernel.org,linaro.org,csie.org,gmail.com,sholland.org,sifive.com,dabbelt.com,eecs.berkeley.edu,collabora.com,vger.kernel.org,lists.infradead.org,lists.linux.dev];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230507_050149_365313_A1261F04 
-X-CRM114-Status: UNSURE (   5.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230506_210725_743644_DCF6D5B0 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,24 +103,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/5/6 20:29, Conor Dooley wrote:
-> On Sat, May 06, 2023 at 08:26:01PM +0800, Changhuang Liang wrote:
-> 
->> OK, will replace "starfive,jh7110-aon-pmu" with "starfive,jh100-aon-syscon" in this series.
->                                                             ^^^^^
-> Just make sure you don't propagate my typo here in the process.
-> 
-
-Yes, "starfive,jh7110-aon-syscon"
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjMtMDUtMDfmmJ/mnJ/ml6XnmoQgMDI6MjYgKzAzMDDvvIxNYWtzaW0gS2lzZWxlduWG
+memBk++8mgo+IExpc3RlZCBhYm92ZSBBbGx3aW5uZXIgU29DcyBoYXMgdHdvIFNQSSBjb250cm9s
+bGVycy4gRmlyc3QgaXMgdGhlCj4gcmVndWxhcgo+IFNQSSBjb250cm9sbGVyIGFuZCB0aGUgc2Vj
+b25kIG9uZSBoYXMgYWRkaXRpb25hbCBmdW5jdGlvbmFsaXR5IGZvcgo+IE1JUEktREJJIFR5cGUg
+Qy4KPiAKPiBBZGQgY29tcGF0aWJsZSBzdHJpbmdzIGZvciB0aGVzZSBjb250cm9sbGVycwo+IAo+
+IFNpZ25lZC1vZmYtYnk6IE1ha3NpbSBLaXNlbGV2IDxiaWd1bmNsZW1heEBnbWFpbC5jb20+Cj4g
+LS0tCj4gwqAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9zcGkvYWxsd2lubmVyLHN1bjZpLWEzMS1z
+cGkueWFtbMKgwqAgfCA3Cj4gKysrKysrKwo+IMKgMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9u
+cygrKQo+IAo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
+c3BpL2FsbHdpbm5lcixzdW42aS0KPiBhMzEtc3BpLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2Rldmlj
+ZXRyZWUvYmluZGluZ3Mvc3BpL2FsbHdpbm5lcixzdW42aS0KPiBhMzEtc3BpLnlhbWwKPiBpbmRl
+eCBkZTM2YzZhMzRhMGYuLjgwN2RkZTQ1N2UzYiAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9u
+L2RldmljZXRyZWUvYmluZGluZ3Mvc3BpL2FsbHdpbm5lcixzdW42aS1hMzEtCj4gc3BpLnlhbWwK
+PiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc3BpL2FsbHdpbm5lcixz
+dW42aS1hMzEtCj4gc3BpLnlhbWwKPiBAQCAtMjEsNiArMjEsNyBAQCBwcm9wZXJ0aWVzOgo+IMKg
+wqDCoMKgIG9uZU9mOgo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBhbGx3aW5uZXIsc3VuNmktYTMx
+LXNwaQo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBhbGx3aW5uZXIsc3VuOGktaDMtc3BpCj4gK8Kg
+wqDCoMKgwqAgLSBjb25zdDogYWxsd2lubmVyLHN1bjUwaS1yMzI5LXNwaQo+IMKgwqDCoMKgwqDC
+oCAtIGl0ZW1zOgo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZW51bToKPiDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIC0gYWxsd2lubmVyLHN1bjhpLXI0MC1zcGkKPiBAQCAtMjgsNiArMjks
+MTIgQEAgcHJvcGVydGllczoKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gYWxsd2lu
+bmVyLHN1bjUwaS1oNjE2LXNwaQo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBhbGx3
+aW5uZXIsc3VuaXYtZjFjMTAwcy1zcGkKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBh
+bGx3aW5uZXIsc3VuOGktaDMtc3BpCj4gK8KgwqDCoMKgwqAgLSBpdGVtczoKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgIC0gZW51bToKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBhbGx3aW5u
+ZXIsc3VuMjBpLWQxLXNwaQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGFsbHdpbm5l
+cixzdW4yMGktZDEtc3BpLWRiaQoKSW4gdGhpcyBjYXNlIEkgd2lsbCBwcmVmZXIgdG8gbGlzdCBh
+bGwgNCBjb21wYXRpYmxlcyBpZiBiYWNrd2FyZApjb21wYXRpYmlsaXR5IGlzIHVzZWQ6CiJhbGx3
+aW5uZXIsc3VuMjBpLWQxLXNwaS1kYmkiLCAiYWxsd2lubmVyLXN1bjIwaS1kMS1zcGkiLAoiYWxs
+d2lubmVyLHN1bjUwaS1yMzI5LXNwaS1kYmkiLCAiYWxsd2lubmVyLCBzdW41MGktcjMyOS1zcGki
+LCBpbiBjYXNlCmlmIHdlIHdlcmUgZ2FpbmluZyBzdXBwb3J0IGZvciBlaXRoZXIgcXVpcmtzIG9m
+IEQxIGNvbnRyb2xsZXIgb3IKU1BJX0RCSSBjb250cm9sbGVycy4KCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIC0gYWxsd2lubmVyLHN1bjUwaS1yMzI5LXNwaS1kYmkKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgIC0gY29uc3Q6IGFsbHdpbm5lcixzdW41MGktcjMyOS1zcGkKPiDCoAo+IMKgwqAg
+cmVnOgo+IMKgwqDCoMKgIG1heEl0ZW1zOiAxCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
