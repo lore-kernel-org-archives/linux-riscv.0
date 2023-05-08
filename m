@@ -4,80 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998AAC77B75
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22446C77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 11:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AgK4U4TJGYtY7HSkMqasK6Zm9Q54T4KVx52PxPOzbrQ=; b=vW9CM+x4DK73XA
-	W/kspp2u5Z8KDA4B83gQTRnhIepFKJX+7JNvbeAjdO/qg5D1fKWIqmHLYdZaFOSxSNGnJACe/Qknx
-	RNGilA5N1tqLFeu8CcTVDsBMsRHsM17KrOrRaAREOVK+vnDpCRxIGbC1iPqgIz7woyjGq7bADiq6K
-	T/cJiX83UkBj9GVaoOgVC0SkIOPYa5pkRiBUCRqtuQjfj0Y5nqPJsyazz7R4ULKV+PBD1ApPSGwQl
-	SI5u5Y20u3YGKxDJhyiodW98XJfKvZxIRi0imKjjxLZNS4TjOqgD5NKPs7XYMLvOe7Ex3WJ7T4u1x
-	fcReXwEuF55nvONNZDKA==;
+	List-Owner; bh=9SosvBJl/ksRW6XJhE/OjKUP+7AQjRtjJjaTOjxWxNE=; b=vtnXRyULsv+34A
+	6HgM7VkZOFW9/h7UirBjqzlBZuxzoUXxcyez6hD+/XaHPMTsBogYBCtNBr+b7cxeFRN2qVL0zl30o
+	NR5t9tcIJrWXQUPt5Fg6xHdKp0ZD8msDP/T78q7xrWKiM7vAjvn5SJ9frsvQXkgM8wruTYaoojCxj
+	ZMZbrD4Gtpn8HKwvLzjjD7D87WIviLbPBuzJLJ+eM6zxkF6sYn0pWKsEe/a14Z/AyfWXQwYrwS6Nk
+	Y+/QcU2YQI7U714/lXhRj+PuhR0kBPHITB+H3jhy/JcNxr7To4Tk54udgbbDIdExqF9uy1SmNV9Vs
+	aBTbfYUlq05N7JIB85Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvxTz-0007Gc-2B;
-	Mon, 08 May 2023 09:48:39 +0000
-Received: from mga07.intel.com ([134.134.136.100])
+	id 1pvzQR-000Rv6-2M;
+	Mon, 08 May 2023 11:53:07 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvxTx-0007GC-07
+	id 1pvzQP-000RuE-0U
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 09:48:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1683539316; x=1715075316;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cWmWF6uKtJ7K13p4GwcrX3bQ+qpYDfz2qJtqq6XorVs=;
-  b=CNzmFOq5H7T4+T+kitMHlF1Zawz/ynAoqMHzQcQ+HXLEUQOvvdBkQTGL
-   mUQ5jGQ4pGtJO4IZgMLYnmZKS8LVpYrxdBo/l+uM+Wq6jQmNUurHYa1E/
-   KVW6jcbe3+N3/Yz9xC+kRCDq0M4aCOePBvlBU0rJob/2IT9e00Oop1Q0k
-   jPs0VckbpscQY3jwDzM8WSbTFafF8cTGPY6ZFmswY7uV8COGLxB58APok
-   qEeYVjRGmPs0m2njKHTcmvi5dn0rSJDUq/xc4eDO9Gl+Tjn3rX1jGxJPu
-   peRpe5/nrW+JxlbGf+jte44Ajf9gsXhCDKhvJ1XHi8FKvLkmchIh10BUM
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10703"; a="415163173"
-X-IronPort-AV: E=Sophos;i="5.99,258,1677571200"; 
-   d="scan'208";a="415163173"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2023 02:48:34 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10703"; a="788035025"
-X-IronPort-AV: E=Sophos;i="5.99,258,1677571200"; 
-   d="scan'208";a="788035025"
-Received: from lkp-server01.sh.intel.com (HELO dea6d5a4f140) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 08 May 2023 02:48:30 -0700
-Received: from kbuild by dea6d5a4f140 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pvxTp-0001An-1l;
-	Mon, 08 May 2023 09:48:29 +0000
-Date: Mon, 8 May 2023 17:48:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nylon Chen <nylon.chen@sifive.com>, aou@eecs.berkeley.edu,
-	conor@kernel.org, emil.renner.berthing@canonical.com,
-	geert+renesas@glider.be, heiko@sntech.de,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org,
-	thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de,
-	devicetree@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, nylon.chen@sifive.com,
-	nylon7717@gmail.com, zong.li@sifive.com, greentime.hu@sifive.com,
-	vincent.chen@sifive.com, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 2/2] pwm: sifive: change the PWM controlled LED
- algorithm
-Message-ID: <202305081759.wgN4Q80I-lkp@intel.com>
-References: <20230420093457.18936-3-nylon.chen@sifive.com>
+	Mon, 08 May 2023 11:53:06 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1aad5245571so29588865ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 08 May 2023 04:53:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1683546783; x=1686138783;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rfepdXJdsq6ohX2AkAAGDRO8NQz+5w0XQmMbJfl5w48=;
+        b=hWuy+ZiUw1JYUSFzt1E/M+vNy0IUQxsPk5lOKUyv1zV9wOWRmYghioaQiBULlwHm9s
+         jgnGlauoLdXVPoAMoxq4MadMMtFM/J5XWiJ9NMXuPt4LI8V/fO1wX4KQedMz02XonrpK
+         2bKULo+edMjXoVmEnOJdNrGtOaG6T6fhzIJUjWfnqw8QNcENZyq4HHdpt54CoYg1Mk4i
+         2xOHuUtc8rMwNFDQWtei/1baL+hX/1cAkLd71vAoyeotWh6p04MycEDBN2sWpxJBT6QD
+         d9zQ+HamS9r+B/LNFexRnGBokTG0UOkQpIbnT55w877Iq/XlSSM5alf3zJLvARbSSt8U
+         ngsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683546783; x=1686138783;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rfepdXJdsq6ohX2AkAAGDRO8NQz+5w0XQmMbJfl5w48=;
+        b=cQBwh72X4s+bKij1Z4pM619x7cT540IrrVjVpICYec2EVG9rGvDpnO72A1kOsGi8k9
+         JaqUWpHLpMc4Gg5XFBKPcBwUNf1ECriUR3TbUpbwHM7HYrDNO94pfI55LISfHSTDKDqx
+         +0RFaOz+1wAY66GqJ0c9v48JYMmWQ24J0MVfo9+QYvF6Knp9olPD415k+89FQ+P3gz11
+         ZXMelTvx4yh9hPijF5anFOapWQ6HbQ/nbJwqTCOe+u3cTstU1pTpcNV+lu+uAzDu/a4K
+         Dq80oDJTbnXKEVhTd7fBm6q2WoZyGQQDmR5wWuZ5HXaosMKl+cVr3oxpK32OtMWSZahX
+         TDLw==
+X-Gm-Message-State: AC+VfDxoK3XJebFF/mKs9UzPK32dlQQvOWAZhC0hdbcD91dSUYge6PXu
+	/jw1AcGJopGsdxENjMWRGGnPUg==
+X-Google-Smtp-Source: ACHHUZ6E5oSS35ppin16Fc2D/CJweZplodceAaOSb9zbK0yJSsiHXmdseC+7l9W8CGis6yGw0B7fxg==
+X-Received: by 2002:a17:902:ceca:b0:1a6:5fa2:3293 with SMTP id d10-20020a170902ceca00b001a65fa23293mr12096226plg.56.1683546783045;
+        Mon, 08 May 2023 04:53:03 -0700 (PDT)
+Received: from sunil-laptop.. ([106.51.189.144])
+        by smtp.gmail.com with ESMTPSA id w9-20020a170902904900b001aaed524541sm7015149plz.227.2023.05.08.04.52.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 May 2023 04:53:02 -0700 (PDT)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	llvm@lists.linux.dev
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Weili Qian <qianweili@huawei.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Maximilian Luz <luzmaximilian@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Mark Gross <markgross@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH V5 01/21] riscv: move sbi_init() earlier before jump_label_init()
+Date: Mon,  8 May 2023 17:22:17 +0530
+Message-Id: <20230508115237.216337-2-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230508115237.216337-1-sunilvl@ventanamicro.com>
+References: <20230508115237.216337-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230420093457.18936-3-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_024837_145370_65F34696 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20230508_045305_188812_1EDACF94 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,125 +118,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nylon,
+From: Jisheng Zhang <jszhang@kernel.org>
 
-kernel test robot noticed the following build warnings:
+We call jump_label_init() in setup_arch() is to use static key
+mechanism earlier, but riscv jump label relies on the sbi functions,
+If we enable static key before sbi_init(), the code path looks like:
+  static_branch_enable()
+    ..
+      arch_jump_label_transform()
+        patch_text_nosync()
+          flush_icache_range()
+            flush_icache_all()
+              sbi_remote_fence_i() for CONFIG_RISCV_SBI case
+                __sbi_rfence()
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on thierry-reding-pwm/for-next rockchip/for-next linus/master v6.4-rc1 next-20230508]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Since sbi isn't initialized, so NULL deference! Here is a typical
+panic log:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-dts-sifive-unleashed-unmatched-Remove-PWM-controlled-LED-s-active-low-properties/20230420-173619
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20230420093457.18936-3-nylon.chen%40sifive.com
-patch subject: [PATCH v3 2/2] pwm: sifive: change the PWM controlled LED algorithm
-config: powerpc-randconfig-s041-20230507 (https://download.01.org/0day-ci/archive/20230508/202305081759.wgN4Q80I-lkp@intel.com/config)
-compiler: powerpc-linux-gcc (GCC) 12.1.0
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # apt-get install sparse
-        # sparse version: v0.6.4-39-gce1a6720-dirty
-        # https://github.com/intel-lab-lkp/linux/commit/f2d706bf61190a45a8f90f1f455bc943d4ac7b6e
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Nylon-Chen/riscv-dts-sifive-unleashed-unmatched-Remove-PWM-controlled-LED-s-active-low-properties/20230420-173619
-        git checkout f2d706bf61190a45a8f90f1f455bc943d4ac7b6e
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=powerpc olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=powerpc SHELL=/bin/bash drivers/pwm/
+[    0.000000] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[    0.000000] Oops [#1]
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.18.0-rc7+ #79
+[    0.000000] Hardware name: riscv-virtio,qemu (DT)
+[    0.000000] epc : 0x0
+[    0.000000]  ra : sbi_remote_fence_i+0x1e/0x26
+[    0.000000] epc : 0000000000000000 ra : ffffffff80005826 sp : ffffffff80c03d50
+[    0.000000]  gp : ffffffff80ca6178 tp : ffffffff80c0ad80 t0 : 6200000000000000
+[    0.000000]  t1 : 0000000000000000 t2 : 62203a6b746e6972 s0 : ffffffff80c03d60
+[    0.000000]  s1 : ffffffff80001af6 a0 : 0000000000000000 a1 : 0000000000000000
+[    0.000000]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.000000]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000080200
+[    0.000000]  s2 : ffffffff808b3e48 s3 : ffffffff808bf698 s4 : ffffffff80cb2818
+[    0.000000]  s5 : 0000000000000001 s6 : ffffffff80c9c345 s7 : ffffffff80895aa0
+[    0.000000]  s8 : 0000000000000001 s9 : 000000000000007f s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : ffffffff80824d08 t4 : 0000000000000022
+[    0.000000]  t5 : 000000000000003d t6 : 0000000000000000
+[    0.000000] status: 0000000000000100 badaddr: 0000000000000000 cause: 000000000000000c
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
 
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Link: https://lore.kernel.org/oe-kbuild-all/202305081759.wgN4Q80I-lkp@intel.com/
+Fix this issue by moving sbi_init() earlier before jump_label_init()
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/pwm/pwm-sifive.c:157:18: sparse: sparse: incompatible types in comparison expression (different type sizes):
->> drivers/pwm/pwm-sifive.c:157:18: sparse:    unsigned long long const *
->> drivers/pwm/pwm-sifive.c:157:18: sparse:    unsigned int *
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-vim +157 drivers/pwm/pwm-sifive.c
-
-   129	
-   130	static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-   131				    const struct pwm_state *state)
-   132	{
-   133		struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
-   134		struct pwm_state cur_state;
-   135		unsigned int duty_cycle, period;
-   136		unsigned long long num;
-   137		bool enabled;
-   138		int ret = 0;
-   139		u32 frac;
-   140	
-   141		if (state->polarity != PWM_POLARITY_NORMAL && state->polarity != PWM_POLARITY_INVERSED)
-   142			return -EINVAL;
-   143	
-   144		cur_state = pwm->state;
-   145		enabled = cur_state.enabled;
-   146	
-   147		duty_cycle = state->duty_cycle;
-   148		if (!state->enabled)
-   149			duty_cycle = 0;
-   150	
-   151		/*
-   152		 * The problem of output producing mixed setting as mentioned at top,
-   153		 * occurs here. To minimize the window for this problem, we are
-   154		 * calculating the register values first and then writing them
-   155		 * consecutively
-   156		 */
- > 157		period = max(state->period, ddata->approx_period);
-   158		num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
-   159		frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
-   160		frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-   161		/* The hardware cannot generate a 100% duty cycle */
-   162		frac = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
-   163	
-   164	
-   165		mutex_lock(&ddata->lock);
-   166		if (state->period != ddata->approx_period) {
-   167			/*
-   168			 * Don't let a 2nd user change the period underneath the 1st user.
-   169			 * However if ddate->approx_period == 0 this is the first time we set
-   170			 * any period, so let whoever gets here first set the period so other
-   171			 * users who agree on the period won't fail.
-   172			 */
-   173			if (ddata->user_count != 1 && ddata->approx_period) {
-   174				mutex_unlock(&ddata->lock);
-   175				return -EBUSY;
-   176			}
-   177			ddata->approx_period = state->period;
-   178			pwm_sifive_update_clock(ddata, clk_get_rate(ddata->clk));
-   179		}
-   180		mutex_unlock(&ddata->lock);
-   181	
-   182		/*
-   183		 * If the PWM is enabled the clk is already on. So only enable it
-   184		 * conditionally to have it on exactly once afterwards independent of
-   185		 * the PWM state.
-   186		 */
-   187		if (!enabled) {
-   188			ret = clk_enable(ddata->clk);
-   189			if (ret) {
-   190				dev_err(ddata->chip.dev, "Enable clk failed\n");
-   191				return ret;
-   192			}
-   193		}
-   194	
-   195		writel(frac, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-   196	
-   197		if (!state->enabled)
-   198			clk_disable(ddata->clk);
-   199	
-   200		return 0;
-   201	}
-   202	
-
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 36b026057503..9fb839074e16 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -270,6 +270,7 @@ void __init setup_arch(char **cmdline_p)
+ 	*cmdline_p = boot_command_line;
+ 
+ 	early_ioremap_setup();
++	sbi_init();
+ 	jump_label_init();
+ 	parse_early_param();
+ 
+@@ -283,7 +284,6 @@ void __init setup_arch(char **cmdline_p)
+ 	misc_mem_init();
+ 
+ 	init_resources();
+-	sbi_init();
+ 
+ #ifdef CONFIG_KASAN
+ 	kasan_init();
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
