@@ -4,46 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 779CFC7EE30
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F05C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=a6m2ScJxZZFVy4LHMLhw8GDKtYh+EjY3ci4zlOuVH74=; b=jFWQ/+ZC0rEg1e
-	zPlSuMrtf4rbClD1fxdxOczGqH96aQxP5f4OQ3TYnzvnbuEPCFm1fnqRX6wQEM86rjyjzEyxcsV8u
-	x0C0SzyNnaAlnZ/q/pJhVNqx1wGzpuoQG/6Kaf0wNhtbJ+wwchFa5IU8lKRg/RO1+DSM+NEese8hg
-	/VIAf69E4dl9wMdiMQwcxPp/UhEcxE0rAQXp3GshKqUz+REYMuLjTbxQCDuPjRm5Gs7OF1ZQbJV4x
-	mBCHa8dme2oVJ8xXr6pbNEDHDUd+mUpBGgafxCOfSPwU5fOC1jXVFC1zyuZwYimAVsK0U85kErqKG
-	TR6my9ptJNoUU9zgz/zQ==;
+	List-Owner; bh=cVdOnaDjHNhR8d1FQVjGNy52OgEHVm5IXiU5k6JwG2M=; b=sQJGhCja7PYlV1
+	q9NpsT+q1CM/OmqJKCNrfl4pVr7jJXaGt+xSdU7hue/mCCAfnoQoYmTh912chOFR/GKvjxrxgc/ag
+	aug71Mg4uLIBDVzfdgv/CzzZiIldasX+yYWNHCDWBngLeFcrFtBjFth1RzTHhO6aUea3u56jqe/AW
+	+3nOtPFBA95QxM5u/7yiV5TCr5DkMJXeTR9xodYJVST6MK4F//gioMtvCslmEOClLYM63NIPyu86x
+	GggKSGs1DwqCv0aJ6W9rVhoePzzl9CmlZ9eglvv7kYhybxp2iK7ONQNdGRBLGhcv57+W1YkrvB/Tk
+	V078U8CodpOmOLapZaNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6nS-001Fmy-1S;
-	Mon, 08 May 2023 19:45:22 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pw6nW-001FsQ-0f;
+	Mon, 08 May 2023 19:45:26 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mW-001Enc-0U;
-	Mon, 08 May 2023 19:44:33 +0000
-Message-ID: <20230508185219.123719053@linutronix.de>
+	id 1pw6md-001Evu-20;
+	Mon, 08 May 2023 19:44:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Date:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=kwmqj85oJPkZidDSe6wGXZxA0ULq99wzodNu0T1h+kk=; b=qwIxX0rtbEOFArZfiEjnvyGxbj
+	V4bGU9OPBlDxDi5P8ocj68CH+7ZCZO0aTshx0eIqnh/5BWXPkj17cQ9v6l6fF6PE1wQkyucfm8Z0k
+	HbESsll6kBojYFkvN1v3+w/U92KaPCcyQWbU7kAJVPV5A6Q8670EMqije3CfT5hbhDxd+LtTnQggu
+	wJukB0kTQCdq3D+RF1NzNa0lNocd9GnlgP4wMLYDcvzl9X1Us3q8Q78MvZMSVgR0C1N58gfEk3EGK
+	6ERh+Kcrn6OmUCqzPNyaHlZyXoUS1JsoE/jEbvo4YGIs4nxMHl+VdafZgI9Q0W+lZE12BLZtHJ3yJ
+	pXxNXRyw==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pw6mZ-00ERDD-JW; Mon, 08 May 2023 19:44:29 +0000
+Message-ID: <20230508185218.909138139@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575062;
+	s=2020; t=1683575056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=6WUCUG1CCgVCdNI4CLJSTwJWrFInFv2K4B15hgoY0Kw=;
-	b=2Bs14rnpSX2uI3czdlUR6dxpOrB8cEiRoXze+GgpUpTrI18Aq7yjGjS1XrIAZlUcMz3uMd
-	81Ee1d8CAuUMu/Cea+MINgrvBWHwWj7aDMuNr9CKHOJX1LeWVUg0eeYcWQU9yCm43mA5jI
-	nFRUbISTZF5fup1DHvzKGJ2Ro5zcwHRYKT108/qXaIregxzdzIyi6qtb0OSPviLcC3U5Mv
-	hOogc1YJR/1XoEgdejSpRreCY8gNmg522997lkxJczmDMtlDTe0lWlFMtvRe2lPbkikk5B
-	AJmhANjWq9Jk3iE2vBuDwP6T9O4FvPd4wQJubneDx2wjQYPHoPvHEFI2vraUuA==
+	 references:references; bh=kwmqj85oJPkZidDSe6wGXZxA0ULq99wzodNu0T1h+kk=;
+	b=wg1uBLGtSoxcaJSU0iEE4x0UcfBChTrLt0gyE4M5PDuGfK5fjT22t8ZTBBC2tynpzI6HHh
+	6Y7wX0lp4t6osRCyrG3TT1YgnOHCxIFJnJkEGdJWSzb30rEUBKI5nxlG8O7tNjZVGxOjHb
+	SANeefFOJGw6DUXAVXM56kO2xHkef7AW/0tPOsy0YwgLmgzJMjuxG1N7Phieoka0kZqbc+
+	SwamRLfl76kZk/gDSsJbzFLV/CAY9FezjErFfEBAxnMp56mRQxgPmpsjeFT7Dxl3HIxRAN
+	Y1+kfoeoNJM9pmRMjeHWlK/tpJMX+RNO6kr+gmNFYozmaU/eCEE9q4itJyCt1A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575062;
+	s=2020e; t=1683575056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=6WUCUG1CCgVCdNI4CLJSTwJWrFInFv2K4B15hgoY0Kw=;
-	b=hCFX0auSqHWTem7lXZILDzRTaJhCgFeurJJC+rgTLqc9kN9+C6WS+qXnmDMKwZNzqpefKl
-	nTGLqooH8Ea+o8DQ==
+	 references:references; bh=kwmqj85oJPkZidDSe6wGXZxA0ULq99wzodNu0T1h+kk=;
+	b=hBj0Uqf6QiSA9MqtLkZVoZtNNYgv3nBK9gQda39ezyZ0ekHS2uiMmy5gmQpbYtX4lR0BfY
+	+Xmymckx4LlMyoDw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -80,16 +93,14 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- David Woodhouse <dwmw@amazon.co.uk>
-Subject: [patch v3 34/36] x86/smpboot: Implement a bit spinlock to protect the
- realmode stack
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>
+Subject: [patch v3 30/36] x86/smpboot: Enable split CPU startup
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:44:22 +0200 (CEST)
+Date: Mon,  8 May 2023 21:44:15 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124424_505222_511E9FD7 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20230508_204427_739138_1FBD300E 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,151 +119,136 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Parallel AP bringup requires that the APs can run fully parallel through
-the early startup code including the real mode trampoline.
+The x86 CPU bringup state currently does AP wake-up, wait for AP to
+respond and then release it for full bringup.
 
-To prepare for this implement a bit-spinlock to serialize access to the
-real mode stack so that parallel upcoming APs are not going to corrupt each
-others stack while going through the real mode startup code.
+It is safe to be split into a wake-up and and a separate wait+release
+state.
 
-Co-developed-by: David Woodhouse <dwmw@amazon.co.uk>
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Provide the required functions and enable the split CPU bringup, which
+prepares for parallel bringup, where the bringup of the non-boot CPUs takes
+two iterations: One to prepare and wake all APs and the second to wait and
+release them. Depending on timing this can eliminate the wait time
+completely.
+
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/x86/include/asm/realmode.h      |    3 +++
- arch/x86/kernel/head_64.S            |   13 +++++++++++++
- arch/x86/realmode/init.c             |    3 +++
- arch/x86/realmode/rm/trampoline_64.S |   27 ++++++++++++++++++++++-----
- 4 files changed, 41 insertions(+), 5 deletions(-)
+ arch/x86/Kconfig           |    2 +-
+ arch/x86/include/asm/smp.h |    9 ++-------
+ arch/x86/kernel/smp.c      |    2 +-
+ arch/x86/kernel/smpboot.c  |    8 ++++----
+ arch/x86/xen/smp_pv.c      |    4 ++--
+ 5 files changed, 10 insertions(+), 15 deletions(-)
 ---
 
---- a/arch/x86/include/asm/realmode.h
-+++ b/arch/x86/include/asm/realmode.h
-@@ -52,6 +52,7 @@ struct trampoline_header {
- 	u64 efer;
- 	u32 cr4;
- 	u32 flags;
-+	u32 lock;
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -274,8 +274,8 @@ config X86
+ 	select HAVE_UNSTABLE_SCHED_CLOCK
+ 	select HAVE_USER_RETURN_NOTIFIER
+ 	select HAVE_GENERIC_VDSO
+-	select HOTPLUG_CORE_SYNC_FULL		if SMP
+ 	select HOTPLUG_SMT			if SMP
++	select HOTPLUG_SPLIT_STARTUP		if SMP
+ 	select IRQ_FORCED_THREADING
+ 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+ 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+--- a/arch/x86/include/asm/smp.h
++++ b/arch/x86/include/asm/smp.h
+@@ -40,7 +40,7 @@ struct smp_ops {
+ 
+ 	void (*cleanup_dead_cpu)(unsigned cpu);
+ 	void (*poll_sync_state)(void);
+-	int (*cpu_up)(unsigned cpu, struct task_struct *tidle);
++	int (*kick_ap_alive)(unsigned cpu, struct task_struct *tidle);
+ 	int (*cpu_disable)(void);
+ 	void (*cpu_die)(unsigned int cpu);
+ 	void (*play_dead)(void);
+@@ -80,11 +80,6 @@ static inline void smp_cpus_done(unsigne
+ 	smp_ops.smp_cpus_done(max_cpus);
+ }
+ 
+-static inline int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+-{
+-	return smp_ops.cpu_up(cpu, tidle);
+-}
+-
+ static inline int __cpu_disable(void)
+ {
+ 	return smp_ops.cpu_disable();
+@@ -124,7 +119,7 @@ void native_smp_prepare_cpus(unsigned in
+ void calculate_max_logical_packages(void);
+ void native_smp_cpus_done(unsigned int max_cpus);
+ int common_cpu_up(unsigned int cpunum, struct task_struct *tidle);
+-int native_cpu_up(unsigned int cpunum, struct task_struct *tidle);
++int native_kick_ap(unsigned int cpu, struct task_struct *tidle);
+ int native_cpu_disable(void);
+ void __noreturn hlt_play_dead(void);
+ void native_play_dead(void);
+--- a/arch/x86/kernel/smp.c
++++ b/arch/x86/kernel/smp.c
+@@ -268,7 +268,7 @@ struct smp_ops smp_ops = {
  #endif
- };
+ 	.smp_send_reschedule	= native_smp_send_reschedule,
  
-@@ -64,6 +65,8 @@ extern unsigned long initial_stack;
- extern unsigned long initial_vc_handler;
- #endif
+-	.cpu_up			= native_cpu_up,
++	.kick_ap_alive		= native_kick_ap,
+ 	.cpu_disable		= native_cpu_disable,
+ 	.play_dead		= native_play_dead,
  
-+extern u32 *trampoline_lock;
-+
- extern unsigned char real_mode_blob[];
- extern unsigned char real_mode_relocs[];
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -1058,7 +1058,7 @@ static int do_boot_cpu(int apicid, int c
+ 	return ret;
+ }
  
---- a/arch/x86/kernel/head_64.S
-+++ b/arch/x86/kernel/head_64.S
-@@ -252,6 +252,17 @@ SYM_INNER_LABEL(secondary_startup_64_no_
- 	movq	TASK_threadsp(%rax), %rsp
+-static int native_kick_ap(unsigned int cpu, struct task_struct *tidle)
++int native_kick_ap(unsigned int cpu, struct task_struct *tidle)
+ {
+ 	int apicid = apic->cpu_present_to_apicid(cpu);
+ 	int err;
+@@ -1094,15 +1094,15 @@ static int native_kick_ap(unsigned int c
+ 	return err;
+ }
  
- 	/*
-+	 * Now that this CPU is running on its own stack, drop the realmode
-+	 * protection. For the boot CPU the pointer is NULL!
-+	 */
-+	movq	trampoline_lock(%rip), %rax
-+	testq	%rax, %rax
-+	jz	.Lsetup_gdt
-+	lock
-+	btrl	$0, (%rax)
-+
-+.Lsetup_gdt:
-+	/*
- 	 * We must switch to a new descriptor in kernel space for the GDT
- 	 * because soon the kernel won't have access anymore to the userspace
- 	 * addresses where we're currently running on. We have to do that here
-@@ -433,6 +444,8 @@ SYM_DATA(initial_code,	.quad x86_64_star
- #ifdef CONFIG_AMD_MEM_ENCRYPT
- SYM_DATA(initial_vc_handler,	.quad handle_vc_boot_ghcb)
- #endif
-+
-+SYM_DATA(trampoline_lock, .quad 0);
- 	__FINITDATA
+-int native_cpu_up(unsigned int cpu, struct task_struct *tidle)
++int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
+ {
+-	return native_kick_ap(cpu, tidle);
++	return smp_ops.kick_ap_alive(cpu, tidle);
+ }
  
- 	__INIT
---- a/arch/x86/realmode/init.c
-+++ b/arch/x86/realmode/init.c
-@@ -154,6 +154,9 @@ static void __init setup_real_mode(void)
+ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu)
+ {
+ 	/* Cleanup possible dangling ends... */
+-	if (smp_ops.cpu_up == native_cpu_up && x86_platform.legacy.warm_reset)
++	if (smp_ops.kick_ap_alive == native_kick_ap && x86_platform.legacy.warm_reset)
+ 		smpboot_restore_warm_reset_vector();
+ }
  
- 	trampoline_header->flags = 0;
+--- a/arch/x86/xen/smp_pv.c
++++ b/arch/x86/xen/smp_pv.c
+@@ -314,7 +314,7 @@ cpu_initialize_context(unsigned int cpu,
+ 	return 0;
+ }
  
-+	trampoline_lock = &trampoline_header->lock;
-+	*trampoline_lock = 0;
-+
- 	trampoline_pgd = (u64 *) __va(real_mode_header->trampoline_pgd);
+-static int xen_pv_cpu_up(unsigned int cpu, struct task_struct *idle)
++static int xen_pv_kick_ap(unsigned int cpu, struct task_struct *idle)
+ {
+ 	int rc;
  
- 	/* Map the real mode stub as virtual == physical */
---- a/arch/x86/realmode/rm/trampoline_64.S
-+++ b/arch/x86/realmode/rm/trampoline_64.S
-@@ -37,6 +37,24 @@
- 	.text
- 	.code16
+@@ -438,7 +438,7 @@ static const struct smp_ops xen_smp_ops
+ 	.smp_prepare_cpus = xen_pv_smp_prepare_cpus,
+ 	.smp_cpus_done = xen_smp_cpus_done,
  
-+.macro LOAD_REALMODE_ESP
-+	/*
-+	 * Make sure only one CPU fiddles with the realmode stack
-+	 */
-+.Llock_rm\@:
-+	btl	$0, tr_lock
-+	jnc	2f
-+	pause
-+	jmp	.Llock_rm\@
-+2:
-+	lock
-+	btsl	$0, tr_lock
-+	jc	.Llock_rm\@
-+
-+	# Setup stack
-+	movl	$rm_stack_end, %esp
-+.endm
-+
- 	.balign	PAGE_SIZE
- SYM_CODE_START(trampoline_start)
- 	cli			# We should be safe anyway
-@@ -49,8 +67,7 @@ SYM_CODE_START(trampoline_start)
- 	mov	%ax, %es
- 	mov	%ax, %ss
- 
--	# Setup stack
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 
- 	call	verify_cpu		# Verify the cpu supports long mode
- 	testl   %eax, %eax		# Check for return code
-@@ -93,8 +110,7 @@ SYM_CODE_START(sev_es_trampoline_start)
- 	mov	%ax, %es
- 	mov	%ax, %ss
- 
--	# Setup stack
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 
- 	jmp	.Lswitch_to_protected
- SYM_CODE_END(sev_es_trampoline_start)
-@@ -177,7 +193,7 @@ SYM_CODE_START(pa_trampoline_compat)
- 	 * In compatibility mode.  Prep ESP and DX for startup_32, then disable
- 	 * paging and complete the switch to legacy 32-bit mode.
- 	 */
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 	movw	$__KERNEL_DS, %dx
- 
- 	movl	$(CR0_STATE & ~X86_CR0_PG), %eax
-@@ -241,6 +257,7 @@ SYM_DATA_START(trampoline_header)
- 	SYM_DATA(tr_efer,		.space 8)
- 	SYM_DATA(tr_cr4,		.space 4)
- 	SYM_DATA(tr_flags,		.space 4)
-+	SYM_DATA(tr_lock,		.space 4)
- SYM_DATA_END(trampoline_header)
- 
- #include "trampoline_common.S"
+-	.cpu_up = xen_pv_cpu_up,
++	.kick_ap_alive = xen_pv_kick_ap,
+ 	.cpu_die = xen_pv_cpu_die,
+ 	.cleanup_dead_cpu = xen_pv_cleanup_dead_cpu,
+ 	.poll_sync_state = xen_pv_poll_sync_state,
 
 
 
