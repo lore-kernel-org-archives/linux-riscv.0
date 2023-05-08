@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7679C7EE2C
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 14:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B340C77B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 14:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i0YmELMCKrio9rJLkTOrSTmHjIHuRZ2D3FPKVjP9iEM=; b=iAVjrUJpTjIBKU
-	OkmksCYAI+F5rkyktI39oyTEqC+z2I6z8cGhFJCW50n3rFoiIa3r/d/R3PljBlr2qopJ/NWzFl5Mb
-	rIAQYOZoPVLJKpHSx8NAIXjNwNGhOYmu0RXtkko48F2TdoQ0qbH9tZmZSZ2DHaTClzqhjhWwrZFmP
-	AJfEp1xw58yGpIgLR4iJooeu0GFugIsVEGjvmrgBxNJ3lQ583ZJ241bny3mS/aOt2AVAt1wyyuPBv
-	OO4PrTL6eLYuU8Zb6DI2oO0XQUxg0sHYqMJnzYRNv6CEU2QwWvSp0YOVCDM9i2NHuUeY4Ro2Bdn2w
-	0QX+ThbAvRNVU2uG8gRQ==;
+	List-Owner; bh=PzGZfBUN6zCUwBohEfv7Td6KCzmvZ8tCUkgRHKX/sKU=; b=JsZUy1d++S/y34
+	tLifDdewxeUILKDxcKx2oxpgO3VS58opxymaN/DFCU+k3F0ujB5RgbWmI1xqJychCHnMr0HowtxRU
+	c3Wlbw/cBd1OsPNdzPxWubQv0EOmB/feRAt0T2KXhn4dOI4h3IBImMeIsUVnVTpe7KAcuhY5mX2hv
+	1VK297eFz5sPuBxPeXmsRs0agrIqRELX74P7hziZDGBirSKjpJ0341IppZMMeqarvXdQTszMMDFqC
+	Ylkx3oz10n5eGrA7KQGgRLfpUby4Hxc6zpGNVf55JfvDS2KQD9uTKopIn55GOedrLnVOzFTx8J9F1
+	mFb8Wg21R7zdP2yuYFSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw23w-000mYh-12;
+	id 1pw23w-000mZ1-2h;
 	Mon, 08 May 2023 14:42:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw23q-000mUv-2F
+	id 1pw23q-000mV0-2B
 	for linux-riscv@lists.infradead.org;
 	Mon, 08 May 2023 14:42:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 90508640C6;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 97651640DC;
 	Mon,  8 May 2023 14:41:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5599DC433AF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 69FA2C4331D;
 	Mon,  8 May 2023 14:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1683556916;
-	bh=GN50963fdkw5cucYPuN4xRaiQmxHDA0hrlxtEWYsvtQ=;
+	bh=MrdCpjU5cKRZ+iOA16YP4qYRYpFPsfYgs180muKVh7I=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=r64Dxi/fpFWqlTPgj0oa/IYTE2F52/0U4frXOQyj/T+tixhV8XgLG9eTZd0UTcV36
-	 MThVa+dfb2c7qq/bN1MQ8+/nOc8Zmb/oMzz15aLEjcY3k7iXI8FgY1pc19ij96JWIV
-	 p9dbdwXXuKSBbcyHFrtz6ZwA4PUDzbKgr0j7wVdl3YWaGX8HsjZh5pa2IYQUToSezH
-	 E9CdNSf3PqfxLJyZIxE9T5n56CbdoDjfQLgg37E6Wjd320jmozml/4Ck793810C2gG
-	 zwHDr3HymZCWssXv9EaO6SQ9YW4Hi3EpsX6/opGZlaru1Qz9BiS57573d/bVlpFpBc
-	 4vD8grh8d6yuA==
+	b=k4QlnF2U2dcoBqTj74KrZ25LExHhiKev2gieWJ+s7h2X/LrnG2/xSkOrpXosRsZlr
+	 JJaPbd63AE4Y2S4RWT5gHOcrMNopQUgzA6AtCyUYMD61FgfNYWMN8fvM2MPcBN8upb
+	 cMKuA3fiUopDvKwJReqNyqCIRLPEqNr7AKsEv6/2uvtVXx00V9g4oJPUZp1vrBgqob
+	 X8+VRIlpXktuamOlqb5e3MewEZGH3nqfdQvmWorhuq3DIgHKZHQRZJhisbhmlqY4TI
+	 V+XNzRVZ3xe8O87ji12B0SVm7EPl8FqtTduH7pfOUlnlE0VZAFqQtmm4idepEzmcP/
+	 O1bUK/fH/qYGw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2C09CE26D2B;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 44A7BE4F0A0;
 	Mon,  8 May 2023 14:41:56 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] libgcc: Add forward declarations for generic library routines
+Subject: Re: [PATCH v18 0/7] RISC-V IPI Improvements
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <168355691617.25692.18413165340491314933.git-patchwork-notify@kernel.org>
+Message-Id:  <168355691627.25692.3962222758677102007.git-patchwork-notify@kernel.org>
 Date: Mon, 08 May 2023 14:41:56 +0000
-References: <5cdbe08296693dd53849f199c3933e16e97b33c1.1682088593.git.geert+renesas@glider.be>
-In-Reply-To: <5cdbe08296693dd53849f199c3933e16e97b33c1.1682088593.git.geert+renesas@glider.be>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org, arnd@arndb.de,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-sh@vger.kernel.org, chris@zankel.net,
- jcmvbkbc@gmail.com, lkp@intel.com
+References: <20230328035223.1480939-1-apatel@ventanamicro.com>
+In-Reply-To: <20230328035223.1480939-1-apatel@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, maz@kernel.org,
+ daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com,
+ anup@brainfault.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_074158_774922_DBBA47A6 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230508_074158_756113_F3E03E2A 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +80,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This series was applied to riscv/linux.git (fixes)
+by Marc Zyngier <maz@kernel.org>:
 
-On Fri, 21 Apr 2023 16:54:24 +0200 you wrote:
-> With W=1 on platforms that use the generic gcc library routines
-> (csky/loongarch/mips/riscv/sh/xtensa):
-> 
->     lib/ashldi3.c:9:19: warning: no previous prototype for '__ashldi3' [-Wmissing-prototypes]
-> 	9 | long long notrace __ashldi3(long long u, word_type b)
-> 	  |                   ^~~~~~~~~
->       CC      lib/ashrdi3.o
->     lib/ashrdi3.c:9:19: warning: no previous prototype for '__ashrdi3' [-Wmissing-prototypes]
-> 	9 | long long notrace __ashrdi3(long long u, word_type b)
-> 	  |                   ^~~~~~~~~
->       CC      lib/cmpdi2.o
->     lib/cmpdi2.c:9:19: warning: no previous prototype for '__cmpdi2' [-Wmissing-prototypes]
-> 	9 | word_type notrace __cmpdi2(long long a, long long b)
-> 	  |                   ^~~~~~~~
->       CC      lib/lshrdi3.o
->     lib/lshrdi3.c:9:19: warning: no previous prototype for '__lshrdi3' [-Wmissing-prototypes]
-> 	9 | long long notrace __lshrdi3(long long u, word_type b)
-> 	  |                   ^~~~~~~~~
->       CC      lib/muldi3.o
->     lib/muldi3.c:49:19: warning: no previous prototype for '__muldi3' [-Wmissing-prototypes]
->        49 | long long notrace __muldi3(long long u, long long v)
-> 	  |                   ^~~~~~~~
->       CC      lib/ucmpdi2.o
->     lib/ucmpdi2.c:8:19: warning: no previous prototype for '__ucmpdi2' [-Wmissing-prototypes]
-> 	8 | word_type notrace __ucmpdi2(unsigned long long a, unsigned long long b)
-> 	  |                   ^~~~~~~~~
+On Tue, 28 Mar 2023 09:22:16 +0530 you wrote:
+> This series aims to improve IPI support in Linux RISC-V in following ways:
+>  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+>     specific hooks. This also makes Linux RISC-V IPI support aligned with
+>     other architectures.
+>  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+>     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+>     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+>     IPIs without any assistance from M-mode runtime firmware.
 > 
 > [...]
 
 Here is the summary with links:
-  - libgcc: Add forward declarations for generic library routines
-    https://git.kernel.org/riscv/c/4f20b7471c57
+  - [v18,1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
+    https://git.kernel.org/riscv/c/3ee92565b83e
+  - [v18,2/7] irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+    https://git.kernel.org/riscv/c/0c60a31ce62c
+  - [v18,3/7] RISC-V: Treat IPIs as normal Linux IRQs
+    https://git.kernel.org/riscv/c/832f15f42646
+  - [v18,4/7] RISC-V: Allow marking IPIs as suitable for remote FENCEs
+    https://git.kernel.org/riscv/c/fb0f3d281b7f
+  - [v18,5/7] RISC-V: Use IPIs for remote TLB flush when possible
+    https://git.kernel.org/riscv/c/18d2199d8105
+  - [v18,6/7] RISC-V: Use IPIs for remote icache flush when possible
+    https://git.kernel.org/riscv/c/627922843235
+  - [v18,7/7] irqchip/riscv-intc: Add empty irq_eoi() for chained irq handlers
+    https://git.kernel.org/riscv/c/f8415f2def18
 
 You are awesome, thank you!
 -- 
