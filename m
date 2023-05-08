@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02665C7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 20:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78265C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 20:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=LRH/CqQbeMnpKi9QqmrcJ++Npf4AWb3J58emk2wrpOg=; b=3EeinAMfNlXPq+
-	O3lCsOH8czWwZMBaHuG6WyN+PK2QzmP8rBD2pTMhgQXFVNr7QPY4sEAYh2QRoSKQmQ+ZoNOu9XkmR
-	3KfPUON0xp57GprjalVrm+Y6sKhYbMEBIrWFp2f3vjXGM4MmhTWh8UVFl5Io4or4D5ACp00G1H1vC
-	Z7hF17dq50PzqPaPqO6S7JbOx9C3i5ClKp6WSOWFK+LmNrsii+QqazwKZbcGYXzqSaGdtVFB5QTt9
-	YjWApVwcbqtcK5B8BiLO9JLTp8qIxqtrXCt4Iq5oqAoE7hf9erhxnJEFGLVAbKG14zTipiISH3vXg
-	wVZ8t4vIinsHYO0GbclA==;
+	List-Owner; bh=CkuJiiZlHt095Si7A7hS00D0O+1zWxihJi3LTkP/nJg=; b=4qjwM3i0vib7/c
+	F28dwpBWuRzxdzRrDgu9kMs5Xw5uJLpmWAil34bw3oxwphVUB/pfCWH5KC8Cz+bg20JJ6Vo4aHsK3
+	XDx+EVqxZM/UiUaO0yAhsjFrfOCdZ22XmURJn8cin82CvfUkKeDjpeUMY5oyx3rQFFOn/00zHcKHw
+	HiSD3H2zmartXXi1pFonx2AkRQqAK6n7/gPMpUThc5wax9A4pHAo2gEj3+HennIOvjOaxBhsUB7sB
+	TMJG+kwIe3renDJr0SzUnG0/JRv1Mqpuob0uaSGelypvBDCNV13iYF4Ho2ZPpxJJo+Fg5p49y/o1+
+	ahbTkhb0kVrbP+YsaJKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw7ju-001Mda-2E;
-	Mon, 08 May 2023 20:45:46 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pw7jt-001Mcn-2U;
+	Mon, 08 May 2023 20:45:45 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6m1-001EDE-0o;
-	Mon, 08 May 2023 19:44:07 +0000
-Message-ID: <20230508185218.070008578@linutronix.de>
+	id 1pw6lz-001EAU-0P;
+	Mon, 08 May 2023 19:44:01 +0000
+Message-ID: <20230508185218.013044883@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575031;
+	s=2020; t=1683575029;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DpwezFnftgf/NwnjaJYg18wbFoZRAK6UuAmlsWmBJR4=;
-	b=i1TFZjgCtddkAakfxkISXw55XmrEJvUVPuQTFOFgS+oTTKVcNGhuqDExhfxWr3kSGXHZ9h
-	Q+ujpZNUZEK3gioXPoyRZ+NzfuV4aL+sQupa7bIw509g00exAtAYyYGseE5+d40Ye/9iSn
-	kyYz5rdl/ounEY4O9wO7ubw04Cyxxy6DTnoJB2oO2RietlbB/OitKYLkOQ8iHZAyHbfy1W
-	bv+Q2OEIWcacTVCd+tTm0xqwTwSoZ8e7RLxQJArbSe8S99eF/7jfVItjSmrC275mG9pAip
-	lscg+orwTig3a1iTNLS2jmVzL558VHIKrCz5q1WCRCIfLCf1r3Xa3vOeSE+ulQ==
+	 references:references; bh=BOT3gWwQF7O/1lZ9KsTIy5NWCf87k83rCpCfGL29bzE=;
+	b=Vtkw853T/g2LgebBW2u5NvRyk/o8vkE9DVNbCjOgfsv8NQAdQ+PiRmVE3YRjVR9zyaPDpW
+	A0CpqtisqwiF90SMSTT3dgMD9wfCYwYlyM9zgdWNPZBK6ove/DWKBEfTIBavRYG3mLpwGW
+	gj5/U4hTXI1gfU5gMpT9O+3nSrnlgwHXON5jO7YTMsIZWUpGn1lUA7aXp/3y1CXCUYBa6o
+	4saDTE36mpdN94ZK/rdI32a5+qd4XpBBQ9/jSvxCD81AEctXSXlca21oVxip2aNe/i6362
+	k8ifgTHs2omVUbliI/3cpRSjuph/X6qOreGlkue5SVagGH6iBXC3i5IxD3kMEg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575031;
+	s=2020e; t=1683575029;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DpwezFnftgf/NwnjaJYg18wbFoZRAK6UuAmlsWmBJR4=;
-	b=p4MipbJWjxb6AbwUz07UF9If0ACyXBwES1Mx0lUk9qi+e9Q63raPnhjjqmne+YvfK1SUP6
-	eRiNkcZ4g3zeVxBg==
+	 references:references; bh=BOT3gWwQF7O/1lZ9KsTIy5NWCf87k83rCpCfGL29bzE=;
+	b=z0rzXlV5+Y57E7wE/hgSxsOIOaBBLImivYo4M54wyRCUx4IHVjFSQS7chfIs3CglORkucG
+	Op/Ji4IG3mTcrvAw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,14 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch v3 15/36] x86/smpboot: Remove wait for cpu_online()
+Subject: [patch v3 14/36] [patch V2 14/38] cpu/hotplug: Rework sparse_irq
+ locking in bringup_cpu()
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:43:51 +0200 (CEST)
+Date: Mon,  8 May 2023 21:43:49 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124353_456074_65EE4089 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20230508_124351_376000_48A18D88 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +107,75 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Now that the core code drops sparse_irq_lock after the idle thread
-synchronized, it's pointless to wait for the AP to mark itself online.
+There is no harm to hold sparse_irq lock until the upcoming CPU completes
+in cpuhp_online_idle(). This allows to remove cpu_online() synchronization
+from architecture code.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/x86/kernel/smpboot.c |   26 ++------------------------
- 1 file changed, 2 insertions(+), 24 deletions(-)
+ kernel/cpu.c |   28 +++++++++++++++++++---------
+ 1 file changed, 19 insertions(+), 9 deletions(-)
 ---
 
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -281,7 +281,6 @@ static void notrace start_secondary(void
- 	 * half valid vector space.
- 	 */
- 	lock_vector_lock();
--	/* Sync point with do_wait_cpu_online() */
- 	set_cpu_online(smp_processor_id(), true);
- 	lapic_online();
- 	unlock_vector_lock();
-@@ -1110,20 +1109,6 @@ static int wait_cpu_initialized(unsigned
- 	return 0;
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -558,7 +558,7 @@ static int cpuhp_kick_ap(int cpu, struct
+ 	return ret;
  }
  
--/*
-- * Bringup step three: Wait for the target AP to reach set_cpu_online() in
-- * start_secondary().
-- */
--static void wait_cpu_online(unsigned int cpu)
--{
--	/*
--	 * Wait for the AP to mark itself online, so the core caller
--	 * can drop sparse_irq_lock.
--	 */
--	while (!cpu_online(cpu))
--		schedule();
--}
--
- static int native_kick_ap(unsigned int cpu, struct task_struct *tidle)
+-static int bringup_wait_for_ap(unsigned int cpu)
++static int bringup_wait_for_ap_online(unsigned int cpu)
  {
- 	int apicid = apic->cpu_present_to_apicid(cpu);
-@@ -1170,16 +1155,9 @@ int native_cpu_up(unsigned int cpu, stru
+ 	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
+ 
+@@ -579,15 +579,12 @@ static int bringup_wait_for_ap(unsigned
+ 	 */
+ 	if (!cpu_smt_allowed(cpu))
+ 		return -ECANCELED;
+-
+-	if (st->target <= CPUHP_AP_ONLINE_IDLE)
+-		return 0;
+-
+-	return cpuhp_kick_ap(cpu, st, st->target);
++	return 0;
+ }
+ 
+ static int bringup_cpu(unsigned int cpu)
+ {
++	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
+ 	struct task_struct *idle = idle_thread_get(cpu);
  	int ret;
  
- 	ret = native_kick_ap(cpu, tidle);
--	if (ret)
--		goto out;
--
--	ret = wait_cpu_initialized(cpu);
--	if (ret)
--		goto out;
--
--	wait_cpu_online(cpu);
-+	if (!ret)
-+		ret = wait_cpu_initialized(cpu);
+@@ -606,10 +603,23 @@ static int bringup_cpu(unsigned int cpu)
  
--out:
- 	/* Cleanup possible dangling ends... */
- 	if (x86_platform.legacy.warm_reset)
- 		smpboot_restore_warm_reset_vector();
+ 	/* Arch-specific enabling code. */
+ 	ret = __cpu_up(cpu, idle);
+-	irq_unlock_sparse();
+ 	if (ret)
+-		return ret;
+-	return bringup_wait_for_ap(cpu);
++		goto out_unlock;
++
++	ret = bringup_wait_for_ap_online(cpu);
++	if (ret)
++		goto out_unlock;
++
++	irq_unlock_sparse();
++
++	if (st->target <= CPUHP_AP_ONLINE_IDLE)
++		return 0;
++
++	return cpuhp_kick_ap(cpu, st, st->target);
++
++out_unlock:
++	irq_unlock_sparse();
++	return ret;
+ }
+ 
+ static int finish_cpu(unsigned int cpu)
 
 
 
