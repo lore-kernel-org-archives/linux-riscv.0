@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72707C7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 779CFC7EE30
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=6x9KWzMjWGIKGCm6X+8xXAA/jclia5I/+Xl9zPI1xlw=; b=t/wLYih4N/bbgN
-	6EAA8Czr6iUeFz3cJkOOxULZQkQcBWSUxSLvjT5UPagdnc3OKy5Reqb99bIk3CIlo7GSuiH2PgqUB
-	4c6JR6gj3GrxZ4rsya/FBZ50lUOrZOV3EcbFPyorwuXppjmUUM5cs2Yur/qCZDOzCLvMzKp6PSCLL
-	HQ0aeBgAuJpQBStHb/B3OwVEgLEchexlv70KKgVOXutnCrd9oSA1d7rwTmusev7iWr6P5WBQv+96E
-	F7K9kL6HnqVZq0dDRkIfVkWv3aTV6aqthJfiEoXos+bNX0uV6MOHpCL7At0nte8nOggoWmDPnDt5C
-	PPQD9QGu/bKKWFyFFs5g==;
+	List-Owner; bh=a6m2ScJxZZFVy4LHMLhw8GDKtYh+EjY3ci4zlOuVH74=; b=jFWQ/+ZC0rEg1e
+	zPlSuMrtf4rbClD1fxdxOczGqH96aQxP5f4OQ3TYnzvnbuEPCFm1fnqRX6wQEM86rjyjzEyxcsV8u
+	x0C0SzyNnaAlnZ/q/pJhVNqx1wGzpuoQG/6Kaf0wNhtbJ+wwchFa5IU8lKRg/RO1+DSM+NEese8hg
+	/VIAf69E4dl9wMdiMQwcxPp/UhEcxE0rAQXp3GshKqUz+REYMuLjTbxQCDuPjRm5Gs7OF1ZQbJV4x
+	mBCHa8dme2oVJ8xXr6pbNEDHDUd+mUpBGgafxCOfSPwU5fOC1jXVFC1zyuZwYimAVsK0U85kErqKG
+	TR6my9ptJNoUU9zgz/zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6nN-001Ffe-0T;
-	Mon, 08 May 2023 19:45:17 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pw6nS-001Fmy-1S;
+	Mon, 08 May 2023 19:45:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mR-001Eil-0K;
-	Mon, 08 May 2023 19:44:28 +0000
-Message-ID: <20230508185218.962208640@linutronix.de>
+	id 1pw6mW-001Enc-0U;
+	Mon, 08 May 2023 19:44:33 +0000
+Message-ID: <20230508185219.123719053@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575057;
+	s=2020; t=1683575062;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=7J6qDuLCrgdvR1kG/InEcQTSLCUqJ2Io10qHE6FCHaM=;
-	b=0Hv0AspymKyYz8qW0hj6Fb0vUtVHsdGmkvWcUakIBtshYh+zVy/vlvZHR1/vJJLPlas4D8
-	PRzzSySwBkg1+JPbOBNLLdT/hp7seWkZBvoftuEF+vw8QuQjWUJ4K4oLdS5xDTwEjJHE7A
-	gNOv1k4J4BrzZeGVnOAKkMmcblUqN/FYihcmxHZv2nEClm+/K+rhv+En8fpkOo6ZMhekbP
-	fp0J8Mycqhuh4vaLIP3ZaeDDy7dR7H2M1G6jiZF8zqKNY6sfFE8cTQVtJvDtVzZmYHGBDI
-	A83cW4yHAFFLmlY1u2nMBkF0J3x6Dy2QTQscDGxCprr2i8ihRMilmaPq8wHcbw==
+	 references:references; bh=6WUCUG1CCgVCdNI4CLJSTwJWrFInFv2K4B15hgoY0Kw=;
+	b=2Bs14rnpSX2uI3czdlUR6dxpOrB8cEiRoXze+GgpUpTrI18Aq7yjGjS1XrIAZlUcMz3uMd
+	81Ee1d8CAuUMu/Cea+MINgrvBWHwWj7aDMuNr9CKHOJX1LeWVUg0eeYcWQU9yCm43mA5jI
+	nFRUbISTZF5fup1DHvzKGJ2Ro5zcwHRYKT108/qXaIregxzdzIyi6qtb0OSPviLcC3U5Mv
+	hOogc1YJR/1XoEgdejSpRreCY8gNmg522997lkxJczmDMtlDTe0lWlFMtvRe2lPbkikk5B
+	AJmhANjWq9Jk3iE2vBuDwP6T9O4FvPd4wQJubneDx2wjQYPHoPvHEFI2vraUuA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575057;
+	s=2020e; t=1683575062;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=7J6qDuLCrgdvR1kG/InEcQTSLCUqJ2Io10qHE6FCHaM=;
-	b=3bCOAPoiV1ViDB0Ns+pjgu6fuq8OhbzSh5tZOLe9PQ/YwBWzawJVTSPOhF+994y0l1r8Gv
-	bZKIMX08LnDG7gCA==
+	 references:references; bh=6WUCUG1CCgVCdNI4CLJSTwJWrFInFv2K4B15hgoY0Kw=;
+	b=hCFX0auSqHWTem7lXZILDzRTaJhCgFeurJJC+rgTLqc9kN9+C6WS+qXnmDMKwZNzqpefKl
+	nTGLqooH8Ea+o8DQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -80,14 +80,16 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch v3 31/36] x86/apic: Provide cpu_primary_thread mask
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+ David Woodhouse <dwmw@amazon.co.uk>
+Subject: [patch v3 34/36] x86/smpboot: Implement a bit spinlock to protect the
+ realmode stack
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:44:17 +0200 (CEST)
+Date: Mon,  8 May 2023 21:44:22 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124419_447520_541B65AD 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20230508_124424_505222_511E9FD7 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,146 +108,151 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Make the primary thread tracking CPU mask based in preparation for simpler
-handling of parallel bootup.
+Parallel AP bringup requires that the APs can run fully parallel through
+the early startup code including the real mode trampoline.
 
+To prepare for this implement a bit-spinlock to serialize access to the
+real mode stack so that parallel upcoming APs are not going to corrupt each
+others stack while going through the real mode startup code.
+
+Co-developed-by: David Woodhouse <dwmw@amazon.co.uk>
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/x86/include/asm/apic.h     |    2 --
- arch/x86/include/asm/topology.h |   19 +++++++++++++++----
- arch/x86/kernel/apic/apic.c     |   20 +++++++++-----------
- arch/x86/kernel/smpboot.c       |   12 +++---------
- 4 files changed, 27 insertions(+), 26 deletions(-)
+ arch/x86/include/asm/realmode.h      |    3 +++
+ arch/x86/kernel/head_64.S            |   13 +++++++++++++
+ arch/x86/realmode/init.c             |    3 +++
+ arch/x86/realmode/rm/trampoline_64.S |   27 ++++++++++++++++++++++-----
+ 4 files changed, 41 insertions(+), 5 deletions(-)
 ---
 
---- a/arch/x86/include/asm/apic.h
-+++ b/arch/x86/include/asm/apic.h
-@@ -506,10 +506,8 @@ extern int default_check_phys_apicid_pre
- #endif /* CONFIG_X86_LOCAL_APIC */
+--- a/arch/x86/include/asm/realmode.h
++++ b/arch/x86/include/asm/realmode.h
+@@ -52,6 +52,7 @@ struct trampoline_header {
+ 	u64 efer;
+ 	u32 cr4;
+ 	u32 flags;
++	u32 lock;
+ #endif
+ };
  
- #ifdef CONFIG_SMP
--bool apic_id_is_primary_thread(unsigned int id);
- void apic_smt_update(void);
- #else
--static inline bool apic_id_is_primary_thread(unsigned int id) { return false; }
- static inline void apic_smt_update(void) { }
+@@ -64,6 +65,8 @@ extern unsigned long initial_stack;
+ extern unsigned long initial_vc_handler;
  #endif
  
---- a/arch/x86/include/asm/topology.h
-+++ b/arch/x86/include/asm/topology.h
-@@ -31,9 +31,9 @@
-  * CONFIG_NUMA.
-  */
- #include <linux/numa.h>
-+#include <linux/cpumask.h>
- 
- #ifdef CONFIG_NUMA
--#include <linux/cpumask.h>
- 
- #include <asm/mpspec.h>
- #include <asm/percpu.h>
-@@ -139,9 +139,20 @@ static inline int topology_max_smt_threa
- int topology_update_package_map(unsigned int apicid, unsigned int cpu);
- int topology_update_die_map(unsigned int dieid, unsigned int cpu);
- int topology_phys_to_logical_pkg(unsigned int pkg);
--bool topology_is_primary_thread(unsigned int cpu);
- bool topology_smt_supported(void);
--#else
++extern u32 *trampoline_lock;
 +
-+extern struct cpumask __cpu_primary_thread_mask;
-+#define cpu_primary_thread_mask ((const struct cpumask *)&__cpu_primary_thread_mask)
-+
-+/**
-+ * topology_is_primary_thread - Check whether CPU is the primary SMT thread
-+ * @cpu:	CPU to check
-+ */
-+static inline bool topology_is_primary_thread(unsigned int cpu)
-+{
-+	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
-+}
-+#else /* CONFIG_SMP */
- #define topology_max_packages()			(1)
- static inline int
- topology_update_package_map(unsigned int apicid, unsigned int cpu) { return 0; }
-@@ -152,7 +163,7 @@ static inline int topology_max_die_per_p
- static inline int topology_max_smt_threads(void) { return 1; }
- static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
- static inline bool topology_smt_supported(void) { return false; }
--#endif
-+#endif /* !CONFIG_SMP */
+ extern unsigned char real_mode_blob[];
+ extern unsigned char real_mode_relocs[];
  
- static inline void arch_fix_phys_package_id(int num, u32 slot)
- {
---- a/arch/x86/kernel/apic/apic.c
-+++ b/arch/x86/kernel/apic/apic.c
-@@ -2386,20 +2386,16 @@ bool arch_match_cpu_phys_id(int cpu, u64
- }
+--- a/arch/x86/kernel/head_64.S
++++ b/arch/x86/kernel/head_64.S
+@@ -252,6 +252,17 @@ SYM_INNER_LABEL(secondary_startup_64_no_
+ 	movq	TASK_threadsp(%rax), %rsp
  
- #ifdef CONFIG_SMP
--/**
-- * apic_id_is_primary_thread - Check whether APIC ID belongs to a primary thread
-- * @apicid: APIC ID to check
-- */
--bool apic_id_is_primary_thread(unsigned int apicid)
-+static void cpu_mark_primary_thread(unsigned int cpu, unsigned int apicid)
- {
--	u32 mask;
--
--	if (smp_num_siblings == 1)
--		return true;
- 	/* Isolate the SMT bit(s) in the APICID and check for 0 */
--	mask = (1U << (fls(smp_num_siblings) - 1)) - 1;
--	return !(apicid & mask);
-+	u32 mask = (1U << (fls(smp_num_siblings) - 1)) - 1;
+ 	/*
++	 * Now that this CPU is running on its own stack, drop the realmode
++	 * protection. For the boot CPU the pointer is NULL!
++	 */
++	movq	trampoline_lock(%rip), %rax
++	testq	%rax, %rax
++	jz	.Lsetup_gdt
++	lock
++	btrl	$0, (%rax)
 +
-+	if (smp_num_siblings == 1 || !(apicid & mask))
-+		cpumask_set_cpu(cpu, &__cpu_primary_thread_mask);
- }
-+#else
-+static inline void cpu_mark_primary_thread(unsigned int cpu, unsigned int apicid) { }
++.Lsetup_gdt:
++	/*
+ 	 * We must switch to a new descriptor in kernel space for the GDT
+ 	 * because soon the kernel won't have access anymore to the userspace
+ 	 * addresses where we're currently running on. We have to do that here
+@@ -433,6 +444,8 @@ SYM_DATA(initial_code,	.quad x86_64_star
+ #ifdef CONFIG_AMD_MEM_ENCRYPT
+ SYM_DATA(initial_vc_handler,	.quad handle_vc_boot_ghcb)
  #endif
- 
- /*
-@@ -2544,6 +2540,8 @@ int generic_processor_info(int apicid, i
- 	set_cpu_present(cpu, true);
- 	num_processors++;
- 
-+	cpu_mark_primary_thread(cpu, apicid);
 +
- 	return cpu;
- }
++SYM_DATA(trampoline_lock, .quad 0);
+ 	__FINITDATA
  
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -102,6 +102,9 @@ EXPORT_PER_CPU_SYMBOL(cpu_die_map);
- DEFINE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
- EXPORT_PER_CPU_SYMBOL(cpu_info);
+ 	__INIT
+--- a/arch/x86/realmode/init.c
++++ b/arch/x86/realmode/init.c
+@@ -154,6 +154,9 @@ static void __init setup_real_mode(void)
  
-+/* CPUs which are the primary SMT threads */
-+struct cpumask __cpu_primary_thread_mask __read_mostly;
+ 	trampoline_header->flags = 0;
+ 
++	trampoline_lock = &trampoline_header->lock;
++	*trampoline_lock = 0;
 +
- /* Representing CPUs for which sibling maps can be computed */
- static cpumask_var_t cpu_sibling_setup_mask;
+ 	trampoline_pgd = (u64 *) __va(real_mode_header->trampoline_pgd);
  
-@@ -283,15 +286,6 @@ static void notrace start_secondary(void
- }
+ 	/* Map the real mode stub as virtual == physical */
+--- a/arch/x86/realmode/rm/trampoline_64.S
++++ b/arch/x86/realmode/rm/trampoline_64.S
+@@ -37,6 +37,24 @@
+ 	.text
+ 	.code16
  
- /**
-- * topology_is_primary_thread - Check whether CPU is the primary SMT thread
-- * @cpu:	CPU to check
-- */
--bool topology_is_primary_thread(unsigned int cpu)
--{
--	return apic_id_is_primary_thread(per_cpu(x86_cpu_to_apicid, cpu));
--}
--
--/**
-  * topology_smt_supported - Check whether SMT is supported by the CPUs
-  */
- bool topology_smt_supported(void)
++.macro LOAD_REALMODE_ESP
++	/*
++	 * Make sure only one CPU fiddles with the realmode stack
++	 */
++.Llock_rm\@:
++	btl	$0, tr_lock
++	jnc	2f
++	pause
++	jmp	.Llock_rm\@
++2:
++	lock
++	btsl	$0, tr_lock
++	jc	.Llock_rm\@
++
++	# Setup stack
++	movl	$rm_stack_end, %esp
++.endm
++
+ 	.balign	PAGE_SIZE
+ SYM_CODE_START(trampoline_start)
+ 	cli			# We should be safe anyway
+@@ -49,8 +67,7 @@ SYM_CODE_START(trampoline_start)
+ 	mov	%ax, %es
+ 	mov	%ax, %ss
+ 
+-	# Setup stack
+-	movl	$rm_stack_end, %esp
++	LOAD_REALMODE_ESP
+ 
+ 	call	verify_cpu		# Verify the cpu supports long mode
+ 	testl   %eax, %eax		# Check for return code
+@@ -93,8 +110,7 @@ SYM_CODE_START(sev_es_trampoline_start)
+ 	mov	%ax, %es
+ 	mov	%ax, %ss
+ 
+-	# Setup stack
+-	movl	$rm_stack_end, %esp
++	LOAD_REALMODE_ESP
+ 
+ 	jmp	.Lswitch_to_protected
+ SYM_CODE_END(sev_es_trampoline_start)
+@@ -177,7 +193,7 @@ SYM_CODE_START(pa_trampoline_compat)
+ 	 * In compatibility mode.  Prep ESP and DX for startup_32, then disable
+ 	 * paging and complete the switch to legacy 32-bit mode.
+ 	 */
+-	movl	$rm_stack_end, %esp
++	LOAD_REALMODE_ESP
+ 	movw	$__KERNEL_DS, %dx
+ 
+ 	movl	$(CR0_STATE & ~X86_CR0_PG), %eax
+@@ -241,6 +257,7 @@ SYM_DATA_START(trampoline_header)
+ 	SYM_DATA(tr_efer,		.space 8)
+ 	SYM_DATA(tr_cr4,		.space 4)
+ 	SYM_DATA(tr_flags,		.space 4)
++	SYM_DATA(tr_lock,		.space 4)
+ SYM_DATA_END(trampoline_header)
+ 
+ #include "trampoline_common.S"
 
 
 
