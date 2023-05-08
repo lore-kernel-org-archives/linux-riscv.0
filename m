@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B01BCC77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 13:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEB3C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 14:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZVDKmkY5+RYuS0y/hrmJAPfvtDmfsm8W4GAdIDG7XRY=; b=UNn47O68p2HpwC
-	A1JIU+3Q9W/dSkP29zDGBZxcEuzF+6A4Rdulmu9EUk08LRcxM3tSJoyNx2lGUgUje4APA0x0zUyrD
-	6fdkNEAhdsLgsFsmsMmQRMUtLhUZsrd43AHC6d19kY5/k3IpgwVAjrrNPEiHEJk7biVvlNxdYLXrn
-	K7Dfj1DaLnGL9rQtfAx7JjI5EgOS17Qx+DRel7ixymgRleoGVqVkwguLSK9IoYB3egVcUKKlA7OjJ
-	mSUjaY1HGbF/2c7iJZ3k11/ttQYryDguV5uv+23L/d+mnXuCGF3mXt1rq+HqMS1uZRXaEx6vTVUgM
-	WtyRZIf1x5kdhKc/8goQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wJqtn6evH3FbLAiFQ/VUiLxOsfx2Rkl4ZHnnBGsfxpI=; b=t17lxLy6AaC8nC
+	ho25uMRoPfGzWFMJjX5VqqszOajVacVZwSERLGu+HkRNIiZkXBK6hNVfjQorZjoFu23HZrTM9c9gJ
+	8WT9iOZE78lJr5O+3uFP30HcsdmCzQsA1C3gTsluFE9fzviwfFtfUlLBTg/WSh+SN6J3jgAOXc/0E
+	2pEM1z9LKnyMJfYMDJjaaWoIUHvpxk7czpySduY9ATPU+d2nXoxOxuirgpK4caK/sB4WEJuC0dpXw
+	3NPMvNcJ2sOoOMY+NsnIsDtlljYr28SuckqB6N31cLT+cmzcIDAiU6pH5yu8iwLNJ79fcBeoQahK3
+	phF2VcmbHdvEpJq5UH8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw0Tp-000Zr3-1m;
-	Mon, 08 May 2023 13:00:41 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1pw1rM-000kQ4-1w;
+	Mon, 08 May 2023 14:29:04 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvzR4-000S6u-2N
+	id 1pw1rJ-000kOy-2K
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 11:53:48 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1ab1ce53ca6so31164355ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 08 May 2023 04:53:45 -0700 (PDT)
+	Mon, 08 May 2023 14:29:03 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-643b7b8f8ceso1450992b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 08 May 2023 07:29:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683546824; x=1686138824;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hXB6eSvEhnIAtMiQWlMtfWUjRdd7V8Gch2IVA+HK6fk=;
-        b=ebWTZvVaQDx6X+9UsK2RbHTnW183k6BKTsOF+bCMFgqFtgeBzsyP/w5qy7tOKROuUC
-         ZxTuvZiMQiB+Ua4SXOBNs+t7uI0Ats9RXLgJVMycPsYyF2eIPW3Gh+M9ye96yAMc0RH1
-         Mtb+794zmhSFBW/GwJSgBFFZzeQ4b2k2P98Dpl5wOc3MxFTYa2gck9ClbsPUhl//ERS2
-         IWbrVH8Qmq/UF93MEUcUH8RTYSDW0HAjPAZ+t1IaTrcEVR+jx0vficJZuWZHxA7vJzkg
-         Wu3R3iYhGAmBuvaYLY5b/vwtSTaUxwNpNSnCci0i3v1xoRxXfuTlZ4HVqPLs9tkO4dGH
-         MRKg==
+        d=ventanamicro.com; s=google; t=1683556140; x=1686148140;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LF2qNorYNLRrXW28snaYMh/0mPEE++mM1Q0BSuQRSa4=;
+        b=kcHDao+S780JBaV1TVug8QoMhZqjuxlDyLk91S1Z3S7CbJUtjYpQUJoeJmIB4KkmTS
+         AaQLA/HqwR+8aeckGXkUsVofYU6PkE4DTFkMasE3xP2IwuQUszK3rYnt46m2fwomfnfW
+         BAzq2z44tuRWB+IeEXwY8b5zUBiEKksmje/vDiUFlm7PdT9wj5BB+NPDeGgz7BC7VxDt
+         3IrQ6dkStHgY7fA53CT531zYrc4RaJwe8uv9LxKEQeyc1rPGW3iniMfU6GOPN2R9Y18i
+         4uY0QY2Q6k8oLiXEpyBAQTXY9c9EDyGlgSkPLWaoKaVFjesa+3ISvi9jb0JHB+MiGYXJ
+         cYVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683546824; x=1686138824;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hXB6eSvEhnIAtMiQWlMtfWUjRdd7V8Gch2IVA+HK6fk=;
-        b=Qhx8MQwO+DHRd1AoUMcp3EDgiq6DDStz5bO8V42CsjlYy9vSmulWLbTOOqF/EKr/Qw
-         /b+Z9el0jdHamY4YSHGE4BtENWFKk5ZEIljvT22Ch+vfciYNw7psOW/6qcMSsQtLZtO9
-         U8d0vO6vGuSbWz8ezlgTmNGv+8FjqAiNCQSp+p0EgvSOnQSTVl38OrljpWXNYv/5LV2h
-         /Mmjuwp7cGFd3yWQG9VyCqkP5DrrSqleABsnofkpBCV4Ur53WXu8opVMZkSfS2buIuQd
-         kDngtNpaheM+TXd+XtPdJzervBbbu9KjZ+26esfWRuoySMk5i92BVFvHIlC/4pimPrWl
-         /GSw==
-X-Gm-Message-State: AC+VfDwh4hDFh3Q8RHQ9JSxpEtSB+5dWYYCJqwKC9OOZ6HAuA5VNN/Y/
-	HB1cA28ndwg8MR3mXXA9mmHIWA==
-X-Google-Smtp-Source: ACHHUZ4PU3YdcmwoLuH4jvs9+bfUcLvXabdC5Eg1na9dV0OJsAf5GJnzwnVXrkvmBEUvHMCJo+05+Q==
-X-Received: by 2002:a17:902:c40b:b0:1aa:fd48:f5e2 with SMTP id k11-20020a170902c40b00b001aafd48f5e2mr13592838plk.32.1683546824698;
-        Mon, 08 May 2023 04:53:44 -0700 (PDT)
-Received: from sunil-laptop.. ([106.51.189.144])
-        by smtp.gmail.com with ESMTPSA id w9-20020a170902904900b001aaed524541sm7015149plz.227.2023.05.08.04.53.36
+        d=1e100.net; s=20221208; t=1683556140; x=1686148140;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LF2qNorYNLRrXW28snaYMh/0mPEE++mM1Q0BSuQRSa4=;
+        b=RYTZMzKo6nh8GzygkDC2YQrP5gQyWRHAGc7xaC7gVJIUPF80Ved62vUx0QqEHdOlUM
+         tNzh9Bxx4U20s0gRZCFY4EPUBWoCja+6ie8ZnwLmvPM9fEsz1h2Zw1ajrjxmNReedieY
+         CZAHAVSrp3RvJ1pT0+5vvt7xX5J/O06pd2hRy7/ObxICQGvowKVBWfLZ+XyCkQTZm6Zb
+         Xxf65YqsXT3Ok8zU9fLsxoLMrfHLJKq3W4TRyx83Fhz3yu4D06pSCstVFp3AzkAmsgBS
+         0LNmFoAOc+42iLFt5ogAwQ05VPOuio5ro+LySBvDpsxoCTKYRBFD61wtejYDP3/dVZsD
+         jXPg==
+X-Gm-Message-State: AC+VfDxZ5NLgBxKmJJ8Koape2FZ015ylooF+CwcdrUe+98q6tw7H8Jsd
+	ZAjVI0zijw2iHUp7zo3ql9/4dA==
+X-Google-Smtp-Source: ACHHUZ79HQjgxg2rLlN2Li60VZ7yxkETrrybO4Lw/VSG8fE5OPE74vz3oUoA/TjdCH+4TkgRWFk3ww==
+X-Received: by 2002:a05:6a20:5488:b0:100:fc8d:feaf with SMTP id i8-20020a056a20548800b00100fc8dfeafmr1080471pzk.21.1683556140030;
+        Mon, 08 May 2023 07:29:00 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([171.76.84.206])
+        by smtp.gmail.com with ESMTPSA id k3-20020aa790c3000000b0063d46ec5777sm6082pfk.158.2023.05.08.07.28.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 May 2023 04:53:44 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+        Mon, 08 May 2023 07:28:59 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>
+Cc: Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH V5 06/21] RISC-V: Add support to build the ACPI core
-Date: Mon,  8 May 2023 17:22:22 +0530
-Message-Id: <20230508115237.216337-7-sunilvl@ventanamicro.com>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	iommu@lists.linux.dev,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v3 00/11] Linux RISC-V AIA Support
+Date: Mon,  8 May 2023 19:58:31 +0530
+Message-Id: <20230508142842.854564-1-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230508115237.216337-1-sunilvl@ventanamicro.com>
-References: <20230508115237.216337-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_045346_776913_2F54A6DA 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20230508_072901_760671_EEA2BBD1 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,265 +99,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Tom Rix <trix@redhat.com>, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Weili Qian <qianweili@huawei.com>, Herbert Xu <herbert@gondor.apana.org.au>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Zhou Wang <wangzhou1@hisilicon.com>, Palmer Dabbelt <palmer@dabbelt.com>, Len Brown <lenb@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>, "David S . Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable ACPI core for RISC-V after adding architecture-specific
-interfaces and header files required to build the ACPI core.
+The RISC-V AIA specification is now frozen as-per the RISC-V international
+process. The latest frozen specifcation can be found at:
+https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
 
-1) Couple of header files are required unconditionally by the ACPI
-core. Add empty acenv.h and cpu.h header files.
+At a high-level, the AIA specification adds three things:
+1) AIA CSRs
+   - Improved local interrupt support
+2) Incoming Message Signaled Interrupt Controller (IMSIC)
+   - Per-HART MSI controller
+   - Support MSI virtualization
+   - Support IPI along with virtualization
+3) Advanced Platform-Level Interrupt Controller (APLIC)
+   - Wired interrupt controller
+   - In MSI-mode, converts wired interrupt into MSIs (i.e. MSI generator)
+   - In Direct-mode, injects external interrupts directly into HARTs
 
-2) If CONFIG_PCI is enabled, a few PCI related interfaces need to
-be provided by the architecture. Define dummy interfaces for now
-so that build succeeds. Actual implementation will be added when
-PCI support is added for ACPI along with external interrupt
-controller support.
+For an overview of the AIA specification, refer the recent AIA virtualization
+talk at KVM Forum 2022:
+https://static.sched.com/hosted_files/kvmforum2022/a1/AIA_Virtualization_in_KVM_RISCV_final.pdf
+https://www.youtube.com/watch?v=r071dL8Z0yo
 
-3) A few globals and memory mapping related functions specific
-to the architecture need to be provided.
+The PATCH3 of this series conflicts with the "irqchip/riscv-intc: Add ACPI
+support" patch of the "Add basic ACPI support for RISC-V" series.
+(Refer, https://lore.kernel.org/linux-riscv/20230508115237.216337-1-sunilvl@ventanamicro.com/)
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/Kconfig             |  5 +++
- arch/riscv/include/asm/acenv.h | 11 +++++
- arch/riscv/include/asm/acpi.h  | 61 ++++++++++++++++++++++++++
- arch/riscv/include/asm/cpu.h   |  8 ++++
- arch/riscv/kernel/Makefile     |  1 +
- arch/riscv/kernel/acpi.c       | 80 ++++++++++++++++++++++++++++++++++
- 6 files changed, 166 insertions(+)
- create mode 100644 arch/riscv/include/asm/acenv.h
- create mode 100644 arch/riscv/include/asm/acpi.h
- create mode 100644 arch/riscv/include/asm/cpu.h
- create mode 100644 arch/riscv/kernel/acpi.c
+To test this series, use QEMU v7.2 (or higher) and OpenSBI v1.2 (or higher).
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 348c0fa1fc8c..491ecd7d2336 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,6 +12,8 @@ config 32BIT
- 
- config RISCV
- 	def_bool y
-+	select ACPI_GENERIC_GSI if ACPI
-+	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
- 	select ARCH_DMA_DEFAULT_COHERENT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-@@ -707,6 +709,7 @@ config EFI
- 	depends on OF && !XIP_KERNEL
- 	depends on MMU
- 	default y
-+	select ARCH_SUPPORTS_ACPI if 64BIT
- 	select EFI_GENERIC_STUB
- 	select EFI_PARAMS_FROM_FDT
- 	select EFI_RUNTIME_WRAPPERS
-@@ -816,3 +819,5 @@ source "drivers/cpufreq/Kconfig"
- endmenu # "CPU Power Management"
- 
- source "arch/riscv/kvm/Kconfig"
-+
-+source "drivers/acpi/Kconfig"
-diff --git a/arch/riscv/include/asm/acenv.h b/arch/riscv/include/asm/acenv.h
-new file mode 100644
-index 000000000000..43ae2e32c779
---- /dev/null
-+++ b/arch/riscv/include/asm/acenv.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * RISC-V specific ACPICA environments and implementation
-+ */
-+
-+#ifndef _ASM_ACENV_H
-+#define _ASM_ACENV_H
-+
-+/* This header is required unconditionally by the ACPI core */
-+
-+#endif /* _ASM_ACENV_H */
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-new file mode 100644
-index 000000000000..bcade255bd6e
---- /dev/null
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -0,0 +1,61 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ *  Copyright (C) 2013-2014, Linaro Ltd.
-+ *	Author: Al Stone <al.stone@linaro.org>
-+ *	Author: Graeme Gregory <graeme.gregory@linaro.org>
-+ *	Author: Hanjun Guo <hanjun.guo@linaro.org>
-+ *
-+ *  Copyright (C) 2021-2023, Ventana Micro Systems Inc.
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ */
-+
-+#ifndef _ASM_ACPI_H
-+#define _ASM_ACPI_H
-+
-+/* Basic configuration for ACPI */
-+#ifdef CONFIG_ACPI
-+
-+/* ACPI table mapping after acpi_permanent_mmap is set */
-+void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
-+#define acpi_os_ioremap acpi_os_ioremap
-+
-+#define acpi_strict 1	/* No out-of-spec workarounds on RISC-V */
-+extern int acpi_disabled;
-+extern int acpi_noirq;
-+extern int acpi_pci_disabled;
-+
-+static inline void disable_acpi(void)
-+{
-+	acpi_disabled = 1;
-+	acpi_pci_disabled = 1;
-+	acpi_noirq = 1;
-+}
-+
-+static inline void enable_acpi(void)
-+{
-+	acpi_disabled = 0;
-+	acpi_pci_disabled = 0;
-+	acpi_noirq = 0;
-+}
-+
-+/*
-+ * The ACPI processor driver for ACPI core code needs this macro
-+ * to find out whether this cpu was already mapped (mapping from CPU hardware
-+ * ID to CPU logical ID) or not.
-+ */
-+#define cpu_physical_id(cpu) cpuid_to_hartid_map(cpu)
-+
-+/*
-+ * Since MADT must provide at least one RINTC structure, the
-+ * CPU will be always available in MADT on RISC-V.
-+ */
-+static inline bool acpi_has_cpu_in_madt(void)
-+{
-+	return true;
-+}
-+
-+static inline void arch_fix_phys_package_id(int num, u32 slot) { }
-+
-+#endif /* CONFIG_ACPI */
-+
-+#endif /*_ASM_ACPI_H*/
-diff --git a/arch/riscv/include/asm/cpu.h b/arch/riscv/include/asm/cpu.h
-new file mode 100644
-index 000000000000..28d45a6678ce
---- /dev/null
-+++ b/arch/riscv/include/asm/cpu.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef _ASM_CPU_H
-+#define _ASM_CPU_H
-+
-+/* This header is required unconditionally by the ACPI core */
-+
-+#endif /* _ASM_CPU_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index fbdccc21418a..ed5fcd90036e 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -92,3 +92,4 @@ obj-$(CONFIG_COMPAT)		+= compat_signal.o
- obj-$(CONFIG_COMPAT)		+= compat_vdso/
- 
- obj-$(CONFIG_64BIT)		+= pi/
-+obj-$(CONFIG_ACPI)		+= acpi.o
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-new file mode 100644
-index 000000000000..81d448c41714
---- /dev/null
-+++ b/arch/riscv/kernel/acpi.c
-@@ -0,0 +1,80 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ *  RISC-V Specific Low-Level ACPI Boot Support
-+ *
-+ *  Copyright (C) 2013-2014, Linaro Ltd.
-+ *	Author: Al Stone <al.stone@linaro.org>
-+ *	Author: Graeme Gregory <graeme.gregory@linaro.org>
-+ *	Author: Hanjun Guo <hanjun.guo@linaro.org>
-+ *	Author: Tomasz Nowicki <tomasz.nowicki@linaro.org>
-+ *	Author: Naresh Bhat <naresh.bhat@linaro.org>
-+ *
-+ *  Copyright (C) 2021-2023, Ventana Micro Systems Inc.
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ */
-+
-+#include <linux/acpi.h>
-+#include <linux/io.h>
-+#include <linux/pci.h>
-+
-+int acpi_noirq = 1;		/* skip ACPI IRQ initialization */
-+int acpi_disabled = 1;
-+EXPORT_SYMBOL(acpi_disabled);
-+
-+int acpi_pci_disabled = 1;	/* skip ACPI PCI scan and IRQ initialization */
-+EXPORT_SYMBOL(acpi_pci_disabled);
-+
-+/*
-+ * __acpi_map_table() will be called before paging_init(), so early_ioremap()
-+ * or early_memremap() should be called here to for ACPI table mapping.
-+ */
-+void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
-+{
-+	if (!size)
-+		return NULL;
-+
-+	return early_memremap(phys, size);
-+}
-+
-+void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
-+{
-+	if (!map || !size)
-+		return;
-+
-+	early_memunmap(map, size);
-+}
-+
-+void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-+{
-+	return memremap(phys, size, MEMREMAP_WB);
-+}
-+
-+#ifdef CONFIG_PCI
-+
-+/*
-+ * These interfaces are defined just to enable building ACPI core.
-+ * TODO: Update it with actual implementation when external interrupt
-+ * controller support is added in RISC-V ACPI.
-+ */
-+int raw_pci_read(unsigned int domain, unsigned int bus, unsigned int devfn,
-+		 int reg, int len, u32 *val)
-+{
-+	return PCIBIOS_DEVICE_NOT_FOUND;
-+}
-+
-+int raw_pci_write(unsigned int domain, unsigned int bus, unsigned int devfn,
-+		  int reg, int len, u32 val)
-+{
-+	return PCIBIOS_DEVICE_NOT_FOUND;
-+}
-+
-+int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
-+{
-+	return -1;
-+}
-+
-+struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
-+{
-+	return NULL;
-+}
-+#endif	/* CONFIG_PCI */
+These patches can also be found in the riscv_aia_v3 branch at:
+https://github.com/avpatel/linux.git
+
+Changes since v2:
+ - Rebased on Linux-6.4-rc1
+ - Addressed Rob's comments on DT bindings patches 4 and 8.
+ - Addessed Marc's comments on IMSIC driver PATCH5
+ - Replaced use of OF apis in APLIC and IMSIC drivers with FWNODE apis
+   this makes both drivers easily portable for ACPI support. This also
+   removes unnecessary indirection from the APLIC and IMSIC drivers.
+ - PATCH1 is a new patch for portability with ACPI support
+ - PATCH2 is a new patch to fix probing in APLIC drivers for APLIC-only systems.
+ - PATCH7 is a new patch which addresses the IOMMU DMA domain issues pointed
+   out by SiFive
+
+Changes since v1:
+ - Rebased on Linux-6.2-rc2
+ - Addressed comments on IMSIC DT bindings for PATCH4
+ - Use raw_spin_lock_irqsave() on ids_lock for PATCH5
+ - Improved MMIO alignment checks in PATCH5 to allow MMIO regions
+   with holes.
+ - Addressed comments on APLIC DT bindings for PATCH6
+ - Fixed warning splat in aplic_msi_write_msg() caused by
+   zeroed MSI message in PATCH7
+ - Dropped DT property riscv,slow-ipi instead will have module
+   parameter in future.
+
+Anup Patel (11):
+  RISC-V: Add riscv_fw_parent_hartid() function
+  of/irq: Set FWNODE_FLAG_BEST_EFFORT for the interrupt controller DT
+    nodes
+  irqchip/riscv-intc: Add support for RISC-V AIA
+  dt-bindings: interrupt-controller: Add RISC-V incoming MSI controller
+  irqchip: Add RISC-V incoming MSI controller driver
+  irqchip/riscv-imsic: Add support for PCI MSI irqdomain
+  irqchip/riscv-imsic: Improve IOMMU DMA support
+  dt-bindings: interrupt-controller: Add RISC-V advanced PLIC
+  irqchip: Add RISC-V advanced PLIC driver
+  RISC-V: Select APLIC and IMSIC drivers
+  MAINTAINERS: Add entry for RISC-V AIA drivers
+
+ .../interrupt-controller/riscv,aplic.yaml     |  162 +++
+ .../interrupt-controller/riscv,imsics.yaml    |  172 +++
+ MAINTAINERS                                   |   12 +
+ arch/riscv/Kconfig                            |    2 +
+ arch/riscv/include/asm/processor.h            |    3 +
+ arch/riscv/kernel/cpu.c                       |   12 +
+ drivers/iommu/dma-iommu.c                     |   38 +
+ drivers/irqchip/Kconfig                       |   20 +-
+ drivers/irqchip/Makefile                      |    2 +
+ drivers/irqchip/irq-riscv-aplic.c             |  750 ++++++++++++
+ drivers/irqchip/irq-riscv-imsic.c             | 1080 +++++++++++++++++
+ drivers/irqchip/irq-riscv-intc.c              |   36 +-
+ drivers/of/irq.c                              |   10 +
+ include/linux/iommu.h                         |    6 +
+ include/linux/irqchip/riscv-aplic.h           |  119 ++
+ include/linux/irqchip/riscv-imsic.h           |   86 ++
+ 16 files changed, 2503 insertions(+), 7 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+ create mode 100644 drivers/irqchip/irq-riscv-aplic.c
+ create mode 100644 drivers/irqchip/irq-riscv-imsic.c
+ create mode 100644 include/linux/irqchip/riscv-aplic.h
+ create mode 100644 include/linux/irqchip/riscv-imsic.h
+
 -- 
 2.34.1
 
