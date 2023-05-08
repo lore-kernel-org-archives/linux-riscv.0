@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BA6C77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA03C7EE2D
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=8xBaj/Nlz8lnqtn/8D/6KqSWaduEHfo/j+rNOwzQ2Zc=; b=Y7LV3S0mkrNDf7
-	zaZLy7joaw5K14nSCPc9sH+o3/EH1tXRxk5D7gB163J11kzNnsnLB8EFjercRXSXXBXtw53gL2owy
-	0i5YYfS+qlf/dGTR0tz6K1yjBv+z4L9khztTT2gwS130XldoXT3wzQV66DM6NLXNnwRc6xSKJQndD
-	ht12lF2ePw3DuG3Eybyc20Zaf//Rddwr0cXTimC3z1vQVW4jFsoHkeFFC2mDFEygZFjkk2X30EFua
-	C5h/OQtOgGbNnyQUmIQgfdb1jUXQJN8BxKydspaK/SExTg+rdfFoKYAZUnoJmyUK0Jru/1fIfpFfD
-	EOjDlRKoES3lCV9ORXjA==;
+	List-Owner; bh=iMur8R9nkaSrCrkL8g9kuw6kQ4rqcSGIwRcYtS/XPus=; b=D4EftlYZtxaOiE
+	oaGvk+R25wwLzcqbOGm30uBDt2bpC2glIDT9UZCxE8u3te6Eyla34T4Wv+8UAaiBcLz4Xap2WJSYc
+	xboxWkQJL2IyGcCyrAGk3lHcDq7cVqb3PGcaDdHBgYgABVsWBDzAnUY3jvLAm7RB9l37ueklNA48Y
+	HRiKtBF+nevzQfpXtHZ60YaKA1nXJJ0XxHs6SYP4V1Y525Scb5NZlhehW8+xVB62b3hg+y+tHCs8+
+	zZGUHQkYrRirfHW623KZQVtJI5ZT07bwMd0+ncjOtvrRKmBM2bw/Msiywv1cxbdl/JpGkVaZWx5qH
+	FaL3yqu0Ue4qn2Ee/IAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6nH-001FZl-25;
-	Mon, 08 May 2023 19:45:11 +0000
+	id 1pw6nJ-001Fay-1D;
+	Mon, 08 May 2023 19:45:13 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mK-001EbM-1b;
-	Mon, 08 May 2023 19:44:25 +0000
-Message-ID: <20230508185218.749244209@linutronix.de>
+	id 1pw6mN-001EfG-30;
+	Mon, 08 May 2023 19:44:26 +0000
+Message-ID: <20230508185218.856286839@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575051;
+	s=2020; t=1683575054;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=4bj8ZvYTo7h4ovclEum+b6WsfhLEcO8uNjPMgn9Q5x4=;
-	b=luptazBGQl/6gwCsUF/buYWxkBAEoJNYHx7Kxq0OeppfP1uF6F7NgOCw3LqRVTaT31I9h4
-	D5XOFiRqBn9YmzEHb1c8fA6wh7ZzDtnqoGVuN2a4blplprkdtDd8R1N5BUJ7dY//ynam4z
-	9nOeEaXVbMYGsvANvqaAzHwNiaL+IZrNUZNLb8PdkXNIsgQJ3JnLHxTcMWQHPktfZ7p1+I
-	valh5s3/2GsrRw0m8GhQn7EqA30eWJMKuxbBma4fWLJDjf3ostL0yMHCO5slcxoZThfFtJ
-	ateRKwD80dVM75IN8sPMyv58NxXIKSeUEGcWX63SCtgZbvKN9Mfqco6vLkvfkg==
+	 references:references; bh=S1u0Rr9+GOXQtpnupcrVF2C6hZgp3Qx9VyPMOZrmGUo=;
+	b=oISYDK58uyxEqUGHyMJl0yjUCJNOL5/7EGvOZggKHrsRbzI+Zfvw/3LqoASrcYSbpSofdk
+	smv5bYqSUgI37EvCpKk1bIpdP6plTO/QVQFaxEN/bX+VNPLK6e9fxhxLFDKIXJiJ8+kSiF
+	cQZuVcY4mwsCMKCnQL+NO+4vqzlN0ZiMTQ6qbV+dFndB1QkTtSbQxRgBNU1jh3+qlg559v
+	oxQCzKKAnn8gCc+1y89JF3fvz5z1Xn99zAaSiyaLuoBN6+lOS/ZxYYzwXkZkWIhNnC+9+0
+	MzcZbiKvl223hH1JPAYQnBF6gNdXhbpmdcQST4cZ+iIm+WtHU0bzyy3U3O2+oQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575051;
+	s=2020e; t=1683575054;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=4bj8ZvYTo7h4ovclEum+b6WsfhLEcO8uNjPMgn9Q5x4=;
-	b=Irrw/2b9WZnFSWO4H5T5IOf9dImpiZr2fFBeiX3HwHII5+jw+y4xy+lPuveYMabu3EDI57
-	iXBQKFEgrrdQwlAQ==
+	 references:references; bh=S1u0Rr9+GOXQtpnupcrVF2C6hZgp3Qx9VyPMOZrmGUo=;
+	b=AZidL7FELSVa1ikq306vI32X2wbks/dMZeZ9LLRMIVoxLB22DPBpW8f+vd00DqVCG0ZwZH
+	HJ9bhkUAS1wb3vBg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,14 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch v3 27/36] cpu/hotplug: Remove unused state functions
+Subject: [patch v3 29/36] [patch V2 29/38] cpu/hotplug: Provide a split up
+ CPUHP_BRINGUP mechanism
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:44:10 +0200 (CEST)
+Date: Mon,  8 May 2023 21:44:13 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124413_757836_F60B55C8 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20230508_124416_308543_44DFC66F 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,110 +107,206 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-All users converted to the hotplug core mechanism.
+The bring up logic of a to be onlined CPU consists of several parts, which
+are considered to be a single hotplug state:
+
+  1) Control CPU issues the wake-up
+
+  2) To be onlined CPU starts up, does the minimal initialization,
+     reports to be alive and waits for release into the complete bring-up.
+
+  3) Control CPU waits for the alive report and releases the upcoming CPU
+     for the complete bring-up.
+
+Allow to split this into two states:
+
+  1) Control CPU issues the wake-up
+
+     After that the to be onlined CPU starts up, does the minimal
+     initialization, reports to be alive and waits for release into the
+     full bring-up. As this can run after the control CPU dropped the
+     hotplug locks the code which is executed on the AP before it reports
+     alive has to be carefully audited to not violate any of the hotplug
+     constraints, especially not modifying any of the various cpumasks.
+
+     This is really only meant to avoid waiting for the AP to react on the
+     wake-up. Of course an architecture can move strict CPU related setup
+     functionality, e.g. microcode loading, with care before the
+     synchronization point to save further pointless waiting time.
+
+  2) Control CPU waits for the alive report and releases the upcoming CPU
+     for the complete bring-up.
+
+This allows that the two states can be split up to run all to be onlined
+CPUs up to state #1 on the control CPU and then at a later point run state
+#2. This spares some of the latencies of the full serialized per CPU
+bringup by avoiding the per CPU wakeup/wait serialization. The assumption
+is that the first AP already waits when the last AP has been woken up. This
+obvioulsy depends on the hardware latencies and depending on the timings
+this might still not completely eliminate all wait scenarios.
+
+This split is just a preparatory step for enabling the parallel bringup
+later. The boot time bringup is still fully serialized. It has a separate
+config switch so that architectures which want to support parallel bringup
+can test the split of the CPUHP_BRINGUG step separately.
+
+To enable this the architecture must support the CPU hotplug core sync
+mechanism and has to be audited that there are no implicit hotplug state
+dependencies which require a fully serialized bringup.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- include/linux/cpu.h |    2 -
- kernel/smpboot.c    |   75 ----------------------------------------------------
- 2 files changed, 77 deletions(-)
+ arch/Kconfig               |    4 ++
+ include/linux/cpuhotplug.h |    4 ++
+ kernel/cpu.c               |   70 +++++++++++++++++++++++++++++++++++++++++++--
+ 3 files changed, 76 insertions(+), 2 deletions(-)
 ---
 
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -193,8 +193,6 @@ static inline void play_idle(unsigned lo
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -49,6 +49,10 @@ config HOTPLUG_CORE_SYNC_FULL
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select HOTPLUG_CORE_SYNC
+ 
++config HOTPLUG_SPLIT_STARTUP
++	bool
++	select HOTPLUG_CORE_SYNC_FULL
++
+ config GENERIC_ENTRY
+ 	bool
+ 
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -133,6 +133,7 @@ enum cpuhp_state {
+ 	CPUHP_MIPS_SOC_PREPARE,
+ 	CPUHP_BP_PREPARE_DYN,
+ 	CPUHP_BP_PREPARE_DYN_END		= CPUHP_BP_PREPARE_DYN + 20,
++	CPUHP_BP_KICK_AP,
+ 	CPUHP_BRINGUP_CPU,
+ 
+ 	/*
+@@ -517,9 +518,12 @@ void cpuhp_online_idle(enum cpuhp_state
+ static inline void cpuhp_online_idle(enum cpuhp_state state) { }
+ #endif
+ 
++struct task_struct;
++
+ void cpuhp_ap_sync_alive(void);
+ void arch_cpuhp_sync_state_poll(void);
+ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
++int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
+ 
+ #ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
+ void cpuhp_ap_report_dead(void);
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -761,6 +761,47 @@ static int bringup_wait_for_ap_online(un
+ 	return 0;
  }
  
- #ifdef CONFIG_HOTPLUG_CPU
--bool cpu_wait_death(unsigned int cpu, int seconds);
--bool cpu_report_death(void);
- void cpuhp_report_idle_dead(void);
- #else
- static inline void cpuhp_report_idle_dead(void) { }
---- a/kernel/smpboot.c
-+++ b/kernel/smpboot.c
-@@ -325,78 +325,3 @@ void smpboot_unregister_percpu_thread(st
- 	cpus_read_unlock();
++#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
++static int cpuhp_kick_ap_alive(unsigned int cpu)
++{
++	if (!cpuhp_can_boot_ap(cpu))
++		return -EAGAIN;
++
++	return arch_cpuhp_kick_ap_alive(cpu, idle_thread_get(cpu));
++}
++
++static int cpuhp_bringup_ap(unsigned int cpu)
++{
++	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
++	int ret;
++
++	/*
++	 * Some architectures have to walk the irq descriptors to
++	 * setup the vector space for the cpu which comes online.
++	 * Prevent irq alloc/free across the bringup.
++	 */
++	irq_lock_sparse();
++
++	ret = cpuhp_bp_sync_alive(cpu);
++	if (ret)
++		goto out_unlock;
++
++	ret = bringup_wait_for_ap_online(cpu);
++	if (ret)
++		goto out_unlock;
++
++	irq_unlock_sparse();
++
++	if (st->target <= CPUHP_AP_ONLINE_IDLE)
++		return 0;
++
++	return cpuhp_kick_ap(cpu, st, st->target);
++
++out_unlock:
++	irq_unlock_sparse();
++	return ret;
++}
++#else
+ static int bringup_cpu(unsigned int cpu)
+ {
+ 	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
+@@ -777,7 +818,6 @@ static int bringup_cpu(unsigned int cpu)
+ 	 */
+ 	irq_lock_sparse();
+ 
+-	/* Arch-specific enabling code. */
+ 	ret = __cpu_up(cpu, idle);
+ 	if (ret)
+ 		goto out_unlock;
+@@ -801,6 +841,7 @@ static int bringup_cpu(unsigned int cpu)
+ 	irq_unlock_sparse();
+ 	return ret;
  }
- EXPORT_SYMBOL_GPL(smpboot_unregister_percpu_thread);
--
--#ifndef CONFIG_HOTPLUG_CORE_SYNC
--static DEFINE_PER_CPU(atomic_t, cpu_hotplug_state) = ATOMIC_INIT(CPU_POST_DEAD);
--
--#ifdef CONFIG_HOTPLUG_CPU
--/*
-- * Wait for the specified CPU to exit the idle loop and die.
-- */
--bool cpu_wait_death(unsigned int cpu, int seconds)
--{
--	int jf_left = seconds * HZ;
--	int oldstate;
--	bool ret = true;
--	int sleep_jf = 1;
--
--	might_sleep();
--
--	/* The outgoing CPU will normally get done quite quickly. */
--	if (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) == CPU_DEAD)
--		goto update_state_early;
--	udelay(5);
--
--	/* But if the outgoing CPU dawdles, wait increasingly long times. */
--	while (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) != CPU_DEAD) {
--		schedule_timeout_uninterruptible(sleep_jf);
--		jf_left -= sleep_jf;
--		if (jf_left <= 0)
--			break;
--		sleep_jf = DIV_ROUND_UP(sleep_jf * 11, 10);
--	}
--update_state_early:
--	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
--update_state:
--	if (oldstate == CPU_DEAD) {
--		/* Outgoing CPU died normally, update state. */
--		smp_mb(); /* atomic_read() before update. */
--		atomic_set(&per_cpu(cpu_hotplug_state, cpu), CPU_POST_DEAD);
--	} else {
--		/* Outgoing CPU still hasn't died, set state accordingly. */
--		if (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
--					&oldstate, CPU_BROKEN))
--			goto update_state;
--		ret = false;
--	}
--	return ret;
--}
--
--/*
-- * Called by the outgoing CPU to report its successful death.  Return
-- * false if this report follows the surviving CPU's timing out.
-- *
-- * A separate "CPU_DEAD_FROZEN" is used when the surviving CPU
-- * timed out.  This approach allows architectures to omit calls to
-- * cpu_check_up_prepare() and cpu_set_state_online() without defeating
-- * the next cpu_wait_death()'s polling loop.
-- */
--bool cpu_report_death(void)
--{
--	int oldstate;
--	int newstate;
--	int cpu = smp_processor_id();
--
--	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
--	do {
--		if (oldstate != CPU_BROKEN)
--			newstate = CPU_DEAD;
--		else
--			newstate = CPU_DEAD_FROZEN;
--	} while (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
--				     &oldstate, newstate));
--	return newstate == CPU_DEAD;
--}
--
--#endif /* #ifdef CONFIG_HOTPLUG_CPU */
--#endif /* !CONFIG_HOTPLUG_CORE_SYNC */
++#endif
+ 
+ static int finish_cpu(unsigned int cpu)
+ {
+@@ -1940,13 +1981,38 @@ static struct cpuhp_step cpuhp_hp_states
+ 		.startup.single		= timers_prepare_cpu,
+ 		.teardown.single	= timers_dead_cpu,
+ 	},
+-	/* Kicks the plugged cpu into life */
++
++#ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
++	/*
++	 * Kicks the AP alive. AP will wait in cpuhp_ap_sync_alive() until
++	 * the next step will release it.
++	 */
++	[CPUHP_BP_KICK_AP] = {
++		.name			= "cpu:kick_ap",
++		.startup.single		= cpuhp_kick_ap_alive,
++	},
++
++	/*
++	 * Waits for the AP to reach cpuhp_ap_sync_alive() and then
++	 * releases it for the complete bringup.
++	 */
++	[CPUHP_BRINGUP_CPU] = {
++		.name			= "cpu:bringup",
++		.startup.single		= cpuhp_bringup_ap,
++		.teardown.single	= finish_cpu,
++		.cant_stop		= true,
++	},
++#else
++	/*
++	 * All-in-one CPU bringup state which includes the kick alive.
++	 */
+ 	[CPUHP_BRINGUP_CPU] = {
+ 		.name			= "cpu:bringup",
+ 		.startup.single		= bringup_cpu,
+ 		.teardown.single	= finish_cpu,
+ 		.cant_stop		= true,
+ 	},
++#endif
+ 	/* Final state before CPU kills itself */
+ 	[CPUHP_AP_IDLE_DEAD] = {
+ 		.name			= "idle:dead",
 
 
 
