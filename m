@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5B2C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 14:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7679C7EE2C
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 14:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SgmJ07KiF0ZHr6L9F3qlb21ZtMeQB8uM7kpT7Ivr/ko=; b=ggvoBU2p+6g+wU
-	EHyMuaAgkNvjB8IzDiTYLDtJYFUiAT2QxE34hf7wZ+mm2iVL81xU7Ibu9Iddgl3KvN68O8+O9DeVU
-	3HhtNKQnLaLiYx9OiMrbeocq1UDbqIs09XLKWYBElkAqUuSHhJYJWFScKYqKuChjfaiSBiL2Ngsep
-	8yxT/tRyKN0WwKNSWCIL0TCemcoeUGi/k8Ugn5IuBRSbXG/U6BJ9WMjjcHgLxwGV/QHi1nCtHg2Oj
-	zoiNXv52+QzOJRblLpq82q6QCMDKwnm4mBIfDMlkjFm7YvPNDt+X5fIb2HYjVI92hSa979dhHW8vi
-	Gi4VQeeHxNgBqVUJHPKQ==;
+	List-Owner; bh=i0YmELMCKrio9rJLkTOrSTmHjIHuRZ2D3FPKVjP9iEM=; b=iAVjrUJpTjIBKU
+	OkmksCYAI+F5rkyktI39oyTEqC+z2I6z8cGhFJCW50n3rFoiIa3r/d/R3PljBlr2qopJ/NWzFl5Mb
+	rIAQYOZoPVLJKpHSx8NAIXjNwNGhOYmu0RXtkko48F2TdoQ0qbH9tZmZSZ2DHaTClzqhjhWwrZFmP
+	AJfEp1xw58yGpIgLR4iJooeu0GFugIsVEGjvmrgBxNJ3lQ583ZJ241bny3mS/aOt2AVAt1wyyuPBv
+	OO4PrTL6eLYuU8Zb6DI2oO0XQUxg0sHYqMJnzYRNv6CEU2QwWvSp0YOVCDM9i2NHuUeY4Ro2Bdn2w
+	0QX+ThbAvRNVU2uG8gRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw23v-000mYS-2f;
-	Mon, 08 May 2023 14:42:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pw23w-000mYh-12;
+	Mon, 08 May 2023 14:42:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw23q-000mUw-2A
+	id 1pw23q-000mUv-2F
 	for linux-riscv@lists.infradead.org;
 	Mon, 08 May 2023 14:42:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 92FBE640CA;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 90508640C6;
 	Mon,  8 May 2023 14:41:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6FFD1C433D2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5599DC433AF;
 	Mon,  8 May 2023 14:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1683556916;
-	bh=eAOT+NHmXh2QJqEgJ9YZFhBuoVP6a8qQZVhJ1sJRZHA=;
+	bh=GN50963fdkw5cucYPuN4xRaiQmxHDA0hrlxtEWYsvtQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=euf9Aa2Z7hjHuHjV/3m1HVsFRDsNxFrLu7KT6qMiHLyr98PAoyX1nvFb30R/QOEmj
-	 b9RaXV/0bKrysX+sh93F4T2fXyF5RIhqPjXG5NnYlfRzIJZHwGGySFcwPJl0YzNvUn
-	 O3QFAsCA+09RIb4Tdz8vEvDcJ9JLf3nDEFI4/hU5S6Pl6dgo5xtD5iR+lXlec+fsbx
-	 uS67bgj6VwtBu+mvlp3N0Vy9DkG7QBG54ch1Eq2xzgkuKDyHmu6chRo/Pa76MGqrJ6
-	 oniwt2lmozGIq2remUBpVL30EpyxUXZnJreIhCa3xbPyKcTh+IAt/HkNNOsxZcJYea
-	 QAlyBGMMybe+A==
+	b=r64Dxi/fpFWqlTPgj0oa/IYTE2F52/0U4frXOQyj/T+tixhV8XgLG9eTZd0UTcV36
+	 MThVa+dfb2c7qq/bN1MQ8+/nOc8Zmb/oMzz15aLEjcY3k7iXI8FgY1pc19ij96JWIV
+	 p9dbdwXXuKSBbcyHFrtz6ZwA4PUDzbKgr0j7wVdl3YWaGX8HsjZh5pa2IYQUToSezH
+	 E9CdNSf3PqfxLJyZIxE9T5n56CbdoDjfQLgg37E6Wjd320jmozml/4Ck793810C2gG
+	 zwHDr3HymZCWssXv9EaO6SQ9YW4Hi3EpsX6/opGZlaru1Qz9BiS57573d/bVlpFpBc
+	 4vD8grh8d6yuA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 4FE2BE4F0A2;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2C09CE26D2B;
 	Mon,  8 May 2023 14:41:56 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes] riscv: Move .rela.dyn to the init sections
+Subject: Re: [PATCH] libgcc: Add forward declarations for generic library routines
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <168355691632.25692.12423469985952426151.git-patchwork-notify@kernel.org>
+Message-Id:  <168355691617.25692.18413165340491314933.git-patchwork-notify@kernel.org>
 Date: Mon, 08 May 2023 14:41:56 +0000
-References: <20230428120932.22735-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230428120932.22735-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+References: <5cdbe08296693dd53849f199c3933e16e97b33c1.1682088593.git.geert+renesas@glider.be>
+In-Reply-To: <5cdbe08296693dd53849f199c3933e16e97b33c1.1682088593.git.geert+renesas@glider.be>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org, arnd@arndb.de,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-sh@vger.kernel.org, chris@zankel.net,
+ jcmvbkbc@gmail.com, lkp@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_074158_755421_8C68057D 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20230508_074158_774922_DBBA47A6 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,21 +82,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 28 Apr 2023 14:09:32 +0200 you wrote:
-> The recent introduction of relocatable kernels prepared the move of
-> .rela.dyn to the init section, but actually forgot to do so, so do it
-> here.
+On Fri, 21 Apr 2023 16:54:24 +0200 you wrote:
+> With W=1 on platforms that use the generic gcc library routines
+> (csky/loongarch/mips/riscv/sh/xtensa):
 > 
-> Before this patch: "Freeing unused kernel image (initmem) memory: 2592K"
-> After this patch:  "Freeing unused kernel image (initmem) memory: 6288K"
+>     lib/ashldi3.c:9:19: warning: no previous prototype for '__ashldi3' [-Wmissing-prototypes]
+> 	9 | long long notrace __ashldi3(long long u, word_type b)
+> 	  |                   ^~~~~~~~~
+>       CC      lib/ashrdi3.o
+>     lib/ashrdi3.c:9:19: warning: no previous prototype for '__ashrdi3' [-Wmissing-prototypes]
+> 	9 | long long notrace __ashrdi3(long long u, word_type b)
+> 	  |                   ^~~~~~~~~
+>       CC      lib/cmpdi2.o
+>     lib/cmpdi2.c:9:19: warning: no previous prototype for '__cmpdi2' [-Wmissing-prototypes]
+> 	9 | word_type notrace __cmpdi2(long long a, long long b)
+> 	  |                   ^~~~~~~~
+>       CC      lib/lshrdi3.o
+>     lib/lshrdi3.c:9:19: warning: no previous prototype for '__lshrdi3' [-Wmissing-prototypes]
+> 	9 | long long notrace __lshrdi3(long long u, word_type b)
+> 	  |                   ^~~~~~~~~
+>       CC      lib/muldi3.o
+>     lib/muldi3.c:49:19: warning: no previous prototype for '__muldi3' [-Wmissing-prototypes]
+>        49 | long long notrace __muldi3(long long u, long long v)
+> 	  |                   ^~~~~~~~
+>       CC      lib/ucmpdi2.o
+>     lib/ucmpdi2.c:8:19: warning: no previous prototype for '__ucmpdi2' [-Wmissing-prototypes]
+> 	8 | word_type notrace __ucmpdi2(unsigned long long a, unsigned long long b)
+> 	  |                   ^~~~~~~~~
 > 
 > [...]
 
 Here is the summary with links:
-  - [-fixes] riscv: Move .rela.dyn to the init sections
-    https://git.kernel.org/riscv/c/4db9e253e701
+  - libgcc: Add forward declarations for generic library routines
+    https://git.kernel.org/riscv/c/4f20b7471c57
 
 You are awesome, thank you!
 -- 
