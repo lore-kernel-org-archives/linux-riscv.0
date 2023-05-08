@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E82C7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BA6C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=OiQjS6KdbD6pkfqZVTxue1jffEraeT8YnNXN4PM1l70=; b=MCwyETjxXHkiQ6
-	JHUUIiJDUoNJtrIquCY1tLK3fFi9nwcdAxbhpUM1PvhNDvilj6Rr294VfmLkzl23QNWjDC4nyZlvE
-	IG4y0x8Xq2uESjJ0rDLPqBG+ljbw32iC2aAZtiGnarvbZnxK4YOVONH/n0iHhTzZQErh2VmpoSMhG
-	iOnfNLFQaTBylByNeco8gb1AXhh57ZDdQfUhLE5UH5iOI+RsFuu8qHhMtyNUQZ6eUPorAv4feEA6m
-	BUa1nFN5N/0bALldA9AMuYGDaOlstfTj0hDRlyUSeGpMC/qZAOfII6roz/yD5jGlf7eaq+HHzg8rM
-	oTr84mCrmxNGH0csZoAw==;
+	List-Owner; bh=8xBaj/Nlz8lnqtn/8D/6KqSWaduEHfo/j+rNOwzQ2Zc=; b=Y7LV3S0mkrNDf7
+	zaZLy7joaw5K14nSCPc9sH+o3/EH1tXRxk5D7gB163J11kzNnsnLB8EFjercRXSXXBXtw53gL2owy
+	0i5YYfS+qlf/dGTR0tz6K1yjBv+z4L9khztTT2gwS130XldoXT3wzQV66DM6NLXNnwRc6xSKJQndD
+	ht12lF2ePw3DuG3Eybyc20Zaf//Rddwr0cXTimC3z1vQVW4jFsoHkeFFC2mDFEygZFjkk2X30EFua
+	C5h/OQtOgGbNnyQUmIQgfdb1jUXQJN8BxKydspaK/SExTg+rdfFoKYAZUnoJmyUK0Jru/1fIfpFfD
+	EOjDlRKoES3lCV9ORXjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6nD-001FVD-28;
-	Mon, 08 May 2023 19:45:07 +0000
+	id 1pw6nH-001FZl-25;
+	Mon, 08 May 2023 19:45:11 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mJ-001EZw-0z;
-	Mon, 08 May 2023 19:44:20 +0000
-Message-ID: <20230508185218.696553809@linutronix.de>
+	id 1pw6mK-001EbM-1b;
+	Mon, 08 May 2023 19:44:25 +0000
+Message-ID: <20230508185218.749244209@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575049;
+	s=2020; t=1683575051;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=3tzd3hEIt5mPiFNhB7mGn6+j5PGwWpl970beJ0OUc/w=;
-	b=C9XC5JI8zhwnnoQtLMIubfpUrFZX045J0qH0esdV5efaL1DfV2riv76m/cVjfmJF0fN9eF
-	Dg9M8YbSEWBbAOdQKsXxR5bxpQ7opMqC9KZ7LG3mnhfF2YiHhuyNa2uxYzQh+4oA7V/0+Y
-	cYy3VXWPussLtl1gvcbp245haJ5E4+9ssxa8XZloSJNIOQi4zAFNxq77aqQQmu5H6aGbpR
-	XU+KqCkEIHDUAbHLQ4CVUIfkHOtLfNXQ5l22br1Rpz/dhbFOz00hUN+6cf2I0hZ8tRIa+X
-	2TI0s8Q/f+BqbSNzvYN5ujjjPbaZrYZMoD26kttduUli9cAwakgVH+aefPZcgg==
+	 references:references; bh=4bj8ZvYTo7h4ovclEum+b6WsfhLEcO8uNjPMgn9Q5x4=;
+	b=luptazBGQl/6gwCsUF/buYWxkBAEoJNYHx7Kxq0OeppfP1uF6F7NgOCw3LqRVTaT31I9h4
+	D5XOFiRqBn9YmzEHb1c8fA6wh7ZzDtnqoGVuN2a4blplprkdtDd8R1N5BUJ7dY//ynam4z
+	9nOeEaXVbMYGsvANvqaAzHwNiaL+IZrNUZNLb8PdkXNIsgQJ3JnLHxTcMWQHPktfZ7p1+I
+	valh5s3/2GsrRw0m8GhQn7EqA30eWJMKuxbBma4fWLJDjf3ostL0yMHCO5slcxoZThfFtJ
+	ateRKwD80dVM75IN8sPMyv58NxXIKSeUEGcWX63SCtgZbvKN9Mfqco6vLkvfkg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575049;
+	s=2020e; t=1683575051;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=3tzd3hEIt5mPiFNhB7mGn6+j5PGwWpl970beJ0OUc/w=;
-	b=iemtyuzb0UI5fQ6Aq9I7tT3PTD5UcdGEt1e/CnmmJ3j7zbcR7ak/dMGG4/JiCkppeVPKaa
-	xBpQm1dpjEEo1dBQ==
+	 references:references; bh=4bj8ZvYTo7h4ovclEum+b6WsfhLEcO8uNjPMgn9Q5x4=;
+	b=Irrw/2b9WZnFSWO4H5T5IOf9dImpiZr2fFBeiX3HwHII5+jw+y4xy+lPuveYMabu3EDI57
+	iXBQKFEgrrdQwlAQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -80,15 +80,14 @@ Cc: x86@kernel.org,
  linux-riscv@lists.infradead.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [patch v3 26/36] riscv: Switch to hotplug core state synchronization
+ "Michael Kelley (LINUX)" <mikelley@microsoft.com>
+Subject: [patch v3 27/36] cpu/hotplug: Remove unused state functions
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:44:08 +0200 (CEST)
+Date: Mon,  8 May 2023 21:44:10 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124411_605888_1A2C7344 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20230508_124413_757836_F60B55C8 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,86 +106,110 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Switch to the CPU hotplug core state tracking and synchronization
-mechanim. No functional change intended.
+All users converted to the hotplug core mechanism.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/riscv/Kconfig              |    1 +
- arch/riscv/include/asm/smp.h    |    2 +-
- arch/riscv/kernel/cpu-hotplug.c |   14 +++++++-------
- 3 files changed, 9 insertions(+), 8 deletions(-)
+ include/linux/cpu.h |    2 -
+ kernel/smpboot.c    |   75 ----------------------------------------------------
+ 2 files changed, 77 deletions(-)
 ---
 
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -122,6 +122,7 @@ config RISCV
- 	select HAVE_RSEQ
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
-+	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
- 	select KASAN_VMALLOC if KASAN
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -70,7 +70,7 @@ asmlinkage void smp_callin(void);
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -193,8 +193,6 @@ static inline void play_idle(unsigned lo
+ }
  
- #if defined CONFIG_HOTPLUG_CPU
- int __cpu_disable(void);
--void __cpu_die(unsigned int cpu);
-+static inline void __cpu_die(unsigned int cpu) { }
- #endif /* CONFIG_HOTPLUG_CPU */
- 
+ #ifdef CONFIG_HOTPLUG_CPU
+-bool cpu_wait_death(unsigned int cpu, int seconds);
+-bool cpu_report_death(void);
+ void cpuhp_report_idle_dead(void);
  #else
---- a/arch/riscv/kernel/cpu-hotplug.c
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -8,6 +8,7 @@
- #include <linux/sched.h>
- #include <linux/err.h>
- #include <linux/irq.h>
-+#include <linux/cpuhotplug.h>
- #include <linux/cpu.h>
- #include <linux/sched/hotplug.h>
- #include <asm/irq.h>
-@@ -49,17 +50,15 @@ int __cpu_disable(void)
- 	return ret;
+ static inline void cpuhp_report_idle_dead(void) { }
+--- a/kernel/smpboot.c
++++ b/kernel/smpboot.c
+@@ -325,78 +325,3 @@ void smpboot_unregister_percpu_thread(st
+ 	cpus_read_unlock();
  }
- 
-+#ifdef CONFIG_HOTPLUG_CPU
- /*
-- * Called on the thread which is asking for a CPU to be shutdown.
-+ * Called on the thread which is asking for a CPU to be shutdown, if the
-+ * CPU reported dead to the hotplug core.
-  */
--void __cpu_die(unsigned int cpu)
-+void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- {
- 	int ret = 0;
- 
--	if (!cpu_wait_death(cpu, 5)) {
--		pr_err("CPU %u: didn't die\n", cpu);
--		return;
+ EXPORT_SYMBOL_GPL(smpboot_unregister_percpu_thread);
+-
+-#ifndef CONFIG_HOTPLUG_CORE_SYNC
+-static DEFINE_PER_CPU(atomic_t, cpu_hotplug_state) = ATOMIC_INIT(CPU_POST_DEAD);
+-
+-#ifdef CONFIG_HOTPLUG_CPU
+-/*
+- * Wait for the specified CPU to exit the idle loop and die.
+- */
+-bool cpu_wait_death(unsigned int cpu, int seconds)
+-{
+-	int jf_left = seconds * HZ;
+-	int oldstate;
+-	bool ret = true;
+-	int sleep_jf = 1;
+-
+-	might_sleep();
+-
+-	/* The outgoing CPU will normally get done quite quickly. */
+-	if (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) == CPU_DEAD)
+-		goto update_state_early;
+-	udelay(5);
+-
+-	/* But if the outgoing CPU dawdles, wait increasingly long times. */
+-	while (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) != CPU_DEAD) {
+-		schedule_timeout_uninterruptible(sleep_jf);
+-		jf_left -= sleep_jf;
+-		if (jf_left <= 0)
+-			break;
+-		sleep_jf = DIV_ROUND_UP(sleep_jf * 11, 10);
 -	}
- 	pr_notice("CPU%u: off\n", cpu);
- 
- 	/* Verify from the firmware if the cpu is really stopped*/
-@@ -76,9 +75,10 @@ void __noreturn arch_cpu_idle_dead(void)
- {
- 	idle_task_exit();
- 
--	(void)cpu_report_death();
-+	cpuhp_ap_report_dead();
- 
- 	cpu_ops[smp_processor_id()]->cpu_stop();
- 	/* It should never reach here */
- 	BUG();
- }
-+#endif
+-update_state_early:
+-	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
+-update_state:
+-	if (oldstate == CPU_DEAD) {
+-		/* Outgoing CPU died normally, update state. */
+-		smp_mb(); /* atomic_read() before update. */
+-		atomic_set(&per_cpu(cpu_hotplug_state, cpu), CPU_POST_DEAD);
+-	} else {
+-		/* Outgoing CPU still hasn't died, set state accordingly. */
+-		if (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
+-					&oldstate, CPU_BROKEN))
+-			goto update_state;
+-		ret = false;
+-	}
+-	return ret;
+-}
+-
+-/*
+- * Called by the outgoing CPU to report its successful death.  Return
+- * false if this report follows the surviving CPU's timing out.
+- *
+- * A separate "CPU_DEAD_FROZEN" is used when the surviving CPU
+- * timed out.  This approach allows architectures to omit calls to
+- * cpu_check_up_prepare() and cpu_set_state_online() without defeating
+- * the next cpu_wait_death()'s polling loop.
+- */
+-bool cpu_report_death(void)
+-{
+-	int oldstate;
+-	int newstate;
+-	int cpu = smp_processor_id();
+-
+-	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
+-	do {
+-		if (oldstate != CPU_BROKEN)
+-			newstate = CPU_DEAD;
+-		else
+-			newstate = CPU_DEAD_FROZEN;
+-	} while (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
+-				     &oldstate, newstate));
+-	return newstate == CPU_DEAD;
+-}
+-
+-#endif /* #ifdef CONFIG_HOTPLUG_CPU */
+-#endif /* !CONFIG_HOTPLUG_CORE_SYNC */
 
 
 
