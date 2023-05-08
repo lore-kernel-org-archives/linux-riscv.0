@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B71C7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 16:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B37C7EE22
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 16:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z/HNm/oPxxDu6g4VoBxfQjz9PDVD8xXqiTNvX9Tg9Ak=; b=TPYQM6bJQKm5PW
-	YNU8LwQVg3GWpSC4qDMfTZIle4iTOoIsY2K012EBGmjRab4qkq04ziGypsWwcNEei8E6t9UV8HZUS
-	kkaT7tkKzss/F99BHYxtGx9z36upu9QadVVqR3L2hYf4aYvyZFT4L7Pqi+a4znBygOXMc/EICXOiK
-	LUw6aQKfKmwULhb8BC5FNjcIA3hcAq06c+nfLQ8m/IM/5zjJHURzACh/b/T3sL93Vkzt1+hjmpwTM
-	pIThPlkSoCoT1BzyhMyvfV9LVlGKvDgleiH2QJChklnIfy/mjgL+FyAWH9oaSD60snGjV6vvhYw0X
-	eBwz+CZWjnCzBf4TX3iA==;
+	List-Owner; bh=9gc1juwU9pRCLY30EpS8qfSZs1vwNLApZ0cf4l42HSU=; b=lm4c8Jm95O/epq
+	O5JTlHMoy2/V5/j3e/OGWC2Up83Z2KXiDL7QPhfNDRuQTx7ZVVVPXCYvoJwt1AcDmmFJFk8zeRDeB
+	o48Jg8pkWVtCzo6Sq1AsuV/GbAd5IGkRQ4LvcnY05BS8FiQRxnMq3xunjDzZBr9BXUMkNFsmS5QDu
+	RJp8nrig4z+q0pFpc0ay9npUZ8vyOkX1+6xdaA2cd+IQ8LQIF22j7YBV4fbni5+Zji6F6MYY/Mb2B
+	TyxUMqPQGVlrWDBugOBMVEDVJuPZC26/h7n1n/IAo9SNNsOHKNAC6pr64HdryneTOgjSmIdatxBXi
+	ozVlqH17HYa9GdeC3A0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw3jT-000xyt-19;
-	Mon, 08 May 2023 16:29:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pw3rX-000ytW-2H;
+	Mon, 08 May 2023 16:37:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw3jQ-000xyP-2T
+	id 1pw3rV-000ysW-1M
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 16:29:01 +0000
+	Mon, 08 May 2023 16:37:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4620160DD5;
-	Mon,  8 May 2023 16:29:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C252DC433EF;
-	Mon,  8 May 2023 16:28:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E83C60C6C;
+	Mon,  8 May 2023 16:37:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E103DC433D2;
+	Mon,  8 May 2023 16:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683563339;
-	bh=feGALERuqLirZfIT3bBs/N6JFRyyWW2IgyCwmw6yorY=;
+	s=k20201202; t=1683563837;
+	bh=No13imuIZB8iPKIc3FPlMAlNo8ULEWUh1zQtfnpcBGs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BYUk/Uc61HOkwT+RYeVVFRAzRzRgQy3R7D5RHJqObbFl2ZIU6xFemM2PeE3j3hT0+
-	 ARTGdJzCWUrm47hH77jsKLB4ZLJOTTKUbVZ3yUEL294sKN3SMuiN3mG4RCh2aRQObR
-	 dstunq5YVv7JssAX4likGVe1MTZOrxyvgEFmxIOyhnJ3/3fCcuhnPEoSS5+Qr/66OF
-	 uKjBAKO899/pkBjqN0NZ08pK615SbHrhFLXlrCaYyfOBaRsj3EEcnEy9Fv3k69R/Is
-	 mtuslIJgDaFO8hYyQh9yzrrNbQPtRCz4oIbdLULvkcjidBKvWt1kZlLwLPUwR5awtp
-	 KMtmTjGgbjGOw==
-Date: Tue, 9 May 2023 00:17:52 +0800
+	b=Vqg3FmxfO7ymJGx6725FjOdi/YUqPtYikEADOIUaV079c/OiMpIyyR6aD8BtlZqCg
+	 o6e6DzFt5rM2lkMfUDV1BXWCdvoRkEgQQ8jMKLx84Z1rXi3d/29Wfq6bCUPi2ZAzJC
+	 4yL/21PiGI2CYB9Jsfx6wyEC8NepKH5eo4DpSGoh63H1swHW6L9AGRqRmlz08k1ogG
+	 EkRYBnHjz62y9TatjG/ewsJWPve+LATc/6bZiB8ME629g+lRN/N+g5TDu7k7HmiNMa
+	 jv+eEjro8AVLXSXbkH6a8wc0oyGA6OzxbSgIOowN8v8vW9MeFCR3Qk/zVOliXRulSq
+	 gfZ94qHPT8IPQ==
+Date: Tue, 9 May 2023 00:26:10 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Conor Dooley <conor@kernel.org>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
@@ -55,18 +55,18 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH 5/5] MAINTAINERS: add entry for T-HEAD RISC-V SoC
-Message-ID: <ZFkgsHGvEIxGDxXv@xhacker>
+	Guo Ren <guoren@kernel.org>, heiko@sntech.de
+Subject: Re: [PATCH 3/5] riscv: dts: add initial T-HEAD light SoC device tree
+Message-ID: <ZFkiotPacIMUghDP@xhacker>
 References: <20230507182304.2934-1-jszhang@kernel.org>
- <20230507182304.2934-6-jszhang@kernel.org>
- <20230507-woof-eldercare-f1323b10bde6@spud>
+ <20230507182304.2934-4-jszhang@kernel.org>
+ <20230507-calamari-gentleman-bbe62af06f92@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230507-woof-eldercare-f1323b10bde6@spud>
+In-Reply-To: <20230507-calamari-gentleman-bbe62af06f92@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_092900_849880_7F3CB6C8 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20230508_093721_545888_9E4160F7 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +83,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 07, 2023 at 10:21:26PM +0100, Conor Dooley wrote:
+On Sun, May 07, 2023 at 10:35:12PM +0100, Conor Dooley wrote:
 > Hey Jisheng,
+> 
+> On Mon, May 08, 2023 at 02:23:02AM +0800, Jisheng Zhang wrote:
+> 
+> > +		c910_0: cpu@0 {
+> > +			compatible = "thead,c910", "riscv";
+> > +			device_type = "cpu";
+> > +			riscv,isa = "rv64imafdc";
+> 
+> Does this support more than "rv64imafdc"?
+> I assume there's some _xtheadfoo extensions that it does support,
+> although I am not sure how we are proceeding with those - Heiko might
+> have a more nuanced take.
+> 
+> > +		reset: reset-sample {
+> > +			compatible = "thead,reset-sample";
+> 
+> What is a "reset-sample"?
 
-Hi Conor,
+This node is only for opensbi. The compatible string is already in
+opensbi. Do we also need to add dt-binding for it in linux?
 
 > 
-> On Mon, May 08, 2023 at 02:23:04AM +0800, Jisheng Zhang wrote:
-> > I would like to temporarily maintain the T-HEAD RISC-V SoC support.
+> > +			entry-reg = <0xff 0xff019050>;
+> > +			entry-cnt = <4>;
+> > +			control-reg = <0xff 0xff015004>;
+> > +			control-val = <0x1c>;
+> > +			csr-copy = <0x7f3 0x7c0 0x7c1 0x7c2 0x7c3 0x7c5 0x7cc>;
+> > +		};
+> > +
+> > +		plic: interrupt-controller@ffd8000000 {
+> > +			compatible = "thead,c910-plic";
+> > +			reg = <0xff 0xd8000000 0x0 0x01000000>;
+> > +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
+> > +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
+> > +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
+> > +					      <&cpu3_intc 11>, <&cpu3_intc 9>;
+> > +			interrupt-controller;
+> > +			#interrupt-cells = <1>;
+> > +			riscv,ndev = <240>;
+> > +		};
+> > +
+> > +		clint: timer@ffdc000000 {
+> > +			compatible = "thead,c900-clint";
 > 
-> What does "temporarily" mean?
+> "c900"? That a typo or intentional. Hard to tell since this compatible
+> is undocumented ;)
 
-I got a Lichee Pi 4A board, and want to mainline its support. Sending
-the new dts patches needs to touch MAINTAINERS entry, so I added it.
-But I expected an experienced people from T-HEAD, with many
-kernel contribuitions in the past, will take the maintainership
-finally, for example, Ren Guo. He knew this SoC better than me.
+Per my understanding, this node is only for opensbi too. Add will add
+dt-binding in v2.
+
+> 
+> > +			reg = <0xff 0xdc000000 0x0 0x00010000>;
+> > +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> > +					      <&cpu3_intc 3>, <&cpu3_intc 7>;
+> > +		};
+> > +
+> > +		uart0: serial@ffe7014000 {
+> > +			compatible = "snps,dw-apb-uart";
+> > +			reg = <0xff 0xe7014000 0x0 0x4000>;
+> > +			interrupts = <36>;
+> > +			clocks = <&uart_sclk>;
+> > +			clock-names = "baudclk";
+> 
+> dtbs_check complains about this clock name.
+> > +
+> > +		dmac0: dmac@ffefc00000 {
+> 
+> dma-controller@
+> 
+> As I mentioned in the other patch, please clean up the dtbs_check
+> complaints for v2.
+> 
+
+Thanks for the reminding.
 
 _______________________________________________
 linux-riscv mailing list
