@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EBBC77B75
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 00:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503FBC77B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 01:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Snt7D7fr2PFT6BQEVywBxqyQtdZoQYPuwBfuWlgZzaE=; b=wniHY0DcQAeD6l44XT33UWOKui
-	0RFvvCIbogckXORBBzkWVJ49j87ooQwbxRyWd41g7mJZOzu3Vycy+7P/5SqByV5uiUjj0wMgb6q1U
-	9hHitckEbMi88MVc9CDGxgxf0ljPPMeXYJDNXLmx4yEl32o2a66P/Dl6mdgkunsRDoEuhfRC/gYyP
-	Cs/3XUlHsUTXDtEjjpp1lBaseDZb2lV65KMRdQ9+2cs8KhyY5v68bouXj2GAeTpHZ1zeETj3h3045
-	XyzQWI3PAKsr6n8cGlJPlzO19PZh9iBKMQ6QqM9Eb/xRRRSFACQ23/PuCu33OMa1q8oBPVXEPmxUv
-	Z5ZhV3jg==;
+	bh=jHxdxu7y7DZoV70mAZ/QKC+xR14UYQCQKJl3tWp5Owg=; b=Fad0Rmuo0Tb1ihUGlIrpVfPEfU
+	UgJe3VTu4/SnPj7YkURJmDjRYipDPpHJlsxKR9/cxclwXS0dwm8kBS80XLRbKpn4u1M9BqcRRGU0/
+	VaDBHtuoRi7pAsuj/P00mmfitOghNorWNKE8MErGfFRLOt9E+C8ppkINDgu2fGkvruv+2G64WrWga
+	Xbw9Y2sxSYyY4xuN1T5wmKYQ6zMaJ/0rs5vQwr91hN8toNN1n/7Ycgyko6EET14JilppCpFOlcJGN
+	uKt/4ILiw0PK0NzWn18FU1tAec/GEJbwZn5/fVTSJ7ihv1SXJaDS9yHjz392UpAr02+iiijZLc6U3
+	jfW5bErA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvoRy-00GsL7-0I;
-	Mon, 08 May 2023 00:09:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pvpi7-00GxA8-38;
+	Mon, 08 May 2023 01:30:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvoRv-00GsKf-17
+	id 1pvpi5-00Gx9j-09
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 00:09:56 +0000
+	Mon, 08 May 2023 01:30:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 386726106E;
-	Mon,  8 May 2023 00:09:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15E14C433EF;
-	Mon,  8 May 2023 00:09:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CBDEE61DD7;
+	Mon,  8 May 2023 01:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A72C2C4339B;
+	Mon,  8 May 2023 01:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683504593;
-	bh=A32A0fMavO0Ip81/GDeG/O8Dt1b/AHEN/Q9Ag7VxJ/U=;
+	s=k20201202; t=1683509437;
+	bh=71tKkv/u71avtNDi58s+M3G3sV9kmPvH9mDaj5alk/A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YzfMivA8lavBpLa0kuam03gytpAKOIxDo3i/gd5rGSh/fBFIhSC2RTH93vddmU8/d
-	 3Bj8mKzdI4jbG3vWlhJ1Wa0SK16Qpvf2ryv/mxvwWgB9SN45Z1Yc0+U4B+mq0Mgg1n
-	 U87vTTdAP2X5ed7PeXOrVt3Kvhd5ST2QlTPn8jmAEhYt1zNIhbSIhcnu6Kv7DozjNw
-	 GbMVLl54RcV3ohYPrabVLFn5WnsvcB4yh8csgfIPnyUb4IalsjnnJJKkg+t0RzW1PH
-	 ggafPW9wR5hSLPRt7fMK8kl4G+eNZHVxoYphhCT0quHS0Q/WABfFnS/B9lqb+JRL5n
-	 mkzcg/jceFgrA==
-Date: Mon, 8 May 2023 09:09:50 +0900
+	b=IdvBvb3sKdbaCJubt4senOcamv3ec20kFlVjpx22nVFzwX6sfJtAbNPbJk+dW6+nH
+	 0Ff+MRKmezq1AfMxuO3SMNsZKbFqghzjJAFuqA63SGFHxBpBs6XIbyQfxL5J9Srra9
+	 1QJgjwVAEB5OA/xVpqcLHpQP+nBGIjBjI23Jyda09T8QVv4GdvomrKqaldYS12SuIq
+	 6Ht+h0GwHpHGJ6YgUFx+OHs47oCAP6Vkc3HLLhZDbdme0t5Omrp8Av4x47VAG+Dhng
+	 n+Ex1plvYWG6XxOiR2l8+jZIyVHuj4Te7T2Yp8Kc5WV0hEWNBhyMp+H7YWtvMD3Rsw
+	 Y/6zf0NnRHtIA==
+Date: Mon, 8 May 2023 10:30:34 +0900
 From: Mark Brown <broonie@kernel.org>
-To: Shengyu Qu <wiagn233@outlook.com>
-Cc: Walker Chen <walker.chen@starfivetech.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Rob Herring <robh+dt@kernel.org>,
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] ASoC: starfive: Add JH7110 TDM driver
-Message-ID: <ZFg9zpVEpVSQJrfZ@finisterre.sirena.org.uk>
+Subject: Re: [PATCH v3 1/3] dt-bindings: sound: Add TDM for StarFive JH7110
+Message-ID: <ZFhQujhpbt/7yGGc@finisterre.sirena.org.uk>
 References: <20230506090116.9206-1-walker.chen@starfivetech.com>
- <20230506090116.9206-3-walker.chen@starfivetech.com>
- <TY3P286MB26118DAB0E0E2BF32C91B19F98739@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+ <20230506090116.9206-2-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <TY3P286MB26118DAB0E0E2BF32C91B19F98739@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+In-Reply-To: <20230506090116.9206-2-walker.chen@starfivetech.com>
 X-Cookie: Avoid contact with eyes.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230507_170955_448546_EEB7A8FC 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20230507_183041_149770_E4B4BB50 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +75,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4164220807397046589=="
+Content-Type: multipart/mixed; boundary="===============0961039296309816154=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4164220807397046589==
+--===============0961039296309816154==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9ci+RuukFZBKZOQn"
+	protocol="application/pgp-signature"; boundary="qWpif/cLlKqgWzLh"
 Content-Disposition: inline
 
 
---9ci+RuukFZBKZOQn
+--qWpif/cLlKqgWzLh
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Sat, May 06, 2023 at 09:47:55PM +0800, Shengyu Qu wrote:
-> Hi,
->=20
-> > Add tdm driver support for the StarFive JH7110 SoC.
-> >=20
-> > Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-> > ---
-> >   MAINTAINERS                     |   6 +
-> >   sound/soc/Kconfig               |   1 +
-> >   sound/soc/Makefile              |   1 +
+On Sat, May 06, 2023 at 05:01:14PM +0800, Walker Chen wrote:
+> Add bindings to describe the TDM driver for the StarFive JH7110 SoC.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
---9ci+RuukFZBKZOQn
+--qWpif/cLlKqgWzLh
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmRYPc0ACgkQJNaLcl1U
-h9Dmbwf/Xcbsz/f576Mnx9hVH2Cly67ZCtBddqWB7pV+pDcaXRcceHN3aX2c4LRR
-wCAYUrX+SQu5hXybB4KLamAtL9zqrf0wUmZIMsPAwVSMCj4pgvabvXjvQBhCC/JE
-yF7GbhvWGOIcmO4P4rCUC3wir3XvaZJUTxd31sfqRQ1QuJQld2K4tVn7GpIn+Yqm
-TzwVoWu6phAweem94ZbvQD1LUL8P6jaiFTr+Y7CXhbtjKFyDPWsL//xxzqpzpxeY
-C7I3om/FG2R7stwBxmjLERGtXg2b+JDKqRvUl/RCL1nUzyWa9MyoPQgkooMqnI7h
-sHiUX1OQyLsOMMf6ruvYLbgC28hu0g==
-=Mg6z
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmRYULkACgkQJNaLcl1U
+h9BS4Qf8CgZlP8jyB6NeLlBTyYs8KyQY4c35cBZLLJ+/fu2+EGGCptpPCtHXkrnx
+jPTC4V5et4pWy2E4Aqk5vHXKmsR/cvXdjXM1VrdRwculFef0xWwV29F6ru8WrW5J
+pQxXzgHn2PpZrdybJ4RFmABz9V9Pe9NotLtP5yxVCqHemsg09MZSmnqObikbqXi6
+eqXK/b5HAkCHQUEJyisSCY4Fcxz8XaIc1a0bP6+++bwFdnVN0zk6WS499QQWgXc8
+hZNcb1x6hXYav4LKZETl4xFYUHdopNIpL7cbdsvcyF8mRGI68qK84TFxTx9kXqS5
+9ZCLw0ZkIwMad6/JkDdSGqETIZ0R4g==
+=TbwX
 -----END PGP SIGNATURE-----
 
---9ci+RuukFZBKZOQn--
+--qWpif/cLlKqgWzLh--
 
 
---===============4164220807397046589==
+--===============0961039296309816154==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -139,5 +128,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4164220807397046589==--
+--===============0961039296309816154==--
 
