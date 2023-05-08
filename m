@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A97EC7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB3FC7EE2D
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=lx8AfY7bhjaZP0M+y1gIy1fmGCnKvBN+qB7gfwz57EM=; b=XMPWpekLqACceK
-	FBikOoc7hG+nocC3tr7LP2YGHhBRaoWROTeb70nA4LolgpPxDGZE5mfjzzZr/t8gYwkj8kJr9Rk/5
-	gxCFRiIY8qsXN4AsUo81jNR+mv9JopDL9A2Wk7Q9D2pdROSI/EucogYSnc9GYMFwBHPDE6CBaFEss
-	XkGb3GlbTqPUdqiQbTyjN/jewS7yxeTls0cMQkTkbAEs5MDFI9UQHruT12UvXm0uQvAL5McK5XFVq
-	bPInmBG4rtTs35MlNni5KIjQZrIRw29jle+DgemkX5P75mWyAxcYuXpQV9v9vpTp3M3jjOT94KKy1
-	zeF7KIr6t7uZeRYa/hYw==;
+	List-Owner; bh=b4CT3Hrciw4WnACzJ+GuieJMr8g603so5txjts8OJ4s=; b=QkfXi7VQbLHSqP
+	uyhz/6TmUKnoaGmTmjWIxhxJGi4AqyoCiA2FhnQL1IaHCa7AXNp/+f01325bChGc7aFd/32bC0zGQ
+	tGFztum3j5BufTt4RD5+zvFAvPWCmxT2Q/t9v+lJvo6jo7YGEAJFxOgyzUbbxHRuJL+Vd6QnkQMOF
+	rIFQxqZHOndW2QsptZmul3yfi9JqOXu+7ktvl9NI58KkTCiXc+RSb9OxqZQ1Zu6qoJQj9FpQI6i2M
+	nqFJDkYGsGget1/w2PVpeozjwpn2A6ndbOpAKvJfl66Ze6TTm1p508ZurvQJczeZHHN3L/5N11/qY
+	X1J1sBcXvF//pzrP5rvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mf-001EyN-1J;
-	Mon, 08 May 2023 19:44:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pw6mo-001F5c-1W;
+	Mon, 08 May 2023 19:44:42 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6m2-001EEm-1w;
+	id 1pw6m9-001EMi-0W;
 	Mon, 08 May 2023 19:44:09 +0000
-Message-ID: <20230508185218.127315637@linutronix.de>
+Message-ID: <20230508185218.354392116@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575033;
+	s=2020; t=1683575039;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=3mTnL+eNa5W0nTjOIkPEr4xfOzLcS1B04oILYIrEMyg=;
-	b=eXpNMch9880MTyH+0Fz++N2mu/WFctp1eVVZZiPgiFCXMrCyTDadzskT0l9z0ZwlHcQvpi
-	9kOXC1Ff+g7cp+JCq8d1S0oE842eFc1UxgDKQQeOqkarfCqFbRshssa2KqOorq+nJ88tDD
-	fEwDRj+DjeBHMdKLi4HMvK6U1AZG5K1eaPpGnaB41VL5++7xyatSf8XaejDnLahfRNMaFZ
-	tRdTESS436fnKAXT9YC2WSG2YnfEsRaEZ1La5POAwvfbErvcr0mQIh0UqhWVl9XCwRW6hl
-	L0VvqXarQ/4OtLm/Xar1BiBIJIO4YV8immaktE8lAUNSC0Bjdpx+QwPKR8ozZQ==
+	 references:references; bh=XHpNsJs5kSVxMByUTgiKML4QfVv98dxDjLlAQchlqtk=;
+	b=Ki8zOz4u2YoGQTHxRWvDCdJpS9rUfG7Rt8el1sEQonOE93FQ2t/Ouh6saOF5zSGR/sUwqy
+	RGwztYnIhjpNbF8b2PGA4CfI6IE5cG/4pkd5Q33EfIphmoL8ll1Ul99/6dF/RDkEojrYjr
+	EB5pH//XxOfXbRz5/okajpcb/SRh9nL9WoyZaL+b0N+3wBhaYWzQ0JAad4Cix7Pxxq45EN
+	qoUV3fffrtSRueog+x/R851Gsai56IVP/bi8/TS243MY3shbpmrcRDIo+w8Qw8dLxfZrAJ
+	3jwxSYmT//Hz16/1k1wHeOTfsamwVnUrPFdDAmzXRODZAUOo/yfyrnt7BniKSQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575033;
+	s=2020e; t=1683575039;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=3mTnL+eNa5W0nTjOIkPEr4xfOzLcS1B04oILYIrEMyg=;
-	b=cOcWhFITcchL8q9j8XJqY4yP565IAGOCYm0IG0oNwqVPTKDJpWdAXEM1GM1oNZ+wZdo+zX
-	mjuMRPU8QuqrdVDQ==
+	 references:references; bh=XHpNsJs5kSVxMByUTgiKML4QfVv98dxDjLlAQchlqtk=;
+	b=nQqE0LEqpdin/188ms5Eh3E7UO6uD16LhW/aIhEdUgOoCpO7X2+xXn/WMrcSUx9PqrxIEc
+	Yg+NuqTDvr5KtUBA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,13 +81,14 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch v3 16/36] x86/xen/smp_pv: Remove wait for CPU online
+Subject: [patch v3 20/36] cpu/hotplug: Remove cpu_report_state() and related
+ unused cruft
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:43:52 +0200 (CEST)
+Date: Mon,  8 May 2023 21:43:59 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124354_851488_CDCBD614 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20230508_124401_519033_54F58237 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +107,129 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Now that the core code drops sparse_irq_lock after the idle thread
-synchronized, it's pointless to wait for the AP to mark itself online.
-
-Whether the control CPU runs in a wait loop or sleeps in the core code
-waiting for the online operation to complete makes no difference.
+No more users.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/x86/xen/smp_pv.c |   10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ include/linux/cpu.h |    2 -
+ kernel/smpboot.c    |   90 ----------------------------------------------------
+ 2 files changed, 92 deletions(-)
 ---
 
---- a/arch/x86/xen/smp_pv.c
-+++ b/arch/x86/xen/smp_pv.c
-@@ -340,11 +340,11 @@ static int xen_pv_cpu_up(unsigned int cp
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -184,8 +184,6 @@ void arch_cpu_idle_enter(void);
+ void arch_cpu_idle_exit(void);
+ void __noreturn arch_cpu_idle_dead(void);
  
- 	xen_pmu_init(cpu);
+-int cpu_report_state(int cpu);
+-int cpu_check_up_prepare(int cpu);
+ void cpu_set_state_online(int cpu);
+ void play_idle_precise(u64 duration_ns, u64 latency_ns);
  
--	rc = HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL);
--	BUG_ON(rc);
+--- a/kernel/smpboot.c
++++ b/kernel/smpboot.c
+@@ -329,97 +329,7 @@ EXPORT_SYMBOL_GPL(smpboot_unregister_per
+ #ifndef CONFIG_HOTPLUG_CORE_SYNC
+ static DEFINE_PER_CPU(atomic_t, cpu_hotplug_state) = ATOMIC_INIT(CPU_POST_DEAD);
+ 
+-/*
+- * Called to poll specified CPU's state, for example, when waiting for
+- * a CPU to come online.
+- */
+-int cpu_report_state(int cpu)
+-{
+-	return atomic_read(&per_cpu(cpu_hotplug_state, cpu));
+-}
 -
--	while (cpu_report_state(cpu) != CPU_ONLINE)
--		HYPERVISOR_sched_op(SCHEDOP_yield, NULL);
-+	/*
-+	 * Why is this a BUG? If the hypercall fails then everything can be
-+	 * rolled back, no?
-+	 */
-+	BUG_ON(HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL));
- 
- 	return 0;
- }
+-/*
+- * If CPU has died properly, set its state to CPU_UP_PREPARE and
+- * return success.  Otherwise, return -EBUSY if the CPU died after
+- * cpu_wait_death() timed out.  And yet otherwise again, return -EAGAIN
+- * if cpu_wait_death() timed out and the CPU still hasn't gotten around
+- * to dying.  In the latter two cases, the CPU might not be set up
+- * properly, but it is up to the arch-specific code to decide.
+- * Finally, -EIO indicates an unanticipated problem.
+- *
+- * Note that it is permissible to omit this call entirely, as is
+- * done in architectures that do no CPU-hotplug error checking.
+- */
+-int cpu_check_up_prepare(int cpu)
+-{
+-	if (!IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
+-		atomic_set(&per_cpu(cpu_hotplug_state, cpu), CPU_UP_PREPARE);
+-		return 0;
+-	}
+-
+-	switch (atomic_read(&per_cpu(cpu_hotplug_state, cpu))) {
+-
+-	case CPU_POST_DEAD:
+-
+-		/* The CPU died properly, so just start it up again. */
+-		atomic_set(&per_cpu(cpu_hotplug_state, cpu), CPU_UP_PREPARE);
+-		return 0;
+-
+-	case CPU_DEAD_FROZEN:
+-
+-		/*
+-		 * Timeout during CPU death, so let caller know.
+-		 * The outgoing CPU completed its processing, but after
+-		 * cpu_wait_death() timed out and reported the error. The
+-		 * caller is free to proceed, in which case the state
+-		 * will be reset properly by cpu_set_state_online().
+-		 * Proceeding despite this -EBUSY return makes sense
+-		 * for systems where the outgoing CPUs take themselves
+-		 * offline, with no post-death manipulation required from
+-		 * a surviving CPU.
+-		 */
+-		return -EBUSY;
+-
+-	case CPU_BROKEN:
+-
+-		/*
+-		 * The most likely reason we got here is that there was
+-		 * a timeout during CPU death, and the outgoing CPU never
+-		 * did complete its processing.  This could happen on
+-		 * a virtualized system if the outgoing VCPU gets preempted
+-		 * for more than five seconds, and the user attempts to
+-		 * immediately online that same CPU.  Trying again later
+-		 * might return -EBUSY above, hence -EAGAIN.
+-		 */
+-		return -EAGAIN;
+-
+-	case CPU_UP_PREPARE:
+-		/*
+-		 * Timeout while waiting for the CPU to show up. Allow to try
+-		 * again later.
+-		 */
+-		return 0;
+-
+-	default:
+-
+-		/* Should not happen.  Famous last words. */
+-		return -EIO;
+-	}
+-}
+-
+-/*
+- * Mark the specified CPU online.
+- *
+- * Note that it is permissible to omit this call entirely, as is
+- * done in architectures that do no CPU-hotplug error checking.
+- */
+-void cpu_set_state_online(int cpu)
+-{
+-	(void)atomic_xchg(&per_cpu(cpu_hotplug_state, cpu), CPU_ONLINE);
+-}
+-
+ #ifdef CONFIG_HOTPLUG_CPU
+-
+ /*
+  * Wait for the specified CPU to exit the idle loop and die.
+  */
 
 
 
