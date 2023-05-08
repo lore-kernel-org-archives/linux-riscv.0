@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88325C77B73
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 08:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAF6C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 09:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i7bjOFoV05idoZrBJkd68IuGKcjYPGs7W3xSEuABc0Q=; b=ku4/UGDC6kyxbJT65CEuxC/pnV
-	UjpOWoTfLmW0HGAtuKIkXm/etEZXI2SpxzLnt7uvDxOzrSqNQ6xFrsEf5lCEGeAURlAJgrp9yXQg8
-	VS2p8QHgiGygwN+brI0C+JqkGM+3MtqYxQL3eWErP6QnSSnVdWDtlXrSQQHQY6vte29xJsnThZsQG
-	2WQNjBBmJpKlliqItviEjSGI0VRdxZXPi/pm4gbzEZC2RZNEi2/wZysmthmXlFgOlwiFPrlvvsMEE
-	R6LiZAJUFI0Fx6Jtspw66XmVYy8NJ3LdvscMx4PgVEPgKRWDRH7ArmhRdw/J+gmzCQ+PehNr1hQUe
-	v15dN9pA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8sSPdJRltQk2w/esPzc4rm2NTKXBZ29I0eEmPwGQfUM=; b=Nn3rSGYw7z6yXh
+	0vJ9gCp7sgVDSKt6xEw04eFRlbeNpxXME6CrGxGrrt9ENQKAdapJRcdh+ss8C2rHwmgJw7T43H1Bk
+	iNla6nyCShiZnjMMFkkPkwU4d52IWxIN/YmGBbdbalGA8a7agEXJrwd6FWQDUD5AGfIayZCJigdff
+	66OiQ/GylGB76XCi9GUCYu87+/Or6T1YRSsRUwv6P3i5PFl9iATyW+2JF1XDiDhmaAbOtzZPZthNr
+	UyowKuvxMsMDHTTFor9KmL5G96vG+aznZARPnyX2iQbS9yF6B1OLg6Xn49uYtL/upsuVyqfVaAiOP
+	CPa77LMBy5YXaspDISmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvwLr-00Haqr-2v;
-	Mon, 08 May 2023 08:36:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pvwzj-00045K-1t;
+	Mon, 08 May 2023 09:17:23 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pvwLo-00HapE-0u
+	id 1pvwzg-000440-2z
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 08:36:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683534968; x=1715070968;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Q5ODJunHXC2mcC++rxUZpJJ+DUhK13R4N+xZYOfCDPU=;
-  b=nHt+NicCdX0Tkuz9jDi1d36nxXG6lD9IXXcy6kQCKdA+z3B5vLX+b7YL
-   +U3YNnzssI71eyfgtCZJxpg94/5rgJhkcRHnCZQuyTmE19kMr9JiXc4Ej
-   ordEqfkjxEQ+7sYLx/J0cDdWBHh5rgFvLFfO9uehxTgv/a7oNKCgCPTmh
-   v+pH5LUZ+ViqUL7Jz4al93mfBxFp006WhavHofOsmcKWIFxyQTdRMWQmx
-   Gk+MiSU3IHzl5BNPX+vnutDRxyRi8Xb/u874oYgGonahRnwmXgAx6MtRP
-   XslTJWwhxKGb0F1yz8WfD7aw6Y64b9zY372sk3ug5erU5/Hn8abZwssQ0
-   A==;
-X-IronPort-AV: E=Sophos;i="5.99,258,1677567600"; 
-   d="asc'?scan'208";a="210122642"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 May 2023 01:36:01 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 8 May 2023 01:36:00 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 8 May 2023 01:35:58 -0700
-Date: Mon, 8 May 2023 09:35:38 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-Subject: Re: [PATCH 3/5] riscv: dts: add initial T-HEAD light SoC device tree
-Message-ID: <20230508-refute-reliable-f50dafa6afbd@wendy>
-References: <20230507182304.2934-1-jszhang@kernel.org>
- <20230507-calamari-gentleman-bbe62af06f92@spud>
- <394696a52bf1d767044e3f990cebfbaf69dabe70.camel@icenowy.me>
- <7518428.EvYhyI6sBW@diego>
+	Mon, 08 May 2023 09:17:22 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-9661047f8b8so372059066b.0
+        for <linux-riscv@lists.infradead.org>; Mon, 08 May 2023 02:17:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1683537437; x=1686129437;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aT/uFog44v7hpe9khQhwWHiG/nU5zZuhtL/MLZy+P0w=;
+        b=KFBWvKtd8EkCKNFrYmQPvtrs8JoO+F4vhM5jslgPgiFIxcsG6/OTdhe8GQkrEqjM72
+         Q5Wbd7d1G+mf1VwHBuNK+wW0c1XRSvB7Nt565PeJ4bdiJwZFMhMIseHbTZ8rfsTqzJgq
+         rs79IL8R2r6o0XPY39KZ95lVZTgU7pjdM42/TLnlqV6F6cn7Ih1jyOm7kMD0WbGFp1HR
+         2SOpbS6RVms+lWJI5U3dxbK4Lx3C7uIcWfJ9cOKYqlP/Kf2z3KQjVe4jWHauMSgPZPXK
+         MuRiVC+aZTUlIDJnkLnn/SLZHjFSQObUfRPhkpx7rtk0zG3ApLY3K9K6uxgPKVhE/4bw
+         sPqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683537437; x=1686129437;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=aT/uFog44v7hpe9khQhwWHiG/nU5zZuhtL/MLZy+P0w=;
+        b=TdiTc1YqnFcdYHn6zfSewQNtUjl3lyXijYWhqS/TFXI4NotFRDOUl0RHDoSFAClXFz
+         GhZ4CFzzT0/Gb53tOTOOhmE0UbdN65pKcpS2e0chW251g7KM6j2FzosgPBQZVai+72cT
+         XTvskBYLY5Q7OIG8clsxIYpcU8LPno+2bejEKswPsCuflhqYIpaPRVsG8oe7js5TDGIK
+         Wml4jyljS7kbfHujb2WaRoeSxBsAp9thLSKJ/B9yKBMF5P+l22i67bdsdcM/LkTQYfnQ
+         fVsBK7As9VWBEO8Q7QddeCgjdQ1iWRA1gC3bzHhyvPOwiwoIsUpI2MVa++4Tp1PPQ4jM
+         bXuQ==
+X-Gm-Message-State: AC+VfDw7oNVu82tGCHnD2CP6TUqE7agQHy2JeeD4jbzD63j6fFdAUef3
+	MQ/Du8lLgbuYVuwFPWPPSwt5yg==
+X-Google-Smtp-Source: ACHHUZ5w7QnqTgHovRPNxpPaDJe6uCeFRlRxrvq/cwBsXBwk1T2v4ljWDc/la/6PD4AxiWyiwYXCzA==
+X-Received: by 2002:a17:907:6e93:b0:962:582d:89bf with SMTP id sh19-20020a1709076e9300b00962582d89bfmr9026804ejc.55.1683537436956;
+        Mon, 08 May 2023 02:17:16 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:50e0:ebdf:b755:b300? ([2a02:810d:15c0:828:50e0:ebdf:b755:b300])
+        by smtp.gmail.com with ESMTPSA id ze16-20020a170906ef9000b00965ec1faf27sm4341570ejb.74.2023.05.08.02.17.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 May 2023 02:17:16 -0700 (PDT)
+Message-ID: <4375d93e-a21b-3dff-9d1e-44aa9637eefb@linaro.org>
+Date: Mon, 8 May 2023 11:17:15 +0200
 MIME-Version: 1.0
-In-Reply-To: <7518428.EvYhyI6sBW@diego>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 1/5] irqchip/sifive-plic: Support T-HEAD's C910 PLIC
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
+References: <20230507182304.2934-1-jszhang@kernel.org>
+ <20230507182304.2934-2-jszhang@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230507182304.2934-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_013608_385386_FD66EA43 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20230508_021720_967271_C3432032 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +95,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============1796994640469313567=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1796994640469313567==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="bEoJ+zKkEnHhY3/3"
-Content-Disposition: inline
+On 07/05/2023 20:23, Jisheng Zhang wrote:
+> The T-HEAD's C910 PLIC still needs the delegation bit settingto allow
+> access from S-mode, but it doesn't need the edge quirk.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 4 ++++
+>  drivers/irqchip/irq-sifive-plic.c                             | 1 +
 
---bEoJ+zKkEnHhY3/3
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Bindings are always separate patches.
 
-On Mon, May 08, 2023 at 10:23:02AM +0200, Heiko St=C3=BCbner wrote:
-> Am Montag, 8. Mai 2023, 05:32:17 CEST schrieb Icenowy Zheng:
-> > =E5=9C=A8 2023-05-07=E6=98=9F=E6=9C=9F=E6=97=A5=E7=9A=84 22:35 +0100=EF=
-=BC=8CConor Dooley=E5=86=99=E9=81=93=EF=BC=9A
-> > > Hey Jisheng,
-> > >=20
-> > > On Mon, May 08, 2023 at 02:23:02AM +0800, Jisheng Zhang wrote:
-> > >=20
-> > > > +               c910_0: cpu@0 {
-> > > > +                       compatible =3D "thead,c910", "riscv";
-> > > > +                       device_type =3D "cpu";
-> > > > +                       riscv,isa =3D "rv64imafdc";
-> > >=20
-> > > Does this support more than "rv64imafdc"?
-> > > I assume there's some _xtheadfoo extensions that it does support,
-> > > although I am not sure how we are proceeding with those - Heiko might
-> > > have a more nuanced take.
->=20
-> I guess the interesting question still is, are these part of the isa
-> string or more of an errata?
+Please run scripts/checkpatch.pl and fix reported warnings.
 
-Yeah, I dunno. That's possible a policy decision more than anything
-else. I don't remember if it was one of your patchsets or elsewhere, but
-I do recall a split between xtheadba etc and vector, where xtheadba was
-defined as a vendor extension, whereas vector is not. Their extension
-spec repo <https://github.com/T-head-Semi/thead-extension-spec> appears
-to be aligned with that view, apart from the CMOs that we have already
-called an erratum.
+Best regards,
+Krzysztof
 
-> The binding currently says
->       Identifies the specific RISC-V instruction set architecture
->       supported by the hart.  These are documented in the RISC-V
->       User-Level ISA document, available from
->       https://riscv.org/specifications/
->=20
->=20
-> I guess if we decide to make them part of the isa-string the binding
-> then should get a paragraph mention _xfoo vendor-extensions too.
-
-I have an idea in the works that may allow dealing with this kind of
-thing, but it's a bit of a departure from the existing binding.
-I will hopefully post an early RFC of it later today.
-That said, the binding does currently allow you to put in _xfoo vendor
-extensions as-is.
-
-> Personally, making these part of the ISA string definitly sounds like
-> the best solution though :-) .
-
-You would say that wouldn't you! In general, I'd rather we filled in as
-much information as possible here, even if it is not currently in use,
-to avoid having to retrofit as support becomes available.
-
---bEoJ+zKkEnHhY3/3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFi0WgAKCRB4tDGHoIJi
-0mLjAPwIbkf8ND8bETn28FqkNQUw7WZE4pCwsbtCxP4g9Fa/zAEAx7QdvUgGgoki
-L2lbouRlgh/MWTdnd6MR7meT9HAKNgY=
-=n0NK
------END PGP SIGNATURE-----
-
---bEoJ+zKkEnHhY3/3--
-
-
---===============1796994640469313567==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1796994640469313567==--
-
