@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22975C77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A97EC7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 19:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=NV4tQ6ExVD3qOZOdwid+NuI1cVtGap+1TFZnd8nK5TI=; b=b/EP3sdn6Zk7Ry
-	658W0nw9Q/DqvdRTxGQXMzSr5nmP8E+acOwwx6OED34XeZuKEG6kv+yq2X4+CzkCQejBhhUINbVLa
-	5GReQRXBg5vy8z/Mum5RlBNZRegtK7X+Gu4MIRky2RZ2hPUzuybiKjonTwYbQUgXD69sk7HMrBLUX
-	Qlo2nQHy7CIsLThNopfcUGhxijcqaiFRlvcdOD4OghpI5NF3YDIMYPBektVV+RibwDe6t2eDtIDKw
-	tbpMNH//YGUTwsE/LGyhonY6xk+D8OSH+eBVKmnDdtD4CMt0o9JjQyt7h82M7AB/ebD+sZUI5CL7a
-	TzWb1pd3+Uyj+UQsbjXQ==;
+	List-Owner; bh=lx8AfY7bhjaZP0M+y1gIy1fmGCnKvBN+qB7gfwz57EM=; b=XMPWpekLqACceK
+	FBikOoc7hG+nocC3tr7LP2YGHhBRaoWROTeb70nA4LolgpPxDGZE5mfjzzZr/t8gYwkj8kJr9Rk/5
+	gxCFRiIY8qsXN4AsUo81jNR+mv9JopDL9A2Wk7Q9D2pdROSI/EucogYSnc9GYMFwBHPDE6CBaFEss
+	XkGb3GlbTqPUdqiQbTyjN/jewS7yxeTls0cMQkTkbAEs5MDFI9UQHruT12UvXm0uQvAL5McK5XFVq
+	bPInmBG4rtTs35MlNni5KIjQZrIRw29jle+DgemkX5P75mWyAxcYuXpQV9v9vpTp3M3jjOT94KKy1
+	zeF7KIr6t7uZeRYa/hYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6mI-001EZy-20;
-	Mon, 08 May 2023 19:44:10 +0000
+	id 1pw6mf-001EyN-1J;
+	Mon, 08 May 2023 19:44:33 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw6ls-001E3P-2H;
-	Mon, 08 May 2023 19:43:50 +0000
-Message-ID: <20230508185217.779457690@linutronix.de>
+	id 1pw6m2-001EEm-1w;
+	Mon, 08 May 2023 19:44:09 +0000
+Message-ID: <20230508185218.127315637@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683575023;
+	s=2020; t=1683575033;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=hGYrzvnylJOzDXAat75Sb7qGF0AwMNGvLNaazC51fRk=;
-	b=CF0aLnbIsxwy11PPaGSo9/qeT6BDOr9z6WOZ1n5alNxMpu2v9rWR0KwWbfAKKSqQHnu2Hn
-	NnnSo+WQJLNlwX0V8RASx7bUePgeQQucrN8jozqHWn53CWFEZvXdW6Y2qKuXf2sMuO8LFd
-	vPFSd9/cKf6jPiVXrKOCNBpqoC5p2O4AreHmLXAsBLw7vhozQ4sYeaLwrKGhc6krbZC3oC
-	pq7zyVxdn/hqe1GUvju73Vol+z3Myrurw5iGjanI0WSm1tR559wW7/7IR9FR2DUET3Pet6
-	d9J7XLK6/DSrSBUNRugaS2ELxaaKrUV3h9/hQgurMpa7sjjcuL3FKGuJi92j9w==
+	 references:references; bh=3mTnL+eNa5W0nTjOIkPEr4xfOzLcS1B04oILYIrEMyg=;
+	b=eXpNMch9880MTyH+0Fz++N2mu/WFctp1eVVZZiPgiFCXMrCyTDadzskT0l9z0ZwlHcQvpi
+	9kOXC1Ff+g7cp+JCq8d1S0oE842eFc1UxgDKQQeOqkarfCqFbRshssa2KqOorq+nJ88tDD
+	fEwDRj+DjeBHMdKLi4HMvK6U1AZG5K1eaPpGnaB41VL5++7xyatSf8XaejDnLahfRNMaFZ
+	tRdTESS436fnKAXT9YC2WSG2YnfEsRaEZ1La5POAwvfbErvcr0mQIh0UqhWVl9XCwRW6hl
+	L0VvqXarQ/4OtLm/Xar1BiBIJIO4YV8immaktE8lAUNSC0Bjdpx+QwPKR8ozZQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683575023;
+	s=2020e; t=1683575033;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=hGYrzvnylJOzDXAat75Sb7qGF0AwMNGvLNaazC51fRk=;
-	b=zBhk/M4G/ZDNvqYEqQApQE+J8NOSpsSrbhi32/stcCYNqlxvc9b49l1CCvmbf0GB531PSJ
-	vM0+Vo+LFsbAPKDw==
+	 references:references; bh=3mTnL+eNa5W0nTjOIkPEr4xfOzLcS1B04oILYIrEMyg=;
+	b=cOcWhFITcchL8q9j8XJqY4yP565IAGOCYm0IG0oNwqVPTKDJpWdAXEM1GM1oNZ+wZdo+zX
+	mjuMRPU8QuqrdVDQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,14 +81,13 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-Subject: [patch v3 10/36] [patch V2 10/38] x86/cpu/cacheinfo: Remove
- cpu_callout_mask dependency
+Subject: [patch v3 16/36] x86/xen/smp_pv: Remove wait for CPU online
 References: <20230508181633.089804905@linutronix.de>
 MIME-Version: 1.0
-Date: Mon,  8 May 2023 21:43:42 +0200 (CEST)
+Date: Mon,  8 May 2023 21:43:52 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_124344_929945_34B85D59 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20230508_124354_851488_CDCBD614 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,78 +106,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-cpu_callout_mask is used for the stop machine based MTRR/PAT init.
+Now that the core code drops sparse_irq_lock after the idle thread
+synchronized, it's pointless to wait for the AP to mark itself online.
 
-In preparation of moving the BP/AP synchronization to the core hotplug
-code, use a private CPU mask for cacheinfo and manage it in the
-starting/dying hotplug state.
+Whether the control CPU runs in a wait loop or sleeps in the core code
+waiting for the online operation to complete makes no difference.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 
 
 ---
- arch/x86/kernel/cpu/cacheinfo.c |   21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ arch/x86/xen/smp_pv.c |   10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 ---
 
---- a/arch/x86/kernel/cpu/cacheinfo.c
-+++ b/arch/x86/kernel/cpu/cacheinfo.c
-@@ -39,6 +39,8 @@ DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t
- /* Shared L2 cache maps */
- DEFINE_PER_CPU_READ_MOSTLY(cpumask_var_t, cpu_l2c_shared_map);
+--- a/arch/x86/xen/smp_pv.c
++++ b/arch/x86/xen/smp_pv.c
+@@ -340,11 +340,11 @@ static int xen_pv_cpu_up(unsigned int cp
  
-+static cpumask_var_t cpu_cacheinfo_mask;
-+
- /* Kernel controls MTRR and/or PAT MSRs. */
- unsigned int memory_caching_control __ro_after_init;
+ 	xen_pmu_init(cpu);
  
-@@ -1172,8 +1174,10 @@ void cache_bp_restore(void)
- 		cache_cpu_init();
- }
- 
--static int cache_ap_init(unsigned int cpu)
-+static int cache_ap_online(unsigned int cpu)
- {
-+	cpumask_set_cpu(cpu, cpu_cacheinfo_mask);
-+
- 	if (!memory_caching_control || get_cache_aps_delayed_init())
- 		return 0;
- 
-@@ -1191,11 +1195,17 @@ static int cache_ap_init(unsigned int cp
- 	 *      lock to prevent MTRR entry changes
- 	 */
- 	stop_machine_from_inactive_cpu(cache_rendezvous_handler, NULL,
--				       cpu_callout_mask);
-+				       cpu_cacheinfo_mask);
+-	rc = HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL);
+-	BUG_ON(rc);
+-
+-	while (cpu_report_state(cpu) != CPU_ONLINE)
+-		HYPERVISOR_sched_op(SCHEDOP_yield, NULL);
++	/*
++	 * Why is this a BUG? If the hypercall fails then everything can be
++	 * rolled back, no?
++	 */
++	BUG_ON(HYPERVISOR_vcpu_op(VCPUOP_up, xen_vcpu_nr(cpu), NULL));
  
  	return 0;
  }
- 
-+static int cache_ap_offline(unsigned int cpu)
-+{
-+	cpumask_clear_cpu(cpu, cpu_cacheinfo_mask);
-+	return 0;
-+}
-+
- /*
-  * Delayed cache initialization for all AP's
-  */
-@@ -1210,9 +1220,12 @@ void cache_aps_init(void)
- 
- static int __init cache_ap_register(void)
- {
-+	zalloc_cpumask_var(&cpu_cacheinfo_mask, GFP_KERNEL);
-+	cpumask_set_cpu(smp_processor_id(), cpu_cacheinfo_mask);
-+
- 	cpuhp_setup_state_nocalls(CPUHP_AP_CACHECTRL_STARTING,
- 				  "x86/cachectrl:starting",
--				  cache_ap_init, NULL);
-+				  cache_ap_online, cache_ap_offline);
- 	return 0;
- }
--core_initcall(cache_ap_register);
-+early_initcall(cache_ap_register);
 
 
 
