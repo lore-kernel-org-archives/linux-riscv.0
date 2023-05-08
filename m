@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B431AC7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 18:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59ABFC7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 May 2023 18:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FmTtTYhUtsFsADHOptPpuHO73Hu7dqdlIdRflhs464U=; b=trgEekGSeQkPLk
-	WPCy7xfkHFJQl00VBgnNoFozrkz05c9HLXLWFDqeugf/j5q5VIJjNSRTePlgii1IHt2Su/ar1t0dc
-	oBYqTCrKsUFwdoHy80bghbh04oCqIQWoeo+EITyemhvcuCZX/R0uNDDsGEoilC2sguMpRXAm2oRgu
-	xgUuUt7MpSydK3eRmMyaVJk326tR7jFhEIDN6n0xJB6yAPMPPOyhaWoH2BlsXDU7n9uzC6zRQZDfG
-	dkVPlWRcXbU0VW7ATb/DkgRyPXlscKPzXRAHhkYdzGqx/NMIXs6tBgk9uFlKEclsUhIIPY/zVwQ4R
-	CdL+1e+vIGnBpZKw2aPQ==;
+	List-Owner; bh=vxxPIrred1e6+bk7h9JOoG2kD9dmSlh/tVevQgd4CHs=; b=fhJTuma3XOsBJf
+	aa0k/zwXFnMYXpQZwJKhm/WouEv8A/VyS8Qgd49+i8tBf+JwmdVTlM5938DiPT1Rznf/LdQPKCMRQ
+	8RKSUdVlCkW2YCeoF+cS3Xtzw+kgu7t5riwVPBQ4Kpk3h4Am+GOYChCAAw5yQ0sI6sqHFcriOZAuH
+	gaISmPKQsBxCQsByh9teMsxViVSH3AfL7u1pGprHd7mKRe+95IJJSO8ZLh/BteYttR3d9GiaGqZIp
+	LAK0g5V+/RnF5IRllCtmarsnYBFXgWAnxFTnfsApXAjUCWbL+4hg2MYh4TghtWFl+bUDF806dlof+
+	TfDswYhwB5YidS7FUhNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw5QF-0016fw-0l;
-	Mon, 08 May 2023 18:17:19 +0000
+	id 1pw5Q3-0016d9-1I;
+	Mon, 08 May 2023 18:17:07 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pw5QB-0016e9-1R
+	id 1pw5Pz-0016ca-17
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 May 2023 18:17:17 +0000
+	Mon, 08 May 2023 18:17:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4DD8A62135;
-	Mon,  8 May 2023 18:17:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17C4CC433A1;
-	Mon,  8 May 2023 18:17:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AC02B62F14;
+	Mon,  8 May 2023 18:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7550CC4339C;
+	Mon,  8 May 2023 18:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683569834;
-	bh=BeSBiMW5kmgs7+Z7icdUc3/2UWyKIKrlY/vXI6gIZDU=;
+	s=k20201202; t=1683569822;
+	bh=pEkQiWBINoXiTLpYTJ+D1743e4SOfUpdwjwXGQmi2Nk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F850zsgIjLZZIVsp/40NUEh0Et3PjVKwqFK17JJEOj4Qv2WUfB1tB58G2VLPTBQmG
-	 8XRfUAi8yafgVdWrpZ1vfyScdT8FxrJOdvC3iwtV1yUA8f0Fgs3Sh1j/iv2AGpGI4d
-	 njKbCwX2JHJpJQQPGGD+XLX60EZQdKDiUC2IU4au6A/AIBcr573u3Hti4OBRAJ8+1W
-	 SUHRBOJEVon0J31fEDuq7y/ZLzPp539+XRI0PVC2OXYcgCNjQ32XZvIjWYSJB9KhGj
-	 64wLFYsidBsWtjUzxndJ0BcJfZRqfopOiA90Meomd/ICeHOkUK6WFLVpwHN9DUXY1m
-	 bt/IdqNFsU9lg==
+	b=LpCAVUaxcJjhoad5gbeqsUQCfaua+zg6IbA5rkPbTdwywu2JKINyDuAdkH7BIzECp
+	 FGXurYzC2J/OgJgceOMyePFn0+i9ll10Xs7l1qSVdNvvZmGQFn5BlxkCIGLPSCU7Zx
+	 78U2CcMMAvcG+15+JBjCBSaHVNmjA/4WRs7O0R7+7JCOnbBBn/KbvcH0TYsXod7j71
+	 hJ82onfdcnNyPY9edo8xz8xHVmu1Mt1BZLTmb8YdVvVRKz9ntuemhnyiTB9LFKPwhL
+	 EJ7W6SOmU2xtJe/ihfsP/hpaThNWYHyze+7zwmOAwvF44liqTxobAPUbWEHYwRZaO5
+	 6VNDvFIWa1yPA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
-Subject: [RFC 6/6] riscv: dts: microchip: use new riscv,isa-extension-* properties for mpfs
-Date: Mon,  8 May 2023 19:16:26 +0100
-Message-Id: <20230508-elf-dismay-799bb48a635e@spud>
+Subject: [RFC 2/6] dt-bindings: riscv: add riscv,isa-extension-* property and incompatible example
+Date: Mon,  8 May 2023 19:16:22 +0100
+Message-Id: <20230508-sneeze-cesarean-d1aff8be9cc8@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230508-hypnotic-phobia-99598439d828@spud>
 References: <20230508-hypnotic-phobia-99598439d828@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2933; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=sxz5UhIOaJj8Re9+hSvtSwbaV+pJMl6xzcAp79D9KJ0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmRNmWBZjpFz00vJS05+L9L+f2fzB2CqnuOxv4vyjCY1 aDQqX6io5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABM5JcXIsDaoQu7ndSPHiFVZ b6r+XVDUX7+QO+WEwN/4JVafG774vWT4n/X1LGvk2k8PHu2w26F8MObA3czOT/KLMu2ezbrw/db +2UwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3388; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=mr+KTOsZI6CeMW3M1d3JDMm2IRvhFpi9WHx/17JxyMg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmRNqUqQpc3/nj4h//xeaPUtb86SlI0GVYZLykrf5tq+ 1RzZ5FJRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbyTIPhn7rL/Jb6hHuPuW2L P6o2LojcddjYO/DrjX82F5QKUw7fvsvwT2F1xbvzjdWcjxW2+t92Welp6KV85kzi7oD8O1f7eI/ 5cgEA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_111715_569005_A218F7BA 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20230508_111703_472573_34AFD301 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,92 +77,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 42 ++++++++++++++++++++++---
- 1 file changed, 37 insertions(+), 5 deletions(-)
+This dt-binding is illustrative *only*, it doesn't yet do what I want it
+to do in terms of enforcement etc. I am yet to figure out exactly how to
+wrangle the binding such that the individual properties have more
+generous versions than the generic pattern property.
+This binding *will* generate errors, and needs rework before it can
+seriously be considered.
+Nevertheless, it should demonstrate how I intend such a property be
+used.
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 104504352e99..53efb5e03c64 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -21,7 +21,11 @@ cpu0: cpu@0 {
- 			i-cache-sets = <128>;
- 			i-cache-size = <16384>;
- 			reg = <0>;
--			riscv,isa = "rv64imac";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extension-i = "v1.0.0";
-+			riscv,isa-extension-m = "v1.0.0";
-+			riscv,isa-extension-a = "v1.0.0";
-+			riscv,isa-extension-c = "v1.0.0";
- 			clocks = <&clkcfg CLK_CPU>;
- 			status = "disabled";
+Not-signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../devicetree/bindings/riscv/cpus.yaml       | 61 ++++++++++++++++++-
+ 1 file changed, 60 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 405915b04d69..cccb3b2ae23d 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -100,6 +100,15 @@ properties:
+       lowercase.
+     $ref: "/schemas/types.yaml#/definitions/string"
+     pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
++    deprecated: true
++
++  riscv,isa-base:
++    description:
++      Identifies the base ISA supported by a hart.
++    $ref: "/schemas/types.yaml#/definitions/string"
++    enum:
++      - rv32i
++      - rv64i
  
-@@ -47,7 +51,14 @@ cpu1: cpu@1 {
- 			i-tlb-size = <32>;
- 			mmu-type = "riscv,sv39";
- 			reg = <1>;
--			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extension-i = "v1.0.0";
-+			riscv,isa-extension-m = "v1.0.0";
-+			riscv,isa-extension-a = "v1.0.0";
-+			riscv,isa-extension-f = "v1.0.0";
-+			riscv,isa-extension-d = "v1.0.0";
-+			riscv,isa-extension-c = "v1.0.0";
-+			riscv,isa-extension-zicsr = "v1.0.0";
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -75,7 +86,14 @@ cpu2: cpu@2 {
- 			i-tlb-size = <32>;
- 			mmu-type = "riscv,sv39";
- 			reg = <2>;
--			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extension-i = "v1.0.0";
-+			riscv,isa-extension-m = "v1.0.0";
-+			riscv,isa-extension-a = "v1.0.0";
-+			riscv,isa-extension-f = "v1.0.0";
-+			riscv,isa-extension-d = "v1.0.0";
-+			riscv,isa-extension-c = "v1.0.0";
-+			riscv,isa-extension-zicsr = "v1.0.0";
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -103,7 +121,14 @@ cpu3: cpu@3 {
- 			i-tlb-size = <32>;
- 			mmu-type = "riscv,sv39";
- 			reg = <3>;
--			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extension-i = "v1.0.0";
-+			riscv,isa-extension-m = "v1.0.0";
-+			riscv,isa-extension-a = "v1.0.0";
-+			riscv,isa-extension-f = "v1.0.0";
-+			riscv,isa-extension-d = "v1.0.0";
-+			riscv,isa-extension-c = "v1.0.0";
-+			riscv,isa-extension-zicsr = "v1.0.0";
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -131,7 +156,14 @@ cpu4: cpu@4 {
- 			i-tlb-size = <32>;
- 			mmu-type = "riscv,sv39";
- 			reg = <4>;
--			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extension-i = "v1.0.0";
-+			riscv,isa-extension-m = "v1.0.0";
-+			riscv,isa-extension-a = "v1.0.0";
-+			riscv,isa-extension-f = "v1.0.0";
-+			riscv,isa-extension-d = "v1.0.0";
-+			riscv,isa-extension-c = "v1.0.0";
-+			riscv,isa-extension-zicsr = "v1.0.0";
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
+   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
+   timebase-frequency: false
+@@ -136,8 +145,32 @@ properties:
+       DMIPS/MHz, relative to highest capacity-dmips-mhz
+       in the system.
+ 
++  riscv,isa-extension-v:
++    description: RISC-V Vector extension
++    $ref: "/schemas/types.yaml#/definitions/string"
++    oneOf:
++      - const: v1.0.0
++        description: the original incarnation
++      - const: v1.0.1
++        description: backwards compat was broken here
++
++patternProperties:
++  "^riscv,isa-extension-*":
++    description:
++      Catch-all property for ISA extensions that do not need any special
++      handling, and of which all known versions are compatible with their
++      original revision.
++    $ref: "/schemas/types.yaml#/definitions/string"
++    enum:
++      - v1.0.0
++
++oneOf:
++  - required:
++      - riscv,isa-base
++  - required:
++      - riscv,isa
++
+ required:
+-  - riscv,isa
+   - interrupt-controller
+ 
+ additionalProperties: true
+@@ -208,4 +241,30 @@ examples:
+                 };
+         };
+     };
++
++  - |
++    // Example 3: Extension specification
++    cpus {
++        #address-cells = <1>;
++        #size-cells = <0>;
++        cpu@0 {
++                device_type = "cpu";
++                reg = <0>;
++                compatible = "riscv";
++                riscv,isa-base = "rv64i";
++                riscv,isa-extension-i = "v1.0.0";
++                riscv,isa-extension-m = "v1.0.0";
++                riscv,isa-extension-a = "v1.0.0";
++                riscv,isa-extension-f = "v1.0.0";
++                riscv,isa-extension-d = "v1.0.0";
++                riscv,isa-extension-c = "v2.0.0";
++                riscv,isa-extension-v = "v1.0.1";
++                mmu-type = "riscv,sv48";
++                interrupt-controller {
++                        #interrupt-cells = <1>;
++                        interrupt-controller;
++                        compatible = "riscv,cpu-intc";
++                };
++        };
++    };
+ ...
 -- 
 2.39.2
 
