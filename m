@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C16DC7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 20:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375D5C7EE24
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 20:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojPjA/MFGIG2E+Y/xLilkaWA2v6KO+DCF1Ltql1+Tpw=; b=NTN/i3h4KF4Png
-	VY3QThxfGLiRCwUl2AWakY346CjZ+mRxt/P0Y4mIftaE5u2VzgyzVf/Mhy3UkFnhCSHwWBHxfGaw8
-	eaaX14qUAkna+CKh5hosX4GyFRaqRBZ4lxjJBM2+k4YzPn/ATaU9VYqlStF3EMRnDrZbeBZacDyzM
-	RRDt43bgmNBJucZbya/cYoqwvMqCYEqQ55aq+0X8ZBCHtqhg6ACEQMuzJz3LWphJ24kR50m4M5z8E
-	X8Fw5U61Dapr5CIOeOnkpG/Fm8OQFes7dgXR9Aukxdmv9vLOaSOy7CgTpwIo7LlfJemKjEkxMcdCd
-	A8QG++KBWuDS2wvoaCIw==;
+	List-Owner; bh=rBArIdgXTwBZpxsLBHUMCtCaMXmPHDTto50m1I7slds=; b=ecimXzlu1OmNKC
+	7Zl63CtBcRtwN+FHZMuD6MXtT9x/Vh+u150XT9rF7KvsSb+RTgXEYVE9lDeGxlePi9hPenjHiDpst
+	2VXclPIYICaUnnURSNfkwWYZ9zC6fbRgAGu7Tn/njcry+upneCoDnAm9gku4fdKcGp2FcJZSky7i6
+	H08AM0GoP5L2dCbWPNxugpbS0TBkqZecdFo/d+u+KGjX7OIa/bHr0+ucTRj5coxahRP3Iz6g905Kk
+	w0GD7JxC0cGpoFzXjgXpf2LvyOjGrzekHb9p0KJX8ERHLBZs2gBKB2GhZ5j5wXQHXc7WSCn0+ocy8
+	LEJMyZDtVpxK1aX4+6DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwTgE-004AzW-1a;
-	Tue, 09 May 2023 20:11:26 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pwUJm-004FSZ-11;
+	Tue, 09 May 2023 20:52:18 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwTgB-004Awu-28;
-	Tue, 09 May 2023 20:11:24 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683663065;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GDHRmjiERMZtAMWS8NswxcpsZgr8pqyf8cBJN0UwKq4=;
-	b=qRz1Wt3JIbNYLISqAbJr1CMERh+G2fMl0sqNUINGFnuAglUDS20PR5mShGM7iQQQaOXzUO
-	6p1nBmlJSh5FISuh/gxPpyFl5N/5lIcPzXiWCbOhc/BY9nLjejGZdozuMFQuDWHB0czbQ3
-	N334596N1dIxTBUtYyzDiKqjfnYYlcCALsa05iyDdZ772j72RpkHn+oDxyP4ObL7l+piSu
-	ZhZkepOsryy7f/3f8Xvt0ySi2CMPDVnx0tsF8XLS0QXVKSABEb0ZDeaHvlrFZfnZHg6sEY
-	EkUkcA416BPYsfyNhOSk3xIjz0pEBaTy2eNw1t0P+tqJe8e17B+vC1YPI9z1/Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683663065;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GDHRmjiERMZtAMWS8NswxcpsZgr8pqyf8cBJN0UwKq4=;
-	b=Xlcesbr/mowxxv4d+xv21wM9Nh14MEM6CP2UULmrKClB0/ijd/XoMlkIURymgqxjfMwTM5
-	2x4mgfol9jpnTzDw==
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
- <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
- Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
- Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
- <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
- Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
- Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
- Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
- <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
- <mikelley@microsoft.com>, David Woodhouse <dwmw@amazon.co.uk>
-Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
- separate phases and document them
-In-Reply-To: <20230509100421.GU83892@hirez.programming.kicks-ass.net>
-References: <20230508181633.089804905@linutronix.de>
- <20230508185217.671595388@linutronix.de>
- <20230509100421.GU83892@hirez.programming.kicks-ass.net>
-Date: Tue, 09 May 2023 22:11:05 +0200
-Message-ID: <87fs85z2na.ffs@tglx>
+	id 1pwUJj-004FRE-0g
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 May 2023 20:52:16 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-43476bbec67so4040643137.2
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 13:52:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1683665528; x=1686257528;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1ek4N4zhVnFp0OjD2e91cJw6qEMFFDQc5/FTgmHiGak=;
+        b=rVJW9XdHV4bhVBpENigqqik2I2pCncaz794aO5r0GaFD6EOogLB5GsTpjkOXXFk1cl
+         BLaajyFwcHYbDsMksrmy46rkJ8Xg5XgSiPcKIeqTk5sc4i6ByJVNSNE661bfq0lTqdr5
+         15qPLPCf/jWgZf76j7FinTn4I6xu8cSDiM5g9kSu8JtTXKgSM8OwYPMKVaG7suYL8InA
+         DMrcHjABRjgiApDllMJEgP/iLFCOFcqlwydZH35zZAE5dGhLWBf35Ag5dGmDJHpUzL+l
+         I6D5uZx78KFyGlmPQFh+q8W5REGbWvTcrIRfpmnEKUzBt+OarAE0cEQNLkGT/+HDIP0z
+         HuDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683665528; x=1686257528;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1ek4N4zhVnFp0OjD2e91cJw6qEMFFDQc5/FTgmHiGak=;
+        b=gPw1A+47Kr1V1byCZsRxXpNjVYF8rLX+n/6RH74vL0uNZshSAp8vRXweM6Rt4TvD4e
+         4QyK91qIpCwyWBTipiHGd403gtk/e5vt1H7L4q7FqgjQzuJwp4oUCefza1OWnTAQnMQm
+         q5L0NTtFK9ALxSO+j4wq9rNJCgnO/LC3RcOonkuXQ/uehZOIJwS+5gjDiQDkpwA8bv9d
+         pERtI7KCwAn30d7K8wo4O86bL4YbQZDj6UNNGnTq1vF/cmlMOhT0qWua4VISBGXMXqjT
+         iTVwDJpSuyDn2MxPgeL8Ohp+NVPP5/6fx9gb8bO0fUKtMC/hKqi9LP3eQlr7Y4LTiAPB
+         kPMg==
+X-Gm-Message-State: AC+VfDw7szUxeaHSCs5QnfdMtN22xxwq+x2VpdPGNWyOb0aTtZTYgquL
+	piqh+5DRZfySZR92Sb3tVKI05u9rbUI/lUmpTOGngg==
+X-Google-Smtp-Source: ACHHUZ5qUtibgquXG1CHXn5rsYEnNugGuamTPmXoGAjYsiSltyM3mefeFrXCpD+c8boXnApqrdpstv0ZlJ4ZhdJ1iOQ=
+X-Received: by 2002:a67:f291:0:b0:42e:6748:13dc with SMTP id
+ m17-20020a67f291000000b0042e674813dcmr5348659vsk.0.1683665528538; Tue, 09 May
+ 2023 13:52:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230306190156.434452-1-dmatlack@google.com>
+In-Reply-To: <20230306190156.434452-1-dmatlack@google.com>
+From: David Matlack <dmatlack@google.com>
+Date: Tue, 9 May 2023 13:51:42 -0700
+Message-ID: <CALzav=fZFpzw57hNmg2fqYG-0ddtvQd9+=7cw8tzuOGbZW1A1A@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] KVM: Refactor KVM stats macros and enable custom
+ stat names
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@redhat.com>, 
+	Sean Christopherson <seanjc@google.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Eric Farman <farman@linux.ibm.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
+	Sathvika Vasireddy <sv@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_131123_867391_90B73AF1 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20230509_135215_257663_62049210 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +98,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09 2023 at 12:04, Peter Zijlstra wrote:
-> On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
-> Not to the detriment of this patch, but this barrier() and it's comment
-> seem weird vs smp_callin(). That function ends with an atomic bitop (it
-> has to, at the very least it must not be weaker than store-release) but
-> also has an explicit wmb() to order setup vs CPU_STARTING.
->
-> (arguably that should be a full fence *AND* get a comment)
-
-TBH: I'm grasping for something 'arguable': What's the point of this
-wmb() or even a mb()?
-
-Most of the [w]mb()'s in smpboot.c except those in mwait_play_dead()
-have a very distinct voodoo programming smell.
-
-Thanks,
-
-        tglx
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXIgNiwgMjAyMyBhdCAxMTowMeKAr0FNIERhdmlkIE1hdGxhY2sgPGRtYXRsYWNr
+QGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gVGhpcyBzZXJpZXMgcmVmYWN0b3JzIHRoZSBLVk0gc3Rh
+dHMgbWFjcm9zIHRvIHJlZHVjZSBkdXBsaWNhdGlvbiBhbmQKPiBhZGRzIHRoZSBzdXBwb3J0IGZv
+ciBjaG9vc2luZyBjdXN0b20gbmFtZXMgZm9yIHN0YXRzLgoKSGkgUGFvbG8sCgpJIGp1c3Qgd2Fu
+dGVkIHRvIGRvdWJsZS1jaGVjayBpZiB0aGlzIHNlcmllcyBpcyBvbiB5b3VyIHJhZGFyCihwcm9i
+YWJseSBmb3IgNi41KT8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
