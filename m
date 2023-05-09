@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC91C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19983C7EE22
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k+hJzK4nMZXHq1xbJC2SxBUsO+uOspNCvHnmb9DfKjQ=; b=v3rKxxl3kLjD2l
-	H67+2efgV72C+mm873/aPNp8M7n42gQ/4+40iedMeVLfyffiyuuMr7884wusoHHIPIYII4/T9sf+f
-	jkWJcz6dQ6UIw2/CqTZ7Q6o8mDev0/uyRj9uThbcHZTsMKQKA479cxXj5EgaHlAAgqUdaS7jMc33p
-	htVcbXyleM7thwxe6rr9NIJhek6O+KgU8Mp2neVuc8sXUHugq65iTA9vxwNP+Z0l9WJOTaX8qMAGT
-	fXfKeMy9OvLK1I+gkW6NWP9zviAG/pL0QHE6ZZB+qCbqKIn6PQdrweBDAFJGNOqeBdu9DrW6AcTHv
-	XvxnWdCFV8vxbB1dGzuA==;
+	List-Owner; bh=ouudiRHdDqYhRJyMVqjr7OGs7TIswItqnBrrQh+2J7c=; b=l7CymzciyCyGUd
+	Aq0IFelYb/e022e1CdJM9qGcSLciqLx+YLq+RQEnVxzoBLuS/J0ui4lYMIzT1X74+wL7kuSYrsdhS
+	S4C7kei5O2o03htJDVD7KOJ7Vpq6/HzLXiAXco+fhndQap+nT78Y50gmLOpY/09rdUrOJw3WvfQn0
+	7+SnpPkdHXJn3gcV+/oP3+LZY0XapxF8+mqeiOwAYN21UrzO+ZoF8DsbsezVbsQjK/OZQKlAB93Lx
+	nPI39Cg6Tx9t+V9IT3kUrAry60+y/fMbD23rkzCm4iJGBZVJhKoEezFrJTOESAx9etGzX7t4o1Pgn
+	Rz/XLPq9LpoePu/OzgoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKR7-002qq6-3D;
-	Tue, 09 May 2023 10:19:13 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pwKco-002seY-02;
+	Tue, 09 May 2023 10:31:18 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKR6-002qpg-13;
-	Tue, 09 May 2023 10:19:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PKLh6UaLISIjcUauhr3iF6UlbMhF5g8Vn0HXFbC39j0=; b=K8SrgFC3k1Pze4pOS36EiCmG5X
-	E4mGhrJh8Tp4MMzIggJmmXSFDZoSRoQqK8ZUoW5YCSL9s//gW2n7gBpJeQTN7vOfD2LUm3mpTdcjL
-	DTdVl75NGlZb4DOM8Wve9/AenoFUKmgzoAxcsYqONDoeb7PPUXjOxPipqJ24L4IRLmGatnmIZpg2K
-	HOlNGraQ3bkXrLYD9MfaMGh6bgWxWd7JPQwv1bSEkvzLwsfu5SOyXdDbvpO1kezDEFG52JV23LZ25
-	KZPTC+yVvXc+uJTxC9FqAeTMucXuRrB9TjfoerWv5xB7Ih77dPE2yMPM9BF4mN/7ksbc1OfszoqR+
-	0x9nU15w==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pwKQx-00F95R-HR; Tue, 09 May 2023 10:19:03 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4B1FF300451;
-	Tue,  9 May 2023 12:19:02 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 29A6F20B21BBE; Tue,  9 May 2023 12:19:02 +0200 (CEST)
-Date: Tue, 9 May 2023 12:19:02 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Brian Gerst <brgerst@gmail.com>,
-	Arjan van de Veen <arjan@linux.intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul McKenney <paulmck@kernel.org>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Oleksandr Natalenko <oleksandr@natalenko.name>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Piotr Gorski <lucjan.lucjanov@gmail.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Juergen Gross <jgross@suse.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	xen-devel@lists.xenproject.org,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	linux-csky@vger.kernel.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	id 1pwKcl-002sbo-0z
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 May 2023 10:31:16 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-52cbd7e73d2so3267673a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:31:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1683628273; x=1686220273;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=xZD7AFVtobxh1FGjEKQD2QW8IDIT5bzbSx/S1GQl+8U=;
+        b=du0Io6LpcTYopchyJqH+rRocOYaZGCdablSccjAYQc49Ba6S0Rrmyl+ci/Z+nxxPQw
+         YaGBoKgHS8g3Qaggx+BYSu+hG+hAq80EgnZUR8Ct3LhmNYq4RlRrKbL4AwRUdiHmIlkD
+         OcFpHCYfFBsM0b1GAsqbvXLC/uMZqsaurfdT4Zi4oZieblml1tYf+lAmm06k2j/ghmRA
+         nZJfoSzceS6dk8Uj9dFuPVrcmHIow3ct78SnSgotzluof0dvxdUaahq1BZuj286W1pZO
+         XxyuRuSDnvPxZj5Nc+Egn1JuGzOsL+9sOHwXxobILy/DT2BmJPKbef9R6okXZQ478eGF
+         TGmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683628273; x=1686220273;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xZD7AFVtobxh1FGjEKQD2QW8IDIT5bzbSx/S1GQl+8U=;
+        b=MyyJ1bngJMvDrbnbIFV9tUu9qNmoauwtTiXf2jUnHkcRM4PoWgmVZ06Y+Jy+Yp4zPh
+         UxA5r639bLjB74K1FUujaybM9W4jjYSE/oW+PpXnMBnscvDlMarMW0Mlmwh4O2LkWVQx
+         AJT5+9RykP/KSPNaJ0ugHyMiHsCDYNntAPnl+3Fn2LvAgZjSfpOpBBUcI1FAGOI9iKmb
+         UUHo8kNQLIk/LH01tev1G0U2EihwiHvA+2MHZX6Ruk3R2i6ghRcX0QHL3CotOHUWzEKt
+         V0MhHFnldQPHSZ2aUDBrFvw8+DmEqZwTDhrtr+vAkSKgevsGE9fztPO+nFZklRHNoX53
+         GFbQ==
+X-Gm-Message-State: AC+VfDztPbILQoZMZZjHb2kzXM5ZeTGfqw7s9MvtR9QVGIpSgWX9B13x
+	bKHFciWFxIn3X+TYeCj8A6KGNNKj1bpTGWlxKW+9kqGPOAL+1pg+kF3CD4P48jUAManOcVanEko
+	67LucHVJKNGD55eAyB4KTSFOE3ncux6Yk0XkFiusMPeO0B4RgvJ0ipDnR81FHlAFzqyMiNilgXO
+	RhVEeMQhGSEzOC
+X-Google-Smtp-Source: ACHHUZ7IV6OdLi4xQaDu/P5gI9gcveGZ+FpKBQDsjRAPmDvKXG6DubfHPMgSkhsF+HAPAzAZIy4G8A==
+X-Received: by 2002:a17:903:18f:b0:1ac:8717:d436 with SMTP id z15-20020a170903018f00b001ac8717d436mr5304921plg.60.1683628272702;
+        Tue, 09 May 2023 03:31:12 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.31.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 03:31:12 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Guo Ren <ren_guo@c-sky.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sabin Rapan <sabrapan@amazon.com>,
-	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
-	David Woodhouse <dwmw@amazon.co.uk>
-Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
- separate phases and document them
-Message-ID: <20230509101902.GV83892@hirez.programming.kicks-ass.net>
-References: <20230508181633.089804905@linutronix.de>
- <20230508185217.671595388@linutronix.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230508185217.671595388@linutronix.de>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: [PATCH -next v19 01/24] riscv: Rename __switch_to_aux() -> fpu
+Date: Tue,  9 May 2023 10:30:10 +0000
+Message-Id: <20230509103033.11285-2-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230509103033.11285-1-andy.chiu@sifive.com>
+References: <20230509103033.11285-1-andy.chiu@sifive.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230509_033115_344243_B0AADFC4 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +100,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Guo Ren <ren_guo@c-sky.com>
 
-Again, not really this patch, but since I had to look at this code ....
+The name of __switch_to_aux() is not clear and rename it with the
+determine function: __switch_to_fpu(). Next we could add other regs'
+switch.
 
-On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
-> @@ -1048,60 +1066,89 @@ static int do_boot_cpu(int apicid, int c
+Signed-off-by: Guo Ren <ren_guo@c-sky.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/include/asm/switch_to.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-	/*
-	 * AP might wait on cpu_callout_mask in cpu_init() with
-	 * cpu_initialized_mask set if previous attempt to online
-	 * it timed-out. Clear cpu_initialized_mask so that after
-	 * INIT/SIPI it could start with a clean state.
-	 */
-	cpumask_clear_cpu(cpu, cpu_initialized_mask);
-	smp_mb();
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index 60f8ca01d36e..4b96b13dee27 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -46,7 +46,7 @@ static inline void fstate_restore(struct task_struct *task,
+ 	}
+ }
+ 
+-static inline void __switch_to_aux(struct task_struct *prev,
++static inline void __switch_to_fpu(struct task_struct *prev,
+ 				   struct task_struct *next)
+ {
+ 	struct pt_regs *regs;
+@@ -66,7 +66,7 @@ static __always_inline bool has_fpu(void)
+ static __always_inline bool has_fpu(void) { return false; }
+ #define fstate_save(task, regs) do { } while (0)
+ #define fstate_restore(task, regs) do { } while (0)
+-#define __switch_to_aux(__prev, __next) do { } while (0)
++#define __switch_to_fpu(__prev, __next) do { } while (0)
+ #endif
+ 
+ extern struct task_struct *__switch_to(struct task_struct *,
+@@ -77,7 +77,7 @@ do {							\
+ 	struct task_struct *__prev = (prev);		\
+ 	struct task_struct *__next = (next);		\
+ 	if (has_fpu())					\
+-		__switch_to_aux(__prev, __next);	\
++		__switch_to_fpu(__prev, __next);	\
+ 	((last) = __switch_to(__prev, __next));		\
+ } while (0)
+ 
+-- 
+2.17.1
 
-^^^ that barrier is weird too, cpumask_clear_cpu() is an atomic op and
-implies much the same (this is x86 after all). If you want to be super
-explicit about it write:
-
-	smp_mb__after_atomic();
-
-(which is a no-op) but then it still very much requires a comment as to
-what exactly it orders against what.
-
-
-	/*
-	 * Wake up a CPU in difference cases:
-	 * - Use a method from the APIC driver if one defined, with wakeup
-	 *   straight to 64-bit mode preferred over wakeup to RM.
-	 * Otherwise,
->  	 * - Use an INIT boot APIC message
->  	 */
->  	if (apic->wakeup_secondary_cpu_64)
-> +		return apic->wakeup_secondary_cpu_64(apicid, start_ip);
->  	else if (apic->wakeup_secondary_cpu)
-> +		return apic->wakeup_secondary_cpu(apicid, start_ip);
->  
-> +	return wakeup_secondary_cpu_via_init(apicid, start_ip);
-> +}
 
 _______________________________________________
 linux-riscv mailing list
