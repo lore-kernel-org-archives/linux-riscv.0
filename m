@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E17AC77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B6CC7EE22
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FMOh8ZvyZjKggCaz9pf+1kf5mol2f4XaJzE7rugkxCA=; b=Exnf6MW8DSBa1s
-	MGRorGdKVWVHjB90YStPN2CqFqGlme+93RTD6+hNxWW43cHAQsvfeBnFyAK+S1XRb4sA7HOdEiQTz
-	wQgTP+5NP4ghJ4ohxBEem3M9alzc+928kjm3eq//L3NBwdDcazwK1MLm8/kej0cCFTzjiPQMIO6Hs
-	yIIfKuq8lCqs4vs168tFyg3Fnn2wk7K7Hn2hMYbr/Jh5peYOhqA+s9HsmKntFSoEMAN9PzsSbds1i
-	dX5JLKTGexnruLLKXSMDxshOmtYyizvqUlu+gwsDCUwQjFGjcdbt6GJ/1Dx1805rRVkLsIAQvlmXN
-	USBztU1aba6Ay8n9sEzw==;
+	List-Owner; bh=rgLbPaJvzDtC7o0IZbLRhlLYg9kI9XhGfkAXIeUeVK0=; b=UHOqgV/spI9P1v
+	yAEQB7DQ0j+MlHHSMrGbRA/TV42qTGq+q2JgInrVO82b8md4k9LufYi/nZ7BD59q9krBI+D7sdHLH
+	T8CIdqYafKLTS5JC2b6+r+T678hylmnPD+xrIaTzHmyQiEC17OF0vCng7Dwddnetoq3/DCZuEEppn
+	588Jz5OeoMjPknFzMcBefhYRCyLQfBbGTc4zexCDLDf0yHd0A+CuJPUEPmYukgLHWPPUhUFRvBrHe
+	51ypvX8X1bZh/edQGGJdxA9TrJ9+gkqCaxQuK6ehFr1RDjSrCsB7kfccWDFMHlpRIhpFhIh5UvVUI
+	9vlukOA8YMuHQBOKmTIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKdI-002t0h-1m;
-	Tue, 09 May 2023 10:31:48 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1pwKdK-002t2L-1K;
+	Tue, 09 May 2023 10:31:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKdF-002sgO-2G
+	id 1pwKdI-002szy-1a
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 09 May 2023 10:31:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=PG+A+9/fIV/ExGi75FEqrU6haa3ykbx364k88CAqjOs=; b=QZ7vCA88+ff2fWwK9wmwr7aKlp
+	unXBae42Si7FQ8oXm8XlfPL37TmSvh5PuHLUUHeq68xiOBFC0H3QxFe/6BTePZSOfBhkrCfXXo2lP
+	JUPguP6AKG/l8KLQsiU4T1caVw6Urk1dxAFbNtXb6LtEphh1Bh3EuQT03eEMICpun2jmgZZ/YfQyI
+	as4CIV1kTR1/ZYgiYg1ROpF8vbG4X/oO3o2tYoolo0IO/SHD7TBY1BifnLW1B1JZItUvuP5wwT9wA
+	Pnl3qvRdRqpGh0qU2kqwYq/0eTC2JVKB7RWTbsuvV3ObUXDjQxXCjnIaDEzR8B9IjS4BINFA/AlO1
+	xs/OUyIQ==;
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwKdE-00666C-2Q
 	for linux-riscv@lists.infradead.org;
 	Tue, 09 May 2023 10:31:47 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-64115e652eeso41442108b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:31:45 -0700 (PDT)
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1ab1b79d3a7so38938975ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:31:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1683628305; x=1686220305;
+        d=sifive.com; s=google; t=1683628299; x=1686220299;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=OMViiC6TRgUBy+1t9x/tkF3qbB8zyqTk5+4zqct9RAc=;
-        b=H2H87NzV+z4a95p/WDxeVW9lVOiGG3MSpJcPfFkIIbEFcdgH1iXqaTbeCOJcldkmgZ
-         QHzCfmsREI1BjPcHxgpky6/suqYvVCrBU2VKm8ciawCSYnisvkIn4xLZEE6dcskpACU/
-         8Z5gKCJoAjDk1pf5n+3cyj2NYeY80YiqmRFiKBumv78pSA5HpqnCi4cuhxXHZvEasMeI
-         HvStYT06za8kCu6usOo4fFwHI/HF8U0+oaCx74xK8NeKVqLickCbRYZ24zOkqx9x+zLc
-         TLvD5yKb5/qul3mGcfNl//kzaRDsysx/EZ2zWQ8z4TFqxt1K85yWgR5K80C9mdDxED35
-         5AAA==
+        bh=PG+A+9/fIV/ExGi75FEqrU6haa3ykbx364k88CAqjOs=;
+        b=B9+GWY5AxyRstg0w2rDdp310x+FpVxN/5CyJUkdglxX17elf8YdK5332Ef/a8by+tt
+         RYIViO4Uq7YrL3M8ZuFC8G/dtupwplGp2Kj1+GsdWWsduEQgfMVPiaUs4T4aI/6EpQmP
+         A7zGjGB8fjBmU7ldGuZqLmIKodSLyzdnZYjE7cv8xyhQQigXE11lJQB3ErstpwC9JdgR
+         0Sb/LgTEWCNLBOm3ypPPMhonQ12RL6arBExtZyPdEwehNjh3nKgJcnEEQTssHUrGDi/y
+         4ofwA48T29MiRMt5WyZwXfzIFJpc/DlBGA/9qMQhnAduvI5P06wM8xCAt/i6iHhxVD4I
+         Zkzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683628305; x=1686220305;
+        d=1e100.net; s=20221208; t=1683628299; x=1686220299;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OMViiC6TRgUBy+1t9x/tkF3qbB8zyqTk5+4zqct9RAc=;
-        b=Bb4UHBRWBXaDUkA5chHulVpPxVw6sOD/5ilrC4/qsHNhhxky2uuUW5QGMNXw2VteSV
-         k0FiW0YqiAiZxCqtZ+qq7yUYtDDPzh6+HmcRtO1toRdvM0TVT1h13+9ID/8wMCeehl5D
-         lG6vnlR9RBDdi3DrJGXZmnbGIJ6BPzzYXCR4mIMwM4XLFHoG4rNHYdcXrO8gFDBizWcS
-         o2wXaFGERCkiYLboFVxH+7Oz/3WSEgjfiLUMwQGhiBJfRg3ieiBmsAJ9xvV3FS0UkVhE
-         34dcQ7hHrL1Vsr+DLojxn22wjFukFcaAv7wmB2bQ+pX2x6GpvWFMwWI2K9uO+aVbmVDo
-         uy3A==
-X-Gm-Message-State: AC+VfDx+qc8DbSe/WddbkyxuEtSws3swiABuAsn8/tZf22pX0QBGoGWF
-	2+GQaHhbOagXlpxArsvKFmINHrpdrNdCigNZ0yZ+HexpWqD/3dLvxPoJEOuh3rkYvyEU4YVF0na
-	GeYfYSf7BuE45SP57HwjNqD0mKDvHBUX9QIhcgJqQAuCGmy3efs/ikGOT9ahgZ6JriWc2/SC2WK
-	+J6PSYNx2EoDcZ
-X-Google-Smtp-Source: ACHHUZ77LjVJMMtiEt2KLQzAUBVsb9v7+qxLpSGV6oaLIZ1n//HV6AEtIF0juAPI98sE1sXMla/j7A==
-X-Received: by 2002:a17:902:da8b:b0:1ac:7e95:74bf with SMTP id j11-20020a170902da8b00b001ac7e9574bfmr6630959plx.6.1683628304718;
-        Tue, 09 May 2023 03:31:44 -0700 (PDT)
+        bh=PG+A+9/fIV/ExGi75FEqrU6haa3ykbx364k88CAqjOs=;
+        b=aOrlBrLgsmIVoqewOURWtmUZGrzIZbHLzM+4/zXGcuHWHbpsM8jMZaxnIVBwA8e0wV
+         XjseCYE6tSIOEQ29k1Yr+lyoHHOgjZtrottzgGlsGt+nw1+DxgNHbp5h/w5b7PdZp4n7
+         UeitVt6xOPVx4nGHrybNceNQLs8M9qpSVlZdlkAQuQGTwWgXk5uJYjKAZXL4Yn/sOQMP
+         pnK1C1E/0DjlhKNlAivsNT1zSuaGDZBwajs33DB+OSL6xaqzMp/p/Zn6GonjVq8oCDO2
+         vPo9XTe6u1HhxM64qd2J2nGGgDWZsSjnr1NP5DNzaSNh6aNH7K/yn7kk6wtwM/S+pyMq
+         9RWw==
+X-Gm-Message-State: AC+VfDwjK0XsdyuWiSH/2wD6uf56GaH+AN3Jb6NqE6nvq9e42odd264n
+	E7CKo0r8hntGcdJ1At9KTUIaw4l4Ae51MzZlDWF1veDyOR3p620CchkV3GmBdagrvMQvgCVMrxf
+	IGWnZQALf9Bh4sbuCE3MAbI/QLxp4AMCDOsz3TXa1WbK2e7wSrpUvXPxKQLVSdVMirrVCR7nvhs
+	eEzVsn27u+D4tW
+X-Google-Smtp-Source: ACHHUZ5CLHLIAeI1mcgv08ZYoV9tvksZf4THmfiw41Juia/dv6ItXzsNsWolGM5RhjaOcyfX1QYZAw==
+X-Received: by 2002:a17:902:ceca:b0:1a6:5fa2:3293 with SMTP id d10-20020a170902ceca00b001a65fa23293mr16306391plg.56.1683628298789;
+        Tue, 09 May 2023 03:31:38 -0700 (PDT)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.31.40
+        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.31.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 03:31:44 -0700 (PDT)
+        Tue, 09 May 2023 03:31:38 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -72,29 +87,24 @@ To: linux-riscv@lists.infradead.org,
 Cc: vineetg@rivosinc.com,
 	greentime.hu@sifive.com,
 	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Han-Kuan Chen <hankuan.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH -next v19 06/24] riscv: Disable Vector Instructions for kernel itself
-Date: Tue,  9 May 2023 10:30:15 +0000
-Message-Id: <20230509103033.11285-7-andy.chiu@sifive.com>
+Subject: [PATCH -next v19 05/24] riscv: Clear vector regfile on bootup
+Date: Tue,  9 May 2023 10:30:14 +0000
+Message-Id: <20230509103033.11285-6-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230509103033.11285-1-andy.chiu@sifive.com>
 References: <20230509103033.11285-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_033145_747317_9A2EC9A9 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20230509_113145_044717_7F129015 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,82 +122,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Greentime Hu <greentime.hu@sifive.com>
 
-Disable vector instructions execution for kernel mode at its entrances.
-This helps find illegal uses of vector in the kernel space, which is
-similar to the fpu.
+clear vector registers on boot if kernel supports V.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
-Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
-Changelog V19:
- - Add description in commit msg (Heiko's suggestion on v17)
+ arch/riscv/kernel/head.S | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
- arch/riscv/kernel/entry.S |  6 +++---
- arch/riscv/kernel/head.S  | 12 ++++++------
- 2 files changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 3fbb100bc9e4..e9ae284a55c1 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -48,10 +48,10 @@ _save_context:
- 	 * Disable user-mode memory access as it should only be set in the
- 	 * actual user copy routines.
- 	 *
--	 * Disable the FPU to detect illegal usage of floating point in kernel
--	 * space.
-+	 * Disable the FPU/Vector to detect illegal usage of floating point
-+	 * or vector in kernel space.
- 	 */
--	li t0, SR_SUM | SR_FS
-+	li t0, SR_SUM | SR_FS_VS
- 
- 	REG_L s0, TASK_TI_USER_SP(tp)
- 	csrrc s1, CSR_STATUS, t0
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 3fd6a4bd9c3e..e16bb2185d55 100644
+index 4bf6c449d78b..3fd6a4bd9c3e 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -140,10 +140,10 @@ secondary_start_sbi:
- 	.option pop
+@@ -392,7 +392,7 @@ ENTRY(reset_regs)
+ #ifdef CONFIG_FPU
+ 	csrr	t0, CSR_MISA
+ 	andi	t0, t0, (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D)
+-	beqz	t0, .Lreset_regs_done
++	beqz	t0, .Lreset_regs_done_fpu
  
- 	/*
--	 * Disable FPU to detect illegal usage of
--	 * floating point in kernel space
-+	 * Disable FPU & VECTOR to detect illegal usage of
-+	 * floating point or vector in kernel space
- 	 */
--	li t0, SR_FS
-+	li t0, SR_FS_VS
- 	csrc CSR_STATUS, t0
- 
- 	/* Set trap vector to spin forever to help debug */
-@@ -234,10 +234,10 @@ pmp_done:
- .option pop
- 
- 	/*
--	 * Disable FPU to detect illegal usage of
--	 * floating point in kernel space
-+	 * Disable FPU & VECTOR to detect illegal usage of
-+	 * floating point or vector in kernel space
- 	 */
--	li t0, SR_FS
-+	li t0, SR_FS_VS
- 	csrc CSR_STATUS, t0
- 
- #ifdef CONFIG_RISCV_BOOT_SPINWAIT
+ 	li	t1, SR_FS
+ 	csrs	CSR_STATUS, t1
+@@ -430,8 +430,31 @@ ENTRY(reset_regs)
+ 	fmv.s.x	f31, zero
+ 	csrw	fcsr, 0
+ 	/* note that the caller must clear SR_FS */
++.Lreset_regs_done_fpu:
+ #endif /* CONFIG_FPU */
+-.Lreset_regs_done:
++
++#ifdef CONFIG_RISCV_ISA_V
++	csrr	t0, CSR_MISA
++	li	t1, COMPAT_HWCAP_ISA_V
++	and	t0, t0, t1
++	beqz	t0, .Lreset_regs_done_vector
++
++	/*
++	 * Clear vector registers and reset vcsr
++	 * VLMAX has a defined value, VLEN is a constant,
++	 * and this form of vsetvli is defined to set vl to VLMAX.
++	 */
++	li	t1, SR_VS
++	csrs	CSR_STATUS, t1
++	csrs	CSR_VCSR, x0
++	vsetvli t1, x0, e8, m8, ta, ma
++	vmv.v.i v0, 0
++	vmv.v.i v8, 0
++	vmv.v.i v16, 0
++	vmv.v.i v24, 0
++	/* note that the caller must clear SR_VS */
++.Lreset_regs_done_vector:
++#endif /* CONFIG_RISCV_ISA_V */
+ 	ret
+ END(reset_regs)
+ #endif /* CONFIG_RISCV_M_MODE */
 -- 
 2.17.1
 
