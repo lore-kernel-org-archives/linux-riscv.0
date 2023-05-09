@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC52C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC91C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T+GbdvIQxgUfuOgFiu2/OWHoRqNl8qRsUt5WZeK/m50=; b=xnfXMupRwQ2eFw
-	ZUTQG0B03Q2gJJpcleMSbxXnIJijlHUWbXg2q5hf5PSTOpSRRwjwnYcs9LqlqZXQZUY/y7CDOHFEW
-	7XtTD1WItXPftJ7PHaCj9o7uu5tUCu97piJ+dOXGPCOOay2Lo/MVA6RHD3Famb+2+SOPeH806uSAP
-	kPVBG0TGyUjw5KjCCG/zUXoX+yAYTdZ2vUFitqhVCw0CEtPDvkdrhP4Jo8C9BYL/Klmz0OEnIfSxc
-	CHlYzhUZ4+l+QvzK+BGFUIaD7CM4peyPxylRqFWxXPGi05LkzI+c/y4TUTkOOylNWbPA32nBFiYaM
-	hexr3ghAgp9ozjo7+/Ww==;
+	List-Owner; bh=k+hJzK4nMZXHq1xbJC2SxBUsO+uOspNCvHnmb9DfKjQ=; b=v3rKxxl3kLjD2l
+	H67+2efgV72C+mm873/aPNp8M7n42gQ/4+40iedMeVLfyffiyuuMr7884wusoHHIPIYII4/T9sf+f
+	jkWJcz6dQ6UIw2/CqTZ7Q6o8mDev0/uyRj9uThbcHZTsMKQKA479cxXj5EgaHlAAgqUdaS7jMc33p
+	htVcbXyleM7thwxe6rr9NIJhek6O+KgU8Mp2neVuc8sXUHugq65iTA9vxwNP+Z0l9WJOTaX8qMAGT
+	fXfKeMy9OvLK1I+gkW6NWP9zviAG/pL0QHE6ZZB+qCbqKIn6PQdrweBDAFJGNOqeBdu9DrW6AcTHv
+	XvxnWdCFV8vxbB1dGzuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKD2-002p99-1M;
-	Tue, 09 May 2023 10:04:40 +0000
+	id 1pwKR7-002qq6-3D;
+	Tue, 09 May 2023 10:19:13 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKD1-002p8d-0S;
-	Tue, 09 May 2023 10:04:39 +0000
+	id 1pwKR6-002qpg-13;
+	Tue, 09 May 2023 10:19:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iQWsW3vK30T3lTlKXPjWF0ZCCCbqYMC5X75lG5LhBXg=; b=cDPXLQL0z0hLF1/yioFQfmCaBB
-	N8lg3b/6x/H60+tu73L248gNyd5xmZKox7zPuU6VKCA8HcngpEx3i7EoIRxvCJJ2pou+WtOB8+c9l
-	YAHhjctqF48WprPL0AyMzqqVZVwEpLUFVHpyjG9u8qxjZkI2cmceUyq18t9h1WvD06PgFHVUtc705
-	oUIyYOlqGQYWw9krcv5O2YQSBJhVKeLH6KQpRFn783U2eBmeNUpii/ZsJVFV2chFCnrg6UHHo2dd7
-	DFXEbQ718ZPPJ5wbZiakPwUWdfgyQIDGAdRJdu8G/8DVLYhi0TuNwKpexszZz1O5menSPb5zkPzoM
-	5WEFDxwA==;
+	bh=PKLh6UaLISIjcUauhr3iF6UlbMhF5g8Vn0HXFbC39j0=; b=K8SrgFC3k1Pze4pOS36EiCmG5X
+	E4mGhrJh8Tp4MMzIggJmmXSFDZoSRoQqK8ZUoW5YCSL9s//gW2n7gBpJeQTN7vOfD2LUm3mpTdcjL
+	DTdVl75NGlZb4DOM8Wve9/AenoFUKmgzoAxcsYqONDoeb7PPUXjOxPipqJ24L4IRLmGatnmIZpg2K
+	HOlNGraQ3bkXrLYD9MfaMGh6bgWxWd7JPQwv1bSEkvzLwsfu5SOyXdDbvpO1kezDEFG52JV23LZ25
+	KZPTC+yVvXc+uJTxC9FqAeTMucXuRrB9TjfoerWv5xB7Ih77dPE2yMPM9BF4mN/7ksbc1OfszoqR+
+	0x9nU15w==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pwKCp-00F8Kf-BN; Tue, 09 May 2023 10:04:27 +0000
+	id 1pwKQx-00F95R-HR; Tue, 09 May 2023 10:19:03 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id AE21E300451;
-	Tue,  9 May 2023 12:04:21 +0200 (CEST)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4B1FF300451;
+	Tue,  9 May 2023 12:19:02 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 36C9B20B0882F; Tue,  9 May 2023 12:04:21 +0200 (CEST)
-Date: Tue, 9 May 2023 12:04:21 +0200
+	id 29A6F20B21BBE; Tue,  9 May 2023 12:19:02 +0200 (CEST)
+Date: Tue, 9 May 2023 12:19:02 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: Thomas Gleixner <tglx@linutronix.de>
 Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
@@ -85,7 +85,7 @@ Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>
 Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
  separate phases and document them
-Message-ID: <20230509100421.GU83892@hirez.programming.kicks-ass.net>
+Message-ID: <20230509101902.GV83892@hirez.programming.kicks-ass.net>
 References: <20230508181633.089804905@linutronix.de>
  <20230508185217.671595388@linutronix.de>
 MIME-Version: 1.0
@@ -107,53 +107,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
+Again, not really this patch, but since I had to look at this code ....
+
 On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
+> @@ -1048,60 +1066,89 @@ static int do_boot_cpu(int apicid, int c
 
-> @@ -233,14 +237,31 @@ static void notrace start_secondary(void
->  	load_cr3(swapper_pg_dir);
->  	__flush_tlb_all();
->  #endif
-> +	/*
-> +	 * Sync point with wait_cpu_initialized(). Before proceeding through
-> +	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
-> +	 * own bit in cpu_initialized_mask and then waits for the BSP to set
-> +	 * its bit in cpu_callout_mask to release it.
-> +	 */
->  	cpu_init_secondary();
->  	rcu_cpu_starting(raw_smp_processor_id());
->  	x86_cpuinit.early_percpu_clock_init();
-> +
-> +	/*
-> +	 * Sync point with wait_cpu_callin(). The AP doesn't wait here
-> +	 * but just sets the bit to let the controlling CPU (BSP) know that
-> +	 * it's got this far.
-> +	 */
->  	smp_callin();
+	/*
+	 * AP might wait on cpu_callout_mask in cpu_init() with
+	 * cpu_initialized_mask set if previous attempt to online
+	 * it timed-out. Clear cpu_initialized_mask so that after
+	 * INIT/SIPI it could start with a clean state.
+	 */
+	cpumask_clear_cpu(cpu, cpu_initialized_mask);
+	smp_mb();
+
+^^^ that barrier is weird too, cpumask_clear_cpu() is an atomic op and
+implies much the same (this is x86 after all). If you want to be super
+explicit about it write:
+
+	smp_mb__after_atomic();
+
+(which is a no-op) but then it still very much requires a comment as to
+what exactly it orders against what.
+
+
+	/*
+	 * Wake up a CPU in difference cases:
+	 * - Use a method from the APIC driver if one defined, with wakeup
+	 *   straight to 64-bit mode preferred over wakeup to RM.
+	 * Otherwise,
+>  	 * - Use an INIT boot APIC message
+>  	 */
+>  	if (apic->wakeup_secondary_cpu_64)
+> +		return apic->wakeup_secondary_cpu_64(apicid, start_ip);
+>  	else if (apic->wakeup_secondary_cpu)
+> +		return apic->wakeup_secondary_cpu(apicid, start_ip);
 >  
-> -	/* otherwise gcc will move up smp_processor_id before the cpu_init */
-> +	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
->  	barrier();
-
-Not to the detriment of this patch, but this barrier() and it's comment
-seem weird vs smp_callin(). That function ends with an atomic bitop (it
-has to, at the very least it must not be weaker than store-release) but
-also has an explicit wmb() to order setup vs CPU_STARTING.
-
-(arguably that should be a full fence *AND* get a comment)
-
-There is no way the smp_processor_id() referred to in this comment can
-land before cpu_init() even without the barrier().
-
-> -	/* Check TSC synchronization with the control CPU: */
-> +
-> +	/*
-> +	 * Check TSC synchronization with the control CPU, which will do
-> +	 * its part of this from wait_cpu_online(), making it an implicit
-> +	 * synchronization point.
-> +	 */
->  	check_tsc_sync_target();
->  
->  	/*
+> +	return wakeup_secondary_cpu_via_init(apicid, start_ip);
+> +}
 
 _______________________________________________
 linux-riscv mailing list
