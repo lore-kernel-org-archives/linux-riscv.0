@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD310C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 15:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38222C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 15:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xb7Iuxruy3kFd0mUK/LUXLp2eNJsKhiGCF1KV9eRfEM=; b=WC8H61R78UZ933
-	HtD26s2JJXuUZxrQC+/8AFQmgMZHpl2ut1sQuv4BeALxt+0KM0NTGZoypEjh3aRYfWtm4fwUSOotS
-	HkwxmUVB+LoOd34PK4rkWPFIyzJ1qvM0P7P39P1OW/ROrXA55aQMnG0RltcR0drHNeuYj0APtG7Jv
-	O2IRsH7vY1zbv+Aoa7Z2CMY+KUjHl7ZbaS7A1OUwfbAc9KWn9mSyf9B1Wr5ECthaOqv/EuVLh3/MB
-	xzVu5WtZeMMsguqZtexTtOES1cYUZlQmUHwLJ0ELvLkW2Q3gbdy6B1fl7cvuyfOJwrLm0qHNUKSry
-	3X0JbJAg54MDGk6DVtEw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XXT3GG9lHNF9m9is4uXydHgxI8mzz8+FkJDiWHFjIss=; b=3KAouqIJVccHx4
+	yY3yd/GGlTRfimWqbDCyCHpd9rkzRxujDqFCLOoEK/c4UmnWSNMrXEvI39p5Neztvg4IBzbOgvXco
+	bDru2vkxKUVUuJ4o4YipgJc6c83q0Fkt13avJH4t0jxaeOhiv6ADL5ZDA2jZbiJ4g2thH7pEDbqww
+	h8FUgCZROBLP5CH7jCYP9sVDDIwGokVhqYVtGzqeNtxmFXfjL2kfxKxhZTNRASWi2ExpLkQbbOyf8
+	XalkDDho8NKUXYfA7qsiIGd0VMLNim5hOxpxO/z57cWScoA8C/cwM+Uwb0OltcRwYLSqvKB8F9iDE
+	9tc1iZkNuJodSbjRy8cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwP6D-003gOt-0C;
+	id 1pwP6D-003gP8-1r;
 	Tue, 09 May 2023 15:17:57 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwP68-003gLX-39
+	id 1pwP68-003gLZ-39
 	for linux-riscv@lists.infradead.org;
 	Tue, 09 May 2023 15:17:56 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 80C8C24E083;
-	Tue,  9 May 2023 23:17:24 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
- 2023 23:17:24 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 38E2D24E202;
+	Tue,  9 May 2023 23:17:25 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
+ 2023 23:17:25 +0800
 Received: from localhost.localdomain (183.27.98.219) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
- 2023 23:17:23 +0800
+ 2023 23:17:24 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
  Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -46,18 +46,20 @@ To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
 CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 0/2] Add watchdog nodes in StarFive JH7100/JH7110 DTS
-Date: Tue, 9 May 2023 23:17:21 +0800
-Message-ID: <20230509151723.84989-1-xingyu.wu@starfivetech.com>
+Subject: [PATCH v1 1/2] riscv: dts: starfive: jh7100: Add watchdog node
+Date: Tue, 9 May 2023 23:17:22 +0800
+Message-ID: <20230509151723.84989-2-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230509151723.84989-1-xingyu.wu@starfivetech.com>
+References: <20230509151723.84989-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.98.219]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_081753_212264_7303F20A 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20230509_081753_215605_37D61552 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,18 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, this patch serises add watchdog nodes in DTS for the StarFive JH7100
-and JH7110 SoCs. Patch 1 adds the node in JH7100 dts and Patch 2 adds it
-in JH7110 dts. This patch serises are based on Linux 6.4-rc1.
+Add watchdog node for the StarFive JH7100 RISC-V SoC.
 
-Xingyu Wu (2):
-  riscv: dts: starfive: jh7100: Add watchdog node
-  riscv: dts: starfive: jh7110: Add watchdog node
-
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
  arch/riscv/boot/dts/starfive/jh7100.dtsi | 10 ++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 10 ++++++++++
- 2 files changed, 20 insertions(+)
+ 1 file changed, 10 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index 000447482aca..4218621ea3b9 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -238,5 +238,15 @@ i2c3: i2c@12460000 {
+ 			#size-cells = <0>;
+ 			status = "disabled";
+ 		};
++
++		watchdog@12480000 {
++			compatible = "starfive,jh7100-wdt";
++			reg = <0x0 0x12480000 0x0 0x10000>;
++			clocks = <&clkgen JH7100_CLK_WDTIMER_APB>,
++				 <&clkgen JH7100_CLK_WDT_CORE>;
++			clock-names = "apb", "core";
++			resets = <&rstgen JH7100_RSTN_WDTIMER_APB>,
++				 <&rstgen JH7100_RSTN_WDT>;
++		};
+ 	};
+ };
 -- 
 2.25.1
 
