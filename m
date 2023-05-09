@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B644C7EE22
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 12:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2126C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 12:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2s7baxuyLyAVfeGQ9hfDgYWXHvLc5Jd1CAcv1q60YJo=; b=OJthZMyvGNMjOA
-	jB97jEbd28jbYPEdAQ+Uuip6m2R66pIkqcG9yN0K06y4Th0Bzn+lUnLcrACxVVoTuZgz6Y7Xehi5l
-	1efZokpjcjJOTVC347wDaTMh3GjS2dCbj+pozmJ6KZfsrjgHj8sAdsHI+u2phedqO/vhBU5QUeH8b
-	lvtIIPFbrE/+5hN1AeG7mBRGOElOXZjUKXdZUyMW/oIIxz2QzpozyHz1F5hNMEFIlboJYm0vqk3SV
-	hA8vjd0hRsZdQohfawR2MsvuW0M842K7IC82E/RHlQy8UGcdXKtEDmYOmWGmjO/6wXqkVloCJC0Vf
-	kZSgUpqFumrM0KL1kxQQ==;
+	List-Owner; bh=OwerNN3c/YXGp4Rgtnh4G6ZtXDkhIJgeGM1A/zWd5xI=; b=WLvNjqJWX7wjLG
+	Ol+PD5WpVOgcQLDwo9kzd/SbdyVAY+3+DRVghwrvkk60Xvcql3XNKRaLc6MAERr3yGZhqoek24Ntt
+	eMsRXkELtBBGLf3vfhKBCHcRk/VR4i0KPNgR/TyTX3pfj/mBtCwDOeYiITMBr7o8ni8VRdYA022DG
+	2iKdTMf6g8Q6v2qe5YYNX26T0lZa2kDf+EkOhF+hyd1p4cv37FpZuv7waZQPd00aSTlmctPYvcJBz
+	HlIiQ3heLh/zsLpbiWVPo9a5meb5hw2nMEeHdZMvMkP+6FWwdgzLV+ShXqFM9ucxD0kAptH+EFiin
+	slpyVjlzg3UlWoUbi4Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwM7t-003E1P-04;
-	Tue, 09 May 2023 12:07:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pwM99-003EEk-3C;
+	Tue, 09 May 2023 12:08:47 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwM7r-003E0i-0p;
-	Tue, 09 May 2023 12:07:27 +0000
+	id 1pwM98-003EDH-1U;
+	Tue, 09 May 2023 12:08:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
 	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=L8MCFM0FDR2P5xT6w7iIAowrB6rGKJkA6dzl9HivHWk=; b=Dm59ZsYyAHgXRn2vPdCIUpjflR
-	wcQjxkgbN32t8xND+u3gaUp0z6XLjHcyt6oh3f3T+ATmqkGZ79dKdbHfGCLADRhAe5yQd5+fs7yi8
-	ahLwIkDQCh1qagWctNcakcs2w+Qg+OjtokPO3cg9iueKd75120It34CBJAQ+yNzW0g6LhSpW40NQh
-	HS2wnZK6egngXK3HBo86tfPk8iSIlpIHlZy8Pkr0x80R7N1i8Gubv4PkxFv0XJ5wsmSgWnYYyVCig
-	6Qmx8weRkxczAXw07luEPEKxLukgen3Z9ILTbQa/lSU7zliDGUDYE+NMPvS3w/lGSjzYqU9of/BVZ
-	UtG0zXVA==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	bh=auvnPlCdrxbwfVCryOkTHE8CzjY0504gnLY8d2dRonQ=; b=fSyCifjmTxsHnkoflxwFQeSyAl
+	mUUTEuogjrtzLCtv1mjuvQBOXj/0tid0MG7YohtTLOtxBsAM3Wnb8pCyCAk62V2wxQvncTNyTDx1M
+	Va+rXomYJT6iR1QNrWUdB2IbGiQ8XGDF9955KRdQxk87KvObdw8vlMPU8Qo4BQikhJqQhyvqnlgQH
+	Tx3CJuQUvVSy4teradOTmPhBIW35h+E9owCsbH6wYPFWO777J5pMXr1ddihzrl4ZyiBg0CN4yTrEp
+	xNY49LzitVjiFDQyT3YQmjCSVBfix08tbop+0ToL74C+7bcDtsQPRNGmtWtOphfcLmRJkRTyX4ocn
+	PJEGfqMQ==;
+Received: from galois.linutronix.de ([193.142.43.55])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwM7n-0067bQ-2E;
-	Tue, 09 May 2023 12:07:25 +0000
+	id 1pwM8x-0067cU-2n;
+	Tue, 09 May 2023 12:08:37 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683634040;
+	s=2020; t=1683634111;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=L8MCFM0FDR2P5xT6w7iIAowrB6rGKJkA6dzl9HivHWk=;
-	b=WQKf9JTpFPSQGT0uFg5INijnVR8R5fqcikzHfuS5DVBLQGQ7GwJQT+EVszHAmjT/3/UBuz
-	qVYnARbWYomJ6gliEb43t5la/h6VifzuO+zL/GRl0NjzHXmgK5N/FGwqL06FgLMkljqBFm
-	XyfTJfmksGnqa6BjZhyerBbGE6iuFhkjn27fQrUXAQ1QApceQPW64uUNRla+fMpap+pUkk
-	SWZ9l1mk0piAcuHN5EvFC700NqxfjfjIo2TZ35Uf44N6qz9M7DRMymepQA2ZWVsdTMQEJG
-	ZopQRoGBKBzZCgD4GsYTMKx5vSxJBSs3/zJnl8HdNjGWI5X3/Fou00r0/4324g==
+	bh=auvnPlCdrxbwfVCryOkTHE8CzjY0504gnLY8d2dRonQ=;
+	b=wafQfE3T818swYq6uLvh8KHiTe44B+AlTcCuev0YTvhSecK7fkanUUlrOFuq1HA2ASd8t+
+	BU6tHwwDMQA0mZaxMylheStrGpAitYQ7e4+1xdIBRK50qlGuPKGUbpzNoPFc/U7pFg4vp7
+	3txn/u3LsCuYBQ0eNUlaTm7ZlGVH1WlsNSZfP3xwKGSzwPqUJorHyzC7YM1MHYvCO7Lmx3
+	BiJQOvEs+Zr/r7cQvp3o3X/HSCezUruhmuDtMYKpw4lmxWL4y4XK9Xj0Ms0sscYlMfQk/M
+	8L9/ObIQjuOr/DXSdupvrplmykX+MkwMcI4Kqk1nxIkYGFdBkt+5ECVVyItbUg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683634040;
+	s=2020e; t=1683634111;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=L8MCFM0FDR2P5xT6w7iIAowrB6rGKJkA6dzl9HivHWk=;
-	b=HEbhRwUpE3y701WVF4If5EM5F8H8s6m0+F3iRYhv9+fKfUn3XmN66AS4uimVHFaZrmTvUY
-	YoYD1EwiDwf+ofDQ==
+	bh=auvnPlCdrxbwfVCryOkTHE8CzjY0504gnLY8d2dRonQ=;
+	b=iQxVDqhAuaPEJSQzwxbX/REaKwQ08dwCm2L5m3NrRVeFnmsUvKPu/IfGcUkN/jYTMsh6S3
+	yqlu1nzMP1/UIxCA==
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
  <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
@@ -84,16 +84,16 @@ Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
  <mikelley@microsoft.com>, David Woodhouse <dwmw@amazon.co.uk>
 Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
  separate phases and document them
-In-Reply-To: <20230509100421.GU83892@hirez.programming.kicks-ass.net>
+In-Reply-To: <20230509101902.GV83892@hirez.programming.kicks-ass.net>
 References: <20230508181633.089804905@linutronix.de>
  <20230508185217.671595388@linutronix.de>
- <20230509100421.GU83892@hirez.programming.kicks-ass.net>
-Date: Tue, 09 May 2023 14:07:20 +0200
-Message-ID: <87pm791zev.ffs@tglx>
+ <20230509101902.GV83892@hirez.programming.kicks-ass.net>
+Date: Tue, 09 May 2023 14:08:31 +0200
+Message-ID: <87mt2d1zcw.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_130723_893179_3E2277DB 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20230509_130836_100991_0982E182 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,34 +110,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09 2023 at 12:04, Peter Zijlstra wrote:
+On Tue, May 09 2023 at 12:19, Peter Zijlstra wrote:
 > On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
->> +	/*
->> +	 * Sync point with wait_cpu_callin(). The AP doesn't wait here
->> +	 * but just sets the bit to let the controlling CPU (BSP) know that
->> +	 * it's got this far.
->> +	 */
->>  	smp_callin();
->>  
->> -	/* otherwise gcc will move up smp_processor_id before the cpu_init */
->> +	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
->>  	barrier();
+>> @@ -1048,60 +1066,89 @@ static int do_boot_cpu(int apicid, int c
 >
-> Not to the detriment of this patch, but this barrier() and it's comment
-> seem weird vs smp_callin(). That function ends with an atomic bitop (it
-> has to, at the very least it must not be weaker than store-release) but
-> also has an explicit wmb() to order setup vs CPU_STARTING.
+> 	/*
+> 	 * AP might wait on cpu_callout_mask in cpu_init() with
+> 	 * cpu_initialized_mask set if previous attempt to online
+> 	 * it timed-out. Clear cpu_initialized_mask so that after
+> 	 * INIT/SIPI it could start with a clean state.
+> 	 */
+> 	cpumask_clear_cpu(cpu, cpu_initialized_mask);
+> 	smp_mb();
 >
-> (arguably that should be a full fence *AND* get a comment)
+> ^^^ that barrier is weird too, cpumask_clear_cpu() is an atomic op and
+> implies much the same (this is x86 after all). If you want to be super
+> explicit about it write:
 >
-> There is no way the smp_processor_id() referred to in this comment can
-> land before cpu_init() even without the barrier().
+> 	smp_mb__after_atomic();
+>
+> (which is a no-op) but then it still very much requires a comment as to
+> what exactly it orders against what.
 
-Right. Let me clean that up.
-
-Thanks,
-
-        tglx
+As this is gone a few patches later, I just be lazy and leave it alone.
 
 _______________________________________________
 linux-riscv mailing list
