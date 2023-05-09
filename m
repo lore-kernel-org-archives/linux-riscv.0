@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CED7C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC52C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uiLKk8hpFm2kKhBd4vYXPdYpH9p1k2H8AZ8rpvD2hv8=; b=zbQLAbdxYzKHCx
-	tcZ9SsmqYmnrMMnbPDSffKh4B/mArl08OiqO6oEHIufoLxlJMKG5DLuCsug15Ft6wBhnECiR+U4/t
-	1L/wlMl68RB/szCAjS0mbGSZWF/culRBqz/Uj/lkbgosjmpLgFjqqY1h7kSnWwTe8ynWQZRXrl/iv
-	YEem9pGK+vsmB9VrX1owMA8ld98Oi0rw1JyVKXGgBOfMfe10Azg2vhqoHmSiuja1nSub87+fala+E
-	47zAKuxMW94SsapcfW8FCHHdlCEX9sUEQVxTUXCkk5WE4WI8U0jCAoFwu2qdME72jn4G6SyGZjtn8
-	m/BdPhH/fcO1qh7anQdg==;
+	List-Owner; bh=T+GbdvIQxgUfuOgFiu2/OWHoRqNl8qRsUt5WZeK/m50=; b=xnfXMupRwQ2eFw
+	ZUTQG0B03Q2gJJpcleMSbxXnIJijlHUWbXg2q5hf5PSTOpSRRwjwnYcs9LqlqZXQZUY/y7CDOHFEW
+	7XtTD1WItXPftJ7PHaCj9o7uu5tUCu97piJ+dOXGPCOOay2Lo/MVA6RHD3Famb+2+SOPeH806uSAP
+	kPVBG0TGyUjw5KjCCG/zUXoX+yAYTdZ2vUFitqhVCw0CEtPDvkdrhP4Jo8C9BYL/Klmz0OEnIfSxc
+	CHlYzhUZ4+l+QvzK+BGFUIaD7CM4peyPxylRqFWxXPGi05LkzI+c/y4TUTkOOylNWbPA32nBFiYaM
+	hexr3ghAgp9ozjo7+/Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwJxX-002mlI-1F;
-	Tue, 09 May 2023 09:48:39 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1pwKD2-002p99-1M;
+	Tue, 09 May 2023 10:04:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwJxT-002mkL-34
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 09:48:37 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-965d2749e2eso756856766b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 02:48:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683625714; x=1686217714;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+ssFb5TKrUxDuSwzgf3mFueyqkmtk+lVo5a7Efc/W2I=;
-        b=ZN2Nc4KwU1Bj5BSAFhnaSB7vzpHs1RhygZN+XFGK6hQBeLnMiYwvwPAXnsYMiqJHcm
-         p5Avtf3vt8Y4M1ljhuJY4Ln3gMYVG7jsegJ0RHNvxURf0hlpLwZueGcJGInAG8o/DEpx
-         it6a0EUAy5fX5DjfyZ+qlO6ITrPw0whW+MWWfRWmNA+Rdx0XgpCVPzNndlG2EnyxycPT
-         n/qx5p3EDi+udnGMqVQxfwTqIeuqo9wtrHkaGhTl36t8RDumMIFpAccz+H4xw3J0Xa4f
-         tR5hRvEoLeSQd7RlB2rJF6Pz4xRdXkzxi/FXfrC0VcYNWsG1552WhKHK1SU8vXmFz6Vz
-         VZbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683625714; x=1686217714;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+ssFb5TKrUxDuSwzgf3mFueyqkmtk+lVo5a7Efc/W2I=;
-        b=QKnyX4gzPHLuPqZDplmUHGLFPba19g5+Pr6jNc+VLEB0h7oJyVAW6MijIZSAzspERs
-         y+FZw34CaVHom5+p2JgrLydwyn5Z6mCmPFK0kFMQYru8o5FahwyyXjoMqEYLn5wzQj2P
-         ssQCx0MkDM3cFbInbHM5Tacd/Y11fScjya67zhhnaGPtiu1P4c16j9Mq5STFxvQB1Dj/
-         ykCNlQmlZEw6VrvEUbcpwzKcr6UvC4KQN/LNHrNpu+uMwqYeZvv4jdyUCT9uytGIf8AS
-         T01Ma/F4zCFDQOdt7AhHBHNnJV9YbJwLxyvv7bZrFRyiha5JlVvv5FGTDhPhbHkPJCjk
-         8n9A==
-X-Gm-Message-State: AC+VfDzqps+aD9qp1JNEYWlXrbnZwEqfelQeULP3jmKgOB5a+ouRNTRX
-	yBSODxYMH70NypAVCZNpkePqqA==
-X-Google-Smtp-Source: ACHHUZ4csAwN4H1Mldb1yqeubVyBLjLh5qJMfW88DpJJEltr6uvpRCkmVOXq0ie/fCZXpf1YLvGLNg==
-X-Received: by 2002:a17:907:a01:b0:94a:5d5c:fe6f with SMTP id bb1-20020a1709070a0100b0094a5d5cfe6fmr10679597ejc.47.1683625714394;
-        Tue, 09 May 2023 02:48:34 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id jx6-20020a170907760600b00958434d4ecesm1143737ejc.13.2023.05.09.02.48.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 02:48:34 -0700 (PDT)
-Date: Tue, 9 May 2023 11:48:33 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: zhangfei <zhang_fei_0403@163.com>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	zhangfei@nj.iscas.ac.cn, conor.dooley@microchip.com
-Subject: Re: [PATCH 1/2] RISC-V: lib: Improve memset assembler formatting
-Message-ID: <20230509-b76dc35d2a84d96806496c8e@orel>
-References: <20230505-9ec599a36801972451e8b17f@orel>
- <20230509022207.3700-1-zhang_fei_0403@163.com>
+	id 1pwKD1-002p8d-0S;
+	Tue, 09 May 2023 10:04:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=iQWsW3vK30T3lTlKXPjWF0ZCCCbqYMC5X75lG5LhBXg=; b=cDPXLQL0z0hLF1/yioFQfmCaBB
+	N8lg3b/6x/H60+tu73L248gNyd5xmZKox7zPuU6VKCA8HcngpEx3i7EoIRxvCJJ2pou+WtOB8+c9l
+	YAHhjctqF48WprPL0AyMzqqVZVwEpLUFVHpyjG9u8qxjZkI2cmceUyq18t9h1WvD06PgFHVUtc705
+	oUIyYOlqGQYWw9krcv5O2YQSBJhVKeLH6KQpRFn783U2eBmeNUpii/ZsJVFV2chFCnrg6UHHo2dd7
+	DFXEbQ718ZPPJ5wbZiakPwUWdfgyQIDGAdRJdu8G/8DVLYhi0TuNwKpexszZz1O5menSPb5zkPzoM
+	5WEFDxwA==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pwKCp-00F8Kf-BN; Tue, 09 May 2023 10:04:27 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id AE21E300451;
+	Tue,  9 May 2023 12:04:21 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 36C9B20B0882F; Tue,  9 May 2023 12:04:21 +0200 (CEST)
+Date: Tue, 9 May 2023 12:04:21 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	David Woodhouse <dwmw@amazon.co.uk>
+Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
+ separate phases and document them
+Message-ID: <20230509100421.GU83892@hirez.programming.kicks-ass.net>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185217.671595388@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230509022207.3700-1-zhang_fei_0403@163.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_024835_988709_CD81A755 
-X-CRM114-Status: GOOD (  21.97  )
+In-Reply-To: <20230508185217.671595388@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,217 +107,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 10:22:05AM +0800, zhangfei wrote:
-> From: Andrew Jones <ajones@ventanamicro.com>
-> 
-> Aligning the first operand of each instructions with a tab is a
-> typical style which improves readability. Apply it to memset.S.
-> While there, we also make a small grammar change to a comment.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
 
-Please pick up Conor's r-b on this reposting.
+> @@ -233,14 +237,31 @@ static void notrace start_secondary(void
+>  	load_cr3(swapper_pg_dir);
+>  	__flush_tlb_all();
+>  #endif
+> +	/*
+> +	 * Sync point with wait_cpu_initialized(). Before proceeding through
+> +	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
+> +	 * own bit in cpu_initialized_mask and then waits for the BSP to set
+> +	 * its bit in cpu_callout_mask to release it.
+> +	 */
+>  	cpu_init_secondary();
+>  	rcu_cpu_starting(raw_smp_processor_id());
+>  	x86_cpuinit.early_percpu_clock_init();
+> +
+> +	/*
+> +	 * Sync point with wait_cpu_callin(). The AP doesn't wait here
+> +	 * but just sets the bit to let the controlling CPU (BSP) know that
+> +	 * it's got this far.
+> +	 */
+>  	smp_callin();
+>  
+> -	/* otherwise gcc will move up smp_processor_id before the cpu_init */
+> +	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
+>  	barrier();
 
-Thanks,
-drew
+Not to the detriment of this patch, but this barrier() and it's comment
+seem weird vs smp_callin(). That function ends with an atomic bitop (it
+has to, at the very least it must not be weaker than store-release) but
+also has an explicit wmb() to order setup vs CPU_STARTING.
 
-> ---
->  arch/riscv/lib/memset.S | 143 ++++++++++++++++++++--------------------
->  1 file changed, 72 insertions(+), 71 deletions(-)
-> 
-> diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-> index 34c5360c6705..e613c5c27998 100644
-> --- a/arch/riscv/lib/memset.S
-> +++ b/arch/riscv/lib/memset.S
-> @@ -3,111 +3,112 @@
->   * Copyright (C) 2013 Regents of the University of California
->   */
->  
-> -
->  #include <linux/linkage.h>
->  #include <asm/asm.h>
->  
->  /* void *memset(void *, int, size_t) */
->  ENTRY(__memset)
->  WEAK(memset)
-> -	move t0, a0  /* Preserve return value */
-> +	move	t0, a0			/* Preserve return value */
->  
->  	/* Defer to byte-oriented fill for small sizes */
-> -	sltiu a3, a2, 16
-> -	bnez a3, 4f
-> +	sltiu	a3, a2, 16
-> +	bnez	a3, 4f
+(arguably that should be a full fence *AND* get a comment)
+
+There is no way the smp_processor_id() referred to in this comment can
+land before cpu_init() even without the barrier().
+
+> -	/* Check TSC synchronization with the control CPU: */
+> +
+> +	/*
+> +	 * Check TSC synchronization with the control CPU, which will do
+> +	 * its part of this from wait_cpu_online(), making it an implicit
+> +	 * synchronization point.
+> +	 */
+>  	check_tsc_sync_target();
 >  
 >  	/*
->  	 * Round to nearest XLEN-aligned address
-> -	 * greater than or equal to start address
-> +	 * greater than or equal to the start address.
->  	 */
-> -	addi a3, t0, SZREG-1
-> -	andi a3, a3, ~(SZREG-1)
-> -	beq a3, t0, 2f  /* Skip if already aligned */
-> +	addi	a3, t0, SZREG-1
-> +	andi	a3, a3, ~(SZREG-1)
-> +	beq	a3, t0, 2f		/* Skip if already aligned */
-> +
->  	/* Handle initial misalignment */
-> -	sub a4, a3, t0
-> +	sub	a4, a3, t0
->  1:
-> -	sb a1, 0(t0)
-> -	addi t0, t0, 1
-> -	bltu t0, a3, 1b
-> -	sub a2, a2, a4  /* Update count */
-> +	sb	a1, 0(t0)
-> +	addi	t0, t0, 1
-> +	bltu	t0, a3, 1b
-> +	sub	a2, a2, a4		/* Update count */
->  
->  2: /* Duff's device with 32 XLEN stores per iteration */
->  	/* Broadcast value into all bytes */
-> -	andi a1, a1, 0xff
-> -	slli a3, a1, 8
-> -	or a1, a3, a1
-> -	slli a3, a1, 16
-> -	or a1, a3, a1
-> +	andi	a1, a1, 0xff
-> +	slli	a3, a1, 8
-> +	or	a1, a3, a1
-> +	slli	a3, a1, 16
-> +	or	a1, a3, a1
->  #ifdef CONFIG_64BIT
-> -	slli a3, a1, 32
-> -	or a1, a3, a1
-> +	slli	a3, a1, 32
-> +	or	a1, a3, a1
->  #endif
->  
->  	/* Calculate end address */
-> -	andi a4, a2, ~(SZREG-1)
-> -	add a3, t0, a4
-> +	andi	a4, a2, ~(SZREG-1)
-> +	add	a3, t0, a4
->  
-> -	andi a4, a4, 31*SZREG  /* Calculate remainder */
-> -	beqz a4, 3f            /* Shortcut if no remainder */
-> -	neg a4, a4
-> -	addi a4, a4, 32*SZREG  /* Calculate initial offset */
-> +	andi	a4, a4, 31*SZREG	/* Calculate remainder */
-> +	beqz	a4, 3f			/* Shortcut if no remainder */
-> +	neg	a4, a4
-> +	addi	a4, a4, 32*SZREG	/* Calculate initial offset */
->  
->  	/* Adjust start address with offset */
-> -	sub t0, t0, a4
-> +	sub	t0, t0, a4
->  
->  	/* Jump into loop body */
->  	/* Assumes 32-bit instruction lengths */
-> -	la a5, 3f
-> +	la	a5, 3f
->  #ifdef CONFIG_64BIT
-> -	srli a4, a4, 1
-> +	srli	a4, a4, 1
->  #endif
-> -	add a5, a5, a4
-> -	jr a5
-> +	add	a5, a5, a4
-> +	jr	a5
->  3:
-> -	REG_S a1,        0(t0)
-> -	REG_S a1,    SZREG(t0)
-> -	REG_S a1,  2*SZREG(t0)
-> -	REG_S a1,  3*SZREG(t0)
-> -	REG_S a1,  4*SZREG(t0)
-> -	REG_S a1,  5*SZREG(t0)
-> -	REG_S a1,  6*SZREG(t0)
-> -	REG_S a1,  7*SZREG(t0)
-> -	REG_S a1,  8*SZREG(t0)
-> -	REG_S a1,  9*SZREG(t0)
-> -	REG_S a1, 10*SZREG(t0)
-> -	REG_S a1, 11*SZREG(t0)
-> -	REG_S a1, 12*SZREG(t0)
-> -	REG_S a1, 13*SZREG(t0)
-> -	REG_S a1, 14*SZREG(t0)
-> -	REG_S a1, 15*SZREG(t0)
-> -	REG_S a1, 16*SZREG(t0)
-> -	REG_S a1, 17*SZREG(t0)
-> -	REG_S a1, 18*SZREG(t0)
-> -	REG_S a1, 19*SZREG(t0)
-> -	REG_S a1, 20*SZREG(t0)
-> -	REG_S a1, 21*SZREG(t0)
-> -	REG_S a1, 22*SZREG(t0)
-> -	REG_S a1, 23*SZREG(t0)
-> -	REG_S a1, 24*SZREG(t0)
-> -	REG_S a1, 25*SZREG(t0)
-> -	REG_S a1, 26*SZREG(t0)
-> -	REG_S a1, 27*SZREG(t0)
-> -	REG_S a1, 28*SZREG(t0)
-> -	REG_S a1, 29*SZREG(t0)
-> -	REG_S a1, 30*SZREG(t0)
-> -	REG_S a1, 31*SZREG(t0)
-> -	addi t0, t0, 32*SZREG
-> -	bltu t0, a3, 3b
-> -	andi a2, a2, SZREG-1  /* Update count */
-> +	REG_S	a1,        0(t0)
-> +	REG_S	a1,    SZREG(t0)
-> +	REG_S	a1,  2*SZREG(t0)
-> +	REG_S	a1,  3*SZREG(t0)
-> +	REG_S	a1,  4*SZREG(t0)
-> +	REG_S	a1,  5*SZREG(t0)
-> +	REG_S	a1,  6*SZREG(t0)
-> +	REG_S	a1,  7*SZREG(t0)
-> +	REG_S	a1,  8*SZREG(t0)
-> +	REG_S	a1,  9*SZREG(t0)
-> +	REG_S	a1, 10*SZREG(t0)
-> +	REG_S	a1, 11*SZREG(t0)
-> +	REG_S	a1, 12*SZREG(t0)
-> +	REG_S	a1, 13*SZREG(t0)
-> +	REG_S	a1, 14*SZREG(t0)
-> +	REG_S	a1, 15*SZREG(t0)
-> +	REG_S	a1, 16*SZREG(t0)
-> +	REG_S	a1, 17*SZREG(t0)
-> +	REG_S	a1, 18*SZREG(t0)
-> +	REG_S	a1, 19*SZREG(t0)
-> +	REG_S	a1, 20*SZREG(t0)
-> +	REG_S	a1, 21*SZREG(t0)
-> +	REG_S	a1, 22*SZREG(t0)
-> +	REG_S	a1, 23*SZREG(t0)
-> +	REG_S	a1, 24*SZREG(t0)
-> +	REG_S	a1, 25*SZREG(t0)
-> +	REG_S	a1, 26*SZREG(t0)
-> +	REG_S	a1, 27*SZREG(t0)
-> +	REG_S	a1, 28*SZREG(t0)
-> +	REG_S	a1, 29*SZREG(t0)
-> +	REG_S	a1, 30*SZREG(t0)
-> +	REG_S	a1, 31*SZREG(t0)
-> +
-> +	addi	t0, t0, 32*SZREG
-> +	bltu	t0, a3, 3b
-> +	andi	a2, a2, SZREG-1		/* Update count */
->  
->  4:
->  	/* Handle trailing misalignment */
-> -	beqz a2, 6f
-> -	add a3, t0, a2
-> +	beqz	a2, 6f
-> +	add	a3, t0, a2
->  5:
-> -	sb a1, 0(t0)
-> -	addi t0, t0, 1
-> -	bltu t0, a3, 5b
-> +	sb	a1, 0(t0)
-> +	addi	t0, t0, 1
-> +	bltu	t0, a3, 5b
->  6:
->  	ret
->  END(__memset)
-> -- 
-> 2.33.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
