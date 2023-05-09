@@ -4,55 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED5EC7EE22
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 19:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C16DC7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 20:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m431xtJM1+4BvpRGyuf371qEGQRgPJQCKyWNGajpTSA=; b=ZJ6NoGujnSsPMN
-	vS1xe7VOsvsRysqRXTVnv9nQEP5Ei9yXshvaqiowYSncaoLl/UPS4ka6OH7TNKoJkxLaD2jVnfA4d
-	iHdNR6Ior419Ezn+k2QjN8b+a/7FB7xKBjxHhRSokiGoihrB13176XOnl+pCFhtQmlJilB2b8dAvg
-	nuA5fM1JtcmYBTYCpOchpw6wO4swn/u/4/9wmX9yPbRxIkUkFGQEJxco3XCASqu5CRB777miX+nkd
-	KEfuzuyTxvyGuX5bseBtRegq5eqRUZeW85Rz0CIa7mUHJtm6HhUBp2mI4i5ZE1ubRJmBiNBchzhui
-	X0wf5CSyM6aS9amYKWJg==;
+	List-Owner; bh=ojPjA/MFGIG2E+Y/xLilkaWA2v6KO+DCF1Ltql1+Tpw=; b=NTN/i3h4KF4Png
+	VY3QThxfGLiRCwUl2AWakY346CjZ+mRxt/P0Y4mIftaE5u2VzgyzVf/Mhy3UkFnhCSHwWBHxfGaw8
+	eaaX14qUAkna+CKh5hosX4GyFRaqRBZ4lxjJBM2+k4YzPn/ATaU9VYqlStF3EMRnDrZbeBZacDyzM
+	RRDt43bgmNBJucZbya/cYoqwvMqCYEqQ55aq+0X8ZBCHtqhg6ACEQMuzJz3LWphJ24kR50m4M5z8E
+	X8Fw5U61Dapr5CIOeOnkpG/Fm8OQFes7dgXR9Aukxdmv9vLOaSOy7CgTpwIo7LlfJemKjEkxMcdCd
+	A8QG++KBWuDS2wvoaCIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwTRO-0049cI-2W;
-	Tue, 09 May 2023 19:56:06 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1pwTgE-004AzW-1a;
+	Tue, 09 May 2023 20:11:26 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwTRL-0049bH-1N
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 19:56:05 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 70DFB60005;
-	Tue,  9 May 2023 19:55:53 +0000 (UTC)
-Message-ID: <4adb27d2-325d-3ce0-23b1-ec69a973b4bf@ghiti.fr>
-Date: Tue, 9 May 2023 21:55:53 +0200
+	id 1pwTgB-004Awu-28;
+	Tue, 09 May 2023 20:11:24 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1683663065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GDHRmjiERMZtAMWS8NswxcpsZgr8pqyf8cBJN0UwKq4=;
+	b=qRz1Wt3JIbNYLISqAbJr1CMERh+G2fMl0sqNUINGFnuAglUDS20PR5mShGM7iQQQaOXzUO
+	6p1nBmlJSh5FISuh/gxPpyFl5N/5lIcPzXiWCbOhc/BY9nLjejGZdozuMFQuDWHB0czbQ3
+	N334596N1dIxTBUtYyzDiKqjfnYYlcCALsa05iyDdZ772j72RpkHn+oDxyP4ObL7l+piSu
+	ZhZkepOsryy7f/3f8Xvt0ySi2CMPDVnx0tsF8XLS0QXVKSABEb0ZDeaHvlrFZfnZHg6sEY
+	EkUkcA416BPYsfyNhOSk3xIjz0pEBaTy2eNw1t0P+tqJe8e17B+vC1YPI9z1/Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1683663065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GDHRmjiERMZtAMWS8NswxcpsZgr8pqyf8cBJN0UwKq4=;
+	b=Xlcesbr/mowxxv4d+xv21wM9Nh14MEM6CP2UULmrKClB0/ijd/XoMlkIURymgqxjfMwTM5
+	2x4mgfol9jpnTzDw==
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
+ Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
+ Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, David Woodhouse <dwmw@amazon.co.uk>
+Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
+ separate phases and document them
+In-Reply-To: <20230509100421.GU83892@hirez.programming.kicks-ass.net>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185217.671595388@linutronix.de>
+ <20230509100421.GU83892@hirez.programming.kicks-ass.net>
+Date: Tue, 09 May 2023 22:11:05 +0200
+Message-ID: <87fs85z2na.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v8 1/3] riscv: Introduce CONFIG_RELOCATABLE
-Content-Language: en-US
-To: Andreas Schwab <schwab@linux-m68k.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
- <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20230215143626.453491-1-alexghiti@rivosinc.com>
- <20230215143626.453491-2-alexghiti@rivosinc.com> <87wn1h5nne.fsf@igel.home>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <87wn1h5nne.fsf@igel.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_125603_637152_D0DE1187 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230509_131123_867391_90B73AF1 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,35 +91,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/9/23 21:07, Andreas Schwab wrote:
-> That does not work with UEFI booting:
+On Tue, May 09 2023 at 12:04, Peter Zijlstra wrote:
+> On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
+> Not to the detriment of this patch, but this barrier() and it's comment
+> seem weird vs smp_callin(). That function ends with an atomic bitop (it
+> has to, at the very least it must not be weaker than store-release) but
+> also has an explicit wmb() to order setup vs CPU_STARTING.
 >
-> Loading Linux 6.4.0-rc1-1.g668187d-default ...
-> Loading initial ramdisk ...
-> Unhandled exception: Instruction access fault
-> EPC: ffffffff80016d56 RA: 000000008020334e TVAL: 0000007f80016d56
-> EPC: ffffffff002d1d56 RA: 00000000004be34e reloc adjusted
-> Unhandled exception: Load access fault
-> EPC: 00000000fff462d4 RA: 00000000fff462d0 TVAL: ffffffff80016d56
-> EPC: 00000000802012d4 RA: 00000000802012d0 reloc adjusted
->
-> Code: c825 8e0d 05b3 40b4 d0ef 0636 7493 ffe4 (d783 0004)
-> UEFI image [0x00000000fe65e000:0x00000000fe6e3fff] '/efi\boot\bootriscv64.efi'
-> UEFI image [0x00000000daa82000:0x00000000dcc2afff]
->
+> (arguably that should be a full fence *AND* get a comment)
 
-I need more details please, as I have a UEFI bootflow and it works great 
-(KASLR is based on a relocatable kernel and works fine in UEFI too).
+TBH: I'm grasping for something 'arguable': What's the point of this
+wmb() or even a mb()?
+
+Most of the [w]mb()'s in smpboot.c except those in mwait_play_dead()
+have a very distinct voodoo programming smell.
 
 Thanks,
 
-Alex
-
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
