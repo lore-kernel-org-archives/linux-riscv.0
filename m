@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EE2C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 12:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8718C7EE22
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 13:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uyCct0epNiUL/xjHZmaG2Dzd8DseBexW5J3wuochc/U=; b=wPH1vDVdGzcZLV
-	MRJgC5jkx6ZT704RA+bYqZVR6UGl4EQQiOGRWQVT3rR3nHaudqAnFEMFz6oGJT+ln6nzoe0Q4QXxk
-	wr/sylmbWhBZRZCbU7AdlYgUGixwUJlxzQ3Xy7b2wg8jD/9wicHGICCbMtYJuNXOUSFGcT6+p9iEY
-	KlMub5U6iu5tOGUgiZxu+Q4UNPPfUIjSGIfcfOfBehcdBM791kmwOHhWHZnJxHSlmKbFM+5PKYSDJ
-	Ul3YVKAiifSIVFVul1KuZBvZk01wD5bp6XS/hM1/TNxhIB4aXLlWFOGqeJ9N2m74jEbEAcfLuIHJG
-	IbBMuOHGXt9bgPCPAEGQ==;
+	List-Owner; bh=J7Zpk/i0vy9xvBHfYOIufpEZ46C+ZgqW+byMyoUfrIg=; b=aXeaWyydM21R+J
+	jwJ33fAg7uaK3Y+byPSlGbXKCb/5I+F2m3Ft20DDZGSLnSfYea2B8VByr5uk0Xi0MSDj/gd9QRyCz
+	Et4NhuHQvk71CVk/WbDqOrN63gHPWevzY0sNRuBItBKavSrBm8LfYrIxOqjnWzT/L+YjtSo+DGBt3
+	0RcOEkeAtR+wk/Htzi8XjvNvRoR6FIIsnsJEjtlwoWatfipon4l71NKJWY/eWjzhNdH5btdJrKRiS
+	ktSMfWX/8kYMYyEPCcXWX877R41CSdZThbmh2DbPNafLqq5jVGZ6tRRTaSrkfdxkX6K6mRx3zX0yB
+	5mo3vQMOwBiUUHj1rdgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwMqU-003L4R-03;
-	Tue, 09 May 2023 12:53:34 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwMqP-003L2t-1Z
+	id 1pwMxU-003Lt1-1u;
+	Tue, 09 May 2023 13:00:48 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwKeU-002tCR-2H
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 12:53:32 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 50AA524E1F0;
-	Tue,  9 May 2023 20:52:50 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
- 2023 20:52:50 +0800
-Received: from [192.168.125.124] (183.27.98.219) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
- 2023 20:52:49 +0800
-Message-ID: <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com>
-Date: Tue, 9 May 2023 20:52:48 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
-Content-Language: en-US
-To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230506090116.9206-1-walker.chen@starfivetech.com>
- <20230506090116.9206-4-walker.chen@starfivetech.com>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <20230506090116.9206-4-walker.chen@starfivetech.com>
-X-Originating-IP: [183.27.98.219]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+	Tue, 09 May 2023 10:33:03 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1aae5c2423dso55649445ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:33:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1683628382; x=1686220382;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2CmyEkggETxM6j+XfIPwTDc2gU78hVyVqaTRQMELVN4=;
+        b=D/421YHEpIqNI2B2tC62nRVwKRwWISvXzmsVHqTnpPS7sWEA5oV1gg2yv1CEkeGvOm
+         bu1OOQ6Yf89bbybbbU0wwjnQwiQVjiB/EhJ03s/W50aVstzO9WgbfPOMzwwsnKGKI0to
+         MZQ2nQbm8+QMiWVOZnDBjVZcsGMvGpMmQnb1HigNlJb39UODk9qWFugpBSB2zx4VIkny
+         sBXzjT4kXsh3egVScNVaKPzn/3b8PGUP2CoQ7prUfczz+/WdJZ1tjNK8fzTX0PNwwj78
+         xL/z1eYT+/J+H40phb43402KErFEDLk32KMdSisouu6uFPJiGp8NE8k3YQV359BRYaP0
+         u77w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683628382; x=1686220382;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2CmyEkggETxM6j+XfIPwTDc2gU78hVyVqaTRQMELVN4=;
+        b=ONBEGxjQ3iBB931aelw6Y5NgV/owTV6nP25o+CNbr90aZxqcIyLpbgipVGT6LZ4JQs
+         GV8ukkxvwAVrtuojO/MUHlRvYL1yP1gWHIHnGjIeYjF57Rluly3lHCDjkRDkSFJlEuv6
+         HYstjRixMMCwBMBIHnboW7IiwYipJfIkTY4RadAhb2WLJqer9uTk3yRWnEh5htY8l6Ni
+         5+tFC34jIK8F9yHpikdb4sGW+H8sBk6jXdcyeD42nAl2mAGHwlsvI9mWEXb7RpDbcokb
+         CunuIQbCHP7gZg8Y9JZYt65C4pchxwm+2dkIIjCHmGLYtdN+d8VcE2o7u3cUSWhfWf+N
+         Yxfw==
+X-Gm-Message-State: AC+VfDzpQ7jyK9D9pL5IzkPKisOQgUYwQ9VcitF5ROJ400YCilQF4p+l
+	H+PBxyAF21Mh0Ph5GJ99ENa+VgIm+kYgD89Lpq7NttkQAElCPBJ4pnDSjepASW+E2I2RxoQDDIp
+	huM/ncL5VGwy+px8+smHqRjz0DpwKh6yrZoOZUk2BPBT9iXpmoAGYMzv200ZWU4CkaEaxGwlv5P
+	icq5qG+P/YZvyw
+X-Google-Smtp-Source: ACHHUZ4Ly10PFLn+5gXRgXrwx2fNdl0W+ClxbNID56SqwDXqCRw4c0/ArwzFpS0/+IbhyeeqFQd3tg==
+X-Received: by 2002:a17:90a:2b4a:b0:24e:49d4:bc42 with SMTP id y10-20020a17090a2b4a00b0024e49d4bc42mr13483367pjc.1.1683628381876;
+        Tue, 09 May 2023 03:33:01 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.32.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 03:33:01 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH -next v19 18/24] riscv: kvm: Add V extension to KVM ISA
+Date: Tue,  9 May 2023 10:30:27 +0000
+Message-Id: <20230509103033.11285-19-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230509103033.11285-1-andy.chiu@sifive.com>
+References: <20230509103033.11285-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_055329_838481_BE0BE382 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20230509_033302_753956_EBF2A3F6 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,205 +97,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor/Emil,
+From: Vincent Chen <vincent.chen@sifive.com>
 
-DT overlay is used to describe combinations of VF2 and hat. Do you have any comments on this patch ?
-Thanks!
+Add V extension to KVM isa extension list to enable supporting of V
+extension on VCPUs.
 
-Best regards,
-Walker
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Acked-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu.c             | 1 +
+ 2 files changed, 2 insertions(+)
 
-On 2023/5/6 17:01, Walker Chen wrote:
-> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
-> 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/Makefile         |  3 +
->  .../jh7110-starfive-visionfive-2-wm8960.dtso  | 70 +++++++++++++++++++
->  .../jh7110-starfive-visionfive-2.dtsi         | 40 +++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 21 ++++++
->  4 files changed, 134 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-> index 170956846d49..644cc29b5be3 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -4,3 +4,6 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
->  
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-> +
-> +jh7110-starfive-visionfive-2-wm8960-dtbs := jh7110-starfive-visionfive-2-v1.3b.dtb jh7110-starfive-visionfive-2-wm8960.dtbo
-> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-wm8960.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
-> new file mode 100644
-> index 000000000000..67897f000883
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
-> @@ -0,0 +1,70 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> + * Author: Walker Chen <walker.chen@starfivetech.com>
-> + *
-> + * Requires ReSpeaker 2-Mics Pi HAT plugged in 40-pin GPIO header.
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&{/} {
-> +	compatible = "starfive,visionfive-2-v1.3b", "starfive,jh7110";
-> +
-> +	wm8960_mclk: wm8960-mclk {
-> +		compatible = "fixed-clock";
-> +		clock-output-names = "wm8960_mclk";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <24576000>;
-> +	};
-> +
-> +	sound {
-> +		compatible = "simple-audio-card";
-> +
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		simple-audio-card,name = "Starfive-TDM-Sound-Card";
-> +		simple-audio-card,widgets = "Microphone", "Mic Jack",
-> +					    "Line", "Line In",
-> +					    "Line", "Line Out",
-> +					    "Speaker", "Speaker",
-> +					    "Headphone", "Headphone Jack";
-> +		simple-audio-card,routing = "Headphone Jack", "HP_L",
-> +					    "Headphone Jack", "HP_R",
-> +					    "Speaker", "SPK_LP",
-> +					    "Speaker", "SPK_LN",
-> +					    "LINPUT1", "Mic Jack",
-> +					    "LINPUT3", "Mic Jack",
-> +					    "RINPUT1", "Mic Jack",
-> +					    "RINPUT2", "Mic Jack";
-> +
-> +		simple-audio-card,dai-link@0 {
-> +			reg = <0>;
-> +			format = "dsp_a";
-> +			bitclock-master = <&dailink_master>;
-> +			frame-master = <&dailink_master>;
-> +
-> +			cpu {
-> +				sound-dai = <&tdm>;
-> +			};
-> +			dailink_master: codec {
-> +				sound-dai = <&wm8960>;
-> +				clocks = <&wm8960_mclk>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&i2c0 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	wm8960: codec@1a {
-> +		compatible = "wlf,wm8960";
-> +		reg = <0x1a>;
-> +		wlf,shared-lrclk;
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 1155b97b593d..19b5954ee72d 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -214,6 +214,40 @@
->  			slew-rate = <0>;
->  		};
->  	};
-> +
-> +	tdm0_pins: tdm0-pins {
-> +		tdm0-pins-tx {
-> +			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
-> +					      GPOEN_ENABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-up;
-> +			drive-strength = <2>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		tdm0-pins-rx {
-> +			pinmux = <GPIOMUX(61, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_RXD)>;
-> +			input-enable;
-> +		};
-> +
-> +		tdm0-pins-sync {
-> +			pinmux = <GPIOMUX(63, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_SYNC)>;
-> +			input-enable;
-> +		};
-> +
-> +		tdm0-pins-pcmclk {
-> +			pinmux = <GPIOMUX(38, GPOUT_HIGH,
-> +					      GPOEN_DISABLE,
-> +					      GPI_SYS_TDM_CLK)>;
-> +			input-enable;
-> +		};
-> +	};
->  };
->  
->  &uart0 {
-> @@ -221,3 +255,9 @@
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&tdm {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&tdm0_pins>;
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 866313570a7e..cfda6fb0d91b 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -366,6 +366,27 @@
->  			status = "disabled";
->  		};
->  
-> +		tdm: tdm@10090000 {
-> +			compatible = "starfive,jh7110-tdm";
-> +			reg = <0x0 0x10090000 0x0 0x1000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_TDM_AHB>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_APB>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_INTERNAL>,
-> +				 <&syscrg JH7110_SYSCLK_TDM_TDM>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
-> +				 <&tdm_ext>;
-> +			clock-names = "tdm_ahb", "tdm_apb",
-> +				      "tdm_internal", "tdm",
-> +				      "mclk_inner", "tdm_ext";
-> +			resets = <&syscrg JH7110_SYSRST_TDM_AHB>,
-> +				 <&syscrg JH7110_SYSRST_TDM_APB>,
-> +				 <&syscrg JH7110_SYSRST_TDM_CORE>;
-> +			dmas = <&dma 20>, <&dma 21>;
-> +			dma-names = "rx","tx";
-> +			#sound-dai-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		stgcrg: clock-controller@10230000 {
->  			compatible = "starfive,jh7110-stgcrg";
->  			reg = <0x0 0x10230000 0x0 0x10000>;
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index f92790c9481a..8feb57c4c2e8 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -121,6 +121,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_ZICBOZ,
+ 	KVM_RISCV_ISA_EXT_ZBB,
+ 	KVM_RISCV_ISA_EXT_SSAIA,
++	KVM_RISCV_ISA_EXT_V,
+ 	KVM_RISCV_ISA_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 8bd9f2a8a0b9..f3282ff371ca 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -57,6 +57,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	[KVM_RISCV_ISA_EXT_H] = RISCV_ISA_EXT_h,
+ 	[KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
+ 	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
++	[KVM_RISCV_ISA_EXT_V] = RISCV_ISA_EXT_v,
+ 
+ 	KVM_ISA_EXT_ARR(SSAIA),
+ 	KVM_ISA_EXT_ARR(SSTC),
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
