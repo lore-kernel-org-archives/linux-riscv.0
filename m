@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC52C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 18:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEE0C7EE22
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 18:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m5T4EQD0W+UWY5BuzpeKlYambtLTTk2MeQrfkQH3KoM=; b=tm1bbuKQ9asiFHzEiXyNYlqksJ
-	GxAgHnvyLJnqrU9Ha12wd88SAzJtcUdXP3WbfG7gfd+388Wl9ITTOfJk88ZWPmQjdGs62E39isjgn
-	dQIVTTB21Tant2TOdbNdkuN9hoFtSOGRk8E0BXmpjxpWjGintijdIpaKSufb92SwGU4YNCh9ES1be
-	TUW2MEqMYAzkadoI8nObn1MR2zyRJ76zBERwQnkFL33OGpSS4zmuiosOxrHxQHkdgLbHYVCHxKixt
-	azbTMG4fzLvENqr2Mw9Bz4kZTJ41iLq1qyegmXBuzYZqTJ9fU4cW0BoV/LwG1DtKoMtHceP3zq73U
-	PuaQdcAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+382QPlQ+9ymZY32L79+lOqVHTRS0/+jynTJ0lBr5x0=; b=lQBU1j6/uI8a04
+	LVXCACv8M/fwYeukqaL4mQ3CHijR3owgLxilaWGhzIfaBYMLXtAJn2QltOc6qTwKmcm7i4mNvONMJ
+	077jdDZBLgFjK4xzQQw1B41ZIa0UTASqgOjgzaArr15Urql+1Aeh3CcEi5yda75aBZyx/TIu+Zyhp
+	4wwKG1kDYj3uV7p5VEIHGwssXeyBrP6n2/l0e9PLsqpm5RDi+ZEnx0c2UbhvyC7MbJ8gUfY/a2rL7
+	gp+XP2ZkQ4OlflKREYgWdyGT4/Hcc3r+hEfkXP8VzAm7dvRFUnSPTnQEGkyDbbfvpDpFWqW3Do/Pk
+	Yvw0wbovVeayr9lVyaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwSA3-0041wF-1y;
-	Tue, 09 May 2023 18:34:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pwSBZ-004256-25;
+	Tue, 09 May 2023 18:35:41 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwS9w-0041v1-1F
+	id 1pwSBW-00424B-1P
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 18:34:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E0AA760A4D;
-	Tue,  9 May 2023 18:33:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ED74C433EF;
-	Tue,  9 May 2023 18:33:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683657239;
-	bh=HJ9e9VEl0w7VA2rj0PZsLjymzP7aQa2aO0mYgN6i5ZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W8ndzo/NHgZ73cuB8D7wJMXyyMi9eG+3Ww8xiDTLg+aqo+wfwcR1QLAOao1U7TGBC
-	 K7EuXY2AWtXYqLBCiKcf+qgVvdfnV8qXX7HEYMp4W7ZWogBYdoEzw2/9GkvaJa5Fcl
-	 ORFBGzUGBKNltFswSw9wQr2Hg8291Dcn+HxdgpUto1lYfex4cyoxN5d/qn+rf7rEyK
-	 5ZfvKQUzCc+NS+yYqRcmOMWb9QqW9gt3PR8h708wXLRXTQmen5e8zq1X3WVBhTci1j
-	 hpIBxEW95QHgU5crpKfm0WbEkT1fxF2DVLa00T9uzA0RCNFR7NqzkyQl7N5+3FfV88
-	 WCfKAK3cq4O8Q==
-Date: Tue, 9 May 2023 19:33:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Celeste Liu <coelacanthus@outlook.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] RISC-V: hwprobe: Expose Zba, Zbb, and Zbs
-Message-ID: <20230509-backlands-unplug-62e4837d843a@spud>
-References: <20230509182504.2997252-1-evan@rivosinc.com>
- <20230509182504.2997252-4-evan@rivosinc.com>
+	Tue, 09 May 2023 18:35:39 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-4f13d8f74abso7055104e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 11:35:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683657333; x=1686249333;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pfgDkN6/vdhK2GFASgIn7d04jTTm9Lyq2tvSareDv5M=;
+        b=KpurfS4qJyOfrwFAlVM7HZprLcLWA71H3L54Qea9hZnXbHY6gwnkSp+06wOd3lMs9H
+         kxgtHl+tQBmEUqq1vDMZcBUEKiR14UphjE3fi1ksnz9ySqPJ5w4YwgvRwxiRcSPn0Zyt
+         KMnmQiaED5pR3uRVLnIqnDv4w+uozqaX/UXBLbJ4A6bPZXs5CTLbq4hCUi4bZ7D2DbYr
+         Yl2V9aUj/1i82dsLDhOqdTomJsF/4as57Q3jtpyFnKKzBEY0pbv8oHfj5nVPeUfhRBLw
+         w0/x24pM3H0qus9KzNpC8iISFSF+OUKPMg5MLP1irhpVAvj/KCirPPn3SykcHrZobknf
+         Dsow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683657333; x=1686249333;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pfgDkN6/vdhK2GFASgIn7d04jTTm9Lyq2tvSareDv5M=;
+        b=YfP6t97OYXL1Q+HuopYsrjlAm3u9+FVZbpsusQtUd6qCKRtgDWze/3dwKidGmgaYxp
+         +jQk35XrxduhrGyfb1/+QJbAs9mVtpTl5gZx8w8leVYjH0NFYewzRGWjZnsIQi/oUj5k
+         aZ1kH2GGrxVvrvVfflu+sfCSpvNi3BGHC4iUP8lZT0w3JQes7WjFvESi+X7N78/IZ/09
+         1ZwllsHnvXooJsK+OLctABj8HVf1VtwmXCruOdgPAabcTP8aeN3bSlcQJpitF7GbDCVw
+         h7Lm4zpFp8jztZhD3b8apP9t7UbheGLwcac9JwVwXQxvUD3K1dSpuyQPE1ZJI/0tNJQM
+         2PYw==
+X-Gm-Message-State: AC+VfDxldY/ANETcIxL+KD1E9iQWWnsW9zJI0Ni1JyhqoXwwjSohnuFg
+	4OF0ZmMlUiSqFCEjpUHxeg6RLF6katJKIEnezVNe8g==
+X-Google-Smtp-Source: ACHHUZ5xWMC38Oh7cIFm++FUUu8wZzSwfuLJnL3vTLI1qxQSqArwnAQrvV9g1jk/9UdaMqvwxY8OP1G8ZtM0cfp9QFg=
+X-Received: by 2002:a19:ad48:0:b0:4f1:80cf:6194 with SMTP id
+ s8-20020a19ad48000000b004f180cf6194mr882716lfd.64.1683657333000; Tue, 09 May
+ 2023 11:35:33 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230509182504.2997252-4-evan@rivosinc.com>
+References: <20230509182504.2997252-1-evan@rivosinc.com> <20230509182504.2997252-2-evan@rivosinc.com>
+ <20230509-exclusion-crested-67dad91b7055@spud>
+In-Reply-To: <20230509-exclusion-crested-67dad91b7055@spud>
+From: Evan Green <evan@rivosinc.com>
+Date: Tue, 9 May 2023 11:34:57 -0700
+Message-ID: <CALs-HstaQweGaz71GZXeu1gtVQ7Efb=i=Zgt4ETtmf1vJncxEQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] RISC-V: Add Zba, Zbs extension probing
+To: Conor Dooley <conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_113400_509685_4B87DB30 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20230509_113538_473073_BA7BFBF4 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +82,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2908224554283087614=="
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2908224554283087614==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kjDsgYq9beFkZuRU"
-Content-Disposition: inline
-
-
---kjDsgYq9beFkZuRU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, May 09, 2023 at 11:25:03AM -0700, Evan Green wrote:
-> +		if (riscv_isa_extension_available(isainfo->isa, ZBA))
-> +			pair->value |= RISCV_HWPROBE_EXT_ZBA;
-> +		else
-> +			missing |= RISCV_HWPROBE_EXT_ZBA;
-
-Part of me wonders if we should just have a macro for this, since it's
-just boilerplate w/ the only "variable" being the extension name.
-
-Just a thought, and we'll have plenty more cracks at changing things
-here, so:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
---kjDsgYq9beFkZuRU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFqSEQAKCRB4tDGHoIJi
-0hSEAQDCIH7muHrlaxe+6rHOQyGwsuzPXIuwwl3Icu/7bk/QVAD+LHGFXFJ1zPcN
-XdCeb4P9lcmKyh7eyXbBPOlO1y/GDw0=
-=mgNB
------END PGP SIGNATURE-----
-
---kjDsgYq9beFkZuRU--
-
-
---===============2908224554283087614==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2908224554283087614==--
-
+T24gVHVlLCBNYXkgOSwgMjAyMyBhdCAxMToyOeKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIE1heSAwOSwgMjAyMyBhdCAxMToyNTowMUFNIC0w
+NzAwLCBFdmFuIEdyZWVuIHdyb3RlOgo+ID4gQWRkIHRoZSBaYmEgYWRkcmVzcyBiaXQgbWFuaXB1
+bGF0aW9uIGV4dGVuc2lvbiBhbmQgWmJzIHNpbmdsZSBiaXQKPiA+IGluc3RydWN0aW9ucyBleHRl
+bnNpb24gaW50byB0aG9zZSB0aGUga2VybmVsIGlzIGF3YXJlIG9mIGFuZCBtYWludGFpbnMKPiA+
+IGluIGl0cyByaXNjdl9pc2EgYml0bWFwLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEV2YW4gR3Jl
+ZW4gPGV2YW5Acml2b3NpbmMuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpv
+bmVzQHZlbnRhbmFtaWNyby5jb20+Cj4gPiBSZXZpZXdlZC1ieTogUGFsbWVyIERhYmJlbHQgPHBh
+bG1lckByaXZvc2luYy5jb20+Cj4KPiBHaXZlbiB5b3UgYWRkZWQgdGhlIGxhZHMsIHJhdGhlciB0
+aGFuIGlnbm9yaW5nIHRoZW0gZHVlIHRvIHRoZSBaYnMKPiBjaGFuZ2UsIEkgdGhpbmsgeW91IGZv
+cmdvdCBteSBSLWIgZnJvbSB2MT8KPiBSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5k
+b29sZXlAbWljcm9jaGlwLmNvbT4KCldob29wcywgeWVzIEkgZGlkLiBTb3JyeSBhYm91dCB0aGF0
+LCBhbmQgdGhhbmtzIGZvciB0aGUgcmV2aWV3IQoKPgo+IENoZWVycywKPiBDb25vci4KPgo+ID4K
+PiA+IC0tLQo+ID4KPiA+IENoYW5nZXMgaW4gdjI6Cj4gPiAgLSBBZGQgWmJzIGFzIHdlbGwKPiA+
+Cj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oIHwgMiArKwo+ID4gIGFyY2gvcmlz
+Y3Yva2VybmVsL2NwdS5jICAgICAgICB8IDIgKysKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVm
+ZWF0dXJlLmMgfCAyICsrCj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKykKPiA+
+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oIGIvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiBpbmRleCBlMGM0MGE0YzYzZDUuLjZiMmU4ZmY0
+NjM4YyAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4g
+KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiBAQCAtNDYsNiArNDYsOCBA
+QAo+ID4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aSUNCT1ogICAgICAgICAzNAo+ID4gICNkZWZp
+bmUgUklTQ1ZfSVNBX0VYVF9TTUFJQSAgICAgICAgICAzNQo+ID4gICNkZWZpbmUgUklTQ1ZfSVNB
+X0VYVF9TU0FJQSAgICAgICAgICAzNgo+ID4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQkEgICAg
+ICAgICAgICAzNwo+ID4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQlMgICAgICAgICAgICAzOAo+
+ID4KPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfTUFYICAgICAgICAgICAgNjQKPgo+IEhlaCwg
+Z29ubmEgc3RhcnQgZ2V0dGluZyB0aWdodCBvbiBiaXRzIGhlcmUgc29vbmlzaCA6KQoKWWVhaCB0
+aGV5J3JlIGZseWluZyBpbiwgSSBoYWQgdG8gdXBkYXRlIG1pbmUgc2luY2UgU01BSUEgc3dvb3No
+ZWQgaW4uCi1FdmFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
