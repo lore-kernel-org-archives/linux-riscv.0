@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D90C77B7F
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 02:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B1FC77B75
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 02:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rOLbHJ3QuLSghxFou/DfE3mM55hrcTyQRvFlmOMrK+E=; b=g71FW8UqeEBNot
-	6BSfaYrm/tFBXESaMnPbmE8co4xYpxR5sq/sH2OqOfWkIVT+gOeySG/wu9NBEJpnheNgwvqCnP1IW
-	qJ2hfzqg0a3GanAVEPN8E8tqTRC8dvK5+dUcGtbakL94jNgS3w2Zlf2N4lbKktsrAMn22Ik5c7EN1
-	C9+UQMaDXKz6tBBCqzTn03kKlUJMkBpc6lgkHFr/em66qo5f/ZsYp3eo+/ewIcSJpU9kCEPLivwOJ
-	K7ayUSzncQwa560OuQ7sX6EW3ONisa23SDUzBu337II/tE0oSQfuGsk2NTy3UeZXOMnAMoBsgl+x6
-	QSLss0//CJ89b6UrhHgA==;
+	List-Owner; bh=V/h1FVNhu1rvS7lwascdNcRgX0AcXcJuMO+cx783/+o=; b=KPhs6eRiKq8fY7
+	yMkhceD7ezvb71Vh5L5ZNCfgAZ/cZOrJ8mmCpzFjPiX34yjWaRL88ghB+vy7B4dCJme25aP4c1QcV
+	vnWP/zyh765uoN5u7vf8XUFVLl8kwG39lPzNYtnlxkn4l+dTMyhJZ2ar/oCAVzln7EAO2QAWU7zzn
+	m2vKKU9qPDDbLx7K7iJLni0GvbXA6AFh9qi+8lMkeHaiuUVb9IryrcS/p3mI5EdglHL9LZC6fpmOh
+	NAT4YzLHddAMGB0irqpbxULhp11pUgFNA8sA+lMCyY7MzbR67RKA75H67qS0Lcs6o9uEKLI6F+2zP
+	D3BXl94L6KR6bB96Umrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwCvZ-0025rQ-0l;
-	Tue, 09 May 2023 02:18:09 +0000
-Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwCvU-0025pr-05
+	id 1pwD09-0026Zs-16;
+	Tue, 09 May 2023 02:22:53 +0000
+Received: from m12.mail.163.com ([220.181.12.199])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwD06-0026Yk-1R
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 02:18:07 +0000
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
-	id 1pwCvA-006hX7-Oq; Tue, 09 May 2023 10:17:46 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 09 May 2023 10:17:45 +0800
-Date: Tue, 9 May 2023 10:17:45 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Weili Qian <qianweili@huawei.com>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Mark Gross <markgross@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>
-Subject: Re: [PATCH V5 03/21] crypto: hisilicon/qm: Fix to enable build with
- RISC-V clang
-Message-ID: <ZFmtSReX9/WR5CkK@gondor.apana.org.au>
-References: <20230508115237.216337-1-sunilvl@ventanamicro.com>
- <20230508115237.216337-4-sunilvl@ventanamicro.com>
+	Tue, 09 May 2023 02:22:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=S5IyO
+	NWTmO0xvL6UmZk6zW+EVi1q52PaUMUXaKqlOvw=; b=fLsTQQa2Z3gGdW+wNMqdO
+	XNWRVEWW1vu0BREP5sUwYT9sS9ztcM45mOOnJ0pKp+rGKHcUks4J4vOQwwaGKAQW
+	QBSDUJHsnpNZ6zm5h3eO8BhtKEPRke4+uMDx/4wkyMwZnMgYFNnTwdgtl8QM79Qi
+	9F7kT89guxPysfdsLz3ptI=
+Received: from zhangf-virtual-machine.localdomain (unknown [180.111.102.183])
+	by zwqz-smtp-mta-g3-4 (Coremail) with SMTP id _____wBXf4dSrllkqHhsBQ--.30265S4;
+	Tue, 09 May 2023 10:22:15 +0800 (CST)
+From: zhangfei <zhang_fei_0403@163.com>
+To: ajones@ventanamicro.com
+Cc: aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	zhangfei@nj.iscas.ac.cn
+Subject: Re: Re: [PATCH] riscv: Optimize memset 
+Date: Tue,  9 May 2023 10:22:07 +0800
+Message-Id: <20230509022207.3700-3-zhang_fei_0403@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230509022207.3700-1-zhang_fei_0403@163.com>
+References: <20230505-9ec599a36801972451e8b17f@orel>
+ <20230509022207.3700-1-zhang_fei_0403@163.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230508115237.216337-4-sunilvl@ventanamicro.com>
+X-CM-TRANSID: _____wBXf4dSrllkqHhsBQ--.30265S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tF4xAFykJw1fJry5CF1rWFg_yoW8ZrWDpr
+	yfKrnxKrn0qrZ2y3WxJa1DKrn0qw1rtr47Jayrta48Crn8Ca17Zw4fCa4FgFyxJrW8Arn5
+	Xw1avw1xZF98C37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j9_-PUUUUU=
+X-Originating-IP: [180.111.102.183]
+X-CM-SenderInfo: x2kd0w5bihxsiquqjqqrwthudrp/1tbiWxZql2I0Z8wmqwABsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_191804_081432_04BC3F14 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20230508_192250_909360_7C7B5A14 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +79,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 08, 2023 at 05:22:19PM +0530, Sunil V L wrote:
-> With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
-> allmodconfig build. However, build fails with clang and below
-> error is seen.
-> 
-> drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint '+Q' in asm
->                        "+Q" (*((char __iomem *)fun_base))
->                        ^
-> This is expected error with clang due to the way it is designed.
-> 
-> To fix this issue, move arm64 assembly code under #if.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/999
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> [sunilvl@ventanamicro.com: Moved tmp0 and tmp1 into the #if]
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  drivers/crypto/hisilicon/qm.c | 13 +++++++------
->  1 file changed, 7 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/crypto/hisilicon/qm.c b/drivers/crypto/hisilicon/qm.c
-> index ad0c042b5e66..2eaeaac2e246 100644
-> --- a/drivers/crypto/hisilicon/qm.c
-> +++ b/drivers/crypto/hisilicon/qm.c
-> @@ -610,13 +610,9 @@ EXPORT_SYMBOL_GPL(hisi_qm_wait_mb_ready);
->  static void qm_mb_write(struct hisi_qm *qm, const void *src)
->  {
->  	void __iomem *fun_base = qm->io_base + QM_MB_CMD_SEND_BASE;
-> -	unsigned long tmp0 = 0, tmp1 = 0;
->  
-> -	if (!IS_ENABLED(CONFIG_ARM64)) {
-> -		memcpy_toio(fun_base, src, 16);
-> -		dma_wmb();
-> -		return;
-> -	}
+From: zhangfei <zhangfei@nj.iscas.ac.cn>
 
-Please leave this bit as it stands.
+> >  5:
+> > -	sb a1, 0(t0)
+> > -	addi t0, t0, 1
+> > -	bltu t0, a3, 5b
+> > +        sb a1, 0(t0)
+> > +        sb a1, -1(a3)
+> > +        li a4, 2
+> > +        bgeu a4, a2, 6f
+> > +
+> > +        sb a1, 1(t0)
+> > +        sb a1, 2(t0)
+> > +        sb a1, -2(a3)
+> > +        sb a1, -3(a3)
+> > +        li a4, 6
+> > +        bgeu a4, a2, 6f
+> > +
+> > +        sb a1, 3(t0)
+> > +        sb a1, -4(a3)
+> > +        li a4, 8
+> > +        bgeu a4, a2, 6f
+> 
+> Why is this check here?
 
-> +#if IS_ENABLED(CONFIG_ARM64)
-> +	unsigned long tmp0 = 0, tmp1 = 0;
->  
->  	asm volatile("ldp %0, %1, %3\n"
->  		     "stp %0, %1, %2\n"
-> @@ -626,6 +622,11 @@ static void qm_mb_write(struct hisi_qm *qm, const void *src)
->  		       "+Q" (*((char __iomem *)fun_base))
->  		     : "Q" (*((char *)src))
->  		     : "memory");
+Hi,
 
-And simply add the ifdef around the assembly.
+I filled head and tail with minimal branching. Each conditional ensures that 
+all the subsequently used offsets are well-defined and in the dest region.
+
+Although this approach may result in redundant storage, compared to byte by 
+byte storage, it allows storage instructions to be executed in parallel and 
+reduces the number of jumps.
+
+I used the code linked below for performance testing and commented on the memset 
+that calls the arm architecture in the code to ensure it runs properly on the 
+risc-v platform.
+
+[1] https://github.com/ARM-software/optimized-routines/blob/master/string/bench/memset.c#L53
+
+The testing platform selected RISC-V SiFive U74.The test data is as follows:
+
+Before optimization
+---------------------
+Random memset (bytes/ns):
+           memset_call 32K:0.45 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.30
+
+Medium memset (bytes/ns):
+           memset_call 8B:0.18 16B:0.48 32B:0.91 64B:1.63 128B:2.71 256B:4.40 512B:5.67
+Large memset (bytes/ns):
+           memset_call 1K:6.62 2K:7.02 4K:7.46 8K:7.70 16K:7.82 32K:7.63 64K:1.40
+
+After optimization
+---------------------
+Random memset bytes/ns):
+           memset_call 32K:0.46 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.31
+Medium memset (bytes/ns )
+           memset_call 8B:0.27 16B:0.48 32B:0.91 64B:1.64 128B:2.71 256B:4.40 512B:5.67
+Large memset (bytes/ns):
+           memset_call 1K:6.62 2K:7.02 4K:7.47 8K:7.71 16K:7.83 32K:7.63 64K:1.40
+
+From the results, it can be seen that memset has significantly improved its performance with 
+a data volume of around 8B, from 0.18 bytes/ns to 0.27 bytes/ns.
 
 Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Fei Zhang
+
 
 _______________________________________________
 linux-riscv mailing list
