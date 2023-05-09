@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A23CC7EE22
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 03:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A973C7EE22
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 03:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y1l8PLdbgVt1jUF6W/M8UjIj4bIcdztVIqS12M8im4k=; b=YWTS7iVribkldw
-	62yUxzAXXImRkWTFDWvQUbSKm2T9I04I0AXj+4HMiLstPeevyqDed3mQg6f5tO0z9sS8E+CfAuNv6
-	32EVx3bn+Z0ZgCDBDgzVIc5hTKtn1jPpBvOER187TebYgpazbRdUoqbc3wDAydR9Dk4TLkzqFXT7W
-	024WFnsquWIiYpi6LgrJSxAesvduR4oDzELHK+YlKTr/wLarQ0Ymlgzoy/y+DMS5N5UMUajgeQCWv
-	a9kWamruTjb3g2JYcjC01qS01YVs/l6BwWyN2w66a3ilOrtdde2TRdXxfa9d2uTBguKXdA8Wt7qZb
-	5GV8jFf30ghUoDh5PHLg==;
+	List-Owner; bh=8ELa7LdvbexjmHhtEZe17JANJFYkJTCiNM2Wif2SJGA=; b=06T7HPOO02SWFq
+	si41ORQ/k9snG54w99L0tovcBoWp/XbqA9LBEiEsy/QiS+6E0P+/WkWfAnX2VYtU5bkayY/ENaq3C
+	mqWqg46m2VuxJxXH06f3ueVf/LBR1udaJVQNEdUP5/7f35Gx+L0eWsACVR+s//SPwyJQSnad9XH+B
+	ydUdAz51rGXxmrb6merkCIUa/iAAtmVGvoJ3wseWmVrrq0D20gkeH1lu+FQGQaSWyEV2wawgsDg85
+	8ny79IbOhWm9ijnwMmoDBeYbq7HcXVx+lO0YuIQ7Yg9R1IM+W/vgFEOvdJ/K+QpNpkmYzG3NcJzA2
+	pUoArB9RGIYaFpJ5GDbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwERw-002D9N-0A;
-	Tue, 09 May 2023 03:55:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pwES9-002DEJ-39;
+	Tue, 09 May 2023 03:55:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwERt-002D7h-11
+	id 1pwES6-002DD4-2x
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 03:55:38 +0000
+	Tue, 09 May 2023 03:55:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DED4C6313D;
-	Tue,  9 May 2023 03:55:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2905AC4339E;
-	Tue,  9 May 2023 03:55:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7470662401;
+	Tue,  9 May 2023 03:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5490C433D2;
+	Tue,  9 May 2023 03:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683604536;
-	bh=U2HZCyc523SVLQz5mynVDfDuaBCmxXOmqikUU7ycYeo=;
+	s=k20201202; t=1683604549;
+	bh=/NTClOL1JcMblfk2EK9fn5y5SROM/eJwelrKFPljaXI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rqhrIwtXHNltQyMjAOYauPzfTavSEStYFKPrRJLDwBl9dkHXQF+Kif9Pe8QTbmSgG
-	 2JZDgCYJ4mbD97q2pGnDCHSJw/SKvxbqEnBFKUgH7MoRcLOQHVkiARIZyhrB+sSbvT
-	 9e4/W6O3z+RPbKzyCoH9KT65rlanQ2Btrw338/Korf140t18NVMFqQHn4q4mG3/bVK
-	 UQi28JCFKDAvWx362RmphtezMcYMsfVPXbpjHwex0S2Lc7siTDa3n1iEEs9iJf5l4N
-	 ttaAuCy9MlGu55SvqPdacca2b/YSRPEZ5WhDQpIApLk6TxIeZ8PWzoGsP8XBfjB2Vt
-	 fGrglHBTpvHIA==
+	b=XMSvuEg+zthy1ObzjDbBh2pm6+/040wHNglk41wGrgARqo5OBgtB5KphI5U+9JlWT
+	 S/3Xmgz0YYfEBiMsEOC6eJ2LLDbSbfnV/pYtX9m81I3nxnwe48eRY/pVb6FOt01Tip
+	 RHfq7YsTGS8Y2eqba5JRIEfTErb1pSy6/TDX0JJn3expvoeu/XOpYOaggE2XWs8oQI
+	 /y1HMPo16s71BPk2FadeLw/36q1loCcK4KcKQfLxurJSMrXDZX/Ujtl7UIAPTU+LYs
+	 AGilPCLLDkMDdQ8YOdmlBhRSdNg6KZSlg+34X3pW7Puo7XMXMv8krOvRzE6e2ncq/L
+	 jCvwidoL7QnoA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,18 +55,18 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 3/5] riscv: Unconditionnally select KASAN_VMALLOC if KASAN
-Date: Mon,  8 May 2023 23:55:27 -0400
-Message-Id: <20230509035533.60269-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 2/4] riscv: Unconditionnally select KASAN_VMALLOC if KASAN
+Date: Mon,  8 May 2023 23:55:41 -0400
+Message-Id: <20230509035548.60458-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230509035533.60269-1-sashal@kernel.org>
-References: <20230509035533.60269-1-sashal@kernel.org>
+In-Reply-To: <20230509035548.60458-1-sashal@kernel.org>
+References: <20230509035548.60458-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230508_205537_413358_EE5102C5 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20230508_205550_994495_D8A3C007 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,12 +95,13 @@ Mjc0MjgyLTctYWxleGdoaXRpQHJpdm9zaW5jLmNvbQpTaWduZWQtb2ZmLWJ5OiBQYWxtZXIgRGFi
 YmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogU2FzaGEgTGV2aW4gPHNh
 c2hhbEBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDEgKwogMSBmaWxlIGNo
 YW5nZWQsIDEgaW5zZXJ0aW9uKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIv
-YXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IDA2YjliMmY2MGI5ZmIuLjRlNGQwNzcyMjcwMjAgMTAw
+YXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IGJmNjAyZTM4OTYyZmEuLmJhNjJhMzg0NmUzNjkgMTAw
 NjQ0Ci0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZworKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKQEAg
-LTExMyw2ICsxMTMsNyBAQCBjb25maWcgUklTQ1YKIAlzZWxlY3QgSEFWRV9SU0VRCiAJc2VsZWN0
-IElSUV9ET01BSU4KIAlzZWxlY3QgSVJRX0ZPUkNFRF9USFJFQURJTkcKKwlzZWxlY3QgS0FTQU5f
-Vk1BTExPQyBpZiBLQVNBTgogCXNlbGVjdCBNT0RVTEVTX1VTRV9FTEZfUkVMQSBpZiBNT0RVTEVT
-CiAJc2VsZWN0IE1PRFVMRV9TRUNUSU9OUyBpZiBNT0RVTEVTCiAJc2VsZWN0IE9GCi0tIAoyLjM5
-LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+LTEwMiw2ICsxMDIsNyBAQCBjb25maWcgUklTQ1YKIAlzZWxlY3QgSEFWRV9TWVNDQUxMX1RSQUNF
+UE9JTlRTCiAJc2VsZWN0IElSUV9ET01BSU4KIAlzZWxlY3QgSVJRX0ZPUkNFRF9USFJFQURJTkcK
+KwlzZWxlY3QgS0FTQU5fVk1BTExPQyBpZiBLQVNBTgogCXNlbGVjdCBNT0RVTEVTX1VTRV9FTEZf
+UkVMQSBpZiBNT0RVTEVTCiAJc2VsZWN0IE1PRFVMRV9TRUNUSU9OUyBpZiBNT0RVTEVTCiAJc2Vs
+ZWN0IE9GCi0tIAoyLjM5LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
