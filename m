@@ -4,104 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D935C77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 12:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EE2C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 12:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iBl0cZ1ByhGq29YikE8wkkGDG7jh0HGt7LtphlHMzMM=; b=jJ/t4Xm7EBgpLP
-	5O8R1Ogul8SknHVYDvEvVPZM9SVwK8zGlWjhnvoZiUUnotoRZ51kBn5cBEspDutEgsEZ0lJBrtBtF
-	5CNGRyoKHn1tGcP6SRbynE/3QTc/HWJVx4iOgKalKXgkJPbTbYxO9XqD1Ur9kC5n59Lsf4XjLX/Rb
-	a2T4QHV/3J8jZDVUI5cW6AYPdba17DdzkkgcnzPxDaMpJb2k+tMszEG3gKMSw9UeECrzrtp2h7og0
-	zgFkNsMyWa7M2mDBxnkcxwIWBAE5taLRjMzjmBGDx5iC8ZzVhZgodxt20csSSouPL2IV0c4zYufd2
-	iLkAVxt2/GiWc4ILYQqQ==;
+	List-Owner; bh=uyCct0epNiUL/xjHZmaG2Dzd8DseBexW5J3wuochc/U=; b=wPH1vDVdGzcZLV
+	MRJgC5jkx6ZT704RA+bYqZVR6UGl4EQQiOGRWQVT3rR3nHaudqAnFEMFz6oGJT+ln6nzoe0Q4QXxk
+	wr/sylmbWhBZRZCbU7AdlYgUGixwUJlxzQ3Xy7b2wg8jD/9wicHGICCbMtYJuNXOUSFGcT6+p9iEY
+	KlMub5U6iu5tOGUgiZxu+Q4UNPPfUIjSGIfcfOfBehcdBM791kmwOHhWHZnJxHSlmKbFM+5PKYSDJ
+	Ul3YVKAiifSIVFVul1KuZBvZk01wD5bp6XS/hM1/TNxhIB4aXLlWFOGqeJ9N2m74jEbEAcfLuIHJG
+	IbBMuOHGXt9bgPCPAEGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwMl0-003KFQ-2W;
-	Tue, 09 May 2023 12:47:54 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwMkv-003KCb-2k
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 09 May 2023 12:47:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=941FZ9JR8q5CEhK2jSJwDse+5gwyYf1wDxuvPa9cwEY=; b=ae+AKqtk+Mp35xM7biefREYSMe
-	dLDRmxwFrPwuaMwGkG1p0Pd8JKOJ1iTU5MvR5GOFqPy3RM8q5NRAcqG8XIjqar/aVJ9X8DEOVO1Yy
-	8IeMXvhJ7Mtb6tZcWv5zuSURQdt1AEERTbVR7iefbpXTYSQiv8ecS+9ct3th/DXbk4I67umLGtSk/
-	hl6VbA0Vex7GHO3ENiMH8JDUcqvGhKzn/p7NX8ow/dsMSDgF5xP8XoLU2YrhoDRNJXBmghh92V+73
-	BjYGnBN5msWMpCMK0SHCbispIUMkB0Srv9zq43912mdRFFMjwyYNAks1dfYb27iwGIlf9rbDUW/oz
-	o5Dc1j5g==;
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKeq-00669x-2N
+	id 1pwMqU-003L4R-03;
+	Tue, 09 May 2023 12:53:34 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwMqP-003L2t-1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 10:33:28 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1aad5245632so40655875ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:33:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1683628402; x=1686220402;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=941FZ9JR8q5CEhK2jSJwDse+5gwyYf1wDxuvPa9cwEY=;
-        b=An7cnHT+loomL/g7RPJmFt75o6e0J+e4OnOK/7+TXoVdE0nczQr9FSgNtsTA8dGa6l
-         oXlXl7mwBZOFnD6EQIrBdlqArIc9rVndl/oGZPf/MWlv6mO2tjsTT03YHNw1ywBFECAW
-         FKU9PP5P50HYEcMnrxwzcAj03n5dxcznQO6tM3Au55xmfaUb0CY4IG8AQ4H30aNtKOZn
-         yVVKy+VO6yNMuIU2hydnKL9Na7YRePysTlTdtSn1z0BqqWy2aSgG927vfJg7IpJHaAgL
-         ni330YvIhU3/uX84oahdFv/wkb3JsgKE01aKtRdEcWK+pM3q/i3jvEjy0++kjkvrUkfN
-         yD/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683628402; x=1686220402;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=941FZ9JR8q5CEhK2jSJwDse+5gwyYf1wDxuvPa9cwEY=;
-        b=TDJQCUnVt+nqPeJ3PCMwAScuLln4S9HNFGB5n0pSNYp/nUW3z9V8BxciAnDRlZQWIV
-         MfbDSEvdPAMJJ9zWF5jRfoKkS2hI8aVfq8KCJSyGM+o3tWLspHAER68EhasqZEfgp45a
-         J2dFt8NIQLGqHZMe86oMM56hGGTTo21wgu0WcekVlPrkg3HYDzXxE9ivh4d2dvJHtni6
-         OCRcIxoY5oOANlGxBHEcS3VygKD3rJew88TsGtAoYYdpwDoctZIJnlLcYVc4iqQHz05b
-         BFbp9eoccT878o7vFVcvnIpPhhalhARktQG0PJRJJJYSjdaY4R2LofbBadoJEuAmszLO
-         oGhw==
-X-Gm-Message-State: AC+VfDwh4uK6uSBjhUZ4BuKo9J2K8qXSNZrtEW6+IHM9Vk7OA8ekXyy9
-	M+9gb/TG0Q4rKC/kMOIYsblKk2IgiDBCy6lRutAXb6swD8hdD2bv+xaGvoLBB3vGbTb9wa9ruDP
-	Bk1YwI66RnvIx0oDPDzYtRo/y3wTAnpEh+ecOUlzRNWTDEPvL1almrlWTT/yqweuZ4JIZ7EMDTE
-	C6YDMKp63xHSp+
-X-Google-Smtp-Source: ACHHUZ4L8N85doaQ33hgQswXAJ2/iV0cFZ2Wf2RzXa8ycldgql4vMle8s5Eb4TVPCsn5L6rx7lVvJA==
-X-Received: by 2002:a17:902:b583:b0:1a9:20ea:f49b with SMTP id a3-20020a170902b58300b001a920eaf49bmr14245517pls.24.1683628402118;
-        Tue, 09 May 2023 03:33:22 -0700 (PDT)
-Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.33.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 03:33:21 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next v19 21/24] riscv: Add sysctl to set the default vector rule for new processes
-Date: Tue,  9 May 2023 10:30:30 +0000
-Message-Id: <20230509103033.11285-22-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230509103033.11285-1-andy.chiu@sifive.com>
-References: <20230509103033.11285-1-andy.chiu@sifive.com>
+	Tue, 09 May 2023 12:53:32 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 50AA524E1F0;
+	Tue,  9 May 2023 20:52:50 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
+ 2023 20:52:50 +0800
+Received: from [192.168.125.124] (183.27.98.219) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 9 May
+ 2023 20:52:49 +0800
+Message-ID: <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com>
+Date: Tue, 9 May 2023 20:52:48 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
+Content-Language: en-US
+To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230506090116.9206-1-walker.chen@starfivetech.com>
+ <20230506090116.9206-4-walker.chen@starfivetech.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230506090116.9206-4-walker.chen@starfivetech.com>
+X-Originating-IP: [183.27.98.219]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_113324_862813_3ADA845D 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20230509_055329_838481_BE0BE382 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,80 +75,205 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To support Vector extension, the series exports variable-length vector
-registers on the signal frame. However, this potentially breaks abi if
-processing vector registers is required in the signal handler for old
-binaries. For example, there is such need if user-level context switch
-is triggerred via signals[1].
+Hi Conor/Emil,
 
-For this reason, it is best to leave a decision to distro maintainers,
-where the enablement of userspace Vector for new launching programs can
-be controlled. Developers may also need the switch to experiment with.
-The parameter is configurable through sysctl interface so a distro may
-turn off Vector early at init script if the break really happens in the
-wild.
+DT overlay is used to describe combinations of VF2 and hat. Do you have any comments on this patch ?
+Thanks!
 
-The switch will only take effects on new execve() calls once set. This
-will not effect existing processes that do not call execve(), nor
-processes which has been set with a non-default vstate_ctrl by making
-explicit PR_RISCV_V_SET_CONTROL prctl() calls.
+Best regards,
+Walker
 
-Link: https://lore.kernel.org/all/87cz4048rp.fsf@all.your.base.are.belong.to.us/
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
-Reviewed-by: Vincent Chen <vincent.chen@sifive.com>
----
- arch/riscv/kernel/vector.c | 31 +++++++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
-
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index 16ccb35625a9..1c4ac821e008 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -233,3 +233,34 @@ unsigned int riscv_v_vstate_ctrl_set_current(unsigned long arg)
- 
- 	return -EINVAL;
- }
-+
-+#ifdef CONFIG_SYSCTL
-+
-+static struct ctl_table riscv_v_default_vstate_table[] = {
-+	{
-+		.procname	= "riscv_v_default_allow",
-+		.data		= &riscv_v_implicit_uacc,
-+		.maxlen		= sizeof(riscv_v_implicit_uacc),
-+		.mode		= 0644,
-+		.proc_handler	= proc_dobool,
-+	},
-+	{ }
-+};
-+
-+static int __init riscv_v_sysctl_init(void)
-+{
-+	if (has_vector())
-+		if (!register_sysctl("abi", riscv_v_default_vstate_table))
-+			return -EINVAL;
-+	return 0;
-+}
-+
-+#else /* ! CONFIG_SYSCTL */
-+static int __init riscv_v_sysctl_init(void) { return 0; }
-+#endif /* ! CONFIG_SYSCTL */
-+
-+static int riscv_v_init(void)
-+{
-+	return riscv_v_sysctl_init();
-+}
-+core_initcall(riscv_v_init);
--- 
-2.17.1
-
+On 2023/5/6 17:01, Walker Chen wrote:
+> Add the tdm controller node and sound card for the StarFive JH7110 SoC.
+> 
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/Makefile         |  3 +
+>  .../jh7110-starfive-visionfive-2-wm8960.dtso  | 70 +++++++++++++++++++
+>  .../jh7110-starfive-visionfive-2.dtsi         | 40 +++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 21 ++++++
+>  4 files changed, 134 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 170956846d49..644cc29b5be3 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -4,3 +4,6 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>  
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+> +
+> +jh7110-starfive-visionfive-2-wm8960-dtbs := jh7110-starfive-visionfive-2-v1.3b.dtb jh7110-starfive-visionfive-2-wm8960.dtbo
+> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-wm8960.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
+> new file mode 100644
+> index 000000000000..67897f000883
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-wm8960.dtso
+> @@ -0,0 +1,70 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> + * Author: Walker Chen <walker.chen@starfivetech.com>
+> + *
+> + * Requires ReSpeaker 2-Mics Pi HAT plugged in 40-pin GPIO header.
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&{/} {
+> +	compatible = "starfive,visionfive-2-v1.3b", "starfive,jh7110";
+> +
+> +	wm8960_mclk: wm8960-mclk {
+> +		compatible = "fixed-clock";
+> +		clock-output-names = "wm8960_mclk";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <24576000>;
+> +	};
+> +
+> +	sound {
+> +		compatible = "simple-audio-card";
+> +
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		simple-audio-card,name = "Starfive-TDM-Sound-Card";
+> +		simple-audio-card,widgets = "Microphone", "Mic Jack",
+> +					    "Line", "Line In",
+> +					    "Line", "Line Out",
+> +					    "Speaker", "Speaker",
+> +					    "Headphone", "Headphone Jack";
+> +		simple-audio-card,routing = "Headphone Jack", "HP_L",
+> +					    "Headphone Jack", "HP_R",
+> +					    "Speaker", "SPK_LP",
+> +					    "Speaker", "SPK_LN",
+> +					    "LINPUT1", "Mic Jack",
+> +					    "LINPUT3", "Mic Jack",
+> +					    "RINPUT1", "Mic Jack",
+> +					    "RINPUT2", "Mic Jack";
+> +
+> +		simple-audio-card,dai-link@0 {
+> +			reg = <0>;
+> +			format = "dsp_a";
+> +			bitclock-master = <&dailink_master>;
+> +			frame-master = <&dailink_master>;
+> +
+> +			cpu {
+> +				sound-dai = <&tdm>;
+> +			};
+> +			dailink_master: codec {
+> +				sound-dai = <&wm8960>;
+> +				clocks = <&wm8960_mclk>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	wm8960: codec@1a {
+> +		compatible = "wlf,wm8960";
+> +		reg = <0x1a>;
+> +		wlf,shared-lrclk;
+> +		#sound-dai-cells = <0>;
+> +	};
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index 1155b97b593d..19b5954ee72d 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -214,6 +214,40 @@
+>  			slew-rate = <0>;
+>  		};
+>  	};
+> +
+> +	tdm0_pins: tdm0-pins {
+> +		tdm0-pins-tx {
+> +			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
+> +					      GPOEN_ENABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-up;
+> +			drive-strength = <2>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		tdm0-pins-rx {
+> +			pinmux = <GPIOMUX(61, GPOUT_HIGH,
+> +					      GPOEN_DISABLE,
+> +					      GPI_SYS_TDM_RXD)>;
+> +			input-enable;
+> +		};
+> +
+> +		tdm0-pins-sync {
+> +			pinmux = <GPIOMUX(63, GPOUT_HIGH,
+> +					      GPOEN_DISABLE,
+> +					      GPI_SYS_TDM_SYNC)>;
+> +			input-enable;
+> +		};
+> +
+> +		tdm0-pins-pcmclk {
+> +			pinmux = <GPIOMUX(38, GPOUT_HIGH,
+> +					      GPOEN_DISABLE,
+> +					      GPI_SYS_TDM_CLK)>;
+> +			input-enable;
+> +		};
+> +	};
+>  };
+>  
+>  &uart0 {
+> @@ -221,3 +255,9 @@
+>  	pinctrl-0 = <&uart0_pins>;
+>  	status = "okay";
+>  };
+> +
+> +&tdm {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&tdm0_pins>;
+> +	status = "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 866313570a7e..cfda6fb0d91b 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -366,6 +366,27 @@
+>  			status = "disabled";
+>  		};
+>  
+> +		tdm: tdm@10090000 {
+> +			compatible = "starfive,jh7110-tdm";
+> +			reg = <0x0 0x10090000 0x0 0x1000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_TDM_AHB>,
+> +				 <&syscrg JH7110_SYSCLK_TDM_APB>,
+> +				 <&syscrg JH7110_SYSCLK_TDM_INTERNAL>,
+> +				 <&syscrg JH7110_SYSCLK_TDM_TDM>,
+> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
+> +				 <&tdm_ext>;
+> +			clock-names = "tdm_ahb", "tdm_apb",
+> +				      "tdm_internal", "tdm",
+> +				      "mclk_inner", "tdm_ext";
+> +			resets = <&syscrg JH7110_SYSRST_TDM_AHB>,
+> +				 <&syscrg JH7110_SYSRST_TDM_APB>,
+> +				 <&syscrg JH7110_SYSRST_TDM_CORE>;
+> +			dmas = <&dma 20>, <&dma 21>;
+> +			dma-names = "rx","tx";
+> +			#sound-dai-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+>  		stgcrg: clock-controller@10230000 {
+>  			compatible = "starfive,jh7110-stgcrg";
+>  			reg = <0x0 0x10230000 0x0 0x10000>;
 
 _______________________________________________
 linux-riscv mailing list
