@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FA7C7EE22
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD87C7EE26
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 10:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+3RAm3jcMJvXdOWhlbVKnwOwtohfJ41042ZFRKv/cgs=; b=f3c5mKG+npqaLS
-	3jPawRSxyp7Zcw80LJ5TRXztUKOYI3618bB1SPYHoDTbrTLGdHqdhk5I2xD0YdXVr9cMc6ohlOJyg
-	6+nOE8kJq2C7qNf5/7PWua0kzLvg1eAasM+eJrCrY6efm1wi82Md+0Y2HBPtsbMe+NGeb3pEyjmbq
-	6HxEJRj4B0BCHTnn2tFZXoa/nZmDZmXo/eM408UcYPdJZdFexpjH2l8ibgHEohtFuSq3+33AbeSmb
-	f/I4FI4QC1M8lzVO/G/fAIv+MaDdct3HjrjJ8uuKQm3N0Nh5zlqwanUYZmHL8V4wcFLYP4n+VLDDO
-	wb9g2bZ1ssfoH1v3wXng==;
+	List-Owner; bh=SJncOoMSJVc3q/sR0WniZd6ZPFj4l0+V6ux4YTkTnhA=; b=Bt48M+9YQWHmdE
+	SMgsNV52dsmjZB79M42mi8nSwVWflXw3rkHFi6obY8f66NFN6w2A7l9Wm1xC1HrJuAad9Pwh7SWDS
+	nQJHijapR9AabfT5+aE3g+xRP/WnfVSdbNaKt1Oa7a64xbaqRc0JbVmEApEaQfaTCTvi9q15o8Ef2
+	Zz5EATGfjDdgpu104lDNbUHABSciWv5xMeVkMqBjbzkoHg12V3W78+LvY9V7DT98MHTrHmYvb1fun
+	3aWbk8Oyb7VwTb721+IkihZxh5EWP2lJAvUkAwJ22FH0doM2ssRxAzAWauBHLPD5yZc6nFlNeB4aS
+	b3sHT2BLclNhHwgmFp9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKdQ-002t8I-1f;
-	Tue, 09 May 2023 10:31:56 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1pwKdS-002tAF-1l;
+	Tue, 09 May 2023 10:31:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwKdN-002t2E-2V
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 May 2023 10:31:55 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1ab032d9266so53526205ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 03:31:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1683628309; x=1686220309;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=wdT8PJ8oH1xp8pRaW3V56IfqtFcYTK0lyTpuGxj9OGI=;
-        b=dEyjenlH8KNtGGE0LzwpQCnXQrGwiZonY0VzG1DZI3BoDMmCE1APNK7EpqOvJnSM9U
-         SHiB3BDqnX44K0xYiiKVKDsc2bxbtQmLgy/XcMc3HjYVKtLPy6HNJXR7xM0qsrfUn56P
-         ez3vP11D5ZC/goMxSu0BNgkFU4ljoa1wUnglHvZxzy7ec2BqYzogPRD/CXs+HgCgZTLy
-         cc6vy7SSoIO+Gl2MAEtui2mWFGoERTgdZLrhfGMKIUcbHQPBM197+2ABmRrIUw/vTvRP
-         I+h0y6pMhH7e/5zqnvNe9GOPuQVe3Zmq+QXl1p1q9FhXMUG3WiD3sP3G2+cQH8bmqZDh
-         xrYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683628309; x=1686220309;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wdT8PJ8oH1xp8pRaW3V56IfqtFcYTK0lyTpuGxj9OGI=;
-        b=VFo6wTaP7pySLXScOQTEY0Z4dVQvv6KV3Ozpm8zaEcTUZqtMRDkR45o37WK3ZPteog
-         Tfy7VAcEk/0y1ccC1bfPVSmFKQE41yCgqfDcuERVDGGuXILGh8X4bLvj36fTekpJiAdz
-         PBW55jmDuAB/RBxO/Sc2lyTlxcskSCRYg9zC35w8JA1RYI2f2AlTljhFnOodONKWKo8q
-         WIFgEJU6r+eWMhNxerCqYWi7kxUkRKdSTnKdJU1Ods9lFSxa7VUHOXhYJUJQ1OHDpOX3
-         FUifqC6fqXp4etrbaOmrrvpEp8Xuv1l7RxY1OIgopwC23IBJ/8N5TGdFjdp1U/x9F674
-         pdEg==
-X-Gm-Message-State: AC+VfDzuNbJI7whTDWfIisXylM2zQbeBEVONvPwgtFcor0w6byaK52u5
-	xQfcdeJqCNDcsGIfXC5c9sVXEcswPcUk/mhdMMF1OfJ+z/gELiP2Gu03tUw1jC1EYPwAWz+1fNY
-	sSaBI9K5uosMZGDYovNLWHl3HwI74kL/et8mbhBaNlrIGpa3yS2YCs5yk8Hm28upk81Z3+HpGmL
-	HJ8UDj3ZrOirhR
-X-Google-Smtp-Source: ACHHUZ53xZYSNwoONmUG4WIDAbzuioKTIVZMq4k8YL6PVVqG3QazEaniinqBNr8eY8d+la89wqpTbw==
-X-Received: by 2002:a17:902:9897:b0:1ab:253e:6906 with SMTP id s23-20020a170902989700b001ab253e6906mr12331938plp.67.1683628309309;
-        Tue, 09 May 2023 03:31:49 -0700 (PDT)
-Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id o11-20020a170902d4cb00b001a076025715sm1195191plg.117.2023.05.09.03.31.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 03:31:48 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
+	id 1pwKdQ-002t7D-04;
+	Tue, 09 May 2023 10:31:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Gd64jCpByI9ftMmszyCnHSbL15wXcN+sPo8L/Xdfd60=; b=CuTgyV8Kb4pFfLeLsvFJaMyO39
+	w2tpTejdL1282DKRtl3AaKdBc8Hn9nRTvQQ9DYhYlpzuM+dpyDsaxtc21qM27D5mhnRuD9XTvUY5G
+	MfmaLX0npp7MFDGUFX7ijHJkVij0No7VT3AyLbMnuaBv9CKOD2u3qLQSzqJSxcKBidQ7zxyDDXI7m
+	hqnlBbQaeXEG6bseRUttA1lqVEUVI3JxK01J44mwxCael+dlQLLA7vZjXVQQ7OBQnE6iIxtBTXeCR
+	ImOG2OhzXWYJBbeaCRJM8CDHHwhpRKJBAE1FMdg0FB6l5hrBc2ELTNWjQncuzgP6yccu91Zu935vF
+	pcCRHJ6g==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pwKdJ-00F9hx-3z; Tue, 09 May 2023 10:31:49 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 29CF1300451;
+	Tue,  9 May 2023 12:31:47 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 10E2120B21BBF; Tue,  9 May 2023 12:31:47 +0200 (CEST)
+Date: Tue, 9 May 2023 12:31:46 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next v19 07/24] riscv: Introduce Vector enable/disable helpers
-Date: Tue,  9 May 2023 10:30:16 +0000
-Message-Id: <20230509103033.11285-8-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230509103033.11285-1-andy.chiu@sifive.com>
-References: <20230509103033.11285-1-andy.chiu@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_033153_838543_5A588AD7 
-X-CRM114-Status: UNSURE (   7.16  )
-X-CRM114-Notice: Please train this message.
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	David Woodhouse <dwmw@amazon.co.uk>
+Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
+ separate phases and document them
+Message-ID: <20230509103146.GW83892@hirez.programming.kicks-ass.net>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185217.671595388@linutronix.de>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230508185217.671595388@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +102,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
 
-These are small and likely to be frequently called so implement as
-inline routines (vs. function call).
+And since I'm commenting on existing things anyway, let me continue...
 
-Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
----
- arch/riscv/include/asm/vector.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 427a3b51df72..dfe5a321b2b4 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -11,12 +11,23 @@
- #ifdef CONFIG_RISCV_ISA_V
- 
- #include <asm/hwcap.h>
-+#include <asm/csr.h>
- 
- static __always_inline bool has_vector(void)
- {
- 	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
- }
- 
-+static __always_inline void riscv_v_enable(void)
-+{
-+	csr_set(CSR_SSTATUS, SR_VS);
-+}
-+
-+static __always_inline void riscv_v_disable(void)
-+{
-+	csr_clear(CSR_SSTATUS, SR_VS);
-+}
-+
- #else /* ! CONFIG_RISCV_ISA_V  */
- 
- static __always_inline bool has_vector(void) { return false; }
--- 
-2.17.1
+> +static int wait_cpu_cpumask(unsigned int cpu, const struct cpumask *mask)
+> +{
+> +	unsigned long timeout;
+>  
+> +	/*
+> +	 * Wait up to 10s for the CPU to report in.
+> +	 */
+> +	timeout = jiffies + 10*HZ;
+> +	while (time_before(jiffies, timeout)) {
+> +		if (cpumask_test_cpu(cpu, mask))
+> +			return 0;
+> +
+> +		schedule();
+>  	}
+> +	return -1;
+> +}
 
+> +/*
+> + * Bringup step three: Wait for the target AP to reach smp_callin().
+> + * The AP is not waiting for us here so we don't need to parallelise
+> + * this step. Not entirely clear why we care about this, since we just
+> + * proceed directly to TSC synchronization which is the next sync
+> + * point with the AP anyway.
+> + */
+> +static void wait_cpu_callin(unsigned int cpu)
+> +{
+> +	while (!cpumask_test_cpu(cpu, cpu_callin_mask))
+> +		schedule();
+> +}
+> +
+> +/*
+> + * Bringup step four: Synchronize the TSC and wait for the target AP
+> + * to reach set_cpu_online() in start_secondary().
+> + */
+> +static void wait_cpu_online(unsigned int cpu)
+>  {
+>  	unsigned long flags;
+> +
+> +	/*
+> +	 * Check TSC synchronization with the AP (keep irqs disabled
+> +	 * while doing so):
+> +	 */
+> +	local_irq_save(flags);
+> +	check_tsc_sync_source(cpu);
+> +	local_irq_restore(flags);
+> +
+> +	/*
+> +	 * Wait for the AP to mark itself online, so the core caller
+> +	 * can drop sparse_irq_lock.
+> +	 */
+> +	while (!cpu_online(cpu))
+> +		schedule();
+> +}
+
+These schedule() loops make me itch... this is basically Ye Olde yield()
+loop with all it's known 'benefits'.
+
+Now, I don't think it's horribly broken, we're explicitly waiting on
+another CPU and can't have priority inversions, but yuck!
+
+It could all be somewhat cleaned up with wait_var_event{_timeout}() and
+wake_up_var(), but I'm really not sure that's worth it. But at least it
+requires a comment to justify.
 
 _______________________________________________
 linux-riscv mailing list
