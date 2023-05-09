@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49ECFC77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 09:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CED7C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 09:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=udN080+qzlVpLyGAN8CMZLlqmiKkiA9aWglzN76WJpM=; b=qriHnVi33ox0ku
-	14aNaZz9OH20L2OQdCIvar/HfiVC5XF9iPm0OSImc9RAYXRoTnzQSI4spDpTSveKpAi7308xEDBqO
-	ouWkR4cUCvCJKHxAVIZ3uAxE6gC1qOBTQfZQzC7azuYmjN9nZ1KS911l2l3TvohW/jlXG02YG2zMj
-	GKQt71SgzZHRVdwaIcn8RugCty0EPoM21trQC57rnFt5mVmZvdS/Hnnc1g+QiDdLH45S/3kJH3k2+
-	xfm44Vs2Esxgfmr1zn+IDLm792RyuYVkErAZeoC9ehlnyacaOtL8j1aekBTWyKr7MIRls8AKV29Rq
-	553rjMbTEzrdWxr+hiXQ==;
+	List-Owner; bh=uiLKk8hpFm2kKhBd4vYXPdYpH9p1k2H8AZ8rpvD2hv8=; b=zbQLAbdxYzKHCx
+	tcZ9SsmqYmnrMMnbPDSffKh4B/mArl08OiqO6oEHIufoLxlJMKG5DLuCsug15Ft6wBhnECiR+U4/t
+	1L/wlMl68RB/szCAjS0mbGSZWF/culRBqz/Uj/lkbgosjmpLgFjqqY1h7kSnWwTe8ynWQZRXrl/iv
+	YEem9pGK+vsmB9VrX1owMA8ld98Oi0rw1JyVKXGgBOfMfe10Azg2vhqoHmSiuja1nSub87+fala+E
+	47zAKuxMW94SsapcfW8FCHHdlCEX9sUEQVxTUXCkk5WE4WI8U0jCAoFwu2qdME72jn4G6SyGZjtn8
+	m/BdPhH/fcO1qh7anQdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwJnZ-002lUg-1r;
-	Tue, 09 May 2023 09:38:21 +0000
-Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
+	id 1pwJxX-002mlI-1F;
+	Tue, 09 May 2023 09:48:39 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwJnW-002lRu-1Y;
-	Tue, 09 May 2023 09:38:20 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id 510B53200909;
-	Tue,  9 May 2023 05:38:09 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Tue, 09 May 2023 05:38:10 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1683625088; x=1683711488; bh=JI
-	GYjICWF1iIfi0CDhSvRnlPKKVSNYNlDX65zfQiumM=; b=I4f00STfLlF/8uXCTH
-	3QpblrayO3QWqay0XoJFyDhSGixH93u1NpebSFNfjNuzTOvoj8liVXfe1F94W5Rf
-	OkSrKPsHW5CuU0O1n0k6mggu+GTBSI/aou3nmMYv4bopXJdWnRpImUuuJczssOQ+
-	nlk+zQ5fWguXF4QyfgIy+yXeh/fUk1+OamDH2mE02AK2FeEVzFdjp/ZkYF3f7WIC
-	LIwJOvrGNIHyMm3GfL+mc2A3QpjuHP/knTB/o3RrDaqIa6igFFLXbN2J2tS7W0OZ
-	O9Wt51WwuNP4vEqULDQIoB4aLzCG2tEy390anoUON9826Lqxxh2mvRVv16wDWwRA
-	CvaA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1683625088; x=1683711488; bh=JIGYjICWF1iIf
-	i0CDhSvRnlPKKVSNYNlDX65zfQiumM=; b=irqHQQNUKUqvUAWpf1VIoKg/G9Bt6
-	oINt/vqLIbTfVMwG9Hc5BS3wM0rbLNDlp9dyFIk+K8+Yg+w4CyaCBkMNIzxaClt2
-	5hKEmXIfTpuX0D57VxY0NRbGmHgrdfX9LgmsqsHxxYojoy6cFD/h297xpqpZ2dCm
-	lgjUpyY5EApgsYS6fgKw+ibdPJPY3SWVhfBScpbBw297KiqjtIpYFOEKWx6uVBZE
-	b0R51rMZ6QfJDFCbYlMztsHMKOUmxxlKnwnj3kyD0ejAc+LApjOXTCP8sFBPBWbp
-	FSJfhVLzSwOexCHMh/u/lmkpf2d0AvcvV0c/5voSuhOmrHueXeXY33A2Q==
-X-ME-Sender: <xms:fxRaZA_Ub9iK8xWlXqyIcc6uOkdIYRFhQ2MO1HuoJ9dmIsXEFLaf3w>
-    <xme:fxRaZIvg7GcdRQOpg1jMA0HvMPQftuRhcyc5ZSdsuVGpbWVIflp8kq4JY9m-G-ZJV
-    SnIqkn0V04I_3L7-qg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeegtddgudejucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepheekfeduteffkeegieekvdffkedtkeeftefhfeejkeejgefhleekhfelheff
-    vdetnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpshhouhhrtggvfigrrhgvrdhorh
-    hgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghr
-    nhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:fxRaZGDVHJPv_8wICJO5UOx_vULOMBKmGMOLmO0DbqAHdDw2Qx8Sgg>
-    <xmx:fxRaZAeGXsQCwZusXvgF1StxgPbYalneVgw_y3tnkrhLFMC_jy3rjA>
-    <xmx:fxRaZFMfYWVflVj5rOKIcutKIF5dLbPvZi1Iw7dHO-fYBDC-s9lWkg>
-    <xmx:gBRaZCcVsH6XHVXaai7iby-iCY4PxFduF5s1msWOAJRYZEdcbjifDA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 85FE3B60086; Tue,  9 May 2023 05:38:07 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-415-gf2b17fe6c3-fm-20230503.001-gf2b17fe6
-Mime-Version: 1.0
-Message-Id: <b9624545-2c80-49a1-ac3c-39264a591f7b@app.fastmail.com>
-In-Reply-To: <1683615903-10862-1-git-send-email-yangtiezhu@loongson.cn>
-References: <1683615903-10862-1-git-send-email-yangtiezhu@loongson.cn>
-Date: Tue, 09 May 2023 11:37:46 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Tiezhu Yang" <yangtiezhu@loongson.cn>
-Cc: linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org,
- bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- llvm@lists.linux.dev, linux-kernel@vger.kernel.org,
- loongson-kernel@lists.loongnix.cn
-Subject: Re: [RFC PATCH] asm-generic: Unify uapi bitsperlong.h
+	id 1pwJxT-002mkL-34
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 May 2023 09:48:37 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-965d2749e2eso756856766b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 02:48:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1683625714; x=1686217714;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ssFb5TKrUxDuSwzgf3mFueyqkmtk+lVo5a7Efc/W2I=;
+        b=ZN2Nc4KwU1Bj5BSAFhnaSB7vzpHs1RhygZN+XFGK6hQBeLnMiYwvwPAXnsYMiqJHcm
+         p5Avtf3vt8Y4M1ljhuJY4Ln3gMYVG7jsegJ0RHNvxURf0hlpLwZueGcJGInAG8o/DEpx
+         it6a0EUAy5fX5DjfyZ+qlO6ITrPw0whW+MWWfRWmNA+Rdx0XgpCVPzNndlG2EnyxycPT
+         n/qx5p3EDi+udnGMqVQxfwTqIeuqo9wtrHkaGhTl36t8RDumMIFpAccz+H4xw3J0Xa4f
+         tR5hRvEoLeSQd7RlB2rJF6Pz4xRdXkzxi/FXfrC0VcYNWsG1552WhKHK1SU8vXmFz6Vz
+         VZbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683625714; x=1686217714;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+ssFb5TKrUxDuSwzgf3mFueyqkmtk+lVo5a7Efc/W2I=;
+        b=QKnyX4gzPHLuPqZDplmUHGLFPba19g5+Pr6jNc+VLEB0h7oJyVAW6MijIZSAzspERs
+         y+FZw34CaVHom5+p2JgrLydwyn5Z6mCmPFK0kFMQYru8o5FahwyyXjoMqEYLn5wzQj2P
+         ssQCx0MkDM3cFbInbHM5Tacd/Y11fScjya67zhhnaGPtiu1P4c16j9Mq5STFxvQB1Dj/
+         ykCNlQmlZEw6VrvEUbcpwzKcr6UvC4KQN/LNHrNpu+uMwqYeZvv4jdyUCT9uytGIf8AS
+         T01Ma/F4zCFDQOdt7AhHBHNnJV9YbJwLxyvv7bZrFRyiha5JlVvv5FGTDhPhbHkPJCjk
+         8n9A==
+X-Gm-Message-State: AC+VfDzqps+aD9qp1JNEYWlXrbnZwEqfelQeULP3jmKgOB5a+ouRNTRX
+	yBSODxYMH70NypAVCZNpkePqqA==
+X-Google-Smtp-Source: ACHHUZ4csAwN4H1Mldb1yqeubVyBLjLh5qJMfW88DpJJEltr6uvpRCkmVOXq0ie/fCZXpf1YLvGLNg==
+X-Received: by 2002:a17:907:a01:b0:94a:5d5c:fe6f with SMTP id bb1-20020a1709070a0100b0094a5d5cfe6fmr10679597ejc.47.1683625714394;
+        Tue, 09 May 2023 02:48:34 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id jx6-20020a170907760600b00958434d4ecesm1143737ejc.13.2023.05.09.02.48.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 02:48:34 -0700 (PDT)
+Date: Tue, 9 May 2023 11:48:33 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: zhangfei <zhang_fei_0403@163.com>
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	zhangfei@nj.iscas.ac.cn, conor.dooley@microchip.com
+Subject: Re: [PATCH 1/2] RISC-V: lib: Improve memset assembler formatting
+Message-ID: <20230509-b76dc35d2a84d96806496c8e@orel>
+References: <20230505-9ec599a36801972451e8b17f@orel>
+ <20230509022207.3700-1-zhang_fei_0403@163.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230509022207.3700-1-zhang_fei_0403@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_023818_614748_66731C94 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20230509_024835_988709_CD81A755 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +93,217 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 9, 2023, at 09:05, Tiezhu Yang wrote:
-> Now we specify the minimal version of GCC as 5.1 and Clang/LLVM as 11.0.0
-> in Documentation/process/changes.rst, __CHAR_BIT__ and __SIZEOF_LONG__ are
-> usable, just define __BITS_PER_LONG as (__CHAR_BIT__ * __SIZEOF_LONG__) in
-> asm-generic uapi bitsperlong.h, simpler, works everywhere.
->
-> Remove all the arch specific uapi bitsperlong.h which will be generated as
-> arch/*/include/generated/uapi/asm/bitsperlong.h.
->
-> Suggested-by: Xi Ruoyao <xry111@xry111.site>
-> Link: 
-> https://lore.kernel.org/all/d3e255e4746de44c9903c4433616d44ffcf18d1b.camel@xry111.site/
-> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+On Tue, May 09, 2023 at 10:22:05AM +0800, zhangfei wrote:
+> From: Andrew Jones <ajones@ventanamicro.com>
+> 
+> Aligning the first operand of each instructions with a tab is a
+> typical style which improves readability. Apply it to memset.S.
+> While there, we also make a small grammar change to a comment.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 
-I originally introduced the bitsperlong.h header, and I'd love to
-see it removed if it's no longer needed. Your patch certainly
-seems like it does this well.
+Please pick up Conor's r-b on this reposting.
 
-There is one minor obstacle to this, which is that the compiler
-requirements for uapi headers are not the same as for kernel
-internal code. In particular, the uapi headers may be included
-by user space code that is built with an older compiler version,
-or with a compiler that is not gcc or clang.
+Thanks,
+drew
 
-I think we are completely safe on the architectures that were
-added since the linux-3.x days (arm64, riscv, csky, openrisc,
-loongarch, nios2, and hexagon), but for the older ones there
-is a regression risk. Especially on targets that are not that
-actively maintained (sparc, alpha, ia64, sh, ...) there is
-a good chance that users are stuck on ancient toolchains.
-
-It's probably also a safe assumption that anyone with an older
-libc version won't be using the latest kernel headers, so
-I think we can still do this across architectures if both
-glibc and musl already require a compiler that is new enough,
-or alternatively if we know that the kernel headers require
-a new compiler for other reasons and nobody has complained.
-
-For glibc, it looks the minimum compiler version was raised
-from gcc-5 to gcc-8 four years ago, so we should be fine.
-
-In musl, the documentation states that at least gcc-3.4 or
-clang-3.2 are required, which probably predate the
-__SIZEOF_LONG__ macro. On the other hand, musl was only
-released in 2011, and building musl itself explicitly
-does not require kernel uapi headers, so this may not
-be too critical.
-
-There is also uClibc, but I could not find any minimum
-supported compiler version for that. Most commonly, this
-one is used for cross-build environments, so it's also
-less likely to have libc/gcc/headers being wildly out of
-sync. Not sure.
-
-      Arnd
-
-[1] https://sourceware.org/pipermail/libc-alpha/2019-January/101010.html
+> ---
+>  arch/riscv/lib/memset.S | 143 ++++++++++++++++++++--------------------
+>  1 file changed, 72 insertions(+), 71 deletions(-)
+> 
+> diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
+> index 34c5360c6705..e613c5c27998 100644
+> --- a/arch/riscv/lib/memset.S
+> +++ b/arch/riscv/lib/memset.S
+> @@ -3,111 +3,112 @@
+>   * Copyright (C) 2013 Regents of the University of California
+>   */
+>  
+> -
+>  #include <linux/linkage.h>
+>  #include <asm/asm.h>
+>  
+>  /* void *memset(void *, int, size_t) */
+>  ENTRY(__memset)
+>  WEAK(memset)
+> -	move t0, a0  /* Preserve return value */
+> +	move	t0, a0			/* Preserve return value */
+>  
+>  	/* Defer to byte-oriented fill for small sizes */
+> -	sltiu a3, a2, 16
+> -	bnez a3, 4f
+> +	sltiu	a3, a2, 16
+> +	bnez	a3, 4f
+>  
+>  	/*
+>  	 * Round to nearest XLEN-aligned address
+> -	 * greater than or equal to start address
+> +	 * greater than or equal to the start address.
+>  	 */
+> -	addi a3, t0, SZREG-1
+> -	andi a3, a3, ~(SZREG-1)
+> -	beq a3, t0, 2f  /* Skip if already aligned */
+> +	addi	a3, t0, SZREG-1
+> +	andi	a3, a3, ~(SZREG-1)
+> +	beq	a3, t0, 2f		/* Skip if already aligned */
+> +
+>  	/* Handle initial misalignment */
+> -	sub a4, a3, t0
+> +	sub	a4, a3, t0
+>  1:
+> -	sb a1, 0(t0)
+> -	addi t0, t0, 1
+> -	bltu t0, a3, 1b
+> -	sub a2, a2, a4  /* Update count */
+> +	sb	a1, 0(t0)
+> +	addi	t0, t0, 1
+> +	bltu	t0, a3, 1b
+> +	sub	a2, a2, a4		/* Update count */
+>  
+>  2: /* Duff's device with 32 XLEN stores per iteration */
+>  	/* Broadcast value into all bytes */
+> -	andi a1, a1, 0xff
+> -	slli a3, a1, 8
+> -	or a1, a3, a1
+> -	slli a3, a1, 16
+> -	or a1, a3, a1
+> +	andi	a1, a1, 0xff
+> +	slli	a3, a1, 8
+> +	or	a1, a3, a1
+> +	slli	a3, a1, 16
+> +	or	a1, a3, a1
+>  #ifdef CONFIG_64BIT
+> -	slli a3, a1, 32
+> -	or a1, a3, a1
+> +	slli	a3, a1, 32
+> +	or	a1, a3, a1
+>  #endif
+>  
+>  	/* Calculate end address */
+> -	andi a4, a2, ~(SZREG-1)
+> -	add a3, t0, a4
+> +	andi	a4, a2, ~(SZREG-1)
+> +	add	a3, t0, a4
+>  
+> -	andi a4, a4, 31*SZREG  /* Calculate remainder */
+> -	beqz a4, 3f            /* Shortcut if no remainder */
+> -	neg a4, a4
+> -	addi a4, a4, 32*SZREG  /* Calculate initial offset */
+> +	andi	a4, a4, 31*SZREG	/* Calculate remainder */
+> +	beqz	a4, 3f			/* Shortcut if no remainder */
+> +	neg	a4, a4
+> +	addi	a4, a4, 32*SZREG	/* Calculate initial offset */
+>  
+>  	/* Adjust start address with offset */
+> -	sub t0, t0, a4
+> +	sub	t0, t0, a4
+>  
+>  	/* Jump into loop body */
+>  	/* Assumes 32-bit instruction lengths */
+> -	la a5, 3f
+> +	la	a5, 3f
+>  #ifdef CONFIG_64BIT
+> -	srli a4, a4, 1
+> +	srli	a4, a4, 1
+>  #endif
+> -	add a5, a5, a4
+> -	jr a5
+> +	add	a5, a5, a4
+> +	jr	a5
+>  3:
+> -	REG_S a1,        0(t0)
+> -	REG_S a1,    SZREG(t0)
+> -	REG_S a1,  2*SZREG(t0)
+> -	REG_S a1,  3*SZREG(t0)
+> -	REG_S a1,  4*SZREG(t0)
+> -	REG_S a1,  5*SZREG(t0)
+> -	REG_S a1,  6*SZREG(t0)
+> -	REG_S a1,  7*SZREG(t0)
+> -	REG_S a1,  8*SZREG(t0)
+> -	REG_S a1,  9*SZREG(t0)
+> -	REG_S a1, 10*SZREG(t0)
+> -	REG_S a1, 11*SZREG(t0)
+> -	REG_S a1, 12*SZREG(t0)
+> -	REG_S a1, 13*SZREG(t0)
+> -	REG_S a1, 14*SZREG(t0)
+> -	REG_S a1, 15*SZREG(t0)
+> -	REG_S a1, 16*SZREG(t0)
+> -	REG_S a1, 17*SZREG(t0)
+> -	REG_S a1, 18*SZREG(t0)
+> -	REG_S a1, 19*SZREG(t0)
+> -	REG_S a1, 20*SZREG(t0)
+> -	REG_S a1, 21*SZREG(t0)
+> -	REG_S a1, 22*SZREG(t0)
+> -	REG_S a1, 23*SZREG(t0)
+> -	REG_S a1, 24*SZREG(t0)
+> -	REG_S a1, 25*SZREG(t0)
+> -	REG_S a1, 26*SZREG(t0)
+> -	REG_S a1, 27*SZREG(t0)
+> -	REG_S a1, 28*SZREG(t0)
+> -	REG_S a1, 29*SZREG(t0)
+> -	REG_S a1, 30*SZREG(t0)
+> -	REG_S a1, 31*SZREG(t0)
+> -	addi t0, t0, 32*SZREG
+> -	bltu t0, a3, 3b
+> -	andi a2, a2, SZREG-1  /* Update count */
+> +	REG_S	a1,        0(t0)
+> +	REG_S	a1,    SZREG(t0)
+> +	REG_S	a1,  2*SZREG(t0)
+> +	REG_S	a1,  3*SZREG(t0)
+> +	REG_S	a1,  4*SZREG(t0)
+> +	REG_S	a1,  5*SZREG(t0)
+> +	REG_S	a1,  6*SZREG(t0)
+> +	REG_S	a1,  7*SZREG(t0)
+> +	REG_S	a1,  8*SZREG(t0)
+> +	REG_S	a1,  9*SZREG(t0)
+> +	REG_S	a1, 10*SZREG(t0)
+> +	REG_S	a1, 11*SZREG(t0)
+> +	REG_S	a1, 12*SZREG(t0)
+> +	REG_S	a1, 13*SZREG(t0)
+> +	REG_S	a1, 14*SZREG(t0)
+> +	REG_S	a1, 15*SZREG(t0)
+> +	REG_S	a1, 16*SZREG(t0)
+> +	REG_S	a1, 17*SZREG(t0)
+> +	REG_S	a1, 18*SZREG(t0)
+> +	REG_S	a1, 19*SZREG(t0)
+> +	REG_S	a1, 20*SZREG(t0)
+> +	REG_S	a1, 21*SZREG(t0)
+> +	REG_S	a1, 22*SZREG(t0)
+> +	REG_S	a1, 23*SZREG(t0)
+> +	REG_S	a1, 24*SZREG(t0)
+> +	REG_S	a1, 25*SZREG(t0)
+> +	REG_S	a1, 26*SZREG(t0)
+> +	REG_S	a1, 27*SZREG(t0)
+> +	REG_S	a1, 28*SZREG(t0)
+> +	REG_S	a1, 29*SZREG(t0)
+> +	REG_S	a1, 30*SZREG(t0)
+> +	REG_S	a1, 31*SZREG(t0)
+> +
+> +	addi	t0, t0, 32*SZREG
+> +	bltu	t0, a3, 3b
+> +	andi	a2, a2, SZREG-1		/* Update count */
+>  
+>  4:
+>  	/* Handle trailing misalignment */
+> -	beqz a2, 6f
+> -	add a3, t0, a2
+> +	beqz	a2, 6f
+> +	add	a3, t0, a2
+>  5:
+> -	sb a1, 0(t0)
+> -	addi t0, t0, 1
+> -	bltu t0, a3, 5b
+> +	sb	a1, 0(t0)
+> +	addi	t0, t0, 1
+> +	bltu	t0, a3, 5b
+>  6:
+>  	ret
+>  END(__memset)
+> -- 
+> 2.33.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
