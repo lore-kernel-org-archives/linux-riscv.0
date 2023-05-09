@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7E0C7EE22
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 13:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDE5C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 May 2023 13:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3GMB+/eNkXfoTR46lGQcj8HnL6QSKRN8LCdZ3TelO2Q=; b=4ljmNwUO6HlJml
-	IbJmX+j8/Blk1uxnvgpEsMmxN4WJYIlbUKVnKOcukHJVW9xLXM/afIipYYUowO+gZV+gIO84P5fDd
-	50g21KWd9mnAkNiHG5+am9+1sSB+gZFdQznAQh5zU6ezMEsORtsuuqk3N4ug3+NINBwXPzW9H1CGa
-	SMjErRz1mgWCtTOWDoDg0PcdHovqFxW/qQIJywZMsjV9OcmCblxdl3bqCUK92zJMLG2uxVGeTO7Y7
-	7lliFaAzmPqzNpCHMBMxb/jFLPh/TaoAnAjjnpFjNHj2u1Fe5OEvyHdk6Qp3OMNwq+arRwFQKPqC7
-	NFvlySZindNjbBepJshQ==;
+	List-Owner; bh=sMW6UJwxWoYYU1aes/BXO2h3hPN3e4mtDW1wA0menzw=; b=gSORImKOZ42qX6
+	0YFSS4GfIEgTtMEuVcNNV7x+YrhqYORcTheiNltWyefPd3pGdxIe+U4n8QcyAYsvcR0QD8s0fpEPS
+	ZTkTFNDEuS98hngC6QEZXqd7DBTtLxQWVdOiyOWyHEbL3c/zwZvjr8UBf1FowtbPMKQ571Kyct9JL
+	ZfhdULugpuIlFEkDilpE6Aq3mbITDahezjJVASyr5WsnTS0QNt9c2SpK+rAzAdn58Se9tEz6AOPnM
+	uQ72a2R93UZ81dDvrWB+dHBBKY7dTl91eG/iDY2CGgXzs2GEgo0j5mktoPisgVdgz8578GbgcXLN0
+	1m02ENs8omVUAW76g0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwNgr-003Rqi-0E;
-	Tue, 09 May 2023 13:47:41 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pwNqt-003T6g-26;
+	Tue, 09 May 2023 13:58:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwNgo-003Rpk-1j;
-	Tue, 09 May 2023 13:47:39 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683640056;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EiOLX/A8rFePD0DrbaikIW8S9TmO2h3FaFar7PON5hU=;
-	b=IDDtornM7g68QBrYy4uAnmWXjYq0L0EFNdR49PbDsHqDTgeml6v7RJL2t0m5sUXtVghPxN
-	Y9xm+Z8m/e3hKUrE5pyar8/KK0qEKQPlYka0/Tb3iMx+mgfeyMNL/O25jjjjRzlsdTv+0Z
-	8shI/utWzvYwqBv97NrrZDv7w4aKvhnGNE6KrmZ++Tu6qGaUft6vGLNO3kbS/OKo+Q0Re5
-	6QCYNHWmtfZwiB9EeOwWBrdDOurFiMNsscJ4jOZMujRqBwDip8CpD7bfEN2VdQMrgNJt2m
-	19jTmwkZ2nc1PLZHDKShrWj69L1Yd8FKDMqN/Q3H65LVSvPfuBkvDkQSP/O+tg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683640056;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EiOLX/A8rFePD0DrbaikIW8S9TmO2h3FaFar7PON5hU=;
-	b=Qut7XwyPl0DgMnjgEWltV14QsYg9li7QYZrUkmEwn/8iVTGLbJy2fiNLjt0flPIbrA0rho
-	MvlgsTmYsK7KiKDA==
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
- <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
- Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
- Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
- <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
- Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
- Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
- Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
- <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
- <mikelley@microsoft.com>, David Woodhouse <dwmw@amazon.co.uk>
-Subject: Re: [patch v3 34/36] x86/smpboot: Implement a bit spinlock to
- protect the realmode stack
-In-Reply-To: <20230509131340.GA83892@hirez.programming.kicks-ass.net>
+	id 1pwNqs-003T6I-0z;
+	Tue, 09 May 2023 13:58:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hI8/gqpI8woXdIossg1TLqD9QGRFHNBoUAZE5mW3mjQ=; b=GG2RnOQApmwDBLG6Gsm3njtVQf
+	QxqK9VGUrgp9oG3wZracPmQrcB+PBRcVxw73VjgtK1EMmZyecLmKDRZHvAfJpdPcc5RHZtTaq4xJD
+	Mbjqc7jH+sKLynVrQ64G6thUi4zwqh8rCYsg9Lp1iTW79Slo5Qe2L9QpI3n9DvhT3p7bA6TVmgAX9
+	8FkXE5EqF+OkD2XK8OFB/cQwLHDQ75opJ0AVpsGCIfoG/ikF4CYJw/Z3nYXvLfqJ6eD5BtnvJz2Bw
+	RLxcdIrVYS3ih1v97QwYZHxN2Pa2PpFaGa3IzYQuFTqIQDj8U8Z4tCDPnIp0p0jNTeEO6UhbNFTql
+	XWuyju0w==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwNqk-0069ad-04;
+	Tue, 09 May 2023 13:57:54 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 51BE730026A;
+	Tue,  9 May 2023 15:57:49 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 3402820B08835; Tue,  9 May 2023 15:57:49 +0200 (CEST)
+Date: Tue, 9 May 2023 15:57:49 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	David Woodhouse <dwmw@amazon.co.uk>
+Subject: Re: [patch v3 35/36] x86/smpboot: Support parallel startup of
+ secondary CPUs
+Message-ID: <20230509135749.GB83892@hirez.programming.kicks-ass.net>
 References: <20230508181633.089804905@linutronix.de>
- <20230508185219.123719053@linutronix.de>
- <20230509131340.GA83892@hirez.programming.kicks-ass.net>
-Date: Tue, 09 May 2023 15:47:36 +0200
-Message-ID: <87v8h1zkef.ffs@tglx>
+ <20230508185219.176824543@linutronix.de>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_064738_716121_3F44F90B 
-X-CRM114-Status: GOOD (  10.83  )
+Content-Disposition: inline
+In-Reply-To: <20230508185219.176824543@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,13 +108,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09 2023 at 15:13, Peter Zijlstra wrote:
-> On Mon, May 08, 2023 at 09:44:22PM +0200, Thomas Gleixner wrote:
->
-> Do we really care about performance here; or should we pick the simpler
-> form? Also, 'lock' is a prefix, not an instruction.
+On Mon, May 08, 2023 at 09:44:23PM +0200, Thomas Gleixner wrote:
+> +	/*  APIC ID not found in the table. Drop the trampoline lock and bail. */
+> +	movq	trampoline_lock(%rip), %rax
 
-Right. KISS is the way to go.
+Again:
+
+	movl	$0, (%rax)
+
+is sufficient for unlock.
+
+> +	lock
+> +	btrl	$0, (%rax)
 
 _______________________________________________
 linux-riscv mailing list
