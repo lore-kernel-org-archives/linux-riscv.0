@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55658C77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5635C7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zDdjNAQZiyNJ2kYQBGHjQ7ZY/cvLQHHLfuW5sCvhotI=; b=JZnSnRIhtNLEoP
-	R+mqO+VUp/qlT0DfiGolUJUYVsJ3g1zUuzJYGAN2jjL1RU0BUXWNd0DF2NQVfbO2cNQ8MVAmcaNgi
-	4qWAYOSh5hYaqO+kWjqmvAoK/SGjqlLi+Lkf4EhF72sKLMj9d/FpgaKubxabPmlC+OCew8bj5JmjW
-	DzB0hoWGV9z5UVJ3N6A8Q7wIo369SgfQnW4Q7u0Hd6tHA/nsJn/BLXO70VaWwqHmExZ0vnYffUjgk
-	QYfUseLgmMenLbEqY6LrWu1A81ciIQ3Ft0YV0LygnTOkqlkXeT281kykapClJ7ZXaNg53E8WVIvlZ
-	Jt/i7zUpKCW+BzfEqwnA==;
+	List-Owner; bh=OFhmEctVZ4mUC1i6Ytiq+Fim+QgISenbBnrHV6HJyH8=; b=q5/fYZfxo9479C
+	zQbi4z/bN+g5+V+N8HCwO3/ePD1I1JIdGSbprgNJrSVL6GgAlY3dE9N/2vjUoQMV/MVWbU3NUlHKK
+	an08Y0uhDXYoos4yRyYmedTSE54n67biBhazqqdSOV7F2bvrKONzCoaiuWiiHgFHsxFhsSJC7SY+V
+	TUpZx16wngmmHf055+MHDNQz7grSuFSsnpFwOLxryFKB7J5+EWyD6ndeKEEjBmvgFvADaqNWJAeDY
+	Ikji57IRkh/0p+2Oxusrkqg5+LxpK4b6BOHuO7NMvU17LOiZjgok1SwmEyQ98dt/wKyLZuhxXhojv
+	0/N+LTrmhI64tXnydmzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwevy-005U5b-0i;
-	Wed, 10 May 2023 08:12:26 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1pwf4U-005VP5-1O;
+	Wed, 10 May 2023 08:21:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwevt-005U0t-0L;
-	Wed, 10 May 2023 08:12:22 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-2fe3fb8e25fso4528980f8f.0;
-        Wed, 10 May 2023 01:12:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1683706339; x=1686298339;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ziv+62Y+GAylpM/ibpSxQKGKhNzMiq6MRDwumNWDsYk=;
-        b=VT0u/vcYhd5TFnEjTToBKJ/wdwffJ2L0okYTTCOhTHsgU8erF1p5oh+r9iXPW4wbu/
-         JnTop+tXh8VrgSxnao1lkFM/+EBiicRqWgtiLTRyblzOZnarhN2C1fvW4sK5B3VxXHpF
-         8FCZFeOgbkMduNe6GUL8qaFECRy9lAdSf8+8D4Y6X08m1sNwovljZAD5RT+YxswVePUH
-         VOR8QElPUjAYXoUHoO+8GoCjVE1jPjgoHFcw46x7PiFzo7xQS6zIZTxOQHV68TNo4ouP
-         L6luZ0nnd42ACFwel/2uGTpmtIKFHO65j7ENNms8hLs9EdPypPORR8im6mEBhNXO61Ov
-         F6Vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683706339; x=1686298339;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ziv+62Y+GAylpM/ibpSxQKGKhNzMiq6MRDwumNWDsYk=;
-        b=AQXqQeZbxdpqoNIhmwM9Ls43vcYi2b+xXaI7iQ7+Q06aHna/Jez7J8vXO5P49OPIPI
-         vP+Xnsw7MNtbFtUJqwp461mi+aYXzOywrqwt8JwKZi31hU/I+DkKHVjFwFLQF+fi76HS
-         ojyCeLSe11kaYUXsrSl42aOjQA0zvvAxKUoB9SfAdu25+Ro4CYZNCc2hO/D/GwZQZeIc
-         hnqknF//3WUub6KaCiIITiUhtHx5p6I2QJ9heHK3p3XbIOOvMoPUFmrydZRMWxT0/HHV
-         B8JPj0kETz6hm69F4yFK7axCeHt4Vznj/q3EaoJdk+sVPyPOrGR1/nYNCD+JT5FL+Il5
-         hyvw==
-X-Gm-Message-State: AC+VfDwrO0GgnVWF980qzdjMnWfAJCu88DeRf1oHdSmN+AEcE0DDkREc
-	8WrWGDPEJkFIeBlW4pW4WLw=
-X-Google-Smtp-Source: ACHHUZ5sd70u2BkeoYnaZa5+eyQCVzqpqKrugxquzDd2XRbo7GFO2hlIBYRs0XLRBwAUP6Sj3isaqQ==
-X-Received: by 2002:adf:ecc4:0:b0:2f9:ee8c:a2fa with SMTP id s4-20020adfecc4000000b002f9ee8ca2famr12260618wro.64.1683706339136;
-        Wed, 10 May 2023 01:12:19 -0700 (PDT)
-Received: from localhost.localdomain ([176.221.215.212])
-        by smtp.gmail.com with ESMTPSA id f16-20020a5d4dd0000000b003062ad45243sm16496375wru.14.2023.05.10.01.12.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 May 2023 01:12:18 -0700 (PDT)
-From: Maksim Kiselev <bigunclemax@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Icenowy Zheng <icenowy@aosc.io>,
-	Maksim Kiselev <bigunclemax@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1pwf4T-005VOF-02;
+	Wed, 10 May 2023 08:21:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1WZCLagr9yk4Cbp+6qSxxsSMmqvOctxqT3bVkNGFhnY=; b=CzmDvf3rqlZoWLTgd3FVOKNA13
+	am3KRsvw5dx0zZtORpSkeQixmHm2I0T/j68VXo57hz3B2sKfsZlkzT6mcIfsGM8QExy3tEBmFQg15
+	5knvERiYGPZKMBkmsOAK/iQ/5rtOFvAqMTYH7nFMXqdqWWfvmHjqNDYraw79BjtqAXxEKvC5IXPLi
+	v4WkUXSf6SdYO2DxNqGoNj/9jzwXI/RVqLwvIK8H89K9xhFYfEkKkPofOod7rLsPcDYQd4FB4I+bb
+	ncPfZdYjPCu8FZ1ut2ZqCkZjLMrUhqEHRkvEROX3xUgFItRMwb3mnY6amim7reKFoxZZ2cjlGh5hD
+	cm+pskqQ==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwf2E-007PM8-2r;
+	Wed, 10 May 2023 08:20:55 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4DA20300338;
+	Wed, 10 May 2023 10:18:48 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 2369E20B04BA2; Wed, 10 May 2023 10:18:48 +0200 (CEST)
+Date: Wed, 10 May 2023 10:18:48 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Hugh Dickins <hughd@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Helge Deller <deller@gmx.de>,
+	John David Anglin <dave.anglin@bell.net>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 5/5] riscv: dts: allwinner: d1: Add SPI controllers node
-Date: Wed, 10 May 2023 11:11:12 +0300
-Message-Id: <20230510081121.3463710-6-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230510081121.3463710-1-bigunclemax@gmail.com>
-References: <20230510081121.3463710-1-bigunclemax@gmail.com>
+	Heiko Carstens <hca@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH 21/23] x86: Allow get_locked_pte() to fail
+Message-ID: <20230510081848.GD83892@hirez.programming.kicks-ass.net>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+ <eba2b72f-2180-498b-c8bd-ce8f717fc78a@google.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_011221_146182_2CCEECB7 
-X-CRM114-Status: GOOD (  12.22  )
+Content-Disposition: inline
+In-Reply-To: <eba2b72f-2180-498b-c8bd-ce8f717fc78a@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,79 +107,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some boards form the MangoPi family (MQ\MQ-Dual\MQ-R) may have
-an optional SPI flash that connects to the SPI0 controller.
+On Tue, May 09, 2023 at 10:08:37PM -0700, Hugh Dickins wrote:
+> In rare transient cases, not yet made possible, pte_offset_map() and
+> pte_offset_map_lock() may not find a page table: handle appropriately.
+> 
+> Signed-off-by: Hugh Dickins <hughd@google.com>
+> ---
+>  arch/x86/kernel/ldt.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/x86/kernel/ldt.c b/arch/x86/kernel/ldt.c
+> index 525876e7b9f4..eb844549cd83 100644
+> --- a/arch/x86/kernel/ldt.c
+> +++ b/arch/x86/kernel/ldt.c
+> @@ -367,8 +367,10 @@ static void unmap_ldt_struct(struct mm_struct *mm, struct ldt_struct *ldt)
+>  
+>  		va = (unsigned long)ldt_slot_va(ldt->slot) + offset;
+>  		ptep = get_locked_pte(mm, va, &ptl);
+> -		pte_clear(mm, va, ptep);
+> -		pte_unmap_unlock(ptep, ptl);
+> +		if (ptep) {
+> +			pte_clear(mm, va, ptep);
+> +			pte_unmap_unlock(ptep, ptl);
+> +		}
+>  	}
 
-This controller is the same for R329/D1/R528/T113s SoCs and
-should be supported by the sun50i-r329-spi driver.
+Ow geez, now I have to go remember how the whole PTI/LDT crud worked :/
 
-So let's add its DT nodes.
+At first glance this seems wrong; we can't just not unmap the LDT if we
+can't find it in a hurry. Also, IIRC this isn't in fact a regular user
+mapping, so it should not be subject to THP induced seizures.
 
-Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
----
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 37 +++++++++++++++++++
- 1 file changed, 37 insertions(+)
+... memory bubbles back ... for PTI kernels we need to map this in the
+user and kernel page-tables because obviously userspace needs to be able
+to have access to the LDT. But it is not directly acessible by
+userspace. It lives in the cpu_entry_area as a virtual map of the real
+kernel allocation, and this virtual address is used for LLDT.
+Modification is done through sys_modify_ldt().
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 922e8e0e2c09..1bb1e5cae602 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -108,6 +108,12 @@ rmii_pe_pins: rmii-pe-pins {
- 				function = "emac";
- 			};
- 
-+			/omit-if-no-ref/
-+			spi0_pins: spi0-pins {
-+				pins = "PC2", "PC3", "PC4", "PC5";
-+				function = "spi0";
-+			};
-+
- 			/omit-if-no-ref/
- 			uart1_pg6_pins: uart1-pg6-pins {
- 				pins = "PG6", "PG7";
-@@ -447,6 +453,37 @@ mmc2: mmc@4022000 {
- 			#size-cells = <0>;
- 		};
- 
-+		spi0: spi@4025000 {
-+			compatible = "allwinner,sun20i-d1-spi",
-+				     "allwinner,sun50i-r329-spi";
-+			reg = <0x04025000 0x1000>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(15) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 22>, <&dma 22>;
-+			dma-names = "rx", "tx";
-+			resets = <&ccu RST_BUS_SPI0>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi1: spi@4026000 {
-+			compatible = "allwinner,sun20i-d1-spi-dbi",
-+				     "allwinner,sun50i-r329-spi-dbi",
-+				     "allwinner,sun50i-r329-spi";
-+			reg = <0x04026000 0x1000>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(16) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI1>, <&ccu CLK_SPI1>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 23>, <&dma 23>;
-+			dma-names = "rx", "tx";
-+			resets = <&ccu RST_BUS_SPI1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		usb_otg: usb@4100000 {
- 			compatible = "allwinner,sun20i-d1-musb",
- 				     "allwinner,sun8i-a33-musb";
--- 
-2.39.2
+I think I would feel much better if this were something like:
 
+	if (!WARN_ON_ONCE(!ptep))
+
+This really shouldn't fail and if it does, simply skipping it isn't the
+right thing either.
 
 _______________________________________________
 linux-riscv mailing list
