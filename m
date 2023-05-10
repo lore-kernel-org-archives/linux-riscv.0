@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D3FC7EE22
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 20:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD66C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 20:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J6IlM9hS9z59QHR0zowlRQevWpUAe4GvfsPOPUg7IEM=; b=wF8tSBP8iF7PIFtilqh61qU+Cy
-	ZCl/9BsJO8Pb3RDc1NXlCyAQCkKEywmMqHH7dPM9FOWhzKlHUBR1r3XeF0pmwf6ajEJ7IR2OKgyLT
-	G7oAoaAUoLS7xL4cfrhG0VGMKc1856QFRddVAx+CV6M8Ufmr/5WmyLgOWKTHTv86780usLwzxtB/R
-	SlYE4dNtzY9e4vRLeqYseZ44b8ioPN8fN9ucQ4PsqoblxtbIoH574NH+wTy1yNJ+kra+M+5gz34P1
-	Hb0S8RGZ+eiYXDZmTTemT6QVGbtm5rgZHWXK+gCJTZOTp2KyFMPFHx1R3IRelTNFsVLBnB2XB+Mhq
-	2O1HdzVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=muHW2jhpiQwcwJ2T7nl6XZ0k2ZMr3kY3LXKTZNg+Rrs=; b=2I+6JUXapcqVGh
+	ZjKjb8/kwqeDHUYvDujJl0APWat+u1JBLEbRqtgi997/weA1NzfNei084lmm5JmITL8/xzJPIrrI0
+	zd+m49Gvj7LxIxhkBsPYVOVk+S1/CAGL11UBiNBugKbjkq+XdqDVNt/2pAXFRBFkHO4liCDACHcZZ
+	t39NuYk+dIMCQSnfYZwezGeKUi37RGYnpO/upjhAglEnlNkwy6n/RsYgBnMM0cvTfSFJeeD4NNTtb
+	/EjK/A0w5FXNcJVAK3yGPKmX3xX8+WVryx2L6SiluOpQcPoaMzFK1HGp/jJ2yoCTAVdh1wyiEixqG
+	eiyopVt73Q9Snzusr+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwqnY-006zuV-2C;
-	Wed, 10 May 2023 20:52:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pwque-0070kk-04;
+	Wed, 10 May 2023 20:59:52 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwqnW-006ztj-0v
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 20:52:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D72C264A4F;
-	Wed, 10 May 2023 20:52:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60E69C433D2;
-	Wed, 10 May 2023 20:52:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683751949;
-	bh=T5k5//N6a7rC9iSVTg6GYEGc1XCVn1HqOBIf6ccTI5c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T7CJrnguzb+6iHFO193HHRofxB8yGgLwViFd50H9ZDMZGl34e5jM51dWYRPACvixO
-	 3PmZkvEM6uxfC7gOHQqSxiVOn8iuCumtJNrSoCs57xXIOXF9NSEFzV3kh+mawsEy+v
-	 YgsUF3JZHAHau7M/o+awa91aELWS22KNdqCyNp0bF/UZlbHURmLw60oXVMyg2Gpcvx
-	 vPxw9F2fcNwc0SXUrgqlK+3H2IZqwrp2V0v9fjfFn0Z/dED9H2UcomEa/rGrp4Bliq
-	 C4zh6avX87gdTEGSM3cuF4sFV47o3Y3oLnmGS34ni/7R/Ne+PRl8VLp2dacv9rvl1y
-	 BjY3aBMRWvmlw==
-Date: Wed, 10 May 2023 21:52:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yangtao Li <frank.li@vivo.com>
-Subject: Re: [PATCH v2 5/5] MAINTAINERS: add entry for T-HEAD RISC-V SoC
-Message-ID: <20230510-stingy-kilt-9a682f2c9db1@spud>
-References: <20230510204456.57202-1-frank.li@vivo.com>
- <20230510204456.57202-5-frank.li@vivo.com>
+	id 1pwqua-0070k2-2z;
+	Wed, 10 May 2023 20:59:50 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-965f7bdab6bso1236346166b.3;
+        Wed, 10 May 2023 13:59:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683752385; x=1686344385;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F7iiVpNS2TbezgmpT9ZKv1CtTBR6JW8urFYOpMbLQIE=;
+        b=Ve84bY8EFJx6v5kYiXJIW4l38TbjweukQ9WPJ6EbKvaOLLh081oFWKHsluTDupOCmg
+         EgQ2VgSu1zl+F5zx/otyUBmafq657FY6qzHR/gAXtygP1fxPk7pW/RnQSI5wFSPnZFww
+         6RmKXFADFOlhsqW9PTuM++FK0p9pu7tusMpanqQTRHMNjv+Dy1GL9aZud/QcI+dsFCnQ
+         vQCa0EYiDIPqjztsz31dqgLbRnBBGZwwXX/NitSrvpYh3Q6U75nBzB9X6SqeNPZUp5Gv
+         bZbHAXNCNx3VUDFbS4roIkGZCwnZGai/7bkWX2JlW+XPd9KR3JjArqQIkml0W+1MR9Vj
+         WvXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683752385; x=1686344385;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=F7iiVpNS2TbezgmpT9ZKv1CtTBR6JW8urFYOpMbLQIE=;
+        b=Xkywr5fDep9+0m4+kZXjmE31n7byhXSYJYbCtce4epk9tWQReVuVNCocXmcHJiavF1
+         BT1BHv3z9ylRWqlSsHuatCqlKGrZ+qaiLcusF3UdICP6JpCKAfxD1D+RHoNsy3TVsXJC
+         fNR0MHvrzWSq0eyDiTl9KPtnTpdYHnSGLVhdFVFf/D73s8Vff+GZxpsZDnuLwpauNbCQ
+         mfz6W5oMH4XD3oXlfQNS2Z90NQd5k44qvdaetwpFp5qL84Ep9UJAqJKIYpP0sFEq5At2
+         Wg8gggPZCDVnLpQ6A22TQ18fFOkBlN9dfvBqDgQrSNiGeXyZyz3CYzUxk7MdHllwqWxd
+         gNXw==
+X-Gm-Message-State: AC+VfDy2AceNWdvBa/i39umtgp/hBrJ+FsXia3Mta/e2jHx769JKHzSI
+	napfNTF/aQUhW1RaFnaMvU0=
+X-Google-Smtp-Source: ACHHUZ6672faX07heGWs3B0PV7ZJkqYGuQNoX8YzdTu1PeXrQ3hCuaiW5DPyaliV7S7XcyE3AyDzgA==
+X-Received: by 2002:a17:907:94d3:b0:96a:58a:6cd8 with SMTP id dn19-20020a17090794d300b0096a058a6cd8mr6734541ejc.9.1683752384784;
+        Wed, 10 May 2023 13:59:44 -0700 (PDT)
+Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
+        by smtp.gmail.com with ESMTPSA id p15-20020a17090653cf00b0094ebc041e20sm3072028ejo.46.2023.05.10.13.59.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 May 2023 13:59:44 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>,
+ Maksim Kiselev <bigunclemax@gmail.com>
+Cc: Icenowy Zheng <icenowy@aosc.io>, Maksim Kiselev <bigunclemax@gmail.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Maxime Ripard <mripard@kernel.org>, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject:  Re: [PATCH v5 5/5] riscv: dts: allwinner: d1: Add SPI controllers node
+Date: Wed, 10 May 2023 22:59:42 +0200
+Message-ID: <1932306.PYKUYFuaPT@jernej-laptop>
+In-Reply-To: <20230510081121.3463710-6-bigunclemax@gmail.com>
+References:  <20230510081121.3463710-1-bigunclemax@gmail.com>
+ <20230510081121.3463710-6-bigunclemax@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230510204456.57202-5-frank.li@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_135230_367015_D1F463A3 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20230510_135949_020903_E0FD8845 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,66 +98,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Wei Fu <wefu@redhat.com>
-Content-Type: multipart/mixed; boundary="===============5659644474150944221=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Dne sreda, 10. maj 2023 ob 10:11:12 CEST je Maksim Kiselev napisal(a):
+> Some boards form the MangoPi family (MQ\MQ-Dual\MQ-R) may have
+> an optional SPI flash that connects to the SPI0 controller.
+> 
+> This controller is the same for R329/D1/R528/T113s SoCs and
+> should be supported by the sun50i-r329-spi driver.
+> 
+> So let's add its DT nodes.
+> 
+> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
---===============5659644474150944221==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qH5tGjn1QgjNsUSx"
-Content-Disposition: inline
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-
---qH5tGjn1QgjNsUSx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, May 11, 2023 at 04:44:56AM +0800, Yangtao Li wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
->=20
-> Jisheng:
-> I would like to temporarily maintain the T-HEAD RISC-V SoC support.
->=20
-> Yangtao:
-> Wei and me would like to help support and maintain too.
-
-Great, nice to have you :)
-
-I need to point out however, that much of the feedback given to the v1
-of this series has yet to be acted on.
-This thread on the lore archive should contain the detail:
-https://lore.kernel.org/all/20230507182304.2934-1-jszhang@kernel.org/
-
-Thanks,
-Conor.
-
---qH5tGjn1QgjNsUSx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFwECAAKCRB4tDGHoIJi
-0hE9AQChaXAGTewRrUHpcsKUxxiNIoXE5KP8RFLqTXz5Y6GM2gD/b7TYBv220hSe
-bASncQ2vGype9gVzMq4LUpwQG5JmzAI=
-=6TF1
------END PGP SIGNATURE-----
-
---qH5tGjn1QgjNsUSx--
+Best regards,
+Jernej
 
 
---===============5659644474150944221==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5659644474150944221==--
-
