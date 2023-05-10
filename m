@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18D2C77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 12:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B08C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 12:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYWY3Dpt4Wb1nr/fzslM2K/cT5RVyU1TS4kLbf9MvaA=; b=GWEYy405b27w51FjpKsjAd/xeM
-	JCkq1LPB9TEe49XmgTKIvHwg5mCkd2gKvI9m7Qjz0sZOxddMlSEcvuFLuBP0gofef/uQGnGm+98BY
-	KYkuQRNceO0A17uVq/b1Z5TRDvoQif/deKcVrnPnVi3kSDzGKCcYlct29A53YZA30FrJYxbGy1GEh
-	kq8SS/kGroRtsOADYWKKaU5Sd77Q1oStzE5o7KfEMPPLNUvLDQ+rNi/pCxyxqnCHuYtwipdMkCTfC
-	Kyme0Tm5r+B1VW7/N5AYjNPwKqDDEJUOX9UJTAJmVNVmPqtWmHg4RiTOf59JNHADILThxNC2jlqlN
-	HNqG4/Iw==;
+	bh=5Vz3yH0wyHnlnKQOnPsAnfAvSRqNTrPf4CsMEZ4A9s8=; b=ow0IuCDN2GaPgo3VhRt+B5YjTw
+	ZecwT+19haYCqjqpTYgW/ts8LPOVGQEhMcnUN87ncFe5ZlsJHVj7ZLG4zFlNpA4wQnQ6s3HZJS0iO
+	K0qmZ5vMBgZRfnv2C5gJH8P/RHZB+t4AXyNAuW4E1DdTVqWpQS/yPZaFwzApvx6vLWJZvhwI065u2
+	L9BY4nwYMx9hghhFaz2dxDao+rDkGBZ7jwRCfMIiXyKVm0VodUZ9ckNm9KGGdNwW4jZrSaou1Unav
+	AMcK1tCDRStVXhS2JnG8ls4QZMYC930jhfFbrCCPsNWFFo+ZsB9vtEX/vPmc5k8F+f26MtLcvDbNK
+	cdUEpnZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwikj-0067UM-2s;
-	Wed, 10 May 2023 12:17:05 +0000
+	id 1pwioU-0067qj-23;
+	Wed, 10 May 2023 12:20:58 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwikf-0067TC-1x
+	id 1pwioR-0067pw-1T
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 12:17:03 +0000
+	Wed, 10 May 2023 12:20:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683721021; x=1715257021;
+  t=1683721255; x=1715257255;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=c0LtGL7zvuyoxmCVFA1srE+yHPP0jp3sH5qXd5mFOug=;
-  b=eq4UBJNfFAwnVa96S7LpMz/WTRTz2Degf1RyjfQRm5Ci3feSyyzVlnW+
-   TIMGAJUPlQfShoMyIVhb/qyFXIOM3dgqILwg44H97SHm4+fMEYaVE1pap
-   s2fyt51LH+1rht1sLVWTOn0uo+HlhVDbh2tTbMntevSGmHA1SP7HbF7MO
-   HzAUR44UZ1GdMwcgUaM+w8umK2a7sFHcDh9q5opkRkGkcgmON02t0io2j
-   daMzvwphexbR0E0HSAVkXJj6lc8A42Lik3COJM66cH++Yf9v4mltuoO1I
-   0PaHyBY61xWKkT9nNYTvVHQNjcOVtRJp8Q4bBctUIZsMXVh/rprq1cz3T
-   w==;
+  bh=TcX1IaLwnXYJEIt2VotXZBEoSrQM67d7M4Y9YenCRXg=;
+  b=FpAgL9yTNYfBNnqU9IG46QCbZN3KKHpHtwUMbxxBbw7+BJ+RedQayol/
+   /80a6WjNlSf0XfQSEe4GOJ/5lilJp2NWY8eYPdyG11U+afNMSYfbV3Pcn
+   8hr+3UJA6sdoYM+eLzYztQ/X3e1AAgG12RQGgb0JTlqiWq5EPHB1GCAxF
+   yygx3A8L6FeeDlbZlUWI8LzKM3xz9UmcsL+PapQe9JMpA8WfsSUoxa6Hy
+   ftcbFNmY0BMpJYWJ0deB3f37BEYKYBAqQrXVWaOcDxBqnehL37dFLw1sF
+   Td1Q04I9kerUK/mE+LNJOso7oi7p1CLj+txJgYs18GAq4sHNo/wlzEK2u
+   g==;
 X-IronPort-AV: E=Sophos;i="5.99,264,1677567600"; 
-   d="asc'?scan'208";a="210553509"
+   d="asc'?scan'208";a="210554051"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 May 2023 05:16:50 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 May 2023 05:20:54 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 10 May 2023 05:16:45 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Wed, 10 May 2023 05:20:47 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 10 May 2023 05:16:43 -0700
-Date: Wed, 10 May 2023 13:16:23 +0100
+ Transport; Wed, 10 May 2023 05:20:44 -0700
+Date: Wed, 10 May 2023 13:20:24 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Anup Patel <apatel@ventanamicro.com>
 CC: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
@@ -67,16 +67,16 @@ CC: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
 	<anup@brainfault.org>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<iommu@lists.linux.dev>
-Subject: Re: [PATCH v3 04/11] dt-bindings: interrupt-controller: Add RISC-V
- incoming MSI controller
-Message-ID: <20230510-untried-duvet-7e3c230fcefd@wendy>
+Subject: Re: [PATCH v3 10/11] RISC-V: Select APLIC and IMSIC drivers
+Message-ID: <20230510-maybe-wrongly-14914a15c044@wendy>
 References: <20230508142842.854564-1-apatel@ventanamicro.com>
- <20230508142842.854564-5-apatel@ventanamicro.com>
+ <20230508142842.854564-11-apatel@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230508142842.854564-5-apatel@ventanamicro.com>
+In-Reply-To: <20230508142842.854564-11-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_051701_699050_A1989C86 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20230510_052055_552994_2554AEE2 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +88,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7458990399880570599=="
+Content-Type: multipart/mixed; boundary="===============1770427055758889002=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7458990399880570599==
+--===============1770427055758889002==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="yuw4pefuYIA+XBN4"
+	protocol="application/pgp-signature"; boundary="3u5hYZkmsjkmqqoH"
 Content-Disposition: inline
 
---yuw4pefuYIA+XBN4
+--3u5hYZkmsjkmqqoH
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-Hey Anup,
-
-On Mon, May 08, 2023 at 07:58:35PM +0530, Anup Patel wrote:
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 16384
-> +    description:
-> +      This property represents the set of CPUs (or HARTs) for which given
-> +      device tree node describes the IMSIC interrupt files. Each node pointed
-> +      to should be a riscv,cpu-intc node, which has a riscv node (i.e. RISC-V
-> +      HART) as parent.
-
-One minor nit here about wording - "riscv node" doesn't seem
-particularly clear to me, should it be s/riscv node/cpu node/?
-
-My only thing last time around was my misunderstanding, and you also
-appear to have resolved Rob's complaints, so:
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Just to note, it'd be great if you could CC me on series that I've
-already reviewed when you resubmit them?
-Although in this case, if you ran get_maintainer.pl on v6.4-rc1 it'd have
-told you to CC me anyway ;)
 
 Thanks,
 Conor.
 
---yuw4pefuYIA+XBN4
+--3u5hYZkmsjkmqqoH
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFuLFwAKCRB4tDGHoIJi
-0rSoAQDigVc1zoOIAq0GeK2C6LRDT48ecB1I90Fv+aw41IVdHwEApAt8ew3bob+u
-Bn7gu+nIK1drEkZwQYODA5bMAVpuzwA=
-=g+th
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFuMCAAKCRB4tDGHoIJi
+0peMAPsF88TZqTDIFWCvsuDyzGB5/8W3/VHbAHHmMC5kyZPYzwEAhbStO8c+fjsD
+mgqW/ghiLkALyo3FoMQwSXlsbmYyZw8=
+=HWkU
 -----END PGP SIGNATURE-----
 
---yuw4pefuYIA+XBN4--
+--3u5hYZkmsjkmqqoH--
 
 
---===============7458990399880570599==
+--===============1770427055758889002==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -153,5 +131,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7458990399880570599==--
+--===============1770427055758889002==--
 
