@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A779EC7EE22
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C66FC7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 09:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2u757lyQOtCBvmFxtMgoJ9jrq0GW1v4ejbRrdCjn7hg=; b=YwOM9/RPGjvqaV
-	GE3ZXSSIsql7dheEJKJqGmj0LhC6A1m83NgIXg0HDrLrkpvlbQAUG8w1nQ7oq/SA1cdJ7uuB34V4t
-	bolGEfAs+/cNNrCsMFOGovI17knvv4lrsRkbgzhH6h9WMsrufi1PQvkWELtLP8OtvoY/gU396HL6O
-	btB0WJo7Aiy+S+i6hTlb2LXM+CLtbHFrupVClZ6eCvunBOKG9wUW9sm0JA2HGIrtY1dihV0Z6mVwb
-	czTSzsB8s1ERsX2KoPn+ZCwD+okHXh7DX6B2emNZ+tqP4lfFI5uIRYG6ltuJwtxkylr2fi/fLRvGz
-	mOjd8N8DN7DtbCgBeK/w==;
+	List-Owner; bh=OnHL6PBaaQZ8QhNh38+Kiwg8gK1YQxeUKfsBUvXEpec=; b=wp9uRZOHfRiHkK
+	DYk9MbNxmQTKyPix4Gc6zOy++Y8NIRjPF3DZQn3oqwmnObczZMiygSQPI7NK8tqycBRAvBW+oh+v4
+	SZCUUZ4t10olliwfI8bRZE/9Se5aEecOYaYXCb2Ok3YIeTz2/y6PBi2hycOZRyHLLAY20gOs4LTDS
+	5UNfw7hR/3GICLHkFXIRx32JOcRQus9LhQYKm9PqvFf1D2twgUn8E2XKyV/zxybN+Z5rJOxPv/dS0
+	xBLs8eEx2ZHde+Dw17CZyxEvVYVT7SyMLQ1Tv4thDTIlC+C41+MYQT57y1/51K8Ft8T8r9HWestXK
+	09komHTiaznTFy1NiLTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfbm-005b6W-1b;
-	Wed, 10 May 2023 08:55:38 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfbj-005b57-01
+	id 1pwg1d-005eAS-2D;
+	Wed, 10 May 2023 09:22:21 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwg1Z-005e3I-0b
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 08:55:36 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-33-N3ky-fLINuaf4cVNoHcZnw-1; Wed, 10 May 2023 09:55:28 +0100
-X-MC-Unique: N3ky-fLINuaf4cVNoHcZnw-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 10 May
- 2023 09:55:27 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Wed, 10 May 2023 09:55:27 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Maxim Kiselev' <bigunclemax@gmail.com>
-CC: Andre Przywara <andre.przywara@arm.com>, Icenowy Zheng <icenowy@aosc.io>,
-	Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Cristian Ciocaltea
-	<cristian.ciocaltea@collabora.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Maxime Ripard <mripard@kernel.org>, "linux-spi@vger.kernel.org"
-	<linux-spi@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-sunxi@lists.linux.dev"
-	<linux-sunxi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
-Thread-Topic: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
-Thread-Index: AQHZgHJVw1wL+axJhkKYU1TQITl02K9QIrDQgAL/+QCAABUggA==
-Date: Wed, 10 May 2023 08:55:27 +0000
-Message-ID: <1592f46b0f794b24a87a964d7208da68@AcuMS.aculab.com>
-References: <20230506232616.1792109-1-bigunclemax@gmail.com>
- <20230506232616.1792109-3-bigunclemax@gmail.com>
- <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
- <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
-In-Reply-To: <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Wed, 10 May 2023 09:22:19 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 5816224E2A9;
+	Wed, 10 May 2023 17:21:25 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
+ 2023 17:21:23 +0800
+Received: from [192.168.125.124] (183.27.98.219) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
+ 2023 17:21:22 +0800
+Message-ID: <f27b7ee7-f23a-35a2-3b82-71f50871dfcc@starfivetech.com>
+Date: Wed, 10 May 2023 17:21:21 +0800
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
 Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, <alsa-devel@alsa-project.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20230506090116.9206-1-walker.chen@starfivetech.com>
+ <20230506090116.9206-4-walker.chen@starfivetech.com>
+ <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com>
+ <20230509-overheat-pliable-00d60523637e@spud>
+ <CAJM55Z9AxMVw=ymfFBb=45nODq89O8dMebzRgo-XD0GKduDBYg@mail.gmail.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <CAJM55Z9AxMVw=ymfFBb=45nODq89O8dMebzRgo-XD0GKduDBYg@mail.gmail.com>
+X-Originating-IP: [183.27.98.219]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_015535_341639_8B29C375 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20230510_022217_527137_10E1E722 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +79,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTWF4aW0gS2lzZWxldg0KPiBTZW50OiAxMCBNYXkgMjAyMyAwOTozNA0KPiANCj4gSGks
-IERhdmlkDQo+IA0KPiA+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhp
-cyBwb2ludD8NCj4gPiBUaGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0
-IHdvdWxkIG1ha2UNCj4gPiB0aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVy
-Lg0KPiANCj4gSSdtIHNvcnJ5IGJ1dCBJIGRvbid0IGZ1bGx5IHVuZGVyc3RhbmQgd2hhdCB5b3Ug
-YXJlIHN1Z2dlc3RpbmcuDQo+IEluIHBhdGNoIDNcNSB3ZSBleHRlbmQgdGhlIHN1bjZpX3NwaV9j
-Zmcgc3RydWN0dXJlIHdpdGggdGhlIGhhc19jbGtfY3RsIGZpZWxkLg0KDQpZb3UgYXJlIHN0aWxs
-IG9ubHkgYWRkaW5nIGEgc2Vjb25kIGludGVnZXIuDQoNCkknbSBzdWdnZXN0aW5nIHRoYXQgaW5z
-dGVhZCBvZiBzc3BpLT5jZmcgYmVpbmcgYSBwb2ludGVyIHRvIHRoZQ0KY29uZmlnIGRhdGEgaXQg
-aXMgYSBjb3B5IG9mIHRoZSBjb25maWcgZGF0YS4NClNvIHRoZSBhc3NpZ25tZW50IGJlbG93IGJl
-Y29tZXMgKGlnbm9yaW5nIGVycm9yIGNoZWNrcykNCgltZW1jcHkoJnNzcGktPmNmZywgb2ZfZGV2
-aWNlX2dldF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpLCBzaXplb2Ygc3NwaS0+Y2ZnKTsNCmFuZCB0
-aGUgY29kZSB0aGF0IG5lZWRzIHRoZSB2YWx1ZXMgaXM6DQoJc3NwaS0+Y2ZnLmZpZm9fZGVwdGgN
-CihldGMpDQoNCglEYXZpZA0KDQo+IA0KPiDQv9C9LCA4INC80LDRjyAyMDIz4oCv0LMuINCyIDEy
-OjQ3LCBEYXZpZCBMYWlnaHQgPERhdmlkLkxhaWdodEBhY3VsYWIuY29tPjoNCj4gPg0KPiA+IEZy
-b206IE1ha3NpbSBLaXNlbGV2DQo+ID4gPiBTZW50OiAwNyBNYXkgMjAyMyAwMDoyNg0KPiA+ID4N
-Cj4gPiA+IEFzIHdlJ3JlIGFkZGluZyBtb3JlIHByb3BlcnRpZXMgdG8gdGhlIE9GIG1hdGNoIGRh
-dGEsIGNvbnZlcnQgaXQgdG8gYQ0KPiA+ID4gc3RydWN0IG5vdy4NCj4gPiA+DQo+ID4gLi4uDQo+
-ID4gPiAtICAgICBzc3BpLT5maWZvX2RlcHRoID0gKHVuc2lnbmVkIGxvbmcpb2ZfZGV2aWNlX2dl
-dF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpOw0KPiA+ID4gKyAgICAgc3NwaS0+Y2ZnID0gb2ZfZGV2
-aWNlX2dldF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpOw0KPiA+DQo+ID4gSXMgaXQgd29ydGggZG9p
-bmcgYSBzdHJ1Y3R1cmUgY29weSBhdCB0aGlzIHBvaW50Pw0KPiA+IFRoZSAnY2ZnJyBkYXRhIGlz
-IHNob3J0IGFuZCBjb25zdGFudCBhbmQgaXQgd291bGQgbWFrZQ0KPiA+IHRoZSBjb2RlIHRoYXQg
-dXNlcyBpdCBzbWFsbGVyIGFuZCBmYXN0ZXIuDQo+ID4NCj4gPiAgICAgICAgIERhdmlkDQo+ID4N
-Cj4gPiAtDQo+ID4gUmVnaXN0ZXJlZCBBZGRyZXNzIExha2VzaWRlLCBCcmFtbGV5IFJvYWQsIE1v
-dW50IEZhcm0sIE1pbHRvbiBLZXluZXMsIE1LMSAxUFQsIFVLDQo+ID4gUmVnaXN0cmF0aW9uIE5v
-OiAxMzk3Mzg2IChXYWxlcykNCj4gPg0KDQotDQpSZWdpc3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUs
-IEJyYW1sZXkgUm9hZCwgTW91bnQgRmFybSwgTWlsdG9uIEtleW5lcywgTUsxIDFQVCwgVUsNClJl
-Z2lzdHJhdGlvbiBObzogMTM5NzM4NiAoV2FsZXMpDQpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 2023/5/10 16:33, Emil Renner Berthing wrote:
+> On Tue, 9 May 2023 at 20:05, Conor Dooley <conor@kernel.org> wrote:
+>>
+>> On Tue, May 09, 2023 at 08:52:48PM +0800, Walker Chen wrote:
+>> > Hi Conor/Emil,
+>> >
+>> > DT overlay is used to describe combinations of VF2 and hat.
+>> > Do you have any comments on this patch ?
+>>
+>> Up to Emil :)
+>>
+>> I seem to recall that he said at the linux-riscv sync-up call that we
+>> have* that he was not in favour of overlays for hats like this.
+>> I'll let him confirm that though, I might very well be misinterpreting or
+>> misremembering what he said.
+> 
+> What probably meant was that I didn't want a bunch of different device
+> trees for each combination board * hat. An overlay makes a lot more
+> sense. However, looking through the kernel tree there is a surprising
+> lack of overlays for hats committed already, so I suspect there is
+> some sort of policy around overlays already in place.
+Hi Emil,
+
+About the specific usage of overlay for this board + hat, referenced to the following example in kernel:
+linux/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx-0x-imx219.dtso
+That board is connected with imx219 sensor via mipi_csi interface. That patch was accepted in 2022.
+
+So do you think this way is feasible ?
+Thanks!
+
+Best regards,
+Walker
+ 
+> 
+>> Cheers,
+>> Conor.
+>>
+>> * https://lore.kernel.org/linux-riscv/mhng-775d4068-6c1e-48a4-a1dc-b4a76ff26bb3@palmer-ri-x1c9a/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
