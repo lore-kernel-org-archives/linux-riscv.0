@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5635C7EE22
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DA7C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OFhmEctVZ4mUC1i6Ytiq+Fim+QgISenbBnrHV6HJyH8=; b=q5/fYZfxo9479C
-	zQbi4z/bN+g5+V+N8HCwO3/ePD1I1JIdGSbprgNJrSVL6GgAlY3dE9N/2vjUoQMV/MVWbU3NUlHKK
-	an08Y0uhDXYoos4yRyYmedTSE54n67biBhazqqdSOV7F2bvrKONzCoaiuWiiHgFHsxFhsSJC7SY+V
-	TUpZx16wngmmHf055+MHDNQz7grSuFSsnpFwOLxryFKB7J5+EWyD6ndeKEEjBmvgFvADaqNWJAeDY
-	Ikji57IRkh/0p+2Oxusrkqg5+LxpK4b6BOHuO7NMvU17LOiZjgok1SwmEyQ98dt/wKyLZuhxXhojv
-	0/N+LTrmhI64tXnydmzA==;
+	List-Owner; bh=NjLUiNX1uL93cEgA73axFq3Tb2N+SownSY6pspJKBxw=; b=nUdB7u4hzkJe/f
+	L2YHYVagPOA+INw30oiKIjjBJSxDQXwLMT/N0pu6CUg6RBr3M76Qp3pcQq5xF9tro+uzbrxh8s5c3
+	2+IoO0s2GFX2qmOZWLNtQqEj+wBBaltVRA9mL6Tdpckx3CRPPLQb9o+PzoGhEeGNmWWkk7YJEoDTf
+	txS7VQxWAqEKoqrOIBwTVmTZAXwv6PMLf12HCz82bb9yFzeb1PCZn47X3+ctTvX9P0AfmJ36gUP1F
+	KNwMy0CXuKjWWlUHDCiQVcd3X96b3T8rQni7rzxkfSEhowXdUhucIJ4jscSQjjqlOEtdCuuHYXUBE
+	aY1P5u/DcwEmH0YDGtnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwf4U-005VP5-1O;
-	Wed, 10 May 2023 08:21:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pwfH4-005Y3E-3A;
+	Wed, 10 May 2023 08:34:14 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwf4T-005VOF-02;
-	Wed, 10 May 2023 08:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1WZCLagr9yk4Cbp+6qSxxsSMmqvOctxqT3bVkNGFhnY=; b=CzmDvf3rqlZoWLTgd3FVOKNA13
-	am3KRsvw5dx0zZtORpSkeQixmHm2I0T/j68VXo57hz3B2sKfsZlkzT6mcIfsGM8QExy3tEBmFQg15
-	5knvERiYGPZKMBkmsOAK/iQ/5rtOFvAqMTYH7nFMXqdqWWfvmHjqNDYraw79BjtqAXxEKvC5IXPLi
-	v4WkUXSf6SdYO2DxNqGoNj/9jzwXI/RVqLwvIK8H89K9xhFYfEkKkPofOod7rLsPcDYQd4FB4I+bb
-	ncPfZdYjPCu8FZ1ut2ZqCkZjLMrUhqEHRkvEROX3xUgFItRMwb3mnY6amim7reKFoxZZ2cjlGh5hD
-	cm+pskqQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwf2E-007PM8-2r;
-	Wed, 10 May 2023 08:20:55 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4DA20300338;
-	Wed, 10 May 2023 10:18:48 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2369E20B04BA2; Wed, 10 May 2023 10:18:48 +0200 (CEST)
-Date: Wed, 10 May 2023 10:18:48 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Hugh Dickins <hughd@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	John David Anglin <dave.anglin@bell.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH 21/23] x86: Allow get_locked_pte() to fail
-Message-ID: <20230510081848.GD83892@hirez.programming.kicks-ass.net>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <eba2b72f-2180-498b-c8bd-ce8f717fc78a@google.com>
+	id 1pwfH1-005Y1m-3B;
+	Wed, 10 May 2023 08:34:13 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-50bd37ca954so66722964a12.0;
+        Wed, 10 May 2023 01:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683707648; x=1686299648;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B0p9eN+ggVsgeu7VJetFmhwwW1D4ZwxzfXfjX9kMJRM=;
+        b=aeJMh3kSstDe1tz2bumuhjkcM10fYPnNrpPFTf8YaH+43l4LdtxVqZKDDS6zar4ITc
+         Hqyxpo3mhZi7S8O/stKHeIkPNQubDmKQi8SGpJkxKOFdRwNDNhH3LTiSZx73UID970SX
+         013fKgK1EoMIFg0iEmRgbk7wzOrtA4JRBD3VzS6NgvmgOPdYGXf5Ygbz87M9CEQrZG87
+         w98LSZC1YVvPzzi+1uODZ3QtjeZbPvjh1op9tN/oulKncSxqKt09CrFJHKxfhWftL6n0
+         rwX5KAgGtkRzfriquYC1kaYGLT+z8RrY62wCWWEAo72iNN1rQv2ZBRYgnmhRbqe1njoH
+         HVHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683707648; x=1686299648;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B0p9eN+ggVsgeu7VJetFmhwwW1D4ZwxzfXfjX9kMJRM=;
+        b=YqWUqlN+D8x0Sh++8Kq4gYKU1EzmO5JvPH0N7DmOQXCHgeXTBNr2KbGfjMdcvuAlJ8
+         72R8ldxUbsyXy89vA9tEr8h+CsC3Xm1SNvs2yTFfTiQhJJiK72naVrQl0mTv0CLvi7S2
+         qZtBbomawXdYsk44oeEO2wytjSS1tS/SDE5TR/XycJF+ieZx1JrUc/GGmmBaWmVF0I2x
+         K5VjH0FXyQhovXm0iBazpp2r+CMy9dVQCHiS6XWp6wnx9Or9p4SP1urA0aYWxTgJK+/n
+         eSn9TSl1qL87S5IvqMekVrkAl4gDYiQ5t0p55yBarZtvUXEVPN6G7mC5KrWhDyrIachj
+         Ig6Q==
+X-Gm-Message-State: AC+VfDxG+gfylooy7xJbtdCcLu40JmsmpfSaDiOQNWEcsN8od01lU148
+	O3Fm3f1M6nAbkYiq3CjxN4wU8O9mKad3/sQNUEs=
+X-Google-Smtp-Source: ACHHUZ5LA+oyV/jkzhbvC/Oj8UgFvIAECULeZEfOx2nOpmbXWSiznXG43fIAKb5+pEqhaTHmHRKki6vY600b90D3Eyk=
+X-Received: by 2002:a17:907:724b:b0:94d:e2ef:1618 with SMTP id
+ ds11-20020a170907724b00b0094de2ef1618mr14022272ejc.7.1683707647722; Wed, 10
+ May 2023 01:34:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <eba2b72f-2180-498b-c8bd-ce8f717fc78a@google.com>
+References: <20230506232616.1792109-1-bigunclemax@gmail.com>
+ <20230506232616.1792109-3-bigunclemax@gmail.com> <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
+In-Reply-To: <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
+From: Maxim Kiselev <bigunclemax@gmail.com>
+Date: Wed, 10 May 2023 11:33:56 +0300
+Message-ID: <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
+To: David Laight <David.Laight@aculab.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, Icenowy Zheng <icenowy@aosc.io>, 
+	Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
+	Maxime Ripard <mripard@kernel.org>, 
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230510_013412_019466_6DEB9721 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +96,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 10:08:37PM -0700, Hugh Dickins wrote:
-> In rare transient cases, not yet made possible, pte_offset_map() and
-> pte_offset_map_lock() may not find a page table: handle appropriately.
-> 
-> Signed-off-by: Hugh Dickins <hughd@google.com>
-> ---
->  arch/x86/kernel/ldt.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/ldt.c b/arch/x86/kernel/ldt.c
-> index 525876e7b9f4..eb844549cd83 100644
-> --- a/arch/x86/kernel/ldt.c
-> +++ b/arch/x86/kernel/ldt.c
-> @@ -367,8 +367,10 @@ static void unmap_ldt_struct(struct mm_struct *mm, struct ldt_struct *ldt)
->  
->  		va = (unsigned long)ldt_slot_va(ldt->slot) + offset;
->  		ptep = get_locked_pte(mm, va, &ptl);
-> -		pte_clear(mm, va, ptep);
-> -		pte_unmap_unlock(ptep, ptl);
-> +		if (ptep) {
-> +			pte_clear(mm, va, ptep);
-> +			pte_unmap_unlock(ptep, ptl);
-> +		}
->  	}
-
-Ow geez, now I have to go remember how the whole PTI/LDT crud worked :/
-
-At first glance this seems wrong; we can't just not unmap the LDT if we
-can't find it in a hurry. Also, IIRC this isn't in fact a regular user
-mapping, so it should not be subject to THP induced seizures.
-
-... memory bubbles back ... for PTI kernels we need to map this in the
-user and kernel page-tables because obviously userspace needs to be able
-to have access to the LDT. But it is not directly acessible by
-userspace. It lives in the cpu_entry_area as a virtual map of the real
-kernel allocation, and this virtual address is used for LLDT.
-Modification is done through sys_modify_ldt().
-
-I think I would feel much better if this were something like:
-
-	if (!WARN_ON_ONCE(!ptep))
-
-This really shouldn't fail and if it does, simply skipping it isn't the
-right thing either.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIERhdmlkCgo+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhpcyBw
+b2ludD8KPiBUaGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0IHdvdWxk
+IG1ha2UKPiB0aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVyLgoKSSdtIHNv
+cnJ5IGJ1dCBJIGRvbid0IGZ1bGx5IHVuZGVyc3RhbmQgd2hhdCB5b3UgYXJlIHN1Z2dlc3Rpbmcu
+CkluIHBhdGNoIDNcNSB3ZSBleHRlbmQgdGhlIHN1bjZpX3NwaV9jZmcgc3RydWN0dXJlIHdpdGgg
+dGhlIGhhc19jbGtfY3RsIGZpZWxkLgoK0L/QvSwgOCDQvNCw0Y8gMjAyM+KAr9CzLiDQsiAxMjo0
+NywgRGF2aWQgTGFpZ2h0IDxEYXZpZC5MYWlnaHRAYWN1bGFiLmNvbT46Cj4KPiBGcm9tOiBNYWtz
+aW0gS2lzZWxldgo+ID4gU2VudDogMDcgTWF5IDIwMjMgMDA6MjYKPiA+Cj4gPiBBcyB3ZSdyZSBh
+ZGRpbmcgbW9yZSBwcm9wZXJ0aWVzIHRvIHRoZSBPRiBtYXRjaCBkYXRhLCBjb252ZXJ0IGl0IHRv
+IGEKPiA+IHN0cnVjdCBub3cuCj4gPgo+IC4uLgo+ID4gLSAgICAgc3NwaS0+Zmlmb19kZXB0aCA9
+ICh1bnNpZ25lZCBsb25nKW9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YSgmcGRldi0+ZGV2KTsKPiA+
+ICsgICAgIHNzcGktPmNmZyA9IG9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YSgmcGRldi0+ZGV2KTsK
+Pgo+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhpcyBwb2ludD8KPiBU
+aGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0IHdvdWxkIG1ha2UKPiB0
+aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVyLgo+Cj4gICAgICAgICBEYXZp
+ZAo+Cj4gLQo+IFJlZ2lzdGVyZWQgQWRkcmVzcyBMYWtlc2lkZSwgQnJhbWxleSBSb2FkLCBNb3Vu
+dCBGYXJtLCBNaWx0b24gS2V5bmVzLCBNSzEgMVBULCBVSwo+IFJlZ2lzdHJhdGlvbiBObzogMTM5
+NzM4NiAoV2FsZXMpCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
