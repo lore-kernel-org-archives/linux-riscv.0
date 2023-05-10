@@ -4,100 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04202C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 05:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57884C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 05:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lPReqVOetHZzRDiMnK5ra6xe/BnOoVvFUmK9tkPUNf8=; b=TFAjxewn5YRrsN
-	w6zw5HgaCx54qJm3wJge6QLeUD0fVvOE/GObrT8dp3N1+G+b2LLBWH8uL3K3y9GZgI0lNA8VoT8D2
-	TkZvyct3U6Be5s03An0uFAb1cI5/dk35gpQxx11B7kl2aQofBR15SfZg12Z1VyP0UFcme9HMJYGdM
-	zMuQBOxZC32FA/VFJDsmO1YhKcE+Z9Qi7R3/NB1NsMx9+hgoslWMd5aKHy0fzpteBSiyjWA/hVvoR
-	XgvYEifOQoWDE2kBl7agvZvbcZ5eCDpqzKhRy6RB99bjNC63kEA68R2i3N3JaTa5Nlqw5Z1X3wTUh
-	l6Jm7zJhrkvepMWnFI/Q==;
+	List-Owner; bh=jiZXNOzY3VwHM/31avcKlLr1OaFJm02DNFDVWmgd/lE=; b=1pDnuOfom28d2U
+	ZlkhZmOeWSBKVfoztw2rj683qTruUVu0uVJMTJ3+67UbzoJJwOg8hsuTaUiPHXe60qlOUYWFSCGhk
+	eFAiC4qdLbxjrEor9b9B5HAPRDOsqzmnhxKLnI0SRqpT4Yn00RjEkKaNPiCglZd+e2N3LooPiivI0
+	8lgwICfscdAXeVJOckaYCFW+rQlkifG4wgfs5yRndzroEmUz+Y+JRE49owKgk0nedcK61rWbRGNT1
+	4vR5uMoXPfsXCSWVUKyJe2BbErfh0pEdl8qpFuzhPBmRgIqPEgjWACWqbiJbQRV10nEqRA/zB/HzK
+	FKoBxpJR6IQNKcX6ejjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwc6Y-0057QK-2M;
-	Wed, 10 May 2023 05:11:10 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1pwcgJ-005AyA-02;
+	Wed, 10 May 2023 05:48:07 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwc6W-0057Oz-0o
+	id 1pwcgG-005Ax3-0p
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 05:11:09 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-55a829411b5so62583897b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 22:11:08 -0700 (PDT)
+	Wed, 10 May 2023 05:48:05 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6a5f602a8f7so4643917a34.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 22:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1683695467; x=1686287467;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5t5YV0zKgmgEyAUPKTSjojlBVWu7n9Z5EbrT7MCf/bI=;
-        b=2vB4gHPvdrYwpepEfO1nF7s17T93hgvovaDeIEtq/j7tZEKBAX6MfSFdULN3s1RrSv
-         XbcEaHE4RfnjNOR2bGTDUPbkUVKLAEh7Z60FKXcJrN5AB5F5sDrBlIYfucGi5YFq3CRE
-         x2J76JMa1KrQtFzkek9dhFVhgpBZ4hkaFn0t/tEhn6Lp6XTc2qq6OFMsvbIv1u0qf83/
-         DuPOrKKE39rYYW8ERQAhpQjY3kAUjmEo/2XpafFM5jSnKHS+15Ix6XCgfH0XnW/sjbs8
-         PlPBuW0lMaTsO4yfeYWj+it6wzwQ+thFBn+MFXcJGic5E+ghFwv9VEoF4ainQyun9oWL
-         kbxA==
+        d=ventanamicro.com; s=google; t=1683697682; x=1686289682;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aLoXxmvmI+TNDBhJrgne+NmasMw88TAHwNMgEXRV8rI=;
+        b=cdGX27W3aTaVuF1lXqNU3dXFL5s/Mxv+Moz1oLv1bQd1dEC9mDTi2x1P2N71gBko7J
+         2+zczCTSBLiri2fJqfSyyz5RHx46ktfWmUOXnHuyj5Cn4nTnemxRsBPtCWjjZawCjJGN
+         78Z4MCWQKxZMpusPRAJQCksQy1Dfq+cU/sE+LDbzedpxxiDwbqNmgut9N0xguAbrwjC6
+         i26od8SWAexY2jtV7kg0NYHScaH2lXuJWt2XqxC61phsOtpGEOKp0RycWSufEb7ci05D
+         XrgVIiuCTq2cXFJRCtMevAMjlG69+8PadWF6hGIxq7j2gai3jXAqXDEXXYFo0g1p+Z4b
+         ehIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683695467; x=1686287467;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5t5YV0zKgmgEyAUPKTSjojlBVWu7n9Z5EbrT7MCf/bI=;
-        b=F6y6m5Ls5NsQdazYZ77DxXuNh2lp2pxp6iIc2kSgugGd7lF/AVFvkjKcmMktH/qB32
-         4VySBHJX7kkM5WEPXk/Ps7C6LYyVOSHzFdS7rWXvY1TMFoXtzx5SPYPMMN4nGDQSPlds
-         nvL5tw3siRxKJVVqLvfdpaGF8Vyusjc7P66gbQ/ARi1yZtODCH1KWLJ8V2m2MPBxHLRO
-         T84ek2qUMq4AAu6XQIzEVj1ZhnAw1q6GuPqt3UMML7aGWBignpGJFIJaen/ddch0GYen
-         MO+ZUyN2ViKB/gucnrE1nsGMTNhA4P3mr6XOa9s4kM5VZ0r/Qwqoq5TPeJO+RSuyfWV/
-         hNeQ==
-X-Gm-Message-State: AC+VfDzR0DzR5Im7Eedb9eH2n1fqwborxcVc4s/yhLUA9DruDQWOVXcg
-	JgeYNImidG0uxFTfIOeYLxhThg==
-X-Google-Smtp-Source: ACHHUZ5S12uJTV3RgA8xdSJdxWq0jDZ0XleloV6/dK1s9NkYAdupH7Dq2nQz0anegdxAtAS1U2ZfRQ==
-X-Received: by 2002:a0d:d4c3:0:b0:55a:9d84:2e4e with SMTP id w186-20020a0dd4c3000000b0055a9d842e4emr17689769ywd.18.1683695467357;
-        Tue, 09 May 2023 22:11:07 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id l65-20020a0dfb44000000b005461671a79csm978797ywf.138.2023.05.09.22.11.04
+        d=1e100.net; s=20221208; t=1683697682; x=1686289682;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aLoXxmvmI+TNDBhJrgne+NmasMw88TAHwNMgEXRV8rI=;
+        b=Bq2/ceRm5fylMiRAboUmSCcvaMXqBq/CI56jjrGwlRI/18Fbp542gnU1SHABZmfoZo
+         P9uMph+WZNPOGlfdaMFZgC+3Nzg3Aq36j2ZkkpelbP/qZgxHhfsKy9V946SrBiStI6+Z
+         pp90CWVUp5Oi4y+nRHnbpm7oI8lkVpgpxavbCJ6s0n4GVOv+2iwCdsBTW3JuWP07VgMh
+         tlUHcQISwDSv5qKAACA3MCKGp118cc9aPTUSEg/UZf2L8WAnpTybQQmHaJ52eqFCY5H7
+         VKczhihUmFjhJvL/08eJ3+dwTA4p2w9U7du9I0g/pQB/5qzsn1szNzbWq3AB0nuc0kCY
+         TOIQ==
+X-Gm-Message-State: AC+VfDxPOs7Rau7hUL+yAsZFoVGPX6rdjXmlWiWxePSgvzdtwe0UV5uu
+	3DpN9PqxrymfrnOFfi/qIa+aCA==
+X-Google-Smtp-Source: ACHHUZ4YI0Ows+2qLCE5z9Sy2RLUd1OHJeod9NGdxiAb7Ex5AAbigEasnBSuYpWAru1W0u5cnRfMdw==
+X-Received: by 2002:a9d:730d:0:b0:6ab:b20:18a5 with SMTP id e13-20020a9d730d000000b006ab0b2018a5mr2569954otk.26.1683697682642;
+        Tue, 09 May 2023 22:48:02 -0700 (PDT)
+Received: from sunil-laptop ([106.51.188.76])
+        by smtp.gmail.com with ESMTPSA id p25-20020a9d76d9000000b0068bd922a244sm603978otl.20.2023.05.09.22.47.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 22:11:07 -0700 (PDT)
-Date: Tue, 9 May 2023 22:11:03 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: Andrew Morton <akpm@linux-foundation.org>
-cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
-    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Qi Zheng <zhengqi.arch@bytedance.com>, 
-    Russell King <linux@armlinux.org.uk>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
-    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH 23/23] xtensa: add pte_unmap() to balance pte_offset_map()
-In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
-Message-ID: <ff6b25c6-f537-6b5c-8743-c9fc2bd81f91@google.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+        Tue, 09 May 2023 22:48:02 -0700 (PDT)
+Date: Wed, 10 May 2023 11:17:49 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	llvm@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Weili Qian <qianweili@huawei.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Maximilian Luz <luzmaximilian@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Mark Gross <markgross@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>
+Subject: Re: [PATCH V5 03/21] crypto: hisilicon/qm: Fix to enable build with
+ RISC-V clang
+Message-ID: <ZFswBePAtF/ror5G@sunil-laptop>
+References: <20230508115237.216337-1-sunilvl@ventanamicro.com>
+ <20230508115237.216337-4-sunilvl@ventanamicro.com>
+ <ZFmtSReX9/WR5CkK@gondor.apana.org.au>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZFmtSReX9/WR5CkK@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_221108_293966_06457DBF 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20230509_224804_296234_B8C7B17B 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +113,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To keep balance in future, remember to pte_unmap() after a successful
-pte_offset_map().  And (might as well) pretend that get_pte_for_vaddr()
-really needed a map there, to read the pteval before "unmapping".
+On Tue, May 09, 2023 at 10:17:45AM +0800, Herbert Xu wrote:
+> On Mon, May 08, 2023 at 05:22:19PM +0530, Sunil V L wrote:
+> > With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
+> > allmodconfig build. However, build fails with clang and below
+> > error is seen.
+> > 
+> > drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint '+Q' in asm
+> >                        "+Q" (*((char __iomem *)fun_base))
+> >                        ^
+> > This is expected error with clang due to the way it is designed.
+> > 
+> > To fix this issue, move arm64 assembly code under #if.
+> > 
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/999
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> > [sunilvl@ventanamicro.com: Moved tmp0 and tmp1 into the #if]
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > ---
+> >  drivers/crypto/hisilicon/qm.c | 13 +++++++------
+> >  1 file changed, 7 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/crypto/hisilicon/qm.c b/drivers/crypto/hisilicon/qm.c
+> > index ad0c042b5e66..2eaeaac2e246 100644
+> > --- a/drivers/crypto/hisilicon/qm.c
+> > +++ b/drivers/crypto/hisilicon/qm.c
+> > @@ -610,13 +610,9 @@ EXPORT_SYMBOL_GPL(hisi_qm_wait_mb_ready);
+> >  static void qm_mb_write(struct hisi_qm *qm, const void *src)
+> >  {
+> >  	void __iomem *fun_base = qm->io_base + QM_MB_CMD_SEND_BASE;
+> > -	unsigned long tmp0 = 0, tmp1 = 0;
+> >  
+> > -	if (!IS_ENABLED(CONFIG_ARM64)) {
+> > -		memcpy_toio(fun_base, src, 16);
+> > -		dma_wmb();
+> > -		return;
+> > -	}
+> 
+> Please leave this bit as it stands.
+> 
+> > +#if IS_ENABLED(CONFIG_ARM64)
+> > +	unsigned long tmp0 = 0, tmp1 = 0;
+> >  
+> >  	asm volatile("ldp %0, %1, %3\n"
+> >  		     "stp %0, %1, %2\n"
+> > @@ -626,6 +622,11 @@ static void qm_mb_write(struct hisi_qm *qm, const void *src)
+> >  		       "+Q" (*((char __iomem *)fun_base))
+> >  		     : "Q" (*((char *)src))
+> >  		     : "memory");
+> 
+> And simply add the ifdef around the assembly.
+> 
+Sure, Herbert.
 
-Signed-off-by: Hugh Dickins <hughd@google.com>
----
- arch/xtensa/mm/tlb.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/xtensa/mm/tlb.c b/arch/xtensa/mm/tlb.c
-index 27a477dae232..0a11fc5f185b 100644
---- a/arch/xtensa/mm/tlb.c
-+++ b/arch/xtensa/mm/tlb.c
-@@ -179,6 +179,7 @@ static unsigned get_pte_for_vaddr(unsigned vaddr)
- 	pud_t *pud;
- 	pmd_t *pmd;
- 	pte_t *pte;
-+	unsigned int pteval;
- 
- 	if (!mm)
- 		mm = task->active_mm;
-@@ -197,7 +198,9 @@ static unsigned get_pte_for_vaddr(unsigned vaddr)
- 	pte = pte_offset_map(pmd, vaddr);
- 	if (!pte)
- 		return 0;
--	return pte_val(*pte);
-+	pteval = pte_val(*pte);
-+	pte_unmap(pte);
-+	return pteval;
- }
- 
- enum {
--- 
-2.35.3
-
+Thanks!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
