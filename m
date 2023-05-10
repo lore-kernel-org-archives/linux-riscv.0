@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE42CC77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 15:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3E8C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 16:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZp79ct4YquBqu9sShhSmJN8sP0tlJxgiev5gp/BAfc=; b=Rb8Jos3DX7J4s8SYTOAILVy5SG
-	7stw4gP9DobzMKZ8s40vM8MSt+a0/v3Ca86y5MJbf+Iqy1Xgj9gWNSZW4QqjoUWUsb6L+efNStzms
-	fT4TeZQGpXLdXEOpztxKccb+Px/TryTbRT3GpRjxPaVjp0nAb/LLibnrjKD+r4q/vEDoZaeFyNJGW
-	ikb0XGxpOiBPo8Dk3ncM719SU1Br/usVetOw1i/kbJxqHW6E8LUZlaGhc0QwYxswdeTOPCCvCWfGw
-	uyGK5SbpSdxMrvo5cI61cY/YCsNxHK8vFH+aLv9lTfKqSCCoFne68vo5jD15MkIxOs5ceEzkhvxne
-	7K3q6ALA==;
+	bh=KFZQR2s0dBjv7SxWwzW47deT1GEZb7hVFQaVldMj/DE=; b=gfKXtdZfDedv9FTxq4/8HxlBcp
+	v89d2XZDplidc/YLjVrqDJzqc0Iewp8pzdeo003yM2L+9H7QB2QiWosWD4eD8n1h+VA/IBBk880Q2
+	OTFezwGAHQfppKgUlyjuqxWOPX/1zgeeLD6RcNoh63dnZqSnyjsb+qaYT74NyD6vFmCRDaiTC7woK
+	Ah7eaa004v3S6V+h6Noiqc+na7D36wGN4kXY3mLLoExhseaDAThBDSCVIqAIH92n9ygAC6jUHgOba
+	X9/t1BmCpK5812VpDIi3cH97SaWzKIDnSNmbxY6chIpYSks2v09ivaPFniOJMw+++t5Jq1l7W8awW
+	slDlou5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwlxw-006Uhx-1j;
-	Wed, 10 May 2023 15:42:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pwmGn-006WVh-1H;
+	Wed, 10 May 2023 16:02:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwlxt-006UhW-1e
+	id 1pwmGl-006WVI-11
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 15:42:54 +0000
+	Wed, 10 May 2023 16:02:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 11B6763D92;
-	Wed, 10 May 2023 15:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D092C433EF;
-	Wed, 10 May 2023 15:42:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B85A961283;
+	Wed, 10 May 2023 16:02:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8736C433EF;
+	Wed, 10 May 2023 16:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683733372;
-	bh=qnUqwiJXS3T0AYBwpfwJ/sB84/OFu8iJHOIsOMcAIHI=;
+	s=k20201202; t=1683734542;
+	bh=/kdN4hvAEubjX/gd5V1SzxDj97jeupfrcjnDC/LaMUM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WE0jKDR1WbbMZ27cXQLaATIX6ziNAZe2kV/z0/LgO6coaqwXFu/tsmJlnyBoLudeI
-	 p15ivUkTo5Zt78mg7di+nB+ZjNQcl/i+exYZEb1McaDAe8Qomli4M431f9ZBUMad1/
-	 2/q+b9mrS2q3mWwjIRlBf7qPo17EkOp9ntnrsxBa19LnRAbPcAORQQKno4XfvNg52b
-	 w/Z/DF/IJ9L9PkFTL7Bzm9Ojh8a2sVP5iG2RUEhVLV/Z4SHQDz8OlrpXyjo9YJuQ9X
-	 WceMZoWlIKYjB8q8/A+VqLdTRMAptvXZsA3fOmU+XaepBBZKaqETP/iDHzRck9tiM4
-	 XDG9TOHg9NOSg==
-Date: Wed, 10 May 2023 16:42:47 +0100
+	b=P4QNUPH06gstoxB2Xv5lXxCbFqU69+iI5ji/rgl9x0BwXHGBJsPadmxRxIKPtZHu5
+	 pcsYByxK+HQMEAB7hWDFyPGM0knLjY2OYYLpq8eJYuSDwxGaFcxKsQh5rjW27piSRZ
+	 gUHbvgU2KXt1e9JCjsy/Agj5vuSqMF0DjylsjdeRu43emzmee+thbzSUfoAxOWxwDC
+	 8pjZMZg7Do7DxEkM3FU8MtA0067jBPXUMxR61fmiJxRAr1TO4RhqcOQ3tum1szPQhV
+	 u0JcGMQ6HGhehWuLRrL0s/wcdYO+8ZEKgXXXvsx3wqU8ieEXCl2oF5nNjoQ5n7fQzF
+	 StGfO1CVN39cw==
+Date: Wed, 10 May 2023 17:02:17 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: sifive,plic: Sort
- compatible values
-Message-ID: <20230510-underage-shield-f9369c92c135@spud>
-References: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
+	Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: timer: sifive,clint: Clean up compatible
+ value section
+Message-ID: <20230510-headsman-deskwork-6826f9f174df@spud>
+References: <40ff1fc7f5220db7d527c57ac4bad16c3945ae08.1683725179.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-In-Reply-To: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
+In-Reply-To: <40ff1fc7f5220db7d527c57ac4bad16c3945ae08.1683725179.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_084253_590692_1D0734EC 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20230510_090223_447875_49134DCF 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +76,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1441296105704439143=="
+Content-Type: multipart/mixed; boundary="===============5754576778336349783=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1441296105704439143==
+--===============5754576778336349783==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ewFZSlucFhs6AvIs"
+	protocol="application/pgp-signature"; boundary="GwMHLWq4sSBBzPyb"
 Content-Disposition: inline
 
 
---ewFZSlucFhs6AvIs
+--GwMHLWq4sSBBzPyb
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, May 10, 2023 at 03:26:00PM +0200, Geert Uytterhoeven wrote:
-> Restore alphabetical sort order of the supported SiFive-compatible
-> values.
+On Wed, May 10, 2023 at 03:27:24PM +0200, Geert Uytterhoeven wrote:
+> Replace the sentences in the description listing some supported variants
+> by comments on the individual compatible values, to ease future
+> maintenance.  While at it, restore alphabetical sort order.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  .../bindings/timer/sifive,clint.yaml          | 21 +++++++------------
+>  1 file changed, 8 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/=
+Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index 94bef9424df1bc6a..34a81510678134eb 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -29,11 +29,11 @@ properties:
+>      oneOf:
+>        - items:
+>            - enum:
+> -              - sifive,fu540-c000-clint
+> -              - starfive,jh7100-clint
+> -              - starfive,jh7110-clint
+> -              - canaan,k210-clint
+> -          - const: sifive,clint0
+> +              - canaan,k210-clint       # Canaan Kendryte K210
+> +              - sifive,fu540-c000-clint # SiFive FU540
+> +              - starfive,jh7100-clint   # StarFive JH7100
+> +              - starfive,jh7110-clint   # StarFive JH7110
+> +          - const: sifive,clint0        # SiFive CLINT v0 IP block
+>        - items:
+>            - enum:
+>                - allwinner,sun20i-d1-clint
+> @@ -45,14 +45,9 @@ properties:
+>          description: For the QEMU virt machine only
+> =20
+>      description:
+> -      Should be "<vendor>,<chip>-clint" and "sifive,clint<version>".
+> -      Supported compatible strings are -
+> -      "sifive,fu540-c000-clint" for the SiFive CLINT v0 as integrated
+> -      onto the SiFive FU540 chip, "canaan,k210-clint" for the SiFive
+> -      CLINT v0 as integrated onto the Canaan Kendryte K210 chip, and
+> -      "sifive,clint0" for the SiFive CLINT v0 IP block with no chip
+> -      integration tweaks.
+> -      Please refer to sifive-blocks-ip-versioning.txt for details
 
-Whoops, I probably should have noticed this when the StarFive folks
-added their entries.
+> +      Should be "<vendor>,<chip>-clint", followed by "sifive,clint<versi=
+on>"
+> +      when compatible with a SiFive CLINT.  Please refer to
+> +      sifive-blocks-ip-versioning.txt for details regarding the latter.
 
+Does this section actually add any value at all?
+By nature of oneOf structure above, such an ordering is required for
+existing entries. For something not here, should we instead be noting
+that sifive,clint0 is to be used when compatible with the SiFive/RISC-V
+clint, rather than doing a sifive-blocks-ip-versioning.txt dance?
+
+As it stands though, patch is an improvement, so:
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
 Conor.
 
---ewFZSlucFhs6AvIs
+--GwMHLWq4sSBBzPyb
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFu7dwAKCRB4tDGHoIJi
-0hoxAP4wuKboCTznTD2qanlFZ9dt8/8BBShJiS0DZim4KBDK4QD+PnQ3YWxVudS3
-vyRwpzYgRLIZw8wgxBpO6DxRet77Mg0=
-=aHiw
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFvACQAKCRB4tDGHoIJi
+0pbRAQDAbbxrMC2lIxCBnXhwZtjnEZDIi/bWp0fhBRIdYDUZQAEAyvpFaWMF0+9C
+U06I53ennxbOhq6qIjq/ueckMobCfgg=
+=GuVy
 -----END PGP SIGNATURE-----
 
---ewFZSlucFhs6AvIs--
+--GwMHLWq4sSBBzPyb--
 
 
---===============1441296105704439143==
+--===============5754576778336349783==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -127,5 +179,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1441296105704439143==--
+--===============5754576778336349783==--
 
