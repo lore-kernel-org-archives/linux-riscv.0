@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C754C77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB232C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hMa6IUP/aN2obdL+lSyexb1UbiZB8GbJ3l6kFjBdAq0=; b=DPLqbzcfUxWbn5
-	+g/pKdbaWYMwhV/Twn0zfuA0Vj7GmPL62fl6DxBpNC65CFUNC5TXENzr6D0yDzdep3Nm5z4IJBYha
-	MUSLDm7MmvwbJaIG+yz25QW4xeZuoD+Fixy8A24usaxsLlm8I1CDHH4DvpHA1gExIwQFlrDTBYrBI
-	CPSSig1C8HIGNoqfu1NOafOeswSFUhqSsOWkJNZmw8ZUpv9fUBP7qb6ouckcEhIJIMCgNFQ+q4YCF
-	SPSsGW/Hg9545kYLPXZ5luChUYpoeRAYQ3iHnkuRfoX2T9cbJjrk1XxzkTous6WejfMiYddFXh8Er
-	glLs/NEdCnHsa5c9SfLg==;
+	List-Owner; bh=yfMtyqL6ZfF9WXNtUFfIk0IW/h9gxLNWpI6Ixu0VDMI=; b=t4ZKIcA4XW5irV
+	fIWtpCU/ObyZdUCMx30buKLoY/p2PN66nsxQ2Qx2Ue3xQfyW2DBQ3H3+ES4gIcHuYgbXwXaa8+8mB
+	e6/bY81m1W5MZdYvvI3EiHcxE5Csg7/I4W1kz98xYY8pR3+6B/yu9eUtBXVaJCCxg+exqObzjt1py
+	7j8jnKV1fYW9ScRq9MymlA6vOdX2xKvNJKC8+6SNFa/ToyjAqmQLeDHjP6gwWVaLlcNCu5Q5O88Tw
+	F3ckMVkW890rcalhRbR9PYkeM5ZlkTb/Csvay7Jl5M22L/nl+Ug8MDQKaJZ7tL8RmBSSwHXnmU8cX
+	oX/7kaG5e27YUVDCiDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwd7D-005DiN-2J;
-	Wed, 10 May 2023 06:15:55 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwbx3-0055qu-2T
+	id 1pwdgT-005J00-2Y;
+	Wed, 10 May 2023 06:52:21 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwdgQ-005IxY-09
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 05:01:24 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-55a5a830238so62444557b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 22:01:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1683694880; x=1686286880;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WSGFooIbg1YnCT+usP0CPskjqWFniw8CJbMJmY8IIY4=;
-        b=vuo7rYDMzaDeDPZgzHMtVp+kDDpzRoF+cP2Qnr93hh+pF6J9q5tC6QhVWjQR/dpJZs
-         St4YSsmW5E0SKuQmRdibMqMztrKviA12bUxhXRBvVCQgZMikD8H0uj5+E9csqviYPTTF
-         W/MWYfjHA/1NssscvDoyXC6tVcA1ciumq+qFhN9YZhl/AUe/TYRGPOpbxUr3CzSoAwDs
-         9ZIJx+k2kcTyg+8Yd6pO3A43gfTS5JygrpCg5CjFhHivuRBYVd+ivlToDlbyQHOK26G6
-         DP8KUWo0VQTsOYmO3ProNs6agiD4J9mWFi/qWhwm90YAcZbtyMXr/cNFlm/A7CEZL/+P
-         HUIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683694880; x=1686286880;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WSGFooIbg1YnCT+usP0CPskjqWFniw8CJbMJmY8IIY4=;
-        b=AX8AYbBZnn4JNqt4UD7DO8OuMlXQyVRdxFcq+Gvp9GTUF88Ittzw4wekoiBKTMKJN0
-         jY80N7ttG2RhqRa36WPfw4V+mOxJqhlAtzfgs9+gKHkxwR/2ZS6nJNeoqeRr2vTCQvum
-         HbjnA9WYsHubw9uohQVuk9XylB+B6JdY+HcolO9K9KeFqbwLzk7zd7VXzTdQttlI2e7T
-         fukolejSZOJXxBTuih4o2BGvArEL5K0gbi8yWob4MI/dfu44nFMuNW1UJ6FpM6QizYgc
-         K8ChIYpOE6e3EnHy3/C45MaHmyPFhZYMdP8E/dHmcU/U+vrwGdcmw7lWAGHhEmZaomQB
-         agUw==
-X-Gm-Message-State: AC+VfDxvoqUrkzzJVSYTes0tvSDRtOF46slQ8aWVpRUPqljcVmvdTAr7
-	98n7NIwnb1kYDHkFDinHexsVOQ==
-X-Google-Smtp-Source: ACHHUZ5AoVobUeVID967V3Jmnothc2qu5Os8b3JQyJT6HUqgLFH4b1VRwh/1toL1vvMbGclLD2jjcg==
-X-Received: by 2002:a0d:d4c3:0:b0:55a:9d84:2e4e with SMTP id w186-20020a0dd4c3000000b0055a9d842e4emr17674451ywd.18.1683694880477;
-        Tue, 09 May 2023 22:01:20 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id e2-20020a81dd02000000b00559f9e9eabcsm3815388ywn.98.2023.05.09.22.01.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 22:01:20 -0700 (PDT)
-Date: Tue, 9 May 2023 22:01:16 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: Andrew Morton <akpm@linux-foundation.org>
-cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
-    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Qi Zheng <zhengqi.arch@bytedance.com>, 
-    Russell King <linux@armlinux.org.uk>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
-    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
-In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
-Message-ID: <94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+	Wed, 10 May 2023 06:52:20 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 2C36A24E292;
+	Wed, 10 May 2023 14:51:42 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
+ 2023 14:51:42 +0800
+Received: from [192.168.125.124] (183.27.98.219) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
+ 2023 14:51:41 +0800
+Message-ID: <88660bc1-035c-fa7b-d541-d29bc142e043@starfivetech.com>
+Date: Wed, 10 May 2023 14:51:40 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [PATCH v3 3/5] soc: starfive: Extract JH7110 pmu private
+ operations
+Content-Language: en-US
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: Hal Feng <hal.feng@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230510015311.27505-1-changhuang.liang@starfivetech.com>
+ <20230510015311.27505-4-changhuang.liang@starfivetech.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230510015311.27505-4-changhuang.liang@starfivetech.com>
+X-Originating-IP: [183.27.98.219]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_220121_809338_6F91F50A 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20230509_235218_415299_4D2C12EC 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,103 +80,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In rare transient cases, not yet made possible, pte_offset_map() and
-pte_offset_map_lock() may not find a page table: handle appropriately.
+On 2023/5/10 9:53, Changhuang Liang wrote:
+> Move JH7110 private operation into private data of compatible. Convenient
+> to add AON PMU which would not have interrupts property.
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 
-Signed-off-by: Hugh Dickins <hughd@google.com>
----
- arch/s390/kernel/uv.c  |  2 ++
- arch/s390/mm/gmap.c    |  2 ++
- arch/s390/mm/pgtable.c | 12 +++++++++---
- 3 files changed, 13 insertions(+), 3 deletions(-)
+Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
+Thanks!
 
-diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
-index cb2ee06df286..3c62d1b218b1 100644
---- a/arch/s390/kernel/uv.c
-+++ b/arch/s390/kernel/uv.c
-@@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
- 
- 	rc = -ENXIO;
- 	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
-+	if (!ptep)
-+		goto out;
- 	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
- 		page = pte_page(*ptep);
- 		rc = -EAGAIN;
-diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
-index dc90d1eb0d55..d198fc9475a2 100644
---- a/arch/s390/mm/gmap.c
-+++ b/arch/s390/mm/gmap.c
-@@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
- 		spinlock_t *ptl;
- 
- 		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
-+		if (!ptep)
-+			break;
- 		if (is_zero_pfn(pte_pfn(*ptep)))
- 			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
- 		pte_unmap_unlock(ptep, ptl);
-diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
-index 6effb24de6d9..3bd2ab2a9a34 100644
---- a/arch/s390/mm/pgtable.c
-+++ b/arch/s390/mm/pgtable.c
-@@ -829,7 +829,7 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	default:
- 		return -EFAULT;
- 	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -850,6 +850,8 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	new = old = pgste_get_lock(ptep);
- 	pgste_val(new) &= ~(PGSTE_GR_BIT | PGSTE_GC_BIT |
- 			    PGSTE_ACC_BITS | PGSTE_FP_BIT);
-@@ -938,7 +940,7 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
- 	default:
- 		return -EFAULT;
- 	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -955,6 +957,8 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	new = old = pgste_get_lock(ptep);
- 	/* Reset guest reference bit only */
- 	pgste_val(new) &= ~PGSTE_GR_BIT;
-@@ -1000,7 +1004,7 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	default:
- 		return -EFAULT;
- 	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -1017,6 +1021,8 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	pgste = pgste_get_lock(ptep);
- 	*key = (pgste_val(pgste) & (PGSTE_ACC_BITS | PGSTE_FP_BIT)) >> 56;
- 	paddr = pte_val(*ptep) & PAGE_MASK;
--- 
-2.35.3
-
+> ---
+>  drivers/soc/starfive/jh71xx_pmu.c | 89 +++++++++++++++++++++----------
+>  1 file changed, 62 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+> index 7d5f50d71c0d..0dbdcc0d2c91 100644
+> --- a/drivers/soc/starfive/jh71xx_pmu.c
+> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+> @@ -51,9 +51,17 @@ struct jh71xx_domain_info {
+>  	u8 bit;
+>  };
+>  
+> +struct jh71xx_pmu;
+> +struct jh71xx_pmu_dev;
+> +
+>  struct jh71xx_pmu_match_data {
+>  	const struct jh71xx_domain_info *domain_info;
+>  	int num_domains;
+> +	unsigned int pmu_status;
+> +	int (*pmu_parse_irq)(struct platform_device *pdev,
+> +			     struct jh71xx_pmu *pmu);
+> +	int (*pmu_set_state)(struct jh71xx_pmu_dev *pmd,
+> +			     u32 mask, bool on);
+>  };
+>  
+>  struct jh71xx_pmu {
+> @@ -79,12 +87,12 @@ static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_o
+>  	if (!mask)
+>  		return -EINVAL;
+>  
+> -	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
+> +	*is_on = readl(pmu->base + pmu->match_data->pmu_status) & mask;
+>  
+>  	return 0;
+>  }
+>  
+> -static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+> +static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>  {
+>  	struct jh71xx_pmu *pmu = pmd->pmu;
+>  	unsigned long flags;
+> @@ -92,22 +100,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>  	u32 mode;
+>  	u32 encourage_lo;
+>  	u32 encourage_hi;
+> -	bool is_on;
+>  	int ret;
+>  
+> -	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
+> -	if (ret) {
+> -		dev_dbg(pmu->dev, "unable to get current state for %s\n",
+> -			pmd->genpd.name);
+> -		return ret;
+> -	}
+> -
+> -	if (is_on == on) {
+> -		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
+> -			pmd->genpd.name, on ? "en" : "dis");
+> -		return 0;
+> -	}
+> -
+>  	spin_lock_irqsave(&pmu->lock, flags);
+>  
+>  	/*
+> @@ -166,6 +160,29 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>  	return 0;
+>  }
+>  
+> +static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+> +{
+> +	struct jh71xx_pmu *pmu = pmd->pmu;
+> +	const struct jh71xx_pmu_match_data *match_data = pmu->match_data;
+> +	bool is_on;
+> +	int ret;
+> +
+> +	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
+> +	if (ret) {
+> +		dev_dbg(pmu->dev, "unable to get current state for %s\n",
+> +			pmd->genpd.name);
+> +		return ret;
+> +	}
+> +
+> +	if (is_on == on) {
+> +		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
+> +			pmd->genpd.name, on ? "en" : "dis");
+> +		return 0;
+> +	}
+> +
+> +	return match_data->pmu_set_state(pmd, mask, on);
+> +}
+> +
+>  static int jh71xx_pmu_on(struct generic_pm_domain *genpd)
+>  {
+>  	struct jh71xx_pmu_dev *pmd = container_of(genpd,
+> @@ -226,6 +243,25 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +static int jh7110_pmu_parse_irq(struct platform_device *pdev, struct jh71xx_pmu *pmu)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	pmu->irq = platform_get_irq(pdev, 0);
+> +	if (pmu->irq < 0)
+> +		return pmu->irq;
+> +
+> +	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+> +			       0, pdev->name, pmu);
+> +	if (ret)
+> +		dev_err(dev, "failed to request irq\n");
+> +
+> +	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
+> +
+> +	return 0;
+> +}
+> +
+>  static int jh71xx_pmu_init_domain(struct jh71xx_pmu *pmu, int index)
+>  {
+>  	struct jh71xx_pmu_dev *pmd;
+> @@ -275,19 +311,18 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+>  	if (IS_ERR(pmu->base))
+>  		return PTR_ERR(pmu->base);
+>  
+> -	pmu->irq = platform_get_irq(pdev, 0);
+> -	if (pmu->irq < 0)
+> -		return pmu->irq;
+> -
+> -	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+> -			       0, pdev->name, pmu);
+> -	if (ret)
+> -		dev_err(dev, "failed to request irq\n");
+> +	spin_lock_init(&pmu->lock);
+>  
+>  	match_data = of_device_get_match_data(dev);
+>  	if (!match_data)
+>  		return -EINVAL;
+>  
+> +	ret = match_data->pmu_parse_irq(pdev, pmu);
+> +	if (ret) {
+> +		dev_err(dev, "failed to parse irq\n");
+> +		return ret;
+> +	}
+> +
+>  	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
+>  				  sizeof(struct generic_pm_domain *),
+>  				  GFP_KERNEL);
+> @@ -307,9 +342,6 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+>  		}
+>  	}
+>  
+> -	spin_lock_init(&pmu->lock);
+> -	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
+> -
+>  	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+>  	if (ret) {
+>  		dev_err(dev, "failed to register genpd driver: %d\n", ret);
+> @@ -357,6 +389,9 @@ static const struct jh71xx_domain_info jh7110_power_domains[] = {
+>  static const struct jh71xx_pmu_match_data jh7110_pmu = {
+>  	.num_domains = ARRAY_SIZE(jh7110_power_domains),
+>  	.domain_info = jh7110_power_domains,
+> +	.pmu_status = JH71XX_PMU_CURR_POWER_MODE,
+> +	.pmu_parse_irq = jh7110_pmu_parse_irq,
+> +	.pmu_set_state = jh7110_pmu_set_state,
+>  };
+>  
+>  static const struct of_device_id jh71xx_pmu_of_match[] = {
 
 _______________________________________________
 linux-riscv mailing list
