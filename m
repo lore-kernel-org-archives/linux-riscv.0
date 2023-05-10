@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55A5C7EE26
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 04:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3427BC7EE24
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 04:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nx01GYPdxtOMRfydmE44p9ANpu30h1QH2mMYNd32WLk=; b=rvRhVfDfp0OuBZ
-	jv/stpCPtiK7kIUj2PecibyiQDf9Ali7ocDtqDe+3l9Qmohu4ZGJTeo3dpm269COr7qtZPoUP23eF
-	/xOWEIz0uy5o2qiwao+h3S3NdCQ59zXWaRU8uP7Drk8Z9Penq0xMIlfgcJgA0/gIgSHfDKJr3fyMk
-	Gr8W3qhaUUJN6Ly1UN3nk7PQ9b0EXEGXpDuCi4RB5al5EFvfyr64pqHardWQSSPiOAAEX3k6VfBRp
-	Us+exr0ClPSKG/R3iG6+/yU4gQ4DiMFFSWutsqzHV25BbMVc8swSv1b5a5XRJJGgDySF7Z13yXxb+
-	aFleDOSDqxKGps09Yb3A==;
+	List-Owner; bh=7Cd/ocRA/SxIXOfwfTTqv4RKL2E5bQ918lsNun4CLu8=; b=yWrHmg6+T6LfNo
+	RW2XlLjE6HMP+j1xRjBktVwHZDsBwKKatK8DpdaFhS0eMlp6YCBjpPCtiocChVFASrNvEDRERxbBT
+	VbmMKsZfAoTEoERwGT4DqME+dqOjA4ItD1FNXCEtJDyj9unmkdXgtDZcJzpSlGVNt/PP7Exw8Qswu
+	vAmtaj16VeYoC1lYusizBVNr2suOYnosz2TILGNXOLTuYQmkY8mabOoeV82Yd5GxfV0O5SMg14rrm
+	ykOxLIuKe/H3AQVU0t9vc0QgCMU3kTkyxlXHAA4fJEzMuMcbnx+Fk2yi4UnDIG5X4Umu0j1twXLJU
+	pXzCi7+8TpVBiao4v2Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwbsh-00552R-1I;
-	Wed, 10 May 2023 04:56:51 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1pwbtf-0055EA-2q;
+	Wed, 10 May 2023 04:57:51 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwbse-00551Z-32
+	id 1pwbtd-0055D3-0s
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 04:56:50 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-55b7630a736so101758517b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 21:56:48 -0700 (PDT)
+	Wed, 10 May 2023 04:57:50 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-b9a7e639656so10175819276.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 21:57:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1683694608; x=1686286608;
+        d=google.com; s=20221208; t=1683694668; x=1686286668;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VvuiwGfmHxTbGTIrjZEu2Atjrxfj5l7d/xiFwRLchQg=;
-        b=r94LQDZtq2Ahs+pJ02XRyENxJHGD3oe8r85F2aY3lvsikc/je1Po6VKiCqGzvG34y8
-         kIuRE1yIIechhFDgP3aPNUwpsvddbLpTk1K5K+zsi9h4zTnxpk/JVyiDuMs9BN+OFeXh
-         nh4AqDsTEXGceRxF3pEZTvbfDGAiIr5yaqLJ7E2ZoOdKC1Zkn5Abo0ezT8CCDEe5hzan
-         c+lECJHpRVibRO6qY89AP62g051JuNBSBft2ut/t1eSbSZxO5Og6LOCNCOMTH+prHdN+
-         QRgICMzswpXaaxM5lmYItFqDFDCHtHoD+lRFcRdM6eNSSTq3389JYb3eyyNp72I0hHaA
-         zjZA==
+        bh=9SgMoVTm6P3R+1xCqI0Wv3sobczW81YJURPfTY0JVMk=;
+        b=i6tseWUgvEolfXZtL5Oh35hld4r7UV7sxfAxp1Wi6J/AehneZgxtbpNMAbNVTBMmUI
+         qj7UvqeEgFSQZ2qZW0AaYuuFH6wgQTMaPrP4VLoxCobR28SZjACKnu9c6qIW0PnqI4Hr
+         Cld1tJ0wYqRvaAQ5bpmGPde8cyPQwKjxVNuL2CFu9bbXCawQw2nI4D6D+XCv12mgx2PV
+         ij2tQ1g5xq9+W7BXEvJIwPrFkB6RWDWF/jzluSASWAsWg+TJDk0nuDAAmqQM+N4N23X5
+         wmyc1MG831sFfWvE1Fo8gZjKKd7Tp0yVdZJzwu/TKEXh0IxxU0wZHa09QO6ZhQjWluyJ
+         QdrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683694608; x=1686286608;
+        d=1e100.net; s=20221208; t=1683694668; x=1686286668;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VvuiwGfmHxTbGTIrjZEu2Atjrxfj5l7d/xiFwRLchQg=;
-        b=Wf+8RCtg9kqTjmUteg7SuCtFIoRq9AY58CL9yUN/pURJKXGv0Kly52UvtGMIo1CjeI
-         9RXgrFTA8sfJ7j+rvWnq1q/+aATZCxcyYIIrkKlAPX1lgITkrgvnbyoeYr/kh2psLwks
-         7K2VUxBRKuNzvYgkefVEP/Cza4yayCNK3an61S1K9o/J7JjxwSnl9ROgO0Y8rx5jTcBY
-         mH1jpmD8JH9ReIcGo9n8XZ/v7NYjKKuNcs0SGw2UzKs28x4gdeOME9n+cXAku5d/9KnW
-         zDL77roqkvx6hMUg9bNJ4JdweKFDgzaosX3KaZi4RX2OJRMA8SCeaSd+UNkBKgiBRkfe
-         ow4w==
-X-Gm-Message-State: AC+VfDxfdPe0UTYSKZBtwlpwJY7X8jbnb47+Nd44QHu1wW1TpYDtvqie
-	vrbdfssCIyOM4zMA6q4oBa5n8w==
-X-Google-Smtp-Source: ACHHUZ7AyL+rmns/Ft/OH9KHX6GHbff2/XDcrKV9m3YxNF0ibK6GlQcG44pT8V6Ez5OWany7qS8Crw==
-X-Received: by 2002:a0d:db49:0:b0:55a:314d:afdc with SMTP id d70-20020a0ddb49000000b0055a314dafdcmr18425257ywe.37.1683694608059;
-        Tue, 09 May 2023 21:56:48 -0700 (PDT)
+        bh=9SgMoVTm6P3R+1xCqI0Wv3sobczW81YJURPfTY0JVMk=;
+        b=USS9LR3sTTIj1RdHtA4g6VRYqpjbk7DlZ4aWm2MECFhwBJFsqFVVohrszAD0goQd66
+         FrAKSY5DL1hB0+9bk0hjOmr9xo9NNOlP2yu3c/fx2szqbnDyx7XncC0EUQ8FmjHdA5Fy
+         iSC08VjFPBJM4S7ekFcSCogTa7pioBvZ+01ZEmXIKxLIaNbewZZ9xt91pcZwSEXaOZ6m
+         f2uNq/rxd3u4gA7fEDnWN0WzC96Kh92uIi2yJNzWFzCHXw2qz9tdwbqNLyfdGQxyP4XE
+         +pMDi1gwyU70aPYmK1eePxWV5CfTcp3mNfnX9/KlisLa276wZNbuZD6QO46J+rCfNnX+
+         7lOA==
+X-Gm-Message-State: AC+VfDwkEI8SmBRf9qYYsOz/9r3AnuTaonLuzLHvMW8crsQGXbBhLDuO
+	IN0jnHoyQBIOywcHPUkbARDC9Q==
+X-Google-Smtp-Source: ACHHUZ65a43Tqu6pm6F2C+WJXeNuyd8nzb4UZ4DSWVXhBJktpHLfzKFfcKlkmv0fFRrnRgtDBOnq8Q==
+X-Received: by 2002:a25:4d87:0:b0:b9d:5691:3ef6 with SMTP id a129-20020a254d87000000b00b9d56913ef6mr14812915ybb.27.1683694668013;
+        Tue, 09 May 2023 21:57:48 -0700 (PDT)
 Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id f206-20020a816ad7000000b00559fb950d9fsm3842735ywc.45.2023.05.09.21.56.44
+        by smtp.gmail.com with ESMTPSA id 23-20020a250d17000000b00b9e4a9b91b9sm3508848ybn.30.2023.05.09.21.57.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 21:56:47 -0700 (PDT)
-Date: Tue, 9 May 2023 21:56:44 -0700 (PDT)
+        Tue, 09 May 2023 21:57:47 -0700 (PDT)
+Date: Tue, 9 May 2023 21:57:44 -0700 (PDT)
 From: Hugh Dickins <hughd@google.com>
 X-X-Sender: hugh@ripple.attlocal.net
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -90,14 +90,14 @@ cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>,
     linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
     linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
     linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH 11/23] powerpc: kvmppc_unmap_free_pmd() pte_offset_kernel()
+Subject: [PATCH 12/23] powerpc: allow pte_offset_map[_lock]() to fail
 In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
-Message-ID: <8bc72262-3771-4fbf-8738-44d9a8a1ba6a@google.com>
+Message-ID: <b384fc5-c2d-2a20-4025-ac748e3fb9@google.com>
 References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_215648_977672_60FC2539 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20230509_215749_307947_EC40C6B8 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +114,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvmppc_unmap_free_pmd() use pte_offset_kernel(), like everywhere else
-in book3s_64_mmu_radix.c: instead of pte_offset_map(), which will come
-to need a pte_unmap() to balance it.
-
-But note that this is a more complex case than most: see those -EAGAINs
-in kvmppc_create_pte(), which is coping with kvmppc races beween page
-table and huge entry, of the kind which we are expecting to address
-in pte_offset_map() - this might want to be revisited in future.
+In rare transient cases, not yet made possible, pte_offset_map() and
+pte_offset_map_lock() may not find a page table: handle appropriately.
+Balance successful pte_offset_map() with pte_unmap() where omitted.
 
 Signed-off-by: Hugh Dickins <hughd@google.com>
 ---
- arch/powerpc/kvm/book3s_64_mmu_radix.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/powerpc/mm/book3s64/hash_tlb.c     | 4 ++++
+ arch/powerpc/mm/book3s64/subpage_prot.c | 2 ++
+ arch/powerpc/xmon/xmon.c                | 5 ++++-
+ 3 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/kvm/book3s_64_mmu_radix.c b/arch/powerpc/kvm/book3s_64_mmu_radix.c
-index 461307b89c3a..572707858d65 100644
---- a/arch/powerpc/kvm/book3s_64_mmu_radix.c
-+++ b/arch/powerpc/kvm/book3s_64_mmu_radix.c
-@@ -509,7 +509,7 @@ static void kvmppc_unmap_free_pmd(struct kvm *kvm, pmd_t *pmd, bool full,
- 		} else {
- 			pte_t *pte;
+diff --git a/arch/powerpc/mm/book3s64/hash_tlb.c b/arch/powerpc/mm/book3s64/hash_tlb.c
+index a64ea0a7ef96..21fcad97ae80 100644
+--- a/arch/powerpc/mm/book3s64/hash_tlb.c
++++ b/arch/powerpc/mm/book3s64/hash_tlb.c
+@@ -239,12 +239,16 @@ void flush_hash_table_pmd_range(struct mm_struct *mm, pmd_t *pmd, unsigned long
+ 	local_irq_save(flags);
+ 	arch_enter_lazy_mmu_mode();
+ 	start_pte = pte_offset_map(pmd, addr);
++	if (!start_pte)
++		goto out;
+ 	for (pte = start_pte; pte < start_pte + PTRS_PER_PTE; pte++) {
+ 		unsigned long pteval = pte_val(*pte);
+ 		if (pteval & H_PAGE_HASHPTE)
+ 			hpte_need_flush(mm, addr, pte, pteval, 0);
+ 		addr += PAGE_SIZE;
+ 	}
++	pte_unmap(start_pte);
++out:
+ 	arch_leave_lazy_mmu_mode();
+ 	local_irq_restore(flags);
+ }
+diff --git a/arch/powerpc/mm/book3s64/subpage_prot.c b/arch/powerpc/mm/book3s64/subpage_prot.c
+index b75a9fb99599..0dc85556dec5 100644
+--- a/arch/powerpc/mm/book3s64/subpage_prot.c
++++ b/arch/powerpc/mm/book3s64/subpage_prot.c
+@@ -71,6 +71,8 @@ static void hpte_flush_range(struct mm_struct *mm, unsigned long addr,
+ 	if (pmd_none(*pmd))
+ 		return;
+ 	pte = pte_offset_map_lock(mm, pmd, addr, &ptl);
++	if (!pte)
++		return;
+ 	arch_enter_lazy_mmu_mode();
+ 	for (; npages > 0; --npages) {
+ 		pte_update(mm, addr, pte, 0, 0, 0);
+diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
+index 728d3c257e4a..69447bdf0bcf 100644
+--- a/arch/powerpc/xmon/xmon.c
++++ b/arch/powerpc/xmon/xmon.c
+@@ -3376,12 +3376,15 @@ static void show_pte(unsigned long addr)
+ 	printf("pmdp @ 0x%px = 0x%016lx\n", pmdp, pmd_val(*pmdp));
  
--			pte = pte_offset_map(p, 0);
-+			pte = pte_offset_kernel(p, 0);
- 			kvmppc_unmap_free_pte(kvm, pte, full, lpid);
- 			pmd_clear(p);
- 		}
+ 	ptep = pte_offset_map(pmdp, addr);
+-	if (pte_none(*ptep)) {
++	if (!ptep || pte_none(*ptep)) {
++		if (ptep)
++			pte_unmap(ptep);
+ 		printf("no valid PTE\n");
+ 		return;
+ 	}
+ 
+ 	format_pte(ptep, pte_val(*ptep));
++	pte_unmap(ptep);
+ 
+ 	sync();
+ 	__delay(200);
 -- 
 2.35.3
 
