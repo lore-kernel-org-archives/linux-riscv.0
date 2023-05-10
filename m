@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7BDC7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 14:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7902DC77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 14:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lhy+0ZUc1BaQM+y7CeBOF8bI3iXD/H1Z8wKmFdPAfOs=; b=ozaPXcNxJlR5EV
-	pSrzX0hsLnZp6OwvXpKAnCoN+6lUaWFZn/ZN0ij37h34whcKAev0yjiHgW2sh901XTST0JbWSf0hr
-	zZ8A2iQZBq1uSmvorxXraCTKiq78uUcrnfniM2MIkJjPzw2fb5o/PM6bAV3pbG0aCPrI8fcKLmHcT
-	OYyFZgv0NR7p1WMWGWfsh5oCuXFg1/0ua8zbCnvBpwcrgaQN5tdupsimTNuU88SOX8vzdmVoKLHIG
-	fulGF9CTfcFDFjUwkcsseIzEe0e0UoUq9lW4zDFwe71v2/Inku5wECBhcMlP/JqXZyFl1m0jDg/H7
-	qCAdsYp6XJRR4qOJRzZw==;
+	List-Owner; bh=uiLdvWapDb7mmJL3dqtVaTAw0IIllYTXcwVzm9YoJb0=; b=b1Uw3zlrsx89aL
+	y4uO+gxosx+ZhvEOZ3hjQFT7eKZWu0KfjFttlp2KC4V+tivxZ4VcPfKgsOwsxVGkBI//e0l/Unr36
+	Ujfz0qqi5PfvDdKGKwyQQiR8qIfrYfKRsI2gLwKgKrXq5mohAsBdmb62T6fBhgPskSHnBJeT9BrXx
+	uNK9uFpUs8yjG9DpnATdhii2pTPMIH7++95oufvvlqT9PA27Yk6MTOWhRKLtq7XtqbspiX786SMYz
+	G07Js6pSzxjoFWtHcUnQbZUe52UjikM3/CPzi/ctduEFNsLHY4aPNA3FwMXYYAMaQcND+s7aaascX
+	qcvzuuljaInIMbdW7Qcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwkiX-006LT7-27;
-	Wed, 10 May 2023 14:22:57 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pwkkI-006Lml-1X;
+	Wed, 10 May 2023 14:24:46 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwkiV-006LSi-0E
+	id 1pwkkG-006Lm0-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 14:22:56 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f4449fa085so8710515e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 07:22:54 -0700 (PDT)
+	Wed, 10 May 2023 14:24:45 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-96a2b6de3cbso125373366b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 07:24:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1683728573; x=1686320573;
+        d=linaro.org; s=google; t=1683728681; x=1686320681;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=2etb/3I2MMTTEdePIkDu+D/ncnvNpSe07jedu4cHhMw=;
-        b=XiJ3vEXc0eQhohhnvIRe7rSWcI77b7CFB4NaadQeej+vhgI/w9xWw/z7C37g75qvip
-         +qFBvHW/Pg3dBtGVBKYnkqj6CWrWsehNqL40cu9FW24LMuR0/H+PHYef7/yPi9mm7oDK
-         mNJqVGdnypP+bUh6Xxa4ObdFNUyOGLWhF4rF3F6yVQXd6B8rg6VUjkCFP56xZgM1nqxm
-         GYcD87btvVdi7qZmArMs7znzNLGMZuUqsfjtTvcQIRVb1VeTj1LkmCAlcxWg7HkoFoZh
-         vtOLvsF9/ner+VmNy7WpQ0ryMiPgXDHD5B41fCAngWrB2WgZedr8KhHQRMVfXYHIOBB3
-         XtMg==
+        bh=tvB6tNxqC+RYJpA9ZkTv4yGns/HAirmepb3vyqxfld8=;
+        b=cuvSVTLAzjvxPzP2eQEyxnBQ9b9sbdEsM+eTlDCijm+UJ+oDk+jbKJeKnQ9yC+fRmh
+         4gMNHEY2sfILpe6MUKrxswaTJ3fY5HLnsiBd9fAu1Pg2WF4Y5+yZnN3mAMGRBYg6vuiF
+         X5WBlo1OSnDspWv8dbJBFfzxsUFycZml+L71jBtWcCyfVl7FklG6X3rWwEKwlYy7ogWC
+         aYBjJ+3T3ZvEm+9PX8BoCe+89KY5/E+ThQOEV8SP6pOCcSZhWEiMwBquk5JQDpyUEa4x
+         WUMXFR+RFM+mgPGPK57teS2jSUHilzspbeveQ2v55huQN6IPs6s0U5EZ7UbWixyukGxl
+         2DDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683728573; x=1686320573;
+        d=1e100.net; s=20221208; t=1683728681; x=1686320681;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2etb/3I2MMTTEdePIkDu+D/ncnvNpSe07jedu4cHhMw=;
-        b=gsCk1cEwj6h0Gx/DauKt8l4oDbnQdEjlz1GhmJLvXuBeZrst9Lg60IVFLPELkG3jNd
-         xbgYEwh9bsHpkGxAS/gujXaP5oi8wlpLJC91YRxtC3+LnNsd3ouSBBjSpzUwo/rAQoY6
-         +z4Op0xxc7r/Agtsrf8g1In+g0IVbmIFYjVh8L/C9pJE6+EbLZgNMbcac6MV9WCKh+N1
-         fRRhV/7XjStaxIzl2cfn4/EDqEv4nyVyc9JjN8uixtvLJy8zDElde9GOuOJbcuGcEKM9
-         AZhVevZLDpX7zXCbLVVMCYMiAaHhfxstqyo+k2SF+nK/0oi6h1gDqRiQv0vqIa7LrlE/
-         SDCQ==
-X-Gm-Message-State: AC+VfDz4p3MOwSeQy5JIR/IYwtkTYeFKIp1sSrJBCNU74MmrAGGIBqHM
-	CEt3cwzEkazNQiuQH5UJGkM+Mg==
-X-Google-Smtp-Source: ACHHUZ62HNQerWbsxoK3MwqdchiGC1yKERqEYCSw8RQj+Kyl8r7fDPUS6W9MOzl+5BvfE/Q4mrE2/Q==
-X-Received: by 2002:a05:600c:3658:b0:3f4:2327:53c2 with SMTP id y24-20020a05600c365800b003f4232753c2mr8083597wmq.19.1683728572981;
-        Wed, 10 May 2023 07:22:52 -0700 (PDT)
+        bh=tvB6tNxqC+RYJpA9ZkTv4yGns/HAirmepb3vyqxfld8=;
+        b=HFJvEltd1uSsabImvMTzS3AE2CKcR4IlPBHOWUff/pCU1CsIM/Owp0l9b6oqyP112B
+         W/eXJEsMiFJdR5tIVsI9854+TEd3ZM3hmZSd5HRNWzkKMObwKPbDWIHC+qir+rj4vu5R
+         t4ZntMI4IjrX+Wg8WPinEVXiOPwo9vbeCirjR98tpmtntULzwWWr+4sxx6MTufkQvanl
+         UOx+yeacb4V0cHa0xNZVF0mxBqlPjkn+xocuGZX5YiuyH6JfXLE62AobUUt5h7zhbUJf
+         zbUEe8Y1xR5rEIqJ8+2U1SypReyCtgy5QpAPDc7X9iDaE2LUo6MEncxwjjHMyySLiEx3
+         05Zg==
+X-Gm-Message-State: AC+VfDxeEV7y1D4gS0pMyatdXuuJShunUUjf636jNKovc2UmIvref4eS
+	ar7NqpHnZcqxNGfRDg0DyfPVUQ==
+X-Google-Smtp-Source: ACHHUZ6Qv4Y02gb55kWr55DrSPWGUN7xUPG9NIW+geR7568HZ2/XgyLyLHnDcpnL7kBUuhbrxLlChw==
+X-Received: by 2002:a17:907:9285:b0:958:489f:d050 with SMTP id bw5-20020a170907928500b00958489fd050mr16608835ejc.43.1683728681013;
+        Wed, 10 May 2023 07:24:41 -0700 (PDT)
 Received: from ?IPV6:2a02:810d:15c0:828:c175:a0f9:6928:8c9d? ([2a02:810d:15c0:828:c175:a0f9:6928:8c9d])
-        by smtp.gmail.com with ESMTPSA id h9-20020a170906584900b0094e597f0e4dsm2705011ejs.121.2023.05.10.07.22.51
+        by smtp.gmail.com with ESMTPSA id gv28-20020a1709072bdc00b00965cfc209d5sm2759068ejc.8.2023.05.10.07.24.39
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 May 2023 07:22:52 -0700 (PDT)
-Message-ID: <08ebfa39-63b0-9db7-bd94-39a1822f3c7c@linaro.org>
-Date: Wed, 10 May 2023 16:22:51 +0200
+        Wed, 10 May 2023 07:24:40 -0700 (PDT)
+Message-ID: <8e777515-4a5e-daa3-4881-51e003c9e865@linaro.org>
+Date: Wed, 10 May 2023 16:24:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: sifive,plic: Sort
- compatible values
+Subject: Re: [PATCH] dt-bindings: timer: sifive,clint: Clean up compatible
+ value section
 Content-Language: en-US
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
+References: <40ff1fc7f5220db7d527c57ac4bad16c3945ae08.1683725179.git.geert+renesas@glider.be>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
+In-Reply-To: <40ff1fc7f5220db7d527c57ac4bad16c3945ae08.1683725179.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_072255_105470_1ABE8541 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230510_072444_704259_252CD272 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,13 +100,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/05/2023 15:26, Geert Uytterhoeven wrote:
-> Restore alphabetical sort order of the supported SiFive-compatible
-> values.
+On 10/05/2023 15:27, Geert Uytterhoeven wrote:
+> Replace the sentences in the description listing some supported variants
+> by comments on the individual compatible values, to ease future
+> maintenance.  While at it, restore alphabetical sort order.
 > 
 > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
-
+>  .../bindings/timer/sifive,clint.yaml          | 21 +++++++------------
+>  1 file changed, 8 insertions(+), 13 deletions(-)
+> 
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
