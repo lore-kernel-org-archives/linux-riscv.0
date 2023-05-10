@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DA7C77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD14C7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NjLUiNX1uL93cEgA73axFq3Tb2N+SownSY6pspJKBxw=; b=nUdB7u4hzkJe/f
-	L2YHYVagPOA+INw30oiKIjjBJSxDQXwLMT/N0pu6CUg6RBr3M76Qp3pcQq5xF9tro+uzbrxh8s5c3
-	2+IoO0s2GFX2qmOZWLNtQqEj+wBBaltVRA9mL6Tdpckx3CRPPLQb9o+PzoGhEeGNmWWkk7YJEoDTf
-	txS7VQxWAqEKoqrOIBwTVmTZAXwv6PMLf12HCz82bb9yFzeb1PCZn47X3+ctTvX9P0AfmJ36gUP1F
-	KNwMy0CXuKjWWlUHDCiQVcd3X96b3T8rQni7rzxkfSEhowXdUhucIJ4jscSQjjqlOEtdCuuHYXUBE
-	aY1P5u/DcwEmH0YDGtnQ==;
+	List-Owner; bh=uZl42gCcnVTkVjkDo/Nj6k/KDN3kgPuIu4NuteIt3l0=; b=AZ3OHHuhRsKKgw
+	6U3s6tyTj8peKPfZGqHwr6+/fQoa3uVlzqTp2ksiZ0rjrzMWm3wv7hjRUR/GQBX+FDfH+CKJnGU8E
+	6y3lXLnPMtHVgegQarzCbTwnNicwx5ADB6eO20eGbl5S99hxJxO4saDjgMcCjl+aUUtuZsjdwJTze
+	Xbf9V8OHYIjiqNUyDPZ+TNin4MxZJAILP61KRlTbe32rO5T5nqsAeuVCmJrhAGtYWmuy5BoyirF8L
+	d1NfIp3YOLr6GYAullyV/E2OufCHltJHsV8DxgPlvdgUPwDuZZb7SH4MppwIuaE6nhob37qEnS5Bj
+	dceCamTpXft5JrbjQYjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfH4-005Y3E-3A;
-	Wed, 10 May 2023 08:34:14 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1pwfH7-005Y43-1r;
+	Wed, 10 May 2023 08:34:17 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfH1-005Y1m-3B;
-	Wed, 10 May 2023 08:34:13 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-50bd37ca954so66722964a12.0;
-        Wed, 10 May 2023 01:34:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1683707648; x=1686299648;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B0p9eN+ggVsgeu7VJetFmhwwW1D4ZwxzfXfjX9kMJRM=;
-        b=aeJMh3kSstDe1tz2bumuhjkcM10fYPnNrpPFTf8YaH+43l4LdtxVqZKDDS6zar4ITc
-         Hqyxpo3mhZi7S8O/stKHeIkPNQubDmKQi8SGpJkxKOFdRwNDNhH3LTiSZx73UID970SX
-         013fKgK1EoMIFg0iEmRgbk7wzOrtA4JRBD3VzS6NgvmgOPdYGXf5Ygbz87M9CEQrZG87
-         w98LSZC1YVvPzzi+1uODZ3QtjeZbPvjh1op9tN/oulKncSxqKt09CrFJHKxfhWftL6n0
-         rwX5KAgGtkRzfriquYC1kaYGLT+z8RrY62wCWWEAo72iNN1rQv2ZBRYgnmhRbqe1njoH
-         HVHg==
+	id 1pwfH5-005Y23-08
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 May 2023 08:34:16 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 866663F4A8
+	for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 08:34:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1683707649;
+	bh=LMsA6JxRTYWQXM4naAdveOz2WpVCJs1mzJM+iSTf9FA=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=lC8ZEaQWeJdZZTqtPFw0bBGIiImREnnuAArKkOAeNpft1VvwoFgNZodFlnmgGi2SR
+	 CxhBNFCwz69WKk35cBsauje9P0IZJ9KcdTesJJTLI3x9QCk16OaVgtsrpoTkdp/RwC
+	 hg9F/cfk7EtaFJaZQe+N3GwIVMj8/A3uHOsFBMErTdql+8VlVFAof+b371POvF6zo+
+	 A1msqVX6dtfl86SrbeJtoLC3NL+4Nrt0a7oiYOg34v3n6Hh+ArQhJM3GRoU/LaiTth
+	 ul4qjdHVBv9eVIsPmIV4IOVW+yMcjUkMU6DKv0vN378XrR6X9hJXC6n0/OM+7nJzbc
+	 d+OPQky9ouZEw==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-3f397a1df12so12111641cf.2
+        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 01:34:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20221208; t=1683707648; x=1686299648;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B0p9eN+ggVsgeu7VJetFmhwwW1D4ZwxzfXfjX9kMJRM=;
-        b=YqWUqlN+D8x0Sh++8Kq4gYKU1EzmO5JvPH0N7DmOQXCHgeXTBNr2KbGfjMdcvuAlJ8
-         72R8ldxUbsyXy89vA9tEr8h+CsC3Xm1SNvs2yTFfTiQhJJiK72naVrQl0mTv0CLvi7S2
-         qZtBbomawXdYsk44oeEO2wytjSS1tS/SDE5TR/XycJF+ieZx1JrUc/GGmmBaWmVF0I2x
-         K5VjH0FXyQhovXm0iBazpp2r+CMy9dVQCHiS6XWp6wnx9Or9p4SP1urA0aYWxTgJK+/n
-         eSn9TSl1qL87S5IvqMekVrkAl4gDYiQ5t0p55yBarZtvUXEVPN6G7mC5KrWhDyrIachj
-         Ig6Q==
-X-Gm-Message-State: AC+VfDxG+gfylooy7xJbtdCcLu40JmsmpfSaDiOQNWEcsN8od01lU148
-	O3Fm3f1M6nAbkYiq3CjxN4wU8O9mKad3/sQNUEs=
-X-Google-Smtp-Source: ACHHUZ5LA+oyV/jkzhbvC/Oj8UgFvIAECULeZEfOx2nOpmbXWSiznXG43fIAKb5+pEqhaTHmHRKki6vY600b90D3Eyk=
-X-Received: by 2002:a17:907:724b:b0:94d:e2ef:1618 with SMTP id
- ds11-20020a170907724b00b0094de2ef1618mr14022272ejc.7.1683707647722; Wed, 10
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LMsA6JxRTYWQXM4naAdveOz2WpVCJs1mzJM+iSTf9FA=;
+        b=eMt0FssWEJm2vJRWos2AIQQgEsZquxFL1M+yBCPXIoiwk1EMSB0m92W5t4B8vznwHH
+         vfIWhVWM8SPfR8mO2IhisgGucjiMJX8yQA2U8WIkOYaW2oklY/BDN7A3QSe6lu2T8H6R
+         MzEpdmi6/44xbGzJvbFI/YKrb+LRLEBcgfhKY0tgqJV0Tu95GtMVpKS+kyvXXyUlkUVb
+         4oJESQYhGd3QPhtRGEGKUi0i4n6h/r/LqVduEEUxcbkXKC8Xf8C67Nx58gLz/UNzmFYk
+         0RJ83wwXr4Ey9ojO82TW/fYI1lb8vr7nnQBbQVP0EOl+jY0WwJl2KUp1tpEptU/ILWwR
+         YMMQ==
+X-Gm-Message-State: AC+VfDwJJTvEP0Xp+FkYImcKZDPPtTlBv0OK60tVvj1U+WiPO019ErF/
+	Vi0Wh9q6UoYBLFA2ScTp+VeUBut4x7hCwipfFVnIoz6sY9j4fI6mIGX7tBBObjWZeNklOZCjWRR
+	0CVOh+MoLGEsaa5EHijrJBXvu97uNiS7ne6jUhO/QplKgdS/XrWFJPtZ3VxTmfg==
+X-Received: by 2002:ac8:598f:0:b0:3ef:31c4:c8da with SMTP id e15-20020ac8598f000000b003ef31c4c8damr26088051qte.50.1683707648630;
+        Wed, 10 May 2023 01:34:08 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ5DZCX5r73TwM0f7t4oRTD7Y8E8pM8uSWayhN2OzbxOG+SFBnhHTqvrbsOT/q3EKUIZc2ylBzrCQUO23z5q8NA=
+X-Received: by 2002:ac8:598f:0:b0:3ef:31c4:c8da with SMTP id
+ e15-20020ac8598f000000b003ef31c4c8damr26087975qte.50.1683707647399; Wed, 10
  May 2023 01:34:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <20230506232616.1792109-1-bigunclemax@gmail.com>
- <20230506232616.1792109-3-bigunclemax@gmail.com> <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
-In-Reply-To: <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
-From: Maxim Kiselev <bigunclemax@gmail.com>
-Date: Wed, 10 May 2023 11:33:56 +0300
-Message-ID: <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
-To: David Laight <David.Laight@aculab.com>
-Cc: Andre Przywara <andre.przywara@arm.com>, Icenowy Zheng <icenowy@aosc.io>, 
-	Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, 
+References: <20230506090116.9206-1-walker.chen@starfivetech.com>
+ <20230506090116.9206-4-walker.chen@starfivetech.com> <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com>
+ <20230509-overheat-pliable-00d60523637e@spud>
+In-Reply-To: <20230509-overheat-pliable-00d60523637e@spud>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 10 May 2023 10:33:51 +0200
+Message-ID: <CAJM55Z9AxMVw=ymfFBb=45nODq89O8dMebzRgo-XD0GKduDBYg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
+To: Conor Dooley <conor@kernel.org>
+Cc: Walker Chen <walker.chen@starfivetech.com>, Mark Brown <broonie@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
 	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
-	Maxime Ripard <mripard@kernel.org>, 
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, alsa-devel@alsa-project.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_013412_019466_6DEB9721 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20230510_013415_411909_561854B0 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +98,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIERhdmlkCgo+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhpcyBw
-b2ludD8KPiBUaGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0IHdvdWxk
-IG1ha2UKPiB0aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVyLgoKSSdtIHNv
-cnJ5IGJ1dCBJIGRvbid0IGZ1bGx5IHVuZGVyc3RhbmQgd2hhdCB5b3UgYXJlIHN1Z2dlc3Rpbmcu
-CkluIHBhdGNoIDNcNSB3ZSBleHRlbmQgdGhlIHN1bjZpX3NwaV9jZmcgc3RydWN0dXJlIHdpdGgg
-dGhlIGhhc19jbGtfY3RsIGZpZWxkLgoK0L/QvSwgOCDQvNCw0Y8gMjAyM+KAr9CzLiDQsiAxMjo0
-NywgRGF2aWQgTGFpZ2h0IDxEYXZpZC5MYWlnaHRAYWN1bGFiLmNvbT46Cj4KPiBGcm9tOiBNYWtz
-aW0gS2lzZWxldgo+ID4gU2VudDogMDcgTWF5IDIwMjMgMDA6MjYKPiA+Cj4gPiBBcyB3ZSdyZSBh
-ZGRpbmcgbW9yZSBwcm9wZXJ0aWVzIHRvIHRoZSBPRiBtYXRjaCBkYXRhLCBjb252ZXJ0IGl0IHRv
-IGEKPiA+IHN0cnVjdCBub3cuCj4gPgo+IC4uLgo+ID4gLSAgICAgc3NwaS0+Zmlmb19kZXB0aCA9
-ICh1bnNpZ25lZCBsb25nKW9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YSgmcGRldi0+ZGV2KTsKPiA+
-ICsgICAgIHNzcGktPmNmZyA9IG9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YSgmcGRldi0+ZGV2KTsK
-Pgo+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhpcyBwb2ludD8KPiBU
-aGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0IHdvdWxkIG1ha2UKPiB0
-aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVyLgo+Cj4gICAgICAgICBEYXZp
-ZAo+Cj4gLQo+IFJlZ2lzdGVyZWQgQWRkcmVzcyBMYWtlc2lkZSwgQnJhbWxleSBSb2FkLCBNb3Vu
-dCBGYXJtLCBNaWx0b24gS2V5bmVzLCBNSzEgMVBULCBVSwo+IFJlZ2lzdHJhdGlvbiBObzogMTM5
-NzM4NiAoV2FsZXMpCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Tue, 9 May 2023 at 20:05, Conor Dooley <conor@kernel.org> wrote:
+>
+> On Tue, May 09, 2023 at 08:52:48PM +0800, Walker Chen wrote:
+> > Hi Conor/Emil,
+> >
+> > DT overlay is used to describe combinations of VF2 and hat.
+> > Do you have any comments on this patch ?
+>
+> Up to Emil :)
+>
+> I seem to recall that he said at the linux-riscv sync-up call that we
+> have* that he was not in favour of overlays for hats like this.
+> I'll let him confirm that though, I might very well be misinterpreting or
+> misremembering what he said.
+
+What probably meant was that I didn't want a bunch of different device
+trees for each combination board * hat. An overlay makes a lot more
+sense. However, looking through the kernel tree there is a surprising
+lack of overlays for hats committed already, so I suspect there is
+some sort of policy around overlays already in place.
+
+> Cheers,
+> Conor.
+>
+> * https://lore.kernel.org/linux-riscv/mhng-775d4068-6c1e-48a4-a1dc-b4a76ff26bb3@palmer-ri-x1c9a/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
