@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC652C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 03:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1435C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 04:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ARFDB6gkJVediVVVpjm1Kh7ZyGULP5NkXtuipvTHqTs=; b=2uiZBwpYiQPCxC
-	BsOPUHAUBCI5lMeFhguYkrQml+7HsO+xiG4mgvmMMRodEnAGV47bxKckP4z/o/Lb7qAzzD1cCuuaX
-	FzUsULiJ/nCpzNA0rpbWV9vRJZYCUGIhpLOsu8jxPZXjlmfXL4rPKx1jfmzuCSiI4Xx4LzVwQbqnx
-	iKVfHE6n5g+MmMsJu/6XGVI0eqiehVM+MNT82QCS00H/P1f6CCL6aaoSPvagA9ZRlxJrEGv/mFc46
-	CGb1MB435m0QYqflkDNi/9wT60qhY3x+ipuvbyyKzQBpXXUpTZUTXv97GuJK12fz+8/m+XCeHmY6H
-	m3O8W706RlTfCnWKTkgQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bte5wRYg1xFn5m1DFcP9QvlXzQMGSiKQEPgeVjCCpzE=; b=21SNlIb+LawEOJ
+	Lux5elUoTbcOUGh9y650klNmcLJpf38PZ2aEiNT+F9FrZYwYMLVguSRjPsqG8ImpFK155t2qNULaK
+	WAIn6sxXcrIT+OPZpMljwstPHkxUAUDLd420PjhBDAd1/CFVBZ2RKng3XQDYjSsfpaiV4CEmDQX8m
+	9htdFoYhHGlDnJNJcm0zK/Xzb6iHG6ZsXTxw2Y7lBLhkDkFqWkbUQY7jOiPZGJwuwtcH095sKr8NS
+	gyiUpFBOGP6HrDFQFwVrljj/3KjYtq0a0+ak07CxJh0+MmKPH0keeb0NXRwSMWhquTbBsT4iXZJEM
+	//cYctNHDKsUaL4jVv/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwat9-004ww6-2K;
-	Wed, 10 May 2023 03:53:15 +0000
-Received: from m12.mail.163.com ([220.181.12.215])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwat6-004wuz-1n
+	id 1pwbc3-0052J1-0O;
+	Wed, 10 May 2023 04:39:39 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwbbx-0052Gx-0w
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 03:53:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=p9uHm
-	CC4GlxQ1KU1bCyXbYnX5kCC6wGpCXGXt/a9UPs=; b=aLE2OGyMktksauQZV60GQ
-	2juJOIJXrU0JD9B222ZqcM6sR9AJIsiwXQdhRxvNNfmViY9XXBkX0uN4/pRMaMCW
-	sYEc17UWX9zcfKiEN+TUnoE9LbYZ5tkM0VtuMayg8y4slJ9Zfi0+2sT7HQ+l6XR2
-	kLBJQo/m4iAIYAeutBnIkk=
-Received: from zhangf-virtual-machine.localdomain (unknown [180.111.102.183])
-	by zwqz-smtp-mta-g3-4 (Coremail) with SMTP id _____wBHlVQOFVtk+zPWBQ--.60792S5;
-	Wed, 10 May 2023 11:52:59 +0800 (CST)
-From: zhangfei <zhang_fei_0403@163.com>
-To: ajones@ventanamicro.com
-Cc: aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	zhang_fei_0403@163.com,
-	zhangfei@nj.iscas.ac.cn
-Subject: Re: [PATCH] riscv: Optimize memset 
-Date: Wed, 10 May 2023 11:52:43 +0800
-Message-Id: <20230510035243.8586-4-zhang_fei_0403@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230510035243.8586-1-zhang_fei_0403@163.com>
-References: <20230509-b0dc346928ddc8d2b5690f67@orel>
- <20230510035243.8586-1-zhang_fei_0403@163.com>
+	Wed, 10 May 2023 04:39:37 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-55d2e87048cso100411817b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 21:39:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1683693566; x=1686285566;
+        h=mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pNtnMqwecxgAyJiNrU/av2u9SKsTTnkqGeLPsFfUGRY=;
+        b=cNF0lopRgs5z+paNDd47dgtG8TBjwZyJSBqFjK6ksHmrX2HqmLMYrrKsDdWDE4galp
+         I1RIa58CxJ4eWJPHfaXHtCDPLpNhfN/aCMBSDVyVUdoFoZEKW8H5uRAddSBQuOjqxl6G
+         cijgVp5qOvAn/BuT5Kj3i7X1ZHy6xq4kMM1JJiMLi60Voi2WzpeuiP4d77oQFZQJJTpA
+         DHkrQmjDtXwQxtNqUbLbFtn/koUU8sha9n5T/jPfXiKq7pKvhvnWuqWej7kSJ3OgTY5v
+         znwXH+YUrN8s6GiaQCUoDOK5c9Mq29M3c3H1/3qfehC4bHIrJ+vibMAeHVK8iG01ICVy
+         zeRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683693566; x=1686285566;
+        h=mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pNtnMqwecxgAyJiNrU/av2u9SKsTTnkqGeLPsFfUGRY=;
+        b=Bktb4IuiXAs1mGfIwedgu99Vv8L8FIt7K4y6UFGASNYdCLAwQTAJY+SUSu49XSExMc
+         dQbez0LaSG1WPQNQRGHMUOKgCeDomKZhmu4NrC5UG0wJWXTMlabTFurEj3NoACTUStZw
+         6YrdEZVmnO7wE5QuOftDrTt0hhJ1pmhxfLvNtVVMYBcSKJy+/EP6/UtL4obgyRhxtI/p
+         tz2v0eM0EdgDZWjsbvtUCb/2xJhSYGhT6ryBuSHlqEVzWlhQfVKO9IxqHHIXY481XbAi
+         EjbTWDl04AHmqKFmQnTKImQuGGVU5kqfrGS7LXrxyOE4VRBFG0IweHYXj6nSPwG3n7Oe
+         2dyw==
+X-Gm-Message-State: AC+VfDwxJRHMwGIvRLxM97D3G1/aLlOK+wEpd9IphrWAmz2af+/L0STU
+	9S0dxQMQy8uGQwlts3wteBKnNQ==
+X-Google-Smtp-Source: ACHHUZ4tMEgG7AqlQIxMPNzAEIonGfK8+PPQUmJOyuPgdF6IMlPRJRM0QpGl7CYyO+0nNXPmO2L3jg==
+X-Received: by 2002:a0d:cc0b:0:b0:55a:9b56:acee with SMTP id o11-20020a0dcc0b000000b0055a9b56aceemr18605566ywd.38.1683693565918;
+        Tue, 09 May 2023 21:39:25 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id i185-20020a816dc2000000b0055d5c626be5sm3775822ywc.26.2023.05.09.21.39.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 21:39:25 -0700 (PDT)
+Date: Tue, 9 May 2023 21:39:13 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Andrew Morton <akpm@linux-foundation.org>
+cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: [PATCH 00/23] arch: allow pte_offset_map[_lock]() to fail
+Message-ID: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wBHlVQOFVtk+zPWBQ--.60792S5
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Jr4fCw18Ww4rtF4DtFW7twb_yoWfCwb_G3
-	yUJrnYkwn8ArZakFs3Kr45WrWqy34DArW5Wr18Xw12gr9YqrWDZ3yvkr9Yva48G3WI9Fnx
-	CFyYqayUAr1S9jkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRiBHqJUUUUU==
-X-Originating-IP: [180.111.102.183]
-X-CM-SenderInfo: x2kd0w5bihxsiquqjqqrwthudrp/xtbCfBBrl2DcJd-5swAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_205312_933636_FFF89959 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230509_213933_355406_A7695F8B 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +112,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: zhangfei <zhangfei@nj.iscas.ac.cn>
+Here is a series of patches to various architectures, based on v6.4-rc1:
+preparing for changes expected to follow in mm, affecting pte_offset_map()
+and pte_offset_map_lock().
 
-On Tue, May 09, 2023 11:16:33AM +0200, Andrew Jones wrote: 
-> On Tue, May 09, 2023 at 10:22:07AM +0800, zhangfei wrote:
-> > 
-> > Hi,
-> > 
-> > I filled head and tail with minimal branching. Each conditional ensures that 
-> > all the subsequently used offsets are well-defined and in the dest region.
-> 
-> I know. You trimmed my comment, so I'll quote myself, here
-> 
-> """
-> After the check of a2 against 6 above we know that offsets 6(t0)
-> and -7(a3) are safe. Are we trying to avoid too may redundant
-> stores with these additional checks?
-> """
-> 
-> So, again. Why the additional check against 8 above and, the one you
-> trimmed, checking 10?
+In a week or two, I intend to post a separate series, of equivalent
+preparations in mm.  These two series are "independent": neither depends
+for build or correctness on the other, and the arch patches can be merged
+separately via arch trees (stragglers picked up by akpm?); but both series
+have to be in before a third series is added to make the effective changes
+(and that will add a just a little more in powerpc, s390 and sparc).
 
-Hi,
+What is it all about?  Some mmap_lock avoidance i.e. latency reduction.
+Initially just for the case of collapsing shmem or file pages to THPs;
+but likely to be relied upon later in other contexts e.g. freeing of
+empty page tables (but that's not work I'm doing).  mmap_write_lock
+avoidance when collapsing to anon THPs?  Perhaps, but again that's not
+work I've done: a quick and easy attempt looked like it was going to
+shift the load from mmap rwsem to pmd spinlock - not an improvement.
 
-These additional checks are to avoid too many redundant stores. 
+I would much prefer not to have to make these small but wide-ranging
+changes for such a niche case; but failed to find another way, and
+have heard that shmem MADV_COLLAPSE's usefulness is being limited by
+that mmap_write_lock it currently requires.
 
-Adding a check for more than 8 bytes is because after the loop 
-segment '3' comes out, the remaining bytes are less than 8 bytes, 
-which also avoids redundant stores.
+These changes (though of course not these exact patches, and not all
+of these architectures!) have been in Google's data centre kernel for
+three years now: we do rely upon them.
 
-Thanks,
-Fei Zhang
+What are the per-arch changes about?  Generally, two things.
 
+One: the current mmap locking may not be enough to guard against that
+tricky transition between pmd entry pointing to page table, and empty
+pmd entry, and pmd entry pointing to huge page: pte_offset_map() will
+have to validate the pmd entry for itself, returning NULL if no page
+table is there.  What to do about that varies: often the nearby error
+handling indicates just to skip it; but in some cases a "goto again"
+looks appropriate (and if that risks an infinite loop, then there
+must have been an oops, or pfn 0 mistaken for page table, before).
+
+Deeper study of each site might show that 90% of them here in arch
+code could only fail if there's corruption e.g. a transition to THP
+would be surprising on an arch without HAVE_ARCH_TRANSPARENT_HUGEPAGE.
+But given the likely extension to freeing empty page tables, I have
+not limited this set of changes to THP; and it has been easier, and
+sets a better example, if each site is given appropriate handling.
+
+Two: pte_offset_map() will need to do an rcu_read_lock(), with the
+corresponding rcu_read_unlock() in pte_unmap().  But most architectures
+never supported CONFIG_HIGHPTE, so some don't always call pte_unmap()
+after pte_offset_map(), or have used userspace pte_offset_map() where
+pte_offset_kernel() is more correct.  No problem in the current tree,
+but a problem once an rcu_read_unlock() will be needed to keep balance.
+
+A common special case of that comes in arch/*/mm/hugetlbpage.c, if
+the architecture supports hugetlb pages down at the lowest PTE level.
+huge_pte_alloc() uses pte_alloc_map(), but generic hugetlb code does
+no corresponding pte_unmap(); similarly for huge_pte_offset().
+Thanks to Mike Kravetz and Andrew Morton, v6.4-rc1 already provides
+pte_alloc_huge() and pte_offset_huge() to help fix up those cases.
+
+01/23 arm: allow pte_offset_map[_lock]() to fail
+02/23 arm64: allow pte_offset_map() to fail
+03/23 arm64/hugetlb: pte_alloc_huge() pte_offset_huge()
+04/23 ia64/hugetlb: pte_alloc_huge() pte_offset_huge()
+05/23 m68k: allow pte_offset_map[_lock]() to fail
+06/23 microblaze: allow pte_offset_map() to fail
+07/23 mips: update_mmu_cache() can replace __update_tlb()
+08/23 parisc: add pte_unmap() to balance get_ptep()
+09/23 parisc: unmap_uncached_pte() use pte_offset_kernel()
+10/23 parisc/hugetlb: pte_alloc_huge() pte_offset_huge()
+11/23 powerpc: kvmppc_unmap_free_pmd() pte_offset_kernel()
+12/23 powerpc: allow pte_offset_map[_lock]() to fail
+13/23 powerpc/hugetlb: pte_alloc_huge()
+14/23 riscv/hugetlb: pte_alloc_huge() pte_offset_huge()
+15/23 s390: allow pte_offset_map_lock() to fail
+16/23 s390: gmap use pte_unmap_unlock() not spin_unlock()
+17/23 sh/hugetlb: pte_alloc_huge() pte_offset_huge()
+18/23 sparc/hugetlb: pte_alloc_huge() pte_offset_huge()
+19/23 sparc: allow pte_offset_map() to fail
+20/23 sparc: iounit and iommu use pte_offset_kernel()
+21/23 x86: Allow get_locked_pte() to fail
+22/23 x86: sme_populate_pgd() use pte_offset_kernel()
+23/23 xtensa: add pte_unmap() to balance pte_offset_map()
+
+ arch/arm/lib/uaccess_with_memcpy.c      |  3 ++
+ arch/arm/mm/fault-armv.c                |  5 ++-
+ arch/arm/mm/fault.c                     |  3 ++
+ arch/arm64/mm/fault.c                   |  3 ++
+ arch/arm64/mm/hugetlbpage.c             | 11 ++----
+ arch/ia64/mm/hugetlbpage.c              |  4 +--
+ arch/m68k/include/asm/mmu_context.h     |  6 ++--
+ arch/m68k/kernel/sys_m68k.c             |  2 ++
+ arch/m68k/mm/mcfmmu.c                   | 52 +++++++++++----------------
+ arch/microblaze/kernel/signal.c         |  5 +--
+ arch/mips/include/asm/pgtable.h         | 15 ++------
+ arch/mips/mm/tlb-r3k.c                  |  5 +--
+ arch/mips/mm/tlb-r4k.c                  |  9 ++---
+ arch/parisc/kernel/cache.c              | 26 +++++++++++---
+ arch/parisc/kernel/pci-dma.c            |  2 +-
+ arch/parisc/mm/hugetlbpage.c            |  4 +--
+ arch/powerpc/kvm/book3s_64_mmu_radix.c  |  2 +-
+ arch/powerpc/mm/book3s64/hash_tlb.c     |  4 +++
+ arch/powerpc/mm/book3s64/subpage_prot.c |  2 ++
+ arch/powerpc/mm/hugetlbpage.c           |  2 +-
+ arch/powerpc/xmon/xmon.c                |  5 ++-
+ arch/riscv/mm/hugetlbpage.c             |  4 +--
+ arch/s390/kernel/uv.c                   |  2 ++
+ arch/s390/mm/gmap.c                     | 24 +++++++------
+ arch/s390/mm/pgtable.c                  | 12 +++++--
+ arch/sh/mm/hugetlbpage.c                |  4 +--
+ arch/sparc/kernel/signal32.c            |  2 ++
+ arch/sparc/mm/fault_64.c                |  3 ++
+ arch/sparc/mm/hugetlbpage.c             |  4 +--
+ arch/sparc/mm/io-unit.c                 |  2 +-
+ arch/sparc/mm/iommu.c                   |  2 +-
+ arch/sparc/mm/tlb.c                     |  2 ++
+ arch/x86/kernel/ldt.c                   |  6 ++--
+ arch/x86/mm/mem_encrypt_identity.c      |  2 +-
+ arch/xtensa/mm/tlb.c                    |  5 ++-
+ 35 files changed, 140 insertions(+), 104 deletions(-)
+
+Hugh
 
 _______________________________________________
 linux-riscv mailing list
