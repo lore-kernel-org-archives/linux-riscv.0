@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5541C7EE24
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A83C7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Eoe6+hslThD0eSnFyTlifjDn4CV71rYytm9iKW+rdyk=; b=VgtmbpKv33c2Lw
-	aGekc5Z09XLP6QuUa++/YS8tLUOx4g5eXG3jM7OF5v1ascMWTZi3IIvPgES+ebJCOfrGIWx0TlkwA
-	lx79aFKLQGQYoNjV+ly7Pt+mBI3QY2BkGmyED9ccfk1CxJ8d4IutrElhkSvHnryRGkLxmNxpKycnh
-	ycCuxyZCSrNANcpNS/j6vJLghUlZjhQNr/C49fij6ugUsABLbWd8Kyo5Ypmh44TQdX9Rf/DjVFtXF
-	puTN85QecsuB5NMYciT19ox5cRI022dJo9c/O5oXY0CsEAScUnVpdkBqX0Ne6sMy6SvjH2n4iryVN
-	irbkKMMHPxXmqwHppjPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TttPE58OqEitgyfr850tyhVGNwzbaDIRL/QK9d43gsE=; b=Qbc+ANQlPVjAM2
+	d1x0aMZkQ/h6C+SFi9ZUwRUXeU69e+VYnnS8Zm6PdoPdRL2mFnbqfMei6bk5XCuw3bGurs/PpCPpm
+	x11xRPTR+CP7N+fT4uXxdmNXmQQFNcmkpnxwNw8nZGQ2r414ZofCTt7Uf1xnI8Q14zcA49DeVjOIU
+	dBo1RQI7FZiijxavsBXij1u2J8pEcmQSxvb/PJTPqlY0DNDgJzF1dBYi3oZjHpvmr3I0V564Hb7+s
+	GERj9SPki1txb4m95JNohQsPUkzlmbNEBZkvSk5DEiTcAkakr48q32WOzMT+Wc9DsYW9kM5A1r7Rf
+	ti5vvqqQZ5UNkriGpgLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwevD-005TjB-0D;
-	Wed, 10 May 2023 08:11:39 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1pwevN-005Tly-12;
+	Wed, 10 May 2023 08:11:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwev9-005TiA-2A;
-	Wed, 10 May 2023 08:11:36 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-3f450815d0bso7349335e9.0;
-        Wed, 10 May 2023 01:11:34 -0700 (PDT)
+	id 1pwevK-005Tkb-0I;
+	Wed, 10 May 2023 08:11:47 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3f41dceb9c9so29212445e9.3;
+        Wed, 10 May 2023 01:11:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1683706293; x=1686298293;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kaQpRP2PJulxYaO5bFooRdj1QYIO1irnm40lBiyMQfA=;
-        b=sGsXHOCDB1/G09BwgMcl3P9fyGYxgKy3Lg32VYzLCmWTMGjuN0Og+jZ0pYkjWmJ+5g
-         Zne7CNel0vAodrw5NQr0bOgH68uTNzlfPNUgOZih9LMJX34lTXhuUPDGfgqtgSPuZorD
-         V5zDRnIsfctWawQ3dOXE/g5ejxcI6zl/SJ4lDMuFRKal66KSfKiuSpbsz5O/jm8G2AiT
-         W0IKm5IiAosack2KCtEDLu4JqSlUXwA83mrxWFPMLAczYSXHSov4urgeJwcOT57yeSpM
-         K1N5nEUZrTC25G/ngzvFsXq5BWuj820aa+EmvpGlp//SWdi2RunF+IErZPV9Y51Z5ml0
-         7Ceg==
+        d=gmail.com; s=20221208; t=1683706304; x=1686298304;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8Qz4LzR1x4XZFp0u1LWMlSQ1HYwXXgzIFPiahRVFlGE=;
+        b=jcAW8pADW5wrQPFMxuV7lCESCNGQ7Mktzd+xzZ8iPUVsCAnQ6YuF7TwVsiY+XRUoMN
+         g8FyEXCzZQT5k4K5nVUZfC697YtZ+zh9t6TNwm79/9TceGFIz4m904zkzKVoFoJRhvPB
+         618soVvnIxK+YS78XxBtjJG9TqoM2Nw7kSCYpbYb/zBzQ57IjcDuIeWpeoVm1AmjzD/U
+         xZPSQUov2WFyN0n26jvgxhYI8PsSN1FZwPSBu1HhODBdiNBpQzGIk1gKU+2F7rtuOZaf
+         P555z9qkvEqF0PDkB5MnMluAyEsgHVzlgBr/3uNlfTdQN4X6W20ybGCLZInpCjWonoQa
+         XT5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683706293; x=1686298293;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kaQpRP2PJulxYaO5bFooRdj1QYIO1irnm40lBiyMQfA=;
-        b=R1/ZARCwnKv3/rsqh3POPsuCeJM47WTiRwev5HEx9U+sl4VunACIgxPrA0eVBDRMsH
-         IcT5jlKR+6xoxDOWF5p79IXthYVXUn7kFlLQGffQrYl5M7ZTwznCxJHQb5RdaWR1rDrq
-         0gVO4HC2txS9HRY6Uhc3gYRZadRrPB1OSVDlHOqDo7pTdBli6acodjlnX70kzhGg/ajY
-         SvyeInnpQjRGWpNQtxHQrt1lI0O00CtkoAHpBLLe2XMTldcOve0y/dm1bUwlYynoRFqX
-         h4IuoYXCxM2uxaLhuAiOoIOpNYYTGVbZ0wAlwl0+Z9qtAPbgI2APFJuZZg8H3jzKjKLn
-         ZliA==
-X-Gm-Message-State: AC+VfDwXAkIISyYx0wZPtc4jpDTJt0D0kP2TVrFw+qqqcTfEOi3NL/oB
-	PlAz3/mD5F4EF3QH6PJZ/kY=
-X-Google-Smtp-Source: ACHHUZ6nA8An0kWETX3sBghZaBOHEHWZkW9kJemfajv/KifLNkZtMoHeOoheAEpkUZYo+RyRDOmVEQ==
-X-Received: by 2002:a7b:c356:0:b0:3f0:3c2:3fa4 with SMTP id l22-20020a7bc356000000b003f003c23fa4mr11776779wmj.12.1683706292779;
-        Wed, 10 May 2023 01:11:32 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1683706304; x=1686298304;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8Qz4LzR1x4XZFp0u1LWMlSQ1HYwXXgzIFPiahRVFlGE=;
+        b=RbAEyeiQ0KKJKyZDPdZgrRpQlxs6g9S5tkdt84cLk/Tx4WRbCPZ2xJD4VpSX7N0EgC
+         iyTdnlidIymg9jv7+R87+Goy8GzOlfxn/lWG/CQSbs7wCb/bbL/tEi3zNS5FmOPM/zLq
+         ncQ0wL7xspj9yGYRx6mJvWf74Lbg1SVZr/tebvRqPFKCLwwF8WNiIBvHaNuY6jzMu1Y/
+         0ZYYaUpgUzVwb6dDkrwN8QTJSvpP/9yswx4cobm584J8nNHSze05sCWq67Mom9X+tLYd
+         QOruzWLUhY7dcsYrHgCHs1Kwk/F9/p8GIpsWbkpx7MRZ8IhPxsuqiQpF+kpEggWosAXe
+         GfGg==
+X-Gm-Message-State: AC+VfDwMoZ3zcZXo2ZMbEqLSkjP6xogrFSuo8NP9kfkZl8Ii9paXSqOL
+	+X4y+gpHSLWhdQ6W1+th70o=
+X-Google-Smtp-Source: ACHHUZ7PLnbhBi7vF8l7BFUZ2Ef1MzGS52Yc/K80mJCYCiMT6ANzAX7IY5wv1U8XJB5LXjpxzcKLiQ==
+X-Received: by 2002:a05:600c:2317:b0:3f1:76d4:d43f with SMTP id 23-20020a05600c231700b003f176d4d43fmr11272984wmo.8.1683706303974;
+        Wed, 10 May 2023 01:11:43 -0700 (PDT)
 Received: from localhost.localdomain ([176.221.215.212])
-        by smtp.gmail.com with ESMTPSA id f16-20020a5d4dd0000000b003062ad45243sm16496375wru.14.2023.05.10.01.11.30
+        by smtp.gmail.com with ESMTPSA id f16-20020a5d4dd0000000b003062ad45243sm16496375wru.14.2023.05.10.01.11.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 May 2023 01:11:32 -0700 (PDT)
+        Wed, 10 May 2023 01:11:43 -0700 (PDT)
 From: Maksim Kiselev <bigunclemax@gmail.com>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Icenowy Zheng <icenowy@aosc.io>,
 	Maksim Kiselev <bigunclemax@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -82,15 +84,16 @@ Cc: Icenowy Zheng <icenowy@aosc.io>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 0/5] Allwinner R329/D1/R528/T113s SPI support
-Date: Wed, 10 May 2023 11:11:07 +0300
-Message-Id: <20230510081121.3463710-1-bigunclemax@gmail.com>
+Subject: [PATCH v5 1/5] dt-bindings: spi: sun6i: add DT bindings for Allwinner R329/D1/R528/T113s SPI
+Date: Wed, 10 May 2023 11:11:08 +0300
+Message-Id: <20230510081121.3463710-2-bigunclemax@gmail.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230510081121.3463710-1-bigunclemax@gmail.com>
+References: <20230510081121.3463710-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_011135_749999_EF03CF29 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230510_011146_128167_03B508F9 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +110,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-v5:
-  - fixed DT bindings (Allowed three-string compatibility)
+Listed above Allwinner SoCs has two SPI controllers. First is the regular
+SPI controller and the second one has additional functionality for
+MIPI-DBI Type C.
 
-v4:
-  - fixed SPI sample mode configuration
-  - sorted DT bindings list
+Add compatible strings for these controllers
 
-v3:
-  - fixed effective_speed_hz setup and added SPI sample mode configuration
-  - merged DT bindings for R329 and D1 SPI controllers
-  - added SPI_DBI node to sunxi-d1s-t113.dtsi
+Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../bindings/spi/allwinner,sun6i-a31-spi.yaml          | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-v2:
-  - added DT bindings and node for D1/T113s
-
-Icenowy Zheng (1):
-  spi: sun6i: change OF match data to a struct
-
-Icenowy Zheng (1):
-  spi: sun6i: change OF match data to a struct
-
-Maksim Kiselev (4):
-  dt-bindings: spi: sun6i: add DT bindings for Allwinner
-    R329/D1/R528/T113s SPI
-  spi: sun6i: add quirk for in-controller clock divider
-  spi: sun6i: add support for R329/D1/R528/T113s SPI controllers
-  riscv: dts: allwinner: d1: Add SPI controllers node
-
- .../bindings/spi/allwinner,sun6i-a31-spi.yaml |  10 ++
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  37 +++++
- drivers/spi/spi-sun6i.c                       | 131 ++++++++++++------
- 3 files changed, 138 insertions(+), 40 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml b/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
+index de36c6a34a0f..fa5260eca531 100644
+--- a/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
++++ b/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
+@@ -19,6 +19,7 @@ properties:
+ 
+   compatible:
+     oneOf:
++      - const: allwinner,sun50i-r329-spi
+       - const: allwinner,sun6i-a31-spi
+       - const: allwinner,sun8i-h3-spi
+       - items:
+@@ -28,6 +29,15 @@ properties:
+               - allwinner,sun50i-h616-spi
+               - allwinner,suniv-f1c100s-spi
+           - const: allwinner,sun8i-h3-spi
++      - items:
++          - enum:
++              - allwinner,sun20i-d1-spi
++              - allwinner,sun50i-r329-spi-dbi
++          - const: allwinner,sun50i-r329-spi
++      - items:
++          - const: allwinner,sun20i-d1-spi-dbi
++          - const: allwinner,sun50i-r329-spi-dbi
++          - const: allwinner,sun50i-r329-spi
+ 
+   reg:
+     maxItems: 1
 -- 
 2.39.2
 
