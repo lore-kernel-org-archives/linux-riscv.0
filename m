@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F02CC7EE26
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 16:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D40C7EE24
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 17:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/U4MTWHndei6/uzJB3CLVPDRL8MjVPb6aJt/HzmArcs=; b=1ksFQsAOZdm3fL
-	5ho5ibraNJPl1YDlsPShI5XFG2H3srSdvC6NX6GLSfFcD8PiZmDHt1hnJPSNdUalf4hkn15tphxX8
-	/vYP0D3tHU0loKSYEfIsQ8uV9e8M5eCZORFvH9oKAgq6caj1bAihCeqmubS2otfp2OO6df5UygD06
-	Ybu1cE7DyZMVlvySp9giSSi6uI/6yABbWYYS/mjhD4BMuDAFSy14E3J4zVzn2GBosXbWS2n3byXn/
-	1GB/lXylwEGeK0SIWWADELK+PLjucHynVg75qnTM6glFpkkVxTl8Scug3WtUII5tc7ydND7QlYCqO
-	b5PDTxrvAKcGxy2vvEnw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GPF4n1cdiMw3igsJzyBKSbVCEHKpGMKJmxNmvCzU/o8=; b=ScpzuMwj33z2O+
+	vD6+Mj8HUhhYLPSCMZcq8eURMeW9HVkTrq+3fdtD06Bv9W0I8bX0EhPxTIS8TnlbgiPOvTMsl39v9
+	QIRvnXJ1KISQpfR1lo3qpx+DC7kPnPbInyW44HdTsds69MeWCRacxoBcueiHglf4kf+Mx8KrJYfwd
+	y0W1pEY0j4QU74qWz6/2l1lqUPHpEuT9rcndPdHz/MFBDPBq6RuFG/+q/kR9bJ/d4UG2/Yyvm20Bt
+	Crq4cRVFDaZWPYI4DNkGe7qwJycDtNEauhIpjv3sVsAGFN2HcJiIFTIFbpm9pVoAtXmeo1d6Q6Iue
+	kHNEspXdK4qfTkp8VWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwmmb-006a9p-1I;
-	Wed, 10 May 2023 16:35:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pwnBJ-006cep-28;
+	Wed, 10 May 2023 17:00:49 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwmmY-006a90-23
+	id 1pwnBG-006ceA-1b
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 16:35:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9306064A1B;
-	Wed, 10 May 2023 16:35:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF292C433D2;
-	Wed, 10 May 2023 16:35:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683736512;
-	bh=xdYYdDgbeOJh27nNgHFmZzDLEDBpmLgBjwcmj+Nf3Qo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Ai1fuoEkb9u4C4wGl9R2tgr/RHpVl5lsEnKBu1vH6mNsGLY/jjHm8BqcvPlUHIKQ8
-	 eCB1lLFWH5QTU3rFLgFZiAXV5GvfucEMWbtXp+N9ChOkxUh3T8a6+BM/z4kz5qevc3
-	 qCxqhUnaRiemW6zyiwP1enG9ewAv7kMK3dSo11CCXCZC2IuPz9tAn+2Y8M5i7m02YM
-	 IiOevP4GQDOabCnTmoL8PLPRwcOAaDrtsecp/R/kiuNtD3Qpwn5yUmE+cPoTkIgtrV
-	 F1WGS37oCrfOJUE1oTNqpGh2wrKqXVfs0QcEaz02CM7OO9lRmQ3THYBqERDPMipx8B
-	 m/wPG2pwQLLGw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Schaffner Tobias <tobias.schaffner@siemens.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [PATCH RT 0/3] riscv: add PREEMPT_RT support
-Date: Thu, 11 May 2023 00:24:03 +0800
-Message-Id: <20230510162406.1955-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+	Wed, 10 May 2023 17:00:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1683738046; x=1715274046;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gKhRGj85UbImK57Kh1ESFgEHiDGK4xuek1Ky82rVH5g=;
+  b=WqXapYQSxTPLW4RKNJOyt1oE+p3/4ai2aJgBCKwltC20JA8b6ibqPiqV
+   R/1drn00Izcj4zV81N1+bTHh1J/PDqqaGVpNBIPTGvsUa32zh+WUvMQpX
+   O7lO+KmvxqWzzHlApC0I7GndBTaL3M+0qovP2IeiLG+AP3E1ClVMkJtcK
+   Rnz99Ym0SwYgwtil/Cr4EwbVKs9Gmn7p+YU7NlmHHq97XFB+V01/1aqcl
+   SvKcoBPqqO6A5UkV2WvaDDMP9/G8+fAqy1fsg1P525L+FfQMvp/n7mx8L
+   AxjKaydIn5vmQJlmH2gzbSeeRVDZ0bveJApXIla1ZRhJXobIUvEl+dPNv
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10706"; a="436590210"
+X-IronPort-AV: E=Sophos;i="5.99,265,1677571200"; 
+   d="scan'208";a="436590210"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 May 2023 10:00:42 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10706"; a="764375418"
+X-IronPort-AV: E=Sophos;i="5.99,265,1677571200"; 
+   d="scan'208";a="764375418"
+Received: from lkp-server01.sh.intel.com (HELO dea6d5a4f140) ([10.239.97.150])
+  by fmsmga008.fm.intel.com with ESMTP; 10 May 2023 10:00:40 -0700
+Received: from kbuild by dea6d5a4f140 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pwnB9-0003S4-24;
+	Wed, 10 May 2023 17:00:39 +0000
+Date: Thu, 11 May 2023 01:00:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Zong Li <zong.li@sifive.com>, vkoul@kernel.org, palmer@dabbelt.com,
+	radhey.shyam.pandey@amd.com, dmaengine@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v2] dmaengine: xilinx: dma: remove arch dependency
+Message-ID: <202305110023.SRQHQ5Sg-lkp@intel.com>
+References: <20230510060421.30982-1-zong.li@sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230510060421.30982-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_093514_735649_7F96BC6E 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20230510_100046_550897_4344F231 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +87,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series is to add PREEMPT_RT support to riscv. Compared with last
-try[1], there are two major changes:
+Hi Zong,
 
-1. riscv has been converted to Generic Entry. And riscv uses
-asm-generic/preeempt.h, so we need to patch asm-generic's preeempt to
-enable lazy preempt support for riscv. This is what patch1 does.
-However, it duplicates the preempt_lazy_count() defintion, I'm sure
-there must be an elegant solution. Neverless, it doesn't impact the
-riscv PREEMPT_RT support itself.
+kernel test robot noticed the following build errors:
 
-2. three preparation patches(patch1/2/3 in [1]) has been merged in
-mainline.
+[auto build test ERROR on vkoul-dmaengine/next]
+[also build test ERROR on linus/master v6.4-rc1 next-20230510]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-I back-ported the lastest linux-6.3.y-rt patches to the lastest Linus tree,
-then cook this series.
+url:    https://github.com/intel-lab-lkp/linux/commits/Zong-Li/dmaengine-xilinx-dma-remove-arch-dependency/20230510-140509
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/20230510060421.30982-1-zong.li%40sifive.com
+patch subject: [PATCH v2] dmaengine: xilinx: dma: remove arch dependency
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20230511/202305110023.SRQHQ5Sg-lkp@intel.com/config)
+compiler: s390-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/5ffa30d0089e127bb702f8904856e05dfdee85d5
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Zong-Li/dmaengine-xilinx-dma-remove-arch-dependency/20230510-140509
+        git checkout 5ffa30d0089e127bb702f8904856e05dfdee85d5
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=s390 olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=s390 SHELL=/bin/bash
 
-Link: https://lore.kernel.org/linux-riscv/20220831175920.2806-1-jszhang@kernel.org/
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202305110023.SRQHQ5Sg-lkp@intel.com/
 
-Jisheng Zhang (3):
-  asm-generic/preempt: also check preempt_lazy_count for
-    should_resched() etc.
-  riscv: add lazy preempt support
-  riscv: Allow to enable RT
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
- arch/riscv/Kconfig                   | 2 ++
- arch/riscv/include/asm/thread_info.h | 5 ++++-
- arch/riscv/kernel/asm-offsets.c      | 1 +
- include/asm-generic/preempt.h        | 8 +++++++-
- 4 files changed, 14 insertions(+), 2 deletions(-)
+>> ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/xilinx/xilinx_dma.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/idma64.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/char/xillybus/xillybus_of.ko] undefined!
+ERROR: modpost: "devm_memremap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "devm_memunmap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "devm_ioremap" [drivers/net/ethernet/altera/altera_tse.ko] undefined!
+ERROR: modpost: "iounmap" [drivers/pcmcia/pcmcia.ko] undefined!
+ERROR: modpost: "ioremap" [drivers/pcmcia/pcmcia.ko] undefined!
 
 -- 
-2.40.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
