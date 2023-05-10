@@ -4,81 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BBCC7EE22
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C754C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZD8JobJdaQjzP5jcIvTLico+1PjI4fTj4ps0Xvq8nhg=; b=o0vVbqugfOEnI6
-	YmpBw7E4eFogjeYNUTzE8x523az63p71/D7hCCa9t5pUhqGraKxJ9eHoUYk676NcNvE3H3Syt4UTP
-	wKxrNQJM4uO/AolArU7vqoplX3KanzdTwKqCLTAq6lc+iXHLKq7StsQua2oJ22QeUuyi+UpdF+DcH
-	UPPCA0OcJC3EqPRrfjXzOY+SDdJk3WEBwc51Yf2aYUpBhw7I7aXXNzwgpnFVk1mmiAhvqv6ykv7Yi
-	EZTQjIPsxLF0+BIcySqtHoqTSbw/wYQLK8e+nBmkojHOCCXfUV9vloeNRuGUuB2H9hPHfGv1fULjn
-	Pplrk/r8EycuGRbrFUNA==;
+	List-Owner; bh=hMa6IUP/aN2obdL+lSyexb1UbiZB8GbJ3l6kFjBdAq0=; b=DPLqbzcfUxWbn5
+	+g/pKdbaWYMwhV/Twn0zfuA0Vj7GmPL62fl6DxBpNC65CFUNC5TXENzr6D0yDzdep3Nm5z4IJBYha
+	MUSLDm7MmvwbJaIG+yz25QW4xeZuoD+Fixy8A24usaxsLlm8I1CDHH4DvpHA1gExIwQFlrDTBYrBI
+	CPSSig1C8HIGNoqfu1NOafOeswSFUhqSsOWkJNZmw8ZUpv9fUBP7qb6ouckcEhIJIMCgNFQ+q4YCF
+	SPSsGW/Hg9545kYLPXZ5luChUYpoeRAYQ3iHnkuRfoX2T9cbJjrk1XxzkTous6WejfMiYddFXh8Er
+	glLs/NEdCnHsa5c9SfLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwcz9-005CrP-0q;
-	Wed, 10 May 2023 06:07:35 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pwd7D-005DiN-2J;
+	Wed, 10 May 2023 06:15:55 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwcz6-005Cr5-36;
-	Wed, 10 May 2023 06:07:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/B3tOo2DcdV+TWomt1rdQnWS8nj/GpV0fFl476JBaqo=; b=GqtBVAriUhmAJ9gyQunowN/4FI
-	IKPnDz7LbDDzd0Fgb9Z22xH9B0GothgTazfupCK9odsy8jdQ7d5rjIU0buEMmJgHPsqbRmD3rjRlS
-	pe9WkgZOQJjVVUr2Nn9sQ+jGwW9hZdqgIKJXJ8Sf5r1YY8KiJJck+y51d1I4lWN/uji1Mhux3PR9z
-	4FQGYDQlCPyDgWt1HB2pIN4QBP8zK1HHd8c8SPjYOnj4IT/rnTHO2Gch9hA825q32K7voVZkZwShj
-	4YKfoYDVbZy6WQjNBqGFIRoL8UF3dgWpYlgtRh3uLSK2Af3sbYZbz1g5vy/PAMZKbCX9yrTkl5Mjy
-	NzylU7Eg==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pwcyp-00FzBu-D0; Wed, 10 May 2023 06:07:15 +0000
-Date: Wed, 10 May 2023 07:07:15 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Hugh Dickins <hughd@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	John David Anglin <dave.anglin@bell.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH 00/23] arch: allow pte_offset_map[_lock]() to fail
-Message-ID: <ZFs0k2rrLPH9A/UU@casper.infradead.org>
+	id 1pwbx3-0055qu-2T
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 May 2023 05:01:24 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-55a5a830238so62444557b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 22:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1683694880; x=1686286880;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WSGFooIbg1YnCT+usP0CPskjqWFniw8CJbMJmY8IIY4=;
+        b=vuo7rYDMzaDeDPZgzHMtVp+kDDpzRoF+cP2Qnr93hh+pF6J9q5tC6QhVWjQR/dpJZs
+         St4YSsmW5E0SKuQmRdibMqMztrKviA12bUxhXRBvVCQgZMikD8H0uj5+E9csqviYPTTF
+         W/MWYfjHA/1NssscvDoyXC6tVcA1ciumq+qFhN9YZhl/AUe/TYRGPOpbxUr3CzSoAwDs
+         9ZIJx+k2kcTyg+8Yd6pO3A43gfTS5JygrpCg5CjFhHivuRBYVd+ivlToDlbyQHOK26G6
+         DP8KUWo0VQTsOYmO3ProNs6agiD4J9mWFi/qWhwm90YAcZbtyMXr/cNFlm/A7CEZL/+P
+         HUIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683694880; x=1686286880;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WSGFooIbg1YnCT+usP0CPskjqWFniw8CJbMJmY8IIY4=;
+        b=AX8AYbBZnn4JNqt4UD7DO8OuMlXQyVRdxFcq+Gvp9GTUF88Ittzw4wekoiBKTMKJN0
+         jY80N7ttG2RhqRa36WPfw4V+mOxJqhlAtzfgs9+gKHkxwR/2ZS6nJNeoqeRr2vTCQvum
+         HbjnA9WYsHubw9uohQVuk9XylB+B6JdY+HcolO9K9KeFqbwLzk7zd7VXzTdQttlI2e7T
+         fukolejSZOJXxBTuih4o2BGvArEL5K0gbi8yWob4MI/dfu44nFMuNW1UJ6FpM6QizYgc
+         K8ChIYpOE6e3EnHy3/C45MaHmyPFhZYMdP8E/dHmcU/U+vrwGdcmw7lWAGHhEmZaomQB
+         agUw==
+X-Gm-Message-State: AC+VfDxvoqUrkzzJVSYTes0tvSDRtOF46slQ8aWVpRUPqljcVmvdTAr7
+	98n7NIwnb1kYDHkFDinHexsVOQ==
+X-Google-Smtp-Source: ACHHUZ5AoVobUeVID967V3Jmnothc2qu5Os8b3JQyJT6HUqgLFH4b1VRwh/1toL1vvMbGclLD2jjcg==
+X-Received: by 2002:a0d:d4c3:0:b0:55a:9d84:2e4e with SMTP id w186-20020a0dd4c3000000b0055a9d842e4emr17674451ywd.18.1683694880477;
+        Tue, 09 May 2023 22:01:20 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id e2-20020a81dd02000000b00559f9e9eabcsm3815388ywn.98.2023.05.09.22.01.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 22:01:20 -0700 (PDT)
+Date: Tue, 9 May 2023 22:01:16 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Andrew Morton <akpm@linux-foundation.org>
+cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
+In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+Message-ID: <94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
 References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230509_220121_809338_6F91F50A 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +114,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 09:39:13PM -0700, Hugh Dickins wrote:
-> Two: pte_offset_map() will need to do an rcu_read_lock(), with the
-> corresponding rcu_read_unlock() in pte_unmap().  But most architectures
-> never supported CONFIG_HIGHPTE, so some don't always call pte_unmap()
-> after pte_offset_map(), or have used userspace pte_offset_map() where
-> pte_offset_kernel() is more correct.  No problem in the current tree,
-> but a problem once an rcu_read_unlock() will be needed to keep balance.
+In rare transient cases, not yet made possible, pte_offset_map() and
+pte_offset_map_lock() may not find a page table: handle appropriately.
 
-Hi Hugh,
+Signed-off-by: Hugh Dickins <hughd@google.com>
+---
+ arch/s390/kernel/uv.c  |  2 ++
+ arch/s390/mm/gmap.c    |  2 ++
+ arch/s390/mm/pgtable.c | 12 +++++++++---
+ 3 files changed, 13 insertions(+), 3 deletions(-)
 
-I shall have to spend some time looking at these patches, but at LSFMM
-just a few hours ago, I proposed and nobody objected to removing
-CONFIG_HIGHPTE.  I don't intend to take action on that consensus
-immediately, so I can certainly wait until your patches are applied, but
-if this information simplifies what you're doing, feel free to act on it.
+diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
+index cb2ee06df286..3c62d1b218b1 100644
+--- a/arch/s390/kernel/uv.c
++++ b/arch/s390/kernel/uv.c
+@@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
+ 
+ 	rc = -ENXIO;
+ 	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
++	if (!ptep)
++		goto out;
+ 	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
+ 		page = pte_page(*ptep);
+ 		rc = -EAGAIN;
+diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
+index dc90d1eb0d55..d198fc9475a2 100644
+--- a/arch/s390/mm/gmap.c
++++ b/arch/s390/mm/gmap.c
+@@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
+ 		spinlock_t *ptl;
+ 
+ 		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
++		if (!ptep)
++			break;
+ 		if (is_zero_pfn(pte_pfn(*ptep)))
+ 			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
+ 		pte_unmap_unlock(ptep, ptl);
+diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
+index 6effb24de6d9..3bd2ab2a9a34 100644
+--- a/arch/s390/mm/pgtable.c
++++ b/arch/s390/mm/pgtable.c
+@@ -829,7 +829,7 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
+ 	default:
+ 		return -EFAULT;
+ 	}
+-
++again:
+ 	ptl = pmd_lock(mm, pmdp);
+ 	if (!pmd_present(*pmdp)) {
+ 		spin_unlock(ptl);
+@@ -850,6 +850,8 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
+ 	spin_unlock(ptl);
+ 
+ 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
++	if (!ptep)
++		goto again;
+ 	new = old = pgste_get_lock(ptep);
+ 	pgste_val(new) &= ~(PGSTE_GR_BIT | PGSTE_GC_BIT |
+ 			    PGSTE_ACC_BITS | PGSTE_FP_BIT);
+@@ -938,7 +940,7 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
+ 	default:
+ 		return -EFAULT;
+ 	}
+-
++again:
+ 	ptl = pmd_lock(mm, pmdp);
+ 	if (!pmd_present(*pmdp)) {
+ 		spin_unlock(ptl);
+@@ -955,6 +957,8 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
+ 	spin_unlock(ptl);
+ 
+ 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
++	if (!ptep)
++		goto again;
+ 	new = old = pgste_get_lock(ptep);
+ 	/* Reset guest reference bit only */
+ 	pgste_val(new) &= ~PGSTE_GR_BIT;
+@@ -1000,7 +1004,7 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
+ 	default:
+ 		return -EFAULT;
+ 	}
+-
++again:
+ 	ptl = pmd_lock(mm, pmdp);
+ 	if (!pmd_present(*pmdp)) {
+ 		spin_unlock(ptl);
+@@ -1017,6 +1021,8 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
+ 	spin_unlock(ptl);
+ 
+ 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
++	if (!ptep)
++		goto again;
+ 	pgste = pgste_get_lock(ptep);
+ 	*key = (pgste_val(pgste) & (PGSTE_ACC_BITS | PGSTE_FP_BIT)) >> 56;
+ 	paddr = pte_val(*ptep) & PAGE_MASK;
+-- 
+2.35.3
+
 
 _______________________________________________
 linux-riscv mailing list
