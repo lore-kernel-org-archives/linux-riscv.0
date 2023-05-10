@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91941C7EE22
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A779EC7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9HuUMXdNuCrh09hSmO3oIrEMYg+9EJCvNxtsUr3TgaY=; b=3guvODG2aXLinp
-	lc5V2vkFjzmYbP4rlJSGMRDxWwuT+6IhKjS1Fw8/CCzkX/ExIfYqixW2omMy2/S2q6ahmliFN6q/B
-	aM68uzkwkS0Y9j8VS4z5XSuyOEBXLiY4o0ZKS9J82YzkgZbmWn7R2XO/gE5YiIBBRX6Tz2aVChpHX
-	8jNSpomwWZ/dJvluWDkEl2ZuInuMFNQlxG6F8nQMU57oLnM7HZ4KthQrfyhhkbZ3sY9oujNV5wbUU
-	I9DzfXH953xv6SibJm48phEVnoxYASZNazKKpHf40Rof2fPFkD+hHfSWSxUuDk8g9v+ef57bUCDJW
-	xM4k8Cb1oWimRgvIPHGw==;
+	List-Owner; bh=2u757lyQOtCBvmFxtMgoJ9jrq0GW1v4ejbRrdCjn7hg=; b=YwOM9/RPGjvqaV
+	GE3ZXSSIsql7dheEJKJqGmj0LhC6A1m83NgIXg0HDrLrkpvlbQAUG8w1nQ7oq/SA1cdJ7uuB34V4t
+	bolGEfAs+/cNNrCsMFOGovI17knvv4lrsRkbgzhH6h9WMsrufi1PQvkWELtLP8OtvoY/gU396HL6O
+	btB0WJo7Aiy+S+i6hTlb2LXM+CLtbHFrupVClZ6eCvunBOKG9wUW9sm0JA2HGIrtY1dihV0Z6mVwb
+	czTSzsB8s1ERsX2KoPn+ZCwD+okHXh7DX6B2emNZ+tqP4lfFI5uIRYG6ltuJwtxkylr2fi/fLRvGz
+	mOjd8N8DN7DtbCgBeK/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfMN-005Yug-0r;
-	Wed, 10 May 2023 08:39:43 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pwfbm-005b6W-1b;
+	Wed, 10 May 2023 08:55:38 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwfMK-005Yto-31;
-	Wed, 10 May 2023 08:39:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kxXv2WqVS/N/AXpDGiSycxgzS2fMDzLbIFoszm9gQVI=; b=fruh6dMZerc8uTfAzuh9A7hIbP
-	VvgdR1RS3pjBRGcpa6fHyCQvCR0Aq9ej79UowH+YJhhpMQFyqHZlLAYo85qDixs7AYee0NKygZtCT
-	6hOzrcLL6lgbJ6CDMnHBTG+URFob7oahukW020DEiWDlSZvO3aCqWhyjd0R6lOQ+0xUt6NrsA7nY+
-	t53+xab78Blhuyo9AdcouXah9dFIKssJhlWxI1vvizbNnJh1T+Up3Djmr8Kx45ZXR0w42rN3xa+Wj
-	vQG7RFMGQeTTvgV6Pll4zRWoLGjolJBp4/QvccMTRYfaN+G127v+dF7n6q9sjrP5Au/LmGKAAaAB2
-	nqiPFvtw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pwfM6-00G6ee-Fz; Wed, 10 May 2023 08:39:26 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 3F365300338;
-	Wed, 10 May 2023 10:39:24 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2636720B04BA2; Wed, 10 May 2023 10:39:24 +0200 (CEST)
-Date: Wed, 10 May 2023 10:39:24 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Brian Gerst <brgerst@gmail.com>,
-	Arjan van de Veen <arjan@linux.intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul McKenney <paulmck@kernel.org>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Oleksandr Natalenko <oleksandr@natalenko.name>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Piotr Gorski <lucjan.lucjanov@gmail.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Juergen Gross <jgross@suse.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	xen-devel@lists.xenproject.org,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	linux-csky@vger.kernel.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sabin Rapan <sabrapan@amazon.com>,
-	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
-	David Woodhouse <dwmw@amazon.co.uk>
-Subject: Re: [patch v3 08/36] x86/smpboot: Split up native_cpu_up() into
- separate phases and document them
-Message-ID: <20230510083924.GI4253@hirez.programming.kicks-ass.net>
-References: <20230508181633.089804905@linutronix.de>
- <20230508185217.671595388@linutronix.de>
- <20230509100421.GU83892@hirez.programming.kicks-ass.net>
- <87fs85z2na.ffs@tglx>
+	id 1pwfbj-005b57-01
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 May 2023 08:55:36 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-33-N3ky-fLINuaf4cVNoHcZnw-1; Wed, 10 May 2023 09:55:28 +0100
+X-MC-Unique: N3ky-fLINuaf4cVNoHcZnw-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 10 May
+ 2023 09:55:27 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Wed, 10 May 2023 09:55:27 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Maxim Kiselev' <bigunclemax@gmail.com>
+CC: Andre Przywara <andre.przywara@arm.com>, Icenowy Zheng <icenowy@aosc.io>,
+	Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Cristian Ciocaltea
+	<cristian.ciocaltea@collabora.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Maxime Ripard <mripard@kernel.org>, "linux-spi@vger.kernel.org"
+	<linux-spi@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
+Thread-Topic: [PATCH v3 2/5] spi: sun6i: change OF match data to a struct
+Thread-Index: AQHZgHJVw1wL+axJhkKYU1TQITl02K9QIrDQgAL/+QCAABUggA==
+Date: Wed, 10 May 2023 08:55:27 +0000
+Message-ID: <1592f46b0f794b24a87a964d7208da68@AcuMS.aculab.com>
+References: <20230506232616.1792109-1-bigunclemax@gmail.com>
+ <20230506232616.1792109-3-bigunclemax@gmail.com>
+ <702d085b3b814759a344886364c518f8@AcuMS.aculab.com>
+ <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
+In-Reply-To: <CALHCpMh84Q8RAh2Y+cHzAvsm4h5zBZY=9fPF6OVmtLNvX+ePxQ@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87fs85z2na.ffs@tglx>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230510_015535_341639_8B29C375 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +87,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 10:11:05PM +0200, Thomas Gleixner wrote:
-> On Tue, May 09 2023 at 12:04, Peter Zijlstra wrote:
-> > On Mon, May 08, 2023 at 09:43:39PM +0200, Thomas Gleixner wrote:
-> > Not to the detriment of this patch, but this barrier() and it's comment
-> > seem weird vs smp_callin(). That function ends with an atomic bitop (it
-> > has to, at the very least it must not be weaker than store-release) but
-> > also has an explicit wmb() to order setup vs CPU_STARTING.
-> >
-> > (arguably that should be a full fence *AND* get a comment)
-> 
-> TBH: I'm grasping for something 'arguable': What's the point of this
-> wmb() or even a mb()?
-> 
-> Most of the [w]mb()'s in smpboot.c except those in mwait_play_dead()
-> have a very distinct voodoo programming smell.
-
-Oh fully agreed, esp. without a comment these things are hugely suspect.
-I could not immediately see purpose either.
-
-My arguably argument was about IF it was needed at all, then it would
-make more sense to me to also constrain loads. But I'd be more than
-happy to see the whole thing go. But perhaps not in this series?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogTWF4aW0gS2lzZWxldg0KPiBTZW50OiAxMCBNYXkgMjAyMyAwOTozNA0KPiANCj4gSGks
+IERhdmlkDQo+IA0KPiA+IElzIGl0IHdvcnRoIGRvaW5nIGEgc3RydWN0dXJlIGNvcHkgYXQgdGhp
+cyBwb2ludD8NCj4gPiBUaGUgJ2NmZycgZGF0YSBpcyBzaG9ydCBhbmQgY29uc3RhbnQgYW5kIGl0
+IHdvdWxkIG1ha2UNCj4gPiB0aGUgY29kZSB0aGF0IHVzZXMgaXQgc21hbGxlciBhbmQgZmFzdGVy
+Lg0KPiANCj4gSSdtIHNvcnJ5IGJ1dCBJIGRvbid0IGZ1bGx5IHVuZGVyc3RhbmQgd2hhdCB5b3Ug
+YXJlIHN1Z2dlc3RpbmcuDQo+IEluIHBhdGNoIDNcNSB3ZSBleHRlbmQgdGhlIHN1bjZpX3NwaV9j
+Zmcgc3RydWN0dXJlIHdpdGggdGhlIGhhc19jbGtfY3RsIGZpZWxkLg0KDQpZb3UgYXJlIHN0aWxs
+IG9ubHkgYWRkaW5nIGEgc2Vjb25kIGludGVnZXIuDQoNCkknbSBzdWdnZXN0aW5nIHRoYXQgaW5z
+dGVhZCBvZiBzc3BpLT5jZmcgYmVpbmcgYSBwb2ludGVyIHRvIHRoZQ0KY29uZmlnIGRhdGEgaXQg
+aXMgYSBjb3B5IG9mIHRoZSBjb25maWcgZGF0YS4NClNvIHRoZSBhc3NpZ25tZW50IGJlbG93IGJl
+Y29tZXMgKGlnbm9yaW5nIGVycm9yIGNoZWNrcykNCgltZW1jcHkoJnNzcGktPmNmZywgb2ZfZGV2
+aWNlX2dldF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpLCBzaXplb2Ygc3NwaS0+Y2ZnKTsNCmFuZCB0
+aGUgY29kZSB0aGF0IG5lZWRzIHRoZSB2YWx1ZXMgaXM6DQoJc3NwaS0+Y2ZnLmZpZm9fZGVwdGgN
+CihldGMpDQoNCglEYXZpZA0KDQo+IA0KPiDQv9C9LCA4INC80LDRjyAyMDIz4oCv0LMuINCyIDEy
+OjQ3LCBEYXZpZCBMYWlnaHQgPERhdmlkLkxhaWdodEBhY3VsYWIuY29tPjoNCj4gPg0KPiA+IEZy
+b206IE1ha3NpbSBLaXNlbGV2DQo+ID4gPiBTZW50OiAwNyBNYXkgMjAyMyAwMDoyNg0KPiA+ID4N
+Cj4gPiA+IEFzIHdlJ3JlIGFkZGluZyBtb3JlIHByb3BlcnRpZXMgdG8gdGhlIE9GIG1hdGNoIGRh
+dGEsIGNvbnZlcnQgaXQgdG8gYQ0KPiA+ID4gc3RydWN0IG5vdy4NCj4gPiA+DQo+ID4gLi4uDQo+
+ID4gPiAtICAgICBzc3BpLT5maWZvX2RlcHRoID0gKHVuc2lnbmVkIGxvbmcpb2ZfZGV2aWNlX2dl
+dF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpOw0KPiA+ID4gKyAgICAgc3NwaS0+Y2ZnID0gb2ZfZGV2
+aWNlX2dldF9tYXRjaF9kYXRhKCZwZGV2LT5kZXYpOw0KPiA+DQo+ID4gSXMgaXQgd29ydGggZG9p
+bmcgYSBzdHJ1Y3R1cmUgY29weSBhdCB0aGlzIHBvaW50Pw0KPiA+IFRoZSAnY2ZnJyBkYXRhIGlz
+IHNob3J0IGFuZCBjb25zdGFudCBhbmQgaXQgd291bGQgbWFrZQ0KPiA+IHRoZSBjb2RlIHRoYXQg
+dXNlcyBpdCBzbWFsbGVyIGFuZCBmYXN0ZXIuDQo+ID4NCj4gPiAgICAgICAgIERhdmlkDQo+ID4N
+Cj4gPiAtDQo+ID4gUmVnaXN0ZXJlZCBBZGRyZXNzIExha2VzaWRlLCBCcmFtbGV5IFJvYWQsIE1v
+dW50IEZhcm0sIE1pbHRvbiBLZXluZXMsIE1LMSAxUFQsIFVLDQo+ID4gUmVnaXN0cmF0aW9uIE5v
+OiAxMzk3Mzg2IChXYWxlcykNCj4gPg0KDQotDQpSZWdpc3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUs
+IEJyYW1sZXkgUm9hZCwgTW91bnQgRmFybSwgTWlsdG9uIEtleW5lcywgTUsxIDFQVCwgVUsNClJl
+Z2lzdHJhdGlvbiBObzogMTM5NzM4NiAoV2FsZXMpDQpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
