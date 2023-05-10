@@ -4,47 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D42CC7EE26
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 11:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18D2C77B7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 12:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m+e3x6oBvjj6bjt0hiViCGupWmxJtoaZT8EQQHeeqHA=; b=uqqXMCeXzoGd2b
-	9qc4Grqeq4qW6HTStAW8ZjsmTKtBGpby93uBjybb+saydSj9BQQiVgt9wbn1U5jBTI/c9BAkt9BqC
-	G0C7vu//GLIKEva+5jSpjZKTDgdJp6IJiRm0iIAgaNZVW1xZQf3dA7owrYFPKLl+RU+7atbi9/GXQ
-	WgmmNli/Ubxy+Cbmgzh5mTRkq7GHtYtRqq+PR1+SJ9ZyLufSFrcIWdCNJ+GRt4KxBeL4zeVk4siJj
-	Mc2hwUwM2JK3WVhC9UX1vnMy0bi769vrmED+SsUc9jDeyDwNsWcIkzkI67c48IN5VmeoinEarB9y6
-	oo/sNe9dhiV4s+oLNE7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MYWY3Dpt4Wb1nr/fzslM2K/cT5RVyU1TS4kLbf9MvaA=; b=GWEYy405b27w51FjpKsjAd/xeM
+	JCkq1LPB9TEe49XmgTKIvHwg5mCkd2gKvI9m7Qjz0sZOxddMlSEcvuFLuBP0gofef/uQGnGm+98BY
+	KYkuQRNceO0A17uVq/b1Z5TRDvoQif/deKcVrnPnVi3kSDzGKCcYlct29A53YZA30FrJYxbGy1GEh
+	kq8SS/kGroRtsOADYWKKaU5Sd77Q1oStzE5o7KfEMPPLNUvLDQ+rNi/pCxyxqnCHuYtwipdMkCTfC
+	Kyme0Tm5r+B1VW7/N5AYjNPwKqDDEJUOX9UJTAJmVNVmPqtWmHg4RiTOf59JNHADILThxNC2jlqlN
+	HNqG4/Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwhj2-005ysq-21;
-	Wed, 10 May 2023 11:11:16 +0000
-Received: from out28-148.mail.aliyun.com ([115.124.28.148])
+	id 1pwikj-0067UM-2s;
+	Wed, 10 May 2023 12:17:05 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwhiz-005yrr-25
+	id 1pwikf-0067TC-1x
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 11:11:15 +0000
-X-Alimail-AntiSpam: AC=CONTINUE;BC=0.07437702|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0270069-0.000773148-0.97222;FP=0|0|0|0|0|-1|-1|-1;HT=ay29a033018047206;MF=lixiaoyun@binary-semi.com;NM=1;PH=DS;RN=6;RT=6;SR=0;TI=SMTPD_---.SdWYsXA_1683717045;
-Received: from localhost.localdomain(mailfrom:lixiaoyun@binary-semi.com fp:SMTPD_---.SdWYsXA_1683717045)
-          by smtp.aliyun-inc.com;
-          Wed, 10 May 2023 19:10:57 +0800
-From: "Amma.Lee" <lixiaoyun@binary-semi.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org
-Cc: lixiaoyun@binary-semi.com,
-	xiezx@binary-semi.com
-Subject: [PATCH] riscv: optimize ELF relocation function in riscv
-Date: Wed, 10 May 2023 19:10:18 +0800
-Message-Id: <1683717018-12882-1-git-send-email-lixiaoyun@binary-semi.com>
-X-Mailer: git-send-email 1.9.1
+	Wed, 10 May 2023 12:17:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1683721021; x=1715257021;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=c0LtGL7zvuyoxmCVFA1srE+yHPP0jp3sH5qXd5mFOug=;
+  b=eq4UBJNfFAwnVa96S7LpMz/WTRTz2Degf1RyjfQRm5Ci3feSyyzVlnW+
+   TIMGAJUPlQfShoMyIVhb/qyFXIOM3dgqILwg44H97SHm4+fMEYaVE1pap
+   s2fyt51LH+1rht1sLVWTOn0uo+HlhVDbh2tTbMntevSGmHA1SP7HbF7MO
+   HzAUR44UZ1GdMwcgUaM+w8umK2a7sFHcDh9q5opkRkGkcgmON02t0io2j
+   daMzvwphexbR0E0HSAVkXJj6lc8A42Lik3COJM66cH++Yf9v4mltuoO1I
+   0PaHyBY61xWKkT9nNYTvVHQNjcOVtRJp8Q4bBctUIZsMXVh/rprq1cz3T
+   w==;
+X-IronPort-AV: E=Sophos;i="5.99,264,1677567600"; 
+   d="asc'?scan'208";a="210553509"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 May 2023 05:16:50 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 10 May 2023 05:16:45 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 10 May 2023 05:16:43 -0700
+Date: Wed, 10 May 2023 13:16:23 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Anup Patel <apatel@ventanamicro.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Robin Murphy
+	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon
+	<will@kernel.org>, Frank Rowand <frowand.list@gmail.com>, Atish Patra
+	<atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Anup Patel
+	<anup@brainfault.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<iommu@lists.linux.dev>
+Subject: Re: [PATCH v3 04/11] dt-bindings: interrupt-controller: Add RISC-V
+ incoming MSI controller
+Message-ID: <20230510-untried-duvet-7e3c230fcefd@wendy>
+References: <20230508142842.854564-1-apatel@ventanamicro.com>
+ <20230508142842.854564-5-apatel@ventanamicro.com>
+MIME-Version: 1.0
+In-Reply-To: <20230508142842.854564-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_041113_891265_251EDFC6 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20230510_051701_699050_A1989C86 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,134 +88,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7458990399880570599=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch can optimize the running times of "insmod" command by modify ELF
-relocation function.
-In the riscv kernel, when install the ELF driver which contains multiple
-symbol table items to be relocated, kernel takes a lot of time to
-execute the relocation. For example, we install a 3+MB driver need 180+s.
+--===============7458990399880570599==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yuw4pefuYIA+XBN4"
+Content-Disposition: inline
 
-We focus on the riscv kernel handle R_RISCV_HI20 and R_RISCV_LO12 type
-items relocation function and find that there are two for-loops in this
-function. If we modify the begin number in the second for-loops iteration,
-we could save significant time for installation. We install the 3+MB
-driver could just need 2s.
+--yuw4pefuYIA+XBN4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Amma.Lee<lixiaoyun@binary-semi.com>
----
- arch/riscv/kernel/module.c | 69 ++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 61 insertions(+), 8 deletions(-)
+Hey Anup,
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 7c651d5..55507b0 100755
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -345,13 +345,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 	int (*handler)(struct module *me, u32 *location, Elf_Addr v);
- 	Elf_Sym *sym;
- 	u32 *location;
--	unsigned int i, type;
-+	unsigned int i, type, j_idx;
- 	Elf_Addr v;
- 	int res;
- 
- 	pr_debug("Applying relocate section %u to %u\n", relsec,
- 	       sechdrs[relsec].sh_info);
--
-+	j_idx = 0;
- 	for (i = 0; i < sechdrs[relsec].sh_size / sizeof(*rel); i++) {
- 		/* This is where to make the change */
- 		location = (void *)sechdrs[sechdrs[relsec].sh_info].sh_addr
-@@ -385,8 +385,9 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 
- 		if (type == R_RISCV_PCREL_LO12_I || type == R_RISCV_PCREL_LO12_S) {
- 			unsigned int j;
--
--			for (j = 0; j < sechdrs[relsec].sh_size / sizeof(*rel); j++) {
-+			/*Modify the j for-loops begin number from last iterates end value*/
-+			for (j = j_idx; j < sechdrs[relsec].sh_size / sizeof(*rel); j++) {
-+			/* Modify end */
- 				unsigned long hi20_loc =
- 					sechdrs[sechdrs[relsec].sh_info].sh_addr
- 					+ rel[j].r_offset;
-@@ -420,11 +421,63 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 				}
- 			}
- 			if (j == sechdrs[relsec].sh_size / sizeof(*rel)) {
--				pr_err(
--				  "%s: Can not find HI20 relocation information\n",
--				  me->name);
--				return -EINVAL;
-+				if (j_idx == 0) {
-+					pr_err(
-+						"%s: Can not find HI20 relocation information\n",
-+						me->name);
-+					return -EINVAL;
-+				}
-+
-+
-+				for (j = 0; j < j_idx; j++) {
-+					unsigned long hi20_loc =
-+						sechdrs[sechdrs[relsec].sh_info].sh_addr
-+						+ rel[j].r_offset;
-+					u32 hi20_type = ELF_RISCV_R_TYPE(rel[j].r_info);
-+
-+
-+					/* Find the corresponding HI20 relocation entry */
-+					if (hi20_loc == sym->st_value
-+						&& (hi20_type == R_RISCV_PCREL_HI20
-+						|| hi20_type == R_RISCV_GOT_HI20)) {
-+						s32 hi20, lo12;
-+						Elf_Sym *hi20_sym =
-+							(Elf_Sym *)sechdrs[symindex].sh_addr
-+							+ ELF_RISCV_R_SYM(rel[j].r_info);
-+						unsigned long hi20_sym_val =
-+							hi20_sym->st_value
-+							+ rel[j].r_addend;
-+
-+
-+						/* Calculate lo12 */
-+						size_t offset = hi20_sym_val - hi20_loc;
-+						/* Calculate lo12 */
-+						if (IS_ENABLED(CONFIG_MODULE_SECTIONS)
-+							&& hi20_type == R_RISCV_GOT_HI20) {
-+							offset = module_emit_got_entry(
-+								me, hi20_sym_val);
-+							offset = offset - hi20_loc;
-+
-+						}
-+						hi20 = (offset + 0x800) & 0xfffff000;
-+						lo12 = offset - hi20;
-+						v = lo12;
-+
-+						break;
-+					}
-+				}
-+
-+				if (j == j_idx) {
-+					pr_err(
-+						"%s: Can not find HI20 relocation information\n",
-+						me->name);
-+					return -EINVAL;
-+				}
-+
-+
- 			}
-+
-+			j_idx = j;
- 		}
- 
- 		res = handler(me, location, v);
--- 
-1.9.1
+On Mon, May 08, 2023 at 07:58:35PM +0530, Anup Patel wrote:
+> +  interrupts-extended:
+> +    minItems: 1
+> +    maxItems: 16384
+> +    description:
+> +      This property represents the set of CPUs (or HARTs) for which given
+> +      device tree node describes the IMSIC interrupt files. Each node pointed
+> +      to should be a riscv,cpu-intc node, which has a riscv node (i.e. RISC-V
+> +      HART) as parent.
 
+One minor nit here about wording - "riscv node" doesn't seem
+particularly clear to me, should it be s/riscv node/cpu node/?
+
+My only thing last time around was my misunderstanding, and you also
+appear to have resolved Rob's complaints, so:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Just to note, it'd be great if you could CC me on series that I've
+already reviewed when you resubmit them?
+Although in this case, if you ran get_maintainer.pl on v6.4-rc1 it'd have
+told you to CC me anyway ;)
+
+Thanks,
+Conor.
+
+--yuw4pefuYIA+XBN4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZFuLFwAKCRB4tDGHoIJi
+0rSoAQDigVc1zoOIAq0GeK2C6LRDT48ecB1I90Fv+aw41IVdHwEApAt8ew3bob+u
+Bn7gu+nIK1drEkZwQYODA5bMAVpuzwA=
+=g+th
+-----END PGP SIGNATURE-----
+
+--yuw4pefuYIA+XBN4--
+
+
+--===============7458990399880570599==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7458990399880570599==--
+
