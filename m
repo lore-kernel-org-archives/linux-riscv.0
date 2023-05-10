@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFC0C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 14:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7BDC7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 14:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=xy6muM8BQxAPUocp4c27l5BvT1sH0vI2GuaXJbdQZ08=; b=OFiBSBLDQzr7hs7dunw5d65G2v
-	gW/p03MzrzSXWDE1cBfo9T+7vWnH8p26QFT7RAdIJfDwVPbodXlGoF6zE2u/4l3iFMqZWaB1TIRpG
-	FPsOnU3BVWOuOqXsrbOoP3mQRXvo0PPN7ndfavfSYeNWs/nWmr4P16jF/PvKKv+w8tcsE3KHKxXQZ
-	MfzkHcKTDrutbls75dFQI700C6BMlbQohGTT/2EiIaBHz129gdzBRc8JAbMg5/LsHeIHCzmvdVdMj
-	cuKl24ZDiFCvgjx7/XMluYh8JxN7BNkI7wuASLl6HZkYKEFZlkxexIccjTgxyP6zcDmLnVBLm6/M4
-	5HCHok8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lhy+0ZUc1BaQM+y7CeBOF8bI3iXD/H1Z8wKmFdPAfOs=; b=ozaPXcNxJlR5EV
+	pSrzX0hsLnZp6OwvXpKAnCoN+6lUaWFZn/ZN0ij37h34whcKAev0yjiHgW2sh901XTST0JbWSf0hr
+	zZ8A2iQZBq1uSmvorxXraCTKiq78uUcrnfniM2MIkJjPzw2fb5o/PM6bAV3pbG0aCPrI8fcKLmHcT
+	OYyFZgv0NR7p1WMWGWfsh5oCuXFg1/0ua8zbCnvBpwcrgaQN5tdupsimTNuU88SOX8vzdmVoKLHIG
+	fulGF9CTfcFDFjUwkcsseIzEe0e0UoUq9lW4zDFwe71v2/Inku5wECBhcMlP/JqXZyFl1m0jDg/H7
+	qCAdsYp6XJRR4qOJRzZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwkOK-006IbI-2N;
-	Wed, 10 May 2023 14:02:04 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1pwkiX-006LT7-27;
+	Wed, 10 May 2023 14:22:57 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwkOH-006IYx-2l
+	id 1pwkiV-006LSi-0E
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 14:02:03 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-64115e652eeso50447592b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 07:01:55 -0700 (PDT)
+	Wed, 10 May 2023 14:22:56 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f4449fa085so8710515e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 07:22:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1683727315; x=1686319315;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8O+Xva6SSKUOzu8cD6VykU+fN8y+E0NtB9pirvzzQ9U=;
-        b=xm7Lt7K+fM4a6fbPP7MIva3KYIsdEH2pn6NhTnqMZWDxfwMmfjfuC2iA7TIUgSp9X7
-         iapnslzabTi/3hpYysj/Y+Qpo/U+trS4YUbBrAymZCbRPQc2GdzYMvfSXRt75xnkQ7HH
-         9YmGcBzN1XGEnBnDnk4hqc6szvJ0vnbRYHR7DYbbDIfxitLJRxJHVDjlkZx/sb2Dalmd
-         NMN9fv1UEU3MEvWMv2OyK363gty+uPi7R5tqnoKyXja1AZDDzs7OuMx+xXPfQOPl3EBu
-         5ahAyXiN9ZWDD9X3LQrrN5sPj7Sd7WcMwJ/uvJSD2iG4PimTEA2R4mrq6SpEbr7//1lB
-         gm+g==
+        d=linaro.org; s=google; t=1683728573; x=1686320573;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2etb/3I2MMTTEdePIkDu+D/ncnvNpSe07jedu4cHhMw=;
+        b=XiJ3vEXc0eQhohhnvIRe7rSWcI77b7CFB4NaadQeej+vhgI/w9xWw/z7C37g75qvip
+         +qFBvHW/Pg3dBtGVBKYnkqj6CWrWsehNqL40cu9FW24LMuR0/H+PHYef7/yPi9mm7oDK
+         mNJqVGdnypP+bUh6Xxa4ObdFNUyOGLWhF4rF3F6yVQXd6B8rg6VUjkCFP56xZgM1nqxm
+         GYcD87btvVdi7qZmArMs7znzNLGMZuUqsfjtTvcQIRVb1VeTj1LkmCAlcxWg7HkoFoZh
+         vtOLvsF9/ner+VmNy7WpQ0ryMiPgXDHD5B41fCAngWrB2WgZedr8KhHQRMVfXYHIOBB3
+         XtMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683727315; x=1686319315;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8O+Xva6SSKUOzu8cD6VykU+fN8y+E0NtB9pirvzzQ9U=;
-        b=AuD4sdeSBVGRgbS14tNR3EaMn0MVCTansIAZ3zBiYn79jgCcB5q/udOd+1TBUgksmz
-         zOKjNeP5eXSFkDYfb7DfzvTXG36p1LqhDfTfzY1/JY6R8aLEXw6sB/X5S4Irlb5Y7J/z
-         wiK7lF5VyIOGdeS7LAotK4uSfsrWwisslIbWeyvlxS9ggfmjKG7SWp03rr31Z6AfYRQ/
-         uqAbfbcqwzU5ZNMPxiSdvpbiZPIoAV/dAGyV9yXKWmyexWCMDW7JrQ1HrRLqCtmdq7Zl
-         wkCLe6VNu3kWk5Lpxe/Pd90/JZNxMkZj2e3LE4eWC5V/x3JYtYbbqZguNGbmVaTwpKPs
-         l5oA==
-X-Gm-Message-State: AC+VfDyWf5kuMFgYnz7GT6NhuLX582X8h3e2xxFb3hENKIO7Yl6PVTSE
-	aPfkhe6m84+lrrnrxums348jkA==
-X-Google-Smtp-Source: ACHHUZ5DO6A5G9Iwzn4Bquam+4PsWMq7WswXOCHPFyT+gtbX2VPfleyC7b8WGb0kQumaiIfRAr9lsw==
-X-Received: by 2002:a17:902:9a03:b0:1ad:1be7:2a76 with SMTP id v3-20020a1709029a0300b001ad1be72a76mr1572089plp.10.1683727315241;
-        Wed, 10 May 2023 07:01:55 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id q6-20020a170902dac600b001ac55a5e5eesm3819212plx.121.2023.05.10.07.01.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 May 2023 07:01:54 -0700 (PDT)
-Date: Wed, 10 May 2023 07:01:54 -0700 (PDT)
-X-Google-Original-Date: Wed, 10 May 2023 07:01:48 PDT (-0700)
-Subject: Re: [PATCH 14/23] riscv/hugetlb: pte_alloc_huge() pte_offset_huge()
-In-Reply-To: <d1e54510-9ea2-edf-3851-fa7635ce1e5e@google.com>
-CC: akpm@linux-foundation.org, mike.kravetz@oracle.com, rppt@kernel.org,
-  kirill.shutemov@linux.intel.com, willy@infradead.org, david@redhat.com, surenb@google.com,
-  zhengqi.arch@bytedance.com, linux@armlinux.org.uk, Catalin Marinas <catalin.marinas@arm.com>,
-  Will Deacon <will@kernel.org>, geert@linux-m68k.org, gerg@linux-m68k.org, monstr@monstr.eu,
-  tsbogend@alpha.franken.de, deller@gmx.de, dave.anglin@bell.net, aneesh.kumar@linux.ibm.com,
-  mpe@ellerman.id.au, alexghiti@rivosinc.com, hca@linux.ibm.com, borntraeger@linux.ibm.com,
-  imbrenda@linux.ibm.com, glaubitz@physik.fu-berlin.de, davem@davemloft.net, chris@zankel.net,
-  jcmvbkbc@gmail.com, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-  linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-  linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-  linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-mm@kvack.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: hughd@google.com
-Message-ID: <mhng-fa58638c-1b42-4264-8bf1-55d4bc42a5e2@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        d=1e100.net; s=20221208; t=1683728573; x=1686320573;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2etb/3I2MMTTEdePIkDu+D/ncnvNpSe07jedu4cHhMw=;
+        b=gsCk1cEwj6h0Gx/DauKt8l4oDbnQdEjlz1GhmJLvXuBeZrst9Lg60IVFLPELkG3jNd
+         xbgYEwh9bsHpkGxAS/gujXaP5oi8wlpLJC91YRxtC3+LnNsd3ouSBBjSpzUwo/rAQoY6
+         +z4Op0xxc7r/Agtsrf8g1In+g0IVbmIFYjVh8L/C9pJE6+EbLZgNMbcac6MV9WCKh+N1
+         fRRhV/7XjStaxIzl2cfn4/EDqEv4nyVyc9JjN8uixtvLJy8zDElde9GOuOJbcuGcEKM9
+         AZhVevZLDpX7zXCbLVVMCYMiAaHhfxstqyo+k2SF+nK/0oi6h1gDqRiQv0vqIa7LrlE/
+         SDCQ==
+X-Gm-Message-State: AC+VfDz4p3MOwSeQy5JIR/IYwtkTYeFKIp1sSrJBCNU74MmrAGGIBqHM
+	CEt3cwzEkazNQiuQH5UJGkM+Mg==
+X-Google-Smtp-Source: ACHHUZ62HNQerWbsxoK3MwqdchiGC1yKERqEYCSw8RQj+Kyl8r7fDPUS6W9MOzl+5BvfE/Q4mrE2/Q==
+X-Received: by 2002:a05:600c:3658:b0:3f4:2327:53c2 with SMTP id y24-20020a05600c365800b003f4232753c2mr8083597wmq.19.1683728572981;
+        Wed, 10 May 2023 07:22:52 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:c175:a0f9:6928:8c9d? ([2a02:810d:15c0:828:c175:a0f9:6928:8c9d])
+        by smtp.gmail.com with ESMTPSA id h9-20020a170906584900b0094e597f0e4dsm2705011ejs.121.2023.05.10.07.22.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 May 2023 07:22:52 -0700 (PDT)
+Message-ID: <08ebfa39-63b0-9db7-bd94-39a1822f3c7c@linaro.org>
+Date: Wed, 10 May 2023 16:22:51 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: sifive,plic: Sort
+ compatible values
+Content-Language: en-US
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <9cbf54da1ace03d7a45f28230fd99954d8c0d141.1683725029.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_070201_892405_5C712BC6 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20230510_072255_105470_1ABE8541 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +96,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 May 2023 21:59:57 PDT (-0700), hughd@google.com wrote:
-> pte_alloc_map() expects to be followed by pte_unmap(), but hugetlb omits
-> that: to keep balance in future, use the recently added pte_alloc_huge()
-> instead; with pte_offset_huge() a better name for pte_offset_kernel().
->
-> Signed-off-by: Hugh Dickins <hughd@google.com>
+On 10/05/2023 15:26, Geert Uytterhoeven wrote:
+> Restore alphabetical sort order of the supported SiFive-compatible
+> values.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  arch/riscv/mm/hugetlbpage.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-> index a163a3e0f0d4..80926946759f 100644
-> --- a/arch/riscv/mm/hugetlbpage.c
-> +++ b/arch/riscv/mm/hugetlbpage.c
-> @@ -43,7 +43,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm,
->
->  	for_each_napot_order(order) {
->  		if (napot_cont_size(order) == sz) {
-> -			pte = pte_alloc_map(mm, pmd, addr & napot_cont_mask(order));
-> +			pte = pte_alloc_huge(mm, pmd, addr & napot_cont_mask(order));
->  			break;
->  		}
->  	}
-> @@ -90,7 +90,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
->
->  	for_each_napot_order(order) {
->  		if (napot_cont_size(order) == sz) {
-> -			pte = pte_offset_kernel(pmd, addr & napot_cont_mask(order));
-> +			pte = pte_offset_huge(pmd, addr & napot_cont_mask(order));
->  			break;
->  		}
->  	}
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
