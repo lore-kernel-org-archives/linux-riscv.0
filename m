@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6713FC77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 01:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F82C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 01:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RppSy54ieNptf/oCMiAAH2PHNNVpeplt1vI6WI2Guvo=; b=wLEZHfEs0ZSB/N
-	vvVQj56NEmWrDJ9pcb8zEGmNB0PsX3mHLV/OQILZb2I2uVe1Yx5J0SscXhnAJxOi68xkOdAd+Yt6v
-	P/IvGBXC2UabcmNjWh6+r6Q0r4NP7hTDYNvCuDtAFo3B2C6p93atiBD+IPR53Hf5u3NmCRm0j2vnm
-	Zo35qS4gUcnwDh04pj5limtl4SWi2YFeKK/2jdSSKuII6WP1JDzUwxPWDBnOr2lwnZDh4ILaUv/ue
-	8Tc2fRh45TyW0Ei7ecUNhVhuTBPqAxnh23abh2j0KfWwxI7I0OrAy6heScb8koDIWL9t2E0muEBxJ
-	fgROyPxk12EufxXgeWFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WmMx+e9gOykQw/Zrj3EFVTH/OCzhA/NCRBBgIiC5d8M=; b=5BhQJIoQSBF/De
+	ulIfO7USOlU9Mh4WUYfKnOaTNa+06yVpUJJFQj0Jou6gAGDohP8WmzsgwqXszdSBtSsMkeZ4Y1FPG
+	xyarZbOmwZpKa2CwgaCohx1j3eXBNxi5pOuD47ccuAmkWcIiej0ePkomSMKskfE6B1MpQlDAHXWdS
+	rUr7/zEYzuAsAZF/ZyclRImOmL6GZiTCgE0dnlLObJj2RRgLajCODkHn/QZl+GItWKAfBp6V2CRJf
+	yF32I8xEMK1lbcq+Yx25Czkqrcoil4VH4SEFvYnbgy1Vp+JU5gfzqwOSO5d0IJk4Bu85g4Pr7ZNwI
+	M295rXJRuChh5hEtHaAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwZ1e-004ifS-2e;
-	Wed, 10 May 2023 01:53:54 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pwZ1h-004ige-3B;
+	Wed, 10 May 2023 01:53:57 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwZ1c-004iaQ-1M
+	id 1pwZ1d-004ias-29
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 01:53:54 +0000
+	Wed, 10 May 2023 01:53:55 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 066CF24E199;
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B60DC24E289;
 	Wed, 10 May 2023 09:53:14 +0800 (CST)
 Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
- 2023 09:53:13 +0800
+ 2023 09:53:14 +0800
 Received: from ubuntu.localdomain (183.27.98.219) by EXMBX062.cuchost.com
  (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
- 2023 09:53:12 +0800
+ 2023 09:53:13 +0800
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
@@ -47,18 +47,20 @@ CC: Walker Chen <walker.chen@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v3 0/5] Add JH7110 AON PMU support
-Date: Tue, 9 May 2023 18:53:06 -0700
-Message-ID: <20230510015311.27505-1-changhuang.liang@starfivetech.com>
+Subject: [PATCH v3 1/5] dt-bindings: power: Add JH7110 AON PMU support
+Date: Tue, 9 May 2023 18:53:07 -0700
+Message-ID: <20230510015311.27505-2-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230510015311.27505-1-changhuang.liang@starfivetech.com>
+References: <20230510015311.27505-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.98.219]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX062.cuchost.com
  (172.16.6.62)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_185352_635909_D01AB75E 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20230509_185353_992164_3EB4963A 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +77,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds aon power domain driver for the StarFive JH7110 SoC.
-It is used to turn on/off dphy rx/tx power switch. It also can use syscon
-operation. The series has been tested on the VisionFive 2 board.
+Add AON PMU for StarFive JH7110 SoC, it can be used to turn on/off DPHY
+rx/tx power switch, and it don't need the property of interrupts. It
+also can use syscon operation.
 
-This patchset should be applied after the patchset [1]:
-[1] https://lore.kernel.org/all/20230401111934.130844-1-hal.feng@starfivetech.com/
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ .../bindings/power/starfive,jh7110-pmu.yaml   | 28 +++++++++++++++++--
+ .../dt-bindings/power/starfive,jh7110-pmu.h   |  5 +++-
+ 2 files changed, 29 insertions(+), 4 deletions(-)
 
-changes since v2:
-- Updated commit message.
-- Changed "starfive,jh7110-aon-pmu" to "starfive,jh7110-aon-syscon".
-- Dropped patch 3: Modify ioremap to regmap.
-- Changed "pmu_parse_dt" to "pmu_parse_irq".
-- Dropped "pmu_parse_dt" function in aon pmu.
-- Changed copyright to "2022-2023" in "starfive,jh7110-pmu.h".
-- Replaced regread/regwrite operation with io_read/io_write operation.
-
-v2: https://lore.kernel.org/all/20230419035646.43702-1-changhuang.liang@starfivetech.com/
-
-changes since v1:
-- Updated commit message.
-- Changed "starfive,jh7110-pmu-dphy" to "starfive,jh7110-aon-pmu".
-- Put if condition under allOf in .yaml file.
-- Updated spelling error.
-- Dropped patch 4: Add pmu type operation.
-- Changed "jh71xx_pmu_general_set_state" to "jh7110_pmu_set_state" and moved it in call back.
-- Changed "jh7110_pmu_general_parse_dt" to "jh7110_pmu_parse_dt" and moved it in call back.
-- Used pmu_status save the pmu status offset.
-- Changed "JH71XX_PMU_DPHY_SWITCH" to "JH71XX_AON_PMU_SWITCH"
-- Changed copyright to "2022-2023"
-
-v1: https://lore.kernel.org/all/20230411064743.273388-1-changhuang.liang@starfivetech.com/
-
-
-Changhuang Liang (5):
-  dt-bindings: power: Add JH7110 AON PMU support
-  soc: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-  soc: starfive: Extract JH7110 pmu private operations
-  soc: starfive: Add JH7110 AON PMU support
-  riscv: dts: starfive: jh7110: Add AON PMU node
-
- .../bindings/power/starfive,jh7110-pmu.yaml   |  28 +++-
- MAINTAINERS                                   |   1 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |   6 +
- drivers/soc/starfive/Kconfig                  |   4 +-
- drivers/soc/starfive/jh71xx_pmu.c             | 138 ++++++++++++++----
- .../dt-bindings/power/starfive,jh7110-pmu.h   |   5 +-
- 6 files changed, 148 insertions(+), 34 deletions(-)
-
-
-base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
---
+diff --git a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
+index 98eb8b4110e7..0591a4e9db6c 100644
+--- a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
++++ b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
+@@ -8,6 +8,7 @@ title: StarFive JH7110 Power Management Unit
+ 
+ maintainers:
+   - Walker Chen <walker.chen@starfivetech.com>
++  - Changhuang Liang <changhuang.liang@starfivetech.com>
+ 
+ description: |
+   StarFive JH7110 SoC includes support for multiple power domains which can be
+@@ -15,8 +16,13 @@ description: |
+ 
+ properties:
+   compatible:
+-    enum:
+-      - starfive,jh7110-pmu
++    oneOf:
++      - enum:
++          - starfive,jh7110-pmu
++      - items:
++          - enum:
++              - starfive,jh7110-aon-syscon
++          - const: syscon
+ 
+   reg:
+     maxItems: 1
+@@ -30,9 +36,18 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - interrupts
+   - "#power-domain-cells"
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: starfive,jh7110-pmu
++    then:
++      required:
++        - interrupts
++
+ additionalProperties: false
+ 
+ examples:
+@@ -43,3 +58,10 @@ examples:
+         interrupts = <111>;
+         #power-domain-cells = <1>;
+     };
++
++  - |
++    aon_syscon: syscon@17010000 {
++        compatible = "starfive,jh7110-aon-syscon", "syscon";
++        reg = <0x17010000 0x1000>;
++        #power-domain-cells = <1>;
++    };
+diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt-bindings/power/starfive,jh7110-pmu.h
+index 132bfe401fc8..341e2a0676ba 100644
+--- a/include/dt-bindings/power/starfive,jh7110-pmu.h
++++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+ /*
+- * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
+  * Author: Walker Chen <walker.chen@starfivetech.com>
+  */
+ #ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
+@@ -14,4 +14,7 @@
+ #define JH7110_PD_ISP		5
+ #define JH7110_PD_VENC		6
+ 
++#define JH7110_PD_DPHY_TX	0
++#define JH7110_PD_DPHY_RX	1
++
+ #endif
+-- 
 2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
