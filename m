@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB232C77B7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56686C7EE26
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 06:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yfMtyqL6ZfF9WXNtUFfIk0IW/h9gxLNWpI6Ixu0VDMI=; b=t4ZKIcA4XW5irV
-	fIWtpCU/ObyZdUCMx30buKLoY/p2PN66nsxQ2Qx2Ue3xQfyW2DBQ3H3+ES4gIcHuYgbXwXaa8+8mB
-	e6/bY81m1W5MZdYvvI3EiHcxE5Csg7/I4W1kz98xYY8pR3+6B/yu9eUtBXVaJCCxg+exqObzjt1py
-	7j8jnKV1fYW9ScRq9MymlA6vOdX2xKvNJKC8+6SNFa/ToyjAqmQLeDHjP6gwWVaLlcNCu5Q5O88Tw
-	F3ckMVkW890rcalhRbR9PYkeM5ZlkTb/Csvay7Jl5M22L/nl+Ug8MDQKaJZ7tL8RmBSSwHXnmU8cX
-	oX/7kaG5e27YUVDCiDrw==;
+	List-Owner; bh=EfXTi47xfmPsNHXCj3abl4sODBZZLBBDereP5DjiNw4=; b=NtCaquw6M3IxHv
+	IZpZvt0GAG9ohfbZoULKiRXVRhlsUjpxuHyj7No6/8MkxbuSMqZeAwZYxsIV9vbLHAUN1Erfdd0jf
+	dNcC4yGxzbeJH64OZCOVwuTPce0VlHFh+/A8reER1x7sDvtYr1zduqhJMb13RBXdx5/SCcF0zX9y3
+	6RAuMdWBTfvshL5/ySoR9buEiWs/de2EjKL1aXBADhKoZ5k3MzqHn2+hKi4qzn8OZR91PNZFSYHoU
+	ZeFPPnee8Bu7Gb+IRElc8x81tDMi4BCFM5AsB0j2Qed8XjKDmlgr/s4gO0vZb4ORZyS7Cf5aogeAf
+	sBTgmTgVTFwcn5EuGu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwdgT-005J00-2Y;
-	Wed, 10 May 2023 06:52:21 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwdgQ-005IxY-09
+	id 1pwdmP-005KEc-0O;
+	Wed, 10 May 2023 06:58:29 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwdmN-005KDR-0y
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 06:52:20 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2C36A24E292;
-	Wed, 10 May 2023 14:51:42 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
- 2023 14:51:42 +0800
-Received: from [192.168.125.124] (183.27.98.219) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 10 May
- 2023 14:51:41 +0800
-Message-ID: <88660bc1-035c-fa7b-d541-d29bc142e043@starfivetech.com>
-Date: Wed, 10 May 2023 14:51:40 +0800
+	Wed, 10 May 2023 06:58:28 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-3f417ea5252so29979235e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 23:58:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1683701903; x=1686293903;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2ySej+k1OrwGyl4PfPNb9doHlUnZpL4SVS/pqSYTOh0=;
+        b=Y3ZUM6/klFrxtnyfnYxwJpiffgTkxBnxOY1lh2I2gVmZW2LJ2A8Sje6gKprk1d78oX
+         h0Bt7xX0rWu2sGtU4/WqTFeRSMqoyuyXnpWQ8BG1LfdlOce4w0Mj+5gTMbyWNs3fuu1J
+         62yvFCfJMM0xBzIoqyWKMdifnBn2j87DM2Mq5AO5mW0EkgXz6dtgjZO601iJp7mABDDs
+         KK05Q/vrCImCX4MK0IAg+VzdznSQ0eO20Ov4lrn9TC9oC6G/CaKoYVApqRp0/yf8UDFB
+         EAZOzrTy86klGrFdmTtlL9rxIVArgrtHpgppPltxrPVzEXFbLg7gEIFb5lly/5Hi3a62
+         5muA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683701903; x=1686293903;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2ySej+k1OrwGyl4PfPNb9doHlUnZpL4SVS/pqSYTOh0=;
+        b=dl6Nv5mb0w1fkAfCjbp9kcirOh9AGx9uLvdeQHAw1JJY9EBbNYFdi5FGxF1LzNvXmZ
+         ohSlmqjVAmyDGtQOBnGXz0/5WwmQFwPYLFaKrxdo3nCFHD1XC59r0tlm88SZXECFlmdV
+         dKOq1zsfsACkSBXORJYr7JrD6u1TD6payBvB3WyB6QZ32nmSpVdgq8WwR2ubesZ/cQWM
+         VDUmLv9C/bcumqIbiNEfCQkWVllvthAgzeQJw5VlFApwIMAHAABs056+fMOl3Ghs6wZp
+         UqhNUtOqdJ0v/QSZ3hL1MPgQn/Jvyj7/KT99gGZB618FmvKDNRq16xjMV6m6pz7ZEsuS
+         AVxg==
+X-Gm-Message-State: AC+VfDzyN657JX0gXooBrjdgrnxT/T0ROfJHwhQ4dti5CWjzM6iC/NBD
+	jis/fHp6BFgiQ4CY1L+hHF8JuQ==
+X-Google-Smtp-Source: ACHHUZ6KTb6byTXGvgEtMzdoJn2BLJMZzTAREtlkqjSN+GSQs8r5cplAd7QJH7ZpD82g4DevcJ3QeA==
+X-Received: by 2002:a7b:cb53:0:b0:3f2:53a5:d308 with SMTP id v19-20020a7bcb53000000b003f253a5d308mr10828292wmj.6.1683701903584;
+        Tue, 09 May 2023 23:58:23 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id h5-20020a1ccc05000000b003ee5fa61f45sm21779754wmb.3.2023.05.09.23.58.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 May 2023 23:58:22 -0700 (PDT)
+Date: Wed, 10 May 2023 08:58:22 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: zhangfei <zhang_fei_0403@163.com>
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	zhangfei@nj.iscas.ac.cn
+Subject: Re: [PATCH] riscv: Optimize memset
+Message-ID: <20230510-0adf0b2a2956ca1cd426a2d2@orel>
+References: <20230509-b0dc346928ddc8d2b5690f67@orel>
+ <20230510035243.8586-1-zhang_fei_0403@163.com>
+ <20230510035243.8586-4-zhang_fei_0403@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [PATCH v3 3/5] soc: starfive: Extract JH7110 pmu private
- operations
-Content-Language: en-US
-To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-CC: Hal Feng <hal.feng@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230510015311.27505-1-changhuang.liang@starfivetech.com>
- <20230510015311.27505-4-changhuang.liang@starfivetech.com>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <20230510015311.27505-4-changhuang.liang@starfivetech.com>
-X-Originating-IP: [183.27.98.219]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230510035243.8586-4-zhang_fei_0403@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_235218_415299_4D2C12EC 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20230509_235827_339740_AB264AD2 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,182 +94,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/5/10 9:53, Changhuang Liang wrote:
-> Move JH7110 private operation into private data of compatible. Convenient
-> to add AON PMU which would not have interrupts property.
+On Wed, May 10, 2023 at 11:52:43AM +0800, zhangfei wrote:
+> From: zhangfei <zhangfei@nj.iscas.ac.cn>
 > 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-
-Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
-Thanks!
-
-> ---
->  drivers/soc/starfive/jh71xx_pmu.c | 89 +++++++++++++++++++++----------
->  1 file changed, 62 insertions(+), 27 deletions(-)
+> On Tue, May 09, 2023 11:16:33AM +0200, Andrew Jones wrote: 
+> > On Tue, May 09, 2023 at 10:22:07AM +0800, zhangfei wrote:
+> > > 
+> > > Hi,
+> > > 
+> > > I filled head and tail with minimal branching. Each conditional ensures that 
+> > > all the subsequently used offsets are well-defined and in the dest region.
+> > 
+> > I know. You trimmed my comment, so I'll quote myself, here
+> > 
+> > """
+> > After the check of a2 against 6 above we know that offsets 6(t0)
+> > and -7(a3) are safe. Are we trying to avoid too may redundant
+> > stores with these additional checks?
+> > """
+> > 
+> > So, again. Why the additional check against 8 above and, the one you
+> > trimmed, checking 10?
 > 
-> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
-> index 7d5f50d71c0d..0dbdcc0d2c91 100644
-> --- a/drivers/soc/starfive/jh71xx_pmu.c
-> +++ b/drivers/soc/starfive/jh71xx_pmu.c
-> @@ -51,9 +51,17 @@ struct jh71xx_domain_info {
->  	u8 bit;
->  };
->  
-> +struct jh71xx_pmu;
-> +struct jh71xx_pmu_dev;
-> +
->  struct jh71xx_pmu_match_data {
->  	const struct jh71xx_domain_info *domain_info;
->  	int num_domains;
-> +	unsigned int pmu_status;
-> +	int (*pmu_parse_irq)(struct platform_device *pdev,
-> +			     struct jh71xx_pmu *pmu);
-> +	int (*pmu_set_state)(struct jh71xx_pmu_dev *pmd,
-> +			     u32 mask, bool on);
->  };
->  
->  struct jh71xx_pmu {
-> @@ -79,12 +87,12 @@ static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_o
->  	if (!mask)
->  		return -EINVAL;
->  
-> -	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
-> +	*is_on = readl(pmu->base + pmu->match_data->pmu_status) & mask;
->  
->  	return 0;
->  }
->  
-> -static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-> +static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->  {
->  	struct jh71xx_pmu *pmu = pmd->pmu;
->  	unsigned long flags;
-> @@ -92,22 +100,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->  	u32 mode;
->  	u32 encourage_lo;
->  	u32 encourage_hi;
-> -	bool is_on;
->  	int ret;
->  
-> -	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
-> -	if (ret) {
-> -		dev_dbg(pmu->dev, "unable to get current state for %s\n",
-> -			pmd->genpd.name);
-> -		return ret;
-> -	}
-> -
-> -	if (is_on == on) {
-> -		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
-> -			pmd->genpd.name, on ? "en" : "dis");
-> -		return 0;
-> -	}
-> -
->  	spin_lock_irqsave(&pmu->lock, flags);
->  
->  	/*
-> @@ -166,6 +160,29 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
->  	return 0;
->  }
->  
-> +static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-> +{
-> +	struct jh71xx_pmu *pmu = pmd->pmu;
-> +	const struct jh71xx_pmu_match_data *match_data = pmu->match_data;
-> +	bool is_on;
-> +	int ret;
-> +
-> +	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
-> +	if (ret) {
-> +		dev_dbg(pmu->dev, "unable to get current state for %s\n",
-> +			pmd->genpd.name);
-> +		return ret;
-> +	}
-> +
-> +	if (is_on == on) {
-> +		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
-> +			pmd->genpd.name, on ? "en" : "dis");
-> +		return 0;
-> +	}
-> +
-> +	return match_data->pmu_set_state(pmd, mask, on);
-> +}
-> +
->  static int jh71xx_pmu_on(struct generic_pm_domain *genpd)
->  {
->  	struct jh71xx_pmu_dev *pmd = container_of(genpd,
-> @@ -226,6 +243,25 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
->  
-> +static int jh7110_pmu_parse_irq(struct platform_device *pdev, struct jh71xx_pmu *pmu)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	pmu->irq = platform_get_irq(pdev, 0);
-> +	if (pmu->irq < 0)
-> +		return pmu->irq;
-> +
-> +	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
-> +			       0, pdev->name, pmu);
-> +	if (ret)
-> +		dev_err(dev, "failed to request irq\n");
-> +
-> +	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
-> +
-> +	return 0;
-> +}
-> +
->  static int jh71xx_pmu_init_domain(struct jh71xx_pmu *pmu, int index)
->  {
->  	struct jh71xx_pmu_dev *pmd;
-> @@ -275,19 +311,18 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
->  	if (IS_ERR(pmu->base))
->  		return PTR_ERR(pmu->base);
->  
-> -	pmu->irq = platform_get_irq(pdev, 0);
-> -	if (pmu->irq < 0)
-> -		return pmu->irq;
-> -
-> -	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
-> -			       0, pdev->name, pmu);
-> -	if (ret)
-> -		dev_err(dev, "failed to request irq\n");
-> +	spin_lock_init(&pmu->lock);
->  
->  	match_data = of_device_get_match_data(dev);
->  	if (!match_data)
->  		return -EINVAL;
->  
-> +	ret = match_data->pmu_parse_irq(pdev, pmu);
-> +	if (ret) {
-> +		dev_err(dev, "failed to parse irq\n");
-> +		return ret;
-> +	}
-> +
->  	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
->  				  sizeof(struct generic_pm_domain *),
->  				  GFP_KERNEL);
-> @@ -307,9 +342,6 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
->  		}
->  	}
->  
-> -	spin_lock_init(&pmu->lock);
-> -	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
-> -
->  	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
->  	if (ret) {
->  		dev_err(dev, "failed to register genpd driver: %d\n", ret);
-> @@ -357,6 +389,9 @@ static const struct jh71xx_domain_info jh7110_power_domains[] = {
->  static const struct jh71xx_pmu_match_data jh7110_pmu = {
->  	.num_domains = ARRAY_SIZE(jh7110_power_domains),
->  	.domain_info = jh7110_power_domains,
-> +	.pmu_status = JH71XX_PMU_CURR_POWER_MODE,
-> +	.pmu_parse_irq = jh7110_pmu_parse_irq,
-> +	.pmu_set_state = jh7110_pmu_set_state,
->  };
->  
->  static const struct of_device_id jh71xx_pmu_of_match[] = {
+> Hi,
+> 
+> These additional checks are to avoid too many redundant stores. 
+> 
+> Adding a check for more than 8 bytes is because after the loop 
+> segment '3' comes out, the remaining bytes are less than 8 bytes, 
+> which also avoids redundant stores.
+
+So the benchmarks showed these additional checks were necessary to avoid
+making memset worse? Please add comments to the code explaining the
+purpose of the checks.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
