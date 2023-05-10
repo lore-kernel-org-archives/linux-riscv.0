@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C92C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 04:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557B1C7EE22
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 04:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DmPi5xIZzbdXqbK/ok4IsgJjw6Dm/DbbrDD/7p5dRsk=; b=otleu+OzF/FOHq
-	E634Hu/OjDhwdDsYdZMK6iLKZegzH18aI206Cle1Vpz/Hi8/AE65dUGCGwlVwy64bQRPPb7nCH30T
-	5Xiose9e/bH4Bl16YGvrFWT8AAqFaAX06bhRI0nRGAaUztWtEpYRvKDNxZTYRgDEe+OPFcPFaoLhF
-	Syeq0xkh9EveuaBoMQYlJQcRVundHbfHuUV6Cy9LzxciaUJH5Ud7FZjGRGc3ZKbywEZ1E6hobsdzu
-	gUO8zOQkv0Ul4xeGsAb4Z7BbWIgExFVxow5A54WkTvQ3AFq3btdvVmC2Y7UMXSz7DzYxkgRhhXldS
-	kIce0fibHWWC1x3xbRJQ==;
+	List-Owner; bh=HkG/bnR8Xqiaj4cUPlPjZOPTDCrkFu1qmAILA01kEV0=; b=Q9Bs2u8OrSgf1N
+	Am+fse/HwOV2GSNObL10oIcwny9WEfC1fiDUr4XVUtbn6RSQjGD76+f4wcWwATCMKlTgcKmbF95Br
+	aslCuW9tSid+B3k+u6KSAwMbLQbIq7oTu7jLfOYNvyuX8dDQdgDVnqAD675h6hpnogETUieEdrfHe
+	dRzBBFr+eBjVNJTXhWdrHAKC+A1bXkK9bWUB8v9TqBUvdK4CJ4VcHrU1I8ckNkOYMIs/f9QrXk3Ri
+	xXCsm5RE3u3PHxYVSM+pOqcDwABJdrY3UpVWrMcEB5d7/7N8OP643DrULFx9qWFJNigdV0PT437Sc
+	Cfl9Qje43WJQJCok+byQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwbkX-0053eI-06;
-	Wed, 10 May 2023 04:48:25 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1pwblc-0053sJ-36;
+	Wed, 10 May 2023 04:49:32 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwbkT-0053by-2Y
+	id 1pwbla-0053pv-11
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 May 2023 04:48:23 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-55d2e87048cso100491717b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 21:48:20 -0700 (PDT)
+	Wed, 10 May 2023 04:49:31 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-b9a6eec8611so34126256276.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 May 2023 21:49:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1683694100; x=1686286100;
+        d=google.com; s=20221208; t=1683694167; x=1686286167;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WK0F+BrKreVsJ5WKZMSSwYtM+YC+fc99jiRjqR8qAzI=;
-        b=x1Kja1XThhFtvtapStbHVJ6cIUWnFQTRjS3yIZzqOBvbeW6lJ6r2OcIKehyGaLcOR9
-         EO0E+0lmjwsTzqZxX1CuaA3LV6vt/w6iCNhoZh4KzBI6fttCsMHb9y2nN6JpG9VX1Pvu
-         8ApPtVrHr2EJz5uY9tEAZbLvczJvLYwI/1UR0oNRlUsYV0jCTgbzXwAHPMVjgrMird8t
-         M8XDWCM/7D47BFX5TCmJBag01ePrcoMjLvbNAO+qlqmYphOA1hsCm6/eE7yT79eAzjKv
-         cgR618qRb92LOun4z6/AVV6yQ+EpsB9LlzYitvITxDtPFVAQvvWGldL+/y5mKG2o+OCf
-         +34A==
+        bh=fUQgmWpeb8XZ+Q95Ceu0Qoh2H5+Z0fgN6mScmqt4vh8=;
+        b=UYgN7SHJ+Kw138ag8h0xP8PheSyb+TyI5VHSIDjj4n9RShp4GncXL3XJ5EHxhXiibK
+         bWM2WA341yCPavofD2L+dwTh/k8wbtnqGHGh+6b5/c/SY6HIHVlS/8x1ncbIt6FJFxer
+         ySWLGEH9EXtIKdzeP4dp9W7nQnr+88zaaLX+AbAlYcn/Ke5bUTdA+Amtpc+UhTK8ZOe6
+         nlHKHHzGDYa0yETI6dqk3ia7Fkbq7SWABYpcMHvXrsQB+4fKcTN3DFHn/90Y6UPXvP9F
+         JN8mOaRS8n0XqBndVMSP+yTIoj8bABXUPMMg0RRYx7fWa70GyDb3jL+GXnDzUgXw6flR
+         jauA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683694100; x=1686286100;
+        d=1e100.net; s=20221208; t=1683694167; x=1686286167;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WK0F+BrKreVsJ5WKZMSSwYtM+YC+fc99jiRjqR8qAzI=;
-        b=LuIylCGKfLxSpF0citFqPq4QPqXZ4MkIrk5SdPiYowWcmv9Yd2o21c2L6AzLUvGcLs
-         6w90EB8e1IQHz4gNs1rTmij5HrX/qmMpEDP1OnEtJV3udCkfebIU8GiqyFVWIWBwXZti
-         PWA+YAm1McRbz869I2PE7/yB8ptRQaWjsDBL8edDrFuNhTpXATYpj/nFMptDAQnbBlj6
-         f8HnjgLnimRy8IkV+JSoX9k1F0t/ph+ilP93UycUrKenh2GUlCQ3xIdibM3QJ7GVugo5
-         PAuEEB2X2Xj4YUu45MnRwd22XtT+DCfKyie2nrqucVCEJQm30cdhZXIXmDKGdQ0yREq9
-         Sc0w==
-X-Gm-Message-State: AC+VfDw1ip6nLJ2kKN6mUPva9dQpdsxCaoNfyLh5Bnm6EyT31MiaYTul
-	ALNYLNqje+Ee157g+R+FEOobpQ==
-X-Google-Smtp-Source: ACHHUZ48eni6W+ZapWVvICeeqiNsZB+sf9Vl0Czmi3DPbU/8P8IxchHCcuzQFPjInzrwD5bjAbGJ8g==
-X-Received: by 2002:a0d:c741:0:b0:559:d3a0:4270 with SMTP id j62-20020a0dc741000000b00559d3a04270mr16231065ywd.34.1683694099774;
-        Tue, 09 May 2023 21:48:19 -0700 (PDT)
+        bh=fUQgmWpeb8XZ+Q95Ceu0Qoh2H5+Z0fgN6mScmqt4vh8=;
+        b=JRjbIzmBia95f6uE511JzRSNPhTnMc/1R8he2THh5lLBvjZ93hnMumgC/NTf7+rsHr
+         fJWuPT/R1OjlkGEVPTg49egbyOMrlK21Y8q9mBQnk6nOykl8IgLDN8DrPIfJvmBP1XIF
+         g6CBrm3RwFWBE7FX2qRSykh5B0qy6AJZo4Yeo6psGR4FoPDr5+gyyXrxnOwq2d3iBENC
+         dqQjZPqZyxFxzXpA1Fm66HolJS2oVnAx6e8vHWJtKiwC0hOFTXtW4JtZNlTFE/Z7cBOy
+         zvHuVVoi0qmWHqT9o7IYRyHlK3VYVN2WmPRi7q2awZpV6WQOcA0iISeXg9bSovQju8TO
+         zVXw==
+X-Gm-Message-State: AC+VfDz4lVmuDK4ujfV1cBjCuBW5V+6TGLYMgLtRS7OFNnGusBMZIMQL
+	4vNooUTwyd16otmpS9M65f1J2Q==
+X-Google-Smtp-Source: ACHHUZ4tqpw6+aM6rxWFz6kp/xXo9T82LwXaR685ltqxNG0QuiQjYqghFAwvEDZVatjZsBeLNAG4xw==
+X-Received: by 2002:a0d:c604:0:b0:55a:3502:d2ca with SMTP id i4-20020a0dc604000000b0055a3502d2camr16180522ywd.13.1683694166794;
+        Tue, 09 May 2023 21:49:26 -0700 (PDT)
 Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id c68-20020a0df347000000b0054f83731ad2sm3844954ywf.0.2023.05.09.21.48.16
+        by smtp.gmail.com with ESMTPSA id h67-20020a0df746000000b0054601a8399csm18738ywf.119.2023.05.09.21.49.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 May 2023 21:48:19 -0700 (PDT)
-Date: Tue, 9 May 2023 21:48:15 -0700 (PDT)
+        Tue, 09 May 2023 21:49:26 -0700 (PDT)
+Date: Tue, 9 May 2023 21:49:22 -0700 (PDT)
 From: Hugh Dickins <hughd@google.com>
 X-X-Sender: hugh@ripple.attlocal.net
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -90,14 +90,14 @@ cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>,
     linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
     linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
     linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH 05/23] m68k: allow pte_offset_map[_lock]() to fail
+Subject: [PATCH 06/23] microblaze: allow pte_offset_map() to fail
 In-Reply-To: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
-Message-ID: <237c8410-ce61-94c-4260-7318ad6a4f3@google.com>
+Message-ID: <12141321-df3-a8bf-18e-e27d13f24b74@google.com>
 References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230509_214821_826578_738667C1 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20230509_214930_353820_93034910 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,151 +117,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 In rare transient cases, not yet made possible, pte_offset_map() and
 pte_offset_map_lock() may not find a page table: handle appropriately.
 
-Restructure cf_tlb_miss() with a pte_unmap() (previously omitted)
-at label out, followed by one local_irq_restore() for all.
-
 Signed-off-by: Hugh Dickins <hughd@google.com>
 ---
- arch/m68k/include/asm/mmu_context.h |  6 ++--
- arch/m68k/kernel/sys_m68k.c         |  2 ++
- arch/m68k/mm/mcfmmu.c               | 52 ++++++++++++-----------------
- 3 files changed, 27 insertions(+), 33 deletions(-)
+ arch/microblaze/kernel/signal.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/m68k/include/asm/mmu_context.h b/arch/m68k/include/asm/mmu_context.h
-index 8ed6ac14d99f..141bbdfad960 100644
---- a/arch/m68k/include/asm/mmu_context.h
-+++ b/arch/m68k/include/asm/mmu_context.h
-@@ -99,7 +99,7 @@ static inline void load_ksp_mmu(struct task_struct *task)
- 	p4d_t *p4d;
- 	pud_t *pud;
- 	pmd_t *pmd;
--	pte_t *pte;
-+	pte_t *pte = NULL;
- 	unsigned long mmuar;
+diff --git a/arch/microblaze/kernel/signal.c b/arch/microblaze/kernel/signal.c
+index c3aebec71c0c..c78a0ff48066 100644
+--- a/arch/microblaze/kernel/signal.c
++++ b/arch/microblaze/kernel/signal.c
+@@ -194,7 +194,7 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
  
- 	local_irq_save(flags);
-@@ -139,7 +139,7 @@ static inline void load_ksp_mmu(struct task_struct *task)
- 
- 	pte = (mmuar >= PAGE_OFFSET) ? pte_offset_kernel(pmd, mmuar)
- 				     : pte_offset_map(pmd, mmuar);
--	if (pte_none(*pte) || !pte_present(*pte))
-+	if (!pte || pte_none(*pte) || !pte_present(*pte))
- 		goto bug;
- 
- 	set_pte(pte, pte_mkyoung(*pte));
-@@ -161,6 +161,8 @@ static inline void load_ksp_mmu(struct task_struct *task)
- bug:
- 	pr_info("ksp load failed: mm=0x%p ksp=0x08%lx\n", mm, mmuar);
- end:
-+	if (pte && mmuar < PAGE_OFFSET)
-+		pte_unmap(pte);
- 	local_irq_restore(flags);
- }
- 
-diff --git a/arch/m68k/kernel/sys_m68k.c b/arch/m68k/kernel/sys_m68k.c
-index bd0274c7592e..c586034d2a7a 100644
---- a/arch/m68k/kernel/sys_m68k.c
-+++ b/arch/m68k/kernel/sys_m68k.c
-@@ -488,6 +488,8 @@ sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
- 		if (!pmd_present(*pmd))
- 			goto bad_access;
- 		pte = pte_offset_map_lock(mm, pmd, (unsigned long)mem, &ptl);
-+		if (!pte)
-+			goto bad_access;
- 		if (!pte_present(*pte) || !pte_dirty(*pte)
- 		    || !pte_write(*pte)) {
- 			pte_unmap_unlock(pte, ptl);
-diff --git a/arch/m68k/mm/mcfmmu.c b/arch/m68k/mm/mcfmmu.c
-index 70aa0979e027..42f45abea37a 100644
---- a/arch/m68k/mm/mcfmmu.c
-+++ b/arch/m68k/mm/mcfmmu.c
-@@ -91,7 +91,8 @@ int cf_tlb_miss(struct pt_regs *regs, int write, int dtlb, int extension_word)
- 	p4d_t *p4d;
- 	pud_t *pud;
- 	pmd_t *pmd;
--	pte_t *pte;
-+	pte_t *pte = NULL;
-+	int ret = -1;
- 	int asid;
- 
- 	local_irq_save(flags);
-@@ -100,47 +101,33 @@ int cf_tlb_miss(struct pt_regs *regs, int write, int dtlb, int extension_word)
- 		regs->pc + (extension_word * sizeof(long));
- 
- 	mm = (!user_mode(regs) && KMAPAREA(mmuar)) ? &init_mm : current->mm;
--	if (!mm) {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (!mm)
-+		goto out;
- 
- 	pgd = pgd_offset(mm, mmuar);
--	if (pgd_none(*pgd))  {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (pgd_none(*pgd))
-+		goto out;
- 
- 	p4d = p4d_offset(pgd, mmuar);
--	if (p4d_none(*p4d)) {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (p4d_none(*p4d))
-+		goto out;
- 
- 	pud = pud_offset(p4d, mmuar);
--	if (pud_none(*pud)) {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (pud_none(*pud))
-+		goto out;
- 
- 	pmd = pmd_offset(pud, mmuar);
--	if (pmd_none(*pmd)) {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (pmd_none(*pmd))
-+		goto out;
- 
- 	pte = (KMAPAREA(mmuar)) ? pte_offset_kernel(pmd, mmuar)
- 				: pte_offset_map(pmd, mmuar);
--	if (pte_none(*pte) || !pte_present(*pte)) {
--		local_irq_restore(flags);
--		return -1;
--	}
-+	if (!pte || pte_none(*pte) || !pte_present(*pte))
-+		goto out;
- 
- 	if (write) {
--		if (!pte_write(*pte)) {
--			local_irq_restore(flags);
--			return -1;
--		}
-+		if (!pte_write(*pte))
-+			goto out;
- 		set_pte(pte, pte_mkdirty(*pte));
+ 	preempt_disable();
+ 	ptep = pte_offset_map(pmdp, address);
+-	if (pte_present(*ptep)) {
++	if (ptep && pte_present(*ptep)) {
+ 		address = (unsigned long) page_address(pte_page(*ptep));
+ 		/* MS: I need add offset in page */
+ 		address += ((unsigned long)frame->tramp) & ~PAGE_MASK;
+@@ -203,7 +203,8 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 		invalidate_icache_range(address, address + 8);
+ 		flush_dcache_range(address, address + 8);
  	}
- 
-@@ -161,9 +148,12 @@ int cf_tlb_miss(struct pt_regs *regs, int write, int dtlb, int extension_word)
- 		mmu_write(MMUOR, MMUOR_ACC | MMUOR_UAA);
- 	else
- 		mmu_write(MMUOR, MMUOR_ITLB | MMUOR_ACC | MMUOR_UAA);
--
-+	ret = 0;
-+out:
-+	if (pte && !KMAPAREA(mmuar))
-+		pte_unmap(pte);
- 	local_irq_restore(flags);
--	return 0;
-+	return ret;
- }
- 
- void __init cf_bootmem_alloc(void)
+-	pte_unmap(ptep);
++	if (ptep)
++		pte_unmap(ptep);
+ 	preempt_enable();
+ 	if (err)
+ 		return -EFAULT;
 -- 
 2.35.3
 
