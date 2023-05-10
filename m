@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B35C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5541C7EE24
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 May 2023 08:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1YttNlIma9vplMuc2RFSt9qKvLUWqBeeCu99ad1f4VY=; b=sVu0sklpRIKw3u
-	xWj7TtZi4TTLw/wOz5L7v6WZYdn1z77aSs1a+JbPq0dDvxFv8vSX+CjbkCVvUubQgz9DS1DKfYOvF
-	V764tWgyAck/EK1G044dvydYSPirQ/gk/Ua9Ap3vSg1aQUwytvaoFYBW5WLcahA2kgI4n6TCk89CD
-	yxpyJr2ThcZVTwDIS2B9R2fjmDa6+1P1wAr2poa1bbT3t2wsD+fRFfR8Mlxwwg7kvVbQsJzllqRao
-	yMXaQbwnrSEPRYeouhiT21f84GjSjlLcevi3lDCdFnd9AnQRyXnZKIDofdGVbQciTRm35C2FCAvaY
-	5XBhmPMpQu/ZM7fFnDgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Eoe6+hslThD0eSnFyTlifjDn4CV71rYytm9iKW+rdyk=; b=VgtmbpKv33c2Lw
+	aGekc5Z09XLP6QuUa++/YS8tLUOx4g5eXG3jM7OF5v1ascMWTZi3IIvPgES+ebJCOfrGIWx0TlkwA
+	lx79aFKLQGQYoNjV+ly7Pt+mBI3QY2BkGmyED9ccfk1CxJ8d4IutrElhkSvHnryRGkLxmNxpKycnh
+	ycCuxyZCSrNANcpNS/j6vJLghUlZjhQNr/C49fij6ugUsABLbWd8Kyo5Ypmh44TQdX9Rf/DjVFtXF
+	puTN85QecsuB5NMYciT19ox5cRI022dJo9c/O5oXY0CsEAScUnVpdkBqX0Ne6sMy6SvjH2n4iryVN
+	irbkKMMHPxXmqwHppjPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwelT-005Sb6-15;
-	Wed, 10 May 2023 08:01:35 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1pwevD-005TjB-0D;
+	Wed, 10 May 2023 08:11:39 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwelQ-005SYo-1X;
-	Wed, 10 May 2023 08:01:34 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 90583E000A;
-	Wed, 10 May 2023 08:01:13 +0000 (UTC)
-Message-ID: <6ad10e79-74e5-7c48-d10c-78229187da32@ghiti.fr>
-Date: Wed, 10 May 2023 10:01:13 +0200
+	id 1pwev9-005TiA-2A;
+	Wed, 10 May 2023 08:11:36 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-3f450815d0bso7349335e9.0;
+        Wed, 10 May 2023 01:11:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683706293; x=1686298293;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kaQpRP2PJulxYaO5bFooRdj1QYIO1irnm40lBiyMQfA=;
+        b=sGsXHOCDB1/G09BwgMcl3P9fyGYxgKy3Lg32VYzLCmWTMGjuN0Og+jZ0pYkjWmJ+5g
+         Zne7CNel0vAodrw5NQr0bOgH68uTNzlfPNUgOZih9LMJX34lTXhuUPDGfgqtgSPuZorD
+         V5zDRnIsfctWawQ3dOXE/g5ejxcI6zl/SJ4lDMuFRKal66KSfKiuSpbsz5O/jm8G2AiT
+         W0IKm5IiAosack2KCtEDLu4JqSlUXwA83mrxWFPMLAczYSXHSov4urgeJwcOT57yeSpM
+         K1N5nEUZrTC25G/ngzvFsXq5BWuj820aa+EmvpGlp//SWdi2RunF+IErZPV9Y51Z5ml0
+         7Ceg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683706293; x=1686298293;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kaQpRP2PJulxYaO5bFooRdj1QYIO1irnm40lBiyMQfA=;
+        b=R1/ZARCwnKv3/rsqh3POPsuCeJM47WTiRwev5HEx9U+sl4VunACIgxPrA0eVBDRMsH
+         IcT5jlKR+6xoxDOWF5p79IXthYVXUn7kFlLQGffQrYl5M7ZTwznCxJHQb5RdaWR1rDrq
+         0gVO4HC2txS9HRY6Uhc3gYRZadRrPB1OSVDlHOqDo7pTdBli6acodjlnX70kzhGg/ajY
+         SvyeInnpQjRGWpNQtxHQrt1lI0O00CtkoAHpBLLe2XMTldcOve0y/dm1bUwlYynoRFqX
+         h4IuoYXCxM2uxaLhuAiOoIOpNYYTGVbZ0wAlwl0+Z9qtAPbgI2APFJuZZg8H3jzKjKLn
+         ZliA==
+X-Gm-Message-State: AC+VfDwXAkIISyYx0wZPtc4jpDTJt0D0kP2TVrFw+qqqcTfEOi3NL/oB
+	PlAz3/mD5F4EF3QH6PJZ/kY=
+X-Google-Smtp-Source: ACHHUZ6nA8An0kWETX3sBghZaBOHEHWZkW9kJemfajv/KifLNkZtMoHeOoheAEpkUZYo+RyRDOmVEQ==
+X-Received: by 2002:a7b:c356:0:b0:3f0:3c2:3fa4 with SMTP id l22-20020a7bc356000000b003f003c23fa4mr11776779wmj.12.1683706292779;
+        Wed, 10 May 2023 01:11:32 -0700 (PDT)
+Received: from localhost.localdomain ([176.221.215.212])
+        by smtp.gmail.com with ESMTPSA id f16-20020a5d4dd0000000b003062ad45243sm16496375wru.14.2023.05.10.01.11.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 May 2023 01:11:32 -0700 (PDT)
+From: Maksim Kiselev <bigunclemax@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Icenowy Zheng <icenowy@aosc.io>,
+	Maksim Kiselev <bigunclemax@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 0/5] Allwinner R329/D1/R528/T113s SPI support
+Date: Wed, 10 May 2023 11:11:07 +0300
+Message-Id: <20230510081121.3463710-1-bigunclemax@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH 14/23] riscv/hugetlb: pte_alloc_huge() pte_offset_huge()
-To: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>,
- Suren Baghdasaryan <surenb@google.com>, Qi Zheng
- <zhengqi.arch@bytedance.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
- <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller
- <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <d1e54510-9ea2-edf-3851-fa7635ce1e5e@google.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <d1e54510-9ea2-edf-3851-fa7635ce1e5e@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_010132_649219_C38CC116 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20230510_011135_749999_EF03CF29 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +102,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hugh,
+v5:
+  - fixed DT bindings (Allowed three-string compatibility)
 
-On 5/10/23 06:59, Hugh Dickins wrote:
-> pte_alloc_map() expects to be followed by pte_unmap(), but hugetlb omits
-> that: to keep balance in future, use the recently added pte_alloc_huge()
-> instead; with pte_offset_huge() a better name for pte_offset_kernel().
->
-> Signed-off-by: Hugh Dickins <hughd@google.com>
-> ---
->   arch/riscv/mm/hugetlbpage.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-> index a163a3e0f0d4..80926946759f 100644
-> --- a/arch/riscv/mm/hugetlbpage.c
-> +++ b/arch/riscv/mm/hugetlbpage.c
-> @@ -43,7 +43,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm,
->   
->   	for_each_napot_order(order) {
->   		if (napot_cont_size(order) == sz) {
-> -			pte = pte_alloc_map(mm, pmd, addr & napot_cont_mask(order));
-> +			pte = pte_alloc_huge(mm, pmd, addr & napot_cont_mask(order));
->   			break;
->   		}
->   	}
-> @@ -90,7 +90,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
->   
->   	for_each_napot_order(order) {
->   		if (napot_cont_size(order) == sz) {
-> -			pte = pte_offset_kernel(pmd, addr & napot_cont_mask(order));
-> +			pte = pte_offset_huge(pmd, addr & napot_cont_mask(order));
->   			break;
->   		}
->   	}
+v4:
+  - fixed SPI sample mode configuration
+  - sorted DT bindings list
 
+v3:
+  - fixed effective_speed_hz setup and added SPI sample mode configuration
+  - merged DT bindings for R329 and D1 SPI controllers
+  - added SPI_DBI node to sunxi-d1s-t113.dtsi
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+v2:
+  - added DT bindings and node for D1/T113s
 
-Thanks,
+Icenowy Zheng (1):
+  spi: sun6i: change OF match data to a struct
 
-Alex
+Icenowy Zheng (1):
+  spi: sun6i: change OF match data to a struct
+
+Maksim Kiselev (4):
+  dt-bindings: spi: sun6i: add DT bindings for Allwinner
+    R329/D1/R528/T113s SPI
+  spi: sun6i: add quirk for in-controller clock divider
+  spi: sun6i: add support for R329/D1/R528/T113s SPI controllers
+  riscv: dts: allwinner: d1: Add SPI controllers node
+
+ .../bindings/spi/allwinner,sun6i-a31-spi.yaml |  10 ++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  37 +++++
+ drivers/spi/spi-sun6i.c                       | 131 ++++++++++++------
+ 3 files changed, 138 insertions(+), 40 deletions(-)
+
+-- 
+2.39.2
 
 
 _______________________________________________
