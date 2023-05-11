@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3C0C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 05:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44363C7EE24
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 05:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OB03G2tT4+O/IMVqbmyiH3SS1E8LO2ihWsqA+JdBB+o=; b=Sin6o7dwrYT+ZN
-	2WEoj+qtjaQvgPDlp0WaMf64OQ+wS1bOawnDkYAS8oA904dJELJwcz7Sp4DWRvrNqNRguRmT/Xs7d
-	pGPBj5FnAWeasuMWQYmyJtFrD8gNtokXmj1Oe78ZXesmtaC80CFqd4BgNJFD6JrhzEy6eRC5ukWup
-	tnkrdroag0xaxT1+8LlOgPJN0Em9NF1vnuoFoVaYirbCMxWf7f22o5vIDKA9Bz6EfSnty4QdUW4v9
-	ZnUk4qnDEjUc3wbQ8WeyU7FT6Gx6P/k9MDUMnSbWp2ODOqyfsEZjqW+UIsLC0FNGYh9+uP8gbfBuD
-	muKUZn6yeWMxdCoTkR9Q==;
+	List-Owner; bh=1f0Mos73HO02ow2uUTaCC7svY6dWEuzWt3EW7Qe/xWw=; b=bANiF5YyZaLqez
+	wbrlnKpcNB8cUtjALvIZ2MA+VdNexcTD1k35IGgC20xyPUYO8GE56NUmf/6cAiDmcpXGvT7vJTh0t
+	Buwx6FghDqCWdtBBmTS+HekJy7e0w0p7I7CRmRzezXrFKClFbyLf/bga2WcQ55WMs3N57Fuhaaq+t
+	p3hBGmDKjdvTBTWAIgIIXfJcv6ssgPurrTQ8bu8jIZNTdOV2sJdnzAz9/3G0BUQKt/Fkp8nt4L3KI
+	t9EIoghPeLtKBjVd1n/NYE6eQQ0fhyvnAQ9nYknRjn2eK6N0cUZLzFibZxTyAqrfueZrLp40SLrYP
+	KAfSXdHHzAlG8kXt2/8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwyZj-007qN4-0L;
-	Thu, 11 May 2023 05:10:47 +0000
+	id 1pwyin-007rgR-1Z;
+	Thu, 11 May 2023 05:20:09 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwyZh-007qMJ-0M
+	id 1pwyil-007rfG-1H
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 05:10:46 +0000
+	Thu, 11 May 2023 05:20:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8645563442;
-	Thu, 11 May 2023 05:10:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FA92C433D2;
-	Thu, 11 May 2023 05:10:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AF6A160AF3;
+	Thu, 11 May 2023 05:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60F6FC433D2;
+	Thu, 11 May 2023 05:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683781843;
-	bh=iFUpQ4D07YSZNO0RTuCRy1luLl+VzUEaBiyc3WJiu8c=;
+	s=k20201202; t=1683782406;
+	bh=FTIiBKAFL2DBhGmuNd5YDha3nOeMeeEPUsMzvvwTkns=;
 	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=UE1segLWGdZbdEoQ77McrCIOz+FbLlRdwBaCxQsiLp1itu+lnIlvUf5VtI77lCHJH
-	 UZIG/AMgKf+Mtt7cGCwyIddO8DVWEZL6Mb6UCzo5n8QRNgpW42hKNKPmMpPMgNo09d
-	 Sf8UNSMDpYocIjWpWS/nUWnqa37xWTlUKMPDqEf3eEQ/8CzS454nCsE5SVacdf5XTt
-	 StKTJyYJI8Zjf/giCk01Z4zfiHAxTrpGRf2ja174uFeXSq2N7Z7r25cCKoRUFTxf/j
-	 rDaAu8kquFwDB5pugszTWO5t7y9KnOxA96dK6ycKIm8yJ1Q0nWdk+WhWEx/W09ggdp
-	 GmdWVFzf+fNow==
-Date: Thu, 11 May 2023 06:10:40 +0100
+	b=Bf2kwxM4phlrWRg/r1CkMCQDlPsdamEGJKd2jCkYnLrmCYjelecnIfCCiROrmvLfH
+	 5pREYWIA5SL1/5VRC+8sewFUFvndWE0VayP8xgjqJg9NOIiSxylI8g6LU624Cg+Wvq
+	 eCgE/DEtzNwXWGwV/AOy0ycZZDiZeqjS1o7sJfHygdnlpAVva0pW26csUq0fn+A3m7
+	 OgtVB7BoT1EWLx8y5P5qaTh+YWv+MewmaBP2zExhTJQlQjo96TsmvpFUjNvWDi2AgG
+	 urXMg2lyY4mjHI0ymB8HGvFD9Jkw3edus0u6tzi9voKJTvz0NEOZEfc0zyeswV0oI3
+	 UP3nCQY8F2RIg==
+Date: Thu, 11 May 2023 06:20:01 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>, alsa-devel@alsa-project.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
+To: Yixun Lan <dlan@gentoo.org>, Yangtao Li <frank.li@vivo.com>
+Subject: Re: [PATCH v2 5/5] MAINTAINERS: add entry for T-HEAD RISC-V SoC
 User-Agent: K-9 Mail for Android
-In-Reply-To: <ef13177a-2028-9fc9-628a-e3d287758207@starfivetech.com>
-References: <20230506090116.9206-1-walker.chen@starfivetech.com> <20230506090116.9206-4-walker.chen@starfivetech.com> <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com> <20230509-overheat-pliable-00d60523637e@spud> <CAJM55Z9AxMVw=ymfFBb=45nODq89O8dMebzRgo-XD0GKduDBYg@mail.gmail.com> <f27b7ee7-f23a-35a2-3b82-71f50871dfcc@starfivetech.com> <20230510-riveter-ridden-3f056251e623@spud> <ef13177a-2028-9fc9-628a-e3d287758207@starfivetech.com>
-Message-ID: <CE38599D-24DF-4FD4-8CDF-F1A70673B972@kernel.org>
+In-Reply-To: <ZFw8u9uqaRvCEQCI@ofant>
+References: <20230510204456.57202-1-frank.li@vivo.com> <20230510204456.57202-5-frank.li@vivo.com> <ZFw8u9uqaRvCEQCI@ofant>
+Message-ID: <AA64B50D-DAA9-4329-B4BA-BAC20224C7A3@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_221045_215105_4416C9AB 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230510_222007_479327_39796567 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,6 +67,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Wei Fu <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -83,18 +75,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-
->I'm trying to understand what you mean. so the conclusion is that I need to drop the file
-> 'jh7110-starfive-visionfive-2-wm8960.dtso' from this patch.
->When I submit the next version, just keep the TDM node and the pins configuration for TDM in patch [3/3],
->need to drop the wm8960 stuff.
->Right ?
-
-Yes.
-
+On 11 May 2023 01:54:19 IST, Yixun Lan <dlan@gentoo.org> wrote:
+>Hi Yangtao:
 >
->Best regards,
->Walker
+>On 04:44 Thu 11 May     , Yangtao Li wrote:
+>> From: Jisheng Zhang <jszhang@kernel.org>
+>> 
+>> Jisheng:
+>> I would like to temporarily maintain the T-HEAD RISC-V SoC support.
+>> 
+>> Yangtao:
+>> Wei and me would like to help support and maintain too.
+>> 
+>> Cc: Icenowy Zheng <uwu@icenowy.me>
+>> Cc: Wei Fu <wefu@redhat.com>
+>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>> Signed-off-by: Yangtao Li <frank.li@vivo.com>
+>> ---
+>> v2:
+>> -add Yangtao and Wei
+>>  MAINTAINERS | 8 ++++++++
+>>  1 file changed, 8 insertions(+)
+>> 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 7e0b87d5aa2e..592769efd1d1 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -18155,6 +18155,14 @@ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+>>  F:	Documentation/devicetree/bindings/riscv/
+>>  F:	arch/riscv/boot/dts/
+>>  
+>> +RISC-V T-HEAD SoC SUPPORT
+>> +M:	Jisheng Zhang <jszhang@kernel.org>
+>> +M:	Wei Fu <wefu@redhat.com>
+>> +M:	Yangtao Li <frank.li@vivo.com>
+>> +L:	linux-riscv@lists.infradead.org
+>> +S:	Maintained
+>> +F:	arch/riscv/boot/dts/thead/
+>> +
+>>  RNBD BLOCK DRIVERS
+>>  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+>>  M:	Jack Wang <jinpu.wang@ionos.com>
+>> -- 
+>> 2.34.1
+>> 
+>
+>Don't get yourself wrong, no objection personally..
+>
+>But as I saw, none of contributors has affinity with T-Head, so no idea how this will
+>work well.. always better to take over maintainership after show enough commitment..
+>
+>Anyway, raise your comments, and I'd more than happy to be proved I'm wrong
+>
+
+They're more than welcome to be the maintainers IMO.
+Being the vendor is no guarantee of commitment either!
+Guo Ren, who does work for T-Head, was the one who suggested that
+Wei Fu would be a good person to add here.
+If they don't end up maintaining it, it'll fall back to me anyway & I'd prefer
+to give people a chance.
+
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
