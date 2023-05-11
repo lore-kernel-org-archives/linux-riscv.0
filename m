@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904BCC7EE24
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 09:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BF6C7EE25
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 09:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5OTHh0eH0G5GJhcQyDpmTttUylE4+9g57OaxqFV0h2k=; b=JIeNeWNG03RnWM
-	FR2j6soAtKdRQ7tphmbIdTZWnHwIDU1ZbThUszsNYDF7wTWeoaFR8kfa3SCx45VhbemrZDKzy5YQO
-	pbrAkwy5jQdFxV8d1poVfLEK78TXjHqAuzta3LF8vElK9i6tpF84Q81EnRO2ZUKPnhGiUfUijKegq
-	IHYgXCO422QhmsAMNNrjbomFCDQ24cWageXsUXMEuUQeGZps8QPV3EMEXcLFBrpksvG/0+FM9stTn
-	oGVjJncOOSnlNJ58GApCv7Vu1ulBl/1PDmoKOOTwebaS2nhH9xMpZg3vPpk4O6uQsQJd2X/JZ5psh
-	CY9fvlplIFlIcTNx+QGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HkbK/FWrBa4Y7f1dSDaNq8rwcfRhfZyZrBIbTn0ogh4=; b=zNt4ucs6yhRuzH
+	MIAhSjpTFSLyy1X+4TZGOXqVovU1YNI9Sa0hSQ/Ox1P2Vm/kfLYZoP/n8zPxYu5Y1tCxxfhYpRBkI
+	vmwv3dxdaOg2oq1nsfifxMzP9oYdW/k1KwMYma2eXeKqNOwC/1p8Q2Whw3WMeipI1RAaG/B8hvHMc
+	MJ2MFaFmOpNIh4ZdkvwOPrVgXWuw7tmtQdwaOJ+U5ndtuJOgunUtD5TcVTAZyOz4Q/SdH2pFg9WCm
+	v48NWyVMW7XzDpiFjCEpHoStaKyI6/2cHxIC4SqJILV75hG6Eoqnvg8s95hmfYOupMMv5aif7+0VO
+	/HviNEEelrz5GCQ41Gkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px2PQ-008Jqh-1P;
+	id 1px2PQ-008Jqw-31;
 	Thu, 11 May 2023 09:16:24 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px2PM-008Jni-1q
+	id 1px2PM-008Jnh-1q
 	for linux-riscv@lists.infradead.org;
 	Thu, 11 May 2023 09:16:23 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A6B6482EB;
-	Thu, 11 May 2023 17:15:51 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 11 May
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 00222828D;
+	Thu, 11 May 2023 17:15:50 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 11 May
  2023 17:15:51 +0800
 Received: from SD-Server.starfivetech.com (113.72.146.187) by
  EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
@@ -49,20 +49,18 @@ To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
 	<walker.chen@starfivetech.com>
 CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v4 1/3] ASoC: dt-bindings: Add TDM controller bindings for StarFive JH7110
-Date: Thu, 11 May 2023 17:15:47 +0800
-Message-ID: <20230511091549.28003-2-walker.chen@starfivetech.com>
+Subject: [PATCH v4 0/3] Add TDM audio on StarFive JH7110
+Date: Thu, 11 May 2023 17:15:46 +0800
+Message-ID: <20230511091549.28003-1-walker.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230511091549.28003-1-walker.chen@starfivetech.com>
-References: <20230511091549.28003-1-walker.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.146.187]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_021620_931690_1073B999 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20230511_021620_923105_7886B20D 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,120 +77,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for TDM driver which supports multi-channel audio playback
-and capture on JH7110 platform.
+This patchset adds TDM audio driver for the StarFive JH7110 SoC. The
+first patch adds device tree binding for TDM module. The second patch
+adds tdm driver support for JH7110 SoC. The last patch adds device tree
+node and pins configuration of tdm to JH7110 dts.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+The series has been tested on the VisionFive 2 board by plugging an
+audio expansion board. 
+
+For more information of audio expansion board, you can take a look
+at the following webpage:
+https://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/
+
+Changes since v3:
+- Modified the subject of patch [1/3] to reflect which subsystem it is.
+- Use the set of functions with 'clk_bulk_' to get/enable/disable clocks. 
+- Dropped the overlay from patch [3/3].
+- Dropped the redundant macro 'CONFIG_PM' and 'CONFIG_PM_SLEEP' around
+  suspend() and resume().
+
+Changes since v2:
+- Use dt-overlay to describe sound card because need to plug the audio
+  expansion board into the VisionFive2 board.
+- Modified the coding style for driver.
+- Moved assignment of stop_dma_first to startup function of dai_driver.
+- Dropped some useless macro definition.
+- Use loops to get/enable/disable clocks. 
+
+Changes since v1:
+- Rebased on Linux 6.3-rc4.
+- Added the dts file dedicated to describe audio card.
+- Added the item for JH7110 audio board to the dt-binding of StarFive
+  SoC-based boards.
+
 ---
- .../bindings/sound/starfive,jh7110-tdm.yaml   | 98 +++++++++++++++++++
- 1 file changed, 98 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
+v3: https://lore.kernel.org/all/20230506090116.9206-1-walker.chen@starfivetech.com/
+v2: https://lore.kernel.org/all/20230420024118.22677-1-walker.chen@starfivetech.com/
+v1: https://lore.kernel.org/all/20230329153320.31390-1-walker.chen@starfivetech.com/
 
-diff --git a/Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml b/Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
-new file mode 100644
-index 000000000000..abb373fbfa26
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
-@@ -0,0 +1,98 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/starfive,jh7110-tdm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 TDM Controller
-+
-+description: |
-+  The TDM Controller is a Time Division Multiplexed audio interface
-+  integrated in StarFive JH7110 SoC, allowing up to 8 channels of
-+  audio over a serial interface. The TDM controller can operate both
-+  in master and slave mode.
-+
-+maintainers:
-+  - Walker Chen <walker.chen@starfivetech.com>
-+
-+allOf:
-+  - $ref: dai-common.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - starfive,jh7110-tdm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: TDM AHB Clock
-+      - description: TDM APB Clock
-+      - description: TDM Internal Clock
-+      - description: TDM Clock
-+      - description: Inner MCLK
-+      - description: TDM External Clock
-+
-+  clock-names:
-+    items:
-+      - const: tdm_ahb
-+      - const: tdm_apb
-+      - const: tdm_internal
-+      - const: tdm
-+      - const: mclk_inner
-+      - const: tdm_ext
-+
-+  resets:
-+    items:
-+      - description: tdm ahb reset line
-+      - description: tdm apb reset line
-+      - description: tdm core reset line
-+
-+  dmas:
-+    items:
-+      - description: RX DMA Channel
-+      - description: TX DMA Channel
-+
-+  dma-names:
-+    items:
-+      - const: rx
-+      - const: tx
-+
-+  "#sound-dai-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - dmas
-+  - dma-names
-+  - "#sound-dai-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    tdm@10090000 {
-+        compatible = "starfive,jh7110-tdm";
-+        reg = <0x10090000 0x1000>;
-+        clocks = <&syscrg 184>,
-+                 <&syscrg 185>,
-+                 <&syscrg 186>,
-+                 <&syscrg 187>,
-+                 <&syscrg 17>,
-+                 <&tdm_ext>;
-+        clock-names = "tdm_ahb", "tdm_apb",
-+                      "tdm_internal", "tdm",
-+                      "mclk_inner", "tdm_ext";
-+        resets = <&syscrg 105>,
-+                 <&syscrg 107>,
-+                 <&syscrg 106>;
-+        dmas = <&dma 20>, <&dma 21>;
-+        dma-names = "rx","tx";
-+        #sound-dai-cells = <0>;
-+    };
+Walker Chen (3):
+  ASoC: dt-bindings: Add TDM controller bindings for StarFive JH7110
+  ASoC: starfive: Add JH7110 TDM driver
+  riscv: dts: starfive: add the node and pins configuration for tdm
+
+ .../bindings/sound/starfive,jh7110-tdm.yaml   |  98 ++++
+ MAINTAINERS                                   |   6 +
+ .../jh7110-starfive-visionfive-2.dtsi         |  40 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  21 +
+ sound/soc/Kconfig                             |   1 +
+ sound/soc/Makefile                            |   1 +
+ sound/soc/starfive/Kconfig                    |  15 +
+ sound/soc/starfive/Makefile                   |   2 +
+ sound/soc/starfive/jh7110_tdm.c               | 554 ++++++++++++++++++
+ sound/soc/starfive/jh7110_tdm.h               | 138 +++++
+ 10 files changed, 876 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
+ create mode 100644 sound/soc/starfive/Kconfig
+ create mode 100644 sound/soc/starfive/Makefile
+ create mode 100644 sound/soc/starfive/jh7110_tdm.c
+ create mode 100644 sound/soc/starfive/jh7110_tdm.h
+
+
+base-commit: 197b6b60ae7bc51dd0814953c562833143b292aa
+prerequisite-patch-id: 30bec4dba6f250a6edd0c2cbab2ce09442e50e8a
+prerequisite-patch-id: bb939c0c7c26b08addfccd890f9d3974b6eaec53
+prerequisite-patch-id: 8a6f135bcabdad4a4bfb21f0c6a0ffd2bb57efe7
+prerequisite-patch-id: c2366f993a9d85e28c06d8d09f064dd5e8b29a61
+prerequisite-patch-id: 50d53a21f91f4087fc80b6f1f72864adfb0002b9
+prerequisite-patch-id: 0df3703af91c30f1ca2c47f5609012f2d7200028
+prerequisite-patch-id: 89f049f951e5acf75aab92541992f816fd0acc0d
+prerequisite-patch-id: 551fae54377090044c3612fca9740a9b359abdd2
+prerequisite-patch-id: c7fdf904f398d478f0ed6d57eb878982bc73329d
+prerequisite-patch-id: 1b2d0982b18da060c82134f05bf3ce16425bac8d
+prerequisite-patch-id: 090ba4b78d47bc19204916e76fdbc70021785388
+prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
+prerequisite-patch-id: 4637a8fa2334a45fa6b64351f4e9e28d3e2d60d3
+prerequisite-patch-id: 32647ec60a3b614e1c59ec8e54cb511ae832c22f
+prerequisite-patch-id: aa06658ecf89c92d0dfdd6a4ba6d9e6e67532971
+prerequisite-patch-id: 1387a7e87b446329dfc21f3e575ceae7ebcf954c
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: 9007c8610fdcd387592475949864edde874c20a2
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 9f911969d0a550648493952c99096d26e05d4d83
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+prerequisite-patch-id: 80042661ff6156ce577a72e9eb8c0b218b624829
+prerequisite-patch-id: 398744c61913c76a35754de867c4f820ca7a8d99
+prerequisite-patch-id: f59269382164b5d642a5e10443ca447f5caa595c
+prerequisite-patch-id: 1babe83d6bf999bad17584dc595480f9070a5369
+prerequisite-patch-id: 77be3d122d66df813f13088141ce27b21107a341
+prerequisite-patch-id: 9fbb7ad1dd258bb8ff5946c4a0e59de4bfd82a04
+prerequisite-patch-id: 6f6984916dffd0cc66aa733c9b6bd3a55495a50c
+prerequisite-patch-id: 39e1be2a3d1593577ab997f55f59367cba665aa7
+prerequisite-patch-id: 584c256c9acb52ee2773d0c81c3f4977fc18155a
+prerequisite-patch-id: b37ac15032973e1fcd918f157c82a0606775c9e9
+prerequisite-patch-id: 32deea16304859842af5c2151bc41d91cf6dfc9b
+prerequisite-patch-id: 20ac2450fb93b3f69f83fc720fd4800a95e618a6
+prerequisite-patch-id: 6abf359fa445f4104432ddee27044dfbfb128417
 -- 
 2.17.1
 
