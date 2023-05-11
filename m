@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04AB8C7EE24
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 07:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A15BC7EE24
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 08:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ddcESZLK8YQxtNpxi17J1X1I/vYiQvMAOENq/MkRjFg=; b=yhixGymQUPCtZB
-	8p6kcarxIFdcGO6FlfNvoooJzvS0LjwaBD5iww0zFFe738Ce1VDgfXMltqtsQpyfj0MMkgLNcsKV1
-	PIdzu4y/8pBosZXEnnra05mTSkSKLBa0sLMaMpAE15u7yOcq24fbLWpVOFZcz7jHMScVO7VSj/E/5
-	h9mSnu29Ij9Nu6ttoDlxXEznvAgnwukXT3Rn2PzngvHU8sIso39Uxd5vkwA34qgC5eOr2mqa1mSzG
-	7GQQ3ylMJSZFIfJE9FGdnkyeBTPDTSz8dPK1VsGjVE0iUmAjNW3ZrPmVOtKgK18EQztt7sjxi4Tze
-	1Bc7pdBTbqUj8sZnvCRA==;
+	List-Owner; bh=NQUWEWIMxLTFJjVoR25DcgvOHnSxfHNe+YDaUoPXvl0=; b=g1IProwGprxXVT
+	GEIydkxCq86ym/WKfIjwoFzNY+5sywxOfPyqgD6sKI2zn9d3bJ+raF2ylKvSNOMS0/QXcCNYAhVg0
+	tOxkTBST/KS44H6RHfl+YIdHGNhc8mm6L4xWghp2RQKDqVWegdSdXWk4OPaUz2ghnhd+cfT4Ormd5
+	/aKFm7fHlBSTZK66AzbWYpGm6a8xHM+aMDE6q7Huqz7weTFSFXEkEeZg5lryPlsMMcwsgUHfa/shR
+	Da9h0EnJ8/K901AAPbP3Qmrvh3hwh3cBonb+ZH6AAemKQlJ84S0siDAvZX5iAaVeInvDndxc5i3po
+	lXOwNLOYT9TtorbscVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px0yj-008BCK-2W;
-	Thu, 11 May 2023 07:44:45 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1px1xV-008GQI-2i;
+	Thu, 11 May 2023 08:47:33 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px0yh-008BBA-0Y
-	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 07:44:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-3f315712406so273336085e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 00:44:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683791080; x=1686383080;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y7qAtEMxa98mvEq/S2OukRFlZVR9DoGyplQJNjwBgK0=;
-        b=R7T1iEjwHEdDoKl7KR+Ybdp7bLhR+D8GLS3jghPvQNi+HgmDCIXWHLlhgmfkvduPel
-         M6kDgCRzlUOXQvgLlzJR1wqmCzM7gj+TOztB77TMQidnwbJ0HgDpY8hqZesROdFmOA0O
-         1CmhF5zzEiFDxKn7jUbMTXoS3Im6Aviw50gHH1ZZQ4DHmzWZWjfdcxfuA+LIo1emAx3D
-         JhMF0W0wU8QBIdFq+uvEwj8AjgYWMEgzd6foHvKW2cvCc19bP3JGrRBPLjFluvHYDRRI
-         lhGgL9fdRQX7JjtxMbiUaLwlt+C9EAHIrTlxtobZowdcAWsivQ1/QTdAj6ci8a/Usadu
-         3EIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683791080; x=1686383080;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y7qAtEMxa98mvEq/S2OukRFlZVR9DoGyplQJNjwBgK0=;
-        b=lHCzQAWq2vuLsauQxT51m/betRuhjMhuiL1L9Pg1WwLoi1626roLjAQqkPso+ne3lw
-         m72Q8n6RRH5bBJHNvcByM8PraYEXun3pxaCAgKzz+bQH4cxmGX30sTY8LHZsUJU3YIfB
-         xk8nYTv29Hc8PpPg68P7+3WYbVLPuQF7XpOcDL/Xw04qOtYvlxfFThIUtzloFmtXnhBn
-         fW/UzIyiuC8tgLFri2OKsxGCIwbX0ZgMw+riwr/Ktisa1MzFfR7p4avUmxBFvOV+leAS
-         H0yJ6/XG05Y5HvBqcF9CzhH9L+yuohj68EJZW2+hANZ6DWoXHEeE/UmcYj/1pr4o4KoH
-         b4WQ==
-X-Gm-Message-State: AC+VfDwaOoMgLMG5eg2orrf995s7OpFTh90jheyQWv/25L1VQr3OoZ9P
-	WYSbc+INq7n477g9FEHyApI22g==
-X-Google-Smtp-Source: ACHHUZ6MvbTf3fJCVEA3AWYjhFzyvctocpaef1a+OBd91Ok80ccq383ThuXnoe+ie6dwnbGlU1m45Q==
-X-Received: by 2002:a7b:cb93:0:b0:3f4:2374:3511 with SMTP id m19-20020a7bcb93000000b003f423743511mr10333379wmi.10.1683791080630;
-        Thu, 11 May 2023 00:44:40 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id w12-20020a05600c474c00b003f07ef4e3e0sm10730643wmo.0.2023.05.11.00.44.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 May 2023 00:44:40 -0700 (PDT)
-Date: Thu, 11 May 2023 09:44:39 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: zhangfei <zhang_fei_0403@163.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	conor.dooley@microchip.com, zhangfei@nj.iscas.ac.cn
-Subject: Re: [PATCH v2 0/2] RISC-V: Optimize memset for data sizes less than
- 16 bytes
-Message-ID: <20230511-75718c538818fb3e1d924f9a@orel>
-References: <20230511012604.3222-1-zhang_fei_0403@163.com>
+	id 1px1xR-008GOG-0t;
+	Thu, 11 May 2023 08:47:31 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.57])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4QH57h18LPzsRb7;
+	Thu, 11 May 2023 16:45:20 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Thu, 11 May
+ 2023 16:47:13 +0800
+Message-ID: <366da9fb-0a3c-ac62-3df3-7a7f328973a6@huawei.com>
+Date: Thu, 11 May 2023 16:47:13 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230511012604.3222-1-zhang_fei_0403@163.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next v4 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <thunder.leizhen@huawei.com>, <horms@kernel.org>
+References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+ <20230410130553.3226347-2-chenjiahao16@huawei.com>
+ <ZEnaPzx3O9NWixIR@MiWiFi-R3L-srv>
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <ZEnaPzx3O9NWixIR@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_004443_213604_D3C17459 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20230511_014729_667103_FD571A79 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +71,220 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 11, 2023 at 09:26:04AM +0800, zhangfei wrote:
-> From: zhangfei <zhangfei@nj.iscas.ac.cn>
-> 
-> At present, the implementation of the memset function uses byte by byte storage 
-> when processing tail data or when the initial data size is less than 16 bytes. 
-> This approach is not efficient. Therefore, I filled head and tail with minimal 
-> branching. Each conditional ensures that all the subsequently used offsets are 
-> well-defined and in the dest region. Although this approach may result in 
-> redundant storage, compared to byte by byte storage, it allows storage instructions 
-> to be executed in parallel, reduces the number of jumps, and ultimately achieves 
-> performance improvement.
-> 
-> I used the code linked below for performance testing and commented on the memset 
-> that calls the arm architecture in the code to ensure it runs properly on the 
-> risc-v platform.
-> 
-> [1] https://github.com/ARM-software/optimized-routines/blob/master/string/bench/memset.c#L53
-> 
-> The testing platform selected RISC-V SiFive U74.The test data is as follows:
-> 
-> Before optimization
-> ---------------------
-> Random memset (bytes/ns):
->            memset_call 32K:0.45 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.30
-> 
-> Medium memset (bytes/ns):
->            memset_call 8B:0.18 16B:0.48 32B:0.91 64B:1.63 128B:2.71 256B:4.40 512B:5.67
-> Large memset (bytes/ns):
->            memset_call 1K:6.62 2K:7.02 4K:7.46 8K:7.70 16K:7.82 32K:7.63 64K:1.40
-> 
-> After optimization
-> ---------------------
-> Random memset bytes/ns):
->            memset_call 32K:0.46 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.31
-> Medium memset (bytes/ns )
->            memset_call 8B:0.27 16B:0.48 32B:0.91 64B:1.64 128B:2.71 256B:4.40 512B:5.67
-> Large memset (bytes/ns):
->            memset_call 1K:6.62 2K:7.02 4K:7.47 8K:7.71 16K:7.83 32K:7.63 64K:1.40
-> 
-> From the results, it can be seen that memset has significantly improved its performance with 
-> a data volume of around 8B, from 0.18 bytes/ns to 0.27 bytes/ns.
-> 
-> The previous work was as follows:
-> 1. "[PATCH] riscv: Optimize memset"
->    6d1cbe2e.3c31d.187eb14d990.Coremail.zhangfei@nj.iscas.ac.cn
 
-Cover letters should have a changelog, in this case a couple phrases
-stating what's different in v2 vs. v1.
+On 2023/4/27 10:13, Baoquan He wrote:
+> On 04/10/23 at 09:05pm, Chen Jiahao wrote:
+>> On riscv, the current crash kernel allocation logic is trying to
+>> allocate within 32bit addressible memory region by default, if
+>> failed, try to allocate without 4G restriction.
+>>
+>> In need of saving DMA zone memory while allocating a relatively large
+>> crash kernel region, allocating the reserved memory top down in
+>> high memory, without overlapping the DMA zone, is a mature solution.
+>> Here introduce the parameter option crashkernel=X,[high,low].
+>>
+>> One can reserve the crash kernel from high memory above DMA zone range
+>> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+>> below 4G with "crashkernel=X,low".
+>>
+>> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+>> Acked-by: Guo Ren <guoren@kernel.org>
+>> Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
+>> ---
+>>   arch/riscv/kernel/setup.c |  5 +++
+>>   arch/riscv/mm/init.c      | 71 ++++++++++++++++++++++++++++++++++++---
+>>   2 files changed, 71 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> index 5d3184cbf518..ea84e5047c23 100644
+>> --- a/arch/riscv/kernel/setup.c
+>> +++ b/arch/riscv/kernel/setup.c
+>> @@ -176,6 +176,11 @@ static void __init init_resources(void)
+>>   		if (ret < 0)
+>>   			goto error;
+>>   	}
+>> +	if (crashk_low_res.start != crashk_low_res.end) {
+>> +		ret = add_resource(&iomem_resource, &crashk_low_res);
+>> +		if (ret < 0)
+>> +			goto error;
+>> +	}
+>>   #endif
+>>   
+>>   #ifdef CONFIG_CRASH_DUMP
+>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>> index 478d6763a01a..70f6cb281ed1 100644
+>> --- a/arch/riscv/mm/init.c
+>> +++ b/arch/riscv/mm/init.c
+>> @@ -1152,6 +1152,28 @@ static inline void setup_vm_final(void)
+>>   }
+>>   #endif /* CONFIG_MMU */
+>>   
+>> +/* Reserve 128M low memory by default for swiotlb buffer */
+>> +#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
+>> +
+>> +static int __init reserve_crashkernel_low(unsigned long long low_size)
+>> +{
+>> +	unsigned long long low_base;
+>> +
+>> +	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
+>> +	if (!low_base) {
+>> +		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
+>> +		return -ENOMEM;
+>> +	}
+>> +
+>> +	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
+>> +		low_base, low_base + low_size, low_size >> 20);
+>> +
+>> +	crashk_low_res.start = low_base;
+>> +	crashk_low_res.end = low_base + low_size - 1;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   /*
+>>    * reserve_crashkernel() - reserves memory for crash kernel
+>>    *
+>> @@ -1163,8 +1185,12 @@ static void __init reserve_crashkernel(void)
+>>   {
+>>   	unsigned long long crash_base = 0;
+>>   	unsigned long long crash_size = 0;
+>> +	unsigned long long crash_low_size = 0;
+>>   	unsigned long search_start = memblock_start_of_DRAM();
+>>   	unsigned long search_end = memblock_end_of_DRAM();
+>> +	unsigned long search_low_max = (unsigned long)dma32_phys_limit;
+>> +	char *cmdline = boot_command_line;
+>> +	bool fixed_base = false;
+>>   
+>>   	int ret = 0;
+>>   
+>> @@ -1180,14 +1206,34 @@ static void __init reserve_crashkernel(void)
+>>   		return;
+>>   	}
+>>   
+>> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+>> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+>>   				&crash_size, &crash_base);
+>> -	if (ret || !crash_size)
+>> +	if (ret == -ENOENT) {
+>> +		/* Fallback to crashkernel=X,[high,low] */
+>> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
+>> +		if (ret || !crash_size)
+>> +			return;
+>> +
+>> +		/*
+>> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
+>> +		 * is passed.
+>> +		 */
+>> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
+>> +		if (ret == -ENOENT)
+>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+>> +		else if (ret)
+>> +			return;
+>> +
+>> +		search_start = search_low_max;
+>> +	} else if (ret || !crash_size) {
+>> +		/* Invalid argument value specified */
+>>   		return;
+>> +	}
+>>   
+>>   	crash_size = PAGE_ALIGN(crash_size);
+>>   
+>>   	if (crash_base) {
+>> +		fixed_base = true;
+>>   		search_start = crash_base;
+>>   		search_end = crash_base + crash_size;
+>>   	}
+>> @@ -1201,16 +1247,31 @@ static void __init reserve_crashkernel(void)
+>>   	 */
+>>   	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>>   					       search_start,
+>> -					       min(search_end, (unsigned long) SZ_4G));
+>> +					       min(search_end, search_low_max));
+> Here, it seems not right in case crashkernel=,high is specified. In that
+> case, search_start == search_low_max, then the min(search_end,
+> search_low_max) will get search_low_max too. Then you make the fallback
+> in below code block to try to get crashkernel reservation above 4G. This
+> doesn't comply with the crashkernel=,high grammer which has been
+> implemented in other architectures.
+>
+> For crashkernel=,high, user explicitly require memory reservation above
+> 4G. Why does crashkernel=,high is needed? E.g on big end server with
+> huge memory, while the low memory under 4G is limited and precious.
+> Hence, user want to put the main crashkernel reservation above 4G to
+> contain kdump kernel/initrd and run user space program, while with few
+> low memory for pci device driver. E.g crashkernel=2G,high, it won't
+> impact much if there's huge memory above 4G and get crashkernel
+> reservation there. However, it impacts a lot if it reserves memory
+> below 4G.
+>
+> I would strongly suggest that risc-v also reserve memory from above 4G
+> for crashkernel=,high, then fallback to below 4G. That's consistent with
+> crashkernel=,high grammer.
+
+Sorry for late response.
+
+I have got the point here. So with the original implication of "crashkernel=,high",
+there is even no need to try reserving low memory under 4G. I have arranged another
+version of patchset, in which I updated the allocation logic in that case.
+
+For example, when "crashkernel=1G,high" is specified, the previous logic is like:
+alloc range: crash_size: 0x40000000 (1G), crash_base: 4G_limit,
+              crash_max: 4G_limit
+alloc range high: crash_size: 0x40000000 (1G), crash_base: 4G_limit,
+                   crash_max: memblock_range_end
+alloc range low: low_size: 0x8000000 (128MB,default), crash_base: 0x0,
+                  crash_max: 4G_limit
+
+After revision, the logic is like:
+alloc range: crash_size: 0x40000000 (1G), crash_base: memblock_range_start,
+              crash_max: memblock_range_end
+alloc range low: low_size: 0x8000000 (128MB,default), crash_base: 0x0,
+                  crash_max: 4G_limit
+
+Please let me know if there is any problem exist.
 
 Thanks,
-drew
+Jiahao
 
-> 
-> Thanks,
-> Fei Zhang
-> 
-> Andrew Jones (1):
->   RISC-V: lib: Improve memset assembler formatting
-> 
->  arch/riscv/lib/memset.S | 143 ++++++++++++++++++++--------------------
->  1 file changed, 72 insertions(+), 71 deletions(-)
-> 
-> zhangfei (1):
->   RISC-V: lib: Optimize memset performance
-> 
->  arch/riscv/lib/memset.S | 40 +++++++++++++++++++++++++++++++++++++---
->  1 file changed, 37 insertions(+), 3 deletions(-)
-> 
+
+>
+>>   	if (crash_base == 0) {
+>> -		/* Try again without restricting region to 32bit addressible memory */
+>> +		if (fixed_base) {
+>> +			pr_warn("crashkernel: allocating failed with given size@offset\n");
+>> +			return;
+>> +		}
+>> +
+>> +		/* Try again above the region of 32bit addressible memory */
+>>   		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>> -						search_start, search_end);
+>> +						       max(search_start, search_low_max),
+>> +						       search_end);
+>>   		if (crash_base == 0) {
+>>   			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+>>   				crash_size >> 10);
+>>   			return;
+>>   		}
+>> +
+>> +		if (!crash_low_size)
+>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+>> +	}
+>> +
+>> +	if ((crash_base > dma32_phys_limit - crash_low_size) &&
+>> +	    crash_low_size && reserve_crashkernel_low(crash_low_size)) {
+>> +		memblock_phys_free(crash_base, crash_size);
+>> +		return;
+>>   	}
+>>   
+>>   	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+>> -- 
+>> 2.31.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
