@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FFDC77B7F
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 07:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373EBC77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 07:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Pt2iYexVQZkjxC4mlsVG+nRauhdoHbScLEtXFWGL0IY=; b=pIIudcgR5E2kMd
-	9tqjMvkmpncRmk2jtVbp978ATAuaDCm8J21LzcTYB4itXX17i0y33lo7kqf0nIWVAscqig51KZjJi
-	D8KdBx3nX1flfMDhD0TUyQ+NoC7owp+FLIeVFZ3f30Yz9GFck3fUzmiw8Wy2OtqMrxkfElzbvjc60
-	EZkgdmO9aFO+lQZZvJnxh9whmjPB0E0yTI+NdFp4m6Hf2t8bb/suDMfYMEMjxozRMLV2o1Z7J4ZXx
-	UzcHoMkmUiPLbz7OXVO83wgMgU6SdCW2IoF5TtC9oc2czn+Jb/oIpvEHzfOnc1w0apL25+qYv8Qzq
-	FyYdAPE/3zhCoatgBVMw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4lX5/Eiez67RVU2wp4IwUb6dNYxON1vpPL/MibKBY68=; b=zPQ43YoOqmJJt2
+	6701OyH15bS5fw+fe/vWRdTqTD9hBTFPx8d5WOx2Jv204tcE7cQqnk8W/x/+Cd0osZJtiUF3MaCZ8
+	OgW7O1zJWUC37Zx2DcJclSIqzqsL2s0vbmi0OvVn43vYoNViPx5ppLhQm0lLeyOc1avcxWu8rM4Q7
+	ksHFVQSDoTIGoJ1QcsNMp45crlLk6PePq+/L2u8PsJkQGboCkpcKL1JyhKKooBDAsBwSuoXXAZWmT
+	jRhQlC1ccodIF4DIEoN75KtnbZ1w5lAFucOuAtxsYTxamTzbsiWHH+BQ6Vptia0ErRqEuTa3u2mGP
+	oQRUMmQeXaEnchGWqowA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px0UU-008675-10;
-	Thu, 11 May 2023 07:13:30 +0000
-Received: from mail-mw2nam12on2042.outbound.protection.outlook.com ([40.107.244.42] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1px0aR-0086r1-10;
+	Thu, 11 May 2023 07:19:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px0UR-00866M-0w
+	id 1px0aO-0086qb-1F
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 07:13:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kejsKJle3o+eTQDD2utzi9aGsPELzCrBlQeeFZBWOKpjZzvIX7u7Ia+otUvDxcQOgBg5tHo5xBgMdcZbnGCO86IOwhvVKgapOC30q5w8yv9AD4dLdBVpBOmu1APzWvx6yqqMgT0S0caG6XBmT8aDdXd6J5tV35Ib6nBg+zO8uOh2myBgPkjMluEdOO8iHy5wPCIyPLi+IdptHZm+qaCBaRhEaSkbqV0QMC0+pPSQ42ajDjdgz4CT9zVXPYjpvO32Mj6Fx0vD2c6pN6MYzhHvIDyYIqMnoPoDST3TjYGXNCtRNImdLqWNiyow1/8XPTbLUsXG2E4aMC+9X21+/Mlx+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cR1eSAPeKE9sDzFU4q6fTGobelKu9Txb0xgvuezt8cE=;
- b=besUacLHiB8uD1Z/OUg3ADvltMYiCuopDud5VNBik90hs7pYxBk6Xi7a4QQoU23Wot2CDwZMg0S1vCqwiAA5Z69K+6WyW1kj4T7lDr+LLw+7yQFn8GSrT/f9lj5HNc4Flnc1h6gzJD8GxxBWDPwrmvaWij6oMnTK14heTjMkGrKChcFNqJWOE7Rwzlg4/YyYMDJYhVs5QAdkfaYYX4b93pp1K43Tqr3OyVitdQhdmvaZcgcHaCcV3cxKbsN0kDQf1RYXuWM/+TqE8g1utC5PSjA5lHdlnUKNQgsId4UYVDLupslV+MxxfSBeC9h1C1U49qjNvrv4dBUty1vmvrRKKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=microchip.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cR1eSAPeKE9sDzFU4q6fTGobelKu9Txb0xgvuezt8cE=;
- b=CwiiOiaxQ332e9U6bOmyFlIW0gAiwdHeDgBS6yot/jNxJtoz/hSvqd8GjbMaU/aF/DbTOg9+BoDy+bIHmZPYCOBJDf331Vhye/ThDxujV+wBjOHsgPKcxO/AaWQYCcKCuGo1cjDn8f/6iROssn6mcv9rLUZMRPD0ZpsByWXR+QE=
-Received: from DM6PR14CA0042.namprd14.prod.outlook.com (2603:10b6:5:18f::19)
- by CY8PR12MB7244.namprd12.prod.outlook.com (2603:10b6:930:57::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6363.33; Thu, 11 May
- 2023 07:12:21 +0000
-Received: from DM6NAM11FT090.eop-nam11.prod.protection.outlook.com
- (2603:10b6:5:18f:cafe::83) by DM6PR14CA0042.outlook.office365.com
- (2603:10b6:5:18f::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6387.21 via Frontend
- Transport; Thu, 11 May 2023 07:12:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- DM6NAM11FT090.mail.protection.outlook.com (10.13.172.184) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.6387.20 via Frontend Transport; Thu, 11 May 2023 07:12:21 +0000
-Received: from SATLEXMB08.amd.com (10.181.40.132) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Thu, 11 May
- 2023 02:12:20 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB08.amd.com
- (10.181.40.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Thu, 11 May
- 2023 00:12:19 -0700
-Received: from xhdpranavis40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2375.34 via Frontend
- Transport; Thu, 11 May 2023 02:12:15 -0500
-From: Pranavi Somisetty <pranavi.somisetty@amd.com>
-To: <nicolas.ferre@microchip.com>, <claudiu.beznea@microchip.com>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <richardcochran@gmail.com>, <linux@armlinux.org.uk>,
-	<palmer@dabbelt.com>
-CC: <git@amd.com>, <michal.simek@amd.com>, <harini.katakam@amd.com>,
-	<radhey.shyam.pandey@amd.com>, <pranavi.somisetty@amd.com>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: [PATCH net-next v2 0/2] Add support for partial store and forward
-Date: Thu, 11 May 2023 01:12:12 -0600
-Message-ID: <20230511071214.18611-1-pranavi.somisetty@amd.com>
-X-Mailer: git-send-email 2.36.1
+	Thu, 11 May 2023 07:19:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2E4CA6172E;
+	Thu, 11 May 2023 07:19:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEF67C433D2;
+	Thu, 11 May 2023 07:19:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1683789574;
+	bh=RldIo1naMhWsjg+eblgYl0fqvCmzAXd9XT2gYmTJlYY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=TCHeOcbFHEFBlnfvO2DcVzeUngNfP9qkTplOBwpJtXXFm9ai6OdBnNDT9v2KbJldH
+	 GSKdJOlY20kYo0JrPMQ2XgkAFVs57BEzQ42lZst5p2ifzeNZ7VwJi6VWWM+pRJoXvc
+	 luYYyULNuHr2AYM9rq9TfPfl/4j7N3zOiDwABp1n+b2N5KVKOQ62R2Xvd9ZeOmW6a0
+	 wmINNZvpe1S+4QkmnGCbzBhPCJgRNmWc2lFoa4Z5Hd7q91FjRrBOIJDfIRb3zck7wP
+	 Nfr1vK3OlwFDEm3utEc61YVW68cxEaekwQSEfBg35kihDnjzGjRk/t9WlrwPHI4DQP
+	 TsO/jDqPF2aeg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Song Shuai <suagrfillet@gmail.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, rostedt@goodmis.org,
+ mhiramat@kernel.org, mark.rutland@arm.com, guoren@kernel.org,
+ suagrfillet@gmail.com, jszhang@kernel.org, e.shatokhin@yadro.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH V9 3/4] riscv: ftrace: Add
+ DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
+In-Reply-To: <20230510101857.2953955-4-suagrfillet@gmail.com>
+References: <20230510101857.2953955-1-suagrfillet@gmail.com>
+ <20230510101857.2953955-4-suagrfillet@gmail.com>
+Date: Thu, 11 May 2023 09:19:31 +0200
+Message-ID: <87ttwjjpx8.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6NAM11FT090:EE_|CY8PR12MB7244:EE_
-X-MS-Office365-Filtering-Correlation-Id: b8ae1346-a3de-4fd6-9f9b-08db51ef1054
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	gAbfezGnug/vPDrU2lTLNehzivrb6EkLUOJhpCjljT7tjRM0u8sUnGhjTuEcRGCPJG+At3MYgj60INdKx4djr4WDOyyzkgqz2Mrco4/3w9uKK6FJjRdlZDmcJC3TIJr9hsQEj9J3PmU2Dl9hZKPdEnEtGQtWm8EdxJNn4sDXHJxjTBI/1GUSAgJMHK7VvYGfeoOEWldBymfWBoaUbPiPLV3xPlPfXBgeiFdbwCTVA3wIS81YKl0GV+1LBQUQZ6+5VhPUQUclzDCv49lLAZIKFh6mnkpP9ZkKFUgPGm4zhL1bpaz9T3xw4yYfklIGCV0gsyY8HAmXZvyHvXh/IEwGwqGPh/stv8ZW7hlrJfJWshn16ba0rj9Xil6Elur22Kau2BJ4kmJNre/C6foaIllGZrGU9pfuNj3vqOcTxNGXnd2zz7JeNS/7/vslM34lDtY3R1B+kt+7o5YQD7+8884eFGEPOf/S+TA/kMTi15bFqK8mLjRNMhD985xlNWZc8xe1kJnjYZZQxp1cjJgz4THfLn+g236+lReBCzru0VLKZ0ozCvXMGp3ZyvaFp6rfqJWhQdEbQAshPWoiDz5ppRLI1VLdsCMMSaagccIJ/kDCIeJ66FxqIfPPcXKZSpLvyOgfH5hGmAJT+nkOaCiuBq/1420CAgCjA/PFU0v0U3qha3rBzXj+1UukOrVC941u+Rk7UtCDqmxvxuWRPWsGc5Smk9IIH+U+FRU4bpNLX/hBg5o=
-X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230028)(4636009)(136003)(346002)(396003)(376002)(39860400002)(451199021)(40470700004)(46966006)(36840700001)(2906002)(2616005)(83380400001)(4744005)(186003)(4326008)(36756003)(70206006)(70586007)(1076003)(426003)(336012)(36860700001)(47076005)(26005)(41300700001)(7416002)(5660300002)(966005)(40460700003)(82310400005)(44832011)(6666004)(54906003)(81166007)(110136005)(82740400003)(40480700001)(316002)(356005)(8936002)(8676002)(478600001)(36900700001);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2023 07:12:21.5290
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8ae1346-a3de-4fd6-9f9b-08db51ef1054
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: 	DM6NAM11FT090.eop-nam11.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7244
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_001327_330180_12E35B80 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230511_001936_519319_C5FF3088 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,39 +73,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for partial store and forward mode in Cadence MACB.
-
-Link for v1:
-https://lore.kernel.org/all/20221213121245.13981-1-pranavi.somisetty@amd.com/
-
-Changes v2:
-1. Removed all the changes related to validating FCS when Rx checksum
-offload is disabled.
-2. Instead of using a platform dependent number (0xFFF) for the reset
-value of rx watermark, derive it from designcfg_debug2 register.
-3. Added a check to see if partial s/f is supported, by reading the
-designcfg_debug6 register.
-4. Added devicetree bindings for "rx-watermark" property.
-
-Pranavi Somisetty (2):
-  dt-bindings: net: cdns,macb: Add rx-watermark property
-  net: macb: Add support for partial store and forward
-
- .../devicetree/bindings/net/cdns,macb.yaml    |  8 +++
- drivers/net/ethernet/cadence/macb.h           | 14 ++++++
- drivers/net/ethernet/cadence/macb_main.c      | 49 ++++++++++++++++++-
- 3 files changed, 69 insertions(+), 2 deletions(-)
-
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiB3cml0ZXM6Cgo+IFRoaXMgcGF0Y2gg
+YWRkcyBEWU5BTUlDX0ZUUkFDRV9XSVRIX0RJUkVDVF9DQUxMUyBzdXBwb3J0IGZvciBSSVNDLVYu
+Cj4KPiBzZWxlY3QgdGhlIERZTkFNSUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTIHRvIHByb3Zp
+ZGUgdGhlCj4gcmVnaXN0ZXJfZnRyYWNlX2RpcmVjdFtfbXVsdGldIGludGVyZmFjZXMgYWxsb3dp
+bmcgdXNlcnMgdG8gcmVnaXN0ZXIKPiB0aGUgY3VzdG9tZWQgdHJhbXBvbGluZSAoZGlyZWN0X2Nh
+bGxlcikgYXMgdGhlIG1jb3VudCBmb3Igb25lIG9yCj4gbW9yZSB0YXJnZXQgZnVuY3Rpb25zLiBB
+bmQgbW9kaWZ5X2Z0cmFjZV9kaXJlY3RbX211bHRpXSBhcmUgYWxzbwo+IHByb3ZpZGVkIGZvciBt
+b2RpZnlpbmcgZGlyZWN0X2NhbGxlci4KPgo+IFRvIG1ha2UgdGhlIGRpcmVjdF9jYWxsZXIgYW5k
+IHRoZSBvdGhlciBmdHJhY2UgaG9va3MgKGVnLiBmdW5jdGlvbi9mZ3JhcGgKPiB0cmFjZXIsIGtb
+cmV0XXByb2JlcykgY28tZXhpc3QsIGEgdGVtcG9yYXJ5IHJlZ2lzdGVyIGlzIG5vbWluYXRlZCB0
+bwo+IHN0b3JlIHRoZSBhZGRyZXNzIG9mIGRpcmVjdF9jYWxsZXIgaW4gZnRyYWNlX3JlZ3NfY2Fs
+bGVyLiBBZnRlciB0aGUKPiBzZXR0aW5nIG9mIHRoZSBhZGRyZXNzIGRpcmVjdF9jYWxsZXIgYnkg
+ZGlyZWN0X29wcy0+ZnVuYyBhbmQgdGhlCj4gUkVTVE9SRV9SRUdTIGluIGZ0cmFjZV9yZWdzX2Nh
+bGxlciwgZGlyZWN0X2NhbGxlciB3aWxsIGJlIGp1bXBlZCB0bwo+IGJ5IHRoZSBganJgIGluc3Qu
+Cj4KPiBTaWduZWQtb2ZmLWJ5OiBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+Cj4g
+VGVzdGVkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiBTaWduZWQtb2ZmLWJ5OiBH
+dW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiAtLS0KPiAgYXJjaC9yaXNjdi9LY29uZmlnICAg
+ICAgICAgICAgICB8ICAxICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaCB8ICA4
+ICsrKysrKysrCj4gIGFyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUyAgfCAxMCArKysrKysr
+KysrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMTkgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+IGluZGV4IGUwNjMyNDkz
+NDgyZi4uZmRmMGIyMTlhMDJjIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ICsr
+KyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+IEBAIC0xNDQsNiArMTQ0LDcgQEAgY29uZmlnIFJJU0NW
+Cj4gIAlzZWxlY3QgVUFDQ0VTU19NRU1DUFkgaWYgIU1NVQo+ICAJc2VsZWN0IFpPTkVfRE1BMzIg
+aWYgNjRCSVQKPiAgCXNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNFIGlmICFYSVBfS0VSTkVMICYm
+IE1NVSAmJiAoQ0xBTkdfU1VQUE9SVFNfRFlOQU1JQ19GVFJBQ0UgfHwgR0NDX1NVUFBPUlRTX0RZ
+TkFNSUNfRlRSQUNFKQo+ICsJc2VsZWN0IEhBVkVfRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJFQ1Rf
+Q0FMTFMKPiAgCXNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNFX1dJVEhfUkVHUyBpZiBIQVZFX0RZ
+TkFNSUNfRlRSQUNFCj4gIAlzZWxlY3QgSEFWRV9GVFJBQ0VfTUNPVU5UX1JFQ09SRCBpZiAhWElQ
+X0tFUk5FTAo+ICAJc2VsZWN0IEhBVkVfRlVOQ1RJT05fR1JBUEhfVFJBQ0VSCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2Z0cmFjZS5oCj4gaW5kZXggODRmODU2YTMyODZlLi44NDkwNGMxZTQzNjkgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vZnRyYWNlLmgKPiBAQCAtMTE0LDYgKzExNCwxNCBAQCBzdHJ1Y3QgZnRyYWNl
+X3JlZ3M7Cj4gIHZvaWQgZnRyYWNlX2dyYXBoX2Z1bmModW5zaWduZWQgbG9uZyBpcCwgdW5zaWdu
+ZWQgbG9uZyBwYXJlbnRfaXAsCj4gIAkJICAgICAgIHN0cnVjdCBmdHJhY2Vfb3BzICpvcCwgc3Ry
+dWN0IGZ0cmFjZV9yZWdzICpmcmVncyk7Cj4gICNkZWZpbmUgZnRyYWNlX2dyYXBoX2Z1bmMgZnRy
+YWNlX2dyYXBoX2Z1bmMKPiArCj4gK3N0YXRpYyBpbmxpbmUgdm9pZAo+ICtfX2FyY2hfZnRyYWNl
+X3NldF9kaXJlY3RfY2FsbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bnNpZ25lZCBsb25nIGFk
+ZHIpCj4gK3sKPiArCQlyZWdzLT50MSA9IGFkZHI7Cj4gK30KPiArI2RlZmluZSBhcmNoX2Z0cmFj
+ZV9zZXRfZGlyZWN0X2NhbGxlcihmcmVncywgYWRkcikgXAo+ICsJX19hcmNoX2Z0cmFjZV9zZXRf
+ZGlyZWN0X2NhbGxlcigmKGZyZWdzKS0+cmVncywgYWRkcikKPiAgI2VuZGlmIC8qIENPTkZJR19E
+WU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8KPiAgCj4gICNlbmRpZiAvKiBfX0FTU0VNQkxZX18g
+Ki8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gaW5kZXggZjI2ZTlmNmUyZmVkLi45ZDQwNWJhZWRi
+NTIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gKysrIGIv
+YXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gQEAgLTIzMSw2ICsyMzEsNyBAQCBFTkRQ
+Uk9DKGZ0cmFjZV9jYWxsZXIpCj4gIAo+ICAjZWxzZSAvKiBDT05GSUdfRFlOQU1JQ19GVFJBQ0Vf
+V0lUSF9SRUdTICovCj4gIEVOVFJZKGZ0cmFjZV9yZWdzX2NhbGxlcikKPiArCW1vdmUJdDEsIHpl
+cm8KClBsZWFzZSB1c2UgIm12IiwgYW5kIG5vdCAibW92ZSIgWzFdLgoKPiAgCVNBVkVfQUJJX1JF
+R1MgMQo+ICAJUFJFUEFSRV9BUkdTCj4gIAo+IEBAIC0yMzksNyArMjQwLDEwIEBAIGZ0cmFjZV9y
+ZWdzX2NhbGw6Cj4gIAljYWxsCWZ0cmFjZV9zdHViCj4gIAo+ICAJUkVTVE9SRV9BQklfUkVHUyAx
+Cj4gKwlibmV6CXQxLC5MZGlyZWN0Cj4gIAlqciB0MAo+ICsuTGRpcmVjdDoKPiArCWpyIHQxCgpB
+Z2Fpbiwgd2hpbGUgeW91J3JlIGRvaW5nIGNoYW5nZXMgaGVyZSwgcGxlYXNlIHRyeSB0byBhbGln
+biBvcC9vcGVyYW5kcy4KCldlYXJpbmcgbXkgQlBGIGhhdCwgSSdtIGhhcHB5IHRvIGZpbmFsbHkg
+Z2V0IERJUkVDVF9DQUxMUyBzdXBwb3J0IQoKVGhpcyBkb2VzIG5vdCB0YWtlIHRoZSBXSVRIX0NB
+TExfT1BTIGFwcHJvYWNoIE1hcmsgc3VnZ2VzdGVkIGluIHRoZSB2Nwp0aHJlYWRzLCBidXQgZ2l2
+ZW4gdGhhdCB0ZXh0IHBhdGNoaW5nIHN0b3J5IG9uIFJJU0MtViBpcyBzdGlsbCBhIGJpdCBzYWQK
+KGluY29uc2lzdGVuY3kgaW4gdGhlIFJWIHRyZWUsIG5vIHNwZWNpZmljYXRpb24sIGNhbm5vdCB3
+b3JrIHdpdGgKcHJlZW1wdCwgLi4uKSBJJ2Qgc2F5IHRoaXMgYXBwcm9hY2ggaXMgT0sgZm9yIG5v
+dywgYW5kIHdlIGNhbiBjaGFuZ2UgdG8KV0lUSF9DQUxMX09QUyBsYXRlciBpbiBhIHdpZGVyICJs
+ZXQncyBpbXByb3ZlIFJJU0MtViB0ZXh0cGF0Y2hpbmciIHdvcmsuCgpUaG91Z2h0cz8KCgpCasO2
+cm4KClsxXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1hc20tbWFudWFs
+L2Jsb2IvbWFzdGVyL3Jpc2N2LWFzbS5tZCMtYS1saXN0aW5nLW9mLXN0YW5kYXJkLXJpc2Mtdi1w
+c2V1ZG9pbnN0cnVjdGlvbnMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
