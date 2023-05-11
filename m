@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1034CC77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 15:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2888FC77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 16:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S7f2X4/7b5Q07L+9Iiey7SQ7WMcJUtZ216Ft/pxAXhc=; b=2BHBY3rBDS7Q8t
-	0re9Tw+dEK+1NGC8JHhy4QGipuJbVp9VY0t+WQjaa1EImLZ7JfXswotYbz/HGJ10Y/JB4P5es/lXr
-	UR/u7ufakJkD+9BJ6UjxDv82Dzao5Ny/25hPb6P593JqS+IQ50siI3wTYE7HlO3fua8+2t6Z3521Q
-	mXyiKtN5Y9flfbB1WGlmuBI9iRMUuKR9NojWj6R9NfDlVqG90Z2Wq7B3t2SVPSn8yVNg8xjhSZwwz
-	glIFcbvzRhHfsmQfNyIuYH0wIcZv2PhiaFwyL+5oZxReD7ZcKed0lq6luuu9pM7bSxdvAWJQ4hV2m
-	d1cPHVWqBWLJHXtVIWJg==;
+	List-Owner; bh=gpA4RW35ykdI2BHEGE582HWFiMnyLu3hKBA4Uej0KhI=; b=srv1Bve+MBQJax
+	FKBCImVa9mFuTlyLKXTsB/yAhi3t71sI0zJFjTM0VOQyBAhpwVy7CM40tRJX/IcCW1YpjO1z88y60
+	sOG9A51PAbedpma546aAOcwI35aKMOBC2EtKkcN35xOfwIQwPhQVi2158LEtSqfFEPibQdU/oKzT5
+	u5Uu2Eh//TxFgZDZFynGK3153QJ/Syp6qG9uQVznxX5/XHsNk5lm/5ZO+Ig2+2lWI6NL7mNDSiQoM
+	nvNKOOYyEzHHoPW9QXy38BkWmlecsB791cRGqI/h3f3US092yKT7mGNuBgEGcK7QZeMP2/PKlnPx2
+	icYAiHxhFyS6d2RBl2Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px8Xp-009GAq-0E;
-	Thu, 11 May 2023 15:49:29 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1px9Jp-009O01-30;
+	Thu, 11 May 2023 16:39:05 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px8Xn-009GAa-1C
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 11 May 2023 15:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=E7i+xfg7Zmreb4Vww4EYKdJmkpv928hvjj/hafEYQT0=; b=lcji4WyJLssRCy7rI7/Az0ugmh
-	ZkLmERyuj2+EwqT26K5R/xTKEwPtxaVcoXn+OeaurH02jSnGEC/q2veholXFSnwyWTot7b//lZ59/
-	7IHkVGlp2y/w4xEOr6gm3Dhnd6v2cX3v90WRQaEVxXfPHSq0Ro/tBL/iLFXvfEgfsSdOIyxaQx3YG
-	iJzTS0T1rL9JQPj4fuqQK7ru17j0i+fb8IPl6evL6JnvHudZde+KNgzr008o+vOna8gQa5tDB8jXx
-	BYfP9DOGXFv2gpBI9ZyGOR6W0VPHbZyZFqHTj/T/LEGOn5tU/mKb/JZmmEzS50c7M90EnZX8AMrke
-	gQlKViKg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px8Xk-008HrU-0T
-	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 15:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=E7i+xfg7Zmreb4Vww4EYKdJmkpv928hvjj/hafEYQT0=; b=1M5qqDtAkcn+e6iqllMITj2Nmy
-	U756c5EXwyGGyFDZlxHj9uDncFUTsXS7nQbZgXV8HxqdWcquRn7z9S0aRiIN/wNqbqfmobsA6UzcY
-	ZwDulJZWQ/d6D9Y+7Y5p59yV531pEJb5aNNP1oQ8mvRs0uhFCTKosjuCtP55wP/XXr2k=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1px8XW-00CZd1-2A; Thu, 11 May 2023 17:49:10 +0200
-Date: Thu, 11 May 2023 17:49:10 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Pranavi Somisetty <pranavi.somisetty@amd.com>
-Cc: nicolas.ferre@microchip.com, claudiu.beznea@microchip.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, richardcochran@gmail.com, linux@armlinux.org.uk,
-	palmer@dabbelt.com, git@amd.com, michal.simek@amd.com,
-	harini.katakam@amd.com, radhey.shyam.pandey@amd.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next v2 2/2] net: macb: Add support for partial store
- and forward
-Message-ID: <3a3c6241-2134-42d0-8dd3-0c96d8e7300b@lunn.ch>
-References: <20230511071214.18611-1-pranavi.somisetty@amd.com>
- <20230511071214.18611-3-pranavi.somisetty@amd.com>
+	id 1px9Jm-009Nyh-2O;
+	Thu, 11 May 2023 16:39:03 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-50b383222f7so13194319a12.3;
+        Thu, 11 May 2023 09:39:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683823141; x=1686415141;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Wa3SOvISZGaKHOA8+TPFpP/9VnubTDpNEPMLKFetZ+8=;
+        b=K8TNyHobvnQWygzUwnU3H8Zqy+ySP0IfO9S2cuZ+akESC67EELHYE+Q5xiI8i6m+RT
+         znFamR1F1Ylt3QWPBLwrZ7XCQzoOhzTOUZ3zKhE+zuoH5XoVG59E9Z5XuuxN+U52Wj2Q
+         lavQ5Ycrjk2ECWezh08gdoDrnPOgFnXitYwZC+UBRhsxRMnjwJV6qkg2ePCgmg0zuZSp
+         JbA7jsqLwva/hzFGFu2Sv1w5USSD/WBEOJSjIySsHEdShB0Qr/EgdWtPREoGrBcwM18W
+         3BS9NiTSizMZJg9F3yFtRmmEzUg+zLr/+0uH4M6rcxrMVJvPGQxyqhE7ZX9FDfHOGJw2
+         2ZCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683823141; x=1686415141;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Wa3SOvISZGaKHOA8+TPFpP/9VnubTDpNEPMLKFetZ+8=;
+        b=RPIgsTa1BirdiEok5XQ91a+FC4kivnSIu7ueRDYNj59gUUXnhmTDRfmWSHGHovRzmM
+         ewMRZJv9321YVm3Yc4ICZuGX12UDgCO0x3b/MGg6Ez7l/TocaxOF0hudodoazWyERcHH
+         wSKKaey+TdZO0u4dI/ITP7RCBFTVY2SrqZUCHjQ1GYKL79zQJF1NBNZGe6qHy2lpuLix
+         SmJ2clCEuejBO6kUHACbtwk0aJu/WLx3vtBv2Nf5gX9peF31ezBVivUPtGKsrDx9HgbN
+         4YkKzNpVx+fUqAw/p0VeNCaYedjZXSglbxue/Gx9QCoxYr6JC3feJxKvKkxuHHuZ6aHV
+         r6nA==
+X-Gm-Message-State: AC+VfDwQLaFGerhKy3RNzmPRAAy9dl+RzWYlvEqabwplxsW6VYcfwT5a
+	fcFB5MD9/YoiT8FIPXmHBdU=
+X-Google-Smtp-Source: ACHHUZ6FTNvxZ52Lw7NBAuRpzL4lNKYkUViPH7hIkSsrbZqqnREejzk9ADHcMFBkgEvRr4ylKMP7ZQ==
+X-Received: by 2002:a17:907:98d:b0:96a:37af:ff37 with SMTP id bf13-20020a170907098d00b0096a37afff37mr4554954ejc.15.1683823140726;
+        Thu, 11 May 2023 09:39:00 -0700 (PDT)
+Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
+        by smtp.gmail.com with ESMTPSA id p8-20020a170906a00800b009658264076asm4198381ejy.45.2023.05.11.09.38.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 May 2023 09:39:00 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>,
+ Maksim Kiselev <bigunclemax@gmail.com>
+Cc: Icenowy Zheng <icenowy@aosc.io>, Maksim Kiselev <bigunclemax@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Maxime Ripard <mripard@kernel.org>, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject:  Re: [PATCH v5 3/5] spi: sun6i: add quirk for in-controller clock divider
+Date: Thu, 11 May 2023 18:38:58 +0200
+Message-ID: <23071886.6Emhk5qWAg@jernej-laptop>
+In-Reply-To: <20230510081121.3463710-4-bigunclemax@gmail.com>
+References:  <20230510081121.3463710-1-bigunclemax@gmail.com>
+ <20230510081121.3463710-4-bigunclemax@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230511071214.18611-3-pranavi.somisetty@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_164924_303066_266B6288 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230511_093902_776178_4EC7CEAB 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +102,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +	if (GEM_BFEXT(PBUF_CUTTHRU, gem_readl(bp, DCFG6))) {
-> +		if (bp->caps & MACB_CAPS_PARTIAL_STORE_FORWARD) {
-> +			retval = of_property_read_u16(bp->pdev->dev.of_node,
-> +						      "rx-watermark",
-> +						      &bp->rx_watermark);
-> +
-> +			/* Disable partial store and forward in case of error or
-> +			 * invalid watermark value
-> +			 */
-> +			wtrmrk_rst_val = (1 << (GEM_BFEXT(RX_PBUF_ADDR, gem_readl(bp, DCFG2)))) - 1;
-> +			if (retval || bp->rx_watermark > wtrmrk_rst_val || !bp->rx_watermark) {
-> +				if (bp->rx_watermark > wtrmrk_rst_val) {
-> +					dev_info(&bp->pdev->dev, "Invalid watermark value\n");
-> +					bp->rx_watermark = 0;
+Dne sreda, 10. maj 2023 ob 10:11:10 CEST je Maksim Kiselev napisal(a):
+> Previously SPI controllers in Allwinner SoCs has a clock divider inside.
+> However now the clock divider is removed and to set the transfer clock
+> rate it's only needed to set the SPI module clock to the target value
+> and configure a proper work mode.
+> 
+> According to the datasheet there are three work modes:
+> | SPI Sample Mode         | SDM(bit13) | SDC(bit11) | Run Clock |
+> |
+> |-------------------------|------------|------------|-----------|
+> |
+> | normal sample           |      1     |      0     | <= 24 MHz |
+> | delay half cycle sample |      0     |      0     | <= 40 MHz |
+> | delay one cycle sample  |      0     |      1     | >= 80 MHz |
+> 
+> Add a quirk for this kind of SPI controllers.
+> 
+> Co-developed-by: Icenowy Zheng <icenowy@aosc.io>
+> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
 
-Please return -EINVAL. We want the DT author to fix their error.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-> +				}
-> +				dev_info(&bp->pdev->dev, "Not enabling partial store and forward\n");
+Best regards,
+Jernej
 
-The DT property is optional? So when it is missing, retval will be
--EINVAL. Please don't spam the logs in this case.
 
-	 Andrew
 
 _______________________________________________
 linux-riscv mailing list
