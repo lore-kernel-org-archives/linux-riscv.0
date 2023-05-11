@@ -4,42 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8276FC77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 00:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC25C77B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 01:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ut99LvY95accWuB8CGUJwZfLj1qExlC1He2ljzmaPU=; b=LtQPnL+dABfN8X
-	NuhlbpqPv/MAacEw1cxaVg5tbkwJKPI4KdZyq7ff12PJEeWFFR/mcLAQ+Fvz6RP/4kond6NU4uPxb
-	2ibVQX5iWR4O2P1FekUMiziN8oHRMuXIo8J2OIiDfa+YNarYB9DPKm1T+GPKPYmRThX3w1zR6d7CI
-	c1Z5baxXe61nrDeXSGCitbStFMvBZeqMwRmVNv5KFMc3uZ8C3GJWgEq+NX2ZGwJRbOKIlu1lpsIMJ
-	AFaiVKO7kFlMnN5/C7GqrCNNoTyRRJ1QN3ktOy+qL2OswIySav4hAz7CbZZY00RIJGinD5IGEEGxt
-	eqJmSSo3oRComxfFyy8w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YEu94Dc2qvr6/BOhjtKkeAr1oppGS53WQFLGwM5KDU8=; b=wu2UXIauoGuAwn
+	gCJ0U+CdjdzTm42vRt2Jj2+k94QdimT6rPFt67ZsBko96OgfHjUfawvEG7YY0JG1Fb4cgko8MQKui
+	SJA1XoT1+mGxQyeXhhZyF7bXnTZEWNB9cdUt95H0y3aJuJU3Khs6TmNZUA18LcpDmQa85Xt6Q4w0b
+	xLrCFWUJdIzomYh0GzZz3QEe+XkTSzUR7+CYg4yVTvEdj8m3RoabW6PiG48md1Ycu8nJ91DZxDOVq
+	DDBTxbc8eB2HNiXzJL4ENvSSORHFr0I/RzNkAEyTjHWPkK80n1seWvjgEO9Hcv7u0ZChfSu8AZjZ2
+	i1ciwISTmG9SeMHOLXGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwuZg-007NNL-2N;
-	Thu, 11 May 2023 00:54:28 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwuZd-007NMj-2W
+	id 1pwv4l-007R72-1g;
+	Thu, 11 May 2023 01:26:35 +0000
+Received: from m12.mail.163.com ([220.181.12.197])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwv4i-007R4W-1E
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 00:54:27 +0000
-Date: Thu, 11 May 2023 08:54:19 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Yangtao Li <frank.li@vivo.com>
-Subject: Re: [PATCH v2 5/5] MAINTAINERS: add entry for T-HEAD RISC-V SoC
-Message-ID: <ZFw8u9uqaRvCEQCI@ofant>
-References: <20230510204456.57202-1-frank.li@vivo.com>
- <20230510204456.57202-5-frank.li@vivo.com>
+	Thu, 11 May 2023 01:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=fynBX
+	Be0YRetn4JE0IoCqaW6RoGd8z+XaR6yIF0rwKU=; b=gA8N0d0WRlASL1ZRwHBPD
+	nnFp90PfkAm5HXlbdhm7shuDwS0zvRLpZhsnF5A64GcPKO0c0m1H1lKhaGmPdnV2
+	UPocstIyXlbFANWFGUJq1BRZIVl1Njr9wgyoEDfKg3ikAzdPwFEaeCqeFUHSkUSv
+	Qo/ZiRI0NNFCTOQl7qc/MQ=
+Received: from zhangf-virtual-machine.localdomain (unknown [180.111.102.183])
+	by zwqz-smtp-mta-g0-4 (Coremail) with SMTP id _____wAnrh4uRFxk8Y0ZBg--.55424S2;
+	Thu, 11 May 2023 09:26:07 +0800 (CST)
+From: zhangfei <zhang_fei_0403@163.com>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: aou@eecs.berkeley.edu,
+	ajones@ventanamicro.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	conor.dooley@microchip.com,
+	zhangfei@nj.iscas.ac.cn
+Subject: [PATCH v2 0/2] RISC-V: Optimize memset for data sizes less than 16 bytes
+Date: Thu, 11 May 2023 09:26:04 +0800
+Message-Id: <20230511012604.3222-1-zhang_fei_0403@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230510204456.57202-5-frank.li@vivo.com>
+X-CM-TRANSID: _____wAnrh4uRFxk8Y0ZBg--.55424S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww17trykXw4DJF1UAr1kZrb_yoW5JrW7pr
+	WfGr9xWr15trZ7G3WfJa1kWrn0qr1rtr47tF4xKa48Crn8C3Z8Ar1fCa40gFy7JrWxJr15
+	Xr45Xw18uFy5u37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jtNVkUUUUU=
+X-Originating-IP: [180.111.102.183]
+X-CM-SenderInfo: x2kd0w5bihxsiquqjqqrwthudrp/1tbiMhJsl1WB3tErLgAAsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_175425_841020_FBC8ECC0 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20230510_182632_750391_82130AE9 
+X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -51,67 +72,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Wei Fu <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yangtao:
+From: zhangfei <zhangfei@nj.iscas.ac.cn>
 
-On 04:44 Thu 11 May     , Yangtao Li wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
-> 
-> Jisheng:
-> I would like to temporarily maintain the T-HEAD RISC-V SoC support.
-> 
-> Yangtao:
-> Wei and me would like to help support and maintain too.
-> 
-> Cc: Icenowy Zheng <uwu@icenowy.me>
-> Cc: Wei Fu <wefu@redhat.com>
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Signed-off-by: Yangtao Li <frank.li@vivo.com>
-> ---
-> v2:
-> -add Yangtao and Wei
->  MAINTAINERS | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7e0b87d5aa2e..592769efd1d1 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18155,6 +18155,14 @@ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
->  F:	Documentation/devicetree/bindings/riscv/
->  F:	arch/riscv/boot/dts/
->  
-> +RISC-V T-HEAD SoC SUPPORT
-> +M:	Jisheng Zhang <jszhang@kernel.org>
-> +M:	Wei Fu <wefu@redhat.com>
-> +M:	Yangtao Li <frank.li@vivo.com>
-> +L:	linux-riscv@lists.infradead.org
-> +S:	Maintained
-> +F:	arch/riscv/boot/dts/thead/
-> +
->  RNBD BLOCK DRIVERS
->  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
->  M:	Jack Wang <jinpu.wang@ionos.com>
-> -- 
-> 2.34.1
-> 
+At present, the implementation of the memset function uses byte by byte storage 
+when processing tail data or when the initial data size is less than 16 bytes. 
+This approach is not efficient. Therefore, I filled head and tail with minimal 
+branching. Each conditional ensures that all the subsequently used offsets are 
+well-defined and in the dest region. Although this approach may result in 
+redundant storage, compared to byte by byte storage, it allows storage instructions 
+to be executed in parallel, reduces the number of jumps, and ultimately achieves 
+performance improvement.
 
-Don't get yourself wrong, no objection personally..
+I used the code linked below for performance testing and commented on the memset 
+that calls the arm architecture in the code to ensure it runs properly on the 
+risc-v platform.
 
-But as I saw, none of contributors has affinity with T-Head, so no idea how this will
-work well.. always better to take over maintainership after show enough commitment..
+[1] https://github.com/ARM-software/optimized-routines/blob/master/string/bench/memset.c#L53
 
-Anyway, raise your comments, and I'd more than happy to be proved I'm wrong
+The testing platform selected RISC-V SiFive U74.The test data is as follows:
 
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+Before optimization
+---------------------
+Random memset (bytes/ns):
+           memset_call 32K:0.45 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.30
+
+Medium memset (bytes/ns):
+           memset_call 8B:0.18 16B:0.48 32B:0.91 64B:1.63 128B:2.71 256B:4.40 512B:5.67
+Large memset (bytes/ns):
+           memset_call 1K:6.62 2K:7.02 4K:7.46 8K:7.70 16K:7.82 32K:7.63 64K:1.40
+
+After optimization
+---------------------
+Random memset bytes/ns):
+           memset_call 32K:0.46 64K:0.35 128K:0.30 256K:0.28 512K:0.27 1024K:0.25 avg 0.31
+Medium memset (bytes/ns )
+           memset_call 8B:0.27 16B:0.48 32B:0.91 64B:1.64 128B:2.71 256B:4.40 512B:5.67
+Large memset (bytes/ns):
+           memset_call 1K:6.62 2K:7.02 4K:7.47 8K:7.71 16K:7.83 32K:7.63 64K:1.40
+
+From the results, it can be seen that memset has significantly improved its performance with 
+a data volume of around 8B, from 0.18 bytes/ns to 0.27 bytes/ns.
+
+The previous work was as follows:
+1. "[PATCH] riscv: Optimize memset"
+   6d1cbe2e.3c31d.187eb14d990.Coremail.zhangfei@nj.iscas.ac.cn
+
+Thanks,
+Fei Zhang
+
+Andrew Jones (1):
+  RISC-V: lib: Improve memset assembler formatting
+
+ arch/riscv/lib/memset.S | 143 ++++++++++++++++++++--------------------
+ 1 file changed, 72 insertions(+), 71 deletions(-)
+
+zhangfei (1):
+  RISC-V: lib: Optimize memset performance
+
+ arch/riscv/lib/memset.S | 40 +++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 37 insertions(+), 3 deletions(-)
+
 
 _______________________________________________
 linux-riscv mailing list
