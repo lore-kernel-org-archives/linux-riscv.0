@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073D4C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 03:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EEFC77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 03:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t+Gxj1boJlVzr3fjGiFoQSRka1kXLUEIbp74y7lToYA=; b=MVc5TLxNUCEgA7
-	1BkQUTGUAO0wPNXVf6flKomGD/5N1bhx/mnyPKHc2qT7lOK9yPV9yHi8qksCHxa12lt/Q6hNzy0wg
-	AOouQ25dlOL2/i3lF5/Fx+EzIPUgHNYSJG8WEqbTn7dq019kZKVAghCowU0UBOWgEifl736k2Nmcn
-	x71Iu+YgTqmlAmcovhMcEwibHFLWwKeGc8/o7eXhJLxWdGtocw6zZMyPlqwNyMVmiMjn9M1Y396ZO
-	duRtgnQwtN2LmI6MTee3Gzpf3PXDcfr7gKJ323nfIJvqI0GW2dW3LG7yNihEh6PTovoEbY6jeA8+T
-	NUrJowSEkXsqMUeIyWjw==;
+	List-Owner; bh=8VP+R+AFKLEffL6aHfhT5J3HliXyDWtPklkmyxt2xyM=; b=S2soyhRDE+B4me
+	k1Bvf0q2tI0Yzf98ok2+qtB+L4SzJ2feGkw3tmNZz/uaWr3SwPz1jsMx6iyqka5tmve87y4Zw2OX+
+	/gSCMa8NKpdcRdqIslQVLWSr7PmPVfPTSm6KITHtRqQH46aqm1FnNbujOO5EYXejzZGWzTnHBkzcE
+	07d2caxH3PtRqtkvotRkhT4pN9fC5FxSkaNx9ueb27Np0h4QJX8oghJ6cxjAE4uU8sfSpVKPZfD0d
+	JNRV+AtsQ8cx4m/NtttjKvbAmW2lGIBxYBgIVzgiUb6jkpE2mmhqZ4lmpJV1VZQNWdUxKfKqK9eR2
+	s3GZUtFD1kSNdLFshzoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwwsf-007dWS-1S;
-	Thu, 11 May 2023 03:22:13 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pwwsZ-007dTC-08
+	id 1pwxAl-007fXT-1c;
+	Thu, 11 May 2023 03:40:55 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pwxAh-007fVN-2o
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 03:22:12 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id EB91682D4;
-	Thu, 11 May 2023 11:21:33 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 11 May
- 2023 11:21:34 +0800
-Received: from [192.168.125.124] (113.72.146.187) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 11 May
- 2023 11:21:33 +0800
-Message-ID: <ef13177a-2028-9fc9-628a-e3d287758207@starfivetech.com>
-Date: Thu, 11 May 2023 11:21:32 +0800
+	Thu, 11 May 2023 03:40:53 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-559f1819c5dso121717227b3.0
+        for <linux-riscv@lists.infradead.org>; Wed, 10 May 2023 20:40:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1683776445; x=1686368445;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ENej4jeIUZxBD8VRbCOiI8elHKtxPPI57IP2BPex2w8=;
+        b=dRwxCttbruWpOV8kYGHv3nNrU7YtDC+OTBLfOopudv25EcY0eOmFueuJ1hPNX/4yPK
+         lZ+CKDV1ixGM1wGcKj6qimEkiOeHP6uO8k5UBK+K1guiiOneHW0aTpdbI9jx4n9a3pWh
+         YFOswR2fPcVLNVki1JCjWzUrcXjuJx2vuRzc9QuQNzAXt9LIKAoY0UTfBY1lvuZsc4wF
+         pZT0aAuiR0nq7zlCMbbcyMMj9SgafH/QvrYzNVzvWnn9FvZdI2qYWnYMs14sXD98qyJZ
+         5JrZz4aeYcjgWQTN89jue2C1nxgpjN2jR5BgjDHmda2BP2F+t1GLE3TEXf4gxBg+jWes
+         mQFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683776446; x=1686368446;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ENej4jeIUZxBD8VRbCOiI8elHKtxPPI57IP2BPex2w8=;
+        b=ZRqBYmAYeSjCyb0Nz1Dbaxnsm/PGQ8bNph4YL0LCJfRepM0b3DXYdJr7yXqqtp/UqH
+         izG3LxexSItSNLCfVifKLaJ5T4QLI8jXxLTkkEzf5Ys3s69OOs8S8jCiWlpVYKU3iTrZ
+         X46bqRXMEntsV+ygcGDVgvkP+VcWfk1Y8QxAnMD1SAhMNF+GIKLBtC+ddKz663QwIORt
+         054UVuUre2MBaPM8XySbK588ckag7XNXtZm7vwDIj8NiMkmpMn74ARG4kDWq9Mz3KVtI
+         4pvoN1MVrVN/b5crfE8sZxWPpxFd/gQI3LiMJnD9wi15FEB5kBh0VMr8cC3uE+CTeHsp
+         YEJw==
+X-Gm-Message-State: AC+VfDxyU9KjUgvKvnLgx6Bp3LMw/iEUFp1XvAHB8Qht0toCzX4WYE44
+	9BiZk4F+MNP14zkSrnoa3M/ASw==
+X-Google-Smtp-Source: ACHHUZ7h//pElwTWDcmRkblmnEL8tpIvH3DpaXFnfKmYUIesZtUkvvAepMEKFrx4IKpikCPoidpc1g==
+X-Received: by 2002:a81:8702:0:b0:560:bb81:6468 with SMTP id x2-20020a818702000000b00560bb816468mr6471997ywf.23.1683776445583;
+        Wed, 10 May 2023 20:40:45 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id g138-20020a815290000000b0054629ed8300sm4571040ywb.80.2023.05.10.20.40.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 May 2023 20:40:45 -0700 (PDT)
+Date: Wed, 10 May 2023 20:40:41 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Matthew Wilcox <willy@infradead.org>
+cc: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+    Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 01/23] arm: allow pte_offset_map[_lock]() to fail
+In-Reply-To: <ZFup/fG50MPFF979@casper.infradead.org>
+Message-ID: <b9dc75bf-b13c-37ba-6c16-9fc163703dd@google.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com> <5011977-d876-6a24-a3fc-c7e6a02877b8@google.com> <ZFup/fG50MPFF979@casper.infradead.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add tdm node and sound card
-To: Conor Dooley <conor@kernel.org>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Mark Brown
-	<broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
-	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, <alsa-devel@alsa-project.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20230506090116.9206-1-walker.chen@starfivetech.com>
- <20230506090116.9206-4-walker.chen@starfivetech.com>
- <a0932e84-3813-bbbe-762d-948d75fbcd8a@starfivetech.com>
- <20230509-overheat-pliable-00d60523637e@spud>
- <CAJM55Z9AxMVw=ymfFBb=45nODq89O8dMebzRgo-XD0GKduDBYg@mail.gmail.com>
- <f27b7ee7-f23a-35a2-3b82-71f50871dfcc@starfivetech.com>
- <20230510-riveter-ridden-3f056251e623@spud>
-Content-Language: en-US
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <20230510-riveter-ridden-3f056251e623@spud>
-X-Originating-IP: [113.72.146.187]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230510_202207_734708_A57B4EDC 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20230510_204051_913219_1F58E5A8 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +115,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2023/5/11 4:22, Conor Dooley wrote:
-> On Wed, May 10, 2023 at 05:21:21PM +0800, Walker Chen wrote:
->> On 2023/5/10 16:33, Emil Renner Berthing wrote:
->> > On Tue, 9 May 2023 at 20:05, Conor Dooley <conor@kernel.org> wrote:
->> >>
->> >> On Tue, May 09, 2023 at 08:52:48PM +0800, Walker Chen wrote:
->> >> > Hi Conor/Emil,
->> >> >
->> >> > DT overlay is used to describe combinations of VF2 and hat.
->> >> > Do you have any comments on this patch ?
->> >>
->> >> I seem to recall that he said at the linux-riscv sync-up call that we
->> >> have* that he was not in favour of overlays for hats like this.
->> >> I'll let him confirm that though, I might very well be misinterpreting or
->> >> misremembering what he said.
->> > 
->> > What probably meant was that I didn't want a bunch of different device
->> > trees for each combination board * hat. An overlay makes a lot more
->> > sense. However, looking through the kernel tree there is a surprising
->> > lack of overlays for hats committed already, so I suspect there is
->> > some sort of policy around overlays already in place.
+On Wed, 10 May 2023, Matthew Wilcox wrote:
+> On Tue, May 09, 2023 at 09:42:44PM -0700, Hugh Dickins wrote:
+> > diff --git a/arch/arm/lib/uaccess_with_memcpy.c b/arch/arm/lib/uaccess_with_memcpy.c
+> > index e4c2677cc1e9..2f6163f05e93 100644
+> > --- a/arch/arm/lib/uaccess_with_memcpy.c
+> > +++ b/arch/arm/lib/uaccess_with_memcpy.c
+> > @@ -74,6 +74,9 @@ pin_page_for_write(const void __user *_addr, pte_t **ptep, spinlock_t **ptlp)
+> >  		return 0;
+> >  
+> >  	pte = pte_offset_map_lock(current->mm, pmd, addr, &ptl);
+> > +	if (unlikely(!pte))
+> > +		return 0;
 > 
->> About the specific usage of overlay for this board + hat, referenced to the following example in kernel:
->> linux/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx-0x-imx219.dtso
->> That board is connected with imx219 sensor via mipi_csi interface. That patch was accepted in 2022.
-> 
-> Hmm, so spoke to Emil again today about it. In the interest of being
-> fair, I did go looking at that particular board & looked through their
-> documentation for more information on why there are overlays.
-> They do actually sell the bits required to use the overlays, based on
-> what I saw in their datasheet for the board & wiki. That said, what is
-> done for one arm64 platform does not necessarily apply elsewhere ;)
-> 
-> I'm not against allowing in-tree overlays for hats/capes/daughter-boards
-> that come bundled with a board, but accepting ones for a hat that
-> someone decided to use theoretically has no limit! The "someone" in this
-> case might be a StarFive developer, but it could be any random one of
-> your customers next!
-> We've got to draw a line somewhere, so my answer to the overlay *in this
-> case* is a no. Sorry.
-> When you submit your next version, please drop the overlay from this
-> patch.
+> Failing seems like the wrong thig to do if we transitioned from a PTE
+> to PMD here?  Looks to me like we should goto a new label right after
+> the 'pmd = pmd_offset(pud, addr);', no?
 
-I'm trying to understand what you mean. so the conclusion is that I need to drop the file
- 'jh7110-starfive-visionfive-2-wm8960.dtso' from this patch.
-When I submit the next version, just keep the TDM node and the pins configuration for TDM in patch [3/3],
-need to drop the wm8960 stuff.
-Right ?
+I'm pretty sure it's right as is; but probably more by luck than care -
+I do not think I studied this code as closely as you have now made me do;
+and it's clear that this is a piece of code where rare transient issues
+could come up, and must be handled correctly.  Thank you for making me
+look again.
 
-Best regards,
-Walker
+The key is in the callers of pin_page_for_write(): __copy_to_user_memcpy()
+and __clear_user_memset().  They're doing "while (!pin_page_for_write())"
+loops - they hope for the fast path of getting pte_lock or pmd_lock on
+the page, and doing a __memcpy() or __memset() to the user address; but
+if anything goes "wrong", a __put_user() to fault in the page (or fail)
+then pin_page_for_write() again.
+
+"if (unlikely(!pte)) return 0" says that the expected fast path did not
+succeed, so please __put_user() and have another go.
+
+It is somewhere I could have done a "goto again", but that would be
+superfluous when it's already designed that way at the outer level.
+
+Hugh
 
 _______________________________________________
 linux-riscv mailing list
