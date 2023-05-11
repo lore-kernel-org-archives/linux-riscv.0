@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4C2C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 15:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D16C77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 15:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C1KpgZN1/7zk6HjL14wvQu4sm3Q3axxGYv4Ttj0Enao=; b=EuKWtGOImaP8fv
-	pOOC98+p/Dz2ga2mki7PkogkL0KyPRJtgyPGVFUngiipmLEcaN67a4hW9Qi1j4EioiVwdCyAoXSDF
-	KK5GX9PJUmwiUzl46ek05ckbVZXf7YRgVhsQaKojcD/S6g0iFLOnVRBSoLXptGIK8Mb0aiDj9s6H5
-	has7W1reucnFyrAeaPbidtn9t5f9eZoOVsx1PKXBKeGHqr0VboiiT+Gi/EdTjV2pCcwSooUpcRbEF
-	3llEY/YXykybBIDfZqarW9tiiZjgk1GdMl3F2MgFfS2D6LMDq2uwPJplvTQanT/srcbH4q6RiFgG/
-	CEFVTP73/oMhsMDHIfIA==;
+	List-Owner; bh=hrdzQBEX2OR6MKw7SEkMjzkPql5b+CpR8n0GASMa2fc=; b=b4c2gbyuACr6JI
+	I60EjNsQhcgQr0X18gCQ/fGqpLfiMHXqNuIL3syMuB5pNzOdyMX6wLzBo9mg+tqH3xK7byT8lBsux
+	C3Bok8BQhc0rnCtjph2susGDw2u77acf77sCsToHJe1GFzFHQ+vZxrLyqDftrv/CcMmDC6mv/hOJV
+	Q3cZTro8gJoPvSEHkHrJNNPE1u5Fhjv1adnQIL9l0YMlHcLlxS3tgs81LhChEgBZIYP8HMzKB7KDU
+	3iYZt6A+5ET+uvmUg4AAx+sNYXietG7oT1Ytp3LjewOQSr4jJ8rggC363s6IWrkaw4TWIXvIr01/4
+	5s8HRxDoYW8gNYlH+Buw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px8G5-009DHg-0j;
-	Thu, 11 May 2023 15:31:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1px8QN-009Es0-0X;
+	Thu, 11 May 2023 15:41:47 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px7Ca-00922v-0y
+	id 1px8QL-009Er4-33
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 11 May 2023 15:41:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=YCSKwIYzbu1pkwEd81TZJ4LTNXSEnly6dMUBXhXOwZk=; b=eKKcTZ0dHxW81KiePIJiZJylBs
+	s5+gbAWkSeJM4ksFErL9WGY1uRM0f4YbPPki6mm1MrThW85aVlVyqS2FuwW5Uvc81L3pMZ6MJFdKe
+	cOMzHnuthAbtwjysvPNkywFf1269lZQOl2aOb/Q0jleNppNEWyO0t7JpIGslmw3p7ontEH94ohUXk
+	7gbeJF04hrzH9ncCs0TuEtiE2kgZiC/SstXKTLrrxmrkuRva+ndzZuMF/sLPmKh5TUAKLeM7gypRh
+	M3jeXA9thvyi/TPDaOj5rZeM7jkirAP4ZvE5uKrCoT+eyoYtj8zV5gGbsb+4c6QSVJIAJGLXDCrAm
+	dcVkHGsw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1px8QH-008HZP-26
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 14:23:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3E428636FC;
-	Thu, 11 May 2023 14:23:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEFB6C433EF;
-	Thu, 11 May 2023 14:23:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683815006;
-	bh=EAl7BYyGkHSJ9u4z4v03MJVzoloTTUlxQ/6IkxdvXp8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aQAlhdryVtLrijn4plCYeD8GrNC3jkYYQfYYiLdqFuCbLL01xeMxATi5/b0BGkM3s
-	 9pL1vpl41G7btsU04qC3KrO87rvLds7PncrgXtCzI0TzlLyAxUfqxe9l6sJ8pXHMhd
-	 yhQTtQsY8s1Rz8rB2ADYYC5lq2GjgG6p1lMoJRviovB4jhO0IgiPOanGPdogFRFGKf
-	 M8lKdsRm3s25cOtf3C6WMjn6jdc7/xNC+H3pGs4NafKn5ftut5UIqYwf1d8y4dUyr/
-	 48sWhQwCzLUjfP7GoO7r/wnUGOitDR2Mu+i737iw2WCUlf+W9v8lzun7HeOBvYMGVS
-	 PA6Eg16UdnlTQ==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [PATCH 4/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-Date: Thu, 11 May 2023 22:12:11 +0800
-Message-Id: <20230511141211.2418-5-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230511141211.2418-1-jszhang@kernel.org>
-References: <20230511141211.2418-1-jszhang@kernel.org>
+	Thu, 11 May 2023 15:41:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YCSKwIYzbu1pkwEd81TZJ4LTNXSEnly6dMUBXhXOwZk=; b=C/X4refVDazo6iOvpswWYfmKJr
+	xxGKA45yPV1b1pGaDv1+YmeyRo1aqAV6NOsaU1nCxW+UXZPmhOW2JsKZpBq92NCYZmZY35c20ajHo
+	DdghuIsUAaDIYKNSik2LuduCs8q8zJs6SBJMu/1uC98k1PCVadn7U6nxPiOnbytKO1js=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1px8Pv-00CZXR-4U; Thu, 11 May 2023 17:41:19 +0200
+Date: Thu, 11 May 2023 17:41:19 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Pranavi Somisetty <pranavi.somisetty@amd.com>
+Cc: nicolas.ferre@microchip.com, claudiu.beznea@microchip.com,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, richardcochran@gmail.com, linux@armlinux.org.uk,
+	palmer@dabbelt.com, git@amd.com, michal.simek@amd.com,
+	harini.katakam@amd.com, radhey.shyam.pandey@amd.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: cdns,macb: Add
+ rx-watermark property
+Message-ID: <5872254a-7a33-4aa5-afa3-50ad5d8c7002@lunn.ch>
+References: <20230511071214.18611-1-pranavi.somisetty@amd.com>
+ <20230511071214.18611-2-pranavi.somisetty@amd.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230511071214.18611-2-pranavi.somisetty@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_072328_380488_5CB9144F 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20230511_164141_754594_CA0F91EA 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,79 +90,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When trying to run linux with various opensource riscv core on
-resource limited FPGA platforms, for example, those FPGAs with less
-than 16MB SDRAM, I want to save mem as much as possible. One of the
-major technologies is kernel size optimizations, I found that riscv
-does not currently support HAVE_LD_DEAD_CODE_DATA_ELIMINATION, which
-passes -fdata-sections, -ffunction-sections to CFLAGS and passes the
---gc-sections flag to the linker.
+On Thu, May 11, 2023 at 01:12:13AM -0600, Pranavi Somisetty wrote:
+> watermark value is the minimum amount of packet data
+> required to activate the forwarding process. The watermark
+> implementation and maximum size is dependent on the device
+> where Cadence MACB/GEM is used.
+> 
+> Signed-off-by: Pranavi Somisetty <pranavi.somisetty@amd.com>
+> ---
+>  Documentation/devicetree/bindings/net/cdns,macb.yaml | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> index bef5e0f895be..779bc25cf005 100644
+> --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> @@ -109,6 +109,13 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  rx-watermark:
+> +    maxItems: 1
+> +    $ref: /schemas/types.yaml#/definitions/uint16
+> +    description:
+> +      Set watermark value for pbuf_rxcutthru reg and enable
+> +      rx partial store and forward.
 
-This not only benefits my case on FPGA but also benefits defconfigs.
-Here are some notable improvements from enabling this with defconfigs:
+What are the units? Frames, octets, DMA scatter-gather segments, % of
+maximum?
 
-nommu_k210_defconfig:
-   text    data     bss     dec     hex
-1112009  410288   59837 1582134  182436     before
- 962838  376656   51285 1390779  1538bb     after
+	Andrew
 
-rv32_defconfig:
-   text    data     bss     dec     hex
-8804455 2816544  290577 11911576 b5c198     before
-8692295 2779872  288977 11761144 b375f8     after
-
-defconfig:
-   text    data     bss     dec     hex
-9438267 3391332  485333 13314932 cb2b74     before
-9285914 3350052  483349 13119315 c82f53     after
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/Kconfig              | 1 +
- arch/riscv/kernel/vmlinux.lds.S | 6 +++---
- 2 files changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f0663b52d052..a5feab2c3037 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -110,6 +110,7 @@ config RISCV
- 	select HAVE_KPROBES if !XIP_KERNEL
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
-+	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PCI
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index e5f9f4677bbf..492dd4b8f3d6 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -85,11 +85,11 @@ SECTIONS
- 	INIT_DATA_SECTION(16)
- 
- 	.init.pi : {
--		*(.init.pi*)
-+		KEEP(*(.init.pi*))
- 	}
- 
- 	.init.bss : {
--		*(.init.bss)	/* from the EFI stub */
-+		KEEP(*(.init.bss*))	/* from the EFI stub */
- 	}
- 	.exit.data :
- 	{
-@@ -112,7 +112,7 @@ SECTIONS
- 	. = ALIGN(8);
- 	.alternative : {
- 		__alt_start = .;
--		*(.alternative)
-+		KEEP(*(.alternative))
- 		__alt_end = .;
- 	}
- 	__init_end = .;
--- 
-2.40.1
+pw-bot: cr
 
 
 _______________________________________________
