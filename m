@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C297C7EE22
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 00:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D17C7EE25
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 00:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=tDykYL8JnG6rfv/JulF2IfzPcPqzF+RHbKArzGXI8KM=; b=bX2zh6Hf36Rm2jYNSmrOUIWJbz
-	FwUvCXjZOVmPua/nyvLfc4EvSZVp472JYYMC7SUCqCch9D+eMR+mO2Hjouy5E+suk+KVB60HaoEVn
-	MIVVRtfqaGd1P+Autc2208e+RHn8+X9GdODAQXRtfIXfyumbTTYpyvd4kfb0DC3sVWbvR2GTaNs8j
-	5SYIJMiuhIdG8vAmBdPaBQhk/mKmVxVSoxKWW4AiPV99g81mJPe9y6cwylmtrsUAAOcm8KO/b49ce
-	Fph7FsWJYhpUEOYQjcCnfvlmKgaGBckCQVOOI3TmLknDwoGJ6LTSgSlmadWBAzXkMrv6dQXL65zfx
-	6owYGOVg==;
+	bh=Oh7TDEMvmu7JwUq//gmB6v8lYXLxfxrfmErYG574zt4=; b=G4ibMpJax5BmxvMRWRGB3Wkt5o
+	lzWPwUcgdnxZ5ZE+u2cG42cX7B1eDvGu2xOaGLAYdrcV/QAV3wGdKOZjPQU+BkLgJt9DEYjmPOEIT
+	ejmi6UsxonGO02nwKZAv4W3u189ZutYffjBbP8acxlAax/nMsMLdw+9+AAtwajUdBPSZVwM7zoT6r
+	U2A3sVxAQqxZZacUEwzdJt+IuosndhVsOfYxFIuU9TLq8HSUwu/7qF+LwRhFVFG8qMVIfjGL/oMVw
+	uelT3RrpPoA/RNDPePJmYZvrmxXDJAZWWSCOUYkGotks7Qqffh3XUbTMv06bYHwasTXl2DyNSGAD7
+	qwSmiRlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxGDl-00AQYP-0O;
-	Fri, 12 May 2023 00:01:17 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1pxGDk-00AQXz-20;
+	Fri, 12 May 2023 00:01:16 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxFDI-00AGek-0h
+	id 1pxFDF-00AGcr-2r
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 22:56:45 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-24de9c66559so6478624a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 15:56:43 -0700 (PDT)
+	Thu, 11 May 2023 22:56:43 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-24e3a0aa408so8062191a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 15:56:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1683845803; x=1686437803;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1683845800; x=1686437800;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ohtAJQb6F6cDbIKk8yio8KQrKCUz3Fn39/AMo90V9pM=;
-        b=cJ/DbkFWlbEVmDWOjgOvl3TCwwi3YZ7PgmSnrC1UuGtgWKvmAdDDkfi9ssSv2ynlIe
-         uHbfQ6vBZ3nkwdX/euHoHXAvKE2vdH8X2Axd+FXrRfhfzYJ1yZCOaAFz5iajRgsFkEVc
-         C7J+sw227uYFYcPGPRwU1B1SYXZGot7yH6DdeT7zeZOsFBeQG6KIk2Q/QbGJcfu/65mT
-         Q656quNdxa0RA7jQAUxN4jd5uF7/UrNCVVJisoE5UjnP8xT2E57FLGtVxsd1BzFBxfLk
-         pDjLHmLLrnquAiZlFYf/QNy0PwM7OnnK95BcZggmVGTJ/KzCrgma6YIEWz9uFQi8vU7m
-         2e5Q==
+        bh=GoA6b8k+Exd0U0ufbFopUW0n38kOGMTp9KHmkpW9dzI=;
+        b=qrg+w43mXU7clXsw1JU/BRCuLPbsg/FmCcLLiKaJVXDkIYdbMcekVSuDyuLYmDnahG
+         aoWFJM7XOuhCoL9Kza4Skgt5TvkioLRCHrWGmsJCBNtkgcaENQ9GsdXaDIdqZiLAeLwE
+         8JYpHLXpk4TWQwX1qm+LWGUBkDEIkP/kETgzugtuynF+gpW9D2+BBdXIyyt1tMFH8/4e
+         WS5N63t3Uod0yqRKPBD/syA2QiwdQ7vcJptcBKfpkSaiBzoPuheeITqblh0BTHLzfsGw
+         rdVmkark3KbyPr0v7lnaeGWa6/jgYm23chkJYafV74+GfOgZx1cgoDYz/y+qowq1DKEH
+         fCRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683845803; x=1686437803;
+        d=1e100.net; s=20221208; t=1683845800; x=1686437800;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ohtAJQb6F6cDbIKk8yio8KQrKCUz3Fn39/AMo90V9pM=;
-        b=i6WUEMEEKT8iOH5PTGaKf1WFlXtrzb1gOwLkLF7Rv2z3T9wpruNLTXXLFIk17MM1Yu
-         UaEG/6jqAU9WZa2GNbi9p0XH3ObHma6niIqJ8DQEXY7bP6NxFr+ttVgc355rH5FU6gnC
-         GuU3K2X+vvLmDwp0DgoHjFBzkOzEs/OXGKHQHc5gCwnPaaHPqTURhLhauXgwX4Y524O5
-         bTHjFJ7u/5nkA5JuAZUhvPiyJXJqT/d8sGz6CqGNFpPJaBfv4a3GQDFwn9GhC867ZznY
-         70RABhKYTQqQ92M5+n8zbTMdBD28iO9+zvzKAHE6ylCDs77p4tV6zmkhpPQJvgnz21T8
-         l/JQ==
-X-Gm-Message-State: AC+VfDyt6lHKN6VFXGV74/fAkg8crJXCRTYEiJ79r49sDSFHkD+OIpEo
-	vi4YPPATH68MdGQS6Dnv4sUM+wWd0mLlMlfmw3ohKw==
-X-Google-Smtp-Source: ACHHUZ7xlHHqpCZeSbzwJTpV9k1BII5bHnSWaVot6pExw6yywMVKikbhS3QjgV0hjoRV+prNz90bBA==
-X-Received: by 2002:a17:90a:9d87:b0:24d:f77c:71e7 with SMTP id k7-20020a17090a9d8700b0024df77c71e7mr22260401pjp.41.1683845803004;
-        Thu, 11 May 2023 15:56:43 -0700 (PDT)
+        bh=GoA6b8k+Exd0U0ufbFopUW0n38kOGMTp9KHmkpW9dzI=;
+        b=gbXtFKedvz1f8qlU0vZ4qhY1oaV9NNeVm9zOa3grAu+KO4LJrpMs4UEguTou+/cZno
+         eKtko1zEBnEgsOikw39ODqGImd5i5dZtnH+ZlfrDVAsesGAh2ptAWt9JggUu7PDTr5aA
+         TEsMZbhz+Z2XDEBcFL3lfnt1xgYwfRVERhHqfeCpElWte/+ygMQAQS+QgdUBFIbswZ+t
+         b8hAhpKC0PGZbIPpZkrOdqrs4lnzwSOJX2ipJYweUx4IFXLy2fY7A+J0xUuvWAyGmsw5
+         OFbfarqfwVsjeydcTiL5vrjpjPGXoo3TwfX2636dcRsof8gWE9tTBOCGI0AhaL6l21uS
+         1ITA==
+X-Gm-Message-State: AC+VfDz4izd6HrH9FKZynwMseiYbGszEb1tSFo8X2X+kck9EdBeO2A0t
+	P5gCoaOW0CWpidiu/Ep2FiCH7DKT43qYUyIdnGr8AA==
+X-Google-Smtp-Source: ACHHUZ5OGGMA5JrZRcx4jC9eIvp8g6pxmJp1IrLfjtc8RKi7zlEHsQENCKnr0SrmKfxQMxxPtiUtlQ==
+X-Received: by 2002:a17:903:48e:b0:1a9:baa4:8675 with SMTP id jj14-20020a170903048e00b001a9baa48675mr24340818plb.1.1683845800333;
+        Thu, 11 May 2023 15:56:40 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id fs9-20020a17090af28900b002470f179b92sm15748748pjb.43.2023.05.11.15.56.42
+        by smtp.gmail.com with ESMTPSA id w12-20020a170902d3cc00b001ac8cd5ecd6sm6457482plb.65.2023.05.11.15.56.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 May 2023 15:56:42 -0700 (PDT)
-Date: Thu, 11 May 2023 15:56:42 -0700 (PDT)
-X-Google-Original-Date: Thu, 11 May 2023 15:53:24 PDT (-0700)
-Subject: Re: [PATCH -next v19 08/24] riscv: Introduce riscv_v_vsize to record size of Vector context
-In-Reply-To: <20230509103033.11285-9-andy.chiu@sifive.com>
+        Thu, 11 May 2023 15:56:39 -0700 (PDT)
+Date: Thu, 11 May 2023 15:56:39 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 May 2023 15:48:04 PDT (-0700)
+Subject: Re: [PATCH -next v19 06/24] riscv: Disable Vector Instructions for kernel itself
+In-Reply-To: <20230509103033.11285-7-andy.chiu@sifive.com>
+CC: linux-riscv@lists.infradead.org, anup@brainfault.org, atishp@atishpatra.org,
+  kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, Vineet Gupta <vineetg@rivosinc.com>,
+  greentime.hu@sifive.com, guoren@linux.alibaba.com, vincent.chen@sifive.com, hankuan.chen@sifive.com,
+  andy.chiu@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  guoren@kernel.org, nsaenzju@redhat.com, jszhang@kernel.org, Bjorn Topel <bjorn@rivosinc.com>,
+  frederic@kernel.org, abrestic@rivosinc.com, heiko.stuebner@vrull.eu, alex@ghiti.fr,
+  masahiroy@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: andy.chiu@sifive.com
-Message-ID: <mhng-c386f0f5-8b4b-4a2c-b67e-a1803c2d177c@palmer-ri-x1c9a>
+Message-ID: <mhng-6d02bea7-ef2c-4840-96e3-912bfac4ffc4@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_155644_255706_D2A8B3BF 
-X-CRM114-Status: GOOD (  29.12  )
+X-CRM114-CacheID: sfid-20230511_155641_923451_F752E06C 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,176 +91,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@linux.alibaba.com, kvm@vger.kernel.org, atishp@atishpatra.org, Atish Patra <atishp@rivosinc.com>, Bjorn Topel <bjorn@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org, jszhang@kernel.org, linux-riscv@lists.infradead.org, alexghiti@rivosinc.com, anup@brainfault.org, masahiroy@kernel.org, greentime.hu@sifive.com, lizhengyu3@huawei.com, ajones@ventanamicro.com, aou@eecs.berkeley.edu, kvm-riscv@lists.infradead.org, leyfoon.tan@starfivetech.com, Vineet Gupta <vineetg@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, heiko.stuebner@vrull.eu, apatel@ventanamicro.com, vincent.chen@sifive.com, andy.chiu@sifive.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 May 2023 03:30:17 PDT (-0700), andy.chiu@sifive.com wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
+On Tue, 09 May 2023 03:30:15 PDT (-0700), andy.chiu@sifive.com wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> This patch is used to detect the size of CPU vector registers and use
-> riscv_v_vsize to save the size of all the vector registers. It assumes all
-> harts has the same capabilities in a SMP system. If a core detects VLENB
-> that is different from the boot core, then it warns and turns off V
-> support for user space.
+> Disable vector instructions execution for kernel mode at its entrances.
+> This helps find illegal uses of vector in the kernel space, which is
+> similar to the fpu.
 >
-> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
 > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
 > Changelog V19:
->  - Fix grammar in WARN() (Conor)
-> Changelog V18:
->  - Detect inconsistent VLEN setup on an SMP system (Heiko).
+>  - Add description in commit msg (Heiko's suggestion on v17)
 >
->  arch/riscv/include/asm/vector.h |  8 ++++++++
->  arch/riscv/kernel/Makefile      |  1 +
->  arch/riscv/kernel/cpufeature.c  |  2 ++
->  arch/riscv/kernel/smpboot.c     |  7 +++++++
->  arch/riscv/kernel/vector.c      | 36 +++++++++++++++++++++++++++++++++
->  5 files changed, 54 insertions(+)
->  create mode 100644 arch/riscv/kernel/vector.c
+>  arch/riscv/kernel/entry.S |  6 +++---
+>  arch/riscv/kernel/head.S  | 12 ++++++------
+>  2 files changed, 9 insertions(+), 9 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index dfe5a321b2b4..68c9fe831a41 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -7,12 +7,16 @@
->  #define __ASM_RISCV_VECTOR_H
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 3fbb100bc9e4..e9ae284a55c1 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -48,10 +48,10 @@ _save_context:
+>  	 * Disable user-mode memory access as it should only be set in the
+>  	 * actual user copy routines.
+>  	 *
+> -	 * Disable the FPU to detect illegal usage of floating point in kernel
+> -	 * space.
+> +	 * Disable the FPU/Vector to detect illegal usage of floating point
+> +	 * or vector in kernel space.
+>  	 */
+> -	li t0, SR_SUM | SR_FS
+> +	li t0, SR_SUM | SR_FS_VS
 >
->  #include <linux/types.h>
-> +#include <uapi/asm-generic/errno.h>
+>  	REG_L s0, TASK_TI_USER_SP(tp)
+>  	csrrc s1, CSR_STATUS, t0
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index 3fd6a4bd9c3e..e16bb2185d55 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -140,10 +140,10 @@ secondary_start_sbi:
+>  	.option pop
 >
->  #ifdef CONFIG_RISCV_ISA_V
->
->  #include <asm/hwcap.h>
->  #include <asm/csr.h>
->
-> +extern unsigned long riscv_v_vsize;
-> +int riscv_v_setup_vsize(void);
-> +
->  static __always_inline bool has_vector(void)
->  {
->  	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
-> @@ -30,7 +34,11 @@ static __always_inline void riscv_v_disable(void)
->
->  #else /* ! CONFIG_RISCV_ISA_V  */
->
-> +struct pt_regs;
-> +
-> +static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
->  static __always_inline bool has_vector(void) { return false; }
-> +#define riscv_v_vsize (0)
->
->  #endif /* CONFIG_RISCV_ISA_V */
->
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index fbdccc21418a..c51f34c2756a 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -56,6 +56,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
->
->  obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
->  obj-$(CONFIG_FPU)		+= fpu.o
-> +obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
->  obj-$(CONFIG_SMP)		+= smpboot.o
->  obj-$(CONFIG_SMP)		+= smp.o
->  obj-$(CONFIG_SMP)		+= cpu_ops.o
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 7aaf92fff64e..28032b083463 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -18,6 +18,7 @@
->  #include <asm/hwcap.h>
->  #include <asm/patch.h>
->  #include <asm/processor.h>
-> +#include <asm/vector.h>
->
->  #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
->
-> @@ -269,6 +270,7 @@ void __init riscv_fill_hwcap(void)
->  	}
->
->  	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> +		riscv_v_setup_vsize();
->  		/*
->  		 * ISA string in device tree might have 'v' flag, but
->  		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 445a4efee267..66011bf2b36e 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -31,6 +31,8 @@
->  #include <asm/tlbflush.h>
->  #include <asm/sections.h>
->  #include <asm/smp.h>
-> +#include <uapi/asm/hwcap.h>
-> +#include <asm/vector.h>
->
->  #include "head.h"
->
-> @@ -169,6 +171,11 @@ asmlinkage __visible void smp_callin(void)
->  	set_cpu_online(curr_cpuid, 1);
->  	probe_vendor_features(curr_cpuid);
->
-> +	if (has_vector()) {
-> +		if (riscv_v_setup_vsize())
-> +			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-> +	}
-> +
 >  	/*
->  	 * Remote TLB flushes are ignored while the CPU is offline, so emit
->  	 * a local TLB flush right now just in case.
-> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> new file mode 100644
-> index 000000000000..120f1ce9abf9
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vector.c
-> @@ -0,0 +1,36 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (C) 2023 SiFive
-> + * Author: Andy Chiu <andy.chiu@sifive.com>
-> + */
-> +#include <linux/export.h>
-> +
-> +#include <asm/vector.h>
-> +#include <asm/csr.h>
-> +#include <asm/elf.h>
-> +#include <asm/bug.h>
-> +
-> +unsigned long riscv_v_vsize __read_mostly;
-> +EXPORT_SYMBOL_GPL(riscv_v_vsize);
-> +
-> +int riscv_v_setup_vsize(void)
-> +{
-> +	unsigned long this_vsize;
-> +
-> +	/* There are 32 vector registers with vlenb length. */
-> +	riscv_v_enable();
-> +	this_vsize = csr_read(CSR_VLENB) * 32;
-> +	riscv_v_disable();
-> +
-> +	if (!riscv_v_vsize) {
-> +		riscv_v_vsize = this_vsize;
-> +		return 0;
-> +	}
-> +
-> +	if (riscv_v_vsize != this_vsize) {
-> +		WARN(1, "RISCV_ISA_V only supports one vlenb on SMP systems");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	return 0;
-> +}
+> -	 * Disable FPU to detect illegal usage of
+> -	 * floating point in kernel space
+> +	 * Disable FPU & VECTOR to detect illegal usage of
+> +	 * floating point or vector in kernel space
+>  	 */
+> -	li t0, SR_FS
+> +	li t0, SR_FS_VS
+>  	csrc CSR_STATUS, t0
+>
+>  	/* Set trap vector to spin forever to help debug */
+> @@ -234,10 +234,10 @@ pmp_done:
+>  .option pop
+>
+>  	/*
+> -	 * Disable FPU to detect illegal usage of
+> -	 * floating point in kernel space
+> +	 * Disable FPU & VECTOR to detect illegal usage of
+> +	 * floating point or vector in kernel space
+>  	 */
+> -	li t0, SR_FS
+> +	li t0, SR_FS_VS
+>  	csrc CSR_STATUS, t0
+>
+>  #ifdef CONFIG_RISCV_BOOT_SPINWAIT
 
 Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 
