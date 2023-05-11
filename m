@@ -4,51 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD62BC7EE22
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 10:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC18C77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 May 2023 10:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h2FzN6xE82tKUTTClXiwq9yb67jkJJY31XUpxLs4YW4=; b=XcNVXvqpWttGqh
-	ReYOgn++bb/tUsJzI669XrNXFLVP0tgXRh1gehE9jg7Xv8JIMhsGcbCCy5gtjImcP0HmMg2+Wau7y
-	IINhDOnYcf7ei4CYb8zFiwKOvKE0/9M9db0V8uTwFt4zLPxlSJ9OXPW18ywwfsk0l0d4Esr3Buv97
-	FpOZGOUGN8q6VOlHQ2A2xpoMhS+kQt8c96TZf8B1S1xJArLcPf9Am00F6lxhlWylAFqh1XGuLRoLo
-	X5HcDG2y2q95ucOHr40UDEXOPCMO1eBqLIvUzcgN709LEN9tZCe4N3G1Np/vN3HRv7hI6wHrLsg+u
-	a9vPuAmOK3dYSGNTNWew==;
+	List-Owner; bh=2zgHk2+H8wKfc9W5AuSD6sgOCdPo3O4MgNPWmW814YA=; b=M7wpybEQIuUZH4
+	TeOcmGuaGWc8fZXTpXkwPFT05F4WzD+WlHJm3oDRvE9Q6aM8nEmC4/n2t/O+Ywzqkx8wAW50ycr+V
+	YZwH2MzxLewycFL86UMYG0sXe6ghI6t9uo+on5kOYOXMgdtWq78GXsuZXQdReHjZPfY4C7puDoqf7
+	bPqoZmbm7XOWK25ix0J7vVEE8rH7jBUGPq9plHJc5bRJgZ860r4w6p/jg046sqWDgNk730vA2JKd8
+	RaAsUU0pbyeWMlK4kpbGkXbiWQIjEUC7amnkJ9Kp5dJPAjj+k71t57MvWcSMnMZyAo3SXLM6mpUGo
+	It4+MKmXW8nLHmkwI+4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1px3ZV-008Run-2v;
-	Thu, 11 May 2023 10:30:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1px3mz-008V0d-2M;
+	Thu, 11 May 2023 10:44:49 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1px3ZT-008RuA-0r
+	id 1px3mv-008Uwd-2p
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 May 2023 10:30:52 +0000
-Received: from ip5b412278.dynamic.kabel-deutschland.de ([91.65.34.120] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1px3ZJ-0004sW-Uy; Thu, 11 May 2023 12:30:41 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Nathan Huckleberry <nhuck@google.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu
-Subject:  Re: [PATCH v4 4/4] RISC-V: crypto: add accelerated GCM GHASH implementation
-Date: Thu, 11 May 2023 12:30:41 +0200
-Message-ID: <3540048.LM0AJKV5NW@diego>
-In-Reply-To:  <CAJkfWY63E7x-OQ2yTKJ03Sd7P2AuLruan_41EXzYcTZpNnLPzw@mail.gmail.com>
-References:  <20230329140642.2186644-1-heiko.stuebner@vrull.eu>
- <20230329140642.2186644-5-heiko.stuebner@vrull.eu>
- <CAJkfWY63E7x-OQ2yTKJ03Sd7P2AuLruan_41EXzYcTZpNnLPzw@mail.gmail.com>
+	Thu, 11 May 2023 10:44:47 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3f315735514so279244075e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 03:44:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1683801883; x=1686393883;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=P7Umlt0HzFSClqRwf3YI2Twu1K26jeRmJZFN/RWjcoM=;
+        b=X/RL8VYyhIZrC4PRL+sEKoia8SgSpPPqHt4QBmvchTjTwBCVbqVe+9ixoBscAjOgKI
+         +c/OvN0f+b+foIcSLcNb7vQrVar+bJxWpapaEKgfmx5JHulNXC+F45wuX0GvFCLd13Q2
+         A8Xj+2RtDYY+OZpzPBuww9hxPuyI8tYPpO5p2yQaPCfV1N7RotoAJgwDFn0DMKh2Or73
+         DKJMokSefadPm2XMFkd75bl2sXPBgmv358l0XOwxUhDrOMl/fqSH7sYGwYVmi9H+w0LJ
+         l9lyBrxKYEwSwkLu2fIqpVG7TM1eyK+fIdMaggFwGhfOzKFCmb3AIRRSOcS4AOmFw2Jq
+         mCyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683801883; x=1686393883;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P7Umlt0HzFSClqRwf3YI2Twu1K26jeRmJZFN/RWjcoM=;
+        b=e5oauht5MzzmiEygeJ6Z2BlAAtavi/v/kcQFPXR2h9E5jFHjW4Tv6y8dAdeycFeoQo
+         oIPRELSxb0vC4TaJUAEDYdTYCU5H2k7TawkLB+8hXdnpHGn3N4ywpGFGBiNLnf9vYpp5
+         KqrQSxRWJE3A7grXxq0sGK8rCvoOKO4/T1QwMGYtZqeIjKRsIPu93JY7Kz4W94qZD0Ej
+         Ng+UuCE7czjvjZTw5ZwMl1B+lfKdMjmfuWEWRYDPWKLfwAPc1l0yHuJKz1ddQKHID6NE
+         udIt8OZQFaIDtJ22j7KBtug9jBmjr24etiFfoBsCkdAymNissc4ZuQtSXoC5YQuatkii
+         J1fw==
+X-Gm-Message-State: AC+VfDxwewTphFRwXKg6WgtQ/uncwnTo6G13jI8Uz/HRYyJAvNjpbzza
+	PoD/cTL4M4ZC8/hRHPrraRi/yw==
+X-Google-Smtp-Source: ACHHUZ6CScK1XIiX1j+9SIiexcwc0hNJLrd39EK/QefUYCN0gSs2wB98akb5RGZ0mp02hDFUSazkjQ==
+X-Received: by 2002:a1c:f719:0:b0:3f1:70d5:1be8 with SMTP id v25-20020a1cf719000000b003f170d51be8mr16222257wmh.15.1683801883657;
+        Thu, 11 May 2023 03:44:43 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id s7-20020a1cf207000000b003e91b9a92c9sm25273509wmc.24.2023.05.11.03.44.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 May 2023 03:44:43 -0700 (PDT)
+Date: Thu, 11 May 2023 12:44:41 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: kvm: Add KVM_GET_REG_LIST API support
+Message-ID: <20230511-5e8b478be55881a754cc2002@orel>
+References: <cover.1683791148.git.haibo1.xu@intel.com>
+ <921fc2e1a91887170e277acb1b52df57480a5736.1683791148.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <921fc2e1a91887170e277acb1b52df57480a5736.1683791148.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_033051_302239_6910D6AF 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20230511_034445_935444_2263E3D7 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,106 +91,444 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTmF0aGFuLAoKQW0gRGllbnN0YWcsIDExLiBBcHJpbCAyMDIzLCAxNzowMDowMCBDRVNUIHNj
-aHJpZWIgTmF0aGFuIEh1Y2tsZWJlcnJ5Ogo+IE9uIFdlZCwgTWFyIDI5LCAyMDIzIGF0IDc6MDji
-gK9BTSBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPiB3cm90ZToKPiA+ICtzdHJ1Y3Qg
-cmlzY3Y2NF9naGFzaF9jdHggewo+ID4gKyAgICAgICB2b2lkICgqZ2hhc2hfZnVuYykodTY0IFhp
-WzJdLCBjb25zdCB1MTI4IEh0YWJsZVsxNl0sCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICBjb25zdCB1OCAqaW5wLCBzaXplX3QgbGVuKTsKPiA+ICsKPiA+ICsgICAgICAgLyoga2V5IHVz
-ZWQgYnkgdmVjdG9yIGFzbSAqLwo+ID4gKyAgICAgICB1MTI4IGh0YWJsZVsxNl07Cj4gCj4gVGhp
-cyBmaWVsZCBsb29rcyB0b28gYmlnLiBUaGUgYXNzZW1ibHkgb25seSBsb2FkcyB0aGUgZmlyc3Qg
-MTI4LWJ5dGUKPiB2YWx1ZSBmcm9tIHRoaXMgdGFibGUuCgpPcGVuU1NMIGRlZmluZXMgdGhlIEh0
-YWJsZSBmaWVsZCBoYW5kZWQgdG8gdGhlIGluaXQtIGFuZCB0aGUgb3RoZXIKZnVuY3Rpb25zIGFz
-IHRoaXMgInUxMjggSHRhYmxlWzE2XSIgICAgWzBdIC4gQXMgSSByZWFsbHkgbGlrZSB0aGUgY29u
-Y2VwdApvZiBrZWVwaW5nIGluIHN5bmMgd2l0aCBvcGVuU1NMLCBJIGd1ZXNzIEknZCByYXRoZXIg
-bm90IGNoYW5nZSB0aGF0LgoKWzBdIGh0dHBzOi8vZ2l0aHViLmNvbS9vcGVuc3NsL29wZW5zc2wv
-YmxvYi9tYXN0ZXIvY3J5cHRvL21vZGVzL2djbTEyOC5jI0w4OAoKCj4gSXMgdGhpcyBjb3BpZWQg
-ZnJvbSBhbm90aGVyIGltcGxlbWVudGF0aW9uPyBUaGVyZSdzIGFuIG9wdGltaXphdGlvbgo+IHdo
-ZXJlIHlvdSBwcmVjb21wdXRlIHRoZSBmaXJzdCBOIHBvd2VycyBvZiBIIHNvIHRoYXQgeW91IGNh
-biBwZXJmb3JtIDEKPiBmaW5pdGUgZmllbGQgcmVkdWN0aW9uIGZvciBldmVyeSBOIG11bHRpcGxp
-Y2F0aW9ucywgYnV0IGl0IGRvZXNuJ3QKPiBsb29rIGxpa2UgdGhhdCdzIGJlaW5nIHVzZWQgaGVy
-ZS4KClRoZSB3aG9sZSBjcnlwdG8tc3BlY2lmaWMgY29kZSBjb21lcyBmcm9tIG9wZW5TU0wgaXRz
-ZWxmLCBzbyBmb3Igbm93IEkKZ3Vlc3MgSSdkIGxpa2UgdG8gdHJ5IGtlZXBpbmcgdGhpbmdzIHRo
-ZSBzYW1lLgoKCj4gPiArI2RlZmluZSBSSVNDVjY0X1pCQ19TRVRLRVkoVkFSSUFOVCwgR0hBU0gp
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArdm9pZCBnY21faW5pdF9ydjY0aV8g
-IyMgVkFSSUFOVCh1MTI4IEh0YWJsZVsxNl0sIGNvbnN0IHU2NCBYaVsyXSk7ICAgICBcCj4gPiAr
-c3RhdGljIGludCByaXNjdjY0X3piY19naGFzaF9zZXRrZXlfICMjIFZBUklBTlQoc3RydWN0IGNy
-eXB0b19zaGFzaCAqdGZtLCAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBjb25zdCB1OCAqa2V5LCAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBpbnQga2V5bGVuKSAg
-ICAgICAgIFwKPiA+ICt7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgc3RydWN0IHJpc2N2NjRf
-Z2hhc2hfY3R4ICpjdHggPSBjcnlwdG9fdGZtX2N0eChjcnlwdG9fc2hhc2hfdGZtKHRmbSkpOyBc
-Cj4gPiArICAgICAgIGNvbnN0IHU2NCBrWzJdID0geyBjcHVfdG9fYmU2NCgoKGNvbnN0IHU2NCAq
-KWtleSlbMF0pLCAgICAgICAgICBcCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICBjcHVf
-dG9fYmU2NCgoKGNvbnN0IHU2NCAqKWtleSlbMV0pIH07ICAgICAgICBcCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBcCj4gPiArICAgICAgIGlmIChrZXlsZW4gIT0gR0hBU0hfQkxPQ0tfU0laRSkgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIC1F
-SU5WQUw7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBcCj4gPiArICAgICAgIG1lbWNweSgmY3R4LT5rZXksIGtleSwgR0hBU0hfQkxP
-Q0tfU0laRSk7ICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgIGdjbV9pbml0X3J2
-NjRpXyAjIyBWQVJJQU5UKGN0eC0+aHRhYmxlLCBrKTsgICAgICAgICAgICAgICAgICAgICBcCj4g
-PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgIGN0eC0+Z2hhc2hfZnVuYyA9IGdjbV9naGFz
-aF9ydjY0aV8gIyMgR0hBU0g7ICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBcCj4gPiArICAgICAgIHJldHVybiAwOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArfQo+IAo+IEknZCBwcmVmZXIgdGhyZWUgaWRl
-bnRpY2FsIGZ1bmN0aW9ucyBvdmVyIGEgbWFjcm8gaGVyZS4gQ29kZSBzZWFyY2hpbmcKPiB0b29s
-cyBhbmQgY29tcGlsZXIgd2FybmluZ3MgYXJlIHNpZ25pZmljYW50bHkgd29yc2Ugd2l0aCBtYWNy
-b3MuCgpkb25lIDotKQoKCj4gPiArCj4gPiArc3RhdGljIGludCByaXNjdjY0X3piY19naGFzaF91
-cGRhdGUoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsCj4gPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICBjb25zdCB1OCAqc3JjLCB1bnNpZ25lZCBpbnQgc3JjbGVuKQo+ID4gK3sKPiA+ICsgICAg
-ICAgdW5zaWduZWQgaW50IGxlbjsKPiA+ICsgICAgICAgc3RydWN0IHJpc2N2NjRfZ2hhc2hfY3R4
-ICpjdHggPSBjcnlwdG9fdGZtX2N0eChjcnlwdG9fc2hhc2hfdGZtKGRlc2MtPnRmbSkpOwo+ID4g
-KyAgICAgICBzdHJ1Y3QgcmlzY3Y2NF9naGFzaF9kZXNjX2N0eCAqZGN0eCA9IHNoYXNoX2Rlc2Nf
-Y3R4KGRlc2MpOwo+ID4gKwo+ID4gKyAgICAgICBpZiAoZGN0eC0+Ynl0ZXMpIHsKPiA+ICsgICAg
-ICAgICAgICAgICBpZiAoZGN0eC0+Ynl0ZXMgKyBzcmNsZW4gPCBHSEFTSF9ESUdFU1RfU0laRSkg
-ewo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgbWVtY3B5KGRjdHgtPmJ1ZmZlciArIGRjdHgt
-PmJ5dGVzLCBzcmMsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNyY2xlbik7
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBkY3R4LT5ieXRlcyArPSBzcmNsZW47Cj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gMDsKPiA+ICsgICAgICAgICAgICAgICB9Cj4g
-PiArICAgICAgICAgICAgICAgbWVtY3B5KGRjdHgtPmJ1ZmZlciArIGRjdHgtPmJ5dGVzLCBzcmMs
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBHSEFTSF9ESUdFU1RfU0laRSAtIGRjdHgtPmJ5
-dGVzKTsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgICBjdHgtPmdoYXNoX2Z1bmMoZGN0eC0+c2hh
-c2gsIGN0eC0+aHRhYmxlLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkY3R4
-LT5idWZmZXIsIEdIQVNIX0RJR0VTVF9TSVpFKTsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgICBz
-cmMgKz0gR0hBU0hfRElHRVNUX1NJWkUgLSBkY3R4LT5ieXRlczsKPiA+ICsgICAgICAgICAgICAg
-ICBzcmNsZW4gLT0gR0hBU0hfRElHRVNUX1NJWkUgLSBkY3R4LT5ieXRlczsKPiA+ICsgICAgICAg
-ICAgICAgICBkY3R4LT5ieXRlcyA9IDA7Cj4gPiArICAgICAgIH0KPiA+ICsgICAgICAgbGVuID0g
-c3JjbGVuICYgfihHSEFTSF9ESUdFU1RfU0laRSAtIDEpOwo+ID4gKwo+ID4gKyAgICAgICBpZiAo
-bGVuKSB7Cj4gPiArICAgICAgICAgICAgICAgZ2NtX2doYXNoX3J2NjRpX3piYyhkY3R4LT5zaGFz
-aCwgY3R4LT5odGFibGUsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNyYywg
-bGVuKTsKPiA+ICsgICAgICAgICAgICAgICBzcmMgKz0gbGVuOwo+ID4gKyAgICAgICAgICAgICAg
-IHNyY2xlbiAtPSBsZW47Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgaWYgKHNyY2xl
-bikgewo+ID4gKyAgICAgICAgICAgICAgIG1lbWNweShkY3R4LT5idWZmZXIsIHNyYywgc3JjbGVu
-KTsKPiA+ICsgICAgICAgICAgICAgICBkY3R4LT5ieXRlcyA9IHNyY2xlbjsKPiA+ICsgICAgICAg
-fQo+ID4gKyAgICAgICByZXR1cm4gMDsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGludCByaXNj
-djY0X3piY19naGFzaF9maW5hbChzdHJ1Y3Qgc2hhc2hfZGVzYyAqZGVzYywgdTggKm91dCkKPiA+
-ICt7Cj4gPiArICAgICAgIGludCBpOwo+ID4gKyAgICAgICBzdHJ1Y3QgcmlzY3Y2NF9naGFzaF9j
-dHggKmN0eCA9IGNyeXB0b190Zm1fY3R4KGNyeXB0b19zaGFzaF90Zm0oZGVzYy0+dGZtKSk7Cj4g
-PiArICAgICAgIHN0cnVjdCByaXNjdjY0X2doYXNoX2Rlc2NfY3R4ICpkY3R4ID0gc2hhc2hfZGVz
-Y19jdHgoZGVzYyk7Cj4gPiArCj4gPiArICAgICAgIGlmIChkY3R4LT5ieXRlcykgewo+ID4gKyAg
-ICAgICAgICAgICAgIGZvciAoaSA9IGRjdHgtPmJ5dGVzOyBpIDwgR0hBU0hfRElHRVNUX1NJWkU7
-IGkrKykKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGRjdHgtPmJ1ZmZlcltpXSA9IDA7Cj4g
-PiArICAgICAgICAgICAgICAgY3R4LT5naGFzaF9mdW5jKGRjdHgtPnNoYXNoLCBjdHgtPmh0YWJs
-ZSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGN0eC0+YnVmZmVyLCBHSEFT
-SF9ESUdFU1RfU0laRSk7Cj4gCj4gQ2FuIHdlIGRvIHRoaXMgd2l0aG91dCBhbiBpbmRpcmVjdCBj
-YWxsPwoKaG1tLCB0aGUgaW5kaXJlY3QgY2FsbCBpcyBpbiBib3RoIHJpc2N2NjRfemJjX2doYXNo
-X3VwZGF0ZSgpIGFuZApyaXNjdjY0X3piY19naGFzaF9maW5hbCgpIC4gQW5kIEkgZm91bmQgYSBt
-aXNzaW5nIG9uZSBhdCB0aGUgYm90dG9tCm9mIHJpc2N2NjRfemJjX2doYXNoX3VwZGF0ZSgpLCB3
-aGVyZSBnY21fZ2hhc2hfcnY2NGlfemJjKCkgaXMKY2FsbGVkIHJpZ2h0IG5vdy4KCkdldHRpbmcg
-cmlkIG9mIHRoZSBpbmRpcmVjdCBjYWxsIHdvdWxkIG1lYW4gZHVwbGljYXRpbmcgYm90aCBvZiB0
-aGVzZQpmdW5jdGlvbnMgZm9yIGFsbCBpbnN0YW5jZXMuIEVzcGVjaWFsbHkgd2l0aCB0aGUgc2xp
-Z2h0bHkgaGlnaGVyCmNvbXBsZXhpdHkgb2YgdGhlIHVwZGF0ZSB0aGlzIHNvbWVob3cgc2VlbXMg
-bm90IHRoZSBiZXN0IHdheSB0byBnby4KCgpUaGFua3MgZm9yIHlvdXIgcG9pbnRlcnMKSGVpa28K
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, May 11, 2023 at 05:22:48PM +0800, Haibo Xu wrote:
+> KVM_GET_REG_LIST API will return all registers that are available to
+> KVM_GET/SET_ONE_REG APIs. It's very useful to identify some platform
+> regression issue during VM migration.
+> 
+> Since this API was already supported on arm64, it'd be straightforward
+
+s/it'd be/it is/
+
+> to enable it on riscv with similar code structure.
+> 
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> ---
+>  Documentation/virt/kvm/api.rst |   2 +-
+>  arch/riscv/kvm/vcpu.c          | 346 +++++++++++++++++++++++++++++++++
+>  2 files changed, 347 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index add067793b90..280e89abd004 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -3499,7 +3499,7 @@ VCPU matching underlying host.
+>  ---------------------
+>  
+>  :Capability: basic
+> -:Architectures: arm64, mips
+> +:Architectures: arm64, mips, riscv
+>  :Type: vcpu ioctl
+>  :Parameters: struct kvm_reg_list (in/out)
+>  :Returns: 0 on success; -1 on error
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 8bd9f2a8a0b9..fb8834e4fa15 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -657,6 +657,334 @@ static int kvm_riscv_vcpu_set_reg_isa_ext(struct kvm_vcpu *vcpu,
+>  	return 0;
+>  }
+>  
+> +static inline unsigned long num_config_regs(void)
+> +{
+> +	return sizeof(struct kvm_riscv_config) / sizeof(unsigned long);
+> +}
+> +
+> +static int copy_config_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_config_regs();
+> +
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | i;
+                                          ^ this should be
+					  size-ulong
+
+  u64 size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
+  u64 reg = KVM_REG_RISCV | size | KVM_REG_RISCV_CONFIG | i;
+
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_core_regs(void)
+> +{
+> +	return sizeof(struct kvm_riscv_core) / sizeof(unsigned long);
+> +}
+> +
+> +static int copy_core_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_core_regs();
+> +
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | i;
+                                          ^ size-ulong
+
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_csr_regs(void)
+> +{
+> +	unsigned long n = sizeof(struct kvm_riscv_csr) / sizeof(unsigned long);
+> +
+> +	if (kvm_riscv_aia_available())
+> +		n += sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long);
+> +
+> +	return n;
+> +}
+> +
+> +static int copy_csr_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n1 = sizeof(struct kvm_riscv_csr) / sizeof(unsigned long);
+> +	int n2 = 0;
+> +
+> +	/* copy general csr regs */
+> +	for (i = 0; i < n1; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR |
+                                          ^ size-ulong
+
+> +				  KVM_REG_RISCV_CSR_GENERAL | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	/* copy AIA csr regs */
+> +	if (kvm_riscv_aia_available()) {
+> +		n2 = sizeof(struct kvm_riscv_aia_csr) / sizeof(unsigned long);
+> +
+> +		for (i = 0; i < n2; i++) {
+> +			u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR |
+                                                  ^ size-ulong
+
+> +					  KVM_REG_RISCV_CSR_AIA | i;
+> +
+> +			if (uindices) {
+> +				if (put_user(reg, uindices))
+> +					return -EFAULT;
+> +				uindices++;
+> +			}
+> +		}
+> +	}
+> +
+> +	return n1 + n2;
+> +}
+> +
+> +static inline unsigned long num_timer_regs(void)
+> +{
+> +	return sizeof(struct kvm_riscv_timer) / sizeof(unsigned long);
+> +}
+> +
+> +static int copy_timer_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_timer_regs();
+> +
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_fp_f_regs(const struct kvm_vcpu *vcpu)
+> +{
+> +	const struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+> +
+> +	if (riscv_isa_extension_available(vcpu->arch.isa, f))
+> +		return sizeof(cntx->fp.f) / sizeof(u32);
+> +	else
+> +		return 0;
+> +}
+> +
+> +static int copy_fp_f_reg_indices(const struct kvm_vcpu *vcpu,
+> +					u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_fp_f_regs(vcpu);
+> +
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_fp_d_regs(const struct kvm_vcpu *vcpu)
+> +{
+> +	const struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+> +
+> +	if (riscv_isa_extension_available(vcpu->arch.isa, d))
+> +		return sizeof(cntx->fp.d.f) / sizeof(u64) + 1;
+> +	else
+> +		return 0;
+> +}
+> +
+> +static int copy_fp_d_reg_indices(const struct kvm_vcpu *vcpu,
+> +					u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_fp_d_regs(vcpu);
+> +	u64 reg;
+> +
+> +	/* copy fp.d.f indeices */
+
+indices
+
+> +	for (i = 0; i < n-1; i++) {
+> +		reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	/* copy fp.d.fcsr indeices */
+
+indices
+
+> +	reg = KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_D | i;
+> +	if (uindices) {
+> +		if (put_user(reg, uindices))
+> +			return -EFAULT;
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_isa_ext_regs(void)
+> +{
+> +	return KVM_RISCV_ISA_EXT_MAX;
+> +}
+> +
+> +static int copy_isa_ext_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n = num_isa_ext_regs();
+> +
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | i;
+                                          ^ size-ulong
+
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return n;
+> +}
+> +
+> +static inline unsigned long num_sbi_ext_regs(void)
+> +{
+> +	/* number of KVM_REG_RISCV_SBI_SINGLE +
+> +	 *  2x(number of KVM_REG_RISCV_SBI_MULTI)
+> +	 */
+
+Please use an opening wing '/*' on comments.
+
+> +	return KVM_RISCV_SBI_EXT_MAX + 2*(KVM_REG_RISCV_SBI_MULTI_REG_LAST+1);
+> +}
+> +
+> +static int copy_sbi_ext_reg_indices(u64 __user *uindices)
+> +{
+> +	unsigned int i;
+> +	int n;
+> +
+> +	/* copy KVM_REG_RISCV_SBI_SINGLE */
+> +	n = KVM_RISCV_SBI_EXT_MAX;
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_SBI_EXT |
+                                          ^ size-ulong
+
+> +				  KVM_REG_RISCV_SBI_SINGLE | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	/* copy KVM_REG_RISCV_SBI_MULTI */
+> +	n = KVM_REG_RISCV_SBI_MULTI_REG_LAST + 1;
+> +	for (i = 0; i < n; i++) {
+> +		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_SBI_EXT |
+                                          ^ size-ulong
+
+> +				  KVM_REG_RISCV_SBI_MULTI_EN | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +
+> +		reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_SBI_EXT |
+> +			  KVM_REG_RISCV_SBI_MULTI_DIS | i;
+> +
+> +		if (uindices) {
+> +			if (put_user(reg, uindices))
+> +				return -EFAULT;
+> +			uindices++;
+> +		}
+> +	}
+> +
+> +	return num_sbi_ext_regs();
+> +}
+> +
+> +/**
+> + * kvm_riscv_vcpu_num_regs - how many registers do we present via KVM_GET/SET_ONE_REG
+> + *
+> + * This is for all registers.
+> + */
+> +static unsigned long kvm_riscv_vcpu_num_regs(struct kvm_vcpu *vcpu)
+> +{
+> +	unsigned long res = 0;
+> +
+> +	res += num_config_regs();
+> +	res += num_core_regs();
+> +	res += num_csr_regs();
+> +	res += num_timer_regs();
+> +	res += num_fp_f_regs(vcpu);
+> +	res += num_fp_d_regs(vcpu);
+> +	res += num_isa_ext_regs();
+> +	res += num_sbi_ext_regs();
+> +
+> +	return res;
+> +}
+> +
+> +/**
+> + * kvm_riscv_vcpu_copy_reg_indices - get indices of all registers.
+> + */
+> +static int kvm_riscv_vcpu_copy_reg_indices(struct kvm_vcpu *vcpu,
+> +				u64 __user *uindices)
+> +{
+> +	int ret;
+> +
+> +	ret = copy_config_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_core_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_csr_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_timer_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_fp_f_reg_indices(vcpu, uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_fp_d_reg_indices(vcpu, uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_isa_ext_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +	uindices += ret;
+> +
+> +	ret = copy_sbi_ext_reg_indices(uindices);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+>  static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+>  				  const struct kvm_one_reg *reg)
+>  {
+> @@ -758,6 +1086,24 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+>  			r = kvm_riscv_vcpu_get_reg(vcpu, &reg);
+>  		break;
+>  	}
+> +	case KVM_GET_REG_LIST: {
+> +		struct kvm_reg_list __user *user_list = argp;
+> +		struct kvm_reg_list reg_list;
+> +		unsigned int n;
+> +
+> +		r = -EFAULT;
+> +		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
+> +			break;
+> +		n = reg_list.n;
+> +		reg_list.n = kvm_riscv_vcpu_num_regs(vcpu);
+> +		if (copy_to_user(user_list, &reg_list, sizeof(reg_list)))
+> +			break;
+> +		r = -E2BIG;
+> +		if (n < reg_list.n)
+> +			break;
+> +		r = kvm_riscv_vcpu_copy_reg_indices(vcpu, user_list->reg);
+> +		break;
+> +	}
+>  	default:
+>  		break;
+>  	}
+> -- 
+> 2.34.1
+>
+
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
