@@ -4,60 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E25C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E638AC77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=F3bIDCdsHoOJhQiDTDdOq5Z5oMqTH0Y6DXjdhhQb25k=; b=AoguIZSlX3NgWH
-	kTOfotMUMfR66/F8sAq87XgFYaYIzqz3jQtwSaL8PiZiVV4lrcoc18wmgWgxEehiWptTk4UGooK1z
-	OXBZbgIf818awObPbgfXsGs4OTY+E3uLcshtEr9RpY7TVsMrNgbf2bct3G4ddd9MVwzI0xVqxw516
-	l6V0FIjbns3fZsxRU1UyWTXEWeaUeOq3utVqpm5pE0ZYk1PIKCvmrrrxLE/LB5FnDpopBTyTRabBt
-	EEsaTEKvWaz/iEReizy6S9m/AClNEoWooMeAMRMd2ifhJxYqaAICxY8DtfAgI/NDOKjJm11n3Wzwl
-	nto4r11e4Y3+VEvKV5rQ==;
+	List-Owner; bh=r65/J7A7LHrjJbZt7zlDDmSqdF5EP281licKwuHGmhY=; b=wDY5mJudb3J3K8
+	mkvqW8UGZS0yKqEFB3SIKti7wOmr35oUEQiOkvWAz4Pl+sk9Dm86RZbkXrYa+5UrgUmJIWrnMaB3g
+	sbCW2XPTAw9m3e467GYEGH9TDHBp8qUwr3TkVDGzpKvKTW91h1xQ1GpfVd1PZBQHQmV57715qxYp0
+	Gs3cqLbdaFf17+prvkQPmL8hCQ7SITr6ks9jUflZZI/wEjOYQD68slkDpPkgzskH4Nu0GFMBRx2BO
+	+2fGEYUUIeXyLfh7vykoMKNSGT52lrUNIsu2KvBRa6kALgFzW1RmuwQVplJRroM4cbZhB0KMF5hYT
+	Pbq1OH8B7BjojAI42u4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxa0i-00D0MG-2D;
-	Fri, 12 May 2023 21:09:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pxa0w-00D0ZO-1Z;
+	Fri, 12 May 2023 21:09:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzD-00Cyn4-20;
-	Fri, 12 May 2023 21:07:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=JaqZxTMPaJm1imrOji7tK0gvC/N5/O2xb6G86Du4TqQ=; b=Y+cyw2bd8nzkBUuHWoIdVXGwr4
-	PLzBeCmSa/bYQgTSKu9MvHnNHTNFbbL3B+4vlJrQSx0BBb5XxjlNjI8aQUUyIKAv7zAdjXwcSf+3h
-	QwRAycL/8l0i3JDYyfFBn8pM4H0rBlBQEx+d8QboKxBKNwp+9gF0dicgg3kbhQvXg1E+sFSZiEvPO
-	71A+zOVCPsIe0itSnV0TWCOVwrHBBTNDcnYooAbhEXXOOzXuZ7fOmuJmhh7OC/lqOxDYJZlH9uFtJ
-	AXqTQvkXuSLXaOusLsZJGJCwdDBAk2COMHR9Pkc22cRDBe3KsaeMlepOBLRZks80DbR8Xv40vhBaJ
-	RhziFbLw==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZz9-009J8k-0L;
-	Fri, 12 May 2023 21:07:33 +0000
-Message-ID: <20230512205256.091511483@linutronix.de>
+	id 1pxZzC-00Cyky-0U;
+	Fri, 12 May 2023 21:07:37 +0000
+Message-ID: <20230512205256.635326070@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925636;
+	s=2020; t=1683925652;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=JaqZxTMPaJm1imrOji7tK0gvC/N5/O2xb6G86Du4TqQ=;
-	b=cDejufDlaxyCx5CGX4hiOWO/B+3Z4Wh19xsvilcT9IPO7FIYNiPHNJX+pqRc5X+N/dDVs5
-	tKDZ+XQ4GQv9J6hR2SPc85jI+MqPX6q6xxXuGbFXUxAJjXbPQHMFewGqbQuhrfB7sY2u2u
-	nkHDr5FQjj8WBPk6AwjKUsu+7FyPK4nSUfby3R43DpF7wYT+TQ8zFWGIr2lnlOG6YYmjM4
-	uygdhGu263NI6nr6HYNtETYJgziVDxphZhDBdka0UYVVHe8n5+ats7GS5MAlTVrF+827ll
-	IFxU3itG8+fVOGZr/SA1ZuDUQI+EuEEA8a+PjeX7nu7Hjbhz0RXLqD2NveT9KQ==
+	 references:references; bh=rINXxhKXmpYAtWqMmPzc6OdjQErCtPtZZiG/o2u67XA=;
+	b=zVr4ZNUNaCJyD2RgIxyzBhfIe89JftjURTbIdWm+bfCJWlFf4rsjq4OuozvjGhm9ULhHrC
+	U+aEJu664cXclDTxQuAvnz47evxGKtnynt0q7QKC8sqCfjf36XHNHRGVlHpVCtZBasVbXa
+	gv1iPwgpkiOTosy1dsjss8b8knMy3Hz3lj6ov/gir6MWLV2GXOwcnbFuE4PuQ8MSg84x92
+	hnzVxYv6Z/LoV2my9lHN/jUVhkZbsxpowfX+bp0NKPfT/TaL1EN1Lbe/fjcyoBF18PLYQI
+	MH9mNvHLkLUEnvXztxwCwTD8RTyo3FLLhL56NmTy/yerLcQyMUsA3XboFVowyA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925636;
+	s=2020e; t=1683925652;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=JaqZxTMPaJm1imrOji7tK0gvC/N5/O2xb6G86Du4TqQ=;
-	b=sOj3zUEdJE/NxvevxKX5WPFqqf/zY9uCI4lEroCJWyOhcwEBsNa+MdD4dK9wBn2igUgSdu
-	8HJ4zRRiu3a17ODw==
+	 references:references; bh=rINXxhKXmpYAtWqMmPzc6OdjQErCtPtZZiG/o2u67XA=;
+	b=Oocpkedn7RFFiZEZ6uMicf8fkqVHkAt6v2WrHB3tn/jDxmbRHsz+Nfcb/Op9ZCsGgDieF+
+	01qSbNlzEhoG1jDQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -96,13 +82,13 @@ Cc: x86@kernel.org,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>
-Subject:  [patch V4 12/37] x86/smpboot: Move synchronization masks to SMP boot code
+Subject:  [patch V4 22/37] ARM: smp: Switch to hotplug core state synchronization
 References: <20230512203426.452963764@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:16 +0200 (CEST)
+Date: Fri, 12 May 2023 23:07:32 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_220731_465919_82D66C51 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20230512_140734_470700_09C4172C 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,117 +107,78 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-The usage is in smpboot.c and not in the CPU initialization code.
-
-The XEN_PV usage of cpu_callout_mask is obsolete as cpu_init() not longer
-waits and cacheinfo has its own CPU mask now, so cpu_callout_mask can be
-made static too.
+Switch to the CPU hotplug core state tracking and synchronization
+mechanim. No functional change intended.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 ---
- arch/x86/include/asm/cpumask.h |    5 -----
- arch/x86/kernel/cpu/common.c   |   17 -----------------
- arch/x86/kernel/smpboot.c      |   16 ++++++++++++++++
- arch/x86/xen/smp_pv.c          |    3 ---
- 4 files changed, 16 insertions(+), 25 deletions(-)
---- a/arch/x86/include/asm/cpumask.h
-+++ b/arch/x86/include/asm/cpumask.h
-@@ -4,11 +4,6 @@
- #ifndef __ASSEMBLY__
- #include <linux/cpumask.h>
+ arch/arm/Kconfig           |    1 +
+ arch/arm/include/asm/smp.h |    2 +-
+ arch/arm/kernel/smp.c      |   18 +++++++-----------
+ 3 files changed, 9 insertions(+), 12 deletions(-)
+---
+
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -124,6 +124,7 @@ config ARM
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select HAVE_UID16
+ 	select HAVE_VIRT_CPU_ACCOUNTING_GEN
++	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select IRQ_FORCED_THREADING
+ 	select MODULES_USE_ELF_REL
+ 	select NEED_DMA_MAP_STATE
+--- a/arch/arm/include/asm/smp.h
++++ b/arch/arm/include/asm/smp.h
+@@ -64,7 +64,7 @@ extern void secondary_startup_arm(void);
  
--extern cpumask_var_t cpu_callin_mask;
--extern cpumask_var_t cpu_callout_mask;
--extern cpumask_var_t cpu_initialized_mask;
--extern cpumask_var_t cpu_sibling_setup_mask;
--
- extern void setup_cpu_local_masks(void);
+ extern int __cpu_disable(void);
+ 
+-extern void __cpu_die(unsigned int cpu);
++static inline void __cpu_die(unsigned int cpu) { }
+ 
+ extern void arch_send_call_function_single_ipi(int cpu);
+ extern void arch_send_call_function_ipi_mask(const struct cpumask *mask);
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -288,15 +288,11 @@ int __cpu_disable(void)
+ }
  
  /*
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -67,14 +67,6 @@
- 
- u32 elf_hwcap2 __read_mostly;
- 
--/* all of these masks are initialized in setup_cpu_local_masks() */
--cpumask_var_t cpu_initialized_mask;
--cpumask_var_t cpu_callout_mask;
--cpumask_var_t cpu_callin_mask;
--
--/* representing cpus for which sibling maps can be computed */
--cpumask_var_t cpu_sibling_setup_mask;
--
- /* Number of siblings per CPU package */
- int smp_num_siblings = 1;
- EXPORT_SYMBOL(smp_num_siblings);
-@@ -169,15 +161,6 @@ static void ppin_init(struct cpuinfo_x86
- 	clear_cpu_cap(c, info->feature);
- }
- 
--/* correctly size the local cpu masks */
--void __init setup_cpu_local_masks(void)
--{
--	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
--	alloc_bootmem_cpumask_var(&cpu_callin_mask);
--	alloc_bootmem_cpumask_var(&cpu_callout_mask);
--	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
--}
--
- static void default_init(struct cpuinfo_x86 *c)
+- * called on the thread which is asking for a CPU to be shutdown -
+- * waits until shutdown has completed, or it is timed out.
++ * called on the thread which is asking for a CPU to be shutdown after the
++ * shutdown completed.
+  */
+-void __cpu_die(unsigned int cpu)
++void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
  {
- #ifdef CONFIG_X86_64
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -101,6 +101,13 @@ EXPORT_PER_CPU_SYMBOL(cpu_die_map);
- DEFINE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
- EXPORT_PER_CPU_SYMBOL(cpu_info);
+-	if (!cpu_wait_death(cpu, 5)) {
+-		pr_err("CPU%u: cpu didn't die\n", cpu);
+-		return;
+-	}
+ 	pr_debug("CPU%u: shutdown\n", cpu);
  
-+/* All of these masks are initialized in setup_cpu_local_masks() */
-+static cpumask_var_t cpu_initialized_mask;
-+static cpumask_var_t cpu_callout_mask;
-+static cpumask_var_t cpu_callin_mask;
-+/* Representing CPUs for which sibling maps can be computed */
-+static cpumask_var_t cpu_sibling_setup_mask;
-+
- /* Logical package management. We might want to allocate that dynamically */
- unsigned int __max_logical_packages __read_mostly;
- EXPORT_SYMBOL(__max_logical_packages);
-@@ -1548,6 +1555,15 @@ early_param("possible_cpus", _setup_poss
- 		set_cpu_possible(i, true);
- }
+ 	clear_tasks_mm_cpumask(cpu);
+@@ -336,11 +332,11 @@ void __noreturn arch_cpu_idle_dead(void)
+ 	flush_cache_louis();
  
-+/* correctly size the local cpu masks */
-+void __init setup_cpu_local_masks(void)
-+{
-+	alloc_bootmem_cpumask_var(&cpu_initialized_mask);
-+	alloc_bootmem_cpumask_var(&cpu_callin_mask);
-+	alloc_bootmem_cpumask_var(&cpu_callout_mask);
-+	alloc_bootmem_cpumask_var(&cpu_sibling_setup_mask);
-+}
-+
- #ifdef CONFIG_HOTPLUG_CPU
+ 	/*
+-	 * Tell __cpu_die() that this CPU is now safe to dispose of.  Once
+-	 * this returns, power and/or clocks can be removed at any point
+-	 * from this CPU and its cache by platform_cpu_kill().
++	 * Tell cpuhp_bp_sync_dead() that this CPU is now safe to dispose
++	 * of. Once this returns, power and/or clocks can be removed at
++	 * any point from this CPU and its cache by platform_cpu_kill().
+ 	 */
+-	(void)cpu_report_death();
++	cpuhp_ap_report_dead();
  
- /* Recompute SMT state for all CPUs on offline */
---- a/arch/x86/xen/smp_pv.c
-+++ b/arch/x86/xen/smp_pv.c
-@@ -254,15 +254,12 @@ cpu_initialize_context(unsigned int cpu,
- 	struct desc_struct *gdt;
- 	unsigned long gdt_mfn;
- 
--	/* used to tell cpu_init() that it can proceed with initialization */
--	cpumask_set_cpu(cpu, cpu_callout_mask);
- 	if (cpumask_test_and_set_cpu(cpu, xen_cpu_initialized_map))
- 		return 0;
- 
- 	ctxt = kzalloc(sizeof(*ctxt), GFP_KERNEL);
- 	if (ctxt == NULL) {
- 		cpumask_clear_cpu(cpu, xen_cpu_initialized_map);
--		cpumask_clear_cpu(cpu, cpu_callout_mask);
- 		return -ENOMEM;
- 	}
- 
+ 	/*
+ 	 * Ensure that the cache lines associated with that completion are
+
+
 
 
 _______________________________________________
