@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBA2C7EE23
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB6CC7EE22
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 02:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eqg37rSXRsS9Q7016vWQCJTOVCfC+zlXuqMMv7xeD1A=; b=blzsbaFaLHgRi3
-	YCUWPc1bEv9FeGRjIYbDQk9LtXrQ5fc46e1+Tlf8g1FuktASq+GnNrStU0ENs+pyyOGsOgkJ5IfMT
-	QhCVz1LqoD6qr+T1ZFydi8KbzVxk6ZqQW2v+IPx8IIayEUPqiHVNjc7XgGzGiN4GwY/829KoWKJ53
-	xKsuTq0jaej7CgH45td6whTV2g22Our9WHCJlu28B+OhycJiY94nd8Uy/Z3Y7o6whK1UoBUhFi484
-	LWEL/1FBRKiPaC6MGHwuCGxtH2MAVmB0hzB6aR9hAZXIx3sHrJmPi0E1Nd09ry8XZJJAu6wzgcXh8
-	Y928fv2MpYRnL0Qe+M8w==;
+	List-Owner; bh=Orl5cW5AW6cJvTEOT811BLXD9VQpwk7mqQ3+9drws+c=; b=SemVLpI4qXBr9W
+	ZSCYZXgEhvAls1SA6kb/XZJwJE/j/Y1x+RndB7jncn5cZRcmg8u+3WPTcU8YoGE4aTIA94vyYel23
+	FKncw8W03i2LMpXVXfqerGep50VOwNsTc90CrH5pfv9a7wkSNT10cICYB2LqbZNYRJSQ6uAjB4al/
+	ARcqjSXkHytVwXR4J6zBROu47Tkra51oDKLe9WET/FMbpUbUOiJxpnGh1M5ECbTanFHsCknHf+EuQ
+	qvadw2k9YNAsPwkHbcqfzFf3MrXvrZ/7kTyAZyM5CaFkM7k7tn2EhW+WibcSdbk0Kih52ERA5bGZ9
+	rXsX/kaK9OxhIRsO9pdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxIQk-00AiJz-0j;
-	Fri, 12 May 2023 02:22:50 +0000
+	id 1pxIQj-00AiJd-2I;
+	Fri, 12 May 2023 02:22:49 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxIQc-00AiBA-31
+	id 1pxIQc-00AiBC-31
 	for linux-riscv@lists.infradead.org;
 	Fri, 12 May 2023 02:22:45 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5DA0C24E27E;
-	Fri, 12 May 2023 10:22:18 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 12 May
- 2023 10:22:18 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id B900324E291;
+	Fri, 12 May 2023 10:22:15 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 12 May
+ 2023 10:22:15 +0800
 Received: from localhost.localdomain (113.72.146.187) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 12 May
- 2023 10:22:17 +0800
+ 2023 10:22:14 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-Subject: [PATCH v4 6/7] riscv: dts: starfive: jh7110: Add syscon nodes
-Date: Fri, 12 May 2023 10:20:35 +0800
-Message-ID: <20230512022036.97987-7-xingyu.wu@starfivetech.com>
+Subject: [PATCH v4 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
+Date: Fri, 12 May 2023 10:20:32 +0800
+Message-ID: <20230512022036.97987-4-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
 References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
@@ -61,8 +61,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_192243_308424_04850CCB 
-X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-CacheID: sfid-20230511_192243_319485_5FCE132A 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,60 +80,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: William Qiu <william.qiu@starfivetech.com>
+Add PLL clock inputs from PLL clock generator.
 
-Add stg_syscon/sys_syscon/aon_syscon nodes for JH7110 Soc.
-
-Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../clock/starfive,jh7110-syscrg.yaml         | 20 +++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..fa27fd4169a8 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -353,6 +353,11 @@ i2c2: i2c@10050000 {
- 			status = "disabled";
- 		};
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+index 84373ae31644..fcb363353050 100644
+--- a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+@@ -27,6 +27,9 @@ properties:
+           - description: External I2S RX left/right channel clock
+           - description: External TDM clock
+           - description: External audio master clock
++          - description: PLL0
++          - description: PLL1
++          - description: PLL2
  
-+		stg_syscon: syscon@10240000 {
-+			compatible = "starfive,jh7110-stg-syscon", "syscon";
-+			reg = <0x0 0x10240000 0x0 0x1000>;
-+		};
-+
- 		uart3: serial@12000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x12000000 0x0 0x10000>;
-@@ -457,6 +462,11 @@ syscrg: clock-controller@13020000 {
- 			#reset-cells = <1>;
- 		};
+       - items:
+           - description: Main Oscillator (24 MHz)
+@@ -38,6 +41,9 @@ properties:
+           - description: External I2S RX left/right channel clock
+           - description: External TDM clock
+           - description: External audio master clock
++          - description: PLL0
++          - description: PLL1
++          - description: PLL2
  
-+		sys_syscon: syscon@13030000 {
-+			compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
-+			reg = <0x0 0x13030000 0x0 0x1000>;
-+		};
-+
- 		sysgpio: pinctrl@13040000 {
- 			compatible = "starfive,jh7110-sys-pinctrl";
- 			reg = <0x0 0x13040000 0x0 0x10000>;
-@@ -486,6 +496,12 @@ aoncrg: clock-controller@17000000 {
- 			#reset-cells = <1>;
- 		};
+   clock-names:
+     oneOf:
+@@ -52,6 +58,9 @@ properties:
+           - const: i2srx_lrck_ext
+           - const: tdm_ext
+           - const: mclk_ext
++          - const: pll0_out
++          - const: pll1_out
++          - const: pll2_out
  
-+		aon_syscon: syscon@17010000 {
-+			compatible = "starfive,jh7110-aon-syscon", "syscon";
-+			reg = <0x0 0x17010000 0x0 0x1000>;
-+			#power-domain-cells = <1>;
-+		};
-+
- 		aongpio: pinctrl@17020000 {
- 			compatible = "starfive,jh7110-aon-pinctrl";
- 			reg = <0x0 0x17020000 0x0 0x10000>;
+       - items:
+           - const: osc
+@@ -63,6 +72,9 @@ properties:
+           - const: i2srx_lrck_ext
+           - const: tdm_ext
+           - const: mclk_ext
++          - const: pll0_out
++          - const: pll1_out
++          - const: pll2_out
+ 
+   '#clock-cells':
+     const: 1
+@@ -93,12 +105,16 @@ examples:
+                  <&gmac1_rgmii_rxin>,
+                  <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+                  <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
+-                 <&tdm_ext>, <&mclk_ext>;
++                 <&tdm_ext>, <&mclk_ext>,
++                 <&pllclk 0>,
++                 <&pllclk 1>,
++                 <&pllclk 2>;
+         clock-names = "osc", "gmac1_rmii_refin",
+                       "gmac1_rgmii_rxin",
+                       "i2stx_bclk_ext", "i2stx_lrck_ext",
+                       "i2srx_bclk_ext", "i2srx_lrck_ext",
+-                      "tdm_ext", "mclk_ext";
++                      "tdm_ext", "mclk_ext",
++                      "pll0_out", "pll1_out", "pll2_out";
+         #clock-cells = <1>;
+         #reset-cells = <1>;
+     };
 -- 
 2.25.1
 
