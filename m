@@ -4,44 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF707C7EE30
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93925C7EE25
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q0IGA1ByF4h7JI4AfcMce7Bb4MPbtKTgrepQVYXE7p8=; b=Wu8n5oALVycsOu
-	sBluaH9Je5BAS339MOUMJR/M8GCfAiIG6BZ6ElGUIL3svEEj5nVxyle2TqvfaI0YYg8D/bCooFH9H
-	tC1m0GQtTZIZ39yTSAcf36OHq3VACwljPSpR8G9wRtEssrkSgZKhF8+3vcj2oAx7cMn2UKyvcjG2L
-	/0y1EYMjzRjVTh6YsAOranq1FWiizFZFlx+qm5Oken+qkuy0o98YedY54aICauf/r/KJVIE/cQVfQ
-	q5itNp7Ay6eanVv+FYn/1q5+rRtl85/PYyRPfmm/rJbP4Dl+HpxXb4PK2lpGIg3wqVFp1aYoEDW8F
-	8P0q2KYKIe0J5phVRNVw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
+	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=qoj/Xxjrq9ZcuZ5WPJaoURCfIaTBLUWci/dmX7TR4O0=; b=Fvz7PPfWb8hEd6
+	H1d1cP9q8YlQGXVBF09lC1TBAnI+w54r/7xVMI6m2FopJQcF8kJm72HM48xffXfruvQokvTAMoJuj
+	XEV/0XsZ9jjc4VzzioVmjh+HjWZs1PzGojBAVVoOlaL+XZ2NNAfJIM3WZe4S3hQ8lRuza+9thBmoQ
+	jDVOhO1f5CfSyIUp4/4wJ3Tuxt9ixmcRKggrlUEvKII+jmhh5UAEF6cEIay/A0t5e9CNZ6eOiex7F
+	Yk4GZntvDHFeBVJXUZKxMSa+c7ob8K38G9kGIWDF68B6vgLzifW0Tv1HUvep9uVWQFT+61Oe8N1VO
+	s65OMgqetJlKAHJgpJlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzB-00Cylf-2Y;
-	Fri, 12 May 2023 21:07:33 +0000
+	id 1pxZz2-00CyeI-23;
+	Fri, 12 May 2023 21:07:24 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZyo-00CyLO-1z;
-	Fri, 12 May 2023 21:07:14 +0000
-Message-ID: <20230512203426.452963764@linutronix.de>
+	id 1pxZyo-00CyMt-1q;
+	Fri, 12 May 2023 21:07:13 +0000
+Message-ID: <20230512205255.662319599@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925617;
+	s=2020; t=1683925623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc; bh=gnTvflJCY17ngq7v3t1VaZ+udg1fVO8xaD7NmVGfdtM=;
-	b=hpItgE596OZsCHwd4RZltNwkaoUY+M4nxaNk5aijZSoKnJnX+Z1ftHJzFxXeLlwiR7CBVO
-	kAeU5V6ipd8kuvNmo2jUYlgeJQZcAoQ/B2gtcPpMbKBJ5Hdb19cpdNKmIFAdiRriVPQFBq
-	TB+mebv9nD57p/zwHVWvLj1xYW2llen6ecBlhNLpiB4mMX8ISxfhUt0cg8NuDkltKRGqwv
-	kwkihKVbLzgwH4zA3a4gu5TjBLy8knJzdeBq4mfGSlsG3QssoI+I+YLWMjEKtJyMnCZYCb
-	q0UpvbfNJvV5gxrJ96IhSco7wHR/BgKJzA+FPEk8wMxiA3axwjVqCn3rrplQeA==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 references:references; bh=10aHqiRf10a+4x+F15wqO9TaNeOMM+gljY64qYOf8Og=;
+	b=LjbBQ3NLEkvc7e9R5u6yBkYS0iiwraQZmIUY+HCWYnQqRfXsTowBnBHcG1TtxBH3fAVoSQ
+	ljm3T3p6GDG72K8bcRQxW8UQ8AFnJeYuwF6m3Rwl3xWoi8H8/BSIRJj1rVH+ip9//Ks2CE
+	fFJHEmdVTk7moIEGWYEDWyAQEPoRHcgoEnf4wiilyclEx5NIwOXSKAxL/OmHZ9Qn9T7BaW
+	lI3CrJ+EKcygt3YU47C0WJLEJrKKGyf0mIoV0OZUtQJOG6t2eGddOZYBHYJSTeG44wWBqW
+	Kw9bLLMDxF8/F1fqZSwBPeGdCY5b1uQ6aFc1HXUNFM0V7oRK2uI9i5ZDa5ctow==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925617;
+	s=2020e; t=1683925623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc; bh=gnTvflJCY17ngq7v3t1VaZ+udg1fVO8xaD7NmVGfdtM=;
-	b=MX4k3gwiR3uPG3aHdqZkMbzsCUhWKscxACmgEvdnthaN7mX9Y50PkiqEAK2jw11B2rBJ5s
-	0yIwakfLrEZSxWCw==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 references:references; bh=10aHqiRf10a+4x+F15wqO9TaNeOMM+gljY64qYOf8Og=;
+	b=WOpc7uYL/VidVOZn4G/ZP/A8TyN4gZsLcoALEzP0CZGwamlcMyB4G3NO+AsTxWEolHIdoB
+	1lO2LOlMtVeUdXAg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -80,11 +82,13 @@ Cc: x86@kernel.org,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
-Date: Fri, 12 May 2023 23:06:56 +0200 (CEST)
+Subject:  [patch V4 04/37] x86/smpboot: Rename start_cpu0() to soft_restart_cpu()
+References: <20230512203426.452963764@linutronix.de>
+MIME-Version: 1.0
+Date: Fri, 12 May 2023 23:07:03 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140710_944016_E7A48063 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20230512_140710_928434_43876758 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,202 +100,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi!
+From: Thomas Gleixner <tglx@linutronix.de>
 
-This is version 4 of the reworked parallel bringup series. Version 3 can be
-found here:
+This is used in the SEV play_dead() implementation to re-online CPUs. But
+that has nothing to do with CPU0.
 
-   https://lore.kernel.org/lkml/20230508181633.089804905@linutronix.de
-
-This is just a reiteration to address the following details:
-
-  1) Address review feedback (Peter Zijlstra)
-
-  2) Fix a MIPS related build problem (0day)
-
-Other than that there are no changes and the other details are all the same
-as in V3 and V2.
-
-It's also available from git:
-
-    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git hotplug
-
-Diff to V3 below.
-
-Thanks,
-
-	tglx
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Michael Kelley <mikelley@microsoft.com>
 ---
-diff --git a/arch/mips/kernel/smp.c b/arch/mips/kernel/smp.c
-index f5e0f4235746..90c71d800b59 100644
---- a/arch/mips/kernel/smp.c
-+++ b/arch/mips/kernel/smp.c
-@@ -690,7 +690,7 @@ void flush_tlb_one(unsigned long vaddr)
- EXPORT_SYMBOL(flush_tlb_page);
- EXPORT_SYMBOL(flush_tlb_one);
+ arch/x86/include/asm/cpu.h   |    2 +-
+ arch/x86/kernel/callthunks.c |    2 +-
+ arch/x86/kernel/head_32.S    |   10 +++++-----
+ arch/x86/kernel/head_64.S    |   10 +++++-----
+ arch/x86/kernel/sev.c        |    2 +-
+ 5 files changed, 13 insertions(+), 13 deletions(-)
+
+--- a/arch/x86/include/asm/cpu.h
++++ b/arch/x86/include/asm/cpu.h
+@@ -30,7 +30,7 @@ struct x86_cpu {
+ #ifdef CONFIG_HOTPLUG_CPU
+ extern int arch_register_cpu(int num);
+ extern void arch_unregister_cpu(int);
+-extern void start_cpu0(void);
++extern void soft_restart_cpu(void);
+ #ifdef CONFIG_DEBUG_HOTPLUG_CPU0
+ extern int _debug_hotplug_cpu(int cpu, int action);
+ #endif
+--- a/arch/x86/kernel/callthunks.c
++++ b/arch/x86/kernel/callthunks.c
+@@ -134,7 +134,7 @@ static bool skip_addr(void *dest)
+ 	if (dest == ret_from_fork)
+ 		return true;
+ #ifdef CONFIG_HOTPLUG_CPU
+-	if (dest == start_cpu0)
++	if (dest == soft_restart_cpu)
+ 		return true;
+ #endif
+ #ifdef CONFIG_FUNCTION_TRACER
+--- a/arch/x86/kernel/head_32.S
++++ b/arch/x86/kernel/head_32.S
+@@ -140,16 +140,16 @@ SYM_CODE_END(startup_32)
  
--#ifdef CONFIG_HOTPLUG_CPU
-+#ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
- void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- {
- 	if (mp_ops->cleanup_dead_cpu)
-diff --git a/arch/x86/kernel/head_64.S b/arch/x86/kernel/head_64.S
-index 0438802031c3..9cd77d319555 100644
+ #ifdef CONFIG_HOTPLUG_CPU
+ /*
+- * Boot CPU0 entry point. It's called from play_dead(). Everything has been set
+- * up already except stack. We just set up stack here. Then call
+- * start_secondary().
++ * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
++ * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
++ * unplug. Everything is set up already except the stack.
+  */
+-SYM_FUNC_START(start_cpu0)
++SYM_FUNC_START(soft_restart_cpu)
+ 	movl initial_stack, %ecx
+ 	movl %ecx, %esp
+ 	call *(initial_code)
+ 1:	jmp 1b
+-SYM_FUNC_END(start_cpu0)
++SYM_FUNC_END(soft_restart_cpu)
+ #endif
+ 
+ /*
 --- a/arch/x86/kernel/head_64.S
 +++ b/arch/x86/kernel/head_64.S
-@@ -290,8 +290,7 @@ SYM_INNER_LABEL(secondary_startup_64_no_verify, SYM_L_GLOBAL)
+@@ -377,11 +377,11 @@ SYM_CODE_END(secondary_startup_64)
  
- 	/*  APIC ID not found in the table. Drop the trampoline lock and bail. */
- 	movq	trampoline_lock(%rip), %rax
--	lock
--	btrl	$0, (%rax)
-+	movl	$0, (%rax)
- 
- 1:	cli
- 	hlt
-@@ -320,8 +319,7 @@ SYM_INNER_LABEL(secondary_startup_64_no_verify, SYM_L_GLOBAL)
- 	movq	trampoline_lock(%rip), %rax
- 	testq	%rax, %rax
- 	jz	.Lsetup_gdt
--	lock
--	btrl	$0, (%rax)
-+	movl	$0, (%rax)
- 
- .Lsetup_gdt:
- 	/*
-diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index 5caf4897b507..660709e94823 100644
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -161,31 +161,28 @@ static inline void smpboot_restore_warm_reset_vector(void)
- 
- }
- 
--/*
-- * Report back to the Boot Processor during boot time or to the caller processor
-- * during CPU online.
-- */
--static void smp_callin(void)
-+/* Run the next set of setup steps for the upcoming CPU */
-+static void ap_starting(void)
- {
- 	int cpuid = smp_processor_id();
- 
- 	/*
--	 * If waken up by an INIT in an 82489DX configuration the alive
--	 * synchronization guarantees we don't get here before an
--	 * INIT_deassert IPI reaches our local APIC, so it is now safe to
--	 * touch our local APIC.
-+	 * If woken up by an INIT in an 82489DX configuration the alive
-+	 * synchronization guarantees that the CPU does not reach this
-+	 * point before an INIT_deassert IPI reaches the local APIC, so it
-+	 * is now safe to touch the local APIC.
- 	 *
- 	 * Set up this CPU, first the APIC, which is probably redundant on
- 	 * most boards.
- 	 */
- 	apic_ap_setup();
- 
--	/* Save our processor parameters. */
-+	/* Save the processor parameters. */
- 	smp_store_cpu_info(cpuid);
- 
- 	/*
- 	 * The topology information must be up to date before
--	 * calibrate_delay() and notify_cpu_starting().
-+	 * notify_cpu_starting().
- 	 */
- 	set_cpu_sibling_map(cpuid);
- 
-@@ -197,7 +194,7 @@ static void smp_callin(void)
- 
- 	/*
- 	 * This runs the AP through all the cpuhp states to its target
--	 * state (CPUHP_ONLINE in the case of serial bringup).
-+	 * state CPUHP_ONLINE.
- 	 */
- 	notify_cpu_starting(cpuid);
- }
-@@ -274,10 +271,7 @@ static void notrace start_secondary(void *unused)
- 	rcu_cpu_starting(raw_smp_processor_id());
- 	x86_cpuinit.early_percpu_clock_init();
- 
--	smp_callin();
--
--	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
--	barrier();
-+	ap_starting();
- 
- 	/* Check TSC synchronization with the control CPU. */
- 	check_tsc_sync_target();
-diff --git a/arch/x86/realmode/rm/trampoline_64.S b/arch/x86/realmode/rm/trampoline_64.S
-index 2dfb1c400167..c6de4deec746 100644
---- a/arch/x86/realmode/rm/trampoline_64.S
-+++ b/arch/x86/realmode/rm/trampoline_64.S
-@@ -40,17 +40,13 @@
- .macro LOAD_REALMODE_ESP
- 	/*
- 	 * Make sure only one CPU fiddles with the realmode stack
--	 */
-+	*/
- .Llock_rm\@:
--	btl	$0, tr_lock
--	jnc	2f
--	pause
--	jmp	.Llock_rm\@
-+        lock btsl       $0, tr_lock
-+        jnc             2f
-+        pause
-+        jmp             .Llock_rm\@
- 2:
--	lock
--	btsl	$0, tr_lock
--	jc	.Llock_rm\@
--
- 	# Setup stack
- 	movl	$rm_stack_end, %esp
- .endm
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 60b4093fae9e..005f863a3d2b 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -294,14 +294,14 @@ enum cpuhp_sync_state {
-  * cpuhp_ap_update_sync_state - Update synchronization state during bringup/teardown
-  * @state:	The synchronization state to set
-  *
-- * No synchronization point. Just update of the synchronization state.
-+ * No synchronization point. Just update of the synchronization state, but implies
-+ * a full barrier so that the AP changes are visible before the control CPU proceeds.
+ #ifdef CONFIG_HOTPLUG_CPU
+ /*
+- * Boot CPU0 entry point. It's called from play_dead(). Everything has been set
+- * up already except stack. We just set up stack here. Then call
+- * start_secondary() via .Ljump_to_C_code.
++ * Entry point for soft restart of a CPU. Invoked from xxx_play_dead() for
++ * restarting the boot CPU or for restarting SEV guest CPUs after CPU hot
++ * unplug. Everything is set up already except the stack.
   */
- static inline void cpuhp_ap_update_sync_state(enum cpuhp_sync_state state)
- {
- 	atomic_t *st = this_cpu_ptr(&cpuhp_state.ap_sync_state);
--	int sync = atomic_read(st);
+-SYM_CODE_START(start_cpu0)
++SYM_CODE_START(soft_restart_cpu)
+ 	ANNOTATE_NOENDBR
+ 	UNWIND_HINT_END_OF_STACK
  
--	while (!atomic_try_cmpxchg(st, &sync, state));
-+	(void)atomic_xchg(st, state);
- }
+@@ -390,7 +390,7 @@ SYM_CODE_START(start_cpu0)
+ 	movq	TASK_threadsp(%rcx), %rsp
  
- void __weak arch_cpuhp_sync_state_poll(void) { cpu_relax(); }
-@@ -829,7 +829,11 @@ static int bringup_cpu(unsigned int cpu)
- 	/*
- 	 * Some architectures have to walk the irq descriptors to
- 	 * setup the vector space for the cpu which comes online.
--	 * Prevent irq alloc/free across the bringup.
-+	 *
-+	 * Prevent irq alloc/free across the bringup by acquiring the
-+	 * sparse irq lock. Hold it until the upcoming CPU completes the
-+	 * startup in cpuhp_online_idle() which allows to avoid
-+	 * intermediate synchronization points in the architecture code.
+ 	jmp	.Ljump_to_C_code
+-SYM_CODE_END(start_cpu0)
++SYM_CODE_END(soft_restart_cpu)
+ #endif
+ 
+ #ifdef CONFIG_AMD_MEM_ENCRYPT
+--- a/arch/x86/kernel/sev.c
++++ b/arch/x86/kernel/sev.c
+@@ -1328,7 +1328,7 @@ static void sev_es_play_dead(void)
+ 	 * If we get here, the VCPU was woken up again. Jump to CPU
+ 	 * startup code to get it back online.
  	 */
- 	irq_lock_sparse();
- 
+-	start_cpu0();
++	soft_restart_cpu();
+ }
+ #else  /* CONFIG_HOTPLUG_CPU */
+ #define sev_es_play_dead	native_play_dead
+
 
 
 
