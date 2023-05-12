@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4F4C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 06:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8DFC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 06:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yvAX74qBoEYWlAWY91h1/Eh7S+mPZNM22GSOI61MHwE=; b=sIl2puFwJZwkqE
-	xp3GnwWUNoG+CfJxTanBFAlxDHB8yFkJ5qlnTXQJTFRWW6/FOpRRaMcg7yDpXLYMGMTgttJqDYYIX
-	NYQB8kOnYdC9saByMbIXBYA7c8iJNdSAt2+1CTtVOo9u95r1q/GEtsO5vx4V9qmK3o91CE4kkIzwH
-	y1gcW19lri1C6HshBBs2h8vUQmaYdT6M/VhHXuZPWsyJVFhEhFjx7N3JdvZUDjzXUVk8/Fc4rdW3z
-	RTWPiK7A88g7c5Nj6E0rzepEsoaCDnmduCXDQg+x2AVJ4kxjCoBwyMvSFXTtV4AavvndyfzKhsv9L
-	ajA/FqJhCXHRwjg6SBxQ==;
+	List-Owner; bh=BdZ6dg627gV+pUnUSq/hq3ppkGb0WMn825GmcL/Vttc=; b=eThhIQVNaYiVDv
+	MK7QtN/lJzdgAlFTwjvGPowNJwahU50habe1kK5bh1GmIS1B42xDaQLZYyq+LqpTxju7pGl1BSBQ5
+	VBG1+Xz6EiMZm4lyBXBiqeUh2fHHlLMKvt/kvEEKcxY7u4G+1L9FyavFRdsOFQWBqxUx6yzXcAPMK
+	Y9P2FCtAOJjHxE0qMCMaIEJf/XEnp8BQSQwB+uDxkPkzDzwVYh+WSztm0C/tGF+0/o7gH9VzXYBDa
+	42B0Fs1kYF6XiOz2wPm58hAhJvX4JWDBooyqmEuiust9CIkeaRLNxI6UMuq+JA2dmQRKdn+1AH9ai
+	ZYEDVLJ36wPRQj3vKx6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxMOU-00B5a3-1k;
-	Fri, 12 May 2023 06:36:46 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1pxMP0-00B5eN-2q;
+	Fri, 12 May 2023 06:37:18 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxMOR-00B5ZQ-30
+	id 1pxMOy-00B5dn-06
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 May 2023 06:36:45 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-96a5903758fso369339866b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 23:36:42 -0700 (PDT)
+	Fri, 12 May 2023 06:37:17 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-50bc1612940so17214875a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 23:37:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1683873401; x=1686465401;
+        d=linaro.org; s=google; t=1683873434; x=1686465434;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=fHMOSAlolDJzGPoektY7MZE9dXHoLFYx7cEk41VbQNo=;
-        b=Xr7f+3Oug1zfWQ0ZKMKvoULx0EYQbGRf/8rpU+HQJU7rTaam/SMRpcZkqrZY5+RVwQ
-         Av24pr7xVKoCbRxkBjRqHbJ7PG1DorYp1SIjptyMLeXLmwPDRgyGYxdohEuVMwiwbpWA
-         FBXyJNdKanHXVUrNxP1cBhE62XMQ2Vy+i98fuXZ0UQ2a+ewfqSTmzqlgOlCpKQsA/81a
-         kCDT1Vdv/mzDS0yvPzD6kVyRCHQeNqjb2jo3qD1phKN9i9L0LzUk04B5t5i0gBVglxbp
-         B6pslcmEQn1B7+tnW/QEoJoY8trkNLb6AzBagwmrpfckHvld82d2Z0eQ9J05O7PuV4Rt
-         Xr4g==
+        bh=SKQArbr+xtf09epgIWVQVcaD67YWPhsZPgDsQF54Z/Y=;
+        b=X2+gtVsUYPPuW7qdNKW5Y27uqHZ/RayroYk7RhEolPL+QdJq526rPdIj/Nn24VmYMM
+         XGr2lAtGekbx/bx2h9MDx+nn5heWlUi2F1LtoWbz6abxpfDSY0XpWTmaw/O3hUFYEvLc
+         1RSx5oYmYjazJkGlfhXGDE10S7gXfqbnDIcVmWQCJJfNLKqZO/rkZDJeksu7+B69h0rz
+         Uqq3oZOuHuUDGXkQLZSP2hnTgqXLtav2r5KFd9i5/pHM3AA8yl2OR8bSSi0eIgGb2OMl
+         pk314ZM8gMCnfor+NJGY/zmmgrVqI5kbP8/h8pGzQDHSoghB0VpB4MBMamrL3H00TZRG
+         GliQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683873401; x=1686465401;
+        d=1e100.net; s=20221208; t=1683873434; x=1686465434;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fHMOSAlolDJzGPoektY7MZE9dXHoLFYx7cEk41VbQNo=;
-        b=EdwHFKwOkyd8dEB17OEtfYLHiLqrVbEtsE6kK0Ruf9O4JIFkoOtSRWXHo81FERs2kP
-         4ufP7dVCJnD0a34+uU3DcxHNS0s9QE3hmiTPi0BoCfVTkXReeq8TW7ACXsIKosrHgoFO
-         qbrTWXOiT5+8yUNP5/KSPMJE2itaH6XGupYbbGpCnB0L37QwB5iyE+Pqf1SOq9+xFJnU
-         TjbnaBo4UM/De8sPtmNill2grOZRiiY7WcO+BdJC4vcGCHrjdnNiqWk6mv3lWee8d2ly
-         +q1FmWjpgBN/d41mu5MGOPiA214bk4ojN7mLi2uICEsFV+2UV28mcrz7dga2HY/tqZi8
-         UGyw==
-X-Gm-Message-State: AC+VfDz+LGRB8kp1RpgN6gajhL/h9TnmW3Ck/ixUR63Hr64C5iplz0KZ
-	/i0PxjFMgS8Yuy26exsCSm889A==
-X-Google-Smtp-Source: ACHHUZ7gC5BEhT5G+mMuFNLabNgMWzL4lmE+SVW1OOiywba73Vfx8aP3OiCsgtB5gUphas7SISEpGA==
-X-Received: by 2002:a17:906:fe0c:b0:961:78c2:1d27 with SMTP id wy12-20020a170906fe0c00b0096178c21d27mr20465597ejb.19.1683873401620;
-        Thu, 11 May 2023 23:36:41 -0700 (PDT)
+        bh=SKQArbr+xtf09epgIWVQVcaD67YWPhsZPgDsQF54Z/Y=;
+        b=X8aoxXcNKomJVXJMwXF/OhZqJd/ADzUifIfr0c6duj8wru7aUCrF2hzKJNwN3KHnRu
+         fWqqXvmkD8p9s1DFNIILM4pnNYCIvju5EwLCCRXrePAl36PmNsrzKSwy0hXq4xMiKbPY
+         BG1WaD7O5rkMS/TYpzD6gyx+toosnjHa5o6drsHW6NCv47A5y5pPa1lBHnhy4ANSSCLj
+         PJEQeeljaIkwxDFGP7f0cIJlQPexpeovGEZfLteNd25DGpFJ8O4vhkjAY/uy8aKV0zcI
+         nttXkuvjJURDBO4hKF+vMRhB3eOKzbnQmz6He72Vq2reEFafYbVTVXfiKytdu1K8mhXQ
+         IinA==
+X-Gm-Message-State: AC+VfDxnSr+89m9k4UYKre3n3iRzow8rFv9FC6bMt07EwJ8Otm65S9nV
+	b07x98cOu0Y4E6st7U9Rdju3KA==
+X-Google-Smtp-Source: ACHHUZ6Qir9jHw9lbKC6t++22DfOfrTK74YUqakGyuC6Q1hQEyqV2RCesGT5QfSt+aq1kGIfLATB2w==
+X-Received: by 2002:a05:6402:1016:b0:50d:f9b1:6918 with SMTP id c22-20020a056402101600b0050df9b16918mr3020743edu.9.1683873433648;
+        Thu, 11 May 2023 23:37:13 -0700 (PDT)
 Received: from ?IPV6:2a02:810d:15c0:828:7ede:fc7b:2328:3883? ([2a02:810d:15c0:828:7ede:fc7b:2328:3883])
-        by smtp.gmail.com with ESMTPSA id y13-20020a170906070d00b0093313f4fc3csm5038979ejb.70.2023.05.11.23.36.40
+        by smtp.gmail.com with ESMTPSA id ca16-20020aa7cd70000000b0050bc9ffed66sm3740060edb.53.2023.05.11.23.37.12
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 May 2023 23:36:41 -0700 (PDT)
-Message-ID: <3bb6c544-0b21-4728-683d-70db0f80394f@linaro.org>
-Date: Fri, 12 May 2023 08:36:39 +0200
+        Thu, 11 May 2023 23:37:13 -0700 (PDT)
+Message-ID: <c432c26b-27d3-80dc-fe6b-457996234871@linaro.org>
+Date: Fri, 12 May 2023 08:37:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH v4 6/7] riscv: dts: starfive: jh7110: Add syscon nodes
+Subject: Re: [PATCH v4 7/7] riscv: dts: starfive: jh7110: Add PLL clock node
+ and modify syscrg node
 Content-Language: en-US
 To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
@@ -81,12 +82,13 @@ Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
  William Qiu <william.qiu@starfivetech.com>, linux-kernel@vger.kernel.org,
  linux-clk@vger.kernel.org
 References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-7-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-8-xingyu.wu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230512022036.97987-7-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230512022036.97987-8-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_233643_976067_15F1277E 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20230511_233716_393698_4AC3C74E 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +106,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 12/05/2023 04:20, Xingyu Wu wrote:
-> From: William Qiu <william.qiu@starfivetech.com>
-> 
-> Add stg_syscon/sys_syscon/aon_syscon nodes for JH7110 Soc.
-> 
-> Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 4c5fdb905da8..fa27fd4169a8 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -353,6 +353,11 @@ i2c2: i2c@10050000 {
->  			status = "disabled";
->  		};
->  
-> +		stg_syscon: syscon@10240000 {
-> +			compatible = "starfive,jh7110-stg-syscon", "syscon";
-> +			reg = <0x0 0x10240000 0x0 0x1000>;
-> +		};
-> +
->  		uart3: serial@12000000 {
->  			compatible = "snps,dw-apb-uart";
->  			reg = <0x0 0x12000000 0x0 0x10000>;
-> @@ -457,6 +462,11 @@ syscrg: clock-controller@13020000 {
->  			#reset-cells = <1>;
->  		};
->  
-> +		sys_syscon: syscon@13030000 {
-> +			compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
-> +			reg = <0x0 0x13030000 0x0 0x1000>;
+> Add the PLL clock node for the Starfive JH7110 SoC and
+> modify the SYSCRG node to add PLL clocks input.
 
-No children, drop the simple-mfd. Or your binding is incorrect or your
-DTS is incomplete (you mentioned clock-controller). DTS should be complete.
+
+> @@ -465,6 +469,12 @@ syscrg: clock-controller@13020000 {
+>  		sys_syscon: syscon@13030000 {
+>  			compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
+>  			reg = <0x0 0x13030000 0x0 0x1000>;
+> +
+> +			pllclk: clock-controller {
+> +				compatible = "starfive,jh7110-pll";
+> +				clocks = <&osc>;
+> +				#clock-cells = <1>;
+
+This should be part of previous patch. You just added that node. Don't
+add half of devices but entire device.
 
 Best regards,
 Krzysztof
