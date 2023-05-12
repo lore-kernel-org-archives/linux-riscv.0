@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7A1C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DD6C77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=RW/24USfNz0ZSpoxD5hw0greUcONQPLzw1p4stJKnVo=; b=3hgv35YRDbSTnI
-	wXeq/jNRmEJTDu86crvupN9lHjkxvOVpue6jXdzJjpyLg0n1TZ3EP3h4EaEm+2fJspgTCUH7B0f0F
-	BjWMb1aXn1Sq6Ra/b071XYT99LOF5Bm8wzXOUZkrjjOh0yzw1d0izI663iRpv28aTQ53XASHVjq29
-	eWMzonexBrnyr5cbfa8OcV7KDgdS4Li/aGzltB5paFB7rnlcfiePJXtioTc2w0njyo6JUYLJ/X1rL
-	NOr51U/jTMNTyv6XnGh6ejj9QgdgJgXvcGK811h0TwsNC8rfHm/W19MmA+8/kosUqjLNF9j8/0AwZ
-	/3FsRdNou2SN5GlzLIpw==;
+	List-Owner; bh=BtimLAOf5KlUPpqqi9TsUiu/WD0tUiEcTj20tR6rMJg=; b=X4vf4va7OT/XBs
+	/i5xHGNwjGvKyW9kjYP762i/LR/vgfp5HASjtVdQA3/QheyyelXSFVAmTAMVx6nDAgeOnqKKCIFqu
+	2Imc2EAh65fA/IfY8KGjiFUnTOwQmil7MJjuWBqfD4zjQ5+mj1FGq9qo0Ida37MbJa5LfHOuKpMqB
+	d3KKVDNTckWS6CVN8oOclh/q64CKcTeocjf435ZKi+C80hgzGDDwdJntlKJc8Md18ufYK/fh8RZ6J
+	1zLitVLiuvniM3La+81ctoSFsmLIBe6XXu4qyus8NVcTXvDRvdudCqgSyfK6HqUs57VvTqQlzTbpC
+	bJRltntGMwKTeM76vTTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxa1o-00D1Ob-2m;
-	Fri, 12 May 2023 21:10:16 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pxa1w-00D1Vx-16;
+	Fri, 12 May 2023 21:10:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzL-00Cyw7-2Z;
-	Fri, 12 May 2023 21:07:45 +0000
-Message-ID: <20230512205256.972894276@linutronix.de>
+	id 1pxZzN-00Cyxg-17;
+	Fri, 12 May 2023 21:07:47 +0000
+Message-ID: <20230512205257.027075560@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925662;
+	s=2020; t=1683925664;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=nzItUYys+FxnFlxHRSRwXNvBFw4/RHjBPySjAIg1FA0=;
-	b=HFAJV0pMQwfu/4+GAhQLuXhpUO6abQd4y85mbgjAss6mqH/BExmc6AKeRMkuLpdoxhLinj
-	NBMK7Ra2vav1RTE5mzIkDgtLQvIZiWXsjGTWMWD3X/NXyy3ID7jD6oi/PGdhpAjN0b4CZQ
-	6IMLg3BcGBtrqbRHE3Td3hMjnCGGjMUZew8rgNfnNgQ+oeJaUqITgff3tJlFeEUzOnnv+R
-	Fjr1+md7ekwb9fGi39VcdH3yTLAztWBmY3Yv4ndK172fdqfHvHqzXeEqjzim8ZrnuECBT9
-	6bomIHXV7BUv75NlLf7B9z3kwvgz12t7LUL/w3aX0Wd0Yv0nG39/k2Y0dX/XYA==
+	 references:references; bh=QdUmczWTVhK7K/GEDp21ZZBW6QiyoqITsSHkVbZTwSo=;
+	b=QxFsCk8M0IwU/AWXJTbXBb8OmrmczN7eSVShQBD/xtp9CSloxhz1odBQguueWNc/vEM52/
+	0Kl3gldkf4/0GgZgMmCaVqarwnt6c2WxoW5biu9zyuJifvGtM9/Jij2+5GahK4gODm1Y1Q
+	1hd8RJJvQbU0l+Gnh64z7qRhDPk39TNRP842ELWqPXiUeNBVOhZ36Jqvxt0WeLRCeD/TLr
+	8ppgeI8QfGvfUVwsNNPzx6acsMuK+QD0Sy+DuKWmGes0FQJYbkh9eWywGTaBGzAG8N39CJ
+	IMTWuS0FUzsmcC8AS5xDPopwnYu51b4FiPLMJd67kDoqwu/y1krpwzf6eMhGgw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925662;
+	s=2020e; t=1683925664;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=nzItUYys+FxnFlxHRSRwXNvBFw4/RHjBPySjAIg1FA0=;
-	b=eK6tV6hlAQaheu95GgdL2hUtApcdcJITHelzRXs0n6MnF+U01Souw/mHmLrDCW7jivSlgK
-	RTZIurVUzouaTZAQ==
+	 references:references; bh=QdUmczWTVhK7K/GEDp21ZZBW6QiyoqITsSHkVbZTwSo=;
+	b=kpZz6QyptBqFfMzJcx1ZcoW9ytkNNQFs/6P8KAIUryIP/ZE4SXsEP30lmowL1TlGesMnkc
+	+R008NAdqKJ6jZCQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -81,14 +81,15 @@ Cc: x86@kernel.org,
  Mark Rutland <mark.rutland@arm.com>,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 28/37] cpu/hotplug: Remove unused state functions
+ Ross Philipson <ross.philipson@oracle.com>,
+ David Woodhouse <dwmw@amazon.co.uk>
+Subject: [patch V4 29/37] cpu/hotplug: Reset task stack state in _cpu_up()
 References: <20230512203426.452963764@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:41 +0200 (CEST)
+Date: Fri, 12 May 2023 23:07:43 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140744_128429_0556593E 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20230512_140745_568031_F3214750 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,112 +106,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-All users converted to the hotplug core mechanism.
+Commit dce1ca0525bf ("sched/scs: Reset task stack state in bringup_cpu()")
+ensured that the shadow call stack and KASAN poisoning were removed from
+a CPU's stack each time that CPU is brought up, not just once.
 
+This is not incorrect. However, with parallel bringup the idle thread setup
+will happen at a different step. As a consequence the cleanup in
+bringup_cpu() would be too late.
+
+Move the SCS/KASAN cleanup to the generic _cpu_up() function instead,
+which already ensures that the new CPU's stack is available, purely to
+allow for early failure. This occurs when the CPU to be brought up is
+in the CPUHP_OFFLINE state, which should correctly do the cleanup any
+time the CPU has been taken down to the point where such is needed.
+
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Mark Rutland <mark.rutland@arm.com>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
+Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 ---
- include/linux/cpu.h |    2 -
- kernel/smpboot.c    |   75 ----------------------------------------------------
- 2 files changed, 77 deletions(-)
+ kernel/cpu.c |   12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -193,8 +193,6 @@ static inline void play_idle(unsigned lo
- }
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -771,12 +771,6 @@ static int bringup_cpu(unsigned int cpu)
+ 		return -EAGAIN;
  
- #ifdef CONFIG_HOTPLUG_CPU
--bool cpu_wait_death(unsigned int cpu, int seconds);
--bool cpu_report_death(void);
- void cpuhp_report_idle_dead(void);
- #else
- static inline void cpuhp_report_idle_dead(void) { }
---- a/kernel/smpboot.c
-+++ b/kernel/smpboot.c
-@@ -325,78 +325,3 @@ void smpboot_unregister_percpu_thread(st
- 	cpus_read_unlock();
- }
- EXPORT_SYMBOL_GPL(smpboot_unregister_percpu_thread);
+ 	/*
+-	 * Reset stale stack state from the last time this CPU was online.
+-	 */
+-	scs_task_reset(idle);
+-	kasan_unpoison_task_stack(idle);
 -
--#ifndef CONFIG_HOTPLUG_CORE_SYNC
--static DEFINE_PER_CPU(atomic_t, cpu_hotplug_state) = ATOMIC_INIT(CPU_POST_DEAD);
--
--#ifdef CONFIG_HOTPLUG_CPU
--/*
-- * Wait for the specified CPU to exit the idle loop and die.
-- */
--bool cpu_wait_death(unsigned int cpu, int seconds)
--{
--	int jf_left = seconds * HZ;
--	int oldstate;
--	bool ret = true;
--	int sleep_jf = 1;
--
--	might_sleep();
--
--	/* The outgoing CPU will normally get done quite quickly. */
--	if (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) == CPU_DEAD)
--		goto update_state_early;
--	udelay(5);
--
--	/* But if the outgoing CPU dawdles, wait increasingly long times. */
--	while (atomic_read(&per_cpu(cpu_hotplug_state, cpu)) != CPU_DEAD) {
--		schedule_timeout_uninterruptible(sleep_jf);
--		jf_left -= sleep_jf;
--		if (jf_left <= 0)
--			break;
--		sleep_jf = DIV_ROUND_UP(sleep_jf * 11, 10);
--	}
--update_state_early:
--	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
--update_state:
--	if (oldstate == CPU_DEAD) {
--		/* Outgoing CPU died normally, update state. */
--		smp_mb(); /* atomic_read() before update. */
--		atomic_set(&per_cpu(cpu_hotplug_state, cpu), CPU_POST_DEAD);
--	} else {
--		/* Outgoing CPU still hasn't died, set state accordingly. */
--		if (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
--					&oldstate, CPU_BROKEN))
--			goto update_state;
--		ret = false;
--	}
--	return ret;
--}
--
--/*
-- * Called by the outgoing CPU to report its successful death.  Return
-- * false if this report follows the surviving CPU's timing out.
-- *
-- * A separate "CPU_DEAD_FROZEN" is used when the surviving CPU
-- * timed out.  This approach allows architectures to omit calls to
-- * cpu_check_up_prepare() and cpu_set_state_online() without defeating
-- * the next cpu_wait_death()'s polling loop.
-- */
--bool cpu_report_death(void)
--{
--	int oldstate;
--	int newstate;
--	int cpu = smp_processor_id();
--
--	oldstate = atomic_read(&per_cpu(cpu_hotplug_state, cpu));
--	do {
--		if (oldstate != CPU_BROKEN)
--			newstate = CPU_DEAD;
--		else
--			newstate = CPU_DEAD_FROZEN;
--	} while (!atomic_try_cmpxchg(&per_cpu(cpu_hotplug_state, cpu),
--				     &oldstate, newstate));
--	return newstate == CPU_DEAD;
--}
--
--#endif /* #ifdef CONFIG_HOTPLUG_CPU */
--#endif /* !CONFIG_HOTPLUG_CORE_SYNC */
-
-
+-	/*
+ 	 * Some architectures have to walk the irq descriptors to
+ 	 * setup the vector space for the cpu which comes online.
+ 	 *
+@@ -1587,6 +1581,12 @@ static int _cpu_up(unsigned int cpu, int
+ 			ret = PTR_ERR(idle);
+ 			goto out;
+ 		}
++
++		/*
++		 * Reset stale stack state from the last time this CPU was online.
++		 */
++		scs_task_reset(idle);
++		kasan_unpoison_task_stack(idle);
+ 	}
+ 
+ 	cpuhp_tasks_frozen = tasks_frozen;
 
 
 _______________________________________________
