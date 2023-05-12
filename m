@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF8AC77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 03:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39798C77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 05:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4S32eUFVCO458LQ4pTuoCZTFdxcDvzbvkWoHrLG2whs=; b=QfiyS9Xgyqo2J7
-	N5634KcxBQ9eyqxgL1+WPwcmartXdkYeQYI7A1CyKYroYCTo6AfUDvoM+0ph6zI7oIQkBp9iLyzWr
-	JjeF+yFbgfuaLcl5KGymKXYNVDmHE4mMdlwzVx4CwV8HtJg2ZZRC7z7n6B1IC0U2HoDXnAeVluvu+
-	ZN3AUU+A08DGOEISPHmRZ7PtUmbIJiyq9f2mbsIIg49W9W0V2ZO0SGjJiTypMdFycrwF1VdObdzCN
-	cV6scHUscm3KVlwKMCb1S//vM/LuZUFOhdC8vDcM8A+njvvw1JLhDrfhje2eYneSozqcvwBmI8sWP
-	47ZSdS1qgq86arzb5EkA==;
+	List-Owner; bh=CM58xlF7/+NZFGtLrP5pX73CJE5Y1VfS1IBSUJFzGDo=; b=EItZqNttCir+QE
+	VrTB75HdHTSrNUlrd7LMHgLXoJZKUidyZP4SulAfRlWqjtLXP+mohWxrYfsyqhzeDdeGRIHSrgNmi
+	JVxD6cRo3cVeV24bfa85EnNtzcxBMDU0bRWMbjRSdtQJARS4KHDW64VxXtgXpl+f9ko/hRztYdvv1
+	O4fxhFxFb/GAfqkJDki8c3x57qnSC+TPXWX3FtHGlfCYmt/M8vPMeOrAS66ZSoYSgu0YWJe7ck/6W
+	zv18FO80goS7BWo3n3XsNbBKNZkv1nyqoBGij6/EkCY/HPRbA0aLTD0wBRS99mh8ae97f2xMw6uUL
+	IFayVNJ1Smoa3ZustJkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxJbz-00Aq4I-1l;
-	Fri, 12 May 2023 03:38:31 +0000
+	id 1pxLGs-00AyWg-2p;
+	Fri, 12 May 2023 05:24:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxJbw-00Aq2l-2L;
-	Fri, 12 May 2023 03:38:29 +0000
+	id 1pxLGo-00AyVu-3B;
+	Fri, 12 May 2023 05:24:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9A6A964D9A;
-	Fri, 12 May 2023 03:38:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15A0DC433EF;
-	Fri, 12 May 2023 03:38:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4540063AA7;
+	Fri, 12 May 2023 05:24:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0BAC433D2;
+	Fri, 12 May 2023 05:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683862707;
-	bh=Q7pZ6HkRh3PVDzBCV74mB+fwpBcm2L4Wrr7Gj6KO6ZA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U4rplEw0qMOGxowZ1loQ7IR10mVPR+gkIHrN9H2/CYQigVdydLPavay7G++a7nk75
-	 jDhpGXpsFo8grDqyj+dAD0bRHJYnhZ3zC9JzvBPFC3B2RpUt1tYfAWrn3pIHyEvUc0
-	 m+plA03PmuYT+NcYOD6DwNQyNX3nG8GNV7/Tz7bjzisl+mJN6FAg46r36holy/6HO4
-	 6GEsQAkOKAoidlLLVYOcRtmzSHojiofTEI1BfDjbKkAJM3vujpQ7oWR4AovPMspdwk
-	 AfdZmFHnb8dcLpWYTKW3v5BTK8ry629pZRiCq4rIBS69MISbPUUJXyByuj5gGgwTNw
-	 bDNRPX9IyrHYA==
-Date: Thu, 11 May 2023 20:38:24 -0700
-From: Mike Rapoport <rppt@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Hugh Dickins <hughd@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	John David Anglin <dave.anglin@bell.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Michel Lespinasse <michel@lespinasse.org>
-Subject: Re: [PATCH 00/23] arch: allow pte_offset_map[_lock]() to fail
-Message-ID: <20230512033824.GF4135@kernel.org>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <ZFs0k2rrLPH9A/UU@casper.infradead.org>
- <d7f3c7b2-25b8-ef66-98a8-43d68f4499f@google.com>
- <ZFz1j1slZHCQmwMJ@casper.infradead.org>
+	s=k20201202; t=1683869085;
+	bh=tX7KXgnuK8lqbNh920fj8SiOGOJFJBgIs9eJVO2OaCo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Xf9JOuaYCM3EPmqhsz48M30Y+Tb9ZyOYop62KsGUdEDtoCz0F52/nnFRdjRQuiu8i
+	 3JhjWP18oVH7yU5vJXwyys0q89EX/828pwuuiyyo1g1ZltMy8bIx6u1elxGBypct0j
+	 ZyI5ZrIu3qsg/TG6RZgamtwzQfDoBAeW7bC0nWGrM63qzQe+SfTCy5Qk/foOBeniPK
+	 FkTHlJlOI1rR9xFWOVA5bBxoQMgtRMCsYgc+JCwTif2Xs5eeQGeUCq90RnpvaaTOQh
+	 cxQUu7Jp4RF9S1rtflEEXAtO9rp9XCQyqgHNRtT8S0y/o1tizAunDgRl5qCrAMeuxX
+	 fd5ge+cyFGtkw==
+From: Mark Brown <broonie@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>, 
+ Maksim Kiselev <bigunclemax@gmail.com>
+Cc: Icenowy Zheng <icenowy@aosc.io>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Maxime Ripard <mripard@kernel.org>, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org
+In-Reply-To: <20230510081121.3463710-1-bigunclemax@gmail.com>
+References: <20230510081121.3463710-1-bigunclemax@gmail.com>
+Subject: Re: (subset) [PATCH v5 0/5] Allwinner R329/D1/R528/T113s SPI
+ support
+Message-Id: <168386905416.366566.2289755397704500905.b4-ty@kernel.org>
+Date: Fri, 12 May 2023 14:24:14 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZFz1j1slZHCQmwMJ@casper.infradead.org>
+X-Mailer: b4 0.13-dev-bfdf5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_203828_865320_57A91A8A 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20230511_222447_065278_636E8D73 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +85,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thu, May 11, 2023 at 03:02:55PM +0100, Matthew Wilcox wrote:
-> On Wed, May 10, 2023 at 09:35:44PM -0700, Hugh Dickins wrote:
-> > On Wed, 10 May 2023, Matthew Wilcox wrote:
-> > 
-> > I don't really understand why you're going down a remove-CONFIG_HIGHPTE
-> > route: I thought you were motivated by the awkardness of kmap on large
-> > folios; but I don't see how removing HIGHPTE helps with that at all
-> > (unless you have a "large page tables" effort in mind, but I doubt it).
+On Wed, 10 May 2023 11:11:07 +0300, Maksim Kiselev wrote:
+> v5:
+>   - fixed DT bindings (Allowed three-string compatibility)
 > 
-> Quite right, my primary concern is filesystem metadata; primarily
-> directories as I don't think anybody has ever supported symlinks or
-> superblocks larger than 4kB.
+> v4:
+>   - fixed SPI sample mode configuration
+>   - sorted DT bindings list
 > 
-> I was thinking that removing CONFIG_HIGHPTE might simplify the page
-> fault handling path a little, but now I've looked at it some more, and
-> I'm not sure there's any simplification to be had.  It should probably
-> use kmap_local instead of kmap_atomic(), though.
- 
-Removing CONFIG_HIGHPTE will drop several lines and will allow to get rid
-of custom __pte_alloc_one on x86.
+> [...]
 
---
-Sincerely yours,
-Mike.
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/5] dt-bindings: spi: sun6i: add DT bindings for Allwinner R329/D1/R528/T113s SPI
+      commit: f603a3f083aeb9438865975c28b27be0afaae0c1
+[2/5] spi: sun6i: change OF match data to a struct
+      commit: b00c0d8932f1e7e36570edf0f000c64399e985e0
+[3/5] spi: sun6i: add quirk for in-controller clock divider
+      commit: 8e886ac838ef12f6994ed9b13ab87784c4f0bc35
+[4/5] spi: sun6i: add support for R329/D1/R528/T113s SPI controllers
+      commit: 046484cb214b43dc4463343e8c49133d9edb5454
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
