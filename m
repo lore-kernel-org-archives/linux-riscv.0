@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF196C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 13:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DFA4C77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 13:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Lr4YfohO5tVxnUKmkQjOt7/p1jxWnEEABshzLJmF24=; b=TXBnaDLMb7kDPNXgaMgS1SqhHj
-	u6AiPb/j8kEaYlbF4ljREvJHyvUmhLQfplVRWg/hIm0WISKj1sj4848NsLg7mxJ5HFe7ZAonfDWIP
-	yqMIP87f3L8USXVrCqJKFbvozNi9CXai5gOWPTlCoYzaczBiw8JsaQMKVsJHQZst40fvrz9pzf2lJ
-	KW19k8V6HM0We7LRmikICcwUylTSZvk52JQ3fj0G1RUP6wm+2go1mqrZBoP277uz0U0EgqqEtJdZI
-	8/6rfVHn0AENAVng1fnOGHiCZx/Gw0zNyT2Fw8PyrVh/UI0DHDsXwRLdiIHHzkuioj6UT9MF1SdHF
-	Sx5SRX4A==;
+	bh=gDCarOY3XF8mnQEUsumV1e9qJlKbGffpalr5BR3XlaE=; b=xTax0Vlg8FJwL2iBOT4UOG8Nf7
+	ECuRCdcuQPBNWt7uZZMf3PclgmqyICV/aRwo8KxaxyaiGmRcQ5JBRmuFYD2D/vLonO1nQDqPsMabj
+	9X4ZGgWx4IHeKSddw2tz41o/TPkars4FZ23ay0s2cirZOugAtQXARo+/HVFmTiicZERAD8kPbYNjr
+	WuD6gp6q1mrZOQ/NLn1uPPLLvDRpG9T78wDfRB949iq8cutejZ1lT8FyWcbjTp8FCYXGsIV5Bft3e
+	6sp3jSIDwm7h4C1h1/GrYIC9gKR/UuU6MlLlwT6PQ7Q/Hx0LdZ3GQR8yA0Qfx2146B1wZEvKk96nl
+	whCS2xpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxT9k-00C49l-1E;
-	Fri, 12 May 2023 13:50:00 +0000
+	id 1pxTC3-00C4RB-2b;
+	Fri, 12 May 2023 13:52:23 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxT9g-00C48x-2e
+	id 1pxTC1-00C4QF-1T
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 May 2023 13:49:59 +0000
+	Fri, 12 May 2023 13:52:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683899397; x=1715435397;
+  t=1683899541; x=1715435541;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=DuNeysYSTXy/mIZofYnY1xvzASlALFjZdE92szRAONc=;
-  b=vWP2EEnXK0qQwZQ5j8AThylijIdjtUSjomYDX23RaKrwEuXad6lEDf5U
-   1iEtmCk+eSuv0LzJw2k3HJXqBdsB0onQ4/3wiJTTpmPPMedB2AkMpXFFA
-   1i+GO3GOtROFL3uZR/rZsxE9afIYfWVyu+zSF9P1Vp9yZauwwzr4Zi1jj
-   E3Brrpzr6Ti/jh75EQ0HspWIjogmz7SRHyaC61Wo6QErXAxvUXTnoa7Rs
-   71hiQLF+pAnDdzdaBcjXuObvIJq0TxpyN0dJ8DNFY2Eppb8n1ZaP3HEvf
-   J+oWI0g89un9DQ4H+uue9poWvIb9/V04RTjAq3qsRkJJ7JwR6IkWHn9ek
-   Q==;
+  bh=WxliiXbCw/BWsrfyQfSnn4cwbh6x+dsWlLN0pMI+WF8=;
+  b=RteQgORltFJWja4AnEC/erchS4kYf8UybdEZVXCXH0dEvP1DkIct9qMe
+   Vnz21ihAOqEAleBB8hW/v3TEqIIDfvUa8inR6Db731q9xXZMHLwHkHFf5
+   yf+lDautLuAsKsEW7Qri/YOr4EgkNSbGSLPd31p7KYbXimK1VJBla8Bk6
+   EoDITqm3SZDa4PTVFjCpthvy6/IVuEItgDnDziYtYPj0AxWKRQD0ezFDs
+   rSUaAWdXh0FZHNl3UUYMxaTe0zt4KUl1HiuArwT9emvxU/6gis2S76QUV
+   st4TJ/kwrSA83c0RHjdgHeVJcWKzuRMpmPIWlJLg56AXpJFSvW9y17UuC
+   w==;
 X-IronPort-AV: E=Sophos;i="5.99,269,1677567600"; 
-   d="asc'?scan'208";a="210975138"
+   d="asc'?scan'208";a="215095542"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 May 2023 06:49:52 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 May 2023 06:52:17 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 12 May 2023 06:49:50 -0700
+ 15.1.2507.21; Fri, 12 May 2023 06:52:17 -0700
 Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 12 May 2023 06:49:48 -0700
-Date: Fri, 12 May 2023 14:49:27 +0100
+ Transport; Fri, 12 May 2023 06:52:16 -0700
+Date: Fri, 12 May 2023 14:51:56 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v4 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock
- inputs
-Message-ID: <20230512-traffic-popsicle-5c3423b37fab@wendy>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-4-xingyu.wu@starfivetech.com>
- <20230512-uproar-external-49a9e793fbc4@wendy>
- <91e4fd3c-20cb-724b-c9a8-e038600aabb7@starfivetech.com>
- <20230512-backlit-radiated-ded0b38b4a94@wendy>
- <be85aa2a-c72c-5272-ee40-f1265768e7b3@starfivetech.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann
+	<arnd@arndb.de>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH 1/4] riscv: vmlinux-xip.lds.S: remove .alternative section
+Message-ID: <20230512-lunar-overbook-e34b468dda65@wendy>
+References: <20230511141211.2418-1-jszhang@kernel.org>
+ <20230511141211.2418-2-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <be85aa2a-c72c-5272-ee40-f1265768e7b3@starfivetech.com>
+In-Reply-To: <20230511141211.2418-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_064957_053521_33F2200B 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20230512_065221_597024_C4DDE928 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +81,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7357336362263696100=="
+Content-Type: multipart/mixed; boundary="===============8373479583345185091=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7357336362263696100==
+--===============8373479583345185091==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qj/PZxe9T53Afs5A"
+	protocol="application/pgp-signature"; boundary="KkOtcrj+AD9/k7Ew"
 Content-Disposition: inline
 
---qj/PZxe9T53Afs5A
+--KkOtcrj+AD9/k7Ew
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 12, 2023 at 05:56:16PM +0800, Xingyu Wu wrote:
-> On 2023/5/12 17:35, Conor Dooley wrote:
-> > On Fri, May 12, 2023 at 04:07:47PM +0800, Xingyu Wu wrote:
-> >> On 2023/5/12 14:47, Conor Dooley wrote:
-> >> > On Fri, May 12, 2023 at 10:20:32AM +0800, Xingyu Wu wrote:
-> >> >> Add PLL clock inputs from PLL clock generator.
-> >> >>=20
-> >> >> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> >> >> ---
-> >> >>  .../clock/starfive,jh7110-syscrg.yaml         | 20 +++++++++++++++=
-++--
-> >> >>  1 file changed, 18 insertions(+), 2 deletions(-)
-> >> >=20
-> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-vis=
-ionfive-2-v1.3b.dtb: clock-controller@13020000: clocks: 'oneOf' conditional=
- failed, one must be fixed:
-> >> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
-> >> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,jh71=
-10-syscrg.yaml
-> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-vis=
-ionfive-2-v1.3b.dtb: clock-controller@13020000: clock-names: 'oneOf' condit=
-ional failed, one must be fixed:
-> >> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', '=
-i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext']=
- is too short
-> >> > 	'i2stx_bclk_ext' was expected
-> >> > 	'i2stx_lrck_ext' was expected
-> >> > 	'i2srx_bclk_ext' was expected
-> >> > 	'i2srx_lrck_ext' was expected
-> >> > 	'tdm_ext' was expected
-> >> > 	'mclk_ext' was expected
-> >> > 	'pll0_out' was expected
-> >> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,jh71=
-10-syscrg.yaml
-> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-vis=
-ionfive-2-v1.2a.dtb: clock-controller@13020000: clocks: 'oneOf' conditional=
- failed, one must be fixed:
-> >> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
-> >> > 	From schema: Documentation/devicetree/bindings/clock/starfive,jh711=
-0-syscrg.yaml
-> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-vis=
-ionfive-2-v1.2a.dtb: clock-controller@13020000: clock-names: 'oneOf' condit=
-ional failed, one must be fixed:
-> >> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', '=
-i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext']=
- is too short
-> >> > 	'i2stx_bclk_ext' was expected
-> >> > 	'i2stx_lrck_ext' was expected
-> >> > 	'i2srx_bclk_ext' was expected
-> >> > 	'i2srx_lrck_ext' was expected
-> >> > 	'tdm_ext' was expected
-> >> > 	'mclk_ext' was expected
-> >> > 	'pll0_out' was expected
-> >> > 	Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> >> >=20
-> >> > This binding change is incompatible with the existing devicetrees for
-> >> > the visionfive 2.
-> >>=20
-> >> This looks like less clocks about PLL in SYSCRG node. And I add this i=
-n patch 7.
-> >=20
-> > The existing devicetree is a valid, albeit limited, description of the
-> > hardware.
-> > After your changes to the clock driver in this series, but *without* the
-> > changes to the devicetrees, does the system still function?
-> > From a quick check of 4/7, it looks like it will not?
+On Thu, May 11, 2023 at 10:12:08PM +0800, Jisheng Zhang wrote:
+> ALTERNATIVE mechanism can't work on XIP, and this is also reflected by
+> below Kconfig dependency:
 >=20
-> I just tested it on the board and the system still worked without the cha=
-nges
-> about devicetree. But these clocks' rate were 0 because these could not g=
-et
-> the PLL clocks from devicetree.
+> RISCV_ALTERNATIVE
+> 	...
+> 	depends on !XIP_KERNEL
+> 	...
+>=20
+> So there's no .alternative section at all for XIP case, remove it.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Hmm, that sounds like an issue to me. If all of the clock rates are
-computed based off of parents that incorrectly report 0, are we not in
-for trouble?
-Should the fixed-factor clocks be retained as a fallback for the sake of
-compatibility?
-Emil, Stephen?
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---qj/PZxe9T53Afs5A
+Just to note, this series doesn't apply on top of -rc1 - what is the
+base that you used?
+
+Cheers,
+Conor.
+
+> ---
+>  arch/riscv/kernel/vmlinux-xip.lds.S | 6 ------
+>  1 file changed, 6 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmli=
+nux-xip.lds.S
+> index eab9edc3b631..50767647fbc6 100644
+> --- a/arch/riscv/kernel/vmlinux-xip.lds.S
+> +++ b/arch/riscv/kernel/vmlinux-xip.lds.S
+> @@ -98,12 +98,6 @@ SECTIONS
+>  		__soc_builtin_dtb_table_end =3D .;
+>  	}
+> =20
+> -	. =3D ALIGN(8);
+> -	.alternative : {
+> -		__alt_start =3D .;
+> -		*(.alternative)
+> -		__alt_end =3D .;
+> -	}
+>  	__init_end =3D .;
+> =20
+>  	. =3D ALIGN(16);
+> --=20
+> 2.40.1
+>=20
+
+--KkOtcrj+AD9/k7Ew
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZF5D5wAKCRB4tDGHoIJi
-0ls8AQDZMoyMjXuX37lw7BCSWsU9Gxef0TEiBYOlGG+R1S9i9gEAlqR+XYcFjG8B
-9nGwVdlLV70d09Xp6IjHrhusCQ2QSA4=
-=fsw/
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZF5EewAKCRB4tDGHoIJi
+0qKNAP9aitzYq7AlSofj+QbNcfXCXhkwYqHc/PfL9wm6T+7L/AEAxM1sVUTR6Q5X
+ZQQVS36s/TbfTTqMRH5b95PAfeWIzQo=
+=W6hv
 -----END PGP SIGNATURE-----
 
---qj/PZxe9T53Afs5A--
+--KkOtcrj+AD9/k7Ew--
 
 
---===============7357336362263696100==
+--===============8373479583345185091==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -211,5 +167,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7357336362263696100==--
+--===============8373479583345185091==--
 
