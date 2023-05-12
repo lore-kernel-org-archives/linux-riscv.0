@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79ADC77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 06:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4079DC77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 06:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qjmol/k4NwnikLVwRCEd9QKJkYKcZZo7zP3Sto6Kn84=; b=tjQD6EmZiKzj+4P7jcGnUeZ1cp
-	WxUFAaO7/hGzmRs6rj/lCGt3wQ3/3DIKGUchZ+vHuYrvkFbNMobo9oIgqG4JShZ+tZw1fHwTRh5k2
-	vLBjZy+5tdXXaalqMlDDzMCj0oyU+7QKg+tpvObnXvBxrMSDri7rOFsCBms6bksGjRyeYkGB7CzoO
-	dqANkQFhD38zunu76PkFJfOPabrA2n28my4kg5iGek4tXd+JhkKFnCeATPUJAiwNHRmlmyAc06xOT
-	wETwnhYo8v1pWOZuLXHfO7JeVS9WnsLa/f1WALU81MXbFwbZQuuaX3xgtxteYuGrSh85wvYLhm3Zn
-	VAGMUcqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oWMpZ14J//7xpAnXwdzUIAxdVaRPC+29BeRTaMuguBQ=; b=SxY8zQbUfH/VRh
+	0oUr3yuTDjmU4BO6nGbRzaGy7p8xla5I61MFg5zwy+jzvENVE5Tsn9FQeIBl86nuRp0NYvIwMXkPX
+	w26Sf9Dbz8GXmR/0m0vIgarWk8oaqQ1bXu3TrOb2VxxwQ2A1SYYxbTpxYbg4a304Nt5XW3+VespHb
+	lehD2+05Ao9VPGUQRdwAkSO3uQjpPsLYcu+ysuDAHVHUr81Yintg8ZQuQMNTljrLTEx6w5cZ0T4mm
+	ZFe5GAIMRyuzRLvzwfKTMDHJdU/K/weThCHCkhdFSS9mFdIgzur2O3FovixD3qLT4o6qdKpANu+ya
+	gCFZH512BYdECLJUqLVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxMZ7-00B7Bv-16;
-	Fri, 12 May 2023 06:47:45 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pxMbU-00B7aW-1x;
+	Fri, 12 May 2023 06:50:12 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxMZ4-00B7Aq-0q
+	id 1pxMbR-00B7Ym-2U
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 May 2023 06:47:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1683874062; x=1715410062;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8xCLpgBlCHyRbWeXw0cN2RgWjw7cDE8G0Egfc8IHxes=;
-  b=1fvWYE573FVHPl2xfYR//Nfn7TZo4X15p4PlrCF4VJVD5lPcQ2FvGbeJ
-   9jaAPjxADxuHmAYlqmlCRrxXM2BDsGeulKZbhSAyeZW3TsZZtZG5XoawO
-   opYzNSybukD60voe6RjsLHI+Cf2byguYIdVtHKqm16GwlQPyT0SN810eY
-   z36yuFIxTwdnSDYki+4ySIE68u8K3pLJ2SMrxjFmusS17YV3gCmWtwEmn
-   8od/+UkacGfi8zhecbNcd0SYIxiwJX7cBVB6wyc2ntYYUuYB6as9+MtEa
-   IW+tf0QEQapFFFAT++leE01/njH4Mqy+h9jNuFYwLnYC4pKTX4wytYphC
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.99,269,1677567600"; 
-   d="asc'?scan'208";a="213558597"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 May 2023 23:47:36 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 11 May 2023 23:47:36 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 11 May 2023 23:47:33 -0700
-Date: Fri, 12 May 2023 07:47:13 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v4 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock
- inputs
-Message-ID: <20230512-uproar-external-49a9e793fbc4@wendy>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-4-xingyu.wu@starfivetech.com>
+	Fri, 12 May 2023 06:50:11 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-96652cb7673so1019042466b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 23:50:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1683874203; x=1686466203;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=20JFakpad4Yi3m+h8m5OwraA4mcgdT8+ns7QsA/uaws=;
+        b=qxSFtT4FdVei35mkSk5ccg/ZEvSHMXvhTwLa4N5c1mkkO43MizRI4B6WpC2iUkvG+H
+         7Kfl3xJN5zAM+ijd+2oVO+eS9wV24jcgVW/Z7e22vVUhQ6kWGAkAW2TC0hJvA7GVdJ9k
+         d1xkvob71ubYiEU8MqdqFx51aDziHDFYRgQeY+nL7DkBzZ4IKFBagfCYhaVd/+oHdWVM
+         00Xn3YYwGjhzdwKO0+tC9s3O0inbUS+f0jXKUqZWw6LvkDW2iHlXhtnLEOjmYxdlGEGw
+         EdbCSPgkGNudB43+xl5nZvA8dgj0RaVAVEEVIzTmjQtQ5SATp269ouLsv97iGTDhOe4d
+         DH4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683874203; x=1686466203;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=20JFakpad4Yi3m+h8m5OwraA4mcgdT8+ns7QsA/uaws=;
+        b=QQs0FWxqsCQx8q+g50xuaFfvGdjhdybae/qsaAiWw04mX3mL3+2jmtBzTRm8LQ5Fzi
+         kRzD+9fciXmobxM1e6PdBCCQeSjR1FK8K7oC3kKRD3YJwDyXAzlUhlRvr8C95dA0BKQL
+         htZH0G/My5ENzJ2RfMxdb1dwWD01iwLkRU/qnQVp0kuMIfMlzLHMl65AKobp++bYUov6
+         BaRX6BTgdwZR0rqpeVmbbQpwQR1x+a94PZwgRg+Qn87jB2H/aXXheFOpIn8W5ztqtEjt
+         oTVOIL1l5eputVBTRF2zmLQSxeHkM9o2RRqUCkOHq6pgEzmKzP4SQX5InKVz7LAOL2aA
+         cKIQ==
+X-Gm-Message-State: AC+VfDw4DNODWZbLt1ZMEDvpL/gKs1wHxM+eJajV/L82DrlsMlLwEpIq
+	sMD+eBB4QkSgitYPh73Zri9vmA==
+X-Google-Smtp-Source: ACHHUZ5OsBthlEQL5vFhxa3LwORFmPmz1h5PHYYWrlOEZU7LcEfzOqX1e05KAA6fXxIZxw4oMXuSNQ==
+X-Received: by 2002:a17:906:4fd1:b0:959:8575:2635 with SMTP id i17-20020a1709064fd100b0095985752635mr24906838ejw.17.1683874203648;
+        Thu, 11 May 2023 23:50:03 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:7ede:fc7b:2328:3883? ([2a02:810d:15c0:828:7ede:fc7b:2328:3883])
+        by smtp.gmail.com with ESMTPSA id og51-20020a1709071df300b009662c57b4ffsm5048914ejc.96.2023.05.11.23.50.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 May 2023 23:50:03 -0700 (PDT)
+Message-ID: <b0133bcb-9c46-643a-5eda-dfdd816296fa@linaro.org>
+Date: Fri, 12 May 2023 08:50:01 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230512022036.97987-4-xingyu.wu@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 5/7] dt-bindings: soc: starfive: Add StarFive syscon
+ module
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hal Feng <hal.feng@starfivetech.com>,
+ William Qiu <william.qiu@starfivetech.com>, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-6-xingyu.wu@starfivetech.com>
+ <2fb8c88a-dab5-791b-eefe-c983decad5e8@linaro.org>
+ <20230512-brewery-spouse-86350c9664d8@wendy>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230512-brewery-spouse-86350c9664d8@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_234742_308111_2226B293 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230511_235009_812578_8838604E 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +102,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3157842846908079079=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3157842846908079079==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="flOQef4Xu+ZZp6dZ"
-Content-Disposition: inline
+On 12/05/2023 08:43, Conor Dooley wrote:
+> On Fri, May 12, 2023 at 08:35:43AM +0200, Krzysztof Kozlowski wrote:
+>> On 12/05/2023 04:20, Xingyu Wu wrote:
+>>> From: William Qiu <william.qiu@starfivetech.com>
+> 
+>>> +  "#power-domain-cells":
+>>> +    const: 1
+>>
+>> Add it to the existing examples.
+>>
+>> This part confuses me... why aon appeared here?  Why power-controller
+>> disappeared? I don't think that Rob or me proposed any of this.
+> 
+> Rob did actually suggest this, as the power-controller child node had no
+> properties other than #power-domain-cells.
 
---flOQef4Xu+ZZp6dZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+He suggested it for aon, but not for stg or sys... aon is not a child of
+sys, is it? Then why power-controller disappeared from sys?
 
-On Fri, May 12, 2023 at 10:20:32AM +0800, Xingyu Wu wrote:
-> Add PLL clock inputs from PLL clock generator.
->=20
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  .../clock/starfive,jh7110-syscrg.yaml         | 20 +++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
+Best regards,
+Krzysztof
 
-/tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.3b.dtb: clock-controller@13020000: clocks: 'oneOf' conditional failed=
-, one must be fixed:
-	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
-	From schema: /Documentation/devicetree/bindings/clock/starfive,jh7110-sysc=
-rg.yaml
-/tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.3b.dtb: clock-controller@13020000: clock-names: 'oneOf' conditional f=
-ailed, one must be fixed:
-	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', 'i2stx_l=
-rck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext'] is too=
- short
-	'i2stx_bclk_ext' was expected
-	'i2stx_lrck_ext' was expected
-	'i2srx_bclk_ext' was expected
-	'i2srx_lrck_ext' was expected
-	'tdm_ext' was expected
-	'mclk_ext' was expected
-	'pll0_out' was expected
-	From schema: /Documentation/devicetree/bindings/clock/starfive,jh7110-sysc=
-rg.yaml
-/tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.2a.dtb: clock-controller@13020000: clocks: 'oneOf' conditional failed=
-, one must be fixed:
-	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
-	From schema: Documentation/devicetree/bindings/clock/starfive,jh7110-syscr=
-g.yaml
-/tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive=
--2-v1.2a.dtb: clock-controller@13020000: clock-names: 'oneOf' conditional f=
-ailed, one must be fixed:
-	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', 'i2stx_l=
-rck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext'] is too=
- short
-	'i2stx_bclk_ext' was expected
-	'i2stx_lrck_ext' was expected
-	'i2srx_bclk_ext' was expected
-	'i2srx_lrck_ext' was expected
-	'tdm_ext' was expected
-	'mclk_ext' was expected
-	'pll0_out' was expected
-	Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-
-This binding change is incompatible with the existing devicetrees for
-the visionfive 2.
-
---flOQef4Xu+ZZp6dZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZF3g8QAKCRB4tDGHoIJi
-0gVTAP4ywjId2CiomCDX0yZX5w9nULUiXIqcBDWgQBBXFqkvyQD/WHWtGF5tiLCz
-7eU2v5Dumdw3jJo+4zXQPGPu7O5ZFQs=
-=7jKj
------END PGP SIGNATURE-----
-
---flOQef4Xu+ZZp6dZ--
-
-
---===============3157842846908079079==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3157842846908079079==--
-
