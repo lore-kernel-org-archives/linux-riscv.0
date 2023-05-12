@@ -4,55 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C3BAC7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 08:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D0CC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 08:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JLjJf5Q0OMMRatmNYStuAcOYwILTD/qhouXfbAUWX7U=; b=exogoAUXLzCs5P
-	h1DxyKx7uukVd7KgAsAE6cjI5+tmlyTQK2e1WyiI30K4TLyN3fk/UOvathxQXeyQPu6HTvDUP3FIT
-	5eiESCJWl3JZiJfU70BScIEJZK/zmu3tQkxEDnc7hJOEQnQIOw0a66Y1m92Tx1dIOXLxzu7bxAg3Q
-	xkFbyjBR+qf1zs08+QVVl3yoih0OsklqmQu90dxHQA160a3jBNvXT9JILntfJ+9Emsn+Pa53M4Q4E
-	cZxu9v/K2Plj85OaUky2ghUPVG7HdYwg58iQCBqPN7a02jsnMlihUQZ3vVZ2k5jlYWjTFGePMPYoU
-	zbJmyjlrdzcFcoGBpsew==;
+	List-Owner; bh=Fx5PcLeC0+h+RRa9833afpv2TQNwIZgF9dHKuZGndAM=; b=bmCvudb2iogJ7m
+	lzcE6RiXEqqssZQO5HcCUXPgsDzX/JkB4bxXc+ix5E8HYFJTg01Vb9Ia5ZalOGEupyFbmGAMmvfvk
+	wHkxdZzcI+aTz3JbZhfcQSAl9oOV+kV2seuls9MkThQjVTbcyaeBQTdaJ8oeAi2pK5yL7u56gJHqD
+	srVkMIw2842aOGHU4+yJuMXWTOg9i9G4o2aaSRLlykk2kg9qK7WiYMwMBGhyIYdU5hsZxDZMFmSyS
+	nFXBnTS3uJv31qw5xhNer0K7tnBJGPthSqVLhHrA3HRV48IXndB5MYWWnkIsFZruLJ2rN57xh30Z/
+	QDIfRjlUX6WKFAdwumIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxOZv-00BOSk-0w;
-	Fri, 12 May 2023 08:56:43 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1pxOaD-00BOZu-0X;
+	Fri, 12 May 2023 08:57:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxOZr-00BOQI-13;
-	Fri, 12 May 2023 08:56:40 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 5F562FF811;
-	Fri, 12 May 2023 08:56:24 +0000 (UTC)
-Message-ID: <1e30aaca-b4a8-4269-c368-d1f6e0ffff54@ghiti.fr>
-Date: Fri, 12 May 2023 10:56:23 +0200
+	id 1pxOaA-00BOXB-03
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 May 2023 08:56:59 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-3f315712406so313171515e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 12 May 2023 01:56:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683881816; x=1686473816;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hbhrF1vaRRoJzYyea1JBFcTA2VAH3WkbBcvliTXkyWM=;
+        b=acVr4rEpZzh5BDTE3sCn1nL2V53Rd6FEEhr9YcXuVFfaaqCmyAiwlO95PasYfT0SGj
+         kGR1ZV2BHmTa2qKvGMrDop8XWV7YinIqdDnGqQQT74v6MaiI5j7pik4jo+/fqg21x6f0
+         YOS1AvpcZbF6yUuI/szDxFNTKKScZXq+a/zfEYSFViTnUDJdJ1o3AV440ACM5WinqbA8
+         N/jROH4LvspGZDwgbqPZoypXDcNLEuNf+RYM0lESX4aGNXX0YNItu2rVcEGI8MUL3qDh
+         lexX4ho58ebwc2SbO9qrSxysj8oD6C6z3V6mt7Uq7e5Oo7aQxDVJW6zfRgi0o8Kp+MwO
+         2M9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683881816; x=1686473816;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hbhrF1vaRRoJzYyea1JBFcTA2VAH3WkbBcvliTXkyWM=;
+        b=PgWhiVU8uEsBFxZ+TRrYDnrr1i96k+70++F5v5MgiPrSOyE4SnQ9Q7YgwHLbbkaN8k
+         D5TzIZmUalKCcNqSi/QYmKlDiH4TNi5uIbfox1bbAMLJdQCTmq/+DQkGMyZIRWNA/nmI
+         UWsBVSLAAhSc1C66+IBBNwqXM1pvNVtoEmCkHzUksM9Ipw1G4JGoJAhHn5I+f2mmSQ4e
+         tGcyvEIeoSS5ZCNq/lL0kAi78gqxzLbZ2akQf9DUyU4HVwkXzcVUIMQl6uMdMfyHHL/s
+         0l50GV2vcMBpiINlEh9zJK2uv3Ga+UNcmkcO/pBuzzv1NyCNCZbWAbPKlxJF//KR4vgd
+         PCPg==
+X-Gm-Message-State: AC+VfDzqtxxy7JlPhd5Y3sfucEaLfwxggvxicnda5vssqKEEGNXjEkcz
+	NaYd77moMk8Nd/UwDlP8Lrapyw==
+X-Google-Smtp-Source: ACHHUZ5iEPG/+h+duX0vfpwWwpJ/AAziiXGkzegiSPOBvbbch/qAjATyDjuRLujdEH9ME1cg+vOqzw==
+X-Received: by 2002:a05:600c:4f45:b0:3f4:2bcf:e19 with SMTP id m5-20020a05600c4f4500b003f42bcf0e19mr8250663wmq.8.1683881816508;
+        Fri, 12 May 2023 01:56:56 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id s7-20020a1cf207000000b003e91b9a92c9sm27963429wmc.24.2023.05.12.01.56.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 May 2023 01:56:56 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2 03/10] riscv: Make legacy counter enum match the HW numbering
+Date: Fri, 12 May 2023 10:53:14 +0200
+Message-Id: <20230512085321.13259-4-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230512085321.13259-1-alexghiti@rivosinc.com>
+References: <20230512085321.13259-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH 04/12] riscv: mm: init: Pass a pointer to virt_to_page()
-To: Linus Walleij <linus.walleij@linaro.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Vineet Gupta <vgupta@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
- Greg Ungerer <gerg@linux-m68k.org>
-Cc: linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-snps-arc@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-cifs@vger.kernel.org, samba-technical@lists.samba.org,
- linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <20230503-virt-to-pfn-v6-4-rc1-v1-0-6c4698dcf9c8@linaro.org>
- <20230503-virt-to-pfn-v6-4-rc1-v1-4-6c4698dcf9c8@linaro.org>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230503-virt-to-pfn-v6-4-rc1-v1-4-6c4698dcf9c8@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_015639_495095_D642E3FA 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20230512_015658_052245_EE53317A 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,59 +107,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+cc linux-riscv
+RISCV_PMU_LEGACY_INSTRET used to be set to 1 whereas the offset of this
+hardware counter from CSR_CYCLE is actually 2: make this offset match the
+real hw offset so that we can directly expose those values to userspace.
 
-On 5/11/23 13:59, Linus Walleij wrote:
-> Functions that work on a pointer to virtual memory such as
-> virt_to_pfn() and users of that function such as
-> virt_to_page() are supposed to pass a pointer to virtual
-> memory, ideally a (void *) or other pointer. However since
-> many architectures implement virt_to_pfn() as a macro,
-> this function becomes polymorphic and accepts both a
-> (unsigned long) and a (void *).
->
-> Fix this in the RISCV mm init code, so we can implement
-> a strongly typed virt_to_pfn().
->
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
->   arch/riscv/mm/init.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 747e5b1ef02d..2f7a7c345a6a 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -356,7 +356,7 @@ static phys_addr_t __init alloc_pte_late(uintptr_t va)
->   	unsigned long vaddr;
->   
->   	vaddr = __get_free_page(GFP_KERNEL);
-> -	BUG_ON(!vaddr || !pgtable_pte_page_ctor(virt_to_page(vaddr)));
-> +	BUG_ON(!vaddr || !pgtable_pte_page_ctor(virt_to_page((void *)vaddr)));
->   
->   	return __pa(vaddr);
->   }
-> @@ -439,7 +439,7 @@ static phys_addr_t __init alloc_pmd_late(uintptr_t va)
->   	unsigned long vaddr;
->   
->   	vaddr = __get_free_page(GFP_KERNEL);
-> -	BUG_ON(!vaddr || !pgtable_pmd_page_ctor(virt_to_page(vaddr)));
-> +	BUG_ON(!vaddr || !pgtable_pmd_page_ctor(virt_to_page((void *)vaddr)));
->   
->   	return __pa(vaddr);
->   }
->
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_legacy.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index ca9e20bfc7ac..0d8c9d8849ee 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -12,8 +12,11 @@
+ #include <linux/perf/riscv_pmu.h>
+ #include <linux/platform_device.h>
+ 
+-#define RISCV_PMU_LEGACY_CYCLE		0
+-#define RISCV_PMU_LEGACY_INSTRET	1
++enum {
++	RISCV_PMU_LEGACY_CYCLE,
++	RISCV_PMU_LEGACY_TIME,
++	RISCV_PMU_LEGACY_INSTRET
++};
+ 
+ static bool pmu_init_done;
+ 
+-- 
+2.37.2
 
 
 _______________________________________________
