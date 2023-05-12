@@ -4,60 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8BBC7EE25
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBEAC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=n4qdgQ8EegTDQs14LjEA7OWX894PTvtKM8C8a7uAs4Y=; b=ujt1rO1aTUxic9
-	nuAKWMcrIPzSXBeOmHTOIvu2V4lQySe5GlrqAe3bRrRAtqkWazxzUUuO8j/7psn9TCxzoq7CJ06gV
-	rCyBPVjaaCHLgmap7CUSsxzWFR0MBXEpm1xmCIfeRyQuoewhOOAu1qub0s4dfe3p9S9vcf77dnUgb
-	PY1zyBR3ncNWTu7BM4x1/lrPrSKi6jMapc8dIOuAvsfyGAAkxnXMlwb9ZkV8tZLBwGvLSY+GBzO7a
-	0+xra4exS+/CXT6C4bsh1TZ9UEMkBSWV6DZVeFUOxw7GDwBgHIV9M7mD1D280PEZEq1nRWLy+UzlD
-	QOCVYZqPzsZw6zavuwww==;
+	List-Owner; bh=RRAB0Uk3kXA9aoFlb6IbQtAK3Zqxnq/+NC3KHRCL2lE=; b=l1z+VuSS0ud/Ty
+	sD3K77ixSJn5N00USEbr58kvOw17BiLspX47rmFYj3ww+1ClU4UI7S3tLLDuDUqBtGvkNNw5I5iG7
+	b5oSJZTKA2tCDGoGIPvUAE7TYniOJO8MP1/pT/VH68so60P2+FDbUmfMvbARoyb2pRtGmeptZTN6P
+	vpQMkNvDfWBTIJKjzIeWOe5KLkcfOBjzyyyWMh0hQEoPLRsyAWguSUgV61iiEnHuCT/WGCCnVsCyk
+	Ful7mWz8iki6tkcrQiwWAvVodHyFhSexli0id4L6GCr1/vZNQ78bXEkldeVQpy299AezrkKsH/t2G
+	7O0tX4byz7OXLlGah2ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxa2L-00D1vd-1F;
-	Fri, 12 May 2023 21:10:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pxa2N-00D1yg-2y;
+	Fri, 12 May 2023 21:10:51 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzb-00CzEm-2F;
-	Fri, 12 May 2023 21:07:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=IP4bdlmLdqVc3LCZrNxGXTkJh6c/m5h1IVAGFT7rdmU=; b=MEJ7aAwwVqEpNJd4bn5q8xXj1D
-	L+CtUjYBk+Y8NmZjn8FQLkHt02xCfkF5XPcGUQQTfGYqNFzrT3x2r/OQcmad9Pe+yykmrDmBvUbWl
-	XW2CCPoRGckSnCS3rAL64XFq2KpE2C8/djgkvb5LoI3Vh3hYJJJZ5buKWbUlmw2tlXDDcrYIX7YYf
-	BqAnsOvYcKTvl+KcR2SkpcB/3dYhiNsVzSjg3NDrR6mUn9Zd/PmUtNQEBHamUkUUx+XJr8t9qIAmM
-	dldNr7cmN1UcKkF6CL+4MPVKYil0S1Dmutxud0xRtfwXKJLs91kJ93I++Cckj3S07aO0Mj6JZyUO2
-	UfaiSWQw==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzX-009JBO-0C;
-	Fri, 12 May 2023 21:07:57 +0000
-Message-ID: <20230512205257.355425551@linutronix.de>
+	id 1pxZzU-00Cz70-1Q;
+	Fri, 12 May 2023 21:07:58 +0000
+Message-ID: <20230512205257.240231377@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925674;
+	s=2020; t=1683925670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IP4bdlmLdqVc3LCZrNxGXTkJh6c/m5h1IVAGFT7rdmU=;
-	b=r7gtP8cd7Oi46e4lE/ByHI+khRt47Q1tdhvFutLNb1nZ0EzY0luf/WbDQ0k8nKgYTLl4fZ
-	6jVUGYKF/8lveenjXvvre5ndfySMPCdjlJpKvZns1rWXPEqcXr6eVN8NK8cZAbmnCQ6yQp
-	Yx3aUoQDw2kxMWvLVB4RoPcVQxwMr1TEQt/JyflnlrUKkC5yB1WXFRYeLO2qGcavmQy/xb
-	TWM6HpGmz8K6kbaRe7K69Mm4B+cOxkraoO55h4/F16N4d4HFqv7paqDclFhhm777QOq+fn
-	+XmNnPyatRLfjMogFbBl6Kr8xcpvcs8sEUSklzYMFqy5aqxV2atkp8bBibVO7g==
+	 references:references; bh=m81D3nDf/Ldd8DuVFoioZX0PA8SIeNGwH2057r8GMno=;
+	b=iJ35cdx8v18J/0cGFI4o1VXLLZdnkIko4bXOUYVtvqwDsNw74CR+LpFGs9LIoAVC3T7hi7
+	dc0tRrWiWO4wC06n9RMswwP7pAMJGoUKbYcFT9fTUsgOratlkRnK2eSykPzemcWf0o70Ab
+	DLVqxum0H5uEbU++/si9skYnkkYHRuLNRO4KEWLLGv/1LPbeUUCGkeVAUAWFNK6MRxw3ob
+	p7jOuISbm6d1FYoaYVTrCQEtfSIvBbooWH7sIcvGmX+w76wRfVGgB55G9TZ6bM4r6Wt1KC
+	sl80JEZsfrX0W0gRscaY3daheGYoOvayd+Q6CrCXuJzjI+EvpIoiXlHAST5WsA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925674;
+	s=2020e; t=1683925670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=IP4bdlmLdqVc3LCZrNxGXTkJh6c/m5h1IVAGFT7rdmU=;
-	b=jvsTBFPAx2r/a9Hm2XoIkmPwImha2AedATS4Qf2wMfcTkLbpvnlZqm6V6xCv2m4a7aeYFX
-	WwQng/2elbC/s/DA==
+	 references:references; bh=m81D3nDf/Ldd8DuVFoioZX0PA8SIeNGwH2057r8GMno=;
+	b=ir949Ub28BoYQ8jmxON50pUJUyvSlsxOkeqN/nPFkQYD7n1qCJwGDVvYILtG2SfKKh3fqI
+	A90aQ1nFBaivBfAg==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -97,14 +83,14 @@ Cc: x86@kernel.org,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>,
  David Woodhouse <dwmw@amazon.co.uk>
-Subject: [patch V4 35/37] x86/smpboot: Implement a bit spinlock to protect the
- realmode stack
+Subject: [patch V4 33/37] cpu/hotplug: Allow "parallel" bringup up to
+ CPUHP_BP_KICK_AP_STATE
 References: <20230512203426.452963764@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:53 +0200 (CEST)
+Date: Fri, 12 May 2023 23:07:50 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_220756_016533_D6F6BD76 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20230512_140752_822564_F210C165 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,144 +109,204 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Parallel AP bringup requires that the APs can run fully parallel through
-the early startup code including the real mode trampoline.
+There is often significant latency in the early stages of CPU bringup, and
+time is wasted by waking each CPU (e.g. with SIPI/INIT/INIT on x86) and
+then waiting for it to respond before moving on to the next.
 
-To prepare for this implement a bit-spinlock to serialize access to the
-real mode stack so that parallel upcoming APs are not going to corrupt each
-others stack while going through the real mode startup code.
+Allow a platform to enable parallel setup which brings all to be onlined
+CPUs up to the CPUHP_BP_KICK_AP state. While this state advancement on the
+control CPU (BP) is single-threaded the important part is the last state
+CPUHP_BP_KICK_AP which wakes the to be onlined CPUs up.
+
+This allows the CPUs to run up to the first sychronization point
+cpuhp_ap_sync_alive() where they wait for the control CPU to release them
+one by one for the full onlining procedure.
+
+This parallelism depends on the CPU hotplug core sync mechanism which
+ensures that the parallel brought up CPUs wait for release before touching
+any state which would make the CPU visible to anything outside the hotplug
+control mechanism.
+
+To handle the SMT constraints of X86 correctly the bringup happens in two
+iterations when CONFIG_HOTPLUG_SMT is enabled. The control CPU brings up
+the primary SMT threads of each core first, which can load the microcode
+without the need to rendevouz with the thread siblings. Once that's
+completed it brings up the secondary SMT threads.
 
 Co-developed-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 ---
-V4: Simplify the lock implementation - Peter Z.
----
- arch/x86/include/asm/realmode.h      |    3 +++
- arch/x86/kernel/head_64.S            |   12 ++++++++++++
- arch/x86/realmode/init.c             |    3 +++
- arch/x86/realmode/rm/trampoline_64.S |   23 ++++++++++++++++++-----
- 4 files changed, 36 insertions(+), 5 deletions(-)
---- a/arch/x86/include/asm/realmode.h
-+++ b/arch/x86/include/asm/realmode.h
-@@ -52,6 +52,7 @@ struct trampoline_header {
- 	u64 efer;
- 	u32 cr4;
- 	u32 flags;
-+	u32 lock;
+ Documentation/admin-guide/kernel-parameters.txt |    6 +
+ arch/Kconfig                                    |    4 
+ include/linux/cpuhotplug.h                      |    1 
+ kernel/cpu.c                                    |  103 ++++++++++++++++++++++--
+ 4 files changed, 109 insertions(+), 5 deletions(-)
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -838,6 +838,12 @@
+ 			on every CPU online, such as boot, and resume from suspend.
+ 			Default: 10000
+ 
++	cpuhp.parallel=
++			[SMP] Enable/disable parallel bringup of secondary CPUs
++			Format: <bool>
++			Default is enabled if CONFIG_HOTPLUG_PARALLEL=y. Otherwise
++			the parameter has no effect.
++
+ 	crash_kexec_post_notifiers
+ 			Run kdump after running panic-notifiers and dumping
+ 			kmsg. This only for the users who doubt kdump always
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -53,6 +53,10 @@ config HOTPLUG_SPLIT_STARTUP
+ 	bool
+ 	select HOTPLUG_CORE_SYNC_FULL
+ 
++config HOTPLUG_PARALLEL
++	bool
++	select HOTPLUG_SPLIT_STARTUP
++
+ config GENERIC_ENTRY
+ 	bool
+ 
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -524,6 +524,7 @@ void cpuhp_ap_sync_alive(void);
+ void arch_cpuhp_sync_state_poll(void);
+ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
+ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
++bool arch_cpuhp_init_parallel_bringup(void);
+ 
+ #ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
+ void cpuhp_ap_report_dead(void);
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -649,8 +649,23 @@ bool cpu_smt_possible(void)
+ 		cpu_smt_control != CPU_SMT_NOT_SUPPORTED;
+ }
+ EXPORT_SYMBOL_GPL(cpu_smt_possible);
++
++static inline bool cpuhp_smt_aware(void)
++{
++	return topology_smt_supported();
++}
++
++static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
++{
++	return cpu_primary_thread_mask;
++}
+ #else
+ static inline bool cpu_smt_allowed(unsigned int cpu) { return true; }
++static inline bool cpuhp_smt_aware(void) { return false; }
++static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
++{
++	return cpu_present_mask;
++}
  #endif
- };
  
-@@ -64,6 +65,8 @@ extern unsigned long initial_stack;
- extern unsigned long initial_vc_handler;
- #endif
+ static inline enum cpuhp_state
+@@ -1747,16 +1762,94 @@ int bringup_hibernate_cpu(unsigned int s
+ 	return 0;
+ }
  
-+extern u32 *trampoline_lock;
+-void __init bringup_nonboot_cpus(unsigned int setup_max_cpus)
++static void __init cpuhp_bringup_mask(const struct cpumask *mask, unsigned int ncpus,
++				      enum cpuhp_state target)
+ {
+ 	unsigned int cpu;
+ 
+-	for_each_present_cpu(cpu) {
+-		if (num_online_cpus() >= setup_max_cpus)
++	for_each_cpu(cpu, mask) {
++		struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
 +
- extern unsigned char real_mode_blob[];
- extern unsigned char real_mode_relocs[];
- 
---- a/arch/x86/kernel/head_64.S
-+++ b/arch/x86/kernel/head_64.S
-@@ -252,6 +252,16 @@ SYM_INNER_LABEL(secondary_startup_64_no_
- 	movq	TASK_threadsp(%rax), %rsp
- 
- 	/*
-+	 * Now that this CPU is running on its own stack, drop the realmode
-+	 * protection. For the boot CPU the pointer is NULL!
-+	 */
-+	movq	trampoline_lock(%rip), %rax
-+	testq	%rax, %rax
-+	jz	.Lsetup_gdt
-+	movl	$0, (%rax)
++		if (!--ncpus)
+ 			break;
+-		if (!cpu_online(cpu))
+-			cpu_up(cpu, CPUHP_ONLINE);
 +
-+.Lsetup_gdt:
-+	/*
- 	 * We must switch to a new descriptor in kernel space for the GDT
- 	 * because soon the kernel won't have access anymore to the userspace
- 	 * addresses where we're currently running on. We have to do that here
-@@ -433,6 +443,8 @@ SYM_DATA(initial_code,	.quad x86_64_star
- #ifdef CONFIG_AMD_MEM_ENCRYPT
- SYM_DATA(initial_vc_handler,	.quad handle_vc_boot_ghcb)
- #endif
++		if (cpu_up(cpu, target) && can_rollback_cpu(st)) {
++			/*
++			 * If this failed then cpu_up() might have only
++			 * rolled back to CPUHP_BP_KICK_AP for the final
++			 * online. Clean it up. NOOP if already rolled back.
++			 */
++			WARN_ON(cpuhp_invoke_callback_range(false, cpu, st, CPUHP_OFFLINE));
++		}
++	}
++}
 +
-+SYM_DATA(trampoline_lock, .quad 0);
- 	__FINITDATA
- 
- 	__INIT
---- a/arch/x86/realmode/init.c
-+++ b/arch/x86/realmode/init.c
-@@ -154,6 +154,9 @@ static void __init setup_real_mode(void)
- 
- 	trampoline_header->flags = 0;
- 
-+	trampoline_lock = &trampoline_header->lock;
-+	*trampoline_lock = 0;
++#ifdef CONFIG_HOTPLUG_PARALLEL
++static bool __cpuhp_parallel_bringup __ro_after_init = true;
 +
- 	trampoline_pgd = (u64 *) __va(real_mode_header->trampoline_pgd);
- 
- 	/* Map the real mode stub as virtual == physical */
---- a/arch/x86/realmode/rm/trampoline_64.S
-+++ b/arch/x86/realmode/rm/trampoline_64.S
-@@ -37,6 +37,20 @@
- 	.text
- 	.code16
- 
-+.macro LOAD_REALMODE_ESP
-+	/*
-+	 * Make sure only one CPU fiddles with the realmode stack
-+	*/
-+.Llock_rm\@:
-+        lock btsl       $0, tr_lock
-+        jnc             2f
-+        pause
-+        jmp             .Llock_rm\@
-+2:
-+	# Setup stack
-+	movl	$rm_stack_end, %esp
-+.endm
++static int __init parallel_bringup_parse_param(char *arg)
++{
++	return kstrtobool(arg, &__cpuhp_parallel_bringup);
++}
++early_param("cpuhp.parallel", parallel_bringup_parse_param);
 +
- 	.balign	PAGE_SIZE
- SYM_CODE_START(trampoline_start)
- 	cli			# We should be safe anyway
-@@ -49,8 +63,7 @@ SYM_CODE_START(trampoline_start)
- 	mov	%ax, %es
- 	mov	%ax, %ss
++/*
++ * On architectures which have enabled parallel bringup this invokes all BP
++ * prepare states for each of the to be onlined APs first. The last state
++ * sends the startup IPI to the APs. The APs proceed through the low level
++ * bringup code in parallel and then wait for the control CPU to release
++ * them one by one for the final onlining procedure.
++ *
++ * This avoids waiting for each AP to respond to the startup IPI in
++ * CPUHP_BRINGUP_CPU.
++ */
++static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
++{
++	const struct cpumask *mask = cpu_present_mask;
++
++	if (__cpuhp_parallel_bringup)
++		__cpuhp_parallel_bringup = arch_cpuhp_init_parallel_bringup();
++	if (!__cpuhp_parallel_bringup)
++		return false;
++
++	if (cpuhp_smt_aware()) {
++		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
++		static struct cpumask tmp_mask __initdata;
++
++		/*
++		 * X86 requires to prevent that SMT siblings stopped while
++		 * the primary thread does a microcode update for various
++		 * reasons. Bring the primary threads up first.
++		 */
++		cpumask_and(&tmp_mask, mask, pmask);
++		cpuhp_bringup_mask(&tmp_mask, ncpus, CPUHP_BP_KICK_AP);
++		cpuhp_bringup_mask(&tmp_mask, ncpus, CPUHP_ONLINE);
++		/* Account for the online CPUs */
++		ncpus -= num_online_cpus();
++		if (!ncpus)
++			return true;
++		/* Create the mask for secondary CPUs */
++		cpumask_andnot(&tmp_mask, mask, pmask);
++		mask = &tmp_mask;
+ 	}
++
++	/* Bring the not-yet started CPUs up */
++	cpuhp_bringup_mask(mask, ncpus, CPUHP_BP_KICK_AP);
++	cpuhp_bringup_mask(mask, ncpus, CPUHP_ONLINE);
++	return true;
++}
++#else
++static inline bool cpuhp_bringup_cpus_parallel(unsigned int ncpus) { return false; }
++#endif /* CONFIG_HOTPLUG_PARALLEL */
++
++void __init bringup_nonboot_cpus(unsigned int setup_max_cpus)
++{
++	/* Try parallel bringup optimization if enabled */
++	if (cpuhp_bringup_cpus_parallel(setup_max_cpus))
++		return;
++
++	/* Full per CPU serialized bringup */
++	cpuhp_bringup_mask(cpu_present_mask, setup_max_cpus, CPUHP_ONLINE);
+ }
  
--	# Setup stack
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 
- 	call	verify_cpu		# Verify the cpu supports long mode
- 	testl   %eax, %eax		# Check for return code
-@@ -93,8 +106,7 @@ SYM_CODE_START(sev_es_trampoline_start)
- 	mov	%ax, %es
- 	mov	%ax, %ss
- 
--	# Setup stack
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 
- 	jmp	.Lswitch_to_protected
- SYM_CODE_END(sev_es_trampoline_start)
-@@ -177,7 +189,7 @@ SYM_CODE_START(pa_trampoline_compat)
- 	 * In compatibility mode.  Prep ESP and DX for startup_32, then disable
- 	 * paging and complete the switch to legacy 32-bit mode.
- 	 */
--	movl	$rm_stack_end, %esp
-+	LOAD_REALMODE_ESP
- 	movw	$__KERNEL_DS, %dx
- 
- 	movl	$(CR0_STATE & ~X86_CR0_PG), %eax
-@@ -241,6 +253,7 @@ SYM_DATA_START(trampoline_header)
- 	SYM_DATA(tr_efer,		.space 8)
- 	SYM_DATA(tr_cr4,		.space 4)
- 	SYM_DATA(tr_flags,		.space 4)
-+	SYM_DATA(tr_lock,		.space 4)
- SYM_DATA_END(trampoline_header)
- 
- #include "trampoline_common.S"
+ #ifdef CONFIG_PM_SLEEP_SMP
 
 
 _______________________________________________
