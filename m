@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDB5C7EE25
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8DFC7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=r84aORxPY+N327OvSoC/crRZiuqn4SBm1/F7p9dhccU=; b=F8oCtpJd9dhazO
-	+4xJ1WnP8oLEwv05wr+FyIZE6erIS/ATj+bDdL46nrBGVlK5GSDy3evcJ/1MngTZZqPcXiKkFCDWl
-	mQhN4ZjTV6oiOonvjSjlDOHDSEqIA+6oTFpcsLm8Krvh5uf5joLWaKjozEIeBpONRCTh2LOdw0vXn
-	GUIZt+oj+WdsO67A8xn+LcHi4UVtnCH0AxQXapVzl2Jp08q+ZAH8o6wiDrGpJQ0umUMj8NE8fWFoy
-	seGyIxMnpHeWGSmMpGHYAubUPPcaeOIUAnc3xwSqvsfraHhvTPcCEJKPzD+D4Gbou5VIJHCE4kQae
-	Sp8LOHPEnFkyuBHF4XXg==;
+	List-Owner; bh=zao4sZH7nrK3t1M5N6FkC9pYwPUh3QB5ogQJTYiVFv0=; b=AGJ4+pwi+lEcFV
+	+JFybdr/iLeJFjlddL0Wpwd7kuqVdyETPiBGD+nFY9pjds0MfE8Wa1kqH1kcUQFsNlon3B71RlETi
+	BZpMPR3YluxzvSiL0mZKguNQXh9p2S5huDLs9o998R1XVwAURU7QG8R1UMYGRQgd9BQwdyQub4H6K
+	fqvj5luLvknxBfWfkvWKQIth+YWD0/mnuLm2EKz7+qLpGp/p0ejIVz0jkJMG1oKWku/vV2Can0bj6
+	UPeMMWONXYIa6T/0xRFFv1wpLw4/Pjl1Uu0kIBCmLkQzi5emn1ktLFKrtA3Yv+6FQLVFL7fhRnKpu
+	eOELAttqbeOhg3yTZJRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZze-00CzI5-0M;
-	Fri, 12 May 2023 21:08:02 +0000
+	id 1pxZzh-00CzM5-35;
+	Fri, 12 May 2023 21:08:06 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZyt-00CyVC-0q;
+	id 1pxZyr-00CyT1-1T;
 	Fri, 12 May 2023 21:07:19 +0000
-Message-ID: <20230512205255.981999763@linutronix.de>
+Message-ID: <20230512205255.768845190@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925633;
+	s=2020; t=1683925627;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=q33LoArtTxRD/Ru/7HNy8KNvjUqDiwm6+syFdpZ/kWw=;
-	b=298zc4LQSXT6SexxbOrNR+pxdBUapgKN2FhLEK6OUjzceaZSFfF3gQZ/P02XnQJKV7onMX
-	G82tp6FGlvEJCHk/fYGghxxqy0XquQ6dVAokNULe1uFj1f2YvF9kZo12v5AuT4x9dpb6LM
-	MIV+WOcXU9u/9w2UWdlkf7j62NoVP8gL3gHpZTNYTPR4F3tjV1vXnCvr9cNhZILyGgQ3o6
-	luGpxQQIC7NP6ZTlVMhe86GpRZLF8muTdGi2x+adhcL/y1D6yQ/W8J/tsp4QGhjHHs1Kbg
-	sDQlO7c/Pp6NHwxuRk82HeXQRbgkvp6C+hpt8zSSXeTW3e5BQ1ba3sKB1TDAhg==
+	 references:references; bh=Vdgu0US5isMOkXvsbtEKbpQbMn5jiJ+2zBLMqmM0YL8=;
+	b=rHjvfgvb2+9T3PZ89upCVf/htUJYRgaiE4wYsm0JoNYDceADItU6dQkHNUxMVT0mAKxQCQ
+	g1/OIsowQWZ6Bng8y3rPxKD6j9JG6nO9AqcKXUIfNqadj2wqAP10ZTZqf/wQ8bZuweIxU8
+	FbGJYBtbB0RLpj8XodKxfM0T9yYAZ8rC5lIdf6QnDplFrmHRxCno1cLmIswNLEF/jQuqCF
+	ufPsxRi6VSkjYg9pqBKmigegl+aCRSB9QunUmA1+oo3u2YiKlvmXRZ/YpzUK4x67YwhumP
+	TeVJDM0kZMKjpua2HnPGv2PoAp8D/THStbkBRKgjlP6r9216eUdapX+gssKumg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925633;
+	s=2020e; t=1683925627;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=q33LoArtTxRD/Ru/7HNy8KNvjUqDiwm6+syFdpZ/kWw=;
-	b=o/qZFH2k47iHoIluy2YsRj5WdNcKSir3sAheA0GheiTuEAqo2lMSo8uRRCc3N6NV3aBHkN
-	EzHISfCLZ+rbXGCg==
+	 references:references; bh=Vdgu0US5isMOkXvsbtEKbpQbMn5jiJ+2zBLMqmM0YL8=;
+	b=Nt8LRINmVeDr769RErpnLaIeXfPELF9qhbpYFR7qzL7qqBvkabcnCfZ6XufKRvpBRaDcqh
+	7k1uPZJfBkBIsNBA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -82,13 +82,13 @@ Cc: x86@kernel.org,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 10/37] x86/smpboot: Get rid of cpu_init_secondary()
+Subject: [patch V4 06/37] x86/smpboot: Remove the CPU0 hotplug kludge
 References: <20230512203426.452963764@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:12 +0200 (CEST)
+Date: Fri, 12 May 2023 23:07:06 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140715_612591_34D9D1D7 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20230512_140713_820248_76C18CA9 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,124 +107,363 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-The synchronization of the AP with the control CPU is a SMP boot problem
-and has nothing to do with cpu_init().
+This was introduced with commit e1c467e69040 ("x86, hotplug: Wake up CPU0
+via NMI instead of INIT, SIPI, SIPI") to eventually support physical
+hotplug of CPU0:
 
-Open code cpu_init_secondary() in start_secondary() and move
-wait_for_master_cpu() into the SMP boot code.
+ "We'll change this code in the future to wake up hard offlined CPU0 if
+  real platform and request are available."
 
-No functional change.
+11 years later this has not happened and physical hotplug is not officially
+supported. Remove the cruft.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 ---
- arch/x86/include/asm/processor.h |    1 -
- arch/x86/kernel/cpu/common.c     |   27 ---------------------------
- arch/x86/kernel/smpboot.c        |   24 +++++++++++++++++++-----
- 3 files changed, 19 insertions(+), 33 deletions(-)
+ arch/x86/include/asm/apic.h   |    1 
+ arch/x86/include/asm/smp.h    |    1 
+ arch/x86/kernel/smpboot.c     |  170 +++---------------------------------------
+ drivers/acpi/processor_idle.c |    4 
+ 4 files changed, 14 insertions(+), 162 deletions(-)
 
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -551,7 +551,6 @@ extern void switch_gdt_and_percpu_base(i
- extern void load_direct_gdt(int);
- extern void load_fixmap_gdt(int);
- extern void cpu_init(void);
--extern void cpu_init_secondary(void);
- extern void cpu_init_exception_handling(void);
- extern void cr4_init(void);
+--- a/arch/x86/include/asm/apic.h
++++ b/arch/x86/include/asm/apic.h
+@@ -377,7 +377,6 @@ extern struct apic *__apicdrivers[], *__
+  * APIC functionality to boot other CPUs - only used on SMP:
+  */
+ #ifdef CONFIG_SMP
+-extern int wakeup_secondary_cpu_via_nmi(int apicid, unsigned long start_eip);
+ extern int lapic_can_unplug_cpu(void);
+ #endif
  
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -2123,19 +2123,6 @@ static void dbg_restore_debug_regs(void)
- #define dbg_restore_debug_regs()
- #endif /* ! CONFIG_KGDB */
+--- a/arch/x86/include/asm/smp.h
++++ b/arch/x86/include/asm/smp.h
+@@ -130,7 +130,6 @@ void native_play_dead(void);
+ void play_dead_common(void);
+ void wbinvd_on_cpu(int cpu);
+ int wbinvd_on_all_cpus(void);
+-void cond_wakeup_cpu0(void);
  
--static void wait_for_master_cpu(int cpu)
--{
--#ifdef CONFIG_SMP
--	/*
--	 * wait for ACK from master CPU before continuing
--	 * with AP initialization
--	 */
--	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
--	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
--		cpu_relax();
--#endif
--}
--
- static inline void setup_getcpu(int cpu)
- {
- 	unsigned long cpudata = vdso_encode_cpunode(cpu, early_cpu_to_node(cpu));
-@@ -2239,8 +2226,6 @@ void cpu_init(void)
- 	struct task_struct *cur = current;
- 	int cpu = raw_smp_processor_id();
- 
--	wait_for_master_cpu(cpu);
--
- 	ucode_cpu_init(cpu);
- 
- #ifdef CONFIG_NUMA
-@@ -2293,18 +2278,6 @@ void cpu_init(void)
- 	load_fixmap_gdt(cpu);
- }
- 
--#ifdef CONFIG_SMP
--void cpu_init_secondary(void)
--{
--	/*
--	 * Relies on the BP having set-up the IDT tables, which are loaded
--	 * on this CPU in cpu_init_exception_handling().
--	 */
--	cpu_init_exception_handling();
--	cpu_init();
--}
--#endif
--
- #ifdef CONFIG_MICROCODE_LATE_LOADING
- /**
-  * store_cpu_caps() - Store a snapshot of CPU capabilities
+ void native_smp_send_reschedule(int cpu);
+ void native_send_call_func_ipi(const struct cpumask *mask);
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
-@@ -220,6 +220,17 @@ static void ap_calibrate_delay(void)
+@@ -216,9 +216,6 @@ static void ap_calibrate_delay(void)
  	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
  }
  
-+static void wait_for_master_cpu(int cpu)
-+{
-+	/*
-+	 * Wait for release by control CPU before continuing with AP
-+	 * initialization.
-+	 */
-+	WARN_ON(cpumask_test_and_set_cpu(cpu, cpu_initialized_mask));
-+	while (!cpumask_test_cpu(cpu, cpu_callout_mask))
-+		cpu_relax();
-+}
-+
+-static int cpu0_logical_apicid;
+-static int enable_start_cpu0;
+-
  /*
   * Activate a secondary processor.
   */
-@@ -237,13 +248,16 @@ static void notrace start_secondary(void
- 	load_cr3(swapper_pg_dir);
- 	__flush_tlb_all();
- #endif
-+	cpu_init_exception_handling();
-+
- 	/*
--	 * Sync point with wait_cpu_initialized(). Before proceeding through
--	 * cpu_init(), the AP will call wait_for_master_cpu() which sets its
--	 * own bit in cpu_initialized_mask and then waits for the BSP to set
--	 * its bit in cpu_callout_mask to release it.
-+	 * Sync point with wait_cpu_initialized(). Sets AP in
-+	 * cpu_initialized_mask and then waits for the control CPU
-+	 * to release it.
- 	 */
--	cpu_init_secondary();
-+	wait_for_master_cpu(raw_smp_processor_id());
-+
-+	cpu_init();
- 	rcu_cpu_starting(raw_smp_processor_id());
+@@ -241,8 +238,6 @@ static void notrace start_secondary(void
  	x86_cpuinit.early_percpu_clock_init();
+ 	smp_callin();
  
+-	enable_start_cpu0 = 0;
+-
+ 	/* otherwise gcc will move up smp_processor_id before the cpu_init */
+ 	barrier();
+ 	/* Check TSC synchronization with the control CPU: */
+@@ -410,7 +405,7 @@ void smp_store_cpu_info(int id)
+ 	c->cpu_index = id;
+ 	/*
+ 	 * During boot time, CPU0 has this setup already. Save the info when
+-	 * bringing up AP or offlined CPU0.
++	 * bringing up an AP.
+ 	 */
+ 	identify_secondary_cpu(c);
+ 	c->initialized = true;
+@@ -807,51 +802,14 @@ static void __init smp_quirk_init_udelay
+ }
+ 
+ /*
+- * Poke the other CPU in the eye via NMI to wake it up. Remember that the normal
+- * INIT, INIT, STARTUP sequence will reset the chip hard for us, and this
+- * won't ... remember to clear down the APIC, etc later.
+- */
+-int
+-wakeup_secondary_cpu_via_nmi(int apicid, unsigned long start_eip)
+-{
+-	u32 dm = apic->dest_mode_logical ? APIC_DEST_LOGICAL : APIC_DEST_PHYSICAL;
+-	unsigned long send_status, accept_status = 0;
+-	int maxlvt;
+-
+-	/* Target chip */
+-	/* Boot on the stack */
+-	/* Kick the second */
+-	apic_icr_write(APIC_DM_NMI | dm, apicid);
+-
+-	pr_debug("Waiting for send to finish...\n");
+-	send_status = safe_apic_wait_icr_idle();
+-
+-	/*
+-	 * Give the other CPU some time to accept the IPI.
+-	 */
+-	udelay(200);
+-	if (APIC_INTEGRATED(boot_cpu_apic_version)) {
+-		maxlvt = lapic_get_maxlvt();
+-		if (maxlvt > 3)			/* Due to the Pentium erratum 3AP.  */
+-			apic_write(APIC_ESR, 0);
+-		accept_status = (apic_read(APIC_ESR) & 0xEF);
+-	}
+-	pr_debug("NMI sent\n");
+-
+-	if (send_status)
+-		pr_err("APIC never delivered???\n");
+-	if (accept_status)
+-		pr_err("APIC delivery error (%lx)\n", accept_status);
+-
+-	return (send_status | accept_status);
+-}
+-
+-static int
+-wakeup_secondary_cpu_via_init(int phys_apicid, unsigned long start_eip)
++ * Wake up AP by INIT, INIT, STARTUP sequence.
++ */
++static int wakeup_secondary_cpu_via_init(int phys_apicid, unsigned long start_eip)
+ {
+ 	unsigned long send_status = 0, accept_status = 0;
+ 	int maxlvt, num_starts, j;
+ 
++	preempt_disable();
+ 	maxlvt = lapic_get_maxlvt();
+ 
+ 	/*
+@@ -957,6 +915,7 @@ wakeup_secondary_cpu_via_init(int phys_a
+ 	if (accept_status)
+ 		pr_err("APIC delivery error (%lx)\n", accept_status);
+ 
++	preempt_enable();
+ 	return (send_status | accept_status);
+ }
+ 
+@@ -997,67 +956,6 @@ static void announce_cpu(int cpu, int ap
+ 			node, cpu, apicid);
+ }
+ 
+-static int wakeup_cpu0_nmi(unsigned int cmd, struct pt_regs *regs)
+-{
+-	int cpu;
+-
+-	cpu = smp_processor_id();
+-	if (cpu == 0 && !cpu_online(cpu) && enable_start_cpu0)
+-		return NMI_HANDLED;
+-
+-	return NMI_DONE;
+-}
+-
+-/*
+- * Wake up AP by INIT, INIT, STARTUP sequence.
+- *
+- * Instead of waiting for STARTUP after INITs, BSP will execute the BIOS
+- * boot-strap code which is not a desired behavior for waking up BSP. To
+- * void the boot-strap code, wake up CPU0 by NMI instead.
+- *
+- * This works to wake up soft offlined CPU0 only. If CPU0 is hard offlined
+- * (i.e. physically hot removed and then hot added), NMI won't wake it up.
+- * We'll change this code in the future to wake up hard offlined CPU0 if
+- * real platform and request are available.
+- */
+-static int
+-wakeup_cpu_via_init_nmi(int cpu, unsigned long start_ip, int apicid,
+-	       int *cpu0_nmi_registered)
+-{
+-	int id;
+-	int boot_error;
+-
+-	preempt_disable();
+-
+-	/*
+-	 * Wake up AP by INIT, INIT, STARTUP sequence.
+-	 */
+-	if (cpu) {
+-		boot_error = wakeup_secondary_cpu_via_init(apicid, start_ip);
+-		goto out;
+-	}
+-
+-	/*
+-	 * Wake up BSP by nmi.
+-	 *
+-	 * Register a NMI handler to help wake up CPU0.
+-	 */
+-	boot_error = register_nmi_handler(NMI_LOCAL,
+-					  wakeup_cpu0_nmi, 0, "wake_cpu0");
+-
+-	if (!boot_error) {
+-		enable_start_cpu0 = 1;
+-		*cpu0_nmi_registered = 1;
+-		id = apic->dest_mode_logical ? cpu0_logical_apicid : apicid;
+-		boot_error = wakeup_secondary_cpu_via_nmi(id, start_ip);
+-	}
+-
+-out:
+-	preempt_enable();
+-
+-	return boot_error;
+-}
+-
+ int common_cpu_up(unsigned int cpu, struct task_struct *idle)
+ {
+ 	int ret;
+@@ -1086,8 +984,7 @@ int common_cpu_up(unsigned int cpu, stru
+  * Returns zero if CPU booted OK, else error code from
+  * ->wakeup_secondary_cpu.
+  */
+-static int do_boot_cpu(int apicid, int cpu, struct task_struct *idle,
+-		       int *cpu0_nmi_registered)
++static int do_boot_cpu(int apicid, int cpu, struct task_struct *idle)
+ {
+ 	/* start_ip had better be page-aligned! */
+ 	unsigned long start_ip = real_mode_header->trampoline_start;
+@@ -1120,7 +1017,6 @@ static int do_boot_cpu(int apicid, int c
+ 	 * This grunge runs the startup process for
+ 	 * the targeted processor.
+ 	 */
+-
+ 	if (x86_platform.legacy.warm_reset) {
+ 
+ 		pr_debug("Setting warm reset code and vector.\n");
+@@ -1149,15 +1045,14 @@ static int do_boot_cpu(int apicid, int c
+ 	 * - Use a method from the APIC driver if one defined, with wakeup
+ 	 *   straight to 64-bit mode preferred over wakeup to RM.
+ 	 * Otherwise,
+-	 * - Use an INIT boot APIC message for APs or NMI for BSP.
++	 * - Use an INIT boot APIC message
+ 	 */
+ 	if (apic->wakeup_secondary_cpu_64)
+ 		boot_error = apic->wakeup_secondary_cpu_64(apicid, start_ip);
+ 	else if (apic->wakeup_secondary_cpu)
+ 		boot_error = apic->wakeup_secondary_cpu(apicid, start_ip);
+ 	else
+-		boot_error = wakeup_cpu_via_init_nmi(cpu, start_ip, apicid,
+-						     cpu0_nmi_registered);
++		boot_error = wakeup_secondary_cpu_via_init(apicid, start_ip);
+ 
+ 	if (!boot_error) {
+ 		/*
+@@ -1206,9 +1101,8 @@ static int do_boot_cpu(int apicid, int c
+ int native_cpu_up(unsigned int cpu, struct task_struct *tidle)
+ {
+ 	int apicid = apic->cpu_present_to_apicid(cpu);
+-	int cpu0_nmi_registered = 0;
+ 	unsigned long flags;
+-	int err, ret = 0;
++	int err;
+ 
+ 	lockdep_assert_irqs_enabled();
+ 
+@@ -1247,11 +1141,10 @@ int native_cpu_up(unsigned int cpu, stru
+ 	if (err)
+ 		return err;
+ 
+-	err = do_boot_cpu(apicid, cpu, tidle, &cpu0_nmi_registered);
++	err = do_boot_cpu(apicid, cpu, tidle);
+ 	if (err) {
+ 		pr_err("do_boot_cpu failed(%d) to wakeup CPU#%u\n", err, cpu);
+-		ret = -EIO;
+-		goto unreg_nmi;
++		return err;
+ 	}
+ 
+ 	/*
+@@ -1267,15 +1160,7 @@ int native_cpu_up(unsigned int cpu, stru
+ 		touch_nmi_watchdog();
+ 	}
+ 
+-unreg_nmi:
+-	/*
+-	 * Clean up the nmi handler. Do this after the callin and callout sync
+-	 * to avoid impact of possible long unregister time.
+-	 */
+-	if (cpu0_nmi_registered)
+-		unregister_nmi_handler(NMI_LOCAL, "wake_cpu0");
+-
+-	return ret;
++	return 0;
+ }
+ 
+ /**
+@@ -1373,14 +1258,6 @@ static void __init smp_cpu_index_default
+ 	}
+ }
+ 
+-static void __init smp_get_logical_apicid(void)
+-{
+-	if (x2apic_mode)
+-		cpu0_logical_apicid = apic_read(APIC_LDR);
+-	else
+-		cpu0_logical_apicid = GET_APIC_LOGICAL_ID(apic_read(APIC_LDR));
+-}
+-
+ void __init smp_prepare_cpus_common(void)
+ {
+ 	unsigned int i;
+@@ -1443,8 +1320,6 @@ void __init native_smp_prepare_cpus(unsi
+ 	/* Setup local timer */
+ 	x86_init.timers.setup_percpu_clockev();
+ 
+-	smp_get_logical_apicid();
+-
+ 	pr_info("CPU0: ");
+ 	print_cpu_info(&cpu_data(0));
+ 
+@@ -1752,18 +1627,6 @@ void play_dead_common(void)
+ 	local_irq_disable();
+ }
+ 
+-/**
+- * cond_wakeup_cpu0 - Wake up CPU0 if needed.
+- *
+- * If NMI wants to wake up CPU0, start CPU0.
+- */
+-void cond_wakeup_cpu0(void)
+-{
+-	if (smp_processor_id() == 0 && enable_start_cpu0)
+-		start_cpu0();
+-}
+-EXPORT_SYMBOL_GPL(cond_wakeup_cpu0);
+-
+ /*
+  * We need to flush the caches before going to sleep, lest we have
+  * dirty data in our caches when we come back up.
+@@ -1831,8 +1694,6 @@ static inline void mwait_play_dead(void)
+ 		__monitor(mwait_ptr, 0, 0);
+ 		mb();
+ 		__mwait(eax, 0);
+-
+-		cond_wakeup_cpu0();
+ 	}
+ }
+ 
+@@ -1841,11 +1702,8 @@ void __noreturn hlt_play_dead(void)
+ 	if (__this_cpu_read(cpu_info.x86) >= 4)
+ 		wbinvd();
+ 
+-	while (1) {
++	while (1)
+ 		native_halt();
+-
+-		cond_wakeup_cpu0();
+-	}
+ }
+ 
+ void native_play_dead(void)
+--- a/drivers/acpi/processor_idle.c
++++ b/drivers/acpi/processor_idle.c
+@@ -597,10 +597,6 @@ static int acpi_idle_play_dead(struct cp
+ 			io_idle(cx->address);
+ 		} else
+ 			return -ENODEV;
+-
+-#if defined(CONFIG_X86) && defined(CONFIG_HOTPLUG_CPU)
+-		cond_wakeup_cpu0();
+-#endif
+ 	}
+ 
+ 	/* Never reached */
 
 
 
