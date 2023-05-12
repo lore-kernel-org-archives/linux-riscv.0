@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08EF6C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 09:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44869C77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 09:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HbMPHTHJBBzY90YDMzpT/dMe1JctVxJC2t4AuQVrNPM=; b=GbQLljhdDZJwad
-	1SOMiiuz775zh+K7Hm8bbcw5iof5T0ljDOMenK60Bdlxme+9kNjxz++Wy18/vQ8sfEOFrPYVV/wHA
-	mhXqTwaUFHrItRpOjDlfOQNQuIIfnAOUBoFBA3MvPWqWpWeDx6QCBeNFNu01ggLAbdDkPvSq/nHq9
-	ij6uAywKV/Z1FkxCsZK0ZVNQCKVEJcVTR63FE9va5tFNjKBd63If3BGF/rBAEkJv+fCsolX14Guy0
-	23A4TClq6+wRqJWlFakvSLW4tMH3OHFumWPPIoDpzOCfDJPNBYrJdpMosjdDpB5ufRR4oD2rK7m3A
-	6QvpB9EEYAlQpq6wSfQg==;
+	List-Owner; bh=hdaCOUKJnJiOdpAqcEoaq/0Mk+qnVBqC46zDFpxXXHU=; b=sDpMNqx7ar/uaV
+	sYr18eDp64G62S+RPR6s8U31rpa3HiBlCATSEu2QJ1RYmsU0m3Ge59v5ijFt8cTt4od3MKNsvi2Hq
+	AKxHJ2hQYwo3IVQEkJk5XgJoGLRZf8XqMXa7Ib/Wa6tqsgJK+XgYeUq1Dd+ZAnbWolW8QuXytEO63
+	JM24thxk6i7Q3i+yU9cZBPYRmA3HfstUcHdmkQ9+tZwKzd53mtjLoZ3UaiIvpLAGfLLqiTj6RzjWI
+	3bMy6sicniezcDTvMyMpum64wPu9LIPKdtPKbGe8RSEjynjbbvwnwOEEB0YdpAT5WSdhZEjmmOGyF
+	XxQS9ivGiZqVgm5G/+dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxPRr-00BVYc-1u;
-	Fri, 12 May 2023 09:52:27 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxPRn-00BVXM-0v
+	id 1pxPXj-00BWSN-2D;
+	Fri, 12 May 2023 09:58:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pxPXf-00BWPM-2e
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 May 2023 09:52:25 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3064099f9b6so6328731f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 May 2023 02:52:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1683885139; x=1686477139;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QVwfY7mFtOC1Cyl/KY/aAvzCNFHS9pnu/L2vWR6tanM=;
-        b=lNzuu9Se/s0jcY6pZAND5J+za3iyY2kmU/Qe9R38rH2EFeEqL/34VKE/tWoV2tBKEa
-         Fw6lmUuJpXg20E7W32rMINXgYWNRIWbtF8uyZ4kMiuZwkgGcd/bJ4v8JUcYD6qKTcoPg
-         ianJHJKzOqPsTSFROW7NeQio/KlRFIHI/dANjN5Sz5pbucFNrVsiwmRnUBJFjYgIGS6G
-         Zo+3ASjXWAApymP8We615flEIP+yVcQ5eq1nQuW/gN8PBp7h2cLdxAjtEQo/ICnXN5qH
-         VzPe1GJ6zpZ9Q5/EIljzVlpCJICuv4tgPYoRSGHN6UcEnOZLpwnjaJs1m8EnX6onftVt
-         wErg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683885139; x=1686477139;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QVwfY7mFtOC1Cyl/KY/aAvzCNFHS9pnu/L2vWR6tanM=;
-        b=CVCwhlTi0Qq5HpWVI2hcMKT19QkDg2vmnifCn+vKjaJ37WHLY+k3q7aWjhwzuGgBgN
-         9xrb7kAqx3pG4PVD2+Hens2cFLyQe2uTPz2dIINnr7k+fZeq4NYD5ylhmObi+w86saVK
-         tIRRRVbQKPl/E7AAiCrBLwDFYKvO4XrJCT1RZrGoCCxpAAWYxcGEVe0eJP0ngv99S2WK
-         NL/dQafcJtwseYbAEZ219HapXL1wU8msugGs5GpLAzlo4y/LJZWgV8miy0wpBG6riAeN
-         qPPpE7SrFt+xk/7vmNDpfNu81OgPNMvzi0XoLfWBq9NH1sSdto+KN/bQyMuyQJJny3xu
-         KRfw==
-X-Gm-Message-State: AC+VfDxCqcsKu2/FoAF53YMg4bdv3aL8QPdrAev2UkUersSoCR2SiqGF
-	eLnP4vfNVFU2eAWEtqGi+n9ofA==
-X-Google-Smtp-Source: ACHHUZ72yfT/ipVvWkp3tdhBbWIMTlfNqj0QNbWJT6ZB1wy8qtqjR51BIQkJp7SfwGPNsAf1IjpTng==
-X-Received: by 2002:a5d:4344:0:b0:2f5:fbe5:bb1c with SMTP id u4-20020a5d4344000000b002f5fbe5bb1cmr16791103wrr.63.1683885138573;
-        Fri, 12 May 2023 02:52:18 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id v1-20020a5d6b01000000b0030903d44dbcsm168171wrw.33.2023.05.12.02.52.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 May 2023 02:52:18 -0700 (PDT)
-Date: Fri, 12 May 2023 11:52:17 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: zhangfei <zhang_fei_0403@163.com>
-Cc: aou@eecs.berkeley.edu, conor.dooley@microchip.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, zhangfei@nj.iscas.ac.cn
-Subject: Re: [PATCH v2 2/2] RISC-V: lib: Optimize memset performance
-Message-ID: <20230512-815af10bf1c437851e7f8fa5@orel>
-References: <20230511-0b91da227b91eee76f98c6b0@orel>
- <20230512085124.3204-1-zhang_fei_0403@163.com>
+	Fri, 12 May 2023 09:58:30 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id CFD3E24E16F;
+	Fri, 12 May 2023 17:56:41 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 12 May
+ 2023 17:57:53 +0800
+Received: from [192.168.125.131] (113.72.146.187) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 12 May
+ 2023 17:57:52 +0800
+Message-ID: <be85aa2a-c72c-5272-ee40-f1265768e7b3@starfivetech.com>
+Date: Fri, 12 May 2023 17:56:16 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230512085124.3204-1-zhang_fei_0403@163.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock
+ inputs
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-4-xingyu.wu@starfivetech.com>
+ <20230512-uproar-external-49a9e793fbc4@wendy>
+ <91e4fd3c-20cb-724b-c9a8-e038600aabb7@starfivetech.com>
+ <20230512-backlit-radiated-ded0b38b4a94@wendy>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <20230512-backlit-radiated-ded0b38b4a94@wendy>
+X-Originating-IP: [113.72.146.187]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_025223_332242_0B0B2E4C 
-X-CRM114-Status: GOOD (  42.57  )
+X-CRM114-CacheID: sfid-20230512_025828_168759_6DF9732A 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,173 +86,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 12, 2023 at 04:51:24PM +0800, zhangfei wrote:
-> From: zhangfei <zhangfei@nj.iscas.ac.cn>
+On 2023/5/12 17:35, Conor Dooley wrote:
+> On Fri, May 12, 2023 at 04:07:47PM +0800, Xingyu Wu wrote:
+>> On 2023/5/12 14:47, Conor Dooley wrote:
+>> > On Fri, May 12, 2023 at 10:20:32AM +0800, Xingyu Wu wrote:
+>> >> Add PLL clock inputs from PLL clock generator.
+>> >> 
+>> >> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> >> ---
+>> >>  .../clock/starfive,jh7110-syscrg.yaml         | 20 +++++++++++++++++--
+>> >>  1 file changed, 18 insertions(+), 2 deletions(-)
+>> > 
+>> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: clock-controller@13020000: clocks: 'oneOf' conditional failed, one must be fixed:
+>> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
+>> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: clock-controller@13020000: clock-names: 'oneOf' conditional failed, one must be fixed:
+>> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', 'i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext'] is too short
+>> > 	'i2stx_bclk_ext' was expected
+>> > 	'i2stx_lrck_ext' was expected
+>> > 	'i2srx_bclk_ext' was expected
+>> > 	'i2srx_lrck_ext' was expected
+>> > 	'tdm_ext' was expected
+>> > 	'mclk_ext' was expected
+>> > 	'pll0_out' was expected
+>> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: clock-controller@13020000: clocks: 'oneOf' conditional failed, one must be fixed:
+>> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too short
+>> > 	From schema: Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: clock-controller@13020000: clock-names: 'oneOf' conditional failed, one must be fixed:
+>> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext', 'i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ext'] is too short
+>> > 	'i2stx_bclk_ext' was expected
+>> > 	'i2stx_lrck_ext' was expected
+>> > 	'i2srx_bclk_ext' was expected
+>> > 	'i2srx_lrck_ext' was expected
+>> > 	'tdm_ext' was expected
+>> > 	'mclk_ext' was expected
+>> > 	'pll0_out' was expected
+>> > 	Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> > 
+>> > This binding change is incompatible with the existing devicetrees for
+>> > the visionfive 2.
+>> 
+>> This looks like less clocks about PLL in SYSCRG node. And I add this in patch 7.
 > 
-> On Thu, May 11, 2023 at 15:43:26PM +0200, Andrew Jones wrote:
-> > On Thu, May 11, 2023 at 09:34:53AM +0800, zhangfei wrote:
-> > > From: zhangfei <zhangfei@nj.iscas.ac.cn>
-> > > 
-> > > Optimized performance when the data size is less than 16 bytes.
-> > > Compared to byte by byte storage, significant performance improvement has been achieved.
-> > > It allows storage instructions to be executed in parallel and reduces the number of jumps.
-> > 
-> > Please wrap commit message lines at 74 chars.
-> > 
-> > > Additional checks can avoid redundant stores.
-> > > 
-> > > Signed-off-by: Fei Zhang <zhangfei@nj.iscas.ac.cn>
-> > > ---
-> > >  arch/riscv/lib/memset.S | 40 +++++++++++++++++++++++++++++++++++++---
-> > >  1 file changed, 37 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-> > > index e613c5c27998..452764bc9900 100644
-> > > --- a/arch/riscv/lib/memset.S
-> > > +++ b/arch/riscv/lib/memset.S
-> > > @@ -106,9 +106,43 @@ WEAK(memset)
-> > >  	beqz	a2, 6f
-> > >  	add	a3, t0, a2
-> > >  5:
-> > > -	sb	a1, 0(t0)
-> > > -	addi	t0, t0, 1
-> > > -	bltu	t0, a3, 5b
-> > > +       /* fill head and tail with minimal branching */
-> > > +       sb      a1,  0(t0)
-> > > +       sb      a1, -1(a3)
-> > > +       li 	a4, 2
-> > > +       bgeu 	a4, a2, 6f
-> > > +
-> > > +       sb 	a1,  1(t0)
-> > > +       sb 	a1,  2(t0)
-> > > +       sb 	a1, -2(a3)
-> > > +       sb 	a1, -3(a3)
-> > > +       li 	a4, 6
-> > > +       bgeu 	a4, a2, 6f
-> > > +
-> > > +       /* 
-> > > +        * Adding additional detection to avoid 
-> > > +        * redundant stores can lead 
-> > > +        * to better performance
-> > > +        */
-> > > +       sb 	a1,  3(t0)
-> > > +       sb 	a1, -4(a3)
-> > > +       li 	a4, 8
-> > > +       bgeu 	a4, a2, 6f
-> > > +
-> > > +       sb 	a1,  4(t0)
-> > > +       sb 	a1, -5(a3)
-> > > +       li 	a4, 10
-> > > +       bgeu 	a4, a2, 6f
-> > 
-> > These extra checks feel ad hoc to me. Naturally you'll get better results
-> > for 8 byte memsets when there's a branch to the ret after 8 bytes. But
-> > what about 9? I'd think you'd want benchmarks from 1 to 15 bytes to show
-> > how it performs better or worse than byte by byte for each of those sizes.
-> > Also, while 8 bytes might be worth special casing, I'm not sure why 10
-> > would be. What makes 10 worth optimizing more than 11?
-> > 
-> > Finally, microbenchmarking is quite hardware-specific and energy
-> > consumption should probably also be considered. What energy cost is
-> > there from making redundant stores? Is it worth it?
-> 
-> Hi,
-> 
-> I added a test from 1 to 15 bytes in the benchmarks.The test results are as 
-> follows:
-> Before optimization(bytes/ns):
-> 1B: 0.06  2B: 0.10  3B: 0.12  4B: 0.14  5B: 0.15  6B: 0.17  7B: 0.17 8B: 0.18 
-> 9B: 0.19 10B: 0.19 11B: 0.20 12B: 0.20 13B: 0.20 14B: 0.21 15B: 0.21
-> After optimization(bytes/ns):
-> 1B: 0.05  2B: 0.10  3B: 0.11  4B: 0.15  5B: 0.19  6B: 0.23  7B: 0.23 8B: 0.26 
-> 9B: 0.24 10B: 0.27 11B: 0.25 12B: 0.27 13B: 0.28 14B: 0.30 15B: 0.31
-> 
-> From the above results, it can be seen that the performance of 1-4 bytes is 
-> similar, with a significant improvement in 5-15 bytes.At the same time, it can
-> be seen that redundant stores does indeed lead to performance degradation, 
-> such as at 9 bytes and 11 bytes.
-> 
-> Next, I modified the code to check 2, 6, 8, 11, 14, as shown below:
-> '''
-> sb a1, 4(t0)
-> sb a1, 5(t0)
-> sb a1, -5(a3)
-> li a4, 11
-> bgeu a4, a2, 6f
-> 
-> sb a1, 6(t0)
-> sb a1, -6(a3)
-> sb a1, -7(a3)
-> li a4, 14
-> bgeu a4, a2, 6f
-> '''
-> The results obtained in this way are as follows:
-> After optimization(bytes/ns):
-> 1B: 0.05  2B: 0.10  3B: 0.11  4B: 0.15  5B: 0.19  6B: 0.23  7B: 0.23 8B: 0.27 
-> 9B: 0.23 10B: 0.26 11B: 0.29 12B: 0.26 13B: 0.28 14B: 0.29 15B: 0.31
-> 
-> From the above results, it can be seen that when we modified it to check at 11,
-> the performance improved from 0.25 bytes/ns to 0.29 bytes/ns.Is it possible to 
-> minimize redundant stores while ensuring parallel stores to achieve optimal 
-> performance?
-> 
-> Therefore, I modified the code to detect 2, 4, 6, 8, 10, 12, 14, as shown below:
-> '''        
-> sb a1, 4(t0)
-> sb a1, -5(a3)
-> li a4, 10
-> bgeu a4, a2, 6f
-> 
-> sb a1, 5(t0)
-> sb a1, -6(a3)
-> li a4, 12
-> bgeu a4, a2, 6f
-> 
-> sb a1, 6(t0)
-> sb a1, -7(a3)
-> li a4, 14
-> bgeu a4, a2, 6f
-> '''
-> The results obtained in this way are as follows:
-> After optimization(bytes/ns):
-> 1B: 0.05  2B: 0.10  3B: 0.12  4B: 0.17  5B: 0.18  6B: 0.21  7B: 0.22 8B: 0.25 
-> 9B: 0.24 10B: 0.26 11B: 0.25 12B: 0.27 13B: 0.26 14B: 0.27 15B: 0.29
-> 
-> From the above results, it can be seen that this approach did not achieve the best
-> performance.
-> 
-> Through the above experiment, here is my conclusion:
-> 1.This optimization method will inevitably result in duplicate storage. I cannot 
-> achieve the optimal state of each byte, for example, when I add checks on 9, 
-> the performance of 9 will naturally improve, but 10 and 11 may become worse due 
-> to redundant stores.Therefore, I need to make a trade-off between redundant stores
-> and parallelism, such as checking 9 or 10, or something else.
-> 
-> 2.Storing parallelism and reducing jumps will compensate for the cost of redundant
-> stores. Based on the current multiple test results, regardless of which bytes I 
-> modify to check, its performance is better than byte by byte storage.
-> 
-> 3.From the above experiment, for the detection of 2, 6, 8, 11, and 14, its overall
-> performance is the best.
-> 
-> Because I am not a chip designer, I find it difficult to answer specific energy 
-> consumption costs. Do you have any suggestions and how to conduct testing in this 
-> regard? I think although storage has increased, there has been a corresponding 
-> reduction in jumps and the use of pipelines.
+> The existing devicetree is a valid, albeit limited, description of the
+> hardware.
+> After your changes to the clock driver in this series, but *without* the
+> changes to the devicetrees, does the system still function?
+> From a quick check of 4/7, it looks like it will not?
 
-That's my point. There are so many variables that it's hard to know if it
-makes sense to do this micro-optimization at all and certainly hard to
-decide if adding the unnecessary branches at 8, 11, and 14 make sense.
-I see some value in an 8 branch and maybe a 12, since it seems somewhat
-likely memset would get used for data with sizes that are 4-byte aligned.
-But even that is just speculation. I think without running comprehensive
-benchmarks, and seeing an overall gain, then this isn't worth merging.
-That said, if you post again with stronger justification based on these
-experiments, then I'll give it a tentative r-b and let the maintainers
-decide.
+I just tested it on the board and the system still worked without the changes
+about devicetree. But these clocks' rate were 0 because these could not get
+the PLL clocks from devicetree.
 
-Thanks,
-drew
+Best regards,
+Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
