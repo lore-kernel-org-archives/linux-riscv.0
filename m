@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39798C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 05:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C20DC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 06:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CM58xlF7/+NZFGtLrP5pX73CJE5Y1VfS1IBSUJFzGDo=; b=EItZqNttCir+QE
-	VrTB75HdHTSrNUlrd7LMHgLXoJZKUidyZP4SulAfRlWqjtLXP+mohWxrYfsyqhzeDdeGRIHSrgNmi
-	JVxD6cRo3cVeV24bfa85EnNtzcxBMDU0bRWMbjRSdtQJARS4KHDW64VxXtgXpl+f9ko/hRztYdvv1
-	O4fxhFxFb/GAfqkJDki8c3x57qnSC+TPXWX3FtHGlfCYmt/M8vPMeOrAS66ZSoYSgu0YWJe7ck/6W
-	zv18FO80goS7BWo3n3XsNbBKNZkv1nyqoBGij6/EkCY/HPRbA0aLTD0wBRS99mh8ae97f2xMw6uUL
-	IFayVNJ1Smoa3ZustJkw==;
+	List-Owner; bh=u5jtWjf84VOs9UA2NCaVTbiw/pAQVkzikO4S7nJ2vvo=; b=eS8eyaynchHDqh
+	yNEtxT6+3buD2Bk0JeyMcCuLyKnclUlg3CQ9OUTOXr8walNgAkRorLZ92W8JnIV4y+6q4pti7lNlv
+	F/eb1Vhy9z/00mH1/ph53Ry/EugFpjDhx9r9rblwJK9CbfObnJGaOUyhNa1RTz1WaLf+P8BGQMEsz
+	M28n33WkL8UQArSzjcvV23oC/WfC+N/UT29sT2pRWHmlwJfrH6k5W42puCuklR7GxuHtIMsgB32Xo
+	RN4IR+wfeiKQemDE6Xj47L9/1oEZF9q3tr1XzEzBRohA8KNR+7pg8cWn4J+cWEwhTP56A+wUbVa5S
+	qI1fePDxknV+mjnKaaVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxLGs-00AyWg-2p;
-	Fri, 12 May 2023 05:24:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pxMNa-00B5Ti-22;
+	Fri, 12 May 2023 06:35:50 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxLGo-00AyVu-3B;
-	Fri, 12 May 2023 05:24:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4540063AA7;
-	Fri, 12 May 2023 05:24:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0BAC433D2;
-	Fri, 12 May 2023 05:24:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1683869085;
-	bh=tX7KXgnuK8lqbNh920fj8SiOGOJFJBgIs9eJVO2OaCo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Xf9JOuaYCM3EPmqhsz48M30Y+Tb9ZyOYop62KsGUdEDtoCz0F52/nnFRdjRQuiu8i
-	 3JhjWP18oVH7yU5vJXwyys0q89EX/828pwuuiyyo1g1ZltMy8bIx6u1elxGBypct0j
-	 ZyI5ZrIu3qsg/TG6RZgamtwzQfDoBAeW7bC0nWGrM63qzQe+SfTCy5Qk/foOBeniPK
-	 FkTHlJlOI1rR9xFWOVA5bBxoQMgtRMCsYgc+JCwTif2Xs5eeQGeUCq90RnpvaaTOQh
-	 cxQUu7Jp4RF9S1rtflEEXAtO9rp9XCQyqgHNRtT8S0y/o1tizAunDgRl5qCrAMeuxX
-	 fd5ge+cyFGtkw==
-From: Mark Brown <broonie@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>, 
- Maksim Kiselev <bigunclemax@gmail.com>
-Cc: Icenowy Zheng <icenowy@aosc.io>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Maxime Ripard <mripard@kernel.org>, linux-spi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-In-Reply-To: <20230510081121.3463710-1-bigunclemax@gmail.com>
-References: <20230510081121.3463710-1-bigunclemax@gmail.com>
-Subject: Re: (subset) [PATCH v5 0/5] Allwinner R329/D1/R528/T113s SPI
- support
-Message-Id: <168386905416.366566.2289755397704500905.b4-ty@kernel.org>
-Date: Fri, 12 May 2023 14:24:14 +0900
+	id 1pxMNX-00B5Se-2J
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 May 2023 06:35:49 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-50bc5197d33so17499819a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 May 2023 23:35:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1683873345; x=1686465345;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aTgXqw1DQiVxfPuVhpWdkrrVopkfZHC/fCmNPR7iEmw=;
+        b=ijv3t4S3+ROAAhh3+bMTEFjg8ZUs0YTiAc26pykuzAxOzjR650GGOHIszIsTKdv7e5
+         edv36KAU1FW9cjS/WYMJE0jPX7q5yM8aQ9L5YFjmhZdf8/6CFq66g92PZpppWqtwz5Pt
+         eXDtMApIONch2DReTW+6j82CFZUFBjejQLutd92NFxkn8yWuqUdqFE2loxb/zZR6bpwn
+         iZ52Rcj9yFx3f1+Q3dDVYZMbRS1RHIsO2liVGRLBHX/MVUkU1dqa3yk+/uCta83fxNRZ
+         LxfDrwse6A/Fmx4Y7mOm29/3hUb09AOOVTuVSBfRCY4CwU9CvV6C1XmZNV85Wtit0aYS
+         1FDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683873345; x=1686465345;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=aTgXqw1DQiVxfPuVhpWdkrrVopkfZHC/fCmNPR7iEmw=;
+        b=Jhz8dHMRMRt9n19+ncZcMn+X34EZ3zFVkk7ITbvvsFc9AdWdky6PxSsxQUOEJMb7B6
+         0SlPHilUbWBb8eN0NSI25H3DmVGzKTcYEGuiaNqYiTQRbY9ZEaD0sDEhJCaPfvBxz6oA
+         iF0/iBT7ObBEUQBr+v8vUib/20yQZX2yZBVsAu/rjiIe7R/hy972tGyUs8CnBGobef91
+         M79q8ateYFl1iyon3o1gPHjAFWZM53UXS4qJUWHHuIS27TyR/lKoS980MjCTtJeouBZa
+         YsiYxiUoofbgCpvQhxt6/dBoTjxa/qiWB/975geH8pMI7ht5Ksx4Fe/ARviRIFHuuuTu
+         fpnw==
+X-Gm-Message-State: AC+VfDyojMh+h8Vr9nZjqRFppTcchXMWjuChDHL5qSqjaOLP7wouBFBm
+	im65kF4k1qy5aXprrGGs5YRotA==
+X-Google-Smtp-Source: ACHHUZ73iH41QdZJrSGj6lKTg012fYOj2ZUG7b/uT7YMwaVbxaR4Hzc92pN9p2zKO81JafHjkbcmUw==
+X-Received: by 2002:aa7:cf16:0:b0:50b:f654:8846 with SMTP id a22-20020aa7cf16000000b0050bf6548846mr18432311edy.19.1683873345196;
+        Thu, 11 May 2023 23:35:45 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:7ede:fc7b:2328:3883? ([2a02:810d:15c0:828:7ede:fc7b:2328:3883])
+        by smtp.gmail.com with ESMTPSA id d16-20020a056402001000b0050dfd7de30dsm1100820edu.94.2023.05.11.23.35.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 May 2023 23:35:44 -0700 (PDT)
+Message-ID: <2fb8c88a-dab5-791b-eefe-c983decad5e8@linaro.org>
+Date: Fri, 12 May 2023 08:35:43 +0200
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-bfdf5
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 5/7] dt-bindings: soc: starfive: Add StarFive syscon
+ module
+Content-Language: en-US
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
+ Emil Renner Berthing <kernel@esmil.dk>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+ William Qiu <william.qiu@starfivetech.com>, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-6-xingyu.wu@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230512022036.97987-6-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230511_222447_065278_636E8D73 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20230511_233547_754138_DA4C478D 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +104,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 May 2023 11:11:07 +0300, Maksim Kiselev wrote:
-> v5:
->   - fixed DT bindings (Allowed three-string compatibility)
+On 12/05/2023 04:20, Xingyu Wu wrote:
+> From: William Qiu <william.qiu@starfivetech.com>
 > 
-> v4:
->   - fixed SPI sample mode configuration
->   - sorted DT bindings list
+> Add documentation to describe StarFive System Controller Registers.
 > 
-> [...]
+> Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
-Applied to
+You made significant changes. Explain them in changelog here and drop
+the tag.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 67 +++++++++++++++++++
+>  MAINTAINERS                                   |  7 ++
+>  2 files changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> new file mode 100644
+> index 000000000000..26dc99cb0c89
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 SoC system controller
+> +
+> +maintainers:
+> +  - William Qiu <william.qiu@starfivetech.com>
+> +
+> +description: |
+> +  The StarFive JH7110 SoC system controller provides register information such
+> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: starfive,jh7110-sys-syscon
+> +          - const: syscon
+> +          - const: simple-mfd
+> +      - items:
+> +          - enum:
+> +              - starfive,jh7110-aon-syscon
+> +              - starfive,jh7110-stg-syscon
+> +          - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    $ref: /schemas/clock/starfive,jh7110-pll.yaml#
+> +    type: object
+> +
+> +  "#power-domain-cells":
+> +    const: 1
 
-Thanks!
+Add it to the existing examples.
 
-[1/5] dt-bindings: spi: sun6i: add DT bindings for Allwinner R329/D1/R528/T113s SPI
-      commit: f603a3f083aeb9438865975c28b27be0afaae0c1
-[2/5] spi: sun6i: change OF match data to a struct
-      commit: b00c0d8932f1e7e36570edf0f000c64399e985e0
-[3/5] spi: sun6i: add quirk for in-controller clock divider
-      commit: 8e886ac838ef12f6994ed9b13ab87784c4f0bc35
-[4/5] spi: sun6i: add support for R329/D1/R528/T113s SPI controllers
-      commit: 046484cb214b43dc4463343e8c49133d9edb5454
+This part confuses me... why aon appeared here?  Why power-controller
+disappeared? I don't think that Rob or me proposed any of this.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jh7110-aon-syscon
+> +    then:
+> +      required:
+> +        - "#power-domain-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscon@10240000 {
+> +        compatible = "starfive,jh7110-stg-syscon", "syscon";
+> +        reg = <0x10240000 0x1000>;
+> +    };
+> +
+> +    syscon@13030000 {
+> +        compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
+> +        reg = <0x13030000 0x1000>;
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Why simple-mfd? You do not have any children here.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
 
-Thanks,
-Mark
+Best regards,
+Krzysztof
 
 
 _______________________________________________
