@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C32C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 22:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5A4C77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 22:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
-	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=3rJGyTpAjJM+72MpV3vriJy+J3grbbyiqzQglF/opyk=; b=xOEg1wtc6tR06T
-	QenMXFrATmu4g/BEg+ML8ktxsBW6e7//XCyXGauTM+Iq8ECBQCKknvC1YQYyqYWNsDLiq/NO2/2fm
-	fc6PaWj82Ood44n+UefR1bJHeRau6exOIr0XL/J/KQI8vXHPnXH75yKWIn2TMaDAXu5yHM07q07g3
-	nk3fbo1YZlSLgWfBAaMbU9fcPazTeOsLe0TrC26JEnTpcbEKWDMdZj6Tf487otqB6EjFCJNkN4dG8
-	zWf2y6pTXEbZHv31z15YaWRhfwcJz1H1L6qFgqngfQRDKdIXBMwHYKetYChDCL1ZVHCYTYlOMVI2D
-	5K44vg2Vc/3zIxmESaKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YYFRmibu22nfWNaWg3JM2Nh0Mhd04kWzmol/SwIUmAo=; b=RYhcCU/zdL9xukcpRuq2hpwEuq
+	ip4VhfpJ3NnwP6x+izCBymyMGo1+RY859oYYcWUrhKWt7fuq6FvGLeppMYZ9LJ4q0wLKpERmPQLxa
+	AM+A+TSTMZECFkiBTXBIa5i9D3oAOD7f+JZCqHgC1AyXb/9Y1CCDcOLcOvPFYSpSAZ0JI9hSPFxiS
+	5PT6FawaqCyr2MR3mgw8ksxQ3WOZQpFOC+dg7Ca3lL1k8l3f4pjZyb8WHrx4npQaOnpYH8YjWK1yt
+	CTo3wrCeTJZNonTNCycxM1XVggpeL6voxTimo7GtSihgucQWbQQNCn83bfWVODIbOVXX8izRJJjnm
+	eGY++f5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxb3o-00DAbc-2w;
-	Fri, 12 May 2023 22:16:24 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1pxbEu-00DBzb-3B;
+	Fri, 12 May 2023 22:27:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZyo-00CyM7-1r;
-	Fri, 12 May 2023 21:07:11 +0000
-Message-ID: <20230512205255.551974164@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925620;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=AjuZnUvqwfsid4jtivwVWrZiWUy0MGdS0WowlWq+wK8=;
-	b=BSrk1PoZLCui388wbL4NkY9LaBfz+vMljVOsc8GC5TTSN9IaN934ZXN1fRPgPIUcdUGSe3
-	rs+LcXmfTyJYvxvJjsFf8f0ApOwip1PicNa981xcjH4MKVqkoKpyzlxwwHOYcfLC+B5mEd
-	7Y+gbMD+piaijvIlyMzYPyuPxHohAIb3XSFige4l+xuoi82leA8PAeQ31hGSlVRwPD+wQ3
-	n6n4pYD7mFa1Y0Rsvl1DCfEMOgpANdQ/E16QD6t2Dh7pRICCqjhN/gPgPrM+fPp2Si/ih2
-	sU+p5Egl9N/3D2qoNiCRvjAFt/X3L02D3fNEkcYdWn40i1TAkciD/voa8T04sQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925620;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=AjuZnUvqwfsid4jtivwVWrZiWUy0MGdS0WowlWq+wK8=;
-	b=n1wnoGuKdWFqJ6PX+VgQN0Ufd6Syw8of6US1WCmh8XhXmEUBV6cIJXGutet95c8P750ccR
-	/kEaioxsm/Oq80Bw==
-From: Thomas Gleixner <tglx@linutronix.de>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: x86@kernel.org,
- David Woodhouse <dwmw2@infradead.org>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Brian Gerst <brgerst@gmail.com>,
- Arjan van de Veen <arjan@linux.intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Paul McKenney <paulmck@kernel.org>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Sean Christopherson <seanjc@google.com>,
- Oleksandr Natalenko <oleksandr@natalenko.name>,
- Paul Menzel <pmenzel@molgen.mpg.de>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Piotr Gorski <lucjan.lucjanov@gmail.com>,
- Usama Arif <usama.arif@bytedance.com>,
- Juergen Gross <jgross@suse.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- xen-devel@lists.xenproject.org,
- Russell King <linux@armlinux.org.uk>,
- Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- linux-csky@vger.kernel.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org,
- Mark Rutland <mark.rutland@arm.com>,
- Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 02/37] cpu/hotplug: Mark arch_disable_smp_support() and
- bringup_nonboot_cpus() __init
-References: <20230512203426.452963764@linutronix.de>
+	id 1pxbEr-00DByk-2I
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 May 2023 22:27:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0174964C21;
+	Fri, 12 May 2023 22:27:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA94C433D2;
+	Fri, 12 May 2023 22:27:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1683930468;
+	bh=yotOQtdEH6rCCF1UokNJsyz14i9QXPrLX0CaR5Gj1jk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QOkQfjvbQElQo2Q2BSeL3euoR4smHoogkxZNaHfne7A75YEbUtQYzHRXiX7P1ETxi
+	 AJnA0P3BO4rK0q8+YmVSkEQWsGsvGB6pxlSAiTYgLkRukaCPACbi7AMBQlr8TTkNjZ
+	 Ep0U58R2PwWtuJSWG5u44UIPOeAH+U5OcRCpJAdENH0tbmZW3+DypvM4peUl6YWCYR
+	 TcDAupbBd/yQS0h1q8BuXA+mZLXsKDPBrTjit914UHuvy0fE4FPiLt030zL6GRb1WV
+	 L2BduV/N74pCi6Sa8CxsNBNDQzSIzutQHRu1F2KWbzKNudFqgtFycK8/qY6PAEI2oq
+	 hrWA5nkASuonw==
+Date: Fri, 12 May 2023 23:27:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	walker.chen@starfivetech.com
+Subject: Re: [PATCH v1 2/2] riscv: dts: starfive: jh7110: Add watchdog node
+Message-ID: <20230512-barrack-catchable-1f4072b9355b@spud>
+References: <20230509151723.84989-1-xingyu.wu@starfivetech.com>
+ <20230509151723.84989-3-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:00 +0200 (CEST)
+In-Reply-To: <20230509151723.84989-3-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140710_755522_BF246B0C 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20230512_152749_817925_18474FB0 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,65 +75,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3496080947383010651=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
 
-No point in keeping them around.
-
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Tested-by: Michael Kelley <mikelley@microsoft.com>
----
- arch/x86/kernel/smpboot.c |    4 ++--
- kernel/cpu.c              |    2 +-
- kernel/smp.c              |    2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
+--===============3496080947383010651==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8JU6x6woKhLCHwoo"
+Content-Disposition: inline
 
 
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -1269,9 +1269,9 @@ int native_cpu_up(unsigned int cpu, stru
- }
- 
- /**
-- * arch_disable_smp_support() - disables SMP support for x86 at runtime
-+ * arch_disable_smp_support() - Disables SMP support for x86 at boottime
-  */
--void arch_disable_smp_support(void)
-+void __init arch_disable_smp_support(void)
- {
- 	disable_ioapic_support();
- }
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1502,7 +1502,7 @@ int bringup_hibernate_cpu(unsigned int s
- 	return 0;
- }
- 
--void bringup_nonboot_cpus(unsigned int setup_max_cpus)
-+void __init bringup_nonboot_cpus(unsigned int setup_max_cpus)
- {
- 	unsigned int cpu;
- 
---- a/kernel/smp.c
-+++ b/kernel/smp.c
-@@ -892,7 +892,7 @@ EXPORT_SYMBOL(setup_max_cpus);
-  * SMP mode to <NUM>.
-  */
- 
--void __weak arch_disable_smp_support(void) { }
-+void __weak __init arch_disable_smp_support(void) { }
- 
- static int __init nosmp(char *str)
- {
+--8JU6x6woKhLCHwoo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 09, 2023 at 11:17:23PM +0800, Xingyu Wu wrote:
+> Add the watchdog node for the Starfive JH7110 SoC.
+
+Emil or Walker, could I get a review on this please?
+It's the only dts patch on the list right now for the jh7110 that I can
+actually apply, so it'd be nice to do so.
+
+Thanks,
+Conor.
+
+>=20
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
+ts/starfive/jh7110.dtsi
+> index 4c5fdb905da8..47c163ec0bf1 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -469,6 +469,16 @@ sysgpio: pinctrl@13040000 {
+>  			#gpio-cells =3D <2>;
+>  		};
+> =20
+> +		watchdog@13070000 {
+> +			compatible =3D "starfive,jh7110-wdt";
+> +			reg =3D <0x0 0x13070000 0x0 0x10000>;
+> +			clocks =3D <&syscrg JH7110_SYSCLK_WDT_APB>,
+> +				 <&syscrg JH7110_SYSCLK_WDT_CORE>;
+> +			clock-names =3D "apb", "core";
+> +			resets =3D <&syscrg JH7110_SYSRST_WDT_APB>,
+> +				 <&syscrg JH7110_SYSRST_WDT_CORE>;
+> +		};
+> +
+>  		aoncrg: clock-controller@17000000 {
+>  			compatible =3D "starfive,jh7110-aoncrg";
+>  			reg =3D <0x0 0x17000000 0x0 0x10000>;
+> --=20
+> 2.25.1
+>=20
+
+--8JU6x6woKhLCHwoo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZF69XwAKCRB4tDGHoIJi
+0udqAP4tKOaHjuSPwwqts5hXwNP+jpgONumVl4re6oLMfdh5fAEA4kRfEXdNqmD1
+pUcjCp6fw2W4wFgttfmyY+0JRcLSRQ8=
+=nlcN
+-----END PGP SIGNATURE-----
+
+--8JU6x6woKhLCHwoo--
 
 
-
+--===============3496080947383010651==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3496080947383010651==--
+
