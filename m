@@ -4,46 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FC1C77B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3BAC7EE25
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=abUOZxcP8IZjcBnTImZdHZJRateXH5tMUfJlnzpR9/Q=; b=PzsQUqbvcIBvGO
-	e4ro62wK6I9smcmekNGmLI9DFW86LhNJSZYjx3+LUdMRpJUtP3CJ3uV1E39y1m52RQ1q7IsWM7icj
-	eZN5oucbafwUL9FPfTJDjKDZrtqRrCOt1zEekE1oyaZAc8TX9w4DkK1jo1h1wV2U3SYMt+VRqaO6D
-	JrVziGHxO1EQR6Ov9yg1ksgPrkTEkzOhIS1xBhXL3sQXjLhGc8vK4WPnZcOO3WQr3Sal7LshBLxkZ
-	ojhh4adBf0ULCN3KbgOTWBKmv8NavDBTO3EjPnEvFMoh6roiyxnYEDgrUYrXDWjse44LV+EaepWB6
-	i82cUcniIqN6nDwAGgQA==;
+	List-Owner; bh=AflHYzCh/1MFhQuYen6YcZyvG7IWbPbyYQMIXAYZTXk=; b=M/5QF0LAw1DrUp
+	cKAvXXPAX/gk6jyUFPh5Pna4jbHza4uMgLzjNGGWu6U55mOysHRj/dzp36L0COPw1aP0buENj/Yjo
+	KGC42tFp7pos6FKV3d+8hMCj6ZpzNVMAFhVxSwC6mTXvTe2kyzyLvPfSD+RlRKQ68LpoVF4v3Df2x
+	ETmEONqQYA14h+ze0BUi28EIZJN4LIutzL7rYlVP8WzWgag14/Pz+5y1m7+/kve8q/MRLcZygi5z8
+	sdsdEE/IZCveKSrQH5cubhAfEdNZwK4My8yaJr1trtJZIyb0LxyRdxtRj1Eh+a1j4gpWEgMzYd54B
+	QVZwPK7Dh9Uqa7lYPUww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxa2V-00D25a-1v;
-	Fri, 12 May 2023 21:10:59 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1pxa2d-00D2EY-2T;
+	Fri, 12 May 2023 21:11:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZzV-00Cz8T-2u;
+	id 1pxZze-00CzIB-2H;
+	Fri, 12 May 2023 21:08:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=09Gybl6gLYxqPWfBolvGD2u6nN/UgRkwP/RVYSeb51U=; b=nu46O+92DxGwmCzvjI10RzNeaG
+	bK3B/HqbD2X+lwq09keaBc7n61V0okzR4p/xJ5bYjVLS5sr4KH3ylBKDGSOgD6yDoQynx/Ol6ntYQ
+	eFyfBLBSWAqpxTo/qaFFDnWjmMm4dBPtrzKBIaeL+XpKYfX3d9MQtgQhTPpv7rUodIfmBf0dS5Qj+
+	XZUWryeCp9AA7y4GaGWv0CkE9MEG74fELGvJGMTzwrAlCm2mIEgDuxodqMeX3heDdrpO64A5V2HVP
+	eSA8YKsdPAWgaNwOM55n38NW/R9MrPm19BYdfQUZERZQttUDNkEmx0ld3Xy4qPGg0XbRKPaqD4yF2
+	q5DXr0LA==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pxZza-009JCQ-1I;
 	Fri, 12 May 2023 21:08:00 +0000
-Message-ID: <20230512205257.299231005@linutronix.de>
+Message-ID: <20230512205257.467571745@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925672;
+	s=2020; t=1683925677;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=1NEBWklEox1EHC85h866UHlaj72PU/D3Dw3p+jMC/F0=;
-	b=AxLTeRaqaMDLy4ioLj6zEL9HPmP3cx+s/iQLQ36KY9z4ru+T511Ht9KAXa6I3GInzxRIU1
-	auZCeKjxgzcWperPNzAB6/xoxSxZZT3u87ymCz3VAy/9CvphzwHc79I4z9See9dnYiwzvz
-	bYSv0JUTpntUltbnxM2mkF4WxFblikPEgXHSvRGwaVfq73pCN36um7FFZl4vXhlXIHBRyk
-	wdNVsJkRU8XRhNBC0JX4ba3dJqo9Z0BrkVvSLSPvH7jhRowqf1Jy1tcFMxYdxDiUMofIyI
-	JqzBNBvPaJetJyHovLVoc2IeuKZ0XpgQRph7CuJjaFv7vGl5Yd3+ReqjtvieoQ==
+	 references:references; bh=09Gybl6gLYxqPWfBolvGD2u6nN/UgRkwP/RVYSeb51U=;
+	b=lkhHN5ucCzBQq4wHtTdIuPxWfT+KaR8us2Fnqu6Cr5tOLNAYFJwbAjX6Z3ePYw7xBU5Rf+
+	wiXaKi5wbkSJ0yiBL+vVDSE9lfXClJ13wICCfbrPv8NwRfgYgJmKsCHdwkitagDFT4Sy53
+	3Mn9Rphq4Lwr1hRrlQYSh8G4siyYtpt76AklUE92TaBdwOhGU7rVMLqFcMcy15TW5md2c+
+	3IsfJN76Y4Qt83mJf/v41gRvRUGzZI3ou8Af+vq5cz1lXYtnQvn0+VVBR6/3GVBOS0fRX9
+	A3vvjzTjc3WS06TbYvPMJ2fPNMriQpu62Vf8hta3kuH4x12rVzRveCh1dJ+U4w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925672;
+	s=2020e; t=1683925677;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=1NEBWklEox1EHC85h866UHlaj72PU/D3Dw3p+jMC/F0=;
-	b=RcKUBGkIIKdhAcY84iUu32ds5jxMMcMhQacX7+NkfuyvLzMFgdSYMRTqeLxsIuyjcb0y9C
-	Eb2r1CihAReSwIBw==
+	 references:references; bh=09Gybl6gLYxqPWfBolvGD2u6nN/UgRkwP/RVYSeb51U=;
+	b=gsCVGrEF63u0kv3H/7VlEi7kjZ9EJYo14dXRVQK78ZLNGfUDOAVfm+otcHx6OPKkcYxyVn
+	b0t3Yyn3VI1q72DQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -82,13 +96,14 @@ Cc: x86@kernel.org,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 34/37] x86/apic: Save the APIC virtual base address
+Subject: [patch V4 37/37] x86/smpboot/64: Implement
+ arch_cpuhp_init_parallel_bringup() and enable it
 References: <20230512203426.452963764@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:51 +0200 (CEST)
+Date: Fri, 12 May 2023 23:07:56 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140754_129395_1D012175 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20230512_220758_736426_FFD4672A 
+X-CRM114-Status: GOOD (  29.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,58 +122,224 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-For parallel CPU brinugp it's required to read the APIC ID in the low level
-startup code. The virtual APIC base address is a constant because its a
-fix-mapped address. Exposing that constant which is composed via macros to
-assembly code is non-trivial due to header inclusion hell.
+Implement the validation function which tells the core code whether
+parallel bringup is possible.
 
-Aside of that it's constant only because of the vsyscall ABI
-requirement. Once vsyscall is out of the picture the fixmap can be placed
-at runtime.
+The only condition for now is that the kernel does not run in an encrypted
+guest as these will trap the RDMSR via #VC, which cannot be handled at that
+point in early startup.
 
-Avoid header hell, stay flexible and store the address in a variable which
-can be exposed to the low level startup code.
+There was an earlier variant for AMD-SEV which used the GHBC protocol for
+retrieving the APIC ID via CPUID, but there is no guarantee that the
+initial APIC ID in CPUID is the same as the real APIC ID. There is no
+enforcement from the secure firmware and the hypervisor can assign APIC IDs
+as it sees fit as long as the ACPI/MADT table is consistent with that
+assignment.
 
+Unfortunately there is no RDMSR GHCB protocol at the moment, so enabling
+AMD-SEV guests for parallel startup needs some more thought.
+
+Intel-TDX provides a secure RDMSR hypercall, but supporting that is outside
+the scope of this change.
+
+Fixup announce_cpu() as e.g. on Hyper-V CPU1 is the secondary sibling of
+CPU0, which makes the @cpu == 1 logic in announce_cpu() fall apart.
+
+[ mikelley: Reported the announce_cpu() fallout
+
+Originally-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Tested-by: Michael Kelley <mikelley@microsoft.com>
 ---
-V4: Fixed changelog typo - Sergey
+V2: Fixup announce_cpu() - Michael Kelley
+V3: Fixup announce_cpu() for real - Michael Kelley
 ---
- arch/x86/include/asm/smp.h  |    1 +
- arch/x86/kernel/apic/apic.c |    4 ++++
- 2 files changed, 5 insertions(+)
---- a/arch/x86/include/asm/smp.h
-+++ b/arch/x86/include/asm/smp.h
-@@ -196,6 +196,7 @@ extern void nmi_selftest(void);
- #endif
+ arch/x86/Kconfig             |    3 -
+ arch/x86/kernel/cpu/common.c |    6 --
+ arch/x86/kernel/smpboot.c    |   87 +++++++++++++++++++++++++++++++++++--------
+ 3 files changed, 75 insertions(+), 21 deletions(-)
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -274,8 +274,9 @@ config X86
+ 	select HAVE_UNSTABLE_SCHED_CLOCK
+ 	select HAVE_USER_RETURN_NOTIFIER
+ 	select HAVE_GENERIC_VDSO
++	select HOTPLUG_PARALLEL			if SMP && X86_64
+ 	select HOTPLUG_SMT			if SMP
+-	select HOTPLUG_SPLIT_STARTUP		if SMP
++	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
+ 	select IRQ_FORCED_THREADING
+ 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+ 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -2128,11 +2128,7 @@ static inline void setup_getcpu(int cpu)
+ }
  
- extern unsigned int smpboot_control;
-+extern unsigned long apic_mmio_base;
+ #ifdef CONFIG_X86_64
+-static inline void ucode_cpu_init(int cpu)
+-{
+-	if (cpu)
+-		load_ucode_ap();
+-}
++static inline void ucode_cpu_init(int cpu) { }
  
- #endif /* !__ASSEMBLY__ */
+ static inline void tss_setup_ist(struct tss_struct *tss)
+ {
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -58,6 +58,7 @@
+ #include <linux/overflow.h>
+ #include <linux/stackprotector.h>
+ #include <linux/cpuhotplug.h>
++#include <linux/mc146818rtc.h>
  
---- a/arch/x86/kernel/apic/apic.c
-+++ b/arch/x86/kernel/apic/apic.c
-@@ -101,6 +101,9 @@ static int apic_extnmi __ro_after_init =
-  */
- static bool virt_ext_dest_id __ro_after_init;
+ #include <asm/acpi.h>
+ #include <asm/cacheinfo.h>
+@@ -75,7 +76,7 @@
+ #include <asm/fpu/api.h>
+ #include <asm/setup.h>
+ #include <asm/uv/uv.h>
+-#include <linux/mc146818rtc.h>
++#include <asm/microcode.h>
+ #include <asm/i8259.h>
+ #include <asm/misc.h>
+ #include <asm/qspinlock.h>
+@@ -128,7 +129,6 @@ int arch_update_cpu_topology(void)
+ 	return retval;
+ }
  
-+/* For parallel bootup. */
-+unsigned long apic_mmio_base __ro_after_init;
+-
+ static unsigned int smpboot_warm_reset_vector_count;
+ 
+ static inline void smpboot_setup_warm_reset_vector(unsigned long start_eip)
+@@ -226,16 +226,43 @@ static void notrace start_secondary(void
+ 	 */
+ 	cr4_init();
+ 
+-#ifdef CONFIG_X86_32
+-	/* switch away from the initial page table */
+-	load_cr3(swapper_pg_dir);
+-	__flush_tlb_all();
+-#endif
++	/*
++	 * 32-bit specific. 64-bit reaches this code with the correct page
++	 * table established. Yet another historical divergence.
++	 */
++	if (IS_ENABLED(CONFIG_X86_32)) {
++		/* switch away from the initial page table */
++		load_cr3(swapper_pg_dir);
++		__flush_tlb_all();
++	}
++
+ 	cpu_init_exception_handling();
+ 
+ 	/*
+-	 * Synchronization point with the hotplug core. Sets the
+-	 * synchronization state to ALIVE and waits for the control CPU to
++	 * 32-bit systems load the microcode from the ASM startup code for
++	 * historical reasons.
++	 *
++	 * On 64-bit systems load it before reaching the AP alive
++	 * synchronization point below so it is not part of the full per
++	 * CPU serialized bringup part when "parallel" bringup is enabled.
++	 *
++	 * That's even safe when hyperthreading is enabled in the CPU as
++	 * the core code starts the primary threads first and leaves the
++	 * secondary threads waiting for SIPI. Loading microcode on
++	 * physical cores concurrently is a safe operation.
++	 *
++	 * This covers both the Intel specific issue that concurrent
++	 * microcode loading on SMT siblings must be prohibited and the
++	 * vendor independent issue`that microcode loading which changes
++	 * CPUID, MSRs etc. must be strictly serialized to maintain
++	 * software state correctness.
++	 */
++	if (IS_ENABLED(CONFIG_X86_64))
++		load_ucode_ap();
++
++	/*
++	 * Synchronization point with the hotplug core. Sets this CPUs
++	 * synchronization state to ALIVE and spin-waits for the control CPU to
+ 	 * release this CPU for further bringup.
+ 	 */
+ 	cpuhp_ap_sync_alive();
+@@ -918,9 +945,9 @@ static int wakeup_secondary_cpu_via_init
+ /* reduce the number of lines printed when booting a large cpu count system */
+ static void announce_cpu(int cpu, int apicid)
+ {
++	static int width, node_width, first = 1;
+ 	static int current_node = NUMA_NO_NODE;
+ 	int node = early_cpu_to_node(cpu);
+-	static int width, node_width;
+ 
+ 	if (!width)
+ 		width = num_digits(num_possible_cpus()) + 1; /* + '#' sign */
+@@ -928,10 +955,10 @@ static void announce_cpu(int cpu, int ap
+ 	if (!node_width)
+ 		node_width = num_digits(num_possible_nodes()) + 1; /* + '#' */
+ 
+-	if (cpu == 1)
+-		printk(KERN_INFO "x86: Booting SMP configuration:\n");
+-
+ 	if (system_state < SYSTEM_RUNNING) {
++		if (first)
++			pr_info("x86: Booting SMP configuration:\n");
++
+ 		if (node != current_node) {
+ 			if (current_node > (-1))
+ 				pr_cont("\n");
+@@ -942,11 +969,11 @@ static void announce_cpu(int cpu, int ap
+ 		}
+ 
+ 		/* Add padding for the BSP */
+-		if (cpu == 1)
++		if (first)
+ 			pr_cont("%*s", width + 1, " ");
++		first = 0;
+ 
+ 		pr_cont("%*s#%d", width - num_digits(cpu), " ", cpu);
+-
+ 	} else
+ 		pr_info("Booting Node %d Processor %d APIC 0x%x\n",
+ 			node, cpu, apicid);
+@@ -1236,6 +1263,36 @@ void __init smp_prepare_cpus_common(void
+ 	set_cpu_sibling_map(0);
+ }
+ 
++#ifdef CONFIG_X86_64
++/* Establish whether parallel bringup can be supported. */
++bool __init arch_cpuhp_init_parallel_bringup(void)
++{
++	/*
++	 * Encrypted guests require special handling. They enforce X2APIC
++	 * mode but the RDMSR to read the APIC ID is intercepted and raises
++	 * #VC or #VE which cannot be handled in the early startup code.
++	 *
++	 * AMD-SEV does not provide a RDMSR GHCB protocol so the early
++	 * startup code cannot directly communicate with the secure
++	 * firmware. The alternative solution to retrieve the APIC ID via
++	 * CPUID(0xb), which is covered by the GHCB protocol, is not viable
++	 * either because there is no enforcement of the CPUID(0xb)
++	 * provided "initial" APIC ID to be the same as the real APIC ID.
++	 *
++	 * Intel-TDX has a secure RDMSR hypercall, but that needs to be
++	 * implemented seperately in the low level startup ASM code.
++	 */
++	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
++		pr_info("Parallel CPU startup disabled due to guest state encryption\n");
++		return false;
++	}
++
++	smpboot_control = STARTUP_READ_APICID;
++	pr_debug("Parallel CPU startup enabled: 0x%08x\n", smpboot_control);
++	return true;
++}
++#endif
 +
  /*
-  * Map cpu index to physical APIC ID
-  */
-@@ -2163,6 +2166,7 @@ void __init register_lapic_address(unsig
- 
- 	if (!x2apic_mode) {
- 		set_fixmap_nocache(FIX_APIC_BASE, address);
-+		apic_mmio_base = APIC_BASE;
- 		apic_printk(APIC_VERBOSE, "mapped APIC to %16lx (%16lx)\n",
- 			    APIC_BASE, address);
- 	}
-
-
+  * Prepare for SMP bootup.
+  * @max_cpus: configured maximum number of CPUs, It is a legacy parameter
 
 
 _______________________________________________
