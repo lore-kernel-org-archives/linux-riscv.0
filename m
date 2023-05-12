@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885DDC77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 08:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71685C77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 08:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mSxnKBay3XnXv+o9xPyTUTw9c4nfYMneq25awQfp+JE=; b=EDiuMRPVYzv1Cd
-	OG2Q1g7Vdw8g88Q5uTgwdix5jhG0zCbU8OBBurPf8EbuvPtkXlpyhhtWCIuAxfCl+90JPLUARJI3w
-	EWpPFEwKwb+QxaYetC1TtDe/lRuDclTHYPByQj+B1Vb0YalKHWOHoiqvacZcnbIGAHM2kXvyzYcg4
-	xfoL+HuMz1r+9o8OiXtne9c5FiEGfzL0ul/tcMVJmagyzaEaJUqOW9xnG7L/jwHqrVjGR47DOusoT
-	ygfJnN8zwzEPTTghxjbHp/whi53oDrAavgAEKX1pMWI/EmZqK6wFQi6b81VweD4qxGAho8IS+vnsG
-	2a+O9OFi8s+aYYnWLl9w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uqjYzmQgPxwzHQtoyygokJaK4h53GOdZ2lOw9pQogwA=; b=p+x4vCNA8nO/Tn
+	Ry64g2axleO80NGDmxOy/zOUz5zBA7RGkdM46xsFmdgeIoIV69YYdHu134Ik7HEB5iG4/VQfPm5hc
+	tbXx2Z5P3UDr9p1rK9c+Fs68z25nUqQVS9x+8RblhnDeBT1Csd5Kg6EHHFyaxPnbkVsYo77AYjEMw
+	pnQIHtE8TZO5rNTkistFa2A5bRvmGXeMXEAgbJiX0cAu6JvfxWKK9KC31evN5LRfAzpKAQFyn57uR
+	Q3o9yRDdc4KpxwTYK9yXS7dkEmxoFixuhNvvhYliislaJILXzN4T1EqnR7XecBj2S7hqugtr56ISk
+	7znhPeNJUKsC4w2j+wlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxOXG-00BNoQ-0Y;
-	Fri, 12 May 2023 08:53:58 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1pxOYU-00BO6M-2z;
+	Fri, 12 May 2023 08:55:14 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxOXD-00BNn8-24
+	id 1pxOYT-00BO5N-0B
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 12 May 2023 08:55:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6zC284Mx5M3d9WrVkxHAYpIwsSHj0B1udyIbm0+qXIw=; b=dkCeb4f1V+lNLlRRhiiHFdJzMK
+	Q5SgrF8rwKwl+0/0HLeLdxPqpN5l1ySFpS5n2f0XLSqBdqv5kD+Q9iJ/ruMD5vUJZ3smcWgJjm/kK
+	0qcU+25ZE2GnVIBrbqCE3hbyUwUQMErQjHz4EllYSDE3SfXhDPgJpB30jyGWhRRS8o1bMxYCT1YMu
+	mzNVJIyaD4lV/J7lfYUnHoy6nHzrDb5ZXAvmqwt3VPeNxO//N9qsBmf9/hqPRscL1EM3Ey4rdg6ZZ
+	KImNdUyYPvtXodQ8PtMuumS+N9T2h3N0M4d3qIi3EfTxfKFs0KqusVeQtZ5Jvpufy80y535Eze9/A
+	mLRCTUkw==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pxOYM-00969F-2d
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 May 2023 08:53:57 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3f315712406so313069075e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 12 May 2023 01:53:53 -0700 (PDT)
+	Fri, 12 May 2023 08:55:11 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3f4c6c4b425so18476305e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 May 2023 01:54:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683881632; x=1686473632;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aUKnEzldAU5lVuG/jDXiwAN3hvqenQj1jlly6nl0Ii8=;
-        b=MSFrF7b5hiO1ul3GJrXQGuAvBJZJjaxiZFm1B1nXYPy8Es1boj6Hg/UQTy0zngEWOf
-         Hb6LMVmocFr2ebzFjeyGNAcGUgjlX/5LylebVGWKHj7CQcp6H32YRmIgUls62+6VFvdj
-         0u/qcXaZ4FxgdRpeFM9PDSawxPeUenA5ZbKsI5axxJdnK4G023jROUWI6yJPz5r66sVd
-         uUVQBgdQTf7bQHZRM1233MUCbAqwD8tnKjFwWiYXwEXLXTaIkPMARsPAOkXrBxWv29U9
-         lBW8XXEZBgeJEMZFp341SW2ij8IB5Ln5tZwk1SsXjMSALbX1Ie4lPdLt5RX4d6UD9/84
-         d9rw==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1683881694; x=1686473694;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6zC284Mx5M3d9WrVkxHAYpIwsSHj0B1udyIbm0+qXIw=;
+        b=z44JIICsJ3FFmRv9/ChN1HSVSRV0MHsv5RbNUZGm/8+AuijyMI+HMBrhW1eDSp5v3b
+         w0iMXFR0+HVV5NUmF191qH+N7+qxBY8TwTuOFXtbvH4n/3HY8EFgR3GYOZ7/nwLNSQ7C
+         vCEkxCdwycPnXu67Oiw8yp09FtNQPxCo64ra48yGlduNuWNHR5VmHRSlQe8yNfTolfZi
+         U9dYgsOwEsY0FzsHPjAAlCnfRLU7a0KLp9KO5DF4Mr34hM/azMOwBKS3r5newR9Ov8/y
+         cTpW1quhiIeXGRQgbI8Aj3XZTkjzfQy1euYvkbBMoyXm6I8nIjNICS1bgMNlOuZ38Xgy
+         ceqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1683881632; x=1686473632;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aUKnEzldAU5lVuG/jDXiwAN3hvqenQj1jlly6nl0Ii8=;
-        b=gf9fZf0br1eSGZAIr299zSkQH/4XGCwz5cZSTKHV0PCi7UkivzpsfoyxasnJEGi1VK
-         LVfRrgWwD0a3aftkdHMvp5khf0bSO8pq0MLzJKx6O7QAh8syPN82ZpnLgfQKGQv82llm
-         rkId+azIX/nD4s07R2KV/2znnQCzkgZxevTaYxqv5ilzOw6po8Uk/IZf8arDlSv1PTV+
-         fkhpJUdOWSXKALrty1tSf54EFPqs6IQBiy+L7mKwrSsgBdZqyfmFVy660vbgeGKSKmxL
-         wrCJFCkFPLaseNIbb5wbKtme8s953kdNTVDpcFtyDA3V/+cjQB4dNe8B8YnZCoeny9yl
-         61Eg==
-X-Gm-Message-State: AC+VfDyzbFJhY5j3NvMjt/9NcAGnuWg8JktwbEY9JhG9TXaHd6d8LhyO
-	D2XdLSoZ394yDx0OeKV0k+Q1rw==
-X-Google-Smtp-Source: ACHHUZ6W5V7VU85NsIxu7FyCdJpo6FpNmv3LzOAktwEO7Ge0/BrFJAB/8b/RIFvFh0YGBU1HKaD2lw==
-X-Received: by 2002:adf:e904:0:b0:306:2d81:341d with SMTP id f4-20020adfe904000000b003062d81341dmr21035750wrm.24.1683881632684;
-        Fri, 12 May 2023 01:53:52 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1683881694; x=1686473694;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6zC284Mx5M3d9WrVkxHAYpIwsSHj0B1udyIbm0+qXIw=;
+        b=MQAGhg7uQodmMsuwGBUg14TqoRAhX76QNFnFjUDjkfk5aTsEn3aKVEs5rxcf668BT6
+         M1TsqS6LbgHS/okzM4ZECu5KX/u3z4/bnm2woN/x/MU2STfYLROBsvJiOxxQIKkF45u6
+         0A+4BNWVpL/k6aboL36CKTrybQ3/eaxMxyqDpOQ6dTRo05McDjt0VB/bPXNxL7PfdqNT
+         SQ53MJbKwMpN9dd4k9taiM1sfdph0dO6RrkleDqlRWo2nXZWDiRsRigJyMayt4jocM/E
+         jH5t3Qky7nmDT9fE97jUXFhnJ0xwKNkSz77PXV/5rKPmNVR01iXMezbSM0PB/G5Zhy33
+         kPAg==
+X-Gm-Message-State: AC+VfDyxfS5E172bguoH1FS1kvUEKtOsSN8oFUPiSnuby/CeoS4RxfKR
+	aS6mBksMRzFZoi8LOiLvaCrezA==
+X-Google-Smtp-Source: ACHHUZ7yTqFGJSEOt4qvmG1LunFjlDzDAQO5Tm0YmvPi5fam/8fYjVc3Q48PRj/C9ibBB+6HaVTApQ==
+X-Received: by 2002:a7b:c419:0:b0:3f4:a09f:1877 with SMTP id k25-20020a7bc419000000b003f4a09f1877mr5918180wmi.23.1683881693890;
+        Fri, 12 May 2023 01:54:53 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id v13-20020a05600c214d00b003f42461ac75sm15015618wml.12.2023.05.12.01.53.51
+        by smtp.gmail.com with ESMTPSA id y25-20020a05600c365900b003f42456c490sm15098356wmq.33.2023.05.12.01.54.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 May 2023 01:53:52 -0700 (PDT)
+        Fri, 12 May 2023 01:54:53 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -85,14 +101,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 00/10] riscv: Allow userspace to directly access perf counters
-Date: Fri, 12 May 2023 10:53:11 +0200
-Message-Id: <20230512085321.13259-1-alexghiti@rivosinc.com>
+Subject: [PATCH v2 01/10] perf: Fix wrong comment about default event_idx
+Date: Fri, 12 May 2023 10:53:12 +0200
+Message-Id: <20230512085321.13259-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230512085321.13259-1-alexghiti@rivosinc.com>
+References: <20230512085321.13259-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_015355_697005_C04CD5FA 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20230512_095507_364420_9455DF0D 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,54 +127,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv used to allow direct access to cycle/time/instret counters,
-bypassing the perf framework, this patchset intends to allow the user to
-mmap any counter when accessed through perf. But we can't break the
-existing behaviour so we introduce a sysctl perf_user_access like arm64
-does, which defaults to the legacy mode described above.
+event_idx default implementation returns 0, not idx + 1.
 
-*Note* that there are still ongoing discussions around which mode should
-be the default mode with distro people.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ include/linux/perf_event.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-base-commit-tag: v6.3
-
-Changes in v2:
-- Split into smaller patches, way better!
-- Add RB from Conor
-- Simplify the way we checked riscv architecture
-- Fix race mmap and other thread running on other cpus
-- Use hwc when available
-- Set all userspace access flags in event_init, too cumbersome to handle sysctl changes
-- Fix arch_perf_update_userpage for pmu other than riscv-pmu by renaming pmu driver
-- Fixed kernel test robot build error
-- Fixed documentation (Andrew and Bagas)
-- perf testsuite passes mmap tests in all 3 modes
-
-Alexandre Ghiti (10):
-  perf: Fix wrong comment about default event_idx
-  include: riscv: Fix wrong include guard in riscv_pmu.h
-  riscv: Make legacy counter enum match the HW numbering
-  drivers: perf: Rename riscv pmu driver
-  riscv: Prepare for user-space perf event mmap support
-  drivers: perf: Implement perf event mmap support in the legacy backend
-  drivers: perf: Implement perf event mmap support in the SBI backend
-  Documentation: admin-guide: Add riscv sysctl_perf_user_access
-  tools: lib: perf: Implement riscv mmap support
-  perf: tests: Adapt mmap-basic.c for riscv
-
- Documentation/admin-guide/sysctl/kernel.rst |  24 ++-
- arch/riscv/kernel/Makefile                  |   2 +-
- arch/riscv/kernel/perf_event.c              |  74 ++++++++
- drivers/perf/riscv_pmu.c                    |  41 ++++
- drivers/perf/riscv_pmu_legacy.c             |  37 +++-
- drivers/perf/riscv_pmu_sbi.c                | 196 +++++++++++++++++++-
- include/linux/perf/riscv_pmu.h              |  10 +-
- include/linux/perf_event.h                  |   3 +-
- tools/lib/perf/mmap.c                       |  65 +++++++
- tools/perf/tests/mmap-basic.c               |   4 +-
- 10 files changed, 435 insertions(+), 21 deletions(-)
- create mode 100644 arch/riscv/kernel/perf_event.c
-
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index d5628a7b5eaa..56fe43b20966 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -442,7 +442,8 @@ struct pmu {
+ 
+ 	/*
+ 	 * Will return the value for perf_event_mmap_page::index for this event,
+-	 * if no implementation is provided it will default to: event->hw.idx + 1.
++	 * if no implementation is provided it will default to 0 (see
++	 * perf_event_idx_default).
+ 	 */
+ 	int (*event_idx)		(struct perf_event *event); /*optional */
+ 
 -- 
 2.37.2
 
