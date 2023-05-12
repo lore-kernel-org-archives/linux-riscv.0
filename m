@@ -4,46 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D2DC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF707C7EE30
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 May 2023 21:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
-	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=DdmkERLx56SpYSh/BLaHQDwrQ0HIx+SLFeB7ZOuMisE=; b=pLUaFcFdcuKdwU
-	iURLo2yZTk3DAVBNajpJxHZcuYuj0owhEHgWBCianU95YCyABGrLfsbfIgT7Pdl8hwoYscJoz9kBo
-	R/x6XUE3dPitQS0UdkO/3W4f6gqTOQphUJXYQWGbNIss/k0W5PcHjELLt+mdriE8nliPdbN23Nn9N
-	BTzg4JAVjVxVeBERYZWMZCa7/xFZ5EBFRVKwhrV7R5aepUE+W8DmZzTMs6QXXmWnQ+50uKQ0RbmTx
-	a1BgxFq3Mv5TGhXYbyBYZcxNO0qXbgpldbDJesya2dDEobOINxBpY25viCQphbVNb0EHi3DDT/1eD
-	D4AG9T0Jn2FkwoldYrHA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q0IGA1ByF4h7JI4AfcMce7Bb4MPbtKTgrepQVYXE7p8=; b=Wu8n5oALVycsOu
+	sBluaH9Je5BAS339MOUMJR/M8GCfAiIG6BZ6ElGUIL3svEEj5nVxyle2TqvfaI0YYg8D/bCooFH9H
+	tC1m0GQtTZIZ39yTSAcf36OHq3VACwljPSpR8G9wRtEssrkSgZKhF8+3vcj2oAx7cMn2UKyvcjG2L
+	/0y1EYMjzRjVTh6YsAOranq1FWiizFZFlx+qm5Oken+qkuy0o98YedY54aICauf/r/KJVIE/cQVfQ
+	q5itNp7Ay6eanVv+FYn/1q5+rRtl85/PYyRPfmm/rJbP4Dl+HpxXb4PK2lpGIg3wqVFp1aYoEDW8F
+	8P0q2KYKIe0J5phVRNVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZz3-00CyfD-1R;
-	Fri, 12 May 2023 21:07:25 +0000
+	id 1pxZzB-00Cylf-2Y;
+	Fri, 12 May 2023 21:07:33 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pxZyo-00CyMN-1r;
+	id 1pxZyo-00CyLO-1z;
 	Fri, 12 May 2023 21:07:14 +0000
-Message-ID: <20230512205255.608773568@linutronix.de>
+Message-ID: <20230512203426.452963764@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1683925622;
+	s=2020; t=1683925617;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=r7mhuIr1UsffTwz/BZZT9WLBgbQp9Bjt9SYbqNDVnNo=;
-	b=yfiqoUfo19pxfWqsqQNjGDRZah8o3a0ZerjqrGY5ai55QtwCUrIVOIn8alP1EE9LzZM7mi
-	LPH8IwyPagJtgHY2f27LQ/LbPs0P4ko5todlsQYLwAgD7UCfloc08R4n7cM9Gt3+MVorMZ
-	8MGTb5ruHSawih2o00yv0SEO+1JvnEAV/i4NFh7ghWWkK6lNXQJ/9EnCt4lw84NXftTo9P
-	JcmKj1ni7f7obeT3ujrFyEcOECY66oLHfz5SlWUdoqP1oth/EWpvUCSzr8AOV4Shx8fhIg
-	2DSis/F/UEQdEAn+yIXXpTQBwye68bk4hkn4J+KuIUIIIBTf7MxseOIWbQlN1Q==
+	 to:to:cc:cc; bh=gnTvflJCY17ngq7v3t1VaZ+udg1fVO8xaD7NmVGfdtM=;
+	b=hpItgE596OZsCHwd4RZltNwkaoUY+M4nxaNk5aijZSoKnJnX+Z1ftHJzFxXeLlwiR7CBVO
+	kAeU5V6ipd8kuvNmo2jUYlgeJQZcAoQ/B2gtcPpMbKBJ5Hdb19cpdNKmIFAdiRriVPQFBq
+	TB+mebv9nD57p/zwHVWvLj1xYW2llen6ecBlhNLpiB4mMX8ISxfhUt0cg8NuDkltKRGqwv
+	kwkihKVbLzgwH4zA3a4gu5TjBLy8knJzdeBq4mfGSlsG3QssoI+I+YLWMjEKtJyMnCZYCb
+	q0UpvbfNJvV5gxrJ96IhSco7wHR/BgKJzA+FPEk8wMxiA3axwjVqCn3rrplQeA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1683925622;
+	s=2020e; t=1683925617;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=r7mhuIr1UsffTwz/BZZT9WLBgbQp9Bjt9SYbqNDVnNo=;
-	b=x/vrMLP5hYljsVenHMq+Kmd30/I3mC2dGQvZTtFyNimzI+gVbhM9ZYe9TwhsHyUY8Y99el
-	8jpNFGjpIWrX03Cg==
+	 to:to:cc:cc; bh=gnTvflJCY17ngq7v3t1VaZ+udg1fVO8xaD7NmVGfdtM=;
+	b=MX4k3gwiR3uPG3aHdqZkMbzsCUhWKscxACmgEvdnthaN7mX9Y50PkiqEAK2jw11B2rBJ5s
+	0yIwakfLrEZSxWCw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: x86@kernel.org,
@@ -82,14 +80,11 @@ Cc: x86@kernel.org,
  Sabin Rapan <sabrapan@amazon.com>,
  "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
  Ross Philipson <ross.philipson@oracle.com>
-Subject: [patch V4 03/37] x86/smpboot: Avoid pointless delay calibration if
- TSC is synchronized
-References: <20230512203426.452963764@linutronix.de>
-MIME-Version: 1.0
-Date: Fri, 12 May 2023 23:07:01 +0200 (CEST)
+Subject: [patch V4 00/37] cpu/hotplug, x86: Reworked parallel CPU bringup
+Date: Fri, 12 May 2023 23:06:56 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230512_140710_939334_DB2702BB 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20230512_140710_944016_E7A48063 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +96,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+Hi!
 
-When TSC is synchronized across sockets then there is no reason to
-calibrate the delay for the first CPU which comes up on a socket.
+This is version 4 of the reworked parallel bringup series. Version 3 can be
+found here:
 
-Just reuse the existing calibration value.
+   https://lore.kernel.org/lkml/20230508181633.089804905@linutronix.de
 
-This removes 100ms pointlessly wasted time from CPU hotplug per socket.
+This is just a reiteration to address the following details:
 
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Tested-by: Michael Kelley <mikelley@microsoft.com>
+  1) Address review feedback (Peter Zijlstra)
+
+  2) Fix a MIPS related build problem (0day)
+
+Other than that there are no changes and the other details are all the same
+as in V3 and V2.
+
+It's also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git hotplug
+
+Diff to V3 below.
+
+Thanks,
+
+	tglx
 ---
- arch/x86/kernel/smpboot.c |   40 +++++++++++++++++++++++++---------------
- arch/x86/kernel/tsc.c     |   20 ++++++++++++++++----
- 2 files changed, 41 insertions(+), 19 deletions(-)
-
-
+diff --git a/arch/mips/kernel/smp.c b/arch/mips/kernel/smp.c
+index f5e0f4235746..90c71d800b59 100644
+--- a/arch/mips/kernel/smp.c
++++ b/arch/mips/kernel/smp.c
+@@ -690,7 +690,7 @@ void flush_tlb_one(unsigned long vaddr)
+ EXPORT_SYMBOL(flush_tlb_page);
+ EXPORT_SYMBOL(flush_tlb_one);
+ 
+-#ifdef CONFIG_HOTPLUG_CPU
++#ifdef CONFIG_HOTPLUG_CORE_SYNC_DEAD
+ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+ {
+ 	if (mp_ops->cleanup_dead_cpu)
+diff --git a/arch/x86/kernel/head_64.S b/arch/x86/kernel/head_64.S
+index 0438802031c3..9cd77d319555 100644
+--- a/arch/x86/kernel/head_64.S
++++ b/arch/x86/kernel/head_64.S
+@@ -290,8 +290,7 @@ SYM_INNER_LABEL(secondary_startup_64_no_verify, SYM_L_GLOBAL)
+ 
+ 	/*  APIC ID not found in the table. Drop the trampoline lock and bail. */
+ 	movq	trampoline_lock(%rip), %rax
+-	lock
+-	btrl	$0, (%rax)
++	movl	$0, (%rax)
+ 
+ 1:	cli
+ 	hlt
+@@ -320,8 +319,7 @@ SYM_INNER_LABEL(secondary_startup_64_no_verify, SYM_L_GLOBAL)
+ 	movq	trampoline_lock(%rip), %rax
+ 	testq	%rax, %rax
+ 	jz	.Lsetup_gdt
+-	lock
+-	btrl	$0, (%rax)
++	movl	$0, (%rax)
+ 
+ .Lsetup_gdt:
+ 	/*
+diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
+index 5caf4897b507..660709e94823 100644
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
-@@ -178,28 +178,17 @@ static void smp_callin(void)
+@@ -161,31 +161,28 @@ static inline void smpboot_restore_warm_reset_vector(void)
+ 
+ }
+ 
+-/*
+- * Report back to the Boot Processor during boot time or to the caller processor
+- * during CPU online.
+- */
+-static void smp_callin(void)
++/* Run the next set of setup steps for the upcoming CPU */
++static void ap_starting(void)
+ {
+ 	int cpuid = smp_processor_id();
+ 
+ 	/*
+-	 * If waken up by an INIT in an 82489DX configuration the alive
+-	 * synchronization guarantees we don't get here before an
+-	 * INIT_deassert IPI reaches our local APIC, so it is now safe to
+-	 * touch our local APIC.
++	 * If woken up by an INIT in an 82489DX configuration the alive
++	 * synchronization guarantees that the CPU does not reach this
++	 * point before an INIT_deassert IPI reaches the local APIC, so it
++	 * is now safe to touch the local APIC.
+ 	 *
+ 	 * Set up this CPU, first the APIC, which is probably redundant on
+ 	 * most boards.
  	 */
  	apic_ap_setup();
  
--	/*
--	 * Save our processor parameters. Note: this information
--	 * is needed for clock calibration.
--	 */
-+	/* Save our processor parameters. */
+-	/* Save our processor parameters. */
++	/* Save the processor parameters. */
  	smp_store_cpu_info(cpuid);
  
  	/*
@@ -141,100 +207,92 @@ Tested-by: Michael Kelley <mikelley@microsoft.com>
 -	 * calibrate_delay() and notify_cpu_starting().
 +	 * notify_cpu_starting().
  	 */
- 	set_cpu_sibling_map(raw_smp_processor_id());
+ 	set_cpu_sibling_map(cpuid);
  
- 	ap_init_aperfmperf();
+@@ -197,7 +194,7 @@ static void smp_callin(void)
  
--	/*
--	 * Get our bogomips.
--	 * Update loops_per_jiffy in cpu_data. Previous call to
--	 * smp_store_cpu_info() stored a value that is close but not as
--	 * accurate as the value just calculated.
+ 	/*
+ 	 * This runs the AP through all the cpuhp states to its target
+-	 * state (CPUHP_ONLINE in the case of serial bringup).
++	 * state CPUHP_ONLINE.
+ 	 */
+ 	notify_cpu_starting(cpuid);
+ }
+@@ -274,10 +271,7 @@ static void notrace start_secondary(void *unused)
+ 	rcu_cpu_starting(raw_smp_processor_id());
+ 	x86_cpuinit.early_percpu_clock_init();
+ 
+-	smp_callin();
+-
+-	/* Otherwise gcc will move up smp_processor_id() before cpu_init() */
+-	barrier();
++	ap_starting();
+ 
+ 	/* Check TSC synchronization with the control CPU. */
+ 	check_tsc_sync_target();
+diff --git a/arch/x86/realmode/rm/trampoline_64.S b/arch/x86/realmode/rm/trampoline_64.S
+index 2dfb1c400167..c6de4deec746 100644
+--- a/arch/x86/realmode/rm/trampoline_64.S
++++ b/arch/x86/realmode/rm/trampoline_64.S
+@@ -40,17 +40,13 @@
+ .macro LOAD_REALMODE_ESP
+ 	/*
+ 	 * Make sure only one CPU fiddles with the realmode stack
 -	 */
--	calibrate_delay();
--	cpu_data(cpuid).loops_per_jiffy = loops_per_jiffy;
- 	pr_debug("Stack at about %p\n", &cpuid);
++	*/
+ .Llock_rm\@:
+-	btl	$0, tr_lock
+-	jnc	2f
+-	pause
+-	jmp	.Llock_rm\@
++        lock btsl       $0, tr_lock
++        jnc             2f
++        pause
++        jmp             .Llock_rm\@
+ 2:
+-	lock
+-	btsl	$0, tr_lock
+-	jc	.Llock_rm\@
+-
+ 	# Setup stack
+ 	movl	$rm_stack_end, %esp
+ .endm
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index 60b4093fae9e..005f863a3d2b 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -294,14 +294,14 @@ enum cpuhp_sync_state {
+  * cpuhp_ap_update_sync_state - Update synchronization state during bringup/teardown
+  * @state:	The synchronization state to set
+  *
+- * No synchronization point. Just update of the synchronization state.
++ * No synchronization point. Just update of the synchronization state, but implies
++ * a full barrier so that the AP changes are visible before the control CPU proceeds.
+  */
+ static inline void cpuhp_ap_update_sync_state(enum cpuhp_sync_state state)
+ {
+ 	atomic_t *st = this_cpu_ptr(&cpuhp_state.ap_sync_state);
+-	int sync = atomic_read(st);
  
- 	wmb();
-@@ -212,8 +201,24 @@ static void smp_callin(void)
- 	cpumask_set_cpu(cpuid, cpu_callin_mask);
+-	while (!atomic_try_cmpxchg(st, &sync, state));
++	(void)atomic_xchg(st, state);
  }
  
-+static void ap_calibrate_delay(void)
-+{
-+	/*
-+	 * Calibrate the delay loop and update loops_per_jiffy in cpu_data.
-+	 * smp_store_cpu_info() stored a value that is close but not as
-+	 * accurate as the value just calculated.
-+	 *
-+	 * As this is invoked after the TSC synchronization check,
-+	 * calibrate_delay_is_known() will skip the calibration routine
-+	 * when TSC is synchronized across sockets.
-+	 */
-+	calibrate_delay();
-+	cpu_data(smp_processor_id()).loops_per_jiffy = loops_per_jiffy;
-+}
-+
- static int cpu0_logical_apicid;
- static int enable_start_cpu0;
-+
- /*
-  * Activate a secondary processor.
-  */
-@@ -240,10 +245,15 @@ static void notrace start_secondary(void
- 
- 	/* otherwise gcc will move up smp_processor_id before the cpu_init */
- 	barrier();
-+	/* Check TSC synchronization with the control CPU: */
-+	check_tsc_sync_target();
-+
+ void __weak arch_cpuhp_sync_state_poll(void) { cpu_relax(); }
+@@ -829,7 +829,11 @@ static int bringup_cpu(unsigned int cpu)
  	/*
--	 * Check TSC synchronization with the boot CPU:
-+	 * Calibrate the delay loop after the TSC synchronization check.
-+	 * This allows to skip the calibration when TSC is synchronized
-+	 * across sockets.
- 	 */
--	check_tsc_sync_target();
-+	ap_calibrate_delay();
- 
- 	speculative_store_bypass_ht_init();
- 
---- a/arch/x86/kernel/tsc.c
-+++ b/arch/x86/kernel/tsc.c
-@@ -1598,10 +1598,7 @@ void __init tsc_init(void)
- 
- #ifdef CONFIG_SMP
- /*
-- * If we have a constant TSC and are using the TSC for the delay loop,
-- * we can skip clock calibration if another cpu in the same socket has already
-- * been calibrated. This assumes that CONSTANT_TSC applies to all
-- * cpus in the socket - this should be a safe assumption.
-+ * Check whether existing calibration data can be reused.
-  */
- unsigned long calibrate_delay_is_known(void)
- {
-@@ -1609,6 +1606,21 @@ unsigned long calibrate_delay_is_known(v
- 	int constant_tsc = cpu_has(&cpu_data(cpu), X86_FEATURE_CONSTANT_TSC);
- 	const struct cpumask *mask = topology_core_cpumask(cpu);
- 
-+	/*
-+	 * If TSC has constant frequency and TSC is synchronized across
-+	 * sockets then reuse CPU0 calibration.
-+	 */
-+	if (constant_tsc && !tsc_unstable)
-+		return cpu_data(0).loops_per_jiffy;
-+
-+	/*
-+	 * If TSC has constant frequency and TSC is not synchronized across
-+	 * sockets and this is not the first CPU in the socket, then reuse
-+	 * the calibration value of an already online CPU on that socket.
+ 	 * Some architectures have to walk the irq descriptors to
+ 	 * setup the vector space for the cpu which comes online.
+-	 * Prevent irq alloc/free across the bringup.
 +	 *
-+	 * This assumes that CONSTANT_TSC is consistent for all CPUs in a
-+	 * socket.
-+	 */
- 	if (!constant_tsc || !mask)
- 		return 0;
++	 * Prevent irq alloc/free across the bringup by acquiring the
++	 * sparse irq lock. Hold it until the upcoming CPU completes the
++	 * startup in cpuhp_online_idle() which allows to avoid
++	 * intermediate synchronization points in the architecture code.
+ 	 */
+ 	irq_lock_sparse();
  
+
 
 
 _______________________________________________
