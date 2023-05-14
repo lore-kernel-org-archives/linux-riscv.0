@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADABC77B7D
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 May 2023 18:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D539C7EE22
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 May 2023 18:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=POEqKKrCiiUfbj4uUFJPNMQ3VMFRKTiBF5OkK8OMwmM=; b=0x/8M2rsIlvtHF
-	sktgzQKynYIlSQEJ31HnoFP0o6zQDT4UKEwjZDAZ+ck4ANcu+qNu5kAzBTaUrA3mmIHwtWeNiOmsQ
-	xwXGeBGHRkhd+APzxjzBcZJRB9Sp9n56LSaljQmrNdNLqIyhcyCIFA1JihQhmvn6USmYeSFIyPUOl
-	jeRmKeEta3KmjEdDVa0i42XEbY+Nxi1NIMeJP0K+Ok34xGv0YQJOcGjUWAKp+edTBH/KSZh0MtgSU
-	KnKfde+Tqpz/WGz3p8yVdcOnCQY7f+wM+FyIGw3vis2E29ZRftFq59miEIRa6qJ4608zXBC15sVoO
-	umyIkt4pxJN0FbJzTxuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JtUNSUCGv22ft2c8g65NxW29dIOsa71s2io8K2PEztQ=; b=HAcFpGvyXWTRUa2lzZtwMOi9WG
+	+VpXc6+6txPGYGzOxrhjjrD4lL4jgcwjRVLTXnH2UCjVVAuW91SZg9eXXMCXlm73QYC2NNisEIBME
+	BLEl9HOK5+SK9gg5CMb6zkoAPqSc3m1Ad3/3NcmQz9NgPk4+1f/zkXq9UriIBhpBSleQvNiqyPFSL
+	dP8XkoSvAxpONXft80Z0wRrBAcvRJwX3dOtvL2+zwQfU8QpQgUNIkxx4BMDBg2UzBKw8D/Hk40Qak
+	9Oj3F0VUKVgTF/NgPt1BJJYXjrbGvKDl1iivVygXhGadpzDgZF6KD3vFU7KBB2REWpYap9GGKR6e1
+	Ke7UENzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyGKk-0003CC-0d;
-	Sun, 14 May 2023 18:20:38 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1pyGXT-0003w1-1A;
+	Sun, 14 May 2023 18:33:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyGKg-0003AK-2a
+	id 1pyGXQ-0003vg-3B
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 May 2023 18:20:36 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-b99489836aaso10178847276.0
-        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 11:20:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1684088430; x=1686680430;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/w8Ik+B9LqquAVc24RATG4RXaBZs1t11jn/s3N/obhU=;
-        b=3hM1VI6NWGWu8nKjmz4E776n6/tfMkoFz07qqIrs1oaapPZVpFGqRfLcsrD2Q9+aIl
-         lVkR5CaBLhkLbvj6PetC97KquetslVNm4ewYDv3VlmeuHTS81B9LSL8mS5hv5NNIrJ5k
-         qfkEuu9pgy+dtpTd6GHTh0Gi0u67Y0T46ElzOPo7riZGmKUfHA7vSk0Zmd7HgvGJHxab
-         DqbZyXByDthzzyzxr91aGkpWgNkslpXmOPPlerkZVQyLnPVqgNtVTmJy+exwCn44tZ+/
-         VxkE3CJ7HkShwyo4XrVtp449lbAR3UPOjv88P7k+8G1RfjN7YRQ6k8XKtpgdfILs4FOB
-         5kcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684088430; x=1686680430;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/w8Ik+B9LqquAVc24RATG4RXaBZs1t11jn/s3N/obhU=;
-        b=I6BwIQtWAm3WQR0zJ3LnWz2VUN+bxl6lGiAUT3oqTd/a8+cvRrQ+JI4ogAcyvqiWsY
-         QIwTkc1N//1dl0XhJs0Ma2LDNSWYJ92YicN2QAsqtEFwFb/t+BFcINDLQbhXtb8UIu+g
-         dy0AWg4LuI6ebDI0q4yHR8KbjWmSs/+s1VpISiyM7iQNiy1JoIjkhQiMIBNWQgy2yoES
-         Gs+NffGFOtHUjX95mcqLz9m2Wkun/k/Ip+qenYTmP+yzvlcrDLbj7QDjlSP9FIuX0Umc
-         VzdT0Z2uOlaDiFg86c4BpGhnOhn0Ye45lQuxNTOJfA869whIHMryqm5Y3chtN0QSeHEs
-         GBnA==
-X-Gm-Message-State: AC+VfDxyXTyiXHtn13IKQZaAavwFJcHp0wSMvIy5NBumIfOIO7CMa2pu
-	TjIiusKgTv67FMMBM5htCqVYfA==
-X-Google-Smtp-Source: ACHHUZ4uC/iK9slyVYAwsZbskAJfVUMUdzJpIRbgKgSPhKsknTzzPntrNJG85XVm7SRutl/ig2uJ2g==
-X-Received: by 2002:a25:abe5:0:b0:ba1:b539:a39a with SMTP id v92-20020a25abe5000000b00ba1b539a39amr27412446ybi.6.1684088430350;
-        Sun, 14 May 2023 11:20:30 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id 192-20020a2503c9000000b00ba73c26f0d6sm1520144ybd.15.2023.05.14.11.20.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 May 2023 11:20:28 -0700 (PDT)
-Date: Sun, 14 May 2023 11:20:16 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: Helge Deller <deller@gmx.de>
-cc: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-    Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
-    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Qi Zheng <zhengqi.arch@bytedance.com>, 
-    Russell King <linux@armlinux.org.uk>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    John David Anglin <dave.anglin@bell.net>, 
-    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH 08/23] parisc: add pte_unmap() to balance get_ptep()
-In-Reply-To: <ca4ac780-42b0-4818-bd84-e1a4acbb28dd@gmx.de>
-Message-ID: <6de39db5-d9aa-b35a-1652-8bdf90e7df72@google.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com> <44ebbf90-5fbb-2815-17c7-fcfe3c87d78e@google.com> <ca4ac780-42b0-4818-bd84-e1a4acbb28dd@gmx.de>
+	Sun, 14 May 2023 18:33:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 39BAF60C90;
+	Sun, 14 May 2023 18:33:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6259CC433D2;
+	Sun, 14 May 2023 18:33:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1684089223;
+	bh=5sZVQgWGvQsKpb5qnI//dwgKe4KvZL+15lmnta9+UHc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Hmfg0RsBFozwL9i8/UC4K7hltUKQjCRojGz35CZ1HJSt7RZef2bMlVbIvHX0U10ic
+	 DDjnO3ikr3BgnRwGIdSMKPnL9bx/jTYKOoni/ABjmeVT/Pl+/IeM3R3ocee/gEfOFL
+	 1MqEECOPf57P3s8znfPeJz6/femGj+07mkkVjQFxwhIW9zH98JmNYpPmtnAMdwOqhw
+	 XMxd6PMGn3VuPiVevDF4pvpYdSbf1SnVGO1gHlcXSssEE0782cTHizveZZJBzHINjh
+	 Rx7fibhnd5vCWYJstdRDFYI/7b7Oltgqn2QbQjzFpEyjl5SBv+3pnWSAAIhzmmRiMY
+	 s48t4/nwEEh6Q==
+Date: Sun, 14 May 2023 19:33:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org
+Subject: Re: [PATCH v3 02/10] dt-bindings: interrupt-controller: Add
+ bouffalolab bl808 plic
+Message-ID: <20230514-duckling-mooing-fceecc375372@spud>
+References: <20230514165651.2199-1-jszhang@kernel.org>
+ <20230514165651.2199-3-jszhang@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230514165651.2199-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_112034_880355_664E021F 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20230514_113345_061787_DE69D596 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,76 +81,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4158845480749185661=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 13 May 2023, Helge Deller wrote:
 
-> Hi Hugh,
-> 
-> On 5/10/23 06:52, Hugh Dickins wrote:
-> > To keep balance in future, remember to pte_unmap() after a successful
-> > get_ptep().  And (we might as well) pretend that flush_cache_pages()
-> > really needed a map there, to read the pfn before "unmapping".
-> >
-> > Signed-off-by: Hugh Dickins <hughd@google.com>
-> > ---
-> >   arch/parisc/kernel/cache.c | 26 +++++++++++++++++++++-----
-> >   1 file changed, 21 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/arch/parisc/kernel/cache.c b/arch/parisc/kernel/cache.c
-> > index 1d3b8bc8a623..b0c969b3a300 100644
-> > --- a/arch/parisc/kernel/cache.c
-> > +++ b/arch/parisc/kernel/cache.c
-> > @@ -425,10 +425,15 @@ void flush_dcache_page(struct page *page)
-> >     offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
-> >     addr = mpnt->vm_start + offset;
-> >     if (parisc_requires_coherency()) {
-> > +			bool needs_flush = false;
-> >      pte_t *ptep;
-> >
-> >   			ptep = get_ptep(mpnt->vm_mm, addr);
-> > -			if (ptep && pte_needs_flush(*ptep))
-> > +			if (ptep) {
-> > +				needs_flush = pte_needs_flush(*ptep);
-> > +				pte_unmap(ptep);
-> > +			}
-> > +			if (needs_flush)
-> >     		flush_user_cache_page(mpnt, addr);
-> >     } else {
-> >   			/*
-> > @@ -560,14 +565,20 @@ EXPORT_SYMBOL(flush_kernel_dcache_page_addr);
-> >   static void flush_cache_page_if_present(struct vm_area_struct *vma,
-> >   	unsigned long vmaddr, unsigned long pfn)
-> >   {
-> > -	pte_t *ptep = get_ptep(vma->vm_mm, vmaddr);
-> > +	bool needs_flush = false;
-> > +	pte_t *ptep;
-> >
-> >    /*
-> >     * The pte check is racy and sometimes the flush will trigger
-> >     * a non-access TLB miss. Hopefully, the page has already been
-> >     * flushed.
-> >     */
-> > -	if (ptep && pte_needs_flush(*ptep))
-> > +	ptep = get_ptep(vma->vm_mm, vmaddr);
-> > +	if (ptep) {
-> > +		needs_flush = pte_needs_flush(*ptep))
-> 
-> ^^^^^
-> One ")" too much and lacks a trailing ";"
-> Should be:
-> 		needs_flush = pte_needs_flush(*ptep);
-> 
-> With that fixed the kernel compiles and boots sucessfully on parisc.
+--===============4158845480749185661==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aocPV6+AhBbmVr7k"
+Content-Disposition: inline
 
-Urgh! Indeed, thanks a lot Helge: I'll fold that in.
 
-Hugh
+--aocPV6+AhBbmVr7k
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+
+--aocPV6+AhBbmVr7k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGEpgQAKCRB4tDGHoIJi
+0rAhAP9UE6EyQUZTG8wUYzjm4J7EtsDJlSWF2yDAKfzDjFNDmgEA7JLDWmie/aQr
+mvViMEJ+Tdd7GDPlZ+Bzi6prCBdtZQg=
+=Ybds
+-----END PGP SIGNATURE-----
+
+--aocPV6+AhBbmVr7k--
+
+
+--===============4158845480749185661==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4158845480749185661==--
+
