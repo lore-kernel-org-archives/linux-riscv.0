@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E44C7EE2A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F274C7EE26
 	for <linux-riscv@archiver.kernel.org>; Sun, 14 May 2023 17:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2xa/vfyxzUWKf4ZWroStDzd/0DnbHbOV+EQqPMa+zr4=; b=YPiC9Z5UZGDsUe
-	ErbQHPH7nG0U+n/djKM7jVsQz2qsGeskFDKjTgjsP3EcMxn+RlApdjQqQSYfYT+ceFp9iZZh3JLTz
-	KdIgFWhuyTZtL3zs++1/8Xd/wuzXy8NY/z7ZkhSx/UNtv4m3VUimnNqkhVAuGgqIw9SdLKg5XZKJh
-	i154LAvl4jLqAXaWcomd2qAS8IC6XubJUMMmHC3qDCNSlno4Xw2ZQLd18fOitzVwhXkw2O3EKhl6H
-	sDdz9Ehp9BgGIUwdsuyd82jCQd+VIDwdkpmKSgHSxccNwKf53bFotawJ7liapKmJT/a+O1CdqRua/
-	Bvkt6XlEBV+37Gw+Z8mg==;
+	List-Owner; bh=2AtHOqxA/hamg7HccbNEMniDPYL4L92Hyw5st9oITag=; b=OUQWoHABlvz/t0
+	5fNOSafXJStRcU7ydeP+gKlgQ0VswjyGF5mK/wtYYrVFTLOonK0dJ+IatAK5FPFCXbFVvGUfWh3H3
+	ta4LelNoh2MMobSOR3o5Nu4hybdrBLQWfjk8No/2KY3dRDD+GUxjrMJI0f+tPOa5tjnz67slO4frb
+	90j9lS9K5IyNgzP40IOh8iIPqpYNp81kE9rZVc3ZiapV3hwjZS3GZFqZd8A2DKP7X/QRZxAZoWz7d
+	oKTMfl11ZUA8hN/H4WYrrZ/BhBFRn4wsjnZCOLa8Y2idAwjOKIQpTf7TbRW2TdHUUpmyABGvJj03l
+	SLGXVyM6+9f8t0JMMW6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyFCi-00HYk4-2P;
-	Sun, 14 May 2023 17:08:16 +0000
+	id 1pyFCc-00HYi4-1l;
+	Sun, 14 May 2023 17:08:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyFCg-00HYjM-1I
+	id 1pyFCZ-00HYhb-1G
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 May 2023 17:08:15 +0000
+	Sun, 14 May 2023 17:08:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 082F46108D;
-	Sun, 14 May 2023 17:08:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D288C433D2;
-	Sun, 14 May 2023 17:08:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C1F2860EFB;
+	Sun, 14 May 2023 17:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B860BC4339B;
+	Sun, 14 May 2023 17:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684084093;
-	bh=nF3JL8RuDBTKyjXk/txorqM8FS90ktPyRcC6WV+BXac=;
+	s=k20201202; t=1684084086;
+	bh=8o3w2PNumfMmW1nsxUiJwSK+1Wm7LHqx/wBqf4PFRQY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tG6Br1/S61N0FCgxfIiQATh1yxfuBb8K/Yabe3bjet9eBWbOL0vJkwkycEoVMoE6y
-	 z+kggXrwf7qlBT2iUon62jUuaZvp8fjHD1fE+nqnTWq+Bi/y5xKgzaXWdv1LjjvJmL
-	 VRuIKmRZVL9jTvTInG2UtBEvFoLGVmVd9SyeqCGyCdN0G9KlskIWA8yF/QJicLcyP6
-	 ZG4ell1KsWxVqkzyTYvrywz8wK0TV2ie0/V76hwxIq63tdfac2Z485UrrjsO2r1+KB
-	 NNm+LNx2yFWim8lgmkTrbPMnXV2QRpo+jRQm3RcU9K1KeNQrYIzZZGqAfsjsjPip5x
-	 lY3yJRN7z/r/Q==
+	b=O5ZZbKnsIlXkTLOeI1QacOmEvmEyixkY9kbZWpuTdNWmf4NoMEGTv2jeC1Ps1LjuZ
+	 IGdUqraKi0wMpt2OxQI5ohFHgmsRgXqyiJA13e/uwut8x2xMHeFUOobW9+/o5DHP2q
+	 ykJLa8RhFZjDFQsXf/7INdH1OsFOGfXnapeBowxXdTEUvQBwRcyIMtMOmgH1IfMyW4
+	 wtVEgtYnOBvuxQyvQpgJgqaeeneMKq1U89uNtE0wa3M1M8t/kc3pS2if+R1HuYb6NP
+	 yFdTL6QcBBMAwsSc0PLPyXyAR8xWoeuNPE1FmunEAgZ96Q3kvsuPflFpF9Ti5VDFpT
+	 ZehySqUGPS9+g==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -60,17 +60,19 @@ Cc: Samuel Holland <samuel@sholland.org>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-serial@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3 03/10] dt-bindings: serial: add documentation for Bouffalolab UART Driver
-Date: Mon, 15 May 2023 00:56:44 +0800
-Message-Id: <20230514165651.2199-4-jszhang@kernel.org>
+Subject: [PATCH v3 01/10] dt-bindings: vendor-prefixes: add bouffalolab
+Date: Mon, 15 May 2023 00:56:42 +0800
+Message-Id: <20230514165651.2199-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230514165651.2199-1-jszhang@kernel.org>
 References: <20230514165651.2199-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_100814_479662_71A963A9 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20230514_100807_523038_C1BC59C0 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +89,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings doc for Bouffalolab UART Driver
+In the following commits, we will support bl808 SoC which is from
+Bouffalo Lab Technology (Nanjing) Co., Ltd.
 
+Add bouffalolab vendor prefix binding.
+
+Link: https://en.bouffalolab.com/
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- .../serial/bouffalolab,bl808-uart.yaml        | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml b/Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml
-new file mode 100644
-index 000000000000..e1c2c8ac88ab
---- /dev/null
-+++ b/Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml
-@@ -0,0 +1,47 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/serial/bouffalolab,uart.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Bouffalolab UART Controller
-+
-+maintainers:
-+  - Jisheng Zhang <jszhang@kernel.org>
-+
-+allOf:
-+  - $ref: serial.yaml#
-+
-+properties:
-+  compatible:
-+    const: bouffalolab,bl808-uart
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    uart0: serial@30002000 {
-+        compatible = "bouffalolab,bl808-uart";
-+        reg = <0x30002000 0x1000>;
-+        interrupts = <53 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&xtal>;
-+    };
-+...
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 82d39ab0231b..3566346f2f9e 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -200,6 +200,8 @@ patternProperties:
+     description: BOE Technology Group Co., Ltd.
+   "^bosch,.*":
+     description: Bosch Sensortec GmbH
++  "^bouffalolab,.*":
++    description: Bouffalo Lab Technology (Nanjing) Co., Ltd.
+   "^boundary,.*":
+     description: Boundary Devices Inc.
+   "^brcm,.*":
 -- 
 2.40.0
 
