@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672FDC77B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 05:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25551C7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 05:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0iy7nuV7T1yy18/6y+iy79GmhGnpwaS1Oa/R7VDfEc=; b=Z18+OCy91szX+c
-	ATitrlRrg3CkMxLmA1/SWEdU3Id5fLa0s1+GZKIdL3immhElnywcnn49Nx13kfJh8aTjIuNBQCTzm
-	zgDpGEBalYOdCGxs0FhxeQGnDvt1VpreLF71lBUPX+iMuiXPoEbVh2qCjgl9azB3hEAarbcWvxvEl
-	XDyTDk0lFYI5RH7RrLYkg+i2h4LTZ/iIrgYZ3vDxV79e1wCKzGMVYj+XocyWujdQ8caGRQGvR6PMA
-	RPt6QDQUrHr0L6rkYN/iDDDJo9MbuM3OiRIdhBEQIu+cL18ffaabZf+Ww7Ht/Ggp7y5YdCdMLU7/N
-	N8iIxGGJkKZXqqzOiczg==;
+	List-Owner; bh=Gi33cS/GUTnsAQkdR3cPOj1P4gRMZN5jnKvg0O9Uff8=; b=II1Oy0OGo50xZS
+	HBSaIBYTp7tIFjcmUZJWpbs+ea9Nz0tCFEg6OOjcy21iNbC6+q76Zf8khLSckw6Eh+QyNwgIeqT6N
+	cv+wyJaD3UXpKMnN3A1jq4y30yfSPg4cBgls3MEJJwQtcJeKZvzcK71CzPpKDBj2DaNPqoZIYGntw
+	kkAqQBdEJ7+bo/ekRSS+hfuMJ9fjmVNWwcRdJJIQh+9cQ397OHRmQVPM66MPDaNlkmEiWKI6us1CG
+	9VGbOQRdVvMoIfUIOfBl0DGPthgbbaoLuZmfXo3X5hq/X7IE8aK8viFg9aad/a0mMdyQjW6VUJ8vu
+	WUBHSd/AtXXVPOi0pngQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyR7W-0010Zw-1n;
-	Mon, 15 May 2023 05:51:42 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1pyR7d-0010eQ-13;
+	Mon, 15 May 2023 05:51:49 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyR7U-0010YV-1H
+	id 1pyR7b-0010cy-0o
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 05:51:41 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-51452556acdso8373818a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 22:51:40 -0700 (PDT)
+	Mon, 15 May 2023 05:51:48 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1aaf70676b6so87364555ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 22:51:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684129900; x=1686721900;
+        d=ventanamicro.com; s=google; t=1684129906; x=1686721906;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yTcS6ERydBi3sd7UUw2QFTJaMwmeqvxl7dgO0DDj6Ys=;
-        b=B/2s07xO4JsvpjeFQXLK9epGxKSolGR137ahXL6Xqpu6cvJdjAuvwFfJTToBH27hFx
-         iU1eFj0lfQMJxAK3JCa7YpUoLShxQppRs9krLSWJt0lywC6dWcEPg/rXvsy8hGJZBrZQ
-         aAqH2ZDdzbSNReetY5GYcij66xNie7S3Ek1SV0mHfB2S6EjF5fy4DYd2rkos7AXiUp7r
-         A7mM1MxwDNuHsULDMKmoeD2CS+aY1S1YK7CEPqzDEfCTjgx/DjSdsn3f6HZ1Og81975E
-         71WOPu6Hm4MeLzAZvw6s1lAIaAMu94JwdS+HB8ZmbyvdOAqMnV3uLCalVpLAenNxNcVi
-         9S1A==
+        bh=yRIRI8aArNgE1fextAvbnFu2fBTu5X0gP4d56RcrLtU=;
+        b=Hx5ddCRRvEEfr/OzJAxNT5ydbiN7snxQeu3XLT1jypIPQcs5J9Sb3YKqtPl6et5F5m
+         nQUl80xUgMR/+VIyy6hHjCrIJuwzq7xy94EDqKvLupgZy41/JoMKdWnGUcKu7jL2/Hfi
+         136BtqgjfIX4ACnYwPRKpYdGEZc8O8u9OlU3HKpQVlYPHSrj/FXlF+ZBVHEYvgBj4aQj
+         zpxMNjtkaG44t+tJwCanDbUnwuFo1mbL0WsUYHHke/VD0tCawblq4g0sZDz502y/AasP
+         XSDZPt+rk+2NNonnkUbxz6/3+9kFfu7qT1YhSkS4PI1PS4prkw38aF3W6eOtLS96iNTw
+         7zbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684129900; x=1686721900;
+        d=1e100.net; s=20221208; t=1684129906; x=1686721906;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yTcS6ERydBi3sd7UUw2QFTJaMwmeqvxl7dgO0DDj6Ys=;
-        b=DNHxQP7Si+SSJJhennHCnip5+pSnVuYNepYz+z7ZjS8miQ2UOKPm2yWHvL7K0WTnh/
-         Sh4yPY1CpfZ20NgGS/rm68XKGcYmBJmp4MV+RvAW4FhBWzGoHUfeSwoXYdu1ZyS/6fqm
-         Vin/hDfy1IE+0Ahx5OIZV+5BAinpWv1KYXEAvlirxHHLdv6vlLSDmdKI86Wb9TSaDYXB
-         MbRuTsvQYalEz7h5+wgOVbvZlmssrXadxeLfF1W9QUGbmnXO9cpjLNvL9ZGEqkUwmvSR
-         lZjRkJcU6+xbcDF0Man+jZmcEW3q4l/ein+W3EX1gLJmPK/GWQIl6t7nUBTMx8+oG3HW
-         APDQ==
-X-Gm-Message-State: AC+VfDwhwDSKbK1ITDJ5dlReIrgcVeXgpm2Vlif2VJn6O4lGfVtx3sLb
-	Rcy59OhI/AkCLwhoqdz0Gq6vIw==
-X-Google-Smtp-Source: ACHHUZ5p6rTF1JyYq/6jX97XqVSLRtHjCcktupUgoSF3DN/rvwg29xnalX3XmhPORDR68lFdXczR3Q==
-X-Received: by 2002:a17:902:e80c:b0:1ab:1dff:9540 with SMTP id u12-20020a170902e80c00b001ab1dff9540mr41677533plg.14.1684129899921;
-        Sun, 14 May 2023 22:51:39 -0700 (PDT)
+        bh=yRIRI8aArNgE1fextAvbnFu2fBTu5X0gP4d56RcrLtU=;
+        b=ATASQsqiASXhMStqSvPK4eXXMJ/rQRrL5bmKxXJ1T9E5fSRh5b/RNOsJW4QBHXGiDb
+         AqJv5GW/VjmHVcNAGczNqy32eNRnh9Ko20jj5TD127M8hDGPNp4484PPmsetmM3jmpos
+         fUpERgCIU84z6FQ7IB95RcBGUcPrf4wzs8A3tVyOo0wL6qCDXTChVgqVvnlWTn3s7bp2
+         niTpawMnqQGQPJ9Xc69J/6mBJ5GKFrw6Ltwtt1gpyU/nf/zQbLq/xdN/MtIKUE2T9gle
+         gDaRK+lnNpIQlGAmJPwPr8Yxwo3qPSumZg9OCj46YV4TM09g+FuKGTMHG+/vaGO8pKKP
+         bqvQ==
+X-Gm-Message-State: AC+VfDznA5l6MTycTD3ZEKUlA9IsN5yWizcNgidBjmf+/I3OshOrHxMi
+	ExTYITQkPR1x/We6t459cik4NA==
+X-Google-Smtp-Source: ACHHUZ7MyqMNWbnzlW+Qm5Vs15EikGz5Gk7dGMK9zmxWk7Q0Vfy73hx3hlnowhqMEf+HVQzX9PIUCw==
+X-Received: by 2002:a17:902:e751:b0:1ab:1eca:f6b6 with SMTP id p17-20020a170902e75100b001ab1ecaf6b6mr45146037plf.13.1684129906775;
+        Sun, 14 May 2023 22:51:46 -0700 (PDT)
 Received: from localhost.localdomain ([106.51.191.118])
-        by smtp.gmail.com with ESMTPSA id f10-20020a17090274ca00b001ab28f620d0sm12423277plt.290.2023.05.14.22.51.33
+        by smtp.gmail.com with ESMTPSA id f10-20020a17090274ca00b001ab28f620d0sm12423277plt.290.2023.05.14.22.51.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 May 2023 22:51:39 -0700 (PDT)
+        Sun, 14 May 2023 22:51:46 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -70,17 +70,16 @@ To: linux-doc@vger.kernel.org,
 	linux-crypto@vger.kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH V6 18/21] clocksource/timer-riscv: Add ACPI support
-Date: Mon, 15 May 2023 11:19:25 +0530
-Message-Id: <20230515054928.2079268-19-sunilvl@ventanamicro.com>
+Subject: [PATCH V6 19/21] RISC-V: time.c: Add ACPI support for time_init()
+Date: Mon, 15 May 2023 11:19:26 +0530
+Message-Id: <20230515054928.2079268-20-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230515054928.2079268-1-sunilvl@ventanamicro.com>
 References: <20230515054928.2079268-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_225140_433785_BA9B313C 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230514_225147_286509_1F8B604B 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +97,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Initialize the timer driver based on RHCT table on ACPI based
-platforms.
-
-Currently, ACPI doesn't support a flag to indicate that the
-timer interrupt can wake up the cpu irrespective of its
-power state. It will be added in future update.
+On ACPI based platforms, timer related information is
+available in RHCT. Add ACPI based probe support to the
+timer initialization.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/clocksource/timer-riscv.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/riscv/kernel/time.c | 25 +++++++++++++++++++------
+ 1 file changed, 19 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index cecc4662293b..da3071b387eb 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -10,6 +10,7 @@
- 
- #define pr_fmt(fmt) "riscv-timer: " fmt
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index babaf3b48ba8..23641e82a9df 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -4,6 +4,7 @@
+  * Copyright (C) 2017 SiFive
+  */
  
 +#include <linux/acpi.h>
- #include <linux/clocksource.h>
+ #include <linux/of_clk.h>
  #include <linux/clockchips.h>
- #include <linux/cpu.h>
-@@ -207,3 +208,13 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- }
+ #include <linux/clocksource.h>
+@@ -18,17 +19,29 @@ EXPORT_SYMBOL_GPL(riscv_timebase);
+ void __init time_init(void)
+ {
+ 	struct device_node *cpu;
++	struct acpi_table_rhct *rhct;
++	acpi_status status;
+ 	u32 prop;
  
- TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
+-	cpu = of_find_node_by_path("/cpus");
+-	if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
+-		panic(KERN_WARNING "RISC-V system with no 'timebase-frequency' in DTS\n");
+-	of_node_put(cpu);
+-	riscv_timebase = prop;
++	if (acpi_disabled) {
++		cpu = of_find_node_by_path("/cpus");
++		if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
++			panic("RISC-V system with no 'timebase-frequency' in DTS\n");
 +
-+#ifdef CONFIG_ACPI
-+static int __init riscv_timer_acpi_init(struct acpi_table_header *table)
-+{
-+	return riscv_timer_init_common();
-+}
++		of_node_put(cpu);
++		riscv_timebase = prop;
++		of_clk_init(NULL);
++	} else {
++		status = acpi_get_table(ACPI_SIG_RHCT, 0, (struct acpi_table_header **)&rhct);
++		if (ACPI_FAILURE(status))
++			panic("RISC-V ACPI system with no RHCT table\n");
 +
-+TIMER_ACPI_DECLARE(aclint_mtimer, ACPI_SIG_RHCT, riscv_timer_acpi_init);
-+
-+#endif
++		riscv_timebase = rhct->time_base_freq;
++		acpi_put_table((struct acpi_table_header *)rhct);
++	}
+ 
+ 	lpj_fine = riscv_timebase / HZ;
+ 
+-	of_clk_init(NULL);
+ 	timer_probe();
+ 
+ 	tick_setup_hrtimer_broadcast();
 -- 
 2.34.1
 
