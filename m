@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8AFC7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EAAC7EE25
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:CC:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U044WxnGYee8KF76Cjj4e8bk75jPzOUmPmRcByvuQ0Y=; b=PmN4A15+tDberC
-	MVmn3yk57Gjuuv4UMNyykPqt51Wmni5WiCwAY+xaOF3vP7I1J7wPS/qycEEoDXNiFNU6Pb7X78oos
-	AU2SOBdQMNm/AWe01WvEcelcWd87M2K/GSRHQFSZJfsR4xmUPJSuoA0BhqTDhOX87blMe7Rue+sS+
-	sl0IzekqMesoouwVjVy2uADnUPUFHlezOiLGB3Uk0aO7dngtud59FeQ3WxlOVFMTjeYMIbqH0YDmH
-	txufr07Dafhjsiog3ce3mW1IOU7E1f5ih8DLPTDHnzlh4FuiAyh2MYZ3Q1aqZOpUSGWEwdndT5jqS
-	em8ru1gna2Uy01jEm8tQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LjiFMAC+Tz0A0jF75nIrk3st19v14xkqI4lhh5JOhKw=; b=mmjho4rVo2vRkW
+	ok2UG0HSu6kS2VSsXEwFjY/oBx3y2sen2EMwIxgXjpLR0CdfM+Pw6igaFtC8GljOG8pZFiffnBHb6
+	qn6Ha6VNt+CQS3CE0YR9deLsTav6bVIihke2Y/365LQbx6rA3UH/Lrof/ZuXjgDElSW0vGfXWqJ5S
+	1LAF8iy8uMmdwMpu6VuWHeTS2l7ANDlGJ7vuqTu3At3W4CimsuW1M+jxy0qpuOEJb3yx1d4E2/XIg
+	tw5KF/uiOA48jSew6UdGUlh1tDBSwcygJEZNAE97Scx46gxxEibXxED0Z2LnVk0UWObTu1rVnwFLi
+	WbMaMLMG9wIzZ1I5hs2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOq1-000jKm-2q;
-	Mon, 15 May 2023 03:25:29 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOpx-000jHk-2v
+	id 1pyOrc-000jW1-2w;
+	Mon, 15 May 2023 03:27:08 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pyOrZ-000jUC-2c
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 03:25:28 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DA10A80C1;
-	Mon, 15 May 2023 11:24:37 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 11:24:38 +0800
-Received: from [192.168.125.131] (113.72.146.187) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 11:24:36 +0800
-Message-ID: <b461a88f-76a1-29a2-d4d4-6ec9992a78ae@starfivetech.com>
-Date: Mon, 15 May 2023 11:23:00 +0800
+	Mon, 15 May 2023 03:27:07 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-64ab2a37812so16611221b3a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 20:27:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684121221; x=1686713221;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lxpFGoxleToaQwkHibZ+pniT5a0w07wmiTEGO0b16Vo=;
+        b=RXLKAJ/1U46dq8Z3jYevW7FyFgaJHrH6h+f4l7Z23udardeEEmPLF29sOJIenjFlpX
+         iUCZ82c69aQ/kHKrEPv6osXLO+lcxGAYxQlFvE1g6lC5PNCZU+X1WrG6RdWHm1Ftwoic
+         +QcGiTan0bn+GARa28yM/tpgPwZSbY/tmQzH+/ytoBESl/Nw4yQbdP2mYhmCknJkvPkD
+         kPPTBEOmOaR/kllcBb4ZDqZG2qx3zLtNzJix8s9+9sKgOrnB/U5ABIGhG2q4uIwTToqv
+         CgOaKitfmq1jAkGNcvAISsHmxRi5rQp6TYWgWqno/1GqSESQO0ldWLfmVnY4JYQcKsPe
+         krEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684121221; x=1686713221;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lxpFGoxleToaQwkHibZ+pniT5a0w07wmiTEGO0b16Vo=;
+        b=cFpNymRB3UqxUPtwrCZnQ6sR/soD8LC3dQgFl0eqixLahIZVFeb0XJgAEdP6eCXFh3
+         6VJFftvOxT9to9BokqG5EXVKpPpmhUx6goAuZE2kwAmCTiRVCAQMIJN/4++dSSfpWtZN
+         HPVU/qqt6FmwGzHhaYJY893c26g4X2Z20yPlrXholqxgns0FQH+aZjcj0VZf6I8rZ56F
+         jQRrk+MjAfmglvQgmQxC4qovPf6DA5uO8ndWwMNCWb/sF95K2pg+lsQqvQfKyCd/5UVA
+         JcudnwrAFHIfDEHVoVZfZj5wvIQlpVX5crkWitDuG4GW91k3G5lkkw/RWnze/fSsaSm9
+         JywQ==
+X-Gm-Message-State: AC+VfDyh3aTmVzEvxv4tsLtDlXyGFl2h0KgG1n4YqfWT94Or9LRSKy9H
+	wV0ZhQgyxxnzyCZdR3bekTg=
+X-Google-Smtp-Source: ACHHUZ5CZvq/ZNB+dhb9E8mW7QD/q/8BxVsr4z8WJoa5ghfNctN2tu7hgon9WWSXy/bs/7m1zfExcw==
+X-Received: by 2002:a05:6a20:1613:b0:106:5dff:5db5 with SMTP id l19-20020a056a20161300b001065dff5db5mr564864pzj.1.1684121220867;
+        Sun, 14 May 2023 20:27:00 -0700 (PDT)
+Received: from localhost.localdomain ([43.132.98.42])
+        by smtp.googlemail.com with ESMTPSA id s6-20020a632146000000b0051416609fb7sm10363825pgm.61.2023.05.14.20.26.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 May 2023 20:27:00 -0700 (PDT)
+From: Ze Gao <zegao2021@gmail.com>
+X-Google-Original-From: Ze Gao <zegao@tencent.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Ze Gao <zegao@tencent.com>,
+	linux-riscv@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH 0/4] Make fpobe + rethook immune to recursion
+Date: Mon, 15 May 2023 11:26:37 +0800
+Message-Id: <cover.1684120990.git.zegao@tencent.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v5 06/10] clk: starfive: Add StarFive JH7110 Video-Output
- clock driver
-Content-Language: en-US
-To: Aurelien Jarno <aurelien@aurel32.net>
-References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
- <20230424135409.6648-7-xingyu.wu@starfivetech.com>
- <ZGFWyPbeEOxxqwQK@aurel32.net>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
- Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Hal Feng <hal.feng@starfivetech.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <ZGFWyPbeEOxxqwQK@aurel32.net>
-X-Originating-IP: [113.72.146.187]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_202526_257839_B63E740D 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20230514_202705_857160_086DE980 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +93,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/5/15 5:46, Aurelien Jarno wrote:
-> On 2023-04-24 21:54, Xingyu Wu wrote:
->> Add driver for the StarFive JH7110 Video-Output clock controller.
->> And these clock controllers should power on and enable the clocks from
->> SYSCRG first before registering.
->> 
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> 
-> There seems to be something wrong with this patch. Building the kernel
-> with the whole series applied and with CONFIG_FORTIFY_SOURCE=y triggers
-> the following kernel bug: 
-> 
-> [   75.705103] detected buffer overflow in __fortify_strlen
-> [   75.710497] ------------[ cut here ]------------
-> [   75.715117] kernel BUG at lib/string_helpers.c:1027!
-> [   75.720083] Kernel BUG [#1]
-> [   75.722879] Modules linked in: clk_starfive_jh7110_vout(+) nvme_fabrics binfmt_misc starfive_wdt jh7110_trng watchdog sfctemp rng_core drm loop fuse drm_panel_orientation_quirks configfs ip_tables x_tables autofs4 ext4 crc32c_generic crc16 mbcache jbd2 dm_mod nvme nvme_core t10_pi crc64_rocksoft crc64 crc_t10dif crct10dif_generic crct10dif_common xhci_pci xhci_hcd mmc_block dwmac_starfive stmmac_platform stmmac usbcore pcs_xpcs of_mdio fixed_phy fwnode_mdio phylink libphy usb_common dw_mmc_starfive dw_mmc_pltfm clk_starfive_jh7110_isp dw_mmc clk_starfive_jh7110_aon ptp phy_starfive_dphy_rx mmc_core pps_core phy_jh7110_pcie i2c_designware_platform clk_starfive_jh7110_stg phy_jh7110_usb i2c_designware_core
-> [   75.785411] CPU: 1 PID: 419 Comm: insmod Not tainted 6.3.1+ #1
-> [   75.791241] Hardware name: StarFive VisionFive 2 v1.2A (DT)
-> [   75.796809] epc : fortify_panic+0x1a/0x1c
-> [   75.800828]  ra : fortify_panic+0x1a/0x1c
-> [   75.804838] epc : ffffffff80874242 ra : ffffffff80874242 sp : ffffffc80454b6a0
-> [   75.812054]  gp : ffffffff8157f008 tp : ffffffd8c1214f80 t0 : 6465746365746564
-> [   75.819269]  t1 : 0000000000000064 t2 : 2064657463657465 s0 : ffffffc80454b6b0
-> [   75.826483]  s1 : 0000000000000020 a0 : 000000000000002c a1 : ffffffd8fdd63688
-> [   75.833697]  a2 : ffffffd8fdd6f8e8 a3 : 0000000000000000 a4 : 0000000000000000
-> [   75.840912]  a5 : 0000000000000000 a6 : ffffffff81426a38 a7 : 0000000000000000
-> [   75.848126]  s2 : ffffffff80ec4e00 s3 : ffffffd8d9e28008 s4 : 000000000000001f
-> [   75.855340]  s5 : 0000000000000000 s6 : ffffffff81580798 s7 : 0000000000ffffff
-> [   75.862555]  s8 : ffffffd8d9e29ab0 s9 : 0000000000000011 s10: ffffffff017312a0
-> [   75.869770]  s11: ffffffff01731450 t3 : ffffffff81592df7 t4 : ffffffff81592df7
-> [   75.876984]  t5 : ffffffff81592df8 t6 : ffffffc80454b4a8
-> [   75.882290] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
-> [   75.890199] [<ffffffff80874242>] fortify_panic+0x1a/0x1c
-> [   75.895513] [<ffffffff805c7e20>] auxiliary_match_id+0x70/0xcc
-> [   75.901262] [<ffffffff805c7f22>] auxiliary_match+0x1e/0x2a
-> [   75.906749] [<ffffffff805bd6b0>] __device_attach_driver+0x2c/0xe4
-> [   75.912841] [<ffffffff805bb04e>] bus_for_each_drv+0x70/0xc4
-> [   75.918418] [<ffffffff805bdb0a>] __device_attach+0x94/0x198
-> [   75.923989] [<ffffffff805bde68>] device_initial_probe+0x1a/0x22
-> [   75.929908] [<ffffffff805bc146>] bus_probe_device+0x96/0x98
-> [   75.935482] [<ffffffff805b971e>] device_add+0x56a/0x722
-> [   75.940710] [<ffffffff805c7fc4>] __auxiliary_device_add+0x40/0x92
-> [   75.946803] [<ffffffff80556ff4>] jh7110_reset_controller_register+0x92/0xca
-> [   75.953765] [<ffffffff0173034c>] jh7110_voutcrg_probe+0x236/0x2fa [clk_starfive_jh7110_vout]
-> [   75.962228] [<ffffffff805bfb40>] platform_probe+0x5e/0xa6
-> [   75.967629] [<ffffffff805bd1e6>] really_probe+0xa0/0x342
-> [   75.972940] [<ffffffff805bd508>] __driver_probe_device+0x80/0x138
-> [   75.979031] [<ffffffff805bd5f8>] driver_probe_device+0x38/0xc4
-> [   75.984863] [<ffffffff805bd83a>] __driver_attach+0xd2/0x1a8
-> [   75.990436] [<ffffffff805baf92>] bus_for_each_dev+0x6c/0xb8
-> [   75.996011] [<ffffffff805bcab6>] driver_attach+0x26/0x2e
-> [   76.001325] [<ffffffff805bc384>] bus_add_driver+0x10c/0x1ee
-> [   76.006900] [<ffffffff805be5e2>] driver_register+0x52/0xf4
-> [   76.012386] [<ffffffff805bf78e>] __platform_driver_register+0x28/0x30
-> [   76.018827] [<ffffffff01b72028>] jh7110_voutcrg_driver_init+0x28/0x1000 [clk_starfive_jh7110_vout]
-> [   76.027802] [<ffffffff8000281a>] do_one_initcall+0x5c/0x1c8
-> [   76.033377] [<ffffffff800a7612>] do_init_module+0x4c/0x1f6
-> [   76.038867] [<ffffffff800a9396>] load_module+0x1a6c/0x1ebe
-> [   76.044356] [<ffffffff800a99ea>] __do_sys_finit_module+0x9c/0xf8
-> [   76.050365] [<ffffffff800a9a82>] sys_finit_module+0x1c/0x24
-> [   76.055936] [<ffffffff80003df8>] ret_from_syscall+0x0/0x2
-> [   76.061343] Code: 0800 85aa 3517 007a 0513 7ee5 a097 ffff 80e7 fc20 (9002) 7179 
-> [   76.068735] ---[ end trace 0000000000000000 ]---
-> 
+Current fprobe and rethook has some pitfalls and may introduce kernel stack recusion, especially in
+massive tracing scenario.
 
-I got the recurrence of this with CONFIG_FORTIFY_SOURCE=y.
-And I found the problem that the reset name of auxiliary_device_id in VOUTCRG
-is exactly 32 characters. I rename the reset of auxiliary_device_id in VOUTCRG
-to a shorter name and fix the problem. And I will fix it in next patch.
+For example, if (DEBUG_PREEMPT | TRACE_PREEMPT_TOGGLE) , preempt_count_{add, sub} can be traced via
+ftrace, if we happens to use fprobe + rethook based on ftrace to hook on those functions,
+recursion is introduced in functions like rethook_trampoline_handler and leads to kernel crash
+because of stack overflow.
 
-Best regards,
-Xingyu Wu
+Snippets of such bug are like this:
+[   56.038709] BUG: #DF stack guard page was hit at 000000000b5b7199 (stack is 00000000f4b5a9b2..00000000af4160ce)
+[   56.038713] stack guard page: 0000 [#1] PREEMPT SMP NOPTI
+[   56.038715] CPU: 5 PID: 1836 Comm: retsnoop Kdump: loaded Not tainted 6.1.18 #2
+[   56.038717] Hardware name: Microsoft Corporation Virtual Machine/Virtual Machine, BIOS Hyper-V UEFI Release v4.1 05/05/2021
+[   56.038717] BUG: #DF stack guard page was hit at 0000000069dc65a2 (stack is 000000006b9345c5..00000000a221349b)
+[   56.038718] RIP: 0010:ftrace_ops_test+0x1a/0x70
+[   56.038721] Code: 89 df e8 79 e2 ff ff e9 6e ff ff ff 0f 1f 40 00 48 81 ec b0 00 00 00 49 89 f1 49 89 f8 31 c0 48 89 e6 b9 16 00 00 00 48 89 f7 <f3> 48 ab 48 85 d2 74 35 49 8b 80 d8 00 00 00 48 8b 40 08 48 89 44
+[   56.038722] RSP: 0018:fffffe5a8bba5fa0 EFLAGS: 00010046
+[   56.038724] RAX: 0000000000000000 RBX: fffffe5a8bba6090 RCX: 0000000000000016
+[   56.038725] RDX: fffffe5a8bba6090 RSI: fffffe5a8bba5fa0 RDI: fffffe5a8bba5fa0
+[   56.038726] RBP: ffffffffb7137910 R08: ffff8b967f827c70 R09: ffffffffb7137910
+[   56.038727] R10: 0000000000000000 R11: 0000000000000000 R12: fffffe5a8bba6090
+[   56.038727] R13: ffffffffb729e2bf R14: ffffffffffffffdf R15: ffff8b967f827c70
+[   56.038728] FS:  00007f6592d6ed00(0000) GS:ffff8b977da00000(0000) knlGS:0000000000000000
+[   56.038730] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   56.038730] CR2: fffffe5a8bba5f98 CR3: 000000010ed94002 CR4: 00000000003726e0
+[   56.038733] Call Trace:
+[   56.038735]  <#DF>
+[   56.038740]  ? exc_int3+0xa/0xc0
+[   56.038743]  arch_ftrace_ops_list_func+0xc2/0x190
+[   56.038745]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038748]  ftrace_regs_call+0x5/0x52
+[   56.038751]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038754]  ? osnoise_arch_unregister+0x210/0x210
+[   56.038757]  ? preempt_count_add+0x5/0xa0
+[   56.038760]  preempt_count_add+0x5/0xa0
+[   56.038762]  rethook_trampoline_handler+0x5f/0x140
+[   56.038764]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038766]  arch_rethook_trampoline_callback+0x3b/0x50
+[   56.038768]  arch_rethook_trampoline+0x2c/0x60
+[   56.038770]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038775]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038778]  osnoise_arch_unregister+0x210/0x210
+[   56.038780]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038781]  arch_rethook_trampoline_callback+0x3b/0x50
+[   56.038783]  arch_rethook_trampoline+0x2c/0x60
+[   56.038785]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038790]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038792]  osnoise_arch_unregister+0x210/0x210
+[   56.038794]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038795]  arch_rethook_trampoline_callback+0x3b/0x50
+[   56.038797]  arch_rethook_trampoline+0x2c/0x60
+[   56.038799]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038804]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038806]  osnoise_arch_unregister+0x210/0x210
+[   56.038808]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.038810]  arch_rethook_trampoline_callback+0x3b/0x50
+[   56.038811]  arch_rethook_trampoline+0x2c/0x60
+...
+[   56.039133]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039137]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039139]  osnoise_arch_unregister+0x210/0x210
+[   56.039141]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039143]  arch_rethook_trampoline_callback+0x3b/0x50
+[   56.039144]  arch_rethook_trampoline+0x2c/0x60
+[   56.039147]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039151]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039156]  ? vsnprintf+0x2a3/0x550
+[   56.039161]  ? sprintf+0x4e/0x60
+[   56.039163]  ? kallsyms_lookup_buildid+0x5f/0x130
+[   56.039167]  ? __sprint_symbol.constprop.0+0xec/0x110
+[   56.039171]  ? symbol_string+0xc5/0x150
+[   56.039197]  ? vsnprintf+0x33a/0x550
+[   56.039201]  ? exc_int3+0xa/0xc0
+[   56.039204]  ? exc_int3+0xa/0xc0
+[   56.039205]  ? ftrace_regs_call+0x5/0x52
+[   56.039208]  ? ftrace_regs_call+0x5/0x52
+[   56.039211]  ? lock_acquire+0x25d/0x2e0
+[   56.039214]  ? lock_release+0x208/0x460
+[   56.039218]  ? is_bpf_text_address+0x67/0xf0
+[   56.039220]  ? kernel_text_address+0x111/0x120
+[   56.039223]  ? __kernel_text_address+0xe/0x40
+[   56.039225]  ? show_trace_log_lvl+0x1d7/0x336
+[   56.039227]  ? show_trace_log_lvl+0x1d7/0x336
+[   56.039236]  ? __die_body.cold+0x1a/0x1f
+[   56.039239]  ? die+0x2a/0x50
+[   56.039242]  ? handle_stack_overflow+0x49/0x60
+[   56.039245]  ? exc_double_fault+0x148/0x180
+[   56.039248]  ? asm_exc_double_fault+0x1f/0x30
+[   56.039251]  ? rethook_trampoline_handler+0x5f/0x140
+[   56.039252]  ? cpu_cgroup_css_free+0x30/0x30
+[   56.039254]  ? cpu_cgroup_css_free+0x30/0x30
+[   56.039258]  ? ftrace_ops_test+0x1a/0x70
+[   56.039260]  </#DF>
+
+This bug is found via tool retsnoop which internally uses bpf based on fprobe + rethook
+Discussion of this bug can be found here:
+  Link: https://lore.kernel.org/bpf/20230510122045.2259-1-zegao@tencent.com/
+
+This patch series fix this problem by adding more recursion detection in each possible entry
+functions, and also mark these specific to fprobe or rethook which are beyond the recusion-free
+guarded region notrace.
+
+
+Ze Gao (4):
+  rethook: use preempt_{disable, enable}_notrace in
+    rethook_trampoline_handler
+  fprobe: make fprobe_kprobe_handler recursion free
+  fprobe: add recursion detection in fprobe_exit_handler
+  rehook, fprobe: mark rethook related functions notrace
+
+ arch/riscv/kernel/probes/rethook.c |  4 +-
+ arch/s390/kernel/rethook.c         |  6 +--
+ arch/x86/kernel/rethook.c          |  8 ++--
+ kernel/trace/fprobe.c              | 76 +++++++++++++++++++++++-------
+ kernel/trace/rethook.c             | 12 ++---
+ 5 files changed, 75 insertions(+), 31 deletions(-)
+
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
