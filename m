@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523D8C77B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD9C77B7D
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vbog0hWTd/odulwBcK6dFAmEzy2nxYPMG6OT/YAokls=; b=NbUlPcyb93XKjr
-	Hti/5gjytpQsHLBqMzKCvsiLbctRO+3uEEeUdhYM6OK3eJdlewTZL/a5APM5mR6B8YjvyyzJaOsfl
-	g8kzUFEOcUV8jPyQ5z/3xnqHynHY7417a/s5xJwgdwZZ8LsbITMYGiZhpRmvZ/0zzx2vPmpUE7Vpu
-	YyXLC16qNT5YptR5CfCPN4OoyoNnwDw4wlIO0euqPgroVScYnNg6ggE74b+PhVEWdlwQgrBnbBw9P
-	XDKHQfoVqKtCXKPvXjNzTtxeQoka1XGRZP5GZOk34jKNsI49GRJK3kcqirLFftJt6h30+XpYTW81W
-	IcTDm8HsbC1LMbHa9dcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gcVRbrPp5OfDFwe6HCRzni8oFClUW+s3IdfJ4u73PAQ=; b=bebYAHHb/4Uj5MKXUVrN6p3NwJ
+	l27ivryJN1ZKqU970OtcxN8qDe5ntpn1U0GzJPo1F6twFvAGYeIBceagSgKJ47PYYlyvfyJ+bXsIr
+	yhc1jLfzUetqfncALPNT1IYo635PvvRJGAT9Ukhno4cL3V7WeUhSm61muy9Ow5WDTW+EzhumkGreW
+	fbJPALbD1XXomXKFiV+h0YoE80CjdBjYGu73OsUlwdJ413liRS9ZWVdTxf/H8Uhva4pcQ4wxGq/8M
+	Yey3Dh6M8Rp0D0iyOAQA3uEIva0s4RHrX7knp3E/CzTKj2EBecDqeTtySSoDrI65R4siMIwSFD+DN
+	7JWUfDTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyWt8-0023vN-2o;
-	Mon, 15 May 2023 12:01:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pyWwz-0024ZQ-2A;
+	Mon, 15 May 2023 12:05:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyWt6-0023uL-1B;
-	Mon, 15 May 2023 12:01:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5mEVtTPGjX5VUAK36tVkFbSuQO22AuGeDmAzn9epzuw=; b=AmiVyh00bk/IBxeKT1sJOhNhPw
-	sKnnSOF2uFizS5FDPwFE+Ot6Zv0LcoZ6HJF47h5sBYfsBjpiqyZyI5uuDK5u2MZ4g4WobyDMhkodb
-	fUSujxE1pqhBhDi+eUM0ht45DR2Y3i+nr1YT42g2zawDfvMwb295A0aq8ARQ+5Z4gi/pV9YXxQYVt
-	3wUGZYGDjBC3RzitLceq6j/qPs1owVcSfLpElN1Y8S30KXDX5uH0Odcz4RLnxHbc6f5jNYL4oL/bz
-	nTpSFPHQoB6BKp5r4Q6WAS69amz0yrUYHbuk51pYpxo8D3N1weBBW6mFoBFyYlJ+O4Y0A9ycf248d
-	MFethNqQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyWsq-00BTBM-2z;
-	Mon, 15 May 2023 12:00:57 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D89B330003A;
-	Mon, 15 May 2023 14:00:51 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A377520AA5AEB; Mon, 15 May 2023 14:00:51 +0200 (CEST)
-Date: Mon, 15 May 2023 14:00:51 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Brian Gerst <brgerst@gmail.com>,
-	Arjan van de Veen <arjan@linux.intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul McKenney <paulmck@kernel.org>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Oleksandr Natalenko <oleksandr@natalenko.name>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Piotr Gorski <lucjan.lucjanov@gmail.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Juergen Gross <jgross@suse.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	xen-devel@lists.xenproject.org,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	linux-csky@vger.kernel.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sabin Rapan <sabrapan@amazon.com>,
-	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
-	Ross Philipson <ross.philipson@oracle.com>
-Subject: Re: [patch V4 37/37] x86/smpboot/64: Implement
- arch_cpuhp_init_parallel_bringup() and enable it
-Message-ID: <20230515120051.GH83892@hirez.programming.kicks-ass.net>
-References: <20230512203426.452963764@linutronix.de>
- <20230512205257.467571745@linutronix.de>
+	id 1pyWwx-0024Yc-01;
+	Mon, 15 May 2023 12:05:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1684152311; x=1715688311;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SE2yff8eHErH/4ND60UluHUrfSC0OZ2ezoD7zN3/nts=;
+  b=Dmwm+sdjrgRltFqwWuV//seTV3WUozazEccgUMuPSMJ8xsVFMOQ5UiMk
+   ZjdKZbdgA/D8qtXw3XoD5sy4I6NXCIUgnUgNOt/68t4oHCdbTxznj1eoB
+   D3JTTOwN0eFp5CWZnZvaDdq+8uC2NUv21uBO+duDzQ7MDRJifEqQYery3
+   aEzaBLKz2xnOTgFr2WVRok+KL8uzt/IQ+3jfjdA2+GUiyEF94D1oNwyRq
+   nQhQhQ+KKsaTSl/Mul0R3bMzFcKRG5AcPdNFy+JMkglDUiYTq6DOKoTyr
+   7H4yuwmGPCIu1gtKu/TD0F2v/UAPhJZKYxA/rZaKI5eoLBhdrMH8Mr82W
+   w==;
+X-IronPort-AV: E=Sophos;i="5.99,276,1677567600"; 
+   d="asc'?scan'208";a="211287226"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 May 2023 05:05:09 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 15 May 2023 05:05:06 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 15 May 2023 05:05:04 -0700
+Date: Mon, 15 May 2023 13:04:43 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, <andy.chiu@sifive.com>,
+	<linux-riscv@lists.infradead.org>, <anup@brainfault.org>,
+	<atishp@atishpatra.org>, <kvm-riscv@lists.infradead.org>,
+	<kvm@vger.kernel.org>, Vineet Gupta <vineetg@rivosinc.com>,
+	<greentime.hu@sifive.com>, <guoren@linux.alibaba.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH -next v19 23/24] riscv: Enable Vector code to be built
+Message-ID: <20230515-applicant-bagel-57adf89c44f7@wendy>
+References: <20230509-chitchat-elitism-bc4882a8ef8d@spud>
+ <mhng-8554b236-c9d4-4590-8941-ed7ca5316d18@palmer-ri-x1c9a>
+ <20230509-mayday-remold-a4421af1f9e1@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230512205257.467571745@linutronix.de>
+In-Reply-To: <20230509-mayday-remold-a4421af1f9e1@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230515_050511_116367_85775149 
+X-CRM114-Status: GOOD (  40.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +83,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8187722042222508991=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 12, 2023 at 11:07:56PM +0200, Thomas Gleixner wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
-> 
-> Implement the validation function which tells the core code whether
-> parallel bringup is possible.
-> 
-> The only condition for now is that the kernel does not run in an encrypted
-> guest as these will trap the RDMSR via #VC, which cannot be handled at that
-> point in early startup.
-> 
-> There was an earlier variant for AMD-SEV which used the GHBC protocol for
-> retrieving the APIC ID via CPUID, but there is no guarantee that the
-> initial APIC ID in CPUID is the same as the real APIC ID. There is no
-> enforcement from the secure firmware and the hypervisor can assign APIC IDs
-> as it sees fit as long as the ACPI/MADT table is consistent with that
-> assignment.
-> 
-> Unfortunately there is no RDMSR GHCB protocol at the moment, so enabling
-> AMD-SEV guests for parallel startup needs some more thought.
+--===============8187722042222508991==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="B7pWDLT1ChCAE4rS"
+Content-Disposition: inline
 
-One option, other than adding said protocol, would be to:
+--B7pWDLT1ChCAE4rS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- - use the APICID from CPUID -- with the expectation that it can be
-   wrong.
- - (ab)use one of the high bits in cpuid_to_apicid[] as a test-and-set
-   trylock. This avoids two CPUs from using the same per-cpu base, if
-   CPUID is being malicious. Panic on fail.
- - validate against MSR the moment we can and panic if not matching
+On Tue, May 09, 2023 at 10:06:14PM +0100, Conor Dooley wrote:
+> On Tue, May 09, 2023 at 01:59:33PM -0700, Palmer Dabbelt wrote:
+> > On Tue, 09 May 2023 09:53:17 PDT (-0700), Conor Dooley wrote:
+> > > On Wed, May 10, 2023 at 12:04:12AM +0800, Andy Chiu wrote:
+> > > > > > +config RISCV_V_DISABLE
+> > > > > > +     bool "Disable userspace Vector by default"
+> > > > > > +     depends on RISCV_ISA_V
+> > > > > > +     default n
+> > > > > > +     help
+> > > > > > +       Say Y here if you want to disable default enablement st=
+ate of Vector
+> > > > > > +       in u-mode. This way userspace has to make explicit prct=
+l() call to
+> > > > > > +       enable Vector, or enable it via sysctl interface.
+> > > > >
+> > > > > If we are worried about breaking userspace, why is the default fo=
+r this
+> > > > > option not y? Or further,
+> > > > >
+> > > > > config RISCV_ISA_V_DEFAULT_ENABLE
+> > > > >         bool "Enable userspace Vector by default"
+> > > > >         depends on RISCV_ISA_V
+> > > > >         help
+> > > > >           Say Y here to allow use of Vector in userspace by defau=
+lt.
+> > > > >           Otherwise, userspace has to make an explicit prctl() ca=
+ll to
+> > > > >           enable Vector, or enable it via the sysctl interface.
+> > > > >
+> > > > >           If you don't know what to do here, say N.
+> > > > >
 
-The trylock ensures the stacks/percpu state is not used by multiple
-CPUs, and should guarantee a coherent state to get far enough along to
-be able to do the #VE inducing RDMSR.
+There's been nothing here from the posting on the distro list. Whichever
+way we go here, I would like the word "DEFAULT" added to the config
+option to avoid confusion between it & RISC_ISA_V.
+
+Thanks,
+Conor.
+
+> > > >=20
+> > > > Yes, expressing the option, where Y means "on", is more direct. But=
+ I
+> > > > have a little concern if we make the default as "off". Yes, we crea=
+te
+> > > > this option in the worries of breaking userspace. But given that the
+> > > > break case might be rare, is it worth making userspace Vector harder
+> > > > to use by doing this? I assume in an ideal world that nothing would
+> > > > break and programs could just use V without bothering with prctl(),=
+ or
+> > > > sysctl. But on the other hand, to make a program robust enough, we
+> > > > must check the status with the prctl() anyway. So I have no answer
+> > > > here.
+> > >=20
+> > > FWIW my logic was that those who know what they are doing can turn it=
+ on
+> > > & keep the pieces. I would expect distros and all that lark to be abl=
+e to
+> > > make an educated decision here. But those that do not know what they =
+are
+> > > doing should be given the "safe" option by default.
+> > > CONFIG_RISCV_ISA_V is default y, so will be enabled for those upgradi=
+ng
+> > > their kernel. With your patch they would also get vector enabled by
+> > > default. The chance of a breakage might be small, but it seems easy to
+> > > avoid. I dunno...
+> >=20
+> > It's really more of a distro/user question than anything else, I'm not
+> > really sure there's a right answer.  I'd lean towards turning V on by
+> > default, though: the defconfigs are meant for kernel hackers, so defaul=
+ting
+> > to the option that's more likely to break something seems like the way =
+to go
+> > -- that way we see any possible breakages early and can go figure them =
+out.
+>=20
+> To get my "ackchyually" out of the way, I meant the person doing `make
+> olddefconfig` based on their distro's .config etc or using menuconfig
+> rather than someone using the in-kernel defconfig.
+> We can always set it to the potentially breaking mode explicitly in our
+> defconfigs while leaving the defaults for the aforementioned situations
+> as the "safe" option, no?
+>=20
+> > Depending on the risk tolerance of their users, distributions might wan=
+t to
+> > turn this off by default.  I posted on sw-dev, which is generally the b=
+est
+> > way to find the distro folks.
 
 
+
+--B7pWDLT1ChCAE4rS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGIf2wAKCRB4tDGHoIJi
+0oHWAP9KgZyTUf6ha5/KpevTnXE1TDs9Tk1YBq61LevlERonogEA72R6v5804ECn
+DjDFtLZHJyG84A6vVb3YKu16DpWMCAA=
+=QHY9
+-----END PGP SIGNATURE-----
+
+--B7pWDLT1ChCAE4rS--
+
+
+--===============8187722042222508991==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8187722042222508991==--
+
