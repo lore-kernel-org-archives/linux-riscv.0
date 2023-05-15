@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5279CC7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49102C7EE22
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RqHDjwFDpF1i49t0pxeqj6znygcT+h5eu6gKLmT8N6U=; b=uula73vuvg1MIK
-	Jz38+oTMzZN1DVDM0cY8Z/LWxgOOd1S2hCux5g2ueO9RMIPag7FMDjdoxFwKuPeqRtVVESo/YrCod
-	rBS/INnz5Z/4Kbfh1GRCi0fhbomaH/R1TtmHDhOY0s+FCEM8TyX6cSUevEiPgA8lTuvYPZuE+hsOc
-	FkkdLkHyTNUEO3i2y6n7hdNfzNGdpmQ8+jv69sjbO8hu4icYpmxh6RY8VgXMDfyOd+EHc2r0wbr5Y
-	t7xZJ2hGpPmt5tMwlC1GOQ84K/HDmqVEWlV8XkoKewoC7xGhKyWgurILnCi7fafVwp+QuOwDPwMNj
-	jQGr/ztRA5865lVi2Gyw==;
+	List-Owner; bh=ZcGe5mp+jIXsnFNb1hK1EjA2ZGA9PF9NvaQ70/Rmo8Y=; b=FwPkRSnkAptFjv
+	/szME76R1pWmx41xXbre5SkOU1fcilhcan0w0aKIX0D6KqUI74N9MEEpAuz3jD0ZQxPpriry5Vyuz
+	5uXTE60uusl3Xi9k9J/iQteELrCk/AMiyrdUXtaqUOmWrHwYqhMXIxq1hnluHTuM6wVa1qh9G1t7b
+	oE+7J8uxhjpDN7YMmYKH+K0Ja8UEIMu4Sr0o/SeMA4O2svqFVVLbSqpIZTJi3uhPhhuiYdIQGhpXs
+	/TLLFnfS4Xs0k/3qwxyO2qq5VQQ1f0/KZ3PtH5hhikoH0IxUVfEiqqZmaGO+6ajVvGEMSUKfBJgVp
+	lu2QORKqkY+1jMKxNMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyXiy-002B5c-10;
-	Mon, 15 May 2023 12:54:48 +0000
+	id 1pyXj0-002B6W-37;
+	Mon, 15 May 2023 12:54:50 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyXiu-002B0v-0f
+	id 1pyXiu-002B0w-0f
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 12:54:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Mon, 15 May 2023 12:54:47 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 72198807C;
-	Mon, 15 May 2023 20:54:15 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 20:54:15 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 45F66807B;
+	Mon, 15 May 2023 20:54:21 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 20:54:21 +0800
 Received: from ubuntu.localdomain (161.142.156.10) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 20:54:09 +0800
+ 2023 20:54:15 +0800
 From: Jia Jie Ho <jiajie.ho@starfivetech.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -45,9 +45,9 @@ To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	Conor Dooley <conor@kernel.org>
 CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v8 1/4] dt-bindings: crypto: Add StarFive crypto module
-Date: Mon, 15 May 2023 20:53:52 +0800
-Message-ID: <20230515125355.624250-2-jiajie.ho@starfivetech.com>
+Subject: [PATCH v8 2/4] crypto: starfive - Add crypto engine support
+Date: Mon, 15 May 2023 20:53:53 +0800
+Message-ID: <20230515125355.624250-3-jiajie.ho@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
 References: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
@@ -57,9 +57,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230515_055444_433368_F1989AC0 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230515_055444_563467_76E02384 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +75,372 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add documentation to describe StarFive cryptographic engine.
+Adding device probe and DMA init for StarFive cryptographic module.
 
 Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
 Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
 Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
 ---
- .../crypto/starfive,jh7110-crypto.yaml        | 70 +++++++++++++++++++
- 1 file changed, 70 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+ MAINTAINERS                           |   7 +
+ drivers/crypto/Kconfig                |   1 +
+ drivers/crypto/Makefile               |   1 +
+ drivers/crypto/starfive/Kconfig       |  17 +++
+ drivers/crypto/starfive/Makefile      |   4 +
+ drivers/crypto/starfive/jh7110-cryp.c | 201 ++++++++++++++++++++++++++
+ drivers/crypto/starfive/jh7110-cryp.h |  63 ++++++++
+ 7 files changed, 294 insertions(+)
+ create mode 100644 drivers/crypto/starfive/Kconfig
+ create mode 100644 drivers/crypto/starfive/Makefile
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.c
+ create mode 100644 drivers/crypto/starfive/jh7110-cryp.h
 
-diff --git a/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml b/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5f9c544bc189..498f3b7792a6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19920,6 +19920,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh71*
+ F:	include/dt-bindings/clock/starfive?jh71*.h
+ 
++STARFIVE CRYPTO DRIVER
++M:	Jia Jie Ho <jiajie.ho@starfivetech.com>
++M:	William Qiu <william.qiu@starfivetech.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/crypto/starfive*
++F:	drivers/crypto/starfive/
++
+ STARFIVE JH71X0 PINCTRL DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+ M:	Jianlong Huang <jianlong.huang@starfivetech.com>
+diff --git a/drivers/crypto/Kconfig b/drivers/crypto/Kconfig
+index 3b2516d1433f..c9b6a8747fa1 100644
+--- a/drivers/crypto/Kconfig
++++ b/drivers/crypto/Kconfig
+@@ -822,5 +822,6 @@ config CRYPTO_DEV_SA2UL
+ 
+ source "drivers/crypto/keembay/Kconfig"
+ source "drivers/crypto/aspeed/Kconfig"
++source "drivers/crypto/starfive/Kconfig"
+ 
+ endif # CRYPTO_HW
+diff --git a/drivers/crypto/Makefile b/drivers/crypto/Makefile
+index 476f1a25ca32..5ff5242a1824 100644
+--- a/drivers/crypto/Makefile
++++ b/drivers/crypto/Makefile
+@@ -52,3 +52,4 @@ obj-y += xilinx/
+ obj-y += hisilicon/
+ obj-$(CONFIG_CRYPTO_DEV_AMLOGIC_GXL) += amlogic/
+ obj-y += keembay/
++obj-y += starfive/
+diff --git a/drivers/crypto/starfive/Kconfig b/drivers/crypto/starfive/Kconfig
 new file mode 100644
-index 000000000000..71a2876bd6e4
+index 000000000000..7a5a5d9f90ed
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/crypto/starfive,jh7110-crypto.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/crypto/starfive/Kconfig
+@@ -0,0 +1,17 @@
++#
++# StarFive crypto drivers configuration
++#
 +
-+title: StarFive Cryptographic Module
++config CRYPTO_DEV_JH7110
++	tristate "StarFive JH7110 cryptographic engine driver"
++	depends on SOC_STARFIVE || COMPILE_TEST
++	select CRYPTO_ENGINE
++	select ARM_AMBA
++	select DMADEVICES
++	select AMBA_PL08X
++	help
++	  Support for StarFive JH7110 crypto hardware acceleration engine.
++	  This module provides acceleration for public key algo,
++	  skciphers, AEAD and hash functions.
 +
-+maintainers:
-+  - Jia Jie Ho <jiajie.ho@starfivetech.com>
-+  - William Qiu <william.qiu@starfivetech.com>
++	  If you choose 'M' here, this module will be called jh7110-crypto.
+diff --git a/drivers/crypto/starfive/Makefile b/drivers/crypto/starfive/Makefile
+new file mode 100644
+index 000000000000..41221acaee39
+--- /dev/null
++++ b/drivers/crypto/starfive/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+properties:
-+  compatible:
-+    const: starfive,jh7110-crypto
++obj-$(CONFIG_CRYPTO_DEV_JH7110) += jh7110-crypto.o
++jh7110-crypto-objs := jh7110-cryp.o
+diff --git a/drivers/crypto/starfive/jh7110-cryp.c b/drivers/crypto/starfive/jh7110-cryp.c
+new file mode 100644
+index 000000000000..4b2505c23168
+--- /dev/null
++++ b/drivers/crypto/starfive/jh7110-cryp.c
+@@ -0,0 +1,201 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Cryptographic API.
++ *
++ * Support for StarFive hardware cryptographic engine.
++ * Copyright (c) 2022 StarFive Technology
++ *
++ */
 +
-+  reg:
-+    maxItems: 1
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/interrupt.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/reset.h>
 +
-+  clocks:
-+    items:
-+      - description: Hardware reference clock
-+      - description: AHB reference clock
++#include "jh7110-cryp.h"
 +
-+  clock-names:
-+    items:
-+      - const: hclk
-+      - const: ahb
++#define DRIVER_NAME             "jh7110-crypto"
 +
-+  interrupts:
-+    maxItems: 1
++struct starfive_dev_list {
++	struct list_head        dev_list;
++	spinlock_t              lock; /* protect dev_list */
++};
 +
-+  resets:
-+    maxItems: 1
++static struct starfive_dev_list dev_list = {
++	.dev_list = LIST_HEAD_INIT(dev_list.dev_list),
++	.lock     = __SPIN_LOCK_UNLOCKED(dev_list.lock),
++};
 +
-+  dmas:
-+    items:
-+      - description: TX DMA channel
-+      - description: RX DMA channel
++struct starfive_cryp_dev *starfive_cryp_find_dev(struct starfive_cryp_ctx *ctx)
++{
++	struct starfive_cryp_dev *cryp = NULL, *tmp;
 +
-+  dma-names:
-+    items:
-+      - const: tx
-+      - const: rx
++	spin_lock_bh(&dev_list.lock);
++	if (!ctx->cryp) {
++		list_for_each_entry(tmp, &dev_list.dev_list, list) {
++			cryp = tmp;
++			break;
++		}
++		ctx->cryp = cryp;
++	} else {
++		cryp = ctx->cryp;
++	}
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - dmas
-+  - dma-names
++	spin_unlock_bh(&dev_list.lock);
 +
-+additionalProperties: false
++	return cryp;
++}
 +
-+examples:
-+  - |
-+    crypto: crypto@16000000 {
-+        compatible = "starfive,jh7110-crypto";
-+        reg = <0x16000000 0x4000>;
-+        clocks = <&clk 15>, <&clk 16>;
-+        clock-names = "hclk", "ahb";
-+        interrupts = <28>;
-+        resets = <&reset 3>;
-+        dmas = <&dma 1 2>,
-+               <&dma 0 2>;
-+        dma-names = "tx", "rx";
-+    };
-+...
++static int starfive_dma_init(struct starfive_cryp_dev *cryp)
++{
++	dma_cap_mask_t mask;
++
++	dma_cap_zero(mask);
++	dma_cap_set(DMA_SLAVE, mask);
++
++	cryp->tx = dma_request_chan(cryp->dev, "tx");
++	if (IS_ERR(cryp->tx))
++		return dev_err_probe(cryp->dev, PTR_ERR(cryp->tx),
++				     "Error requesting tx dma channel.\n");
++
++	cryp->rx = dma_request_chan(cryp->dev, "rx");
++	if (IS_ERR(cryp->rx)) {
++		dma_release_channel(cryp->tx);
++		return dev_err_probe(cryp->dev, PTR_ERR(cryp->rx),
++				     "Error requesting rx dma channel.\n");
++	}
++
++	return 0;
++}
++
++static void starfive_dma_cleanup(struct starfive_cryp_dev *cryp)
++{
++	dma_release_channel(cryp->tx);
++	dma_release_channel(cryp->rx);
++}
++
++static int starfive_cryp_probe(struct platform_device *pdev)
++{
++	struct starfive_cryp_dev *cryp;
++	struct resource *res;
++	int ret;
++
++	cryp = devm_kzalloc(&pdev->dev, sizeof(*cryp), GFP_KERNEL);
++	if (!cryp)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, cryp);
++	cryp->dev = &pdev->dev;
++
++	cryp->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(cryp->base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(cryp->base),
++				     "Error remapping memory for platform device\n");
++
++	cryp->phys_base = res->start;
++	cryp->dma_maxburst = 32;
++
++	cryp->hclk = devm_clk_get(&pdev->dev, "hclk");
++	if (IS_ERR(cryp->hclk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(cryp->hclk),
++				     "Error getting hardware reference clock\n");
++
++	cryp->ahb = devm_clk_get(&pdev->dev, "ahb");
++	if (IS_ERR(cryp->ahb))
++		return dev_err_probe(&pdev->dev, PTR_ERR(cryp->ahb),
++				     "Error getting ahb reference clock\n");
++
++	cryp->rst = devm_reset_control_get_shared(cryp->dev, NULL);
++	if (IS_ERR(cryp->rst))
++		return dev_err_probe(&pdev->dev, PTR_ERR(cryp->rst),
++				     "Error getting hardware reset line\n");
++
++	clk_prepare_enable(cryp->hclk);
++	clk_prepare_enable(cryp->ahb);
++	reset_control_deassert(cryp->rst);
++
++	spin_lock(&dev_list.lock);
++	list_add(&cryp->list, &dev_list.dev_list);
++	spin_unlock(&dev_list.lock);
++
++	ret = starfive_dma_init(cryp);
++	if (ret) {
++		if (ret == -EPROBE_DEFER)
++			goto err_probe_defer;
++		else
++			goto err_dma_init;
++	}
++
++	/* Initialize crypto engine */
++	cryp->engine = crypto_engine_alloc_init(&pdev->dev, 1);
++	if (!cryp->engine) {
++		ret = -ENOMEM;
++		goto err_engine;
++	}
++
++	ret = crypto_engine_start(cryp->engine);
++	if (ret)
++		goto err_engine_start;
++
++	return 0;
++
++err_engine_start:
++	crypto_engine_exit(cryp->engine);
++err_engine:
++	starfive_dma_cleanup(cryp);
++err_dma_init:
++	spin_lock(&dev_list.lock);
++	list_del(&cryp->list);
++	spin_unlock(&dev_list.lock);
++
++	clk_disable_unprepare(cryp->hclk);
++	clk_disable_unprepare(cryp->ahb);
++	reset_control_assert(cryp->rst);
++err_probe_defer:
++	return ret;
++}
++
++static int starfive_cryp_remove(struct platform_device *pdev)
++{
++	struct starfive_cryp_dev *cryp = platform_get_drvdata(pdev);
++
++	crypto_engine_stop(cryp->engine);
++	crypto_engine_exit(cryp->engine);
++
++	starfive_dma_cleanup(cryp);
++
++	spin_lock(&dev_list.lock);
++	list_del(&cryp->list);
++	spin_unlock(&dev_list.lock);
++
++	clk_disable_unprepare(cryp->hclk);
++	clk_disable_unprepare(cryp->ahb);
++	reset_control_assert(cryp->rst);
++
++	return 0;
++}
++
++static const struct of_device_id starfive_dt_ids[] __maybe_unused = {
++	{ .compatible = "starfive,jh7110-crypto", .data = NULL},
++	{},
++};
++MODULE_DEVICE_TABLE(of, starfive_dt_ids);
++
++static struct platform_driver starfive_cryp_driver = {
++	.probe  = starfive_cryp_probe,
++	.remove = starfive_cryp_remove,
++	.driver = {
++		.name           = DRIVER_NAME,
++		.of_match_table = starfive_dt_ids,
++	},
++};
++
++module_platform_driver(starfive_cryp_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("StarFive JH7110 Cryptographic Module");
+diff --git a/drivers/crypto/starfive/jh7110-cryp.h b/drivers/crypto/starfive/jh7110-cryp.h
+new file mode 100644
+index 000000000000..393efd38b098
+--- /dev/null
++++ b/drivers/crypto/starfive/jh7110-cryp.h
+@@ -0,0 +1,63 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __STARFIVE_STR_H__
++#define __STARFIVE_STR_H__
++
++#include <linux/delay.h>
++#include <linux/dma-mapping.h>
++#include <linux/dmaengine.h>
++
++#include <crypto/engine.h>
++
++#define STARFIVE_ALG_CR_OFFSET			0x0
++#define STARFIVE_ALG_FIFO_OFFSET		0x4
++#define STARFIVE_IE_MASK_OFFSET			0x8
++#define STARFIVE_IE_FLAG_OFFSET			0xc
++#define STARFIVE_DMA_IN_LEN_OFFSET		0x10
++#define STARFIVE_DMA_OUT_LEN_OFFSET		0x14
++
++#define STARFIVE_MSG_BUFFER_SIZE		SZ_16K
++
++union starfive_alg_cr {
++	u32 v;
++	struct {
++		u32 start			:1;
++		u32 aes_dma_en			:1;
++		u32 rsvd_0			:1;
++		u32 hash_dma_en			:1;
++		u32 alg_done			:1;
++		u32 rsvd_1			:3;
++		u32 clear			:1;
++		u32 rsvd_2			:23;
++	};
++};
++
++struct starfive_cryp_ctx {
++	struct crypto_engine_ctx		enginectx;
++	struct starfive_cryp_dev		*cryp;
++};
++
++struct starfive_cryp_dev {
++	struct list_head			list;
++	struct device				*dev;
++
++	struct clk				*hclk;
++	struct clk				*ahb;
++	struct reset_control			*rst;
++
++	void __iomem				*base;
++	phys_addr_t				phys_base;
++
++	u32					dma_maxburst;
++	struct dma_chan				*tx;
++	struct dma_chan				*rx;
++	struct dma_slave_config			cfg_in;
++	struct dma_slave_config			cfg_out;
++
++	struct crypto_engine			*engine;
++
++	union starfive_alg_cr			alg_cr;
++};
++
++struct starfive_cryp_dev *starfive_cryp_find_dev(struct starfive_cryp_ctx *ctx);
++
++#endif
 -- 
 2.25.1
 
