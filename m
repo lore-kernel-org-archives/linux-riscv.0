@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA05C77B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 05:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0992C77B7D
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 06:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9F3W/fb5BvLwnTVkzzVMbrwLOlIhHPS86snTUq0alRg=; b=gEiB/j8X6bA8UX
-	4lFbI3hR9s7kx/EYUgI/2M0b8jMlk+gl+g/z0qoLFjU2YrqeMbnMK8/NjRvev9xIuBGahUYKbByOZ
-	AIC4mV7lPknKmM/m6jcsyhh6msLxOpS1EXgHh0H4i7gNe60CPErwhyZeM1w8vPKneH2L4CFsa7TI8
-	xvotRizWiNPyEY0nyi7N0UPmLc3pnGy/A32L/pPKxn+39gG5URL6jcil8R2ASa7NYKArQTUMzyZyT
-	lmnx8w/ppJtDV+8cpxn9dSnPs9NUjx/MrPLEpK4e1ahEgxZCO7y5X8P+QAo4enaufkY+pgINYhQh+
-	WL4NoMPFM6SfCPgQVV3Q==;
+	List-Owner; bh=zZcAPCuaLnF6CR/5H+6EM36extAiv31R2A/Jn6+fUMI=; b=oRVC78fcU+O3ia
+	xJbISKdQ3VtesZ1+Pe7ue329VjGd0C+SmdI5ECSE54wJIvls/gyoQBlcM5kKcTvMeXFsr6BAR0EZo
+	ZYlmW3dYPjmLNxQLYb5LqkTxlX2MioSHhNS5TCTJO2KlD84+Eyy1cFeggFPe5ZYr3dxQVOD1ebAiL
+	tFsDfYoTqHwgr0c/fpDOGw4pFImUjdcY4enJ3RqpIFXeJUjZ766/oX5w0MtEcIoSrBV+L9Yy1+/uF
+	lk1r8VdREunjoEcCapMxxT4+DAGPEc5ReNuEcVkVRJvJAbQcE5mo7LLsBuqibpKby7HfSWUm/cDiP
+	eMXRga6YEjRueGtmqsuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRAd-0011hg-0w;
-	Mon, 15 May 2023 05:54:55 +0000
-Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRAY-0011g6-0x
+	id 1pyRKR-0013ev-1h;
+	Mon, 15 May 2023 06:05:03 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pyRKO-0013bk-0G
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 05:54:53 +0000
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
-	id 1pyRAL-0092DT-4p; Mon, 15 May 2023 13:54:38 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 15 May 2023 13:54:37 +0800
-Date: Mon, 15 May 2023 13:54:37 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-crypto@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	llvm@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Weili Qian <qianweili@huawei.com>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Mark Gross <markgross@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>
-Subject: Re: [PATCH V6 03/21] crypto: hisilicon/qm: Fix to enable build with
- RISC-V clang
-Message-ID: <ZGHJHcECXV0EptuT@gondor.apana.org.au>
-References: <20230515054928.2079268-1-sunilvl@ventanamicro.com>
- <20230515054928.2079268-4-sunilvl@ventanamicro.com>
+	Mon, 15 May 2023 06:05:02 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BD54D24DB84;
+	Mon, 15 May 2023 14:04:27 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 14:04:27 +0800
+Received: from [192.168.155.85] (202.188.176.82) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 14:04:24 +0800
+Message-ID: <3ec4b399-48d8-0129-85b7-0fe30e6de9c5@starfivetech.com>
+Date: Mon, 15 May 2023 14:04:21 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230515054928.2079268-4-sunilvl@ventanamicro.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.1
+Subject: Re: [PATCH v7 4/4] crypto: starfive - Add hash and HMAC support
+Content-Language: en-US
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: "David S . Miller" <davem@davemloft.net>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	<linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230504073400.1170979-1-jiajie.ho@starfivetech.com>
+ <20230504073400.1170979-5-jiajie.ho@starfivetech.com>
+ <ZF4bKe0YkpcQakLs@gondor.apana.org.au>
+ <2ae2d187-5db7-9207-7846-1a80e87047b2@starfivetech.com>
+ <ZGGz4YFDMKQThG2x@gondor.apana.org.au>
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+In-Reply-To: <ZGGz4YFDMKQThG2x@gondor.apana.org.au>
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_225450_331944_CE325EB5 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20230514_230500_280706_BB3FD64E 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +82,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 15, 2023 at 11:19:10AM +0530, Sunil V L wrote:
-> With CONFIG_ACPI enabled for RISC-V, this driver gets enabled in
-> allmodconfig build. However, build fails with clang and below
-> error is seen.
+On 15/5/2023 12:24 pm, Herbert Xu wrote:
+> On Mon, May 15, 2023 at 11:27:35AM +0800, Jia Jie Ho wrote:
+>>
+>> I've added COMPILE_TEST in the Kconfig, then ran make W=1, sparse and smatch.
+>> However it did not produce the error message.
 > 
-> drivers/crypto/hisilicon/qm.c:627:10: error: invalid output constraint '+Q' in asm
->                        "+Q" (*((char __iomem *)fun_base))
->                        ^
-> This is expected error with clang due to the way it is designed.
+> I guess you weren't testing on a 64-bit platform.  BIT(2) is
+> an unsigned long, so ~BIT(2) is 64-bit long on 64-bit platforms.
 > 
-> To fix this issue, move arm64 assembly code under #if.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/999
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> [sunilvl@ventanamicro.com: Moved tmp0 and tmp1 into the #if]
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  drivers/crypto/hisilicon/qm.c | 5 +++++
->  1 file changed, 5 insertions(+)
+I am cross-compiling on a 64-bit platform. 
+I'll check my compiler settings again in case this masks errors in future patches.
 
-Acked-by: Herbert Xu <herbert@gondor.apana.org.au>
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+> You're trying to feed it into writel which takes a 32-bit value,
+> hence the warning.
+> 
+> If you have to use the BIT macro, then you need to cast the result
+> to u32:
+> 
+> #define STARFIVE_IE_MASK_HASH_DONE ((u32)BIT(2))
+> 
+> But it's probably a lot clearer if you do it as:
+> 
+> #define STARFIVE_IE_MASK_HASH_DONE 0x4
+Sure, I'll do this for the next version.
+
+Thanks,
+Jia Jie
+
 
 _______________________________________________
 linux-riscv mailing list
