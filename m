@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850EAC7EE22
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 06:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2C7C7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 06:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TYrOndvNG2plBuIEYcPMO4fwBWOKXOhFCM5btw8UKfo=; b=Qvs9d9v+1Wk3DW
-	7CBoeBRTPjjkOVDAcOfN5heevdx2vJXWFTJUUbDDnLvx0S3QxHkpzNZaSp/MJcJ8pL47IQSk3OS2p
-	0rlD5nEhgSNUi2WNAWigLBoajWgyDpX8jp/VYTpO9CC35eQHZK96y6dvjE7gy4Iwq3qOTA8UGwkCZ
-	rig7afqbAnav76xhJk0PV6NL9u1StCkO6+UyyxsBbGZ5mppO6Nv8gIMq1MHN7jj7bPZXXZP1xcQ2j
-	RG/LbOEhq2w9sq6QzPQ2sAd+Z1KIpJYZWyZtdcS7qVaqmaes6KayBdvGbTZOqD34SvagNinKv8UBt
-	XHyOJrP1L0eWlBdGUajw==;
+	List-Owner; bh=fS8g2lNxATcHPCTtXWEv06pPhtsS0VkoXfXN35fYk5I=; b=2TYaH8X1qKDGap
+	LOdKUjqeKmBP1eAQgbhQ8TjfrrVvOv5brkh5aNkktYdvjsiSp0ReZ7WCH85FCY6gHAIZWOXErjuoY
+	2vBC2m0SJKcl2GgjG4x02iBQFG8mCiIsX2OboZWFGOkKU4nRYFQTnMFVsW6TJt/UYOdNl4rDJdFoF
+	DdBT9nksdx2ddlsWl9R+JQYbAhTXYU3Al2SnRjnS+vSKVfea4AiM/UsqkeyD2pj90DxwOmRJttcbh
+	hMx9FSVY/S2HYQPiwG2hnRgaVQgyChFr8iYbUoNMyg/6lLyCfhKlQ60Z5ROXZEGM52aArpaDJgqWS
+	/dv2zUMbEdv8G4J5Jktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRdA-0017ww-1k;
-	Mon, 15 May 2023 06:24:24 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1pyRdU-00185E-2u;
+	Mon, 15 May 2023 06:24:44 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRd7-0017uR-23
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 06:24:22 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-50be17a1eceso22872083a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 23:24:20 -0700 (PDT)
+	id 1pyRdR-001834-2N;
+	Mon, 15 May 2023 06:24:42 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-52867360efcso8680163a12.2;
+        Sun, 14 May 2023 23:24:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1684131859; x=1686723859;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8ZrCCJnB8j04SQidDp73H5RlpBN8W7gZ1uSfWyGv/a0=;
-        b=gw8iMh754Svye3MoH+GldEiAvTGQQ3ivNI4h9pqyp5ulva34F/fRSSXTHRZrTh5qzs
-         UCZKLAvuLoPMqtYIyZI9y5iqamV6v0lLZDIm39CVNRaXT1ptv7iyTHPWkKezjx2HSMra
-         EVvPokJmbZe3x1BxjF1oo/ju1eh1ktk1QTxLgtf3Il3PvdTcOACQiuiPzR3KrOauzvBs
-         zLKcxwTWzFe3EIkgo7KYO6tVHvXSMKFf3ZZXtOC9xY4s7FJoRNM7detu2IexNxkmHJEW
-         L5es9j/sFYxpWMvQ0VdZGWxmkOesVtUFgTbUP7KEBPPKR52rwzdoS3EOYjeUgR1qvxT8
-         FgeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684131859; x=1686723859;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20221208; t=1684131880; x=1686723880;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8ZrCCJnB8j04SQidDp73H5RlpBN8W7gZ1uSfWyGv/a0=;
-        b=jUkxdnuJdVKKzgFBpJQrVY03sV8RsvfwxFkfRe2qSHbsqioRRcCm+vVirBg4KaXrbo
-         IehZ4qwCtQeBL9y5i1qH5Us7k7rtFM1VDJJrqGJkEnSK/WHQIkMDveF2VDaUmwDtF+y/
-         hsVZ6hCvUjAzCTLLDjdXxmZXyaZHthFNNhXzgQA2l6UsShCPZHzTOKMP2BW9gSyUvOLz
-         sAQ7rNnn2d4INTfnpGPx1YL2apoIV5CXE1LYNAqXxperU8F3Opt1Ckrykc2GyX1QmgnB
-         bpIxrcOAeLbjUqWGxZk4rERDRqLAWnlGyL0WqxaM8wQQSQ/3wd4mlFArUGnp0wSdGUse
-         PGXQ==
-X-Gm-Message-State: AC+VfDx8iEauxAWFzZh+oKAYK8zHObB6EtAJjtw8jz9rV5MTwnr7S+dP
-	we7ev2k8IhlWdDA7oHggyBG0Jg==
-X-Google-Smtp-Source: ACHHUZ4k7nrcgyH1Qra2Mu296AsBuB70tNW9OEut7qSvtCarjgHLds9kwSn1mp7vLBj5nECNleh6Mw==
-X-Received: by 2002:a17:907:6d85:b0:966:5eb6:40e1 with SMTP id sb5-20020a1709076d8500b009665eb640e1mr25219014ejc.74.1684131858857;
-        Sun, 14 May 2023 23:24:18 -0700 (PDT)
-Received: from krzk-bin ([2a02:810d:15c0:828:6470:25b8:7c2d:1992])
-        by smtp.gmail.com with ESMTPSA id ci18-20020a170907267200b00959c6cb82basm8981963ejc.105.2023.05.14.23.24.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 May 2023 23:24:18 -0700 (PDT)
-Date: Mon, 15 May 2023 08:24:16 +0200
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-serial@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 03/10] dt-bindings: serial: add documentation for
- Bouffalolab UART Driver
-Message-ID: <20230515062416.mnxuudjbx44skclh@krzk-bin>
-References: <20230514165651.2199-1-jszhang@kernel.org>
- <20230514165651.2199-4-jszhang@kernel.org>
+        bh=ipVfxboz2N3BTbhUZctFrasYMvC8E8GR8fiHDB5wG9A=;
+        b=K/Ds5UQDShQ1jfqjq8VIbQzq9KL8b4ueLhmM+jbfvGykQOm9udF30CIzh7yLh0AyyW
+         VYx2xlivf2OSEdspjfb8Gx7JMtCBsJInxMc/fFczq4kfjpAo0USZOFUZc6QxtZNJ4j3N
+         E79DBz4t+N8DzEbdPJRBFSlFxD+9mq6SDrSMmmWHAeKYSgfnh2tpWRcuuT+67GCsSXQ/
+         FP3HV5EZfoM11bfhNw1pyATMs6J2zLTpG+S2im1DBjb52UWpC5TQMtLjdJSk97kejt+d
+         ZrAzPOBGlVVTLZU9eegXT+l0o/7mv0ugLJBck6gy/AjW0mGGRfvrYJoYuhwH2BEWATXt
+         pymQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684131880; x=1686723880;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ipVfxboz2N3BTbhUZctFrasYMvC8E8GR8fiHDB5wG9A=;
+        b=Zdz1yzwvt8jG7Hn+crgmbXh43bFItFreDqJ13TcgbQqM/aGAwgRWBZ9hhPDJnw6fEI
+         KUKc+anXKSR+gZqvOVg1Fl6c5u3gxzvIwe5RIiF7NdqBARHjJxYFab40oqe7bnxQ5Hs7
+         fekQBU5OkYB4g/tuSVKP9bRw7p3kJ8kVLGpyPmBSAK0qVE6Lr4cWxIul23GcrXua4zia
+         fYwv8IY/X9L4RUnuSWoKxDC5cr+2bfrW90/W9W6FV43jlRcYgbtOPnmONPDJfHwKQsgt
+         NuaSOlfiU5eCrttjJ+4RsOh/fvzZ3KlwaKxb4ORZfDWRjBZVXzsAdWqgew4PYEOqPlk/
+         XK2A==
+X-Gm-Message-State: AC+VfDzlchkxgP4kkardzbrak+l6+vAQDJbHRv+J3KFRI2hUJrHcxJgY
+	faC5gy5qbsuLlleaPXIkMRj0Bc1DVContjvO1qts9J7Vd68=
+X-Google-Smtp-Source: ACHHUZ4wRiCLeYPgQOiKNNvZY75L/XiRY4hGc1xrqkwiizwTTiO+743uCn+9bRYh7GxEKf2LBVi2VCi/iVrz18zFAOQ=
+X-Received: by 2002:a17:90a:d48d:b0:252:a7b5:723f with SMTP id
+ s13-20020a17090ad48d00b00252a7b5723fmr11803679pju.2.1684131879992; Sun, 14
+ May 2023 23:24:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230514165651.2199-4-jszhang@kernel.org>
+References: <cover.1683791148.git.haibo1.xu@intel.com> <921fc2e1a91887170e277acb1b52df57480a5736.1683791148.git.haibo1.xu@intel.com>
+ <20230511-boozy-comic-5bc8f297dc8e@spud> <20230511-leverage-backspin-34bcde885006@spud>
+In-Reply-To: <20230511-leverage-backspin-34bcde885006@spud>
+From: Haibo Xu <xiaobo55x@gmail.com>
+Date: Mon, 15 May 2023 14:24:28 +0800
+Message-ID: <CAJve8okYNEbk2PwXVzx+dMSq+uci=W_tpShNv3FER=pWRUymWw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv: kvm: Add KVM_GET_REG_LIST API support
+To: Conor Dooley <conor@kernel.org>
+Cc: Haibo Xu <haibo1.xu@intel.com>, ajones@ventanamicro.com, 
+	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_232421_673878_54CEFF09 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20230514_232441_773922_A0344BA3 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +88,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 May 2023 00:56:44 +0800, Jisheng Zhang wrote:
-> Add bindings doc for Bouffalolab UART Driver
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  .../serial/bouffalolab,bl808-uart.yaml        | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml
-> 
-
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-./Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml: $id: relative path/filename doesn't match actual path or filename
-	expected: http://devicetree.org/schemas/serial/bouffalolab,bl808-uart.yaml#
-
-See https://patchwork.ozlabs.org/patch/1781053
-
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMTIsIDIwMjMgYXQgNjo0OOKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUaHUsIE1heSAxMSwgMjAyMyBhdCAxMToyNTo0MVBNICsw
+MTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gPiBPbiBUaHUsIE1heSAxMSwgMjAyMyBhdCAwNToy
+Mjo0OFBNICswODAwLCBIYWlibyBYdSB3cm90ZToKPiA+ID4gS1ZNX0dFVF9SRUdfTElTVCBBUEkg
+d2lsbCByZXR1cm4gYWxsIHJlZ2lzdGVycyB0aGF0IGFyZSBhdmFpbGFibGUgdG8KPiA+ID4gS1ZN
+X0dFVC9TRVRfT05FX1JFRyBBUElzLiBJdCdzIHZlcnkgdXNlZnVsIHRvIGlkZW50aWZ5IHNvbWUg
+cGxhdGZvcm0KPiA+ID4gcmVncmVzc2lvbiBpc3N1ZSBkdXJpbmcgVk0gbWlncmF0aW9uLgo+ID4g
+Pgo+ID4gPiBTaW5jZSB0aGlzIEFQSSB3YXMgYWxyZWFkeSBzdXBwb3J0ZWQgb24gYXJtNjQsIGl0
+J2QgYmUgc3RyYWlnaHRmb3J3YXJkCj4gPiA+IHRvIGVuYWJsZSBpdCBvbiByaXNjdiB3aXRoIHNp
+bWlsYXIgY29kZSBzdHJ1Y3R1cmUuCj4gPgo+ID4gQXBwbGllZCBvbiB0b3Agb2YgdjYuNC1yYzEg
+dGhpcyBicmVha3MgdGhlIGJ1aWxkIDovCj4KPiBJIGxpZWQsIEkgZm9yZ290IFc9MSBpcyBlbmFi
+bGVkIGZvciB0aGUgYWxsbW9kY29uZmlnIGJ1aWxkcyBpbiB0aGUKPiBwYXRjaHdvcmsgYXV0b21h
+dGlvbi4KPiBUaGUgd2FybmluZ3MgYXJlIHRyaXZpYWwgdG8gZml4LCBzbyB5b3Ugc2hvdWxkIGZp
+eCB0aGVtIGFueXdheSEKPgoKc3VyZSwgSSB3aWxsIGZpeCB0aGVtIGluIHRoZSBuZXh0IHZlcnNp
+b24uCgpUaGFua3MsCkhhaWJvCgo+ID4gd2FybmluZzogRnVuY3Rpb24gcGFyYW1ldGVyIG9yIG1l
+bWJlciAndmNwdScgbm90IGRlc2NyaWJlZCBpbiAna3ZtX3Jpc2N2X3ZjcHVfbnVtX3JlZ3MnCj4g
+PiB3YXJuaW5nOiBGdW5jdGlvbiBwYXJhbWV0ZXIgb3IgbWVtYmVyICd1aW5kaWNlcycgbm90IGRl
+c2NyaWJlZCBpbiAna3ZtX3Jpc2N2X3ZjcHVfY29weV9yZWdfaW5kaWNlcycKPiA+IHdhcm5pbmc6
+IEZ1bmN0aW9uIHBhcmFtZXRlciBvciBtZW1iZXIgJ3ZjcHUnIG5vdCBkZXNjcmliZWQgaW4gJ2t2
+bV9yaXNjdl92Y3B1X2NvcHlfcmVnX2luZGljZXMnCj4gPgo+ID4gWW91IGhhdmUgYSBidW5jaCBv
+ZiBrZXJuZWxkb2MgY29tbWVudHMgKHRoZSBvbmVzIHdpdGggLyoqKSB0aGF0IGFyZSBub3QKPiA+
+IHZhbGlkIGtlcm5lbGRvYy4gQXBwYXJlbnRseSBhbGxtb2Rjb25maWcgY2F0Y2hlcyB0aGF0IQo+
+ID4KPiA+IENoZWVycywKPiA+IENvbm9yLgo+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
