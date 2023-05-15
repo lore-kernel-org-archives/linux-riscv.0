@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2C7C7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 06:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F345DC7EE22
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 06:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fS8g2lNxATcHPCTtXWEv06pPhtsS0VkoXfXN35fYk5I=; b=2TYaH8X1qKDGap
-	LOdKUjqeKmBP1eAQgbhQ8TjfrrVvOv5brkh5aNkktYdvjsiSp0ReZ7WCH85FCY6gHAIZWOXErjuoY
-	2vBC2m0SJKcl2GgjG4x02iBQFG8mCiIsX2OboZWFGOkKU4nRYFQTnMFVsW6TJt/UYOdNl4rDJdFoF
-	DdBT9nksdx2ddlsWl9R+JQYbAhTXYU3Al2SnRjnS+vSKVfea4AiM/UsqkeyD2pj90DxwOmRJttcbh
-	hMx9FSVY/S2HYQPiwG2hnRgaVQgyChFr8iYbUoNMyg/6lLyCfhKlQ60Z5ROXZEGM52aArpaDJgqWS
-	/dv2zUMbEdv8G4J5Jktg==;
+	List-Owner; bh=5h26sDtCpM2CDWN7NhQF2SwDL5rPzbFDw6Tz7GorPD0=; b=d6BMFXJq9gO25h
+	lO7chOltmBVCx0EmycOYfQbfgF5+fBK73NAJz9dImyLtTnGJPDE6QrpVGNJKKTw110L0Ncr03JAcV
+	GOf+oSlwq4pgW7hdMBcfRjVorMYbsAXCGNW+jAudIKY5OZrEAuLwCariWHGuLM0w5KHQIyI2Th3Js
+	mS+Jg/vxxUqxL5aC9SsiIaKiZ19nSimpyVdEJLwiqFLpupAigy4VQ5aRRMFuy8MhD6MwDvAiEGPjD
+	4BTmzdvS9vLSzf9rhdzLBgk4hWEQThnWY/8oBz54b1Zjzk/HsykkX3qYcHdCTGMAzvshn5doiKwW+
+	I3EgOVekRFGHdRBZn36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRdU-00185E-2u;
-	Mon, 15 May 2023 06:24:44 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1pyRfd-0018Vh-22;
+	Mon, 15 May 2023 06:26:57 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyRdR-001834-2N;
-	Mon, 15 May 2023 06:24:42 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-52867360efcso8680163a12.2;
-        Sun, 14 May 2023 23:24:40 -0700 (PDT)
+	id 1pyRfa-0018Ub-2p
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 May 2023 06:26:56 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-50bcae898b2so21790609a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 23:26:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684131880; x=1686723880;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ipVfxboz2N3BTbhUZctFrasYMvC8E8GR8fiHDB5wG9A=;
-        b=K/Ds5UQDShQ1jfqjq8VIbQzq9KL8b4ueLhmM+jbfvGykQOm9udF30CIzh7yLh0AyyW
-         VYx2xlivf2OSEdspjfb8Gx7JMtCBsJInxMc/fFczq4kfjpAo0USZOFUZc6QxtZNJ4j3N
-         E79DBz4t+N8DzEbdPJRBFSlFxD+9mq6SDrSMmmWHAeKYSgfnh2tpWRcuuT+67GCsSXQ/
-         FP3HV5EZfoM11bfhNw1pyATMs6J2zLTpG+S2im1DBjb52UWpC5TQMtLjdJSk97kejt+d
-         ZrAzPOBGlVVTLZU9eegXT+l0o/7mv0ugLJBck6gy/AjW0mGGRfvrYJoYuhwH2BEWATXt
-         pymQ==
+        d=linaro.org; s=google; t=1684132010; x=1686724010;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qKPNUzjoxIt2qle5yyUBx+bzfhRe4atuWwPXnoKqr+I=;
+        b=i0rOmp8mgMrmR30bV4O+LQ+jOpWIkqsnD3dfhCBrHxL6VrwBvi1R92pPpXXejeRZlR
+         4ut9hMkEDnvlR7YDto5UTrk4sgeKmrTuFKlBH0WyxUzhmIx3E+c5TiPtONH5zBydqGrA
+         qCMBZbIkIoOwq3QumgXHx9eV7DpX8hZ2lBHgh5wyHznKoglu9wZTF57C5Sol3LW0TBDi
+         syjRgknmwz54wGvXMBq3qJ8GvG0jj9Gt4VhJWSYfy4qRQpzyQ3ZON2+cfHAAhzbJ66Op
+         u2oviZ3B4KKL2EHWCNPphpefFZzbOSTBQN5ymDWTROIyGXPzijTCiEyDkXgGu50mxzrb
+         fygA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684131880; x=1686723880;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ipVfxboz2N3BTbhUZctFrasYMvC8E8GR8fiHDB5wG9A=;
-        b=Zdz1yzwvt8jG7Hn+crgmbXh43bFItFreDqJ13TcgbQqM/aGAwgRWBZ9hhPDJnw6fEI
-         KUKc+anXKSR+gZqvOVg1Fl6c5u3gxzvIwe5RIiF7NdqBARHjJxYFab40oqe7bnxQ5Hs7
-         fekQBU5OkYB4g/tuSVKP9bRw7p3kJ8kVLGpyPmBSAK0qVE6Lr4cWxIul23GcrXua4zia
-         fYwv8IY/X9L4RUnuSWoKxDC5cr+2bfrW90/W9W6FV43jlRcYgbtOPnmONPDJfHwKQsgt
-         NuaSOlfiU5eCrttjJ+4RsOh/fvzZ3KlwaKxb4ORZfDWRjBZVXzsAdWqgew4PYEOqPlk/
-         XK2A==
-X-Gm-Message-State: AC+VfDzlchkxgP4kkardzbrak+l6+vAQDJbHRv+J3KFRI2hUJrHcxJgY
-	faC5gy5qbsuLlleaPXIkMRj0Bc1DVContjvO1qts9J7Vd68=
-X-Google-Smtp-Source: ACHHUZ4wRiCLeYPgQOiKNNvZY75L/XiRY4hGc1xrqkwiizwTTiO+743uCn+9bRYh7GxEKf2LBVi2VCi/iVrz18zFAOQ=
-X-Received: by 2002:a17:90a:d48d:b0:252:a7b5:723f with SMTP id
- s13-20020a17090ad48d00b00252a7b5723fmr11803679pju.2.1684131879992; Sun, 14
- May 2023 23:24:39 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1684132010; x=1686724010;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qKPNUzjoxIt2qle5yyUBx+bzfhRe4atuWwPXnoKqr+I=;
+        b=Pt4dyHNh0mO7Uf8PK0dqvsDmYCg3YGiXnCokaumZrd24GVf2yLQQFPAO9p832ZO7VC
+         hZrO+41mWRBxtf0YgxToRbCiefFuSIyfvX/sNqUOhO1Tcv2XLvVGjTSzTQDBUCPTACB1
+         ExaqOg+Z5eVEcwoEipQxLcxHMXXvbTdPp4rayT6D1qauro2ovRJ0bp9treIgI4MRmZ3H
+         64LJ+ApEB3vdKvvGeri/prrOXUrXGjCjOYBx2jog8J1yOFl+yDM7OfYYaq2Cr034EbJ1
+         a/C9AlSyOG5AtPiV36iEr7/0lLDRPF+LYk1XJRVFcVVXvmls13Q4h1WWD+Aulbr51rVZ
+         NdDw==
+X-Gm-Message-State: AC+VfDyHpUSRwnmV6BoCGxlb198s6vXg++UvQ1CjZvw8AANIcNej4JBg
+	1677AOBi0ueXThL7zjOo4pFxRA==
+X-Google-Smtp-Source: ACHHUZ519n6PfF1iQeih2w1H7eBKQCRVwE2ObXahgbrsyPv9Fez0px0W+jcEExMsuLAEmazbgXYEPw==
+X-Received: by 2002:aa7:d982:0:b0:509:f221:cee2 with SMTP id u2-20020aa7d982000000b00509f221cee2mr26674380eds.32.1684132010534;
+        Sun, 14 May 2023 23:26:50 -0700 (PDT)
+Received: from ?IPV6:2a02:810d:15c0:828:6470:25b8:7c2d:1992? ([2a02:810d:15c0:828:6470:25b8:7c2d:1992])
+        by smtp.gmail.com with ESMTPSA id n25-20020a056402061900b0050a276e7ba8sm7069699edv.36.2023.05.14.23.26.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 14 May 2023 23:26:50 -0700 (PDT)
+Message-ID: <a4ec338a-1b17-4b88-3df1-239acfa6745e@linaro.org>
+Date: Mon, 15 May 2023 08:26:48 +0200
 MIME-Version: 1.0
-References: <cover.1683791148.git.haibo1.xu@intel.com> <921fc2e1a91887170e277acb1b52df57480a5736.1683791148.git.haibo1.xu@intel.com>
- <20230511-boozy-comic-5bc8f297dc8e@spud> <20230511-leverage-backspin-34bcde885006@spud>
-In-Reply-To: <20230511-leverage-backspin-34bcde885006@spud>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Mon, 15 May 2023 14:24:28 +0800
-Message-ID: <CAJve8okYNEbk2PwXVzx+dMSq+uci=W_tpShNv3FER=pWRUymWw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] riscv: kvm: Add KVM_GET_REG_LIST API support
-To: Conor Dooley <conor@kernel.org>
-Cc: Haibo Xu <haibo1.xu@intel.com>, ajones@ventanamicro.com, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 1/3] dt-bindings: clock: Add thead th1520 clock
+Content-Language: en-US
+To: Yangtao Li <frank.li@vivo.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Wei Fu <wefu@redhat.com>
+References: <20230515054402.27633-1-frank.li@vivo.com>
+ <20230515054402.27633-2-frank.li@vivo.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230515054402.27633-2-frank.li@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_232441_773922_A0344BA3 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20230514_232654_939134_E6756AA4 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +92,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMTIsIDIwMjMgYXQgNjo0OOKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUaHUsIE1heSAxMSwgMjAyMyBhdCAxMToyNTo0MVBNICsw
-MTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gPiBPbiBUaHUsIE1heSAxMSwgMjAyMyBhdCAwNToy
-Mjo0OFBNICswODAwLCBIYWlibyBYdSB3cm90ZToKPiA+ID4gS1ZNX0dFVF9SRUdfTElTVCBBUEkg
-d2lsbCByZXR1cm4gYWxsIHJlZ2lzdGVycyB0aGF0IGFyZSBhdmFpbGFibGUgdG8KPiA+ID4gS1ZN
-X0dFVC9TRVRfT05FX1JFRyBBUElzLiBJdCdzIHZlcnkgdXNlZnVsIHRvIGlkZW50aWZ5IHNvbWUg
-cGxhdGZvcm0KPiA+ID4gcmVncmVzc2lvbiBpc3N1ZSBkdXJpbmcgVk0gbWlncmF0aW9uLgo+ID4g
-Pgo+ID4gPiBTaW5jZSB0aGlzIEFQSSB3YXMgYWxyZWFkeSBzdXBwb3J0ZWQgb24gYXJtNjQsIGl0
-J2QgYmUgc3RyYWlnaHRmb3J3YXJkCj4gPiA+IHRvIGVuYWJsZSBpdCBvbiByaXNjdiB3aXRoIHNp
-bWlsYXIgY29kZSBzdHJ1Y3R1cmUuCj4gPgo+ID4gQXBwbGllZCBvbiB0b3Agb2YgdjYuNC1yYzEg
-dGhpcyBicmVha3MgdGhlIGJ1aWxkIDovCj4KPiBJIGxpZWQsIEkgZm9yZ290IFc9MSBpcyBlbmFi
-bGVkIGZvciB0aGUgYWxsbW9kY29uZmlnIGJ1aWxkcyBpbiB0aGUKPiBwYXRjaHdvcmsgYXV0b21h
-dGlvbi4KPiBUaGUgd2FybmluZ3MgYXJlIHRyaXZpYWwgdG8gZml4LCBzbyB5b3Ugc2hvdWxkIGZp
-eCB0aGVtIGFueXdheSEKPgoKc3VyZSwgSSB3aWxsIGZpeCB0aGVtIGluIHRoZSBuZXh0IHZlcnNp
-b24uCgpUaGFua3MsCkhhaWJvCgo+ID4gd2FybmluZzogRnVuY3Rpb24gcGFyYW1ldGVyIG9yIG1l
-bWJlciAndmNwdScgbm90IGRlc2NyaWJlZCBpbiAna3ZtX3Jpc2N2X3ZjcHVfbnVtX3JlZ3MnCj4g
-PiB3YXJuaW5nOiBGdW5jdGlvbiBwYXJhbWV0ZXIgb3IgbWVtYmVyICd1aW5kaWNlcycgbm90IGRl
-c2NyaWJlZCBpbiAna3ZtX3Jpc2N2X3ZjcHVfY29weV9yZWdfaW5kaWNlcycKPiA+IHdhcm5pbmc6
-IEZ1bmN0aW9uIHBhcmFtZXRlciBvciBtZW1iZXIgJ3ZjcHUnIG5vdCBkZXNjcmliZWQgaW4gJ2t2
-bV9yaXNjdl92Y3B1X2NvcHlfcmVnX2luZGljZXMnCj4gPgo+ID4gWW91IGhhdmUgYSBidW5jaCBv
-ZiBrZXJuZWxkb2MgY29tbWVudHMgKHRoZSBvbmVzIHdpdGggLyoqKSB0aGF0IGFyZSBub3QKPiA+
-IHZhbGlkIGtlcm5lbGRvYy4gQXBwYXJlbnRseSBhbGxtb2Rjb25maWcgY2F0Y2hlcyB0aGF0IQo+
-ID4KPiA+IENoZWVycywKPiA+IENvbm9yLgo+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On 15/05/2023 07:43, Yangtao Li wrote:
+> Add devicetree binding document and related header file
+> for the T-HEAD TH1520 clock.
+> 
+> Cc: Icenowy Zheng <uwu@icenowy.me>
+> Cc: Wei Fu <wefu@redhat.com>
+> Cc: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Yangtao Li <frank.li@vivo.com>
+> ---
+>  .../bindings/clock/thead,th1520-ccu.yaml      | 60 +++++++++++++++++++
+>  1 file changed, 60 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/thead,th1520-ccu.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-ccu.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-ccu.yaml
+> new file mode 100644
+> index 000000000000..c3e2d8c7efa6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/thead,th1520-ccu.yaml
+> @@ -0,0 +1,60 @@
+> +# SPDX-License-Identifier: GPL-2.0
+
+Dual license.
+
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/thead,th1520-ccu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: T-HEAD Clock Control Unit
+> +
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +  - Wei Fu <wefu@redhat.com>
+> +  - Yangtao Li <frank.li@vivo.com>
+> +
+> +
+
+Stray blank line.
+
+> +properties:
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  compatible:
+
+Compatible is always first property.
+
+> +    enum:
+> +      - thead,th1520-ccu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    const: 2
+> +    items:
+> +      - description: High Frequency Oscillator (usually at 24MHz)
+> +      - description: Low Frequency Oscillator (usually at 32kHz)
+
+Does not look like you tested the bindings. Please run `make
+dt_binding_check` (see
+Documentation/devicetree/bindings/writing-schema.rst for instructions).
+
+I'll stop review.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
