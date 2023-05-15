@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68C2C77B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8AFC7EE22
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:CC:References:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tzMF4z83A2vZc8/Iurkv9PhlCVquHdi1V3pVTgkHHSg=; b=kcFezsBxyVCu9X
-	hy/FI57vzv3EXiSAzZGP3xqu/qEtt3X5QZEsyHSIWuTE2YWqjqVeyUThxH6qX7Vq1y0Cr5FInH5K8
-	1uY9RSB/GaQ1jF15+qWQYP7nKRYR8SPJZfqAx91tihJ1nchO52OLOX588xaKQl/kKstDnAAoG6fEc
-	QveVezZBbKHyHiG1GIye13D5NKGm5ed+lC6hxrp9Lo5H5CrMUxrVnJ8/EEapl8VdDA/29ikuu0ZrG
-	JWhXTrSW4XVRyhtu7YClg0nJp76loH5l/pp63bzNS++b6us1iZ6BGr3ZmORhsiXxGhIiylN/2/M6c
-	zuQqvosbiZWsrn7ZbBaA==;
+	List-Owner; bh=U044WxnGYee8KF76Cjj4e8bk75jPzOUmPmRcByvuQ0Y=; b=PmN4A15+tDberC
+	MVmn3yk57Gjuuv4UMNyykPqt51Wmni5WiCwAY+xaOF3vP7I1J7wPS/qycEEoDXNiFNU6Pb7X78oos
+	AU2SOBdQMNm/AWe01WvEcelcWd87M2K/GSRHQFSZJfsR4xmUPJSuoA0BhqTDhOX87blMe7Rue+sS+
+	sl0IzekqMesoouwVjVy2uADnUPUFHlezOiLGB3Uk0aO7dngtud59FeQ3WxlOVFMTjeYMIbqH0YDmH
+	txufr07Dafhjsiog3ce3mW1IOU7E1f5ih8DLPTDHnzlh4FuiAyh2MYZ3Q1aqZOpUSGWEwdndT5jqS
+	em8ru1gna2Uy01jEm8tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOey-000hpG-1s;
-	Mon, 15 May 2023 03:14:04 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOew-000hoq-1q
+	id 1pyOq1-000jKm-2q;
+	Mon, 15 May 2023 03:25:29 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1pyOpx-000jHk-2v
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 03:14:04 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-24e3b69bc99so8714136a91.2
-        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 20:14:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684120441; x=1686712441;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Misk8RzcAuhujPj5CN4/zB0H7gvh8yXqb60mLrr5oOQ=;
-        b=mxRmqh7RrZKI4U323j4QPj9REZOu20NRL2ypQKyhgtAio9Dgz6PqIAtGGj+I/S8d9D
-         JcFiLL86AFLBMrrEBHaYu+c9PBRjeT8ZWxVH7oreEdaW4DovxDL4y/mvq8U3TAp5nHCH
-         SIQhw3ZhUh+IOveWMBg7nw/IhDKU35QJhZLqglLbqU4vxdnznenShULKTrw1SEFnkBEN
-         Q3ZDXR6cmTt4/+py+wnXuC0illIP/GUnZfy/Yt2ef6O5LVrZ+KEcfYOyRvpeSemZA6pQ
-         EmGuZmoAuNIC2ysE9lW8qMU1QpQraTgl16W0ygFIQcEFvIIeLx9HAwNIrWZAs4E20LSx
-         e1vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684120441; x=1686712441;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Misk8RzcAuhujPj5CN4/zB0H7gvh8yXqb60mLrr5oOQ=;
-        b=QTg3wtudAt5EPPlYJBBvtc3jCwlgbH3L4A32+bhFK8K9hb13ash+CkR0AnSvLKaYbn
-         bdEQlziJw+oPRFG111AsucbSn9ABJGtAN1XMVEqQQS+nRK/68OI3oK2tSoyYrwwHevYI
-         sJ0V6Trf71MAW/wgKM4DKhTos3/wfgHmLdgf6GnB3KakSXHmrZ77iIMv3+nTzVwoy8+m
-         9gkAzBBL/kYXWvHxB1iPTCrElz/kcRPJZC5iThqkUh9Nw7QsmHteyLinvqHiBxNUbPfl
-         juAnfj20E01w5bMud+DJiKCvEo3e7neI4zgmlwNUH3R6YnujQ1chFD/asWKBJ2s7Oa8i
-         4sMw==
-X-Gm-Message-State: AC+VfDyKjxaRXpXDooCyJm2Qx6UYM49XfOzQZ1oVDsl+l4c8CcMAZhEA
-	10tX/Nh4DjcY2ZMVywdwvgFc3BADTUoT4g==
-X-Google-Smtp-Source: ACHHUZ7e39ooAoq6J7/mpAO93KBoLWfGhslTSW0wjXD07bX284VzdylHfe6bOl+kRYpTUX1uQwcmhA==
-X-Received: by 2002:a17:90b:3881:b0:246:c097:6a17 with SMTP id mu1-20020a17090b388100b00246c0976a17mr33470341pjb.24.1684120440707;
-        Sun, 14 May 2023 20:14:00 -0700 (PDT)
-Received: from localhost.localdomain ([43.132.98.42])
-        by smtp.googlemail.com with ESMTPSA id o4-20020a17090a744400b00252b3328ad8sm4943577pjk.0.2023.05.14.20.13.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 May 2023 20:14:00 -0700 (PDT)
-From: Ze Gao <zegao2021@gmail.com>
-X-Google-Original-From: Ze Gao <zegao@tencent.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Ze Gao <zegao@tencent.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH 4/4] rehook, fprobe: mark rethook related functions notrace
-Date: Mon, 15 May 2023 11:13:13 +0800
-Message-Id: <20230515031314.7836-5-zegao@tencent.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230515031314.7836-1-zegao@tencent.com>
-References: <20230515031314.7836-1-zegao@tencent.com>
+	Mon, 15 May 2023 03:25:28 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DA10A80C1;
+	Mon, 15 May 2023 11:24:37 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 11:24:38 +0800
+Received: from [192.168.125.131] (113.72.146.187) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 11:24:36 +0800
+Message-ID: <b461a88f-76a1-29a2-d4d4-6ec9992a78ae@starfivetech.com>
+Date: Mon, 15 May 2023 11:23:00 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v5 06/10] clk: starfive: Add StarFive JH7110 Video-Output
+ clock driver
+Content-Language: en-US
+To: Aurelien Jarno <aurelien@aurel32.net>
+References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
+ <20230424135409.6648-7-xingyu.wu@starfivetech.com>
+ <ZGFWyPbeEOxxqwQK@aurel32.net>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <ZGFWyPbeEOxxqwQK@aurel32.net>
+X-Originating-IP: [113.72.146.187]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_201402_611153_A5CE4535 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20230514_202526_257839_B63E740D 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,146 +83,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These functions are already marked as NOKPROBE to prevent recusion and
-we have the same reason to blacklist them if rethook is used with fprobe,
-since they are beyond the recursion-free region ftrace can guard.
+On 2023/5/15 5:46, Aurelien Jarno wrote:
+> On 2023-04-24 21:54, Xingyu Wu wrote:
+>> Add driver for the StarFive JH7110 Video-Output clock controller.
+>> And these clock controllers should power on and enable the clocks from
+>> SYSCRG first before registering.
+>> 
+>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> 
+> There seems to be something wrong with this patch. Building the kernel
+> with the whole series applied and with CONFIG_FORTIFY_SOURCE=y triggers
+> the following kernel bug: 
+> 
+> [   75.705103] detected buffer overflow in __fortify_strlen
+> [   75.710497] ------------[ cut here ]------------
+> [   75.715117] kernel BUG at lib/string_helpers.c:1027!
+> [   75.720083] Kernel BUG [#1]
+> [   75.722879] Modules linked in: clk_starfive_jh7110_vout(+) nvme_fabrics binfmt_misc starfive_wdt jh7110_trng watchdog sfctemp rng_core drm loop fuse drm_panel_orientation_quirks configfs ip_tables x_tables autofs4 ext4 crc32c_generic crc16 mbcache jbd2 dm_mod nvme nvme_core t10_pi crc64_rocksoft crc64 crc_t10dif crct10dif_generic crct10dif_common xhci_pci xhci_hcd mmc_block dwmac_starfive stmmac_platform stmmac usbcore pcs_xpcs of_mdio fixed_phy fwnode_mdio phylink libphy usb_common dw_mmc_starfive dw_mmc_pltfm clk_starfive_jh7110_isp dw_mmc clk_starfive_jh7110_aon ptp phy_starfive_dphy_rx mmc_core pps_core phy_jh7110_pcie i2c_designware_platform clk_starfive_jh7110_stg phy_jh7110_usb i2c_designware_core
+> [   75.785411] CPU: 1 PID: 419 Comm: insmod Not tainted 6.3.1+ #1
+> [   75.791241] Hardware name: StarFive VisionFive 2 v1.2A (DT)
+> [   75.796809] epc : fortify_panic+0x1a/0x1c
+> [   75.800828]  ra : fortify_panic+0x1a/0x1c
+> [   75.804838] epc : ffffffff80874242 ra : ffffffff80874242 sp : ffffffc80454b6a0
+> [   75.812054]  gp : ffffffff8157f008 tp : ffffffd8c1214f80 t0 : 6465746365746564
+> [   75.819269]  t1 : 0000000000000064 t2 : 2064657463657465 s0 : ffffffc80454b6b0
+> [   75.826483]  s1 : 0000000000000020 a0 : 000000000000002c a1 : ffffffd8fdd63688
+> [   75.833697]  a2 : ffffffd8fdd6f8e8 a3 : 0000000000000000 a4 : 0000000000000000
+> [   75.840912]  a5 : 0000000000000000 a6 : ffffffff81426a38 a7 : 0000000000000000
+> [   75.848126]  s2 : ffffffff80ec4e00 s3 : ffffffd8d9e28008 s4 : 000000000000001f
+> [   75.855340]  s5 : 0000000000000000 s6 : ffffffff81580798 s7 : 0000000000ffffff
+> [   75.862555]  s8 : ffffffd8d9e29ab0 s9 : 0000000000000011 s10: ffffffff017312a0
+> [   75.869770]  s11: ffffffff01731450 t3 : ffffffff81592df7 t4 : ffffffff81592df7
+> [   75.876984]  t5 : ffffffff81592df8 t6 : ffffffc80454b4a8
+> [   75.882290] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [   75.890199] [<ffffffff80874242>] fortify_panic+0x1a/0x1c
+> [   75.895513] [<ffffffff805c7e20>] auxiliary_match_id+0x70/0xcc
+> [   75.901262] [<ffffffff805c7f22>] auxiliary_match+0x1e/0x2a
+> [   75.906749] [<ffffffff805bd6b0>] __device_attach_driver+0x2c/0xe4
+> [   75.912841] [<ffffffff805bb04e>] bus_for_each_drv+0x70/0xc4
+> [   75.918418] [<ffffffff805bdb0a>] __device_attach+0x94/0x198
+> [   75.923989] [<ffffffff805bde68>] device_initial_probe+0x1a/0x22
+> [   75.929908] [<ffffffff805bc146>] bus_probe_device+0x96/0x98
+> [   75.935482] [<ffffffff805b971e>] device_add+0x56a/0x722
+> [   75.940710] [<ffffffff805c7fc4>] __auxiliary_device_add+0x40/0x92
+> [   75.946803] [<ffffffff80556ff4>] jh7110_reset_controller_register+0x92/0xca
+> [   75.953765] [<ffffffff0173034c>] jh7110_voutcrg_probe+0x236/0x2fa [clk_starfive_jh7110_vout]
+> [   75.962228] [<ffffffff805bfb40>] platform_probe+0x5e/0xa6
+> [   75.967629] [<ffffffff805bd1e6>] really_probe+0xa0/0x342
+> [   75.972940] [<ffffffff805bd508>] __driver_probe_device+0x80/0x138
+> [   75.979031] [<ffffffff805bd5f8>] driver_probe_device+0x38/0xc4
+> [   75.984863] [<ffffffff805bd83a>] __driver_attach+0xd2/0x1a8
+> [   75.990436] [<ffffffff805baf92>] bus_for_each_dev+0x6c/0xb8
+> [   75.996011] [<ffffffff805bcab6>] driver_attach+0x26/0x2e
+> [   76.001325] [<ffffffff805bc384>] bus_add_driver+0x10c/0x1ee
+> [   76.006900] [<ffffffff805be5e2>] driver_register+0x52/0xf4
+> [   76.012386] [<ffffffff805bf78e>] __platform_driver_register+0x28/0x30
+> [   76.018827] [<ffffffff01b72028>] jh7110_voutcrg_driver_init+0x28/0x1000 [clk_starfive_jh7110_vout]
+> [   76.027802] [<ffffffff8000281a>] do_one_initcall+0x5c/0x1c8
+> [   76.033377] [<ffffffff800a7612>] do_init_module+0x4c/0x1f6
+> [   76.038867] [<ffffffff800a9396>] load_module+0x1a6c/0x1ebe
+> [   76.044356] [<ffffffff800a99ea>] __do_sys_finit_module+0x9c/0xf8
+> [   76.050365] [<ffffffff800a9a82>] sys_finit_module+0x1c/0x24
+> [   76.055936] [<ffffffff80003df8>] ret_from_syscall+0x0/0x2
+> [   76.061343] Code: 0800 85aa 3517 007a 0513 7ee5 a097 ffff 80e7 fc20 (9002) 7179 
+> [   76.068735] ---[ end trace 0000000000000000 ]---
+> 
 
-Signed-off-by: Ze Gao <zegao@tencent.com>
----
- arch/riscv/kernel/probes/rethook.c | 4 ++--
- arch/s390/kernel/rethook.c         | 6 +++---
- arch/x86/kernel/rethook.c          | 8 +++++---
- kernel/trace/rethook.c             | 8 ++++----
- 4 files changed, 14 insertions(+), 12 deletions(-)
+I got the recurrence of this with CONFIG_FORTIFY_SOURCE=y.
+And I found the problem that the reset name of auxiliary_device_id in VOUTCRG
+is exactly 32 characters. I rename the reset of auxiliary_device_id in VOUTCRG
+to a shorter name and fix the problem. And I will fix it in next patch.
 
-diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
-index 5c27c1f50989..803c412a1bea 100644
---- a/arch/riscv/kernel/probes/rethook.c
-+++ b/arch/riscv/kernel/probes/rethook.c
-@@ -8,14 +8,14 @@
- #include "rethook.h"
- 
- /* This is called from arch_rethook_trampoline() */
--unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
-+unsigned long __used notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
- {
- 	return rethook_trampoline_handler(regs, regs->s0);
- }
- 
- NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
- 
--void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
-+void notrace arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
- {
- 	rhn->ret_addr = regs->ra;
- 	rhn->frame = regs->s0;
-diff --git a/arch/s390/kernel/rethook.c b/arch/s390/kernel/rethook.c
-index af10e6bdd34e..ad52119826c1 100644
---- a/arch/s390/kernel/rethook.c
-+++ b/arch/s390/kernel/rethook.c
-@@ -3,7 +3,7 @@
- #include <linux/kprobes.h>
- #include "rethook.h"
- 
--void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
-+void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
- {
- 	rh->ret_addr = regs->gprs[14];
- 	rh->frame = regs->gprs[15];
-@@ -13,7 +13,7 @@ void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mc
- }
- NOKPROBE_SYMBOL(arch_rethook_prepare);
- 
--void arch_rethook_fixup_return(struct pt_regs *regs,
-+void notrace arch_rethook_fixup_return(struct pt_regs *regs,
- 			       unsigned long correct_ret_addr)
- {
- 	/* Replace fake return address with real one. */
-@@ -24,7 +24,7 @@ NOKPROBE_SYMBOL(arch_rethook_fixup_return);
- /*
-  * Called from arch_rethook_trampoline
-  */
--unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs)
-+unsigned long notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
- {
- 	return rethook_trampoline_handler(regs, regs->gprs[15]);
- }
-diff --git a/arch/x86/kernel/rethook.c b/arch/x86/kernel/rethook.c
-index 8a1c0111ae79..1f7cef86f73d 100644
---- a/arch/x86/kernel/rethook.c
-+++ b/arch/x86/kernel/rethook.c
-@@ -64,7 +64,8 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline);
- /*
-  * Called from arch_rethook_trampoline
-  */
--__used __visible void arch_rethook_trampoline_callback(struct pt_regs *regs)
-+__used __visible void notrace arch_rethook_trampoline_callback(struct pt_regs
-+		*regs)
- {
- 	unsigned long *frame_pointer;
- 
-@@ -104,7 +105,7 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
- STACK_FRAME_NON_STANDARD_FP(arch_rethook_trampoline);
- 
- /* This is called from rethook_trampoline_handler(). */
--void arch_rethook_fixup_return(struct pt_regs *regs,
-+void notrace arch_rethook_fixup_return(struct pt_regs *regs,
- 			       unsigned long correct_ret_addr)
- {
- 	unsigned long *frame_pointer = (void *)(regs + 1);
-@@ -114,7 +115,8 @@ void arch_rethook_fixup_return(struct pt_regs *regs,
- }
- NOKPROBE_SYMBOL(arch_rethook_fixup_return);
- 
--void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
-+void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs
-+		*regs, bool mcount)
- {
- 	unsigned long *stack = (unsigned long *)regs->sp;
- 
-diff --git a/kernel/trace/rethook.c b/kernel/trace/rethook.c
-index 60f6cb2b486b..e551e86d3927 100644
---- a/kernel/trace/rethook.c
-+++ b/kernel/trace/rethook.c
-@@ -127,7 +127,7 @@ static void free_rethook_node_rcu(struct rcu_head *head)
-  * Return back the @node to @node::rethook. If the @node::rethook is already
-  * marked as freed, this will free the @node.
-  */
--void rethook_recycle(struct rethook_node *node)
-+void notrace rethook_recycle(struct rethook_node *node)
- {
- 	lockdep_assert_preemption_disabled();
- 
-@@ -194,7 +194,7 @@ void rethook_hook(struct rethook_node *node, struct pt_regs *regs, bool mcount)
- NOKPROBE_SYMBOL(rethook_hook);
- 
- /* This assumes the 'tsk' is the current task or is not running. */
--static unsigned long __rethook_find_ret_addr(struct task_struct *tsk,
-+static unsigned long notrace __rethook_find_ret_addr(struct task_struct *tsk,
- 					     struct llist_node **cur)
- {
- 	struct rethook_node *rh = NULL;
-@@ -256,7 +256,7 @@ unsigned long rethook_find_ret_addr(struct task_struct *tsk, unsigned long frame
- }
- NOKPROBE_SYMBOL(rethook_find_ret_addr);
- 
--void __weak arch_rethook_fixup_return(struct pt_regs *regs,
-+void __weak notrace arch_rethook_fixup_return(struct pt_regs *regs,
- 				      unsigned long correct_ret_addr)
- {
- 	/*
-@@ -268,7 +268,7 @@ void __weak arch_rethook_fixup_return(struct pt_regs *regs,
- }
- 
- /* This function will be called from each arch-defined trampoline. */
--unsigned long rethook_trampoline_handler(struct pt_regs *regs,
-+unsigned long notrace rethook_trampoline_handler(struct pt_regs *regs,
- 					 unsigned long frame)
- {
- 	struct llist_node *first, *node = NULL;
--- 
-2.40.1
-
+Best regards,
+Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
