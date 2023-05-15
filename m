@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EAAC7EE25
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3518C7EE22
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 03:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LjiFMAC+Tz0A0jF75nIrk3st19v14xkqI4lhh5JOhKw=; b=mmjho4rVo2vRkW
-	ok2UG0HSu6kS2VSsXEwFjY/oBx3y2sen2EMwIxgXjpLR0CdfM+Pw6igaFtC8GljOG8pZFiffnBHb6
-	qn6Ha6VNt+CQS3CE0YR9deLsTav6bVIihke2Y/365LQbx6rA3UH/Lrof/ZuXjgDElSW0vGfXWqJ5S
-	1LAF8iy8uMmdwMpu6VuWHeTS2l7ANDlGJ7vuqTu3At3W4CimsuW1M+jxy0qpuOEJb3yx1d4E2/XIg
-	tw5KF/uiOA48jSew6UdGUlh1tDBSwcygJEZNAE97Scx46gxxEibXxED0Z2LnVk0UWObTu1rVnwFLi
-	WbMaMLMG9wIzZ1I5hs2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tzMF4z83A2vZc8/Iurkv9PhlCVquHdi1V3pVTgkHHSg=; b=Zc8GlvpOizsrVA
+	mlKolAa0tTeAeJioykH+tVdBw8SEXK5yfZuu2L+0pWcxda5sGakZoEU6uwVMlXoUQ+jtVQPSf8ivi
+	7NQgPnz/+0/P6qbAkM5SA15P3bzk59vRusxG675Svy4ZYjGVIXpAF1U73rWojOajJgFiy6a4/9SAe
+	anZ1ZgNckbAX6iNivNRLyTaBHbsRQzDUXKJMKCsALXxAzNGJhUGK4DdeVenh9QvZspYBbnwdSrqtU
+	i9AQ/taDEZedl2QGJjhDXhTYRLi779BxD83i9myby4KJ5h+PBeRtSVx3jLMHJAwz2mHVhxHEBCbTC
+	NHMw2GRlcqVC5Xe85BhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOrc-000jW1-2w;
-	Mon, 15 May 2023 03:27:08 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1pyOro-000jZV-2I;
+	Mon, 15 May 2023 03:27:20 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyOrZ-000jUC-2c
+	id 1pyOrm-000jXb-1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 03:27:07 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-64ab2a37812so16611221b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 20:27:01 -0700 (PDT)
+	Mon, 15 May 2023 03:27:20 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-64a9335a8e7so17450451b3a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 14 May 2023 20:27:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684121221; x=1686713221;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lxpFGoxleToaQwkHibZ+pniT5a0w07wmiTEGO0b16Vo=;
-        b=RXLKAJ/1U46dq8Z3jYevW7FyFgaJHrH6h+f4l7Z23udardeEEmPLF29sOJIenjFlpX
-         iUCZ82c69aQ/kHKrEPv6osXLO+lcxGAYxQlFvE1g6lC5PNCZU+X1WrG6RdWHm1Ftwoic
-         +QcGiTan0bn+GARa28yM/tpgPwZSbY/tmQzH+/ytoBESl/Nw4yQbdP2mYhmCknJkvPkD
-         kPPTBEOmOaR/kllcBb4ZDqZG2qx3zLtNzJix8s9+9sKgOrnB/U5ABIGhG2q4uIwTToqv
-         CgOaKitfmq1jAkGNcvAISsHmxRi5rQp6TYWgWqno/1GqSESQO0ldWLfmVnY4JYQcKsPe
-         krEQ==
+        d=gmail.com; s=20221208; t=1684121235; x=1686713235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Misk8RzcAuhujPj5CN4/zB0H7gvh8yXqb60mLrr5oOQ=;
+        b=SUTYpi9m7sfB03krQSEVvZC8BAKoBAFKxMDYCydpITO/I8zUiiyk5Kzo+jNSg95b6v
+         RhIw64DX8qMnXWvKy9BNDKbpwJyFCs1eZwm3295yCaUvKJgzf+2aYHJ8skA18ZY7Y9NG
+         mvxd5TH9uewZGkdyp6C+yQy21hckWwkYwB+4u3eU94xPVquK6qutXALcwB/fmAZ6sIPJ
+         KecxVHrKXwVRQjtpPenLWz035ZHCciWD97jD3PVH2NdwOESiJDOUOtONJGRC4osglUR1
+         0+ZJgF8NZxTf74J2fP3+p4HBsS5RTDF7qMqjhz6gE6p19cjT7K+BAyvT1rMEnas+TqeB
+         bdQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684121221; x=1686713221;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lxpFGoxleToaQwkHibZ+pniT5a0w07wmiTEGO0b16Vo=;
-        b=cFpNymRB3UqxUPtwrCZnQ6sR/soD8LC3dQgFl0eqixLahIZVFeb0XJgAEdP6eCXFh3
-         6VJFftvOxT9to9BokqG5EXVKpPpmhUx6goAuZE2kwAmCTiRVCAQMIJN/4++dSSfpWtZN
-         HPVU/qqt6FmwGzHhaYJY893c26g4X2Z20yPlrXholqxgns0FQH+aZjcj0VZf6I8rZ56F
-         jQRrk+MjAfmglvQgmQxC4qovPf6DA5uO8ndWwMNCWb/sF95K2pg+lsQqvQfKyCd/5UVA
-         JcudnwrAFHIfDEHVoVZfZj5wvIQlpVX5crkWitDuG4GW91k3G5lkkw/RWnze/fSsaSm9
-         JywQ==
-X-Gm-Message-State: AC+VfDyh3aTmVzEvxv4tsLtDlXyGFl2h0KgG1n4YqfWT94Or9LRSKy9H
-	wV0ZhQgyxxnzyCZdR3bekTg=
-X-Google-Smtp-Source: ACHHUZ5CZvq/ZNB+dhb9E8mW7QD/q/8BxVsr4z8WJoa5ghfNctN2tu7hgon9WWSXy/bs/7m1zfExcw==
-X-Received: by 2002:a05:6a20:1613:b0:106:5dff:5db5 with SMTP id l19-20020a056a20161300b001065dff5db5mr564864pzj.1.1684121220867;
-        Sun, 14 May 2023 20:27:00 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1684121235; x=1686713235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Misk8RzcAuhujPj5CN4/zB0H7gvh8yXqb60mLrr5oOQ=;
+        b=ikcD3Y72XCJIG+a59jno4KIgy/vyHhOQuSTcpImvA7kDpAJ6RW0qibIlmSLu5DdPMm
+         6jwMyS0VgW6YGDqo5mpsdAg2TlbVymm4Lo6VXs6o3MYf4TL0xLurQi4Lqpjf1/j6U7F/
+         H1ujCGQ6bpZFjAu/qnwYmlvwTTyYOjIuZAP8ecFaRevP+q0zwxRAJDYNMgu+FwNkvPCz
+         WePs9Lg8QYHfB7mqIovdpcsAiQz1pK2Fhoo/XnSsY+scCaBdxKybc4Q89qZAQ72RyVMk
+         ARscoW/d5q7dhlFoT9W+m6L5xDaudfV0htykHAwelGNkfn0bR8Sf9HNTPGjZsp4zILA+
+         7tuA==
+X-Gm-Message-State: AC+VfDwVCbYj040OSjNLY1REVLJCD/JfeJmhMnMV46+ZU6xV/Atq9dg8
+	1/NKBE6BeQLx26Fp/DW+/7w=
+X-Google-Smtp-Source: ACHHUZ6Cgz27fn+/f04F6U/99cc0elHZFIBQRg512B0TLAkvbrJvxvIfy4wf8ER547TSO8rTWSCjpA==
+X-Received: by 2002:a17:90a:ad09:b0:244:d441:8f68 with SMTP id r9-20020a17090aad0900b00244d4418f68mr44442897pjq.16.1684121235252;
+        Sun, 14 May 2023 20:27:15 -0700 (PDT)
 Received: from localhost.localdomain ([43.132.98.42])
-        by smtp.googlemail.com with ESMTPSA id s6-20020a632146000000b0051416609fb7sm10363825pgm.61.2023.05.14.20.26.58
+        by smtp.googlemail.com with ESMTPSA id s6-20020a632146000000b0051416609fb7sm10363825pgm.61.2023.05.14.20.27.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 May 2023 20:27:00 -0700 (PDT)
+        Sun, 14 May 2023 20:27:14 -0700 (PDT)
 From: Ze Gao <zegao2021@gmail.com>
 X-Google-Original-From: Ze Gao <zegao@tencent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>
 Cc: Ze Gao <zegao@tencent.com>,
 	linux-riscv@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH 0/4] Make fpobe + rethook immune to recursion
-Date: Mon, 15 May 2023 11:26:37 +0800
-Message-Id: <cover.1684120990.git.zegao@tencent.com>
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: [PATCH 4/4] rehook, fprobe: mark rethook related functions notrace
+Date: Mon, 15 May 2023 11:26:41 +0800
+Message-Id: <238bad4335d029072ca6000fb404f47376197f39.1684120990.git.zegao@tencent.com>
 X-Mailer: git-send-email 2.40.1
+In-Reply-To: <cover.1684120990.git.zegao@tencent.com>
+References: <cover.1684120990.git.zegao@tencent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230514_202705_857160_086DE980 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20230514_202718_608242_1EC28291 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,123 +111,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current fprobe and rethook has some pitfalls and may introduce kernel stack recusion, especially in
-massive tracing scenario.
+These functions are already marked as NOKPROBE to prevent recusion and
+we have the same reason to blacklist them if rethook is used with fprobe,
+since they are beyond the recursion-free region ftrace can guard.
 
-For example, if (DEBUG_PREEMPT | TRACE_PREEMPT_TOGGLE) , preempt_count_{add, sub} can be traced via
-ftrace, if we happens to use fprobe + rethook based on ftrace to hook on those functions,
-recursion is introduced in functions like rethook_trampoline_handler and leads to kernel crash
-because of stack overflow.
+Signed-off-by: Ze Gao <zegao@tencent.com>
+---
+ arch/riscv/kernel/probes/rethook.c | 4 ++--
+ arch/s390/kernel/rethook.c         | 6 +++---
+ arch/x86/kernel/rethook.c          | 8 +++++---
+ kernel/trace/rethook.c             | 8 ++++----
+ 4 files changed, 14 insertions(+), 12 deletions(-)
 
-Snippets of such bug are like this:
-[   56.038709] BUG: #DF stack guard page was hit at 000000000b5b7199 (stack is 00000000f4b5a9b2..00000000af4160ce)
-[   56.038713] stack guard page: 0000 [#1] PREEMPT SMP NOPTI
-[   56.038715] CPU: 5 PID: 1836 Comm: retsnoop Kdump: loaded Not tainted 6.1.18 #2
-[   56.038717] Hardware name: Microsoft Corporation Virtual Machine/Virtual Machine, BIOS Hyper-V UEFI Release v4.1 05/05/2021
-[   56.038717] BUG: #DF stack guard page was hit at 0000000069dc65a2 (stack is 000000006b9345c5..00000000a221349b)
-[   56.038718] RIP: 0010:ftrace_ops_test+0x1a/0x70
-[   56.038721] Code: 89 df e8 79 e2 ff ff e9 6e ff ff ff 0f 1f 40 00 48 81 ec b0 00 00 00 49 89 f1 49 89 f8 31 c0 48 89 e6 b9 16 00 00 00 48 89 f7 <f3> 48 ab 48 85 d2 74 35 49 8b 80 d8 00 00 00 48 8b 40 08 48 89 44
-[   56.038722] RSP: 0018:fffffe5a8bba5fa0 EFLAGS: 00010046
-[   56.038724] RAX: 0000000000000000 RBX: fffffe5a8bba6090 RCX: 0000000000000016
-[   56.038725] RDX: fffffe5a8bba6090 RSI: fffffe5a8bba5fa0 RDI: fffffe5a8bba5fa0
-[   56.038726] RBP: ffffffffb7137910 R08: ffff8b967f827c70 R09: ffffffffb7137910
-[   56.038727] R10: 0000000000000000 R11: 0000000000000000 R12: fffffe5a8bba6090
-[   56.038727] R13: ffffffffb729e2bf R14: ffffffffffffffdf R15: ffff8b967f827c70
-[   56.038728] FS:  00007f6592d6ed00(0000) GS:ffff8b977da00000(0000) knlGS:0000000000000000
-[   56.038730] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[   56.038730] CR2: fffffe5a8bba5f98 CR3: 000000010ed94002 CR4: 00000000003726e0
-[   56.038733] Call Trace:
-[   56.038735]  <#DF>
-[   56.038740]  ? exc_int3+0xa/0xc0
-[   56.038743]  arch_ftrace_ops_list_func+0xc2/0x190
-[   56.038745]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038748]  ftrace_regs_call+0x5/0x52
-[   56.038751]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038754]  ? osnoise_arch_unregister+0x210/0x210
-[   56.038757]  ? preempt_count_add+0x5/0xa0
-[   56.038760]  preempt_count_add+0x5/0xa0
-[   56.038762]  rethook_trampoline_handler+0x5f/0x140
-[   56.038764]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038766]  arch_rethook_trampoline_callback+0x3b/0x50
-[   56.038768]  arch_rethook_trampoline+0x2c/0x60
-[   56.038770]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038775]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038778]  osnoise_arch_unregister+0x210/0x210
-[   56.038780]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038781]  arch_rethook_trampoline_callback+0x3b/0x50
-[   56.038783]  arch_rethook_trampoline+0x2c/0x60
-[   56.038785]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038790]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038792]  osnoise_arch_unregister+0x210/0x210
-[   56.038794]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038795]  arch_rethook_trampoline_callback+0x3b/0x50
-[   56.038797]  arch_rethook_trampoline+0x2c/0x60
-[   56.038799]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038804]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038806]  osnoise_arch_unregister+0x210/0x210
-[   56.038808]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.038810]  arch_rethook_trampoline_callback+0x3b/0x50
-[   56.038811]  arch_rethook_trampoline+0x2c/0x60
-...
-[   56.039133]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039137]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039139]  osnoise_arch_unregister+0x210/0x210
-[   56.039141]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039143]  arch_rethook_trampoline_callback+0x3b/0x50
-[   56.039144]  arch_rethook_trampoline+0x2c/0x60
-[   56.039147]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039151]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039156]  ? vsnprintf+0x2a3/0x550
-[   56.039161]  ? sprintf+0x4e/0x60
-[   56.039163]  ? kallsyms_lookup_buildid+0x5f/0x130
-[   56.039167]  ? __sprint_symbol.constprop.0+0xec/0x110
-[   56.039171]  ? symbol_string+0xc5/0x150
-[   56.039197]  ? vsnprintf+0x33a/0x550
-[   56.039201]  ? exc_int3+0xa/0xc0
-[   56.039204]  ? exc_int3+0xa/0xc0
-[   56.039205]  ? ftrace_regs_call+0x5/0x52
-[   56.039208]  ? ftrace_regs_call+0x5/0x52
-[   56.039211]  ? lock_acquire+0x25d/0x2e0
-[   56.039214]  ? lock_release+0x208/0x460
-[   56.039218]  ? is_bpf_text_address+0x67/0xf0
-[   56.039220]  ? kernel_text_address+0x111/0x120
-[   56.039223]  ? __kernel_text_address+0xe/0x40
-[   56.039225]  ? show_trace_log_lvl+0x1d7/0x336
-[   56.039227]  ? show_trace_log_lvl+0x1d7/0x336
-[   56.039236]  ? __die_body.cold+0x1a/0x1f
-[   56.039239]  ? die+0x2a/0x50
-[   56.039242]  ? handle_stack_overflow+0x49/0x60
-[   56.039245]  ? exc_double_fault+0x148/0x180
-[   56.039248]  ? asm_exc_double_fault+0x1f/0x30
-[   56.039251]  ? rethook_trampoline_handler+0x5f/0x140
-[   56.039252]  ? cpu_cgroup_css_free+0x30/0x30
-[   56.039254]  ? cpu_cgroup_css_free+0x30/0x30
-[   56.039258]  ? ftrace_ops_test+0x1a/0x70
-[   56.039260]  </#DF>
-
-This bug is found via tool retsnoop which internally uses bpf based on fprobe + rethook
-Discussion of this bug can be found here:
-  Link: https://lore.kernel.org/bpf/20230510122045.2259-1-zegao@tencent.com/
-
-This patch series fix this problem by adding more recursion detection in each possible entry
-functions, and also mark these specific to fprobe or rethook which are beyond the recusion-free
-guarded region notrace.
-
-
-Ze Gao (4):
-  rethook: use preempt_{disable, enable}_notrace in
-    rethook_trampoline_handler
-  fprobe: make fprobe_kprobe_handler recursion free
-  fprobe: add recursion detection in fprobe_exit_handler
-  rehook, fprobe: mark rethook related functions notrace
-
- arch/riscv/kernel/probes/rethook.c |  4 +-
- arch/s390/kernel/rethook.c         |  6 +--
- arch/x86/kernel/rethook.c          |  8 ++--
- kernel/trace/fprobe.c              | 76 +++++++++++++++++++++++-------
- kernel/trace/rethook.c             | 12 ++---
- 5 files changed, 75 insertions(+), 31 deletions(-)
-
+diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
+index 5c27c1f50989..803c412a1bea 100644
+--- a/arch/riscv/kernel/probes/rethook.c
++++ b/arch/riscv/kernel/probes/rethook.c
+@@ -8,14 +8,14 @@
+ #include "rethook.h"
+ 
+ /* This is called from arch_rethook_trampoline() */
+-unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
++unsigned long __used notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
+ {
+ 	return rethook_trampoline_handler(regs, regs->s0);
+ }
+ 
+ NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+ 
+-void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
++void notrace arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
+ {
+ 	rhn->ret_addr = regs->ra;
+ 	rhn->frame = regs->s0;
+diff --git a/arch/s390/kernel/rethook.c b/arch/s390/kernel/rethook.c
+index af10e6bdd34e..ad52119826c1 100644
+--- a/arch/s390/kernel/rethook.c
++++ b/arch/s390/kernel/rethook.c
+@@ -3,7 +3,7 @@
+ #include <linux/kprobes.h>
+ #include "rethook.h"
+ 
+-void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
++void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
+ {
+ 	rh->ret_addr = regs->gprs[14];
+ 	rh->frame = regs->gprs[15];
+@@ -13,7 +13,7 @@ void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mc
+ }
+ NOKPROBE_SYMBOL(arch_rethook_prepare);
+ 
+-void arch_rethook_fixup_return(struct pt_regs *regs,
++void notrace arch_rethook_fixup_return(struct pt_regs *regs,
+ 			       unsigned long correct_ret_addr)
+ {
+ 	/* Replace fake return address with real one. */
+@@ -24,7 +24,7 @@ NOKPROBE_SYMBOL(arch_rethook_fixup_return);
+ /*
+  * Called from arch_rethook_trampoline
+  */
+-unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs)
++unsigned long notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
+ {
+ 	return rethook_trampoline_handler(regs, regs->gprs[15]);
+ }
+diff --git a/arch/x86/kernel/rethook.c b/arch/x86/kernel/rethook.c
+index 8a1c0111ae79..1f7cef86f73d 100644
+--- a/arch/x86/kernel/rethook.c
++++ b/arch/x86/kernel/rethook.c
+@@ -64,7 +64,8 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline);
+ /*
+  * Called from arch_rethook_trampoline
+  */
+-__used __visible void arch_rethook_trampoline_callback(struct pt_regs *regs)
++__used __visible void notrace arch_rethook_trampoline_callback(struct pt_regs
++		*regs)
+ {
+ 	unsigned long *frame_pointer;
+ 
+@@ -104,7 +105,7 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+ STACK_FRAME_NON_STANDARD_FP(arch_rethook_trampoline);
+ 
+ /* This is called from rethook_trampoline_handler(). */
+-void arch_rethook_fixup_return(struct pt_regs *regs,
++void notrace arch_rethook_fixup_return(struct pt_regs *regs,
+ 			       unsigned long correct_ret_addr)
+ {
+ 	unsigned long *frame_pointer = (void *)(regs + 1);
+@@ -114,7 +115,8 @@ void arch_rethook_fixup_return(struct pt_regs *regs,
+ }
+ NOKPROBE_SYMBOL(arch_rethook_fixup_return);
+ 
+-void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
++void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs
++		*regs, bool mcount)
+ {
+ 	unsigned long *stack = (unsigned long *)regs->sp;
+ 
+diff --git a/kernel/trace/rethook.c b/kernel/trace/rethook.c
+index 60f6cb2b486b..e551e86d3927 100644
+--- a/kernel/trace/rethook.c
++++ b/kernel/trace/rethook.c
+@@ -127,7 +127,7 @@ static void free_rethook_node_rcu(struct rcu_head *head)
+  * Return back the @node to @node::rethook. If the @node::rethook is already
+  * marked as freed, this will free the @node.
+  */
+-void rethook_recycle(struct rethook_node *node)
++void notrace rethook_recycle(struct rethook_node *node)
+ {
+ 	lockdep_assert_preemption_disabled();
+ 
+@@ -194,7 +194,7 @@ void rethook_hook(struct rethook_node *node, struct pt_regs *regs, bool mcount)
+ NOKPROBE_SYMBOL(rethook_hook);
+ 
+ /* This assumes the 'tsk' is the current task or is not running. */
+-static unsigned long __rethook_find_ret_addr(struct task_struct *tsk,
++static unsigned long notrace __rethook_find_ret_addr(struct task_struct *tsk,
+ 					     struct llist_node **cur)
+ {
+ 	struct rethook_node *rh = NULL;
+@@ -256,7 +256,7 @@ unsigned long rethook_find_ret_addr(struct task_struct *tsk, unsigned long frame
+ }
+ NOKPROBE_SYMBOL(rethook_find_ret_addr);
+ 
+-void __weak arch_rethook_fixup_return(struct pt_regs *regs,
++void __weak notrace arch_rethook_fixup_return(struct pt_regs *regs,
+ 				      unsigned long correct_ret_addr)
+ {
+ 	/*
+@@ -268,7 +268,7 @@ void __weak arch_rethook_fixup_return(struct pt_regs *regs,
+ }
+ 
+ /* This function will be called from each arch-defined trampoline. */
+-unsigned long rethook_trampoline_handler(struct pt_regs *regs,
++unsigned long notrace rethook_trampoline_handler(struct pt_regs *regs,
+ 					 unsigned long frame)
+ {
+ 	struct llist_node *first, *node = NULL;
 -- 
 2.40.1
 
