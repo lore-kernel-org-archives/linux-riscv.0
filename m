@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1362C77B75
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847C9C77B75
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 May 2023 12:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JaQlImKiQFTVgFpq6wmAUcaA1WujuJvjnvHJ3MMaEps=; b=AI6jKlGZ5Fv3p/
-	VnbjFe175vyqGpZ26PIYwAXiHzJH9nYT7HNRI11IVsP/F3Aq5+Y9A7jWFu5vtZ53O7jcqRMgtHP7q
-	pIUpkxTh2XvcxPxwK8C7WmVR+feRxp5CljTsfhnYNr6crOZFYilNjPKo4JjcO5v0Yih8tC9zJl7Et
-	DR7KzdgxqEaIj7GMgn5AJqEVt8KZNkLcgMY4R+m8STgGCYMz6yEqc58neBENkSQlva7JiUsXeQVnY
-	fdwqSjC+1UPAWQEhCQGuIdAM9aFLasHjekeeuNxz1vwH9Nemgm2BRCXPKN3vutuMqxgDCxHboq/i+
-	QMRPa/DUBb3Dqht3Kf8w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ofbn++YGK9cxDKD8z/JXmhhe5Y2HTavOIsHMxjD0oA0=; b=Fk4xsVIcj6sIGf
+	6fmD2kQZNLEv+bMgX0Jj4te65KkEe0PqaL1332mPKgSd4xMXXoF8inKXRYieHNp4QzcIbQbJTbVGC
+	BwVpjdeF3PnerjU55cgic0mr9TJ/IFIbttUhcsT38/s9ll9ywHWgYkXqc/O6CwFJc9T/RQhKbeTxH
+	hSv40SqeyY8GUBiHECmfMHgfrMc96RhF63WMJrg20wxb5x1P5U6w3qZ+YZrRKo3wGZykMVqVhrYk5
+	92axrj5hbJy83xzop3Ek0jxEYJvSC+VyPDXKMNFWunXFCR/ORd2SL9O5B0TxBTqXz4p3KpvbyIEXi
+	BurTVqZBbCG8+Ar+abZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyXip-002B2N-2z;
-	Mon, 15 May 2023 12:54:39 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pyXix-002B5G-29;
+	Mon, 15 May 2023 12:54:47 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyXim-002B18-2E
+	id 1pyXiu-002B0x-0f
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 May 2023 12:54:38 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 15 May 2023 12:54:45 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2A28324E03C;
-	Mon, 15 May 2023 20:54:09 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 20:54:09 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2AF1880A8;
+	Mon, 15 May 2023 20:54:28 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
+ 2023 20:54:28 +0800
 Received: from ubuntu.localdomain (161.142.156.10) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 15 May
- 2023 20:53:59 +0800
+ 2023 20:54:21 +0800
 From: Jia Jie Ho <jiajie.ho@starfivetech.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -45,18 +45,21 @@ To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	Conor Dooley <conor@kernel.org>
 CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v8 0/4] crypto: starfive - Add drivers for crypto engine
-Date: Mon, 15 May 2023 20:53:51 +0800
-Message-ID: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
+Subject: [PATCH v8 3/4] riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+Date: Mon, 15 May 2023 20:53:54 +0800
+Message-ID: <20230515125355.624250-4-jiajie.ho@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
+References: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [161.142.156.10]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230515_055437_039698_8A3C907D 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20230515_055444_388531_AC6B9781 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +76,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds kernel driver support for StarFive JH7110 crypto
-engine. The first patch adds Documentations for the device and Patch 2
-adds device probe and DMA init for the module. Patch 3 adds crypto and
-DMA dts node for VisionFive 2 board. Patch 4 adds hash/hmac support to
-the module.
+Add StarFive cryptographic module and dedicated DMA controller node to
+VisionFive 2 SoCs.
 
-Patch 3 needs to be applied on top of:
-https://lore.kernel.org/lkml/20230424135409.6648-3-xingyu.wu@starfivetech.com/
+Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
+Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 28 ++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-Patch 4 needs to be applied on top of:
-https://lore.kernel.org/linux-crypto/ZEEOXIHwqKblKfBJ@gondor.apana.org.au/T/#u
-
-Changes v7->v8
-- Enable COMPILE_TEST in Kconfig (Herbert)
-- Fix compile_test warning on 'long unsigned int' to 'unsigned int'
-  conversion (Herbert)
-
-Changes v6->v7
-- Remove NULL assignment as struct is kzalloc()-ed (Christophe)
-- Do clk_disable_unprepare and assert reset if probe failed (Christophe)
-- Remove unnecessary null pointer check (Christophe)
-- Update module name in Kconfig description (Christophe)
-
-Changes v5->v6
-- Remove set_crypt in export as request will have been created by
-  init/updated calls (Herbert)
-- Use new helper to set statesize of crypto_ahash (Herbert)
-- Use crypto_ahash_blocksize instead of crypto_ahash_tfm (Herbert)
-- Switch to init_tfm/exit_tfm instead of cra_init/cra_exit (Herbert)
-
-Changes v4->v5
-- Schedule tasklet from IRQ handler instead of using completion to sync
-  events (Herbert)
-
-Changes v3->v4:
-- Use fallback for non-aligned cases as hardware doesn't support
-  hashing piece-meal (Herbert)
-- Use ahash_request_set_* helpers to update members of ahash_request
-  (Herbert)
-- Set callbacks for async fallback (Herbert)
-- Remove completion variable and use dma_callback to do the rest of
-  processing instead. (Herbert)
-
-Changes v2->v3:
-- Only implement digest and use fallback for other ops (Herbert)
-- Use interrupt instead of polling for hash complete (Herbert)
-- Remove manual data copy from out-of-bound memory location as it will
-  be handled by DMA API. (Christoph & Herbert)
-
-Changes v1->v2:
-- Fixed yaml filename and format (Krzysztof)
-- Removed unnecessary property names in yaml (Krzysztof)
-- Moved of_device_id table close to usage (Krzysztof)
-- Use dev_err_probe for error returns (Krzysztof)
-- Dropped redundant readl and writel wrappers (Krzysztof)
-- Updated commit signed offs (Conor)
-- Dropped redundant node in dts, module set to on in dtsi (Conor)
-
-Jia Jie Ho (4):
-  dt-bindings: crypto: Add StarFive crypto module
-  crypto: starfive - Add crypto engine support
-  riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
-  crypto: starfive - Add hash and HMAC support
-
- .../crypto/starfive,jh7110-crypto.yaml        |  70 ++
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  28 +
- drivers/crypto/Kconfig                        |   1 +
- drivers/crypto/Makefile                       |   1 +
- drivers/crypto/starfive/Kconfig               |  21 +
- drivers/crypto/starfive/Makefile              |   4 +
- drivers/crypto/starfive/jh7110-cryp.c         | 240 +++++
- drivers/crypto/starfive/jh7110-cryp.h         | 127 +++
- drivers/crypto/starfive/jh7110-hash.c         | 892 ++++++++++++++++++
- 10 files changed, 1391 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
- create mode 100644 drivers/crypto/starfive/Kconfig
- create mode 100644 drivers/crypto/starfive/Makefile
- create mode 100644 drivers/crypto/starfive/jh7110-cryp.c
- create mode 100644 drivers/crypto/starfive/jh7110-cryp.h
- create mode 100644 drivers/crypto/starfive/jh7110-hash.c
-
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 9acb5fb1716d..7a0ba2748582 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -570,5 +570,33 @@ voutcrg: clock-controller@295c0000 {
+ 			#reset-cells = <1>;
+ 			power-domains = <&pwrc JH7110_PD_VOUT>;
+ 		};
++
++		sdma: dma@16008000 {
++			compatible = "arm,pl080", "arm,primecell";
++			arm,primecell-periphid = <0x00041080>;
++			reg = <0x0 0x16008000 0x0 0x4000>;
++			interrupts = <29>;
++			clocks = <&stgcrg JH7110_STGCLK_SEC_AHB>,
++				 <&stgcrg JH7110_STGCLK_SEC_MISC_AHB>;
++			clock-names = "hclk", "apb_pclk";
++			resets = <&stgcrg JH7110_STGRST_SEC_AHB>;
++			lli-bus-interface-ahb1;
++			mem-bus-interface-ahb1;
++			memcpy-burst-size = <256>;
++			memcpy-bus-width = <32>;
++			#dma-cells = <2>;
++		};
++
++		crypto: crypto@16000000 {
++			compatible = "starfive,jh7110-crypto";
++			reg = <0x0 0x16000000 0x0 0x4000>;
++			clocks = <&stgcrg JH7110_STGCLK_SEC_AHB>,
++				 <&stgcrg JH7110_STGCLK_SEC_MISC_AHB>;
++			clock-names = "hclk", "ahb";
++			interrupts = <28>;
++			resets = <&stgcrg JH7110_STGRST_SEC_AHB>;
++			dmas = <&sdma 1 2>, <&sdma 0 2>;
++			dma-names = "tx", "rx";
++		};
+ 	};
+ };
 -- 
 2.25.1
 
