@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7AEC77B7D
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 03:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2839FC77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 04:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R9bwRyQJ6YAm5fZySJga2D7lJMCaUH6iDbcj45QKsDY=; b=EpKpLSXBsvoX2W
-	z29d7iHTRJJo2d79TkelwmSQVCDu37mwnPVugNra5p+LZf/kvh9Wv4EfF2UyfRHQRj5lYyfGLzi2g
-	iZGVaZxJmm0cXDbP2vQ+HeuprIGLNefYoK2GY+3ShuWZdRUKZlh6g3oH5IdkYSP6Pe3+z+tWCquqZ
-	jB6m0qabePuYjDyLhcfuvvCwPdFcSSqiFV1RSaZrWLJAY138SvDsap/02ac60HpdVnY2Q8KQKt/8G
-	a638K+MMzm0HEyDO46aWtXH2jFvu7vthsBFzGnqCatOqKnnrm5DUK1avu8oSb+lMMdQKwww+pwp5t
-	WlPQW1CQKCqbUdr6DwoQ==;
+	List-Owner; bh=pT5XAN73B2JR7qu2UZLrNUyKdD1liozU7/Zr+F9JUmU=; b=qVqBwwIOPAs5+E
+	e/zaKel72ocZipRtwxOB6nWgRAzfOFReJmZ879VRjHwYMWo3EU73SHrREupCUo6L7HUyqNPNPK98P
+	LYrCeZckHJvFM7Kjr9/ch0zTgOJ1F4b/kH8yJeHV0aDkxc6KS3MaSCM/hZcmdFwatv0baOorqdiR4
+	6TD5AN4WztOXIeLAdCdfxlKVE3Esdi6/W1H4cvmpbGgcOiZbKj79Cs76vhtK+nhNv+kogY5IAhHPt
+	B5KjpjZ8e25iqsfQ56EPmzVQuADV3Yx4q+nah00le4tLBceQT1Ojt1BZaIYaXOpskVTkJ91cF2BvK
+	bsT5dBSxLknnrgDqcZgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyl9o-004Dqh-1J;
-	Tue, 16 May 2023 03:15:24 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1pymIM-004KJ2-0V;
+	Tue, 16 May 2023 04:28:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyl9l-004Dpt-1O
+	id 1pymIJ-004KII-0O
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 May 2023 03:15:22 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-4f24ddf514eso11907750e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 May 2023 20:15:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1684206920; x=1686798920;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bl+t8tHUGXHrqDdO1CHQdBE7Nio53ARCR1K6a8BjQJM=;
-        b=QDSmAjGaG02MDvl0QOYVYtwVBSIYvuiSE3o7PLY2ctKCNKB5+ENkBZxLYfsGO0yIEe
-         EKvIUQK5D7FDP0pRrs31heyd9tjBX0Ol3gXhaGL+ZkC/JOrdkIBHYfoFH+0r9wpfncrx
-         QMN+6Qs9vrttLKpaq0X9C+pqbc3Hh0chy3u8W9wZM2M4SWdzgOS3pupmXObX/LdQI6uk
-         h4Ir7o76eLpMebje7u5vup9e+RdIAYBjjtNOzBf69BK+bhXsz6gLkhPFsVlHprWAjfUA
-         amrDGqVbJwR1DiMpV5F3TWSIeu2O1Y7pRm9fgzGuuSEsHyDCEBvxk3H0jEpYTElvJJvy
-         HWcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684206920; x=1686798920;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Bl+t8tHUGXHrqDdO1CHQdBE7Nio53ARCR1K6a8BjQJM=;
-        b=MMGO1iyyNU58tFvIH3RCSiLU9Sw4HxSkOVdTlWZGgp0C/uH6l0/8qywkriMu+dty/W
-         BuAc+S8azdjp8D9sbo5DHu25vMtFKvQZkwlK8sPPRmJGrfKiG2XOd+ihSwOjy8Mimbn2
-         k9npcfqrAVPotCYqYYtaTzTPqg2Dz3zjhOrkdPgbymCe/5vFlrqZPyTcyGYVNCBp1LLb
-         5Zd7wCbdHjspDcVAVl5/7QroNDBYdqYzNlDXnBRRKu3ciqg9ZqedJKGd8k8hN3xcQiyS
-         HbRxmfqGbM8berGEDB/xqHhSC7gIWMXzxWPlQ4Q04vtGVsYEz9CsEihgYH4sD8T17xs3
-         I3qQ==
-X-Gm-Message-State: AC+VfDxRAOU+IXT/OkOQIddDjILzfH04/T4Grnoit9nUAO4KmiSz7IqI
-	tkrRXz2ge2Bh8lDOGBcJGtfo82hj+LlRU7/llqcXVw==
-X-Google-Smtp-Source: ACHHUZ6JUxopVpBE88qqEZ5JgPzNfhH8+JbSBHjancbpmQh2v+I4RepO2FFjvtV91quS6KuiypieGyHjzb6rz48gfsQ=
-X-Received: by 2002:ac2:47f4:0:b0:4ef:f017:e52 with SMTP id
- b20-20020ac247f4000000b004eff0170e52mr7660035lfp.5.1684206919728; Mon, 15 May
- 2023 20:15:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230509103033.11285-5-andy.chiu@sifive.com> <mhng-18df71ab-832b-4312-9319-52ae8b3da0d8@palmer-ri-x1c9a>
-In-Reply-To: <mhng-18df71ab-832b-4312-9319-52ae8b3da0d8@palmer-ri-x1c9a>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Tue, 16 May 2023 11:15:08 +0800
-Message-ID: <CABgGipUfekA2fHVz4L3EzynF-rVMwTJpGBcusWwXXAon3pZLYA@mail.gmail.com>
-Subject: Re: [PATCH -next v19 04/24] riscv: Add new csr defines related to
- vector extension
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, 
-	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	vincent.chen@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, 
-	apatel@ventanamicro.com, Atish Patra <atishp@rivosinc.com>, guoren@kernel.org
+	Tue, 16 May 2023 04:28:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E2D5618BB;
+	Tue, 16 May 2023 04:28:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCBA9C4339C;
+	Tue, 16 May 2023 04:28:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1684211292;
+	bh=B40QBc2Bt3WTy6hcM1whqz8LPgSBg6wuocgJLZD/Zks=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fKrws8+B5QGNG4YsOCnUCjatWtzmAAeBTc64BS/GDe6TxbrrQQw/+7hY1TPgUdPW+
+	 l5trkAagzobLaMQsTPa0kWxpzo2q9Tdf7zswDem7L8YZkk/xNLt+Dc6X/tlIAghDwF
+	 Cd77NDn2eQeJzCaCT2wUYRZ5lkj058Q5Sgy1yUzr36P2l/5fQ8wXMa23rZCFIACpUc
+	 Xrrn1W8xKP2S8cUNpsmd1hjGyKW36cD9k75Aa0/g3JC49MhtAzGwz7UkwcHEDxBgyK
+	 4UZf4myxlZcDLlmqc1JnfbGS0Ms2coZ/E31M8LSOhosJwrACyhUHDjYgZZBryut7n7
+	 awVm4SJajHb0Q==
+Date: Tue, 16 May 2023 13:28:06 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Ze Gao <zegao2021@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ze Gao <zegao@tencent.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] rehook, fprobe: mark rethook related functions
+ notrace
+Message-Id: <20230516132806.886543f000d93e0c2b26a2f3@kernel.org>
+In-Reply-To: <238bad4335d029072ca6000fb404f47376197f39.1684120990.git.zegao@tencent.com>
+References: <cover.1684120990.git.zegao@tencent.com>
+	<238bad4335d029072ca6000fb404f47376197f39.1684120990.git.zegao@tencent.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230515_201521_484582_705D19DE 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20230515_212815_267680_7279DB65 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +80,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMTIsIDIwMjMgYXQgNjo1NuKAr0FNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
-ZGFiYmVsdC5jb20+IHdyb3RlOgo+Cj4gT24gVHVlLCAwOSBNYXkgMjAyMyAwMzozMDoxMyBQRFQg
-KC0wNzAwKSwgYW5keS5jaGl1QHNpZml2ZS5jb20gd3JvdGU6Cj4gPiBGcm9tOiBHcmVlbnRpbWUg
-SHUgPGdyZWVudGltZS5odUBzaWZpdmUuY29tPgo+ID4KPiA+IEZvbGxvdyB0aGUgcmlzY3YgdmVj
-dG9yIHNwZWMgdG8gYWRkIG5ldyBjc3IgbnVtYmVycy4KPiA+Cj4gPiBBY2tlZC1ieTogR3VvIFJl
-biA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiBDby1kZXZlbG9wZWQtYnk6IEd1byBSZW4gPGd1b3Jl
-bkBsaW51eC5hbGliYWJhLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBs
-aW51eC5hbGliYWJhLmNvbT4KPiA+IENvLWRldmVsb3BlZC1ieTogVmluY2VudCBDaGVuIDx2aW5j
-ZW50LmNoZW5Ac2lmaXZlLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IFZpbmNlbnQgQ2hlbiA8dmlu
-Y2VudC5jaGVuQHNpZml2ZS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHcmVlbnRpbWUgSHUgPGdy
-ZWVudGltZS5odUBzaWZpdmUuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxw
-YWxtZXJAcml2b3NpbmMuY29tPgo+ID4gU3VnZ2VzdGVkLWJ5OiBWaW5lZXQgR3VwdGEgPHZpbmVl
-dGdAcml2b3NpbmMuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVA
-c2lmaXZlLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBt
-aWNyb2NoaXAuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVl
-Ym5lckB2cnVsbC5ldT4KPiA+IFRlc3RlZC1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVi
-bmVyQHZydWxsLmV1Pgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB8
-IDE4ICsrKysrKysrKysrKysrKystLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxNiBpbnNlcnRpb25z
-KCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAo+ID4gaW5kZXggYjZh
-Y2I3ZWQxMTVmLi5iOThiM2I2YzlkYTIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2Nzci5oCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4gPiBA
-QCAtMjQsMTYgKzI0LDI0IEBACj4gPiAgI2RlZmluZSBTUl9GU19DTEVBTiAgX0FDKDB4MDAwMDQw
-MDAsIFVMKQo+ID4gICNkZWZpbmUgU1JfRlNfRElSVFkgIF9BQygweDAwMDA2MDAwLCBVTCkKPiA+
-Cj4gPiArI2RlZmluZSBTUl9WUyAgICAgICAgICAgICAgICBfQUMoMHgwMDAwMDYwMCwgVUwpIC8q
-IFZlY3RvciBTdGF0dXMgKi8KPiA+ICsjZGVmaW5lIFNSX1ZTX09GRiAgICBfQUMoMHgwMDAwMDAw
-MCwgVUwpCj4gPiArI2RlZmluZSBTUl9WU19JTklUSUFMICAgICAgICBfQUMoMHgwMDAwMDIwMCwg
-VUwpCj4gPiArI2RlZmluZSBTUl9WU19DTEVBTiAgX0FDKDB4MDAwMDA0MDAsIFVMKQo+ID4gKyNk
-ZWZpbmUgU1JfVlNfRElSVFkgIF9BQygweDAwMDAwNjAwLCBVTCkKPiA+ICsKPiA+ICAjZGVmaW5l
-IFNSX1hTICAgICAgICAgICAgICAgIF9BQygweDAwMDE4MDAwLCBVTCkgLyogRXh0ZW5zaW9uIFN0
-YXR1cyAqLwo+ID4gICNkZWZpbmUgU1JfWFNfT0ZGICAgIF9BQygweDAwMDAwMDAwLCBVTCkKPiA+
-ICAjZGVmaW5lIFNSX1hTX0lOSVRJQUwgICAgICAgIF9BQygweDAwMDA4MDAwLCBVTCkKPiA+ICAj
-ZGVmaW5lIFNSX1hTX0NMRUFOICBfQUMoMHgwMDAxMDAwMCwgVUwpCj4gPiAgI2RlZmluZSBTUl9Y
-U19ESVJUWSAgX0FDKDB4MDAwMTgwMDAsIFVMKQo+ID4KPiA+ICsjZGVmaW5lIFNSX0ZTX1ZTICAg
-ICAoU1JfRlMgfCBTUl9WUykgLyogVmVjdG9yIGFuZCBGbG9hdGluZy1Qb2ludCBVbml0ICovCj4g
-PiArCj4gPiAgI2lmbmRlZiBDT05GSUdfNjRCSVQKPiA+IC0jZGVmaW5lIFNSX1NEICAgICAgICAg
-ICAgICAgIF9BQygweDgwMDAwMDAwLCBVTCkgLyogRlMvWFMgZGlydHkgKi8KPiA+ICsjZGVmaW5l
-IFNSX1NEICAgICAgICAgICAgICAgIF9BQygweDgwMDAwMDAwLCBVTCkgLyogRlMvVlMvWFMgZGly
-dHkgKi8KPiA+ICAjZWxzZQo+ID4gLSNkZWZpbmUgU1JfU0QgICAgICAgICAgICAgICAgX0FDKDB4
-ODAwMDAwMDAwMDAwMDAwMCwgVUwpIC8qIEZTL1hTIGRpcnR5ICovCj4gPiArI2RlZmluZSBTUl9T
-RCAgICAgICAgICAgICAgICBfQUMoMHg4MDAwMDAwMDAwMDAwMDAwLCBVTCkgLyogRlMvVlMvWFMg
-ZGlydHkgKi8KPiA+ICAjZW5kaWYKPiA+Cj4gPiAgI2lmZGVmIENPTkZJR182NEJJVAo+ID4gQEAg
-LTM3NSw2ICszODMsMTIgQEAKPiA+ICAjZGVmaW5lIENTUl9NVklQSCAgICAgICAgICAgIDB4MzE5
-Cj4gPiAgI2RlZmluZSBDU1JfTUlQSCAgICAgICAgICAgICAweDM1NAo+ID4KPiA+ICsjZGVmaW5l
-IENTUl9WU1RBUlQgICAgICAgICAgIDB4OAo+ID4gKyNkZWZpbmUgQ1NSX1ZDU1IgICAgICAgICAg
-ICAgMHhmCj4gPiArI2RlZmluZSBDU1JfVkwgICAgICAgICAgICAgICAgICAgICAgIDB4YzIwCj4g
-PiArI2RlZmluZSBDU1JfVlRZUEUgICAgICAgICAgICAweGMyMQo+ID4gKyNkZWZpbmUgQ1NSX1ZM
-RU5CICAgICAgICAgICAgMHhjMjIKPiA+ICsKPiA+ICAjaWZkZWYgQ09ORklHX1JJU0NWX01fTU9E
-RQo+ID4gICMgZGVmaW5lIENTUl9TVEFUVVMgIENTUl9NU1RBVFVTCj4gPiAgIyBkZWZpbmUgQ1NS
-X0lFICAgICAgICAgICAgICBDU1JfTUlFCj4KPiBSZXZpZXdlZC1ieTogUGFsbWVyIERhYmJlbHQg
-PHBhbG1lckByaXZvc2luYy5jb20+CgpUaGlzIHBhdGNoIGFsc28gaGFzIHlvdXIgUi1iIGFuZCBo
-YXMgbm90IGJlZW4gY2hhbmdlZCBzaW5jZSB2MTMuCgpUaGFua3MsCkFuZHkKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 15 May 2023 11:26:41 +0800
+Ze Gao <zegao2021@gmail.com> wrote:
+
+> These functions are already marked as NOKPROBE to prevent recusion and
+> we have the same reason to blacklist them if rethook is used with fprobe,
+> since they are beyond the recursion-free region ftrace can guard.
+> 
+> Signed-off-by: Ze Gao <zegao@tencent.com>
+> ---
+>  arch/riscv/kernel/probes/rethook.c | 4 ++--
+>  arch/s390/kernel/rethook.c         | 6 +++---
+>  arch/x86/kernel/rethook.c          | 8 +++++---
+>  kernel/trace/rethook.c             | 8 ++++----
+
+Except for the kernel/trace/rethook.c, those looks good to me.
+Could you drop notrace from kernel/trace/rethook.c? As Steve mentioned
+all functions in that file is automatically notraced.
+
+Thank you,
+
+>  4 files changed, 14 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
+> index 5c27c1f50989..803c412a1bea 100644
+> --- a/arch/riscv/kernel/probes/rethook.c
+> +++ b/arch/riscv/kernel/probes/rethook.c
+> @@ -8,14 +8,14 @@
+>  #include "rethook.h"
+>  
+>  /* This is called from arch_rethook_trampoline() */
+> -unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
+> +unsigned long __used notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
+>  {
+>  	return rethook_trampoline_handler(regs, regs->s0);
+>  }
+>  
+>  NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+>  
+> -void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
+> +void notrace arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
+>  {
+>  	rhn->ret_addr = regs->ra;
+>  	rhn->frame = regs->s0;
+> diff --git a/arch/s390/kernel/rethook.c b/arch/s390/kernel/rethook.c
+> index af10e6bdd34e..ad52119826c1 100644
+> --- a/arch/s390/kernel/rethook.c
+> +++ b/arch/s390/kernel/rethook.c
+> @@ -3,7 +3,7 @@
+>  #include <linux/kprobes.h>
+>  #include "rethook.h"
+>  
+> -void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
+> +void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
+>  {
+>  	rh->ret_addr = regs->gprs[14];
+>  	rh->frame = regs->gprs[15];
+> @@ -13,7 +13,7 @@ void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mc
+>  }
+>  NOKPROBE_SYMBOL(arch_rethook_prepare);
+>  
+> -void arch_rethook_fixup_return(struct pt_regs *regs,
+> +void notrace arch_rethook_fixup_return(struct pt_regs *regs,
+>  			       unsigned long correct_ret_addr)
+>  {
+>  	/* Replace fake return address with real one. */
+> @@ -24,7 +24,7 @@ NOKPROBE_SYMBOL(arch_rethook_fixup_return);
+>  /*
+>   * Called from arch_rethook_trampoline
+>   */
+> -unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs)
+> +unsigned long notrace arch_rethook_trampoline_callback(struct pt_regs *regs)
+>  {
+>  	return rethook_trampoline_handler(regs, regs->gprs[15]);
+>  }
+> diff --git a/arch/x86/kernel/rethook.c b/arch/x86/kernel/rethook.c
+> index 8a1c0111ae79..1f7cef86f73d 100644
+> --- a/arch/x86/kernel/rethook.c
+> +++ b/arch/x86/kernel/rethook.c
+> @@ -64,7 +64,8 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline);
+>  /*
+>   * Called from arch_rethook_trampoline
+>   */
+> -__used __visible void arch_rethook_trampoline_callback(struct pt_regs *regs)
+> +__used __visible void notrace arch_rethook_trampoline_callback(struct pt_regs
+> +		*regs)
+>  {
+>  	unsigned long *frame_pointer;
+>  
+> @@ -104,7 +105,7 @@ NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+>  STACK_FRAME_NON_STANDARD_FP(arch_rethook_trampoline);
+>  
+>  /* This is called from rethook_trampoline_handler(). */
+> -void arch_rethook_fixup_return(struct pt_regs *regs,
+> +void notrace arch_rethook_fixup_return(struct pt_regs *regs,
+>  			       unsigned long correct_ret_addr)
+>  {
+>  	unsigned long *frame_pointer = (void *)(regs + 1);
+> @@ -114,7 +115,8 @@ void arch_rethook_fixup_return(struct pt_regs *regs,
+>  }
+>  NOKPROBE_SYMBOL(arch_rethook_fixup_return);
+>  
+> -void arch_rethook_prepare(struct rethook_node *rh, struct pt_regs *regs, bool mcount)
+> +void notrace arch_rethook_prepare(struct rethook_node *rh, struct pt_regs
+> +		*regs, bool mcount)
+>  {
+>  	unsigned long *stack = (unsigned long *)regs->sp;
+>  
+> diff --git a/kernel/trace/rethook.c b/kernel/trace/rethook.c
+> index 60f6cb2b486b..e551e86d3927 100644
+> --- a/kernel/trace/rethook.c
+> +++ b/kernel/trace/rethook.c
+> @@ -127,7 +127,7 @@ static void free_rethook_node_rcu(struct rcu_head *head)
+>   * Return back the @node to @node::rethook. If the @node::rethook is already
+>   * marked as freed, this will free the @node.
+>   */
+> -void rethook_recycle(struct rethook_node *node)
+> +void notrace rethook_recycle(struct rethook_node *node)
+>  {
+>  	lockdep_assert_preemption_disabled();
+>  
+> @@ -194,7 +194,7 @@ void rethook_hook(struct rethook_node *node, struct pt_regs *regs, bool mcount)
+>  NOKPROBE_SYMBOL(rethook_hook);
+>  
+>  /* This assumes the 'tsk' is the current task or is not running. */
+> -static unsigned long __rethook_find_ret_addr(struct task_struct *tsk,
+> +static unsigned long notrace __rethook_find_ret_addr(struct task_struct *tsk,
+>  					     struct llist_node **cur)
+>  {
+>  	struct rethook_node *rh = NULL;
+> @@ -256,7 +256,7 @@ unsigned long rethook_find_ret_addr(struct task_struct *tsk, unsigned long frame
+>  }
+>  NOKPROBE_SYMBOL(rethook_find_ret_addr);
+>  
+> -void __weak arch_rethook_fixup_return(struct pt_regs *regs,
+> +void __weak notrace arch_rethook_fixup_return(struct pt_regs *regs,
+>  				      unsigned long correct_ret_addr)
+>  {
+>  	/*
+> @@ -268,7 +268,7 @@ void __weak arch_rethook_fixup_return(struct pt_regs *regs,
+>  }
+>  
+>  /* This function will be called from each arch-defined trampoline. */
+> -unsigned long rethook_trampoline_handler(struct pt_regs *regs,
+> +unsigned long notrace rethook_trampoline_handler(struct pt_regs *regs,
+>  					 unsigned long frame)
+>  {
+>  	struct llist_node *first, *node = NULL;
+> -- 
+> 2.40.1
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
