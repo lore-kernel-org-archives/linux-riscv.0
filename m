@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F1CC77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 12:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FB6C77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 14:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+m104PjmZkCGc+l4q+tZwYJLoIs2kuirEpbhh0Z86Rg=; b=AUsq6EHDIppOc8
-	4fZerpYObyo5NkGjbseaIEf9iCm3UdaTRGuxWU5VfpKLTG1udB0QuNueJFejiSxDkJYq0iZz6l2yv
-	77RstXRffBi6hHaz0R/OBDyQJU7N/nzbi+qMnFE32q45qKkBE2FxocORXUdzChifOpbZxh7KGomjt
-	iGrbSCt8vcjhqcNRjyc1y4ipKfNoQY0dPV3mJBCmSRbOE0RGWJN8IBEr7NKn6g5bKeC59B2ZYsWro
-	lcKvDvlUIEakhqgx914Yw+U4pQzfqCkhspwVeiWnjgbK9JL8QJku+cTQnXUsOISg9aghE1T9fRPJg
-	zopZsSHnWi0c0j17G8UQ==;
+	List-Owner; bh=l7icb/qp3Xe5iZwRS6shpVWqFlf6BLD4yGDW4Rp+RSU=; b=ZF/p4b1C2oq4+g
+	DXbuoti27wsGqRqynlfPaAXUUcvfRhn5mL1cBPz8ATtVrWIu53heuI4tlbFJr5OjTQPyTSRuF6hQd
+	bQL8f79YoZz1ot5/IMPCAF3quOaSBTWN3dngr2E+IHfiDl7wIvb+rFnxfANMfjWxa/F3YFWRSR60p
+	HFzauXt/O+EN9An+4CPP+aa/lHAJdarDWZA4+coEq7rX7bcM0I+yhru/itdLkI8Sf9Lz5bJSYX8Th
+	KqHxjBIIeTtvOQLrWW/oSsc/SOBN85wq6Q3o3DDPEhpIydWGR8H821uukPXQdmd5B9GSSrU6UkV6n
+	+BpWo6oClT9UGCw5eA0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pytS3-005gLz-1t;
-	Tue, 16 May 2023 12:06:47 +0000
-Received: from forward502a.mail.yandex.net ([178.154.239.82])
+	id 1pyvXC-0063yK-1j;
+	Tue, 16 May 2023 14:20:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pytS0-005gKd-2n
+	id 1pyvXA-0063wl-06
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 May 2023 12:06:46 +0000
-Received: from mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net [IPv6:2a02:6b8:c18:58f:0:640:3768:0])
-	by forward502a.mail.yandex.net (Yandex) with ESMTP id 226C25EB96;
-	Tue, 16 May 2023 15:06:40 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id b6aGXvFDdKo0-Qd5YAZVi;
-	Tue, 16 May 2023 15:06:39 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1684238799;
-	bh=/a6pvyDAWlMZ0z7v7y2vBNHYN4rbuFjpKaEnziP4leI=;
-	h=References:Date:In-Reply-To:Cc:To:From:Subject:Message-ID;
-	b=g5DXrY5seHHIRvbxU18DdWqOc5we2o1Y9nxHH41nZKWf8C5lfFVF/OERoFLIVWtp+
-	 jpVrB61ha4mlM1/4aWky+QYKvwXLHSAkat5ud5IOfqTRY9JLFOgwl5a4C88fUeVvYE
-	 EBB8uQsTaJoFSlSIRvq9VeLtDSGLwIDKLTzxOlEY=
-Authentication-Results: mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net; dkim=pass header.i=@maquefel.me
-Message-ID: <4950f67bf989a7f5eba462c44d6bdbffb34485d1.camel@maquefel.me>
-Subject: Re: [PATCH 2/2] perf vendor events riscv: add T-HEAD C9xx JSON file
-From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, Adrian
- Hunter <adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nikita Shubin <n.shubin@yadro.com>,  linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org,  linux-riscv@lists.infradead.org
-Date: Tue, 16 May 2023 18:06:39 +0300
-In-Reply-To: <IA1PR20MB49539F3FBE068C7C811152B1BB799@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <38eaec6b495786b048f78be08470f7c770793d7b.camel@maquefel.me>
-	 <IA1PR20MB49539F3FBE068C7C811152B1BB799@IA1PR20MB4953.namprd20.prod.outlook.com>
-User-Agent: Evolution 3.46.3 
+	Tue, 16 May 2023 14:20:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D36E563018;
+	Tue, 16 May 2023 14:20:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FB3AC433EF;
+	Tue, 16 May 2023 14:20:07 +0000 (UTC)
+Date: Tue, 16 May 2023 10:20:06 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Ze Gao <zegao2021@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexander Gordeev <agordeev@linux.ibm.com>, Alexei
+ Starovoitov <ast@kernel.org>, Borislav Petkov <bp@alien8.de>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Heiko Carstens <hca@linux.ibm.com>, "H.
+ Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vasily Gorbik <gor@linux.ibm.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, Conor Dooley <conor@kernel.org>, Jiri Olsa
+ <jolsa@kernel.org>, Yonghong Song <yhs@fb.com>, Ze Gao <zegao@tencent.com>
+Subject: Re: [PATCH v2 4/4] rehook, fprobe: do not trace rethook related
+ functions
+Message-ID: <20230516102006.76dfd68a@gandalf.local.home>
+In-Reply-To: <20230516071830.8190-5-zegao@tencent.com>
+References: <20230516071830.8190-1-zegao@tencent.com>
+	<20230516071830.8190-5-zegao@tencent.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230516_050645_074129_D78EC0AB 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20230516_072012_128678_F5CDA48B 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2023-05-16 at 17:45 +0800, Inochi Amaoto wrote:
-> > Do c906 and c910 have same HPM events ?
-> > 
-> > https://github.com/T-head-Semi/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/pmu/rtl/aq_hpcp_top.v
-> > 
-> > and
-> > 
-> > 
-> > https://github.com/T-head-Semi/openc910/blob/main/C910_RTL_FACTORY/gen_rtl/pmu/rtl/ct_hpcp_top.v
-> > 
-> > Look different to me - am i missing something ?
-> 
-> Yes, they as different, but event ids are compatible. See [1] p.99
-> and [2] p.73.
-> 
-> It seems I forgot extra event index from C906. I will fix in the v2.
-> 
-> [1]
-> https://github.com/T-head-Semi/openc910/blob/main/doc/%E7%8E%84%E9%93%81C910%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-> [2]
-> https://github.com/T-head-Semi/openc906/blob/main/doc/%E7%8E%84%E9%93%81C906%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+On Tue, 16 May 2023 15:18:30 +0800
+Ze Gao <zegao2021@gmail.com> wrote:
 
-They are not the same - they are different in many ways. And c906 list
-seems more complete to me.
+>  CFLAGS_REMOVE_early.o		= $(CC_FLAGS_FTRACE)
+> +CFLAGS_REMOVE_rethook.o		= $(CC_FLAGS_FTRACE)
+>  
+>  endif
+>  
+> diff --git a/arch/x86/kernel/Makefile b/arch/x86/kernel/Makefile
+> index dd61752f4c96..4070a01c11b7 100644
+> --- a/arch/x86/kernel/Makefile
+> +++ b/arch/x86/kernel/Makefile
+> @@ -17,6 +17,7 @@ CFLAGS_REMOVE_ftrace.o = -pg
+>  CFLAGS_REMOVE_early_printk.o = -pg
+>  CFLAGS_REMOVE_head64.o = -pg
+>  CFLAGS_REMOVE_sev.o = -pg
+> +CFLAGS_REMOVE_rethook.o = -pg
 
-I think you should drop wildcard (it shouldn't be used anyway) then and
-name it c906.
+Unrelated to this patch, but someday we need to change the -pg above to
+$(CC_FLAGS_FTRACE).
 
-"0x5b7-0x0-0x0,v1,t-head/c906,core" would match both c906 and c910.
+-- Steve
 
 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+>  endif
+>  
+>  KASAN_SANITIZE_head$(BITS).o				:= n
+> -- 
 
 _______________________________________________
 linux-riscv mailing list
