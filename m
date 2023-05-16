@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEF7C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3DEC77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YnOjGfEwE/38GzIVZV50Tjxd7pliA8jgnPVrhkC6Kl0=; b=Nrqu3Wkp6WGkr6
-	8KRhoXxuRsHmLYJKtPwmvyUkm3qdTEJavQk4JCNCvNQWjcqLTyCzxVFgN10f2GD18u0TwGD16tefP
-	dhoovQJtFAYCYMCnXwj6e8HLb2F+3T+MueFlbIK+VnGquMLNNP0r/Bu2nx8SjoeEz7wBaA6I07b/1
-	EJbLEOmStF27dPB/d3PKhsPUIL3eU3sjQDuy5vqLkVjMaoGMN7mGWr7I8oF9DzS0Yu3zhyJf+WBS2
-	PQxK2uQeAje1yDL3+TgUmfCFZiA0bmX9eyzwMNBD8luX4Or/Ocq7Dp2BWiDzei4H66KIPcZvBkYbR
-	2PoMK25PJ2+2FE2yu3EQ==;
+	List-Owner; bh=9HP9GqHQ1P5s1yWG51l4KGvm6G9h2irTvi5j5io0tn4=; b=pdO44c1XxpWE8o
+	ELhy/cg6f76qIrptjFmPLdLThbfvhnyYiJ3Uov7Moe22a9q4OZXS+JXxAL7WIAmDndgyTO83TAj6e
+	tkPfe1KGH9/3kQARJi+mUiyclkrzPfP/ELd/DhM9kTeTRxTo1mP8E7dsPo29jbV2sjop1zs6QOqKq
+	frRI8KW0954/LELneIzkvR52h18mqvl3U0knB6HIeVzvaotTP3s82uWhE7MNL3TB7QCeZHN053vgO
+	xeAC+Rvx9ivS1FDKn4nxrCGzinj+Nsk4C2d8WbSxdwu65DHkITXBY0onAfy5ZiF+jHz38KfWQG8tj
+	zeeYPYHU/S8dtdRaxcRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyqop-0051mw-1k;
-	Tue, 16 May 2023 09:18:07 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1pyqpG-0051vP-0M;
+	Tue, 16 May 2023 09:18:34 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyqom-0051kZ-12;
-	Tue, 16 May 2023 09:18:06 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id AC3735C006E;
-	Tue, 16 May 2023 05:17:59 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Tue, 16 May 2023 05:17:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1684228679; x=1684315079; bh=ou
-	Abzm3pg12owJekmkI4OrHP4MIjaK5Cyk3ghNwnWvM=; b=Scv5gZLE73L16eV8qs
-	yx/YQjZHiBbdM50gEUuDGu5uoR2PsMrykaVDh88dmhyMAy9SxST6fTHHnj1of+j9
-	eCyKrWYleTM9X2nEMQx5kaZjgANR9ofard0jdkPqlezxFmT0N5Pwr0DPzUcid3GL
-	5r3+CngRPJSz/HBd1Vjxj52ZtzfYQKoi6YeL7JG4wXyNN7OO98Sa1r4/2tN2+ofl
-	LzIQnO1zAqdwDIjU/fgUD4GSRIQouKxv5tyM31Z9bQVR8WrzIoBRpzYHTIQnymmy
-	seENNmp2YnygS3Sb8PaaPYqd4PINdIPRS0/TdGIdlSTF6ZuFlGS9/T0G45Br0vzk
-	/Sow==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1684228679; x=1684315079; bh=ouAbzm3pg12ow
-	JekmkI4OrHP4MIjaK5Cyk3ghNwnWvM=; b=QPdOfBO1nMitxg6xhrZw6OWidmLed
-	QsNrZ/vtesaQBZ0H0hTfQGh60POxdwRJXwRdnMu1YYSVUA+CIlCcgmpURuNKNx8J
-	cU9ek6OIZloN9dY40/AqRzD24LtlqINduUk/Sekf5QIt+XwQ9qiC0uZdfvsgoPWG
-	LXtl6OvWQkyyNVLdiDYc9rYAXTSGTfeFx6mOmTzdxSmsqyaw0dmr6E0EpZT4sT9F
-	bXs6ETUpYeWsGsu1OTI2Q96MhNkCHIPaxujujtwo9NqjjH4JhENRoeFIBDys+7qB
-	nx0jcefuHwibUCS4GDCtSbaGafEUkrj4GySOwgZnuVwgJ17P3R6fXKYwg==
-X-ME-Sender: <xms:R0pjZH33bkkqug3eGSCi8EyCoAng02eUp2yEB8arpKctlxfBIxvcAw>
-    <xme:R0pjZGHKy8s8sWQrIzw4Ker6W6JXmDWqRSz7_lbQAFK2Rzh22rU2V7YxOurxEQbrC
-    13I1thbgB9i3GCH4RE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeehledgudegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:R0pjZH6pZISv1MrimE_nX7LQIR-K-fiXyXiXVrKK8kMZ4aNvOhn5UA>
-    <xmx:R0pjZM3KLphSvZeikiYWlxUjKCyy3e7FDZku_TWocy_OhwMimMV0-A>
-    <xmx:R0pjZKFLYM3plpY8t4rF40e0EjadghAhwtlK0nj1Zld2sgUP4cIQkQ>
-    <xmx:R0pjZBfsKEfoMynmHkr1hT6RCRbnbPzA1iTvtsGnS5H04odF7zzGhg>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5CC98B60086; Tue, 16 May 2023 05:17:59 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-415-gf2b17fe6c3-fm-20230503.001-gf2b17fe6
-Mime-Version: 1.0
-Message-Id: <ea4bc471-9cac-4ef1-97aa-9cf71b60c785@app.fastmail.com>
-In-Reply-To: <20230516-grader-dejected-df65cdc584b3@wendy>
-References: <20230515-geometry-olympics-b0556ff8a5f7@spud>
- <cf1c6b8c-8a3f-eca1-948f-e41946d4c34c@linaro.org>
- <20230516-grader-dejected-df65cdc584b3@wendy>
-Date: Tue, 16 May 2023 11:16:34 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Conor.Dooley" <conor.dooley@microchip.com>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
-Cc: "Conor Dooley" <conor@kernel.org>, soc@kernel.org,
- "Rob Herring" <robh+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>,
- "Olof Johansson" <olof@lixom.net>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1] Documentation/process: add soc maintainer handbook
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230516_021804_903103_4FD9F90F 
-X-CRM114-Status: GOOD (  15.98  )
+	id 1pyqpF-0051uR-0f
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 16 May 2023 09:18:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=T4Sl1ooBMpb0KanF1wJIqGZiESG+DyDGWDVl3K8WeZc=; b=thpq6ZmH4G9fdo7dFMIuaCShJn
+	vKgsEXcb3N7S96cxM34TNZ0/2ZeXZ+/8JQ+/2rYIVRdvI3/0EAMO3H14GOFLlVQBmFluRR0qCrYtd
+	sO9vJz5Ibq0vbeWMngbnNu/YT13I0sIvRpOcrHkDIzsB18UYTCFt7ZC03H2ly1MDx98Y76sbEgkAb
+	+badUdO52UmI9I7EB4CdAY3MgGbok5FHWffCtRCGhWICUEeA4njesY3PqrW5UKvhU5b1FQ7Z2MAqK
+	a1eW3FfI/q+76vBbtLDD6a8befQtUWBPfkxkUtPTLm9+pTABNLs8p5nxOeE+ruY1IWLV2YKdyrZtC
+	vgDNLtaQ==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pyqp2-0048AC-U4; Tue, 16 May 2023 09:18:21 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7BE8330008D;
+	Tue, 16 May 2023 11:18:20 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 60A632011856F; Tue, 16 May 2023 11:18:20 +0200 (CEST)
+Date: Tue, 16 May 2023 11:18:20 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Ze Gao <zegao2021@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexei Starovoitov <ast@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, Conor Dooley <conor@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Yonghong Song <yhs@fb.com>,
+	Ze Gao <zegao@tencent.com>
+Subject: Re: [PATCH v2 2/4] fprobe: make fprobe_kprobe_handler recursion free
+Message-ID: <20230516091820.GB2587705@hirez.programming.kicks-ass.net>
+References: <20230516071830.8190-1-zegao@tencent.com>
+ <20230516071830.8190-3-zegao@tencent.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230516071830.8190-3-zegao@tencent.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +93,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 16, 2023, at 10:57, Conor Dooley wrote:
-> On Tue, May 16, 2023 at 10:31:19AM +0200, Krzysztof Kozlowski wrote:
->> On 15/05/2023 21:20, Conor Dooley wrote:
->
->> > + - Defer the devicetree changes to a release after the binding and driver have
->> > +   already been merged
->> > +
->> > + - Change the bindings in a shared immutable branch that is used as the base for
->> > +   both the driver change and the devicetree changes
->> 
->> The policy told to me some time ago was that no merges from driver
->> branch or tree are allowed towards DTS branch, even if they come only
->> with binding header change. There are exceptions for this, e.g. [1], but
->> that would mean we need to express here rules for cross-tree merges.
->
-> I've got away with having an immutable branch for dt-binding headers!
-> That said, Arnd did actually have a look at this (and suggested some
-> changes) before I sent it & did not cry fowl about this section. IIRC,
-> this is actually his wording, not mine.
+On Tue, May 16, 2023 at 03:18:28PM +0800, Ze Gao wrote:
+> Current implementation calls kprobe related functions before doing
+> ftrace recursion check in fprobe_kprobe_handler, which opens door
+> to kernel crash due to stack recursion if preempt_count_{add, sub}
+> is traceable.
 
-Yes, I merge a lot of shared branches with dt-binding changes into the
-soc/dt branch, and I wasn't aware of a policy against that, certainly did
-not enforce it.
-
-I generally object to changes touching drivers/* or anything else besides
-arch/*/boot/dts, Documentation/devicetree/bindings/ and include/dt-bindings
-in the dt branches, but I have made expections in the past when there
-was a particular important reason.
-
-    Arnd
+Which preempt_count*() are you referring to? The ones you just made
+_notrace in the previous patch?
 
 _______________________________________________
 linux-riscv mailing list
