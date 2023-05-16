@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3DEC77B7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2369CC7EE24
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9HP9GqHQ1P5s1yWG51l4KGvm6G9h2irTvi5j5io0tn4=; b=pdO44c1XxpWE8o
-	ELhy/cg6f76qIrptjFmPLdLThbfvhnyYiJ3Uov7Moe22a9q4OZXS+JXxAL7WIAmDndgyTO83TAj6e
-	tkPfe1KGH9/3kQARJi+mUiyclkrzPfP/ELd/DhM9kTeTRxTo1mP8E7dsPo29jbV2sjop1zs6QOqKq
-	frRI8KW0954/LELneIzkvR52h18mqvl3U0knB6HIeVzvaotTP3s82uWhE7MNL3TB7QCeZHN053vgO
-	xeAC+Rvx9ivS1FDKn4nxrCGzinj+Nsk4C2d8WbSxdwu65DHkITXBY0onAfy5ZiF+jHz38KfWQG8tj
-	zeeYPYHU/S8dtdRaxcRA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nDcLg0KFBN9q8m+nCQ+zeZb5vOa6kMrCYS/hPfabr4M=; b=YYWtoeIt2ckGJN
+	5Uo3jKtY+X8UQW9/jTiVNZOqW0vgeGVnGq1OZREyPiab/QVFRrPoEhLMCtKnV8BktxlnYtWLWKc2e
+	NM9dC9Cx915mOvVvOnTWCIn2BopMpncAs4UJExlXMcJswOqu0dIcJx8Dp4/hOBFlqqPezvhq+pSVr
+	6qxhKKM3OfJVXCh6oobjKREu2aXqDiGoJ4JEE2DRbY698SjR2iQj5LA6fch/qcElsmjAUHVhD1Qkd
+	x0aVMVm61Zl24FIGhBa2m/wroqtjJRJJoBFimlUcNVaUe1hHh47VVXfzQgXqcXWGYLAYsDOMvIiJI
+	F5Jsd+kZct+ilXn3x6rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyqpG-0051vP-0M;
-	Tue, 16 May 2023 09:18:34 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pyqut-0053RM-3B;
+	Tue, 16 May 2023 09:24:23 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyqpF-0051uR-0f
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 16 May 2023 09:18:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=T4Sl1ooBMpb0KanF1wJIqGZiESG+DyDGWDVl3K8WeZc=; b=thpq6ZmH4G9fdo7dFMIuaCShJn
-	vKgsEXcb3N7S96cxM34TNZ0/2ZeXZ+/8JQ+/2rYIVRdvI3/0EAMO3H14GOFLlVQBmFluRR0qCrYtd
-	sO9vJz5Ibq0vbeWMngbnNu/YT13I0sIvRpOcrHkDIzsB18UYTCFt7ZC03H2ly1MDx98Y76sbEgkAb
-	+badUdO52UmI9I7EB4CdAY3MgGbok5FHWffCtRCGhWICUEeA4njesY3PqrW5UKvhU5b1FQ7Z2MAqK
-	a1eW3FfI/q+76vBbtLDD6a8befQtUWBPfkxkUtPTLm9+pTABNLs8p5nxOeE+ruY1IWLV2YKdyrZtC
-	vgDNLtaQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pyqp2-0048AC-U4; Tue, 16 May 2023 09:18:21 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7BE8330008D;
-	Tue, 16 May 2023 11:18:20 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 60A632011856F; Tue, 16 May 2023 11:18:20 +0200 (CEST)
-Date: Tue, 16 May 2023 11:18:20 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Ze Gao <zegao2021@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexei Starovoitov <ast@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, Conor Dooley <conor@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>, Yonghong Song <yhs@fb.com>,
-	Ze Gao <zegao@tencent.com>
-Subject: Re: [PATCH v2 2/4] fprobe: make fprobe_kprobe_handler recursion free
-Message-ID: <20230516091820.GB2587705@hirez.programming.kicks-ass.net>
-References: <20230516071830.8190-1-zegao@tencent.com>
- <20230516071830.8190-3-zegao@tencent.com>
+	id 1pyqur-0053Q9-0H
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 May 2023 09:24:22 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-52c690f7fa4so9667634a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 May 2023 02:24:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684229059; x=1686821059;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FfIklMWyxHqT15p3DEDH7Q3m1hZaZiD2446SsTwPHNU=;
+        b=jgid5FsyiXSUa8KMxp4EGQwY6+r+2EY2Pae/pn3FPkEqWy0fhC/UqIeyRyoelGyl+Y
+         6DfG0gXZJ9xbmSgPL5RhhhmbEG4evEhlMJgR8YHye6wZxmnNMZUXEoeUjmJ9vPO9t/y2
+         /uLd/ZPl2ZbcCuFQHxlpEzzYDQXZyOl4CLLiOZJOptaGLL+zqzN5Yy98gy2DS8HFZQNr
+         w8weSOdrQKbcxaYj5KQVO9d24tahTUp9W5iKtEHwEzjJVxS3lVytMPtLupyF6k79KVAi
+         f8QnQHh9hOcD4ejx6mocR2hwDNrLhZOu7iQNOT0TFMRr9OC5YsVdbBU9h0PS43hAfsEk
+         wOMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684229059; x=1686821059;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FfIklMWyxHqT15p3DEDH7Q3m1hZaZiD2446SsTwPHNU=;
+        b=TutdG1WnPKWC+oJ0hXLC1O13/0zOO77z3omlzJhxGTMqnW4qx1W3eDXtUOpZhBg6ol
+         7a2MLuGMaEH/CWAl8m1XsxupQdozkAZ/hzCktZDaweBcuXS6pWbd+so60H4sQzbzePgg
+         0yPG7gS+hc8v0XsRf42G52ZCz76GC8syicbEhc3L7e+o+Q6SVE3mJlbxvRgGcPbsBTnq
+         a67QkOSIWnVnMXvUrQZCqZfHI6Al+nFcVnNRXRtcwpYlEJbpR/y33m9Ad+8B+eDr//Xk
+         P5qxRhnyOV0oKM3BpcgvnN0uUDDzHKOT8wch7EbeJLq/0d7U39popfYjHAaAhdtq0S+h
+         HTOQ==
+X-Gm-Message-State: AC+VfDx+N8ointIawFiaJ0Op1dPs8p1t45HnT9WfHCbkSl44oobMqFsl
+	1ezDZjIsgYnjr0ry5uIkpqnmuMvPsmZGPzm3Zls=
+X-Google-Smtp-Source: ACHHUZ6dVVtR+AmIfSaeJoNfitxBaphnrQs6YXNn+RDYS0Eqsag+GBvPqXOw+vtkGTHRoZgt/K23OijmrgS3mP3xCxw=
+X-Received: by 2002:a17:90b:33c4:b0:250:d293:5da0 with SMTP id
+ lk4-20020a17090b33c400b00250d2935da0mr21720438pjb.17.1684229058691; Tue, 16
+ May 2023 02:24:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230516071830.8190-3-zegao@tencent.com>
+From: Song Shuai <suagrfillet@gmail.com>
+Date: Tue, 16 May 2023 09:24:07 +0000
+Message-ID: <CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com>
+Subject: Bug report: kernel paniced when system hibernates
+To: alexghiti@rivosinc.com, robh@kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, anup@brainfault.org, palmer@rivosinc.com, 
+	jeeheng.sia@starfivetech.com, leyfoon.tan@starfivetech.com, 
+	mason.huo@starfivetech.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230516_022421_122303_A475D1E9 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,14 +87,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 16, 2023 at 03:18:28PM +0800, Ze Gao wrote:
-> Current implementation calls kprobe related functions before doing
-> ftrace recursion check in fprobe_kprobe_handler, which opens door
-> to kernel crash due to stack recursion if preempt_count_{add, sub}
-> is traceable.
+Description of problem:
 
-Which preempt_count*() are you referring to? The ones you just made
-_notrace in the previous patch?
+The latest hibernation support[1] of RISC-V Linux produced a kernel panic.
+The entire log has been posted at this link: https://termbin.com/sphl .
+
+How reproducible:
+
+You can reproduce it with the following step :
+
+1. prepare the environment with
+- Qemu-virt v8.0.0 (with OpenSbi v1.2)
+- Linux v6.4-rc1
+
+2. start the Qemu virt
+```sh
+$ cat ~/8_riscv/start_latest.sh
+#!/bin/bash
+/home/song/8_riscv/3_acpi/qemu/ooo/usr/local/bin/qemu-system-riscv64 \
+-smp 2 -m 4G -nographic -machine virt \
+-kernel /home/song/9_linux/linux/00_rv_test/arch/riscv/boot/Image \
+-append "root=/dev/vda ro eaylycon=uart8250,mmio,0x10000000
+early_ioremap_debug console=ttyS0 loglevel=8 memblock=debug
+no_console_suspend audit=0 3" \
+-drive file=/home/song/8_riscv/fedora/stage4-disk.img,format=raw,id=hd0 \
+-device virtio-blk-device,drive=hd0 \
+-drive file=/home/song/8_riscv/fedora/adisk.qcow2,format=qcow2,id=hd1 \
+-device virtio-blk-device,drive=hd1 \
+-gdb tcp::1236 #-S
+```
+3. execute hibernation
+
+```sh
+swapon /dev/vdb2 # this is my swap disk
+
+echo disk > /sys/power/state
+```
+
+4. Then you will encounter the kernel panic logged in the above link
+
+
+Other Information:
+
+After my initial and incomplete dig-up, the commit (3335068f8721
+"riscv: Use PUD/P4D/PGD pages for the linear mapping")[2]
+is closely related to this panic. This commit uses re-defined
+`MIN_MEMBLOCK_ADDR` to discover the entire system memory
+and extends the `va_pa_offset` from `kernel_map.phys_addr` to
+`phys_ram_base` for linear memory mapping.
+
+If the firmware delivered the firmware memory region (like: a PMP
+protected region in OpenSbi) without "no-map" propriety,
+this commit will result in firmware memory being directly mapped by
+`create_linear_mapping_page_table()`.
+
+We can see the mapping via ptdump :
+```c
+---[ Linear mapping ]---
+0xff60000000000000-0xff60000000200000 0x0000000080000000 2M PMD D A G
+. . W R V ------------- the firmware memory
+0xff60000000200000-0xff60000000c00000 0x0000000080200000 10M PMD D A G . . . R V
+0xff60000000c00000-0xff60000001000000 0x0000000080c00000 4M PMD D A G . . W R V
+0xff60000001000000-0xff60000001600000 0x0000000081000000 6M PMD D A G . . . R V
+0xff60000001600000-0xff60000040000000 0x0000000081600000 1002M PMD D A
+G . . W R V
+0xff60000040000000-0xff60000100000000 0x00000000c0000000 3G PUD D A G . . W R V
+---[ Modules/BPF mapping ]---
+---[ Kernel mapping ]---
+0xffffffff80000000-0xffffffff80a00000 0x0000000080200000 10M PMD D A G . X . R V
+0xffffffff80a00000-0xffffffff80c00000 0x0000000080c00000 2M PMD D A G . . . R V
+0xffffffff80c00000-0xffffffff80e00000 0x0000000080e00000 2M PMD D A G . . W R V
+0xffffffff80e00000-0xffffffff81400000 0x0000000081000000 6M PMD D A G . . . R V
+0xffffffff81400000-0xffffffff81800000 0x0000000081600000 4M PMD
+```
+
+In the hibernation process, `swsusp_save()` calls
+`copy_data_pages(&copy_bm, &orig_bm)` to copy these two memory
+bitmaps,
+the Oops(load access fault) occurred while copying the page of
+PAGE_OFFSET (which maps the firmware memory).
+
+I also did two other tests:
+Test1:
+
+The hibernation works well in the kernel with the commit 3335068f8721
+reverted at least in the current environment.
+
+Test2:
+
+I built a simple kernel module to simulate the access of the value of
+`PAGE_OFFSET` address, and the same panic occurred with the load
+access fault.
+So hibernation seems not the only case to trigger this panic.
+
+Finally, should we always leave the firmware memory with
+`MEMBLOCK_NOMAP` flag by some efforts from Linux or OpenSbi (at least
+in the current environment) or any other suggestions?
+
+Please correct me if I'm wrong.
+
+[1]: https://lore.kernel.org/r/20230330064321.1008373-5-jeeheng.sia@starfivetech.com
+[2]: https://lore.kernel.org/r/20230324155421.271544-4-alexghiti@rivosinc.com
+
+-- 
+Thanks,
+Song
 
 _______________________________________________
 linux-riscv mailing list
