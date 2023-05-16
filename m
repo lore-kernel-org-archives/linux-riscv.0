@@ -4,78 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283AFC77B7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6446EC7EE24
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 May 2023 09:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dF2gEjFZiEUM9zAMjaU4qgMepQlCvxPyGVWZHwZXwGw=; b=qElRbbVDm1aHh9
-	cT5IP62cgLDZf11wLbECJ+mwdxXzmedXPYMNqSfRRhGqwu0fA0yfEzS6MEROlcTe4VlSaViBYS81X
-	Afi9J/WPs1bCSqoZmr3PNi/TKPAgBpO1qAnAfd4D/UCfay/qhzjXeAUoqT0h4y0MFQBt1gJgGALsA
-	GH3e5YaB//UE2op7gd+o9NKNqQ01Q4nczUy1Rr/Z7tjF5ntGDoaGPmuU+jhZrD3gcve8w2o81IRtx
-	wuN56DuOiCu/qbp0OG8UABgE4qqebDd6aNwZpAIIc+13GNPgjhQHMIZNRP/zdmywmau9ZjOUrS1f6
-	Tg5feu6Xtt1m+7U0RhtQ==;
+	List-Owner; bh=KawN7YtftdqBFP1RcGOKl3/nHyPin7sbVa5qT7XXnI4=; b=rjVckQ1vrQEFcD
+	k43lMjFwrSZgRLod70puMMjbbJEXZrOZ3qRymr6FGCgFvFZENyyO78YXkvzzu2vWjXGT7RfNGBCjw
+	W6tWysjjfg7bQ7CaWkD/t8xnKVAyrIrjU75cdqQNhWRaIjwuFeD9we/rcd4/qIXc95aRczKHb3ks3
+	S8dy7ZjDGNGyXk7hGKyasONW1TzpiAkWYX1Wo+Gl4nRIu1BC6Y8Lnf2X8HffnKg2te6h+9uJVV/4/
+	lKX9e57W4FRS+0r4Gr2867HOOgu33wXSFp0MPEPcufuFukZvDp4h7Q6UjBNGq53x/InBLBWr9r/LP
+	KCa+gN9ck6xMC/1+NbZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyr8C-00567n-29;
-	Tue, 16 May 2023 09:38:08 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1pyrBj-0056m6-2u;
+	Tue, 16 May 2023 09:41:47 +0000
+Received: from mail-co1nam11olkn2082c.outbound.protection.outlook.com ([2a01:111:f400:7eab::82c] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pyr8A-005675-0v
+	id 1pyrBg-0056kn-1E
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 May 2023 09:38:07 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-24de9c66559so9554253a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 16 May 2023 02:38:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684229884; x=1686821884;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lcPyZ54ldUCQts1fa3VDXSS+xl2KucQtdFVpSxiwBxc=;
-        b=DU5/VIrFG7reTAO9QxhhODhV5q6nQbRuCcFF7dZS+vo49dM051KgUyLTkEGAY17YhA
-         NUGNaHs5g+z1g2S5tlreNpi9npqPyctgfVcd0xndJqnSK+rH/C5pdo8KDhhlMEDrJrMb
-         8jM9ZfbDgCjNowGUfj9bHMn/XwXc0dcDMrCJIj699zNypRCUhm6quAIUot8k8IuBoiS7
-         Khkjv4D+39G03t+FtvLUJzQm0f3FhID83B+2w8QYJTJh2exa6+XX6eJeeY2ZQaJNciXI
-         eawJngTYScPCmzGUv2+sDdBg+EIu8iAnjOO9eIj30DgNFWMJdg3yYUZdsJ5imJGfrseA
-         DJgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684229884; x=1686821884;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lcPyZ54ldUCQts1fa3VDXSS+xl2KucQtdFVpSxiwBxc=;
-        b=leO0pUE0EfVrhitHQSzE6yhOtML+WP512hEeYk55P4peZ5WRkZoQZ6ABMasROVOEpm
-         GrmQ/qugIVpjEJ69Sa1VeCwZEHhr21bgT0c75ItU22tuHhjagJQ8M4Pme+KNV1HaOF4i
-         0BKodTFRL37525+a1sZIhluEybYSh5X/ooXM0VCbZqNeBgdczzD4aKPmJC7yWqJ19QtG
-         s4KEZnAXHhUlO5JN6O14S31G3BagwnXM+59uZkaZMDkCmwQeG8x0xkdIiPILMHzFQy1S
-         KsCFmA9tHS2CoskMe8LZ28R1P3/Pzpx/1YSheKrlipfvnFjRfcOaX301jrTT5iKrBqRW
-         i7RA==
-X-Gm-Message-State: AC+VfDy1g5iUslXkjPpWhzU9G4i252eOQRjktpi3wx5nzEAxkE6XNi7h
-	3Qej5l6jKlX/fSekQCinoBVDSArYJx62YCGSi/4=
-X-Google-Smtp-Source: ACHHUZ66lklqalTjUc1ffo3yWrc+bRrfEml1qJYxgf/ydcHrvZSuxhSIWWtNK8ldHQ96S4/rnUtpu1XgkdQdHu4Km8Y=
-X-Received: by 2002:a17:90a:fe05:b0:250:9d75:abe7 with SMTP id
- ck5-20020a17090afe0500b002509d75abe7mr26052714pjb.47.1684229884532; Tue, 16
- May 2023 02:38:04 -0700 (PDT)
+	Tue, 16 May 2023 09:41:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Kbwsrc/6XDPvnqSi+sLC/q5d77K3SaZrL0AbFOc8qE30ZBMfuaP8k0QEjc7OUkD6Jry/CJgzGGXxk8Am3mH3ArJbF9hGAwwKXnSli0yL94hTlU+004MBroNkdUJdllduanx5uG58UZuY3ZGuhLlhCzxmoZTZuUVMnBZ+/IVnLYuu/fSVtgDt1N4PnYS/l5ALd0Ls3zQ/t/ctm6faIiK6TcGw/3MVRVS2RZHhY871PNwnIKL8xc8BUJrleoNbZJFvyKwZVnGolv3AeIV+/P9AEKbH59cN9xby012nuKKq3FQByTkntGXS3R4ujEG42/HTe8egsltzLq1aNRd4+eAv2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k4HZ2MjMokj3AFs2fMHt7XQF2uQ6RX1AW/3Q0vl2xyo=;
+ b=GinIJF53NzLb0l2ITcJK6b/EQZQ/ETd6rRcaHxAi6oISz5nzHSvpD83EyGW68LF5gucZwjms62XP6MpAyQdtKCR82g3dJDUaNcxTrzqvkdXkpusGRI5H2HEvznNsIlN9SvT/E8ikutDbNfChl9Eu8XJqp17LPsmuSo2m3YVyh5Nt6DdzZ6k6hOlkKGVR2hcT7BfgUMOCrQZ+stWh3kKSaZZhSLwfEvs8h46c7gglVe0t0FNMJJjdtaBnvIwiM9Cda2MqYgs/qDHGjHtdL52a+4cgt6KVcH96D+tnDLLNzKBgdsKzQuE7qglQafijwcX75e7ReOzyq4WlBChp4C9+Fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k4HZ2MjMokj3AFs2fMHt7XQF2uQ6RX1AW/3Q0vl2xyo=;
+ b=mw7quqMEeMzdewClrSiLwgesLbjq1pGaRRSKVwoEOVUV0r/ox/HmnSOd9rrQ1bPpnyg6BsUQ7ARworI7YLAJ8xndOuGfI9pYCG4Jb3n6acxo2KXnqTG8OBuUfrvHuQMnBTReBBMktlGdQkZvHsvxwmVrUd6yGmX4k0wwJG4s1SucLegV9tIZqim2eOEYO02H1r/bddoMiTjZQ4AiGVScvmiTWQM5UEOJyKklc/Mbmg4drgR+yXK3uNH56LTKWvHOSFJhg67jIsazgwj64x1+lDmyiyhV4k0b+apT09jqbGntN2PiGdPLZcPQL2Au4UOh9nAIYPlgorqITYq2rUdAuA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH7PR20MB5331.namprd20.prod.outlook.com (2603:10b6:510:1b9::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6387.33; Tue, 16 May
+ 2023 09:41:39 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::4770:9e0f:7f59:1989]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::4770:9e0f:7f59:1989%6]) with mapi id 15.20.6387.021; Tue, 16 May 2023
+ 09:41:39 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nikita Shubin <n.shubin@yadro.com>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/2] perf: add T-HEAD C9xx series cpu support
+Date: Tue, 16 May 2023 17:42:41 +0800
+Message-ID:  <IA1PR20MB4953ABF862B937CC98E300B4BB799@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <df1ffa574ca014cf5e23b3482efc5a7f432948af.camel@maquefel.me>
+References: <df1ffa574ca014cf5e23b3482efc5a7f432948af.camel@maquefel.me>
+X-TMN: [cVJDXY5CP+dOiB4tMunGNqJXnT0AX1/SO3hI5nljpqw=]
+X-ClientProxiedBy: TYCPR01CA0169.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b2::12) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID:  <20230516094241.479673-1-inochiama@outlook.com>
 MIME-Version: 1.0
-References: <20230511093234.3123181-1-suagrfillet@gmail.com>
- <20230511093234.3123181-5-suagrfillet@gmail.com> <20230515143700.26beeacf@gandalf.local.home>
-In-Reply-To: <20230515143700.26beeacf@gandalf.local.home>
-From: Song Shuai <suagrfillet@gmail.com>
-Date: Tue, 16 May 2023 09:37:53 +0000
-Message-ID: <CAAYs2=hd1geHCTGrO=JohTYtgu+yj+D7EPono-ADOGfjYnLfrA@mail.gmail.com>
-Subject: Re: [PATCH V10 4/4] samples: ftrace: Add riscv support for SAMPLE_FTRACE_DIRECT[_MULTI]
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	mhiramat@kernel.org, mark.rutland@arm.com, guoren@kernel.org, 
-	jszhang@kernel.org, e.shatokhin@yadro.com, bjorn@rivosinc.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB5331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f1e97de-3557-4f08-e48b-08db55f1bf90
+X-MS-Exchange-SLBlob-MailProps: 	V85gaVfRD48pZMVLM19SXxGmTzdWqu7HTyHI52ikUKBkr0JYQYx9y6r62xF/YJw/aNWUn5mGKOKAT+4ieqJVNVJAK7beI7OhuTjKrmXoZfQJkSX7Fqz7o2pnwwEt+QbuEcvfHDWL9phk5R0iWIjaVKgHE/JoJp+OTVr8GOCZz44gOc1kudjH3SOe0c255cLyMeNWya5SWqAFrsGzDsz8Vn7K/nZftkdtoNE6oDnUA1+CFCpwKnEXQHqf5oolw7mcqCgvTNHJePKXI7vvEWGotlpDLy/bZXyvEGNBTGeIWpnyd1ehH9xKMElYG8FAierx+HIlgVjt/SU150Sho6TBBVeWTcsxbX22B6B2SKGhSwUOCw9eKRaLX9gOwiMppa4ycQ5rkMa0bKtHWpQs3hxzjiWi4EKkDK7xkd//y0joZonjwn4NpCMghfN/PmtihttuNy46XksyacGBYyvhgKgRpqq0PRx7KxVj0H8T54IP91nBWpHplPoCY5lDkrLpNYpY2bx/FAvFqfYfaB7UEEUmug0tbAruApfYOQDkEiMA/gNzjvrwHH+114hBJYv75BDYgbfKvKEcxNp62OVhAfDI2tsD7YzmEyIU0wb7XIvcj4KlQr8XI91qz1AojEAze04f7B/XSbYIGuEvFDwuQymF/wN/6Tiroc0UPhcjGYOcNEmDNuFD0yzZ06kBlFA+W5pKk7gcCua+5k+rOcBuyTV/edcFzqOyXHI1rAMS3msRm1F8HjppVYP6cimt05daRSNzhBPGdjD285J1WzgeZZ20vopi+ZDm0lDENHyFfIGvJ0ErSJQdNHkakBbnd0mPC8LEPEaJj+25zYg4oRc9J5QS5g==
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	YmI06LfpNlBC2aExdoEY0y6aQjLNnKFJJ7qXFln6AM2D3H5/AEqy73DCKDDTAbT0oZwMXTW0qM8B7JvRKtS5LEuMTVy+6W08V/ctcjOYQGtUhcbxhWx+ifMQLhNpoZeq3ryRtNoXk4aHE3TTznZoShcNP7iNPE1dv/LPEL2PBwMyq2GIyoHo5p+oJdVdtPvrRCQjP6SilYullrlEXeQ72MPQTOFkSOKtq+hBUPMCtV/P1kf/CvijecUCvGoZzzG1+A6VyVOzGazkp1Q1j2gej+E2kYl7eLFBZUmp4ofJDw7siK8k0f9aY2EbdoqNNFZqJpl6jiNMC36/OmnaUf7LBWEiTtsJ0/duAczvVG+l0lKnV3jC3KQvmryu70Lg1xuzam1/QJd9t19y+0RWcUedlnEku2J3tHyx9qa3Mw7NT0AeHqE69S/m9UkRzHvC9ak4sDrQ+bTude+bYMeGg+X3Cgz1YIpnF8sQjQj4T4FrzpBKOTT5kONl7Q/qvfEFgrlYI4fJTj547wNiDmXonECFYpOTk75YXm5oxmXaD31lViMjf0roHIxlsfR3TSRcOzadityLGh/8wzrPa2O0Qsjxf9dZCw/WhX6ymFRH3YnhsTx+YF+T2svQpkhcSoMNdAJHjXldA0q0T8IX8vCzADzncw==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?pDLMh5tQS//lI0k9AsmlWUsACw9stZDFQ9HYwGR2NbbyXjAaHT2GUE96uNGQ?=
+ =?us-ascii?Q?27zbAKCjZ+rb/NmNMrrSxfg5zZkDE+O51fx0OfELzQENMPdpu5Rf9PG8pFAI?=
+ =?us-ascii?Q?nsUijLYPi1GbKoHvLkgxlcsa0NKRlwS+IFMEqjOPBTbFm37zogLs4NmNSuAN?=
+ =?us-ascii?Q?DNbnhcjOR+xlXdyOx6FCeOkFlUqgeR9dhzGZOI0q4ECixvU7xK1wp2Q0cHMO?=
+ =?us-ascii?Q?/aZiarKuZDH00uQuKXI+1XIPZWKSRKbZkm8+l5hQb/fY63Wnfp0OqBsAgz8r?=
+ =?us-ascii?Q?KzEE0COi4Pqhc69r5taDrkhpqXkR116nmwCTDhFSfdUviMmHqRkGJZ6cpT9l?=
+ =?us-ascii?Q?65ATqLz7RM7Hok0Rl/aEnb9OehTheGtLGLULnJpo/EAWH6UAtgy44IM9QE4C?=
+ =?us-ascii?Q?DjVQaCd1syK0uej+P3HNezM256yx85eZ8k98i0LHWa3On3m82UPox+CuaI53?=
+ =?us-ascii?Q?Rpb+EIMXs+Z72T2vvs+Nb7ZEGJNV3NwCYRP6go3aF+dyE82DftO6iW/PcSSI?=
+ =?us-ascii?Q?rt5uH5YctPDWW96u6XovAKHkEJ6mA6bMq4malgCuDreQNDXuKPkgMklFyEdX?=
+ =?us-ascii?Q?riBNeIcWzvPmO7pTiqb065a6TEOsJLz26SdbI6y0jwdRgFMdzqpZd429ZVfs?=
+ =?us-ascii?Q?zFXNh6iSAI4nq2rFGzG5nzM6AEGfamkI3MJY2hz21CUoO5AE4zbICApGceJi?=
+ =?us-ascii?Q?pYRiWPpg3fJVLigSFBsmnB/gRWVhQjLgIw/y7QbUJExKF60bHWJmmncqJZUH?=
+ =?us-ascii?Q?Pie4wU5JwTgqhdxMSR6GGMTMRh4FHYyOTDvlhjCyntiWXIeCCBS3eZCJ9QLS?=
+ =?us-ascii?Q?DmSOLOLAclzSKoLu7Ig93MIhCpKtb556nnsgVc5K5iJQuuNZPkG4qv9XTjOl?=
+ =?us-ascii?Q?nUGwTkhDO8Depf10Tqh66mHAVSrzIb/ab8pL7teavcLUjCcxaLWmhMeJJl8+?=
+ =?us-ascii?Q?hZbdlk6AiX/COLVAWhVyRHlHjcKJIy5KpG0a3DL9e3qdxeyRV+PauVTcHDFd?=
+ =?us-ascii?Q?P8Oh/C0I/MN3efIklvnM6oBpJmZDU5/uweV3Pgj1ze9YAnXdGtBTr1YO/Hg0?=
+ =?us-ascii?Q?8G/zRi1Y0Z5fGlSe6GrEooSN5r5aBM8s5d94d2tVW8G9YAIDk4KpS1HKCsP8?=
+ =?us-ascii?Q?M5nePePuWfkQp3ifDc/zx7YUTLR41UafhXIvt+tv9LYMZfLzXw2j4ngTlWTz?=
+ =?us-ascii?Q?HIKl/9AqLVXXIGuV84wSlij87nZMtrJkghQ6B2nbiUoJaJnIbRx0wy+V3KA?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f1e97de-3557-4f08-e48b-08db55f1bf90
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2023 09:41:39.4800
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB5331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230516_023806_324678_F3CE564E 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20230516_024144_424958_9E887EE6 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +134,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3RldmVuIFJvc3RlZHQgPHJvc3RlZHRAZ29vZG1pcy5vcmc+IOS6jjIwMjPlubQ15pyIMTXml6Xl
-kajkuIAgMTg6MzflhpnpgZPvvJoKPgo+IE9uIFRodSwgMTEgTWF5IDIwMjMgMTc6MzI6MzQgKzA4
-MDAKPiBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+IHdyb3RlOgo+Cj4gPiBzZWxl
-Y3QgSEFWRV9TQU1QTEVfRlRSQUNFX0RJUkVDVCBhbmQgSEFWRV9TQU1QTEVfRlRSQUNFX0RJUkVD
-VF9NVUxUSQo+ID4gZm9yIEFSQ0hfUlY2NEkgaW4gYXJjaC9yaXNjdi9LY29uZmlnLiBBbmQgYWRk
-IHJpc2N2IGFzbSBjb2RlIGZvcgo+ID4gdGhlIGZ0cmFjZS1kaXJlY3QqLmMgZmlsZXMgaW4gc2Ft
-cGxlcy9mdHJhY2UvLgo+ID4KPiA+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
-LXJpc2N2L2M2OGJhYzgzLTVjODgtODBiMS1iYWM5LWUxZmQ0ZWE4ZjA3ZUB5YWRyby5jb20vVC8j
-bWExMzAxMjU2MDMzMWM2NmIwNTFiNTgwYjNhYjRhMDRiYTQ0NDU1ZWMKPiA+IFRlc3RlZC1ieTog
-RXZnZW5paSBTaGF0b2toaW4gPGUuc2hhdG9raGluQHlhZHJvLmNvbT4KPiA+IFNpZ25lZC1vZmYt
-Ynk6IFNvbmcgU2h1YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4KPiA+IFRlc3RlZC1ieTogR3Vv
-IFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9y
-ZW5Aa2VybmVsLm9yZz4KPiA+IEFja2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2lu
-Yy5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHwgIDIgKysKPiA+ICBzYW1wbGVzL2Z0cmFjZS9mdHJhY2UtZGlyZWN0LW1vZGlmeS5j
-ICAgICAgIHwgMzQgKysrKysrKysrKysrKysrKysrCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNl
-LWRpcmVjdC1tdWx0aS1tb2RpZnkuYyB8IDQwICsrKysrKysrKysrKysrKysrKysrKwo+ID4gIHNh
-bXBsZXMvZnRyYWNlL2Z0cmFjZS1kaXJlY3QtbXVsdGkuYyAgICAgICAgfCAyNCArKysrKysrKysr
-KysrCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNlLWRpcmVjdC10b28uYyAgICAgICAgICB8IDI3
-ICsrKysrKysrKysrKysrCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNlLWRpcmVjdC5jICAgICAg
-ICAgICAgICB8IDIzICsrKysrKysrKysrKwo+ID4gIDYgZmlsZXMgY2hhbmdlZCwgMTUwIGluc2Vy
-dGlvbnMoKykKPgo+IEkgYWNrZWQgdjggKHdoaWNoIHlvdSB3aWxsIG5lZWQgbXkgYWNrIHRvIGdl
-dCB0aGVzZSBpbikuIFVubGVzcyB0aGlzIHBhdGNoCj4gY2hhbmdlZCBzaW5jZSB2OCwgeW91IHNo
-b3VsZCBpbmNsdWRlIG15IGFjayBpbiBmdXJ0aGVyIHZlcnNpb25zLgo+ClRoZXJlIHdlcmUgbm8g
-Y2hhbmdlcyBpbiB0aGlzIHBhdGNoLCBleGNlcHQgZm9yIGEgZmV3IHRhYiBwcmV0dGllcyBzaW5j
-ZSB2OC4KeW91ciBBY2tlZC1ieSB3aWxsIHN0aWxsIGJlIGluY2x1ZGVkLgo+IE9yIHlvdSBtYXkg
-YmUgd2FpdGluZyBsb25nZXIgZm9yIGl0cyBhY2NlcHRhbmNlLgo+Cj4gSWYgdGhlIHBhdGNoIGRp
-ZCBjaGFuZ2UsIHBsZWFzZSBhY2tub3dsZWRnZSB0aGF0IGluIHRoZSBuZXh0IHZlcnNpb24gKG9y
-Cj4gdGhpcyBvbmUgaWYgaXQgZGlkIGNoYW5nZSksIGFza2luZyBtZSB0byBhY2sgaXQgYWdhaW4u
-Cj4KPiAtLSBTdGV2ZQoKCgotLSAKVGhhbmtzLApTb25nCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+A minimal example for C910 is as follows, I have test this on a C920 chip.
+
+pmu {
+	compatible = "riscv,pmu";
+	riscv,event-to-mhpmcounters =
+		// event-start event-end a bitmap of all the MHPMCOUNTERx
+		<0x00006 0x00006 0x00000400>,
+		<0x00005 0x00005 0x00000800>,
+		<0x10000 0x10000 0x00004000>,
+		<0x10001 0x10001 0x00008000>,
+		<0x10002 0x10002 0x00010000>,
+		<0x10003 0x10003 0x00020000>,
+		<0x10008 0x10008 0x00000008>,
+		<0x10009 0x10009 0x00000010>,
+		<0x10010 0x10010 0x00040000>,
+		<0x10011 0x10011 0x00080000>,
+		<0x10012 0x10012 0x00100000>,
+		<0x10013 0x10013 0x00200000>,
+		<0x10019 0x10019 0x00000040>,
+		<0x10021 0x10021 0x00000020>;
+	riscv,event-to-mhpmevent =
+		// event-id event-selector
+		/* mhpmevent3: L1I_READ_ACCESS */
+		<0x10008 0x00000000 0x00000001>,
+		/* mhpmevent4: L1I_READ_MISS */
+		<0x10009 0x00000000 0x00000002>,
+		/* mhpmevent5: ITLB_READ_MISS */
+		<0x10021 0x00000000 0x00000003>,
+		/* mhpmevent6: DTLB_READ_MISS */
+		<0x10019 0x00000000 0x00000004>,
+		/* mhpmevent10: PMU_HW_BRANCH_MISSES */
+		<0x00006 0x00000000 0x00000008>,
+		/* mhpmevent11: PMU_HW_BRANCH_INSTRUCTIONS */
+		<0x00005 0x00000000 0x00000009>,
+		/* mhpmevent14: L1D_READ_ACCESS */
+		<0x10000 0x00000000 0x0000000c>,
+		/* mhpmevent15: L1D_READ_MISS */
+		<0x10001 0x00000000 0x0000000d>,
+		/* mhpmevent16: L1D_WRITE_ACCESS */
+		<0x10002 0x00000000 0x0000000e>,
+		/* mhpmevent17: L1D_WRITE_MISS */
+		<0x10003 0x00000000 0x0000000f>,
+		/* mhpmevent18: LL_READ_ACCESS */
+		<0x10010 0x00000000 0x00000010>,
+		/* mhpmevent19: LL_READ_MISS */
+		<0x10011 0x00000000 0x00000011>,
+		/* mhpmevent20: LL_WRITE_ACCESS */
+		<0x10012 0x00000000 0x00000012>,
+		/* mhpmevent21: LL_WRITE_MISS */
+		<0x10013 0x00000000 0x00000013>;
+	riscv,raw-event-to-mhpmcounters =
+		/* mhpmevent3: L1 ICache Access Counter */
+		<0x00000000 0x00000001 0xffffffff 0xffffffff 0x00000008>,
+		/* mhpmevent4: L1 ICache Miss Counter */
+		<0x00000000 0x00000002 0xffffffff 0xffffffff 0x00000010>,
+		/* mhpmevent5: I-UTLB Miss Counter */
+		<0x00000000 0x00000003 0xffffffff 0xffffffff 0x00000020>,
+		/* mhpmevent6: D-UTLB Miss Counter */
+		<0x00000000 0x00000004 0xffffffff 0xffffffff 0x00000040>,
+		/* mhpmevent7: JTLB Miss */
+		<0x00000000 0x00000005 0xffffffff 0xffffffff 0x00000080>,
+		/* mhpmevent8: Conditional Branch Mispredict */
+		<0x00000000 0x00000006 0xffffffff 0xffffffff 0x00000100>,
+		/* mhpmevent9: Conditional Branch Instruction Counter */
+		/* <0x00000000 0x00000007 0xffffffff 0xffffffff 0x00000200>, */
+		/* mhpmevent10: Indirect Branch Mispredict Counter */
+		<0x00000000 0x00000008 0xffffffff 0xffffffff 0x00000400>,
+		/* mhpmevent11: Indirect Branch Instruction Counter */
+		<0x00000000 0x00000009 0xffffffff 0xffffffff 0x00000800>,
+		/* mhpmevent12: LSU Spec Fail */
+		<0x00000000 0x0000000a 0xffffffff 0xffffffff 0x00001000>,
+		/* mhpmevent13: Store Instruction */
+		<0x00000000 0x0000000b 0xffffffff 0xffffffff 0x00002000>,
+		/* mhpmevent14: L1 DCache read access Counter */
+		<0x00000000 0x0000000c 0xffffffff 0xffffffff 0x00004000>,
+		/* mhpmevent15: L1 DCache read miss Counter */
+		<0x00000000 0x0000000d 0xffffffff 0xffffffff 0x00008000>,
+		/* mhpmevent16: L1 DCache write access Counter */
+		<0x00000000 0x0000000e 0xffffffff 0xffffffff 0x00010000>,
+		/* mhpmevent17: L1 DCache write access Counter */
+		<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>,
+		/* mhpmevent18: L2 Cache read access Counter */
+		<0x00000000 0x00000010 0xffffffff 0xffffffff 0x00040000>,
+		/* mhpmevent19: L2 Cache read miss Counter */
+		<0x00000000 0x00000011 0xffffffff 0xffffffff 0x00080000>,
+		/* mhpmevent20: L2 Cache write access Counter */
+		<0x00000000 0x00000012 0xffffffff 0xffffffff 0x00100000>,
+		/* mhpmevent21: L2 Cache write miss Counter */
+		<0x00000000 0x00000013 0xffffffff 0xffffffff 0x00200000>,
+		/* mhpmevent22: RF Launch Fail */
+		<0x00000000 0x00000014 0xffffffff 0xffffffff 0x00400000>,
+		/* mhpmevent23: RF Reg Launch Fail */
+		<0x00000000 0x00000015 0xffffffff 0xffffffff 0x00800000>,
+		/* mhpmevent24: RF Instruction */
+		<0x00000000 0x00000016 0xffffffff 0xffffffff 0x01000000>,
+		/* mhpmevent25: LSU Cross 4K Stall */
+		<0x00000000 0x00000017 0xffffffff 0xffffffff 0x02000000>,
+		/* mhpmevent26: LSU Other Stall */
+		<0x00000000 0x00000018 0xffffffff 0xffffffff 0x04000000>,
+		/* mhpmevent27: LSU SQ Discard */
+		<0x00000000 0x00000019 0xffffffff 0xffffffff 0x08000000>,
+		/* mhpmevent28: LSU SQ Data Discard */
+		<0x00000000 0x0000001a 0xffffffff 0xffffffff 0x10000000>;
+};
+
+
+> Hello Inochi Amaoto!
+>
+> Thank you for your series!
+>
+> Could you also provide HPM device tree bindings which were used in
+> OpenSBI for testing in cover letter ?
+>
+> On Tue, 2023-05-16 at 10:37 +0800, Inochi Amaoto wrote:
+> > The T-HEAD C9xx series cpu is a series of riscv CPU IP. As this IP
+> > was
+> > proposed before the current riscv event standard. It has a non-
+> > standard
+> > events encoding for perf events and unimplemented MARCH and MIMP CSR.
+> > This patch add these events to support C9xx cpus.
+> >
+> > AFAIK, at least the following chips used C9xx cpu.
+> >
+> > * Allwinner D1 (C906)
+> > * T-HEAD th1520 (C910)
+> > * Sophgo mango (C920)
+> >
+> > Inochi Amaoto (2):
+> >   perf tools riscv: Allow get_cpuid return empty MARCH and MIMP
+> >   perf vendor events riscv: add T-HEAD C9xx JSON file
+> >
+> >  tools/perf/arch/riscv/util/header.c           |  7 +-
+> >  tools/perf/pmu-events/arch/riscv/mapfile.csv  |  1 +
+> >  .../arch/riscv/t-head/c9xx/cache.json         | 67
+> > ++++++++++++++++++
+> >  .../arch/riscv/t-head/c9xx/firmware.json      | 68
+> > +++++++++++++++++++
+> >  .../arch/riscv/t-head/c9xx/instruction.json   | 22 ++++++
+> >  .../arch/riscv/t-head/c9xx/microarch.json     | 42 ++++++++++++
+> >  6 files changed, 201 insertions(+), 6 deletions(-)
+> >  create mode 100644 tools/perf/pmu-events/arch/riscv/t-
+> > head/c9xx/cache.json
+> >  create mode 100644 tools/perf/pmu-events/arch/riscv/t-
+> > head/c9xx/firmware.json
+> >  create mode 100644 tools/perf/pmu-events/arch/riscv/t-
+> > head/c9xx/instruction.json
+> >  create mode 100644 tools/perf/pmu-events/arch/riscv/t-
+> > head/c9xx/microarch.json
+> >
+> > --
+> > 2.40.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
