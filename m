@@ -4,126 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9626C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B24C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PByfwzw+o5YNLMTuq7b6K9E27+KaiNL/OHdGtpH+UFc=; b=Kdc/nO8cUiqjVD
-	66qlpaoRnDzx4q5gRYiRWfPBD0TSG41uIidmN4Kjd4FbgkQN3ti97LwISYbDkjlal7nvx79TT4EBg
-	bSMGTH8SJm8rU0TzmCZdMj1GffXHX8GeKTCWiK/Phdk3xU20kEspJSzOrSZadvkMDyD1SkAIdqu5y
-	VTH6D0cMlnBJG8ChArNp9hXbx0oIG7x/pm53aurPBX22y/TDt1+wqrO5gqRKL914hFxnMoHa0WQcg
-	A/8AzvyXkPVTo/JYCWoiOw5cWAwmpuZGn1p1dYRw7KVJDgsShDCVjdU80v/iVs65Wg/CS7dBHJj8R
-	yqFStKl7+EXZFX4IKqiw==;
+	List-Owner; bh=2Et5ovEiUVvmeU1KD2vA0h1dkmOm+JtDfyU52mZX38E=; b=RXL+nQQwy3VpI0
+	B7MEJx5YfB/7zq7dZQBPlpxNoQGdQXawccox0txNaE9J+s9dkGV1PuG9/vdxPlNhlPFSMp6cBZrqF
+	MKrTdUbaYMR3l2IM31d3K1tR2glPZo9LLorXWTLlWMoc3Xd4qRjMAVQZ6YwQ+9wDapEyRzlDixqsi
+	mRSjMhuO8QrUpjPXy0Spph0QbQ7U2sAWlHlF/jF3Vr/PqlQt3wS0LmGd1NSEVQv2Z/c2ZIGKYax8+
+	RzSAsk1kAXvnsfS3EyP5EqvrILUjK7DuENK2B31vMMo4Ut4VFm6jrr9ZpM+AK6r7/e2dFTDLVI7qA
+	QWnG27iRh7KJxG577S2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzFLK-009beo-0s;
-	Wed, 17 May 2023 11:29:18 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1pzFVs-009dmh-1C;
+	Wed, 17 May 2023 11:40:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzFLE-009bdO-0S;
-	Wed, 17 May 2023 11:29:16 +0000
-Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34HB7BJC023902;
-	Wed, 17 May 2023 11:28:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=NDNDo483NWCxuBgC62EmEkRd88RyM/bkMdaCrqWiEjU=;
- b=VRtGkAflt6Ne1p93gyowlWX7j5boLIQ7h0nC9VIo7uX3bwTrUs3t4FOkk1lJTYXqc25V
- 9FamFmiSWFwwyWa1DKrOu9DcxLjGAv2i0jSAymPQgGQf5P0M1OluYrFgT26OhkCmT/su
- BOKQtACZlOM4qdl7albr+SCOM7HzolGHsX5OPk132gsH5r9G7psINiKU8nGXVgkrlm0G
- JFTSinpEe96JQbyAanKB2Lfpy9cfYcMtNW6I0KolKOl1iMwgb7HevQZDAfJyxXafubsX
- 7gBNmSwaGFu7ct5RonhF3KWLIHQEwZVWECGZeI9L5VSTs6GPXqMDDHdOU4895qB3OFQc 4w== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmw5v1gq1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 17 May 2023 11:28:14 +0000
-Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34HB7Pi6025529;
-	Wed, 17 May 2023 11:28:13 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmw5v1gn6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 17 May 2023 11:28:12 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34H2RRIs022653;
-	Wed, 17 May 2023 11:28:09 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3qj264t4u2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 17 May 2023 11:28:09 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34HBS6QC63177030
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 17 May 2023 11:28:06 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 203902004B;
-	Wed, 17 May 2023 11:28:06 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0CE9620040;
-	Wed, 17 May 2023 11:28:05 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 17 May 2023 11:28:04 +0000 (GMT)
-Date: Wed, 17 May 2023 13:28:03 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Hugh Dickins <hughd@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-        Mike Kravetz <mike.kravetz@oracle.com>,
-        Mike Rapoport <rppt@kernel.org>,
-        "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-        Matthew Wilcox <willy@infradead.org>,
-        David Hildenbrand <david@redhat.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Qi Zheng <zhengqi.arch@bytedance.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>,
-        "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org
-Subject: Re: [PATCH 16/23] s390: gmap use pte_unmap_unlock() not spin_unlock()
-Message-ID: <ZGS6Q9jb/Rjwi4Rm@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <5579873-d7b-65e-5de0-a2ba8a144e7@google.com>
+	id 1pzFVr-009dm7-1b
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 17 May 2023 11:40:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=XnOhsCKUNf4j2F648NsHEKKBHDpVNoPzgPfBBed6WBg=; b=RFJmyVUEl4zPnrowhRfAaRGPPq
+	+x+1oZDYSR0NfubgUPA2ZKxOXW18HxQQ2EkoBEKc4HpBOtHRdQuaRU5FLfUD7qyJg3ScxHqgBlaKo
+	uJ/1PSOE/Fl8V1oAAGvmPoMv5JL3djkZS9M3naVnbnKQolJqPPj6aK6hXirDYu5kkZ92EohiedwPm
+	FVTkNb6dpIH/1g/CsKrTXNVBwdSf8hsHlF2IL16mROrOaVgXgjb3cso0NThGg11V5fGfNarFRJA8c
+	G9GKaLSH7LSWGh1XEFUad71ejRpOOn1dGboMcBgP2XJziG66q9JbFI8QWevzdIMzTZe82jHumBLuR
+	jV5woi2Q==;
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pzElS-00DCI5-1n
+	for linux-riscv@lists.infradead.org;
+	Wed, 17 May 2023 10:52:16 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-6aaef8ca776so262811a34.2
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:52:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1684320732; x=1686912732;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XnOhsCKUNf4j2F648NsHEKKBHDpVNoPzgPfBBed6WBg=;
+        b=g2yi3AaRkRwdBtQd5CqRoeg8TTW8xKU3XmhgS6LAVponwNaamGMYJAqmHrlwQITSd7
+         sZFUmJSqaB2LAASj4vO6JAuxtgYgJTV091bASYnT79J7AuD46vBQ8kztOiF35gDKod/u
+         WzzJtgDM6A3xzBGpjRRQ+tkgd/PP3bzVmhWbj9wiHa67krT9Furp02pZ/9Ehg/0GL1s4
+         r5pXrGoAfjpmMXOHhLXIFbGaFS9YHQOU8VifIaWIdxnv3r+iNS0e0v/A7V589cDadcMB
+         MctvEpk2KQGIBo/EqDbVwkX34nPOnBcstFgc0vhPWWoeSERTeb+6YF8FOCgzF6/VYD1h
+         VfkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684320732; x=1686912732;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XnOhsCKUNf4j2F648NsHEKKBHDpVNoPzgPfBBed6WBg=;
+        b=iKmkMibUBc8grGnTfNmdKMM/NqwE/wWihEyaKXCK5fIXpTreiOccCMghj/PpKAbmUl
+         sowdACoAn4QH2nEKLQ7yqHdcNbFbnK9ZOTAC7YU5LRoBOC6RwKySawYy5nnQaNu8TNEA
+         FmxR56kdnQVnGM7NP+Oufi8zHNDyuqd/x/AXvnFEGRPjFsc+1YW4r/oH0waAcZM7S4Sl
+         FVusQgdgPtZQXwMXyASqmtRb80nP5dwdgxi4L3CwV/QpQBJhxe3Y78ZaK4hQIFKI3Nee
+         r4kFSRMCL1rlcUC55vjuA6FEVUxFMM1CpiPGuPzUmc/QRtDGkkX2iXyZqw4Q4JxKTC5c
+         YIQg==
+X-Gm-Message-State: AC+VfDzJRGlja3Yrq+FNhxgbKVmpSkaafjpPbgTApByR5mfAMI81TM6y
+	9xzX2W7KxkwAq2oPriCTZ4+WuQ==
+X-Google-Smtp-Source: ACHHUZ4QRhXpGGdXM2qHmqmIZ3HYfQgH1aLNjkUKY8D7KEBAQRhAKW/SUpzqiGVgA91qNxhIAt0zCA==
+X-Received: by 2002:a05:6830:139a:b0:6ab:7b2:d2d4 with SMTP id d26-20020a056830139a00b006ab07b2d2d4mr14282130otq.37.1684320732561;
+        Wed, 17 May 2023 03:52:12 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.52.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 May 2023 03:52:12 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 05/10] RISC-V: KVM: Skeletal in-kernel AIA irqchip support
+Date: Wed, 17 May 2023 16:21:30 +0530
+Message-Id: <20230517105135.1871868-6-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230517105135.1871868-1-apatel@ventanamicro.com>
+References: <20230517105135.1871868-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5579873-d7b-65e-5de0-a2ba8a144e7@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: tSWvl9C0MlO4O_EzCFOjF_JcbOB8NztS
-X-Proofpoint-ORIG-GUID: NWm_n_tm0YYcdEmwRmZvkdtWX-DujuzO
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-05-17_02,2023-05-17_02,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 clxscore=1011
- spamscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=780
- priorityscore=1501 mlxscore=0 impostorscore=0 suspectscore=0
- malwarescore=0 phishscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2304280000 definitions=main-2305170090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_042915_588229_AB0AD13F 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20230517_115214_727126_263F344F 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,18 +114,272 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 10:02:32PM -0700, Hugh Dickins wrote:
-> pte_alloc_map_lock() expects to be followed by pte_unmap_unlock(): to
-> keep balance in future, pass ptep as well as ptl to gmap_pte_op_end(),
-> and use pte_unmap_unlock() instead of direct spin_unlock() (even though
-> ptep ends up unused inside the macro).
-> 
-> Signed-off-by: Hugh Dickins <hughd@google.com>
-> ---
->  arch/s390/mm/gmap.c | 22 +++++++++++-----------
->  1 file changed, 11 insertions(+), 11 deletions(-)
+To incrementally implement in-kernel AIA irqchip support, we first
+add minimal skeletal support which only compiles but does not provide
+any functionality.
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/kvm_aia.h  |  20 ++++++
+ arch/riscv/include/asm/kvm_host.h |   4 ++
+ arch/riscv/include/uapi/asm/kvm.h |   4 ++
+ arch/riscv/kvm/Kconfig            |   4 ++
+ arch/riscv/kvm/aia.c              |   8 +++
+ arch/riscv/kvm/vm.c               | 115 ++++++++++++++++++++++++++++++
+ 6 files changed, 155 insertions(+)
+
+diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+index 0938e0cadf80..3bc0a0e47a15 100644
+--- a/arch/riscv/include/asm/kvm_aia.h
++++ b/arch/riscv/include/asm/kvm_aia.h
+@@ -45,6 +45,7 @@ struct kvm_vcpu_aia {
+ #define irqchip_in_kernel(k)		((k)->arch.aia.in_kernel)
+ 
+ extern unsigned int kvm_riscv_aia_nr_hgei;
++extern unsigned int kvm_riscv_aia_max_ids;
+ DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+ #define kvm_riscv_aia_available() \
+ 	static_branch_unlikely(&kvm_riscv_aia_available)
+@@ -116,6 +117,25 @@ static inline void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
+ {
+ }
+ 
++static inline int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm,
++						 u32 hart_index,
++						 u32 guest_index, u32 iid)
++{
++	return 0;
++}
++
++static inline int kvm_riscv_aia_inject_msi(struct kvm *kvm,
++					   struct kvm_msi *msi)
++{
++	return 0;
++}
++
++static inline int kvm_riscv_aia_inject_irq(struct kvm *kvm,
++					   unsigned int irq, bool level)
++{
++	return 0;
++}
++
+ static inline void kvm_riscv_aia_init_vm(struct kvm *kvm)
+ {
+ }
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index ee0acccb1d3b..871432586a63 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -27,6 +27,8 @@
+ 
+ #define KVM_VCPU_MAX_FEATURES		0
+ 
++#define KVM_IRQCHIP_NUM_PINS		1024
++
+ #define KVM_REQ_SLEEP \
+ 	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+ #define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(1)
+@@ -318,6 +320,8 @@ int kvm_riscv_gstage_vmid_init(struct kvm *kvm);
+ bool kvm_riscv_gstage_vmid_ver_changed(struct kvm_vmid *vmid);
+ void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu);
+ 
++int kvm_riscv_setup_default_irq_routing(struct kvm *kvm, u32 lines);
++
+ void __kvm_riscv_unpriv_trap(void);
+ 
+ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index f92790c9481a..332d4a274891 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -15,6 +15,7 @@
+ #include <asm/bitsperlong.h>
+ #include <asm/ptrace.h>
+ 
++#define __KVM_HAVE_IRQ_LINE
+ #define __KVM_HAVE_READONLY_MEM
+ 
+ #define KVM_COALESCED_MMIO_PAGE_OFFSET 1
+@@ -203,6 +204,9 @@ enum KVM_RISCV_SBI_EXT_ID {
+ #define KVM_REG_RISCV_SBI_MULTI_REG_LAST	\
+ 		KVM_REG_RISCV_SBI_MULTI_REG(KVM_RISCV_SBI_EXT_MAX - 1)
+ 
++/* One single KVM irqchip, ie. the AIA */
++#define KVM_NR_IRQCHIPS			1
++
+ #endif
+ 
+ #endif /* __LINUX_KVM_RISCV_H */
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index 28891e583259..dfc237d7875b 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -21,6 +21,10 @@ config KVM
+ 	tristate "Kernel-based Virtual Machine (KVM) support (EXPERIMENTAL)"
+ 	depends on RISCV_SBI && MMU
+ 	select HAVE_KVM_EVENTFD
++	select HAVE_KVM_IRQCHIP
++	select HAVE_KVM_IRQFD
++	select HAVE_KVM_IRQ_ROUTING
++	select HAVE_KVM_MSI
+ 	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index 3f97575707eb..18c442c15ff2 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -26,6 +26,7 @@ static DEFINE_PER_CPU(struct aia_hgei_control, aia_hgei);
+ static int hgei_parent_irq;
+ 
+ unsigned int kvm_riscv_aia_nr_hgei;
++unsigned int kvm_riscv_aia_max_ids;
+ DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+ 
+ static int aia_find_hgei(struct kvm_vcpu *owner)
+@@ -618,6 +619,13 @@ int kvm_riscv_aia_init(void)
+ 	 */
+ 	kvm_riscv_aia_nr_hgei = 0;
+ 
++	/*
++	 * Find number of guest MSI IDs
++	 *
++	 * TODO: To be updated later by AIA IMSIC HW guest file support
++	 */
++	kvm_riscv_aia_max_ids = IMSIC_MAX_ID;
++
+ 	/* Initialize guest external interrupt line management */
+ 	rc = aia_hgei_init();
+ 	if (rc)
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index 6ef15f78e80f..d2349326b2ce 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -55,6 +55,121 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+ 	kvm_riscv_aia_destroy_vm(kvm);
+ }
+ 
++int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irql,
++			  bool line_status)
++{
++	if (!irqchip_in_kernel(kvm))
++		return -ENXIO;
++
++	return kvm_riscv_aia_inject_irq(kvm, irql->irq, irql->level);
++}
++
++int kvm_set_msi(struct kvm_kernel_irq_routing_entry *e,
++		struct kvm *kvm, int irq_source_id,
++		int level, bool line_status)
++{
++	struct kvm_msi msi;
++
++	if (!level)
++		return -1;
++
++	msi.address_lo = e->msi.address_lo;
++	msi.address_hi = e->msi.address_hi;
++	msi.data = e->msi.data;
++	msi.flags = e->msi.flags;
++	msi.devid = e->msi.devid;
++
++	return kvm_riscv_aia_inject_msi(kvm, &msi);
++}
++
++static int kvm_riscv_set_irq(struct kvm_kernel_irq_routing_entry *e,
++			     struct kvm *kvm, int irq_source_id,
++			     int level, bool line_status)
++{
++	return kvm_riscv_aia_inject_irq(kvm, e->irqchip.pin, level);
++}
++
++int kvm_riscv_setup_default_irq_routing(struct kvm *kvm, u32 lines)
++{
++	struct kvm_irq_routing_entry *ents;
++	int i, rc;
++
++	ents = kcalloc(lines, sizeof(*ents), GFP_KERNEL);
++	if (!ents)
++		return -ENOMEM;
++
++	for (i = 0; i < lines; i++) {
++		ents[i].gsi = i;
++		ents[i].type = KVM_IRQ_ROUTING_IRQCHIP;
++		ents[i].u.irqchip.irqchip = 0;
++		ents[i].u.irqchip.pin = i;
++	}
++	rc = kvm_set_irq_routing(kvm, ents, lines, 0);
++	kfree(ents);
++
++	return rc;
++}
++
++bool kvm_arch_can_set_irq_routing(struct kvm *kvm)
++{
++	return irqchip_in_kernel(kvm);
++}
++
++int kvm_set_routing_entry(struct kvm *kvm,
++			  struct kvm_kernel_irq_routing_entry *e,
++			  const struct kvm_irq_routing_entry *ue)
++{
++	int r = -EINVAL;
++
++	switch (ue->type) {
++	case KVM_IRQ_ROUTING_IRQCHIP:
++		e->set = kvm_riscv_set_irq;
++		e->irqchip.irqchip = ue->u.irqchip.irqchip;
++		e->irqchip.pin = ue->u.irqchip.pin;
++		if ((e->irqchip.pin >= KVM_IRQCHIP_NUM_PINS) ||
++		    (e->irqchip.irqchip >= KVM_NR_IRQCHIPS))
++			goto out;
++		break;
++	case KVM_IRQ_ROUTING_MSI:
++		e->set = kvm_set_msi;
++		e->msi.address_lo = ue->u.msi.address_lo;
++		e->msi.address_hi = ue->u.msi.address_hi;
++		e->msi.data = ue->u.msi.data;
++		e->msi.flags = ue->flags;
++		e->msi.devid = ue->u.msi.devid;
++		break;
++	default:
++		goto out;
++	}
++	r = 0;
++out:
++	return r;
++}
++
++int kvm_arch_set_irq_inatomic(struct kvm_kernel_irq_routing_entry *e,
++			      struct kvm *kvm, int irq_source_id, int level,
++			      bool line_status)
++{
++	if (!level)
++		return -EWOULDBLOCK;
++
++	switch (e->type) {
++	case KVM_IRQ_ROUTING_MSI:
++		return kvm_set_msi(e, kvm, irq_source_id, level, line_status);
++
++	case KVM_IRQ_ROUTING_IRQCHIP:
++		return kvm_riscv_set_irq(e, kvm, irq_source_id,
++					 level, line_status);
++	}
++
++	return -EWOULDBLOCK;
++}
++
++bool kvm_arch_irqchip_in_kernel(struct kvm *kvm)
++{
++	return irqchip_in_kernel(kvm);
++}
++
+ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ {
+ 	int r;
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
