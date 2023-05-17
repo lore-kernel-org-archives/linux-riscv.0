@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D8FC77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079FAC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FgVzaYnxyeCoDCZUNPmI4tv0lIZ+1bGbcp718wpUNOU=; b=1DIazqzmFG2iUU
-	kU6zki4aZ87BJVgYjY7BoUhZL6YRb6xjdtvotLCCZHt7RXiZAdlNszPE9ALrAy1SurHbgTs/9ym5B
-	z/wlKV2+bszlB3Rdt+1HZz3CnfwUzF8fflqr/6biQ+T6zlIIx8G++c+Dcz9rI+j4tTgRInHB8mJ8T
-	WhawNxuGMT1MUelZaiXd2zmEG/p/VJAybDNYBGob4c6wjto2955iE6QscffN+OqvN3TQPH/NS4I4p
-	SuQTRuiFcJN+s/ogAcx8LO6Y8DqbJg1RGUQPD3xw7QkhZXmpSNSSxIeGod2qMfdkFZTUlQiRtNrjA
-	OZoeEc/QBXPrJWk9t7dQ==;
+	List-Owner; bh=kLZd2XNNT/Ret/NJAwiJkXMmot56tZ7182FXkKGoRTg=; b=Tqdd0TBDcQwl4k
+	vdMGU0dSqZiJIh3RvYuwvOJmS68KzwExbJgFYjxeLa6C11S+2B301s5lb+/1X46ugYuocJzd7rc0d
+	ywDA/w9C3qgLT6pH4lppGCpPZiMyWeyhqzpVrnosvRGCMPjSwFrArF9uE8IYoR6WYVVmf32z34n5v
+	Qy5to3QgyROBScOnun9sQsX+2DWrssrscHz5QBoRzx4Cspeo8QGCColno4sC23mgzX62Zq1m01QHM
+	HM3HJ+thTUTaHlwDDa/YHMT8pNxG+kqxXBtUOnfdeFnNtNInMOv6m5QwdAgyrhS0osdWTg/8ubaLa
+	RQcWPsnxUMK/38bnIe2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzH3i-009xED-1C;
-	Wed, 17 May 2023 13:19:14 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
+	id 1pzHVu-00A1ye-2r;
+	Wed, 17 May 2023 13:48:22 +0000
+Received: from mail-ed1-f53.google.com ([209.85.208.53])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzH3g-009xCv-0q
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 13:19:13 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out2.suse.de (Postfix) with ESMTP id EA71E1FD68;
-	Wed, 17 May 2023 13:19:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1684329545; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0yEaZ9wXA+cWPA25h9EIXyAIeYp+OM3Sb2sM7l1qBrs=;
-	b=ZuDLXj2q3LjuAXxfYXFwPYc1S7uyoELs8tGkJ7Jk1zO1qX9fWmrsZfajes9lw068PoF9A8
-	nJKMvRxm5U5TINr5p/kRbnck4/ydolVIGq2cFp0CFMmEQXFCeIUVIwUkDmNH2b3DtvKlSg
-	vIsrlolp/vXZpqcYLsGp1czILwqvVkM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1684329545;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0yEaZ9wXA+cWPA25h9EIXyAIeYp+OM3Sb2sM7l1qBrs=;
-	b=HBCJlgZNK6zh9eXCRf0J3+tjRLv9+YX1OfIXxgyCNUkoGgaQx+IyxviEZsX9mxGTmQCIZP
-	9Lep3ohD8ldxieDA==
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by relay2.suse.de (Postfix) with ESMTP id 516F72C141;
-	Wed, 17 May 2023 13:19:05 +0000 (UTC)
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 39BA64A04DB; Wed, 17 May 2023 15:19:05 +0200 (CEST)
-From: Andreas Schwab <schwab@suse.de>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: <linux-riscv@lists.infradead.org>,  <devicetree@vger.kernel.org>,
-  "Michael Turquette" <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>,  Philipp Zabel
- <p.zabel@pengutronix.de>,  Conor Dooley <conor@kernel.org>,  "Emil Renner
- Berthing" <kernel@esmil.dk>,  Rob Herring <robh+dt@kernel.org>,  Paul
- Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Hal Feng <hal.feng@starfivetech.com>,
-  <linux-kernel@vger.kernel.org>,  <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v5 08/10] reset: starfive: jh7110: Add StarFive
- STG/ISP/VOUT resets support
-In-Reply-To: <20230424135409.6648-9-xingyu.wu@starfivetech.com> (Xingyu Wu's
-	message of "Mon, 24 Apr 2023 21:54:07 +0800")
-References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
-	<20230424135409.6648-9-xingyu.wu@starfivetech.com>
-X-Yow: Yow!  I'm imagining a surfer van filled with soy sauce!
-Date: Wed, 17 May 2023 15:19:05 +0200
-Message-ID: <mvmsfbvgkom.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1pzHVr-00A1wD-1h;
+	Wed, 17 May 2023 13:48:20 +0000
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-504d149839bso196110a12.1;
+        Wed, 17 May 2023 06:48:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684331296; x=1686923296;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ktinit9wKE6dNmLgC8Q+hzsuqEwfbXOj0+wtuIuj7PA=;
+        b=LUggSp02rATYyPKsku9NCDP+m8jbOKY0BVU981mISjz8XKGoCLVULXY6hykhJ8l/ut
+         doocXyUh41nHj0SPt4j5KaD2u+XUIET7CFo+dH/DJYJLrv3fms2zynHDxMt+vgSMNXu2
+         cUMGTuPs6oqGarqSiJXS2UOnyGjhcYvZpD86lPETCP4AZxJkhG3YYTW4m+vODa8GFp3M
+         EoDZ+lNFixxuPe2NOIJT7ieG5no4K1vuo18pBoYpjyBtQNryZ8kI3Y8aP75Gc6/lH8CW
+         zbn9Up1IGBKpnXj54rdWZjuaR95AbOB/hWilQmzIhsuvXKLMjZhivCilI5TrZlyrSx26
+         ZqzQ==
+X-Gm-Message-State: AC+VfDx3ib6zFFk5AEOaSP1QVqYj96CWDTf1LP6cfc4iuPIdqunW3fPu
+	V+qpEq+dqhS3URx22qOzJxnTnCenKEQ4cQIjfmg=
+X-Google-Smtp-Source: ACHHUZ6M9EgcbaCbKF8EZaqyFXATppYniPvZEHcewZCPT/QYkFrutGUliTGcVVnKvC2nG18eSQY5J4nCD2m1yx3JtWA=
+X-Received: by 2002:a17:906:778a:b0:92e:f520:7762 with SMTP id
+ s10-20020a170906778a00b0092ef5207762mr2003855ejm.6.1684331295491; Wed, 17 May
+ 2023 06:48:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230517131102.934196-1-arnd@kernel.org> <20230517131102.934196-11-arnd@kernel.org>
+In-Reply-To: <20230517131102.934196-11-arnd@kernel.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 17 May 2023 15:48:04 +0200
+Message-ID: <CAJZ5v0h0spuxK-7LBJSU9BK2TEOUeMjf7hhKScadkxFN_RwStQ@mail.gmail.com>
+Subject: Re: [PATCH 10/14] suspend: add a arch_resume_nosmt() prototype
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	x86@kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>, Paul Moore <paul@paul-moore.com>, 
+	Eric Paris <eparis@redhat.com>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Christoph Lameter <cl@linux.com>, Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>, 
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, audit@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kunit-dev@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061912_468428_EE716C7F 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230517_064819_565656_007DEDDC 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +84,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Apr 24 2023, Xingyu Wu wrote:
-
-> @@ -58,6 +76,18 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
->  		.name = "clk_starfive_jh7110_sys.rst-aon",
->  		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
->  	},
-> +	{
-> +		.name = "clk_starfive_jh7110_sys.rst-stg",
-> +		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
-> +	},
-> +	{
-> +		.name = "clk_starfive_jh7110_sys.rst-isp",
-> +		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
-> +	},
-> +	{
-> +		.name = "clk_starfive_jh7110_sys.rst-vout",
-
-"clk_starfive_jh7110_sys.rst-vout" is exactly AUXILIARY_NAME_SIZE long,
-thus lacks a null termination.
-
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXkgMTcsIDIwMjMgYXQgMzoxMuKAr1BNIEFybmQgQmVyZ21hbm4gPGFybmRAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+
+Cj4gVGhlIGFyY2hfcmVzdW1lX25vc210KCkgaGFzIGEgX193ZWFrIGRlZmluaXRpb24sIHBsdXMg
+YW4geDg2Cj4gc3BlY2lmaWMgb3ZlcnJpZGUsIGJ1dCBubyBwcm90b3R5cGUgdGhhdCBlbnN1cmVz
+IHRoZSB0d28gaGF2ZQo+IHRoZSBzYW1lIGFyZ3VtZW50cy4gVGhpcyBjYXVzZXMgYSBXPTEgd2Fy
+bmluZzoKPgo+IGFyY2gveDg2L3Bvd2VyL2hpYmVybmF0ZS5jOjE4OTo1OiBlcnJvcjogbm8gcHJl
+dmlvdXMgcHJvdG90eXBlIGZvciAnYXJjaF9yZXN1bWVfbm9zbXQnIFstV2Vycm9yPW1pc3Npbmct
+cHJvdG90eXBlc10KPgo+IEFkZCB0aGUgcHJvdG90eXBlIGluIGxpbnV4L3N1c3BlbmQuaCwgd2hp
+Y2ggaXMgaW5jbHVkZWQgaW4KPiBib3RoIHBsYWNlcy4KPgo+IFNpZ25lZC1vZmYtYnk6IEFybmQg
+QmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+CgpEbyB5b3Ugd2FudCBtZSB0byBwaWNrIHRoaXMgdXA/
+CgpJZiBub3QKCkFja2VkLWJ5OiBSYWZhZWwgSi4gV3lzb2NraSA8cmFmYWVsQGtlcm5lbC5vcmc+
+Cgo+IC0tLQo+ICBpbmNsdWRlL2xpbnV4L3N1c3BlbmQuaCB8IDIgKysKPiAgMSBmaWxlIGNoYW5n
+ZWQsIDIgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvc3VzcGVu
+ZC5oIGIvaW5jbHVkZS9saW51eC9zdXNwZW5kLmgKPiBpbmRleCBmMTY2NTNmN2JlMzIuLmJjOTEx
+ZmVjYjhlOCAxMDA2NDQKPiAtLS0gYS9pbmNsdWRlL2xpbnV4L3N1c3BlbmQuaAo+ICsrKyBiL2lu
+Y2x1ZGUvbGludXgvc3VzcGVuZC5oCj4gQEAgLTQ3Miw2ICs0NzIsOCBAQCBzdGF0aWMgaW5saW5l
+IGludCBoaWJlcm5hdGVfcXVpZXRfZXhlYyhpbnQgKCpmdW5jKSh2b2lkICpkYXRhKSwgdm9pZCAq
+ZGF0YSkgewo+ICB9Cj4gICNlbmRpZiAvKiBDT05GSUdfSElCRVJOQVRJT04gKi8KPgo+ICtpbnQg
+YXJjaF9yZXN1bWVfbm9zbXQodm9pZCk7Cj4gKwo+ICAjaWZkZWYgQ09ORklHX0hJQkVSTkFUSU9O
+X1NOQVBTSE9UX0RFVgo+ICBpbnQgaXNfaGliZXJuYXRlX3Jlc3VtZV9kZXYoZGV2X3QgZGV2KTsK
+PiAgI2Vsc2UKPiAtLQo+IDIuMzkuMgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
