@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00A4C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DD9C77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MZAjt8vxvixkcGSeLXZMG1HGjKsTr8LnwGFtx6o9vtA=; b=FEa7nSOhIJ48P4
-	CKengVJhQDJNl/uIDWUXOa4F5iDBV9a6CH2AbxQU65JXNpGyShlQ+fzxX9rGkrQOmMfdqE5OFygEN
-	Yu/94WJ8i6zAylC3TH0N7wyO+LxZP1Nh2hKqaXP8TTTI6ssRHU2iqzPXDm3V255q5dRYbTWeYf8BS
-	Dt1AikHqbEo+6Gp/HUCj2lbX4GpAwuSpTqzAZNDsPbAdF33BR7vnFcL3iaQQtQbMMTql56nra5qGy
-	8ePU4mnoBlbC/zH9bRK7jQB/1c9FLptWE4OwfE9rZ63rodm3Ap5LzJz/TwQe+NflwaRNX4FPobOFV
-	nOBGtlVBNxVa9otnYQrA==;
+	List-Owner; bh=VMlKUjynbStEdJtbq9JU+S4D6XU+15d9DzHnJy7oqLM=; b=avWTnQeYXXp+Xu
+	6s3fPVMyV+LTPL8HbJ7dpDu+azb6q65nC5+WCeFEq8L2uRuimNhQnxvdIEfAKGNTK6GbkAi+rnTsT
+	R8Fqvc+ilnqaN/Lp/NTnggQcxu3KuNCkCdg1A1uRlnnLCHavgLKVCQjKUmZOfiQGl0Ca9hFGFuqCj
+	j7YtU30h+ce5xL7LtC/Q8JtSJRitFI1FduugkFJPQjEaqaQ9Ra/ewtpVzn78Yfdq3vdClzzB/YCTn
+	QWLHtM9P2G7QxHuxwaC7brjpYt2baSETiq5031SUYsJcccmrWlmOu4CNiN8fBa3dClQR647letpUy
+	+GwDrIr+Q39JHDE1rh5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGxy-009vNj-0x;
-	Wed, 17 May 2023 13:13:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pzGy8-009vYY-04;
+	Wed, 17 May 2023 13:13:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGxr-009vGa-2a;
-	Wed, 17 May 2023 13:13:15 +0000
+	id 1pzGxz-009vOv-1x;
+	Wed, 17 May 2023 13:13:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E6D6D642BB;
-	Wed, 17 May 2023 13:13:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82ACBC433A1;
-	Wed, 17 May 2023 13:13:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0C39F63EF0;
+	Wed, 17 May 2023 13:13:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A0DAC433D2;
+	Wed, 17 May 2023 13:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684329190;
-	bh=d19FT2UXzed3oRWIfJJFjSTk/2JiLUfj9No4RlO7/6Q=;
+	s=k20201202; t=1684329198;
+	bh=tA8vDceOtwnaYEmuvRonEkfnHU5EgkwYZJxxRjDBrtY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=D1+6zXZHFnxnG+wOAs+I7Jk3ZmwjP67pJgzP0uRLk1KweQErWDtrD6kcCaiJbOcnT
-	 FeyForINJFNNHVR7SlZDLxBqXsy6U1Q8QSU2g7HzT+HDxANY+2tRRB/juS7IWqHnN0
-	 R7uJEX9uIR2BJ1iVGwpgqVvJxOimPbuxDH8nVE33oigOLH+a2C6WGLVT5O2FBvlKz1
-	 1cchN4Ol9FfjcJdHRvb6NG6ME/EGUJBb5JSRXXIOYIHDL60v7knAjAptFgq2qEdzKr
-	 kBNHvdOcis7Z2szvD6pixKpaEvKxiNP2G0OykAdHnW8HCBkYh+jiZUMYx1rLc8DsBc
-	 EwxZhq5xDzb7g==
+	b=KZhlxehR2rDeiAnVDqzTiOa3ksnRODBJzi001SQy9km83BCh+sSslpUVguoSeN8Il
+	 uwXHjW+IYnLrcNsvGw9/vc5PlLdSb4Gcq8SNGb+9U7jqrv+4zSwUd9/9bPNimcMQok
+	 LPjRXrVXwWwUwdDMoTBXVMqAwdmMv0pYUVWZ/lWbR3Sum2O620By8zNUB4CsRzRnGT
+	 B8+bZt42Vt5lZ795+/xA9/1lKx/j2eJjWnya+dwVW+/eXJBG2ACQBiEl2QIn7S24uR
+	 aIHSN8P8r0X9oWG4waSTw5ry47uHOhsMogxlxAjjiT3E57B6sfhCFfCGfKcQYgqDcQ
+	 jSutqMkSXP8Ng==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-mm@kvack.org,
@@ -81,16 +81,16 @@ Cc: linux-mm@kvack.org,
 	linux-pm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kunit-dev@googlegroups.com
-Subject: [PATCH 12/14] init: move cifs_root_data() prototype into linux/mount.h
-Date: Wed, 17 May 2023 15:11:00 +0200
-Message-Id: <20230517131102.934196-13-arnd@kernel.org>
+Subject: [PATCH 13/14] thread_info: move function declarations to linux/thread_info.h
+Date: Wed, 17 May 2023 15:11:01 +0200
+Message-Id: <20230517131102.934196-14-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230517131102.934196-1-arnd@kernel.org>
 References: <20230517131102.934196-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061311_943097_758EFA83 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20230517_061319_764480_D8FFA6FD 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +109,99 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-cifs_root_data() is defined in cifs and called from early init
-code, but lacks a global prototype:
+There are a few __weak functions in kernel/fork.c, which architectures
+can override. If there is no prototype, the compiler warns about them:
 
-fs/cifs/cifsroot.c:83:12: error: no previous prototype for 'cifs_root_data'
+kernel/fork.c:164:13: error: no previous prototype for 'arch_release_task_struct' [-Werror=missing-prototypes]
+kernel/fork.c:991:20: error: no previous prototype for 'arch_task_cache_init' [-Werror=missing-prototypes]
+kernel/fork.c:1086:12: error: no previous prototype for 'arch_dup_task_struct' [-Werror=missing-prototypes]
 
-Move the declaration from do_mounts.c into an appropriate header.
+There are already prototypes in a number of architecture specific headers
+that have addressed those warnings before, but it's much better to have
+these in a single place so the warning no longer shows up anywhere.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- include/linux/mount.h | 2 ++
- init/do_mounts.c      | 2 --
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/thread_info.h | 4 ----
+ arch/s390/include/asm/thread_info.h  | 3 ---
+ arch/sh/include/asm/thread_info.h    | 3 ---
+ arch/x86/include/asm/thread_info.h   | 3 ---
+ include/linux/thread_info.h          | 5 +++++
+ 5 files changed, 5 insertions(+), 13 deletions(-)
 
-diff --git a/include/linux/mount.h b/include/linux/mount.h
-index 1ea326c368f7..f381eb44b24c 100644
---- a/include/linux/mount.h
-+++ b/include/linux/mount.h
-@@ -124,4 +124,6 @@ extern int iterate_mounts(int (*)(struct vfsmount *, void *), void *,
- 			  struct vfsmount *);
- extern void kern_unmount_array(struct vfsmount *mnt[], unsigned int num);
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index 848739c15de8..553d1bc559c6 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -55,10 +55,6 @@ struct thread_info {
+ void arch_setup_new_exec(void);
+ #define arch_setup_new_exec     arch_setup_new_exec
  
-+extern int cifs_root_data(char **dev, char **opts);
-+
- #endif /* _LINUX_MOUNT_H */
-diff --git a/init/do_mounts.c b/init/do_mounts.c
-index 811e94daf0a8..83447c46ad6d 100644
---- a/init/do_mounts.c
-+++ b/init/do_mounts.c
-@@ -489,8 +489,6 @@ static int __init mount_nfs_root(void)
- 
- #ifdef CONFIG_CIFS_ROOT
- 
--extern int cifs_root_data(char **dev, char **opts);
+-void arch_release_task_struct(struct task_struct *tsk);
+-int arch_dup_task_struct(struct task_struct *dst,
+-				struct task_struct *src);
 -
- #define CIFSROOT_TIMEOUT_MIN	5
- #define CIFSROOT_TIMEOUT_MAX	30
- #define CIFSROOT_RETRY_MAX	5
+ #endif
+ 
+ #define TIF_SIGPENDING		0	/* signal pending */
+diff --git a/arch/s390/include/asm/thread_info.h b/arch/s390/include/asm/thread_info.h
+index c7c97921ed8d..a674c7d25da5 100644
+--- a/arch/s390/include/asm/thread_info.h
++++ b/arch/s390/include/asm/thread_info.h
+@@ -52,9 +52,6 @@ struct thread_info {
+ 
+ struct task_struct;
+ 
+-void arch_release_task_struct(struct task_struct *tsk);
+-int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+-
+ void arch_setup_new_exec(void);
+ #define arch_setup_new_exec arch_setup_new_exec
+ 
+diff --git a/arch/sh/include/asm/thread_info.h b/arch/sh/include/asm/thread_info.h
+index 1400fbb8b423..9f19a682d315 100644
+--- a/arch/sh/include/asm/thread_info.h
++++ b/arch/sh/include/asm/thread_info.h
+@@ -84,9 +84,6 @@ static inline struct thread_info *current_thread_info(void)
+ 
+ #define THREAD_SIZE_ORDER	(THREAD_SHIFT - PAGE_SHIFT)
+ 
+-extern void arch_task_cache_init(void);
+-extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+-extern void arch_release_task_struct(struct task_struct *tsk);
+ extern void init_thread_xstate(void);
+ 
+ #endif /* __ASSEMBLY__ */
+diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
+index f1cccba52eb9..d63b02940747 100644
+--- a/arch/x86/include/asm/thread_info.h
++++ b/arch/x86/include/asm/thread_info.h
+@@ -232,9 +232,6 @@ static inline int arch_within_stack_frames(const void * const stack,
+ 			   current_thread_info()->status & TS_COMPAT)
+ #endif
+ 
+-extern void arch_task_cache_init(void);
+-extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+-extern void arch_release_task_struct(struct task_struct *tsk);
+ extern void arch_setup_new_exec(void);
+ #define arch_setup_new_exec arch_setup_new_exec
+ #endif	/* !__ASSEMBLY__ */
+diff --git a/include/linux/thread_info.h b/include/linux/thread_info.h
+index c02646884fa8..9ea0b28068f4 100644
+--- a/include/linux/thread_info.h
++++ b/include/linux/thread_info.h
+@@ -256,6 +256,11 @@ check_copy_size(const void *addr, size_t bytes, bool is_source)
+ static inline void arch_setup_new_exec(void) { }
+ #endif
+ 
++void arch_task_cache_init(void); /* for CONFIG_SH */
++void arch_release_task_struct(struct task_struct *tsk);
++int arch_dup_task_struct(struct task_struct *dst,
++				struct task_struct *src);
++
+ #endif	/* __KERNEL__ */
+ 
+ #endif /* _LINUX_THREAD_INFO_H */
 -- 
 2.39.2
 
