@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CE9C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3878C77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1dWALGt6xt96Bw1dbWvae781m0kHp3M5ElydlDeAUas=; b=aVY+9D1EaQM/4c
-	hdlyMsQfUC6QiSBQ4X7/mhe9WhkUNoed3W1c54ipE5OWKrETEN7mN5TvAUOq0ZVhu0orS2M57iLIB
-	m6Pm6kYLdfuXp3fg/cVrz0xdFKCX53rxEI1ZtZh9k7MEZR4aoN+EbPo5OS0MwGJBL0FFCeL7bO4VZ
-	5XWLmgZpJhXunsNq3lKW/zeqZ14dGaCC7BoypNwISiTYBNEL1h1LtnPrf3yOBmERzbzi+igiyWwiI
-	OBUmGVXFD1mqtHDo3q/NPGnUFLs5E/KfmdzUGz4mKyf3JD+7Y8WxsnY6211Kiqjtz7rVcwNhQlFXj
-	B5vQhskcDkJnzST3q2gw==;
+	List-Owner; bh=ioX3s/sDCm3RrCSDdW8dc0rtRxSiztohrehv16CPXQ8=; b=vDX8ri4c/xVeAq
+	x94iMUzYs9cKafrK5H03EZsGngmCPDW++uQDaTMvsk6GGs5uPcHtVlwmzp6x6gXrr0rlOOOsP7LF1
+	O1ozsEeTZMlNJzyeGcz15epk6nFvD3tqAJU/YvfINDJmvxPRwdGFxwq9/rBliPxopxTxQKSoG1V60
+	Fe7XWdDE3uYBSr+Hg+LHHBYFGObSJoU1bRVszBYnIIwtRWbnCIODfXOw6MzF6pBR0vx02fd98FRip
+	64qlAHHmMoEXWeLIJY66UgrAOb9330Kuk+2lLNsLsoNJG4FN4Q8pdqoDliwrPOhyrSwoRq1ct81YL
+	C5sl2p6knV2fTCnIDBmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGwZ-009u7y-29;
-	Wed, 17 May 2023 13:11:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzGwf-009uBt-38;
+	Wed, 17 May 2023 13:11:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGwW-009u6L-1k;
-	Wed, 17 May 2023 13:11:49 +0000
+	id 1pzGwd-009u9u-0N;
+	Wed, 17 May 2023 13:11:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EBCE1646FD;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9BFB364710;
+	Wed, 17 May 2023 13:11:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFB3FC433A0;
 	Wed, 17 May 2023 13:11:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C17AC433A1;
-	Wed, 17 May 2023 13:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684329106;
-	bh=3mI163DMR4d+cuXu5u65rsW45kyqp2CKp+3eSlb6arE=;
+	s=k20201202; t=1684329114;
+	bh=9B5dm6uPcP99pu9DbgwVzUA/R+xqpwJ+x8zkV0/Vqc0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Fc6SUEmSZTQUkEUQjfQXj6txmruIJCzCuO4Ae3j0P53kfZPDs/OWZkdHVUzrtWv5M
-	 0rPrYmGV3lkc2LdVoiXnN0tesbaj+I+HdnU+5OYNZ19tKdQSCcQFdCfF7CIjRf43g3
-	 HHrOqIEp3ibRRhUsGRDH+Iul9ef7vI7xGy9SOg7wZXkSxKf5Bbrmmph902wZT+4dAO
-	 hkBdrDx6I/lx0He0nfCXC9E/60W8qZMraYv4eYeOaM6lvyD6ZDXWH5H+onPY0eEF1E
-	 Z4hxRtdg3qOggQ4VULZzLpo6PInRLslC9REuvbQ434IZjCDyjjo139W2Et9i6tb9pM
-	 t75TKQPb0GvKQ==
+	b=KeFwGIi38GKw31XBFip9DpSNaAPrSt+ly1tSHZlHJrUQWVYjO1Fj/sEgW+9BoVS0P
+	 1CrH3z3kj7gZ+Vr3uvhUt8V+7wc31EPrn9XE0ouppLIc4CVNNyDqrxV3hSyS0OYCcT
+	 l6bP27FiyG5vaBbcs1CEMoLgy4FK3NoP8/k/lHQ4NbbcS554m3wfxgTcIxR8LnL/1k
+	 w4FDAsAOVUKikEub9HmaUUnNVrFTBKOFClJ6tqzPc8F5THSvUHsl1wW7KSrODpL1Hc
+	 vIHWM9fXWcirhdtfcUUfuWVrVUe5drsdLKZft1YCHcGKupFyIGgZk3oWSTFEILf4s7
+	 1sLZ52Eo3Zk7g==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-mm@kvack.org,
@@ -81,16 +81,16 @@ Cc: linux-mm@kvack.org,
 	linux-pm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kunit-dev@googlegroups.com
-Subject: [PATCH 01/14] mm: percpu: unhide pcpu_embed_first_chunk prototype
-Date: Wed, 17 May 2023 15:10:49 +0200
-Message-Id: <20230517131102.934196-2-arnd@kernel.org>
+Subject: [PATCH 02/14] mm: page_poison: always declare __kernel_map_pages() function
+Date: Wed, 17 May 2023 15:10:50 +0200
+Message-Id: <20230517131102.934196-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230517131102.934196-1-arnd@kernel.org>
 References: <20230517131102.934196-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061148_628255_6A12866F 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20230517_061155_251862_BE476107 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,37 +109,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-This function is called whenever CONFIG_NEED_PER_CPU_EMBED_FIRST_CHUNK
-or CONFIG_HAVE_SETUP_PER_CPU_AREA, but only declared when the
-former is set:
+The __kernel_map_pages() function is mainly used for
+CONFIG_DEBUG_PAGEALLOC, but has a number of architecture specific
+definitions that may also be used in other configurations, as well
+as a global fallback definition for architectures that do not support
+DEBUG_PAGEALLOC.
 
-mm/percpu.c:3055:12: error: no previous prototype for 'pcpu_embed_first_chunk' [-Werror=missing-prototypes]
+When the option is disabled, any definitions without the prototype
+cause a warning:
 
-There is no real point in hiding declarations, so just remove
-the #ifdef here.
+mm/page_poison.c:102:6: error: no previous prototype for '__kernel_map_pages' [-Werror=missing-prototypes]
+
+The function is a trivial nop here, so just declare it anyway
+to avoid the warning.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- include/linux/percpu.h | 2 --
- 1 file changed, 2 deletions(-)
+ include/linux/mm.h | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/include/linux/percpu.h b/include/linux/percpu.h
-index 1338ea2aa720..42125cf9c506 100644
---- a/include/linux/percpu.h
-+++ b/include/linux/percpu.h
-@@ -103,12 +103,10 @@ extern void __init pcpu_free_alloc_info(struct pcpu_alloc_info *ai);
- extern void __init pcpu_setup_first_chunk(const struct pcpu_alloc_info *ai,
- 					 void *base_addr);
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 27ce77080c79..e95d7c575ea6 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -3453,13 +3453,12 @@ static inline bool debug_pagealloc_enabled_static(void)
+ 	return static_branch_unlikely(&_debug_pagealloc_enabled);
+ }
  
--#ifdef CONFIG_NEED_PER_CPU_EMBED_FIRST_CHUNK
- extern int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- 				size_t atom_size,
- 				pcpu_fc_cpu_distance_fn_t cpu_distance_fn,
- 				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
--#endif
- 
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- void __init pcpu_populate_pte(unsigned long addr);
+-#ifdef CONFIG_DEBUG_PAGEALLOC
+ /*
+  * To support DEBUG_PAGEALLOC architecture must ensure that
+  * __kernel_map_pages() never fails
+  */
+ extern void __kernel_map_pages(struct page *page, int numpages, int enable);
+-
++#ifdef CONFIG_DEBUG_PAGEALLOC
+ static inline void debug_pagealloc_map_pages(struct page *page, int numpages)
+ {
+ 	if (debug_pagealloc_enabled_static())
 -- 
 2.39.2
 
