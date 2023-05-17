@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9502C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 12:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FD9C7EE2C
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 12:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kmDypBlgm/Nf8V1OSfvxL77YtjJDcPRvtIaD6ANFbtg=; b=N6zuqMcOgHgvzR
-	KALaC4amie5gcgi06FUtc2D6UpyGKYsbis+vRsBSU8Y7jGVwV5Fo0W+mOXtNwU4KEbnW0YoocMS88
-	eBvEhIiQO4oq0+X+k73EvsjRbCTc/Y372YysNe+bTZeNriMche44DW9wx/wiywiQhAD1apWHc4AsZ
-	BqmnNniogMVE1kzaS1X1ur3sggA+Ac1wEK/bJBUO6CYKctVNiPIMHEzZTxaTnQ7S2Wlc4eXPSBoGP
-	kV0R8Frp+kwfGyWtshpMJAukcnHYD7o8+OGe8lUGpF+Jj6bgejYCxmaiwK6DwNf0XBRHnC2SwS1K2
-	k/bCakIgCDWD3d8y8Aqg==;
+	List-Owner; bh=Li+hMZghcG2HEw7y3Z72apkyrC3dTZlXdYQ+GSjHj4w=; b=wX4SJvz3F3XX7w
+	pbqccsNZXrgQnp8Z5wvAw7NkP0+jsLe20AJ1QCH/aGS8m0IjwYLR5ajx9x1REu759Z6ZgtSIk3w+t
+	/kwdRPe2MRoX4PI6i8GbklOsmD/+FJ5y1m6HCLiNDZxQ8eYDWEOhS6lijWoIkww5c1rxUSpz34Xox
+	P1ukiCAKPyBvf565iPI6tC9GudZlf74OsmNTW+RqqMp7FOcAdDWCTGK1oAYYdjNejBPkv67qlk+TF
+	pI6wfJ0E5xMof4QEQk1fUKJex2ztC3d8nBqKcKaqTHQ8VjDufzxjjmIt+Xk+shYX0pDH4zyQJ37tf
+	M+EWvUuGE8m86CwOwktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzFpa-009iau-1M;
-	Wed, 17 May 2023 12:00:34 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1pzFpc-009idE-0g;
+	Wed, 17 May 2023 12:00:36 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzElM-009UNr-23
+	id 1pzElk-009UY1-2G
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 10:52:09 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-394440f483fso387551b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:52:07 -0700 (PDT)
+	Wed, 17 May 2023 10:52:36 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6ab174bb726so302406a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:52:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684320727; x=1686912727;
+        d=ventanamicro.com; s=google; t=1684320752; x=1686912752;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SQ28JLrG1g8D7dyJImcOfHjIQvhPaHtlfmKpeESLpGY=;
-        b=Jnid0LSmDD5xq4sLyxjSQ8L5tr7Woa1SosoehMDgR69PzZ3l+2D6q4SoLHkgdDaiD+
-         YG50yzfZYHRNEQI7qGu4l+X+dEpuW6aDqYF4R3Iwjz5VF0OVhGtNdi4dD4LNwy53DGsA
-         nF8j+Y0t26IO0ZbRmQ7GTqbUqrHl2r/260iNHA57NH05fp9lVf9ZZ21wJ1rp6HbIfCo9
-         wT4AxUNJG7Eb9+AQE/unR91SwtxbFEPVD0QZe2MgDn9nW0K0QleUZvLHYl5S7eKAJGx0
-         J/wG2UaQs70iffUQGdghITh2ZWgwLSlg04OssoGZsqyRhtH9CtACUVR5+Bmm/O8jPaCo
-         Nh0Q==
+        bh=MyQeR6+EY7PdOjddC2LBX2KfnfRqrdfXMTJC5l7QHP8=;
+        b=fCrdQ/w+KejGUzaaU6sbwRIc8MR/2aX0A1uxm73qHtBshVbhOZb57FgrbtuHiBXawN
+         Tgeh3qPH7G89CWgJYsNxPlXNigEHm9QtC2SmMa/qLRyVzmK0rI0ZOMVWmoajSXYTtPPU
+         DKWv/hqxjcFIRzLJnzM4gPqDdbiMi+zpHx6aCQqs76gNLPchKSNajWR5JbPNhrJ3ciif
+         kXxNZS9kb9u/SKBhtL6wrkjgoqRNS6QBvmNUAtz3K23F83E6WR0ebDYDkl7I/5eq1y5+
+         nXHBqLNYopXvoT8wNvvZaK1i+351P2jxbp6vEDKMNzIcWpJ8SpCoIcBvNQZaxY7aZn/z
+         jA4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684320727; x=1686912727;
+        d=1e100.net; s=20221208; t=1684320752; x=1686912752;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SQ28JLrG1g8D7dyJImcOfHjIQvhPaHtlfmKpeESLpGY=;
-        b=PkfN6fo8Gpej/vrDHndAf7FmRUxoeqED3VC9ntkUzouYm+Y+5XdC9nyedl9+6AaPyE
-         ISuiVCGMQRKiRHrx5PVaGNgGpBeYaizkdwYZ2xdLeyk+K7Rus15CgCewsBMumunvYBno
-         7+NhJJkHh//vW22NOixTQHKn035SYXr0xdDsXvh0tiqtMpYaYyklrWGE5+UzKwd0E4dR
-         LOpwESiRv1Wj0xK2nij94O581tO2OcXJdFUfSB2NovMb2h39Nb+GWDEDNhbcvbkqOcr2
-         AhXfJHmEJanb/RvlU3AJYL152WKeGPFyvqGwivwR7RF6b7dd9Bizfb1+l1+0nv1OT3Bs
-         i0cA==
-X-Gm-Message-State: AC+VfDxFMvor9PcnEXCdoC5rtXDiYXJ8jimQTCWfOjEFCT7mrFws/ljz
-	VXSvBX9/3GoYsGEX+wNIKBxu8g==
-X-Google-Smtp-Source: ACHHUZ6UYNpzXHK7JEk/oI9BzRIucS9Y02RIxttWYFtZ944PMuU22M2sIdJpAvkSA1Dm1VhSrk0S1w==
-X-Received: by 2002:a05:6808:17a8:b0:394:670f:9ecb with SMTP id bg40-20020a05680817a800b00394670f9ecbmr12925825oib.1.1684320727214;
-        Wed, 17 May 2023 03:52:07 -0700 (PDT)
+        bh=MyQeR6+EY7PdOjddC2LBX2KfnfRqrdfXMTJC5l7QHP8=;
+        b=VNwabkt5Ip9xPYvMegrz8A03DxHEvv9L1HykxL2hezW7Fs3/ukhYI00boB3+VqgYop
+         P/imEihQqwUgnnC7f71Z88HzXwvjUyCzka9IrmsZ1on/MfS5OsLyGzNC1wLA3FlXh4Ez
+         OY5t1au07fKV9Y2568hJYALVurc2T5+vZOGYT89A+mR7zhgImMFn1xbp1Q8IboiUqT/2
+         oD58sZ0vntfD/EttihD5sJbhug4EDLyYRq1/f48C1eEk0/iYEMqIgddSKXBYSgkfODbO
+         J0yQis5U2GWTke347VQZwjUI5HlWmZmpBodqASSRiZ2Cwg4+/szISMC0QmhHfJeg7qpd
+         Nq6A==
+X-Gm-Message-State: AC+VfDwTZota2vPukl4E9X6Jz6Gb+cHnhoNTmQeaLb8uhu4PCJDmfsW/
+	eSocVohrKhKANVyplgCDhqNz5A==
+X-Google-Smtp-Source: ACHHUZ4AVsNfVQYiK6AxL/HKhMrmRIM7bf8iSLewFDjJOYrXjOx/X3LzTxm5SimFO4C4Dz2J0QG4JQ==
+X-Received: by 2002:a05:6830:1db9:b0:6a9:83b9:d4c2 with SMTP id z25-20020a0568301db900b006a983b9d4c2mr14350374oti.15.1684320751739;
+        Wed, 17 May 2023 03:52:31 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.52.02
+        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.52.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 03:52:07 -0700 (PDT)
+        Wed, 17 May 2023 03:52:31 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -73,17 +73,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 04/10] RISC-V: KVM: Set kvm_riscv_aia_nr_hgei to zero
-Date: Wed, 17 May 2023 16:21:29 +0530
-Message-Id: <20230517105135.1871868-5-apatel@ventanamicro.com>
+Subject: [PATCH 09/10] RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC
+Date: Wed, 17 May 2023 16:21:34 +0530
+Message-Id: <20230517105135.1871868-10-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230517105135.1871868-1-apatel@ventanamicro.com>
 References: <20230517105135.1871868-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_035208_671799_783CAE96 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230517_035232_744269_DD70CFB0 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +99,1008 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We hard-code the kvm_riscv_aia_nr_hgei to zero until IMSIC HW
-guest file support is added in KVM RISC-V.
+We can have AIA IMSIC support for both HS-level and VS-level but
+the VS-level IMSICs are optional. We use the VS-level IMSICs for
+Guest/VM whenever available otherwise we fallback to software
+emulation of AIA IMSIC.
+
+This patch adds in-kernel virtualization of AIA IMSIC.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/kvm/aia.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/kvm_aia.h |  46 +-
+ arch/riscv/kvm/Makefile          |   1 +
+ arch/riscv/kvm/aia_imsic.c       | 913 +++++++++++++++++++++++++++++++
+ 3 files changed, 924 insertions(+), 36 deletions(-)
+ create mode 100644 arch/riscv/kvm/aia_imsic.c
 
-diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-index c78c06d99e39..3f97575707eb 100644
---- a/arch/riscv/kvm/aia.c
-+++ b/arch/riscv/kvm/aia.c
-@@ -408,7 +408,7 @@ int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
+diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+index ba939c0054aa..a4f6ebf90e31 100644
+--- a/arch/riscv/include/asm/kvm_aia.h
++++ b/arch/riscv/include/asm/kvm_aia.h
+@@ -90,44 +90,18 @@ DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
  
- 	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+ extern struct kvm_device_ops kvm_riscv_aia_device_ops;
  
--	/* TODO: To be updated later by AIA in-kernel irqchip support */
-+	/* TODO: To be updated later by AIA IMSIC HW guest file support */
- 	if (hgei_va)
- 		*hgei_va = NULL;
- 	if (hgei_pa)
-@@ -610,6 +610,14 @@ int kvm_riscv_aia_init(void)
- 	if (kvm_riscv_aia_nr_hgei)
- 		kvm_riscv_aia_nr_hgei--;
+-static inline void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+-{
+-}
+-
+-static inline int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+-{
+-	return 1;
+-}
++void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu);
++int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
  
-+	/*
-+	 * Number of usable HGEI lines should be minimum of per-HART
-+	 * IMSIC guest files and number of bits in HGEIE
-+	 *
-+	 * TODO: To be updated later by AIA IMSIC HW guest file support
-+	 */
-+	kvm_riscv_aia_nr_hgei = 0;
+ #define KVM_RISCV_AIA_IMSIC_TOPEI	(ISELECT_MASK + 1)
+-static inline int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu,
+-					       unsigned long isel,
+-					       unsigned long *val,
+-					       unsigned long new_val,
+-					       unsigned long wr_mask)
+-{
+-	return 0;
+-}
+-
+-static inline void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu)
+-{
+-}
+-
+-static inline int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+-						  u32 guest_index, u32 offset,
+-						  u32 iid)
+-{
+-	return 0;
+-}
+-
+-static inline int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
+-{
+-	return 0;
+-}
+-
+-static inline void kvm_riscv_vcpu_aia_imsic_cleanup(struct kvm_vcpu *vcpu)
+-{
+-}
++int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
++				 unsigned long *val, unsigned long new_val,
++				 unsigned long wr_mask);
++void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu);
++int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
++				    u32 guest_index, u32 offset, u32 iid);
++int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu);
++void kvm_riscv_vcpu_aia_imsic_cleanup(struct kvm_vcpu *vcpu);
+ 
+ int kvm_riscv_aia_aplic_set_attr(struct kvm *kvm, unsigned long type, u32 v);
+ int kvm_riscv_aia_aplic_get_attr(struct kvm *kvm, unsigned long type, u32 *v);
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 94c43702c765..c1d1356387ff 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -29,3 +29,4 @@ kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
+ kvm-y += aia.o
+ kvm-y += aia_device.o
+ kvm-y += aia_aplic.o
++kvm-y += aia_imsic.o
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+new file mode 100644
+index 000000000000..2dc09dcb8ab5
+--- /dev/null
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -0,0 +1,913 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ * Copyright (C) 2022 Ventana Micro Systems Inc.
++ *
++ * Authors:
++ *	Anup Patel <apatel@ventanamicro.com>
++ */
 +
- 	/* Initialize guest external interrupt line management */
- 	rc = aia_hgei_init();
- 	if (rc)
++#include <linux/bitmap.h>
++#include <linux/kvm_host.h>
++#include <linux/math.h>
++#include <linux/spinlock.h>
++#include <linux/swab.h>
++#include <kvm/iodev.h>
++#include <asm/csr.h>
++#include <asm/kvm_aia_imsic.h>
++
++#define IMSIC_MAX_EIX	(IMSIC_MAX_ID / BITS_PER_TYPE(u64))
++
++struct imsic_mrif_eix {
++	unsigned long eip[BITS_PER_TYPE(u64) / BITS_PER_LONG];
++	unsigned long eie[BITS_PER_TYPE(u64) / BITS_PER_LONG];
++};
++
++struct imsic_mrif {
++	struct imsic_mrif_eix eix[IMSIC_MAX_EIX];
++	unsigned long eithreshold;
++	unsigned long eidelivery;
++};
++
++struct imsic {
++	struct kvm_io_device iodev;
++
++	u32 nr_msis;
++	u32 nr_eix;
++	u32 nr_hw_eix;
++
++	/*
++	 * At any point in time, the register state is in
++	 * one of the following places:
++	 *
++	 * 1) Hardware: IMSIC VS-file (vsfile_cpu >= 0)
++	 * 2) Software: IMSIC SW-file (vsfile_cpu < 0)
++	 */
++
++	/* IMSIC VS-file */
++	rwlock_t vsfile_lock;
++	int vsfile_cpu;
++	int vsfile_hgei;
++	void __iomem *vsfile_va;
++	phys_addr_t vsfile_pa;
++
++	/* IMSIC SW-file */
++	struct imsic_mrif *swfile;
++	phys_addr_t swfile_pa;
++};
++
++#define imsic_vs_csr_read(__c)			\
++({						\
++	unsigned long __r;			\
++	csr_write(CSR_VSISELECT, __c);		\
++	__r = csr_read(CSR_VSIREG);		\
++	__r;					\
++})
++
++#define imsic_read_switchcase(__ireg)			\
++	case __ireg:					\
++		return imsic_vs_csr_read(__ireg);
++#define imsic_read_switchcase_2(__ireg)			\
++	imsic_read_switchcase(__ireg + 0)		\
++	imsic_read_switchcase(__ireg + 1)
++#define imsic_read_switchcase_4(__ireg)			\
++	imsic_read_switchcase_2(__ireg + 0)		\
++	imsic_read_switchcase_2(__ireg + 2)
++#define imsic_read_switchcase_8(__ireg)			\
++	imsic_read_switchcase_4(__ireg + 0)		\
++	imsic_read_switchcase_4(__ireg + 4)
++#define imsic_read_switchcase_16(__ireg)		\
++	imsic_read_switchcase_8(__ireg + 0)		\
++	imsic_read_switchcase_8(__ireg + 8)
++#define imsic_read_switchcase_32(__ireg)		\
++	imsic_read_switchcase_16(__ireg + 0)		\
++	imsic_read_switchcase_16(__ireg + 16)
++#define imsic_read_switchcase_64(__ireg)		\
++	imsic_read_switchcase_32(__ireg + 0)		\
++	imsic_read_switchcase_32(__ireg + 32)
++
++static unsigned long imsic_eix_read(int ireg)
++{
++	switch (ireg) {
++	imsic_read_switchcase_64(IMSIC_EIP0)
++	imsic_read_switchcase_64(IMSIC_EIE0)
++	};
++
++	return 0;
++}
++
++#define imsic_vs_csr_swap(__c, __v)		\
++({						\
++	unsigned long __r;			\
++	csr_write(CSR_VSISELECT, __c);		\
++	__r = csr_swap(CSR_VSIREG, __v);	\
++	__r;					\
++})
++
++#define imsic_swap_switchcase(__ireg, __v)		\
++	case __ireg:					\
++		return imsic_vs_csr_swap(__ireg, __v);
++#define imsic_swap_switchcase_2(__ireg, __v)		\
++	imsic_swap_switchcase(__ireg + 0, __v)		\
++	imsic_swap_switchcase(__ireg + 1, __v)
++#define imsic_swap_switchcase_4(__ireg, __v)		\
++	imsic_swap_switchcase_2(__ireg + 0, __v)	\
++	imsic_swap_switchcase_2(__ireg + 2, __v)
++#define imsic_swap_switchcase_8(__ireg, __v)		\
++	imsic_swap_switchcase_4(__ireg + 0, __v)	\
++	imsic_swap_switchcase_4(__ireg + 4, __v)
++#define imsic_swap_switchcase_16(__ireg, __v)		\
++	imsic_swap_switchcase_8(__ireg + 0, __v)	\
++	imsic_swap_switchcase_8(__ireg + 8, __v)
++#define imsic_swap_switchcase_32(__ireg, __v)		\
++	imsic_swap_switchcase_16(__ireg + 0, __v)	\
++	imsic_swap_switchcase_16(__ireg + 16, __v)
++#define imsic_swap_switchcase_64(__ireg, __v)		\
++	imsic_swap_switchcase_32(__ireg + 0, __v)	\
++	imsic_swap_switchcase_32(__ireg + 32, __v)
++
++static unsigned long imsic_eix_swap(int ireg, unsigned long val)
++{
++	switch (ireg) {
++	imsic_swap_switchcase_64(IMSIC_EIP0, val)
++	imsic_swap_switchcase_64(IMSIC_EIE0, val)
++	};
++
++	return 0;
++}
++
++#define imsic_vs_csr_write(__c, __v)		\
++do {						\
++	csr_write(CSR_VSISELECT, __c);		\
++	csr_write(CSR_VSIREG, __v);		\
++} while (0)
++
++#define imsic_write_switchcase(__ireg, __v)		\
++	case __ireg:					\
++		imsic_vs_csr_write(__ireg, __v);	\
++		break;
++#define imsic_write_switchcase_2(__ireg, __v)		\
++	imsic_write_switchcase(__ireg + 0, __v)		\
++	imsic_write_switchcase(__ireg + 1, __v)
++#define imsic_write_switchcase_4(__ireg, __v)		\
++	imsic_write_switchcase_2(__ireg + 0, __v)	\
++	imsic_write_switchcase_2(__ireg + 2, __v)
++#define imsic_write_switchcase_8(__ireg, __v)		\
++	imsic_write_switchcase_4(__ireg + 0, __v)	\
++	imsic_write_switchcase_4(__ireg + 4, __v)
++#define imsic_write_switchcase_16(__ireg, __v)		\
++	imsic_write_switchcase_8(__ireg + 0, __v)	\
++	imsic_write_switchcase_8(__ireg + 8, __v)
++#define imsic_write_switchcase_32(__ireg, __v)		\
++	imsic_write_switchcase_16(__ireg + 0, __v)	\
++	imsic_write_switchcase_16(__ireg + 16, __v)
++#define imsic_write_switchcase_64(__ireg, __v)		\
++	imsic_write_switchcase_32(__ireg + 0, __v)	\
++	imsic_write_switchcase_32(__ireg + 32, __v)
++
++static void imsic_eix_write(int ireg, unsigned long val)
++{
++	switch (ireg) {
++	imsic_write_switchcase_64(IMSIC_EIP0, val)
++	imsic_write_switchcase_64(IMSIC_EIE0, val)
++	};
++}
++
++#define imsic_vs_csr_set(__c, __v)		\
++do {						\
++	csr_write(CSR_VSISELECT, __c);		\
++	csr_set(CSR_VSIREG, __v);		\
++} while (0)
++
++#define imsic_set_switchcase(__ireg, __v)		\
++	case __ireg:					\
++		imsic_vs_csr_set(__ireg, __v);		\
++		break;
++#define imsic_set_switchcase_2(__ireg, __v)		\
++	imsic_set_switchcase(__ireg + 0, __v)		\
++	imsic_set_switchcase(__ireg + 1, __v)
++#define imsic_set_switchcase_4(__ireg, __v)		\
++	imsic_set_switchcase_2(__ireg + 0, __v)		\
++	imsic_set_switchcase_2(__ireg + 2, __v)
++#define imsic_set_switchcase_8(__ireg, __v)		\
++	imsic_set_switchcase_4(__ireg + 0, __v)		\
++	imsic_set_switchcase_4(__ireg + 4, __v)
++#define imsic_set_switchcase_16(__ireg, __v)		\
++	imsic_set_switchcase_8(__ireg + 0, __v)		\
++	imsic_set_switchcase_8(__ireg + 8, __v)
++#define imsic_set_switchcase_32(__ireg, __v)		\
++	imsic_set_switchcase_16(__ireg + 0, __v)	\
++	imsic_set_switchcase_16(__ireg + 16, __v)
++#define imsic_set_switchcase_64(__ireg, __v)		\
++	imsic_set_switchcase_32(__ireg + 0, __v)	\
++	imsic_set_switchcase_32(__ireg + 32, __v)
++
++static void imsic_eix_set(int ireg, unsigned long val)
++{
++	switch (ireg) {
++	imsic_set_switchcase_64(IMSIC_EIP0, val)
++	imsic_set_switchcase_64(IMSIC_EIE0, val)
++	};
++}
++
++static unsigned long imsic_mrif_atomic_rmw(struct imsic_mrif *mrif,
++					   unsigned long *ptr,
++					   unsigned long new_val,
++					   unsigned long wr_mask)
++{
++	unsigned long old_val = 0, tmp = 0;
++
++	__asm__ __volatile__ (
++		"0:	lr.w.aq   %1, %0\n"
++		"	and       %2, %1, %3\n"
++		"	or        %2, %2, %4\n"
++		"	sc.w.rl   %2, %2, %0\n"
++		"	bnez      %2, 0b"
++		: "+A" (*ptr), "+r" (old_val), "+r" (tmp)
++		: "r" (~wr_mask), "r" (new_val & wr_mask)
++		: "memory");
++
++	return old_val;
++}
++
++static unsigned long imsic_mrif_atomic_or(struct imsic_mrif *mrif,
++					  unsigned long *ptr,
++					  unsigned long val)
++{
++	return arch_atomic_long_fetch_or(val, (atomic_long_t *)ptr);
++}
++
++#define imsic_mrif_atomic_write(__mrif, __ptr, __new_val)	\
++		imsic_mrif_atomic_rmw(__mrif, __ptr, __new_val, -1UL)
++#define imsic_mrif_atomic_read(__mrif, __ptr)			\
++		imsic_mrif_atomic_or(__mrif, __ptr, 0)
++
++static u32 imsic_mrif_topei(struct imsic_mrif *mrif, u32 nr_eix, u32 nr_msis)
++{
++	struct imsic_mrif_eix *eix;
++	u32 i, imin, imax, ei, max_msi;
++	unsigned long eipend[BITS_PER_TYPE(u64) / BITS_PER_LONG];
++	unsigned long eithreshold = imsic_mrif_atomic_read(mrif,
++							&mrif->eithreshold);
++
++	max_msi = (eithreshold && (eithreshold <= nr_msis)) ?
++		   eithreshold : nr_msis;
++	for (ei = 0; ei < nr_eix; ei++) {
++		eix = &mrif->eix[ei];
++		eipend[0] = imsic_mrif_atomic_read(mrif, &eix->eie[0]) &
++			    imsic_mrif_atomic_read(mrif, &eix->eip[0]);
++#ifdef CONFIG_32BIT
++		eipend[1] = imsic_mrif_atomic_read(mrif, &eix->eie[1]) &
++			    imsic_mrif_atomic_read(mrif, &eix->eip[1]);
++		if (!eipend[0] && !eipend[1])
++#else
++		if (!eipend[0])
++#endif
++			continue;
++
++		imin = ei * BITS_PER_TYPE(u64);
++		imax = ((imin + BITS_PER_TYPE(u64)) < max_msi) ?
++			imin + BITS_PER_TYPE(u64) : max_msi;
++		for (i = (!imin) ? 1 : imin; i < imax; i++) {
++			if (test_bit(i - imin, eipend))
++				return (i << TOPEI_ID_SHIFT) | i;
++		}
++	}
++
++	return 0;
++}
++
++static int imsic_mrif_rmw(struct imsic_mrif *mrif, u32 nr_eix,
++			  unsigned long isel, unsigned long *val,
++			  unsigned long new_val, unsigned long wr_mask)
++{
++	bool pend;
++	struct imsic_mrif_eix *eix;
++	unsigned long *ei, num, old_val = 0;
++
++	switch (isel) {
++	case IMSIC_EIDELIVERY:
++		old_val = imsic_mrif_atomic_rmw(mrif, &mrif->eidelivery,
++						new_val, wr_mask & 0x1);
++		break;
++	case IMSIC_EITHRESHOLD:
++		old_val = imsic_mrif_atomic_rmw(mrif, &mrif->eithreshold,
++				new_val, wr_mask & (IMSIC_MAX_ID - 1));
++		break;
++	case IMSIC_EIP0 ... IMSIC_EIP63:
++	case IMSIC_EIE0 ... IMSIC_EIE63:
++		if (isel >= IMSIC_EIP0 && isel <= IMSIC_EIP63) {
++			pend = true;
++			num = isel - IMSIC_EIP0;
++		} else {
++			pend = false;
++			num = isel - IMSIC_EIE0;
++		}
++
++		if ((num / 2) >= nr_eix)
++			return -EINVAL;
++		eix = &mrif->eix[num / 2];
++
++#ifndef CONFIG_32BIT
++		if (num & 0x1)
++			return -EINVAL;
++		ei = (pend) ? &eix->eip[0] : &eix->eie[0];
++#else
++		ei = (pend) ? &eix->eip[num & 0x1] : &eix->eie[num & 0x1];
++#endif
++
++		/* Bit0 of EIP0 or EIE0 is read-only */
++		if (!num)
++			wr_mask &= ~BIT(0);
++
++		old_val = imsic_mrif_atomic_rmw(mrif, ei, new_val, wr_mask);
++		break;
++	default:
++		return -ENOENT;
++	};
++
++	if (val)
++		*val = old_val;
++
++	return 0;
++}
++
++struct imsic_vsfile_read_data {
++	int hgei;
++	u32 nr_eix;
++	bool clear;
++	struct imsic_mrif *mrif;
++};
++
++static void imsic_vsfile_local_read(void *data)
++{
++	u32 i;
++	struct imsic_mrif_eix *eix;
++	struct imsic_vsfile_read_data *idata = data;
++	struct imsic_mrif *mrif = idata->mrif;
++	unsigned long new_hstatus, old_hstatus, old_vsiselect;
++
++	old_vsiselect = csr_read(CSR_VSISELECT);
++	old_hstatus = csr_read(CSR_HSTATUS);
++	new_hstatus = old_hstatus & ~HSTATUS_VGEIN;
++	new_hstatus |= ((unsigned long)idata->hgei) << HSTATUS_VGEIN_SHIFT;
++	csr_write(CSR_HSTATUS, new_hstatus);
++
++	/*
++	 * We don't use imsic_mrif_atomic_xyz() functions to store
++	 * values in MRIF because imsic_vsfile_read() is always called
++	 * with pointer to temporary MRIF on stack.
++	 */
++
++	if (idata->clear) {
++		mrif->eidelivery = imsic_vs_csr_swap(IMSIC_EIDELIVERY, 0);
++		mrif->eithreshold = imsic_vs_csr_swap(IMSIC_EITHRESHOLD, 0);
++		for (i = 0; i < idata->nr_eix; i++) {
++			eix = &mrif->eix[i];
++			eix->eip[0] = imsic_eix_swap(IMSIC_EIP0 + i * 2, 0);
++			eix->eie[0] = imsic_eix_swap(IMSIC_EIE0 + i * 2, 0);
++#ifdef CONFIG_32BIT
++			eix->eip[1] = imsic_eix_swap(IMSIC_EIP0 + i * 2 + 1, 0);
++			eix->eie[1] = imsic_eix_swap(IMSIC_EIE0 + i * 2 + 1, 0);
++#endif
++		}
++	} else {
++		mrif->eidelivery = imsic_vs_csr_read(IMSIC_EIDELIVERY);
++		mrif->eithreshold = imsic_vs_csr_read(IMSIC_EITHRESHOLD);
++		for (i = 0; i < idata->nr_eix; i++) {
++			eix = &mrif->eix[i];
++			eix->eip[0] = imsic_eix_read(IMSIC_EIP0 + i * 2);
++			eix->eie[0] = imsic_eix_read(IMSIC_EIE0 + i * 2);
++#ifdef CONFIG_32BIT
++			eix->eip[1] = imsic_eix_read(IMSIC_EIP0 + i * 2 + 1);
++			eix->eie[1] = imsic_eix_read(IMSIC_EIE0 + i * 2 + 1);
++#endif
++		}
++	}
++
++	csr_write(CSR_HSTATUS, old_hstatus);
++	csr_write(CSR_VSISELECT, old_vsiselect);
++}
++
++static void imsic_vsfile_read(int vsfile_hgei, int vsfile_cpu, u32 nr_eix,
++			      bool clear, struct imsic_mrif *mrif)
++{
++	struct imsic_vsfile_read_data idata;
++
++	/* We can only read clear if we have a IMSIC VS-file */
++	if (vsfile_cpu < 0 || vsfile_hgei <= 0)
++		return;
++
++	/* We can only read clear on local CPU */
++	idata.hgei = vsfile_hgei;
++	idata.nr_eix = nr_eix;
++	idata.clear = clear;
++	idata.mrif = mrif;
++	on_each_cpu_mask(cpumask_of(vsfile_cpu),
++			 imsic_vsfile_local_read, &idata, 1);
++}
++
++static void imsic_vsfile_local_clear(int vsfile_hgei, u32 nr_eix)
++{
++	u32 i;
++	unsigned long new_hstatus, old_hstatus, old_vsiselect;
++
++	/* We can only zero-out if we have a IMSIC VS-file */
++	if (vsfile_hgei <= 0)
++		return;
++
++	old_vsiselect = csr_read(CSR_VSISELECT);
++	old_hstatus = csr_read(CSR_HSTATUS);
++	new_hstatus = old_hstatus & ~HSTATUS_VGEIN;
++	new_hstatus |= ((unsigned long)vsfile_hgei) << HSTATUS_VGEIN_SHIFT;
++	csr_write(CSR_HSTATUS, new_hstatus);
++
++	imsic_vs_csr_write(IMSIC_EIDELIVERY, 0);
++	imsic_vs_csr_write(IMSIC_EITHRESHOLD, 0);
++	for (i = 0; i < nr_eix; i++) {
++		imsic_eix_write(IMSIC_EIP0 + i * 2, 0);
++		imsic_eix_write(IMSIC_EIE0 + i * 2, 0);
++#ifdef CONFIG_32BIT
++		imsic_eix_write(IMSIC_EIP0 + i * 2 + 1, 0);
++		imsic_eix_write(IMSIC_EIE0 + i * 2 + 1, 0);
++#endif
++	}
++
++	csr_write(CSR_HSTATUS, old_hstatus);
++	csr_write(CSR_VSISELECT, old_vsiselect);
++}
++
++static void imsic_vsfile_local_update(int vsfile_hgei, u32 nr_eix,
++				      struct imsic_mrif *mrif)
++{
++	u32 i;
++	struct imsic_mrif_eix *eix;
++	unsigned long new_hstatus, old_hstatus, old_vsiselect;
++
++	/* We can only update if we have a HW IMSIC context */
++	if (vsfile_hgei <= 0)
++		return;
++
++	/*
++	 * We don't use imsic_mrif_atomic_xyz() functions to read values
++	 * from MRIF in this function because it is always called with
++	 * pointer to temporary MRIF on stack.
++	 */
++
++	old_vsiselect = csr_read(CSR_VSISELECT);
++	old_hstatus = csr_read(CSR_HSTATUS);
++	new_hstatus = old_hstatus & ~HSTATUS_VGEIN;
++	new_hstatus |= ((unsigned long)vsfile_hgei) << HSTATUS_VGEIN_SHIFT;
++	csr_write(CSR_HSTATUS, new_hstatus);
++
++	for (i = 0; i < nr_eix; i++) {
++		eix = &mrif->eix[i];
++		imsic_eix_set(IMSIC_EIP0 + i * 2, eix->eip[0]);
++		imsic_eix_set(IMSIC_EIE0 + i * 2, eix->eie[0]);
++#ifdef CONFIG_32BIT
++		imsic_eix_set(IMSIC_EIP0 + i * 2 + 1, eix->eip[1]);
++		imsic_eix_set(IMSIC_EIE0 + i * 2 + 1, eix->eie[1]);
++#endif
++	}
++	imsic_vs_csr_write(IMSIC_EITHRESHOLD, mrif->eithreshold);
++	imsic_vs_csr_write(IMSIC_EIDELIVERY, mrif->eidelivery);
++
++	csr_write(CSR_HSTATUS, old_hstatus);
++	csr_write(CSR_VSISELECT, old_vsiselect);
++}
++
++static void imsic_vsfile_cleanup(struct imsic *imsic)
++{
++	int old_vsfile_hgei, old_vsfile_cpu;
++	unsigned long flags;
++
++	/*
++	 * We don't use imsic_mrif_atomic_xyz() functions to clear the
++	 * SW-file in this function because it is always called when the
++	 * VCPU is being destroyed.
++	 */
++
++	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	old_vsfile_hgei = imsic->vsfile_hgei;
++	old_vsfile_cpu = imsic->vsfile_cpu;
++	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
++	imsic->vsfile_va = NULL;
++	imsic->vsfile_pa = 0;
++	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	memset(imsic->swfile, 0, sizeof(*imsic->swfile));
++
++	if (old_vsfile_cpu >= 0)
++		kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
++}
++
++static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	struct imsic_mrif *mrif = imsic->swfile;
++
++	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
++	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
++		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
++	else
++		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
++}
++
++static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
++			      struct imsic_mrif *mrif)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	/*
++	 * We don't use imsic_mrif_atomic_xyz() functions to read and
++	 * write SW-file and MRIF in this function because it is always
++	 * called when VCPU is not using SW-file and the MRIF points to
++	 * a temporary MRIF on stack.
++	 */
++
++	memcpy(mrif, imsic->swfile, sizeof(*mrif));
++	if (clear) {
++		memset(imsic->swfile, 0, sizeof(*imsic->swfile));
++		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
++	}
++}
++
++static void imsic_swfile_update(struct kvm_vcpu *vcpu,
++				struct imsic_mrif *mrif)
++{
++	u32 i;
++	struct imsic_mrif_eix *seix, *eix;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	struct imsic_mrif *smrif = imsic->swfile;
++
++	imsic_mrif_atomic_write(smrif, &smrif->eidelivery, mrif->eidelivery);
++	imsic_mrif_atomic_write(smrif, &smrif->eithreshold, mrif->eithreshold);
++	for (i = 0; i < imsic->nr_eix; i++) {
++		seix = &smrif->eix[i];
++		eix = &mrif->eix[i];
++		imsic_mrif_atomic_or(smrif, &seix->eip[0], eix->eip[0]);
++		imsic_mrif_atomic_or(smrif, &seix->eie[0], eix->eie[0]);
++#ifdef CONFIG_32BIT
++		imsic_mrif_atomic_or(smrif, &seix->eip[1], eix->eip[1]);
++		imsic_mrif_atomic_or(smrif, &seix->eie[1], eix->eie[1]);
++#endif
++	}
++
++	imsic_swfile_extirq_update(vcpu);
++}
++
++void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
++{
++	unsigned long flags;
++	struct imsic_mrif tmrif;
++	int old_vsfile_hgei, old_vsfile_cpu;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	/* Read and clear IMSIC VS-file details */
++	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	old_vsfile_hgei = imsic->vsfile_hgei;
++	old_vsfile_cpu = imsic->vsfile_cpu;
++	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
++	imsic->vsfile_va = NULL;
++	imsic->vsfile_pa = 0;
++	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	/* Do nothing, if no IMSIC VS-file to release */
++	if (old_vsfile_cpu < 0)
++		return;
++
++	/*
++	 * At this point, all interrupt producers are still using
++	 * the old IMSIC VS-file so we first re-direct all interrupt
++	 * producers.
++	 */
++
++	/* Purge the G-stage mapping */
++	kvm_riscv_gstage_iounmap(vcpu->kvm,
++				 vcpu->arch.aia_context.imsic_addr,
++				 IMSIC_MMIO_PAGE_SZ);
++
++	/* TODO: Purge the IOMMU mapping ??? */
++
++	/*
++	 * At this point, all interrupt producers have been re-directed
++	 * to somewhere else so we move register state from the old IMSIC
++	 * VS-file to the IMSIC SW-file.
++	 */
++
++	/* Read and clear register state from old IMSIC VS-file */
++	memset(&tmrif, 0, sizeof(tmrif));
++	imsic_vsfile_read(old_vsfile_hgei, old_vsfile_cpu, imsic->nr_hw_eix,
++			  true, &tmrif);
++
++	/* Update register state in IMSIC SW-file */
++	imsic_swfile_update(vcpu, &tmrif);
++
++	/* Free-up old IMSIC VS-file */
++	kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
++}
++
++int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
++{
++	unsigned long flags;
++	phys_addr_t new_vsfile_pa;
++	struct imsic_mrif tmrif;
++	void __iomem *new_vsfile_va;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_run *run = vcpu->run;
++	struct kvm_vcpu_aia *vaia = &vcpu->arch.aia_context;
++	struct imsic *imsic = vaia->imsic_state;
++	int ret = 0, new_vsfile_hgei = -1, old_vsfile_hgei, old_vsfile_cpu;
++
++	/* Do nothing for emulation mode */
++	if (kvm->arch.aia.mode == KVM_DEV_RISCV_AIA_MODE_EMUL)
++		return 1;
++
++	/* Read old IMSIC VS-file details */
++	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	old_vsfile_hgei = imsic->vsfile_hgei;
++	old_vsfile_cpu = imsic->vsfile_cpu;
++	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	/* Do nothing if we are continuing on same CPU */
++	if (old_vsfile_cpu == vcpu->cpu)
++		return 1;
++
++	/* Allocate new IMSIC VS-file */
++	ret = kvm_riscv_aia_alloc_hgei(vcpu->cpu, vcpu,
++				       &new_vsfile_va, &new_vsfile_pa);
++	if (ret <= 0) {
++		/* For HW acceleration mode, we can't continue */
++		if (kvm->arch.aia.mode == KVM_DEV_RISCV_AIA_MODE_HWACCEL) {
++			run->fail_entry.hardware_entry_failure_reason =
++								CSR_HSTATUS;
++			run->fail_entry.cpu = vcpu->cpu;
++			run->exit_reason = KVM_EXIT_FAIL_ENTRY;
++			return 0;
++		}
++
++		/* Release old IMSIC VS-file */
++		if (old_vsfile_cpu >= 0)
++			kvm_riscv_vcpu_aia_imsic_release(vcpu);
++
++		/* For automatic mode, we continue */
++		goto done;
++	}
++	new_vsfile_hgei = ret;
++
++	/*
++	 * At this point, all interrupt producers are still using
++	 * to the old IMSIC VS-file so we first move all interrupt
++	 * producers to the new IMSIC VS-file.
++	 */
++
++	/* Zero-out new IMSIC VS-file */
++	imsic_vsfile_local_clear(new_vsfile_hgei, imsic->nr_hw_eix);
++
++	/* Update G-stage mapping for the new IMSIC VS-file */
++	ret = kvm_riscv_gstage_ioremap(kvm, vcpu->arch.aia_context.imsic_addr,
++				       new_vsfile_pa, IMSIC_MMIO_PAGE_SZ,
++				       true, true);
++	if (ret)
++		goto fail_free_vsfile_hgei;
++
++	/* TODO: Update the IOMMU mapping ??? */
++
++	/* Update new IMSIC VS-file details in IMSIC context */
++	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	imsic->vsfile_hgei = new_vsfile_hgei;
++	imsic->vsfile_cpu = vcpu->cpu;
++	imsic->vsfile_va = new_vsfile_va;
++	imsic->vsfile_pa = new_vsfile_pa;
++	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	/*
++	 * At this point, all interrupt producers have been moved
++	 * to the new IMSIC VS-file so we move register state from
++	 * the old IMSIC VS/SW-file to the new IMSIC VS-file.
++	 */
++
++	memset(&tmrif, 0, sizeof(tmrif));
++	if (old_vsfile_cpu >= 0) {
++		/* Read and clear register state from old IMSIC VS-file */
++		imsic_vsfile_read(old_vsfile_hgei, old_vsfile_cpu,
++				  imsic->nr_hw_eix, true, &tmrif);
++
++		/* Free-up old IMSIC VS-file */
++		kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
++	} else {
++		/* Read and clear register state from IMSIC SW-file */
++		imsic_swfile_read(vcpu, true, &tmrif);
++	}
++
++	/* Restore register state in the new IMSIC VS-file */
++	imsic_vsfile_local_update(new_vsfile_hgei, imsic->nr_hw_eix, &tmrif);
++
++done:
++	/* Set VCPU HSTATUS.VGEIN to new IMSIC VS-file */
++	vcpu->arch.guest_context.hstatus &= ~HSTATUS_VGEIN;
++	if (new_vsfile_hgei > 0)
++		vcpu->arch.guest_context.hstatus |=
++			((unsigned long)new_vsfile_hgei) << HSTATUS_VGEIN_SHIFT;
++
++	/* Continue run-loop */
++	return 1;
++
++fail_free_vsfile_hgei:
++	kvm_riscv_aia_free_hgei(vcpu->cpu, new_vsfile_hgei);
++	return ret;
++}
++
++int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
++				 unsigned long *val, unsigned long new_val,
++				 unsigned long wr_mask)
++{
++	u32 topei;
++	struct imsic_mrif_eix *eix;
++	int r, rc = KVM_INSN_CONTINUE_NEXT_SEPC;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	if (isel == KVM_RISCV_AIA_IMSIC_TOPEI) {
++		/* Read pending and enabled interrupt with highest priority */
++		topei = imsic_mrif_topei(imsic->swfile, imsic->nr_eix,
++					 imsic->nr_msis);
++		if (val)
++			*val = topei;
++
++		/* Writes ignore value and clear top pending interrupt */
++		if (topei && wr_mask) {
++			topei >>= TOPEI_ID_SHIFT;
++			if (topei) {
++				eix = &imsic->swfile->eix[topei /
++							  BITS_PER_TYPE(u64)];
++				clear_bit(topei & (BITS_PER_TYPE(u64) - 1),
++					  eix->eip);
++			}
++		}
++	} else {
++		r = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix, isel,
++				   val, new_val, wr_mask);
++		/* Forward unknown IMSIC register to user-space */
++		if (r)
++			rc = (r == -ENOENT) ? 0 : KVM_INSN_ILLEGAL_TRAP;
++	}
++
++	if (wr_mask)
++		imsic_swfile_extirq_update(vcpu);
++
++	return rc;
++}
++
++void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	if (!imsic)
++		return;
++
++	kvm_riscv_vcpu_aia_imsic_release(vcpu);
++
++	memset(imsic->swfile, 0, sizeof(*imsic->swfile));
++}
++
++int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
++				    u32 guest_index, u32 offset, u32 iid)
++{
++	unsigned long flags;
++	struct imsic_mrif_eix *eix;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	/* We only emulate one IMSIC MMIO page for each Guest VCPU */
++	if (!imsic || !iid || guest_index ||
++	    (offset != IMSIC_MMIO_SETIPNUM_LE &&
++	     offset != IMSIC_MMIO_SETIPNUM_BE))
++		return -ENODEV;
++
++	iid = (offset == IMSIC_MMIO_SETIPNUM_BE) ? __swab32(iid) : iid;
++	if (imsic->nr_msis <= iid)
++		return -EINVAL;
++
++	read_lock_irqsave(&imsic->vsfile_lock, flags);
++
++	if (imsic->vsfile_cpu >= 0) {
++		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
++		kvm_vcpu_kick(vcpu);
++	} else {
++		eix = &imsic->swfile->eix[iid / BITS_PER_TYPE(u64)];
++		set_bit(iid & (BITS_PER_TYPE(u64) - 1), eix->eip);
++		imsic_swfile_extirq_update(vcpu);
++	}
++
++	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	return 0;
++}
++
++static int imsic_mmio_read(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++			   gpa_t addr, int len, void *val)
++{
++	if (len != 4 || (addr & 0x3) != 0)
++		return -EOPNOTSUPP;
++
++	*((u32 *)val) = 0;
++
++	return 0;
++}
++
++static int imsic_mmio_write(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++			    gpa_t addr, int len, const void *val)
++{
++	struct kvm_msi msi = { 0 };
++
++	if (len != 4 || (addr & 0x3) != 0)
++		return -EOPNOTSUPP;
++
++	msi.address_hi = addr >> 32;
++	msi.address_lo = (u32)addr;
++	msi.data = *((const u32 *)val);
++	kvm_riscv_aia_inject_msi(vcpu->kvm, &msi);
++
++	return 0;
++};
++
++static struct kvm_io_device_ops imsic_iodoev_ops = {
++	.read = imsic_mmio_read,
++	.write = imsic_mmio_write,
++};
++
++int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
++{
++	int ret = 0;
++	struct imsic *imsic;
++	struct page *swfile_page;
++	struct kvm *kvm = vcpu->kvm;
++
++	/* Fail if we have zero IDs */
++	if (!kvm->arch.aia.nr_ids)
++		return -EINVAL;
++
++	/* Allocate IMSIC context */
++	imsic = kzalloc(sizeof(*imsic), GFP_KERNEL);
++	if (!imsic)
++		return -ENOMEM;
++	vcpu->arch.aia_context.imsic_state = imsic;
++
++	/* Setup IMSIC context  */
++	imsic->nr_msis = kvm->arch.aia.nr_ids + 1;
++	rwlock_init(&imsic->vsfile_lock);
++	imsic->nr_eix = BITS_TO_U64(imsic->nr_msis);
++	imsic->nr_hw_eix = BITS_TO_U64(kvm_riscv_aia_max_ids);
++	imsic->vsfile_hgei = imsic->vsfile_cpu = -1;
++
++	/* Setup IMSIC SW-file */
++	swfile_page = alloc_pages(GFP_KERNEL | __GFP_ZERO,
++				  get_order(sizeof(*imsic->swfile)));
++	if (!swfile_page) {
++		ret = -ENOMEM;
++		goto fail_free_imsic;
++	}
++	imsic->swfile = page_to_virt(swfile_page);
++	imsic->swfile_pa = page_to_phys(swfile_page);
++
++	/* Setup IO device */
++	kvm_iodevice_init(&imsic->iodev, &imsic_iodoev_ops);
++	mutex_lock(&kvm->slots_lock);
++	ret = kvm_io_bus_register_dev(kvm, KVM_MMIO_BUS,
++				      vcpu->arch.aia_context.imsic_addr,
++				      KVM_DEV_RISCV_IMSIC_SIZE,
++				      &imsic->iodev);
++	mutex_unlock(&kvm->slots_lock);
++	if (ret)
++		goto fail_free_swfile;
++
++	return 0;
++
++fail_free_swfile:
++	free_pages((unsigned long)imsic->swfile,
++		   get_order(sizeof(*imsic->swfile)));
++fail_free_imsic:
++	vcpu->arch.aia_context.imsic_state = NULL;
++	kfree(imsic);
++	return ret;
++}
++
++void kvm_riscv_vcpu_aia_imsic_cleanup(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++
++	if (!imsic)
++		return;
++
++	imsic_vsfile_cleanup(imsic);
++
++	mutex_lock(&kvm->slots_lock);
++	kvm_io_bus_unregister_dev(kvm, KVM_MMIO_BUS, &imsic->iodev);
++	mutex_unlock(&kvm->slots_lock);
++
++	free_pages((unsigned long)imsic->swfile,
++		   get_order(sizeof(*imsic->swfile)));
++
++	vcpu->arch.aia_context.imsic_state = NULL;
++	kfree(imsic);
++}
 -- 
 2.34.1
 
