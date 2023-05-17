@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213D1C77B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51218C77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ILz9yt8odXHChV9EEwGKWXDBjIwNxF8ys0mtxgImb5o=; b=cWAQr8H+ZXWAdZ
-	Uz1bjap4MBbd5pfe5r5IY1UUyY9f0obBaIiltuvYVm9arA6tAMgezJbk5oC02phyrO41cFysGrjAD
-	aE06nCNBljfUoXH3WWhgOQlrzwL91juLUtYZl+IYjS9j15TdC0Q3dHtMoOYPnVQ/4NusnRyrT8sRS
-	vyIGHkkcAMr5AMf5G+/EzpGyx9Dja3U9yc6ExpLTfZJDZCp7psYn45kMWMidFsXzUcnpS9+bRLPAw
-	sFqMIvTu8MACft4nV3bqCgzbJxP8HRFjYD2w8Job9ndZkY8WiyBX8S8A4O4tcHtKM41r6RWSn1wgp
-	X0ZRHtjhQ2sQFjWtUfGg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T91SMeMgipNNsn/TwRRDppcELaUEDori/4IToKnuMt8=; b=qAddizJ8cfTcaL
+	pmlnBfv/W81eNcziSgWKMLrs02kRIALaHKURsv2Ami91H7PuEZvmh7ZpLljsYcHLsTDAqOog2bs48
+	u5tXsN4OTok1PClCbqvuDAu3EyGCPRgd8ohaRcKm69Zkb3TaghaMsCKs+GTCAv4sfr+523Ah9qOOG
+	c4f2TEXDwyThBL82fcaINKYHh4sPPOFfinv4bPU/uwI/mVAN5edCtg2Rs+XnHUr7NVgeNl/cXLA3h
+	lU1PwLKa2m0Ohp3CsvaBqTxlZSPR+wlPddYBZS6isq0f4wNt/nWnhpWTDi9W1Sn2z6+ea3sZh5uSm
+	SnJbVuZwxTXWBqgH/ngw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEhF-009TZf-0g;
-	Wed, 17 May 2023 10:47:53 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pzEl8-009UDn-1J;
+	Wed, 17 May 2023 10:51:54 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEhC-009TY1-09
+	id 1pzEl4-009UA3-2b
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 10:47:51 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3075e802738so564792f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:47:46 -0700 (PDT)
+	Wed, 17 May 2023 10:51:52 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-6ab0967093dso492192a34.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:51:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684320465; x=1686912465;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hqvkmynEV6/dEj1F324kSuUIEax/RriRwvtPl5SBD9Q=;
-        b=DOV6yM9dgDqxu/o3argXq7spycp9mQOqF4YFCCozRgcJGMQsomFhVXykW6RfhwpEiv
-         /a0f2cTkEepZnT5QgNXf6RvLzzvSTWoL3P8Z7Gpx1I/muxcTBMVR7MDYXWnMXnxzmRMe
-         VVg3i4z3QFNpTD2MMb0J7LWn3oHMsgaN+mQIG3cRjsDS48ZqfNyVAv9/qBYvzkYzyZr9
-         dP8SJvZrVYNW0sNEHZpQRnv+MwzSP83lXswk9OCHG95Tw24QwwkZSeYT8hX8qu/CYbaG
-         tgOzYr1po54vgH0Ki+BM7IZ3IeaMHl/yIlAjowj8b7gZ4s1UsQWjCCTW10o3+M2iAfOp
-         oijg==
+        d=ventanamicro.com; s=google; t=1684320708; x=1686912708;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W4I98XV0IFrv57OJbenqpT7CSPupqW0VvAVAytajn+E=;
+        b=MnXwJ4jlP/FxQK46VKChHKbe5osYVecKrDXfcEWJMBw31u3l+N+mngaWfgB3dSsiD7
+         phrMOBQjy1hsE4gPFUMTrfbr6vfQ+ZPuzklXSc64v1qEiedouMK6G7ZlRL+zjBqLNf9W
+         o3WmY2nlRHmoOtTb0VwAFquEZKVzyEUZT1cDxUtu2OSV8vDSot9JucS0YWJxZR+8rPJp
+         2Qer5IoHHI0BnOzkHaX7SOIYmsu55Esp51gLJScmnaucmEaYeLdMRiCYgrm1ip974UL2
+         OO3TZQ8NHmkvUXnBeHL2oGwtcIJl3qtQ83SYmhGqRkCMZXMIbK95r24nk9aTMIae5oRf
+         fy2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684320465; x=1686912465;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hqvkmynEV6/dEj1F324kSuUIEax/RriRwvtPl5SBD9Q=;
-        b=YKoEmu+pPr5jzRZMOaarQ0YLjvcYEjzuf+01HGMvyckEuMJb/4NpvnIDhQPSEPespT
-         Zgm2xXl8DPE8faNHYfgiyK2E2yWdKU4PAIbg4cmakzsstKBqQJu2fesNolmM4K09mK21
-         puAt8mWW+nzpUjPdiA3uIjrkZ41AsnkkpVNtuJJWpKlqiAnxwguRZE6sOMn8aYBt+qXf
-         KCsmq5SC1FwMgCm3G3WWu5gXkMj8zJbJHaM01yW8IyfcycK9VbygLdAer4CF/ZSR47nb
-         LJ2tYzKonpqdEtvB3h+hcKSWzyL6lbXJuWMipU0JcrXU/rTdjCbVBgm6noXyGKZ7aJ9n
-         kLeQ==
-X-Gm-Message-State: AC+VfDyONcnAf/QpKIGtwbQZwX0ud3A1m4ofd3mGY/yYBK/0suwTQlm0
-	cU65Xey0oK9gbIcTaBP1zN8=
-X-Google-Smtp-Source: ACHHUZ471C3w5wFUGqIt4z27L/T2S6UBevOn16Z1o3xjez4iuEJaWtfcI8ywEBpGacqYJ2cij8Y9bA==
-X-Received: by 2002:adf:f8d1:0:b0:307:8b3e:285a with SMTP id f17-20020adff8d1000000b003078b3e285amr261055wrq.67.1684320465184;
-        Wed, 17 May 2023 03:47:45 -0700 (PDT)
-Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
-        by smtp.gmail.com with ESMTPSA id g3-20020a5d6983000000b002ff2c39d072sm2334322wru.104.2023.05.17.03.47.43
+        d=1e100.net; s=20221208; t=1684320708; x=1686912708;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=W4I98XV0IFrv57OJbenqpT7CSPupqW0VvAVAytajn+E=;
+        b=U7bL52C+CF9zcUf6BQ7HlPRj38SEllwqoWOPySq5SNX9bzW6SRaYAFb6dNIATryQqn
+         b1y6zk6s2slZA/P5ijntT9BePN+pZ5l9oXBH7nPe12lICTQnZGuvTFnGA5mMEzI4OxYe
+         K420eZGiSWtUzij/AFqMT0lI4VqgtVxL100yyxmAd7NE0ZmloaLLBYCAOmb9/v2C8O+r
+         Wk8xYPnsI9cCgNNClicP8MKHcxn8qJoSL9w9Oi0sn6iF+rv2EqJXiZyvCJKDO1vxVf62
+         4qwEl5ThftozF3UJsyP0mt3QcheD0R2JF5mif/QHfgBlwPQnsRR2Q+BN11NPnqlYfWyX
+         4XGA==
+X-Gm-Message-State: AC+VfDyUzvhwFAe3pa3jpueDNq249pvyu+D84kC+mOM/ty0Y70iHVbYw
+	jacXT9U0K5eL+ho2t5WmAul/Ma5sQ+DFXyNXjGvIpA==
+X-Google-Smtp-Source: ACHHUZ4euu8r9FiWVjCzf0OJMrz1fFmqTpnJBq5ZV+ulaHRPe7SJHyf6p4luiN3EhsbNsOA4ekwWjw==
+X-Received: by 2002:a9d:7acb:0:b0:6ab:604:1eed with SMTP id m11-20020a9d7acb000000b006ab06041eedmr14252339otn.22.1684320708366;
+        Wed, 17 May 2023 03:51:48 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.51.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 03:47:44 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Wed, 17 May 2023 12:47:42 +0200
-To: Ze Gao <zegao2021@gmail.com>, Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexei Starovoitov <ast@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+        Wed, 17 May 2023 03:51:48 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, x86@kernel.org,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>,
-	Yonghong Song <yhs@fb.com>, Ze Gao <zegao@tencent.com>
-Subject: Re: [PATCH v3 2/4] fprobe: make fprobe_kprobe_handler recursion free
-Message-ID: <ZGSwzuM8oHgKaaga@krava>
-References: <20230517034510.15639-1-zegao@tencent.com>
- <20230517034510.15639-3-zegao@tencent.com>
+	Andrew Jones <ajones@ventanamicro.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 00/10] RISC-V KVM in-kernel AIA irqchip
+Date: Wed, 17 May 2023 16:21:25 +0530
+Message-Id: <20230517105135.1871868-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230517034510.15639-3-zegao@tencent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_034750_085610_0D0617F6 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20230517_035150_842060_41147206 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,85 +96,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 17, 2023 at 11:45:07AM +0800, Ze Gao wrote:
-> Current implementation calls kprobe related functions before doing
-> ftrace recursion check in fprobe_kprobe_handler, which opens door
-> to kernel crash due to stack recursion if preempt_count_{add, sub}
-> is traceable in kprobe_busy_{begin, end}.
-> 
-> Things goes like this without this patch quoted from Steven:
-> "
-> fprobe_kprobe_handler() {
->    kprobe_busy_begin() {
->       preempt_disable() {
->          preempt_count_add() {  <-- trace
->             fprobe_kprobe_handler() {
-> 		[ wash, rinse, repeat, CRASH!!! ]
-> "
-> 
-> By refactoring the common part out of fprobe_kprobe_handler and
-> fprobe_handler and call ftrace recursion detection at the very beginning,
-> the whole fprobe_kprobe_handler is free from recursion.
-> 
-> Signed-off-by: Ze Gao <zegao@tencent.com>
-> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> Link: https://lore.kernel.org/linux-trace-kernel/20230516071830.8190-3-zegao@tencent.com
-> ---
->  kernel/trace/fprobe.c | 59 ++++++++++++++++++++++++++++++++-----------
->  1 file changed, 44 insertions(+), 15 deletions(-)
-> 
-> diff --git a/kernel/trace/fprobe.c b/kernel/trace/fprobe.c
-> index 9abb3905bc8e..097c740799ba 100644
-> --- a/kernel/trace/fprobe.c
-> +++ b/kernel/trace/fprobe.c
-> @@ -20,30 +20,22 @@ struct fprobe_rethook_node {
->  	char data[];
->  };
->  
-> -static void fprobe_handler(unsigned long ip, unsigned long parent_ip,
-> -			   struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> +static inline void __fprobe_handler(unsigned long ip, unsigned long
-> +		parent_ip, struct ftrace_ops *ops, struct ftrace_regs *fregs)
->  {
->  	struct fprobe_rethook_node *fpr;
->  	struct rethook_node *rh = NULL;
->  	struct fprobe *fp;
->  	void *entry_data = NULL;
-> -	int bit, ret;
-> +	int ret;
->  
+This series adds in-kernel AIA irqchip which only trap-n-emulate IMSIC and
+APLIC MSI-mode for Guest. The APLIC MSI-mode trap-n-emulate is optional so
+KVM user space can emulate APLIC entirely in user space.
 
-this change uncovered bug for me introduced by [1]
+The use of IMSIC HW guest files to accelerate IMSIC virtualization will be
+done as separate series since this depends on AIA irqchip drivers to be
+upstreamed. This series has no dependency on the AIA irqchip drivers.
 
-the bpf's kprobe multi uses either fprobe's entry_handler or exit_handler,
-so the 'ret' value is undefined for return probe path and occasionally we
-won't setup rethook and miss the return probe
+There is also a KVM AIA irq-bypass (or device MSI virtualization) series
+under development which depends on this series and upcoming IOMMU driver
+series.
 
-we can either squash this change into your patch or I can make separate
-patch for that.. but given that [1] is quite recent we could just silently
-fix that ;-)
+These patches (or this series) can also be found in the
+riscv_kvm_aia_irqchip_v1 branch at: https://github.com/avpatel/linux.git
 
-jirka
+Anup Patel (10):
+  RISC-V: KVM: Implement guest external interrupt line management
+  RISC-V: KVM: Add IMSIC related defines
+  RISC-V: KVM: Add APLIC related defines
+  RISC-V: KVM: Set kvm_riscv_aia_nr_hgei to zero
+  RISC-V: KVM: Skeletal in-kernel AIA irqchip support
+  RISC-V: KVM: Implement device interface for AIA irqchip
+  RISC-V: KVM: Add in-kernel emulation of AIA APLIC
+  RISC-V: KVM: Expose APLIC registers as attributes of AIA irqchip
+  RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC
+  RISC-V: KVM: Expose IMSIC registers as attributes of AIA irqchip
 
+ arch/riscv/include/asm/kvm_aia.h       |  107 ++-
+ arch/riscv/include/asm/kvm_aia_aplic.h |   58 ++
+ arch/riscv/include/asm/kvm_aia_imsic.h |   38 +
+ arch/riscv/include/asm/kvm_host.h      |    4 +
+ arch/riscv/include/uapi/asm/kvm.h      |   54 ++
+ arch/riscv/kvm/Kconfig                 |    4 +
+ arch/riscv/kvm/Makefile                |    3 +
+ arch/riscv/kvm/aia.c                   |  274 +++++-
+ arch/riscv/kvm/aia_aplic.c             |  617 ++++++++++++++
+ arch/riscv/kvm/aia_device.c            |  672 +++++++++++++++
+ arch/riscv/kvm/aia_imsic.c             | 1083 ++++++++++++++++++++++++
+ arch/riscv/kvm/main.c                  |    3 +-
+ arch/riscv/kvm/vcpu.c                  |    2 +
+ arch/riscv/kvm/vm.c                    |  115 +++
+ include/uapi/linux/kvm.h               |    2 +
+ 15 files changed, 3003 insertions(+), 33 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_aia_aplic.h
+ create mode 100644 arch/riscv/include/asm/kvm_aia_imsic.h
+ create mode 100644 arch/riscv/kvm/aia_aplic.c
+ create mode 100644 arch/riscv/kvm/aia_device.c
+ create mode 100644 arch/riscv/kvm/aia_imsic.c
 
-[1] 39d954200bf6 fprobe: Skip exit_handler if entry_handler returns !0
-
----
-diff --git a/kernel/trace/fprobe.c b/kernel/trace/fprobe.c
-index 9abb3905bc8e..293184227394 100644
---- a/kernel/trace/fprobe.c
-+++ b/kernel/trace/fprobe.c
-@@ -27,7 +27,7 @@ static void fprobe_handler(unsigned long ip, unsigned long parent_ip,
- 	struct rethook_node *rh = NULL;
- 	struct fprobe *fp;
- 	void *entry_data = NULL;
--	int bit, ret;
-+	int bit, ret = 0;
- 
- 	fp = container_of(ops, struct fprobe, ops);
- 	if (fprobe_disabled(fp))
-
-
+-- 
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
