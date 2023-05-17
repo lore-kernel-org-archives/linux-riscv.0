@@ -4,75 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213C6C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9626C77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3irWf7J+7O8EGB8PMCrLgJRtffUf+K6zsPzJ314bBw=; b=EE3W9Gi/9escXzeHiltBluFpJz
-	QNWD3yiGGD1M10mTFBRGXn0YLVZsa6tGWEVViw2EyW+hxmwdEfBeHylTenD140ezfZ/2sSU1jywmH
-	wKOGXb87mFkpRBXBilhgHMQd6d98y4TpZHyajkpVXF5pbTeV/pZwNrN0Xiz0XYwKjp9IK+5byjRaI
-	ejAVTgpPc1HyMGoOJp8SnrIeUQRnmvmTRrjCtYGxfqomefnKafJTjTMmWOJlmItigSdOCviHMWPWC
-	/2LcnfdUy+VSWlk/jwWur0PQDTjKKu3y+7DFoRPbcgvNAF62kBBdq+8DG7smIwLl2dFbuRsQgCYk2
-	lLpqecbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PByfwzw+o5YNLMTuq7b6K9E27+KaiNL/OHdGtpH+UFc=; b=Kdc/nO8cUiqjVD
+	66qlpaoRnDzx4q5gRYiRWfPBD0TSG41uIidmN4Kjd4FbgkQN3ti97LwISYbDkjlal7nvx79TT4EBg
+	bSMGTH8SJm8rU0TzmCZdMj1GffXHX8GeKTCWiK/Phdk3xU20kEspJSzOrSZadvkMDyD1SkAIdqu5y
+	VTH6D0cMlnBJG8ChArNp9hXbx0oIG7x/pm53aurPBX22y/TDt1+wqrO5gqRKL914hFxnMoHa0WQcg
+	A/8AzvyXkPVTo/JYCWoiOw5cWAwmpuZGn1p1dYRw7KVJDgsShDCVjdU80v/iVs65Wg/CS7dBHJj8R
+	yqFStKl7+EXZFX4IKqiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzFKH-009bU2-1s;
-	Wed, 17 May 2023 11:28:13 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pzFLK-009beo-0s;
+	Wed, 17 May 2023 11:29:18 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzFKD-009bRq-0P
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 11:28:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684322890; x=1715858890;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=USREqE8lRmbgXvnU/8dLwkbI7tqJwD1a8ZDS5Hs3u8I=;
-  b=s/K9pkG04faSsK39ac14MYm6fXJADuf2qs2XqZnFy1a0bPNq2xj8/DVl
-   eY+9tLNiSSrNxUI6YLysJGOo6ptYfUNC4sympvtGpDec2A+8Ora5Zh07X
-   B5FrDNBksFgiqgkemMuvMBOeLVKp7xgIsW/M3P/z/nU6UPHxGR0PSspl4
-   OS8ucPz6rd3ZyXIYOsaqu1U5tdBsQgRUGPBNc+AsxTmKqdg5hD7XYoFUT
-   a0ShFeFrXBrj0FdvzRHA8ckX6+aNvFAJLqDIySoAM5nE00wz8oVZ+35pz
-   0cozEwjcwWgVzOyQSXdWSnvJr526bllbYfz7PE1WtN+cY+/QF8oTD0p4J
-   g==;
-X-IronPort-AV: E=Sophos;i="5.99,281,1677567600"; 
-   d="asc'?scan'208";a="214265850"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 May 2023 04:27:55 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 17 May 2023 04:27:53 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 17 May 2023 04:27:51 -0700
-Date: Wed, 17 May 2023 12:27:30 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-CC: Song Shuai <suagrfillet@gmail.com>, <robh@kernel.org>, Andrew Jones
-	<ajones@ventanamicro.com>, <anup@brainfault.org>, <palmer@rivosinc.com>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>,
-	<mason.huo@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Guo
- Ren <guoren@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: Bug report: kernel paniced when system hibernates
-Message-ID: <20230517-preacher-primer-f41020b3376a@wendy>
-References: <CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com>
- <CAHVXubgse4Lw7ucg52FkQW4c=QrNo56BXsRZ_nkCHAAPxUXUig@mail.gmail.com>
- <CAHVXubj92O_dwGShOJgrYezqk2pA2NtFyhNFbAPyhn7=PztK6Q@mail.gmail.com>
+	id 1pzFLE-009bdO-0S;
+	Wed, 17 May 2023 11:29:16 +0000
+Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34HB7BJC023902;
+	Wed, 17 May 2023 11:28:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=NDNDo483NWCxuBgC62EmEkRd88RyM/bkMdaCrqWiEjU=;
+ b=VRtGkAflt6Ne1p93gyowlWX7j5boLIQ7h0nC9VIo7uX3bwTrUs3t4FOkk1lJTYXqc25V
+ 9FamFmiSWFwwyWa1DKrOu9DcxLjGAv2i0jSAymPQgGQf5P0M1OluYrFgT26OhkCmT/su
+ BOKQtACZlOM4qdl7albr+SCOM7HzolGHsX5OPk132gsH5r9G7psINiKU8nGXVgkrlm0G
+ JFTSinpEe96JQbyAanKB2Lfpy9cfYcMtNW6I0KolKOl1iMwgb7HevQZDAfJyxXafubsX
+ 7gBNmSwaGFu7ct5RonhF3KWLIHQEwZVWECGZeI9L5VSTs6GPXqMDDHdOU4895qB3OFQc 4w== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmw5v1gq1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 11:28:14 +0000
+Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34HB7Pi6025529;
+	Wed, 17 May 2023 11:28:13 GMT
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmw5v1gn6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 11:28:12 +0000
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34H2RRIs022653;
+	Wed, 17 May 2023 11:28:09 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3qj264t4u2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 11:28:09 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34HBS6QC63177030
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 17 May 2023 11:28:06 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 203902004B;
+	Wed, 17 May 2023 11:28:06 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0CE9620040;
+	Wed, 17 May 2023 11:28:05 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 17 May 2023 11:28:04 +0000 (GMT)
+Date: Wed, 17 May 2023 13:28:03 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Hugh Dickins <hughd@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Mike Kravetz <mike.kravetz@oracle.com>,
+        Mike Rapoport <rppt@kernel.org>,
+        "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+        Matthew Wilcox <willy@infradead.org>,
+        David Hildenbrand <david@redhat.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>,
+        "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org
+Subject: Re: [PATCH 16/23] s390: gmap use pte_unmap_unlock() not spin_unlock()
+Message-ID: <ZGS6Q9jb/Rjwi4Rm@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+ <5579873-d7b-65e-5de0-a2ba8a144e7@google.com>
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubj92O_dwGShOJgrYezqk2pA2NtFyhNFbAPyhn7=PztK6Q@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <5579873-d7b-65e-5de0-a2ba8a144e7@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: tSWvl9C0MlO4O_EzCFOjF_JcbOB8NztS
+X-Proofpoint-ORIG-GUID: NWm_n_tm0YYcdEmwRmZvkdtWX-DujuzO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-05-17_02,2023-05-17_02,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 clxscore=1011
+ spamscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=780
+ priorityscore=1501 mlxscore=0 impostorscore=0 suspectscore=0
+ malwarescore=0 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2304280000 definitions=main-2305170090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_042809_369631_146B1D91 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20230517_042915_588229_AB0AD13F 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,137 +135,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5583463817893970674=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5583463817893970674==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6w54c5FuSo5Xd9WG"
-Content-Disposition: inline
+On Tue, May 09, 2023 at 10:02:32PM -0700, Hugh Dickins wrote:
+> pte_alloc_map_lock() expects to be followed by pte_unmap_unlock(): to
+> keep balance in future, pass ptep as well as ptl to gmap_pte_op_end(),
+> and use pte_unmap_unlock() instead of direct spin_unlock() (even though
+> ptep ends up unused inside the macro).
+> 
+> Signed-off-by: Hugh Dickins <hughd@google.com>
+> ---
+>  arch/s390/mm/gmap.c | 22 +++++++++++-----------
+>  1 file changed, 11 insertions(+), 11 deletions(-)
 
---6w54c5FuSo5Xd9WG
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Alex,
-
-On Wed, May 17, 2023 at 10:58:02AM +0200, Alexandre Ghiti wrote:
-> On Tue, May 16, 2023 at 1:12=E2=80=AFPM Alexandre Ghiti <alexghiti@rivosi=
-nc.com> wrote:
-
-> > On Tue, May 16, 2023 at 11:24=E2=80=AFAM Song Shuai <suagrfillet@gmail.=
-com> wrote:
-> > I actually removed this flag a few years ago, and I have to admit that
-> > I need to check if that's necessary: the goal of commit 3335068f8721
-> > ("riscv: Use PUD/P4D/PGD pages for the linear mapping") is to expose
-> > the "right" start of DRAM so that we can align virtual and physical
-> > addresses on a 1GB boundary.
-> >
-> > So I have to check if a nomap region is actually added as a
-> > memblock.memory.regions[] or not: if yes, that's perfect, let's add
-> > the nomap attributes to the PMP regions, otherwise, I don't think that
-> > is a good solution.
->=20
-> So here is the current linear mapping without nomap in openSBI:
->=20
-> ---[ Linear mapping ]---
-> 0xff60000000000000-0xff60000000200000    0x0000000080000000         2M
-> PMD     D A G . . W R V
-> 0xff60000000200000-0xff60000000e00000    0x0000000080200000        12M
-> PMD     D A G . . . R V
->=20
-> And below the linear mapping with nomap in openSBI:
->=20
-> ---[ Linear mapping ]---
-> 0xff60000000080000-0xff60000000200000    0x0000000080080000      1536K
-> PTE     D A G . . W R V
-> 0xff60000000200000-0xff60000000e00000    0x0000000080200000        12M
-> PMD     D A G . . . R V
->=20
-> So adding nomap does not misalign virtual and physical addresses, it
-> prevents the usage of 1GB page for this area though, so that's a
-> solution, we just lose this 1GB page here.
->=20
-> But even though that may be the fix, I think we also need to fix that
-> in the kernel as it would break compatibility with certain versions of
-> openSBI *if* we fix openSBI...So here are a few solutions:
->=20
-> 1. we can mark all "mmode_resv" nodes in the device tree as nomap,
-> before the linear mapping is established (IIUC, those nodes are added
-> by openSBI to advertise PMP regions)
->     -> This amounts to the same fix as opensbi and we lose the 1GB hugepa=
-ge.
-
-AFAIU, losing the 1 GB hugepage is a regression, which would make this
-not an option, right?
-
-> 2. we can tweak pfn_is_nosave function to *not* save pfn corresponding
-> to PMP regions
->     -> We don't lose the 1GB hugepage \o/
-> 3. we can use register_nosave_region() to not save the "mmode_resv"
-> regions (x86 does that
-> https://elixir.bootlin.com/linux/v6.4-rc1/source/arch/x86/kernel/e820.c#L=
-753)
->     -> We don't lose the 1GB hugepage \o/
-> 4. Given JeeHeng pointer to
-> https://elixir.bootlin.com/linux/v6.4-rc1/source/kernel/power/snapshot.c#=
-L1340,
-> we can mark those pages as non-readable and make the hibernation
-> process not save those pages
->     -> Very late-in-the-day idea, not sure what it's worth, we also
-> lose the 1GB hugepage...
-
-Ditto here re: introducing another regression.
-
-> To me, the best solution is 3 as it would prepare for other similar
-> issues later, it is similar to x86 and it allows us to keep 1GB
-> hugepages.
->=20
-> I have been thinking, and to me nomap does not provide anything since
-> the kernel should not address this memory range, so if it does, we
-> must fix the kernel.
->=20
-> Let me know what you all think, I'll be preparing a PoC of 3 in the meant=
-ime!
-
-#3 would probably get my vote too. It seems like you could use it
-dynamically if there was to be a future other provider of "mmode_resv"
-regions, rather than doing something location-specific.
-
-We should probably document these opensbi reserved memory nodes though
-in a dt-binding or w/e if we are going to be relying on them to not
-crash!
-
-Thanks for working on this,
-Conor.
-
-
---6w54c5FuSo5Xd9WG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGS6IgAKCRB4tDGHoIJi
-0qsIAQCtlGg/uMm4zz/vWITkgyLV+LGXakABee0MyRtoPfADJgEAhWfiM9TB46v4
-4k0/ko1bu+Hxn6d2KvY+53/VT6P1DQk=
-=YttE
------END PGP SIGNATURE-----
-
---6w54c5FuSo5Xd9WG--
-
-
---===============5583463817893970674==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5583463817893970674==--
-
