@@ -4,61 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38586C77B7F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72484C77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIPggrGgxWkesl7yNaANFJDMoLyTTnx0ejTWA5i3O7I=; b=tjdQ3qYXVwft842LZp+Kl099cG
-	W6E7i5RYJTvDBiMgw6ndwlxhDNvmm75wQfAPg+A1j+nxoQgAgu5IYkEfrMMj+xenPWq3dHS+8sX5E
-	jpn+gSR9o0EB1uWg3JYA0jUb5Ysa2GqcJRRAPZZrKiJrOwl6Lvn8E5E2ahC/9oEbWEQH0PKof6i5P
-	k9zjkES6uExFUGhfsAAot2W4g61QKN6c6jhjSSoKw3J9ebBDWCtq93+qYr5AajNsFr8hoYM+SDcA4
-	UBjj+BwMP/nhrxAoLh7DHDTUbLsUYDKOAUDG22CuHSYT4UtvM68/oIp7EMFS3odkkummSwZJgMTr/
-	ivopIKXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=svb2zmYf1h9otiZ3TW98luJizFizN6LvaRRgN6Sa4Sk=; b=D2Fa1ElMc6RrWd
+	7qmRfcqIX8z/QHEux8J5YP1lmk+Iju+aVHMXxPituG/nplo/V6DqNpxI8VHDk46t5jcWkGu3+MUk4
+	XeunNclVeUXL94VNxt45eMdNc6eIN1SRw1jvbK7UjjYNkiLUDVpcfuYduAO77frf2MUS8P5qSR7wn
+	Lu7+Z3gqWte/ySg+8SPo8jK6hPizePvQVoc6rxaqCkFelLiDiSEOZ70YxxLXVMIuqNeBAglz84y6E
+	Z1G1hmJGhhypbPvRpiqWbq22RsLckPsaFks36uekOUPCWKP/yezRlFCUBH91BgdPKLIo4NPHh0RmW
+	qCNNwDNM3kE2JgfaISBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEH7-009L82-00;
-	Wed, 17 May 2023 10:20:53 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1pzEaD-009SFS-1X;
+	Wed, 17 May 2023 10:40:37 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEH4-009L1d-2Y
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 10:20:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pzEGm-0001Nd-Hf; Wed, 17 May 2023 12:20:32 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pzEGl-000opd-MS; Wed, 17 May 2023 12:20:31 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pzEGk-005JDj-UP; Wed, 17 May 2023 12:20:30 +0200
-Date: Wed, 17 May 2023 12:20:30 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v17 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20230517102030.b4nyo2dmpfl7v7fk@pengutronix.de>
-References: <20230421-neurology-trapezoid-b4fa29923a23@wendy>
- <20230421-sleek-bottom-88b867f56609@wendy>
+	id 1pzEaA-009SEM-1I;
+	Wed, 17 May 2023 10:40:35 +0000
+Received: from pps.filterd (m0353723.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34HAWh8p030125;
+	Wed, 17 May 2023 10:39:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : in-reply-to : references : mime-version :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=6o4UB5d8iRIZZq7T331T96/YmtIoyPZJVO895cK7BU4=;
+ b=Qlb1r1C79y4iKHdQAqanT8rbJmqF8hpDVpHADvfmHgcOzINGCqecTLs6lklqCmaeUKZi
+ LNo2SCVe642Qo5fhaxr/ou+1QQFdZf6fudSYdsYn1zj0/qda6lUKaL4wNzWc8ZwCpOGB
+ u1jr8Jeldv7dhRYFAZce4H8UEXUhr2sOKWsFIUzuyQCAdsrgpetZ/OvfYv7ko7U4WoTl
+ WIlXuWOUiMllj0buN4FxHg1xFrqq9szJZkHJpe+PgAPCqpQU+mAWYxRNQNulh9twB9sp
+ 7Sk1CAWsYA8brwf7ADoH4AMfmPk6bkEJB+etoy2gytNtvsvI4B1v7NCryfl9JlR+J5XJ Lg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmvpm9ncq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 10:39:33 +0000
+Received: from m0353723.ppops.net (m0353723.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34HAWq5Q030869;
+	Wed, 17 May 2023 10:37:18 GMT
+Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qmvpm9fk6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 10:37:18 +0000
+Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
+	by ppma06ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34H5hGdl019589;
+	Wed, 17 May 2023 10:35:52 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma06ams.nl.ibm.com (PPS) with ESMTPS id 3qj1tdt3s3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 May 2023 10:35:52 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34HAZmug51773938
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 17 May 2023 10:35:48 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B38752004B;
+	Wed, 17 May 2023 10:35:48 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C636820043;
+	Wed, 17 May 2023 10:35:47 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.152.224.66])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 17 May 2023 10:35:47 +0000 (GMT)
+Date: Wed, 17 May 2023 12:35:46 +0200
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Hugh Dickins <hughd@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Mike Kravetz
+ <mike.kravetz@oracle.com>,
+        Mike Rapoport <rppt@kernel.org>,
+        "Kirill A.
+ Shutemov" <kirill.shutemov@linux.intel.com>,
+        Matthew Wilcox
+ <willy@infradead.org>,
+        David Hildenbrand <david@redhat.com>,
+        Suren
+ Baghdasaryan <surenb@google.com>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert
+ Uytterhoeven <geert@linux-m68k.org>,
+        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>,
+        Helge Deller <deller@gmx.de>,
+        John David
+ Anglin <dave.anglin@bell.net>,
+        "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org
+Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
+Message-ID: <20230517123546.672fb9b0@p-imbrenda>
+In-Reply-To: <94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+	<94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.37; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20230421-sleek-bottom-88b867f56609@wendy>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 8y_E68kURQ0ih8Y_-pXj5N6bPDOiuEZv
+X-Proofpoint-ORIG-GUID: ot2a0roI6HKgv_SkGdPLAhcx7gRQDDOX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-05-17_02,2023-05-16_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 bulkscore=0
+ clxscore=1011 mlxscore=0 phishscore=0 spamscore=0 mlxlogscore=972
+ malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2304280000 definitions=main-2305170081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_032050_827786_E207B572 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20230517_034034_559535_7CD49BC2 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,85 +149,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0378969791518341679=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 9 May 2023 22:01:16 -0700 (PDT)
+Hugh Dickins <hughd@google.com> wrote:
 
---===============0378969791518341679==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qa5qm3wv35pmobau"
-Content-Disposition: inline
+> In rare transient cases, not yet made possible, pte_offset_map() and
+> pte_offset_map_lock() may not find a page table: handle appropriately.
+> 
+> Signed-off-by: Hugh Dickins <hughd@google.com>
+> ---
+>  arch/s390/kernel/uv.c  |  2 ++
+>  arch/s390/mm/gmap.c    |  2 ++
+>  arch/s390/mm/pgtable.c | 12 +++++++++---
+>  3 files changed, 13 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
+> index cb2ee06df286..3c62d1b218b1 100644
+> --- a/arch/s390/kernel/uv.c
+> +++ b/arch/s390/kernel/uv.c
+> @@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
+>  
+>  	rc = -ENXIO;
+>  	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
+> +	if (!ptep)
+> +		goto out;
+>  	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
+>  		page = pte_page(*ptep);
+>  		rc = -EAGAIN;
+> diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
+> index dc90d1eb0d55..d198fc9475a2 100644
+> --- a/arch/s390/mm/gmap.c
+> +++ b/arch/s390/mm/gmap.c
+> @@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
+>  		spinlock_t *ptl;
+>  
+>  		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
+> +		if (!ptep)
+> +			break;
 
+so if pte_offset_map_lock fails, we abort and skip both the failed
+entry and the rest of the entries?
 
---qa5qm3wv35pmobau
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+can pte_offset_map_lock be retried immediately if it fails? (consider
+that we currently don't allow THP with KVM guests)
 
-Hello Conor,
+Would something like this:
 
-I found one remaining issue:
+do {
+	ptep = pte_offset_map_lock(...);
+	mb();	/* maybe? */
+} while (!ptep);
 
-On Fri, Apr 21, 2023 at 10:27:09AM +0100, Conor Dooley wrote:
-> +static u64 mchp_core_pwm_calc_duty(const struct pwm_state *state, u64 cl=
-k_rate,
-> +				   u8 prescale, u8 period_steps)
-> +{
-> +	u64 duty_steps, tmp;
-> +
-> +	/*
-> +	 * Calculate the duty cycle in multiples of the prescaled period:
-> +	 * duty_steps =3D duty_in_ns / step_in_ns
-> +	 * step_in_ns =3D (prescale * NSEC_PER_SEC) / clk_rate
-> +	 * The code below is rearranged slightly to only divide once.
-> +	 */
-> +	tmp =3D (prescale + 1) * NSEC_PER_SEC;
-
-If prescale > 4 this overflows on 32bit archs, doesn't it?
-(I think prescale + 1 is promoted to unsigned int, then the
-multiplication is done and only then the range is extended to u64.
-
-> +	duty_steps =3D mul_u64_u64_div_u64(state->duty_cycle, clk_rate, tmp);
-> +
-> +	return duty_steps;
-> +}
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---qa5qm3wv35pmobau
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmRkqm4ACgkQj4D7WH0S
-/k6E4Af9GpPg42BTohU1ij/TFyI2WSTeDS3OHXIV92tExb/HLhS7FSfKT6abkvKE
-ypK/1B9fnczOdqCjkkU1EetSh+RpLL7D9iQTmpbVKiH6RNP4yzpluiURsYPs/FkX
-l13ixd0Twqfdm/YJC+I9bMxZMkSH/nQfz211qQXxdFDQ7gluRdNllcz0FZzx9goT
-naOJE1VjjAqzXEpcuSojE7ghI/ZG8zQihqmYgSRQV88rQoqupN7u69vvAKS/ji9g
-StJ3wFnLC3l5flUPz1ye32ZtXO/l7f7dewi+IpkDpcM54EY765Jiu4Mw53MTGUWm
-1b8HNXWdrt2LqRG9/l/0pUd6nJAJkQ==
-=4RDi
------END PGP SIGNATURE-----
-
---qa5qm3wv35pmobau--
+make sense?
 
 
---===============0378969791518341679==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+otherwise maybe it's better to return an error and retry the whole
+walk_page_range() in s390_enable_sie() ? it's a slow path anyway.
+
+>  		if (is_zero_pfn(pte_pfn(*ptep)))
+>  			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
+>  		pte_unmap_unlock(ptep, ptl);
+
+[...]
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0378969791518341679==--
-
