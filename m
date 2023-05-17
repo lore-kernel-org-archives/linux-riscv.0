@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB00C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D8FC77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tA6aNFe5r3JmlwnURe6YkLynzgl9G30h7QQD/VAPaos=; b=gsP2XrbbssvfF9
-	EIEg3369xWdsChLcIt1qLQmn+0zG3d8zVn8OJ3TQQ0mh/VbcazQVmqvlt7ip4uIvCKCx3ir/c4/cH
-	I2LGG8YWhPmcqBlEuaRoZAeR2qz9MTytHDnLVuOSYkfvX+tzT+DkY0sdGV6u1RG1h9p55gmKuaGBS
-	4SDb489AYp0tigJBUYkzB39QMBcuH6jE342/is93PmXeafopN4PDY+DG3DIdXu7KA08DJSwGPtdhl
-	RN8lvVg1z7hPPzFRNNE9JSobRRRGLKayQoBXh05/IjiXJgaQKJDDL4KmGOlRZlcJ062Gi7BpA2DoB
-	GYhUOFdEjQFY2RsellYw==;
+	List-Owner; bh=FgVzaYnxyeCoDCZUNPmI4tv0lIZ+1bGbcp718wpUNOU=; b=1DIazqzmFG2iUU
+	kU6zki4aZ87BJVgYjY7BoUhZL6YRb6xjdtvotLCCZHt7RXiZAdlNszPE9ALrAy1SurHbgTs/9ym5B
+	z/wlKV2+bszlB3Rdt+1HZz3CnfwUzF8fflqr/6biQ+T6zlIIx8G++c+Dcz9rI+j4tTgRInHB8mJ8T
+	WhawNxuGMT1MUelZaiXd2zmEG/p/VJAybDNYBGob4c6wjto2955iE6QscffN+OqvN3TQPH/NS4I4p
+	SuQTRuiFcJN+s/ogAcx8LO6Y8DqbJg1RGUQPD3xw7QkhZXmpSNSSxIeGod2qMfdkFZTUlQiRtNrjA
+	OZoeEc/QBXPrJWk9t7dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGyH-009vho-0P;
-	Wed, 17 May 2023 13:13:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pzH3i-009xED-1C;
+	Wed, 17 May 2023 13:19:14 +0000
+Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGy7-009vWw-0h;
-	Wed, 17 May 2023 13:13:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A47C163E73;
-	Wed, 17 May 2023 13:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E19EFC433A0;
-	Wed, 17 May 2023 13:13:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684329206;
-	bh=JGGRsTfqJlmibWTBDdmhkqjrT8ru+5vGeLr90vAqN7A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sUL++CNilYTKBfXlj2dPw8lmLxduHSA+47PUjO45sLxz4n2hEzFLajiqXD05oRvI8
-	 26qxQpUDKHthdA9YwLEN/YHntIwAjq5IVk/J7nX75CJFm0yAiW/fp8Unf6Rbj8LRNG
-	 UuAyk54JKmTtRzRbemmz9tzUGfiyIgAB+TQe5EXHbuj+wPEfM/oRJtkiWyMRQrpic3
-	 qOjN6jBo+fGjO/IUX/iF6ln8D5N66od5Gncx4RdpQj8+TWomVhhGXJRHHJK3AEjfup
-	 2fvc0cvn3xNc2dtggIu38wLBvRDjizWLgiEZ0mpy6+j/cgELWKA2rntPrjWLUxoYaK
-	 TbULgVLN3CPyA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	x86@kernel.org,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Paul Moore <paul@paul-moore.com>,
-	Eric Paris <eparis@redhat.com>,
-	Dennis Zhou <dennis@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@linux.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	audit@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com
-Subject: [PATCH 14/14] time_namespace: always provide arch_get_vdso_data() prototype for vdso
-Date: Wed, 17 May 2023 15:11:02 +0200
-Message-Id: <20230517131102.934196-15-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230517131102.934196-1-arnd@kernel.org>
-References: <20230517131102.934196-1-arnd@kernel.org>
+	id 1pzH3g-009xCv-0q
+	for linux-riscv@lists.infradead.org;
+	Wed, 17 May 2023 13:19:13 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out2.suse.de (Postfix) with ESMTP id EA71E1FD68;
+	Wed, 17 May 2023 13:19:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1684329545; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0yEaZ9wXA+cWPA25h9EIXyAIeYp+OM3Sb2sM7l1qBrs=;
+	b=ZuDLXj2q3LjuAXxfYXFwPYc1S7uyoELs8tGkJ7Jk1zO1qX9fWmrsZfajes9lw068PoF9A8
+	nJKMvRxm5U5TINr5p/kRbnck4/ydolVIGq2cFp0CFMmEQXFCeIUVIwUkDmNH2b3DtvKlSg
+	vIsrlolp/vXZpqcYLsGp1czILwqvVkM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1684329545;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0yEaZ9wXA+cWPA25h9EIXyAIeYp+OM3Sb2sM7l1qBrs=;
+	b=HBCJlgZNK6zh9eXCRf0J3+tjRLv9+YX1OfIXxgyCNUkoGgaQx+IyxviEZsX9mxGTmQCIZP
+	9Lep3ohD8ldxieDA==
+Received: from hawking.suse.de (unknown [10.168.4.11])
+	by relay2.suse.de (Postfix) with ESMTP id 516F72C141;
+	Wed, 17 May 2023 13:19:05 +0000 (UTC)
+Received: by hawking.suse.de (Postfix, from userid 17005)
+	id 39BA64A04DB; Wed, 17 May 2023 15:19:05 +0200 (CEST)
+From: Andreas Schwab <schwab@suse.de>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: <linux-riscv@lists.infradead.org>,  <devicetree@vger.kernel.org>,
+  "Michael Turquette" <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>,  Philipp Zabel
+ <p.zabel@pengutronix.de>,  Conor Dooley <conor@kernel.org>,  "Emil Renner
+ Berthing" <kernel@esmil.dk>,  Rob Herring <robh+dt@kernel.org>,  Paul
+ Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>,  Hal Feng <hal.feng@starfivetech.com>,
+  <linux-kernel@vger.kernel.org>,  <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v5 08/10] reset: starfive: jh7110: Add StarFive
+ STG/ISP/VOUT resets support
+In-Reply-To: <20230424135409.6648-9-xingyu.wu@starfivetech.com> (Xingyu Wu's
+	message of "Mon, 24 Apr 2023 21:54:07 +0800")
+References: <20230424135409.6648-1-xingyu.wu@starfivetech.com>
+	<20230424135409.6648-9-xingyu.wu@starfivetech.com>
+X-Yow: Yow!  I'm imagining a surfer van filled with soy sauce!
+Date: Wed, 17 May 2023 15:19:05 +0200
+Message-ID: <mvmsfbvgkom.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061327_364729_B8D1F667 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20230517_061912_468428_EE716C7F 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +93,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Apr 24 2023, Xingyu Wu wrote:
 
-The arch_get_vdso_data() function is defined separately on each architecture,
-but only called when CONFIG_TIME_NS is set. If the definition is a global
-function, this causes a W=1 warning without TIME_NS:
+> @@ -58,6 +76,18 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
+>  		.name = "clk_starfive_jh7110_sys.rst-aon",
+>  		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
+>  	},
+> +	{
+> +		.name = "clk_starfive_jh7110_sys.rst-stg",
+> +		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
+> +	},
+> +	{
+> +		.name = "clk_starfive_jh7110_sys.rst-isp",
+> +		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
+> +	},
+> +	{
+> +		.name = "clk_starfive_jh7110_sys.rst-vout",
 
-arch/x86/entry/vdso/vma.c:35:19: error: no previous prototype for 'arch_get_vdso_data' [-Werror=missing-prototypes]
+"clk_starfive_jh7110_sys.rst-vout" is exactly AUXILIARY_NAME_SIZE long,
+thus lacks a null termination.
 
-Move the prototype out of the #ifdef block to reliably turn off that
-warning.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- include/linux/time_namespace.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/time_namespace.h b/include/linux/time_namespace.h
-index bb9d3f5542f8..03d9c5ac01d1 100644
---- a/include/linux/time_namespace.h
-+++ b/include/linux/time_namespace.h
-@@ -44,7 +44,6 @@ struct time_namespace *copy_time_ns(unsigned long flags,
- 				    struct time_namespace *old_ns);
- void free_time_ns(struct time_namespace *ns);
- void timens_on_fork(struct nsproxy *nsproxy, struct task_struct *tsk);
--struct vdso_data *arch_get_vdso_data(void *vvar_page);
- struct page *find_timens_vvar_page(struct vm_area_struct *vma);
- 
- static inline void put_time_ns(struct time_namespace *ns)
-@@ -163,4 +162,6 @@ static inline ktime_t timens_ktime_to_host(clockid_t clockid, ktime_t tim)
- }
- #endif
- 
-+struct vdso_data *arch_get_vdso_data(void *vvar_page);
-+
- #endif /* _LINUX_TIMENS_H */
 -- 
-2.39.2
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
