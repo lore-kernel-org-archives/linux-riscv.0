@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C60C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FABC77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+yLoimSBjZGBaj9YwCgFmc8/sTmAqJAAV3NfoKEcCmc=; b=wDUTqyxUEIrk6a
-	Q8N3UujIkJaPj/lbye+Gq+I3ISynJwweJVXlO4TeFdMqP1Lidqw9QYlU0Xi4XIivFHZp/tbg+AXTB
-	I9HBK09sxsmTPjdwi0FMBepla8Q+PmUxZ0AnVKh1nwd5ub/r4yQpN1QiEOBG8e4yMblrd6L+/tBOO
-	S8r3uVGmeaU/UKlLsXl1w6DkH1u63C3IU2gsqwaNxgjqK7E6h4gIrBvYvXQ+bglvyEphA4KzzWEnX
-	8u0PmNRPEBZ3qzaTjH5QLvwScN4Cq4R9VzJBImhsdregXmFfIuIiAFuZIw5NPWokMsucT0TpUQ0kf
-	sXH0AABFrke0T7+vhFZw==;
+	List-Owner; bh=Mj03HR0sWxpf22CyZftN5aVGyvHkohnFZ8Fgzhre13o=; b=g8wMs7RJpYUztj
+	gdAWNbzKBr7CqE4Oh5RbyGRHy8AWAneZymWQRtk3VjepkQ+X3yKeQJdNI1TjMAqeOwejWFUxHhk2H
+	TdqMn+GsYa/ydl8x9o83aFlQn3ZV1KILIjduLYmxegTwlKo0E0wlP6wbYSEpo1evglbLp5stok40C
+	JFiSqCciRJAhiF1TxzTtLBVBSYyVYIIt4t4h25p9dkbfbNQ2WRtZtWVBHe9a7OVjYnBN+TKOFrA2m
+	t2IoIyYv4oxuGexQavqymQLiICfu6ldyUK2Ai6TjHKcCXO++J/jU6RkBZI5UgLgj2F4pIE3+yYRwl
+	GC1uzfaJYPboHolECx1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGxY-009uxh-1j;
-	Wed, 17 May 2023 13:12:52 +0000
+	id 1pzGxg-009v5r-1C;
+	Wed, 17 May 2023 13:13:00 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGxU-009uts-23;
-	Wed, 17 May 2023 13:12:49 +0000
+	id 1pzGxc-009v0s-1J;
+	Wed, 17 May 2023 13:12:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3108163E73;
-	Wed, 17 May 2023 13:12:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7145AC4331F;
-	Wed, 17 May 2023 13:12:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E097A64719;
+	Wed, 17 May 2023 13:12:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC7AC433A1;
+	Wed, 17 May 2023 13:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684329167;
-	bh=GzyYzd/7tEPxQhzzg+PJ/PWcyEzzBXzJLcduAakWhaY=;
+	s=k20201202; t=1684329175;
+	bh=jyfIU4kb2iohIZExECeJDgccrpywO2d4N5RO4/Lz9/o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=niHVPUaD0YGdt5iRkDpEydf7mr631oogoVQvkL81qpJ5TW0/YDUHFkUu/ZKWJdSyH
-	 WVXjhzTUAGxnOs0Vegl0ZmfHCdPZuJ7YUjlFkitUTUNbJVo7lI5FO1LgLzd52JuqCx
-	 Wr1JJezEgRxZbp9NdZwExiCGViAREtrVIVavopDauE3wvvOAYNu+BznmFcHd0fJK4u
-	 wZIaM4wBxCe+a/H0IRCT0p9ml11d7gsP+vlmdEZuhfHUfwxnHCQLwlRz2WmfAlqtqM
-	 +0195gf2dqreO3HDtP8xhqKkWgE47ff7qay5jg24K0FITidNlAbdN4XuegelYOnMhE
-	 eS4jr0xmyomCA==
+	b=a5AKMGQ6H8c4SmWJA9acjTbaFCzZ0AA2wm05BPlzt7RdfOUiogdQAYWE+G+NGcZdX
+	 yDjsODiNdpDTqKlvtQXPCuaGA3VC6/f234nMehw9xGV/czmg096DJmqiZsDf12qqFe
+	 ej546ikNtCrc67wnEUFw1c3f59H4n265vxwBWYFw7f1ACFpU/dNvgnfSCj3KARvmhc
+	 okU5JO6mfHibgPJap1ViK2c3byQdkDKbjHgzIgRlSYBev2T0JJyKlGkP2OUNIdoni8
+	 hQe43lij086yvsSwf3Lz908iMLuTejdjlTVVg35FM3ecRVrHkCom9/KKxw7ZIB2uTs
+	 DJJKGGvs0X6mw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-mm@kvack.org,
@@ -81,16 +81,16 @@ Cc: linux-mm@kvack.org,
 	linux-pm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kunit-dev@googlegroups.com
-Subject: [PATCH 09/14] kunit: include debugfs header file
-Date: Wed, 17 May 2023 15:10:57 +0200
-Message-Id: <20230517131102.934196-10-arnd@kernel.org>
+Subject: [PATCH 10/14] suspend: add a arch_resume_nosmt() prototype
+Date: Wed, 17 May 2023 15:10:58 +0200
+Message-Id: <20230517131102.934196-11-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230517131102.934196-1-arnd@kernel.org>
 References: <20230517131102.934196-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061248_721347_EFC9C978 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20230517_061256_507002_A79370F0 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +109,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-An extra #include statement is needed to ensure the prototypes
-for debugfs interfaces are visible, avoiding this warning:
+The arch_resume_nosmt() has a __weak definition, plus an x86
+specific override, but no prototype that ensures the two have
+the same arguments. This causes a W=1 warning:
 
-lib/kunit/debugfs.c:28:6: error: no previous prototype for 'kunit_debugfs_cleanup' [-Werror=missing-prototypes]
-lib/kunit/debugfs.c:33:6: error: no previous prototype for 'kunit_debugfs_init' [-Werror=missing-prototypes]
-lib/kunit/debugfs.c:102:6: error: no previous prototype for 'kunit_debugfs_create_suite' [-Werror=missing-prototypes]
-lib/kunit/debugfs.c:118:6: error: no previous prototype for 'kunit_debugfs_destroy_suite' [-Werror=missing-prototypes]
+arch/x86/power/hibernate.c:189:5: error: no previous prototype for 'arch_resume_nosmt' [-Werror=missing-prototypes]
+
+Add the prototype in linux/suspend.h, which is included in
+both places.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- lib/kunit/debugfs.c | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/suspend.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/lib/kunit/debugfs.c b/lib/kunit/debugfs.c
-index b08bb1fba106..22c5c496a68f 100644
---- a/lib/kunit/debugfs.c
-+++ b/lib/kunit/debugfs.c
-@@ -10,6 +10,7 @@
- #include <kunit/test.h>
+diff --git a/include/linux/suspend.h b/include/linux/suspend.h
+index f16653f7be32..bc911fecb8e8 100644
+--- a/include/linux/suspend.h
++++ b/include/linux/suspend.h
+@@ -472,6 +472,8 @@ static inline int hibernate_quiet_exec(int (*func)(void *data), void *data) {
+ }
+ #endif /* CONFIG_HIBERNATION */
  
- #include "string-stream.h"
-+#include "debugfs.h"
- 
- #define KUNIT_DEBUGFS_ROOT             "kunit"
- #define KUNIT_DEBUGFS_RESULTS          "results"
++int arch_resume_nosmt(void);
++
+ #ifdef CONFIG_HIBERNATION_SNAPSHOT_DEV
+ int is_hibernate_resume_dev(dev_t dev);
+ #else
 -- 
 2.39.2
 
