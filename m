@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECA1C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726A6C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 13:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LMBtztfwbv4XX96o7hFSPGHnJeyoQXoQVUa4QecqsIw=; b=BC5TKnY5f6RDXM
-	Q9skBUzw9QEjtZuwrzLr0Z9Rfok6bjZqa+q718cgD97eLBMwWlyi7Ntp8bfB2AN/NDC4C+3M91z9q
-	55F52v1g7rvmE8XKZNiOqNp+OmGbf4o7ksklH+N+2B9qBbJcJ5W1Qmj/ZmzvoqaPvekbviiIiAVLS
-	fhswS1O6yChLCkbPxOJdBBZxZ+tUpSXkrVd3Ye0gwOYXTKiBSfiHI2hzHEC6T2Zw5k7ke+zveMfRU
-	iW5OohxWVzY52BxpseOCRwsaK0EPCGM5Tl4mm3YYBUfmNhOWbWA1QA70IG7A1suwLe36Z6duRMzrP
-	u35dUskFDDZBzKZ5jzqQ==;
+	List-Owner; bh=66u0pIpSnw9lwauc+0erats9HQHJ8B9OZSlJOTSlrJc=; b=Kko5Xmb7mfgAed
+	LFStW141CoKunX6MgG39JjWHIZuPnx+xK42laS8aeFhNWLbYdd70PdNcXuV/bcmWiIK0LvAO1viOX
+	24bIPazQFKNKb1xWkA/BdfoM2wxW/SFaHsR+QpDo0b9GrNAV9y1apI0Tt6NprVz/F8zeBDP3vbEIW
+	DmFSrw51IIvoOXXkVUOEe9A1L6FRmlWX7lewii1YR6TYuSYDUVO+m26iIoapx8Jlr0eqULCoX82Hm
+	3vxyAkcnRY17UVI2EACDImVUReGWnqBWrnueNnE5kOwkNn7utu2+RXCQwciv1IYTHM+JX7jQs4xLF
+	tIRRmITwxTPdg6SIdpow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGxB-009ucs-2Q;
-	Wed, 17 May 2023 13:12:29 +0000
+	id 1pzGxJ-009ujL-1y;
+	Wed, 17 May 2023 13:12:37 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzGx7-009uY4-2p;
-	Wed, 17 May 2023 13:12:27 +0000
+	id 1pzGxF-009ufJ-1N;
+	Wed, 17 May 2023 13:12:34 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5223764715;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E626564717;
+	Wed, 17 May 2023 13:12:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 335BEC433EF;
 	Wed, 17 May 2023 13:12:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF66C4339C;
-	Wed, 17 May 2023 13:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684329144;
-	bh=gekqQcdwspAqcYmV4wkiul0gbNa5okADC3lRsox7SxY=;
+	s=k20201202; t=1684329152;
+	bh=wIpq6dQ3SrZ+OFpGPswN9m0xaTqULZnHSrUinkSrQZ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hhmQcB6Wb+ZcCRzLdjmx7/zFED4SNzs0NBaokc4G4Ef+SjGqplVRCUUlj8VOql7xc
-	 tVzUvC/YohY4HXanpHjF8gzBHtwkxcmoYXP+MIQ4qBiVNrFkbviwAVNhlQFEM5aG9z
-	 u0KG2wrGCIiO4fxkS7CsDg7SKssZvao8JQ1WexuQEtCpz47qaTuW3Z1bOQL/MmRcVt
-	 J43Gz9r687q17jYwvjwLN9fs0kn3xObEo5/anSq7dT5iAh0lVVtxnk6xLq54trRwvy
-	 bwp4gagapMiXtQeSik0KOYf0nVPAhKydrIyt2a5DIE7rfoyB8tfvUPUW3O+QL/VQu3
-	 AKt6l4x3F+ppA==
+	b=sXIvKHQgTrqznMJvGuTDhX84E9WFuYptr8V3Ek7xw2qzSKUVOylJd5AIRFHWD43cs
+	 rY9FXAfbijzhcRJ7xB3TlUNAPXZltMOT2Gu4HfBs6rSenBQe9xDB/DkigljyzJ5y0q
+	 NqniEOZEjINgmXRhB2DOJQVMCw6aB5m5fkNbmxq0hQ2kjVyy2Rz5uAkz1lxR6GK/pc
+	 kmDhZQgZnArP9xfDPRLQii+MbSH3WYm82+2YK1Gsm9qH0+4zeAr7ziGBnxhAtpe3t7
+	 S5c12dcl36AQVcUIP/lTS5gtzL2FAYQNXRSkp6OFpQMsIrlhIqSx17r+jWyW/eaEgJ
+	 v4/2vi76yp1wQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-mm@kvack.org,
@@ -81,16 +81,16 @@ Cc: linux-mm@kvack.org,
 	linux-pm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kunit-dev@googlegroups.com
-Subject: [PATCH 06/14] locking: add lockevent_read() prototype
-Date: Wed, 17 May 2023 15:10:54 +0200
-Message-Id: <20230517131102.934196-7-arnd@kernel.org>
+Subject: [PATCH 07/14] panic: hide unused global functions
+Date: Wed, 17 May 2023 15:10:55 +0200
+Message-Id: <20230517131102.934196-8-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230517131102.934196-1-arnd@kernel.org>
 References: <20230517131102.934196-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_061225_958837_8DEE50F1 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20230517_061233_508013_43B74C91 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +109,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-lockevent_read() has a __weak definition and the only caller in
-kernel/locking/lock_events.c, plus a strong definition in qspinlock_stat.h
-that overrides it, but no other declaration. This causes a W=1
-warning:
+Building with W=1 shows warnings about two functions that have
+no declaration or caller in certain configurations:
 
-kernel/locking/lock_events.c:61:16: error: no previous prototype for 'lockevent_read' [-Werror=missing-prototypes]
+kernel/panic.c:688:6: error: no previous prototype for 'warn_slowpath_fmt' [-Werror=missing-prototypes]
+kernel/panic.c:710:6: error: no previous prototype for '__warn_printk' [-Werror=missing-prototypes]
 
-Add shared prototype to avoid the warnings.
+Enclose the definition in the same #ifdef check as the declaration.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- kernel/locking/lock_events.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ kernel/panic.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/kernel/locking/lock_events.h b/kernel/locking/lock_events.h
-index 8c7e7d25f09c..a6016b91803d 100644
---- a/kernel/locking/lock_events.h
-+++ b/kernel/locking/lock_events.h
-@@ -57,4 +57,8 @@ static inline void __lockevent_add(enum lock_events event, int inc)
- #define lockevent_cond_inc(ev, c)
+diff --git a/kernel/panic.c b/kernel/panic.c
+index 886d2ebd0a0d..10effe40a3fa 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -684,6 +684,7 @@ void __warn(const char *file, int line, void *caller, unsigned taint,
+ 	add_taint(taint, LOCKDEP_STILL_OK);
+ }
  
- #endif /* CONFIG_LOCK_EVENT_COUNTS */
-+
-+ssize_t lockevent_read(struct file *file, char __user *user_buf,
-+		       size_t count, loff_t *ppos);
-+
- #endif /* __LOCKING_LOCK_EVENTS_H */
++#ifdef CONFIG_BUG
+ #ifndef __WARN_FLAGS
+ void warn_slowpath_fmt(const char *file, int line, unsigned taint,
+ 		       const char *fmt, ...)
+@@ -722,8 +723,6 @@ void __warn_printk(const char *fmt, ...)
+ EXPORT_SYMBOL(__warn_printk);
+ #endif
+ 
+-#ifdef CONFIG_BUG
+-
+ /* Support resetting WARN*_ONCE state */
+ 
+ static int clear_warn_once_set(void *data, u64 val)
 -- 
 2.39.2
 
