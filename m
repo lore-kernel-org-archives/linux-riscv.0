@@ -4,86 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4D3C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 14:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C0FC77B7F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 14:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u00Woaa0nHwjtC8gwnnlTP/SVkVPxv/aUlVT4UPtLb4=; b=gHVIdSppnKvh/g
-	8lcrk+RmvKFu3AMSAKuu9nlajdTiZ7+4zhw2Bv+tLu1W63yHo6dRUqy9cq8sWQBceg4GtA9Zv9nVp
-	ygF5F3v64/sm6YcExAJl2tWdsGZnClwxbJAQ7082zBjwi6K9ul9kx/nvEJhaKE7XGGY1sKcjmIyFi
-	7L72g5CEy6oPt9GzvlGkobzKvHDE2Z+IIrr+3wDm1lFfUmLh2FAmnjHxPxt4rn2TGRrFaFMfFlo9i
-	9hg+CIrogFWrJuMVMnOhjVq5TO8h0wAH6BRfsjWVtWiD6qAE09k96LPbHfAiXLwqBwrjREXEz8nFK
-	22dcSU3mHVXObAM3oesw==;
+	List-Owner; bh=UJmAkyR/qx04iQqAWBKoXEFOfjId1aKHbbe4B5sWq5Y=; b=Q8Cz0lwgVXNOvv
+	frsRWLCYqy0DTCMT7+1SaGys+3CoWMK0oH03ZhOkLNF/iP5S+UuQsr2wTBZYxY70qQgW4xii/W4h8
+	ZisHYPiJ8Z/uwrBChz9IJNLrXvLPPQqtfOS5EW7CyhljJ0Dg8h6QnLISKtDSG/oOdJ3ds5t8crpnN
+	9xdLuqvuMOlFUK3U+twp7UAtWrxUVOYwY41krCt5kvBzoh/yEx9ZwicNNQcYENSLfU8dI3HxPdbSg
+	f72x6ZGpvrr+Kc2wVCKZPS7TLmElVEwNjyRJ7chwezkp/WgXgHFXRgpPYY97QdowxVF8Dy/9/Ot9W
+	/ot9p2F8dPFN051i+edA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzIE3-00A8nO-0Y;
-	Wed, 17 May 2023 14:33:59 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1pzIVj-00AC0j-2S;
+	Wed, 17 May 2023 14:52:15 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzIE0-00A8lo-19
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 14:33:57 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-75791a035b8so49772885a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 07:33:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1684334033; x=1686926033;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=e3oHRvM4+O+XVaUuEdehDkOXM012vn7RckSkGvna424=;
-        b=fu1tzDMU/Og/xO2VDVrDn7AMjoYSOOqIHHpkafFQsXAXa7bAquEW8FLCbTstV+4LMK
-         WozWorjMKA6Ye6vd/CWIiTxdEYThpduYehQ0CQ0WfYzDYjo3Vb2D2M2rgHnkpqG2DoOG
-         hFYTNMutL1PBlKS5Sm6U/taMV6kJ+5c+nFWzW2BnEmFKQvrQZqgN1lt1MaOoYlFovyr9
-         7rwdJcPszNNgJz0aUNWpj3BWju7B7DitjFIRX5EHLLPdarguqNTfEhlBsUlRfiyyggcm
-         rmyPk1XWlhvVmYgOtYCrVpLjW2EGN4HHxXkb5Vh4zDOUpaw4fdaI2HH4gyNooTHomACq
-         60Iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684334033; x=1686926033;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=e3oHRvM4+O+XVaUuEdehDkOXM012vn7RckSkGvna424=;
-        b=afmC5HgOQyb0OoTGtPmMw95T3hH9bZfo56wR0k0wGp7/1yN1UijdckeA09bJGdLTw8
-         XdqHK5u3yaIcCaYS6khltCtIo2PLRfSVe3gyzgAu4eLmLgrtUwb637JpLYcQVvCB1jk8
-         FZgwfxd2uhnAhPuBNxaeY+N5/nsRceCPdWg1WLfUNpnGEJY0B1gWgU3pWZnW7Ab+tb6q
-         omuSul0cneUam0FF8tseXCTM0eeUTaexlsA1spJB2rhdxewUMyL2eJaOEi9EusXwsLI5
-         mj1ivDsSG2dw4p63hWl4sVay7OR+9L7W69jL4nB/0RNR3EJSr4Y96ciXNDlXIhclbpgK
-         MLQA==
-X-Gm-Message-State: AC+VfDyI+469ktnzyNVBe3JP5kzrPficizDMS+fcmhQkG/ICgdbWVGsM
-	oWsQYZCazSBk+Tbu9aXjhPy4
-X-Google-Smtp-Source: ACHHUZ62YidM3zKdwt9WsXpqyD57MEzZUZPKzKjSHJhQM0a+oKDUHR+Gn6BJRSHZwAJwHcpYfUyurw==
-X-Received: by 2002:ac8:5c91:0:b0:3ef:5ba0:7038 with SMTP id r17-20020ac85c91000000b003ef5ba07038mr73060971qta.21.1684334033429;
-        Wed, 17 May 2023 07:33:53 -0700 (PDT)
-Received: from localhost (pool-108-26-161-203.bstnma.fios.verizon.net. [108.26.161.203])
-        by smtp.gmail.com with ESMTPSA id d19-20020a05620a159300b0075914b01c29sm645867qkk.70.2023.05.17.07.33.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 07:33:52 -0700 (PDT)
-Date: Wed, 17 May 2023 10:33:52 -0400
-Message-ID: <e1a07eed22cb33af2733bdffe42b09f0.paul@paul-moore.com>
-From: Paul Moore <paul@paul-moore.com>
-To: Arnd Bergmann <arnd@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	x86@kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>, Eric Paris <eparis@redhat.com>, 
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, 
-	Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, audit@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
-Subject: Re: [PATCH 4/14] audit: avoid missing-prototype warnings
+	id 1pzIVV-00ABti-0m;
+	Wed, 17 May 2023 14:52:02 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 10A63320030E;
+	Wed, 17 May 2023 10:51:50 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Wed, 17 May 2023 10:51:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm3; t=1684335110; x=1684421510; bh=U9
+	81mgJN5ZcIFGHHfNRtTYm9tIIshD/j5t+czAqBesk=; b=Ca9f/D4SJr14QvZGkc
+	+q7KTRGXT7JBFRrs75d+HJ2OHOSFueAY0un/ZGcKbVEoscZFW6SjqbiPXereZTY1
+	4lcT5rbc2J//JZIJSnLiqFoKjl+7sEm3mRPxHdA8kVhx6i+8Gv6Gs3tgeghB9AVx
+	tiFExJee1gfnnXfCGEqrMCOAyztqrVmVbbh4Vx8kBzBcchhCWGq9jE4AWpdrn/zc
+	KlbDH9cn2VZKKpo3BlHq2vmDVsjsuLASyEKUhF08I7lpQUUHqQi2ze3FpKl0U9IV
+	yp0n5gg/GsUfq8IoMt1JUB+wlGdGrbDiz4LfVQ/hM2UiQ/AKZgZzMrsWIQF+mwUG
+	o5Pg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1684335110; x=1684421510; bh=U981mgJN5ZcIF
+	GHHfNRtTYm9tIIshD/j5t+czAqBesk=; b=EMWrwTfyiN4WwFm97r9VWWS6w2uAq
+	LgvmOB2bNzX3Nj1iJRBecCwthhPNqACErPlWa7ntFlYoaEwBhGN78KcLN3yBTNyu
+	Aqk3H67Dg6iVzIE2eoyn3hmWBvqBblRgzb3TZygGJHtSCh3YrmYDvNM1AlrxXI+/
+	YZMWcHS8mskGNb1OcG10Hh5tBRVj/WtG2lS25NQwWzGjSsjt1yoy6lceEwD7hdEp
+	ICxlryjGqFpBvOblk/or/mLmEinMRAIO7vCr/4QUi2/F6B8hv2rXwNtgp21zzcmi
+	W3WRrfgi52k7r9ApnTs4X2/2idzkX3KZD72Lp+8DQ9oBBrfMF6Te9k6Qg==
+X-ME-Sender: <xms:BOpkZAX-ah2gC9qXHRhxL9Jdqt9kqu-VKcGSuWg1GW_5ZN0t_KBOcg>
+    <xme:BOpkZEnCWHECQenDSE928iVzgjeKtfqwlYib_ujabtOEKkQ-iVrevetsmAAqV2PXz
+    oO1vUF8ZrqpGe5ciQc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeeiuddgkedvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:BOpkZEanBGI8-zi50JEHLFiN5OCN7u3f1N-fS6wbkXOhNFZcQlB9RQ>
+    <xmx:BOpkZPWIrxfeze0hM1uxKpTiRjSQF0E2dM8RjNSgq_9LgDgcz5l8Gg>
+    <xmx:BOpkZKky6b4GKmAWHHstx-M_Q2MTJ0Mg84yM6a-OyBPfxMEqp1e5aA>
+    <xmx:BupkZNFPTGYv1tkCdtIpLzc7PK5bJcAAEF0LFfyPqwuQNavihPAm3g>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 9F93DB60086; Wed, 17 May 2023 10:51:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-431-g1d6a3ebb56-fm-20230511.001-g1d6a3ebb
+Mime-Version: 1.0
+Message-Id: <83422cf8-5d77-4e2f-a854-c2b9a9a94d75@app.fastmail.com>
+In-Reply-To: <e1a07eed22cb33af2733bdffe42b09f0.paul@paul-moore.com>
 References: <20230517131102.934196-5-arnd@kernel.org>
-In-Reply-To: <20230517131102.934196-5-arnd@kernel.org>
+ <e1a07eed22cb33af2733bdffe42b09f0.paul@paul-moore.com>
+Date: Wed, 17 May 2023 16:51:28 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Paul Moore" <paul@paul-moore.com>, "Arnd Bergmann" <arnd@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ x86@kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Eric Paris" <eparis@redhat.com>, "Dennis Zhou" <dennis@kernel.org>,
+ "Tejun Heo" <tj@kernel.org>, "Christoph Lameter" <cl@linux.com>,
+ "Pavel Machek" <pavel@ucw.cz>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Waiman Long" <longman@redhat.com>, "Boqun Feng" <boqun.feng@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ audit@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
+Subject: Re: [PATCH 4/14] audit: avoid missing-prototype warnings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_073356_523699_8C4BDE40 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20230517_075201_340544_9BE9CEC8 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,82 +118,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On May 17, 2023 Arnd Bergmann <arnd@kernel.org> wrote:
-> 
-> Building with 'make W=1' reveals two function definitions without
-> a previous prototype in the audit code:
-> 
-> lib/compat_audit.c:32:5: error: no previous prototype for 'audit_classify_compat_syscall' [-Werror=missing-prototypes]
-> kernel/audit.c:1813:14: error: no previous prototype for 'audit_serial' [-Werror=missing-prototypes]
-> 
-> The first one needs a declaration from linux/audit.h but cannot
-> include that header without causing conflicting (compat) syscall number
-> definitions, so move the it into linux/audit_arch.h.
-> 
-> The second one is declared conditionally based on CONFIG_AUDITSYSCALL
-> but needed as a local function even when that option is disabled, so
-> move the declaration out of the #ifdef block.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  include/linux/audit.h      | 2 --
->  include/linux/audit_arch.h | 2 ++
->  kernel/audit.h             | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/audit.h b/include/linux/audit.h
-> index 31086a72e32a..6a3a9e122bb5 100644
-> --- a/include/linux/audit.h
-> +++ b/include/linux/audit.h
-> @@ -130,8 +130,6 @@ extern unsigned compat_dir_class[];
->  extern unsigned compat_chattr_class[];
->  extern unsigned compat_signal_class[];
->  
-> -extern int audit_classify_compat_syscall(int abi, unsigned syscall);
-> -
->  /* audit_names->type values */
->  #define	AUDIT_TYPE_UNKNOWN	0	/* we don't know yet */
->  #define	AUDIT_TYPE_NORMAL	1	/* a "normal" audit record */
-> diff --git a/include/linux/audit_arch.h b/include/linux/audit_arch.h
-> index 8fdb1afe251a..0e34d673ef17 100644
-> --- a/include/linux/audit_arch.h
-> +++ b/include/linux/audit_arch.h
-> @@ -21,4 +21,6 @@ enum auditsc_class_t {
->  	AUDITSC_NVALS /* count */
->  };
->  
-> +extern int audit_classify_compat_syscall(int abi, unsigned syscall);
-> +
->  #endif
-> diff --git a/kernel/audit.h b/kernel/audit.h
-> index c57b008b9914..94738bce40b2 100644
-> --- a/kernel/audit.h
-> +++ b/kernel/audit.h
-> @@ -259,8 +259,8 @@ extern struct tty_struct *audit_get_tty(void);
->  extern void audit_put_tty(struct tty_struct *tty);
->  
->  /* audit watch/mark/tree functions */
-> -#ifdef CONFIG_AUDITSYSCALL
->  extern unsigned int audit_serial(void);
-> +#ifdef CONFIG_AUDITSYSCALL
->  extern int auditsc_get_stamp(struct audit_context *ctx,
->  			      struct timespec64 *t, unsigned int *serial);
+On Wed, May 17, 2023, at 16:33, Paul Moore wrote:
+> On May 17, 2023 Arnd Bergmann <arnd@kernel.org> wrote:
 
-We probably should move the audit_serial() and auditsc_get_stamp()
-away from the watch/mark/tree functions, but that isn't your problem.
+> We probably should move the audit_serial() and auditsc_get_stamp()
+> away from the watch/mark/tree functions, but that isn't your problem.
+>
+> Anyway, this looks okay to me; do you have a problem if I merge this
+> via the audit/next branch or were you hoping to have this go in
+> through a different tree?
 
-Anyway, this looks okay to me; do you have a problem if I merge this
-via the audit/next branch or were you hoping to have this go in
-through a different tree?
+Merging it through your tree is probably best, Andrew can either
+pick the ones that nobody else took, or I can resend the rest.
 
---
-paul-moore.com
+
+    Arnd
 
 _______________________________________________
 linux-riscv mailing list
