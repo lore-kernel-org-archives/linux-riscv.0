@@ -4,73 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA523C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 14:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4D3C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 14:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PR87QhvqWIecdJt41+ktZ/M+kLfVyWpZni15gJR8q3g=; b=A6KC43fNXhiI9P
-	zDVOjw1krOfqOqFat1SRbF1tN35CAt1k+sBD7GIjfyj1A52rtuu9omBZombspQug4wwaUowHh1pVm
-	oAhSze3yVGqNKKXCJklaaB7pf+BoxKP5AAiEt1N5N1a9PWpz+rYzchgSB9i5FgSOdZRGng/PrM1WM
-	nzlNTlTNxBsjTV5VH9+5YIFf9hNEvHV2zHHGffj9zkHj6GyWmUQbq5/Ju8vybsaMYAtt3l/GNSB51
-	s/CL/ij2bpdmYFyUx+vclwt8HuOE5gNt2u0W2cCpHm81yCrseVmay81k71KrPpbBkmyMw3OB1uuBw
-	kAX1CoO+IpkasCrvOXSA==;
+	List-Owner; bh=u00Woaa0nHwjtC8gwnnlTP/SVkVPxv/aUlVT4UPtLb4=; b=gHVIdSppnKvh/g
+	8lcrk+RmvKFu3AMSAKuu9nlajdTiZ7+4zhw2Bv+tLu1W63yHo6dRUqy9cq8sWQBceg4GtA9Zv9nVp
+	ygF5F3v64/sm6YcExAJl2tWdsGZnClwxbJAQ7082zBjwi6K9ul9kx/nvEJhaKE7XGGY1sKcjmIyFi
+	7L72g5CEy6oPt9GzvlGkobzKvHDE2Z+IIrr+3wDm1lFfUmLh2FAmnjHxPxt4rn2TGRrFaFMfFlo9i
+	9hg+CIrogFWrJuMVMnOhjVq5TO8h0wAH6BRfsjWVtWiD6qAE09k96LPbHfAiXLwqBwrjREXEz8nFK
+	22dcSU3mHVXObAM3oesw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzI8J-00A85t-1q;
-	Wed, 17 May 2023 14:28:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzIE3-00A8nO-0Y;
+	Wed, 17 May 2023 14:33:59 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzI8F-00A83p-18
+	id 1pzIE0-00A8lo-19
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 14:28:01 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9887C63EDB;
-	Wed, 17 May 2023 14:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8431DC433EF;
-	Wed, 17 May 2023 14:27:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684333678;
-	bh=AoRYpT1YLThZVxUKY9ePgVwDgIFfFF9PtIMUgbNxJyM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WUNzXiJRJbiyKq9aqV065F7GO6DlSJst8wqq9ksE45jev/z5BNZjACDIsU+CKWd2p
-	 YgjGdckmgkxBOYGmqbO/Q7DmiNaGJvtGLhQQtz66t4NP/id+Uo0xu+RUnqZF6ypu4X
-	 FFZtvKjWpBheV7AQNhVpo1Hp4lfMZ0AfY5VaaItM8xbTSl5SojwEZIseT1QiWOyUeJ
-	 LeYUIrL2ez1oYq8e4XSBAeTn2ReJaBV8RZFEYpvmNI4OQI6b//O81nIMFwAGKKM2qy
-	 d5iS608w4+1IOEz2k6JrXrTWYbS3l4RsjV0WCQ9ODtU1E64QoYkryjNgQo+2XTUAyC
-	 R+33bZ4yB6rVg==
-Date: Wed, 17 May 2023 23:27:51 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Ze Gao <zegao2021@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Alexei Starovoitov
- <ast@kernel.org>, Borislav Petkov <bp@alien8.de>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Heiko Carstens <hca@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>, Ingo
- Molnar <mingo@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- x86@kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Jiri
- Olsa <jolsa@kernel.org>, Yonghong Song <yhs@fb.com>, Ze Gao
- <zegao@tencent.com>
-Subject: Re: [PATCH v3 2/4] fprobe: make fprobe_kprobe_handler recursion
- free
-Message-Id: <20230517232751.09126a6cec8786a954e54bcf@kernel.org>
-In-Reply-To: <20230517034510.15639-3-zegao@tencent.com>
-References: <20230517034510.15639-1-zegao@tencent.com>
-	<20230517034510.15639-3-zegao@tencent.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Wed, 17 May 2023 14:33:57 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-75791a035b8so49772885a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 07:33:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=paul-moore.com; s=google; t=1684334033; x=1686926033;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=e3oHRvM4+O+XVaUuEdehDkOXM012vn7RckSkGvna424=;
+        b=fu1tzDMU/Og/xO2VDVrDn7AMjoYSOOqIHHpkafFQsXAXa7bAquEW8FLCbTstV+4LMK
+         WozWorjMKA6Ye6vd/CWIiTxdEYThpduYehQ0CQ0WfYzDYjo3Vb2D2M2rgHnkpqG2DoOG
+         hFYTNMutL1PBlKS5Sm6U/taMV6kJ+5c+nFWzW2BnEmFKQvrQZqgN1lt1MaOoYlFovyr9
+         7rwdJcPszNNgJz0aUNWpj3BWju7B7DitjFIRX5EHLLPdarguqNTfEhlBsUlRfiyyggcm
+         rmyPk1XWlhvVmYgOtYCrVpLjW2EGN4HHxXkb5Vh4zDOUpaw4fdaI2HH4gyNooTHomACq
+         60Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684334033; x=1686926033;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e3oHRvM4+O+XVaUuEdehDkOXM012vn7RckSkGvna424=;
+        b=afmC5HgOQyb0OoTGtPmMw95T3hH9bZfo56wR0k0wGp7/1yN1UijdckeA09bJGdLTw8
+         XdqHK5u3yaIcCaYS6khltCtIo2PLRfSVe3gyzgAu4eLmLgrtUwb637JpLYcQVvCB1jk8
+         FZgwfxd2uhnAhPuBNxaeY+N5/nsRceCPdWg1WLfUNpnGEJY0B1gWgU3pWZnW7Ab+tb6q
+         omuSul0cneUam0FF8tseXCTM0eeUTaexlsA1spJB2rhdxewUMyL2eJaOEi9EusXwsLI5
+         mj1ivDsSG2dw4p63hWl4sVay7OR+9L7W69jL4nB/0RNR3EJSr4Y96ciXNDlXIhclbpgK
+         MLQA==
+X-Gm-Message-State: AC+VfDyI+469ktnzyNVBe3JP5kzrPficizDMS+fcmhQkG/ICgdbWVGsM
+	oWsQYZCazSBk+Tbu9aXjhPy4
+X-Google-Smtp-Source: ACHHUZ62YidM3zKdwt9WsXpqyD57MEzZUZPKzKjSHJhQM0a+oKDUHR+Gn6BJRSHZwAJwHcpYfUyurw==
+X-Received: by 2002:ac8:5c91:0:b0:3ef:5ba0:7038 with SMTP id r17-20020ac85c91000000b003ef5ba07038mr73060971qta.21.1684334033429;
+        Wed, 17 May 2023 07:33:53 -0700 (PDT)
+Received: from localhost (pool-108-26-161-203.bstnma.fios.verizon.net. [108.26.161.203])
+        by smtp.gmail.com with ESMTPSA id d19-20020a05620a159300b0075914b01c29sm645867qkk.70.2023.05.17.07.33.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 May 2023 07:33:52 -0700 (PDT)
+Date: Wed, 17 May 2023 10:33:52 -0400
+Message-ID: <e1a07eed22cb33af2733bdffe42b09f0.paul@paul-moore.com>
+From: Paul Moore <paul@paul-moore.com>
+To: Arnd Bergmann <arnd@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	x86@kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>, Eric Paris <eparis@redhat.com>, 
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, 
+	Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>, Waiman Long <longman@redhat.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, audit@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
+Subject: Re: [PATCH 4/14] audit: avoid missing-prototype warnings
+References: <20230517131102.934196-5-arnd@kernel.org>
+In-Reply-To: <20230517131102.934196-5-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_072759_480905_3E0CA983 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20230517_073356_523699_8C4BDE40 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,157 +95,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 May 2023 11:45:07 +0800
-Ze Gao <zegao2021@gmail.com> wrote:
-
-> Current implementation calls kprobe related functions before doing
-> ftrace recursion check in fprobe_kprobe_handler, which opens door
-> to kernel crash due to stack recursion if preempt_count_{add, sub}
-> is traceable in kprobe_busy_{begin, end}.
+On May 17, 2023 Arnd Bergmann <arnd@kernel.org> wrote:
 > 
-> Things goes like this without this patch quoted from Steven:
-> "
-> fprobe_kprobe_handler() {
->    kprobe_busy_begin() {
->       preempt_disable() {
->          preempt_count_add() {  <-- trace
->             fprobe_kprobe_handler() {
-> 		[ wash, rinse, repeat, CRASH!!! ]
-> "
+> Building with 'make W=1' reveals two function definitions without
+> a previous prototype in the audit code:
 > 
-> By refactoring the common part out of fprobe_kprobe_handler and
-> fprobe_handler and call ftrace recursion detection at the very beginning,
-> the whole fprobe_kprobe_handler is free from recursion.
+> lib/compat_audit.c:32:5: error: no previous prototype for 'audit_classify_compat_syscall' [-Werror=missing-prototypes]
+> kernel/audit.c:1813:14: error: no previous prototype for 'audit_serial' [-Werror=missing-prototypes]
 > 
-> Signed-off-by: Ze Gao <zegao@tencent.com>
-> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> Link: https://lore.kernel.org/linux-trace-kernel/20230516071830.8190-3-zegao@tencent.com
+> The first one needs a declaration from linux/audit.h but cannot
+> include that header without causing conflicting (compat) syscall number
+> definitions, so move the it into linux/audit_arch.h.
+> 
+> The second one is declared conditionally based on CONFIG_AUDITSYSCALL
+> but needed as a local function even when that option is disabled, so
+> move the declaration out of the #ifdef block.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  kernel/trace/fprobe.c | 59 ++++++++++++++++++++++++++++++++-----------
->  1 file changed, 44 insertions(+), 15 deletions(-)
+>  include/linux/audit.h      | 2 --
+>  include/linux/audit_arch.h | 2 ++
+>  kernel/audit.h             | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/kernel/trace/fprobe.c b/kernel/trace/fprobe.c
-> index 9abb3905bc8e..097c740799ba 100644
-> --- a/kernel/trace/fprobe.c
-> +++ b/kernel/trace/fprobe.c
-> @@ -20,30 +20,22 @@ struct fprobe_rethook_node {
->  	char data[];
+> diff --git a/include/linux/audit.h b/include/linux/audit.h
+> index 31086a72e32a..6a3a9e122bb5 100644
+> --- a/include/linux/audit.h
+> +++ b/include/linux/audit.h
+> @@ -130,8 +130,6 @@ extern unsigned compat_dir_class[];
+>  extern unsigned compat_chattr_class[];
+>  extern unsigned compat_signal_class[];
+>  
+> -extern int audit_classify_compat_syscall(int abi, unsigned syscall);
+> -
+>  /* audit_names->type values */
+>  #define	AUDIT_TYPE_UNKNOWN	0	/* we don't know yet */
+>  #define	AUDIT_TYPE_NORMAL	1	/* a "normal" audit record */
+> diff --git a/include/linux/audit_arch.h b/include/linux/audit_arch.h
+> index 8fdb1afe251a..0e34d673ef17 100644
+> --- a/include/linux/audit_arch.h
+> +++ b/include/linux/audit_arch.h
+> @@ -21,4 +21,6 @@ enum auditsc_class_t {
+>  	AUDITSC_NVALS /* count */
 >  };
 >  
-> -static void fprobe_handler(unsigned long ip, unsigned long parent_ip,
-> -			   struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> +static inline void __fprobe_handler(unsigned long ip, unsigned long
-> +		parent_ip, struct ftrace_ops *ops, struct ftrace_regs *fregs)
-
-OK, I picked up this series to probes/fixes. Note that I fixed this line 
-because the "unsigned long parent_ip" was split into 2 lines.
-
-Thank you,
-
-
->  {
->  	struct fprobe_rethook_node *fpr;
->  	struct rethook_node *rh = NULL;
->  	struct fprobe *fp;
->  	void *entry_data = NULL;
-> -	int bit, ret;
-> +	int ret;
+> +extern int audit_classify_compat_syscall(int abi, unsigned syscall);
+> +
+>  #endif
+> diff --git a/kernel/audit.h b/kernel/audit.h
+> index c57b008b9914..94738bce40b2 100644
+> --- a/kernel/audit.h
+> +++ b/kernel/audit.h
+> @@ -259,8 +259,8 @@ extern struct tty_struct *audit_get_tty(void);
+>  extern void audit_put_tty(struct tty_struct *tty);
 >  
->  	fp = container_of(ops, struct fprobe, ops);
-> -	if (fprobe_disabled(fp))
-> -		return;
-> -
-> -	bit = ftrace_test_recursion_trylock(ip, parent_ip);
-> -	if (bit < 0) {
-> -		fp->nmissed++;
-> -		return;
-> -	}
->  
->  	if (fp->exit_handler) {
->  		rh = rethook_try_get(fp->rethook);
->  		if (!rh) {
->  			fp->nmissed++;
-> -			goto out;
-> +			return;
->  		}
->  		fpr = container_of(rh, struct fprobe_rethook_node, node);
->  		fpr->entry_ip = ip;
-> @@ -61,23 +53,60 @@ static void fprobe_handler(unsigned long ip, unsigned long parent_ip,
->  		else
->  			rethook_hook(rh, ftrace_get_regs(fregs), true);
->  	}
-> -out:
-> +}
-> +
-> +static void fprobe_handler(unsigned long ip, unsigned long parent_ip,
-> +		struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> +{
-> +	struct fprobe *fp;
-> +	int bit;
-> +
-> +	fp = container_of(ops, struct fprobe, ops);
-> +	if (fprobe_disabled(fp))
-> +		return;
-> +
-> +	/* recursion detection has to go before any traceable function and
-> +	 * all functions before this point should be marked as notrace
-> +	 */
-> +	bit = ftrace_test_recursion_trylock(ip, parent_ip);
-> +	if (bit < 0) {
-> +		fp->nmissed++;
-> +		return;
-> +	}
-> +	__fprobe_handler(ip, parent_ip, ops, fregs);
->  	ftrace_test_recursion_unlock(bit);
-> +
->  }
->  NOKPROBE_SYMBOL(fprobe_handler);
->  
->  static void fprobe_kprobe_handler(unsigned long ip, unsigned long parent_ip,
->  				  struct ftrace_ops *ops, struct ftrace_regs *fregs)
->  {
-> -	struct fprobe *fp = container_of(ops, struct fprobe, ops);
-> +	struct fprobe *fp;
-> +	int bit;
-> +
-> +	fp = container_of(ops, struct fprobe, ops);
-> +	if (fprobe_disabled(fp))
-> +		return;
-> +
-> +	/* recursion detection has to go before any traceable function and
-> +	 * all functions called before this point should be marked as notrace
-> +	 */
-> +	bit = ftrace_test_recursion_trylock(ip, parent_ip);
-> +	if (bit < 0) {
-> +		fp->nmissed++;
-> +		return;
-> +	}
->  
->  	if (unlikely(kprobe_running())) {
->  		fp->nmissed++;
->  		return;
->  	}
-> +
->  	kprobe_busy_begin();
-> -	fprobe_handler(ip, parent_ip, ops, fregs);
-> +	__fprobe_handler(ip, parent_ip, ops, fregs);
->  	kprobe_busy_end();
-> +	ftrace_test_recursion_unlock(bit);
->  }
->  
->  static void fprobe_exit_handler(struct rethook_node *rh, void *data,
-> -- 
-> 2.40.1
-> 
+>  /* audit watch/mark/tree functions */
+> -#ifdef CONFIG_AUDITSYSCALL
+>  extern unsigned int audit_serial(void);
+> +#ifdef CONFIG_AUDITSYSCALL
+>  extern int auditsc_get_stamp(struct audit_context *ctx,
+>  			      struct timespec64 *t, unsigned int *serial);
 
+We probably should move the audit_serial() and auditsc_get_stamp()
+away from the watch/mark/tree functions, but that isn't your problem.
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Anyway, this looks okay to me; do you have a problem if I merge this
+via the audit/next branch or were you hoping to have this go in
+through a different tree?
+
+--
+paul-moore.com
 
 _______________________________________________
 linux-riscv mailing list
