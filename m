@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E94C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF67C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 11:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IwlnxN4BQ7u3XgkbfgyMaLeSxGJfF7R0ByVu22S1sRI=; b=UKd1IvN2l0rRmh
-	l7FsiN0v6hakmgJ1UAhtZPMsidmHyJVOINEjSCr3toYco/TJCKNAMrNy7B80TJeiGrj9oPSL5J7FT
-	unn/4rkbnztuhvTuJi/J/+3lgHSPynEfxkhdsiRtuUYm3kKxrM7EuRZHzpx5x7u9O/PoO/+mmwjmn
-	AclTVB8mW7LCL0vpikbz4dL/B1ww++CkjOHY6gasBRhDc6flOZxb+4WHRUGoFpikn89iMDOG5gSwy
-	jAi8o72HcbtEBP7YTeeSn1GNRPzFF4QNNNZFL0v+bSRV1Xp/hJko0xYha0vCgjLBajUk9x92Lod1d
-	lqPFvzx6cdwGEmV18aww==;
+	List-Owner; bh=kwAsfzOblnP0SaKEAyOzrNLyu/+fjjeNU9ZXfVU224U=; b=ZMNw8OTsOM7P9l
+	+Z9PLGypOdEbgxf49a1M5VM7lJe9RFwQRMXlR3kks3YgzozYkXEBO7zgcKnbq7vtRn2XlxP5C9tMw
+	CK9KWHF2aYOBFPr3Zp4EgfyLfATqngsDWsiPW5qWj6JjHOepJohOWE+NrZ3/2JC7hdRe8O/HKttQB
+	PDX4fV+ftn2/Kddea7OCTcPIDPBlu2m6HimtaQz9UG84uzeT+FfrCGlCY+ER3W8D9NbE2S16hVstU
+	/3MnfvStlWhsHY++ZCXD9FxzGHgY32V+cq89lnkz/mrUOyV+Q1FkeDMBkVLcW/+AjvenFUln0iUm7
+	JQuIEbJdIU5dIQzocpuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEza-009XQo-0b;
-	Wed, 17 May 2023 11:06:50 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1pzF2p-009YDb-07;
+	Wed, 17 May 2023 11:10:11 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEzU-009XOs-2r
+	id 1pzF2k-009YCC-1P
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 11:06:48 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3f4c6c4b425so4362015e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 04:06:41 -0700 (PDT)
+	Wed, 17 May 2023 11:10:09 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-51452556acdso413763a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 04:10:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684321601; x=1686913601;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lHibOxhRy8kN9AvhSOL0bsBVnNnX/fAscOpL7oGTKzk=;
-        b=Ic3LCD/wKx/0IleHoLFdEVrimzoAC5FImH027Wz7gd+wue687oerJaifFTuCi3SF4W
-         ZBBg8FO4btvO5Yddk3c8UGZZbtRHSG0iWRP/j9srquVuQgYT/zMU1Goqx2XwBUHjDGhQ
-         rnL6fYGtO32dqJGRWg57muszuEj6bjLwvuthkn4DzWXQwUCZvaHc5eeZCSClIFTGm1H/
-         n+u4DC/9AtgQpgX+k72he4mZqVNX5JTMe5s3wHdTTEs0A5gBREf5S6KHnvUzlJv5xBPe
-         eMtXbC677jqhqwSpRBfhLcsGNwWRzlz+Wr20QHwnuWC+pWziPTG7CrmvRiKRNHMTMXGW
-         nL9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684321601; x=1686913601;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20221208; t=1684321804; x=1686913804;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lHibOxhRy8kN9AvhSOL0bsBVnNnX/fAscOpL7oGTKzk=;
-        b=LzXkiKQGyHtRB1wX2nwxdnwu9SAi02DpulQIuXB9aUqEjrkjAgM0AjiC0f0dVuwSq9
-         vlxo1qD98qGEiudIMr1EXpHKe0bscnmZkQjVfzhEa/iLW/0/cUBPg2UdVht1LaX5/DN1
-         5ku5OnERrrXn7CuUMYItTOkid1gxQMdEEKMYXvcTyOqehscvou4SjjRRzumuCin/isUO
-         FWfzwSfJSnoo132uQ2hj0fRMD/VyfUgghrTb743+PDP5V+lmavLe1/03WSEx89funkSo
-         oHIubIbf4X9mwUQ7ZffQQFNMecvPpe6CT2y/ZksuuDOuUWdy5JkoM9UvwjPs35jSbQJW
-         Ki7A==
-X-Gm-Message-State: AC+VfDxqCL5xYa1CNxjLpjk+ios2N5Y0gVCLU6bRiSkBqvOJOqVMcJFH
-	ZyCKLXeR9+j5VOlMXejXl/d+ug==
-X-Google-Smtp-Source: ACHHUZ7mZ6ToObSYnLojAO+FbW/0/Y6r/giIaDf4cPQe0tk9ENYAa1hfBeQvuTPMnL4vuwunvi13rw==
-X-Received: by 2002:a05:600c:3657:b0:3f4:2267:10cf with SMTP id y23-20020a05600c365700b003f4226710cfmr22626781wmq.32.1684321600484;
-        Wed, 17 May 2023 04:06:40 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id o12-20020a1c750c000000b003f17eaae2c9sm1983440wmc.1.2023.05.17.04.06.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 04:06:39 -0700 (PDT)
-Date: Wed, 17 May 2023 13:06:38 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: selftests: Add riscv get-reg-list test
-Message-ID: <20230511-28ec368a8168342c68ca2187@orel>
-References: <cover.1683791148.git.haibo1.xu@intel.com>
- <751a84a9691c86df0e65cdb02abf1e073892d1ca.1683791148.git.haibo1.xu@intel.com>
+        bh=CUhqy0/rRnwuf4GYogluOIbrQ9V7WcQDnN/TpA3bEJk=;
+        b=jFqJdBszdhzfmBOsSOnEprDgUrAyOWWaq5X44klsRmMbORUDZiDWBaCJ5G9G+98iso
+         YN9ADk0BIsHPN3NTcvHqiZJenK8y8teI++49bQJhG4Y7o6xPNuqTSTMEAKWv2jYN/QKV
+         lOFPud4y9C2ZDAgqM+l24/Y3OR0hTA1kxl+Y9AKI0aBLS1jUcBwrfRzmznSHihjYIFRu
+         kCpwm7ophgfXZvQ9f8VyX3FTtbkQy3E8zhVUEP7JLVfozEllykUBxQPZLmV4DpqVKZyk
+         r8Ix0MeflnekzE9uyx+4iHwV/M+Kbq5TYemDZGg9nVwfSMUwiAuq59Y5WT8S8ABBaoVM
+         V8LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684321804; x=1686913804;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CUhqy0/rRnwuf4GYogluOIbrQ9V7WcQDnN/TpA3bEJk=;
+        b=YlAYE+DOcNKDI73kcvicBwwOmKGQyy5iiozdcRweW4jmY3M7HSS71RngeBS7vImppQ
+         80P9fQNeLzMjn4WKJ4FqH/TZFWbfKWxrxDOFytWUahCXSU8nVEkof1yeBgYu3+5smLZb
+         nJnQuc+VPW6zwmwqmabOGMzVtZPkZ4f8SPx3asfFkxg+bdYLpxi/k+GFe+MApp9BWqR/
+         8Xd6liTPdl6wtPUka5OjppL8tLVsKfhIUntPVIaFnQKkMRK+wumUVvp3zjjjltQTp19T
+         +q5CjRme+OMls+aZt01YxJtUyp+bUuj+hIxIRukeMnml/+usE5uVo92bGpWrE0CK+bsn
+         m7fA==
+X-Gm-Message-State: AC+VfDxzeq33xJH2RAQX1yPBPEnL4jvV9JthjUJtqWeJyotE4rRGxGvu
+	LhzufJwM6DwPzcrf+kpuB6wawtxlRoSoMalKxsA=
+X-Google-Smtp-Source: ACHHUZ6Z+4EFXcm1pKxUKlQtFcvZSrHs0wVHFhJqF4KKwf7JTZOuJo/Cldx77wyrohuzEJAFLvp9rqaWMtLWsHMhtZ4=
+X-Received: by 2002:a17:90b:1e0c:b0:24d:fba9:80e9 with SMTP id
+ pg12-20020a17090b1e0c00b0024dfba980e9mr40273217pjb.23.1684321803702; Wed, 17
+ May 2023 04:10:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <751a84a9691c86df0e65cdb02abf1e073892d1ca.1683791148.git.haibo1.xu@intel.com>
+References: <20230511093234.3123181-1-suagrfillet@gmail.com> <CAAYs2=jWwpFzjNqMmyefy6-JEVswfba5MkhaCJ0gvH0bK6zuug@mail.gmail.com>
+In-Reply-To: <CAAYs2=jWwpFzjNqMmyefy6-JEVswfba5MkhaCJ0gvH0bK6zuug@mail.gmail.com>
+From: Song Shuai <suagrfillet@gmail.com>
+Date: Wed, 17 May 2023 11:09:52 +0000
+Message-ID: <CAAYs2=gS+fX0v8n3GhQrb82nRNMnYqrEL7MSrLh-CgOZRLu2jg@mail.gmail.com>
+Subject: Re: [PATCH V10 0/4] riscv: Optimize function trace
+To: palmer@dabbelt.com
+Cc: mark.rutland@arm.com, bjorn@rivosinc.com, e.shatokhin@yadro.com, 
+	jszhang@kernel.org, guoren@kernel.org, mhiramat@kernel.org, 
+	rostedt@goodmis.org, aou@eecs.berkeley.edu, paul.walmsley@sifive.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_040644_931491_19622595 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20230517_041006_472545_6079D737 
+X-CRM114-Status: GOOD (  34.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,1011 +86,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 11, 2023 at 05:22:49PM +0800, Haibo Xu wrote:
-> get-reg-list test is used to check for KVM registers regressions
-> during VM migration which happens when destination host kernel
-> missing registers that the source host kernel has. The blessed
-> list registers was created by running on v6.2.
-
-v6.2? But get-reg-list is getting introduced with this patch, so it'll
-land in a 6.4 rc at the earliest. I don't see how can we generate the
-initial blessed list with anything earlier?
-
-> 
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  tools/testing/selftests/kvm/Makefile          |   3 +
->  .../selftests/kvm/include/riscv/processor.h   |   3 +
->  .../selftests/kvm/riscv/get-reg-list.c        | 869 ++++++++++++++++++
->  3 files changed, 875 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
-> 
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index 7a5ff646e7e7..fbb2e984297a 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -13,6 +13,8 @@ else ifeq ($(ARCH),arm64)
->  	ARCH_DIR := aarch64
->  else ifeq ($(ARCH),s390)
->  	ARCH_DIR := s390x
-> +else ifeq ($(ARCH),riscv)
-> +	ARCH_DIR := riscv
->  else
->  	ARCH_DIR := $(ARCH)
->  endif
-> @@ -171,6 +173,7 @@ TEST_GEN_PROGS_s390x += rseq_test
->  TEST_GEN_PROGS_s390x += set_memory_region_test
->  TEST_GEN_PROGS_s390x += kvm_binary_stats_test
->  
-> +TEST_GEN_PROGS_riscv += riscv/get-reg-list
->  TEST_GEN_PROGS_riscv += demand_paging_test
->  TEST_GEN_PROGS_riscv += dirty_log_test
->  TEST_GEN_PROGS_riscv += kvm_create_max_vcpus
-> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-> index d00d213c3805..0adf9cb34126 100644
-> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
-> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> @@ -38,6 +38,9 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t idx,
->  					     KVM_REG_RISCV_TIMER_REG(name), \
->  					     KVM_REG_SIZE_U64)
->  
-> +#define RISCV_ISA_EXT_REG(idx)	__kvm_reg_id(KVM_REG_RISCV_ISA_EXT, \
-> +					     idx, KVM_REG_SIZE_U64)
-
-                                                  ^ KVM_REG_SIZE_ULONG
-
-> +
->  /* L3 index Bit[47:39] */
->  #define PGTBL_L3_INDEX_MASK			0x0000FF8000000000ULL
->  #define PGTBL_L3_INDEX_SHIFT			39
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> new file mode 100644
-> index 000000000000..dec1df0c6e72
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -0,0 +1,869 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Check for KVM_GET_REG_LIST regressions.
-> + *
-> + * Copyright (C) 2020, Red Hat, Inc.
-> + * Copyright (c) 2023 Intel Corporation
-> + *
-> + * The test was port from the get-reg-list.c on aarch64.
-> + */
-> +#include <stdio.h>
-> +#include <stdlib.h>
-> +#include <string.h>
-> +#include <unistd.h>
-> +#include <sys/types.h>
-> +#include <sys/wait.h>
-> +#include "kvm_util.h"
-> +#include "test_util.h"
-> +#include "processor.h"
-> +
-> +static struct kvm_reg_list *reg_list;
-> +static __u64 *blessed_reg, blessed_n;
-> +
-> +struct reg_sublist {
-> +	const char *name;
-> +	long capability;
-> +	__u64 *regs;
-> +	__u64 regs_n;
-> +	__u64 *rejects_set;
-> +	__u64 rejects_set_n;
-> +};
-> +
-> +struct vcpu_config {
-> +	char *name;
-> +	struct reg_sublist sublists[];
-> +};
-> +
-> +static struct vcpu_config *vcpu_configs[];
-> +static int vcpu_configs_n;
-> +
-> +#define for_each_sublist(c, s)						\
-> +	for ((s) = &(c)->sublists[0]; (s)->regs; ++(s))
-> +
-> +#define for_each_reg(i)								\
-> +	for ((i) = 0; (i) < reg_list->n; ++(i))
-> +
-> +#define for_each_missing_reg(i)						\
-> +	for ((i) = 0; (i) < blessed_n; ++(i))			\
-> +		if (!find_reg(reg_list->reg, reg_list->n, blessed_reg[i]))
-> +
-> +#define for_each_new_reg(i)							\
-> +	for_each_reg(i)									\
-> +		if (!find_reg(blessed_reg, blessed_n, reg_list->reg[i]))
-> +
-> +static const char *config_name(struct vcpu_config *c)
-> +{
-> +	struct reg_sublist *s;
-> +	int len = 0;
-> +
-> +	if (c->name)
-> +		return c->name;
-> +
-> +	for_each_sublist(c, s)
-> +		len += strlen(s->name) + 1;
-> +
-> +	c->name = malloc(len);
-> +
-> +	len = 0;
-> +	for_each_sublist(c, s) {
-> +		if (!strcmp(s->name, "base"))
-> +			continue;
-> +		strcat(c->name + len, s->name);
-> +		len += strlen(s->name) + 1;
-> +		c->name[len - 1] = '+';
-> +	}
-> +	c->name[len - 1] = '\0';
-> +
-> +	return c->name;
-> +}
-> +
-> +static bool find_reg(__u64 regs[], __u64 nr_regs, __u64 reg)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < nr_regs; ++i)
-> +		if (reg == regs[i])
-> +			return true;
-> +	return false;
-> +}
-> +
-> +static const char *str_with_index(const char *template, __u64 index)
-> +{
-> +	char *str, *p;
-> +	int n;
-> +
-> +	str = strdup(template);
-> +	p = strstr(str, "##");
-> +	n = sprintf(p, "%lld", index);
-> +	strcat(p + n, strstr(template, "##") + 2);
-> +
-> +	return (const char *)str;
-> +}
-> +
-> +#define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK)
-> +
-> +static const char *config_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CONFIG);
-> +
-> +	/*
-> +	 * reg_off is the offset into struct kvm_riscv_config
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CONFIG_REG(isa):
-> +		return "KVM_REG_RISCV_CONFIG_REG(isa)";
-> +	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
-> +		return "KVM_REG_RISCV_CONFIG_REG(zicbom_block_size)";
-> +	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-> +		return "KVM_REG_RISCV_CONFIG_REG(zicboz_block_size)";
-> +	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(mvendorid)";
-> +	case KVM_REG_RISCV_CONFIG_REG(marchid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(marchid)";
-> +	case KVM_REG_RISCV_CONFIG_REG(mimpid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(mimpid)";
-> +	default:
-> +		/* Config regs would grow regularly with new pseudo reg added, so
-> +		 * just show "##UNKNOWN##" to indicate a new pseudo config reg.
-> +		 */
-> +		printf("%s: Unknown config reg id: 0x%llx", config_name(c), id);
-> +		return "##UNKNOWN##";
-
-The idea of these *to_str functions is to dump output that can be
-copy+pasted into a reg array (hence the trailing commas in print_reg
-lines). So we can't just print random lines here or return '##UNKOWN##',
-as that won't compile. Instead, the default should return
-
-  str_with_index("KVM_REG_RISCV_CONFIG_REG(##)", reg_off)
-
-> +	}
-> +}
-> +
-> +static const char *core_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CORE);
-> +
-> +	/*
-> +	 * reg_off is the offset into struct kvm_riscv_core
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CORE_REG(regs.pc):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.pc)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.ra) ...
-> +	     KVM_REG_RISCV_CORE_REG(regs.t6):
-> +		return str_with_index("KVM_REG_RISCV_CORE_REG(regs.regs[##])", reg_off);
-> +	case KVM_REG_RISCV_CORE_REG(mode):
-> +		return "KVM_REG_RISCV_CORE_REG(mode)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown core reg id: 0x%llx", config_name(c), id);
-> +	return NULL;
-> +}
-> +
-> +static const char *general_csr_id_to_str(__u64 reg_off)
-> +{
-> +	/*
-> +	 * reg_off is the offset into struct kvm_riscv_csr
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CSR_REG(sstatus):
-> +		return "KVM_REG_RISCV_CSR_REG(sstatus)";
-
-We also need the subtype. So this should be something like
-
- #define CSR_GENERAL(csr) \
-     "KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(" #csr ")"
-
-  return CSR_GENERAL(sstatus);
-
-and similar below for the AIA CSRs.
-
-> +	case KVM_REG_RISCV_CSR_REG(sie):
-> +		return "KVM_REG_RISCV_CSR_REG(sie)";
-> +	case KVM_REG_RISCV_CSR_REG(stvec):
-> +		return "KVM_REG_RISCV_CSR_REG(stvec)";
-> +	case KVM_REG_RISCV_CSR_REG(sscratch):
-> +		return "KVM_REG_RISCV_CSR_REG(sscratch)";
-> +	case KVM_REG_RISCV_CSR_REG(sepc):
-> +		return "KVM_REG_RISCV_CSR_REG(sepc)";
-> +	case KVM_REG_RISCV_CSR_REG(scause):
-> +		return "KVM_REG_RISCV_CSR_REG(scause)";
-> +	case KVM_REG_RISCV_CSR_REG(stval):
-> +		return "KVM_REG_RISCV_CSR_REG(stval)";
-> +	case KVM_REG_RISCV_CSR_REG(sip):
-> +		return "KVM_REG_RISCV_CSR_REG(sip)";
-> +	case KVM_REG_RISCV_CSR_REG(satp):
-> +		return "KVM_REG_RISCV_CSR_REG(satp)";
-> +	case KVM_REG_RISCV_CSR_REG(scounteren):
-> +		return "KVM_REG_RISCV_CSR_REG(scounteren)";
-> +	default:
-> +		TEST_FAIL("Unknown general csr reg: 0x%llx", reg_off);
-> +		return NULL;
-
-nit: It'd be nice to have a pattern for this TEST_FAIL. Either
-outside the switch and not have a default or always the default.
-It seems to be changing function by function.
-
-> +	}
-> +}
-> +
-> +static const char *aia_csr_id_to_str(__u64 reg_off)
-> +{
-> +	/*
-> +	 * reg_off is the offset into struct kvm_riscv_aia_csr
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CSR_AIA_REG(siselect):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(siselect)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio1):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(iprio1)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio2):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(iprio2)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(sieh):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(sieh)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(siph):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(siph)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(iprio1h)";
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
-> +		return "KVM_REG_RISCV_CSR_AIA_REG(iprio2h)";
-> +	default:
-> +		TEST_FAIL("Unknown aia csr reg: 0x%llx", reg_off);
-> +		return NULL;
-> +	}
-> +}
-> +
-> +static const char *csr_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CSR);
-> +	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_CSR_GENERAL:
-> +		return general_csr_id_to_str(reg_off);
-> +	case KVM_REG_RISCV_CSR_AIA:
-> +		return aia_csr_id_to_str(reg_off);
-> +	default:
-> +		TEST_FAIL("%s: Unknown csr reg id: 0x%llx", config_name(c), id);
-
-Maybe better to report "unknown subtype"?
-
-> +		return NULL;
-> +	}
-> +}
-> +
-> +static const char *timer_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_TIMER);
-> +
-> +	/*
-> +	 * reg_off is the offset into struct kvm_riscv_timer
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_TIMER_REG(frequency):
-> +		return "KVM_REG_RISCV_TIMER_REG(frequency)";
-> +	case KVM_REG_RISCV_TIMER_REG(time):
-> +		return "KVM_REG_RISCV_TIMER_REG(time)";
-> +	case KVM_REG_RISCV_TIMER_REG(compare):
-> +		return "KVM_REG_RISCV_TIMER_REG(compare)";
-> +	case KVM_REG_RISCV_TIMER_REG(state):
-> +		return "KVM_REG_RISCV_TIMER_REG(state)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown timer reg id: 0x%llx", config_name(c), id);
-> +	return NULL;
-> +}
-> +
-> +static const char *fp_f_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_FP_F);
-> +
-> +	/*
-> +	 * reg_off is the offset into struct __riscv_f_ext_state
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_FP_F_REG(f[0]) ...
-> +	     KVM_REG_RISCV_FP_F_REG(f[31]):
-> +		return str_with_index("KVM_REG_RISCV_FP_F_REG(f[##])", reg_off);
-> +	case KVM_REG_RISCV_FP_F_REG(fcsr):
-> +		return "KVM_REG_RISCV_FP_F_REG(fcsr)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown fp_f reg id: 0x%llx", config_name(c), id);
-> +	return NULL;
-> +}
-> +
-> +static const char *fp_d_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_FP_D);
-> +
-> +	/*
-> +	 * reg_off is the offset into struct __riscv_d_ext_state
-> +	 */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_FP_D_REG(f[0]) ...
-> +	     KVM_REG_RISCV_FP_D_REG(f[31]):
-> +		return str_with_index("KVM_REG_RISCV_FP_D_REG(f[##])", reg_off);
-> +	case KVM_REG_RISCV_FP_D_REG(fcsr):
-> +		return "KVM_REG_RISCV_FP_D_REG(fcsr)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown fp_d reg id: 0x%llx", config_name(c), id);
-> +	return NULL;
-> +}
-> +
-> +static const char *isa_ext_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	/*
-> +	 * reg_off is the offset into unsigned long kvm_isa_ext_arr[]
-> +	 */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_ISA_EXT);
-> +
-> +	static const char * const kvm_isa_ext_reg_name[] = {
-> +		"KVM_RISCV_ISA_EXT_A",
-> +		"KVM_RISCV_ISA_EXT_C",
-> +		"KVM_RISCV_ISA_EXT_D",
-> +		"KVM_RISCV_ISA_EXT_F",
-> +		"KVM_RISCV_ISA_EXT_H",
-> +		"KVM_RISCV_ISA_EXT_I",
-> +		"KVM_RISCV_ISA_EXT_M",
-> +		"KVM_RISCV_ISA_EXT_SVPBMT",
-> +		"KVM_RISCV_ISA_EXT_SSTC",
-> +		"KVM_RISCV_ISA_EXT_SVINVAL",
-> +		"KVM_RISCV_ISA_EXT_ZIHINTPAUSE",
-> +		"KVM_RISCV_ISA_EXT_ZICBOM",
-> +		"KVM_RISCV_ISA_EXT_ZICBOZ",
-> +		"KVM_RISCV_ISA_EXT_ZBB",
-> +		"KVM_RISCV_ISA_EXT_SSAIA",
-> +	};
-> +
-> +	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name)) {
-> +		/* isa_ext regs would grow regularly with new isa extension added, so
-> +		 * just show "##UNKNOWN##" to indicate a new extension.
-> +		 */
-> +		printf("%s: Unsupported isa ext reg id 0x%llx", config_name(c), id);
-> +		return "##UNKNOWN##";
-
-This should be
-
-  return str_with_index("##", id);
-
-so it can compile.
-
-> +	}
-> +
-> +	return kvm_isa_ext_reg_name[reg_off];
-> +}
-> +
-> +static const char *sbi_ext_single_id_to_str(__u64 reg_off)
-> +{
-> +	/*
-> +	 * reg_off is KVM_RISCV_SBI_EXT_ID
-> +	 */
-> +	static const char * const kvm_sbi_ext_reg_name[] = {
-> +		"KVM_RISCV_SBI_EXT_V01",
-> +		"KVM_RISCV_SBI_EXT_TIME",
-> +		"KVM_RISCV_SBI_EXT_IPI",
-> +		"KVM_RISCV_SBI_EXT_RFENCE",
-> +		"KVM_RISCV_SBI_EXT_SRST",
-> +		"KVM_RISCV_SBI_EXT_HSM",
-> +		"KVM_RISCV_SBI_EXT_PMU",
-> +		"KVM_RISCV_SBI_EXT_EXPERIMENTAL",
-> +		"KVM_RISCV_SBI_EXT_VENDOR",
-> +	};
-> +
-> +	if (reg_off >= KVM_RISCV_SBI_EXT_MAX) {
-> +		/* sbi_ext regs would grow regularly with new sbi extension added, so
-> +		 * just show "##UNKNOWN##" to indicate a new extension.
-> +		 */
-> +		printf("Unsupported sbi ext single reg 0x%llx", reg_off);
-> +		return "##UNKNOWN##";
-
-  return str_with_index("##", id);
-
-> +	}
-> +
-> +	return kvm_sbi_ext_reg_name[reg_off];
-> +}
-> +
-> +static const char *sbi_ext_multi_id_to_str(__u64 reg_subtype, __u64 reg_off)
-> +{
-> +	if (reg_off > KVM_REG_RISCV_SBI_MULTI_REG_LAST) {
-> +		/* sbi_ext regs would grow regularly with new sbi extension added, so
-> +		 * just show "##UNKNOWN##" to indicate a new extension.
-
-It'll only grow every 64 SBI extensions, so it won't be very regular.
-
-> +		 */
-> +		printf("Unsupported sbi ext multi reg: 0x%llx", reg_off);
-> +		return "##UNKNOWN##";
-> +	}
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +		return str_with_index("KVM_RISCV_SBI_MULTI_EN[##]", reg_off);
-
-KVM_RISCV_SBI_MULTI_EN[] doesn't exist, so that won't compile. This should
-be
-
-  str_with_index("KVM_REG_RISCV_SBI_MULTI_EN | ##", reg_off)
-
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		return str_with_index("KVM_RISCV_SBI_MULTI_DIS[##]", reg_off);
-
-  str_with_index("KVM_REG_RISCV_SBI_MULTI_DIS | ##", reg_off)
-
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static const char *sbi_ext_id_to_str(struct vcpu_config *c, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_SBI_EXT);
-> +	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_SINGLE:
-> +		return sbi_ext_single_id_to_str(reg_off);
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		return sbi_ext_multi_id_to_str(reg_subtype, reg_off);
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown sbi ext reg id: 0x%llx", config_name(c), id);
-
-Maybe better to report "unknown subtype"?
-
-> +	return NULL;
-> +}
-> +
-> +static void print_reg(struct vcpu_config *c, __u64 id)
-> +{
-> +	const char *reg_size = NULL;
-> +
-> +	TEST_ASSERT((id & KVM_REG_ARCH_MASK) == KVM_REG_RISCV,
-> +		    "%s: KVM_REG_RISCV missing in reg id: 0x%llx", config_name(c), id);
-> +
-> +	switch (id & KVM_REG_SIZE_MASK) {
-> +	case KVM_REG_SIZE_U32:
-> +		reg_size = "KVM_REG_SIZE_U32";
-> +		break;
-> +	case KVM_REG_SIZE_U64:
-> +		reg_size = "KVM_REG_SIZE_U64";
-> +		break;
-> +	case KVM_REG_SIZE_U128:
-> +		reg_size = "KVM_REG_SIZE_U128";
-> +		break;
-> +	default:
-> +		TEST_FAIL("%s: Unexpected reg size: 0x%llx in reg id: 0x%llx",
-> +			  config_name(c), (id & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT, id);
-> +	}
-> +
-> +	switch (id & KVM_REG_RISCV_TYPE_MASK) {
-> +	case KVM_REG_RISCV_CONFIG:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CONFIG | %s,\n",
-> +				reg_size, config_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_CORE:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CORE | %s,\n",
-> +				reg_size, core_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_CSR:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CSR | %s,\n",
-> +				reg_size, csr_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_TIMER:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_TIMER | %s,\n",
-> +				reg_size, timer_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_FP_F:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_FP_F | %s,\n",
-> +				reg_size, fp_f_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_FP_D:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_FP_D | %s,\n",
-> +				reg_size, fp_d_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_ISA_EXT:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_ISA_EXT | %s,\n",
-> +				reg_size, isa_ext_id_to_str(c, id));
-> +		break;
-> +	case KVM_REG_RISCV_SBI_EXT:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_SBI_EXT | %s,\n",
-> +				reg_size, sbi_ext_id_to_str(c, id));
-> +		break;
-> +	default:
-> +		TEST_FAIL("%s: Unexpected reg type: 0x%llx in reg id: 0x%llx", config_name(c),
-> +				(id & KVM_REG_RISCV_TYPE_MASK) >> KVM_REG_RISCV_TYPE_SHIFT, id);
-> +	}
-> +}
-> +
-> +static inline bool vcpu_has_ext(struct kvm_vcpu *vcpu, long cap)
-> +{
-> +	int ret;
-> +	unsigned long value;
-> +
-> +	ret = __vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(cap), &value);
-> +	if (ret) {
-> +		printf("Failed to get cap %ld", cap);
-> +		return false;
-> +	}
-> +
-> +	return !!value;
-> +}
-> +
-> +static void check_supported(struct kvm_vcpu *vcpu, struct vcpu_config *c)
-> +{
-> +	struct reg_sublist *s;
-> +
-> +	for_each_sublist(c, s) {
-> +		if (!s->capability)
-> +			continue;
-> +
-> +		__TEST_REQUIRE(vcpu_has_ext(vcpu, s->capability),
-> +			       "%s: %s not available, skipping tests\n",
-> +			       config_name(c), s->name);
-> +	}
-> +}
-> +
-> +static bool print_list;
-> +
-> +static void run_test(struct vcpu_config *c)
-> +{
-> +	int new_regs = 0, missing_regs = 0, i, n;
-> +	int failed_get = 0, failed_set = 0;
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	struct reg_sublist *s;
-> +
-> +	vm = vm_create_barebones();
-> +	vcpu = __vm_vcpu_add(vm, 0);
-> +
-> +	check_supported(vcpu, c);
-> +
-> +	reg_list = vcpu_get_reg_list(vcpu);
-> +
-> +	if (print_list) {
-> +		putchar('\n');
-> +		for_each_reg(i) {
-> +			__u64 id = reg_list->reg[i];
-> +
-> +			if (print_list)
-> +				print_reg(c, id);
-> +		}
-> +		putchar('\n');
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * We only test that we can get the register and then write back the
-> +	 * same value.
-> +	 */
-> +	for_each_reg(i) {
-> +		uint8_t addr[128 / 8];
-> +		struct kvm_one_reg reg = {
-> +			.id = reg_list->reg[i],
-> +			.addr = (__u64)&addr,
-> +		};
-> +		bool reject_reg = false;
-> +		int ret;
-> +
-> +		ret = __vcpu_get_reg(vcpu, reg_list->reg[i], &addr);
-> +		if (ret) {
-> +			printf("%s: Failed to get ", config_name(c));
-> +			print_reg(c, reg.id);
-> +			putchar('\n');
-> +			++failed_get;
-> +		}
-> +
-> +		/* rejects_set registers are skipped for setting test */
-> +		for_each_sublist(c, s) {
-> +			if (s->rejects_set && find_reg(s->rejects_set, s->rejects_set_n, reg.id)) {
-> +				reject_reg = true;
-> +				break;
-> +			}
-> +		}
-> +
-> +		if (!reject_reg) {
-> +			ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
-> +			/* Registers that don't support set operation should pass */
-> +			if (ret && errno != EOPNOTSUPP) {
-> +				printf("%s: Failed to set ", config_name(c));
-> +				print_reg(c, reg.id);
-> +				putchar('\n');
-> +				++failed_set;
-> +			}
-> +		}
-> +	}
-> +
-> +	for_each_sublist(c, s)
-> +		blessed_n += s->regs_n;
-> +	blessed_reg = calloc(blessed_n, sizeof(__u64));
-> +
-> +	n = 0;
-> +	for_each_sublist(c, s) {
-> +		for (i = 0; i < s->regs_n; ++i)
-> +			blessed_reg[n++] = s->regs[i];
-> +	}
-> +
-> +	for_each_new_reg(i)
-> +		++new_regs;
-> +
-> +	for_each_missing_reg(i)
-> +		++missing_regs;
-> +
-> +	if (new_regs || missing_regs) {
-> +		printf("%s: Number blessed registers: %5lld\n", config_name(c), blessed_n);
-> +		printf("%s: Number registers:         %5lld\n", config_name(c), reg_list->n);
-> +	}
-> +
-> +	if (new_regs) {
-> +		printf("\n%s: There are %d new registers.\n"
-> +		       "Consider adding them to the blessed reg "
-> +		       "list with the following lines:\n\n", config_name(c), new_regs);
-> +		for_each_new_reg(i)
-> +			print_reg(c, reg_list->reg[i]);
-> +		putchar('\n');
-> +	}
-> +
-> +	if (missing_regs) {
-> +		printf("\n%s: There are %d missing registers.\n"
-> +		       "The following lines are missing registers:\n\n",
-> +				config_name(c), missing_regs);
-> +		for_each_missing_reg(i)
-> +			print_reg(c, blessed_reg[i]);
-> +		putchar('\n');
-> +	}
-> +
-> +	TEST_ASSERT(!missing_regs && !failed_get && !failed_set,
-> +		    "%s: There are %d missing registers; "
-> +		    "%d registers failed get; %d registers failed set.",
-> +		    config_name(c), missing_regs, failed_get, failed_set);
-> +
-> +	pr_info("%s: PASS\n", config_name(c));
-> +	blessed_n = 0;
-> +	free(blessed_reg);
-> +	free(reg_list);
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +static void help(void)
-> +{
-> +	struct vcpu_config *c;
-> +	int i;
-> +
-> +	printf(
-> +	"\n"
-> +	"usage: get-reg-list [--config=<selection>] [--list]\n\n"
-> +	" --config=<selection>        Used to select a specific vcpu configuration for the test/listing\n"
-> +	"                             '<selection>' may be\n");
-> +
-> +	for (i = 0; i < vcpu_configs_n; ++i) {
-> +		c = vcpu_configs[i];
-> +		printf(
-> +	"                               '%s'\n", config_name(c));
-> +	}
-> +
-> +	printf(
-> +	"\n"
-> +	" --list                      Print the register list rather than test it (requires --config)\n"
-> +	"\n"
-> +	);
-> +}
-> +
-> +static struct vcpu_config *parse_config(const char *config)
-> +{
-> +	struct vcpu_config *c;
-> +	int i;
-> +
-> +	if (config[8] != '=')
-> +		help(), exit(1);
-> +
-> +	for (i = 0; i < vcpu_configs_n; ++i) {
-> +		c = vcpu_configs[i];
-> +		if (strcmp(config_name(c), &config[9]) == 0)
-> +			break;
-> +	}
-> +
-> +	if (i == vcpu_configs_n)
-> +		help(), exit(1);
-> +
-> +	return c;
-> +}
-> +
-> +int main(int ac, char **av)
-> +{
-> +	struct vcpu_config *c, *sel = NULL;
-> +	int i, ret = 0;
-> +	pid_t pid;
-> +
-> +	for (i = 1; i < ac; ++i) {
-> +		if (strncmp(av[i], "--config", 8) == 0)
-> +			sel = parse_config(av[i]);
-> +		else if (strcmp(av[i], "--list") == 0)
-> +			print_list = true;
-> +		else if (strcmp(av[i], "--help") == 0 || strcmp(av[1], "-h") == 0)
-> +			help(), exit(0);
-> +		else
-> +			help(), exit(1);
-> +	}
-> +
-> +	if (print_list) {
-> +		/*
-> +		 * We only want to print the register list of a single config.
-> +		 */
-> +		if (!sel)
-> +			help(), exit(1);
-> +	}
-> +
-> +	for (i = 0; i < vcpu_configs_n; ++i) {
-> +		c = vcpu_configs[i];
-> +		if (sel && c != sel)
-> +			continue;
-> +
-> +		pid = fork();
-> +
-> +		if (!pid) {
-> +			run_test(c);
-> +			exit(0);
-> +		} else {
-> +			int wstatus;
-> +			pid_t wpid = wait(&wstatus);
-> +
-> +			TEST_ASSERT(wpid == pid && WIFEXITED(wstatus), "wait: Unexpected return");
-> +			if (WEXITSTATUS(wstatus) && WEXITSTATUS(wstatus) != KSFT_SKIP)
-> +				ret = KSFT_FAIL;
-> +		}
-> +	}
-> +
-> +	return ret;
-> +}
-
-We should share all the code above, except print_reg(), with aarch64.
-I'll send a patch series that splits the arch-neutral code out of
-the aarch64 test that you can base this test on.
-
-> +
-> +/*
-> + * The current blessed list was primed with the output of kernel version
-> + * v6.2 and then later updated with new registers.
-> + */
-> +static __u64 base_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(isa),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(mvendorid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(marchid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(mimpid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.pc),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.ra),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.sp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.gp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.tp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a7),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s7),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s8),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s9),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s10),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s11),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(mode),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(sstatus),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(sie),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(stvec),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(sscratch),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(sepc),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(scause),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(stval),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(sip),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(satp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_REG(scounteren),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(frequency),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(time),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(compare),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_A,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_C,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_D,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_F,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_H,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_I,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_M,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVPBMT,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSTC,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVINVAL,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM,
-
-Any register that depends on the host having the extension, like zicbom,
-means it shouldn't be in the base register set.
-
-> +};
-> +
-> +/*
-> + * The rejects_set list registers that should skip set test.
-> + *  - KVM_REG_RISCV_TIMER_REG(state): set would fail if it was not initialized properly.
-> + */
-> +static __u64 base_rejects_set[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state),
-> +};
-> +
-> +static __u64 fp_f_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[0]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[1]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[2]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[3]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[4]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[5]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[6]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[7]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[8]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[9]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[10]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[11]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[12]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[13]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[14]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[15]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[16]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[17]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[18]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[19]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[20]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[21]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[22]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[23]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[24]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[25]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[26]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[27]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[28]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[29]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[30]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[31]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(fcsr),
-> +};
-> +
-> +static __u64 fp_d_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[0]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[1]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[2]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[3]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[4]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[5]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[6]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[7]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[8]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[9]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[10]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[11]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[12]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[13]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[14]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[15]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[16]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[17]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[18]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[19]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[20]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[21]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[22]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[23]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[24]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[25]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[26]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[27]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[28]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[29]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[30]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[31]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(fcsr),
-> +};
-> +
-> +#define BASE_SUBLIST \
-> +	{"base", .regs = base_regs, .regs_n = ARRAY_SIZE(base_regs), .rejects_set = base_rejects_set, \
-> +		.rejects_set_n = ARRAY_SIZE(base_rejects_set),}
-> +#define FP_F_REGS_SUBLIST \
-> +	{"fp_f_regs", .capability = KVM_RISCV_ISA_EXT_F, .regs = fp_f_regs, \
-> +		.regs_n = ARRAY_SIZE(fp_f_regs),}
-> +#define FP_D_REGS_SUBLIST \
-> +	{"fp_d_regs", .capability = KVM_RISCV_ISA_EXT_D, .regs = fp_d_regs, \
-> +		.regs_n = ARRAY_SIZE(fp_d_regs),}
-> +
-> +static struct vcpu_config fp_f_d_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	FP_F_REGS_SUBLIST,
-> +	FP_D_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_config *vcpu_configs[] = {
-> +	&fp_f_d_config,
-> +};
-> +static int vcpu_configs_n = ARRAY_SIZE(vcpu_configs);
-> -- 
-> 2.34.1
->
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiDkuo4yMDIz5bm0NeaciDE25pel5ZGo
+5LqMIDA5OjUw5YaZ6YGT77yaCj4KPiBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+
+IOS6jjIwMjPlubQ15pyIMTHml6Xlkajlm5sgMDk6MzLlhpnpgZPvvJoKPgo+ID4KPiA+IENoYW5n
+ZXMgaW4gdjEwOgo+ID4KPiA+IC0gYWRkIEFja2VkLWJ5IGZyb20gQmrDtnJuIFTDtnBlbCBpbiBw
+YXRjaCAyIGFuZCBwYXRjaCA0Cj4gPiAtIHJlcGxhY2UgYG1vdmVgIHdpdGggYG12YCBpbiBwYXRj
+aDMKPiA+IC0gcHJldHRpZnkgcGF0Y2ggMi80IHdpdGggcHJvcGVyIHRhYnMKPiA+Cj4gPiBZb3Ug
+Y2FuIGRpcmVjdGx5IHRyeSBpdCB3aXRoOgo+ID4KPiA+IGh0dHBzOi8vZ2l0aHViLmNvbS9zdWdh
+cmZpbGxldC9saW51eC90cmVlLzYuNC1yYzEtcnYtZnRyYWNlLXYxMAo+ID4KPiA+Cj4gSGksIHBs
+YW1lcjoKPiBUaGlzIHNlcmllcyBpcyByZWFkeSBmb3IgaXRzIGFjY2VwdGFuY2UsIHlvdSBjYW4g
+cGljayBpdCB1cC4KPgpBcG9sb2dpemUgZm9yIHRoZSB0eXBvIGluIHlvdXIgbmFtZSwgUGFsbWVy
+LgoKPiA+IFRoaXMgc2VyaWVzIG9wdGltaXplcyBmdW5jdGlvbiB0cmFjZS4gVGhlIGZpcnN0IDMg
+aW5kZXBlbmRlbnQKPiA+IHBhdGNoZXMgaGFzIGJlZW4gcGlja2VkIGluIHRoZSBWNyB2ZXJzaW9u
+IG9mIHRoaXMgc2VyaWVzLCB0aGUKPiA+IHN1YnNlcXVlbnQgdmVyc2lvbiBjb250aW51ZXMgdGhl
+IGZvbGxvd2luZyA0IHBhdGNoZXM6Cj4gPgo+ID4gc2VsZWN0IEZUUkFDRV9NQ09VTlRfVVNFX1BB
+VENIQUJMRV9GVU5DVElPTl9FTlRSWSBbMV0gKHBhdGNoIDEpCj4gPiA9PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4gPgo+ID4gSW4gUklT
+Qy1WLCAtZnBhdGNoYWJsZS1mdW5jdGlvbi1lbnRyeSBvcHRpb24gaXMgdXNlZCB0byBzdXBwb3J0
+Cj4gPiBkeW5hbWljIGZ0cmFjZSBpbiB0aGlzIGNvbW1pdCBhZmM3NmI4YjgwMTEgKCJyaXNjdjog
+VXNpbmcKPiA+IFBBVENIQUJMRV9GVU5DVElPTl9FTlRSWSBpbnN0ZWFkIG9mIE1DT1VOVCIpLiBT
+byByZWNvcmRtY291bnQKPiA+IGRvbid0IGhhdmUgdG8gYmUgY2FsbGVkIHRvIGNyZWF0ZSB0aGUg
+X19tY291bnRfbG9jIHNlY3Rpb24gYmVmb3JlCj4gPiB0aGUgdm1saW51eCBsaW5raW5nLgo+ID4K
+PiA+IEhlcmUgc2VsZWN0cyBGVFJBQ0VfTUNPVU5UX1VTRV9QQVRDSEFCTEVfRlVOQ1RJT05fRU5U
+UlkgdG8gdGVsbAo+ID4gTWFrZWZpbGUgbm90IHRvIHJ1biByZWNvcmRtY291bnQuCj4gPgo+ID4g
+TWFrZSBmdW5jdGlvbiBncmFwaCB1c2UgZnRyYWNlIGRpcmVjdGx5IFsyXSAocGF0Y2ggMikKPiA+
+ID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+Cj4gPgo+ID4gSW4gUklTQy1WIGFyY2hpdGVjdHVyZSwgd2hlbiB3ZSBlbmFibGUgdGhlIGZ0cmFj
+ZV9ncmFwaCB0cmFjZXIgb24gc29tZQo+ID4gZnVuY3Rpb25zLCB0aGUgZnVuY3Rpb24gdHJhY2lu
+Z3Mgb24gb3RoZXIgZnVuY3Rpb25zIHdpbGwgc3VmZmVyIGV4dHJhCj4gPiBncmFwaCB0cmFjaW5n
+IHdvcmsuIEluIGVzc2VuY2UsIGdyYXBoX29wcyBpc24ndCBsaW1pdGVkIGJ5IGl0cyBmdW5jX2hh
+c2gKPiA+IGR1ZSB0byB0aGUgZ2xvYmFsIGZ0cmFjZV9ncmFwaF9bcmVnc11fY2FsbCBsYWJlbC4g
+VGhhdCBzaG91bGQgYmUKPiA+IGNvcnJlY3RlZC4KPiA+Cj4gPiBXaGF0IGluc3BpcmVzIG1lIGlz
+IHRoZSBjb21taXQgMGMwNTkzYjQ1YzliICgieDg2L2Z0cmFjZTogTWFrZSBmdW5jdGlvbgo+ID4g
+Z3JhcGggdXNlIGZ0cmFjZSBkaXJlY3RseSIpIHRoYXQgdXNlcyBncmFwaF9vcHM6OmZ1bmMgZnVu
+Y3Rpb24gdG8KPiA+IGluc3RhbGwgcmV0dXJuX2hvb2tlciBhbmQgbWFrZXMgdGhlIGZ1bmN0aW9u
+IGNhbGxlZCBhZ2FpbnN0IGl0cwo+ID4gZnVuY19oYXNoLgo+ID4KPiA+IEFkZCBXSVRIX0RJUkVD
+VF9DQUxMUyBzdXBwb3J0IFszXSAocGF0Y2ggMywgNCkKPiA+ID09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT0KPiA+Cj4gPiBUaGlzIHNlcmllcyBhZGRzIERZTkFN
+SUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTIHN1cHBvcnQgZm9yIFJJU0MtVi4KPiA+IFNBTVBM
+RV9GVFJBQ0VfRElSRUNUIGFuZCBTQU1QTEVfRlRSQUNFX0RJUkVDVF9NVUxUSSBhcmUgYWxzbyBp
+bmNsdWRlZAo+ID4gaGVyZSBhcyB0aGUgc2FtcGxlcyBmb3IgdGVzdGluZyBESVJFQ1RfQ0FMTFMg
+cmVsYXRlZCBpbnRlcmZhY2UuCj4gPgo+ID4gRmlyc3QsIHNlbGVjdCB0aGUgRFlOQU1JQ19GVFJB
+Q0VfV0lUSF9ESVJFQ1RfQ0FMTFMgdG8gcHJvdmlkZQo+ID4gcmVnaXN0ZXJfZnRyYWNlX2RpcmVj
+dFtfbXVsdGldIGludGVyZmFjZXMgYWxsb3dpbmcgdXNlciB0byByZWdpc3Rlcgo+ID4gdGhlIGN1
+c3RvbWVkIHRyYW1wb2xpbmUgKGRpcmVjdF9jYWxsZXIpIGFzIHRoZSBtY291bnQgZm9yIG9uZSBv
+cgo+ID4gbW9yZSB0YXJnZXQgZnVuY3Rpb25zLiBBbmQgbW9kaWZ5X2Z0cmFjZV9kaXJlY3RbX211
+bHRpXSBhcmUgYWxzbwo+ID4gcHJvdmlkZWQgZm9yIG1vZGlmeSBkaXJlY3RfY2FsbGVyLgo+ID4K
+PiA+IEF0IHRoZSBzYW1lIHRpbWUsIHRoZSBzYW1wbGVzIGluIC4vc2FtcGxlcy9mdHJhY2UvIGNh
+biBiZSBidWlsdAo+ID4gYXMga2VyZW5sIG1vZHVsZSBmb3IgdGVzdGluZyB0aGVzZSBpbnRlcmZh
+Y2VzIHdpdGggU0FNUExFX0ZUUkFDRV9ESVJFQ1QKPiA+IGFuZCBTQU1QTEVfRlRSQUNFX0RJUkVD
+VF9NVUxUSSBzZWxlY3RlZC4KPiA+Cj4gPiBTZWNvbmQsIHRvIG1ha2UgdGhlIGRpcmVjdF9jYWxs
+ZXIgYW5kIHRoZSBvdGhlciBmdHJhY2UgaG9va3MKPiA+IChlZy4gZnVuY3Rpb24vZmdyYXBoIHRy
+YWNlciwga1tyZXRdcHJvYmVzKSBjby1leGlzdCwgYSB0ZW1wb3JhcnkKPiA+IHJlZ2lzdGVyCj4g
+PiBhcmUgbm9taW5hdGVkIHRvIHN0b3JlIHRoZSBhZGRyZXNzIG9mIGRpcmVjdF9jYWxsZXIgaW4K
+PiA+IGZ0cmFjZV9yZWdzX2NhbGxlci4KPiA+IEFmdGVyIHRoZSBzZXR0aW5nIG9mIHRoZSBhZGRy
+ZXNzIGRpcmVjdF9jYWxsZXIgYnkgZGlyZWN0X29wcy0+ZnVuYyBhbmQKPiA+IHRoZSBSRVNUT1JF
+X1JFR1MgaW4gZnRyYWNlX3JlZ3NfY2FsbGVyLCBkaXJlY3RfY2FsbGVyIHdpbGwgYmUganVtcGVk
+IHRvCj4gPiBieSB0aGUgYGpyYCBpbnN0Lgo+ID4KPiA+IFRoZSBzZXJpZXMncyBvbGQgY2hhbmdl
+cyByZWxhdGVkIHRoZXNlIHBhdGNoZXMKPiA+ID09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PQo+ID4KPiA+IENoYW5nZXMgaW4gdjk6Cj4gPiBodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDUxMDEwMTg1Ny4yOTUzOTU1LTEtc3VhZ3JmaWxsZXRA
+Z21haWwuY29tLwo+ID4KPiA+IDEuIGFkZCBBY2tlZC1ieSBmcm9tIEJqw7ZybiBUw7ZwZWwgaW4g
+cGF0Y2ggMQo+ID4KPiA+IDIuIHJlYmFzZSBwYXRjaDIvcGF0Y2gzIG9uIExpbnV4IHY2LjQtcmMx
+Cj4gPgo+ID4gICAtIHBhdGNoIDI6IHRvIG1ha2UgdGhlIGBTQVZFX0FCSV9SRUdTYCBjb25maWd1
+cmFibGUsIHJldmVydCB0aGUKPiA+ICAgICBtb2RpZmljYXRpb24gb2YgbWNvdW50LWR5bi5TIGZy
+b20gY29tbWl0ICg0NWIzMmI5NDZhOTcgInJpc2N2Ogo+ID4gZW50cnk6IENvbnNvbGlkYXRlIGdl
+bmVyYWwgcmVncyBzYXZpbmcvcmVzdG9yaW5nIikKPiA+Cj4gPiAgIC0gcGF0Y2ggMzogdG8gcGFz
+cyB0aGUgdHJhY2Vfc2VsZnRlc3QsIGFkZCB0aGUgaW1wbGVtZW50IG9mCj4gPiAgICAgYGZ0cmFj
+ZV9zdHViX2RpcmVjdF90cmFtcGAgZnJvbSBjb21taXQgKGZlZTg2YTRlZDUzNiAiZnRyYWNlOgo+
+ID4gc2VsZnRlc3Q6IHJlbW92ZSBicm9rZW4gdHJhY2VfZGlyZWN0X3RyYW1wIikgOyBhbmQgZml4
+dXAgdGhlIGNvbnRleHQKPiA+IGNvbmZsaWN0IGluIEtjb25maWcKPiA+Cj4gPiBDaGFuZ2VzIGlu
+IHY4Ogo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzAzMjQwMzMz
+NDIuMzE3Nzk3OS0xLXN1YWdyZmlsbGV0QGdtYWlsLmNvbS8KPiA+ICAtIEZpeCBpbmNvcnJlY3Qg
+YWRkcmVzcyB2YWx1ZXMgaW4gdGhlIDRuZCBwYXRjaAo+ID4gIC0gUmViYXNlZCBvbiB2Ni4zLXJj
+Mgo+ID4KPiA+IENoYW5nZXMgaW4gdjc6Cj4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
+eC1yaXNjdi8yMDIzMDExMjA5MDYwMy4xMjk1MzQwLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCj4gPiAg
+LSBGaXh1cCBSRVNUT1JFX0FCSV9SRUdTIGJ5IHJlbW92ZSBQVF9UMChzcCkgb3ZlcndyaXRlLgo+
+ID4gIC0gQWRkIEZUUkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWSBbMV0K
+PiA+ICAtIEZpeHVwIGtjb25maWcgd2l0aCBIQVZFX1NBTVBMRV9GVFJBQ0VfRElSRUNUICYKPiA+
+ICAgIEhBVkVfU0FNUExFX0ZUUkFDRV9ESVJFQ1RfTVVMVEkKPiA+Cj4gPiBDaGFuZ2VzIGluIHY2
+Ogo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzAxMDcxMzM1NDku
+NDE5MjYzOS0xLWd1b3JlbkBrZXJuZWwub3JnLwo+ID4gIC0gUmVwbGFjZSA4IHdpdGggTUNPVU5U
+X0lOU05fU0laRQo+ID4gIC0gUmVwbGFjZSAiUkVHX0wgYTEsIFBUX1JBKHNwKSIgd2l0aCAibXYg
+YTEsIHJhIgo+ID4gIC0gQWRkIEV2Z2VuaWkgU2hhdG9raGluIGNvbW1lbnQKPiA+Cj4gPiBDaGFu
+Z2VzIGluIHY1Ogo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjEy
+MDgwOTEyNDQuMjAzNDA3LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCj4gPiAgLSBTb3J0IEtjb25maWcg
+ZW50cmllcyBpbiBhbHBoYWJldGljYWwgb3JkZXIuCj4gPgo+ID4gQ2hhbmdlcyBpbiB2NDoKPiA+
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIxMTI5MDMzMjMwLjI1NTk0
+Ny0xLWd1b3JlbkBrZXJuZWwub3JnLwo+ID4gIC0gSW5jbHVkZSBbM10gZm9yIG1haW50ZW5hbmNl
+LiBbU29uZyBTaHVhaV0KPiA+Cj4gPiBDaGFuZ2VzIGluIFYzOgo+ID4gaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMjMxNTM5NTAuMjkxMTk4MS0xLWd1b3JlbkBrZXJu
+ZWwub3JnLwo+ID4gIC0gSW5jbHVkZSBbMl0gZm9yIG1haW50ZW5hbmNlLiBbU29uZyBTaHVhaV0K
+PiA+Cj4gPiBbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L0NBQVlzMj1q
+M0Vhazl2VTZ4YkF3MHpQdW9oMDByaDh2NUMyVTNmZVBrb2taRmliV3MyZ0BtYWlsLmdtYWlsLmNv
+bS9ULyN0Cj4gPiBbMl06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMjExMjAwODQy
+MzAuOTEwMTUyLTEtc3VhZ3JmaWxsZXRAZ21haWwuY29tLwo+ID4gWzNdOiBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTEyMzE0MjAyNS4xNTA0MDMwLTEtc3VhZ3JmaWxs
+ZXRAZ21haWwuY29tLwo+ID4KPiA+IFNvbmcgU2h1YWkgKDQpOgo+ID4gICByaXNjdjogc2VsZWN0
+IEZUUkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWQo+ID4gICByaXNjdjog
+ZnRyYWNlOiBBZGQgZnRyYWNlX2dyYXBoX2Z1bmMKPiA+ICAgcmlzY3Y6IGZ0cmFjZTogQWRkIERZ
+TkFNSUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTIHN1cHBvcnQKPiA+ICAgc2FtcGxlczogZnRy
+YWNlOiBBZGQgcmlzY3Ygc3VwcG9ydCBmb3IgU0FNUExFX0ZUUkFDRV9ESVJFQ1RbX01VTFRJXQo+
+ID4KPiA+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA0
+ICsKPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Z0cmFjZS5oICAgICAgICAgICAgIHwgIDE5
+ICstCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNlLmMgICAgICAgICAgICAgICAgICB8ICAz
+MCArKy0KPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMgICAgICAgICAgICAgIHwg
+MjAwICsrKysrKysrKysrKysrKystLS0tCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNlLWRpcmVj
+dC1tb2RpZnkuYyAgICAgICB8ICAzNCArKysrCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNlLWRp
+cmVjdC1tdWx0aS1tb2RpZnkuYyB8ICA0MCArKysrCj4gPiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNl
+LWRpcmVjdC1tdWx0aS5jICAgICAgICB8ICAyNCArKysKPiA+ICBzYW1wbGVzL2Z0cmFjZS9mdHJh
+Y2UtZGlyZWN0LXRvby5jICAgICAgICAgIHwgIDI3ICsrKwo+ID4gIHNhbXBsZXMvZnRyYWNlL2Z0
+cmFjZS1kaXJlY3QuYyAgICAgICAgICAgICAgfCAgMjMgKysrCj4gPiAgOSBmaWxlcyBjaGFuZ2Vk
+LCAzNDUgaW5zZXJ0aW9ucygrKSwgNTYgZGVsZXRpb25zKC0pCj4gPgo+ID4gLS0KPiA+IDIuMjAu
+MQo+ID4KPgo+Cj4gLS0KPiBUaGFua3MsCj4gU29uZwoKCgotLSAKVGhhbmtzLApTb25nCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
