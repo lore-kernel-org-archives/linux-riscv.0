@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A99B0C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E86AC77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 10:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jy05MLHrN/EQXpWhveC88Rzw8TtVL7KoDWX58bWvKcA=; b=j7JxwObzYjsfh6
-	WzC7eCrm9T9ubPBZSDXK+bWaT/mfMyz+rqdPnlqjvB++26lXWze8Z84/I+lvNUifvsi91ehrHNPA5
-	8nvw8le9zTnNUM/2lG+TfgE6dN+Hf7LsR70BiUPA4pQ5NM9j3Js2HFZ7a+EjH+hyzXPfvJxXrnkcm
-	cKfhpkNJaO7jxw88HkbopkyR+9qLz6GbiD/4eFYKeHHaY8Cxk334Ypp65HZU6U/tkoNHEVkteCU4h
-	DO/f/v2R8pMcLlpl+gSqR3lgBXAj192GoE1Yy9tvWsplJM366gEQdYOIm+13LzL0khrHcy0C1W56v
-	gle6QRUDXH2zxv0fi57g==;
+	List-Owner; bh=gjmvNFQ+We62VqGxqVQC13FFZIZR0UsTFVH9hCy7EkM=; b=NjKQmvzeB/j1jj
+	2a1eOQqRZ6rWR9AXgZ/OegSDp4sjqnaUKST+KpDqNc1ZMdZItqpr7YO6fl13G1Q7PsLCoR2scJuCa
+	z7h5x3qfe260eI5+PEpnqSJkTY6r69+r3quj3GMYKLeuviTmRcmwbSMAt57fqnm0FxPjvNqZeoClg
+	u/JvuuYlcE3LT0DnC622+A7Qh0tS41NHVUoTEtEWscbqslQCuigjiW28Idiy2PYodTsLncDble+Qw
+	IWxNnBMxu+3Z2I2JKorBWIqqU9U9STtkaYb+IJyzStZnCN7mOPCh2J7biGkT6PRcNHP1yrOrSB+Td
+	nINdc14JrUqKaOSpXEJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzElf-009UVf-1i;
-	Wed, 17 May 2023 10:52:27 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
+	id 1pzEls-009UbE-1K;
+	Wed, 17 May 2023 10:52:40 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzEla-009UFI-3D
+	id 1pzElo-009UVg-2o
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 10:52:26 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-1929818d7faso10241038fac.0
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:52:22 -0700 (PDT)
+	Wed, 17 May 2023 10:52:38 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-6ab02aeac3fso262775a34.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 03:52:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684320742; x=1686912742;
+        d=ventanamicro.com; s=google; t=1684320756; x=1686912756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Xw+6J5prvDv1GlDNGkT3UceS89OAlkDXWmsL52eIvzw=;
-        b=knBsJpD7AYEPv40fD+ldNxj3GfUwc6f7lrSJSZrENrPj2usKsYfX/87m7qLEEj25kA
-         A6zEeHNJVK+Qzb5TvGNdWQX9MSYVQ7fhe5lCtHfzVuescJlpuFYVQbvprq/zZZvO8PCD
-         c2ObXRZyUFvN4NlGkz8p9UXLkbB2nF17NzRgyziY5hPMNrl74LaY9INeAPLgzeGx5jqT
-         by11DRtoDa+89LWumX6If43Sw0hNFIfP3CGH7mbyFUVSHu0nQ0YVZVy1piGp651v779g
-         FlfqrsYDjrnaE3xcH37ehDml/OugMAX3V9ICJg9BvGyOm0yr3KV0/Lrg79bgmnuSW/zH
-         +hGA==
+        bh=/5ryKBZ0Xc8y6adyB9ImP44uhqiVXgFjoOdr8C6NkOU=;
+        b=EX5i7G4Vkwriau0BdUlqN37IVFZ+JxXtJ1vX934nZrY/q/AMFo5N3XxX8hXxl/UWUo
+         X7/HwNIkcPLuZSljKhOxGD5KsAOTk/PlF0jnyd9WWS2+ALoklBdR5OrNd4+Y+tU/PPgW
+         GGAEX/MRnU239ngeCsGNM13+slDPI8FuDrSSBIdMB7qUiBHSyxJHTAhvtlFgq4Ezu6aA
+         LHVnBLDKniYz9Q6fepDeWbZd/XTaecv7OPwqsf7ifMn3FMXBDqqNokgcujMej60fn0OF
+         F+n0rPI2fWlxQzXO2sBDkxz6TJFx1TAHrl29SMowAExsRwPDRM4HyE8QfhvGEHH3lkSZ
+         HNWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684320742; x=1686912742;
+        d=1e100.net; s=20221208; t=1684320756; x=1686912756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Xw+6J5prvDv1GlDNGkT3UceS89OAlkDXWmsL52eIvzw=;
-        b=Sy+8yXT1BK2KBnOQSb+wv3Tw9YCKHQM9YR41UTEmUH3JbI+UnNNwDwwooCedpaBwBq
-         XIxVIyYiJS96TtrIXynyI0aABKAj7Ttdo4K+sJbncmBIqcY/TSZuEqp9k0Zv3yt7h50e
-         KW+hCgPdZRvqjbZLix8+pKwbyBcTj2Se77vsnBBO1GTCyCbaJC3M6DuWFtqGqkdyTdKs
-         CDO9CW65pmwWnZ1q93qyLI8M6u1clCUToOE0+IpVRbAD1bwOZf8Whw08Ob01AWUuK6Yi
-         5X7H4RUlQyZut+8uAQA71+GeJaXiyJ1gCHonkzVuKKLqoeac7y+m9Aza3l4KpZO+HUYC
-         JrCw==
-X-Gm-Message-State: AC+VfDy6+CGw3ZQvztmKf3psge9ZKs8yPQu+CCoGDof0W24vfo0DIC92
-	tGCknnT4uBV753L3yLYhFeGzOw==
-X-Google-Smtp-Source: ACHHUZ7eESAOgG1v6jPL6DqZ/IUU8zUpuNG1AcjScnFoolXY+JH+QFcvp6c50q2TQBx71mbtxwBrvw==
-X-Received: by 2002:a05:6830:c8:b0:6ac:58fb:be7 with SMTP id x8-20020a05683000c800b006ac58fb0be7mr807370oto.8.1684320742399;
-        Wed, 17 May 2023 03:52:22 -0700 (PDT)
+        bh=/5ryKBZ0Xc8y6adyB9ImP44uhqiVXgFjoOdr8C6NkOU=;
+        b=iNdd8emqR/HSczL4U5kHKPVEdcfy0i6iK0gfMbEjx3C0kuTAOe4IFxYgGRxdwbZU0h
+         /LX2V9iqF8jfXJ+x5VZTFfyEa6V6O8b/ofHkvee3dHhz1mEpI020a5RuMQtgmKHrhiiI
+         GVTPxLOk3yoW/MrAgwSEQQFMhx7ZyJ6YwcfwzQ2+SC2opN+NN7WyF8PyXe4bZ3IyuZV6
+         YUHPT7iUmA4R9qpp/RpHjLCEEQ5OwSqnPzZmz6hAlgKKtjyNU4qiCI+HL3wqtccoYXKP
+         jTPP960UlLayQ6V8170pSNPHCpZY4dwy0d5P+EwN+U6zyJhn2O+Kdvuf2RqUE7B0ynz/
+         4AEQ==
+X-Gm-Message-State: AC+VfDxrhsywUjnWKMqfLPaety4bzYNo2HMg5JTKYwHPaaHl5FH/MZpY
+	8jWM8Nq2sDEpYOohDSdBCk/VFA==
+X-Google-Smtp-Source: ACHHUZ5s4SwMoW/06FzkzoJPhGYzd7L05r6M3BOwRh14UiN7EBmtN61+dSjma3HD/cUgdaysjqTDug==
+X-Received: by 2002:a9d:4b0b:0:b0:6ad:c49b:bcbc with SMTP id q11-20020a9d4b0b000000b006adc49bbcbcmr5192712otf.28.1684320756456;
+        Wed, 17 May 2023 03:52:36 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.52.18
+        by smtp.gmail.com with ESMTPSA id w1-20020a9d77c1000000b006ade3815527sm2279896otl.22.2023.05.17.03.52.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 03:52:22 -0700 (PDT)
+        Wed, 17 May 2023 03:52:36 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -73,16 +73,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 07/10] RISC-V: KVM: Add in-kernel emulation of AIA APLIC
-Date: Wed, 17 May 2023 16:21:32 +0530
-Message-Id: <20230517105135.1871868-8-apatel@ventanamicro.com>
+Subject: [PATCH 10/10] RISC-V: KVM: Expose IMSIC registers as attributes of AIA irqchip
+Date: Wed, 17 May 2023 16:21:35 +0530
+Message-Id: <20230517105135.1871868-11-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230517105135.1871868-1-apatel@ventanamicro.com>
 References: <20230517105135.1871868-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_035223_707875_8A966741 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20230517_035236_920552_15E6A62D 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,635 +99,318 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no virtualization support in AIA APLIC so we add in-kernel
-emulation of AIA APLIC which only supports MSI-mode (i.e. wired
-interrupts forwarded to AIA IMSIC as MSIs).
+We expose IMSIC registers as KVM device attributes of the in-kernel
+AIA irqchip device. This will allow KVM user-space to save/restore
+IMISC state of each VCPU using KVM device ioctls().
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/kvm_aia.h |  17 +-
- arch/riscv/kvm/Makefile          |   1 +
- arch/riscv/kvm/aia_aplic.c       | 574 +++++++++++++++++++++++++++++++
- 3 files changed, 578 insertions(+), 14 deletions(-)
- create mode 100644 arch/riscv/kvm/aia_aplic.c
+ arch/riscv/include/asm/kvm_aia.h  |   3 +
+ arch/riscv/include/uapi/asm/kvm.h |  12 +++
+ arch/riscv/kvm/aia_device.c       |  29 ++++-
+ arch/riscv/kvm/aia_imsic.c        | 170 ++++++++++++++++++++++++++++++
+ 4 files changed, 212 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index a1281ebc9b92..f6bd8523395f 100644
+index a4f6ebf90e31..1f37b600ca47 100644
 --- a/arch/riscv/include/asm/kvm_aia.h
 +++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -129,20 +129,9 @@ static inline void kvm_riscv_vcpu_aia_imsic_cleanup(struct kvm_vcpu *vcpu)
- {
+@@ -97,6 +97,9 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
+ 				 unsigned long *val, unsigned long new_val,
+ 				 unsigned long wr_mask);
++int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
++				bool write, unsigned long *val);
++int kvm_riscv_aia_imsic_has_attr(struct kvm *kvm, unsigned long type);
+ void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 				    u32 guest_index, u32 offset, u32 iid);
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index e80210c2220b..624784bb21dd 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -242,6 +242,18 @@ enum KVM_RISCV_SBI_EXT_ID {
+ 
+ #define KVM_DEV_RISCV_AIA_GRP_APLIC		3
+ 
++#define KVM_DEV_RISCV_AIA_GRP_IMSIC		4
++#define KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS	12
++#define KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK	\
++		((1U << KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS) - 1)
++#define KVM_DEV_RISCV_AIA_IMSIC_MKATTR(__vcpu, __isel)	\
++		(((__vcpu) << KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS) | \
++		 ((__isel) & KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK))
++#define KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(__attr)	\
++		((__attr) & KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK)
++#define KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(__attr)	\
++		((__attr) >> KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS)
++
+ /* One single KVM irqchip, ie. the AIA */
+ #define KVM_NR_IRQCHIPS			1
+ 
+diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
+index 17dba92a90e1..ac7bd98301a3 100644
+--- a/arch/riscv/kvm/aia_device.c
++++ b/arch/riscv/kvm/aia_device.c
+@@ -326,7 +326,7 @@ static int aia_set_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 	u32 nr;
+ 	u64 addr;
+ 	int nr_vcpus, r = -ENXIO;
+-	unsigned long type = (unsigned long)attr->attr;
++	unsigned long v, type = (unsigned long)attr->attr;
+ 	void __user *uaddr = (void __user *)(long)attr->addr;
+ 
+ 	switch (attr->group) {
+@@ -373,6 +373,15 @@ static int aia_set_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 		r = kvm_riscv_aia_aplic_set_attr(dev->kvm, type, nr);
+ 		mutex_unlock(&dev->kvm->lock);
+ 
++		break;
++	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
++		if (copy_from_user(&v, uaddr, sizeof(v)))
++			return -EFAULT;
++
++		mutex_lock(&dev->kvm->lock);
++		r = kvm_riscv_aia_imsic_rw_attr(dev->kvm, type, true, &v);
++		mutex_unlock(&dev->kvm->lock);
++
+ 		break;
+ 	}
+ 
+@@ -385,7 +394,7 @@ static int aia_get_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 	u64 addr;
+ 	int nr_vcpus, r = -ENXIO;
+ 	void __user *uaddr = (void __user *)(long)attr->addr;
+-	unsigned long type = (unsigned long)attr->attr;
++	unsigned long v, type = (unsigned long)attr->attr;
+ 
+ 	switch (attr->group) {
+ 	case KVM_DEV_RISCV_AIA_GRP_CONFIG:
+@@ -434,6 +443,20 @@ static int aia_get_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 		if (copy_to_user(uaddr, &nr, sizeof(nr)))
+ 			return -EFAULT;
+ 
++		break;
++	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
++		if (copy_from_user(&v, uaddr, sizeof(v)))
++			return -EFAULT;
++
++		mutex_lock(&dev->kvm->lock);
++		r = kvm_riscv_aia_imsic_rw_attr(dev->kvm, type, false, &v);
++		mutex_unlock(&dev->kvm->lock);
++		if (r)
++			return r;
++
++		if (copy_to_user(uaddr, &v, sizeof(v)))
++			return -EFAULT;
++
+ 		break;
+ 	}
+ 
+@@ -472,6 +495,8 @@ static int aia_has_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
+ 		break;
+ 	case KVM_DEV_RISCV_AIA_GRP_APLIC:
+ 		return kvm_riscv_aia_aplic_has_attr(dev->kvm, attr->attr);
++	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
++		return kvm_riscv_aia_imsic_has_attr(dev->kvm, attr->attr);
+ 	}
+ 
+ 	return -ENXIO;
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index 2dc09dcb8ab5..8f108cfa80e5 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -277,6 +277,33 @@ static u32 imsic_mrif_topei(struct imsic_mrif *mrif, u32 nr_eix, u32 nr_msis)
+ 	return 0;
  }
  
--static inline int kvm_riscv_aia_aplic_inject(struct kvm *kvm,
--					     u32 source, bool level)
--{
--	return 0;
--}
--
--static inline int kvm_riscv_aia_aplic_init(struct kvm *kvm)
--{
--	return 0;
--}
--
--static inline void kvm_riscv_aia_aplic_cleanup(struct kvm *kvm)
--{
--}
-+int kvm_riscv_aia_aplic_inject(struct kvm *kvm, u32 source, bool level);
-+int kvm_riscv_aia_aplic_init(struct kvm *kvm);
-+void kvm_riscv_aia_aplic_cleanup(struct kvm *kvm);
++static int imsic_mrif_isel_check(u32 nr_eix, unsigned long isel)
++{
++	u32 num = 0;
++
++	switch (isel) {
++	case IMSIC_EIDELIVERY:
++	case IMSIC_EITHRESHOLD:
++		break;
++	case IMSIC_EIP0 ... IMSIC_EIP63:
++		num = isel - IMSIC_EIP0;
++		break;
++	case IMSIC_EIE0 ... IMSIC_EIE63:
++		num = isel - IMSIC_EIE0;
++		break;
++	default:
++		return -ENOENT;
++	};
++#ifndef CONFIG_32BIT
++	if (num & 0x1)
++		return -EINVAL;
++#endif
++	if ((num / 2) >= nr_eix)
++		return -EINVAL;
++
++	return 0;
++}
++
+ static int imsic_mrif_rmw(struct imsic_mrif *mrif, u32 nr_eix,
+ 			  unsigned long isel, unsigned long *val,
+ 			  unsigned long new_val, unsigned long wr_mask)
+@@ -407,6 +434,86 @@ static void imsic_vsfile_read(int vsfile_hgei, int vsfile_cpu, u32 nr_eix,
+ 			 imsic_vsfile_local_read, &idata, 1);
+ }
  
- #ifdef CONFIG_32BIT
- void kvm_riscv_vcpu_aia_flush_interrupts(struct kvm_vcpu *vcpu);
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index dd69ebe098bd..94c43702c765 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -28,3 +28,4 @@ kvm-y += vcpu_timer.o
- kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
- kvm-y += aia.o
- kvm-y += aia_device.o
-+kvm-y += aia_aplic.o
-diff --git a/arch/riscv/kvm/aia_aplic.c b/arch/riscv/kvm/aia_aplic.c
-new file mode 100644
-index 000000000000..1b0a4df64815
---- /dev/null
-+++ b/arch/riscv/kvm/aia_aplic.c
-@@ -0,0 +1,574 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-+ * Copyright (C) 2022 Ventana Micro Systems Inc.
-+ *
-+ * Authors:
-+ *	Anup Patel <apatel@ventanamicro.com>
-+ */
-+
-+#include <linux/kvm_host.h>
-+#include <linux/math.h>
-+#include <linux/spinlock.h>
-+#include <linux/swab.h>
-+#include <kvm/iodev.h>
-+#include <asm/kvm_aia_aplic.h>
-+
-+struct aplic_irq {
-+	raw_spinlock_t lock;
-+	u32 sourcecfg;
-+	u32 state;
-+#define APLIC_IRQ_STATE_PENDING		BIT(0)
-+#define APLIC_IRQ_STATE_ENABLED		BIT(1)
-+#define APLIC_IRQ_STATE_ENPEND		(APLIC_IRQ_STATE_PENDING | \
-+					 APLIC_IRQ_STATE_ENABLED)
-+#define APLIC_IRQ_STATE_INPUT		BIT(8)
-+	u32 target;
++struct imsic_vsfile_rw_data {
++	int hgei;
++	int isel;
++	bool write;
++	unsigned long val;
 +};
 +
-+struct aplic {
-+	struct kvm_io_device iodev;
-+
-+	u32 domaincfg;
-+	u32 genmsi;
-+
-+	u32 nr_irqs;
-+	u32 nr_words;
-+	struct aplic_irq *irqs;
-+};
-+
-+static u32 aplic_read_sourcecfg(struct aplic *aplic, u32 irq)
++static void imsic_vsfile_local_rw(void *data)
 +{
-+	u32 ret;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
++	struct imsic_vsfile_rw_data *idata = data;
++	unsigned long new_hstatus, old_hstatus, old_vsiselect;
 +
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return 0;
-+	irqd = &aplic->irqs[irq];
++	old_vsiselect = csr_read(CSR_VSISELECT);
++	old_hstatus = csr_read(CSR_HSTATUS);
++	new_hstatus = old_hstatus & ~HSTATUS_VGEIN;
++	new_hstatus |= ((unsigned long)idata->hgei) << HSTATUS_VGEIN_SHIFT;
++	csr_write(CSR_HSTATUS, new_hstatus);
 +
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	ret = irqd->sourcecfg;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void aplic_write_sourcecfg(struct aplic *aplic, u32 irq, u32 val)
-+{
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return;
-+	irqd = &aplic->irqs[irq];
-+
-+	if (val & APLIC_SOURCECFG_D)
-+		val = 0;
-+	else
-+		val &= APLIC_SOURCECFG_SM_MASK;
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	irqd->sourcecfg = val;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+}
-+
-+static u32 aplic_read_target(struct aplic *aplic, u32 irq)
-+{
-+	u32 ret;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return 0;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	ret = irqd->target;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void aplic_write_target(struct aplic *aplic, u32 irq, u32 val)
-+{
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return;
-+	irqd = &aplic->irqs[irq];
-+
-+	val &= APLIC_TARGET_EIID_MASK |
-+	       (APLIC_TARGET_HART_IDX_MASK << APLIC_TARGET_HART_IDX_SHIFT) |
-+	       (APLIC_TARGET_GUEST_IDX_MASK << APLIC_TARGET_GUEST_IDX_SHIFT);
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	irqd->target = val;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+}
-+
-+static bool aplic_read_pending(struct aplic *aplic, u32 irq)
-+{
-+	bool ret;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return false;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	ret = (irqd->state & APLIC_IRQ_STATE_PENDING) ? true : false;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void aplic_write_pending(struct aplic *aplic, u32 irq, bool pending)
-+{
-+	unsigned long flags, sm;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+
-+	sm = irqd->sourcecfg & APLIC_SOURCECFG_SM_MASK;
-+	if (!pending &&
-+	    ((sm == APLIC_SOURCECFG_SM_LEVEL_HIGH) ||
-+	     (sm == APLIC_SOURCECFG_SM_LEVEL_LOW)))
-+		goto skip_write_pending;
-+
-+	if (pending)
-+		irqd->state |= APLIC_IRQ_STATE_PENDING;
-+	else
-+		irqd->state &= ~APLIC_IRQ_STATE_PENDING;
-+
-+skip_write_pending:
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+}
-+
-+static bool aplic_read_enabled(struct aplic *aplic, u32 irq)
-+{
-+	bool ret;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return false;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	ret = (irqd->state & APLIC_IRQ_STATE_ENABLED) ? true : false;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void aplic_write_enabled(struct aplic *aplic, u32 irq, bool enabled)
-+{
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	if (enabled)
-+		irqd->state |= APLIC_IRQ_STATE_ENABLED;
-+	else
-+		irqd->state &= ~APLIC_IRQ_STATE_ENABLED;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+}
-+
-+static bool aplic_read_input(struct aplic *aplic, u32 irq)
-+{
-+	bool ret;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+
-+	if (!irq || aplic->nr_irqs <= irq)
-+		return false;
-+	irqd = &aplic->irqs[irq];
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+	ret = (irqd->state & APLIC_IRQ_STATE_INPUT) ? true : false;
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void aplic_inject_msi(struct kvm *kvm, u32 irq, u32 target)
-+{
-+	u32 hart_idx, guest_idx, eiid;
-+
-+	hart_idx = target >> APLIC_TARGET_HART_IDX_SHIFT;
-+	hart_idx &= APLIC_TARGET_HART_IDX_MASK;
-+	guest_idx = target >> APLIC_TARGET_GUEST_IDX_SHIFT;
-+	guest_idx &= APLIC_TARGET_GUEST_IDX_MASK;
-+	eiid = target & APLIC_TARGET_EIID_MASK;
-+	kvm_riscv_aia_inject_msi_by_id(kvm, hart_idx, guest_idx, eiid);
-+}
-+
-+static void aplic_update_irq_range(struct kvm *kvm, u32 first, u32 last)
-+{
-+	bool inject;
-+	u32 irq, target;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+	struct aplic *aplic = kvm->arch.aia.aplic_state;
-+
-+	if (!(aplic->domaincfg & APLIC_DOMAINCFG_IE))
-+		return;
-+
-+	for (irq = first; irq <= last; irq++) {
-+		if (!irq || aplic->nr_irqs <= irq)
-+			continue;
-+		irqd = &aplic->irqs[irq];
-+
-+		raw_spin_lock_irqsave(&irqd->lock, flags);
-+
-+		inject = false;
-+		target = irqd->target;
-+		if (irqd->state & APLIC_IRQ_STATE_ENPEND) {
-+			irqd->state &= ~APLIC_IRQ_STATE_PENDING;
-+			inject = true;
-+		}
-+
-+		raw_spin_unlock_irqrestore(&irqd->lock, flags);
-+
-+		if (inject)
-+			aplic_inject_msi(kvm, irq, target);
-+	}
-+}
-+
-+int kvm_riscv_aia_aplic_inject(struct kvm *kvm, u32 source, bool level)
-+{
-+	u32 target;
-+	bool inject = false, ie;
-+	unsigned long flags;
-+	struct aplic_irq *irqd;
-+	struct aplic *aplic = kvm->arch.aia.aplic_state;
-+
-+	if (!aplic || !source || (aplic->nr_irqs <= source))
-+		return -ENODEV;
-+	irqd = &aplic->irqs[source];
-+	ie = (aplic->domaincfg & APLIC_DOMAINCFG_IE) ? true : false;
-+
-+	raw_spin_lock_irqsave(&irqd->lock, flags);
-+
-+	if (irqd->sourcecfg & APLIC_SOURCECFG_D)
-+		goto skip_unlock;
-+
-+	switch (irqd->sourcecfg & APLIC_SOURCECFG_SM_MASK) {
-+	case APLIC_SOURCECFG_SM_EDGE_RISE:
-+		if (level && !(irqd->state & APLIC_IRQ_STATE_INPUT) &&
-+		    !(irqd->state & APLIC_IRQ_STATE_PENDING))
-+			irqd->state |= APLIC_IRQ_STATE_PENDING;
++	switch (idata->isel) {
++	case IMSIC_EIDELIVERY:
++		if (idata->write)
++			imsic_vs_csr_write(IMSIC_EIDELIVERY, idata->val);
++		else
++			idata->val = imsic_vs_csr_read(IMSIC_EIDELIVERY);
 +		break;
-+	case APLIC_SOURCECFG_SM_EDGE_FALL:
-+		if (!level && (irqd->state & APLIC_IRQ_STATE_INPUT) &&
-+		    !(irqd->state & APLIC_IRQ_STATE_PENDING))
-+			irqd->state |= APLIC_IRQ_STATE_PENDING;
++	case IMSIC_EITHRESHOLD:
++		if (idata->write)
++			imsic_vs_csr_write(IMSIC_EITHRESHOLD, idata->val);
++		else
++			idata->val = imsic_vs_csr_read(IMSIC_EITHRESHOLD);
 +		break;
-+	case APLIC_SOURCECFG_SM_LEVEL_HIGH:
-+		if (level && !(irqd->state & APLIC_IRQ_STATE_PENDING))
-+			irqd->state |= APLIC_IRQ_STATE_PENDING;
++	case IMSIC_EIP0 ... IMSIC_EIP63:
++	case IMSIC_EIE0 ... IMSIC_EIE63:
++#ifndef CONFIG_32BIT
++		if (idata->isel & 0x1)
++			break;
++#endif
++		if (idata->write)
++			imsic_eix_write(idata->isel, idata->val);
++		else
++			idata->val = imsic_eix_read(idata->isel);
 +		break;
-+	case APLIC_SOURCECFG_SM_LEVEL_LOW:
-+		if (!level && !(irqd->state & APLIC_IRQ_STATE_PENDING))
-+			irqd->state |= APLIC_IRQ_STATE_PENDING;
++	default:
 +		break;
 +	}
 +
-+	if (level)
-+		irqd->state |= APLIC_IRQ_STATE_INPUT;
-+	else
-+		irqd->state &= ~APLIC_IRQ_STATE_INPUT;
++	csr_write(CSR_HSTATUS, old_hstatus);
++	csr_write(CSR_VSISELECT, old_vsiselect);
++}
 +
-+	target = irqd->target;
-+	if (ie && (irqd->state & APLIC_IRQ_STATE_ENPEND)) {
-+		irqd->state &= ~APLIC_IRQ_STATE_PENDING;
-+		inject = true;
-+	}
++static int imsic_vsfile_rw(int vsfile_hgei, int vsfile_cpu, u32 nr_eix,
++			   unsigned long isel, bool write,
++			   unsigned long *val)
++{
++	int rc;
++	struct imsic_vsfile_rw_data rdata;
 +
-+skip_unlock:
-+	raw_spin_unlock_irqrestore(&irqd->lock, flags);
++	/* We can only access register if we have a IMSIC VS-file */
++	if (vsfile_cpu < 0 || vsfile_hgei <= 0)
++		return -EINVAL;
 +
-+	if (inject)
-+		aplic_inject_msi(kvm, source, target);
++	/* Check IMSIC register iselect */
++	rc = imsic_mrif_isel_check(nr_eix, isel);
++	if (rc)
++		return rc;
++
++	/* We can only access register on local CPU */
++	rdata.hgei = vsfile_hgei;
++	rdata.isel = isel;
++	rdata.write = write;
++	rdata.val = (write) ? *val : 0;
++	on_each_cpu_mask(cpumask_of(vsfile_cpu),
++			 imsic_vsfile_local_rw, &rdata, 1);
++
++	if (!write)
++		*val = rdata.val;
 +
 +	return 0;
 +}
 +
-+static u32 aplic_read_input_word(struct aplic *aplic, u32 word)
+ static void imsic_vsfile_local_clear(int vsfile_hgei, u32 nr_eix)
+ {
+ 	u32 i;
+@@ -758,6 +865,69 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
+ 	return rc;
+ }
+ 
++int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
++				bool write, unsigned long *val)
 +{
-+	u32 i, ret = 0;
++	u32 isel, vcpu_id;
++	unsigned long flags;
++	struct imsic *imsic;
++	struct kvm_vcpu *vcpu;
++	int rc, vsfile_hgei, vsfile_cpu;
 +
-+	for (i = 0; i < 32; i++)
-+		ret |= aplic_read_input(aplic, word * 32 + i) ? BIT(i) : 0;
-+
-+	return ret;
-+}
-+
-+static u32 aplic_read_pending_word(struct aplic *aplic, u32 word)
-+{
-+	u32 i, ret = 0;
-+
-+	for (i = 0; i < 32; i++)
-+		ret |= aplic_read_pending(aplic, word * 32 + i) ? BIT(i) : 0;
-+
-+	return ret;
-+}
-+
-+static void aplic_write_pending_word(struct aplic *aplic, u32 word,
-+				     u32 val, bool pending)
-+{
-+	u32 i;
-+
-+	for (i = 0; i < 32; i++) {
-+		if (val & BIT(i))
-+			aplic_write_pending(aplic, word * 32 + i, pending);
-+	}
-+}
-+
-+static u32 aplic_read_enabled_word(struct aplic *aplic, u32 word)
-+{
-+	u32 i, ret = 0;
-+
-+	for (i = 0; i < 32; i++)
-+		ret |= aplic_read_enabled(aplic, word * 32 + i) ? BIT(i) : 0;
-+
-+	return ret;
-+}
-+
-+static void aplic_write_enabled_word(struct aplic *aplic, u32 word,
-+				     u32 val, bool enabled)
-+{
-+	u32 i;
-+
-+	for (i = 0; i < 32; i++) {
-+		if (val & BIT(i))
-+			aplic_write_enabled(aplic, word * 32 + i, enabled);
-+	}
-+}
-+
-+static int aplic_mmio_read_offset(struct kvm *kvm, gpa_t off, u32 *val32)
-+{
-+	u32 i;
-+	struct aplic *aplic = kvm->arch.aia.aplic_state;
-+
-+	if ((off & 0x3) != 0)
-+		return -EOPNOTSUPP;
-+
-+	if (off == APLIC_DOMAINCFG) {
-+		*val32 = APLIC_DOMAINCFG_RDONLY |
-+			 aplic->domaincfg | APLIC_DOMAINCFG_DM;
-+	} else if ((off >= APLIC_SOURCECFG_BASE) &&
-+		 (off < (APLIC_SOURCECFG_BASE + (aplic->nr_irqs - 1) * 4))) {
-+		i = ((off - APLIC_SOURCECFG_BASE) >> 2) + 1;
-+		*val32 = aplic_read_sourcecfg(aplic, i);
-+	} else if ((off >= APLIC_SETIP_BASE) &&
-+		   (off < (APLIC_SETIP_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_SETIP_BASE) >> 2;
-+		*val32 = aplic_read_pending_word(aplic, i);
-+	} else if (off == APLIC_SETIPNUM) {
-+		*val32 = 0;
-+	} else if ((off >= APLIC_CLRIP_BASE) &&
-+		   (off < (APLIC_CLRIP_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_CLRIP_BASE) >> 2;
-+		*val32 = aplic_read_input_word(aplic, i);
-+	} else if (off == APLIC_CLRIPNUM) {
-+		*val32 = 0;
-+	} else if ((off >= APLIC_SETIE_BASE) &&
-+		   (off < (APLIC_SETIE_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_SETIE_BASE) >> 2;
-+		*val32 = aplic_read_enabled_word(aplic, i);
-+	} else if (off == APLIC_SETIENUM) {
-+		*val32 = 0;
-+	} else if ((off >= APLIC_CLRIE_BASE) &&
-+		   (off < (APLIC_CLRIE_BASE + aplic->nr_words * 4))) {
-+		*val32 = 0;
-+	} else if (off == APLIC_CLRIENUM) {
-+		*val32 = 0;
-+	} else if (off == APLIC_SETIPNUM_LE) {
-+		*val32 = 0;
-+	} else if (off == APLIC_SETIPNUM_BE) {
-+		*val32 = 0;
-+	} else if (off == APLIC_GENMSI) {
-+		*val32 = aplic->genmsi;
-+	} else if ((off >= APLIC_TARGET_BASE) &&
-+		   (off < (APLIC_TARGET_BASE + (aplic->nr_irqs - 1) * 4))) {
-+		i = ((off - APLIC_TARGET_BASE) >> 2) + 1;
-+		*val32 = aplic_read_target(aplic, i);
-+	} else
++	if (!kvm_riscv_aia_initialized(kvm))
 +		return -ENODEV;
 +
-+	return 0;
-+}
-+
-+static int aplic_mmio_read(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
-+			   gpa_t addr, int len, void *val)
-+{
-+	if (len != 4)
-+		return -EOPNOTSUPP;
-+
-+	return aplic_mmio_read_offset(vcpu->kvm,
-+				      addr - vcpu->kvm->arch.aia.aplic_addr,
-+				      val);
-+}
-+
-+static int aplic_mmio_write_offset(struct kvm *kvm, gpa_t off, u32 val32)
-+{
-+	u32 i;
-+	struct aplic *aplic = kvm->arch.aia.aplic_state;
-+
-+	if ((off & 0x3) != 0)
-+		return -EOPNOTSUPP;
-+
-+	if (off == APLIC_DOMAINCFG) {
-+		/* Only IE bit writeable */
-+		aplic->domaincfg = val32 & APLIC_DOMAINCFG_IE;
-+	} else if ((off >= APLIC_SOURCECFG_BASE) &&
-+		 (off < (APLIC_SOURCECFG_BASE + (aplic->nr_irqs - 1) * 4))) {
-+		i = ((off - APLIC_SOURCECFG_BASE) >> 2) + 1;
-+		aplic_write_sourcecfg(aplic, i, val32);
-+	} else if ((off >= APLIC_SETIP_BASE) &&
-+		   (off < (APLIC_SETIP_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_SETIP_BASE) >> 2;
-+		aplic_write_pending_word(aplic, i, val32, true);
-+	} else if (off == APLIC_SETIPNUM) {
-+		aplic_write_pending(aplic, val32, true);
-+	} else if ((off >= APLIC_CLRIP_BASE) &&
-+		   (off < (APLIC_CLRIP_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_CLRIP_BASE) >> 2;
-+		aplic_write_pending_word(aplic, i, val32, false);
-+	} else if (off == APLIC_CLRIPNUM) {
-+		aplic_write_pending(aplic, val32, false);
-+	} else if ((off >= APLIC_SETIE_BASE) &&
-+		   (off < (APLIC_SETIE_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_SETIE_BASE) >> 2;
-+		aplic_write_enabled_word(aplic, i, val32, true);
-+	} else if (off == APLIC_SETIENUM) {
-+		aplic_write_enabled(aplic, val32, true);
-+	} else if ((off >= APLIC_CLRIE_BASE) &&
-+		   (off < (APLIC_CLRIE_BASE + aplic->nr_words * 4))) {
-+		i = (off - APLIC_CLRIE_BASE) >> 2;
-+		aplic_write_enabled_word(aplic, i, val32, false);
-+	} else if (off == APLIC_CLRIENUM) {
-+		aplic_write_enabled(aplic, val32, false);
-+	} else if (off == APLIC_SETIPNUM_LE) {
-+		aplic_write_pending(aplic, val32, true);
-+	} else if (off == APLIC_SETIPNUM_BE) {
-+		aplic_write_pending(aplic, __swab32(val32), true);
-+	} else if (off == APLIC_GENMSI) {
-+		aplic->genmsi = val32 & ~(APLIC_TARGET_GUEST_IDX_MASK <<
-+					  APLIC_TARGET_GUEST_IDX_SHIFT);
-+		kvm_riscv_aia_inject_msi_by_id(kvm,
-+				val32 >> APLIC_TARGET_HART_IDX_SHIFT, 0,
-+				val32 & APLIC_TARGET_EIID_MASK);
-+	} else if ((off >= APLIC_TARGET_BASE) &&
-+		   (off < (APLIC_TARGET_BASE + (aplic->nr_irqs - 1) * 4))) {
-+		i = ((off - APLIC_TARGET_BASE) >> 2) + 1;
-+		aplic_write_target(aplic, i, val32);
-+	} else
++	vcpu_id = KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(type);
++	vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
++	if (!vcpu)
 +		return -ENODEV;
 +
-+	aplic_update_irq_range(kvm, 1, aplic->nr_irqs - 1);
++	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
++	imsic = vcpu->arch.aia_context.imsic_state;
 +
-+	return 0;
-+}
++	read_lock_irqsave(&imsic->vsfile_lock, flags);
 +
-+static int aplic_mmio_write(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
-+			    gpa_t addr, int len, const void *val)
-+{
-+	if (len != 4)
-+		return -EOPNOTSUPP;
-+
-+	return aplic_mmio_write_offset(vcpu->kvm,
-+				       addr - vcpu->kvm->arch.aia.aplic_addr,
-+				       *((const u32 *)val));
-+}
-+
-+static struct kvm_io_device_ops aplic_iodoev_ops = {
-+	.read = aplic_mmio_read,
-+	.write = aplic_mmio_write,
-+};
-+
-+int kvm_riscv_aia_aplic_init(struct kvm *kvm)
-+{
-+	int i, ret = 0;
-+	struct aplic *aplic;
-+
-+	/* Do nothing if we have zero sources */
-+	if (!kvm->arch.aia.nr_sources)
-+		return 0;
-+
-+	/* Allocate APLIC global state */
-+	aplic = kzalloc(sizeof(*aplic), GFP_KERNEL);
-+	if (!aplic)
-+		return -ENOMEM;
-+	kvm->arch.aia.aplic_state = aplic;
-+
-+	/* Setup APLIC IRQs */
-+	aplic->nr_irqs = kvm->arch.aia.nr_sources + 1;
-+	aplic->nr_words = DIV_ROUND_UP(aplic->nr_irqs, 32);
-+	aplic->irqs = kcalloc(aplic->nr_irqs,
-+			      sizeof(*aplic->irqs), GFP_KERNEL);
-+	if (!aplic->irqs) {
-+		ret = -ENOMEM;
-+		goto fail_free_aplic;
++	rc = 0;
++	vsfile_hgei = imsic->vsfile_hgei;
++	vsfile_cpu = imsic->vsfile_cpu;
++	if (vsfile_cpu < 0) {
++		if (write) {
++			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
++					    isel, NULL, *val, -1UL);
++			imsic_swfile_extirq_update(vcpu);
++		} else
++			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
++					    isel, val, 0, 0);
 +	}
-+	for (i = 0; i < aplic->nr_irqs; i++)
-+		raw_spin_lock_init(&aplic->irqs[i].lock);
 +
-+	/* Setup IO device */
-+	kvm_iodevice_init(&aplic->iodev, &aplic_iodoev_ops);
-+	mutex_lock(&kvm->slots_lock);
-+	ret = kvm_io_bus_register_dev(kvm, KVM_MMIO_BUS,
-+				      kvm->arch.aia.aplic_addr,
-+				      KVM_DEV_RISCV_APLIC_SIZE,
-+				      &aplic->iodev);
-+	mutex_unlock(&kvm->slots_lock);
-+	if (ret)
-+		goto fail_free_aplic_irqs;
++	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
 +
-+	/* Setup default IRQ routing */
-+	ret = kvm_riscv_setup_default_irq_routing(kvm, aplic->nr_irqs);
-+	if (ret)
-+		goto fail_unreg_iodev;
++	if (!rc && vsfile_cpu >= 0)
++		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
++				     isel, write, val);
 +
-+	return 0;
-+
-+fail_unreg_iodev:
-+	mutex_lock(&kvm->slots_lock);
-+	kvm_io_bus_unregister_dev(kvm, KVM_MMIO_BUS, &aplic->iodev);
-+	mutex_unlock(&kvm->slots_lock);
-+fail_free_aplic_irqs:
-+	kfree(aplic->irqs);
-+fail_free_aplic:
-+	kvm->arch.aia.aplic_state = NULL;
-+	kfree(aplic);
-+	return ret;
++	return rc;
 +}
 +
-+void kvm_riscv_aia_aplic_cleanup(struct kvm *kvm)
++int kvm_riscv_aia_imsic_has_attr(struct kvm *kvm, unsigned long type)
 +{
-+	struct aplic *aplic = kvm->arch.aia.aplic_state;
++	u32 isel, vcpu_id;
++	struct imsic *imsic;
++	struct kvm_vcpu *vcpu;
 +
-+	if (!aplic)
-+		return;
++	if (!kvm_riscv_aia_initialized(kvm))
++		return -ENODEV;
 +
-+	mutex_lock(&kvm->slots_lock);
-+	kvm_io_bus_unregister_dev(kvm, KVM_MMIO_BUS, &aplic->iodev);
-+	mutex_unlock(&kvm->slots_lock);
++	vcpu_id = KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(type);
++	vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
++	if (!vcpu)
++		return -ENODEV;
 +
-+	kfree(aplic->irqs);
-+
-+	kvm->arch.aia.aplic_state = NULL;
-+	kfree(aplic);
++	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
++	imsic = vcpu->arch.aia_context.imsic_state;
++	return imsic_mrif_isel_check(imsic->nr_eix, isel);
 +}
++
+ void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu)
+ {
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
 -- 
 2.34.1
 
