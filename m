@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB184C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 03:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC1EC77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 03:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qKf36c6x6k6qt70CkaL/fXtGKejSVKX1QHgg0c1vMk=; b=FuKjpmQLRuI2E0
-	N8bxkyJwEDqT1GtsnNzPyXekIA4jR/b/CPPcN8mjwspWRdFz0LjoinfjE4oMtCJhJ0SpdT1tiS0Ub
-	WMwsuB3XPtaVFfhU+MRemzgjprZisYSCflJhW7RAEsXnVladlGTw8dT1FD9JmSTF4biZ1jz/h2tnb
-	8kdZAy+3YRPG+RQPBMttGqPHwztjC179CeHyXXKOByHrRJDb72uRYhj5DsUZld+40xN5tOHtMTcCd
-	gTEjkK/xA4vdmKaXcXZ5awDC1X+ay63DawttZcDtpRfSVXiEQ6K73koDTP9aRgBOpw3wvPyR90m5a
-	TlaHjzusWUioOy3ylauw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NFdRwigIRaGMjazAiLMxNN/dOE4Di01MUbp5IP2ZnoU=; b=oXbUP79t8rYiGa
+	u3SZxykMqCUmIV5xVmEsG1kMqwkhl43qEXXNi/K5K0JGaSrQiBV6kQjx/o36ELyUY+NFToiixXS1p
+	cjhQupGgMqlq0CSZ8qgAV7Gt1wLKS+VGvTez9awBD+ixIpvolzG0Q7cEaggPQ159WYsvoiKH8iT2s
+	edhVXy41y/cY5O+NGMqZYQborcaPvwSROWjRenC+S2axReMOyDyZwDC5Muda38MSGa/4jcUvNInJW
+	3oMf1dH4zcTPypwkQcroDN62bggj3s1fMp8HCbnRWrcs6ZsFnLCFWq64fctYt83gwPespRb4wziVI
+	KFEdoCY0LbSucOz4VLCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pz7nW-007yFj-1n;
-	Wed, 17 May 2023 03:25:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pz86O-0080au-1N;
+	Wed, 17 May 2023 03:45:24 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pz7nT-007yEp-2J
+	id 1pz86L-0080Zz-1m
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 03:25:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4118464149;
-	Wed, 17 May 2023 03:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1AA7C433EF;
-	Wed, 17 May 2023 03:25:47 +0000 (UTC)
-Date: Tue, 16 May 2023 23:25:45 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Ze Gao <zegao2021@gmail.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Alexei Starovoitov <ast@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Heiko Carstens <hca@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>, Ingo
- Molnar <mingo@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- x86@kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org, Conor Dooley
- <conor@kernel.org>, Jiri Olsa <jolsa@kernel.org>, Yonghong Song
- <yhs@fb.com>, Ze Gao <zegao@tencent.com>
-Subject: Re: [PATCH v2 2/4] fprobe: make fprobe_kprobe_handler recursion
- free
-Message-ID: <20230516232545.4f6c7805@rorschach.local.home>
-In-Reply-To: <CAD8CoPC0BXB2ER_Oaixm5XgMk8TTqKVVF7Po0t4gBPOLhw_xwQ@mail.gmail.com>
-References: <20230516071830.8190-1-zegao@tencent.com>
-	<20230516071830.8190-3-zegao@tencent.com>
-	<20230516091820.GB2587705@hirez.programming.kicks-ass.net>
-	<CAD8CoPDFp2_+D6nykj6mu_Pr57iN+8jO-kgA_FRrcxD8C7YU+Q@mail.gmail.com>
-	<20230517010311.f46db3f78b11cf9d92193527@kernel.org>
-	<CAD8CoPAw_nKsm4vUJ_=aSwzLc5zo8D5pY6A7-grXENxpMYz9og@mail.gmail.com>
-	<20230517115432.94a65364e53cbd5b40c54e82@kernel.org>
-	<CAD8CoPC0BXB2ER_Oaixm5XgMk8TTqKVVF7Po0t4gBPOLhw_xwQ@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 17 May 2023 03:45:22 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1aad5245632so2718965ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 May 2023 20:45:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684295120; x=1686887120;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=n0fdPmeINo3M3GEcsjn+DqgIArQ+TF8t88l9Aksr7VQ=;
+        b=Dy5EDllK8uVJFjPdvz1RUbi2yk4rgd1PjqZJX+ibJORvvteuhARUVlChiDWi2GdYyj
+         ornOQnlZWAccsQTsX9fLi2XGvQ4x2OgrV6l+T2ZMZvd75JIePFW+SoFmsNoYqlf4tmj6
+         mu8MFImYX/tmrIswvc9vSL7jdvTVtA3XMoOw2H5DMKVzaHKqWcXvCHVJhmLlIYe3M0zg
+         DYvxBvbgYH6iW3+axk10pT1phM6PW493USZleI0YoHLDNsChz3x3uojs4ai7zGPrwo1S
+         IyPBHmYqqM0fciz6V34Z9NRne8SpZebj4C4tOarrPY2uQ/ucSWcFEYkSxS9uD+fy6URe
+         cVdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684295120; x=1686887120;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n0fdPmeINo3M3GEcsjn+DqgIArQ+TF8t88l9Aksr7VQ=;
+        b=WTqQinWHT8WgbItAWf2O5d5bFXBT4OIrCg1vBx0PdzpMAqEWMFKwwgh56dthr6V801
+         A3myd3uQnA5Y97RfnhaBdmA72F0XXGf84snquQJd0TpX266SmRIZ4VY825YTK8OAbYug
+         uLqhZEQc3sW/XeQ4mi52j0h2jg3lghag9nOxdCJk0OkA4qVi849fMNKDnm33BA20qdrX
+         RZTf/XEXbP5osIzpBGQJj8AHSUE3auGFK10JKgzeZaogaHOq/KhlzhriMIVd0JI6Za7k
+         q+PqsIsU3WbmZEUoGqf7qVQ6QdMsbCYYijpUi9Yyy0j1ldav3bn1+bMYOVQKsOYjScJU
+         L3LA==
+X-Gm-Message-State: AC+VfDy/s5TitbjBrVgquE2/rqv/PkPLqX6HaE6oRLtO+aiL+Pm1yyfo
+	hlGe93IaG0+/cNNI/xPiuN0=
+X-Google-Smtp-Source: ACHHUZ4ZIj8959vfQi1i7G2NHQaO5ugC9tIBfRlSHL/tUdJglqovvvIgcNxw0ueQxt1v5RcuroWL7A==
+X-Received: by 2002:a17:903:110f:b0:1a2:8c7e:f310 with SMTP id n15-20020a170903110f00b001a28c7ef310mr48043595plh.35.1684295119892;
+        Tue, 16 May 2023 20:45:19 -0700 (PDT)
+Received: from localhost.localdomain ([203.205.141.83])
+        by smtp.googlemail.com with ESMTPSA id t2-20020a170902e84200b001a19196af48sm16336746plg.64.2023.05.16.20.45.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 May 2023 20:45:19 -0700 (PDT)
+From: Ze Gao <zegao2021@gmail.com>
+X-Google-Original-From: Ze Gao <zegao@tencent.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	x86@kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	Ze Gao <zegao@tencent.com>
+Subject: [PATCH v3 0/3] Make fprobe + rethook immune to recursion
+Date: Wed, 17 May 2023 11:45:05 +0800
+Message-Id: <20230517034510.15639-1-zegao@tencent.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230516_202551_819985_124C96A4 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20230516_204521_595762_B8EB5E50 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,24 +113,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 May 2023 11:10:21 +0800
-Ze Gao <zegao2021@gmail.com> wrote:
+Hi all,
 
-> Got it! :)
-> 
-> I will improve the commit message and send v3 ASAP.
-> 
-> BTW, which tree should I rebase those patches onto? Is that the
-> for-next branch of
-> git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git. I saw
-> Jiri had troubles
-> applying those since these works are based on v6.4.0.
-> 
+This is the 3rd version of patch series that fix the ftrace rethook recursion problem.
 
-You can submit against 6.4-rc1. We haven't updated the for-next branch
-yet. Which will be rebased off of one of the 6.4 rc's.
+Changes since v2:
+- refine commit message of [PATCH v2 2/4] fprobe: make fprobe_kprobe_handler recursion free
 
--- Steve
+v1: https://lore.kernel.org/linux-trace-kernel/cover.1684120990.git.zegao@tencent.com/T/
+v2: https://lore.kernel.org/linux-trace-kernel/ZGP4ypidaxQGdp7Y@krava/T/#mb9e74fe74d5800ee424234b26c6def9d5135237b
+
+The original discussions of this bug can be checked out here:
+
+https://lore.kernel.org/bpf/CAD8CoPCfPmqZH6BJCk3Y1-02BLVVsbQ6OeaNOhcfGWmdF0oX8A@mail.gmail.com/T/#t
+
+Ze Gao (4):
+  rethook: use preempt_{disable, enable}_notrace in
+    rethook_trampoline_handler
+  fprobe: make fprobe_kprobe_handler recursion free
+  fprobe: add recursion detection in fprobe_exit_handler
+  rethook, fprobe: do not trace rethook related functions
+
+ arch/riscv/kernel/probes/Makefile |  2 +
+ arch/s390/kernel/Makefile         |  1 +
+ arch/x86/kernel/Makefile          |  1 +
+ kernel/trace/fprobe.c             | 73 ++++++++++++++++++++++++-------
+ kernel/trace/rethook.c            |  4 +-
+ 5 files changed, 64 insertions(+), 17 deletions(-)
+
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
