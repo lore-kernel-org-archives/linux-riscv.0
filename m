@@ -4,65 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4946DC77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 18:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CE2C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 21:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZGWWC4k7Ggz35xtYw6rIqjYs5K6dqZU61vPFpSO+iFM=; b=Aa2ppv6wU9LSJl
-	N+Mirhdn0a19CPUPTj8UTtU3ahUBEKQHJwMYjPC3Tob5AzesxevZ2rtINQyhVxrDv25m7iBcpyo46
-	72otLVusT1pPa4aXO2HKjbPcq9WFS0wMpfU8aTsObYarzBxwBZy+obln8644fToUDZ92NFRtCDv3P
-	gMBBClykXPX6Nf//KDgQH2c4zF0PWVu1S84YWtlXMiRDTWUzxvY/iVbdGqU4f0Cx2SRUgrDlfD6GR
-	2uiGZuzB3kuLLTj9geMX69NGtIadKRTk3FOhQyWlWPqKwyKupnfEqORm/iJuW2tSqSG1BeZlB2it3
-	BGYZsp0jcfVugTJR2/Mg==;
+	List-Owner; bh=5wOnHHaOwdqHHMGsV5W0s/gMzcG1wwKkJHq3YddLVMo=; b=3/m7zSHIeMrHFi
+	Mp7mzDbiXTmOqe4cP7zN7Us46JPq2bK21Pop9vSrw9uhgteXtTetJJjuZFDg00Z+I/Uyg7U0rkny2
+	KqW8FX+WwmfSUsTidGpZhVAE5SXamZETCH/Baus+ushOr+1A/hSP4JkBXq5jEAL56R/1WHmT4AJIO
+	WXy2Z4368WFFGdk9NGvHTz7fIGbEulWJnlpAJGS7dDyBElKONV9LEnDwSLFnqnduWHa31ZNWdOpq3
+	2MgauCFmKASpleNkEpZbKyd/m0cdUyeP6a2Bf4yNTneWcsk3ecA6ogmxpRHH6X2QAJc4+fxvUIeXO
+	Fq243RMGGEuweEYj9mCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzMHj-00Ambn-27;
-	Wed, 17 May 2023 18:54:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pzP2h-00B9Q5-2x;
+	Wed, 17 May 2023 21:50:43 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzMHf-00AmbP-38
+	id 1pzP2e-00B9Oj-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 18:54:01 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F0AAE63ADA;
-	Wed, 17 May 2023 18:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15961C433EF;
-	Wed, 17 May 2023 18:53:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684349638;
-	bh=+nV7AD5yc8SFGB9+CLiAw9jnKXLbtK3VvYJuoM0ntT4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=owLL/OdV0KnOPxZoc0Qe/3k9OnRB6FRqrL1ix1teN0zMIYOZfySgsqTPoLvc1q99Q
-	 yqDiv6kX7lxgUVNPvcrKU4RKbjixC20Pg4Rh09+shn780q5ee6t7x4LwSGXRMwBJju
-	 8RtsYYmaiCxEHeBNDHm8hKYzCIK5iEBj3Qbt7m3roQOr9PYOrhhK7UQYj76R+p6sUx
-	 5+c3+X/3o6jK66l+5ez5zLqB83L467JcKFN3u7RR0P5EtLKXYLekqJgWEiIZ6D4R0/
-	 jeJybZ+ocEe6/jOxkztBBSA1WaNXyZLe/+qHBTWFyGW3quZIfGEFu1Q6avMKhS7PCR
-	 LonE96kFPhCXw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: David Hildenbrand <david@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Oscar Salvador <osalvador@suse.de>,
- virtualization@lists.linux-foundation.org, linux@rivosinc.com, Alexandre
- Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 0/7] riscv: Memory Hot(Un)Plug support
-In-Reply-To: <9aa7d030-19b5-01df-70c0-86d8d6ab86a6@redhat.com>
-References: <20230512145737.985671-1-bjorn@kernel.org>
- <9aa7d030-19b5-01df-70c0-86d8d6ab86a6@redhat.com>
-Date: Wed, 17 May 2023 20:53:55 +0200
-Message-ID: <87zg62eqm4.fsf@all.your.base.are.belong.to.us>
+	Wed, 17 May 2023 21:50:42 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-561d5b34e10so10333417b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 14:50:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1684360239; x=1686952239;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CYrqZZXifWUb49UwqN4ktjCYYTpIiyxjiceM91X1owo=;
+        b=PPBehuovPkLBa6/NGbQAXn/eE0OjqEyROrqLX97nN6jBSNnfJoc5x6zVzWooSZlBuR
+         ygh7zMisKFOdApdpWLXdE38Ez48wbdl6bRgelI1M2q7oF1fjbdo+FT/cryTh0RkA2PgM
+         PVNv73NfYOacgZraULasH6MPisPmrZxBB5SdyINIUR+rCWC/xGGFoY/3V4eCh48ezelN
+         vlspmk4A/B3orH5IwCfSCJfMbueYznmKfST0fzCY2VeJqOWgXVBfHyrQGp7gwU4xxk/e
+         4DAXLkf7AssRwZV1LOldxmp7mNGGXTey4IiHanP7lOcu21DjwGEEnizw4Nh4dLrJMR0W
+         24RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684360239; x=1686952239;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CYrqZZXifWUb49UwqN4ktjCYYTpIiyxjiceM91X1owo=;
+        b=Sg9aN2bVRfygXrdZVUoD9CIY20jZlCo44sCz/m9noDDdd6TpZ/R6nRArOwdRmxn6Zy
+         651U1XPJT5xbMLl39mVV53aF8YCrVyFxSZE8h9SEsgGbwbgnC3jGIY7CAWvkqAKesoBY
+         BUAe+F8rgPizuu1/ngfcIMpRrAPyXPw8P9KWxq4QgkfEP3AUIjLtKZcTD1MmzLVzEcBl
+         9f8H8drGoHyu9XJkVpVtTc0b+Y8JAJ07fAPX1Yjx5lPRUGxCt6aMODeGQjAuo1MHis8v
+         +McokbpnBD9sCX+uHNY1HZ/VwR0GoBfqn6gd31kxm6RLIQQJBE8tjjUg2uG4lSCHR7mw
+         jytg==
+X-Gm-Message-State: AC+VfDwG9xeNUaYcgCDjZolXFzwVq3kNnCt8S58jSWOO2iSAV+JL50Hx
+	1tjs27unU+5q3WHMIlJYuR8Dag==
+X-Google-Smtp-Source: ACHHUZ5K1W6BqH54lP1fyWtEUpWwZ0lmy+14bsbtce6I/HyB5LShp2aTZ/lznkrMNM/kuQdbHXvf0A==
+X-Received: by 2002:a81:6744:0:b0:55a:af:2486 with SMTP id b65-20020a816744000000b0055a00af2486mr2691032ywc.18.1684360239031;
+        Wed, 17 May 2023 14:50:39 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id 129-20020a251187000000b00ba6ffc7ef35sm785837ybr.65.2023.05.17.14.50.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 May 2023 14:50:38 -0700 (PDT)
+Date: Wed, 17 May 2023 14:50:28 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Claudio Imbrenda <imbrenda@linux.ibm.com>
+cc: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+    Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
+In-Reply-To: <20230517123546.672fb9b0@p-imbrenda>
+Message-ID: <4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com> <94aec8fe-383f-892-dcbf-d4c14e460a7@google.com> <20230517123546.672fb9b0@p-imbrenda>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_115400_070486_8751113E 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20230517_145040_690648_317C2489 
+X-CRM114-Status: GOOD (  38.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +109,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RGF2aWQgSGlsZGVuYnJhbmQgPGRhdmlkQHJlZGhhdC5jb20+IHdyaXRlczoKCj4gT24gMTIuMDUu
-MjMgMTY6NTcsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQHJpdm9zaW5jLmNvbT4KPj4gCj4+IE1lbW9yeSBIb3QoVW4pUGx1ZyBzdXBwb3J0IGZvciB0
-aGUgUklTQy1WIHBvcnQKPj4gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PQoKWy4uLl0KCj4KPiBDb29sIHN0dWZmISBJJ20gZmFpcmx5IGJ1c3kgcmlnaHQgbm93
-LCBzbyBzb21lIGhpZ2gtbGV2ZWwgcXVlc3Rpb25zIHVwZnJvbnQ6CgpObyB3b3JyaWVzLCBhbmQg
-bm8gcnVzaCEgSSdkIHNheSB0aGUgdjEgc2VyaWVzIHdhcyBtYWlubHkgZm9yIHRoZSBSSVNDLVYK
-Zm9sa3MsIGFuZCBJJ3ZlIGdvdCB0b25zIG9mIChvZmZsaW5lKSBjb21tZW50cyBmcm9tIEFsZXgg
-LS0gYW5kIHdpdGgKeW91ciBjb21tZW50cyBiZWxvdyBzb21lIG1vcmUgZGV0YWlscyB0byBmaWd1
-cmUgb3V0LgoKPiBXaGF0IGlzIHRoZSBtZW1vcnkgc2VjdGlvbiBzaXplICh3aGljaCBpbXBsaWVz
-IHRoZSBtZW1vcnkgYmxvY2sgc2l6ZSAKPiBhbmQpPyBUaGlzIGltcGxpZXMgdGhlIG1pbmltdW0g
-RElNTSBncmFudWxhcml0eSBhbmQgdGhlIGhpZ2gtbGV2ZWwgCj4gZ3JhbnVsYXJpdHkgaW4gd2hp
-Y2ggdmlydGlvLW1lbSBhZGRzIG1lbW9yeS4KCkl0J3MgMTI4TSAoMjcgYml0cykgLS0gKGxpa2Ug
-YXJtNjQgYW5kIHg4Ni02ND8pLgoKPiBXaGF0IGlzIHRoZSBwYWdlYmxvY2sgc2l6ZSwgaW1wbHlp
-bmcgdGhlIG1pbmltdW0gZ3JhbnVsYXJpdHkgdGhhdCAKPiB2aXJ0aW8tbWVtIGNhbiBvcGVyYXRl
-IG9uPwoKTm90aGluZyBzcGVjaWFsIEFGQUlVOyBNQVhfT1JERVIgaXMgMTAsIHNvIFBBR0VfU0la
-RSAoNEspICogMTAyNC4gSG1tLCBJCnJlYWxpemUgdGhhdCBJIG5lZWQgdG8gbG9vayBpbnRvIHNv
-bWUgbW9yZSBkZXRhaWxzIG9mIHZpcnRpby1tZW0hIDotKQoKPiBPbiB4ODYtNjQgYW5kIGFybTY0
-IHdlIGN1cnJlbnRseSB1c2UgdGhlIEFDUEkgU1JBVCB0byBleHBvc2UgdGhlIG1heGltdW0gCj4g
-cGh5c2ljYWwgYWRkcmVzcyB3aGVyZSB3ZSBjYW4gc2VlIG1lbW9yeSBnZXR0aW5nIGhvdHBsdWdn
-ZWQuIFsxXSBGcm9tIAo+IHRoYXQsIHdlIGNhbiBkZXJpdmUgdGhlICJtYXhfcG9zc2libGVfcGZu
-IiBhbmQgcHJlcGFyZSB0aGUga2VybmVsIAo+IHZpcnR1YWwgbWVtb3J5IGxheW91cnQgKGVzcGVj
-aWFsbHksIGRpcmVjdCBtYXApLgo+Cj4gSXMgc29tZXRoaW5nIHNpbWlsYXIgcmVxdWlyZWQgb24g
-UklTQy1WPwoKWWVzISBSSVNDLVYgaXMgaW4gdGhlIHByb2dyZXNzIG9mIGdldHRpbmcgcHJvcGVy
-IEFDUEkgc3VwcG9ydC4gVGhhbmtzCmZvciBwb2ludGluZyBtZSBpbiB0aGUgdGhlc2UgZGlyZWN0
-aW9uczsgRm9vZCBmb3IgdGhvdWdodCB0aGF0IEknbGwKZGlnZXN0IGZvciB0aGUgbmV4dCB2ZXJz
-aW9uLgoKCkNoZWVycywKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Wed, 17 May 2023, Claudio Imbrenda wrote:
+> On Tue, 9 May 2023 22:01:16 -0700 (PDT)
+> Hugh Dickins <hughd@google.com> wrote:
+> 
+> > In rare transient cases, not yet made possible, pte_offset_map() and
+> > pte_offset_map_lock() may not find a page table: handle appropriately.
+> > 
+> > Signed-off-by: Hugh Dickins <hughd@google.com>
+> > ---
+> >  arch/s390/kernel/uv.c  |  2 ++
+> >  arch/s390/mm/gmap.c    |  2 ++
+> >  arch/s390/mm/pgtable.c | 12 +++++++++---
+> >  3 files changed, 13 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
+> > index cb2ee06df286..3c62d1b218b1 100644
+> > --- a/arch/s390/kernel/uv.c
+> > +++ b/arch/s390/kernel/uv.c
+> > @@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
+> >  
+> >  	rc = -ENXIO;
+> >  	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
+> > +	if (!ptep)
+> > +		goto out;
+
+You may or may not be asking about this instance too.  When I looked at
+how the code lower down handles -ENXIO (promoting it to -EFAULT if an
+access fails, or to -EAGAIN to ask for a retry), this looked just right
+(whereas using -EAGAIN here would be wrong: that expects a "page" which
+has not been initialized at this point).
+
+> >  	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
+> >  		page = pte_page(*ptep);
+> >  		rc = -EAGAIN;
+> > diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
+> > index dc90d1eb0d55..d198fc9475a2 100644
+> > --- a/arch/s390/mm/gmap.c
+> > +++ b/arch/s390/mm/gmap.c
+> > @@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
+> >  		spinlock_t *ptl;
+> >  
+> >  		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
+> > +		if (!ptep)
+> > +			break;
+> 
+> so if pte_offset_map_lock fails, we abort and skip both the failed
+> entry and the rest of the entries?
+
+Yes.
+
+> 
+> can pte_offset_map_lock be retried immediately if it fails? (consider
+> that we currently don't allow THP with KVM guests)
+> 
+> Would something like this:
+> 
+> do {
+> 	ptep = pte_offset_map_lock(...);
+> 	mb();	/* maybe? */
+> } while (!ptep);
+> 
+> make sense?
+
+No.  But you're absolutely right to be asking: thank you for looking
+into it so carefully - and I realize that it's hard at this stage to
+judge what's appropriate, when I've not yet even posted the endpoint
+of these changes, the patches which make it possible not to find a
+page table here.  And I'm intentionally keeping that vague, because
+although I shall only introduce a THP case, I do expect it to be built
+upon later in reclaiming empty page tables: it would be nice not to
+have to change the arch code again when extending further.
+
+My "rare transient cases" phrase may be somewhat misleading: one thing
+that's wrong with your tight pte_offset_map_lock() loop above is that
+the pmd entry pointing to page table may have been suddenly replaced by
+a pmd_none() entry; and there's nothing in your loop above to break out
+if that is so.
+
+But if a page table is suddenly removed, that would be because it was
+either empty, or replaced by a THP entry, or easily reconstructable on
+demand (by that, I probably mean it was only mapping shared file pages,
+which can just be refaulted if needed again).
+
+The case you're wary of, is if the page table were removed briefly,
+then put back shortly after: and still contains zero pages further down.
+That's not something mm does now, nor at the end of my several series,
+nor that I imagine us wanting to do in future: but I am struggling to
+find a killer argument to persuade you that it could never be done -
+most pages in a page table do need rmap tracking, which will BUG if
+it's broken, but that argument happens not to apply to the zero page.
+
+(Hmm, there could be somewhere, where we would find it convenient to
+remove a page table with intent to do ...something, then validation
+of that isolated page table fails, so we just put it back again.)
+
+Is it good enough for me to promise you that we won't do that?
+
+There are several ways in which we could change __zap_zero_pages(),
+but I don't see them as actually dealing with the concern at hand.
+
+One change, I've tended to make at the mm end but did not dare
+to interfere here: it would seem more sensible to do a single
+pte_offset_map_lock() outside the loop, return if that fails,
+increment ptep inside the loop, pte_unmap_unlock() after the loop.
+
+But perhaps you have preemption reasons for not wanting that; and
+although it would eliminate the oddity of half-processing a page
+table, it would not really resolve the problem at hand: because,
+what if this page table got removed just before __zap_zero_pages()
+tries to take the lock, then got put back just after?
+
+Another change: I see __zap_zero_pages() is driven by walk_page_range(),
+and over at the mm end I'm usually setting walk->action to ACTION_AGAIN
+in these failure cases; but thought that an unnecessary piece of magic
+here, and cannot see how it could actually help.  Your "retry the whole
+walk_page_range()" suggestion below would be a heavier equivalent of
+that: but neither way gives confidence, if a page table could actually
+be removed then reinserted without mmap_write_lock().
+
+I think I want to keep this s390 __zap_zero_pages() issue in mind, it is
+important and thank you for raising it; but don't see any change to the
+patch as actually needed.
+
+Hugh
+
+> 
+> 
+> otherwise maybe it's better to return an error and retry the whole
+> walk_page_range() in s390_enable_sie() ? it's a slow path anyway.
+> 
+> >  		if (is_zero_pfn(pte_pfn(*ptep)))
+> >  			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
+> >  		pte_unmap_unlock(ptep, ptl);
+> 
+> [...]
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
