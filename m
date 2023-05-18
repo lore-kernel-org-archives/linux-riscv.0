@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C487C7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 08:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810F5C77B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 09:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a3MENCdFuILpSfFHeF/i6ZIy1oQ6hN4YtTcTt5+adh8=; b=mPjwZOsftTQNC1
-	BCQ2OVZiJjSfdKUzeHt/VJwLN7z+u0rG7d0rvuN0iEX/7AcL21ONCJl/qd/fR0YBaHhxWl0DpNQV3
-	D03+zAVXyc9qhcs1iiQX5M8lohEdPyLoyQPoVHxCRK1lDWxYLW3V1O9vpyJEc/TA5GZH7DPZjwMc9
-	x1DjUD3xhdMVr6XcBdlAiXTwhpc0nzz8DhufLQb97PMbQ85s1LOrNLTU62U6UW+iEGjrdzYc5hCRG
-	T1PnolJVB6vGm/PBkzwW9JjbwZGg8oVh3sn+RL6tkdmKP6wX6P+RyVJnA8Is7ajtzNFylU9Ya2wbm
-	HwNegrm0PvATjK5hc/Bw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=onVUdweWilooMzVzghqH4l5f5AeyWhWJjZ2k4mJ+zAA=; b=j7T+OSmX1TO5ML
+	T9ZbUaSQTWMvTf+WKbfiQMR6qZHnaD5RyYhthpr/G++3IXWsHXEySMcaNqtFMBF0ju4a6kbr78aGv
+	Nj/OH23+neyDaAVjbqQckY7w9geii0G740E8YQpKwRNXoYaRK5o329RdeC+C8xgbNHBA2ERFN1c6w
+	HBkFBwxOD7BUoYu43Zv0PXm5RmMRwS83pfGxLlloC+SFekYvpOqwq6ja9+fcRmH8G79dR35Q7ogrn
+	hNtMBIgO9uyQjUUbla/w3/1ZtrXpUzf6Fbim4MjFY528guJeCwZmFDzyMELhiuMgnxXpT2GD0OE+R
+	dunDMfSDXEwufFU9Drfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzZTc-00CP7f-1U;
-	Thu, 18 May 2023 08:59:12 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pzZde-00CQCS-36;
+	Thu, 18 May 2023 09:09:34 +0000
+Received: from forward500a.mail.yandex.net ([178.154.239.80])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzZTX-00CP5q-23
+	id 1pzZdZ-00CQ9J-1d
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 08:59:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684400347; x=1715936347;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=OJ2mVKQ9f4KyeSK1ddmgnLirN/TPyanwSJydgPw7d6k=;
-  b=CLd4Q1d0YXc1Ld5SbqiTQcUsDocc0BP0inBengnNVzQV9gtT99jo07BF
-   9N/YRRfkwPqI+9Wt9ecwIKKQK5ifd8UgeFC8XnYNSgHSbJulsaKAqlxvd
-   leaX64qsa9EhJ2IxoUH5kYuPEcIIXXmkAnRzcVpUgmo4Wt5Kdo2erE6WC
-   Eydn/NeJhl0MFPo3j7dq40KK0zyI/aTqUtszVmAYxiVcyFrrvUXNfkf8Y
-   dJbX/9+MP7koBQXEywX+FJ/AcEr1U6eXfg4huOtaXR1emF85i3F0dAodU
-   QdYadkMDHwWZyByAu6rZk2FIWqP5/21+jM6XuezgWXDuaJ4TsqqTPuMBh
-   w==;
-X-IronPort-AV: E=Sophos;i="5.99,284,1677567600"; 
-   d="scan'208";a="216063725"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 18 May 2023 01:58:57 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 18 May 2023 01:58:57 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 18 May 2023 01:58:54 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <palmer@dabbelt.com>
-CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Alistair Francis
-	<alistair.francis@wdc.com>, Andrew Jones <ajones@ventanamicro.com>, "Anup
- Patel" <apatel@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
-	"Jessica Clarke" <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>, Leo
-	<ycliang@andestech.com>, <linux-riscv@lists.infradead.org>,
-	<qemu-riscv@nongnu.org>, <u-boot@lists.denx.de>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
-Date: Thu, 18 May 2023 09:58:30 +0100
-Message-ID: <20230518-thermos-sanitary-cf3fbc777ea1@wendy>
-X-Mailer: git-send-email 2.39.2
+	Thu, 18 May 2023 09:09:34 +0000
+Received: from mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net [IPv6:2a02:6b8:c18:58f:0:640:3768:0])
+	by forward500a.mail.yandex.net (Yandex) with ESMTP id 5C4E15F54F;
+	Thu, 18 May 2023 12:09:16 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id E9ZaZYNDbKo0-44hJWKT6;
+	Thu, 18 May 2023 12:09:16 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1684400956;
+	bh=FOYRa/LjnO904C8I5cBnvgIWLXFbbunez99nd+1DciM=;
+	h=References:Date:In-Reply-To:Cc:To:From:Subject:Message-ID;
+	b=K2yN0rDPNOqftLt5ug3b5Pj81H9OKH6DlzLga3KdWh6OGLLIWWLFCbCtJ8aTDJIMx
+	 8HVSoCEv87guJsDxlP+yKPzCoVV9GQI4ycP7kAm4igXiEeIf05CBXaIoE0KZ4vyZNW
+	 gQByZGQ4mWdEv2aRea8QHaO2m+33n1yEZTyA14BA=
+Authentication-Results: mail-nwsmtp-smtp-production-main-31.vla.yp-c.yandex.net; dkim=pass header.i=@maquefel.me
+Message-ID: <36fcef74ba3d21250f4c9605e691d1e2dac20ebb.camel@maquefel.me>
+Subject: Re: [PATCH V3] perf vendor events riscv: add T-HEAD C9xx JSON file
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: Inochi Amaoto <inochiama@outlook.com>, Arnaldo Carvalho de Melo
+	 <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, Adrian
+ Hunter <adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Nikita Shubin <n.shubin@yadro.com>,  linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org,  linux-riscv@lists.infradead.org
+Date: Thu, 18 May 2023 15:09:14 +0300
+In-Reply-To: <IA1PR20MB4953B6C4CB711506CF542737BB7E9@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: 	<IA1PR20MB4953B6C4CB711506CF542737BB7E9@IA1PR20MB4953.namprd20.prod.outlook.com>
+User-Agent: Evolution 3.46.3 
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=19633; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=OJ2mVKQ9f4KyeSK1ddmgnLirN/TPyanwSJydgPw7d6k=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmpL7YK3vl9ftHtDyoLDt59dO6ONa9g5LxoY1bxi2rhfo3p Zk42HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIfCZGhv3ZbrXTew37jwv/bmc3V+ 1icbifmhzw2i+EPf6BkLaqN8P/WovLisVZWa7pz7ZOVP7Xu8x4Z87B1xrTjq7WmORtvrCeDQA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_015907_903720_E3B01CD4 
-X-CRM114-Status: GOOD (  35.87  )
+X-CRM114-CacheID: sfid-20230518_020930_435928_2FD9C3BC 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,513 +72,383 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-intro
-=====
-
-When the RISC-V dt-bindings were accepted upstream in Linux, the base
-ISA etc had yet to be ratified. By the ratification of the base ISA,
-incompatible changes had snuck into the specifications - for example the
-Zicsr and Zifencei extensions were spun out of the base ISA.
-
-Fast forward to today, and the reason for this patch.
-Currently the riscv,isa dt property permits only a specific subset of
-the ISA string - in particular it excludes version numbering.
-With the current constraints, it is not possible to discern whether
-"rv64i" means that the hart supports the fence.i instruction, for
-example.
-Future systems may choose to implement their own instruction fencing,
-perhaps using a vendor extension, or they may not implement the optional
-counter extensions. Software needs a way to determine this.
-
-versioning schemes
-==================
-
-"Use the extension versions that are described in the ISA manual" you
-may say, and it's not like this has not been considered.
-Firstly, software that parses the riscv,isa property at runtime will
-need to contain a lookup table of some sort that maps arbitrary versions
-to versions it understands. There is not a consistent application of
-version number applied to extensions, with a higgledy-piggledy
-collection of tags, "bare" and version documents awaiting the reader on
-the "recently ratified extensions" page:
-https://wiki.riscv.org/display/HOME/Recently+Ratified+Extensions
-
-	As an aside, this is reflected in the patch too, since many
-	extensions have yet to appear in a release of the ISA specs,
-	and are defined by commits in their respective "working draft"
-	repositories.
-
-Secondly, there is an issue of backwards compatibility, whereby allowing
-numbers in the ISA string, some parsers may be broken. This would
-require an additional property to be created to even use the versions in
-this manner.
-
-boolean properties
-==================
-
-If a new property is needed, the whole approach may as well be looked at
-from the bottom up. A string with limited character choices etc is
-hardly the best approach for communicating extension information to
-software.
-
-Switching to using boolean properties, one per extension, allows us to
-define explicit meanings for the DT representation of each extension -
-rather than the current situation where different operating systems or
-other bits of software may impart different meanings to characters in
-the string. Clearly the best source of meanings is the specifications
-themselves, this just provides us the ability to choose at what point
-in time the meaning is set. If an extension changes incompatibility in
-the future, a new property will be required.
-
-Off-list, some of the RVI folks have committed to shoring up the wording
-in either the ISA specifications, the riscv-isa-manual or
-so that in the future, modifications to and additions or removals of
-features will require a new extension. Codifying that assertion
-somewhere would make it quite unlikely that compatibility would be
-broken, but we have the tools required to deal with it, if & when it
-crops up.
-It is in our collective interest, as consumers of extension meanings, to
-define a scheme that enforces compatibility.
-
-The use of boolean properties, rather than elements in a string, will
-also permit validation that the strings have a meaning, as well as
-potentially reject mutually exclusive combinations, or enforce
-dependencies between instructions. That would not be possible with the
-current dt-schema infrastructure for arbitrary strings, as we would need
-to add a riscv,isa parser to dt-validate!
-	That's not implemented in this patch, but rather left as
-	future work!
-
-acpi
-====
-
-The current ACPI ECR is based on having a string unfortunately, but
-ideally ACPI will move to another method, perhaps GUIDs, that give
-explicit meaning to extensions.
-
-parser simplicity
-=================
-
-Many systems that parse DT at runtime already implement an function that
-can check for the presence of boolean properties, rather than having to
-implement - although unfortunately for backwards compatibility with old
-dtbs, existing parsers may not be removable - which may greatly simplify
-dt parsing code. For example, in Linux, checking for an extension
-becomes as simple as:
-	of_property_present(node, "riscv,isa-extension-zicbom")
-
-vendor extensions
-=================
-
-Compared to riscv,isa, this proposed scheme promotes vendor extensions,
-oft touted as the strength of RISC-V, to first-class citizens.
-At present, extensions are defined as meaning what the RISC-V ISA
-specifications say they do. There is no realistic way of using that
-interface to provide cross-platform definitions for what vendor
-extensions mean. Vendor extensions may also have even less consistency
-than RVI do in terms of versioning, or no care about backwards
-compatibility.
-A boolean property allows us to assign explicit meanings on a per vendor
-extension basis, backed up by a description of their meanings.
-
-fin
-===
-
-Create a new file to store the extension meanings, each in the form
-riscv,isa-extension-<foo> and a new riscv,isa-base property to replace
-the missing aspect of riscv,isa - the base ISA implemented by a hart.
-As a starting point, properties were added for extensions currently used
-in Linux.
-
-Finally, mark riscv,isa as deprecated. o7.
-
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Rob Herring <robh+dt@kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Alistair Francis <alistair.francis@wdc.com>
-CC: Andrew Jones <ajones@ventanamicro.com>
-CC: Anup Patel <apatel@ventanamicro.com>
-CC: Atish Patra <atishp@atishpatra.org>
-CC: Jessica Clarke <jrtc27@jrtc27.com>
-CC: Rick Chen <rick@andestech.com>
-CC: Leo <ycliang@andestech.com>
-CC: linux-riscv@lists.infradead.org
-CC: qemu-riscv@nongnu.org
-CC: u-boot@lists.denx.de
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-I've tried to CC a few folks here that would care about this, but I am
-sure there are more. I'll go cross-post it to sw-dev, if it allows me to
-post there...
----
- .../devicetree/bindings/riscv/cpus.yaml       |  45 +--
- .../devicetree/bindings/riscv/extensions.yaml | 259 ++++++++++++++++++
- 2 files changed, 282 insertions(+), 22 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/extensions.yaml
-
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 3d2934b15e80..446801fb7495 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -23,6 +23,9 @@ description: |
-   two cores, each of which has two hyperthreads, could be described as
-   having four harts.
- 
-+allOf:
-+  - $ref: extensions.yaml
-+
- properties:
-   compatible:
-     oneOf:
-@@ -79,25 +82,6 @@ properties:
-     description:
-       The blocksize in bytes for the Zicboz cache operations.
- 
--  riscv,isa:
--    description:
--      Identifies the specific RISC-V instruction set architecture
--      supported by the hart.  These are documented in the RISC-V
--      User-Level ISA document, available from
--      https://riscv.org/specifications/
--
--      Due to revisions of the ISA specification, some deviations
--      have arisen over time.
--      Notably, riscv,isa was defined prior to the creation of the
--      Zicsr and Zifencei extensions and thus "i" implies
--      "zicsr_zifencei".
--
--      While the isa strings in ISA specification are case
--      insensitive, letters in the riscv,isa string must be all
--      lowercase to simplify parsing.
--    $ref: "/schemas/types.yaml#/definitions/string"
--    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
--
-   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
-   timebase-frequency: false
- 
-@@ -133,8 +117,13 @@ properties:
-       DMIPS/MHz, relative to highest capacity-dmips-mhz
-       in the system.
- 
-+oneOf:
-+  - required:
-+      - riscv,isa
-+  - required:
-+      - riscv,isa-base
-+
- required:
--  - riscv,isa
-   - interrupt-controller
- 
- additionalProperties: true
-@@ -177,7 +166,13 @@ examples:
-                 i-tlb-size = <32>;
-                 mmu-type = "riscv,sv39";
-                 reg = <1>;
--                riscv,isa = "rv64imafdc";
-+                riscv,isa-base = "rv64i";
-+                riscv,isa-extension-i;
-+                riscv,isa-extension-m;
-+                riscv,isa-extension-a;
-+                riscv,isa-extension-f;
-+                riscv,isa-extension-d;
-+                riscv,isa-extension-c;
-                 tlb-split;
-                 cpu_intc1: interrupt-controller {
-                         #interrupt-cells = <1>;
-@@ -196,7 +191,13 @@ examples:
-                 device_type = "cpu";
-                 reg = <0>;
-                 compatible = "riscv";
--                riscv,isa = "rv64imafdc";
-+                riscv,isa-base = "rv64i";
-+                riscv,isa-extension-i;
-+                riscv,isa-extension-m;
-+                riscv,isa-extension-a;
-+                riscv,isa-extension-f;
-+                riscv,isa-extension-d;
-+                riscv,isa-extension-c;
-                 mmu-type = "riscv,sv48";
-                 interrupt-controller {
-                         #interrupt-cells = <1>;
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-new file mode 100644
-index 000000000000..1b4d726f7174
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -0,0 +1,259 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/extensions.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V ISA extensions
-+
-+maintainers:
-+  - Paul Walmsley <paul.walmsley@sifive.com>
-+  - Palmer Dabbelt <palmer@sifive.com>
-+  - Conor Dooley <conor@kernel.org>
-+
-+description: |
-+  RISC-V has large number of extensions, some of which "standard" extensions,
-+  meaning they are ratified by RISC-V International, and others are "vendor"
-+  extensions.  This document defines properties that indicate whether a hart
-+  supports a given extensions.
-+
-+  Once a standard extension has been ratified, no features can be added or
-+  removed without the creation of a new extension for that sub- or super-set.
-+  The properties for standard extensions therefore map to their originally
-+  ratified states, with the exception of the I, Zicntr & Zihpm extensions.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: riscv
-+
-+properties:
-+  riscv,isa:
-+    description:
-+      Identifies the specific RISC-V instruction set architecture
-+      supported by the hart.  These are documented in the RISC-V
-+      User-Level ISA document, available from
-+      https://riscv.org/specifications/
-+
-+      Due to revisions of the ISA specification, some deviations
-+      have arisen over time.
-+      Notably, riscv,isa was defined prior to the creation of the
-+      Zicsr and Zifencei extensions and thus "i" implies
-+      "zicsr_zifencei".
-+
-+      While the isa strings in ISA specification are case
-+      insensitive, letters in the riscv,isa string must be all
-+      lowercase to simplify parsing.
-+
-+      This property has been deprecated due to disparity between the
-+      extension at the time of its creation and ratification of the
-+      base ISA.
-+
-+    $ref: /schemas/types.yaml#/definitions/string
-+    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
-+    deprecated: true
-+
-+  riscv,isa-base:
-+    description:
-+      The base ISA implemented by this hart, as described by the 20191213
-+      version of the unprivileged ISA specification.
-+    enum:
-+      - rv32i
-+      - rv64i
-+
-+  riscv,isa-extension-i:
-+    type: boolean
-+    description:
-+      The base integer instruction set, as ratified in the 20191213 version of the
-+      unprivileged ISA specification.
-+
-+  riscv,isa-extension-m:
-+    type: boolean
-+    description:
-+      The standard M extension for integer multiplication and division, as
-+      ratified in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-a:
-+    type: boolean
-+    description:
-+      The standard A extension for atomic instructions, as ratified in the
-+      20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-f:
-+    type: boolean
-+    description:
-+      The standard M extension for single-precision floating point, as
-+      ratified in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-d:
-+    type: boolean
-+    description:
-+      The standard M extension for double-precision floating-point, as
-+      ratified in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-q:
-+    type: boolean
-+    description:
-+      The standard M extension for quad-precision floating-point, as ratified in
-+      the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-c:
-+    type: boolean
-+    description:
-+      The standard M extension for compressed instructions, as ratified in the
-+      20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-v:
-+    type: boolean
-+    description:
-+      The standard V extension for vector operations, as ratified in-and-around
-+      commit 7a6c8ae ("Fix text that describes vfmv.v.f encoding") of the
-+      riscv-v-spec.
-+
-+  riscv,isa-extension-h:
-+    type: boolean
-+    description:
-+      The standard h extension for hypervisors as ratified in the 20191213
-+      version of the privileged ISA specification.
-+
-+  # Additional Standard Extensions, sorted by category then alphabetically
-+
-+  riscv,isa-extension-zicntr:
-+    type: boolean
-+    description:
-+      The standard Zicntr extension for base counters and timers, as ratified
-+      in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-zicsr:
-+    type: boolean
-+    description:
-+      The standard Zicsr extension for control and status register instructions,
-+      as ratified in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-zifencei:
-+    type: boolean
-+    description:
-+      The standard Zifencei extension for instruction-fetch fence, as ratified
-+      in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-zihpm:
-+    type: boolean
-+    description:
-+      The standard Zihpm extension for hardware performance counters, as
-+      ratified in the 20191213 version of the unprivileged ISA specification.
-+
-+  riscv,isa-extension-zicbom:
-+    type: boolean
-+    description:
-+      The standard Zicbom extension for base cache management operations as
-+      ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-+
-+  riscv,isa-extension-zicbop:
-+    type: boolean
-+    description:
-+      The standard Zicbop extension for cache-block prefetch instructions as
-+      ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-+
-+  riscv,isa-extension-zicboz:
-+    type: boolean
-+    description:
-+      The standard  Zicbomz extension for cache-block zeroing as ratified in
-+      commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-+
-+  riscv,isa-extension-zihintpause:
-+    type: boolean
-+    description: |
-+      The standard Zihintpause extension for pause hints, as ratified in
-+      commit d8ab5c7 ("Zihintpause is ratified") of the riscv-isa-manual.
-+
-+  riscv,isa-extension-zba:
-+    type: boolean
-+    description: |
-+      The standard Zba bit-manipulation extension for address generation
-+      acceleration instructions as ratified at commit 6d33919 ("Merge pull
-+      request #158 from hirooih/clmul-fix-loop-end-condition") of
-+      riscv-bitmanip.
-+
-+  riscv,isa-extension-zbb:
-+    type: boolean
-+    description: |
-+      The standard Zbb bit-manipulation extension for basic bit-manipulation as
-+      atified at commit 6d33919 ("Merge pull request #158 from
-+      hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-+
-+  riscv,isa-extension-zbc:
-+    type: boolean
-+    description: |
-+      The standard Zbc bit-manipulation extension for carry-less multiplication
-+      as ratified at commit 6d33919 ("Merge pull request #158 from
-+      hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-+
-+  riscv,isa-extension-zbs:
-+    type: boolean
-+    description: |
-+      The standard Zbs bit-manipulation extension for single-bit instructions
-+      as ratified at commit 6d33919 ("Merge pull request #158 from
-+      hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-+
-+  riscv,isa-extension-ztso:
-+    type: boolean
-+    description:
-+      The standard Ztso extension for total store ordering, as ratified in
-+      commit 2e5236 ("Ztso is now ratified.") of the riscv-isa-manual.
-+
-+ # Standard Supervisor-level Extensions, sorted by category then alphabetically
-+
-+  'riscv,isa-extension-smaia':
-+    type: boolean
-+    description: |
-+      The standard Smaia supervisor-level extension for the advanced interrupt
-+      architecture for machine-mode-visible csr and behavioural changes to
-+      interrupts as frozen at commit ccbddab ("Merge pull request #42 from
-+      riscv/jhauser-2023-RC4") of riscv-aia.
-+
-+  riscv,isa-extension-ssaia:
-+    type: boolean
-+    description: |
-+      The standard Ssaia supervisor-level extension for the advanced interrupt
-+      architecture for supervisor-mode-visible csr and behavioural changes to
-+      interrupts as frozen at commit ccbddab ("Merge pull request #42 from
-+      riscv/jhauser-2023-RC4") of riscv-aia.
-+
-+  riscv,isa-extension-sscofpmf:
-+    type: boolean
-+    description: |
-+      The standard supervisor-level extension for count overflow and mode-based
-+      filtering as ratified at commit 01d1df0 ("Add ability to manually trigger
-+      workflow. (#2)") of riscv-count-overflow.
-+
-+  riscv,isa-extension-sstc:
-+    type: boolean
-+    description:
-+      The standard supervisor-level extension for time compare
-+      as ratified at commit 3f9ed34 ("Add ability to manually trigger
-+      workflow. (#2)") of riscv-time-compare.
-+
-+  riscv,isa-extension-svinval:
-+    type: boolean
-+    description:
-+      The standard Svinval supervisor-level extension for fine-grained
-+      address-translation cache invalidation as ratified in the 20191213 version
-+      of the privileged ISA specification.
-+
-+  riscv,isa-extension-svnapot:
-+    type: boolean
-+    description:
-+      The standard Svnapot supervisor-level extensions for napot translation
-+      contiguity as ratified in the 20191213 version of the privileged ISA
-+      specification.
-+
-+  riscv,isa-extension-svpbmt:
-+    type: boolean
-+    description:
-+      The standard Svpbmt supervisor-level extensions for page-based memory
-+      types as ratified in the 20191213 version of the privileged ISA
-+      specification.
-+
-+additionalProperties: true
-+...
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8gSW5vY2hpIEFtYW90byEKClRlc3RlZCB5b3VyIGxhdGVzdCBwYXRjaCBvbiBMaWNoZWVS
+ViBDOTA2OgoKbGludXggJCBnaXQgZGVzY3JpYmUgLS10YWdzCnY2LjQtcmMyLTEtZzg1YTQyMGFk
+YTNhOAoKb3BlbnNiaSAkIGdpdCBkZXNjcmliZSAtLXRhZ3MKdjEuMi0xMTktZ2RjMWM3ZGIKCnN0
+YXRfYWxsX3BtdS5zaCAtIFBBU1NFRAoKUGVyZiBzdGF0IGdpdmVzIHNvbWV0aGluZzoKCnBlcmYg
+c3RhdCAtZSBkYXRhX3RsYl9taXNzLGluc3RfdGxiX21pc3MsanRsYl9taXNzLGwxX2RjYWNoZV9y
+ZWFkX2FjYwplc3MsbDFfZGNhY2hlX3JlYWRfbWlzcyxsMV9kY2FjaGVfd3JpdGVfYWNjZXNzLGwx
+X2RjYWNoZV93cml0ZV9taXNzLGwxXwppY2FjaGVfYWMKY2VzcyxsMV9pY2FjaGVfbWlzcyAtLSBz
+bGVlcCAxCgogUGVyZm9ybWFuY2UgY291bnRlciBzdGF0cyBmb3IgJ3NsZWVwIDEnOgoKICAgICAg
+ICAgICAgICA5MDgyICAgICAgZGF0YV90bGJfbWlzcyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgIDU2MDQgICAgICBpbnN0X3RsYl9taXNzICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgMTc5MCAgICAgIGp0bGJfbWlzcyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgMTMwMjA3ICAg
+ICAgbDFfZGNhY2hlX3JlYWRfYWNjZXNzICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgIDMzNTMgICAgICBsMV9kY2FjaGVfcmVhZF9taXNzICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICA4MDQ1NCAgICAgIGwxX2RjYWNoZV93cml0ZV9hY2Nlc3MgICAg
+ICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgNjMzICAgICAgbDFfZGNhY2hlX3dy
+aXRlX21pc3MgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICA2Mzk4MjAgICAg
+ICBsMV9pY2FjaGVfYWNjZXNzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAxNDY2MCAgICAgIGwxX2ljYWNoZV9taXNzICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKCiAgICAgICAxLjAwOTc2ODc1MCBzZWNvbmRzIHRpbWUgZWxhcHNlZAoKICAgICAgIDAu
+MDAwMDAwMDAwIHNlY29uZHMgdXNlcgogICAgICAgMC4wMTAzODgwMDAgc2Vjb25kcyBzeXMKCnBl
+cmYgcmVjb3JkIGhhbmdzCgpsaWNoZWVydiAjIHBlcmYgcmVjb3JkClsgIDQzMi4wMTU2MThdIHdh
+dGNoZG9nOiBCVUc6IHNvZnQgbG9ja3VwIC0gQ1BVIzAgc3R1Y2sgZm9yIDI2cyEKW3BlcmY6MTE3
+XQpbICA0NjAuMDE1NjE3XSB3YXRjaGRvZzogQlVHOiBzb2Z0IGxvY2t1cCAtIENQVSMwIHN0dWNr
+IGZvciA1MnMhCltwZXJmOjExN10KWyAgNDg4LjAxNTYxNl0gd2F0Y2hkb2c6IEJVRzogc29mdCBs
+b2NrdXAgLSBDUFUjMCBzdHVjayBmb3IgNzhzIQpbcGVyZjoxMTddClsgIDUxNi4wMTU2MTddIHdh
+dGNoZG9nOiBCVUc6IHNvZnQgbG9ja3VwIC0gQ1BVIzAgc3R1Y2sgZm9yIDEwNHMhCltwZXJmOjEx
+N10KCkJ1dCB0aGF0J3Mgbm90IHJlbGF0ZWQgdG8geW91ciBwYXRjaCBhbnl3YXkuCgpJIGFtIHN0
+cm9uZ2x5IGFnYWluc3QgdXNpbmcgImM5eHgiIHdpbGRjYXJkLCBpIHdvdWxkIHByZWZlciBkZWNs
+YXJpbmcKdGhlbSBzZXBhcmF0ZSAoZXNwZWNpYWxseSB0YWtpbmcgaW4gbWluZCB0aGF0IGM5MjAg
+aXMgYzkxMCB3aXRoIHZlY3RvcgotIEFGQUlLKSwgYnV0IHRoYXQncyB1cCB0byBBcm5hbGRvIHRv
+IGRlY2lkZS4KCkFueXdheToKClRlc3RlZC1ieTogTmlraXRhIFNodWJpbiA8bi5zaHViaW5AeWFk
+cm8uY29tPgoKCk9uIFdlZCwgMjAyMy0wNS0xNyBhdCAxNToxMiArMDgwMCwgSW5vY2hpIEFtYW90
+byB3cm90ZToKPiBBZGQganNvbiBmaWxlIG9mIFQtSEVBRCBDOXh4IHNlcmllcyBldmVudHMuCj4g
+Cj4gVGhlIGV2ZW50IGlkeCAocmF3IHZhbHVlKSBpcyBzdW1tYXJ5IGFzIGZvbGxvd2luZzoKPiAK
+PiBldmVudCBpZCByYW5nZcKgwqAgfCBzdXBwb3J0IGNwdQo+IMKgMHgwMSAtIDB4MDbCoMKgwqDC
+oCB8wqAgYzkwNixjOTEwLGM5MjAKPiDCoDB4MDfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCBj
+OTA2Cj4gwqAweDA4IC0gMHgwYcKgwqDCoMKgIHzCoCBjOTEwLGM5MjAKPiDCoDB4MGIgLSAweDBm
+wqDCoMKgwqAgfMKgIGM5MDYsYzkxMCxjOTIwCj4gwqAweDEwIC0gMHgxYcKgwqDCoMKgIHzCoCBj
+OTEwLGM5MjAKPiDCoDB4MWIgLSAweDFjwqDCoMKgwqAgfMKgIGM5MTAsYzkyMCAoc29mdHdhcmUg
+ZGVmaW5lZCBmb3IgYWxsID49IDB4MWIpCj4gwqAweDFkIC0gMHgyYcKgwqDCoMKgIHzCoCBjOTA2
+Cj4gCj4gVGhlIGV2ZW50IGlkcyBhcmUgYmFzZWQgb24gdGhlIHB1YmxpYyBkb2N1bWVudCBvZiBU
+LUhFQUQgYW5kIGNvdmVyCj4gdGhlIGM5eHggc2VyaWVzLgo+IAo+IFRoZXNlIGV2ZW50cyBhcmUg
+dGhlIG1heCB0aGF0IGM5eHggc2VyaWVzIHN1cHBvcnQuCj4gU2luY2UgVC1IRUFEIGxldCBtYW51
+ZmFjdHVyZXJzIGRlY2lkZSB3aGV0aGVyIGV2ZW50cyBhcmUgdXNhYmxlLAo+IHRoZSBmaW5hbCBz
+dXBwb3J0IG9mIHRoZSBwZXJmIGV2ZW50cyBpcyBkZXRlcm1pbmVkIGJ5IHRoZSBwbXUgbm9kZQo+
+IG9mIHRoZSBzb2MgZHRiLgo+IAo+IFNpZ25lZC1vZmYtYnk6IElub2NoaSBBbWFvdG8gPGlub2No
+aWFtYUBvdXRsb29rLmNvbT4KPiAtLS0KPiBDaGFuZ2UgZnJvbSB2MjoKPiAxLiBhZGQgQzkwNiAw
+eDA3IGV2ZW50cyB0byB0aGUgaW5zdHJ1Y3Rpb24uanNvbiBmaWxlCj4gMi4gZml4IG5hbWUgZm9y
+IGV2ZW50cyAweDA3IGFuZCAweDA5IGluIGluc3RydWN0aW9uLmpzb24KPiAKPiBFeGFtcGxlOgo+
+IAo+IFRoaXMgcG11IG5vZGUgZXhhbXBsZSBjYW4gYmUgdXNlZCBvbiBzb3BoZ28gc2cyMDQyIHBs
+YXRmb3JtIChjOTIwKQo+IHdpdGgKPiBtYWlubGluZSBPcGVuU0JJLgo+IEl0IHNob3VsZCBhbHNv
+IHdvcmsgb24gVC1IRUFEIHRoMTUyMC4KPiAKPiBGb3IgdGhlIG9uZSB1c2UgQzkwNiBjb3JlLiBP
+bmx5IGV2ZW50IDB4MDEgLSAweDA3LCAweGIgLSAweGYgaGFzCj4ga25vd24KPiBDU1IgbWFwcGlu
+Zy4gVGhlIG90aGVyIGV2ZW50cyBkbyBub3QgaGF2ZSBrbm93biBDU1IgbWFwcGluZyBpbgo+IGRv
+Y3VtZW50Cj4gdW50aWwgbm93Lgo+IFRoaXMgcG11IG5vZGUgbmVlZHMgdG8gYmUgc2hvcnRlbiB0
+byBhZG9wdCBjOTA2Cj4gCj4gcG11IHsKPiDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJy
+aXNjdixwbXUiOwo+IMKgwqDCoMKgwqDCoMKgwqByaXNjdixldmVudC10by1taHBtY291bnRlcnMg
+PQo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLy8gZXZlbnQtc3RhcnQgZXZlbnQt
+ZW5kIGEgYml0bWFwIG9mIGFsbCB0aGUKPiBNSFBNQ09VTlRFUngKPiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoDwweDAwMDA2IDB4MDAwMDYgMHgwMDAwMDQwMD4sCj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwNSAweDAwMDA1IDB4MDAwMDA4MDA+LAo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAwMDAgMHgxMDAwMCAweDAwMDA0MDAw
+PiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDEwMDAxIDB4MTAwMDEgMHgw
+MDAwODAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgxMDAwMiAweDEw
+MDAyIDB4MDAwMTAwMDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAw
+MDMgMHgxMDAwMyAweDAwMDIwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oDwweDEwMDA4IDB4MTAwMDggMHgwMDAwMDAwOD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqA8MHgxMDAwOSAweDEwMDA5IDB4MDAwMDAwMTA+LAo+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgPDB4MTAwMTAgMHgxMDAxMCAweDAwMDQwMDAwPiwKPiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDEwMDExIDB4MTAwMTEgMHgwMDA4MDAwMD4sCj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgxMDAxMiAweDEwMDEyIDB4MDAxMDAwMDA+
+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAwMTMgMHgxMDAxMyAweDAw
+MjAwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDEwMDE5IDB4MTAw
+MTkgMHgwMDAwMDA0MD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgxMDAy
+MSAweDEwMDIxIDB4MDAwMDAwMjA+Owo+IMKgwqDCoMKgwqDCoMKgwqByaXNjdixldmVudC10by1t
+aHBtZXZlbnQgPQo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLy8gZXZlbnQtaWQg
+ZXZlbnQtc2VsZWN0b3IKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1ocG1l
+dmVudDM6IEwxSV9SRUFEX0FDQ0VTUyAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgPDB4MTAwMDggMHgwMDAwMDAwMCAweDAwMDAwMDAxPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDQ6IEwxSV9SRUFEX01JU1MgKi8KPiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDEwMDA5IDB4MDAwMDAwMDAgMHgwMDAwMDAwMj4sCj4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQ1OiBJVExCX1JFQURf
+TUlTUyAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAwMjEgMHgwMDAw
+MDAwMCAweDAwMDAwMDAzPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1o
+cG1ldmVudDY6IERUTEJfUkVBRF9NSVNTICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqA8MHgxMDAxOSAweDAwMDAwMDAwIDB4MDAwMDAwMDQ+LAo+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2ZW50MTA6IFBNVV9IV19CUkFOQ0hfTUlTU0VTICovCj4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwNiAweDAwMDAwMDAwIDB4MDAw
+MDAwMDg+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2ZW50MTE6
+IFBNVV9IV19CUkFOQ0hfSU5TVFJVQ1RJT05TICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqA8MHgwMDAwNSAweDAwMDAwMDAwIDB4MDAwMDAwMDk+LAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2ZW50MTQ6IEwxRF9SRUFEX0FDQ0VTUyAqLwo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAwMDAgMHgwMDAwMDAwMCAweDAwMDAw
+MDBjPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDE1OiBM
+MURfUkVBRF9NSVNTICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgxMDAw
+MSAweDAwMDAwMDAwIDB4MDAwMDAwMGQ+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgLyogbWhwbWV2ZW50MTY6IEwxRF9XUklURV9BQ0NFU1MgKi8KPiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoDwweDEwMDAyIDB4MDAwMDAwMDAgMHgwMDAwMDAwZT4sCj4gwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQxNzogTDFEX1dSSVRFX01JU1Mg
+Ki8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDEwMDAzIDB4MDAwMDAwMDAg
+MHgwMDAwMDAwZj4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZl
+bnQxODogTExfUkVBRF9BQ0NFU1MgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oDwweDEwMDEwIDB4MDAwMDAwMDAgMHgwMDAwMDAxMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQxOTogTExfUkVBRF9NSVNTICovCj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgxMDAxMSAweDAwMDAwMDAwIDB4MDAwMDAwMTE+LAo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2ZW50MjA6IExMX1dSSVRFX0FD
+Q0VTUyAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MTAwMTIgMHgwMDAw
+MDAwMCAweDAwMDAwMDEyPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1o
+cG1ldmVudDIxOiBMTF9XUklURV9NSVNTICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqA8MHgxMDAxMyAweDAwMDAwMDAwIDB4MDAwMDAwMTM+Owo+IMKgwqDCoMKgwqDCoMKgwqBy
+aXNjdixyYXctZXZlbnQtdG8tbWhwbWNvdW50ZXJzID0KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoC8qIG1ocG1ldmVudDM6IEwxIElDYWNoZSBBY2Nlc3MgQ291bnRlciAqLwo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAwMSAweGZm
+ZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMDAwMDA4PiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoC8qIG1ocG1ldmVudDQ6IEwxIElDYWNoZSBNaXNzIENvdW50ZXIgKi8KPiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMDIgMHhmZmZm
+ZmZmZiAweGZmZmZmZmZmCj4gMHgwMDAwMDAxMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAvKiBtaHBtZXZlbnQ1OiBJLVVUTEIgTWlzcyBDb3VudGVyICovCj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDAzIDB4ZmZmZmZmZmYg
+MHhmZmZmZmZmZgo+IDB4MDAwMDAwMjA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgLyogbWhwbWV2ZW50NjogRC1VVExCIE1pc3MgQ291bnRlciAqLwo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAwNCAweGZmZmZmZmZmIDB4ZmZm
+ZmZmZmYKPiAweDAwMDAwMDQwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8q
+IG1ocG1ldmVudDc6IEpUTEIgTWlzcyAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAwNSAweGZmZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMDAw
+MDgwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDg6IENv
+bmRpdGlvbmFsIEJyYW5jaCBNaXNwcmVkaWN0ICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDA2IDB4ZmZmZmZmZmYgMHhmZmZmZmZmZgo+IDB4
+MDAwMDAxMDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2ZW50
+OTogQ29uZGl0aW9uYWwgQnJhbmNoIEluc3RydWN0aW9uIENvdW50ZXIKPiAocmVzZXJ2ZWQgZm9y
+IGM5MTApKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIDwweDAwMDAwMDAw
+IDB4MDAwMDAwMDcgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgwMDAwMDIwMD4sICovCj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQxMDogSW5kaXJlY3QgQnJh
+bmNoIE1pc3ByZWRpY3QgQ291bnRlciAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAwOCAweGZmZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMDAw
+NDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDExOiBJ
+bmRpcmVjdCBCcmFuY2ggSW5zdHJ1Y3Rpb24gQ291bnRlcgo+ICovCj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDA5IDB4ZmZmZmZmZmYgMHhmZmZm
+ZmZmZgo+IDB4MDAwMDA4MDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyog
+bWhwbWV2ZW50MTI6IExTVSBTcGVjIEZhaWwgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMGEgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgw
+MDAwMTAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQx
+MzogU3RvcmUgSW5zdHJ1Y3Rpb24gKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oDwweDAwMDAwMDAwIDB4MDAwMDAwMGIgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgwMDAwMjAw
+MD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQxNDogTDEg
+RENhY2hlIHJlYWQgYWNjZXNzIENvdW50ZXIgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMGMgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgw
+MDAwNDAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQx
+NTogTDEgRENhY2hlIHJlYWQgbWlzcyBDb3VudGVyICovCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDBkIDB4ZmZmZmZmZmYgMHhmZmZmZmZmZgo+
+IDB4MDAwMDgwMDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogbWhwbWV2
+ZW50MTY6IEwxIERDYWNoZSB3cml0ZSBhY2Nlc3MgQ291bnRlciAqLwo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAwZSAweGZmZmZmZmZmIDB4ZmZm
+ZmZmZmYKPiAweDAwMDEwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8q
+IG1ocG1ldmVudDE3OiBMMSBEQ2FjaGUgd3JpdGUgYWNjZXNzIENvdW50ZXIgKi8KPiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMGYgMHhmZmZmZmZm
+ZiAweGZmZmZmZmZmCj4gMHgwMDAyMDAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAvKiBtaHBtZXZlbnQxODogTDIgQ2FjaGUgcmVhZCBhY2Nlc3MgQ291bnRlciAqLwo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAxMCAweGZm
+ZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMDQwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoC8qIG1ocG1ldmVudDE5OiBMMiBDYWNoZSByZWFkIG1pc3MgQ291bnRlciAqLwo+
+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAxMSAw
+eGZmZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMDgwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDIwOiBMMiBDYWNoZSB3cml0ZSBhY2Nlc3MgQ291bnRl
+ciAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAw
+MDAxMiAweGZmZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDAwMTAwMDAwPiwKPiDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1ocG1ldmVudDIxOiBMMiBDYWNoZSB3cml0ZSBtaXNzIENv
+dW50ZXIgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDAwMDAwMDAwIDB4
+MDAwMDAwMTMgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgwMDIwMDAwMD4sCj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQyMjogUkYgTGF1bmNoIEZhaWwgKi8K
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMTQg
+MHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgwMDQwMDAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQyMzogUkYgUmVnIExhdW5jaCBGYWlsICovCj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDE1IDB4ZmZm
+ZmZmZmYgMHhmZmZmZmZmZgo+IDB4MDA4MDAwMDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgLyogbWhwbWV2ZW50MjQ6IFJGIEluc3RydWN0aW9uICovCj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqA8MHgwMDAwMDAwMCAweDAwMDAwMDE2IDB4ZmZmZmZmZmYgMHhm
+ZmZmZmZmZgo+IDB4MDEwMDAwMDA+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+LyogbWhwbWV2ZW50MjU6IExTVSBDcm9zcyA0SyBTdGFsbCAqLwo+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgPDB4MDAwMDAwMDAgMHgwMDAwMDAxNyAweGZmZmZmZmZmIDB4ZmZmZmZm
+ZmYKPiAweDAyMDAwMDAwPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIG1o
+cG1ldmVudDI2OiBMU1UgT3RoZXIgU3RhbGwgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoDwweDAwMDAwMDAwIDB4MDAwMDAwMTggMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgw
+NDAwMDAwMD4sCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQy
+NzogTFNVIFNRIERpc2NhcmQgKi8KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDww
+eDAwMDAwMDAwIDB4MDAwMDAwMTkgMHhmZmZmZmZmZiAweGZmZmZmZmZmCj4gMHgwODAwMDAwMD4s
+Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBtaHBtZXZlbnQyODogTFNVIFNR
+IERhdGEgRGlzY2FyZCAqLwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPDB4MDAw
+MDAwMDAgMHgwMDAwMDAxYSAweGZmZmZmZmZmIDB4ZmZmZmZmZmYKPiAweDEwMDAwMDAwPjsKPiB9
+Owo+IAo+IC0tLQo+IMKgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5j
+c3bCoCB8wqAgMSArCj4gwqAuLi4vYXJjaC9yaXNjdi90LWhlYWQvYzl4eC9jYWNoZS5qc29uwqDC
+oMKgwqDCoMKgwqDCoCB8IDY3ICsrKysrKysrKysrKysrKysrCj4gwqAuLi4vYXJjaC9yaXNjdi90
+LWhlYWQvYzl4eC9maXJtd2FyZS5qc29uwqDCoMKgwqDCoCB8IDY4Cj4gKysrKysrKysrKysrKysr
+KysrCj4gwqAuLi4vYXJjaC9yaXNjdi90LWhlYWQvYzl4eC9pbnN0cnVjdGlvbi5qc29uwqDCoCB8
+IDcyCj4gKysrKysrKysrKysrKysrKysrKwo+IMKgLi4uL2FyY2gvcmlzY3YvdC1oZWFkL2M5eHgv
+bWljcm9hcmNoLmpzb27CoMKgwqDCoCB8IDY3ICsrKysrKysrKysrKysrKysrCj4gwqA1IGZpbGVz
+IGNoYW5nZWQsIDI3NSBpbnNlcnRpb25zKCspCj4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMv
+cGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC0KPiBoZWFkL2M5eHgvY2FjaGUuanNvbgo+IMKg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3QtCj4g
+aGVhZC9jOXh4L2Zpcm13YXJlLmpzb24KPiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJm
+L3BtdS1ldmVudHMvYXJjaC9yaXNjdi90LQo+IGhlYWQvYzl4eC9pbnN0cnVjdGlvbi5qc29uCj4g
+wqBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC0K
+PiBoZWFkL2M5eHgvbWljcm9hcmNoLmpzb24KPiAKPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi9w
+bXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YKPiBiL3Rvb2xzL3BlcmYvcG11LWV2ZW50
+cy9hcmNoL3Jpc2N2L21hcGZpbGUuY3N2Cj4gaW5kZXggYzYxYjNkNmVmNjE2Li5kZDFkOTk4YTdh
+ZDYgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmls
+ZS5jc3YKPiArKysgYi90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9tYXBmaWxlLmNz
+dgo+IEBAIC0xNSwzICsxNSw0IEBACj4gwqAjCj4gwqAjTVZFTkRPUklELU1BUkNISUQtTUlNUElE
+LFZlcnNpb24sRmlsZW5hbWUsRXZlbnRUeXBlCj4gwqAweDQ4OS0weDgwMDAwMDAwMDAwMDAwMDct
+MHhbWzp4ZGlnaXQ6XV0rLHYxLHNpZml2ZS91NzQsY29yZQo+ICsweDViNy0weDAtMHgwLHYxLHQt
+aGVhZC9jOXh4LGNvcmUKPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gv
+cmlzY3YvdC1oZWFkL2M5eHgvY2FjaGUuanNvbgo+IGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2Fy
+Y2gvcmlzY3YvdC1oZWFkL2M5eHgvY2FjaGUuanNvbgo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4g
+aW5kZXggMDAwMDAwMDAwMDAwLi4yYzZlOWE5MDRhMTEKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIv
+dG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC1oZWFkL2M5eHgvY2FjaGUuanNvbgo+
+IEBAIC0wLDAgKzEsNjcgQEAKPiArWwo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkwx
+X0lDQUNIRV9BQ0NFU1MiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAwMSIsCj4gK8Kg
+wqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJMMSBpbnN0cnVjdGlvbiBjYWNoZSBhY2Nlc3MiCj4g
+K8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAiTDFfSUNBQ0hFX01JU1MiLAo+
+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAwMiIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlw
+dGlvbiI6ICJMMSBpbnN0cnVjdGlvbiBjYWNoZSBtaXNzIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8Kg
+wqDCoCAiRXZlbnROYW1lIjogIklOU1RfVExCX01JU1MiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6
+ICIweDAwMDAwMyIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJJbnN0cnVjdGlvbiBU
+TEIgKEktVVRMQikgbWlzcyIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6
+ICJEQVRBX1RMQl9NSVNTIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMDQiLAo+ICvC
+oMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiRGF0YSBUTEIgKEQtVVRMQikgbWlzcyIKPiArwqAg
+fSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJKVExCX01JU1MiLAo+ICvCoMKgwqAg
+IkV2ZW50Q29kZSI6ICIweDAwMDAwNSIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJK
+VExCIGFjY2VzcyBtaXNzIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjog
+IkwxX0RDQUNIRV9SRUFEX0FDQ0VTUyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDBj
+IiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkwxIGRhdGEgY2FjaGUgcmVhZCBhY2Nl
+c3MiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAiTDFfRENBQ0hFX1JF
+QURfTUlTUyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDBkIiwKPiArwqDCoMKgICJC
+cmllZkRlc2NyaXB0aW9uIjogIkwxIGRhdGEgY2FjaGUgcmVhZCBtaXNzIgo+ICvCoCB9LAo+ICvC
+oCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkwxX0RDQUNIRV9XUklURV9BQ0NFU1MiLAo+ICvC
+oMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAwZSIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlv
+biI6ICJMMSBkYXRhIGNhY2hlIHdyaXRlIGFjY2VzcyIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKg
+wqAgIkV2ZW50TmFtZSI6ICJMMV9EQ0FDSEVfV1JJVEVfTUlTUyIsCj4gK8KgwqDCoCAiRXZlbnRD
+b2RlIjogIjB4MDAwMDBmIiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkwxIGRhdGEg
+Y2FjaGUgd3JpdGUgbWlzcyIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6
+ICJMMl9DQUNIRV9SRUFEX0FDQ0VTUyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDEw
+IiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkwyIGNhY2hlIHJlYWQgYWNjZXNzIgo+
+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkwyX0NBQ0hFX1JFQURfTUlT
+UyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDExIiwKPiArwqDCoMKgICJCcmllZkRl
+c2NyaXB0aW9uIjogIkwyIGNhY2hlIHJlYWQgbWlzcyIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKg
+wqAgIkV2ZW50TmFtZSI6ICJMMl9DQUNIRV9XUklURV9BQ0NFU1MiLAo+ICvCoMKgwqAgIkV2ZW50
+Q29kZSI6ICIweDAwMDAxMiIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJMMiBjYWNo
+ZSB3cml0ZSBhY2Nlc3MiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAi
+TDJfQ0FDSEVfV1JJVEVfTUlTUyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDEzIiwK
+PiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkwyIGNhY2hlIHdyaXRlIG1pc3MiCj4gK8Kg
+IH0KPiArXQo+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi90
+LQo+IGhlYWQvYzl4eC9maXJtd2FyZS5qc29uIGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gv
+cmlzY3YvdC0KPiBoZWFkL2M5eHgvZmlybXdhcmUuanNvbgo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0
+Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi45YjRhMDMyMTg2YTcKPiAtLS0gL2Rldi9udWxsCj4gKysr
+IGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC1oZWFkL2M5eHgvZmlybXdhcmUu
+anNvbgo+IEBAIC0wLDAgKzEsNjggQEAKPiArWwo+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2
+ZW50IjogIkZXX01JU0FMSUdORURfTE9BRCIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkFy
+Y2hTdGRFdmVudCI6ICJGV19NSVNBTElHTkVEX1NUT1JFIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8Kg
+wqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0FDQ0VTU19MT0FEIgo+ICvCoCB9LAo+ICvCoCB7Cj4g
+K8KgwqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0FDQ0VTU19TVE9SRSIKPiArwqAgfSwKPiArwqAg
+ewo+ICvCoMKgwqAgIkFyY2hTdGRFdmVudCI6ICJGV19JTExFR0FMX0lOU04iCj4gK8KgIH0sCj4g
+K8KgIHsKPiArwqDCoMKgICJBcmNoU3RkRXZlbnQiOiAiRldfU0VUX1RJTUVSIgo+ICvCoCB9LAo+
+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0lQSV9TRU5UIgo+ICvCoCB9LAo+
+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0lQSV9SRUNFSVZFRCIKPiArwqAg
+fSwKPiArwqAgewo+ICvCoMKgwqAgIkFyY2hTdGRFdmVudCI6ICJGV19GRU5DRV9JX1NFTlQiCj4g
+K8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJBcmNoU3RkRXZlbnQiOiAiRldfRkVOQ0VfSV9SRUNF
+SVZFRCIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkFyY2hTdGRFdmVudCI6ICJGV19TRkVO
+Q0VfVk1BX1NFTlQiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJBcmNoU3RkRXZlbnQiOiAi
+RldfU0ZFTkNFX1ZNQV9SRUNFSVZFRCIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkFyY2hT
+dGRFdmVudCI6ICJGV19TRkVOQ0VfVk1BX1JFQ0VJVkVEIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8Kg
+wqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX1NGRU5DRV9WTUFfQVNJRF9SRUNFSVZFRCIKPiArwqAg
+fSwKPiArwqAgewo+ICvCoMKgwqAgIkFyY2hTdGRFdmVudCI6ICJGV19IRkVOQ0VfR1ZNQV9TRU5U
+Igo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0hGRU5DRV9H
+Vk1BX1JFQ0VJVkVEIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2ZW50Ijog
+IkZXX0hGRU5DRV9HVk1BX1ZNSURfU0VOVCIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkFy
+Y2hTdGRFdmVudCI6ICJGV19IRkVOQ0VfR1ZNQV9WTUlEX1JFQ0VJVkVEIgo+ICvCoCB9LAo+ICvC
+oCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2ZW50IjogIkZXX0hGRU5DRV9WVk1BX1NFTlQiCj4gK8Kg
+IH0sCj4gK8KgIHsKPiArwqDCoMKgICJBcmNoU3RkRXZlbnQiOiAiRldfSEZFTkNFX1ZWTUFfUkVD
+RUlWRUQiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJBcmNoU3RkRXZlbnQiOiAiRldfSEZF
+TkNFX1ZWTUFfQVNJRF9TRU5UIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiQXJjaFN0ZEV2
+ZW50IjogIkZXX0hGRU5DRV9WVk1BX0FTSURfUkVDRUlWRUQiCj4gK8KgIH0KPiArXQo+IGRpZmYg
+LS1naXQgYS90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi90LQo+IGhlYWQvYzl4eC9p
+bnN0cnVjdGlvbi5qc29uIGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC0KPiBo
+ZWFkL2M5eHgvaW5zdHJ1Y3Rpb24uanNvbgo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXgg
+MDAwMDAwMDAwMDAwLi43ZjE2NDk1NDgxNzcKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvdG9vbHMv
+cGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvdC1oZWFkL2M5eHgvaW5zdHJ1Y3Rpb24uanNvbgo+
+IEBAIC0wLDAgKzEsNzIgQEAKPiArWwo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkJS
+X0NPTkRfTUlTX1BSRUQiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAwNiIsCj4gK8Kg
+wqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJDb25kaXRpb25hbCBicmFuY2ggbWlzcHJlZGljdCIK
+PiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJJTlNUX0JSX0NPTkRfTUlT
+IiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMDciLAo+ICvCoMKgwqAgIkJyaWVmRGVz
+Y3JpcHRpb24iOiAiQ29uZGl0aW9uYWwgYnJhbmNoIGluc3RydWN0aW9uIgo+ICvCoCB9LAo+ICvC
+oCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkJSX0lORElSRUNUX01JU19QUkVEIiwKPiArwqDC
+oMKgICJFdmVudENvZGUiOiAiMHgwMDAwMDgiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24i
+OiAiSW5kaXJlY3QgYnJhbmNoIG1pc3ByZWRpY3QiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKg
+ICJFdmVudE5hbWUiOiAiSU5TVF9CUl9DT05EX01JUyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjog
+IjB4MDAwMDA5IiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkluZGlyZWN0IGJyYW5j
+aCBpbnN0cnVjdGlvbiIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJJ
+TlNUX1NUT1JFIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMGIiLAo+ICvCoMKgwqAg
+IkJyaWVmRGVzY3JpcHRpb24iOiAiU3RvcmUgaW5zdHJ1Y3Rpb24gcmV0aXJlZCIKPiArwqAgfSwK
+PiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJJTlNUX0FMVSIsCj4gK8KgwqDCoCAiRXZl
+bnRDb2RlIjogIjB4MDAwMDFkIiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkFMVSBp
+bnN0cnVjdGlvbiByZXRpcmVkIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1l
+IjogIklOU1RfTE9BRF9TQVZFIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMWUiLAo+
+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiTE9BRC9TdG9yZSBpbnN0cnVjdGlvbiByZXRp
+cmVkIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIklOU1RfVkVDVE9S
+IiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMWYiLAo+ICvCoMKgwqAgIkJyaWVmRGVz
+Y3JpcHRpb24iOiAiVmVjdG9yIGluc3RydWN0aW9uIHJldGlyZWQiCj4gK8KgIH0sCj4gK8KgIHsK
+PiArwqDCoMKgICJFdmVudE5hbWUiOiAiSU5TVF9DU1JfQUNDRVNTIiwKPiArwqDCoMKgICJFdmVu
+dENvZGUiOiAiMHgwMDAwMjAiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiQ1NSIGFj
+Y2VzcyBpbnN0cnVjdGlvbiByZXRpcmVkIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZl
+bnROYW1lIjogIklOU1RfU1lOQyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDIxIiwK
+PiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIlN5bmMgaW5zdHJ1Y3Rpb24gcmV0aXJlZCIK
+PiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJJTlNUX0xPQURfU0FWRV9V
+TkFMSUdORUQiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAyMiIsCj4gK8KgwqDCoCAi
+QnJpZWZEZXNjcmlwdGlvbiI6ICJMb2FkL1N0b3JlIHVuYWxpZ25lZCBhY2Nlc3MgaW5zdHJ1Y3Rp
+b24KPiByZXRpcmVkIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIklO
+U1RfRU5WX0NBTEwiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAyNSIsCj4gK8KgwqDC
+oCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJFbnZpcm9ubWVudCBjYWxsIGluc3RydWN0aW9uIHJldGly
+ZWQiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAiSU5TVF9MT05HSlVN
+UCIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDI2IiwKPiArwqDCoMKgICJCcmllZkRl
+c2NyaXB0aW9uIjogIkxvbmcganVtcCBpbnN0cnVjdGlvbiByZXRpcmVkIChqdW1wIGRpc3QKPiBv
+dmVyIDhNQikiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAiSU5TVF9G
+UCIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDJhIiwKPiArwqDCoMKgICJCcmllZkRl
+c2NyaXB0aW9uIjogIkZsb2F0IHBvaW50IGluc3RydWN0aW9uIHJldGlyZWQiCj4gK8KgIH0KPiAr
+XQo+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi90LQo+IGhl
+YWQvYzl4eC9taWNyb2FyY2guanNvbiBiL3Rvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2
+L3QtCj4gaGVhZC9jOXh4L21pY3JvYXJjaC5qc29uCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBp
+bmRleCAwMDAwMDAwMDAwMDAuLjA3M2MxZDA4NTAyMQo+IC0tLSAvZGV2L251bGwKPiArKysgYi90
+b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi90LWhlYWQvYzl4eC9taWNyb2FyY2guanNv
+bgo+IEBAIC0wLDAgKzEsNjcgQEAKPiArWwo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjog
+IkxTVV9TUEVDX0ZBSUwiLAo+ICvCoMKgwqAgIkV2ZW50Q29kZSI6ICIweDAwMDAwYSIsCj4gK8Kg
+wqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJMU1UgU3BlYyBGYWlsIgo+ICvCoCB9LAo+ICvCoCB7
+Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIlJGX0xBVU5DSF9GQUlMIiwKPiArwqDCoMKgICJFdmVu
+dENvZGUiOiAiMHgwMDAwMTQiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiUmVnaXN0
+ZXIgZmlsZSBsYXVuY2ggZmFpbCIKPiArwqAgfSwKPiArwqAgewo+ICvCoMKgwqAgIkV2ZW50TmFt
+ZSI6ICJSRl9SRUdfTEFVTkNIIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMTUiLAo+
+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiUmVnaXN0ZXIgZmlsZSByZWcgbGF1bmNoIgo+
+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIlJGX0lOU1RSVUNUSU9OIiwK
+PiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMTYiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3Jp
+cHRpb24iOiAiUmVnaXN0ZXIgZmlsZSBpbnN0cnVjdGlvbiIKPiArwqAgfSwKPiArwqAgewo+ICvC
+oMKgwqAgIkV2ZW50TmFtZSI6ICJMU1VfU1RBTExfQ1JPU1NfNEsiLAo+ICvCoMKgwqAgIkV2ZW50
+Q29kZSI6ICIweDAwMDAxNyIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJMU1Ugc3Rh
+bGwgd2l0aCBjcm9zcyA0SyBhY2Nlc3MiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVu
+dE5hbWUiOiAiTFNVX1NUQUxMX09USEVSIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAw
+MTgiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiTFNVIHN0YWxsIHdpdGggb3RoZXIg
+ZXZlbnRzIgo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIkxTVV9TUV9E
+SVNDQVJEIiwKPiArwqDCoMKgICJFdmVudENvZGUiOiAiMHgwMDAwMTkiLAo+ICvCoMKgwqAgIkJy
+aWVmRGVzY3JpcHRpb24iOiAiTFNVIFNRIGRpc2NhcmQiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDC
+oMKgICJFdmVudE5hbWUiOiAiTFNVX1NRX0RJU0NBUkRfREFUQSIsCj4gK8KgwqDCoCAiRXZlbnRD
+b2RlIjogIjB4MDAwMDFhIiwKPiArwqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIkxTVSBTUSBk
+YXRhIGRpc2NhcmQiCj4gK8KgIH0sCj4gK8KgIHsKPiArwqDCoMKgICJFdmVudE5hbWUiOiAiSU5U
+X05VTUJFUiIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDIzIiwKPiArwqDCoMKgICJC
+cmllZkRlc2NyaXB0aW9uIjogIkludGVycnVwdCBudW1iZXIgcmVzcG9uZCIKPiArwqAgfSwKPiAr
+wqAgewo+ICvCoMKgwqAgIkV2ZW50TmFtZSI6ICJJTlRfT0ZGX0NZQ0xFIiwKPiArwqDCoMKgICJF
+dmVudENvZGUiOiAiMHgwMDAwMjQiLAo+ICvCoMKgwqAgIkJyaWVmRGVzY3JpcHRpb24iOiAiT2Zm
+IGN5Y2xlIGJlZm9yZSBpbnRlcnJ1cHQgYXJiaXRyYXRpbmciCj4gK8KgIH0sCj4gK8KgIHsKPiAr
+wqDCoMKgICJFdmVudE5hbWUiOiAiU1RBTExFRF9DWUNMRV9JRlUiLAo+ICvCoMKgwqAgIkV2ZW50
+Q29kZSI6ICIweDAwMDAyNyIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJTdGFsbCBj
+eWNsZXMgb2YgdGhlIGluc3RydWN0aW9uIGZldGNoIHVuaXQiCj4gK8KgIH0sCj4gK8KgIHsKPiAr
+wqDCoMKgICJFdmVudE5hbWUiOiAiU1RBTExFRF9DWUNMRV9JRFUiLAo+ICvCoMKgwqAgIkV2ZW50
+Q29kZSI6ICIweDAwMDAyOCIsCj4gK8KgwqDCoCAiQnJpZWZEZXNjcmlwdGlvbiI6ICJTdGFsbCBj
+eWNsZXMgb2YgdGhlIGluc3RydWN0aW9uIGRlY29kaW5nCj4gdW5pdCBhbmQgbmV4dC1sZXZlbCBw
+aXBlbGluZSB1bml0Igo+ICvCoCB9LAo+ICvCoCB7Cj4gK8KgwqDCoCAiRXZlbnROYW1lIjogIlNU
+QUxMRURfQ1lDTEVfU1lOQyIsCj4gK8KgwqDCoCAiRXZlbnRDb2RlIjogIjB4MDAwMDI5IiwKPiAr
+wqDCoMKgICJCcmllZkRlc2NyaXB0aW9uIjogIlN0YWxsZWQgY3ljbGUgZm9yIHN5bmMgaW5zdHJ1
+Y3Rpb25zCj4gKEZFTkNFL0ZFTkNFLmkvU0ZFTkNFL1NZTkMuLi4pIgo+ICvCoCB9Cj4gK10KPiAt
+LQo+IDIuNDAuMQo+IAo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
