@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369BEC77B7A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2914DC77B7D
 	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 10:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vLJmfj17T3r8tfcQS2V0wzzxlpyj8w+8EABafVI140Y=; b=o1pZH0HnKEPfvQ
-	bn/yc8PNShU4tjwfJlfaqap9OFcgRqJi1bofADj3V/zFMUQFePThk97vRQXQJnNcpzdl9aqhHPbTr
-	GtzYFXm+Tm8pB9/qAd9g2QEVp+GAF4AuLYlw2aSWyTRHbIWRqX/ZVaCsh18L2eY7v562BrzxlLvRp
-	7yfcaYpcreKVfAodCH/DOMqqsMa/HkDm2RUifn1DxIqb0ii3Tk8YfAJeAZhskA6YkoIg/GHBYsVEU
-	q82YKAZijWgT5tWw0OCOB0TqsfeVfGKtqPEQsrNd7QPyrQ4F0SrwOGfhm1xqCJQWxxVzSl6XE81c+
-	cjwgk+6JySnxX5KkeiKg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2nbaYV29R/GWMGfQw/O7ZNqHKknWGADUFEsZMFqPzMo=; b=ELPzLl+Hf31hBG
+	Gf/NMA/uEeksJNiSWdEbQ99U7mVS5Qr3ncECbsEpGWjHyl0OObe4UdczGwxjqKIwRfPjDzDopI2b5
+	NDrTPvQ1z7Ytn7dlz47g7Br1c2LVqPwjbDJrVFRkKGvr3G/LhaBIso97/vse+UPGpvIspgl6pMQdf
+	Ea8rP0aEE8kPHPRQqPZY5+Nlc5THT3M3wrutLf2p/g67SApp7ButGszEj/UOEJ5yLLg3OvlgvpR67
+	Z1o+AgdkxxA8Gj+K7xTdtEYD/o+ZxMSnjraMMOmTmTzl48lEoJd9VimDZjcnlKd/QuoZj3r0rm3Xi
+	uNp6Wxw/YZkSbhBauJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzadC-00CXon-0v;
-	Thu, 18 May 2023 10:13:10 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pzadI-00CXrk-17;
+	Thu, 18 May 2023 10:13:16 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzad8-00CXji-18
+	id 1pzad8-00CXjc-19
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 10:13:08 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Thu, 18 May 2023 10:13:10 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A68AF80E1;
-	Thu, 18 May 2023 18:12:42 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:42 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id ABCAA24E212;
+	Thu, 18 May 2023 18:12:35 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
+ 2023 18:12:35 +0800
 Received: from localhost.localdomain (113.72.146.100) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:41 +0800
+ 2023 18:12:34 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,21 +49,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v6 09/11] riscv: dts: starfive: jh7110: add pmu controller node
-Date: Thu, 18 May 2023 18:12:32 +0800
-Message-ID: <20230518101234.143748-10-xingyu.wu@starfivetech.com>
+Subject: [PATCH v6 00/11] Add STG/ISP/VOUT clock and reset drivers for StarFive JH7110
+Date: Thu, 18 May 2023 18:12:23 +0800
+Message-ID: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
-References: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.146.100]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_031306_536200_720B9204 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230518_031306_709163_5BFD93EF 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +77,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Walker Chen <walker.chen@starfivetech.com>
+This patch serises are base on the basic JH7110 SYSCRG/AONCRG
+drivers and add new partial clock drivers and reset supports
+about System-Top-Group(STG), Image-Signal-Process(ISP)
+and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
+clocks and resets could be used by DMA, VIN and Display modules.
 
-Add the pmu controller node for the Starfive JH7110 SoC. The PMU needs
-to be used by other modules such as VPU, ISP, etc.
+Patches 1 and 2 are about the System-Top-Group clock and reset
+generator(STGCRG) part. The first patch adds docunmentation to
+describe STG bindings, and the second patch adds clock driver to
+support STG clocks and resets as auxiliary device for JH7110.
 
-Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+Patches 3 and 4 are about the Image-Signal-Process clock and reset
+gennerator(ISPCRG) part. The first patch adds docunmentation to
+describe ISP bindings, and the second patch adds clock driver to
+support ISP clocks and resets as auxiliary device for JH7110.
+And ISP clocks should power on and enable the SYSCRG clocks first
+before registering.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..30e1f34d5cf8 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -496,5 +496,12 @@ aongpio: pinctrl@17020000 {
- 			gpio-controller;
- 			#gpio-cells = <2>;
- 		};
-+
-+		pwrc: power-controller@17030000 {
-+			compatible = "starfive,jh7110-pmu";
-+			reg = <0x0 0x17030000 0x0 0x10000>;
-+			interrupts = <111>;
-+			#power-domain-cells = <1>;
-+		};
- 	};
- };
+Patches 5 and 6 are about the Video-Output clock and reset
+generator(VOUTCRG) part. The first patch adds docunmentation to
+describe VOUT bindings, and the second patch adds clock driver to
+support VOUT clocks and resets as auxiliary device for JH7110.
+And VOUT clocks also should power on and enable the SYSCRG clocks
+first before registering.
+
+Patch 7 adds the maintainer who take charge of the STGCRG/ISPCRG/VOUTCRG
+for JH7110.
+Patch 8 adds struct members to support STG/ISP/VOUT resets.
+Patch 9 adds pmu node for JH7110.
+Patch 10 adds external clocks which ISP and VOUT clock driver need.
+Patch 11 adds device node about STGCRG, ISPCRG and VOUTCRG to JH7110 dts.
+
+Changes since v5:
+- Rebased on the Linux 6.4-rc2.
+- Modified the reset name about VOUTCRG to fix the error with
+  CONFIG_FORTIFY_SOURCE=y
+- Added the patch about pmu node.
+
+v5: https://lore.kernel.org/all/20230424135409.6648-1-xingyu.wu@starfivetech.com/
+
+Changes since v4: 
+- Rebased on the lastest patches about fixing the basic clock and reset drivers.
+- Dropped the 'dev_set_drvdata()' in STG clock driver.
+- Modified the data with 'dev_set_drvdata()' in ISP/VOUT clock driver
+  and move the struct about the data to JH7110 header file, which both
+  ISP and VOUT clock drivers will use.
+
+v4: https://lore.kernel.org/all/20230411135558.44282-1-xingyu.wu@starfivetech.com/
+
+Changes since v3: 
+- Rebased on the lastest JH71X0 clock and reset driver of patchset[1]
+  and modified the parameters of the register reset functions.
+- The patch 1 combined three commits on STG/ISP/VOUT resets into one.
+  And Changed the auxiliary_device_id name from
+  "clk_starfive_jh71x0.reset-*" to "clk_starfive_jh7110_sys.rst-*".
+- Added a maintainer in STARFIVE JH71X0 CLOCK DRIVERS.
+
+v3: https://lore.kernel.org/all/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+
+Changes since v2:
+Patch 1:
+- Dropped the modification of maintainers.
+- Modified clock and reset names in the dt-bindings header files.
+Patch 3:
+- Added 'Emil Renner Berthing' as the author.
+- Used 'default m' in Kconfig file.
+- Changed the flags of 'CLK_IGNORE_UNUSED' to 0 or 'CLK_IS_CRITICAL'.
+Patch 4:
+- Dropped the 'reset-names' property.
+- Shortened the clock and reset names in the dt-bindings header files.
+Pacth 6:
+- Used 'default m' in Kconfig file.
+- Changed the flags of 'CLK_IGNORE_UNUSED' to 0.
+- Set reset_control struct to a local variable because it just is used
+  one time in probe.
+Pacth 7:
+- Dropped the 'reset-names' property.
+Patch 9:
+- Used 'default m' in Kconfig file.
+- Set reset_control struct to a local variable because it just is used
+  one time in probe.
+Patch 10:
+- Changed the order of externel clock in alphanumerical order.
+Patch 11:
+- Dropped the 'reset-names' property in ispcrg and voutcrg node.
+
+v2: https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+
+Changes since v1:
+- Modified the binding and dropped the indentation.
+- Removed the useless header files in the drivers.
+- Used an array lookup instead of a pile of conditions about parent
+  clocks' name.
+- Added clocks operation on driver remove.
+
+v1: https://lore.kernel.org/all/20230120024445.244345-1-xingyu.wu@starfivetech.com/
+
+Emil Renner Berthing (1):
+  clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+
+Walker Chen (1):
+  riscv: dts: starfive: jh7110: add pmu controller node
+
+Xingyu Wu (9):
+  dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and
+    reset generator
+  dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and
+    reset generator
+  clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
+  dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset
+    generator
+  clk: starfive: Add StarFive JH7110 Video-Output clock driver
+  MAINTAINERS: Update maintainer of JH71x0 clock drivers
+  reset: starfive: jh7110: Add StarFive STG/ISP/VOUT resets support
+  riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external
+    clocks
+  riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
+
+ .../clock/starfive,jh7110-ispcrg.yaml         |  87 +++++++
+ .../clock/starfive,jh7110-stgcrg.yaml         |  82 ++++++
+ .../clock/starfive,jh7110-voutcrg.yaml        |  90 +++++++
+ MAINTAINERS                                   |   1 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   8 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  74 ++++++
+ drivers/clk/starfive/Kconfig                  |  33 +++
+ drivers/clk/starfive/Makefile                 |   3 +
+ .../clk/starfive/clk-starfive-jh7110-isp.c    | 232 +++++++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-stg.c    | 173 +++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-vout.c   | 239 ++++++++++++++++++
+ drivers/clk/starfive/clk-starfive-jh7110.h    |   6 +
+ .../reset/starfive/reset-starfive-jh7110.c    |  30 +++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   |  74 ++++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   |  60 +++++
+ 15 files changed, 1192 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
+
 -- 
 2.25.1
 
