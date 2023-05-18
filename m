@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2BBC7EE2C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30F3C7EE2F
 	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 22:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WsY4INRZ8W4YVJXoJv10ErTwtvrexKcNFfwJn4YymXQ=; b=X14GNk6fIQAKuT
-	tAc18TNY0ExdngxT7KaAK6i6VA/rzLfgWjUJqAZoIDqODMysJfq/YSlKWMFrn5dRwd4WCNDCnXB4e
-	jXYJZTrVu+2ghDcNNAeHxIliRjusSAfZUTeJ3zTpNpaFP/tFT97dIef7gwAxVZFKmiZhygsF/z1c+
-	b5mWE7FYJcqkSi8DLfoJx0FGe2qA4aRzpgw6J9PThdVkEL5Q11i2jxJ17+LE+4MXDvu1tlpUtMPhi
-	z/x75lSVvol0K9LNPkGhhvNA7SXLrWlAxJ5L3ZarjUuBWSVDJaes2eB1O6CwBgdFcjqsdVe3GvQc+
-	af11whf5dLeRea1oWQRA==;
+	List-Owner; bh=++TlDcXbi7BcyPtGNHAEckrL02bilY5T54eHMKne6Vg=; b=N9St1y0+wiFF27
+	KWd+azZECrcNiqd6Bcusno0NfbLeJ294Rz1tG8kYA73tcdiQXSG0+0XQqDuhVuseBDGDvWF7K4oc4
+	cK/YXHc9Lj0mqNGphK9kRczYvMpRTB03oe93CIL/GZGwFicUoUO41QaTGVSAj1wXwDInI9qIicQeH
+	8vATTCu3L/k/HvaJ+I9bBTV8EhwZ9krxKXY6jy7hNvw3PyCPuIZvdNBUwVbLkkzc8W8OuNL//oOUI
+	v0MtFMQr7GdcPOrCs5UcG+Y2ojyMOK3ODkj7+qNRqZc1yWGTGSVFdVmLcFWKYK6CDdKyziYLtG2Fd
+	zDqlEE1jEkaKGiyNL71A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzmIG-00ENQ2-0m;
-	Thu, 18 May 2023 22:40:20 +0000
+	id 1pzmI4-00ENMM-0h;
+	Thu, 18 May 2023 22:40:08 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzmID-00ENOp-0o
+	id 1pzmI0-00ENLO-0b
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 22:40:18 +0000
+	Thu, 18 May 2023 22:40:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CE07165185;
-	Thu, 18 May 2023 22:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1714CC433EF;
-	Thu, 18 May 2023 22:40:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C6F7B65290;
+	Thu, 18 May 2023 22:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEF2C433D2;
+	Thu, 18 May 2023 22:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684449616;
-	bh=afQWXoYzF0WLcz51iGYlm7MBMrlTXwcNtm5mF8iSKdk=;
+	s=k20201202; t=1684449603;
+	bh=0iyL9k1Jaj64q4oxVb6SvqoQrp+wDnfG/2eO7QyZsgU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qbRjT6EP3VRVcA8+Fq46EVTaTNMVgM7Y3QvCOguDQw7akUAkMEdenp49JdH46D4p2
-	 t7f1szYRrZEZcnJrk/mDBq13STJY+Ib663VhLnmn4HhnqHXDs9CQrd1CajK0abRfPu
-	 qFfYW5v3njZHalRM5bi5ZKbVPfBjbrpsXqX5dXVSwdI18tLisVXBiT+0ipgsQfn71L
-	 C7ukOJtOKt97HeHXxfRcb+5miDzpWlNN1dHVHlcaVf6GXy4/lfyUZ39LtW/uHgsYOS
-	 zNEv1Aegar3g7wI78YDZDQ211D6lGAM16JHlsf2trZAhARsODAFKdYZsYvnxNOYxkD
-	 kjn/N6hOknmCA==
+	b=orfkk0dIDs0uERDJ62xbr2p1Pks35ZbpWpfqb2RMnxs2lSeqTYO6DOdWxnJhcq6HW
+	 f2UHqN1EGUfz4pXXjVX1ksqKyKUS27qJ5Si5LUG15IdA2W6OQPEVEzWm/Pl/vWvTmA
+	 7JPP7Fm+938J1ddpX9Y7MWkNWFBeKICZkxkKU4TLxotii9dHrGQDvA0HZ7L9LkYCOe
+	 JyvnGYYdHIsiy2a+MJQjSL21bVjnOzH4TC/mGA5aSNMUceI9KD3NI7QvBw+2steXcD
+	 dLH7wA/oEAwNggef6MVjV4j91ahlSlYaRWyevbqS3qDAHKp7YFM2oeo+NAWY3pFfRb
+	 NT5fzpqjCTRCQ==
 From: Conor Dooley <conor@kernel.org>
 To: palmer@dabbelt.com
-Subject: [PATCH v2 6/8] RISC-V: remove decrement/increment dance in ISA string parser
-Date: Thu, 18 May 2023 23:39:07 +0100
-Message-Id: <20230518-growl-nickname-f219c1cd04fa@spud>
+Subject: [PATCH v2 1/8] RISC-V: simplify register width check in ISA string parsing
+Date: Thu, 18 May 2023 23:39:02 +0100
+Message-Id: <20230518-resale-slashing-b84875213dc6@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230518-moneybags-rebalance-1484db493d6a@spud>
 References: <20230518-moneybags-rebalance-1484db493d6a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2940; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=EF/KeXcxvaaRALk3X1FMydI7oloFd9xS5158gUY26IE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClpKzkOKbOrfhPyr17hfFvte+672O3R8oKCm1767jE/O mPfNrZlHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIljEjw0Gn/H7Vg/LW/Hsf K2kLWLxZ/Gd3rGzSzIBDLlXipzbwljD8U/8idOmrymTtuuUssZdrS5zf8QtO3akYE18bmB1puG4 /AwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1695; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Aq4T7VznL+Hvu6R8rvm8DMqHfewRhohUdvadLXgTZkI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClpK9nzj3nY7C1eue77v6tXvRbpWN2a/Xf240tsDa+FR A1nZ8c5dJSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiG1kY/inJ9VxKXVcalBar cTRF68W0V1stn0tIM/1d/OZ+heN6NiOG/yW2nRcqn3Dy3Ff9LeN3U1baSu2vrtZkmxcqZ7eUvol 6xggA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_154017_360587_5059A241 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20230518_154004_260851_827AC756 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +77,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-While expanding on the comments in the ISA string parsing code, I
-noticed that the conditional decrement of `isa` at the end of the loop
-was a bit odd.
-The parsing code expects that at the start of the for loop, `isa` will
-point to the first character of the next unparsed extension.
-However, depending on what the next extension is, this may not be true.
-Unless the next extension is a multi-letter extension preceded by an
-underscore, `isa` will either point to the string's null-terminator or
-to the first character of the next extension, once the switch statement
-has been evaluated.
-Obviously incrementing `isa` at the end of the loop could cause it to
-increment past the null terminator or miss a single letter extension, so
-`isa` is conditionally decremented, just so that the loop can increment
-it again.
+Saving off the `isa` pointer to a temp variable, followed by checking if
+it has been incremented is a bit of an odd pattern. Perhaps it was done
+to avoid a funky looking if statement mixed with the ifdeffery.
 
-It's easier to understand the code if, instead of this decrement +
-increment dance, we instead use a while loop & rely on the handling of
-individual extension types to leave `isa` pointing to the first
-character of the next extension.
-As already mentioned, this won't be the case where the following
-extension is multi-letter & preceded by an underscore. To handle that,
-invert the check and increment rather than decrement.
-Hopefully this eliminates a "huh?!?" moment the next time somebody tries
-to understand this code.
+Now that we use IS_ENABLED() here just return from the parser as soon as
+we detect a mismatch between the string and the currently running
+kernel.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/kernel/cpufeature.c | 14 ++++++--------
- 1 file changed, 6 insertions(+), 8 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index cc5189c7c64e..bbf3cd203fad 100644
+index cb32658180da..00df7a3a3931 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -139,7 +139,7 @@ void __init riscv_fill_hwcap(void)
- 		isa += 4;
+@@ -115,7 +115,6 @@ void __init riscv_fill_hwcap(void)
+ 	for_each_of_cpu_node(node) {
+ 		unsigned long this_hwcap = 0;
+ 		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
+-		const char *temp;
  
+ 		rc = riscv_of_processor_hartid(node, &hartid);
+ 		if (rc < 0)
+@@ -126,14 +125,14 @@ void __init riscv_fill_hwcap(void)
+ 			continue;
+ 		}
+ 
+-		temp = isa;
+-		if (IS_ENABLED(CONFIG_32BIT) && !strncasecmp(isa, "rv32", 4))
+-			isa += 4;
+-		else if (IS_ENABLED(CONFIG_64BIT) && !strncasecmp(isa, "rv64", 4))
+-			isa += 4;
+-		/* The riscv,isa DT property must start with rv64 or rv32 */
+-		if (temp == isa)
++		if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32", 4))
+ 			continue;
++
++		if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64", 4))
++			continue;
++
++		isa += 4;
++
  		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
--		for (; *isa; ++isa) {
-+		while (*isa) {
+ 		for (; *isa; ++isa) {
  			const char *ext = isa++;
- 			const char *ext_end = isa;
- 			bool ext_long = false, ext_err = false;
-@@ -252,14 +252,12 @@ void __init riscv_fill_hwcap(void)
- 
- 			/*
- 			 * The parser expects that at the start of an iteration isa points to the
--			 * character before the start of the next extension. This will not be the
--			 * case if we have just parsed a single-letter extension and the next
--			 * extension is not a multi-letter extension prefixed with an "_". It is
--			 * also not the case at the end of the string, where it will point to the
--			 * terminating null character.
-+			 * first character of the next extension. As we stop parsing an extension
-+			 * on meeting a non-alphanumeric character, an extra increment is needed
-+			 * where the succeeding extension is a multi-letter prefixed with an "_".
- 			 */
--			if (*isa != '_')
--				--isa;
-+			if (*isa == '_')
-+				++isa;
- 
- #define SET_ISA_EXT_MAP(name, bit)							\
- 			do {								\
 -- 
 2.39.2
 
