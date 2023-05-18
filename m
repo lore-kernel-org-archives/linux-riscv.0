@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870BBC77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 17:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30BAC7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 17:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQeZ+JjbQSFEcCpC2bcT7vWYj/aWM5QIArijS5ZO9gs=; b=hms/iXnptYTaz/sGfohLOS4Qjt
-	C3XZP7RmBvPJjJFQ5hB7uibQsECL07sJ+R1MJrp+jloDmNqgm8RE1eJHWBLl05ECw0b8Pu2AEDxgz
-	d27SpUaBtK3KvQJap0doRRmAHvT83Z7zHpJw543hDGF6T+zMlYGvZERU8KRin3FU1U2Cbc9nlaJ30
-	trYA2Co/gdz82+Jxez2Q6nX5C0GhdkNbVHcuBbzbvQh6kBhA/E1MtU5DiqaOMWmtE537zTguH/NCM
-	4D81eBW53U+iJwDdciO5KGzlbPD/J3EMR6Cr+MTgsYaZHnDVc75NJ22UGiQDNU9TFo4SqVvP+Ym2s
-	LV3Ar/8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gef1TLl0WxblO+7q5RpEOb/dbA2JXMNCc5o6TtHVNL0=; b=s0Ekpnc/KGYRR1
+	ZxPcQNrDEetGIvUo7fcQgwuXtl3+80Qh17X9l2uT+IBUZyvluCS877yVx4Ebi8ubhPTm2GFvf4upf
+	WeE8sNiM2KpDt2w6YKtEhJ8Xg1AapAHLPvYrJEQddEcisP/c+gEylg+MSczTp9xQJ8AQ7ZnSRrvkP
+	iEQn/wcU6jwvQlpkwSmeInGRxHCi7plc24WJxwed9vDAwj5o+FfKYyKP9NtNlnw6upuHLRycmWyKf
+	U2l0TKdvMgSI8vOfPHAoVR+GeNwz6KsMqlXV0fTE4bs7nky0DRfLz/qEW8ws2Vvh0+vphOGvs0BTM
+	yOZxLJm7dtEw6bBfJurw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzhj8-00DiCY-0o;
-	Thu, 18 May 2023 17:47:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzhjk-00DiLx-1k;
+	Thu, 18 May 2023 17:48:24 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzhj4-00DiAi-26;
-	Thu, 18 May 2023 17:47:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 05DC36516A;
-	Thu, 18 May 2023 17:47:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320B3C433EF;
-	Thu, 18 May 2023 17:47:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684432061;
-	bh=USjwvx+K9igUSpQ4sS7LlyJXHC3ABEpSlAR4iN8rmMQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AotWzmcqKomLPCgLrJlJ0tI49tPiaVnSHeIJe5+CaNXdW1+ykdhyW3sARApMc88uC
-	 s7CcqkidDKMLb0Jx2HRIS/Vr9/RnI1m1jev4G1PKHLQZHnG2hQaVWZ62KqbKqjX9BR
-	 f+o5Ars5P17nDwTO8eEKHyfm/u84NQ+BQiHe9E/Of9X0Ptoy3y2ndbVhIEhikr/1FZ
-	 twcEV3PGC3cIk1teeyNuW2XHycCeBWqEj1JJq+m/vd2HRKZ+vRuf1y1a7Y8Q6qF5Ey
-	 AVT/Io/XbzsEB2MzEHX0SiRH+4BEuA7ljRKutDyIpfW4YZpHys5qsDTR+YgKEYDkvc
-	 3ZXkjlwKc9ygw==
-Date: Thu, 18 May 2023 18:47:34 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	anup@brainfault.org, atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	vineetg@rivosinc.com, greentime.hu@sifive.com,
-	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	id 1pzhjh-00DiKg-18
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 May 2023 17:48:23 +0000
+X-QQ-mid: bizesmtp91t1684432062t3f7up07
+Received: from linux-lab-host.localdomain ( [119.123.131.162])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 19 May 2023 01:47:40 +0800 (CST)
+X-QQ-SSF: 01200000000000C0V000000A0000000
+X-QQ-FEAT: XpydsqguK0W8J3BwefvbSRz2HTakJtlvWI9QQUAP/PMwKNhPSD/Yq17ZjHvnY
+	ffYqfD8BFuM5h3iKmX5fKkortM0uXw1IfyTmy48kIGQ6Sww2HRw/3NAl1idHpEqTOcnn8GD
+	s2qkntz1CRAlyQFhYxufqinmNSEuF2Yt2XZ/1qIXU7XVAB3fP6XNyMcoCBMSN/bSAu2LLVM
+	bOu7DIon9FdPtQYB4psnhsdTwSAypN5vHwgOxIjiC7a6wXXxu9euD8Ms6iVQJ+FwedgbUWA
+	9Nx0angx31WEDjQDjHvImuyun4G8mc9y5zEkWtLJt/eDpde8TKJimoAILTsuvvoUripq8UE
+	hwjhfRUWIgDvJcJgVV6KbpWM5IXlAsXm1xU+6tMMcaO3VCOa3Zu74zHSEVKMw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9383674391080887119
+From: Zhangjin Wu <falcon@tinylab.org>
+To: Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Liao Chang <liaochang1@huawei.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Vincent Chen <vincent.chen@sifive.com>, Guo Ren <guoren@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Mattias Nissler <mnissler@rivosinc.com>
-Subject: Re: [PATCH -next v20 11/26] riscv: Allocate user's vector context in
- the first-use trap
-Message-ID: <20230518-external-sixteen-f2d2ae444547@spud>
-References: <20230518161949.11203-1-andy.chiu@sifive.com>
- <20230518161949.11203-12-andy.chiu@sifive.com>
+	linux-riscv@lists.infradead.org,
+	Zhangjin Wu <falcon@tinylab.org>
+Subject: [RFC PATCH 0/1] riscv: Allow disable vdso support
+Date: Fri, 19 May 2023 01:47:39 +0800
+Message-Id: <cover.1684430522.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20230518161949.11203-12-andy.chiu@sifive.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_104742_774723_9B137C71 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20230518_104821_685321_9BC1F286 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,89 +72,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3854384131610579242=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is part of my tinylinux work for RISC-V, see related patchsets:
 
---===============3854384131610579242==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JqzHJXxaEWN8S6RA"
-Content-Disposition: inline
+* RISC-V: Enable dead code elimination, v3 [1]
+* tools/nolibc: riscv: Fix up compile error for rv32, v1 [2]
+* Add dead syscalls elimination support, RFC [3]
 
+This patch allows to remove the whole vdso support out of the kernel
+binary and shrink 4KB for compat vdso and shrink another 8KB for vdso.
 
---JqzHJXxaEWN8S6RA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Unfortunately, just found there is a big vdso framework change from the
+just sent-out RFC patchset from Guoren:
 
-On Thu, May 18, 2023 at 04:19:34PM +0000, Andy Chiu wrote:
-> Vector unit is disabled by default for all user processes. Thus, a
-> process will take a trap (illegal instruction) into kernel at the first
-> time when it uses Vector. Only after then, the kernel allocates V
-> context and starts take care of the context for that user process.
->=20
-> Suggested-by: Richard Henderson <richard.henderson@linaro.org>
-> Link: https://lore.kernel.org/r/3923eeee-e4dc-0911-40bf-84c34aee962d@lina=
-ro.org
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
-> Hey Heiko and Conor, I am dropping you guys' A-b, T-b, and R-b because I
-> added a check in riscv_v_first_use_handler().
+    * riscv: s64ilp32: Running 32-bit Linux kernel on 64-bit supervisor mode [4]
 
-> +bool riscv_v_first_use_handler(struct pt_regs *regs)
-> +{
-> +	u32 __user *epc =3D (u32 __user *)regs->epc;
-> +	u32 insn =3D (u32)regs->badaddr;
-> +
-> +	/* Do not handle if V is not supported, or disabled */
-> +	if (!has_vector() || !(elf_hwcap & COMPAT_HWCAP_ISA_V))
-> +		return false;
+That patchset unifies vdso32 & compat_vdso into vdso/Makefile, so, it is
+possible to rebase our work on that patchset or simply let VDSO64 and
+VDSO32 configurable in that patchset.
 
-Remind me please, in what situation is this actually even possible?
-The COMPAT_HWCAP_ISA_V flag only gets set if CONFIG_RISCV_ISA_V is
-enabled & v is in the DT.
-has_vector() is backed by different things whether alternatives are
-enabled or not. With alternatives, it depends on the bit being set in
-the riscv_isa bitmap & the Kconfig option.
-Without alternatives it is backed by __riscv_isa_extension_available()
-which only depends in the riscv_isa bitmap.
-Since the bit in the bitmap does not get cleared if CONFIG_RISCV_ISA_V
-is not set, unlike the elf_hwcap bit which does, it seems like this
-might be the condition you are trying to prevent?
+Best Regards,
+Zhangjin Wu
+---
 
-If so,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+[1]: https://lore.kernel.org/linux-riscv/20230517084134.37892-1-falcon@tinylab.org/T/#t
+[2]: https://lore.kernel.org/linux-riscv/cover.1684425792.git.falcon@tinylab.org/T/#t
+[3]: https://lore.kernel.org/linux-riscv/cover.1676594211.git.falcon@tinylab.org/
+[4]: https://lore.kernel.org/linux-riscv/mhng-24855381-7da8-4c77-bcaf-a3a53c8cb38b@palmer-ri-x1c9/T/#t
 
-Otherwise, please let me know where I have gone wrong!
+Zhangjin Wu (1):
+  riscv: add Kconfig.vdso
 
-Thanks,
-Conor.
+ arch/riscv/Kconfig                |  6 +-----
+ arch/riscv/Kconfig.vdso           | 28 ++++++++++++++++++++++++++++
+ arch/riscv/Makefile               |  8 +++++---
+ arch/riscv/include/asm/elf.h      |  6 ++++--
+ arch/riscv/include/asm/mmu.h      |  2 ++
+ arch/riscv/include/asm/vdso.h     |  8 ++++----
+ arch/riscv/kernel/Makefile        |  4 ++--
+ arch/riscv/kernel/alternative.c   |  2 +-
+ arch/riscv/kernel/compat_signal.c |  2 ++
+ arch/riscv/kernel/entry.S         |  2 +-
+ arch/riscv/kernel/signal.c        |  4 ++--
+ arch/riscv/kernel/sys_riscv.c     |  2 +-
+ arch/riscv/kernel/vdso.c          | 10 +++++-----
+ 13 files changed, 58 insertions(+), 26 deletions(-)
+ create mode 100644 arch/riscv/Kconfig.vdso
 
---JqzHJXxaEWN8S6RA
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+2.25.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGZktgAKCRB4tDGHoIJi
-0jBjAP43M+8VnOUuyPI5wMK5s570SUnfEYjrVN/aExukXNTvhgEAusFeyqLf8+Jz
-+H7+bvlRv8qn/5r5HUv8o62L8hDZlwQ=
-=klJB
------END PGP SIGNATURE-----
-
---JqzHJXxaEWN8S6RA--
-
-
---===============3854384131610579242==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3854384131610579242==--
-
