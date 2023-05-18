@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE775C77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 20:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936AEC77B7A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 20:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fcaHSjl+SphL/u3NY40vT3r+CsXjqmM39zUK54RmRN0=; b=c7BWXe1fld/z32UpNqBs/bsRD8
-	DXJtmRtOaZNBBxI+JblNSCw2qfQFsN2jc18/BMvjpArJybifF6ygGyfVoyzUFzTi3Ow/1jDhs0gwJ
-	0yl0vGe122fFnFggdmksy/ihB3dH3kcCz/MQTryepUjVYnezs2tq1Fkyua1oCeSTMEvqMJYvgIE5q
-	T6778Q+GrRysFZOqgcqwrZewAzXtZs8YG9D+8ZoTW2XpOGrFLZsTI0K9Z0YuKE/W6qk7BLd4+YmlU
-	KMgJ+Mm7lHhpfGDC4U4r1UCsTAD1NPdDA0Iz3W7bF/CMGK4/1SoY5n4s6vx9I14w8Zaq+gkX32NH3
-	meEwspwA==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yl0g7FCjm3rkEMEfrszJ2CS4MYYHITPG6+pSW6sEBOk=; b=DUKHWlEx8k7RdNRmTFT2XOeziu
+	wK857foi8YEz4UzCVVIuKfZ8qXlfNgqgox0g0Hu8W57gMyPrU8YvXwW44TI9RqmxsVxcdPVz5cfuH
+	OvdNVxYKP0LGqDzFHd/0ult3Nf+EjIvOC+PAU87w5Ht/KzHw+Tkxd1zrLCi4zQpCYBMW0A0lAyjf3
+	JdOUwBZh2UMMQPkar4ZqqWxyBVHF1cbQDif2oz50F0Q9t7qeZeglcMrdlvp6OmE+WmVvvyiZdwzIQ
+	ca9dyrpGmtGpO4CX11LsmfEX/bldKGseq2qNfyQalW0VW5EtUZ9McuHZilkXWbtcHBguyI1J/UUyR
+	ooGlWenA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzkVN-00E8k7-29;
-	Thu, 18 May 2023 20:45:45 +0000
+	id 1pzkhI-00EAja-1t;
+	Thu, 18 May 2023 20:58:04 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzjOu-00DyoC-1E
+	id 1pzkhG-00EAik-1o
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 19:35:01 +0000
+	Thu, 18 May 2023 20:58:03 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 346ED60E8D;
-	Thu, 18 May 2023 19:34:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 566DAC433D2;
-	Thu, 18 May 2023 19:34:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2B80961C3F;
+	Thu, 18 May 2023 20:58:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82181C433EF;
+	Thu, 18 May 2023 20:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684438498;
-	bh=7ujIWrAt84CAZqQbL29G5T7eA+bKtP7cAoWHbXBRRSA=;
+	s=k20201202; t=1684443480;
+	bh=gztsp3fF7F7lE0Gq7hFjQZFysPQRZ4MJDfLKBKu76S8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KMQutcyQydYIMUy+S4sHDOHbFI3j3EoUAuB0fK97AryoNM3b2FTsoc0xFzqMB4OPw
-	 OhEDOzmqLZ+Rl4EHLUYB6geNVB2QAj9vaODRla6CGbujnpL9629f14msjWwjvoGbVb
-	 A9XwhsBdQmI34fbiR/TQ5SD0ZuK8F8XpTA3HPVhhVFqvkkXf1WrJhrpmukZT5U0DQe
-	 w5V9rY6TAvkqOjpUDupOXGC74qLFnUm6zrnlPnH44eHFegwsZyflWQkJFgonXSHrrH
-	 Jlro1LIyXFu60QWNyci6+URTT4xuHAkmO4AJFk8wvkn9ty0rgTuyT24aCNGHtnjw1U
-	 opZOZ5LleonIQ==
-Date: Thu, 18 May 2023 20:34:52 +0100
+	b=Myapdnf7TO6ObDDUVUsZTadfQ3aUQr9ByHv3ssFF9IVGAJh7jqnv/RFlm1SeFvafu
+	 b16toAhROaXkq4gOWRp0allqQT00zQ7NKxfPL4S8Js98phdqY7fE5gVflhjIW/tsye
+	 QrcHPoM7Ol3XsLhjuWGsuFPjZvKpINh9nn5cOA/ydHYcXvr82Be4mOEvG0a3lAZ3vH
+	 NNQWxB+AmlErDf+I4oO+rd7KhgnVqw9EFuPG/hqkPGdaBn8C5DylXQsWPL0K0RT6P0
+	 yWKtGnLEzlbhLdpz+Txg6a/2ijktxVN20gbUwe3IEJ2IlhLN0psb+NtLF3T25QX2/e
+	 O5jXFCyaGabhA==
+Date: Thu, 18 May 2023 21:57:55 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-serial@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v4 03/10] dt-bindings: serial: add documentation for
- Bouffalolab UART Driver
-Message-ID: <20230518-wish-duplicity-a280b19d9dcf@spud>
-References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-4-jszhang@kernel.org>
+Subject: Re: [PATCH v2 8/9] MAINTAINERS: add entry for T-HEAD RISC-V SoC
+Message-ID: <20230518-unharmed-stencil-2a18bbdd3651@spud>
+References: <20230518184541.2627-1-jszhang@kernel.org>
+ <20230518184541.2627-9-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230518152244.2178-4-jszhang@kernel.org>
+In-Reply-To: <20230518184541.2627-9-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_123500_494317_EAEE3513 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20230518_135802_638467_23FE0EDC 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,116 +67,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0194808978500894568=="
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Yangtao Li <frank.li@vivo.com>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org, Wei Fu <wefu@redhat.com>
+Content-Type: multipart/mixed; boundary="===============5583150533603678054=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0194808978500894568==
+--===============5583150533603678054==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="rVUuxQlCNvY2DQNY"
+	protocol="application/pgp-signature"; boundary="wXJR5fk22KSm3hPO"
 Content-Disposition: inline
 
 
---rVUuxQlCNvY2DQNY
+--wXJR5fk22KSm3hPO
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 18, 2023 at 11:22:37PM +0800, Jisheng Zhang wrote:
-> Add bindings doc for Bouffalolab UART Driver
+On Fri, May 19, 2023 at 02:45:40AM +0800, Jisheng Zhang wrote:
+> Currently, I would like to maintain the T-HEAD RISC-V SoC support.
 >=20
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-As I said previously, happy to grab the non-serial parts of the series
-once Greg (or Jiri?) pick the serial bits.
-
-Cheers,
+Thanks,
 Conor.
 
 > ---
->  .../serial/bouffalolab,bl808-uart.yaml        | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/serial/bouffalolab,=
-bl808-uart.yaml
+>  MAINTAINERS | 6 ++++++
+>  1 file changed, 6 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/serial/bouffalolab,bl808-u=
-art.yaml b/Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.=
-yaml
-> new file mode 100644
-> index 000000000000..0ef858e50efb
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/serial/bouffalolab,bl808-uart.yaml
-> @@ -0,0 +1,47 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/serial/bouffalolab,bl808-uart.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e0ad886d3163..6df20c65798a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18162,6 +18162,12 @@ F:	drivers/perf/riscv_pmu.c
+>  F:	drivers/perf/riscv_pmu_legacy.c
+>  F:	drivers/perf/riscv_pmu_sbi.c
+> =20
+> +RISC-V THEAD SoC SUPPORT
+> +M:	Jisheng Zhang <jszhang@kernel.org>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +F:	arch/riscv/boot/dts/thead/
 > +
-> +title: Bouffalolab UART Controller
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +allOf:
-> +  - $ref: serial.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: bouffalolab,bl808-uart
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    uart0: serial@30002000 {
-> +        compatible =3D "bouffalolab,bl808-uart";
-> +        reg =3D <0x30002000 0x1000>;
-> +        interrupts =3D <53 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks =3D <&xtal>;
-> +    };
-> +...
+>  RNBD BLOCK DRIVERS
+>  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+>  M:	Jack Wang <jinpu.wang@ionos.com>
 > --=20
 > 2.40.0
 >=20
 
---rVUuxQlCNvY2DQNY
+--wXJR5fk22KSm3hPO
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGZ93AAKCRB4tDGHoIJi
-0teFAP46CSNElMa0c7OcjRrJ/GQ7TOxHpbogOcpZFdwwTXKeNgEAzNPSSkAc4/dK
-dd5WbA7VZXyjq0zpoa8VCbEssGLkTQY=
-=T+6e
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGaRUgAKCRB4tDGHoIJi
+0o7QAP9iQ1BXkMIsQtr3zaOwvROUr5+2+UTjp+d2++QKI5bStgD/Xbdu1dJDE1Z6
+T1DtDEc65WjaVS7QlpnDfGrWT1HTQA8=
+=2+6X
 -----END PGP SIGNATURE-----
 
---rVUuxQlCNvY2DQNY--
+--wXJR5fk22KSm3hPO--
 
 
---===============0194808978500894568==
+--===============5583150533603678054==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -199,5 +144,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0194808978500894568==--
+--===============5583150533603678054==--
 
