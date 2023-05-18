@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2C6C77B7D
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 13:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F508C77B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 13:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ve+bwgCjXjqy8xWdqYfrdwPWwbwKoetMlj00vtPQH88=; b=bdlzTMju/G6hNM
-	0x+aCSzI4wOIvcZIqmIogMRVc3WN6IvhNoywi1qkBgaxmcvSSr7Z4ROO8jbanUo3LzanfEcfh+lw9
-	44PiSlWd1PZFMiwqDMEz/QTim0FOkFSs/ylepplO8fNuLC43KRmweRhl3aN0dAdOyH2oRl6dML5NW
-	EJXHxdBdUtqKGURqYUlwlTlhokjipTO0hXgiWga5YKcBEi4MCC4hkeNRabfiBM/siGLK1KiE6claX
-	nYfL0orsrkB6PRzwpItsJYuDYsiyxMmrXYehw+dbgtCvl3F00GSNyP/gOKLrC+ZiSA6dYZthVmuX3
-	Y1XN+12dqDKRgrArwGow==;
+	List-Owner; bh=AD9EUF4d8LdjwO/obrcf2bqeJPfsbHz366XybodxBDs=; b=vCV7Zs9DD6XmUz
+	W9chIhc/eBfycsTLFMCg4Cniptl66FYAQcGyj+xM5BZToHcxzVWTp/jywvDud9VkV+F1To6cASXHI
+	b9TRg3rnLcLfJyOX1ngtAHY7QK5w5MGLOqt1h5HDNMQ6djELbxaNmLI1ZI2jBuewl8THhhlYkGD9S
+	MTHtO5xoHdHaGneJkArvPknHlyB+kV2Ek5xwe8Gr93YHP4cgUXtdex0NXgw+0c8CXzNxSWLmD5gqo
+	6Q5KiH4wQl6wvu4zq/Eu2SNJ1ATH/q22JbVSnnm4TbP3cKro+0c7rC3sZBgEm5Y8tJ9gRVaDHudWg
+	qPrPFOho3JFQt9BJmSgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzdSy-00D3TZ-2E;
-	Thu, 18 May 2023 13:14:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzdT9-00D3YP-1j;
+	Thu, 18 May 2023 13:14:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzdSw-00D3SA-1O
+	id 1pzdT7-00D3Wi-1U
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 13:14:47 +0000
+	Thu, 18 May 2023 13:14:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F117564F3A;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0BD7264F44;
+	Thu, 18 May 2023 13:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67B72C4339C;
 	Thu, 18 May 2023 13:14:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDFA6C433D2;
-	Thu, 18 May 2023 13:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684415685;
-	bh=Se41gQju7esb4eo2kifFLRU4bWbFiAHi/+vBMhWFQy0=;
+	s=k20201202; t=1684415696;
+	bh=lQTH6fQXqgDOV13+OOf/m8+ReoWieEMsKkpHvX1KsBk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MH7FFdjhv5/hwrAsCy6lfMY4l1Pv83IQ3w11GbxsYD7Ik2s+QS8pDGhZ6tyd1KEsU
-	 Xz3FO+/ymMs95ohrSpWHUn5SoUBC0hv0Ej83cPs/kmPU8agDD15hAISzoxm/ffXp1V
-	 YtuRbt1TUwzUk559iBRqmIcU/wY+KE9jBmTfAGtMndWJkwkk6ezO3f5D5tOpxWX/Jz
-	 P4YM2DZn0pWXFKnp9QoA7XZFX4UMltBJgdhSQS+ROAXz4qwryh9z2lwmEqbyuTORNB
-	 Peuj6Bg8E/egQtYpwH90ipyySQSrTPJfYH/PsolmL2DeIRbeQA/K+AATERyx9p+/97
-	 u687mEIT/evLQ==
+	b=U6EWjbahGfHXvROjB2vQAPwqJYGK9YXMzzTxQLwkq71y9CcePnOM9o0N6RgIJxBAA
+	 iTUw77TFtCy266dawOWVsx7sYBg81q/acOunzlByttuu/7hUXMU6bAdWUJ7eOvEQgU
+	 3It9oF8OK6aVWRyoLzt3nCb15zQ4TaRdM2/T7/NKOFw0Jcs8EDOLPfiSuZYUmrZnzE
+	 fbsFQvX+QYCwyd2VkmID9Zbj0EnVj2cHi1nzb1M6HAeGrGFDVk/Au69twErCk4x7+s
+	 JeniPBb8OhNwQRv4lKBbLI+UqzRKL20bsZWqfA8S6smJl087/UeJQBxf7ivFSyJJGH
+	 lfg8CnyC2mhlA==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -83,16 +83,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH 21/22] riscv: s64ilp32: Correct the rv64ilp32 stackframe layout
-Date: Thu, 18 May 2023 09:10:12 -0400
-Message-Id: <20230518131013.3366406-22-guoren@kernel.org>
+Subject: [RFC PATCH 22/22] riscv: s64ilp32: Temporary workaround solution to gcc problem
+Date: Thu, 18 May 2023 09:10:13 -0400
+Message-Id: <20230518131013.3366406-23-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230518131013.3366406-1-guoren@kernel.org>
 References: <20230518131013.3366406-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_061446_552682_DD566C1A 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20230518_061457_537199_291679A6 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,67 +111,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The callee saved fp & ra are xlen size, not long size. This patch
-corrects the layout for the struct stackframe.
+There is an existing problem in 64ilp32 gcc that combines two pointers
+in one register. Liao is solving that problem. Before he finishes the
+job, we could prevent it with a simple noinline attribute, fortunately.
 
-echo c > /proc/sysrq-trigger
+struct path {
+	struct vfsmount *mnt;
+	struct dentry *dentry;
+} __randomize_layout;
 
-Before the patch:
+struct nameidata {
+        struct path     path;
+        struct qstr     last;
+        struct path     root;
+...
+} __randomize_layout;
 
-sysrq: Trigger a crash
-Kernel panic - not syncing: sysrq triggered crash
-CPU: 0 PID: 102 Comm: sh Not tainted 6.3.0-rc1-00084-g9e2ba938797e-dirty #2
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
----[ end Kernel panic - not syncing: sysrq triggered crash ]---
+	struct nameidata *nd
+	...
+	nd->path = nd->root;
+6c88                	ld	a0,24(s1)
+				^^ // Wrong arg of mntget
+e088                	sd	a0,0(s1)
+	// Need inserting "lw a0,0(s1)" here
+	mntget(path->mnt);
+2a6150ef          	jal	c01ce946 <mntget>
 
-After the patch:
-
-sysrq: Trigger a crash
-Kernel panic - not syncing: sysrq triggered crash
-CPU: 0 PID: 102 Comm: sh Not tainted 6.3.0-rc1-00084-g9e2ba938797e-dirty #1
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-[<c00050c8>] dump_backtrace+0x1e/0x26
-[<c086dcae>] show_stack+0x2e/0x3c
-[<c0878e00>] dump_stack_lvl+0x40/0x5a
-[<c0878e30>] dump_stack+0x16/0x1e
-[<c086df7c>] panic+0x10c/0x2a8
-[<c04f4c1e>] sysrq_reset_seq_param_set+0x0/0x76
-[<c04f52cc>] __handle_sysrq+0x9c/0x19c
-[<c04f5946>] write_sysrq_trigger+0x64/0x78
-[<c020c7f6>] proc_reg_write+0x4a/0xa2
-[<c01acf0a>] vfs_write+0xac/0x308
-[<c01ad2b8>] ksys_write+0x62/0xda
-[<c01ad33e>] sys_write+0xe/0x16
-[<c0879860>] do_trap_ecall_u+0xd8/0xda
-[<c00037de>] ret_from_exception+0x0/0x66
----[ end Kernel panic - not syncing: sysrq triggered crash ]---
+Any gcc helps are welcome :)
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: LiaoShihua <shihua@iscas.ac.cn>
 ---
- arch/riscv/include/asm/stacktrace.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ fs/namei.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-index f7e8ef2418b9..cea8aafbecca 100644
---- a/arch/riscv/include/asm/stacktrace.h
-+++ b/arch/riscv/include/asm/stacktrace.h
-@@ -8,7 +8,13 @@
- 
- struct stackframe {
- 	unsigned long fp;
-+#ifdef CONFIG_ARCH_RV64ILP32
-+	unsigned long pad1;
-+#endif
- 	unsigned long ra;
-+#ifdef CONFIG_ARCH_RV64ILP32
-+	unsigned long pad2;
-+#endif
- };
- 
- extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+diff --git a/fs/namei.c b/fs/namei.c
+index edfedfbccaef..22a2ef77e074 100644
+--- a/fs/namei.c
++++ b/fs/namei.c
+@@ -541,7 +541,7 @@ EXPORT_SYMBOL(inode_permission);
+  *
+  * Given a path increment the reference count to the dentry and the vfsmount.
+  */
+-void path_get(const struct path *path)
++void noinline path_get(const struct path *path)
+ {
+ 	mntget(path->mnt);
+ 	dget(path->dentry);
 -- 
 2.36.1
 
