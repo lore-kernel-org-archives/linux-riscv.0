@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3032C77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 10:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB98FC77B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 10:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yUxh1VEfrESEkKuMN0EoOLlFo5+a8PdoBHgk54CNjL0=; b=e9iNSVxGHBbfmD
-	JKyKv/hAkfsM1ZprHVlfcmmzr+Rv2BuGdM/dMgrngxZROcQ+7pJi/6MSwut1/0Uh9+TtrgfbYWd0y
-	Tp+/vlz4/BrAaevMQ9Nwlm/5wmk+oUVYKugPaT9hjEhlJtUHNPMOo6gx1QyO7fcqdkZ7RqsocRHv1
-	U5bAW9iFyw0gP5ya2V7abdZmFgGqzUKByFO9T8ghHIkUBSZO+Qfhzczp4scqz34XtDBFulJMdBU5v
-	CaUXDK7RTj0vl7ZbdqR3iSkPLKtWEzvG5KrT0aGaXzUuimMFpjCiX/YbsXlPMKqPiDMTmL2mygoRP
-	0eKCVafN/CPVrTHDhzoQ==;
+	List-Owner; bh=nr7Xu/PzVmO1eBOMdEiLGX1PsKiTEINwRMLDvjt6Qqg=; b=sK14kD7bE1345F
+	GEKsTvIy40z51jxX9GD2qMLY9vIm00FKtWddHO5+7q2NRB52uKxB9Rx4r46gYjYCFJNER2fEpUTVS
+	nai3yKy/p9vPSfOeKgE052ylU2W+Ea6PN/KqOpH069q0TLqfCRxCN6qDnyx5alXFM03wQuaWHeS+0
+	D1JByW4gn2xkbK7psAx0hzx0OlTW1GUPU1N4/2uk7klwCN0183rtKS0gRq9dQAv5RO7LR/qK+waLj
+	JvPoLClU4LDrO5KaYLAs0TUKiwIv5ln//m3X2vWERJxA+4vlXZuR8vS26p97+sd8J1k6N7QFhTKgJ
+	zObg37rACAvtaty2r2Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzadT-00CXyF-0c;
-	Thu, 18 May 2023 10:13:27 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pzada-00CY3H-33;
+	Thu, 18 May 2023 10:13:34 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzadM-00CXtl-1G
+	id 1pzadX-00CXtp-1E
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 10:13:22 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Thu, 18 May 2023 10:13:32 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2BCF024E201;
-	Thu, 18 May 2023 18:12:44 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:44 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5FF6180F8;
+	Thu, 18 May 2023 18:12:43 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
+ 2023 18:12:43 +0800
 Received: from localhost.localdomain (113.72.146.100) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:43 +0800
+ 2023 18:12:42 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v6 11/11] riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
-Date: Thu, 18 May 2023 18:12:34 +0800
-Message-ID: <20230518101234.143748-12-xingyu.wu@starfivetech.com>
+Subject: [PATCH v6 10/11] riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external clocks
+Date: Thu, 18 May 2023 18:12:33 +0800
+Message-ID: <20230518101234.143748-11-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
 References: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
@@ -61,8 +61,9 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_031320_733031_EE47A8DD 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20230518_031331_569161_E9E9353C 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +80,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add STGCRG/ISPCRG/VOUTCRG new node to support JH7110
-System-Top-Group, Image-Signal-Process and Video-Output
-clock and reset drivers for the JH7110 RISC-V SoC.
+Add DVP and HDMI TX pixel external fixed clocks and the rates are
+74.25MHz and 297MHz.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 55 ++++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi   |  8 ++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi             | 12 ++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 336ee2b0ffb5..9acb5fb1716d 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -6,6 +6,7 @@
- 
- /dts-v1/;
- #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+#include <dt-bindings/power/starfive,jh7110-pmu.h>
- #include <dt-bindings/reset/starfive,jh7110-crg.h>
- 
- / {
-@@ -365,6 +366,25 @@ i2c2: i2c@10050000 {
- 			status = "disabled";
- 		};
- 
-+		stgcrg: clock-controller@10230000 {
-+			compatible = "starfive,jh7110-stgcrg";
-+			reg = <0x0 0x10230000 0x0 0x10000>;
-+			clocks = <&osc>,
-+				 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
-+				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-+				 <&syscrg JH7110_SYSCLK_USB_125M>,
-+				 <&syscrg JH7110_SYSCLK_CPU_BUS>,
-+				 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
-+				 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
-+				 <&syscrg JH7110_SYSCLK_APB_BUS>;
-+			clock-names = "osc", "hifi4_core",
-+				      "stg_axiahb", "usb_125m",
-+				      "cpu_bus", "hifi4_axi",
-+				      "nocstg_bus", "apb_bus";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
- 		uart3: serial@12000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x12000000 0x0 0x10000>;
-@@ -515,5 +535,40 @@ pwrc: power-controller@17030000 {
- 			interrupts = <111>;
- 			#power-domain-cells = <1>;
- 		};
-+
-+		ispcrg: clock-controller@19810000 {
-+			compatible = "starfive,jh7110-ispcrg";
-+			reg = <0x0 0x19810000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
-+				 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
-+				 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
-+				 <&dvp_clk>;
-+			clock-names = "isp_top_core", "isp_top_axi",
-+				      "noc_bus_isp_axi", "dvp_clk";
-+			resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
-+				 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
-+				 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			power-domains = <&pwrc JH7110_PD_ISP>;
-+		};
-+
-+		voutcrg: clock-controller@295c0000 {
-+			compatible = "starfive,jh7110-voutcrg";
-+			reg = <0x0 0x295c0000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
-+				 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
-+				 <&hdmitx0_pixelclk>;
-+			clock-names = "vout_src", "vout_top_ahb",
-+				      "vout_top_axi", "vout_top_hdmitx0_mclk",
-+				      "i2stx0_bclk", "hdmitx0_pixelclk";
-+			resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			power-domains = <&pwrc JH7110_PD_VOUT>;
-+		};
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index 2a6d81609284..1155b97b593d 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -38,6 +38,10 @@ gpio-restart {
  	};
  };
+ 
++&dvp_clk {
++	clock-frequency = <74250000>;
++};
++
+ &gmac0_rgmii_rxin {
+ 	clock-frequency = <125000000>;
+ };
+@@ -54,6 +58,10 @@ &gmac1_rmii_refin {
+ 	clock-frequency = <50000000>;
+ };
+ 
++&hdmitx0_pixelclk {
++	clock-frequency = <297000000>;
++};
++
+ &i2srx_bclk_ext {
+ 	clock-frequency = <12288000>;
+ };
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 30e1f34d5cf8..336ee2b0ffb5 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -164,6 +164,12 @@ core4 {
+ 		};
+ 	};
+ 
++	dvp_clk: dvp-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "dvp_clk";
++		#clock-cells = <0>;
++	};
++
+ 	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "gmac0_rgmii_rxin";
+@@ -188,6 +194,12 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
+ 		#clock-cells = <0>;
+ 	};
+ 
++	hdmitx0_pixelclk: hdmitx0-pixel-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "hdmitx0_pixelclk";
++		#clock-cells = <0>;
++	};
++
+ 	i2srx_bclk_ext: i2srx-bclk-ext-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "i2srx_bclk_ext";
 -- 
 2.25.1
 
