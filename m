@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CE2C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 May 2023 21:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB36C77B7A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 00:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5wOnHHaOwdqHHMGsV5W0s/gMzcG1wwKkJHq3YddLVMo=; b=3/m7zSHIeMrHFi
-	Mp7mzDbiXTmOqe4cP7zN7Us46JPq2bK21Pop9vSrw9uhgteXtTetJJjuZFDg00Z+I/Uyg7U0rkny2
-	KqW8FX+WwmfSUsTidGpZhVAE5SXamZETCH/Baus+ushOr+1A/hSP4JkBXq5jEAL56R/1WHmT4AJIO
-	WXy2Z4368WFFGdk9NGvHTz7fIGbEulWJnlpAJGS7dDyBElKONV9LEnDwSLFnqnduWHa31ZNWdOpq3
-	2MgauCFmKASpleNkEpZbKyd/m0cdUyeP6a2Bf4yNTneWcsk3ecA6ogmxpRHH6X2QAJc4+fxvUIeXO
-	Fq243RMGGEuweEYj9mCQ==;
+	List-Owner; bh=LzKza5h4upfn2GuYiC+9+jpNKDXkwD7tHL/iVV010WM=; b=sXySgLUUchpk9x
+	HKx/7mBFIv0XGE8lN+ROkoxFs+46OPL7h6D9rZd8YqWEh8xWJWDmMcYn3l8XrVqO2mAFx4362PrtU
+	Bqlbl2gQQZqwhyfzGSzRlJpIEN4Hp9CqfpshwPHBlrsq6qczvJCPWNlHht+RowpFnDL0q/XGAkFv0
+	TB8/GyeEQcwC8XGHnMFT1gHUTUJR50ms+NXdAeveDHjkl93ZlLldRJLbpC8lPe7W1Lq7givHdmnOH
+	2W13nx3ASVlVSrb03hkBhP+vhAo/Cful/Qt0UL0TKbrQKJ+zZBPXyuXxwgUmTKit+GplP1wn5Tl6e
+	DD5PHqYXeSnsNvpDtL2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzP2h-00B9Q5-2x;
-	Wed, 17 May 2023 21:50:43 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1pzRKP-00BSWV-23;
+	Thu, 18 May 2023 00:17:09 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzP2e-00B9Oj-25
+	id 1pzRKL-00BSV1-0p
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 May 2023 21:50:42 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-561d5b34e10so10333417b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 14:50:39 -0700 (PDT)
+	Thu, 18 May 2023 00:17:06 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-50c8d87c775so2069223a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 May 2023 17:17:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1684360239; x=1686952239;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CYrqZZXifWUb49UwqN4ktjCYYTpIiyxjiceM91X1owo=;
-        b=PPBehuovPkLBa6/NGbQAXn/eE0OjqEyROrqLX97nN6jBSNnfJoc5x6zVzWooSZlBuR
-         ygh7zMisKFOdApdpWLXdE38Ez48wbdl6bRgelI1M2q7oF1fjbdo+FT/cryTh0RkA2PgM
-         PVNv73NfYOacgZraULasH6MPisPmrZxBB5SdyINIUR+rCWC/xGGFoY/3V4eCh48ezelN
-         vlspmk4A/B3orH5IwCfSCJfMbueYznmKfST0fzCY2VeJqOWgXVBfHyrQGp7gwU4xxk/e
-         4DAXLkf7AssRwZV1LOldxmp7mNGGXTey4IiHanP7lOcu21DjwGEEnizw4Nh4dLrJMR0W
-         24RQ==
+        d=gmail.com; s=20221208; t=1684369020; x=1686961020;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Oh43Wrfv+5aBpD3zk+YIOr3pgIKi6Fm6XvjoyCfmrss=;
+        b=O2q6Qm5/BCw7eL+R4iqW2KRYtOD7PxCsAMTNdmblRTQBQ9SXxj97E+uiLaHvdw+0vH
+         IZAgUyLD9tdpA6WzvAnycAcJlidqsKRKjEyDwYPcgFRoiRvn+aGoAETE0zL7U0uecutc
+         llNmsUorv3L9LvscGZeLrSn73CHxCEwpMLc242B+rU5ye9EYoqGyqECI6UmFyVNI137l
+         BrXk4d74hq54C4WH4aTFrG6aAlMIlKYkIqfTmGGIoIU7n6R2fgdc8MiqqwfXql+JUk9B
+         mbUicBybFzH8SUZx97fcymQ4dD0Koiso43k2URk/mqAAZSJcQr2pCjX4Y8H2fcQR9saN
+         B11g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684360239; x=1686952239;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CYrqZZXifWUb49UwqN4ktjCYYTpIiyxjiceM91X1owo=;
-        b=Sg9aN2bVRfygXrdZVUoD9CIY20jZlCo44sCz/m9noDDdd6TpZ/R6nRArOwdRmxn6Zy
-         651U1XPJT5xbMLl39mVV53aF8YCrVyFxSZE8h9SEsgGbwbgnC3jGIY7CAWvkqAKesoBY
-         BUAe+F8rgPizuu1/ngfcIMpRrAPyXPw8P9KWxq4QgkfEP3AUIjLtKZcTD1MmzLVzEcBl
-         9f8H8drGoHyu9XJkVpVtTc0b+Y8JAJ07fAPX1Yjx5lPRUGxCt6aMODeGQjAuo1MHis8v
-         +McokbpnBD9sCX+uHNY1HZ/VwR0GoBfqn6gd31kxm6RLIQQJBE8tjjUg2uG4lSCHR7mw
-         jytg==
-X-Gm-Message-State: AC+VfDwG9xeNUaYcgCDjZolXFzwVq3kNnCt8S58jSWOO2iSAV+JL50Hx
-	1tjs27unU+5q3WHMIlJYuR8Dag==
-X-Google-Smtp-Source: ACHHUZ5K1W6BqH54lP1fyWtEUpWwZ0lmy+14bsbtce6I/HyB5LShp2aTZ/lznkrMNM/kuQdbHXvf0A==
-X-Received: by 2002:a81:6744:0:b0:55a:af:2486 with SMTP id b65-20020a816744000000b0055a00af2486mr2691032ywc.18.1684360239031;
-        Wed, 17 May 2023 14:50:39 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id 129-20020a251187000000b00ba6ffc7ef35sm785837ybr.65.2023.05.17.14.50.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 May 2023 14:50:38 -0700 (PDT)
-Date: Wed, 17 May 2023 14:50:28 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: Claudio Imbrenda <imbrenda@linux.ibm.com>
-cc: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-    Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
-    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Qi Zheng <zhengqi.arch@bytedance.com>, 
-    Russell King <linux@armlinux.org.uk>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
-    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
-In-Reply-To: <20230517123546.672fb9b0@p-imbrenda>
-Message-ID: <4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com> <94aec8fe-383f-892-dcbf-d4c14e460a7@google.com> <20230517123546.672fb9b0@p-imbrenda>
+        d=1e100.net; s=20221208; t=1684369020; x=1686961020;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Oh43Wrfv+5aBpD3zk+YIOr3pgIKi6Fm6XvjoyCfmrss=;
+        b=OmDRFlb7x20QBvCp2DeQvYoxFH9Tk69bZPrEvIs1ie5aikYYt+N98UCh/pNT1HKRQ7
+         ukR3icIRjJ+V23pv/2Biymn7mDfG2pfh9OHVav2z2JKrpwe0rZ79f17guEAT6BLyXdV0
+         hjMa+ZXhTO+eT5Ol6LOoQMkXmNh9yrWqLZTThd451YMdkzac2AJBMOmQAqA17TNm+waL
+         7J7DaD78Ni7J156SH7FIm3sLE1mx1O5uS+4I1N6xko4zeqTjqvYTmdAdQvMWIcpLfkIR
+         C/7WXu5/lypDhzu1G3QrCby7kinPPTgjZv9z5ShmLK0vUHpVFZCp+DjxH1HAgy4NnC1e
+         Xqww==
+X-Gm-Message-State: AC+VfDwNtRcVDZqfie0SAt4oyhNLUqf2/Wtuu0MdLintiy7e/1jO/sTy
+	j9kV4xWrxe9xs0HG4m68grrrivgBQSsDfQxnKaU=
+X-Google-Smtp-Source: ACHHUZ4tffbvWb2kOWbRDAM1NZzsqQL8R1kGzCDWJgVZSv6SDwKWRnc526sFoNefgRlhM2mGaZLNKOiitqvHwbCzGkc=
+X-Received: by 2002:a17:907:7250:b0:966:b4b:eb0 with SMTP id
+ ds16-20020a170907725000b009660b4b0eb0mr42160555ejc.30.1684369019531; Wed, 17
+ May 2023 17:16:59 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230517034510.15639-1-zegao@tencent.com> <20230517034510.15639-3-zegao@tencent.com>
+ <20230517232751.09126a6cec8786a954e54bcf@kernel.org>
+In-Reply-To: <20230517232751.09126a6cec8786a954e54bcf@kernel.org>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 17 May 2023 17:16:47 -0700
+Message-ID: <CAEf4BzbxRXGR8uL=gkU9A=bER-zUbYSKgBhPLju1JZBUn9LrvQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] fprobe: make fprobe_kprobe_handler recursion free
+To: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Ze Gao <zegao2021@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vasily Gorbik <gor@linux.ibm.com>, x86@kernel.org, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	Conor Dooley <conor@kernel.org>, Jiri Olsa <jolsa@kernel.org>, Yonghong Song <yhs@fb.com>, 
+	Ze Gao <zegao@tencent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230517_145040_690648_317C2489 
-X-CRM114-Status: GOOD (  38.23  )
+X-CRM114-CacheID: sfid-20230517_171705_321462_2B6594C0 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,148 +94,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 May 2023, Claudio Imbrenda wrote:
-> On Tue, 9 May 2023 22:01:16 -0700 (PDT)
-> Hugh Dickins <hughd@google.com> wrote:
-> 
-> > In rare transient cases, not yet made possible, pte_offset_map() and
-> > pte_offset_map_lock() may not find a page table: handle appropriately.
-> > 
-> > Signed-off-by: Hugh Dickins <hughd@google.com>
-> > ---
-> >  arch/s390/kernel/uv.c  |  2 ++
-> >  arch/s390/mm/gmap.c    |  2 ++
-> >  arch/s390/mm/pgtable.c | 12 +++++++++---
-> >  3 files changed, 13 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
-> > index cb2ee06df286..3c62d1b218b1 100644
-> > --- a/arch/s390/kernel/uv.c
-> > +++ b/arch/s390/kernel/uv.c
-> > @@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
-> >  
-> >  	rc = -ENXIO;
-> >  	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
-> > +	if (!ptep)
-> > +		goto out;
-
-You may or may not be asking about this instance too.  When I looked at
-how the code lower down handles -ENXIO (promoting it to -EFAULT if an
-access fails, or to -EAGAIN to ask for a retry), this looked just right
-(whereas using -EAGAIN here would be wrong: that expects a "page" which
-has not been initialized at this point).
-
-> >  	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
-> >  		page = pte_page(*ptep);
-> >  		rc = -EAGAIN;
-> > diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
-> > index dc90d1eb0d55..d198fc9475a2 100644
-> > --- a/arch/s390/mm/gmap.c
-> > +++ b/arch/s390/mm/gmap.c
-> > @@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
-> >  		spinlock_t *ptl;
-> >  
-> >  		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
-> > +		if (!ptep)
-> > +			break;
-> 
-> so if pte_offset_map_lock fails, we abort and skip both the failed
-> entry and the rest of the entries?
-
-Yes.
-
-> 
-> can pte_offset_map_lock be retried immediately if it fails? (consider
-> that we currently don't allow THP with KVM guests)
-> 
-> Would something like this:
-> 
-> do {
-> 	ptep = pte_offset_map_lock(...);
-> 	mb();	/* maybe? */
-> } while (!ptep);
-> 
-> make sense?
-
-No.  But you're absolutely right to be asking: thank you for looking
-into it so carefully - and I realize that it's hard at this stage to
-judge what's appropriate, when I've not yet even posted the endpoint
-of these changes, the patches which make it possible not to find a
-page table here.  And I'm intentionally keeping that vague, because
-although I shall only introduce a THP case, I do expect it to be built
-upon later in reclaiming empty page tables: it would be nice not to
-have to change the arch code again when extending further.
-
-My "rare transient cases" phrase may be somewhat misleading: one thing
-that's wrong with your tight pte_offset_map_lock() loop above is that
-the pmd entry pointing to page table may have been suddenly replaced by
-a pmd_none() entry; and there's nothing in your loop above to break out
-if that is so.
-
-But if a page table is suddenly removed, that would be because it was
-either empty, or replaced by a THP entry, or easily reconstructable on
-demand (by that, I probably mean it was only mapping shared file pages,
-which can just be refaulted if needed again).
-
-The case you're wary of, is if the page table were removed briefly,
-then put back shortly after: and still contains zero pages further down.
-That's not something mm does now, nor at the end of my several series,
-nor that I imagine us wanting to do in future: but I am struggling to
-find a killer argument to persuade you that it could never be done -
-most pages in a page table do need rmap tracking, which will BUG if
-it's broken, but that argument happens not to apply to the zero page.
-
-(Hmm, there could be somewhere, where we would find it convenient to
-remove a page table with intent to do ...something, then validation
-of that isolated page table fails, so we just put it back again.)
-
-Is it good enough for me to promise you that we won't do that?
-
-There are several ways in which we could change __zap_zero_pages(),
-but I don't see them as actually dealing with the concern at hand.
-
-One change, I've tended to make at the mm end but did not dare
-to interfere here: it would seem more sensible to do a single
-pte_offset_map_lock() outside the loop, return if that fails,
-increment ptep inside the loop, pte_unmap_unlock() after the loop.
-
-But perhaps you have preemption reasons for not wanting that; and
-although it would eliminate the oddity of half-processing a page
-table, it would not really resolve the problem at hand: because,
-what if this page table got removed just before __zap_zero_pages()
-tries to take the lock, then got put back just after?
-
-Another change: I see __zap_zero_pages() is driven by walk_page_range(),
-and over at the mm end I'm usually setting walk->action to ACTION_AGAIN
-in these failure cases; but thought that an unnecessary piece of magic
-here, and cannot see how it could actually help.  Your "retry the whole
-walk_page_range()" suggestion below would be a heavier equivalent of
-that: but neither way gives confidence, if a page table could actually
-be removed then reinserted without mmap_write_lock().
-
-I think I want to keep this s390 __zap_zero_pages() issue in mind, it is
-important and thank you for raising it; but don't see any change to the
-patch as actually needed.
-
-Hugh
-
-> 
-> 
-> otherwise maybe it's better to return an error and retry the whole
-> walk_page_range() in s390_enable_sie() ? it's a slow path anyway.
-> 
-> >  		if (is_zero_pfn(pte_pfn(*ptep)))
-> >  			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
-> >  		pte_unmap_unlock(ptep, ptl);
-> 
-> [...]
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXkgMTcsIDIwMjMgYXQgNzoyOOKAr0FNIE1hc2FtaSBIaXJhbWF0c3UgPG1oaXJh
+bWF0QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCAxNyBNYXkgMjAyMyAxMTo0NTowNyAr
+MDgwMAo+IFplIEdhbyA8emVnYW8yMDIxQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiA+IEN1cnJlbnQg
+aW1wbGVtZW50YXRpb24gY2FsbHMga3Byb2JlIHJlbGF0ZWQgZnVuY3Rpb25zIGJlZm9yZSBkb2lu
+Zwo+ID4gZnRyYWNlIHJlY3Vyc2lvbiBjaGVjayBpbiBmcHJvYmVfa3Byb2JlX2hhbmRsZXIsIHdo
+aWNoIG9wZW5zIGRvb3IKPiA+IHRvIGtlcm5lbCBjcmFzaCBkdWUgdG8gc3RhY2sgcmVjdXJzaW9u
+IGlmIHByZWVtcHRfY291bnRfe2FkZCwgc3VifQo+ID4gaXMgdHJhY2VhYmxlIGluIGtwcm9iZV9i
+dXN5X3tiZWdpbiwgZW5kfS4KPiA+Cj4gPiBUaGluZ3MgZ29lcyBsaWtlIHRoaXMgd2l0aG91dCB0
+aGlzIHBhdGNoIHF1b3RlZCBmcm9tIFN0ZXZlbjoKPiA+ICIKPiA+IGZwcm9iZV9rcHJvYmVfaGFu
+ZGxlcigpIHsKPiA+ICAgIGtwcm9iZV9idXN5X2JlZ2luKCkgewo+ID4gICAgICAgcHJlZW1wdF9k
+aXNhYmxlKCkgewo+ID4gICAgICAgICAgcHJlZW1wdF9jb3VudF9hZGQoKSB7ICA8LS0gdHJhY2UK
+PiA+ICAgICAgICAgICAgIGZwcm9iZV9rcHJvYmVfaGFuZGxlcigpIHsKPiA+ICAgICAgICAgICAg
+ICAgWyB3YXNoLCByaW5zZSwgcmVwZWF0LCBDUkFTSCEhISBdCj4gPiAiCj4gPgo+ID4gQnkgcmVm
+YWN0b3JpbmcgdGhlIGNvbW1vbiBwYXJ0IG91dCBvZiBmcHJvYmVfa3Byb2JlX2hhbmRsZXIgYW5k
+Cj4gPiBmcHJvYmVfaGFuZGxlciBhbmQgY2FsbCBmdHJhY2UgcmVjdXJzaW9uIGRldGVjdGlvbiBh
+dCB0aGUgdmVyeSBiZWdpbm5pbmcsCj4gPiB0aGUgd2hvbGUgZnByb2JlX2twcm9iZV9oYW5kbGVy
+IGlzIGZyZWUgZnJvbSByZWN1cnNpb24uCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWmUgR2FvIDx6
+ZWdhb0B0ZW5jZW50LmNvbT4KPiA+IEFja2VkLWJ5OiBNYXNhbWkgSGlyYW1hdHN1IChHb29nbGUp
+IDxtaGlyYW1hdEBrZXJuZWwub3JnPgo+ID4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+bGludXgtdHJhY2Uta2VybmVsLzIwMjMwNTE2MDcxODMwLjgxOTAtMy16ZWdhb0B0ZW5jZW50LmNv
+bQo+ID4gLS0tCj4gPiAga2VybmVsL3RyYWNlL2Zwcm9iZS5jIHwgNTkgKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKystLS0tLS0tLS0tLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA0NCBpbnNl
+cnRpb25zKCspLCAxNSBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEva2VybmVsL3Ry
+YWNlL2Zwcm9iZS5jIGIva2VybmVsL3RyYWNlL2Zwcm9iZS5jCj4gPiBpbmRleCA5YWJiMzkwNWJj
+OGUuLjA5N2M3NDA3OTliYSAxMDA2NDQKPiA+IC0tLSBhL2tlcm5lbC90cmFjZS9mcHJvYmUuYwo+
+ID4gKysrIGIva2VybmVsL3RyYWNlL2Zwcm9iZS5jCj4gPiBAQCAtMjAsMzAgKzIwLDIyIEBAIHN0
+cnVjdCBmcHJvYmVfcmV0aG9va19ub2RlIHsKPiA+ICAgICAgIGNoYXIgZGF0YVtdOwo+ID4gIH07
+Cj4gPgo+ID4gLXN0YXRpYyB2b2lkIGZwcm9iZV9oYW5kbGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVu
+c2lnbmVkIGxvbmcgcGFyZW50X2lwLAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVj
+dCBmdHJhY2Vfb3BzICpvcHMsIHN0cnVjdCBmdHJhY2VfcmVncyAqZnJlZ3MpCj4gPiArc3RhdGlj
+IGlubGluZSB2b2lkIF9fZnByb2JlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQg
+bG9uZwo+ID4gKyAgICAgICAgICAgICBwYXJlbnRfaXAsIHN0cnVjdCBmdHJhY2Vfb3BzICpvcHMs
+IHN0cnVjdCBmdHJhY2VfcmVncyAqZnJlZ3MpCj4KPiBPSywgSSBwaWNrZWQgdXAgdGhpcyBzZXJp
+ZXMgdG8gcHJvYmVzL2ZpeGVzLiBOb3RlIHRoYXQgSSBmaXhlZCB0aGlzIGxpbmUKPiBiZWNhdXNl
+IHRoZSAidW5zaWduZWQgbG9uZyBwYXJlbnRfaXAiIHdhcyBzcGxpdCBpbnRvIDIgbGluZXMuCj4K
+CkhleSBNYXNhbWksCgpSZWdhcmRpbmcgWzBdLCBJIHdhcyBiaXNlY3RpbmcgQlBGIENJIGZhaWx1
+cmVzIHJlbGF0ZWQgdG8KbXVsdGkta3Byb2JlcywgYW5kIGl0IHR1cm5lZCBvdXQgdGhhdCBbMF0g
+aXMgdGhlIGZpeCB3ZSBuZWVkLiBJdCB3b3VsZApiZSBncmVhdCBpZiB5b3UgY2FuIG1ha2Ugc3Vy
+ZSB0aGlzIGZpeCBnZXRzIGludG8gTGludXMnIHRyZWUgQVNBUCwgc28KdGhhdCB3ZSBjYW4gZ2V0
+IGl0IGJhY2sgaW50byBicGYvYnBmLW5leHQgdHJlZXMgYW5kIGZpeCBCUEYgc2VsZnRlc3RzCmZv
+ciBldmVyeW9uZSAod2UgbWl0aWdhdGVkIHRoaXMgZm9yIEJQRiBDSSBhcyBhIHRlbXBvcmFyeSB3
+b3JrYXJvdW5kCmZvciBub3cpLiBUaGFua3MhCgogIFswXSBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9hbGwvMTY4MTAwNzMxMTYwLjc5NTM0LjM3NDgyNzExMDA4MzgzNjcyMi5zdGdpdEBkZXZub3Rl
+Mi8KCgo+IFRoYW5rIHlvdSwKPgo+Cj4gPiAgewo+ID4gICAgICAgc3RydWN0IGZwcm9iZV9yZXRo
+b29rX25vZGUgKmZwcjsKPiA+ICAgICAgIHN0cnVjdCByZXRob29rX25vZGUgKnJoID0gTlVMTDsK
+PiA+ICAgICAgIHN0cnVjdCBmcHJvYmUgKmZwOwo+ID4gICAgICAgdm9pZCAqZW50cnlfZGF0YSA9
+IE5VTEw7Cj4gPiAtICAgICBpbnQgYml0LCByZXQ7Cj4gPiArICAgICBpbnQgcmV0Owo+ID4KPiA+
+ICAgICAgIGZwID0gY29udGFpbmVyX29mKG9wcywgc3RydWN0IGZwcm9iZSwgb3BzKTsKPiA+IC0g
+ICAgIGlmIChmcHJvYmVfZGlzYWJsZWQoZnApKQo+ID4gLSAgICAgICAgICAgICByZXR1cm47Cj4g
+PiAtCj4gPiAtICAgICBiaXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9jayhpcCwgcGFy
+ZW50X2lwKTsKPiA+IC0gICAgIGlmIChiaXQgPCAwKSB7Cj4gPiAtICAgICAgICAgICAgIGZwLT5u
+bWlzc2VkKys7Cj4gPiAtICAgICAgICAgICAgIHJldHVybjsKPiA+IC0gICAgIH0KPiA+Cj4gPiAg
+ICAgICBpZiAoZnAtPmV4aXRfaGFuZGxlcikgewo+ID4gICAgICAgICAgICAgICByaCA9IHJldGhv
+b2tfdHJ5X2dldChmcC0+cmV0aG9vayk7Cj4gPiAgICAgICAgICAgICAgIGlmICghcmgpIHsKPiA+
+ICAgICAgICAgICAgICAgICAgICAgICBmcC0+bm1pc3NlZCsrOwo+ID4gLSAgICAgICAgICAgICAg
+ICAgICAgIGdvdG8gb3V0Owo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJldHVybjsKPiA+ICAg
+ICAgICAgICAgICAgfQo+ID4gICAgICAgICAgICAgICBmcHIgPSBjb250YWluZXJfb2YocmgsIHN0
+cnVjdCBmcHJvYmVfcmV0aG9va19ub2RlLCBub2RlKTsKPiA+ICAgICAgICAgICAgICAgZnByLT5l
+bnRyeV9pcCA9IGlwOwo+ID4gQEAgLTYxLDIzICs1Myw2MCBAQCBzdGF0aWMgdm9pZCBmcHJvYmVf
+aGFuZGxlcih1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiA+ICAg
+ICAgICAgICAgICAgZWxzZQo+ID4gICAgICAgICAgICAgICAgICAgICAgIHJldGhvb2tfaG9vayhy
+aCwgZnRyYWNlX2dldF9yZWdzKGZyZWdzKSwgdHJ1ZSk7Cj4gPiAgICAgICB9Cj4gPiAtb3V0Ogo+
+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgdm9pZCBmcHJvYmVfaGFuZGxlcih1bnNpZ25lZCBsb25n
+IGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiA+ICsgICAgICAgICAgICAgc3RydWN0IGZ0
+cmFjZV9vcHMgKm9wcywgc3RydWN0IGZ0cmFjZV9yZWdzICpmcmVncykKPiA+ICt7Cj4gPiArICAg
+ICBzdHJ1Y3QgZnByb2JlICpmcDsKPiA+ICsgICAgIGludCBiaXQ7Cj4gPiArCj4gPiArICAgICBm
+cCA9IGNvbnRhaW5lcl9vZihvcHMsIHN0cnVjdCBmcHJvYmUsIG9wcyk7Cj4gPiArICAgICBpZiAo
+ZnByb2JlX2Rpc2FibGVkKGZwKSkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuOwo+ID4gKwo+ID4g
+KyAgICAgLyogcmVjdXJzaW9uIGRldGVjdGlvbiBoYXMgdG8gZ28gYmVmb3JlIGFueSB0cmFjZWFi
+bGUgZnVuY3Rpb24gYW5kCj4gPiArICAgICAgKiBhbGwgZnVuY3Rpb25zIGJlZm9yZSB0aGlzIHBv
+aW50IHNob3VsZCBiZSBtYXJrZWQgYXMgbm90cmFjZQo+ID4gKyAgICAgICovCj4gPiArICAgICBi
+aXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9jayhpcCwgcGFyZW50X2lwKTsKPiA+ICsg
+ICAgIGlmIChiaXQgPCAwKSB7Cj4gPiArICAgICAgICAgICAgIGZwLT5ubWlzc2VkKys7Cj4gPiAr
+ICAgICAgICAgICAgIHJldHVybjsKPiA+ICsgICAgIH0KPiA+ICsgICAgIF9fZnByb2JlX2hhbmRs
+ZXIoaXAsIHBhcmVudF9pcCwgb3BzLCBmcmVncyk7Cj4gPiAgICAgICBmdHJhY2VfdGVzdF9yZWN1
+cnNpb25fdW5sb2NrKGJpdCk7Cj4gPiArCj4gPiAgfQo+ID4gIE5PS1BST0JFX1NZTUJPTChmcHJv
+YmVfaGFuZGxlcik7Cj4gPgo+ID4gIHN0YXRpYyB2b2lkIGZwcm9iZV9rcHJvYmVfaGFuZGxlcih1
+bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGZ0cmFjZV9vcHMgKm9wcywgc3RydWN0IGZ0cmFj
+ZV9yZWdzICpmcmVncykKPiA+ICB7Cj4gPiAtICAgICBzdHJ1Y3QgZnByb2JlICpmcCA9IGNvbnRh
+aW5lcl9vZihvcHMsIHN0cnVjdCBmcHJvYmUsIG9wcyk7Cj4gPiArICAgICBzdHJ1Y3QgZnByb2Jl
+ICpmcDsKPiA+ICsgICAgIGludCBiaXQ7Cj4gPiArCj4gPiArICAgICBmcCA9IGNvbnRhaW5lcl9v
+ZihvcHMsIHN0cnVjdCBmcHJvYmUsIG9wcyk7Cj4gPiArICAgICBpZiAoZnByb2JlX2Rpc2FibGVk
+KGZwKSkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuOwo+ID4gKwo+ID4gKyAgICAgLyogcmVjdXJz
+aW9uIGRldGVjdGlvbiBoYXMgdG8gZ28gYmVmb3JlIGFueSB0cmFjZWFibGUgZnVuY3Rpb24gYW5k
+Cj4gPiArICAgICAgKiBhbGwgZnVuY3Rpb25zIGNhbGxlZCBiZWZvcmUgdGhpcyBwb2ludCBzaG91
+bGQgYmUgbWFya2VkIGFzIG5vdHJhY2UKPiA+ICsgICAgICAqLwo+ID4gKyAgICAgYml0ID0gZnRy
+YWNlX3Rlc3RfcmVjdXJzaW9uX3RyeWxvY2soaXAsIHBhcmVudF9pcCk7Cj4gPiArICAgICBpZiAo
+Yml0IDwgMCkgewo+ID4gKyAgICAgICAgICAgICBmcC0+bm1pc3NlZCsrOwo+ID4gKyAgICAgICAg
+ICAgICByZXR1cm47Cj4gPiArICAgICB9Cj4gPgo+ID4gICAgICAgaWYgKHVubGlrZWx5KGtwcm9i
+ZV9ydW5uaW5nKCkpKSB7Cj4gPiAgICAgICAgICAgICAgIGZwLT5ubWlzc2VkKys7Cj4gPiAgICAg
+ICAgICAgICAgIHJldHVybjsKPiA+ICAgICAgIH0KPiA+ICsKPiA+ICAgICAgIGtwcm9iZV9idXN5
+X2JlZ2luKCk7Cj4gPiAtICAgICBmcHJvYmVfaGFuZGxlcihpcCwgcGFyZW50X2lwLCBvcHMsIGZy
+ZWdzKTsKPiA+ICsgICAgIF9fZnByb2JlX2hhbmRsZXIoaXAsIHBhcmVudF9pcCwgb3BzLCBmcmVn
+cyk7Cj4gPiAgICAgICBrcHJvYmVfYnVzeV9lbmQoKTsKPiA+ICsgICAgIGZ0cmFjZV90ZXN0X3Jl
+Y3Vyc2lvbl91bmxvY2soYml0KTsKPiA+ICB9Cj4gPgo+ID4gIHN0YXRpYyB2b2lkIGZwcm9iZV9l
+eGl0X2hhbmRsZXIoc3RydWN0IHJldGhvb2tfbm9kZSAqcmgsIHZvaWQgKmRhdGEsCj4gPiAtLQo+
+ID4gMi40MC4xCj4gPgo+Cj4KPiAtLQo+IE1hc2FtaSBIaXJhbWF0c3UgKEdvb2dsZSkgPG1oaXJh
+bWF0QGtlcm5lbC5vcmc+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
