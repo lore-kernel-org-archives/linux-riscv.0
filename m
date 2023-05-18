@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C0EC7EE25
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 18:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F0BC7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 18:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=10FqMjIU04UHfQFZVmUJt2VVwLNrdZ9Sai4+JClVz64=; b=u0dUWhz87LQY5u
-	DrtRDdYlWggbKxlhwz7ppPk1fm/SqtAGZTzEy/5hZEMkxtUwIoCSn0r9G4Yzx+YDvhNv4jGo/G8fR
-	0Lqw7/a2kBpFGsBKVSYgeG1ItOc2uIAsex7FRQjPyX4/O6Fpck1LDJuxuk9UrFzQ+Jjp7HSl/jFtY
-	nhFT6sGC6kuqi2JKM7ykMl9/y2AHz14ZdpwtghJj1+eSztSvgdBL4PJtfSbVW9N8zZBfPKtBBPhx/
-	6TIpQy5+Dq6LN6v2G2pF0CWA+SciG/3oEUfgxS7pzO6vZXiRECVrm97Q/jIXk3rSX2qnBUtEdwqs0
-	0Ju+kELnO4bS9dSSeP7w==;
+	List-Owner; bh=+lya0LEWMy/IgfC4FEGE8nQvGBM/lZu3a6lEHQyHDws=; b=NwuL5r+MDV8Wcr
+	8EmDMkR6AcZZ7Kax23r5cvSIFtpAh66jAlHP2tocTGZQFjPNeEJMu3SmW/OsgAVtATpwITGCLxJze
+	L5GthEkycqYPcjZdBE9zMuRqOucA7idfW4LCG5ll2/NHHUVIU+9IKuW3DE8puKZXXV5trKl5GYCo2
+	MNnkZ4Q+7IUfH7orzgCBl8c7bBjhuZQJ5aknh90X8/Tgkdd2BPGHsZZbx66b8iZfebbKZCrj70d+e
+	UtaxHLFz6Fv3Qu92HbXIp3GSVCW/b4atfU3VBwTdGA4JEECb2PdlAt9X+pgZ/y0i5l8Yuhs64sxch
+	XCwd4awu7VfSQXbFgetQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzioP-00Dt2o-2g;
-	Thu, 18 May 2023 18:57:17 +0000
+	id 1pzioS-00Dt51-1W;
+	Thu, 18 May 2023 18:57:20 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzioN-00Dt0x-0j
+	id 1pzioQ-00Dt3A-1M
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 18:57:16 +0000
+	Thu, 18 May 2023 18:57:19 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C780C651B0;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0317E651AF;
+	Thu, 18 May 2023 18:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DC6AC433A0;
 	Thu, 18 May 2023 18:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67568C433A7;
-	Thu, 18 May 2023 18:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684436234;
-	bh=SPhHXPcnyMrXjaiP7DOxwbB5VjmdUJq9U0kUEmDjQ0w=;
+	s=k20201202; t=1684436237;
+	bh=vxBYR6LtHdTWo59agyMO2DjmnNEXIpF3f4ssS0Pr5DU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kahOTcxTy32CFM9eHd/MHg6lpg/GXB3H9L5itF0hjkwIgLWkXf14++KVJUXdJsHhx
-	 2hSOWca+EOez7Tsd73O5z396YvhAC2TJwFiUIm51230K1jbg0ts8DXU2EML0wimE7y
-	 CCuZT5F6PT1KeRQdFIssnO0sC42+p5sG0mCB/Zir3xQvV724B35dt74iEMtLs5x0dP
-	 Ftg/9JWwfTIpc+GWix2ZSbBX9iA5zYgE7Zk7wmNH5Zdlfp2l2PRENKUKXIsYRjGcng
-	 FuSLVOCLPMoNgR/FHr5IXiEUe96qyaIzc5zGp2gh3FN+/23CozongCD3Wy2P9YiEnx
-	 L35M74T2aOEYA==
+	b=Km1I+KHyYtnUN0pmY1DDp07p0EmyV4uwgUlqNQjv0THFIX/Z+sDhlyrED7Snmr5wG
+	 EBwNATQzc89st4HbSJmDYMmrm3w5yciXzJkyjUc+sHSRI2QyKKTCULLkts4umpWAPE
+	 p4BxzkN2XkbTv1TzN86ZSgOUu6hTmJk3+/q4/QMDejKNDiIUzJYtXfm2+2RY0/bv0D
+	 UkhQ4NdCtw5rhpLhGbdcsmSM9lmdgliu5oHuN4yitls/IWMiqrzlzN7B8GFzYRiIar
+	 fvM366GxuOHSbd2dOom/rA2HjSkRZegJ5yQrRcbVnbJWK+qeAac5OuPgLLE5MR42l2
+	 Uw2Bj7cE/XPlQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -54,16 +54,16 @@ To: Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH v2 7/9] riscv: dts: thead: add sipeed Lichee Pi 4A board device tree
-Date: Fri, 19 May 2023 02:45:39 +0800
-Message-Id: <20230518184541.2627-8-jszhang@kernel.org>
+Subject: [PATCH v2 8/9] MAINTAINERS: add entry for T-HEAD RISC-V SoC
+Date: Fri, 19 May 2023 02:45:40 +0800
+Message-Id: <20230518184541.2627-9-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230518184541.2627-1-jszhang@kernel.org>
 References: <20230518184541.2627-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_115715_353392_9ED619E7 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20230518_115718_498274_E2577D62 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,126 +81,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sipeed's Lichee Pi 4A development board uses Lichee Module 4A core
-module which is powered by T-HEAD's TH1520 SoC. Add minimal device
-tree files for the core module and the development board.
-
-Support basic uart/gpio/dmac drivers, so supports booting to a basic
-shell.
+Currently, I would like to maintain the T-HEAD RISC-V SoC support.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/boot/dts/Makefile                  |  1 +
- arch/riscv/boot/dts/thead/Makefile            |  2 +
- .../dts/thead/th1520-lichee-module-4a.dtsi    | 38 +++++++++++++++++++
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 32 ++++++++++++++++
- 4 files changed, 73 insertions(+)
- create mode 100644 arch/riscv/boot/dts/thead/Makefile
- create mode 100644 arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
- create mode 100644 arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index f0d9f89054f8..1e884868ccba 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -2,6 +2,7 @@
- subdir-y += allwinner
- subdir-y += sifive
- subdir-y += starfive
-+subdir-y += thead
- subdir-y += canaan
- subdir-y += microchip
- subdir-y += renesas
-diff --git a/arch/riscv/boot/dts/thead/Makefile b/arch/riscv/boot/dts/thead/Makefile
-new file mode 100644
-index 000000000000..e311fc9a5939
---- /dev/null
-+++ b/arch/riscv/boot/dts/thead/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-new file mode 100644
-index 000000000000..4b0249ac710f
---- /dev/null
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-@@ -0,0 +1,38 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e0ad886d3163..6df20c65798a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18162,6 +18162,12 @@ F:	drivers/perf/riscv_pmu.c
+ F:	drivers/perf/riscv_pmu_legacy.c
+ F:	drivers/perf/riscv_pmu_sbi.c
+ 
++RISC-V THEAD SoC SUPPORT
++M:	Jisheng Zhang <jszhang@kernel.org>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	arch/riscv/boot/dts/thead/
 +
-+/dts-v1/;
-+
-+#include "th1520.dtsi"
-+
-+/ {
-+	model = "Sipeed Lichee Module 4A";
-+	compatible = "sipeed,lichee-module-4a", "thead,th1520";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x00000000 0x2 0x00000000>;
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&osc_32k {
-+	clock-frequency = <32768>;
-+};
-+
-+&apb_clk {
-+	clock-frequency = <62500000>;
-+};
-+
-+&uart_sclk {
-+	clock-frequency = <100000000>;
-+};
-+
-+&dmac0 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-new file mode 100644
-index 000000000000..a1248b2ee3a3
---- /dev/null
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
-+
-+#include "th1520-lichee-module-4a.dtsi"
-+
-+/ {
-+	model = "Sipeed Lichee Pi 4A";
-+	compatible = "sipeed,lichee-pi-4a", "sipeed,lichee-module-4a", "thead,th1520";
-+
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+		serial5 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
+ RNBD BLOCK DRIVERS
+ M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+ M:	Jack Wang <jinpu.wang@ionos.com>
 -- 
 2.40.0
 
