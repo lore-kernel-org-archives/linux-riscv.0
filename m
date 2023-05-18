@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A94C7EE29
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 21:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799E2C7EE29
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 22:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73HlzpYfuU9kJ3QXuFhsb1mz02bH1WqM7aSlpvOU2dk=; b=kcD6pgZufEKKKPtfQHaIqDodLr
-	YDGwsGyc6ZG5A1KDj6aEdk2NBvcKhA7kvrvYtqOSab8iCEnMIk1z9oDW/Aeon9kaSt9edjAQTNcUx
-	G5Rl9mkbj9hpgEFsV/qgkWBAcLdSvYsrkX8xOPLihURpVpqzwdfAKGWyfRvn6s8Yk6AaCYh8puY97
-	YsuW627Fecz9/0D94pFBeKcd+DXEXmSGmXPDk+++sw1d0IYxX4nevhcFBQpDkiO7dXnQzaqa4xH06
-	GXx7s3PbI7I7rM8fPeSmRDhpSqAcCnQ4F+cuR/iSJJC5rCc/7hYUlq0zbCyxLuKYmmlSQxtrgR2/g
-	4GnxSVAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/ySnCNI7N/zbCKdcFiL8UUzg77hl2SKu/AEE5zNNtl8=; b=tCWRJ0yKryab/q
+	ZX/J2csAk/Av6LfsgwOzNhud/PbzOxkIQg94IqJ05332xbnnWE8xPLm2lQPZcWuijz8dFY+VL6UuB
+	znDb2+2ggO3RLWiIXbqW/IO2TZWV4HRhYMDZAUOp3Y6bphYcMk89WlUXJZajf2W6O/XhYDYHqdrnx
+	aebcFMgGIytfRc07fXnUv+0cCwoJdzMbosURgJKJlPgHXT0D2gvM3DgnVLtxTFXByYIbDzqYIYbVe
+	f86g75isil5kfLRMGPRe6IAdRJJCs8kvFzLvvRB1gZSCAbh8KCbJh4M2ukBwyi1HmKMEoI/LNfsfb
+	rmltCHasJPi77ek/1Wiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzlOW-00EGz0-2p;
-	Thu, 18 May 2023 21:42:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzmI3-00ENLt-2F;
+	Thu, 18 May 2023 22:40:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzlOT-00EGya-0z
+	id 1pzmHz-00ENL9-1V
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 21:42:43 +0000
+	Thu, 18 May 2023 22:40:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C410D61B04;
-	Thu, 18 May 2023 21:42:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85CE6C433EF;
-	Thu, 18 May 2023 21:42:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 312106524B;
+	Thu, 18 May 2023 22:40:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604C8C433EF;
+	Thu, 18 May 2023 22:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684446160;
-	bh=x5I5mruh7zMCo5Zhys6Y0M8OdmsdgmVH1YsnbP5N0G4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cROkLAXx3D7DzisnvZXbe/RpC7p3ynWO5qtEVZnDCjlMCU8He9ikyvYowyWEEv26a
-	 K4cdYAfilcdu5lak2CudEIf54yvGchTRFiBmj3sRaqkaHy7mE0nRQeIeAJ567ONzyb
-	 6oL0iffTiSk9AnFGDcKl1+krpJrPIm2Fq71IfTMujh5KJRk8rCuN4tC5l2YKucAWox
-	 ExGxWJLBmf3c6gcAPOQEA2rZ3tZxSRT5Pl7VJOzGVKFlw23cN+MgvVX6l7/+rY0HA/
-	 9mRGiCSxndOnL1qhHTBCcITaadDSpdoAZDDyuyJBk/clylgU/Mkma6LuabyZ8kaHSs
-	 Ci/0Wmk6nl9YA==
-Date: Thu, 18 May 2023 22:42:34 +0100
+	s=k20201202; t=1684449600;
+	bh=40rniBgDFLyqNu4Dhv8Ljpmnqu/Tz/kUpOSMx/oDGvg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=k5/0xL+ouaefGqOceBeE8pwklRZgmDS06D74yH9OncVfgl0F3bDJSJLUvtynZbSbS
+	 l8bAz9sLWghQc1jj8c+3xVHJloEiYO73M9iYTJS6cdHvN3xamk7Cw0l22VudyIQwM3
+	 6h0IcWEa6aHT0EDHPDb+sJlq92zeWEsEKnbV6Lfraj1N/kXyJROtZ6v0qIBaXqKOVI
+	 e16iDLk0xGoC2IknzSOlsWzROeYqoC1EL9Geao6cEszhKSEL37iNHcK5lZeILV39dG
+	 SV2AZ6wVryRiY6Ob6ufbiaD3vqUVomL/uDtmrfOAuc1kr/im4sjgGmyuuA4N7AfZug
+	 2oxKEmYR0WmVg==
 From: Conor Dooley <conor@kernel.org>
-To: Sean Anderson <sean.anderson@seco.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <anup@brainfault.org>,
-	Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Alistair Francis <alistair.francis@wdc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>,
-	Leo <ycliang@andestech.com>, linux-riscv@lists.infradead.org,
-	qemu-riscv@nongnu.org, u-boot@lists.denx.de,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
-Message-ID: <20230518-monkhood-dispersal-6749b1228b0d@spud>
-References: <20230518-thermos-sanitary-cf3fbc777ea1@wendy>
- <20230518-4050231ca8dbe93c08cf9c9a@orel>
- <CAAhSdy07Mg_JBF+4ucGFiWdBKh-Ass5G_aUWqBqTnDSFp7S=0A@mail.gmail.com>
- <20230518-hammock-doornail-478e8ea8e6a7@wendy>
- <f7c20090-220c-2805-86ba-b174a89f65b3@seco.com>
+To: palmer@dabbelt.com
+Subject: [PATCH v2 0/8] ISA string parser cleanups++
+Date: Thu, 18 May 2023 23:39:01 +0100
+Message-Id: <20230518-moneybags-rebalance-1484db493d6a@spud>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <f7c20090-220c-2805-86ba-b174a89f65b3@seco.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3607; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=PiQajagbPjXRCWBNu8UO62DsQBOR2SQ0ai1pNznUEdo=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClpK9kNvMtvvFbbriub/WKm1w1vfQeu9FfSvwyZe+683 x3ssPlLRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZSlsjIMEfys+v63JP1M5kn OP9Sm8o0wS7O/jzHyUn9Cybocn6p+srwVz5k/TnPhkLjB2HHXUtUA/JCDk85Gmh46rbjW3PGnm1 q/AA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_144241_449031_DE509BC2 
-X-CRM114-Status: GOOD (  48.19  )
+X-CRM114-CacheID: sfid-20230518_154003_588237_C73DBA68 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,210 +67,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6789456467386935426=="
+Cc: devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, conor@kernel.org, Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============6789456467386935426==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TYryGqRDcYWpb9dy"
-Content-Disposition: inline
+This stuff goes on top of riscv/for-next plus this series from Yangyu
+that made me go looking at the ISA string parser again:
+https://lore.kernel.org/all/tencent_E6911C8D71F5624E432A1AFDF86804C3B509@qq.com/
 
+With that out of the way, here are some cleanups for our riscv,isa
+handling.
+One of these patches is yoinked from Sunil's ACPI series & tweaked
+slightly since this needs to apply independently of that, that runs the
+isa string parsing loop only over _possible_ cpus.
 
---TYryGqRDcYWpb9dy
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Other than that, there are some bits that were discussed with Drew on
+the "should we allow caps" threads that I have now created patches for:
+- splitting of riscv_of_processor_hartid() into two distinct functions,
+  one for use purely during early boot, prior to the establishment of
+  the possible-cpus mask & another to fit the other current use-cases.
+- this allows us to then completely skip some validation of the hartid
+  in the parser.
+- the biggest diff in the series is a rework of the comments in the
+  parser, as I have mostly found the existing (sparse) ones to not be
+  all that helpful whenever I have to go back and look at it.
+- from writing the comments, I found a conditional doing a bit of a
+  dance that I found counter-intuitive, so I've had a go at making that
+  match what I would expect a little better.
+- `i` implies 4 other extensions, so add them as extensions and set
+  them for the craic. Sure why not like.
 
-On Thu, May 18, 2023 at 02:30:53PM -0400, Sean Anderson wrote:
-> On 5/18/23 10:06, Conor Dooley wrote:
-> > On Thu, May 18, 2023 at 07:13:15PM +0530, Anup Patel wrote:
-> >> On Thu, May 18, 2023 at 4:02=E2=80=AFPM Andrew Jones <ajones@ventanami=
-cro.com> wrote:
-> >> > On Thu, May 18, 2023 at 09:58:30AM +0100, Conor Dooley wrote:
-> >=20
-> >> > > -  riscv,isa:
-> >> > > -    description:
-> >> > > -      Identifies the specific RISC-V instruction set architecture
-> >> > > -      supported by the hart.  These are documented in the RISC-V
-> >> > > -      User-Level ISA document, available from
-> >> > > -      https://riscv.org/specifications/
-> >> > > -
-> >> > > -      Due to revisions of the ISA specification, some deviations
-> >> > > -      have arisen over time.
-> >> > > -      Notably, riscv,isa was defined prior to the creation of the
-> >> > > -      Zicsr and Zifencei extensions and thus "i" implies
-> >> > > -      "zicsr_zifencei".
-> >> > > -
-> >> > > -      While the isa strings in ISA specification are case
-> >> > > -      insensitive, letters in the riscv,isa string must be all
-> >> > > -      lowercase to simplify parsing.
-> >> > > -    $ref: "/schemas/types.yaml#/definitions/string"
-> >> > > -    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z]=
-)+)?(?:_[hsxz](?:[a-z])+)*$
-> >> > > -
-> >> > >    # RISC-V requires 'timebase-frequency' in /cpus, so disallow it=
- here
-> >> > >    timebase-frequency: false
-> >> > >
-> >> > > @@ -133,8 +117,13 @@ properties:
-> >> > >        DMIPS/MHz, relative to highest capacity-dmips-mhz
-> >> > >        in the system.
-> >> > >
-> >> > > +oneOf:
-> >> > > +  - required:
-> >> > > +      - riscv,isa
-> >> >
-> >> > This is the part Anup keeps reminding me about. We can create better=
- ways
-> >> > to handle extensions in DT and ACPI, but we'll still need to parse I=
-SA
-> >> > strings to handle legacy DTs and holdouts that keep creating ISA str=
-ings,
-> >> > at least during the deprecation period, since ISA strings are still =
-"the
-> >> > way to do it" according to the spec.
-> >>=20
-> >> Coming up with an alternate way in DT is fine but we can't deprecate
-> >> ISA strings since ISA strings are widely used:
-> >> 1) Various bootloaders
-> >=20
-> > Aye, for the reason, as I mentioned earlier and in the RFC thread,
-> > removing existing parsers isn't a good idea.
-> >=20
-> >> 2) It is part of /proc/cpuinfo
-> >=20
-> > That is irrelevant.
-> >=20
-> >> 3) Hypervisors use it to communicate HW features to Guest/VM.
-> >> Hypervisors can't get away from generating ISA strings because
-> >> Hypervisors don't know what is running inside Guest/VM.
-> >=20
-> > Generate both :) As things stand, your guests could interpret what you
-> > communicate to them via riscv,isa differently!
-> >=20
-> >> In the case of ACPI, it is a very different situation. Like Sunil ment=
-ioned,
-> >> ACPI will always follow mechanisms defined by RVI (such as ISA string).
-> >> Other ACPI approaches such as GUID for ISA extension are simply not
-> >> scalable and will take a lot more memory for ACPI tables compared to
-> >> ISA strings.
-> >=20
-> > My proposal should actually suit ACPI, at least for Linux, as it would
-> > be a chance to align currently misaligned definitions. I won't speak to
-> > GUIDs or whatever as that's someone else's problem :)
-> >=20
-> >> > Also, if we assume the wording in the spec does get shored up, then,
-> >> > unless I'm missing something, the list of advantages for this boolean
-> >> > proposal from your commit message would be
-> >>=20
-> >> IMO, we should try our best to have the wordings changed in RVI spec.
-> >=20
-> > Yes, doing so is beneficial for all of us regardless of what happens
-> > here. I do think that it is partially orthogonal - it allows us to not
-> > design an interface that needs to be capable of communicating a wide
-> > variety of versions, but I don't think it solves some of the issues
-> > that riscv,isa has. If I thought it did, I would not have gone to the
-> > trouble of respinning this patch out of the other approach.
-> >=20
-> >> > * More character choices for name -- probably not a huge gain for ra=
-tified
-> >> >   extensions, since the boolean properties will likely still use the=
- same
-> >> >   name as the ISA string (riscv,isa-extension-<name>). But, for vend=
-or
-> >> >   extensions, this is indeed a major improvement, since vendor exten=
-sion
-> >> >   boolean property names may need to be extended in unambiguous ways=
- to
-> >> >   handle changes in the extension.
-> >> >
-> >> > * Simpler, more complete DT validation (but we still need a best eff=
-ort
-> >> >   for legacy ISA strings)
-> >> >
-> >> > * Simpler DT parsing (but we still need the current parser for legac=
-y ISA
-> >> >   strings)
-> >> >
-> >> > > +  - required:
-> >> > > +      - riscv,isa-base
-> >> > > +
-> >> > >  required:
-> >> > > -  - riscv,isa
-> >> > >    - interrupt-controller
-> >> > >
-> >> > >  additionalProperties: true
-> >> > > @@ -177,7 +166,13 @@ examples:
-> >> > >                  i-tlb-size =3D <32>;
-> >> > >                  mmu-type =3D "riscv,sv39";
-> >> > >                  reg =3D <1>;
-> >> > > -                riscv,isa =3D "rv64imafdc";
-> >> > > +                riscv,isa-base =3D "rv64i";
-> >> > > +                riscv,isa-extension-i;
-> >> > > +                riscv,isa-extension-m;
-> >> > > +                riscv,isa-extension-a;
-> >> > > +                riscv,isa-extension-f;
-> >> > > +                riscv,isa-extension-d;
-> >> > > +                riscv,isa-extension-c;
-> >>=20
-> >> One downside of this new approach is it will increase the size of DTB.
-> >> Imaging 50 such DT properties in 46 CPU DT nodes.
-> >=20
-> > I should do a comparison between 50 extensions in riscv,isa and doing
-> > this 50 times and see what the sizes are.
->=20
-> Why not just have something like
->=20
-> mycpu {
-> 	...
-> 	riscv,isa {
-> 		i;
-> 		m;
-> 		a;
-> 		zicsr;
-> 		...
-> 	};
-> };
-
-Naming of the node aside (perhaps that could be riscv,isa-extensions)
-there's not something hitting me immediately as to why that is a no-no.
-If the size is a concern, this would certainly be more efficient & not
-like the probing would be anything other than trivial more difficult
-what I have in my proposal.
-
-Rob's AFK at the moment, and I was hoping that he would take a look at
-the idea, so I won't respin til he is back, but I'll give this a go in
-the interim.
+Clearly this material will conflict with the addition of ACPI support,
+which I figure is likely to land first. I expect to rebase if it does.
+There's a far more trivial numbering conflict with Evan's Zb* additions.
 
 Cheers,
 Conor.
 
---TYryGqRDcYWpb9dy
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes in v2:
+- Pick up tags on most patches
+- Drop some dt specifics from a parser comment
+- Add Zicntr and Zihpm to the "always report" patch
+- Note the Zicntr and Zihpm bits in the binding in a new patch
 
------BEGIN PGP SIGNATURE-----
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Andrew Jones <ajones@ventanamicro.com>
+CC: Sunil V L <sunilvl@ventanamicro.com>
+CC: Yangyu Chen <cyy@cyyself.name>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: devicetree@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGabyQAKCRB4tDGHoIJi
-0tqeAQCpsTIUwavLKPVNiJd1cmmE4LJnnxMRlq2sxMTP8zSOpQD/arxRvhO4QzlJ
-1itR13j6MTL60roBmM//fn7DprVxnwI=
-=YkDr
------END PGP SIGNATURE-----
+Conor Dooley (7):
+  RISC-V: simplify register width check in ISA string parsing
+  RISC-V: split early & late of_node to hartid mapping
+  RISC-V: validate riscv,isa at boot, not during ISA string parsing
+  RISC-V: rework comments in ISA string parser
+  RISC-V: remove decrement/increment dance in ISA string parser
+  dt-bindings: riscv: explicitly mention assumption of Zicntr & Zihpm
+    support
+  RISC-V: always report presence of extenstions formerly part of the
+    base ISA
 
---TYryGqRDcYWpb9dy--
+Sunil V L (1):
+  RISC-V: only iterate over possible CPUs in ISA string parser
+
+ .../devicetree/bindings/riscv/cpus.yaml       |   4 +-
+ arch/riscv/include/asm/hwcap.h                |   4 +
+ arch/riscv/include/asm/processor.h            |   1 +
+ arch/riscv/kernel/cpu.c                       |  34 ++++-
+ arch/riscv/kernel/cpufeature.c                | 116 +++++++++++++-----
+ arch/riscv/kernel/smpboot.c                   |   2 +-
+ 6 files changed, 126 insertions(+), 35 deletions(-)
 
 
---===============6789456467386935426==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+base-commit: c2d3c8441e3ddbfe41fea9282ddc6ee372e154cd
+prerequisite-patch-id: 50cc6c119a7f8f60b06829b2fafc90c9817f532c
+prerequisite-patch-id: 4e2f66d8590db938d2e1a4e9bfaad58ee0ab3525
+
+Dependencies:
+https://lore.kernel.org/all/tencent_E6911C8D71F5624E432A1AFDF86804C3B509@qq.com/
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6789456467386935426==--
-
