@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C94C77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 13:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D652BC77B7A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 13:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2S1ndeig2aL1BtDtCtJq9Cwdm9K3KcD5pomMfv6x04A=; b=j8MXMN15kK0JQ1
-	k3Qj+XSM04CE2hLE0XOvsbREKkFWD1YtN15Yb6HfkKEpnv8iSZJpEK14BOJfravvwZTmMwD++jbKu
-	Hrafdol4aLA+J5EPy8CU0/jITeufBXoZSeCXb6OIHgkwBsAPhjYKS3PAyItZmw4KJpS7dHtTr0W35
-	Fuas3W1SKfZ12CDo3b8Wcvx4ZSLNRVkJMpRtQMIMrC2HvJBqqws4N18/gSVuMrCEL9YczdiQV2f2W
-	QYeOkml738q+xxUadO7nMrjTCKvA0mQZL0hTfYEqs62H+hAMyKfjwi9XSmc6zCc3Mj7NYbYC64c+W
-	mjkraGA/dGOrj8vNXYYQ==;
+	List-Owner; bh=Gqd5lvUZdtJ0Is1R8CvY34mncczuQrxZzTUGlZ3Y03M=; b=yActSTdEQu3+p9
+	gXgjHDcB6kwF1n8xs3eytdM4+7ZnMV2J0pzF+WCPN/bIU+HFd9iW9vdiyErJXqFIYMYhwrLQ96HQ7
+	crpJS8kQJyyNKyTLscjM0K422d9ASJFiICgE9drQfOY/9xke4o6h3OIirAyvKa3fdyh6VtOcPSgoM
+	182QpmNO0XJV2EG1FHndHB5yK0tqTKM1dLNpidcZp0UtQU86cD5Z737IuhbfTpKYKCHfRJJZW7QXE
+	bBQg3XIXqEFidNQ15gcDrgDduQSXl2c8rrz1uJ7ioUkRlDj7+pE6whVNdH70LolquXljBJwk47alV
+	nuKyciBtDZbfAUSjESEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzdRO-00D2i9-0R;
-	Thu, 18 May 2023 13:13:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pzdRY-00D2mS-36;
+	Thu, 18 May 2023 13:13:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzdRM-00D2gx-0R
+	id 1pzdRV-00D2ke-1a
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 13:13:09 +0000
+	Thu, 18 May 2023 13:13:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AC49164F67;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0AD3064F36;
+	Thu, 18 May 2023 13:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FA3FC4339B;
 	Thu, 18 May 2023 13:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57254C433A8;
-	Thu, 18 May 2023 13:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684415586;
-	bh=bke8fOXFDjV1zILAGkdyjNPTOfL1ZR2nFogEIcEnLNk=;
+	s=k20201202; t=1684415596;
+	bh=it/txvlY5/L57R5itWfhNoNKfONs7t6egYUyVObkMZY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GAMuo5pzwMOpvpmRdsBO4B//KtrUXd+imzrD5Mh3DDlBHufx0EB8V67w+qPAZFV1z
-	 dsqcutlrg70o3jltbUb8FdXkMkK0WOJiUziB5H/f9M6hsBAsHfvZAoRpxHo/Hnk2D8
-	 OMPuo3LdhV3xqOxptOa0dkbeZEbo4AKYiMSGU5osum00FOUUMxAffoFb8mVcVMhH8J
-	 XeXitd2dU/FrKFfnDAI3T+wzVF1rTw/2U5SFNj5R+JMAsFe0U4ohwdoDLHRxLQ1L/i
-	 uM55dAsOlzVyslN7sFhhHr/n12ybWoBzk/8MLAWevVB0GKpEtGKqK+xTAD0/MU2Z6q
-	 0jXdFydmOx8Sg==
+	b=fu30wSyFsEk4AzAWQrWkefaN5GBStqjKJ+S3xJm90Aj9gpTam01WCSkm9IRyy3BeU
+	 irjDzBzWYaP/ZaTR+BOle+q9IC1eZEe4KkuJGTFwao++OZpA53GT9++zVzUKGxYRzL
+	 zlFgocF4KScOb7vkpUKs/keoHoihtjDWB2KZ3DL6Arauk6NJfUAtiDM+tk9Anb680x
+	 PdThj9dHO3hw/y+j+J+YofQk9cU40VP3vHXSB8JoP7Xqf3yn6z56kO/AVyGmVVCY9c
+	 sTXbVULljhjm63Bq21tX80E+oQaInLrpwCtOin5JGfYI/Nl7MUMUqpyWjETf7jBV/k
+	 VZdzOywzG2uAw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -82,18 +82,17 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Guo Ren <guoren@kerenl.org>
-Subject: [RFC PATCH 12/22] riscv: s64ilp32: Add ELF32 support
-Date: Thu, 18 May 2023 09:10:03 -0400
-Message-Id: <20230518131013.3366406-13-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [RFC PATCH 13/22] riscv: s64ilp32: Add ARCH RV64 ILP32 compiling framework
+Date: Thu, 18 May 2023 09:10:04 -0400
+Message-Id: <20230518131013.3366406-14-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230518131013.3366406-1-guoren@kernel.org>
 References: <20230518131013.3366406-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_061308_208555_C5254DC5 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20230518_061317_576013_ACDE53A1 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +111,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Use abi_len to distinct ELF32 and ELF64 because s64ilp32 is xlen=64 and
-abi_len=32 (__SIZEOF_POINTER__=4). And s64ilp32 is an ELF32 based the
-same as s32ilp32.
+Just the same as ARCH_RV64I & ARCH_RV32I, add ARCH_RV64ILP32 config
+for s64ilp32 and turn on the s64ilp32 compile switch in the
+arch/riscv/Makefile.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kerenl.org>
+Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/uapi/asm/elf.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Kconfig  | 6 ++++++
+ arch/riscv/Makefile | 5 +++++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-index d696d6610231..962e8ec8fe05 100644
---- a/arch/riscv/include/uapi/asm/elf.h
-+++ b/arch/riscv/include/uapi/asm/elf.h
-@@ -24,7 +24,7 @@ typedef __u64 elf_fpreg_t;
- typedef union __riscv_fp_state elf_fpregset_t;
- #define ELF_NFPREG (sizeof(struct __riscv_d_ext_state) / sizeof(elf_fpreg_t))
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4d4fac81390f..d824fcf3cc1c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -300,6 +300,12 @@ config ARCH_RV64I
+ 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
+ 	select SWIOTLB if MMU
  
--#if __riscv_xlen == 64
-+#if __SIZEOF_POINTER__ == 8
- #define ELF_RISCV_R_SYM(r_info)		ELF64_R_SYM(r_info)
- #define ELF_RISCV_R_TYPE(r_info)	ELF64_R_TYPE(r_info)
- #else
++config ARCH_RV64ILP32
++	bool "RV64ILP32"
++	depends on NONPORTABLE
++	select 32BIT
++	select MMU
++
+ endchoice
+ 
+ # We must be able to map all physical memory into the kernel, but the compiler
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index dafe958c4217..d47ba6b09b41 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -57,6 +57,7 @@ endif
+ # ISA string setting
+ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
++riscv-march-$(CONFIG_ARCH_RV64ILP32)	:= rv64ima
+ riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+ 
+@@ -107,7 +108,11 @@ stack_protector_prepare: prepare0
+ endif
+ 
+ # arch specific predefines for sparse
++ifeq ($(CONFIG_ARCH_RV64ILP32),y)
++CHECKFLAGS += -D__riscv
++else
+ CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
++endif
+ 
+ # Default target when executing plain make
+ boot		:= arch/riscv/boot
 -- 
 2.36.1
 
