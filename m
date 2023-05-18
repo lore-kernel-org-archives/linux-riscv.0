@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7733C77B7D
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 11:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74591C7EE24
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 11:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JSNccg429gIIf5v8m26FV5ruMkr9d94YCPgDx0V1hY0=; b=GbVF+avt7VNvwv
-	PZv/cmtWA8tvENyY9G8+O+KTrjHkZvUpok9YDE/P9om75fKayjm9khi4SS4ug9NhNLb+MIeROP+TY
-	Un/zBpuII/oL+vRx1w3/5/zoseW9oDbe2jU61PqGE8gTal+oPhy0t5Gvg11Zf7jkRA9MBU7r4+dX9
-	MFnifkHAgGo2AwNsHszN2Jr53HNiYEXcVGe1nqjhigVlwkzn9gleVwGDAruH3tzRTrjribu9fOkgV
-	kYFJnFSZvZ6AXv2/XjR69PxUkGPU6z+CvnGA2uEd3fnQAfWm1LHHX/AFPLyhTE6kiaOKzOdD/rEQW
-	LgbMoQQsuVZKfcYFGmAg==;
+	List-Owner; bh=/eNw4Jq9pmUQ+S+sSbgkEZx6gwh+VNVDdOtX4z/1UAE=; b=pWY0G2J7Ku/B9z
+	o5N8IXGFcW0n5UjjAWUoUCnEY+622XA6ocdvOiArZqjR/yfe9U/jX4E77IvDnwd7kp8snVW/Kha1+
+	1OD1AEXVPUnK8x7IC14HO/Z4weG8mVAfHhk2A9BqfWzNPuqsggCLHtnBSSv5ZaZTRAvVJ7tqyZP0L
+	gjFiaWuwgaXz0SZ+v3ZEnm0kMJCjEwrcEAWAkUPyBb8k2saTuxZu6khHeaNeNWXSmmpHnnDuvmk+E
+	PRoh73sHdASfge7tQS5FIUvC7kMPkhPY9gd2gdLRsUoslEiID2WwpnLMhOtfQURNW2oMLXKmkVF3D
+	pe7hHIZ/bq1C4rZzzblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzboL-00Cq0z-2v;
-	Thu, 18 May 2023 11:28:45 +0000
+	id 1pzboN-00Cq2Y-1q;
+	Thu, 18 May 2023 11:28:47 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzboF-00CpqO-1Y;
+	id 1pzboE-00CpqM-30;
 	Thu, 18 May 2023 11:28:41 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9324724E266;
-	Thu, 18 May 2023 19:27:59 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 19:27:59 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AECC624E25B;
+	Thu, 18 May 2023 19:27:56 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
+ 2023 19:27:56 +0800
 Received: from ubuntu.localdomain (113.72.146.100) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 19:27:58 +0800
+ 2023 19:27:55 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
 	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
@@ -51,9 +51,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	"Minda Chen" <minda.chen@starfivetech.com>, Mason Huo
 	<mason.huo@starfivetech.com>
-Subject: [PATCH v6 7/7] riscv: dts: starfive: Add USB dts configuration for JH7110
-Date: Thu, 18 May 2023 19:27:50 +0800
-Message-ID: <20230518112750.57924-8-minda.chen@starfivetech.com>
+Subject: [PATCH v6 4/7] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
+Date: Thu, 18 May 2023 19:27:47 +0800
+Message-ID: <20230518112750.57924-5-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230518112750.57924-1-minda.chen@starfivetech.com>
 References: <20230518112750.57924-1-minda.chen@starfivetech.com>
@@ -63,9 +63,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_042839_833572_EB7D40F0 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230518_042839_419564_622C830C 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +81,277 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add USB wrapper layer and Cadence USB3 controller dts
-configuration for StarFive JH7110 SoC and VisionFive2
-Board.
-USB controller connect to PHY, The PHY dts configuration
-are also added.
+Add Starfive JH7110 SoC PCIe 2.0 PHY driver support.
+PCIe 2.0 PHY default connect to PCIe controller.
+PCIe PHY can connect to USB 3.0 controller.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         |  5 ++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 53 +++++++++++++++++++
- 2 files changed, 58 insertions(+)
+ MAINTAINERS                            |   4 +-
+ drivers/phy/starfive/Kconfig           |  10 ++
+ drivers/phy/starfive/Makefile          |   1 +
+ drivers/phy/starfive/phy-jh7110-pcie.c | 204 +++++++++++++++++++++++++
+ 4 files changed, 218 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/phy/starfive/phy-jh7110-pcie.c
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 1155b97b593d..934453bc80d5 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -221,3 +221,8 @@
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-+
-+&usb0 {
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 71a8e9acbe55..b65f06c5b1b7 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -366,6 +366,59 @@
- 			status = "disabled";
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b900f661c2e0..5519f81c8296 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20160,10 +20160,12 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/watchdog/starfive*
+ F:	drivers/watchdog/starfive-wdt.c
  
-+		usb0: usb@10100000 {
-+			compatible = "starfive,jh7110-usb";
-+			ranges = <0x0 0x0 0x10100000 0x100000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			starfive,stg-syscon = <&stg_syscon 0x4>;
-+			clocks = <&stgcrg JH7110_STGCLK_USB0_LPM>,
-+				 <&stgcrg JH7110_STGCLK_USB0_STB>,
-+				 <&stgcrg JH7110_STGCLK_USB0_APB>,
-+				 <&stgcrg JH7110_STGCLK_USB0_AXI>,
-+				 <&stgcrg JH7110_STGCLK_USB0_UTMI_APB>;
-+			clock-names = "lpm", "stb", "apb", "axi", "utmi_apb";
-+			resets = <&stgcrg JH7110_STGRST_USB0_PWRUP>,
-+				 <&stgcrg JH7110_STGRST_USB0_APB>,
-+				 <&stgcrg JH7110_STGRST_USB0_AXI>,
-+				 <&stgcrg JH7110_STGRST_USB0_UTMI_APB>;
-+			reset-names = "pwrup", "apb", "axi", "utmi_apb";
-+			status = "disabled";
+-STARFIVE JH71X0 USB PHY DRIVER
++STARFIVE JH71X0 PCIE AND USB PHY DRIVER
+ M:	Minda Chen <minda.chen@starfivetech.com>
+ S:	Supported
++F:	Documentation/devicetree/bindings/phy/starfive,jh7110-pcie-phy.yaml
+ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
++F:	drivers/phy/starfive/phy-jh7110-pcie.c
+ F:	drivers/phy/starfive/phy-jh7110-usb.c
+ 
+ STATIC BRANCH/CALL
+diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
+index 2c013c390dee..38eb0c0c8e91 100644
+--- a/drivers/phy/starfive/Kconfig
++++ b/drivers/phy/starfive/Kconfig
+@@ -12,6 +12,16 @@ config PHY_STARFIVE_DPHY_RX
+ 	  system. If M is selected, the module will be called
+ 	  phy-starfive-dphy-rx.
+ 
++config PHY_STARFIVE_JH7110_PCIE
++	tristate "Starfive JH7110 PCIE 2.0/USB 3.0 PHY support"
++	select GENERIC_PHY
++	select USB_PHY
++	help
++	  Enable this to support the StarFive PCIe 2.0 PHY,
++	  or used as USB 3.0 PHY.
++	  If M is selected, the module will be called
++	  phy-jh7110-pcie.ko.
 +
-+			usb_cdns3: usb@0 {
-+				compatible = "cdns,usb3";
-+				reg = <0x0 0x10000>,
-+				      <0x10000 0x10000>,
-+				      <0x20000 0x10000>;
-+				reg-names = "otg", "xhci", "dev";
-+				interrupts = <100>, <108>, <110>;
-+				interrupt-names = "host", "peripheral", "otg";
-+				phys = <&usbphy0>;
-+				phy-names = "cdns3,usb2-phy";
-+			};
-+		};
+ config PHY_STARFIVE_JH7110_USB
+ 	tristate "Starfive JH7110 USB 2.0 PHY support"
+ 	depends on USB_SUPPORT
+diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
+index 176443852f4d..03a55aad53a2 100644
+--- a/drivers/phy/starfive/Makefile
++++ b/drivers/phy/starfive/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_PHY_STARFIVE_DPHY_RX)      += phy-starfive-dphy-rx.o
++obj-$(CONFIG_PHY_STARFIVE_JH7110_PCIE)	+= phy-jh7110-pcie.o
+ obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
+diff --git a/drivers/phy/starfive/phy-jh7110-pcie.c b/drivers/phy/starfive/phy-jh7110-pcie.c
+new file mode 100644
+index 000000000000..cbe79c1f59d3
+--- /dev/null
++++ b/drivers/phy/starfive/phy-jh7110-pcie.c
+@@ -0,0 +1,204 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * StarFive JH7110 PCIe 2.0 PHY driver
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ * Author: Minda Chen <minda.chen@starfivetech.com>
++ */
 +
-+		usbphy0: phy@10200000 {
-+			compatible = "starfive,jh7110-usb-phy";
-+			reg = <0x0 0x10200000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_USB_125M>,
-+				 <&stgcrg JH7110_STGCLK_USB0_APP_125>;
-+			clock-names = "125m", "app_125m";
-+			#phy-cells = <0>;
-+		};
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/mfd/syscon.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
 +
-+		pciephy0: phy@10210000 {
-+			compatible = "starfive,jh7110-pcie-phy";
-+			reg = <0x0 0x10210000 0x0 0x10000>;
-+			#phy-cells = <0>;
-+		};
++#define PCIE_KVCO_LEVEL_OFF		0x28
++#define PCIE_USB3_PHY_PLL_CTL_OFF	0x7c
++#define PCIE_KVCO_TUNE_SIGNAL_OFF	0x80
++#define PCIE_USB3_PHY_ENABLE		BIT(4)
++#define PHY_KVCO_FINE_TUNE_LEVEL	0x91
++#define PHY_KVCO_FINE_TUNE_SIGNALS	0xc
 +
-+		pciephy1: phy@10220000 {
-+			compatible = "starfive,jh7110-pcie-phy";
-+			reg = <0x0 0x10220000 0x0 0x10000>;
-+			#phy-cells = <0>;
-+		};
++#define USB_PDRSTN_SPLIT		BIT(17)
 +
- 		stgcrg: clock-controller@10230000 {
- 			compatible = "starfive,jh7110-stgcrg";
- 			reg = <0x0 0x10230000 0x0 0x10000>;
++#define PCIE_PHY_MODE			BIT(20)
++#define PCIE_PHY_MODE_MASK		GENMASK(21, 20)
++#define PCIE_USB3_BUS_WIDTH_MASK	GENMASK(3, 2)
++#define PCIE_USB3_BUS_WIDTH		BIT(3)
++#define PCIE_USB3_RATE_MASK		GENMASK(6, 5)
++#define PCIE_USB3_RX_STANDBY_MASK	BIT(7)
++#define PCIE_USB3_PHY_ENABLE		BIT(4)
++
++struct jh7110_pcie_phy {
++	struct phy *phy;
++	struct regmap *stg_syscon;
++	struct regmap *sys_syscon;
++	void __iomem *regs;
++	u32 sys_phy_connect;
++	u32 stg_pcie_mode;
++	u32 stg_pcie_usb;
++	enum phy_mode mode;
++};
++
++static int phy_usb3_mode_set(struct jh7110_pcie_phy *data)
++{
++	if (!data->stg_syscon || !data->sys_syscon) {
++		dev_err(&data->phy->dev, "doesn't support usb3 mode\n");
++		return -EINVAL;
++	}
++
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_mode,
++			   PCIE_PHY_MODE_MASK, PCIE_PHY_MODE);
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
++			   PCIE_USB3_BUS_WIDTH_MASK, 0);
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
++			   PCIE_USB3_PHY_ENABLE, PCIE_USB3_PHY_ENABLE);
++
++	/* Connect usb 3.0 phy mode */
++	regmap_update_bits(data->sys_syscon, data->sys_phy_connect,
++			   USB_PDRSTN_SPLIT, 0);
++
++	/* Configuare spread-spectrum mode: down-spread-spectrum */
++	writel(PCIE_USB3_PHY_ENABLE, data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
++
++	return 0;
++}
++
++static void phy_pcie_mode_set(struct jh7110_pcie_phy *data)
++{
++	u32 val;
++
++	/* default is PCIe mode */
++	if (!data->stg_syscon || !data->sys_syscon)
++		return;
++
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_mode,
++			   PCIE_PHY_MODE_MASK, 0);
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
++			   PCIE_USB3_BUS_WIDTH_MASK,
++			   PCIE_USB3_BUS_WIDTH);
++	regmap_update_bits(data->stg_syscon, data->stg_pcie_usb,
++			   PCIE_USB3_PHY_ENABLE, 0);
++
++	regmap_update_bits(data->sys_syscon, data->sys_phy_connect,
++			   USB_PDRSTN_SPLIT, 0);
++
++	val = readl(data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
++	val &= ~PCIE_USB3_PHY_ENABLE;
++	writel(val, data->regs + PCIE_USB3_PHY_PLL_CTL_OFF);
++}
++
++static void phy_kvco_gain_set(struct jh7110_pcie_phy *phy)
++{
++	/* PCIe Multi-PHY PLL KVCO Gain fine tune settings: */
++	writel(PHY_KVCO_FINE_TUNE_LEVEL, phy->regs + PCIE_KVCO_LEVEL_OFF);
++	writel(PHY_KVCO_FINE_TUNE_SIGNALS, phy->regs + PCIE_KVCO_TUNE_SIGNAL_OFF);
++}
++
++static int jh7110_pcie_phy_set_mode(struct phy *_phy,
++				    enum phy_mode mode, int submode)
++{
++	struct jh7110_pcie_phy *phy = phy_get_drvdata(_phy);
++	int ret;
++
++	if (mode == phy->mode)
++		return 0;
++
++	switch (mode) {
++	case PHY_MODE_USB_HOST:
++	case PHY_MODE_USB_DEVICE:
++	case PHY_MODE_USB_OTG:
++		ret = phy_usb3_mode_set(phy);
++		if (ret)
++			return ret;
++		break;
++	case PHY_MODE_PCIE:
++		phy_pcie_mode_set(phy);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	dev_dbg(&_phy->dev, "Changing phy mode to %d\n", mode);
++	phy->mode = mode;
++
++	return 0;
++}
++
++static const struct phy_ops jh7110_pcie_phy_ops = {
++	.set_mode	= jh7110_pcie_phy_set_mode,
++	.owner		= THIS_MODULE,
++};
++
++static int jh7110_pcie_phy_probe(struct platform_device *pdev)
++{
++	struct jh7110_pcie_phy *phy;
++	struct device *dev = &pdev->dev;
++	struct phy_provider *phy_provider;
++	u32 args[2];
++
++	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
++	if (!phy)
++		return -ENOMEM;
++
++	phy->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(phy->regs))
++		return PTR_ERR(phy->regs);
++
++	phy->phy = devm_phy_create(dev, NULL, &jh7110_pcie_phy_ops);
++	if (IS_ERR(phy->phy))
++		return dev_err_probe(dev, PTR_ERR(phy->regs),
++				     "Failed to map phy base\n");
++
++	phy->sys_syscon =
++		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
++						     "starfive,sys-syscon",
++						     1, args);
++
++	if (!IS_ERR_OR_NULL(phy->sys_syscon))
++		phy->sys_phy_connect = args[0];
++	else
++		phy->sys_syscon = NULL;
++
++	phy->stg_syscon =
++		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
++						     "starfive,stg-syscon",
++						     2, args);
++
++	if (!IS_ERR_OR_NULL(phy->stg_syscon)) {
++		phy->stg_pcie_mode = args[0];
++		phy->stg_pcie_usb = args[1];
++	} else {
++		phy->stg_syscon = NULL;
++	}
++
++	phy_kvco_gain_set(phy);
++
++	phy_set_drvdata(phy->phy, phy);
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++
++	return PTR_ERR_OR_ZERO(phy_provider);
++}
++
++static const struct of_device_id jh7110_pcie_phy_of_match[] = {
++	{ .compatible = "starfive,jh7110-pcie-phy" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, jh7110_pcie_phy_of_match);
++
++static struct platform_driver jh7110_pcie_phy_driver = {
++	.probe	= jh7110_pcie_phy_probe,
++	.driver = {
++		.of_match_table	= jh7110_pcie_phy_of_match,
++		.name  = "jh7110-pcie-phy",
++	}
++};
++module_platform_driver(jh7110_pcie_phy_driver);
++
++MODULE_DESCRIPTION("StarFive JH7110 PCIe 2.0 PHY driver");
++MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
++MODULE_LICENSE("GPL");
 -- 
 2.17.1
 
