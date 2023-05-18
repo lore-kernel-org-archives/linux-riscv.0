@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A2DC77B7D
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 08:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F3EC77B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 08:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iqeKwjeI8PZGGJdT07PowGj9V7g9Wf9fxI79a2hcBtc=; b=BJ7e170c4t5AXBPtVdb9NlQ0Ii
-	ckd/DuDSSNtq/9ofxV0M5zh1Wz0TPAqqK6bbJQxuHFjh/d+6qPfMWUZaRBShQ+DG15N2EJN/vULmy
-	3/AaLv+BSo1mf/eCRr7LOPkDtskrV2OkuCdJse+8UNldwcOUAKeIUhv+biqh/0NhGmyLLKnLOk3Yg
-	N2rXVuXh99rq3YTzWMWCUgNwmFRaejwV4tZ4MS74MSXGiwlbcR3GLTpcGflLQRzMuFlYWU9x5df6H
-	HsOJ34Y6fk1Pp3vyvcF/esnWWrsGoOSSsrhATseS/K7RXWgyOTTKcm96b0n2eNNWRcwUALJ/nRwCH
-	K3Rs+jOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I3U6pJvwfAeQx4jfsN5OI0nFHv715Wwr2fWhThjVMFE=; b=ff/q2LFirdUB8B
+	Ohnb0v2Alf2dDFVifsVhrzkm53rf5uvKGKYevfl4KgLQmuQTJ/sEwHImU8cxtTgyZL+TUjEEcYSW4
+	BT09CIZMzV/Ri46M91FKyBR+bmbqD46B9hxOj9YS0RAn/QWdNYzGrU8216bWDu/DvzbMJyOJJ3Eii
+	6kxMfcfMU3oNTJ+pWwxLCmwQsl3dVSs8KN/amxV8586qLHp2veDix4CQZaYXzPjGX7Y0e95p+V6P4
+	sn9wgqfiFFJpYPujfG0VCxPbY0n0m+GVmeUvIlH6Tdwc7nDjIDFt0EqmXW4tNISJEnXVJolDGce0c
+	v72I650p33Wf/oBLNo2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzYYm-00CHN0-0p;
-	Thu, 18 May 2023 08:00:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pzYio-00CIuG-0J;
+	Thu, 18 May 2023 08:10:50 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzYYi-00CHMK-1N
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 08:00:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684396824; x=1715932824;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=o+MtaUXemXdsDFsjup9gIZdwYkFuFfMKgmgCjvx7N5w=;
-  b=F+Ph0mnpnnHF3pPLTZnYjpABOHQZeHh6Exvg8aW43+Khip9xYGf3TWQs
-   /vXp0Q2am7sotOLvy3xLhzU8GcTYqFGWUnvYKtxD33HxgQ+wL0mETB930
-   M54Nalgn6CU2hTjJq5YrolZ6CqNAHKvfzW1aI0IzTtIRHTWEgEG6G+FDo
-   GGuS95CRw0ZmG8m1R12yF2VyZkwSRm0SZm4wbZKn9/3JVz+LPATNCDogT
-   pB5+NY5L+ks0P1UcfV7uG/Yc6JXZDrUItF9ZIgLliDn6H0IiPplcoxZZz
-   t9FTNsUIADjsJEG8Wbgyxa7IC7h5p4lwCSesNEJZs+bCHq7HCclzv3E1a
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.99,284,1677567600"; 
-   d="asc'?scan'208";a="216054306"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 18 May 2023 01:00:22 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 18 May 2023 01:00:22 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 18 May 2023 01:00:20 -0700
-Date: Thu, 18 May 2023 08:59:59 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Anup Patel <anup@brainfault.org>
-CC: Alexandre Ghiti <alexghiti@rivosinc.com>, Song Shuai
-	<suagrfillet@gmail.com>, <robh@kernel.org>, Andrew Jones
-	<ajones@ventanamicro.com>, <palmer@rivosinc.com>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>,
-	<mason.huo@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Guo
- Ren <guoren@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: Bug report: kernel paniced when system hibernates
-Message-ID: <20230518-mobilize-dipper-051dfbc41971@wendy>
-References: <CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com>
- <CAHVXubgse4Lw7ucg52FkQW4c=QrNo56BXsRZ_nkCHAAPxUXUig@mail.gmail.com>
- <CAHVXubj92O_dwGShOJgrYezqk2pA2NtFyhNFbAPyhn7=PztK6Q@mail.gmail.com>
- <20230517-preacher-primer-f41020b3376a@wendy>
- <CAHVXubhMLgb54_7zV2yFuGPoMKCkUXwozHbDvghc7kQqNLK-JA@mail.gmail.com>
- <CAAhSdy3tKAk1xjinwnSWan0ivdDapcLvSb+hGNynPFZMUsoB9A@mail.gmail.com>
+	id 1pzYik-00CIsM-1K;
+	Thu, 18 May 2023 08:10:47 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-253340db64fso1784437a91.2;
+        Thu, 18 May 2023 01:10:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684397445; x=1686989445;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S0YTm0IoXUd5c4n5YN9L5DUYWH7WIf1ootPhSesQtpw=;
+        b=ZcxKVWxTbbBRXRzIs4OQ4ef+VAjO+ndMZFtzZExu3rBaoSOYhiRDwTrHtb1FY0hdJG
+         HGUxEL1az8vR0xr+PEWkNyfoZC7VZmxHQS8puY4JFtyDdFdQdEYCq982C2v+7yQiHUTh
+         2CcMtV71QYcBV9Rd/bRK9tb3hDnWe8UdCiSe01V+/0u30JCDIBXYS27rsgHe3ATjCoJA
+         VK9YXNtMXWhb9c2YGvxMkJ2Y3Joq5SDZMHybJnW4WPe47EY9cGMiT9Du9pGgftpjuTf4
+         HQXcKIEsJ/dQ001VUznykafhZ8OKqYbGpZPg9PjPfzyONW9OZTc1r3x9VXJKDVRo4n9D
+         G4Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684397445; x=1686989445;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S0YTm0IoXUd5c4n5YN9L5DUYWH7WIf1ootPhSesQtpw=;
+        b=HD9NYqDEP46xfB5ZfKL3v7eFl0PsvLG6io7f5/VPWMG3YKX+htahh1XjAVEv7N+rSb
+         HOeKLblNd2vgGzED7fS3zcJDmcy4OoglAwbWmjTlOKbdFgNj7zIkck9q8/ercApr+bEM
+         u4+8XqZHmZHb4p1Q9o3mYAgeJM904sF6gxhw6k04aGJ5f4lJZnYfil0slEsu6M6B3TTJ
+         Nv+SC8XDh5P8AYXF4ceF3R7kBWi0NaGXTuG8cvk9l8gB6WuvXla9XiCO/anJxIzruuaG
+         s9/hMUqDiJPIiIUTHgMJVZGhIZ+L4qkojSxwrbnQgh+C/GZ3ebwWRRjcM53XU2QwTnuY
+         ngoQ==
+X-Gm-Message-State: AC+VfDx6fUZ3E3gjX+hAEQtnzGT7M/3Unib+KgqnCx85krHsJj7fy/oE
+	PJjoIQLhCavcUpifb1JPaxwHDM5EbHJfEod5/pV7XIIFiYk=
+X-Google-Smtp-Source: ACHHUZ6onfAai2ygXURVPYRaxZVnlUv+nfcC3Xm7KTFlJ9Cq8cFTmGv8mjKjQj7PLNnBVWE+ADL4xKVZrtzP+tH9rm0=
+X-Received: by 2002:a17:90a:764d:b0:253:30f9:1849 with SMTP id
+ s13-20020a17090a764d00b0025330f91849mr1748821pjl.12.1684397444829; Thu, 18
+ May 2023 01:10:44 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAAhSdy3tKAk1xjinwnSWan0ivdDapcLvSb+hGNynPFZMUsoB9A@mail.gmail.com>
+References: <cover.1683791148.git.haibo1.xu@intel.com> <751a84a9691c86df0e65cdb02abf1e073892d1ca.1683791148.git.haibo1.xu@intel.com>
+ <20230511-28ec368a8168342c68ca2187@orel> <CAJve8okVFr-m6go6dCg7Cf=Uq3Yt9Xmxi0Z3B2vbWvahvx4GgA@mail.gmail.com>
+ <20230518-60da3b82641bdaccec589b8b@orel>
+In-Reply-To: <20230518-60da3b82641bdaccec589b8b@orel>
+From: Haibo Xu <xiaobo55x@gmail.com>
+Date: Thu, 18 May 2023 16:10:33 +0800
+Message-ID: <CAJve8on1qzEZ6MsaV4ZOJoKHwymeEPtd_vmY6ki1Nq9bnUPT2g@mail.gmail.com>
+Subject: Re: [PATCH 2/2] KVM: selftests: Add riscv get-reg-list test
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_010024_529112_74CC2F30 
-X-CRM114-Status: GOOD (  53.60  )
+X-CRM114-CacheID: sfid-20230518_011046_468859_2930A556 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,226 +91,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5853720075286268295=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5853720075286268295==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TrXvLTZCoUzVI2ZA"
-Content-Disposition: inline
-
---TrXvLTZCoUzVI2ZA
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Alex, Anup,
-
-On Thu, May 18, 2023 at 12:23:59PM +0530, Anup Patel wrote:
-> On Wed, May 17, 2023 at 8:26=E2=80=AFPM Alexandre Ghiti <alexghiti@rivosi=
-nc.com> wrote:
-> > On Wed, May 17, 2023 at 1:28=E2=80=AFPM Conor Dooley <conor.dooley@micr=
-ochip.com> wrote:
-> > > On Wed, May 17, 2023 at 10:58:02AM +0200, Alexandre Ghiti wrote:
-> > > > On Tue, May 16, 2023 at 1:12=E2=80=AFPM Alexandre Ghiti <alexghiti@=
-rivosinc.com> wrote:
-> > >
-> > > > > On Tue, May 16, 2023 at 11:24=E2=80=AFAM Song Shuai <suagrfillet@=
-gmail.com> wrote:
-> > > > > I actually removed this flag a few years ago, and I have to admit=
- that
-> > > > > I need to check if that's necessary: the goal of commit 3335068f8=
-721
-> > > > > ("riscv: Use PUD/P4D/PGD pages for the linear mapping") is to exp=
-ose
-> > > > > the "right" start of DRAM so that we can align virtual and physic=
-al
-> > > > > addresses on a 1GB boundary.
-> > > > >
-> > > > > So I have to check if a nomap region is actually added as a
-> > > > > memblock.memory.regions[] or not: if yes, that's perfect, let's a=
-dd
-> > > > > the nomap attributes to the PMP regions, otherwise, I don't think=
- that
-> > > > > is a good solution.
-> > > >
-> > > > So here is the current linear mapping without nomap in openSBI:
-> > > >
-> > > > ---[ Linear mapping ]---
-> > > > 0xff60000000000000-0xff60000000200000    0x0000000080000000        =
- 2M
-> > > > PMD     D A G . . W R V
-> > > > 0xff60000000200000-0xff60000000e00000    0x0000000080200000        =
-12M
-> > > > PMD     D A G . . . R V
-> > > >
-> > > > And below the linear mapping with nomap in openSBI:
-> > > >
-> > > > ---[ Linear mapping ]---
-> > > > 0xff60000000080000-0xff60000000200000    0x0000000080080000      15=
-36K
-> > > > PTE     D A G . . W R V
-> > > > 0xff60000000200000-0xff60000000e00000    0x0000000080200000        =
-12M
-> > > > PMD     D A G . . . R V
-> > > >
-> > > > So adding nomap does not misalign virtual and physical addresses, it
-> > > > prevents the usage of 1GB page for this area though, so that's a
-> > > > solution, we just lose this 1GB page here.
-> > > >
-> > > > But even though that may be the fix, I think we also need to fix th=
-at
-> > > > in the kernel as it would break compatibility with certain versions=
- of
-> > > > openSBI *if* we fix openSBI...So here are a few solutions:
-> > > >
-> > > > 1. we can mark all "mmode_resv" nodes in the device tree as nomap,
-> > > > before the linear mapping is established (IIUC, those nodes are add=
-ed
-> > > > by openSBI to advertise PMP regions)
-> > > >     -> This amounts to the same fix as opensbi and we lose the 1GB =
-hugepage.
-> > >
-> > > AFAIU, losing the 1 GB hugepage is a regression, which would make this
-> > > not an option, right?
-> >
-> > Not sure this is a real regression, I'd rather avoid it, but as
-> > mentioned in my first answer, Mike Rapoport showed that it was making
-> > no difference performance-wise...
-
-My point was that if someone has hugepages enabled & we handle this in a
-way that causes the first hugepage to be unusable, is that not a
-regression? Whether hugepages provide a performance benefit is not
-really related to that question AFAICT.
-
-Were you suggesting reverting hugepage support entirely in your original
-message? If we entirely remove hugepage support, then I guess the first
-hugepage cannot be lost..
-
-> > > > 2. we can tweak pfn_is_nosave function to *not* save pfn correspond=
-ing
-> > > > to PMP regions
-> > > >     -> We don't lose the 1GB hugepage \o/
-> > > > 3. we can use register_nosave_region() to not save the "mmode_resv"
-> > > > regions (x86 does that
-> > > > https://elixir.bootlin.com/linux/v6.4-rc1/source/arch/x86/kernel/e8=
-20.c#L753)
-> > > >     -> We don't lose the 1GB hugepage \o/
-> > > > 4. Given JeeHeng pointer to
-> > > > https://elixir.bootlin.com/linux/v6.4-rc1/source/kernel/power/snaps=
-hot.c#L1340,
-> > > > we can mark those pages as non-readable and make the hibernation
-> > > > process not save those pages
-> > > >     -> Very late-in-the-day idea, not sure what it's worth, we also
-> > > > lose the 1GB hugepage...
-> > >
-> > > Ditto here re: introducing another regression.
-> > >
-> > > > To me, the best solution is 3 as it would prepare for other similar
-> > > > issues later, it is similar to x86 and it allows us to keep 1GB
-> > > > hugepages.
-> > > >
-> > > > I have been thinking, and to me nomap does not provide anything sin=
-ce
-> > > > the kernel should not address this memory range, so if it does, we
-> > > > must fix the kernel.
-> > > >
-> > > > Let me know what you all think, I'll be preparing a PoC of 3 in the=
- meantime!
-> > >
-> > > #3 would probably get my vote too. It seems like you could use it
-> > > dynamically if there was to be a future other provider of "mmode_resv"
-> > > regions, rather than doing something location-specific.
-> > >
-> > > We should probably document these opensbi reserved memory nodes though
-> > > in a dt-binding or w/e if we are going to be relying on them to not
-> > > crash!
->=20
-> Depending on a particular node name is fragile. If we really need
-> information from DT then I suggest adding "no-save-restore" DT
-> property in reserved memory nodes.
-
-We can add whatever properties we like, but where does that leave us for
-the systems in the wild where their reserved memory nodes do not contain
-a "no-save-restore" property or "no-map"?
-
-Ideally, yes, we do not depend on the node name and instead use explicit
-properties - but I think we may be "forced" to fall back to checking the
-node-name to cover the opensbi versions that do not contain one.
-LMK if I have missed something there!
-
-> > Yes, you're right, let's see what Atish and Anup think!
->=20
-> I think we have two possible approaches:
->=20
-> 1) Update OpenSBI to set "no-map" DT property for firmware
->     reserved regions. We were doing this previously but removed
->     it later for performance reasons mentioned by Alex. It is also
->     worth mentioning that ARM Trusted Firmware also sets "no-map"
->     DT property for firmware reserved regions.
->=20
-> 2) Add a new "no-save-restore" DT property in the reserved
->     memory DT bindings. The hibernate support of Linux arch/riscv
->     will use this DT property to exclude memory regions from
->     save-restore. The EFI implementation of EDK2 and U-Boot
->     should do the following:
->     1) Treat all memory having "no-map" DT property as EFI
->         reserved memory
->     2) Treat all memory not having "no-map" DT property and
->         not having "no-save-restore" DT property as EfiBootServicesData
->     3) Treat all memory not having "no-map" DT property and
->          having "no-save-restore" DT property as EfiRuntimeServiceData
->          (Refer,
-> https://devicetree-specification.readthedocs.io/en/latest/chapter3-device=
-nodes.html#reserved-memory-and-uefi)
->=20
-> Personally, I am leaning towards approach#1 since approach#2
-> will require changing DeviceTree specification as well.
-
-#1 is by far the simpler option of the two, if the consensus is that the
-loss of the first hugepage is not a problem (or if it is a problem that
-realistically is unavoidable).
-
-There's something else I think I might be missing here, given the
-scattered nature of the reporting. This is not a problem for a system
-that does not implement hibernation, which was only added in v6.4-rc1?
-
-That would make it not a regression after all. I think I misunderstood
-the report on sw-dev to mean that this was a problem generally after
-v6.4-rc1, which would have been one. Could someone please confirm that?
-
-If it only affects hibernation, and is not a regression, should we make
-ARCH_HIBERNATION_POSSIBLE def_bool n in Kconfig until we have agreed on
-a solution for the problem?
-
-Thanks,
-Conor.
-
---TrXvLTZCoUzVI2ZA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGXa8AAKCRB4tDGHoIJi
-0l98AP0dE5EosZsI0Rn2zUaiwLP1QhfXAtw0VBDqfyBOggNDGwEAkw/r5ui8ZjMf
-3x9hVSJT8j/4N8xYq4MqBRWxUDz7ygQ=
-=pmTn
------END PGP SIGNATURE-----
-
---TrXvLTZCoUzVI2ZA--
-
-
---===============5853720075286268295==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5853720075286268295==--
-
+T24gVGh1LCBNYXkgMTgsIDIwMjMgYXQgMzozMuKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBNYXkgMTgsIDIwMjMgYXQgMTI6MTc6
+MThQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gLi4uCj4gPiA+IFRoZSBpZGVhIG9mIHRoZXNl
+ICp0b19zdHIgZnVuY3Rpb25zIGlzIHRvIGR1bXAgb3V0cHV0IHRoYXQgY2FuIGJlCj4gPiA+IGNv
+cHkrcGFzdGVkIGludG8gYSByZWcgYXJyYXkgKGhlbmNlIHRoZSB0cmFpbGluZyBjb21tYXMgaW4g
+cHJpbnRfcmVnCj4gPiA+IGxpbmVzKS4gU28gd2UgY2FuJ3QganVzdCBwcmludCByYW5kb20gbGlu
+ZXMgaGVyZSBvciByZXR1cm4gJyMjVU5LT1dOIyMnLAo+ID4gPiBhcyB0aGF0IHdvbid0IGNvbXBp
+bGUuIEluc3RlYWQsIHRoZSBkZWZhdWx0IHNob3VsZCByZXR1cm4KPiA+ID4KPiA+ID4gICBzdHJf
+d2l0aF9pbmRleCgiS1ZNX1JFR19SSVNDVl9DT05GSUdfUkVHKCMjKSIsIHJlZ19vZmYpCj4gPiA+
+Cj4gPgo+ID4gVGhhbmtzIGZvciBzaGFyaW5nIHRoZSBkZXRhaWxlZCBpZGVhLCB3aWxsIGZpeCBp
+dCBpbiBuZXh0IHZlcnNpb24hCj4KPiBJIGd1ZXNzIHdlIGNvdWxkIGFsc28gcmV0dXJuIGEgc3Ry
+aW5nIGxpa2UsCj4KPiAiS1ZNX1JFR19SSVNDVl9DT05GSUdfUkVHKCMjKSAvKiBVTktOT1dOICov
+Igo+Cj4gYXMgdGhhdCB3b3VsZCBzdGlsbCBjb21waWxlIGFuZCBhbHNvIGNvbnZleSB0aGUgbWVz
+c2FnZSB0aGF0IHRoaXMKPiByZWdpc3RlciBkb2Vzbid0IGhhdmUgYSBuYW1lIGJlY2F1c2UgdGhl
+IHRlc3QgZG9lc24ndCBrbm93IGl0IHlldC4KPgoKWWVzLCB0aGF0J3MgbW9yZSBmcmllbmRseSBh
+bmQgc2VsZiBleHBsYW5hdG9yeS4gVGhhbmtzIGZvciB0aGUgc3VnZ2VzdGlvbiEKCj4gLi4uCj4g
+PiA+IFdlIHNob3VsZCBzaGFyZSBhbGwgdGhlIGNvZGUgYWJvdmUsIGV4Y2VwdCBwcmludF9yZWco
+KSwgd2l0aCBhYXJjaDY0Lgo+ID4gPiBJJ2xsIHNlbmQgYSBwYXRjaCBzZXJpZXMgdGhhdCBzcGxp
+dHMgdGhlIGFyY2gtbmV1dHJhbCBjb2RlIG91dCBvZgo+ID4gPiB0aGUgYWFyY2g2NCB0ZXN0IHRo
+YXQgeW91IGNhbiBiYXNlIHRoaXMgdGVzdCBvbi4KPiA+ID4KPiA+Cj4gPiBHb29kIGlkZWEhIEkg
+d2lsbCByZWJhc2UgdGhlIHBhdGNoIGJhc2VkIG9uIHlvdXIgd29yay4KPiA+Cj4KPiBPaywgSSd2
+ZSBwdXNoZWQgcGF0Y2hlcyB0byBbMV0uIFRoaXMgc2VyaWVzIGludHJvZHVjZXMgdHdvIHRoaW5n
+cyB0byBLVk0KPiBzZWxmdGVzdHMuIFByaW1hcmlseSBpdCBzcGxpdHMgdGhlIGFhcmNoNjQvZ2V0
+LXJlZy1saXN0IHRlc3QgaW50byBhCj4gY3Jvc3MtYXJjaCBnZXQtcmVnLWxpc3QgdGVzdCBhbmQg
+YW4gJEFSQ0hfRElSL2dldC1yZWctbGlzdC5vIG9iamVjdCBmaWxlLAo+IHdoaWNoIHRoZSBjcm9z
+cy1hcmNoIHRlc3QgZGVwZW5kcyBvbi4gVG8gZG8gdGhhdCwgaXQgYWxzbyBpbnRyb2R1Y2VzIHRo
+ZQo+IGNvbmNlcHQgb2YgYSAic3BsaXQgdGVzdCIsIGEgdGVzdCB0aGF0IGhhcyBhIGNyb3NzLWFy
+Y2ggcGFydCB3aGljaCBkZXBlbmRzCj4gb24gYW4gYXJjaC1zcGVjaWZpYyBwYXJ0LiBVc2luZyBh
+IHNwbGl0IHRlc3QgaXMgY2xlYW5lciB0aGFuIHRoZQo+ICNpZmRlZmZlcnkgd2UgdXN1YWxseSBk
+byBmb3IgY3Jvc3MtYXJjaCB0ZXN0cy4KPgo+IEkndmUgYWRkZWQga3ZtYXJtQGxpc3RzLmxpbnV4
+LmRldiwgTWFyYywgT2xpdmVyLCBhbmQgU2VhbiB0byB0aGUgQ0Mgb2YKPiB0aGlzIG1lc3NhZ2Uu
+IFlvdSdsbCB3YW50IHRvIGFkZCB0aGVtIHdoZW4geW91IHBvc3QgdjIgYXMgd2VsbC4KPgoKU3Vy
+ZSwgSSB3aWxsIHJlYmFzZSB5b3VyIHBhdGNoIGluIHYyLiBUaGFua3MgZm9yIHlvdXIgcmV2aWV3
+IQoKPiBbMV0gaHR0cHM6Ly9naXRodWIuY29tL2pvbmVzLWRyZXcvbGludXgvY29tbWl0cy9hcm02
+NC9rc2VsZi9nZXQtcmVnLWxpc3QKPgo+IFRoYW5rcywKPiBkcmV3CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
