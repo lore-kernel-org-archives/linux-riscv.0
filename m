@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5DCC7EE25
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 15:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60E6C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 15:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2nvy/rlqmbGL5jsNHNYix6/vBaWNWxsj1DBpjMQv3wU=; b=SYOM0AxBi1X78J
-	FIzI8iEGUIMu+QzXptl8sVuu18ldbPsvfWD56nyVy6AN95I3mTnsxt5DLElVAaahKjCsIAPTi3L4Q
-	M/S/VNM1HrYw/pKSHF5TPd/SKfQFVgAISrzqLoAi0ugBlKJE/xGwetn946c0TP6ZVVHwmrHZx3dO3
-	pdC0Fv8lcq+WYepIRW27RN5pw6xz3QYzgItA/aAwy/Z1n+q/r3agWhC8vvKzzduyra21lZr65CpZq
-	oX5JB9RWHJjDHnzDY49StnuYy9wGW1RgDrAFL17fNUQxe4gH43oJFFMB+Nwe+Jm5vAKPwuQIqBAjx
-	4K02JUMMTg97jPXAwKpg==;
+	List-Owner; bh=NiiJBXWz2Q8ZNZWQxpXbCmDG+r1JzXsDyHgyvfhmDDE=; b=prez2Y4UFvlD7p
+	xrPx9khX4C6SypWSH9MauldlozigpFjHCBzZptS7gnuACZW0pFo3LybnISGtn34mtFqqHCwlJyqfm
+	vQ/3sWpIbw+IK9UESjqsVBZpUsY+Kd2iecVIbnFOG9sNlSvd9xs7IKYxE0ScUo95h/iOP+C/Yp8bj
+	VrSs7BXoVMwofH8tV5tzy0+cUNtYmplj+J0SHPw49qOLL8x3Y+3my6cl1vNbwQiK1cti8KiNulhmz
+	7DM+acw0mMENtQuxdh7uH5lmlDrLhQ6sSJxsn6J/8D+FYCXFJW4W3PkA8yxu9KYVNZFdLiPGLxDo8
+	BhiZDGnPO/ihzqkVBlrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzfe8-00DK2J-0N;
-	Thu, 18 May 2023 15:34:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pzfeC-00DK5k-2U;
+	Thu, 18 May 2023 15:34:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzfe5-00DK0E-1f
+	id 1pzfe9-00DK3Z-20
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 15:34:26 +0000
+	Thu, 18 May 2023 15:34:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1C8BB65028;
-	Thu, 18 May 2023 15:34:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 765F6C433D2;
-	Thu, 18 May 2023 15:34:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C8816503C;
+	Thu, 18 May 2023 15:34:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01436C433EF;
+	Thu, 18 May 2023 15:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684424064;
-	bh=9ZVQaWxp1rntSaFGKdgAUvSryPweqDi/a9hnkE1Whk8=;
+	s=k20201202; t=1684424068;
+	bh=gEHB+BIFuaGSJHd+ja+x4RxCS37TdEdu060uta3gMMQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=D4BGUnHoEQEDOGv3XS0kZ4uAw6KKAZfdXAGaQPtSUtMmLl3CSgyHra2G/dbS4zjEP
-	 7IM/IREhAVbAdxAWoacPwlwRvTT1EDKdw6XiIPQIZWyeFM4l60NoHTqzAYpCmmF3Be
-	 nCizjtQqcqxf4ZsF38r6P5Nrobvb743GjexYMlsaWKqp99dktup1pgIxMi5kEimUwK
-	 fD7phZT913VUV2jDw9fP2QExGcyZk9NAdRUhr4+7sTiOxDlZ6rULA3bRoa0Foi+pXR
-	 65byqHOuO8mVq2AGA8aCNe/HtxG8FRnNCs7QogZ74Neb7UKzV8J6SJSIJt4wMgFtwv
-	 WdjLR9z9joeCQ==
+	b=FG5KSkJVORV1NRSO3ygKuqQNl8sXCDza7x0MkNP0DlPMo7lWgfRgPs7QVYfcMklOw
+	 cqzEUkUi+PsCYfcoQyTaJD6iA6RZg1jjvOrqdHssGWhIjvaqMDo/4lahNZIKw/5yiG
+	 Ohnqb6ATbN4ExIyf30baJHXF4a4Mwj78lrPLd883aFnrkCcdZt/5OotQYCVLGKPCMY
+	 prue/GlO5qAKxHJt0Ar/EwF7cRRGGcGGhNLVadXx581s2kvspHxyzNK2+lK8adcy+s
+	 ItcUwS2UX+lMP6ihKx0HLUKIpQe9WBe5aC96xAiHBHxmhisOw5MecZ7+oEEcmUO1V/
+	 TbZukq0Nh5srg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -60,16 +60,16 @@ Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v4 07/10] riscv: dts: bouffalolab: add the bl808 SoC base device tree
-Date: Thu, 18 May 2023 23:22:41 +0800
-Message-Id: <20230518152244.2178-8-jszhang@kernel.org>
+Subject: [PATCH v4 08/10] riscv: dts: bouffalolab: add Sipeed M1s SoM and Dock devicetree
+Date: Thu, 18 May 2023 23:22:42 +0800
+Message-Id: <20230518152244.2178-9-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230518152244.2178-1-jszhang@kernel.org>
 References: <20230518152244.2178-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_083425_637981_7419EE4A 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20230518_083429_741385_BAFAB865 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,93 +86,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a baisc dtsi for the bouffalolab bl808 SoC.
+Sipeed manufactures a M1s system-on-module and dock board, add basic
+support for them.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/boot/dts/bouffalolab/bl808.dtsi | 73 ++++++++++++++++++++++
- 1 file changed, 73 insertions(+)
- create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+ arch/riscv/boot/dts/Makefile                  |  1 +
+ arch/riscv/boot/dts/bouffalolab/Makefile      |  2 ++
+ .../dts/bouffalolab/bl808-sipeed-m1s-dock.dts | 25 +++++++++++++++++++
+ .../dts/bouffalolab/bl808-sipeed-m1s.dtsi     | 21 ++++++++++++++++
+ 4 files changed, 49 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/bouffalolab/Makefile
+ create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+ create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
 
-diff --git a/arch/riscv/boot/dts/bouffalolab/bl808.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index f0d9f89054f8..133e6c38c9b0 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -1,5 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ subdir-y += allwinner
++subdir-y += bouffalolab
+ subdir-y += sifive
+ subdir-y += starfive
+ subdir-y += canaan
+diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
 new file mode 100644
-index 000000000000..87906fe51db5
+index 000000000000..5419964e892d
 --- /dev/null
-+++ b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
-@@ -0,0 +1,73 @@
++++ b/arch/riscv/boot/dts/bouffalolab/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_BOUFFALOLAB) += bl808-sipeed-m1s-dock.dtb
+diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+new file mode 100644
+index 000000000000..aa6cf909cd4d
+--- /dev/null
++++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+@@ -0,0 +1,25 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
 +/*
 + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
 + */
 +
-+#include <dt-bindings/interrupt-controller/irq.h>
++/dts-v1/;
++
++#include "bl808-sipeed-m1s.dtsi"
 +
 +/ {
-+	compatible = "bouffalolab,bl808";
-+	#address-cells = <1>;
-+	#size-cells = <1>;
++	model = "Sipeed M1s Dock";
++	compatible = "sipeed,m1s-dock", "sipeed,m1s", "bouffalolab,bl808";
 +
-+	cpus {
-+		timebase-frequency = <1000000>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "thead,c906", "riscv";
-+			device_type = "cpu";
-+			reg = <0>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <32768>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			mmu-type = "riscv,sv39";
-+			riscv,isa = "rv64imafdc";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+			};
-+		};
++	aliases {
++		serial3 = &uart3;
 +	};
 +
-+	xtal: xtal-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		/* This value must be overridden by the board */
-+		clock-frequency = <0>;
++	chosen {
++		stdout-path = "serial3:2000000n8";
 +	};
++};
 +
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		interrupt-parent = <&plic>;
-+		dma-noncoherent;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
++&uart3 {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+new file mode 100644
+index 000000000000..5026de768534
+--- /dev/null
++++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: (GPL-2.0+ or MIT)
++/*
++ * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
++ */
 +
-+		uart3: serial@30002000 {
-+			compatible = "bouffalolab,bl808-uart";
-+			reg = <0x30002000 0x1000>;
-+			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&xtal>;
-+			status = "disabled";
-+		};
++/dts-v1/;
 +
-+		plic: interrupt-controller@e0000000 {
-+			compatible = "bouffalolab,bl808-plic", "thead,c900-plic";
-+			reg = <0xe0000000 0x4000000>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <2>;
-+			riscv,ndev = <82>;
-+		};
++#include "bl808.dtsi"
++
++/ {
++	compatible = "sipeed,m1s", "bouffalolab,bl808";
++
++	memory@50000000 {
++		device_type = "memory";
++		reg = <0x50000000 0x04000000>;
 +	};
++};
++
++&xtal {
++	clock-frequency = <40000000>;
 +};
 -- 
 2.40.0
