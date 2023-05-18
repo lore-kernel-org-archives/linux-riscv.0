@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEF2C7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 17:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DABC7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 17:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEnQenNqxMCf8UTaAwKNmfmWO3gdiMpfPnUZ+6fDm24=; b=1XOV33mcKARaBWrX5GtK2f97nt
-	k9YmSdj5gbsF6TJF+bfBTEqbh2jOsyg703wTJkncishQlVBsJgpYrTnM3rw1aip/fP8lZ1Lnmqee8
-	WR8Y/mujEv/2Ayprl+s2CFgogdaCsNzqZJMtfHWtFuHSIoHqkh0gOzpn2Bm338ZOdtv8VpVRW+Ql8
-	1T+v5YA/HvKk4F5awi+UtVWF0wpP5qhCr16AvNr9GZo9+1lJG0Vic/8Yu3LyG/qhODMSB2ClM3WdJ
-	Ug7ffLdSIptHVdB1qY61Wl00mDMuoXEJUqve1N7DI0JdRMC5hLZ2EXHKhNW5f4p59Xa5XH7xndHuY
-	rcL+DsMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=va/rgdD+HDqaOSLBReUUHCjdRebUts1qb0MZDxtuePU=; b=szQbqoWpRoVUdt
+	w2ORFYiHezNLeJoFRoKK7n+vc1qR7i+m/FKN4NDV/0/Xl4MkLEG33wkvaAubpThFUd1QCspMz84Dr
+	b9Ole9H5znFDQoOjoF8AXVMxNxv8Hh94W5mRTYe2n5E9QNycHr14wcPBHgGsGDMhhNBXFVsw19fZv
+	LckSZhejGsDp20QAdxoullb1Vp+P5JHJO/tb6Vr+kbQq/3kefDE2sGNjF4Tfg3DaYJC9w64YGm4ro
+	n3eezlqD0HO4xGXKEIGPr3jRypFk9AZ0ULhrSlj/cB3ujZaJYzMDvTuLDUXPPmDw8nC7PFbZS6VlM
+	si5/0P7eUbnXpssB+Duw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzh5F-00DZym-2n;
-	Thu, 18 May 2023 17:06:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pzh7p-00DaQC-1s;
+	Thu, 18 May 2023 17:09:13 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzh5E-00DZyI-09
+	id 1pzh7m-00DaOS-0G
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 17:06:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6AAD560EFA;
-	Thu, 18 May 2023 17:06:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2548DC433D2;
-	Thu, 18 May 2023 17:06:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684429590;
-	bh=XL8Q8LxpeG+xUSW+d2Fhz16+YABT67r3plx3O+Y35ag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SYDwNwjeRfNEkfoyIRyJq3Fohsc3ZIt3WbvX+OQ++ceTWjibgZ24NbiSU4vfGEufv
-	 E7/MG8tjVbYn8mfTzAqH4bsSYhCAPy4wioXysSz9c9jyKzRIwkWR4YFCfxF+QkoWHa
-	 SjilsAYEF5gzcKD+jg9x90stMTD6SLJsxPxhPjJZW0StGE3IfSLuaGFwHOy8eBK4OM
-	 i59muo8WKsAEN4/0QTZOrGqA5Hx1JqDnrSJpknH+axhqo4xWAcFso0ezUz0FDXuSnL
-	 xP1/Z3FypEnI8MGE/wgMHsOmzfJ6SUoZ43dLzibDtQNclaBobAMq0a6Jey31YekcNb
-	 7Uu1mISU27XeQ==
-Date: Thu, 18 May 2023 18:06:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, anup@brainfault.org,
-	ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	apatel@ventanamicro.com, atishp@atishpatra.org, jrtc27@jrtc27.com,
-	rick@andestech.com, ycliang@andestech.com,
-	linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org,
-	u-boot@lists.denx.de, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
-Message-ID: <20230518-elective-mossy-1bf147f5e9b8@spud>
-References: <20230518-hammock-doornail-478e8ea8e6a7@wendy>
- <mhng-95b99ff5-9024-4672-bb84-7599f7a05129@palmer-ri-x1c9>
+	Thu, 18 May 2023 17:09:11 +0000
+X-QQ-mid: bizesmtp74t1684429236tgelvkjl
+Received: from linux-lab-host.localdomain ( [119.123.131.162])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 19 May 2023 01:00:35 +0800 (CST)
+X-QQ-SSF: 01200000000000C0V000000A0000000
+X-QQ-FEAT: pauNAy/IFzO0FaQLOne96cFwWdA59Rv4ZuUqOLkZM5vji7bwoCZfS5oHPCMNR
+	48M0RE4xcp7ioGHPUTFDmgZNOj8L11HPDeSMZPI0b90K7Jv+Nh32m0kmQ/2eJDuBvjU0nqD
+	rxRFk0z2JlwsVGj4O80PV9hisxKncI9YGz+2lJz8YJD6bD5Y9UciT6oVEee6jfpaq2bfKEA
+	HrD0t1VI81q3uNLbr20tgc4tHuur1dy5sG9LiLuwTGWsdB+Ran0iTH52kg5yFFbiLmaHExg
+	827Tca72h1Yfy+ko7CRNn0mNtrcWNhrkvV0LKlT9CQZGKoU3nBQ6UtJRYrfJm5RWfHgD2cs
+	y77EH3kjkfWGDxkRos=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4878818344533688938
+From: Zhangjin Wu <falcon@tinylab.org>
+To: Willy Tarreau <w@1wt.eu>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: "Paul E . McKenney" <paulmck@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zhangjin Wu <falcon@tinylab.org>
+Subject: [PATCH 0/2] tools/nolibc: riscv: Fix up compile error for rv32
+Date: Fri, 19 May 2023 01:00:18 +0800
+Message-Id: <cover.1684425792.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <mhng-95b99ff5-9024-4672-bb84-7599f7a05129@palmer-ri-x1c9>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_100632_164488_507135E4 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20230518_100910_426879_B3D4CDEC 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,83 +70,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5887288707973944682=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi, Willy
 
---===============5887288707973944682==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TKxZvzqyNscVPD5H"
-Content-Disposition: inline
+nolibc for riscv is only tested for rv64 currently (see
+tools/testing/selftests/nolibc/Makefile), this patchset tries to let it
+compile for rv32, but still not pass the nolibc selftest:
 
+* The first patch uses lw/sw instead of ld/sd for rv32 and verse-vice for rv64
+    * This patch may conflict with the stackprotector patch [1], because
+      both of them changed the _start assembly in arch-riscv.h
 
---TKxZvzqyNscVPD5H
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+* The second patch adds __NR_llseek based sys_lseek implementation for rv32
+    * There is no __NR_lseek for rv32, see include/uapi/asm-generic/unistd.h
+    * This code is based on the version from glibc, sysdeps/unix/sysv/linux/lseek.c
+    * It passed the two lseek tests in nolibc selftest (write a test case manually)
 
-On Thu, May 18, 2023 at 07:41:17AM -0700, Palmer Dabbelt wrote:
-> On Thu, 18 May 2023 07:06:17 PDT (-0700), Conor Dooley wrote:
-> > On Thu, May 18, 2023 at 07:13:15PM +0530, Anup Patel wrote:
-> > > On Thu, May 18, 2023 at 4:02=E2=80=AFPM Andrew Jones <ajones@ventanam=
-icro.com> wrote:
-> > > > On Thu, May 18, 2023 at 09:58:30AM +0100, Conor Dooley wrote:
+* To let it compile for rv32, we still need to apply one of such actions:
+    * Revert the kernel commit d4c08b9776b3 ("riscv: Use latest system call ABI"),
+      but it is not the right direction, that commit has removed all of the time32 syscalls,
+      and let C lib (e.g. glibc) provide the same C APIs based on the other time64 syscalls
 
-> > > One downside of this new approach is it will increase the size of DTB.
-> > > Imaging 50 such DT properties in 46 CPU DT nodes.
-> >=20
-> > I should do a comparison between 50 extensions in riscv,isa and doing
-> > this 50 times and see what the sizes are.
->=20
-> I'm not sure how sensitive people are to DT size (presumably it'd be DTB
-> size)?
->=20
-> It's also not clear what we can do about it: RISC-V has lots of extension=
-s,
-> that's going to take encoding space.  Sticking with an ambiguous encoding
-> because it's smaller seems like a way to get burned in the long run.
+    * If not really use any of the time32 syscalls, defining __ARCH_WANT_TIME32_SYSCALLS
+      macro will let it compile, but this is buggy for the current implmentations are based
+      on time32 syscalls!
 
-I did actually go an look at this. I cheated a little and renamed the
-properties to "riscv,isa-ext-foo", which is about as communicative IMO
-as the longer name I currently have, but may seem more agreeable to the
-size conscious.
-I added 30 cpu nodes to mpfs.dtsi, each with 100 extensions of 6 chars
-long. With just the string, containing "rv64imafdc_zabcde_...", it was
-unreadable, but "only" took up 46k.
-I then removed the multiletter extensions from riscv,isa & switched to
-riscv,isa-base & 100 booleans. IMO it was more readable (although still
-quite bad!), but took up 62k.
-Removing all of the boolean properties, leaving me with 30 addtional harts
-with "rv64imafdc" only, was 26k.
+    * Really implement the C APIs for rv32, based on the time64 syscalls, just like glibc.
+      This commit c8ce48f06503 ("asm-generic: Make time32 syscall numbers optional") shows
+      us which functions should be re-implemented.
 
-I think the generic limit for dtb files is 2 MiB? To me the size
-increase doesn't sound like a bit problem.
+So, the work todo for rv32 is:
 
---TKxZvzqyNscVPD5H
-Content-Type: application/pgp-signature; name="signature.asc"
+* Rebasing all of the old time32 syscalls based C APIs on the new time64 syscalls,
+  but they are not simply mapped one by one, glibc is a good reference.
 
------BEGIN PGP SIGNATURE-----
+* Add standalone rv32 test support in tools/testing/selftests/nolibc/
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGZbEAAKCRB4tDGHoIJi
-0s2UAQC3dbtneTDqOvEpuMHz7vzTT/qCO/nEAhYVxRjH0MasoQD+IWeuh0pZj7Y/
-NPtfbaq3ryBkiGdWFoAC2ls1S9xcNAo=
-=0mwD
------END PGP SIGNATURE-----
+Best Regards,
+Zhangjin Wu
 
---TKxZvzqyNscVPD5H--
+[1]: https://lore.kernel.org/linux-riscv/mhng-1ec176a9-ec5d-470b-a278-a4e9cec728a8@palmer-ri-x1c9a/
+
+Zhangjin Wu (2):
+  tools/nolibc: riscv: Fix up load/store instructions for rv32
+  tools/nolibc: riscv: Support __NR_llseek for rv32
+
+ tools/include/nolibc/arch-riscv.h | 14 +++++++++-----
+ tools/include/nolibc/std.h        |  1 +
+ tools/include/nolibc/sys.h        | 19 +++++++++++++++++++
+ 3 files changed, 29 insertions(+), 5 deletions(-)
+
+-- 
+2.25.1
 
 
---===============5887288707973944682==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5887288707973944682==--
-
