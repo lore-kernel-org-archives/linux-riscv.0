@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B3FC7EE2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 22:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0455DC7EE33
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 22:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TOCJ2EyezZKjb24CYYWtiE+P4dSsjYelD9Dd+Ip5+aU=; b=KgEFYcV9nbpdbl
-	3u95RU7UixGPaj5U0HpDAVO212XQJbgHC3FrOCHdljma7CKOQJAZ5uuCcfYgRMk+DyhTAwEowy1yW
-	mkgbucVDXCrim0azCjUS3UGYMV0lnncG5XajMmInW7OaeQWie7N2DRtWWgxBVU8RHHxc+mdeUUIad
-	u/49d20Uui5PjDMU/SEYtiwDaZcjd0G4cmTrQkbJxtfCOfq/A68jVD2qzN+H2qmqSFN/oEy/UoqQs
-	mR3HS+62/hp8lhYzbXfLIPI5VSm6TVeuCJwg5ZXwXOGNYepu/iy+8qSsD/Uv7bp6w4QWqChp6r47F
-	VrMCAvKDrLl1eIY3zEOg==;
+	List-Owner; bh=pAmWFBpXq1i3PxV8HQ+9dRITlO+3JuCupSBpYkE7V7M=; b=fLLqCrbl0DDvfF
+	ic9BX/b7v8FHKUOC1GVJlprpA6QjRpG9b4gErKR+LAxBGPr7Ynr/lKZIouBlybpGaL1ELuh3A+Abc
+	/G4s3zx0nbWltbCjZcRk423mXwPn45NNT28r1NLwfJBcazpi4DaiSI4veyjEurAySrBTUmGADVpxf
+	woCKbFUMAwSx50a3rtPNEVrSstVxuwTXOlpeY4mle8u69DWl4pWvsQCs/uldyLvKfKEdHyo7rFBjG
+	maCPA45EHWh+CIlLLmp6p9ekfhcloNefldhoD+72ZFAI9NRstT875Vxp637ZzBwU7net6/+QPudzT
+	+we52V4gLmm8a+bkUpJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzmIC-00ENOT-01;
-	Thu, 18 May 2023 22:40:16 +0000
+	id 1pzmIE-00ENPE-25;
+	Thu, 18 May 2023 22:40:18 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzmI8-00ENMw-0B
+	id 1pzmIA-00ENO6-2I
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 22:40:13 +0000
+	Thu, 18 May 2023 22:40:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9EAA9652B1;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C71E652B2;
+	Thu, 18 May 2023 22:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7611BC4339B;
 	Thu, 18 May 2023 22:40:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5376C433D2;
-	Thu, 18 May 2023 22:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684449611;
-	bh=jZKnT1m7eWC6A6hO0IFJethc7rVaQmUoMS4W8xx3UQ0=;
+	s=k20201202; t=1684449613;
+	bh=ypjNYLjW+D7UXqDeV7BW4n9xdA8f+pquBC6t0rUOM2Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n+bRfTxwQVwKD4hS0YdmPeoljhZqPFt5hx4SMIGSCTYOs4UYLr30eaczOTdOU7k6x
-	 qbb91kXeiOVKI4X8susJifg97a25Vq12fHAyH4PaXZhZohKXdScz+I+q2SoSi85VJD
-	 vwjIpDGuj+vgWsPxhcNdDY37g7HGGPmYV0FluayDAQlkWn8Bbt+ccclKm4zNt7LKue
-	 VUU3IQ3GRs7cxDoXJc00nOf0znnIX2P8BxTA8h03z0RZIwABf8Nj4DyywGHdRIloX2
-	 A+s0z69QnMd0XT1MbynpmAchoU3MYkiK2zMumDq/NOWR0H6I1z/P4bW1gob2L2goBO
-	 JZnb8PiCVlUbg==
+	b=TRGgB1D9F10gnbSRtaCw0ZmGfoB8QCrg0UZgV0ymIOdAzKgnBBG4js8HxunGJRYPn
+	 GQ85QjENjGd20j2UXV9OpeGyp7HY43yb4Iu2e8qZKPiBeLwNW7RLnWzvhiV8O5P44j
+	 1a6TVbBXcpHB9tUZnqBMhmV/EbAIFIAK3x/u4yBYdbsXKgFW7dcEamYv5TEi5kGmgV
+	 6ycrwJ5AvW3gE8GGGu7FENWINRvayfkY5Na3+ffMmYK6groHYd8Tbbg7Vn8LXRhOtm
+	 H3jARotuWdHsOo3d/h4zw2w63SB1lGOGpLo/RlthYVhvKraIQFGQbmK5IEqmgefoRR
+	 /MjLJyb93YDTw==
 From: Conor Dooley <conor@kernel.org>
 To: palmer@dabbelt.com
-Subject: [PATCH v2 4/8] RISC-V: validate riscv,isa at boot, not during ISA string parsing
-Date: Thu, 18 May 2023 23:39:05 +0100
-Message-Id: <20230518-despair-cannon-0c344a70aa9e@spud>
+Subject: [PATCH v2 5/8] RISC-V: rework comments in ISA string parser
+Date: Thu, 18 May 2023 23:39:06 +0100
+Message-Id: <20230518-tactless-ascent-6b74f1119336@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230518-moneybags-rebalance-1484db493d6a@spud>
 References: <20230518-moneybags-rebalance-1484db493d6a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2004; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=odpPs/uqbxvNKy0OmAehTD0ifuZfZw2FYVzH2z9z9iw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClpKzn+df1eap1ivPXLHHmPlqu8MgwG3859nN6a5Nmzg b0vaDtfRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbC9o7hn7ldQOftF9WPNQ/k /NVo079p+1u99kcf7/xJYlMen6s5x8bIMOl3HUfOAflfRT+U91ziPnjec+/jH+fuKyoKxs5ZMKN xARMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4612; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=MzEbrG92FOqTlvRzWi1g8GTF0L/yzRwWLOI3UI52hnc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClpKzlYrNzSPpW1/Yy5Iymr2MD8JeDNjgdzfPbfSf07y d7x2qFFHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIBH2G/w52Rut/dXN9jql+ tuWN34mr0z1WLVnR0/pJKsk84sxS130Mf4Uei/fE3GT5mK824VRbX/G2k4YJLRYuW6QPM368+yA jmxMA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_154012_173580_FB7EF318 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20230518_154014_837562_3BC11BA9 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +77,143 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Since riscv_fill_hwcap() now only iterates over possible cpus, the
-basic validation of whether riscv,isa contains "rv<width>" can be moved
-to riscv_early_of_processor_hartid().
-
-Further, "ima" support is required by the kernel, so reject any CPU not
-fitting the bill.
+I have found these comments to not be at all helpful whenever I look at
+the parser. Further, the comments in the default case (single letter
+parser) are not quite right either.
+Group the comments into a larger one at the start of each case, that
+attempts to explain things at a higher level.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/kernel/cpu.c        |  8 +++++---
- arch/riscv/kernel/cpufeature.c | 12 ++++++------
- 2 files changed, 11 insertions(+), 9 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 70 ++++++++++++++++++++++++++++------
+ 1 file changed, 59 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 7030a5004f8e..b0c3ec0f2f5b 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -63,10 +63,12 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
- 		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
- 		return -ENODEV;
- 	}
--	if (tolower(isa[0]) != 'r' || tolower(isa[1]) != 'v') {
--		pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
-+
-+	if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32ima", 7))
-+		return -ENODEV;
-+
-+	if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64ima", 7))
- 		return -ENODEV;
--	}
- 
- 	return 0;
- }
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 3ae456413f79..a79c5c52a174 100644
+index a79c5c52a174..cc5189c7c64e 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -130,12 +130,12 @@ void __init riscv_fill_hwcap(void)
- 			continue;
- 		}
+@@ -146,7 +146,7 @@ void __init riscv_fill_hwcap(void)
  
--		if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32", 4))
--			continue;
--
--		if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64", 4))
--			continue;
--
-+		/*
-+		 * For all possible cpus, we have already validated in
-+		 * the boot process that they at least contain "rv" and
-+		 * whichever of "32"/"64" this kernel supports, and so this
-+		 * section can be skipped.
-+		 */
- 		isa += 4;
+ 			switch (*ext) {
+ 			case 's':
+-				/**
++				/*
+ 				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
+ 				 * No need to set the bit in riscv_isa as 's' & 'u' are
+ 				 * not valid ISA extensions. It works until multi-letter
+@@ -163,53 +163,101 @@ void __init riscv_fill_hwcap(void)
+ 			case 'X':
+ 			case 'z':
+ 			case 'Z':
++				/*
++				 * Before attempting to parse the extension itself, we find its end.
++				 * As multi-letter extensions must be split from other multi-letter
++				 * extensions with an "_", the end of a multi-letter extension will
++				 * either be the null character or the "_" at the start of the next
++				 * multi-letter extension.
++				 *
++				 * Next, as the extensions version is currently ignored, we
++				 * eliminate that portion. This is done by parsing backwards from
++				 * the end of the extension, removing any numbers. This may be a
++				 * major or minor number however, so the process is repeated if a
++				 * minor number was found.
++				 *
++				 * ext_end is intended to represent the first character *after* the
++				 * name portion of an extension, but will be decremented to the last
++				 * character itself while eliminating the extensions version number.
++				 * A simple re-increment solves this problem.
++				 */
+ 				ext_long = true;
+-				/* Multi-letter extension must be delimited */
+ 				for (; *isa && *isa != '_'; ++isa)
+ 					if (unlikely(!isalnum(*isa)))
+ 						ext_err = true;
+-				/* Parse backwards */
++
+ 				ext_end = isa;
+ 				if (unlikely(ext_err))
+ 					break;
++
+ 				if (!isdigit(ext_end[-1]))
+ 					break;
+-				/* Skip the minor version */
++
+ 				while (isdigit(*--ext_end))
+ 					;
+-				if (tolower(ext_end[0]) != 'p'
+-				    || !isdigit(ext_end[-1])) {
+-					/* Advance it to offset the pre-decrement */
++
++				if (tolower(ext_end[0]) != 'p' || !isdigit(ext_end[-1])) {
+ 					++ext_end;
+ 					break;
+ 				}
+-				/* Skip the major version */
++
+ 				while (isdigit(*--ext_end))
+ 					;
++
+ 				++ext_end;
+ 				break;
+ 			default:
++				/*
++				 * Things are a little easier for single-letter extensions, as they
++				 * are parsed forwards.
++				 *
++				 * After checking that our starting position is valid, we need to
++				 * ensure that, when isa was incremented at the start of the loop,
++				 * that it arrived at the start of the next extension.
++				 *
++				 * If we are already on a non-digit, there is nothing to do. Either
++				 * we have a multi-letter extension's _, or the start of an
++				 * extension.
++				 *
++				 * Otherwise we have found the current extension's major version
++				 * number. Parse past it, and a subsequent p/minor version number
++				 * if present. The `p` extension must not appear immediately after
++				 * a number, so there is no fear of missing it.
++				 *
++				 */
+ 				if (unlikely(!isalpha(*ext))) {
+ 					ext_err = true;
+ 					break;
+ 				}
+-				/* Find next extension */
++
+ 				if (!isdigit(*isa))
+ 					break;
+-				/* Skip the minor version */
++
+ 				while (isdigit(*++isa))
+ 					;
++
+ 				if (tolower(*isa) != 'p')
+ 					break;
++
+ 				if (!isdigit(*++isa)) {
+ 					--isa;
+ 					break;
+ 				}
+-				/* Skip the major version */
++
+ 				while (isdigit(*++isa))
+ 					;
++
+ 				break;
+ 			}
++
++			/*
++			 * The parser expects that at the start of an iteration isa points to the
++			 * character before the start of the next extension. This will not be the
++			 * case if we have just parsed a single-letter extension and the next
++			 * extension is not a multi-letter extension prefixed with an "_". It is
++			 * also not the case at the end of the string, where it will point to the
++			 * terminating null character.
++			 */
+ 			if (*isa != '_')
+ 				--isa;
  
- 		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
 -- 
 2.39.2
 
