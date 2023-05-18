@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03F7C7EE24
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 10:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78949C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 10:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mY8YlPFppxSE47t/oDAdqdEeA1qNLuAxyy5pk1/d1Cc=; b=mpAX0PphVneGK/
-	IJ3X4ciaNvNlANotjnQWOabhOCj+jx5Ku4Qdy63cPSK2D9v2TsFmruhdmHZSapk7lDIRtldWka/C7
-	EfNd7ONxRSrNgQs3b12UYqEfBy21sYOR2CmuXwNXtHSImdiP/aJTwtYhuoL/u14iu4LgzU6989iJJ
-	DcYYY6auiya8eUL9nu+Y3oSuuII0fqF30CgeEai1f+CAbjkNxWOL+gOBfmixu+dxj3Q9fppqe2LzU
-	WRHbaTb4+9I8m0S0ElmQ3Sks2/zM99r4gAkPgKsGdc0kGc4wgoSgL8JekBW4oth/UaL+xY2lLe1Av
-	HZ53NegkYPU30JiBhzvw==;
+	List-Owner; bh=oY39HCVy/jhfEZAmlJBrW1KL9C4KJc8qB1GDII0afOw=; b=q2fLhbNIuW9jZh
+	+tn10J5ec3T6KS1dkoWfKKLc0vehlXtSJdsEbTVqJY7hV4Y1fJQCCYxr2UP3yaUQhLiADcsbK/eDI
+	1glPEwSCYmcSKuEO+Wb1bhan7jF3ymOiXnE2nhlAqq4XfGhWwJ6RCj23Urv/LYbtst/x+DGIt/UxG
+	xAipKMVetSjuuHq8oZJNiJ8UdDSEwnD2Z605w5n8yKN55SRm2e0a67lOgV3x4FdnKNydQf/Au1NE0
+	SzXqtLS+IN5M23WVFvbjNKaL4hSuKZ+paSozZDt9E+ifGe/xAxiabIdAg0MuQSGZ6u00q/5tbzDDv
+	NIgaWrMJmaq9lxsvNHaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzadJ-00CXsv-2y;
-	Thu, 18 May 2023 10:13:17 +0000
+	id 1pzadD-00CXpU-0e;
+	Thu, 18 May 2023 10:13:11 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzad8-00CXjf-19
+	id 1pzad8-00CXjd-18
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 May 2023 10:13:12 +0000
+	Thu, 18 May 2023 10:13:08 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id DDDA224E1C7;
-	Thu, 18 May 2023 18:12:37 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 07C1624E251;
+	Thu, 18 May 2023 18:12:41 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:37 +0800
+ 2023 18:12:41 +0800
 Received: from localhost.localdomain (113.72.146.100) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 18:12:37 +0800
+ 2023 18:12:40 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -49,9 +49,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
 	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v6 03/11] dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
-Date: Thu, 18 May 2023 18:12:26 +0800
-Message-ID: <20230518101234.143748-4-xingyu.wu@starfivetech.com>
+Subject: [PATCH v6 07/11] MAINTAINERS: Update maintainer of JH71x0 clock drivers
+Date: Thu, 18 May 2023 18:12:30 +0800
+Message-ID: <20230518101234.143748-8-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
 References: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
@@ -61,8 +61,9 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_031306_776986_DFDCE019 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20230518_031306_542264_190A823A 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,163 +80,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Image-Signal-Process clock and reset
-generator (ISPCRG) on the JH7110 RISC-V SoC by StarFive Ltd.
+Add a new maintainer which is in charge of StarFive JH7110
+STG/ISP/VOUT clock drivers.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- .../clock/starfive,jh7110-ispcrg.yaml         | 87 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 ++++
- .../dt-bindings/reset/starfive,jh7110-crg.h   | 16 ++++
- 3 files changed, 121 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
-new file mode 100644
-index 000000000000..3b8b85be5cd0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
-@@ -0,0 +1,87 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jh7110-ispcrg.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 Image-Signal-Process Clock and Reset Generator
-+
-+maintainers:
-+  - Xingyu Wu <xingyu.wu@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-ispcrg
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: ISP Top core
-+      - description: ISP Top Axi
-+      - description: NOC ISP Bus
-+      - description: external DVP
-+
-+  clock-names:
-+    items:
-+      - const: isp_top_core
-+      - const: isp_top_axi
-+      - const: noc_bus_isp_axi
-+      - const: dvp_clk
-+
-+  resets:
-+    items:
-+      - description: ISP Top core
-+      - description: ISP Top Axi
-+      - description: NOC ISP Bus
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
-+
-+  power-domains:
-+    maxItems: 1
-+    description:
-+      ISP domain power
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - '#clock-cells'
-+  - '#reset-cells'
-+  - power-domains
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+    #include <dt-bindings/power/starfive,jh7110-pmu.h>
-+    #include <dt-bindings/reset/starfive,jh7110-crg.h>
-+
-+    ispcrg: clock-controller@19810000 {
-+        compatible = "starfive,jh7110-ispcrg";
-+        reg = <0x19810000 0x10000>;
-+        clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
-+                 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
-+                 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
-+                 <&dvp_clk>;
-+        clock-names = "isp_top_core", "isp_top_axi",
-+                      "noc_bus_isp_axi", "dvp_clk";
-+        resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
-+                 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
-+                 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+        power-domains = <&pwrc JH7110_PD_ISP>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
-index 6c8e8b4cf1f6..39acf30db491 100644
---- a/include/dt-bindings/clock/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-@@ -252,4 +252,22 @@
- 
- #define JH7110_STGCLK_END			29
- 
-+/* ISPCRG clocks */
-+#define JH7110_ISPCLK_DOM4_APB_FUNC		0
-+#define JH7110_ISPCLK_MIPI_RX0_PXL		1
-+#define JH7110_ISPCLK_DVP_INV			2
-+#define JH7110_ISPCLK_M31DPHY_CFG_IN		3
-+#define JH7110_ISPCLK_M31DPHY_REF_IN		4
-+#define JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0	5
-+#define JH7110_ISPCLK_VIN_APB			6
-+#define JH7110_ISPCLK_VIN_SYS			7
-+#define JH7110_ISPCLK_VIN_PIXEL_IF0		8
-+#define JH7110_ISPCLK_VIN_PIXEL_IF1		9
-+#define JH7110_ISPCLK_VIN_PIXEL_IF2		10
-+#define JH7110_ISPCLK_VIN_PIXEL_IF3		11
-+#define JH7110_ISPCLK_VIN_P_AXI_WR		12
-+#define JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C	13
-+
-+#define JH7110_ISPCLK_END			14
-+
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
-index 4e96ab81dd8e..2c5d9dcefffa 100644
---- a/include/dt-bindings/reset/starfive,jh7110-crg.h
-+++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-@@ -179,4 +179,20 @@
- 
- #define JH7110_STGRST_END			23
- 
-+/* ISPCRG resets */
-+#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_P	0
-+#define JH7110_ISPRST_ISPV2_TOP_WRAPPER_C	1
-+#define JH7110_ISPRST_M31DPHY_HW		2
-+#define JH7110_ISPRST_M31DPHY_B09_AON		3
-+#define JH7110_ISPRST_VIN_APB			4
-+#define JH7110_ISPRST_VIN_PIXEL_IF0		5
-+#define JH7110_ISPRST_VIN_PIXEL_IF1		6
-+#define JH7110_ISPRST_VIN_PIXEL_IF2		7
-+#define JH7110_ISPRST_VIN_PIXEL_IF3		8
-+#define JH7110_ISPRST_VIN_SYS			9
-+#define JH7110_ISPRST_VIN_P_AXI_RD		10
-+#define JH7110_ISPRST_VIN_P_AXI_WR		11
-+
-+#define JH7110_ISPRST_END			12
-+
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e0ad886d3163..2a0496448b7f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20101,6 +20101,7 @@ F:	drivers/mmc/host/dw_mmc-starfive.c
+ STARFIVE JH71X0 CLOCK DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+ M:	Hal Feng <hal.feng@starfivetech.com>
++M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh71*
 -- 
 2.25.1
 
