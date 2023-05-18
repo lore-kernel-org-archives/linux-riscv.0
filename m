@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A00C77B7D
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 11:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22896C7EE24
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 May 2023 11:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c+a6lTMVJDhtMKTUugCI3Bq2/qGlbHdoRcWG1e61bws=; b=R0JbwhdpSFFDyW
-	7GZU2AcUdST1cgahYAMetlcb1u+pcxNxehgAyhkrVA0zVWd8+OLJr0iiT4U7NGJvSdorDniK8RgmL
-	zYZECGrtWroc5qcWSDBM63umJaxUlQBAoXcmYFTo/GECByKd8bVpWlsG1+k10AyRcjSOnn3fa+vSp
-	OuVPy9FycUfjj/N3AI4E2ywda0ZbVaByE0nDpr5OknGamTnvXEPj7jTC+unq5uIPSySXh/6d+5GAn
-	D89bm3plkQruGm9gG6Pp5ARLB+5Ej8FkFy7WjnVgthU1cmGwab4rWItcx3gje2sOGaZyng5BBW0yb
-	xmHg45R1KiJTR6WdUfRw==;
+	List-Owner; bh=tsLpm22Gu3kxc/FsKXLKPwMkwshmrAg0oKszZXuLH1o=; b=hadMpYoVACWl2r
+	9yvfnjHwtxC7YhX2hFvEYvZdK+hkjXFHI8q0se5UW6GcerDhxuI6j/LpXfmrm3uDUV6S6EpWO0uXN
+	WiNNEnSeuDTTfdRX+UGSzGWndKTjbIRU+cA6pjqL5/gXfVYQ0613D6TxozBkw8ry/Y2I1CuztfXRN
+	Kd51pZyW8qbrLXTZMJ07R68/Sr+otYDUovdvk7+6hAzc2iivmJvmV/NwNSS7FugkXVIwBHjFmDrfS
+	Bczmd5H6EaetyYh7Gr+gpxKHaE68v2vMZVxscodr0tYHg8r1iBzKkhSES1sOOAgg0waM2ApU4YPsQ
+	zwRQM4TghBWnq2sFc7GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzboI-00CpzW-29;
-	Thu, 18 May 2023 11:28:42 +0000
+	id 1pzbo8-00Cpv2-2O;
+	Thu, 18 May 2023 11:28:32 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzboE-00CpqB-0F;
-	Thu, 18 May 2023 11:28:40 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pzbo4-00Cpq8-1K;
+	Thu, 18 May 2023 11:28:30 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E807C80E1;
-	Thu, 18 May 2023 19:27:58 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 19:27:58 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9549F80D6;
+	Thu, 18 May 2023 19:27:57 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
+ 2023 19:27:57 +0800
 Received: from ubuntu.localdomain (113.72.146.100) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 18 May
- 2023 19:27:57 +0800
+ 2023 19:27:56 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
 	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
@@ -51,9 +51,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	"Minda Chen" <minda.chen@starfivetech.com>, Mason Huo
 	<mason.huo@starfivetech.com>
-Subject: [PATCH v6 6/7] usb: cdns3: Add StarFive JH7110 USB driver
-Date: Thu, 18 May 2023 19:27:49 +0800
-Message-ID: <20230518112750.57924-7-minda.chen@starfivetech.com>
+Subject: [PATCH v6 5/7] dt-bindings: usb: Add StarFive JH7110 USB controller
+Date: Thu, 18 May 2023 19:27:48 +0800
+Message-ID: <20230518112750.57924-6-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230518112750.57924-1-minda.chen@starfivetech.com>
 References: <20230518112750.57924-1-minda.chen@starfivetech.com>
@@ -63,8 +63,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_042838_413422_9EDA7327 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20230518_042828_759975_0E48907C 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,324 +81,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds Specific Glue layer to support USB peripherals on
-StarFive JH7110 SoC.
-There is a Cadence USB3 core for JH7110 SoCs, the cdns
-core is the child of this USB wrapper module device.
+StarFive JH7110 platforms USB have a wrapper module around
+the Cadence USBSS-DRD controller. Add binding information doc
+for that.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Acked-by: Peter Chen <peter.chen@kernel.org>
+Reviewed-by: Peter Chen <peter.chen@kernel.org>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- MAINTAINERS                        |   6 +
- drivers/usb/cdns3/Kconfig          |  11 ++
- drivers/usb/cdns3/Makefile         |   1 +
- drivers/usb/cdns3/cdns3-starfive.c | 246 +++++++++++++++++++++++++++++
- 4 files changed, 264 insertions(+)
- create mode 100644 drivers/usb/cdns3/cdns3-starfive.c
+ .../bindings/usb/starfive,jh7110-usb.yaml     | 115 ++++++++++++++++++
+ 1 file changed, 115 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5519f81c8296..06c63f43bb17 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20168,6 +20168,12 @@ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
- F:	drivers/phy/starfive/phy-jh7110-pcie.c
- F:	drivers/phy/starfive/phy-jh7110-usb.c
- 
-+STARFIVE JH71X0 USB DRIVERS
-+M:	Minda Chen <minda.chen@starfivetech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
-+F:	drivers/usb/cdns3/cdns3-starfive.c
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/usb/cdns3/Kconfig b/drivers/usb/cdns3/Kconfig
-index b98ca0a1352a..0a514b591527 100644
---- a/drivers/usb/cdns3/Kconfig
-+++ b/drivers/usb/cdns3/Kconfig
-@@ -78,6 +78,17 @@ config USB_CDNS3_IMX
- 
- 	  For example, imx8qm and imx8qxp.
- 
-+config USB_CDNS3_STARFIVE
-+	tristate "Cadence USB3 support on StarFive SoC platforms"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	help
-+	  Say 'Y' or 'M' here if you are building for StarFive SoCs
-+	  platforms that contain Cadence USB3 controller core.
-+
-+	  e.g. JH7110.
-+
-+	  If you choose to build this driver as module it will
-+	  be dynamically linked and module will be called cdns3-starfive.ko
- endif
- 
- if USB_CDNS_SUPPORT
-diff --git a/drivers/usb/cdns3/Makefile b/drivers/usb/cdns3/Makefile
-index 61edb2f89276..48dfae75b5aa 100644
---- a/drivers/usb/cdns3/Makefile
-+++ b/drivers/usb/cdns3/Makefile
-@@ -24,6 +24,7 @@ endif
- obj-$(CONFIG_USB_CDNS3_PCI_WRAP)		+= cdns3-pci-wrap.o
- obj-$(CONFIG_USB_CDNS3_TI)			+= cdns3-ti.o
- obj-$(CONFIG_USB_CDNS3_IMX)			+= cdns3-imx.o
-+obj-$(CONFIG_USB_CDNS3_STARFIVE)		+= cdns3-starfive.o
- 
- cdnsp-udc-pci-y					:= cdnsp-pci.o
- 
-diff --git a/drivers/usb/cdns3/cdns3-starfive.c b/drivers/usb/cdns3/cdns3-starfive.c
+diff --git a/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml b/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
 new file mode 100644
-index 000000000000..fc1f003b145d
+index 000000000000..24aa9c10d6ab
 --- /dev/null
-+++ b/drivers/usb/cdns3/cdns3-starfive.c
-@@ -0,0 +1,246 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/**
-+ * cdns3-starfive.c - StarFive specific Glue layer for Cadence USB Controller
-+ *
-+ * Copyright (C) 2023 StarFive Technology Co., Ltd.
-+ *
-+ * Author:	Minda Chen <minda.chen@starfivetech.com>
-+ */
++++ b/Documentation/devicetree/bindings/usb/starfive,jh7110-usb.yaml
+@@ -0,0 +1,115 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/starfive,jh7110-usb.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/kernel.h>
-+#include <linux/platform_device.h>
-+#include <linux/io.h>
-+#include <linux/of_platform.h>
-+#include <linux/reset.h>
-+#include <linux/regmap.h>
-+#include <linux/usb/otg.h>
-+#include "core.h"
++title: StarFive JH7110 wrapper module for the Cadence USBSS-DRD controller
 +
-+#define USB_STRAP_HOST			BIT(17)
-+#define USB_STRAP_DEVICE		BIT(18)
-+#define USB_STRAP_MASK			GENMASK(18, 16)
++maintainers:
++  - Minda Chen <minda.chen@starfivetech.com>
 +
-+#define USB_SUSPENDM_HOST		BIT(19)
-+#define USB_SUSPENDM_MASK		BIT(19)
++properties:
++  compatible:
++    const: starfive,jh7110-usb
 +
-+#define USB_MISC_CFG_MASK		GENMASK(23, 20)
-+#define USB_SUSPENDM_BYPS		BIT(20)
-+#define USB_PLL_EN			BIT(22)
-+#define USB_REFCLK_MODE			BIT(23)
++  ranges: true
 +
-+struct cdns_starfive {
-+	struct device *dev;
-+	struct regmap *stg_syscon;
-+	struct reset_control *resets;
-+	struct clk_bulk_data *clks;
-+	int num_clks;
-+	u32 stg_usb_mode;
-+};
++  starfive,stg-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to System Register Controller stg_syscon node.
++          - description: dr mode register offset of STG_SYSCONSAIF__SYSCFG register for USB.
++    description:
++      The phandle to System Register Controller syscon node and the offset
++      of STG_SYSCONSAIF__SYSCFG register for USB.
 +
-+static void cdns_mode_init(struct platform_device *pdev,
-+			   struct cdns_starfive *data)
-+{
-+	enum usb_dr_mode mode;
++  dr_mode:
++    enum: [host, otg, peripheral]
 +
-+	regmap_update_bits(data->stg_syscon, data->stg_usb_mode,
-+			   USB_MISC_CFG_MASK,
-+			   USB_SUSPENDM_BYPS | USB_PLL_EN | USB_REFCLK_MODE);
++  "#address-cells":
++    enum: [1, 2]
 +
-+	/* dr mode setting */
-+	mode = usb_get_dr_mode(&pdev->dev);
++  "#size-cells":
++    enum: [1, 2]
 +
-+	switch (mode) {
-+	case USB_DR_MODE_HOST:
-+		regmap_update_bits(data->stg_syscon,
-+				   data->stg_usb_mode,
-+				   USB_STRAP_MASK,
-+				   USB_STRAP_HOST);
-+		regmap_update_bits(data->stg_syscon,
-+				   data->stg_usb_mode,
-+				   USB_SUSPENDM_MASK,
-+				   USB_SUSPENDM_HOST);
-+		break;
++  clocks:
++    items:
++      - description: link power management clock
++      - description: standby clock
++      - description: APB clock
++      - description: AXI clock
++      - description: UTMI APB clock
 +
-+	case USB_DR_MODE_PERIPHERAL:
-+		regmap_update_bits(data->stg_syscon, data->stg_usb_mode,
-+				   USB_STRAP_MASK, USB_STRAP_DEVICE);
-+		regmap_update_bits(data->stg_syscon, data->stg_usb_mode,
-+				   USB_SUSPENDM_MASK, 0);
-+		break;
-+	default:
-+		break;
-+	}
-+}
++  clock-names:
++    items:
++      - const: lpm
++      - const: stb
++      - const: apb
++      - const: axi
++      - const: utmi_apb
 +
-+static int cdns_clk_rst_init(struct cdns_starfive *data)
-+{
-+	int ret;
++  resets:
++    items:
++      - description: Power up reset
++      - description: APB clock reset
++      - description: AXI clock reset
++      - description: UTMI APB clock reset
 +
-+	ret = clk_bulk_prepare_enable(data->num_clks, data->clks);
-+	if (ret)
-+		return dev_err_probe(data->dev, ret,
-+				     "failed to enable clocks\n");
++  reset-names:
++    items:
++      - const: pwrup
++      - const: apb
++      - const: axi
++      - const: utmi_apb
 +
-+	ret = reset_control_deassert(data->resets);
-+	if (ret) {
-+		dev_err(data->dev, "failed to reset clocks\n");
-+		goto err_clk_init;
-+	}
++patternProperties:
++  "^usb@[0-9a-f]+$":
++    $ref: cdns,usb3.yaml#
++    description: Required child node
 +
-+	return ret;
++required:
++  - compatible
++  - ranges
++  - starfive,stg-syscon
++  - '#address-cells'
++  - '#size-cells'
++  - dr_mode
++  - clocks
++  - resets
 +
-+err_clk_init:
-+	clk_bulk_disable_unprepare(data->num_clks, data->clks);
-+	return ret;
-+}
++additionalProperties: false
 +
-+static void cdns_clk_rst_deinit(struct cdns_starfive *data)
-+{
-+	reset_control_assert(data->resets);
-+	clk_bulk_disable_unprepare(data->num_clks, data->clks);
-+}
++examples:
++  - |
++    usb@10100000 {
++        compatible = "starfive,jh7110-usb";
++        ranges = <0x0 0x10100000 0x100000>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++        starfive,stg-syscon = <&stg_syscon 0x4>;
++        clocks = <&syscrg 4>,
++                 <&stgcrg 5>,
++                 <&stgcrg 1>,
++                 <&stgcrg 3>,
++                 <&stgcrg 2>;
++        clock-names = "lpm", "stb", "apb", "axi", "utmi_apb";
++        resets = <&stgcrg 10>,
++                 <&stgcrg 8>,
++                 <&stgcrg 7>,
++                 <&stgcrg 9>;
++        reset-names = "pwrup", "apb", "axi", "utmi_apb";
++        dr_mode = "host";
 +
-+static int cdns_starfive_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cdns_starfive *data;
-+	unsigned int args;
-+	int ret;
-+
-+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->dev = dev;
-+
-+	data->stg_syscon =
-+		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+						     "starfive,stg-syscon", 1, &args);
-+
-+	if (IS_ERR(data->stg_syscon))
-+		return dev_err_probe(dev, PTR_ERR(data->stg_syscon),
-+				     "Failed to parse starfive,stg-syscon\n");
-+
-+	data->stg_usb_mode = args;
-+
-+	data->num_clks = devm_clk_bulk_get_all(data->dev, &data->clks);
-+	if (data->num_clks < 0)
-+		return dev_err_probe(data->dev, -ENODEV,
-+				     "Failed to get clocks\n");
-+
-+	data->resets = devm_reset_control_array_get_exclusive(data->dev);
-+	if (IS_ERR(data->resets))
-+		return dev_err_probe(data->dev, PTR_ERR(data->resets),
-+				     "Failed to get resets");
-+
-+	cdns_mode_init(pdev, data);
-+	ret = cdns_clk_rst_init(data);
-+	if (ret)
-+		return ret;
-+
-+	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	if (ret) {
-+		dev_err(dev, "Failed to create children\n");
-+		cdns_clk_rst_deinit(data);
-+		return ret;
-+	}
-+
-+	device_set_wakeup_capable(dev, true);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
-+	platform_set_drvdata(pdev, data);
-+
-+	return 0;
-+}
-+
-+static int cdns_starfive_remove_core(struct device *dev, void *c)
-+{
-+	struct platform_device *pdev = to_platform_device(dev);
-+
-+	platform_device_unregister(pdev);
-+
-+	return 0;
-+}
-+
-+static int cdns_starfive_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cdns_starfive *data = dev_get_drvdata(dev);
-+
-+	pm_runtime_get_sync(dev);
-+	device_for_each_child(dev, NULL, cdns_starfive_remove_core);
-+
-+	pm_runtime_disable(dev);
-+	pm_runtime_put_noidle(dev);
-+	cdns_clk_rst_deinit(data);
-+	platform_set_drvdata(pdev, NULL);
-+
-+	return 0;
-+}
-+
-+#ifdef CONFIG_PM
-+static int cdns_starfive_runtime_resume(struct device *dev)
-+{
-+	struct cdns_starfive *data = dev_get_drvdata(dev);
-+
-+	return clk_bulk_prepare_enable(data->num_clks, data->clks);
-+}
-+
-+static int cdns_starfive_runtime_suspend(struct device *dev)
-+{
-+	struct cdns_starfive *data = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable_unprepare(data->num_clks, data->clks);
-+
-+	return 0;
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int cdns_starfive_resume(struct device *dev)
-+{
-+	struct cdns_starfive *data = dev_get_drvdata(dev);
-+
-+	return cdns_clk_rst_init(data);
-+}
-+
-+static int cdns_starfive_suspend(struct device *dev)
-+{
-+	struct cdns_starfive *data = dev_get_drvdata(dev);
-+
-+	cdns_clk_rst_deinit(data);
-+
-+	return 0;
-+}
-+#endif
-+#endif
-+
-+static const struct dev_pm_ops cdns_starfive_pm_ops = {
-+	SET_RUNTIME_PM_OPS(cdns_starfive_runtime_suspend,
-+			   cdns_starfive_runtime_resume, NULL)
-+	SET_SYSTEM_SLEEP_PM_OPS(cdns_starfive_suspend, cdns_starfive_resume)
-+};
-+
-+static const struct of_device_id cdns_starfive_of_match[] = {
-+	{ .compatible = "starfive,jh7110-usb", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, cdns_starfive_of_match);
-+
-+static struct platform_driver cdns_starfive_driver = {
-+	.probe		= cdns_starfive_probe,
-+	.remove		= cdns_starfive_remove,
-+	.driver		= {
-+		.name	= "cdns3-starfive",
-+		.of_match_table	= cdns_starfive_of_match,
-+		.pm	= &cdns_starfive_pm_ops,
-+	},
-+};
-+module_platform_driver(cdns_starfive_driver);
-+
-+MODULE_ALIAS("platform:cdns3-starfive");
-+MODULE_LICENSE("GPL v2");
-+MODULE_DESCRIPTION("Cadence USB3 StarFive Glue Layer");
++        usb@0 {
++            compatible = "cdns,usb3";
++            reg = <0x0 0x10000>,
++                  <0x10000 0x10000>,
++                  <0x20000 0x10000>;
++            reg-names = "otg", "xhci", "dev";
++            interrupts = <100>, <108>, <110>;
++            interrupt-names = "host", "peripheral", "otg";
++            maximum-speed = "super-speed";
++        };
++    };
 -- 
 2.17.1
 
