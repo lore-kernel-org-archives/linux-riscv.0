@@ -4,51 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E167EC7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 10:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE78C77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 10:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KQ5Lg51sKmJhYekMjJGK55W7FgRGwgn+5mrFpaVWV+4=; b=1yGjI7rU24PX3x
-	n6pcvjfkj1CYgBUo5suH+K6uF6puHvqs51/hFjR4iWkvLmiG9TfbS+GJVXb/wwFMD6PRK0l66qi/F
-	KxVjeREOQn+Xj+dAUyhtb3STJcREQmHtDF3VnTdgZjY2MCDs4izFqIk7wVpgIrNjjbMl6A2vQjrN+
-	bW0sof9esqUh5SnwifuP4lDwxSiNBix+Ajqq4oIt3iDVv/WZqXdMV9jQ2jcxyNHzmls9YsCW2oIuj
-	BPGIUiQhkATWBPaYV15a+L5apJkOHQwXOodAUnTW0tCoSeiRnWeoHVGAK9cJe2xdHhUEenVuuyJkV
-	9aDK2SCay8pBufSd45YA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MAx4mIqjxhOxYqTiifbWYKvjS5bA5vtVxTCZ06xuCyA=; b=GCxg4/fPQjfttv
+	T7/63+NaQvIYNz4ZGhwcpuDbjr6BIL1ieBNrCbHKfWxwC9Wi35BxmwtuxmZXblnbSWPP/XU4UuO8m
+	PRWY9TpURemmcoueAlKzdU9hvHUiccdxJv7I8KUqRLGJQSdgfrD/yr9jIlOhz5L1TsNGu5t97MyEO
+	ymp8xvWFlkBXCnIs2J00f1y+OZKR72zHtHOLMf/DQHkCst+a7gCouv2x4q9PAKCUWY8vioKfi3rue
+	kx1+avQen1NWDfk+B/71NqBqOGX8yvt/dmrPgFpp+6A8wYh1q7KEmOqij+4t9awwl8srHNq+gwcGM
+	EfB3/5CEL5OdzwsQG1eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzxCk-00FsJb-0l;
-	Fri, 19 May 2023 10:19:22 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzxCf-00FsIz-2h
+	id 1pzxMN-00FtnO-35;
+	Fri, 19 May 2023 10:29:19 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pzxML-00Ftmk-0c
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 10:19:19 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 34JAJAlK005895;
-	Fri, 19 May 2023 12:19:10 +0200
-Date: Fri, 19 May 2023 12:19:10 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
-Cc: Zhangjin Wu <falcon@tinylab.org>, Palmer Dabbelt <palmer@rivosinc.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        "Paul E . McKenney" <paulmck@kernel.org>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] tools/nolibc: riscv: Fix up compile error for rv32
-Message-ID: <ZGdNHv/QmAGBIYsM@1wt.eu>
-References: <cover.1684425792.git.falcon@tinylab.org>
- <20230519094030.GA24947@1wt.eu>
- <c5140f54-99f2-4d7f-8b53-bd3cd1093727@t-8ch.de>
+	Fri, 19 May 2023 10:29:18 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1ae85b71141so3049675ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 03:29:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684492156; x=1687084156;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dyCts+3MIamz/ZP/Th1oUrcgbH11s2oWCUMvcOwKW/c=;
+        b=QwQQ1jJWLOQbljg6TCUXa5q9qgSjdve6OeoE561RDnhWjdKSN8Ga4m81FubQ9mtfC7
+         iPCKNMdZNbrLBp0aYOQ3WyKkrYI8Rksn8fKcwFdXF+46wQYH/mB1rxMeHXeo+PyXJ1/O
+         8l5l25MIW2Kg198SOnoYzl6NQcdfRqrHAUglrIUPPTB0GfWfh+zH3FzG1cE+133HABWJ
+         W5XMihnrXeQEkPbQtdELGmA5Sm0LHRMqN8osScTjCYITHfWrr45XfAsS7IuQ5vmPT/FQ
+         krpPDhSJ8yhIvvidzzMDrc4am9qi3WZygZMG1TC0uncBnRDIwwCps2co07joA0pXRcCS
+         vKzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684492156; x=1687084156;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dyCts+3MIamz/ZP/Th1oUrcgbH11s2oWCUMvcOwKW/c=;
+        b=b6rY6RSTquExEWR5s/qEyrhc5l1OyKj1HUN5BLBRm4jzvy9iv0yOpHa0kyoceZpkiH
+         1m2awgs824VUD0fRFySCXfUaZ7mrl1gslGo7oWDyX013si5aitIVi7I7WH1dg+cGCePN
+         ZhVrmNR3ewdj8JlEirL3k35/UQHhb8wVn1h8TnCVGPw9sWcuNsFIJ79IQ15W0asfyDdY
+         p6tiJMqoHTxmdtF1uDsaIQb6cjjLg9EvQPgOE1MpMCmO6GVjEwGgjXkRSH+wrpLJFTwT
+         QpSr4QH0U577Sa56bOzqzrtICuPVclIwTY1+iMqvDKjDv16ju0vIh0ZV4vsSefmtmwb7
+         evDg==
+X-Gm-Message-State: AC+VfDz1lTWAZPHu2R9OF6xfO9T6uKuViIO1w9UPNtNh3OUD/5O09C6B
+	NArBqySaarOg9Io8TsVbM9w=
+X-Google-Smtp-Source: ACHHUZ7NMUT3TKAc7YbJrIYDWFZGmpcw+HSt+Acfdj11Pwa6UO0f3XrjjVk5DPL0j87P6igKTx2o+A==
+X-Received: by 2002:a17:903:1112:b0:1a6:8ed5:428a with SMTP id n18-20020a170903111200b001a68ed5428amr2918121plh.22.1684492156382;
+        Fri, 19 May 2023 03:29:16 -0700 (PDT)
+Received: from localhost.localdomain ([221.226.144.218])
+        by smtp.gmail.com with ESMTPSA id x4-20020a170902ea8400b001aaffe15f39sm3102770plb.30.2023.05.19.03.29.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 May 2023 03:29:16 -0700 (PDT)
+From: Song Shuai <suagrfillet@gmail.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	suagrfillet@gmail.com,
+	mason.huo@starfivetech.com,
+	leyfoon.tan@starfivetech.com,
+	ajones@ventanamicro.com,
+	jeeheng.sia@starfivetech.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: [PATCH] riscv: hibernation: Remove duplicate call of suspend_restore_csrs
+Date: Fri, 19 May 2023 18:29:08 +0800
+Message-Id: <20230519102908.253458-1-suagrfillet@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c5140f54-99f2-4d7f-8b53-bd3cd1093727@t-8ch.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_031918_768378_875B7F32 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20230519_032917_248466_387D55B5 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,55 +93,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 19, 2023 at 12:11:00PM +0200, Thomas Wei=DFschuh wrote:
-> Hi Willy,
-> =
+The suspend_restore_csrs is called in both __hibernate_cpu_resume
+and the `else` of subsequent swsusp_arch_suspend.
 
-> On 2023-05-19 11:40:30+0200, Willy Tarreau wrote:
-> > Hi Zhangjin,
-> > =
+Removing the first call makes both suspend_{save,restore}_csrs
+left in swsusp_arch_suspend for clean code.
 
-> > On Fri, May 19, 2023 at 01:00:18AM +0800, Zhangjin Wu wrote:
-> > > Hi, Willy
-> > > =
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+---
+ arch/riscv/kernel/hibernate-asm.S | 1 -
+ 1 file changed, 1 deletion(-)
 
-> > > nolibc for riscv is only tested for rv64 currently (see
-> > > tools/testing/selftests/nolibc/Makefile), this patchset tries to let =
-it
-> > > compile for rv32, but still not pass the nolibc selftest:
-> > > =
+diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+index 5c76671c7e15..d698dd7df637 100644
+--- a/arch/riscv/kernel/hibernate-asm.S
++++ b/arch/riscv/kernel/hibernate-asm.S
+@@ -28,7 +28,6 @@ ENTRY(__hibernate_cpu_resume)
+ 
+ 	REG_L	a0, hibernate_cpu_context
+ 
+-	suspend_restore_csrs
+ 	suspend_restore_regs
+ 
+ 	/* Return zero value. */
+-- 
+2.20.1
 
-> > > * The first patch uses lw/sw instead of ld/sd for rv32 and verse-vice=
- for rv64
-> > >     * This patch may conflict with the stackprotector patch [1], beca=
-use
-> > >       both of them changed the _start assembly in arch-riscv.h
-> > =
-
-> > That's quite embarrassing, I'm having to trace of that series here. Now
-> > I can find it in my LKML archives, but I don't have the direct message =
-and
-> > didn't spot the other ones. I'll have to investigate, thanks for notify=
-ing
-> > me! I'm CCing Thomas, I will check with him how to best merge the two.
-> =
-
-> I think the conflict should be trivial to fix.
-> =
-
-> I can also resend my series or just the single riscv patch.
-
-OK then I'll pick Zhangjin's series and will apply yours on top of it.
-Do not bother resending the whole series, only the riscv patch will be
-sufficient, I have the rest of your series in my lkml mbox.
-
-Thanks!
-Willy
 
 _______________________________________________
 linux-riscv mailing list
