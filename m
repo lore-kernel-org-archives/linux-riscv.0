@@ -4,106 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EB9C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 16:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82374C77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 16:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4yH5EynhJZ2nNZ5gvsrEPrOLGaFoaSvmg3UFPRGKQhg=; b=qhbT8S0aiiCjWd
-	EiT2ZpxWbpDSfR33I77c3TZLDEyhsLcHdflKW0CH9pqqmV1L1NZwADwqQOjJgHxpSJq12/9uqiotQ
-	rkDnZ0Mh+ow3sErIe6P1rbg1FcxnH6OGogGToVXJd32qnVyrcIKKs9OH0NrpJ/RweTWAVUVkCLwCN
-	DutKhIdHezPIcVVWG5RQBWPXxgzkCV4u3MDuen5KyD7AuklTct/kYDGJSGGqpTEr8xgm8erZBEuWr
-	ED127ZJqExFhwFmn40z+OCzHDmgtRs3sMprWxGF4XZ9OBK0tOVtUZIo+Ix1LhlppF6yKwvDUOU7ix
-	RPKpj5yQG3c6WP6hT5SQ==;
+	List-Owner; bh=HWrxI6+EnKa4ZVl35oVv20baN+1PUAwaYUGykHDWaTM=; b=wFOWi6/svEX0GI
+	HtNeFb/nm/xNHy8hDqHhRlE25BFGwdXqn7EOw4z8K8E74qZyNHLNW/5GGXZ2MWks/97q20xVmcEz2
+	Oa2/+faosSxHB4EGZiWP1ojgXY3SmBeqcYwU0prcRPrF3fSv8uxgZtnh3Gy1JnNIqW/e5vNc9nrwK
+	ZiR15vNJFv5jEKVuwq03yH3JpWexrMLi0ZAPHao4ataJ2B2DvfjeVf9dqyKbE3zmwG4uiMfCzR1uB
+	vVy6yPn+ymNRaaahcm9ZdPdUUBXuBCDXoLq9fiLJNqbtZ7VAV7DyS+5eG0IPHoGWArB89ZIIXExlH
+	LpFbbSYVFEgNcpXJBtVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q02XI-00GfXQ-0M;
-	Fri, 19 May 2023 16:00:56 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1q0309-00GizS-1k;
+	Fri, 19 May 2023 16:30:45 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q01PF-00GWEZ-2B
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 14:48:34 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-96649b412easo532763866b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 07:48:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1684507711; x=1687099711;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=osK35APNMHUOM/vspbNmY4dm4o7cSGGXI42PTW0uu8s=;
-        b=ZYjh30K7khuwsHmxdTGgS+WoY9zJgx6/9/pcc1JbuvgcIEsldCdXXJbEp4NACjCKaD
-         LMW1h53HHwQnKpmODQx7uXNQn0+JuBNgZS2Zh/7IejB20vSK2D1Unr6kMSuPVMXAFhiZ
-         9ZeWiBl87aFZW9wBv1Nh3DLuN2movq9+fC554=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684507711; x=1687099711;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=osK35APNMHUOM/vspbNmY4dm4o7cSGGXI42PTW0uu8s=;
-        b=LjgMt5XQCUSNs7NOolloRkveyLlXy3t7rGBYYy2fUZ7ym159b87MOvnpH1tRZUBnQ9
-         9btKR6+uhhlvpAoUNoFXSfi0OqkT2c81Jat5DG408yBo2gMYOG6euHh4jPDqItn27BbW
-         xZZx1nc6adljccTsXUWs5Pym1WildT+blWJJNBqYauDKs9uKeSFN8FBjFKLv3j5ML+gg
-         KNzJHDTAJDq6cZJoMKd3g1FnxHEoih0D+7BiS0m8YLV/Y0VOkWUveKfZtsrDbkcaJ32j
-         /nYMkJt6cKtwLxtQC5yyCoBFh0dIVWLQkOu7vbkAKFuGg+JgMmI8P1nfCSueElYzNU96
-         rrQw==
-X-Gm-Message-State: AC+VfDyod1z0TDcjLKwU9gl0M+spawve5wAQhQPLrLffBpEhRHS3l/TX
-	oVSFbjmgWcyqQEdqCOsmE4bHbA==
-X-Google-Smtp-Source: ACHHUZ4sIn6w3qgGaOnZt7gYsC2ndgI+MwJv4U/AftjTcUf/UQqUnAD4mNaTZk8Vvatu2vHjziPdfA==
-X-Received: by 2002:a17:906:d54a:b0:94e:f738:514f with SMTP id cr10-20020a170906d54a00b0094ef738514fmr2090904ejc.13.1684507710607;
-        Fri, 19 May 2023 07:48:30 -0700 (PDT)
-Received: from alco.roam.corp.google.com ([2620:0:1059:10:62fd:274b:c2ab:69bb])
-        by smtp.gmail.com with ESMTPSA id a2-20020a17090680c200b0096a68648329sm2349437ejx.214.2023.05.19.07.48.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 May 2023 07:48:30 -0700 (PDT)
-From: Ricardo Ribalda <ribalda@chromium.org>
-Date: Fri, 19 May 2023 16:47:39 +0200
-Subject: [PATCH v7 4/4] riscv/purgatory: Remove PGO flags
+	id 1q0305-00GiyO-2u;
+	Fri, 19 May 2023 16:30:43 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34JBfjsB011872;
+	Fri, 19 May 2023 16:29:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=message-id : date :
+ mime-version : subject : to : cc : references : from : in-reply-to :
+ content-type : content-transfer-encoding; s=qcppdkim1;
+ bh=yZ+c8uZcJrlAlno5FxTnPElzATRQ31IF/+qQxmh4X7Y=;
+ b=JXYLKwcI2GbfAQOyp3pqNSg6DjU0Y7APV0UkqvAq+7mPhE6jU2niZ2R4O5GEnV8Jv3vY
+ GKGhPl9R8u8z9GTQRJNoPGaU+0mzwGn4MRHzlqrkBUJqPBmbmvIdtKopPW+l45x2R2N4
+ N53tfhOYno5CyDkZBijlZR00Ad7cvVpDEdEpXoDABtsI85/Pq3Lm9EQeADaOgh7BPKhU
+ vCAzv/tTJH7NrLUDiiqElo6FSx31LTwIxiOoWrGKsGUnDbsEy4Z69PrEn6OpGxkbbO+u
+ mhtvqcavuyOXh7qnKKh25rs7jG7FJgFRefJwgVrMfeYuSSMcB+UmlbDChCuJ2ha23dwu fw== 
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3qp4ccs7tp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 19 May 2023 16:29:01 +0000
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.17.1.5/8.17.1.5) with ESMTPS id 34JGSxwm014994
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 19 May 2023 16:28:59 GMT
+Received: from [10.226.59.182] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.986.42; Fri, 19 May
+ 2023 09:28:57 -0700
+Message-ID: <16562305-3bc0-c69f-0cb5-1b9da1014f19@quicinc.com>
+Date: Fri, 19 May 2023 10:28:56 -0600
 MIME-Version: 1.0
-Message-Id: <20230321-kexec_clang16-v7-4-b05c520b7296@chromium.org>
-References: <20230321-kexec_clang16-v7-0-b05c520b7296@chromium.org>
-In-Reply-To: <20230321-kexec_clang16-v7-0-b05c520b7296@chromium.org>
-To: Eric Biederman <ebiederm@xmission.com>, 
- Philipp Rudo <prudo@linux.vnet.ibm.com>, Dave Young <dyoung@redhat.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Baoquan He <bhe@redhat.com>, Philipp Rudo <prudo@redhat.com>, 
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ross Zwisler <zwisler@google.com>, Steven Rostedt <rostedt@goodmis.org>, 
- Simon Horman <horms@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
- llvm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
- linux-riscv@lists.infradead.org, Ricardo Ribalda <ribalda@chromium.org>, 
- stable@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1298; i=ribalda@chromium.org;
- h=from:subject:message-id; bh=wdnk6GxBa5T/HIlvuq8XoXYQQFQFk4mx9eVuJiQf83M=;
- b=owEBbQKS/ZANAwAKAdE30T7POsSIAcsmYgBkZ4wzePFk89/IBhUZr9SWcIl2QkwFBFu2gEcYe
- /5y+YTRvGqJAjMEAAEKAB0WIQREDzjr+/4oCDLSsx7RN9E+zzrEiAUCZGeMMwAKCRDRN9E+zzrE
- iEJ9EACWgKvSdCRvRA4/lyxhvVHQgJQ0PCNnOhH3hpa3YJPoHyQLHQ8AWvcvBMla51KPtthYLTN
- RttNdzciI8SyWtWAc62LCy0wqaKDS+qbrbvVnUEYDgzqyCjq/gSxRky4clrjmFzUvY2wNCRfWMt
- yFLtWzm5iYd4N7d07L87XEKmPRitblqcy/VsPL9EMUutCQ5OQlaaSRto36SmkRf9nkrMPPzCH+2
- qNNS8PY2lNeGzUvTDAi7F00EDf/PLWQ7pXaKeJeU56IsYS8v1VUoNdkx04R/AIO8TBdqwsDZhhD
- UqPLLPRwecZmAks5n575AFj+ZFRtUPueG6J2aQ1ndVzS+8/OTyW1xxwogq6fkwr44uXalhe3YxJ
- aUOnvtCxh06L48mQLfdlx1JhUTlhZ1AtVysiezFN9EedPP27rIgxpSSgnEwsjDWJny3YJfbGJQN
- Zk7DDEwAQLAN3GaT+i/K2X8PEHG6+A5SkFE+wZe5WKERCdPLVGgWjIYwaqXDAvGK/5DfORHun85
- 2qC2ReqZtGwpWhUfg6jJ4cFTsiNbkYy31b1T5/9BqXT5dBqfAuVU/QKYqg5qb4ciKtKesTLLV1H
- ZydnfO9MMJNG6tjvelUtgGQRPqf1ea9Lob19/0XoQrWh8oifHm8eWWisKYfQY/1ExftAFpZCeA5
- BmR9KbCqwO2lwOg==
-X-Developer-Key: i=ribalda@chromium.org; a=openpgp;
- fpr=9EC3BB66E2FC129A6F90B39556A0D81F9F782DA9
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.0
+Subject: Re: [patch V4 36/37] x86/smpboot: Support parallel startup of
+ secondary CPUs
+Content-Language: en-US
+To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>,
+        David Woodhouse <dwmw2@infradead.org>
+CC: <x86@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>,
+        Brian Gerst
+	<brgerst@gmail.com>,
+        Arjan van de Veen <arjan@linux.intel.com>,
+        Paolo Bonzini
+	<pbonzini@redhat.com>,
+        Paul McKenney <paulmck@kernel.org>,
+        Tom Lendacky
+	<thomas.lendacky@amd.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Oleksandr
+ Natalenko <oleksandr@natalenko.name>,
+        Paul Menzel <pmenzel@molgen.mpg.de>,
+        "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+        Piotr Gorski
+	<lucjan.lucjanov@gmail.com>,
+        Usama Arif <usama.arif@bytedance.com>,
+        Juergen
+ Gross <jgross@suse.com>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        <xen-devel@lists.xenproject.org>, Russell King <linux@armlinux.org.uk>,
+        Arnd
+ Bergmann <arnd@arndb.de>, <linux-arm-kernel@lists.infradead.org>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Guo Ren
+	<guoren@kernel.org>,
+        <linux-csky@vger.kernel.org>,
+        Thomas Bogendoerfer
+	<tsbogend@alpha.franken.de>,
+        <linux-mips@vger.kernel.org>,
+        "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Helge Deller
+	<deller@gmx.de>, <linux-parisc@vger.kernel.org>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Sabin
+ Rapan <sabrapan@amazon.com>,
+        "Michael Kelley (LINUX)"
+	<mikelley@microsoft.com>,
+        Ross Philipson <ross.philipson@oracle.com>,
+        David
+ Woodhouse <dwmw@amazon.co.uk>
+References: <20230512203426.452963764@linutronix.de>
+ <20230512205257.411554373@linutronix.de>
+From: Jeffrey Hugo <quic_jhugo@quicinc.com>
+In-Reply-To: <20230512205257.411554373@linutronix.de>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: l2X6Bcn3k_Nws-GO_lVKOQ5EQSj3BbaM
+X-Proofpoint-ORIG-GUID: l2X6Bcn3k_Nws-GO_lVKOQ5EQSj3BbaM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-05-19_11,2023-05-17_02,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ lowpriorityscore=0 adultscore=0 impostorscore=0 spamscore=0 bulkscore=0
+ phishscore=0 mlxlogscore=999 suspectscore=0 malwarescore=0 clxscore=1011
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2304280000
+ definitions=main-2305190140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_074833_715350_62B31EC7 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20230519_093041_946122_BE061899 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,43 +139,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If profile-guided optimization is enabled, the purgatory ends up with
-multiple .text sections.
-This is not supported by kexec and crashes the system.
+On 5/12/2023 3:07 PM, Thomas Gleixner wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
+> 
+> In parallel startup mode the APs are kicked alive by the control CPU
+> quickly after each other and run through the early startup code in
+> parallel. The real-mode startup code is already serialized with a
+> bit-spinlock to protect the real-mode stack.
+> 
+> In parallel startup mode the smpboot_control variable obviously cannot
+> contain the Linux CPU number so the APs have to determine their Linux CPU
+> number on their own. This is required to find the CPUs per CPU offset in
+> order to find the idle task stack and other per CPU data.
+> 
+> To achieve this, export the cpuid_to_apicid[] array so that each AP can
+> find its own CPU number by searching therein based on its APIC ID.
+> 
+> Introduce a flag in the top bits of smpboot_control which indicates that
+> the AP should find its CPU number by reading the APIC ID from the APIC.
+> 
+> This is required because CPUID based APIC ID retrieval can only provide the
+> initial APIC ID, which might have been overruled by the firmware. Some AMD
+> APUs come up with APIC ID = initial APIC ID + 0x10, so the APIC ID to CPU
+> number lookup would fail miserably if based on CPUID. Also virtualization
+> can make its own APIC ID assignements. The only requirement is that the
+> APIC IDs are consistent with the APCI/MADT table.
+> 
+> For the boot CPU or in case parallel bringup is disabled the control bits
+> are empty and the CPU number is directly available in bit 0-23 of
+> smpboot_control.
+> 
+> [ tglx: Initial proof of concept patch with bitlock and APIC ID lookup ]
+> [ dwmw2: Rework and testing, commit message, CPUID 0x1 and CPU0 support ]
+> [ seanc: Fix stray override of initial_gs in common_cpu_up() ]
+> [ Oleksandr Natalenko: reported suspend/resume issue fixed in
+>    x86_acpi_suspend_lowlevel ]
+> [ tglx: Make it read the APIC ID from the APIC instead of using CPUID,
+>    	split the bitlock part out ]
+> 
+> Co-developed-by: Thomas Gleixner <tglx@linutronix.de>
+> Co-developed-by: Brian Gerst <brgerst@gmail.com>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Signed-off-by: Brian Gerst <brgerst@gmail.com>
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Tested-by: Michael Kelley <mikelley@microsoft.com>
+> ---
 
-Cc: stable@vger.kernel.org
-Fixes: 930457057abe ("kernel/kexec_file.c: split up __kexec_load_puragory")
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
----
- arch/riscv/purgatory/Makefile | 5 +++++
- 1 file changed, 5 insertions(+)
+I pulled in this change via the next tree, tag next-20230519 and I get a 
+build failure using the x86_64_defconfig -
 
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index 5730797a6b40..bd2e27f82532 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -35,6 +35,11 @@ CFLAGS_sha256.o := -D__DISABLE_EXPORTS
- CFLAGS_string.o := -D__DISABLE_EXPORTS
- CFLAGS_ctype.o := -D__DISABLE_EXPORTS
- 
-+# When profile-guided optimization is enabled, llvm emits two different
-+# overlapping text sections, which is not supported by kexec. Remove profile
-+# optimization flags.
-+KBUILD_CFLAGS := $(filter-out -fprofile-sample-use=% -fprofile-use=%,$(KBUILD_CFLAGS))
-+
- # When linking purgatory.ro with -r unresolved symbols are not checked,
- # also link a purgatory.chk binary without -r to check for unresolved symbols.
- PURGATORY_LDFLAGS := -e purgatory_start -z nodefaultlib
+   DESCEND objtool
+   INSTALL libsubcmd_headers
+   CALL    scripts/checksyscalls.sh
+   AS      arch/x86/kernel/head_64.o
+arch/x86/kernel/head_64.S: Assembler messages:
+arch/x86/kernel/head_64.S:261: Error: missing ')'
+arch/x86/kernel/head_64.S:261: Error: junk `UL<<10)' after expression
+   CC      arch/x86/kernel/head64.o
+   CC      arch/x86/kernel/ebda.o
+   CC      arch/x86/kernel/platform-quirks.o
+scripts/Makefile.build:374: recipe for target 
+'arch/x86/kernel/head_64.o' failed
+make[3]: *** [arch/x86/kernel/head_64.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+scripts/Makefile.build:494: recipe for target 'arch/x86/kernel' failed
+make[2]: *** [arch/x86/kernel] Error 2
+scripts/Makefile.build:494: recipe for target 'arch/x86' failed
+make[1]: *** [arch/x86] Error 2
+make[1]: *** Waiting for unfinished jobs....
+Makefile:2026: recipe for target '.' failed
+make: *** [.] Error 2
 
--- 
-2.40.1.698.g37aff9b760-goog
+This is with GCC 5.4.0, if it matters.
 
+Reverting this change allows the build to move forward, although I also 
+need to revert "x86/smpboot/64: Implement 
+arch_cpuhp_init_parallel_bringup() and enable it" for the build to fully 
+succeed.
+
+I'm not familiar with this code, and nothing obvious stands out to me. 
+What can I do to help root cause this?
+
+-Jeff
 
 _______________________________________________
 linux-riscv mailing list
