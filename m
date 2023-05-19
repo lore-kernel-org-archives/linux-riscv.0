@@ -4,74 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6D2C77B7A
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 15:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E3EC7EE26
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 16:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ZeqCO8bBHVZRMXRakIan5uqOsOEOoaBSL4rZ8L0PSk=; b=P2/x3sPAwPvVkx
-	oJjrsDl4YSSsoRLvxOUMIy6TbXH7W4KzF8+UjhYAqYCqkT3Gjo+3YOOxuRwPdyu0AdRDCMJjWSfBv
-	/uZrqgDgAz6PYI/GfY01zDU1cYt8EzJm2pPrQ3MlMIlpx6T5taY2qcnLR+EKczBcQJhqnBuun+CYs
-	MLqkj4Lmg8icB4LrPJB2eA+42SMZuEu1gZe3bnW+V05hUIlUCUfv9ZhBKnLz/P3K3ULbOYioV7v5s
-	Ab4I9WhpN11nxS56rTrGZjnwRENLz9g1CyQMqSh2fxm4OoPVebMsi48XHZ4iXb/k22mJbv57dbutk
-	ThZs2q/OZDWo2hVwCB9g==;
+	List-Owner; bh=FoAvZRgxj4Jc4o7lILafJnvqfWU4kpIYAcct3NlRzzU=; b=E3sIxXmuUKDVTX
+	yih6OsrXYkG9UFvx4rd3v3a9IF5jAHyTcPnK12RssHbQgaUDe42Ovn/Oop0SdyS3QEpW2SOmzaZYf
+	6f8AipYtDxaR3WZik/ijg6OvVQOoc+h38yGQQocBvmgjE9MSrNvT8YtNct40iHmlabClZbOOn6wdj
+	nOx2alHhd6iHZDeKxyiuhE3Z6rh6LGtk03nFkFCpbQLC6AQXpGN2QHx/EQ4B9ZWutD/NfuXppU9iX
+	yiiU6da+iLDoCQgjpixP9BI1qo6ZfYXnqCNkJ8DaaMrIVGcPiB+UFjCEjdnrEznpXFxrrO6rLW6Ox
+	2fZaoWWqL3Vpi2K3Su1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q02NU-00Ge3h-0g;
-	Fri, 19 May 2023 15:50:48 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1q02XH-00GfXE-1y;
+	Fri, 19 May 2023 16:00:55 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q02NR-00Ge2Z-0s
+	id 1q01PA-00GWD8-33
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 15:50:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1684511425; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=HZGWV3mkCVvIKzG0tWLtxWXq4bBqBQX+cQVxtsi23GQjHcgDVx9TwuGD+rixUFsaANFBzKIBNxOdqXskHKqVrtkJsCnubadgXRJm1pz9XyeS3ND6zsHMkuJ1vIDgRIyeVMGeF8J152alQYVNe1UWMEANbVPOrfrIfp2Jc0as+zA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1684511425; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=gs+hOAo8YT0FiIn+tQqctT5867aD0k3Rps6XhweMFhk=; 
-	b=aK68H8m12N0Wbo7nBfsSsMzYRehGSjcxEkM9NUIsFz5ccKleQx8AAotyh5UKd6AFHMgIRrYyuvSD4r7FwGj/xA/FmtnCixYpl/jfL5oadLbLu9lkPy8AzV1irKyahL/1CgXStBUIROpn2MYktb0wbTXvrzvziMdFerp0ANVHQzY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1684511425;
-	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=gs+hOAo8YT0FiIn+tQqctT5867aD0k3Rps6XhweMFhk=;
-	b=HOUKlDNpR8O12UrWm1nucXKKGG2G8CAHsxoiLRM5a/GHnntl+f+cHygj+3j2H8e+
-	mOpMiUfDVIM4x425ty+z8xsXXV0x+xta2Xwm1BonK9B9ya3xR8wljdZ/ekTEtYuwe+l
-	jKq9EmiQJ5Qh5LPQyXt8lGUg+OFqG1DpDGTDh0Mw=
-Received: from edelgard.fodlan.icenowy.me (120.85.98.248 [120.85.98.248]) by mx.zohomail.com
-	with SMTPS id 1684511422475801.3864897939635; Fri, 19 May 2023 08:50:22 -0700 (PDT)
-Message-ID: <122af5271507d77b495ef4b69f3aef4449cc0381.camel@icenowy.me>
-Subject: Re: [PATCH v2 3/9] dt-bindings: riscv: Add T-HEAD TH1520 board
- compatibles
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
- <guoren@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org,  linux-riscv@lists.infradead.org, Yangtao Li
- <frank.li@vivo.com>, Wei Fu <wefu@redhat.com>
-Date: Fri, 19 May 2023 23:50:15 +0800
-In-Reply-To: <20230518-estate-scoff-c009f19aad5a@spud>
-References: <20230518184541.2627-1-jszhang@kernel.org>
-	 <20230518184541.2627-4-jszhang@kernel.org>
-	 <20230518-estate-scoff-c009f19aad5a@spud>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	Fri, 19 May 2023 14:48:30 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-96598a7c5e0so538221466b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 07:48:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1684507706; x=1687099706;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BD6qB7twnufisotyY5nBfpaakG3WUms/sLLcs5/qPcg=;
+        b=JDuBiVDj8o8HaMzkIB840oZkGv5wJJi7TNtUIrYqKhMie/96QidOGQDjQXE7b5+5S9
+         tK8GWP5SEiIeHDVPjC3T2ENDFCeYqLi5SHh6A0hgK/rjIefTVUgKtRZiA8w7MSYtyRXh
+         R0aHFCTNuZeLm/jFjl0vcQ1z/eRP+0aN//K8c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684507706; x=1687099706;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BD6qB7twnufisotyY5nBfpaakG3WUms/sLLcs5/qPcg=;
+        b=mBRpFjbfw9Zq7msUknSGCJ9NCVgIx8jQdp15/1QSquE9WHCZO0EF3HaKcZcAVK0g7w
+         6702yp809N9V2+tHpGN9hcTHw7JO9qx91Ehui9veY8nOW/QvkRREjuEYENjdEs9lR6OT
+         4D8Mbd2W8I412W0CMOhymjPgRi82j/9KRMxHNysnZZRVqrnr3KLA880YLnwkMN1ssX4E
+         l174ZJk50iCEgwT4seyjt/dv8F3X+Gua7uhWvyPK/sT7M8A52Necx85plv2NW3wGp3Am
+         CB/FLflIRRHPGzOKPYhNrsP37NCCHkxpPMVUkX8TH2rbtCZW0I5VxrgNMBk3t8WBd/w0
+         k8yQ==
+X-Gm-Message-State: AC+VfDz+Us5ov3mB28HWdY1RTt7er0hyjegNcJu4H3NcormIgu8vWw0g
+	4am8ViLODM3fxlh6pAYApBBFfg==
+X-Google-Smtp-Source: ACHHUZ6OprUYGsS72ehmUtvrfFocAu2GyTDDqdde/uRgkGX7E/HjFZLPkMJjnA4KZkxfiwtIcIB0dw==
+X-Received: by 2002:a17:907:1609:b0:94f:1c90:cb71 with SMTP id hb9-20020a170907160900b0094f1c90cb71mr2302378ejc.65.1684507706237;
+        Fri, 19 May 2023 07:48:26 -0700 (PDT)
+Received: from alco.roam.corp.google.com ([2620:0:1059:10:62fd:274b:c2ab:69bb])
+        by smtp.gmail.com with ESMTPSA id a2-20020a17090680c200b0096a68648329sm2349437ejx.214.2023.05.19.07.48.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 May 2023 07:48:25 -0700 (PDT)
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Fri, 19 May 2023 16:47:37 +0200
+Subject: [PATCH v7 2/4] x86/purgatory: Remove PGO flags
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Message-Id: <20230321-kexec_clang16-v7-2-b05c520b7296@chromium.org>
+References: <20230321-kexec_clang16-v7-0-b05c520b7296@chromium.org>
+In-Reply-To: <20230321-kexec_clang16-v7-0-b05c520b7296@chromium.org>
+To: Eric Biederman <ebiederm@xmission.com>, 
+ Philipp Rudo <prudo@linux.vnet.ibm.com>, Dave Young <dyoung@redhat.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Baoquan He <bhe@redhat.com>, Philipp Rudo <prudo@redhat.com>, 
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ross Zwisler <zwisler@google.com>, Steven Rostedt <rostedt@goodmis.org>, 
+ Simon Horman <horms@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+ llvm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, Ricardo Ribalda <ribalda@chromium.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.12.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1218; i=ribalda@chromium.org;
+ h=from:subject:message-id; bh=ZdKmKWLc9TEOfphmrnN/WwYYNZStN7R/TxB0+Zjd8HY=;
+ b=owEBbQKS/ZANAwAKAdE30T7POsSIAcsmYgBkZ4wxpLapFX/30sji37lAIaagKHpP8BO2TaX+/
+ sJHabfFQk2JAjMEAAEKAB0WIQREDzjr+/4oCDLSsx7RN9E+zzrEiAUCZGeMMQAKCRDRN9E+zzrE
+ iBOhEACRW3xOCPLHp71KLmHTYNCd71GtWrKjkfxklAL33OghFmTvUpYrsF9LpYB/m7hEcL/ThHl
+ hL85+iGqortM23o+IHkavb1dGe2lPjzhRrAlOP3VRhZdMb4Z30GB9soPtsVB1wTkIHAffgMXlXl
+ OX9TTvAAdTwiK3QpxHsQTI7Zrwd7j4F5PLFwLvF1EJ5B9vHk24k8qUliTckaIUupc8s90pL+blD
+ 76ekelf8r6J/OuHnqjwfBNPIN+L5PKM1Qnvc+nhDbVClbug/NZoYEOQncnJUQzy4+pPlgWMhh1n
+ jSBpPsZLhRFaaAvgOmnCFcJ4QK855FrYlgSZ62gNGa18oujDvo8M/P3rMJl+ZptFWkJHg4ftqjk
+ d2p50qqwa36cAZSdv5xiIorPYJAvQcKnfbLTa/33NmhdJsRmYKEIBmzoJJMVV1WM2GQ1GoS3iqQ
+ xsIbbnRtyfu5Oj+092A0UrmjBv44l9VFL0GioJ/h1dybPyj/xRudpeipiBI5UHl+PsrthS0eXyR
+ BEhiiCDkPPQVspdv9HGVTw7RtC+jrD2P59F2ZJdHKAj43rczvbjLU1aFhLmXOsvEzExQ7jdyhrD
+ dtwIMAsWCKWuA82FW3a1RMjpQzwZn57XSc6vVKzBJhtayoAZ/RnFP3+dNNhzAJAuESXOXu/+Yc9
+ KoQnpw6oiVlAnVA==
+X-Developer-Key: i=ribalda@chromium.org; a=openpgp;
+ fpr=9EC3BB66E2FC129A6F90B39556A0D81F9F782DA9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_085045_386038_CD68E161 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20230519_074828_986584_C6590962 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +115,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjMtMDUtMTjmmJ/mnJ/lm5vnmoQgMjA6NDAgKzAxMDDvvIxDb25vciBEb29sZXnlhpnp
-gZPvvJoKPiBPbiBGcmksIE1heSAxOSwgMjAyMyBhdCAwMjo0NTozNUFNICswODAwLCBKaXNoZW5n
-IFpoYW5nIHdyb3RlOgo+ID4gU2V2ZXJhbCBTb01zIGFuZCBib2FyZHMgYXJlIGF2YWlsYWJsZSB0
-aGF0IGZlYXR1cmUgdGhlIFQtSEVBRAo+ID4gVEgxNTIwCj4gPiBTb0MuIERvY3VtZW50IHRoZSBj
-b21wYXRpYmxlIHN0cmluZ3MuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IEppc2hlbmcgWmhhbmcg
-PGpzemhhbmdAa2VybmVsLm9yZz4KPiA+IC0tLQo+ID4gwqAuLi4vZGV2aWNldHJlZS9iaW5kaW5n
-cy9yaXNjdi90aGVhZC55YW1swqDCoMKgwqDCoCB8IDI5Cj4gPiArKysrKysrKysrKysrKysrKysr
-Cj4gPiDCoDEgZmlsZSBjaGFuZ2VkLCAyOSBpbnNlcnRpb25zKCspCj4gPiDCoGNyZWF0ZSBtb2Rl
-IDEwMDY0NAo+ID4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3RoZWFk
-LnlhbWwKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9yaXNjdi90aGVhZC55YW1sCj4gPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9yaXNjdi90aGVhZC55YW1sCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXgg
-MDAwMDAwMDAwMDAwLi5lNjJmNjgyMTM3MmUKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL0Rv
-Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi90aGVhZC55YW1sCj4gPiBAQCAt
-MCwwICsxLDI5IEBACj4gPiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb25s
-eSBPUiBCU0QtMi1DbGF1c2UpCj4gPiArJVlBTUwgMS4yCj4gPiArLS0tCj4gPiArJGlkOiBodHRw
-Oi8vZGV2aWNldHJlZS5vcmcvc2NoZW1hcy9yaXNjdi90aGVhZC55YW1sIwo+ID4gKyRzY2hlbWE6
-IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+ID4gKwo+ID4g
-K3RpdGxlOiBULUhFQUQgU29DLWJhc2VkIGJvYXJkcwo+ID4gKwo+ID4gK21haW50YWluZXJzOgo+
-ID4gK8KgIC0gSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+ID4gKwo+ID4gK2Rl
-c2NyaXB0aW9uOgo+ID4gK8KgIFQtSEVBRCBTb0MtYmFzZWQgYm9hcmRzCj4gPiArCj4gPiArcHJv
-cGVydGllczoKPiA+ICvCoCAkbm9kZW5hbWU6Cj4gPiArwqDCoMKgIGNvbnN0OiAnLycKPiA+ICvC
-oCBjb21wYXRpYmxlOgo+ID4gK8KgwqDCoCBvbmVPZjoKPiA+ICvCoMKgwqDCoMKgIC0gZGVzY3Jp
-cHRpb246IFNpcGVlZCBMaWNoZWUgUGkgNEEgYm9hcmQgZm9yIHRoZSBTaXBlZWQKPiA+IExpY2hl
-ZSBNb2R1bGUgNEEKPiA+ICvCoMKgwqDCoMKgwqDCoCBpdGVtczoKPiA+ICvCoMKgwqDCoMKgwqDC
-oMKgwqAgLSBlbnVtOgo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gc2lwZWVkLGxp
-Y2hlZS1waS00YQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBzaXBlZWQsbGljaGVl
-LW1vZHVsZS00YQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiB0aGVhZCx0aDE1MjAK
-PiAKPiBTYW1lIGhlcmUgcmU6IG90aGVyIFNvTXMgSSBndWVzcy4gUHJvYmFibHkgbW9yZSBpbnRl
-cmVzdCBpbiBjcmVhdGluZwo+IHRoZW0gaGVyZSB0aG91Z2ghCj4gCj4gSSBoZWFyZCBvbiB0aGUg
-Z3JhcGV2aW5lIHRoYXQgdGhlIGJvYXJkcyBwZW9wbGUgaGF2ZSBub3cgYXJlIHBlcmhhcHMKPiBu
-b3QKPiB0aGUgc2FtZSBhcyB0aGUgZGVzaWduIHRoYXQgdGhleSdyZSBnb2luZyB0byBzaGlwIGlu
-IHRoZSBtYWluCj4gcHJvZHVjdGlvbgo+IHJ1bj8KClRoZXJlIHJlYWxseSB3YXMgYW4gZWFybHkg
-RVZCIHRoYXQgaXMgbm90IHB1YmxpYywgYnV0IHRoZSBFVkIgaXMgY2FsbGVkCkxNNEEgRVZCIGlu
-c3RlYWQgb2YgTFA0QS4KClRoZSBMaWNoZWUgUGkgNEEgYm9hcmQgaGVyZSBpcyB0aGUgcHJvZHVj
-dGlvbiBydW4gb25lLgoKPiBEbyB5b3Uga25vdyBpZiB0aGVyZSBpcyBhIG1vcmUgZGV0YWlsZWQg
-cGFydCBudW1iZXIgZm9yIHRoZSBib2FyZHMsCj4ganVzdAo+IGluIGNhc2UgdGhlcmUgYXJlIHNv
-bWUgc29mdHdhcmUtdmlzaWJsZSBjaGFuZ2VzPwo+IAo+IFRoYW5rcywKPiBDb25vci4KCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+If profile-guided optimization is enabled, the purgatory ends up with
+multiple .text sections.
+This is not supported by kexec and crashes the system.
+
+Cc: stable@vger.kernel.org
+Fixes: 930457057abe ("kernel/kexec_file.c: split up __kexec_load_puragory")
+Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+---
+ arch/x86/purgatory/Makefile | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
+index 82fec66d46d2..42abd6af1198 100644
+--- a/arch/x86/purgatory/Makefile
++++ b/arch/x86/purgatory/Makefile
+@@ -14,6 +14,11 @@ $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
+ 
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS
+ 
++# When profile-guided optimization is enabled, llvm emits two different
++# overlapping text sections, which is not supported by kexec. Remove profile
++# optimization flags.
++KBUILD_CFLAGS := $(filter-out -fprofile-sample-use=% -fprofile-use=%,$(KBUILD_CFLAGS))
++
+ # When linking purgatory.ro with -r unresolved symbols are not checked,
+ # also link a purgatory.chk binary without -r to check for unresolved symbols.
+ PURGATORY_LDFLAGS := -e purgatory_start -z nodefaultlib
+
+-- 
+2.40.1.698.g37aff9b760-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
