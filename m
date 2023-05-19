@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F22AC77B7D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 00:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB78BC77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 02:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KyAQK0CmWk4L73C3OtyvBlqRKrT5GHsXpNZSO4hXY1A=; b=ZrFwULQl7AGG/4
-	W/2sLSKg3ONa8aoCeuXru+ISe7hC2muSHlhMUuIIlQZIoU6r3veDlVXBREEL26ZXZN42YKdyviIBQ
-	Z+UqCdFOP4mhwAx5twHk8Ik0LOvw7vv01V4q9JigYzGvyqDPii79rv0Imvygc8SkfrOw2KARcl6CX
-	YOES9w5Qy/730H1azMzEP3oVas0/XQZpGWNNZ913VSahDIXjtSZh871Ru5d3pvs5yoxPpHrxRBjK6
-	P0PFLVkjQCQZSzkvtp4LsRy0BclDZzw79qjtTwgNjVqtzlgbGDJNPrKUY8toFbX/GMTFPkUJAPKoz
-	WdlQ8V+xWuVMQRhJCG3A==;
+	List-Owner; bh=xk/QMeTU5k4I6uq2MuQ0XjVX/yz62EwikcIOeaOupUg=; b=eS+lOPsCGcPuOO
+	po3Nz78AMkrIMZqggE0ytyGxsgJTGx9FMmPGWZA10AZGpymYkKvZY7rcp14ApUHyfT2TSYl24PlXH
+	iUk5dUVrCO/wess2YrJEJOrj8QLYX8fgkkKsw0QLt3QI8C7t10r1lG/32h8dheg0H/YfdZ5OACRtY
+	GNE03u0GkAzG4+qvureDYYILCLbxXx2YKlY1+jNBzO0u+eN3R8Go30iNSwNQqNISYoppaKbSJ5YEo
+	kMti1ZEb6CdxoR983mT2mlyH9ORlTuCFS4qJFsISWPwbfXgSPZFMpxtMoPUFwj1WtQ6qT6OhwGTUP
+	WxC+cgvGWDJBfyH/RnuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzo92-00Ea4N-2d;
-	Fri, 19 May 2023 00:38:56 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1pzqFF-00EsSJ-2R;
+	Fri, 19 May 2023 02:53:29 +0000
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzo8z-00Ea3Y-3D
+	id 1pzqFB-00EsQW-3D
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 00:38:55 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-33114404c9cso963715ab.1
-        for <linux-riscv@lists.infradead.org>; Thu, 18 May 2023 17:38:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1684456732; x=1687048732;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7/jPM0KnH+FwZjtmXcaKFjOjxDtUtKIRA4syAmgc008=;
-        b=fmjVDjbt+kVlfJJwbXQK46gG++Iuw6KXHsivhDuvDS1k3OJpQOQpec2T2c0ma/iqQN
-         9WeSajyeQsFTZLYH+IeZpzrbcJzTbvXie0lgLosHMSjhrMgYpvYY00G4EHMPgrvi/Iu7
-         tenMCSZl7X6Sx3vKHFEsDse1sK6aOo9BlIjqXMsUfRbjFkGXnAzDm9lEdyUKq9mlWbah
-         zASFPie7alKP0oNfedYyG7FvDteT1lmEtAWg4J3HHFpfWvz6xut2TzwAIjl2xAf9qhFd
-         ud+gIUTwV59X4gLBAG8ikBAGXop4+zMT79TM2ItusYqCkJffT4YMR2Qhr2yOj532k4Uo
-         p0WQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684456732; x=1687048732;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7/jPM0KnH+FwZjtmXcaKFjOjxDtUtKIRA4syAmgc008=;
-        b=PURhaydPWH523T1v7auBMOUthzaJrYkJIKsdKCUZtVrkj/BMmMDzLbYrqNQ2UrbiXT
-         GmCTC0JTXYJBErOKIVSz9VImxrFuekMe3o/JDCsNU5EJ6fo2MznxA3f9tctvvgcJIZFp
-         VQvaCQ4nbpYjpMlcUXiFFxFjcbHkPud3iMu+BEqrzZumOpT7ZIXxPLk26Y1q+JehpyQU
-         LycZsHqmvjIkistPq5H9xt6WcDtggOD/pstPpxOfCxOY1qIiYLhXbFynqKWd0Inepg+K
-         ypZbgTAYk7Eq0Xo4sc+a95IYrUKjIOKBo3l2oWwbckzAdHuvOFpquwZD8uU0SXu4hAmk
-         dXmg==
-X-Gm-Message-State: AC+VfDzYq1kE3/TW3FeCBEK1KIVSrGHU104W/gBBbWcoAVvKEEq6szGE
-	4a0ExMIABFn57sbyDlnSHzv3sQ==
-X-Google-Smtp-Source: ACHHUZ5LcaA26lj0MuLputKQFfYR1Y7nG2KPFDIiKERvOLPuxhn7bS0bUuvXzticQqEP+j2ZkW7d9w==
-X-Received: by 2002:a92:c707:0:b0:335:8542:440c with SMTP id a7-20020a92c707000000b003358542440cmr530202ilp.12.1684456732398;
-        Thu, 18 May 2023 17:38:52 -0700 (PDT)
-Received: from localhost (c-98-32-39-159.hsd1.nm.comcast.net. [98.32.39.159])
-        by smtp.gmail.com with ESMTPSA id m20-20020a92c534000000b00337b078ce44sm669216ili.0.2023.05.18.17.38.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 May 2023 17:38:51 -0700 (PDT)
-Date: Thu, 18 May 2023 17:38:50 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-To: Arnd Bergmann <arnd@arndb.de>
-cc: Palmer Dabbelt <palmer@rivosinc.com>, guoren <guoren@kernel.org>, 
-    Thomas Gleixner <tglx@linutronix.de>, 
-    Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-    "Conor.Dooley" <conor.dooley@microchip.com>, 
-    =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>, 
-    Jisheng Zhang <jszhang@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-    Anup Patel <apatel@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-    Mark Rutland <mark.rutland@arm.com>, 
-    =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Mike Rapoport <rppt@kernel.org>, Anup Patel <anup@brainfault.org>, 
-    shihua@iscas.ac.cn, jiawei@iscas.ac.cn, liweiwei@iscas.ac.cn, 
-    luxufan@iscas.ac.cn, chunyu@iscas.ac.cn, tsu.yubo@gmail.com, 
-    wefu@redhat.com, wangjunqiang@iscas.ac.cn, kito.cheng@sifive.com, 
-    Andy Chiu <andy.chiu@sifive.com>, Vincent Chen <vincent.chen@sifive.com>, 
-    Greentime Hu <greentime.hu@sifive.com>, Jonathan Corbet <corbet@lwn.net>, 
-    wuwei2016@iscas.ac.cn, Jessica Clarke <jrtc27@jrtc27.com>, 
-    Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [RFC PATCH 00/22] riscv: s64ilp32: Running 32-bit Linux kernel
- on 64-bit supervisor mode
-In-Reply-To: <556bebad-3150-4fd5-8725-e4973fd6edd1@app.fastmail.com>
-Message-ID: <454dede3-5f20-74fc-975a-e11e4d8b5648@sifive.com>
-References: <mhng-24855381-7da8-4c77-bcaf-a3a53c8cb38b@palmer-ri-x1c9> <556bebad-3150-4fd5-8725-e4973fd6edd1@app.fastmail.com>
+	Fri, 19 May 2023 02:53:28 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id A1E393200921;
+	Thu, 18 May 2023 22:53:16 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute6.internal (MEProxy); Thu, 18 May 2023 22:53:17 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to; s=fm2; t=
+	1684464796; x=1684551196; bh=7042GrMdjbKnQZpgJlsRJ2HsrtNbk/oIz70
+	Gd2zyuLU=; b=Gewg1dPn8EgXkzxAFPGioFMbOMxu4j/PSDmSj7vF4Sgv9v2gole
+	f4HBtIic7YjUV1bVFFGPej35NIbmHHpoHvuwpUkF/7L+O1f4+d2uQfmqEVIpYAnm
+	0R7vvNGJfWeNeK7loh8VWoDWGS3YAZ4wYE4mnkQLaKcJYTRArXZ3fBG94Y2jEZtk
+	8bUckHgUeRHwyGJSgC0eGdHOHZoqPA6meVinJ22oUY0ZAcdB2X8hlK2cAZsmB6oy
+	0MpKp0GVrboth1rgpa95b/gHReUc+/twIKPHncP76RhrYULuEHjIgoySggucMrYi
+	PJ5PYmEcohaWV9qBybfTvsg7x5riW34JL0A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1684464796; x=1684551196; bh=7042GrMdjbKnQZpgJlsRJ2HsrtNbk/oIz70
+	Gd2zyuLU=; b=tAIbvOz4XKrYbE8NSEh/vEAYIgqm+8mqTaIe0GTVEX+qNhDLKt0
+	pDZvDpEViqMLUmh7vVitsIc1ZZU+k+OdYikUvXhB5R5CXWii3zSv4/25jwU6r85U
+	TNsEKPwWNw8K8JAykOLZwHRYhNuxOMW+UFHdNqEi4uJJBomfWILCIuEla7SOARnM
+	pwKQ1mJysixrs7rjhsppqe3ALRgbzA2XOqjumccFEBJj0y/ezXcxrnt3R7AdS+Dy
+	46EYdfGhidvRfTrw4wmy7L9Mf0XfJiY+oc0FP2A1+TQUWTkHoTDfA5MkQXZll1hC
+	x6EA4+IICgPbgWwltf8lHHHboEiyWyZ9uKQ==
+X-ME-Sender: <xms:m-RmZDMPAZIZaEZe9d9-Pm2B6bQ8qFzd1CajBu_U5njRuo6RKbiRbg>
+    <xme:m-RmZN9mFaP_E8ZBP4-BmlmUXvdMZ7itWFrqiZFNWTBQA-EMaK_txcROMB7ZqMrim
+    oYEQxfizQG_mvKEtQ>
+X-ME-Received: <xmr:m-RmZCR_fdnV9qyw5uKvEpqvwj4ZVJktbIQpVgMR4LOo8v12sLr-YQzhSvpcHJOe4m9uybBycW_xy_aTtHEUjp0aM_123OkIqf62D2_pvHXOqKdjITp-Ob_dmg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeeigedgieegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepkfffgggfvfevfhfhufgjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeehleeivdehgfelveekiefhgfeuteetvedtvdffgffgudefjeeu
+    heehueefhfevvdenucffohhmrghinhepsghouhhffhgrlhholhgrsgdrtghomhdpghhith
+    hhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhf
+    rhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:m-RmZHvmvAwDhcveCh4iFeiW4GzsQyMLWv2BM026vDOeOlsqCCRqgQ>
+    <xmx:m-RmZLdoKIMUl2yQUFLinMis0t6WByDMmSV5qbZQmEfCwYAVDaYdfA>
+    <xmx:m-RmZD2c4-HrTnXEQbWPxld6MLJV6kLyppVEZP5cY-dlm-qMCLYnnA>
+    <xmx:nORmZD9TZtE7u5hk5RI5EvW_3TrHYSJYpwLPArK1ApEFvVtv5vxB1w>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 18 May 2023 22:53:13 -0400 (EDT)
+Message-ID: <a45c9193-aa63-650f-dbb3-14b6c3f74eeb@sholland.org>
+Date: Thu, 18 May 2023 21:53:12 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>
+References: <20230518152244.2178-1-jszhang@kernel.org>
+ <20230518152244.2178-2-jszhang@kernel.org>
+From: Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v4 01/10] dt-bindings: vendor-prefixes: add bouffalolab
+In-Reply-To: <20230518152244.2178-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230518_173854_030032_40DA713F 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20230518_195326_473801_3869335C 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +117,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 May 2023, Arnd Bergmann wrote:
+Hi Jisheng,
 
-> We have had long discussions about supporting ilp32 userspace on
-> arm64, and I think almost everyone is glad we never merged it into
-> the mainline kernel, so we don't have to worry about supporting it
-> in the future. The cost of supporting an extra user space ABI
-> is huge, and I'm sure you don't want to go there. The other two
-> cited examples (mips-n32 and x86-x32) are pretty much unused now
-> as well, but still have a maintenance burden until they can finally
-> get removed.
+Thanks for updating this series!
 
-There probably hasn't been much pressure to support Aarch64 ILP32 since 
-ARM still has hardware support for Aarch32.  Will be interesting to see if 
-that's still the case after ARM drops Aarch32 support for future designs.
+On 5/18/23 10:22, Jisheng Zhang wrote:
+> In the following commits, we will support bl808 SoC which is from
+> Bouffalo Lab Technology (Nanjing) Co., Ltd.
+> 
+> Add bouffalolab vendor prefix binding.
+> 
+> Link: https://en.bouffalolab.com/
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index 82d39ab0231b..3566346f2f9e 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -200,6 +200,8 @@ patternProperties:
+>      description: BOE Technology Group Co., Ltd.
+>    "^bosch,.*":
+>      description: Bosch Sensortec GmbH
+> +  "^bouffalolab,.*":
+> +    description: Bouffalo Lab Technology (Nanjing) Co., Ltd.
 
+Have you thought about using the "bflb" abbreviation as the vendor
+prefix, like you use throughout the driver code? This would save quite
+some space in the DTB, and seems to be the most common variant seen in
+the vendor SDK:
 
-- Paul
+bouffalo_sdk$ git grep -i bflb | wc -l
+14364
+bouffalo_sdk$ git grep -i bouffalo | wc -l
+1042
+bouffalo_sdk$ git grep -i bouffalolab | wc -l
+179
+
+So that is what we were using for bringing up Linux and U-Boot over at
+https://github.com/openbouffalo.
+
+On the other hand, "bouffalolab" is certainly accurate as well, so I
+understand if you prefer it. And we will of course adapt to whatever
+gets merged, since our goal is upstreaming.
+
+The vendor code drop[1] provided only one example, "bflb-uart,uart0",
+which is not very helpful. Maybe you have received further information
+from them?
+
+What do you think?
+
+Regards,
+Samuel
+
+[1]:
+https://github.com/bouffalolab/bl808_linux/blob/main/linux-5.10.4-808/drivers/tty/serial/bflb_uart.c#L700
+
 
 _______________________________________________
 linux-riscv mailing list
