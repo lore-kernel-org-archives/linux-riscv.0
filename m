@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196E8C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 08:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2325AC77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 08:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h4xoNw6Fb93yIDenD8RYXYkxz8sGZXPw3+ijexKMBtI=; b=AWx1FP+VOht00l
-	hExglQrs8gTg+aOkk+aoZVm7dGnOtD8x0MDJFm4cCB5y2ESkCnzlZwwGPXDM7Ux2Phc2o3UHMjFeZ
-	ygiyL97jDtuDxesKpOEe/ls/bf/RowOg6y9twC6p1la/M+EP3FtfV8QGrMIKlRRQ323vf5tlwK2J1
-	IqHX8uqKmKzwtkMLp9tTg/Xmi5L1YCh52Kv0+mrChghhcfr2O2zzEsMTn60czvir95rjB+NBrhbd7
-	cg2ublXZIJq9JR3t7MmvKGfE3sv5KBn0FDmZ3JgCVYrVtj4OLJjoASMFuGMWtEhDkEsLKwWHO/3wk
-	5GUjrgxRdQMuuLEddudw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lee/wye0cf5uLYud0dS/hbmnzGCMXPxGwNE0KNoGVJ8=; b=HFd7XQ5IokjU0HLGGOWbyPfXib
+	N2gojO3iANR8e9xBkedNr1TbvraQolPLugCUxhT8vtwHTI5GjGJjr61k08hvNboRpohyskpYscI9J
+	8fzbUdiPN7lAWAGtPcRGUDBh9TE3FfrJuYjCLURKGWbZyoUxHIE+YTEx+iacWVu4lVjA0naG+ZttW
+	n0lrCXrcY/sbAk9HxY4wrE2QPbJYQ1Viipn2pSIWIxgdtzqkobXFWvOJ6EQ+dnomLX+40NBtd/IZF
+	f8EaesGmY4vcjnoDU8MnS/fVq05tjnnDy0O1FUy5IQW0HuCkCxWdx97IOtlbyTUqqwRVM1RCg4PYX
+	3+um9e6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzvBU-00FTXQ-1n;
-	Fri, 19 May 2023 08:09:56 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1pzvEN-00FTvF-1l;
+	Fri, 19 May 2023 08:12:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pzvBS-00FTWk-0N;
-	Fri, 19 May 2023 08:09:55 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1ae52ce3205so20396665ad.3;
-        Fri, 19 May 2023 01:09:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1684483791; x=1687075791;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MFfvDsP1Pp4ougCeQR0lxQyoOnnXgdmQJ0jpJVRq650=;
-        b=mZKyEbd2FwrmrGjcDUlov5PgReXqA95wKg7WVMytdTw3x1Hm97Ozy7fDGGF5lOQW/B
-         UHzk9z/eHgd59LpEHrCBOjiekcCjIqIkpEjN6Ld6LQv144n3zYAOLzPbtqf6Wfpwrze9
-         U2YYhITOjtqwZFp+dnfjzWkUGRTJyywhrooERY4rTkmXk1BeRvy9EyFaCo+fVj89/mJE
-         UKQYA/Be04N8FV0jtmzK7s1FhQ/h6epij9/WNacbNjM5Q39UhxgxOAJsevkvXgHtedWA
-         Sn480P/3Md/iagXiFDA6LZNqJ7saTYabvlSfYUhOLIRKz3yutdK5WHbjp1/gxB5F35wM
-         dK4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684483791; x=1687075791;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MFfvDsP1Pp4ougCeQR0lxQyoOnnXgdmQJ0jpJVRq650=;
-        b=emVnPhYSRbgGXxkvJUrKJcUTl39QKm6Uph50pjaSEdmFzRwsarfPne9zHs6+yt9dmn
-         y88UJl2FomLGHI3ggaDQPRUSq8+HuB3ZnnwpGhF6YrlWJAW73VC+OASFuA0bdoRYW8s6
-         Fm0i9JnrR2h7hpV32rJsIhtDo/gZu6YJMojNLUbyd0bhsK/nNLsmQkjAWOFlGX1d4Gwh
-         5OyD/indyNV/3gSAZ0bga7eztSHez5+gAhlvfx/t9RC16UUm491/exgOM1QGbkDMvUSO
-         1MhGRV0BGcUW4YgoFcSiLZmpRhxgrq8WxqUEqsjEKfe4rYjd/YVZo22r26m7rrn3y4nP
-         fNXg==
-X-Gm-Message-State: AC+VfDz2ZBHCOduYBt890/+3k1u5s1T3zAE/tGQgHgBmNU60YzxoRXfU
-	46iYMWMeTKwPPOMBnnh0R/c=
-X-Google-Smtp-Source: ACHHUZ4nqCkVmeN4mA+zGKJoBbXRsxdBZKDRrLPkqszJ5QyaxylLhYNjgRgML55fKiz4ClX0CsiQyw==
-X-Received: by 2002:a17:903:11c9:b0:1ac:63ac:10a7 with SMTP id q9-20020a17090311c900b001ac63ac10a7mr1994932plh.68.1684483790607;
-        Fri, 19 May 2023 01:09:50 -0700 (PDT)
-Received: from [192.168.43.80] (subs32-116-206-28-39.three.co.id. [116.206.28.39])
-        by smtp.gmail.com with ESMTPSA id t21-20020a63d255000000b0053071b00c49sm2516483pgi.23.2023.05.19.01.09.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 May 2023 01:09:50 -0700 (PDT)
-Message-ID: <b66104cf-9e70-0d9b-ccc3-4f1897c84720@gmail.com>
-Date: Fri, 19 May 2023 15:09:43 +0700
+	id 1pzvEJ-00FTtg-2R
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 May 2023 08:12:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1684483971; x=1716019971;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AICApxT69uepygya0AreeAzqrDtA69Jyg+g0w/dzNrA=;
+  b=OxE478jjiHkEL3wF+8y5gw0ePEhzh/OxjLUeLD7T7UdrYiSrXrmVPYMP
+   9l5C1g3k8ZDTSft/MORbXjvFIveFBm1dmb2/t2e4Hrv6/B7IClY88P91j
+   dVC2LuePVJlBBClxjEGgZOxL7a/D/6vcRDAHFEUVZ4XuqV0ZR9hwjndPZ
+   KZjTX363QuCWfFPJhxYZ0FrmM7fMfNg5eM5QR9dVvOBg/f88eDT4hmt3H
+   A7mrRHOgf9azaoCVzyA56T/RvINxjGNgBXfTGoZjg177X+FEloui1GMr1
+   tISAdUq0gB5AUZlNDTdOesW0Mkmfjac7DQxEoev7GAqWWEz2596LGGlkP
+   A==;
+X-IronPort-AV: E=Sophos;i="6.00,176,1681196400"; 
+   d="asc'?scan'208";a="152919385"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 May 2023 01:12:45 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 19 May 2023 01:12:40 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 19 May 2023 01:12:37 -0700
+Date: Fri, 19 May 2023 09:12:16 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v4 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock
+ inputs
+Message-ID: <20230519-gosling-rewrap-bfd03dc549ae@wendy>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-4-xingyu.wu@starfivetech.com>
+ <20230512-uproar-external-49a9e793fbc4@wendy>
+ <91e4fd3c-20cb-724b-c9a8-e038600aabb7@starfivetech.com>
+ <20230512-backlit-radiated-ded0b38b4a94@wendy>
+ <be85aa2a-c72c-5272-ee40-f1265768e7b3@starfivetech.com>
+ <20230512-traffic-popsicle-5c3423b37fab@wendy>
+ <906cec55-e438-0eca-618c-4f29b2642fcb@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH -next v20 24/26] riscv: Add documentation for Vector
-To: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
- Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko.stuebner@vrull.eu>,
- Evan Green <evan@rivosinc.com>, Vincent Chen <vincent.chen@sifive.com>
-References: <20230518161949.11203-1-andy.chiu@sifive.com>
- <20230518161949.11203-25-andy.chiu@sifive.com>
-Content-Language: en-US
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-In-Reply-To: <20230518161949.11203-25-andy.chiu@sifive.com>
+In-Reply-To: <906cec55-e438-0eca-618c-4f29b2642fcb@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_010954_151765_8522D60B 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230519_011252_152540_03596AB1 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +93,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0658171282775636875=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNS8xOC8yMyAyMzoxOSwgQW5keSBDaGl1IHdyb3RlOgo+IFRoaXMgcGF0Y2ggYWRkIGEgYnJp
-ZWYgZG9jdW1lbnRhdGlvbiBvZiB0aGUgdXNlcnNwYWNlIGludGVyZmFjZSBpbgo+IHJlZ2FyZCB0
-byB0aGUgUklTQy1WIFZlY3RvciBleHRlbnNpb24uCj4gCgoiQWRkIGEgYnJpZWYgZG9jdW1lbnRh
-dGlvbiAuLi4iCgo+IFNpZ25lZC1vZmYtYnk6IEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNpZml2ZS5j
-b20+Cj4gUmV2aWV3ZWQtYnk6IEdyZWVudGltZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2ZS5jb20+
-Cj4gUmV2aWV3ZWQtYnk6IFZpbmNlbnQgQ2hlbiA8dmluY2VudC5jaGVuQHNpZml2ZS5jb20+Cj4g
-Q28tZGV2ZWxvcGVkLWJ5OiBCYWdhcyBTYW5qYXlhIDxiYWdhc2RvdG1lQGdtYWlsLmNvbT4KPiBT
-aWduZWQtb2ZmLWJ5OiBCYWdhcyBTYW5qYXlhIDxiYWdhc2RvdG1lQGdtYWlsLmNvbT4KPiAtLS0K
-PiBDaGFuZ2Vsb2cgdjIwOgo+ICAtIERyb3AgYml0LWZpZWxkIHJlcHJlc3NlbnRhdGlvbiBhbmQg
-dHlwb3MgKEJqw7ZybikKPiAgLSBGaXggZG9jdW1lbnQgc3R5bGluZyAoQmFnYXMpCgpBbnl3YXks
-IHRoYW5rcyBmb3IgYXBwbHlpbmcgbXkgZml4dXBzIQoKLS0gCkFuIG9sZCBtYW4gZG9sbC4uLiBq
-dXN0IHdoYXQgSSBhbHdheXMgd2FudGVkISAtIENsYXJhCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============0658171282775636875==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="fmR9wFkfHIZNBkc5"
+Content-Disposition: inline
+
+--fmR9wFkfHIZNBkc5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, May 19, 2023 at 03:59:19PM +0800, Xingyu Wu wrote:
+> On 2023/5/12 21:49, Conor Dooley wrote:
+> > On Fri, May 12, 2023 at 05:56:16PM +0800, Xingyu Wu wrote:
+> >> On 2023/5/12 17:35, Conor Dooley wrote:
+> >> > On Fri, May 12, 2023 at 04:07:47PM +0800, Xingyu Wu wrote:
+> >> >> On 2023/5/12 14:47, Conor Dooley wrote:
+> >> >> > On Fri, May 12, 2023 at 10:20:32AM +0800, Xingyu Wu wrote:
+> >> >> >> Add PLL clock inputs from PLL clock generator.
+> >> >> >>=20
+> >> >> >> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> >> >> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> >> >> >> ---
+> >> >> >>  .../clock/starfive,jh7110-syscrg.yaml         | 20 ++++++++++++=
++++++--
+> >> >> >>  1 file changed, 18 insertions(+), 2 deletions(-)
+> >> >> >=20
+> >> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-=
+visionfive-2-v1.3b.dtb: clock-controller@13020000: clocks: 'oneOf' conditio=
+nal failed, one must be fixed:
+> >> >> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too sh=
+ort
+> >> >> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,j=
+h7110-syscrg.yaml
+> >> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-=
+visionfive-2-v1.3b.dtb: clock-controller@13020000: clock-names: 'oneOf' con=
+ditional failed, one must be fixed:
+> >> >> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext'=
+, 'i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ex=
+t'] is too short
+> >> >> > 	'i2stx_bclk_ext' was expected
+> >> >> > 	'i2stx_lrck_ext' was expected
+> >> >> > 	'i2srx_bclk_ext' was expected
+> >> >> > 	'i2srx_lrck_ext' was expected
+> >> >> > 	'tdm_ext' was expected
+> >> >> > 	'mclk_ext' was expected
+> >> >> > 	'pll0_out' was expected
+> >> >> > 	From schema: /Documentation/devicetree/bindings/clock/starfive,j=
+h7110-syscrg.yaml
+> >> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-=
+visionfive-2-v1.2a.dtb: clock-controller@13020000: clocks: 'oneOf' conditio=
+nal failed, one must be fixed:
+> >> >> > 	[[19], [20], [21], [22], [23], [24], [25], [26], [27]] is too sh=
+ort
+> >> >> > 	From schema: Documentation/devicetree/bindings/clock/starfive,jh=
+7110-syscrg.yaml
+> >> >> > /tmp/tmp.KDlzwQM5ma/arch/riscv/boot/dts/starfive/jh7110-starfive-=
+visionfive-2-v1.2a.dtb: clock-controller@13020000: clock-names: 'oneOf' con=
+ditional failed, one must be fixed:
+> >> >> > 	['osc', 'gmac1_rmii_refin', 'gmac1_rgmii_rxin', 'i2stx_bclk_ext'=
+, 'i2stx_lrck_ext', 'i2srx_bclk_ext', 'i2srx_lrck_ext', 'tdm_ext', 'mclk_ex=
+t'] is too short
+> >> >> > 	'i2stx_bclk_ext' was expected
+> >> >> > 	'i2stx_lrck_ext' was expected
+> >> >> > 	'i2srx_bclk_ext' was expected
+> >> >> > 	'i2srx_lrck_ext' was expected
+> >> >> > 	'tdm_ext' was expected
+> >> >> > 	'mclk_ext' was expected
+> >> >> > 	'pll0_out' was expected
+> >> >> > 	Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.y=
+aml
+> >> >> >=20
+> >> >> > This binding change is incompatible with the existing devicetrees=
+ for
+> >> >> > the visionfive 2.
+> >> >>=20
+> >> >> This looks like less clocks about PLL in SYSCRG node. And I add thi=
+s in patch 7.
+> >> >=20
+> >> > The existing devicetree is a valid, albeit limited, description of t=
+he
+> >> > hardware.
+> >> > After your changes to the clock driver in this series, but *without*=
+ the
+> >> > changes to the devicetrees, does the system still function?
+> >> > From a quick check of 4/7, it looks like it will not?
+> >>=20
+> >> I just tested it on the board and the system still worked without the =
+changes
+> >> about devicetree. But these clocks' rate were 0 because these could no=
+t get
+> >> the PLL clocks from devicetree.
+> >=20
+> > Hmm, that sounds like an issue to me. If all of the clock rates are
+> > computed based off of parents that incorrectly report 0, are we not in
+> > for trouble?
+> > Should the fixed-factor clocks be retained as a fallback for the sake of
+> > compatibility?
+> > Emil, Stephen?
+>=20
+> I got your concern. Actually, I can add a check in driver to see if the d=
+ts
+> has pll clocks and then decide whether to use fixed-factor clocks or pll =
+clocks
+> from syscon. But eventually we have to use pll clocks and dts has to add =
+it.
+> Then the binding should add it synchronously, right?
+
+IMO, it is okay to change the bindings to only allow the "correct"
+representation of the clock tree, but the driver should fall back to the
+fixed factor clocks if it detects the old/limited configuration.
+
+Cheers,
+Conor.
+
+--fmR9wFkfHIZNBkc5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGcvYAAKCRB4tDGHoIJi
+0qjtAQCnxoHjat9m2l+ZRA6gRaDH14KVQN8ui70BNMgDp3RP1gD/W8KYmQpQPelR
+QL0Lv3BwxzncwLIkFHzlyTIptDazoQs=
+=IH/w
+-----END PGP SIGNATURE-----
+
+--fmR9wFkfHIZNBkc5--
+
+
+--===============0658171282775636875==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0658171282775636875==--
+
