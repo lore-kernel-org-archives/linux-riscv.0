@@ -4,114 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5508C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 20:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4945C77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 20:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EyfnxLz/huigp8R5f4BKe46YFyBMBus9azil9z3NGVY=; b=D6wWKD1I9ZjROk
-	1JPnfjDrWXrzPoil36O/ZEw0I9bQiBaWA/vU8dCo9OuxM6X0DjTYolQGTv4OnRlOoRfZNOntjVHRy
-	Cvwzhd74Br0GW59tWodCQTOThEtB1BzEdXra0bX63lzcXSctWWm4DgUwbXOBaZQErxy6fEYa4Dltx
-	My2iiUDyrrFKnchUt+/p4TRt7vKPiW9McYgFyf3gIu6Z/UafZKT6roRnqlSoAMdwI4qcygIVyS+G0
-	+jZz5wf6tX8kPxAg9AX0UsqF+alx61o9eWluWPGjOCIfxkuMdf9HiDyYCl519nYU6ORVoaR00qaAN
-	zW7MJ8OSNUQd2O3CoXPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=/dVBgNiABNc9jW5/0s5GuYGRnaAvmAoxztX4UH7K/8Y=; b=XuuvAxkGoKzeLCzCU7U78ygRqY
+	eRDcFbwRLGkFHhPI3Bf9sz3P8LMEs/ryvNJun+OXN6Fniug1S+BWfylR0Xl0RQnjPRJe878aO1YNx
+	AZAl7DCTlSiCHUhjzc5pkKziApQJltQMZEtZfsK6RG2dlb8usJN0p/PEPTEJrSHI40uALKM0lbhOm
+	Q/ZgLpuBzGXtagU0ijOW2lBJrKiMYizy+A7mIYbD2KkIULTEXxvIlPP9bcZFUJxY34KqDoGsXRERf
+	G9cuYkGmZ9+P3i4zj/Y8aTBtcfpUyuu59IS2mp4qoZmbjbTJo3D9nPFkvIE7SCCh8v1LmgwqoT+1Z
+	DHw5286g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q06av-00H9ya-1y;
-	Fri, 19 May 2023 20:20:57 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1q079A-00HDOo-1L;
+	Fri, 19 May 2023 20:56:20 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q06ar-00H9wx-2f
+	id 1q0797-00HDMo-38
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 20:20:55 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id E987432005BC;
-	Fri, 19 May 2023 16:20:43 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Fri, 19 May 2023 16:20:46 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1684527643; x=1684614043; bh=oI
-	JfFfhJfrFit/dFRNXoBCxBw8LbYIGZS18hb/Tgxjk=; b=f3ZkNvTprv0bWj9ozZ
-	MdUK0zGhSmAyXcHmPJ6qbVfWmrpn3ByC9jsOzGIt4lKARxpzUUcjWsRHAlg2GjCH
-	pS9GwC5PGcSdbYlgqvAp6YCdagg1X2xpGiarYWp4uzU5Uy2sQNPRVnl+ZM7a1gPh
-	TtnAzTuHoKqS+giSVNNvxMNoTFNcqyC/ZbvA1UPF+6ei4TAhjpJ0AI6D8XxJWE6B
-	VKOoI+DUB3L0IQCHLDk8LxfY5snJzRXoDPRzzJaralCKAfswbnzNqmoRuTcA/xdH
-	waV6docyZYaW1KGzTA493KL4uOZHU8q/ASjCHRmYvCSW11G/xcs7kSVFgTZ2KimP
-	rEuQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1684527643; x=1684614043; bh=oIJfFfhJfrFit
-	/dFRNXoBCxBw8LbYIGZS18hb/Tgxjk=; b=aoLi/APTXljwnO2BmJWbRFXr53n9v
-	Y77nUM8qaiD720EcWMgd3IWkinmqH2o/XLRxlBPBHsABVkmfjWi1SibnzYbQTpCx
-	dIA7bBwAuMpuT5LkgDRk63zVBsY3E4lRzLM0TrDF1+xZRwRF9GxNMV3yW3/dwSMJ
-	Sv1g0p3SP7ossBoVOxBVU3Vr2fIrjdvUJGBJDGtJAcL5bbTmru0z2qBdnBSOcPrg
-	JYwm3E/mSSiVoOmTCHDH400EBVJrjXjvJYuZHi3Lx55guFf/m1KzACMlxnseGm4E
-	clVPVf7kgUYP7vXhr0vhuI1USkheTKxrBXUOlCPODBgiNt1LJAbAADyLw==
-X-ME-Sender: <xms:GtpnZPsxN_NS7FgRT4VuGEonfEAEgCmFwlEy4aXR26x03pLGsukSTA>
-    <xme:GtpnZAfmwSpNBHpf1uZE5AodjZSIK93uaJaV6fwUhFD-c_M2vArf0dRn0UqAQaQvc
-    JI5dYNc9JHHB6g-pss>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeeihedgudegkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:GtpnZCyTDYF6Bch9LxKQea2EqL2sMI-H81L0z21W46lU3wj6DrHsKQ>
-    <xmx:GtpnZOOddD43qO_tabxl4BLNVwVtBjAJPoPJcOZ-k1n14_-tNr1DqQ>
-    <xmx:GtpnZP_vCAGbxyA16iJIz8aQsjWkRdmBh6hLxW-y6YOTJ6uuUT_q5A>
-    <xmx:G9pnZOfkGqiHQtYDuLtcDpE1vCg3IaArb5e9xelrwhm26lH9XNc_Vg>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 07D16B6008D; Fri, 19 May 2023 16:20:42 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-431-g1d6a3ebb56-fm-20230511.001-g1d6a3ebb
-Mime-Version: 1.0
-Message-Id: <b3689d7f-1a78-46ea-8e1f-48bc080ce993@app.fastmail.com>
-In-Reply-To: <20230518131013.3366406-1-guoren@kernel.org>
-References: <20230518131013.3366406-1-guoren@kernel.org>
-Date: Fri, 19 May 2023 22:20:21 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: guoren <guoren@kernel.org>, "Palmer Dabbelt" <palmer@rivosinc.com>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Andy Lutomirski" <luto@kernel.org>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Jisheng Zhang" <jszhang@kernel.org>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Anup Patel" <apatel@ventanamicro.com>,
- "Atish Patra" <atishp@atishpatra.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "Anup Patel" <anup@brainfault.org>, shihua@iscas.ac.cn,
- jiawei@iscas.ac.cn, liweiwei@iscas.ac.cn, luxufan@iscas.ac.cn,
- chunyu@iscas.ac.cn, tsu.yubo@gmail.com, wefu@redhat.com,
- wangjunqiang@iscas.ac.cn, kito.cheng@sifive.com,
- "Andy Chiu" <andy.chiu@sifive.com>,
- "Vincent Chen" <vincent.chen@sifive.com>,
- "Greentime Hu" <greentime.hu@sifive.com>,
- "Jonathan Corbet" <corbet@lwn.net>, wuwei2016@iscas.ac.cn,
- "Jessica Clarke" <jrtc27@jrtc27.com>
-Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, "Guo Ren" <guoren@linux.alibaba.com>
-Subject: Re: [RFC PATCH 00/22] riscv: s64ilp32: Running 32-bit Linux kernel on 64-bit
- supervisor mode
+	Fri, 19 May 2023 20:56:19 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-64d2b42a8f9so1428259b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 13:56:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1684529771; x=1687121771;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GugnDVq0c7vfl3wxW3DkEvz8ZP8hJrKb81NPd+MbEgo=;
+        b=w4XaHbcaoTeHwMKK8tq7/hze9Atyb1f5/XPGa2VJSxjgf1JOybobmSZXftt8JH1faK
+         y+U3o7pUzV3LMpt+OI0BaTFQ9swX3VL4Aw4kija5c8VZh2y9uUua0MkAjfqpOTc5OvVW
+         UcfUtIv3k49fgxyUekiCsGwXnfKGGSJgXmeR8whqCUKLI1Isz6Fy4NywgnLzGHDENMfD
+         8FopzMsSrt4qH2Z8xA9F4YpBe0D/YiKCCfMkz8L5o61ICZdCyum6o+hoIeZbq4UyIN3I
+         sncMKcT6+g4f2BOhFzAQMXoZYzLjITJefkC2xQ8gJpmMz3ZXY75+zCss7YyO7JFDBOao
+         dgPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684529771; x=1687121771;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GugnDVq0c7vfl3wxW3DkEvz8ZP8hJrKb81NPd+MbEgo=;
+        b=kuavxwO+7+D1nj/RsjX29Zg9mjVwBbKDwgin5Qcw8LH9ymDl6uMOyVmt0QWHVvRikx
+         L1KQeHNWRpnaqbMG+yrY0lInGV4HZlfTa9fxYDOTZ9BhkLzLtq+9ga5WRd6LYv/dUtif
+         0eVTUUzrIB8q9Xb+tGYY40keMJ/L4lMmtDB2tdSyzjLfFmDuhvHUPa75cUYNphv6Ut8E
+         DOAcq66N12NOPQShsaPWiQ/ifek9nulNehFyGb9q+QCes8i9n6ouaRL2U2K+SdOktCTy
+         /vrbRulgoDGPiAUW01ScwMYiKUDojTVJI4X3TmehVQHgGBqn0uROSMZ3q38ycadmdpaY
+         Xtxg==
+X-Gm-Message-State: AC+VfDx9Y+Y1SSrdWb/ul4qfcL0xFq3jFscyAAr5CNKxz+d9WDC9tDBh
+	TUchLEF2oWY9953JROyV0E/2S65ChfsZ27YXyww=
+X-Google-Smtp-Source: ACHHUZ584jM3FqhNjul9su9bLGVwXpcyvsMFcD/0XYITdp4xBcWtq25UqUY3OaQPOuC57udHHaNAkA==
+X-Received: by 2002:a05:6a00:2188:b0:64d:fd0:dd1a with SMTP id h8-20020a056a00218800b0064d0fd0dd1amr4522909pfi.16.1684529770982;
+        Fri, 19 May 2023 13:56:10 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id y23-20020aa78557000000b0063b8f17768dsm103656pfn.129.2023.05.19.13.56.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 May 2023 13:56:10 -0700 (PDT)
+Date: Fri, 19 May 2023 13:56:10 -0700 (PDT)
+X-Google-Original-Date: Fri, 19 May 2023 13:55:47 PDT (-0700)
+Subject: Re: [PATCH v2 9/9] riscv: defconfig: enable T-HEAD SoC
+In-Reply-To: <20230518184541.2627-10-jszhang@kernel.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: jszhang@kernel.org
+Message-ID: <mhng-e1d500da-688e-49bf-a2d8-bef0e2df48f8@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_132054_095022_53B15DF6 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20230519_135618_197668_45B1D973 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,70 +84,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, frank.li@vivo.com, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, robh+dt@kernel.org, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, linux-riscv@lists.infradead.org, wefu@redhat.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 18, 2023, at 15:09, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> Why 32-bit Linux?
-> =================
-> The motivation for using a 32-bit Linux kernel is to reduce memory
-> footprint and meet the small capacity of DDR & cache requirement
-> (e.g., 64/128MB SIP SoC).
+On Thu, 18 May 2023 11:45:41 PDT (-0700), jszhang@kernel.org wrote:
+> Enable T-HEAD SoC config in defconfig to allow the default
+> upstream kernel to boot on Sipeed Lichee Pi 4A board.
 >
-> Here are the 32-bit v.s. 64-bit Linux kernel data type comparison
-> summary:
-> 			32-bit		64-bit
-> sizeof(page):		32bytes		64bytes
-> sizeof(list_head):	8bytes		16bytes
-> sizeof(hlist_head):	8bytes		16bytes
-> sizeof(vm_area):	68bytes		136bytes
-> ...
-
-> Mem-usage:
-> (s32ilp32) # free
->        total   used   free  shared  buff/cache   available
-> Mem:  100040   8380  88244      44        3416       88080
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> (s64lp64)  # free
->        total   used   free  shared  buff/cache   available
-> Mem:   91568  11848  75796      44        3924       75952
->
-> (s64ilp32) # free
->        total   used   free  shared  buff/cache   available
-> Mem:  101952   8528  90004      44        3420       89816
->                      ^^^^^
->
-> It's a rough measurement based on the current default config without any
-> modification, and 32-bit (s32ilp32, s64ilp32) saved more than 16% memory
-> to 64-bit (s64lp64). But s32ilp32 & s64ilp32 have a similar memory
-> footprint (about 0.33% difference), meaning s64ilp32 has a big chance to
-> replace s32ilp32 on the 64-bit machine.
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index d98d6e90b2b8..109e4b5b003c 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -27,6 +27,7 @@ CONFIG_EXPERT=y
+>  CONFIG_PROFILING=y
+>  CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>  CONFIG_ARCH_RENESAS=y
+> +CONFIG_ARCH_THEAD=y
+>  CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_STARFIVE=y
+>  CONFIG_ARCH_SUNXI=y
 
-I've tried to run the same numbers for the debate about running
-32-bit vs 64-bit arm kernels in the past, but focused mostly on
-slightly larger systems, but I looked mainly at the 512MB case,
-as that is the most cost-efficient DDR3 memory configuration
-and fairly common.
-
-What I'd like to understand better in your example is where
-the 14MB of memory went. I assume this is for 128MB of total
-RAM, so we know that 1MB went into additional 'struct page'
-objects (32 bytes * 32768 pages). It would be good to know
-where the dynamic allocations went and if they are  reclaimable
-(e.g. inodes) or non-reclaimable (e.g. kmalloc-128).
-
-For the vmlinux size, is this already a minimal config
-that one would run on a board with 128MB of RAM, or a
-defconfig that includes a lot of stuff that is only relevant
-for other platforms but also grows on 64-bit?
-
-What do you see in /proc/slabinfo, /proc/meminfo/, and
-'size vmlinux' for the s64ilp32 and s64lp64 kernels here?
-
-       Arnd
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
