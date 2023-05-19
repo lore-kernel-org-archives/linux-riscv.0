@@ -4,130 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82374C77B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 16:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C979DC7EE26
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 16:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HWrxI6+EnKa4ZVl35oVv20baN+1PUAwaYUGykHDWaTM=; b=wFOWi6/svEX0GI
-	HtNeFb/nm/xNHy8hDqHhRlE25BFGwdXqn7EOw4z8K8E74qZyNHLNW/5GGXZ2MWks/97q20xVmcEz2
-	Oa2/+faosSxHB4EGZiWP1ojgXY3SmBeqcYwU0prcRPrF3fSv8uxgZtnh3Gy1JnNIqW/e5vNc9nrwK
-	ZiR15vNJFv5jEKVuwq03yH3JpWexrMLi0ZAPHao4ataJ2B2DvfjeVf9dqyKbE3zmwG4uiMfCzR1uB
-	vVy6yPn+ymNRaaahcm9ZdPdUUBXuBCDXoLq9fiLJNqbtZ7VAV7DyS+5eG0IPHoGWArB89ZIIXExlH
-	LpFbbSYVFEgNcpXJBtVQ==;
+	List-Owner; bh=30EGvfmawBaHgMgkUCkuEGdCCs0+w/G7d4kWoxSfDRM=; b=ENdVTEu/x2BTV7
+	uUDdZb+pcTq6b/EMaKf4sUob99kZNZQV3owKh/xNi4EPyiJuFsXCE1tb/2A52rZg9uabrKaIFS0UM
+	7d7I4grxigaQjiYx2L/ZobGLVkLb4bAKpfp8ahLlRxpQEAoB4jLwRSum5ZlzKqdvMAdYdUPW7w20G
+	OpKvfh/s1yaU+yieU3gyMY0Q2U+dOv9KkzZNBUU7aEpXdYliqnbU2PWaUEVlzVf8Ov6z8h8jPgaBH
+	1JF5gFou0VViehHc8tZ9aygS5QXsKTePsbi3wCxzR7Dr/hsjEzWbu+oV0KFHMb0KPXzfnNnPKVMFu
+	WdU5SiimjJfaD85Xi+sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0309-00GizS-1k;
-	Fri, 19 May 2023 16:30:45 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1q03Jd-00GlYb-2s;
+	Fri, 19 May 2023 16:50:53 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0305-00GiyO-2u;
-	Fri, 19 May 2023 16:30:43 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34JBfjsB011872;
-	Fri, 19 May 2023 16:29:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=message-id : date :
- mime-version : subject : to : cc : references : from : in-reply-to :
- content-type : content-transfer-encoding; s=qcppdkim1;
- bh=yZ+c8uZcJrlAlno5FxTnPElzATRQ31IF/+qQxmh4X7Y=;
- b=JXYLKwcI2GbfAQOyp3pqNSg6DjU0Y7APV0UkqvAq+7mPhE6jU2niZ2R4O5GEnV8Jv3vY
- GKGhPl9R8u8z9GTQRJNoPGaU+0mzwGn4MRHzlqrkBUJqPBmbmvIdtKopPW+l45x2R2N4
- N53tfhOYno5CyDkZBijlZR00Ad7cvVpDEdEpXoDABtsI85/Pq3Lm9EQeADaOgh7BPKhU
- vCAzv/tTJH7NrLUDiiqElo6FSx31LTwIxiOoWrGKsGUnDbsEy4Z69PrEn6OpGxkbbO+u
- mhtvqcavuyOXh7qnKKh25rs7jG7FJgFRefJwgVrMfeYuSSMcB+UmlbDChCuJ2ha23dwu fw== 
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3qp4ccs7tp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 19 May 2023 16:29:01 +0000
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.17.1.5/8.17.1.5) with ESMTPS id 34JGSxwm014994
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 19 May 2023 16:28:59 GMT
-Received: from [10.226.59.182] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.986.42; Fri, 19 May
- 2023 09:28:57 -0700
-Message-ID: <16562305-3bc0-c69f-0cb5-1b9da1014f19@quicinc.com>
-Date: Fri, 19 May 2023 10:28:56 -0600
+	id 1q03Jb-00GlXp-1u
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 May 2023 16:50:53 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-50be17a1eceso6074646a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 09:50:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1684515043; x=1687107043;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EtABjzB0C4odF5c0xpse4cUAQWQzyn/IxLw5sIWp3wA=;
+        b=5jFMv+RKVKdIkhypHP4y08tfdCV9hkIMZJ8Qxsb9Ky58QuT/DtVSobRoMgT0sxoj0o
+         tY2UcczNDxlDLLqfZZxst8cn+BG3VWjev7T1kKUKz9vc5n92Jya8098evqNTIXnk6jEP
+         uC2BrHe5N0G+xn6L5+Um7IVUq3jpF+8QIqFkJzrtwqML3E6d4Jb8BtYvSyNkP6KDsL6p
+         HkiUefmkBhuhH9p+e+LYpEbG8wUGuQdhuIH2kAMKFE+ILzAY7/vDIZ9iY3abVIZscz+t
+         rB2mKXzYaP73i+0UHovGtFicMeWFA4YBFHSm2iju3FXl6DGbWDziipD10ily2NQ+Rzha
+         7Ypw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684515043; x=1687107043;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EtABjzB0C4odF5c0xpse4cUAQWQzyn/IxLw5sIWp3wA=;
+        b=XjeUYfvKVerDBd1I2agsbTjjCAMXJL864twBC3MKq1IbrZgbtFkBsRMDbkrYcfgnGA
+         GTMn1DrQW73pmmYVjtyYRCB+l6Vn/1q6z8Dd4ncVlRyd8pTnvaaC1+i3AWh2KXOpK8zC
+         NS1+OGscvdEMNBklW07W2j34Bj+etTvKaoSIhq/kJ2D7cirRW2KNr+Di3/1N6H653Gun
+         d0+bk6iZxZddcRkD+5idhfo3846lxZb6M78xeSwjemd5/mjmoALuOHkM3bFyzV2eVWsA
+         WebwtFwYQ+xTwpaI0UrNCIt0MEJrukYQUsHAe16peyTNcDw7rjjz6AozH6cQV3ZcoJSO
+         idIA==
+X-Gm-Message-State: AC+VfDysHTg6OYFl81An20ZhZCIjeP3DqKBaayoboKYJrj5BozP17NnB
+	RaG7ZG9KATbCY1iBmPGQ0B6MXkIhxiA9OqNmZCpJcQ==
+X-Google-Smtp-Source: ACHHUZ7Wa66h7rfCspUIEGJSIRWIT6LEQ5VwUl0kcVhQLSxwKBGekN9/RNnvcHqS6J/oIW2wTZKT2v4ZfW4OGKooXO8=
+X-Received: by 2002:aa7:c303:0:b0:504:a2e5:d951 with SMTP id
+ l3-20020aa7c303000000b00504a2e5d951mr2846985edq.13.1684515042920; Fri, 19 May
+ 2023 09:50:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.0
-Subject: Re: [patch V4 36/37] x86/smpboot: Support parallel startup of
- secondary CPUs
-Content-Language: en-US
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>,
-        David Woodhouse <dwmw2@infradead.org>
-CC: <x86@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>,
-        Brian Gerst
-	<brgerst@gmail.com>,
-        Arjan van de Veen <arjan@linux.intel.com>,
-        Paolo Bonzini
-	<pbonzini@redhat.com>,
-        Paul McKenney <paulmck@kernel.org>,
-        Tom Lendacky
-	<thomas.lendacky@amd.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Oleksandr
- Natalenko <oleksandr@natalenko.name>,
-        Paul Menzel <pmenzel@molgen.mpg.de>,
-        "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-        Piotr Gorski
-	<lucjan.lucjanov@gmail.com>,
-        Usama Arif <usama.arif@bytedance.com>,
-        Juergen
- Gross <jgross@suse.com>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        <xen-devel@lists.xenproject.org>, Russell King <linux@armlinux.org.uk>,
-        Arnd
- Bergmann <arnd@arndb.de>, <linux-arm-kernel@lists.infradead.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Guo Ren
-	<guoren@kernel.org>,
-        <linux-csky@vger.kernel.org>,
-        Thomas Bogendoerfer
-	<tsbogend@alpha.franken.de>,
-        <linux-mips@vger.kernel.org>,
-        "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Helge Deller
-	<deller@gmx.de>, <linux-parisc@vger.kernel.org>,
-        Paul Walmsley
-	<paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Sabin
- Rapan <sabrapan@amazon.com>,
-        "Michael Kelley (LINUX)"
-	<mikelley@microsoft.com>,
-        Ross Philipson <ross.philipson@oracle.com>,
-        David
- Woodhouse <dwmw@amazon.co.uk>
-References: <20230512203426.452963764@linutronix.de>
- <20230512205257.411554373@linutronix.de>
-From: Jeffrey Hugo <quic_jhugo@quicinc.com>
-In-Reply-To: <20230512205257.411554373@linutronix.de>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: l2X6Bcn3k_Nws-GO_lVKOQ5EQSj3BbaM
-X-Proofpoint-ORIG-GUID: l2X6Bcn3k_Nws-GO_lVKOQ5EQSj3BbaM
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-05-19_11,2023-05-17_02,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
- lowpriorityscore=0 adultscore=0 impostorscore=0 spamscore=0 bulkscore=0
- phishscore=0 mlxlogscore=999 suspectscore=0 malwarescore=0 clxscore=1011
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2304280000
- definitions=main-2305190140
+References: <20230518161949.11203-1-andy.chiu@sifive.com> <20230518161949.11203-4-andy.chiu@sifive.com>
+In-Reply-To: <20230518161949.11203-4-andy.chiu@sifive.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Fri, 19 May 2023 09:50:06 -0700
+Message-ID: <CALs-HstHyZ055SDu8s_KyACERufD1tU8_hxM1UckN4YF4ms2Cg@mail.gmail.com>
+Subject: Re: [PATCH -next v20 03/26] riscv: hwprobe: Add support for probing V
+ in RISCV_HWPROBE_KEY_IMA_EXT_0
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, 
+	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
+	Conor Dooley <conor.dooley@microchip.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Andrew Bresticker <abrestic@rivosinc.com>, Celeste Liu <coelacanthus@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_093041_946122_BE061899 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20230519_095051_631576_B4975C43 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,96 +90,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/12/2023 3:07 PM, Thomas Gleixner wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
-> 
-> In parallel startup mode the APs are kicked alive by the control CPU
-> quickly after each other and run through the early startup code in
-> parallel. The real-mode startup code is already serialized with a
-> bit-spinlock to protect the real-mode stack.
-> 
-> In parallel startup mode the smpboot_control variable obviously cannot
-> contain the Linux CPU number so the APs have to determine their Linux CPU
-> number on their own. This is required to find the CPUs per CPU offset in
-> order to find the idle task stack and other per CPU data.
-> 
-> To achieve this, export the cpuid_to_apicid[] array so that each AP can
-> find its own CPU number by searching therein based on its APIC ID.
-> 
-> Introduce a flag in the top bits of smpboot_control which indicates that
-> the AP should find its CPU number by reading the APIC ID from the APIC.
-> 
-> This is required because CPUID based APIC ID retrieval can only provide the
-> initial APIC ID, which might have been overruled by the firmware. Some AMD
-> APUs come up with APIC ID = initial APIC ID + 0x10, so the APIC ID to CPU
-> number lookup would fail miserably if based on CPUID. Also virtualization
-> can make its own APIC ID assignements. The only requirement is that the
-> APIC IDs are consistent with the APCI/MADT table.
-> 
-> For the boot CPU or in case parallel bringup is disabled the control bits
-> are empty and the CPU number is directly available in bit 0-23 of
-> smpboot_control.
-> 
-> [ tglx: Initial proof of concept patch with bitlock and APIC ID lookup ]
-> [ dwmw2: Rework and testing, commit message, CPUID 0x1 and CPU0 support ]
-> [ seanc: Fix stray override of initial_gs in common_cpu_up() ]
-> [ Oleksandr Natalenko: reported suspend/resume issue fixed in
->    x86_acpi_suspend_lowlevel ]
-> [ tglx: Make it read the APIC ID from the APIC instead of using CPUID,
->    	split the bitlock part out ]
-> 
-> Co-developed-by: Thomas Gleixner <tglx@linutronix.de>
-> Co-developed-by: Brian Gerst <brgerst@gmail.com>
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Brian Gerst <brgerst@gmail.com>
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Tested-by: Michael Kelley <mikelley@microsoft.com>
-> ---
-
-I pulled in this change via the next tree, tag next-20230519 and I get a 
-build failure using the x86_64_defconfig -
-
-   DESCEND objtool
-   INSTALL libsubcmd_headers
-   CALL    scripts/checksyscalls.sh
-   AS      arch/x86/kernel/head_64.o
-arch/x86/kernel/head_64.S: Assembler messages:
-arch/x86/kernel/head_64.S:261: Error: missing ')'
-arch/x86/kernel/head_64.S:261: Error: junk `UL<<10)' after expression
-   CC      arch/x86/kernel/head64.o
-   CC      arch/x86/kernel/ebda.o
-   CC      arch/x86/kernel/platform-quirks.o
-scripts/Makefile.build:374: recipe for target 
-'arch/x86/kernel/head_64.o' failed
-make[3]: *** [arch/x86/kernel/head_64.o] Error 1
-make[3]: *** Waiting for unfinished jobs....
-scripts/Makefile.build:494: recipe for target 'arch/x86/kernel' failed
-make[2]: *** [arch/x86/kernel] Error 2
-scripts/Makefile.build:494: recipe for target 'arch/x86' failed
-make[1]: *** [arch/x86] Error 2
-make[1]: *** Waiting for unfinished jobs....
-Makefile:2026: recipe for target '.' failed
-make: *** [.] Error 2
-
-This is with GCC 5.4.0, if it matters.
-
-Reverting this change allows the build to move forward, although I also 
-need to revert "x86/smpboot/64: Implement 
-arch_cpuhp_init_parallel_bringup() and enable it" for the build to fully 
-succeed.
-
-I'm not familiar with this code, and nothing obvious stands out to me. 
-What can I do to help root cause this?
-
--Jeff
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMTgsIDIwMjMgYXQgOToyMOKAr0FNIEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNp
+Zml2ZS5jb20+IHdyb3RlOgo+Cj4gUHJvYmluZyBrZXJuZWwgc3VwcG9ydCBmb3IgVmVjdG9yIGV4
+dGVuc2lvbiBpcyBhdmFpbGFibGUgbm93LiBUaGlzIG9ubHkKPiBhZGQgZGV0ZWN0aW9uIGZvciBW
+IG9ubHkuIEV4dGVuaW9ucyBsaWtlIFp2ZmgsIFprIGFyZSBub3QgaW4gdGhpcyBzY29wZS4KPgo+
+IFNpZ25lZC1vZmYtYnk6IEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNpZml2ZS5jb20+ClRoYW5rcyBB
+bmR5IQoKUmV2aWV3ZWQtYnk6IEV2YW4gR3JlZW4gPGV2YW5Acml2b3NpbmMuY29tPgoKcHMtIFRo
+aXMgd2lsbCBlbmQgdXAgY29uZmxpY3Rpbmcgd2l0aCBteSBwYXRjaCB3aGljaCBtb3ZlcyB0aGF0
+IGh1bmsKdG8gYSBoZWxwZXIgZnVuY3Rpb24sIGFuZCBhbHNvIGFsbG9jYXRlcyB0aGUgc2FtZSBo
+d3Byb2JlIGJpdCBbMV0uClRoZSBmaXh1cCBpcyB2ZXJ5IHN0cmFpZ2h0Zm9yd2FyZCBmb3IgYSBo
+dW1hbiwgc28gdGhlIG9yZGVyaW5nIGlzbid0IGEgYmlnCmRlYWwgZWl0aGVyIHdheS4gQnV0IEkg
+dGhvdWdodCBJJ2QgZ2l2ZSB5b3UgYSBoZWFkcyB1cCBzbyB5b3Ugd2VyZW4ndApzdXJwcmlzZWQg
+aWYgc29tZW9uZSBtZW50aW9uZWQgaXQuCgpbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGtt
+bC8yMDIzMDUwOTE4MjUwNC4yOTk3MjUyLTQtZXZhbkByaXZvc2luYy5jb20vCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
