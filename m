@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 207E6C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 13:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BDBC77B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 May 2023 13:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzvIWTAqptEdp7plX96VArKvSo/bSLpynhRFndS8gz8=; b=KBxVa+jS/uDjm6zIw8y3yDGbUt
-	mXJlKOg4iAQMxvdft4/0nNtH1SYwfj8C3eoJtyw3CiSErJMbV+SkYleSBMtdn9YK3hn9VB+XbgYpW
-	3uVtsv8+xH275TAq0PjNlgIcXQ7ZI9Cw5yXTPRRM7GIxWxzyWezQgoSv315VyjJYuRca7w9H2c89Q
-	FJ8e+ECRuQ5mNoJkbKDp3j4TxugSEPkI4s2OK6o5bGGCG4fnoxnsviwQt+3gurXuHUkBDG1CUjqZ5
-	59gQam642jtfMUTbi4X4C/3qlnSXoqTpU+VdFTM6tqU4Y1F1vEdH+PCwoNamFVV+xXpUZDzEOm8Ta
-	oDz4thsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mgCQqq0FVvnFnVtdsH2R/GmzRA6V6xkEvyN3lMK8/oA=; b=IALN67mok4u7PO
+	3hxUkSQpF22KvlBamJJU39LKoNksiGOsdbQxtHDT5zc6Fx3e4ZdH9TOwwDmy/+G01yZtlBQckcuuN
+	p+7KdWaVHcPaU6pQdXTS0QH42N1SX2lQnj/HeIJC76JqjOCAefFNxf/kdx5GuB5incen5yIy0WIan
+	LuayMHBanVucfJthkbeCeqVVYIvHRdt+DbwKQs+5b88HonwPbKSe6XgVf0YCyXAjd4cKO1CddGsMf
+	w/BzHcq/lcLhETPo26TNSzRZVHAqwS1g/bp1dJHpaBo58QMy5VhGjQH8W+B7qUJlEF9s7uZMvaV8R
+	AsWj54N7zWGlp/DY3aqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q00Za-00GQfj-2p;
-	Fri, 19 May 2023 13:55:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1q00c8-00GR1F-1H;
+	Fri, 19 May 2023 13:57:48 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q00ZX-00GQdn-1c
+	id 1q00c5-00GQzf-25
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 May 2023 13:55:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684504507; x=1716040507;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SFnwP/vyGrDIlPPr2daJemFKu+u/gI6MTNacrNW4jKs=;
-  b=qG18eouKqCH0qVm5B1bn61Ku08MfKi4PXxhutBlrsgzFAefOpvWZHk4+
-   IGvsdinSOMEeR6HPEvTbN4p/MylyTNtaT5QPKABAKP5tYMG2nN9RsnlUV
-   pQ+D4G7TaQ5YDEGK4KMT6sjRws9UZ619jOnYtlc2IN86uPDMbPT4cm2Gy
-   dFlD8RdbC2yNEQY3PR8DvxHSpO/F6KCqVYrU3W3gixVOMKNYeL2BrhoLO
-   sA9E9j9WyQNWxu+wTh+YCq0oevZRnFFAICjhyFk4+EQgjc8HM3kVmjB70
-   /kpQdNdqAnx9qqydxq3dNBL73i5t3myBZgZdr55RJ9hi3Q/6iq+r5UFwT
-   w==;
-X-IronPort-AV: E=Sophos;i="6.00,176,1681196400"; 
-   d="asc'?scan'208";a="152970577"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 May 2023 06:54:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 19 May 2023 06:54:54 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 19 May 2023 06:54:53 -0700
-Date: Fri, 19 May 2023 14:54:32 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH -fixes] riscv: Fix unused variable warning when
- BUILTIN_DTB is set
-Message-ID: <20230519-backhand-overbid-1df4d90f7da8@wendy>
-References: <20230519131311.391960-1-alexghiti@rivosinc.com>
+	Fri, 19 May 2023 13:57:47 +0000
+Received: by verein.lst.de (Postfix, from userid 2005)
+	id B229168C7B; Fri, 19 May 2023 15:57:33 +0200 (CEST)
+Date: Fri, 19 May 2023 15:57:33 +0200
+From: Torsten Duwe <duwe@lst.de>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	yanhong.wang@starfivetech.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	William Qiu <william.qiu@starfivetech.com>,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL
+ clock generator
+Message-ID: <20230519135733.GA10188@lst.de>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com> <20230512022036.97987-2-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230519131311.391960-1-alexghiti@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20230512022036.97987-2-xingyu.wu@starfivetech.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_065507_633732_4B5F5DB0 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20230519_065745_852418_887D8E41 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,64 +70,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7875458338646600998=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7875458338646600998==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="aPJ+XWcPL1J5bSvX"
-Content-Disposition: inline
+On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
+[...]
+>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>  
+> +/* PLL clocks */
+> +#define JH7110_CLK_PLL0_OUT			0
+> +#define JH7110_CLK_PLL1_OUT			1
+> +#define JH7110_CLK_PLL2_OUT			2
 
---aPJ+XWcPL1J5bSvX
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In U-Boot commit 58c9c60b Yanhong Wang added:
 
-On Fri, May 19, 2023 at 03:13:11PM +0200, Alexandre Ghiti wrote:
-> commit ef69d2559fe9 ("riscv: Move early dtb mapping into the fixmap
-> region") wrongly moved the #ifndef CONFIG_BUILTIN_DTB surrounding the pa
-> variable definition in create_fdt_early_page_table(), so move it back to
-> its right place to quiet the following warning:
->=20
-> ../arch/riscv/mm/init.c: In function =E2=80=98create_fdt_early_page_table=
-=E2=80=99:
-> ../arch/riscv/mm/init.c:925:12: warning: unused variable =E2=80=98pa=E2=
-=80=99 [-Wunused-variable]
->   925 |  uintptr_t pa =3D dtb_pa & ~(PMD_SIZE - 1);
->=20
-> Fixes: ef69d2559fe9 ("riscv: Move early dtb mapping into the fixmap regio=
-n")
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
++
++#define JH7110_SYSCLK_PLL0_OUT                       190
++#define JH7110_SYSCLK_PLL1_OUT                       191
++#define JH7110_SYSCLK_PLL2_OUT                       192
++
++#define JH7110_SYSCLK_END                    193
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+in that respective file.
 
-Thanks Alex.
+> +#define JH7110_PLLCLK_END			3
+> +
+>  /* SYSCRG clocks */
+>  #define JH7110_SYSCLK_CPU_ROOT			0
 
---aPJ+XWcPL1J5bSvX
-Content-Type: application/pgp-signature; name="signature.asc"
+If the symbolic names referred to the same items, would it be possible
+to keep the two files in sync somehow?
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGd/mAAKCRB4tDGHoIJi
-0h2IAPwLAxCJ/+0IRNhP4m6vQWaDwze4VcB5EC2wibqTlCYvYwEAyzyVVdDhAhwW
-JYlxPuibr/SjwKVsvC8sLseZIFPboAA=
-=WuyF
------END PGP SIGNATURE-----
-
---aPJ+XWcPL1J5bSvX--
-
-
---===============7875458338646600998==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+	Torsten
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7875458338646600998==--
-
