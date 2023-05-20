@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A2AC77B7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D46C77B7D
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 15:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CavBx1D05SVZWuEQFxm1rgRQ22bPhLIXsconahk68ec=; b=z+fqfsXpCby2uZ
-	obWR6Ka6iwtBFwZhoyOe4tgjC/EsrOixh04GlibuBt/kcfA1kItKrVO891cN/ZHWeM1yFuZr3PQKs
-	yDJJQdAJt5Zltb9R+os+IstDvH0jOQvT+snpj3XJL14AeKYI6Z+Xk2iVZ7Gon0f5KNVVqCW8sy5E0
-	sbOoiHihWlyff2HYXshVm5ZxKhygiCJBfTAiA3hseD4CmX25u+dQYr1A050I44f+Yy4h/s5VWVkRI
-	bfB7wOuX/A2ykUcZKIavVbCKI9rysLldNZAvymQa6EvWXpNSqjm4v3zROw3zeAFnPtG8rH62OQKRp
-	EIDK4VU3LByu1Tk5drkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U1mKReu+nRC3js0EVN0FafTmFPmklo6951KuDLiVKV0=; b=kpUzvhHnb30kSu
+	4nc33w+qHiGwOcOWoeCqxymTFuTSouO/QenbQO0miOqcve+d2N+N1Qzb5+KFe3DuCF/tyjThUhit6
+	/x4U5IhUqxjLtrb2AwqcFcZtMxYK5rJwviCFPzui9Boa792WLZdmRw4uox+Zg3L1vMrS2n3dqJsWZ
+	TbL0ZOJrl5pNuSMx7hMI1FnXHvFHMKL3YQb6obhvPxxtKbUuL3caMLi+42cKTM2i4HL401BnvfykS
+	/s+qittSUgucgUo3XeMIi0Z73i/SIMYx7ocZDHqoDuiV582ES1ajvlckozWUMxEc7EYpVBSbojtp+
+	9ChddXpiiqPBZ+KqA3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0Nd4-001gy4-1B;
-	Sat, 20 May 2023 14:32:18 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q0O5F-001jl3-2B;
+	Sat, 20 May 2023 15:01:25 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0Ncz-001gxA-1I
-	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 14:32:17 +0000
-X-QQ-mid: bizesmtp66t1684593116t2c0umov
-Received: from linux-lab-host.localdomain ( [116.30.125.36])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 20 May 2023 22:31:54 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: RmDZc/K2LPEPOHsJ1JSKHHcUPDqD0No37nsGY5eqpO6LGzdOd94mh4Wd/weQ4
-	cRb1gzcYjFdZnWMwKzupL3vpcbPcf7Z4rUwiCAjk3gZTbFQpkGr+jyC6yLIc97CzZUjax6s
-	5kwcGgCFfenBkl6Oc2fxkuBxF+xxfX8QhT8l6XdccQO9wGQLPBMMmeqR1olBaqac7Jzjbhh
-	4EzJEtwIzh1blSAYvkTuR1xReUHj5yFNsvcW/KzHnONxV0HeIZkzqMQ8R0YtzANctNba4/v
-	/DEtjWi1bITZ7IfaNGFWT/mjEZMWT9oumz6JhzLTemftEGwTBbupnZWwaXdQU+L5Szq4wWn
-	Jree7y5SH5J0CUj5Jkv1izDnQnZQvaaoTyTQb744yuZD4yXzR+yUtnkqFxk8Q==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16622545413430521310
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: aou@eecs.berkeley.edu,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux@weissschuh.net,
-	palmer@rivosinc.com,
+	id 1q0O5C-001jjz-2p;
+	Sat, 20 May 2023 15:01:24 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-64d3e5e5980so1613418b3a.2;
+        Sat, 20 May 2023 08:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1684594881; x=1687186881;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JngrVDzUb7onTZW8kbY61V0gOKYCqFmRyyUS95xUVKQ=;
+        b=OFj5rEl+qVxZn2gEAREcEKPNqxdvf88EZUo7G+ne53NX+LW/JtyWB733CSy9AHNZmH
+         dhMCfpbCHjOHp6QQd5oDYFL+v+iWeY/3tMeDUjepOUz+jbpdL2Db7dKdtpWLjKVeRvG6
+         98QHLmg7w+5qSxyC6jYAUha2bVXfz0KNof4+vHpn7e3EC9IrGyPFHT1d9zEvK/FV/a0L
+         xMVyY01ospb8E4kmm1IrlJ1EU4T5zlO1TY8jDuAM0o7zW+6bMYEh8tkfo0fNOXFNvDE1
+         yefPPuperLrwpIMP5wzwtTdwzcky5e6w31/TCGRMZjN30IGjZv/JAbpP6Ub1FocTRNrL
+         KQvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684594881; x=1687186881;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JngrVDzUb7onTZW8kbY61V0gOKYCqFmRyyUS95xUVKQ=;
+        b=kwtp2LVHXlzfsw1c2RQ1OD1UtUrfU+1EbUReXKTGsgHH8RV0JPqMKiU0wg8FXnhr94
+         r/zDF8hVWg2HMcwPsMcxbGKj1omE/f6ZoiV4JkeYd5/jBpGYt5K+uxEU2Gy8+i2A4ifB
+         A73pMn4w2fiIaVUuP7PIEsZoNXClK0uLExPobIKscMkD+XDtKu+tkeaL3+nGK56i6/n8
+         e6eXpo97vmLglOU3rBnnwwqwyEMt6NI6k26+tNWogV0ap3zgvvr68LiGZKe0j7WVe2vR
+         IMK7AkiLEtT4ILEhyjJb8Pd9IPEWIjJkLI3n2mIpk2gpa4EQ77CZRkFoNdR1mmfbgdNt
+         RVhg==
+X-Gm-Message-State: AC+VfDwTxSjXOhTODEtJuuCagKnnQz5UxOORppuQYTm2XhDiIjnHXJ3M
+	KSzkL9hcLk8zGOAZi0l3Kog=
+X-Google-Smtp-Source: ACHHUZ6CCAoiklTOJARIxoSJqUydx1h76n10uIK/FXaLDlt/SmrCT0Ili+NK9Fui7i35MaBf3nuMpQ==
+X-Received: by 2002:a05:6a00:804:b0:645:b13e:e674 with SMTP id m4-20020a056a00080400b00645b13ee674mr7529666pfk.26.1684594880737;
+        Sat, 20 May 2023 08:01:20 -0700 (PDT)
+Received: from localhost.localdomain (36-230-227-109.dynamic-ip.hinet.net. [36.230.227.109])
+        by smtp.gmail.com with ESMTPSA id j17-20020a62e911000000b0064d413caea6sm1387355pfh.179.2023.05.20.08.01.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 May 2023 08:01:20 -0700 (PDT)
+From: wchen <waylingii@gmail.com>
+X-Google-Original-From: wchen <waylingII@gmail.com>
+To: anup@brainfault.org
+Cc: atishp@atishpatra.org,
 	paul.walmsley@sifive.com,
-	paulmck@kernel.org
-Subject: Re: [PATCH 0/2] tools/nolibc: riscv: Fix up compile error for rv32
-Date: Sat, 20 May 2023 22:31:54 +0800
-Message-Id: <20230520143154.68663-1-falcon@tinylab.org>
+	palmer@dabbelt.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	ajones@ventanamicro.com,
+	wchen <waylingII@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Redirect AMO load/store misaligned traps to guest
+Date: Sat, 20 May 2023 23:01:16 +0800
+Message-Id: <20230520150116.7451-1-waylingII@gmail.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230519094030.GA24947@1wt.eu>
-References: <20230519094030.GA24947@1wt.eu>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_073213_740102_8F606AF5 
-X-CRM114-Status: GOOD (  23.19  )
+X-CRM114-CacheID: sfid-20230520_080122_936190_CBB9021A 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +96,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Willy,
+The M-mode redirects an unhandled misaligned trap back
+to S-mode when not delegating it to VS-mode(hedeleg).
+However, KVM running in HS-mode terminates the VS-mode
+software when back from M-mode.
+The KVM should redirect the trap back to VS-mode, and
+let VS-mode trap handler decide the next step.
+Here is a way to handle misaligned traps in KVM,
+not only directing them to VS-mode or terminate it.
 
-> Hi Zhangjin,
-> 
-> On Fri, May 19, 2023 at 01:00:18AM +0800, Zhangjin Wu wrote:
-> ...
->
-> > * To let it compile for rv32, we still need to apply one of such actions:
-> >     * Revert the kernel commit d4c08b9776b3 ("riscv: Use latest system call ABI"),
-> >       but it is not the right direction, that commit has removed all of the time32 syscalls,
-> >       and let C lib (e.g. glibc) provide the same C APIs based on the other time64 syscalls
-> > 
-> >     * If not really use any of the time32 syscalls, defining __ARCH_WANT_TIME32_SYSCALLS
-> >       macro will let it compile, but this is buggy for the current implmentations are based
-> >       on time32 syscalls!
-> > 
-> >     * Really implement the C APIs for rv32, based on the time64 syscalls, just like glibc.
-> >       This commit c8ce48f06503 ("asm-generic: Make time32 syscall numbers optional") shows
-> >       us which functions should be re-implemented.
-> > 
-> > So, the work todo for rv32 is:
-> > 
-> > * Rebasing all of the old time32 syscalls based C APIs on the new time64 syscalls,
-> >   but they are not simply mapped one by one, glibc is a good reference.
-> > 
-> > * Add standalone rv32 test support in tools/testing/selftests/nolibc/
-> 
-> I'm not the right one to judge how to best support rv32 but at least I just
-> don't want to go backwards. I'm just having a probably stupid question, but
-> how relevant is rv32 ? I mean, all the boards I've seen to date were based
-> on rv64 even the smallest embedded ones, so I'm sincerely wondering if there
-> exists at all any rv32 devices capable of running Linux. Because if that's
-> not the case, maybe we should instead declare that we only support rv64 ?
-> If such devices exist however, I'm all for us supporting them well.
->
+Signed-off-by: wchen <waylingII@gmail.com>
+---
+ arch/riscv/include/asm/csr.h | 2 ++
+ arch/riscv/kvm/vcpu_exit.c   | 2 ++
+ 2 files changed, 4 insertions(+)
 
-Firstly, as the commit c8ce48f06503 ("asm-generic: Make time32 syscall
-numbers optional") shows:
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index b6acb7ed1..917814a0f 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -82,7 +82,9 @@
+ #define EXC_INST_ACCESS		1
+ #define EXC_INST_ILLEGAL	2
+ #define EXC_BREAKPOINT		3
++#define EXC_LOAD_MISALIGNED	4
+ #define EXC_LOAD_ACCESS		5
++#define EXC_STORE_MISALIGNED	6
+ #define EXC_STORE_ACCESS	7
+ #define EXC_SYSCALL		8
+ #define EXC_HYPERVISOR_SYSCALL	9
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 4ea101a73..2415722c0 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -183,6 +183,8 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	run->exit_reason = KVM_EXIT_UNKNOWN;
+ 	switch (trap->scause) {
+ 	case EXC_INST_ILLEGAL:
++	case EXC_LOAD_MISALIGNED:
++	case EXC_STORE_MISALIGNED:
+ 		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV) {
+ 			kvm_riscv_vcpu_trap_redirect(vcpu, trap);
+ 			ret = 1;
+-- 
+2.34.1
 
-    We don't want new architectures to even provide the old 32-bit time_t
-    based system calls any more, or define the syscall number macros.
-
-So, this is not rv32 specific, more and more architectures are trying to
-use the generic unistd.h (include/uapi/asm-generic/unistd.h), but rv32
-may be the first new architecture variant who have no time32 syscalls.
-
-Second, I did search some rv32 socs/boards from two companies, they are
-bl602/bl616/bl702, esp32-c2/c3/c6, some of them even have 532KB sRAM which is
-enough for nolibc-based app + linux kernel, I have gotten 334K rv64 vmlinuz
-(+nolibc hello.c) in the tinylinux work for riscv, the future work may be
-running linux on such a real rv32 board ;-)
-
-Best regards,
-Zhangjin Wu
-
-> Thanks,
-> Willy
 
 _______________________________________________
 linux-riscv mailing list
