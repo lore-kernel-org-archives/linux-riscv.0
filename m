@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2279C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59EEC77B7A
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sPjUu+dNZCySv0WiwfjebUjsbmPtdUr6gqLeib1TbMw=; b=u3ScTh/18LYDip
-	tHLxApvt+u2rSI23Zr51Y1P77REH+DsZYrPpplzajhdHC2VD6ovMKkKVe8Y8+/ru0hyzlMA6eWSEX
-	P8lLh/R20TOwnALv6UYbCm5tUi95Oe9B4/pRV80R7u66Kq0FzRzCPUwhtg0hjMkOap6FenX4GgRp7
-	KNeI5qjS7f5gf22isMmFzC8KjjXp/t45pLtneMYE1U00htDWe7Bi0PdMs3ymLQHPxI1K/uVqN5O87
-	DCJnaa7QxIrSmK7e/6liRhTP+3gnAR3qTtOzgdhZ4+UheCR6DdYt+13ZmpalbaaesW+l1wkCGEK9b
-	0Qc4m5s1Grs2YLh65jaA==;
+	List-Owner; bh=CdGWpcHI6AmfZzpvy3VVvopx8nImWifJ43GvJb5C/rg=; b=uBY+lqXhwKHsEv
+	/gO74naIZGc02c4P6i4ZrPz1W32WRzQmslPA4cJmRSWKl/SZCpFv1nsCxSVqW9Qvd0YWDVPGsYgsQ
+	gSrRDa1dtdZLZ1/Ts66Hgtggg+eTRCmEPXunTzMCKSpp7rzAStSsUQJoQLJ1MlbFdkP2a25o0m8Tn
+	haoN5F5v3KahoGo05q9qpPASfyeJWDTNv52azL4vTEN77UHTSzokzchMMWEQibI6QLcmsKhjmMiUb
+	k+p5XfAAIUMuZ2dUjwGmSHraAtPJWRDIZflrq8Eqd9rwA/X1lC2vuLItCfparLPafEHEMrjp6Hbv+
+	yo6GY0pNdHZohoAsKTQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0N8s-001dO3-3B;
-	Sat, 20 May 2023 14:01:06 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q0NFF-001dzG-2D;
+	Sat, 20 May 2023 14:07:41 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0N8q-001dLw-0D
+	id 1q0NFC-001dyI-2A
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 14:01:05 +0000
-Date: Sat, 20 May 2023 16:00:54 +0200
+	Sat, 20 May 2023 14:07:40 +0000
+Date: Sat, 20 May 2023 16:07:34 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1684591255; bh=bXMjVqB9nRoE86p70C9dZpjseXjyz/ZkIjJNB6mOM3E=;
+	t=1684591655; bh=ySREgzMBnxEK+0ESf3+KXe4YjYf8WKePWiFol6csxZo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cVHP5QlU260QyhP5WjPUg167LeHeLM82v7lHbbCybhve/DfIjWmq274mDzJS7U5Wd
-	 mumW1PUfTVx7Ab7Y+sC5dmpusqhKoQgDajIy/eKip6KBqcWLduQN7MvBb+9gaulNU3
-	 qy9lAKk7rx/NQAKxY8v1hjqOsOPG/F9ptBJ0DBrw=
+	b=M9NICF87zsuSxMmlrl2aWcCqjjZp/fU9cSUqETjqgM4+cH6C2+Wwuc/NA5UW4i/xa
+	 qwURD69NS6FdK7PtSo8slY/2nv/cYTQYQCIHVe4z2Xfq3py00oqtRXlnr/4oPIejux
+	 E5bJ/ykbzSIS+Z/1dkpOLNCi/p39Yb28r252B+Qs=
 From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, shuah@kernel.org, w@1wt.eu
+To: Willy Tarreau <w@1wt.eu>
+Cc: Zhangjin Wu <falcon@tinylab.org>, aou@eecs.berkeley.edu, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, shuah@kernel.org
 Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
-Message-ID: <958f09b4-8cd7-46b3-aa54-4d981fd8f1bc@t-8ch.de>
+Message-ID: <d98dfd41-8938-4388-90f0-38199d2f0574@t-8ch.de>
 References: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
  <20230520120254.66315-1-falcon@tinylab.org>
+ <20230520133237.GA27501@1wt.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230520120254.66315-1-falcon@tinylab.org>
+In-Reply-To: <20230520133237.GA27501@1wt.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_070104_282271_8D1A2FFF 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20230520_070738_869297_BC219115 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,69 +61,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgV2lsbHksIFpoYW5namluLAoKT24gMjAyMy0wNS0yMCAyMDowMjo1MyswODAwLCBaaGFuZ2pp
-biBXdSB3cm90ZToKPiBXaGVuIGNvbXBpbGUgbm9saWJjLXRlc3QuYyBmb3IgcnYzMiwgd2UgZ290
-IHN1Y2ggZXJyb3I6Cj4gCj4gICAgIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xp
-YmMtdGVzdC5jOjU5OTo1NzogZXJyb3I6IOKAmF9fTlJfZnN0YXTigJkgdW5kZWNsYXJlZCAoZmly
-c3QgdXNlIGluIHRoaXMgZnVuY3Rpb24pCj4gICAgICAgNTk5IHwgICBDQVNFX1RFU1Qoc3lzY2Fs
-bF9hcmdzKTsgICAgICBFWFBFQ1RfU1lTRVIoMSwgc3lzY2FsbChfX05SX2ZzdGF0LCAwLCBOVUxM
-KSwgLTEsIEVGQVVMVCk7IGJyZWFrOwo+IAo+IFRoZSBnZW5lcmljIGluY2x1ZGUvdWFwaS9hc20t
-Z2VuZXJpYy91bmlzdGQuaCB1c2VkIGJ5IHJ2MzIgZG9lc24ndAo+IHN1cHBvcnQgX19OUl9mc3Rh
-dCwgdXNpbmcgdGhlIGNvbW1vbiBfX05SX3JlYWQgZnVuY3Rpb25zIGFzIGV4cGVjdGVkLgo+IAo+
-ICAgICBSdW5uaW5nIHRlc3QgJ3N5c2NhbGwnCj4gICAgIDY5IHN5c2NhbGxfbm9hcmdzID0gMSAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgW09LXQo+ICAgICA3MCBz
-eXNjYWxsX2FyZ3MgPSAtMSBFQkFERiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIFtPS10KPiAKPiBCdHcsIHRoZSBsYXRlc3QgcmlzY3YgbGliYzYtZGV2IHBhY2thZ2UgaXMg
-cmVxdWlyZWQsIG90aGVyd2lzZSwgd2Ugd291bGQKPiBhbHNvIGdldCBzdWNoIGVycm9yOgo+IAo+
-ICAgICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gL3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRl
-L3N5cy9jZGVmcy5oOjQ1MiwKPiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2
-NC1saW51eC1nbnUvaW5jbHVkZS9mZWF0dXJlcy5oOjQ2MSwKPiAgICAgICAgICAgICAgICAgICAg
-ICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL2xpYmMtaGVhZGVyLXN0
-YXJ0Lmg6MzMsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNyL3Jpc2N2NjQtbGludXgt
-Z251L2luY2x1ZGUvbGltaXRzLmg6MjYsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNy
-L2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjE5NCwK
-PiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxp
-bnV4LWdudS85L2luY2x1ZGUvc3lzbGltaXRzLmg6NywKPiAgICAgICAgICAgICAgICAgICAgICBm
-cm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxpbnV4LWdudS85L2luY2x1ZGUvbGltaXRz
-Lmg6MzQsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvbGFicy9saW51eC1sYWIvc3JjL2xp
-bnV4LXN0YWJsZS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYzo2
-Ogo+ICAgICAvdXNyL3Jpc2N2NjQtbGludXgtZ251L2luY2x1ZGUvYml0cy93b3Jkc2l6ZS5oOjI4
-OjM6IGVycm9yOiAjZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQi
-Cj4gICAgICAgIDI4IHwgIyBlcnJvciAicnYzMmktYmFzZWQgdGFyZ2V0cyBhcmUgbm90IHN1cHBv
-cnRlZCIKPiAKPiBUaGUgZ2xpYmMgY29tbWl0IDViNjExM2Q2MmVmYSAoIlJJU0MtVjogU3VwcG9y
-dCB0aGUgMzItYml0IEFCSQo+IGltcGxlbWVudGF0aW9uIikgZml4ZWQgdXAgYWJvdmUgZXJyb3Is
-IHNvLCBnbGliYyA+PSAyLjMzICh3aG8gaW5jbHVkZXMKPiB0aGlzIGNvbW1pdCkgaXMgcmVxdWly
-ZWQuCj4gCj4gU2lnbmVkLW9mZi1ieTogWmhhbmdqaW4gV3UgPGZhbGNvbkB0aW55bGFiLm9yZz4K
-PiAtLS0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMgfCAy
-ICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+IAo+
-IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3Qu
-YyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jCj4gaW5kZXgg
-MDYzZjk5NTlhYzQ0Li5kOGI1OWM4ZjZjMDMgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvdGVzdGluZy9z
-ZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0
-ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYwo+IEBAIC01OTYsNyArNTk2LDcgQEAgaW50IHJ1bl9z
-eXNjYWxsKGludCBtaW4sIGludCBtYXgpCj4gIAkJQ0FTRV9URVNUKHdyaXRlX2JhZGYpOyAgICAg
-ICAgRVhQRUNUX1NZU0VSKDEsIHdyaXRlKC0xLCAmdG1wLCAxKSwgLTEsIEVCQURGKTsgYnJlYWs7
-Cj4gIAkJQ0FTRV9URVNUKHdyaXRlX3plcm8pOyAgICAgICAgRVhQRUNUX1NZU1pSKDEsIHdyaXRl
-KDEsICZ0bXAsIDApKTsgYnJlYWs7Cj4gIAkJQ0FTRV9URVNUKHN5c2NhbGxfbm9hcmdzKTsgICAg
-RVhQRUNUX1NZU0VRKDEsIHN5c2NhbGwoX19OUl9nZXRwaWQpLCBnZXRwaWQoKSk7IGJyZWFrOwo+
-IC0JCUNBU0VfVEVTVChzeXNjYWxsX2FyZ3MpOyAgICAgIEVYUEVDVF9TWVNFUigxLCBzeXNjYWxs
-KF9fTlJfZnN0YXQsIDAsIE5VTEwpLCAtMSwgRUZBVUxUKTsgYnJlYWs7Cj4gKwkJQ0FTRV9URVNU
-KHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9yZWFkLCAt
-MSwgJnRtcCwgMSksIC0xLCBFQkFERik7IGJyZWFrOwoKVGhlIGdvYWwgb2YgdGhpcyBzZWNvbmQg
-dGVzdCB3YXMgdG8gbWFrZSBzdXJlIHRoYXQgYXJndW1lbnRzIGFyZSBwYXNzZWQKaW4gdGhlIGNv
-cnJlY3Qgb3JkZXIuIEZvciB0aGlzIEkgdHJpZWQgdG8gaGF2ZSBhIHN5c2NhbGwgd2VyZSB0aGUK
-Y2hlY2tlZCBlcnJvciBpcyBnZW5lcmF0ZWQgZnJvbSBhIG5vbi1maXJzdCBhcmd1bWVudC4KKFRo
-ZSBOVUxMIGdlbmVyYXRpbmcgdGhlIEVGQVVMVCkuCgpTbyB0aGUgbmV3IGNoZWNrIGRvZXMgbm90
-IGZ1bGxmaWwgdGhpcyBnb2FsIGFueW1vcmUuCgpNYXliZSB3ZSBjYW4gZmluZCBhIG5ldyBzeXNj
-YWxsIHRvIHRlc3Qgd2l0aD8KClRoZSBjb2RlIHNob3VsZCBoYXZlIGhhZCBhIGNvbW1lbnQgSSBn
-dWVzcy4KCj4gIAkJY2FzZSBfX0xJTkVfXzoKPiAgCQkJcmV0dXJuIHJldDsgLyogbXVzdCBiZSBs
-YXN0ICovCj4gIAkJLyogbm90ZTogZG8gbm90IHNldCBhbnkgZGVmYXVsdHMgc28gYXMgdG8gcGVy
-bWl0IGhvbGVzIGFib3ZlICovCj4gLS0gCj4gMi4yNS4xCj4gCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Willy!
+
+On 2023-05-20 15:32:37+0200, Willy Tarreau wrote:
+> Thomas, Zhangjin,
+> 
+> I've merged your latest patches in my branch 20230520-nolibc-rv32+stkp2,
+> which was rebased to integrate the updated commit messages and a few
+> missing s-o-b from mine. Please have a look:
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+> 
+> However, Thomas, I noticed something puzzling me. While I tested with
+> gcc-9.5 (that I have here along my toolchains) I found that it would
+> systematically fail:
+> 
+>   sysroot/x86/include/stackprotector.h:46:1: warning: 'no_stack_protector' attribute directive ignored [-Wattributes]
+>      46 | {
+>         | ^
+>   !!Stack smashing detected!!
+>   qemu: uncaught target signal 6 (Aborted) - core dumped
+>   0 test(s) passed.
+> 
+> The reason is that it doesn't support the attribute "no_stack_protector".
+> Upon closer investigation, I noticed that _start() on x86_64 doens't have
+> it, yet it works on more recent compilers! So I don't understand why it
+> works with more recent compilers.
+
+_start() not having the attribute is indeed an oversight.
+No idea how it worked before.
+
+> I managed to avoid the crash by enclosing the __stack_chk_init() function
+> in a #pragma GCC optimize("-fno-stack-protector") while removing the
+> attribute (though Clang and more recent gcc use this attribute so we
+> shouldn't completely drop it either).
+
+I would like to first align x86 to __attribute__((no_stack_protector))
+for uniformity and then figure out on how to make it nicer.
+
+> I consider this non-critical as we can expect that regtests are run with
+> a reasonably recent compiler version, but if in the long term we can find
+> a more reliable detection for this, it would be nice.
+> 
+> For example I found that gcc defines __SSP_ALL__ to 1 when
+> -fstack-protector is used, and 2 when -fstack-protector-all is used.
+> With clang, it's 1 and 3 respectively. Maybe we should use that and
+> drop NOLIBC_STACKPROTECTOR, that would be one less variable to deal
+> with: the code would automatically adapt to whatever cflags the user
+> sets on the compiler, which is generally better.
+
+That sounds great!
+
+I explicitly looked for something like this before, dumping preprocessor
+directives and comparing.
+It seems the fact that my compilers enable this feature by default made
+me miss it.
+
+I'll send patches.
+
+Thomas
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
