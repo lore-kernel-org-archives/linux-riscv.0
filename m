@@ -4,65 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1465C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 13:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2279C77B7A
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yqvUool+xN8UDLJNRIgSgcAMBzx4N/LA5eo2yR0re5w=; b=dXaqX0qr6oz9pF
-	jEeSYVe6QY4UrBxRfhoacafcosIhEAwL/+HPRVgUFIkaCljm5FtA7ORrycpT5QLasSMckUbrfF32f
-	cBYGx4I8QTZz2v/Iye8HFRVqbMWslXQUtmBiiI/QQLPoVHWcodgiv/q8P7HlY5ZXRCHWIOFppj/YF
-	dKeDY/0vipZBGqmMTsHGfaHx1IZp5EhmCmBJ3fYQV8pusc8BIJuk1inYwTrvgm8Wz0LVy9qYrqkmg
-	fsa9qeeqT+ZSUqAn0V4/shfhyCDzqsCnJk74AFEzkwAPkcElezJHjfIDTMKpRWIMU3p/F40rZxBrH
-	8GzlMW0pZjAYFg8PTSdw==;
+	List-Owner; bh=sPjUu+dNZCySv0WiwfjebUjsbmPtdUr6gqLeib1TbMw=; b=u3ScTh/18LYDip
+	tHLxApvt+u2rSI23Zr51Y1P77REH+DsZYrPpplzajhdHC2VD6ovMKkKVe8Y8+/ru0hyzlMA6eWSEX
+	P8lLh/R20TOwnALv6UYbCm5tUi95Oe9B4/pRV80R7u66Kq0FzRzCPUwhtg0hjMkOap6FenX4GgRp7
+	KNeI5qjS7f5gf22isMmFzC8KjjXp/t45pLtneMYE1U00htDWe7Bi0PdMs3ymLQHPxI1K/uVqN5O87
+	DCJnaa7QxIrSmK7e/6liRhTP+3gnAR3qTtOzgdhZ4+UheCR6DdYt+13ZmpalbaaesW+l1wkCGEK9b
+	0Qc4m5s1Grs2YLh65jaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0N11-001cU7-2a;
-	Sat, 20 May 2023 13:52:59 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q0N8s-001dO3-3B;
+	Sat, 20 May 2023 14:01:06 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0N0x-001cSa-15
+	id 1q0N8q-001dLw-0D
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 13:52:58 +0000
-X-QQ-mid: bizesmtp71t1684590757tcu24nop
-Received: from linux-lab-host.localdomain ( [116.30.125.36])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 20 May 2023 21:52:35 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: QityeSR92A2S4S0toYHNZ9kxF6KhrODuWRDpcYlZsLA6FTiLIzTqeNbNYwqBi
-	4LgpDjJ/BkUadz2VbzLCSAxLIKD10ZsJjTSEkFZsPAhV0QOX6gsKA1+R7yAK78cjXp8JvEp
-	eX7tK6VB3fPugsNHx3Qa6Nu2DknKxhn6oS1wT1gM/2TYY8OlK37/nm66Wd+c7JOSkelfaaI
-	Ouk4YdlUKOD6TiKiuibBc39dTYHytZ3A05GoQ/rJlBY9r6+5xAozlVW1UJS2tEozzuBG1Dw
-	PvavOPVwubgBFKRx/PZ21md/0jDNi12yozVNFT5RL5ErLaVrFvx5UVhlPaW81BEfPIvbfeK
-	DEaJ5JyHH9JY+evvbbVcRJgkPQxFAN0uETBdwlL+xU5F3TRKxO/X25hkL5yvj0CeT+1rA0H
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 18117569003285790249
-From: Zhangjin Wu <falcon@tinylab.org>
-To: linux@weissschuh.net,
-	w@1wt.eu
-Cc: aou@eecs.berkeley.edu,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	shuah@kernel.org
+	Sat, 20 May 2023 14:01:05 +0000
+Date: Sat, 20 May 2023 16:00:54 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1684591255; bh=bXMjVqB9nRoE86p70C9dZpjseXjyz/ZkIjJNB6mOM3E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cVHP5QlU260QyhP5WjPUg167LeHeLM82v7lHbbCybhve/DfIjWmq274mDzJS7U5Wd
+	 mumW1PUfTVx7Ab7Y+sC5dmpusqhKoQgDajIy/eKip6KBqcWLduQN7MvBb+9gaulNU3
+	 qy9lAKk7rx/NQAKxY8v1hjqOsOPG/F9ptBJ0DBrw=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, shuah@kernel.org, w@1wt.eu
 Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
-Date: Sat, 20 May 2023 21:52:35 +0800
-Message-Id: <20230520135235.68155-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
+Message-ID: <958f09b4-8cd7-46b3-aa54-4d981fd8f1bc@t-8ch.de>
 References: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
+ <20230520120254.66315-1-falcon@tinylab.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <20230520120254.66315-1-falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_065255_697691_8AC023AA 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20230520_070104_282271_8D1A2FFF 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +60,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Willy, Thomas,
-
-Resend more info about this patch (added but lost after a new format-patch):
-
-This patch is based on the nolibc/20230520-nolibc-rv32+stkp branch of
-[1] + the STKP patch for riscv [2], it is a testing 'side-effect' of the
-STKP on rv32.
-
-The nolibc rv32 port is not yet functional, we did this compile test by
-adding -D__ARCH_WANT_TIME32_SYSCALLS to gcc (only for compile, see [3]).
-
-We did get this info for rv32:
-
-    !!Stack smashing detected!!
-
-Just to mention, -DNOLIBC_STACKPROTECTOR -fstack-protector-all is used to
-enable STKP, for -mstack-protector-guard=global is not available for riscv64
-gcc 9.3:
-
-    riscv64-linux-gnu-gcc: error: unrecognized command line option '-mstack-protector-guard=global'; did you mean '-fstack-protector-all'
-
-[1]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
-[2]: https://lore.kernel.org/linux-riscv/20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net/T/#
-[3]: https://lore.kernel.org/linux-riscv/20230520084610.GA27206@1wt.eu/T/#mf0e54ee19bd3f94dadbb4420ed9dffa316d1719d
-
-Best regards,
-Zhangjin Wu
-
-> When compile nolibc-test.c for rv32, we got such error:
->
->     tools/testing/selftests/nolibc/nolibc-test.c:599:57: error: '__NR_fstat' undeclared (first use in this function)
->       599 |   CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
->
-> The generic include/uapi/asm-generic/unistd.h used by rv32 doesn't
-> support __NR_fstat, using the common __NR_read functions as expected.
->
->     Running test 'syscall'
->     69 syscall_noargs = 1                                            [OK]
->     70 syscall_args = -1 EBADF                                       [OK]
->
-> Btw, the latest riscv libc6-dev package is required, otherwise, we would
-> also get such error:
->
->     In file included from /usr/riscv64-linux-gnu/include/sys/cdefs.h:452,
->                      from /usr/riscv64-linux-gnu/include/features.h:461,
->                      from /usr/riscv64-linux-gnu/include/bits/libc-header-start.h:33,
->                      from /usr/riscv64-linux-gnu/include/limits.h:26,
->                      from /usr/lib/gcc-cross/riscv64-linux-gnu/9/include/limits.h:194,
->                      from /usr/lib/gcc-cross/riscv64-linux-gnu/9/include/syslimits.h:7,
->                      from /usr/lib/gcc-cross/riscv64-linux-gnu/9/include/limits.h:34,
->                      from /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/nolibc-test.c:6:
->     /usr/riscv64-linux-gnu/include/bits/wordsize.h:28:3: error: #error "rv32i-based targets are not supported"
->        28 | # error "rv32i-based targets are not supported"
->
-> The glibc commit 5b6113d62efa ("RISC-V: Support the 32-bit ABI
-> implementation") fixed up above error, so, glibc >= 2.33 (who includes
-> this commit) is required.
->
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/testing/selftests/nolibc/nolibc-test.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-> index 063f9959ac44..d8b59c8f6c03 100644
-> --- a/tools/testing/selftests/nolibc/nolibc-test.c
-> +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-> @@ -596,7 +596,7 @@ int run_syscall(int min, int max)
->  		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
->  		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
->  		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), getpid()); break;
-> -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
-> +		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_read, -1, &tmp, 1), -1, EBADF); break;
->  		case __LINE__:
->  			return ret; /* must be last */
->  		/* note: do not set any defaults so as to permit holes above */
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgV2lsbHksIFpoYW5namluLAoKT24gMjAyMy0wNS0yMCAyMDowMjo1MyswODAwLCBaaGFuZ2pp
+biBXdSB3cm90ZToKPiBXaGVuIGNvbXBpbGUgbm9saWJjLXRlc3QuYyBmb3IgcnYzMiwgd2UgZ290
+IHN1Y2ggZXJyb3I6Cj4gCj4gICAgIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xp
+YmMtdGVzdC5jOjU5OTo1NzogZXJyb3I6IOKAmF9fTlJfZnN0YXTigJkgdW5kZWNsYXJlZCAoZmly
+c3QgdXNlIGluIHRoaXMgZnVuY3Rpb24pCj4gICAgICAgNTk5IHwgICBDQVNFX1RFU1Qoc3lzY2Fs
+bF9hcmdzKTsgICAgICBFWFBFQ1RfU1lTRVIoMSwgc3lzY2FsbChfX05SX2ZzdGF0LCAwLCBOVUxM
+KSwgLTEsIEVGQVVMVCk7IGJyZWFrOwo+IAo+IFRoZSBnZW5lcmljIGluY2x1ZGUvdWFwaS9hc20t
+Z2VuZXJpYy91bmlzdGQuaCB1c2VkIGJ5IHJ2MzIgZG9lc24ndAo+IHN1cHBvcnQgX19OUl9mc3Rh
+dCwgdXNpbmcgdGhlIGNvbW1vbiBfX05SX3JlYWQgZnVuY3Rpb25zIGFzIGV4cGVjdGVkLgo+IAo+
+ICAgICBSdW5uaW5nIHRlc3QgJ3N5c2NhbGwnCj4gICAgIDY5IHN5c2NhbGxfbm9hcmdzID0gMSAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgW09LXQo+ICAgICA3MCBz
+eXNjYWxsX2FyZ3MgPSAtMSBFQkFERiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFtPS10KPiAKPiBCdHcsIHRoZSBsYXRlc3QgcmlzY3YgbGliYzYtZGV2IHBhY2thZ2UgaXMg
+cmVxdWlyZWQsIG90aGVyd2lzZSwgd2Ugd291bGQKPiBhbHNvIGdldCBzdWNoIGVycm9yOgo+IAo+
+ICAgICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gL3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRl
+L3N5cy9jZGVmcy5oOjQ1MiwKPiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2
+NC1saW51eC1nbnUvaW5jbHVkZS9mZWF0dXJlcy5oOjQ2MSwKPiAgICAgICAgICAgICAgICAgICAg
+ICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL2xpYmMtaGVhZGVyLXN0
+YXJ0Lmg6MzMsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNyL3Jpc2N2NjQtbGludXgt
+Z251L2luY2x1ZGUvbGltaXRzLmg6MjYsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNy
+L2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjE5NCwK
+PiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxp
+bnV4LWdudS85L2luY2x1ZGUvc3lzbGltaXRzLmg6NywKPiAgICAgICAgICAgICAgICAgICAgICBm
+cm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxpbnV4LWdudS85L2luY2x1ZGUvbGltaXRz
+Lmg6MzQsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvbGFicy9saW51eC1sYWIvc3JjL2xp
+bnV4LXN0YWJsZS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYzo2
+Ogo+ICAgICAvdXNyL3Jpc2N2NjQtbGludXgtZ251L2luY2x1ZGUvYml0cy93b3Jkc2l6ZS5oOjI4
+OjM6IGVycm9yOiAjZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQi
+Cj4gICAgICAgIDI4IHwgIyBlcnJvciAicnYzMmktYmFzZWQgdGFyZ2V0cyBhcmUgbm90IHN1cHBv
+cnRlZCIKPiAKPiBUaGUgZ2xpYmMgY29tbWl0IDViNjExM2Q2MmVmYSAoIlJJU0MtVjogU3VwcG9y
+dCB0aGUgMzItYml0IEFCSQo+IGltcGxlbWVudGF0aW9uIikgZml4ZWQgdXAgYWJvdmUgZXJyb3Is
+IHNvLCBnbGliYyA+PSAyLjMzICh3aG8gaW5jbHVkZXMKPiB0aGlzIGNvbW1pdCkgaXMgcmVxdWly
+ZWQuCj4gCj4gU2lnbmVkLW9mZi1ieTogWmhhbmdqaW4gV3UgPGZhbGNvbkB0aW55bGFiLm9yZz4K
+PiAtLS0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMgfCAy
+ICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+IAo+
+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3Qu
+YyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jCj4gaW5kZXgg
+MDYzZjk5NTlhYzQ0Li5kOGI1OWM4ZjZjMDMgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvdGVzdGluZy9z
+ZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0
+ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYwo+IEBAIC01OTYsNyArNTk2LDcgQEAgaW50IHJ1bl9z
+eXNjYWxsKGludCBtaW4sIGludCBtYXgpCj4gIAkJQ0FTRV9URVNUKHdyaXRlX2JhZGYpOyAgICAg
+ICAgRVhQRUNUX1NZU0VSKDEsIHdyaXRlKC0xLCAmdG1wLCAxKSwgLTEsIEVCQURGKTsgYnJlYWs7
+Cj4gIAkJQ0FTRV9URVNUKHdyaXRlX3plcm8pOyAgICAgICAgRVhQRUNUX1NZU1pSKDEsIHdyaXRl
+KDEsICZ0bXAsIDApKTsgYnJlYWs7Cj4gIAkJQ0FTRV9URVNUKHN5c2NhbGxfbm9hcmdzKTsgICAg
+RVhQRUNUX1NZU0VRKDEsIHN5c2NhbGwoX19OUl9nZXRwaWQpLCBnZXRwaWQoKSk7IGJyZWFrOwo+
+IC0JCUNBU0VfVEVTVChzeXNjYWxsX2FyZ3MpOyAgICAgIEVYUEVDVF9TWVNFUigxLCBzeXNjYWxs
+KF9fTlJfZnN0YXQsIDAsIE5VTEwpLCAtMSwgRUZBVUxUKTsgYnJlYWs7Cj4gKwkJQ0FTRV9URVNU
+KHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9yZWFkLCAt
+MSwgJnRtcCwgMSksIC0xLCBFQkFERik7IGJyZWFrOwoKVGhlIGdvYWwgb2YgdGhpcyBzZWNvbmQg
+dGVzdCB3YXMgdG8gbWFrZSBzdXJlIHRoYXQgYXJndW1lbnRzIGFyZSBwYXNzZWQKaW4gdGhlIGNv
+cnJlY3Qgb3JkZXIuIEZvciB0aGlzIEkgdHJpZWQgdG8gaGF2ZSBhIHN5c2NhbGwgd2VyZSB0aGUK
+Y2hlY2tlZCBlcnJvciBpcyBnZW5lcmF0ZWQgZnJvbSBhIG5vbi1maXJzdCBhcmd1bWVudC4KKFRo
+ZSBOVUxMIGdlbmVyYXRpbmcgdGhlIEVGQVVMVCkuCgpTbyB0aGUgbmV3IGNoZWNrIGRvZXMgbm90
+IGZ1bGxmaWwgdGhpcyBnb2FsIGFueW1vcmUuCgpNYXliZSB3ZSBjYW4gZmluZCBhIG5ldyBzeXNj
+YWxsIHRvIHRlc3Qgd2l0aD8KClRoZSBjb2RlIHNob3VsZCBoYXZlIGhhZCBhIGNvbW1lbnQgSSBn
+dWVzcy4KCj4gIAkJY2FzZSBfX0xJTkVfXzoKPiAgCQkJcmV0dXJuIHJldDsgLyogbXVzdCBiZSBs
+YXN0ICovCj4gIAkJLyogbm90ZTogZG8gbm90IHNldCBhbnkgZGVmYXVsdHMgc28gYXMgdG8gcGVy
+bWl0IGhvbGVzIGFib3ZlICovCj4gLS0gCj4gMi4yNS4xCj4gCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
