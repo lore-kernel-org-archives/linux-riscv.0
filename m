@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5E0C77B7D
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF37C77B7D
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 14:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IMcLWYA+3mt4mr+z8Gjt+muRPC8oqReBZS9QrkTc5HE=; b=toN7d08ywIIdGJ
-	rtnogmBdUtgkltfQCXvNHBZFLlF7xe5+eU2uEUvCEgH6lNqwJ/ZjKOME6sSuko/eASXEwwuvqOZro
-	U7fHk9QwPhp3Qv8JupiS3WG4jjqY1mr2pS2l1lR/dqnRM6iXECA/FYOqdZB4atW19oMtIpTijan2N
-	yv2/vTQIUyhRxJlsZeCciSGhEP0tjdY7fPeYtZ1zz+BkBGhhTAgNj7css7Jk0uUgaO2oIuiZzfMax
-	6/R9+uBcKhDxGzUWik9mOWCyVgh5Xm34/kCK65lUmJfBJCbRVs+7CL54DJ6XVYiQ7HBIQMBC+uu3V
-	BT2EQBESHajjs2ENxOFA==;
+	List-Owner; bh=KlD18MCAVWV7NHPKFCvVWl0/x7UlZ//etVHKvUziiGY=; b=dM8a+jciASrc4k
+	n/KFGta0EcjYqDHkI8DdOW5NHwxY2hHsthUSUX/hh+7340SxCrdvozIctXXUYT4nEEuc0jk+aLIK/
+	Khow61FF6OVWPJ3DVZJnbD36vQslP/dlG0u6BtU9own/HNGuYe5pxGbU+D1ODX5LqJjdyUsqXdsoe
+	tQb9YX+gjqf/w+z4ZLwH56KcyHtZ4vU6kOvw/cfRwjcRnHKxVx7VHzQzZdT4FBv8nA20uGd2JhxUo
+	n/NKWa3pR8pHLZSvhFZLEJVi+8oaiXFnZH28G1l10NDyokDBpbAvtfg95zzxSKCRJQj2yRFEeFpMA
+	fMOIhydnB6nfGgaM+qOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0NHU-001eFn-2G;
-	Sat, 20 May 2023 14:10:00 +0000
+	id 1q0NL3-001em7-0Q;
+	Sat, 20 May 2023 14:13:41 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0NHR-001eF1-1O
+	id 1q0NL0-001elG-27
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 14:09:59 +0000
+	Sat, 20 May 2023 14:13:40 +0000
 Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 34KE9n6D027634;
-	Sat, 20 May 2023 16:09:49 +0200
-Date: Sat, 20 May 2023 16:09:49 +0200
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 34KEDW6v027662;
+	Sat, 20 May 2023 16:13:32 +0200
+Date: Sat, 20 May 2023 16:13:32 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
 Cc: Zhangjin Wu <falcon@tinylab.org>, aou@eecs.berkeley.edu,
@@ -38,17 +38,18 @@ Cc: Zhangjin Wu <falcon@tinylab.org>, aou@eecs.berkeley.edu,
         linux-riscv@lists.infradead.org, palmer@dabbelt.com,
         paul.walmsley@sifive.com, shuah@kernel.org
 Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
-Message-ID: <20230520140949.GA27611@1wt.eu>
+Message-ID: <20230520141332.GB27611@1wt.eu>
 References: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
  <20230520120254.66315-1-falcon@tinylab.org>
- <958f09b4-8cd7-46b3-aa54-4d981fd8f1bc@t-8ch.de>
+ <20230520133237.GA27501@1wt.eu>
+ <d98dfd41-8938-4388-90f0-38199d2f0574@t-8ch.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <958f09b4-8cd7-46b3-aa54-4d981fd8f1bc@t-8ch.de>
+In-Reply-To: <d98dfd41-8938-4388-90f0-38199d2f0574@t-8ch.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_070958_338921_3764CA43 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20230520_071338_999376_000D0FBC 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,45 +66,97 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 20, 2023 at 04:00:54PM +0200, Thomas Wei=DFschuh wrote:
-> > diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testi=
-ng/selftests/nolibc/nolibc-test.c
-> > index 063f9959ac44..d8b59c8f6c03 100644
-> > --- a/tools/testing/selftests/nolibc/nolibc-test.c
-> > +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-> > @@ -596,7 +596,7 @@ int run_syscall(int min, int max)
-> >  		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1=
-, EBADF); break;
-> >  		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); br=
-eak;
-> >  		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), =
-getpid()); break;
-> > -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0,=
- NULL), -1, EFAULT); break;
-> > +		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_read, -1,=
- &tmp, 1), -1, EBADF); break;
+On Sat, May 20, 2023 at 04:07:34PM +0200, Thomas Wei=DFschuh wrote:
+> Hi Willy!
 > =
 
-> The goal of this second test was to make sure that arguments are passed
-> in the correct order. For this I tried to have a syscall were the
-> checked error is generated from a non-first argument.
-> (The NULL generating the EFAULT).
-> So the new check does not fullfil this goal anymore.
+> On 2023-05-20 15:32:37+0200, Willy Tarreau wrote:
+> > Thomas, Zhangjin,
+> > =
 
-Ah OK good to know.
+> > I've merged your latest patches in my branch 20230520-nolibc-rv32+stkp2,
+> > which was rebased to integrate the updated commit messages and a few
+> > missing s-o-b from mine. Please have a look:
+> > =
 
-> Maybe we can find a new syscall to test with?
+> >    https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+> > =
 
-Maybe it would be worth considering pselect() or equivalent which
-involve many arguments. I don't know if rv32 has fstatat() or
-lstat() for example, that could be used as alternatives ?
+> > However, Thomas, I noticed something puzzling me. While I tested with
+> > gcc-9.5 (that I have here along my toolchains) I found that it would
+> > systematically fail:
+> > =
 
-> The code should have had a comment I guess.
+> >   sysroot/x86/include/stackprotector.h:46:1: warning: 'no_stack_protect=
+or' attribute directive ignored [-Wattributes]
+> >      46 | {
+> >         | ^
+> >   !!Stack smashing detected!!
+> >   qemu: uncaught target signal 6 (Aborted) - core dumped
+> >   0 test(s) passed.
+> > =
 
-Indeed ;-)
+> > The reason is that it doesn't support the attribute "no_stack_protector=
+".
+> > Upon closer investigation, I noticed that _start() on x86_64 doens't ha=
+ve
+> > it, yet it works on more recent compilers! So I don't understand why it
+> > works with more recent compilers.
+> =
 
-With that said, if rv32 is missing some essential syscalls, my question
-regarding its relevance here still holds!
+> _start() not having the attribute is indeed an oversight.
+> No idea how it worked before.
+
+No problem, I preferred to mention it anyway.
+
+> > I managed to avoid the crash by enclosing the __stack_chk_init() functi=
+on
+> > in a #pragma GCC optimize("-fno-stack-protector") while removing the
+> > attribute (though Clang and more recent gcc use this attribute so we
+> > shouldn't completely drop it either).
+> =
+
+> I would like to first align x86 to __attribute__((no_stack_protector))
+> for uniformity and then figure out on how to make it nicer.
+
+I agree.
+
+> > I consider this non-critical as we can expect that regtests are run with
+> > a reasonably recent compiler version, but if in the long term we can fi=
+nd
+> > a more reliable detection for this, it would be nice.
+> > =
+
+> > For example I found that gcc defines __SSP_ALL__ to 1 when
+> > -fstack-protector is used, and 2 when -fstack-protector-all is used.
+> > With clang, it's 1 and 3 respectively. Maybe we should use that and
+> > drop NOLIBC_STACKPROTECTOR, that would be one less variable to deal
+> > with: the code would automatically adapt to whatever cflags the user
+> > sets on the compiler, which is generally better.
+> =
+
+> That sounds great!
+> =
+
+> I explicitly looked for something like this before, dumping preprocessor
+> directives and comparing.
+> It seems the fact that my compilers enable this feature by default made
+> me miss it.
+
+Hmmm that's indeed possible. With -fno-stack-protector it should disappear:
+
+  $ gcc -fno-stack-protector -dM -E -xc - < /dev/null |grep SSP
+  $ gcc -fstack-protector -dM -E -xc - < /dev/null |grep SSP
+  #define __SSP__ 1
+  $ gcc -fstack-protector-all -dM -E -xc - < /dev/null |grep SSP
+  #define __SSP_ALL__ 2
+  $ clang -fstack-protector-all -dM -E -xc - < /dev/null |grep SSP
+  #define __SSP_ALL__ 3
+
+> I'll send patches.
+
+OK thanks. Just be aware that I'll be less responsive this week-end from
+now on.
 
 Willy
 
