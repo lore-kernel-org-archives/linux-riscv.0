@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EADC7EE23
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 02:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78622C77B75
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 02:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ls+jd6RSQGkvcTDQ81Qx1Rjg2x0gvw8HDxtdwTIRU/o=; b=fZk36H0CunFwVt
-	1zYevqLV0z4Bz8Tot8variI7rz6KQ+A7mWQowqKCFWTpDfb+nytp0lszPDWnxl9kz7icaUAomqN8s
-	8IFFyQAR5Wprvjz+kYOhFoUJcKPnME0PivfY22qsX5faoP/Tajkq+XVEuKkaGw0mh3TrR1vT9tVGC
-	+GqA3zUd31KEMGMIN6TpZC/7XTkPvd3F1KZYwb31O7UvWjSzEtM24Pzw+SJ/ot+XWqbjZlMjeEpcK
-	/IeEqt2YzLuQaNot2UcUGWLLpzT6q3ZrPrWLS2t+7uu17R4GEIer+aUWS+lU0oSv+ElfzhB8eACps
-	1VW3PQ5p50zsrMpXTtRg==;
+	List-Owner; bh=H9qe6Mo5rS87tO1VwxCxJvT/oL0wuh71XxSKf9ZrJyU=; b=faJRqMdbYVNFTV
+	TT/Uy19gyx7ubdG/Zetdsq4qkSsIyQyW50Bm+Bm51T1vEu3ZdEZ7ANQd6QyMBWvSGHwA4/xjKlw3E
+	Ip31uZkNq6t5Jp4D1Uj/wzGV0g8HcDdgJyx8axmaAHe07QAf/xCYwUUrr7Bl4FBdXA85IYeCptO8K
+	RKdHMb3LzGrNJy3xbl9Oa9m/+nS3ZUec0mVTgB2AOh4qwmFl9aC9dbpCBqs78lXvXYu/wl2MnCiv1
+	xCeXZI0DqyKFDlR3RiR7mzLXDGD9iCl790dfo5aDr75zrBbR96KBD4XU5Kg3nOoQuBNURUe3lXtli
+	f6foZRCBdhYV8O/gS3qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0ClU-000VIN-21;
-	Sat, 20 May 2023 02:56:16 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1q0ClV-000VJ4-1N;
+	Sat, 20 May 2023 02:56:17 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0ClK-000VCn-1v
+	id 1q0ClR-000VG0-12
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 02:56:08 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1ae3fe67980so39576105ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 19:56:05 -0700 (PDT)
+	Sat, 20 May 2023 02:56:14 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1ae54b623c2so36239985ad.3
+        for <linux-riscv@lists.infradead.org>; Fri, 19 May 2023 19:56:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1684551365; x=1687143365;
+        d=linaro.org; s=google; t=1684551371; x=1687143371;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NdjFM4dLH/3Dvg/h6tIt5S0f0cR4Hqz/fqP9xWQOSCY=;
-        b=LLoQFboo3HEEqlewtWhwNdaOnxlOcR1QNDw1LOON+5GMzJyWQnzZ5U5PGo0x1NqCZZ
-         dcdeYmnvswHKHtZTg6gfDYvsqHsXjpdmsduh9uvhdqWSnYn79hyPxcJO0RfJzPTJKWfb
-         rU/QCzBtesM91Iq3xlIvYXmecjT41jCXqVqSAypQTNxheaBvwdI7lPv7XPZ7d+r6yfee
-         uoSUCKH7ZF1gWhwKw04zLbd9M9VTiCOAOrvDQ4Txu3OOYomnY6uYaUc9WH7hz5fLTZhx
-         ppBKxxv7H1YL/MrBAjT2sbYzgN3EkUe86IAmr5JAb8m/Ibu0yKdei3Xftn4kMgLAyLMZ
-         n8RA==
+        bh=recTry7bFKm4wzLhlG9hQCZazqye+5oXd/1+UMeTYjY=;
+        b=sD8iZAJjSSBUahh7dJQAISY6FjE9iqiYw5EYMplq4IMpAbKP1XRpx6/GpPEwJDdLFT
+         yv9R+L4aKYuUVMYffC6/Irn+s06hfoSfxFJN6v5YRWjF+xEWGXo5Scfqdoed8jbKVcTB
+         PAK4Yoh/X1XJ1Ihsy6gYYlH+bIsDR/SCv0OEyOMr5kSsl+M7OzRhYcDy002+NUhR6y+s
+         OWQR1V1BZgOtUpK8aDycvFFJkUfU09ulKCQqZ1CnMxtG2ZJ7r2EhWXN5uiG0hDjpB/XT
+         4tmqG8MgF/kV/PZI8lEX/ds7gSzQJgovc5UH+QlPcpRS5NUR+0p7gNqwsffCNSks3CKW
+         mPtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684551365; x=1687143365;
+        d=1e100.net; s=20221208; t=1684551371; x=1687143371;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NdjFM4dLH/3Dvg/h6tIt5S0f0cR4Hqz/fqP9xWQOSCY=;
-        b=Z5Ep54UR73CZj9pB3K/Hqc0v4kv6saQVKnvXqK71+hTP9Q4FGvttOZHlekpW7+UefT
-         UWIsZbPc4MJQ0gEdq/xsBQGgmdvagOkwjyJ5WlLa8pdayGRY9Vv3LYR0qkBvhtzU8H2x
-         lVtn3sSj+IuvaXQ07yEVpH7nEKN+RqTVP0/n1pD/wCBcXe3blsXq4jyHBLjUNAhh2Z50
-         Xh1XCjDkxMtGrJ7WinILMHgB9N7I+KFNoR9O1npLiKwN3xpCLn4j5Qn5mxxeM/bLCcNL
-         qQCKi0B9GATNiZXq7batmPM53go5bOI+qPH8qYqj4pofN5fP9BLGMQL1DXBi8w+6epZ6
-         tetQ==
-X-Gm-Message-State: AC+VfDyjFZLc21D9Z6vGHe6b9QEaAzyNlqsyP3i51AtjFvJ2ZU/1+ZVv
-	BO+EWO9ZbvE9dENbWB4GUg6DEg==
-X-Google-Smtp-Source: ACHHUZ4ZcwvCIjenJ+1wG5YTMVBIlnUcq1xZpfG2+i3fFZy55N6Mb0f1cM/i626B7qLb8kKPF2UxrA==
-X-Received: by 2002:a17:902:b718:b0:1ae:4d1c:129f with SMTP id d24-20020a170902b71800b001ae4d1c129fmr3877077pls.54.1684551364848;
-        Fri, 19 May 2023 19:56:04 -0700 (PDT)
+        bh=recTry7bFKm4wzLhlG9hQCZazqye+5oXd/1+UMeTYjY=;
+        b=F3AS340YGbGiLI3CVUKCNMefadxWWKadowWwmWVPKwvy7dwZMpxjamI3iQX9omfNdZ
+         Dc+P8abSzO6GcfurgSDh5o2MxSiUsXefO9msu6bt3sgxaKdtX8jiT0GIA/SLkKHf2lSE
+         5l/noVo+XIUCvuSYKIjJcUdYbtX2WDnbSa6aMbZ8LYGqM6BHwioOSC+sKlyct1e82F37
+         rY04nD2ArTXPimG6L3YnCGfb1GeLBdyAJpooXifob1gnKyRg+6vXgrPB10ryFUw8YN6v
+         LmSNxp7kqJ/tja2VYOW1DVNorX7ZlxO03sXIcql7duCBU53UuITgUPxfh7SQ2I+CxfMA
+         EXlg==
+X-Gm-Message-State: AC+VfDw26nxpQYH2f9JkTMK0WD6ofA/nOMRZlSsnIzi5axvo4DR7JvvS
+	LJzqv334SZFbFcbgyOQz3fUEkg==
+X-Google-Smtp-Source: ACHHUZ7qxcjc3CZcoBE1hsRJjLPpLwYgASAN3M4aNC/9blApuhqFcYiFRj7ZoRAsQUe6kxz1kOZ+PA==
+X-Received: by 2002:a17:902:c412:b0:1ae:4:da97 with SMTP id k18-20020a170902c41200b001ae0004da97mr5440280plk.4.1684551371580;
+        Fri, 19 May 2023 19:56:11 -0700 (PDT)
 Received: from leoy-yangtze.lan ([156.59.236.113])
-        by smtp.gmail.com with ESMTPSA id b6-20020a170902d50600b001a95aef9728sm346100plg.19.2023.05.19.19.55.58
+        by smtp.gmail.com with ESMTPSA id b6-20020a170902d50600b001a95aef9728sm346100plg.19.2023.05.19.19.56.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 May 2023 19:56:04 -0700 (PDT)
+        Fri, 19 May 2023 19:56:11 -0700 (PDT)
 From: Leo Yan <leo.yan@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	John Garry <john.g.garry@oracle.com>,
@@ -90,16 +90,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Leo Yan <leo.yan@linaro.org>
-Subject: [PATCH v1 2/5] perf parse-regs: Introduce functions arch__reg_{ip|sp}()
-Date: Sat, 20 May 2023 10:55:34 +0800
-Message-Id: <20230520025537.1811986-3-leo.yan@linaro.org>
+Subject: [PATCH v1 3/5] perf parse-regs: Remove unused macros PERF_REG_{IP|SP}
+Date: Sat, 20 May 2023 10:55:35 +0800
+Message-Id: <20230520025537.1811986-4-leo.yan@linaro.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230520025537.1811986-1-leo.yan@linaro.org>
 References: <20230520025537.1811986-1-leo.yan@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230519_195606_649764_243CF658 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20230519_195613_389797_684D9834 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,255 +117,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ideally, we want util/perf_regs.c to be general enough and doesn't bind
-with specific architecture.
-
-But since util/perf_regs.c uses the macros PERF_REG_IP and PERF_REG_SP
-which are defined by architecture, thus util/perf_regs.c is dependent on
-architecture header (see util/perf_regs.h includes "<perf_regs.h>", here
-perf_regs.h is architecture specific header).
-
-As a step to generalize util/perf_regs.c, this commit introduces weak
-functions arch__reg_ip() and arch__reg_sp() and every architecture can
-define their own functions; thus, util/perf_regs.c doesn't need to use
-PERF_REG_IP and PERF_REG_SP anymore.
-
-This is a preparation to get rid of architecture specific header from
-util/perf_regs.h.
+The macros PERF_REG_{IP|SP} have been replaced by arch__reg_{ip|sp}()
+respectively, remove them!
 
 Signed-off-by: Leo Yan <leo.yan@linaro.org>
 ---
- tools/perf/arch/arm/util/perf_regs.c     | 10 ++++++++++
- tools/perf/arch/arm64/util/perf_regs.c   | 10 ++++++++++
- tools/perf/arch/csky/util/perf_regs.c    | 10 ++++++++++
- tools/perf/arch/mips/util/perf_regs.c    | 10 ++++++++++
- tools/perf/arch/powerpc/util/perf_regs.c | 10 ++++++++++
- tools/perf/arch/riscv/util/perf_regs.c   | 10 ++++++++++
- tools/perf/arch/s390/util/perf_regs.c    | 10 ++++++++++
- tools/perf/arch/x86/util/perf_regs.c     | 10 ++++++++++
- tools/perf/util/perf_regs.c              | 10 ++++++++++
- tools/perf/util/perf_regs.h              |  4 +++-
- tools/perf/util/unwind-libdw.c           |  2 +-
- tools/perf/util/unwind.h                 |  4 ++--
- 12 files changed, 96 insertions(+), 4 deletions(-)
+ tools/perf/arch/arm/include/perf_regs.h     | 3 ---
+ tools/perf/arch/arm64/include/perf_regs.h   | 3 ---
+ tools/perf/arch/csky/include/perf_regs.h    | 3 ---
+ tools/perf/arch/mips/include/perf_regs.h    | 2 --
+ tools/perf/arch/powerpc/include/perf_regs.h | 3 ---
+ tools/perf/arch/riscv/include/perf_regs.h   | 3 ---
+ tools/perf/arch/s390/include/perf_regs.h    | 3 ---
+ tools/perf/arch/x86/include/perf_regs.h     | 2 --
+ 8 files changed, 22 deletions(-)
 
-diff --git a/tools/perf/arch/arm/util/perf_regs.c b/tools/perf/arch/arm/util/perf_regs.c
-index 2833e101a7c6..37aa3a2091bd 100644
---- a/tools/perf/arch/arm/util/perf_regs.c
-+++ b/tools/perf/arch/arm/util/perf_regs.c
-@@ -4,3 +4,13 @@
- const struct sample_reg sample_reg_masks[] = {
- 	SMPL_REG_END
- };
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_ARM_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_ARM_SP;
-+}
-diff --git a/tools/perf/arch/arm64/util/perf_regs.c b/tools/perf/arch/arm64/util/perf_regs.c
-index 006692c9b040..dbe7f00b222b 100644
---- a/tools/perf/arch/arm64/util/perf_regs.c
-+++ b/tools/perf/arch/arm64/util/perf_regs.c
-@@ -169,3 +169,13 @@ uint64_t arch__user_reg_mask(void)
- 	}
- 	return PERF_REGS_MASK;
- }
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_ARM64_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_ARM64_SP;
-+}
-diff --git a/tools/perf/arch/csky/util/perf_regs.c b/tools/perf/arch/csky/util/perf_regs.c
-index 2864e2e3776d..d230d7e640fd 100644
---- a/tools/perf/arch/csky/util/perf_regs.c
-+++ b/tools/perf/arch/csky/util/perf_regs.c
-@@ -4,3 +4,13 @@
- const struct sample_reg sample_reg_masks[] = {
- 	SMPL_REG_END
- };
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_CSKY_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_CSKY_SP;
-+}
-diff --git a/tools/perf/arch/mips/util/perf_regs.c b/tools/perf/arch/mips/util/perf_regs.c
-index 2864e2e3776d..64882ebc9287 100644
---- a/tools/perf/arch/mips/util/perf_regs.c
-+++ b/tools/perf/arch/mips/util/perf_regs.c
-@@ -4,3 +4,13 @@
- const struct sample_reg sample_reg_masks[] = {
- 	SMPL_REG_END
- };
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_MIPS_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_MIPS_R29;
-+}
-diff --git a/tools/perf/arch/powerpc/util/perf_regs.c b/tools/perf/arch/powerpc/util/perf_regs.c
-index 8d07a78e742a..c84cd79986a8 100644
---- a/tools/perf/arch/powerpc/util/perf_regs.c
-+++ b/tools/perf/arch/powerpc/util/perf_regs.c
-@@ -226,3 +226,13 @@ uint64_t arch__intr_reg_mask(void)
- 	}
- 	return mask;
- }
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_POWERPC_NIP;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_POWERPC_R1;
-+}
-diff --git a/tools/perf/arch/riscv/util/perf_regs.c b/tools/perf/arch/riscv/util/perf_regs.c
-index 2864e2e3776d..13bbddd139d0 100644
---- a/tools/perf/arch/riscv/util/perf_regs.c
-+++ b/tools/perf/arch/riscv/util/perf_regs.c
-@@ -4,3 +4,13 @@
- const struct sample_reg sample_reg_masks[] = {
- 	SMPL_REG_END
- };
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_RISCV_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_RISCV_SP;
-+}
-diff --git a/tools/perf/arch/s390/util/perf_regs.c b/tools/perf/arch/s390/util/perf_regs.c
-index 2864e2e3776d..9b2297471090 100644
---- a/tools/perf/arch/s390/util/perf_regs.c
-+++ b/tools/perf/arch/s390/util/perf_regs.c
-@@ -4,3 +4,13 @@
- const struct sample_reg sample_reg_masks[] = {
- 	SMPL_REG_END
- };
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_S390_PC;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_S390_R15;
-+}
-diff --git a/tools/perf/arch/x86/util/perf_regs.c b/tools/perf/arch/x86/util/perf_regs.c
-index 0ed177991ad0..c752a6e9cba6 100644
---- a/tools/perf/arch/x86/util/perf_regs.c
-+++ b/tools/perf/arch/x86/util/perf_regs.c
-@@ -312,3 +312,13 @@ uint64_t arch__intr_reg_mask(void)
+diff --git a/tools/perf/arch/arm/include/perf_regs.h b/tools/perf/arch/arm/include/perf_regs.h
+index 99a06550e25d..75ce1c370114 100644
+--- a/tools/perf/arch/arm/include/perf_regs.h
++++ b/tools/perf/arch/arm/include/perf_regs.h
+@@ -12,7 +12,4 @@ void perf_regs_load(u64 *regs);
+ #define PERF_REGS_MAX	PERF_REG_ARM_MAX
+ #define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_32
  
- 	return PERF_REGS_MASK;
- }
-+
-+uint64_t arch__reg_ip(void)
-+{
-+	return PERF_REG_X86_IP;
-+}
-+
-+uint64_t arch__reg_sp(void)
-+{
-+	return PERF_REG_X86_SP;
-+}
-diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-index 8720ec6cf147..334c9a2b785d 100644
---- a/tools/perf/util/perf_regs.c
-+++ b/tools/perf/util/perf_regs.c
-@@ -20,6 +20,16 @@ uint64_t __weak arch__user_reg_mask(void)
- 	return PERF_REGS_MASK;
- }
+-#define PERF_REG_IP	PERF_REG_ARM_PC
+-#define PERF_REG_SP	PERF_REG_ARM_SP
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/arm64/include/perf_regs.h b/tools/perf/arch/arm64/include/perf_regs.h
+index 35a3cc775b39..58639ee9f7ea 100644
+--- a/tools/perf/arch/arm64/include/perf_regs.h
++++ b/tools/perf/arch/arm64/include/perf_regs.h
+@@ -14,7 +14,4 @@ void perf_regs_load(u64 *regs);
+ #define PERF_REGS_MAX	PERF_REG_ARM64_MAX
+ #define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_64
  
-+uint64_t __weak arch__reg_ip(void)
-+{
-+	return 0;
-+}
-+
-+uint64_t __weak arch__reg_sp(void)
-+{
-+	return 0;
-+}
-+
- #ifdef HAVE_PERF_REGS_SUPPORT
+-#define PERF_REG_IP	PERF_REG_ARM64_PC
+-#define PERF_REG_SP	PERF_REG_ARM64_SP
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/csky/include/perf_regs.h b/tools/perf/arch/csky/include/perf_regs.h
+index 1afcc0e916c2..076c7746c8a2 100644
+--- a/tools/perf/arch/csky/include/perf_regs.h
++++ b/tools/perf/arch/csky/include/perf_regs.h
+@@ -12,7 +12,4 @@
+ #define PERF_REGS_MAX	PERF_REG_CSKY_MAX
+ #define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_32
  
- const char *perf_reg_name(int id, const char *arch)
-diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-index ab4ec3f2a170..0a1460aaad37 100644
---- a/tools/perf/util/perf_regs.h
-+++ b/tools/perf/util/perf_regs.h
-@@ -26,13 +26,15 @@ enum {
- int arch_sdt_arg_parse_op(char *old_op, char **new_op);
- uint64_t arch__intr_reg_mask(void);
- uint64_t arch__user_reg_mask(void);
-+uint64_t arch__reg_ip(void);
-+uint64_t arch__reg_sp(void);
+-#define PERF_REG_IP	PERF_REG_CSKY_PC
+-#define PERF_REG_SP	PERF_REG_CSKY_SP
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/mips/include/perf_regs.h b/tools/perf/arch/mips/include/perf_regs.h
+index b8cd8bbb37ba..7082e91e0ed1 100644
+--- a/tools/perf/arch/mips/include/perf_regs.h
++++ b/tools/perf/arch/mips/include/perf_regs.h
+@@ -7,8 +7,6 @@
+ #include <asm/perf_regs.h>
  
- #ifdef HAVE_PERF_REGS_SUPPORT
- extern const struct sample_reg sample_reg_masks[];
+ #define PERF_REGS_MAX PERF_REG_MIPS_MAX
+-#define PERF_REG_IP PERF_REG_MIPS_PC
+-#define PERF_REG_SP PERF_REG_MIPS_R29
  
- #include <perf_regs.h>
+ #define PERF_REGS_MASK ((1ULL << PERF_REG_MIPS_MAX) - 1)
  
--#define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
-+#define DWARF_MINIMAL_REGS ((1ULL << arch__reg_ip()) | (1ULL << arch__reg_sp()))
- 
- const char *perf_reg_name(int id, const char *arch);
- int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
-diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-index bdccfc511b7e..f308f2ea512b 100644
---- a/tools/perf/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw.c
-@@ -252,7 +252,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	if (!ui->dwfl)
- 		goto out;
- 
--	err = perf_reg_value(&ip, &data->user_regs, PERF_REG_IP);
-+	err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip());
- 	if (err)
- 		goto out;
- 
-diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
-index b2a03fa5289b..0a98ea9d8c94 100644
---- a/tools/perf/util/unwind.h
-+++ b/tools/perf/util/unwind.h
-@@ -43,11 +43,11 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+diff --git a/tools/perf/arch/powerpc/include/perf_regs.h b/tools/perf/arch/powerpc/include/perf_regs.h
+index 9bb17c3f370b..1c66f6ba6773 100644
+--- a/tools/perf/arch/powerpc/include/perf_regs.h
++++ b/tools/perf/arch/powerpc/include/perf_regs.h
+@@ -16,7 +16,4 @@ void perf_regs_load(u64 *regs);
+ 	#define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_32
  #endif
  
- #ifndef LIBUNWIND__ARCH_REG_SP
--#define LIBUNWIND__ARCH_REG_SP PERF_REG_SP
-+#define LIBUNWIND__ARCH_REG_SP arch__reg_sp()
+-#define PERF_REG_IP     PERF_REG_POWERPC_NIP
+-#define PERF_REG_SP     PERF_REG_POWERPC_R1
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
+index 6944bf0de53e..d482edb413e5 100644
+--- a/tools/perf/arch/riscv/include/perf_regs.h
++++ b/tools/perf/arch/riscv/include/perf_regs.h
+@@ -16,7 +16,4 @@
+ #define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_32
  #endif
  
- #ifndef LIBUNWIND__ARCH_REG_IP
--#define LIBUNWIND__ARCH_REG_IP PERF_REG_IP
-+#define LIBUNWIND__ARCH_REG_IP arch__reg_ip()
- #endif
+-#define PERF_REG_IP	PERF_REG_RISCV_PC
+-#define PERF_REG_SP	PERF_REG_RISCV_SP
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/s390/include/perf_regs.h b/tools/perf/arch/s390/include/perf_regs.h
+index 52fcc0891da6..130dfad2b96a 100644
+--- a/tools/perf/arch/s390/include/perf_regs.h
++++ b/tools/perf/arch/s390/include/perf_regs.h
+@@ -11,7 +11,4 @@ void perf_regs_load(u64 *regs);
+ #define PERF_REGS_MAX PERF_REG_S390_MAX
+ #define PERF_SAMPLE_REGS_ABI PERF_SAMPLE_REGS_ABI_64
  
- int LIBUNWIND__ARCH_REG_ID(int regnum);
+-#define PERF_REG_IP PERF_REG_S390_PC
+-#define PERF_REG_SP PERF_REG_S390_R15
+-
+ #endif /* ARCH_PERF_REGS_H */
+diff --git a/tools/perf/arch/x86/include/perf_regs.h b/tools/perf/arch/x86/include/perf_regs.h
+index 16e23b722042..f209ce2c1dd9 100644
+--- a/tools/perf/arch/x86/include/perf_regs.h
++++ b/tools/perf/arch/x86/include/perf_regs.h
+@@ -20,7 +20,5 @@ void perf_regs_load(u64 *regs);
+ #define PERF_REGS_MASK (((1ULL << PERF_REG_X86_64_MAX) - 1) & ~REG_NOSUPPORT)
+ #define PERF_SAMPLE_REGS_ABI PERF_SAMPLE_REGS_ABI_64
+ #endif
+-#define PERF_REG_IP PERF_REG_X86_IP
+-#define PERF_REG_SP PERF_REG_X86_SP
+ 
+ #endif /* ARCH_PERF_REGS_H */
 -- 
 2.39.2
 
