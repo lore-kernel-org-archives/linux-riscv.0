@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE62FC77B7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 12:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D75C77B7F
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 May 2023 13:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=th0y8+aRkWbx82IfNec1daVXiZ+6A+ZCJqIq/FRKlO4=; b=PDL9gwg8zhM3dR
-	jZSge1DmHluoBDgxDIZt2eWmCPUXvvnnuWBTwN6fSev/dA2x/XuYaxbBP73qVZYqfNkBpnFxVaqJa
-	SwkLO2KT1EtQEsEwSa+5yTQrkVi+e6S3NwD2EsMSzGH7Yqie5GVs2VW5M2o22qphX7s5mQXA+Y+P3
-	jCQk/+jOeIpyAGc0epKCmrNrAun2GgjSXwIh50mfBmjLZ9XJAYgrAHecAbhoyXTiN89eIG24WaqA+
-	HkhrbZqvtm+YuU53xyg6YzfAee76pKhbj/OHnOJ/HOLjlQ9ixqXJ12YbiyVaN4Shc+W06eq2NNT3r
-	bayxCsk6AiORbzpGzOqg==;
+	List-Owner; bh=F4hQw+ryWiVJ1ZcR18ST6ckRYE5kim0Z4j4YuBERj3o=; b=az3k8wTjjbDMRk
+	5A+lLjLmISZLGG56jtODvI7hOWRMZSguBJ0XhYShKRMwcaJHvz0Qn23Y6aaliTEoX8mE2G3ifb3Bu
+	a5GGs+BR/yz5yS9ECHcwQLlOS4kMwD0mTZrcvgr3RqfUDUu5LvDyC3tH4D6kLdJvmw6WQWyhjmft3
+	26IDaqgr+pSq1aq+O0qHrUdq6exKPiaTEWiat5VgiJZQpPzIRrKqT5/8OB/QvoKZqCn3dEmGwXRE9
+	pvKGYFcmgNw4sfY7YxWPDLPBmhiYU2QjQFV8o07GqxKAx25ghBgkZdXVv7Mu8wptTaCpkKKC1huZH
+	50NfwPGN17Ir/Gv3MwNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0LIo-001RKs-0w;
-	Sat, 20 May 2023 12:03:14 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
+	id 1q0MUc-001ZOn-2X;
+	Sat, 20 May 2023 13:19:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0LIk-001RJN-2I
+	id 1q0MUY-001ZO0-2x
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 May 2023 12:03:12 +0000
-X-QQ-mid: bizesmtp70t1684584176tjfoh9p1
-Received: from linux-lab-host.localdomain ( [116.30.125.36])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 20 May 2023 20:02:55 +0800 (CST)
-X-QQ-SSF: 00200000000000C0V000000A0000000
-X-QQ-FEAT: +ynUkgUhZJnYh1ftKzhir2TdHIFgiWxK45RvD2Ho5QFMDZZkyhJO8CvAx2MHP
-	YhLQ6ZN/Jk492lBH+9nt50cfKzTgRS9vo4o37eJwmTg97yBk96pAveZfLi1HZuFeWQh5fqZ
-	pL7V++RPd3VykDkp7FEXf/AU1qigHxxY2jh7K8G7euu9cGL/h0WEZtPyW/6X9mMvXHgSKiZ
-	Wk9ljR2Wpo4DU8UnqZ9r88XO/yazK+LoLhDGVEULeFEheGEMGtrjrbxLZZ5lvdRqa9/W949
-	CuKa3UWi8eq0dtXcMYIgZ73t/4rPGRPZAqJY4D1ZHghi60JwK7jVSBlEZ/xABywLC8lSj8B
-	h6aY3NZ2mHKaJWEaPAQeUn0OtVoGrTBVGw/MhYwngGISe4MvQ667iIh6zENDA==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12071841425974536677
-From: Zhangjin Wu <falcon@tinylab.org>
-To: linux@weissschuh.net
-Cc: aou@eecs.berkeley.edu,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	shuah@kernel.org,
-	w@1wt.eu
-Subject: [PATCH] selftests/nolibc: Fix up compile error for rv32
-Date: Sat, 20 May 2023 20:02:53 +0800
-Message-Id: <20230520120254.66315-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
-References: <20230520-nolibc-stackprotector-riscv-v1-1-d8912012a034@weissschuh.net>
+	Sat, 20 May 2023 13:19:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1684588766;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lTn8gTlrwHnM2AKAy5qI/9dWkXoUP9wXNayQrQJHG40=;
+	b=eZs+p0ofaozLpGo2RJZiuF36zzmJHJMbp2HyJuYqLGg5NBaVjroS7GxUrZKvuqlIN+LmXS
+	kENet2wmCHxeWv1BbWpRZfv2q0Z50PGXWTYBTYvjgZZ/9ds7AilHMgHgxzGcA/FidpGcgs
+	8IWqfxynyZBO2X4NAHMa8lMBWC3I49Y=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-443-R6-VQ7OUNkChkXTGHWJMQw-1; Sat, 20 May 2023 09:19:19 -0400
+X-MC-Unique: R6-VQ7OUNkChkXTGHWJMQw-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AD0013C02535;
+	Sat, 20 May 2023 13:19:18 +0000 (UTC)
+Received: from localhost (ovpn-12-79.pek2.redhat.com [10.72.12.79])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 935C74F2DE4;
+	Sat, 20 May 2023 13:19:17 +0000 (UTC)
+Date: Sat, 20 May 2023 21:19:14 +0800
+From: Baoquan He <bhe@redhat.com>
+To: "chenjiahao (C)" <chenjiahao16@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
+	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
+	atishp@rivosinc.com, thunder.leizhen@huawei.com, horms@kernel.org
+Subject: Re: [PATCH -next v4 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+Message-ID: <ZGjI0kDmtnxKY3NP@MiWiFi-R3L-srv>
+References: <20230410130553.3226347-1-chenjiahao16@huawei.com>
+ <20230410130553.3226347-2-chenjiahao16@huawei.com>
+ <ZEnaPzx3O9NWixIR@MiWiFi-R3L-srv>
+ <366da9fb-0a3c-ac62-3df3-7a7f328973a6@huawei.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <366da9fb-0a3c-ac62-3df3-7a7f328973a6@huawei.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_050311_051225_0C45E9F3 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20230520_061927_252727_277A23D4 
+X-CRM114-Status: GOOD (  30.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +83,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2hlbiBjb21waWxlIG5vbGliYy10ZXN0LmMgZm9yIHJ2MzIsIHdlIGdvdCBzdWNoIGVycm9yOgoK
-ICAgIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jOjU5OTo1Nzog
-ZXJyb3I6IOKAmF9fTlJfZnN0YXTigJkgdW5kZWNsYXJlZCAoZmlyc3QgdXNlIGluIHRoaXMgZnVu
-Y3Rpb24pCiAgICAgIDU5OSB8ICAgQ0FTRV9URVNUKHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNU
-X1NZU0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwgMCwgTlVMTCksIC0xLCBFRkFVTFQpOyBicmVh
-azsKClRoZSBnZW5lcmljIGluY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy91bmlzdGQuaCB1c2VkIGJ5
-IHJ2MzIgZG9lc24ndApzdXBwb3J0IF9fTlJfZnN0YXQsIHVzaW5nIHRoZSBjb21tb24gX19OUl9y
-ZWFkIGZ1bmN0aW9ucyBhcyBleHBlY3RlZC4KCiAgICBSdW5uaW5nIHRlc3QgJ3N5c2NhbGwnCiAg
-ICA2OSBzeXNjYWxsX25vYXJncyA9IDEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIFtPS10KICAgIDcwIHN5c2NhbGxfYXJncyA9IC0xIEVCQURGICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgW09LXQoKQnR3LCB0aGUgbGF0ZXN0IHJpc2N2IGxp
-YmM2LWRldiBwYWNrYWdlIGlzIHJlcXVpcmVkLCBvdGhlcndpc2UsIHdlIHdvdWxkCmFsc28gZ2V0
-IHN1Y2ggZXJyb3I6CgogICAgSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC91c3IvcmlzY3Y2NC1saW51
-eC1nbnUvaW5jbHVkZS9zeXMvY2RlZnMuaDo0NTIsCiAgICAgICAgICAgICAgICAgICAgIGZyb20g
-L3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRlL2ZlYXR1cmVzLmg6NDYxLAogICAgICAgICAg
-ICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL2xpYmMt
-aGVhZGVyLXN0YXJ0Lmg6MzMsCiAgICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNjdjY0
-LWxpbnV4LWdudS9pbmNsdWRlL2xpbWl0cy5oOjI2LAogICAgICAgICAgICAgICAgICAgICBmcm9t
-IC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxpbnV4LWdudS85L2luY2x1ZGUvbGltaXRzLmg6
-MTk0LAogICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0
-LWxpbnV4LWdudS85L2luY2x1ZGUvc3lzbGltaXRzLmg6NywKICAgICAgICAgICAgICAgICAgICAg
-ZnJvbSAvdXNyL2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0
-cy5oOjM0LAogICAgICAgICAgICAgICAgICAgICBmcm9tIC9sYWJzL2xpbnV4LWxhYi9zcmMvbGlu
-dXgtc3RhYmxlL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jOjY6
-CiAgICAvdXNyL3Jpc2N2NjQtbGludXgtZ251L2luY2x1ZGUvYml0cy93b3Jkc2l6ZS5oOjI4OjM6
-IGVycm9yOiAjZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQiCiAg
-ICAgICAyOCB8ICMgZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQi
-CgpUaGUgZ2xpYmMgY29tbWl0IDViNjExM2Q2MmVmYSAoIlJJU0MtVjogU3VwcG9ydCB0aGUgMzIt
-Yml0IEFCSQppbXBsZW1lbnRhdGlvbiIpIGZpeGVkIHVwIGFib3ZlIGVycm9yLCBzbywgZ2xpYmMg
-Pj0gMi4zMyAod2hvIGluY2x1ZGVzCnRoaXMgY29tbWl0KSBpcyByZXF1aXJlZC4KClNpZ25lZC1v
-ZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25AdGlueWxhYi5vcmc+Ci0tLQogdG9vbHMvdGVzdGlu
-Zy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMgfCAyICstCiAxIGZpbGUgY2hhbmdlZCwg
-MSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS90b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3Rz
-L25vbGliYy9ub2xpYmMtdGVzdC5jCmluZGV4IDA2M2Y5OTU5YWM0NC4uZDhiNTljOGY2YzAzIDEw
-MDY0NAotLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYwor
-KysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYwpAQCAtNTk2
-LDcgKzU5Niw3IEBAIGludCBydW5fc3lzY2FsbChpbnQgbWluLCBpbnQgbWF4KQogCQlDQVNFX1RF
-U1Qod3JpdGVfYmFkZik7ICAgICAgICBFWFBFQ1RfU1lTRVIoMSwgd3JpdGUoLTEsICZ0bXAsIDEp
-LCAtMSwgRUJBREYpOyBicmVhazsKIAkJQ0FTRV9URVNUKHdyaXRlX3plcm8pOyAgICAgICAgRVhQ
-RUNUX1NZU1pSKDEsIHdyaXRlKDEsICZ0bXAsIDApKTsgYnJlYWs7CiAJCUNBU0VfVEVTVChzeXNj
-YWxsX25vYXJncyk7ICAgIEVYUEVDVF9TWVNFUSgxLCBzeXNjYWxsKF9fTlJfZ2V0cGlkKSwgZ2V0
-cGlkKCkpOyBicmVhazsKLQkJQ0FTRV9URVNUKHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNUX1NZ
-U0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwgMCwgTlVMTCksIC0xLCBFRkFVTFQpOyBicmVhazsK
-KwkJQ0FTRV9URVNUKHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwo
-X19OUl9yZWFkLCAtMSwgJnRtcCwgMSksIC0xLCBFQkFERik7IGJyZWFrOwogCQljYXNlIF9fTElO
-RV9fOgogCQkJcmV0dXJuIHJldDsgLyogbXVzdCBiZSBsYXN0ICovCiAJCS8qIG5vdGU6IGRvIG5v
-dCBzZXQgYW55IGRlZmF1bHRzIHNvIGFzIHRvIHBlcm1pdCBob2xlcyBhYm92ZSAqLwotLSAKMi4y
-NS4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 05/11/23 at 04:47pm, chenjiahao (C) wrote:
+......
+> > > @@ -1163,8 +1185,12 @@ static void __init reserve_crashkernel(void)
+> > >   {
+> > >   	unsigned long long crash_base = 0;
+> > >   	unsigned long long crash_size = 0;
+> > > +	unsigned long long crash_low_size = 0;
+> > >   	unsigned long search_start = memblock_start_of_DRAM();
+> > >   	unsigned long search_end = memblock_end_of_DRAM();
+> > > +	unsigned long search_low_max = (unsigned long)dma32_phys_limit;
+> > > +	char *cmdline = boot_command_line;
+> > > +	bool fixed_base = false;
+> > >   	int ret = 0;
+> > > @@ -1180,14 +1206,34 @@ static void __init reserve_crashkernel(void)
+> > >   		return;
+> > >   	}
+> > > -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+> > > +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+> > >   				&crash_size, &crash_base);
+> > > -	if (ret || !crash_size)
+> > > +	if (ret == -ENOENT) {
+> > > +		/* Fallback to crashkernel=X,[high,low] */
+> > > +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
+> > > +		if (ret || !crash_size)
+> > > +			return;
+> > > +
+> > > +		/*
+> > > +		 * crashkernel=Y,low is valid only when crashkernel=X,high
+> > > +		 * is passed.
+> > > +		 */
+> > > +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
+> > > +		if (ret == -ENOENT)
+> > > +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> > > +		else if (ret)
+> > > +			return;
+> > > +
+> > > +		search_start = search_low_max;
+> > > +	} else if (ret || !crash_size) {
+> > > +		/* Invalid argument value specified */
+> > >   		return;
+> > > +	}
+> > >   	crash_size = PAGE_ALIGN(crash_size);
+> > >   	if (crash_base) {
+> > > +		fixed_base = true;
+> > >   		search_start = crash_base;
+> > >   		search_end = crash_base + crash_size;
+> > >   	}
+> > > @@ -1201,16 +1247,31 @@ static void __init reserve_crashkernel(void)
+> > >   	 */
+> > >   	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> > >   					       search_start,
+> > > -					       min(search_end, (unsigned long) SZ_4G));
+> > > +					       min(search_end, search_low_max));
+> > Here, it seems not right in case crashkernel=,high is specified. In that
+> > case, search_start == search_low_max, then the min(search_end,
+> > search_low_max) will get search_low_max too. Then you make the fallback
+> > in below code block to try to get crashkernel reservation above 4G. This
+> > doesn't comply with the crashkernel=,high grammer which has been
+> > implemented in other architectures.
+> > 
+> > For crashkernel=,high, user explicitly require memory reservation above
+> > 4G. Why does crashkernel=,high is needed? E.g on big end server with
+> > huge memory, while the low memory under 4G is limited and precious.
+> > Hence, user want to put the main crashkernel reservation above 4G to
+> > contain kdump kernel/initrd and run user space program, while with few
+> > low memory for pci device driver. E.g crashkernel=2G,high, it won't
+> > impact much if there's huge memory above 4G and get crashkernel
+> > reservation there. However, it impacts a lot if it reserves memory
+> > below 4G.
+> > 
+> > I would strongly suggest that risc-v also reserve memory from above 4G
+> > for crashkernel=,high, then fallback to below 4G. That's consistent with
+> > crashkernel=,high grammer.
+> 
+> Sorry for late response.
+> 
+> I have got the point here. So with the original implication of "crashkernel=,high",
+> there is even no need to try reserving low memory under 4G. I have arranged another
+> version of patchset, in which I updated the allocation logic in that case.
+> 
+> For example, when "crashkernel=1G,high" is specified, the previous logic is like:
+> alloc range: crash_size: 0x40000000 (1G), crash_base: 4G_limit,
+>              crash_max: 4G_limit
+> alloc range high: crash_size: 0x40000000 (1G), crash_base: 4G_limit,
+>                   crash_max: memblock_range_end
+> alloc range low: low_size: 0x8000000 (128MB,default), crash_base: 0x0,
+>                  crash_max: 4G_limit
+> 
+> After revision, the logic is like:
+> alloc range: crash_size: 0x40000000 (1G), crash_base: memblock_range_start,
+>              crash_max: memblock_range_end
+> alloc range low: low_size: 0x8000000 (128MB,default), crash_base: 0x0,
+>                  crash_max: 4G_limit
+> 
+> Please let me know if there is any problem exist.
+
+Sorry for late reply.
+
+Hmm, it doesn't seem completely correct. I will comment in your v5
+patch. Please see over there.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
