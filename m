@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C365C7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 18:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D90C77B7C
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 21:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2hU5nILWpsbfcHU/FKVCDZX2nrY8ZjqeO8RJMrEYDic=; b=S3qHSpyqArc5dM
-	7d/xUxB2JRBJ6m1UmZ8RpYt9prOu+/hEJ9qC81C7qgHX9BpPYVHwlxd6kTfWOyYLTdKr0l85WNaIN
-	Y1hzUxoILRfFyheb7TdjSCEJ0xzr5T3IAwcvQM6hoQToRAYHUxnaV88TBlndF7Qk//9pPSr+MftPK
-	ttnz/rj3KYd0eUCzqGR2Ws4qXoKCHzpNWpOxxI92xTcwHQSdD3KK3polvCtXtPdcs7MwZoqfZ0xhW
-	G5A3Uz8dqJ19TSkeJ3EC6FGBRe4ouzu2qRX4jsFcjPevMSqxZSf+yN1xIOcPxGmSyAuMUBBhBNXXy
-	wrgtTwGmu2hfph0mVhUQ==;
+	List-Owner; bh=9MsFNipNThHPWUZb2VC0sAQ4Mq10Au3o86AnTaOMwnc=; b=fH3zOTCyGyDrlY
+	oB/DOD+5PsZ9+kFPXacL04tnXUM17hfuSBcU0fOfIn9UYCoCkr9dza84stdqRJWKqnVq88uU6P/WO
+	4+3CcMbZshILeUzSgO9V3vL6Dh60DuSuvzrYbBhSx/YRkn/W4IO185QSozr48snavkM77knd4jTdc
+	vAV+YfZNwJgTs55Ue6sM3kKAAThalnBDqt7SxngijICmvHq+vWDpU2BjrDwnPgRdcs85s1MlWt1em
+	/n0OZCB0OAqZXD+BT7A/M5QIu3G+5f4Cfl1ZDOh76uf5UITKgLTXT+7TetCKPY/4whUhSB+7BiAFR
+	vRo3DnmoCO0/dXQcQeHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0nW0-004KHO-0t;
-	Sun, 21 May 2023 18:10:44 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
+	id 1q0r3H-004jn2-0C;
+	Sun, 21 May 2023 21:57:19 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0nVw-004KGS-0U
+	id 1q0r3D-004jmb-18
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 May 2023 18:10:42 +0000
-X-QQ-mid: bizesmtp62t1684692504txiq7w8d
-Received: from linux-lab-host.localdomain ( [116.30.125.36])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 22 May 2023 02:08:23 +0800 (CST)
-X-QQ-SSF: 01200000000000D0U000000A0000000
-X-QQ-FEAT: nA8mzCjPbKjAyatHOLqVBZWleNML49vMr+sWKoVyh7o6l2YSji7G1wm1SVKxs
-	QY/Tyk36sdfw8jpkOj0h2DqgkGeR4T966XMrs9M3WFlRuppMpPQN4duzuVWOmAu7AG8X1qH
-	gF2yyOppqomXpYvjj3Aj0104rmcB78h1cRm8Of51Da9uBm8eJvQ5nFjrzDMLzydebkZMnjB
-	lGfILk1gY2Yeem5Mbg9wS0AXePV/VmKa+64oHw+W4m/fMaPGqO/kFKVFQnaboPY9PcsKHyf
-	805DgbIJF9CSpuucNeK9E/1HFphyuiWx0nZSsJS1cM+ycSHilHq6Jqc+rrg3/mtm5N2nrN9
-	l66FU7K/KqBK/euMe+KStFB8ul67e6wh7SWI9Ic
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1011124316858910777
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: aou@eecs.berkeley.edu,
-	arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	shuah@kernel.org,
-	thomas@t-8ch.de
-Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
-Date: Mon, 22 May 2023 02:08:23 +0800
-Message-Id: <20230521180823.164289-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZGmW1YEUWASzEJ13@1wt.eu>
-References: <ZGmW1YEUWASzEJ13@1wt.eu>
+	Sun, 21 May 2023 21:57:17 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-53469299319so2925739a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 21 May 2023 14:57:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1684706233; x=1687298233;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lcnVnxDvif0ZfkyQkkgd2zU4HMJfXMdHIx335Lxz+H8=;
+        b=zrtjPUo834/13md+sL+66/JcVnmbMw9vwrfF7JI5+764einZmY0OY+4gdhmPny4ST/
+         HbkML21Xd0/CY+2TqZVpecEGMLZr4QlOVvgeOHVIOeMLLX/9gRjZegTVQisUGjg41XKP
+         9q6kCBPEc7CbivmQxA2naeMDjil/VtDNmtqb1U4+1IsfsKQiGH4XmaSo3GdBoXKTV6+C
+         31SxTfi8b53orphsztr6spUf2RbBPJqf7cHRDlsI0aoVxP442aVyNVUAGEXXVS+IgjIx
+         Vk8Q5q9TG3fSQStZaGM+ldMQpVYiQgMlDTHCbBNUw6lcCcqgO+W8gqbb55/3JjEtdors
+         /HWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684706233; x=1687298233;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lcnVnxDvif0ZfkyQkkgd2zU4HMJfXMdHIx335Lxz+H8=;
+        b=Xb1cVk6XGaVPdvqvXEqgi+5u6LQcY7EwDWielgCjsVeF4bRYdb75+oBVFFcyxK0nxl
+         WH2mi+d7oqx5VUrF2zdNrlrqtF9OxZiU3MvwLOb3X+XnDEmo//BViY26qcJx6TQzhOBP
+         7tfsStSGiZw6QjY+TWTJTsT6t3udIVe5Kgf6f7Dg4JEhYfcmQWVaWWyB6AMtJHGfQZoJ
+         b5CVxbxYiPSII7rH4VBPjC6qoTwt7RNGEBFD5onkUvaoHo6fd3Ux3NVunyFnTyvmTlT5
+         rCp7w7xOjpRiI7FZ1e2Pl033jNfAV9InlOaNiUdeoYDX3LxeHGlBO8r5XCzbdpctLKuT
+         JcFw==
+X-Gm-Message-State: AC+VfDybTV2PTTvB8eMl+WUkNrANiaoJ5XZTM7+E5jqCaZZr2UWlpKcs
+	qMxbFKOuKMwcoNqmZuoA6J0c6Q==
+X-Google-Smtp-Source: ACHHUZ5W8aWE6eRHEmfCisBZ6pvyYucjXedqi6mQQ/3ryc3KvpLVD1LA0wy8ok/0oPuyz5Pc7Qmqxg==
+X-Received: by 2002:a17:903:2310:b0:1aa:f53a:5e47 with SMTP id d16-20020a170903231000b001aaf53a5e47mr11864710plh.16.1684706232828;
+        Sun, 21 May 2023 14:57:12 -0700 (PDT)
+Received: from x1 ([2601:1c2:1800:f680:9483:9e6b:e3e5:203])
+        by smtp.gmail.com with ESMTPSA id i1-20020a17090332c100b001a94a497b50sm3382147plr.20.2023.05.21.14.57.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 May 2023 14:57:12 -0700 (PDT)
+Date: Sun, 21 May 2023 15:01:11 -0700
+From: Drew Fustini <dfustini@baylibre.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: riscv: boot failure for 3335068f8721 ("riscv: Use PUD/P4D/PGD
+ pages for the linear mapping")
+Message-ID: <ZGqUpwJOiiLnKMkg@x1>
+References: <ZGl8gn/rD8WZ0nak@x1>
+ <51339689-b92f-52fb-9202-2b91733f9180@sholland.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <51339689-b92f-52fb-9202-2b91733f9180@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_111040_510192_A5FF0514 
-X-CRM114-Status: GOOD (  36.06  )
+X-CRM114-CacheID: sfid-20230521_145715_626082_12D20BCE 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,199 +99,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Willy, Thomas,
+On Sat, May 20, 2023 at 10:22:36PM -0500, Samuel Holland wrote:
+> Hi Drew,
+> 
+> On 5/20/23 21:05, Drew Fustini wrote:
+> > Hello, I tested 6.4-rc1 on an internal RISC-V SoC and observed a boot
+> > failure on a Store/AMO access fault (exception code 7) in __memset().
+> > stval (e.g. badaddr) was set to 0xffffaf8000000000. This SoC is RV64GC
+> > with Sv48 so it seems that address is the start of the "direct mapping
+> > of all physical memory" [1].
+> > 
+> > The 6.3 release boots okay and the system is able to operate correctly
+> > with an Ubuntu 23.04 rootfs on eMMC. Therefore, I decided to bisect and
+> > I found the failure begins with 3335068f8721 ("riscv: Use PUD/P4D/PGD
+> > pages for the linear mapping"). The system boots okay with the prior
+> > commit 8589e346bbb6 ("riscv: Move the linear mapping creation in its
+> > own function").
+> > 
+> > The boot log [2] shows that the fault happens right after buildroot's
+> > init script [3] uses switch_root to execute init from the Ubuntu rootfs
+> > on the eMMC.
+> > 
+> > DWARF4 is enabled in .config [4] and the decoded stack trace [5] shows:
+> > 
+> >   epc : __memset (/eng/dfustini/gitlab/linux/arch/riscv/lib/memset.S:67)
+> > 
+> > From memset.S:
+> > 
+> >  Line 67:         REG_S a1,        0(t0)
+> > 
+> > From the oops:
+> > 
+> >  epc : ffffffff81122d6c ra : ffffffff80218504 sp : ffffaf8002e47500
+> >   gp : ffffffff82695010 tp : ffffaf8002e2ec00 t0 : ffffaf8000000000
+> >   t1 : 0000000000000080 t2 : 0000000000000001 s0 : ffffaf8002e47550
+> >   s1 : ffff8d8200000040 a0 : ffffaf8000000000 a1 : 0000000000000000
+> > 
+> > Thus I think it is trying to store 0x0 to 0xffffaf8000000000 which is
+> > the start of the direct map. From the boot log [2], OpenSBI shows:
+> > 
+> >  Domain0 Region00 : 0x0000000002080000-0x00000000020bffff M: (I,R,W) S/U: ()
+> >  Domain0 Region01 : 0x0000008000000000-0x000000800003ffff M: (R,W,X) S/U: ()
+> >  Domain0 Region02 : 0x0000000002000000-0x000000000207ffff M: (I,R,W) S/U: ()
+> >  Domain0 Region03 : 0x0000000000000000-0xffffffffffffffff M: (R,W,X) S/U: (R,W,X)
+> > 
+> > The DDR memory on this SoC starts at 0x8000000000 with size 2GB. The
+> > memory node from the device tree [6]:
+> > 
+> >         memory@8000000000 {
+> >                 device_type = "memory";
+> >                 reg = <0x80 0 0x00000000 0x80000000>;
+> >         };
+> > 
+> > I think the direct map address 0xffffaf8000000000 would map to physical
+> > address 0x8000000000. Thus I think the attempted store in S-mode to that
+> > address would violate the PMP settings for Region01.
+> > 
+> > I do not yet understand why this happens with 3335068f8721 ("riscv: Use
+> > PUD/P4D/PGD pages for the linear mapping") but not for the prior commit
+> > 8589e346bbb6 ("riscv: Move the linear mapping creation in its own
+> > function").
+> 
+> Where does Linux's DTB come from? It should be the one that was modified
+> by OpenSBI to add a reserved-memory node matching PMP Region01
+> (fdt_reserved_memory_fixup()).
+> 
+> Before this commit, Linux ignored the first 2 MiB of physical RAM. So if
+> OpenSBI was loaded in this region, you could get away with ignoring the
+> firmware-provided DTB; now you actually need to use it, as intended.
 
-> On Sun, May 21, 2023 at 02:30:22AM +0800, Zhangjin Wu wrote:
-> > ...
->
-> I think what Thomas meant is that he wants to be sure the call doesn't
-> end up as read(-1, &tmp, 1). Here you could have -EBADF or -EFAULT, it
-> depends. Anyway other solutions can be found if necessary. Another
-> approach could be to switch back to __NR_fstat and condition it to its
-> definition.
->
-> > > > Maybe we can find a new syscall to test with?
-> > >
-> > > Maybe it would be worth considering pselect() or equivalent which
-> > > involve many arguments. I don't know if rv32 has fstatat() or
-> > > lstat() for example, that could be used as alternatives ?
-> > >
-> >
-> > Unfortuantely, none of them is available in rv32, we have the same tricks you used in another reply:
-> >
-> >     $ echo "#include <asm/unistd.h>" | \
-> >         riscv64-linux-gnu-gcc -march=rv32im -mabi=ilp32 -Wl,-melf32lriscv_ilp32 -xc - -E -dM | \
-> >         grep -E "pselect|fstat|lstat"
-> >     #define __NR_pselect6_time64 413
-> >     #define __NR3264_fstatfs 44
-> >     #define __NR_fstatfs64 __NR3264_fstatfs
->
-> Then probably fstatfs should work equally for this test.
->
+The address of the dtb is passed by the boot code to OpenSBI. I had been
+using OpenSBI master from Jan 9: 001106d ("docs: Update domain's region
+permissions and requirements"). The kernel receives the device tree from
+OpenSBI but I had never actually dumped it from sysfs.
 
-I tested a change like this (try __NR_fstatfs64, __NR_fstatfs, and __NR_fstat one by one):
+I checked out the prior kernel commit 8589e346bbb6 ("riscv: Move the
+linear mapping creation in its own function") and ran "dtc -I fs
+/sys/firmware/devicetree/base/" to dump the device tree [1]. This showed
+that the reserved-memory node was blank.
 
-    diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-    index 063f9959ac44..0a60e8ca5756 100644
-    --- a/tools/testing/selftests/nolibc/nolibc-test.c
-    +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-    @@ -500,6 +500,16 @@ static int test_fork(void)
-     	}
-     }
+Jessica pointed out to me on #riscv irc that this was fixed in OpenSBI
+on Jan 21 with: a990309 ("lib: utils: Fix reserved memory node for
+firmware memory"). Therefore, I updated to the current OpenSBI master:
+33f1722 ("lib: sbi: Document sbi_ecall_extension members") from May 15.
+The device tree that OpenSBI passes to the kernel now has
+"mmode_resv0@80,0" and "mmode_resv1@80,20000".
 
-    +#ifdef __NR_fstatfs64
-    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs64, 0, 0, NULL), -1, EINVAL)
-    +#elif defined(__NR_fstatfs)
-    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs, 0, NULL), -1, EFAULT)
-    +#elif defined(__NR_fstat)
-    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT)
-    +#else
-    +#error None of __NR_fstatfs64, __NR_fstatfs and __NR_fstat defined, cannot implement syscall_args test
-    +#endif
-    +
-     /* Run syscall tests between IDs <min> and <max>.
-      * Return 0 on success, non-zero on failure.
-      */
-    @@ -596,7 +606,7 @@ int run_syscall(int min, int max)
-     		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
-     		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
-     		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), getpid()); break;
-    -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
-    +		CASE_TEST(syscall_args);      EXPECT_SYSER_SYSCALL_ARGS(); break;
-     		case __LINE__:
-     			return ret; /* must be last */
-     		/* note: do not set any defaults so as to permit holes above */
-
-And another change like this (try __NR_statx and then __NR_fstat):
-
-    diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-    index 063f9959ac44..d740ba405cb2 100644
-    --- a/tools/testing/selftests/nolibc/nolibc-test.c
-    +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-    @@ -500,6 +500,17 @@ static int test_fork(void)
-     	}
-     }
-
-    +static int test_syscall_args(void)
-    +{
-    +#ifdef __NR_statx
-    +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
-    +#elif defined(__NR_fstat)
-    +	return syscall(__NR_fstat, 0, NULL);
-    +#else
-    +#error Neither __NR_statx nor __NR_fstat defined, cannot implement syscall_args test
-    +#endif
-    +}
-    +
-     /* Run syscall tests between IDs <min> and <max>.
-      * Return 0 on success, non-zero on failure.
-      */
-    @@ -596,7 +607,7 @@ int run_syscall(int min, int max)
-     		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
-     		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
-     		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), getpid()); break;
-    -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
-    +		CASE_TEST(syscall_args);      EXPECT_SYSER(1, test_syscall_args(), -1, EFAULT); break;
-     		case __LINE__:
-     			return ret; /* must be last */
-     		/* note: do not set any defaults so as to permit holes above */
-
-Which one is acceptable?
-
-> > Or, use the rv32 test result as a crude reference:
-> (... trimmed to keep only the failed ones ...)
-> >
-> >     15 chmod_net = -1 ENOENT                                        [FAIL]
-> >     16 chmod_self = -1 ENOENT  != (-1 EPERM)                        [FAIL]
-> >     17 chown_self = -1 ENOENT  != (-1 EPERM)                        [FAIL]
-> >     20 chroot_exe = -1 ENOENT  != (-1 ENOTDIR)                      [FAIL]
-> >     30 fork = 1 ENOSYS                                              [FAIL]
-> >     33 gettimeofday_null = -1 ENOSYS                                [FAIL]
-> >     35 gettimeofday_bad1 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-> >     36 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-> >     37 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-> >     45 link_cross = -1 ENOENT  != (-1 EXDEV)                        [FAIL]
-> >     51 poll_null = -1 ENOSYS                                        [FAIL]
-> >     52 poll_stdout = -1 ENOSYS                                      [FAIL]
-> >     53 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
-> >     56 select_null = -1 ENOSYS                                      [FAIL]
-> >     57 select_stdout = -1 ENOSYS                                    [FAIL]
-> >     58 select_fault = -1 ENOSYS  != (-1 EFAULT)                     [FAIL]
-> >     64 wait_child = -1 ENOSYS  != (-1 ECHILD)                       [FAIL]
-> >     65 waitpid_min = -1 ENOSYS  != (-1 ESRCH)                       [FAIL]
-> >     66 waitpid_child = -1 ENOSYS  != (-1 ECHILD)                    [FAIL]
-> >     Errors during this test: 19
->
-> So that's a lot of failures and we should start to blindly degrade other
-> tests just for the sake of fixing these ones here, it should be done more
-> carefully.
->
-
-Removed the config options related failures (will use defconfig to re-check
-them, I did use a tiny config for faster compile):
-
-    30 fork = 1 ENOSYS                                              [FAIL]
-    33 gettimeofday_null = -1 ENOSYS                                [FAIL]
-    35 gettimeofday_bad1 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-    36 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-    37 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
-    51 poll_null = -1 ENOSYS                                        [FAIL]
-    52 poll_stdout = -1 ENOSYS                                      [FAIL]
-    53 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
-    56 select_null = -1 ENOSYS                                      [FAIL]
-    57 select_stdout = -1 ENOSYS                                    [FAIL]
-    58 select_fault = -1 ENOSYS  != (-1 EFAULT)                     [FAIL]
-    64 wait_child = -1 ENOSYS  != (-1 ECHILD)                       [FAIL]
-    65 waitpid_min = -1 ENOSYS  != (-1 ESRCH)                       [FAIL]
-    66 waitpid_child = -1 ENOSYS  != (-1 ECHILD)                    [FAIL]
-
-The left failed syscalls may be waitpid, wait4, gettimeofday, poll and select,
-it is not too many.
-
->
-> My preference for the short term would be the following:
->   1) make sure we fix build issues for all platforms, including rv32
->   2) make sure Thomas' work on syscall() and STKP works fine where it
->      should, as it used to till now on other platforms
->
->   => this should be added to the 6.5 queue, and for this I don't want
->      to make this series regress as it should be queued quickly so that
->      test code used by other developers working on 6.5 is reasonably
->      stabilized.
-
-Hope one of the above changes meets this goal, if no, perhaps we can simply
-revert my '__NR_read' patch and left it together with the other rv32 failures
-to next merge window.
-
->
->   3) evaluate what needs to be done regarding time32, this implies
->      working in the lower abstraction layers to depend on
->      __ARCH_WANT_TIME32_SYSCALLS and use the new syscalls instead.
->
->   => I don't know how much work it requires; if it's trivial this
->      could possibly be for 6.5, otherwise it will have to be postponed.
-
-My suggestion is directly fix up the failures one by one in current stage,
-because nolibc currently only uses part of the time32 syscalls, it may be not
-that complex to fix up them. Have read the code of musl and glibc today, both
-of them have good time64 syscalls support, I plan to fix up the above failures
-in several days, hope so but no promise ;-)
-
-And another question: for the new changes, If a platform support both of the
-32bit and 64bit syscalls, do we need to put the 64bit syscalls at first?
-
-For example, the __NR_llseek we just added, do we need to check __NR_llseek
-before check __NR_lseek? this may support 64bit better but also may generate
-bigger size of code, currently, my patch checks __NR_lseek at first and then
-__NR_llseek to get smaller size of code, but as I read from the musl and glibc
-code, both of them put the 64bit syscalls path before others.
+Furthermore, my system now boots okay with 3335068f8721 ("riscv: Use
+PUD/P4D/PGD pages for the linear mapping") so the problem was just that
+I had been using an OpenSBI that was slightly too old.
 
 Thanks,
-Zhangjin
+Drew
 
->
-> Thanks,
-> Willy
+[1] https://gist.github.com/pdp7/71ca465997274e11953b26861e36144f
+[2] https://gist.github.com/pdp7/90b4632146fc55625735fa288d80532b
 
 _______________________________________________
 linux-riscv mailing list
