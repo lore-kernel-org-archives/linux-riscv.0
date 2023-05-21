@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034FDC7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 09:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C9AC77B7C
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 09:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hYDYJbLdOP5Ir4vfuJ8PY3il/3jCbi8wXqWAVht47wM=; b=oopTm82GzOQ+Bu
-	ta4m5fLWIf/zavlFjf8S5+jBlr+oCJgxjAVEGtrUrRrrkyuxl9x604AC/KHuaguFOSnlaAmdJFw88
-	swMHiPLG3WbcKzAOoQEIr/hdyvv5rYhaI1pHK8tSmzI9BA2mHlc356d1RMwiZRTu/Jaks/LfTexku
-	PyQiD9DjWHHTEIYB0JtbgiFgPJRwMh5ZPpGHAUOeOX8+envcXq58lLNgjq/5wI/EO6nSbG9Dt0gB0
-	xEWoDUj6yXLi0dZJit4DykZSKbdN0paCzLBEwRE+R+iTkCrY8/3WKjPC2QQFnDM5aM+W/vzgNVNGd
-	UNUTZZnkoFZNbHBva0nQ==;
+	List-Owner; bh=PR3DqxqrwqgB1Pg2FMuUH4ewvfHCQ40vThBgroU9/IU=; b=LwzFyqpNTHGRI6
+	vSnh2pzBLQnV4Qg/hhDlmEpnw/OBO9Om1VSMxoHDBoRmonpLrR4Dl3YsB9O8COBsS9ZU6IoKQLr3q
+	SmfjnAa3Lmm6s5UriaW9sKoyozTnWTUh7yIdxNMBP4cDsj6RXPohjUAg4nWD2p1mhFXwgHRE0ENiE
+	2ZPT6xQ1juy+tvcRXJuFveCfJdmEARyjiXwyrbGlhPvupn8GEfQaWT6A8fHehp3FVnUVyWCrNFeD0
+	P1otBoHqkwiSaTojD6WqatrmktL6Ins4LhFNWcdRtWQPORSTpsM6tXx4Bod6aWI8yfPOsd80SnFiu
+	MkfgriZ3yv2WTawtUxxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0fYh-003WQU-0P;
-	Sun, 21 May 2023 09:40:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q0fjW-003XQa-2I;
+	Sun, 21 May 2023 09:52:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0fYd-003WPz-0q
+	id 1q0fjT-003XPz-1l
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 May 2023 09:40:57 +0000
+	Sun, 21 May 2023 09:52:09 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BA69360AE8;
-	Sun, 21 May 2023 09:40:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABEE3C433EF;
-	Sun, 21 May 2023 09:40:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C8F1260C61;
+	Sun, 21 May 2023 09:52:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3937C433D2;
+	Sun, 21 May 2023 09:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684662054;
-	bh=zn+bwbfOWEOxmWCFFGMUlWUHM6muZcBbeHLgBc2cySo=;
+	s=k20201202; t=1684662726;
+	bh=sF3fGO7U/xMB1sIbnknNsRZycdV/4okIPZSR/hPio8U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LulV7j/tBHNSTt3ElLvDShJGisLjKgLsLNuy8+Zuxti6O44lTU2sK2viChpxPMbS2
-	 q0rTXLRt8uWQEQLdUvxNn94Fa2MmGLuBgk5xyA3Bb2Y2V3XOt9romGdOXSahOWrTp9
-	 gz1RxOfYKiG83gCgxqX9zPifw43kOsHlHDyavBOmqfn3qLL0Gh6lXQYelLCjSeYU4j
-	 NtLpjmmxYqeG/tH/lhBi+PgBv9Rq75RFA+VzJa0TLMtZwVhQUZ9oLekx9mT8OSj/Jz
-	 kw7JU5wrgezUS5Nk3NjKHpu57AWl+my6sL4b+jbJ6nKsTskqG7/e6kPBNruLZqPDYD
-	 t/u8SJeslUrmQ==
-Date: Sun, 21 May 2023 17:29:41 +0800
+	b=bK1LHT/YeUymJe+bmviXtp5mkVbBYHgww5sdBnnL4Aq3MazisAdOr9Eoh9KjEMT46
+	 82WZxC27NLxnfDCkF9uoXRKThZaEhEGRvOijdZfL3Dg9LC1nfZK4cFX/gkotJdEUqF
+	 BMzsUHQEJzUnp2QhLRs4Ze0sRtWnRRogDb91smVpGALFwHdfzyNnP2k8Fn8So76cOl
+	 q+EWVBh/+JWPenfQAEbGuV8TdVl/u62JI0TJ+OdcfqdjeEVk36Elutf1GOsSV6uA4c
+	 Sq+ugXJhR8kJJ/yqcmmmsut0OYwKWo1L0eBpsipjXsXR7qLebKKv0sCH4uncaIZc0G
+	 IGU00kotUCwRw==
+Date: Sun, 21 May 2023 17:40:53 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Samuel Holland <samuel@sholland.org>, Rob Herring <robh+dt@kernel.org>,
+To: Samuel Holland <samuel@sholland.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
@@ -57,20 +57,19 @@ Cc: Samuel Holland <samuel@sholland.org>, Rob Herring <robh+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 06/10] dt-bindings: riscv: Add bouffalolab bl808 board
- compatibles
-Message-ID: <ZGnkhSlk8NaPELxh@xhacker>
+	Jiri Slaby <jirislaby@kernel.org>
+Subject: Re: [PATCH v4 08/10] riscv: dts: bouffalolab: add Sipeed M1s SoM and
+ Dock devicetree
+Message-ID: <ZGnnJXWxSv2/p87Y@xhacker>
 References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-7-jszhang@kernel.org>
- <c6e44e14-35b2-da09-5e8c-4d47e7a7a055@sholland.org>
- <20230519-squad-undermine-6124aafebafa@wendy>
+ <20230518152244.2178-9-jszhang@kernel.org>
+ <dfa99943-3bca-ec6d-7152-fc6465181a08@sholland.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230519-squad-undermine-6124aafebafa@wendy>
+In-Reply-To: <dfa99943-3bca-ec6d-7152-fc6465181a08@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_024055_408756_FDE0DE43 
-X-CRM114-Status: GOOD (  47.22  )
+X-CRM114-CacheID: sfid-20230521_025207_672021_BAAEB861 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,156 +86,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 19, 2023 at 12:55:02PM +0100, Conor Dooley wrote:
-> On Thu, May 18, 2023 at 10:31:35PM -0500, Samuel Holland wrote:
-> > Hi Jisheng, DT maintainers,
+On Thu, May 18, 2023 at 10:55:21PM -0500, Samuel Holland wrote:
+> Hi Jisheng,
 > 
-> Sick, thanks for piping up Samuel!
-> Both Rob and Krzysztof are not around at the moment, so that probably
-> leaves it up to me.. I'm adding Arnd in case he has a take here too.
-> 
-> > On 5/18/23 10:22, Jisheng Zhang wrote:
-> > > Several SoMs and boards are available that feature the Bouffalolab
-> > > bl808 SoC. Document the compatible strings.
-> > > 
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > >  .../bindings/riscv/bouffalolab.yaml           | 29 +++++++++++++++++++
-> > >  1 file changed, 29 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/riscv/bouffalolab.yaml b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > > new file mode 100644
-> > > index 000000000000..3b25d1a5d04a
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > > @@ -0,0 +1,29 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/riscv/bouffalolab.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Bouffalo Lab Technology SoC-based boards
-> > > +
-> > > +maintainers:
-> > > +  - Jisheng Zhang <jszhang@kernel.org>
-> > > +
-> > > +description:
-> > > +  Bouffalo Lab Technology SoC-based boards
-> > > +
-> > > +properties:
-> > > +  $nodename:
-> > > +    const: '/'
-> > > +  compatible:
-> > > +    oneOf:
-> > > +      - description: Carrier boards for the Sipeed M1s SoM
-> > > +        items:
-> > > +          - enum:
-> > > +              - sipeed,m1s-dock
-> > > +          - const: sipeed,m1s
-> > > +          - const: bouffalolab,bl808
+> On 5/18/23 10:22, Jisheng Zhang wrote:
+> > Sipeed manufactures a M1s system-on-module and dock board, add basic
+> > support for them.
 > > 
-> > As mentioned in the message for patch 5, "The Bouffalolab bl808 SoC
-> > contains three riscv CPUs, namely M0, D0 and LP. The D0 is 64bit RISC-V
-> > GC compatible, so can run linux."
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > ---
+> >  arch/riscv/boot/dts/Makefile                  |  1 +
+> >  arch/riscv/boot/dts/bouffalolab/Makefile      |  2 ++
+> >  .../dts/bouffalolab/bl808-sipeed-m1s-dock.dts | 25 +++++++++++++++++++
+> >  .../dts/bouffalolab/bl808-sipeed-m1s.dtsi     | 21 ++++++++++++++++
+> >  4 files changed, 49 insertions(+)
+> >  create mode 100644 arch/riscv/boot/dts/bouffalolab/Makefile
+> >  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> >  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
 > > 
-> > I have also been running U-Boot and NOMMU Linux on the less powerful,
-> > but still quite fast, "M0" core. However, this core needs a different
+> > diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> > index f0d9f89054f8..133e6c38c9b0 100644
+> > --- a/arch/riscv/boot/dts/Makefile
+> > +++ b/arch/riscv/boot/dts/Makefile
+> > @@ -1,5 +1,6 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  subdir-y += allwinner
+> > +subdir-y += bouffalolab
+> >  subdir-y += sifive
+> >  subdir-y += starfive
+> >  subdir-y += canaan
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
+> > new file mode 100644
+> > index 000000000000..5419964e892d
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +dtb-$(CONFIG_SOC_BOUFFALOLAB) += bl808-sipeed-m1s-dock.dtb
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> > new file mode 100644
+> > index 000000000000..aa6cf909cd4d
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> > @@ -0,0 +1,25 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> > +/*
+> > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "bl808-sipeed-m1s.dtsi"
+> > +
+> > +/ {
+> > +	model = "Sipeed M1s Dock";
+> > +	compatible = "sipeed,m1s-dock", "sipeed,m1s", "bouffalolab,bl808";
+> > +
+> > +	aliases {
+> > +		serial3 = &uart3;
+> > +	};
+> > +
+> > +	chosen {
+> > +		stdout-path = "serial3:2000000n8";
+> > +	};
+> > +};
+> > +
+> > +&uart3 {
+> > +	status = "okay";
+> > +};
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> > new file mode 100644
+> > index 000000000000..5026de768534
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> > @@ -0,0 +1,21 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> > +/*
+> > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "bl808.dtsi"
+> > +
+> > +/ {
+> > +	compatible = "sipeed,m1s", "bouffalolab,bl808";
+> > +
+> > +	memory@50000000 {
+> > +		device_type = "memory";
+> > +		reg = <0x50000000 0x04000000>;
+> > +	};
+> 
+> Especially since the SoC contains three heterogeneous CPUs, the firmware
+> may want to divide the PSRAM among them, so I do not think it is a good
+> idea to define this statically. (Or would all of the DTs contain this
+do you want the bootloader/firmware e.g uboot to add the memory node
+dynamically?
 
-Just FYI, I successfully ran nommu rv32 linux kernel on the "M0" core
-with some patches to the riscv head and irqchip driver.
+But to be honest, nowdays most SoCs contain some heterogeneous CPUs, and
+in real products some of those CPUs need to use DDR memory.
+FWICT, their dtbs(in arch/arm64/boot/dts/...) still define the memory
+statically. I believe this is acchieved by dynamically update the memory
+node of DT. This solution doesn't make obvious difference with the uboot
+adding memory node solution.
 
-> > DTB because:
-> >  1) The CPU is different (T-HEAD E907 instead of C906).
-> >  2) The interrupt routing is completely different.
-> >     a. The M0 core contains a CLIC instead of a PLIC.
-> >     b. The peripherals in the SoC are split between two buses. Those
-> >        on one bus have their IRQs directly connected to M0, and share
-> >        a multiplexed IRQ connection to D0; and vice versa for the
-> >        other bus. So each bus's interrupt-parent needs to be swapped.
-> > 
-> > Using some preprocessor magic like we did for Allwinner and Renesas, I
-> > was able to share most of the SoC and board DTs between the cores[1].
-> > However, this still ends up with two DTs for each board. So here are my
-> > questions:
-> >  - Is this acceptable?
+> same node, and then use reserved-memory nodes to cover the other CPUs'
+> allocations?)
 > 
-> I expected it to look worse than it actually turned out to be.
-> I don't think Krzysztof in particular is a fan of having conditional
-> bits in dts files, but for the shared arm/riscv stuff there was not
-> really another sensible option.
+> Regards,
+> Samuel
 > 
-> >  - Is there precedent for how we should name the two board DTs?
+> > +};
+> > +
+> > +&xtal {
+> > +	clock-frequency = <40000000>;
+> > +};
 > 
-> Arnd might have some idea about precedent here, but I like your naming
-> well enough.
-> 
-> >  - How does this affect the board and SoC compatible strings?
-> >    - Should there be a separate "bouffalolab,bl808-d0" in addition to
-> >      "bouffalolab,bl808"?
-> 
-> What ordering were you intending here?
-> "pine64,0x64" "bouffalolab,bl808" "bouffalolab,bl808-d0"?
-> 
-> That doesn't really seem correct though, as it does not get less specific
-> as you move right.
-> 
-> "pine64,0x64" "bouffalolab,bl808-d0" "bouffalolab,bl808" doesn't seem
-> right either though, for the same sort of reason.
-> 
-> >    - Is it acceptable to use the same board compatible string for both,
-> >      since the _board_ part of the DT does not change, only things
-> >      inside the SoC?
-
-what about describing the DT as the SoC is, e.g
-lp: cpu@0 {
-	...
-	status = disabled;
-};
-
-m0: cpu@1 {
-	...
-	status = disabled;
-};
-
-d0: cpu@2 {
-	...
-	status = disabled;
-};
-
-Then in m0 dts:
-&m0 {
-	status = okay;
-};
-
-in d0 dts:
-&m0 {
-	status = okay;
-};
-
-
-> 
-> I think you may need to have 2 compatibles per board, depending on which
-> cpu. Perhaps even as verbose as:
-> "pine61,0x64-d0" "pine64,0x64" "bouffalolab,bl808-d0" "bouffalolab,bl808"
-> 
-> Not exactly straightforward though, is it!
-> 
-> > It would be possible to avoid having two DTs per board by guarding all
-> > of the differences behind "#ifdef CONFIG_64BIT", but that seems wrong
-> > because you would end up with two totally incompatible DTBs named the
-> > same thing, depending on how the DTB was built.
-> 
-> I think having 2 dtbs is fine, and as I mentioned, I've seen Krzysztof
-> complain previously about conditional bits like that.
-> 
-> Cheers,
-> Conor.
-
-
 
 _______________________________________________
 linux-riscv mailing list
