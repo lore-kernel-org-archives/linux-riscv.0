@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F7AC77B7C
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 17:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C365C7EE23
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 18:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEi8WlBDj+Ume0JsoyHOoz/OLmQAtgUZke1DnpmxWt4=; b=uvsVVN5iTU7YEIMPslwnj/7fSM
-	XylveMMCwUrmDX9y8IOGrtR6CK7Kk81ZCn4+1WeljPINdPt8/p4VPAmiCgv6fGZk3k9XhCAtKMt1j
-	uwY3FVmn9tOX/ej48ttR4b1d8zYY3e7Wp3uHP/F9ollrPn92kSWNqP8rWDffW8cmJB+DtylZzG+YR
-	MJ3pTmfM4VXkbvoCeuLE4RVpMrzJwILw5SJPT3iw/jr9lWX/KicD7CVq4IXDd4Xdhv6n0HLLXXy1k
-	B5WLdsLOEDgy0adKUaNVB00NgARycaVnc35qpYjUzHj4HxVbBvwa4lUcuCfQFtJi2B1hZ8iMYgBcJ
-	4CfPNpbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2hU5nILWpsbfcHU/FKVCDZX2nrY8ZjqeO8RJMrEYDic=; b=S3qHSpyqArc5dM
+	7d/xUxB2JRBJ6m1UmZ8RpYt9prOu+/hEJ9qC81C7qgHX9BpPYVHwlxd6kTfWOyYLTdKr0l85WNaIN
+	Y1hzUxoILRfFyheb7TdjSCEJ0xzr5T3IAwcvQM6hoQToRAYHUxnaV88TBlndF7Qk//9pPSr+MftPK
+	ttnz/rj3KYd0eUCzqGR2Ws4qXoKCHzpNWpOxxI92xTcwHQSdD3KK3polvCtXtPdcs7MwZoqfZ0xhW
+	G5A3Uz8dqJ19TSkeJ3EC6FGBRe4ouzu2qRX4jsFcjPevMSqxZSf+yN1xIOcPxGmSyAuMUBBhBNXXy
+	wrgtTwGmu2hfph0mVhUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0mXy-004ESR-0I;
-	Sun, 21 May 2023 17:08:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q0nW0-004KHO-0t;
+	Sun, 21 May 2023 18:10:44 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0mXv-004ERd-02
+	id 1q0nVw-004KGS-0U
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 May 2023 17:08:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5F81A60F5A;
-	Sun, 21 May 2023 17:08:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1780AC433D2;
-	Sun, 21 May 2023 17:08:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684688917;
-	bh=EA/dMN8uSmBLu0XJzQQrrnI0PyUW/NRfOEu9PpWl6rY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P5Be11gQhXTmIpiBfldqTfPjPIpLCHql53dVblRRB+MMAJDOYixcoh3wUOO2c/kto
-	 6Li2ifUIM10h7J9+0HbhfcE12usA1k5mamV27sG9eQbERsm5upJe9EYH+3qH2oUpvG
-	 tBlTeoWnOyByQY79USYdL5tZuJrYPqi5QC/HqKTy3P6DbnPd+U9FPSEY27foEyiPGB
-	 +US7bShnmG+9AmF+fS8sZvT3i+6o45VH0Zi/05lz8OkrHK+IVIZ2pJXqjV+hkysmoM
-	 pWTa9yx6SYBE0Or3PYDXAYqVK5oiGvZslnkMm39RsGYi4qafAWe9DKjS3uMOHDzBWU
-	 /t+uJOGSfCojg==
-Date: Sun, 21 May 2023 18:08:32 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	heiko@sntech.de
-Subject: Re: [PATCH 3/5] riscv: dts: add initial T-HEAD light SoC device tree
-Message-ID: <20230521-licorice-follicle-2f83e82f8bce@spud>
-References: <20230507182304.2934-1-jszhang@kernel.org>
- <20230507182304.2934-4-jszhang@kernel.org>
- <20230507-calamari-gentleman-bbe62af06f92@spud>
- <ZFkiotPacIMUghDP@xhacker>
- <20230508-unmoved-unvocal-9a6c5fc0c629@spud>
- <CAJF2gTSFm32ozEDy_3zvrf05USJ8FxCsaGK-2FbkJQsPUDQXmA@mail.gmail.com>
+	Sun, 21 May 2023 18:10:42 +0000
+X-QQ-mid: bizesmtp62t1684692504txiq7w8d
+Received: from linux-lab-host.localdomain ( [116.30.125.36])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 22 May 2023 02:08:23 +0800 (CST)
+X-QQ-SSF: 01200000000000D0U000000A0000000
+X-QQ-FEAT: nA8mzCjPbKjAyatHOLqVBZWleNML49vMr+sWKoVyh7o6l2YSji7G1wm1SVKxs
+	QY/Tyk36sdfw8jpkOj0h2DqgkGeR4T966XMrs9M3WFlRuppMpPQN4duzuVWOmAu7AG8X1qH
+	gF2yyOppqomXpYvjj3Aj0104rmcB78h1cRm8Of51Da9uBm8eJvQ5nFjrzDMLzydebkZMnjB
+	lGfILk1gY2Yeem5Mbg9wS0AXePV/VmKa+64oHw+W4m/fMaPGqO/kFKVFQnaboPY9PcsKHyf
+	805DgbIJF9CSpuucNeK9E/1HFphyuiWx0nZSsJS1cM+ycSHilHq6Jqc+rrg3/mtm5N2nrN9
+	l66FU7K/KqBK/euMe+KStFB8ul67e6wh7SWI9Ic
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1011124316858910777
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	shuah@kernel.org,
+	thomas@t-8ch.de
+Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
+Date: Mon, 22 May 2023 02:08:23 +0800
+Message-Id: <20230521180823.164289-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ZGmW1YEUWASzEJ13@1wt.eu>
+References: <ZGmW1YEUWASzEJ13@1wt.eu>
 MIME-Version: 1.0
-In-Reply-To: <CAJF2gTSFm32ozEDy_3zvrf05USJ8FxCsaGK-2FbkJQsPUDQXmA@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_100839_122937_A18C4DCD 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20230521_111040_510192_A5FF0514 
+X-CRM114-Status: GOOD (  36.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,92 +75,206 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2111286959437129998=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Willy, Thomas,
 
---===============2111286959437129998==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8G3irSIrB1WawZQb"
-Content-Disposition: inline
-
-
---8G3irSIrB1WawZQb
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, May 21, 2023 at 11:37:58PM +0800, Guo Ren wrote:
-> On Tue, May 9, 2023 at 12:44=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Tue, May 09, 2023 at 12:26:10AM +0800, Jisheng Zhang wrote:
-> > > On Sun, May 07, 2023 at 10:35:12PM +0100, Conor Dooley wrote:
-> > > > On Mon, May 08, 2023 at 02:23:02AM +0800, Jisheng Zhang wrote:
-> > > >
-> > > > > +         c910_0: cpu@0 {
-> > > > > +                 compatible =3D "thead,c910", "riscv";
-> > > > > +                 device_type =3D "cpu";
-> > > > > +                 riscv,isa =3D "rv64imafdc";
-> > > >
-> > > > Does this support more than "rv64imafdc"?
-> > > > I assume there's some _xtheadfoo extensions that it does support,
-> > > > although I am not sure how we are proceeding with those - Heiko mig=
-ht
-> > > > have a more nuanced take.
-> > > >
-> > > > > +         reset: reset-sample {
-> > > > > +                 compatible =3D "thead,reset-sample";
-> > > >
-> > > > What is a "reset-sample"?
+> On Sun, May 21, 2023 at 02:30:22AM +0800, Zhangjin Wu wrote:
+> > ...
+>
+> I think what Thomas meant is that he wants to be sure the call doesn't
+> end up as read(-1, &tmp, 1). Here you could have -EBADF or -EFAULT, it
+> depends. Anyway other solutions can be found if necessary. Another
+> approach could be to switch back to __NR_fstat and condition it to its
+> definition.
+>
+> > > > Maybe we can find a new syscall to test with?
 > > >
-> > > This node is only for opensbi. The compatible string is already in
-> > > opensbi. Do we also need to add dt-binding for it in linux?
+> > > Maybe it would be worth considering pselect() or equivalent which
+> > > involve many arguments. I don't know if rv32 has fstatat() or
+> > > lstat() for example, that could be used as alternatives ?
+> > >
 > >
-> > If it's to be included in the kernel's dts, then yes, you do need a
-> > dt-binding. If you remove it, then you don't :)
+> > Unfortuantely, none of them is available in rv32, we have the same tricks you used in another reply:
 > >
-> > That said, "thead,reset-sample" is a strangely named compatible, so if
-> > you do keep it it may end up needing a rename!
+> >     $ echo "#include <asm/unistd.h>" | \
+> >         riscv64-linux-gnu-gcc -march=rv32im -mabi=ilp32 -Wl,-melf32lriscv_ilp32 -xc - -E -dM | \
+> >         grep -E "pselect|fstat|lstat"
+> >     #define __NR_pselect6_time64 413
+> >     #define __NR3264_fstatfs 44
+> >     #define __NR_fstatfs64 __NR3264_fstatfs
+>
+> Then probably fstatfs should work equally for this test.
+>
 
-> How about compatible =3D "thead,reset-th1520" ?
+I tested a change like this (try __NR_fstatfs64, __NR_fstatfs, and __NR_fstat one by one):
 
-"vendor,soc-function" is more typical, but "reset" is usually used for
-reset controllers of which this isn't as far as I can tell.
-I commented on the v2, hoping that you might actually know what the IP
-block' full/proper name is:
-https://lore.kernel.org/all/20230518-driving-secluding-793b3192776e@spud/
+    diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+    index 063f9959ac44..0a60e8ca5756 100644
+    --- a/tools/testing/selftests/nolibc/nolibc-test.c
+    +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+    @@ -500,6 +500,16 @@ static int test_fork(void)
+     	}
+     }
 
-Do you?
+    +#ifdef __NR_fstatfs64
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs64, 0, 0, NULL), -1, EINVAL)
+    +#elif defined(__NR_fstatfs)
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs, 0, NULL), -1, EFAULT)
+    +#elif defined(__NR_fstat)
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT)
+    +#else
+    +#error None of __NR_fstatfs64, __NR_fstatfs and __NR_fstat defined, cannot implement syscall_args test
+    +#endif
+    +
+     /* Run syscall tests between IDs <min> and <max>.
+      * Return 0 on success, non-zero on failure.
+      */
+    @@ -596,7 +606,7 @@ int run_syscall(int min, int max)
+     		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
+     		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
+     		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), getpid()); break;
+    -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
+    +		CASE_TEST(syscall_args);      EXPECT_SYSER_SYSCALL_ARGS(); break;
+     		case __LINE__:
+     			return ret; /* must be last */
+     		/* note: do not set any defaults so as to permit holes above */
 
-Cheers,
-Conor.
+And another change like this (try __NR_statx and then __NR_fstat):
 
---8G3irSIrB1WawZQb
-Content-Type: application/pgp-signature; name="signature.asc"
+    diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+    index 063f9959ac44..d740ba405cb2 100644
+    --- a/tools/testing/selftests/nolibc/nolibc-test.c
+    +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+    @@ -500,6 +500,17 @@ static int test_fork(void)
+     	}
+     }
 
------BEGIN PGP SIGNATURE-----
+    +static int test_syscall_args(void)
+    +{
+    +#ifdef __NR_statx
+    +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
+    +#elif defined(__NR_fstat)
+    +	return syscall(__NR_fstat, 0, NULL);
+    +#else
+    +#error Neither __NR_statx nor __NR_fstat defined, cannot implement syscall_args test
+    +#endif
+    +}
+    +
+     /* Run syscall tests between IDs <min> and <max>.
+      * Return 0 on success, non-zero on failure.
+      */
+    @@ -596,7 +607,7 @@ int run_syscall(int min, int max)
+     		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
+     		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
+     		CASE_TEST(syscall_noargs);    EXPECT_SYSEQ(1, syscall(__NR_getpid), getpid()); break;
+    -		CASE_TEST(syscall_args);      EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT); break;
+    +		CASE_TEST(syscall_args);      EXPECT_SYSER(1, test_syscall_args(), -1, EFAULT); break;
+     		case __LINE__:
+     			return ret; /* must be last */
+     		/* note: do not set any defaults so as to permit holes above */
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGpQEAAKCRB4tDGHoIJi
-0kCCAP9n2k/2fmZwxGGppz0pZC0qiT6h8lZ8vMVzSsmZd2NsAQD+J2Tr7Hxg2Bgt
-tnCER3gtzOoAHhHn+MwFUX4Oy4EtugU=
-=DDuI
------END PGP SIGNATURE-----
+Which one is acceptable?
 
---8G3irSIrB1WawZQb--
+> > Or, use the rv32 test result as a crude reference:
+> (... trimmed to keep only the failed ones ...)
+> >
+> >     15 chmod_net = -1 ENOENT                                        [FAIL]
+> >     16 chmod_self = -1 ENOENT  != (-1 EPERM)                        [FAIL]
+> >     17 chown_self = -1 ENOENT  != (-1 EPERM)                        [FAIL]
+> >     20 chroot_exe = -1 ENOENT  != (-1 ENOTDIR)                      [FAIL]
+> >     30 fork = 1 ENOSYS                                              [FAIL]
+> >     33 gettimeofday_null = -1 ENOSYS                                [FAIL]
+> >     35 gettimeofday_bad1 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+> >     36 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+> >     37 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+> >     45 link_cross = -1 ENOENT  != (-1 EXDEV)                        [FAIL]
+> >     51 poll_null = -1 ENOSYS                                        [FAIL]
+> >     52 poll_stdout = -1 ENOSYS                                      [FAIL]
+> >     53 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
+> >     56 select_null = -1 ENOSYS                                      [FAIL]
+> >     57 select_stdout = -1 ENOSYS                                    [FAIL]
+> >     58 select_fault = -1 ENOSYS  != (-1 EFAULT)                     [FAIL]
+> >     64 wait_child = -1 ENOSYS  != (-1 ECHILD)                       [FAIL]
+> >     65 waitpid_min = -1 ENOSYS  != (-1 ESRCH)                       [FAIL]
+> >     66 waitpid_child = -1 ENOSYS  != (-1 ECHILD)                    [FAIL]
+> >     Errors during this test: 19
+>
+> So that's a lot of failures and we should start to blindly degrade other
+> tests just for the sake of fixing these ones here, it should be done more
+> carefully.
+>
 
+Removed the config options related failures (will use defconfig to re-check
+them, I did use a tiny config for faster compile):
 
---===============2111286959437129998==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+    30 fork = 1 ENOSYS                                              [FAIL]
+    33 gettimeofday_null = -1 ENOSYS                                [FAIL]
+    35 gettimeofday_bad1 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+    36 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+    37 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+    51 poll_null = -1 ENOSYS                                        [FAIL]
+    52 poll_stdout = -1 ENOSYS                                      [FAIL]
+    53 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
+    56 select_null = -1 ENOSYS                                      [FAIL]
+    57 select_stdout = -1 ENOSYS                                    [FAIL]
+    58 select_fault = -1 ENOSYS  != (-1 EFAULT)                     [FAIL]
+    64 wait_child = -1 ENOSYS  != (-1 ECHILD)                       [FAIL]
+    65 waitpid_min = -1 ENOSYS  != (-1 ESRCH)                       [FAIL]
+    66 waitpid_child = -1 ENOSYS  != (-1 ECHILD)                    [FAIL]
+
+The left failed syscalls may be waitpid, wait4, gettimeofday, poll and select,
+it is not too many.
+
+>
+> My preference for the short term would be the following:
+>   1) make sure we fix build issues for all platforms, including rv32
+>   2) make sure Thomas' work on syscall() and STKP works fine where it
+>      should, as it used to till now on other platforms
+>
+>   => this should be added to the 6.5 queue, and for this I don't want
+>      to make this series regress as it should be queued quickly so that
+>      test code used by other developers working on 6.5 is reasonably
+>      stabilized.
+
+Hope one of the above changes meets this goal, if no, perhaps we can simply
+revert my '__NR_read' patch and left it together with the other rv32 failures
+to next merge window.
+
+>
+>   3) evaluate what needs to be done regarding time32, this implies
+>      working in the lower abstraction layers to depend on
+>      __ARCH_WANT_TIME32_SYSCALLS and use the new syscalls instead.
+>
+>   => I don't know how much work it requires; if it's trivial this
+>      could possibly be for 6.5, otherwise it will have to be postponed.
+
+My suggestion is directly fix up the failures one by one in current stage,
+because nolibc currently only uses part of the time32 syscalls, it may be not
+that complex to fix up them. Have read the code of musl and glibc today, both
+of them have good time64 syscalls support, I plan to fix up the above failures
+in several days, hope so but no promise ;-)
+
+And another question: for the new changes, If a platform support both of the
+32bit and 64bit syscalls, do we need to put the 64bit syscalls at first?
+
+For example, the __NR_llseek we just added, do we need to check __NR_llseek
+before check __NR_lseek? this may support 64bit better but also may generate
+bigger size of code, currently, my patch checks __NR_lseek at first and then
+__NR_llseek to get smaller size of code, but as I read from the musl and glibc
+code, both of them put the 64bit syscalls path before others.
+
+Thanks,
+Zhangjin
+
+>
+> Thanks,
+> Willy
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2111286959437129998==--
-
