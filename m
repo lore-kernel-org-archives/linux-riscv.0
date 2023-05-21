@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0045C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 02:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42074C77B7C
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 02:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RemBXbzaj0LeFZL0pP5IMBMEctdn1nr/DYxCOS02ZPo=; b=jk5oqvQiZ1uKb3
-	j8mRRiUOpaTuE+7dWL5kMkI0ppqTil9M+XGoyKvYv4pnF9GL8u+mPPtsQpRQA9coPNHZH4rIT3Jur
-	cxfxdDSwjDOnwjMtVivdHy1I3w/zNMb22B8MEptKGMOUqa0L6LkZaenmwnYrNwqjDJkHcRLNSZXOz
-	yml46gwdmTr0NZlbVaXQzc1B9Qr+3lZXv3n/Q08Zj2ZzjeVfLI+DSmFUuQ0/koLJd5ssDf4Wh10ZK
-	R38EYSHX9T7ivMcrL1MT5jvRMDJBr+vnwU9+hbi1hPYUHxk8dSH4+BzH1CxgxtBChVKVnNx+sLouJ
-	8hn/pX1bOcmjd1f8PGwA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=472EhJtfkNGoRjC2HOIOey7UB36Tcxml1p5uA4pslfQ=; b=S4D7YgBS2XHlmC
+	UQcFrEFUhFt6GS/UcFvcRfaB8YGY0ob0iKDdaYjmd7KYiIJ4FVUdxGjg7M4CVchThn36FcBtwn/GF
+	yBqHToXfUcJ6T7oK7agqCemWt9lvioHGysFJl6P0IFAdT6XzWZ1afcf1DQI1LW8b+BGoFkYZiacHu
+	kNJNrEsYS2J1y/hjGtErcfNg0cpznpkGdvz5/7KETPrVGFzQD3cMsbXLSTnR4sTOKIK8j5trvhgUH
+	TpTJS2axo5P49tsTkcWebsiwpUkreyYlwvlfVYw4kCNIKwmlJx+R8LnfrjK+4dcbNyyOu3Ph40tzk
+	2nt8NeSwaKxWLV9jq7QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0YOd-002nIs-1Z;
-	Sun, 21 May 2023 02:02:07 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1q0YjF-002pr7-2A;
+	Sun, 21 May 2023 02:23:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0YOY-002nI7-2N
+	id 1q0YjA-002pq5-2d
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 May 2023 02:02:05 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-64a9335a8e7so1526285b3a.0
-        for <linux-riscv@lists.infradead.org>; Sat, 20 May 2023 19:01:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1684634516; x=1687226516;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=51eARV0mcKeV1eIZtds0tWRUIXNBvFSqTgfBgrE5Jwg=;
-        b=xelRWVs3hikFpb6Z+GQFtokNQWEDsFQ16L9wp06fub8GBYnTA4OUitMDyex+TszXFn
-         muJjlJWM011b09xLbXnpBId7LBmeLKJ/2x9KLxY8cbN7O44YMZ/zPT227036WmXvn4E4
-         6tWGCQyzIqZmOqlNx1h4Mf7UNBXnxm8xg1wJs0xfENsxwlJNd6u4aqSDTP2XOUopPfmK
-         V6O4giJfRAUCB8FTpncGp3G7MNz4APz6MsVEAOLwbZ1XrWICx7joDvSD0WGoDb4VGTcm
-         j1kb4Q2H3wMg0pADO+lHH54XIuyPfPRq5ZslfMslq8bRHL824dHu7jsrYsDY387nMtTd
-         pjvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684634516; x=1687226516;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=51eARV0mcKeV1eIZtds0tWRUIXNBvFSqTgfBgrE5Jwg=;
-        b=QRsb1j1pXn+3lYTI/xaDxfFsC7QD/TJq6X9LJTHbGAERCoR3seIUwqBkDMC8d4uooi
-         Z5gGw+ZxUjNEa2JAmnlzLpLxy+cPBRJtBcMopScoJO+2C8gquXS1VmI3pQCOAdbkaDX7
-         OWVFlQKdVJxPJB3yGFzpY2lGjjGmA+YpKZxwydZR2ZUNNV0dV4o8ZgKabIuC7YPzixoe
-         ghqDWpYJroIOwZtKNGvYRr6xyYm9QKe0gUu4kEzIN16oo4n/FLYRk2fMAf/IILpt3Js5
-         49bwe5MT27q0LCKNfPOyc3lTlU4/e3I2J1ZGYfHvJfFAWLsZd6ewuuAthUtgPy0yh7Rb
-         jEFw==
-X-Gm-Message-State: AC+VfDypjZWKDqpbYx69V+GABM+rGYq78SfdKXUGDYpoAOp0RX3KTRft
-	M7iU9Do6tupan4eAH1i6Q9YIyg==
-X-Google-Smtp-Source: ACHHUZ5ZFTB2b1TzGRnzu56JDQXNuSCkhQzwTKamxHc9v+Tcbetk0vwpHRvSFd3twRCqlRjYN2kXqA==
-X-Received: by 2002:a17:902:e848:b0:1ac:820e:c34a with SMTP id t8-20020a170902e84800b001ac820ec34amr12119763plg.0.1684634516058;
-        Sat, 20 May 2023 19:01:56 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:95b7:fae6:7e9f:45cb])
-        by smtp.gmail.com with ESMTPSA id v7-20020a170902b7c700b001ae0152d280sm2107584plz.193.2023.05.20.19.01.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 May 2023 19:01:55 -0700 (PDT)
-Date: Sat, 20 May 2023 19:05:54 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: riscv: boot failure for 3335068f8721 ("riscv: Use PUD/P4D/PGD pages
- for the linear mapping")
-Message-ID: <ZGl8gn/rD8WZ0nak@x1>
+	Sun, 21 May 2023 02:23:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 34F3060B40;
+	Sun, 21 May 2023 02:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EF01C433D2;
+	Sun, 21 May 2023 02:23:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1684635799;
+	bh=RHW80sJHmW5Qqx75Hy0vyujMaMVpH+8l0k3YudQV2wo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mooVlLsc91A2gkf2LcYLhp8SBftmNELazGRBRC+AawEjkWKsjEZsEOfWy84veaPRk
+	 xt5EYvKhA30EULP8WIUDL+hoFzpsTW9I2PqNe1GjqVQjSJSYyOX840X1ui6eJxCG3t
+	 3/d4cjNoiHriZVUMHxw3VFQsjkyy2P5Ft9EMS1PV4jOA1ldBjAEHUNvsF+aI1lum9g
+	 3G4EcY2b+YQoWI3zSsz+V+tSLTs3PnPqedfcg57GtQA074c3M2sINxYs9N4zL+5lJC
+	 Q4iA55CRT+CTHYqUSpmSiRjZaiaTdyBnc1xZdH6i86QaJraA4Q/k3Aa49ycnUuQXno
+	 ugRwm1qe0hlYA==
+From: guoren@kernel.org
+To: falcon@tinylab.org,
+	guoren@kernel.org
+Cc: conor@kernel.org,
+	linux-riscv@lists.infradead.org,
+	npiggin@gmail.com,
+	palmer@rivosinc.com,
+	paul.walmsley@sifive.com,
+	paulburton@kernel.org,
+	tim.bird@sony.com,
+	vincent.chen@sifive.com
+Subject: Re: [PATCH v3] RISC-V: Enable dead code elimination
+Date: Sat, 20 May 2023 22:23:13 -0400
+Message-Id: <20230521022313.3758709-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20230517082936.37563-1-falcon@tinylab.org>
+References: <20230517082936.37563-1-falcon@tinylab.org>
 MIME-Version: 1.0
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230520_190202_967245_2BE222A2 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20230520_192320_922628_D42ECB4D 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +81,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello, I tested 6.4-rc1 on an internal RISC-V SoC and observed a boot
-failure on a Store/AMO access fault (exception code 7) in __memset().
-stval (e.g. badaddr) was set to 0xffffaf8000000000. This SoC is RV64GC
-with Sv48 so it seems that address is the start of the "direct mapping
-of all physical memory" [1].
+> 
+> Select CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION for RISC-V, allowing
+> the user to enable dead code elimination. In order for this to work,
+> ensure that we keep the alternative table by annotating them with KEEP.
+> 
+> This boots well on qemu with both rv32_defconfig & rv64 defconfig, but
+> it only shrinks their builds by ~1%, a smaller config is thereforce
+> customized to test this feature:
+> 
+>           | rv32                   | rv64
+>   --------|------------------------|---------------------
+>    No DCE | 4460684                | 4893488
+>       DCE | 3986716                | 4376400
+>    Shrink |  473968 (~10.6%)       |  517088 (~10.5%)
+Good point and other arch also support the feature e.g. commit:
+c0436b503591 ("MIPS: Enable dead code elimination")
 
-The 6.3 release boots okay and the system is able to operate correctly
-with an Ubuntu 23.04 rootfs on eMMC. Therefore, I decided to bisect and
-I found the failure begins with 3335068f8721 ("riscv: Use PUD/P4D/PGD
-pages for the linear mapping"). The system boots okay with the prior
-commit 8589e346bbb6 ("riscv: Move the linear mapping creation in its
-own function").
+Reviewed-by: Guo Ren <guoren@kernel.org>
 
-The boot log [2] shows that the fault happens right after buildroot's
-init script [3] uses switch_root to execute init from the Ubuntu rootfs
-on the eMMC.
-
-DWARF4 is enabled in .config [4] and the decoded stack trace [5] shows:
-
-  epc : __memset (/eng/dfustini/gitlab/linux/arch/riscv/lib/memset.S:67)
-
-From memset.S:
-
- Line 67:         REG_S a1,        0(t0)
-
-From the oops:
-
- epc : ffffffff81122d6c ra : ffffffff80218504 sp : ffffaf8002e47500
-  gp : ffffffff82695010 tp : ffffaf8002e2ec00 t0 : ffffaf8000000000
-  t1 : 0000000000000080 t2 : 0000000000000001 s0 : ffffaf8002e47550
-  s1 : ffff8d8200000040 a0 : ffffaf8000000000 a1 : 0000000000000000
-
-Thus I think it is trying to store 0x0 to 0xffffaf8000000000 which is
-the start of the direct map. From the boot log [2], OpenSBI shows:
-
- Domain0 Region00 : 0x0000000002080000-0x00000000020bffff M: (I,R,W) S/U: ()
- Domain0 Region01 : 0x0000008000000000-0x000000800003ffff M: (R,W,X) S/U: ()
- Domain0 Region02 : 0x0000000002000000-0x000000000207ffff M: (I,R,W) S/U: ()
- Domain0 Region03 : 0x0000000000000000-0xffffffffffffffff M: (R,W,X) S/U: (R,W,X)
-
-The DDR memory on this SoC starts at 0x8000000000 with size 2GB. The
-memory node from the device tree [6]:
-
-        memory@8000000000 {
-                device_type = "memory";
-                reg = <0x80 0 0x00000000 0x80000000>;
-        };
-
-I think the direct map address 0xffffaf8000000000 would map to physical
-address 0x8000000000. Thus I think the attempted store in S-mode to that
-address would violate the PMP settings for Region01.
-
-I do not yet understand why this happens with 3335068f8721 ("riscv: Use
-PUD/P4D/PGD pages for the linear mapping") but not for the prior commit
-8589e346bbb6 ("riscv: Move the linear mapping creation in its own
-function").
-
-One important cavaet: I do have a small diff from mainline to add
-support for the eMMC controller in this SoC to sdhci-of-dwcmshc.c. The
-output of 'git diff' when 3335068f8721 is checked out [7] shows that
-this just adds a new compatible and corresponding sdhci_ops struct.
-Everything works ok with this change in both the 6.3 release and the
-commit prior to 3335068f8721.
-
-I know it is a bit awkward for me to report a boot failure for an
-internal SoC but I am hoping to find a better solution than just
-reverting this change in the downstream kernel.
-
-The reason that so few changes are needed to run Linux on this SoC is
-that there is a service processor that handles all the low-level tasks
-like setting up clocks and configuring various peripheral controllers.
-Everything is already setup and ready to go by the time the hart meant
-to run OpenSBI+Linux (fw_payload.bin) comes out of reset.
-
-Note: normally Linux runs on all four harts but I reduced to running on
-a single hart to simplify diagnosing this boot failure.
-
-Thanks,
-Drew
-
-[1] https://docs.kernel.org/riscv/vm-layout.html#risc-v-linux-kernel-sv48
-[2] boot log: https://gist.github.com/pdp7/afe78604f477c9e3a3cf0241bcdffcdb
-[3] init script: https://gist.github.com/pdp7/8d61bafbca55e987b790433c0353831d
-[4] linux .config: https://gist.github.com/pdp7/a4df66f1359a34194bddd32f74ab38a3
-[5] stacktrace: https://gist.github.com/pdp7/0524892ea319775ea70e43a54cc842a9
-[6] mysoc.dts: https://gist.github.com/pdp7/cd1b2e8e8d3f6047efd53e4ef65664da
-[7] git diff: https://gist.github.com/pdp7/581c9e8415da94a29d34ae6d7cc14669
+> 
+> The config used above only reserves necessary options to boot on qemu
+> with serial console, more like the size-critical embedded scenes:
+> 
+>   - rv64 config: https://pastebin.com/crz82T0s
+>   - rv32 config: rv64 config + 32-bit.config
+> 
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  arch/riscv/Kconfig              | 1 +
+>  arch/riscv/kernel/vmlinux.lds.S | 2 +-
+>  2 files changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 348c0fa1fc8c..d2eb1a862ea8 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -111,6 +111,7 @@ config RISCV
+>  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+>  	select HAVE_KRETPROBES if !XIP_KERNEL
+>  	select HAVE_RETHOOK if !XIP_KERNEL
+> +	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+>  	select HAVE_MOVE_PMD
+>  	select HAVE_MOVE_PUD
+>  	select HAVE_PCI
+> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> index e5f9f4677bbf..0f5dfbc113d4 100644
+> --- a/arch/riscv/kernel/vmlinux.lds.S
+> +++ b/arch/riscv/kernel/vmlinux.lds.S
+> @@ -112,7 +112,7 @@ SECTIONS
+>  	. = ALIGN(8);
+>  	.alternative : {
+>  		__alt_start = .;
+> -		*(.alternative)
+> +		KEEP(*(.alternative))
+>  		__alt_end = .;
+>  	}
+>  	__init_end = .;
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
