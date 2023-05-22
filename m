@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D90C77B7C
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 May 2023 21:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC6C4C7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 01:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9MsFNipNThHPWUZb2VC0sAQ4Mq10Au3o86AnTaOMwnc=; b=fH3zOTCyGyDrlY
-	oB/DOD+5PsZ9+kFPXacL04tnXUM17hfuSBcU0fOfIn9UYCoCkr9dza84stdqRJWKqnVq88uU6P/WO
-	4+3CcMbZshILeUzSgO9V3vL6Dh60DuSuvzrYbBhSx/YRkn/W4IO185QSozr48snavkM77knd4jTdc
-	vAV+YfZNwJgTs55Ue6sM3kKAAThalnBDqt7SxngijICmvHq+vWDpU2BjrDwnPgRdcs85s1MlWt1em
-	/n0OZCB0OAqZXD+BT7A/M5QIu3G+5f4Cfl1ZDOh76uf5UITKgLTXT+7TetCKPY/4whUhSB+7BiAFR
-	vRo3DnmoCO0/dXQcQeHw==;
+	List-Owner; bh=rjLqMxP4JA+MZDxlBryoqvTHE5J4KozL0zDZdXERxAI=; b=HUvn1V0u64lX98
+	T3Fmuc074R8hShv6tdNuzm8D4V38dwjTx429oqEwdhdB+y1WEqiQy3H6DwKJnNmq4k9as1iUXKTUx
+	axFgrhaojYghsHrmkyDkMv8hBHDI8XjmN24NWV63ZrMJTOtD4i/UbkVgajXxnEzVmPgeFENDOyPtX
+	wQ3gYDDPkIrW5PFtAbEHvYxvt/LotSRS0LgeV3C61MBhQB9GzRiXmK573/T6i1RjwuHXAqrsnB4pc
+	JWv0NZ5W7laTmvVi1d5sSFT2U9vlHZm7D5J44BytuSU74ssbSKZIFUrizxymlG+7ZLXhgKU1CRtYf
+	s4argVatZIYrDYFhTsiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0r3H-004jn2-0C;
-	Sun, 21 May 2023 21:57:19 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0r3D-004jmb-18
+	id 1q0u5n-004zDp-2Y;
+	Mon, 22 May 2023 01:12:07 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q0u5j-004zA9-0z
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 May 2023 21:57:17 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-53469299319so2925739a12.3
-        for <linux-riscv@lists.infradead.org>; Sun, 21 May 2023 14:57:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1684706233; x=1687298233;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lcnVnxDvif0ZfkyQkkgd2zU4HMJfXMdHIx335Lxz+H8=;
-        b=zrtjPUo834/13md+sL+66/JcVnmbMw9vwrfF7JI5+764einZmY0OY+4gdhmPny4ST/
-         HbkML21Xd0/CY+2TqZVpecEGMLZr4QlOVvgeOHVIOeMLLX/9gRjZegTVQisUGjg41XKP
-         9q6kCBPEc7CbivmQxA2naeMDjil/VtDNmtqb1U4+1IsfsKQiGH4XmaSo3GdBoXKTV6+C
-         31SxTfi8b53orphsztr6spUf2RbBPJqf7cHRDlsI0aoVxP442aVyNVUAGEXXVS+IgjIx
-         Vk8Q5q9TG3fSQStZaGM+ldMQpVYiQgMlDTHCbBNUw6lcCcqgO+W8gqbb55/3JjEtdors
-         /HWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684706233; x=1687298233;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lcnVnxDvif0ZfkyQkkgd2zU4HMJfXMdHIx335Lxz+H8=;
-        b=Xb1cVk6XGaVPdvqvXEqgi+5u6LQcY7EwDWielgCjsVeF4bRYdb75+oBVFFcyxK0nxl
-         WH2mi+d7oqx5VUrF2zdNrlrqtF9OxZiU3MvwLOb3X+XnDEmo//BViY26qcJx6TQzhOBP
-         7tfsStSGiZw6QjY+TWTJTsT6t3udIVe5Kgf6f7Dg4JEhYfcmQWVaWWyB6AMtJHGfQZoJ
-         b5CVxbxYiPSII7rH4VBPjC6qoTwt7RNGEBFD5onkUvaoHo6fd3Ux3NVunyFnTyvmTlT5
-         rCp7w7xOjpRiI7FZ1e2Pl033jNfAV9InlOaNiUdeoYDX3LxeHGlBO8r5XCzbdpctLKuT
-         JcFw==
-X-Gm-Message-State: AC+VfDybTV2PTTvB8eMl+WUkNrANiaoJ5XZTM7+E5jqCaZZr2UWlpKcs
-	qMxbFKOuKMwcoNqmZuoA6J0c6Q==
-X-Google-Smtp-Source: ACHHUZ5W8aWE6eRHEmfCisBZ6pvyYucjXedqi6mQQ/3ryc3KvpLVD1LA0wy8ok/0oPuyz5Pc7Qmqxg==
-X-Received: by 2002:a17:903:2310:b0:1aa:f53a:5e47 with SMTP id d16-20020a170903231000b001aaf53a5e47mr11864710plh.16.1684706232828;
-        Sun, 21 May 2023 14:57:12 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:9483:9e6b:e3e5:203])
-        by smtp.gmail.com with ESMTPSA id i1-20020a17090332c100b001a94a497b50sm3382147plr.20.2023.05.21.14.57.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 May 2023 14:57:12 -0700 (PDT)
-Date: Sun, 21 May 2023 15:01:11 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Samuel Holland <samuel@sholland.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: riscv: boot failure for 3335068f8721 ("riscv: Use PUD/P4D/PGD
- pages for the linear mapping")
-Message-ID: <ZGqUpwJOiiLnKMkg@x1>
-References: <ZGl8gn/rD8WZ0nak@x1>
- <51339689-b92f-52fb-9202-2b91733f9180@sholland.org>
+	Mon, 22 May 2023 01:12:05 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 163AF24DDB2;
+	Mon, 22 May 2023 09:11:10 +0800 (CST)
+Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
+ 2023 09:11:10 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX167.cuchost.com
+ (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
+ 2023 09:11:09 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Mon, 22 May 2023 09:11:09 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+CC: Song Shuai <suagrfillet@gmail.com>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	"ajones@ventanamicro.com" <ajones@ventanamicro.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Song Shuai
+	<songshuaishuai@tinylab.org>
+Subject: RE: [PATCH] riscv: hibernation: Remove duplicate call of
+ suspend_restore_csrs
+Thread-Topic: [PATCH] riscv: hibernation: Remove duplicate call of
+ suspend_restore_csrs
+Thread-Index: AQHZij0JnSRR82RN7UivChxgOm4HvK9hcVtQ//9+BoCAAJELgIAD/mKg
+Date: Mon, 22 May 2023 01:11:09 +0000
+Message-ID: <dc21929555a3422d883047a3e652b15d@EXMBX066.cuchost.com>
+References: <20230519102908.253458-1-suagrfillet@gmail.com>
+ <9a274a44b61345e8aba747a44250c4d8@EXMBX066.cuchost.com>
+ <20230519-clarinet-collar-ba2c0fa37e11@wendy>
+ <20230519-roundup-legwarmer-e26b31db3123@spud>
+In-Reply-To: <20230519-roundup-legwarmer-e26b31db3123@spud>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <51339689-b92f-52fb-9202-2b91733f9180@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_145715_626082_12D20BCE 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20230521_181203_663525_C8248A14 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +90,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 20, 2023 at 10:22:36PM -0500, Samuel Holland wrote:
-> Hi Drew,
+
+
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Saturday, May 20, 2023 4:07 AM
+> To: Conor Dooley <conor.dooley@microchip.com>
+> Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; Song Shuai <suagrfillet@gmail.com>; paul.walmsley@sifive.com;
+> palmer@dabbelt.com; aou@eecs.berkeley.edu; Mason Huo <mason.huo@starfivetech.com>; Leyfoon Tan
+> <leyfoon.tan@starfivetech.com>; ajones@ventanamicro.com; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Song
+> Shuai <songshuaishuai@tinylab.org>
+> Subject: Re: [PATCH] riscv: hibernation: Remove duplicate call of suspend_restore_csrs
 > 
-> On 5/20/23 21:05, Drew Fustini wrote:
-> > Hello, I tested 6.4-rc1 on an internal RISC-V SoC and observed a boot
-> > failure on a Store/AMO access fault (exception code 7) in __memset().
-> > stval (e.g. badaddr) was set to 0xffffaf8000000000. This SoC is RV64GC
-> > with Sv48 so it seems that address is the start of the "direct mapping
-> > of all physical memory" [1].
-> > 
-> > The 6.3 release boots okay and the system is able to operate correctly
-> > with an Ubuntu 23.04 rootfs on eMMC. Therefore, I decided to bisect and
-> > I found the failure begins with 3335068f8721 ("riscv: Use PUD/P4D/PGD
-> > pages for the linear mapping"). The system boots okay with the prior
-> > commit 8589e346bbb6 ("riscv: Move the linear mapping creation in its
-> > own function").
-> > 
-> > The boot log [2] shows that the fault happens right after buildroot's
-> > init script [3] uses switch_root to execute init from the Ubuntu rootfs
-> > on the eMMC.
-> > 
-> > DWARF4 is enabled in .config [4] and the decoded stack trace [5] shows:
-> > 
-> >   epc : __memset (/eng/dfustini/gitlab/linux/arch/riscv/lib/memset.S:67)
-> > 
-> > From memset.S:
-> > 
-> >  Line 67:         REG_S a1,        0(t0)
-> > 
-> > From the oops:
-> > 
-> >  epc : ffffffff81122d6c ra : ffffffff80218504 sp : ffffaf8002e47500
-> >   gp : ffffffff82695010 tp : ffffaf8002e2ec00 t0 : ffffaf8000000000
-> >   t1 : 0000000000000080 t2 : 0000000000000001 s0 : ffffaf8002e47550
-> >   s1 : ffff8d8200000040 a0 : ffffaf8000000000 a1 : 0000000000000000
-> > 
-> > Thus I think it is trying to store 0x0 to 0xffffaf8000000000 which is
-> > the start of the direct map. From the boot log [2], OpenSBI shows:
-> > 
-> >  Domain0 Region00 : 0x0000000002080000-0x00000000020bffff M: (I,R,W) S/U: ()
-> >  Domain0 Region01 : 0x0000008000000000-0x000000800003ffff M: (R,W,X) S/U: ()
-> >  Domain0 Region02 : 0x0000000002000000-0x000000000207ffff M: (I,R,W) S/U: ()
-> >  Domain0 Region03 : 0x0000000000000000-0xffffffffffffffff M: (R,W,X) S/U: (R,W,X)
-> > 
-> > The DDR memory on this SoC starts at 0x8000000000 with size 2GB. The
-> > memory node from the device tree [6]:
-> > 
-> >         memory@8000000000 {
-> >                 device_type = "memory";
-> >                 reg = <0x80 0 0x00000000 0x80000000>;
-> >         };
-> > 
-> > I think the direct map address 0xffffaf8000000000 would map to physical
-> > address 0x8000000000. Thus I think the attempted store in S-mode to that
-> > address would violate the PMP settings for Region01.
-> > 
-> > I do not yet understand why this happens with 3335068f8721 ("riscv: Use
-> > PUD/P4D/PGD pages for the linear mapping") but not for the prior commit
-> > 8589e346bbb6 ("riscv: Move the linear mapping creation in its own
-> > function").
+> On Fri, May 19, 2023 at 12:28:07PM +0100, Conor Dooley wrote:
+> > Hey,
+> >
+> > On Fri, May 19, 2023 at 11:14:27AM +0000, JeeHeng Sia wrote:
+> >
+> > > > The suspend_restore_csrs is called in both __hibernate_cpu_resume
+> > > > and the `else` of subsequent swsusp_arch_suspend.
+> > > >
+> > > > Removing the first call makes both suspend_{save,restore}_csrs
+> > > > left in swsusp_arch_suspend for clean code.
 > 
-> Where does Linux's DTB come from? It should be the one that was modified
-> by OpenSBI to add a reserved-memory node matching PMP Region01
-> (fdt_reserved_memory_fixup()).
+> It took me embarrassingly long to wrap my head around the control flow
+> here again. I'm not sure that I agree with you that splitting the calls
+> between asm & c is cleaner, but whatever:
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Before this commit, Linux ignored the first 2 MiB of physical RAM. So if
-> OpenSBI was loaded in this region, you could get away with ignoring the
-> firmware-provided DTB; now you actually need to use it, as intended.
+> > > >
+> > > > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> > > > Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+> >
+> > BTW, why the two email addresses? The tinylab one here seems entirely
+> > redundant - unless it is your employer, in which case should it be the
+> > only SoB address & also in the author field?
+> 
+> Deja vu with my questioning your email address, but does your
+> tinylab address actually repeat "shuai"?
+> 
+> > Also, Fixes tag?
+> >
+> > > > ---
+> > > >  arch/riscv/kernel/hibernate-asm.S | 1 -
+> > > >  1 file changed, 1 deletion(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+> > > > index 5c76671c7e15..d698dd7df637 100644
+> > > > --- a/arch/riscv/kernel/hibernate-asm.S
+> > > > +++ b/arch/riscv/kernel/hibernate-asm.S
+> > > > @@ -28,7 +28,6 @@ ENTRY(__hibernate_cpu_resume)
+> > > >
+> > > >  	REG_L	a0, hibernate_cpu_context
+> > > >
+> > > > -	suspend_restore_csrs
+> > > >  	suspend_restore_regs
+> >
+> > > Good catch. This function is invoked twice to restore the CSRs.
+> > > I am good with removing this function from here.
+> >
+> > If that's a review, then please either give an R-b or A-b tag :)
+Reviewed-by: JeeHeng Sia <jeeheng.sia@starfivetech.com >
+> >
+> > Thanks,
+> > Conor.
+> 
 
-The address of the dtb is passed by the boot code to OpenSBI. I had been
-using OpenSBI master from Jan 9: 001106d ("docs: Update domain's region
-permissions and requirements"). The kernel receives the device tree from
-OpenSBI but I had never actually dumped it from sysfs.
-
-I checked out the prior kernel commit 8589e346bbb6 ("riscv: Move the
-linear mapping creation in its own function") and ran "dtc -I fs
-/sys/firmware/devicetree/base/" to dump the device tree [1]. This showed
-that the reserved-memory node was blank.
-
-Jessica pointed out to me on #riscv irc that this was fixed in OpenSBI
-on Jan 21 with: a990309 ("lib: utils: Fix reserved memory node for
-firmware memory"). Therefore, I updated to the current OpenSBI master:
-33f1722 ("lib: sbi: Document sbi_ecall_extension members") from May 15.
-The device tree that OpenSBI passes to the kernel now has
-"mmode_resv0@80,0" and "mmode_resv1@80,20000".
-
-Furthermore, my system now boots okay with 3335068f8721 ("riscv: Use
-PUD/P4D/PGD pages for the linear mapping") so the problem was just that
-I had been using an OpenSBI that was slightly too old.
-
-Thanks,
-Drew
-
-[1] https://gist.github.com/pdp7/71ca465997274e11953b26861e36144f
-[2] https://gist.github.com/pdp7/90b4632146fc55625735fa288d80532b
 
 _______________________________________________
 linux-riscv mailing list
