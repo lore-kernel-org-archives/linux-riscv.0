@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFDDC7EE26
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 08:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB9BC77B73
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 08:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tkE+CXhfa3CxJUv6xiZdPmn+ivnSEJAF+lP1jbpHtFI=; b=3tZgv5MZICL83S
-	8G5oByEPqT7obWcPqsYF/CjTrkq78onTgNdUydpL75f2COheiH923w8jqyam6VpNi5d1fVkbdKxnz
-	L+OOjiU3C444XzSTKJtDfJJsQl4EE2MSvwCTGPSVmi9I4c6f+l2iW/0IThZCFeKpWSiZkUBY/UrYA
-	vmfq2xjYvq5fHkwEKpQH8cp/oGPJzR+DYcKahIoi9ZykhwTZzYDSEQgNDDSkrrK9eht1/5vXRzunC
-	Dt9QSkCBRgRS8tdmVrZKpXlS8tHatEKJGCBGoNru0FAiEKRxaJcy2B2i0RG3xKuVqZaNgKS2KhslK
-	WKScMUiOt1mAGNrMSsXA==;
+	List-Owner; bh=ru8kUe+hUrGcLxg9bXVdrVGGaei1f23W97Kltgz07Ek=; b=UX0YoIbQndggW/
+	W91K4E2JSMlmrwBzIyZCcafnDSxSUwLOWSmQ/VV5DoUeJbW2Wk6qviG92Z/BXewX63AkITwxqFRjE
+	rgPuPv1Ssi2+rQyXJ2xmEcF3XsfjZC/92JUz+YvjCDK1TYQGR5B8hHkTIoH9uQot0+x7jCr7gQKts
+	jr8Ldag0NYbN3HnIbn4mwn6FnFDPf9tNrWEKD/YAc+IPSMp0yLq52qUAfF6m5pXW+PDUA9M76Yho5
+	gv8lOZmcAN0IoLQA5AAKE5LpOgteebMQwNFKv70vxn2+uoZdtmftdua+WxPWWmMrzjuhXewuCcM8v
+	x+gHc22PVVmP9Dc1EEVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q10uO-005kUr-2z;
-	Mon, 22 May 2023 08:28:48 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q10uH-005kTZ-2X
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 May 2023 08:28:47 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2af28303127so32920191fa.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 May 2023 01:28:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1684744119; x=1687336119;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CKYPMbp630qRmaM4E26ANDSF3jxKcu+IzgA8/biQrNQ=;
-        b=Pwnm0Tm/WkzNFp/fY6TUyeZT5Dh261RCGr0eDEZxuSAJMDpS/euyadlSYfcDip4Z8y
-         bVSEcvBhEQsKivOG9F4pylBfrRMUq06HX/x7iaHCdKCdwzbaGUdpZ+yEo6hcEOFkREeH
-         mEgN35bB2FAQ/dxUHils0fEjePajUBnJDYdXGvNVvDo9xamL+LPmigMiuKcsFPJrkfb5
-         UhUzLXVYiJ44gg+SnRBfGIMTmtZgPjfKEq4WKb9veT1C6Hw2v8qzOIhKeJNz73xC8Ugh
-         VAww1kS+SmB8deTBmzfaPkmDUp/DLUbas5FqUmOT63jHYtBKnMUaNvqx4hmx/p7Tb/Fm
-         yJaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684744119; x=1687336119;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CKYPMbp630qRmaM4E26ANDSF3jxKcu+IzgA8/biQrNQ=;
-        b=cfAJ83v09cUarqqXy8Gc5U5b5h1uZc52NCQgQx2Cxp18PoMawPFRX2n2F64L4wx7sx
-         6XAN2moDmukFUSWUMCvWDGIZFmEs0AQMltfnuZLoZZcqcHNNixyt7Em3rWnbF1pcW5LY
-         nN99Od3plbce3wax4CWrweWVuQA74W138iwTn9j61szmd1WoxbRLGQMcMRzt6aLtEoAe
-         kEoKn/1TGeb31bZ1apTPoRnqfepMsmTmGvqdnsATA3WcJq2C7vjpHZD/EPwVaCxROpQS
-         j77tXIAPUCaANqWQmXFvN3mgMZwHmpvhFz0k17qvp3PC02jKFSZE9gg+fA3aOH1GYv28
-         FF8A==
-X-Gm-Message-State: AC+VfDztYLEvyxWnBx3WS4+K2OsiKlz2VCZlYH6nncIVtB0+Hc8B9Ivv
-	BI0Y4FU0ZLmQ6z8L9FdkHyS2UmenhAVy51hunijJs7eZJLXgthAIh6Yy4w==
-X-Google-Smtp-Source: ACHHUZ4H/n8LyJZKrrrTCdulrMsNzulqQBwkXUdqJqaOucvQyBqwQPSaZGg22TL+3dKhN/zIE0PFmrieJWgLDO5PIfA=
-X-Received: by 2002:a2e:9609:0:b0:2af:2908:8ff3 with SMTP id
- v9-20020a2e9609000000b002af29088ff3mr2980646ljh.33.1684744119136; Mon, 22 May
- 2023 01:28:39 -0700 (PDT)
+	id 1q11MK-005oWF-2o;
+	Mon, 22 May 2023 08:57:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q11MG-005oUh-3A;
+	Mon, 22 May 2023 08:57:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5796311FB;
+	Mon, 22 May 2023 01:58:18 -0700 (PDT)
+Received: from [192.168.1.3] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 559A53F6C4;
+	Mon, 22 May 2023 01:57:30 -0700 (PDT)
+Message-ID: <839836e8-9600-9249-dcdb-e29519335141@arm.com>
+Date: Mon, 22 May 2023 09:57:25 +0100
 MIME-Version: 1.0
-References: <20230518161949.11203-1-andy.chiu@sifive.com> <20230518161949.11203-21-andy.chiu@sifive.com>
- <5677700.DvuYhMxLoT@basile.remlab.net>
-In-Reply-To: <5677700.DvuYhMxLoT@basile.remlab.net>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Mon, 22 May 2023 16:28:28 +0800
-Message-ID: <CABgGipW9xtZp-c2xWakz+EzrMbviN_9iAEtmfx73L4TJAn3K8Q@mail.gmail.com>
-Subject: Re: [PATCH -next v20 20/26] riscv: Add prctl controls for userspace
- vector management
-To: =?UTF-8?Q?R=C3=A9mi_Denis=2DCourmont?= <remi@remlab.net>
-Cc: linux-riscv@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v1 2/5] perf parse-regs: Introduce functions
+ arch__reg_{ip|sp}()
+Content-Language: en-US
+To: Leo Yan <leo.yan@linaro.org>
+References: <20230520025537.1811986-1-leo.yan@linaro.org>
+ <20230520025537.1811986-3-leo.yan@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Eric Lin <eric.lin@sifive.com>, Kan Liang <kan.liang@linux.intel.com>,
+ Qi Liu <liuqi115@huawei.com>, Sandipan Das <sandipan.das@amd.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+From: James Clark <james.clark@arm.com>
+In-Reply-To: <20230520025537.1811986-3-leo.yan@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_012841_850649_A6BB7E8A 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20230522_015737_083637_879DA489 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +73,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBNYXkgMjEsIDIwMjMgYXQgMTo0MeKAr1BNIFLDqW1pIERlbmlzLUNvdXJtb250IDxy
-ZW1pQHJlbWxhYi5uZXQ+IHdyb3RlOgo+Cj4gICAgICAgICBIaSBhbGwsCj4KPiBMZSB0b3JzdGFp
-bmEgMTguIHRvdWtva3V1dGEgMjAyMyAxOS4xOS40MyBFRVNULCB2b3VzIGF2ZXogw6ljcml0IDoK
-PiA+IFRoaXMgcGF0Y2ggYWRkIHR3byByaXNjdi1zcGVjaWZpYyBwcmN0bHMsIHRvIGFsbG93IHVz
-ZXNwYWNlIGNvbnRyb2wgdGhlCj4gPiB1c2Ugb2YgdmVjdG9yIHVuaXQ6Cj4gPgo+ID4gICogUFJf
-UklTQ1ZfVl9TRVRfQ09OVFJPTDogY29udHJvbCB0aGUgcGVybWlzc2lvbiB0byB1c2UgVmVjdG9y
-IGF0IG5leHQsCj4gPiAgICBvciBhbGwgZm9sbG93aW5nIGV4ZWN2ZSBmb3IgYSB0aHJlYWQuIFR1
-cm5pbmcgb2ZmIGEgdGhyZWFkJ3MgVmVjdG9yCj4gPiAgICBsaXZlIGlzIG5vdCBwb3NzaWJsZSBz
-aW5jZSBsaWJyYXJpZXMgbWF5IGhhdmUgcmVnaXN0ZXJlZCBpZnVuYyB0aGF0Cj4gPiAgICBtYXkg
-ZXhlY3V0ZSBWZWN0b3IgaW5zdHJ1Y3Rpb25zLgo+ID4gICogUFJfUklTQ1ZfVl9HRVRfQ09OVFJP
-TDogZ2V0IHRoZSBzYW1lIHBlcm1pc3Npb24gc2V0dGluZyBmb3IgdGhlCj4gPiAgICBjdXJyZW50
-IHRocmVhZCwgYW5kIHRoZSBzZXR0aW5nIGZvciBmb2xsb3dpbmcgZXhlY3ZlKHMpLgo+Cj4gU28g
-ZmFyIHRoZSBzdG9yeSB3YXMgdGhhdCBpZiB0aGUgbnRoIGJpdCBpbiB0aGUgRUxGIEhXQ0FQIGF1
-eGlsbGFyeSB2ZWN0b3Igd2FzCj4gc2V0LCB0aGVuIHRoZSBudGggc2luZ2xlIGxldHRlcmVkIGV4
-dGVuc2lvbiB3YXMgc3VwcG9ydGVkLiBUaGVyZSBpcyBhbHJlYWR5Cj4gdXNlcnNwYWNlIGNvZGUg
-b3V0IHRoZXJlIHRoYXQgZXhwZWN0cyB0aGlzIG9mIHRoZSBWIGJpdC4gKEkga25vdyBJIGhhdmUK
-PiB3cml0dGVuIHN1Y2ggY29kZSwgYW5kIEkgYWxzbyBrbm93IG90aGVycyBkaWQgbGlrZXdpc2Uu
-KSBUaGlzIGlzIGhvdyBpdAo+IGFscmVhZHkgd29ya3MgZm9yIHRoZSBEIGFuZCBGIGJpdHMuCgpZ
-ZXMsIHRoZSBWIGJpdCBpbiBFTEZfSFdDQVAgYmVjb21lcyB2YWd1ZSBpbiB0aGlzIHNlcmllcy4K
-Cj4KPiBBZG1pdHRlZGx5LCB1cHN0cmVhbSBMaW51eCBoYXMgbmV2ZXIgZXZlciBzZXQgdGhhdCBi
-aXQgdG8gdGhpcyBkYXkuIEJ1dCBzdGlsbCwKPiBpZiB3ZSBlbmQgdXAgd2l0aCB0aGUgYml0IHNl
-dCBpbiBhIHByb2Nlc3MgdGhhdCBoYXMgaGFkIFYgc3VwcG9ydCBkaXNhYmxlZCBieQo+IHRoZSBw
-YXJlbnQgKG9yIHRoZSBzeXNjdGwpLCBleGlzdGluZyB1c2Vyc3BhY2Ugd2lsbCBlbmNvdW50ZXIg
-U0lHSUxMIGFuZAo+IGJyZWFrLgo+Cj4gSU1PLCB0aGUgYml0IG11c3QgYmUgbWFza2VkIG5vdCBv
-bmx5IHdoZW5jZSB0aGUga2VybmVsIGxhY2tzIFYgc3VwcG9ydCAoYXMKPiBQQVRDSCAwMiBkb2Vz
-KSwgYnV0IGFsc28gaWYgdGhlIHByb2Nlc3Mgc3RhcnRzIHdpdGggViBkaXNhYmxlZC4KClRoaXMg
-aXMgZ29pbmcgdG8gY2hhbmdlIEVMRl9IV0NBUCBmcm9tIGEgbWFjcm8gdG8gYSBmdW5jdGlvbi4g
-VGhlCmZ1bmN0aW9uIHdpbGwgdHVybiBvbiBDT01QQVRfSFdDQVBfSVNBX1YgaWZmIFYgaXMgc3Vw
-cG9ydGVkIGFuZAphbGxvd2VkLiBJIGFtIGdvaW5nIHRvIGRvIHRoaXMgaW4gdjIxIElmIHRoaXMg
-bG9va3Mgc2FuZS4gaS5lLgpDdXJyZW50bHkgSSBkb24ndCBzZWUgb3RoZXIgYXJjaGl0ZWN0dXJl
-cyB3aGljaCBnaXZlIGRpZmZlcmVudApFTEZfSFdDQVAgdmFsdWVzIG9uIGVhY2ggZXhlY3ZlLiBJ
-ZiBFTEZfSFdDQVAgaXMgbm90IGEgcmlnaHQgcGxhY2UgdG8KZW5jb2RlIHRoZSBpbmZvcm1hdGlv
-biB0aGVuIHVzZXJzcGFjZSBoYXMgdG8gbWFrZSB0aGUgcHJjdGwoKSBjYWxsIHRvCmJlIGNlcnRh
-aW4gb24gd2hldGhlciBWIGlzIHVzYWJsZS4KCj4KPiBUaGVyZSBhcmUgdHdvIHdheXMgdG8gYWNo
-aWV2ZSB0aGlzOgo+IDEpIFYgaXMgbmV2ZXIgZXZlciBzZXQsIGFuZCB1c2Vyc3BhY2UgaXMgZm9y
-Y2VkIHRvIHVzZSBod3Byb2JlKCkgaW5zdGVhZC4KPiAyKSBWIGlzIHNldCBvbmx5IGluIHByb2Nl
-c3NlcyBzdGFydGluZyB3aXRoIFYgZW5hYmxlZCAoYW5kIGl0J3MgdGhlaXIgb3duCj4gZmF1bHQg
-aWYgdGhleSBkaXNhYmxlZCBpdCBpbiBmdXR1cmUgY2hpbGQgdGhyZWFkcykuCgpUaGUgcHJjdGwo
-KSBpbnRlcmZhY2UgZG9lcyBub3QgYWxsb3cgcHJvY2Vzc2VzIHRvIHR1cm4gb2ZmIFYgb25jZSBp
-dAppcyBlbmFibGVkIGluIGl0cyBjdXJyZW50IChleGVjdmUpIGNvbnRleHQuIFRoZSBwcm9jZXNz
-IGNhbiBvbmx5CmRpc2FibGUgViB3aGVuIHRoZSBuZXh0IGV4ZWN2ZSgpIGhhcHBlbnMuIFRoZW4s
-IGlmIHdlIGltcGxlbWVudApFTEZfSFdDQVAgYXMgbWVudGlvbmVkIGFib3ZlLCB0aGUga2VybmVs
-IHdpbGwgcmVsb2FkIGEgbmV3IEhXQ0FQIGZvcgp0aGUgcHJvY2Vzcy4gQnkgdGhlbiwgdGhlIG5l
-dyBIV0NBUCB3aWxsIGhhdmUgViBtYXNrZWQgc2luY2UgaXQgaXMgbm90CmFsbG93ZWQuCgo+Cj4g
-QnIsCj4KPiAtLQo+IOODrOODn+ODu+ODh+ODiy3jgq/jg7zjg6vjg6Ljg7MKPiBodHRwOi8vd3d3
-LnJlbWxhYi5uZXQvCj4KPgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2CgpUaGFua3MsCkFuZHkKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 20/05/2023 03:55, Leo Yan wrote:
+> Ideally, we want util/perf_regs.c to be general enough and doesn't bind
+> with specific architecture.
+> 
+> But since util/perf_regs.c uses the macros PERF_REG_IP and PERF_REG_SP
+> which are defined by architecture, thus util/perf_regs.c is dependent on
+> architecture header (see util/perf_regs.h includes "<perf_regs.h>", here
+> perf_regs.h is architecture specific header).
+> 
+> As a step to generalize util/perf_regs.c, this commit introduces weak
+> functions arch__reg_ip() and arch__reg_sp() and every architecture can
+> define their own functions; thus, util/perf_regs.c doesn't need to use
+> PERF_REG_IP and PERF_REG_SP anymore.
+> 
+> This is a preparation to get rid of architecture specific header from
+> util/perf_regs.h.
+> 
+> Signed-off-by: Leo Yan <leo.yan@linaro.org>
+> ---
+[...]
+>  
+> -#define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
+> +#define DWARF_MINIMAL_REGS ((1ULL << arch__reg_ip()) | (1ULL << arch__reg_sp()))
+>  
+>  const char *perf_reg_name(int id, const char *arch);
+>  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+> index bdccfc511b7e..f308f2ea512b 100644
+> --- a/tools/perf/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw.c
+> @@ -252,7 +252,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>  	if (!ui->dwfl)
+>  		goto out;
+>  
+> -	err = perf_reg_value(&ip, &data->user_regs, PERF_REG_IP);
+> +	err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip());
+
+Shouldn't it be more like this, because the weak symbols are a compile
+time thing and it's supposed to support cross arch unwinding at runtime
+(assuming something containing the arch from the file is passed down,
+like we did with perf_reg_name()):
+
+  char *arch = perf_env__arch(evsel__env(evsel));
+  err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip(arch));
+
+Now I'm wondering how cross unwinding ever worked because I see
+libunwind also has something hard coded too:
+
+  #define LIBUNWIND__ARCH_REG_SP PERF_REG_SP
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
