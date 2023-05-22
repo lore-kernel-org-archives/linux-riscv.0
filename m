@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BCBC7EE26
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 14:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58B3C77B75
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 16:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6iPKgdJ4SCiJXCAkKmZXci//NTi65xxPG5O8Zayuu4=; b=wO5++qQJ7MQ6Nd2xHefNlxgLFr
-	oofGfLwE1ePk0MU2d4ZBiV/3rsF9Xh8SDK5kRJia0VS1dg7NXQfNGURLdSVSChOgklEgwZPAjOWqr
-	2imOeF5Cyk5dvKNvEwizFHnYl83PP6ueVKwkWCOypr5L64IOGWpfuy63YAujISY9U5V/YEXABvmYi
-	AQpiUW+EbgYiatfSRxbt4aChYorD2+8bcUCFgcJSrjneAi9O7f96SGzJ4qNPBdkVDkcYvYPoZfD8g
-	3HXbh3vMeZLpqkC/oeO9UPjed2/U/vnIdX9hqqOGxph0BLQlt/yefBC/qdyXaOxoioubASfgH9AsS
-	J/MDdaxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yoOgDOO0j0oaBBXZkeSQekxfgprs+bBBMYcmuL9NAig=; b=zRqkdbUoi366d9
+	wE//4jETsboUzXFJNZ2J4UUpr0OqjWsAzM+3lXziOKPfu7X9H6G5LA0eXqaFaJ8LFAM/YIBMedkEB
+	FX3brSghiDW9uW97N7Wf+sVKRFZZSckILAbHmWlARFJsqyrW9kSoBMAJzHn+qcFKLRoEIg4FCUWlW
+	VB6enQ0EHoLRvRhGlS+A/1OkTO7OmghJeuEe7J9DFkvn/U5pp71cJgS4/2fYdPx/OTeUD7KAUONwG
+	KVwFeSsuhY/1V78owOmu3OXnCKSpssF9QBeMzt8fppSiQiADOKVcWP2f3x2vmbjAcJ2f3oVSliXoD
+	oWscKMWAJdhQpvdL+cdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q16Ph-006oXV-0O;
-	Mon, 22 May 2023 14:21:29 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q16Pd-006oVF-2D
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 May 2023 14:21:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684765285; x=1716301285;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6B3vXaIvsSyFL8WRgXEifU405baar89aaaU3DZ4ZCOI=;
-  b=L1QPqG4ilv0hq9PSwgfCQyf1GXsgfVRmEYUcxVBxANdobzx95hDyrorV
-   9FpUmZikCBH+w0MLL0gFCCbsQgcfU6Q9DDtFpwOOQLNFq+GHo26JMS94u
-   2kCpO4Db2UOke3hPxSLYU528oWs5jiMM8vOS1SnS4FtzoSwhuYeynx5Ee
-   NUL39SkKCQ3CgdDTKPHL6Yp4OVJm3GBxcBtG3JC3pnlhAQvBBCMdOIFy2
-   3illLusukobY8mZcvKwtwbMekpAZR9jhXcXD3XhmUFOF6Oz2Rb93HO1tq
-   MU9ZLs3p/9/S0ZFG78MY/6BsQNIegWqcKH9Pj2cTbml0FViav6XB9Qi2E
-   A==;
-X-IronPort-AV: E=Sophos;i="6.00,184,1681196400"; 
-   d="asc'?scan'208";a="212478960"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 May 2023 07:21:14 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 22 May 2023 07:21:09 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 22 May 2023 07:21:07 -0700
-Date: Mon, 22 May 2023 15:20:45 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jia Jie Ho <jiajie.ho@starfivetech.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
-	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, <linux-crypto@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v8 2/4] crypto: starfive - Add crypto engine support
-Message-ID: <20230522-darkish-undaunted-9e184932d93f@wendy>
-References: <20230515125355.624250-1-jiajie.ho@starfivetech.com>
- <20230515125355.624250-3-jiajie.ho@starfivetech.com>
+	id 1q18Ue-007ECk-22;
+	Mon, 22 May 2023 16:34:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q18Ua-007EBd-2O;
+	Mon, 22 May 2023 16:34:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17A0811FB;
+	Mon, 22 May 2023 09:35:22 -0700 (PDT)
+Received: from [10.57.84.18] (unknown [10.57.84.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1BCF3F762;
+	Mon, 22 May 2023 09:34:33 -0700 (PDT)
+Message-ID: <e2c04000-8e2e-e5ab-daea-a84d9519569f@arm.com>
+Date: Mon, 22 May 2023 17:34:32 +0100
 MIME-Version: 1.0
-In-Reply-To: <20230515125355.624250-3-jiajie.ho@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v1 2/5] perf parse-regs: Introduce functions
+ arch__reg_{ip|sp}()
+Content-Language: en-US
+To: Leo Yan <leo.yan@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Eric Lin <eric.lin@sifive.com>, Kan Liang <kan.liang@linux.intel.com>,
+ Qi Liu <liuqi115@huawei.com>, Sandipan Das <sandipan.das@amd.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20230520025537.1811986-1-leo.yan@linaro.org>
+ <20230520025537.1811986-3-leo.yan@linaro.org>
+ <839836e8-9600-9249-dcdb-e29519335141@arm.com>
+ <20230522120729.GB1826292@leoy-yangtze.lan>
+From: James Clark <james.clark@arm.com>
+In-Reply-To: <20230522120729.GB1826292@leoy-yangtze.lan>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_072125_808833_9B49E48D 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230522_093440_881363_42784DB7 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +75,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2238461811394102637=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2238461811394102637==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dVy3OAxHoIQI9VdR"
-Content-Disposition: inline
-
---dVy3OAxHoIQI9VdR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, May 15, 2023 at 08:53:53PM +0800, Jia Jie Ho wrote:
-> +config CRYPTO_DEV_JH7110
-> +	tristate "StarFive JH7110 cryptographic engine driver"
-> +	depends on SOC_STARFIVE || COMPILE_TEST
-> +	select CRYPTO_ENGINE
-> +	select ARM_AMBA
-
-I have yet to bisect, but I think this has broken the build on RISC-V:
-drivers/dma/pl330.c:1053:13: error: redefinition of '_start' as different kind of symbol
-static bool _start(struct pl330_thread *thrd)
-            ^
-arch/riscv/include/asm/sections.h:11:13: note: previous definition is here
-extern char _start[];
-            ^
-drivers/dma/pl330.c:1705:10: error: called object type 'char[]' is not a function or function pointer
-                        _start(thrd);
-                        ~~~~~~^
-drivers/dma/pl330.c:2092:9: error: called object type 'char[]' is not a function or function pointer
-                _start(pch->thread);
-                ~~~~~~^
-drivers/dma/pl330.c:2110:11: error: called object type 'char[]' is not a function or function pointer
-                                _start(pch->thread);
-                                ~~~~~~^
-4 errors generated.
-
-The pl330 dma driver depends on ARM_AMBA.
-
-Cheers,
-Conor.
 
 
---dVy3OAxHoIQI9VdR
-Content-Type: application/pgp-signature; name="signature.asc"
+On 22/05/2023 13:07, Leo Yan wrote:
+> On Mon, May 22, 2023 at 09:57:25AM +0100, James Clark wrote:
+>>
+>>
+>> On 20/05/2023 03:55, Leo Yan wrote:
+>>> Ideally, we want util/perf_regs.c to be general enough and doesn't bind
+>>> with specific architecture.
+>>>
+>>> But since util/perf_regs.c uses the macros PERF_REG_IP and PERF_REG_SP
+>>> which are defined by architecture, thus util/perf_regs.c is dependent on
+>>> architecture header (see util/perf_regs.h includes "<perf_regs.h>", here
+>>> perf_regs.h is architecture specific header).
+>>>
+>>> As a step to generalize util/perf_regs.c, this commit introduces weak
+>>> functions arch__reg_ip() and arch__reg_sp() and every architecture can
+>>> define their own functions; thus, util/perf_regs.c doesn't need to use
+>>> PERF_REG_IP and PERF_REG_SP anymore.
+>>>
+>>> This is a preparation to get rid of architecture specific header from
+>>> util/perf_regs.h.
+>>>
+>>> Signed-off-by: Leo Yan <leo.yan@linaro.org>
+>>> ---
+>> [...]
+>>>  
+>>> -#define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
+>>> +#define DWARF_MINIMAL_REGS ((1ULL << arch__reg_ip()) | (1ULL << arch__reg_sp()))
+>>>  
+>>>  const char *perf_reg_name(int id, const char *arch);
+>>>  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+>>> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+>>> index bdccfc511b7e..f308f2ea512b 100644
+>>> --- a/tools/perf/util/unwind-libdw.c
+>>> +++ b/tools/perf/util/unwind-libdw.c
+>>> @@ -252,7 +252,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>>>  	if (!ui->dwfl)
+>>>  		goto out;
+>>>  
+>>> -	err = perf_reg_value(&ip, &data->user_regs, PERF_REG_IP);
+>>> +	err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip());
+>>
+>> Shouldn't it be more like this, because the weak symbols are a compile
+>> time thing and it's supposed to support cross arch unwinding at runtime
+>> (assuming something containing the arch from the file is passed down,
+>> like we did with perf_reg_name()):
+>>
+>>   char *arch = perf_env__arch(evsel__env(evsel));
+>>   err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip(arch));
+> 
+> Thanks for pointing out, James.
+> 
+> Agreed that we need to return the IP and SP register based on the
+> arch.  I will look into more details and spin for a new patch set for
+> this.
+> 
 
------BEGIN PGP SIGNATURE-----
+You might be able to skip the extra work for now though, seeing as your
+change is no worse than it was before and it fixes the duplicate
+declaration issue.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGt6PQAKCRB4tDGHoIJi
-0mpoAP9RDzkFAWWLnCRZfm4XNQ+rF1nl5k6lvaz5slDTFQKPAgD9HeBaio8Z6lrR
-D2oRKJK24+1MMfPI4S824JdtjnZOIw0=
-=Y2QR
------END PGP SIGNATURE-----
+>> Now I'm wondering how cross unwinding ever worked because I see
+>> libunwind also has something hard coded too:
+>>
+>>   #define LIBUNWIND__ARCH_REG_SP PERF_REG_SP
+> 
+> Yeah, I also used arch__reg_sp() to replace PERF_REG_SP; but as you
+> suggestion, we should fix this with passing 'arch' parameter for
+> getting SP register based on arch.
+> 
+> Another important thing is to find a good test for cross unwinding.
+> Maybe I can use tools/perf/tests/shell/record.sh, function
+> test_register_capture() for testing registers, if you have any other
+> suggesion, please let me know.
 
---dVy3OAxHoIQI9VdR--
+The only way I can think is to have pre-recorded perf.data files in the
+repo, but they'd also need the binary from the recording too. I think
+this is probably not a very good idea because it's going to make the
+repo huge if we keep changing them (which we will).
 
+Some kind of third party perf test suite hosted somewhere might work but
+I don't think this exists.
 
---===============2238461811394102637==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> Thanks,
+> Leo
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2238461811394102637==--
-
