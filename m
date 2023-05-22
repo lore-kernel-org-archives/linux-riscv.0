@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC6C4C7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 01:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E41C7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 01:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjLqMxP4JA+MZDxlBryoqvTHE5J4KozL0zDZdXERxAI=; b=HUvn1V0u64lX98
-	T3Fmuc074R8hShv6tdNuzm8D4V38dwjTx429oqEwdhdB+y1WEqiQy3H6DwKJnNmq4k9as1iUXKTUx
-	axFgrhaojYghsHrmkyDkMv8hBHDI8XjmN24NWV63ZrMJTOtD4i/UbkVgajXxnEzVmPgeFENDOyPtX
-	wQ3gYDDPkIrW5PFtAbEHvYxvt/LotSRS0LgeV3C61MBhQB9GzRiXmK573/T6i1RjwuHXAqrsnB4pc
-	JWv0NZ5W7laTmvVi1d5sSFT2U9vlHZm7D5J44BytuSU74ssbSKZIFUrizxymlG+7ZLXhgKU1CRtYf
-	s4argVatZIYrDYFhTsiQ==;
+	List-Owner; bh=wyN+9vIyQ97KwIftmxbgRE1xR5/mac/nBl62IOklS7s=; b=aFpykH7OTeF5cl
+	U2lWVZS49TMdRpDAJ0cqz2GUP2WdzeaAK1/y0kPtcxyPTIlBhstYbPZ3kzc3i4qoFL9/SaelZkVCS
+	tQi3qv5ctzcOZvRjt7jarZRAyomiWOY64FtYWgMS+YgVTZs6rdog2k/ryvxU2dXW8ArdrjCh/XbGT
+	jeRvyDUeZmXcnUS/32aiDTmWz8dK4z/YvnINNlGckKxE7d3qa64pM2CjL4DhIIfmV4X0XOZdV4fEA
+	Mx3ePltRIcpR4BDosEEZ/Uft8XBVg9syMus4ECsTDzBglZUbMazcFGVOdkAjeWAhQeXlH9LLvN52H
+	xrBUhTWJmgPHRLU+eOLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0u5n-004zDp-2Y;
-	Mon, 22 May 2023 01:12:07 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1q0u6o-004zKq-30;
+	Mon, 22 May 2023 01:13:10 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0u5j-004zA9-0z
+	id 1q0u6l-004zIo-0F
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 May 2023 01:12:05 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 22 May 2023 01:13:09 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 163AF24DDB2;
-	Mon, 22 May 2023 09:11:10 +0800 (CST)
-Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
- 2023 09:11:10 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX167.cuchost.com
- (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
- 2023 09:11:09 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1D4687F8E;
+	Mon, 22 May 2023 09:12:30 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
+ 2023 09:12:30 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 22 May
+ 2023 09:12:29 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Mon, 22 May 2023 09:11:09 +0800
+ 15.00.1497.044; Mon, 22 May 2023 09:12:29 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
-CC: Song Shuai <suagrfillet@gmail.com>, "paul.walmsley@sifive.com"
+To: Song Shuai <suagrfillet@gmail.com>, "paul.walmsley@sifive.com"
 	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
 	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	"ajones@ventanamicro.com" <ajones@ventanamicro.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Song Shuai
-	<songshuaishuai@tinylab.org>
-Subject: RE: [PATCH] riscv: hibernation: Remove duplicate call of
- suspend_restore_csrs
-Thread-Topic: [PATCH] riscv: hibernation: Remove duplicate call of
- suspend_restore_csrs
-Thread-Index: AQHZij0JnSRR82RN7UivChxgOm4HvK9hcVtQ//9+BoCAAJELgIAD/mKg
-Date: Mon, 22 May 2023 01:11:09 +0000
-Message-ID: <dc21929555a3422d883047a3e652b15d@EXMBX066.cuchost.com>
-References: <20230519102908.253458-1-suagrfillet@gmail.com>
- <9a274a44b61345e8aba747a44250c4d8@EXMBX066.cuchost.com>
- <20230519-clarinet-collar-ba2c0fa37e11@wendy>
- <20230519-roundup-legwarmer-e26b31db3123@spud>
-In-Reply-To: <20230519-roundup-legwarmer-e26b31db3123@spud>
+	<mason.huo@starfivetech.com>, "conor.dooley@microchip.com"
+	<conor.dooley@microchip.com>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] riscv: hibernation: Replace jalr with jr before
+ suspend_restore_regs
+Thread-Topic: [PATCH] riscv: hibernation: Replace jalr with jr before
+ suspend_restore_regs
+Thread-Index: AQHZihi0VP3rwfUufEaZ9/XX0w5YHK9hZs+ggAQZvJA=
+Date: Mon, 22 May 2023 01:12:29 +0000
+Message-ID: <17c5a8fe2d8c4d53b7293db01e7f0955@EXMBX066.cuchost.com>
+References: <20230519060854.214138-1-suagrfillet@gmail.com>
+ <99eac7b418bd4b518e2edb7379e1158f@EXMBX066.cuchost.com>
+In-Reply-To: <99eac7b418bd4b518e2edb7379e1158f@EXMBX066.cuchost.com>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -72,8 +68,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_181203_663525_C8248A14 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20230521_181307_392390_77ACF776 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +89,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 > -----Original Message-----
-> From: Conor Dooley <conor@kernel.org>
-> Sent: Saturday, May 20, 2023 4:07 AM
-> To: Conor Dooley <conor.dooley@microchip.com>
-> Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; Song Shuai <suagrfillet@gmail.com>; paul.walmsley@sifive.com;
-> palmer@dabbelt.com; aou@eecs.berkeley.edu; Mason Huo <mason.huo@starfivetech.com>; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>; ajones@ventanamicro.com; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Song
-> Shuai <songshuaishuai@tinylab.org>
-> Subject: Re: [PATCH] riscv: hibernation: Remove duplicate call of suspend_restore_csrs
+> From: JeeHeng Sia
+> Sent: Friday, May 19, 2023 6:45 PM
+> To: 'Song Shuai' <suagrfillet@gmail.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; Mason Huo
+> <mason.huo@starfivetech.com>; conor.dooley@microchip.com
+> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: RE: [PATCH] riscv: hibernation: Replace jalr with jr before suspend_restore_regs
 > 
-> On Fri, May 19, 2023 at 12:28:07PM +0100, Conor Dooley wrote:
-> > Hey,
-> >
-> > On Fri, May 19, 2023 at 11:14:27AM +0000, JeeHeng Sia wrote:
-> >
-> > > > The suspend_restore_csrs is called in both __hibernate_cpu_resume
-> > > > and the `else` of subsequent swsusp_arch_suspend.
-> > > >
-> > > > Removing the first call makes both suspend_{save,restore}_csrs
-> > > > left in swsusp_arch_suspend for clean code.
+> looks good to me.
 > 
-> It took me embarrassingly long to wrap my head around the control flow
-> here again. I'm not sure that I agree with you that splitting the calls
-> between asm & c is cleaner, but whatever:
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> > > >
-> > > > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> > > > Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+> Thanks
+> Regards
+> Jee Heng
+> > -----Original Message-----
+> > From: Song Shuai <suagrfillet@gmail.com>
+> > Sent: Friday, May 19, 2023 2:09 PM
+> > To: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; JeeHeng Sia <jeeheng.sia@starfivetech.com>;
+> Mason
+> > Huo <mason.huo@starfivetech.com>; conor.dooley@microchip.com
+> > Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Song Shuai <suagrfillet@gmail.com>
+> > Subject: [PATCH] riscv: hibernation: Replace jalr with jr before suspend_restore_regs
 > >
-> > BTW, why the two email addresses? The tinylab one here seems entirely
-> > redundant - unless it is your employer, in which case should it be the
-> > only SoB address & also in the author field?
-> 
-> Deja vu with my questioning your email address, but does your
-> tinylab address actually repeat "shuai"?
-> 
-> > Also, Fixes tag?
+> > No need to link the x1/ra reg via jalr before suspend_restore_regs
+> > So it's better to replace jalr with jr.
 > >
-> > > > ---
-> > > >  arch/riscv/kernel/hibernate-asm.S | 1 -
-> > > >  1 file changed, 1 deletion(-)
-> > > >
-> > > > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
-> > > > index 5c76671c7e15..d698dd7df637 100644
-> > > > --- a/arch/riscv/kernel/hibernate-asm.S
-> > > > +++ b/arch/riscv/kernel/hibernate-asm.S
-> > > > @@ -28,7 +28,6 @@ ENTRY(__hibernate_cpu_resume)
-> > > >
-> > > >  	REG_L	a0, hibernate_cpu_context
-> > > >
-> > > > -	suspend_restore_csrs
-> > > >  	suspend_restore_regs
+> > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> > ---
+> >  arch/riscv/kernel/hibernate-asm.S | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
 > >
-> > > Good catch. This function is invoked twice to restore the CSRs.
-> > > I am good with removing this function from here.
+> > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+> > index effaf5ca5da0..5c76671c7e15 100644
+> > --- a/arch/riscv/kernel/hibernate-asm.S
+> > +++ b/arch/riscv/kernel/hibernate-asm.S
+> > @@ -50,7 +50,7 @@ ENTRY(hibernate_restore_image)
+> >  	REG_L	s4, restore_pblist
+> >  	REG_L	a1, relocated_restore_code
 > >
-> > If that's a review, then please either give an R-b or A-b tag :)
+> > -	jalr	a1
+> > +	jr	a1
+> >  END(hibernate_restore_image)
+> >
+> >  /*
+> > @@ -73,5 +73,5 @@ ENTRY(hibernate_core_restore_code)
+> >  	REG_L	s4, HIBERN_PBE_NEXT(s4)
+> >  	bnez	s4, .Lcopy
+> >
+> > -	jalr	s2
+> > +	jr	s2
+> I am content with these changes, as they do not involve a return after the jump
 Reviewed-by: JeeHeng Sia <jeeheng.sia@starfivetech.com >
-> >
-> > Thanks,
-> > Conor.
-> 
+
+Thanks
+Regards
+Jee Heng
+> >  END(hibernate_core_restore_code)
+> > --
+> > 2.20.1
 
 
 _______________________________________________
