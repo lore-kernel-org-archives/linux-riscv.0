@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B27C77B75
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 11:17:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD57C7EE2A
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 12:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGpccJ8FOvEykvmIwkxFqUNsE4pjtczkWn8JTvwdxGk=; b=L1lJcCRH6NpxaL
-	UVL8gAK550bpRk1/TtSHPF/P4yC6eYs/yyibnvmWW4bXVn07qZDPQ+nPN+kJL5qHC2npLJqHaSIUJ
-	CrfB2re2SxGXj3e8W231Pj4ILCbyz5Cgj0XV9jxgsU/d0GAmYpo0iW8gBB9Quudj4AXcsbE25Qhap
-	jlvyZJBw3n3Zxng7n2jo/UrZAR71iTaQAViHJ7ojSpfUy9DtQaypqnMlL6YDsD63QcBj33dWaaBC5
-	SZnZnKuPBU6nwDcLjFrQZx0dlMRFK6uGQir7q5CmI4MlaCYney2CebVjtUsgO2JqmiLAyribl/vuj
-	qjeGGhtzGej4Du45+uzQ==;
+	List-Owner; bh=yQdqBaBgphlLGsrDKE1u4Lti2sLF01T1v9sWyCuQ3K4=; b=2SEqTNHkUEuLfb
+	wsPapFnPT4Cdbn8bAs4At1wTb4YkPdIa4O/xpvJYqDGNZM2VrecsjmtBAM+d5GB7uxwhCw5GZH0en
+	LvKIwwjwxqheUUbsOViDTAdXvUPrP/oqFF6a8j7zyAo7lmyiodYq4d45hy/1HgkMKFG0zWV95Gjvk
+	xqAwKIcpAPHUAOn/X7kHsYqW5pJfdN5pfjEjgZO0GkgXVgZSYHOD68kud+Bd5PuaEICNH0AP/PHvy
+	nPkTUsxeBT/Vio4eCiaQ9irnx5QFo69SUWg/p+uqdK5LBOSE4/qPJ7gah66ksBgE7SBzZATH0pyqW
+	i6XCO48R1J3I/5yaSBEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q13Xx-006ETl-0d;
-	Mon, 22 May 2023 11:17:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1q14KJ-006N3v-20;
+	Mon, 22 May 2023 12:07:47 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q13Xt-006ESv-2E;
-	Mon, 22 May 2023 11:17:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cQTiKEc/43ERh/RUjjvIJQkEsJdOq6qRkauNBfX0QXQ=; b=p9m/ILtgZZh20NKGMrXp1m9S79
-	L3gjgt3hqJWh343H0TOYKs01/G2BPEuhvFC4TMuRPeU+MY+G/63vgoqDRNSKM39yVvKzOTaMjmZFK
-	7LM8lsFJeYjGWosrrrGG5miTPAuK0YTizFt0WQTN+y4vi/M34EkH3zTVqOfVyGhSWIOf8ow6+E///
-	7SsMn4KhRSRjr9A7KCnECWwdnNE+HTrXL6yLyaObfuKu+fRhMgUnrXcHYHyRgw+uyKRbUhZTX2eMd
-	dspexsNkPMSmOqiOaZOzjcHaV7Or01naZ8gCOX7wKpbxrnL7eOBmMEZkr02uGpGm9yxIp2RZVNEOy
-	4Up4YdGA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59006)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1q13XQ-0006UY-2o; Mon, 22 May 2023 12:17:16 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1q13XE-0007tn-CU; Mon, 22 May 2023 12:17:04 +0100
-Date: Mon, 22 May 2023 12:17:04 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Cooper <andrew.cooper3@citrix.com>
-Cc: tglx@linutronix.de, James.Bottomley@hansenpartnership.com,
-	arjan@linux.intel.com, arnd@arndb.de, boris.ostrovsky@oracle.com,
-	brgerst@gmail.com, catalin.marinas@arm.com, deller@gmx.de,
-	dwmw2@infradead.org, gpiccoli@igalia.com, guoren@kernel.org,
-	jgross@suse.com, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, lucjan.lucjanov@gmail.com,
-	mark.rutland@arm.com, mikelley@microsoft.com,
-	oleksandr@natalenko.name, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, paulmck@kernel.org, pbonzini@redhat.com,
-	pmenzel@molgen.mpg.de, ross.philipson@oracle.com,
-	sabrapan@amazon.com, seanjc@google.com, thomas.lendacky@amd.com,
-	tsbogend@alpha.franken.de, usama.arif@bytedance.com,
-	will@kernel.org, x86@kernel.org, xen-devel@lists.xenproject.org,
-	Jeffrey Hugo <quic_jhugo@quicinc.com>
-Subject: Re: [PATCH] x86/apic: Fix use of X{,2}APIC_ENABLE in asm with older
- binutils
-Message-ID: <ZGtPMHJM/TfklT+2@shell.armlinux.org.uk>
-References: <20230512203426.452963764@linutronix.de>
- <20230522105738.2378364-1-andrew.cooper3@citrix.com>
+	id 1q14KH-006N2I-0S
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 May 2023 12:07:46 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-64d44b198baso1435821b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 May 2023 05:07:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1684757261; x=1687349261;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rQchT/0lNTrw+8B0CuId0SUlnq7U6PVfXba1xiCz71w=;
+        b=wca6fpXjHkjd3rjsv8N4x5KSOncS2a0VHpnNGtiD4rgVZBbKqmLjWnIGdun2rYA/Y8
+         vff4t0nOJLv+32DDppIspgUMVPSoPyRDnYg1Nn7G2Txn94Bb87rwsF5tBn6ISb2TZphQ
+         HSmIDap0oJXPdGavLiMT9AkoOT80M8S3khfihAGpad399PH5nZPUhOPGwBmfTpSMFdsD
+         4OYK2K44TRvJOZDyhX2Pz1Ost8odRND3dzVNGMlKqfaVxaUu/aDVttcZ7BStvoPVb6pg
+         kYOeXj3W5hETAxwn0fd/NIPW/6XUCFvuRvRY5d9Z6ZF6m0Llla+WfrPG+R+YuCYFZ15t
+         /dqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684757261; x=1687349261;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rQchT/0lNTrw+8B0CuId0SUlnq7U6PVfXba1xiCz71w=;
+        b=A/ELkWrtf4A+LaXrDWydHCEfqYH7RtyWNOjtHl2X2iXM3D7VfhAbePRjjHVZNmEt16
+         Kz2LnPCa8m4h1WGoM9E0ty5s0JbMIOlzK5L/XHQpL5Kl3lL0BALmLgbESLWt6oskd8wZ
+         q82pfSDX3dxdefPPmGf6YUmD6lghHixNre5M10d04fD7jsnYZrUwT5zKV4vLK+xEB99B
+         eChFZrmTYRQM8+Rt69KcG9LOIYlfY+2hymFL4iolW6dYjhD10hu9GrpEQFffL2V9pYrU
+         vMTjyZxS/vZbNuwNJ7pQVofEKyT4/EOd0y8YnvND7qsUH/vxH5d/7I2c/XcyjsgBBbOU
+         eTwA==
+X-Gm-Message-State: AC+VfDxLjNArJPV19dTlth2+6ZUPCftagv7PEJBXWrXS+LUNPovbkqM6
+	+6s3S9gYlWkQu/ZZOPCLAaeKiw==
+X-Google-Smtp-Source: ACHHUZ7FzhOI1oZLY82kXv7E96TdiFUnztouK0GLFhMQ6d59+neuCKyIRvk0N2kpg8Te/400FlOEsA==
+X-Received: by 2002:a05:6a00:1d1d:b0:64d:5683:1977 with SMTP id a29-20020a056a001d1d00b0064d56831977mr5334494pfx.9.1684757261369;
+        Mon, 22 May 2023 05:07:41 -0700 (PDT)
+Received: from leoy-yangtze.lan ([107.151.177.126])
+        by smtp.gmail.com with ESMTPSA id p7-20020a62ab07000000b00640defda6d2sm3980510pff.207.2023.05.22.05.07.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 May 2023 05:07:40 -0700 (PDT)
+Date: Mon, 22 May 2023 20:07:29 +0800
+From: Leo Yan <leo.yan@linaro.org>
+To: James Clark <james.clark@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Eric Lin <eric.lin@sifive.com>,
+	Kan Liang <kan.liang@linux.intel.com>, Qi Liu <liuqi115@huawei.com>,
+	Sandipan Das <sandipan.das@amd.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 2/5] perf parse-regs: Introduce functions
+ arch__reg_{ip|sp}()
+Message-ID: <20230522120729.GB1826292@leoy-yangtze.lan>
+References: <20230520025537.1811986-1-leo.yan@linaro.org>
+ <20230520025537.1811986-3-leo.yan@linaro.org>
+ <839836e8-9600-9249-dcdb-e29519335141@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230522105738.2378364-1-andrew.cooper3@citrix.com>
+In-Reply-To: <839836e8-9600-9249-dcdb-e29519335141@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_041745_727209_59D6373C 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20230522_050745_217923_7758D610 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,62 +110,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, May 22, 2023 at 09:57:25AM +0100, James Clark wrote:
+> 
+> 
+> On 20/05/2023 03:55, Leo Yan wrote:
+> > Ideally, we want util/perf_regs.c to be general enough and doesn't bind
+> > with specific architecture.
+> > 
+> > But since util/perf_regs.c uses the macros PERF_REG_IP and PERF_REG_SP
+> > which are defined by architecture, thus util/perf_regs.c is dependent on
+> > architecture header (see util/perf_regs.h includes "<perf_regs.h>", here
+> > perf_regs.h is architecture specific header).
+> > 
+> > As a step to generalize util/perf_regs.c, this commit introduces weak
+> > functions arch__reg_ip() and arch__reg_sp() and every architecture can
+> > define their own functions; thus, util/perf_regs.c doesn't need to use
+> > PERF_REG_IP and PERF_REG_SP anymore.
+> > 
+> > This is a preparation to get rid of architecture specific header from
+> > util/perf_regs.h.
+> > 
+> > Signed-off-by: Leo Yan <leo.yan@linaro.org>
+> > ---
+> [...]
+> >  
+> > -#define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
+> > +#define DWARF_MINIMAL_REGS ((1ULL << arch__reg_ip()) | (1ULL << arch__reg_sp()))
+> >  
+> >  const char *perf_reg_name(int id, const char *arch);
+> >  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+> > diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+> > index bdccfc511b7e..f308f2ea512b 100644
+> > --- a/tools/perf/util/unwind-libdw.c
+> > +++ b/tools/perf/util/unwind-libdw.c
+> > @@ -252,7 +252,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> >  	if (!ui->dwfl)
+> >  		goto out;
+> >  
+> > -	err = perf_reg_value(&ip, &data->user_regs, PERF_REG_IP);
+> > +	err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip());
+> 
+> Shouldn't it be more like this, because the weak symbols are a compile
+> time thing and it's supposed to support cross arch unwinding at runtime
+> (assuming something containing the arch from the file is passed down,
+> like we did with perf_reg_name()):
+> 
+>   char *arch = perf_env__arch(evsel__env(evsel));
+>   err = perf_reg_value(&ip, &data->user_regs, arch__reg_ip(arch));
 
-Please can you tell me what the relevance of this patch is to me, and
-thus why I'm included in the Cc list? I have never touched this file,
-not in its current path nor a previous path according to git.
+Thanks for pointing out, James.
 
-Thanks.
+Agreed that we need to return the IP and SP register based on the
+arch.  I will look into more details and spin for a new patch set for
+this.
 
-On Mon, May 22, 2023 at 11:57:38AM +0100, Andrew Cooper wrote:
-> "x86/smpboot: Support parallel startup of secondary CPUs" adds the first use
-> of X2APIC_ENABLE in assembly, but older binutils don't tolerate the UL suffix.
+> Now I'm wondering how cross unwinding ever worked because I see
+> libunwind also has something hard coded too:
 > 
-> Switch to using BIT() instead.
-> 
-> Fixes: 7e75178a0950 ("x86/smpboot: Support parallel startup of secondary CPUs")
-> Reported-by: Jeffrey Hugo <quic_jhugo@quicinc.com>
-> Tested-by: Jeffrey Hugo <quic_jhugo@quicinc.com>
-> Signed-off-by: Andrew Cooper <andrew.cooper3@citrix.com>
-> ---
->  arch/x86/include/asm/apicdef.h | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/x86/include/asm/apicdef.h b/arch/x86/include/asm/apicdef.h
-> index bf546dfb6e58..4b125e5b3187 100644
-> --- a/arch/x86/include/asm/apicdef.h
-> +++ b/arch/x86/include/asm/apicdef.h
-> @@ -2,6 +2,8 @@
->  #ifndef _ASM_X86_APICDEF_H
->  #define _ASM_X86_APICDEF_H
->  
-> +#include <linux/bits.h>
-> +
->  /*
->   * Constants for various Intel APICs. (local APIC, IOAPIC, etc.)
->   *
-> @@ -140,8 +142,8 @@
->  #define APIC_BASE (fix_to_virt(FIX_APIC_BASE))
->  #define APIC_BASE_MSR		0x800
->  #define APIC_X2APIC_ID_MSR	0x802
-> -#define XAPIC_ENABLE	(1UL << 11)
-> -#define X2APIC_ENABLE	(1UL << 10)
-> +#define XAPIC_ENABLE		BIT(11)
-> +#define X2APIC_ENABLE		BIT(10)
->  
->  #ifdef CONFIG_X86_32
->  # define MAX_IO_APICS 64
-> 
-> base-commit: 0c7ffa32dbd6b09a87fea4ad1de8b27145dfd9a6
-> -- 
-> 2.30.2
-> 
-> 
+>   #define LIBUNWIND__ARCH_REG_SP PERF_REG_SP
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Yeah, I also used arch__reg_sp() to replace PERF_REG_SP; but as you
+suggestion, we should fix this with passing 'arch' parameter for
+getting SP register based on arch.
+
+Another important thing is to find a good test for cross unwinding.
+Maybe I can use tools/perf/tests/shell/record.sh, function
+test_register_capture() for testing registers, if you have any other
+suggesion, please let me know.
+
+Thanks,
+Leo
 
 _______________________________________________
 linux-riscv mailing list
