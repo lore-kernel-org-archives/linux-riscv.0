@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CA3C7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 02:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB38DC77B75
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 May 2023 04:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hsqaZywNqoY5nl3ivxfoxr7fpZmjBD3C7xR0GN/1QZk=; b=WXzaRTAH417CeV
-	YQA+1odOCVA5GdpL443y+eleTA2Iz3sWJ6UUe2BLXc9iuWxj6716BH3Qr0aEjvg28eSCHIyMwqbxx
-	wGZUxQVF5k6fULhhv6GviDozgoucfDTZC5cqmfK6B+ZWYHN9rLlbDCLxBBR3F0Mf423niWNx4Rn6G
-	QUiX9LBJU3TLP8M84YnHxbOX06MrcRnnbFAVuM7DTMvoLzZZQxyXsbB2xxgrnRDz5w/WqXy/NBmGn
-	t763T5a2XnfeHs5GQ56oBR/TrpHxhqYuaiHFogZQ/sD8QvHlJdyiPyMvHJ2CqH+CoNGbnmMF+PHrt
-	Y4MBp5lkow79V3M/L/lQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Bzpn2hX/jckBO4BPPW6DN8VMYD/2F0ONPVpU3K65RXc=; b=1pxM9K2YMDo2Lc
+	gt6cWaJjv2q1uIgU9cp+cwt7KRZXPMVLFOPqCsUj7KpzW9zKVT+EmAezmkm2z8BYMsEeHetRO0F0N
+	/uOWX83TtIJ2pe5m+sQ3UBSk6M91hDR5brsv602/lM3b+5D3NFCw3DjJhUjn6qMpAII5AX1oERxpC
+	BQJhmW4GLnj6O1nDVlJtruvGJtghPii1U2t+u0HWSjFiipUkt0YtwYA05AQsX800jVABqwAWRBXpv
+	JbsecwE2KaPrx5vPrOmP9VDH9Mdk9/g/SUgjMy+nK3t5hBjljG3HjgI38Ev/25IYAuo1iCOpgUK7w
+	tsGF+gZv5NBfsyEW+DsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0vdN-0058nY-2P;
-	Mon, 22 May 2023 02:50:53 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q0wyv-005HUh-09;
+	Mon, 22 May 2023 04:17:13 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q0vdH-0058ll-0R
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 May 2023 02:50:52 +0000
-X-QQ-mid: bizesmtp66t1684723824tixnfbhg
-Received: from localhost.localdomain ( [221.226.144.218])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 22 May 2023 10:50:23 +0800 (CST)
-X-QQ-SSF: 01200000000000204000000A0000000
-X-QQ-FEAT: fp7GbACbaw5+/Q/MDriKgD9K7a4eKyWoz7734QLbFWStCUU/K7or6Lv1s5wOQ
-	z89TIgb0hFWuT+B13h0yWpejC28/IEq+yFu5lnWDBG//Hf0Vw5LHFNvPNgOi6Bu6SS1MM5A
-	mZi57ZiIsGAlPBD7i0UGXyb7AhQf/J2SDcp2KZM8wDWqlBaBjt/Nf2EsPHPCYK4Fpb7Bz0r
-	V5SYhnifPJ6awCgeF8okbGEiD4YWUK+R1WCgYPBhYmAINustflXk79e14nHnpLSL6IKbtjH
-	7Aw5Ccd02qII2Iv5a6ovTcZtirCSalh//tzOo9q75WEawLfmRA/6/E3YrV+63bo9spXftFG
-	brd6ajRUBnvXlVsH0Xvsmt9srrsIY1F6RxRF5aaJgJDz41/PxU=
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14716206032302420397
-From: Song Shuai <songshuaishuai@tinylab.org>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	suagrfillet@gmail.com,
-	mason.huo@starfivetech.com,
-	leyfoon.tan@starfivetech.com,
-	ajones@ventanamicro.com,
-	jeeheng.sia@starfivetech.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH V2] riscv: hibernation: Remove duplicate call of suspend_restore_csrs
-Date: Mon, 22 May 2023 10:50:20 +0800
-Message-Id: <20230522025020.285042-1-songshuaishuai@tinylab.org>
-X-Mailer: git-send-email 2.20.1
+	id 1q0wyr-005HTb-1t;
+	Mon, 22 May 2023 04:17:11 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4QPkft3zztz4x4B;
+	Mon, 22 May 2023 14:16:54 +1000 (AEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1684729020;
+	bh=AVLVOohCWlNWsFlZp/IjXPMalhLXANn4M3eXvq7tzo4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=pgufz1uRbk/l6Rkj1iL6mZYqH3IRjcKojpyTlmnAqC5gBLrUBoE9FFstCMUjKSjQa
+	 uv9vN+rApxtjlJ8i1zW14wzuxXSWmzFWQpJmE+6E5yQ16RHo80JIMVZFCkzEud3Rsd
+	 crFSqYweTi2+OSAyQrKmkoPy6AY1LlMn3p4HCzfgB27T+V6UTyE7OgP+ZngP7e0K/g
+	 xrERP69ypwM37e6nnw4lM8nQO1q9vvBO0V6MtmIgeKMJxW1qB5hv4V1bHGEHIl5WZr
+	 GLi3ASKQsCuuTsN3XYaBrB9DgTnDKaHMkGPu9JFhl45o+kil82t9uN8FJoBA2XwUIK
+	 n8c477C2qGY9A==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Ricardo Ribalda <ribalda@chromium.org>, Eric Biederman
+ <ebiederm@xmission.com>, Philipp Rudo <prudo@linux.vnet.ibm.com>, Dave
+ Young <dyoung@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Nathan Chancellor
+ <nathan@kernel.org>, Tom Rix <trix@redhat.com>, Nicholas Piggin
+ <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: Baoquan He <bhe@redhat.com>, Philipp Rudo <prudo@redhat.com>,
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org, Ross Zwisler
+ <zwisler@google.com>, Steven Rostedt <rostedt@goodmis.org>, Simon Horman
+ <horms@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
+ llvm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, Ricardo Ribalda <ribalda@chromium.org>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH v7 3/4] powerpc/purgatory: Remove PGO flags
+In-Reply-To: <20230321-kexec_clang16-v7-3-b05c520b7296@chromium.org>
+References: <20230321-kexec_clang16-v7-0-b05c520b7296@chromium.org>
+ <20230321-kexec_clang16-v7-3-b05c520b7296@chromium.org>
+Date: Mon, 22 May 2023 14:16:54 +1000
+Message-ID: <87h6s59f0p.fsf@mail.lhotse>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230521_195047_500796_7F450287 
-X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-CacheID: sfid-20230521_211709_793295_5F032948 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,42 +87,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The suspend_restore_csrs is called in both __hibernate_cpu_resume
-and the `else` of subsequent swsusp_arch_suspend.
+Ricardo Ribalda <ribalda@chromium.org> writes:
+> If profile-guided optimization is enabled, the purgatory ends up with
+> multiple .text sections.
+> This is not supported by kexec and crashes the system.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 930457057abe ("kernel/kexec_file.c: split up __kexec_load_puragory")
+> Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+> ---
+>  arch/powerpc/purgatory/Makefile | 5 +++++
+>  1 file changed, 5 insertions(+)
 
-Removing the first call makes both suspend_{save,restore}_csrs
-left in swsusp_arch_suspend for clean code.
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
-Fixes: c0317210012e ("RISC-V: Add arch functions to support hibernation/suspend-to-disk")
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
----
-
-Changes since V1:
-https://lore.kernel.org/linux-riscv/20230519102908.253458-1-suagrfillet@gmail.com/
-- fix incorrect email in the Author and SoB field
-- add Fixes tag
-
----
- arch/riscv/kernel/hibernate-asm.S | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
-index 5c76671c7e15..d698dd7df637 100644
---- a/arch/riscv/kernel/hibernate-asm.S
-+++ b/arch/riscv/kernel/hibernate-asm.S
-@@ -28,7 +28,6 @@ ENTRY(__hibernate_cpu_resume)
- 
- 	REG_L	a0, hibernate_cpu_context
- 
--	suspend_restore_csrs
- 	suspend_restore_regs
- 
- 	/* Return zero value. */
--- 
-2.20.1
-
+cheers
 
 _______________________________________________
 linux-riscv mailing list
