@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB600C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 06:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2B7C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 06:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eQGDSCDvUleQklQ0wp5LAxa+ZiQ4mKc2VHkQ42OPNU=; b=xRKqZeWdOIdbUalWtnkjtCoR9A
-	aFHk7+I+h6P47n/gb8orXVpt3EbpcBkDp01/I0rSAMflat5UyIT018lfaTX9g6FLPVuknehOu1/kz
-	Yn5aY34YFIAs1/KVuNsfSrg/UxvyHT5/iGa6zZ48nCUs20EfYM2dNmj40ioDBDlwsVPMjRte+54qE
-	FTRlIvxzGDNp8thPcm0hz2QHYx031njYgSAMGYky5y+baL4/VkuK4kZmttgubCPyY5gNcUaV5/rEp
-	eI33Q3o6bbWRWn0lVHyQsR+X5sZAZqce6GVp/DlUcJOR8UpG3DXKEsdxQp//o4VQ1Qhpya/+brgmb
-	XJMBKs1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y2G15FzKhDY5B1BooGacDzzg7wH8OUXDITuDC+YBmNI=; b=Kbrp90vj3ftH2K
+	uib7PLl5x8IZoJ7VdoBhRtoXEqyP9awm19RbDzL2QgC+QvI26CXATdGUVvM5rJe9VjdlxpVLT1gBm
+	Ql7/6ewbuo6aJjGp/LYwbfoWeNMPjmQm3te5KBWl4JFREwZU8TFB8AwPHMGnETlYsqxTMJrvw3VQA
+	m4QObtJviTWL3grcWm9TGaWvrv4meAatuaV9NyVEg6vFw3/hHfuYnxZbRkMCIHX+L7pAKcGNv/nLC
+	4KJbAoj0CyvvL4kL5NLtxmI4PXhqlUmJTXXI/3QY3S7OjZGe3RtAXeqNUUf+BtY2lqBF/dhHvZQoz
+	5YM/AMBHMwrNEVGDyOtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Lo7-0097Ic-2Y;
-	Tue, 23 May 2023 06:47:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1q1Lph-0097Wq-3B;
+	Tue, 23 May 2023 06:49:21 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Lo3-0097Gh-0h
+	id 1q1Lpf-0097V5-2G
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 06:47:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684824459; x=1716360459;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gVWbWiw/ZDPW0HOBd+nK8L6v2Q4lPpGLd6wth1TKIO8=;
-  b=BnAdoDey7xvfxlD+62c1Wl0yaGtTmY58JnsKRqag/Y5V86dGRY/U7VT5
-   37FBtNibksUyByisjCSwyB7RUyR/URPyKgZcbwUzLXTKkAmPfDN6squfS
-   UjBmR0I80gHWAU36hqwlrBljxzIiChJ2BcqNSfEIRwO/BzxLb8/X4BCAY
-   knUpP4I8G2FdDtRdLKKrmcdScbJ3BPmEvODq2jCM0zSxh2tHuTMFYgmS7
-   ei3ECrIWGwjoQt0SeZ5TdKFGxiYUrXLXa97NfoRy8M0ven5T2jIL0U9T1
-   iXXhB9UvntlO2eFuBwTy4zySK4E/gpfPrybAIFQ1VFwmxkyD8/w52Qm++
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.00,185,1681196400"; 
-   d="asc'?scan'208";a="216790503"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 May 2023 23:47:29 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 22 May 2023 23:47:28 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 22 May 2023 23:47:27 -0700
-Date: Tue, 23 May 2023 07:47:05 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Jaswinder Singh
-	<jassisinghbrar@gmail.com>, Jaswinder Singh <jassi.brar@samsung.com>, Boojin
- Kim <boojin.kim@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, Russell
- King <rmk+kernel@arm.linux.org.uk>, Vinod Koul <vkoul@kernel.org>,
-	<dmaengine@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] dmaengine: pl330: rename _start to prevent build error
-Message-ID: <20230523-lushly-purr-9a93ea9f3573@wendy>
-References: <20230523000606.9405-1-rdunlap@infradead.org>
+	Tue, 23 May 2023 06:49:21 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2532d6c7ef2so3217776a91.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 May 2023 23:49:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1684824557; x=1687416557;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/CIN3k3pgEX900re7PcWc+Ixgh9Bvf8RnAPTzy/Q9qA=;
+        b=cvzXNBZcONpo9ubWJ3RJzuhpxW2KbOHQ7DyYNvAc6zjsDwkoebi1Cb5OK1Si5f9EkR
+         7oTDI3fOalzwEfxtNnjihGdUMwDKSXZkE1HxrdBA6wmIpDrDdXEuHHx+k5U8WxTjUW6a
+         mu753zyCxef2tvJdD9aw9+fAS79oQq8BvweBwSgvtEh+sI7C8jHfILbMxxemelnlc3hv
+         TQ76LfGIYbtcp4Xin0+PZPpMPCazlIiSEf0zHBPlJ/lt04cX+mrF/dfXBXOD6CJSsLoI
+         4UXwZa6kWsBRXaq6cv37NKE/oQi4+8PAY+qFC8UB3Ei+yLADc6sD5PlY57Ui2VfaCgdA
+         FoFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684824557; x=1687416557;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/CIN3k3pgEX900re7PcWc+Ixgh9Bvf8RnAPTzy/Q9qA=;
+        b=T9pKXaiUGfxaSSGh9NNBE+chDFIZ1I/fv4zWw13d7q33IC+/6tmJryM7or1i3FMzE6
+         IgsfP8rzjAPGds2yo2uvJ0nD9Mgp50qmBXb18plSEETtUgulqA45HXRJr03k2G/wcJj0
+         ZNsJVnJGcCmMdpHQVJ9fySYl/9RUbFoYUanj+KIb/CqpQuFJdA/RJOCou1sii+PS/NXi
+         tQf1mTZNi5fgVdJKylmJICBaYhBFKXSU5e9OnAf312WMRPhQRD4qyS9mbwVzuZVgip30
+         E6GVNXJkw3f14sjSJoNYezA50scpQvL0til0lj6H2paL+RSnjVdYvlf+ZT/YWyzYZ/vs
+         g5mg==
+X-Gm-Message-State: AC+VfDzC3KLdf69RRiGeg+G0XDvtjwzFIDX2a+noqugK5sjReSt2kweL
+	IWrJk2pYb6UJCdOrVrlQWm2rOg==
+X-Google-Smtp-Source: ACHHUZ7nNz4A5dl27YEbGjluXzF+Iu6AoPCKpNsPdYErA3ftUxN2fDxtCgclj2E7xLaUJ53OH6sH7g==
+X-Received: by 2002:a17:90a:984:b0:253:9548:91e1 with SMTP id 4-20020a17090a098400b00253954891e1mr12132128pjo.17.1684824556586;
+        Mon, 22 May 2023 23:49:16 -0700 (PDT)
+Received: from leoy-yangtze.lan ([107.151.177.126])
+        by smtp.gmail.com with ESMTPSA id w62-20020a17090a6bc400b00246774a9addsm7391986pjj.48.2023.05.22.23.49.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 May 2023 23:49:16 -0700 (PDT)
+Date: Tue, 23 May 2023 14:49:04 +0800
+From: Leo Yan <leo.yan@linaro.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Eric Lin <eric.lin@sifive.com>,
+	Kan Liang <kan.liang@linux.intel.com>, Qi Liu <liuqi115@huawei.com>,
+	Sandipan Das <sandipan.das@amd.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 2/5] perf parse-regs: Introduce functions
+ arch__reg_{ip|sp}()
+Message-ID: <20230523064904.GA1969788@leoy-yangtze.lan>
+References: <20230520025537.1811986-1-leo.yan@linaro.org>
+ <20230520025537.1811986-3-leo.yan@linaro.org>
+ <CAP-5=fU-+8Sdw0tfQNYN40tXanrzUgqv0=6jsHqGR9cgjkQa2A@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230523000606.9405-1-rdunlap@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <CAP-5=fU-+8Sdw0tfQNYN40tXanrzUgqv0=6jsHqGR9cgjkQa2A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_234739_443331_421AA8CF 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20230522_234919_763003_C768785B 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,75 +105,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3892273390201996972=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3892273390201996972==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Z31axD9H5YaGMLWg"
-Content-Disposition: inline
+On Mon, May 22, 2023 at 11:08:12AM -0700, Ian Rogers wrote:
 
---Z31axD9H5YaGMLWg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[...]
 
-Hey Randy,
+> > diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+> > index 8720ec6cf147..334c9a2b785d 100644
+> > --- a/tools/perf/util/perf_regs.c
+> > +++ b/tools/perf/util/perf_regs.c
+> > @@ -20,6 +20,16 @@ uint64_t __weak arch__user_reg_mask(void)
+> >         return PERF_REGS_MASK;
+> >  }
+> >
+> > +uint64_t __weak arch__reg_ip(void)
+> > +{
+> > +       return 0;
+> > +}
+> > +
+> > +uint64_t __weak arch__reg_sp(void)
+> > +{
+> > +       return 0;
+> > +}
+> > +
+> 
+> Is there a need for the weak function if there is a definition for
+> every architecture?
 
-On Mon, May 22, 2023 at 05:06:06PM -0700, Randy Dunlap wrote:
-> "_start" is used in several arches and proably should be reserved
-> for ARCH usage. Using it in a driver for a private symbol can cause
-> a build error when it conflicts with ARCH usage of the same symbol.
->=20
-> Therefore rename pl330's "_start" to "_start_thread" so that there
-> is no conflict and no build error.
+In current code, some archs don't support register parsing (e.g.
+arch/alpha, arch/parisc, arch/riscv64, etc), this is why I added weak
+functions to avoid building breakage for these archs.
 
-_start_thread() seems pretty generic to me too, but there don't appear
-to be any users & it is certainly better than the one causing build
-issues!
+> A problem with weak definitions is that they are
+> not part of the C standard, so strange things can happen such as
+> inlining - although I think this code is safe.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Good to know this info, thanks for sharing.
+
+> Not having the weak
+> functions means that if someone tries to bring up a new architecture
+> they will get linker failures until they add the definitions. Failing
+> to link seems better than silently succeeding but then having to track
+> down runtime failures because these functions are returning 0.
+
+I agreed that removing weak functions is better way to move forward.
+
+If removing the weak functions, we need to handle cases for below
+archs which don't support register parsing:
+
+  arch/alpha/
+  arch/arc/
+  arch/parisc/
+  arch/riscv64/
+  arch/sh/
+  arch/sparc/
+  arch/xtensa/
+
+As James pointed out perf fails to support cross unwinding, I will update
+this patch, the new version's arch__reg_ip() / arch__reg_sp() will return
+IP and SP registers based on the passed 'arch' parameter; for above
+unsupported archs, arch__reg_ip() / arch__reg_sp() will return error and
+architecture developers can extend register parsing in the future.
+
+In this way, we also can remove weak definitions, this can give us an
+extra benefit :)
 
 Thanks,
-Conor.
-
->=20
-> drivers/dma/pl330.c:1053:13: error: '_start' redeclared as different kind=
- of symbol
->  1053 | static bool _start(struct pl330_thread *thrd)
->       |             ^~~~~~
-> In file included from ../include/linux/interrupt.h:21,
->                  from ../drivers/dma/pl330.c:18:
-> arch/riscv/include/asm/sections.h:11:13: note: previous declaration of '_=
-start' with type 'char[]'
->    11 | extern char _start[];
->       |             ^~~~~~
-
---Z31axD9H5YaGMLWg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGxhZQAKCRB4tDGHoIJi
-0rdIAP0Wabw96Kn9nVf+19fFM6AKRhl6z6gMm92JhKoWeudwbgEA7e0bLMA81R1s
-DRBqxN4TNE5YBg3iPigE5gMne6P0KQ4=
-=sBDX
------END PGP SIGNATURE-----
-
---Z31axD9H5YaGMLWg--
-
-
---===============3892273390201996972==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Leo
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3892273390201996972==--
-
