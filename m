@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31B9C7EE26
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 17:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9DEC7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 18:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B28sjtWzjB/oeK7jBx5t/f+uhyAbzgEa/vqNzcelW48=; b=48XVd6Vwl2EUiT
-	6qbWhT7m6VuamIXmYUzF8yULCs3eHTnwdjESIfImiX9+ziJ+GrmZvtRuZ8i/vBvYQnpQNwCTDbmN+
-	PRuDYHVVsVvLGaanlkKNz4RvhdHKP8Bn7cg1qLzOVzMNxH5VnLzTYEnnNhy4PQJGnbNf3VpXwjFxS
-	donb5d3RYu4rCslneFGZwo6DbV4His0Ow5pvOzebkbYjk7ZjtggPBLJRZUA0A2G0PKJY15fWjwwV1
-	m/KJyAT0s8BbaqOjPywSxnOH25eLgCUMDp6FxdUVLp5XcgHu7yRSUUfH4At/GCdzYwusPFXOmlqyd
-	IAe5E0n5r1oxnSSjMlEA==;
+	List-Owner; bh=zpf7xeQqEN/gq3p1bUs/MGrVruqQSGMAU/a/inf9gpk=; b=NvNn0snc7rLZvb
+	08cva/9NpViJNucZstOD0XWbhbk/tw+RA+9w3Bpr9w2UYot2/V/Uw1eZK90SsFVPgF3X/Gn/bR+VE
+	AiZaRCUOm7D8ihVoBdqh176g/ehdAFPmoq9VT5IlLMrXepKsOYan4LdiKzFtKretbzWT95j+m+oF4
+	bkUKo0Q/w4II9QuOL9Bl7is2zkvBP6Cb6kJGXw7+qJB4+BKJu4b/STmlWNNtTobfeQZACvK/t46gM
+	CL2FCshUz6Ea2OEjq6X4sUYYQht+Rzc1viydaaqqDV4wvcoTUijjwmCo9CN9fqkSizG5HxYa5cuKe
+	UO4nnN4F8IDQWysGGrjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Vj0-00AwzU-1m;
-	Tue, 23 May 2023 17:23:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q1WMr-00B3vc-1J;
+	Tue, 23 May 2023 18:04:17 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Viy-00Awyv-0J
+	id 1q1WMm-00B3sX-33
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 17:23:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A962E63517;
-	Tue, 23 May 2023 17:23:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF46DC4339B;
-	Tue, 23 May 2023 17:23:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684862583;
-	bh=cx8zpeww/sD91Z30NnLug53CGtDlH+zjbb9NnNcdOEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sCMRTonkhdZDpAVFf3FDRDrt8zxticbMUfrQw0ryThW0GGGWZRa8VSlJFceOItaoO
-	 q7O16UdCT1fj4HHKskFVKM+pMr/Z7r+DMbJBvuXio3ZDxMAqWuTeD/TCwR1MYDfwvG
-	 psYZFLPq8gho42SvY0wqHTy7GrNUmanO/IyNtDCGRGC3gDhIDGWyF2s8aSBHNeQM4b
-	 TKO1VTauXuPCSS3y2d6Lthhx1dZ/+K0DQA5q7ZAK8d2LAt9JqiVSslK1RyDxHYGprr
-	 FbUDfBYbzulbsYjx8778hxObgH7ENXOv9VC2KO6qomVOWjcUZ9VEslCyj8reR9YFMA
-	 TAf+kGlDIVxjQ==
-Date: Wed, 24 May 2023 01:11:51 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Suren Baghdasaryan <surenb@google.com>
-Subject: Re: [PATCH] riscv: mm: try VMA lock-based page fault handling first
-Message-ID: <ZGzz11GhPyzcQ/nz@xhacker>
-References: <20230523165942.2630-1-jszhang@kernel.org>
+	Tue, 23 May 2023 18:04:15 +0000
+X-QQ-mid: bizesmtp71t1684865022tcxah01h
+Received: from linux-lab-host.localdomain ( [116.30.125.36])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 24 May 2023 02:03:41 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000B00A0000000
+X-QQ-FEAT: swyrzWPvyR0MduXpVglWqnX/F5HbgaaQRtAemZVP+sG0/GJZ2D1Y/ShFZ8m7+
+	ziR3C6JHZMUzvcAn2FwvU648OVTDIxR4ZJYfKygUbbeMPfvz3ccq3CKNE64aCcEq9+CCn0q
+	CiFhW82vl2CW0rnJ89xQJLaOf4AnSnB1nFzruLcHLazA5iZHRefcLmVGCSnfLohCMb14uh8
+	Dqy6oCARHkBhf58RZyuHqP6VQj6FGIG91XExRJffbaM0xxWFA/56fJYzS6hgl9URmJQjHup
+	1/AB5I3hQEDTSVrksGlevBahKLR8aiEtXT6GhGb816t/Pepo2YvLvONJFiXjl7YaO6A3oX1
+	n5T+gFHCX3N7qPbIcZCvkprKTpJHw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17320655173653481143
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	shuah@kernel.org
+Subject: Re: [PATCH] selftests/nolibc: Fix up compile error for rv32
+Date: Wed, 24 May 2023 02:03:40 +0800
+Message-Id: <20230523180340.466619-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230521180823.164289-1-falcon@tinylab.org>
+References: <20230521180823.164289-1-falcon@tinylab.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230523165942.2630-1-jszhang@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_102304_213945_745C7752 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20230523_110413_299548_4CDBEFDE 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,102 +80,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 24, 2023 at 12:59:42AM +0800, Jisheng Zhang wrote:
-> Attempt VMA lock-based page fault handling first, and fall back to the
-> existing mmap_lock-based handling if that fails.
-> 
-> A simple running the ebizzy benchmark on Lichee Pi 4A shows that
-> PER_VMA_LOCK can improve the ebizzy benchmark by about 32.68%. In
-> theory, the more CPUs, the bigger improvement, but I don't have any
-> HW platform which has more than 4 CPUs.
-> 
-> This is the riscv variant of "x86/mm: try VMA lock-based page fault
-> handling first".
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
-> Any performance numbers are welcome! Especially the numbers on HW
-> platforms with 8 or more CPUs.
+Hi, Willy, Thomas
 
-PS: run ebizzy as below:
-./ebizzy -mTt your_nr_cpus
+Good news, I just fixed up all of the time32 syscalls related build and
+test failures for rv32 and plan to send out the whole patchset tomorrow.
+
+The patchset is based on 20230520-nolibc-rv32+stkp2 of [1] and the new
+statckprotect patchset [2] (If v2 is ready, I prefer to rebase on v2).
+
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+[2]: https://lore.kernel.org/linux-riscv/20230521100818.GA29408@1wt.eu/T/#t
+
+For the fstat compile issue, I prefer to use a __NR_statx for rv32
+instead of using fstatfs, because of different fstatfs* have different
+errno's, it is ugly to use lots of macros ;-) what's your suggestion?
+
+Here is the __NR_statx version:
+
+    +static int test_syscall_args(void)
+    +{
+    +#ifdef __NR_statx
+    +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
+    +#elif defined(__NR_fstat)
+    +	return syscall(__NR_fstat, 0, NULL);
+    +#else
+    +#error Neither __NR_statx nor __NR_fstat defined, cannot implement syscall_args test
+    +#endif
+    +}
+
+And the fstatfs version:
+
+    +#ifdef __NR_fstatfs64
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs64, 0, 0, NULL), -1, EINVAL)
+    +#elif defined(__NR_fstatfs)
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstatfs, 0, NULL), -1, EFAULT)
+    +#elif defined(__NR_fstat)
+    +#define EXPECT_SYSER_SYSCALL_ARGS() EXPECT_SYSER(1, syscall(__NR_fstat, 0, NULL), -1, EFAULT)
+    +#else
+    +#error None of __NR_fstatfs64, __NR_fstatfs and __NR_fstat defined, cannot implement syscall_args test
+    +#endif
+
+And I plan to move __NR_fstat as the first branch to make sure it works
+as before on the other platforms.
+
+>     30 fork = 1 ENOSYS                                              [FAIL]
+>     33 gettimeofday_null = -1 ENOSYS                                [FAIL]
+>     35 gettimeofday_bad1 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+>     36 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+>     37 gettimeofday_bad2 = -1 ENOSYS  != (-1 EFAULT)                [FAIL]
+>     51 poll_null = -1 ENOSYS                                        [FAIL]
+>     52 poll_stdout = -1 ENOSYS                                      [FAIL]
+>     53 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
+>     56 select_null = -1 ENOSYS                                      [FAIL]
+>     57 select_stdout = -1 ENOSYS                                    [FAIL]
+>     58 select_fault = -1 ENOSYS  != (-1 EFAULT)                     [FAIL]
+>     64 wait_child = -1 ENOSYS  != (-1 ECHILD)                       [FAIL]
+>     65 waitpid_min = -1 ENOSYS  != (-1 ESRCH)                       [FAIL]
+>     66 waitpid_child = -1 ENOSYS  != (-1 ECHILD)                    [FAIL]
+>
+
+All of the above failures have been fixed up, some of them are very
+easy, some of them are a little hard.
+
+1. 30, 64-66 depends on wait4, use waitid instead
+2. 33-37 depends on gettimeofday, use clock_gettime64 instead
+3. 51-53 depends on ppoll, use ppoll_time64 instead
+4. 56-58 depends on pselect*, use pselect_time64 instead
+
+And I have found there are two same 'gettimeofday_bad2', is it designed?
+If no, I will send a patch to dedup it:
+
+    CASE_TEST(gettimeofday_bad2); EXPECT_SYSER(1, gettimeofday(NULL, (void *)1), -1, EFAULT); break;
+    CASE_TEST(gettimeofday_bad2); EXPECT_SYSER(1, gettimeofday(NULL, (void *)1), -1, EFAULT); break;
 
 > 
->  arch/riscv/Kconfig    |  1 +
->  arch/riscv/mm/fault.c | 33 +++++++++++++++++++++++++++++++++
->  2 files changed, 34 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 62e84fee2cfd..b958f67f9a12 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -42,6 +42,7 @@ config RISCV
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->  	select ARCH_SUPPORTS_HUGETLBFS if MMU
->  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
-> +	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
->  	select ARCH_USE_MEMTEST
->  	select ARCH_USE_QUEUED_RWLOCKS
->  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 8685f85a7474..eccdddf26f4b 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -286,6 +286,36 @@ void handle_page_fault(struct pt_regs *regs)
->  		flags |= FAULT_FLAG_WRITE;
->  	else if (cause == EXC_INST_PAGE_FAULT)
->  		flags |= FAULT_FLAG_INSTRUCTION;
-> +#ifdef CONFIG_PER_VMA_LOCK
-> +	if (!(flags & FAULT_FLAG_USER))
-> +		goto lock_mmap;
-> +
-> +	vma = lock_vma_under_rcu(mm, addr);
-> +	if (!vma)
-> +		goto lock_mmap;
-> +
-> +	if (unlikely(access_error(cause, vma))) {
-> +		vma_end_read(vma);
-> +		goto lock_mmap;
-> +	}
-> +
-> +	fault = handle_mm_fault(vma, addr, flags | FAULT_FLAG_VMA_LOCK, regs);
-> +	vma_end_read(vma);
-> +
-> +	if (!(fault & VM_FAULT_RETRY)) {
-> +		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-> +		goto done;
-> +	}
-> +	count_vm_vma_lock_event(VMA_LOCK_RETRY);
-> +
-> +	if (fault_signal_pending(fault, regs)) {
-> +		if (!user_mode(regs))
-> +			no_context(regs, addr);
-> +		return;
-> +	}
-> +lock_mmap:
-> +#endif /* CONFIG_PER_VMA_LOCK */
-> +
->  retry:
->  	mmap_read_lock(mm);
->  	vma = find_vma(mm, addr);
-> @@ -355,6 +385,9 @@ void handle_page_fault(struct pt_regs *regs)
->  
->  	mmap_read_unlock(mm);
->  
-> +#ifdef CONFIG_PER_VMA_LOCK
-> +done:
-> +#endif
->  	if (unlikely(fault & VM_FAULT_ERROR)) {
->  		tsk->thread.bad_cause = cause;
->  		mm_fault_error(regs, addr, fault);
-> -- 
-> 2.40.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> My suggestion is directly fix up the failures one by one in current stage,
+> because nolibc currently only uses part of the time32 syscalls, it may be not
+> that complex to fix up them. Have read the code of musl and glibc today, both
+> of them have good time64 syscalls support, I plan to fix up the above failures
+> in several days, hope so but no promise ;-)
+>
+
+both musl and glibc help a lot, but also encounter some critical issues, for
+example, to pass some test cases, it is required to emulate the same path of
+the target syscalls and return the same errno's for them, the code comment will
+exaplain the details.
+
+> And another question: for the new changes, If a platform support both of the
+> 32bit and 64bit syscalls, do we need to put the 64bit syscalls at first?
+>
+
+To make sure not touch too much on the code and reduce test cost, the patchset
+just kept the default code order and let the old code in the first branch.
+
+I plan to send the whole patchset tomorrow.
+
+Thanks,
+Zhangjin
 
 _______________________________________________
 linux-riscv mailing list
