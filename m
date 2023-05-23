@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2B7C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 06:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30AAFC77B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 08:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y2G15FzKhDY5B1BooGacDzzg7wH8OUXDITuDC+YBmNI=; b=Kbrp90vj3ftH2K
-	uib7PLl5x8IZoJ7VdoBhRtoXEqyP9awm19RbDzL2QgC+QvI26CXATdGUVvM5rJe9VjdlxpVLT1gBm
-	Ql7/6ewbuo6aJjGp/LYwbfoWeNMPjmQm3te5KBWl4JFREwZU8TFB8AwPHMGnETlYsqxTMJrvw3VQA
-	m4QObtJviTWL3grcWm9TGaWvrv4meAatuaV9NyVEg6vFw3/hHfuYnxZbRkMCIHX+L7pAKcGNv/nLC
-	4KJbAoj0CyvvL4kL5NLtxmI4PXhqlUmJTXXI/3QY3S7OjZGe3RtAXeqNUUf+BtY2lqBF/dhHvZQoz
-	5YM/AMBHMwrNEVGDyOtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wu7I0JzNwGmh9EClp5oin7w63XRI0VRxxd1dbqMX3oU=; b=JtSOT0qMmYvH4W8N33EOqPs1Lg
+	cl7/c25OiOdGtBOrpUcLhUtnEzgE1bwXOMAGoillztr1ZE7wcZCzuI8Nmwves5RrzzX8p9QOK0e/E
+	XZb8e/N5D82w8lgKHCaCP/jHc5IDWbkKHJmHXhOcH4LTBto4CpOK5ow0ZSzTKK2aZI2eDD1xqOALS
+	hrBbMznpuPaLJUhnnIPXmAPn0tprxUhMTESHMAu6h7gs5kz5fpWExLA8GoubbL4r+7yjNdgQzjsho
+	iY1beGnnAKuyCSf4EltvXK/iuf8XPlBl/TJDX3ULDIt6LTuctLXw+Qacz/RnZCK6A1jV/48QfwVJE
+	WCnHjxbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Lph-0097Wq-3B;
-	Tue, 23 May 2023 06:49:21 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1q1NOP-009RMn-1T;
+	Tue, 23 May 2023 08:29:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Lpf-0097V5-2G
+	id 1q1NOJ-009RLS-2R
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 06:49:21 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2532d6c7ef2so3217776a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 May 2023 23:49:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1684824557; x=1687416557;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/CIN3k3pgEX900re7PcWc+Ixgh9Bvf8RnAPTzy/Q9qA=;
-        b=cvzXNBZcONpo9ubWJ3RJzuhpxW2KbOHQ7DyYNvAc6zjsDwkoebi1Cb5OK1Si5f9EkR
-         7oTDI3fOalzwEfxtNnjihGdUMwDKSXZkE1HxrdBA6wmIpDrDdXEuHHx+k5U8WxTjUW6a
-         mu753zyCxef2tvJdD9aw9+fAS79oQq8BvweBwSgvtEh+sI7C8jHfILbMxxemelnlc3hv
-         TQ76LfGIYbtcp4Xin0+PZPpMPCazlIiSEf0zHBPlJ/lt04cX+mrF/dfXBXOD6CJSsLoI
-         4UXwZa6kWsBRXaq6cv37NKE/oQi4+8PAY+qFC8UB3Ei+yLADc6sD5PlY57Ui2VfaCgdA
-         FoFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684824557; x=1687416557;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/CIN3k3pgEX900re7PcWc+Ixgh9Bvf8RnAPTzy/Q9qA=;
-        b=T9pKXaiUGfxaSSGh9NNBE+chDFIZ1I/fv4zWw13d7q33IC+/6tmJryM7or1i3FMzE6
-         IgsfP8rzjAPGds2yo2uvJ0nD9Mgp50qmBXb18plSEETtUgulqA45HXRJr03k2G/wcJj0
-         ZNsJVnJGcCmMdpHQVJ9fySYl/9RUbFoYUanj+KIb/CqpQuFJdA/RJOCou1sii+PS/NXi
-         tQf1mTZNi5fgVdJKylmJICBaYhBFKXSU5e9OnAf312WMRPhQRD4qyS9mbwVzuZVgip30
-         E6GVNXJkw3f14sjSJoNYezA50scpQvL0til0lj6H2paL+RSnjVdYvlf+ZT/YWyzYZ/vs
-         g5mg==
-X-Gm-Message-State: AC+VfDzC3KLdf69RRiGeg+G0XDvtjwzFIDX2a+noqugK5sjReSt2kweL
-	IWrJk2pYb6UJCdOrVrlQWm2rOg==
-X-Google-Smtp-Source: ACHHUZ7nNz4A5dl27YEbGjluXzF+Iu6AoPCKpNsPdYErA3ftUxN2fDxtCgclj2E7xLaUJ53OH6sH7g==
-X-Received: by 2002:a17:90a:984:b0:253:9548:91e1 with SMTP id 4-20020a17090a098400b00253954891e1mr12132128pjo.17.1684824556586;
-        Mon, 22 May 2023 23:49:16 -0700 (PDT)
-Received: from leoy-yangtze.lan ([107.151.177.126])
-        by smtp.gmail.com with ESMTPSA id w62-20020a17090a6bc400b00246774a9addsm7391986pjj.48.2023.05.22.23.49.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 May 2023 23:49:16 -0700 (PDT)
-Date: Tue, 23 May 2023 14:49:04 +0800
-From: Leo Yan <leo.yan@linaro.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Eric Lin <eric.lin@sifive.com>,
-	Kan Liang <kan.liang@linux.intel.com>, Qi Liu <liuqi115@huawei.com>,
-	Sandipan Das <sandipan.das@amd.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 2/5] perf parse-regs: Introduce functions
- arch__reg_{ip|sp}()
-Message-ID: <20230523064904.GA1969788@leoy-yangtze.lan>
-References: <20230520025537.1811986-1-leo.yan@linaro.org>
- <20230520025537.1811986-3-leo.yan@linaro.org>
- <CAP-5=fU-+8Sdw0tfQNYN40tXanrzUgqv0=6jsHqGR9cgjkQa2A@mail.gmail.com>
+	Tue, 23 May 2023 08:29:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1684830551; x=1716366551;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Fr8/rGDDsZpOOPOgXOkmnx5UALlAdGkBZkWrF/mDeOw=;
+  b=P+TQXx5XzkA/GdkaA2jBWIZ41PV+d5DomW1JWq6E2UIs27lqBERzEDix
+   nIeG2PfommeHJgJDWBI4Lik5HqrAvBOFz+JyBub4AjilSEcTKqRNUCnYx
+   gG6pkzLlLLz4oC3C6jxGeAfkYjPpraLQJ1SmsBG9+yQu8Te2DVLcH02vG
+   KCgXA6A5O7i/Xt4YjGs2PBPZMJpResZv97MiL4hMqB2AuRDDtulrr+/tF
+   svB7a5mbNZJClIP4bjlYrzokWmKER6EmxyG04oeok45kNeH4mtcBSOQyR
+   SGNSnltKRFKlDs46R4d62x6Z3iHIQUaXzb9Y3zhyFwvygkvCQDOLVf0Cs
+   A==;
+X-IronPort-AV: E=Sophos;i="6.00,185,1681196400"; 
+   d="asc'?scan'208";a="214471136"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 May 2023 01:29:05 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 23 May 2023 01:29:04 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 23 May 2023 01:29:01 -0700
+Date: Tue, 23 May 2023 09:28:39 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+CC: Torsten Duwe <duwe@lst.de>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <yanhong.wang@starfivetech.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
+ generator
+Message-ID: <20230523-fondue-monotype-0c751a8f0c13@wendy>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-2-xingyu.wu@starfivetech.com>
+ <20230519135733.GA10188@lst.de>
+ <20230519-smokeless-guileless-2a71cae06509@wendy>
+ <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAP-5=fU-+8Sdw0tfQNYN40tXanrzUgqv0=6jsHqGR9cgjkQa2A@mail.gmail.com>
+In-Reply-To: <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_234919_763003_C768785B 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20230523_012912_005432_38E73410 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +91,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7448248338290140324=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 22, 2023 at 11:08:12AM -0700, Ian Rogers wrote:
+--===============7448248338290140324==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="P8c7zTGQM/sTX7js"
+Content-Disposition: inline
 
-[...]
+--P8c7zTGQM/sTX7js
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-> > index 8720ec6cf147..334c9a2b785d 100644
-> > --- a/tools/perf/util/perf_regs.c
-> > +++ b/tools/perf/util/perf_regs.c
-> > @@ -20,6 +20,16 @@ uint64_t __weak arch__user_reg_mask(void)
-> >         return PERF_REGS_MASK;
-> >  }
-> >
-> > +uint64_t __weak arch__reg_ip(void)
-> > +{
-> > +       return 0;
-> > +}
-> > +
-> > +uint64_t __weak arch__reg_sp(void)
-> > +{
-> > +       return 0;
-> > +}
-> > +
-> 
-> Is there a need for the weak function if there is a definition for
-> every architecture?
+On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
+> On 2023/5/19 22:16, Conor Dooley wrote:
+> > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe wrote:
+> >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
+> >> [...]
+> >> >  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+> >> >  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+> >> > =20
+> >> > +/* PLL clocks */
+> >> > +#define JH7110_CLK_PLL0_OUT			0
+> >> > +#define JH7110_CLK_PLL1_OUT			1
+> >> > +#define JH7110_CLK_PLL2_OUT			2
+> >>=20
+> >> In U-Boot commit 58c9c60b Yanhong Wang added:
+> >>=20
+> >> +
+> >> +#define JH7110_SYSCLK_PLL0_OUT                       190
+> >> +#define JH7110_SYSCLK_PLL1_OUT                       191
+> >> +#define JH7110_SYSCLK_PLL2_OUT                       192
+> >> +
+> >> +#define JH7110_SYSCLK_END                    193
+> >>=20
+> >> in that respective file.
+> >>=20
+> >> > +#define JH7110_PLLCLK_END			3
+> >> > +
+> >> >  /* SYSCRG clocks */
+> >> >  #define JH7110_SYSCLK_CPU_ROOT			0
+> >>=20
+> >> If the symbolic names referred to the same items, would it be possible
+> >> to keep the two files in sync somehow?
+> >=20
+> > Ohh, that's not good.. If you pass the U-Boot dtb to Linux it won't
+> > understand the numbering. The headers are part of the dt-binding :/
+>=20
+> Because PLL driver is separated from SYSCRG drivers in Linux, the numberi=
+ng
+> starts from 0. But in Uboot, the PLL driver is included in the SYSCRG dri=
+ver,
+> and the number follows the SYSCRG.
 
-In current code, some archs don't support register parsing (e.g.
-arch/alpha, arch/parisc, arch/riscv64, etc), this is why I added weak
-functions to avoid building breakage for these archs.
+Unfortunately, how you choose to construct your drivers has nothing to
+do with this.
+These defines/numbers appear in the dts and are part of the DT ABI.
+The same dts is supposed to work for Linux & U-Boot.
 
-> A problem with weak definitions is that they are
-> not part of the C standard, so strange things can happen such as
-> inlining - although I think this code is safe.
+--P8c7zTGQM/sTX7js
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Good to know this info, thanks for sharing.
+-----BEGIN PGP SIGNATURE-----
 
-> Not having the weak
-> functions means that if someone tries to bring up a new architecture
-> they will get linker failures until they add the definitions. Failing
-> to link seems better than silently succeeding but then having to track
-> down runtime failures because these functions are returning 0.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGx5NwAKCRB4tDGHoIJi
+0hKCAQCjR+6mFn9Hvjg7LZxkV1N8CJdjb0cHcueV22kKPkPAUwEAs0oxZHhBAEM3
+N73rfgjIVRlJ5hJyp3q2Sua21OaY/w4=
+=v6JB
+-----END PGP SIGNATURE-----
 
-I agreed that removing weak functions is better way to move forward.
+--P8c7zTGQM/sTX7js--
 
-If removing the weak functions, we need to handle cases for below
-archs which don't support register parsing:
 
-  arch/alpha/
-  arch/arc/
-  arch/parisc/
-  arch/riscv64/
-  arch/sh/
-  arch/sparc/
-  arch/xtensa/
-
-As James pointed out perf fails to support cross unwinding, I will update
-this patch, the new version's arch__reg_ip() / arch__reg_sp() will return
-IP and SP registers based on the passed 'arch' parameter; for above
-unsupported archs, arch__reg_ip() / arch__reg_sp() will return error and
-architecture developers can extend register parsing in the future.
-
-In this way, we also can remove weak definitions, this can give us an
-extra benefit :)
-
-Thanks,
-Leo
+--===============7448248338290140324==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7448248338290140324==--
+
