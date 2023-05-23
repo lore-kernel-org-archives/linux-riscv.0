@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33B8C7EE26
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 06:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB600C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 06:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QIWWoWj7ziNgF2mM76wdSa64q1gkuKUVI3urPNWxuGc=; b=kDqO5PPPnTlwv/
-	Ry4xH3KQZ4ldAyh6q9rvQNRuiTU/6OeygW80xrNoAZvQyEPukCHKaSIxW+m7/PoXv93BxpF09y5yx
-	Rrg4AYQgZGe9IDr/+1ZSlqWuAWwYdWWVw0gmxq6450jaymgaoSdaSrQQ0zmn+8Ol0J6BtCxqOKMNx
-	pOeC94PceqLDN+o/+eQE6y/PF7SusLC8MzE0fn9pwCzoOHDG+UM7ks2XniReQbc0oIdxRVl6WTmMs
-	s5Y8jxfkdRraR3diVSFchBCFdNpyRl5ShHaBIMVsRriGXaVbVeDPGVv6wper0Aufjjy4D8F0TqG8D
-	ykKbrT4rbj1B6vc7lFQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4eQGDSCDvUleQklQ0wp5LAxa+ZiQ4mKc2VHkQ42OPNU=; b=xRKqZeWdOIdbUalWtnkjtCoR9A
+	aFHk7+I+h6P47n/gb8orXVpt3EbpcBkDp01/I0rSAMflat5UyIT018lfaTX9g6FLPVuknehOu1/kz
+	Yn5aY34YFIAs1/KVuNsfSrg/UxvyHT5/iGa6zZ48nCUs20EfYM2dNmj40ioDBDlwsVPMjRte+54qE
+	FTRlIvxzGDNp8thPcm0hz2QHYx031njYgSAMGYky5y+baL4/VkuK4kZmttgubCPyY5gNcUaV5/rEp
+	eI33Q3o6bbWRWn0lVHyQsR+X5sZAZqce6GVp/DlUcJOR8UpG3DXKEsdxQp//o4VQ1Qhpya/+brgmb
+	XJMBKs1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Lbl-0095Oi-1y;
-	Tue, 23 May 2023 06:34:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q1Lo7-0097Ic-2Y;
+	Tue, 23 May 2023 06:47:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1KRK-008wiU-0h;
-	Tue, 23 May 2023 05:20:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2062962462;
-	Tue, 23 May 2023 05:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C835FC433D2;
-	Tue, 23 May 2023 05:20:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684819202;
-	bh=VCOHu+r91RekSvZ+lEnUHnm2c/u+To8APapSLwT3z0M=;
-	h=Date:From:To:List-Id:CC:Subject:In-Reply-To:References:From;
-	b=VibwJcx2lwId8O7YxhtlikOxayiGhjyjJTUq7YuV4ydjTCh3JlTDLA2SjBieq4t/6
-	 IeL0E8NeFfZpixEAOnbldfdOK7LSZuEFayJlKTBDXcFBR3ZEZwfWLl4cIFVHnbMQZl
-	 zJAGkZirV9K65cN1FBwQw2VIRaaLQDmiNpzAG+EYoDMJj4aq3DjjRwC0Y90epyApuP
-	 bg9ks0fYg3N9Vfb/z1Wq5I5aOmf+Ld1QUqbBDfwQgfDm6BmyNhoUToHxATNqPmche4
-	 BsBOi+hAOsUvsJldEfAFdDTGtn2zrSSbpYkA/284U8yUwKLgAO6vd1Ok5SaxD0g+7u
-	 eFt3YwD5dVEKw==
-Date: Tue, 23 May 2023 06:19:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, soc@kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Olof Johansson <olof@lixom.net>, Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-doc@vger.kernel.org, Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1] Documentation/process: add soc maintainer handbook
-User-Agent: K-9 Mail for Android
-In-Reply-To: <3B8DFBEF-9EA1-4375-998D-944EA18D3E4E@jrtc27.com>
-References: <20230515-geometry-olympics-b0556ff8a5f7@spud> <cf1c6b8c-8a3f-eca1-948f-e41946d4c34c@linaro.org> <20230522-concrete-unpeeled-7e4718e61b46@spud> <3B8DFBEF-9EA1-4375-998D-944EA18D3E4E@jrtc27.com>
-Message-ID: <C9862C5C-083E-43B1-8556-4FE1A61F81B3@kernel.org>
+	id 1q1Lo3-0097Gh-0h
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 May 2023 06:47:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1684824459; x=1716360459;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gVWbWiw/ZDPW0HOBd+nK8L6v2Q4lPpGLd6wth1TKIO8=;
+  b=BnAdoDey7xvfxlD+62c1Wl0yaGtTmY58JnsKRqag/Y5V86dGRY/U7VT5
+   37FBtNibksUyByisjCSwyB7RUyR/URPyKgZcbwUzLXTKkAmPfDN6squfS
+   UjBmR0I80gHWAU36hqwlrBljxzIiChJ2BcqNSfEIRwO/BzxLb8/X4BCAY
+   knUpP4I8G2FdDtRdLKKrmcdScbJ3BPmEvODq2jCM0zSxh2tHuTMFYgmS7
+   ei3ECrIWGwjoQt0SeZ5TdKFGxiYUrXLXa97NfoRy8M0ven5T2jIL0U9T1
+   iXXhB9UvntlO2eFuBwTy4zySK4E/gpfPrybAIFQ1VFwmxkyD8/w52Qm++
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.00,185,1681196400"; 
+   d="asc'?scan'208";a="216790503"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 May 2023 23:47:29 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 22 May 2023 23:47:28 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 22 May 2023 23:47:27 -0700
+Date: Tue, 23 May 2023 07:47:05 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Jaswinder Singh
+	<jassisinghbrar@gmail.com>, Jaswinder Singh <jassi.brar@samsung.com>, Boojin
+ Kim <boojin.kim@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, Russell
+ King <rmk+kernel@arm.linux.org.uk>, Vinod Koul <vkoul@kernel.org>,
+	<dmaengine@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] dmaengine: pl330: rename _start to prevent build error
+Message-ID: <20230523-lushly-purr-9a93ea9f3573@wendy>
+References: <20230523000606.9405-1-rdunlap@infradead.org>
 MIME-Version: 1.0
+In-Reply-To: <20230523000606.9405-1-rdunlap@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_222006_336769_9583E274 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20230522_234739_443331_421AA8CF 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +81,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3892273390201996972=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============3892273390201996972==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Z31axD9H5YaGMLWg"
+Content-Disposition: inline
+
+--Z31axD9H5YaGMLWg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Randy,
+
+On Mon, May 22, 2023 at 05:06:06PM -0700, Randy Dunlap wrote:
+> "_start" is used in several arches and proably should be reserved
+> for ARCH usage. Using it in a driver for a private symbol can cause
+> a build error when it conflicts with ARCH usage of the same symbol.
+>=20
+> Therefore rename pl330's "_start" to "_start_thread" so that there
+> is no conflict and no build error.
+
+_start_thread() seems pretty generic to me too, but there don't appear
+to be any users & it is certainly better than the one causing build
+issues!
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+>=20
+> drivers/dma/pl330.c:1053:13: error: '_start' redeclared as different kind=
+ of symbol
+>  1053 | static bool _start(struct pl330_thread *thrd)
+>       |             ^~~~~~
+> In file included from ../include/linux/interrupt.h:21,
+>                  from ../drivers/dma/pl330.c:18:
+> arch/riscv/include/asm/sections.h:11:13: note: previous declaration of '_=
+start' with type 'char[]'
+>    11 | extern char _start[];
+>       |             ^~~~~~
+
+--Z31axD9H5YaGMLWg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGxhZQAKCRB4tDGHoIJi
+0rdIAP0Wabw96Kn9nVf+19fFM6AKRhl6z6gMm92JhKoWeudwbgEA7e0bLMA81R1s
+DRBqxN4TNE5YBg3iPigE5gMne6P0KQ4=
+=sBDX
+-----END PGP SIGNATURE-----
+
+--Z31axD9H5YaGMLWg--
 
 
-On 23 May 2023 01:32:49 IST, Jessica Clarke <jrtc27@jrtc27.com> wrote:
->On 22 May 2023, at 22:34, Conor Dooley <conor@kernel.org> wrote:
->> 
->> On Tue, May 16, 2023 at 10:31:19AM +0200, Krzysztof Kozlowski wrote:
->>> On 15/05/2023 21:20, Conor Dooley wrote:
->> 
->>>> +devicetree ABI stability
->>>> +~~~~~~~~~~~~~~~~~~~~~~~~
->>>> +
->>>> +Perhaps one of the most important things to highlight is that dt-bindings
->>>> +document the ABI between the devicetree and the kernel.  Once dt-bindings have
->>>> +been merged (and appear in a release of the kernel) they are set in stone, and
->>>> +any changes made must be compatible with existing devicetrees.  This means that,
->>>> +when changing properties, a "new" kernel must still be able to handle an old
->>>> +devicetree.  For many systems the devicetree is provided by firmware, and
->>>> +upgrading to a newer kernel cannot cause regressions.  Ideally, the inverse is
->>>> +also true, and a new devicetree will also be compatible with an old kernel,
->>>> +although this is often not possible.
->>> 
->>> I would prefer to skip it and instead: enhance
->>> Documentation/devicetree/bindings/ABI.rst and then reference it here.
->>> 
->>>> +
->>>> +If changes are being made to a devicetree that are incompatible with old
->>>> +kernels, the devicetree patch should not be applied until the driver is, or an
->>>> +appropriate time later.  Most importantly, any incompatible changes should be
->>>> +clearly pointed out in the patch description and pull request, along with the
->>>> +expected impact on existing users.
->> 
->> I'm not really sure that I like this truncated section so much, but here
->> it is... I kept the last paragraph intact as it does not talk about the
->> ABI, but rather exceptions of submaintainers.
->> 
->> devicetree ABI stability
->> ~~~~~~~~~~~~~~~~~~~~~~~~
->> 
->> Perhaps one of the most important things to highlight is that dt-bindings
->> document the ABI between the devicetree and the kernel. Please see
->> :ref:`devicetree-abi` for devicetree ABI rules.
->> 
->> If changes are being made to a devicetree that are incompatible with old
->> kernels, the devicetree patch should not be applied until the driver is, or an
->> appropriate time later.  Most importantly, any incompatible changes should be
->> clearly pointed out in the patch description and pull request, along with the
->> expected impact on existing users.
->
->Do you have an opinion on acknowledging the existence of other OSes here?
-
-I think that is fair.
+--===============3892273390201996972==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3892273390201996972==--
+
