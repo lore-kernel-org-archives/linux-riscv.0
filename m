@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3260C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 11:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95937C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 12:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yRVNP2hfXcLcrUsEDg6sqcG1bZZtsg3s8PZ2mHTt7M=; b=l4X7d26Z50n2Rs9Ir4dHVv572m
-	Z7knEYZJQdFYQJP4/R4ewzYvpGeBADvdXhIUOlWhAvJ4m6IjkaEVr6IK+IrdAR4sOF0Buz4EltZi4
-	A5fyJ/Tz+N82xUJstYcfCO+/+nGHQHQ/HnOzWC+F8tq7xCoAAAbk8wySIFCvgOtwGxcI7A+azON5A
-	VdxfzMhva9D3TJvXbEz4USisphCIXRHyliNKkD/LoCG2iYbRUrv3X1M423QLp4/pQtEcCvWFmkGsa
-	vAf9sCkmBJTnPs5GYaujikHi6n2zlFrkmwsBm5DgA0FmA52KMkXi/eADAHaSue4Ac0z10eXaXS0SV
-	nwGnd2NQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nZlrnmsOJ8uKpFvxD5j9LQV8PVbin248RiAPifrh284=; b=cSOr4CXbkk/hQG
+	fMoFsE5jHXcuGqtEzn0KpRICigAVmiANOPFaC5LIsT2c7ZiT5iHWEHQYdVucm8KY1P/ycmjZ1p6dS
+	ZWfArT2zPSnEqS7+mwegHEfo1ATDAPUWevb82/2u3yIpquhwZIlDXzbwsRdZltexFda0p58ihrlIA
+	AqU4SI9SikBXYcZy6ICoQTulHEOhPQaNGMjEHHWUUlCZ/YJFGerOqztKgdzpmIvecjxcMGZKpRSYT
+	1eA4vBWTeWDT18pUkg/DYG9TiQyXcaSSB+VNzaV4Un2h2Phty7sJ5O21XS6hXj+OJM6ACdzm57FxI
+	2HBlinQ1VQCOFF3oUcjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1QCf-00A57J-2V;
-	Tue, 23 May 2023 11:29:21 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1q1QhX-00A9zD-33;
+	Tue, 23 May 2023 12:01:15 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1QCc-00A54d-0n
+	id 1q1QhV-00A9xq-1W
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 11:29:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1684841358; x=1716377358;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8ERDBnHnLv/O/sXjD4JjS2N6Q49PCHOq6wfY9yfihEY=;
-  b=tSf5D8C77XzvCkslmA/VDThYLrzUIOTo/PBZhRFUD/1OlQ1ISe5yGFBP
-   KFd/t3v0K4GGZ1LtcCeIjOTq9JX9szMn/mnZ5LYR4kwpqawSJRLDCC5Uv
-   Mh35ad1jEqVOO7kJt0JnJM8RRn+B2+tKm8PsiGv6JMWAgkqcyea9cDu9U
-   prKtGcjzGkEeev3M+SMURST1dTXQNOUzp2xtO1Vn0bqGR5MsebkMXbozN
-   5+YJ5/1p2WLzcTO4vFFQXpiFqlusUhOWxSkrVDlejegWFBf1dEVTORRti
-   FiQdJW6gIJ/PzDdnj2XiH8poviO1qZfFYITckT2MIL+/LvFG8UlxOsBf/
-   A==;
-X-IronPort-AV: E=Sophos;i="6.00,186,1681196400"; 
-   d="asc'?scan'208";a="153476304"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 May 2023 04:29:11 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 23 May 2023 04:29:11 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 23 May 2023 04:29:08 -0700
-Date: Tue, 23 May 2023 12:28:46 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Torsten Duwe <duwe@lst.de>
-CC: Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <yanhong.wang@starfivetech.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
- generator
-Message-ID: <20230523-saturate-axis-f46b78b7b82b@wendy>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-2-xingyu.wu@starfivetech.com>
- <20230519135733.GA10188@lst.de>
- <20230519-smokeless-guileless-2a71cae06509@wendy>
- <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
- <20230523-fondue-monotype-0c751a8f0c13@wendy>
- <20230523131006.46997d84@blackhole.lan>
+	Tue, 23 May 2023 12:01:14 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-513fd8cc029so1435369a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 23 May 2023 05:01:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1684843271; x=1687435271;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UwDgLKuZAoJyLnwNBTa9Plj4tI2jTn00PeEyIRBeY3M=;
+        b=UlTc6dBhYhV5+FwOb+RSPI2rk8Q3qpFgLR3evPzNE3qoSA/1Tv938oYhaUah40zsTJ
+         f5TXQMK2Cs079ySx+YpwdRWznI362VlsBkVu90B+Ov9nuERDJwdJYMfohfmTSI2+kDdI
+         scPtnFlwU4iUXY9LM6WpBfRQbFpdHeGc4hMcAFqULPVX1fZW3lDlnnbfO1JqByHkrWWK
+         3iO8KQPZs0CPPK/LLdsYu6zc5ox+KJMKgleV+yRLT7U3LAyno33h5A9o/0CfapwLHQDI
+         veiFgFew6wafBYy17ZumPHmrNo9K9VFsHBpJb7AfKpU3Gm3sGMXUvay7WEwp5nxFryVv
+         cQlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684843271; x=1687435271;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UwDgLKuZAoJyLnwNBTa9Plj4tI2jTn00PeEyIRBeY3M=;
+        b=Ly+n7aa5C87eqP2HiRRFR91N5rTyPTyWOfew4W6AevXQSuuLt2CKIMLP2L6Fb0l7Ww
+         d02MTCth9T3oI68QddH4H5EvCd1IKrDyyOBO+dCkf2ITu2pnmKqCgUTTvKRVAdxVAKRd
+         RyPnGvOyEu4a1Tna5zXH6Dzpol1aMIS9oPB4MZ5g1qXXmRoMjKJiyTfIZ0xIVAuc8m44
+         BY2GiD55jpsJUpUSDQRvVqIiLezTKP/Vvv36cduQlKVkC3IFLMd6s2JfuAtwL9+n0zH+
+         XS9d0gH5ezboZDEneYNIwbzu/+CCR4kpzhnM2tJq5+PUNAdmUJmM0EUz31NiCul538D8
+         pYqQ==
+X-Gm-Message-State: AC+VfDw7TTD/eeDlq/wivGmVCaF19Apm+9+gDAFtW7BHAlSGukUe2g+W
+	jo8cXAA9LwfIC8IxryA5i2CuBw==
+X-Google-Smtp-Source: ACHHUZ40CX09dMi0e735PDRKFRNtfgI4LS6imtI87HuWDsDYP/q8KqRU12dipkCjnKzQegYx3Zmfiw==
+X-Received: by 2002:a17:906:d550:b0:966:4bb3:df63 with SMTP id cr16-20020a170906d55000b009664bb3df63mr15157840ejc.63.1684843271141;
+        Tue, 23 May 2023 05:01:11 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id t20-20020a17090616d400b009662c57b4ffsm4397666ejd.96.2023.05.23.05.01.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 May 2023 05:01:10 -0700 (PDT)
+Date: Tue, 23 May 2023 14:01:09 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, Weili Qian <qianweili@huawei.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Tom Rix <trix@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Nick Desaulniers <ndesaulniers@google.com>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, 
+	Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
+	Zhou Wang <wangzhou1@hisilicon.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	Thomas Gleixner <tglx@linutronix.de>, Maximilian Luz <luzmaximilian@gmail.com>, 
+	"David S . Miller" <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, 
+	Len Brown <lenb@kernel.org>
+Subject: Re: [PATCH V6 09/21] RISC-V: ACPI: Cache and retrieve the RINTC
+ structure
+Message-ID: <20230523-7263e5220667fd82a462afc7@orel>
+References: <20230515054928.2079268-1-sunilvl@ventanamicro.com>
+ <20230515054928.2079268-10-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230523131006.46997d84@blackhole.lan>
+Content-Disposition: inline
+In-Reply-To: <20230515054928.2079268-10-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_042918_346064_02644F2A 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20230523_050113_512826_68D6388C 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,114 +99,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0894648021172545341=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0894648021172545341==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Zph+Miw3ashxgetF"
-Content-Disposition: inline
-
---Zph+Miw3ashxgetF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
-> On Tue, 23 May 2023 09:28:39 +0100
-> Conor Dooley <conor.dooley@microchip.com> wrote:
->=20
-> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
-> > > On 2023/5/19 22:16, Conor Dooley wrote:
-> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe wrote:
-> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
-> > > >> [...]
->=20
-> > > >> > +/* PLL clocks */
-> > > >> > +#define JH7110_CLK_PLL0_OUT			0
-> > > >> > +#define JH7110_CLK_PLL1_OUT			1
-> > > >> > +#define JH7110_CLK_PLL2_OUT			2
-> > > >>=20
-> > > >> In U-Boot commit 58c9c60b Yanhong Wang added:
-> > > >>=20
-> > > >> +
-> > > >> +#define JH7110_SYSCLK_PLL0_OUT                       190
-> > > >> +#define JH7110_SYSCLK_PLL1_OUT                       191
-> > > >> +#define JH7110_SYSCLK_PLL2_OUT                       192
-> > > >> +
-> > > >> +#define JH7110_SYSCLK_END                    193
-> [...]
-> > > > Ohh, that's not good.. If you pass the U-Boot dtb to Linux it
-> > > > won't understand the numbering. The headers are part of the
-> > > > dt-binding :/
->=20
-> In fact, the clock index >=3D 190 makes linux hang on boot, waiting with
-> EPROBE_DEFER for every device's clock, because the sysclk driver errors
-> out with EINVAL (jh7110_sysclk_get()).
-
-Yup, that's about what I expected to happen.
-
-> > > Because PLL driver is separated from SYSCRG drivers in Linux, the
-> > > numbering starts from 0. But in Uboot, the PLL driver is included
-> > > in the SYSCRG driver, and the number follows the SYSCRG.
-> >=20
-> > Unfortunately, how you choose to construct your drivers has nothing to
-> > do with this.
-> > These defines/numbers appear in the dts and are part of the DT ABI.
-> > The same dts is supposed to work for Linux & U-Boot.
->=20
-> The JH7110 has 6 blocks of 64k iomem in that functional area:
-> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
-> The good news: the current DTS, as proposed here and in U-Boot master,
-> provides nodes for all 6 entities. The bad news is that the clock
-> assignments to those nodes and their numbering is messed up.
->=20
-> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot gets it
-> wrong, in addition to the erroneous DTS.
-
-The numbers are kinda hocus-pocus anyway, they are just made up since the
-clock numbering usually isn't something with a nice TRM to go and
-reference (unlike interrupts which usually are documented in that way).
-It is very helpful to make them aligned some register/bit positions or,
-but that is not required.
-IOW U-Boot is not wrong per se to use 190 instead of 0, but it is wrong
-to have different numbers in both places.
-
-It sounds like you're saying that (and I have not looked) the U-Boot dts
-actually has structural difference w.r.t. what provides which clock?
-If so, that'll need to be fixed independently of the numbering problem.
-
-Otherwise Xingyu & Yanhong should coordinate on which is the "correct"
-way of doing things & do it in both places.
-
-Thanks,
-Conor.
-
---Zph+Miw3ashxgetF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZGyjbgAKCRB4tDGHoIJi
-0nWNAQCl0+Oajv0+WviUX41q7gnY6/ROmNpaw9Cwk/tbztgTrgEAwnHUKh2L1DIZ
-essd134nm8Py1uvt2pf9pfOKbU8dOAw=
-=y0FI
------END PGP SIGNATURE-----
-
---Zph+Miw3ashxgetF--
+On Mon, May 15, 2023 at 11:19:16AM +0530, Sunil V L wrote:
+> RINTC structures in the MADT provide mapping between the hartid
+> and the CPU. This is required many times even at run time like
+> cpuinfo. So, instead of parsing the ACPI table every time, cache
+> the RINTC structures and provide a function to get the correct
+> RINTC structure for a given cpu.
+> 
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> ---
+>  arch/riscv/include/asm/acpi.h | 10 ++++++++
+>  arch/riscv/kernel/acpi.c      | 45 +++++++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/setup.c     |  4 ++++
+>  3 files changed, 59 insertions(+)
 
 
---===============0894648021172545341==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0894648021172545341==--
-
