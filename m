@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E92C7EE29
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 00:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC29C77B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 01:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kk/VgOeHtT7HDC3/I5jCZsZNKmhuvsz3KxbphtJozW0=; b=qWpxmwizykewKR
-	9UQUbToxSTrKl34dn+7pf7iqufDSopxfbmeEAh3ry5vAm/bmSevFTx/iNRcINIIbJVngh7UsBvibM
-	x6lev707yaUkZEIMpXKV0RO1SK9LNFg+rlFtsehjmOVbdKa1z+x/lLrDl6l9JZmF3liV9xDnCCrcZ
-	E1OsF82b/P0skc8hwCyTjrHZKpemQUN1L6AqJViOqBgsRVS0kfcr16mhVkyKgJcbfauS8Q5P8Yul1
-	COe1f8ODRFqrXs5indJtmwRQc/Oh8cuBtQFlfpPG3TbD/LsCfZ3996lKIcM5if0nPwt33xNdrQd/F
-	uHBy5JtYs3N7lkaxV17g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QsyCtUAe3KUtGKdOxeh1BTa8oVd1q2MF3GLbFax2VIM=; b=dqSqR3xYN/08ba
+	smTIv3Q2JEFzPZSfr55lp4YJ1W5KRPZLuvrjhWQyBuIhLQ0VLIZXRwdJCyopNYyvLVw9Il1wjTyAK
+	BcTYxLfnTTzKCAxKbh4Kkb1DbCW5Ivsrp50ogzIte1mRz52soFmU5695Gj7vYv2KmHmL5J+Rf6IPO
+	pz7ttonz1hTVVOGi7bfJiFtkU6GRXMEyHOJKh3OtSOoyB0oAeR/3x42VKAApm3rz6/xPi1s/ACbNW
+	Y3R4SgkJTkbZ39p0FQEnp9Dzav1MGVM8jmDKA4sYVvfIrPg9d5/ZzvCfv05B8YhpH+J3n4jglI38W
+	bSVRPmMy5YKGWX6VX50w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1Fxa-008Tr4-2Y;
-	Tue, 23 May 2023 00:33:06 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1FxY-008Tq4-09
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 00:33:05 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-3f607059b4eso9813145e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 May 2023 17:33:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1684801981; x=1687393981;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LrFGl63UuCEpD0/cTn8zK2OoUmxoYf1cLwIERUmWju0=;
-        b=eTt828dUiWmLDNAB9dxn4tYuW5E06NyZpscH/7KYbHvT3H/7gyKD7v0rjwTuwrtiQW
-         NUJxrc4sE+j9UsAJmC0FfdetMEqHf9lZai2ji0gZXVr7gxyVHvN872ikUfMSm+9ukLO2
-         PVXZuLKuIJ3m9Q3JoqHNO6MzDAIh7w8ieL/1/NBdk4OzfdBxMPtioHoLJNar73hHho/H
-         mcesOgI1rZFfIr6dwqHyxNtX5WIdbM3adoCndWrVSUiYwXYXQsDa4isiCAO7aWGt9+hk
-         scm1zheIYZF3iEPPpA335kiav3/+saa/D73Ypsb3YErwfAKAFwdcGFqYnmdJS1sHbvka
-         WzSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684801981; x=1687393981;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LrFGl63UuCEpD0/cTn8zK2OoUmxoYf1cLwIERUmWju0=;
-        b=lZ4M6jBVIQlqnTWCs3jCB2IMTP0ozzBWxmL3sfRxmPqUkOE/Smt/RPl33Zi7ju/+L6
-         bqyc7pWD6D8Z3IUVzz8BSwKiNPpd+ySJI5FenU/pozBsfJKejVG0LYfh5Aqav90ZSypc
-         IKkMEtZxOFhyh2kx2/x00E7ZJ4krZc4XODwI3AVv+4PPv4Zz9QywXQupyGKOyCqhUK4d
-         S/iREuZcP248KqhS0kjsPOziZWO4ufWQ47Kex+0Qxr6JnVYJxn6wk/asSpSS6pEvaLAJ
-         6FuHEqBbQTJnucQYUN+6nvsFLqyHwCnJv7kXAnrTCjTxxCYbIYuVRaz6alvDCHLaQEIA
-         dwhQ==
-X-Gm-Message-State: AC+VfDwMz3d1ad0FwdmHb0zeEXYTe3VZlux8Cw9BNKU6Gib1xvOlDfQM
-	md332FQ2cBfXxe09ktmnMHnjqA==
-X-Google-Smtp-Source: ACHHUZ4CZCrzym57qPoHumfgDh1AfJecnm6yW7KJJLL5ovCAtDUwzXSiFcYUjymp+3V9VRRgsl4rIg==
-X-Received: by 2002:a7b:ca54:0:b0:3f4:3562:f799 with SMTP id m20-20020a7bca54000000b003f43562f799mr8697189wml.28.1684801981473;
-        Mon, 22 May 2023 17:33:01 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.246])
-        by smtp.gmail.com with ESMTPSA id 8-20020a05600c22c800b003f4289b18a7sm9924645wmg.5.2023.05.22.17.33.00
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 May 2023 17:33:00 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.500.231\))
-Subject: Re: [PATCH v1] Documentation/process: add soc maintainer handbook
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20230522-concrete-unpeeled-7e4718e61b46@spud>
-Date: Tue, 23 May 2023 01:32:49 +0100
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- soc@kernel.org,
- Conor Dooley <conor.dooley@microchip.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Olof Johansson <olof@lixom.net>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-doc@vger.kernel.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org
-Message-Id: <3B8DFBEF-9EA1-4375-998D-944EA18D3E4E@jrtc27.com>
-References: <20230515-geometry-olympics-b0556ff8a5f7@spud>
- <cf1c6b8c-8a3f-eca1-948f-e41946d4c34c@linaro.org>
- <20230522-concrete-unpeeled-7e4718e61b46@spud>
-To: Conor Dooley <conor@kernel.org>
-X-Mailer: Apple Mail (2.3731.500.231)
+	id 1q1GQj-008XmZ-15;
+	Tue, 23 May 2023 01:03:13 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1GQg-008XkY-1C;
+	Tue, 23 May 2023 01:03:12 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id EA59B24E1BA;
+	Tue, 23 May 2023 09:02:25 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
+ 2023 09:02:25 +0800
+Received: from [192.168.125.107] (183.27.98.143) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
+ 2023 09:02:24 +0800
+Message-ID: <7d4c3c08-6590-5947-92c6-1425c0cb662d@starfivetech.com>
+Date: Tue, 23 May 2023 09:02:24 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 0/3] Add JH7110 MIPI DPHY RX support
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
+	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230412084540.295411-1-changhuang.liang@starfivetech.com>
+ <93d39956-25c9-971b-e73b-09c69e803341@starfivetech.com>
+ <20230522-extradite-nastily-c2a88cfd2f02@wendy>
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+In-Reply-To: <20230522-extradite-nastily-c2a88cfd2f02@wendy>
+X-Originating-IP: [183.27.98.143]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX062.cuchost.com
+ (172.16.6.62)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_173304_124317_91F78616 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20230522_180310_562553_1D9E6577 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +82,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22 May 2023, at 22:34, Conor Dooley <conor@kernel.org> wrote:
-> 
-> On Tue, May 16, 2023 at 10:31:19AM +0200, Krzysztof Kozlowski wrote:
->> On 15/05/2023 21:20, Conor Dooley wrote:
-> 
->>> +devicetree ABI stability
->>> +~~~~~~~~~~~~~~~~~~~~~~~~
->>> +
->>> +Perhaps one of the most important things to highlight is that dt-bindings
->>> +document the ABI between the devicetree and the kernel.  Once dt-bindings have
->>> +been merged (and appear in a release of the kernel) they are set in stone, and
->>> +any changes made must be compatible with existing devicetrees.  This means that,
->>> +when changing properties, a "new" kernel must still be able to handle an old
->>> +devicetree.  For many systems the devicetree is provided by firmware, and
->>> +upgrading to a newer kernel cannot cause regressions.  Ideally, the inverse is
->>> +also true, and a new devicetree will also be compatible with an old kernel,
->>> +although this is often not possible.
->> 
->> I would prefer to skip it and instead: enhance
->> Documentation/devicetree/bindings/ABI.rst and then reference it here.
->> 
->>> +
->>> +If changes are being made to a devicetree that are incompatible with old
->>> +kernels, the devicetree patch should not be applied until the driver is, or an
->>> +appropriate time later.  Most importantly, any incompatible changes should be
->>> +clearly pointed out in the patch description and pull request, along with the
->>> +expected impact on existing users.
-> 
-> I'm not really sure that I like this truncated section so much, but here
-> it is... I kept the last paragraph intact as it does not talk about the
-> ABI, but rather exceptions of submaintainers.
-> 
-> devicetree ABI stability
-> ~~~~~~~~~~~~~~~~~~~~~~~~
-> 
-> Perhaps one of the most important things to highlight is that dt-bindings
-> document the ABI between the devicetree and the kernel. Please see
-> :ref:`devicetree-abi` for devicetree ABI rules.
-> 
-> If changes are being made to a devicetree that are incompatible with old
-> kernels, the devicetree patch should not be applied until the driver is, or an
-> appropriate time later.  Most importantly, any incompatible changes should be
-> clearly pointed out in the patch description and pull request, along with the
-> expected impact on existing users.
 
-Do you have an opinion on acknowledging the existence of other OSes here?
 
-Jess
+On 2023/5/22 21:11, Conor Dooley wrote:
+> On Mon, May 22, 2023 at 09:00:04PM +0800, Changhuang Liang wrote:
+>> On 2023/4/12 16:45, Changhuang Liang wrote:
+>>> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
+>>> It is used to transfer CSI camera data. The series has been tested on
+>>> the VisionFive 2 board.
+>>>
+> 
+>> Can you help to find the Vinod reviewed this patchset?
+> 
+> I am sorry, but I have no idea what you mean.
+> Are you asking if I can get Vinod to review the series?
+> 
 
+Yes, I need his comments.
+
+Thanks,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
