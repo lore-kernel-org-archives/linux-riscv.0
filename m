@@ -4,68 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC29C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 01:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604F7C7EE26
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 02:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QsyCtUAe3KUtGKdOxeh1BTa8oVd1q2MF3GLbFax2VIM=; b=dqSqR3xYN/08ba
-	smTIv3Q2JEFzPZSfr55lp4YJ1W5KRPZLuvrjhWQyBuIhLQ0VLIZXRwdJCyopNYyvLVw9Il1wjTyAK
-	BcTYxLfnTTzKCAxKbh4Kkb1DbCW5Ivsrp50ogzIte1mRz52soFmU5695Gj7vYv2KmHmL5J+Rf6IPO
-	pz7ttonz1hTVVOGi7bfJiFtkU6GRXMEyHOJKh3OtSOoyB0oAeR/3x42VKAApm3rz6/xPi1s/ACbNW
-	Y3R4SgkJTkbZ39p0FQEnp9Dzav1MGVM8jmDKA4sYVvfIrPg9d5/ZzvCfv05B8YhpH+J3n4jglI38W
-	bSVRPmMy5YKGWX6VX50w==;
+	List-Owner; bh=f3LqSrYb8SAbWwZSPr+3ZRg46d7/gFs7/CPKAtemztg=; b=scLZ53ZbWOPn6J
+	P7dcbMID3d6DHEo537l9rirLiPHm1nujlq6N+E4igdcZKqeaxDWHQPF6gACapE3g8sz3Fsu/cI3eR
+	0XJmYaHHUGsW4fA2hjnqTN5mLJqpPsJUUvSFy4UEc1h6C/0/YEwdhsdbwv78Cjl5cCV6II4skUoIa
+	hR/RmcmXzwQmPlddK6NHDSWuvB8S/gu2Lozj740BdkhUN086Xwqnoiqttp2LhAvHfChwTlLpwvhIy
+	/b96rkquKLak+IIT+Dh9cotVZoNrdcCGOfuMVEFHQwgAAsWslZ3u4hei3ExpjwG5vaAjcN3v/q4Db
+	NYmvOnQf+PXqTcECeoMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1GQj-008XmZ-15;
-	Tue, 23 May 2023 01:03:13 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1GQg-008XkY-1C;
-	Tue, 23 May 2023 01:03:12 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id EA59B24E1BA;
-	Tue, 23 May 2023 09:02:25 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 09:02:25 +0800
-Received: from [192.168.125.107] (183.27.98.143) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 09:02:24 +0800
-Message-ID: <7d4c3c08-6590-5947-92c6-1425c0cb662d@starfivetech.com>
-Date: Tue, 23 May 2023 09:02:24 +0800
+	id 1q1HlY-008gdo-1m;
+	Tue, 23 May 2023 02:28:48 +0000
+Received: from [2601:1c2:980:9ec0::2764]
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1HlW-008gdF-1O;
+	Tue, 23 May 2023 02:28:46 +0000
+Message-ID: <9f32e509-95b1-6a5a-aba2-664af4af37a8@infradead.org>
+Date: Mon, 22 May 2023 19:28:45 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH v4 0/3] Add JH7110 MIPI DPHY RX support
+Subject: Re: linux-next: Tree for May 15 (several RV64 build errors)
 Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230412084540.295411-1-changhuang.liang@starfivetech.com>
- <93d39956-25c9-971b-e73b-09c69e803341@starfivetech.com>
- <20230522-extradite-nastily-c2a88cfd2f02@wendy>
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230522-extradite-nastily-c2a88cfd2f02@wendy>
-X-Originating-IP: [183.27.98.143]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX062.cuchost.com
- (172.16.6.62)
-X-YovoleRuleAgent: yovoleflag
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_180310_562553_1D9E6577 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+To: Alexandre Ghiti <alex@ghiti.fr>, Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Conor Dooley <conor@kernel.org>
+References: <20230515141235.0777c631@canb.auug.org.au>
+ <54244db6-ff69-4cf8-894c-c3dd2f12df9c@infradead.org>
+ <5d894e71-25ad-8ba0-f632-2eec6e017f46@ghiti.fr>
+ <ee3bc2ce-5ebe-927e-5b6d-0b9490ef3875@ghiti.fr>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <ee3bc2ce-5ebe-927e-5b6d-0b9490ef3875@ghiti.fr>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +62,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-
-On 2023/5/22 21:11, Conor Dooley wrote:
-> On Mon, May 22, 2023 at 09:00:04PM +0800, Changhuang Liang wrote:
->> On 2023/4/12 16:45, Changhuang Liang wrote:
->>> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
->>> It is used to transfer CSI camera data. The series has been tested on
->>> the VisionFive 2 board.
->>>
+On 5/19/23 03:42, Alexandre Ghiti wrote:
+>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .data LMA [000000000041a000,00000000075bffd7] overlaps section .text LMA [00000000000f09d4,00000000033562ab]
+>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .init.pi.text LMA [00000000033562ac,0000000003359137] overlaps section .data LMA [000000000041a000,00000000075bffd7]
+>>
+>>
+>> I'll check this one too which seems to be related to kernel/pi introduction.
 > 
->> Can you help to find the Vinod reviewed this patchset?
 > 
-> I am sorry, but I have no idea what you mean.
-> Are you asking if I can get Vinod to review the series?
-> 
+> Thanks to Bjorn: this is caused by XIP_KERNEL, which is known to have limited size, hence the overlap, so no fix for this one. Is there a way to exclude this config from randconfig?
 
-Yes, I need his comments.
+Does this mean exclude XIP_KERNEL or something else from randconfigs?
 
-Thanks,
-Changhuang
+thanks.
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
