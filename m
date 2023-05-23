@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F89C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 02:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F0FC7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 02:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Cq6x68mFpYL/oMreT7YcoE5ZyDUhIAhebM1Y8Mpze0=; b=HoTM5S21o63kt7
-	tXffvJiYVEPJbCayqcc5IFDRsA0Sz+X6dHGJeNETYcxElidNVRnRbDQagsY9PZi3IHTTg3s2ZRFvP
-	v4niUpCXmBOM1vAgExA6nwbjC4GFl5PwP6T1ASdQvrrXwxz3JF84iF/dANTNjAeFh6ySxZhm9VbOx
-	V0R6lY+x7JAmShwigj1BUK4Tn3dobpoj3v/Lo6wxtoe1SBwDomkD4ZUEqsWPkpb4/mqf8keqtSkGK
-	18WV//FOk/kvygRnF1JkbHWGwQCZNtr9GMtHFeFxLfcpVBhtXYx1WzMLuiv91Ykl+9DcHOmGzBcaj
-	O6Uar5jcVVS9z1GcGuGw==;
+	List-Owner; bh=3l2oEbIFQx/gwLslKGgihJNbE3FjK7exC4zRp4PnWss=; b=qPSSM2q6YEf2za
+	t+8lJ6WGxjv2MIMsHvbNGLmBOXikptm9XKAT3aLO5kSuUs278MRFqdbLrGJ2iPwJbfiIpvIvWGxx6
+	PcMDY0R95ATXNmpNgWx5dsFva9z+xgdH2CFMBrref1PhEV2CQ9i5QEssWeqLeCyDY70TlhNblREn1
+	lkdMLISIkltKqVQbAwrMRNkF2/S5EQwVl4mKsIA19fqjogujqJ2Cj6rsE9R7RLFM9OlIXKiwilQOO
+	haqOQ+FU05SzhswlGlOKI+TnYlTyrdud6gLjBOIEqB0cP6NZ86ulcgewwfrVzUe7+EzKALBGoGkPG
+	OzA+hRkljEx02pMIO+YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1HzN-008iRM-1N;
-	Tue, 23 May 2023 02:43:05 +0000
+	id 1q1I1J-008igk-09;
+	Tue, 23 May 2023 02:45:05 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1HzJ-008iLu-0a
+	id 1q1I1G-008ifr-08
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 02:43:03 +0000
+	Tue, 23 May 2023 02:45:03 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 585DE24E03C;
-	Tue, 23 May 2023 10:41:56 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 05FF724E03C;
+	Tue, 23 May 2023 10:44:49 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 10:41:56 +0800
+ 2023 10:44:49 +0800
 Received: from [192.168.125.131] (183.27.98.143) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 10:41:55 +0800
-Message-ID: <1d24b4bf-67c9-ef84-b92d-eb0f651125a2@starfivetech.com>
-Date: Tue, 23 May 2023 10:40:07 +0800
+ 2023 10:44:47 +0800
+Message-ID: <6dd7e9ac-a513-5a05-b342-7fca7b295079@starfivetech.com>
+Date: Tue, 23 May 2023 10:42:50 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
@@ -64,12 +64,12 @@ References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 In-Reply-To: <20230519-smokeless-guileless-2a71cae06509@wendy>
 X-Originating-IP: [183.27.98.143]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_194301_507199_DF9DF87B 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20230522_194502_212261_1553A0E2 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,9 +120,9 @@ On 2023/5/19 22:16, Conor Dooley wrote:
 > Ohh, that's not good.. If you pass the U-Boot dtb to Linux it won't
 > understand the numbering. The headers are part of the dt-binding :/
 
-Because in Linux, the PLL driver is separate from SYSCRG driver and the
-numbering starts from 0. But in Uboot, the PLL driver is included in
-the SYSCRG driver and the numbering follows the SYSCRG.
+Because PLL driver is separated from SYSCRG driver in Linux,
+the numbering starts from 0. But in Uboot, the PLL driver is
+included in the SYSCRG driver, and the number follows the SYSCRG.
 
 Best regards,
 Xingyu Wu
