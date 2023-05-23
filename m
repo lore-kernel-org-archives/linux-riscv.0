@@ -4,90 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95937C7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 12:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33117C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 12:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nZlrnmsOJ8uKpFvxD5j9LQV8PVbin248RiAPifrh284=; b=cSOr4CXbkk/hQG
-	fMoFsE5jHXcuGqtEzn0KpRICigAVmiANOPFaC5LIsT2c7ZiT5iHWEHQYdVucm8KY1P/ycmjZ1p6dS
-	ZWfArT2zPSnEqS7+mwegHEfo1ATDAPUWevb82/2u3yIpquhwZIlDXzbwsRdZltexFda0p58ihrlIA
-	AqU4SI9SikBXYcZy6ICoQTulHEOhPQaNGMjEHHWUUlCZ/YJFGerOqztKgdzpmIvecjxcMGZKpRSYT
-	1eA4vBWTeWDT18pUkg/DYG9TiQyXcaSSB+VNzaV4Un2h2Phty7sJ5O21XS6hXj+OJM6ACdzm57FxI
-	2HBlinQ1VQCOFF3oUcjw==;
+	List-Owner; bh=XjTKXLQnrSHC6jVYKbN1VTrRUvDXN68wMfaIt97JQX4=; b=HdY4aCA/QGvok5
+	9oefcTeSv2jVebJ2/sTJHQLAEfOUzuM1psnLWWCnGoV10xrCEfWpbtybH/EPCTdpL59/AkvIvPKUo
+	XHKZI1UQdXB1tTwAaKi5mRbyOJYP77/Cdlqa/yvG1r98Qc3iEgVVU5ITOKXOYVB3121sRJ18ZXn6R
+	tgDF281adbJP3JDmHMRnLogh+y1LrOyyPcMkrZeIY9LA8Ey917s/ykl0i8rUX7UBJCvnGLwZ9WHrf
+	ykyTZoOo9u+sArgM/YFKAIq+no+yWpTBz/Y6lO/roUHg5UkSoaculSMNmr3YQYiWyG6UJXoeQ7w5G
+	gTZJQkJXPHVzPEdqsh3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1QhX-00A9zD-33;
-	Tue, 23 May 2023 12:01:15 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1q1QoO-00AB4q-0m;
+	Tue, 23 May 2023 12:08:20 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1QhV-00A9xq-1W
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 12:01:14 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-513fd8cc029so1435369a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 23 May 2023 05:01:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684843271; x=1687435271;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UwDgLKuZAoJyLnwNBTa9Plj4tI2jTn00PeEyIRBeY3M=;
-        b=UlTc6dBhYhV5+FwOb+RSPI2rk8Q3qpFgLR3evPzNE3qoSA/1Tv938oYhaUah40zsTJ
-         f5TXQMK2Cs079ySx+YpwdRWznI362VlsBkVu90B+Ov9nuERDJwdJYMfohfmTSI2+kDdI
-         scPtnFlwU4iUXY9LM6WpBfRQbFpdHeGc4hMcAFqULPVX1fZW3lDlnnbfO1JqByHkrWWK
-         3iO8KQPZs0CPPK/LLdsYu6zc5ox+KJMKgleV+yRLT7U3LAyno33h5A9o/0CfapwLHQDI
-         veiFgFew6wafBYy17ZumPHmrNo9K9VFsHBpJb7AfKpU3Gm3sGMXUvay7WEwp5nxFryVv
-         cQlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684843271; x=1687435271;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UwDgLKuZAoJyLnwNBTa9Plj4tI2jTn00PeEyIRBeY3M=;
-        b=Ly+n7aa5C87eqP2HiRRFR91N5rTyPTyWOfew4W6AevXQSuuLt2CKIMLP2L6Fb0l7Ww
-         d02MTCth9T3oI68QddH4H5EvCd1IKrDyyOBO+dCkf2ITu2pnmKqCgUTTvKRVAdxVAKRd
-         RyPnGvOyEu4a1Tna5zXH6Dzpol1aMIS9oPB4MZ5g1qXXmRoMjKJiyTfIZ0xIVAuc8m44
-         BY2GiD55jpsJUpUSDQRvVqIiLezTKP/Vvv36cduQlKVkC3IFLMd6s2JfuAtwL9+n0zH+
-         XS9d0gH5ezboZDEneYNIwbzu/+CCR4kpzhnM2tJq5+PUNAdmUJmM0EUz31NiCul538D8
-         pYqQ==
-X-Gm-Message-State: AC+VfDw7TTD/eeDlq/wivGmVCaF19Apm+9+gDAFtW7BHAlSGukUe2g+W
-	jo8cXAA9LwfIC8IxryA5i2CuBw==
-X-Google-Smtp-Source: ACHHUZ40CX09dMi0e735PDRKFRNtfgI4LS6imtI87HuWDsDYP/q8KqRU12dipkCjnKzQegYx3Zmfiw==
-X-Received: by 2002:a17:906:d550:b0:966:4bb3:df63 with SMTP id cr16-20020a170906d55000b009664bb3df63mr15157840ejc.63.1684843271141;
-        Tue, 23 May 2023 05:01:11 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id t20-20020a17090616d400b009662c57b4ffsm4397666ejd.96.2023.05.23.05.01.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 May 2023 05:01:10 -0700 (PDT)
-Date: Tue, 23 May 2023 14:01:09 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, Weili Qian <qianweili@huawei.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Tom Rix <trix@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Nick Desaulniers <ndesaulniers@google.com>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, 
-	Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
-	Zhou Wang <wangzhou1@hisilicon.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Thomas Gleixner <tglx@linutronix.de>, Maximilian Luz <luzmaximilian@gmail.com>, 
-	"David S . Miller" <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, 
-	Len Brown <lenb@kernel.org>
-Subject: Re: [PATCH V6 09/21] RISC-V: ACPI: Cache and retrieve the RINTC
- structure
-Message-ID: <20230523-7263e5220667fd82a462afc7@orel>
-References: <20230515054928.2079268-1-sunilvl@ventanamicro.com>
- <20230515054928.2079268-10-sunilvl@ventanamicro.com>
+	id 1q1QoL-00AB1T-01;
+	Tue, 23 May 2023 12:08:18 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34NBvhWn005111;
+	Tue, 23 May 2023 12:01:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : in-reply-to : references : mime-version :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=hvBkau843ws4S1xlMiA8GiItRMnbuFuaqBLPZfwfBjM=;
+ b=oXVaQauy/8g2xTnFTAcyRpsK6R0Z7PJKOkIjtetvDoFQ4C7Vaoz3bjS1jfMMcRnjGqV7
+ TuXgAQJmG4wOpqKlAOC0mckK2z7bJPyGuNkmOInvXMBhkTAQCGGmYX8yjNUjUo/JotTY
+ y88M7nr1R+3aKmsQxuw71PorXdAgogm3w8p+dxg1r3SXTNvYytY90PmqEKvkYUF0HdKS
+ 8vBGN4743QXYxRUd+1shtMbCEiv/f4q8PkkDhpBaoNjpbEOxCyZ2A2qB7Jw6mjy8Gg/a
+ 1VT3FbpG8YJZ455TWleqU6+xiSNDe9tLeM9AueFtcIQmIFB8f7TtJysKO1Yi+xa8PwRI Qw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qrw2n828u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 23 May 2023 12:01:08 +0000
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34NC09Ft011638;
+	Tue, 23 May 2023 12:01:07 GMT
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qrw2n826b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 23 May 2023 12:01:07 +0000
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34N3PmcR020391;
+	Tue, 23 May 2023 12:01:03 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3qppcu9epm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 23 May 2023 12:01:03 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34NC0x7s59572662
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 23 May 2023 12:00:59 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 148C520067;
+	Tue, 23 May 2023 12:00:59 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5984120043;
+	Tue, 23 May 2023 12:00:58 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.152.224.66])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 23 May 2023 12:00:58 +0000 (GMT)
+Date: Tue, 23 May 2023 14:00:56 +0200
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Hugh Dickins <hughd@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Mike Kravetz
+ <mike.kravetz@oracle.com>,
+        Mike Rapoport <rppt@kernel.org>,
+        "Kirill A.
+ Shutemov" <kirill.shutemov@linux.intel.com>,
+        Matthew Wilcox
+ <willy@infradead.org>,
+        David Hildenbrand <david@redhat.com>,
+        Suren
+ Baghdasaryan <surenb@google.com>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert
+ Uytterhoeven <geert@linux-m68k.org>,
+        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>,
+        Helge Deller <deller@gmx.de>,
+        John David
+ Anglin <dave.anglin@bell.net>,
+        "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org
+Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
+Message-ID: <20230523140056.55b664b1@p-imbrenda>
+In-Reply-To: <4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+	<94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
+	<20230517123546.672fb9b0@p-imbrenda>
+	<4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.37; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230515054928.2079268-10-sunilvl@ventanamicro.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: KdATZGw-PFRBi7nGruRJQHyOg66o4rOG
+X-Proofpoint-ORIG-GUID: GKYQ85EtVUpqelakERxcPgEdd_8F7rRj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.176.26
+ definitions=2023-05-23_07,2023-05-23_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ bulkscore=0 mlxscore=0 priorityscore=1501 adultscore=0 spamscore=0
+ mlxlogscore=999 impostorscore=0 clxscore=1015 lowpriorityscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2304280000 definitions=main-2305230092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_050113_512826_68D6388C 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20230523_050817_187504_EA0A3A1C 
+X-CRM114-Status: GOOD (  56.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +156,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 15, 2023 at 11:19:16AM +0530, Sunil V L wrote:
-> RINTC structures in the MADT provide mapping between the hartid
-> and the CPU. This is required many times even at run time like
-> cpuinfo. So, instead of parsing the ACPI table every time, cache
-> the RINTC structures and provide a function to get the correct
-> RINTC structure for a given cpu.
+On Wed, 17 May 2023 14:50:28 -0700 (PDT)
+Hugh Dickins <hughd@google.com> wrote:
+
+> On Wed, 17 May 2023, Claudio Imbrenda wrote:
+> > On Tue, 9 May 2023 22:01:16 -0700 (PDT)
+> > Hugh Dickins <hughd@google.com> wrote:
+> >   
+> > > In rare transient cases, not yet made possible, pte_offset_map() and
+> > > pte_offset_map_lock() may not find a page table: handle appropriately.
+> > > 
+> > > Signed-off-by: Hugh Dickins <hughd@google.com>
+> > > ---
+> > >  arch/s390/kernel/uv.c  |  2 ++
+> > >  arch/s390/mm/gmap.c    |  2 ++
+> > >  arch/s390/mm/pgtable.c | 12 +++++++++---
+> > >  3 files changed, 13 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
+> > > index cb2ee06df286..3c62d1b218b1 100644
+> > > --- a/arch/s390/kernel/uv.c
+> > > +++ b/arch/s390/kernel/uv.c
+> > > @@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
+> > >  
+> > >  	rc = -ENXIO;
+> > >  	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
+> > > +	if (!ptep)
+> > > +		goto out;  
 > 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  arch/riscv/include/asm/acpi.h | 10 ++++++++
->  arch/riscv/kernel/acpi.c      | 45 +++++++++++++++++++++++++++++++++++
->  arch/riscv/kernel/setup.c     |  4 ++++
->  3 files changed, 59 insertions(+)
+> You may or may not be asking about this instance too.  When I looked at
 
+actually no, because of the reasons you give here :)
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> how the code lower down handles -ENXIO (promoting it to -EFAULT if an
+> access fails, or to -EAGAIN to ask for a retry), this looked just right
+> (whereas using -EAGAIN here would be wrong: that expects a "page" which
+> has not been initialized at this point).
+> 
+> > >  	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
+> > >  		page = pte_page(*ptep);
+> > >  		rc = -EAGAIN;
+> > > diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
+> > > index dc90d1eb0d55..d198fc9475a2 100644
+> > > --- a/arch/s390/mm/gmap.c
+> > > +++ b/arch/s390/mm/gmap.c
+> > > @@ -2549,6 +2549,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
+> > >  		spinlock_t *ptl;
+> > >  
+> > >  		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
+> > > +		if (!ptep)
+> > > +			break;  
+> > 
+> > so if pte_offset_map_lock fails, we abort and skip both the failed
+> > entry and the rest of the entries?  
+> 
+> Yes.
+> 
+> > 
+> > can pte_offset_map_lock be retried immediately if it fails? (consider
+> > that we currently don't allow THP with KVM guests)
+> > 
+> > Would something like this:
+> > 
+> > do {
+> > 	ptep = pte_offset_map_lock(...);
+> > 	mb();	/* maybe? */
+> > } while (!ptep);
+> > 
+> > make sense?  
+> 
+> No.  But you're absolutely right to be asking: thank you for looking
+> into it so carefully - and I realize that it's hard at this stage to
+> judge what's appropriate, when I've not yet even posted the endpoint
+> of these changes, the patches which make it possible not to find a
+> page table here.  And I'm intentionally keeping that vague, because
+> although I shall only introduce a THP case, I do expect it to be built
+> upon later in reclaiming empty page tables: it would be nice not to
+> have to change the arch code again when extending further.
+> 
+> My "rare transient cases" phrase may be somewhat misleading: one thing
+> that's wrong with your tight pte_offset_map_lock() loop above is that
+> the pmd entry pointing to page table may have been suddenly replaced
+> by a pmd_none() entry; and there's nothing in your loop above to
+> break out if that is so.
+> 
+> But if a page table is suddenly removed, that would be because it was
+> either empty, or replaced by a THP entry, or easily reconstructable on
+> demand (by that, I probably mean it was only mapping shared file
+> pages, which can just be refaulted if needed again).
+> 
+> The case you're wary of, is if the page table were removed briefly,
+> then put back shortly after: and still contains zero pages further
+> down. That's not something mm does now, nor at the end of my several
+> series, nor that I imagine us wanting to do in future: but I am
+> struggling to find a killer argument to persuade you that it could
+> never be done - most pages in a page table do need rmap tracking,
+> which will BUG if it's broken, but that argument happens not to apply
+> to the zero page.
+> 
+> (Hmm, there could be somewhere, where we would find it convenient to
+> remove a page table with intent to do ...something, then validation
+> of that isolated page table fails, so we just put it back again.)
+> 
+> Is it good enough for me to promise you that we won't do that?
+> 
+> There are several ways in which we could change __zap_zero_pages(),
+> but I don't see them as actually dealing with the concern at hand.
+> 
+> One change, I've tended to make at the mm end but did not dare
+> to interfere here: it would seem more sensible to do a single
+> pte_offset_map_lock() outside the loop, return if that fails,
+> increment ptep inside the loop, pte_unmap_unlock() after the loop.
+> 
+> But perhaps you have preemption reasons for not wanting that; and
+> although it would eliminate the oddity of half-processing a page
+> table, it would not really resolve the problem at hand: because,
+> what if this page table got removed just before __zap_zero_pages()
+> tries to take the lock, then got put back just after?
+> 
+> Another change: I see __zap_zero_pages() is driven by
+> walk_page_range(), and over at the mm end I'm usually setting
+> walk->action to ACTION_AGAIN in these failure cases; but thought that
+> an unnecessary piece of magic here, and cannot see how it could
+> actually help.  Your "retry the whole walk_page_range()" suggestion
+> below would be a heavier equivalent of that: but neither way gives
+> confidence, if a page table could actually be removed then reinserted
+> without mmap_write_lock().
+> 
+> I think I want to keep this s390 __zap_zero_pages() issue in mind, it
+> is important and thank you for raising it; but don't see any change
+> to the patch as actually needed.
+> 
+> Hugh
+
+so if I understand the above correctly, pte_offset_map_lock will only
+fail if the whole page table has disappeared, and in that case, it will
+never reappear with zero pages, therefore we can safely skip (in that
+case just break). if we were to do a continue instead of a break, we
+would most likely fail again anyway.
+
+in that case I would still like a small change in your patch: please
+write a short (2~3 lines max) comment about why it's ok to do things
+that way
 
 _______________________________________________
 linux-riscv mailing list
