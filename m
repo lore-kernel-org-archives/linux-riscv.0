@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757D1C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 02:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE81C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 05:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KgBYHP3PnNv/y7rnpO+UjkMyZaJWRj7E1A4/ZbbZdVw=; b=qPjQAYjTOYVZTV
-	qHMwSO5/Sn+bUOBBAexlmcjwUbb0Ry35JEsMCl5D0vNpPLTi7Lgeh1dhgrVLKZe0rTcRihJdMGuXp
-	nMTaSNZ9ah4RZ2uIZIL1QQleFD5pHlsWy9K06h21EyEtAGV614P+yYgIg6/4y1z4ibt9kNXSd9QCx
-	H8JYR5hXsQgRkOJXgqmtsTwk0R3IMfoJF2J0RZ41GpLyVdUs316/tb8qctocixGTh6ycq8w4OiROY
-	esDJ9Fcs8lvRaCYjsK2adXMkPLYUkKD/y5WuTy+FNBYSzHJYylzU2uJSl9GON8cie6zg7cbGXyriC
-	opUBIdEcoS60rEYxfYAw==;
+	List-Owner; bh=wJc30QcUTajWHNsQGpoC5xbzlu4SUj6f6gG/WkorfVI=; b=iDjKAnVlzr56F8
+	BlFL8AbMRirYDgYqbaJyA8Z0xJkl1ZmYVg3nx8MDy4T01y8Bg3ZwvJU3UPyueLygYdGvxl5Z29pTJ
+	8fQ1j3KypyaCTdbKc5lbiH8rc0QMdD2haANH6pSBMKI3JOGfjTBqXLaQizUXlVtyo7aQ6+6T7kiy0
+	lNuVX/Z87xNZ9dBSx2jolxKHif6tc6l8sLjvg68sLtmXknxoRuHeryg8v7DY6A+Zx+99kdlv+A1mA
+	v+mZOClrbHoiXFQOMj10rMXBSoEOOfDzJnANgzmHWQ6ML71vtExKCwkn25BMTFWWybDin7OaK8aIy
+	W/J2tetQVIEvdGRDErwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1IEv-008kgD-1D;
-	Tue, 23 May 2023 02:59:09 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1IEs-008kdd-1M
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 02:59:08 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D4DEF24DC7F;
-	Tue, 23 May 2023 10:58:32 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 10:58:32 +0800
-Received: from [192.168.125.131] (183.27.98.143) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 23 May
- 2023 10:58:31 +0800
-Message-ID: <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
-Date: Tue, 23 May 2023 10:56:43 +0800
+	id 1q1KLD-008vu2-0j;
+	Tue, 23 May 2023 05:13:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1KLA-008vtT-1o;
+	Tue, 23 May 2023 05:13:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DF505623D7;
+	Tue, 23 May 2023 05:13:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EA81C433D2;
+	Tue, 23 May 2023 05:13:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1684818823;
+	bh=6D94mun2nq2a6rgrNgAG6eqYFY3YSRvDHEm/wXa3MEs=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=hFXtEdFF5WW1naH8T8Llt7FJKEzdSx2pyK7L4jToO6OTUEWX/FMm5eb98A7uwuVnV
+	 aFhJHCSM6nKoOTPR+9u6WZZdpaiXerBdz4L1xQEqilyLJZEs+sd0d00LFUzWNaSx+U
+	 M9sJOS3FvHGhF9fWKhySPrKZoGOV8ciVHJxaLROyPoAHvgX3ObhCN3/VD+9h61d0a+
+	 UzkVEh5naVWmrlzuulKQG3/o81iBmyE2SbmURIFbzutF7OBhkA45JFJoNe9yjwIfYo
+	 ViNVUrZ3412DegsiO/QGI14Ig/auT8fmYKIIwm6jRT9Jo59EB/gxzR5YQfOQ9UKVGV
+	 0+ggE3x3HWsbg==
+Date: Tue, 23 May 2023 06:13:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 0/3] Add JH7110 MIPI DPHY RX support
+User-Agent: K-9 Mail for Android
+In-Reply-To: <7d4c3c08-6590-5947-92c6-1425c0cb662d@starfivetech.com>
+References: <20230412084540.295411-1-changhuang.liang@starfivetech.com> <93d39956-25c9-971b-e73b-09c69e803341@starfivetech.com> <20230522-extradite-nastily-c2a88cfd2f02@wendy> <7d4c3c08-6590-5947-92c6-1425c0cb662d@starfivetech.com>
+Message-ID: <039744BB-E0C2-4311-A663-DDDD819A219D@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
- generator
-To: Conor Dooley <conor.dooley@microchip.com>, Torsten Duwe <duwe@lst.de>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<yanhong.wang@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, "Rob
- Herring" <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Hal
- Feng" <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-2-xingyu.wu@starfivetech.com>
- <20230519135733.GA10188@lst.de>
- <20230519-smokeless-guileless-2a71cae06509@wendy>
-Content-Language: en-US
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20230519-smokeless-guileless-2a71cae06509@wendy>
-X-Originating-IP: [183.27.98.143]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230522_195906_721161_ED2ED9C4 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20230522_221344_646536_625A0D8D 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +81,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/5/19 22:16, Conor Dooley wrote:
-> On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe wrote:
->> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
->> [...]
->> >  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->> >  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->> >  
->> > +/* PLL clocks */
->> > +#define JH7110_CLK_PLL0_OUT			0
->> > +#define JH7110_CLK_PLL1_OUT			1
->> > +#define JH7110_CLK_PLL2_OUT			2
->> 
->> In U-Boot commit 58c9c60b Yanhong Wang added:
->> 
->> +
->> +#define JH7110_SYSCLK_PLL0_OUT                       190
->> +#define JH7110_SYSCLK_PLL1_OUT                       191
->> +#define JH7110_SYSCLK_PLL2_OUT                       192
->> +
->> +#define JH7110_SYSCLK_END                    193
->> 
->> in that respective file.
->> 
->> > +#define JH7110_PLLCLK_END			3
->> > +
->> >  /* SYSCRG clocks */
->> >  #define JH7110_SYSCLK_CPU_ROOT			0
->> 
->> If the symbolic names referred to the same items, would it be possible
->> to keep the two files in sync somehow?
-> 
-> Ohh, that's not good.. If you pass the U-Boot dtb to Linux it won't
-> understand the numbering. The headers are part of the dt-binding :/
 
-Because PLL driver is separated from SYSCRG drivers in Linux, the numbering
-starts from 0. But in Uboot, the PLL driver is included in the SYSCRG driver,
-and the number follows the SYSCRG.
 
-Best regards,
-Xingyu Wu
+On 23 May 2023 02:02:24 IST, Changhuang Liang <changhuang.liang@starfivetech.com> wrote:
+>
+>
+>On 2023/5/22 21:11, Conor Dooley wrote:
+>> On Mon, May 22, 2023 at 09:00:04PM +0800, Changhuang Liang wrote:
+>>> On 2023/4/12 16:45, Changhuang Liang wrote:
+>>>> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
+>>>> It is used to transfer CSI camera data. The series has been tested on
+>>>> the VisionFive 2 board.
+>>>>
+>> 
+>>> Can you help to find the Vinod reviewed this patchset?
+>> 
+>> I am sorry, but I have no idea what you mean.
+>> Are you asking if I can get Vinod to review the series?
+>> 
+>
+>Yes, I need his comments.
+
+No, I cannot. Maybe you should fix any outstanding comments and resubmit?
 
 _______________________________________________
 linux-riscv mailing list
