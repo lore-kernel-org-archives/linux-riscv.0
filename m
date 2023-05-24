@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FCAC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 17:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA426C7EE2D
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 17:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fEJNMnFiZX5wb3QZO2lPJluN5Yqo7maq53c8UAWoW2E=; b=GFWErLQ0VZ6ueo
-	BN7j9yuGygK6AqBYLczcJs+xjnv4ytELkNXHIMKu9318Ff6neM8JkxqCrKrBfano2KsL7br/YPUpn
-	J+h/tANAd5A0DXc3Qyd+9jZ8/ZFtbLp/oyOxuDhsfdJ+Z2BLJMightYeue6Fbb9A8ld3RmBv/tUCU
-	rRz424aCLLu5uJh0m641elqFttCd4kIeWIA1kBXlCWqSLg7IRAntO+fog2IPtUx8quetQ0n64waI5
-	8j37vqvrdmXiQrEFHZbtC+31rRgkcLTBkb8rndTJTq161QpJ48PvkDZ4kbsNcMS5i06xE98WwdYS5
-	QlsJqULHjVvIZZ9aLoPg==;
+	List-Owner; bh=dw1p7HQlmpp7jAhAhlv5U6huBh4e7MPZoh/KrtlZ0Bg=; b=3pW4Xbk09Sv82S
+	NZoBW7v1OHStl9xmgL/8bDMsxqiu3YEAOUxVV55KRJubthyMjUVjh+Gmr2SvUSbhgPMebCd/nNvk2
+	HaX6N98QVgeTQZPCPg3b1YaK1XZ1z24TQ2WXiKeyJnP4g1JFhMtkdzFTibfUeq84E1vFijebne22T
+	F0NP2plhmdmmRM6YAHf/O+dm/aCAkG9O4ZJ7jUXsL8uQ44skyOiZKhHPZHHwg3ysZnUVfpxwJDo+1
+	GTOdAIjH8KuPZnEYeXjblSMZiKmxD9gG6YP5YdsNdMIZaL1SFWXfUK6KERKnP9fz5CV1+iQYSnhAE
+	kt5c9ialk58vFm8QJVJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1sce-00EG5j-2n;
-	Wed, 24 May 2023 17:50:04 +0000
+	id 1q1se7-00EGPS-2w;
+	Wed, 24 May 2023 17:51:35 +0000
 Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1scZ-00EG46-0l
+	id 1q1se4-00EGOF-2f
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 17:50:00 +0000
-X-QQ-mid: bizesmtp84t1684950589taqcvbsf
+	Wed, 24 May 2023 17:51:34 +0000
+X-QQ-mid: bizesmtp74t1684950681t6yn0ug4
 Received: from linux-lab-host.localdomain ( [116.30.125.36])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 May 2023 01:49:48 +0800 (CST)
-X-QQ-SSF: 00200000000000D0V000000A0000000
-X-QQ-FEAT: uGhnJwy6xZIUNwFWUkTcVZC7g8QNyKiY+XzJriACbUL4oqMszlNtgYpAkhLex
-	cwihvRwjjgmsdDZeCDPBF1DQ938pSja9bqh13OBnuTww50GACW6NmZRGD621FTL2iQ3QVmZ
-	3HkI3ZEvZW3yLng05TVWCIwUhYuPiSBwb0uYCZ2D0qnkqyOSDmeRKNiGa4kRHpIhHm7YHPU
-	M+DcW0gUtbzTW69JkDGyC5dTxiYptZzlvCJn1XJGMlllb0F9TAExPLOZnvDJwVcyv4oUI5Y
-	ue15DAsGTU3Ke9lTyUtaRF1ixOTRnyGTK0aokkIreZiU8hdYxCiI4zKZzp6KpnUehGaYkIe
-	EmHYz1QP6NJqwxJyJLXzjh4+56x/vuIlsuhL/BW/dMwVCVkSckCr2+nK3wZ+NdVB6t/VW7q
+	id ; Thu, 25 May 2023 01:51:20 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: XBN7tc9DADIjgXxH3TLgSj0VxrQrlL8zhmh+je68CBXjsGiccEXwXly8k6tY2
+	sC6ZTFBT/sSxaXpDpmnl0LuhIAIGbtTvL5iSFY/1OirQIpXra0UPbmdM27b0Too6T6HMjnI
+	SfX8v6h6fpBl9pr85gssp4sQRvlDlefaiz21KSWLsuDAH+5hlMhyWQ9dJJ0jaTZjmnUgZTl
+	WfBb83pbAN6Y2MHZ0Z1N0713TbxSUgJgxPdTE5p4QCAwVJzfrLjfM+rchc1rauuUwS9ZL2Q
+	+zzJYhPPZycNK74ty8mb/+lulh9ITcXDtfNrrrTrPvtIKDqUWa71PYM6R8Zc7w8Tx+dB1h5
+	gc0kJfc4Uo+Z7HG2jUcWLfat5YfgHjhNbNwJaOt7iBXLsZ1r9c10EoJ9fC8kA==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17354439834397082086
+X-BIZMAIL-ID: 9362597726359131940
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -49,9 +49,9 @@ Cc: falcon@tinylab.org,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
 	thomas@t-8ch.de
-Subject: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for rv32
-Date: Thu, 25 May 2023 01:48:11 +0800
-Message-Id: <b306ae7b53d67acad6d1e2f63d43505d79f81241.1684949267.git.falcon@tinylab.org>
+Subject: [PATCH 05/13] selftests/nolibc: riscv: customize makefile for rv32
+Date: Thu, 25 May 2023 01:50:57 +0800
+Message-Id: <7adb27a7c56dd06d782710a5f684ea6263900f98.1684949268.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1684949267.git.falcon@tinylab.org>
 References: <cover.1684949267.git.falcon@tinylab.org>
@@ -59,8 +59,9 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_104959_575110_7AF3EA9A 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20230524_105133_163803_88CA3676 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,69 +73,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2hlbiBjb21waWxlIG5vbGliYy10ZXN0LmMgZm9yIHJ2MzIsIHdlIGdvdCBzdWNoIGVycm9yOgoK
-ICAgIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jOjU5OTo1Nzog
-ZXJyb3I6IOKAmF9fTlJfZnN0YXTigJkgdW5kZWNsYXJlZCAoZmlyc3QgdXNlIGluIHRoaXMgZnVu
-Y3Rpb24pCiAgICAgIDU5OSB8ICAgQ0FTRV9URVNUKHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNU
-X1NZU0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwgMCwgTlVMTCksIC0xLCBFRkFVTFQpOyBicmVh
-azsKClRoZSBnZW5lcmljIGluY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy91bmlzdGQuaCB1c2VkIGJ5
-IHJ2MzIgZG9lc24ndApzdXBwb3J0IF9fTlJfZnN0YXQsIHVzZSBfX05SX3N0YXR4IGluc3RlYWQ6
-CgogICAgUnVubmluZyB0ZXN0ICdzeXNjYWxsJwogICAgNjkgc3lzY2FsbF9ub2FyZ3MgPSAxICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbT0tdCiAgICA3MCBzeXNj
-YWxsX2FyZ3MgPSAtMSBFRkFVTFQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IFtPS10KCkFzIHRvb2xzL2luY2x1ZGUvbm9saWJjL3N5cy5oIHNob3dzLCBfX05SX3N0YXR4IGlz
-IGVpdGhlciBub3Qgc3VwcG9ydGVkCmJ5IGFsbCBwbGF0Zm9ybXMsIHNvLCBib3RoIF9fTlJfZnN0
-YXQgYW5kIF9fTlJfc3RhdHggYXJlIHJlcXVpcmVkLgoKQnR3LCB0aGUgbGF0ZXN0IHJpc2N2IGxp
-YmM2LWRldiBwYWNrYWdlIGlzIHJlcXVpcmVkLCBvdGhlcndpc2UsIHdlIHdvdWxkCmFsc28gZ2V0
-IHN1Y2ggZXJyb3I6CgogICAgSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC91c3IvcmlzY3Y2NC1saW51
-eC1nbnUvaW5jbHVkZS9zeXMvY2RlZnMuaDo0NTIsCiAgICAgICAgICAgICAgICAgICAgIGZyb20g
-L3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRlL2ZlYXR1cmVzLmg6NDYxLAogICAgICAgICAg
-ICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL2xpYmMt
-aGVhZGVyLXN0YXJ0Lmg6MzMsCiAgICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNjdjY0
-LWxpbnV4LWdudS9pbmNsdWRlL2xpbWl0cy5oOjI2LAogICAgICAgICAgICAgICAgICAgICBmcm9t
-IC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0LWxpbnV4LWdudS85L2luY2x1ZGUvbGltaXRzLmg6
-MTk0LAogICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvbGliL2djYy1jcm9zcy9yaXNjdjY0
-LWxpbnV4LWdudS85L2luY2x1ZGUvc3lzbGltaXRzLmg6NywKICAgICAgICAgICAgICAgICAgICAg
-ZnJvbSAvdXNyL2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0
-cy5oOjM0LAogICAgICAgICAgICAgICAgICAgICBmcm9tIC9sYWJzL2xpbnV4LWxhYi9zcmMvbGlu
-dXgtc3RhYmxlL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jOjY6
-CiAgICAvdXNyL3Jpc2N2NjQtbGludXgtZ251L2luY2x1ZGUvYml0cy93b3Jkc2l6ZS5oOjI4OjM6
-IGVycm9yOiAjZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQiCiAg
-ICAgICAyOCB8ICMgZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0ZWQi
-CgpUaGUgZ2xpYmMgY29tbWl0IDViNjExM2Q2MmVmYSAoIlJJU0MtVjogU3VwcG9ydCB0aGUgMzIt
-Yml0IEFCSQppbXBsZW1lbnRhdGlvbiIpIGZpeGVkIHVwIGFib3ZlIGVycm9yLCBzbywgZ2xpYmMg
-Pj0gMi4zMyAod2hvIGluY2x1ZGVzCnRoaXMgY29tbWl0KSBpcyByZXF1aXJlZC4KClNpZ25lZC1v
-ZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25AdGlueWxhYi5vcmc+Ci0tLQogdG9vbHMvdGVzdGlu
-Zy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMgfCAxMyArKysrKysrKysrKystCiAxIGZp
-bGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBh
-L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jIGIvdG9vbHMvdGVz
-dGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMKaW5kZXggMjI3ZWYyYTNlYmJhLi5j
-ODZmZjYwMThjN2YgMTAwNjQ0Ci0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9u
-b2xpYmMtdGVzdC5jCisrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMt
-dGVzdC5jCkBAIC01MDEsNiArNTAxLDE3IEBAIHN0YXRpYyBpbnQgdGVzdF9mb3JrKHZvaWQpCiAJ
-fQogfQogCitzdGF0aWMgaW50IHRlc3Rfc3lzY2FsbF9hcmdzKHZvaWQpCit7CisjaWZkZWYgX19O
-Ul9mc3RhdAorCXJldHVybiBzeXNjYWxsKF9fTlJfZnN0YXQsIDAsIE5VTEwpOworI2VsaWYgZGVm
-aW5lZChfX05SX3N0YXR4KQorCXJldHVybiBzeXNjYWxsKF9fTlJfc3RhdHgsIDAsIE5VTEwsIDAs
-IDAsIE5VTEwpOworI2Vsc2UKKyNlcnJvciBOZWl0aGVyIF9fTlJfZnN0YXQgbm9yIF9fTlJfc3Rh
-dHggZGVmaW5lZCwgY2Fubm90IGltcGxlbWVudCBzeXNjYWxsX2FyZ3MgdGVzdAorI2VuZGlmCit9
-CisKIC8qIFJ1biBzeXNjYWxsIHRlc3RzIGJldHdlZW4gSURzIDxtaW4+IGFuZCA8bWF4Pi4KICAq
-IFJldHVybiAwIG9uIHN1Y2Nlc3MsIG5vbi16ZXJvIG9uIGZhaWx1cmUuCiAgKi8KQEAgLTU5Nyw3
-ICs2MDgsNyBAQCBpbnQgcnVuX3N5c2NhbGwoaW50IG1pbiwgaW50IG1heCkKIAkJQ0FTRV9URVNU
-KHdyaXRlX2JhZGYpOyAgICAgICAgRVhQRUNUX1NZU0VSKDEsIHdyaXRlKC0xLCAmdG1wLCAxKSwg
-LTEsIEVCQURGKTsgYnJlYWs7CiAJCUNBU0VfVEVTVCh3cml0ZV96ZXJvKTsgICAgICAgIEVYUEVD
-VF9TWVNaUigxLCB3cml0ZSgxLCAmdG1wLCAwKSk7IGJyZWFrOwogCQlDQVNFX1RFU1Qoc3lzY2Fs
-bF9ub2FyZ3MpOyAgICBFWFBFQ1RfU1lTRVEoMSwgc3lzY2FsbChfX05SX2dldHBpZCksIGdldHBp
-ZCgpKTsgYnJlYWs7Ci0JCUNBU0VfVEVTVChzeXNjYWxsX2FyZ3MpOyAgICAgIEVYUEVDVF9TWVNF
-UigxLCBzeXNjYWxsKF9fTlJfZnN0YXQsIDAsIE5VTEwpLCAtMSwgRUZBVUxUKTsgYnJlYWs7CisJ
-CUNBU0VfVEVTVChzeXNjYWxsX2FyZ3MpOyAgICAgIEVYUEVDVF9TWVNFUigxLCB0ZXN0X3N5c2Nh
-bGxfYXJncygpLCAtMSwgRUZBVUxUKTsgYnJlYWs7CiAJCWNhc2UgX19MSU5FX186CiAJCQlyZXR1
-cm4gcmV0OyAvKiBtdXN0IGJlIGxhc3QgKi8KIAkJLyogbm90ZTogZG8gbm90IHNldCBhbnkgZGVm
-YXVsdHMgc28gYXMgdG8gcGVybWl0IGhvbGVzIGFib3ZlICovCi0tIAoyLjI1LjEKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+both riscv64 and riscv32 have the same ARCH value, it is riscv, the
+default defconfig enables 64bit, to support riscv32, let's allow pass
+"ARCH=riscv32" or "ARCH=riscv CONFIG_32BIT=1" to customize riscv32
+setting.
+
+Note: glibc >= 2.33 is required to avoid a bug of the old
+bits/wordsize.h.
+
+  /usr/riscv64-linux-gnu/include/bits/wordsize.h:28:3: error: #error "rv32i-based targets are not supported"
+           28 | # error "rv32i-based targets are not supported"
+
+This can not pass compile, several time64 syscalls are still missing.
+
+Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+---
+ tools/testing/selftests/nolibc/Makefile | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+index 47c3c89092e4..9adc8944dd80 100644
+--- a/tools/testing/selftests/nolibc/Makefile
++++ b/tools/testing/selftests/nolibc/Makefile
+@@ -14,6 +14,12 @@ include $(srctree)/scripts/subarch.include
+ ARCH = $(SUBARCH)
+ endif
+ 
++# Allow pass ARCH=riscv|riscv32|riscv64, riscv implies riscv64
++ifneq ($(findstring xriscv,x$(ARCH)),)
++  CONFIG_32BIT := $(if $(findstring 32x,$(ARCH)x),1)
++  override ARCH := riscv
++endif
++
+ # kernel image names by architecture
+ IMAGE_i386       = arch/x86/boot/bzImage
+ IMAGE_x86_64     = arch/x86/boot/bzImage
+@@ -34,7 +40,7 @@ DEFCONFIG_x86        = defconfig
+ DEFCONFIG_arm64      = defconfig
+ DEFCONFIG_arm        = multi_v7_defconfig
+ DEFCONFIG_mips       = malta_defconfig
+-DEFCONFIG_riscv      = defconfig
++DEFCONFIG_riscv      = $(if $(CONFIG_32BIT),rv32_defconfig,defconfig)
+ DEFCONFIG_s390       = defconfig
+ DEFCONFIG_loongarch  = defconfig
+ DEFCONFIG            = $(DEFCONFIG_$(ARCH))
+@@ -49,7 +55,7 @@ QEMU_ARCH_x86        = x86_64
+ QEMU_ARCH_arm64      = aarch64
+ QEMU_ARCH_arm        = arm
+ QEMU_ARCH_mips       = mipsel  # works with malta_defconfig
+-QEMU_ARCH_riscv      = riscv64
++QEMU_ARCH_riscv      = $(if $(CONFIG_32BIT),riscv32,riscv64)
+ QEMU_ARCH_s390       = s390x
+ QEMU_ARCH_loongarch  = loongarch64
+ QEMU_ARCH            = $(QEMU_ARCH_$(ARCH))
+@@ -76,6 +82,7 @@ else
+ Q=@
+ endif
+ 
++CFLAGS_riscv = $(if $(CONFIG_32BIT),-march=rv32im -mabi=ilp32)
+ CFLAGS_s390 = -m64
+ CFLAGS_STACKPROTECTOR ?= $(call cc-option,-mstack-protector-guard=global $(call cc-option,-fstack-protector-all))
+ CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
