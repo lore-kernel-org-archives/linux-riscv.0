@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42E6C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 18:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385D2C77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 18:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jAsfT53uksu328LAhgkwoLp92Zs92fiStbdO/3oAa3w=; b=iRnueYS8bHTmPw
-	beXtEcdmBdH8FTxRhH6wGFpw8CqltR7HwHsF0GNme4Ku7CzXn2nafULF/RH/ap3hrMfhxbA9hnNu3
-	syJ1RldR18jov+QIlyjRvFG3xuwk0oj49BNh+h/eiK9Yi7SV8+X5kdIASwQpY+nynS4OSbctEi5tK
-	hn1h8lWVFOk0OtG6Xw93mxVyLz5m3IslcsheCf8mOvKUEaZ0cLkp1pBV+n/ZPsP2eH5H9GAAWQb/7
-	DkzPMjuyzEKCPC4FZ9H2Lu596A0Kjize/mO4g7Fbe7wqwH0UkwyoEz5TUVU4Zhhx0o9XIczaiM5A4
-	RQqVMACJ5gPbSsYnn/wQ==;
+	List-Owner; bh=ijCtnlUxIwphDW6VYcpCISIIPpIBe8jHwBbz37dUcW4=; b=HM3cylYm8RnZTC
+	x6aEN3Kyfbh1hBM1vWg1PvaUg8Lim9bdGOfRA0xkJnAl/5rfeYiyEI0kLHpmhZRlnRNS46tXWh/0d
+	HP/eXQBwomSxbKg36KXFcdeEw02bjajYTxPjO6M+Qu+CTrNg4zDwl6W/BFbAPBtVI/JaClmMOhiYI
+	TlBMwfN2kARO9WMpEtKbY51FDCTC1/sBzOXxBtNF0bZXoplUYp0oeZZJ4kq0UiJX1jKGYWPDwKVvE
+	XgezZy43lceNFs7l6u6XZgjVWWY9IOBxKVqsOcE6tSqEYb7aUWL4aE02wX1dGKuYiw8GfFHUq9bM1
+	S2zuzFWprV09GAxtETag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1som-00EJG2-1s;
-	Wed, 24 May 2023 18:02:36 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
+	id 1q1spx-00EJVB-04;
+	Wed, 24 May 2023 18:03:49 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1soj-00EJES-1F
+	id 1q1spt-00EJTG-2s
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 18:02:35 +0000
-X-QQ-mid: bizesmtp77t1684951344tml8b7ly
+	Wed, 24 May 2023 18:03:47 +0000
+X-QQ-mid: bizesmtp78t1684951416tb3pz334
 Received: from linux-lab-host.localdomain ( [116.30.125.36])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 May 2023 02:02:21 +0800 (CST)
+	id ; Thu, 25 May 2023 02:03:35 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: Xz3VOcA7Mr0KaqdkQOpzZ+GPBYPXJApKLC+NLroSL35n8g1DvXnk4MI0nnhSq
-	eCA8abIJEj5/MMX0E0nOiq1r3tRW1Dzuj8kKIhMISCxuR2R+vSH+y9iUTtbM2YLkEZQFbl4
-	Gwj6XvvvAj46eYzyPG97x4/H3sFl0piFoY4Qhzz2TCtETlBg073vgdEKgIponO7WU5ihXTG
-	7USD/hZHC2KRfmWeEOarJtk8QF/O+zSJAue55HVToyJnWjy0g89EeUu6x7BvEne9Q56B8z+
-	H1qfJhUBHAXsIGNQEAnBLXLdMPINADkwqTscOIIy4rgBZdHW6p9iKZ9pgDu/AIDCanwCLue
-	Hp87XNtP5SGMjLlCeXCoFJZ6Z7QZPlB5zQMCyidc1VKdP9xYKKKx3ND7Gh9AA==
+X-QQ-FEAT: znfcQSa1hKahN1m9MXihhsfaKEggHvIyA5/pTK2SaWBMBZDnB/qZVYB9hhaeW
+	CtThDB38b2eIGVPxEtHTZ/aQx/m+LDrbyyqaUCEQjb3UrqG8e6vmoo+YN9ez5R3jAa+ctud
+	hvf6+/GoNail8IsTWRntTm/VesMGwdeFQrjRCv9wgfeqGxpgfAXNzkEbm39kA+CQ13SCWiE
+	iowUfkUtPUrUPEHv1pYfm9xxUrsV9UR/X3MRXjJ4GFhpHfjlERqt1laG9cY/MuPEBPIPVse
+	G6RO3Z7tTbo4v1LfUw+MGPlMNWQaDMO/oUPriwjPaOHCEtWdRGHW+OdwyxBTwFSMSP/o1qi
+	MlHUfX46tdBlGm7LLQfYMG6eXe10fkgOsXkruJqOw4zHZuAjYDpIHkDjpGh47G+lEvpB/RZ
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6618908142304380197
+X-BIZMAIL-ID: 13367086140274863961
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -49,9 +49,9 @@ Cc: falcon@tinylab.org,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
 	thomas@t-8ch.de
-Subject: [PATCH 12/13] tools/nolibc: sys_wait4: riscv: use __NR_waitid for rv32
-Date: Thu, 25 May 2023 02:02:17 +0800
-Message-Id: <7a55e771c3cacf2e5b1a4750efac747289dbc54b.1684949268.git.falcon@tinylab.org>
+Subject: [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64 for rv32
+Date: Thu, 25 May 2023 02:03:32 +0800
+Message-Id: <e35cf1de35fdb0a236064ff645ae4734d32bacd4.1684949845.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1684949267.git.falcon@tinylab.org>
 References: <cover.1684949267.git.falcon@tinylab.org>
@@ -59,8 +59,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_110233_732987_F86979EB 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20230524_110346_234456_0476E271 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +78,103 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
-__NR_wait4 after kernel commit d4c08b9776b3 ("riscv: Use latest system
-call ABI"), use __NR_waitid instead.
+__NR_gettimeofday and __NR_clock_gettime after kernel commit d4c08b9776b3
+("riscv: Use latest system call ABI"), use __NR_clock_gettime64 instead.
 
-This code is based on sysdeps/unix/sysv/linux/wait4.c of glibc.
+This code is based on src/time/gettimeofday.c of musl and
+sysdeps/unix/sysv/linux/clock_gettime.c of glibc.
 
-Notes: The kernel wait4 syscall has the 'pid == INT_MIN' path and
-returns -ESRCH, but the kernel waitid syscall has no such path, to let
-this __NR_waitid based sys_wait4 has the same return value and pass the
-'waitpid_min' test, we emulate such path in our new nolibc __NR_waitid
-branch.
+Both __NR_clock_gettime and __NR_clock_gettime64 are added for
+sys_gettimeofday() for they share most of the code.
+
+Notes:
+
+* Both tv and tz are not directly passed to kernel clock_gettime*
+  syscalls, so, it isn't able to check the pointer automatically with the
+  get_user/put_user helpers just like kernel gettimeofday syscall does.
+  instead, we emulate (but not completely) such checks in our new
+  __NR_clock_gettime* branch of nolibc.
+
+* kernel clock_gettime* syscalls can not get tz info, just like musl and
+  glibc do, we set tz to zero to avoid a random number.
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/include/nolibc/sys.h   | 54 ++++++++++++++++++++++++++++++++++++
- tools/include/nolibc/types.h | 15 +++++++++-
- 2 files changed, 68 insertions(+), 1 deletion(-)
+ tools/include/nolibc/sys.h | 46 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
 diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 00c7197dcd50..2642b380c6aa 100644
+index 2642b380c6aa..ad38cc3856be 100644
 --- a/tools/include/nolibc/sys.h
 +++ b/tools/include/nolibc/sys.h
-@@ -12,6 +12,7 @@
+@@ -26,6 +26,7 @@
  
- /* system includes */
- #include <asm/unistd.h>
-+#include <asm/siginfo.h> /* for siginfo_t */
- #include <asm/signal.h>  /* for SIGCHLD */
- #include <asm/ioctls.h>
- #include <asm/mman.h>
-@@ -1333,7 +1334,60 @@ int unlink(const char *path)
+ #include "arch.h"
+ #include "errno.h"
++#include "string.h"
+ #include "types.h"
+ 
+ 
+@@ -51,6 +52,11 @@
+  * should not be placed here.
+  */
+ 
++/*
++ * This is the first address past the end of the text segment (the program code).
++ */
++
++extern char etext;
+ 
+ /*
+  * int brk(void *addr);
+@@ -554,7 +560,47 @@ long getpagesize(void)
  static __attribute__((unused))
- pid_t sys_wait4(pid_t pid, int *status, int options, struct rusage *rusage)
+ int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
  {
-+#ifdef __NR_wait4
- 	return my_syscall4(__NR_wait4, pid, status, options, rusage);
-+#elif defined(__NR_waitid)
-+	siginfo_t infop;
-+	int idtype = P_PID;
++#ifdef __NR_gettimeofday
+ 	return my_syscall2(__NR_gettimeofday, tv, tz);
++#elif defined(__NR_clock_gettime) || defined(__NR_clock_gettime64)
++#ifdef __NR_clock_gettime
++	struct timespec ts;
++#else
++	struct timespec64 ts;
++#define __NR_clock_gettime __NR_clock_gettime64
++#endif
 +	int ret;
 +
-+	/* emulate the 'pid == INT_MIN' path of wait4 */
-+	if (pid == INT_MIN)
-+		return -ESRCH;
++	/* make sure tv pointer is at least after code segment */
++	if (tv != NULL && (char *)tv <= &etext)
++		return -EFAULT;
 +
-+	if (pid < -1) {
-+		idtype = P_PGID;
-+		pid *= -1;
-+	} else if (pid == -1) {
-+		idtype = P_ALL;
-+	} else if (pid == 0) {
-+		idtype = P_PGID;
++	/* set tz to zero to avoid random number */
++	if (tz != NULL) {
++		if ((char *)tz > &etext)
++			memset(tz, 0, sizeof(struct timezone));
++		else
++			return -EFAULT;
 +	}
 +
-+	options |= WEXITED;
++	if (tv == NULL)
++		return 0;
 +
-+	ret = my_syscall5(__NR_waitid, idtype, pid, &infop, options, rusage);
-+	if (ret < 0)
++	ret = my_syscall2(__NR_clock_gettime, CLOCK_REALTIME, &ts);
++	if (ret)
 +		return ret;
 +
-+	if (status) {
-+		switch (infop.si_code) {
-+		case CLD_EXITED:
-+			*status = W_EXITCODE(infop.si_status, 0);
-+			break;
-+		case CLD_DUMPED:
-+			*status = __WCOREFLAG | infop.si_status;
-+			break;
-+		case CLD_KILLED:
-+			*status = infop.si_status;
-+			break;
-+		case CLD_TRAPPED:
-+		case CLD_STOPPED:
-+			*status = W_STOPCODE(infop.si_status);
-+			break;
-+		case CLD_CONTINUED:
-+			*status = __W_CONTINUED;
-+			break;
-+		default:
-+			*status = 0;
-+			break;
-+		}
-+	}
++	tv->tv_sec = (time_t) ts.tv_sec;
++#ifdef __NR_clock_gettime64
++	if (tv->tv_sec != ts.tv_sec)
++		return -EOVERFLOW;
++#endif
 +
-+	return infop.si_pid;
++	tv->tv_usec = ts.tv_nsec / 1000;
++	return 0;
 +#else
-+#error Neither __NR_wait4 nor __NR_waitid defined, cannot implement sys_wait4()
++#error None of __NR_gettimeofday, __NR_clock_gettime and __NR_clock_gettime64 defined, cannot implement sys_gettimeofday()
 +#endif
  }
  
  static __attribute__((unused))
-diff --git a/tools/include/nolibc/types.h b/tools/include/nolibc/types.h
-index ee914391439c..c4f95c267607 100644
---- a/tools/include/nolibc/types.h
-+++ b/tools/include/nolibc/types.h
-@@ -92,8 +92,21 @@
- #define WTERMSIG(status)    ((status) & 0x7f)
- #define WIFSIGNALED(status) ((status) - 1 < 0xff)
- 
--/* waitpid() flags */
-+/* waitpid() and waitid() flags */
- #define WNOHANG      1
-+#define WEXITED      0x00000004
-+
-+/* first argument for waitid() */
-+#define P_ALL        0
-+#define P_PID        1
-+#define P_PGID       2
-+#define P_PIDFD      3
-+
-+/* Macros used on waitid's status setting */
-+#define W_EXITCODE(ret, sig) ((ret) << 8 | (sig))
-+#define W_STOPCODE(sig)      ((sig) << 8 | 0x7f)
-+#define __W_CONTINUED        0xffff
-+#define __WCOREFLAG          0x80
- 
- /* standard exit() codes */
- #define EXIT_SUCCESS 0
 -- 
 2.25.1
 
