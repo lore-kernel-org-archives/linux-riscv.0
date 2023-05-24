@@ -4,53 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5708C77B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 May 2023 20:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7CEC77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 00:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qAIPwrH5sV9ZW7GYREXpRLK4fuw8I1WWhh48y2zvTv8=; b=AL4rsQy5lClCmv
-	Y+9y4yzZb2fUsm4/r+KhE3NjKN7iCuMLEelfs48pbVtJPAuHL/27+HssHJRbV82c5yiyU4pqy+IBT
-	QpJ609SFTG6N+miiMQjqRX19xSzVWYatNr5LTPKMGhSNihlxqpQMA8+IAoY12NS3WPwJXIi8DYtlD
-	FXX0R5WAffMvv+Z/m9gOmyKQ6URy6YD54gfLSjNdX37rrCGwJmyJU6/OuzGl+zRb8SAOu4jdz+lbU
-	dmBdS5r109Su0HjTYRDI9pDE3pxOvBYv6erQNJOTBzffj1O9QSSi9rnA6oyLWGpS+KaMMALqr8PMt
-	zt7Uh7zenqpE/LHPvA7g==;
+	List-Owner; bh=i1Wp3cyMSzNW3nAYAz1lbOyHtCiaXUkaIEoYdN5Z1so=; b=Ef6hcXy73h1pJp
+	4LiTszjoNQo47PS5jztwt/9UmCJ8T5YmrOclXMEDmppzezkwj+fUToj02/uUo2Agzd/RIV1v9Q39A
+	0NI8HCvpxZl5Gh3l+jSCobdk92AZ4jvJM/NhDO7PCt8+l/Sg6WAZZp8LnFOrbSeYZyeWX4CRJutza
+	4GiI5PzY9LPHThsi1qKc9lOUBBsCTQ4NfcU4Dcfffxli1JGuK8tkkYSpgZQKBjKYysDQe9z/R0BKQ
+	83ePof9IqBfwloP8tVT3ql7W7ZhJiQq/Frqvl9a4A24ie1xwYaNv2XhwS0AJR0h74aNYbcpzK78tu
+	I3g8JZI8gif1a41CAyKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1YNh-00BLcg-0w;
-	Tue, 23 May 2023 20:13:17 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1YNd-00BLZ7-31
+	id 1q1cCW-00BtAs-2S;
+	Wed, 24 May 2023 00:18:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1cCT-00BtAS-19
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 May 2023 20:13:16 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 34NKCcxC014675;
-	Tue, 23 May 2023 22:12:38 +0200
-Date: Tue, 23 May 2023 22:12:38 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-        Zhangjin Wu <falcon@tinylab.org>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Shuah Khan <shuah@kernel.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-riscv@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 7/7] tools/nolibc: simplify stackprotector compiler flags
-Message-ID: <ZG0eNtYH1VvXdLBN@1wt.eu>
-References: <20230521-nolibc-automatic-stack-protector-v1-0-dad6c80c51c1@weissschuh.net>
- <20230521-nolibc-automatic-stack-protector-v1-7-dad6c80c51c1@weissschuh.net>
+	Wed, 24 May 2023 00:17:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AD8206328D;
+	Wed, 24 May 2023 00:17:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6650C433EF;
+	Wed, 24 May 2023 00:17:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1684887476;
+	bh=9dxLjHPo+SZEGy7KQS3cCv9yVec/7vFxtb4zBAqLmXg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wr7T+5i/6DQrZylu3WCREvJ2bcO9dFx9j+flmANgbbKwhs3FVnYFrJV967oKEfeyD
+	 YaSfFfAdfwU/d4c/BDPMmayNOvc/FfiKVKHsE1Ay4B/b98MeOAAZv3MX7LVnwS1CfX
+	 Q88UbGhhrbK1+okbRb5/KhncQQ67FMZMShmeZgmhl3BrDuN0sWCn/FeDXxn5KnII0m
+	 wR8vT6zgg42KZZhLyDFnkwNsago373inq3hwEKApu1gWsnsEZlktQlfe8E3PuJm2Bd
+	 P3O3ZJLPpzsUU7TRBYQTyH8AJ9Py1nm/Hg426LOqE7Pb5CaeQ1hcY0ORJzf8MtqdLa
+	 1YWM74O5ER+yA==
+Date: Wed, 24 May 2023 08:06:44 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Suren Baghdasaryan <surenb@google.com>
+Subject: Re: [PATCH] riscv: mm: try VMA lock-based page fault handling first
+Message-ID: <ZG1VFHgV2z74RlMn@xhacker>
+References: <20230523165942.2630-1-jszhang@kernel.org>
+ <ZGzz11GhPyzcQ/nz@xhacker>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230521-nolibc-automatic-stack-protector-v1-7-dad6c80c51c1@weissschuh.net>
+In-Reply-To: <ZGzz11GhPyzcQ/nz@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_131314_421654_ADC96225 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20230523_171757_500127_6C373C1E 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,72 +72,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas, Zhangjin,
+On Wed, May 24, 2023 at 01:11:55AM +0800, Jisheng Zhang wrote:
+> On Wed, May 24, 2023 at 12:59:42AM +0800, Jisheng Zhang wrote:
+> > Attempt VMA lock-based page fault handling first, and fall back to the
+> > existing mmap_lock-based handling if that fails.
+> > 
+> > A simple running the ebizzy benchmark on Lichee Pi 4A shows that
+> > PER_VMA_LOCK can improve the ebizzy benchmark by about 32.68%. In
+> > theory, the more CPUs, the bigger improvement, but I don't have any
+> > HW platform which has more than 4 CPUs.
+> > 
+> > This is the riscv variant of "x86/mm: try VMA lock-based page fault
+> > handling first".
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> > Any performance numbers are welcome! Especially the numbers on HW
+> > platforms with 8 or more CPUs.
+> 
+> PS: run ebizzy as below:
+> ./ebizzy -mTt your_nr_cpus
 
-I merged and pushed this series on top of the previous series, it's in
-branch 20230523-nolibc-rv32+stkp3.
+Sorry, should be ./ebizzy -mTt 2*your_nr_cpus
 
-However, Thomas, I found an issue with this last patch that I partially
-reverted in a last patch I pushed as well so that we can discuss it:
-
-On Sun, May 21, 2023 at 11:36:35AM +0200, Thomas Wei=DFschuh wrote:
->  =
-
-> -CFLAGS_STACKPROTECTOR =3D -DNOLIBC_STACKPROTECTOR \
-> -			$(call cc-option,-mstack-protector-guard=3Dglobal) \
-> -			$(call cc-option,-fstack-protector-all)
-> -CFLAGS_STKP_i386 =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_x86_64 =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_x86 =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_arm64 =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_arm =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_mips =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_riscv =3D $(CFLAGS_STACKPROTECTOR)
-> -CFLAGS_STKP_loongarch =3D $(CFLAGS_STACKPROTECTOR)
-> +CFLAGS_STACKPROTECTOR =3D $(call cc-option,-mstack-protector-guard=3Dglo=
-bal -fstack-protector-all)
->  CFLAGS_s390 =3D -m64
->  CFLAGS  ?=3D -Os -fno-ident -fno-asynchronous-unwind-tables -std=3Dc89 \
->  		$(call cc-option,-fno-stack-protector) \
-> +		$(call cc-option,-mstack-protector-guard=3Dglobal $(call cc-option,-fs=
-tack-protector-all)) \
->  		$(CFLAGS_STKP_$(ARCH)) $(CFLAGS_$(ARCH))
-
-By doing so, we reintroduce the forced stack-protector mechanism
-that cannot be disabled anymore. The ability to disable it was the
-main point of the options above. In fact checking __SSP__* was a
-solution to save the user from having to set -DNOLIBC_STACKPROTECTOR
-to match their compiler's flags, but here in the nolibc-test we still
-want to be able to forcefully disable stkp for a run (at least to
-unbreak gcc-9, and possibly to confirm that non-stkp builds still
-continue to work when your local toolchain has it by default).
-
-So I reverted that part and only dropped -DNOLIBC_STACKPROTECTOR.
-This way I could run the test on all archs with gcc-9 by forcing
-CFLAGS_STACKPROTECTOR=3D and verified it was still possible to
-disable it for a specific arch only by setting CFLAGS_STKP_$ARCH.
-
-If you're fine with this we can squash this one into your cleanup
-patch.
-
-Zhangjin I think this branch should work well enough for you to
-serve as a base for your upcoming series. We'll clean it up later
-once we all agree on the stat() replacement for syscall() and on
-the various remaining points including your time32 alternatives.
-
-Thanks to you both,
-Willy
-
-PS: we're still carrying a long CC list of individuals who are likely
-    not that much interested in our discussion, I propose that we trim
-    it on next exchanges and only keep us 3 and the lists, in order to
-    remove some of their e-mail pollution.
-
+> > 
+> >  arch/riscv/Kconfig    |  1 +
+> >  arch/riscv/mm/fault.c | 33 +++++++++++++++++++++++++++++++++
+> >  2 files changed, 34 insertions(+)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 62e84fee2cfd..b958f67f9a12 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -42,6 +42,7 @@ config RISCV
+> >  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+> >  	select ARCH_SUPPORTS_HUGETLBFS if MMU
+> >  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+> > +	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
+> >  	select ARCH_USE_MEMTEST
+> >  	select ARCH_USE_QUEUED_RWLOCKS
+> >  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+> > diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> > index 8685f85a7474..eccdddf26f4b 100644
+> > --- a/arch/riscv/mm/fault.c
+> > +++ b/arch/riscv/mm/fault.c
+> > @@ -286,6 +286,36 @@ void handle_page_fault(struct pt_regs *regs)
+> >  		flags |= FAULT_FLAG_WRITE;
+> >  	else if (cause == EXC_INST_PAGE_FAULT)
+> >  		flags |= FAULT_FLAG_INSTRUCTION;
+> > +#ifdef CONFIG_PER_VMA_LOCK
+> > +	if (!(flags & FAULT_FLAG_USER))
+> > +		goto lock_mmap;
+> > +
+> > +	vma = lock_vma_under_rcu(mm, addr);
+> > +	if (!vma)
+> > +		goto lock_mmap;
+> > +
+> > +	if (unlikely(access_error(cause, vma))) {
+> > +		vma_end_read(vma);
+> > +		goto lock_mmap;
+> > +	}
+> > +
+> > +	fault = handle_mm_fault(vma, addr, flags | FAULT_FLAG_VMA_LOCK, regs);
+> > +	vma_end_read(vma);
+> > +
+> > +	if (!(fault & VM_FAULT_RETRY)) {
+> > +		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
+> > +		goto done;
+> > +	}
+> > +	count_vm_vma_lock_event(VMA_LOCK_RETRY);
+> > +
+> > +	if (fault_signal_pending(fault, regs)) {
+> > +		if (!user_mode(regs))
+> > +			no_context(regs, addr);
+> > +		return;
+> > +	}
+> > +lock_mmap:
+> > +#endif /* CONFIG_PER_VMA_LOCK */
+> > +
+> >  retry:
+> >  	mmap_read_lock(mm);
+> >  	vma = find_vma(mm, addr);
+> > @@ -355,6 +385,9 @@ void handle_page_fault(struct pt_regs *regs)
+> >  
+> >  	mmap_read_unlock(mm);
+> >  
+> > +#ifdef CONFIG_PER_VMA_LOCK
+> > +done:
+> > +#endif
+> >  	if (unlikely(fault & VM_FAULT_ERROR)) {
+> >  		tsk->thread.bad_cause = cause;
+> >  		mm_fault_error(regs, addr, fault);
+> > -- 
+> > 2.40.1
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
