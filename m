@@ -4,50 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9B8C77B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 00:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE06C7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 00:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=50O25HVRHKJ0ED1yvj+T6U2MudEX8XpcHXljP3uTzcE=; b=SzmMs2RTnveaUO
-	v2QkKtIHsHXXAs8w5ZTFCnC2x0ixDq7b6Qgs5O9PM8F+oKbC9S1FFgUoN/d+fagpOj6wYdY339oKA
-	Ijp4/0mcbrJ9ccZmQhmZbjmmnaD4g1100ZytQSV2pIa1JuEFOz+byynIxbUh55tT8T+Hp6MKslk+Y
-	4e7I83fo5NQgR+NBjIJc/fRoZagTvf6gBt48ojWTrCEFvHpXr6f4aewKG7eUtCrcPZfsKH2BobPwH
-	XxJeGaNPU1jFj0CQHqorK+qXl40v0LHqduMTPSNtBwK+80WNtKsXxbkGFigyud7Kpq1OmEf/uTSUd
-	j8c58oWF94E8UdV2RLkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=I81p/R/bX/axlgjTdT3Q7yXCeJbmGFN2cLbVrnkEsig=; b=EI31sRXUEW7zME9oiQFhX+SGZy
+	yuZfW9kevABd0V87o4qpFHWpkHT7sFkLTY1DrdnYi6q9evy4w49HMAIfNXUBlXRLDMLmBg3w5igpU
+	JoZesKr7ZfzwDnkPZvyIm2a8qYxhG8lGEG2abJEzWkPdsHWG2/G+PQ9+o2F3btpKbIGQgGqI/jViP
+	NFDROiAeHJyjFAauHFaSZSfIv3o49NptZtq21fJLEhWUzazwDTfjfAUL1R6hjiwqD+fVQgr8skYJT
+	YQWyMeD7Im88HX92t8TLypmblVk1ODVdNfxlTDAdxwe5ti9A/m5eLIi+N8gfd7inP4DPpGRTmxhXP
+	tVv2An/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1cGn-00BtnW-02;
-	Wed, 24 May 2023 00:22:25 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1cGl-00Btme-1j;
-	Wed, 24 May 2023 00:22:23 +0000
-Message-ID: <e2279988-03b4-9670-6f1c-c360c478b38e@infradead.org>
-Date: Tue, 23 May 2023 17:22:20 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: linux-next: Tree for May 15 (several RV64 build errors)
-Content-Language: en-US
-To: Alexandre Ghiti <alex@ghiti.fr>, Stephen Rothwell <sfr@canb.auug.org.au>,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Conor Dooley <conor@kernel.org>
-References: <20230515141235.0777c631@canb.auug.org.au>
- <54244db6-ff69-4cf8-894c-c3dd2f12df9c@infradead.org>
- <5d894e71-25ad-8ba0-f632-2eec6e017f46@ghiti.fr>
- <ee3bc2ce-5ebe-927e-5b6d-0b9490ef3875@ghiti.fr>
- <9f32e509-95b1-6a5a-aba2-664af4af37a8@infradead.org>
- <c59f9f1f-278c-ac5e-88cd-85b8485f59e3@ghiti.fr>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <c59f9f1f-278c-ac5e-88cd-85b8485f59e3@ghiti.fr>
+	id 1q1cga-00BwcX-1y;
+	Wed, 24 May 2023 00:49:04 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1cgX-00BwaS-1C
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 May 2023 00:49:02 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-64d2f99c8c3so147808b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 23 May 2023 17:49:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1684889339; x=1687481339;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dp6b6qpXLo/rFQA8s6ahM6DqwTPLqjamQPaZIhADAjA=;
+        b=URl8uA+bSGSybCrhjFclHgZOt6EC/1LxDU/Rk7ox81s+nh0+YhJOdKZ5ZbQL2aDInL
+         5QJdQHlk6F43CcdF6+8CglkmZTVfZ0M+lSKRP6Nux4AUbkRa1UzaoTfagFbt+W2QN2NT
+         OOnImte4yGViztPe4v/WB9cMHwGUaMdb1MfxqCroVVcwrWE8HVlxF0Gzx1Spa7HwqjOZ
+         ddP45WQ2wKiSRVSSbX3FXAP9i/AUubXtI2PeP656MkqLbacnCAExyFz35GMWY8uJEVBi
+         Hi8EGSIBcFX+cLoxC4oO1dhbEaIdKTdJQVqwpuYdMk9XdbMhAKbYwiZPmkDTNOaXIJnB
+         UDEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684889339; x=1687481339;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dp6b6qpXLo/rFQA8s6ahM6DqwTPLqjamQPaZIhADAjA=;
+        b=C1K4a4S+ML/5iG8l4t+R4p3WHcgMbTU624ts4AfbC2uvTXbOLjeex3U82VZzAe3jvB
+         AGoVkD04lyCXEflmD/h44PL/cC4tQbBI9QPmsZDhqpVevEGnY2qVC853qMAZlOUBflYn
+         KptLE9+Lt/TZCu6fCMC7QPnj7XDHgctGv6+ct6/9wbnFrlaf3SSdb9RMJI4Jo5QegyvA
+         xRvvWsRyTYdiDFVj9gBFHBzT4wAfIFghBb15zMQZnsDlxTqjNMOb9wkk4BlLSUhu90UZ
+         M7TDaS6yCEbyzQOfB3c4x2s+0WQcyPUP7bB6t50qQVpQ9DiYLeeQs0se6P+Funo28Okv
+         sC7w==
+X-Gm-Message-State: AC+VfDzkbTN6mf7vTQCUP2ATj6ELOdsQucU2iZDhrrxh8PRG+eDY8nLk
+	BXC7Q/cEl2Hjvae5PZkVvquoEMvgMHqNo7mZ364=
+X-Google-Smtp-Source: ACHHUZ4lorfrMhpgOfVECnAIZqBlitQ4EC4P7SnjzcWdlV4otb5oENm9aUBrEzeFWzAAKtm03sRgKQ==
+X-Received: by 2002:a05:6a00:14cb:b0:64c:ecf7:f492 with SMTP id w11-20020a056a0014cb00b0064cecf7f492mr1215212pfu.4.1684889339259;
+        Tue, 23 May 2023 17:48:59 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id u21-20020aa78395000000b0064f39c6474fsm1910643pfm.56.2023.05.23.17.48.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 May 2023 17:48:58 -0700 (PDT)
+Date: Tue, 23 May 2023 17:48:58 -0700 (PDT)
+X-Google-Original-Date: Tue, 23 May 2023 17:26:06 PDT (-0700)
+Subject: Re: [PATCH -next v20 03/26] riscv: hwprobe: Add support for probing V in RISCV_HWPROBE_KEY_IMA_EXT_0
+In-Reply-To: <20230518161949.11203-4-andy.chiu@sifive.com>
+CC: linux-riscv@lists.infradead.org, anup@brainfault.org, atishp@atishpatra.org,
+  kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, Vineet Gupta <vineetg@rivosinc.com>,
+  greentime.hu@sifive.com, guoren@linux.alibaba.com, andy.chiu@sifive.com, corbet@lwn.net,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, heiko.stuebner@vrull.eu,
+  Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, ajones@ventanamicro.com, abrestic@rivosinc.com,
+  coelacanthus@outlook.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: andy.chiu@sifive.com
+Message-ID: <mhng-3514bc07-d24f-474b-994f-b2b03253e103@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230523_174901_410390_FC4A96A3 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,34 +90,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 18 May 2023 09:19:26 PDT (-0700), andy.chiu@sifive.com wrote:
+> Probing kernel support for Vector extension is available now. This only
+> add detection for V only. Extenions like Zvfh, Zk are not in this scope.
+>
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> ---
+> Changelog v20:
+>  - Fix a typo in document, and remove duplicated probes (Heiko)
+>  - probe V extension in RISCV_HWPROBE_KEY_IMA_EXT_0 key only (Palmer,
+>    Evan)
+> ---
+>  Documentation/riscv/hwprobe.rst       | 3 +++
+>  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+>  arch/riscv/kernel/sys_riscv.c         | 4 ++++
+>  3 files changed, 8 insertions(+)
+>
+> diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+> index 9f0dd62dcb5d..7431d9d01c73 100644
+> --- a/Documentation/riscv/hwprobe.rst
+> +++ b/Documentation/riscv/hwprobe.rst
+> @@ -64,6 +64,9 @@ The following keys are defined:
+>    * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
+>      by version 2.2 of the RISC-V ISA manual.
+>
+> +  * :c:macro:`RISCV_HWPROBE_IMA_V`: The V extension is supported, as defined by
+> +    version 1.0 of the RISC-V Vector extension manual.
+> +
+>  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
+>    information about the selected set of processors.
+>
+> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+> index 8d745a4ad8a2..7c6fdcf7ced5 100644
+> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> @@ -25,6 +25,7 @@ struct riscv_hwprobe {
+>  #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
+>  #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
+>  #define		RISCV_HWPROBE_IMA_C		(1 << 1)
+> +#define		RISCV_HWPROBE_IMA_V		(1 << 2)
+>  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+>  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+>  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index 5db29683ebee..88357a848797 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -10,6 +10,7 @@
+>  #include <asm/cpufeature.h>
+>  #include <asm/hwprobe.h>
+>  #include <asm/sbi.h>
+> +#include <asm/vector.h>
+>  #include <asm/switch_to.h>
+>  #include <asm/uaccess.h>
+>  #include <asm/unistd.h>
+> @@ -171,6 +172,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+>  		if (riscv_isa_extension_available(NULL, c))
+>  			pair->value |= RISCV_HWPROBE_IMA_C;
+>
+> +		if (has_vector())
+> +			pair->value |= RISCV_HWPROBE_IMA_V;
+> +
+>  		break;
+>
+>  	case RISCV_HWPROBE_KEY_CPUPERF_0:
 
-
-On 5/23/23 06:07, Alexandre Ghiti wrote:
-> 
-> On 23/05/2023 04:28, Randy Dunlap wrote:
->> Hi,
->>
->> On 5/19/23 03:42, Alexandre Ghiti wrote:
->>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .data LMA [000000000041a000,00000000075bffd7] overlaps section .text LMA [00000000000f09d4,00000000033562ab]
->>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .init.pi.text LMA [00000000033562ac,0000000003359137] overlaps section .data LMA [000000000041a000,00000000075bffd7]
->>>>
->>>> I'll check this one too which seems to be related to kernel/pi introduction.
->>>
->>> Thanks to Bjorn: this is caused by XIP_KERNEL, which is known to have limited size, hence the overlap, so no fix for this one. Is there a way to exclude this config from randconfig?
->> Does this mean exclude XIP_KERNEL or something else from randconfigs?
-> 
-> 
-> I meant excluding XIP_KERNEL from randconfigs: it has very strict constraints regarding what can/can't be enabled then it needs human intervention to make sure the error above does not happen. So I would not bother testing this in randconfigs if possible.
-
-I can exclude it from my randconfig builds, but I don't know of a way to exclude it from randconfig builds in general (i.e., for everyone).
-
--- 
-~Randy
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
