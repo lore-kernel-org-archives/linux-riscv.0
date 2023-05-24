@@ -4,80 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C72C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 14:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9610C77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 14:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A1MYo5ElzZut2O7HfmYqqF4/YqmgNLb+Go++wiwUHWU=; b=UytN35StLuaIZi
-	GINAhU8fgLkuCP+gULhyjHaQSU3dhiTj0Rp5bEfMP6aR3Zp2aYuAEfr+YO/C7geXWc5i/bWFQQEB8
-	iVZtNTVrStob7il5vGUvepO5/keWKx1H9itJ9XWa+ZLiQQO1vhLm+q5CiUQVNY1w9qeKY/XpX322m
-	k00QZYUUCOKtYQ+xkCkIc2tRQsi0y+OZQc2lSvwm/wi/NvX2k6wBq443MSigzvDclSpCDWQfk1aqV
-	Otvb58yqXIPj0DFOyVQCq21g3APC7DXaZtC0SP6gpX7EpK9WTvI/JnPsrHAJ5WjXhqe+q9DubZBOx
-	ZOmcbodDbe6NRPbkJYpQ==;
+	List-Owner; bh=zzmOEBNnpWTtHPWhkYXqaPNNTTDUPcneK0rS1w3qRyQ=; b=lKzfuSSKoNr3V/
+	3+/UXBVjU3LJf10o+x9pD41Xwj7eR7+zrEXUSda1i2AC9RjdOh8JEMvnSH8NbZ8bFNV/op7VOlEXy
+	fJznDCyGgbplD76c76sHkk4gEuPDh1lQ72+oW5Wz5hH/xjoyDDG/vOV55RA3w+iXWuc6F8OBYzic5
+	fZiO4aoqrahFqFOpu36nyUWV7HMspMcAu2kZOSvzYesiYdSH/GKNbPpG1kQBskgZU+gYJKzOTzF17
+	BWk5MAPAxwWHEW5i3x6C7rBKFQ1Bgc7TZ9feaGwQG9EMtysaHCUTtKJLRGctMQLc5keBItEd+gLDs
+	tvdyOFy1BFtuoJ4DQb0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1p3v-00Ddbk-0E;
-	Wed, 24 May 2023 14:01:59 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1q1pMn-00DfHa-2V;
+	Wed, 24 May 2023 14:21:29 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1p3r-00DdaY-2I
+	id 1q1pMk-00DfG8-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 14:01:57 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-96f9cfa7eddso177703166b.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 May 2023 07:01:52 -0700 (PDT)
+	Wed, 24 May 2023 14:21:28 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-3f6b34d2fdcso6501251cf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 May 2023 07:21:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1684936911; x=1687528911;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GcnYDNNJKRDTvBz4U4x4piA3wZfgWR11rBlHqZISUZw=;
-        b=cBRG8OIciHgkJG5NeGpDKgXBLwB/ZRieicor/6NiIG3NMQ1B/bIFDyoHjCsFWSj6Dh
-         NYPSkHxVPzMFS6zrRvk8Vu4wSKDXgHIdsXNG7HnJKoV5jngMjC6m4+4Ejb8cwJUNzh+K
-         h0sFoTKIuc9638A6aDq/12b39F8dap8vN6cb6grcVRU2GiUnjeB0guaTZmwOq50n7yOh
-         J0q9yFNPRJi9f0Wa6yREWvws/Fx+13BXqhhFWliMovEX8xKUGyVmNEXP1E2hfNKuamPq
-         7gEAJqSSubtg7vrG8Pbj6UFiCAAl6bxS9menFiATiRgE+bcmLH7U+40V3RlZcSfKzzU7
-         QJ5Q==
+        d=bluespec-com.20221208.gappssmtp.com; s=20221208; t=1684938084; x=1687530084;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/V+docf4fzDFmrJfaslFi/OmmvL2qnjhhaEwsdcnckw=;
+        b=vmSiFJbp6qWKZXxvGz2dQ9+yxEuJt1LyzoKTGIe6iVNd+YRXV7bjxDBAqV+3HpxutV
+         gvnhk0Y4KoX5ggLnVaGOrDt78r2E4sLvQ6/w1wftibN2AjpwV00CF5OZQ5zcTbwv0vb9
+         SqxyKa/bnSjXnoSjmPC67JzXhGgxoDDzbgfx7GtavwFzqOd9OGpRKxpRjDB38IfLfnrf
+         fewezplfcoKbUJjB1uIwpUoasRcOHezvJNiNM+TjdJEBGkRvTcmLRwOaociXwDlf9itL
+         hcITyPiCSVrvCRHLFY1ORdCQ3etTjvR++fZd+BAu5fSV9VD3NcTePIbQNdYfRAd4VxTd
+         NsiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684936911; x=1687528911;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20221208; t=1684938084; x=1687530084;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GcnYDNNJKRDTvBz4U4x4piA3wZfgWR11rBlHqZISUZw=;
-        b=ct70vBwuMjxHRbiZk93K+StJ/AeHtCfDn68T1s9dAd342TQ1ulbDDT1InmhsSz2Bus
-         4ShPhiOeRW0KmbMElaZAdnbp7Ptr2sL+nL7SHKuW78P06aCvFV9tpaAzDjHdldCc0X3T
-         LnXa3Bx+tGpVZppITfjQq+ytUDOmf40MeTx7BXbewczm0amqwEaVte3/XaJFMvcJ6ciI
-         R8fjlhqpRIm0Ht6ZAq5/pz3RmCv0QN2jSvetmAPNQqIMH1oPROt5kq81Y2NiIBDbHOHF
-         rnWF9UHAQpR7naLMrij4ggA5dBddOG1MRnPo6OjtKZUFEgbdtK9lF0kMAmlCQ/wstDkz
-         PeMg==
-X-Gm-Message-State: AC+VfDxZFyJl+CY6vIbV8esvtp4Z+5qbPEX5sYRHgGEj/gxWQHV+EVhm
-	jkUBFkq/m8Gf5xYLjegY+uB25w==
-X-Google-Smtp-Source: ACHHUZ5LJ1RLFW3yyptH2uNq3JrXu9MBzFBIvQQGDf110Gc3zDntoLPKWCyt9dTiL0jQ3+akZGR55w==
-X-Received: by 2002:a17:907:1686:b0:973:91a5:bfdf with SMTP id hc6-20020a170907168600b0097391a5bfdfmr1347603ejc.4.1684936911458;
-        Wed, 24 May 2023 07:01:51 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id p25-20020a1709060dd900b0096f67b55b0csm5860748eji.115.2023.05.24.07.01.50
+        bh=/V+docf4fzDFmrJfaslFi/OmmvL2qnjhhaEwsdcnckw=;
+        b=cs+zg8YoSIg4Qt/nmhcwA8YfTdrcE61TSjYVPo//kIfY++944PMJyQ6fGyE2+AqWr0
+         XJkLh58JwjRVu8ag97m2xQhurVpDUHV0KSkJdqvsawoXKvKPe3PDZCJ2MJWSloxbL2Na
+         qhMYEkRxx8Yp8NWXGHZphKcN6E9UhQz8v5qaY2CRHu48z58fXj/+3vuYptQKYD95RbBr
+         K1KRHZLGPqYzbs6rF4OtOba7aQsz6HAn4TdEkq3a2/o0oHLHUWY9OdlhVuSlLlc8ieOo
+         xf4RjmmfQ3lnMxvQ5K8ecblwnlMKedrduQBljoqIyubWRu42ajawbSVZa3oo29Zz9Ql5
+         eljA==
+X-Gm-Message-State: AC+VfDwqkhS4vNPMRjQ4yI/Z2US2d3gXTU00V75BZM/rM3jaKgENoTrT
+	uElp7+XzXadvP5nyIu7RjyE1
+X-Google-Smtp-Source: ACHHUZ6B563mCO+6UR/zlVT0GBYx2Bq2YFQNqwsQ+CnQwLMpqG9gyks9YQfM2uRYXkIgxEfs4aK+Ew==
+X-Received: by 2002:a05:622a:10e:b0:3e6:71d6:5d5d with SMTP id u14-20020a05622a010e00b003e671d65d5dmr26590177qtw.1.1684938084476;
+        Wed, 24 May 2023 07:21:24 -0700 (PDT)
+Received: from bruce.bluespec.com ([181.214.94.126])
+        by smtp.gmail.com with ESMTPSA id ch13-20020a05622a40cd00b003ef573e24cfsm2551977qtb.12.2023.05.24.07.21.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 May 2023 07:01:51 -0700 (PDT)
-Date: Wed, 24 May 2023 16:01:50 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, christoph.muellner@vrull.eu, 
-	David.Laight@aculab.com, Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v3 1/2] riscv: don't include kernel.h into alternative.h
-Message-ID: <20230524-1ae0ba16b93b71a150320a6d@orel>
-References: <20230521114715.955823-1-heiko.stuebner@vrull.eu>
- <20230521114715.955823-2-heiko.stuebner@vrull.eu>
+        Wed, 24 May 2023 07:21:24 -0700 (PDT)
+Date: Wed, 24 May 2023 10:21:21 -0400
+From: Darius Rad <darius@bluespec.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: andy.chiu@sifive.com, linux-riscv@lists.infradead.org,
+	anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+	heiko.stuebner@vrull.eu, Conor Dooley <conor.dooley@microchip.com>,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, liaochang1@huawei.com,
+	jszhang@kernel.org, vincent.chen@sifive.com, guoren@kernel.org,
+	Bjorn Topel <bjorn@rivosinc.com>, mnissler@rivosinc.com
+Subject: Re: [PATCH -next v20 11/26] riscv: Allocate user's vector context in
+ the first-use trap
+Message-ID: <ZG4dYQdHqc2ipoZe@bruce.bluespec.com>
+Mail-Followup-To: Palmer Dabbelt <palmer@dabbelt.com>, andy.chiu@sifive.com,
+	linux-riscv@lists.infradead.org, anup@brainfault.org,
+	atishp@atishpatra.org, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, Vineet Gupta <vineetg@rivosinc.com>,
+	greentime.hu@sifive.com, guoren@linux.alibaba.com,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	ajones@ventanamicro.com, heiko.stuebner@vrull.eu,
+	Conor Dooley <conor.dooley@microchip.com>,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, liaochang1@huawei.com,
+	jszhang@kernel.org, vincent.chen@sifive.com, guoren@kernel.org,
+	Bjorn Topel <bjorn@rivosinc.com>, mnissler@rivosinc.com
+References: <20230518161949.11203-12-andy.chiu@sifive.com>
+ <mhng-6b818098-ee0c-407f-83eb-75db4ea4ff89@palmer-ri-x1c9a>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230521114715.955823-2-heiko.stuebner@vrull.eu>
+In-Reply-To: <mhng-6b818098-ee0c-407f-83eb-75db4ea4ff89@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_070155_757988_D93293E2 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20230524_072126_641703_43CFEC46 
+X-CRM114-Status: GOOD (  37.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +108,287 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBNYXkgMjEsIDIwMjMgYXQgMDE6NDc6MTRQTSArMDIwMCwgSGVpa28gU3R1ZWJuZXIg
-d3JvdGU6Cj4gRnJvbTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1Pgo+
-IAo+IFRoaXMgaW5jbHVkZSBpcyBub3QgY3VycmVudGx5IG5lZWRlZCBmb3IgYWx0ZXJuYXRpdmVz
-IGFuZCBjcmVhdGVzCj4gcG9zc2libGUgaXNzdWVzIHdoZW4gd2Ugd2FudCB0byBhZGQgYWx0ZXJu
-YXRpdmVzIHRvIGRlZXBlciBrZXJuZWwKPiBpbmZyYXN0cnVjdHVyZS4KPiAKPiBUaGUgaXNzdWUg
-aW4gcXVlc3Rpb24gY2FtZSBmcm9tIHRyeWluZyB0byBpbnRyb2R1Y2UgWmF3cnMgYWx0ZXJuYXRp
-dmVzLAo+IHdoaWNoIHJlc3VsdGVkIGluIGEgc29tZXdoYXQgY2lyY3VsYXIgZGVwZW5kZW5jeSBs
-aWtlOgo+IAo+IEluIGZpbGUgaW5jbHVkZWQgZnJvbSAuLi9pbmNsdWRlL2xpbnV4L2JpdG9wcy5o
-OjM0LAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuLi9pbmNsdWRlL2xpbnV4L2tlcm5lbC5oOjIy
-LAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuLi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVy
-bmF0aXZlLmg6MTYsCj4gICAgICAgICAgICAgICAgICBmcm9tIC4uL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vZXJyYXRhX2xpc3QuaDo4LAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuLi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2JhcnJpZXIuaDoxNSwKPiAgICAgICAgICAgICAgICAgIGZyb20gLi4v
-aW5jbHVkZS9saW51eC9saXN0Lmg6MTEsCj4gICAgICAgICAgICAgICAgICBmcm9tIC4uL2luY2x1
-ZGUvbGludXgvcHJlZW1wdC5oOjExLAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuLi9pbmNsdWRl
-L2xpbnV4L3NwaW5sb2NrLmg6NTYsCj4gICAgICAgICAgICAgICAgICBmcm9tIC4uL2luY2x1ZGUv
-bGludXgvbW16b25lLmg6OCwKPiAgICAgICAgICAgICAgICAgIGZyb20gLi4vaW5jbHVkZS9saW51
-eC9nZnAuaDo3LAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuLi9pbmNsdWRlL2xpbnV4L21tLmg6
-NywKPiAgICAgICAgICAgICAgICAgIGZyb20gLi4vYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNl
-dHMuYzoxMDoKPiAuLi9pbmNsdWRlL2FzbS1nZW5lcmljL2JpdG9wcy9nZW5lcmljLW5vbi1hdG9t
-aWMuaDogSW4gZnVuY3Rpb24g4oCYZ2VuZXJpY190ZXN0X2JpdF9hY3F1aXJl4oCZOgo+IC4uL2lu
-Y2x1ZGUvYXNtLWdlbmVyaWMvYml0b3BzL2dlbmVyaWMtbm9uLWF0b21pYy5oOjE0MDoyMzogZXJy
-b3I6IGltcGxpY2l0IGRlY2xhcmF0aW9uIG9mIGZ1bmN0aW9uIOKAmHNtcF9sb2FkX2FjcXVpcmXi
-gJkgWy1XZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25dCj4gICAxNDAgfCAgICAg
-ICAgIHJldHVybiAxVUwgJiAoc21wX2xvYWRfYWNxdWlyZShwKSA+PiAobnIgJiAoQklUU19QRVJf
-TE9ORy0xKSkpOwo+ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+
-fn4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1ZWJuZXJAdnJ1
-bGwuZXU+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUuaCB8IDEg
-LQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2FsdGVybmF0aXZlLmgKPiBpbmRleCA2YTQxNTM3ODI2YTcuLjA1ODg1ZGU2MDQ4YyAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLmgKPiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLmgKPiBAQCAtMTMsNyArMTMsNiBAQAo+ICAj
-aWZkZWYgQ09ORklHX1JJU0NWX0FMVEVSTkFUSVZFCj4gIAo+ICAjaW5jbHVkZSA8bGludXgvaW5p
-dC5oPgo+IC0jaW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4gICNpbmNsdWRlIDxsaW51eC90eXBl
-cy5oPgo+ICAjaW5jbHVkZSA8bGludXgvc3RkZGVmLmg+Cj4gICNpbmNsdWRlIDxhc20vaHdjYXAu
-aD4KPiAtLSAKPiAyLjM5LjAKPgoKUmVtb3ZpbmcgdGhpcyBpbmNsdWRlIGRvZXNuJ3QgYnJlYWsg
-Y29tcGlsYXRpb24gYmVjYXVzZSB0aGUgb25seSBjYWxsZXJzCm9mIFBBVENIX0lEX0NQVUZFQVRV
-UkVfSUQoKSBhbmQgUEFUQ0hfSURfQ1BVRkVBVFVSRV9WQUxVRSgpLCB3aGljaCBhcmUKZGVmaW5l
-ZCB3aXRoIGxvd2VyL3VwcGVyXzE2X2JpdHMoKSwgYXJlIGluIGFyY2gvcmlzY3Yva2VybmVsL2Nw
-dWZlYXR1cmUuYywKd2hpY2ggaW5jbHVkZXMgYXQgbGVhc3Qgb25lIHRoaW5nIHdoaWNoIGV2ZW50
-dWFsbHkgaW5jbHVkZXMgbGludXgva2VybmVsLmgKKHRoZSBmaXJzdCBwYXRoIEkgZm91bmQgd2Fz
-IGxpbnV4L21vZHVsZS5oIC0+IGxpbnV4L21vZHVsZXBhcmFtLmggLT4KbGludXgva2VybmVsLmgp
-LiBJZGVhbGx5IHdlIHdvdWxkbid0IHJlbHkgb24gdGhhdCBsdWNrLiBXZSBjYW4gb3Blbgpjb2Rl
-IHRoZSBQQVRDSF9JRF8qIG1hY3JvcyB0byBkcm9wIHRoZSBsb3dlci91cHBlcl8xNl9iaXRzKCkg
-ZGVwZW5kZW5jaWVzCm9yIG1vdmUgdGhlIG1hY3JvcyBlbHNld2hlcmUsIG1heWJlLCBmb3Igbm93
-LCBqdXN0IHRvCmFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwoKVGhhbmtzLApkcmV3Cgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, May 23, 2023 at 05:49:04PM -0700, Palmer Dabbelt wrote:
+> On Thu, 18 May 2023 09:19:34 PDT (-0700), andy.chiu@sifive.com wrote:
+> > Vector unit is disabled by default for all user processes. Thus, a
+> > process will take a trap (illegal instruction) into kernel at the first
+> > time when it uses Vector. Only after then, the kernel allocates V
+> > context and starts take care of the context for that user process.
+> > 
+> > Suggested-by: Richard Henderson <richard.henderson@linaro.org>
+> > Link: https://lore.kernel.org/r/3923eeee-e4dc-0911-40bf-84c34aee962d@linaro.org
+> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> > ---
+> > Hey Heiko and Conor, I am dropping you guys' A-b, T-b, and R-b because I
+> > added a check in riscv_v_first_use_handler().
+> > 
+> > Changelog v20:
+> >  - move has_vector() into vector.c for better code readibility
+> >  - check elf_hwcap in the first-use trap because it might get turned off
+> >    if cores have different VLENs.
+> > 
+> > Changelog v18:
+> >  - Add blank lines (Heiko)
+> >  - Return immediately in insn_is_vector() if an insn matches (Heiko)
+> > ---
+> >  arch/riscv/include/asm/insn.h   | 29 ++++++++++
+> >  arch/riscv/include/asm/vector.h |  2 +
+> >  arch/riscv/kernel/traps.c       | 26 ++++++++-
+> >  arch/riscv/kernel/vector.c      | 95 +++++++++++++++++++++++++++++++++
+> >  4 files changed, 150 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> > index 8d5c84f2d5ef..4e1505cef8aa 100644
+> > --- a/arch/riscv/include/asm/insn.h
+> > +++ b/arch/riscv/include/asm/insn.h
+> > @@ -137,6 +137,26 @@
+> >  #define RVG_OPCODE_JALR		0x67
+> >  #define RVG_OPCODE_JAL		0x6f
+> >  #define RVG_OPCODE_SYSTEM	0x73
+> > +#define RVG_SYSTEM_CSR_OFF	20
+> > +#define RVG_SYSTEM_CSR_MASK	GENMASK(12, 0)
+> > +
+> > +/* parts of opcode for RVF, RVD and RVQ */
+> > +#define RVFDQ_FL_FS_WIDTH_OFF	12
+> > +#define RVFDQ_FL_FS_WIDTH_MASK	GENMASK(3, 0)
+> > +#define RVFDQ_FL_FS_WIDTH_W	2
+> > +#define RVFDQ_FL_FS_WIDTH_D	3
+> > +#define RVFDQ_LS_FS_WIDTH_Q	4
+> > +#define RVFDQ_OPCODE_FL		0x07
+> > +#define RVFDQ_OPCODE_FS		0x27
+> > +
+> > +/* parts of opcode for RVV */
+> > +#define RVV_OPCODE_VECTOR	0x57
+> > +#define RVV_VL_VS_WIDTH_8	0
+> > +#define RVV_VL_VS_WIDTH_16	5
+> > +#define RVV_VL_VS_WIDTH_32	6
+> > +#define RVV_VL_VS_WIDTH_64	7
+> > +#define RVV_OPCODE_VL		RVFDQ_OPCODE_FL
+> > +#define RVV_OPCODE_VS		RVFDQ_OPCODE_FS
+> > 
+> >  /* parts of opcode for RVC*/
+> >  #define RVC_OPCODE_C0		0x0
+> > @@ -304,6 +324,15 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+> >  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
+> >  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
+> > 
+> > +#define RVG_EXTRACT_SYSTEM_CSR(x) \
+> > +	({typeof(x) x_ = (x); RV_X(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MASK); })
+> > +
+> > +#define RVFDQ_EXTRACT_FL_FS_WIDTH(x) \
+> > +	({typeof(x) x_ = (x); RV_X(x_, RVFDQ_FL_FS_WIDTH_OFF, \
+> > +				   RVFDQ_FL_FS_WIDTH_MASK); })
+> > +
+> > +#define RVV_EXRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+> > +
+> >  /*
+> >   * Get the immediate from a J-type instruction.
+> >   *
+> > diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+> > index ce6a75e9cf62..8e56da67b5cf 100644
+> > --- a/arch/riscv/include/asm/vector.h
+> > +++ b/arch/riscv/include/asm/vector.h
+> > @@ -21,6 +21,7 @@
+> > 
+> >  extern unsigned long riscv_v_vsize;
+> >  int riscv_v_setup_vsize(void);
+> > +bool riscv_v_first_use_handler(struct pt_regs *regs);
+> > 
+> >  static __always_inline bool has_vector(void)
+> >  {
+> > @@ -165,6 +166,7 @@ struct pt_regs;
+> > 
+> >  static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
+> >  static __always_inline bool has_vector(void) { return false; }
+> > +static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { return false; }
+> >  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+> >  #define riscv_v_vsize (0)
+> >  #define riscv_v_vstate_save(task, regs)		do {} while (0)
+> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > index 8c258b78c925..05ffdcd1424e 100644
+> > --- a/arch/riscv/kernel/traps.c
+> > +++ b/arch/riscv/kernel/traps.c
+> > @@ -26,6 +26,7 @@
+> >  #include <asm/ptrace.h>
+> >  #include <asm/syscall.h>
+> >  #include <asm/thread_info.h>
+> > +#include <asm/vector.h>
+> > 
+> >  int show_unhandled_signals = 1;
+> > 
+> > @@ -145,8 +146,29 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
+> >  	SIGBUS, BUS_ADRALN, "instruction address misaligned");
+> >  DO_ERROR_INFO(do_trap_insn_fault,
+> >  	SIGSEGV, SEGV_ACCERR, "instruction access fault");
+> > -DO_ERROR_INFO(do_trap_insn_illegal,
+> > -	SIGILL, ILL_ILLOPC, "illegal instruction");
+> > +
+> > +asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
+> > +{
+> > +	if (user_mode(regs)) {
+> > +		irqentry_enter_from_user_mode(regs);
+> > +
+> > +		local_irq_enable();
+> > +
+> > +		if (!riscv_v_first_use_handler(regs))
+> > +			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+> > +				      "Oops - illegal instruction");
+> > +
+> > +		irqentry_exit_to_user_mode(regs);
+> > +	} else {
+> > +		irqentry_state_t state = irqentry_nmi_enter(regs);
+> > +
+> > +		do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+> > +			      "Oops - illegal instruction");
+> > +
+> > +		irqentry_nmi_exit(regs, state);
+> > +	}
+> > +}
+> > +
+> >  DO_ERROR_INFO(do_trap_load_fault,
+> >  	SIGSEGV, SEGV_ACCERR, "load access fault");
+> >  #ifndef CONFIG_RISCV_M_MODE
+> > diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> > index 120f1ce9abf9..0080798e8d2e 100644
+> > --- a/arch/riscv/kernel/vector.c
+> > +++ b/arch/riscv/kernel/vector.c
+> > @@ -4,10 +4,19 @@
+> >   * Author: Andy Chiu <andy.chiu@sifive.com>
+> >   */
+> >  #include <linux/export.h>
+> > +#include <linux/sched/signal.h>
+> > +#include <linux/types.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/sched.h>
+> > +#include <linux/uaccess.h>
+> > 
+> > +#include <asm/thread_info.h>
+> > +#include <asm/processor.h>
+> > +#include <asm/insn.h>
+> >  #include <asm/vector.h>
+> >  #include <asm/csr.h>
+> >  #include <asm/elf.h>
+> > +#include <asm/ptrace.h>
+> >  #include <asm/bug.h>
+> > 
+> >  unsigned long riscv_v_vsize __read_mostly;
+> > @@ -34,3 +43,89 @@ int riscv_v_setup_vsize(void)
+> > 
+> >  	return 0;
+> >  }
+> > +
+> > +static bool insn_is_vector(u32 insn_buf)
+> > +{
+> > +	u32 opcode = insn_buf & __INSN_OPCODE_MASK;
+> > +	u32 width, csr;
+> > +
+> > +	/*
+> > +	 * All V-related instructions, including CSR operations are 4-Byte. So,
+> > +	 * do not handle if the instruction length is not 4-Byte.
+> > +	 */
+> > +	if (unlikely(GET_INSN_LENGTH(insn_buf) != 4))
+> > +		return false;
+> > +
+> > +	switch (opcode) {
+> > +	case RVV_OPCODE_VECTOR:
+> > +		return true;
+> > +	case RVV_OPCODE_VL:
+> > +	case RVV_OPCODE_VS:
+> > +		width = RVV_EXRACT_VL_VS_WIDTH(insn_buf);
+> > +		if (width == RVV_VL_VS_WIDTH_8 || width == RVV_VL_VS_WIDTH_16 ||
+> > +		    width == RVV_VL_VS_WIDTH_32 || width == RVV_VL_VS_WIDTH_64)
+> > +			return true;
+> > +
+> > +		break;
+> > +	case RVG_OPCODE_SYSTEM:
+> > +		csr = RVG_EXTRACT_SYSTEM_CSR(insn_buf);
+> > +		if ((csr >= CSR_VSTART && csr <= CSR_VCSR) ||
+> > +		    (csr >= CSR_VL && csr <= CSR_VLENB))
+> > +			return true;
+> > +	}
+> > +
+> > +	return false;
+> > +}
+> > +
+> > +static int riscv_v_thread_zalloc(void)
+> > +{
+> > +	void *datap;
+> > +
+> > +	datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
+> > +	if (!datap)
+> > +		return -ENOMEM;
+> > +
+> > +	current->thread.vstate.datap = datap;
+> > +	memset(&current->thread.vstate, 0, offsetof(struct __riscv_v_ext_state,
+> > +						    datap));
+> > +	return 0;
+> > +}
+> > +
+> > +bool riscv_v_first_use_handler(struct pt_regs *regs)
+> > +{
+> > +	u32 __user *epc = (u32 __user *)regs->epc;
+> > +	u32 insn = (u32)regs->badaddr;
+> > +
+> > +	/* Do not handle if V is not supported, or disabled */
+> > +	if (!has_vector() || !(elf_hwcap & COMPAT_HWCAP_ISA_V))
+> > +		return false;
+> > +
+> > +	/* If V has been enabled then it is not the first-use trap */
+> > +	if (riscv_v_vstate_query(regs))
+> > +		return false;
+> > +
+> > +	/* Get the instruction */
+> > +	if (!insn) {
+> > +		if (__get_user(insn, epc))
+> > +			return false;
+> > +	}
+> > +
+> > +	/* Filter out non-V instructions */
+> > +	if (!insn_is_vector(insn))
+> > +		return false;
+> > +
+> > +	/* Sanity check. datap should be null by the time of the first-use trap */
+> > +	WARN_ON(current->thread.vstate.datap);
+> > +
+> > +	/*
+> > +	 * Now we sure that this is a V instruction. And it executes in the
+> > +	 * context where VS has been off. So, try to allocate the user's V
+> > +	 * context and resume execution.
+> > +	 */
+> > +	if (riscv_v_thread_zalloc()) {
+> > +		force_sig(SIGKILL);
+> 
+> Is SIGKILL too strong?  Maybe we just SIGILL here?  Maybe killing the
+> process is the right way to go, though: if we're that out of memory
+> something's getting killed, it might as well be whatever's about to get
+> confused by vectors disappearing.
+> 
+
+SIGILL seems misleading; it's not the instruction that is at fault.  Maybe
+SIGSEGV (or SIGBUS), since that's generally what you get if you assume an
+allocation succeeds when it doesn't, as that is effectively what this
+patchset does by not providing an adequate way to return allocation
+failures to the application.
+
+> > +		return true;
+> > +	}
+> > +	riscv_v_vstate_on(regs);
+> > +	return true;
+> > +}
+> 
+> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
