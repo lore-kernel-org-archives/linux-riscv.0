@@ -4,95 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD49C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 06:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CBBC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 06:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
 	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kqPQqYZIdpUhJ0nZHjNF9t/OyipNkUEj/JsVwAB+JIo=; b=n6Rn6OV7tNf+HX
-	91wysQhYzr76JEHvNXQkiI9k2Ex/45buPU7KCLVfdkK9UUdM0rwwvqiEhTNtswruZziTqzwjAtbZ0
-	s+FbsLqJVaM4Gp31sSjdd6UfaWEa9yhkO1+AhRW8WlZUSTgPpR9ZSQyjJBVAr+ktrO6DcyWdWE9po
-	by8btOnUXJKsIn8LmGpxXVYX19VqyuNhRH6MZaPCZ6vMlFu3RWDaaqZyqkm7aUwlVIg1fI3W4q8wh
-	1amWa/wsUNy2ubXrSI2K0BYhqxBA4YZLwRxcH3+WHsD/Qt33L6ZfEdyipu0taKUTrcyWRTLmgzW/G
-	XoaONN8FsTumv/5cIY4A==;
+	List-Owner; bh=j1Q2iP/q+M6Q4QhrEvZXgSC2JZA8YmyzbClD9tId2+E=; b=NqMLLoLE5rQtvt
+	Xvh0XR5+yNEgl3S4SbzhpE0nR8TzBbjE80H1Cx+E3KImK0wqVsKEge4bbdePiSgZytmH9QQtwSEnx
+	e5buvyCJx6QU3B2/txiaw+jPb71C+EhGgoVFB6F68O+0vhfvu4xbDnfzVxS5c8Epx4VMMJ+JHuwif
+	bQR3AFn3BBZmT/lu0tG1dQS6LZl1kVNDGC9mDc6WEeCWKQ+BQCE4RdGEeOfWtdzV4Gh9ARNRu5jRh
+	g9rn6kDcaOo/AWL9nGIzSGWShgvIuMhazFFO8Iq0lnKBMqlr3xuIbj5taMvDdZsXwTawngV+JzD0A
+	VYY2BArnS7Gsw2nCqcUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1hur-00CUMs-00;
-	Wed, 24 May 2023 06:24:09 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1q1i3T-00CV7A-2U;
+	Wed, 24 May 2023 06:33:03 +0000
+Received: from new3-smtp.messagingengine.com ([66.111.4.229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1hun-00CULy-0v
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 06:24:07 +0000
+	id 1q1i3Q-00CV6Y-1g;
+	Wed, 24 May 2023 06:33:02 +0000
 Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id 084645C02A9;
-	Wed, 24 May 2023 02:24:02 -0400 (EDT)
+	by mailnew.nyi.internal (Postfix) with ESMTP id 4671A580830;
+	Wed, 24 May 2023 02:32:59 -0400 (EDT)
 Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 24 May 2023 02:24:02 -0400
+  by compute6.internal (MEProxy); Wed, 24 May 2023 02:32:59 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-type:content-type:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1684909442; x=1684995842; bh=dH
-	m7bIEbtQbvTyNRbjYc7MhOpq3YlFAWeKPIPfyLMXE=; b=CQNv/Py9bPOeXFtfJA
-	iPNHBlfTlhZZSAMmLbDxynrvS3tEWlK7/bulpumeTTrVwTlX1lQikRoMIMuFv3da
-	F46nmmzeXqmN9Xg60lVbeXNHl8z7sbL2Fwa+2U5LHpZV/muOrmT4fxIZZ284LmfO
-	telwEO33bjsYnyE39YQ4laugu5r+ze6UeAVwhXhWNa1ekWTCYpaH/xWU5leaW3wt
-	FqVSIpqQnMj1Lg1f0ASsDJ4q97w4q0IyVSskKfe5xv6UkzmgLjiQe0OZUXeokSMp
-	yOT0W4LWTJXyEwBNI3GNHVOjBUhH0THnMkbYX05lGTlLXtJgX4lXIWeY44m3wl35
-	cXOQ==
+	:subject:subject:to:to; s=fm3; t=1684909979; x=1684917179; bh=iE
+	vC5oFb9XN9Ny/ckJJEpZR1s1u4bGw5GWvEik8MIaQ=; b=Sy80HQChHvwFouPhTf
+	5VO0zWc1S5LnUqkyLXDevy/PenOZIjSJRiG6aMaAL5AvpCGhns0tX0uts+pG0sOm
+	qrZ0akU0JntTTnJO8WzEbTs9eYFbm8RYmrMLMXs8M9rIUGdT/Y1k1IrGgBmw9azD
+	bdFlj5uw6f4m3EagNTlI/7ACW+5MGLJ6CfPUR/o+Zd+NN6zyiY1aOsarlUProsGB
+	zE1FXaaIQpLL7WCycGAM4QaHpB61vioS15IlPawLpUwd151TKgq897XwlC59yj/0
+	D73V4RwoR6v3QyPi8FRFrZYq/+E2SlSE04SYEH/MY84KRVq7Pers8GZihnPEtu1M
+	P2Vw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-type:content-type:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1684909442; x=1684995842; bh=dHm7bIEbtQbvT
-	yNRbjYc7MhOpq3YlFAWeKPIPfyLMXE=; b=M9yzp7o1YzepRdNTDTftmD9+ebDkI
-	wvFEkOFw/mwlbOZsagRShgx4i2zxEECH5JAwbkZGftI+knlcxJYrvDnJW64OTNpi
-	f0GT6dfotEJD002JSML/ckY1phlKq/1D+DgJxVDu7hsc5rqCs8yk0mxRu845oe2G
-	KVO00+Tb0GoqjQtyWv7km/9BGxgeSeHCHJH37OWMJ8VMXFqa8CqvdjOkxy6dmW5M
-	OQfR/aIBzlGCyxfbpog/Qy0G4OMjiQ4UzHFY3pRPbuti2IFZQJR69kDnnRDnXcVk
-	uDSGtvvniIVLeHoZOdgQaeiXLZivTNTMcCx7qXqbklIXT0pI4hftTvY8w==
-X-ME-Sender: <xms:ga1tZCJRbvSNJUKg0qIJsfZZwrSMi0PjmJ4gjavwv5UwXTpxFZw6BA>
-    <xme:ga1tZKIzK78V_aR_5LztumPm55DoWLxA91xRLXli-t9k_ZcD_Z6IviLDnVNc1OtRc
-    luGYlnv3Ut-OkzTOdc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeejgedguddthecutefuodetggdotefrod
+	:x-sasl-enc; s=fm1; t=1684909979; x=1684917179; bh=iEvC5oFb9XN9N
+	y/ckJJEpZR1s1u4bGw5GWvEik8MIaQ=; b=QgaeFTYjDe/aE3UEmYQIdaa6iQYPe
+	LwZMi5ZIYq5du2p50bu8RwdfOa4hZWuQJQty3AGhWDmWUvAyPkP7TGcT+cQcH7Ft
+	9wxcxX7Nhx6NWVfLSq++rS2LklRz200cqlcjTX5ePnFKvbahCO/d/WQe98JbaKcv
+	5hnEFe+KIlctHuOz9ZnCdK05j0AZdN/deDPUOcLPasG0b8lMAoD3Wf+0cO3B694Y
+	3x+jyo33gjSGRsMEsD0F1R4L+ZFcaaEM89W0RvIRF+L9g8GzDhJT9e8TMLjy82d4
+	u+bjiEu17v/ZyE8t8vGbDKqY9dm0SnLnZMuvN6/PiH1V6K3z4z25gIYOg==
+X-ME-Sender: <xms:ma9tZNkYK_kDGZ5BZ1yvB1_zfZzf1Hzwh0pXdMi_zdil7WU-FhUCLw>
+    <xme:ma9tZI2mri10JBBBvKYj_aSBV0vT8_ztbeHMfb4dZPhzUfISKFNQgobOnXHEO3diy
+    ZWZWNtucLBneNwhHak>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeejgedguddtjecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
     necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
     enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
     rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:ga1tZCvggELx8Cm8nz6QjZomnKX2f-f9Hd6CmnK5p62CbQf_pgbMfg>
-    <xmx:ga1tZHaAzVDKtNskHbgIODwllkWH-KxZpbCNL4K7D2vsu2EWAwSK2Q>
-    <xmx:ga1tZJZ69QXZJfrQEcbnCndWTXRClrSNKLPmnc5rG2jeDEPK27YLhA>
-    <xmx:gq1tZF7qMPhTuZD_jjbDXjamDL2sIgZZ2zlrRphwYjZXeZ03smFcbA>
+    htthgvrhhnpeekheetgfduvdeljedvieelieffhfeuveegvdehieduhfeuvefgheekieet
+    udekkeenucffohhmrghinhepshhouhhrtggvfigrrhgvrdhorhhgnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdgu
+    vg
+X-ME-Proxy: <xmx:ma9tZDrwWySbjDunWcTW-O7b6HxyX7OhQRm2OCAOKFF7JLFgeLKAEw>
+    <xmx:ma9tZNnQVBvuKSn_3q4MYquDy67rcVDq1F3jTh3d93wvhcwfpVxLYw>
+    <xmx:ma9tZL2mD8kCBEnH1FsIH5XgnC0oapgQEgFiYf4-v91uDGc_et1ovw>
+    <xmx:m69tZA40O-cv_hWzAZ7QvFwLrRtWGwdMzqshbfB7_kLz_J0N6n-WmQ>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5D93EB60086; Wed, 24 May 2023 02:24:01 -0400 (EDT)
+	id 55B9DB60086; Wed, 24 May 2023 02:32:57 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 User-Agent: Cyrus-JMAP/3.9.0-alpha0-441-ga3ab13cd6d-fm-20230517.001-ga3ab13cd
 Mime-Version: 1.0
-Message-Id: <65124759-26de-4111-bc54-545a00620d75@app.fastmail.com>
-In-Reply-To: <mhng-e172207d-d67d-46ab-ab95-85f0a854ace2@palmer-ri-x1c9a>
-References: <mhng-e172207d-d67d-46ab-ab95-85f0a854ace2@palmer-ri-x1c9a>
-Date: Wed, 24 May 2023 08:23:41 +0200
+Message-Id: <eb61b8c5-4c0a-4d64-b817-235db848995c@app.fastmail.com>
+In-Reply-To: <mhng-f92fa24d-c8bd-4794-819d-7563c1193430@palmer-ri-x1c9a>
+References: <mhng-f92fa24d-c8bd-4794-819d-7563c1193430@palmer-ri-x1c9a>
+Date: Wed, 24 May 2023 08:32:27 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Randy Dunlap" <rdunlap@infradead.org>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>,
- "Stephen Rothwell" <sfr@canb.auug.org.au>,
- linux-next <linux-next@vger.kernel.org>, linux-kernel@vger.kernel.org,
+To: "Palmer Dabbelt" <palmer@dabbelt.com>, "Andy Chiu" <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atishp@atishpatra.org>, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, "Vineet Gupta" <vineetg@rivosinc.com>,
+ "Greentime Hu" <greentime.hu@sifive.com>,
+ "Guo Ren" <guoren@linux.alibaba.com>,
+ "Vincent Chen" <vincent.chen@sifive.com>,
  "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- "Conor Dooley" <conor@kernel.org>
-Subject: Re: linux-next: Tree for May 15 (several RV64 build errors)
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Oleg Nesterov" <oleg@redhat.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>,
+ "Kees Cook" <keescook@chromium.org>, heiko.stuebner@vrull.eu,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>,
+ "Janosch Frank" <frankja@linux.ibm.com>,
+ "Qing Zhang" <zhangqing@loongson.cn>, eb@emlix.com
+Subject: Re: [PATCH -next v20 12/26] riscv: Add ptrace vector support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_232405_796600_0F3E86FE 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20230523_233300_645593_374B4ED4 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +116,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 24, 2023, at 03:29, Palmer Dabbelt wrote:
-> On Tue, 23 May 2023 17:22:20 PDT (-0700), rdunlap@infradead.org wrote:
->> On 5/23/23 06:07, Alexandre Ghiti wrote:
->>> On 23/05/2023 04:28, Randy Dunlap wrote:
->>>> On 5/19/23 03:42, Alexandre Ghiti wrote:
->>>>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .data LMA [000000000041a000,00000000075bffd7] overlaps section .text LMA [00000000000f09d4,00000000033562ab]
->>>>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .init.pi.text LMA [00000000033562ac,0000000003359137] overlaps section .data LMA [000000000041a000,00000000075bffd7]
->>>>>>
->>>>>> I'll check this one too which seems to be related to kernel/pi introduction.
->>>>>
->>>>> Thanks to Bjorn: this is caused by XIP_KERNEL, which is known to have limited size, hence the overlap, so no fix for this one. Is there a way to exclude this config from randconfig?
->>>> Does this mean exclude XIP_KERNEL or something else from randconfigs?
->>>
->>>
->>> I meant excluding XIP_KERNEL from randconfigs: it has very strict constraints regarding what can/can't be enabled then it needs human intervention to make sure the error above does not happen. So I would not bother testing this in randconfigs if possible.
->>
->> I can exclude it from my randconfig builds, but I don't know of a way to exclude it from randconfig builds in general (i.e., for everyone).
->
-> Arnd had suggested a trick related to menus that would result in 
-> randconfig never enabling some config.  It'd suggested for 
-> CONFIG_NONPORTABLE, but we didn't use it because it'd reduce randconfig 
-> coverage.
->
-> Maybe we should add a CONFIG_VERYSPECIAL of some sort and hide things 
-> like XIP behind it (maybe M-mode too)?
+On Wed, May 24, 2023, at 02:49, Palmer Dabbelt wrote:
+> On Thu, 18 May 2023 09:19:35 PDT (-0700), andy.chiu@sifive.com wrote:
 
-I usually add 'depends on !COMPILE_TEST', that excludes it from most
-build bots.
+>>  static const struct user_regset_view riscv_user_native_view = {
+>> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+>> index ac3da855fb19..7d8d9ae36615 100644
+>> --- a/include/uapi/linux/elf.h
+>> +++ b/include/uapi/linux/elf.h
+>> @@ -440,6 +440,7 @@ typedef struct elf64_shdr {
+>>  #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+>>  #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
+>>  #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
+>> +#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
+>
+> IIUC we're OK to define note types here, as they're all sub-types of the 
+> "LINUX" note as per the comment?  I'm not entirely sure, though.
+>
+> Maybe Arnd knows?
 
-    Arnd
+No idea. It looks like glibc has the master copy of this file[1], and
+they pull in changes from the kernel version, so it's probably fine,
+but I don't know if that's the way it's intended to go.
+
+     Arnd
+
+[1] https://sourceware.org/git/?p=glibc.git;a=history;f=elf/elf.h
 
 _______________________________________________
 linux-riscv mailing list
