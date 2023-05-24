@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B865C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 13:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C5BC77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 13:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tQQ7ZfuAcJqBAOQtAsbHvt6zfOPd9gkWA8VJoIDHq88=; b=BL1/BGg+bMM2Ir
-	hpC2I2H6REaMf+Ds9Jh+j4lI/QnTgEIPwP8XB+7IHGFezTTuYhYnQFpwHhfng6c9eNsOGGDNQ34Jh
-	4c6fyXjVV/Kke/RbI1UzzPP6Dm9PExlIwptUGtbE7UzO8K/g61aIHPEd+PHoQeH9ILZ0f4SmeOVaV
-	j3C59pZMLaHPeCCIk+m+fj47cpewxQMPUu3h4r/LXZNZIw1wadxIxFf8djK3Q1b0ebRTZBR/4F74I
-	bJJLjRkUey9pEk+th2tS3EJ8W695NvkLs4fj6x1LrtD9UDM9UpHZWO7J7Ils4ZCmIXuKW8UbcvLZr
-	eeYTYKzA3auV+/PotBMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BIxUDP4Ja/d47S67VNoH8P0It5CUjwegldtYEFfPmWQ=; b=N1KkGqf+RC4c9+zSbrVLNMx5c1
+	oZt0B0i4vJNxO6wTjbKUr1p2+cNrri0FrgOQrgp0XdS6Ky9crWBiLWOGQXdnBW+6QhzOIiURkurEZ
+	lGg/cYQhhFSF/JaleDBZkj9b58CFd/R6dHDvj73C9GOXH84VKClBdAgH1N6f/HDbN/+ZB3lFQwc1E
+	twshgjeCoOojF0sCGRhJVCsmFgZ2yGcEsWs3NZy1YbKQJu7YKfi/SzTdKcVW+kV4kP9kZdErSg5/i
+	CDXU1NyzjrNg4YkMprqgqDgZt6+iZ7+yw23oApG+tQZh0Pm9inLsVIC4T0LosF9U5dwbL62JLMW0w
+	tWyIVC0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1oaV-00DZiB-2P;
-	Wed, 24 May 2023 13:31:35 +0000
+	id 1q1os2-00DcAa-0w;
+	Wed, 24 May 2023 13:49:42 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1oaS-00DZhi-1x
+	id 1q1ory-00Dc9t-39
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 13:31:34 +0000
+	Wed, 24 May 2023 13:49:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2FD4B63A88;
-	Wed, 24 May 2023 13:31:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1260AC433EF;
-	Wed, 24 May 2023 13:31:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5523A6330B;
+	Wed, 24 May 2023 13:49:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71930C433EF;
+	Wed, 24 May 2023 13:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1684935091;
-	bh=lApfRwXovf6sShLKp9WZpEJ/IAEUciPlv4wUIxxP2/E=;
+	s=k20201202; t=1684936177;
+	bh=FUTP1mbfy6I1wRKtWTlWctBObh3m57kq+FA25r2OZK4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vIU5Ng0mQk+TKKRD6h/50iWmAKbEJq0Gk6ioHa9KHbfNtBYxQim69BDbI0eSGFob/
-	 DlsGOeg99HX0bG2rCo52VOZ1mrliej35RXNTXeaPFQr1wdbwx+ZlTDpjsBWshSXfvx
-	 21eSpgO5gRGuBzddiZ0iEV48ODxWty0JI5VQkeXJaoSVG/iWGJBoGzrvoHL5pGsPrx
-	 F/ZWp54Hct6b8dVcS/2n4hxK82dsznitExvbs3mVToMyOiZFhLDbrjWsX+wuk124My
-	 hit8mRkr//kXJelZLkp/JQP/CHC71LZ9S66alFh1D6XEu1wG2ap8RXe1oVLwHabchD
-	 6fLl2N9Ck3T7g==
-Date: Wed, 24 May 2023 21:20:19 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: guoren@kernel.org
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, surenb@google.com, chenhuacai@kernel.org
-Subject: Re: [PATCH] riscv: mm: try VMA lock-based page fault handling first
-Message-ID: <ZG4PExps5lGvo7nW@xhacker>
-References: <20230523165942.2630-1-jszhang@kernel.org>
- <20230524050259.104358-1-guoren@kernel.org>
+	b=BikjzReTPHEj0Vt6ScGzym8/ZWPpoYr7dNGmwJofgnsf5nOEnTfdK5U3wBfkw1429
+	 PXHe3Nm5xXA+EwGmyBBSHFrnkwESJug6W/n5CrrOVSWnbbr9CDSM0uuV0wkYkFTPUX
+	 93B1wuex8U+/MbbWngX5fQn2Iq2BFWsZWvfkPaLg1psc7jtx3ekFn+tTqpJniKUeB/
+	 Tyj0Y8J/CWq3u4to0NVaY++sKIJutK1Zq5lIMH6kSwmQ1tAl2JFP5twrTVz51u3lIW
+	 J0j+JyV+YeJID/Q4xce6bV3FNGld+V39biB+q+MmhTBwwHU1/jEsPisN1hAoVYmEO0
+	 77Hfs3VO8W3+A==
+Date: Wed, 24 May 2023 14:49:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: Bug report: kernel paniced when system hibernates
+Message-ID: <20230524-wasp-charm-fe5c5478957a@spud>
+References: <CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com>
+ <CAHVXubgse4Lw7ucg52FkQW4c=QrNo56BXsRZ_nkCHAAPxUXUig@mail.gmail.com>
+ <CAHVXubj92O_dwGShOJgrYezqk2pA2NtFyhNFbAPyhn7=PztK6Q@mail.gmail.com>
+ <20230517-preacher-primer-f41020b3376a@wendy>
+ <CAHVXubhMLgb54_7zV2yFuGPoMKCkUXwozHbDvghc7kQqNLK-JA@mail.gmail.com>
+ <CAAhSdy3tKAk1xjinwnSWan0ivdDapcLvSb+hGNynPFZMUsoB9A@mail.gmail.com>
+ <fe8d716c-fb4f-1f3f-6c69-de1d8b9fb6af@ghiti.fr>
+ <CAK9=C2X1BjZCHfYM33pZQtavu7yRqxwsypWL5OWj79bJrnDMQg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230524050259.104358-1-guoren@kernel.org>
+In-Reply-To: <CAK9=C2X1BjZCHfYM33pZQtavu7yRqxwsypWL5OWj79bJrnDMQg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_063132_722940_4150B498 
-X-CRM114-Status: GOOD (  27.26  )
+X-CRM114-CacheID: sfid-20230524_064939_088910_57BD1BEA 
+X-CRM114-Status: GOOD (  50.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,120 +73,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: robh@kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, jeeheng.sia@starfivetech.com, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, palmer@rivosinc.com, leyfoon.tan@starfivetech.com, Conor Dooley <conor.dooley@microchip.com>, mason.huo@starfivetech.com, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Song Shuai <suagrfillet@gmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============2123692356572175425=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 24, 2023 at 01:02:59AM -0400, guoren@kernel.org wrote:
-> > Attempt VMA lock-based page fault handling first, and fall back to the
-> > existing mmap_lock-based handling if that fails.
-> > 
-> > A simple running the ebizzy benchmark on Lichee Pi 4A shows that
-> > PER_VMA_LOCK can improve the ebizzy benchmark by about 32.68%. In
-> Good improvement, I think VMA lock is worth to support in riscv.
-> 
-> Please give more details about ebizzy, Is it 
-> https://github.com/linux-test-project/ltp/blob/master/utils/benchmark/ebizzy-0.3/ebizzy.c
-> ?
 
-yeah it's one of ltp benchmark utils.
+--===============2123692356572175425==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="JfSOowhxP3xt+heO"
+Content-Disposition: inline
 
-> 
-> > theory, the more CPUs, the bigger improvement, but I don't have any
-> > HW platform which has more than 4 CPUs.
-> > 
-> > This is the riscv variant of "x86/mm: try VMA lock-based page fault
-> > handling first".
+
+--JfSOowhxP3xt+heO
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Alex, Anup,
+
+On Thu, May 18, 2023 at 07:34:16PM +0530, Anup Patel wrote:
+> On Thu, May 18, 2023 at 5:39=E2=80=AFPM Alexandre Ghiti <alex@ghiti.fr> w=
+rote:
+> > On 5/18/23 08:53, Anup Patel wrote:
+> > > On Wed, May 17, 2023 at 8:26=E2=80=AFPM Alexandre Ghiti <alexghiti@ri=
+vosinc.com> wrote:
+> > >> On Wed, May 17, 2023 at 1:28=E2=80=AFPM Conor Dooley <conor.dooley@m=
+icrochip.com> wrote:
+> > >>> On Wed, May 17, 2023 at 10:58:02AM +0200, Alexandre Ghiti wrote:
+> > >>>> On Tue, May 16, 2023 at 1:12=E2=80=AFPM Alexandre Ghiti <alexghiti=
+@rivosinc.com> wrote:
+> > >>>>> On Tue, May 16, 2023 at 11:24=E2=80=AFAM Song Shuai <suagrfillet@=
+gmail.com> wrote:
+> > >>>>> I actually removed this flag a few years ago, and I have to admit=
+ that
+> > >>>>> I need to check if that's necessary: the goal of commit 3335068f8=
+721
+> > >>>>> ("riscv: Use PUD/P4D/PGD pages for the linear mapping") is to exp=
+ose
+> > >>>>> the "right" start of DRAM so that we can align virtual and physic=
+al
+> > >>>>> addresses on a 1GB boundary.
+> > >>>>>
+> > >>>>> So I have to check if a nomap region is actually added as a
+> > >>>>> memblock.memory.regions[] or not: if yes, that's perfect, let's a=
+dd
+> > >>>>> the nomap attributes to the PMP regions, otherwise, I don't think=
+ that
+> > >>>>> is a good solution.
+> > >>>> So here is the current linear mapping without nomap in openSBI:
+> > >>>>
+> > >>>> ---[ Linear mapping ]---
+> > >>>> 0xff60000000000000-0xff60000000200000    0x0000000080000000       =
+  2M
+> > >>>> PMD     D A G . . W R V
+> > >>>> 0xff60000000200000-0xff60000000e00000    0x0000000080200000       =
+ 12M
+> > >>>> PMD     D A G . . . R V
+> > >>>>
+> > >>>> And below the linear mapping with nomap in openSBI:
+> > >>>>
+> > >>>> ---[ Linear mapping ]---
+> > >>>> 0xff60000000080000-0xff60000000200000    0x0000000080080000      1=
+536K
+> > >>>> PTE     D A G . . W R V
+> > >>>> 0xff60000000200000-0xff60000000e00000    0x0000000080200000       =
+ 12M
+> > >>>> PMD     D A G . . . R V
+> > >>>>
+> > >>>> So adding nomap does not misalign virtual and physical addresses, =
+it
+> > >>>> prevents the usage of 1GB page for this area though, so that's a
+> > >>>> solution, we just lose this 1GB page here.
+> > >>>>
+> > >>>> But even though that may be the fix, I think we also need to fix t=
+hat
+> > >>>> in the kernel as it would break compatibility with certain version=
+s of
+> > >>>> openSBI *if* we fix openSBI...So here are a few solutions:
+> > >>>>
+> > >>>> 1. we can mark all "mmode_resv" nodes in the device tree as nomap,
+> > >>>> before the linear mapping is established (IIUC, those nodes are ad=
+ded
+> > >>>> by openSBI to advertise PMP regions)
+> > >>>>      -> This amounts to the same fix as opensbi and we lose the 1G=
+B hugepage.
+> > >>> AFAIU, losing the 1 GB hugepage is a regression, which would make t=
+his
+> > >>> not an option, right?
+> > >> Not sure this is a real regression, I'd rather avoid it, but as
+> > >> mentioned in my first answer, Mike Rapoport showed that it was making
+> > >> no difference performance-wise...
+> > >>
+> > >>>> 2. we can tweak pfn_is_nosave function to *not* save pfn correspon=
+ding
+> > >>>> to PMP regions
+> > >>>>      -> We don't lose the 1GB hugepage \o/
+> > >>>> 3. we can use register_nosave_region() to not save the "mmode_resv"
+> > >>>> regions (x86 does that
+> > >>>> https://elixir.bootlin.com/linux/v6.4-rc1/source/arch/x86/kernel/e=
+820.c#L753)
+> > >>>>      -> We don't lose the 1GB hugepage \o/
+> > >>>> 4. Given JeeHeng pointer to
+> > >>>> https://elixir.bootlin.com/linux/v6.4-rc1/source/kernel/power/snap=
+shot.c#L1340,
+> > >>>> we can mark those pages as non-readable and make the hibernation
+> > >>>> process not save those pages
+> > >>>>      -> Very late-in-the-day idea, not sure what it's worth, we al=
+so
+> > >>>> lose the 1GB hugepage...
+> > >>> Ditto here re: introducing another regression.
+> > >>>
+> > >>>> To me, the best solution is 3 as it would prepare for other similar
+> > >>>> issues later, it is similar to x86 and it allows us to keep 1GB
+> > >>>> hugepages.
+> > >>>>
+> > >>>> I have been thinking, and to me nomap does not provide anything si=
+nce
+> > >>>> the kernel should not address this memory range, so if it does, we
+> > >>>> must fix the kernel.
+> > >>>>
+> > >>>> Let me know what you all think, I'll be preparing a PoC of 3 in th=
+e meantime!
+> > >>> #3 would probably get my vote too. It seems like you could use it
+> > >>> dynamically if there was to be a future other provider of "mmode_re=
+sv"
+> > >>> regions, rather than doing something location-specific.
+> > >>>
+> > >>> We should probably document these opensbi reserved memory nodes tho=
+ugh
+> > >>> in a dt-binding or w/e if we are going to be relying on them to not
+> > >>> crash!
+> > > Depending on a particular node name is fragile. If we really need
+> > > information from DT then I suggest adding "no-save-restore" DT
+> > > property in reserved memory nodes.
 > >
-> 
-> How about add Link tag here:
-> Link: https://lwn.net/Articles/906852/
-> 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> > Any performance numbers are welcome! Especially the numbers on HW
-> > platforms with 8 or more CPUs.
-> > 
-> >  arch/riscv/Kconfig    |  1 +
-> >  arch/riscv/mm/fault.c | 33 +++++++++++++++++++++++++++++++++
-> >  2 files changed, 34 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 62e84fee2cfd..b958f67f9a12 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -42,6 +42,7 @@ config RISCV
-> >  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
-> >  	select ARCH_SUPPORTS_HUGETLBFS if MMU
-> >  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
-> > +	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
-> >  	select ARCH_USE_MEMTEST
-> >  	select ARCH_USE_QUEUED_RWLOCKS
-> >  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-> > diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> > index 8685f85a7474..eccdddf26f4b 100644
-> > --- a/arch/riscv/mm/fault.c
-> > +++ b/arch/riscv/mm/fault.c
-> > @@ -286,6 +286,36 @@ void handle_page_fault(struct pt_regs *regs)
-> >  		flags |= FAULT_FLAG_WRITE;
-> >  	else if (cause == EXC_INST_PAGE_FAULT)
-> >  		flags |= FAULT_FLAG_INSTRUCTION;
-> > +#ifdef CONFIG_PER_VMA_LOCK
-> > +	if (!(flags & FAULT_FLAG_USER))
-> > +		goto lock_mmap;
-> > +
-> > +	vma = lock_vma_under_rcu(mm, addr);
-> > +	if (!vma)
-> > +		goto lock_mmap;
-> > +
-> > +	if (unlikely(access_error(cause, vma))) {
-> > +		vma_end_read(vma);
-> > +		goto lock_mmap;
-> > +	}
-> > +
-> > +	fault = handle_mm_fault(vma, addr, flags | FAULT_FLAG_VMA_LOCK, regs);
-> > +	vma_end_read(vma);
-> > +
-> > +	if (!(fault & VM_FAULT_RETRY)) {
-> > +		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-> > +		goto done;
-> > +	}
-> > +	count_vm_vma_lock_event(VMA_LOCK_RETRY);
-> > +
-> > +	if (fault_signal_pending(fault, regs)) {
-> > +		if (!user_mode(regs))
-> > +			no_context(regs, addr);
-> > +		return;
-> > +	}
-> > +lock_mmap:
-> > +#endif /* CONFIG_PER_VMA_LOCK */
-> > +
-> >  retry:
-> >  	mmap_read_lock(mm);
-> >  	vma = find_vma(mm, addr);
-> > @@ -355,6 +385,9 @@ void handle_page_fault(struct pt_regs *regs)
-> >  
-> >  	mmap_read_unlock(mm);
-> >  
-> > +#ifdef CONFIG_PER_VMA_LOCK
-> > +done:
-> > +#endif
-> It's very close to cd7f176aea5f ("arm64/mm: try VMA lock-based page fault 
-> handling first"), and I didn't find any problem. So:
-> 
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> 
-> F.Y.I Huacai Chen, maybe he also would be interesting this new feature.
-> 
-> 
-> >  	if (unlikely(fault & VM_FAULT_ERROR)) {
-> >  		tsk->thread.bad_cause = cause;
-> >  		mm_fault_error(regs, addr, fault);
-> > -- 
-> > 2.40.1
+> >
+> > I understand your point, the node name is the only thing I found that
+> > would work with current opensbi: any other idea what we could use inste=
+ad?
+> >
+> >
+> > >> Yes, you're right, let's see what Atish and Anup think!
+> > > I think we have two possible approaches:
+> > >
+> > > 1) Update OpenSBI to set "no-map" DT property for firmware
+> > >      reserved regions. We were doing this previously but removed
+> > >      it later for performance reasons mentioned by Alex. It is also
+> > >      worth mentioning that ARM Trusted Firmware also sets "no-map"
+> > >      DT property for firmware reserved regions.
+> > >
+> > > 2) Add a new "no-save-restore" DT property in the reserved
+> > >      memory DT bindings. The hibernate support of Linux arch/riscv
+> > >      will use this DT property to exclude memory regions from
+> > >      save-restore. The EFI implementation of EDK2 and U-Boot
+> > >      should do the following:
+> > >      1) Treat all memory having "no-map" DT property as EFI
+> > >          reserved memory
+> > >      2) Treat all memory not having "no-map" DT property and
+> > >          not having "no-save-restore" DT property as EfiBootServicesD=
+ata
+> > >      3) Treat all memory not having "no-map" DT property and
+> > >           having "no-save-restore" DT property as EfiRuntimeServiceDa=
+ta
+> > >           (Refer,
+> > > https://devicetree-specification.readthedocs.io/en/latest/chapter3-de=
+vicenodes.html#reserved-memory-and-uefi)
+> > >
+> > > Personally, I am leaning towards approach#1 since approach#2
+> > > will require changing DeviceTree specification as well.
+> >
+> >
+> > If needed, indeed #1 is the simplest, but I insist, to me it is not
+> > needed (and we don't have it in the current opensbi), if you have
+> > another opinion, I'm open to discuss it!
+>=20
+> I agree with you, backward compatibility with older firmwares
+> is important.
+>=20
+> Let's go with your proposed change to treat reserved DT nodes
+> with "mmode_resv*" name as M-mode firmware memory (it could
+> be any M-mode firmware). We will certainly need to document it
+> somewhere as an expectation of Linux RISC-V kernel.
+
+Actually, you two both probably know the answer to this, but was there a
+release done of OpenSBI where the reserved memory region was not
+specified to be no-map?
+
+>=20
+> @Sunil How about treating "mmode_resv*" as
+> EfiRuntimeServiceData in EDK2 ? Other reserved memory
+> nodes can follow the device tree specification.
+
+
+--JfSOowhxP3xt+heO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZG4V6wAKCRB4tDGHoIJi
+0l2fAP9VB11nIqsvVNkavW5WcNBM3RgPlCXyA1ltDlnR+igeOQD+OEGhixkjuJOY
+zp+FBKQesQLe4PtD2luSO8SXfFAxcgc=
+=Yqlw
+-----END PGP SIGNATURE-----
+
+--JfSOowhxP3xt+heO--
+
+
+--===============2123692356572175425==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2123692356572175425==--
+
