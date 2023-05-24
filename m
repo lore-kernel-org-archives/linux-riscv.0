@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C2BC77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 17:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399F9C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 17:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTnqb0+HUV3uSdBbK0umbteJ1s3DLISYRKFY9R/2ZlQ=; b=do+CySHnT1Oq9a
-	lYW5HvkM2Oj7S6NjmL4rcM0KJYGrg2ZKvWy7yflYJlbgzR8i2ohvNrd3LfdArwPMgRhzpna+YS6GG
-	3eIh0SkqNpZ8Q8TtEx3Zt+tzsArwS3p1ZISkQq1mxkOQk4Wi4YqFl4s/02atcGjeYu+jdj/acYDwA
-	TttFI6vys7Qwc/2vRSZnm/YSQ23mdWCxXg2Ztnj+6/1t5NV8JDsMZJh1Z3hB6Gw+gTuMDFRHzMQeq
-	Vqtbefhcy4K+USXo/49cV1iB4I7sDK5G8Qv7HCDMUWp/9RWKNzyjKQcgrJJ1FlMNXQLbmyNBRAD3V
-	uwEGjs9au9XfccW1mMnw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oDP9H9D0Tl6vmdNCGTg50yhOS4VvQxmeIj5djF074IU=; b=S8iQQVuQJDNjLE
+	nAxL/X7o/qtKoqbjxY621wNxoXa4aVk5G2tnMkRBU1WFRVXvQ3z0xZy1VXxOdJryuhcZrcPMJ5Itc
+	NUjatKY2R6zWUjVcYxDe5PbYum4pTKEzZ4AQdQ/i98P7Dfn+AzmhHyXnkurqDnw9ipSFQQqz5VStP
+	Vj1jU6unb0xvO5bR28wh1KlcXTUKZaLso8eYRdBUkRaqlrhFUvpu4/byazrklX/SbPPe3/Cy6+ty7
+	zk7SG1Zzo+9/681xUiPgXvLwt3a4HvEJWBX4tvNeAMZPqGVgqMz5bdTawcRAGly411JhDNhlkNfnH
+	TKwJcr/jB9OGoJRq8wCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1sMV-00EC9C-2U;
-	Wed, 24 May 2023 17:33:23 +0000
-Received: from mail-ej1-f43.google.com ([209.85.218.43])
+	id 1q1sMq-00ECFq-01;
+	Wed, 24 May 2023 17:33:44 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1sMS-00EC67-2t;
-	Wed, 24 May 2023 17:33:22 +0000
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-96f44435d92so35531066b.0;
-        Wed, 24 May 2023 10:33:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684949597; x=1687541597;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LCSKoj+QaYMGiALxKIVygFGEfEGQMG7Gw+jdrUBXjYI=;
-        b=SbARSQf6XoJGa51JiCSGePRTJCfBeDrYeDtVz88n7tv+08TJve+HLEMVRG1ERL1LAC
-         9k8EvQSJ07C0P483Gzsupd1YzHWVmtNrMUwJUt+m2/u7NmXNEm0pDdQWCi2nNTO5BY7j
-         Z0zT22ul6jIMQYMF3XPoVrARIOEB3b/RrIJ6OiRqtBdQ1KsKB+TfbzzFNqxXMh4YN7gD
-         MiLLgng7J7H9ua7VNUXALR7hVvIA2ZH22kAV+9xbD3CYJ5/l1d5MWr+FKAj7+3uD9Lqg
-         +vuWQZZKDz/p/JPKZlmHN2xssBplQ5NRm+t7KHtJ3lOqEDzHS7bWaoc7tJCjdZdCcCmj
-         eRSw==
-X-Gm-Message-State: AC+VfDxcce5KLPn1Rknr73R31BzNDyk6OeGrBdtCN98RNQH8Q2lMuxVN
-	jJA4hYiGgjdz9pO8TV/Qy9hwo0GyvjlTHijqmZY=
-X-Google-Smtp-Source: ACHHUZ75t5LOoP5fPEw1B3B8AOZ5QAW3p/uA3PR3RjFQ63NrJQ3bU0l+qjgSiV2WQ1zsptMKJ1KiCOsk0UIwyQ0utjI=
-X-Received: by 2002:a17:906:2218:b0:96f:4c38:4b1a with SMTP id
- s24-20020a170906221800b0096f4c384b1amr16403004ejs.5.1684949596574; Wed, 24
- May 2023 10:33:16 -0700 (PDT)
+	id 1q1sMm-00ECDG-1F
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 May 2023 17:33:43 +0000
+X-QQ-mid: bizesmtp87t1684949606tov3735z
+Received: from linux-lab-host.localdomain ( [116.30.125.36])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 25 May 2023 01:33:24 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: swyrzWPvyR1t48EdlItLXttvyKY6WmiJDPPY4vb9nGY3NWNlQdwDf94UTQuQe
+	iiFOoZZ4sWiZmzLVo55BAKW5tAAowCK0/zytsWiE7ds6ktBMY4GlS8OkGIr60AHYvMSqEJI
+	p4n+QpfmubNSpHk9pyndqGrmqD2CKpUVKqRdyVAyvZuS/gYw+TJ2MrH3Z8Lnhh3Cn6Ssbn7
+	ijVQ8fO9MxSegu2BAadgnpZhYuXjnnqcH8Ywn8oKTopNjf8w34F7Y5uC2iAi+j9R9465uuD
+	ehmEUhijspm0GxYAggyNV6kFW2RmK28cHKjkHvwUngrErFCxAgzRqHmDOVGQ6KEAHMiG/r8
+	zjVkLBob7rlotOd5zUmXQyuKzIUzw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2375841851557464195
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	thomas@t-8ch.de
+Subject: [PATCH 00/13] tools/nolibc: riscv: Add full rv32 support
+Date: Thu, 25 May 2023 01:33:14 +0800
+Message-Id: <cover.1684949267.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20230517131102.934196-1-arnd@kernel.org> <20230517131102.934196-11-arnd@kernel.org>
- <CAJZ5v0h0spuxK-7LBJSU9BK2TEOUeMjf7hhKScadkxFN_RwStQ@mail.gmail.com> <6b7f6f66-7890-47a3-a22d-e29f2944823a@app.fastmail.com>
-In-Reply-To: <6b7f6f66-7890-47a3-a22d-e29f2944823a@app.fastmail.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 24 May 2023 19:33:05 +0200
-Message-ID: <CAJZ5v0h+HNTMcfxFuOeO92D__NzJSTHfjzP5VQG4D+WuNmHpdw@mail.gmail.com>
-Subject: Re: [PATCH 10/14] suspend: add a arch_resume_nosmt() prototype
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	x86@kernel.org, Paul Moore <paul@paul-moore.com>, Eric Paris <eparis@redhat.com>, 
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, 
-	Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>, Waiman Long <longman@redhat.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, audit@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_103320_931738_E92EE770 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20230524_103340_732883_45B53267 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +70,260 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMTcsIDIwMjMgYXQgNDo1MuKAr1BNIEFybmQgQmVyZ21hbm4gPGFybmRAYXJu
-ZGIuZGU+IHdyb3RlOgo+Cj4gT24gV2VkLCBNYXkgMTcsIDIwMjMsIGF0IDE1OjQ4LCBSYWZhZWwg
-Si4gV3lzb2NraSB3cm90ZToKPiA+IE9uIFdlZCwgTWF5IDE3LCAyMDIzIGF0IDM6MTLigK9QTSBB
-cm5kIEJlcmdtYW5uIDxhcm5kQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+Cj4gPj4gRnJvbTogQXJu
-ZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KPiA+Pgo+ID4+IFRoZSBhcmNoX3Jlc3VtZV9ub3Nt
-dCgpIGhhcyBhIF9fd2VhayBkZWZpbml0aW9uLCBwbHVzIGFuIHg4Ngo+ID4+IHNwZWNpZmljIG92
-ZXJyaWRlLCBidXQgbm8gcHJvdG90eXBlIHRoYXQgZW5zdXJlcyB0aGUgdHdvIGhhdmUKPiA+PiB0
-aGUgc2FtZSBhcmd1bWVudHMuIFRoaXMgY2F1c2VzIGEgVz0xIHdhcm5pbmc6Cj4gPj4KPiA+PiBh
-cmNoL3g4Ni9wb3dlci9oaWJlcm5hdGUuYzoxODk6NTogZXJyb3I6IG5vIHByZXZpb3VzIHByb3Rv
-dHlwZSBmb3IgJ2FyY2hfcmVzdW1lX25vc210JyBbLVdlcnJvcj1taXNzaW5nLXByb3RvdHlwZXNd
-Cj4gPj4KPiA+PiBBZGQgdGhlIHByb3RvdHlwZSBpbiBsaW51eC9zdXNwZW5kLmgsIHdoaWNoIGlz
-IGluY2x1ZGVkIGluCj4gPj4gYm90aCBwbGFjZXMuCj4gPj4KPiA+PiBTaWduZWQtb2ZmLWJ5OiBB
-cm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+ID4KPiA+IERvIHlvdSB3YW50IG1lIHRvIHBp
-Y2sgdGhpcyB1cD8KPgo+IFllcywgcGxlYXNlIGRvLiBUaGFua3MsCgpEb25lLCB0aGFua3MhCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi, Willy
+
+Thanks very mush for your kindly review, discuss and suggestion, now we
+get full rv32 support ;-)
+
+In the first series [1], we have fixed up the compile errors about
+_start and __NR_llseek for rv32, but left compile errors about tons of
+time32 syscalls (removed after kernel commit d4c08b9776b3 ("riscv: Use
+latest system call ABI")) and the missing fstat in nolibc-test.c [2],
+now we have fixed up all of them.
+
+Introduction
+============
+
+This series is based on the 20230524-nolibc-rv32+stkp4 branch of [3], it
+includes 3 parts, they work together to add full rv32 support:
+
+* Reverts two old out-of-day patches
+  * Revert "tools/nolibc: riscv: Support __NR_llseek for rv32"
+  * Revert "selftests/nolibc: Fix up compile error for rv32"
+
+  (these two and the reverted ones:
+
+    * commit 606343b7478c ("selftests/nolibc: Fix up compile error for rv32") 
+    * commit d2c3acba6d66 ("tools/nolibc: riscv: Support __NR_llseek for rv32")
+
+  can be removed from the git repo completely, there are two new ones to replace
+  them)
+
+* Compile and test support patches
+  * selftests/nolibc: print name instead of number for EOVERFLOW
+  * selftests/nolibc: syscall_args: use __NR_statx for rv32
+    * --> replace the old one 606343b7478, use statx instead of read
+  * selftests/nolibc: riscv: customize makefile for rv32
+  * selftests/nolibc: allow specify a bios for qemu
+  * selftests/nolibc: remove the duplicated gettimeofday_bad2
+
+* Fix up some missing syscalls, mainly time32 syscalls
+  * tools/nolibc: sys_lseek: riscv: use __NR_llseek for rv32
+    * --> replace the old one d2c3acba6d66, cleaned up 
+  * tools/nolibc: sys_poll: riscv: use __NR_ppoll_time64 for rv32
+  * tools/nolibc: ppoll/ppoll_time64: Add a missing argument
+  * tools/nolibc: sys_select: riscv: use __NR_pselect6_time64 for rv32
+  * tools/nolibc: sys_wait4: riscv: use __NR_waitid for rv32
+  * tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64 for rv32
+
+Compile
+=======
+
+For rv64:
+
+    $ make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- nolibc-test
+    $ file nolibc-test
+    nolibc-test: ELF 64-bit LSB executable, UCB RISC-V ...
+
+    $ make ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu- nolibc-test
+    $ file nolibc-test
+    nolibc-test: ELF 64-bit LSB executable, UCB RISC-V ...
+
+For rv32:
+
+    $ make ARCH=riscv CONFIG_32BIT=1 CROSS_COMPILE=riscv64-linux-gnu- nolibc-test
+    $ file nolibc-test
+    nolibc-test: ELF 32-bit LSB executable, UCB RISC-V ...
+
+    $ make ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- nolibc-test
+    $ file nolibc-test
+    nolibc-test: ELF 32-bit LSB executable, UCB RISC-V ...
+
+Testing
+=======
+
+Environment:
+
+    // gcc toolchain
+    $ riscv64-linux-gnu-gcc --version
+    riscv64-linux-gnu-gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+    Copyright (C) 2019 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+    // glibc >= 2.33 required, for older glibc, must upgrade include/bits/wordsize.h
+    $ dpkg -l | grep libc6-dev | grep riscv
+    ii  libc6-dev-riscv64-cross                  2.31-0ubuntu7cross1
+
+    // glibc include/bits/wordsize.h: manually upgraded to >= 2.33
+    // without this, can not build tools/testing/selftests/nolibc/nolibc-test.c
+    $ cat /usr/riscv64-linux-gnu/include/bits/wordsize.h
+    #if __riscv_xlen == (__SIZEOF_POINTER__ * 8)
+    # define __WORDSIZE __riscv_xlen
+    #else
+    # error unsupported ABI
+    #endif
+
+    # define __WORDSIZE_TIME64_COMPAT32 1
+
+    #if __WORDSIZE == 32
+    # define __WORDSIZE32_SIZE_ULONG    0
+    # define __WORDSIZE32_PTRDIFF_LONG  0
+    #endif
+
+    // higher qemu version is better, latest version is v8.0.0+
+    $ qemu-system-riscv64  --version
+    QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.18)
+    Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+
+    // opensbi version, higher is better, must match kernel version and qemu version
+    // rv64: used version is 1.2, latest is 1.2
+    $ head -2 /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/run.out | tail -1
+    OpenSBI v1.2-116-g7919530
+    // rv32: used version is v0.9, latest is 1.2
+    $ head -2 /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/run.out | tail -1
+    OpenSBI v0.9-152-g754d511
+
+For rv64:
+
+    $ pwd
+    /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc
+    $ make ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu- defconfig
+    $ make ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu- BIOS=/labs/linux-lab/boards/riscv64/virt/bsp/bios/opensbi/generic/fw_jump.elf run
+        MKDIR   sysroot/riscv/include
+      make[1]: Entering directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+      make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+      make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+      make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+        INSTALL /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/sysroot/sysroot/include
+      make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+      make[1]: Leaving directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+        CC      nolibc-test
+        MKDIR   initramfs
+        INSTALL initramfs/init
+      make[1]: Entering directory '/labs/linux-lab/src/linux-stable'
+        ...
+        LD      vmlinux
+        NM      System.map
+        SORTTAB vmlinux
+        OBJCOPY arch/riscv/boot/Image
+        Kernel: arch/riscv/boot/Image is ready
+      make[1]: Leaving directory '/labs/linux-lab/src/linux-stable'
+      135 test(s) passed.
+    $ file ../../../../vmlinux
+    ../../../../vmlinux: ELF 64-bit LSB executable, UCB RISC-V, version 1 (SYSV), statically linked, BuildID[sha1]=b8e1cea5122b04bce540b4022f0d6f171ffe615a, not stripped
+
+For rv32:
+
+    $ pwd
+    /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc
+    $ make ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- defconfig
+    $ make ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- BIOS=/labs/linux-lab/boards/riscv32/virt/bsp/bios/opensbi/generic/fw_jump.elf run
+          MKDIR   sysroot/riscv/include
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+      INSTALL /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/sysroot/sysroot/include
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+      CC      nolibc-test
+      MKDIR   initramfs
+      INSTALL initramfs/init
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable'
+      CALL    scripts/checksyscalls.sh
+      GEN     usr/initramfs_data.cpio
+      COPY    usr/initramfs_inc_data
+      AS      usr/initramfs_data.o
+      AR      usr/built-in.a
+      GEN     security/selinux/flask.h security/selinux/av_permissions.h
+      CC      security/selinux/avc.o
+      CC      security/selinux/hooks.o
+      CC      security/selinux/selinuxfs.o
+      CC      security/selinux/nlmsgtab.o
+      CC      security/selinux/netif.o
+      CC      security/selinux/netnode.o
+      CC      security/selinux/netport.o
+      CC      security/selinux/status.o
+      CC      security/selinux/ss/services.o
+      AR      security/selinux/built-in.a
+      AR      security/built-in.a
+      AR      built-in.a
+      AR      vmlinux.a
+      LD      vmlinux.o
+      OBJCOPY modules.builtin.modinfo
+      GEN     modules.builtin
+      MODPOST vmlinux.symvers
+      UPD     include/generated/utsversion.h
+      CC      init/version-timestamp.o
+      LD      .tmp_vmlinux.kallsyms1
+      NM      .tmp_vmlinux.kallsyms1.syms
+      KSYMS   .tmp_vmlinux.kallsyms1.S
+      AS      .tmp_vmlinux.kallsyms1.S
+      LD      .tmp_vmlinux.kallsyms2
+      NM      .tmp_vmlinux.kallsyms2.syms
+      KSYMS   .tmp_vmlinux.kallsyms2.S
+      AS      .tmp_vmlinux.kallsyms2.S
+      LD      vmlinux
+      NM      System.map
+      SORTTAB vmlinux
+      OBJCOPY arch/riscv/boot/Image
+      Kernel: arch/riscv/boot/Image is ready
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    135 test(s) passed.
+    $ file ../../../../vmlinux
+    ../../../../vmlinux: ELF 32-bit LSB executable, UCB RISC-V, version 1 (SYSV), statically linked, BuildID[sha1]=bad4c1f3899f47355d2a2010bade56972fd94b9d, not stripped
+ 
+The full rv64 testing result (run.out) is uploaded at [4].
+The full rv32 testing result (run.out) is uploaded at [5].
+
+That's all, thanks!
+
+Best regards,
+Zhangjin Wu
+---
+
+[1]: https://lore.kernel.org/linux-riscv/20230520143154.68663-1-falcon@tinylab.org/T/#mf0e54ee19bd3f94dadbb4420ed9dffa316d1719d
+[2]: https://lore.kernel.org/linux-riscv/20230520135235.68155-1-falcon@tinylab.org/T/#u
+[3]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+[4]: https://pastebin.com/3L0nV78u
+[5]: https://pastebin.com/RadrXdta 
+
+
+
+Zhangjin Wu (13):
+  Revert "tools/nolibc: riscv: Support __NR_llseek for rv32"
+  Revert "selftests/nolibc: Fix up compile error for rv32"
+  selftests/nolibc: print name instead of number for EOVERFLOW
+  selftests/nolibc: syscall_args: use __NR_statx for rv32
+  selftests/nolibc: riscv: customize makefile for rv32
+  selftests/nolibc: allow specify a bios for qemu
+  selftests/nolibc: remove the duplicated gettimeofday_bad2
+  tools/nolibc: sys_lseek: riscv: use __NR_llseek for rv32
+  tools/nolibc: sys_poll: riscv: use __NR_ppoll_time64 for rv32
+  tools/nolibc: ppoll/ppoll_time64: Add a missing argument
+  tools/nolibc: sys_select: riscv: use __NR_pselect6_time64 for rv32
+  tools/nolibc: sys_wait4: riscv: use __NR_waitid for rv32
+  tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64 for
+    rv32
+
+ tools/include/nolibc/std.h                   |   1 +
+ tools/include/nolibc/sys.h                   | 135 +++++++++++++++++--
+ tools/include/nolibc/types.h                 |  21 ++-
+ tools/testing/selftests/nolibc/Makefile      |  14 +-
+ tools/testing/selftests/nolibc/nolibc-test.c |  15 ++-
+ 5 files changed, 167 insertions(+), 19 deletions(-)
+
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
