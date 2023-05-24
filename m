@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11AA2C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 09:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA44C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 09:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gQ89IGIUoPce9el8NNZ93OdY3J6OzCr+jHrMxrOMMA0=; b=30+24KCjmmZA8y
-	YA3Ezd8QXMS6CIJDJf5ZzRnWFmCGUiezSwrHMA9zADTQcy01EgfmVpU4Uh+fx108ZdMsSwV76VIxq
-	6FdlbxBA1chXH/pqm4aL3KO73Uqo3ic9Bh2RfXtE1Nxpj5n1yImPLlu2++yrA++JYfbxiQgNQErzj
-	lEnO/pc7CEzQlKDdbcTW+3UsXO4RfBbsAKUn2F+qWX2p5W9Vk62AtUWJQoF3jwPSFboUPYHVHeOfd
-	hhyHRMzdjKkyEKBYo/oVKupBruR+37YJ5MnBbnghKbUXgrd8lf0+faiZ2SxVqklipLwei3UWEaFvo
-	8SO4jpaepFHb/GcB0GTA==;
+	List-Owner; bh=qLmA+iR4vTFBrxlOTmgGx4e+PG1RpL/ADhJnZSeBcKs=; b=XW7gOHYELyo5/P
+	g9wa9Cstl3kjfrpzOLBgg/YA2HTDQtXxkSECLVB1bBn4UB3DTjiAuhhWv6/IhfIrUosvl63sI3Xz4
+	E+xCHgMYN9IqpFW/85/7rXOPck9aQeIOkvYd664DUVpXA4+2WG36ZIBK1FcdkKioqtbdgPrQBMgwl
+	AA0h3DZjvt4yyoJcnoR6ikwOzVf052ql9bom5rDORYP8ZkAf0kUKXEINRgR9qrYokAB63Z2NH9gBw
+	ZVWoqr4r82wT2rJzkg/ik1wIZNwEqB854kWHvDMu7wOJTZxDPHtLwPyjVN9qMHrkdHUvefVExFw/+
+	Qq182+1868piFAIcotfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1kgU-00CvSu-0s;
-	Wed, 24 May 2023 09:21:30 +0000
-Received: from mail-ot1-f45.google.com ([209.85.210.45])
+	id 1q1kko-00CxF5-0c;
+	Wed, 24 May 2023 09:25:58 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1kg6-00CvDk-0h;
-	Wed, 24 May 2023 09:21:07 +0000
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-6af81142b6dso24578a34.2;
-        Wed, 24 May 2023 02:21:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684920063; x=1687512063;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+	id 1q1kkk-00CxDV-2s
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 May 2023 09:25:56 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-64d247a023aso483296b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 24 May 2023 02:25:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1684920351; x=1687512351;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ooM2WEkot7KuXyG8TFkP/cOGbwCsIoaqyATdhVKfqHo=;
-        b=HBEc9mO06vm9bQAonCs6c9uTU79VKDtglBubGUrjlRhq+bAj3aixF8W8rLB0BK3Rt3
-         sX+p4hq+RsCAPIjZ5pZwsdeEjnDnVDvjLk5LZl7sNZTjY59C+zre7EJSLYmnT+940Ccj
-         vnjkPoXpqivcp1k0FHuzl2iqt8J6HgmdyFOsrHAbgucMAzFZSqjH6IkPSxcOhT+g6eFf
-         BuKQDChhtNGQDWt2nwqBTRnqe2YZ5D/Jeie7IIMWgtvImBokGiodLFJGpzysp8hkAt6j
-         1ZakrYiacPGK4tGLk78aoh1///cm6/LqyIs0QBQ6HWfvEHZsdfQ9xKOabF/sQDc4cbsr
-         VylQ==
-X-Gm-Message-State: AC+VfDx/LaSKkR/DD774JVOBOl1IWHgCRV3A2wN86+B1EpGOsf+EBB6u
-	0jFg66zZIoCkX4qg/U82+g==
-X-Google-Smtp-Source: ACHHUZ4tFm4ZuNjyciy5rDRzPIQPer8A2tuJgUMFQzjxCy7xPQFdCReLHYiLcV5WSajQCgi+WrZNxA==
-X-Received: by 2002:a05:6830:1b67:b0:6af:8b3f:cda4 with SMTP id d7-20020a0568301b6700b006af8b3fcda4mr3059936ote.13.1684920062785;
-        Wed, 24 May 2023 02:21:02 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id a23-20020a9d6e97000000b006af8ac6ed5dsm1992509otr.38.2023.05.24.02.21.00
+        bh=RvHr5LmWlOAwH72dKmpy22b0i7NyoTobA4QHfY56YqY=;
+        b=ciC8y7QAPHbykBqQcM730+HPORFRKmlNjUKYf9ifW40ENmc67orcf+Yp9oZihPOc8X
+         BcMXx+0qOVQxl4OmO7rSqvWyUf4beB3vtMxAirZ4T6DpPfGF/aW2T1nJEKuXkHHGU2oQ
+         w5UsCgQfPco1m516CCV6Us7B+x4c44gpw3XQf48rOAwTyVPnN8KYn5Qwi2/pj9/ShqhO
+         K8vhDvFSBOdIbeO8jNHOILoijJ6zBZzr9ZHMf9DnajaAjd7LklYtg+ITNOORHr4HUEQv
+         9LV8IYcBMSo10gyEBdLrrT0EfH7m7TGVZyJK/VqOQxGJdduKLTI/jEno0p93gQvDJaOD
+         gDmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1684920351; x=1687512351;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RvHr5LmWlOAwH72dKmpy22b0i7NyoTobA4QHfY56YqY=;
+        b=aqMpYWcEIIQmVmx5TSfiTxc2Y0WSIVNfisbH/aUb8xu/xsN1ZiiJSMWBQB9zTbBPG0
+         urfR+eMh7OVGBNpXHbMVHindPc1MFuilMkpZvUTP9xxS/YoeTaYvvZez/Ci5pMMzgLNZ
+         farpOR98E5RmzuxAqkO1zgLRASW8rUV4DO4boWRlbHzRb/fXhw5mulcWn7DZWvOnjyuf
+         KXCrLKkI7PsAr6PX+/dk3WoBey7AIFquQ/AS7eY+UsqLo7a8iMSuB9RSeUa62DoH1el2
+         0uwu0LCO8yV5c4c8Ka+8omlrFLPpVp3rzJedB1LkCfpWGa4WEH3yAZeATYXmRp/fgQmE
+         Higg==
+X-Gm-Message-State: AC+VfDxNpk/qLkUwYUQlYu7p48Ywmo/gsSN/v/vBo1XbyTxyRU99LQ9j
+	eezzLYlG1LyfSLOIcIZrU5CyMQ==
+X-Google-Smtp-Source: ACHHUZ4yigSzUbkNGJIFZ403kPHhDrOx8fj3JMeflq0CzrSnTyB/03UP4L2tSWv7WQHKQIa/QKD22A==
+X-Received: by 2002:a05:6a21:99a6:b0:10b:f980:18d3 with SMTP id ve38-20020a056a2199a600b0010bf98018d3mr9336670pzb.1.1684920351146;
+        Wed, 24 May 2023 02:25:51 -0700 (PDT)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id t14-20020a17090b018e00b002532eef4fc5sm925013pjs.34.2023.05.24.02.25.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 May 2023 02:21:02 -0700 (PDT)
-Received: (nullmailer pid 3187102 invoked by uid 1000);
-	Wed, 24 May 2023 09:21:00 -0000
-MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Maxim Kiselev <bigunclemax@gmail.com>
-Cc: Andre Przywara <andre.przywara@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Heiko Stuebner <heiko.stuebner@vrull.eu>, Mike Looijmans <mike.looijmans@topic.nl>, 
-	Caleb Connolly <caleb.connolly@linaro.org>, devicetree@vger.kernel.org, 
-	Ramona Bolboaca <ramona.bolboaca@analog.com>, ChiaEn Wu <chiaen_wu@richtek.com>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, linux-iio@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Rob Herring <robh+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Conor Dooley <conor@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>, linux-sunxi@lists.linux.dev, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, 
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, linux-riscv@lists.infradead.org, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, ChiYuan Huang <cy_huang@richtek.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Samuel Holland <samuel@sholland.org>, 
-	Cosmin Tanislav <demonsingur@gmail.com>, William Breathitt Gray <william.gray@linaro.org>
-In-Reply-To: <20230524082744.3215427-3-bigunclemax@gmail.com>
-References: <20230524082744.3215427-1-bigunclemax@gmail.com>
- <20230524082744.3215427-3-bigunclemax@gmail.com>
-Message-Id: <168492006052.3187086.8767275310596142124.robh@kernel.org>
-Subject: Re: [RFC PATCH v1 2/4] dt-bindings: iio: adc: Add Allwinner
- D1/T113s/R329 SoCs GPADC
-Date: Wed, 24 May 2023 04:21:00 -0500
+        Wed, 24 May 2023 02:25:50 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: palmer@dabbelt.com
+Cc: andy.chiu@sifive.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	remi@remlab.net
+Subject: Re: [PATCH -next v20 20/26] riscv: Add prctl controls for userspace vector management
+Date: Wed, 24 May 2023 09:25:30 +0000
+Message-Id: <20230524092530.7773-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <mhng-52f8af07-f3fc-4674-94ea-abbe2108907a@palmer-ri-x1c9a>
+References: <mhng-52f8af07-f3fc-4674-94ea-abbe2108907a@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_022106_256617_34B5FD3D 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20230524_022554_962885_5CB36284 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +86,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+How about adding the following 2 patches to deal with the problem.
+However, I am concerned if this makes ELF_HWCAP too complicated. e.g.
+Future extensions may as well want to do something here after we create
+an entry here.
 
-On Wed, 24 May 2023 11:27:31 +0300, Maxim Kiselev wrote:
-> Allwinner's D1, T113s and R329 SoCs have a new general purpose ADC.
-> This ADC is the same for all of this SoCs. The only difference is
-> the number of available channels.
-> 
-> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
-> ---
->  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 52 +++++++++++++++++++
->  1 file changed, 52 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> 
+Thanks,
+Andy
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+[-- Attachment #1: patch.diff --]
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Wed, 24 May 2023 08:00:11 +0000
+Subject: [PATCH 1/2] riscv: hwcap: change ELF_HWCAP to a function
 
-yamllint warnings/errors:
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ arch/riscv/include/asm/elf.h   | 2 +-
+ arch/riscv/include/asm/hwcap.h | 2 ++
+ arch/riscv/kernel/cpufeature.c | 5 +++++
+ 3 files changed, 8 insertions(+), 1 deletion(-)
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: 'maintainers' is a required property
-	hint: Metaschema for devicetree binding documentation
-	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
-Error: Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:27.28-29 syntax error
-FATAL ERROR: Unable to parse input tree
-make[1]: *** [scripts/Makefile.lib:419: Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:1512: dt_binding_check] Error 2
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index ca23c4f6c440..c24280774caf 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -66,7 +66,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+  * via a bitmap that coorespends to each single-letter ISA extension.  This is
+  * essentially defunct, but will remain for compatibility with userspace.
+  */
+-#define ELF_HWCAP	(elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1))
++#define ELF_HWCAP	riscv_get_elf_hwcap()
+ extern unsigned long elf_hwcap;
+ 
+ /*
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 574385930ba7..e6c288ac4581 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -61,6 +61,8 @@
+ 
+ #include <linux/jump_label.h>
+ 
++unsigned long riscv_get_elf_hwcap(void);
++
+ struct riscv_isa_ext_data {
+ 	/* Name of the extension displayed to userspace via /proc/cpuinfo */
+ 	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 28032b083463..29c0680652a0 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -293,6 +293,11 @@ void __init riscv_fill_hwcap(void)
+ 	pr_info("riscv: ELF capabilities %s\n", print_str);
+ }
+ 
++unsigned long riscv_get_elf_hwcap(void)
++{
++	return (elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1));
++}
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ /*
+  * Alternative patch sites consider 48 bits when determining when to patch
+-- 
+2.17.1
 
-doc reference errors (make refcheckdocs):
+[-- Attachment #2: patch2.diff --]
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Wed, 24 May 2023 08:00:11 +0000
+Subject: [PATCH 1/2] riscv: hwcap: change ELF_HWCAP to a function
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230524082744.3215427-3-bigunclemax@gmail.com
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ arch/riscv/include/asm/elf.h   | 2 +-
+ arch/riscv/include/asm/hwcap.h | 2 ++
+ arch/riscv/kernel/cpufeature.c | 5 +++++
+ 3 files changed, 8 insertions(+), 1 deletion(-)
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index ca23c4f6c440..c24280774caf 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -66,7 +66,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+  * via a bitmap that coorespends to each single-letter ISA extension.  This is
+  * essentially defunct, but will remain for compatibility with userspace.
+  */
+-#define ELF_HWCAP	(elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1))
++#define ELF_HWCAP	riscv_get_elf_hwcap()
+ extern unsigned long elf_hwcap;
+ 
+ /*
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 574385930ba7..e6c288ac4581 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -61,6 +61,8 @@
+ 
+ #include <linux/jump_label.h>
+ 
++unsigned long riscv_get_elf_hwcap(void);
++
+ struct riscv_isa_ext_data {
+ 	/* Name of the extension displayed to userspace via /proc/cpuinfo */
+ 	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 28032b083463..29c0680652a0 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -293,6 +293,11 @@ void __init riscv_fill_hwcap(void)
+ 	pr_info("riscv: ELF capabilities %s\n", print_str);
+ }
+ 
++unsigned long riscv_get_elf_hwcap(void)
++{
++	return (elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1));
++}
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ /*
+  * Alternative patch sites consider 48 bits when determining when to patch
+-- 
+2.17.1
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
