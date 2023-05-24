@@ -4,79 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5703EC7EE26
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 00:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9B8C77B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 00:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=KUNReHIDMN7DAtO9wk/zu90t6N3oOdr5BrRk+tL6Yew=; b=qxf2X1i67nDeSHdjLMaM/qj7Uq
-	BBIx47uqjZTz37X8jZchfRbuwcUZsl/WQN12DquJQKwGujP2o3azxHNlZIClbK2ESeew08kZXGcSx
-	xNp6Rj/Yh/c3oGvqQo60bmDVAOjj2YlgnwyJgPNIzRnVZuuBGzpH4yO/DBICu2BADOT7zgGenOk02
-	6JbaeZrcdTYKRr84Y6UXvam0O8fNMImLuIFHsC1onzeI2R2kpdFlg/IaHBgL5UrXdo38f0qZNM7Fe
-	Ejg2IOXFvXtD7yNOanYpwir6wzwzAmiCQRt1xhN43xiaBbjDOYKpOAeFW7FXeBL2/YoCWOC/66YpN
-	isn4w39g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=50O25HVRHKJ0ED1yvj+T6U2MudEX8XpcHXljP3uTzcE=; b=SzmMs2RTnveaUO
+	v2QkKtIHsHXXAs8w5ZTFCnC2x0ixDq7b6Qgs5O9PM8F+oKbC9S1FFgUoN/d+fagpOj6wYdY339oKA
+	Ijp4/0mcbrJ9ccZmQhmZbjmmnaD4g1100ZytQSV2pIa1JuEFOz+byynIxbUh55tT8T+Hp6MKslk+Y
+	4e7I83fo5NQgR+NBjIJc/fRoZagTvf6gBt48ojWTrCEFvHpXr6f4aewKG7eUtCrcPZfsKH2BobPwH
+	XxJeGaNPU1jFj0CQHqorK+qXl40v0LHqduMTPSNtBwK+80WNtKsXxbkGFigyud7Kpq1OmEf/uTSUd
+	j8c58oWF94E8UdV2RLkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1cGX-00Btif-04;
-	Wed, 24 May 2023 00:22:09 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1cGU-00Bth9-0L
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 May 2023 00:22:07 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1ae40dcdc18so2231775ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 23 May 2023 17:22:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1684887724; x=1687479724;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kvW5odmav81YCuU2xaxrVKZjDJTjkbhDO7IJyae5Ly0=;
-        b=LS3sS8i6pcOP3Z/1u/W/pb1HW/gNPJV9pCBq9zXKwqnTKBoB9Y3l9XsoyYn0H4mYMt
-         wycd6iPEdZsALvcUaSRDYknHogWQzUx5YuECRFRWelJviVYM3NWtOHNyllj5bPZrV4C2
-         tlkFh8IEBwvI3SKEbM+QHEaIVvL9xxGveePO7+A/pBsQMechOyBwFGzvI+Vt9U6edYfW
-         S90Otv7palIzLHfc7mMlbe+XO3fGj75NIqNnpsEk61c0ENR3iu4r13TUs8s/1Y88tGgU
-         k1nVfll23GNpWJCtry6uI56Qx6aBduWvsKuUcPDE9CeRSs6f/NrcrBfyqWlgEuWoNi3w
-         nsPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1684887724; x=1687479724;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kvW5odmav81YCuU2xaxrVKZjDJTjkbhDO7IJyae5Ly0=;
-        b=ZucAgvyiPmjfxITJzMbu7jSrpdF3DuULwaSHqeJUo3U76t+KrWi5RNafql4E6z7Frv
-         tBjUsPAaxr5dC3dWxDaV6i0Vy+lsoCVgoIs/SMtfpuyPqKr03lXAqR98lzRAz1zezum0
-         qKomRIkO7HE/g6ba/+alx2RapEpafvGx0Ut9hMvdB2mcNNnIXFNNEOZfZCLTRoRXzycQ
-         o37WfloJ1+CFUzRir9tU2kK7mOHfcvmmHUEB+BLSlF7tNSIek5IgRxa67TbAIzVCL1MG
-         pSJBIP10n7+3pjaz+xHBdnwbQd96M/DVlj+/sdizlxTPJwUIeYzA233whvp26Q2tUz/2
-         Hs3Q==
-X-Gm-Message-State: AC+VfDzUe6Gn9Jk5dF0RsFoS3uzcTJgz/gsFrxZR9qUselSs54VMC1+O
-	P1Fs1laZKP3+Rhv9odYGlnBG9A==
-X-Google-Smtp-Source: ACHHUZ7IhEOip6ee757qzLCooYkp+ZnG4A+THUuF1wxxUAgFkFu+d/JnFGBSydGfvXaf+AD5p2ehMw==
-X-Received: by 2002:a17:902:c40d:b0:1ac:66c4:6071 with SMTP id k13-20020a170902c40d00b001ac66c46071mr17814804plk.57.1684887723916;
-        Tue, 23 May 2023 17:22:03 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id p1-20020a170902bd0100b001a24cded097sm7307340pls.236.2023.05.23.17.22.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 May 2023 17:22:03 -0700 (PDT)
-Date: Tue, 23 May 2023 17:22:03 -0700 (PDT)
-X-Google-Original-Date: Tue, 23 May 2023 17:21:33 PDT (-0700)
-Subject: Re: [PATCH -next v20 23/26] riscv: Enable Vector code to be built
-In-Reply-To: <20230518-rented-jogging-b84c705f7d76@spud>
-CC: andy.chiu@sifive.com, linux-riscv@lists.infradead.org, anup@brainfault.org,
-  atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-  Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com, guoren@linux.alibaba.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-4f11f1da-100c-452f-8717-e059d6e1d44b@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230523_172206_141729_6DD450FC 
-X-CRM114-Status: GOOD (  16.28  )
+	id 1q1cGn-00BtnW-02;
+	Wed, 24 May 2023 00:22:25 +0000
+Received: from [2601:1c2:980:9ec0::2764]
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1cGl-00Btme-1j;
+	Wed, 24 May 2023 00:22:23 +0000
+Message-ID: <e2279988-03b4-9670-6f1c-c360c478b38e@infradead.org>
+Date: Tue, 23 May 2023 17:22:20 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: linux-next: Tree for May 15 (several RV64 build errors)
+Content-Language: en-US
+To: Alexandre Ghiti <alex@ghiti.fr>, Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Conor Dooley <conor@kernel.org>
+References: <20230515141235.0777c631@canb.auug.org.au>
+ <54244db6-ff69-4cf8-894c-c3dd2f12df9c@infradead.org>
+ <5d894e71-25ad-8ba0-f632-2eec6e017f46@ghiti.fr>
+ <ee3bc2ce-5ebe-927e-5b6d-0b9490ef3875@ghiti.fr>
+ <9f32e509-95b1-6a5a-aba2-664af4af37a8@infradead.org>
+ <c59f9f1f-278c-ac5e-88cd-85b8485f59e3@ghiti.fr>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <c59f9f1f-278c-ac5e-88cd-85b8485f59e3@ghiti.fr>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +59,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 May 2023 10:31:37 PDT (-0700), Conor Dooley wrote:
-> On Thu, May 18, 2023 at 04:19:46PM +0000, Andy Chiu wrote:
->> From: Guo Ren <guoren@linux.alibaba.com>
->> 
->> This patch adds configs for building Vector code. First it detects the
->> reqired toolchain support for building the code. Then it provides an
->> option setting whether Vector is implicitly enabled to userspace.
->> 
->> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
->> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
->> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
->
->> Suggested-by: Conor Dooley <conor.dooley@microchip.com>>
->
-> You can drop this tag if you respin, I just provided review comments ;)
-> Also, it has an extra > at the end.
->
-> Otherwise, I am still not sold on the "default y", but we can always
-> flip it if there is in fact a regression.
 
-It's definately the riskier of the options, but the uABI issue will only 
-manifest on systems that have V hardware.  Those don't exist yet, so 
-aside from folks running QEMU (who probably want V) we're only risking 
-tripping up users on pre-release silicion -- and that's always a 
-headache, so whatever ;)
 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->
-> Thanks.
+On 5/23/23 06:07, Alexandre Ghiti wrote:
+> 
+> On 23/05/2023 04:28, Randy Dunlap wrote:
+>> Hi,
+>>
+>> On 5/19/23 03:42, Alexandre Ghiti wrote:
+>>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .data LMA [000000000041a000,00000000075bffd7] overlaps section .text LMA [00000000000f09d4,00000000033562ab]
+>>>>> /opt/crosstool/gcc-12.2.0-nolibc/riscv64-linux/bin/riscv64-linux-ld: section .init.pi.text LMA [00000000033562ac,0000000003359137] overlaps section .data LMA [000000000041a000,00000000075bffd7]
+>>>>
+>>>> I'll check this one too which seems to be related to kernel/pi introduction.
+>>>
+>>> Thanks to Bjorn: this is caused by XIP_KERNEL, which is known to have limited size, hence the overlap, so no fix for this one. Is there a way to exclude this config from randconfig?
+>> Does this mean exclude XIP_KERNEL or something else from randconfigs?
+> 
+> 
+> I meant excluding XIP_KERNEL from randconfigs: it has very strict constraints regarding what can/can't be enabled then it needs human intervention to make sure the error above does not happen. So I would not bother testing this in randconfigs if possible.
+
+I can exclude it from my randconfig builds, but I don't know of a way to exclude it from randconfig builds in general (i.e., for everyone).
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
