@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A221C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 10:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E37DC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 May 2023 10:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pDijYiw0LOVMbQOg/Dd2pE2nDMtxXx31WIc5Xy/Zqro=; b=NmXJliBbIPyriF
-	xq6f2YW4zv1mTj46tgehYZkKJSGjxeXvqPaY6VjzO+bTextH+A/V5uwLiZKtUtdavevHirxoEPlSs
-	3O+gvCzyg5Qz4PdkEDP+y5th+Z56CNERhnsSCsrRELe619/N+Xhsl4kabpMX4EmyEUBZ/GG+dDwKA
-	2SWdbZBodLqpcoKEDSdDhEh+1Umqy7i6Om+GrPaxD1slnUsyV4AP8Wdn03+aXByZJrwn3OJntyDSa
-	HH8JYqevOeTvENyXnaKX5N727DakimMyfpupMfR2yci+THYSgG2Ux2KipZ9SFcYgUdpY182EsodMu
-	B4QxKh9lqdJ2Z6Z5J8yA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJ1PZzjF84pVbbo4ADR1u4dzEr7bZYYvhc9+XnVo4S8=; b=NqMURI08cJ7NZBxs5XqLaD5GRc
+	Vgfjsj1A8z+XfVDm/9vbp5WBoMUZsXfexcJurGXln9BILf3MadVn3Cttijn2Mb+T6Otz9U6plqooR
+	ykAjVEDOEM2WrOJq5G094RKtpeVtO6+dcXrznIweZ14Sn5ympGN4mcZTAhnwGxHph2ivOOXRs8JR9
+	tKcjuhRFiD0oVeLE4bWAXqxF+HlztBjqaUgaCToFt0lawxDv5ozUQI8eBj+XwTEJN7L89oYoMkpdv
+	89RXsjSMNkfMMZTGhAepKgg5/x0B4e+/geoup2uhmKcHzVimloPgbMtXp9rLVASPSiFyh0LjbErU3
+	zHs59D7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1lIy-00D2wN-0S;
-	Wed, 24 May 2023 10:01:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q1lIu-00D2vn-1A;
-	Wed, 24 May 2023 10:01:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FE721042;
-	Wed, 24 May 2023 03:01:56 -0700 (PDT)
-Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B2783F67D;
-	Wed, 24 May 2023 03:01:07 -0700 (PDT)
-Date: Wed, 24 May 2023 11:01:05 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Maxim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Andy
- Shevchenko <andriy.shevchenko@linux.intel.com>, Cosmin Tanislav
- <demonsingur@gmail.com>, Haibo Chen <haibo.chen@nxp.com>, ChiYuan Huang
- <cy_huang@richtek.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>,
- Ibrahim Tilki <Ibrahim.Tilki@analog.com>, ChiaEn Wu
- <chiaen_wu@richtek.com>, William Breathitt Gray <william.gray@linaro.org>,
- Arnd Bergmann <arnd@arndb.de>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Caleb Connolly
- <caleb.connolly@linaro.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v1 1/4] iio: adc: Add Allwinner D1/T113s/R329 SoCs
- GPADC
-Message-ID: <20230524110105.4928906c@donnerap.cambridge.arm.com>
-In-Reply-To: <20230524082744.3215427-2-bigunclemax@gmail.com>
-References: <20230524082744.3215427-1-bigunclemax@gmail.com>
-	<20230524082744.3215427-2-bigunclemax@gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1q1lbY-00D58o-2m;
+	Wed, 24 May 2023 10:20:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q1lbU-00D57n-1I
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 May 2023 10:20:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1684923624; x=1716459624;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/2s4Qnb05K6PsfiTfS/96AXNQs6QvNaT5gb/FneMc1g=;
+  b=sEqK+41bJlupBu8ZufSzC66MoMGB8tqk4yyii1BVP+CKgz9LO0e0AjXS
+   VRpP/dYjhFYXhQ0Ph1awur0zgtzPpE3zEG7NV8fN6mreZ+oTpsubcWCO1
+   BsA1RZ+MnwfYLIaJpGaE6ZgEx1nawBcXUZQf9djxqYXeZ20wncqkMwXeo
+   HH6BEeu0UD89jU5UClya24ue7jLYt+tHvbW5gcdMKcxJ2sxg5Vb8W0olt
+   DjbEV/mzgj8jt72ZCjZkkDKhxYe/AWvfil/o/EYT7h67m4nAy+GImhcUF
+   +Ew9FfPIc9YZXFJyz1lhWVENWx89VfpEx7iiTM9gYFVlxLU7NpwOnBuhU
+   w==;
+X-IronPort-AV: E=Sophos;i="6.00,188,1681196400"; 
+   d="asc'?scan'208";a="153681187"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 May 2023 03:20:17 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 24 May 2023 03:20:13 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 24 May 2023 03:20:10 -0700
+Date: Wed, 24 May 2023 11:19:48 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+CC: Torsten Duwe <duwe@lst.de>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <yanhong.wang@starfivetech.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
+Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
+ generator
+Message-ID: <20230524-jittery-sway-41b578b24153@wendy>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-2-xingyu.wu@starfivetech.com>
+ <20230519135733.GA10188@lst.de>
+ <20230519-smokeless-guileless-2a71cae06509@wendy>
+ <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
+ <20230523-fondue-monotype-0c751a8f0c13@wendy>
+ <20230523131006.46997d84@blackhole.lan>
+ <20230523-saturate-axis-f46b78b7b82b@wendy>
+ <38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_030112_497555_B0F0B694 
-X-CRM114-Status: GOOD (  43.96  )
+X-CRM114-CacheID: sfid-20230524_032024_523011_6F44609E 
+X-CRM114-Status: GOOD (  42.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,399 +95,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7634739384423076183=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 May 2023 11:27:30 +0300
-Maxim Kiselev <bigunclemax@gmail.com> wrote:
+--===============7634739384423076183==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dhsQSIulCPiX0eS/"
+Content-Disposition: inline
 
-Hi Maxim,
+--dhsQSIulCPiX0eS/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> The General Purpose ADC (GPADC) can convert the external signal into
-> a certain proportion of digital value, to realize the measurement of
-> analog signal, which can be applied to power detection and key detection.
-> 
-> D1, T113s and R329 contain this GPADC IP. The only difference between
-> this SoCs is the number of available channels:
-> 
->  T113 - 1 channel
->  D1   - 2 channels
->  R329 - 4 channels
-> 
-> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
-> ---
->  drivers/iio/adc/Kconfig            |  10 ++
->  drivers/iio/adc/Makefile           |   1 +
->  drivers/iio/adc/sun20i-gpadc-iio.c | 275 +++++++++++++++++++++++++++++
->  3 files changed, 286 insertions(+)
->  create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
-> 
-> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-> index eb2b09ef5d5b..988804f46bf6 100644
-> --- a/drivers/iio/adc/Kconfig
-> +++ b/drivers/iio/adc/Kconfig
-> @@ -1123,6 +1123,16 @@ config SUN4I_GPADC
->  	  To compile this driver as a module, choose M here: the module will be
->  	  called sun4i-gpadc-iio.
->  
-> +config SUN20I_GPADC
-> +	tristate "Support for the Allwinner SoCs GPADC"
-> +	depends on ARCH_SUNXI || COMPILE_TEST
-> +	help
-> +	  Say yes here to build support for Allwinner (D1, T113 and R329) SoCs
-> +	  GPADC. This ADC provides up to 4 channels.
-> +
-> +	  To compile this driver as a module, choose M here: the module will be
-> +	  called sun20i-gpadc-iio.
-> +
->  config TI_ADC081C
->  	tristate "Texas Instruments ADC081C/ADC101C/ADC121C family"
->  	depends on I2C
-> diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-> index e07e4a3e6237..fc4ef71d5f8f 100644
-> --- a/drivers/iio/adc/Makefile
-> +++ b/drivers/iio/adc/Makefile
-> @@ -95,6 +95,7 @@ obj-$(CONFIG_RZG2L_ADC) += rzg2l_adc.o
->  obj-$(CONFIG_SC27XX_ADC) += sc27xx_adc.o
->  obj-$(CONFIG_SPEAR_ADC) += spear_adc.o
->  obj-$(CONFIG_SUN4I_GPADC) += sun4i-gpadc-iio.o
-> +obj-$(CONFIG_SUN20I_GPADC) += sun20i-gpadc-iio.o
->  obj-$(CONFIG_STM32_ADC_CORE) += stm32-adc-core.o
->  obj-$(CONFIG_STM32_ADC) += stm32-adc.o
->  obj-$(CONFIG_STM32_DFSDM_CORE) += stm32-dfsdm-core.o
-> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
-> new file mode 100644
-> index 000000000000..90f3bb2e41cd
-> --- /dev/null
-> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-> @@ -0,0 +1,275 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * GPADC driver for sunxi platforms (D1, T113-S3 and R329)
-> + * Copyright (c) 2023 Maksim Kiselev <bigunclemax@gmail.com>
-> + */
-> +
-> +#include <linux/completion.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/clk.h>
-> +#include <linux/reset.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/iio/iio.h>
-> +
-> +#define SUN20I_GPADC_SR					0x00
-> +
-> +#define SUN20I_GPADC_CTRL				0x04
-> +#define SUN20I_GPADC_CTRL_ADC_FIRST_DLY			((GENMASK(7, 0) & (x)) << 24)
-> +#define SUN20I_GPADC_CTRL_ADC_AUTOCALI_EN		BIT(23)
-> +#define SUN20I_GPADC_CTRL_ADC_OP_BIAS			((GENMASK(1, 0) & (x)) << 20)
-> +#define SUN20I_GPADC_CTRL_WORK_MODE_SELECT(x)		((GENMASK(1, 0) & (x)) << 18)
-> +#define SUN20I_GPADC_CTRL_ADC_CALI_EN			BIT(17)
-> +#define SUN20I_GPADC_CTRL_ADC_EN			BIT(16)
-> +
-> +#define SUN20I_GPADC_CS_EN				0x08
-> +#define SUN20I_GPADC_CS_EN_ADC_CHAN_CMP_EN(x)		((GENMASK(16, 0) & BIT(x)) << 16)
-> +#define SUN20I_GPADC_CS_EN_ADC_CHAN_SELECT(x)		(GENMASK(16, 0) & BIT(x))
-> +
-> +#define SUN20I_GPADC_DATA_INTC				0x28
-> +#define SUN20I_GPADC_DATA_INTC_CHAN_DATA_IRQ_EN(x)	(GENMASK(16, 0) & BIT(x))
-> +
-> +#define SUN20I_GPADC_DATA_INTS				0x38
-> +#define SUN20I_GPADC_DATA_INTS_DATA_PENDING(x)		(GENMASK(16, 0) & BIT(x))
-> +#define SUN20I_GPADC_DATA_INTS_DATA_PENDING_MASK	GENMASK(16, 0)
-> +
-> +#define SUN20I_GPADC_CHAN_DATA(x)			(0x80 + (x) * 4)
-> +
-> +#define SUN20I_GPADC_TIMEOUT				msecs_to_jiffies(100)
-> +#define SUN20I_GPADC_MAX_CHANNELS			16
-> +
-> +struct sun20i_gpadc_configuration {
-> +	const struct iio_chan_spec	*channels;
-> +	u8				num_channels;
-> +};
-> +
-> +struct sun20i_gpadc_iio {
-> +	struct iio_dev			*indio_dev;
-> +	struct regmap			*regmap;
-> +	struct completion		completion;
-> +	struct mutex			lock;
-> +};
-> +
-> +#define SUN20I_GPADC_ADC_CHANNEL(_channel) {			\
-> +	.type = IIO_VOLTAGE,					\
-> +	.indexed = 1,						\
-> +	.channel = _channel,					\
-> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
-> +	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),	\
-> +}
-> +
-> +static const struct iio_chan_spec sun8i_t113_gpadc_channels[] = {
-> +	SUN20I_GPADC_ADC_CHANNEL(0),
-> +};
-> +
-> +static const struct iio_chan_spec sun20i_d1_gpadc_channels[] = {
-> +	SUN20I_GPADC_ADC_CHANNEL(0),
-> +	SUN20I_GPADC_ADC_CHANNEL(1),
-> +};
-> +
-> +static const struct iio_chan_spec sun50i_r329_gpadc_channels[] = {
-> +	SUN20I_GPADC_ADC_CHANNEL(0),
-> +	SUN20I_GPADC_ADC_CHANNEL(1),
-> +	SUN20I_GPADC_ADC_CHANNEL(2),
-> +	SUN20I_GPADC_ADC_CHANNEL(3),
-> +};
-> +
-> +static const struct sun20i_gpadc_configuration sun20i_gpadc_config[] = {
-> +	{ sun8i_t113_gpadc_channels, ARRAY_SIZE(sun8i_t113_gpadc_channels) },
-> +	{ sun20i_d1_gpadc_channels, ARRAY_SIZE(sun20i_d1_gpadc_channels) },
-> +	{ sun50i_r329_gpadc_channels, ARRAY_SIZE(sun50i_r329_gpadc_channels) },
-> +};
+On Wed, May 24, 2023 at 05:00:02PM +0800, Xingyu Wu wrote:
+> On 2023/5/23 19:28, Conor Dooley wrote:
+> > On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
+> >> On Tue, 23 May 2023 09:28:39 +0100
+> >> Conor Dooley <conor.dooley@microchip.com> wrote:
+> >>=20
+> >> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
+> >> > > On 2023/5/19 22:16, Conor Dooley wrote:
+> >> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe wrote:
+> >> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
+> >> > > >> [...]
+> >>=20
+> >> > > >> > +/* PLL clocks */
+> >> > > >> > +#define JH7110_CLK_PLL0_OUT			0
+> >> > > >> > +#define JH7110_CLK_PLL1_OUT			1
+> >> > > >> > +#define JH7110_CLK_PLL2_OUT			2
+> >> > > >>=20
+> >> > > >> In U-Boot commit 58c9c60b Yanhong Wang added:
+> >> > > >>=20
+> >> > > >> +
+> >> > > >> +#define JH7110_SYSCLK_PLL0_OUT                       190
+> >> > > >> +#define JH7110_SYSCLK_PLL1_OUT                       191
+> >> > > >> +#define JH7110_SYSCLK_PLL2_OUT                       192
+> >> > > >> +
+> >> > > >> +#define JH7110_SYSCLK_END                    193
+> >> [...]
+> >> > > > Ohh, that's not good.. If you pass the U-Boot dtb to Linux it
+> >> > > > won't understand the numbering. The headers are part of the
+> >> > > > dt-binding :/
+> >>=20
+> >> In fact, the clock index >=3D 190 makes linux hang on boot, waiting wi=
+th
+> >> EPROBE_DEFER for every device's clock, because the sysclk driver errors
+> >> out with EINVAL (jh7110_sysclk_get()).
+> >=20
+> > Yup, that's about what I expected to happen.
+> >=20
+> >> > > Because PLL driver is separated from SYSCRG drivers in Linux, the
+> >> > > numbering starts from 0. But in Uboot, the PLL driver is included
+> >> > > in the SYSCRG driver, and the number follows the SYSCRG.
+> >> >=20
+> >> > Unfortunately, how you choose to construct your drivers has nothing =
+to
+> >> > do with this.
+> >> > These defines/numbers appear in the dts and are part of the DT ABI.
+> >> > The same dts is supposed to work for Linux & U-Boot.
+> >>=20
+> >> The JH7110 has 6 blocks of 64k iomem in that functional area:
+> >> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
+> >> The good news: the current DTS, as proposed here and in U-Boot master,
+> >> provides nodes for all 6 entities. The bad news is that the clock
+> >> assignments to those nodes and their numbering is messed up.
+> >>=20
+> >> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot gets it
+> >> wrong, in addition to the erroneous DTS.
+> >=20
+> > The numbers are kinda hocus-pocus anyway, they are just made up since t=
+he
+> > clock numbering usually isn't something with a nice TRM to go and
+> > reference (unlike interrupts which usually are documented in that way).
+> > It is very helpful to make them aligned some register/bit positions or,
+> > but that is not required.
+> > IOW U-Boot is not wrong per se to use 190 instead of 0, but it is wrong
+> > to have different numbers in both places.
+> >=20
+> > It sounds like you're saying that (and I have not looked) the U-Boot dts
+> > actually has structural difference w.r.t. what provides which clock?
+> > If so, that'll need to be fixed independently of the numbering problem.
+> >=20
+> > Otherwise Xingyu & Yanhong should coordinate on which is the "correct"
+> > way of doing things & do it in both places.
+> >=20
+>=20
+> Oh, unfortunately, the 7110 can not support to mix the uboot dtb and linu=
+x dtb up.
 
-It looks a bit odd to have an array here, when those are separate devices.
-I think other drivers just spell those devices out, one by one:
+What does "cannot support" mean? It's normal and desirable for the same
+dtb to be usable for both. The Linux kernel's dt-bindings are used for
+multiple projects, not just Linux - it'd be silly for U-Boot, FreeBSD
+etc etc to go off and each have their open set of (incompatible) bindings.
 
-static const struct sun20i_gpadc_configuration sun20i_d1_gpadc_config = {
-	sun20i_d1_gpadc_channels, ARRAY_SIZE(sun20i_d1_gpadc_channels)
-};
-static const struct sun20i_gpadc_configuration sun8i_t113_gpadc_config = {
-	sun8i_t113_gpadc_channels, ARRAY_SIZE(sun8i_t113_gpadc_channels)
-};
-....
+> If boot the Linux and should use the linux dtb instead of the uboot dtb.
+> Because all clock ids and reset ids in Linux and Uboot are different incl=
+ude
+> PLL, and some modules can work in Linux but not in uboot.
 
-Though I believe it would be easier to either allocate the required number
-of channels at probe time, or just use one predefined array with four
-channels (like the r329 version above), and then just register less for
-the other SoCs, by just setting indio_dev->num_channels to the number read
-from match_data.
+What do you mean by "modules"? It is fine for either Linux or U-Boot to
+not have drivers for particular peripherals - for example, there might
+be no driver for your camera related bits in U-Boot, or for controlling
+DRAM in Linux.
 
-Or we follow the other idea of reading the number of channels from a DT
-property, which means we would already support every IP with up to 16
-channels, without further driver changes in the future.
+The description of the hardware should not change though, as the
+hardware has not.
 
-> +
-> +static const struct regmap_config sun20i_gpadc_regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.fast_io = true,
-> +};
+> I suggest to boot Linux with its own linux dtb.
 
-Is there any particular reason you chose a regmap to model this here?
-Isn't that just straight-forward MMIO, which we could just drive using
-readl()/writel()?
+I suggest to make sure that you can use the same dtb for both.
 
-> +static int sun20i_gpadc_adc_read(struct sun20i_gpadc_iio *info,
-> +				 struct iio_chan_spec const *chan, int *val)
-> +{
-> +	reinit_completion(&info->completion);
-> +
-> +	/* enable the analog input channel */
-> +	regmap_write(info->regmap, SUN20I_GPADC_CS_EN,
-> +		     SUN20I_GPADC_CS_EN_ADC_CHAN_SELECT(chan->channel));
-> +
-> +	/* enable the data irq for input channel */
-> +	regmap_write(info->regmap, SUN20I_GPADC_DATA_INTC,
-> +		     SUN20I_GPADC_DATA_INTC_CHAN_DATA_IRQ_EN(chan->channel));
+Thanks,
+Conor.
 
-I wonder if this should be either moved out to some multiplexer: the DT
-bindings suggest that such a thing could be independent.
-But at least we could cater for the possibility that this channel is
-already selected, and skip this part then?
+--dhsQSIulCPiX0eS/
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +
-> +	/* enable the ADC function */
-> +	regmap_update_bits(info->regmap, SUN20I_GPADC_CTRL,
-> +			   SUN20I_GPADC_CTRL_ADC_EN, SUN20I_GPADC_CTRL_ADC_EN);
-> +
-> +	if (!wait_for_completion_timeout(&info->completion,
-> +					 SUN20I_GPADC_TIMEOUT))
-> +		return -ETIMEDOUT;
-> +
-> +	/* read the ADC data */
-> +	regmap_read(info->regmap, SUN20I_GPADC_CHAN_DATA(chan->channel), val);
-> +
-> +	return IIO_VAL_INT;
-> +}
-> +
-> +static int sun20i_gpadc_read_raw(struct iio_dev *indio_dev,
-> +				 struct iio_chan_spec const *chan, int *val,
-> +				 int *val2, long mask)
-> +{
-> +	struct sun20i_gpadc_iio *info = iio_priv(indio_dev);
-> +	int ret;
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		mutex_lock(&info->lock);
+-----BEGIN PGP SIGNATURE-----
 
-Couldn't taking the lock go into the function? It seems to be only one
-caller, and we need the lock in any case, it seems?
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZG3kxAAKCRB4tDGHoIJi
+0vx/AP4uwgyX8CyzdTKAP0tSNceXaoGQKaorE8a0F6KPCW4ZHAD+OmvcSLXrIWYy
+MRDjVuoYxhZp+69Z/pvAj2zHmgWBkQo=
+=y/ba
+-----END PGP SIGNATURE-----
 
-> +		ret = sun20i_gpadc_adc_read(info, chan, val);
-> +		mutex_unlock(&info->lock);
-> +		return ret;
-> +	case IIO_CHAN_INFO_SCALE:
-> +		/* 1800mV / 4096 * raw */
-> +		*val = 0;
-> +		*val2 = 439453125;
-> +		return IIO_VAL_INT_PLUS_NANO;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static irqreturn_t sun20i_gpadc_irq_handler(int irq, void *data)
-> +{
-> +	struct sun20i_gpadc_iio *info = data;
-> +	u32 reg;
-> +
-> +	/* clear data interrupt status register */
-> +	regmap_read(info->regmap, SUN20I_GPADC_DATA_INTS, &reg);
-> +	regmap_write(info->regmap, SUN20I_GPADC_DATA_INTS, reg);
-> +
-> +	complete(&info->completion);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static const struct iio_info sun20i_gpadc_iio_info = {
-> +	.read_raw = sun20i_gpadc_read_raw,
-> +};
-> +
-> +static int sun20i_gpadc_probe(struct platform_device *pdev)
-> +{
-> +	const struct sun20i_gpadc_configuration *config;
-> +	struct iio_dev *indio_dev;
-> +	struct sun20i_gpadc_iio *info;
-> +	struct reset_control *rst;
-> +	void __iomem *base;
-> +	struct clk *clk;
-> +	int irq;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*info));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	info = iio_priv(indio_dev);
-> +	platform_set_drvdata(pdev, indio_dev);
-> +
-> +	mutex_init(&info->lock);
-> +	init_completion(&info->completion);
-> +
-> +	info->indio_dev = indio_dev;
-> +	indio_dev->info = &sun20i_gpadc_iio_info;
-> +	indio_dev->name = dev_name(&pdev->dev);
-> +
-> +	config = of_device_get_match_data(&pdev->dev);
-> +	if (!config)
-> +		return -ENODEV;
-> +
-> +	/* Sanity check for possible later IP variants with more channels */
-> +	if (config->num_channels > SUN20I_GPADC_MAX_CHANNELS)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "max channels exceeded\n");
-> +
-> +	indio_dev->channels = config->channels;
-> +	indio_dev->num_channels = config->num_channels;
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	info->regmap = devm_regmap_init_mmio(&pdev->dev, base,
-> +					     &sun20i_gpadc_regmap_config);
-> +	if (IS_ERR(info->regmap))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(info->regmap),
-> +				     "failed to init regmap\n");
-> +
-> +	clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk),
-> +				     "failed to enable bus clock\n");
-> +
-> +	rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
-> +	if (IS_ERR(rst))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(rst),
-> +				     "failed to get reset control\n");
-> +
-> +	ret = reset_control_deassert(rst);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				    "failed to deassert reset\n");
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return dev_err_probe(&pdev->dev, irq, "failed to get irq\n");
-> +
-> +	ret = devm_request_irq(&pdev->dev, irq, sun20i_gpadc_irq_handler,
-> +			       0, dev_name(&pdev->dev), info);
-> +	if (ret < 0)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed requesting irq %d\n", irq);
-> +
-> +	/* set the single conversion mode and enable auto calibration*/
-> +	regmap_write(info->regmap, SUN20I_GPADC_CTRL,
-> +		     SUN20I_GPADC_CTRL_ADC_AUTOCALI_EN |
-> +		     SUN20I_GPADC_CTRL_WORK_MODE_SELECT(0));
-> +
-> +	ret = devm_iio_device_register(&pdev->dev, indio_dev);
-> +	if (ret < 0)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "could not register the device\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id sun20i_gpadc_of_id[] = {
-> +	{
-> +		.compatible = "allwinner,sun8i-t113-gpadc",
-> +		.data = &sun20i_gpadc_config[0],
-> +	},
-> +	{
-> +		.compatible = "allwinner,sun20i-d1-gpadc",
-> +		.data = &sun20i_d1_gpadc_channels[1]
-
-Regardless of what I said above, this looks wrong?
-Shouldn't that be read &sun20i_gpadc_config[1] here?
-
-> +	},
-> +	{
-> +		.compatible = "allwinner,sun50i-r329-gpadc",
-> +		.data = &sun50i_r329_gpadc_channels[2]
-
-Same as above.
-
-Cheers,
-Andre
+--dhsQSIulCPiX0eS/--
 
 
-> +	},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
-> +
-> +static struct platform_driver sun20i_gpadc_driver = {
-> +	.driver = {
-> +		.name = "sun20i-gpadc-iio",
-> +		.of_match_table = sun20i_gpadc_of_id,
-> +	},
-> +	.probe = sun20i_gpadc_probe,
-> +};
-> +module_platform_driver(sun20i_gpadc_driver);
-> +
-> +MODULE_DESCRIPTION("ADC driver for sunxi platforms");
-> +MODULE_AUTHOR("Maksim Kiselev <bigunclemax@gmail.com>");
-> +MODULE_LICENSE("GPL");
-
+--===============7634739384423076183==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7634739384423076183==--
+
