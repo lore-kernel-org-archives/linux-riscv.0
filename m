@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF5EC77B7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 21:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35A0C7EE29
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 21:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+gHYUGi8rob70JyJJ+YnlUH90RKI5PZ5XfSqw93dAI=; b=kgdtfZZOln+oAO5vCKBmO7ktz6
-	ROVqlD9N796RRjwUHcDAdPdjyLQ+tTjcnccjJD9OG0/NsB8NreO5p+7Uv0ri2P099rjX7Uga//8Gz
-	bma91Jm+cVGDyCcs5tc3l6LJh/D6bnBj+6BSoSbrkVqa7GQxK6EatLTYz/J2AO0XcmMk6hb3dIb6w
-	XajS4JekO689UuInCrixp/p8XJSg7CBKIjoSbioVTwt6Kb4CO8N5OQqoLPkNRbmwdGSqzn+GcbDNc
-	knGtkqALS1TwsBX86htBktN/KeEKrw8Z3ZmNgmQSu1OJlQYjUUl/cA4HO5YzTxeNQWtcN78UkZFOa
-	Csj59xiA==;
+	bh=UK8XnFK9nJCRCjuDy0Y3Gf5FHKynvDCJrokMPiK4JfQ=; b=tq9SZpDXFfqLtCAktIZ8psq7tk
+	o2ocXF+zzPTGjzqKjXf+n5CVS1w9p1be/hFmC38Cl+eQrCLDwCVeZLxiN63LDtl/W/dHpjsq3jD17
+	zd+wH97jYSIYeWSyONjCa3XQvl3k2fYPAAXJnEGcbE54+8oPz9GNB/CBd1C8UgSFJkVRGHbeuxCqy
+	YbJjQVMx/wGe535IGY/o0R6vVv1Jn57V2RKK4JX4K3lS4pOc0HnQ3YbIquPgtTnVZ9L1LH5p/juTH
+	1SBEkyGCR0CBI5xw8aHHxPEPMzmpVUjIwWHY5iuMg2lTITXBchORdd+UB2dVKd47wvMt0tGUr27VU
+	ifuGk9YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Ilc-000ERL-0K;
-	Thu, 25 May 2023 21:45:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q2IuH-000FSX-0Z;
+	Thu, 25 May 2023 21:54:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2IlX-000EQV-2d
+	id 1q2IuE-000FRR-2w
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 May 2023 21:45:00 +0000
+	Thu, 25 May 2023 21:54:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 63CB260AC9;
-	Thu, 25 May 2023 21:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF540C433EF;
-	Thu, 25 May 2023 21:44:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4946760AC9;
+	Thu, 25 May 2023 21:53:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FED8C433D2;
+	Thu, 25 May 2023 21:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685051098;
-	bh=1d20bjdX5HUdVvZRPf4VGSbqIqinzRsHvwcKXpOUIoQ=;
+	s=k20201202; t=1685051637;
+	bh=gVTxJsQwsIf8+mM11Da4eHfeqmZHWo3HCP592A+RyWs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oAcQUkkSOjsmVnkbAo4rOPwsRIs+qW+MUrnXDJbyzI1Pifb67gOi0pDVzmXxEiaRF
-	 w26LgUXziy2EcR4xt0dZ2jqo1wPKGCGD+Mx1CZ6QVeuLCKqxiQtZuI6Axo+9pID+RU
-	 HGVtbDxkNNoSH8t1E++SMFq7Wv63fT9+ocO6MJED+HjPs67A78PRR+dcVRDiXtxznK
-	 NcUe1wFCrzkRoDF8rqA7NodXIuuB/RfyhdBGqzPowYgn4GrAOVKig2tVjFUSro4jkN
-	 SzJfi051sYZyOoljcfNKrmt5kgZX8y/wTvzJ4XhNmTQnocUfzg8D7/3Glsu+Of4IiS
-	 /AlNRIjLaIeyQ==
-Date: Thu, 25 May 2023 22:44:53 +0100
+	b=TG8cQJttC7Fi6tepY7WR6mFizDK7/YFBKsIhEbU5TI1J6J800V3wcm7h8hmTzl/0f
+	 1+D41sTM4Er00d+/NV435iYYp5UiIixyNmcsS+cdrgLZL4F0FnsDNitgemeC0yjaLa
+	 sqg8rRuMpHOBgtsaGnF7Pr3CmnN4tGUt//KYHXMTAiKPVOavbgfMSH3YqzkSeah85o
+	 I38e/wMMT67ySy1XCcEoxreFn69/S9xOAxp+vbCML3jpUk8fmWu/dp2P+r/23Uz65U
+	 VQ8J9wEPFEj0wNTnDHUH878yEoyPFFiGyAQl/hX9/w4BCesCrEkfjoKpi9cBHqToTw
+	 JAYoLt0yyKIBw==
+Date: Thu, 25 May 2023 22:53:52 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v6 10/11] riscv: dts: starfive: jh7110: Add DVP and HDMI
- TX pixel external clocks
-Message-ID: <20230525-upscale-siberian-54c5f003334c@spud>
-References: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
- <20230518101234.143748-11-xingyu.wu@starfivetech.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: timer: sifive,clint: Clean up compatible
+ value section
+Message-ID: <20230525-confined-swimmer-ac26871dc424@spud>
+References: <40ff1fc7f5220db7d527c57ac4bad16c3945ae08.1683725179.git.geert+renesas@glider.be>
+ <20230518-radiated-diligent-2eb1d1323037@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230518101234.143748-11-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230518-radiated-diligent-2eb1d1323037@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_144459_898578_DACF5331 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20230525_145358_991832_EEC7FECD 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +77,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4311839663499651982=="
+Content-Type: multipart/mixed; boundary="===============5561021968237545549=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4311839663499651982==
+--===============5561021968237545549==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="14g6l7gbkD9WOY4x"
+	protocol="application/pgp-signature"; boundary="FUJhqpkh0YXZ673r"
 Content-Disposition: inline
 
 
---14g6l7gbkD9WOY4x
+--FUJhqpkh0YXZ673r
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 18, 2023 at 06:12:33PM +0800, Xingyu Wu wrote:
-> Add DVP and HDMI TX pixel external fixed clocks and the rates are
-> 74.25MHz and 297MHz.
+On Thu, May 18, 2023 at 10:10:00PM +0100, Conor Dooley wrote:
+> On Wed, May 10, 2023 at 03:27:24PM +0200, Geert Uytterhoeven wrote:
+> > Replace the sentences in the description listing some supported variants
+> > by comments on the individual compatible values, to ease future
+> > maintenance.  While at it, restore alphabetical sort order.
+> >=20
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 >=20
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Palmer has assigned this one to me on the RISC-V patchwork, any objections
+> to me taking it via the riscv-dt tree? There's some other patches for a
+> new platform thats almost read touching the file too, so (to me) would
+> probably make sense to take.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Given the silence, I've picked it up. Scream and I can drop it again :)
+
+Applied to riscv-dt-for-next, thanks!
+
+[1/1] dt-bindings: timer: sifive,clint: Clean up compatible value section
+      https://git.kernel.org/conor/c/1bd2339df1b5
 
 Thanks,
-Conor.
+Conor
 
---14g6l7gbkD9WOY4x
+--FUJhqpkh0YXZ673r
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZG/W1QAKCRB4tDGHoIJi
-0tacAQDzU7wda2zCGFCxnqT+sHimB4/P36sZ0pPmFeBEUk3dIAD/UZFrrFZD0rlX
-S99BGmiDwdA9CkSxOXkuNlTIIz+rdAE=
-=wubc
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZG/Y8AAKCRB4tDGHoIJi
+0jqLAP0XDdSN6q73gVlptwD0sdH2ijo2bMlK1J8s7stO9a3b5wD+OMo+5aYHBUl+
+gmDUGCSNim+iF6qG4mhv2HLcSEDQaAo=
+=W+TV
 -----END PGP SIGNATURE-----
 
---14g6l7gbkD9WOY4x--
+--FUJhqpkh0YXZ673r--
 
 
---===============4311839663499651982==
+--===============5561021968237545549==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -132,5 +141,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4311839663499651982==--
+--===============5561021968237545549==--
 
