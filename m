@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8FBC7EE29
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 16:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B8DC7EE2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 16:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aQaVFJ8EtvFvOz02OCM3KK6KimA/kgAteMqmDyH9Z+I=; b=wO9mi5L0K3v5Lf
-	f/Yldd8FTmF8pdCrDsbRINVTGHBcGDtbQN9e/c3dDOrRnxUsoF9fZ5J+Y6RUdq8yEOD5AUonH2qH0
-	nRrlXFTO/CnMp/1a5wGxG2V7PZmrnh4JYzfkfeGknlx98+7fscvp26lx9l0ey2G/TtfDO0PGn/Z8x
-	KaAKQvtVo50EwLRVkmlnrqOONWIpY8kLwN6qeRgDJPyatk6n+KYlE6cAKD1zc3rAFBgvCO9gdKjul
-	VtD8ctBQG+fMPZwbWPWeM9rpWnogPUchvmnB3OIZtfp9A4iCZtj9gEnEYlrPOtZ04PfdITDFGp6bO
-	U/5Iw0Q+z2XYA489KGIQ==;
+	List-Owner; bh=c4DwQBLptkRu6fx3QGtCIWqi87sevY7lywmglJr8XVw=; b=N2VJoqgWId3Lx1
+	LVJ3ycxV7Gzzs05yml1pw0dSGYuNRhrP1KCFi1ZzfVgTxIOABwgqYRnacWVAggXDbc4d6jSwgULvd
+	N4oAQcjCMVrsWlWl/JSLeO3+mOQRRmaWVsBzIlFtUVyE8OE2+cK0lRnvLattqqf2YNUDuVWDbRAWc
+	+JF68EOnQ+pQZ/I3HAoM2ufXByH9n6W9JxrFHho7xUwqRI95bBQ89slGkJFBy1sZOFh/74pseYyLi
+	V2HkUuXZ6yqzf2nsLW+bCgHukDUK4a2gSU5UeYxo0RsqkmrfIitHPwtrF2v/rna4ro6Pt4NSNMX8A
+	MM2q4Kwsr9vtB+K1ha3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Dxz-00H6in-2g;
-	Thu, 25 May 2023 16:37:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q2DyT-00H6rY-2U;
+	Thu, 25 May 2023 16:38:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Dxv-00H6hJ-2w;
-	Thu, 25 May 2023 16:37:29 +0000
+	id 1q2DyP-00H6pJ-2V;
+	Thu, 25 May 2023 16:37:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2329660B01;
-	Thu, 25 May 2023 16:37:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD8E9C433EF;
-	Thu, 25 May 2023 16:37:19 +0000 (UTC)
-Date: Thu, 25 May 2023 17:37:16 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2A226613E9;
+	Thu, 25 May 2023 16:37:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A40FC433EF;
+	Thu, 25 May 2023 16:37:50 +0000 (UTC)
+Date: Thu, 25 May 2023 17:37:47 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Hugh Dickins <hughd@google.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -67,16 +67,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: Re: [PATCH 02/23] arm64: allow pte_offset_map() to fail
-Message-ID: <ZG+OvPjlKPPvtm8r@arm.com>
+Subject: Re: [PATCH 03/23] arm64/hugetlb: pte_alloc_huge() pte_offset_huge()
+Message-ID: <ZG+O2yE8fWxSy4Va@arm.com>
 References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <e72f6f3e-a8d4-3ed-2b4-5d3ced41484@google.com>
+ <dda2885-929b-c278-14e-5f447e9eec52@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e72f6f3e-a8d4-3ed-2b4-5d3ced41484@google.com>
+In-Reply-To: <dda2885-929b-c278-14e-5f447e9eec52@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_093727_995400_BB1A384E 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20230525_093757_854253_A33C4F9E 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,9 +93,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 09:43:47PM -0700, Hugh Dickins wrote:
-> In rare transient cases, not yet made possible, pte_offset_map() and
-> pte_offset_map_lock() may not find a page table: handle appropriately.
+On Tue, May 09, 2023 at 09:45:57PM -0700, Hugh Dickins wrote:
+> pte_alloc_map() expects to be followed by pte_unmap(), but hugetlb omits
+> that: to keep balance in future, use the recently added pte_alloc_huge()
+> instead; with pte_offset_huge() a better name for pte_offset_kernel().
 > 
 > Signed-off-by: Hugh Dickins <hughd@google.com>
 
