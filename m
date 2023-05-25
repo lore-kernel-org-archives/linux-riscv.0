@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEEFC77B73
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 02:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C47FC7EE2C
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 06:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YzJCBng6vHyk3USi+hju+rEemKuuWSog4Ev/erUbdYk=; b=ndjJlIqd6nxjau
-	7sbHJW1GgkIXURYbI3pS/86TMmSz7cQc2pTFj1rctUaLwG/Q1c9cLuvpZsmsb9a0S8xg9hW0b9G60
-	MqnmvHhcsSISzPKZd76UTKTPv34uVzQ1h+ffvW0Q8Ofngwcgk0WdaUwuRLgO0JxVESkSD2EFXwWgJ
-	sDdL8/ca+G4ShbZZuL+X8A9Gzt6EWJQdGeinK3/OCIudNTKem/YdlKM4T107Zy77UBbiU71tI0qJq
-	20fNGeKitG3Mce60CkWO90bH/y3CUO5Q93vpjioaDWAuPJuGCcVXspi2I7pHRGTNwAa2cOfNRP9xM
-	v7Mx9Ztvj1B0LT86yuBw==;
+	List-Owner; bh=XNalJ85ulufytCINDorI9aDQcBTuFegR4CLPiPbqEtk=; b=ya/ncjRGntG0iy
+	9h0cUr5zx4jYfgAKfIBMsZXYaNDBbeXhkUwBw2ab1mmJwG5qe/YyoG3nKd55PLmvipsVbqvS0E7jx
+	c5CNTTGHGsS4IJ0vBTaQ0znjstnwh5wlwUZZOGIn6tghFFNurZqs90ATn4xm1f8vlNiiCjLGBI6Rr
+	2uR3BrwAASpk5dq2NQTmfxJXExsdtQPPZa/6GzO5Bn9bVCqJch6J77mZ+9lsd3oW7tUOd0Kj/Wpan
+	f0z7hwz3mFSUSvmE9YkUBAujZ8GoPImmxNFA/pMTaVGIfvB+p84c8rpz33kix2x3VrTSimGh95Scs
+	GDy04rCxFz1yZnofR2fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q21Au-00FJZP-0T;
-	Thu, 25 May 2023 02:58:00 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q21Am-00FJVH-24
+	id 1q24K0-00FfPN-0u;
+	Thu, 25 May 2023 06:19:36 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q24Jw-00FfMr-0B
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 May 2023 02:57:54 +0000
-X-QQ-mid: bizesmtp63t1684983419t85lva7q
-Received: from localhost.localdomain ( [221.226.144.218])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 May 2023 10:56:57 +0800 (CST)
-X-QQ-SSF: 01200000000000303000000A0000000
-X-QQ-FEAT: 6m2HWuPn8APBKt63b3ah3TllQMoQddj48JDVm4Iepq5vRZSuXhWkDmIyJiEkQ
-	MMvn40T53r5LmKlVQsPdr7bAyetskT7oogCcohGJNvN7UewCTkHFngfiLwsab7GI7lkPqoL
-	hUOlodi0YIdrXuTQoCL2ILEPmt9iEG19lXfRne5e00JAyBeo/LRJVJK11hYEmya4nTQXBeh
-	wj3H4AoK/LJVOpUmO4+6EMM+p22e9We1hFNY4tMXwU/U1dN+3DTmK0EOBfo5m1dvTT2Jkex
-	CH+oS9ZeiuMRrxsyOK8JZr0YuD8zCH3Y92kgw/8TnFCP9w7Nl3QIj3OvbR+CgWtZcG3NKp8
-	TUruhAgK+guXxTnDBFbCZ4wFEx43f1gw7hB8RcF
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14888827228828076966
-From: Song Shuai <songshuaishuai@tinylab.org>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	songshuaishuai@tinylab.org,
-	steven.price@arm.com,
-	vincenzo.frascino@arm.com,
-	pcc@google.com,
-	wangxiang@cdjrlc.com,
-	ajones@ventanamicro.com,
-	conor.dooley@microchip.com,
-	jeeheng.sia@starfivetech.com,
-	leyfoon.tan@starfivetech.com
-Cc: linux@armlinux.org.uk,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/4] Remove WARN_ON in save_processor_state
-Date: Thu, 25 May 2023 10:55:51 +0800
-Message-Id: <20230525025555.24104-1-songshuaishuai@tinylab.org>
-X-Mailer: git-send-email 2.20.1
+	Thu, 25 May 2023 06:19:34 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2F59517ED4;
+	Thu, 25 May 2023 14:18:42 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 25 May
+ 2023 14:18:42 +0800
+Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 25 May
+ 2023 14:18:39 +0800
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
+	<conor.dooley@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] riscv: Kconfig: Add select ARM_AMBA to SOC_STARFIVE
+Date: Thu, 25 May 2023 14:18:36 +0800
+Message-ID: <20230525061836.79223-1-jiajie.ho@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-3
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230524_195752_980971_44F724C7 
-X-CRM114-Status: UNSURE (   4.36  )
+X-CRM114-CacheID: sfid-20230524_231932_250583_C89C66A6 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,28 +72,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During hibernation or restoration, freeze_secondary_cpus
-checks num_online_cpus via BUG_ON, and the subsequent
-save_processor_state also does the checking with WARN_ON.
+Selects ARM_AMBA platform support for StarFive SoCs required by spi and
+crypto dma engine.
 
-So remove the unnecessary checking in save_processor_state
-for ARM,arm64,riscv,xtensa architechtures.
+Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+---
+ arch/riscv/Kconfig.socs | 1 +
+ 1 file changed, 1 insertion(+)
 
-
-Song Shuai (4):
-  ARM: hibernate: remove WARN_ON in save_processor_state
-  arm64: hibernate: remove WARN_ON in save_processor_state
-  riscv: hibernate: remove WARN_ON in save_processor_state
-  xtensa: hibernate: remove WARN_ON in save_processor_state
-
- arch/arm/kernel/hibernate.c    | 1 -
- arch/arm64/kernel/hibernate.c  | 1 -
- arch/riscv/kernel/hibernate.c  | 1 -
- arch/xtensa/kernel/hibernate.c | 1 -
- 4 files changed, 4 deletions(-)
-
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1cf69f958f10..381cd46e6373 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -29,6 +29,7 @@ config SOC_STARFIVE
+ 	bool "StarFive SoCs"
+ 	select PINCTRL
+ 	select RESET_CONTROLLER
++	select ARM_AMBA
+ 	help
+ 	  This enables support for StarFive SoC platform hardware.
+ 
 -- 
-2.20.1
+2.25.1
 
 
 _______________________________________________
