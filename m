@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4737AC7EE2E
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 16:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8C0C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 17:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ef9dToJ1Qv3FqeFxXztT0z5MFyxEMR2krfcS6mWQVtM=; b=kE6bLiOGWjH7rc
-	2xz/t/p2mijTH7La6dAw3jqsh/TWf6LzSjRQp91VOGkAAw0l32swjDok6j/RAfDYzueNv0JORNbf7
-	9JV4bKe4hnCY41wQ6uw1SHguZRNJ8Y5wWfZRbz1MVN386MAYQvdsrq221q1bzA9IgJhIZuNvsOOhz
-	Wg+ueGHUrkbTQ+wG+CtSM1ppAgfjpPsygfgg36WQUDCyx+feugwB/dw+8c2KOycas5PB9CJzYvAdH
-	rJJjJojklE4HRU+QegAJzfuhI2QHT2IGVinqnJYxqY3dlFJRq5DHcIbdM1qOdCy+mKYO+8D9HjwO+
-	4b8obHPbB6cpuNwiPCkg==;
+	List-Owner; bh=Yfu2el2BpOGv/U7uZDv+FRfygJLRpAAjvwgHLXvU4HY=; b=T1VaCxAjzj4ek2
+	dm4KQUyoCpesDw52gpFb+N35LSKUN4DQ+0qJ1cszwUhjqSfFCLlV1TidGr15mi8rmwdTvU2tLeSmu
+	KPWhyMZJzPdcXly1BD2rfIHhq2R7h15JxP0/9rOI1N2mjqY/ZHofepTmduHd70Mk/WxCUHRBjWMjv
+	eU7iwKtETY4GYKc4wIZzNtCK7pSefQZqH9L7XIx1waYP2kbp8Kb/NTr7YRjdE6hym4AmBqeymbNeE
+	FjK7lKrL6UBQqZZ/URX6yyEnKoHs4h5ftkOG/cpW6fJtSV+D9DWR0OY1z4O3h3Z0jF7RPMRyU2vWW
+	NAZQ4opu6++panqerdag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2E55-00H7pI-0Q;
-	Thu, 25 May 2023 16:44:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q2EKS-00H9ml-1K;
+	Thu, 25 May 2023 17:00:44 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2E51-00H7ng-1c;
-	Thu, 25 May 2023 16:44:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DC9B06476F;
-	Thu, 25 May 2023 16:44:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1954C433EF;
-	Thu, 25 May 2023 16:44:42 +0000 (UTC)
-Date: Thu, 25 May 2023 17:44:40 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH] irq_work: consolidate arch_irq_work_raise prototypes
-Message-ID: <ZG+QeFcqLNypuMLY@arm.com>
-References: <20230516200341.553413-1-arnd@kernel.org>
+	id 1q2EKO-00H9kv-2o;
+	Thu, 25 May 2023 17:00:42 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-ba81031424dso1165562276.2;
+        Thu, 25 May 2023 10:00:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1685034035; x=1687626035;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JHrTsqL0nqeqxBvVw7n3mE3d9UFJpL2j8If6jZFByTc=;
+        b=VEXX4D+/ehgygAWm5BmRxKMQVayX+huiD86BmHpUJbQZIavyZk8MqgFgBVJCgltW8G
+         DGf1XLm8HhYD7C5Ltu5hncRV4xkFiRLvjnKAKUZAVqhHyZU7uDae6IK3C5qSD3GFgpGy
+         OqLSmV63QlFHc9BLqOH+z3/46t/qsNvryv2gOmzRQJTarAzeFF3wkmaawd/u1vYzudf+
+         2OoFyE7ArYkSpPwfiPG4wUCBT5egkmxxlXwXAVhzZYomT8xAIzGjfTrChNVAlbK2FaKO
+         3t03QrSsNM3MzVGbAgb9jEqdKkZ/GGbY36ZIzPCKupNWpFQuCEQc+t41/FAd5d9jW5uu
+         ry0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685034035; x=1687626035;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JHrTsqL0nqeqxBvVw7n3mE3d9UFJpL2j8If6jZFByTc=;
+        b=knXPZGNwHjkyXKJzWQVjaa2DVbyYcyorpX1fXaHt81OR33PIC/za1MxgaFsO5jYWLQ
+         hrUR60k53mN3zsAGWnikMi4fRMRXi1o98+N7zn4VmeOBPr8A0pCCaqpIuK6Hvp7mt4Sf
+         6d3wT+pAUU2RsdbCSDzcmuXjpufAoLeJHTtj9pTpEMvffXICIE5Epn2XUqjA8H1p89wv
+         kess3b92IV5eA0sonNrdGr1+0RULvscQtW8ovarOmesZ2/+Sgkn0/wbtZniKJA4XDgG4
+         /xQSGOdsxBzIZuqVdNB/x/pTRg43eR6I9xAh51c0mXPT1pTRRt/8LTPGRWmy1xDhop/7
+         SR+w==
+X-Gm-Message-State: AC+VfDzxqKCAwcX3ekflBAQ8ReXFixDlEXldgFK3osi8ETeymJFkBQ0O
+	tuz8r8W15yoQnR97ydt2bJIG1puA91B7wlJw3A0=
+X-Google-Smtp-Source: ACHHUZ47ymCJWriUjad8DQ05hIMcCKin/PTMMU7nNv3HHwEyV9e0xB3DhHdcf1Fkkg8cgW7lAUtL7p6ayG4dp+Ur5MI=
+X-Received: by 2002:a25:2487:0:b0:ba8:5ded:13f3 with SMTP id
+ k129-20020a252487000000b00ba85ded13f3mr4152229ybk.17.1685034034679; Thu, 25
+ May 2023 10:00:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230516200341.553413-1-arnd@kernel.org>
+References: <20230501192829.17086-1-vishal.moola@gmail.com>
+ <20230501192829.17086-2-vishal.moola@gmail.com> <20230525085555.GV4967@kernel.org>
+In-Reply-To: <20230525085555.GV4967@kernel.org>
+From: Vishal Moola <vishal.moola@gmail.com>
+Date: Thu, 25 May 2023 10:00:23 -0700
+Message-ID: <CAOzc2pxx489C26NnS9NHkUQY9PYiagzt-nYK6LnkJ1N3NYQWzg@mail.gmail.com>
+Subject: Re: [PATCH v2 01/34] mm: Add PAGE_TYPE_OP folio functions
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org, 
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_094447_575045_C47477D3 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20230525_100040_906844_A91C05DE 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,25 +90,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 16, 2023 at 10:02:31PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The prototype was hidden on x86, which causes a warning:
-> 
-> kernel/irq_work.c:72:13: error: no previous prototype for 'arch_irq_work_raise' [-Werror=missing-prototypes]
-> 
-> Fix this by providing it in only one place that is always visible.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMjUsIDIwMjMgYXQgMTo1NuKAr0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBIaSwKPgo+IE9uIE1vbiwgTWF5IDAxLCAyMDIzIGF0IDEyOjI3
+OjU2UE0gLTA3MDAsIFZpc2hhbCBNb29sYSAoT3JhY2xlKSB3cm90ZToKPiA+IE5vIGZvbGlvIGVx
+dWl2YWxlbnRzIGZvciBwYWdlIHR5cGUgb3BlcmF0aW9ucyBoYXZlIGJlZW4gZGVmaW5lZCwgc28K
+PiA+IGRlZmluZSB0aGVtIGZvciBsYXRlciBmb2xpbyBjb252ZXJzaW9ucy4KPgo+IENhbiB5b3Ug
+cGxlYXNlIGVsYWJvcmF0ZSB3aHkgd291bGQgd2UgbmVlZCBmb2xpb3MgZm9yIHBhZ2UgdGFibGUg
+ZGVzY3JpcHRvcnM/CgpUaGFua3MgZm9yIHRoZSByZXZpZXchCgpUaGVzZSBtYWNyb3MgYXJlIGZv
+ciBjYWxsZXJzIHRoYXQgY2FyZSBhYm91dCB0aGUgcGFnZSB0eXBlLCBpLmUuIFRhYmxlIGFuZApC
+dWRkeS4gQXNpZGUgZnJvbSBhY2NvdW50aW5nIGZvciB0aG9zZSBjYXNlcywgdGhlIHBhZ2UgdGFi
+bGVzIGRvbid0IHVzZSBmb2xpb3MuClRoZXNlIGFyZSBtb3JlIGZvciB0aGUgY2xlYW5saW5lc3Mg
+b2YgdGhvc2UgY2FsbGVycy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
