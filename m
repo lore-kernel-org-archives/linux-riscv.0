@@ -4,63 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D9EC77B7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C65BC77B7E
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TGpEI3t7qL/nQnNz/5pzowoRiTnJ1GOlAcYunj2vsWs=; b=NgKFtL8Tdw8WhL
-	0rA5oz+ClbYAnwsrqIiO+kFDLlGsptP3T5TNLxGl9S7WKyr/YIspaWbqpQm6gA7CCCRd7ACBhoHAQ
-	13BT/HYPzljQLy2h4KWA2XM0tMQrdH/dV2HnUtBEdiNZdYpr9pkiaoiCH7RooNCQy22h/E3GCK9PE
-	KQlvpsd1naQQxwiaBG+fEcecB18T0zAy+lWaovMJM5HKSLy9kH2k9H7K2wlEQ9ECtvQIReeDw+xC2
-	GviK4ZIi8DodrPLaY5UbvbQaOlYQzPv7M9ld06AukyWq6p2uNA5WPXSB/eWFWVS1V2BN974i55bug
-	3BIrDayflpu1Lwf5hyBw==;
+	List-Owner; bh=+gjlAbDKHx/II5ksS1Ds3zaBvGxHFwLdyplhmTs/pNw=; b=YmbnnrMuvalgsp
+	cf7tr7+AP+pkk4Lz3NDfwz6tiOOYmDcHBcU3Z5T+CBXDuKKWGT+NJpB7IHHSMooKRteZX+o4CXbrx
+	UmElcJLF4mwRQDYY9mPd31MHb0yeeiaq87noTsyXEO0Z50AnlqdY2kD9Vl7kW547V96drsdAlXCOJ
+	ntwk6WIaaqLtouWgazU0KLoj94DjwHy3yTgTkZoxt8OYj8RdpVjmhWzxDDUDFxVjRg9V08Iao2CcM
+	eHjT9kk53izFu+BsNqt9sW+PPJqymCwFLlfA9GgMGOmh5w4Gju3Lwc3/DtuXCKfEqF+dX4y8kIRgv
+	w3nSvAavdUWWpEPGX+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25Gm-00FmRb-2r;
-	Thu, 25 May 2023 07:20:20 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
+	id 1q25LM-00FnGo-2B;
+	Thu, 25 May 2023 07:25:04 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25Gj-00FmQh-1h
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 May 2023 07:20:19 +0000
-X-QQ-mid: bizesmtp77t1684999208te24henb
-Received: from linux-lab-host.localdomain ( [119.123.130.80])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 May 2023 15:20:06 +0800 (CST)
-X-QQ-SSF: 00200000000000D0V000000A0000000
-X-QQ-FEAT: Q40xx9djesR71y0DVBMSVqb0OB8JvjMOQvnH/KC7DVtwDqMquhU67lAmpEDDm
-	hbAf1eZ+0xinoQqUjGbKuiN2C8Df2P279pX7plJZfUj5i0uR3laz/qvsRZW49i1gTd823Qe
-	Pu+6f1es9OrUPzbE9i+0Ojj0Va73paf9p0Z9g2LnvRwwSXcN9RN1vHhfzLLZnc0c5KbGYlG
-	7OXDeJb1Nb3YVpQHlA2ImiJfRehTLMB6/KGxOPc0uHF5Q4RgFYIPEoYvtLaYpI42pzBeCTA
-	eV/51v6GyHOmnwef1j5VyqTWcrTSusTIOZWIbGTkRDLOpH3sriihuVhci9KjweWWG6SQ0ux
-	uZinBD86WNqojgeRc2Domv3Nq3Zj1mmhPxNRC1BKWVIKvu3fPpmJc1pq37FHgowjBIKREX0
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3158394778450214080
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de
-Cc: falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	w@1wt.eu
-Subject: Re: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for rv32
-Date: Thu, 25 May 2023 15:20:01 +0800
-Message-Id: <20230525072001.77353-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <09d60dc2-e298-4c22-8e2f-8375861bd9be@t-8ch.de>
-References: <09d60dc2-e298-4c22-8e2f-8375861bd9be@t-8ch.de>
+	id 1q25LJ-00FnFB-2I;
+	Thu, 25 May 2023 07:25:03 +0000
+Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34P7MZUR027615;
+	Thu, 25 May 2023 07:24:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : in-reply-to : references : mime-version :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=55klH+MHDRtIEEtWGbvAfPxNnN6EmMw4scwT5+fq3XI=;
+ b=RCtuVZMVyLY0xGNcOr1uNeKOK8ntfwHROTFHQ4+AHlf2PWmk9UMR5C1PwZzqTymLhX3F
+ YS8x9sdj4rnAtSDt7d3OIlvETB4UqOoJw503GtHvkqIIk34L6d4qe/5QAfXKoRiw8KQ3
+ q2vN+VSVcbXRkWC9E/KmFqhp4J9Uk1or/sNjytHkFA/FLMsoMkRIv3iKpmsDaSpOHta9
+ CUHKBISpNyljOYab0uO1Fpi++beo28ogb584RD8aDiv+J9GeRUJVo/dWdX2F0D18x38T
+ iFptJIA55GKyv/jWO+T8QXxUyFt7k1uiwhkDKMXzQji2/r8sTbD6T9TT2CpRLV4sxd42 RQ== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qt32yg93r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 25 May 2023 07:24:01 +0000
+Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34P7CWdL024922;
+	Thu, 25 May 2023 07:24:00 GMT
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qt32yg92j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 25 May 2023 07:24:00 +0000
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34P4rUxB029511;
+	Thu, 25 May 2023 07:23:57 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3qppcuaahq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 25 May 2023 07:23:57 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34P7NrqW22610506
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 25 May 2023 07:23:53 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B0BFA20043;
+	Thu, 25 May 2023 07:23:53 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0955820040;
+	Thu, 25 May 2023 07:23:53 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.152.224.66])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 25 May 2023 07:23:52 +0000 (GMT)
+Date: Thu, 25 May 2023 09:23:51 +0200
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Hugh Dickins <hughd@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Mike Kravetz
+ <mike.kravetz@oracle.com>,
+        Mike Rapoport <rppt@kernel.org>,
+        "Kirill A.
+ Shutemov" <kirill.shutemov@linux.intel.com>,
+        Matthew Wilcox
+ <willy@infradead.org>,
+        David Hildenbrand <david@redhat.com>,
+        Suren
+ Baghdasaryan <surenb@google.com>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert
+ Uytterhoeven <geert@linux-m68k.org>,
+        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>,
+        Helge Deller <deller@gmx.de>,
+        John David
+ Anglin <dave.anglin@bell.net>,
+        "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org
+Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
+Message-ID: <20230525092351.7671f2a4@p-imbrenda>
+In-Reply-To: <b64cd153-18e8-81a6-b852-c04d8b1381d@google.com>
+References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
+	<94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
+	<20230517123546.672fb9b0@p-imbrenda>
+	<4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
+	<20230523140056.55b664b1@p-imbrenda>
+	<b64cd153-18e8-81a6-b852-c04d8b1381d@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: qRLyp44GLiE9zXh3PageqjkrZmyh07xV
+X-Proofpoint-GUID: uXGxTdAMLt8o-nI3lVA1NmtMWFctokRx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.176.26
+ definitions=2023-05-25_03,2023-05-24_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
+ spamscore=0 clxscore=1015 lowpriorityscore=0 mlxlogscore=999
+ impostorscore=0 bulkscore=0 suspectscore=0 malwarescore=0 adultscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2304280000 definitions=main-2305250057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_002017_866982_16B9B747 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20230525_002501_766036_156C3AA3 
+X-CRM114-Status: GOOD (  35.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +153,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIFRob21hcwoKPiBPbiAyMDIzLTA1LTI1IDAxOjQ4OjExKzA4MDAsIFpoYW5namluIFd1IHdy
-b3RlOgo+ID4gV2hlbiBjb21waWxlIG5vbGliYy10ZXN0LmMgZm9yIHJ2MzIsIHdlIGdvdCBzdWNo
-IGVycm9yOgo+ID4gCj4gPiAgICAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGli
-Yy10ZXN0LmM6NTk5OjU3OiBlcnJvcjog4oCYX19OUl9mc3RhdOKAmSB1bmRlY2xhcmVkIChmaXJz
-dCB1c2UgaW4gdGhpcyBmdW5jdGlvbikKPiA+ICAgICAgIDU5OSB8ICAgQ0FTRV9URVNUKHN5c2Nh
-bGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwgMCwgTlVM
-TCksIC0xLCBFRkFVTFQpOyBicmVhazsKPiA+IAo+ID4gVGhlIGdlbmVyaWMgaW5jbHVkZS91YXBp
-L2FzbS1nZW5lcmljL3VuaXN0ZC5oIHVzZWQgYnkgcnYzMiBkb2Vzbid0Cj4gPiBzdXBwb3J0IF9f
-TlJfZnN0YXQsIHVzZSBfX05SX3N0YXR4IGluc3RlYWQ6Cj4gPiAKPiA+ICAgICBSdW5uaW5nIHRl
-c3QgJ3N5c2NhbGwnCj4gPiAgICAgNjkgc3lzY2FsbF9ub2FyZ3MgPSAxICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbT0tdCj4gPiAgICAgNzAgc3lzY2FsbF9hcmdz
-ID0gLTEgRUZBVUxUICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbT0tdCj4g
-PiAKPiA+IEFzIHRvb2xzL2luY2x1ZGUvbm9saWJjL3N5cy5oIHNob3dzLCBfX05SX3N0YXR4IGlz
-IGVpdGhlciBub3Qgc3VwcG9ydGVkCj4gPiBieSBhbGwgcGxhdGZvcm1zLCBzbywgYm90aCBfX05S
-X2ZzdGF0IGFuZCBfX05SX3N0YXR4IGFyZSByZXF1aXJlZC4KPiA+IAo+ID4gQnR3LCB0aGUgbGF0
-ZXN0IHJpc2N2IGxpYmM2LWRldiBwYWNrYWdlIGlzIHJlcXVpcmVkLCBvdGhlcndpc2UsIHdlIHdv
-dWxkCj4gPiBhbHNvIGdldCBzdWNoIGVycm9yOgo+ID4gCj4gPiAgICAgSW4gZmlsZSBpbmNsdWRl
-ZCBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9zeXMvY2RlZnMuaDo0NTIsCj4g
-PiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVk
-ZS9mZWF0dXJlcy5oOjQ2MSwKPiA+ICAgICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNj
-djY0LWxpbnV4LWdudS9pbmNsdWRlL2JpdHMvbGliYy1oZWFkZXItc3RhcnQuaDozMywKPiA+ICAg
-ICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRlL2xp
-bWl0cy5oOjI2LAo+ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNyL2xpYi9nY2MtY3Jv
-c3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjE5NCwKPiA+ICAgICAgICAg
-ICAgICAgICAgICAgIGZyb20gL3Vzci9saWIvZ2NjLWNyb3NzL3Jpc2N2NjQtbGludXgtZ251Lzkv
-aW5jbHVkZS9zeXNsaW1pdHMuaDo3LAo+ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNy
-L2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjM0LAo+
-ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvbGFicy9saW51eC1sYWIvc3JjL2xpbnV4LXN0
-YWJsZS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYzo2Ogo+ID4g
-ICAgIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL3dvcmRzaXplLmg6Mjg6Mzog
-ZXJyb3I6ICNlcnJvciAicnYzMmktYmFzZWQgdGFyZ2V0cyBhcmUgbm90IHN1cHBvcnRlZCIKPiA+
-ICAgICAgICAyOCB8ICMgZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0
-ZWQiCj4gPiAKPiA+IFRoZSBnbGliYyBjb21taXQgNWI2MTEzZDYyZWZhICgiUklTQy1WOiBTdXBw
-b3J0IHRoZSAzMi1iaXQgQUJJCj4gPiBpbXBsZW1lbnRhdGlvbiIpIGZpeGVkIHVwIGFib3ZlIGVy
-cm9yLCBzbywgZ2xpYmMgPj0gMi4zMyAod2hvIGluY2x1ZGVzCj4gPiB0aGlzIGNvbW1pdCkgaXMg
-cmVxdWlyZWQuCj4gCj4gSXQgc2VlbXMgd2VpcmQgdG8gcmVxdWlyZSBsaW1pdHMuaCBmcm9tIHRo
-ZSBzeXN0ZW0gbGliYyBhdCBhbGwuCj4KPiBUaGUgb25seSB0aGluZyB1c2VkIGZyb20gdGhlcmUg
-YXJlIElOVF9NQVggYW5kIElOVF9NSU4uCj4gSW5zdGVhZCB3ZSBjb3VsZCBkZWZpbmUgb3VyIG93
-biB2ZXJzaW9ucyBvZiBJTlRfTUFYIGFuZCBJTlRfTUlOIGluCj4gc3RkaW50LmguCj4gCj4gI2lm
-bmRlZiBJTlRfTUFYCj4gI2RlZmluZSBJTlRfTUFYIF9fSU5UX01BWF9fCj4gI2VuZGlmCj4gCj4g
-I2lmbmRlZiBJTlRfTUlOCj4gI2RlZmluZSBJTlRfTUlOICgtIF9fSU5UX01BWF9fIC0gMSkKPiAj
-ZW5kaWYKPgoKSnVzdCB2ZXJpZmllZCBhbmQgcHJlcGFyZWQgYSBwYXRjaCwgaXQgZGlkIHdvcmsg
-cGVyZmVjdGx5LCB0aGFua3MuCgpUaGUgYWJvdmUgY29tbWl0IG1lc3NhZ2UgZXhhY3RseSB0aGUg
-ZXJyb3IgaW5mbyB3aWxsIGJlIGNsZWFuZWQgdXAgaW4KdjIuCgpCZXN0IHJlZ2FyZHMsClpoYW5n
-amluCgo+IFRob21hcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Tue, 23 May 2023 18:49:14 -0700 (PDT)
+Hugh Dickins <hughd@google.com> wrote:
+
+> On Tue, 23 May 2023, Claudio Imbrenda wrote:
+> > 
+> > so if I understand the above correctly, pte_offset_map_lock will only
+> > fail if the whole page table has disappeared, and in that case, it will
+> > never reappear with zero pages, therefore we can safely skip (in that
+> > case just break). if we were to do a continue instead of a break, we
+> > would most likely fail again anyway.  
+> 
+> Yes, that's the most likely; and you hold mmap_write_lock() there,
+> and VM_NOHUGEPAGE on all vmas, so I think it's the only foreseeable
+> possibility.
+> 
+> > 
+> > in that case I would still like a small change in your patch: please
+> > write a short (2~3 lines max) comment about why it's ok to do things
+> > that way  
+> 
+> Sure.
+> 
+> But I now see that I've disobeyed you, and gone to 4 lines (but in the
+> comment above the function, so as not to distract from the code itself):
+> is this good wording to you?  I needed to research how they were stopped
+> from coming in afterwards, so wanted to put something greppable in there.
+> 
+> And, unless I'm misunderstanding, that "after THP was enabled" was
+> always supposed to say "after THP was disabled" (because splitting a
+> huge zero page pmd inserts a a page table full of little zero ptes).
+
+indeed, thanks for noticing and fixing it
+
+> 
+> Or would you prefer the comment in the commit message instead,
+> or down just above the pte_offset_map_lock() line?
+> 
+> It would much better if I could find one place at the mm end, to
+> enforce its end of the contract; but cannot think how to do that.
+> 
+> Hugh
+> 
+> --- a/arch/s390/mm/gmap.c
+> +++ b/arch/s390/mm/gmap.c
+> @@ -2537,7 +2537,12 @@ static inline void thp_split_mm(struct mm_struct *mm)
+>   * Remove all empty zero pages from the mapping for lazy refaulting
+>   * - This must be called after mm->context.has_pgste is set, to avoid
+>   *   future creation of zero pages
+> - * - This must be called after THP was enabled
+> + * - This must be called after THP was disabled.
+> + *
+> + * mm contracts with s390, that even if mm were to remove a page table,
+> + * racing with the loop below and so causing pte_offset_map_lock() to fail,
+> + * it will never insert a page table containing empty zero pages once
+> + * mm_forbids_zeropage(mm) i.e. mm->context.has_pgste is set.
+>   */
+>  static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
+>  			   unsigned long end, struct mm_walk *walk)
+
+looks good, thanks
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
